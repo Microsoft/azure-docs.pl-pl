@@ -4,27 +4,22 @@ description: Korzystanie z symulowanego modułu TPM na maszynie wirtualnej z sys
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 6/30/2020
+ms.date: 04/09/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5beb3c750f99b8fe314fabbc2ff6109bfa6bc67c
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: ca16099cffc22a19c2ee35b00ae6f1bcbe2977a7
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106166602"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312403"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Tworzenie i Inicjowanie obsługi administracyjnej urządzenia IoT Edge przy użyciu modułu TPM w systemie Linux
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 W tym artykule pokazano, jak przetestować funkcję autoaprowizacji na urządzeniu z systemem Linux IoT Edge przy użyciu Trusted Platform Module (TPM). Można automatycznie zainicjować obsługę administracyjną urządzeń Azure IoT Edge przy użyciu [usługi Device Provisioning](../iot-dps/index.yml). Jeśli nie znasz procesu inicjowania obsługi administracyjnej, przed kontynuowaniem zapoznaj się z omówieniem [aprowizacji](../iot-dps/about-iot-dps.md#provisioning-process) .
-
-:::moniker range=">=iotedge-2020-11"
-> [!NOTE]
-> Obecnie funkcja automatycznej aprowizacji przy użyciu uwierzytelniania modułu TPM nie jest obsługiwana w IoT Edge w wersji 1,2.
-:::moniker-end
 
 Zadania są następujące:
 
@@ -34,7 +29,7 @@ Zadania są następujące:
 1. Zainstaluj środowisko uruchomieniowe IoT Edge i Połącz urządzenie z IoT Hub.
 
 > [!TIP]
-> W tym artykule opisano sposób testowania aprowizacji usługi DPS przy użyciu symulatora modułu TPM, ale większość z nich dotyczy fizycznego sprzętu modułu TPM, takiego jak [ &trade; moduł TPM Infineon OPTIGA](https://devicecatalog.azure.com/devices/3f52cdee-bbc4-d74e-6c79-a2546f73df4e), urządzenie z certyfikatem platformy Azure dla IoT.
+> W tym artykule opisano sposób testowania aprowizacji usługi DPS przy użyciu symulatora modułu TPM, ale większość z nich dotyczy fizycznego sprzętu modułu TPM, takiego jak [ &trade; moduł TPM Infineon OPTIGA](https://catalog.azureiotsolutions.com/details?title=OPTIGA-TPM-SLB-9670-Iridium-Board), urządzenie z certyfikatem platformy Azure dla IoT.
 >
 > Jeśli używasz urządzenia fizycznego, możesz przejść do sekcji [pobieranie informacji o aprowizacji z urządzenia fizycznego](#retrieve-provisioning-information-from-a-physical-device) w tym artykule.
 
@@ -191,6 +186,9 @@ Wykonaj kroki opisane w artykule [Instalowanie środowiska uruchomieniowego Azur
 
 Po zainstalowaniu na urządzeniu środowiska uruchomieniowego skonfiguruj je za pomocą informacji, które są używane do nawiązywania połączenia z usługą Device Provisioning i IoT Hub.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 1. Należy znać **zakres identyfikatorów** DPS i **Identyfikator rejestracji** urządzenia, które zostały zebrane w poprzednich sekcjach.
 
 1. Otwórz plik konfiguracji na urządzeniu IoT Edge.
@@ -216,11 +214,52 @@ Po zainstalowaniu na urządzeniu środowiska uruchomieniowego skonfiguruj je za 
    # dynamic_reprovisioning: false
    ```
 
-   Opcjonalnie możesz użyć `always_reprovision_on_startup` linii lub, `dynamic_reprovisioning` Aby skonfigurować zachowanie ponownego inicjowania obsługi administracyjnej urządzenia. Jeśli urządzenie jest ustawione na ponowne Inicjowanie obsługi administracyjnej, będzie zawsze próbowało najpierw zainicjować obsługę administracyjną przy użyciu punktu dystrybucji, a następnie wrócić do tworzenia kopii zapasowej, jeśli to się nie powiedzie. Jeśli urządzenie jest ustawione na dynamiczną ponowną obsługę administracyjną, IoT Edge zostanie ponownie uruchomione i Zainicjuj obsługę administracyjną w przypadku wykrycia zdarzenia ponownego aprowizacji. Aby uzyskać więcej informacji, zobacz temat [IoT Hub ponowne Inicjowanie obsługi administracyjnej urządzeń](../iot-dps/concepts-device-reprovision.md).
-
 1. Zaktualizuj wartości `scope_id` i `registration_id` przy użyciu informacji o usłudze DPS i urządzeniu.
 
+1. Opcjonalnie możesz użyć `always_reprovision_on_startup` linii lub, `dynamic_reprovisioning` Aby skonfigurować zachowanie ponownego inicjowania obsługi administracyjnej urządzenia. Jeśli urządzenie jest ustawione na ponowne Inicjowanie obsługi administracyjnej, będzie zawsze próbowało najpierw zainicjować obsługę administracyjną przy użyciu punktu dystrybucji, a następnie wrócić do tworzenia kopii zapasowej, jeśli to się nie powiedzie. Jeśli urządzenie jest ustawione na dynamiczną ponowną obsługę administracyjną, IoT Edge zostanie ponownie uruchomione i Zainicjuj obsługę administracyjną w przypadku wykrycia zdarzenia ponownego aprowizacji. Aby uzyskać więcej informacji, zobacz temat [IoT Hub ponowne Inicjowanie obsługi administracyjnej urządzeń](../iot-dps/concepts-device-reprovision.md).
+
+1. Zapisz i zamknij plik.
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+1. Należy znać **zakres identyfikatorów** DPS i **Identyfikator rejestracji** urządzenia, które zostały zebrane w poprzednich sekcjach.
+
+1. Otwórz plik konfiguracji na urządzeniu IoT Edge.
+
+   ```bash
+   sudo nano /etc/aziot/config.toml
+   ```
+
+1. Znajdź sekcję konfiguracje aprowizacji pliku. Usuń znaczniki komentarza z wierszy, aby zainicjować obsługę administracyjną modułu TPM, i upewnij się, że wszystkie inne wiersze aprowizacji zostały oznaczone jako komentarze.
+
+   ```toml
+   # DPS provisioning with TPM
+   [provisioning]
+   source = "dps"
+   global_endpoint = "https://global.azure-devices-provisioning.net"
+   id_scope = "<SCOPE_ID>"
+   
+   [provisioning.attestation]
+   method = "tpm"
+   registration_id = "<REGISTRATION_ID>"
+   ```
+
+1. Zaktualizuj wartości `id_scope` i `registration_id` przy użyciu informacji o usłudze DPS i urządzeniu.
+
+1. Opcjonalnie Znajdź sekcję Tryb autoaprowizacji dla pliku. Użyj `auto_reprovisioning_mode` parametru, aby skonfigurować zachowanie ponownego inicjowania obsługi administracyjnej urządzenia `Dynamic` , `AlwaysOnStartup` lub `OnErrorOnly` . Aby uzyskać więcej informacji, zobacz temat [IoT Hub ponowne Inicjowanie obsługi administracyjnej urządzeń](../iot-dps/concepts-device-reprovision.md).
+
+1. Zapisz i zamknij plik.
+:::moniker-end
+<!-- end 1.2 -->
+
 ## <a name="give-iot-edge-access-to-the-tpm"></a>Nadaj IoT Edge dostęp do modułu TPM
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 
 Środowisko uruchomieniowe IoT Edge musi uzyskać dostęp do modułu TPM w celu automatycznego aprowizacji urządzenia.
 
@@ -272,9 +311,68 @@ Aby zapewnić dostęp do IoT Edge środowiska uruchomieniowego TPM, można zast�
    ```
 
    Jeśli nie widzisz odpowiednich uprawnień, spróbuj ponownie uruchomić maszynę, aby odświeżyć udev.
+:::moniker-end
+<!-- end 1.1 -->
 
-## <a name="restart-the-iot-edge-runtime"></a>Uruchom ponownie środowisko uruchomieniowe IoT Edge
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+Środowisko uruchomieniowe IoT Edge polega na usłudze TPM, która jest dostępem brokera do modułu TPM urządzenia. Ta usługa musi uzyskać dostęp do modułu TPM, aby automatycznie zainicjować obsługę administracyjną urządzenia.
 
+Możesz zapewnić dostęp do modułu TPM, zastępując ustawienia systemowe, aby `aziottpm` usługa miała uprawnienia główne. Jeśli nie chcesz podwyższyć poziomu uprawnień usługi, możesz również użyć poniższych kroków, aby ręcznie zapewnić dostęp do modułu TPM.
+
+1. Znajdź ścieżkę pliku do modułu sprzętowego modułu TPM na urządzeniu i Zapisz ją jako zmienną lokalną.
+
+   ```bash
+   tpm=$(sudo find /sys -name dev -print | fgrep tpm | sed 's/.\{4\}$//')
+   ```
+
+2. Utwórz nową regułę, która zapewni IoT Edge dostęp do środowiska uruchomieniowego do tpm0.
+
+   ```bash
+   sudo touch /etc/udev/rules.d/tpmaccess.rules
+   ```
+
+3. Otwórz plik reguł.
+
+   ```bash
+   sudo nano /etc/udev/rules.d/tpmaccess.rules
+   ```
+
+4. Skopiuj następujące informacje o dostępie do pliku reguł.
+
+   ```input
+   # allow aziottpm access to tpm0
+   KERNEL=="tpm0", SUBSYSTEM=="tpm", OWNER="aziottpm", MODE="0600"
+   ```
+
+5. Zapisz i zamknij plik.
+
+6. Wyzwól system udev, aby oszacować nową regułę.
+
+   ```bash
+   /bin/udevadm trigger $tpm
+   ```
+
+7. Sprawdź, czy reguła została pomyślnie zastosowana.
+
+   ```bash
+   ls -l /dev/tpm0
+   ```
+
+   Pomyślne dane wyjściowe są wyświetlane w następujący sposób:
+
+   ```output
+   crw-rw---- 1 root aziottpm 10, 224 Jul 20 16:27 /dev/tpm0
+   ```
+
+   Jeśli nie widzisz odpowiednich uprawnień, spróbuj ponownie uruchomić maszynę, aby odświeżyć udev.
+:::moniker-end
+<!-- end 1.2 -->
+
+## <a name="restart-iot-edge-and-verify-successful-installation"></a>Uruchom ponownie IoT Edge i sprawdź, czy instalacja powiodła się
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 Uruchom ponownie środowisko uruchomieniowe IoT Edge, aby wyszukać wszystkie zmiany konfiguracji wprowadzone na urządzeniu.
 
    ```bash
@@ -287,6 +385,12 @@ Sprawdź, czy środowisko uruchomieniowe IoT Edge jest uruchomione.
    sudo systemctl status iotedge
    ```
 
+Sprawdzanie dzienników demona.
+
+```cmd/sh
+journalctl -u iotedge --no-pager --no-full
+```
+
 Jeśli widzisz błędy aprowizacji, może to spowodować, że zmiany konfiguracji nie zostały jeszcze zastosowane. Spróbuj ponownie uruchomić demo IoT Edge.
 
    ```bash
@@ -294,22 +398,40 @@ Jeśli widzisz błędy aprowizacji, może to spowodować, że zmiany konfiguracj
    ```
 
 Lub spróbuj ponownie uruchomić maszynę wirtualną, aby sprawdzić, czy zmiany zaczną obowiązywać po rozpoczęciu pracy.
+:::moniker-end
+<!-- end 1.1 -->
 
-## <a name="verify-successful-installation"></a>Weryfikuj pomyślną instalację
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+Zastosuj zmiany konfiguracji wprowadzone na urządzeniu.
 
-Jeśli środowisko uruchomieniowe zostało pomyślnie uruchomione, możesz przejść do IoT Hub i zobaczyć, że nowe urządzenie zostało automatycznie zainicjowane. Teraz urządzenie jest gotowe do uruchamiania modułów IoT Edge.
+   ```bash
+   sudo iotedge config apply
+   ```
 
-Sprawdź stan demona IoT Edge.
+Sprawdź, czy środowisko uruchomieniowe IoT Edge jest uruchomione.
 
-```cmd/sh
-systemctl status iotedge
-```
+   ```bash
+   sudo iotedge system status
+   ```
 
 Sprawdzanie dzienników demona.
 
-```cmd/sh
-journalctl -u iotedge --no-pager --no-full
-```
+   ```cmd/sh
+   sudo iotedge system logs
+   ```
+
+Jeśli widzisz błędy aprowizacji, może to spowodować, że zmiany konfiguracji nie zostały jeszcze zastosowane. Spróbuj ponownie uruchomić demona IoT Edge.
+
+   ```bash
+   sudo systemctl daemon-reload
+   ```
+
+Lub spróbuj ponownie uruchomić maszynę wirtualną, aby sprawdzić, czy zmiany zaczną obowiązywać po rozpoczęciu pracy.
+:::moniker-end
+<!-- end 1.2 -->
+
+Jeśli środowisko uruchomieniowe zostało pomyślnie uruchomione, możesz przejść do IoT Hub i zobaczyć, że nowe urządzenie zostało automatycznie zainicjowane. Teraz urządzenie jest gotowe do uruchamiania modułów IoT Edge.
 
 Wyświetl listę uruchomionych modułów.
 

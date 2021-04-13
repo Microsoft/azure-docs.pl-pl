@@ -7,12 +7,12 @@ ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Wdrażanie i zarządzanie cyklem życia rozszerzeń na platformie Azure z włączoną obsługą Kubernetes
-ms.openlocfilehash: 63fb14818d148dcc579300fdb4c89d636b47fd05
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 854d7418515d7927a3c0b4b8790ed4770af555ab
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106451154"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312624"
 ---
 # <a name="kubernetes-cluster-extensions"></a>Rozszerzenia klastrów Kubernetes
 
@@ -51,7 +51,7 @@ Przegląd koncepcyjny tej funkcji jest dostępny w obszarze [rozszerzenia klastr
 | Wewnętrzny | Opis |
 | --------- | ----------- |
 | [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json) | Zapewnia wgląd w wydajność obciążeń wdrożonych w klastrze Kubernetes. Zbiera metryki wykorzystania pamięci i procesora z kontrolerów, węzłów i kontenerów. |
-| [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json) | Zbiera dane dziennika inspekcji z węzłów płaszczyzny kontroli klastra Kubernetes. Zawiera zalecenia i alerty dotyczące zagrożeń na podstawie zebranych danych. |
+| [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json) | Zbiera informacje związane z zabezpieczeniami, takimi jak dane dziennika inspekcji z klastra Kubernetes. Zawiera zalecenia i alerty dotyczące zagrożeń na podstawie zebranych danych. |
 
 ## <a name="usage-of-cluster-extensions"></a>Użycie rozszerzeń klastra
 
@@ -235,31 +235,6 @@ az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGro
   }
 ]
 ```
-
-### <a name="update-an-existing-extension-instance"></a>Aktualizowanie istniejącego wystąpienia rozszerzenia
-
-Zaktualizuj wystąpienie rozszerzenia w klastrze z `k8s-extension update` , przekazując wartości do aktualizacji.  To polecenie aktualizuje tylko `auto-upgrade-minor-version` właściwości, `release-train` i `version` . Na przykład:
-
-- **Uczenie wydania aktualizacji:**
-
-    ```azurecli
-    az k8s-extension update --name azuremonitor-containers --cluster-type connectedClusters --cluster-name <clusterName> --resource-group <resourceGroupName> --release-train Preview
-    ```
-
-- **Wyłącz funkcję autouaktualniania i Przypnij wystąpienie rozszerzenia do określonej wersji:**
-
-    ```azurecli
-    az k8s-extension update --name azuremonitor-containers --cluster-type connectedClusters --cluster-name <clusterName> --resource-group <resourceGroupName> --auto-upgrade-minor-version false --version 2.2.2
-    ```
-
-- **Włącz funkcję autouaktualniania dla wystąpienia rozszerzenia:**
-
-    ```azurecli
-    az k8s-extension update --name azuremonitor-containers --cluster-type connectedClusters --cluster-name <clusterName> --resource-group <resourceGroupName> --auto-upgrade-minor-version true
-    ```
-
-> [!NOTE]
-> `version`Parametr można ustawić tylko wtedy, gdy `--auto-upgrade-minor-version` jest ustawiony na `false` .
 
 ### <a name="delete-extension-instance"></a>Usuń wystąpienie rozszerzenia
 

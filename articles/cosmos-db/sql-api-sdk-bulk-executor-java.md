@@ -1,22 +1,22 @@
 ---
-title: 'Azure Cosmos DB: zbiorczy interfejs API języka Java, zasoby & SDK'
-description: Poznaj wszystkie informacje o interfejsie API i zestawie SDK środowiska wykonawczego zbiorczego, w tym o datach wydania, datach wycofania i zmianach między każdą wersją Azure Cosmos DB zbiorczego modułu wykonawczego Java SDK.
+title: 'Azure Cosmos DB: interfejs API java funkcji wykonywania zbiorczego, zestaw SDK & zasobów'
+description: Dowiedz się wszystkiego o interfejsie API i zestawie SDK funkcji wykonywania zbiorczego Java, w tym o datach wydania, datach wycofania i zmianach wprowadzonych między poszczególnymi wersjami zestawu sdk java funkcji Azure Cosmos DB funkcji wykonywania zbiorczego.
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 5ef75719686f9299fee56cad247ca49167171813
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d3c7026fd221b1a17b8efe56b03b2a26358c7ab
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104577176"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364412"
 ---
-# <a name="java-bulk-executor-library-download-information"></a>Biblioteka wykonawców zbiorczych języka Java: informacje o pobieraniu
+# <a name="java-bulk-executor-library-download-information"></a>Biblioteka funkcji wykonywania zbiorczego Java: pobieranie informacji
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -30,7 +30,8 @@ ms.locfileid: "104577176"
 > * [Sync Java SDK 2](sql-api-sdk-java.md)
 > * [Spring Data 2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data 3](sql-api-sdk-java-spring-v3.md)
-> * [Łącznik platformy Spark](sql-api-sdk-java-spark.md)
+> * [Łącznik OLTP platformy Spark 3](sql-api-sdk-java-spark-v3.md)
+> * [Łącznik OLTP platformy Spark 2](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Dostawca zasobów REST](/rest/api/cosmos-db-resource-provider/)
@@ -38,24 +39,24 @@ ms.locfileid: "104577176"
 > * [Moduł wykonywania zbiorczego — .NET 2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Moduł wykonywania zbiorczego — Java](sql-api-sdk-bulk-executor-java.md)
 
-| | Link/notatki |
+| | Link/uwagi |
 |---|---|
-|**Opis**|Biblioteka wykonawców zbiorczych umożliwia aplikacjom klienckim wykonywanie operacji zbiorczych w ramach kont Azure Cosmos DB. Biblioteka wykonawców zbiorczych udostępnia przestrzenie nazw BulkImport i BulkUpdate. Moduł BulkImport umożliwia zbiorcze pozyskiwanie dokumentów w sposób zoptymalizowany w taki sposób, że przepływność obsługiwana dla kolekcji jest używana w maksymalnym zakresie. Moduł BulkUpdate można zbiorczo aktualizować istniejące dane w kontenerach usługi Azure Cosmos jako poprawki.|
+|**Opis**|Biblioteka wykonywania zbiorczego umożliwia aplikacjom klienckim wykonywanie operacji zbiorczych Azure Cosmos DB kontach. Biblioteka funkcji wykonywania zbiorczego udostępnia przestrzenie nazw BulkImport i BulkUpdate. Moduł BulkImport umożliwia zbiorcze pobieranie dokumentów w sposób zoptymalizowany w taki sposób, aby przepływność aprowizowana dla kolekcji została zużyta w maksymalnym zakresie. Moduł BulkUpdate może zbiorczo aktualizować istniejące dane w kontenerach usługi Azure Cosmos jako poprawki.|
 |**Zestaw SDK do pobrania**|[Maven](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)|
-|**Biblioteka modułu wykonującego zbiorczo w serwisie GitHub**|[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)|
-| **Dokumentacja interfejsu API**| [Dokumentacja interfejsu API języka Java](/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
-|**Wprowadzenie**|[Wprowadzenie do zestawu SDK języka Java dla biblioteki wykonawczej](bulk-executor-java.md)|
-|**Minimalne obsługiwane środowisko uruchomieniowe**|[Java Development Kit (JDK) 7 +](/java/azure/jdk/)|
+|**Biblioteka wykonywania zbiorczego w usłudze GitHub**|[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)|
+| **Dokumentacja interfejsu API**| [Dokumentacja referencyjna interfejsu API języka Java](/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
+|**Wprowadzenie**|[Wprowadzenie do biblioteki funkcji wykonywania zbiorczego zestawu Java SDK](bulk-executor-java.md)|
+|**Minimalne obsługiwane środowisko uruchomieniowe**|[Zestaw Java Development Kit (JDK) 7+](/java/azure/jdk/)|
 
 ## <a name="release-notes"></a>Informacje o wersji
 
 ### <a name="2100"></a><a name="2.10.0"></a>2.10.0
 
-* Poprawka dla DocumentAnalyzer. Java w celu poprawnego wyodrębnienia wartości klucza zagnieżdżonej partycji z pliku JSON.
+* Poprawka pliku DocumentAnalyzer.java w celu poprawnego wyodrębnienia zagnieżdżonych wartości klucza partycji z pliku JSON.
 
 ### <a name="294"></a><a name="2.9.4"></a>2.9.4
 
-* Dodaj funkcje w operacjach BulkDelete, aby ponowić próbę dotyczącą określonych błędów, a także zwrócić listę błędów użytkownika, które mogłyby zostać ponowione.
+* Dodaj funkcje w operacjach BulkDelete, aby ponowić próbę w przypadku określonych błędów, a także zwrócić użytkownikowi listę błędów, które można ponowić.
 
 ### <a name="293"></a><a name="2.9.3"></a>2.9.3
 
@@ -63,8 +64,8 @@ ms.locfileid: "104577176"
 
 ### <a name="292"></a><a name="2.9.2"></a>2.9.2
 
-* Popraw wartość parametru "mergeAll", aby kontynuować "Identyfikator" i klucz partycji, tak aby wszystkie właściwości dokumentu z poprawkami, które są umieszczone po wartości "ID" i kluczu partycji, zostały dodane do listy zaktualizowanych elementów.
+* Poprawka dla elementu "mergeAll" w celu kontynuowania na wartości "id" i klucza partycji tak, aby wszystkie poprawione właściwości dokumentu umieszczone po wartości "id" i klucz partycji zostały dodane do zaktualizowanej listy elementów.
 
 ### <a name="291"></a><a name="2.9.1"></a>2.9.1
 
-* Zaktualizuj początkowy stopień współbieżności do 1 i dodano Dzienniki debugowania dla minibatch.
+* Zaktualizuj stopień rozpoczęcia współbieżności na 1 i dodano dzienniki debugowania dla minibatch.

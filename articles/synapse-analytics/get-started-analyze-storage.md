@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: wprowadzenie analizowanie danych na kontach magazynu'
-description: W tym samouczku dowiesz się, jak analizować dane znajdujące się na koncie magazynu.
+title: 'Samouczek: wprowadzenie do analizowania danych na kontach magazynu'
+description: Z tego samouczka dowiesz się, jak analizować dane znajdujące się na koncie magazynu.
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -10,23 +10,23 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: f18977bb92b37546d5980134cba858b1f76b464c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b88a7e6a9851018fce255fac0e39a30563b9bf4
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104720019"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363839"
 ---
 # <a name="analyze-data-in-a-storage-account"></a>Analizowanie danych na koncie magazynu
 
-W tym samouczku dowiesz się, jak analizować dane znajdujące się na koncie magazynu.
+Z tego samouczka dowiesz się, jak analizować dane znajdujące się na koncie magazynu.
 
 ## <a name="overview"></a>Omówienie
 
-Do tej pory omówione zostały scenariusze, w których dane znajdują się w bazach danych w obszarze roboczym. Teraz pokażemy, jak korzystać z plików na kontach magazynu. W tym scenariuszu użyjemy podstawowego konta magazynu obszaru roboczego i kontenera, który został określony podczas tworzenia obszaru roboczego.
+Do tej pory osłanialiśmy scenariusze, w których dane znajdują się w bazach danych w obszarze roboczym. Teraz pokażemy, jak pracować z plikami na kontach magazynu. W tym scenariuszu użyjemy podstawowego konta magazynu obszaru roboczego i kontenera określonego podczas tworzenia obszaru roboczego.
 
 * Nazwa konta magazynu: **contosolake**
-* Nazwa kontenera na koncie magazynu: **Użytkownicy**
+* Nazwa kontenera na koncie magazynu: **użytkownicy**
 
 ### <a name="create-csv-and-parquet-files-in-your-storage-account"></a>Tworzenie plików CSV i Parquet na koncie magazynu
 
@@ -42,13 +42,13 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
 
 ### <a name="analyze-data-in-a-storage-account"></a>Analizowanie danych na koncie magazynu
 
-Dane można analizować w obszarze roboczym domyślne konto ADLS Gen2. Możesz też połączyć ADLS Gen2 lub konto usługi BLOB Storage z obszarem roboczym za pomocą funkcji "**Zarządzaj**" > "**połączone usługi**" > "**Nowy**" (poniższe kroki odnoszą się do podstawowego konta ADLS Gen2).
+Możesz analizować dane na domyślnym koncie usługi ADLS Gen2 obszaru roboczego lub połączyć konto usługi ADLS Gen2 lub Blob Storage z obszarem roboczym za pomocą obszaru roboczego **"** Zarządzanie " >**"** Połączone usługi " > "**Nowe"**(poniższe kroki dotyczą podstawowego konta ADLS Gen2).
 
-1. W programie Synapse Studio przejdź do centrum **danych** , a następnie wybierz pozycję **połączone**.
-1. Przejdź do **usługi Azure Data Lake Storage Gen2** z  >  **obszarem roboczym (podstawowa-contosolake)**.
-1. Wybierz pozycję **Użytkownicy (podstawowy)**. Powinien zostać wyświetlony folder **NYCTaxi** . Wewnątrz powinny być widoczne dwa foldery o nazwie **PassengerCountStats_csvformat** i **PassengerCountStats_parquetformat**.
-1. Otwórz folder **PassengerCountStats_parquetformat** . W programie zobaczysz plik Parquet o takiej samej nazwie `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet` .
-1. Kliknij prawym przyciskiem myszy pozycję **. Parquet**, a następnie wybierz pozycję **Nowy Notes**, a następnie wybierz pozycję **Załaduj do ramki Dataframe**. Tworzony jest nowy Notes z komórką podobną do tej:
+1. W Synapse Studio przejdź do centrum **Danych,** a następnie wybierz pozycję **Połączone.**
+1. Przejdź do **Azure Data Lake Storage Gen2**  >  **myworkspace (Podstawowa — contosolake).**
+1. Wybierz **użytkowników (podstawowy).** Powinien zostać wyświetlony folder **NYCTaxi.** Wewnątrz powinny być dwa foldery **o nazwie PassengerCountStats_csvformat** i **PassengerCountStats_parquetformat**.
+1. Otwórz **PassengerCountStats_parquetformat** folder. Wewnątrz zobaczysz plik parquet o nazwie, `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet` np. .
+1. Kliknij prawym przyciskiem myszy **pozycję parquet,** wybierz pozycję **Nowy notes,** a następnie wybierz **pozycję Załaduj do ramki danych.** Zostanie utworzony nowy notes z komórką w ten sposób:
 
     ```py
     %%pyspark
@@ -57,8 +57,8 @@ Dane można analizować w obszarze roboczym domyślne konto ADLS Gen2. Możesz t
     display(df.limit(10))
     ```
 
-1. Dołącz do puli platformy Spark o nazwie **Spark1**. Uruchom komórkę.
-1. Kliknij przycisk z powrotem do folderu **Users (Użytkownicy** ). Kliknij prawym przyciskiem myszy plik **. Parquet** ponownie, a następnie wybierz pozycję **Nowy skrypt SQL**  >  **Wybierz pozycję pierwsze 100 wierszy**. Tworzy skrypt SQL podobny do tego:
+1. Dołącz do puli platformy Spark o **nazwie Spark1.** Uruchom komórkę.
+1. Wróć do **folderu** users. Ponownie kliknij prawym przyciskiem **myszy plik parquet,** a następnie wybierz pozycję Nowy skrypt **SQL** SELECT  >  **TOP 100 rows (100 najlepszych wierszy).** Tworzy skrypt SQL w ten sposób:
 
     ```sql
     SELECT 
@@ -69,7 +69,7 @@ Dane można analizować w obszarze roboczym domyślne konto ADLS Gen2. Możesz t
     ) AS [result]
     ```
 
-    W oknie Skrypt upewnij się, że pole **Połącz z** jest ustawione na **wbudowaną** bezserwerową pulę SQL.
+    W oknie skryptu upewnij się, że pole **Połącz** z jest ustawione na wbudowaną bez **serwera pulę** SQL.
 
 1. Uruchom skrypt.
 

@@ -8,12 +8,12 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 04/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 542b6580994a2054526f0ddbb3ad93dc27c28fcc
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: a0559028192b0a99aeffd45a3b2896f9c9d159be
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107656"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310204"
 ---
 # <a name="azure-purview-connector-for-amazon-s3"></a>Łącznik usługi Azure kontrolą dla systemu Amazon S3
 
@@ -116,9 +116,30 @@ W tej procedurze opisano sposób tworzenia nowego poświadczenia kontrolą do u�
 
     Wybierz pozycję **Utwórz** po zakończeniu tworzenia poświadczenia.
 
-Aby uzyskać więcej informacji o poświadczeniach kontrolą, zobacz [dokumentację publicznej wersji zapoznawczej usługi Azure kontrolą](manage-credentials.md).
+1. Jeśli jeszcze tego nie zrobiono, skopiuj i Wklej wartości **konto Microsoft Identyfikator** i **Identyfikator zewnętrzny** do użycia podczas [tworzenia nowej roli AWS dla kontrolą](#create-a-new-aws-role-for-purview), która jest następnym krokiem.
+
+Aby uzyskać więcej informacji o poświadczeniach kontrolą, zobacz [poświadczenia dla uwierzytelniania źródłowego na platformie Azure kontrolą](manage-credentials.md).
 
 ### <a name="create-a-new-aws-role-for-purview"></a>Utwórz nową rolę AWS dla kontrolą
+
+Ta procedura wymaga wprowadzenia wartości identyfikatora konta platformy Azure i zewnętrznego identyfikatora podczas tworzenia roli AWS.
+
+Jeśli te wartości nie są dostępne, należy je najpierw znaleźć w [poświadczeniu kontrolą](#create-a-purview-credential-for-your-aws-bucket-scan).
+
+**Aby znaleźć identyfikator konta Microsoft i identyfikator zewnętrzny**:
+
+1. W programie kontrolą przejdź do   >  **poświadczeń zabezpieczenia i dostęp** do centrum zarządzania  >  .
+
+1. Wybierz poświadczenie [utworzone dla skanowania](#create-a-purview-credential-for-your-aws-bucket-scan)przedziału AWS, a następnie na pasku narzędzi wybierz pozycję **Edytuj**.
+
+1. W okienku **Edytuj poświadczenia** , które pojawia się po prawej stronie, skopiuj wartości **konto Microsoft Identyfikator** i **Identyfikator zewnętrzny** do oddzielnego pliku lub poproś ich o wklejenie do odpowiedniego pola w AWS.
+
+    Na przykład:
+
+    [![Znajdź wartości identyfikatora konto Microsoft i identyfikatora zewnętrznego. ](./media/register-scan-amazon-s3/locate-account-id-external-id.png)](./media/register-scan-amazon-s3/locate-account-id-external-id.png#lightbox)
+
+
+**Aby utworzyć rolę AWS dla kontrolą**:
 
 1.  Otwórz konsolę **Amazon Web Services** i w obszarze **zabezpieczenia, tożsamość i zgodność** wybierz pozycję **IAM**.
 
@@ -129,12 +150,8 @@ Aby uzyskać więcej informacji o poświadczeniach kontrolą, zobacz [dokumentac
     |Pole  |Opis  |
     |---------|---------|
     |**Identyfikator konta**     |    Wprowadź identyfikator konta Microsoft. Na przykład: `615019938638`     |
-    |**Identyfikator zewnętrzny**     |   W obszarze Opcje wybierz pozycję **Wymagaj zewnętrznego identyfikatora..**., a następnie wprowadź identyfikator zewnętrzny w wydzielonym polu. <br>Na przykład: `e7e2b8a3-0a9f-414f-a065-afaf4ac6d994`    <br><br>Ten identyfikator zewnętrzny można znaleźć podczas.  |
+    |**Identyfikator zewnętrzny**     |   W obszarze Opcje wybierz pozycję **Wymagaj zewnętrznego identyfikatora..**., a następnie wprowadź identyfikator zewnętrzny w wydzielonym polu. <br>Na przykład: `e7e2b8a3-0a9f-414f-a065-afaf4ac6d994`     |
     | | |
-
-    > [!NOTE]
-    > W obszarze poświadczenia **centrum zarządzania** kontrolą można znaleźć wartości zarówno **identyfikatora konta Microsoft** , jak i **identyfikatora zewnętrznego**  >   , gdzie zostały [utworzone poświadczenia kontrolą](#create-a-purview-credential-for-your-aws-bucket-scan).
-    >
 
     Na przykład:
 

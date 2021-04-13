@@ -1,46 +1,41 @@
 ---
-title: Windows Virtual Desktop MSIX — wersja zapoznawcza portalu — Azure
-description: Jak skonfigurować dołączenie aplikacji MSIX dla pulpitu wirtualnego systemu Windows przy użyciu Azure Portal.
+title: Windows Virtual Desktop portal dołączania aplikacji MSIX — Azure
+description: Jak skonfigurować dołączanie aplikacji MSIX dla aplikacji Windows Virtual Desktop użyciu Azure Portal.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 02/11/2021
+ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a849b65fd25e6943925ffa245430cd8a27529fdb
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 0d7598e332539b8203d55bbcb1cf497811c32540
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448427"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366559"
 ---
 # <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Konfigurowanie dołączania aplikacji MSIX przy użyciu witryny Azure Portal
 
-> [!IMPORTANT]
-> Dołączenie do aplikacji MSIX jest obecnie w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-W tym artykule opisano sposób konfigurowania dołączania aplikacji MSIX (wersja zapoznawcza) w środowisku pulpitu wirtualnego systemu Windows.
+W tym artykule opisano sposób skonfigurowania dołączania aplikacji MSIX w Windows Virtual Desktop środowiska.
 
 ## <a name="requirements"></a>Wymagania
 
 >[!IMPORTANT]
->Przed rozpoczęciem upewnij się, że wypełniasz i prześlesz [ten formularz](https://aka.ms/enablemsixappattach) , aby umożliwić dołączenie aplikacji MSIX do subskrypcji. Jeśli nie masz zatwierdzonego żądania, dołączenie do aplikacji MSIX nie będzie działało. Zatwierdzenie żądań może potrwać do 24 godzin w dniach roboczych. Po zaakceptowaniu i zakończeniu żądania otrzymasz wiadomość e-mail.
+>Przed rozpoczęciem upewnij się, że wypełniasz i przesyłasz ten [formularz,](https://aka.ms/enablemsixappattach) aby włączyć dołączanie aplikacji MSIX w ramach subskrypcji. Jeśli nie masz zatwierdzonego żądania, dołączanie aplikacji MSIX nie będzie działać. Zatwierdzanie żądań może potrwać do 24 godzin w dniach roboczych. Po zaakceptowaniu i zakończeniu żądania otrzymasz wiadomość e-mail.
 
-Oto, co jest potrzebne do skonfigurowania dołączania aplikacji MSIX:
+Oto co jest potrzebne do skonfigurowania dołączania aplikacji MSIX:
 
-- Działające wdrożenie pulpitu wirtualnego systemu Windows. Aby dowiedzieć się, jak wdrożyć pulpit wirtualny systemu Windows (klasyczny), zobacz [Tworzenie dzierżawy w systemie Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Aby dowiedzieć się, jak wdrożyć pulpit wirtualny systemu Windows z integracją Azure Resource Manager, zobacz [Tworzenie puli hostów przy użyciu Azure Portal](./create-host-pools-azure-marketplace.md).
-- Pula hostów pulpitu wirtualnego systemu Windows z co najmniej jednym aktywnym hostem sesji.
-- Ta Pula hostów musi znajdować się w środowisku walidacji. 
-- Narzędzie MSIX pakowanie.
-- MSIX — spakowana aplikacja rozwinięta do obrazu MSIX, który jest przekazywany do udziału plików.
-- Udział plików w ramach wdrożenia pulpitu wirtualnego systemu Windows, w którym będzie przechowywany pakiet MSIX.
-- Udział plików, do którego został przekazany obraz MSIX, musi być również dostępny dla wszystkich maszyn wirtualnych w puli hostów. Użytkownicy będą musieli mieć uprawnienia tylko do odczytu w celu uzyskania dostępu do obrazu.
-- Jeśli certyfikat nie jest zaufany publicznie, postępuj zgodnie z instrukcjami podanymi w temacie [Instalowanie certyfikatów](app-attach.md#install-certificates).
+- Działające wdrożenie Windows Virtual Desktop wdrożenia. Aby dowiedzieć się, jak wdrożyć Windows Virtual Desktop (klasyczne), zobacz [Tworzenie dzierżawy w](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)Windows Virtual Desktop . Aby dowiedzieć się, jak wdrożyć Windows Virtual Desktop z Azure Resource Manager integracji, zobacz Tworzenie puli [hostów przy](./create-host-pools-azure-marketplace.md)użyciu Azure Portal .
+- Pula Windows Virtual Desktop z co najmniej jednym aktywnym hostem sesji.
+- Ta pula hostów musi znajdować się w środowisku weryfikacji. 
+- Narzędzie do tworzenia pakietów MSIX.
+- Aplikacja w pakiecie MSIX została rozszerzona na obraz MSIX przekazany do udziału plików.
+- Udział plików we wdrożeniu Windows Virtual Desktop, w którym będzie przechowywany pakiet MSIX.
+- Udział plików, do którego został przekazany obraz MSIX, musi być również dostępny dla wszystkich maszyn wirtualnych w puli hostów. Użytkownicy będą potrzebować uprawnień tylko do odczytu, aby uzyskać dostęp do obrazu.
+- Jeśli certyfikat nie jest publicznie zaufany, postępuj zgodnie z instrukcjami w tece [Instalowanie certyfikatów.](app-attach.md#install-certificates)
 
-## <a name="turn-off-automatic-updates-for-msix-app-attach-applications"></a>Wyłącz aktualizacje automatyczne dla aplikacji do dołączania aplikacji MSIX
+## <a name="turn-off-automatic-updates-for-msix-app-attach-applications"></a>Wyłączanie aktualizacji automatycznych dla aplikacji dołączanych do aplikacji MSIX
 
-Przed rozpoczęciem należy wyłączyć aktualizacje automatyczne dla aplikacji MSIX. Aby wyłączyć aktualizacje automatyczne, należy uruchomić następujące polecenia w wierszu polecenia z podwyższonym poziomem uprawnień:
+Przed rozpoczęciem należy wyłączyć automatyczne aktualizacje dla aplikacji dołączanych do aplikacji MSIX. Aby wyłączyć aktualizacje automatyczne, należy uruchomić następujące polecenia w wierszu polecenia z podwyższonym poziomem uprawnień:
 
 ```cmd
 rem Disable Store auto update:
@@ -58,24 +53,24 @@ reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\De
 ```
 
 >[!NOTE]
->Zalecamy ponowne uruchomienie maszyny wirtualnej po włączeniu funkcji Hyper-V.
+>Zaleca się ponowne uruchomienie maszyny wirtualnej po włączeniu funkcji Hyper-V.
 
-## <a name="configure-the-msix-app-attach-management-interface"></a>Konfigurowanie interfejsu zarządzania dołączaniem aplikacji MSIX
+## <a name="configure-the-msix-app-attach-management-interface"></a>Konfigurowanie interfejsu zarządzania dołączania aplikacji MSIX
 
 Następnie należy pobrać i skonfigurować interfejs zarządzania dołączania aplikacji MSIX dla Azure Portal.
 
 Aby skonfigurować interfejs zarządzania:
 
 1. [Otwórz Azure Portal](https://portal.azure.com).
-2. Jeśli zostanie wyświetlony monit z pytaniem, czy Rozważmy wiarygodność rozszerzenia, wybierz pozycję **Zezwalaj**.
+2. Jeśli zostanie wyświetlony monit z pytaniem, czy uważasz rozszerzenie za wiarygodne, wybierz pozycję **Zezwalaj.**
 
       > [!div class="mx-imgBorder"]
-      > ![Zrzut ekranu przedstawiający okno niezaufane rozszerzenia. Wartość "Zezwalaj" jest wyróżniona kolorem czerwonym.](media/untrusted-extensions.png)
+      > ![Zrzut ekranu przedstawiający okno niezaufanych rozszerzeń. "Zezwalaj" jest wyróżnione na czerwono.](media/untrusted-extensions.png)
 
 
 ## <a name="add-an-msix-image-to-the-host-pool"></a>Dodawanie obrazu MSIX do puli hostów
 
-Następnie musisz dodać obraz MSIX do puli hostów.
+Następnie należy dodać obraz MSIX do puli hostów.
 
 Aby dodać obraz MSIX:
 
@@ -84,65 +79,65 @@ Aby dodać obraz MSIX:
 2. Wprowadź **Windows Virtual Desktop** na pasku wyszukiwania, a następnie wybierz nazwę usługi.
 
       > [!div class="mx-imgBorder"]
-      > ![Zrzut ekranu przedstawiający użytkownika z menu rozwijanego pasek wyszukiwania w Azure Portal. "Pulpit wirtualny systemu Windows" jest wyróżniony kolorem czerwonym.](media/find-and-select.png)
+      > ![Zrzut ekranu przedstawiający użytkownika wybierającego pozycję "Windows Virtual Desktop" z menu rozwijanego paska wyszukiwania w Azure Portal. "Windows Virtual Desktop" jest wyróżnione na czerwono.](media/find-and-select.png)
 
 3. Wybierz pulę hostów, w której planujesz umieścić aplikacje MSIX.
 
-4. Wybierz pozycję **pakiety MSIX** , aby otworzyć siatkę danych ze wszystkimi **pakietami MSIX** aktualnie dodawanymi do puli hostów.
+4. Wybierz **pozycję Pakiety MSIX,** aby otworzyć siatkę danych ze wszystkimi pakietami **MSIX** aktualnie dodanymi do puli hostów.
 
-5. Wybierz pozycję **+ Dodaj** , aby otworzyć kartę **Dodawanie pakietu MSIX** .
+5. Wybierz **pozycję + Dodaj,** aby otworzyć **kartę Dodawanie pakietu MSIX.**
 
-6. Na karcie **Dodaj pakiet MSIX** wprowadź następujące wartości:
+6. Na karcie **Dodawanie pakietu MSIX** wprowadź następujące wartości:
 
-      - Dla **ścieżki obrazu MSIX** Wprowadź prawidłową ścieżkę UNC WSKAZUJĄCĄ obraz MSIX w udziale plików. (Na przykład `\\storageaccount.file.core.windows.net\msixshare\appfolder\MSIXimage.vhd` .) Gdy skończysz, wybierz pozycję **Dodaj** , aby PRZEJRZEĆ kontener MSIX, aby sprawdzić, czy ścieżka jest prawidłowa.
+      - W **przypadku ścieżki obrazu MSIX** wprowadź prawidłową ścieżkę UNC, która wskaże obraz MSIX w udziału plików. (Na przykład `\\storageaccount.file.core.windows.net\msixshare\appfolder\MSIXimage.vhd` ). Gdy wszystko będzie gotowe, wybierz pozycję **Dodaj,** aby sprawdzić kontener MSIX, aby sprawdzić, czy ścieżka jest prawidłowa.
 
-      - W przypadku **pakietu MSIX** wybierz odpowiednią nazwę pakietu MSIX z menu rozwijanego. To menu będzie wypełniane tylko wtedy, gdy w **ścieżce obrazu MSIX** wprowadzono prawidłową ścieżkę obrazu.
+      - W **przypadku pakietu MSIX** wybierz odpowiednią nazwę pakietu MSIX z menu rozwijanego. To menu zostanie wypełnione tylko po wprowadzeniu prawidłowej ścieżki obrazu w ścieżce obrazu **MSIX.**
 
-      - W przypadku **aplikacji pakietu** upewnij się, że lista zawiera wszystkie aplikacje MSIX, które mają być dostępne dla użytkowników w pakiecie MSIX.
+      - W **przypadku aplikacji pakietu** upewnij się, że lista zawiera wszystkie aplikacje MSIX, które mają być dostępne dla użytkowników w pakiecie MSIX.
 
-      - Opcjonalnie wprowadź **nazwę wyświetlaną** , jeśli chcesz, aby pakiet był bardziej przyjazny dla użytkownika we wdrożeniach użytkowników.
+      - Opcjonalnie wprowadź nazwę **wyświetlaną,** jeśli chcesz, aby pakiet był bardziej przyjazny dla użytkownika we wdrożeniach użytkowników.
 
-      - Upewnij się, że **wersja** ma prawidłowy numer wersji.
+      - Upewnij się, **że wersja** ma prawidłowy numer wersji.
 
-      - Wybierz **Typ rejestracji** , którego chcesz użyć. Którego użycia zależy od Twoich potrzeb:
+      - Wybierz typ **rejestracji,** którego chcesz użyć. Którego z nich używasz, zależy od twoich potrzeb:
 
-    - **Rejestracja na żądanie** opóźnia pełną rejestrację aplikacji MSIX, dopóki użytkownik nie uruchomi aplikacji. Jest to typ rejestracji, którego zalecamy używać.
+    - **Rejestracja na żądanie** odracza pełną rejestrację aplikacji MSIX do momentu, gdy użytkownik uruchomi aplikację. Jest to typ rejestracji, z których zalecamy korzystanie.
 
-    - **Zablokuj blokowanie** tylko rejestrów, gdy użytkownik loguje się. Nie zalecamy tego typu, ponieważ może to prowadzić do dłuższego czasu logowania użytkowników.
+    - **Logowanie blokuje tylko** rejestracje podczas logowania użytkownika. Nie zalecamy tego typu, ponieważ może to prowadzić do dłuższych czasów logowania użytkowników.
 
-7.  W polu **stan** wybierz preferowany stan.
-    -  Stan **aktywny** umożliwia użytkownikom współdziałanie z pakietem.
-    -  Stan **nieaktywny** powoduje, że pulpit wirtualny systemu Windows ignoruje pakiet i nie dostarcza go użytkownikom.
+7.  W **przypadku opcji** Stan wybierz preferowany stan.
+    -  Stan **Aktywny** umożliwia użytkownikom interakcję z pakietem.
+    -  Stan **Nieaktywny** Windows Virtual Desktop zignorować pakiet i nie dostarczyć go do użytkowników.
 
-8. Gdy skończysz, wybierz pozycję **Dodaj**.
+8. Gdy wszystko będzie gotowe, wybierz pozycję **Dodaj**.
 
 ## <a name="publish-msix-apps-to-an-app-group"></a>Publikowanie aplikacji MSIX w grupie aplikacji
 
-Następnie musisz opublikować aplikacje w pakiecie. Należy to zrobić dla grup aplikacji komputerów stacjonarnych i aplikacji zdalnych.
+Następnie należy opublikować aplikacje w pakiecie. Należy to zrobić zarówno dla grup aplikacji klasycznych, jak i zdalnych.
 
-Jeśli masz już obraz MSIX, przejdź dalej, aby [opublikować aplikacje MSIX w grupie aplikacji](#publish-msix-apps-to-an-app-group). Jeśli chcesz przetestować starsze aplikacje, postępuj zgodnie z instrukcjami w temacie [Tworzenie pakietu MSIX z poziomu Instalatora pulpitu na maszynie wirtualnej](/windows/msix/packaging-tool/create-app-package-msi-vm/) w celu przekonwertowania starszej aplikacji na pakiet MSIX.
+Jeśli masz już obraz MSIX, przejdź do publikowania aplikacji [MSIX w grupie aplikacji.](#publish-msix-apps-to-an-app-group) Jeśli chcesz przetestować starsze aplikacje, postępuj zgodnie z instrukcjami w tece Create [an MSIX package from a desktop installer on a VM](/windows/msix/packaging-tool/create-app-package-msi-vm/) (Tworzenie pakietu MSIX z instalatora pulpitu na maszynie wirtualnej), aby przekonwertować starszą aplikację na pakiet MSIX.
 
 Aby opublikować aplikacje:
 
-1. W dostawcy zasobów pulpitu wirtualnego systemu Windows wybierz kartę **grupy aplikacji** .
+1. Na stronie Windows Virtual Desktop zasobów wybierz **kartę Grupy** aplikacji.
 
 2. Wybierz grupę aplikacji, w której chcesz opublikować aplikacje.
 
    >[!NOTE]
-   >Aplikacje MSIX mogą być dostarczane z aplikacją MSIX do dołączenia do aplikacji zdalnych i grup aplikacji klasycznych
+   >Aplikacje MSIX można dostarczać z dołączeniem aplikacji MSIX do grup aplikacji zdalnych i klasycznych
 
-3. Gdy jesteś w grupie aplikacji, wybierz kartę **aplikacje** . Siatka **aplikacje** będzie wyświetlać wszystkie istniejące aplikacje w grupie aplikacji.
+3. Po dojecheniu do grupy aplikacji wybierz **kartę** Aplikacje. **Siatka** Aplikacje będzie wyświetlać wszystkie istniejące aplikacje w grupie aplikacji.
 
-4. Wybierz pozycję **+ Dodaj** , aby otworzyć kartę **Dodawanie aplikacji** .
+4. Wybierz **pozycję + Dodaj,** aby otworzyć **kartę Dodaj** aplikację.
 
       > [!div class="mx-imgBorder"]
-      > ![Zrzut ekranu przedstawiający użytkownika, wybierając pozycję + Dodaj, aby otworzyć kartę Dodawanie aplikacji](media/select-add.png)
+      > ![Zrzut ekranu przedstawiający użytkownika wybierającego pozycję + Dodaj, aby otworzyć kartę dodawania aplikacji](media/select-add.png)
 
-5. W polu **Źródło aplikacji** wybierz źródło aplikacji.
-    - Jeśli używasz grupy aplikacji klasycznej, wybierz pozycję **pakiet MSIX**.
+5. W **przypadku źródła** aplikacji wybierz źródło aplikacji.
+    - Jeśli używasz grupy aplikacji klasycznych, wybierz pakiet **MSIX.**
       
       > [!div class="mx-imgBorder"]
-      > ![Zrzut ekranu klienta z menu rozwijanego Źródło aplikacji, wybierając pozycję pakiet MSIX. Pakiet MSIX został wyróżniony kolorem czerwonym.](media/select-source.png)
+      > ![Zrzut ekranu przedstawiający klienta wybierającego pakiet MSIX z menu rozwijanego źródła aplikacji. Pakiet MSIX został wyróżniony na czerwono.](media/select-source.png)
     
     - Jeśli używasz zdalnej grupy aplikacji, wybierz jedną z następujących opcji:
         
@@ -150,91 +145,91 @@ Aby opublikować aplikacje:
         - Ścieżka aplikacji
         - Pakiet MSIX
 
-    - W polu **Nazwa aplikacji** Wprowadź opisową nazwę aplikacji.
+    - W **polach** Nazwa aplikacji wprowadź opisową nazwę aplikacji.
 
     Można również skonfigurować następujące funkcje opcjonalne:
    
-    - W polu **Nazwa wyświetlana** wprowadź nową nazwę pakietu, która będzie widoczna dla użytkowników.
+    - W **polach** Nazwa wyświetlana wprowadź nową nazwę pakietu, która będzie wyświetlana użytkownikom.
 
-    - W polu **Opis** wprowadź krótki opis pakietu aplikacji.
+    - W **polu** Opis wprowadź krótki opis pakietu aplikacji.
 
     - Jeśli używasz zdalnej grupy aplikacji, możesz również skonfigurować następujące opcje:
 
         - **Ścieżka ikony**
-        - **Indeks ikony**
-        - **Pokaż w źródle danych sieci Web**
+        - **Indeks ikon**
+        - **Pokaż w internetowym kanale informacyjnym**
 
 6. Po zakończeniu wybierz pozycję **Zapisz**.
 
 >[!NOTE]
->Gdy użytkownik jest przypisany do grupy aplikacji zdalnych i grupy aplikacji klasycznych z tej samej puli hostów, w źródle danych zostanie wyświetlona Grupa aplikacji klasycznych.
+>Gdy użytkownik zostanie przypisany do zdalnej grupy aplikacji i grupy aplikacji pulpitu z tej samej puli hostów, grupa aplikacji klasycznych będzie wyświetlana w kanale informacyjnym.
 
 ## <a name="assign-a-user-to-an-app-group"></a>Przypisywanie użytkownika do grupy aplikacji
 
-Po przypisaniu aplikacji MSIX do grupy aplikacji należy udzielić użytkownikom dostępu do nich. Dostęp można przypisywać przez dodawanie użytkowników lub grup użytkowników do grupy aplikacji z opublikowanymi aplikacjami MSIX. Postępuj zgodnie z instrukcjami w temacie [Zarządzanie grupami aplikacji przy użyciu Azure Portal,](manage-app-groups.md) aby przypisać użytkowników do grupy aplikacji.
+Po przypisaniu aplikacji MSIX do grupy aplikacji należy udzielić użytkownikom dostępu do nich. Dostęp można przypisać, dodając użytkowników lub grupy użytkowników do grupy aplikacji z opublikowanymi aplikacjami MSIX. Postępuj zgodnie z instrukcjami w te Azure Portal zarządzanie grupami [aplikacji,](manage-app-groups.md) aby przypisać użytkowników do grupy aplikacji.
 
 >[!NOTE]
->Aplikacje zdalne dołączania aplikacji MSIX mogą zniknąć z kanału informacyjnego w przypadku testowania aplikacji zdalnych w trakcie publicznej wersji zapoznawczej. Aplikacje nie są wyświetlane, ponieważ pula hostów używana w środowisku ewaluacyjnym jest obsługiwana przez brokera usług pulpitu zdalnego w środowisku produkcyjnym. Ponieważ Broker usług pulpitu zdalnego w środowisku produkcyjnym nie rejestruje obecności aplikacji MSIX dołączania aplikacji zdalnych, aplikacje nie będą wyświetlane w kanale informacyjnym.
+>Aplikacje zdalne dołączania aplikacji MSIX mogą znikać ze źródła danych podczas testowania aplikacji zdalnych w publicznej wersji zapoznawczej. Aplikacje nie są wyświetlane, ponieważ pula hostów, z których korzystasz w środowisku oceny, jest obsługiwany przez brokera usług pulpitu zdalnego w środowisku produkcyjnym. Ponieważ broker usług pulpitu zdalnego w środowisku produkcyjnym nie rejestruje obecności aplikacji MSIX dołączania aplikacji zdalnych, aplikacje nie będą wyświetlane w kanale informacyjnym.
 
-## <a name="change-msix-package-state"></a>Zmień stan pakietu MSIX
+## <a name="change-msix-package-state"></a>Zmienianie stanu pakietu MSIX
 
-Następnie należy zmienić stan pakietu MSIX na **aktywny** lub **nieaktywny**, w zależności od tego, co chcesz zrobić z pakietem. Pakiety aktywne to pakiety, z którymi użytkownicy mogą korzystać po ich opublikowaniu. Nieaktywne pakiety są ignorowane przez pulpit wirtualny systemu Windows, przez co użytkownicy nie mogą korzystać z aplikacji w ramach programu.
+Następnie należy zmienić stan pakietu MSIX na  Aktywny lub Nieaktywny **w** zależności od tego, co chcesz zrobić z pakietem. Aktywne pakiety to pakiety, z których użytkownicy mogą korzystać po ich opublikowaniu. Nieaktywne pakiety są ignorowane Windows Virtual Desktop, dzięki czemu użytkownicy nie mogą wchodzić w interakcje z aplikacjami w jej obrębie.
 
-### <a name="change-state-with-the-applications-list"></a>Zmień stan na listę aplikacji
+### <a name="change-state-with-the-applications-list"></a>Zmienianie stanu na liście aplikacji
 
-Aby zmienić stan pakietu na listę aplikacji:
+Aby zmienić stan pakietu na liście Aplikacje:
 
-1. Przejdź do puli hostów i wybierz pozycję **pakiety MSIX**. Powinna zostać wyświetlona lista wszystkich istniejących pakietów MSIX w puli hostów.
+1. Przejdź do puli hostów i wybierz pozycję **Pakiety MSIX.** Powinna zostać wyświetlona lista wszystkich istniejących pakietów MSIX w puli hostów.
 
-2. Wybierz pakiety MSIX, których Stany chcesz zmienić, a następnie wybierz pozycję **Zmień stan**.
+2. Wybierz pakiety MSIX, których stany należy zmienić, a następnie wybierz **pozycję Zmień stan**.
 
-### <a name="change-state-with-update-package"></a>Zmień stan z pakietem aktualizacji
+### <a name="change-state-with-update-package"></a>Zmienianie stanu za pomocą pakietu aktualizacji
 
-Aby zmienić stan pakietu z pakietem aktualizacji:
+Aby zmienić stan pakietu za pomocą pakietu aktualizacji:
 
-1. Przejdź do puli hostów i wybierz pozycję **pakiety MSIX**. Powinna zostać wyświetlona lista wszystkich istniejących pakietów MSIX w puli hostów.
+1. Przejdź do puli hostów i wybierz pozycję **Pakiety MSIX.** Powinna zostać wyświetlona lista wszystkich istniejących pakietów MSIX w puli hostów.
 
-2. Wybierz nazwę pakietu, którego stan chcesz zmienić z listy pakietów MSIX. Spowoduje to otwarcie karty **Aktualizowanie pakietu** .
+2. Wybierz z listy pakietów MSIX nazwę pakietu, którego stan chcesz zmienić. Spowoduje to otwarcie karty **Aktualizowanie** pakietu.
 
-3. Przełącz przełącznik **stanu** do **nieaktywnego** lub **aktywnego**, a następnie wybierz pozycję **Zapisz.**
+3. Przełącz przełącznik **Stan na opcję Nieaktywne** lub **Aktywne,** a następnie wybierz pozycję  **Zapisz.**
 
-## <a name="change-msix-package-registration-type"></a>Zmień typ rejestracji pakietu MSIX
+## <a name="change-msix-package-registration-type"></a>Zmiana typu rejestracji pakietu MSIX
 
 Aby zmienić typ rejestracji pakietu:
 
-1. Wybierz pozycję **pakiety MSIX**. Powinna zostać wyświetlona lista wszystkich istniejących pakietów MSIX w puli hostów.
+1. Wybierz pozycję **Pakiety MSIX.** Powinna zostać wyświetlona lista wszystkich istniejących pakietów MSIX w puli hostów.
 
-2. Wybierz **nazwę pakietu w** **siatce pakietów MSIX** spowoduje to otwarcie bloku w celu zaktualizowania pakietu.
+2. Wybierz **pozycję Nazwa pakietu w** **siatce pakietów MSIX.** Spowoduje to otwarcie bloku w celu zaktualizowania pakietu.
 
-3. Przełącz **Typ rejestracji** za pomocą przycisku **Zablokuj na żądanie/Zaloguj** się zgodnie z potrzebami, a następnie wybierz pozycję **Zapisz.**
+3. Przełącz typ **rejestracji za pomocą** **przycisku blokowania Na żądanie/Zaloguj** się zgodnie z potrzebami, a następnie wybierz pozycję **Zapisz.**
 
-## <a name="remove-an-msix-package"></a>Usuń pakiet MSIX
+## <a name="remove-an-msix-package"></a>Usuwanie pakietu MSIX
 
 Aby usunąć pakiet MSIX z puli hostów:
 
-1. Wybierz pozycję **pakiety MSIX**.  Powinna zostać wyświetlona lista wszystkich istniejących pakietów MSIX w puli hostów.
+1. Wybierz pozycję **Pakiety MSIX.**  Powinna zostać wyświetlona lista wszystkich istniejących pakietów MSIX w puli hostów.
 
 2. Wybierz wielokropek po prawej stronie nazwę pakietu, który chcesz usunąć, a następnie wybierz pozycję **Usuń**.
 
-## <a name="remove-msix-apps"></a>Usuń aplikacje MSIX
+## <a name="remove-msix-apps"></a>Usuwanie aplikacji MSIX
 
-Aby usunąć pojedyncze aplikacje MSIX z pakietu:
+Aby usunąć poszczególne aplikacje MSIX z pakietu:
 
-1. Przejdź do puli hostów i wybierz pozycję **grupy aplikacji**.
+1. Przejdź do puli hostów i wybierz **pozycję Grupy aplikacji.**
 
 2. Wybierz grupę aplikacji, z której chcesz usunąć aplikacje MSIX.
 
-3. Otwórz kartę **aplikacje** .
+3. Otwórz **kartę** Aplikacje.
 
 4. Wybierz aplikację, którą chcesz usunąć, a następnie wybierz pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z naszymi pytaniami dotyczącymi tej funkcji w [TechCommunity pulpitu wirtualnego systemu Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
+Zadaj naszemu społeczności pytania dotyczące tej funkcji na stronie [Windows Virtual Desktop TechCo w witrynie](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 
-Możesz również wystawić opinię na temat pulpitu wirtualnego systemu Windows w [centrum opinii pulpitu wirtualnego systemu Windows](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
+Opinię na ten temat możesz również Windows Virtual Desktop w [centrum Windows Virtual Desktop opinii.](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app)
 
-Poniżej znajdują się inne artykuły, które mogą okazać się przydatne:
+Oto kilka innych artykułów, które mogą okazać się przydatne:
 
-- [Dołączanie słownika aplikacji MSIX](app-attach-glossary.md)
-- [Załączanie aplikacji MSIX — często zadawane pytania](app-attach-faq.md)
+- [Słownik dołączania aplikacji MSIX](app-attach-glossary.md)
+- [Dołączanie aplikacji MSIX — często zadawane pytania](app-attach-faq.md)

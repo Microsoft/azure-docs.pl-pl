@@ -1,6 +1,6 @@
 ---
-title: Tworzenie kopii zapasowych dysków maszyny wirtualnej na urządzeniu z systemem Azure Stack EDGE Pro GPU za pośrednictwem programu PowerShell
-description: Zawiera opis sposobu tworzenia kopii zapasowych danych na dyskach maszyny wirtualnej działających na urządzeniu z systemem Azure Stack Edge w ramach procesora GPU.
+title: Back up VM disks on Azure Stack Edge Pro GPU device via PowerShell
+description: Opisuje sposób kopii zapasowej danych na dyskach maszyny wirtualnej uruchomionych na urządzeniu Azure Stack Edge Pro GPU.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,46 +8,46 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 04/12/2021
 ms.author: alkohli
-ms.openlocfilehash: ea860f58caba25ef3027fbf7bc4728355a7ca1bc
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 5fad2a9e1789b98ac541e8a0d95c77131905544d
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/13/2021
-ms.locfileid: "107315509"
+ms.locfileid: "107364735"
 ---
-# <a name="back-up-vm-disks-on-azure-stack-edge-pro-gpu-via-azure-powershell"></a>Tworzenie kopii zapasowych dysków maszyny wirtualnej na Azure Stack brzegowej procesora GPU za pośrednictwem Azure PowerShell
+# <a name="back-up-vm-disks-on-azure-stack-edge-pro-gpu-via-azure-powershell"></a>Back up VM disks on Azure Stack Edge Pro GPU via Azure PowerShell
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-W tym artykule opisano sposób tworzenia kopii zapasowych dysków maszyny wirtualnej na urządzeniu z systemem Azure Stack brzeg Pro GPU przy użyciu Azure PowerShell.
+W tym artykule opisano sposób tworzenia kopii zapasowych dysków maszyny wirtualnej na Azure Stack Edge Pro GPU przy użyciu Azure PowerShell.
 
 > [!IMPORTANT]
-> Ta procedura jest przeznaczona do użycia w przypadku maszyn wirtualnych, które są zatrzymane. Aby utworzyć kopię zapasową uruchomionych maszyn wirtualnych, zalecamy użycie narzędzia do tworzenia kopii zapasowych innych firm.
+> Ta procedura jest przeznaczona dla zatrzymanych maszyn wirtualnych. Aby utworzyć kopię zapasową uruchomionych maszyn wirtualnych, zalecamy użycie narzędzia do tworzenia kopii zapasowych innych firm.
 
 ## <a name="workflow"></a>Przepływ pracy
 
-Poniższe kroki podsumowują przepływ pracy wysokiego poziomu, aby utworzyć kopię zapasową dysku maszyny wirtualnej na urządzeniu:
+Poniższe kroki podsumowują przepływ pracy wysokiego poziomu w celu tworzenia kopii zapasowej dysku maszyny wirtualnej na urządzeniu:
 
 1. Zatrzymaj maszynę wirtualną.
-1. Utwórz migawkę dysku maszyny wirtualnej.
+1. Zrób migawkę dysku maszyny wirtualnej.
 1. Skopiuj migawkę na konto magazynu lokalnego jako dysk VHD.
-1. Przekaż wirtualny dysk twardy do zewnętrznego celu.
+1. Przekaż wirtualny dysk twardy do zewnętrznego obiektu docelowego.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed utworzeniem kopii zapasowej maszyn wirtualnych upewnij się, że:
+Przed rozpoczęciem kopii zapasowej maszyn wirtualnych upewnij się, że:
 
-- Masz dostęp do klienta, który będzie używany do nawiązywania połączenia z urządzeniem.
-    - Klient uruchamia [obsługiwany system operacyjny](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device).
-    - Klient jest skonfigurowany do łączenia się z lokalną Azure Resource Manager urządzenia zgodnie z instrukcjami w temacie [Connect to Azure Resource Manager dla urządzenia](azure-stack-edge-gpu-connect-resource-manager.md).
+- Masz dostęp do klienta, który będzie umożliwiał nawiązywanie połączenia z urządzeniem.
+    - Na kliencie działa [obsługiwany system operacyjny.](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device)
+    - Klient jest skonfigurowany do nawiązywania połączenia z lokalną Azure Resource Manager zgodnie z instrukcjami w tece Nawiązywanie połączenia [z Azure Resource Manager dla urządzenia.](azure-stack-edge-gpu-connect-resource-manager.md)
 
-## <a name="verify-connection-to-local-azure-resource-manager"></a>Sprawdź połączenie z Azure Resource Manager lokalnym
+## <a name="verify-connection-to-local-azure-resource-manager"></a>Weryfikowanie połączenia z siecią lokalną Azure Resource Manager
 
 [!INCLUDE [azure-stack-edge-gateway-verify-azure-resource-manager-connection](../../includes/azure-stack-edge-gateway-verify-azure-resource-manager-connection.md)]
 
-## <a name="back-up-a-vm-disk"></a>Tworzenie kopii zapasowej dysku maszyny wirtualnej
+## <a name="back-up-a-vm-disk"></a>Tworzenia kopii zapasowej dysku maszyny wirtualnej
 
-1. Zapoznaj się z listą maszyn wirtualnych działających na urządzeniu. Określ maszynę wirtualną, która ma zostać zatrzymana.
+1. Pobierz listę maszyn wirtualnych uruchomionych na urządzeniu. Zidentyfikuj maszynę wirtualną, którą chcesz zatrzymać.
 
     ```powershell
     Get-AzureRMVM
@@ -90,12 +90,12 @@ Przed utworzeniem kopii zapasowej maszyn wirtualnych upewnij się, że:
     
     PS C:\Users\user>
     ```
-    Możesz również zatrzymać maszynę wirtualną z poziomu Azure Portal.
+    Możesz również zatrzymać maszynę wirtualną z Azure Portal.
  
 
-2. Utwórz migawkę dysku maszyny wirtualnej i Zapisz migawkę w lokalnej grupie zasobów. Tej procedury można użyć dla dysków systemu operacyjnego i danych.
+2. Zrób migawkę dysku maszyny wirtualnej i zapisz ją w lokalnej grupie zasobów. Tej procedury można użyć zarówno w przypadku dysków systemu operacyjnego, jak i dysków danych.
 
-   1. Pobierz listę dysków na urządzeniu lub w określonej grupie zasobów. Zanotuj nazwę dysku, którego kopia zapasowa ma zostać utworzona.
+   1. Pobierz listę dysków na urządzeniu lub w określonej grupie zasobów. Zanotuj nazwę dysku do kopii zapasowej.
 
         ```powershell
         Get-AzureRMDisk -ResourceGroupName <Resource group name>
@@ -109,7 +109,7 @@ Przed utworzeniem kopii zapasowej maszyn wirtualnych upewnij się, że:
         myasetestvm1_disk1_0ed91809927f4023b7aceb6eeca51c05
         PS C:\Users\user>
         ```
-   1. Utwórz lokalną grupę zasobów, która będzie stanowić miejsce docelowe migawki maszyny wirtualnej.
+   1. Utwórz lokalną grupę zasobów, która będzie służyć jako miejsce docelowe migawki maszyny wirtualnej.
 
         ```powershell
         PS C:\Users\user> New-AzureRmResourceGroup -ResourceGroupName myaserg3 -Location dbelocal
@@ -132,7 +132,7 @@ Przed utworzeniem kopii zapasowej maszyn wirtualnych upewnij się, że:
       $DestinationRG = <Snapshot destination resource group>
       ```
 
-   3. Ustaw konfigurację migawki i wykonaj migawkę.
+   3. Ustaw konfigurację migawki i zrób migawkę.
 
         ```powershell
         $Disk = Get-AzureRmDisk -ResourceGroupName $DiskResourceGroup -DiskName $DiskName
@@ -174,7 +174,7 @@ Przed utworzeniem kopii zapasowej maszyn wirtualnych upewnij się, że:
         PS C:\Users\user>
         ```
 
-## <a name="copy-the-snapshot-into-a-local-storage-account"></a>Kopiowanie migawki do konta magazynu lokalnego
+## <a name="copy-the-snapshot-into-a-local-storage-account"></a>Kopiowanie migawki na konto magazynu lokalnego
 
    Skopiuj migawki na konto magazynu lokalnego na urządzeniu. 
 
@@ -188,7 +188,7 @@ Przed utworzeniem kopii zapasowej maszyn wirtualnych upewnij się, że:
     $DestFileName = <Blob file name> 
     ```
 
-1. Utwórz konto magazynu lokalnego na urządzeniu. 
+1. Utwórz lokalne konto magazynu na urządzeniu. 
 
     ```powershell
     New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Storage account resource group> -Location DBELocal -SkuName Standard_LRS
@@ -205,7 +205,7 @@ Przed utworzeniem kopii zapasowej maszyn wirtualnych upewnij się, że:
     PS C:\Users\user>
     ```
 
-1. Utwórz kontener na lokalnym koncie magazynu, które zostało utworzone. 
+1. Utwórz kontener na utworzonym koncie magazynu lokalnego. 
 
     ```powershell
     $keys = Get-AzureRmStorageAccountKey -ResourceGroupName $StorageAccountRG -Name $StorageAccountName
@@ -255,11 +255,11 @@ Przed utworzeniem kopii zapasowej maszyn wirtualnych upewnij się, że:
     PS C:\Users\user>
     ```    
 
-    Możesz również użyć Eksplorator usługi Azure Storage, aby [utworzyć konto magazynu lokalnego](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#create-a-storage-account) , a następnie [utworzyć kontener na lokalnym koncie magazynu](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#use-storage-explorer-for-upload) na urządzeniu. 
+    Możesz również użyć Eksplorator usługi Azure Storage, aby utworzyć konto magazynu lokalnego, [a](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#create-a-storage-account) następnie utworzyć kontener na koncie [magazynu lokalnego](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#use-storage-explorer-for-upload) na urządzeniu. 
 
 
 
-1. Pobierz migawkę do konta magazynu lokalnego.
+1. Pobierz migawkę na konto magazynu lokalnego.
 
    ```powershell
    $sassnapshot = Grant-AzureRmSnapshotAccess -ResourceGroupName $DestinationRG -SnapshotName $SnapshotName -Access 'Read' -DurationInSecond 3600
@@ -305,18 +305,22 @@ Przed utworzeniem kopii zapasowej maszyn wirtualnych upewnij się, że:
     PS C:\Users\user>
     ```
 
-## <a name="download-vhd-to-external-target"></a>Pobierz dysk VHD do zewnętrznego elementu docelowego
+    Możesz również użyć Eksplorator usługi Storage, aby sprawdzić, czy migawka została poprawnie skopiowana na konto magazynu.
 
-Aby przenieść kopie zapasowe do lokalizacji zewnętrznej, można użyć Eksplorator usługi Azure Storage lub AzCopy.
+    ![Eksplorator usługi Storage kopii zapasowej w kontenerze na koncie magazynu lokalnego](media/azure-stack-edge-gpu-back-up-virtual-machine-disks/back-up-virtual-machine-disk-1.png)
 
-- Użyj następującego polecenia AzCopy, aby pobrać dysk VHD do zewnętrznego celu.
+## <a name="download-vhd-to-external-target"></a>Pobieranie wirtualnego dysku twardego do zewnętrznego obiektu docelowego
+
+Aby przenieść kopie zapasowe do lokalizacji zewnętrznej, możesz użyć Eksplorator usługi Azure Storage azCopy.
+
+- Użyj następującego polecenia AzCopy, aby pobrać wirtualny dysk twardy do zewnętrznego obiektu docelowego.
 
     ```powershell
     azcopy copy "https://<local storage account name>.blob.<device name>.<DNS domain>/<container name>/<filename><SAS query string>" <destination target>
     ```
 
-- Aby skonfigurować i użyć Eksplorator usługi Azure Storage z Azure Stack Edge, zobacz instrukcje zawarte w temacie [korzystanie Eksplorator usługi Storage do przekazywania](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#use-storage-explorer-for-upload).
+- Aby skonfigurować i używać Eksplorator usługi Azure Storage z Azure Stack Edge, zobacz instrukcje w te Eksplorator usługi Storage [przekazywania](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#use-storage-explorer-for-upload).
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Wdrażaj maszyny wirtualne na urządzeniu z systemem Azure Stack Edge na komputerze GPU przy użyciu szablonów](azure-stack-edge-gpu-deploy-virtual-machine-templates.md).
+[Wdrażanie maszyn wirtualnych na urządzeniu Azure Stack Edge Pro GPU przy użyciu szablonów](azure-stack-edge-gpu-deploy-virtual-machine-templates.md).

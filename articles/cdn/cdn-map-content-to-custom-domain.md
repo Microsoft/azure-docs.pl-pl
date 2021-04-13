@@ -3,19 +3,19 @@ title: 'Samouczek: Dodawanie domeny niestandardowej do punktu końcowego'
 titleSuffix: Azure Content Delivery Network
 description: Skorzystaj z tego samouczka, aby dodać domenę niestandardową do punktu końcowego usługi Azure Content Delivery Network, aby nazwa domeny była widoczna w adresie URL.
 services: cdn
-author: asudbring
+author: jessie-jyy
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 02/04/2020
-ms.author: allensu
+ms.date: 04/12/2021
+ms.author: yuajia
 ms.custom: mvc
-ms.openlocfilehash: 9bca81e7d0eb68d43c21065f5104fc423115be25
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 63ca8cc981f7a192c35f7d1889187ae84773ba08
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065195"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308000"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-endpoint"></a>Samouczek: Dodawanie domeny niestandardowej do punktu końcowego
 
@@ -245,9 +245,14 @@ Po zakończeniu rejestracji domeny niestandardowej upewnij się, że domena nies
 
 Jeśli nie chcesz już kojarzyć punktu końcowego z domeną niestandardową, Usuń domenę niestandardową, wykonując następujące czynności:
  
-1. W profilu usługi CDN wybierz punkt końcowy z domeną niestandardową, która ma zostać usunięta.
+1. Przejdź do dostawcy DNS, Usuń rekord CNAME dla domeny niestandardowej lub Zaktualizuj rekord CNAME dla domeny niestandardowej do punktu końcowego innego niż Azure CDN.
 
-2. Na stronie **Punkt końcowy** w obszarze domen niestandardowych kliknij prawym przyciskiem myszy domenę niestandardową, którą chcesz usunąć, a następnie wybierz polecenie **Usuń** z menu kontekstowego. Wybierz pozycję **Tak**.
+    > [!Important]
+    > Aby zapobiec zawieszonego wpisów DNS i zagrożeń związanych z bezpieczeństwem, rozpoczynając od 9 kwietnia 2021, Azure CDN wymaga usunięcia rekordów CNAME do Azure CDN punktów końcowych, aby można było usunąć zasoby. Zasoby obejmują Azure CDN domen niestandardowych, Azure CDN profilów/punktów końcowych lub grup zasobów platformy Azure, które mają włączone Azure CDN domeny niestandardowe.
+
+2. W profilu usługi CDN wybierz punkt końcowy z domeną niestandardową, która ma zostać usunięta.
+
+3. Na stronie **Punkt końcowy** w obszarze domen niestandardowych kliknij prawym przyciskiem myszy domenę niestandardową, którą chcesz usunąć, a następnie wybierz polecenie **Usuń** z menu kontekstowego. Wybierz pozycję **Tak**.
 
    Skojarzenie domeny niestandardowej z punktem końcowym zostanie usunięte.
 
@@ -255,25 +260,29 @@ Jeśli nie chcesz już kojarzyć punktu końcowego z domeną niestandardową, Us
 
 Jeśli nie chcesz już kojarzyć punktu końcowego z domeną niestandardową, Usuń domenę niestandardową, wykonując następujące czynności:
 
-1. Użyj [Remove-AzCdnCustomDomain](/powershell/module/az.cdn/remove-azcdncustomdomain) , aby usunąć domenę niestandardową z punktu końcowego:
+1. Przejdź do dostawcy DNS, Usuń rekord CNAME dla domeny niestandardowej lub Zaktualizuj rekord CNAME dla domeny niestandardowej do punktu końcowego innego niż Azure CDN.
+
+    > [!Important]
+    > Aby zapobiec zawieszonego wpisów DNS i zagrożeń związanych z bezpieczeństwem, rozpoczynając od 9 kwietnia 2021, Azure CDN wymaga usunięcia rekordów CNAME do Azure CDN punktów końcowych, aby można było usunąć zasoby. Zasoby obejmują Azure CDN domen niestandardowych, Azure CDN profilów/punktów końcowych lub grup zasobów platformy Azure, które mają włączone Azure CDN domeny niestandardowe.
+
+2. Użyj [Remove-AzCdnCustomDomain](/powershell/module/az.cdn/remove-azcdncustomdomain) , aby usunąć domenę niestandardową z punktu końcowego:
 
     * Zastąp **myendpoint8675** nazwą punktu końcowego usługi CDN.
     * Zastąp **www.contoso.com** nazwą domeny niestandardowej.
     * Zastąp **myCDN** nazwą profilu CDN.
     * Zastąp **myResourceGroupCDN** nazwą grupy zasobów.
 
-
-```azurepowershell-interactive
-    $parameters = @{
-        CustomDomainName = 'www.contoso.com'
-        EndPointName = 'myendpoint8675'
-        ProfileName = 'myCDN'
-        ResourceGroupName = 'myResourceGroupCDN'
-    }
-    Remove-AzCdnCustomDomain @parameters
-```
-
+    ```azurepowershell-interactive
+        $parameters = @{
+            CustomDomainName = 'www.contoso.com'
+            EndPointName = 'myendpoint8675'
+            ProfileName = 'myCDN'
+            ResourceGroupName = 'myResourceGroupCDN'
+        }
+        Remove-AzCdnCustomDomain @parameters
+    ```
 ---
+
 ## <a name="next-steps"></a>Następne kroki
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:

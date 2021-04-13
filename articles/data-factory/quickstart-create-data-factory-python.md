@@ -1,6 +1,6 @@
 ---
-title: 'Szybki Start: Tworzenie Azure Data Factory przy użyciu języka Python'
-description: Użyj fabryki danych do kopiowania danych z jednej lokalizacji w usłudze Azure Blob Storage do innej lokalizacji.
+title: 'Szybki start: tworzenie aplikacji Azure Data Factory użyciu języka Python'
+description: Użyj fabryki danych, aby skopiować dane z jednej lokalizacji w usłudze Azure Blob Storage do innej lokalizacji.
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
@@ -9,38 +9,38 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/12/2021
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 879ca169604dcd61a79db4ec3ca937289dacdd9b
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 534b5b3aca86cc2f6d7ee2d703939420f80abb8e
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309870"
+ms.locfileid: "107365097"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Szybki start: Tworzenie fabryki danych i potoku przy użyciu języka Python
 
-> [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
+> [!div class="op_single_selector" title1="Wybierz wersję usługi Data Factory, z których korzystasz:"]
 > * [Wersja 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Bieżąca wersja](quickstart-create-data-factory-python.md)
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-W tym przewodniku szybki start utworzysz fabrykę danych przy użyciu języka Python. Potok w tej fabryce danych kopiuje dane z jednego folderu do innego folderu w usłudze Azure Blob Storage.
+W tym przewodniku Szybki start utworzysz fabrykę danych przy użyciu języka Python. Potok w tej fabryce danych kopiuje dane z jednego folderu do innego folderu w usłudze Azure Blob Storage.
 
-Azure Data Factory to oparta na chmurze usługa integracji danych, która umożliwia tworzenie przepływów pracy opartych na danych na potrzeby organizowania i automatyzowania przenoszenia i przekształcania danych. Za pomocą Azure Data Factory można tworzyć i planować przepływy pracy oparte na danych, nazywane potokami.
+Azure Data Factory to oparta na chmurze usługa integracji danych, która umożliwia tworzenie opartych na danych przepływów pracy do organizowania i automatyzowania przepływów danych i przekształcania danych. Za Azure Data Factory można tworzyć i planować oparte na danych przepływy pracy nazywane potokami.
 
-Potoki mogą pozyskiwanie danych z różnych magazynów danych. Potoki przetwarzają lub przekształcają dane przy użyciu usług obliczeniowych, takich jak Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics i Azure Machine Learning. Potoki publikują dane wyjściowe w magazynach danych, takich jak Azure Synapse Analytics for Business Intelligence (BI).
+Potoki mogą pozystywować dane z różnych magazynów danych. Potoki przetwarzają lub przekształcają dane przy użyciu usług obliczeniowych, takich jak Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics i Azure Machine Learning. Potoki publikują dane wyjściowe w magazynach danych, takich Azure Synapse Analytics dla aplikacji analizy biznesowej (BI).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-* [Python 3.6 +](https://www.python.org/downloads/).
+* [Python 3.6+](https://www.python.org/downloads/).
 
-* [Konto usługi Azure Storage](../storage/common/storage-account-create.md).
+* [Konto usługi Azure Storage.](../storage/common/storage-account-create.md)
 
 * [Eksplorator usługi Azure Storage](https://storageexplorer.com/) (opcjonalnie).
 
-* [Aplikacja w Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Należy pamiętać o następujących wartościach, które mają być używane w kolejnych krokach: **Identyfikator aplikacji**, **klucz uwierzytelniania** i **Identyfikator dzierżawy**. Przypisz aplikację do roli **współautor** , wykonując instrukcje opisane w tym samym artykule. Zwróć uwagę na następujące wartości, jak pokazano w artykule do użycia w kolejnych krokach: **Identyfikator aplikacji (identyfikator jednostki usługi poniżej), klucz uwierzytelniania (klucz tajny klienta poniżej) i identyfikator dzierżawy.**
+* [Aplikacja w Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Utwórz aplikację, korzystając z kroków podanych w tym linku, i przypisz aplikację do roli  **Współautor,** zgodnie z instrukcjami w tym samym artykule. Zanotuj następujące wartości, jak pokazano w artykule w kolejnych krokach: identyfikator aplikacji (identyfikator jednostki usługi poniżej), klucz uwierzytelniania (klucz tajny klienta poniżej) i **identyfikator dzierżawy.**
 
 ## <a name="create-and-upload-an-input-file"></a>Tworzenie i przekazywanie pliku wejściowego
 
@@ -66,16 +66,16 @@ Potoki mogą pozyskiwanie danych z różnych magazynów danych. Potoki przetwarz
     pip install azure-mgmt-datafactory
     ```
 
-    [Zestaw SDK języka Python dla Data Factory](https://github.com/Azure/azure-sdk-for-python) obsługuje środowisko Python 2,7 i 3.6 +.
+    Zestaw [SDK języka Python dla Data Factory](https://github.com/Azure/azure-sdk-for-python) obsługuje język Python w wersjach 2.7 i 3.6+.
 
-4. Aby zainstalować pakiet języka Python na potrzeby uwierzytelniania tożsamości platformy Azure, uruchom następujące polecenie:
+4. Aby zainstalować pakiet języka Python do uwierzytelniania tożsamości platformy Azure, uruchom następujące polecenie:
 
     ```python
     pip install azure-identity
     ```
     > [!NOTE] 
-    > Pakiet "Azure-Identity" może mieć konflikt z elementem "Azure-CLI" w niektórych typowych zależnościach. Jeśli zapoznajesz się z jakimkolwiek problemem z uwierzytelnianiem, Usuń "Azure-CLI" i jego zależności lub użyj czystej maszyny bez instalowania pakietu "Azure-CLI", aby to zrobić.
-    > W przypadku Niesuwerennych chmur należy użyć odpowiednich stałych specyficznych dla chmury.  Zapoznaj się z tematem [nawiązywanie połączenia ze wszystkimi regionami przy użyciu bibliotek platformy Azure dla języka Python — wiele chmur | Microsoft Docs, aby uzyskać instrukcje dotyczące nawiązywania połączenia z językiem Python w chmurach suwerennych.](https://docs.microsoft.com/azure/developer/python/azure-sdk-sovereign-domain)
+    > Pakiet "azure-identity" może mieć konflikt z "azure-cli" w przypadku niektórych typowych zależności. Jeśli występuje problem z uwierzytelnianiem, usuń interfejs wiersza polecenia "azure-cli" i jego zależności lub użyj czystej maszyny bez instalowania pakietu "azure-cli", aby działał.
+    > W przypadku suwerennych chmur należy użyć odpowiednich stałych specyficznych dla chmury.  Zapoznaj się z tematem Connect to all regions using Azure libraries for Python Multi-cloud | (Nawiązywanie połączenia ze wszystkimi regionami przy użyciu bibliotek platformy Azure dla środowisk [wielochmurowych języka Python | Microsoft Docs aby uzyskać instrukcje dotyczące nawiązywania połączenia z językiem Python w suwerennych chmurach.](https://docs.microsoft.com/azure/developer/python/azure-sdk-sovereign-domain)
     
     
 ## <a name="create-a-data-factory-client"></a>Tworzenie klienta fabryki danych
@@ -225,8 +225,6 @@ Należy zdefiniować zestaw danych reprezentujący źródło danych w obiekcie b
         rg_name, df_name, dsOut_name, dsOut_azure_blob)
     print_item(dsOut)
 ```
- > [!NOTE] 
- > Aby przekazać parametry do potoku, Dodaj je do ciągu JSON, params_for_pipeline pokazano poniżej w formacie **{"ParameterName1": "ParameterValue1"}** dla każdego z parametrów wymaganych w potoku. Aby przekazać parametry do przepływu danych, należy utworzyć parametr potoku, aby pomieścić nazwę parametru/wartość, a następnie użyć parametru potoku w parametrze przepływu danych w formacie **@pipeline (). Parameters. ParameterName.**
 
 
 ## <a name="create-a-pipeline"></a>Tworzenie potoku
@@ -243,6 +241,13 @@ Dodaj do metody **Main** poniższy kod, który tworzy **potok z działaniem kopi
     copy_activity = CopyActivity(name=act_name,inputs=[dsin_ref], outputs=[dsOut_ref], source=blob_source, sink=blob_sink)
 
     #Create a pipeline with the copy activity
+    
+    #Note1: To pass parameters to the pipeline, add them to the json string params_for_pipeline shown below in the format { “ParameterName1” : “ParameterValue1” } for each of the parameters needed in the pipeline.
+    #Note2: To pass parameters to a dataflow, create a pipeline parameter to hold the parameter name/value, and then consume the pipeline parameter in the dataflow parameter in the format @pipeline().parameters.parametername.
+    
+    p_name = 'copyPipeline'
+    params_for_pipeline = {}
+
     p_name = 'copyPipeline'
     params_for_pipeline = {}
     p_obj = PipelineResource(activities=[copy_activity], parameters=params_for_pipeline)
@@ -426,7 +431,7 @@ main()
 
 Skompiluj i uruchom aplikację, a następnie zweryfikuj wykonywanie potoku.
 
-Konsola wypisuje postęp tworzenia fabryki danych, połączonej usługi, zestawów danych, potoku i uruchomienia potoku. Poczekaj na wyświetlenie szczegółów uruchomienia działania kopiowania z rozmiarem odczytanych/zapisanych danych. Następnie użyj narzędzi takich jak [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/) , aby sprawdzić, czy obiekty blob zostały skopiowane do "outputBlobPath" z "inputBlobPath", jak określono w zmiennych.
+Konsola wypisuje postęp tworzenia fabryki danych, połączonej usługi, zestawów danych, potoku i uruchomienia potoku. Poczekaj na wyświetlenie szczegółów uruchomienia działania kopiowania z rozmiarem odczytanych/zapisanych danych. Następnie użyj narzędzi, takich jak Eksplorator usługi [Azure Storage,](https://azure.microsoft.com/features/storage-explorer/) aby sprawdzić, czy obiekty blob są kopiowane do ścieżki "outputBlobPath" z ścieżki "inputBlobPath", jak określono w zmiennych.
 
 Oto przykładowe dane wyjściowe:
 

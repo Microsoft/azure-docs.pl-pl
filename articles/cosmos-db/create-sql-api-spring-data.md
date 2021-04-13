@@ -1,22 +1,22 @@
 ---
-title: Szybki Start — Użyj danych wiosennych Azure Cosmos DB v3, aby utworzyć bazę danych dokumentów przy użyciu Azure Cosmos DB
-description: Ten przewodnik Szybki Start przedstawia dane wiosenne Azure Cosmos DB przykład kodu v3, których można użyć do nawiązania połączenia z interfejsem API SQL Azure Cosmos DB i wykonywania względem niego zapytań
+title: Szybki start — tworzenie bazy danych dokumentów Azure Cosmos DB w wersji 3 przy użyciu narzędzia Spring Data Azure Cosmos DB
+description: Ten przewodnik Szybki start przedstawia przykładowy kod spring data Azure Cosmos DB w wersji 3, który umożliwia nawiązywanie połączeń z interfejsem API SQL Azure Cosmos DB zapytań
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 10/06/2020
+ms.date: 03/07/2021
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: f31eb0fa6dbb881f7a09b21b9dd4842fdfd291f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a094ebb6b218027c195985312b023ccb8838f703
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93090294"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365686"
 ---
-# <a name="quickstart-build-a-spring-data-azure-cosmos-db-v3-app-to-manage-azure-cosmos-db-sql-api-data"></a>Szybki Start: Tworzenie danych wiosennych Azure Cosmos DB aplikacji V3 w celu zarządzania Azure Cosmos DB danymi interfejsu API SQL
+# <a name="quickstart-build-a-spring-data-azure-cosmos-db-v3-app-to-manage-azure-cosmos-db-sql-api-data"></a>Szybki start: tworzenie aplikacji Spring Data Azure Cosmos DB v3 do zarządzania danymi Azure Cosmos DB API SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -24,41 +24,42 @@ ms.locfileid: "93090294"
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java SDK 4](create-sql-api-java.md)
 > * [Spring Data 3](create-sql-api-spring-data.md)
+> * [Łącznik platformy Spark w wersji 3](create-sql-api-spark.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-W tym przewodniku szybki start utworzysz konto Azure Cosmos DB interfejsu API SQL z Azure Portal i zarządzasz nim, a następnie korzystasz z aplikacji wiosennej, Azure Cosmos DB z usługi GitHub. Najpierw utwórz konto Azure Cosmos DB interfejsu API SQL przy użyciu Azure Portal, a następnie Utwórz aplikację z rozruchem wiosny za pomocą łącznika danych sprężyny Azure Cosmos DB v3, a następnie Dodaj zasoby do konta Cosmos DB przy użyciu aplikacji do rozruchu ze sprężyną. Azure Cosmos DB to wielomodelowa usługa bazy danych, która pozwala szybko tworzyć i wysyłać zapytania dotyczące dokumentów, tabel, kluczy i wartościowych baz danych przy użyciu dystrybucji globalnej i możliwości skalowania w poziomie.
+W tym przewodniku Szybki start utworzysz konto interfejsu API SQL usługi Azure Cosmos DB i zarządzasz nimi z usługi Azure Portal oraz za pomocą aplikacji Spring Data Azure Cosmos DB v3 sklonowanej z usługi GitHub. Najpierw należy utworzyć konto interfejsu API SQL usługi Azure Cosmos DB przy użyciu usługi Azure Portal, następnie utworzyć aplikację usługi Spring Boot przy użyciu łącznika Spring Data Azure Cosmos DB v3, a następnie dodać zasoby do konta usługi Cosmos DB przy użyciu aplikacji Spring Boot. Azure Cosmos DB to wielo modelowa usługa bazy danych, która umożliwia szybkie tworzenie dokumentów, tabel, klucz-wartość i grafowych baz danych z możliwościami globalnej dystrybucji i skalowania w poziomie.
 
 > [!IMPORTANT]  
-> Te informacje o wersji dotyczą wersji 3 danych wiosennych Azure Cosmos DB. [Informacje o wersji 2](sql-api-sdk-java-spring-v2.md)można znaleźć tutaj. 
+> Te informacje o wersji są dla wersji 3 programu Spring Data Azure Cosmos DB. Informacje o wersji [dla wersji 2](sql-api-sdk-java-spring-v2.md)można znaleźć tutaj. 
 >
-> Dane sprężynowe Azure Cosmos DB obsługują tylko interfejs API SQL.
+> Usługa Spring Data Azure Cosmos DB obsługuje tylko interfejs API SQL.
 >
-> Zobacz następujące artykuły, aby uzyskać informacje na temat sprężyny danych na innych Azure Cosmos DB interfejsów API:
-> * [Sprężynowe dane dla Apache Cassandra z Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
-> * [MongoDB danych wiosennych z Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
-> * [Gremlin danych wiosennych z Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
+> Zapoznaj się z tymi artykułami, aby uzyskać informacje na temat danych spring data w innych Azure Cosmos DB API:
+> * [Spring Data for Apache Cassandra z Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
+> * [Baza danych MongoDB Spring Data z Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
+> * [Spring Data Gremlin z Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Lub [Wypróbuj bezpłatnie Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure. Można również użyć [emulatora Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) z identyfikatorem URI `https://localhost:8081` i kluczem `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==` .
-- [Zestaw Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Wskaż `JAVA_HOME` zmienną środowiskową do folderu, w którym zainstalowano JDK.
-- [Archiwum binarne Maven](https://maven.apache.org/download.cgi). W systemie Ubuntu Uruchom polecenie, `apt-get install maven` Aby zainstalować Maven.
-- Usługi [git](https://www.git-scm.com/downloads). W systemie Ubuntu Uruchom polecenie, `sudo apt-get install git` Aby zainstalować usługę git.
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Możesz [też Azure Cosmos DB bezpłatnie bez](https://azure.microsoft.com/try/cosmosdb/) subskrypcji platformy Azure. Możesz również użyć emulatora [Azure Cosmos DB z](https://aka.ms/cosmosdb-emulator) URI `https://localhost:8081` i kluczem `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==` .
+- [Zestaw Java Development Kit (JDK) 8.](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk) Wskaż w `JAVA_HOME` zmiennej środowiskowej folder, w którym zainstalowano JDK.
+- Archiwum [binarne maven.](https://maven.apache.org/download.cgi) W systemie Ubuntu uruchom program , `apt-get install maven` aby zainstalować program Maven.
+- [Git](https://www.git-scm.com/downloads). W systemie Ubuntu uruchom program , `sudo apt-get install git` aby zainstalować program Git.
 
 ## <a name="introductory-notes"></a>Uwagi wprowadzające
 
-*Struktura konta Cosmos DB.* Niezależnie od interfejsu API lub języka programowania, *konto* Cosmos DB zawiera zero lub więcej *baz danych*, *baza danych* (DB) zawiera zero lub więcej *kontenerów*, a *kontener* zawiera zero lub więcej elementów, jak pokazano na poniższym diagramie:
+*Struktura konta Cosmos DB konta.* Niezależnie od interfejsu API lub języka  programowania konto usługi Cosmos DB zawiera zero lub więcej baz *danych,* baza danych *(DB)* zawiera zero lub więcej kontenerów,  *a* kontener zawiera zero lub więcej elementów, jak pokazano na poniższym diagramie:
 
-:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Jednostki kont usługi Azure Cosmos" border="false":::
+:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Jednostki konta usługi Azure Cosmos" border="false":::
 
-Więcej informacji na temat baz danych, kontenerów i elementów można znaleźć [tutaj.](account-databases-containers-items.md) Niektóre ważne właściwości są definiowane na poziomie kontenera, między nimi *przepływność* i *klucz partycji*. 
+Więcej informacji na temat baz danych, kontenerów i elementów można uzyskać [tutaj.](account-databases-containers-items.md) Na poziomie kontenera zdefiniowano kilka ważnych właściwości, między innymi aprowizowanej *przepływności* i *klucza partycji.* 
 
-Zainicjowana przepływność jest mierzona w jednostkach żądania (*jednostek ru*), które mają cenę pieniężną i są istotnym czynnikiem w kosztu eksploatacyjnym konta. Zainicjowaną przepływność można wybrać w poziomie szczegółowości poszczególnych kontenerów lub stopnia szczegółowości poszczególnych baz danych, jednak Specyfikacja przepływności na poziomie kontenera jest zazwyczaj preferowana. Więcej informacji o aprowizacji przepływności można znaleźć [tutaj.](set-throughput.md)
+Aprowizowana przepływność jest mierzona w jednostkach żądania *(JEDNOSTKI* ŻĄDAŃ), które mają cenę pieniężną i są znaczącym czynnikiem określającym koszt operacyjny konta. Aprowizowana przepływność można wybrać z poziomem szczegółowości 1 kontenera lub szczegółowością dla bazy danych, jednak zwykle preferowana jest specyfikacja przepływności na poziomie kontenera. Więcej informacji na temat aprowizowania przepływności można uzyskać [tutaj.](set-throughput.md)
 
-Gdy elementy są wstawiane do kontenera Cosmos DB, baza danych rozszerza się w poziomie, dodając więcej magazynu i obliczeń do obsługi żądań. Pojemność magazynu i mocy obliczeniowej są dodawane w odrębnych jednostkach nazywanych *partycjami*, a użytkownik musi wybrać jedno pole w dokumentach, aby być kluczem partycji, który mapuje każdy dokument na partycję. Zarządzanie takimi partycjami polega na tym, że każda partycja ma przypisany surowy wycink z zakresu wartości klucza partycji; w związku z tym zaleca się wybranie klucza partycji, który jest relatywnie losowy lub równomiernie dystrybuowany. W przeciwnym razie niektóre partycje będą widzieć znacznie więcej żądań (*gorąca partycja*), a inne partycje zobaczą znacznie mniejszą liczbę żądań (*zimna partycja*) i należy to uniknąć. Więcej informacji na temat partycjonowania można znaleźć [tutaj](partitioning-overview.md).
+Gdy elementy są wstawiane do kontenera Cosmos DB, baza danych zwiększa się w poziomie, dodając więcej magazynu i zasobów obliczeniowych do obsługi żądań. Pojemność magazynu i mocy obliczeniowej są dodawane w jednostkach dyskretnych nazywanych partycjami i należy wybrać jedno pole w dokumentach jako klucz partycji, który mapuje każdy dokument na partycję. Sposób zarządzania partycjami to przypisanie każdej partycji w przybliżeniu równego wycinka z zakresu wartości klucza partycji; Dlatego zaleca się wybranie klucza partycji, który jest względnie losowy lub równomiernie rozproszony. W przeciwnym razie w niektórych partycjachbędzie znacznie więcej żądań (gorąca partycja), podczas gdy w innych partycjach będzie znacznie mniej żądań *(partycja* zimna), a tego należy unikać. Więcej informacji na temat partycjonowania można uzyskać [tutaj.](partitioning-overview.md)
 
 ## <a name="create-a-database-account"></a>Tworzenie konta bazy danych
 
@@ -95,7 +96,7 @@ Ta czynność jest opcjonalna. Jeśli chcesz się dowiedzieć, jak zasoby bazy d
 
 ### <a name="application-configuration-file"></a>Plik konfiguracji aplikacji
 
-W tym miejscu przedstawiono sposób, w jaki sprężyny rozruchowe i sprężynowe rozszerzają środowisko użytkownika — proces ustanawiania klienta Cosmos i łączenia się z zasobami Cosmos jest teraz konfiguracją, a nie kodem. Podczas uruchamiania aplikacji wiosny sprężyny obsługują wszystkie te standardowe przy użyciu ustawień w **aplikacji. Properties**:
+W tym miejscu pokazujemy, Spring Boot i spring data poprawiają środowisko użytkownika — proces ustanawiania klienta usługi Cosmos i nawiązywania połączenia z zasobami usługi Cosmos jest teraz konfiguracyjny, a nie kod. Podczas uruchamiania Spring Boot obsługuje wszystkie te typy przy użyciu ustawień w **właściwościach application.properties:**
 
 ```xml
 cosmos.uri=${ACCOUNT_HOST}
@@ -107,25 +108,25 @@ dynamic.collection.name=spel-property-collection
 cosmos.queryMetricsEnabled=true
 ```
 
-Po utworzeniu konta Azure Cosmos DB, bazy danych i kontenera po prostu wypełnianie w pliku konfiguracyjnym i sprężynowe dane rozruchowe/sprężynowe będą automatycznie wykonywać następujące czynności: (1) utworzyć bazowe wystąpienie zestawu Java SDK `CosmosClient` z identyfikatorem URI i kluczem oraz (2) połączyć się z bazą danych i kontenerem. Wszystko jest ustawione — **nie ma więcej kodu zarządzania zasobami!**
+Po utworzeniu konta usługi Azure Cosmos DB, bazy danych i kontenera wystarczy wypełnić pola puste w pliku konfiguracji, Spring Boot/Spring Data automatycznie wykonaj następujące czynności: (1) utwórz bazowe wystąpienie zestawu JAVA SDK z kluczem i (URI) oraz (2) połączysz się z bazą danych i `CosmosClient` kontenerem. Wszystko jest już ustawione — **koniec z kodem zarządzania zasobami.**
 
 ### <a name="java-source"></a>Źródło Java
 
-Wartość danych wiosennych — Dodawanie jest również dostępne z prostego, czystego, ustandaryzowanego i niezależnego od platformy interfejsu do obsługi magazynów danych. Poniżej przedstawiono przykłady CRUD i zapytań na potrzeby Azure Cosmos DB manipulowania przykładowymi dokumentami z sprężyną Azure Cosmos DB danych.
+Wartość dodana rozwiązania Spring Data pochodzi również z prostego, czystego, standardowego i niezależnego od platformy interfejsu do obsługi magazynów danych. Na podstawie powyższego przykładu Spring Data w serwisie GitHub powiązywały się z nimi przykłady crud i zapytań do manipulowania dokumentami Azure Cosmos DB za pomocą narzędzia Spring Data Azure Cosmos DB.
 
-* Tworzenie i aktualizowanie elementów przy użyciu `save` metody.
+* Tworzenie i aktualizacje elementów przy użyciu `save` metody .
 
     [!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Create)]
    
-* Point-odczytuje przy użyciu pochodnej metody zapytania zdefiniowanej w repozytorium. `findByIdAndLastName`Wykonuje odczyt punktów dla `UserRepository` . Pola wymienione w nazwie metody powodują, że dane sprężynowe mają być wykonywane do odczytu punktów zdefiniowanego przez `id` i `lastName` pola:
+* Odczyty typu point przy użyciu pochodnej metody zapytania zdefiniowanej w repozytorium. Wykonuje `findByIdAndLastName` odczyty punktu dla `UserRepository` . Pola wymienione w nazwie metody powodują, że źródło Danych Spring wykonuje odczyt punktu zdefiniowany przez `id` pola `lastName` i :
 
     [!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Read)]
 
-* Usuwanie elementu przy użyciu `deleteAll` :
+* Usuwanie elementu przy użyciu elementu `deleteAll` :
 
     [!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Delete)]
 
-* Zapytanie pochodne oparte na nazwie metody repozytorium. Dane sprężynowe implementują `UserRepository` `findByFirstName` metodę jako zapytanie SQL SDK języka Java dla `firstName` tego pola (nie można zaimplementować tego zapytania jako odczytu punktu):
+* Zapytanie pochodne oparte na nazwie metody repozytorium. Spring Data implementuje metodę jako zapytanie SQL zestawu Java SDK w polu (tego zapytania nie można zaimplementować `UserRepository` `findByFirstName` jako odczytu `firstName` punktu):
 
     [!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Query)]
 
@@ -139,22 +140,22 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
     cd azure-spring-data-cosmos-java-sql-api-getting-started/azure-spring-data-cosmos-java-getting-started/
     ```
 
-2. W oknie terminalu usługi git Użyj następującego polecenia, aby zainstalować wymagane pakiety danych sprężyny Azure Cosmos DB.
+2. W oknie terminalu usługi Git użyj następującego polecenia, aby zainstalować wymagane pakiety Azure Cosmos DB Spring Data.
 
     ```bash
     mvn clean package
     ```
 
-3. W oknie terminalu usługi git Użyj następującego polecenia, aby uruchomić dane wiosenne Azure Cosmos DB aplikacji:
+3. W oknie terminalu usługi Git użyj następującego polecenia, aby uruchomić aplikację Spring Data Azure Cosmos DB aplikacji:
 
     ```bash
     mvn spring-boot:run
     ```
     
-4. Aplikacja ładuje **aplikację. właściwości** i łączy zasoby na koncie Azure Cosmos DB.
-5. Aplikacja wykona CRUD operacje opisane powyżej.
+4. Aplikacja ładuje **application.properties** i łączy zasoby na Twoim Azure Cosmos DB konta.
+5. Aplikacja będzie wykonywać opisane powyżej operacje CRUD punktu.
 6. Aplikacja wykona zapytanie pochodne.
-7. Aplikacja nie usuwa zasobów. Przełącz się z powrotem do portalu, aby [wyczyścić zasoby](#clean-up-resources) z Twojego konta, jeśli chcesz uniknąć naliczania opłat.
+7. Aplikacja nie usuwa zasobów. Przełącz się z powrotem do [portalu, aby wyczyścić zasoby](#clean-up-resources) z konta, jeśli chcesz uniknąć naliczenie opłat.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Przeglądanie umów SLA w witrynie Azure Portal
 
@@ -166,7 +167,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start przedstawiono sposób tworzenia konta interfejsu API SQL Azure Cosmos DB, tworzenia bazy danych dokumentów i kontenera przy użyciu Eksplorator danych i uruchamiania aplikacji ze sprężyną danych w celu programistycznego wykonywania tych samych czynności. Teraz możesz zaimportować dodatkowe dane do konta Azure Cosmos DB. 
+W tym przewodniku Szybki start wiesz już, jak utworzyć konto interfejsu API SQL usługi Azure Cosmos DB, utworzyć bazę danych dokumentów i kontener przy użyciu interfejsu Eksplorator danych oraz uruchomić aplikację Spring Data, aby zrobić to samo programowo. Teraz możesz zaimportować dodatkowe dane na swoje Azure Cosmos DB konto. 
 
 > [!div class="nextstepaction"]
 > [Importowanie danych do usługi Azure Cosmos DB](import-data.md)

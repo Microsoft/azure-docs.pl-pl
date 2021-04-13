@@ -1,22 +1,22 @@
 ---
-title: Dane wiosenne Azure Cosmos DB v3 dla informacji o wersji i zasobów interfejsu API SQL
-description: Dowiedz się więcej o danych wiosennych Azure Cosmos DB v3 dla interfejsu API SQL, w tym daty wydania, daty wycofania i zmiany wprowadzone między poszczególnymi wersjami zestawu SDK Azure Cosmos DB asynchronicznej platformy Java.
+title: Dokumentacja usługi Spring Data Azure Cosmos DB 3 dla informacji o wersji i zasobów interfejsu API SQL
+description: Dowiedz się więcej o interfejsie API Spring Data Azure Cosmos DB v3 for SQL, w tym o datach wydaniach, datach wycofania i zmianach wprowadzonych między poszczególnymi wersjami zestawu SDK Java Azure Cosmos DB SQL Async.
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 03/15/2021
-ms.author: kuthapar
+ms.date: 04/06/2021
+ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 536c0ab78a4b7e08abb1532635aff722df9e15cd
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 594d38425be0304a9f7737bdfba60b29187a2e2d
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563110"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363516"
 ---
-# <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Dane wiosenne Azure Cosmos DB v3 for Core (SQL) API: informacje o wersji i zasoby
+# <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Interfejs API spring Data Azure Cosmos DB v3 for Core (SQL): informacje o wersji i zasoby
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -30,7 +30,8 @@ ms.locfileid: "105563110"
 > * [Sync Java SDK 2](sql-api-sdk-java.md)
 > * [Spring Data 2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data 3](sql-api-sdk-java-spring-v3.md)
-> * [Łącznik platformy Spark](sql-api-sdk-java-spark.md)
+> * [Łącznik OLTP platformy Spark 3](sql-api-sdk-java-spark-v3.md)
+> * [Łącznik OLTP platformy Spark 2](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Dostawca zasobów REST](/rest/api/cosmos-db-resource-provider/)
@@ -38,36 +39,36 @@ ms.locfileid: "105563110"
 > * [Moduł wykonywania zbiorczego — .NET 2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Moduł wykonywania zbiorczego — Java](sql-api-sdk-bulk-executor-java.md)
 
-Dane wiosenne Azure Cosmos DB wersja 3 dla rdzenia (SQL) umożliwiają deweloperom korzystanie z Azure Cosmos DB w aplikacjach wiosennych. Dane wiosenne Azure Cosmos DB uwidaczniają interfejs danych sprężyny do manipulowania bazami plików i kolekcjami, pracy z dokumentami i wystawiania zapytań. W tym samym artefaktie Maven są obsługiwane zarówno interfejsy API synchronizacji, jak i asynchroniczne (reaktywne). 
+Usługa Spring Data Azure Cosmos DB w wersji 3 dla języka Core (SQL) umożliwia deweloperom korzystanie Azure Cosmos DB w aplikacjach Spring. Interfejs Spring Data Azure Cosmos DB udostępnia interfejs Spring Data do manipulowania bazami danych i kolekcjami, pracy z dokumentami i wystawiania zapytań. Interfejsy API synchronizacji i asynchronicznej (reaktywnej) są obsługiwane w tym samym artefaktze maven. 
 
 > [!IMPORTANT]
-> Dane wiosenne Azure Cosmos DB są zależne od struktury danych wiosennych.
+> Program Spring Data Azure Cosmos DB jest zależny od struktury Spring Data.
 > 
-> wersje Cosmos systemu Azure ze sprężyną danych z 3.0.0 do 3.4.0 obsługują dane wiosenne w wersjach 2,2 i 2,3.
+> Wersja azure-spring-data-cosmos z wersji 3.0.0 do 3.4.0 obsługuje platformę Spring Data w wersjach 2.2 i 2.3.
 > 
-> Platforma Azure-Sprężyna danych — Cosmos wersje 3.5.0 i nowsze obsługują dane wiosenne w wersjach 2.4.3 i nowszych.
+> Usługa azure-spring-data-cosmos w wersji 3.5.0 lub starszej obsługuje platformę Spring Data w wersji 2.4.3 lub starszej.
 >
 
-[Platforma wiosny](https://spring.io/projects/spring-framework) to model programowania i konfiguracji, który usprawnia Programowanie aplikacji Java. Sprężyna upraszcza "instalację wodociągową" aplikacji przy użyciu iniekcji zależności. Wielu programistów, takich jak wiosenne, sprawia, że tworzenie i testowanie aplikacji jest bardziej proste. [Rozruch sprężynowy](https://spring.io/projects/spring-boot) rozszerza ten sposób obsługi instalacji wodociągowej z oczami na rozwój aplikacji sieci Web i mikrousług. [Dane sprężynowe](https://spring.io/projects/spring-data) to model programowania i platforma służąca do uzyskiwania dostępu do magazynów danych, takich jak Azure Cosmos DB z kontekstu sprężynowej lub sprężynowej aplikacji rozruchowej. 
+Spring [Framework to](https://spring.io/projects/spring-framework) model programowania i konfiguracji, który usprawnia tworzenie aplikacji w języku Java. Aplikacja Spring usprawnia "wychylianie" aplikacji przy użyciu wstrzykiwania zależności. Wielu deweloperów, takich jak Spring, sprawia, że tworzenie i testowanie aplikacji jest prostsze. [Spring Boot](https://spring.io/projects/spring-boot) rozszerza tę obsługę instalacji sieciowej, mając na celu opracowywanie aplikacji internetowej i mikrousług. [Spring Data](https://spring.io/projects/spring-data) to model programowania i framework do uzyskiwania dostępu do magazynów danych, takich jak Azure Cosmos DB, z kontekstu aplikacji Spring Spring Boot aplikacji. 
 
-W aplikacjach w [chmurze ze sprężyną na platformie Azure](https://azure.microsoft.com/services/spring-cloud/) można używać danych wiosennych Azure Cosmos DB.
+Możesz użyć aplikacji Spring Data Azure Cosmos DB w swoich [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud/) aplikacjach.
 
 > [!IMPORTANT]  
-> Te informacje o wersji dotyczą wersji 3 danych wiosennych Azure Cosmos DB. [Informacje o wersji 2](sql-api-sdk-java-spring-v2.md)można znaleźć tutaj. 
+> Te informacje o wersji są dla wersji 3 programu Spring Data Azure Cosmos DB. Informacje o wersji [dla wersji 2](sql-api-sdk-java-spring-v2.md)można znaleźć tutaj. 
 >
-> Dane sprężynowe Azure Cosmos DB obsługują tylko interfejs API SQL.
+> Usługa Spring Data Azure Cosmos DB obsługuje tylko interfejs API SQL.
 >
-> Zobacz następujące artykuły, aby uzyskać informacje na temat sprężyny danych na innych Azure Cosmos DB interfejsów API:
-> * [Sprężynowe dane dla Apache Cassandra z Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
-> * [MongoDB danych wiosennych z Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
-> * [Gremlin danych wiosennych z Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
+> Zapoznaj się z tymi artykułami, aby uzyskać informacje na temat danych Spring Data w innych Azure Cosmos DB API:
+> * [Spring Data for Apache Cassandra z Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
+> * [Baza danych MongoDB spring data z Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
+> * [Spring Data Gremlin z Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 
 ## <a name="get-started-fast"></a>Szybkie rozpoczynanie pracy
 
-  Zacznij korzystać z danych wiosennych Azure Cosmos DB, postępując zgodnie z [przewodnikiem po rozpoczęciu uruchamiania sprężyny](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db). Podejście do rozruchu sprężynowego jest zalecanym sposobem rozpoczęcia korzystania z łącznika Azure Cosmos DB danych sprężyny.
+  Przygotuj się do pracy z usługą Spring Data Azure Cosmos DB, korzystając z [naszego Spring Boot Starter.](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) Podejście Spring Boot Starter jest zalecanym sposobem rozpoczęcia korzystania z łącznika Spring Data Azure Cosmos DB Connector.
 
-  Alternatywnie możesz dodać zależność Azure Cosmos DB danych sprężyny do `pom.xml` pliku, jak pokazano poniżej:
+  Alternatywnie możesz dodać zależność spring data Azure Cosmos DB do `pom.xml` pliku, jak pokazano poniżej:
 
   ```xml
   <dependency>
@@ -82,20 +83,20 @@ W aplikacjach w [chmurze ze sprężyną na platformie Azure](https://azure.micro
 | Zawartość | Link |
 |---|---|
 |**Zestaw SDK do pobrania**| [Maven](https://mvnrepository.com/artifact/com.azure/azure-spring-data-cosmos) |
-|**Dokumentacja interfejsu API** | [Dokumentacja interfejsu API języka Java](/java/api/com.azure.spring.data.cosmos) |
-|**Współtworzenie zestawu SDK** | [Zestaw Azure SDK dla centralnego repozytorium Java w serwisie GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos) | 
-|**Wprowadzenie** | [Szybki Start: Tworzenie aplikacji wiosennej Azure Cosmos DB danych w celu zarządzania Azure Cosmos DB danymi interfejsu API SQL](./create-sql-api-spring-data.md) <br> [Repozytorium GitHub z kodem szybkiego startu](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started) | 
-|**Podstawowe przykłady kodu** | [Azure Cosmos DB: sprężynowe Azure Cosmos DB danych dla interfejsu API SQL](sql-api-spring-data-sdk-samples.md) <br> [Repozytorium GitHub z przykładowym kodem](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples)|
-| **Porady dotyczące wydajności**| [Wskazówki dotyczące wydajności dla zestawu Java SDK v4 (mające zastosowanie do sprężyny danych)](performance-tips-java-sdk-v4-sql.md)| 
-| **Rozwiązywanie problemów** | [Rozwiązywanie problemów z zestawem Java SDK v4 (dotyczy to sprężyny danych)](troubleshoot-java-sdk-v4-sql.md) | 
-| **Azure Cosmos DB warsztatów i laboratoriów** |[Strona główna Cosmos DB warsztatów](https://aka.ms/cosmosworkshop)
+|**Dokumentacja interfejsu API** | [Dokumentacja referencyjna interfejsu API języka Java](/java/api/com.azure.spring.data.cosmos) |
+|**Współtwomentuj zestaw SDK** | [Repozytorium Azure SDK for Java Central w witrynie GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos) | 
+|**Wprowadzenie** | [Szybki start: tworzenie aplikacji Spring Data Azure Cosmos DB do zarządzania danymi interfejsu API SQL Azure Cosmos DB SQL](./create-sql-api-spring-data.md) <br> [Repozytorium GitHub z kodem szybkiego startu](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started) | 
+|**Podstawowe przykłady kodu** | [Azure Cosmos DB: przykłady interfejsu API SQL Azure Cosmos DB Spring Data](sql-api-spring-data-sdk-samples.md) <br> [Repozytorium GitHub z przykładowym kodem](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples)|
+| **Porady dotyczące wydajności**| [Porady dotyczące wydajności dla zestawu Java SDK w wersji 4 (dotyczy spring data)](performance-tips-java-sdk-v4-sql.md)| 
+| **Rozwiązywanie problemów** | [Rozwiązywanie problemów z zestawem Java SDK w wersji 4 (dotyczy rozwiązania Spring Data)](troubleshoot-java-sdk-v4-sql.md) | 
+| **Azure Cosmos DB warsztaty i laboratoria** |[Cosmos DB strony głównej warsztatów](https://aka.ms/cosmosworkshop)
 
 [!INCLUDE[Release notes](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md)]
 
 ## <a name="additional-notes"></a>Uwagi dodatkowe
 
-* Dane wiosenne Azure Cosmos DB obsługują Java JDK 8 i Java JDK 11.
-* Dane wiosenne 2,3 są obecnie obsługiwane, sprężynowe 2,4 dane nie są obecnie obsługiwane.
+* Środowisko Spring Data Azure Cosmos DB obsługuje java JDK 8 i Java JDK 11.
+* Spring Data 2.3 jest obecnie obsługiwana, spring data 2.4 nie jest obecnie obsługiwana.
 
 ## <a name="faq"></a>Często zadawane pytania
 
@@ -105,8 +106,8 @@ W aplikacjach w [chmurze ze sprężyną na platformie Azure](https://azure.micro
 
 Dowiedz się więcej o [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
-Dowiedz się więcej na temat [struktury sprężynowej](https://spring.io/projects/spring-framework).
+Dowiedz się więcej o [platformie Spring Framework.](https://spring.io/projects/spring-framework)
 
-Dowiedz się więcej na temat [rozruchu sprężynowego](https://spring.io/projects/spring-boot).
+Dowiedz się więcej o [Spring Boot](https://spring.io/projects/spring-boot).
 
-Dowiedz się więcej na temat [sprężyny danych](https://spring.io/projects/spring-data).
+Dowiedz się więcej na [temat danych Spring Data.](https://spring.io/projects/spring-data)

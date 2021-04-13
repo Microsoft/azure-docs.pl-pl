@@ -4,13 +4,13 @@ description: Typowe problemy związane z alertami metryk Azure Monitor i możliw
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 03/15/2021
-ms.openlocfilehash: f14142632f6ded9f598d6e94fd1e91ec17f6d0a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: 85be4100d62971ef7f69840ae3e9b117fbc3c047
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103466501"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305229"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Rozwiązywanie problemów z alertami metryk usługi Azure Monitor 
 
@@ -91,9 +91,10 @@ Jeśli szukasz alertu dotyczącego określonej metryki, ale nie widzisz go podcz
 Jeśli chcesz otrzymywać alerty dotyczące [określonych wartości wymiarów metryki](./alerts-metric-overview.md#using-dimensions), ale nie można znaleźć tych wartości, zwróć uwagę na następujące kwestie:
 
 1. Wyświetlenie wartości wymiarów na liście **Wartości wymiarów** może potrwać kilka minut
-1. Wyświetlone wartości wymiarów są oparte na danych metryk zebranych w ciągu ostatniego dnia
-1. Jeśli wartość wymiaru nie jest jeszcze emitowana lub nie jest wyświetlana, możesz użyć opcji „Dodaj wartość niestandardową”, aby dodać niestandardową wartość wymiaru
-1. Jeśli chcesz otrzymywać alerty dotyczące wszystkich możliwych wartości wymiaru (w tym przyszłych wartości), wybierz opcję "zaznacz wszystkie bieżące i przyszłe wartości"
+2. Wyświetlone wartości wymiarów są oparte na danych metryk zebranych w ciągu ostatniego dnia
+3. Jeśli wartość wymiaru nie jest jeszcze emitowana lub nie jest wyświetlana, możesz użyć opcji „Dodaj wartość niestandardową”, aby dodać niestandardową wartość wymiaru
+4. Jeśli chcesz otrzymywać alerty dotyczące wszystkich możliwych wartości wymiaru (w tym przyszłych wartości), wybierz opcję "zaznacz wszystkie bieżące i przyszłe wartości"
+5. Niestandardowe wymiary metryk zasobów Application Insights są domyślnie wyłączone. Aby włączyć zbieranie wymiarów dla tych metryk niestandardowych, zobacz [tutaj](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
 ## <a name="metric-alert-rules-still-defined-on-a-deleted-resource"></a>Reguły alertów metryki są nadal zdefiniowane dla usuniętego zasobu 
 

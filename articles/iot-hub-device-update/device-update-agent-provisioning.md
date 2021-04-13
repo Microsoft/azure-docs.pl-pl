@@ -1,67 +1,67 @@
 ---
-title: Aktualizacja urządzenia dla usługi Azure IoT Hub Agent | Microsoft Docs
-description: Aktualizacja urządzenia dla usługi Azure IoT Hub Agent
+title: Aprowizowanie aktualizacji urządzenia dla Azure IoT Hub Agent| Microsoft Docs
+description: Aprowizowanie aktualizacji urządzenia dla Azure IoT Hub Agent
 author: ValOlson
 ms.author: valls
 ms.date: 2/16/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: a5f4b23196a04d88e4329cb5ebf26d0b0a477444
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 812de4850c6c3577346915a0072ea11c60f7ba73
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307271"
+ms.locfileid: "107365454"
 ---
-# <a name="device-update-agent-provisioning"></a>Inicjowanie obsługi administracyjnej agenta
+# <a name="device-update-agent-provisioning"></a>Inicjowanie obsługi agenta aktualizacji urządzenia
 
-Agent modułu aktualizacji urządzeń można uruchomić wraz z innymi procesami systemowymi i [modułami IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules) , które łączą się z IoT Hub w ramach tego samego urządzenia logicznego. W tej sekcji opisano sposób aprowizacji agenta aktualizacji urządzeń jako tożsamość modułu. 
+Agent modułu aktualizacji urządzenia może działać razem z innymi procesami systemowym [i modułami IoT Edge,](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules) które łączą się z IoT Hub jako część tego samego urządzenia logicznego. W tej sekcji opisano, jak aprowizować agenta aktualizacji urządzenia jako tożsamość modułu. 
 
 
 ## <a name="module-identity-vs-device-identity"></a>Tożsamość modułu a tożsamość urządzenia
 
-W IoT Hub w obszarze każdej tożsamości urządzenia można utworzyć do 50 tożsamości modułów. Każda tożsamość modułu niejawnie generuje sznurek modułu. Po stronie urządzenia zestawy SDK urządzeń IoT Hub umożliwiają tworzenie modułów, w których każdy z nich otwiera niezależne połączenie z IoT Hub. Funkcja tożsamość modułu i sznurki modułowe zapewniają podobne możliwości, jak tożsamość urządzenia i sznurki urządzeń, ale z większą szczegółowością. [Dowiedz się więcej o tożsamościach modułów w IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins)
+W IoT Hub każdej tożsamości urządzenia można utworzyć maksymalnie 50 tożsamości modułów. Każda tożsamość modułu niejawnie generuje bliźniacze reprezentacji modułu. Po stronie urządzenia zestawy IOT HUB umożliwiają tworzenie modułów, w których każdy z nich otwiera niezależne połączenie z IoT Hub. Tożsamość modułu i bliźniacza bliźniacza bliźniacza tożsamość modułu zapewniają podobne możliwości, jak tożsamość urządzenia i bliźniacza bliźniacza reprezentacji urządzenia, ale z bardziej szczegółowymi możliwościami. [Dowiedz się więcej o tożsamościach modułów w IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins)
 
 
-## <a name="support-for-device-update"></a>Obsługa aktualizacji urządzeń
+## <a name="support-for-device-update"></a>Obsługa aktualizacji urządzenia
 
-Następujące typy urządzeń IoT są obecnie obsługiwane z aktualizacją urządzenia:
+Następujące typy urządzeń IoT są obecnie obsługiwane przez aktualizację urządzenia:
 
-* Urządzenia z systemem Linux (IoT Edge i urządzenia nieIoT Edgeowe):
-    * Aktualizacja obrazu A/B:
-        - Yocto-ARM64 (obraz referencyjny), rozszerzalny za pomocą funkcji Open Source, aby [tworzyć własne obrazy](device-update-agent-provisioning.md#how-to-build-and-run-device-update-agent) dla innej architektury, zgodnie z potrzebami.
-        - Symulator 18,04 Ubuntu
+* Urządzenia z systemem Linux (IoT Edge i inne IoT Edge urządzenia):
+    * Obraz aktualizacji A/B:
+        - Yocto — ARM64 (obraz referencyjny), rozszerzalny za [](device-update-agent-provisioning.md#how-to-build-and-run-device-update-agent) pośrednictwem open source, aby tworzyć własne obrazy dla innej architektury zgodnie z potrzebami.
+        - Symulator systemu Ubuntu 18.04
        
-    * Obsługiwane są kompilacje agenta pakietu dla następujących platform/architektur:
-        - Agent pakietu Ubuntu Server 18,04 x64 
+    * Agent pakietów obsługuje kompilacje dla następujących platform/architektur:
+        - Ubuntu Server 18.04 x64 Package Agent 
         - Debian 9 
         
-* Urządzenia z ograniczeniami:
-    * Przykłady agenta aktualizacji urządzeń AzureRTOS: [Aktualizacja urządzenia dla IoT Hub platformy Azure — samouczek dotyczący systemu operacyjnego Azure — w czasie rzeczywistym](device-update-azure-real-time-operating-system.md)
+* Urządzenia ograniczone:
+    * Przykłady agenta aktualizacji urządzeń z systemem AzureRTOS: samouczek dotyczący aktualizacji [Azure IoT Hub dla systemu operacyjnego Azure-Real-Time-Operating-System](device-update-azure-real-time-operating-system.md)
 
 * Odłączone urządzenia: 
-    * [Omówienie obsługi aktualizacji odłączonego urządzenia](connected-cache-disconnected-device-update.md)
+    * [Opis obsługi aktualizacji odłączonych urządzeń](connected-cache-disconnected-device-update.md)
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne  
 
-Jeśli konfigurujesz urządzenie IoT/IoT Edge na potrzeby [aktualizacji opartych na pakietach](https://docs.microsoft.com/azure/iot-hub-device-update/understand-device-update#support-for-a-wide-range-of-update-artifacts), Dodaj Packages.Microsoft.com do repozytoriów maszyn, wykonując następujące czynności:
+W przypadku konfigurowania urządzenia IoT/urządzenia IoT Edge aktualizacji [](https://docs.microsoft.com/azure/iot-hub-device-update/understand-device-update#support-for-a-wide-range-of-update-artifacts)opartych na pakietach dodaj packages.microsoft.com do repozytoriów maszyny, następujące kroki:
 
-1. Zaloguj się na komputerze lub urządzeniu IoT, na którym zamierzasz zainstalować agenta aktualizacji urządzeń.
+1. Zaloguj się na maszynie lub urządzeniu IoT, na którym zamierzasz zainstalować agenta aktualizacji urządzenia.
 
 1. Otwórz okno terminalu.
 
-1. Zainstaluj konfigurację repozytorium zgodną z systemem operacyjnym Twojego urządzenia.
+1. Zainstaluj konfigurację repozytorium, która odpowiada systemowi operacyjneowi urządzenia.
     ```shell
     curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
     ```
     
-1. Skopiuj wytworzoną listę do katalogu sources. list. d.
+1. Skopiuj wygenerowaną listę do katalogu sources.list.d.
     ```shell
     sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
     ```
     
-1. Zainstaluj klucz publiczny programu Microsoft GPG.
+1. Zainstaluj klucz publiczny Microsoft GPG.
     ```shell
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
     ```
@@ -70,22 +70,22 @@ Jeśli konfigurujesz urządzenie IoT/IoT Edge na potrzeby [aktualizacji opartych
     sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
     ```
 
-## <a name="how-to-provision-the-device-update-agent-as-a-module-identity"></a>Jak zainicjować obsługę agenta aktualizacji urządzeń jako tożsamość modułu
+## <a name="how-to-provision-the-device-update-agent-as-a-module-identity"></a>Jak aprowizować agenta aktualizacji urządzenia jako tożsamość modułu
 
-W tej sekcji opisano, jak udostępnić agentowi aktualizacji urządzenia jako tożsamość modułu na IoT Edge włączonych urządzeniach, niebrzegowych urządzeniach IoT i innych urządzeniach IoT.
+W tej sekcji opisano, jak aprowizować agenta aktualizacji urządzenia jako tożsamość modułu na urządzeniach z obsługą IoT Edge, urządzeniach IoT spoza usługi Edge i innych urządzeniach IoT.
 
 
-### <a name="on-iot-edge-enabled-devices"></a>Na IoT Edge włączonych urządzeniach
+### <a name="on-iot-edge-enabled-devices"></a>Na IoT Edge włączone urządzenia
 
-Postępuj zgodnie z tymi instrukcjami, aby zainicjować obsługę administracyjną agenta aktualizacji urządzeń na [IoT Edge włączonych urządzeniach](https://docs.microsoft.com/azure/iot-edge).
+Postępuj zgodnie z tymi instrukcjami, aby aprowizować agenta aktualizacji urządzenia IoT Edge urządzeniach z [włączoną obsługą usługi](https://docs.microsoft.com/azure/iot-edge).
 
-1. Postępuj zgodnie z instrukcjami, aby [zainstalować i udostępnić środowisko uruchomieniowe Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2020-11&preserve-view=true).
+1. Postępuj zgodnie z [instrukcjami, aby zainstalować i aprowizować Azure IoT Edge uruchomieniowego.](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2020-11&preserve-view=true)
 
-1. Zainstaluj agenta aktualizacji obrazu aktualizacji urządzenia
-    - Udostępniamy przykładowe obrazy w [artefaktach](https://github.com/Azure/iot-hub-device-update/releases) , aby wypróbować wdrożenia aktualizacji obrazów w różnych wersjach przy użyciu obrazu podstawowego (adu-Base-Image) i jednego obrazu aktualizacji (adu-Update-Image). Zobacz przykład [sposobu, w jaki można przeprowadzić błysk obrazu na urządzeniu IoT Hub](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-raspberry-pi#flash-sd-card-with-image).  
+1. Instalowanie agenta aktualizacji obrazu aktualizacji urządzenia
+    - W artefaktach [](https://github.com/Azure/iot-hub-device-update/releases) są dostępne przykładowe obrazy, które można wypróbować w różnych wersjach przy użyciu obrazu podstawowego (adu-base-image) i jednego obrazu aktualizacji (adu-update-image). Zobacz przykład [sposobu flashować obraz na urządzeniu IoT Hub .](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-raspberry-pi#flash-sd-card-with-image)  
 
-1. Zainstaluj agenta aktualizacji pakietu aktualizacji urządzeń  
-    - Najnowsze wersje agenta z packages.miscrosoft.com: zaktualizuj listę pakietów na urządzeniu i zainstaluj pakiet agenta aktualizacji urządzenia wraz z jego zależnościami przy użyciu:   
+1. Instalowanie agenta aktualizacji pakietu aktualizacji urządzenia  
+    - Najnowsze wersje agenta z programu packages.miscrosoft.com: zaktualizuj listy pakietów na urządzeniu i zainstaluj pakiet agenta aktualizacji urządzenia oraz jego zależności przy użyciu:   
     ```shell
     sudo apt-get update
     ```
@@ -94,141 +94,141 @@ Postępuj zgodnie z tymi instrukcjami, aby zainicjować obsługę administracyjn
     sudo apt-get install deviceupdate-agent deliveryoptimization-plugin-apt
     ```
     
-    - W przypadku przyszłych wersji kandydatów wydania z [artefaktów](https://github.com/Azure/iot-hub-device-update/releases) : Pobierz plik DEP na maszynę, na której chcesz zainstalować agenta aktualizacji urządzeń, a następnie:
+    - W przypadku nadchodzących wersji release candidate z [usługi Artifacts:](https://github.com/Azure/iot-hub-device-update/releases) pobierz plik dep na maszynę, na której chcesz zainstalować agenta aktualizacji urządzenia, a następnie:
      ```shell
     Sudo apt-get install -y ./"<PATH TO FILE>"/"<.DEP FILE NAME>"
      ```
     
-1. Teraz można przystąpić do uruchamiania agenta aktualizacji urządzenia na urządzeniu IoT Edge. 
+1. Teraz możesz uruchomić agenta aktualizacji urządzenia na urządzeniu IoT Edge urządzeniu. 
 
-### <a name="on-non-edge-iot-linux-devices"></a>Na urządzeniach z systemem IoT Linux bez krawędzi
+### <a name="on-non-edge-iot-linux-devices"></a>Na urządzeniach z systemem Linux innych niż Edge
 
-Postępuj zgodnie z tymi instrukcjami, aby zainicjować obsługę administracyjną agenta aktualizacji urządzeń na urządzeniach z systemem IoT Linux.
+Postępuj zgodnie z tymi instrukcjami, aby aprowizować agenta aktualizacji urządzenia na urządzeniach z systemem Linux IoT.
 
-1. Zainstaluj usługę tożsamość IoT i Dodaj najnowszą wersję do urządzenia IoT. 
-    1. Zaloguj się na komputerze lub urządzeniu IoT.
+1. Zainstaluj usługę IoT Identity Service i dodaj najnowszą wersję do urządzenia IoT. 
+    1. Zaloguj się do maszyny lub urządzenia IoT.
     1. Otwórz okno terminalu.
-    1.  Zainstaluj najnowszą [usługę usługi IoT Identity](https://github.com/Azure/iot-identity-service/blob/main/docs/packaging.md#installing-and-configuring-the-package) na urządzeniu IoT przy użyciu tego polecenia:
+    1.  Zainstaluj najnowszą [usługę IoT Identity Service](https://github.com/Azure/iot-identity-service/blob/main/docs/packaging.md#installing-and-configuring-the-package) na urządzeniu IoT przy użyciu tego polecenia:
     
         ```shell
         sudo apt-get install aziot-identity-service
         ```
         
-1. Inicjowanie obsługi usługi tożsamości IoT w celu pobrania informacji o urządzeniu IoT.
-    * Utwórz niestandardową kopię szablonu konfiguracji, aby można było dodać informacje o aprowizacji. W terminalu wprowadź poniższe polecenie.
+1. Aprowizowanie usługi IoT Identity w celu uzyskania informacji o urządzeniu IoT.
+    * Utwórz niestandardową kopię szablonu konfiguracji, aby można było dodać informacje dotyczące aprowizowania. W terminalu wprowadź poniższe polecenie.
       
         ```shell
         sudo cp /etc/aziot/config.toml.template /etc/aziot/config.toml 
         ```
    
-1. Następnie edytuj plik konfiguracji w celu uwzględnienia parametrów połączenia urządzenia, które ma pełnić rolę aprowizacji dla tego urządzenia lub komputera. W terminalu wprowadź poniższe polecenie.
+1. Następnie edytuj plik konfiguracji, aby uwzględnić ciąg połączenia urządzenia, które ma działać jako aprowizator dla tego urządzenia lub maszyny. W terminalu wprowadź poniższe polecenie.
 
     ```shell
     sudo nano /etc/aziot/config.toml
     ```
    
-1. Powinien zostać wyświetlony komunikat podobny do następującego:
+1. Powinien zostać wyświetlony komunikat podobny do poniższego przykładu:
 
     :::image type="content" source="media/understand-device-update/config.png" alt-text="Diagram pliku konfiguracji usługi IoT Identity Service." lightbox="media/understand-device-update/config.png":::
 
-    1. W tym samym oknie nano Server Znajdź blok z opcją "Ręczne inicjowanie obsługi przy użyciu parametrów połączenia".
-    1. W oknie Usuń symbol "#" przed "aprowizacji"
-    1. W oknie Usuń symbol "#" przed "source" 
-    1. W oknie Usuń symbol "#" przed "connection_string"
-    1. W oknie Usuń ciąg w cudzysłowie po prawej stronie elementu "connection_string", a następnie Dodaj tam parametry połączenia 
-    1. Zapisz zmiany w pliku przy użyciu klawiszy "Ctrl + X", a następnie "Y" i naciśnij klawisz ENTER, aby zapisać zmiany. 
+    1. W tym samym oknie nano znajdź blok z wartością "Ręczne aprowizowanie przy użyciu parametrów połączenia".
+    1. W oknie usuń symbol "#" przed "aprowizowanie"
+    1. W oknie usuń symbol "#" przed symbolem "source" 
+    1. W oknie usuń symbol "#" przed "connection_string"
+    1. W oknie usuń ciąg w cudzysłowie z prawej strony ciągu "connection_string", a następnie dodaj w tym miejscu swoje ciągi połączenia 
+    1. Zapisz zmiany w pliku za pomocą kombinacji klawiszy "Ctrl+X", a następnie naciśnij klawisz "Y", aby zapisać zmiany. 
     
-1.  Teraz Zastosuj i uruchom ponownie usługę tożsamość IoT przy użyciu poniższego polecenia. Powinna zostać wyświetlona wartość "gotowe!" wydruk oznaczający, że usługa IoT Identity została pomyślnie skonfigurowana.
+1.  Teraz zastosuj i uruchom ponownie usługę IoT Identity za pomocą poniższego polecenia. Powinien zostać wyświetlony "Gotowe!" printout oznacza, że pomyślnie skonfigurowano usługę IoT Identity Service.
 
     > [!Note]
-    > Usługa tożsamość IoT rejestruje tożsamości modułów z IoT Hub przy użyciu kluczy symetrycznych.
+    > Usługa IoT Identity rejestruje tożsamości modułów w usłudze IoT Hub przy użyciu kluczy symetrycznych.
     
     ```shell
     sudo aziotctl config apply
     ```
     
-1.  Na koniec Zainstaluj agenta aktualizacji urządzenia. Udostępniamy przykładowe obrazy w [artefaktach](https://github.com/Azure/iot-hub-device-update/releases) , aby wypróbować wdrożenia aktualizacji obrazów w różnych wersjach przy użyciu obrazu podstawowego (adu-Base-Image) i jednego obrazu aktualizacji (adu-Update-Image). Zobacz przykład [sposobu, w jaki można przeprowadzić błysk obrazu na urządzeniu IoT Hub](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-raspberry-pi#flash-sd-card-with-image).
+1.  Na koniec zainstaluj agenta aktualizacji urządzenia. W artefaktach [](https://github.com/Azure/iot-hub-device-update/releases) są dostępne przykładowe obrazy, które można wypróbować w różnych wersjach przy użyciu obrazu podstawowego (adu-base-image) i jednego obrazu aktualizacji (adu-update-image). Zobacz przykład [sposobu flashować obraz na urządzeniu IoT Hub .](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-raspberry-pi#flash-sd-card-with-image)
 
-1.  Teraz można przystąpić do uruchamiania agenta aktualizacji urządzenia na urządzeniu IoT. 
+1.  Teraz możesz uruchomić agenta aktualizacji urządzenia na urządzeniu IoT. 
 
 ### <a name="other-iot-devices"></a>Inne urządzenia IoT
 
-Agenta aktualizacji urządzeń można również skonfigurować bez usługi tożsamości IoT do testowania lub urządzeń z ograniczeniami. Wykonaj poniższe kroki, aby zainicjować obsługę administracyjną agenta aktualizacji urządzenia przy użyciu parametrów połączenia (z modułu lub urządzenia).
+Agenta aktualizacji urządzenia można również skonfigurować bez usługi IoT Identity na potrzeby testowania lub na ograniczonych urządzeniach. Wykonaj poniższe kroki, aby aprowizować agenta aktualizacji urządzenia przy użyciu parametrów połączenia (z modułu lub urządzenia).
 
-1.  Udostępniamy przykładowe obrazy w [artefaktach](https://github.com/Azure/iot-hub-device-update/releases) , aby wypróbować wdrożenia aktualizacji obrazów w różnych wersjach przy użyciu obrazu podstawowego (adu-Base-Image) i jednego obrazu aktualizacji (adu-Update-Image). Zobacz przykład [sposobu, w jaki można przeprowadzić błysk obrazu na urządzeniu IoT Hub](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-raspberry-pi#flash-sd-card-with-image).
+1.  W artefaktach [](https://github.com/Azure/iot-hub-device-update/releases) są dostępne przykładowe obrazy, które można wypróbować w różnych wersjach przy użyciu obrazu podstawowego (adu-base-image) i jednego obrazu aktualizacji (adu-update-image). Zobacz przykład [sposobu flashować obraz na urządzeniu IoT Hub .](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-raspberry-pi#flash-sd-card-with-image)
 
-1.  Zaloguj się na komputerze lub urządzeniu IoT Edge/urządzeniu IoT.
+1.  Zaloguj się do maszyny lub IoT Edge/urządzenia IoT.
     
 1.  Otwórz okno terminalu.
 
-1.  Dodaj parametry połączenia do [pliku konfiguracji aktualizacji urządzenia](device-update-configuration-file.md):
-    1. Wprowadź poniżej w oknie terminalu:
-        - Użycie [aktualizacji pakietów](device-update-ubuntu-agent.md) : sudo nano/etc/adu/adu-conf.txt
-        - [Aktualizacje obrazów](device-update-raspberry-pi.md) : sudo nano/adu/adu-conf.txt
+1.  Dodaj ciąg połączenia do pliku [konfiguracji aktualizacji urządzenia:](device-update-configuration-file.md)
+    1. Wprowadź poniższe informacje w oknie terminalu:
+        - [Użyj aktualizacji](device-update-ubuntu-agent.md) pakietu: sudo nano /etc/adu/adu-conf.txt
+        - [Użyj aktualizacji obrazu:](device-update-raspberry-pi.md) sudo nano /adu/adu-conf.txt
        
-    1. Powinno zostać wyświetlone okno z otwartym tekstem. Usuń cały ciąg następujący po "connection_String =" przy pierwszym udostępnieniu agenta aktualizacji urządzenia na urządzeniu IoT. Jest to tylko tekst zastępczy.
+    1. Powinno zostać otwarte okno z tekstem. Usuń cały ciąg po ciągu "connection_String=" przy pierwszej aprowizce agenta aktualizacji urządzenia na urządzeniu IoT. Jest to po prostu tekst właściciela.
     
-    1. W terminalu Zastąp ciąg "<-Connection-String>" parametrami połączenia urządzenia dla wystąpienia agenta aktualizacji urządzenia.
+    1. W terminalu zastąp ciąg "<-your-connection-string>" ciągami połączenia urządzenia dla wystąpienia agenta aktualizacji urządzenia.
     
         > [!Important]
-        > Nie należy dodawać cudzysłowów wokół parametrów połączenia.
+        > Nie dodawaj cudzysłowów wokół parametrów połączenia.
         ```shell
-        - connection_string=<ADD CONNECTION STRING HERE>
-       ```
+        connection_string=<ADD CONNECTION STRING HERE>
+        ```
        
-    1. Wprowadź i Zapisz.
+    1. Wprowadź i zapisz.
     
-1.  Teraz możesz przystąpić do uruchamiania agenta aktualizacji urządzenia na urządzeniu IoT. 
+1.  Teraz możesz uruchomić agenta aktualizacji urządzenia na urządzeniu IoT. 
 
 
-## <a name="how-to-start-the-device-update-agent"></a>Jak uruchomić agenta aktualizacji urządzeń
+## <a name="how-to-start-the-device-update-agent"></a>Jak uruchomić agenta aktualizacji urządzenia
 
-W tej sekcji opisano, jak uruchomić i zweryfikować agenta aktualizacji urządzenia jako tożsamość modułu pomyślnie uruchomiona na urządzeniu IoT.
+W tej sekcji opisano sposób uruchamiania i weryfikowania agenta aktualizacji urządzenia jako tożsamości modułu uruchomionej pomyślnie na urządzeniu IoT.
 
-1.  Zaloguj się do komputera lub urządzenia, na którym zainstalowano agenta aktualizacji urządzenia.
+1.  Zaloguj się na komputerze lub urządzeniu z zainstalowanym agentem aktualizacji urządzenia.
 
 1.  Otwórz okno terminalu i wprowadź poniższe polecenie.
     ```shell
     sudo systemctl restart adu-agent
     ```
     
-1.  Stan agenta można sprawdzić przy użyciu poniższego polecenia. Jeśli zobaczysz jakiekolwiek problemy, zapoznaj się z tym [przewodnikiem rozwiązywania problemów](troubleshoot-device-update.md).
+1.  Stan agenta można sprawdzić za pomocą poniższego polecenia. Jeśli widzisz jakiekolwiek problemy, zapoznaj się z tym [przewodnikiem rozwiązywania problemów.](troubleshoot-device-update.md)
     ```shell
     sudo systemctl status adu-agent
     ```
     
     Powinien zostać wyświetlony stan OK.
 
-1.  W portalu IoT Hub przejdź do pozycji urządzenie IoT lub IoT Edge urządzenia, aby znaleźć urządzenie skonfigurowane przy użyciu agenta aktualizacji urządzeń. Zostanie wyświetlony Agent aktualizacji urządzenia uruchomiony jako moduł. Na przykład:
+1.  W portalu IoT Hub przejdź do urządzenia IoT lub IoT Edge, aby znaleźć urządzenie skonfigurowane za pomocą agenta aktualizacji urządzenia. W tym miejscu zobaczysz agenta aktualizacji urządzenia uruchomionego jako moduł. Na przykład:
 
     :::image type="content" source="media/understand-device-update/device-update-module.png " alt-text="Diagram nazwy modułu aktualizacji urządzenia." lightbox="media/understand-device-update/device-update-module.png":::
 
 
-## <a name="how-to-build-and-run-device-update-agent"></a>Jak skompilować i uruchomić agenta aktualizacji urządzeń
+## <a name="how-to-build-and-run-device-update-agent"></a>Jak skompilować i uruchomić agenta aktualizacji urządzenia
 
-Możesz również utworzyć i zmodyfikować własnego agenta aktualizacji urządzeń klientów.
+Możesz również skompilować i zmodyfikować własnego agenta aktualizacji urządzenia klienta.
 
-Postępuj zgodnie z instrukcjami, aby [skompilować](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md) agenta aktualizacji urządzenia ze źródła.
+Postępuj zgodnie z [instrukcjami, aby](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md) skompilować agenta aktualizacji urządzenia ze źródła.
 
-Po pomyślnym skompilowaniu agenta zostanie [uruchomiony](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-run-agent.md) Agent programu.
+Po pomyślnym sbudowania agenta należy uruchomić [agenta.](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-run-agent.md)
 
-Teraz wprowadź zmiany, które są konieczne do włączenia agenta do obrazu.  Zapoznaj się z tematem jak [zmodyfikować](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-modify-the-agent-code.md) agenta aktualizacji urządzeń, aby uzyskać wskazówki.
+Teraz należy wprowadzić zmiany wymagane do uwzględnienia agenta w obrazie.  Zobacz, jak [zmodyfikować](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-modify-the-agent-code.md) agenta aktualizacji urządzenia, aby uzyskać wskazówki.
 
 
 ## <a name="troubleshooting-guide"></a>Przewodnik rozwiązywania problemów
 
-Jeśli występują problemy, zapoznaj się z [przewodnikiem rozwiązywania problemów](troubleshoot-device-update.md) z aktualizacją urządzenia, aby uzyskać IoT Hub.
+W przypadku problemów zapoznaj się z przewodnikiem rozwiązywania problemów z aktualizacją urządzenia dla usługi IoT Hub, [aby](troubleshoot-device-update.md) ułatwić rozwiązanie wszelkich możliwych problemów i zebrać informacje niezbędne do podania firmie Microsoft.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Możesz użyć następujących wstępnie skompilowanych obrazów i plików binarnych, aby zapoznać się z prostą prezentacją aktualizacji urządzenia dla IoT Hub:
+Możesz użyć następujących wstępnie sbudowaną obrazów i plików binarnych, aby uzyskać prosty pokaz aktualizacji urządzenia dla IoT Hub:
 
-- [Aktualizacja obrazu: wprowadzenie z Raspberry Pi 3 B + Dokumentacja yocto Image](device-update-raspberry-pi.md) rozszerzalna za pośrednictwem programu Open Source w celu utworzenia własnych obrazów dla innej architektury, zgodnie z potrzebami.
+- [Aktualizacja obrazu: Wprowadzenie urządzenie Raspberry Pi 3 B+ Reference Yocto Image](device-update-raspberry-pi.md) rozszerzalne za pośrednictwem usługi open source w celu tworzenia własnych obrazów dla innej architektury zgodnie z potrzebami.
 
-- [Wprowadzenie przy użyciu agenta referencyjnego symulatora Ubuntu (18,04 x64)](device-update-simulator.md)
+- [Wprowadzenie użyciu agenta referencyjnego symulatora systemu Ubuntu (18.04 x64)](device-update-simulator.md)
 
-- [Aktualizacja pakietu: Wprowadzenie przy użyciu agenta pakietu Ubuntu Server 18,04 x64](device-update-ubuntu-agent.md)
+- [Aktualizacja pakietu:Wprowadzenie użyciu agenta pakietów Ubuntu Server 18.04 x64](device-update-ubuntu-agent.md)
 
-- [Samouczek dotyczący aktualizacji urządzeń z platformą Azure IoT Hub dla systemu operacyjnego Azure — w czasie rzeczywistym](device-update-azure-real-time-operating-system.md)
+- [Samouczek dotyczący aktualizacji Azure IoT Hub dla systemu operacyjnego Azure-Real-Time-Operating-System](device-update-azure-real-time-operating-system.md)
 

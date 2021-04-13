@@ -1,5 +1,5 @@
 ---
-title: Informacje o odnowieniu certyfikatu Azure Key Vault
+title: Informacje Azure Key Vault odnawiania certyfikatu
 description: W tym artykule omówiono sposób odnawiania Azure Key Vault certyfikatów.
 services: key-vault
 author: msmbaldwin
@@ -10,84 +10,84 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: ffa130c0598d2405469d272a3ac6852f281ed965
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0492575bef93a1b08d48475c3ab32ecbc7becd6e
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105726366"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364298"
 ---
-# <a name="renew-your-azure-key-vault-certificates"></a>Odnawianie certyfikatów Azure Key Vault
+# <a name="renew-your-azure-key-vault-certificates"></a>Odnawianie Azure Key Vault certyfikatów
 
-Za pomocą Azure Key Vault można łatwo udostępniać i wdrażać certyfikaty cyfrowe oraz zarządzać nimi w sieci i zapewniać bezpieczną komunikację z aplikacjami. Więcej informacji o certyfikatach znajduje się w temacie [Informacje o certyfikatach Azure Key Vault](./about-certificates.md).
+Dzięki Azure Key Vault można łatwo aprowizować i wdrażać certyfikaty cyfrowe dla sieci oraz zarządzać nimi, a także włączyć bezpieczną komunikację dla aplikacji. Aby uzyskać więcej informacji na temat certyfikatów, zobacz [Informacje Azure Key Vault certyfikatów](./about-certificates.md).
 
-Korzystając z certyfikatów krótkoterminowych lub przez zwiększenie częstotliwości rotacji certyfikatów, można zapobiec dostępowi do aplikacji przez nieautoryzowanych użytkowników.
+Korzystając z certyfikatów o krótkim okresie życia lub zwiększając częstotliwość rotacji certyfikatów, możesz pomóc zapobiec dostępowi do aplikacji przez nieautoryzowanych użytkowników.
 
-W tym artykule omówiono sposób odnawiania certyfikatów Azure Key Vault.
+W tym artykule omówiono sposób odnawiania Azure Key Vault certyfikatów.
 
 ## <a name="get-notified-about-certificate-expiration"></a>Otrzymuj powiadomienia o wygaśnięciu certyfikatu
-Aby otrzymywać powiadomienia o zdarzeniach dotyczących okresu istnienia certyfikatu, należy dodać kontakt z certyfikatem. Kontakty certyfikatów zawierają informacje kontaktowe do wysyłania powiadomień wyzwalanych przez zdarzenia okresu istnienia certyfikatu. Informacje o kontaktach są współużytkowane przez wszystkie certyfikaty w magazynie kluczy. Powiadomienie zostanie wysłane do wszystkich określonych kontaktów dla zdarzenia dowolnego certyfikatu w magazynie kluczy.
+Aby uzyskać powiadomienie o zdarzeniach dotyczących cyklu życia certyfikatu, należy dodać kontakt z certyfikatem. Kontakty certyfikatów zawierają informacje kontaktowe do wysyłania powiadomień wyzwalanych przez zdarzenia okresu istnienia certyfikatu. Informacje o kontaktach są współdzielone przez wszystkie certyfikaty w magazynie kluczy. Powiadomienie o zdarzeniu dla dowolnego certyfikatu w magazynie kluczy jest wysyłane do wszystkich określonych kontaktów.
 
-### <a name="steps-to-set-certificate-notifications"></a>Procedura ustawiania powiadomień dotyczących certyfikatów:
-Najpierw Dodaj kontakt z certyfikatem do magazynu kluczy. Możesz dodać za pomocą Azure Portal lub polecenia cmdlet programu PowerShell [`Add-AzureKeyVaultCertificateContact`](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact) .
+### <a name="steps-to-set-certificate-notifications"></a>Kroki do ustawienia powiadomień o certyfikatach:
+Najpierw dodaj kontakt z certyfikatem do magazynu kluczy. Możesz dodać za pomocą polecenia Azure Portal lub polecenia cmdlet programu [`Add-AzureKeyVaultCertificateContact`](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact) PowerShell.
 
-Następnie skonfiguruj, Kiedy chcesz otrzymywać powiadomienia o wygaśnięciu certyfikatu. Aby skonfigurować atrybuty cyklu życia certyfikatu, zobacz [Konfigurowanie autorotacji certyfikatów w Key Vault](./tutorial-rotate-certificates.md#update-lifecycle-attributes-of-a-stored-certificate).
+Po drugie skonfiguruj, kiedy chcesz być powiadamiany o wygaśnięciu certyfikatu. Aby skonfigurować atrybuty cyklu życia certyfikatu, zobacz [Konfigurowanie autorotacji](./tutorial-rotate-certificates.md#update-lifecycle-attributes-of-a-stored-certificate)certyfikatu w programie Key Vault .
 
-Jeśli zasada certyfikatu jest ustawiona na automatyczne odnawianie, zostanie wysłane powiadomienie dotyczące następujących zdarzeń.
+Jeśli zasady certyfikatu są ustawione na automatyczne odnawianie, wysyłane jest powiadomienie dotyczące następujących zdarzeń.
 
 - Przed odnowieniem certyfikatu
-- Po odnowieniu certyfikatu, informując o tym, czy certyfikat został pomyślnie odnowiony, czy wystąpił błąd, wymagając ręcznego odnowienia certyfikatu.  
+- Po odnowieniu certyfikatu z informacją o tym, czy certyfikat został pomyślnie odnowiony lub czy wystąpił błąd, co wymaga ręcznego odnowienia certyfikatu.  
 
-  Gdy zasady certyfikatu ustawione do ręcznego odnawiania (tylko wiadomości e-mail), po chwili odnowienia certyfikatu zostanie wysłane powiadomienie.  
+  W przypadku ręcznego odnawiania zasad certyfikatów (tylko wiadomości e-mail) wysyłane jest powiadomienie o terminie odnowienia certyfikatu.  
 
 W Key Vault istnieją trzy kategorie certyfikatów:
--    Certyfikaty utworzone przy użyciu zintegrowanego urzędu certyfikacji (CA), takie jak DigiCert lub GlobalSign
--    Certyfikaty utworzone przy użyciu niezintegrowanego urzędu certyfikacji
+-    Certyfikaty tworzone za pomocą zintegrowanego urzędu certyfikacji, takiego jak DigiCert lub GlobalSign
+-    Certyfikaty, które są tworzone za pomocą niezintegrowanych urzędu certyfikacji
 -    Certyfikaty z podpisem własnym
 
-## <a name="renew-an-integrated-ca-certificate"></a>Odnawianie certyfikatu zintegrowanego urzędu certyfikacji 
-Azure Key Vault obsługuje kompleksową konserwację certyfikatów wystawionych przez zaufanych urzędów certyfikacji firmy Microsoft DigiCert i GlobalSign. Dowiedz się, jak [zintegrować zaufany urząd certyfikacji z Key Vault](./how-to-integrate-certificate-authority.md).
+## <a name="renew-an-integrated-ca-certificate"></a>Odnawianie zintegrowanego certyfikatu urzędu certyfikacji 
+Azure Key Vault obsługuje end-to-end konserwację certyfikatów wystawionych przez zaufane urzędy certyfikacji firmy Microsoft DigiCert i GlobalSign. Dowiedz się, jak [zintegrować zaufany urząd certyfikacji z Key Vault](./how-to-integrate-certificate-authority.md).
 
-## <a name="renew-a-nonintegrated-ca-certificate"></a>Odnów certyfikat niezintegrowanego urzędu certyfikacji 
-Za pomocą Azure Key Vault można importować certyfikaty z dowolnego urzędu certyfikacji, korzyści, które umożliwiają integrację z kilkoma zasobami platformy Azure i ułatwiają wdrażanie. W przypadku martwisz się o utracie śledzenia dat wygaśnięcia certyfikatu lub, że wykryto, że certyfikat już wygasł, Twój Magazyn kluczy może pomóc zapewnić aktualność. W przypadku certyfikatów niezintegrowanych urzędów certyfikacji Magazyn kluczy umożliwia skonfigurowanie powiadomień e-mail z niemal upływem okresu ważności. Takie powiadomienia można również ustawić dla wielu użytkowników.
+## <a name="renew-a-nonintegrated-ca-certificate"></a>Odnawianie nieseggrowanych certyfikatów urzędu certyfikacji 
+Za pomocą Azure Key Vault można zaimportować certyfikaty z dowolnego urzędu certyfikacji, co umożliwia integrację z kilkoma zasobami platformy Azure i ułatwia wdrażanie. Jeśli martwisz się o utratę śledzenia dat wygaśnięcia certyfikatu lub, co gorsza, odkryliśmy, że certyfikat już wygasł, magazyn kluczy może pomóc Ci na bieżąco. W przypadku nieseggrowanych certyfikatów urzędu certyfikacji magazyn kluczy umożliwia konfigurowanie powiadomień e-mail o zbliżaniu się wygaśnięcia. Takie powiadomienia można również ustawić dla wielu użytkowników.
 
 > [!IMPORTANT]
-> Certyfikat jest obiektem z zainstalowaną wersją. Jeśli bieżąca wersja wygaśnie, należy utworzyć nową wersję. Koncepcyjnie każda nowa wersja jest nowym certyfikatem, który składa się z klucza i obiektu BLOB, który wiąże ten klucz z tożsamością. W przypadku korzystania z niepartnerskiego urzędu certyfikacji Magazyn kluczy generuje parę klucz/wartość i zwróci żądanie podpisania certyfikatu (CSR).
+> Certyfikat jest obiektem w wersji. Jeśli bieżąca wersja wygasa, należy utworzyć nową wersję. Koncepcyjnie każda nowa wersja jest nowym certyfikatem, który składa się z klucza i obiektu blob, który wiąże ten klucz z tożsamością. W przypadku korzystania z niepartnerowanego urzędu certyfikacji magazyn kluczy generuje parę klucz/wartość i zwraca żądanie podpisania certyfikatu (CSR).
 
-Aby odnowić certyfikat niezintegrowanego urzędu certyfikacji, wykonaj następujące czynności:
+Aby odnowić nieseggrowany certyfikat urzędu certyfikacji, wykonaj następujące czynności:
 
 1. Zaloguj się do Azure Portal, a następnie otwórz certyfikat, który chcesz odnowić.
-1. W okienku certyfikat wybierz pozycję **Nowa wersja**.
-1. Wybierz **operację certyfikatu**.
-1. Wybierz pozycję **Pobierz CSR** , aby pobrać plik CSR na dysk lokalny.
-1. Wyślij CSR do wybranego urzędu certyfikacji w celu podpisania żądania.
-1. Przywróć podpisane żądanie i wybierz pozycję **Scal CSR** w tym samym okienku operacji certyfikatu.
+1. W okienku certyfikatu wybierz pozycję **Nowa wersja.**
+1. Wybierz **pozycję Operacja na certyfikacie.**
+1. Wybierz **pozycję Pobierz plik CSR,** aby pobrać plik CSR na dysk lokalny.
+1. Wyślij żądanie CSR do wybranego urzędu certyfikacji w celu podpisania żądania.
+1. Przywróć podpisane żądanie i wybierz pozycję **Scal żądanie CSR** w tym samym okienku operacji certyfikatu.
 
 > [!NOTE]
-> Ważne jest, aby scalić podpisany plik CSR z tym samym żądaniem CSR, które zostało utworzone. W przeciwnym razie klucz nie będzie zgodny.
+> Ważne jest scalenie podpisanego żądania CSR z tym samym żądaniem CSR, które zostało utworzone. W przeciwnym razie klucz nie będzie odpowiadać.
 
-Aby uzyskać więcej informacji na temat tworzenia nowego CSR, zobacz [Tworzenie i scalanie CSR w Key Vault]( https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-signing-request#azure-portal).
+Aby uzyskać więcej informacji na temat tworzenia nowego csr, zobacz [Tworzenie i scalanie CSR]( https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-signing-request#azure-portal)w Key Vault .
 
-## <a name="renew-a-self-signed-certificate"></a>Odnów certyfikat z podpisem własnym
+## <a name="renew-a-self-signed-certificate"></a>Odnawianie certyfikatu z podpisem własnym
 
-Azure Key Vault obsługuje również automatyczne odnawianie certyfikatów z podpisem własnym. Aby dowiedzieć się więcej na temat zmiany zasad wystawiania i aktualizowania atrybutów cyklu życia certyfikatu, zobacz [Konfigurowanie autorotacji certyfikatów w Key Vault](./tutorial-rotate-certificates.md#update-lifecycle-attributes-of-a-stored-certificate).
+Azure Key Vault obsługuje również automatyczną rezyduacyjną certyfikaty z podpisem własnym. Aby dowiedzieć się więcej na temat zmieniania zasad wystawiania i aktualizowania atrybutów cyklu życia certyfikatu, zobacz [Konfigurowanie autorotacji](./tutorial-rotate-certificates.md#update-lifecycle-attributes-of-a-stored-certificate)certyfikatu w programie Key Vault .
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
-* Jeśli wystawiony certyfikat jest w stanie *wyłączenia* w Azure Portal, przejdź do **operacji certyfikat** , aby wyświetlić komunikat o błędzie certyfikatu.
-* Typ błędu "kod CSR używany do pobierania certyfikatu został już użyty. Spróbuj wygenerować nowy certyfikat z nowym CSR. "
-  Przejdź do sekcji "Zasady zaawansowane" w certyfikacie i sprawdź, czy opcja **"Użyj ponownie klucza przy odnawianiu"** jest wyłączona.
+* Jeśli wystawiony certyfikat jest wyłączony *w* Azure Portal, przejdź  do operacji certyfikatu, aby wyświetlić komunikat o błędzie certyfikatu.
+* Typ błędu "Csr użyty do uzyskania certyfikatu został już użyty. Spróbuj wygenerować nowy certyfikat przy użyciu nowego żądania CSR".
+  Przejdź do sekcji "Zasady zaawansowane" certyfikatu i sprawdź, czy opcja **"Użyj ponownie** klucza przy odnawianiu" jest wyłączona.
 
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
-**Jak można przetestować funkcję autorotacji certyfikatu?**
+**Jak przetestować funkcję autorotacji certyfikatu?**
 
-Utwórz certyfikat o ważności **1 miesiąca**, a następnie ustaw akcję okresu istnienia dla rotacji o **1%**. To ustawienie spowoduje obrócenie certyfikatu co 7,2 godzin.
+Utwórz certyfikat z podpisem własnym o ważności **1** miesiąca, a następnie ustaw akcję okresu istnienia dla rotacji na **wartość 1%.** W ciągu kilku następnych dni powinno być możliwe wyświetlenie historii tworzenia wersji certyfikatu.
   
-**Czy Tagi zostaną zreplikowane po autoodnowieniu certyfikatu?**
+**Czy tagi zostaną zreplikowane po automatycznej rejestracji certyfikatu?**
 
-Tak, Tagi są replikowane po autoodnowieniu.
+Tak, tagi są replikowane po autorenwalu.
 
 ## <a name="next-steps"></a>Następne kroki
-*    [Integracja Key Vault z urzędem certyfikacji DigiCert](how-to-integrate-certificate-authority.md)
-*    [Samouczek: Konfigurowanie autorotacji certyfikatów w Key Vault](tutorial-rotate-certificates.md)
+*    [Integracja Key Vault z urzędu certyfikacji firmy DigiCert](how-to-integrate-certificate-authority.md)
+*    [Samouczek: konfigurowanie autorotacji certyfikatów w Key Vault](tutorial-rotate-certificates.md)

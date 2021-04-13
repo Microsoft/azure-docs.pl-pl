@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 015fa201fe1c31dde2e30c2fe689ac13452b1b01
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9652e940674ec7580b006cd38df2a7d17014f939
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105607596"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309989"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Rozwiązywanie problemów z udostępnionymi galeriami obrazów na platformie Azure
 
@@ -303,6 +303,14 @@ Jeśli masz problemy z wykonywaniem operacji na udostępnionych galeriach obraz�
 **Przyczyna**: definicja obrazu użyta do wdrożenia maszyny wirtualnej nie zawiera żadnych wersji obrazu, które są zawarte w najnowszym.  
 **Obejście**: Upewnij się, że istnieje co najmniej jedna wersja obrazu, która ma ustawioną wartość "Wyklucz z najnowszej" jako false. 
 
+**Komunikat**: *obraz galerii/subscriptions/<subskrypcji \> /resourceGroups/<zasobów \> /providers/Microsoft.COMPUTE/Galleries/<Gallery \> /images/<ImageName \> /Versions/<versionNumber \> nie jest dostępny w regionie <regionu \> . Skontaktuj się z właścicielem obrazu, aby przeprowadzić replikację do tego regionu lub zmienić żądany region.*  
+**Przyczyna**: wybrana wersja wdrożenia nie istnieje lub nie ma repliki w wskazanym regionie.  
+**Obejście**: Upewnij się, że nazwa zasobu obrazu jest poprawna i że w wskazanym regionie istnieje co najmniej jedna replika. 
+
+**Komunikat**: zdjęcie *z galerii/subscriptions/<identyfikator subskrypcji \> /resourceGroups/<zasobów \> /providers/Microsoft.Compute/galleries/<galleryname \> /images/<imagename \> jest niedostępne w regionie <regionu \> . Skontaktuj się z właścicielem obrazu, aby przeprowadzić replikację do tego regionu lub zmienić żądany region.*  
+**Przyczyna**: definicja obrazu wybrana do wdrożenia nie ma żadnych wersji obrazu uwzględnionych w najnowszym obszarze i w wskazanym regionie.  
+**Obejście**: Upewnij się, że istnieje co najmniej jedna wersja obrazu w regionie, w którym Właściwość "Exclude from" ma wartość false. 
+
 **Komunikat**: *Klient ma uprawnienia do wykonania akcji "Microsoft. COMPUTE/Galerie/images/Versions/Read" w zakresie <ResourceID \> , ale bieżąca dzierżawa <tenantID \> nie jest autoryzowana do uzyskiwania dostępu do połączonej subskrypcji <subskrypcji \> .*  
 **Przyczyna**: maszyna wirtualna lub zestaw skalowania został utworzony za pomocą obrazu SIG w innej dzierżawie. Podjęto próbę wprowadzenia zmiany do maszyny wirtualnej lub zestawu skalowania, ale nie masz dostępu do subskrypcji, która jest właścicielem obrazu.  
 **Obejście**: skontaktuj się z właścicielem subskrypcji wersji obrazu, aby przyznać dostęp do odczytu do wersji obrazu.
@@ -318,10 +326,6 @@ Jeśli masz problemy z wykonywaniem operacji na udostępnionych galeriach obraz�
 **Komunikat**: *Brak wymaganego parametru "osProfile" (null).*  
 **Przyczyna**: maszyna wirtualna jest tworzona na podstawie uogólnionego obrazu i nie zawiera nazwy użytkownika administratora, hasła lub kluczy SSH. Ponieważ obrazy uogólnione nie zachowują nazwy użytkownika administratora, hasła lub kluczy SSH, te pola muszą zostać określone podczas tworzenia maszyny wirtualnej lub zestawu skalowania.  
 **Obejście**: Określ nazwę użytkownika, hasło lub klucze SSH administratora lub użyj wyspecjalizowanej wersji obrazu.
-
-**Komunikat**: *nie można utworzyć wersji obrazu galerii z: <ResourceID \> , ponieważ stan systemu operacyjnego w obrazie galerii nadrzędnej ("wyspecjalizowany") nie jest "uogólniony".*  
-**Przyczyna**: wersja obrazu jest tworzona na podstawie uogólnionego źródła, ale jego definicja nadrzędna jest wyspecjalizowana.  
-**Obejście**: Utwórz wersję obrazu przy użyciu wyspecjalizowanego źródła lub użyj uogólnionej definicji nadrzędnej.
 
 **Komunikat**: *nie można zaktualizować zestawu skalowania maszyn wirtualnych <vmssName \> , ponieważ bieżący stan systemu operacyjnego zestawu skalowania maszyn wirtualnych jest ogólny, który jest inny niż zaktualizowany stan systemu operacyjnego obrazu galerii, który jest wyspecjalizowany.*  
 **Przyczyna**: bieżący obraz źródła zestawu skalowania to uogólniony obraz źródłowy, ale jest aktualizowany przy użyciu obrazu źródła, który jest wyspecjalizowany. Bieżący obraz źródłowy i nowy obraz źródłowy zestawu skalowania muszą być tego samego stanu.  

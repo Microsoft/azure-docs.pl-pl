@@ -1,6 +1,6 @@
 ---
-title: Azure automanage dla maszyn wirtualnych — często zadawane pytania
-description: Odpowiedzi na często zadawane pytania dotyczące usługi Azure automanage dla maszyn wirtualnych.
+title: Azure Automanage dla maszyn wirtualnych — często zadawane pytania
+description: Odpowiedzi na często zadawane pytania dotyczące Azure Automanage maszyn wirtualnych.
 author: deanwe
 ms.service: virtual-machines
 ms.subservice: automanage
@@ -8,112 +8,115 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 02/22/2021
 ms.author: deanwe
-ms.openlocfilehash: 0b4e116210cf68dc672122ad4ddc98f85067f3b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f5a9ff7661fda372631d1bb912b1c137b37c7e07
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101688012"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363363"
 ---
-# <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Często zadawane pytania dotyczące usługi Azure automanage dla maszyn wirtualnych
+# <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Często zadawane pytania dotyczące Azure Automanage maszyn wirtualnych
 
-Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące [usługi Azure automanage dla maszyn wirtualnych](automanage-virtual-machines.md).
+Ten artykuł zawiera odpowiedzi na niektóre najczęściej zadawane pytania dotyczące Azure Automanage [maszyn wirtualnych.](automanage-virtual-machines.md)
 
-Jeśli problem z platformą Azure nie został rozwiązany w tym artykule, odwiedź fora platformy Azure w [witrynie MSDN i Stack Overflow](https://azure.microsoft.com/support/forums/). Możesz ogłosić swój problem na tych forach lub opublikować go w serwisie [ @AzureSupport Twitter](https://twitter.com/AzureSupport). Możesz również przesłać żądanie pomocy technicznej platformy Azure. Aby przesłać żądanie pomocy technicznej, na [stronie pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/)wybierz pozycję **Uzyskaj pomoc techniczną**.
+Jeśli problem z platformą Azure nie został rozwiązany w tym artykule, odwiedź fora platformy Azure w witrynie [MSDN i Stack Overflow](https://azure.microsoft.com/support/forums/). Swój problem możesz opublikować na tych forach lub opublikować w [ @AzureSupport serwisie Twitter.](https://twitter.com/AzureSupport) Możesz również przesłać wniosek o pomoc techniczną platformy Azure. Aby przesłać wniosek o pomoc techniczną, na stronie [pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/)wybierz pozycję Uzyskaj pomoc **techniczną.**
 
 
-## <a name="azure-automanage-for-virtual-machines"></a>Usługa Azure automanage dla maszyn wirtualnych
+## <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage maszyn wirtualnych
 
-**Jakie są wszystkie wymagania wstępne wymagane do włączenia usługi Azure automanage?**
+**Jakie są wszystkie wymagania wstępne wymagane do włączenia Azure Automanage?**
 
-Poniżej przedstawiono wymagania wstępne dotyczące włączania usługi Azure automanage:
-- Obsługiwane [wersje systemów Windows Server](automanage-windows-server.md#supported-windows-server-versions) i [Linux dystrybucje](automanage-linux.md#supported-linux-distributions-and-versions)
+Poniżej przedstawiono wymagania wstępne dotyczące włączania Azure Automanage:
+- Obsługiwane [wersje systemu Windows Server](automanage-windows-server.md#supported-windows-server-versions) i [dystrybucje systemu Linux](automanage-linux.md#supported-linux-distributions-and-versions)
 - Maszyny wirtualne muszą znajdować się w obsługiwanym regionie
-- Użytkownik musi mieć odpowiednie uprawnienia
-- Tylko maszyny wirtualne z zestawami nieskalowanymi
-- W tej chwili usługa autozarządzania nie obsługuje subskrypcji piaskownicy
+- Użytkownik musi mieć poprawne uprawnienia
+- Tylko maszyny wirtualne w zestawie nieskalowania
+- Automatycznemanage nie obsługuje obecnie subskrypcji piaskownicy
 
-**Jakie uprawnienia RBAC platformy Azure są potrzebne do włączenia autozarządzania?**
+**Jakie uprawnienia RBAC platformy Azure są potrzebne do włączenia funkcji automatycznego zarządzania?**
 
-Jeśli włączysz Autozarządzanie na maszynie wirtualnej z istniejącym kontem autozarządzania, musisz mieć rolę współautora dla grupy zasobów, w której znajduje się maszyna wirtualna.
+W przypadku włączania funkcji Automatycznego zarządzania na maszynie wirtualnej przy użyciu istniejącego konta automatycznego zarządzania potrzebna jest rola Współautor w grupie zasobów, w której znajduje się maszyna wirtualna.
 
-Jeśli podczas włączania korzystasz z nowego konta Autozarządzanie, musisz mieć rolę właściciela lub mieć rolę administratora dostępu współautor i użytkownika do subskrypcji.
+Jeśli podczas włączania używasz nowego konta automatycznego, musisz mieć rolę właściciel lub rolę Współautor i administrator dostępu użytkowników do subskrypcji.
 
 
 **Jakie regiony są obsługiwane?**
 
-Pełną listę obsługiwanych regionów można znaleźć [tutaj](./automanage-virtual-machines.md#supported-regions).
+Pełna lista obsługiwanych regionów jest dostępna [tutaj.](./automanage-virtual-machines.md#supported-regions)
 
 
-**Jakie możliwości usługa Azure automanage jest zautomatyzowana?**
+**Jakie możliwości Azure Automanage zautomatyzować?**
 
-Autozarządzanie rejestracjami, konfigurowaniem i monitorowaniem w całym cyklu życia maszyny wirtualnej usługi wymienione w [tym miejscu](automanage-virtual-machines.md).
+Automatyczne zarządzanie rejestruje, konfiguruje i monitoruje w całym cyklu życia maszyny wirtualnej usługi wymienione [tutaj.](automanage-virtual-machines.md)
 
-**Czy usługa Azure automanage współpracuje z maszynami wirtualnymi z obsługą usługi Azure Arc?**
+**Czy Azure Automanage z maszynami Azure Arc z włączoną obsługą sieci?**
 
-Autozarządzanie obecnie nie obsługuje maszyn wirtualnych z włączoną funkcją Arc.
+Automanage obecnie nie obsługuje maszyn wirtualnych z obsługą usługi Arc.
 
-**Czy mogę dostosować konfiguracje na platformie Azure Autozarządzanie?**
+**Czy można dostosować konfiguracje Azure Automanage?**
 
-Klienci mogą dostosowywać ustawienia dla określonych usług, takich jak Azure Backup przechowywanie, za poorednictwem preferencji konfiguracji. Aby uzyskać pełną listę ustawień, które można zmienić, zobacz [naszą dokumentację.](automanage-virtual-machines.md#customizing-an-environment-using-preferences)
-
-
-**Czy usługa Azure automanage działa z maszynami wirtualnymi z systemem Linux i Windows?**
-
-Tak, zobacz obsługiwane [wersje systemu Windows Server](automanage-windows-server.md#supported-windows-server-versions) i [Linux dystrybucje](automanage-linux.md#supported-linux-distributions-and-versions).
+Klienci mogą dostosowywać ustawienia określonych usług, takich jak Azure Backup przechowywania, za pośrednictwem preferencji konfiguracji. Pełną listę ustawień, które można zmienić, można znaleźć w naszej dokumentacji [tutaj.](automanage-virtual-machines.md#customizing-an-environment-using-preferences)
 
 
-**Czy mogę selektywnie zastosować Autozarządzanie tylko na zestawie maszyn wirtualnych?**
+**Czy Azure Automanage z maszynami wirtualnych z systemami Linux i Windows?**
 
-Autozarządzanie można włączyć za pomocą kliknięcia i punktu prostoty dla wybranych nowych i istniejących maszyn wirtualnych. Autozarządzanie można także wyłączyć w dowolnym momencie.
-
-
-**Czy usługa Azure automanage obsługuje maszyny wirtualne w zestawie skalowania maszyn wirtualnych?**
-
-Nie, usługa Azure automanage nie obsługuje obecnie maszyn wirtualnych w zestawie skalowania maszyn wirtualnych.
+Tak, zobacz obsługiwane wersje [systemu Windows Server](automanage-windows-server.md#supported-windows-server-versions) i [dystrybucje systemu Linux.](automanage-linux.md#supported-linux-distributions-and-versions)
 
 
-**Ile kosztuje usługa Azure automanage?**
+**Czy mogę selektywnie zastosować funkcję Automatycznegomanage tylko do zestawu maszyn wirtualnych?**
 
-Usługa Azure automanage jest dostępna bez dodatkowych kosztów w publicznej wersji zapoznawczej. Dołączenie zasobów platformy Azure, takich jak Azure Backup, spowoduje naliczenie kosztu.
-
-
-**Czy mogę zastosować Autozarządzanie za pomocą usługi Azure Policy?**
-
-Tak, mamy wbudowane zasady, które będą automatycznie stosowały Autozarządzanie do wszystkich maszyn wirtualnych w określonym zakresie. Zostanie również określona konfiguracja środowiska (DevTest lub produkcja) wraz z kontem Autozarządzanie. Dowiedz się więcej na temat włączania autozarządzania za pomocą usługi Azure Policy [tutaj](virtual-machines-policy-enable.md).
+Funkcję automatycznego zarządzania można włączyć za pomocą kliknięcia i wskazać prostotę wybranych nowych i istniejących maszyn wirtualnych. Automanage można również wyłączyć w dowolnym momencie.
 
 
-**Co to jest konto Autozarządzanie?**
+**Czy Azure Automanage maszyny wirtualne w zestawie skalowania maszyn wirtualnych?**
 
-Konto automanage to plik MSI (tożsamość usługi zarządzanej), który zapewnia kontekst zabezpieczeń lub tożsamość, w ramach której występują operacje zautomatyzowane.
+Nie, Azure Automanage nie obsługuje obecnie maszyn wirtualnych w zestawie skalowania maszyn wirtualnych.
 
 
-**Czy włączenie autozarządzania ma wpływ na wszystkie dodatkowe maszyny wirtualne oprócz wybranych maszyn wirtualnych?**
+**Ile kosztuje Azure Automanage?**
 
-Jeśli maszyna wirtualna jest połączona z istniejącym obszarem roboczym Log Analytics, użyjemy tego obszaru roboczego do zastosowania następujących rozwiązań: Change Tracking, spisu i Update Management. Dla wszystkich maszyn wirtualnych połączonych z tym obszarem roboczym będą dostępne te rozwiązania.
+Azure Automanage jest dostępna bez dodatkowych kosztów w publicznej wersji zapoznawczej. Dołączone zasoby platformy Azure, takie Azure Backup, będą wiązać się z kosztami.
+
+
+**Czy mogę zastosować funkcję Automatycznego zarządzania za pomocą usługi Azure Policy?**
+
+Tak, mamy wbudowane zasady, które automatycznie zastosują funkcję Automanage do wszystkich maszyn wirtualnych w zdefiniowanym zakresie. Określisz również konfigurację środowiska (DevTest lub Production) wraz z kontem automatycznego zarządzania. Dowiedz się więcej o włączaniu automatycznego zarządzania za pomocą zasad platformy Azure [tutaj.](virtual-machines-policy-enable.md)
+
+
+**Co to jest konto automatycznegomanage?**
+
+Konto automatycznego zarządzania to tożsamość usługi zarządzanej (MSI, Managed Service Identity), która zapewnia kontekst zabezpieczeń lub tożsamość, w ramach której są wykonywane zautomatyzowane operacje.
+
+
+**Czy włączenie funkcji Automanage ma wpływ na dodatkowe maszyny wirtualne oprócz wybranych przeze mnie maszyn wirtualnych?**
+
+Jeśli maszyna wirtualna jest połączona z istniejącym obszarem roboczym usługi Log Analytics, ponownie użyjemy tego obszaru roboczego do zastosowania tych rozwiązań: Change Tracking, Spis i Update Management. Wszystkie maszyny wirtualne połączone z tym obszarem roboczym będą mieć włączone te rozwiązania.
 
 
 **Czy mogę zmienić środowisko mojej maszyny wirtualnej?**
 
-W tej chwili należy wyłączyć Autozarządzanie dla tej maszyny wirtualnej, a następnie ponownie włączyć funkcję Autozarządzanie przy użyciu wymaganego środowiska i preferencji.
+W tej chwili należy wyłączyć funkcję Automatycznemanage dla tej maszyny wirtualnej, a następnie ponownie włączyć funkcję Automanage z żądanym środowiskiem i preferencjami.
 
 
-**Jeśli moja maszyna wirtualna została już skonfigurowana dla usługi, na przykład Update Management, program automatycznie ponownie skonfiguruje ją.**
-Nie, Autozarządzanie nie spowoduje jego ponownego skonfigurowania. Rozpocznie się monitorowanie zasobów skojarzonych z tą usługą na potrzeby dryfowania.
+**Jeśli moja maszyna wirtualna jest już skonfigurowana dla usługi, na przykład Update Management, czy funkcja automatycznego konfigurowania skonfiguruje ją ponownie?**
+Nie, automatyczne konfigurowanie nie spowoduje jego ponownego skonfigurowania. Rozpoczniemy monitorowanie zasobów skojarzonych z tą usługą pod względu na dryf.
 
 
-**Dlaczego moja maszyna wirtualna ma stan niepowodzenia w portalu autozarządzania?**
+**Dlaczego moja maszyna wirtualna ma stan Niepowodzenie w portalu automatycznej ochrony?**
 
-Jeśli zobaczysz stan jako *Niepowodzenie*, możesz rozwiązać problemy ze wdrożeniem za pomocą grupy zasobów, w której znajduje się maszyna wirtualna. Przejdź do pozycji **grupy zasobów**, wybierz grupę zasobów, kliknij pozycję **wdrożenia** , a następnie  Zobacz szczegóły błędu.
+Jeśli stan to *Niepowodzenie,* możesz rozwiązać problemy z wdrożeniem na kilka różnych sposobów:
+* Przejdź do **grupy zasobów,** wybierz grupę zasobów,  kliknij pozycję **Wdrożenia** i zobacz tam stan Niepowodzenie wraz ze szczegółami błędu.
+* Przejdź do **subskrypcji,** wybierz grupę zasobów, kliknij  pozycję **Wdrożenia** i zobacz tam stan Niepowodzenie wraz ze szczegółami błędu.
+* Możesz również odwiedzić dziennik aktywności maszyny wirtualnej, który będzie zawierać wpis "Tworzenie lub aktualizowanie przypisań profilów konfiguracji". Może to również zawierać więcej szczegółów dotyczących wdrożenia.
 
-**Jak mogę uzyskać pomoc techniczną dotyczącą rozwiązywania problemów z autozarządzaniem?**
+**Jak uzyskać pomoc techniczną w zakresie rozwiązywania problemów z automatycznymmanage?**
 
-Możesz zaplikować [bilet przypadku pomocy](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)technicznej. Dla opcji **Usługa** Wyszukaj i wybierz pozycję *Autozarządzanie* w sekcji *monitorowanie i zarządzanie* .
+Możesz utworzyć bilet [zgłoszenia do pomocy technicznej](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). W polu **Usługa** wyszukaj i wybierz pozycję *Automatyczne zarządzanie* w sekcji *Monitorowanie i* zarządzanie.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Spróbuj włączyć Autozarządzanie dla maszyn wirtualnych w Azure Portal.
+Spróbuj w celu włączenia funkcji Automanage dla maszyn wirtualnych w Azure Portal.
 
 > [!div class="nextstepaction"]
-> [Włącz Autozarządzanie maszynami wirtualnymi w Azure Portal](quick-create-virtual-machines-portal.md)
+> [Włącz automatycznemanage dla maszyn wirtualnych w Azure Portal](quick-create-virtual-machines-portal.md)

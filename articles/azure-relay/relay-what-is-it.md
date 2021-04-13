@@ -3,12 +3,12 @@ title: Co to jest usługa Azure Relay? | Microsoft Docs
 description: Ten artykuł zapewnia omówienie usługi Azure Relay, która umożliwia opracowywanie aplikacji w chmurze używających usług lokalnych uruchomionych w sieci firmowej, bez otwierania połączenia przez zaporę ani wprowadzania niepożądanych zmian w infrastrukturze sieci.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: fbf1b2134a4c2dce7a3e6a62668d0852dc08c18a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3b222942394b8a83e6f5d4447aa9ccfb33cdec21
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97955386"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107314205"
 ---
 # <a name="what-is-azure-relay"></a>Co to jest usługa Azure Relay?
 Usługa Azure Relay umożliwia bezpieczne uwidacznianie usług uruchomionych w sieci firmowej do chmury publicznej. Możesz to zrobić bez otwierania portu na zaporze lub wprowadzania niepożądanych zmian w firmowej infrastrukturze sieci. 
@@ -80,5 +80,5 @@ Na poniższym diagramie przedstawiono sposób obsługiwania przychodzących żą
 * [Wprowadzenie do żądań HTTP platformy .NET](relay-hybrid-connections-http-requests-dotnet-get-started.md)
 * [Wprowadzenie do obiektów WebSocket środowiska Node](relay-hybrid-connections-node-get-started.md)
 * [Wprowadzenie do żądań HTTP środowiska Node](relay-hybrid-connections-http-requests-node-get-started.md)
-* [Często zadawane pytania dotyczące usługi Relay](relay-faq.md)
+* [Często zadawane pytania dotyczące usługi Relay](relay-faq.yml)
 

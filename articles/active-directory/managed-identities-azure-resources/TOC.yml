@@ -94,8 +94,6 @@
           href: how-to-use-vm-sign-in.md
         - name: Używanie z zestawami SDK platformy Azure
           href: how-to-use-vm-sdk.md
-        - name: Kończenie korzystania z rozszerzenia maszyny wirtualnej i rozpoczynanie korzystania z usługi Azure IMDS
-          href: howto-migrate-vm-extension.md
     - name: Przypisywanie dostępu tożsamości zarządzanej do innego zasobu platformy Azure
       items:
         - name: Portal

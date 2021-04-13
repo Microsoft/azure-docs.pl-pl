@@ -1,6 +1,6 @@
 ---
-title: 'Szybki Start: wprowadzenie — Tworzenie obszaru roboczego Synapse'
-description: W tym samouczku dowiesz się, jak utworzyć obszar roboczy Synapse, dedykowaną pulę SQL i bezserwerową pulę Apache Spark.
+title: 'Szybki start: wprowadzenie — tworzenie obszaru roboczego synapse'
+description: Z tego samouczka dowiesz się, jak utworzyć obszar roboczy usługi Synapse, dedykowaną pulę SQL i bez serwera Apache Spark pulę.
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -10,72 +10,72 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: f186acbe030dcbb0c2bad22586a8b2a5d1aa520d
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: b22954edf4f3a5a935c470326aa43bd24ee2d708
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259799"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366066"
 ---
-# <a name="creating-a-synapse-workspace"></a>Tworzenie obszaru roboczego Synapse
+# <a name="creating-a-synapse-workspace"></a>Tworzenie obszaru roboczego synapse
 
-W tym samouczku dowiesz się, jak utworzyć obszar roboczy Synapse, dedykowaną pulę SQL i bezserwerową pulę Apache Spark. 
+W tym samouczku dowiesz się, jak utworzyć obszar roboczy usługi Synapse, dedykowaną pulę SQL i bez serwera Apache Spark pulę. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać kroki tego samouczka, musisz mieć dostęp do grupy zasobów, do której przypisano rolę **właściciela** . Utwórz obszar roboczy Synapse w tej grupie zasobów.
+Aby wykonać kroki opisane w tym samouczku, musisz mieć dostęp do grupy zasobów, do której masz przypisaną **rolę** Właściciel. Utwórz obszar roboczy synapse w tej grupie zasobów.
 
-## <a name="create-a-synapse-workspace-in-the-azure-portal"></a>Utwórz obszar roboczy Synapse w Azure Portal
+## <a name="create-a-synapse-workspace-in-the-azure-portal"></a>Tworzenie obszaru roboczego synapse w Azure Portal
 
-### <a name="start-the-process"></a>Rozpocznij proces
-1. Otwórz [Azure Portal](https://portal.azure.com), na pasku wyszukiwania wprowadź **Synapse** bez naciśnięcia klawisza ENTER.
-1. W wynikach wyszukiwania w obszarze **usługi** wybierz pozycję **Azure Synapse Analytics**.
-1. Wybierz pozycję **Dodaj** , aby utworzyć obszar roboczy.
+### <a name="start-the-process"></a>Uruchamianie procesu
+1. Otwórz adres [Azure Portal](https://portal.azure.com), na pasku wyszukiwania wprowadź **synapse** bez konieczności wprowadzania klawisza Enter.
+1. W wynikach wyszukiwania w obszarze **Usługi** wybierz pozycję **Azure Synapse Analytics**.
+1. Wybierz **pozycję Dodaj,** aby utworzyć obszar roboczy.
 
-## <a name="basics-tab--project-details"></a>Karta podstawy > szczegóły projektu
+## <a name="basics-tab--project-details"></a>Karta Podstawowe > Szczegóły projektu
 Wypełnij następujące pola:
 
 1. **Subskrypcja** — wybierz dowolną subskrypcję.
-1. **Grupa zasobów** — Użyj dowolnej grupy zasobów.
-1. **Zarządzana Grupa zasobów** — pozostaw to pole puste.
+1. **Grupa zasobów** — użyj dowolnej grupy zasobów.
+1. **Zarządzana grupa zasobów** — pozostaw to pole puste.
 
-## <a name="basics-tab--workspace-details"></a>Karta podstawy > szczegóły obszaru roboczego
+## <a name="basics-tab--workspace-details"></a>Karta Podstawowe informacje > szczegóły obszaru roboczego
 Wypełnij następujące pola:
 
-1. **Nazwa obszaru roboczego** — wybierz dowolną globalnie unikatową nazwę. W tym samouczku użyjemy **obszaru roboczego**.
+1. **Nazwa obszaru roboczego** — wybierz dowolną globalnie unikatową nazwę. W tym samouczku użyjemy przestrzeni **myworkspace.**
 1. **Region** — wybierz dowolny region.
 
-W obszarze **wybierz Data Lake Storage Gen 2**:
+W **obszarze Wybierz Data Lake Storage Gen 2:**
 
-1. Według **nazwy konta**, kliknij przycisk **Utwórz nowe** i Nazwij nowe konto magazynu **contosolake** lub podobną, ponieważ ta nazwa musi być unikatowa.
-1. Według **nazwy systemu plików**, kliknij przycisk **Utwórz nowe** i nadaj nazwę **użytkownikom** IT. Spowoduje to utworzenie kontenera magazynu o nazwie **Użytkownicy**. Obszar roboczy będzie używał tego konta magazynu jako konta magazynu "podstawowe" do tabel platformy Spark i dzienników aplikacji platformy Spark.
-1. Zaznacz pole wyboru "Przypisz samodzielnie rolę współautor danych obiektów blob magazynu" na koncie Data Lake Storage Gen2. 
+1. Według **nazwy konta** wybierz pozycję **Utwórz** nowe i nadaj nowemu kontu magazynu **nazwę contosolake** lub podobną, ponieważ nazwa musi być unikatowa.
+1. Według **nazwy systemu plików** wybierz pozycję Utwórz **nowy** i nadaj jej **nazwę użytkownikom**. Spowoduje to utworzenie kontenera magazynu o nazwie **users**. Obszar roboczy będzie używać tego konta magazynu jako "podstawowego" konta magazynu w tabelach platformy Spark i dziennikach aplikacji platformy Spark.
+1. Zaznacz pole "Przypisz sobie rolę współautora danych obiektu blob usługi Storage na Data Lake Storage Gen2 magazynu". 
 
-## <a name="completing-the-process"></a>Ukończenie procesu
-Wybierz pozycję **Przeglądanie + tworzenie** > **Utwórz**. Obszar roboczy jest gotowy w ciągu kilku minut.
+## <a name="completing-the-process"></a>Kończenie procesu
+Wybierz pozycję **Przeglądanie + tworzenie** > **Utwórz**. Obszar roboczy będzie gotowy w ciągu kilku minut.
 
 > [!NOTE]
-> Aby włączyć funkcje obszaru roboczego z istniejącej dedykowanej puli SQL (dawniej SQL DW), zapoznaj się z [tematem Włączanie obszaru roboczego dla dedykowanej puli SQL (dawniej SQL DW)](./sql-data-warehouse/workspace-connected-create.md).
+> Aby włączyć funkcje obszaru roboczego z istniejącej dedykowanej puli SQL (dawniej SQL DW), zobacz Jak włączyć obszar roboczy dla dedykowanej puli [SQL (dawniej SQL DW).](./sql-data-warehouse/workspace-connected-create.md)
 
 
 ## <a name="open-synapse-studio"></a>Otwórz Synapse Studio
 
-Po utworzeniu obszaru roboczego usługi Azure Synapse dostępne są dwa sposoby otwierania programu Synapse Studio:
+Po utworzeniu Azure Synapse obszar roboczy można otworzyć dwa Synapse Studio sposoby:
 
-* Otwórz obszar roboczy Synapse w [Azure Portal](https://portal.azure.com)w sekcji **Omówienie** obszaru roboczego Synapse wybierz pozycję **Otwórz** w polu Otwórz Synapse Studio.
-* Przejdź do `https://web.azuresynapse.net` obszaru roboczego i zaloguj się do niego.
+* Otwórz obszar roboczy synapse w Azure Portal [,](https://portal.azure.com)w sekcji Przegląd obszaru  roboczego synapse wybierz pozycję Otwórz w Synapse Studio aplikacji. 
+* Przejdź do witryny `https://web.azuresynapse.net` i zaloguj się do obszaru roboczego.
 
 ## <a name="place-sample-data-into-the-primary-storage-account"></a>Umieść przykładowe dane na podstawowym koncie magazynu
-Zamierzamy użyć małego zestawu danych przykładowego wiersza 100 000 z danymi z kabiny NYX, aby zapoznać się z wieloma przykładami w tym przewodniku wprowadzającym. Zaczynamy od umieszczenia jej w podstawowym koncie magazynu utworzonym dla obszaru roboczego.
+W tym przewodniku z wprowadzeniem użyjemy przykładowego zestawu danych dotyczących taksówek NYX o rozmiarze 100 tys. Zaczynamy od umieszczenia go na podstawowym koncie magazynu utworzonym dla obszaru roboczego.
 
 * Pobierz ten plik na komputer: https://azuresynapsestorage.blob.core.windows.net/sampledata/NYCTaxiSmall/NYCTripSmall.parquet 
-* W Synapse Studiio przejdź do centrum danych. 
-* Kliknij pozycję **połączone**.
-* W kategorii **Azure Data Lake Storae Gen2** zobaczysz element z nazwą, taką jak mój **obszar roboczy (Primary-contosolake)**
-* Kliknij kontener o nazwie **Users (podstawowa)**
-* Kliknij przycisk **Przekaż** i wybierz `NYCTripSmall.parquet` pobrany plik
+* W Synapse Studio przejdź do centrum danych. 
+* Wybierz pozycję **Połączone.**
+* W kategorii **Azure Data Lake Storae Gen2** zostanie wyświetlony element o nazwie, na przykład **myworkspace (Podstawowa — contosolake).**
+* Wybierz kontener o nazwie **users (Primary) (Użytkownicy podstawowi).**
+* Wybierz **pozycję** Przekaż i `NYCTripSmall.parquet` wybierz pobrany plik.
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Analizowanie przy użyciu bezserwerowej puli SQL](get-started-analyze-sql-on-demand.md)
+> [Analizowanie przy użyciu bez serwera puli SQL](get-started-analyze-sql-on-demand.md)

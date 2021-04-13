@@ -1,6 +1,6 @@
 ---
-title: 'Szybki Start: Rozpoczynanie analizy przy użyciu platformy Spark'
-description: W ramach tego samouczka nauczysz się analizować dane przy użyciu Apache Spark.
+title: 'Szybki start: rozpoczynanie analizowania za pomocą platformy Spark'
+description: W tym samouczku nauczysz się analizować dane za pomocą Apache Spark.
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -10,52 +10,52 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 03/24/2021
-ms.openlocfilehash: 2b85fe21fee34a9bedab33f0d10756bbfe8dc88b
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: de48f906f4dc86bf6297cfb3b76f406df49feec3
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305212"
+ms.locfileid: "107363856"
 ---
 # <a name="analyze-with-apache-spark"></a>Analizowanie za pomocą Apache Spark
 
-W tym samouczku przedstawiono podstawowe kroki służące do ładowania i analizowania danych za pomocą Apache Spark dla usługi Azure Synapse.
+W tym samouczku poznasz podstawowe kroki ładowania i analizowania danych za pomocą Apache Spark na Azure Synapse.
 
-## <a name="create-a-serverless-apache-spark-pool"></a>Utwórz bezserwerową pulę Apache Spark
+## <a name="create-a-serverless-apache-spark-pool"></a>Tworzenie puli Apache Spark serwera
 
-1. W programie Synapse Studio w okienku po lewej stronie wybierz pozycję **Zarządzaj**  >  **pulami Apache Spark**.
-1. Wybierz pozycję **Nowy** 
-1. W obszarze **Nazwa puli Apache Spark** wprowadź **Spark1**.
-1. Dla **rozmiaru węzła** wprowadź **małe**.
-1. Dla **liczby węzłów** ustaw wartość minimalną na 3 i wartość maksymalną na 3.
-1. Wybierz pozycję **Przeglądanie + tworzenie** > **Utwórz**. Pula Apache Spark będzie gotowa w ciągu kilku sekund.
+1. W Synapse Studio okienku po lewej stronie wybierz pozycję **Zarządzaj** Apache Spark  >  **pulami.**
+1. Wybierz **pozycję Nowy** 
+1. W **Apache Spark nazwy puli wprowadź** **Spark1**.
+1. W **przypadku rozmiaru węzła** wprowadź wartość Small **(Mały).**
+1. Dla **ustawienia Liczba węzłów** ustaw wartość minimalną na 3, a maksymalną na 3
+1. Wybierz pozycję **Przeglądanie + tworzenie** > **Utwórz**. Twoja Apache Spark będzie gotowa w ciągu kilku sekund.
 
-## <a name="understanding-serverless-apache-spark-pools"></a>Informacje o pulach Apache Spark bezserwerowych
+## <a name="understanding-serverless-apache-spark-pools"></a>Informacje o pulach Apache Spark bez serwera
 
-Bezserwerowa Pula platformy Spark jest sposobem wskazywania, w jaki sposób użytkownik chce współpracować z platformą Spark. Po rozpoczęciu korzystania z puli w razie konieczności tworzona jest sesja Spark. Pula kontroluje, ile zasobów platformy Spark będzie używanych przez daną sesję oraz czas, po upływie którego sesja zostanie automatycznie wstrzymana. Płacisz za zasoby platformy Spark używane podczas tej sesji, a nie dla samej puli. W ten sposób pula platformy Spark umożliwia współpracę z platformą Spark, bez konieczności zarządzania klastrami. Jest to podobne do tego, jak działa Pula SQL bezserwerowa.
+Bez serwerowa pula platformy Spark to sposób wskazywania, jak użytkownik chce pracować z platformą Spark. Po rozpoczęciu korzystania z puli w razie potrzeby tworzona jest sesja platformy Spark. Pula kontroluje, ile zasobów platformy Spark będzie używanych przez sesję oraz jak długo sesja będzie trwała, zanim zostanie automatycznie wstrzymana. Płacisz za zasoby platformy Spark używane podczas tej sesji, a nie za samą pulę. Dzięki temu pula platformy Spark umożliwia pracę z platformą Spark bez konieczności martwienia się o zarządzanie klastrami. Jest to podobne do tego, jak działa bez serwera pula SQL.
 
-## <a name="analyze-nyc-taxi-data-with-a-spark-pool"></a>Analizowanie danych z NYC taksówki przy użyciu puli Spark
+## <a name="analyze-nyc-taxi-data-with-a-spark-pool"></a>Analizowanie danych dotyczących taksówek w NYC przy użyciu puli Spark
 
-1. W programie Synapse Studio przejdź do centrum **opracowywania**
+1. W Synapse Studio przejdź do centrum **Opracowywanie**
 2. Tworzenie nowego notesu
-3. Utwórz nową komórkę kodu i wklej poniższy kod do tej komórki.
+3. Utwórz nową komórkę kodu i wklej następujący kod do tej komórki.
     ```py
     %%pyspark
     df = spark.read.load('abfss://users@contosolake.dfs.core.windows.net/NYCTripSmall.parquet', format='parquet')
     display(df.limit(10))
     ```
-1. W notesie w menu **Dołącz do** wybierz **Spark1** pulę platformy Spark bezserwerową utworzoną wcześniej.
-1. Wybierz pozycję **Uruchom** w komórce. Synapse rozpocznie nową sesję platformy Spark, aby uruchomić tę komórkę w razie potrzeby. Jeśli jest wymagana Nowa sesja platformy Spark, początkowo trwa około dwóch sekund. 
-1. Jeśli chcesz tylko zobaczyć schemat ramki danych, uruchom komórkę o następującym kodzie:
+1. W notesie w menu **Dołącz do** wybierz utworzoną wcześniej bez serwera pulę **Spark1.**
+1. Wybierz **pozycję Uruchom** w komórce. W razie potrzeby synapse rozpocznie nową sesję platformy Spark, aby uruchomić tę komórkę. Jeśli jest potrzebna nowa sesja platformy Spark, początkowo jego utworzenia potrwa około dwóch sekund. 
+1. Jeśli chcesz tylko zobaczyć schemat ramki danych, uruchom komórkę z następującym kodem:
 
     ```py
     %%pyspark
     df.printSchema()
     ```
 
-## <a name="load-the-nyc-taxi-data-into-the-spark-nyctaxi-database"></a>Ładowanie danych z NYC taksówki do bazy danych Spark nyctaxi
+## <a name="load-the-nyc-taxi-data-into-the-spark-nyctaxi-database"></a>Ładowanie danych dotyczących taksówek w NYC do bazy danych Spark nyctaxi
 
-Dane są dostępne za pośrednictwem ramki Dataframe o nazwie **DF**. Załaduj je do bazy danych Spark o nazwie **nyctaxi**.
+Dane są dostępne za pośrednictwem ramki danych o **nazwie df**. Załaduj go do bazy danych Spark o **nazwie nyctaxi**.
 
 1. Dodaj nową komórkę kodu do notesu, a następnie wprowadź następujący kod:
 
@@ -64,7 +64,7 @@ Dane są dostępne za pośrednictwem ramki Dataframe o nazwie **DF**. Załaduj j
     spark.sql("CREATE DATABASE IF NOT EXISTS nyctaxi")
     df.write.mode("overwrite").saveAsTable("nyctaxi.trip")
     ```
-## <a name="analyze-the-nyc-taxi-data-using-spark-and-notebooks"></a>Analizowanie danych z NYC taksówki przy użyciu platformy Spark i notesów
+## <a name="analyze-the-nyc-taxi-data-using-spark-and-notebooks"></a>Analizowanie danych dotyczących taksówek w NYC przy użyciu platformy Spark i notesów
 
 1. Utwórz nową komórkę kodu i wprowadź następujący kod. 
 
@@ -74,17 +74,17 @@ Dane są dostępne za pośrednictwem ramki Dataframe o nazwie **DF**. Załaduj j
    display(df)
    ```
 
-1. Uruchom komórkę, aby wyświetlić dane z NYC taksówki, które zostały załadowane do bazy danych **nyctaxi** Spark.
-1. Utwórz nową komórkę kodu i wprowadź następujący kod. Będziemy analizować te dane i zapisywać wyniki w tabeli o nazwie **nyctaxi. passengercountstats**.
+1. Uruchom komórkę, aby wyświetlić dane dotyczące taksówek w Stanie Jorku załadowane do bazy danych **nyctaxi** Spark.
+1. Utwórz nową komórkę kodu i wprowadź następujący kod. Przejrzymy te dane i zapiszemy wyniki w tabeli o nazwie **nyctaxi.passengercountstats**.
 
    ```py
    %%pyspark
    df = spark.sql("""
       SELECT PassengerCount,
-          SUM(TripDistance) as SumTripDistance,
-          AVG(TripDistance) as AvgTripDistance
+          SUM(TripDistanceMiles) as SumTripDistance,
+          AVG(TripDistanceMiles) as AvgTripDistance
       FROM nyctaxi.trip
-      WHERE TripDistance > 0 AND PassengerCount > 0
+      WHERE TripDistanceMiles > 0 AND PassengerCount > 0
       GROUP BY PassengerCount
       ORDER BY PassengerCount
    """) 
@@ -92,7 +92,7 @@ Dane są dostępne za pośrednictwem ramki Dataframe o nazwie **DF**. Załaduj j
    df.write.saveAsTable("nyctaxi.passengercountstats")
    ```
 
-1. W obszarze wyniki komórki wybierz pozycję **Wykres** , aby wyświetlić wizualizację danych.
+1. W wynikach komórki wybierz **pozycję Wykres,** aby wyświetlić wizualizowane dane.
 
 
 ## <a name="next-steps"></a>Następne kroki

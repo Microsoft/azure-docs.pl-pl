@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a93ce1c4274f63a863880e932b247726639e5cd9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a3bc9378539e6a7f98e34d0a149848d0e892c224
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98614604"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306096"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Samouczek: Integrowanie pojedynczego lasu z jedną dzierżawą usługi Azure AD
 
@@ -51,7 +51,7 @@ Możesz użyć środowiska utworzonego w tym samouczku w celu testowania lub dok
    - Aby sprawdzić poprawność certyfikatu, Odblokuj następujące adresy URL: **mscrl.Microsoft.com:80**, **CRL.Microsoft.com:80**, **OCSP.msocsp.com:80** i **www \. Microsoft.com:80**. Ponieważ te adresy URL są używane do sprawdzania poprawności certyfikatu z innymi produktami firmy Microsoft, te adresy URL mogą już być odblokowane.
 
 ## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Zainstaluj agenta aprowizacji Azure AD Connect
-1. Zaloguj się na serwerze przyłączonym do domeny.  Jeśli używasz podstawowego samouczka  [usługi AD i środowiska Azure](tutorial-basic-ad-azure.md) , będzie to DC1.
+1. Zaloguj się na serwerze przyłączonym do domeny.  Jeśli używasz podstawowego samouczka  [środowiska D i platformy Azure](tutorial-basic-ad-azure.md) , może to być DC1.
 2. Zaloguj się do Azure Portal przy użyciu poświadczeń administratora globalnego tylko w chmurze.
 3. Po lewej stronie wybierz pozycję **Azure Active Directory**, kliknij pozycję **Azure AD Connect**, a następnie w centrum wybierz pozycję **Zarządzaj synchronizacją chmury**.
 
@@ -88,7 +88,7 @@ Aby sprawdzić, czy Agent jest widziany przez platformę Azure, wykonaj następu
 ![Azure Portal](media/how-to-install/install-6.png)</br>
 
 3.  Na ekranie **Azure AD Connect Cloud Sync** kliknij kolejno pozycje **Przejrzyj Wszyscy agenci**.
-![Inicjowanie obsługi usługi Azure AD](media/how-to-install/install-7.png)</br>
+![Inicjowanie obsługi platformy Azure A D](media/how-to-install/install-7.png)</br>
  
 4. Na **ekranie agenci aprowizacji lokalnego** zostaną zainstalowani agenci.  Sprawdź, czy dany Agent jest tam i jest oznaczony jako **aktywny**.
 ![Agenci aprowizacji](media/how-to-install/verify-1.png)</br>
@@ -110,28 +110,28 @@ Aby sprawdzić, czy agent działa, wykonaj następujące kroki:
 4.  Wybierz pozycję **Zarządzaj** 
  ![ zrzutem ekranu synchronizacji chmury, pokazując link "Zarządzaj synchronizacją w chmurze".](media/how-to-configure/manage-1.png)
 5.  Kliknij pozycję **Nowy** 
- ![ zrzut ekranu konfiguracji ekranu Azure AD Connect synchronizacji w chmurze z wyróżnionym linkiem "Nowa konfiguracja".](media/tutorial-single-forest/configure-1.png)
+ ![ zrzut ekranu usługi Azure A D Połącz ekran synchronizacji chmury z wyróżnionym linkiem "Nowa konfiguracja".](media/tutorial-single-forest/configure-1.png)
 7.  Na ekranie Konfiguracja wprowadź **wiadomość e-mail z powiadomieniem**, Przenieś selektor, aby go **włączyć** , a następnie kliknij przycisk **Zapisz**.
 ![Zrzut ekranu przedstawiający ekran Konfigurowanie i wypełnianie wiadomości e-mail z powiadomieniem.](media/how-to-configure/configure-2.png)
 1.  Stan konfiguracji powinien być teraz w **dobrej kondycji**.
-![Zrzut ekranu przedstawiający ekran Azure AD Connect synchronizacji w chmurze, w którym jest wyświetlany stan kondycji.](media/how-to-configure/manage-4.png)
+![Zrzut ekranu przedstawiający ekran synchronizacji chmurowej z usługą Azure A D](media/how-to-configure/manage-4.png)
 
 ## <a name="verify-users-are-created-and-synchronization-is-occurring"></a>Weryfikowanie utworzenia użytkowników i przeprowadzania synchronizacji
-Teraz sprawdź, czy użytkownicy, którzy mieli dostęp do naszego katalogu lokalnego, zostali zsynchronizowani i teraz istnieją w naszej dzierżawie usługi Azure AD.  Ukończenie tego procesu może potrwać kilka godzin.  Aby potwierdzić, że użytkownicy zostali zsynchronizowani, wykonaj następujące czynności.
+Teraz sprawdź, czy użytkownicy, którzy znajdują się w katalogu lokalnym, zostali zsynchronizowani i teraz istnieją w dzierżawie usługi Azure AD.  Ukończenie tego procesu może potrwać kilka godzin.  Aby potwierdzić, że użytkownicy zostali zsynchronizowani, wykonaj następujące czynności.
 
 
 1. Przejdź do witryny [Azure Portal](https://portal.azure.com) i zaloguj się przy użyciu konta, które ma subskrypcję platformy Azure.
 2. W obszarze po lewej stronie wybierz pozycję **Azure Active Directory**.
 3. W obszarze **Zarządzanie** wybierz pozycję **Użytkownicy**.
-4. Zweryfikuj, czy nowi użytkownicy są widoczni w dzierżawie</br>
+4. Sprawdź, czy wszyscy użytkownicy w Twojej dzierżawie są wyświetlani</br>
 
-## <a name="test-signing-in-with-one-of-our-users"></a>Testowanie logowania się przy użyciu jednego z kont użytkowników
+## <a name="test-signing-in-with-one-of-your-users"></a>Testowanie logowania za pomocą jednego z użytkowników
 
 1. Przejdź do [https://myapps.microsoft.com](https://myapps.microsoft.com)
-2. Zaloguj się przy użyciu konta użytkownika utworzonego w nowej dzierżawie.  Należy zalogować się przy użyciu następującego formatu: (user@domain.onmicrosoft.com). Użyj tego samego hasła, za pomocą którego użytkownik loguje się lokalnie.</br>
+2. Zaloguj się przy użyciu konta użytkownika, które zostało utworzone w dzierżawie.  Należy zalogować się przy użyciu następującego formatu: (user@domain.onmicrosoft.com). Użyj tego samego hasła, za pomocą którego użytkownik loguje się lokalnie.</br>
    ![Weryfikacja](media/tutorial-single-forest/verify-1.png)</br>
 
-W ten sposób pomyślnie skonfigurowano środowisko tożsamości hybrydowej, które można wykorzystać do testowania lub do bliższego zapoznania się z możliwościami platformy Azure.
+Pomyślnie skonfigurowano hybrydowe środowisko tożsamości za pomocą Azure AD Connect synchronizacji w chmurze.
 
 
 ## <a name="next-steps"></a>Następne kroki 

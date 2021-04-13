@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: 81898875af85becf1766f02a5b7e077cb388a173
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: f83aa7368ec5ac06f2c5a5ebe121c7ce87f93bd1
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106450042"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304736"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory Zarządzanie aplikacjami: co nowego
 
@@ -40,7 +40,7 @@ Zapoznaj się z nowościami w dokumentacji dotyczącej zarządzania aplikacjami 
 - [Rozwiązywanie problemów dotyczących konfiguracji ograniczonego delegowania protokołu Kerberos dla serwera proxy aplikacji](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 - [Szybki Start: Konfigurowanie logowania jednokrotnego opartego na protokole SAML dla aplikacji w dzierżawie usługi Azure Active Directory (Azure AD)](add-application-portal-setup-sso.md)
 - [Azure Active Directory Zarządzanie aplikacjami: co nowego](whats-new-docs.md)
-- [Serwer proxy aplikacji usługi Active Directory (Azure AD) — często zadawane pytania](application-proxy-faq.md)
+- [Serwer proxy aplikacji usługi Active Directory (Azure AD) — często zadawane pytania](application-proxy-faq.yml)
 - [Rozwiązywanie problemów z logowaniem do aplikacji z usługi Azure AD moje aplikacje](application-sign-in-other-problem-access-panel.md)
 - [Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego przy użyciu serwera proxy aplikacji w Azure Active Directory](application-proxy-add-on-premises-application.md)
 - [Optymalizowanie przepływu ruchu za pomocą serwer proxy aplikacji usługi Azure Active Directory](application-proxy-network-topology.md)
@@ -75,7 +75,7 @@ Zapoznaj się z nowościami w dokumentacji dotyczącej zarządzania aplikacjami 
 - [Najlepsze rozwiązania dotyczące zarządzania aplikacjami](application-management-fundamentals.md)
 - [Przewodnik po rozpoczęciu integracji Azure Active Directory z aplikacjami](plan-an-application-integration.md)
 - [Co to jest zarządzanie aplikacjami?](what-is-application-management.md)
-- [Serwer proxy aplikacji usługi Active Directory (Azure AD) — często zadawane pytania](application-proxy-faq.md)
+- [Serwer proxy aplikacji usługi Active Directory (Azure AD) — często zadawane pytania](application-proxy-faq.yml)
 - [Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego przy użyciu serwera proxy aplikacji w Azure Active Directory](application-proxy-add-on-premises-application.md)
 - [Praca z istniejącymi lokalnymi serwerami proxy](application-proxy-configure-connectors-with-proxy-servers.md)
 - [Opracowywanie aplikacji biznesowych dla Azure Active Directory](../develop/v2-overview.md)

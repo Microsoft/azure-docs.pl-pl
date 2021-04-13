@@ -1,138 +1,142 @@
 ---
-title: Zasoby bez limitu liczby 800
+title: Zasoby bez limitu 800
 description: Wyświetla listę typów zasobów platformy Azure, które mogą mieć więcej niż 800 wystąpień w grupie zasobów.
 ms.topic: conceptual
-ms.date: 01/08/2021
-ms.openlocfilehash: 05f96597fb572005f7f32599b19d62ff2cb311cc
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.date: 04/12/2021
+ms.openlocfilehash: d132773ff35d53dc373c759326efc8179f4993d6
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210180"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366542"
 ---
-# <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Zasoby nieograniczone do 800 wystąpień na grupę zasobów
+# <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Zasoby nie są ograniczone do 800 wystąpień na grupę zasobów
 
-Domyślnie można wdrożyć do 800 wystąpień typu zasobu w każdej grupie zasobów. Niektóre typy zasobów są jednak wykluczone z limitu wystąpienia 800. W tym artykule wymieniono typy zasobów platformy Azure, które mogą mieć więcej niż 800 wystąpień w grupie zasobów. Wszystkie inne typy zasobów są ograniczone do 800 wystąpień.
+Domyślnie można wdrożyć maksymalnie 800 wystąpień typu zasobu w każdej grupie zasobów. Jednak niektóre typy zasobów są wykluczone z limitu 800 wystąpień. W tym artykule wymieniono typy zasobów platformy Azure, które mogą mieć więcej niż 800 wystąpień w grupie zasobów. Wszystkie inne typy zasobów są ograniczone do 800 wystąpień.
 
-W przypadku niektórych typów zasobów należy skontaktować się z pomocą techniczną, aby ograniczyć liczbę wystąpień 800. Te typy zasobów zostały wymienione w tym artykule.
+W przypadku niektórych typów zasobów należy skontaktować się z pomocą techniczną, aby usunąć limit 800 wystąpień. Te typy zasobów zostały odnotowane w tym artykule.
 
-## <a name="microsoftalertsmanagement"></a>Microsoft. AlertsManagement
 
+## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
+
+* resourceHealthAlertRules
 * smartDetectorAlertRules
- 
-## <a name="microsoftautomation"></a>Microsoft. Automation
+
+## <a name="microsoftautomation"></a>Microsoft.Automation
 
 * automationAccounts
 
-## <a name="microsoftazurestack"></a>Microsoft. AzureStack
+## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 
 * edgeSubscriptions
 * linkedSubscriptions
-* rejestracje
-* rejestracje/customerSubscriptions
+* Rejestracji
+* rejestracje/subskrypcji klientów
 * rejestracje/produkty
 
-## <a name="microsoftbotservice"></a>Microsoft. BotService
+## <a name="microsoftbotservice"></a>Microsoft.BotService
 
-* botServices — domyślnie ograniczone do 800 wystąpień. Ten limit można zwiększyć, kontaktując się z pomocą techniczną.
+* botServices — domyślnie ograniczona do 800 wystąpień. Ten limit można zwiększyć, kontaktując się z pomocą techniczną.
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
-* dysku
-* znajduj
-* Galerie/obrazy
-* Galerie/obrazy/wersje
+* Dysków
+* Galerie
+* galerie/obrazy
+* galerie/obrazy/wersje
 * images
 * Migawki
-* virtualMachineScaleSets — domyślnie ograniczone do 800 wystąpień. Ten limit można zwiększyć, kontaktując się z pomocą techniczną.
+* virtualMachineScaleSets — domyślnie ograniczona do 800 wystąpień. Ten limit można zwiększyć, kontaktując się z pomocą techniczną.
 * virtualMachines
 
-## <a name="microsoftcontainerinstance"></a>Microsoft. ContainerInstance
+## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 
 * containerGroups
 
-## <a name="microsoftcontainerregistry"></a>Microsoft. ContainerRegistry
+## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
 * rejestry/buildTasks
-* rejestry/buildTasks/listSourceRepositoryProperties
-* rejestry/buildTasks/kroki
-* rejestry/buildTasks/etapy/listBuildArguments
-* rejestry/eventGridFilters
+* registries/buildTasks/listSourceRepositoryProperties
+* rejestry/buildTasks/steps
+* registries/buildTasks/steps/listBuildArguments
+* registries/eventGridFilters
 * rejestry/replikacje
 * rejestry/zadania
-* rejestry/elementy webhook
+* rejestry/webhook
 
-## <a name="microsoftd365customerinsights"></a>Microsoft. D365CustomerInsights
+## <a name="microsoftd365customerinsights"></a>Microsoft.D365CustomerInsights
 
-* Liczba
+* Wystąpień
 
-## <a name="microsoftdbformariadb"></a>Microsoft. DBforMariaDB
+## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 
-* serwerem
+* Serwerów
 
-## <a name="microsoftdbformysql"></a>Microsoft. DBforMySQL
-
-* flexibleServers
-* serwerem
-
-## <a name="microsoftdbforpostgresql"></a>Microsoft. DBforPostgreSQL
+## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
 * flexibleServers
-* serverGroups
-* serwerem
+* Serwerów
+
+## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
+
+* flexibleServers
+* Servergroups
+* serverGroupsv2
+* Serwerów
 * serversv2
 
-## <a name="microsoftdevtestlab"></a>Microsoft. wspólny
+## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
-* Uruchamianie
+* Harmonogramy
 
-## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft. EnterpriseKnowledgeGraph
+## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 
 * services
 
-## <a name="microsofteventhub"></a>Microsoft. EventHub
+## <a name="microsofteventhub"></a>Microsoft.EventHub
 
-* oparty
-* przestrzeni
+* Klastrów
+* Obszary nazw
 
-## <a name="microsoftexperimentation"></a>Microsoft. eksperymentowanie
+## <a name="microsoftexperimentation"></a>Microsoft.Experimentation
 
 * experimentWorkspaces
 
-## <a name="microsoftguestconfiguration"></a>Microsoft. GuestConfiguration
+## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
 * autoManagedVmConfigurationProfiles
 * configurationProfileAssignments
 * guestConfigurationAssignments
-* programy
+* Oprogramowania
 * softwareUpdateProfile
 * softwareUpdates
 
-## <a name="microsofthybridcompute"></a>Microsoft. HybridCompute
+## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 
-* Maszyny — obsługuje do 5 000 wystąpień
-* rozszerzenia — obsługuje nieograniczoną liczbę wystąpień rozszerzenia maszyny wirtualnej
+* maszyny — obsługuje do 5000 wystąpień
+* maszyny/rozszerzenia — obsługuje nieograniczoną liczbę wystąpień rozszerzeń maszyn wirtualnych
 
-## <a name="microsoftinsights"></a>Microsoft. Insights
+## <a name="microsoftinsights"></a>microsoft.insights
 
 * metricalerts
 
-## <a name="microsoftlogic"></a>Microsoft. Logic
+## <a name="microsoftlogic"></a>Microsoft.Logic
 
 * integrationAccounts
-* przebieg
+* Przepływy pracy
 
-## <a name="microsoftmedia"></a>Microsoft. Media
+## <a name="microsoftmedia"></a>Microsoft.Media
 
-* MediaServices/liveEvents
+* mediaservices/liveEvents
 
-## <a name="microsoftnetapp"></a>Microsoft. NetApp
+## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
 * netAppAccounts
 * netAppAccounts/capacityPools
-* netAppAccounts/capacityPools/woluminy
-* netAppAccounts/capacityPools/woluminy/mountTargets
-* netAppAccounts/capacityPools/woluminy/migawki
+* netAppAccounts/capacityPools/volumes
+* netAppAccounts/capacityPools/volumes/mountTargets
+* netAppAccounts/capacityPools/volumes/snapshots
+* netAppAccounts/volumeGroups
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
@@ -140,7 +144,7 @@ W przypadku niektórych typów zasobów należy skontaktować się z pomocą tec
 * applicationSecurityGroups
 * bastionHosts
 * ddosProtectionPlans
-* dnszones
+* strefy dns
 * dnszones/A
 * dnszones/AAAA
 * dnszones/CAA
@@ -151,8 +155,8 @@ W przypadku niektórych typów zasobów należy skontaktować się z pomocą tec
 * dnszones/SOA
 * dnszones/SRV
 * dnszones/TXT
-* dnszones/wszystkie
-* dnszones/zestawy rekordów
+* dnszones/all
+* dnszones/recordsets
 * networkIntentPolicies
 * networkInterfaces
 * privateDnsZones
@@ -168,56 +172,57 @@ W przypadku niektórych typów zasobów należy skontaktować się z pomocą tec
 * privateDnsZones/virtualNetworkLinks
 * privateEndpoints
 * privateLinkServices
-* Adresów publicipaddress — domyślnie ograniczone do 800 wystąpień. Ten limit można zwiększyć, kontaktując się z pomocą techniczną.
+* publicIPAddresses — domyślnie ograniczona do 800 wystąpień. Ten limit można zwiększyć, kontaktując się z pomocą techniczną.
 * serviceEndpointPolicies
 * trafficmanagerprofiles
 * virtualNetworkTaps
 
-## <a name="microsoftportalsdk"></a>Microsoft. PortalSdk
+## <a name="microsoftportalsdk"></a>Microsoft.PortalSdk
 
 * rootResources
 
-## <a name="microsoftpowerbi"></a>Microsoft. PowerBI
+## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 
 * workspaceCollections — domyślnie ograniczone do 800 wystąpień. Ten limit można zwiększyć, kontaktując się z pomocą techniczną.
 
-## <a name="microsoftpowerbidedicated"></a>Microsoft. PowerBIDedicated
+## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
+* autoScaleVCores — domyślnie ograniczona do 800 wystąpień. Ten limit można zwiększyć, kontaktując się z pomocą techniczną.
 * pojemności — domyślnie ograniczone do 800 wystąpień. Ten limit można zwiększyć, kontaktując się z pomocą techniczną.
 
-## <a name="microsoftrelay"></a>Microsoft. Relay
+## <a name="microsoftrelay"></a>Microsoft.Relay
 
-* przestrzeni
+* Obszary nazw
 
-## <a name="microsoftscheduler"></a>Microsoft. Scheduler
+## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
 * jobcollections
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
-* przestrzeni
+* Obszary nazw
 
-## <a name="microsoftsingularity"></a>Microsoft. Singularity
+## <a name="microsoftsingularity"></a>Microsoft.Singularity
 
 * Konta
-* konta/accountQuotaPolicies
-* konta/groupPolicies
+* accounts/accountQuotaPolicies
+* accounts/groupPolicies
 * konta/zadania
-* konta/storageContainers
+* accounts/storageContainers
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
-* storageAccounts
+* konta magazynu
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
-* Serwery/bazy danych
+* serwery/bazy danych
 
-## <a name="microsoftweb"></a>Microsoft. Web
+## <a name="microsoftweb"></a>Microsoft.Web
 
-* apiManagementAccounts/interfejsy API
+* apiManagementAccounts/apis
 * lokacje
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać pełną listę przydziałów i limitów, zobacz [limity subskrypcji i usług platformy Azure, przydziały i ograniczenia](azure-subscription-service-limits.md).
+Aby uzyskać pełną listę limitów przydziału i limitów, zobacz [Azure subscription and service limits, quotas, and constraints](azure-subscription-service-limits.md)(Limity, przydziały i ograniczenia usługi i subskrypcji platformy Azure).

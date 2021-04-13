@@ -1,22 +1,22 @@
 ---
-title: Szybki Start — używanie języka Java do tworzenia bazy danych dokumentów przy użyciu Azure Cosmos DB
-description: Ten przewodnik Szybki Start przedstawia przykładowy kod Java, którego można użyć do nawiązania połączenia z interfejsem API SQL Azure Cosmos DB i wykonywania na nich zapytań
+title: Szybki start — tworzenie bazy danych dokumentów przy użyciu języka Java przy użyciu języka Azure Cosmos DB
+description: Ten przewodnik Szybki start przedstawia przykładowy kod Java, który umożliwia nawiązywanie połączeń z interfejsem API SQL i wykonywanie zapytań Azure Cosmos DB API SQL
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 09/22/2020
+ms.date: 03/07/2021
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 4b62b591c408f663fd28d5077af924f785ee66c8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e1f81ddba717dc2a9df02fda82ef74b52da8fd82
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93090413"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366049"
 ---
-# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>Szybki Start: Tworzenie aplikacji Java do zarządzania Azure Cosmos DB danych interfejsu API SQL
+# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>Szybki start: tworzenie aplikacji Java do zarządzania danymi interfejsu API SQL Azure Cosmos DB SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -24,34 +24,35 @@ ms.locfileid: "93090413"
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java SDK 4](create-sql-api-java.md)
 > * [Spring Data 3](create-sql-api-spring-data.md)
+> * [Łącznik platformy Spark w wersji 3](create-sql-api-spark.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-W tym przewodniku szybki start utworzysz konto Azure Cosmos DB interfejsu API SQL i zarządzasz nim z Azure Portal i używasz aplikacji Java sklonowanej z usługi GitHub. Najpierw utwórz konto Azure Cosmos DB interfejsu API SQL przy użyciu Azure Portal, a następnie Utwórz aplikację Java przy użyciu zestawu SQL Java SDK, a następnie Dodaj zasoby do konta Cosmos DB przy użyciu aplikacji Java. Azure Cosmos DB to wielomodelowa usługa bazy danych, która pozwala szybko tworzyć i wysyłać zapytania dotyczące dokumentów, tabel, kluczy i wartościowych baz danych przy użyciu dystrybucji globalnej i możliwości skalowania w poziomie.
+W tym przewodniku Szybki start utworzysz konto interfejsu API SQL Azure Cosmos DB i zarządzasz Azure Portal, a także za pomocą aplikacji Java sklonowanej z usługi GitHub. Najpierw należy utworzyć konto interfejsu API SQL usługi Azure Cosmos DB przy użyciu usługi Azure Portal, następnie utworzyć aplikację Java przy użyciu zestawu SDK języka Java języka SQL, a następnie dodać zasoby do konta Cosmos DB przy użyciu aplikacji Java. Azure Cosmos DB to wielo modelowa usługa bazy danych, która umożliwia szybkie tworzenie dokumentów, tabel, klucz-wartość i grafowych baz danych z możliwościami globalnej dystrybucji i skalowania w poziomie.
 
 > [!IMPORTANT]  
-> Ten przewodnik Szybki Start dotyczy tylko Azure Cosmos DB Java SDK v4. Aby uzyskać więcej informacji, zapoznaj się z informacjami o [wersji](sql-api-sdk-java-v4.md)Azure Cosmos DB Java SDK v4, [repozytorium Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos), Azure Cosmos DB przewodniku Azure Cosmos DB [dotyczącym](performance-tips-java-sdk-v4-sql.md) [rozwiązywania problemów](troubleshoot-java-sdk-v4-sql.md) z zestawem Java SDK 4. Jeśli obecnie używasz starszej wersji niż v4, zapoznaj się z przewodnikiem [Migrowanie do Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) , aby uzyskać pomoc w uaktualnianiu do wersji v4.
+> Ten przewodnik Szybki start jest Azure Cosmos DB zestawu Java SDK w wersji 4. Aby uzyskać więcej [informacji,](performance-tips-java-sdk-v4-sql.md)zobacz Azure Cosmos DB informacje o wersji zestawu Java SDK w wersji [4,](sql-api-sdk-java-v4.md)repozytorium [Maven,](https://mvnrepository.com/artifact/com.azure/azure-cosmos)porady dotyczące wydajności zestawu Azure Cosmos DB JAVA SDK w wersji 4 oraz przewodnik rozwiązywania problemów z zestawem AZURE COSMOS DB Java SDK w wersji [4.](troubleshoot-java-sdk-v4-sql.md) Jeśli obecnie używasz starszej wersji niż wersja 4, zobacz przewodnik Migrowanie do wersji 4 zestawu [Java SDK 4](migrate-java-v4-sdk.md) Azure Cosmos DB, aby uzyskać pomoc w uaktualnianiu do wersji 4.
 >
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Lub [Wypróbuj bezpłatnie Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure. Można również użyć [emulatora Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) z identyfikatorem URI `https://localhost:8081` i kluczem `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==` .
-- [Zestaw Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Wskaż `JAVA_HOME` zmienną środowiskową do folderu, w którym zainstalowano JDK.
-- [Archiwum binarne Maven](https://maven.apache.org/download.cgi). W systemie Ubuntu Uruchom polecenie, `apt-get install maven` Aby zainstalować Maven.
-- Usługi [git](https://www.git-scm.com/downloads). W systemie Ubuntu Uruchom polecenie, `sudo apt-get install git` Aby zainstalować usługę git.
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Możesz [też Azure Cosmos DB bezpłatnie bez](https://azure.microsoft.com/try/cosmosdb/) subskrypcji platformy Azure. Możesz również użyć emulatora [Azure Cosmos DB z](https://aka.ms/cosmosdb-emulator) URI `https://localhost:8081` i kluczem `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==` .
+- [Zestaw Java Development Kit (JDK) 8.](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk) W zmiennej `JAVA_HOME` środowiskowej wskaż folder, w którym zainstalowano plik JDK.
+- Archiwum [binarne maven.](https://maven.apache.org/download.cgi) W systemie Ubuntu uruchom program , `apt-get install maven` aby zainstalować program Maven.
+- [Git](https://www.git-scm.com/downloads). W systemie Ubuntu uruchom program , `sudo apt-get install git` aby zainstalować program Git.
 
 ## <a name="introductory-notes"></a>Uwagi wprowadzające
 
-*Struktura konta Cosmos DB.* Niezależnie od interfejsu API lub języka programowania, *konto* Cosmos DB zawiera zero lub więcej *baz danych*, *baza danych* (DB) zawiera zero lub więcej *kontenerów*, a *kontener* zawiera zero lub więcej elementów, jak pokazano na poniższym diagramie:
+*Struktura konta Cosmos DB konta.* Niezależnie od interfejsu API lub języka  programowania konto usługi Cosmos DB zawiera zero lub więcej baz *danych,* baza danych *(DB)* zawiera zero lub więcej kontenerów,  *a* kontener zawiera zero lub więcej elementów, jak pokazano na poniższym diagramie:
 
-:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Jednostki kont usługi Azure Cosmos" border="false":::
+:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Jednostki konta usługi Azure Cosmos" border="false":::
 
-Więcej informacji na temat baz danych, kontenerów i elementów można znaleźć [tutaj.](account-databases-containers-items.md) Niektóre ważne właściwości są definiowane na poziomie kontenera, między nimi *przepływność* i *klucz partycji*. 
+Więcej informacji na temat baz danych, kontenerów i elementów można uzyskać [tutaj.](account-databases-containers-items.md) Na poziomie kontenera zdefiniowano kilka ważnych właściwości, między innymi aprowizowanej *przepływności* i *klucza partycji.* 
 
-Zainicjowana przepływność jest mierzona w jednostkach żądania (*jednostek ru*), które mają cenę pieniężną i są istotnym czynnikiem w kosztu eksploatacyjnym konta. Zainicjowaną przepływność można wybrać w poziomie szczegółowości poszczególnych kontenerów lub stopnia szczegółowości poszczególnych baz danych, jednak Specyfikacja przepływności na poziomie kontenera jest zazwyczaj preferowana. Więcej informacji o aprowizacji przepływności można znaleźć [tutaj.](set-throughput.md)
+Aprowizowana przepływność jest mierzona w jednostkach żądania *(JEDNOSTKI* ŻĄDAŃ), które mają cenę pieniężną i są znaczącym czynnikiem określającym koszt operacyjny konta. Aprowizowana przepływność można wybrać z poziomem szczegółowości dla 1 kontenera lub z poziomem szczegółowości dla bazy danych, jednak zwykle preferowana jest specyfikacja przepływności na poziomie kontenera. Więcej informacji na temat aprowizowania przepływności można uzyskać [tutaj.](set-throughput.md)
 
-Gdy elementy są wstawiane do kontenera Cosmos DB, baza danych rozszerza się w poziomie, dodając więcej magazynu i obliczeń do obsługi żądań. Pojemność magazynu i mocy obliczeniowej są dodawane w odrębnych jednostkach nazywanych *partycjami*, a użytkownik musi wybrać jedno pole w dokumentach, aby być kluczem partycji, który mapuje każdy dokument na partycję. Zarządzanie takimi partycjami polega na tym, że każda partycja ma przypisany surowy wycink z zakresu wartości klucza partycji; w związku z tym zaleca się wybranie klucza partycji, który jest relatywnie losowy lub równomiernie dystrybuowany. W przeciwnym razie niektóre partycje będą widzieć znacznie więcej żądań (*gorąca partycja*), a inne partycje zobaczą znacznie mniejszą liczbę żądań (*zimna partycja*) i należy to uniknąć. Więcej informacji na temat partycjonowania można znaleźć [tutaj](partitioning-overview.md).
+Gdy elementy są wstawiane do kontenera Cosmos DB, baza danych zwiększa się w poziomie, dodając więcej magazynu i zasobów obliczeniowych do obsługi żądań. Pojemność magazynu i mocy obliczeniowej są dodawane w jednostkach dyskretnych nazywanych partycjami i należy wybrać jedno pole w dokumentach jako klucz partycji, który mapuje każdy dokument na partycję. Sposób zarządzania partycjami to przypisanie każdej partycji w przybliżeniu równego wycinka z zakresu wartości klucza partycji; Dlatego zaleca się wybranie klucza partycji, który jest względnie losowy lub równomiernie rozproszony. W przeciwnym razie w niektórych partycjachbędzie znacznie więcej żądań (gorąca partycja), podczas gdy w innych partycjach będzie znacznie mniej żądań *(partycja* zimna), a tego należy unikać. Więcej informacji na temat partycjonowania można uzyskać [tutaj.](partitioning-overview.md)
 
 ## <a name="create-a-database-account"></a>Tworzenie konta bazy danych
 
@@ -89,59 +90,59 @@ Ta czynność jest opcjonalna. Jeśli chcesz się dowiedzieć, jak zasoby bazy d
 
 # <a name="sync-api"></a>[Interfejs API synchronizacji](#tab/sync)
 
-### <a name="managing-database-resources-using-the-synchronous-sync-api"></a>Zarządzanie zasobami bazy danych za pomocą synchronicznego (synchronizacji) interfejsu API
+### <a name="managing-database-resources-using-the-synchronous-sync-api"></a>Zarządzanie zasobami bazy danych przy użyciu interfejsu API synchronicznego (synchronizacji)
 
-* Inicjowanie klienta `CosmosClient`. `CosmosClient`Zapewnia logiczną reprezentację po stronie klienta dla usługi Azure Cosmos Database. Ten klient jest używany do konfigurowania i wykonywania żądań dotyczących usługi.
+* Inicjowanie klienta `CosmosClient`. Zapewnia logiczną reprezentację usługi bazy danych Azure Cosmos po `CosmosClient` stronie klienta. Ten klient jest używany do konfigurowania i wykonywania żądań dotyczących usługi.
     
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateSyncClient)]
 
-* `CosmosDatabase` Tworzenie.
+* `CosmosDatabase` Tworzenia.
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateDatabaseIfNotExists)]
 
-* `CosmosContainer` Tworzenie.
+* `CosmosContainer` Tworzenia.
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateContainerIfNotExists)]
 
-* Tworzenie elementu przy użyciu `createItem` metody.
+* Tworzenie elementu przy użyciu `createItem` metody .
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateItem)]
    
-* Odczyty punktów są wykonywane przy użyciu `readItem` metody.
+* Odczyty punktu są wykonywane przy użyciu `readItem` metody .
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=ReadItem)]
 
-* Zapytania SQL w formacie JSON są wykonywane przy użyciu `queryItems` metody.
+* Zapytania SQL w języku JSON są wykonywane przy użyciu `queryItems` metody .
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=QueryItems)]
 
 # <a name="async-api"></a>[Asynchroniczny interfejs API](#tab/async)
 
-### <a name="managing-database-resources-using-the-asynchronous-async-api"></a>Zarządzanie zasobami bazy danych przy użyciu asynchronicznego (asynchronicznego) interfejsu API
+### <a name="managing-database-resources-using-the-asynchronous-async-api"></a>Zarządzanie zasobami bazy danych przy użyciu asynchronicznego interfejsu API
 
-* Asynchroniczne wywołania interfejsu API zwracają natychmiast, bez oczekiwania na odpowiedź z serwera. W związku z tym następujące fragmenty kodu pokazują właściwe wzorce projektowe do realizacji wszystkich powyższych zadań zarządzania przy użyciu asynchronicznego interfejsu API.
+* Asynchroniczne wywołania interfejsu API są zwracane natychmiast, bez oczekiwania na odpowiedź z serwera. W związku z tym poniższe fragmenty kodu pokazują prawidłowe wzorce projektowe służące do wykonywania wszystkich poprzednich zadań zarządzania przy użyciu asynchronicznego interfejsu API.
 
-* Inicjowanie klienta `CosmosAsyncClient`. `CosmosAsyncClient`Zapewnia logiczną reprezentację po stronie klienta dla usługi Azure Cosmos Database. Ten klient służy do konfigurowania i wykonywania żądań asynchronicznych dotyczących usługi.
+* Inicjowanie klienta `CosmosAsyncClient`. Zapewnia logiczną reprezentację usługi bazy danych Azure Cosmos po `CosmosAsyncClient` stronie klienta. Ten klient służy do konfigurowania i wykonywania żądań asynchronicznych względem usługi.
     
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=CreateAsyncClient)]
 
-* `CosmosAsyncDatabase` Tworzenie.
+* `CosmosAsyncDatabase` Tworzenia.
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateDatabaseIfNotExists)]
 
-* `CosmosAsyncContainer` Tworzenie.
+* `CosmosAsyncContainer` Tworzenia.
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateContainerIfNotExists)]
 
-* Podobnie jak w przypadku interfejsu API synchronizacji, Tworzenie elementu jest realizowane przy użyciu `createItem` metody. Ten przykład pokazuje, jak skutecznie wystawiać wiele żądań asynchronicznych `createItem` , subskrybując ponownie aktywny strumień, który wystawia żądania i drukuje powiadomienia. Ponieważ ten prosty przykład działa w celu ukończenia i zakończenia, `CountDownLatch` wystąpienia są używane do upewnienia się, że program nie zostanie zakończony podczas tworzenia elementu. **Odpowiednie asynchroniczne metody programowania nie zablokują wywołań asynchronicznych — w przypadku realistycznych żądań użycia generowane są z głównej pętli (), która jest wykonywana w nieskończoność, eliminując konieczność zablokowania wywołań asynchronicznych.**
+* Podobnie jak w przypadku interfejsu API synchronizacji, tworzenie elementu jest realizowane przy użyciu `createItem` metody . W tym przykładzie pokazano, jak efektywnie wystawiać wiele żądań asynchronicznych przez subskrybowanie strumienia reaktywnego, który wystawia żądania i `createItem` wyświetla powiadomienia. Ponieważ ten prosty przykład jest uruchamiany do ukończenia i zakończenia, wystąpienia są używane w celu zapewnienia, że program nie zakończy `CountDownLatch` się podczas tworzenia elementu. **Właściwą praktyką programowania asynchronicznego nie jest blokowanie wywołań asynchronicznych — w realistycznych przypadkach użycia żądania są generowane z pętli main(), która jest wykonywana przez czas nieokreślony, eliminując konieczność zatrzaśkania wywołań asynchronicznych.**
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=CreateItem)]
    
-* Podobnie jak w przypadku interfejsu API synchronizacji, odczyty punktów są wykonywane przy użyciu `readItem` metody.
+* Podobnie jak w przypadku interfejsu API synchronizacji odczyty punktów są wykonywane przy użyciu `readItem` metody .
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=ReadItem)]
 
-* Podobnie jak w przypadku interfejsu API synchronizacji zapytania SQL za pośrednictwem JSON są wykonywane przy użyciu `queryItems` metody.
+* Podobnie jak w przypadku interfejsu API synchronizacji zapytania SQL w danych JSON są wykonywane przy użyciu `queryItems` metody .
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=QueryItems)]
 
@@ -163,7 +164,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
     mvn package
     ```
 
-3. W oknie terminalu usługi git Użyj następującego polecenia, aby uruchomić aplikację Java (Zastąp SYNCASYNCMODE with `sync` lub `async` , w zależności od tego, który przykładowy kod chcesz uruchomić, zastąp YOUR_COSMOS_DB_HOSTNAME wartością URI z cudzysłowem z portalu i zastąp YOUR_COSMOS_DB_MASTER_KEY z wytoczonym kluczem podstawowym z portalu)
+3. W oknie terminalu usługi Git użyj następującego polecenia, aby uruchomić aplikację Java (zastąp element SYNCASYNCMODE kodem lub w zależności od tego, który przykładowy kod chcesz uruchomić, zastąp wartość YOUR_COSMOS_DB_HOSTNAME wartością w cudzysłowym URI z portalu i zastąp wartość YOUR_COSMOS_DB_MASTER_KEY cudzysłowym kluczem podstawowym z `sync` `async` portalu)
 
     ```bash
     mvn exec:java@SYNCASYNCMODE -DACCOUNT_HOST=YOUR_COSMOS_DB_HOSTNAME -DACCOUNT_KEY=YOUR_COSMOS_DB_MASTER_KEY
@@ -174,8 +175,8 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
     
 4. Aplikacja tworzy bazę danych o nazwie `AzureSampleFamilyDB`
 5. Aplikacja tworzy kontener o nazwie `FamilyContainer`
-6. Aplikacja przeprowadzi odczyty punktów przy użyciu identyfikatorów obiektów i wartości klucza partycji (czyli lastName w naszym przykładzie). 
-7. Aplikacja będzie wysyłać zapytania o elementy, aby pobrać wszystkie rodziny o nazwisku ("Andersen", "Wakefield", "Johnsonem")
+6. Aplikacja będzie wykonywać odczyty punktów przy użyciu identyfikatorów obiektów i wartości klucza partycji (w naszym przykładzie jest to lastName). 
+7. Aplikacja będzie odpytywać elementy w celu pobrania wszystkich rodzin z nazwiskiem w elementach ("Andersen", "Wakefield", "Gdy")
 
 7. Aplikacja nie usuwa utworzonych zasobów. Przełącz się do portalu, aby [wyczyścić zasoby](#clean-up-resources).  z poziomu konta, aby nie spowodować naliczenia opłat.
 
@@ -189,7 +190,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start przedstawiono sposób tworzenia konta interfejsu API SQL Azure Cosmos DB, tworzenia bazy danych dokumentów i kontenera przy użyciu Eksplorator danych i uruchamiania aplikacji Java w celu programistycznego wykonywania tych samych czynności. Teraz możesz zaimportować dodatkowe dane do konta Azure Cosmos DB. 
+W tym przewodniku Szybki start wiesz już, jak utworzyć konto interfejsu API SQL usługi Azure Cosmos DB, utworzyć bazę danych dokumentów i kontener przy użyciu interfejsu Eksplorator danych oraz uruchomić aplikację Java, aby zrobić to samo programowo. Teraz możesz zaimportować dodatkowe dane na swoje Azure Cosmos DB konto. 
 
 > [!div class="nextstepaction"]
 > [Importowanie danych do usługi Azure Cosmos DB](import-data.md)

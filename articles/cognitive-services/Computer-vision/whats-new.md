@@ -1,7 +1,7 @@
 ---
-title: Co nowego w przetwarzanie obrazów?
+title: Co nowego w programie przetwarzanie obrazów?
 titleSuffix: Azure Cognitive Services
-description: Ten artykuł zawiera informacje o przetwarzanie obrazów.
+description: Ten artykuł zawiera wiadomości dotyczące przetwarzanie obrazów.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,135 +10,135 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 826bd22375fb6649bf4edbbeca88aed64cfe7245
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: e42096fc32a504ae329d3b179004b6a123de4469
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/13/2021
-ms.locfileid: "107312131"
+ms.locfileid: "107365641"
 ---
-# <a name="whats-new-in-computer-vision"></a>Co nowego w przetwarzanie obrazów
+# <a name="whats-new-in-computer-vision"></a>Co nowego w programie przetwarzanie obrazów
 
-Dowiedz się, co nowego w usłudze. Te elementy mogą być informacjami o wersji, klipami wideo, wpisami w blogu i innymi rodzajami informacji. Oznacz Tę stronę zakładką, aby zachować aktualność za pomocą usługi.
+Dowiedz się, co nowego w usłudze. Mogą to być informacje o wersji, filmy wideo, wpisy w blogu i inne typy informacji. Dodaj tę stronę do zakładek, aby być na bieżąco z usługą.
 
-## <a name="april-2021"></a>Kwiecień 2021
+## <a name="april-2021"></a>Kwiecień 2021 r.
 
-### <a name="computer-vision-v32-ga"></a>Przetwarzanie obrazów v 3.2
+### <a name="computer-vision-v32-ga"></a>przetwarzanie obrazów 3.2 (wersja 3.2)
 
-Interfejs API przetwarzania obrazów v 3.2 jest teraz ogólnie dostępna z następującymi aktualizacjami:
-* Ulepszony model tagowania obrazów: analizuje zawartość wizualną i generuje odpowiednie Tagi na podstawie obiektów, akcji i zawartości wyświetlanej w obrazie. Jest to dostępne za pomocą [interfejsu API obrazu znacznika](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f200). Aby dowiedzieć się więcej, zobacz [Przewodnik po](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi) analizie obrazów i [Omówienie](https://docs.microsoft.com/azure/cognitive-services/computer-vision/overview-image-analysis) .
-* Zaktualizowany model moderowania zawartości: wykrywa obecność treści dla dorosłych i oferuje flagi filtrujące obrazy zawierające elementy dorosłe, erotycznej i gorii. Ta wartość jest dostępna za pomocą narzędzia [Analizuj interfejs API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b). Aby dowiedzieć się więcej, zobacz [Przewodnik po](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi) analizie obrazów i [Omówienie](https://docs.microsoft.com/azure/cognitive-services/computer-vision/overview-image-analysis) .
-* [OCR (odczyt) dostępne dla języków 73, w](./language-support.md#optical-character-recognition-ocr) tym uproszczony i tradycyjny język chiński, japoński, koreański i łaciński.
-* [OCR (odczyt)](./overview-ocr.md) jest również dostępny jako [kontener Distroless](./computer-vision-how-to-install-containers.md?tabs=version-3-2) dla wdrożenia lokalnego.
-
-> [!div class="nextstepaction"]
-> [Zobacz przetwarzanie obrazów v 3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)
-
-## <a name="march-2021"></a>Marzec 2021
-
-### <a name="computer-vision-32-public-preview-update"></a>Aktualizacja publicznej wersji zapoznawczej przetwarzanie obrazów 3,2
-
-Publiczna wersja zapoznawcza interfejs API przetwarzania obrazów v 3.2 została zaktualizowana. Wersja zapoznawcza zawiera wszystkie funkcje przetwarzanie obrazów wraz z zaktualizowanymi interfejsami API odczytu i analizowania.
+Interfejs PRZETWARZANIE OBRAZÓW API w wersji 3.2 jest teraz ogólnie dostępny z następującymi aktualizacjami:
+* Ulepszony model tagowania obrazów: analizuje zawartość wizualizacji i generuje odpowiednie tagi na podstawie obiektów, akcji i zawartości wyświetlanych na obrazie. Ta usługa jest dostępna za pośrednictwem [interfejsu API tagów obrazu.](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f200) Aby dowiedzieć się więcej, zobacz Przewodnik po [analizie](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi) obrazów [i](https://docs.microsoft.com/azure/cognitive-services/computer-vision/overview-image-analysis) omówienie.
+* Zaktualizowany model moderowania zawartości: wykrywa obecność treści dla dorosłych i udostępnia flagi do filtrowania obrazów zawierających zawartość wizualną dla dorosłych, erudycyjną i cytną. Jest to dostępne za pośrednictwem interfejsu [API analizowania](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b). Aby dowiedzieć się więcej, zobacz Przewodnik po [analizie](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi) obrazów [i](https://docs.microsoft.com/azure/cognitive-services/computer-vision/overview-image-analysis) omówienie.
+* [Funkcja OCR (Read) jest dostępna dla 73](./language-support.md#optical-character-recognition-ocr) języków, w tym uproszczonych i tradycyjnych, japońskich, koreańskich i łacińskich.
+* [OCR (Read)](./overview-ocr.md) jest również dostępny jako kontener [bez](./computer-vision-how-to-install-containers.md?tabs=version-3-2) dystrybucji do wdrażania lokalnego.
 
 > [!div class="nextstepaction"]
-> [Zobacz przetwarzanie obrazów v 3.2 — publiczna wersja zapoznawcza 3](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
+> [Zobacz przetwarzanie obrazów wersji 3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)
+
+## <a name="march-2021"></a>Marzec 2021 r.
+
+### <a name="computer-vision-32-public-preview-update"></a>przetwarzanie obrazów publicznej wersji zapoznawczej 3.2
+
+Publiczna wersja zapoznawcza interfejsu PRZETWARZANIE OBRAZÓW API w wersji 3.2 została zaktualizowana. Wersja zapoznawcza zawiera wszystkie przetwarzanie obrazów oraz zaktualizowane interfejsy API odczytu i analizy.
+
+> [!div class="nextstepaction"]
+> [Zobacz przetwarzanie obrazów 3.2 publicznej wersji zapoznawczej 3](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
 
 ## <a name="february-2021"></a>Luty 2021 r.
 
-### <a name="read-api-v32-public-preview-with-ocr-support-for-73-languages"></a>Przeczytaj publiczną wersję zapoznawczą interfejsu API v 3.2 z obsługą OCR dla języków 73
-Informacje o wersji zapoznawczej interfejsu API v 3.2 przetwarzanie obrazów dostępne jako usługa w chmurze i kontener Docker obejmują następujące aktualizacje:
-* Program [OCR dla języków 73, w](./language-support.md#optical-character-recognition-ocr) tym uproszczony i tradycyjny język chiński, japoński, koreański i łaciński.
-* Naturalna kolejność odczytywania danych wyjściowych w wierszu tekstu (tylko języki łacińskie)
-* Klasyfikacja stylu pisma ręcznego dla linii tekstowych wraz z oceną pewności (tylko języki łacińskie).
-* Wyodrębnij tekst tylko dla wybranych stron dla dokumentu wielostronicowego.
-* Dostępne jako [kontener Distroless](./computer-vision-how-to-install-containers.md?tabs=version-3-2) dla wdrożenia lokalnego.
+### <a name="read-api-v32-public-preview-with-ocr-support-for-73-languages"></a>Odczytywanie publicznej wersji zapoznawczej interfejsu API w wersji 3.2 z obsługą OCR dla 73 języków
+przetwarzanie obrazów w publicznej wersji zapoznawczej interfejsu API odczytu w wersji 3.2, który jest dostępny jako usługa w chmurze i kontener platformy Docker, zawiera następujące aktualizacje:
+* [OCR dla 73 języków, w](./language-support.md#optical-character-recognition-ocr) tym uproszczony i chiński tradycyjny, japoński, koreański i łaciński.
+* Naturalna kolejność odczytywania danych wyjściowych wiersza tekstu (tylko w językach łacińskich)
+* Klasyfikacja stylu pisma ręcznego dla wierszy tekstowych wraz ze ocenami ufności (tylko w językach łacińskich).
+* Wyodrębnianie tekstu tylko dla wybranych stron dla dokumentu wielostronicowego.
+* Dostępny jako [kontener bez dystrybucji](./computer-vision-how-to-install-containers.md?tabs=version-3-2) do wdrożenia lokalnego.
 
-Aby dowiedzieć się więcej, zobacz [Przeczytaj Przewodnik po interfejsie API](Vision-API-How-to-Topics/call-read-api.md) .
+Aby dowiedzieć się więcej, zobacz Przewodnik po przewodniku po [interfejsie API](Vision-API-How-to-Topics/call-read-api.md) odczytywania.
 
 > [!div class="nextstepaction"]
-> [Korzystanie z publicznej wersji zapoznawczej interfejsu API Read v 3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
+> [Korzystanie z publicznej wersji zapoznawczej interfejsu API odczytu w wersji 3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
 
 
 ## <a name="january-2021"></a>Styczeń 2021 r.
 
 ### <a name="spatial-analysis-container-update"></a>Aktualizacja kontenera analizy przestrzennej
 
-Nowa wersja [kontenera analizy przestrzennej](spatial-analysis-container.md) została wydana z nowym zestawem funkcji. Ten kontener platformy Docker pozwala analizować wideo strumieniowe w czasie rzeczywistym, aby zrozumieć relacje przestrzenne między osobami i ich przenoszeniem przez środowiska fizyczne. 
+Wraz z nowym zestawem funkcji [została wydana nowa](spatial-analysis-container.md) wersja kontenera analizy przestrzennej. Ten kontener platformy Docker umożliwia analizowanie wideo przesyłanego strumieniowo w czasie rzeczywistym w celu zrozumienia relacji przestrzennych między osobami i ich ruchem w środowiskach fizycznych. 
 
-* Można teraz skonfigurować [operacje analizy przestrzennej](spatial-analysis-operations.md) , aby wykrywać, czy osoba jest w tej samej ochronie, na przykład jako maskę. 
-    * Klasyfikator masek można włączyć dla `personcount` `personcrossingline` operacji i, `personcrossingpolygon` konfigurując `ENABLE_FACE_MASK_CLASSIFIER` parametr.
-    * Atrybuty `face_mask` i `face_noMask` zostaną zwrócone jako metadane z wynikiem dopasowania dla każdej osoby wykrytej w strumieniu wideo
-* Operacja *personcrossingpolygon* została rozszerzona, aby umożliwić Obliczanie czasu mieszkania przez osobę w strefie. Można ustawić `type` parametr w konfiguracji strefy dla operacji do `zonedwelltime` i nowe zdarzenie typu *personZoneDwellTimeEvent* będzie zawierać `durationMs` pole wypełnione liczbą milisekund, jaką osoba spędziła w strefie.
-* **Zmiana podziału**: zmieniono nazwę zdarzenia *personZoneEvent* na *personZoneEnterExitEvent*. To zdarzenie jest zgłaszane przez operację *personcrossingpolygon* , gdy osoba wejdzie w stronę lub opuszcza ją i zawiera informacje kierunkowe z numerowaną stroną przekreślonej strefy.
-* Adres URL wideo można podać jako "prywatny parametr/zasłonięty" we wszystkich operacjach. Mieszanie jest teraz opcjonalne i działa tylko wtedy, gdy `KEY` i `IV` są dostarczane jako zmienne środowiskowe.
-* Kalibracja jest domyślnie włączona dla wszystkich operacji. Ustaw, `do_calibration: false` Aby go wyłączyć.
-* Dodano obsługę autokalibracji (domyślnie wyłączone) za pośrednictwem `enable_recalibration` parametru, zapoznaj się ze szczegółami [operacji analizy przestrzennej](./spatial-analysis-operations.md) , aby uzyskać szczegółowe informacje
-* Parametry kalibracji aparatu fotograficznego do `DETECTOR_NODE_CONFIG` . Aby uzyskać szczegółowe informacje, zobacz operacje związane z [analizą przestrzenną](./spatial-analysis-operations.md) .
+* [Operacje analizy przestrzennej](spatial-analysis-operations.md) można teraz skonfigurować do wykrywania, czy osoba ma w sobie twarze ochronne, na przykład maskę. 
+    * Klasyfikator maski można włączyć dla `personcount` operacji i `personcrossingline` , `personcrossingpolygon` konfigurując `ENABLE_FACE_MASK_CLASSIFIER` parametr .
+    * Atrybuty i zostaną zwrócone jako metadane z wynikiem ufności dla `face_mask` `face_noMask` każdej osoby wykrytej w strumieniu wideo
+* Operacja *personcrossingpolygon* została rozszerzona, aby umożliwić obliczenie czasu dosyć spędzanego przez osobę w strefie. Możesz ustawić parametr w konfiguracji strefy dla operacji na , a nowe zdarzenie typu `type` `zonedwelltime` *personZoneDwellTimeEvent* będzie zawierać pole wypełnione liczbą milisekund, które osoba spędza w `durationMs` strefie.
+* **Zmiana przełomowa:** nazwa *zdarzenia personZoneEvent* została zmieniona na *personZoneEnterExitEvent.* To zdarzenie jest wywoływane przez operację *personcrossingpolygon,* gdy osoba wchodzi do strefy lub znika z tej strefy, i udostępnia informacje kierunkowe z numerową stroną strefy, która została skrzyżowana.
+* We wszystkich operacjach adres URL wideo może być podany jako "Parametr prywatny/zaciemniany". Zaciemnianie jest teraz opcjonalne i będzie działać tylko wtedy, gdy zmienne i `KEY` są dostarczane jako zmienne `IV` środowiskowe.
+* Domyślnie wszystkie operacje są włączone. Ustaw wartość `do_calibration: false` , aby ją wyłączyć.
+* Dodano obsługę automatycznej recalibracji (domyślnie wyłączonej) za pośrednictwem parametru. Aby uzyskać szczegółowe informacje, zobacz `enable_recalibration` [Operacje analizy przestrzennej](./spatial-analysis-operations.md)
+* Parametry odwzorowania kamery na `DETECTOR_NODE_CONFIG` . Aby uzyskać szczegółowe [informacje, zobacz Operacje analizy przestrzennej.](./spatial-analysis-operations.md)
 
 
 ## <a name="october-2020"></a>Październik 2020 r.
 
-### <a name="computer-vision-api-v31-ga"></a>Interfejs API przetwarzania obrazów v 3.1
+### <a name="computer-vision-api-v31-ga"></a>przetwarzanie obrazów API 3.1 (wersja 3.1 ga)
 
-Interfejs API przetwarzania obrazów ogólnie dostępna wersja została uaktualniona do wersji 3.1.
+Ogólnie przetwarzanie obrazów API został uaktualniony do wersji 3.1.
 
 ## <a name="september-2020"></a>Wrzesień 2020
 
-### <a name="spatial-analysis-container-preview"></a>Podgląd kontenera analizy przestrzennej
+### <a name="spatial-analysis-container-preview"></a>Wersja zapoznawcza kontenera analizy przestrzennej
 
-[Kontener analizy przestrzennej](spatial-analysis-container.md) jest teraz w wersji zapoznawczej. Funkcja analizy przestrzennej przetwarzanie obrazów umożliwia analizowanie wideo przesyłania strumieniowego w czasie rzeczywistym w celu zrozumienia relacji przestrzennych między osobami i ich przenoszeniem za pomocą środowisk fizycznych. Analiza przestrzenna jest kontenerem platformy Docker, którego można używać lokalnie. 
+Kontener [analizy przestrzennej jest](spatial-analysis-container.md) teraz w wersji zapoznawczej. Funkcja analizy przestrzennej usługi przetwarzanie obrazów umożliwia analizowanie wideo przesyłanego strumieniowo w czasie rzeczywistym w celu zrozumienia relacji przestrzennych między osobami i ich ruchem w środowiskach fizycznych. Analiza przestrzenna to kontener platformy Docker, z których można korzystać lokalnie. 
 
-### <a name="read-api-v31-public-preview-adds-ocr-for-japanese"></a>Read API v 3.1 Public Preview dodaje OCR dla języka japońskiego
-W publicznej wersji zapoznawczej interfejsu API w przetwarzanie obrazów v 3.1 dodano następujące funkcje:
+### <a name="read-api-v31-public-preview-adds-ocr-for-japanese"></a>Interfejs API odczytu w wersji 3.1 w publicznej wersji zapoznawczej dodaje OCR dla języka japońskiego
+przetwarzanie obrazów interfejsu API odczytu w wersji 3.1 w publicznej wersji zapoznawczej dodaje następujące możliwości:
 * OCR dla języka japońskiego
-* Dla każdego wiersza tekstu wskaż, czy wygląd jest stylem pisma ręcznego, czy drukowania, wraz z oceną pewności (tylko języki łacińskie).
-* Dla dokumentu wielostronicowego Wyodrębnij tekst tylko dla wybranych stron lub zakresu stron.
+* Dla każdego wiersza tekstu wskaż, czy wygląd to Styl pisma ręcznego, czy Styl drukowania, oraz wynik ufności (tylko w językach łacińskich).
+* W przypadku dokumentu wielostronicowego wyodrębnij tekst tylko dla wybranych stron lub zakresu stron.
 
-* Ta wersja zapoznawcza interfejsu API odczytu obsługuje język angielski, holenderski, francuski, niemiecki, włoski, japoński, portugalski, chiński (uproszczony) i hiszpański.
+* Ta wersja zapoznawcza interfejsu API odczytywania obsługuje języki angielski, niderlandzki, francuski, niemiecki, włoski, japoński, portugalski, chiński uproszczony i hiszpański.
 
-Aby dowiedzieć się więcej, zobacz [Przeczytaj Przewodnik po interfejsie API](Vision-API-How-to-Topics/call-read-api.md) .
+Aby dowiedzieć się więcej, zobacz Przewodnik z [how-to-guide (Odczytywanie](Vision-API-How-to-Topics/call-read-api.md) interfejsu API).
 
 > [!div class="nextstepaction"]
-> [Dowiedz się więcej o funkcji Read API v 3.1 w publicznej wersji zapoznawczej 2](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005)
+> [Dowiedz się więcej o interfejsie API odczytywania w wersji 3.1 w publicznej wersji zapoznawczej 2](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005)
 
 ## <a name="july-2020"></a>Lipiec 2020 r.
 
-### <a name="read-api-v31-public-preview-with-ocr-for-simplified-chinese"></a>Przeczytaj publiczną wersję zapoznawczą interfejsu API v 3.1 z OCR for chiński uproszczony
-W publicznej wersji zapoznawczej interfejsu API usługi przetwarzanie obrazów Read 3.1 Dodano obsługę języka chińskiego uproszczonego.
+### <a name="read-api-v31-public-preview-with-ocr-for-simplified-chinese"></a>Przeczytaj temat Interfejs API w wersji 3.1 w publicznej wersji zapoznawczej z OCR dla języka chińskiego uproszczonego
+przetwarzanie obrazów w publicznej wersji zapoznawczej interfejsu API odczytywania w wersji 3.1 dodano obsługę języka chińskiego uproszczonego.
 
-* Ta wersja zapoznawcza interfejsu API odczytu obsługuje język angielski, holenderski, francuski, niemiecki, włoski, portugalski, chiński (uproszczony) i hiszpański.
+* Ta wersja zapoznawcza interfejsu API odczytywania obsługuje języki angielski, niderlandzki, francuski, niemiecki, włoski, portugalski, chiński uproszczony i hiszpański.
 
-Aby dowiedzieć się więcej, zobacz [Przeczytaj Przewodnik po interfejsie API](Vision-API-How-to-Topics/call-read-api.md) .
+Aby dowiedzieć się więcej, zobacz Przewodnik po przewodniku po [interfejsie API](Vision-API-How-to-Topics/call-read-api.md) odczytywania.
 
 > [!div class="nextstepaction"]
-> [Dowiedz się więcej o wersji Read API v 3.1 Public Preview 1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
+> [Dowiedz się więcej o interfejsie API odczytywania w wersji 3.1 w publicznej wersji zapoznawczej 1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
 
 ## <a name="may-2020"></a>Maj 2020 r.
-W interfejs API przetwarzania obrazów v 3.0 wprowadzono ogólną dostępność z aktualizacjami interfejsu API odczytu:
+przetwarzanie obrazów API w wersji 3.0 wprowadzono ogólnie dostępną z aktualizacjami interfejsu API odczytu:
 
-* Obsługa języków angielskim, holenderskim, francuskim, niemieckim, włoskim, portugalskim i hiszpańskim
+* Obsługa języka angielskiego, holenderskiego, francuskiego, niemieckiego, włoskich, portugalskich i hiszpańskich
 * Ulepszona dokładność
-* Wynik pewności dla każdego wyodrębnionego wyrazu
+* Ocena ufności dla każdego wyodrębnionego słowa
 * Nowy format danych wyjściowych
 
-Zobacz [Omówienie OCR](overview-ocr.md) , aby dowiedzieć się więcej.
+Zobacz omówienie [OCR,](overview-ocr.md) aby dowiedzieć się więcej.
 
 ## <a name="march-2020"></a>Marzec 2020 r.
 
-* Protokół TLS 1,2 jest teraz wymuszany dla wszystkich żądań HTTP do tej usługi. Aby uzyskać więcej informacji, zobacz [Azure Cognitive Services Security](../cognitive-services-security.md).
+* Protokół TLS 1.2 jest teraz wymuszany dla wszystkich żądań HTTP do tej usługi. Aby uzyskać więcej informacji, zobacz [Azure Cognitive Services zabezpieczeń](../cognitive-services-security.md).
 
 ## <a name="january-2020"></a>Styczeń 2020 r.
 
-### <a name="read-api-30-public-preview"></a>Przeczytaj informacje o publicznej wersji zapoznawczej interfejsu API 3,0
+### <a name="read-api-30-public-preview"></a>Odczytywanie publicznej wersji zapoznawczej interfejsu API 3.0
 
-Masz teraz możliwość używania wersji 3,0 interfejsu API odczytu do wyodrębniania wydrukowanych lub odręcznych tekstu z obrazów. W porównaniu z wcześniejszymi wersjami 3,0 zapewnia:
+Teraz możesz użyć wersji 3.0 interfejsu API odczytywania, aby wyodrębnić z obrazów tekst drukowany lub odręczny. W porównaniu do wcześniejszych wersji wersja 3.0 zapewnia:
 * Ulepszona dokładność
 * Nowy format danych wyjściowych
-* Wynik pewności dla każdego wyodrębnionego wyrazu
-* Obsługa języków hiszpańskich i angielskich przy użyciu dodatkowego parametru języka
+* Ocena ufności dla każdego wyodrębnienia słowa
+* Obsługa języków hiszpańskiego i angielskiego z dodatkowym parametrem języka
 
-Postępuj zgodnie z [przewodnikiem Szybki Start dla tekstu](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-hand-text.md?tabs=version-3) , aby rozpocząć korzystanie z interfejsu API 3,0.
+Postępuj zgodnie z [przewodnika Szybki start wyodrębnianie](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-hand-text.md?tabs=version-3) tekstu, aby rozpocząć korzystanie z interfejsu API w wersji 3.0.
 
-## <a name="cognitive-service-updates"></a>Aktualizacje usługi poznawczej
+## <a name="cognitive-service-updates"></a>Aktualizacje usługi Cognitive Service
 
-[Anonse aktualizacji platformy Azure dla Cognitive Services](https://azure.microsoft.com/updates/?product=cognitive-services)
+[Ogłoszenia o aktualizacji platformy Azure dla Cognitive Services](https://azure.microsoft.com/updates/?product=cognitive-services)

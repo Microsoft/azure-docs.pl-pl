@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 04/09/2021
 ms.author: tisande
-ms.openlocfilehash: d5d5bc0a108cd08283ea29ce3bdc2de49310c5aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ad43d83782a2c7e9eb5cc20128be89a45f0213d1
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102499564"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312182"
 ---
 # <a name="getting-started-with-sql-queries"></a>Wprowadzenie do zapytań SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -43,7 +43,7 @@ W pozostałej części tego dokumentu pokazano, jak rozpocząć pisanie zapytań
 
 ## <a name="upload-sample-data"></a>Przekazywanie przykładowych danych
 
-Na koncie Cosmos DB interfejsu API SQL Otwórz [Eksplorator danych](./data-explorer.md) , aby utworzyć kontener o nazwie `Families` . Po jego utworzeniu Użyj przeglądarki struktury danych, aby znaleźć i otworzyć ją. W `Families` kontenerze zobaczysz opcję znajdującą się `Items` bezpośrednio pod nazwą kontenera. Otwórz tę opcję i zobaczysz przycisk na pasku menu na środku ekranu, aby utworzyć nowy element. Ta funkcja zostanie użyta do utworzenia poniższych elementów JSON.
+Na koncie Cosmos DB interfejsu API SQL Otwórz [Eksplorator danych](./data-explorer.md) , aby utworzyć kontener o nazwie `Families` . Po utworzeniu kontenera Użyj przeglądarki struktury danych, aby go znaleźć i otworzyć. W `Families` kontenerze zobaczysz opcję znajdującą się `Items` bezpośrednio pod nazwą kontenera. Otwórz tę opcję i zobaczysz przycisk na pasku menu na środku ekranu, aby utworzyć nowy element. Ta funkcja zostanie użyta do utworzenia poniższych elementów JSON.
 
 ### <a name="create-json-items"></a>Tworzenie elementów JSON
 

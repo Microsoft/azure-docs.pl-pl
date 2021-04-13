@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 777fc60f76692734ea34ff3cdf8f6bc6e5e8316b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 07af586bac71ee9b33ef314756454cb3c52ec912
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97615715"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305926"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Używanie warunku lokalizacji w zasadach dostępu warunkowego 
 
@@ -32,39 +32,37 @@ Organizacje mogą używać tej lokalizacji sieciowej do wykonywania typowych zad
 
 Lokalizacja sieciowa jest określana przez publiczny adres IP, który klient zapewnia Azure Active Directory. Zasady dostępu warunkowego są domyślnie stosowane do wszystkich adresów IPv4 i IPv6. 
 
-> [!TIP]
-> Zakresy adresów IPv6 są obsługiwane tylko w interfejsie **[nazwanych lokalizacji (wersja zapoznawcza)](#preview-features)** . 
-
 ## <a name="named-locations"></a>Nazwane lokalizacje
 
-Lokalizacje są wyznaczane w Azure Portal w obszarze **Azure Active Directory**  >  **zabezpieczenia**  >  **dostępu warunkowego**  >  **o nazwie lokalizacje**. Te nazwane lokalizacje sieciowe mogą obejmować lokalizacje, takie jak zakresy sieci w organizacji, zakresy sieci VPN lub zakresy, które mają zostać zablokowane. 
+Lokalizacje są wyznaczane w Azure Portal w obszarze **Azure Active Directory**  >  **zabezpieczenia**  >  **dostępu warunkowego**  >  **o nazwie lokalizacje**. Te nazwane lokalizacje sieciowe mogą obejmować lokalizacje, takie jak zakresy sieci w organizacji, zakresy sieci VPN lub zakresy, które mają zostać zablokowane. Nazwane lokalizacje mogą być definiowane przez zakresy adresów IPv4/IPv6 lub kraje/regiony. 
 
 ![Nazwane lokalizacje w Azure Portal](./media/location-condition/new-named-location.png)
 
-Aby skonfigurować lokalizację, należy podać co najmniej **nazwę** i zakres adresów IP. 
+### <a name="ip-address-ranges"></a>Zakresy adresów IP
 
-Liczba nazwanych lokalizacji, które można skonfigurować, jest ograniczona przez rozmiar powiązanego obiektu w usłudze Azure AD. Lokalizacje można skonfigurować w oparciu o następujące ograniczenia:
+Aby zdefiniować nazwaną lokalizację według zakresów adresów IPv4/IPv6, należy podać **nazwę** i zakres adresów IP. 
 
-- Jedna nazwana lokalizacja z maksymalnie 1200 zakresów adresów IPv4.
-- Maksymalnie 90 nazwanych lokalizacji z jednym zakresem adresów IP przypisanym do każdego z nich.
-
-> [!TIP]
-> Zakresy adresów IPv6 są obsługiwane tylko w interfejsie **[nazwanych lokalizacji (wersja zapoznawcza)](#preview-features)** . 
+Nazwane lokalizacje zdefiniowane przez zakresy adresów IPv4/IPv6 podlegają następującym ograniczeniom: 
+- Skonfiguruj do 195 nazwanych lokalizacji
+- Skonfiguruj maksymalnie 2000 zakresów adresów IP na nazwę lokalizacji
+- Obsługiwane są zarówno zakresy adresów IPv4, jak i IPv6
+- Connot zakresy prywatnych adresów IP
+- Liczba adresów IP zawartych w zakresie jest ograniczona. Podczas definiowania zakresu adresów IP można używać tylko masek CIDR o wartości większej niż/8. 
 
 ### <a name="trusted-locations"></a>Zaufane lokalizacje
 
-Podczas tworzenia lokalizacji sieciowej administrator może oznaczyć lokalizację jako zaufaną lokalizację. 
+Administratorzy mogą wyznaczyć nazwane lokalizacje zdefiniowane przez zakresy adresów IP, które mają być zaufanymi nazwanymi lokalizacjami. 
 
 ![Zaufane lokalizacje w Azure Portal](./media/location-condition/new-trusted-location.png)
 
-Ta opcja może być oparta na zasadach dostępu warunkowego, które mogą na przykład wymagać rejestracji uwierzytelniania wieloskładnikowego z zaufanej lokalizacji sieciowej. Czynniki te są również dostępne w celu Azure AD Identity Protection obliczenia ryzyka, co zmniejsza ryzyko związane z logowaniem użytkowników, gdy pochodzą z lokalizacji oznaczonej jako zaufane.
+Logowania z zaufanych nazwanych lokalizacji poprawiają dokładność obliczania ryzyka Azure AD Identity Protection, co zmniejsza ryzyko związane z logowaniem użytkowników podczas uwierzytelniania z lokalizacji oznaczonej jako zaufane. Ponadto zaufane nazwane lokalizacje mogą być stosowane w zasadach dostępu warunkowego. Można na przykład wymagać ograniczenia rejestracji uwierzytelniania wieloskładnikowego tylko do zaufanych lokalizacji nazwanych. 
 
 ### <a name="countries-and-regions"></a>Kraje i regiony
 
-Niektóre organizacje mogą zdecydować się na zdefiniowanie wszystkich krajów lub regionów granic adresów IP jako lokalizacji nazw dla zasad dostępu warunkowego. Mogą oni korzystać z tych lokalizacji podczas blokowania niepotrzebnego ruchu, gdy wiedzą, że Prawidłowi użytkownicy nigdy nie pochodzą z lokalizacji takiej jak Korea Północna. Te mapowania adresów IP do kraju są okresowo aktualizowane. 
+Niektóre organizacje mogą ograniczyć dostęp do niektórych krajów lub regionów przy użyciu dostępu warunkowego. Oprócz definiowania nazwanych lokalizacji według zakresów adresów IP Administratorzy mogą definiować nazwane lokalizacje według kraju lub regionu. Gdy użytkownik loguje się, usługa Azure AD rozpoznaje adres IPv4 użytkownika w kraju lub regionie, a mapowanie jest okresowo aktualizowane. Organizacje mogą używać nazwanych lokalizacji zdefiniowanych przez kraje do blokowania ruchu z krajów, w których nie działają, na przykład w Korei Północnej. 
 
 > [!NOTE]
-> Zakresów adresów IPv6 nie można mapować na kraje. Tylko adresy IPv4 są mapowane na kraje.
+> Logowania z adresów IPv6 nie mogą być mapowane na kraje ani regiony i są uznawane za nieznane obszary. Tylko adresy IPv4 można zamapować na kraje lub regiony.
 
 ![Tworzenie nowego kraju lub lokalizacji na podstawie regionu w Azure Portal](./media/location-condition/new-named-location-country-region.png)
 
@@ -91,33 +89,6 @@ W przypadku aplikacji mobilnych i klasycznych, które mają długotrwałe okresy
 
 Jeśli oba kroki zakończą się niepowodzeniem, użytkownik jest uznawany za niebędący już w zaufanym adresie IP.
 
-## <a name="preview-features"></a>Funkcje w wersji zapoznawczej
-
-Oprócz ogólnie dostępnej funkcji nazwanej lokalizacji istnieje również nazwana lokalizacja (wersja zapoznawcza). Możesz uzyskać dostęp do wersji zapoznawczej określonej lokalizacji za pomocą transparentu w górnej części bieżącego bloku nazwanego położenia.
-
-![Wypróbuj Podgląd nazwanych lokalizacji](./media/location-condition/preview-features.png)
-
-W wersji zapoznawczej określonej lokalizacji można
-
-- Skonfiguruj do 195 nazwanych lokalizacji
-- Skonfiguruj maksymalnie 2000 zakresów adresów IP na nazwę lokalizacji
-- Skonfiguruj adresy IPv6 obok adresów IPv4
-
-Dodaliśmy również dodatkowe kontrole, aby zmniejszyć liczbę niezmienionych konfiguracji.
-
-- Nie można już skonfigurować zakresów prywatnych adresów IP
-- Liczba adresów IP, które mogą znajdować się w zakresie, jest ograniczona. Podczas konfigurowania zakresu adresów IP będzie można używać tylko masek CIDR o wartości większej niż/8.
-
-W wersji zapoznawczej dostępne są dwie opcje tworzenia: 
-
-- **Lokalizacja krajów**
-- **Lokalizacja zakresów adresów IP**
-
-> [!NOTE]
-> Zakresów adresów IPv6 nie można mapować na kraje. Tylko adresy IPv4 są mapowane na kraje.
-
-![Interfejs wersji zapoznawczej lokalizacji](./media/location-condition/named-location-preview.png)
-
 ## <a name="location-condition-in-policy"></a>Warunek lokalizacji w zasadach
 
 Podczas konfigurowania warunku lokalizacji można rozróżnić następujące opcje:
@@ -143,7 +114,7 @@ Za pomocą tej opcji można wybrać jedną lub więcej nazwanych lokalizacji. Ab
 
 ## <a name="ipv6-traffic"></a>Ruch IPv6
 
-Domyślnie zasady dostępu warunkowego będą stosowane do całego ruchu IPv6. W [wersji zapoznawczej lokalizacji](#preview-features)można wykluczyć określone zakresy adresów IPv6 z zasad dostępu warunkowego. Ta opcja jest przydatna w przypadkach, gdy nie chcesz wymuszać zasad dla określonych zakresów adresów IPv6. Na przykład jeśli chcesz, aby nie wymuszać zasad używanych w sieci firmowej, a sieć firmowa jest hostowana w publicznych zakresach adresów IPv6.  
+Domyślnie zasady dostępu warunkowego będą stosowane do całego ruchu IPv6. Można wykluczyć określone zakresy adresów IPv6 z zasad dostępu warunkowego, jeśli nie chcesz, aby zasady były wymuszane dla określonych zakresów adresów IPv6. Na przykład jeśli chcesz, aby nie wymuszać zasad używanych w sieci firmowej, a sieć firmowa jest hostowana w publicznych zakresach adresów IPv6.  
 
 ### <a name="when-will-my-tenant-have-ipv6-traffic"></a>Kiedy moja dzierżawa będzie mieć ruch IPv6?
 

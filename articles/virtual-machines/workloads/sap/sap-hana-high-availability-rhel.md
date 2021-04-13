@@ -1,6 +1,6 @@
 ---
-title: Wysoka dostępność SAP HANA na maszynach wirtualnych platformy Azure w systemie RHEL | Microsoft Docs
-description: Zapewnienie wysokiej dostępności SAP HANA na maszynach wirtualnych platformy Azure.
+title: Wysoka dostępność zasobów SAP HANA maszyn wirtualnych platformy Azure w systemie RHEL | Microsoft Docs
+description: Ustanów wysoką dostępność SAP HANA na maszynach wirtualnych platformy Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: rdeltcheva
@@ -10,16 +10,16 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/16/2021
+ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: daa0a6b15d4c187efdea96fd8067b08c89fa0e82
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3d1b05560c02f3bf4de199a3d5cad48907ee16fb
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104599871"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365811"
 ---
-# <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Wysoka dostępność SAP HANA na maszynach wirtualnych platformy Azure na Red Hat Enterprise Linux
+# <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Wysoka dostępność maszyn SAP HANA na platformie Azure na platformie Red Hat Enterprise Linux
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -43,72 +43,72 @@ ms.locfileid: "104599871"
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 [template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
 
-W przypadku programowania lokalnego można użyć replikacji systemu HANA lub użyć magazynu udostępnionego do ustanowienia wysokiej dostępności dla SAP HANA.
-Na platformie Azure Virtual Machines funkcja replikacji systemu HANA na platformę Azure jest obecnie jedyną obsługiwaną funkcją wysokiej dostępności.
-SAP HANA replikacja składa się z jednego węzła podstawowego i co najmniej jednego węzła pomocniczego. Zmiany danych w węźle podstawowym są replikowane do węzła pomocniczego synchronicznie lub asynchronicznie.
+W przypadku tworzenia aplikacji lokalnych można użyć replikacji systemu HANA lub magazynu udostępnionego w celu ustanowienia wysokiej dostępności dla SAP HANA.
+Na maszynach wirtualnych platformy Azure replikacja systemu HANA na platformie Azure jest obecnie jedyną obsługiwaną funkcją wysokiej dostępności.
+SAP HANA Replikacja składa się z jednego węzła podstawowego i co najmniej jednego węzła pomocniczego. Zmiany danych w węźle podstawowym są replikowane do węzła pomocniczego synchronicznie lub asynchronicznie.
 
-W tym artykule opisano sposób wdrażania i konfigurowania maszyn wirtualnych, instalowania platformy klastra oraz instalowania i konfigurowania replikacji systemu SAP HANA.
-W przykładowych konfiguracjach, poleceniach instalacji, numer wystąpienia nr **03** i identyfikator systemu Hana **HN1** są używane.
+W tym artykule opisano sposób wdrażania i konfigurowania maszyn wirtualnych, instalowania struktury klastra oraz instalowania i konfigurowania SAP HANA replikacji systemu.
+W przykładowych konfiguracjach są używane polecenia instalacji, numer wystąpienia **03** i identyfikator systemu HANA **HN1.**
 
-Przeczytaj najpierw następujące informacje i dokumenty SAP:
+Najpierw zapoznaj się z następującymi uwagami i dokumentami sap:
 
-* Nota SAP [1928533], która ma:
+* Uwaga SAP [1928533,]która ma:
   * Lista rozmiarów maszyn wirtualnych platformy Azure, które są obsługiwane w przypadku wdrażania oprogramowania SAP.
   * Ważne informacje o pojemności dla rozmiarów maszyn wirtualnych platformy Azure.
-  * Obsługiwane programy SAP i system operacyjny oraz kombinacje baz danych.
-  * Wymagana wersja jądra SAP dla systemu Windows i Linux w systemie Microsoft Azure.
-* Uwaga dotycząca protokołu SAP [2015553] zawiera listę wymagań wstępnych dotyczących wdrożeń oprogramowania SAP obsługiwanych przez oprogramowanie SAP na platformie Azure.
-* W przypadku programu SAP Uwaga [2002167] zalecane ustawienia systemu operacyjnego dla Red Hat Enterprise Linux
-* Uwaga dotycząca oprogramowania SAP [2009879] SAP HANA wytycznych dotyczących Red Hat Enterprise Linux
-* Uwaga dotycząca oprogramowania SAP [2178632] zawiera szczegółowe informacje o wszystkich metrykach monitorowania raportowanych dla oprogramowania SAP na platformie Azure.
-* Uwaga dotycząca programu SAP [2191498] ma wymaganą wersję agenta hosta SAP dla systemu Linux na platformie Azure.
-* Uwaga dotycząca oprogramowania SAP [2243692] zawiera informacje na temat licencjonowania SAP w systemie Linux na platformie Azure.
-* Uwaga dotycząca programu SAP [1999351] zawiera dodatkowe informacje dotyczące rozwiązywania problemów z rozszerzoną funkcją monitorowania platformy Azure dla oprogramowania SAP.
-* [Społeczność systemu SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) na stronie wiki ma wszystkie wymagane uwagi SAP dla systemu Linux.
-* [Planowanie i wdrażanie usługi Azure Virtual Machines dla oprogramowania SAP w systemie Linux][planning-guide]
-* [Wdrożenie Virtual Machines platformy Azure dla oprogramowania SAP w systemie Linux (ten artykuł)][deployment-guide]
-* [Wdrożenie systemu Azure Virtual Machines DBMS dla oprogramowania SAP w systemie Linux][dbms-guide]
-* [Replikacja systemu SAP HANA w klastrze Pacemaker](https://access.redhat.com/articles/3004101)
-* Ogólna dokumentacja RHEL
-  * [Omówienie Add-On wysokiej dostępności](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
-  * [Administracja Add-On wysokiej dostępności](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
-  * [Informacje o wysokiej dostępności Add-On](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
-* Dokumentacja usługi RHEL specyficznej dla platformy Azure:
-  * [Zasady obsługi klastrów RHEL o wysokiej dostępności — Microsoft Azure Virtual Machines jako elementy członkowskie klastra](https://access.redhat.com/articles/3131341)
-  * [Instalowanie i Konfigurowanie Red Hat Enterprise Linux 7,4 (i nowszych) High-Availability klastra na Microsoft Azure](https://access.redhat.com/articles/3252491)
-  * [Zainstaluj SAP HANA na Red Hat Enterprise Linux do użycia w Microsoft Azure](https://access.redhat.com/solutions/3193782)
+  * Obsługiwane oprogramowanie SAP oraz kombinacje systemów operacyjnych i baz danych.
+  * Wymagana wersja jądra SAP dla systemów Windows i Linux na Microsoft Azure.
+* Uwaga sap [2015553] zawiera listę wymagań wstępnych dla wdrożeń oprogramowania SAP obsługiwanych przez oprogramowanie SAP na platformie Azure.
+* Uwaga SAP [2002167] ma zalecane ustawienia systemu operacyjnego dla Red Hat Enterprise Linux
+* Uwaga sap [2009879] ma SAP HANA wytyczne dotyczące Red Hat Enterprise Linux
+* Uwaga [SAP 2178632 zawiera] szczegółowe informacje o wszystkich metrykach monitorowania zgłoszonych dla oprogramowania SAP na platformie Azure.
+* Uwaga SAP [2191498] ma wymaganą wersję agenta hosta SAP dla systemu Linux na platformie Azure.
+* Uwaga [2243692] oprogramowania SAP zawiera informacje o licencjonowaniu SAP w systemie Linux na platformie Azure.
+* Uwaga [1999351] oprogramowania SAP zawiera dodatkowe informacje dotyczące rozwiązywania problemów z rozszerzonym rozszerzeniem monitorowania platformy Azure dla oprogramowania SAP.
+* [Strona WIKI społeczności SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) zawiera wszystkie wymagane uwagi dotyczące systemu SAP dla systemu Linux.
+* [Planowanie i Virtual Machines wdrożenia oprogramowania SAP w systemie Linux na platformie Azure][planning-guide]
+* [Wdrażanie Virtual Machines platformy Azure dla oprogramowania SAP w systemie Linux (w tym artykule)][deployment-guide]
+* [Wdrażanie usługi Azure Virtual Machines DBMS dla oprogramowania SAP w systemie Linux][dbms-guide]
+* [SAP HANA replikacji systemu w klastrze pacemaker](https://access.redhat.com/articles/3004101)
+* Ogólna dokumentacja systemu RHEL
+  * [Omówienie Add-On dostępności](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
+  * [Administrowanie Add-On wysoką dostępnością](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+  * [Informacje o wysokiej Add-On dostępności](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+* Dokumentacja systemu RHEL specyficzna dla platformy Azure:
+  * [Zasady obsługi klastrów wysokiej dostępności RHEL — Microsoft Azure Virtual Machines jako elementy członkowskie klastra](https://access.redhat.com/articles/3131341)
+  * [Instalowanie i konfigurowanie klastra Red Hat Enterprise Linux 7.4 (lub nowszego) High-Availability na Microsoft Azure](https://access.redhat.com/articles/3252491)
+  * [Instalowanie SAP HANA na Red Hat Enterprise Linux do użytku w programie Microsoft Azure](https://access.redhat.com/solutions/3193782)
 
 ## <a name="overview"></a>Omówienie
 
-Aby zapewnić wysoką dostępność, SAP HANA jest instalowany na dwóch maszynach wirtualnych. Dane są replikowane przy użyciu replikacji systemu HANA.
+Aby uzyskać wysoką dostępność, SAP HANA na dwóch maszynach wirtualnych. Dane są replikowane przy użyciu replikacji systemu HANA.
 
-![Przegląd wysokiej dostępności SAP HANA](./media/sap-hana-high-availability-rhel/ha-hana.png)
+![SAP HANA o wysokiej dostępności](./media/sap-hana-high-availability-rhel/ha-hana.png)
 
-Konfiguracja replikacji systemu SAP HANA używa dedykowanej wirtualnej nazwy hosta i wirtualnych adresów IP. Na platformie Azure moduł równoważenia obciążenia jest wymagany do używania wirtualnego adresu IP. Na poniższej liście przedstawiono konfigurację modułu równoważenia obciążenia:
+SAP HANA konfiguracji replikacji systemu korzysta z dedykowanej wirtualnej nazwy hosta i wirtualnych adresów IP. Na platformie Azure do korzystania z wirtualnego adresu IP wymagany jest usługa równoważenia obciążenia. Na poniższej liście przedstawiono konfigurację usługi równoważenia obciążenia:
 
-* Konfiguracja frontonu: adres IP 10.0.0.13 dla hn1-DB
-* Konfiguracja zaplecza: połączono z podstawowymi interfejsami sieciowymi wszystkich maszyn wirtualnych, które powinny być częścią replikacji systemu HANA
-* Port sondy: Port 62503
+* Konfiguracja frontonu: adres IP 10.0.0.13 dla hn1-db
+* Konfiguracja serwera końcowego: połączone z podstawowymi interfejsami sieciowym wszystkich maszyn wirtualnych, które powinny być częścią replikacji systemu HANA
+* Port sondy: port 62503
 * Reguły równoważenia obciążenia: 30313 TCP, 30315 TCP, 30317 TCP, 30340 TCP, 30341 TCP, 30342 TCP
 
 ## <a name="deploy-for-linux"></a>Wdrażanie dla systemu Linux
 
-Portal Azure Marketplace zawiera obraz dla Red Hat Enterprise Linux 7,4 dla SAP HANA, który służy do wdrażania nowych maszyn wirtualnych.
+Plik Azure Marketplace obraz dla maszyny wirtualnej w Red Hat Enterprise Linux 7.4 SAP HANA do wdrażania nowych maszyn wirtualnych.
 
 ### <a name="deploy-with-a-template"></a>Wdrażanie za pomocą szablonu
 
-Możesz użyć jednego z szablonów szybkiego startu, które znajdują się w serwisie GitHub, aby wdrożyć wszystkie wymagane zasoby. Szablon wdraża maszyny wirtualne, moduł równoważenia obciążenia, zestaw dostępności i tak dalej.
+Aby wdrożyć wszystkie wymagane zasoby, możesz użyć jednego z szablonów szybkiego startu dostępnych w usłudze GitHub. Szablon wdraża maszyny wirtualne, usługę równoważenia obciążenia, zestaw dostępności i tak dalej.
 Aby wdrożyć szablon, wykonaj następujące kroki:
 
-1. Otwórz [szablon bazy danych][template-multisid-db] na Azure Portal.
+1. Otwórz szablon [bazy danych w][template-multisid-db] Azure Portal.
 1. Wprowadź następujące parametry:
-    * **Identyfikator systemu SAP**: Wprowadź identyfikator systemu SAP systemu SAP, który chcesz zainstalować. Identyfikator jest używany jako prefiks dla wdrożonych zasobów.
-    * **Typ systemu operacyjnego**: Wybierz jedną z dystrybucji Linux. Na potrzeby tego przykładu wybierz pozycję **RHEL 7**.
-    * **Typ bazy danych**: wybierz pozycję **Hana**.
-    * **Rozmiar systemu SAP**: wprowadź liczbę punktów SAP, które ma dostarczyć nowy system. Jeśli nie masz pewności, ile punktów SAP wymaga system, skontaktuj się z partnerem technologii SAP lub integratorem systemu.
-    * **Dostępność systemu**: Wybierz **ha**.
-    * **Nazwa użytkownika administratora, hasło administratora lub klucz SSH**: tworzony jest nowy użytkownik, którego można użyć do zalogowania się na komputerze.
-    * **Identyfikator podsieci**: Jeśli chcesz wdrożyć maszynę wirtualną w istniejącej sieci wirtualnej, w której zdefiniowano podsieć, należy przypisać do niej identyfikator tej konkretnej podsieci. Identyfikator zazwyczaj wygląda podobnie do **/subscriptions/ \<subscription ID> /resourceGroups/ \<resource group name> /providers/Microsoft.Network/virtualNetworks/ \<virtual network name> /Subnets/ \<subnet name>**. Pozostaw puste, jeśli chcesz utworzyć nową sieć wirtualną
+    * **Identyfikator systemu SAP:** wprowadź identyfikator systemu SAP systemu SAP, który chcesz zainstalować. Identyfikator jest używany jako prefiks dla wdrażanych zasobów.
+    * **Typ systemu operacyjnego:** wybierz jedną z dystrybucji systemu Linux. W tym przykładzie wybierz **pozycję RHEL 7.**
+    * **Typ bazy danych:** wybierz **pozycję HANA.**
+    * **Sap System Size**(Rozmiar systemu SAP): wprowadź liczbę systemów SAP, które ma udostępnić nowy system. Jeśli nie masz pewności, ilu systemów SAP wymaga system, zapytaj partnera technologii SAP lub integrator systemu.
+    * **Dostępność systemu:** wybierz pozycję **HA**.
+    * **Nazwa użytkownika administratora, hasło administratora lub klucz SSH:** zostanie utworzony nowy użytkownik, który może służyć do logowania się na maszynie.
+    * **Identyfikator podsieci:** jeśli chcesz wdrożyć maszynę wirtualną w istniejącej sieci wirtualnej, w której zdefiniowano podsieć, do której powinna zostać przypisana maszyna wirtualna, nadaj identyfikator tej konkretnej podsieci. Identyfikator zazwyczaj wygląda **następująco: /subscriptions/ \<subscription ID> /resourceGroups/ \<resource group name> /providers/Microsoft.Network/virtualNetworks/ \<virtual network name> /subnets/ \<subnet name>**. Pozostaw puste, jeśli chcesz utworzyć nową sieć wirtualną
 
 ### <a name="manual-deployment"></a>Wdrożenie ręczne
 
@@ -116,133 +116,133 @@ Aby wdrożyć szablon, wykonaj następujące kroki:
 1. Utwórz sieć wirtualną.
 1. Utwórz zestaw dostępności.  
    Ustaw maksymalną domenę aktualizacji.
-1. Utwórz moduł równoważenia obciążenia (wewnętrzny). Zalecamy użycie [standardowej usługi równoważenia obciążenia](../../../load-balancer/load-balancer-overview.md).
+1. Tworzenie równoważenia obciążenia (wewnętrznego). Zalecamy użycie [standardowego równoważenia obciążenia.](../../../load-balancer/load-balancer-overview.md)
    * Wybierz sieć wirtualną utworzoną w kroku 2.
 1. Utwórz maszynę wirtualną 1.  
-   Użyj co najmniej Red Hat Enterprise Linux 7,4 dla SAP HANA. W tym przykładzie zastosowano Red Hat Enterprise Linux 7,4 dla SAP HANA obrazu <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> Wybierz zestaw dostępności utworzony w kroku 3.
+   Użyj co najmniej Red Hat Enterprise Linux 7.4 dla SAP HANA. W tym przykładzie użyto Red Hat Enterprise Linux 7.4 dla SAP HANA Wybierz zestaw dostępności <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> utworzony w kroku 3.
 1. Utwórz maszynę wirtualną 2.  
-   Użyj co najmniej Red Hat Enterprise Linux 7,4 dla SAP HANA. W tym przykładzie zastosowano Red Hat Enterprise Linux 7,4 dla SAP HANA obrazu <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> Wybierz zestaw dostępności utworzony w kroku 3.
-1. Dodaj dyski danych.
+   Użyj co najmniej Red Hat Enterprise Linux 7.4 dla SAP HANA. W tym przykładzie użyto Red Hat Enterprise Linux 7.4 dla SAP HANA Wybierz zestaw dostępności utworzony <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> w kroku 3.
+1. Dodawanie dysków danych.
 
 > [!IMPORTANT]
-> Zmienny adres IP nie jest obsługiwany w konfiguracji pomocniczego adresu IP karty sieciowej w scenariuszach równoważenia obciążenia. Aby uzyskać szczegółowe informacje, zobacz [ograniczenia modułu równoważenia obciążenia platformy Azure](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Jeśli potrzebujesz dodatkowego adresu IP dla maszyny wirtualnej, wdróż drugą kartę sieciową.    
+> Zmienny adres IP nie jest obsługiwany w dodatkowej konfiguracji adresu IP karty sieciowej w scenariuszach równoważenia obciążenia. Aby uzyskać szczegółowe informacje, zobacz Azure Load balancer Limitations (Ograniczenia [usługi Azure Load Balancer).](../../../load-balancer/load-balancer-multivip-overview.md#limitations) Jeśli potrzebujesz dodatkowego adresu IP dla maszyny wirtualnej, wd wdrażaj drugą kartę sieciową.    
 
 > [!Note]
-> Gdy maszyny wirtualne bez publicznych adresów IP są umieszczane w puli zaplecza wewnętrznego (bez publicznego adresu IP) standardowego modułu równoważenia obciążenia platformy Azure, nie będzie wychodzące połączenie z Internetem, chyba że zostanie przeprowadzona dodatkowa konfiguracja zezwalająca na kierowanie do publicznych punktów końcowych. Aby uzyskać szczegółowe informacje na temat sposobu osiągnięcia łączności wychodzącej, zobacz [publiczna łączność z punktem końcowym dla Virtual Machines przy użyciu usługi Azure usługa Load Balancer w warstwie Standardowa w scenariuszach wysokiej dostępności SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
+> Jeśli maszyny wirtualne bez publicznych adresów IP zostaną umieszczone w puli zaplecza wewnętrznego (bez publicznego adresu IP) usługi Load Balancer w witrynie Azure Standard, nie będzie żadnych wychodzących połączeń z Internetem, chyba że zostanie wykonana dodatkowa konfiguracja zezwalania na routing do publicznych punktów końcowych. Aby uzyskać szczegółowe informacje na temat sposobu osiągnięcia łączności wychodzącej, zobacz Public [endpoint connectivity for Virtual Machines using Azure usługa Load Balancer w warstwie Standardowa in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md)(Łączność z publicznym punktem końcowym dla klientów korzystających z usługi Azure usługa Load Balancer w warstwie Standardowa w scenariuszach wysokiej dostępności oprogramowania SAP).  
 
-1. W przypadku korzystania z usługi równoważenia obciążenia w warstwie Standardowa wykonaj następujące czynności konfiguracyjne:
-   1. Najpierw Utwórz pulę adresów IP frontonu:
+1. W przypadku korzystania ze standardowego równoważenia obciążenia wykonaj następujące kroki konfiguracji:
+   1. Najpierw utwórz pulę adresów IP frontonia:
 
-      1. Otwórz moduł równoważenia obciążenia, wybierz pozycję **Pula adresów IP frontonu**, a następnie wybierz pozycję **Dodaj**.
-      1. Wprowadź nazwę nowej puli adresów IP frontonu (na przykład **Hana-fronton**).
-      1. Ustaw **przypisanie** na **static** i wprowadź adres IP (na przykład **10.0.0.13**).
+      1. Otwórz równoważenie obciążenia, wybierz **pulę adresów IP frontonia** i wybierz pozycję **Dodaj.**
+      1. Wprowadź nazwę nowej puli adresów IP frontendu (na przykład **hana-frontend).**
+      1. Ustaw **przypisanie na** **statyczny** i wprowadź adres IP (na przykład **10.0.0.13).**
       1. Wybierz przycisk **OK**.
-      1. Po utworzeniu nowej puli adresów IP frontonu Zanotuj adres IP puli.
+      1. Po utworzeniu nowej puli adresów IP frontonia zanotuj adres IP puli.
 
-   1. Następnie Utwórz pulę zaplecza:
+   1. Następnie utwórz pulę back-end:
 
-      1. Otwórz moduł równoważenia obciążenia, wybierz pozycję **Pule zaplecza**, a następnie wybierz pozycję **Dodaj**.
-      1. Wprowadź nazwę nowej puli zaplecza (na przykład **Hana-zaplecze**).
-      1. Wybierz pozycję **Dodaj maszynę wirtualną**.
-      1. Wybierz pozycję * * maszyna wirtualna * *.
-      1. Wybierz Maszyny wirtualne klastra SAP HANA i ich adresy IP.
+      1. Otwórz równoważenie obciążenia, wybierz **pozycję Pule zaplecza** i wybierz pozycję **Dodaj.**
+      1. Wprowadź nazwę nowej puli zaplecza (na przykład **hana-backend).**
+      1. Wybierz **pozycję Dodaj maszynę wirtualną.**
+      1. Wybierz pozycję **Maszyna wirtualna**.
+      1. Wybierz maszyny wirtualne klastra SAP HANA i ich adresy IP.
       1. Wybierz pozycję **Dodaj**.
 
    1. Następnie utwórz sondę kondycji:
 
-      1. Otwórz moduł równoważenia obciążenia, wybierz pozycję **sondy kondycji**, a następnie wybierz pozycję **Dodaj**.
-      1. Wprowadź nazwę nowej sondy kondycji (na przykład **Hana-HP**).
-      1. Wybierz pozycję **TCP** jako protokół i port 625 **03**. Pozostaw wartość **interwału** ustawioną na 5, a wartość **progowa złej kondycji** równa 2.
+      1. Otwórz usługę równoważenia obciążenia, wybierz **pozycję Sondy kondycji** i wybierz pozycję **Dodaj.**
+      1. Wprowadź nazwę nowej sondy kondycji (na przykład **hana-hp).**
+      1. Wybierz **TCP** jako protokół i port 625 **03.** Zachowaj wartość **Interwał** ustawioną na 5, a **wartość** progowa W złej kondycji na 2.
       1. Wybierz przycisk **OK**.
 
    1. Następnie utwórz reguły równoważenia obciążenia:
    
-      1. Otwórz moduł równoważenia obciążenia, wybierz pozycję **reguły równoważenia obciążenia** i wybierz pozycję **Dodaj**.
-      1. Wprowadź nazwę nowej reguły modułu równoważenia obciążenia (na przykład **Hana-lb**).
-      1. Wybierz adres IP frontonu, pulę zaplecza i sondę kondycji utworzoną wcześniej (na przykład **Hana-fronton**, **Hana — zaplecze** i **Hana-HP**).
-      1. Wybierz pozycję **porty ha**.
-      1. Zwiększ **limit czasu bezczynności** do 30 minut.
-      1. Upewnij się, że **włączono zmiennoprzecinkowy adres IP**.
+      1. Otwórz równoważenie obciążenia, wybierz **reguły równoważenia obciążenia** i wybierz pozycję **Dodaj.**
+      1. Wprowadź nazwę nowej reguły równoważenia obciążenia (na przykład **hana-lb).**
+      1. Wybierz utworzony wcześniej adres IP frontonia, pulę zaplecza i sondę kondycji (na przykład **hana-frontend,** **hana-backend** i **hana-hp).**
+      1. Wybierz pozycję **Porty HA.**
+      1. Zwiększ limit **czasu bezczynności do** 30 minut.
+      1. Upewnij się, że **włączyć zmienny adres IP**.
       1. Wybierz przycisk **OK**.
 
 
-1. Alternatywnie, jeśli scenariusz podyktuje przy użyciu podstawowego modułu równoważenia obciążenia, wykonaj następujące czynności konfiguracyjne:
-   1. Skonfiguruj moduł równoważenia obciążenia. Najpierw Utwórz pulę adresów IP frontonu:
+1. Alternatywnie, jeśli twój scenariusz decyduje o użyciu podstawowego równoważenia obciążenia, wykonaj następujące kroki konfiguracji:
+   1. Skonfiguruj usługę równoważenia obciążenia. Najpierw utwórz pulę adresów IP frontonia:
 
-      1. Otwórz moduł równoważenia obciążenia, wybierz pozycję **Pula adresów IP frontonu**, a następnie wybierz pozycję **Dodaj**.
-      1. Wprowadź nazwę nowej puli adresów IP frontonu (na przykład **Hana-fronton**).
-      1. Ustaw **przypisanie** na **static** i wprowadź adres IP (na przykład **10.0.0.13**).
+      1. Otwórz równoważenie obciążenia, wybierz **pulę adresów IP frontendu** i wybierz pozycję **Dodaj.**
+      1. Wprowadź nazwę nowej puli adresów IP frontendu (na przykład **hana-frontend).**
+      1. Ustaw **przypisanie na** **statyczny** i wprowadź adres IP (na przykład **10.0.0.13).**
       1. Wybierz przycisk **OK**.
-      1. Po utworzeniu nowej puli adresów IP frontonu Zanotuj adres IP puli.
+      1. Po utworzeniu nowej puli adresów IP frontonia zanotuj adres IP puli.
 
-   1. Następnie Utwórz pulę zaplecza:
+   1. Następnie utwórz pulę back-end:
 
-      1. Otwórz moduł równoważenia obciążenia, wybierz pozycję **Pule zaplecza**, a następnie wybierz pozycję **Dodaj**.
-      1. Wprowadź nazwę nowej puli zaplecza (na przykład **Hana-zaplecze**).
-      1. Wybierz pozycję **Dodaj maszynę wirtualną**.
+      1. Otwórz równoważenie obciążenia, wybierz **pozycję Pule zaplecza** i wybierz pozycję **Dodaj.**
+      1. Wprowadź nazwę nowej puli zaplecza (na przykład **hana-backend).**
+      1. Wybierz **pozycję Dodaj maszynę wirtualną.**
       1. Wybierz zestaw dostępności utworzony w kroku 3.
-      1. Wybierz Maszyny wirtualne klastra SAP HANA.
+      1. Wybierz maszyny wirtualne klastra SAP HANA klastra.
       1. Wybierz przycisk **OK**.
 
    1. Następnie utwórz sondę kondycji:
 
-      1. Otwórz moduł równoważenia obciążenia, wybierz pozycję **sondy kondycji**, a następnie wybierz pozycję **Dodaj**.
-      1. Wprowadź nazwę nowej sondy kondycji (na przykład **Hana-HP**).
-      1. Wybierz pozycję **TCP** jako protokół i port 625 **03**. Pozostaw wartość **interwału** ustawioną na 5, a wartość **progowa złej kondycji** równa 2.
+      1. Otwórz usługę równoważenia obciążenia, wybierz **pozycję Sondy kondycji** i wybierz pozycję **Dodaj.**
+      1. Wprowadź nazwę nowej sondy kondycji (na przykład **hana-hp).**
+      1. Wybierz **TCP** jako protokół i port 625 **03.** Zachowaj wartość **Interwał** ustawioną na 5, a **wartość** progowa W złej kondycji na 2.
       1. Wybierz przycisk **OK**.
 
-   1. W przypadku SAP HANA 1,0 Utwórz reguły równoważenia obciążenia:
+   1. W SAP HANA 1.0 utwórz reguły równoważenia obciążenia:
 
-      1. Otwórz moduł równoważenia obciążenia, wybierz pozycję **reguły równoważenia obciążenia** i wybierz pozycję **Dodaj**.
-      1. Wprowadź nazwę nowej reguły modułu równoważenia obciążenia (na przykład Hana-lb-3 **03** 15).
-      1. Wybierz adres IP frontonu, pulę zaplecza i sondę kondycji utworzoną wcześniej (na przykład **Hana-fronton**).
-      1. Pozostaw **Protokół** ustawiony na **TCP** i wprowadź port 3 **03** 15.
-      1. Zwiększ **limit czasu bezczynności** do 30 minut.
-      1. Upewnij się, że **włączono zmiennoprzecinkowy adres IP**.
+      1. Otwórz równoważenie obciążenia, wybierz **reguły równoważenia obciążenia** i wybierz pozycję **Dodaj.**
+      1. Wprowadź nazwę nowej reguły równoważenia obciążenia (na przykład hana-lb-3 **03** 15).
+      1. Wybierz utworzony wcześniej adres IP frontonia, pulę zaplecza i sondę kondycji (na przykład **hana-frontend).**
+      1. Zachowaj protokół **ustawiony** na **TCP** i wprowadź port 3 **03** 15.
+      1. Zwiększ limit **czasu bezczynności do** 30 minut.
+      1. Upewnij się, że **włączyć zmienny adres IP**.
       1. Wybierz przycisk **OK**.
       1. Powtórz te kroki dla portu 3 **03** 17.
 
-   1. W przypadku SAP HANA 2,0 Utwórz reguły równoważenia obciążenia dla systemowej bazy danych:
+   1. W SAP HANA 2.0 utwórz reguły równoważenia obciążenia dla systemowej bazy danych:
 
-      1. Otwórz moduł równoważenia obciążenia, wybierz pozycję **reguły równoważenia obciążenia** i wybierz pozycję **Dodaj**.
-      1. Wprowadź nazwę nowej reguły modułu równoważenia obciążenia (na przykład Hana-lb-3 **03** 13).
-      1. Wybierz adres IP frontonu, pulę zaplecza i sondę kondycji utworzoną wcześniej (na przykład **Hana-fronton**).
-      1. Pozostaw **Protokół** ustawiony na **TCP** i wprowadź port 3 **03** 13.
-      1. Zwiększ **limit czasu bezczynności** do 30 minut.
-      1. Upewnij się, że **włączono zmiennoprzecinkowy adres IP**.
+      1. Otwórz równoważenie obciążenia, wybierz **reguły równoważenia obciążenia** i wybierz pozycję **Dodaj.**
+      1. Wprowadź nazwę nowej reguły równoważenia obciążenia (na przykład hana-lb-3 **03** 13).
+      1. Wybierz utworzony wcześniej adres IP frontonia, pulę zaplecza i sondę kondycji (na przykład **hana-frontend).**
+      1. Zachowaj protokół **ustawiony** na **TCP** i wprowadź port 3 **03** 13.
+      1. Zwiększ limit **czasu bezczynności do** 30 minut.
+      1. Upewnij się, że **włączyć zmienny adres IP**.
       1. Wybierz przycisk **OK**.
       1. Powtórz te kroki dla portu 3 **03** 14.
 
-   1. W przypadku SAP HANA 2,0 najpierw utwórz reguły równoważenia obciążenia dla bazy danych dzierżawcy:
+   1. W SAP HANA 2.0 najpierw utwórz reguły równoważenia obciążenia dla bazy danych dzierżawy:
 
-      1. Otwórz moduł równoważenia obciążenia, wybierz pozycję **reguły równoważenia obciążenia** i wybierz pozycję **Dodaj**.
-      1. Wprowadź nazwę nowej reguły modułu równoważenia obciążenia (na przykład Hana-lb-3 **03** 40).
-      1. Wybierz adres IP frontonu, pulę zaplecza i sondę kondycji utworzoną wcześniej (na przykład **Hana-fronton**).
-      1. Pozostaw **Protokół** ustawiony na **TCP** i wprowadź port 3 **03** 40.
-      1. Zwiększ **limit czasu bezczynności** do 30 minut.
-      1. Upewnij się, że **włączono zmiennoprzecinkowy adres IP**.
+      1. Otwórz równoważenie obciążenia, wybierz **pozycję Reguły równoważenia obciążenia** i wybierz pozycję **Dodaj.**
+      1. Wprowadź nazwę nowej reguły równoważenia obciążenia (na przykład hana-lb-3 **03** 40).
+      1. Wybierz utworzony wcześniej adres IP frontonia, pulę zaplecza i sondę kondycji (na przykład **hana-frontend).**
+      1. Zachowaj protokół **ustawiony** na **TCP** i wprowadź port 3 **03** 40.
+      1. Zwiększ limit **czasu bezczynności do** 30 minut.
+      1. Upewnij się, że **włączyć zmienny adres IP**.
       1. Wybierz przycisk **OK**.
       1. Powtórz te kroki dla portów 3 **03** 41 i 3 **03** 42.
 
-Aby uzyskać więcej informacji na temat wymaganych portów dla SAP HANA, zapoznaj się z rozdziałem [połączenia z bazami danych dzierżawy](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) w Przewodniku obsługi [bazy danych dzierżaw SAP HANA](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) lub [Uwaga 2388694][2388694].
+Aby uzyskać więcej informacji na temat wymaganych [](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) portów dla usługi SAP HANA, przeczytaj rozdział Połączenia z bazami danych dzierżaw w przewodniku bazy danych dzierżawy usługi [SAP HANA](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) lub uwaga [sap 2388694.][2388694]
 
 > [!IMPORTANT]
-> Nie należy włączać sygnatur czasowych protokołu TCP na maszynach wirtualnych platformy Azure umieszczonych za Azure Load Balancer. Włączenie sygnatur czasowych protokołu TCP spowoduje niepowodzenie sond kondycji. Ustaw parametr **net.IPv4.tcp_timestamps** na **0**. Aby uzyskać szczegółowe informacje, zobacz [sondy kondycji Load Balancer](../../../load-balancer/load-balancer-custom-probe-overview.md).
-> Zobacz również artykuł SAP Uwaga [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
+> Nie włączaj znaczników czasu TCP na maszyn wirtualnych platformy Azure umieszczonych za Azure Load Balancer. Włączenie znaczników czasu TCP spowoduje niepowodzenie sond kondycji. Ustaw parametr **net.ipv4.tcp_timestamps** na **0**. Aby uzyskać szczegółowe [informacje, Load Balancer sond kondycji.](../../../load-balancer/load-balancer-custom-probe-overview.md)
+> Zobacz też uwaga sap [2382421.](https://launchpad.support.sap.com/#/notes/2382421) 
 
 ## <a name="install-sap-hana"></a>Instalowanie platformy SAP HANA
 
-W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
+W krokach w tej sekcji są następujące prefiksy:
 
-* **[A]**: krok ma zastosowanie do wszystkich węzłów.
-* **[1]**: krok ma zastosowanie tylko do węzła 1.
-* **[2]**: krok ma zastosowanie tylko do węzła 2 klastra Pacemaker.
+* **[A]**: Krok ma zastosowanie do wszystkich węzłów.
+* **[1]**: Krok dotyczy tylko węzła 1.
+* **[2]**: Krok dotyczy tylko węzła 2 klastra Pacemaker.
 
-1. **[A]** Skonfiguruj układ dysku: **Menedżer woluminów logicznych (LVM)**.
+1. **[A]** Skonfiguruj układ dysku: **Menedżer woluminów logicznych (LVM).**
 
-   Zalecamy używanie LVM dla woluminów, które przechowują pliki danych i dziennika. W poniższym przykładzie założono, że maszyny wirtualne mają dołączone cztery dyski z danymi, które są używane do tworzenia dwóch woluminów.
+   Zalecamy używanie lvm woluminów, które przechowują dane i pliki dziennika. W poniższym przykładzie przyjęto założenie, że maszyny wirtualne mają dołączone cztery dyski danych, które są używane do tworzenia dwóch woluminów.
 
-   Wyświetl listę wszystkich dostępnych dysków:
+   Lista wszystkich dostępnych dysków:
 
    <pre><code>ls /dev/disk/azure/scsi1/lun*
    </code></pre>
@@ -253,7 +253,7 @@ W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
    /dev/disk/azure/scsi1/lun0  /dev/disk/azure/scsi1/lun1  /dev/disk/azure/scsi1/lun2  /dev/disk/azure/scsi1/lun3
    </code></pre>
 
-   Utwórz woluminy fizyczne dla wszystkich dysków, które mają być używane:
+   Utwórz woluminy fizyczne dla wszystkich dysków, których chcesz użyć:
 
    <pre><code>sudo pvcreate /dev/disk/azure/scsi1/lun0
    sudo pvcreate /dev/disk/azure/scsi1/lun1
@@ -261,18 +261,18 @@ W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
    sudo pvcreate /dev/disk/azure/scsi1/lun3
    </code></pre>
 
-   Utwórz grupę woluminów dla plików danych. Użyj jednej grupy woluminów dla plików dziennika i jednego dla katalogu udostępnionego SAP HANA:
+   Utwórz grupę woluminów dla plików danych. Użyj jednej grupy woluminów dla plików dziennika i jednej dla udostępnionego katalogu SAP HANA:
 
    <pre><code>sudo vgcreate vg_hana_data_<b>HN1</b> /dev/disk/azure/scsi1/lun0 /dev/disk/azure/scsi1/lun1
    sudo vgcreate vg_hana_log_<b>HN1</b> /dev/disk/azure/scsi1/lun2
    sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
    </code></pre>
 
-   Utwórz woluminy logiczne. Wolumin liniowy jest tworzony, gdy jest używany `lvcreate` bez `-i` przełącznika. Zalecamy utworzenie woluminu rozłożonego w celu uzyskania lepszej wydajności operacji we/wy i dostosowanie rozmiarów rozłożonych do wartości przedstawionych w [SAP HANA konfiguracjach magazynu maszyny wirtualnej](./hana-vm-operations-storage.md). `-i`Argument powinien być liczbą podstawowych woluminów fizycznych, a `-I` argument jest rozmiarem paska. W tym dokumencie dwa woluminy fizyczne są używane dla woluminu danych, więc `-i` argument Switch ma wartość **2**. Rozmiar rozłożonego woluminu danych to **256KiB**. Jeden wolumin fizyczny jest używany w woluminie dziennika, więc żadne `-i` `-I` przełączniki nie są jawnie używane dla poleceń woluminu dziennika.  
+   Utwórz woluminy logiczne. Wolumin liniowy jest tworzony w przypadku użycia `lvcreate` bez `-i` przełącznika. Zalecamy utworzenie woluminu rozłożonego w celu lepszej wydajności we/wy i dopasowanie rozmiarów rozłożonych do wartości udokumentowanych w te SAP HANA [konfiguracji magazynu maszyny wirtualnej.](./hana-vm-operations-storage.md) Argument powinien być liczbą podstawowych woluminów fizycznych, a `-i` `-I` argumentem jest rozmiar paska. W tym dokumencie dwa woluminy fizyczne są używane dla woluminu danych, więc `-i` argument przełącznika jest ustawiony na **2**. Rozmiar rozłożony woluminu danych to **256KiB.** Jeden wolumin fizyczny jest używany dla woluminu dziennika, więc nie lub przełączniki `-i` `-I` są jawnie używane dla poleceń woluminu dziennika.  
 
    > [!IMPORTANT]
-   > Użyj `-i` przełącznika i ustaw go na numer bazowego woluminu fizycznego, jeśli używasz więcej niż jednego woluminu fizycznego dla każdego danych, dziennika lub udostępnionych woluminów. Użyj `-I` przełącznika, aby określić rozmiar paska podczas tworzenia woluminu rozłożonego.  
-   > Zapoznaj się z [SAP HANA konfiguracjami magazynu maszyn wirtualnych](./hana-vm-operations-storage.md) , aby uzyskać zalecane konfiguracje magazynu, w tym rozmiary i liczbę dysków.  
+   > Użyj przełącznika i ustaw go na liczbę bazowego woluminu fizycznego w przypadku używania więcej niż jednego woluminu fizycznego dla każdego woluminu danych, dziennika `-i` lub woluminów udostępnionych. Użyj `-I` przełącznika , aby określić rozmiar paska podczas tworzenia woluminu rozłożonego.  
+   > Zobacz [SAP HANA magazynu maszyny wirtualnej,](./hana-vm-operations-storage.md) aby uzyskać zalecane konfiguracje magazynu, w tym rozmiary rozłożone i liczbę dysków.  
 
    <pre><code>sudo lvcreate <b>-i 2</b> <b>-I 256</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
    sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
@@ -282,7 +282,7 @@ W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
    sudo mkfs.xfs /dev/vg_hana_shared_<b>HN1</b>/hana_shared
    </code></pre>
 
-   Utwórz katalogi instalacji i skopiuj identyfikator UUID wszystkich woluminów logicznych:
+   Utwórz katalogi instalacji i skopiuj UUID wszystkich woluminów logicznych:
 
    <pre><code>sudo mkdir -p /hana/data/<b>HN1</b>
    sudo mkdir -p /hana/log/<b>HN1</b>
@@ -296,7 +296,7 @@ W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
    <pre><code>sudo vi /etc/fstab
    </code></pre>
 
-   Wstaw następujący wiersz do `/etc/fstab` pliku:
+   Wstaw następujący wiersz w `/etc/fstab` pliku:
 
    <pre><code>/dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_data_<b>HN1</b>-hana_data&gt;</b> /hana/data/<b>HN1</b> xfs  defaults,nofail  0  2
    /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_log_<b>HN1</b>-hana_log&gt;</b> /hana/log/<b>HN1</b> xfs  defaults,nofail  0  2
@@ -308,9 +308,9 @@ W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
    <pre><code>sudo mount -a
    </code></pre>
 
-1. **[A]** Skonfiguruj układ dysku: **zwykłe dyski**.
+1. **[A]** Skonfiguruj układ dysku: **Dyski zwykłego systemu**.
 
-   W przypadku systemów demonstracyjnych można umieścić pliki danych i dziennika platformy HANA na jednym dysku. Utwórz partycję na/dev/Disk/Azure/scsi1/lun0 i sformatuj ją z XFS:
+   W przypadku systemów demonstracyjnych pliki danych i dzienników platformy HANA można umieścić na jednym dysku. Utwórz partycję na stronie /dev/disk/azure/scsi1/lun0 i sformatuj ją przy użyciu systemu plików xfs:
 
    <pre><code>sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/disk/azure/scsi1/lun0'
    sudo mkfs.xfs /dev/disk/azure/scsi1/lun0-part1
@@ -320,7 +320,7 @@ W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
    sudo vi /etc/fstab
    </code></pre>
 
-   Wstaw ten wiersz w pliku/etc/fstab:
+   Wstaw ten wiersz w pliku /etc/fstab:
 
    <pre><code>/dev/disk/by-uuid/<b>&lt;UUID&gt;</b> /hana xfs  defaults,nofail  0  2
    </code></pre>
@@ -331,86 +331,86 @@ W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
    sudo mount -a
    </code></pre>
 
-1. **[A]** Skonfiguruj rozpoznawanie nazw hostów dla wszystkich hostów.
+1. **[A]** Skonfiguruj rozpoznawania nazw hostów dla wszystkich hostów.
 
-   Możesz użyć serwera DNS lub zmodyfikować plik/etc/hosts na wszystkich węzłach. Ten przykład pokazuje, jak używać pliku/etc/hosts.
+   Można użyć serwera DNS lub zmodyfikować plik /etc/hosts we wszystkich węzłach. W tym przykładzie pokazano, jak używać pliku /etc/hosts.
    Zastąp adres IP i nazwę hosta w następujących poleceniach:
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
 
-   Wstaw następujące wiersze w pliku/etc/hosts. Zmień adres IP i nazwę hosta w taki sposób, aby odpowiadały Twojemu środowisku:
+   Wstaw następujące wiersze w pliku /etc/hosts. Zmień adres IP i nazwę hosta, aby dopasować je do środowiska:
 
    <pre><code><b>10.0.0.5 hn1-db-0</b>
    <b>10.0.0.6 hn1-db-1</b>
    </code></pre>
 
-1. **[A]** RHEL for Hana — konfiguracja
+1. **[A]** RHEL dla konfiguracji platformy HANA
 
-   Skonfiguruj RHEL zgodnie z opisem w temacie <https://access.redhat.com/solutions/2447641> i w następujących uwagach dotyczących oprogramowania SAP:  
-   - [2292690 — SAP HANA DB: zalecane ustawienia systemu operacyjnego dla RHEL 7](https://launchpad.support.sap.com/#/notes/2292690)
-   - [2777782 — SAP HANA DB: zalecane ustawienia systemu operacyjnego dla RHEL 8](https://launchpad.support.sap.com/#/notes/2777782)
-   - [2455582 — Linux: uruchamianie aplikacji SAP skompilowanych z usługą w zatoce 6. x](https://launchpad.support.sap.com/#/notes/2455582)
-   - [2593824 — Linux: uruchamianie aplikacji SAP skompilowanych z usługą w zatoce 7. x](https://launchpad.support.sap.com/#/notes/2593824) 
-   - [2886607 — Linux: uruchamianie aplikacji SAP skompilowanych z usługą w zatoce 9. x](https://launchpad.support.sap.com/#/notes/2886607)
+   Skonfiguruj system RHEL zgodnie z opisem <https://access.redhat.com/solutions/2447641> w poniższych uwagach o systemie SAP:  
+   - [2292690 — SAP HANA DB: zalecane ustawienia systemu operacyjnego dla systemu RHEL 7](https://launchpad.support.sap.com/#/notes/2292690)
+   - [2777782 — SAP HANA DB: zalecane ustawienia systemu operacyjnego dla systemu RHEL 8](https://launchpad.support.sap.com/#/notes/2777782)
+   - [2455582 — Linux: Uruchamianie aplikacji SAP skompilowanych za pomocą środowiska GCC 6.x](https://launchpad.support.sap.com/#/notes/2455582)
+   - [2593824 — Linux: Uruchamianie aplikacji SAP skompilowanych za pomocą środowiska GCC 7.x](https://launchpad.support.sap.com/#/notes/2593824) 
+   - [2886607 — Linux: Uruchamianie aplikacji SAP skompilowanych za pomocą środowiska GCC 9.x](https://launchpad.support.sap.com/#/notes/2886607)
 
 1. **[A]** Zainstaluj SAP HANA
 
-   Aby zainstalować replikację systemu SAP HANA, wykonaj następujące czynności <https://access.redhat.com/articles/3004101> .
+   Aby zainstalować SAP HANA replikacji systemu, wykonaj następujące <https://access.redhat.com/articles/3004101> czynności: .
 
-   * Uruchom program **hdblcm** z dysku DVD platformy Hana. W wierszu polecenia wprowadź następujące wartości:
-   * Wybierz pozycję Instalacja: wprowadź **1**.
+   * Uruchom program **hdblcm** z dysku DVD HANA. Wprowadź następujące wartości w wierszu polecenia:
+   * Wybierz instalację: wprowadź **1**.
    * Wybierz dodatkowe składniki do instalacji: wprowadź **1**.
-   * Wprowadź ścieżkę instalacji [/Hana/Shared]: Wybierz ENTER.
-   * Wprowadź nazwę hosta lokalnego [..]: wybierz klawisz ENTER.
-   * Czy chcesz dodać do systemu dodatkowe hosty? (t/n) [n]: wybierz klawisz ENTER.
-   * Wprowadź identyfikator systemu SAP HANA: Wprowadź identyfikator SID platformy HANA, na przykład: **HN1**.
-   * Wprowadź numer wystąpienia [00]: Wprowadź numer wystąpienia HANA. Wprowadź wartość **03** , jeśli użyto szablonu platformy Azure lub zastosowano sekcję wdrażanie ręczne w tym artykule.
-   * Wybierz tryb bazy danych/wprowadź indeks [1]: wybierz klawisz ENTER.
-   * Wybieranie opcji użycie systemu/wprowadzanie indeksu [4]: wybierz wartość użycie systemu.
-   * Wprowadź lokalizację woluminów danych [/hana/data/HN1]: Wybierz ENTER.
-   * Wprowadź lokalizację woluminów dziennika [/hana/log/HN1]: Wybierz ENTER.
-   * Ograniczyć maksymalną alokację pamięci? [n]: wybierz klawisz ENTER.
-   * Wprowadź nazwę hosta certyfikatu dla hosta "..." [...]: Wybierz klawisz ENTER.
-   * Wprowadź hasło użytkownika agenta hosta SAP (sapadm): wprowadź hasło użytkownika agenta hosta.
-   * Potwierdź hasło użytkownika agenta hosta SAP (sapadm): Wprowadź ponownie hasło użytkownika agenta hosta, aby je potwierdzić.
+   * Wprowadź ścieżkę instalacji [/hana/shared]: wybierz klawisz Enter.
+   * Wprowadź nazwę hosta lokalnego [..]: wybierz klawisz Enter.
+   * Czy chcesz dodać dodatkowe hosty do systemu? (y/n) [n]: wybierz klawisz Enter.
+   * Wprowadź SAP HANA systemowy: wprowadź identyfikator SID platformy HANA, na przykład: **HN1**.
+   * Wprowadź numer wystąpienia [00]: wprowadź numer wystąpienia platformy HANA. Wprowadź **wartość 03,** jeśli używasz szablonu platformy Azure lub zgodnie z sekcją ręcznego wdrażania tego artykułu.
+   * Wybierz pozycję Tryb bazy danych/ Wprowadź indeks [1]: wybierz klawisz Enter.
+   * Wybierz pozycję Użycie systemu / Wprowadź indeks [4]: wybierz wartość użycia systemu.
+   * Wprowadź lokalizację woluminów danych [/hana/data/HN1]: wybierz klawisz Enter.
+   * Wprowadź lokalizację woluminów dziennika [/hana/log/HN1]: wybierz klawisz Enter.
+   * Ograniczać maksymalną alokację pamięci? [n]: wybierz klawisz Enter.
+   * Wprowadź nazwę hosta certyfikatu dla hosta "..." [...]: Wybierz klawisz Enter.
+   * Wprowadź hasło użytkownika programu SAP Host Agent (sapadm): wprowadź hasło użytkownika agenta hosta.
+   * Potwierdź hasło użytkownika programu SAP Host Agent (sapadm): wprowadź ponownie hasło użytkownika agenta hosta, aby potwierdzić.
    * Wprowadź hasło administratora systemu (hdbadm): wprowadź hasło administratora systemu.
-   * Potwierdź hasło administratora systemu (hdbadm): Wprowadź ponownie hasło administratora systemu, aby potwierdzić.
-   * Wprowadź katalog macierzysty administratora systemu [/usr/sap/HN1/home]: wybierz klawisz ENTER.
-   * Wprowadź powłokę logowania administratora systemu [/bin/sh]: wybierz klawisz ENTER.
-   * Wprowadź identyfikator użytkownika administratora systemu [1001]: wybierz klawisz ENTER.
-   * Wprowadź identyfikator grupy użytkowników (sapsys) [79]: wybierz klawisz ENTER.
+   * Potwierdź hasło administratora systemu (hdbadm): wprowadź ponownie hasło administratora systemu, aby potwierdzić.
+   * Wprowadź katalog macierzysty administratora systemu [/usr/sap/HN1/home]: wybierz klawisz Enter.
+   * Wprowadź nazwę Powłoki logowania administratora systemu [/bin/sh]: wybierz klawisz Enter.
+   * Wprowadź identyfikator użytkownika administratora systemu [1001]: wybierz klawisz Enter.
+   * Wprowadź identyfikator grupy użytkowników (sapsys) [79]: wybierz klawisz Enter.
    * Wprowadź hasło użytkownika bazy danych (SYSTEM): wprowadź hasło użytkownika bazy danych.
-   * Potwierdź hasło użytkownika bazy danych (SYSTEM): Wprowadź ponownie hasło użytkownika bazy danych, aby je potwierdzić.
-   * Czy uruchomić ponownie system po ponownym uruchomieniu komputera? [n]: wybierz klawisz ENTER.
-   * Czy chcesz kontynuować? (t/n): Sprawdź poprawność podsumowania. Wprowadź **y** , aby kontynuować.
+   * Potwierdź hasło użytkownika bazy danych (SYSTEM): wprowadź ponownie hasło użytkownika bazy danych, aby potwierdzić.
+   * Uruchom ponownie system po ponownym uruchomieniu komputera? [n]: wybierz klawisz Enter.
+   * Czy chcesz kontynuować? (y/n): zweryfikuj podsumowanie. Wprowadź **y,** aby kontynuować.
 
-1. **[A]** Uaktualnij agenta hosta SAP.
+1. **[A] Uaktualnij** agenta hosta SAP.
 
-   Pobierz najnowszą archiwum agenta hosta SAP z [centrum oprogramowania SAP][sap-swcenter] i uruchom następujące polecenie, aby uaktualnić agenta. Zastąp ścieżkę do archiwum, aby wskazywało pobrany plik:
+   Pobierz najnowsze archiwum agenta hosta SAP z centrum [oprogramowania SAP i][sap-swcenter] uruchom następujące polecenie, aby uaktualnić agenta. Zastąp ścieżkę do archiwum, aby wskazać pobrany plik:
 
    <pre><code>sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive &lt;path to SAP Host Agent SAR&gt;
    </code></pre>
 
-1. **[A]** Konfigurowanie zapory
+1. **[A] Konfigurowanie** zapory
 
-   Utwórz regułę zapory dla portu sondowania modułu równoważenia obciążenia platformy Azure.
+   Utwórz regułę zapory dla portu sondy usługi Azure Load Balancer.
 
    <pre><code>sudo firewall-cmd --zone=public --add-port=625<b>03</b>/tcp
    sudo firewall-cmd --zone=public --add-port=625<b>03</b>/tcp --permanent
    </code></pre>
 
-## <a name="configure-sap-hana-20-system-replication"></a>Konfigurowanie replikacji systemu SAP HANA 2,0
+## <a name="configure-sap-hana-20-system-replication"></a>Konfigurowanie SAP HANA replikacji systemu w programie 2.0
 
-W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
+W krokach w tej sekcji są następujące prefiksy:
 
-* **[A]**: krok ma zastosowanie do wszystkich węzłów.
-* **[1]**: krok ma zastosowanie tylko do węzła 1.
-* **[2]**: krok ma zastosowanie tylko do węzła 2 klastra Pacemaker.
+* **[A]**: Krok ma zastosowanie do wszystkich węzłów.
+* **[1]**: Krok dotyczy tylko węzła 1.
+* **[2]**: Krok dotyczy tylko węzła 2 klastra Pacemaker.
 
-1. **[A]** Konfigurowanie zapory
+1. **[A] Konfigurowanie** zapory
 
-   Utwórz reguły zapory, aby umożliwić replikację systemu HANA i ruch klientów. Wymagane porty są wymienione w [portach TCP/IP wszystkich produktów SAP](https://help.sap.com/viewer/ports). Następujące polecenia są tylko przykładem, aby zezwolić na replikację systemu HANA 2,0 i ruch klienta do bazy danych SYSTEMDB, HN1 i NW1.
+   Utwórz reguły zapory, aby zezwolić na ruch klientów i replikację systemu HANA. Wymagane porty są wymienione na liście [Porty TCP/IP wszystkich produktów SAP.](https://help.sap.com/viewer/ports) Poniższe polecenia są tylko przykładem zezwalania na replikację systemu HANA 2.0 i ruch klientów do bazy danych SYSTEMDB, HN1 i NW1.
 
    <pre><code>sudo firewall-cmd --zone=public --add-port=40302/tcp --permanent
    sudo firewall-cmd --zone=public --add-port=40302/tcp
@@ -432,16 +432,16 @@ W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
 
 1. **[1]** Utwórz bazę danych dzierżawy.
 
-   Jeśli używasz SAP HANA 2,0 lub MDC, Utwórz bazę danych dzierżawy dla systemu SAP NetWeaver. Zastąp **NW1** identyfikatorem SID systemu SAP.
+   Jeśli używasz usługi SAP HANA 2.0 lub MDC, utwórz bazę danych dzierżawy dla systemu SAP NetWeaver. Zastąp **NW1** identyfikatorem SID systemu SAP.
 
-   Uruchom jako <hanasid \> adm następujące polecenie:
+   Wykonaj jako <hanasid \> adm następujące polecenie:
 
    <pre><code>hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
    </code></pre>
 
-1. **[1]** Skonfiguruj replikację systemu w pierwszym węźle:
+1. **[1] Skonfiguruj** replikację systemu w pierwszym węźle:
 
-   Utwórz kopię zapasową baz danych jako <hanasid \> adm:
+   Tworzenie kopii zapasowej baz danych <hanasid \> adm:
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
@@ -467,9 +467,9 @@ W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b>
    </code></pre>
 
-1. **[1]** Sprawdź stan replikacji
+1. **[1] Sprawdzanie** stanu replikacji
 
-   Sprawdź stan replikacji i poczekaj na zsynchronizowanie wszystkich baz danych. Jeśli stan jest nieznany, sprawdź ustawienia zapory.
+   Sprawdź stan replikacji i poczekaj, aż wszystkie bazy danych będą zsynchronizowane. Jeśli stan pozostanie NIEZNANY, sprawdź ustawienia zapory.
 
    <pre><code>sudo su - <b>hn1</b>adm -c "python /usr/sap/<b>HN1</b>/HDB<b>03</b>/exe/python_support/systemReplicationStatus.py"
    # | Database | Host     | Port  | Service Name | Volume ID | Site ID | Site Name | Secondary | Secondary | Secondary | Secondary | Secondary     | Replication | Replication | Replication    |
@@ -491,17 +491,17 @@ W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
    # site name: <b>SITE1</b>
    </code></pre>
 
-## <a name="configure-sap-hana-10-system-replication"></a>Konfigurowanie replikacji systemu SAP HANA 1,0
+## <a name="configure-sap-hana-10-system-replication"></a>Konfigurowanie SAP HANA replikacji systemu w programie 1.0
 
-W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
+W krokach w tej sekcji są następujące prefiksy:
 
-* **[A]**: krok ma zastosowanie do wszystkich węzłów.
-* **[1]**: krok ma zastosowanie tylko do węzła 1.
-* **[2]**: krok ma zastosowanie tylko do węzła 2 klastra Pacemaker.
+* **[A]**: Krok ma zastosowanie do wszystkich węzłów.
+* **[1]**: Krok dotyczy tylko węzła 1.
+* **[2]**: Krok dotyczy tylko węzła 2 klastra Pacemaker.
 
-1. **[A]** Konfigurowanie zapory
+1. **[A] Konfigurowanie** zapory
 
-   Utwórz reguły zapory, aby umożliwić replikację systemu HANA i ruch klientów. Wymagane porty są wymienione w [portach TCP/IP wszystkich produktów SAP](https://help.sap.com/viewer/ports). Poniższe polecenia są tylko przykładem umożliwiającym replikację systemu HANA 2,0. Dostosuj je do instalacji SAP HANA 1,0.
+   Utwórz reguły zapory, aby zezwolić na ruch klientów i replikację systemu HANA. Wymagane porty są wymienione na liście [Porty TCP/IP wszystkich produktów SAP.](https://help.sap.com/viewer/ports) Poniższe polecenia są tylko przykładem zezwalania na replikację systemu HANA 2.0. Dostosuj go do instalacji SAP HANA 1.0.
 
    <pre><code>sudo firewall-cmd --zone=public --add-port=40302/tcp --permanent
    sudo firewall-cmd --zone=public --add-port=40302/tcp
@@ -509,7 +509,7 @@ W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
 
 1. **[1]** Utwórz wymaganych użytkowników.
 
-   Uruchom następujące polecenie jako element główny. Pamiętaj, aby zastąpić ciągi pogrubione (identyfikator systemu HANA **HN1** i wystąpienie numer **03**) wartościami instalacji SAP HANA:
+   Uruchom następujące polecenie jako katalog główny. Pamiętaj, aby zastąpić ciągi pogrubione (identyfikator systemu HANA **HN1** i numer wystąpienia **03**) wartościami SAP HANA instalacji:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -u system -i <b>03</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"'
@@ -519,26 +519,26 @@ W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
 
 1. **[A]** Utwórz wpis magazynu kluczy.
 
-   Uruchom następujące polecenie jako element główny, aby utworzyć nowy wpis magazynu kluczy:
+   Uruchom następujące polecenie jako katalog główny, aby utworzyć nowy wpis magazynu kluczy:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
    </code></pre>
 
-1. **[1]** wykonaj kopię zapasową bazy danych.
+1. **[1] Kopii** zapasowej bazy danych.
 
-   Wykonaj kopię zapasową baz danych jako rdzeń:
+   Kopii zapasowej baz danych jako katalogu głównego:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -d SYSTEMDB -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
    </code></pre>
 
-   Jeśli używasz instalacji z wieloma dzierżawcami, Utwórz kopię zapasową bazy danych dzierżawcy:
+   Jeśli korzystasz z instalacji z wieloma dzierżawami, należy również wrócić do kopii zapasowej bazy danych dzierżawy:
 
    <pre><code>hdbsql -d <b>HN1</b> -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
    </code></pre>
 
-1. **[1]** Skonfiguruj replikację systemu na pierwszym węźle.
+1. **[1] Skonfiguruj** replikację systemu w pierwszym węźle.
 
    Utwórz lokację główną jako <hanasid \> adm:
 
@@ -546,7 +546,7 @@ W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
    </code></pre>
 
-1. **[2]** Skonfiguruj replikację systemu w węźle pomocniczym.
+1. **[2] Skonfiguruj** replikację systemu w węźle pomocniczym.
 
    Zarejestruj lokację dodatkową jako <hanasid \> adm:
 
@@ -557,11 +557,76 @@ W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
 
 ## <a name="create-a-pacemaker-cluster"></a>Tworzenie klastra Pacemaker
 
-Wykonaj kroki opisane w temacie [Konfigurowanie Pacemaker Red Hat Enterprise Linux na platformie Azure](high-availability-guide-rhel-pacemaker.md) , aby utworzyć podstawowy klaster Pacemaker dla tego serwera platformy Hana.
+Wykonaj kroki opisane w [te tematu Setting up Pacemaker on Red Hat Enterprise Linux in Azure](high-availability-guide-rhel-pacemaker.md) (Konfigurowanie programu Pacemaker na platformie Azure), aby utworzyć podstawowy klaster pacemaker dla tego serwera HANA.
 
-## <a name="create-sap-hana-cluster-resources"></a>Tworzenie zasobów klastra SAP HANA
+## <a name="implement-the-python-system-replication-hook-saphanasr"></a>Implementowanie wpięć replikacji systemu języka Python SAPHanaSR
 
-Zainstaluj agentów zasobów SAP HANA na **wszystkich węzłach**. Upewnij się, że włączono repozytorium zawierające pakiet. Nie musisz włączać dodatkowych repozytoriów, jeśli używany jest obraz RHEL 8. x z obsługą wysokiej dostępności.  
+Jest to ważny krok w celu zoptymalizowania integracji z klastrem i ulepszenia wykrywania, gdy jest wymagane włączenie klastra w tryb failover. Zdecydowanie zaleca się skonfigurowanie zaczepienia SAPHanaSR w języku Python.    
+
+1. **[A]** Zainstaluj "wpięcie replikacji systemu" platformy HANA. Węzły zaczepienia muszą być zainstalowane w obu węzłach usługi HANA DB.           
+
+   > [!TIP]
+   > Wpięcie języka Python można zaimplementować tylko dla platformy HANA 2.0.        
+
+   1. Przygotuj wpięcie jako `root` .  
+
+    ```bash
+     mkdir -p /hana/shared/myHooks
+     cp /usr/share/SAPHanaSR/srHook/SAPHanaSR.py /hana/shared/myHooks
+     chown -R hn1adm:sapsys /hana/shared/myHooks
+    ```
+
+   2. Zatrzymaj hanę na obu węzłach. Wykonaj jako <\> sid adm:  
+   
+    ```bash
+    sapcontrol -nr 03 -function StopSystem
+    ```
+
+   3. Dostosuj `global.ini` w każdym węźle klastra.  
+ 
+    ```bash
+    # add to global.ini
+    [ha_dr_provider_SAPHanaSR]
+    provider = SAPHanaSR
+    path = /hana/shared/myHooks
+    execution_order = 1
+    
+    [trace]
+    ha_dr_saphanasr = info
+    ```
+
+2. **[A]** Klaster wymaga konfiguracji programu sudoers w każdym węźle klastra <sid \> adm. W tym przykładzie jest to osiągane przez utworzenie nowego pliku. Wykonaj polecenia jako `root` .    
+    ```bash
+    cat << EOF > /etc/sudoers.d/20-saphana
+    # Needed for SAPHanaSR python hook
+    hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
+    EOF
+    ```
+
+3. **[A]** Uruchom SAP HANA obu węzłach. Wykonaj polecenie jako <\> sid adm.  
+
+    ```bash
+    sapcontrol -nr 03 -function StartSystem 
+    ```
+
+4. **[1] Sprawdź** instalację wpięć. Wykonaj polecenie <\> sid adm w aktywnej lokacji replikacji systemu HANA.   
+
+    ```bash
+     cdtrace
+     awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
+     { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
+     # Example output
+     # 2021-04-12 21:36:16.911343 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-12 21:36:29.147808 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-12 21:37:04.898680 ha_dr_SAPHanaSR SOK
+
+    ```
+
+Aby uzyskać więcej informacji na temat implementacji SAP HANA replikacji systemu, zobacz Włączanie wpięcie dostawcy [SAP HA/DR.](https://access.redhat.com/articles/3004101#enable-srhook)  
+ 
+## <a name="create-sap-hana-cluster-resources"></a>Tworzenie SAP HANA klastra
+
+Zainstaluj agentów SAP HANA zasobów na **wszystkich węzłach.** Pamiętaj, aby włączyć repozytorium zawierające pakiet . Nie musisz włączać dodatkowych repozytoriów, jeśli używasz obrazu z włączoną wysokiej jakości obsługą systemu RHEL 8.x.  
 
 <pre><code># Enable repository that contains SAP HANA resource agents
 sudo subscription-manager repos --enable="rhel-sap-hana-for-rhel-7-server-rpms"
@@ -569,7 +634,7 @@ sudo subscription-manager repos --enable="rhel-sap-hana-for-rhel-7-server-rpms"
 sudo yum install -y resource-agents-sap-hana
 </code></pre>
 
-Następnie utwórz topologię platformy HANA. Uruchom następujące polecenia na jednym z węzłów klastra Pacemaker:
+Następnie utwórz topologię platformy HANA. Uruchom następujące polecenia w jednym z węzłów klastra Pacemaker:
 
 <pre><code>sudo pcs property set maintenance-mode=true
 
@@ -582,9 +647,9 @@ clone clone-max=2 clone-node-max=1 interleave=true
 Następnie utwórz zasoby platformy HANA.
 
 > [!NOTE]
-> Ten artykuł zawiera odwołania do warunku *podrzędnego*, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
+> Ten artykuł zawiera odwołania do terminu podrzędnego *,* terminu, który nie jest już używany przez firmę Microsoft. Po usunięciu terminu z oprogramowania usuniemy go z tego artykułu.
 
-Jeśli tworzysz klaster na **RHEL 7. x**, użyj następujących poleceń:  
+W przypadku budowania klastra w **programie RHEL 7.x** użyj następujących poleceń:  
 
 <pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer.
 #
@@ -605,7 +670,7 @@ sudo pcs constraint colocation add g_ip_<b>HN1</b>_<b>03</b> with master SAPHana
 sudo pcs property set maintenance-mode=false
 </code></pre>
 
-Jeśli tworzysz klaster na **RHEL 8. x**, użyj następujących poleceń:  
+W przypadku budowania klastra w **programie RHEL 8.x** użyj następujących poleceń:  
 
 <pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer.
 #
@@ -626,10 +691,10 @@ sudo pcs constraint colocation add g_ip_<b>HN1</b>_<b>03</b> with master SAPHana
 sudo pcs property set maintenance-mode=false
 </code></pre>
 
-Upewnij się, że klaster ma stan OK i że wszystkie zasoby są uruchomione. Nie ma znaczenia, w którym węźle są uruchomione zasoby.
+Upewnij się, że stan klastra jest w porządku i że wszystkie zasoby zostały uruchomione. Nie jest ważne, w którym węźle są uruchomione zasoby.
 
 > [!NOTE]
-> Przekroczenia limitów czasu w powyższej konfiguracji są tylko przykłady i konieczne może być dostosowanie do określonej konfiguracji platformy HANA. Na przykład może być konieczne zwiększenie limitu czasu uruchamiania, Jeśli uruchomienie SAP HANA bazy danych trwa dłużej.  
+> Limity czasu w powyższej konfiguracji są tylko przykładami i może być konieczne dostosowanie do określonej konfiguracji platformy HANA. Na przykład może być konieczne zwiększenie limitu czasu rozpoczęcia, jeśli uruchomienie bazy danych trwa dłużej SAP HANA danych.  
 
 <pre><code>sudo pcs status
 
@@ -649,50 +714,49 @@ Upewnij się, że klaster ma stan OK i że wszystkie zasoby są uruchomione. Nie
 </code></pre>
 
 
-## <a name="configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster"></a>Konfiguruj replikację systemu z włączoną funkcją Active/odczyt w klastrze Pacemaker
+## <a name="configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster"></a>Konfigurowanie replikacji systemu z włączoną obsługą aktywnej/odczytu platformy HANA w klastrze Pacemaker
 
-Począwszy od SAP HANA 2,0 SPS 01 SAP zezwala na aktywne/z obsługą odczytu konfiguracje do replikacji systemu SAP HANA, w przypadku których systemy pomocnicze SAP HANA replikacji systemu mogą być używane aktywnie na potrzeby obciążeń odczytu i intensywnie. Aby zapewnić obsługę takich ustawień w klastrze, wymagany jest drugi wirtualny adres IP, który umożliwia klientom dostęp do pomocniczej bazy danych SAP HANA z włączoną obsługą odczytu. Aby upewnić się, że lokacja replikacji pomocniczej nadal będzie dostępna po przejęciu przejęcia, klaster musi przenieść wirtualny adres IP wokół pomocniczego zasobu SAPHana.
+Począwszy od programu SAP HANA 2.0 SPS 01 SAP umożliwia konfiguracje aktywne/z obsługą odczytu na potrzeby replikacji systemu SAP HANA, w której systemy pomocnicze systemu replikacji systemu SAP HANA mogą być aktywnie używane dla obciążeń intensywnie wymagających odczytu. Do obsługi takiej konfiguracji w klastrze wymagany jest drugi wirtualny adres IP, który umożliwia klientom dostęp do pomocniczej bazy danych z włączoną obsługą odczytu SAP HANA danych. Aby zapewnić, że dostęp do dodatkowej lokacji replikacji będzie nadal możliwy po zakończeniu przejęcia, klaster musi przenieść wirtualny adres IP z pomocniczym zasobem SAPHana.
 
-W tej sekcji opisano dodatkowe kroki, które są wymagane do zarządzania replikacją systemu w systemie HANA z włączoną funkcją odczytu i w klastrze o wysokiej dostępności w systemie Red Hat z drugim wirtualnym adresem IP.    
+W tej sekcji opisano dodatkowe kroki, które są wymagane do zarządzania replikacją systemu z włączoną obsługą hana HANA Active/Read w klastrze o wysokiej dostępności z drugim wirtualnym adresem IP.    
 
-Przed kontynuowaniem upewnij się, że masz w pełni skonfigurowany klaster Red Hat High Availability zarządzanie SAP HANA bazą danych, zgodnie z opisem w powyższych segmentach dokumentacji.  
+Przed dalszymi krokami upewnij się, że masz w pełni skonfigurowany klaster wysokiej dostępności red Hat zarządzający SAP HANA bazą danych, zgodnie z opisem w powyższych segmentach dokumentacji.  
 
-![SAP HANA wysoka dostępność z użyciem dodatkowej z możliwością odczytu](./media/sap-hana-high-availability/ha-hana-read-enabled-secondary.png)
+![SAP HANA wysokiej dostępności z pomocniczą obsługą odczytu](./media/sap-hana-high-availability/ha-hana-read-enabled-secondary.png)
 
-### <a name="additional-setup-in-azure-load-balancer-for-activeread-enabled-setup"></a>Dodatkowa konfiguracja modułu równoważenia obciążenia platformy Azure na potrzeby instalacji Active/z obsługą odczytu
+### <a name="additional-setup-in-azure-load-balancer-for-activeread-enabled-setup"></a>Dodatkowa konfiguracja w usłudze Azure Load Balancer dla konfiguracji aktywne/z włączoną obsługą odczytu
 
-Aby kontynuować dodatkowe kroki dotyczące aprowizacji drugiego wirtualnego adresu IP, upewnij się, że skonfigurowano Azure Load Balancer zgodnie z opisem w sekcji [wdrażanie ręczne](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#manual-deployment) .
+Aby przejść do dodatkowych kroków aprowizowania drugiego wirtualnego adresu IP, upewnij się, że skonfigurowano Azure Load Balancer zgodnie z opisem w sekcji [Wdrażanie](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#manual-deployment) ręczne.
 
-1. W przypadku usługi równoważenia obciążenia w **warstwie Standardowa** postępuj zgodnie z dodatkowymi krokami dotyczącymi tego samego modułu równoważenia obciążenia, które zostały utworzone we wcześniejszej sekcji.
+1. W **przypadku usługi** load balancer w standardowych wersjach wykonaj poniższe dodatkowe kroki dotyczące tego samego usługi równoważenia obciążenia, która została utworzona we wcześniejszej sekcji.
 
-   a. Utwórz drugą pulę adresów IP frontonu: 
+   a. Utwórz drugą pulę adresów IP frontonia: 
 
-   - Otwórz moduł równoważenia obciążenia, wybierz pozycję **Pula adresów IP frontonu**, a następnie wybierz pozycję **Dodaj**.
-   - Wprowadź nazwę drugiej puli adresów IP frontonu (na przykład **Hana-secondaryIP**).
-   - Ustaw **przypisanie** na **static** i wprowadź adres IP (na przykład **10.0.0.14**).
+   - Otwórz równoważenie obciążenia, wybierz **pulę adresów IP frontendu** i wybierz pozycję **Dodaj.**
+   - Wprowadź nazwę drugiej puli adresów IP frontonia (na przykład **hana-secondaryIP).**
+   - Ustaw ustawienie **Przypisanie** **na statyczne** i wprowadź adres IP (na przykład **10.0.0.14).**
    - Wybierz przycisk **OK**.
-   - Po utworzeniu nowej puli adresów IP frontonu Zanotuj adres IP puli.
+   - Po utworzeniu nowej puli adresów IP frontonia zanotuj adres IP puli.
 
    b. Następnie utwórz sondę kondycji:
 
-   - Otwórz moduł równoważenia obciążenia, wybierz pozycję **sondy kondycji**, a następnie wybierz pozycję **Dodaj**.
-   - Wprowadź nazwę nowej sondy kondycji (na przykład **Hana-secondaryhp**).
-   - Wybierz pozycję **TCP** jako protokół i port **62603**. Pozostaw wartość **interwału** ustawioną na 5, a wartość **progowa złej kondycji** równa 2.
+   - Otwórz usługę równoważenia obciążenia, wybierz **sondy kondycji** i wybierz pozycję **Dodaj.**
+   - Wprowadź nazwę nowej sondy kondycji (na przykład **hana-secondaryhp).**
+   - Wybierz **TCP** jako protokół i port **62603.** Zachowaj wartość **Interwał** ustawioną na 5, a **wartość** progowa W złej kondycji na 2.
    - Wybierz przycisk **OK**.
 
    c. Następnie utwórz reguły równoważenia obciążenia:
 
-   - Otwórz moduł równoważenia obciążenia, wybierz pozycję **reguły równoważenia obciążenia** i wybierz pozycję **Dodaj**.
-   - Wprowadź nazwę nowej reguły modułu równoważenia obciążenia (na przykład **Hana-secondarylb**).
-   - Wybierz adres IP frontonu, pulę zaplecza i sondę kondycji utworzoną wcześniej (na przykład **Hana-secondaryIP**, **Hana — zaplecze** i **Hana-secondaryhp**).
-   - Wybierz pozycję **porty ha**.
-   - Zwiększ **limit czasu bezczynności** do 30 minut.
-   - Upewnij się, że **włączono zmiennoprzecinkowy adres IP**.
+   - Otwórz równoważenie obciążenia, wybierz **reguły równoważenia obciążenia** i wybierz pozycję **Dodaj.**
+   - Wprowadź nazwę nowej reguły równoważenia obciążenia (na przykład **hana-secondarylb).**
+   - Wybierz adres IP frontonia, pulę zaplecza i utworzoną wcześniej sondę kondycji (na przykład **hana-secondaryIP,** **hana-backend** i **hana-secondary hp).**
+   - Wybierz pozycję **Porty HA.**
+   - Upewnij się, że **włączyć zmienny adres IP**.
    - Wybierz przycisk **OK**.
 
-### <a name="configure-hana-activeread-enabled-system-replication"></a>Konfiguruj replikację systemu w ramach usługi HANA Active/Read Enabled
+### <a name="configure-hana-activeread-enabled-system-replication"></a>Konfigurowanie replikacji systemu z włączoną obsługą aktywnej/odczytu platformy HANA
 
-Procedurę konfigurowania replikacji systemu HANA opisano w sekcji [konfigurowanie SAP HANA 2,0 replikacji systemowej](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#configure-sap-hana-20-system-replication) . Jeśli wdrażasz scenariusz pomocniczy z włączoną obsługą odczytu, podczas konfigurowania replikacji systemu w drugim węźle wykonaj następujące polecenie jako **hanasid** adm:
+Kroki konfigurowania replikacji systemu HANA opisano w sekcji [Konfigurowanie replikacji systemu SAP HANA 2.0.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#configure-sap-hana-20-system-replication) Jeśli wdrażasz scenariusz pomocniczy z włączoną obsługą odczytu podczas konfigurowania replikacji systemu w drugim węźle, wykonaj następujące polecenie jako **hanasid** adm:
 
 ```
 sapcontrol -nr 03 -function StopWait 600 10 
@@ -700,9 +764,9 @@ sapcontrol -nr 03 -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=03 --replicationMode=sync --name=SITE2 --operationMode=logreplay_readaccess 
 ```
 
-### <a name="adding-a-secondary-virtual-ip-address-resource-for-an-activeread-enabled-setup"></a>Dodawanie zasobu dodatkowego wirtualnego adresu IP dla instalacji z obsługą aktywnego/z możliwością odczytu
+### <a name="adding-a-secondary-virtual-ip-address-resource-for-an-activeread-enabled-setup"></a>Dodawanie pomocniczego zasobu wirtualnego adresu IP dla konfiguracji aktywnej/z włączoną obsługą odczytu
 
-Drugi wirtualny adres IP i odpowiednie ograniczenie między lokalizacjami można skonfigurować przy użyciu następujących poleceń:
+Drugi wirtualny adres IP i odpowiednie ograniczenie kolokacji można skonfigurować za pomocą następujących poleceń:
 
 ```
 pcs property set maintenance-mode=true
@@ -720,7 +784,7 @@ pcs constraint colocation add g_secip_HN1_03 with slave SAPHana_HN1_03-master 40
 
 pcs property set maintenance-mode=false
 ```
-Upewnij się, że klaster ma stan OK i że wszystkie zasoby są uruchomione. Drugi wirtualny adres IP zostanie uruchomiony w lokacji dodatkowej wraz z zasobem pomocniczym SAPHana.
+Upewnij się, że stan klastra jest w porządku i że wszystkie zasoby zostały uruchomione. Drugi wirtualny adres IP zostanie uruchomiony w lokacji dodatkowej wraz z zasobem pomocniczym SAPHana.
 
 ```
 sudo pcs status
@@ -744,19 +808,19 @@ sudo pcs status
 
 W następnej sekcji można znaleźć typowy zestaw testów trybu failover do wykonania.
 
-Zapoznaj się z drugim zachowaniem wirtualnego adresu IP, podczas testowania klastra HANA skonfigurowanego przy użyciu dodatkowej z włączoną funkcją odczytu:
+Należy pamiętać o drugim zachowaniu wirtualnego adresu IP podczas testowania klastra HANA skonfigurowanego z pomocniczym włączonym odczytem:
 
-1. Podczas migracji **SAPHana_HN1_HDB03** zasobu klastra do **HN1-dB-1** drugi wirtualny adres IP zostanie przeniesiony na inny serwer **HN1-DB-0**. Jeśli skonfigurowano AUTOMATED_REGISTER = "false" i replikacja systemu HANA nie jest automatycznie zarejestrowana, drugi wirtualny adres IP zostanie uruchomiony w **hn1-DB-0,** ponieważ serwer jest dostępny i usługi klastra są w trybie online.  
+1. Podczas migracji **SAPHana_HN1_HDB03** klastra do **hn1-db-1,** drugi wirtualny adres IP zostanie przeniesione do innego serwera **hn1-db-0.** Jeśli skonfigurowano wartość AUTOMATED_REGISTER="false", a replikacja systemu HANA nie jest rejestrowana automatycznie, drugi wirtualny adres IP zostanie uruchomiony na serwerze **hn1-db-0,** ponieważ serwer jest dostępny, a usługi klastra są w trybie online.  
 
-2. Podczas testowania awarii serwera, drugie wirtualne zasoby IP (**rsc_secip_HN1_HDB03**) i zasób portu usługi równoważenia obciążenia platformy Azure (**rsc_secnc_HN1_HDB03**) zostaną uruchomione na serwerze podstawowym obok podstawowych zasobów wirtualnego adresu IP.  Gdy serwer pomocniczy nie działa, aplikacje połączone z bazą danych HANA z obsługą odczytu będą łączyć się z podstawową bazą danych HANA. Zachowanie jest oczekiwane, ponieważ nie chcesz, aby aplikacje połączone z bazą danych HANA z włączoną funkcją odczytu były niedostępne, gdy pomocniczy serwer czasu jest niedostępny.
+2. Podczas testowania awarii serwera drugi wirtualny adres IP **(rsc_secip_HN1_HDB03)** i zasób portu usługi Azure Load Balancer **(rsc_secnc_HN1_HDB03)** będą uruchamiane na serwerze podstawowym wraz z podstawowymi zasobami wirtualnego adresu IP.  Gdy serwer pomocniczy nie istnieje, aplikacje połączone z bazą danych HANA z włączoną obsługą odczytu będą łączyć się z podstawową bazą danych HANA. Zachowanie jest oczekiwane, ponieważ nie chcesz, aby aplikacje połączone z bazą danych HANA z włączoną obsługą odczytu były niedostępne, gdy serwer pomocniczy jest niedostępny.
 
-3. Gdy serwer pomocniczy jest dostępny i usługi klastra są w trybie online, drugi wirtualny adres IP i zasoby portów zostaną automatycznie przeniesione na serwer pomocniczy, nawet jeśli replikacja systemu HANA nie zostanie zarejestrowana jako dodatkowa. Przed uruchomieniem usług klastrowania na tym serwerze należy się upewnić, że baza danych dodatkowej platformy HANA została zarejestrowana jako przeczytana. Zasób klastra wystąpienia HANA można skonfigurować tak, aby automatycznie rejestrował pomocniczy przez ustawienie parametru AUTOMATED_REGISTER = true.
+3. Gdy serwer pomocniczy jest dostępny, a usługi klastra są w trybie online, drugi wirtualny adres IP i zasoby portów zostaną automatycznie przenieść na serwer pomocniczy, mimo że replikacja systemu HANA może nie zostać zarejestrowana jako pomocnicza. Przed uruchomieniem usług klastra na tym serwerze należy upewnić się, że pomocnicza baza danych HANA jest włączona jako włączona. Zasób klastra wystąpień platformy HANA można skonfigurować do automatycznego rejestrowania pomocniczego, ustawiając parametr AUTOMATED_REGISTER=true.
    
-4. Podczas przełączania do trybu failover i powrotu istniejące połączenia dla aplikacji przy użyciu drugiego wirtualnego adresu IP do łączenia się z bazą danych HANA mogą zostać przerwane.  
+4. Podczas pracy w trybu failover i powrotu po awarii istniejące połączenia dla aplikacji używające drugiego wirtualnego adresu IP do nawiązywania połączenia z bazą danych HANA mogą zostać przerwane.  
 
 ## <a name="test-the-cluster-setup"></a>Testowanie konfiguracji klastra
 
-W tej sekcji opisano, jak można testować konfigurację. Przed rozpoczęciem testu upewnij się, że Pacemaker nie ma żadnej akcji zakończonej niepowodzeniem (za pośrednictwem stanu komputerów), nie ma żadnych nieoczekiwanych ograniczeń lokalizacji (na przykład pozostałości testu migracji) i że HANA jest stan synchronizacji, na przykład z systemReplicationStatus:
+W tej sekcji opisano sposób testowania konfiguracji. Przed rozpoczęciem testu upewnij się, że program Pacemaker nie ma żadnej akcji, która zakończyła się niepowodzeniem (za pośrednictwem stanu pcs), nie ma nieoczekiwanych ograniczeń lokalizacji (na przykład pozostawień testu migracji) i że hana jest stanem synchronizacji, na przykład z stanem systemReplicationStatus:
 
 <pre><code>[root@hn1-db-0 ~]# sudo su - hn1adm -c "python /usr/sap/HN1/HDB03/exe/python_support/systemReplicationStatus.py"
 </code></pre>
@@ -775,7 +839,7 @@ Resource Group: g_ip_HN1_03
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-0
 </code></pre>
 
-Można zmigrować węzeł główny SAP HANA, wykonując następujące polecenie:
+Możesz przeprowadzić migrację SAP HANA głównego, wykonując następujące polecenie:
 
 <pre><code># On RHEL <b>7.x</b> 
 [root@hn1-db-0 ~]# pcs resource move SAPHana_HN1_03-master
@@ -783,9 +847,9 @@ Można zmigrować węzeł główny SAP HANA, wykonując następujące polecenie:
 [root@hn1-db-0 ~]# pcs resource move SAPHana_HN1_03-clone --master
 </code></pre>
 
-W przypadku ustawienia `AUTOMATED_REGISTER="false"` tego polecenia należy zmigrować węzeł główny SAP HANA i grupę zawierającą wirtualny adres IP do hn1-dB-1.
+Jeśli ustawisz wartość , to polecenie powinno zmigrować węzeł główny SAP HANA grupę zawierającą wirtualny adres IP do `AUTOMATED_REGISTER="false"` węzła hn1-db-1.
 
-Po zakończeniu migracji wynik "sudo PCs status" będzie wyglądać następująco
+Po zakończeniu migracji dane wyjściowe "sudo pcs status" wyglądają następująco
 
 <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
     Started: [ hn1-db-0 hn1-db-1 ]
@@ -797,7 +861,7 @@ Resource Group: g_ip_HN1_03
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-1
 </code></pre>
 
-Zasób SAP HANA w hn1-DB-0 jest zatrzymany. W takim przypadku należy skonfigurować wystąpienie HANA jako pomocnicze, wykonując następujące polecenie:
+Zasób SAP HANA hn1-db-0 jest zatrzymany. W takim przypadku skonfiguruj wystąpienie platformy HANA jako pomocnicze, wykonując to polecenie:
 
 <pre><code>[root@hn1-db-0 ~]# su - hn1adm
 
@@ -807,14 +871,14 @@ hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-1
 e=sync --name=SITE1
 </code></pre>
 
-Migracja tworzy ograniczenia lokalizacji, które muszą zostać usunięte ponownie:
+Migracja tworzy ograniczenia lokalizacji, które należy usunąć ponownie:
 
 <pre><code># Switch back to root
 exit
 [root@hn1-db-0 ~]# pcs resource clear SAPHana_HN1_03-master
 </code></pre>
 
-Monitoruj stan zasobu HANA przy użyciu "stan komputerów". Po uruchomieniu platformy HANA w hn1-DB-0 dane wyjściowe powinny wyglądać następująco
+Monitoruj stan zasobu PLATFORMY HANA przy użyciu "stanu komputerów". Po zakończeniu pracy z programem HANA na hn1-db-0 dane wyjściowe powinny wyglądać podobnie do tych
 
 <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
     Started: [ hn1-db-0 hn1-db-1 ]
@@ -826,10 +890,10 @@ Resource Group: g_ip_HN1_03
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-1
 </code></pre>
 
-### <a name="test-the-azure-fencing-agent"></a>Testowanie usługi Azure ogrodzeniing Agent
+### <a name="test-the-azure-fencing-agent"></a>Testowanie agenta ogrodzenia platformy Azure
 
 > [!NOTE]
-> Ten artykuł zawiera odwołania do warunku *podrzędnego*, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.  
+> Ten artykuł zawiera odwołania do terminu *podrzędnego*, czyli terminu, który nie jest już używany przez firmę Microsoft. Po usunięciu terminu z oprogramowania usuniemy go z tego artykułu.  
 
 Stan zasobu przed rozpoczęciem testu:
 
@@ -843,16 +907,16 @@ Resource Group: g_ip_HN1_03
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-1
 </code></pre>
 
-Możesz przetestować instalację Agenta ogrodzenia platformy Azure, wyłączając interfejs sieciowy w węźle, w którym SAP HANA jest uruchomiony jako główny.
-Zapoznaj się z [artykułem 79523 w bazie wiedzy Red Hat](https://access.redhat.com/solutions/79523) , aby uzyskać opis sposobu symulowania awarii sieci. W tym przykładzie używamy skryptu net_breaker, aby zablokować dostęp do sieci.
+Możesz przetestować konfigurację agenta ogrodzenia platformy Azure, wyłączając interfejs sieciowy w węźle, w którym SAP HANA jako główny.
+Opis sposobu symulowania awarii sieci można znaleźć w artykule [79523](https://access.redhat.com/solutions/79523) bazy wiedzy systemu Red Hat. W tym przykładzie używamy skryptu net_breaker, aby zablokować cały dostęp do sieci.
 
 <pre><code>[root@hn1-db-1 ~]# sh ./net_breaker.sh BreakCommCmd 10.0.0.6
 </code></pre>
 
-Maszyna wirtualna powinna być teraz ponownie uruchamiana lub zatrzymywana w zależności od konfiguracji klastra.
-Jeśli `stonith-action` ustawienie zostanie wyłączone, maszyna wirtualna zostanie zatrzymana, a zasoby zostaną zmigrowane do uruchomionej maszyny wirtualnej.
+Maszyna wirtualna powinna zostać ponownie uruchomiona lub zatrzymana w zależności od konfiguracji klastra.
+Jeśli to ustawienie zostanie wyłączone, maszyna wirtualna zostanie zatrzymana, a zasoby `stonith-action` zostaną zmigrowane do uruchomionej maszyny wirtualnej.
 
-Po ponownym uruchomieniu maszyny wirtualnej nie można uruchomić zasobu SAP HANA jako pomocniczego, jeśli został ustawiony `AUTOMATED_REGISTER="false"` . W takim przypadku należy skonfigurować wystąpienie HANA jako pomocnicze, wykonując następujące polecenie:
+Po uruchomieniu maszyny wirtualnej ponownie uruchomienie zasobu SAP HANA nie powiedzie się jako pomocniczy, jeśli ustawisz `AUTOMATED_REGISTER="false"` wartość . W takim przypadku skonfiguruj wystąpienie platformy HANA jako pomocnicze, wykonując to polecenie:
 
 <pre><code>su - <b>hn1</b>adm
 
@@ -880,7 +944,7 @@ Resource Group: g_ip_HN1_03
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-0
 </code></pre>
 
-### <a name="test-a-manual-failover"></a>Testowanie ręcznego przełączania do trybu failover
+### <a name="test-a-manual-failover"></a>Testowanie ręcznego trybu failover
 
 Stan zasobu przed rozpoczęciem testu:
 
@@ -894,12 +958,12 @@ Resource Group: g_ip_HN1_03
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-0
 </code></pre>
 
-Ręczne przełączanie w tryb failover można przetestować, zatrzymując klaster w węźle hn1-DB-0:
+Ręcznego trybu failover można przetestować, zatrzymując klaster w węźle hn1-db-0:
 
 <pre><code>[root@hn1-db-0 ~]# pcs cluster stop
 </code></pre>
 
-Po przejściu do trybu failover można ponownie uruchomić klaster. Jeśli ustawisz `AUTOMATED_REGISTER="false"` , zasób SAP HANA w węźle hn1-DB-0 nie zostanie uruchomiony jako pomocniczy. W takim przypadku należy skonfigurować wystąpienie HANA jako pomocnicze, wykonując następujące polecenie:
+Po zakończeniu pracy w trybie failover można ponownie uruchomić klaster. Jeśli `AUTOMATED_REGISTER="false"` ustawisz wartość , SAP HANA w węźle hn1-db-0 nie będzie można uruchomić jako pomocniczy. W takim przypadku skonfiguruj wystąpienie platformy HANA jako pomocnicze, wykonując to polecenie:
 
 <pre><code>[root@hn1-db-0 ~]# pcs cluster start
 [root@hn1-db-0 ~]# su - hn1adm
@@ -928,7 +992,7 @@ Resource Group: g_ip_HN1_03
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-1
 </code></pre>
 
-### <a name="test-a-manual-failover"></a>Testowanie ręcznego przełączania do trybu failover
+### <a name="test-a-manual-failover"></a>Testowanie ręcznego trybu failover
 
 Stan zasobu przed rozpoczęciem testu:
 
@@ -942,7 +1006,7 @@ Resource Group: g_ip_HN1_03
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-0
 </code></pre>
 
-Ręczne przełączanie w tryb failover można przetestować, zatrzymując klaster w węźle hn1-DB-0:
+Ręcznego trybu failover można przetestować, zatrzymując klaster w węźle hn1-db-0:
 
 <pre><code>[root@hn1-db-0 ~]# pcs cluster stop
 </code></pre>
@@ -950,7 +1014,7 @@ Ręczne przełączanie w tryb failover można przetestować, zatrzymując klaste
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Planowanie i wdrażanie Virtual Machines platformy Azure dla oprogramowania SAP][planning-guide]
-* [Wdrożenie Virtual Machines platformy Azure dla oprogramowania SAP][deployment-guide]
-* [Wdrożenie systemu Azure Virtual Machines DBMS dla oprogramowania SAP][dbms-guide]
-* [SAP HANA konfiguracjami magazynu maszyny wirtualnej](./hana-vm-operations-storage.md)
+* [Planowanie Virtual Machines wdrożenia oprogramowania SAP na platformie Azure][planning-guide]
+* [Wdrożenie usługi Azure Virtual Machines sap][deployment-guide]
+* [Wdrażanie Virtual Machines DBMS na platformie Azure dla oprogramowania SAP][dbms-guide]
+* [SAP HANA magazynu maszyny wirtualnej](./hana-vm-operations-storage.md)

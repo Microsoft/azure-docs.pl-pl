@@ -6,12 +6,12 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 50a65583c41dd94b174a33432afcf42b31e67df0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 228d1a8bcd97daebae873de4c69cbec238e0c995
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96437052"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312539"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Samouczek: Tworzenie aplikacji zarządzanej z niestandardowymi akcjami i zasobami
 
@@ -349,7 +349,7 @@ Możesz przejść do wystąpienia aplikacji zarządzanej i wykonać **akcję nie
 
 ## <a name="looking-for-help"></a>Szukasz pomocy
 
-Jeśli masz pytania dotyczące Azure Managed Applications, spróbuj zadać pytanie na [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-managedapps). Podobne pytanie mogło zostać już zgłoszone i nie udzielono odpowiedzi, więc najpierw należy sprawdzić przed opublikowaniem. Dodaj tag, `azure-managedapps` Aby uzyskać szybką odpowiedź!
+Jeśli masz pytania dotyczące Azure Managed Applications, możesz spróbować zadawać pytania na [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-managed-app) za pomocą tagu Azure-Managed-App lub [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-managed-applications.html) with tag Azure-Managed-Application. Podobne pytanie mogło zostać już zgłoszone i nie udzielono odpowiedzi, więc najpierw należy sprawdzić przed opublikowaniem. Użyj odpowiednich tagów do szybszej odpowiedzi. 
 
 ## <a name="next-steps"></a>Następne kroki
 
