@@ -35,6 +35,8 @@
           href: roles.md
         - name: Zarządzanie dostępem do zasobów
           href: resource-context-rbac.md
+        - name: Ochrona własności intelektualnej MSSP
+          href: mssp-protect-intellectual-property.md
     - name: Zaawansowane wieloetapowe wykrywanie ataków
       href: fusion.md
     - name: Automatyzacja (o)

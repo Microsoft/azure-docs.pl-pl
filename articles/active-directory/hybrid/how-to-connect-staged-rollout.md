@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67018a2ec6b9239661a7022ad7fb9eeb6c9a5f64
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 756e5e96a8040fb3d93273a5521236d46879e60d
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385585"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306385"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout"></a>Migrowanie do uwierzytelniania w chmurze przy użyciu wprowadzania etapowego
 
@@ -92,7 +92,7 @@ Następujące scenariusze nie są obsługiwane w przypadku wdrażania etapowego:
 - Dołączanie hybrydowe systemu Windows 10 lub usługa Azure AD Join — pozyskiwanie podstawowego tokenu odświeżania dla wszystkich wersji, gdy lokalna nazwa UPN użytkownika nie obsługuje routingu. Ten scenariusz powróci do WS-Trust punktu końcowego w trybie wdrażania etapowego, ale przestanie działać, gdy migracja etapowa zostanie zakończona, a Logowanie użytkownika nie będzie już polegać na serwerze federacyjnym.
 
   >[!NOTE]
-  >Nadal musisz wprowadzić ostateczną uruchomienie produkcyjne z Federacji do uwierzytelniania w chmurze przy użyciu Azure AD Connect lub programu PowerShell. Wdrażanie etapowe nie przełącza domen z federacyjnego na zarządzane.  Aby uzyskać więcej informacji na temat uruchomienie produkcyjne domeny, zobacz [Migrowanie z Federacji do synchronizacji skrótów haseł](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso) i [Migrowanie z Federacji do uwierzytelniania przekazywanego](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
+  >Nadal musisz wprowadzić ostateczną uruchomienie produkcyjne z Federacji do uwierzytelniania w chmurze przy użyciu Azure AD Connect lub programu PowerShell. Wdrażanie etapowe nie przełącza domen z federacyjnego na zarządzane.  Aby uzyskać więcej informacji na temat uruchomienie produkcyjne domeny, zobacz [Migrowanie z Federacji do synchronizacji skrótów haseł](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso) i [Migrowanie z Federacji do uwierzytelniania przekazywanego](plan-migrate-adfs-pass-through-authentication.md#step-2-change-the-sign-in-method-to-pass-through-authentication-and-enable-seamless-sso).
   
 ## <a name="get-started-with-staged-rollout"></a>Wprowadzenie do wdrożenia przemieszczanego
 

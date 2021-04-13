@@ -206,7 +206,7 @@
         - name: Łączenie usługi Akka Streams z centrum zdarzeń
           href: event-hubs-kafka-akka-streams-tutorial.md
         - name: Często zadawane pytania — Event Hubs dla platformy Kafka
-          href: apache-kafka-frequently-asked-questions.md
+          href: apache-kafka-frequently-asked-questions.yml
     - name: Zarządzanie i monitorowanie
       items:
         - name: Monitorowanie usługi Event Hubs przy użyciu funkcji monitorowania platformy Azure
@@ -315,7 +315,7 @@
     - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn
       href: /learn/browse/?products=azure-event-hubs
     - name: Często zadawane pytania
-      href: event-hubs-faq.md
+      href: event-hubs-faq.yml
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: Cennik

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 04/09/2021
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: lokalna, OCR, Docker, kontener
-ms.openlocfilehash: 53d59822b378a658f8b6c048de1a32db53a795d1
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 1b4af5dddf8878118bc5f222532cc9e2d0f9dd66
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285726"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308794"
 ---
-# <a name="install-read-ocr-docker-containers-preview"></a>Instalowanie kontenerów platformy Docker OCR (wersja zapoznawcza) 
+# <a name="install-read-ocr-docker-containers"></a>Instalowanie kontenerów platformy Docker OCR
 
 [!INCLUDE [container hosting on the Microsoft Container Registry](../containers/includes/gated-container-hosting.md)]
 
@@ -27,12 +27,9 @@ Kontenery umożliwiają uruchamianie interfejsów API przetwarzania obrazów w T
 
 Kontener OCR do *odczytu* umożliwia wyodrębnienie tekstu napisanego i odręcznego z obrazów i dokumentów z obsługą formatów plików JPEG, PNG, BMP, PDF i TIFF. Aby uzyskać więcej informacji, zobacz [Przeczytaj przewodnik dotyczący interfejsu API](Vision-API-How-to-Topics/call-read-api.md).
 
-## <a name="read-32-preview-container"></a>Odczyt kontenera 3,2-Preview
+## <a name="read-32-container"></a>Odczytaj kontener 3,2
 
-> [!NOTE]
-> Kontener Read 3,0-Preview został uznany za przestarzały. 
-
-Kontener OCR Read 3,2-Preview umożliwia:
+Kontener OCR do odczytu 3,2 zapewnia:
 * Nowe modele na potrzeby ulepszonej dokładności.
 * Obsługa wielu języków w tym samym dokumencie.
 * Obsługa łącznie 73 języków. Zapoznaj się z pełną listą [języków obsługiwanych przez aparat OCR](./language-support.md#optical-character-recognition-ocr).
@@ -62,7 +59,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Wypełnij i prześlij [formularz żądania](https://aka.ms/csgate) , aby zażądać zatwierdzenia do uruchomienia kontenera. 
 
-[!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
+[!INCLUDE [Request access to run the container](../../../includes/cognitive-services-containers-request-access.md)]
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -92,16 +89,16 @@ Dostępne są obrazy kontenerów do odczytu.
 | Kontener | Container Registry/repozytorium/nazwa obrazu |
 |-----------|------------|
 | Przeczytaj 2,0 — wersja zapoznawcza | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
-| Przeczytaj 3,2 — wersja zapoznawcza | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.2` |
+| Przeczytaj 3,2 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2` |
 
 Użyj [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) polecenia, aby pobrać obraz kontenera.
 
 ### <a name="docker-pull-for-the-read-ocr-container"></a>Wypychanie platformy Docker dla kontenera odczytu OCR
 
-# <a name="version-32-preview"></a>[Wersja 3,2-Preview](#tab/version-3-2)
+# <a name="version-32"></a>[Wersja 3,2](#tab/version-3-2)
 
 ```bash
-docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.2
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2
 ```
 
 # <a name="version-20-preview"></a>[Wersja 2,0-Preview](#tab/version-2)
@@ -127,11 +124,11 @@ Użyj polecenia [Docker Run](https://docs.docker.com/engine/reference/commandlin
 
 [Przykłady](computer-vision-resource-container-config.md#example-docker-run-commands) `docker run` polecenia są dostępne.
 
-# <a name="version-32-preview"></a>[Wersja 3,2-Preview](#tab/version-3-2)
+# <a name="version-32"></a>[Wersja 3,2](#tab/version-3-2)
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.2 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -189,9 +186,9 @@ Aby znaleźć parametry połączenia:
 
 Kontener udostępnia oparte na interfejsie REST interfejsy API punktu końcowego przewidywania zapytań. 
 
-# <a name="version-32-preview"></a>[Wersja 3,2-Preview](#tab/version-3-2)
+# <a name="version-32"></a>[Wersja 3,2](#tab/version-3-2)
 
-Użyj hosta `http://localhost:5000` dla interfejsów API kontenera. Ścieżkę Swagger można wyświetlić w: `http://localhost:5000/swagger/vision-v3.2-preview-read/swagger.json` .
+Użyj hosta `http://localhost:5000` dla interfejsów API kontenera. Ścieżkę Swagger można wyświetlić w: `http://localhost:5000/swagger/vision-v3.2-read/swagger.json` .
 
 # <a name="version-20-preview"></a>[Wersja 2,0-Preview](#tab/version-2)
 
@@ -202,7 +199,7 @@ Użyj hosta `http://localhost:5000` dla interfejsów API kontenera. Ścieżkę S
 ### <a name="asynchronous-read"></a>Odczyt asynchroniczny
 
 
-# <a name="version-32-preview"></a>[Wersja 3,2-Preview](#tab/version-3-2)
+# <a name="version-32"></a>[Wersja 3,2](#tab/version-3-2)
 
 Możesz użyć `POST /vision/v3.2/read/analyze` `GET /vision/v3.2/read/operations/{operationId}` operacji i w drodze do asynchronicznego odczytywania obrazu, podobnie jak usługa przetwarzanie obrazów używa tych odpowiednich operacji Rest. Asynchroniczna Metoda POST zwróci wartość `operationId` , która jest używana jako identyfikator do żądania HTTP GET.
 
@@ -398,7 +395,7 @@ Po pomyślnym uruchomieniu asynchronicznego wpisu zwraca kod stanu **HTTP 202** 
 
 Aby synchronicznie odczytywać obraz, można użyć następującej operacji. 
 
-# <a name="version-32-preview"></a>[Wersja 3,2-Preview](#tab/version-3-2)
+# <a name="version-32"></a>[Wersja 3,2](#tab/version-3-2)
 
 `POST /vision/v3.2/read/syncAnalyze` 
 
@@ -443,7 +440,7 @@ Aby uzyskać więcej informacji na temat tych opcji, zobacz [Konfigurowanie kont
 W tym artykule przedstawiono koncepcje i przepływ pracy służące do pobierania, instalowania i uruchamiania kontenerów przetwarzanie obrazów. Podsumowanie:
 
 * Przetwarzanie obrazów udostępnia kontener systemu Linux dla platformy Docker, hermetyzując odczyt.
-* Obrazy kontenerów są pobierane z rejestru kontenerów "Podgląd kontenera" na platformie Azure.
+* Obraz odczytu kontenera wymaga aplikacji do jej uruchomienia. 
 * Obrazy kontenerów są uruchamiane w platformie Docker.
 * Można użyć interfejsu API REST lub zestawu SDK do wywoływania operacji w kontenerach OCR odczytu przez określenie identyfikatora URI hosta kontenera.
 * Podczas tworzenia wystąpienia kontenera należy określić informacje o rozliczeniach.

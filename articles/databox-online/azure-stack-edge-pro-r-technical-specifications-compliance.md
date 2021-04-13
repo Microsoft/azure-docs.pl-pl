@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/24/2021
+ms.date: 04/12/2021
 ms.author: alkohli
-ms.openlocfilehash: aa1b861555cff65c9e432ea711af3f7c6e410625
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3b323bf920bd884e821d03bf2def37471775e720
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105109169"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312709"
 ---
 # <a name="azure-stack-edge-pro-r-technical-specifications"></a>Azure Stack Edge — specyfikacje techniczne w wersji Pro R
 
@@ -24,41 +24,44 @@ Składniki sprzętowe urządzenia Azure Stack EDGE Pro R są zgodne ze specyfika
 
 Urządzenie Azure Stack EDGE Pro R ma następujące specyfikacje dotyczące obliczeń i pamięci:
 
-| Specyfikacja       | Wartość                  |
-|---------------------|------------------------|
-| Procesor CPU    | 2 X procesor Intel Xeon Silver 4114<br>20 rdzeni phsyical (10 na procesor CPU)<br>40 rdzenie logiczne (procesorów wirtualnych vCPU) (20 na procesor CPU)  |
-| Pamięć              | 256 GB pamięci RAM (2666 MT/s)     |
-
+| Specyfikacja  | Wartość                                             |
+|----------------|---------------------------------------------------|
+| Typ procesora       | Podwójny procesor Intel Xeon Silver 4114                   |
+| Procesor CPU: RAW       | 20 całkowitej liczby rdzeni, 40 łącznie procesorów wirtualnych vCPU                    |
+| Procesor CPU: użyteczny    | 32 procesorów wirtualnych vCPU                                          |
+| Typ pamięci    | Zgodny z firmą Dell 16 GB RDIMM, 2666 MT/s, Podwójna ranga |
+| Pamięć: RAW    | 256 GB pamięci RAM (16 x 16 GB)                           |
+| Pamięć: użyteczna | 230 GB PAMIĘCI RAM                                        |
 
 ## <a name="compute-acceleration-specifications"></a>Specyfikacje przyspieszania obliczeń
 
 Procesor graficzny (GPU) jest dołączany do każdego urządzenia, które umożliwia Kubernetes, uczenie głębokie i uczenie maszynowe.
 
-| Specyfikacja           | Wartość                  |
+| Specyfikacja           | Wartość                      |
 |-------------------------|----------------------------|
-| Procesory GPU   | Jeden procesor graficzny nVidia T4 <br> Aby uzyskać więcej informacji, zobacz [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).| 
+| Procesory GPU   | Jeden procesor graficzny nVidia T4 <br> Aby uzyskać więcej informacji, zobacz [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/). | 
 
 ## <a name="power-supply-unit-specifications"></a>Specyfikacje jednostek zasilacza
 
 Urządzenie Azure Stack EDGE Pro R ma dwie jednostki dostawy 100-240 V (PSUs) z wentylatorami o wysokiej wydajności. Dwa PSUs zapewniają nadmiarową konfigurację zasilacza. Jeśli PSU nie powiedzie się, urządzenie będzie nadal działać normalnie na innych PSU, dopóki nie zostanie zastąpiony moduł zakończony niepowodzeniem. W poniższej tabeli przedstawiono specyfikacje techniczne PSUs.
 
-| Specyfikacja           | 550 W PSU                  |
-|-------------------------|----------------------------|
-| Maksymalna moc wyjściowa    | 550 W                      |
-| Rozpraszanie ciepła (maksimum)                   | 2891 BTU/godz.                |
-| Częstotliwość               | 50/60 Hz                   |
-| Wybór zakresu napięcia | Wybór na Wydziale: 115-230 V AC |
-| Możliwość podłączenia gorąca           | Tak                        |
+| Specyfikacja              | 550 W PSU                  |
+|----------------------------|----------------------------|
+| Maksymalna moc wyjściowa       | 550 W                      |
+| Rozpraszanie ciepła (maksimum) | 2891 BTU/godz.                |
+| Częstotliwość                  | 50/60 Hz                   |
+| Wybór zakresu napięcia    | Wybór na Wydziale: 115-230 V AC |
+| Możliwość podłączenia gorąca              | Tak                        |
 
 ## <a name="network-specifications"></a>Specyfikacje sieci
 
-Urządzenie Azure Stack EDGE Pro R ma cztery interfejsy sieciowe — PORT1-PORT4. 
+Urządzenie Azure Stack EDGE Pro R ma cztery interfejsy sieciowe — PORT1-PORT4.
 
 
-|Specyfikacja  |Opis                              |
+|Specyfikacja         |Opis                       |
 |----------------------|----------------------------------|
-|Interfejsy sieciowe    |**2 x 1 GbE RJ45** <br> PORT 1 jest używany jako interfejs zarządzania dla początkowej konfiguracji i jest domyślnie statyczny. Po zakończeniu wstępnej instalacji można użyć interfejsu dla danych z dowolnymi adresami IP. Jednak po zresetowaniu interfejs przywraca statyczny adres IP. <br>Innym interfejsem jest PORT 2 konfigurowany przez użytkownika, który może być używany do transferu danych i domyślnie jest DHCP.     |
-|Interfejsy sieciowe    |**2 x 25 GbE SFP28** <br> Te interfejsy danych PORT 3 i PORT 4 można skonfigurować jako serwer DHCP (domyślnie) lub statyczny.            |
+|Interfejsy sieciowe    |**2 x 1 GbE RJ45** <br> PORT 1 jest używany jako interfejs zarządzania dla początkowej konfiguracji i jest domyślnie statyczny. Po zakończeniu wstępnej instalacji można użyć interfejsu dla danych z dowolnymi adresami IP. Jednak po zresetowaniu interfejs przywraca statyczny adres IP. <br>Inny interfejs, PORT 2, który jest konfigurowany przez użytkownika, może być używany do transferu danych i domyślnie jest DHCP. |
+|Interfejsy sieciowe    |**2 x 25 GbE SFP28** <br> Te interfejsy danych na PORTach 3 i 4 można skonfigurować jako DHCP (domyślne) lub statycznie. |
 
 Urządzenie, na którym znajduje się Azure Stack EDGE Pro, ma następujący sprzęt sieciowy:
 
@@ -69,16 +72,16 @@ Urządzenie, na którym znajduje się Azure Stack EDGE Pro, ma następujący spr
 | Parameter           | Description                 |
 |-------------------------|----------------------------|
 | Model    | ConnectX®-4 Lx EN network interface card                      |
-| Model Description               | 25GbE dual-port SFP28; PCIe3.0 x8; ROHS R6                    |
+| Model Description               | 25 GbE dual-port SFP28; PCIe3.0 x8; ROHS R6                    |
 | Device Part Number (XR2) | MCX4421A-ACAN  |
 | PSID (R640)           | MT_2420110034                         |-->
 <!-- confirm w/ Ravi what is this-->
 
-Aby zapoznać się z pełną listą obsługiwanych kabli, przełączników i urządzeń nadawczych dla tych kart sieciowych, przejdź do: [Mellanox Dual port 25G ConnectX-4 zgodne produkty kart sieciowych](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).
+Aby zapoznać się z pełną listą obsługiwanych kabli, przełączników i urządzeń nadawczych dla tych kart sieciowych, przejdź do [karty Mellanox Dual port 25G ConnectX-4 Channel Network Compatible](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).
 
 ## <a name="storage-specifications"></a>Specyfikacje magazynu
 
-Urządzenia Azure Stack EDGE Pro R mają 8 dysków danych i 2 M. 2 dyski SATA, które stanowią dyski systemu operacyjnego. Aby uzyskać więcej informacji, przejdź do [dysków SATA (M. 2](https://en.wikipedia.org/wiki/M.2)).
+W przypadku urządzeń z systemem Azure Stack EDGE Pro są dostępne osiem dysków z danymi i dwa dyski SATA. 2, które stanowią dyski systemu operacyjnego. Aby uzyskać więcej informacji, przejdź do [dysków SATA (M. 2](https://en.wikipedia.org/wiki/M.2)).
 
 #### <a name="storage-for-1-node-device"></a>Magazyn dla urządzenia 1-węzłowego
 
@@ -89,7 +92,7 @@ Poniższa tabela zawiera szczegółowe informacje dotyczące pojemności magazyn
 |    Liczba dysków półprzewodnikowych (dysków SSD)     |    8                  |
 |    Pojemność jednego dysku SSD                     |    8 TB               |
 |    Całkowita pojemność                          |    64 TB              |
-|    Łączna pojemność użyteczna *                  |    ~ 42 TB          |
+|    Łączna pojemność użyteczna *                  |    ~ 42 TB            |
 
 **Niektóre miejsca są zarezerwowane do użytku wewnętrznego.*
 

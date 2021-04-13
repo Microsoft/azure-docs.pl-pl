@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 09/16/2020
-ms.openlocfilehash: 947d842860452425f8b30fbdaf9558c2a94a89a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/09/2021
+ms.openlocfilehash: 3d935332854816ae62dea8e30f08bee2b92a4eab
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92781213"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107302985"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Skalowanie zasobów puli elastycznej w Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,14 @@ W tym artykule opisano, jak skalować zasoby obliczeniowe i magazynowe dostępne
 
 ## <a name="change-compute-resources-vcores-or-dtus"></a>Zmień zasoby obliczeniowe (rdzeni wirtualnych lub DTU)
 
-Po początkowym wybraniu liczby rdzeni wirtualnych lub jednostek eDTU można dynamicznie skalować pulę elastyczną w górę lub w dół na podstawie rzeczywistego środowiska przy użyciu [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), [interfejsu wiersza polecenia platformy Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)lub [interfejsu API REST](/rest/api/sql/elasticpools/update).
+Po początkowym wybraniu liczby rdzeni wirtualnych lub jednostek eDTU można dynamicznie skalować pulę elastyczną w górę lub w dół na podstawie rzeczywistego środowiska przy użyciu:
+
+* [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
+* [Witryna Azure Portal](elastic-pool-manage.md#azure-portal)
+* [Program PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool)
+* [Interfejs wiersza polecenia platformy Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)
+* [Interfejs API REST](/rest/api/sql/elasticpools/update)
+
 
 ### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Wpływ zmiany warstwy usług lub skalowanie w poziomie
 
@@ -99,7 +106,7 @@ Opłaty są naliczane za każdą godzinę, gdy baza danych istnieje przy użyciu
 
 ### <a name="dtu-based-purchasing-model"></a>Model zakupu oparty na jednostkach DTU
 
-- Cena jednostek eDTU dla puli elastycznej obejmuje pewną ilość miejsca w magazynie bez dodatkowych kosztów. Dodatkowy magazyn poza uwzględnioną ilością można zainicjować w celu uzyskania dodatkowego kosztu do maksymalnego limitu rozmiaru w przyrostach wynoszących 250 GB do 1 TB, a następnie w przyrostach wynoszących 256 GB poza 1 TB. W przypadku uwzględnionych kwot magazynu i maksymalnych limitów rozmiaru zobacz [Pula elastyczna: rozmiary magazynu i rozmiary obliczeń](resource-limits-dtu-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
+- Cena jednostek eDTU dla puli elastycznej obejmuje pewną ilość miejsca w magazynie bez dodatkowych kosztów. Dodatkowy magazyn poza uwzględnioną ilością można zainicjować w celu uzyskania dodatkowego kosztu do maksymalnego limitu rozmiaru w przyrostach wynoszących 250 GB do 1 TB, a następnie w przyrostach wynoszących 256 GB poza 1 TB. W przypadku uwzględnionych kwot magazynu i maksymalnych limitów rozmiaru zapoznaj się z tematem [limity zasobów dla pul elastycznych przy użyciu modelu zakupu jednostek DTU](resource-limits-dtu-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes) lub [limitów zasobów dla pul elastycznych przy użyciu modelu zakupu rdzeń wirtualny](resource-limits-vcore-elastic-pools.md).
 - Dodatkowy magazyn dla puli elastycznej można zainicjować przez zwiększenie jego maksymalnego rozmiaru przy użyciu [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), [interfejsu wiersza polecenia platformy Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)lub [interfejsu API REST](/rest/api/sql/elasticpools/update).
 - Cena dodatkowego magazynu dla puli elastycznej to dodatkowa kwota magazynu pomnożona przez dodatkową cenę jednostkową magazynu warstwy usług. Aby uzyskać szczegółowe informacje na temat ceny dodatkowego magazynu, zobacz [Cennik usługi SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 

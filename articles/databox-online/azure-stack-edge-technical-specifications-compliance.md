@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/02/2020
+ms.date: 04/12/2021
 ms.author: alkohli
-ms.openlocfilehash: 8b36bb34f4c9081d807998cb8287797443625a6b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 91bb558d47e56ebbcbdf25b0276c2a247ec81b47
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96460302"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312641"
 ---
 # <a name="azure-stack-edge-pro-technical-specifications"></a>Azure Stack Edge — specyfikacje techniczne Pro
 
@@ -23,16 +23,21 @@ Składniki sprzętowe urządzenia Microsoft Azure Stack Edge w wersji zastosowan
 
 Urządzenie Azure Stack EDGE Pro ma następujące specyfikacje dotyczące obliczeń i pamięci:
 
-| Specyfikacja           | Wartość                  |
-|-------------------------|----------------------------|
-| Procesor CPU    | 2 X 10-rdzeniowy procesor Intel Xeon Silver 4114 2.2 G                    |
-| Pamięć              | 128 GB pamięci RAM (8x 16GB RDIMM)                 |
+| Specyfikacja           | Wartość                             |
+|-------------------------|-----------------------------------|
+| Typ procesora                | Dwa procesory Intel Xeon Silver 4114 2,2 G |
+| Procesor CPU: RAW                | 20 całkowitej liczby rdzeni, 40 łącznie procesorów wirtualnych vCPU    |
+| Procesor CPU: użyteczny             | 32 procesorów wirtualnych vCPU                          |
+| Typ pamięci             | 8 x 16 GB RDIMM                   |
+| Pamięć: RAW             | 128 GB pamięci RAM (8 x 16 GB)           |
+| Pamięć: użyteczna          | 102 GB PAMIĘCI RAM                        |
+
 
 ## <a name="fpga-specifications"></a>Specyfikacje FPGA
 
 FPGA jest dołączana do każdego urządzenia z Azure Stack Edge, które umożliwia Machine Learning (ML) scenariusze.
 
-| Specyfikacja           | Wartość                  |
+| Specyfikacja           | Wartość                      |
 |-------------------------|----------------------------|
 | FPGA   | Intel Arria 10 <br> Dostępne modele sieci neuronowych Network (DNN) są takie same, jak te [obsługiwane przez wystąpienia FPGA chmury](../machine-learning/how-to-deploy-fpga-web-service.md#fpga-support-in-azure).|
 
@@ -42,7 +47,7 @@ Urządzenie Azure Stack EDGE Pro ma dwie jednostki dostarczania 100-240 V (PSUs)
 
 | Specyfikacja           | 750 W PSU                  |
 |-------------------------|----------------------------|
-| Maksymalna moc wyjściowa    | 750 W                     |
+| Maksymalna moc wyjściowa    | 750 W                      |
 | Częstotliwość               | 50/60 Hz                   |
 | Wybór zakresu napięcia | Wybór na Wydziale: 100-240 V AC |
 | Możliwość podłączenia gorąca           | Tak                        |
@@ -64,7 +69,7 @@ Twoje urządzenie Azure Stack EDGE Pro ma 6 interfejsów sieciowych, PORT1-PORT6
 |-------------------------|----------------------------|
 |  Interfejsy sieciowe    | 2 interfejsy 1 GbE — 1 do zarządzania, bez możliwości konfigurowania przez użytkownika, używany do konfiguracji początkowej. Drugi interfejs może być konfigurowany przez użytkownika i służyć do transferu danych. Domyślnie jest interfejsem DHCP. <br>2 interfejsy 25 GbE — mogą również działać jako interfejsy 10 GbE. Te interfejsy danych mogą być konfigurowane przez użytkownika jako DHCP (ustawienie domyślne) lub statyczne. <br> 2 interfejsy 25 GbE — te interfejsy danych mogą być konfigurowane przez użytkownika jako DHCP (ustawienie domyślne) lub statyczne.                  |
 
-Używane karty sieciowe to: 
+Używane karty sieciowe to:
 
 | Specyfikacja           | Opis                 |
 |-------------------------|----------------------------|
@@ -82,7 +87,7 @@ Urządzenia Azure Stack EDGE Pro mają 9 X 2,5 "interfejsu NVMe dysków SSD, ka�
 |    Liczba dysków półprzewodnikowych (dysków SSD)     |    8                  |
 |    Pojemność jednego dysku SSD                     |    1,6 TB             |
 |    Całkowita pojemność                          |    12,8 TB            |
-|    Łączna pojemność użyteczna *                  |    ~ 12,5 TB            |
+|    Łączna pojemność użyteczna *                  |    ~ 12,5 TB          |
 
 **Niektóre miejsca są zarezerwowane do użytku wewnętrznego.*
 
@@ -94,19 +99,19 @@ W poniższych tabelach przedstawiono różne specyfikacje obudowy dla wymiarów 
 
 W poniższej tabeli przedstawiono wymiary obudowy w milimetrach i calach.
 
-|     Szaf     |     Milimetrach     |     15     |
-|-------------------|---------------------|----------------|
-|    Height         |    44,45            |    1,75 "          |
-|    Width          |    434,1           |    17,09 "          |
-|    Długość          |    740,4           |    29,15 "          |
+|     Szaf     |     Milimetrach    |     15     |
+|-------------------|--------------------|----------------|
+|    Height         |    44,45           |    1,75 "       |
+|    Width          |    434,1           |    17,09 "      |
+|    Długość         |    740,4           |    29,15 "      |
 
 W poniższej tabeli przedstawiono wymiary pakietu wysyłki w milimetrach i calach.
 
-|     Pakiet     |     Milimetrach     |     15     |
+|     Pakiet       |     Milimetrach     |     15     |
 |-------------------|---------------------|----------------|
-|    Height         |    311,2            |    12,25 "          |
-|    Width          |    642,8          |    25,31 "          |
-|    Długość          |   1 051,1          |    41,38 "          |
+|    Height         |    311,2            |    12,25 "      |
+|    Width          |    642,8            |    25,31 "      |
+|    Długość         |   1 051,1           |    41,38 "      |
 
 ### <a name="enclosure-weight"></a>Waga obudowy
 

@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: Operations'
-ms.openlocfilehash: 7940ac3a67a0562aa0b7a21690deec30220a48a3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cdb792198e6912fb0e68b2abec052c2b05166f17
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102434716"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310125"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Wybieranie odpowiedniej warstwy usługi IoT Hub dla używanego rozwiązania
 
@@ -60,7 +60,7 @@ IoT Hub oferuje również bezpłatną warstwę, która jest przeznaczona do test
 
 Centra usługi Azure IoT zawierają wiele podstawowych składników [Event Hubs platformy Azure](../event-hubs/event-hubs-features.md), w tym [partycji](../event-hubs/event-hubs-features.md#partitions). Strumienie zdarzeń dla centrów IoT są zwykle wypełniane przez dane telemetryczne przychodzące zgłaszane przez różne urządzenia IoT. Partycjonowanie strumienia zdarzeń służy do zmniejszania rywalizacji występujących podczas równoczesnego odczytywania i zapisywania do strumieni zdarzeń.
 
-Limit partycji jest wybierany podczas tworzenia IoT Hub i nie można go zmienić. Maksymalny limit partycji IoT Hub warstwy Podstawowa i IoT Hub to 32. Większość centrów IoT potrzebuje tylko 4 partycji. Aby uzyskać więcej informacji na temat określania partycji, zobacz Event Hubs często zadawane pytania dotyczące [liczby potrzebnych partycji?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
+Limit partycji jest wybierany podczas tworzenia IoT Hub i nie można go zmienić. Maksymalny limit partycji IoT Hub warstwy Podstawowa i IoT Hub to 32. Większość centrów IoT potrzebuje tylko 4 partycji. Aby uzyskać więcej informacji na temat określania partycji, zobacz Event Hubs często zadawane pytania dotyczące [liczby potrzebnych partycji?](../event-hubs/event-hubs-faq.yml#how-many-partitions-do-i-need-)
 
 ## <a name="tier-upgrade"></a>Uaktualnianie warstwy
 

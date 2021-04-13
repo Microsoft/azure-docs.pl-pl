@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: sukishen
-ms.openlocfilehash: 09712396286ed0236f798aa9d9ce7e899255f480
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6aac6e67d62a71537517e727c65a2a42d4ca3216
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105935502"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303002"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Informacje o partnerach MSP sieci platformy Azure
 
@@ -36,7 +36,7 @@ Skorzystaj z linków w tej sekcji, aby uzyskać więcej informacji na temat zarz
 |[BT](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)|Badanie [transformacji sieci: 1-HR ocenę](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/bt-americas-inc.network-transformation-consulting); [BT Cloud Connect — Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bt-americas-inc.bt-cca-lh-001?tab=Overview)|[BT Cloud Connect Azure ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bt-americas-inc.bt-cca-lh-003?tab=Overview)|[BT Cloud Connect Azure VWAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bt-americas-inc.bt-cca-lh-002?tab=Overview)|||
 |[LECENIA](https://www.bui.co.za/)|[Zarządzanie chmurą a2zManaged](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bui.a2zmanagement?tab=Overview)||[LECENIA zarządzane usługi Azure vWAN przy użyciu oprogramowania VMware SD-WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bui.bui_managed_vwan?tab=Overview)||[LECENIA CyberSoC](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bui.buicybersoc_msp?tab=Overview)|
 |[Rozwoje](https://www.coevolve.com/services/azure-networking-services/)|||[Zarządzana wirtualna sieć WAN platformy Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/coevolveptylimited1581027739259.coevolve-managed-azure-vwan?tab=Overview); [Zarządzana granica wirtualna oprogramowania VMware SD-WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/coevolveptylimited1581027739259.managed-vmware-sdwan-edge?tab=Overview)|||
-|[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)|[Optymalizacja sieci na platformie Azure: Ocena 2-HR](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/colttechnologyservices.azure_networking)|||||
+|[Colt](https://www.colt.net/why-colt/partner-hub/microsoft/)|[Optymalizacja sieci na platformie Azure: Ocena 2-HR](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/colttechnologyservices.azure_networking)|||||
 |[Equinix](https://www.equinix.com/)|[Optymalizacja sieci WAN zoptymalizowana pod kątem chmury](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/equinix.cloudoptimizedwan?tab=Overview)|[Warsztat strategii łączności ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/equinix.expressroutestrategy?tab=Overview); [Equinix chmurowej sieci szkieletowej](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/equinix.equinix_ecx_fabric?tab=Overview)||||
 |[Federacyjna sieć bezprzewodowa](https://www.federatedwireless.com/caas/)||||[Federacyjna łączność bezprzewodowa jako usługa](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/federatedwireless1580839623708.fw_caas?tab=Overview)|
 |[CHLOROWODOROW](https://www.hcltech.com/)|[HCL — przekształcenie sieci w chmurze — 1 dzień oceny](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/hcl-technologies.clo?tab=Overview)|[Krótka część listy HCL usługi Azure ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/hcl-technologies.hclmanagedazureexpressroute?tab=Overview)|[HCL Azure Virtual WAN Services — 1 dzień oceny](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/hcl-technologies.hclmanagedazurevitualwan?search=vWAN&page=1)|[HCL — 1-dniowa oferta usługi Azure Private LTE](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/hcl-technologies.hclazureprivatelteoffering)|

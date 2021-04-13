@@ -1,22 +1,22 @@
 ---
-title: 'Azure Cosmos DB: interfejs API programu SQL .NET, zasoby & zestawu SDK'
-description: Dowiedz się więcej o interfejsie API programu SQL .NET i zestawie SDK, w tym o datach wydania, datach wycofania i zmianach między poszczególnymi wersjami Azure Cosmos DB .NET SDK.
+title: 'Azure Cosmos DB: interfejs API SQL platformy .NET, zestaw SDK & zasobów'
+description: Dowiedz się wszystkiego o interfejsie API i zestawie SDK SQL .NET, w tym o datach wydaniach, datach wycofania i zmianach wprowadzonych między poszczególnymi wersjami zestawu .NET SDK Azure Cosmos DB .
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: e603175aa40077009bb208846cba62d5280e57c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 052dfc651ac590fd1acefa0a92dc3ef4f25daaea
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104577069"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365216"
 ---
-# <a name="azure-cosmos-db-net-sdk-v2-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK V2 for SQL API: pobieranie i informacje o wersji
+# <a name="azure-cosmos-db-net-sdk-v2-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB ZESTAW SDK platformy .NET w wersji 2 dla interfejsu API SQL: pobieranie i informacje o wersji
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -30,7 +30,8 @@ ms.locfileid: "104577069"
 > * [Sync Java SDK 2](sql-api-sdk-java.md)
 > * [Spring Data 2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data 3](sql-api-sdk-java-spring-v3.md)
-> * [Łącznik platformy Spark](sql-api-sdk-java-spark.md)
+> * [Łącznik OLTP platformy Spark 3](sql-api-sdk-java-spark-v3.md)
+> * [Łącznik OLTP platformy Spark 2](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Dostawca zasobów REST](/rest/api/cosmos-db-resource-provider/)
@@ -41,18 +42,18 @@ ms.locfileid: "104577069"
 | | Linki |
 |---|---|
 |**Zestaw SDK do pobrania**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)|
-|**Dokumentacja interfejsu API**|[Dokumentacja interfejsu API platformy .NET](/dotnet/api/overview/azure/cosmosdb)|
-|**Samples**|[Przykłady kodu platformy .NET](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples)|
-|**Wprowadzenie**|[Wprowadzenie do zestawu SDK platformy Azure Cosmos DB .NET](sql-api-get-started.md)|
-|**Samouczek aplikacji sieci Web**|[Tworzenie aplikacji sieci Web za pomocą Azure Cosmos DB](sql-api-dotnet-application.md)|
+|**Dokumentacja interfejsu API**|[Dokumentacja referencyjna interfejsu API platformy .NET](/dotnet/api/overview/azure/cosmosdb)|
+|**Samples**|[Przykłady kodu .NET](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples)|
+|**Wprowadzenie**|[Wprowadzenie do zestawu SDK platformy .NET Azure Cosmos DB platformy .NET](sql-api-get-started.md)|
+|**Samouczek dotyczący aplikacji internetowej**|[Tworzenie aplikacji internetowych za pomocą Azure Cosmos DB](sql-api-dotnet-application.md)|
 |**Bieżąca obsługiwana platforma**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 
 ## <a name="release-notes"></a>Informacje o wersji
 
 > [!NOTE]
-> Jeśli używasz .NET Framework, zapoznaj się z najnowszą wersją 3. x [zestawu .NET SDK](sql-api-sdk-dotnet-standard.md), która jest przeznaczona dla .NET Standard.
+> Jeśli używasz programu .NET Framework, zobacz najnowszą wersję 3.x zestawu [.NET SDK,](sql-api-sdk-dotnet-standard.md)która jest .NET Standard.
 
-Następujące podrzędne wersje zestawów SDK platformy .NET są dostępne w wersji 2. x. x:
+Następujące wersje podrzędne zestawów SDK .NET są dostępne w wersji 2.x.x:
 
 [!INCLUDE[Release notes](~/samples-cosmosdb-dotnet-v2/changelog.md)]
 

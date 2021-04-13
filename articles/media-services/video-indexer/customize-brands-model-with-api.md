@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2020
 ms.author: kumud
-ms.openlocfilehash: c3056415d3432dbe64dd1f2bcf974a676bbf6c6b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 03c74e9108b27856259eb4f17d7ba521007c4fa3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97586061"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312964"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Dostosowywanie modelu marek przy użyciu interfejsu API Video Indexer
 
@@ -28,7 +28,7 @@ Za pomocą interfejsów API Video Indexer można tworzyć, używać i edytować 
 
 ## <a name="create-a-brand"></a>Tworzenie marki
 
-Interfejs API [tworzenia marki](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand) tworzy nową markę niestandardową i dodaje ją do niestandardowego modelu marek dla określonego konta.
+Interfejs API [tworzenia marki](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Brand) tworzy nową markę niestandardową i dodaje ją do niestandardowego modelu marek dla określonego konta.
 
 > [!NOTE]
 > Ustawienie `enabled` (w treści) na wartość true powoduje umieszczenie na liście *dołączanej* marki Video Indexer do wykrycia. Ustawienie `enabled` wartości false powoduje umieszczenie marki na liście *wykluczeń* , więc Video Indexer nie wykryje go.
@@ -62,7 +62,7 @@ Odpowiedź zawiera informacje dotyczące marki, która została właśnie utworz
 
 ## <a name="delete-a-brand"></a>Usuń markę
 
-Interfejs API [usuwania marki](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?) usuwa markę z niestandardowego modelu marek dla określonego konta. Konto jest określone w `accountId` parametrze. Po pomyślnym wywołaniu marka nie będzie już znajdować się na listach *Dołącz* lub *Wyklucz* marki.
+Interfejs API [usuwania marki](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Brand) usuwa markę z niestandardowego modelu marek dla określonego konta. Konto jest określone w `accountId` parametrze. Po pomyślnym wywołaniu marka nie będzie już znajdować się na listach *Dołącz* lub *Wyklucz* marki.
 
 ### <a name="response"></a>Reakcja
 
@@ -70,7 +70,7 @@ Po pomyślnym usunięciu marki nie jest zwracana zawartość.
 
 ## <a name="get-a-specific-brand"></a>Uzyskaj konkretną markę
 
-Interfejs API [uzyskiwania marki](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brand?) pozwala wyszukiwać szczegóły marki w modelu niestandardowych marek dla określonego konta przy użyciu identyfikatora marki.
+Interfejs API [uzyskiwania marki](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Brand) pozwala wyszukiwać szczegóły marki w modelu niestandardowych marek dla określonego konta przy użyciu identyfikatora marki.
 
 ### <a name="response"></a>Reakcja
 
@@ -99,7 +99,7 @@ Odpowiedź zawiera informacje na temat wyszukiwanego znaku towarowego (przy uży
 
 ## <a name="update-a-specific-brand"></a>Zaktualizuj konkretną markę
 
-Interfejs API [aktualizacji marki](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brand?) pozwala wyszukiwać szczegóły marki w modelu niestandardowych marek dla określonego konta przy użyciu identyfikatora marki.
+Interfejs API [aktualizacji marki](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Brand) pozwala wyszukiwać szczegóły marki w modelu niestandardowych marek dla określonego konta przy użyciu identyfikatora marki.
 
 ### <a name="response"></a>Reakcja
 
@@ -125,7 +125,7 @@ Odpowiedź zawiera zaktualizowane informacje dotyczące marki, które zostały z
 
 ## <a name="get-all-of-the-brands"></a>Pobierz wszystkie marki
 
-Interfejs API [Pobierz wszystkie marki](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands?) zwraca wszystkie marki w modelu Custom Marks dla określonego konta, niezależnie od tego, czy Marka powinna znajdować się na liście *Dołącz* lub *Wyklucz* marki.
+Interfejs API [Pobierz wszystkie marki](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Brands) zwraca wszystkie marki w modelu Custom Marks dla określonego konta, niezależnie od tego, czy Marka powinna znajdować się na liście *Dołącz* lub *Wyklucz* marki.
 
 ### <a name="response"></a>Reakcja
 
@@ -165,7 +165,7 @@ Odpowiedź zawiera listę wszystkich marek w Twoim koncie oraz wszystkie ich szc
 
 ## <a name="get-brands-model-settings"></a>Pobierz ustawienia modelu marek
 
-Interfejs API [ustawień pobierania marek](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands) zwraca ustawienia modelu marek na określonym koncie. Ustawienia modelu marek przedstawiają, czy wykrywanie z bazy danych marek Bing jest włączone. Jeśli marki Bing nie są włączone, Video Indexer będzie wykrywać tylko marki z modelu niestandardowych marek określonego konta.
+Interfejs API [ustawień pobierania marek](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Brands) zwraca ustawienia modelu marek na określonym koncie. Ustawienia modelu marek przedstawiają, czy wykrywanie z bazy danych marek Bing jest włączone. Jeśli marki Bing nie są włączone, Video Indexer będzie wykrywać tylko marki z modelu niestandardowych marek określonego konta.
 
 ### <a name="response"></a>Reakcja
 
@@ -183,7 +183,7 @@ Odpowiedź wskazuje, czy marki Bing są włączone, zgodnie z poniższym formate
 
 ## <a name="update-brands-model-settings"></a>Zaktualizuj ustawienia modelu marek
 
-Interfejs API [aktualizacji marek](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?) aktualizuje ustawienia modelu marek na określonym koncie. Ustawienia modelu marek przedstawiają, czy wykrywanie z bazy danych marek Bing jest włączone. Jeśli marki Bing nie są włączone, Video Indexer będzie wykrywać tylko marki z modelu niestandardowych marek określonego konta.
+Interfejs API [aktualizacji marek](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Brands-Model-Settings) aktualizuje ustawienia modelu marek na określonym koncie. Ustawienia modelu marek przedstawiają, czy wykrywanie z bazy danych marek Bing jest włączone. Jeśli marki Bing nie są włączone, Video Indexer będzie wykrywać tylko marki z modelu niestandardowych marek określonego konta.
 
 `useBuiltIn`Flaga ustawiona na wartość true oznacza, że marki Bing są włączone. Jeśli `useBuiltin` ma wartość false, marki Bing są wyłączone.
 

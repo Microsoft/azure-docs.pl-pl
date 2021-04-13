@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: a6af8f4600544007a9ecb4fcff5ac9016fd7dfbf
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c37f6d89d5ebd3e18177db8add048739a62c883f
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640335"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307949"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Jak używać funkcji OPENROWSET przy użyciu bezserwerowej puli SQL w usłudze Azure Synapse Analytics
 
@@ -138,9 +138,9 @@ Jeśli określisz unstructured_data_path jako folder, zapytanie puli SQL bezserw
 Można nakazać bezserwerowej puli SQL przechodzenie między folderami, określając/* na końcu ścieżki, jak na przykład: `https://sqlondemandstorage.blob.core.windows.net/csv/population/**`
 
 > [!NOTE]
-> W przeciwieństwie do usługi Hadoop i bazy danych, bezserwerowa Pula SQL nie zwraca podfolderów, chyba że na końcu ścieżki nie określono/* *. Ponadto, w przeciwieństwie do usługi Hadoop i Base, bezserwerowa Pula SQL zwraca pliki, dla których nazwa pliku zaczyna się od znaku podkreślenia (_) lub kropki (.).
+> W przeciwieństwie do usługi Hadoop i bazy danych, bezserwerowa Pula SQL nie zwraca podfolderów, chyba że na końcu ścieżki nie określono/* *.
 
-W poniższym przykładzie, jeśli unstructured_data_path = `https://mystorageaccount.dfs.core.windows.net/webdata/` , bezserwerowe zapytanie puli SQL zwróci wiersze z mydata.txt i _hidden.txt. Nie zwróci mydata2.txt i mydata3.txt, ponieważ znajdują się w podfolderze.
+W poniższym przykładzie, jeśli unstructured_data_path = `https://mystorageaccount.dfs.core.windows.net/webdata/` , bezserwerowe zapytanie puli SQL zwróci wiersze z mydata.txt. Nie zwróci mydata2.txt i mydata3.txt, ponieważ znajdują się w podfolderze.
 
 ![Dane cykliczne dla tabel zewnętrznych](./media/develop-openrowset/folder-traversal.png)
 

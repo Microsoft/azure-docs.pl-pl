@@ -3,12 +3,12 @@ title: Tworzenie przestrzeni nazw usługi Relay za pomocą witryny Azure Portal 
 description: Ten artykuł zawiera przewodnik, w którym pokazano, jak utworzyć przestrzeń nazw usługi Relay przy użyciu Azure Portal.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 4c26928d2ee53a5c76ff982b5d57b59f9a7a8ab8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 758e63c933b864ac5a77889f4addac4a468baafd
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85317000"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304532"
 ---
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Tworzenie przestrzeni nazw usługi Relay za pomocą witryny Azure Portal
 
@@ -25,7 +25,7 @@ Gratulacje! Przestrzeń nazw usługi Relay została utworzona.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Często zadawane pytania dotyczące usługi Relay](relay-faq.md)
+* [Często zadawane pytania dotyczące usługi Relay](relay-faq.yml)
 * [Wprowadzenie do platformy .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Wprowadzenie do programu Node](relay-hybrid-connections-node-get-started.md)
 

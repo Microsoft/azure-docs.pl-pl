@@ -1,18 +1,18 @@
 ---
 title: Program certyfikowany na platformie Azure — samouczek — Dodawanie szczegółów urządzenia
 description: Przewodnik krok po kroku dotyczący dodawania szczegółów urządzenia do projektu w portalu Azure Certified Device
-author: nikuntjo
+author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: c2a67e794932504150a1eacedd5418642623a20c
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: f4f3d045a2530fa54d22bec789918454cba80097
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105969774"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310431"
 ---
 # <a name="tutorial-add-device-details"></a>Samouczek: Dodawanie szczegółów urządzenia
 

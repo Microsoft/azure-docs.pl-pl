@@ -26,9 +26,11 @@
           href: howto-create-private-cluster-4x.md
         - name: Konfigurowanie przesyłania dalej w usłudze DNS
           href: dns-forwarding.md
+        - name: Ograniczanie ruchu wychodzącego
+          href: howto-restrict-egress.md
     - name: Storage
       items:
-        - name: Szyfrowanie obwodów PVC z kluczem zarządzanym przez klienta (wersja zapoznawcza)
+        - name: Szyfrowanie komputerów PVC przy użyciu klucza zarządzanego przez klienta (wersja zapoznawcza)
           href: howto-encrypt-data-disks.md
         - name: Tworzenie elementu Storageclass usługi Azure Files
           href: howto-create-a-storageclass.md

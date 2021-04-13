@@ -11,17 +11,17 @@ ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc81e0b5a2b7e9e2e5ab12094950f71ad51c6871
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: af4eaa5912cdf7463c81f501d71b69e934f8febb
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107225975"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306011"
 ---
 # <a name="what-is-azure-ad-connect-cloud-sync"></a>Co to jest Azure AD Connect Sync Cloud?
 Azure AD Connect Sync Cloud to nowa oferta od firmy Microsoft, która została zaprojektowana w celu sprostania i realizacji celów tożsamości hybrydowej na potrzeby synchronizacji użytkowników, grup i kontaktów z usługą Azure AD.  Jest to realizowane za pomocą agenta aprowizacji w chmurze usługi Azure AD zamiast aplikacji Azure AD Connect.  Można go jednak używać razem z Azure AD Connect synchronizacją i zapewnia następujące korzyści:
     
-- Obsługa synchronizowania z dzierżawą usługi Azure AD z wielu lasów odłączonych Active Directory środowiska lasu: typowe scenariusze obejmują proces scalania & pozyskiwania, gdzie lasy usługi AD nabyte w firmie są odizolowane od lasów i firm DOMENOWYCH w firmie nadrzędnej, w których historycznie istniały wiele lasów usługi AD.
+- Obsługa synchronizowania z dzierżawą usługi Azure AD z wielolasach odłączonego Active Directory środowiska lasu: typowe scenariusze obejmują & pozyskiwania (w przypadku których lasy usługi AD przejętej firmy są odizolowane od lasów usługi AD w firmie nadrzędnej) oraz firmy, które w przeszłości korzystają z wielu lasów usługi AD.
 - Uproszczona instalacja z użyciem lekkich agentów aprowizacji: agenci działają jako most z usługi AD do usługi Azure AD, ze wszystkimi konfiguracją synchronizacji zarządzaną w chmurze. 
 - Wielu agentów aprowizacji można użyć do uproszczenia wdrożeń o wysokiej dostępności, szczególnie krytycznych dla organizacji korzystających z synchronizacji skrótów haseł z usługi AD do usługi Azure AD.
 - Obsługa dużych grup z maksymalnie 50 000 członkami. Zalecane jest używanie tylko filtru określania zakresu jednostki organizacyjnej podczas synchronizacji dużych grup.
@@ -30,7 +30,7 @@ Azure AD Connect Sync Cloud to nowa oferta od firmy Microsoft, która została z
 ![Co to jest program Azure AD Connect](media/what-is-cloud-sync/architecture-1.png)
 
 ## <a name="how-is-azure-ad-connect-cloud-sync-different-from-azure-ad-connect-sync"></a>Jak Azure AD Connect synchronizacja w chmurze różni się od synchronizacji Azure AD Connect?
-Dzięki synchronizacji z usługą Azure AD Connect Cloud Inicjowanie obsługi administracyjnej z usługi AD do usługi Azure AD jest zorganizowane w usługach online firmy Microsoft. Organizacja musi tylko wdrożyć w środowisku lokalnym i IaaS, lekki Agent, który działa jako Most między usługą Azure AD i usługą AD. Konfiguracja aprowizacji jest przechowywana w usłudze Azure AD i zarządzana jako część usługi.
+Dzięki synchronizacji z usługą Azure AD Connect Cloud Inicjowanie obsługi administracyjnej z usługi AD do usługi Azure AD jest zorganizowane w usługach online firmy Microsoft. Organizacja musi tylko wdrożyć, w środowisku lokalnym lub IaaSm, lekki Agent, który działa jako Most między usługą Azure AD i usługą AD. Konfiguracja aprowizacji jest przechowywana w usłudze Azure AD i zarządzana jako część usługi.
 
 ## <a name="azure-ad-connect-cloud-sync-video"></a>Film wideo dotyczący synchronizacji z chmurą Azure AD Connect
 Poniższy krótki film zawiera doskonałe Omówienie Azure AD Connect synchronizacji w chmurze:

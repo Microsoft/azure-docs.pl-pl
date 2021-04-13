@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 04/12/2021
 ms.author: banders
-ms.openlocfilehash: a70d434b06fd19071f3576f9333579e0bd2b85e7
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 13a9e3ad1dcdfa230d757230e3fdea91e4ee9d23
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99574978"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310397"
 ---
 # <a name="buy-a-reservation"></a>Kupowanie rezerwacji
 
@@ -35,8 +35,8 @@ Zakres rezerwacji można ograniczyć do subskrypcji lub grup zasobów. Ustawieni
 
 Masz trzy opcje zakresu rezerwacji do wyboru w zależności od potrzeb:
 
-- **Zakres pojedynczej grupy zasobów**— rabat na rezerwację jest stosowany do odpowiednich zasobów tylko w wybranej grupie zasobów.
-- **Zakres pojedynczej subskrypcji**— rabat na rezerwację jest stosowany do odpowiednich zasobów w wybranej subskrypcji.
+- **Zakres pojedynczej grupy zasobów** — rabat na rezerwację jest stosowany do odpowiednich zasobów tylko w wybranej grupie zasobów.
+- **Zakres pojedynczej subskrypcji** — rabat na rezerwację jest stosowany do odpowiednich zasobów w wybranej subskrypcji.
 - **Zakres udostępniony** — rabat na rezerwację jest stosowany do odpowiednich zasobów w kwalifikujących się subskrypcjach w ramach kontekstu rozliczeń.
     - W przypadku klientów korzystających z umowy Enterprise Agreement kontekstem rozliczeń jest rejestracja. Zakres udostępniony rezerwacji obejmowałby wiele dzierżaw usługi Active Directory w rejestracji.
     - W przypadku klientów z Umową z Klientem Microsoft zakres rozliczeniowy to profil rozliczeniowy.
@@ -44,9 +44,9 @@ Masz trzy opcje zakresu rezerwacji do wyboru w zależności od potrzeb:
 
 Podczas stosowania rabatów na rezerwację w stosunku do użycia platforma Azure przetwarza rezerwacje w następującej kolejności:
 
-1. Rezerwacje, których zakres jest ograniczony do grupy zasobów
-2. Rezerwacje pojedynczego zakresu
-3. Rezerwacje zakresu udostępnionego
+1. Rezerwacje z jednym zakresem grupy zasobów
+2. Rezerwacje z jednym zakresem subskrypcji
+3. Rezerwacje z współdzielonym zakresem (wiele subskrypcji), opisane wcześniej
 
 Zakres można zaktualizować w dowolnym momencie po zakupie rezerwacji. W tym celu należy przejść do rezerwacji, kliknąć pozycję **Konfiguracja** i ponownie określić zakres. Zmiana zakresu rezerwacji nie jest transakcją handlową. Okres rezerwacji nie jest zmieniany. Aby uzyskać więcej informacji o aktualizowaniu zakresu, [zobacz Aktualizowanie zakresu po zakupie rezerwacji.](manage-reserved-vm-instance.md#change-the-reservation-scope)
 

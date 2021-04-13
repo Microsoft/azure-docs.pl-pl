@@ -5,26 +5,26 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: 9c8dd723c9cde5c0534d9fd5ca4084c7ed15d213
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 29821733b73717634aa8f0ab72270f058ffd3ddc
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106218638"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309394"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Uwierzytelnianie i autoryzacja dla usługi Azure Static Web Apps (wersja zapoznawcza)
 
 Usługa Azure static Web Apps usprawnia proces uwierzytelniania, zarządzając uwierzytelnianiem przy użyciu następujących dostawców:
 
-- Usługa Azure Active Directory
+- Azure Active Directory
 - GitHub
 - Facebook
 - Google<sup>1</sup>
 - Twitter
 
-[Zaproszenia](#invitations) specyficzne dla dostawcy kojarzą użytkowników z rolami, a autoryzowani użytkownicy uzyskują dostęp do [tras](routes.md) według reguł zdefiniowanych w _routes.js_ pliku.
+[Zaproszenia](#invitations) specyficzne dla dostawcy kojarzą użytkowników z rolami, a autoryzowani użytkownicy uzyskują dostęp do [tras](routes.md) według reguł zdefiniowanych w _staticwebapp.config.js_ pliku.
 
 Wszyscy dostawcy uwierzytelniania są domyślnie włączeni. Aby ograniczyć dostawcę uwierzytelniania, [Zablokuj dostęp](#block-an-authorization-provider) za pomocą niestandardowej reguły trasy.
 
@@ -32,18 +32,18 @@ Tematy dotyczące uwierzytelniania i autoryzacji znacząco nakładają się na k
 
 ## <a name="roles"></a>Role
 
-Każdy użytkownik, który uzyskuje dostęp do statycznej aplikacji sieci Web, należy do jednej lub kilku ról.  Istnieją dwie wbudowane role, do których użytkownicy mogą należeć:
+Każdy użytkownik, który uzyskuje dostęp do statycznej aplikacji sieci Web, należy do jednej lub kilku ról. Istnieją dwie wbudowane role, do których użytkownicy mogą należeć:
 
 - **anonimowe**: Wszyscy użytkownicy automatycznie należą do roli _anonimowej_ .
 - **uwierzytelniono**: Wszyscy zalogowani użytkownicy należą do roli _uwierzytelnionej_ .
 
-Poza wbudowanymi rolami można tworzyć nowe role, przypisywać je do użytkowników za pośrednictwem zaproszeń i odwoływać się do nich w _routes.js_ pliku.
+Poza wbudowanymi rolami można tworzyć nowe role, przypisywać je do użytkowników za pośrednictwem zaproszeń i odwoływać się do nich w _staticwebapp.config.js_ pliku.
 
 ## <a name="role-management"></a>Zarządzanie rolami
 
 ### <a name="add-a-user-to-a-role"></a>Dodawanie użytkownika do roli
 
-Aby dodać użytkowników do witryny sieci Web, można generować zaproszenia, które umożliwiają kojarzenie użytkowników z określonymi rolami. Role są definiowane i obsługiwane w _routes.js_ pliku.
+Aby dodać użytkowników do witryny sieci Web, można generować zaproszenia, które umożliwiają kojarzenie użytkowników z określonymi rolami. Role są definiowane i obsługiwane w _staticwebapp.config.js_ pliku.
 
 <a name="invitations" id="invitations"></a>
 
@@ -53,25 +53,25 @@ Zaproszenia są specyficzne dla poszczególnych dostawców autoryzacji, dlatego 
 
 <a name="provider-user-details" id="provider-user-details"></a>
 
-| Dostawca autoryzacji | Uwidacznia użytkownikowi  |
-| ---------------------- | ----------------- |
-| Usługa Azure Active Directory | Adres e-mail     |
-| Facebook               | Adres e-mail     |
-| GitHub                 | nazwa użytkownika          |
-| Google<sup>1</sup>     | Adres e-mail     |
-| Twitter                | nazwa użytkownika          |
+| Dostawca autoryzacji | Uwidacznia użytkownikowi |
+| ---------------------- | ---------------- |
+| Azure Active Directory | Adres e-mail    |
+| Facebook               | Adres e-mail    |
+| GitHub                 | nazwa użytkownika         |
+| Google<sup>1</sup>     | Adres e-mail    |
+| Twitter                | nazwa użytkownika         |
 
 1. Przejdź do statycznego zasobu Web Apps w [Azure Portal](https://portal.azure.com).
 1. W obszarze _Ustawienia_ kliknij pozycję **Zarządzanie rolami**.
 1. Kliknij przycisk **Zaproś** .
 1. Wybierz _dostawcę autoryzacji_ z listy opcji.
 1. W polu _Zaproś szczegóły_ Dodaj nazwę użytkownika lub adres e-mail adresata.
-    - W przypadku usługi GitHub i serwisu Twitter wprowadź nazwę użytkownika. Dla wszystkich innych użytkowników wprowadź adres e-mail adresata.
+   - W przypadku usługi GitHub i serwisu Twitter wprowadź nazwę użytkownika. Dla wszystkich innych użytkowników wprowadź adres e-mail adresata.
 1. Z listy rozwijanej _domena_ wybierz domenę witryny statycznej.
-    - Wybrana domena jest domeną widoczną w zaproszeniu. Jeśli masz domenę niestandardową skojarzoną z witryną, prawdopodobnie chcesz wybrać domenę niestandardową.
+   - Wybrana domena jest domeną widoczną w zaproszeniu. Jeśli masz domenę niestandardową skojarzoną z witryną, prawdopodobnie chcesz wybrać domenę niestandardową.
 1. Dodaj rozdzieloną przecinkami listę nazw ról w polu _rola_ .
 1. Wprowadź maksymalną liczbę godzin, przez jaką zaproszenie ma pozostawać ważne.
-    - Maksymalny możliwy limit to 168 godzin, co wynosi 7 dni.
+   - Maksymalny możliwy limit to 168 godzin, co wynosi 7 dni.
 1. Kliknij przycisk **Generate** (Generuj).
 1. Skopiuj link w polu _zapraszanie linku_ .
 1. Wyślij wiadomość e-mail z zaproszeniem do osoby, której przyznano dostęp do aplikacji.
@@ -131,7 +131,7 @@ Skorzystaj z poniższej tabeli, aby znaleźć trasę logowania specyficzną dla 
 
 | Dostawca autoryzacji | Trasa logowania             |
 | ---------------------- | ----------------------- |
-| Usługa Azure Active Directory | `/.auth/login/aad`      |
+| Azure Active Directory | `/.auth/login/aad`      |
 | Facebook               | `/.auth/login/facebook` |
 | GitHub                 | `/.auth/login/github`   |
 | Google<sup>1</sup>     | `/.auth/login/google`   |

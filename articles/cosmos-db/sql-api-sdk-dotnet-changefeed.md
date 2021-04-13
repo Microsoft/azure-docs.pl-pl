@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 04/06/2021
 ms.author: anfeldma
-ms.openlocfilehash: b1f2efa887fb56d555f354c6d0a3262a7f178e29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b53f4047fcdf2832026f532137915e7b9ad4ed12
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104577142"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364587"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Zestaw SDK procesora zestawienia zmian platformy .NET: pobieranie i informacje o wersjach
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -30,7 +30,8 @@ ms.locfileid: "104577142"
 > * [Sync Java SDK 2](sql-api-sdk-java.md)
 > * [Spring Data 2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data 3](sql-api-sdk-java-spring-v3.md)
-> * [Łącznik platformy Spark](sql-api-sdk-java-spark.md)
+> * [Łącznik OLTP platformy Spark 3](sql-api-sdk-java-spark-v3.md)
+> * [Łącznik OLTP platformy Spark 2](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api
 > * [Dostawca zasobów REST] (/rest/api

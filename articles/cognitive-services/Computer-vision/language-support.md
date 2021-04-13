@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 774eb05ae43e393db3d11e8e21a427736614809b
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: a37b740333e599d19248ffa9b21be3e4d6fe78b3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285114"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306300"
 ---
 # <a name="language-support-for-computer-vision"></a>Obsługa języka dla przetwarzanie obrazów
 
@@ -25,7 +25,7 @@ Niektóre funkcje przetwarzanie obrazów obsługują wiele języków; wszystkie 
 
 Interfejsy API rozpoznawania przetwarzanie obrazów obsługują kilka języków. Nie wymagają określenia kodu języka. Aby uzyskać więcej informacji, zobacz [Omówienie optycznego rozpoznawania znaków (OCR)](overview-ocr.md) .
 
-|Język| Kod języka | INTERFEJS API OCR | Przeczytaj 3.0/3.1 | Przeczytaj wersję zapoznawczą v 3.2 |
+|Język| Kod języka | INTERFEJS API OCR | Przeczytaj 3.0/3.1 | Przeczytaj v 3.2 |
 |:-----|:----:|:-----:|:---:|:---:|
 |Afrikaans|`af`| | |✔ |
 |Albański |`sq`| | |✔ |
@@ -46,7 +46,7 @@ Interfejsy API rozpoznawania przetwarzanie obrazów obsługują kilka języków.
 |Duński | `da` |✔ | |✔ |
 |Niderlandzki | `nl` |✔ |✔ |✔ |
 |Angielski | `en` |✔ |✔ |✔ |
-|Estoński  |`crh`| | |✔ |
+|Estoński  |`et`| | |✔ |
 |Fijian |`fj`| | |✔ |
 |Filipino  |`fil`| | |✔ |
 |Fiński | `fi` |✔ | |✔ |

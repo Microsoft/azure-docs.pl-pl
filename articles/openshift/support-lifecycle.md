@@ -5,13 +5,13 @@ author: sakthi-vetrivel
 ms.author: suvetriv
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 08/11/2020
-ms.openlocfilehash: fca01c77a1ff47cbeee167eb408ed9f29a1307bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/06/2021
+ms.openlocfilehash: 35cbaf2b6d2618d116d2dd322ae5ac28f578cecc
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100634332"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303546"
 ---
 # <a name="support-lifecycle-for-azure-red-hat-openshift-4"></a>Cykl życia wsparcia platformy Azure Red Hat OpenShift 4
 
@@ -33,7 +33,7 @@ Każda liczba w wersji wskazuje ogólną zgodność z poprzednią wersją:
 * **Wersja pomocnicza**: wydano około co trzy miesiące. Uaktualnienia wersji pomocniczej mogą obejmować Dodatki do funkcji, ulepszenia, operacje usuwania, poprawki błędów, ulepszenia zabezpieczeń i inne ulepszenia.
 * **Poprawki**: są zwykle wydawane co tydzień lub w razie konieczności. Uaktualnienia wersji poprawek mogą zawierać poprawki błędów, ulepszenia zabezpieczeń i inne ulepszenia.
 
-Klienci powinni mieć możliwość uruchomienia najnowszej wersji, która jest uruchomiona. Na przykład jeśli klaster produkcyjny znajduje się na 4,4, a 4,5 to najnowsza ogólnie dostępna wersja dla 4 serii, należy przeprowadzić uaktualnienie do 4,5 jak najszybciej.
+Klienci powinni mieć możliwość uruchomienia najnowszej wersji, która jest uruchomiona. Na przykład jeśli klaster produkcyjny znajduje się na 4,4, a 4,5 to najnowsza ogólnie dostępna wersja dla 4 serii, należy przeprowadzić uaktualnienie do 4,5 jak najszybciej. 
 
 ### <a name="upgrade-channels"></a>Kanały uaktualnienia
 
@@ -106,12 +106,16 @@ Zapoznaj się z następującym przewodnikiem dotyczącym [historycznej wersji pl
 
 **Co się stanie, gdy użytkownik uaktualnia klaster OpenShift z nieobsługiwaną wersją pomocniczą?**
 
-Jeśli korzystasz z wersji N-2 lub starszej, oznacza to, że użytkownik jest poza pomocą techniczną i zostanie poproszony o uaktualnienie. Gdy uaktualnienie z wersji N-2 do N-1 powiedzie się, nastąpi powrót do naszych zasad pomocy technicznej. Na przykład:
+Jeśli korzystasz z wersji N-2 lub starszej, oznacza to, że użytkownik jest poza pomocą techniczną i zostanie poproszony o uaktualnienie, aby nadal otrzymywać pomoc techniczną. Gdy uaktualnienie z wersji N-2 do N-1 powiedzie się, nastąpi powrót do pomocy technicznej. Uaktualnienie z wersji N-3 wersji lub starszej do obsługiwanej wersji może być trudne, a w niektórych przypadkach nie jest możliwe. Zalecamy utrzymywanie klastra w najnowszej wersji OpenShift, aby uniknąć potencjalnych problemów z uaktualnieniem. Na przykład:
 * Jeśli najstarsza obsługiwana wersja usługi Azure Red Hat OpenShift to 4.4. z i używasz programu 4.3. z lub starszej wersji, jesteś poza pomocą techniczną.
-* Gdy uaktualnienie z programu 4.3. z do 4.4. z lub nowsze powiedzie się, nastąpi powrót do naszych zasad pomocy technicznej.
+* Gdy uaktualnienie z programu 4.3. z do 4.4. z lub nowsze powiedzie się, nastąpi powrót do naszych zasad pomocy technicznej. 
 
 Przywrócenie klastra do poprzedniej wersji lub wycofanie nie jest obsługiwane. Obsługiwane jest tylko uaktualnienie do nowszej wersji.
 
 **Co oznacza "poza działem pomocy technicznej"?**
 
-"Poza działem pomocy technicznej" oznacza, że uruchomiona wersja znajduje się poza listą obsługiwanych wersji, a użytkownik może zostać poproszony o uaktualnienie klastra do obsługiwanej wersji, o ile nie znajduje się w 30-dniowym okresie prolongaty po wycofaniu wersji. Ponadto w systemie Azure Red Hat OpenShift nie są oferowane żadne gwarancje środowiska uruchomieniowego lub umowy SLA dla klastrów spoza listy obsługiwanych wersji po zakończeniu 30-dniowego okresu prolongaty.
+Jeśli klaster ARO jest uruchomiony w wersji OpenShift, która nie znajduje się na liście obsługiwanych wersji lub korzysta z [nieobsługiwanej konfiguracji klastra](https://docs.microsoft.com/azure/openshift/support-policies-v4), klaster jest "poza pomocą techniczną". W efekcie:
+- Podczas otwierania biletu pomocy technicznej dla klastra zostanie wyświetlony monit o uaktualnienie klastra do obsługiwanej wersji. przed uzyskaniem pomocy technicznej, chyba że w ciągu 30-dniowego okresu prolongaty po zakończeniu obsługi wersji. 
+- Wszelkie gwarancje dotyczące środowiska uruchomieniowego lub umowy SLA dla klastrów poza wsparciem są unieważnione.
+- Klastry poza obsługą będą poprawiane tylko w oparciu o najlepszy nakład pracy.
+- Klastry poza obsługą nie będą monitorowane.

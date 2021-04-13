@@ -1,45 +1,45 @@
 ---
-title: Azure Portal Azure Database for MariaDB magazynu
-description: W tym artykule opisano sposób włączania magazynu z możliwością autowzrostu dla Azure Database for MariaDB przy użyciu Azure Portal
+title: Automatyczne powiększanie magazynu — Azure Portal — Azure Database for MariaDB
+description: W tym artykule opisano, jak włączyć automatyczne powiększanie magazynu dla Azure Database for MariaDB użyciu Azure Portal
 author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: c6ca4dc4304e6cd0a7bad2a393fd780ae281815f
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 49b87648a425277f29ef2b3ebd8752e01019d3ad
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107227096"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366117"
 ---
-# <a name="auto-grow-storage-in-azure-database-for-mariadb-using-the-azure-portal"></a>Powiększ magazyn w Azure Database for MariaDB przy użyciu Azure Portal
-W tym artykule opisano, jak można skonfigurować magazyn serwera Azure Database for MariaDB do wzrostu bez wpływu na obciążenie.
+# <a name="auto-grow-storage-in-azure-database-for-mariadb-using-the-azure-portal"></a>Automatyczne powiększanie magazynu w Azure Database for MariaDB użyciu Azure Portal
+W tym artykule opisano sposób konfigurowania magazynu Azure Database for MariaDB serwera w celu wzrostu bez wpływu na obciążenie.
 
-Gdy serwer osiągnie przydzieloną liczbę magazynów, serwer jest oznaczony jako tylko do odczytu. Jeśli jednak włączysz funkcję autozwiększania magazynu, magazyn serwera zwiększy się, aby uwzględnić rosnące dane. W przypadku serwerów o rozmiarze mniejszym niż 100 GB zainicjowany magazyn jest zwiększany o 5 GB, gdy tylko ilość wolnego miejsca w magazynie jest mniejsza niż 1 GB lub 10% zainicjowanego magazynu. W przypadku serwerów mających więcej niż 100 GB zasobów magazynowych zainicjowany rozmiar magazynu jest zwiększany o 5%, gdy ilość wolnego miejsca w magazynie jest mniejsza od 5% rozmiaru magazynu. Obowiązują maksymalne limity magazynu określone w [tym miejscu](concepts-pricing-tiers.md#storage) .
+Gdy serwer osiągnie przydzielony limit magazynu, zostanie oznaczony jako tylko do odczytu. Jeśli jednak włączysz automatyczne zwiększenie magazynu, magazyn serwera zwiększy się w celu uwzględnienia rosnących danych. W przypadku serwerów z aprowizowany magazynem o rozmiarze mniejszym niż 100 GB aprowizowany rozmiar magazynu jest zwiększany o 5 GB, gdy tylko ilość wolnego miejsca jest mniejsza niż 1 GB lub 10% aprowizowanych magazynów. W przypadku serwerów z ponad 100 GB aprowizowanych magazynów aprowizowany rozmiar magazynu zwiększa się o 5%, gdy ilość wolnego miejsca jest mniejsza niż 10 GB rozmiaru aprowizowanych magazynów. Obowiązują maksymalne limity magazynu określone [w tym miejscu.](concepts-pricing-tiers.md#storage)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Aby ukończyć ten przewodnik, musisz:
-- [Serwer Azure Database for MariaDB](./quickstart-create-mariadb-server-database-using-azure-portal.md)
+Do wykonania instrukcji w tym przewodniku potrzebne są:
+- Serwer [Azure Database for MariaDB serwera](./quickstart-create-mariadb-server-database-using-azure-portal.md)
 
-## <a name="enable-storage-auto-grow"></a>Włącz funkcję autowzrostu magazynu 
+## <a name="enable-storage-auto-grow"></a>Włączanie automatycznego wzrostu magazynu 
 
-Wykonaj następujące kroki, aby ustawić funkcję autowzrostu magazynu serwera MariaDB:
+Wykonaj następujące kroki, aby ustawić automatyczne powiększanie magazynu serwera MariaDB:
 
-1. W [Azure Portal](https://portal.azure.com/)wybierz istniejący serwer Azure Database for MariaDB.
+1. W [Azure Portal](https://portal.azure.com/)wybierz istniejący Azure Database for MariaDB serwer.
 
-2. Na stronie serwer MariaDB, w polu Nagłówek **ustawień** kliknij pozycję **warstwa cenowa** , aby otworzyć stronę warstwa cenowa.
+2. Na stronie serwera MariaDB w obszarze **Nagłówka** Ustawienia kliknij pozycję **Warstwa cenowa,** aby otworzyć stronę warstwy cenowej.
 
-3. W sekcji autoprzyrost wybierz pozycję **tak** , aby włączyć funkcję automatycznego zwiększania rozmiaru magazynu.
+3. W sekcji Automatyczne powiększanie wybierz pozycję **Tak,** aby włączyć automatyczne powiększanie magazynu.
 
-    ![Azure Database for MariaDB-Settings_Pricing_tier — autoprzyrost](./media/howto-auto-grow-storage-portal/3-auto-grow.png)
+    ![Azure Database for MariaDB — Settings_Pricing_tier — Automatyczne wzrost](./media/howto-auto-grow-storage-portal/3-auto-grow.png)
 
 4. Kliknij przycisk **OK**, aby zapisać zmiany.
 
-5. Powiadomienie zostanie potwierdzone, że funkcja autozwiększania została pomyślnie włączona.
+5. Powiadomienie potwierdzi, że automatyczne powiększanie zostało pomyślnie włączone.
 
-    ![Azure Database for MariaDB — powodzenie automatycznego wzrostu](./media/howto-auto-grow-storage-portal/5-auto-grow-successful.png)
+    ![Azure Database for MariaDB — sukces automatycznego wzrostu](./media/howto-auto-grow-storage-portal/5-auto-grow-successful.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na temat [tworzenia alertów dotyczących metryk](howto-alert-metric.md).
+Dowiedz [się, jak tworzyć alerty dotyczące metryk.](howto-alert-metric.md)

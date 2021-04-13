@@ -31,7 +31,7 @@ productDirectory:
   title: Przeglądanie produktów platformy Azure
   items:
     - title: Azure Percept
-      summary: Analiza brzegowa z krzemu do usługi
+      summary: Inteligencja brzegowa od układu krzemowego do usługi
       imageSrc: ./media/index/azure-percept.svg
       azureCategories:
         - iot
@@ -72,7 +72,7 @@ productDirectory:
         - analytics
       url: /azure/databricks/
     - title: Bot kondycji
-      summary: Cel usługi zarządzanej — przeznaczony do opracowywania wirtualnych asystentów opieki zdrowotnej.
+      summary: 'Usługa zarządzana, która jest budowaną na potrzeby opracowywania wirtualnych asystentów opieki zdrowotnej.'
       imageSrc: media/index/health-bot-logo.svg
       azureCategories:
         - ai-machine-learning
@@ -409,7 +409,7 @@ productDirectory:
         - iot
       url: cosmos-db/index.yml
     - title: Wystąpienie zarządzane platformy Azure dla systemu Apache Cassandra
-      summary: Automatyzacja wdrażania i skalowania dla zarządzanych centrów danych platformy Apache Cassandra "open source"
+      summary: Automatyzowanie wdrażania i skalowania zarządzanych centrów danych Apache Cassandra typu open source
       imageSrc: ./media/index/managed-instance-apache-cassandra.svg
       azureCategories:
         - databases
@@ -469,7 +469,7 @@ productDirectory:
         - containers
       url: aks/index.yml
     - title: Azure Quantum (wersja zapoznawcza)
-      summary: Zapoznaj się już dzisiaj na platformie Azure
+      summary: Już dziś przejmij wpływ kwantowy na platformę Azure
       imageSrc: ./media/index/quantum.svg
       azureCategories:
         - compute
@@ -714,12 +714,6 @@ productDirectory:
       azureCategories:
         - developer-tools
       url: 'https://code.visualstudio.com/docs'
-    - title: Visual Studio Codespaces (wersja zapoznawcza)
-      summary: Bazujące na chmurze środowiska deweloperskie dostępne z dowolnego miejsca
-      imageSrc: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
-      azureCategories:
-        - developer-tools
-      url: /visualstudio/online/overview/what-is-vsonline
     - title: Application Insights
       summary: 'Pełny wgląd w aplikacje, infrastrukturę i sieć'
       imageSrc: 'https://static.docs.com/ui/media/product/azure/application-insights.svg'
@@ -1097,8 +1091,8 @@ productDirectory:
         - migration
         - storage
       url: databox/index.yml
-    - title: Kotwice obiektów (wersja zapoznawcza)
-      summary: Automatycznie Wyrównaj i Zakotwicz zawartość 3W do obiektów w świecie fizycznym
+    - title: Object Anchors (wersja zapoznawcza)
+      summary: Automatyczne wyrównywanie i zakotwiczenie zawartości 3D do obiektów w świecie fizycznym
       imageSrc: ./media/index/object-anchors.svg
       azureCategories:
         - mixed-reality
@@ -1204,8 +1198,8 @@ productDirectory:
       azureCategories:
         - networking
       url: load-balancer/index.yml
-    - title: Serwer tras platformy Azure (wersja zapoznawcza)
-      summary: Uproszczenie zarządzania operacjami w urządzeniach sieciowych
+    - title: Azure Route Server (wersja zapoznawcza)
+      summary: Uproszczenie zarządzania operacjami urządzeń sieciowych
       imageSrc: ./media/index/azure-route-server.svg
       azureCategories:
         - networking
@@ -1380,9 +1374,9 @@ additionalContent:
           url: /azure/china/
     - title: Rozwiązania partnerskie
       items:
-        - title: Rozwiązania partnerskie platformy Azure
-          summary: 'Zintegrowane rozwiązania partnerskie, których można używać na platformie Azure do ulepszania infrastruktury chmurowej.'
+        - title: Rozwiązania partnerów platformy Azure
+          summary: 'Zintegrowane rozwiązania partnerskie, których można używać na platformie Azure do ulepszania infrastruktury chmury.'
           url: ./partner-solutions/overview.md
         - title: Komercyjna platforma handlowa
-          summary: Rynek online aplikacji i usług od partnerów niezależnych dostawców oprogramowania (ISV).
+          summary: Platforma handlowa aplikacji i usług online od niezależnych dostawców oprogramowania (ISV).
           url: ./marketplace/index.yml

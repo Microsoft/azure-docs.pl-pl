@@ -3,12 +3,12 @@ title: Programowe tworzenie zasad
 description: W tym artykule opisano sposób programowego tworzenia zasad i zarządzania nimi dla Azure Policy za pomocą interfejsu wiersza polecenia platformy Azure, Azure PowerShell i API REST.
 ms.date: 03/16/2021
 ms.topic: how-to
-ms.openlocfilehash: b4f15241799469da2e479cb758f648ec3131a149
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fb20509fe6d699050e0c98e82873ccdb6a0137b2
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104598494"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313695"
 ---
 # <a name="programmatically-create-policies"></a>Programowe tworzenie zasad
 
@@ -141,7 +141,7 @@ Aby utworzyć definicję zasad, należy wykonać poniższą procedurę.
 
    Zastąp poprzednią wartość {Subscription} IDENTYFIKATORem subskrypcji lub {managementGroupId} IDENTYFIKATORem [grupy zarządzania](../../management-groups/overview.md).
 
-   Aby uzyskać więcej informacji na temat struktury zapytania, zobacz [definicje Azure Policy — Tworzenie lub aktualizowanie](/rest/api/resources/policydefinitions/createorupdate) oraz [definicje zasad — Tworzenie lub aktualizowanie w grupie zarządzania](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
+   Aby uzyskać więcej informacji na temat struktury zapytania, zobacz [definicje Azure Policy — Tworzenie lub aktualizowanie](/rest/api/policy/policydefinitions/createorupdate) oraz [definicje zasad — Tworzenie lub aktualizowanie w grupie zarządzania](/rest/api/policy/policydefinitions/createorupdateatmanagementgroup)
 
 Aby utworzyć przypisanie zasad i przypisać definicję zasad na poziomie grupy zasobów, należy wykonać czynności opisane w poniższej procedurze.
 

@@ -1,18 +1,21 @@
 ---
-title: Klaster trybu failover systemu Windows Server na platformie Azure VMware sieci vSAN z natywnymi dyskami udostępnionymi
-description: Skonfiguruj usługę Windows Server Failover Clustering (WSFC) w rozwiązaniu Azure VMware i Skorzystaj z rozwiązań wymagających możliwości korzystania z usługi WSFC.
+title: Konfigurowanie klastra trybu failover systemu Windows Server na platformie Azure VMware sieci vSAN
+description: Skonfiguruj usługę Windows Server Failover Clustering (WSFC) w rozwiązaniu Azure VMware sieci vSAN z natywnymi dyskami udostępnionymi.
 ms.topic: how-to
-ms.date: 03/09/2021
-ms.openlocfilehash: 8162e15675d8bbde9267126c785f152d1cb860bd
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/09/2021
+ms.openlocfilehash: f1bc8199eb0d3317e4b6e07a6a297b4ebfe95cc8
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562243"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308691"
 ---
-# <a name="windows-server-failover-cluster-on-azure-vmware-solution-vsan-with-native-shared-disks"></a>Klaster trybu failover systemu Windows Server na platformie Azure VMware sieci vSAN z natywnymi dyskami udostępnionymi
+# <a name="configure-windows-server-failover-cluster-on-azure-vmware-solution-vsan"></a>Konfigurowanie klastra trybu failover systemu Windows Server na platformie Azure VMware sieci vSAN
 
-Ten artykuł zawiera instrukcje dotyczące konfigurowania klastra trybu failover systemu Windows Server w rozwiązaniu VMware platformy Azure. Implementacja w tym artykule jest przeznaczona do sprawdzenia koncepcji i celów pilotażowych. Zalecamy używanie konfiguracji klastra w polu (CIB) do momentu udostępnienia zasad umieszczania.
+W tym artykule dowiesz się, jak skonfigurować klaster trybu failover systemu Windows Server na platformie Azure VMware sieci vSAN z natywnymi dyskami udostępnionymi. 
+
+>[!IMPORTANT]
+>Implementacja w tym artykule jest przeznaczona do sprawdzenia koncepcji i celów pilotażowych. Zaleca się używanie konfiguracji klastra w polu (CIB) do momentu udostępnienia zasad umieszczania.
 
 Windows Server failover Cluster (WSFC), wcześniej znany jako usługa Microsoft Service Cluster Service (MSCS), jest funkcją systemu operacyjnego Windows Server (OS). WSFC to funkcja o kluczowym znaczeniu dla firmy, a w przypadku wielu aplikacji jest wymagane. Na przykład dla następujących konfiguracji jest wymagany program WSFC:
 
@@ -43,7 +46,7 @@ Rozwiązanie Azure VMware oferuje natywną obsługę zwirtualizowanych usług WS
 
 Na poniższym diagramie przedstawiono architekturę węzłów wirtualnych usługi WSFC w chmurze prywatnej rozwiązania Azure VMware. Pokazuje, gdzie znajduje się rozwiązanie Azure VMware, w tym serwery wirtualne usługi WSFC (czerwone pole) w odniesieniu do szerszej platformy platformy Azure. Na tym diagramie przedstawiono typową architekturę gwiazdy, ale jest możliwe zastosowanie podobnej konfiguracji w przypadku korzystania z wirtualnej sieci WAN platformy Azure. Obie te funkcje oferują wszystkie inne usługi platformy Azure.
 
-[![Diagram przedstawiający architekturę węzłów wirtualnych usługi WSFC w chmurze prywatnej rozwiązania Azure VMware.](media/windows-server-failover-cluster/windows-server-failover-architecture.png)](media/windows-server-failover-cluster/windows-server-failover-architecture.png#lightbox)
+:::image type="content" source="media/windows-server-failover-cluster/windows-server-failover-architecture.svg" alt-text="Diagram architektury węzłów wirtualnych klastra trybu failover systemu Windows Server w chmurze prywatnej rozwiązania Azure VMware." border="false" lightbox="media/windows-server-failover-cluster/windows-server-failover-architecture.svg":::
 
 ## <a name="supported-configurations"></a>Obsługiwane konfiguracje
 

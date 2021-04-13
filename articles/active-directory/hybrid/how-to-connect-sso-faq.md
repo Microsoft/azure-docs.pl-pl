@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52b450ecc8aff379dbdb8d58f9b7609cf730ad27
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 87b9371bfe3b0bd8ff8b3bd509cc1431f0c2e1c6
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731670"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305773"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory bezproblemowe logowanie jednokrotne: często zadawane pytania
 
@@ -90,7 +90,7 @@ Wykonaj następujące kroki na serwerze lokalnym, na którym jest uruchomiony pr
    **Krok 1. Pobierz listę lasów usługi AD, w których włączono bezproblemowe logowanie jednokrotne**
 
    1. Najpierw pobierz i zainstaluj program [Azure AD PowerShell](/powershell/azure/active-directory/overview).
-   2. Przejdź do folderu `%programfiles%\Microsoft Azure Active Directory Connect`.
+   2. Przejdź do folderu `$env:programfiles\Microsoft Azure Active Directory Connect`.
    3. Zaimportuj bezproblemowe moduł programu PowerShell dla logowania jednokrotnego za pomocą tego polecenia: `Import-Module .\AzureADSSO.psd1` .
    4. Uruchom program PowerShell jako administrator. W programie PowerShell Wywołaj polecenie `New-AzureADSSOAuthenticationContext` . To polecenie powinno umożliwić podręczne wprowadzenie poświadczeń administratora globalnego dzierżawy.
    5. Wywołanie `Get-AzureADSSOStatus | ConvertFrom-Json` . To polecenie umożliwia wyświetlenie listy lasów usługi AD (Zobacz listę "domeny"), na której włączono tę funkcję.
@@ -135,7 +135,7 @@ Wykonaj następujące kroki na serwerze lokalnym, na którym jest uruchomiony pr
    Na serwerze lokalnym, na którym jest uruchomiony program Azure AD Connect, wykonaj następujące czynności:
 
    1. Najpierw pobierz i zainstaluj program [Azure AD PowerShell](/powershell/azure/active-directory/overview).
-   2. Przejdź do folderu `%programfiles%\Microsoft Azure Active Directory Connect`.
+   2. Przejdź do folderu `$env:ProgramFiles\Microsoft Azure Active Directory Connect`.
    3. Zaimportuj bezproblemowe moduł programu PowerShell dla logowania jednokrotnego za pomocą tego polecenia: `Import-Module .\AzureADSSO.psd1` .
    4. Uruchom program PowerShell jako administrator. W programie PowerShell Wywołaj polecenie `New-AzureADSSOAuthenticationContext` . To polecenie powinno umożliwić podręczne wprowadzenie poświadczeń administratora globalnego dzierżawy.
    5. Wywołanie `Enable-AzureADSSO -Enable $false` .
@@ -150,7 +150,7 @@ Wykonaj następujące kroki na serwerze lokalnym, na którym jest uruchomiony pr
    Wykonaj zadania od 1 do 4 poniżej, jeśli wyłączono bezproblemowe logowanie jednokrotne przy użyciu Azure AD Connect. Jeśli wyłączysz bezproblemowe logowanie jednokrotne przy użyciu programu PowerShell, przejdź do kolejnego zadania 5 poniżej.
 
    1. Najpierw pobierz i zainstaluj program [Azure AD PowerShell](/powershell/azure/active-directory/overview).
-   2. Przejdź do folderu `%programfiles%\Microsoft Azure Active Directory Connect`.
+   2. Przejdź do folderu `$env:ProgramFiles\Microsoft Azure Active Directory Connect`.
    3. Zaimportuj bezproblemowe moduł programu PowerShell dla logowania jednokrotnego za pomocą tego polecenia: `Import-Module .\AzureADSSO.psd1` .
    4. Uruchom program PowerShell jako administrator. W programie PowerShell Wywołaj polecenie `New-AzureADSSOAuthenticationContext` . To polecenie powinno umożliwić podręczne wprowadzenie poświadczeń administratora globalnego dzierżawy.
    5. Wywołanie `Get-AzureADSSOStatus | ConvertFrom-Json` . To polecenie umożliwia wyświetlenie listy lasów usługi AD (Zobacz listę "domeny"), na której włączono tę funkcję.

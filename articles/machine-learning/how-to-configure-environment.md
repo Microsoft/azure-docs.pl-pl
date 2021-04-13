@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 03/22/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 686274bc90f516f597a397a6b0270fb638e30c95
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 7f35f9196fb4ab67de724ba73982fed69ac81361
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107027714"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306844"
 ---
 # <a name="set-up-a-python-development-environment-for-azure-machine-learning"></a>Skonfiguruj środowisko programistyczne języka Python dla Azure Machine Learning
 

@@ -1,6 +1,6 @@
 ---
-title: Wysoka dostępność SAP HANA skalowanie w górę z ANF na RHEL | Microsoft Docs
-description: Zapewnienie wysokiej dostępności SAP HANA z ANF na maszynach wirtualnych platformy Azure.
+title: Wysoka dostępność aplikacji SAP HANA skalowanie w górę za pomocą anf w RHEL | Microsoft Docs
+description: Ustanów wysoką dostępność SAP HANA anf na maszynach wirtualnych platformy Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: rdeltcheva
@@ -10,16 +10,16 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/17/2021
+ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: c5f94329920f8c850c0a47dd607ade8e83658b29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 774344c4215088482b110de91f8951bae4a41d25
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104599922"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365828"
 ---
-# <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Wysoka dostępność SAP HANA skalowanie Azure NetApp Files na Red Hat Enterprise Linux
+# <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Wysoka dostępność skalowania SAP HANA w górę dzięki Azure NetApp Files na Red Hat Enterprise Linux
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -51,274 +51,273 @@ ms.locfileid: "104599922"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-W tym artykule opisano sposób konfigurowania replikacji systemu SAP HANA w ramach wdrożenia skalowalnego w poziomie, gdy systemy plików HANA są instalowane za pośrednictwem systemu plików NFS, używając Azure NetApp Files (ANF). W przykładowych konfiguracjach i poleceniach instalacji, numer wystąpienia nr **03** i identyfikator systemu Hana **HN1** są używane. SAP HANA replikacja składa się z jednego węzła podstawowego i co najmniej jednego węzła pomocniczego.
+W tym artykule opisano sposób konfigurowania replikacji systemu SAP HANA we wdrożeniu skalowania w górę, gdy systemy plików HANA są instalowane za pośrednictwem systemu plików NFS przy użyciu Azure NetApp Files (ANF). W przykładowych konfiguracjach i poleceniach instalacji są używane numer wystąpienia **03** i identyfikator systemu HANA **HN1.** SAP HANA Replikacja składa się z jednego węzła podstawowego i co najmniej jednego węzła pomocniczego.
 
 Gdy kroki w tym dokumencie są oznaczone następującymi prefiksami, znaczenie jest następujące:
 
-- **[A]**: krok ma zastosowanie do wszystkich węzłów
-- **[1]**: krok ma zastosowanie tylko do Węzeł1
-- **[2]**: krok ma zastosowanie tylko do Węzeł2
+- **[A]**: Krok ma zastosowanie do wszystkich węzłów
+- **[1]**: Krok dotyczy tylko węzła node1
+- **[2]**: Krok dotyczy tylko węzła node2
  
-Przeczytaj najpierw następujące informacje i dokumenty SAP:
+Najpierw zapoznaj się z następującymi uwagami i dokumentami SAP:
 
-- Nota SAP [1928533](https://launchpad.support.sap.com/#/notes/1928533), która ma:
-    - Lista rozmiarów maszyn wirtualnych platformy Azure, które są obsługiwane w przypadku wdrażania oprogramowania SAP.
+- Uwaga [SAP 1928533,](https://launchpad.support.sap.com/#/notes/1928533)która ma:
+    - Lista rozmiarów maszyn wirtualnych platformy Azure obsługiwanych w przypadku wdrażania oprogramowania SAP.
     - Ważne informacje o pojemności dla rozmiarów maszyn wirtualnych platformy Azure.
-    - Obsługiwane programy SAP i system operacyjny oraz kombinacje baz danych.
-    - Wymagana wersja jądra SAP dla systemu Windows i Linux w systemie Microsoft Azure.
-- Uwaga dotycząca protokołu SAP [2015553](https://launchpad.support.sap.com/#/notes/2015553) zawiera listę wymagań wstępnych dotyczących wdrożeń oprogramowania SAP obsługiwanych przez oprogramowanie SAP na platformie Azure.
-- W przypadku oprogramowania SAP Uwaga [405827](https://launchpad.support.sap.com/#/notes/405827) znajduje się lista zalecanych systemów plików dla środowiska Hana.
-- Uwaga dla programu SAP [2002167](https://launchpad.support.sap.com/#/notes/2002167) są zalecane ustawienia systemu operacyjnego dla Red Hat Enterprise Linux.
-- Uwaga dotycząca programu SAP [2009879](https://launchpad.support.sap.com/#/notes/2009879) SAP HANA wytycznych dotyczących Red Hat Enterprise Linux.
-- Uwaga dotycząca oprogramowania SAP [2178632](https://launchpad.support.sap.com/#/notes/2178632) zawiera szczegółowe informacje o wszystkich metrykach monitorowania raportowanych dla oprogramowania SAP na platformie Azure.
-- Uwaga dotycząca programu SAP [2191498](https://launchpad.support.sap.com/#/notes/2191498) ma wymaganą wersję agenta hosta SAP dla systemu Linux na platformie Azure.
-- Uwaga dotycząca oprogramowania SAP [2243692](https://launchpad.support.sap.com/#/notes/2243692) zawiera informacje na temat licencjonowania SAP w systemie Linux na platformie Azure.
-- Uwaga dotycząca programu SAP [1999351](https://launchpad.support.sap.com/#/notes/1999351) zawiera dodatkowe informacje dotyczące rozwiązywania problemów z rozszerzoną funkcją monitorowania platformy Azure dla oprogramowania SAP.
-- [Społeczność systemu SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) na stronie wiki ma wszystkie wymagane uwagi SAP dla systemu Linux.
-- [Planowanie i wdrażanie usługi Azure Virtual Machines dla oprogramowania SAP w systemie Linux][planning-guide]
-- [Wdrożenie Virtual Machines platformy Azure dla oprogramowania SAP w systemie Linux][deployment-guide]
-- [Wdrożenie systemu Azure Virtual Machines DBMS dla oprogramowania SAP w systemie Linux][dbms-guide]
-- [SAP HANA replikację systemu w klastrze Pacemaker.](https://access.redhat.com/articles/3004101)
-- Ogólna dokumentacja RHEL
-    - [Omówienie Add-On wysokiej dostępności](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
-    - [Administracja Add-On o wysokiej dostępności.](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
-    - [Informacje o wysokiej dostępności Add-On.](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
-    - [Skonfiguruj SAP HANA replikację systemu w Scale-Up w klastrze Pacemaker, gdy systemy plików platformy HANA znajdują się w udziałach NFS](https://access.redhat.com/solutions/5156571)
-- Dokumentacja RHEL specyficzna dla platformy Azure:
-    - [Zasady obsługi klastrów RHEL o wysokiej dostępności — Microsoft Azure Virtual Machines jako elementy członkowskie klastra.](https://access.redhat.com/articles/3131341)
-    - [Instalowanie i Konfigurowanie Red Hat Enterprise Linux 7,4 (i nowszych) High-Availability klastra w Microsoft Azure.](https://access.redhat.com/articles/3252491)
-    - [Zainstaluj SAP HANA na Red Hat Enterprise Linux do użycia w Microsoft Azure.](https://access.redhat.com/solutions/3193782)
-    - [Konfigurowanie SAP HANA skalowalności w poziomie klastra Pacemaker w przypadku systemu plików HANA w udziałach NFS](https://access.redhat.com/solutions/5156571)
-- [NetApp aplikacje SAP na Microsoft Azure przy użyciu Azure NetApp Files](https://www.netapp.com/us/media/tr-4746.pdf)
+    - Obsługiwane kombinacje oprogramowania SAP, systemu operacyjnego i bazy danych.
+    - Wymagana wersja jądra SAP dla systemów Windows i Linux na Microsoft Azure.
+- Uwaga sap [2015553](https://launchpad.support.sap.com/#/notes/2015553) zawiera listę wymagań wstępnych dla wdrożeń oprogramowania SAP obsługiwanych przez oprogramowanie SAP na platformie Azure.
+- Uwaga [SAP 405827](https://launchpad.support.sap.com/#/notes/405827) zawiera listę zalecanych systemów plików dla środowiska HANA.
+- Uwaga SAP [2002167](https://launchpad.support.sap.com/#/notes/2002167) ma zalecane ustawienia systemu operacyjnego dla Red Hat Enterprise Linux.
+- Uwaga sap [2009879](https://launchpad.support.sap.com/#/notes/2009879) SAP HANA wytyczne dotyczące Red Hat Enterprise Linux.
+- Uwaga [sap 2178632](https://launchpad.support.sap.com/#/notes/2178632) zawiera szczegółowe informacje o wszystkich metrykach monitorowania zgłoszonych dla oprogramowania SAP na platformie Azure.
+- Uwaga SAP [2191498](https://launchpad.support.sap.com/#/notes/2191498) ma wymaganą wersję agenta hosta SAP dla systemu Linux na platformie Azure.
+- Uwaga sap [2243692 zawiera](https://launchpad.support.sap.com/#/notes/2243692) informacje o licencjonowaniu sap w systemie Linux na platformie Azure.
+- Uwaga [sap 1999351](https://launchpad.support.sap.com/#/notes/1999351) zawiera dodatkowe informacje dotyczące rozwiązywania problemów z rozszerzonym rozszerzeniem monitorowania platformy Azure dla oprogramowania SAP.
+- [Strona wiki sap Community zawiera](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) wszystkie wymagane uwagi dotyczące oprogramowania SAP dla systemu Linux.
+- [Planowanie i Virtual Machines wdrożenia oprogramowania SAP w systemie Linux na platformie Azure][planning-guide]
+- [Wdrażanie usługi Azure Virtual Machines dla oprogramowania SAP w systemie Linux][deployment-guide]
+- [Wdrażanie usługi Azure Virtual Machines DBMS dla oprogramowania SAP w systemie Linux][dbms-guide]
+- [SAP HANA replikacji systemu w klastrze pacemaker.](https://access.redhat.com/articles/3004101)
+- Ogólna dokumentacja systemu RHEL
+    - [Omówienie Add-On dostępności](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
+    - [Wysoka dostępność Add-On administracyjnej.](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+    - [Informacje o Add-On wysokiej dostępności.](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+    - [Konfigurowanie SAP HANA replikacji systemu Scale-Up klastrze Pacemaker, gdy systemy plików HANA znajdują się w udziałach NFS](https://access.redhat.com/solutions/5156571)
+- Dokumentacja systemu RHEL specyficzna dla platformy Azure:
+    - [Zasady obsługi klastrów wysokiej dostępności RHEL — Microsoft Azure Virtual Machines jako elementy członkowskie klastra.](https://access.redhat.com/articles/3131341)
+    - [Instalowanie i konfigurowanie klastra Red Hat Enterprise Linux 7.4 (lub nowszego) High-Availability klastrze Microsoft Azure.](https://access.redhat.com/articles/3252491)
+    - [Zainstaluj SAP HANA na Red Hat Enterprise Linux do użytku w programie Microsoft Azure.](https://access.redhat.com/solutions/3193782)
+    - [Konfigurowanie SAP HANA skalowania w górę klastra Pacemaker, gdy systemy plików HANA znajdują się w udziałach NFS](https://access.redhat.com/solutions/5156571)
+- [Aplikacje NETApp SAP na Microsoft Azure przy użyciu Azure NetApp Files](https://www.netapp.com/us/media/tr-4746.pdf)
 - [Woluminy NFS 4.1 w usłudze Azure NetApp Files dla platformy SAP HANA](./hana-vm-operations-netapp.md)
 
 ## <a name="overview"></a>Omówienie
 
-Tradycyjnie w środowisku skalowania wszystkie systemy plików dla SAP HANA są instalowane z magazynu lokalnego. Konfigurowanie wysokiej dostępności SAP HANA replikacji systemu w Red Hat Enterprise Linux jest opublikowany w przewodniku [konfigurowanie SAP HANA replikacji systemu na RHEL](./sap-hana-high-availability-rhel.md)
+Tradycyjnie w środowisku skalowania w górę wszystkie systemy plików SAP HANA instalowane z magazynu lokalnego. Konfigurowanie wysokiej dostępności replikacji systemu SAP HANA na Red Hat Enterprise Linux jest publikowane w przewodniku Konfigurowanie SAP HANA replikacji systemu w [systemie RHEL](./sap-hana-high-availability-rhel.md)
 
-Aby osiągnąć SAP HANA wysoką dostępność systemu skalowalności w [Azure NetApp Files](../../../azure-netapp-files/index.yml) udziałach NFS, w klastrze musi być dostępna dodatkowa konfiguracja zasobów, aby umożliwić odzyskanie zasobów platformy Hana, gdy jeden węzeł utraci dostęp do udziałów NFS w ANF.  Klaster zarządza instalacjami systemu plików NFS, co pozwala na monitorowanie kondycji zasobów. Są wymuszane zależności między instalacjami systemu plików a zasobami SAP HANA.  
+Aby zapewnić wysoką dostępność systemu skalowania w górę w udziałach systemu plików NFS systemu [Azure NetApp Files,](../../../azure-netapp-files/index.yml) potrzebujemy dodatkowej konfiguracji zasobów w klastrze, aby zasoby platformy HANA zostały odzyskane, gdy jeden węzeł utraci dostęp do udziałów NFS w systemie ANF. SAP HANA  Klaster zarządza instalacji systemu plików NFS, umożliwiając mu monitorowanie kondycji zasobów. Zależności między instalacji systemu plików i zasobów SAP HANA są wymuszane.  
 
-![SAP HANA skalowanie w poziomie HA na ANF](./media/sap-hana-high-availability-rhel/sap-hana-scale-up-netapp-files-red-hat.png)
+![SAP HANA wysokiej wysokiej jakości w górę w anf](./media/sap-hana-high-availability-rhel/sap-hana-scale-up-netapp-files-red-hat.png)
 
-Systemy plików SAP HANA są instalowane w udziałach NFS przy użyciu Azure NetApp Files w każdym węźle. Systemy plików/Hana/Data,/Hana/log i/Hana/Shared są unikatowe dla każdego węzła. 
+SAP HANA plików są instalowane w udziałach NFS przy użyciu Azure NetApp Files w każdym węźle. Systemy plików /hana/data, /hana/log i /hana/shared są unikatowe dla każdego węzła. 
 
-Zainstalowane w Węzeł1 (**hanadb1**)
+Zainstalowane na węźle node1 **(hanadb1**)
 
-- 10.32.2.4:/**hanadb1**-Data-mnt00001 na/Hana/Data
-- 10.32.2.4:/**hanadb1**-log-mnt00001 na/Hana/log
-- 10.32.2.4:/**hanadb1**-Shared-mnt00001 na/Hana/Shared
+- 10.32.2.4:/**hanadb1**-data-mnt00001 na /hana/data
+- 10.32.2.4:/**hanadb1**-log-mnt00001 na /hana/log
+- 10.32.2.4:/**hanadb1**-shared-mnt00001 on /hana/shared
 
-Zainstalowane w Węzeł2 (**hanadb2**)
+Zainstalowane w węźle node2 (**hanadb2**)
 
-- 10.32.2.4:/**hanadb2**-Data-mnt00001 na/Hana/Data
-- 10.32.2.4:/**hanadb2**-log-mnt00001 na/Hana/log
-- 10.32.2.4:/**hanadb2**-Shared-mnt00001 na/Hana/Shared
+- 10.32.2.4:/**hanadb2**-data-mnt00001 na /hana/data
+- 10.32.2.4:/**hanadb2**-log-mnt00001 na /hana/log
+- 10.32.2.4:/**hanadb2**-shared-mnt00001 on /hana/shared
 
 > [!NOTE]
-> Systemy plików/Hana/Shared,/Hana/Data i/Hana/log nie są współdzielone między dwoma węzłami. Każdy węzeł klastra ma własne, oddzielne systemy plików.   
+> Systemy plików /hana/shared, /hana/data i /hana/log nie są współdzielone między dwoma węzłami. Każdy węzeł klastra ma własne, oddzielne systemy plików.   
 
-Konfiguracja replikacji systemu SAP HANA używa dedykowanej wirtualnej nazwy hosta i wirtualnych adresów IP. Na platformie Azure moduł równoważenia obciążenia jest wymagany do używania wirtualnego adresu IP. Na poniższej liście przedstawiono konfigurację modułu równoważenia obciążenia:
+Konfiguracja SAP HANA replikacji systemu korzysta z dedykowanej wirtualnej nazwy hosta i wirtualnych adresów IP. Na platformie Azure do korzystania z wirtualnego adresu IP jest wymagany usługa równoważenia obciążenia. Na poniższej liście przedstawiono konfigurację usługi równoważenia obciążenia:
 
-- Konfiguracja frontonu: adres IP 10.32.0.10 dla hn1-DB
-- Konfiguracja zaplecza: połączono z podstawowymi interfejsami sieciowymi wszystkich maszyn wirtualnych, które powinny być częścią replikacji systemu HANA
-- Port sondy: Port 62503
-- Reguły równoważenia obciążenia: 30313 TCP, 30315 TCP, 30317 TCP, 30340 TCP, 30341 TCP, 30342 TCP (w przypadku korzystania z podstawowego modułu równoważenia obciążenia platformy Azure)  
+- Konfiguracja frontonu: adres IP 10.32.0.10 dla hn1-db
+- Konfiguracja serwera końcowego: połączone z podstawowymi interfejsami sieciowym wszystkich maszyn wirtualnych, które powinny być częścią replikacji systemu HANA
+- Port sondy: port 62503
+- Reguły równoważenia obciążenia: 30313 TCP, 30315 TCP, 30317 TCP, 30340 TCP, 30341 TCP, 30342 TCP (w przypadku korzystania z podstawowego usługi Azure Load Balancer)  
 
-## <a name="set-up-the-azure-netapp-file-infrastructure"></a>Konfigurowanie infrastruktury plików usługi Azure NetApp
+## <a name="set-up-the-azure-netapp-file-infrastructure"></a>Konfigurowanie infrastruktury usługi Azure NetApp File
 
-Przed rozpoczęciem pracy z usługą konfigurowania infrastruktury Azure NetApp Files zapoznaj się z dokumentacją usługi Azure [NetApp](../../../azure-netapp-files/index.yml).
+Zanim przejdziesz do skonfigurowania infrastruktury Azure NetApp Files, zapoznaj się z dokumentacją usługi Azure [NetApp Files.](../../../azure-netapp-files/index.yml)
 
-Azure NetApp Files jest dostępna w kilku [regionach świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). Sprawdź, czy wybrany region platformy Azure oferuje Azure NetApp Files.
+Azure NetApp Files jest dostępna w kilku regionach [świadczenia usługi Azure.](https://azure.microsoft.com/global-infrastructure/services/?products=netapp) Sprawdź, czy wybrany region świadczenia usługi Azure oferuje Azure NetApp Files.
 
-Aby uzyskać informacje o dostępności Azure NetApp Files według regionów świadczenia usługi Azure, zobacz [Azure NetApp Files dostępność według regionów świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all).
+Aby uzyskać informacje o dostępności usługi Azure NetApp Files według regionu świadczenia usługi Azure, [zobacz Azure NetApp Files Dostępność według regionu świadczenia usługi Azure.](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)
 
-Przed wdrożeniem Azure NetApp Files Zażądaj dołączenia do Azure NetApp Files, przechodząc do [rejestracji w celu uzyskania instrukcji Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-register.md).
+Przed wdrożeniem aplikacji Azure NetApp Files do usługi Azure NetApp Files, przechodząc do tematu [Rejestrowanie, aby Azure NetApp Files instrukcje.](../../../azure-netapp-files/azure-netapp-files-register.md)
 
-### <a name="deploy-azure-netapp-files-resources"></a>Wdrażanie zasobów Azure NetApp Files
+### <a name="deploy-azure-netapp-files-resources"></a>Wdrażanie Azure NetApp Files zasobów
 
-W poniższych instrukcjach przyjęto założenie, że [usługa Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md)została już wdrożona. Azure NetApp Files zasoby i maszyny wirtualne, w których zostaną zainstalowane zasoby Azure NetApp Files, muszą być wdrożone w tej samej sieci wirtualnej platformy Azure lub w równorzędnych sieciach wirtualnych platformy Azure.
+W poniższych instrukcjach przyjęto założenie, że sieć wirtualna platformy Azure została [już wdrożona.](../../../virtual-network/virtual-networks-overview.md) Zasoby Azure NetApp Files i maszyny wirtualne, na których zostaną zainstalowane zasoby usługi Azure NetApp Files, muszą być wdrożone w tej samej sieci wirtualnej platformy Azure lub w wirtualnych sieciach równorzędnych platformy Azure.
 
-1. Jeśli zasoby nie zostały jeszcze wdrożone, zażądaj dołączenia [do Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-register.md).
+1. Jeśli zasoby nie zostały jeszcze wdrożone, [zażądaj](../../../azure-netapp-files/azure-netapp-files-register.md)do Azure NetApp Files .
 
-2. Utwórz konto NetApp w wybranym regionie świadczenia usługi Azure, postępując zgodnie z instrukcjami w temacie [Tworzenie konta NetApp](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).
+2. Utwórz konto usługi NetApp w wybranym regionie platformy Azure, zgodnie z instrukcjami w tece [Tworzenie konta usługi NetApp.](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md)
 
-3.  Skonfiguruj pulę pojemności Azure NetApp Files, postępując zgodnie z instrukcjami w temacie [konfigurowanie Azure NetApp Files puli pojemności](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).
+3.  Skonfiguruj pulę Azure NetApp Files pojemności, zgodnie z instrukcjami w te Azure NetApp Files [puli pojemności.](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md)
 
-    Architektura HANA przedstawiona w tym artykule używa pojedynczej puli pojemności Azure NetApp Files na poziomie usługi *Ultra* Service. W przypadku obciążeń HANA na platformie Azure zalecamy użycie [poziomu usługi](../../../azure-netapp-files/azure-netapp-files-service-levels.md)Azure NetApp Files *Ultra* lub *Premium* .
+    Architektura platformy HANA przedstawiona w tym artykule używa jednej Azure NetApp Files pojemności na poziomie usługi *Ultra.* W przypadku obciążeń HANA na platformie Azure zalecamy użycie usługi Azure NetApp Files *Ultra* lub *Premium.* [](../../../azure-netapp-files/azure-netapp-files-service-levels.md)
 
-4.  Delegowanie podsieci do Azure NetApp Files, zgodnie z opisem w temacie [delegowanie podsieci do Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).
+4.  Deleguj podsieć do Azure NetApp Files, zgodnie z opisem w instrukcjach w tece [Delegowanie](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md)podsieci do Azure NetApp Files .
 
-5.  Wdróż woluminy Azure NetApp Files, postępując zgodnie z instrukcjami w temacie [Tworzenie woluminu NFS dla Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md).
+5.  Wd Azure NetApp Files woluminów sieciowych, zgodnie z instrukcjami w tece [Create an NFS volume for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md)( Tworzenie woluminu NFS dla Azure NetApp Files .
 
-    Podczas wdrażania woluminów Pamiętaj, aby wybrać wersję NFSv 4.1. Wdróż woluminy w wyznaczeniej podsieci Azure NetApp Files. Adresy IP woluminów NetApp platformy Azure są przypisywane automatycznie.
+    Podczas wdrażania woluminów należy wybrać wersję NFSv4.1. Wd wdrażaj woluminy w wyznaczonej Azure NetApp Files podsieci. Adresy IP woluminów usługi Azure NetApp są przypisywane automatycznie.
 
-    Należy pamiętać, że zasoby Azure NetApp Files i maszyny wirtualne platformy Azure muszą znajdować się w tej samej sieci wirtualnej platformy Azure lub w równorzędnych sieciach wirtualnych platformy Azure. Na przykład hanadb1-Data-mnt00001, hanadb1-log-mnt00001 i tak dalej, są nazwami woluminów oraz nfs://10.32.2.4/hanadb1-data-mnt00001, nfs://10.32.2.4/hanadb1-log-mnt00001 i tak dalej, są ścieżkami plików dla woluminów Azure NetApp Files.
+    Należy pamiętać, że zasoby Azure NetApp Files i maszyny wirtualne platformy Azure muszą znajdować się w tej samej sieci wirtualnej platformy Azure lub w wirtualnych sieciach równorzędnych platformy Azure. Na przykład hanadb1-data-mnt00001, hanadb1-log-mnt00001 i tak dalej to nazwy woluminów i nfs://10.32.2.4/hanadb1-data-mnt00001, nfs://10.32.2.4/hanadb1-log-mnt00001 i tak dalej, są ścieżkami plików dla woluminów Azure NetApp Files woluminów.
     
-    Na **hanadb1**
+    W **bazie danych hanadb1**
 
-    - Volume hanadb1-Data-mnt00001 (nfs://10.32.2.4:/hanadb1-data-mnt00001) 
-    - Volume hanadb1-log-mnt00001 (nfs://10.32.2.4:/hanadb1-log-mnt00001)
-    - Volume hanadb1-Shared-mnt00001 (nfs://10.32.2.4:/hanadb1-shared-mnt00001)
+    - Wolumin hanadb1-data-mnt00001 (nfs://10.32.2.4:/hanadb1-data-mnt00001) 
+    - Wolumin hanadb1-log-mnt00001 (nfs://10.32.2.4:/hanadb1-log-mnt00001)
+    - Wolumin hanadb1-shared-mnt00001 (nfs://10.32.2.4:/hanadb1-shared-mnt00001)
     
-    Na **hanadb2**
+    W **bazie danych hanadb2**
 
-    - Volume hanadb2-Data-mnt00001 (nfs://10.32.2.4:/hanadb2-data-mnt00001)
-    - Volume hanadb2-log-mnt00001 (nfs://10.32.2.4:/hanadb2-log-mnt00001)
-    - Volume hanadb2-Shared-mnt00001 (nfs://10.32.2.4:/hanadb2-shared-mnt00001)
+    - Wolumin hanadb2-data-mnt00001 (nfs://10.32.2.4:/hanadb2-data-mnt00001)
+    - Wolumin hanadb2-log-mnt00001 (nfs://10.32.2.4:/hanadb2-log-mnt00001)
+    - Wolumin hanadb2-shared-mnt00001 (nfs://10.32.2.4:/hanadb2-shared-mnt00001)
 
 ### <a name="important-considerations"></a>Istotne zagadnienia
 
-Podczas tworzenia Azure NetApp Files na potrzeby SAP HANA systemów skalowalności należy pamiętać o następujących kwestiach:
+Podczas tworzenia aplikacji Azure NetApp Files dla SAP HANA skalowania w górę należy pamiętać o następujących względach:
 
-- Minimalna Pula pojemności to 4 tebibajtów (TiB).
-- Minimalny rozmiar woluminu to 100 gibibajtach (GiB).
-- Azure NetApp Files i wszystkie maszyny wirtualne, na których zostaną zainstalowane woluminy Azure NetApp Files, muszą znajdować się w tej samej sieci wirtualnej platformy Azure lub w [równorzędnych sieciach wirtualnych](../../../virtual-network/virtual-network-peering-overview.md) w tym samym regionie.
-- Wybrana Sieć wirtualna musi mieć podsieć delegowaną do Azure NetApp Files.
-- Przepływność woluminu Azure NetApp Files jest funkcją limitu przydziału woluminu i poziomu usługi, zgodnie z opisem w obszarze [poziom usług dla Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). Gdy zmieniasz rozmiar woluminów NetApp platformy Azure, upewnij się, że przepływność spełnia wymagania systemowe HANA.
-- Za pomocą [zasad eksportu](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md)Azure NetApp Files można kontrolować dozwolonych klientów, typ dostępu (odczyt i zapis, tylko do odczytu itd.).
-- Funkcja Azure NetApp Files nie jest jeszcze obsługiwana dla strefy. Obecnie funkcja nie jest wdrażana we wszystkich strefach dostępności w regionie świadczenia usługi Azure. Weź pod uwagę potencjalne konsekwencje opóźnienia w niektórych regionach świadczenia usługi Azure.
+- Minimalna pula pojemności to 4 tebibajty (TiB).
+- Minimalny rozmiar woluminu to 100 gibibajtów (GiB).
+- Azure NetApp Files i wszystkie maszyny wirtualne, na których zostaną zainstalowane woluminy Azure NetApp Files, muszą [](../../../virtual-network/virtual-network-peering-overview.md) znajdować się w tej samej sieci wirtualnej platformy Azure lub w wirtualnych sieciach równorzędnych w tym samym regionie.
+- Wybrana sieć wirtualna musi mieć podsieć delegowaną do Azure NetApp Files.
+- Przepływność woluminu Azure NetApp Files jest funkcją limitu przydziału woluminu i poziomu usługi, zgodnie z dokumentem Poziom usługi dla Azure NetApp Files [.](../../../azure-netapp-files/azure-netapp-files-service-levels.md) Podczas zmiany rozmiaru woluminów platformy AZURE NetApp platformy HANA upewnij się, że wynikowa przepływność spełnia wymagania systemowe platformy HANA.
+- Za pomocą Azure NetApp Files [eksportu](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md)można kontrolować dozwolonych klientów, typ dostępu (odczyt-zapis, tylko do odczytu itd.).
+- Funkcja Azure NetApp Files nie jest jeszcze w pełni świadoma stref. Obecnie funkcja nie jest wdrażana we wszystkich strefach dostępności w regionie świadczenia usługi Azure. Należy pamiętać o potencjalnych implikacjach opóźnienia w niektórych regionach świadczenia usługi Azure.
 
 > [!IMPORTANT]
-> W przypadku obciążeń SAP HANA małe opóźnienia są krytyczne. Skontaktuj się z przedstawicielem firmy Microsoft, aby upewnić się, że maszyny wirtualne i woluminy Azure NetApp Files są wdrożone w sąsiedztwie.
+> W SAP HANA obciążeniami krytyczne jest małe opóźnienie. We współpracy z przedstawicielem firmy Microsoft upewnij się, że maszyny wirtualne i woluminy Azure NetApp Files są wdrażane w pobliżu.
 
-### <a name="sizing-of-hana-database-on-azure-netapp-files"></a>Ustalanie wielkości bazy danych HANA na Azure NetApp Files
+### <a name="sizing-of-hana-database-on-azure-netapp-files"></a>Rozmiaru bazy danych HANA na Azure NetApp Files
 
-Przepływność woluminu Azure NetApp Files jest funkcją rozmiaru woluminu i poziomu usługi, zgodnie z opisem w obszarze [poziom usług dla Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md).
+Przepływność woluminu Azure NetApp Files jest funkcją rozmiaru woluminu i poziomu usługi, zgodnie z dokumentem Poziom usługi dla Azure NetApp Files [.](../../../azure-netapp-files/azure-netapp-files-service-levels.md)
 
-Podczas projektowania infrastruktury dla oprogramowania SAP na platformie Azure należy pamiętać o minimalnych wymaganiach dotyczących magazynu przez oprogramowanie SAP, które przekładają się na minimalne charakterystyki przepływności:
+Podczas projektowania infrastruktury sap na platformie Azure należy pamiętać o minimalnych wymaganiach firmy SAP dotyczących magazynu, które przekładają się na charakterystyki minimalnej przepływności:
 
-- Do odczytu i zapisu na/Hana/log z 250 megabajtów na sekundę (MB/s) z rozmiarami we/wy 1 MB.
-- Działanie odczytu o rozmiarze co najmniej 400 MB/s dla/Hana/Data dla 16 MB i 64 MB pamięci we/wy.
-- Działanie zapisu o rozmiarze co najmniej 250 MB/s dla/Hana/Data z 16 MB i 64 MB.
+- Odczyt/zapis na /hana/dziennik 250 megabajtów na sekundę (MB/s) o rozmiarze 1 MB we/wy.
+- Odczyt aktywności co najmniej 400 MB/s dla /hana/data dla 16 MB i 64 MB rozmiaru we/wy.
+- Aktywność zapisu co najmniej 250 MB/s dla /hana/data o rozmiarze 16 MB i 64 MB we/wy.
 
-[Limity przepływności Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md) na 1 TIB przydziału woluminu są następujące:
+Limity [Azure NetApp Files przepływności na](../../../azure-netapp-files/azure-netapp-files-service-levels.md) 1 TiB limitu przydziału woluminu są:
 
-- Warstwa Premium Storage-64 MiB/s.
-- Warstwa Ultra Storage — 128 MiB/s.
+- Premium Storage warstwa — 64 MiB/s.
+- Warstwa magazynowania Ultra — 128 MiB/s.
 
-Aby spełnić wymagania dotyczące minimalnej przepływności SAP dla/Hana/Data i/Hana/log oraz wytyczne dla/Hana/Shared, zalecane rozmiary to:
+Aby spełnić wymagania dotyczące minimalnej przepływności sap dla /hana/data i /hana/log oraz wytyczne dotyczące /hana/shared, zalecane rozmiary to:
 
-|    Wolumin    | Rozmiar warstwy Premium Storage | Rozmiar warstwy Ultra Storage | Obsługiwany protokół NFS |
+|    Wolumin    | Rozmiar Premium Storage warstwy | Rozmiar warstwy magazynowania Ultra | Obsługiwany protokół NFS |
 | :----------: | :--------------------------: | :------------------------: | :--------------------: |
-|  /hana/log   |            4 TiB             |           2 TiB            |          v 4.1          |
-|  /hana/data  |           6,3 TiB            |          3,2 TiB           |          v 4.1          |
-| /hana/shared |           1 x pamięci RAM            |          1 x pamięci RAM           |          v3 lub v 4.1    |
+|  /hana/log   |            4 TiB             |           2 TiB            |          Wersja 4.1          |
+|  /hana/data  |           6,3 TiB            |          3,2 TiB           |          Wersja 4.1          |
+| /hana/shared |           1 x pamięć RAM            |          1 x pamięć RAM           |          Wersja 3 lub 4.1    |
 
 
 > [!NOTE]
-> Zalecenia dotyczące ustalania wielkości Azure NetApp Files podane tutaj są celem spełnienia minimalnych wymagań zalecanych przez system SAP dla dostawców infrastruktury. W rzeczywistych wdrożeniach klientów i scenariuszach obciążeń te rozmiary mogą nie być wystarczające. Użyj tych zaleceń jako punktu wyjścia i adaptacji na podstawie wymagań określonego obciążenia.
+> Zalecenia Azure NetApp Files rozmiarów określone w tym miejscu mają na celu spełnienie minimalnych wymagań, które firma SAP zaleca dla swoich dostawców infrastruktury. W rzeczywistych scenariuszach obciążeń i wdrożeń klientów te rozmiary mogą nie być wystarczające. Użyj tych zaleceń jako punktu wyjścia i dostosuj się do wymagań określonego obciążenia.
 
 > [!TIP]
-> Można dynamicznie zmieniać rozmiar Azure NetApp Files woluminów, bez konieczności *odinstalowywania* woluminów, zatrzymywania maszyn wirtualnych lub zatrzymywania SAP HANA. Takie podejście pozwala elastycznie spełnić zarówno oczekiwane, jak i nieprzewidziane wymagania dotyczące przepływności aplikacji.
+> Rozmiar woluminów Azure NetApp Files zmieniać dynamicznie, bez  konieczności odinstalowywania woluminów, zatrzymania maszyn wirtualnych ani SAP HANA. Takie podejście zapewnia elastyczność w celu spełnienia zarówno oczekiwanych, jak i nieprzewidzianych wymagań aplikacji w zakresie przepływności.
 
 > [!NOTE]
-> Wszystkie polecenia dotyczące instalowania/Hana/Shared w tym artykule przedstawiono dla woluminów NFSv 4.1/Hana/Shared.
-> Jeśli woluminy/Hana/Shared zostały wdrożone jako woluminy NFSv3, nie zapomnij dostosować poleceń instalacji dla/Hana/Shared dla NFSv3.
+> Wszystkie polecenia instalacji /hana/shared w tym artykule są prezentowane dla woluminów NFSv4.1 /hana/shared.
+> Jeśli woluminy /hana/shared zostały wdrożone jako woluminy NFSv3, nie zapomnij dostosować poleceń instalacji dla woluminu /hana/shared dla systemu plików NFSv3.
 
 
-## <a name="deploy-linux-virtual-machine-via-azure-portal"></a>Wdróż maszynę wirtualną z systemem Linux za pomocą Azure Portal 
+## <a name="deploy-linux-virtual-machine-via-azure-portal"></a>Wdrażanie maszyny wirtualnej z systemem Linux za pośrednictwem Azure Portal 
 
-Najpierw należy utworzyć woluminy Azure NetApp Files. Następnie wykonaj następujące czynności:
+Najpierw należy utworzyć woluminy Azure NetApp Files woluminów. Następnie wykonaj następujące czynności:
 
 1.  Utwórz grupę zasobów.
 2.  Utwórz sieć wirtualną.
 3.  Utwórz zestaw dostępności. Ustaw maksymalną domenę aktualizacji.
-4.  Utwórz moduł równoważenia obciążenia (wewnętrzny). Zalecamy użycie standardowej usługi równoważenia obciążenia.
+4.  Tworzenie wewnętrznego (wewnętrznego) równoważenia obciążenia. Zalecamy użycie standardowego równoważenia obciążenia.
     Wybierz sieć wirtualną utworzoną w kroku 2.
-5.  Utwórz maszynę wirtualną 1 (**hanadb1**). 
-6.  Utwórz maszynę wirtualną 2 (**hanadb2**).  
-7.  Podczas tworzenia maszyny wirtualnej nie będziemy dodawać żadnego dysku, ponieważ wszystkie Twoje punkty instalacji będą mieć udziały NFS z Azure NetApp Files. 
+5.  Utwórz maszynę wirtualną 1 **(hanadb1).** 
+6.  Utwórz maszynę wirtualną 2 **(hanadb2).**  
+7.  Podczas tworzenia maszyny wirtualnej nie będziemy dodawać żadnego dysku, ponieważ wszystkie nasze punkty instalacji będą w udziałach NFS z Azure NetApp Files. 
 
 > [!IMPORTANT]
-> Zmienny adres IP nie jest obsługiwany w konfiguracji pomocniczego adresu IP karty sieciowej w scenariuszach równoważenia obciążenia. Aby uzyskać szczegółowe informacje, zobacz [ograniczenia modułu równoważenia obciążenia platformy Azure](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Jeśli potrzebujesz dodatkowego adresu IP dla maszyny wirtualnej, wdróż drugą kartę sieciową.    
+> Zmienny adres IP nie jest obsługiwany w konfiguracji pomocniczego adresu IP karty sieciowej w scenariuszach równoważenia obciążenia. Aby uzyskać szczegółowe informacje, [zobacz Azure Load balancer Limitations (Ograniczenia usługi Azure Load Balancer).](../../../load-balancer/load-balancer-multivip-overview.md#limitations) Jeśli potrzebujesz dodatkowego adresu IP dla maszyny wirtualnej, wd wdrażaj drugą kartę sieciową.    
 
 > [!NOTE] 
-> Gdy maszyny wirtualne bez publicznych adresów IP są umieszczane w puli zaplecza wewnętrznego (bez publicznego adresu IP) standardowego modułu równoważenia obciążenia platformy Azure, nie będzie wychodzące połączenie z Internetem, chyba że zostanie przeprowadzona dodatkowa konfiguracja zezwalająca na kierowanie do publicznych punktów końcowych. Aby uzyskać szczegółowe informacje na temat sposobu osiągnięcia łączności wychodzącej, zobacz [publiczna łączność z punktem końcowym dla Virtual Machines przy użyciu usługi Azure usługa Load Balancer w warstwie Standardowa w scenariuszach wysokiej dostępności SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).
+> Jeśli maszyny wirtualne bez publicznych adresów IP zostaną umieszczone w puli zaplecza wewnętrznego (bez publicznego adresu IP) usługi równoważenia obciążenia platformy Azure w standardowych wersjach, nie będzie żadnych wychodzących połączeń z Internetem, chyba że zostanie wykonana dodatkowa konfiguracja zezwalania na routing do publicznych punktów końcowych. Aby uzyskać szczegółowe informacje na temat sposobu osiągnięcia łączności wychodzącej, zobacz Public [endpoint connectivity for Virtual Machines using Azure usługa Load Balancer w warstwie Standardowa in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md)(Łączność z publicznym punktem końcowym dla klientów korzystających z usługi Azure usługa Load Balancer w warstwie Standardowa w scenariuszach wysokiej dostępności oprogramowania SAP).
 
-8.  W przypadku korzystania z usługi równoważenia obciążenia w warstwie Standardowa wykonaj następujące czynności konfiguracyjne:
-    1.  Najpierw Utwórz pulę adresów IP frontonu:
-        1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **Pula adresów IP frontonu**, a następnie wybierz pozycję **Dodaj**.
-        1.  Wprowadź nazwę nowej puli adresów IP frontonu (na przykład **Hana-fronton**).
-        1.  Ustaw **przypisanie** na **static** i wprowadź adres IP (na przykład **10.32.0.10**).
+8.  W przypadku korzystania ze standardowego równoważenia obciążenia wykonaj następujące kroki konfiguracji:
+    1.  Najpierw utwórz pulę adresów IP frontonia:
+        1.  Otwórz równoważenie obciążenia, wybierz **pulę adresów IP frontendu** i wybierz pozycję **Dodaj.**
+        1.  Wprowadź nazwę nowej puli adresów IP frontendu (na przykład **hana-frontend).**
+        1.  Ustaw **przypisanie na** **statyczny** i wprowadź adres IP (na przykład **10.32.0.10).**
         1.  Wybierz przycisk **OK**.
-        1.  Po utworzeniu nowej puli adresów IP frontonu Zanotuj adres IP puli.
-    1.  Następnie Utwórz pulę zaplecza:
-        1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **Pule zaplecza**, a następnie wybierz pozycję **Dodaj**.
-        1.  Wprowadź nazwę nowej puli zaplecza (na przykład **Hana-zaplecze**).
-        1.  Wybierz pozycję **Dodaj maszynę wirtualną**.
-        1.  Wybierz pozycję * * maszyna wirtualna * *.
-        1.  Wybierz Maszyny wirtualne klastra SAP HANA i ich adresy IP.
+        1.  Po utworzeniu nowej puli adresów IP frontonia zanotuj adres IP puli.
+    1.  Następnie utwórz pulę back-end:
+        1.  Otwórz równoważenie obciążenia, wybierz **pozycję Pule zaplecza** i wybierz pozycję **Dodaj.**
+        1.  Wprowadź nazwę nowej puli zaplecza (na przykład **hana-backend).**
+        1.  Wybierz **pozycję Dodaj maszynę wirtualną.**
+        1.  Wybierz pozycję **Maszyna wirtualna**.
+        1.  Wybierz maszyny wirtualne klastra SAP HANA i ich adresy IP.
         1.  Wybierz pozycję **Dodaj**.
     1.  Następnie utwórz sondę kondycji:
-        1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **sondy kondycji**, a następnie wybierz pozycję **Dodaj**.
-        1.  Wprowadź nazwę nowej sondy kondycji (na przykład **Hana-HP**).
-        1.  Wybierz pozycję TCP jako protokół i port 625 **03**. Pozostaw wartość **interwału** ustawioną na 5, a wartość **progowa złej kondycji** równa 2.
+        1.  Otwórz usługę równoważenia obciążenia, wybierz **pozycję Sondy kondycji** i wybierz pozycję **Dodaj.**
+        1.  Wprowadź nazwę nowej sondy kondycji (na przykład **hana-hp).**
+        1.  Wybierz TCP jako protokół i port 625 **03.** Zachowaj wartość **Interwał** ustawioną na 5, a **wartość** progowa W złej kondycji na 2.
         1.  Wybierz przycisk **OK**.
     1.  Następnie utwórz reguły równoważenia obciążenia:
-        1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **reguły równoważenia obciążenia** i wybierz pozycję **Dodaj**.
-        1.  Wprowadź nazwę nowej reguły modułu równoważenia obciążenia (na przykład **Hana-lb**).
-        1.  Wybierz adres IP frontonu, pulę zaplecza i sondę kondycji utworzoną wcześniej (na przykład **Hana-fronton**, **Hana — zaplecze** i **Hana-HP**).
-        1.  Wybierz pozycję **porty ha**.
-        1.  Zwiększ **limit czasu bezczynności** do 30 minut.
-        1.  Upewnij się, że **włączono zmiennoprzecinkowy adres IP**.
+        1.  Otwórz równoważenie obciążenia, wybierz **reguły równoważenia obciążenia** i wybierz pozycję **Dodaj.**
+        1.  Wprowadź nazwę nowej reguły równoważenia obciążenia (na przykład **hana-lb).**
+        1.  Wybierz utworzony wcześniej adres IP frontonia, pulę zaplecza i sondę kondycji (na przykład **hana-frontend,** **hana-backend** i **hana-hp).**
+        1.  Wybierz pozycję **Porty HA.**
+        1.  Upewnij się, że **włączyć zmienny adres IP**.
         1.  Wybierz przycisk **OK**.
 
 
-9. Alternatywnie, jeśli scenariusz podyktuje przy użyciu podstawowego modułu równoważenia obciążenia, wykonaj następujące czynności konfiguracyjne:
-    1.  Skonfiguruj moduł równoważenia obciążenia. Najpierw Utwórz pulę adresów IP frontonu:
-        1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **Pula adresów IP frontonu**, a następnie wybierz pozycję **Dodaj**.
-        1.  Wprowadź nazwę nowej puli adresów IP frontonu (na przykład **Hana-fronton**).
-        1.  Ustaw **przypisanie** na **static** i wprowadź adres IP (na przykład **10.32.0.10**).
+9. Alternatywnie, jeśli twój scenariusz decyduje o użyciu podstawowego równoważenia obciążenia, wykonaj następujące kroki konfiguracji:
+    1.  Skonfiguruj usługę równoważenia obciążenia. Najpierw utwórz pulę adresów IP frontonia:
+        1.  Otwórz równoważenie obciążenia, wybierz **pulę adresów IP frontendu** i wybierz pozycję **Dodaj.**
+        1.  Wprowadź nazwę nowej puli adresów IP frontendu (na przykład **hana-frontend).**
+        1.  Ustaw **przypisanie na** **statyczny** i wprowadź adres IP (na przykład **10.32.0.10).**
         1.  Wybierz przycisk **OK**.
-        1.  Po utworzeniu nowej puli adresów IP frontonu Zanotuj adres IP puli.
-    1.  Następnie Utwórz pulę zaplecza:
-        1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **Pule zaplecza**, a następnie wybierz pozycję **Dodaj**.
-        1.  Wprowadź nazwę nowej puli zaplecza (na przykład **Hana-zaplecze**).
-        1.  Wybierz pozycję **Dodaj maszynę wirtualną**.
+        1.  Po utworzeniu nowej puli adresów IP frontonia zanotuj adres IP puli.
+    1.  Następnie utwórz pulę back-end:
+        1.  Otwórz równoważenie obciążenia, wybierz **pozycję Pule zaplecza** i wybierz pozycję **Dodaj.**
+        1.  Wprowadź nazwę nowej puli zaplecza (na przykład **hana-backend).**
+        1.  Wybierz **pozycję Dodaj maszynę wirtualną.**
         1.  Wybierz zestaw dostępności utworzony w kroku 3.
-        1.  Wybierz Maszyny wirtualne klastra SAP HANA.
+        1.  Wybierz maszyny wirtualne klastra SAP HANA klastra.
         1.  Wybierz przycisk **OK**.
     1.  Następnie utwórz sondę kondycji:
-        1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **sondy kondycji**, a następnie wybierz pozycję **Dodaj**.
-        1.  Wprowadź nazwę nowej sondy kondycji (na przykład **Hana-HP**).
-        1.  Wybierz pozycję **TCP** jako protokół i port 625 **03**. Pozostaw wartość **interwału** ustawioną na 5, a wartość **progowa złej kondycji** równa 2.
+        1.  Otwórz usługę równoważenia obciążenia, wybierz **pozycję Sondy kondycji** i wybierz pozycję **Dodaj.**
+        1.  Wprowadź nazwę nowej sondy kondycji (na przykład **hana-hp).**
+        1.  Wybierz **TCP** jako protokół i port 625 **03.** Zachowaj wartość **Interwał** ustawioną na 5, a **wartość** progowa W złej kondycji na 2.
         1.  Wybierz przycisk **OK**.
-    1.  W przypadku SAP HANA 1,0 Utwórz reguły równoważenia obciążenia:
-        1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **reguły równoważenia obciążenia** i wybierz pozycję **Dodaj**.
-        1.  Wprowadź nazwę nowej reguły modułu równoważenia obciążenia (na przykład Hana-lb-3 **03** 15).
-        1.  Wybierz adres IP frontonu, pulę zaplecza i sondę kondycji utworzoną wcześniej (na przykład **Hana-fronton**).
-        1.  Pozostaw **Protokół** ustawiony na **TCP** i wprowadź port 3 **03** 15.
-        1.  Zwiększ **limit czasu bezczynności** do 30 minut.
-        1.  Upewnij się, że **włączono zmiennoprzecinkowy adres IP**.
+    1.  W SAP HANA 1.0 utwórz reguły równoważenia obciążenia:
+        1.  Otwórz równoważenie obciążenia, wybierz **reguły równoważenia obciążenia** i wybierz pozycję **Dodaj.**
+        1.  Wprowadź nazwę nowej reguły równoważenia obciążenia (na przykład hana-lb-3 **03** 15).
+        1.  Wybierz utworzony wcześniej adres IP frontonia, pulę zaplecza i sondę kondycji (na przykład **hana-frontend).**
+        1.  Zachowaj protokół **ustawiony** na **TCP** i wprowadź port 3 **03** 15.
+        1.  Zwiększ limit **czasu bezczynności do** 30 minut.
+        1.  Upewnij się, że **włączyć zmienny adres IP**.
         1.  Wybierz przycisk **OK**.
         1.  Powtórz te kroki dla portu 3 **03** 17.
-    1.  W przypadku SAP HANA 2,0 Utwórz reguły równoważenia obciążenia dla systemowej bazy danych:
-        1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **reguły równoważenia obciążenia** i wybierz pozycję **Dodaj**.
-        1.  Wprowadź nazwę nowej reguły modułu równoważenia obciążenia (na przykład Hana-lb-3 **03** 13).
-        1.  Wybierz adres IP frontonu, pulę zaplecza i sondę kondycji utworzoną wcześniej (na przykład **Hana-fronton**).
-        1.  Pozostaw **Protokół** ustawiony na **TCP** i wprowadź port 3 **03** 13.
-        1.  Zwiększ **limit czasu bezczynności** do 30 minut.
-        1.  Upewnij się, że **włączono zmiennoprzecinkowy adres IP**.
+    1.  W SAP HANA 2.0 utwórz reguły równoważenia obciążenia dla systemowej bazy danych:
+        1.  Otwórz równoważenie obciążenia, wybierz **reguły równoważenia obciążenia** i wybierz pozycję **Dodaj.**
+        1.  Wprowadź nazwę nowej reguły równoważenia obciążenia (na przykład hana-lb-3 **03** 13).
+        1.  Wybierz utworzony wcześniej adres IP frontonia, pulę zaplecza i sondę kondycji (na przykład **hana-frontend).**
+        1.  Zachowaj protokół **ustawiony** na **TCP** i wprowadź port 3 **03** 13.
+        1.  Zwiększ limit **czasu bezczynności do** 30 minut.
+        1.  Upewnij się, że **włączyć zmienny adres IP**.
         1.  Wybierz przycisk **OK**.
         1.  Powtórz te kroki dla portu 3 **03** 14.
-    1.  W przypadku SAP HANA 2,0 najpierw utwórz reguły równoważenia obciążenia dla bazy danych dzierżawcy:
-        1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **reguły równoważenia obciążenia** i wybierz pozycję **Dodaj**.
-        1.  Wprowadź nazwę nowej reguły modułu równoważenia obciążenia (na przykład Hana-lb-3 **03** 40).
-        1.  Wybierz adres IP frontonu, pulę zaplecza i sondę kondycji utworzoną wcześniej (na przykład **Hana-fronton**).
-        1.  Pozostaw **Protokół** ustawiony na **TCP** i wprowadź port 3 **03** 40.
-        1.  Zwiększ **limit czasu bezczynności** do 30 minut.
-        1.  Upewnij się, że **włączono zmiennoprzecinkowy adres IP**.
+    1.  W SAP HANA 2.0 najpierw utwórz reguły równoważenia obciążenia dla bazy danych dzierżawy:
+        1.  Otwórz równoważenie obciążenia, wybierz **reguły równoważenia obciążenia** i wybierz pozycję **Dodaj.**
+        1.  Wprowadź nazwę nowej reguły równoważenia obciążenia (na przykład hana-lb-3 **03** 40).
+        1.  Wybierz utworzony wcześniej adres IP frontonia, pulę zaplecza i sondę kondycji (na przykład **hana-frontend).**
+        1.  Zachowaj wartość **protokołu** **TCP** i wprowadź port 3 **03** 40.
+        1.  Zwiększ limit **czasu bezczynności do** 30 minut.
+        1.  Upewnij się, że **włączyć zmienny adres IP**.
         1.  Wybierz przycisk **OK**.
         1.  Powtórz te kroki dla portów 3 **03** 41 i 3 **03** 42.
 
-Aby uzyskać więcej informacji na temat wymaganych portów dla SAP HANA, zapoznaj się z rozdziałem [połączenia z bazami danych dzierżawy](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) w Przewodniku obsługi [bazy danych dzierżaw SAP HANA](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) lub Uwaga [2388694](https://launchpad.support.sap.com/#/notes/2388694).
+Aby uzyskać więcej informacji na temat wymaganych portów [](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) dla usługi SAP HANA, przeczytaj rozdział Połączenia z bazami danych dzierżaw w przewodniku Bazy danych dzierżaw usługi [SAP HANA](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) lub Uwaga [sap 2388694.](https://launchpad.support.sap.com/#/notes/2388694)
 
 > [!IMPORTANT]
-> Nie należy włączać sygnatur czasowych protokołu TCP na maszynach wirtualnych platformy Azure umieszczonych za Azure Load Balancer. Włączenie sygnatur czasowych protokołu TCP spowoduje niepowodzenie sond kondycji. Ustaw parametr **net.IPv4.tcp_timestamps** na **0**. Aby uzyskać szczegółowe informacje, zobacz [sondy kondycji Load Balancer](../../../load-balancer/load-balancer-custom-probe-overview.md). Zobacz również artykuł SAP Uwaga [2382421](https://launchpad.support.sap.com/#/notes/2382421).
+> Nie włączaj znaczników czasu TCP na maszyn wirtualnych platformy Azure umieszczonych za Azure Load Balancer. Włączenie znaczników czasu TCP spowoduje niepowodzenie sond kondycji. Ustaw parametr **net.ipv4.tcp_timestamps** na **0**. Aby uzyskać szczegółowe [informacje, zobacz Load Balancer kondycji](../../../load-balancer/load-balancer-custom-probe-overview.md). Zobacz też uwaga SAP [2382421.](https://launchpad.support.sap.com/#/notes/2382421)
 
-## <a name="mount-the-azure-netapp-files-volume"></a>Zainstaluj wolumin Azure NetApp Files
+## <a name="mount-the-azure-netapp-files-volume"></a>Zainstaluj wolumin Azure NetApp Files woluminu
 
-1. **[A]** Utwórz punkty instalacji dla woluminów bazy danych Hana. 
+1. **[A]** Utwórz punkty instalacji dla woluminów bazy danych HANA. 
 
     ```
     mkdir -p /hana/data
@@ -326,7 +325,7 @@ Aby uzyskać więcej informacji na temat wymaganych portów dla SAP HANA, zapozn
     mkdir -p /hana/shared
     ```
 
-2. **[A]** Sprawdź ustawienie domeny NFS. Upewnij się, że domena jest skonfigurowana jako domyślna domena Azure NetApp Files, np. **defaultv4iddomain.com** , a mapowanie jest ustawione na wartość **nikt**.
+2. **[A]** Sprawdź ustawienie domeny NFS. Upewnij się, że domena jest skonfigurowana jako domyślna Azure NetApp Files, **tj.** defaultv4iddomain.com, a mapowanie jest **ustawione** na nikt .
 
     ```
     sudo cat /etc/idmapd.conf
@@ -339,10 +338,10 @@ Aby uzyskać więcej informacji na temat wymaganych portów dla SAP HANA, zapozn
     ```
 
     > [!IMPORTANT]    
-    > Upewnij się, że ustawiono domenę systemu plików NFS w/etc/idmapd.conf na maszynie wirtualnej tak, aby była zgodna z domyślną konfiguracją domeny w Azure NetApp Files: **defaultv4iddomain.com**. Jeśli istnieje niezgodność między konfiguracją domeny na kliencie NFS (tj. maszyną wirtualną) a serwerem NFS, tj. konfiguracją usługi Azure NetApp, uprawnienia do plików na woluminach NetApp platformy Azure, które są zainstalowane na maszynach wirtualnych, będą wyświetlane jako nikt.
+    > Upewnij się, że ustawiono domenę NFS w pliku /etc/idmapd.conf na maszynie wirtualnej, aby dopasować domyślną konfigurację domeny na maszynie Azure NetApp Files: **defaultv4iddomain.com**. W przypadku niezgodności między konfiguracją domeny na kliencie systemu plików NFS (tj. maszynie wirtualnej) i serwerem NFS, tj. konfiguracją usługi Azure NetApp, uprawnienia do plików na woluminach usługi Azure NetApp zainstalowanych na maszynach wirtualnych będą wyświetlane jako nikt.
     
 
-3. **[1]** Zainstaluj woluminy specyficzne dla węzła w Węzeł1 (**hanadb1**) 
+3. **[1]** Zainstaluj woluminy specyficzne dla węzła na węźle node1 (**hanadb1**) 
 
     ```
     sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.32.2.4:/hanadb1-shared-mnt00001 /hana/shared
@@ -350,7 +349,7 @@ Aby uzyskać więcej informacji na temat wymaganych portów dla SAP HANA, zapozn
     sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.32.2.4:/hanadb1-data-mnt00001 /hana/data
     ```
     
-4.  **[2]** Zainstaluj woluminy specyficzne dla węzła w Węzeł2 (**hanadb2**)
+4.  **[2]** Zainstaluj woluminy specyficzne dla węzła na węźle node2 (**hanadb2**)
     
     ```
     sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.32.2.4:/hanadb2-shared-mnt00001 /hana/shared
@@ -358,7 +357,7 @@ Aby uzyskać więcej informacji na temat wymaganych portów dla SAP HANA, zapozn
     sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.32.2.4:/hanadb2-data-mnt00001 /hana/data
     ```
 
-5. **[A]** Sprawdź, czy wszystkie woluminy Hana są zainstalowane przy użyciu protokołu NFS w wersji NFSv4.
+5. **[A]** Sprawdź, czy wszystkie woluminy HANA są zainstalowane z protokołem NFS w wersji NFSv4.
 
     ```
     sudo nfsstat -m
@@ -374,7 +373,7 @@ Aby uzyskać więcej informacji na temat wymaganych portów dla SAP HANA, zapozn
     Flags: rw,noatime,vers=4.1,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.32.0.4,local_lock=none,addr=10.32.2.4
     ```
 
-6. **[A]** Sprawdź **nfs4_disable_idmapping**. Powinna być ustawiona na wartość **Y**. Aby utworzyć strukturę katalogów, w której znajduje się **nfs4_disable_idmapping** , wykonaj polecenie instalacji. Nie będzie można ręcznie utworzyć katalogu w obszarze/sys/modules, ponieważ dostęp jest zarezerwowany dla jądra/sterowników.
+6. **[A]** Sprawdź **nfs4_disable_idmapping**. Powinna być ustawiona wartość **Y**. Aby utworzyć strukturę katalogu, **w nfs4_disable_idmapping** znajduje się, wykonaj polecenie instalacji. Nie można ręcznie utworzyć katalogu w katalogu /sys/modules, ponieważ dostęp jest zarezerwowany dla jądra/sterowników.
 
     ```
     # Check nfs4_disable_idmapping 
@@ -387,14 +386,14 @@ Aby uzyskać więcej informacji na temat wymaganych portów dla SAP HANA, zapozn
     echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
     ```
 
-   Aby uzyskać więcej informacji na temat zmiany **nfs_disable_idmapping** parametru, zobacz [https://access.redhat.com/solutions/1749883](https://access.redhat.com/solutions/1749883) . 
+   Aby uzyskać więcej informacji na temat zmiany **nfs_disable_idmapping,** zobacz [https://access.redhat.com/solutions/1749883](https://access.redhat.com/solutions/1749883) . 
 
 
-## <a name="sap-hana-installation"></a>Instalacja SAP HANA
+## <a name="sap-hana-installation"></a>SAP HANA instalacji
 
-1. **[A]** Skonfiguruj rozpoznawanie nazw hostów dla wszystkich hostów.
+1. **[A]** Skonfiguruj rozpoznawania nazw hostów dla wszystkich hostów.
 
-   Możesz użyć serwera DNS lub zmodyfikować plik/etc/hosts na wszystkich węzłach. Ten przykład pokazuje, jak używać pliku/etc/hosts. Zastąp adres IP i nazwę hosta w następujących poleceniach:
+   Możesz użyć serwera DNS lub zmodyfikować plik /etc/hosts we wszystkich węzłach. W tym przykładzie pokazano, jak używać pliku /etc/hosts. Zastąp adres IP i nazwę hosta w następujących poleceniach:
 
    ```
    sudo vi /etc/hosts
@@ -403,87 +402,152 @@ Aby uzyskać więcej informacji na temat wymaganych portów dla SAP HANA, zapozn
    10.32.0.5   hanadb2
    ```
 
-2. **[A]** RHEL for Hana — konfiguracja
+2. **[A]** RHEL dla konfiguracji platformy HANA
 
-   Skonfiguruj RHEL zgodnie z opisem w poniższej uwadze SAP na podstawie wersji RHEL
+   Skonfiguruj system RHEL zgodnie z opisem w poniższej notce dotyczącej systemu SAP na podstawie wersji systemu RHEL
 
-   - [2292690 — SAP HANA DB: zalecane ustawienia systemu operacyjnego dla RHEL 7](https://launchpad.support.sap.com/#/notes/2292690)
-   - [2777782 — SAP HANA DB: zalecane ustawienia systemu operacyjnego dla RHEL 8](https://launchpad.support.sap.com/#/notes/2777782)
-   - [2455582 — Linux: uruchamianie aplikacji SAP skompilowanych z usługą w zatoce 6. x](https://launchpad.support.sap.com/#/notes/2455582)
-   - [2593824 — Linux: uruchamianie aplikacji SAP skompilowanych z usługą w zatoce 7. x](https://launchpad.support.sap.com/#/notes/2593824) 
-   - [2886607 — Linux: uruchamianie aplikacji SAP skompilowanych z usługą w zatoce 9. x](https://launchpad.support.sap.com/#/notes/2886607)
+   - [2292690 — SAP HANA DB: zalecane ustawienia systemu operacyjnego dla systemu RHEL 7](https://launchpad.support.sap.com/#/notes/2292690)
+   - [2777782 — SAP HANA DB: zalecane ustawienia systemu operacyjnego dla systemu RHEL 8](https://launchpad.support.sap.com/#/notes/2777782)
+   - [2455582 — Linux: Uruchamianie aplikacji SAP skompilowanych przy użyciu środowiska GCC 6.x](https://launchpad.support.sap.com/#/notes/2455582)
+   - [2593824 — Linux: Uruchamianie aplikacji SAP skompilowanych przy użyciu środowiska GCC 7.x](https://launchpad.support.sap.com/#/notes/2593824) 
+   - [2886607 — Linux: Uruchamianie aplikacji SAP skompilowanych przy użyciu środowiska GCC 9.x](https://launchpad.support.sap.com/#/notes/2886607)
 
 3. **[A]** Zainstaluj SAP HANA
 
-   Rozpoczęto od platformy HANA 2,0 SPS 01, MDC jest opcją domyślną. Podczas instalowania systemu HANA system SYSTEMDB i dzierżawca z tym samym identyfikatorem SID zostanie utworzony razem. W niektórych przypadkach nie potrzebujesz domyślnej dzierżawy. Jeśli nie chcesz tworzyć początkowej dzierżawy wraz z instalacją, możesz użyć uwagi SAP [2629711](https://launchpad.support.sap.com/#/notes/2629711)
+   W przypadku platformy HANA 2.0 SPS 01 rozwiązanie MDC jest opcją domyślną. Podczas instalowania systemu HANA zostanie utworzony system SYSTEMDB i dzierżawa o tym samym identyfikatorze SID. W niektórych przypadkach nie chcesz dzierżawy domyślnej. Jeśli nie chcesz tworzyć początkowej dzierżawy wraz z instalacją, możesz postępować zgodnie z uwagami sap [2629711](https://launchpad.support.sap.com/#/notes/2629711)
 
-    Uruchom program **hdblcm** z dysku DVD platformy Hana. W wierszu polecenia wprowadź następujące wartości:  
-    Wybierz pozycję Instalacja: wprowadź **1** (na potrzeby instalacji)  
+    Uruchom program **hdblcm** z dysku DVD HANA. Wprowadź następujące wartości w wierszu polecenia:  
+    Wybierz instalację: wprowadź **1** (do zainstalowania)  
     Wybierz dodatkowe składniki do instalacji: wprowadź **1**.  
-    Wprowadź ścieżkę instalacji [/Hana/Shared]: naciśnij klawisz ENTER, aby zaakceptować wartość domyślną  
-    Wprowadź nazwę hosta lokalnego [..]: naciśnij klawisz ENTER, aby zaakceptować wartość domyślną  
-    Czy chcesz dodać do systemu dodatkowe hosty? (t/n) [n]: **n**  
-    Wprowadź identyfikator systemu SAP HANA: wprowadź **HN1**.  
-    Wprowadź numer wystąpienia [00]: wprowadź **03**  
-    Wybierz tryb bazy danych/wprowadź indeks [1]: naciśnij klawisz ENTER, aby zaakceptować wartość domyślną  
-    Wybieranie opcji użycie systemu/wprowadzanie indeksu [4]: wprowadź **4** (dla niestandardowych)  
-    Wprowadź lokalizację woluminów danych [/Hana/data]: naciśnij klawisz ENTER, aby zaakceptować wartość domyślną  
-    Wprowadź lokalizację woluminów dziennika [/Hana/log]: naciśnij klawisz ENTER, aby zaakceptować wartość domyślną  
-    Ograniczyć maksymalną alokację pamięci? [n]: naciśnij klawisz ENTER, aby zaakceptować wartość domyślną  
-    Wprowadź nazwę hosta certyfikatu dla hosta "..." [...]: naciśnij klawisz ENTER, aby zaakceptować wartość domyślną  
-    Wprowadź hasło użytkownika agenta hosta SAP (sapadm): wprowadź hasło użytkownika agenta hosta  
-    Potwierdź hasło użytkownika agenta hosta SAP (sapadm): Wprowadź ponownie hasło użytkownika agenta hosta, aby potwierdzić  
+    Wprowadź ścieżkę instalacji [/hana/shared]: naciśnij klawisz Enter, aby zaakceptować wartość domyślną  
+    Wprowadź nazwę hosta lokalnego [..]: naciśnij klawisz Enter, aby zaakceptować wartość domyślną  
+    Czy chcesz dodać dodatkowe hosty do systemu? (y/n) [n]: **n**  
+    Wprowadź SAP HANA systemowy: wprowadź **HN1**.  
+    Wprowadź numer wystąpienia [00]: wprowadź **wartość 03**  
+    Wybierz pozycję Tryb bazy danych/ Wprowadź indeks [1]: naciśnij klawisz Enter, aby zaakceptować wartość domyślną  
+    Wybierz pozycję Użycie systemu / Wprowadź indeks [4]: wprowadź **wartość 4** (jako wartość niestandardową)  
+    Wprowadź lokalizację woluminów danych [/hana/data]: naciśnij klawisz Enter, aby zaakceptować wartość domyślną  
+    Wprowadź lokalizację woluminów dziennika [/hana/log]: naciśnij klawisz Enter, aby zaakceptować wartość domyślną  
+    Ograniczać maksymalną alokację pamięci? [n]: naciśnij klawisz Enter, aby zaakceptować wartość domyślną  
+    Wprowadź nazwę hosta certyfikatu dla hosta "..." [...]: naciśnij klawisz Enter, aby zaakceptować wartość domyślną  
+    Wprowadź hasło użytkownika programu SAP Host Agent (sapadm): wprowadź hasło użytkownika agenta hosta  
+    Potwierdź hasło użytkownika programu SAP Host Agent (sapadm): wprowadź ponownie hasło użytkownika agenta hosta, aby potwierdzić  
     Wprowadź hasło administratora systemu (hn1adm): wprowadź hasło administratora systemu  
-    Potwierdź hasło administratora systemu (hn1adm): Wprowadź ponownie hasło administratora systemu, aby potwierdzić  
-    Wprowadź katalog macierzysty administratora systemu [/usr/sap/HN1/home]: naciśnij klawisz ENTER, aby zaakceptować wartość domyślną  
-    Wprowadź powłokę logowania administratora systemu [/bin/sh]: naciśnij klawisz ENTER, aby zaakceptować wartość domyślną  
-    Wprowadź identyfikator użytkownika administratora systemu [1001]: naciśnij klawisz ENTER, aby zaakceptować wartość domyślną  
-    Wprowadź identyfikator grupy użytkowników (sapsys) [79]: naciśnij klawisz ENTER, aby zaakceptować wartość domyślną  
+    Potwierdź hasło administratora systemu (hn1adm): wprowadź ponownie hasło administratora systemu, aby potwierdzić  
+    Wprowadź katalog macierzysty administratora systemu [/usr/sap/HN1/home]: naciśnij klawisz Enter, aby zaakceptować wartość domyślną  
+    Wprowadź powłokę logowania administratora systemu [/bin/sh]: naciśnij klawisz Enter, aby zaakceptować wartość domyślną  
+    Wprowadź identyfikator użytkownika administratora systemu [1001]: naciśnij klawisz Enter, aby zaakceptować wartość domyślną  
+    Wprowadź identyfikator grupy użytkowników (sapsys) [79]: naciśnij klawisz Enter, aby zaakceptować wartość domyślną  
     Wprowadź hasło użytkownika bazy danych (SYSTEM): wprowadź hasło użytkownika bazy danych  
-    Potwierdź hasło użytkownika bazy danych (SYSTEM): Wprowadź ponownie hasło użytkownika bazy danych, aby je potwierdzić  
-    Czy uruchomić ponownie system po ponownym uruchomieniu komputera? [n]: naciśnij klawisz ENTER, aby zaakceptować wartość domyślną  
-    Czy chcesz kontynuować? (t/n): Sprawdź poprawność podsumowania. Wprowadź **y** , aby kontynuować  
+    Potwierdź hasło użytkownika bazy danych (SYSTEM): wprowadź ponownie hasło użytkownika bazy danych, aby potwierdzić  
+    Uruchom ponownie system po ponownym uruchomieniu komputera? [n]: naciśnij klawisz Enter, aby zaakceptować wartość domyślną  
+    Czy chcesz kontynuować? (y/n): zweryfikuj podsumowanie. Wprowadź **y,** aby kontynuować  
 
-4. **[A]** Uaktualnij agenta hosta SAP
+4. **[A]** Uaktualnianie agenta hosta SAP
 
-   Pobierz najnowszą archiwum agenta hosta SAP z [centrum oprogramowania SAP](https://launchpad.support.sap.com/#/softwarecenter) i uruchom następujące polecenie, aby uaktualnić agenta. Zastąp ścieżkę do archiwum, aby wskazywało pobrany plik:
+   Pobierz najnowsze archiwum agenta hosta SAP z centrum [oprogramowania SAP i](https://launchpad.support.sap.com/#/softwarecenter) uruchom następujące polecenie, aby uaktualnić agenta. Zastąp ścieżkę do archiwum, aby wskazać pobrany plik:
 
    ```
    sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive <path to SAP Host Agent SAR>
    ```
 
-5. **[A]** Konfigurowanie zapory
+5. **[A] Konfigurowanie** zapory
 
-   Utwórz regułę zapory dla portu sondowania modułu równoważenia obciążenia platformy Azure.
+   Utwórz regułę zapory dla portu sondy usługi Azure Load Balancer.
 
    ```
    sudo firewall-cmd --zone=public --add-port=62503/tcp
    sudo firewall-cmd --zone=public --add-port=62503/tcp –permanent
    ```
 
-## <a name="configure-sap-hana-system-replication"></a>Konfigurowanie replikacji systemu SAP HANA
+## <a name="configure-sap-hana-system-replication"></a>Konfigurowanie SAP HANA replikacji systemu operacyjnego
 
-Wykonaj kroki opisane w temacie Konfigurowanie [replikacji systemu SAP HANA](./sap-hana-high-availability-rhel.md#configure-sap-hana-20-system-replication) , aby skonfigurować SAP HANA replikację systemu. 
+Wykonaj kroki opisane w te SAP HANA [replikacji systemu,](./sap-hana-high-availability-rhel.md#configure-sap-hana-20-system-replication) aby skonfigurować SAP HANA replikacji systemu. 
 
 ## <a name="cluster-configuration"></a>Konfiguracja klastra
 
-W tej sekcji opisano niezbędne kroki, które należy wykonać, aby klaster działał bezproblemowo po zainstalowaniu SAP HANA w udziałach NFS przy użyciu Azure NetApp Files. 
+W tej sekcji opisano niezbędne kroki wymagane do bezproblemowego działania klastra SAP HANA w udziałach NFS przy użyciu Azure NetApp Files. 
 
 ### <a name="create-a-pacemaker-cluster"></a>Tworzenie klastra Pacemaker
 
-Wykonaj kroki opisane w temacie [Konfigurowanie Pacemaker Red Hat Enterprise Linux na](./high-availability-guide-rhel-pacemaker.md) platformie Azure, aby utworzyć podstawowy klaster Pacemaker dla tego serwera platformy Hana.
+Wykonaj kroki opisane w [te tematu Setting up Pacemaker on Red Hat Enterprise Linux](./high-availability-guide-rhel-pacemaker.md) in Azure (Konfigurowanie programu Pacemaker na platformie Azure), aby utworzyć podstawowy klaster pacemaker dla tego serwera HANA.
+
+### <a name="implement-the-python-system-replication-hook-saphanasr"></a>Implementowanie wpięć replikacji systemu języka Python SAPHanaSR
+
+Jest to ważny krok w celu zoptymalizowania integracji z klastrem i ulepszenia wykrywania, gdy jest wymagane włączenie klastra w tryb failover. Zdecydowanie zaleca się skonfigurowanie zaczepienia SAPHanaSR w języku Python.    
+
+1. **[A]** Zainstaluj "wpięcie replikacji systemu" platformy HANA. Węzły zaczepienia muszą być zainstalowane w obu węzłach usługi HANA DB.           
+
+   > [!TIP]
+   > Wpięcie języka Python można zaimplementować tylko dla platformy HANA 2.0.        
+
+   1. Przygotuj wpięcie jako `root` .  
+
+    ```bash
+     mkdir -p /hana/shared/myHooks
+     cp /usr/share/SAPHanaSR/srHook/SAPHanaSR.py /hana/shared/myHooks
+     chown -R hn1adm:sapsys /hana/shared/myHooks
+    ```
+
+   2. Zatrzymaj hanę na obu węzłach. Wykonaj jako <\> sid adm:  
+   
+    ```bash
+    sapcontrol -nr 03 -function StopSystem
+    ```
+
+   3. Dostosuj `global.ini` w każdym węźle klastra.  
+ 
+    ```bash
+    # add to global.ini
+    [ha_dr_provider_SAPHanaSR]
+    provider = SAPHanaSR
+    path = /hana/shared/myHooks
+    execution_order = 1
+    
+    [trace]
+    ha_dr_saphanasr = info
+    ```
+
+2. **[A]** Klaster wymaga konfiguracji programu sudoers w każdym węźle klastra <sid \> adm. W tym przykładzie jest to osiągane przez utworzenie nowego pliku. Wykonaj polecenia jako `root` .    
+    ```bash
+    cat << EOF > /etc/sudoers.d/20-saphana
+    # Needed for SAPHanaSR python hook
+    hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
+    EOF
+    ```
+
+3. **[A]** Uruchom SAP HANA obu węzłach. Wykonaj polecenie jako <\> sid adm.  
+
+    ```bash
+    sapcontrol -nr 03 -function StartSystem 
+    ```
+
+4. **[1] Sprawdź** instalację wpięć. Wykonaj polecenie <\> sid adm w aktywnej lokacji replikacji systemu HANA.   
+
+    ```bash
+     cdtrace
+     awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
+     { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
+     # Example output
+     # 2021-04-12 21:36:16.911343 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-12 21:36:29.147808 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-12 21:37:04.898680 ha_dr_SAPHanaSR SOK
+
+    ```
+
+Aby uzyskać więcej informacji na temat implementacji SAP HANA replikacji systemu, zobacz Włączanie wpięcie dostawcy [SAP HA/DR.](https://access.redhat.com/articles/3004101#enable-srhook)  
 
 ### <a name="configure-filesystem-resources"></a>Konfigurowanie zasobów systemu plików
 
-W tym przykładzie każdy węzeł klastra ma własne systemy plików NFS w systemie/Hana/Shared,/Hana/Data i/Hana/log.   
+W tym przykładzie każdy węzeł klastra ma własne systemy plików NFS platformy HANA /hana/shared, /hana/data i /hana/log.   
 
-1. **[1]** Przełącz klaster w tryb konserwacji.
+1. **[1]** Umieść klaster w trybie konserwacji.
 
    ```
    pcs property set maintenance-mode=true
    ```
 
-2. **[1]** Utwórz zasoby systemu plików dla instalacji **hanadb1** .
+2. **[1]** Utwórz zasoby systemu plików dla **instalacji bazy danych hanadb1.**
 
     ```
     pcs resource create hana_data1 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb1-data-mnt00001 directory=/hana/data fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=40s OCF_CHECK_LEVEL=20 --group hanadb1_nfs
@@ -491,7 +555,7 @@ W tym przykładzie każdy węzeł klastra ma własne systemy plików NFS w syste
     pcs resource create hana_shared1 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb1-shared-mnt00001 directory=/hana/shared fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=40s OCF_CHECK_LEVEL=20 --group hanadb1_nfs
     ```
 
-3. **[2]** Utwórz zasoby systemu plików dla instalacji **hanadb2** .
+3. **[2]** Utwórz zasoby systemu plików dla **instalacji bazy danych hanadb2.**
 
     ```
     pcs resource create hana_data2 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb2-data-mnt00001 directory=/hana/data fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=40s OCF_CHECK_LEVEL=20 --group hanadb2_nfs
@@ -499,24 +563,24 @@ W tym przykładzie każdy węzeł klastra ma własne systemy plików NFS w syste
     pcs resource create hana_shared2 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb2-shared-mnt00001 directory=/hana/shared fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=40s OCF_CHECK_LEVEL=20 --group hanadb2_nfs
     ```
 
-    `OCF_CHECK_LEVEL=20` atrybut jest dodawany do operacji monitorowania, tak że każdy monitor wykonuje test odczytu/zapisu w systemie plików. Bez tego atrybutu operacja monitorowania sprawdza tylko, czy system plików jest zainstalowany. Może to być spowodowane problemem, ponieważ po utracie łączności system plików może pozostać zainstalowany pomimo braku dostępu.
+    `OCF_CHECK_LEVEL=20` Atrybut jest dodawany do operacji monitora, dzięki czemu każdy monitor wykonuje test odczytu/zapisu w systemie plików. Bez tego atrybutu monitor tylko sprawdza, czy system plików jest zainstalowany. Może to być problem, ponieważ po utracie łączności system plików może pozostać zainstalowany, mimo że jest niedostępny.
 
-    `on-fail=fence` atrybut jest również dodawany do operacji monitorowania. W przypadku tej opcji, jeśli operacja monitorowania zakończy się niepowodzeniem w węźle, ten węzeł zostanie natychmiast ogrodzony. Bez tej opcji domyślnym zachowaniem jest zatrzymanie wszystkich zasobów, które są zależne od zasobu, a następnie ponowne uruchomienie zasobu, a następnie uruchomienie wszystkich zasobów zależnych od zasobu, który zakończył się niepowodzeniem. To działanie może nie tylko zająć dużo czasu, gdy zasób SAPHana zależy od zasobu, ale również może zakończyć się niepowodzeniem. Nie można zatrzymać zasobu SAPHana, jeśli serwer systemu plików NFS zawierający pliki wykonywalne HANA jest niedostępny.
+    `on-fail=fence` Atrybut jest również dodawany do operacji monitora. W przypadku tej opcji, jeśli operacja monitorowania w węźle zakończy się niepowodzeniem, ten węzeł zostanie natychmiast ogrodzony. Bez tej opcji domyślne zachowanie polega na zatrzymaniu wszystkich zasobów zależnych od zasobu, który zakończył się niepowodzeniem, a następnie ponownym uruchomieniu zasobu, który zakończył się niepowodzeniem, a następnie uruchomieniu wszystkich zasobów zależnych od zasobu, który zakończył się niepowodzeniem. To zachowanie nie tylko może zająć dużo czasu, gdy zasób SAPHana zależy od zasobu, który zakończył się niepowodzeniem, ale może również całkowicie się nie powieść. Zasób SAPHana nie może zatrzymać się pomyślnie, jeśli serwer NFS z plikami wykonywalnymi HANA jest niedostępny.
 
 4. **[1]** Konfigurowanie ograniczeń lokalizacji
 
-   Skonfiguruj ograniczenia lokalizacji, aby upewnić się, że zasoby, które zarządzają hanadb1 unikatowymi instalacjami, nie mogą działać na hanadb2 i na odwrót.
+   Skonfiguruj ograniczenia lokalizacji, aby upewnić się, że zasoby, które zarządzają unikatowymi instalacjimi bazy danych hanadb1, nigdy nie mogą być uruchamiane w bazie danych hanadb2 i na odwrót.
 
     ```
     pcs constraint location hanadb1_nfs rule score=-INFINITY resource-discovery=never \#uname eq hanadb2
     pcs constraint location hanadb2_nfs rule score=-INFINITY resource-discovery=never \#uname eq hanadb1
     ```
 
-    `resource-discovery=never`Opcja jest ustawiona, ponieważ unikatowe instalacje dla każdego węzła mają ten sam punkt instalacji. Na przykład `hana_data1` używa punktu instalacji `/hana/data` , a `hana_data2` także punktu instalacji `/hana/data` . Może to spowodować fałszywe pozytywne dla operacji sondowania, gdy stan zasobu jest sprawdzany podczas uruchamiania klastra, co może spowodować niepotrzebne zachowanie funkcji odzyskiwania. Można to uniknąć przez ustawienie `resource-discovery=never`
+    Opcja `resource-discovery=never` jest ustawiana, ponieważ unikatowe instalacji dla każdego węzła współużytkują ten sam punkt instalacji. Na przykład używa `hana_data1` punktu instalacji , a także punktu instalacji `/hana/data` `hana_data2` `/hana/data` . Może to spowodować wynik fałszywie dodatni dla operacji sondowania, gdy stan zasobu jest sprawdzany podczas uruchamiania klastra, a to z kolei może spowodować niepotrzebne zachowanie odzyskiwania. Można tego uniknąć, ustawiając `resource-discovery=never`
 
 5. **[1]** Konfigurowanie zasobów atrybutów
 
-   Skonfiguruj zasoby atrybutów. Te atrybuty zostaną ustawione na wartość true, jeśli są zainstalowane wszystkie instalacje systemu plików NFS (/Hana/Data,/Hana/log i/Hana/Data) węzła, a w przeciwnym razie zostanie ustawiona wartość false.
+   Konfigurowanie zasobów atrybutów. Te atrybuty zostaną ustawione na wartość true, jeśli wszystkie instalacji systemu plików NFS węzła (/hana/data, /hana/log i /hana/data) zostaną zainstalowane i w przeciwnym razie zostaną ustawione na wartość false.
 
    ```
    pcs resource create hana_nfs1_active ocf:pacemaker:attribute active_value=true inactive_value=false name=hana_nfs1_active
@@ -525,16 +589,16 @@ W tym przykładzie każdy węzeł klastra ma własne systemy plików NFS w syste
 
 6. **[1]** Konfigurowanie ograniczeń lokalizacji
 
-   Skonfiguruj ograniczenia lokalizacji, aby upewnić się, że zasób atrybutu hanadb1's nigdy nie działa na hanadb2 i na odwrót.
+   Skonfiguruj ograniczenia lokalizacji, aby upewnić się, że zasób atrybutu hanadb1 nigdy nie jest uruchamiany w bazie danych hanadb2 i na odwrót.
 
    ```
    pcs constraint location hana_nfs1_active avoids hanadb2
    pcs constraint location hana_nfs2_active avoids hanadb1
    ```
 
-7. **[1]** tworzenie ograniczeń porządkowania
+7. **[1]** Tworzenie ograniczeń kolejności
 
-   Skonfiguruj ograniczenia kolejności, tak aby zasoby atrybutów węzła były uruchamiane dopiero po zainstalowaniu wszystkich instalacji systemu plików NFS w węźle.
+   Skonfiguruj ograniczenia kolejności tak, aby zasoby atrybutów węzła uruchamiały się dopiero po instalacji wszystkich instalacji systemu plików NFS węzła.
    
     ```
     pcs constraint order hanadb1_nfs then hana_nfs1_active
@@ -542,15 +606,15 @@ W tym przykładzie każdy węzeł klastra ma własne systemy plików NFS w syste
     ```
 
    > [!TIP]
-   > Jeśli konfiguracja obejmuje systemy plików, poza grupą `hanadb1_nfs` lub `hanadb2_nfs` , należy uwzględnić `sequential=false` opcję, tak aby nie występowały zależności między systemami plików. Wszystkie systemy plików muszą zaczynać się przed `hana_nfs1_active` , ale nie muszą być uruchamiane w żadnej kolejności względem siebie. Aby uzyskać więcej informacji, zobacz [Jak mogę skonfigurować replikację systemu SAP HANA w Scale-Up w klastrze Pacemaker, gdy systemy plików Hana znajdują się w udziałach NFS](https://access.redhat.com/solutions/5156571)
+   > Jeśli konfiguracja obejmuje systemy plików poza grupą lub , należy dołączyć opcję , aby nie było żadnych zależności kolejności `hanadb1_nfs` `hanadb2_nfs` między `sequential=false` systemami plików. Wszystkie systemy plików muszą rozpoczynać się przed , ale nie muszą być rozpoczynane w żadnej kolejności `hana_nfs1_active` względem siebie. Aby uzyskać więcej informacji, zobacz Jak mogę konfigurowanie SAP HANA replikacji systemu Scale-Up w klastrze Pacemaker, gdy systemy plików HANA znajdują się w udziałach [NFS](https://access.redhat.com/solutions/5156571)
 
-### <a name="configure-sap-hana-cluster-resources"></a>Konfigurowanie zasobów klastra SAP HANA
+### <a name="configure-sap-hana-cluster-resources"></a>Konfigurowanie SAP HANA klastra
 
-1. Wykonaj kroki opisane w temacie [Tworzenie zasobów klastra SAP HANA](./sap-hana-high-availability-rhel.md#create-sap-hana-cluster-resources) , aby utworzyć zasoby SAP HANA w klastrze. Po utworzeniu SAP HANA zasobów musimy utworzyć ograniczenie dla reguły lokalizacji między zasobami SAP HANA i systemem plików (instalacjami systemu plików NFS)
+1. Wykonaj kroki opisane w [SAP HANA zasobów klastra,](./sap-hana-high-availability-rhel.md#create-sap-hana-cluster-resources) aby utworzyć SAP HANA zasobów w klastrze. Po SAP HANA zasobów należy utworzyć ograniczenie reguły lokalizacji między zasobami SAP HANA i systemami plików (NFS Mounts)
 
-2. **[1]** Skonfiguruj ograniczenia między zasobami SAP HANA i instalacjami systemu plików NFS
+2. **[1] Skonfiguruj** ograniczenia między SAP HANA zasobów i instalacji systemu plików NFS
 
-   Ograniczenia reguły lokalizacji zostaną ustawione tak, aby zasoby SAP HANA mogły być uruchamiane w węźle tylko wtedy, gdy zostaną zainstalowane wszystkie instalacje systemu plików NFS.
+   Ograniczenia reguły lokalizacji zostaną ustawione tak, aby zasoby SAP HANA można było uruchomić w węźle tylko wtedy, gdy są zainstalowane wszystkie instalacji systemu plików NFS węzła.
 
     ```
     pcs constraint location SAPHanaTopology_HN1_03-clone rule score=-INFINITY hana_nfs1_active ne true and hana_nfs2_active ne true
@@ -562,9 +626,9 @@ W tym przykładzie każdy węzeł klastra ma własne systemy plików NFS w syste
     sudo pcs property set maintenance-mode=false
     ```
 
-   Sprawdź stan klastra i wszystkich zasobów
+   Sprawdzanie stanu klastra i wszystkich zasobów
    > [!NOTE]
-   > Ten artykuł zawiera odwołania do warunku *podrzędnego*, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
+   > Ten artykuł zawiera odwołania do terminu *podrzędnego*, terminu, który nie jest już używany przez firmę Microsoft. Po usunięciu terminu z oprogramowania usuniemy go z tego artykułu.
    
     ```
     sudo pcs status
@@ -600,33 +664,33 @@ W tym przykładzie każdy węzeł klastra ma własne systemy plików NFS w syste
     vip_HN1_03 (ocf::heartbeat:IPaddr2):   Started hanadb1
     ```
 
-## <a name="configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster"></a>Konfiguruj replikację systemu z włączoną funkcją Active/odczyt w klastrze Pacemaker
+## <a name="configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster"></a>Konfigurowanie replikacji systemu z włączoną obsługą aktywnej/odczytu platformy HANA w klastrze Pacemaker
 
-Począwszy od SAP HANA 2,0 SPS 01 SAP zezwala na aktywne/z obsługą odczytu konfiguracje do replikacji systemu SAP HANA, w przypadku których systemy pomocnicze SAP HANA replikacji systemu mogą być używane aktywnie na potrzeby obciążeń odczytu i intensywnie. Aby zapewnić obsługę takich ustawień w klastrze, wymagany jest drugi wirtualny adres IP, który umożliwia klientom dostęp do pomocniczej bazy danych SAP HANA z włączoną obsługą odczytu. Aby upewnić się, że lokacja replikacji pomocniczej nadal będzie dostępna po przejęciu przejęcia, klaster musi przenieść wirtualny adres IP wokół pomocniczego zasobu SAPHana.
+Począwszy od programu SAP HANA 2.0 SPS 01 SAP umożliwia konfiguracje aktywne/z obsługą odczytu na potrzeby replikacji systemu SAP HANA, w której systemy pomocnicze systemu replikacji systemu SAP HANA mogą być aktywnie używane dla obciążeń intensywnie wymagających odczytu. Do obsługi takiej konfiguracji w klastrze wymagany jest drugi wirtualny adres IP, który umożliwia klientom dostęp do pomocniczej bazy danych z włączoną obsługą odczytu SAP HANA danych. Aby zapewnić, że dostęp do dodatkowej lokacji replikacji będzie nadal możliwy po zakończeniu przejęcia, klaster musi przenieść wirtualny adres IP z pomocniczym zasobem SAPHana.
 
-Dodatkowa konfiguracja, wymagana w celu zarządzania replikacją systemu HANA z włączoną obsługą usługi, w klastrze o wysokiej dostępności w systemie Red Hat z drugim wirtualnym adresem IP jest opisana w artykule [Konfigurowanie replikacji systemu Hana Active/odczyt włączony w klastrze Pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster).  
+Dodatkowa konfiguracja wymagana do zarządzania replikacją systemu z włączoną obsługą funkcji HANA Active/Read w klastrze o wysokiej dostępności z systemem Red Hat z drugim wirtualnym adresem IP jest opisana w te tematach Configure [HANA Active/Read Enabled System Replication in Pacemaker cluster](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster)(Konfigurowanie replikacji systemu z włączoną obsługą funkcji HANA Active/Read w klastrze Pacemaker).  
 
-Przed kontynuowaniem upewnij się, że masz w pełni skonfigurowany klaster Red Hat High Availability zarządzanie SAP HANA bazą danych, zgodnie z opisem w powyższych segmentach dokumentacji.    
+Przed przystąpieniem do dalszej pracy upewnij się, że masz w pełni skonfigurowany klaster wysokiej dostępności systemu Red Hat zarządzający SAP HANA bazą danych, zgodnie z opisem w powyższych segmentach dokumentacji.    
 
 
 ## <a name="test-the-cluster-setup"></a>Testowanie konfiguracji klastra
 
-W tej sekcji opisano, jak można testować konfigurację. 
+W tej sekcji opisano sposób testowania konfiguracji. 
 
-1. Przed rozpoczęciem testu upewnij się, że Pacemaker nie ma żadnej akcji zakończonej niepowodzeniem (za pośrednictwem stanu komputerów), nie ma ograniczeń dotyczących lokalizacji (na przykład pozostałości testu migracji) i czy replikacja systemu HANA jest stanem synchronizacji, na przykład z systemReplicationStatus:
+1. Przed rozpoczęciem testu upewnij się, że program Pacemaker nie ma żadnej akcji, która zakończyła się niepowodzeniem (za pośrednictwem stanu pcs), nie ma nieoczekiwanych ograniczeń lokalizacji (na przykład pozostawień testu migracji) i że replikacja systemu HANA jest stanem synchronizacji, na przykład z stanem systemReplicationStatus:
 
     ```
     sudo su - hn1adm -c "python /usr/sap/HN1/HDB03/exe/python_support/systemReplicationStatus.py"
     ```
 
-2. Weryfikowanie konfiguracji klastra dla scenariusza awarii, gdy węzeł utraci dostęp do udziału NFS (/Hana/Shared)
+2. Sprawdź konfigurację klastra pod względu na scenariusz awarii, gdy węzeł utraci dostęp do udziału NFS (/hana/shared)
 
-   Agenci zasobów SAP HANA zależą od plików binarnych przechowywanych w programie w `/hana/shared` celu wykonywania operacji w trybie failover. System plików  `/hana/shared` jest instalowany za pośrednictwem systemu plików NFS w przedstawionym scenariuszu.  
-   Trudne jest symulowanie błędu, gdy jeden z serwerów utraci dostęp do udziału NFS. Test, który można wykonać, polega na ponownym zainstalowaniu systemu plików jako tylko do odczytu.
-   To podejście sprawdza, czy klaster będzie w stanie przełączyć się w tryb failover, jeśli dostęp do niego `/hana/shared` zostanie utracony w aktywnym węźle.     
+   Agenci SAP HANA zasobów zależą od plików binarnych przechowywanych w programie w `/hana/shared` celu wykonywania operacji podczas pracy w trybu failover. System plików  `/hana/shared` jest zainstalowany za pośrednictwem systemu plików NFS w przedstawionym scenariuszu.  
+   Symulowanie awarii jest trudne, gdy jeden z serwerów traci dostęp do udziału NFS. Test, który można wykonać, to ponowne zainstalować system plików jako tylko do odczytu.
+   Takie podejście sprawdza, czy klaster będzie mógł przesieć w tryb failover, jeśli w aktywnym węźle zostanie `/hana/shared` utracony dostęp do klastra.     
 
 
-   **Oczekiwany wynik:** W przypadku `/hana/shared` systemu plików tylko do odczytu `OCF_CHECK_LEVEL` atrybut zasobu `hana_shared1` , który wykonuje operację odczytu/zapisu w systemie plików, nie powiedzie się, ponieważ nie będzie można zapisać niczego w systemie plików i przetworzyć w trybie failover zasobów platformy Hana.  Ten sam wynik jest oczekiwany, gdy węzeł HANA utraci dostęp do udziałów NFS. 
+   **Oczekiwany wynik:** W przypadku tworzenia jako systemu plików tylko do odczytu atrybut zasobu, który wykonuje operację odczytu/zapisu w systemie plików, nie powiedzie się, ponieważ nie będzie mógł zapisać niczego w systemie plików i wykona tryb failover zasobu `/hana/shared` `OCF_CHECK_LEVEL` `hana_shared1` HANA.  Ten sam wynik jest oczekiwany, gdy węzeł HANA utraci dostęp do udziałów NFS. 
 
    Stan zasobu przed rozpoczęciem testu:
 
@@ -661,13 +725,13 @@ W tej sekcji opisano, jak można testować konfigurację.
          vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hanadb1
     ```
 
-   /Hana/Shared można umieścić w trybie tylko do odczytu w aktywnym węźle klastra przy użyciu poniższego polecenia:
+   Możesz umieścić /hana/shared w trybie tylko do odczytu w aktywnym węźle klastra, używając poniższego polecenia:
 
     ```
     sudo mount -o ro 10.32.2.4:/hanadb1-shared-mnt00001 /hana/shared
     ```
 
-   hanadb1 uruchomi ponownie lub wyłączenie na podstawie akcji ustawionej na stonith ( `pcs property show stonith-action` ).  Gdy serwer (hanadb1) nie działa, zasób HANA jest przenoszony do hanadb2. Stan klastra można sprawdzić z hanadb2.
+   Baza danych hanadb1 zostanie ponownie uruchamiana lub wyzjemniana na podstawie akcji ustawionej na stonith ( `pcs property show stonith-action` ).  Gdy serwer (hanadb1) nie będzie już w stanie, zasób HANA zostanie przenieść do bazy danych hanadb2. Stan klastra można sprawdzić z bazy danych hanadb2.
 
     ```
     pcs status
@@ -702,11 +766,11 @@ W tej sekcji opisano, jak można testować konfigurację.
          vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hanadb2
     ```
 
-   Zalecamy dokładne przetestowanie konfiguracji klastra SAP HANA, wykonując także testy opisane w [instalatorze SAP HANA replikacji systemu na RHEL](./sap-hana-high-availability-rhel.md#test-the-cluster-setup).
+   Zalecamy dokładne przetestowanie konfiguracji klastra SAP HANA, wykonując również testy opisane w teście Konfigurowanie SAP HANA replikacji systemu w [systemie RHEL.](./sap-hana-high-availability-rhel.md#test-the-cluster-setup)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Planowanie i wdrażanie Virtual Machines platformy Azure dla oprogramowania SAP][planning-guide]
-* [Wdrożenie Virtual Machines platformy Azure dla oprogramowania SAP][deployment-guide]
-* [Wdrożenie systemu Azure Virtual Machines DBMS dla oprogramowania SAP][dbms-guide]
+* [Planowanie Virtual Machines wdrażania oprogramowania SAP na platformie Azure][planning-guide]
+* [Wdrażanie usługi Azure Virtual Machines sap][deployment-guide]
+* [Wdrażanie usługi Azure Virtual Machines DBMS dla oprogramowania SAP][dbms-guide]
 * [Woluminy NFS 4.1 w usłudze Azure NetApp Files dla platformy SAP HANA](./hana-vm-operations-netapp.md)

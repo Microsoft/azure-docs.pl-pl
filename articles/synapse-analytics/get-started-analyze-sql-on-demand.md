@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: c8a0ad3eb578280ea29d94dfbb5e74d873568541
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 7c228bfe5897b45e6345234f2ed8e0f5cfbec73a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259646"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312794"
 ---
 # <a name="analyze-data-with-a-serverless-sql-pool"></a>Analizowanie danych za pomocą bezserwerowej puli SQL
 
@@ -27,9 +27,8 @@ Pule SQL bezserwerowe umożliwiają korzystanie z języka SQL bez konieczności 
 
 Każdy obszar roboczy jest dostarczany ze wstępnie skonfigurowaną bezserwerową pulą SQL o nazwie **wbudowane**. 
 
-## <a name="analyze-nyc-taxi-data-in-blob-storage-using-serverless-sql-pool"></a>Analizowanie danych z NYC taksówki w usłudze BLOB Storage przy użyciu puli SQL bezserwerowej
+## <a name="analyze-nyc-taxi-data-with-a-serverless-sql-pool"></a>Analizowanie danych z NYC taksówki przy użyciu bezserwerowej puli SQL
 
-W tej sekcji użyjesz bezserwerowej puli SQL do analizowania danych NYC na platformie Blob Storage Azure.
 
 1. W programie Synapse Studio przejdź do centrum **opracowywania**
 1. Utwórz nowy skrypt SQL.

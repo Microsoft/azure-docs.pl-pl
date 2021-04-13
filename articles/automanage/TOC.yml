@@ -8,13 +8,15 @@
 - name: Pojęcia
   expanded: true
   items:
-    - name: Autozarządzanie dla systemu Linux
+    - name: Automanage for Linux
       href: automanage-linux.md
-    - name: Autozarządzanie dla systemu Windows Server
+    - name: Automatyczne zarządzania dla systemu Windows Server
       href: automanage-windows-server.md
       items:
         - name: Hotpatch dla nowych maszyn wirtualnych
           href: automanage-hotpatch.md
+    - name: Automanage account (Automatycznemanage account)
+      href: automanage-account.md
 - name: Instrukcje
   expanded: true
   items:
@@ -22,11 +24,13 @@
       href: virtual-machines-custom-preferences.md
     - name: Włączanie na maszynach wirtualnych za pośrednictwem usługi Azure Policy
       href: virtual-machines-policy-enable.md
-    - name: Rozwiązywanie problemów dotyczących dołączania
+    - name: Włączanie na maszynach wirtualnych za pomocą szablonu usługi ARM
+      href: arm-deploy.md
+    - name: Rozwiązywanie problemów z błędami dołączania
       href: common-errors.md
     - name: Naprawianie uszkodzonego konta usługi Automanage
       href: repair-automanage-account.md
-    - name: Przenoszenie zarządzanej maszyny wirtualnej do wielu regionów
+    - name: Przenoszenie automatycznej maszyny wirtualnej między regionami
       href: move-automanaged-vms.md
 - name: Zasoby
   expanded: true

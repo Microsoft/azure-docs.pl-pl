@@ -10,18 +10,18 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 04/04/2021
-ms.openlocfilehash: a26f46da7b392bd3b4a49aacb360a4c6147f8d2c
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 92d1534b5dd0233ce88b81d605c6502b67a121df
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106382644"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307898"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Poznaj centrum wiedzy Synapse
 
 W tym samouczku dowiesz się, jak korzystać z centrum wiedzy Synapse Studio.
 
-## <a name="getting-to-the-knowledge-center"></a>Przechodzenie do centrum wiedzy
+## <a name="introduction-to-the-knowledge-center"></a>Wprowadzenie do centrum wiedzy
 
 Istnieją dwa sposoby znajdowania centrum wiedzy w programie Synapse Studio:
 
@@ -30,16 +30,19 @@ Istnieją dwa sposoby znajdowania centrum wiedzy w programie Synapse Studio:
 
 Wybierz jedną z metod i Otwórz **centrum merytoryczne**.
 
-## <a name="overview"></a>Omówienie
-
-**Centrum wiedzy** umożliwia wykonywanie następujących czynności:
+Gdy będzie widoczne, zobaczysz, że **centrum wiedzy** umożliwia wykonywanie trzech czynności:
 * **Użyj przykładów natychmiastowych**. Jeśli potrzebujesz szybkiego przykładu działania Synapse, wybierz tę opcję.
 * **Przeglądaj Galerię**. Ta opcja umożliwia łączenie przykładowych zestawów danych i Dodawanie przykładowego kodu w postaci skryptów SQL, notesów i potoków.
 * **Samouczek Synapse Studio**. Ta opcja umożliwia zapoznanie się z krótkim przewodnikiem dotyczącym podstawowych części programu Synapse Studio. Jest to przydatne, jeśli wcześniej nie korzystano z programu Synapse Studio.
 
-## <a name="exploring-blob-storage-with-serverless-sql-pool"></a>Eksplorowanie magazynu obiektów BLOB za pomocą puli SQL bezserwerowej
+## <a name="exploring-use-samples-immediately"></a>Eksplorowanie: natychmiastowe korzystanie z przykładów
 
-1. Przejdź do **centrum wiedzy**, a następnie kliknij pozycję **Użyj przykładów natychmiast**.
+W tej sekcji znajdują się trzy elementy:
+* Eksplorowanie przykładowych danych za pomocą platformy Spark
+* Wykonywanie zapytań dotyczących danych przy użyciu języka SQL
+* Tworzenie tabeli zewnętrznej przy użyciu języka SQL
+
+1. W **centrum wiedzy** kliknij pozycję **Użyj przykładów natychmiast**.
 1. Wybierz pozycję **kwerenda danych przy użyciu języka SQL**.
 1. Kliknij pozycję **Użyj przykładu**.
 1. Zostanie otwarty nowy przykładowy skrypt SQL.

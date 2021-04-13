@@ -8,12 +8,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 02/04/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 16433d5b148d7bc441e375591c64af497cd7b8de
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 90ee39039b0734bf434e7339a973358989c08175
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106505337"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311366"
 ---
 # <a name="access-config-server-and-service-registry"></a>Serwer konfiguracji dostępu i rejestr usługi
 
@@ -47,15 +47,15 @@ Po przypisaniu roli czytnika danych w chmurze Azure wiosny klienci mogą uzyska�
     ```
 2. Utwórz punkt końcowy. Obsługiwane są domyślne punkty końcowe serwera konfiguracji chmury wiosennej i rejestru wiosennej usługi w chmurze zarządzanej przez chmurę Azure wiosną. Aby uzyskać więcej informacji, zobacz [punkty końcowe gotowe do produkcji](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints). Klienci mogą również uzyskać pełną listę obsługiwanych punktów końcowych serwera konfiguracji chmury sieci i sprężyny rejestru usługi w chmurze, zarządzane przez chmurę sieciową platformy Azure, uzyskując dostęp do punktów końcowych:
 
-    * *https://SERVICE_NAME.svc.azuremicroservices.io/eureka/actuator/*
-    * *https://SERVICE_NAME.svc.azuremicroservices.io/config/actuator/* 
+    * *'https://SERVICE_NAME.svc.azuremicroservices.io/eureka/actuator/'*
+    * *'https://SERVICE_NAME.svc.azuremicroservices.io/config/actuator/'* 
 
 >[!NOTE]
 > Jeśli używasz Chin platformy Azure, Zastąp ciąg `*.azuremicroservices.io` opcją `*.microservices.azure.cn` , [Dowiedz się więcej](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure).
 
 3. Dostęp do składowego punktu końcowego z tokenem dostępu. Umieść token dostępu w nagłówku, aby zapewnić autoryzację.  Obsługiwana jest tylko Metoda "GET".
 
-    Na przykład można uzyskać dostęp do punktu końcowego, takiego jak *https://SERVICE_NAME.svc.azuremicroservices.io/eureka/actuator/health* Aby zobaczyć stan kondycji Eureka.
+    Na przykład można uzyskać dostęp do punktu końcowego, takiego jak *" https://SERVICE_NAME.svc.azuremicroservices.io/eureka/actuator/health "* , aby wyświetlić stan kondycji Eureka.
 
     Jeśli odpowiedź jest *401 nieautoryzowana*, sprawdź, czy rola została pomyślnie przypisana.  Zastosowanie roli może potrwać kilka minut lub sprawdzić, czy token dostępu nie wygasł.
 

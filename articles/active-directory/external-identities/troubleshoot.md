@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: troubleshooting
-ms.date: 02/12/2021
+ms.date: 04/12/2021
 tags: active-directory
 ms.author: mimart
 author: msmimart
@@ -14,12 +14,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60cd944ecb144a30e872259f6e959a11c3ea6319
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8c38bab420618b04f8153a123ce9b988215c40e8
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100365433"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304498"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Rozwiązywanie problemów Azure Active Directory współpracy B2B
 
@@ -74,6 +74,9 @@ Użytkowników zewnętrznych można dodawać tylko do grup "Assigned" lub "Secur
 ## <a name="my-external-user-did-not-receive-an-email-to-redeem"></a>Mój użytkownik zewnętrzny nie otrzymał wiadomości e-mail do zrealizowania
 
 Zapraszanie powinno sprawdzić swój filtr usługodawcy internetowego lub spamu, aby upewnić się, że dozwolony jest następujący adres: Invites@microsoft.com
+
+> [!NOTE]
+> W przypadku usługi platformy Azure obsługiwanej przez firmę 21Vianet w Chinach adres nadawcy to Invites@oe.21vianet.com .
 
 ## <a name="i-notice-that-the-custom-message-does-not-get-included-with-invitation-messages-at-times"></a>Zauważ, że wiadomość niestandardowa nie jest dołączona do wiadomości z zaproszeniem w czasie
 

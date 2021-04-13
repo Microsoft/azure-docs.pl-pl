@@ -1,17 +1,17 @@
 ---
-title: Konfigurowanie replikacji danych — Azure Database for MySQL
+title: Konfigurowanie Azure Database for MySQL replikacja typu data-in
 description: W tym artykule opisano sposób konfigurowania replikacja typu data-in Azure Database for MySQL.
 author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
-ms.date: 01/13/2021
-ms.openlocfilehash: 3c12068c6a2c75c7be8b5572b901a714d397b2ca
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.date: 04/08/2021
+ms.openlocfilehash: 5f418867a2f22a16304d16c8889fff9a27a37ab3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107209934"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312165"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Jak skonfigurować replikacja typu data-in Azure Database for MySQL
 
@@ -21,32 +21,32 @@ W tym artykule opisano sposób konfigurowania [replikacja typu Data-in](concepts
 > Ten artykuł zawiera odwołania do warunku _podrzędnego_, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
 >
 
-Aby utworzyć replikę w usłudze Azure Database for MySQL, [replikacja typu Data-in](concepts-data-in-replication.md)  synchronizuje dane ze źródłowego serwera MySQL lokalnie, na maszynach wirtualnych lub w usługach bazy danych w chmurze. Replikacja typu data-in jest oparty na lokalizacji pliku dziennika binarnego (binlog) lub replikacji natywnej opartej na gtid dla bazy danych MySQL. Aby dowiedzieć się więcej na temat replikacji binlog, zobacz [Omówienie replikacji MySQL binlog](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
+Aby utworzyć replikę w usłudze Azure Database for MySQL, [replikacja typu Data-in](concepts-data-in-replication.md) synchronizuje dane ze źródłowego serwera MySQL lokalnie, na maszynach wirtualnych lub w usługach bazy danych w chmurze. Replikacja typu data-in jest oparty na lokalizacji pliku dziennika binarnego (binlog) lub replikacji natywnej opartej na GTID dla bazy danych MySQL. Aby dowiedzieć się więcej na temat replikacji binlog, zobacz [Omówienie replikacji MySQL binlog](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
 Przed wykonaniem kroków opisanych w tym artykule Przejrzyj [ograniczenia i wymagania](concepts-data-in-replication.md#limitations-and-considerations) replikacji danych.
 
-## <a name="1-create-a-azure-database-for-mysql-single-server-to-be-used-as-replica"></a>1. Utwórz Azure Database for MySQL jeden serwer, który ma być używany jako replika
+## <a name="create-an-azure-database-for-mysql-single-server-instance-to-use-as-a-replica"></a>Utwórz wystąpienie Azure Database for MySQL jednego serwera, które ma być używane jako replika
 
-1. Utwórz nowy Azure Database for MySQL pojedynczy serwer (np. "replica.mysql.database.azure.com"). Zapoznaj się z tematem [Tworzenie serwera Azure Database for MySQL przy użyciu Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md) do tworzenia serwera. Ten serwer jest serwerem "Replica" w replikacja typu data-in.
+1. Utwórz nowe wystąpienie Azure Database for MySQL pojedynczego serwera (np. "replica.mysql.database.azure.com"). Zapoznaj się z tematem [Tworzenie serwera Azure Database for MySQL przy użyciu Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md) do tworzenia serwera. Ten serwer jest serwerem "Replica" dla replikacja typu data-in.
 
    > [!IMPORTANT]
    > Serwer Azure Database for MySQL należy utworzyć w warstwach cenowych Ogólnego przeznaczenia lub zoptymalizowanych pod kątem pamięci, ponieważ replikacja danych jest obsługiwana tylko w tych warstwach.
 
-2. Tworzenie tych samych kont użytkowników i odpowiednich uprawnień
+2. Utwórz te same konta użytkowników i odpowiednie uprawnienia.
 
    Konta użytkowników nie są replikowane z serwera źródłowego do serwera repliki. Jeśli planujesz udostępnienie użytkownikom dostępu do serwera repliki, musisz ręcznie utworzyć wszystkie konta i odpowiednie uprawnienia na tym nowo utworzonym Azure Database for MySQL serwerze.
 
 3. Dodaj adres IP serwera źródłowego do reguł zapory repliki.
 
    Zaktualizuj reguły zapory za pomocą [witryny Azure Portal](howto-manage-firewall-using-portal.md) lub [interfejsu wiersza polecenia platformy Azure](howto-manage-firewall-using-cli.md).
-   
-4. **Opcjonalne** — Jeśli chcesz użyć [replikacji opartej na gtid](https://dev.mysql.com/doc/mysql-replication-excerpt/5.7/en/replication-gtids-concepts.html) z serwera źródłowego do serwera repliki Azure Database for MySQL, musisz włączyć następujące parametry serwera na serwerze Azure Database for MySQL, jak pokazano na poniższym obrazie portalu
 
-   :::image type="content" source="./media/howto-data-in-replication/enable-gtid.png" alt-text="Włącz gtid na serwerze Azure Database for MySQL":::
+4. **Opcjonalne** — Jeśli chcesz użyć [replikacji opartej na GTID](https://dev.mysql.com/doc/mysql-replication-excerpt/5.7/en/replication-gtids-concepts.html) z serwera źródłowego do serwera repliki Azure Database for MySQL, musisz włączyć następujące parametry serwera na serwerze Azure Database for MySQL, jak pokazano na poniższym obrazie portalu:
 
-## <a name="2-configure-the-source-mysql-server"></a>2. Skonfiguruj źródłowy serwer MySQL
+   :::image type="content" source="./media/howto-data-in-replication/enable-gtid.png" alt-text="Włącz GTID na serwerze Azure Database for MySQL":::
 
-Poniższe kroki dotyczą przygotowania i skonfigurowania serwera MySQL hostowanego lokalnie, na maszynie wirtualnej lub usługi bazy danych hostowanej przez innych dostawców chmury dla replikacja typu data-in. Ten serwer jest "źródłem" w replikacji danych.
+## <a name="configure-the-source-mysql-server"></a>Skonfiguruj źródłowy serwer MySQL
+
+Poniższe kroki dotyczą przygotowania i skonfigurowania serwera MySQL hostowanego lokalnie, na maszynie wirtualnej lub usługi bazy danych hostowanej przez innych dostawców chmury dla replikacja typu data-in. Ten serwer jest "źródłem" replikacji danych.
 
 1. Przed kontynuowaniem Przejrzyj [wymagania dotyczące serwera źródłowego](concepts-data-in-replication.md#requirements) .
 
@@ -56,9 +56,9 @@ Poniższe kroki dotyczą przygotowania i skonfigurowania serwera MySQL hostowane
 
    Jeśli organizacja ma ścisłe zasady zabezpieczeń i nie zezwoli na dostęp do wszystkich adresów IP na serwerze źródłowym w celu włączenia komunikacji z platformy Azure do serwera źródłowego, możesz użyć poniższego polecenia, aby określić adres IP serwera MySQL.
 
-   1. Zaloguj się do Azure Database for MySQL przy użyciu narzędzia, takiego jak wiersz polecenia MySQL.
+   1. Zaloguj się do serwera Azure Database for MySQL przy użyciu narzędzia, takiego jak wiersz polecenia MySQL.
 
-   2. Wykonaj poniższe zapytanie.
+   2. Wykonaj następujące zapytanie.
 
       ```bash
       mysql> SELECT @@global.redirect_server_host;
@@ -75,7 +75,7 @@ Poniższe kroki dotyczą przygotowania i skonfigurowania serwera MySQL hostowane
       ```
 
    3. Wyjdź z wiersza polecenia MySQL.
-   4. Wykonaj następujące polecenie w narzędziu ping, aby uzyskać adres IP.
+   4. Aby uzyskać adres IP, wykonaj następujące polecenie w narzędziu ping:
 
       ```bash
       ping <output of step 2b>
@@ -90,53 +90,55 @@ Poniższe kroki dotyczą przygotowania i skonfigurowania serwera MySQL hostowane
 
    5. Skonfiguruj reguły zapory serwera źródłowego w taki sposób, aby obejmowały adres IP przedniego poprzedniego kroku w porcie 3306.
 
-   > [!NOTE]
-   > Ten adres IP może ulec zmianie z powodu operacji konserwacji/wdrażania. Ta metoda łączności jest tylko dla klientów, którzy nie mogą udzielić zezwolenia na wszystkie adresy IP na porcie 3306.
+      > [!NOTE]
+      > Ten adres IP może ulec zmianie z powodu operacji konserwacji/wdrażania. Ta metoda łączności jest tylko dla klientów, którzy nie mogą udzielić zezwolenia na wszystkie adresy IP na porcie 3306.
   
-3. Włącz rejestrowanie binarne
+3. Włącz rejestrowanie plików binarnych.
 
-   Sprawdź, czy w źródle jest włączone rejestrowanie binarne, uruchamiając następujące polecenie: 
+   Sprawdź, czy w źródle jest włączone rejestrowanie binarne, uruchamiając następujące polecenie:
 
    ```sql
    SHOW VARIABLES LIKE 'log_bin';
    ```
 
    Jeśli zmienna [`log_bin`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_log_bin) jest zwracana z wartością "on", rejestrowanie binarne jest włączone na serwerze.
-   
-    Jeśli `log_bin` jest zwracany z wartością "off" i serwer źródłowy działa lokalnie lub na maszynach wirtualnych, na których można uzyskać dostęp do pliku konfiguracji (My. cnf), można wykonać poniższe kroki:
+
+   Jeśli `log_bin` jest zwracany z wartością "off" i serwer źródłowy działa lokalnie lub na maszynach wirtualnych, na których można uzyskać dostęp do pliku konfiguracji (My. cnf), można wykonać poniższe kroki:
    1. Zlokalizuj plik konfiguracji MySQL (My. cnf) na serwerze źródłowym. Na przykład:/etc/my.cnf
    2. Otwórz plik konfiguracji, aby go edytować i zlokalizować w nim sekcję **MySQL** .
-   3.  W sekcji MySQL Dodaj następujący wiersz
-   
+   3. W sekcji MySQL Dodaj następujący wiersz:
+
        ```bash
        log-bin=mysql-bin.log
        ```
+
    4. Uruchom ponownie serwer źródłowy MySQL, aby zmiany zaczęły obowiązywać.
    5. Po ponownym uruchomieniu serwera Sprawdź, czy rejestrowanie binarne jest włączone, uruchamiając to samo zapytanie jak wcześniej:
-   
+
       ```sql
       SHOW VARIABLES LIKE 'log_bin';
       ```
-   
-4. Ustawienia serwera źródłowego
 
-   Replikacja typu data-in wymaga `lower_case_table_names` , aby parametr był spójny między serwerami źródłowym i repliki. Domyślnie ten parametr jest 1 w Azure Database for MySQL.
+4. Skonfiguruj ustawienia serwera źródłowego.
+
+   Replikacja typu data-in wymaga, `lower_case_table_names` Aby parametr był spójny między serwerami źródłowym i repliki. Domyślnie ten parametr jest 1 w Azure Database for MySQL.
 
    ```sql
    SET GLOBAL lower_case_table_names = 1;
    ```
-   **Opcjonalne** — Jeśli chcesz użyć [replikacji opartej na gtid](https://dev.mysql.com/doc/mysql-replication-excerpt/5.7/en/replication-gtids-concepts.html), musisz sprawdzić, czy na serwerze źródłowym jest włączona funkcja gtid. Można wykonać następujące polecenie względem źródłowego serwera MySQL, aby sprawdzić, czy tryb gtid jest włączony.
-   
+
+   **Opcjonalne** — Jeśli chcesz użyć [replikacji opartej na GTID](https://dev.mysql.com/doc/mysql-replication-excerpt/5.7/en/replication-gtids-concepts.html), musisz sprawdzić, czy na serwerze źródłowym jest włączona funkcja GTID. Aby sprawdzić, czy gtid_mode jest włączona, można wykonać następujące polecenie względem źródłowego serwera MySQL.
+
    ```sql
    show variables like 'gtid_mode';
    ```
+
    >[!IMPORTANT]
-   > Wszystkie serwery mają gtid_mode ustawioną wartość domyślną. Nie trzeba włączać gtid na źródłowym serwerze MySQL, w odniesieniu do konfiguracji replikacji danych. Jeśli gtid jest już włączona na serwerze źródłowym, można opcjonalnie użyć replikacji opartej na gtid w celu skonfigurowania replikacji danych za pomocą jednego serwera Azure Database for MySQL. Za pomocą replikacji opartej na plikach można skonfigurować replikację danych dla wszystkich serwerów bez względu na konfigurację trybu gtid na serwerze źródłowym.
+   > Wszystkie serwery mają gtid_mode ustawioną wartość domyślną. Nie musisz włączać GTID na źródłowym serwerze MySQL w celu skonfigurowania replikacja typu data-in. Jeśli GTID jest już włączona na serwerze źródłowym, można opcjonalnie użyć replikacji opartej na GTID w celu skonfigurowania replikacja typu data-in zbyt Azure Database for MySQL jednym serwerze. Za pomocą replikacji opartej na plikach można skonfigurować replikację danych dla wszystkich serwerów, niezależnie od konfiguracji gitd_mode na serwerze źródłowym.
 
+5. Utwórz nową rolę replikacji i skonfiguruj uprawnienie.
 
-5. Utwórz nową rolę replikacji i skonfiguruj uprawnienie
-
-   Utwórz konto użytkownika na serwerze źródłowym, który jest skonfigurowany z uprawnieniami replikacji. Można to zrobić za pomocą poleceń SQL lub narzędzi, takich jak MySQL Workbench. Należy rozważyć, czy ma być przeprowadzana replikacja przy użyciu protokołu SSL, ponieważ należy ją określić podczas tworzenia użytkownika. Zapoznaj się z dokumentacją programu MySQL, aby dowiedzieć się, jak [dodać konta użytkowników](https://dev.mysql.com/doc/refman/5.7/en/user-names.html) na serwerze źródłowym.
+   Utwórz konto użytkownika na serwerze źródłowym, który jest skonfigurowany z uprawnieniami replikacji. Można to zrobić za pomocą poleceń SQL lub narzędzi, takich jak MySQL Workbench. Należy rozważyć, czy planujesz replikację przy użyciu protokołu SSL, ponieważ należy ją określić podczas tworzenia użytkownika. Zapoznaj się z dokumentacją programu MySQL, aby dowiedzieć się, jak [dodać konta użytkowników](https://dev.mysql.com/doc/refman/5.7/en/user-names.html) na serwerze źródłowym.
 
    W poniższych poleceniach Nowa rola replikacji ma dostęp do źródła z dowolnego komputera, a nie tylko z komputera, który hostuje źródło. W tym celu należy określić "syncuser@"% "w poleceniu Create User. Zapoznaj się z dokumentacją programu MySQL, aby dowiedzieć się więcej o [określaniu nazw kont](https://dev.mysql.com/doc/refman/5.7/en/account-names.html).
 
@@ -174,7 +176,7 @@ Poniższe kroki dotyczą przygotowania i skonfigurowania serwera MySQL hostowane
 
    :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="Replikacja podrzędna":::
 
-6. Ustaw serwer źródłowy do trybu tylko do odczytu
+6. Ustaw serwer źródłowy do trybu tylko do odczytu.
 
    Przed rozpoczęciem zrzutu bazy danych należy umieścić serwer w trybie tylko do odczytu. W trybie tylko do odczytu źródło nie będzie w stanie przetwarzać żadnych transakcji zapisu. Oceń wpływ na swoją firmę i w razie potrzeby Zaplanuj okno tylko do odczytu w czasie poza godzinami szczytu.
 
@@ -183,28 +185,29 @@ Poniższe kroki dotyczą przygotowania i skonfigurowania serwera MySQL hostowane
    SET GLOBAL read_only = ON;
    ```
 
-7. Pobieranie binarnej nazwy pliku dziennika i przesunięcia
+7. Pobieranie binarnej nazwy pliku dziennika i przesunięcia.
 
    Uruchom [`show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) polecenie, aby określić bieżącą nazwę pliku dziennika binarnego i przesunięcia.
 
    ```sql
     show master status;
    ```
-   Wyniki powinny wyglądać podobnie do poniższego. Pamiętaj, aby zanotować nazwę pliku binarnego, ponieważ zostanie ona użyta w kolejnych krokach.
+   Wyniki powinny wyglądać podobnie do poniższego. Pamiętaj, aby zanotować nazwę pliku binarnego do użycia w dalszych krokach.
 
    :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="Wyniki stanu głównego":::
-   
 
-## <a name="3-dump-and-restore-source-server"></a>3. Zrzuć i przywróć serwer źródłowy
+## <a name="dump-and-restore-the-source-server"></a>Zrzuć i przywróć serwer źródłowy
 
 1. Ustal, które bazy danych i tabele, które mają być replikowane, do Azure Database for MySQL i wykonaj Zrzut z serwera źródłowego.
 
-    Możesz użyć mysqldump, aby zrzucić bazy danych z serwera głównego. Aby uzyskać szczegółowe informacje, zobacz [zrzut & przywracanie](concepts-migrate-dump-restore.md). Nie jest konieczne zatopienie biblioteki MySQL i biblioteki testowej.
+    Można użyć mysqldump do zrzutu baz danych z serwera podstawowego. Aby uzyskać szczegółowe informacje, zobacz [zrzut & przywracanie](concepts-migrate-dump-restore.md). Nie jest konieczne zrzucanie biblioteki MySQL i biblioteki testowej.
 
-2. **Opcjonalne** — Jeśli chcesz użyć [replikacji opartej na gtid](https://dev.mysql.com/doc/mysql-replication-excerpt/5.7/en/replication-gtids-concepts.html), musisz zidentyfikować gtid ostatniej transakcji wykonanej na poziomie głównym. Możesz użyć następującego polecenia, aby zanotować gtid ostatniej transakcji wykonanej na serwerze głównym.
+2. **Opcjonalne** — Jeśli chcesz użyć [replikacji opartej na gtid](https://dev.mysql.com/doc/mysql-replication-excerpt/5.7/en/replication-gtids-concepts.html), musisz zidentyfikować gtid ostatniej transakcji wykonanej na poziomie podstawowym. Możesz użyć następującego polecenia, aby zanotować GTID ostatniej transakcji wykonanej na serwerze głównym.
+
    ```sql
    show global variables like 'gtid_executed';
    ```
+
 3. Ustaw serwer źródłowy na tryb odczytu/zapisu.
 
    Po zrzucie bazy danych Zmień źródłowy serwer MySQL z powrotem na tryb odczytu/zapisu.
@@ -214,17 +217,17 @@ Poniższe kroki dotyczą przygotowania i skonfigurowania serwera MySQL hostowane
    UNLOCK TABLES;
    ```
 
-3. Przywróć plik zrzutu na nowy serwer.
+4. Przywróć plik zrzutu na nowy serwer.
 
    Przywróć plik zrzutu do serwera utworzonego w usłudze Azure Database for MySQL. Zapoznaj się z artykułem [zrzut & Przywróć](concepts-migrate-dump-restore.md) , aby przywrócić plik zrzutu do serwera MySQL. Jeśli plik zrzutu jest duży, przekaż go do maszyny wirtualnej na platformie Azure w tym samym regionie, w którym znajduje się serwer repliki. Przywróć go do serwera Azure Database for MySQL z maszyny wirtualnej.
-   
-4. **Opcjonalne** — Zanotuj gtid przywróconego serwera w Azure Database for MySQL, aby upewnić się, że jest on taki sam jak główny. Za pomocą następującego polecenia można zwrócić uwagę na gtid przeczyszczanej wartości gtid na serwerze repliki Azure Database for MySQL. Wartość gtid_purged powinna być taka sama jak gtid_executed na wzorcu zanotowanym w kroku 2 do działania replikacji opartej na gtid.
+
+5. **Opcjonalne** — Zwróć uwagę na GTID przywróconego serwera w Azure Database for MySQL, aby upewnić się, że jest on taki sam jak serwer podstawowy. Za pomocą następującego polecenia można zwrócić uwagę na GTID przeczyszczanej wartości GTID na serwerze repliki Azure Database for MySQL. Wartość gtid_purged powinna być taka sama jak gtid_executed na wzorcu zanotowanym w kroku 2 do działania replikacji opartej na GTID.
 
    ```sql
    show global variables like 'gtid_purged';
    ```
 
-## <a name="4-link-source-and-replica-servers-to-start-data-in-replication"></a>4. Połącz serwery źródłowe i repliki, aby uruchomić replikacja typu data-in
+## <a name="link-source-and-replica-servers-to-start-data-in-replication"></a>Połącz serwery źródłowe i repliki, aby uruchomić replikacja typu data-in
 
 1. Ustaw serwer źródłowy.
 
@@ -235,7 +238,9 @@ Poniższe kroki dotyczą przygotowania i skonfigurowania serwera MySQL hostowane
    ```sql
    CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', <master_port>, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
    ```
+
    **Opcjonalne** — Jeśli chcesz użyć [replikacji opartej na gtid](https://dev.mysql.com/doc/mysql-replication-excerpt/5.7/en/replication-gtids-concepts.html), musisz użyć następującego polecenia, aby połączyć dwa serwery
+
     ```sql
    call mysql.az_replication_change_master_with_gtid('<master_host>', '<master_user>', '<master_password>', <master_port>, '<master_ssl_ca>');
    ```
@@ -279,7 +284,7 @@ Poniższe kroki dotyczą przygotowania i skonfigurowania serwera MySQL hostowane
       CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
       ```
 
-2. Filtrowanie.
+2. Konfigurowanie filtrowania.
 
    Jeśli chcesz pominąć replikację niektórych tabel z poziomu głównego, zaktualizuj `replicate_wild_ignore_table` parametr serwera na serwerze repliki. Można podać więcej niż jeden wzorzec tabeli przy użyciu listy rozdzielanej przecinkami.
 
@@ -305,7 +310,7 @@ Poniższe kroki dotyczą przygotowania i skonfigurowania serwera MySQL hostowane
 
    Jeśli stan i ma `Slave_IO_Running` `Slave_SQL_Running` wartość "yes", a wartością `Seconds_Behind_Master` jest "0", replikacja działa prawidłowo. `Seconds_Behind_Master` wskazuje, jak późna jest replika. Jeśli wartość nie jest równa "0", oznacza to, że replika przetwarza aktualizacje.
 
-## <a name="other-useful-stored-procedures-for-data-in-replication-operations"></a>Inne przydatne procedury składowane dla operacji replikacji danych
+## <a name="other-useful-stored-procedures-for-data-in-replication-operations"></a>Inne przydatne procedury składowane dla replikacja typu data-in operacji
 
 ### <a name="stop-replication"></a>Zatrzymywanie replikacji
 
@@ -330,18 +335,21 @@ Aby pominąć błąd replikacji i umożliwić kontynuowanie replikacji, należy 
 ```sql
 CALL mysql.az_replication_skip_counter;
 ```
+
  **Opcjonalne** — Jeśli chcesz użyć [replikacji opartej na gtid](https://dev.mysql.com/doc/mysql-replication-excerpt/5.7/en/replication-gtids-concepts.html), użyj następującej procedury składowanej, aby pominąć transakcję
 
 ```sql
 call mysql. az_replication_skip_gtid_transaction(‘<transaction_gtid>’)
 ```
-Procedura może pominąć transakcję dla danego gtidu. Jeśli format gtid nie jest prawidłowy lub transakcja gtid została już wykonana, wykonanie procedury zakończy się niepowodzeniem. Gtid dla transakcji można określić przez analizowanie dziennika binarnego w celu sprawdzenia zdarzeń transakcji. Program MySQL oferuje [mysqlbinlog](https://dev.mysql.com/doc/refman/5.7/en/mysqlbinlog.html) narzędzi do analizowania dzienników binarnych i wyświetlania ich zawartości w formacie tekstowym, który może służyć do identyfikowania gtid transakcji.
 
-Jeśli chcesz pominąć następną transakcję po bieżącej pozycji replikacji, użyj następującego polecenia, aby zidentyfikować gtid następnej transakcji, jak pokazano poniżej.
+Procedura może pominąć transakcję dla danego GTIDu. Jeśli format GTID nie jest prawidłowy lub transakcja GTID została już wykonana, wykonanie procedury zakończy się niepowodzeniem. GTID dla transakcji można określić przez analizowanie dziennika binarnego w celu sprawdzenia zdarzeń transakcji. Program MySQL oferuje [mysqlbinlog](https://dev.mysql.com/doc/refman/5.7/en/mysqlbinlog.html) narzędzi do analizowania dzienników binarnych i wyświetlania ich zawartości w formacie tekstowym, który może służyć do identyfikowania GTID transakcji.
+
+Aby pominąć następną transakcję po bieżącej pozycji replikacji, użyj następującego polecenia, aby zidentyfikować GTID następnej transakcji, jak pokazano poniżej.
 
 ```sql
 SHOW BINLOG EVENTS [IN 'log_name'] [FROM pos][LIMIT [offset,] row_count]
 ```
+
   :::image type="content" source="./media/howto-data-in-replication/show-binary-log.png" alt-text="Pokaż wyniki dziennika binarnego":::
 
 ## <a name="next-steps"></a>Następne kroki

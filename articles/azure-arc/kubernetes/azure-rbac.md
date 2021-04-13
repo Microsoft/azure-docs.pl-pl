@@ -7,16 +7,16 @@ ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Korzystanie z usługi Azure RBAC do sprawdzania autoryzacji w klastrach Kubernetes z obsługą usługi Azure Arc
-ms.openlocfilehash: bd8029cb2772a6f6bd9821abe6acf69c9c08599d
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 0ee5f86ce12a39d86754d2e6e88263d8a03a012b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106451106"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304209"
 ---
-# <a name="azure-rbac-for-azure-arc-enabled-kubernetes-clusters"></a>Azure RBAC dla klastrów Kubernetes z obsługą usługi Azure Arc
+# <a name="integrate-azure-active-directory-with-azure-arc-enabled-kubernetes-clusters"></a>Integrowanie Azure Active Directory z obsługą klastrów Kubernetes z użyciem usługi Azure Arc
 
-Typy obiektów Kubernetes [ClusterRoleBinding i rolebinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) ułatwiają Definiowanie autoryzacji w Kubernetes natywnie. Korzystając z usługi Azure RBAC, można użyć przypisań Azure Active Directory i ról na platformie Azure do kontrolowania kontroli autoryzacji w klastrze. Oznacza to, że można teraz użyć przypisań ról platformy Azure, aby szczegółowo kontrolować, kto może odczytywać, zapisywać i usuwać obiekty Kubernetes, takie jak wdrażanie, pod i usługa
+Typy obiektów Kubernetes [ClusterRoleBinding i rolebinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) ułatwiają Definiowanie autoryzacji w Kubernetes natywnie. Korzystając z tej funkcji, można użyć przypisań Azure Active Directory i ról na platformie Azure do kontrolowania kontroli autoryzacji w klastrze. Oznacza to, że można teraz użyć przypisań ról platformy Azure, aby szczegółowo kontrolować, kto może odczytywać, zapisywać i usuwać obiekty Kubernetes, takie jak wdrażanie, pod i usługa
 
 Przegląd pojęć dotyczących tej funkcji jest dostępny w artykule [RBAC platformy Azure — Kubernetes](conceptual-azure-rbac.md) .
 
@@ -274,10 +274,10 @@ Właściciele zasobu Kubernetes z obsługą usługi Azure Arc mogą używać wbu
 
 | Rola | Opis |
 |---|---|
-| Usługa Azure Arc Kubernetes Viewer | Zezwala na dostęp tylko do odczytu do wyświetlania większości obiektów w przestrzeni nazw. Ta rola nie zezwala na wyświetlanie wpisów tajnych. Wynika to z faktu `read` , że uprawnienia do wpisów tajnych spowodują włączenie dostępu do `ServiceAccount` poświadczeń w przestrzeni nazw, co z kolei umożliwia dostęp do interfejsu API za pomocą tego `ServiceAccount` (formy eskalacji uprawnień). |
-| Składnik zapisywania usługi Azure Arc Kubernetes | Zezwala na dostęp do odczytu/zapisu do większości obiektów w przestrzeni nazw. Ta rola nie zezwala na przeglądanie ani modyfikowanie ról ani powiązań ról. Jednak ta rola umożliwia dostęp do wpisów tajnych i uruchamianie zasobników jako dowolnych `ServiceAccount` w przestrzeni nazw, dzięki czemu może służyć do uzyskania poziomów dostępu interfejsu API dowolnego `ServiceAccount` w przestrzeni nazw. |
-| Administrator usługi Azure Arc Kubernetes | Zezwala na dostęp administratora. Przeznaczone do przyznania w przestrzeni nazw za pomocą elementu Rolebinding. Jeśli jest używany w Rolibinding, zezwala na dostęp do odczytu/zapisu do większości zasobów w przestrzeni nazw, w tym możliwość tworzenia ról i powiązań ról w przestrzeni nazw. Ta rola nie zezwala na dostęp do zapisu do przydziału zasobów ani do samego obszaru nazw. |
-| Administrator klastra usługi Azure Arc Kubernetes | Zezwala administratorowi na wykonywanie dowolnej akcji dla dowolnego zasobu. W przypadku użycia w ClusterRoleBinding zapewnia pełną kontrolę nad każdym zasobem w klastrze i we wszystkich przestrzeniach nazw. W przypadku użycia w Rolibinding zapewnia pełną kontrolę nad każdym zasobem w przestrzeni nazw powiązania roli, w tym przestrzeni nazw.|
+| [Usługa Azure Arc Kubernetes Viewer](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-viewer) | Zezwala na dostęp tylko do odczytu do wyświetlania większości obiektów w przestrzeni nazw. Ta rola nie zezwala na wyświetlanie wpisów tajnych. Wynika to z faktu `read` , że uprawnienia do wpisów tajnych spowodują włączenie dostępu do `ServiceAccount` poświadczeń w przestrzeni nazw, co z kolei umożliwia dostęp do interfejsu API za pomocą tego `ServiceAccount` (formy eskalacji uprawnień). |
+| [Składnik zapisywania usługi Azure Arc Kubernetes](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-writer) | Zezwala na dostęp do odczytu/zapisu do większości obiektów w przestrzeni nazw. Ta rola nie zezwala na przeglądanie ani modyfikowanie ról ani powiązań ról. Jednak ta rola umożliwia dostęp do wpisów tajnych i uruchamianie zasobników jako dowolnych `ServiceAccount` w przestrzeni nazw, dzięki czemu może służyć do uzyskania poziomów dostępu interfejsu API dowolnego `ServiceAccount` w przestrzeni nazw. |
+| [Administrator usługi Azure Arc Kubernetes](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-admin) | Zezwala na dostęp administratora. Przeznaczone do przyznania w przestrzeni nazw za pomocą elementu Rolebinding. Jeśli jest używany w Rolibinding, zezwala na dostęp do odczytu/zapisu do większości zasobów w przestrzeni nazw, w tym możliwość tworzenia ról i powiązań ról w przestrzeni nazw. Ta rola nie zezwala na dostęp do zapisu do przydziału zasobów ani do samego obszaru nazw. |
+| [Administrator klastra usługi Azure Arc Kubernetes](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-cluster-admin) | Zezwala administratorowi na wykonywanie dowolnej akcji dla dowolnego zasobu. W przypadku użycia w ClusterRoleBinding zapewnia pełną kontrolę nad każdym zasobem w klastrze i we wszystkich przestrzeniach nazw. W przypadku użycia w Rolibinding zapewnia pełną kontrolę nad każdym zasobem w przestrzeni nazw powiązania roli, w tym przestrzeni nazw.|
 
 Można utworzyć przypisania roli do zakresu Kubernetes klastra z włączonym łukiem w `Access Control (IAM)` bloku zasobu klastra na Azure Portal. Możesz również użyć poleceń interfejsu wiersza polecenia platformy Azure, jak pokazano poniżej:
 

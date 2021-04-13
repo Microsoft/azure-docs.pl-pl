@@ -4,12 +4,12 @@ description: Ten artykuł zawiera omówienie dostępnych Azure Relay interfejsó
 ms.topic: article
 ms.custom: devx-track-dotnet
 ms.date: 06/23/2020
-ms.openlocfilehash: 98bbb1ecc7e870ff9b7687284e7087d44375d275
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 391bd74f2bce8721b6d6359f3990af494277aa45
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88935725"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312998"
 ---
 # <a name="available-relay-apis"></a>Dostępne interfejsy API przekazywania
 
@@ -49,4 +49,4 @@ Szczegółowe informacje o tych modułach znajdują się w repozytorium GitHub [
 
 Aby dowiedzieć się więcej na temat Azure Relay, odwiedź następujące linki:
 * [Co to jest usługa Azure Relay?](relay-what-is-it.md)
-* [Często zadawane pytania dotyczące usługi Relay](relay-faq.md)
+* [Często zadawane pytania dotyczące usługi Relay](relay-faq.yml)

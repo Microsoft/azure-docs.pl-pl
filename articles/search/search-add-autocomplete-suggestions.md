@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/24/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 6bc45bb6eec9dbf46e039dd1e2c32197820bb09d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b260793cc3c0b5ac3ffce8fac909e2db8991c713
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105626711"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307813"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps-using-azure-cognitive-search"></a>Dodawanie funkcji Autouzupełnianie i sugestii do aplikacji klienckich przy użyciu usługi Azure Wyszukiwanie poznawcze
 
@@ -67,7 +67,7 @@ Odpowiedzi są dostosowane do parametrów żądania:
 
 + W przypadku autouzupełniania ustaw wartość [AutoCompleteMode](/rest/api/searchservice/autocomplete#query-parameters) , aby określić, czy uzupełnianie tekstu występuje na jednym lub dwóch warunkach. 
 
-+ W przypadku sugestii Ustaw [$SELECT](/rest/api/searchservice/suggestionse#query-parameters) , aby zwracały pola zawierające unikatowe lub odróżniające wartości, takie jak nazwy i opisy. Unikaj pól, które zawierają zduplikowane wartości (takie jak kategoria lub miasto).
++ W przypadku sugestii Ustaw [$SELECT](/rest/api/searchservice/suggestions#query-parameters) , aby zwracały pola zawierające unikatowe lub odróżniające wartości, takie jak nazwy i opisy. Unikaj pól, które zawierają zduplikowane wartości (takie jak kategoria lub miasto).
 
 Następujące dodatkowe parametry mają zastosowanie zarówno do autouzupełniania, jak i sugestii, ale mogą być bardziej potrzebne w przypadku sugestii, zwłaszcza gdy Sugerowana wartość zawiera wiele pól.
 

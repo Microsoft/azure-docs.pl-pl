@@ -3,16 +3,16 @@ title: Konfigurowanie alertów i korzystanie z metryk w rozwiązaniu Azure VMwar
 description: Dowiedz się, jak odbierać powiadomienia przy użyciu alertów. Dowiedz się również, jak korzystać z metryk, aby uzyskać dokładniejszy wgląd w chmurę prywatną rozwiązania VMware platformy Azure.
 ms.topic: how-to
 ms.date: 04/02/2021
-ms.openlocfilehash: f021662658399111187e9963fc5caec434fabf4a
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 486f25eba017b2d4e37c0796909a0d26adee6ba8
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106096839"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309632"
 ---
 # <a name="configure-azure-alerts-in-azure-vmware-solution"></a>Konfigurowanie alertów platformy Azure w rozwiązaniu VMware platformy Azure 
 
-W tym artykule dowiesz się, jak skonfigurować [grupy akcji platformy Azure](/azure/azure-monitor/alerts/action-groups) w [Microsoft Azure alertach](/azure/azure-monitor/alerts/alerts-overvie) , aby otrzymywać powiadomienia o zdefiniowanych zdarzeniach wyzwalanych przez użytkownika. Dowiesz się również, jak używać [metryk Azure monitor](/azure/azure-monitor/essentials/data-platform-metrics) , aby uzyskać dokładniejszy wgląd w chmurę prywatną rozwiązania VMware platformy Azure.
+W tym artykule dowiesz się, jak skonfigurować [grupy akcji platformy Azure](/azure/azure-monitor/alerts/action-groups) w [Microsoft Azure alertach](/azure/azure-monitor/alerts/alerts-overview) , aby otrzymywać powiadomienia o zdefiniowanych zdarzeniach wyzwalanych przez użytkownika. Dowiesz się również, jak używać [metryk Azure monitor](/azure/azure-monitor/essentials/data-platform-metrics) , aby uzyskać dokładniejszy wgląd w chmurę prywatną rozwiązania VMware platformy Azure.
 
 
 ## <a name="supported-metrics-and-activities"></a>Obsługiwane metryki i działania

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/08/2021
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 6978c8588b877c065a78bfd6e99a01f9f75066f3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 25f0933c2d0b8b3c8ec227ce52c974a50a671043
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104800860"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309734"
 ---
 # <a name="hbv2-series"></a>Seria HBv2
 
@@ -23,6 +23,7 @@ Funkcja maszyn wirtualnych z serii HBv2 200 GB/s, karta Mellanox HDR InfiniBand.
 
 [Premium Storage](premium-storage-performance.md): obsługiwane<br>
 [Buforowanie Premium Storage](premium-storage-performance.md): obsługiwane<br>
+[Ultra disks](disks-types.md#ultra-disk): obsługiwane ([Dowiedz się więcej](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) o dostępności, użyciu i wydajności) <br>
 [Migracja na żywo](maintenance-and-updates.md): nieobsługiwane<br>
 [Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): nieobsługiwane<br>
 [Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>

@@ -4,12 +4,12 @@ description: W tym artykule wyjaśniono, jak odroczyć dostarczanie komunikatów
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e3a940f8aa9e72d9b09e9c0a3305521c6f17dfb0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 997aab36652b08864892f1171e2b8588ec5f06b4
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98622049"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306113"
 ---
 # <a name="message-deferral"></a>Odraczanie komunikatów
 
@@ -22,7 +22,7 @@ Prosty przykład ilustruje sekwencję przetwarzania zamówień, w której powiad
 Ostatecznie w przypadku zmiany kolejności komunikatów z zamówienia przyjęcia do kolejności, w której można je przetworzyć, pozostawiając te komunikaty bezpiecznie w magazynie komunikatów, dla którego przetwarzanie musi zostać odroczone.
 
 > [!NOTE]
-> Komunikaty odroczone nie będą automatycznie przenoszone do kolejki utraconych wiadomości [po ich wygaśnięciu](./service-bus-dead-letter-queues.md#exceeding-timetolive). To zachowanie jest zaprojektowane.
+> Komunikaty odroczone nie będą automatycznie przenoszone do kolejki utraconych wiadomości [po ich wygaśnięciu](./service-bus-dead-letter-queues.md#time-to-live). To zachowanie jest zaprojektowane.
 
 ## <a name="message-deferral-apis"></a>Interfejsy API odroczeń komunikatów
 

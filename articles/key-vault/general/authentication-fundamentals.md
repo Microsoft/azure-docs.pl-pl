@@ -1,5 +1,5 @@
 ---
-title: Podstawowe informacje dotyczące uwierzytelniania Azure Key Vault
+title: Azure Key Vault podstawowe uwierzytelnianie
 description: Dowiedz się, jak działa model uwierzytelniania magazynu kluczy
 author: ShaneBala-keyvault
 ms.author: sudbalas
@@ -7,161 +7,161 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 25f00024fb7371fd08bf6c4ceec3177cfaca029b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c43995a8b3a072d98db0ba2c8219694f17e49a26
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103572812"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363431"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Podstawy uwierzytelniania przy użyciu usługi Key Vault
 
-Azure Key Vault pozwala bezpiecznie przechowywać poświadczenia aplikacji, takie jak wpisy tajne, klucze i certyfikaty w centralnym i bezpiecznym repozytorium chmury i zarządzać nimi. Key Vault eliminuje konieczność przechowywania poświadczeń w aplikacjach. Aplikacje mogą uwierzytelniać się w celu Key Vault w czasie wykonywania w celu pobrania poświadczeń.
+Azure Key Vault umożliwia bezpieczne przechowywanie poświadczeń aplikacji, takich jak wpisy tajne, klucze i certyfikaty, oraz zarządzanie nimi w centralnym i bezpiecznym repozytorium w chmurze. Key Vault eliminuje konieczność przechowywania poświadczeń w aplikacjach. Aplikacje mogą uwierzytelniać się Key Vault w czasie rzeczywistym w celu pobrania poświadczeń.
 
-Jako administrator możesz ściśle kontrolować, którzy użytkownicy i aplikacje mogą uzyskiwać dostęp do magazynu kluczy, a także ograniczać i przeprowadzać inspekcję wykonywanych przez nie operacji. W tym dokumencie opisano podstawowe koncepcje modelu dostępu magazynu kluczy. Zapewni to wstępny poziom wiedzy i pokazuje, jak można uwierzytelnić użytkownika lub aplikację w magazynie kluczy od początku do końca.
+Jako administrator możesz ściśle kontrolować, którzy użytkownicy i aplikacje mogą uzyskać dostęp do magazynu kluczy, oraz ograniczyć i przeprowadzić inspekcję wykonywanych przez nich operacji. W tym dokumencie wyjaśniono podstawowe pojęcia dotyczące modelu dostępu do magazynu kluczy. Zapewnia ona poziom wprowadzający wiedzy i pokazuje, jak można uwierzytelniać użytkownika lub aplikację w magazynie kluczy od początku do końca.
 
 ## <a name="required-knowledge"></a>Wymagana wiedza
 
-W tym dokumencie założono, że znasz następujące pojęcia. Jeśli nie znasz żadnych z tych koncepcji, przed kontynuowaniem postępuj zgodnie z łączami pomocy.
+W tym dokumencie założono, że znasz następujące pojęcia. Jeśli nie znasz żadnego z tych pojęć, przed przystąpieniem skorzystaj z linków pomocy.
 
-* Azure Active Directory [łącze](../../active-directory/fundamentals/active-directory-whatis.md)
-* [Łącze](./authentication.md#app-identity-and-security-principals) podmiotów zabezpieczeń
+* Azure Active Directory [link](../../active-directory/fundamentals/active-directory-whatis.md)
+* Link [podmiotu](./authentication.md#app-identity-and-security-principals) zabezpieczeń
 
-## <a name="key-vault-configuration-steps-summary"></a>Podsumowanie kroków konfiguracji Key Vault
+## <a name="key-vault-configuration-steps-summary"></a>Key Vault opis kroków konfiguracji
 
 1. Zarejestruj użytkownika lub aplikację w Azure Active Directory jako podmiot zabezpieczeń.
 1. Skonfiguruj przypisanie roli dla podmiotu zabezpieczeń w Azure Active Directory.
 1. Skonfiguruj zasady dostępu magazynu kluczy dla podmiotu zabezpieczeń.
-1. Skonfiguruj dostęp Key Vault zapory do magazynu kluczy (opcjonalnie).
-1. Przetestuj możliwość uzyskiwania dostępu do magazynu kluczy przez podmiot zabezpieczeń.
+1. Skonfiguruj Key Vault dostępu zapory do magazynu kluczy (opcjonalnie).
+1. Przetestuj zdolność podmiotu zabezpieczeń do uzyskiwania dostępu do magazynu kluczy.
 
-## <a name="register-a-user-or-application-in-azure-active-directory-as-a-security-principal"></a>Rejestrowanie użytkownika lub aplikacji w Azure Active Directory jako podmiot zabezpieczeń
+## <a name="register-a-user-or-application-in-azure-active-directory-as-a-security-principal"></a>Rejestrowanie użytkownika lub aplikacji w u Azure Active Directory jako podmiot zabezpieczeń
 
-Gdy użytkownik lub aplikacja wysyła żądanie do magazynu kluczy, żądanie musi zostać najpierw uwierzytelnione przez Azure Active Directory. Aby to działało, użytkownik lub aplikacja musi zostać zarejestrowana w Azure Active Directory jako podmiot zabezpieczeń.
+Gdy użytkownik lub aplikacja wykonuje żądanie do magazynu kluczy, żądanie musi zostać najpierw uwierzytelnione przez Azure Active Directory. Aby to działało, użytkownik lub aplikacja musi być zarejestrowana w Azure Active Directory jako podmiot zabezpieczeń.
 
 Skorzystaj z poniższych linków do dokumentacji, aby dowiedzieć się, jak zarejestrować użytkownika lub aplikację w Azure Active Directory.
-**Upewnij się, że utworzono hasło do rejestracji użytkownika i klucz tajny klienta lub poświadczenie certyfikatu klienta dla aplikacji.**
+**Upewnij się, że tworzysz hasło do rejestracji użytkownika i klucz tajny klienta lub poświadczenie certyfikatu klienta dla aplikacji.**
 
 * Rejestrowanie użytkownika w Azure Active Directory [linku](../../active-directory/fundamentals/add-users-azure-active-directory.md)
 * Rejestrowanie aplikacji w Azure Active Directory [linku](../../active-directory/develop/quickstart-register-app.md)
 
-## <a name="assign-your-security-principal-a-role"></a>Przypisywanie podmiotu zabezpieczeń roli
+## <a name="assign-your-security-principal-a-role"></a>Przypisywanie roli podmiotu zabezpieczeń
 
-Za pomocą kontroli dostępu opartej na rolach (Azure RBAC) można przypisać uprawnienia do podmiotów zabezpieczeń. Te uprawnienia są nazywane przypisaniami ról.
+Możesz użyć kontroli dostępu opartej na rolach (RBAC) platformy Azure, aby przypisać uprawnienia do podmiotów zabezpieczeń. Te uprawnienia są nazywane przypisaniami ról.
 
-W kontekście magazynu kluczy te przypisania ról określają poziom dostępu podmiotu zabezpieczeń do płaszczyzny zarządzania (zwanej również płaszczyzną kontroli) magazynu kluczy. Te przypisania ról nie zapewniają bezpośredniego dostępu do kluczy tajnych płaszczyzny danych, ale zapewniają dostęp do zarządzania właściwościami magazynu kluczy. Na przykład użytkownik lub aplikacja z przypisaną **rolą czytelnika** nie będzie mogła wprowadzać zmian w ustawieniach zapory magazynu kluczy, podczas gdy użytkownik lub aplikacja przypisana do **roli współautor** może wprowadzać zmiany. Żadna rola nie będzie mieć bezpośredniego dostępu do wykonywania operacji na wpisach tajnych, kluczach i certyfikatach, takich jak tworzenie lub pobieranie ich wartości, dopóki nie zostanie przypisany dostęp do płaszczyzny danych magazynu kluczy. Zostało to omówione w następnym kroku.
+W kontekście magazynu kluczy te przypisania ról określają poziom dostępu podmiotu zabezpieczeń do płaszczyzny zarządzania (znanej także jako płaszczyzna sterowania) magazynu kluczy. Te przypisania ról nie zapewniają bezpośredniego dostępu do wpisów tajnych płaszczyzny danych, ale zapewniają dostęp do zarządzania właściwościami magazynu kluczy. Na przykład użytkownik lub aplikacja  przypisana do roli Czytelnik nie może wprowadzać zmian w ustawieniach zapory  magazynu kluczy, natomiast użytkownik lub aplikacja przypisana do roli Współautor może wprowadzać zmiany. Żadna rola nie będzie mieć bezpośredniego dostępu do wykonywania operacji na wpisach tajnych, kluczach i certyfikatach, takich jak tworzenie lub pobieranie ich wartości, dopóki nie zostanie im przypisany dostęp do płaszczyzny danych magazynu kluczy. Zostanie to uwzględnione w następnym kroku.
 
 >[!IMPORTANT]
-> Chociaż użytkownicy z rolą współautor lub owner nie mają dostępu do wykonywania operacji na wpisach tajnych przechowywanych w magazynie kluczy, domyślnie role współautor i właściciela, zapewniają uprawnienia do dodawania lub usuwania zasad dostępu do wpisów tajnych przechowywanych w magazynie kluczy. W związku z tym użytkownik z tymi przypisaniami ról może udzielić sobie dostępu do wpisów tajnych w magazynie kluczy. Z tego powodu zaleca się, aby tylko administratorzy mieli dostęp do ról współautora lub właściciela. Tylko użytkownicy i aplikacje, które muszą pobierać wpisy tajne z magazynu kluczy, powinny mieć przyznane rolę czytelnik. **Więcej szczegółów znajduje się w następnej sekcji.**
+> Mimo że użytkownicy z rolą Współautor lub Właściciel nie mają domyślnie dostępu do wykonywania operacji na wpisach tajnych przechowywanych w magazynie kluczy, role Współautor i Właściciel zapewniają uprawnienia do dodawania lub usuwania zasad dostępu do wpisów tajnych przechowywanych w magazynie kluczy. W związku z tym użytkownik z tymi przypisaniami ról może udzielić sobie dostępu do wpisów tajnych w magazynie kluczy. Z tego powodu zaleca się, aby tylko administratorzy mieli dostęp do ról Współautor lub Właściciel. Użytkownikom i aplikacjom, które muszą tylko pobierać wpisy tajne z magazynu kluczy, należy przyznać rolę Czytelnik. **Więcej szczegółów można znaleźć w następnej sekcji.**
 
 >[!NOTE]
-> Po przypisaniu roli do użytkownika na poziomie dzierżawy Azure Active Directory ten zestaw uprawnień będzie Trickle w dół do wszystkich subskrypcji, grup zasobów i zasobów w zakresie przypisania. Aby obsłużyć najwyższe uprawnienia, można przypisywać tę rolę bardziej szczegółowym zakresem. Na przykład można przypisać użytkownikowi rolę czytelnik na poziomie subskrypcji i rolę właściciela dla jednego magazynu kluczy. Przejdź do ustawień zarządzania dostępem do tożsamości (IAM) subskrypcji, grupy zasobów lub magazynu kluczy, aby przypisywać rolę z bardziej szczegółowym zakresem.
+> Po przypisaniu przypisania roli do użytkownika na poziomie dzierżawy usługi Azure Active Directory ten zestaw uprawnień będzie ujmować wszystkie subskrypcje, grupy zasobów i zasoby w zakresie przypisania. Aby postępować zgodnie z podmiotem zabezpieczeń o najmniejszych uprawnieniach, możesz określić to przypisanie roli w bardziej szczegółowym zakresie. Możesz na przykład przypisać użytkownikowi rolę Czytelnik na poziomie subskrypcji i rolę Właściciel dla pojedynczego magazynu kluczy. Przejdź do ustawień zarządzania dostępem do tożsamości (IAM) subskrypcji, grupy zasobów lub magazynu kluczy, aby wykonać przypisanie roli w bardziej szczegółowym zakresie.
 
-* Aby dowiedzieć się więcej o usłudze Azure role [link](../../role-based-access-control/built-in-roles.md)
-* Aby dowiedzieć się więcej na temat przypisywania lub usuwania [linku](../../role-based-access-control/role-assignments-portal.md) przypisań ról
+* Aby dowiedzieć się więcej o linku do ról platformy [Azure](../../role-based-access-control/built-in-roles.md)
+* Aby dowiedzieć się więcej na temat przypisywania lub usuwania przypisań [ról, link](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="configure-key-vault-access-policies-for-your-security-principal"></a>Konfigurowanie zasad dostępu magazynu kluczy dla podmiotu zabezpieczeń
 
-Przed przyznaniem dostępu dla użytkowników i aplikacji w celu uzyskania dostępu do magazynu kluczy ważne jest, aby zrozumieć różne typy operacji, które mogą być wykonywane w magazynie kluczy. Istnieją dwa główne typy operacji magazynu kluczy, płaszczyzna zarządzania (określana także jako płaszczyzna kontroli) oraz operacje płaszczyzny danych.
+Przed udzieleniem użytkownikom i aplikacjom dostępu do magazynu kluczy należy poznać różne typy operacji, które mogą być wykonywane w magazynie kluczy. Istnieją dwa główne typy operacji magazynu kluczy: operacje płaszczyzny zarządzania (nazywane również płaszczyzną sterowania) i Operacje płaszczyzny danych.
 
-W tej tabeli przedstawiono kilka przykładów różnych operacji, które są kontrolowane przez płaszczyznę zarządzania w porównaniu do płaszczyzny danych. Operacje, które zmieniają właściwości magazynu kluczy, są operacje płaszczyzny zarządzania. Operacje, które zmieniają lub pobierają wartość wpisów tajnych przechowywanych w magazynie kluczy, to operacje płaszczyzny danych.
+W tej tabeli przedstawiono kilka przykładów różnych operacji, które są kontrolowane przez płaszczyznę zarządzania i płaszczyznę danych. Operacje, które zmieniają właściwości magazynu kluczy, to operacje płaszczyzny zarządzania. Operacje, które zmieniają lub pobierają wartość wpisów tajnych przechowywanych w magazynie kluczy, są operacjami płaszczyzny danych.
 
 |Operacje płaszczyzny zarządzania (przykłady)|Operacje płaszczyzny danych (przykłady)|
 | --- | --- |
-| Utwórz Key Vault | Tworzenie klucza, wpisu tajnego, certyfikatu
-| Usuń Key Vault | Usuwanie klucza, wpisu tajnego, certyfikatu
-| Dodawanie lub usuwanie przypisań ról Key Vault | Wyświetlanie listy i pobieranie wartości kluczy, wpisów tajnych, certyfikatów
-| Dodawanie lub usuwanie zasad dostępu Key Vault | Klucze i przywracanie kopii zapasowych, wpisy tajne, certyfikaty
-| Modyfikowanie ustawień zapory Key Vault | Odnawianie kluczy, wpisów tajnych, certyfikatów
-| Modyfikowanie ustawień odzyskiwania Key Vault | Przeczyszczanie lub odzyskanie usuniętych nietrwałych kluczy, wpisów tajnych, certyfikatów
-| Modyfikowanie ustawień dzienników diagnostycznych Key Vault
+| Tworzenie Key Vault | Tworzenie klucza, klucza tajnego, certyfikatu
+| Usuwanie Key Vault | Usuwanie klucza, klucza tajnego, certyfikatu
+| Dodawanie lub usuwanie Key Vault ról | List and Get values of Keys, Secrets, Certificates
+| Dodawanie lub usuwanie Key Vault dostępu | Tworzenie kopii zapasowej i przywracanie kluczy, wpisów tajnych, certyfikatów
+| Modyfikowanie Key Vault zapory | Odnawianie kluczy, wpisów tajnych, certyfikatów
+| Modyfikowanie Key Vault odzyskiwania | Przeczyszczanie lub odzyskiwanie nieukreślone klucze, wpisy tajne, certyfikaty
+| Modyfikowanie Key Vault ustawień dzienników diagnostycznych
 
-### <a name="management-plane-access--azure-active-directory-role-assignments"></a>Dostęp do płaszczyzny zarządzania & Azure Active Directory przypisania roli
+### <a name="management-plane-access--azure-active-directory-role-assignments"></a>Dostęp do płaszczyzny & Azure Active Directory przypisań ról
 
-Przypisania ról Azure Active Directory udzielą dostępu do wykonywania operacji płaszczyzny zarządzania w magazynie kluczy. Ten dostęp jest zazwyczaj udzielany użytkownikom, a nie aplikacjom. Można ograniczyć działania płaszczyzny zarządzania, które użytkownik może wykonywać, zmieniając przypisanie roli użytkownika.
+Azure Active Directory przypisań ról przyznają dostęp do wykonywania operacji płaszczyzny zarządzania w magazynie kluczy. Ten dostęp jest zazwyczaj udzielany użytkownikom, a nie aplikacjom. Możesz ograniczyć operacje płaszczyzny zarządzania, które użytkownik może wykonywać, zmieniając przypisanie roli użytkownika.
 
-Na przykład przypisanie użytkownikowi roli czytnika Key Vault do użytkownika umożliwi użytkownikom wyświetlanie właściwości magazynu kluczy, takich jak zasady dostępu, ale nie pozwala na wprowadzanie żadnych zmian. Przypisanie użytkownika, rola właściciela umożliwi im pełny dostęp do zmiany ustawień płaszczyzny zarządzania magazynem kluczy.
+Na przykład przypisanie użytkownikowi roli czytelnika Key Vault do użytkownika umożliwi mu wyświetlanie właściwości magazynu kluczy, takich jak zasady dostępu, ale nie umożliwi mu zmiany. Przypisanie użytkownika do roli właściciela umożliwi mu pełny dostęp do zmiany ustawień płaszczyzny zarządzania magazynu kluczy.
 
-Przypisania ról są kontrolowane w bloku Magazyn kluczy Access Control (IAM). Jeśli chcesz, aby określony użytkownik miał dostęp jako czytelnik lub być administratorem wielu zasobów magazynu kluczy, możesz utworzyć przypisanie roli do magazynu, grupy zasobów lub poziomu subskrypcji, a przypisanie roli zostanie dodane do wszystkich zasobów w zakresie przypisania.
+Przypisania ról są kontrolowane w bloku magazynu kluczy Access Control (IAM). Jeśli chcesz, aby określony użytkownik miał dostęp jako czytelnik lub administrator wielu zasobów magazynu kluczy, możesz utworzyć przypisanie roli na poziomie magazynu, grupy zasobów lub subskrypcji, a przypisanie roli zostanie dodane do wszystkich zasobów w zakresie przypisania.
 
-Dostęp do płaszczyzny danych lub dostęp do wykonywania operacji dotyczących kluczy, wpisów tajnych i certyfikatów przechowywanych w magazynie kluczy można dodać na jeden z dwóch sposobów.
+Dostęp do płaszczyzny danych lub dostęp do wykonywania operacji na kluczach, wpisach tajnych i certyfikatach przechowywanych w magazynie kluczy można dodać na jeden z dwóch sposobów.
 
-### <a name="data-plane-access-option-1-classic-key-vault-access-policies"></a>Opcja dostępu do płaszczyzny danych 1: klasyczne Key Vault zasad dostępu
+### <a name="data-plane-access-option-1-classic-key-vault-access-policies"></a>Opcja dostępu do płaszczyzny danych 1: klasyczne Key Vault dostępu
 
-Zasady dostępu magazynu kluczy umożliwiają użytkownikom i aplikacjom dostęp do wykonywania operacji na płaszczyznach danych w magazynie kluczy.
+Zasady dostępu magazynu kluczy przyznają użytkownikom i aplikacjom dostęp do wykonywania operacji płaszczyzny danych w magazynie kluczy.
 
 > [!NOTE]
-> Ten model dostępu nie jest zgodny z usługą Azure RBAC dla magazynu kluczy (opcja 2) udokumentowaną poniżej. Musisz wybrać jeden z nich. Możesz wybrać tę opcję po kliknięciu karty zasady dostępu w magazynie kluczy.
+> Ten model dostępu nie jest zgodny z funkcją RBAC platformy Azure dla magazynu kluczy (opcja 2) udokumentowaną poniżej. Musisz wybrać jedną z nich. Będzie można to zrobić po kliknięciu karty Zasady dostępu w magazynie kluczy.
 
-Zasady dostępu klasycznego są szczegółowe, co oznacza, że można zezwolić lub zablokować możliwość wykonywania indywidualnych operacji przez poszczególnych użytkowników lub aplikacji w ramach magazynu kluczy. Oto kilka przykładów:
+Klasyczne zasady dostępu są szczegółowe, co oznacza, że można zezwolić lub odmówić poszczególnym użytkownikom lub aplikacjom możliwości wykonywania poszczególnych operacji w magazynie kluczy. Oto kilka przykładów:
 
-* Podmiot zabezpieczeń 1 może wykonać dowolną operację klucza, ale nie może wykonać żadnych operacji tajnych lub certyfikatów.
-* Podmiot zabezpieczeń 2 może wyświetlać i odczytywać wszystkie klucze, wpisy tajne oraz certyfikaty, ale nie może wykonywać żadnych operacji tworzenia, usuwania i odnawiania.
-* Podmiot zabezpieczeń 3 może tworzyć kopie zapasowe i przywracać wszystkie wpisy tajne, ale nie może odczytać wartości samych wpisów tajnych.
+* Podmiot zabezpieczeń 1 może wykonać dowolną operację klucza, ale nie może wykonywać żadnych operacji na kluczu tajnym lub certyfikacie.
+* Podmiot zabezpieczeń 2 może wyświetlić i odczytać wszystkie klucze, wpisy tajne i certyfikaty, ale nie może wykonywać żadnych operacji tworzenia, usuwania ani odnawiania.
+* Podmiot zabezpieczeń 3 może tworzyć kopie zapasowe i przywracać wszystkie wpisy tajne, ale nie może odczytywać wartości samych wpisów tajnych.
 
-Jednak klasyczne zasady dostępu nie zezwalają na uprawnienia na poziomie obiektu, a przypisane uprawnienia są stosowane do zakresu poszczególnych magazynów kluczy. Na przykład jeśli przyznano uprawnienia "tajne pobieranie" zasad dostępu do podmiotu zabezpieczeń w określonym magazynie kluczy, podmiot zabezpieczeń ma możliwość pobrania wszystkich wpisów tajnych w tym konkretnym magazynie kluczy. Jednak uprawnienie "Pobierz klucz tajny" nie będzie automatycznie zwiększać do innych magazynów kluczy i muszą zostać przypisane jawnie.
+Jednak klasyczne zasady dostępu nie zezwalają na uprawnienia na poziomie obiektu, a przypisane uprawnienia są stosowane do zakresu pojedynczego magazynu kluczy. Jeśli na przykład udzielisz uprawnienia zasad dostępu "Secret Get" do podmiotu zabezpieczeń w określonym magazynie kluczy, podmiot zabezpieczeń będzie mieć możliwość uzyskania wszystkich wpisów tajnych w tym konkretnym magazynie kluczy. Jednak to uprawnienie "Pobierz klucz tajny" nie będzie automatycznie rozszerzane na inne magazyny kluczy i musi być przypisane jawnie.
 
 > [!IMPORTANT]
-> Zasady dostępu do magazynu kluczy klasycznych i przypisania ról Azure Active Directory są niezależne od siebie nawzajem. Przypisanie podmiotu zabezpieczeń roli "Współautor" na poziomie subskrypcji nie spowoduje automatycznego zezwolenia podmiotowi zabezpieczeń na wykonywanie operacji w obrębie poszczególnych magazynów kluczy w ramach subskrypcji. Podmiot zabezpieczeń musi być nadal musi być udzielony lub udzielić sobie uprawnień dostępu, aby wykonywać operacje płaszczyzny danych.
+> Klasyczne zasady dostępu magazynu kluczy i Azure Active Directory ról są od siebie niezależne. Przypisanie podmiotu zabezpieczeń roli "Współautor" na poziomie subskrypcji nie umożliwi automatycznie podmiotowi zabezpieczeń wykonywania operacji na płaszczyźnie danych w każdym magazynie kluczy w zakresie subskrypcji. Podmiot zabezpieczeń nadal musi zostać udzielony lub przyznać sobie uprawnienia zasad dostępu do wykonywania operacji płaszczyzny danych.
 
-### <a name="data-plane-access-option-2--azure-rbac-for-key-vault-preview"></a>Opcja dostępu do płaszczyzny danych 2: Azure RBAC dla Key Vault (wersja zapoznawcza)
+### <a name="data-plane-access-option-2--azure-rbac-for-key-vault"></a>Opcja 2 dostępu do płaszczyzny danych: Azure RBAC for Key Vault
 
-Nowy sposób udzielenia dostępu do płaszczyzny danych magazynu kluczy polega na użyciu kontroli dostępu opartej na rolach (Azure RBAC) dla magazynu kluczy.
+Nowym sposobem udzielania dostępu do płaszczyzny danych magazynu kluczy jest korzystanie z kontroli dostępu na podstawie ról (RBAC) platformy Azure dla magazynu kluczy.
 
 > [!NOTE]
-> Ten model dostępu nie jest zgodny z klasycznymi zasadami dostępu magazynu kluczy podanymi powyżej. Musisz wybrać jeden z nich. Możesz wybrać tę opcję po kliknięciu karty zasady dostępu w magazynie kluczy.
+> Ten model dostępu nie jest zgodny z przedstawionymi powyżej klasycznymi zasadami dostępu magazynu kluczy. Musisz wybrać jedną z nich. Będzie można to zrobić po kliknięciu karty Zasady dostępu w magazynie kluczy.
 
-Przypisania ról Key Vault są zestawem wbudowanych przypisań ról platformy Azure, które obejmują wspólne zestawy uprawnień używane do uzyskiwania dostępu do kluczy, wpisów tajnych i certyfikatów. Ten model uprawnień umożliwia również dodatkowe możliwości, które nie są dostępne w modelu zasad dostępu do magazynu kluczy klasycznych.
+Key Vault są zestawem wbudowanych przypisań ról platformy Azure, które obejmują typowe zestawy uprawnień używanych do uzyskiwania dostępu do kluczy, wpisów tajnych i certyfikatów. Ten model uprawnień udostępnia również dodatkowe możliwości, które nie są dostępne w klasycznym modelu zasad dostępu magazynu kluczy.
 
-* Uprawnieniami RBAC platformy Azure można zarządzać w odpowiedniej skali, umożliwiając użytkownikom ich przypisanie do subskrypcji, grupy zasobów lub poszczególnych poziomów magazynów kluczy. Użytkownik będzie miał uprawnienia do płaszczyzny danych dla wszystkich magazynów kluczy w zakresie przypisania kontroli RBAC platformy Azure. Eliminuje to konieczność przypisywania uprawnień poszczególnych zasad dostępu dla użytkownika/aplikacji na magazyn kluczy.
+* Uprawnieniami RBAC platformy Azure można zarządzać na dużą skalę, umożliwiając użytkownikom przypisanie tych ról na poziomie subskrypcji, grupy zasobów lub indywidualnego magazynu kluczy. Użytkownik będzie miał uprawnienia płaszczyzny danych do wszystkich magazynów kluczy w zakresie przypisania RBAC platformy Azure. Eliminuje to konieczność przypisywania indywidualnych uprawnień zasad dostępu do poszczególnych użytkowników/aplikacji w magazynie kluczy.
 
-* Uprawnienia usługi Azure RBAC są zgodne z programem Privileged Identity Management lub PIM. Pozwala to na skonfigurowanie kontroli dostępu just in Time dla ról uprzywilejowanych, takich jak administrator Key Vault. Jest to najlepsze rozwiązanie w zakresie zabezpieczeń, które jest zgodne z najważniejszym poziomem uprawnień, eliminując stały dostęp do Twoich magazynów kluczy.
+* Uprawnienia RBAC platformy Azure są zgodne z Privileged Identity Management pim. Umożliwia to skonfigurowanie kontroli dostępu just in time dla ról uprzywilejowanych, takich jak Key Vault administratora. Jest to najlepsze rozwiązanie w zakresie zabezpieczeń i jest zgodna z zasadą najmniejszych uprawnień przez wyeliminowanie stałego dostępu do magazynów kluczy.
 
-Aby dowiedzieć się więcej o usłudze Azure RBAC dla Key Vault, zobacz następujące dokumenty:
+Aby dowiedzieć się więcej na temat kontroli RBAC platformy Azure Key Vault, zobacz następujące dokumenty:
 
-* [Link](./secure-your-key-vault.md#management-plane-and-azure-rbac) RBAC platformy Azure dla Key Vault
-* [Link](../../role-based-access-control/built-in-roles.md#key-vault-administrator) usługi Azure RBAC dla ról Key Vault
+* Azure RBAC for Key Vault [link](./secure-your-key-vault.md#management-plane-and-azure-rbac)
+* Link kontroli RBAC platformy Azure Key Vault [ról](../../role-based-access-control/built-in-roles.md#key-vault-administrator)
 
-## <a name="configure-key-vault-firewall"></a>Konfigurowanie zapory Key Vault
+## <a name="configure-key-vault-firewall"></a>Konfigurowanie Key Vault zapory
 
-Domyślnie Magazyn kluczy umożliwia wysyłanie danych z publicznej sieci Internet do magazynu kluczy za pośrednictwem publicznego punktu końcowego. Aby uzyskać dodatkową warstwę zabezpieczeń, można skonfigurować zaporę Azure Key Vault, aby ograniczyć dostęp do publicznego punktu końcowego magazynu kluczy.
+Domyślnie magazyn kluczy zezwala na wysyłanie ruchu z publicznego Internetu do magazynu kluczy za pośrednictwem publicznego punktu końcowego. Aby uzyskać dodatkową warstwę zabezpieczeń, można skonfigurować zaporę Azure Key Vault, aby ograniczyć dostęp do publicznego punktu końcowego magazynu kluczy.
 
-Aby włączyć zaporę magazynu kluczy, kliknij kartę Sieć w portalu magazynu kluczy i wybierz przycisk radiowy, aby zezwolić na dostęp z: "prywatny punkt końcowy i wybrane sieci". W przypadku wybrania opcji włączenia zapory magazynu kluczy są dostępne sposoby zezwalania na ruch przez zaporę magazynu kluczy.
+Aby włączyć zaporę magazynu kluczy, kliknij kartę Sieć w portalu usługi Key Vault i wybierz przycisk radiowy Zezwalaj na dostęp z: "Prywatny punkt końcowy i wybrane sieci". Jeśli włączysz zaporę magazynu kluczy, możesz zezwolić na ruch przez zaporę magazynu kluczy.
 
-* Dodaj adresy IPv4 do listy dozwolonych zapór magazynu kluczy. Ta opcja sprawdza się najlepiej w przypadku aplikacji, które mają statyczne adresy IP.
+* Dodaj adresy IPv4 do listy zezwalań zapory magazynu kluczy. Ta opcja działa najlepiej w przypadku aplikacji, które mają statyczne adresy IP.
 
-* Dodaj sieć wirtualną do zapory magazynu kluczy. Ta opcja sprawdza się najlepiej w przypadku zasobów platformy Azure, które mają dynamiczne adresy IP, takie jak Virtual Machines. Możesz dodać zasoby platformy Azure do sieci wirtualnej i dodać sieć wirtualną do listy dozwolonych zapór magazynu kluczy. Ta opcja używa punktu końcowego usługi, który jest prywatnym adresem IP w ramach sieci wirtualnej. Zapewnia to dodatkową warstwę ochrony, dlatego żaden ruch między magazynem kluczy i siecią wirtualną nie jest kierowany przez publiczny Internet. Aby dowiedzieć się więcej o punkcie końcowym usługi, zobacz następującą dokumentację. [powiązań](./network-security.md)
+* Dodaj sieć wirtualną do zapory magazynu kluczy. Ta opcja sprawdza się najlepiej w przypadku zasobów platformy Azure, które mają dynamiczne adresy IP, takie jak Virtual Machines. Możesz dodać zasoby platformy Azure do sieci wirtualnej i dodać sieć wirtualną do listy zezwalań zapory magazynu kluczy. Ta opcja używa punktu końcowego usługi, który jest prywatnym adresem IP w sieci wirtualnej. Zapewnia to dodatkową warstwę ochrony, dzięki czemu żaden ruch między magazynem kluczy a siecią wirtualną nie jest przekierowyny przez publiczny Internet. Aby dowiedzieć się więcej na temat punktu końcowego usługi, zapoznaj się z następującą dokumentacją. [Link](./network-security.md)
 
-* Dodaj połączenie prywatne z magazynem kluczy. Ta opcja nawiązuje połączenie sieci wirtualnej bezpośrednio z określonym wystąpieniem magazynu kluczy, efektywnie udostępniając swój magazyn kluczy w sieci wirtualnej. Aby dowiedzieć się więcej o konfigurowaniu połączenia prywatnego punktu końcowego z magazynem kluczy, zobacz następujący [link](./private-link-service.md) .
+* Dodaj połączenie z połączeniem prywatnym do magazynu kluczy. Ta opcja łączy sieć wirtualną bezpośrednio z konkretnym wystąpieniem magazynu kluczy, efektywnie przenosząc magazyn kluczy do sieci wirtualnej. Aby dowiedzieć się więcej na temat konfigurowania połączenia prywatnego punktu końcowego z magazynem kluczy, zobacz poniższy [link](./private-link-service.md)
 
 ## <a name="test-your-service-principals-ability-to-access-key-vault"></a>Testowanie możliwości uzyskiwania dostępu do magazynu kluczy przez jednostkę usługi
 
-Po wykonaniu wszystkich powyższych czynności będzie można ustawić i pobrać wpisy tajne z magazynu kluczy.
+Po zakończeniu wszystkich powyższych kroków będzie można ustawić i pobrać wpisy tajne z magazynu kluczy.
 
 ### <a name="authentication-process-for-users-examples"></a>Proces uwierzytelniania dla użytkowników (przykłady)
 
-* Użytkownicy mogą logować się do Azure Portal, aby korzystać z magazynu kluczy. [Przewodnik Szybki Start dotyczący Key Vault Portal](./quick-create-portal.md)
+* Użytkownicy mogą logować się do usługi Azure Portal, aby korzystać z magazynu kluczy. [Key Vault Portal Szybki start](./quick-create-portal.md)
 
-* Użytkownik może użyć interfejsu wiersza polecenia platformy Azure, aby użyć magazynu kluczy. [Key Vault szybki start interfejsu wiersza polecenia platformy Azure](./quick-create-cli.md)
+* Użytkownik może używać interfejsu wiersza polecenia platformy Azure do korzystania z magazynu kluczy. [Key Vault interfejsu wiersza polecenia platformy Azure Szybki start](./quick-create-cli.md)
 
-* Użytkownik może używać Azure PowerShell do korzystania z magazynu kluczy. [Key Vault Azure PowerShell — Szybki Start](./quick-create-powershell.md)
+* Użytkownik może używać Azure PowerShell magazynu kluczy. [Key Vault Azure PowerShell Szybki start](./quick-create-powershell.md)
 
-### <a name="azure-active-directory-authentication-process-for-applications-or-services-examples"></a>Proces uwierzytelniania Azure Active Directory dla aplikacji lub usług (przykłady)
+### <a name="azure-active-directory-authentication-process-for-applications-or-services-examples"></a>Azure Active Directory procesu uwierzytelniania dla aplikacji lub usług (przykłady)
 
-* Aplikacja udostępnia klucz tajny klienta i identyfikator klienta w funkcji, aby uzyskać token Azure Active Directory. 
+* Aplikacja udostępnia klucz tajny klienta i identyfikator klienta w funkcji w celu Azure Active Directory tokenu. 
 
-* Aplikacja udostępnia certyfikat umożliwiający uzyskanie tokenu Azure Active Directory. 
+* Aplikacja udostępnia certyfikat w celu uzyskania tokenu Azure Active Directory tokenu. 
 
-* Zasób platformy Azure używa uwierzytelniania MSI w celu uzyskania tokenu Azure Active Directory. 
+* Zasób platformy Azure używa uwierzytelniania MSI w celu uzyskania Azure Active Directory tokenu. 
 
-* Dowiedz się więcej o [łączu](../../active-directory/managed-identities-azure-resources/overview.md) uwierzytelniania MSI
+* Dowiedz się więcej o linku [uwierzytelniania](../../active-directory/managed-identities-azure-resources/overview.md) MSI
 
 ### <a name="authentication-process-for-application-python-example"></a>Proces uwierzytelniania dla aplikacji (przykład w języku Python)
 
-Użyj poniższego przykładu kodu, aby sprawdzić, czy aplikacja może pobrać wpis tajny z magazynu kluczy przy użyciu skonfigurowanej jednostki usługi.
+Użyj poniższego przykładowego kodu, aby sprawdzić, czy aplikacja może pobrać klucz tajny z magazynu kluczy przy użyciu skonfigurowanej jednostki usługi.
 
 >[!NOTE]
->Ten przykład służy tylko do celów demonstracyjnych i testowych. **nie używaj uwierzytelniania tajnego klienta w środowisku produkcyjnym** Nie jest to bezpieczna metoda projektowania. Najlepszym rozwiązaniem jest użycie certyfikatu klienta lub uwierzytelniania MSI.
+>Ten przykład jest wyłącznie do celów demonstracyjnych i testowych. **NIE UŻYWAJ UWIERZYTELNIANIA KLUCZEM TAJNYM KLIENTA W ŚRODOWISKU PRODUKCYJNYM** Nie jest to bezpieczna praktyka projektowania. Najlepszym rozwiązaniem jest użycie certyfikatu klienta lub uwierzytelniania MSI.
 
 ```python
 from azure.identity import ClientSecretCredential
@@ -194,4 +194,4 @@ if __name__ == "__main__":
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o uwierzytelnianiu magazynu kluczy bardziej szczegółowo, zapoznaj się z następującym dokumentem. [Uwierzytelnianie usługi Key Vault](./authentication.md)
+Aby dowiedzieć się więcej na temat uwierzytelniania magazynu kluczy, zobacz następujący dokument. [Uwierzytelnianie usługi Key Vault](./authentication.md)

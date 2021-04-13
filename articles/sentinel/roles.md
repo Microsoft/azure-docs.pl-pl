@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/28/2020
+ms.date: 04/11/2021
 ms.author: yelevin
-ms.openlocfilehash: 77a8e208e463b8ab20d563421d447813b1ce84ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b64adbb63efaa4ce4781474f732bc9509d51029e
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772556"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310329"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Uprawnienia w usłudze Azure Sentinel
 
@@ -31,8 +31,6 @@ Za pomocą funkcji RBAC platformy Azure można tworzyć i przypisywać role w ze
 ## <a name="roles-for-working-in-azure-sentinel"></a>Role do pracy na platformie Azure — wskaźnik
 
 ### <a name="azure-sentinel-specific-roles"></a>Role specyficzne dla usługi Azure Sentinel
-
-Istnieją trzy dedykowane wbudowane role wskaźnikowe platformy Azure.
 
 **Wszystkie wbudowane role funkcji wskaźnikowej platformy Azure umożliwiają dostęp do odczytu do danych w obszarze roboczym wskaźnikowego platformy Azure.**
 
@@ -54,19 +52,21 @@ Istnieją trzy dedykowane wbudowane role wskaźnikowe platformy Azure.
 
 Użytkownikom z określonymi wymaganiami dotyczącymi zadań może być konieczne przypisanie dodatkowych ról lub określonych uprawnień w celu wykonania ich zadań.
 
-- Praca z usługą elementy PlayBook w celu zautomatyzowania odpowiedzi na zagrożenia
+- **Praca z usługą elementy PlayBook w celu zautomatyzowania odpowiedzi na zagrożenia**
 
     Wskaźnik platformy Azure używa **elementy PlayBook** do automatycznej reakcji na zagrożenia. Elementy PlayBook są oparte na **Azure Logic Apps** i są osobnym zasobem platformy Azure. Można przypisać do określonych członków zespołu ds. operacji zabezpieczeń, który może używać Logic Apps do operacji aranżacji zabezpieczeń, automatyzacji i odpowiedzi (o). Rola [współautor aplikacji logiki](../role-based-access-control/built-in-roles.md#logic-app-contributor) służy do przypisywania jawnego uprawnienia do korzystania z elementy PlayBook.
 
-- Łączenie źródeł danych z platformą Azure — wskaźnikiem
+- **Łączenie źródeł danych z platformą Azure — wskaźnikiem**
 
     Aby użytkownik mógł dodać **Łączniki danych**, należy przypisać uprawnienia do zapisu użytkownika w obszarze roboczym wskaźnik platformy Azure. Należy również zwrócić uwagę na wymagane dodatkowe uprawnienia dla każdego łącznika, jak wymieniono na odpowiedniej stronie łącznika.
 
-- Użytkownicy-Goście przypisujący zdarzenia
+- **Użytkownicy-Goście przypisujący zdarzenia**
 
-    Jeśli użytkownik-Gość musi mieć możliwość przypisania zdarzeń, a nie roli obiektu odpowiadającego wskaźnikowi usługi Azure, należy również przypisać rolę [czytnika katalogów](../active-directory/roles/permissions-reference.md#directory-readers). Należy pamiętać, że ta rola *nie* jest rolą platformy Azure, ale rolą **Azure Active Directory** , a użytkownicy regularnie nie mają tej roli przypisanej domyślnie. 
+    Jeśli użytkownik-Gość musi mieć możliwość przypisania zdarzeń, a nie roli obiektu odpowiadającego wskaźnikowi usługi Azure, należy również przypisać rolę [czytnika katalogów](../active-directory/roles/permissions-reference.md#directory-readers). Należy pamiętać, że ta rola *nie* jest rolą platformy Azure, ale rolą **Azure Active Directory** , a użytkownicy regularnie nie mają tej roli przypisanej domyślnie.
 
-Aby zapoznać się z porównaniem równoległym, zobacz [poniższą tabelę](#roles-and-allowed-actions).
+- **Tworzenie i usuwanie skoroszytów**
+
+    Aby użytkownik mógł utworzyć i usunąć skoroszyt wskaźnikowy platformy Azure, użytkownik musi również zostać przypisany przy użyciu roli Azure Monitor [współautor monitorowania](../role-based-access-control/built-in-roles.md#monitoring-contributor). Ta rola nie jest wymagana do *używania* skoroszytów, ale tylko do tworzenia i usuwania.
 
 ### <a name="other-roles-you-might-see-assigned"></a>Inne role, które mogą zostać wyświetlone
 
@@ -74,21 +74,23 @@ Przy przypisywaniu ról platformy Azure specyficznych dla platformy Azure można
 
 - **Role platformy Azure:** [właściciel](../role-based-access-control/built-in-roles.md#owner), [współautor](../role-based-access-control/built-in-roles.md#contributor)i [czytelnik](../role-based-access-control/built-in-roles.md#reader). Role platformy Azure umożliwiają dostęp do wszystkich zasobów platformy Azure, w tym Log Analytics obszarów roboczych i zasobów wskaźnikowych platformy Azure.
 
-- **Role log Analytics:** [Log Analytics współautor](../role-based-access-control/built-in-roles.md#log-analytics-contributor) i [log Analytics Reader](../role-based-access-control/built-in-roles.md#log-analytics-reader). Role Log Analytics udzielą dostępu do Log Analytics obszarów roboczych. 
+- **Role log Analytics:** [Log Analytics współautor](../role-based-access-control/built-in-roles.md#log-analytics-contributor) i [log Analytics Reader](../role-based-access-control/built-in-roles.md#log-analytics-reader). Role Log Analytics udzielą dostępu do Log Analytics obszarów roboczych.
 
 Na przykład użytkownik, któremu przypisano rolę **czytnika** punktów kontrolnych platformy Azure, ale nie ma roli **współautor wskaźnikowego platformy Azure** , nadal będzie mógł edytować elementy na platformie Azure, jeśli przypisze rolę **współautora** na poziomie platformy Azure. W związku z tym, jeśli chcesz udzielić uprawnień użytkownikowi tylko w wskaźniku kontrolnym platformy Azure, należy uważnie usunąć wcześniejsze uprawnienia tego użytkownika i upewnić się, że nie wszystkie wymagane prawa dostępu do innego zasobu.
 
-## <a name="roles-and-allowed-actions"></a>Role i dozwolone akcje
+## <a name="azure-sentinel-roles-and-allowed-actions"></a>Role usługi Azure Sentinel i dozwolone działania
 
-W poniższej tabeli podsumowano role i dozwolone działania w usłudze Azure Sentinel. 
+Poniższa tabela zawiera Podsumowanie ról wskaźnikowych platformy Azure i ich dozwolonych działań na platformie Azure — wskaźnik.
 
-| Rola | Tworzenie i uruchamianie podręczników| Tworzenie i edytowanie skoroszytów, reguł analizy i innych zasobów usługi Azure Sentinel | Zarządzanie zdarzeniami (odrzucanie, przypisywanie itp.) | Wyświetl dane, zdarzenia, skoroszyty i inne zasoby dotyczące platformy Azure |
+| Rola | Tworzenie i uruchamianie podręczników| Tworzenie i edytowanie reguł analitycznych i innych zasobów wskaźnikowych platformy Azure [*](#workbooks) | Zarządzanie zdarzeniami (odrzucanie, przypisywanie itp.) | Wyświetl dane, zdarzenia, skoroszyty i inne zasoby dotyczące platformy Azure |
 |---|---|---|---|---|
 | Czytelnik usługi Azure Sentinel | -- | -- | -- | &#10003; |
 | Obiekt odpowiadający usługi Azure Sentinel | -- | -- | &#10003; | &#10003; |
 | Współautor usługi Azure Sentinel | -- | &#10003; | &#10003; | &#10003; |
 | Współautor Azure wskaźnikowego i współautor aplikacji logiki | &#10003; | &#10003; | &#10003; | &#10003; |
+| | | | | |
 
+<a name=workbooks></a>* Tworzenie i usuwanie skoroszytów wymaga dodatkowej roli [współautor monitorowania](../role-based-access-control/built-in-roles.md#monitoring-contributor) . Aby uzyskać więcej informacji, zobacz [Dodatkowe role i uprawnienia](#additional-roles-and-permissions).
 ## <a name="custom-roles-and-advanced-azure-rbac"></a>Niestandardowe i zaawansowane role RBAC platformy Azure
 
 - **Role niestandardowe**. Oprócz, lub zamiast, przy użyciu wbudowanych ról platformy Azure, można utworzyć role niestandardowe platformy Azure dla platformy Azure. Role niestandardowe platformy Azure dla usługi Azure wskaźnikowej są tworzone w taki sam sposób, jak w przypadku tworzenia innych [ról niestandardowych platformy](../role-based-access-control/custom-roles-rest.md#create-a-custom-role)Azure, na podstawie [określonych uprawnień do usługi Azure wskaźnikowego](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) i do [zasobów platformy Azure log Analytics](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).

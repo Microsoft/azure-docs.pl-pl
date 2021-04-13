@@ -10,25 +10,36 @@ ms.topic: reference
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 03/23/2021
-ms.openlocfilehash: fa21acc09858f4468e53788428e4928dc381a94e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/09/2021
+ms.openlocfilehash: 1d58f79d0fe8accc728c4484dd5d92159836aa88
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105107860"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305144"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limity zasobów dla pul elastycznych przy użyciu modelu zakupu rdzeń wirtualny
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Ten artykuł zawiera szczegółowe limity zasobów Azure SQL Database pul elastycznych i baz danych w puli przy użyciu modelu zakupu rdzeń wirtualny.
 
-Aby uzyskać ograniczenia modelu zakupu jednostek DTU, zobacz [SQL Database limitów zasobów jednostek DTU — pule elastyczne](resource-limits-dtu-elastic-pools.md).
+* Limity modelu zakupów jednostek DTU dla pojedynczych baz danych na serwerze można znaleźć w temacie [Omówienie limitów zasobów na serwerze](resource-limits-logical-server.md).
+* Limity zasobów modelu zakupu jednostek DTU dla Azure SQL Database można znaleźć w temacie [ograniczenia zasobów jednostek DTU pojedyncze bazy danych](resource-limits-dtu-single-databases.md) i [zasoby jednostek DTU ograniczają pule elastyczne](resource-limits-dtu-elastic-pools.md).
+* Aby uzyskać limity zasobów rdzeń wirtualny, zobacz [limity zasobów rdzeń wirtualny-Azure SQL Database](resource-limits-vcore-single-databases.md) i [rdzeń wirtualny — pule elastyczne](resource-limits-vcore-elastic-pools.md).
+* Aby uzyskać więcej informacji na temat różnych modeli zakupów, zobacz [modele zakupów i warstwy usług](purchasing-models.md).
 
 > [!IMPORTANT]
 > W pewnych okolicznościach może być konieczne zmniejszenie bazy danych w celu Odbierz nieużywanej przestrzeni. Aby uzyskać więcej informacji, zobacz [Zarządzanie obszarem plików w Azure SQL Database](file-space-manage.md).
 
-Za pomocą [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerShell](elastic-pool-manage.md#powershell), interfejsu [wiersza polecenia platformy Azure](elastic-pool-manage.md#azure-cli)lub [interfejsu API REST](elastic-pool-manage.md#rest-api)można ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miejsca do magazynowania.
+Każda replika tylko do odczytu ma własne zasoby, takie jak rdzeni wirtualnych, Memory, IOPS danych, TempDB, procesy robocze i sesje. Każda replika tylko do odczytu podlega limitom zasobów opisanym w dalszej części tego artykułu.
+
+Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miejsca do magazynowania, korzystając z:
+
+* [Transact-SQL](elastic-pool-scale.md) za pośrednictwem [polecenia ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
+* [Witryna Azure Portal](elastic-pool-manage.md#azure-portal)
+* [Program PowerShell](elastic-pool-manage.md#powershell)
+* [Interfejs wiersza polecenia platformy Azure](elastic-pool-manage.md#azure-cli)
+* [Interfejs API REST](elastic-pool-manage.md#rest-api)
 
 > [!IMPORTANT]
 > Aby uzyskać wskazówki dotyczące skalowania i zagadnienia, zobacz [skalowanie elastycznej puli](elastic-pool-scale.md).
