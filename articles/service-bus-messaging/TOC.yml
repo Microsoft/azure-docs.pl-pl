@@ -92,12 +92,20 @@
   items:
     - name: 'Kolejki, tematy i subskrypcje'
       href: service-bus-queues-topics-subscriptions.md
+    - name: Sesje komunikatów
+      href: message-sessions.md
     - name: Filtry tematów i akcje
       href: topic-filters.md
     - name: Obsługa komunikatów Premium
       href: service-bus-premium-messaging.md
     - name: Porównanie kolejek platformy Azure i kolejek usługi Service Bus
       href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
+    - name: 'Transferowanie, blokady i uzgadnianie komunikatów'
+      href: message-transfers-locks-settlement.md
+    - name: Kolejki utraconych wiadomości
+      href: service-bus-dead-letter-queues.md
+    - name: Liczniki komunikatów
+      href: message-counters.md
     - name: Optymalizowanie wydajności
       href: service-bus-performance-improvements.md
     - name: Federacja
@@ -162,16 +170,12 @@
           href: service-bus-filter-examples.md
         - name: Obsługa komunikatów
           items:
-            - name: 'Kolejki, tematy i subskrypcje'
-              href: service-bus-queues-topics-subscriptions.md
             - name: 'Jednostki usługi wiadomości Java (JMS) 2,0'
               href: java-message-service-20-entities.md
             - name: Usługa wiadomości języka Java (JMS) Developer guide.md
               href: jms-developer-guide.md
             - name: 'Komunikaty, ładunki i serializacja'
               href: service-bus-messages-payloads.md
-            - name: 'Transferowanie, blokady i uzgadnianie komunikatów'
-              href: message-transfers-locks-settlement.md
             - name: Sekwencjonowanie i sygnatury czasowe komunikatów
               href: message-sequencing.md
             - name: Wygaśnięcie komunikatu (czas wygaśnięcia)
@@ -180,8 +184,6 @@
           href: service-bus-migrate-standard-premium.md
         - name: Partycjonowane kolejki i tematy
           href: service-bus-partitioning.md
-        - name: Sesje komunikatów
-          href: message-sessions.md
         - name: AMQP
           items:
             - name: Omówienie protokołu AMQP
@@ -198,14 +200,10 @@
               href: service-bus-amqp-troubleshoot.md
         - name: Funkcje zaawansowane
           items:
-            - name: Kolejki utraconych wiadomości
-              href: service-bus-dead-letter-queues.md
             - name: Komunikaty pobrane z wyprzedzeniem
               href: service-bus-prefetch.md
             - name: Wykrywanie zduplikowanych komunikatów
               href: duplicate-detection.md
-            - name: Liczniki komunikatów
-              href: message-counters.md
             - name: Odraczanie komunikatów
               href: message-deferral.md
             - name: Przeglądanie komunikatów

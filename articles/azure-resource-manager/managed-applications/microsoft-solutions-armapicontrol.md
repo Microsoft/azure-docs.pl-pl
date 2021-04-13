@@ -5,14 +5,14 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: bbe36e072d10b81c421331b2212d8b161afd2693
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fdc299ef1945e3ee0810f1c314fc07edfb4f4873
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87098155"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313304"
 ---
-# <a name="microsoftcommonarmapicontrol-ui-element"></a>Microsoft. Common. ArmApiControl — element interfejsu użytkownika
+# <a name="microsoftsolutionsarmapicontrol-ui-element"></a>Microsoft. Solutions. ArmApiControl — element interfejsu użytkownika
 
 ArmApiControl umożliwia uzyskanie wyników z Azure Resource Manager operacji interfejsu API. Użyj wyników, aby wypełnić zawartość dynamiczną w innych kontrolkach.
 
@@ -46,7 +46,14 @@ Dane wyjściowe kontrolki nie są wyświetlane użytkownikowi. Zamiast tego wyni
 ## <a name="remarks"></a>Uwagi
 
 - `request.method`Właściwość określa metodę http. `GET` `POST` Dozwolone są tylko lub.
-- `request.path`Właściwość określa ścieżkę względną adresu URL. Może być ścieżką statyczną lub można ją utworzyć dynamicznie przez odwołując wartości wyjściowe innych kontrolek.
+- `request.path`Właściwość określa adres URL, który musi być ścieżką względną do punktu końcowego ARM. Może być ścieżką statyczną lub można ją utworzyć dynamicznie przez odwołując wartości wyjściowe innych kontrolek.
+
+  Na przykład wywołanie usługi ARM do `Microsoft.Network/expressRouteCircuits` dostawcy zasobów:
+
+  ```json
+  "path": "<subid>/resourceGroup/<resourceGroupName>/providers/Microsoft.Network/expressRouteCircuits/<routecircuitName>/?api-version=2020-05-01"
+  ```
+
 - `request.body`Właściwość jest opcjonalna. Służy do określania treści JSON wysyłanej wraz z żądaniem. Treść może być zawartością statyczną lub być generowana dynamicznie przez odwołanie do wartości wyjściowych z innych kontrolek.
 
 ## <a name="example"></a>Przykład
@@ -81,5 +88,5 @@ Przykład użycia ArmApiControl do sprawdzenia dostępności nazwy zasobu można
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Wprowadzenie do tworzenia definicji interfejsu użytkownika można znaleźć w temacie [wprowadzenie do CreateUiDefinition](create-uidefinition-overview.md).
-* Opis wspólnych właściwości elementów interfejsu użytkownika można znaleźć w temacie [CreateUiDefinition elementy](create-uidefinition-elements.md).
+- Wprowadzenie do tworzenia definicji interfejsu użytkownika można znaleźć w temacie [wprowadzenie do CreateUiDefinition](create-uidefinition-overview.md).
+- Opis wspólnych właściwości elementów interfejsu użytkownika można znaleźć w temacie [CreateUiDefinition elementy](create-uidefinition-elements.md).

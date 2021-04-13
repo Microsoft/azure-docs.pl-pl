@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: Azure Certified Device Certification Requirements
 ms.service: certification
-ms.openlocfilehash: 948fe25da8468e887693fe8c9f75f675dfbea858
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 497ffa4b3026491d6aa95df87708b3b1f2f1619e
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105969405"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308289"
 ---
 # <a name="azure-certified-device-requirements"></a>Wymagania dotyczące urządzeń z certyfikatem platformy Azure 
 (wcześniej znane jako IoT Hub)
@@ -40,7 +40,7 @@ Obietnica certyfikacji urządzeń z certyfikatem platformy Azure:
 | **Dotyczy**          | Urządzenie liścia/Urządzenie brzegowe                                      |
 | **System operacyjny**                  | Bez znaczenia                                                     |
 | **Typ walidacji**     | Automatyczny                                                    |
-| **Walidacja**          | Urządzenie musi wysyłać do IoT Hub wszystkie schematy telemetrii. Firma Microsoft udostępnia [przepływ pracy portalu](https://certify.azure.come) do wykonywania testów. Urządzenie do chmury (wymagane): **1.** Sprawdza, czy urządzenie może wysyłać komunikat do AICS zarządzanego IoT Hub **2.** Użytkownik musi określić liczbę i częstotliwość komunikatów. **3.** AICS sprawdza, czy dane telemetryczne są odbierane przez wystąpienie centrum |
+| **Walidacja**          | Urządzenie musi wysyłać do IoT Hub wszystkie schematy telemetrii. Firma Microsoft udostępnia [przepływ pracy portalu](https://certify.azure.com/) do wykonywania testów. Urządzenie do chmury (wymagane): **1.** Sprawdza, czy urządzenie może wysyłać komunikat do AICS zarządzanego IoT Hub **2.** Użytkownik musi określić liczbę i częstotliwość komunikatów. **3.** AICS sprawdza, czy dane telemetryczne są odbierane przez wystąpienie centrum |
 | **Zasoby**           | [Kroki certyfikacji](./overview.md) (zawiera wszystkie dodatkowe zasoby) |
 
 **Potrzeb DPS: przeznaczenie testu polega na sprawdzeniu, czy urządzenie implementuje i obsługuje IoT Hub Device Provisioning Service przy użyciu jednej z trzech metod zaświadczania**

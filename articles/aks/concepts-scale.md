@@ -4,12 +4,12 @@ description: Dowiedz się więcej na temat skalowania w usłudze Azure Kubernete
 services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: b72ed7cefc6a16eb484e1337dbd64e5f069a2201
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f6d2121403361c4225a7e0e64411875d83d93194
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94686042"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305739"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opcje skalowania aplikacji w usłudze Azure Kubernetes Service 
 
@@ -26,7 +26,7 @@ W tym artykule przedstawiono podstawowe pojęcia, które ułatwiają skalowanie 
 
 W celu przetestowania, w jaki sposób aplikacja reaguje na zmianę w dostępnych zasobach i stanie, można ręcznie skalować repliki (na podst.) i węzły. Ręczne skalowanie zasobów pozwala także zdefiniować określoną ilość zasobów do użycia w celu utrzymania stałego kosztu, takiego jak liczba węzłów. Aby ręcznie skalować, należy zdefiniować replikę lub liczbę węzłów. Interfejs API Kubernetes następnie tworzy harmonogram tworzenia dodatkowych węzłów lub opróżniania w oparciu o tę replikę lub liczbę węzłów.
 
-Podczas skalowania węzłów w dół interfejs API Kubernetes wywołuje odpowiedni interfejs API obliczeń platformy Azure związany z typem obliczeń używanym przez klaster. Na przykład w przypadku klastrów opartych na VM Scale Sets logiki do wybierania węzłów do usunięcia jest określana przez VM Scale Sets API. Aby dowiedzieć się więcej o tym, jak węzły są wybrane do usunięcia podczas skalowania, zobacz [często zadawane pytania](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed)dotyczące usługi VMSS.
+Podczas skalowania węzłów w dół interfejs API Kubernetes wywołuje odpowiedni interfejs API obliczeń platformy Azure związany z typem obliczeń używanym przez klaster. Na przykład w przypadku klastrów opartych na VM Scale Sets logiki do wybierania węzłów do usunięcia jest określana przez VM Scale Sets API. Aby dowiedzieć się więcej o tym, jak węzły są wybrane do usunięcia podczas skalowania, zobacz [często zadawane pytania](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml#if-i-reduce-my-scale-set-capacity-from-20-to-15--which-vms-are-removed-)dotyczące usługi VMSS.
 
 Aby rozpocząć pracę z ręcznym skalowaniem i węzłami, zobacz [skalowanie aplikacji w AKS][aks-scale].
 

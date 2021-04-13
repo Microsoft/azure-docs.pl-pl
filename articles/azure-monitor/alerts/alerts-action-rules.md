@@ -2,13 +2,13 @@
 title: Reguły akcji dla alertów Azure Monitor
 description: Informacje o regułach akcji w Azure Monitor są i sposobami ich konfigurowania i zarządzania nimi.
 ms.topic: conceptual
-ms.date: 03/15/2021
-ms.openlocfilehash: 12e7cf8e72c5423b4a2edd6ea2a0f4537e328b08
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/08/2021
+ms.openlocfilehash: df71883d04106dd341af4571c13cc55f35a1ecc3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105036785"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304821"
 ---
 # <a name="action-rules-preview"></a>Reguły akcji (wersja zapoznawcza)
 
@@ -67,7 +67,7 @@ Dostępne są następujące filtry:
 
 * **Ważność**  
 Ta reguła będzie stosowana tylko do alertów z wybranymi serwerami.  
-Na przykład **ważność = Sev1** oznacza, że reguła będzie stosowana tylko do alertów o ważności Sev1.
+Na przykład **ważność = "Sev1"** oznacza, że reguła będzie stosowana tylko do alertów o ważności Sev1.
 * **Monitorowanie usługi**  
 Ta reguła będzie stosowana tylko do alertów pochodzących z wybranych usług monitorowania.  
 Na przykład **monitorowanie Service = "Azure Backup"** oznacza, że reguła będzie stosowana tylko do alertów kopii zapasowych (pochodzących z Azure Backup).
@@ -79,7 +79,7 @@ Ta reguła będzie stosowana tylko do alertów pochodzących z określonej regu�
 Na przykład **reguła alertu ID = "/subscriptions/SubId1/resourceGroups/RG1/Providers/Microsoft.Insights/metricalerts/API-Latency"** oznacza, że ta reguła będzie stosowana tylko do alertów pochodzących z reguły alertu metryki "opóźnienie interfejsu API".  
 _Uwaga — Możesz uzyskać odpowiedni identyfikator reguły alertu, wyświetlając listę reguł alertów z interfejsu wiersza polecenia lub otwierając konkretną regułę alertu w portalu, klikając pozycję "właściwości" i kopiując wartość "Identyfikator zasobu"._
 * **Warunek monitorowania**  
-Ta reguła zostanie zastosowana tylko do zdarzeń alertów z określonym warunkiem monitora — są one **wywoływane** lub **rozwiązane**.
+Ta reguła zostanie zastosowana tylko do zdarzeń alertów z określonym warunkiem monitora — **"uruchomiły się"** lub **"rozwiązany"**.
 * **Opis**  
 Ta reguła zostanie zastosowana tylko do alertów, które zawierają określony ciąg w polu Opis alertu. To pole zawiera opis reguły alertu.  
 Na przykład **Opis zawiera "prod"** oznacza, że reguła będzie pasować tylko do alertów, które zawierają ciąg "prod" w opisie.
@@ -87,7 +87,14 @@ Na przykład **Opis zawiera "prod"** oznacza, że reguła będzie pasować tylko
 Ta reguła zostanie zastosowana tylko do alertów, które zawierają jedną lub więcej konkretnych wartości w polach kontekstu alertu.  
 Na przykład **kontekst alertu (ładunek) zawiera "Computer-01"** oznacza, że reguła będzie stosowana tylko do alertów, których ładunek zawiera ciąg "Computer-01".
 
-W przypadku ustawienia wielu filtrów w regule zostaną zastosowane wszystkie z nich. Na przykład jeśli ustawisz **Typ zasobu "= Virtual Machines** i **ważność" = Sev0**, reguła zostanie zastosowana tylko w przypadku alertów Sev0 na maszynach wirtualnych.
+> [!NOTE]
+> Każdy filtr może zawierać maksymalnie pięć wartości.  
+> Na przykład filtr usługi monitor może zawierać maksymalnie pięć nazw usług monitorowania.
+
+
+
+
+W przypadku ustawienia wielu filtrów w regule zostaną zastosowane wszystkie z nich. Na przykład jeśli ustawisz **Typ zasobu = "Virtual Machines"** i **ważność = "Sev0"**, reguła zostanie zastosowana tylko w przypadku alertów Sev0 na maszynach wirtualnych.
 
 ![Filtry reguł akcji](media/alerts-action-rules/action-rules-new-rule-creation-flow-filters.png)
 

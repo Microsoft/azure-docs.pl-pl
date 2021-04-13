@@ -5,17 +5,17 @@ description: Opcje ochrony danych dostępne dla Blob Storage i Azure Data Lake S
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/22/2021
+ms.date: 04/09/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: prishet
 ms.subservice: common
-ms.openlocfilehash: afd98e629500bc90cc9ddd1ed4ab2472f733e845
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 90c83397089b77d30694041a37debc0731ea2a38
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104803797"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304260"
 ---
 # <a name="data-protection-overview"></a>Omówienie ochrony danych
 
@@ -30,7 +30,7 @@ Jeśli szukasz podstawowego zakresu ochrony danych dla konta magazynu i danych, 
 - Skonfiguruj blokadę Azure Resource Manager na koncie magazynu, aby chronić konto przed usunięciem lub zmianą konfiguracji. [Dowiedz się więcej...](../common/lock-account-resource.md)
 - Włącz nietrwałe usunięcie kontenera dla konta magazynu w celu odzyskania usuniętego kontenera i jego zawartości. [Dowiedz się więcej...](soft-delete-container-enable.md)
 - Zapisz stan obiektu BLOB w regularnych odstępach czasu:
-  - W przypadku obciążeń Blob Storage należy włączyć obsługę wersji obiektów blob, aby automatycznie zapisywał stan danych za każdym razem, gdy obiekt BLOB zostanie usunięty lub nadpisany. [Dowiedz się więcej...](versioning-enable.md)
+  - W przypadku obciążeń Blob Storage należy włączyć obsługę wersji obiektów blob, aby automatycznie zapisywał stan danych za każdym razem, gdy obiekt BLOB zostanie nadpisany. [Dowiedz się więcej...](versioning-enable.md)
   - W przypadku obciążeń Azure Data Lake Storage wykonaj ręcznie migawki w celu zapisania stanu danych w konkretnym momencie. [Dowiedz się więcej...](snapshots-overview.md)
 
 Te opcje, a także dodatkowe opcje ochrony danych dla innych scenariuszy, zostały opisane bardziej szczegółowo w poniższej sekcji.
@@ -46,7 +46,7 @@ Poniższa tabela zawiera podsumowanie opcji dostępnych w usłudze Azure Storage
 | Zapobiegaj usunięciu lub zmodyfikowaniu konta magazynu. | Blokada Azure Resource Manager<br />[Dowiedz się więcej...](../common/lock-account-resource.md) | Zablokuj wszystkie konta magazynu z blokadą Azure Resource Manager, aby zapobiec usunięciu konta magazynu. | Chroni konto magazynu przed usunięciem lub zmianą konfiguracji.<br /><br />Nie chroni kontenerów ani obiektów BLOB na koncie przed ich usunięciem lub zastąpieniem. | Tak |
 | Zapobiegaj usuwaniu i modyfikowaniu kontenera oraz jego obiektów BLOB dla interwału, który kontrolujesz. | Zasady niezmienności w kontenerze<br />[Dowiedz się więcej...](storage-blob-immutable-storage.md) | Ustaw zasady niezmienności w kontenerze, aby chronić dokumenty o krytycznym znaczeniu dla firmy, na przykład w celu spełnienia wymagań prawnych lub przepisów dotyczących zgodności. | Chroni kontener i jego obiekty blob ze wszystkich usunięć i nadpisań.<br /><br />Gdy obowiązuje Blokada prawna lub zablokowana zasada przechowywania oparta na czasie, konto magazynu również jest chronione przed usunięciem. Kontenery, dla których nie ustawiono zasad niezmiennościymi, nie są chronione przed usunięciem. | Tak, w wersji zapoznawczej |
 | Przywracanie usuniętego kontenera w określonym interwale. | Usuwanie nietrwałe kontenera (wersja zapoznawcza)<br />[Dowiedz się więcej...](soft-delete-container-overview.md) | Włącz usuwanie nietrwałe kontenera dla wszystkich kont magazynu z minimalnym interwałem przechowywania wynoszącym 7 dni.<br /><br />Włącz obsługę wersji obiektów blob oraz usuwanie nietrwałego obiektu BLOB z użyciem nietrwałego usuwania kontenera, aby chronić poszczególne obiekty blob w kontenerze.<br /><br />Kontenery magazynu, które wymagają różnych okresów przechowywania na oddzielnych kontach magazynu. | Usunięty kontener i jego zawartość mogą zostać przywrócone w okresie przechowywania.<br /><br />Można przywrócić tylko operacje na poziomie kontenera (np. [usuwanie kontenerów](/rest/api/storageservices/delete-container)). Usuwanie nietrwałe kontenera nie pozwala na przywrócenie pojedynczego obiektu BLOB w kontenerze, jeśli ten obiekt BLOB zostanie usunięty. | Tak, w wersji zapoznawczej |
-| Automatycznie Zapisz stan obiektu BLOB w poprzedniej wersji, gdy zostanie on nadpisany lub usunięty. | Przechowywanie wersji obiektów BLOB<br />[Dowiedz się więcej...](versioning-overview.md) | Włącz przechowywanie wersji obiektów BLOB wraz z usuwaniem nietrwałym kontenera i usuwaniem nietrwałym obiektów BLOB dla kont magazynu, dla których potrzebna jest optymalna ochrona danych obiektów BLOB.<br /><br />Przechowuj dane obiektów blob, które nie wymagają przechowywania wersji na osobnym koncie, aby ograniczyć koszty. | Wszystkie operacje zastępowania obiektu BLOB lub usuwania tworzą nową wersję. Obiekt BLOB może zostać przywrócony z poprzedniej wersji, jeśli obiekt BLOB został usunięty lub zastąpiony. | Nie |
+| Automatycznie Zapisz stan obiektu BLOB w poprzedniej wersji, gdy zostanie on nadpisany. | Przechowywanie wersji obiektów BLOB<br />[Dowiedz się więcej...](versioning-overview.md) | Włącz przechowywanie wersji obiektów BLOB wraz z usuwaniem nietrwałym kontenera i usuwaniem nietrwałym obiektów BLOB dla kont magazynu, dla których potrzebna jest optymalna ochrona danych obiektów BLOB.<br /><br />Przechowuj dane obiektów blob, które nie wymagają przechowywania wersji na osobnym koncie, aby ograniczyć koszty. | Każda operacja zapisu obiektu BLOB tworzy nową wersję. Bieżąca wersja obiektu BLOB może zostać przywrócona z poprzedniej wersji, jeśli bieżąca wersja została usunięta lub zastąpiona. | Nie |
 | Przywracanie usuniętego obiektu BLOB lub wersji obiektu BLOB w określonym interwale. | Usuwanie nietrwałe obiektów BLOB<br />[Dowiedz się więcej...](soft-delete-blob-overview.md) | Włącz usuwanie nietrwałe obiektów BLOB dla wszystkich kont magazynu z minimalnym interwałem przechowywania wynoszącym 7 dni.<br /><br />Włącz obsługę wersji obiektów blob i Usuń nietrwałe kontenery wraz z usuwaniem nietrwałego obiektu BLOB w celu zapewnienia optymalnej ochrony danych obiektów BLOB.<br /><br />Przechowuj obiekty blob, które wymagają różnych okresów przechowywania w oddzielnym koncie magazynu. | Usunięty obiekt BLOB lub wersja obiektu BLOB mogą zostać przywrócone w ramach okresu przechowywania. | Nie |
 | Przywróć zestaw blokowych obiektów BLOB do wcześniejszego punktu w czasie. | Przywracanie do określonego momentu<br />[Dowiedz się więcej...](point-in-time-restore-overview.md) | Aby użyć przywracania do określonego momentu w celu przywrócenia wcześniejszego stanu, Zaprojektuj aplikację w celu usunięcia pojedynczych blokowych obiektów BLOB zamiast usuwania kontenerów. | Zestaw blokowych obiektów BLOB może zostać przywrócony do ich stanu w określonym punkcie w przeszłości.<br /><br />Przywracane są tylko operacje wykonywane na blokowych obiektach Blob. Wszelkie operacje wykonywane na kontenerach, stronicowych obiektach Blob lub dołączanych obiektach Blob nie są przywracane. | Nie |
 | Ręcznie Zapisz stan obiektu BLOB w danym momencie. | Migawka obiektu BLOB<br />[Dowiedz się więcej...](snapshots-overview.md) | Zalecane jako alternatywa dla wersji obiektów blob, gdy przechowywanie wersji nie jest odpowiednie dla danego scenariusza, ze względu na koszty lub inne zagadnienia, lub jeśli konto magazynu ma włączoną hierarchiczną przestrzeń nazw. | Obiekt BLOB może zostać przywrócony z migawki, jeśli obiekt BLOB zostanie zastąpiony. Jeśli obiekt BLOB zostanie usunięty, migawki również zostaną usunięte. | Tak, w wersji zapoznawczej |

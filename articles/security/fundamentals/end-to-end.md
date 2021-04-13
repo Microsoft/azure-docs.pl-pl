@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 4/07/2021
 ms.author: terrylan
-ms.openlocfilehash: be270383b868abb7e2865920f4a3852e2f6210dc
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 3ea3c2bcb878dbd8a712e6076dda09853f55e297
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107031422"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310346"
 ---
 # <a name="end-to-end-security-in-azure"></a>Kompleksowe zabezpieczenia na platformie Azure
 Jednym z najlepszych powodów używania platformy Azure dla aplikacji i usług jest skorzystanie z zalet szerokiej gamy narzędzi i możliwości zabezpieczeń. Te narzędzia i funkcje ułatwiają tworzenie bezpiecznych rozwiązań na bezpiecznej platformie Azure. Microsoft Azure zapewnia poufność, integralność i dostępność danych klientów, a także umożliwia przejrzyste odpowiedzialności.
@@ -63,8 +63,8 @@ Program [testów wydajności Azure](../benchmarks/introduction.md) zawiera zbió
 | [Usługa Azure DDoS Protection w warstwie Standardowa](../../ddos-protection/ddos-protection-overview.md) | Zapewnia ulepszone funkcje ograniczenia DDoS, aby chronić przed atakami DDoS. Jest on automatycznie dostosowany do ochrony określonych zasobów platformy Azure w sieci wirtualnej. |
 | [Azure Front Door](../../frontdoor/front-door-overview.md) | Globalny, skalowalny punkt wejścia, który używa sieci Microsoft Global Edge do tworzenia szybkich, bezpiecznych i skalowalnych aplikacji sieci Web. |
 | [Azure Firewall](../../firewall/overview.md) | Zarządzana, oparta na chmurze usługa zabezpieczeń sieci, która chroni zasoby Virtual Network platformy Azure. Jest to w pełni stanowa zapora jako usługa z wbudowaną wysoką dostępnością i możliwością nieograniczonego skalowania w chmurze. |
-| [Usługa Azure Key Vault](../../key-vault/general/overview.md) | Zarządzana, oparta na chmurze usługa zabezpieczeń sieci, która chroni zasoby Virtual Network platformy Azure. Jest to w pełni stanowa zapora jako usługa z wbudowaną wysoką dostępnością i możliwością nieograniczonego skalowania w chmurze. |
-| [Key Vault Managed HSDM (wersja zapoznawcza)](../../key-vault/managed-hsm/overview.md) | W pełni zarządzana usługa w chmurze o wysokiej dostępności, która jest zgodna ze standardami, która umożliwia Zabezpieczanie kluczy kryptograficznych dla aplikacji w chmurze przy użyciu zweryfikowanych sprzętowych modułów zabezpieczeń poziomu 3 w trybie FIPS 140-2. |
+| [Usługa Azure Key Vault](../../key-vault/general/overview.md) | Bezpieczny magazyn wpisów tajnych dla tokenów, haseł, certyfikatów, kluczy interfejsu API i innych wpisów tajnych. Key Vault można również użyć do tworzenia i kontrolowania kluczy szyfrowania używanych do szyfrowania danych. |
+| [Key Vault zarządzanego modułu HSM (wersja zapoznawcza)](../../key-vault/managed-hsm/overview.md) | W pełni zarządzana usługa w chmurze o wysokiej dostępności, która jest zgodna ze standardami, która umożliwia Zabezpieczanie kluczy kryptograficznych dla aplikacji w chmurze przy użyciu zweryfikowanych sprzętowych modułów zabezpieczeń poziomu 3 w trybie FIPS 140-2. |
 | [Link prywatny platformy Azure](../../private-link/private-link-overview.md) | Umożliwia dostęp do usług Azure PaaS Services (na przykład Azure Storage i SQL Database) oraz hostowanych przez klienta usług partnerskich/partnerów platformy Azure za pośrednictwem prywatnego punktu końcowego w sieci wirtualnej. |
 | [Usługa Azure Application Gateway](../../application-gateway/overview.md) | Zaawansowany moduł równoważenia obciążenia sieci Web, który umożliwia zarządzanie ruchem do aplikacji sieci Web. Application Gateway może podejmować decyzje dotyczące routingu na podstawie dodatkowych atrybutów żądania HTTP, na przykład ścieżki URI lub nagłówków hosta. |
 | [Azure Service Bus](../../service-bus-messaging/service-bus-messaging-overview.md) | W pełni zarządzany Broker komunikatów przedsiębiorstwa z kolejkami komunikatów i tematami publikowania/subskrybowania. Service Bus jest używany do oddzielania aplikacji i usług od siebie nawzajem. |

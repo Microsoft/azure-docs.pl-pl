@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: 3c938e7fe180e6a9cf08031a2a4565486f3f77a9
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: d86cc6af34036f5bd638b4fc78abdb54d71e6859
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504638"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306521"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>Limity przepływności pozyskiwania strumieniowego
 
@@ -59,7 +59,7 @@ Podczas planowania środowiska Azure Time Series Insights Gen2 należy wziąć p
 
 *Partycja* to uporządkowana sekwencja zdarzeń przechowywanych w centrum. Liczba partycji jest ustawiana podczas fazy tworzenia centrum i nie można jej zmienić.
 
-Aby zapoznać się z najlepszymi rozwiązaniami dotyczącymi partycjonowania Event Hubs, sprawdź, [ile partycji jest potrzebnych?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
+Aby zapoznać się z najlepszymi rozwiązaniami dotyczącymi partycjonowania Event Hubs, sprawdź, [ile partycji jest potrzebnych?](../event-hubs/event-hubs-faq.yml#how-many-partitions-do-i-need-)
 
 > [!NOTE]
 > Większość centrów IoT używanych z programem Azure Time Series Insights Gen2 potrzebuje tylko czterech partycji.

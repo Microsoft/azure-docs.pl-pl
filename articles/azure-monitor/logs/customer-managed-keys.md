@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: 9fdaf42f18c320bf841e710b7066451fca24eaae
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fdd62ebfe992398d33d2851a1aa1c66497296b5d
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102030991"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311196"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Klucz zarządzany przez klienta usługi Azure Monitor 
 
@@ -59,7 +59,7 @@ Mają zastosowanie następujące zasady:
 - Konta magazynu klastra Log Analytics generują unikatowy klucz szyfrowania dla każdego konta magazynu, który jest znany jako AEK.
 - AEK jest używany do wyprowadzania DEKs, które są kluczami, które są używane do szyfrowania poszczególnych bloków danych zapisywana na dysku.
 - W przypadku konfigurowania klucza w Key Vault i odwoływania się do niego w klastrze usługa Azure Storage wysyła żądania do Azure Key Vault, aby zawijać i deAEKać dane w celu szyfrowania i odszyfrowywania danych.
-- KEK nigdy nie opuści Key Vault i w przypadku klucza HSM nigdy nie opuszcza sprzętu.
+- Twoje KEK nigdy nie opuściją Key Vault.
 - Usługa Azure Storage korzysta z zarządzanej tożsamości skojarzonej z zasobem *klastra* w celu uwierzytelniania i dostępu do Azure Key Vault za pośrednictwem Azure Active Directory.
 
 ### <a name="customer-managed-key-provisioning-steps"></a>Procedura inicjowania obsługi klucza Customer-Managed
@@ -169,6 +169,9 @@ Wybierz bieżącą wersję klucza w Azure Key Vault, aby uzyskać szczegółowe 
 
 Zaktualizuj KeyVaultProperties w klastrze z informacjami o identyfikatorze klucza.
 
+>[!NOTE]
+>Rotacja kluczy obsługuje dwa tryby: funkcja autorotacji lub jawnej wersji klucza. Aby określić najlepsze rozwiązanie, zobacz [rotacja kluczy](#key-rotation) .
+
 Operacja jest asynchroniczna i może chwilę potrwać.
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
@@ -266,7 +269,9 @@ Magazyn klastra okresowo sprawdza Key Vault, aby próbować odszyfrować klucz s
 
 ## <a name="key-rotation"></a>Wymiana kluczy
 
-Rotacja kluczy zarządzanych przez klienta wymaga jawnej aktualizacji klastra z nową wersją klucza w Azure Key Vault. [Zaktualizuj klaster przy użyciu szczegółów identyfikatora klucza](#update-cluster-with-key-identifier-details). Jeśli nie zaktualizujesz nowej wersji klucza w klastrze, magazyn klastra Log Analytics będzie nadal korzystać z poprzedniego klucza do szyfrowania. W przypadku wyłączenia lub usunięcia starego klucza przed zaktualizowaniem nowego klucza w klastrze zostanie wyświetlony stan [odwołania klucza](#key-revocation) .
+Rotacja kluczy ma dwa tryby: 
+- Funkcja autorotacji — w przypadku aktualizowania klastra przy użyciu ```"keyVaultProperties"``` Właściwości pomijania ```"keyVersion"``` lub ustawienia dla ```""``` magazynu autoamatically będzie używać najnowszych wersji.
+- Aktualizacja jawnej wersji klucza — po zaktualizowaniu klastra i udostępnieniu wersji klucza we ```"keyVersion"``` właściwościach wszystkie nowe kluczowe wersje wymagają jawnej ```"keyVaultProperties"``` aktualizacji w klastrze, zobacz temat [Aktualizowanie klastra z identyfikatorem klucza szczegóły](#update-cluster-with-key-identifier-details). Jeśli wygenerujesz nową wersję klucza w Key Vault ale nie zaktualizujesz jej w klastrze, Log Analytics magazynu klastra będzie nadal korzystać z poprzedniego klucza. W przypadku wyłączenia lub usunięcia starego klucza przed zaktualizowaniem nowego klucza w klastrze zostanie wyświetlony stan [odwołania klucza](#key-revocation) .
 
 Wszystkie dane pozostają dostępne po operacji rotacji kluczy, ponieważ dane zawsze są szyfrowane przy użyciu klucza szyfrowania konta (AEK), podczas gdy AEK jest teraz szyfrowany przy użyciu nowej wersji klucza szyfrowania kluczy (KEK) w Key Vault.
 
@@ -395,7 +400,7 @@ Klucz Customer-Managed jest udostępniany w dedykowanym klastrze i te operacje s
 - Odłączanie obszaru roboczego od klastra
 - Usuwanie klastra
 
-## <a name="limitations-and-constraints"></a>Ograniczenia i ograniczenia
+## <a name="limitations-and-constraints"></a>Limity i ograniczenia
 
 - Maksymalna liczba klastrów na region i subskrypcja wynosi 2
 

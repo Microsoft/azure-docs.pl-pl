@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 03/02/2021
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 5820592bf06cc9427e12aa0cd79c54dc1f0156e6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dfaa04077a5148f19f06aa5e1257b986377ea8c0
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101657999"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307133"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "101657999"
 
 ## <a name="wire-protocol-compatibility"></a>Zgodność z protokołem przewodowym
 
-Azure Cosmos DB implementuje protokół przewodu dla MongoDB. Ta implementacja zapewnia przezroczystą zgodność z natywnymi zestawami SDK klienta MongoDB, sterownikami i narzędziami. Azure Cosmos DB hostuje aparat bazy danych MongoDB. Szczegóły obsługiwanych funkcji według MongoDB można znaleźć tutaj: 
+Azure Cosmos DB implementuje protokół przewodu dla MongoDB. Ta implementacja zapewnia przezroczystą zgodność z natywnymi zestawami SDK klienta MongoDB, sterownikami i narzędziami. Azure Cosmos DB nie hostuje aparatu bazy danych MongoDB. Szczegóły obsługiwanych funkcji według MongoDB można znaleźć tutaj: 
 - [Interfejs API Azure Cosmos DB dla Mongo DB w wersji 4,0](mongodb-feature-support-40.md)
 - [Interfejs API Azure Cosmos DB dla Mongo DB w wersji 3,6](mongodb-feature-support-36.md)
 

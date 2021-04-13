@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/09/2020
-ms.openlocfilehash: 13d5c02fbb4ae06c7a5279ab7c5d3af90c263f71
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 31b2a993267e6e8abbf7184d745889b74e587c50
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102521071"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311774"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Szyfrowanie danych za pomocą Azure Machine Learning
 
@@ -37,7 +37,7 @@ Azure Machine Learning używa różnych usług magazynu danych platformy Azure i
 * Oczyszcza lokalny dysk tymczasowy między przebiegami.
 * Bezpieczne przekazanie poświadczeń dla konta magazynu, rejestru kontenerów i konta SSH z warstwy wykonywania do klastrów obliczeniowych przy użyciu magazynu kluczy
 * Włącza filtrowanie adresów IP, aby upewnić się, że źródłowe pule usługi Batch nie mogą być wywoływane przez żadną zewnętrzną usługę inną niż AzureMachineLearningService
-* W obszarze roboczym HBI nie są obsługiwane wystąpienia obliczeniowe.
+* Wystąpienia obliczeniowe są obsługiwane w obszarze roboczym HBI
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 

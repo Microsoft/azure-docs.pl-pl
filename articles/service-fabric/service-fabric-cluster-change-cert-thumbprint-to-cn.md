@@ -3,12 +3,12 @@ title: Zaktualizuj klaster, aby używał nazwy pospolitej certyfikatu
 description: Informacje o konwertowaniu certyfikatu klastra Service Fabric platformy Azure z deklaracji opartych na odcisku palca do nazw pospolitych.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: f719b1eb39da776827c6babec61e9e6701bb4602
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: daf8d55e156f30b1f9e9ec5c50d60714e6f17884
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97900794"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308017"
 ---
 # <a name="convert-cluster-certificates-from-thumbprint-based-declarations-to-common-names"></a>Konwertowanie certyfikatów klastra z deklaracji opartych na odcisku palca do nazw pospolitych
 
@@ -45,7 +45,7 @@ W celach testowych certyfikat z podpisem własnym *może* być zadeklarowany prz
 
 ## <a name="upload-the-certificate-and-install-it-in-the-scale-set"></a>Przekaż certyfikat i zainstaluj go w zestawie skalowania
 
-Na platformie Azure zalecanym mechanizmem uzyskiwania i aprowizacji certyfikatów jest Azure Key Vault i narzędzi. Certyfikat zgodny z deklaracją certyfikatu klastra musi być zainicjowany do każdego węzła zestawu skalowania maszyn wirtualnych, który składa się z klastra. Aby uzyskać więcej informacji, zobacz wpisy [tajne w zestawach skalowania maszyn wirtualnych](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-securely-ship-a-certificate-to-the-vm).
+Na platformie Azure zalecanym mechanizmem uzyskiwania i aprowizacji certyfikatów jest Azure Key Vault i narzędzi. Certyfikat zgodny z deklaracją certyfikatu klastra musi być zainicjowany do każdego węzła zestawu skalowania maszyn wirtualnych, który składa się z klastra. Aby uzyskać więcej informacji, zobacz wpisy [tajne w zestawach skalowania maszyn wirtualnych](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml#how-do-i-securely-ship-a-certificate-to-the-vm-).
 
 Ważne jest, aby zainstalować zarówno bieżące, jak i docelowe certyfikaty klastra na maszynach wirtualnych każdego typu węzła klastra przed wprowadzeniem zmian w deklaracjach certyfikatu klastra. Przejście z wystawiania certyfikatów do inicjowania obsługi administracyjnej w węźle Service Fabric zostało omówione na głębokości w [podróży certyfikatu](cluster-security-certificate-management.md#the-journey-of-a-certificate).
 

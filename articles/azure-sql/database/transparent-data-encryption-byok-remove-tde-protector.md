@@ -1,23 +1,23 @@
 ---
 title: Usuwanie funkcji ochrony TDE (program PowerShell & interfejs wiersza polecenia platformy Azure)
 titleSuffix: Azure SQL Database & Azure Synapse Analytics
-description: Dowiedz się, jak odpowiedzieć na potencjalnie złamaną ochronę TDE dla Azure SQL Database lub analizy Synapse Azure przy użyciu TDE z obsługą własnego klucza (BYOK).
+description: Dowiedz się, jak odpowiedzieć na potencjalnie złamaną ochronę TDE dla Azure SQL Database lub analizy Synapse Azure przy użyciu TDE z obsługą Bring Your Own Key (BYOK).
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
-author: jaszymas
-ms.author: jaszymas
+author: shohamMSFT
+ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 02/24/2020
-ms.openlocfilehash: 31298be4d50c7f562e2e2b9adbf889b165b197e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c1613c61143044c4fa355c6225cf0fa1d4e2e09d
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96461859"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308391"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Usuwanie funkcji ochrony Transparent Data Encryption (TDE) przy użyciu programu PowerShell
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]

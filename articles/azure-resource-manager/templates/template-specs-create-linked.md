@@ -3,12 +3,12 @@ title: Tworzenie specyfikacji szablonu z połączonymi szablonami
 description: Dowiedz się, jak utworzyć specyfikację szablonu z połączonymi szablonami.
 ms.topic: conceptual
 ms.date: 01/05/2021
-ms.openlocfilehash: 31764b9adb1d0fc28a170fa2e6b5073812533083
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b1c757895faee208590b638094591d246bf605d8
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889845"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310618"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Samouczek: Tworzenie specyfikacji szablonu z połączonymi szablonami (wersja zapoznawcza)
 
@@ -27,7 +27,7 @@ Utwórz szablon główny i połączony szablon.
 
 Aby połączyć szablon, Dodaj [zasób wdrożenia](/azure/templates/microsoft.resources/deployments) do szablonu głównego. We `templateLink` Właściwości określ ścieżkę względną dla połączonego szablonu zgodnie ze ścieżką szablonu nadrzędnego.
 
-Połączony szablon jest nazywany **linkedTemplate.json** i jest przechowywany w podfolderze o nazwie **artefakty** w ścieżce, w której jest przechowywany szablon główny.  Możesz użyć jednej z następujących wartości dla relativePath:
+Połączony szablon jest nazywany **linkedTemplate.json** i jest przechowywany w podfolderze o nazwie **artefakty** w ścieżce, w której jest przechowywany szablon główny.  Dla relativePath można użyć jednej z następujących wartości:
 
 - `./artifacts/linkedTemplate.json`
 - `/artifacts/linkedTemplate.json`

@@ -7,12 +7,12 @@ ms.date: 03/11/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 5ab729f5aa94c7137203c25319a5b830448d00a7
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: d545610b8fa13d0c0f8b91bf92107d53b81454c3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968207"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313848"
 ---
 # <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>Zwalnianie zasobów i zaleceń z bezpiecznego wyniku 
 
@@ -34,7 +34,7 @@ W takich przypadkach można utworzyć wykluczenie dla zalecenia:
 |---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Stan wydania:                  | Wersja zapoznawcza<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]                                                                                                                                                                                                                                             |
 | Wpisaną                        | Jest to funkcja Premium Azure Policy oferowana dla klientów usługi Azure Defender bez dodatkowych kosztów. W przypadku innych użytkowników opłaty mogą być stosowane w przyszłości.                                                                                                                                                                 |
-| Wymagane role i uprawnienia: | **Właściciel subskrypcji** lub **współautor zasad** , aby utworzyć wykluczenie<br>Aby utworzyć regułę, musisz mieć uprawnienia do edytowania zasad w Azure Policy.<br>Dowiedz się więcej na temat [uprawnień kontroli RBAC platformy Azure w Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).                                            |
+| Wymagane role i uprawnienia: | Współautor lub **współautor zasad zasobów** **, aby** utworzyć wykluczenie<br>Aby utworzyć regułę, musisz mieć uprawnienia do edytowania zasad w Azure Policy.<br>Dowiedz się więcej na temat [uprawnień kontroli RBAC platformy Azure w Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).                                            |
 | Ograniczenia:                    | Zwolnienia mogą być tworzone tylko dla zaleceń uwzględnionych w ramach inicjatywy domyślnej Security Center, testu porównawczego zabezpieczeń platformy Azure lub dowolnych z dostarczonych, standardowych inicjatyw prawnych. Nie można wykluczać zaleceń, które są generowane na podstawie inicjatyw niestandardowych. Dowiedz się więcej na temat relacji między [zasadami, inicjatywami i zaleceniami](security-policy-concept.md). |
 | Połączeń                         | ![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)                                                                                                                                                                                         |
 |                                 |                                                                                                                                                                                                                                                                                                                                    |

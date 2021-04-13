@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 1e939b86eeadfee276378488cfcb40c07f28684d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b6cf2abfa797965d75bacd0b9c5e2eaf02b57a4
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98880662"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308578"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Przewodnik po platformie Azure dla rozwiązań do konserwacji predykcyjnej
 
@@ -439,15 +439,16 @@ Microsoft Azure oferuje ścieżki szkoleniowe dotyczące podstaw podstawowych ko
 
 | Zasób szkoleniowy  | Dostępność |
 |:-------------------|--------------|
-| [Ścieżka szkoleniowa dla PdM przy użyciu drzew i lasów losowych](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | Publiczne | 
-| [Ścieżka szkoleniowa dla PdM przy użyciu uczenia głębokiego](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | Publiczne |
-| [Deweloper AI na platformie Azure](https://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Publiczne |
-| [Microsoft AI](https://aischool.microsoft.com/learning-paths) | Publiczne |
-| [Uczenie usługi Azure AI z witryny GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Publiczne |
+| [Microsoft Docs: rola Analityka danych](https://docs.microsoft.com/learn/roles/data-scientist) | Publiczne |
+| [Microsoft Docs: rola inżyniera AI](https://docs.microsoft.com/learn/roles/ai-engineer) | Publiczne |
+| [Microsoft Docs: rola inżyniera danych](https://docs.microsoft.com/learn/roles/data-engineer) | Publiczne |
+| [Microsoft AI](https://www.microsoft.com/ai/ai-school) | Publiczne |
 | [LinkedIn Learning](https://www.linkedin.com/learning) | Publiczne |
-| [Microsoft AI YouTube seminaria internetowe](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Publiczne |
+| [Microsoft: listy odtwarzania w serwisie YouTube dla sztucznej analizy i analizy](https://www.youtube.com/c/MicrosoftAzure/playlists?view=50&sort=dd&shelf_id=7) | Publiczne |
 | [Pokaż Microsoft AI](https://channel9.msdn.com/Shows/AI-Show) | Publiczne |
-| [LearnAI@MS](https://learnanalytics.microsoft.com) | Partnerzy |
+| [Przegląd platformy AI](https://azure.microsoft.com/overview/ai-platform/) | Publiczne |
+| [Laboratorium AI](https://www.microsoft.com/ai/ai-lab) | Publiczne |
+| [Microsoft AI](https://www.microsoft.com/AI) | Publiczne |
 | [Microsoft Partner Network](https://partner.microsoft.com/training/training-center) | Partnerzy |
 
 Ponadto bezpłatny MOOC (duże ilości otwartych kursów online) w systemach AI są oferowane w trybie online przez instytucje akademickie, takie jak Stanforda i MIT oraz inne firmy edukacyjne.

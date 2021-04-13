@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 04/06/2021
+ms.date: 04/11/2021
 ms.author: memildin
-ms.openlocfilehash: 81f741fd9b0e3d40eb0027a5cbe0ba4b7113bbea
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 3e4dddf61656ea38bac406366bf993788fd34943
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107027622"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303155"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -28,26 +28,22 @@ Aby dowiedzieć się o *planowanych* zmianach, które wkrótce zostaną udostęp
 ## <a name="april-2021"></a>Kwiecień 2021
 
 Aktualizacje w kwietniu obejmują:
-- [Cztery nowe rekomendacje związane z konfiguracją gościa (wersja zapoznawcza)](#four-new-recommendations-related-to-guest-configuration-preview)
+- [Ostatnio pobierane obrazy rejestru kontenerów są teraz ponownie skanowane co tydzień (ogólna dostępność)](#recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability)
 - [Użyj usługi Azure Defender for Kubernetes, aby chronić hybrydowe i wielochmurowe wdrożenia Kubernetes (wersja zapoznawcza)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview)
+- [Cztery nowe rekomendacje związane z konfiguracją gościa (wersja zapoznawcza)](#four-new-recommendations-related-to-guest-configuration-preview)
+- [Zalecenia CMK przenoszone do kontroli zabezpieczeń najlepszych rozwiązań](#cmk-recommendations-moved-to-best-practices-security-control)
 - [11 alertów usługi Azure Defender jest przestarzałych](#11-azure-defender-alerts-deprecated)
 - [Dwie zalecenia dotyczące kontroli zabezpieczeń "Zastosuj aktualizacje systemu" były przestarzałe](#two-recommendations-from-apply-system-updates-security-control-were-deprecated)
 
-### <a name="four-new-recommendations-related-to-guest-configuration-preview"></a>Cztery nowe rekomendacje związane z konfiguracją gościa (wersja zapoznawcza)
+### <a name="recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability"></a>Ostatnio pobierane obrazy rejestru kontenerów są teraz ponownie skanowane co tydzień (ogólna dostępność)
 
-[Rozszerzenie konfiguracji gościa](../governance/policy/concepts/guest-configuration.md) platformy Azure umożliwia zgłaszanie Security Center w celu zapewnienia, że ustawienia w ustawieniach gościa maszyn wirtualnych są zaostrzone. Rozszerzenie nie jest wymagane dla serwerów z włączonym łukiem, ponieważ znajduje się w agencie połączonej maszyny. Rozszerzenie wymaga tożsamości zarządzanej przez system na maszynie.
+Usługa Azure Defender dla rejestrów kontenerów zawiera wbudowany skaner luk w zabezpieczeniach. Ten skaner natychmiast skanuje wszystkie obrazy wypychane do rejestru i wszystkie obrazy pobrane w ciągu ostatnich 30 dni.
 
-Dodaliśmy cztery nowe zalecenia do Security Center, aby zapewnić największą część tego rozszerzenia.
+Nowe luki są wykrywane codziennie. W przypadku tej aktualizacji obrazy kontenerów, które zostały pobrane z rejestrów w ciągu ostatnich 30 dni, będą **skanowane** co tydzień. Gwarantuje to, że nowo odnalezione luki zostaną zidentyfikowane w obrazach.
 
-- Dwa zalecenia monitują o zainstalowanie rozszerzenia i wymaganą tożsamość zarządzaną przez system:
-    - **Na maszynach należy zainstalować rozszerzenie konfiguracji gościa**
-    - **Rozszerzenie konfiguracji gościa maszyn wirtualnych powinno zostać wdrożone przy użyciu tożsamości zarządzanej przypisanej przez system**
+W przypadku skanowania jest naliczana opłata za obraz, więc nie ma dodatkowej opłaty za te ponowne skanowania.
 
-- Gdy rozszerzenie jest zainstalowane i uruchomione, rozpocznie inspekcję maszyn i zostanie wyświetlony monit o ustawienia zabezpieczeń, takie jak konfiguracja systemu operacyjnego i ustawień środowiska. Te dwa zalecenia zamonitują użytkownika o ochronę maszyn z systemami Windows i Linux zgodnie z opisem:
-    - **Funkcja Windows Defender Exploit Guard powinna być włączona na maszynach**
-    - **Uwierzytelnianie na komputerach z systemem Linux powinno wymagać użycia kluczy SSH**
-
-Dowiedz się więcej w temacie [Omówienie konfiguracji gościa Azure Policy](../governance/policy/concepts/guest-configuration.md).
+Dowiedz się więcej na temat tego skanera w temacie [Korzystanie z usługi Azure Defender dla rejestrów kontenerów do skanowania obrazów pod kątem luk w zabezpieczeniach](defender-for-container-registries-usage.md)
 
 
 ### <a name="use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview"></a>Użyj usługi Azure Defender for Kubernetes, aby chronić hybrydowe i wielochmurowe wdrożenia Kubernetes (wersja zapoznawcza)
@@ -69,6 +65,40 @@ Ta integracja między usługami Azure Security Center, Azure Defender i Azure Ar
 Dowiedz się więcej w temacie [Korzystanie z usługi Azure Defender for Kubernetes z lokalnymi i wielochmurowymi klastrami Kubernetes](defender-for-kubernetes-azure-arc.md).
 
 :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Security Center zalecenia dotyczące wdrażania rozszerzenia usługi Azure Defender dla klastrów Kubernetes z włączoną funkcją Azure Arc." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
+
+### <a name="four-new-recommendations-related-to-guest-configuration-preview"></a>Cztery nowe rekomendacje związane z konfiguracją gościa (wersja zapoznawcza)
+
+[Rozszerzenie konfiguracji gościa](../governance/policy/concepts/guest-configuration.md) platformy Azure umożliwia zgłaszanie Security Center w celu zapewnienia, że ustawienia w ustawieniach gościa maszyn wirtualnych są zaostrzone. Rozszerzenie nie jest wymagane dla serwerów z włączonym łukiem, ponieważ znajduje się w agencie połączonej maszyny. Rozszerzenie wymaga tożsamości zarządzanej przez system na maszynie.
+
+Dodaliśmy cztery nowe zalecenia do Security Center, aby zapewnić największą część tego rozszerzenia.
+
+- Dwa zalecenia monitują o zainstalowanie rozszerzenia i wymaganą tożsamość zarządzaną przez system:
+    - **Na maszynach należy zainstalować rozszerzenie konfiguracji gościa**
+    - **Rozszerzenie konfiguracji gościa maszyn wirtualnych powinno zostać wdrożone przy użyciu tożsamości zarządzanej przypisanej przez system**
+
+- Gdy rozszerzenie jest zainstalowane i uruchomione, rozpocznie inspekcję maszyn i zostanie wyświetlony monit o ustawienia zabezpieczeń, takie jak konfiguracja systemu operacyjnego i ustawień środowiska. Te dwa zalecenia zamonitują użytkownika o ochronę maszyn z systemami Windows i Linux zgodnie z opisem:
+    - **Funkcja Windows Defender Exploit Guard powinna być włączona na maszynach**
+    - **Uwierzytelnianie na komputerach z systemem Linux powinno wymagać użycia kluczy SSH**
+
+Dowiedz się więcej w temacie [Omówienie konfiguracji gościa Azure Policy](../governance/policy/concepts/guest-configuration.md).
+
+### <a name="cmk-recommendations-moved-to-best-practices-security-control"></a>Zalecenia CMK przenoszone do kontroli zabezpieczeń najlepszych rozwiązań
+
+Program zabezpieczeń każdej organizacji zawiera wymagania dotyczące szyfrowania danych. Domyślnie dane klientów platformy Azure są szyfrowane w stanie spoczynku z kluczami zarządzanymi przez usługę. Jednak klucze zarządzane przez klienta (CMK) są często wymagane do spełnienia standardów zgodności z przepisami. CMKs umożliwiają szyfrowanie danych za pomocą klucza [Azure Key Vault](../key-vault/general/overview.md) utworzonego i należącego do użytkownika. Zapewnia to pełną kontrolę i odpowiedzialność za kluczowy cykl życia, w tym rotację i zarządzanie.
+
+Formanty zabezpieczeń Azure Security Center są logicznymi grupami powiązanych zaleceń dotyczących zabezpieczeń i odzwierciedlają podatne na ataki. Każda kontrolka ma maksymalną liczbę punktów, które można dodać do swojego bezpiecznego wyniku, jeśli korygujesz wszystkie zalecenia wymienione w formancie dla wszystkich zasobów. Kontrola zabezpieczeń **implementacji najlepszych** rozwiązań w zakresie zabezpieczeń to zero punktów. Zalecenia w tym formancie nie wpływają na swój Bezpieczny wynik.
+
+Zalecenia wymienione poniżej są przenoszone do kontroli bezpieczeństwa **implementacji najlepszych** rozwiązań w zakresie zabezpieczeń w celu lepszego odzwierciedlenia ich opcjonalnego charakteru. Ten ruch gwarantuje, że te zalecenia znajdują się w najbardziej odpowiednim formancie w celu spełnienia ich celu.
+
+- Konta Azure Cosmos DB powinny używać kluczy zarządzanych przez klienta do szyfrowania danych magazynowanych
+- Obszary robocze Azure Machine Learning powinny być szyfrowane za pomocą klucza zarządzanego przez klienta (CMK)
+- Konta Cognitive Services powinny włączać szyfrowanie danych za pomocą klucza zarządzanego przez klienta (CMK)
+- Rejestry kontenerów powinny być szyfrowane za pomocą klucza zarządzanego przez klienta (CMK)
+- Wystąpienia zarządzane SQL powinny używać kluczy zarządzanych przez klienta do szyfrowania danych magazynowanych
+- Serwery SQL powinny używać kluczy zarządzanych przez klienta do szyfrowania danych magazynowanych
+- Konta magazynu powinny używać klucza zarządzanego przez klienta (CMK) do szyfrowania
+
+Dowiedz się, które zalecenia znajdują się w każdej kontroli zabezpieczeń w obszarze kontrola [zabezpieczeń i ich zalecenia](secure-score-security-controls.md#security-controls-and-their-recommendations).
 
 
 ### <a name="11-azure-defender-alerts-deprecated"></a>11 alertów usługi Azure Defender jest przestarzałych

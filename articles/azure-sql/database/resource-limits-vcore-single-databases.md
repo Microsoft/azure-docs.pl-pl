@@ -10,22 +10,33 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/23/2021
-ms.openlocfilehash: a3cd68b610b0e0db05f60450009bc83a80c3037b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/09/2021
+ms.openlocfilehash: 7f96e6638bd021777d2f4bb888ef70c49c42c716
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105107605"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313797"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limity zasobów dla pojedynczych baz danych podczas używania modelu zakupu opartego na rdzeniach wirtualnych
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Ten artykuł zawiera szczegółowe limity zasobów dla pojedynczych baz danych w Azure SQL Database przy użyciu modelu zakupu rdzeń wirtualny.
 
-Limity modelu zakupów jednostek DTU dla pojedynczych baz danych na serwerze można znaleźć w temacie [Omówienie limitów zasobów na serwerze](resource-limits-logical-server.md).
+* Limity modelu zakupów jednostek DTU dla pojedynczych baz danych na serwerze można znaleźć w temacie [Omówienie limitów zasobów na serwerze](resource-limits-logical-server.md).
+* Limity zasobów modelu zakupu jednostek DTU dla Azure SQL Database można znaleźć w temacie [ograniczenia zasobów jednostek DTU pojedyncze bazy danych](resource-limits-dtu-single-databases.md) i [zasoby jednostek DTU ograniczają pule elastyczne](resource-limits-dtu-elastic-pools.md).
+* Aby uzyskać limity zasobów rdzeń wirtualny, zobacz [limity zasobów rdzeń wirtualny-Azure SQL Database](resource-limits-vcore-single-databases.md) i [rdzeń wirtualny — pule elastyczne](resource-limits-vcore-elastic-pools.md).
+* Aby uzyskać więcej informacji na temat różnych modeli zakupów, zobacz [modele zakupów i warstwy usług](purchasing-models.md).
 
-Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miejsca do magazynowania dla pojedynczej bazy danych przy użyciu [Azure Portal](single-database-manage.md#the-azure-portal), [Transact-SQL](single-database-manage.md#transact-sql-t-sql), [PowerShell](single-database-manage.md#powershell), interfejsu [wiersza polecenia platformy Azure](single-database-manage.md#the-azure-cli)lub [API REST](single-database-manage.md#rest-api).
+Każda replika tylko do odczytu ma własne zasoby, takie jak rdzeni wirtualnych, Memory, IOPS danych, TempDB, procesy robocze i sesje. Każda replika tylko do odczytu podlega limitom zasobów opisanym w dalszej części tego artykułu.
+
+Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miejsca do magazynowania dla pojedynczej bazy danych przy użyciu:
+
+* [Transact-SQL](single-database-manage.md#transact-sql-t-sql) za pośrednictwem [polecenia ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
+* [Witryna Azure Portal](single-database-manage.md#the-azure-portal)
+* [Program PowerShell](single-database-manage.md#powershell)
+* [Interfejs wiersza polecenia platformy Azure](single-database-manage.md#the-azure-cli)
+* [Interfejs API REST](single-database-manage.md#rest-api)
 
 > [!IMPORTANT]
 > Aby uzyskać wskazówki dotyczące skalowania i zagadnienia, zobacz [skalowanie pojedynczej bazy danych](single-database-scale.md).

@@ -1,32 +1,32 @@
 ---
 title: Omówienie programu certyfikowania urządzeń platformy Azure
-description: Omówienie programu certyfikatu platformy Azure dla naszych partnerów i klientów
-author: nikuntjo
+description: Omówienie programu z certyfikatem platformy Azure dla naszych partnerów i klientów. Użyj tych zasobów, aby uruchomić proces certyfikacji urządzenia. Dowiedz się, jak certyfikowane urządzenie — od wymagań dotyczących urządzeń IoT w celu opublikowania urządzenia.
+author: nkuntjoro
 ms.author: nikuntjo
 ms.topic: overview
-ms.date: 03/03/2021
+ms.date: 04/09/2021
 ms.custom: template-overview
 ms.service: certification
-ms.openlocfilehash: 8f264c233a0e7cd14469a3931153decfe886061a
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: b9d599542a53e3d809748b72028512c66409b4ec
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105969884"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307711"
 ---
-# <a name="what-is-azure-certified-device"></a>Co to jest certyfikowane urządzenie platformy Azure?
+# <a name="what-is-the-azure-certified-device-program"></a>Co to jest program urządzenia z certyfikatem platformy Azure?
 
-Dziękujemy za zainteresowanie programem urządzenia z certyfikatem platformy Azure! Ten program jest Twoim zamiarem do łatwego rozróżniania, promowania i znajdowania urządzeń IoT utworzonych do uruchamiania na platformie Azure. Z inteligentnych kamer do podłączonych czujników do infrastruktury brzegowej ten ulepszony program certyfikacji urządzeń IoT ułatwia konstruktorom urządzeń zwiększenie widoczności produktów i oszczędność czasu klientów w tworzeniu rozwiązań.
+Dziękujemy za zainteresowanie programem urządzenia z certyfikatem platformy Azure! Ten program to ten, który umożliwia łatwe rozróżnianie, podwyższanie poziomu i znajdowanie urządzeń IoT utworzonych do uruchamiania na platformie Azure. Z inteligentnych kamer do podłączonych czujników do infrastruktury brzegowej ten ulepszony program certyfikacji urządzeń IoT ułatwia konstruktorom urządzeń zwiększenie widoczności produktów i oszczędność czasu klientów w tworzeniu rozwiązań.
 
 ## <a name="our-certification-promise"></a>Nasze obietnice certyfikacyjne
 
 Program certyfikowany na platformie Azure zapewnia doskonałe rozwiązania dla klientów na platformie Azure. Jest to program, który korzysta z narzędzi, usług i wykazu, aby udostępnić wiedzę branżową naszym społeczności konstruktorów w ekosystemie IoT, aby pomóc konstruktorom i klientom podobnym do nich.
 
-Trzy założenia tego programu są następujące:
+W ramach procesu certyfikacji urządzenia trzy założenia tego programu są następujące:
 
 - **Zapewnianie klientom pewności:** Klienci mogą bezpiecznie zakupić urządzenia z certyfikatem platformy Azure, które zawierają obietnice firmy Microsoft.
 
-- **Matchmaking klientów z właściwymi dla nich urządzeniami:** Konstruktory urządzeń mogą się niezależnie konfigurować przy użyciu certyfikacji, który wyróżnia ich unikatowe możliwości, a klienci mogą łatwo znaleźć produkty, które pasują do swoich potrzeb.
+- **Matchmaking klientów z właściwymi dla nich urządzeniami:** Konstruktory urządzeń mogą się niezależnie konfigurować przy użyciu certyfikacji, co wyróżnia ich unikatowe możliwości, a klienci mogą łatwo znaleźć odpowiednie urządzenia IoT, które pasują do swoich potrzeb.
 
 - **Promowanie certyfikowanych urządzeń:** Konstruktory urządzeń mogą uzyskać lepszą widoczność, kontaktować się z klientami i korzystać z marki urządzenia z certyfikatem platformy Microsoft Azure.
 
@@ -34,12 +34,12 @@ Trzy założenia tego programu są następujące:
 
 Program urządzenia z certyfikatem platformy Azure służy dwóm różnym odbiorcom.
 
-1. **Konstruktory urządzeń**: łatwo Odróżniaj możliwości urządzeń IoT i uzyskuj dostęp do ogólnoświatowych odbiorców, którzy chcą niezawodnie kupować urządzenia stworzone do działania na platformie Azure. Użyj wykazu urządzeń z certyfikatem platformy Azure, aby zwiększyć widoczność produktu i połączyć się z klientami przez certyfikowanie urządzenia.
-1.  **Konstruktorzy rozwiązań**: Pamiętaj, aby bezpiecznie znajdować i kupować urządzenia IoT stworzone do działania na platformie Azure, wiedząc, że spełniają one określone możliwości. Łatwo Wyszukuj i wybieraj odpowiednie certyfikowane urządzenie dla swojego rozwiązania IoT w [wykazie certyfikowanych urządzeń platformy Azure](https://devicecatalog.azure.com/).
+1. **Konstruktory urządzeń**: czy tworzysz urządzenia IoT? Łatwo Odróżniaj możliwości urządzenia IoT i uzyskuj dostęp do ogólnoświatowych odbiorców, którzy chcą niezawodnie kupować urządzenia skompilowane na platformie Azure. Użyj wykazu urządzeń z certyfikatem platformy Azure, aby zwiększyć widoczność produktu i połączyć się z klientami przez certyfikowanie urządzenia i pokazanie spełniające określone wymagania dotyczące urządzeń IoT.
+1.  **Konstruktorzy rozwiązań**: zastanawiasz się, co to są urządzenia z kwalifikacjami IoT? Pamiętaj, aby bezpiecznie znaleźć i zakupić urządzenia IoT stworzone do działania na platformie Azure, wiedząc, że spełniają one określone wymagania IoT. Łatwo Wyszukuj i wybieraj odpowiednie certyfikowane urządzenie dla swojego rozwiązania IoT w [wykazie certyfikowanych urządzeń platformy Azure](https://devicecatalog.azure.com/).
 
-## <a name="our-certification-programs"></a>Nasze Programy certyfikacyjne
+## <a name="our-certification-programs-and-iot-device-requirements"></a>Nasze Programy certyfikacyjne i wymagania dotyczące urządzeń IoT.
 
-Dostępne są cztery różne certyfikaty. Każdy certyfikat jest ukierunkowany na dostarczenie innej wartości klienta. W zależności od typu urządzenia i odbiorców docelowych możesz wybrać, które certyfikaty są najbardziej odpowiednie do zastosowania dla programu. Wybierz tytuły każdego programu, aby dowiedzieć się więcej o wymaganiach programu.
+Dostępne są cztery różne certyfikaty. Każdy certyfikat jest ukierunkowany na dostarczenie innej wartości klienta. W zależności od typu urządzenia i odbiorców docelowych możesz wybrać, które certyfikaty są najbardziej odpowiednie do zastosowania dla programu. Wybierz tytuły każdego programu, aby dowiedzieć się więcej o wymaganiach programu i IoT.
 
 | Program certyfikacyjny         |  Omówienie                      |
 ------------------------------|-------------------------------------------------|
@@ -50,21 +50,22 @@ Dostępne są cztery różne certyfikaty. Każdy certyfikat jest ukierunkowany n
 
 ## <a name="how-to-certify-your-device"></a>Jak certyfikowane urządzenie
 
-Certyfikowanie urządzenia obejmuje cztery główne kroki w [portalu certyfikowanych urządzeń platformy Azure](https://certify.azure.com):
+Certyfikowanie urządzenia obejmuje kilka najważniejszych kroków w [portalu certyfikowanych urządzeń platformy Azure](https://certify.azure.com):
 
-1. Tworzenie projektu
-1. Udostępnianie informacji o możliwościach sprzętu
+1. Wybierz odpowiednią certyfikat dla urządzenia na podstawie wymagań dotyczących urządzeń IoT.
+1. Utwórz projekt w [portalu urządzenia z certyfikatem platformy Azure](https://certify.azure.com).
+1. Dodaj szczegóły urządzenia, w tym informacje o możliwościach sprzętowych, aby rozpocząć proces certyfikacji urządzenia.
 1. Sprawdzanie poprawności funkcjonalności urządzenia
-1. Przesyłanie i wykonywanie procesu przeglądu
+1. Prześlij i Ukończ proces recenzowania
 
-Po certyfikowaniu urządzenia można opcjonalnie wykonać dwa z następujących działań: 
+Po certyfikowaniu urządzenia można opcjonalnie wykonać dwa z następujących działań:
 
 1. Publikowanie w wykazie certyfikowanych urządzeń platformy Azure (opcjonalnie)
 1. Aktualizowanie projektu po jego zatwierdzeniu/opublikowaniu (opcjonalnie)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Chcesz zacząć korzystać z podróży certyfikacyjnej? Przejrzyj nasze zasoby poniżej, aby rozpocząć certyfikowanie urządzenia!
+Chcesz zacząć korzystać z podróży certyfikacyjnej? Przejrzyj nasze zasoby poniżej, aby uruchomić proces certyfikacji urządzenia!
 
 - [Uruchamianie procesu certyfikacji](tutorial-00-selecting-your-certification.md)
 - Jeśli masz dodatkowe pytania lub opinie, skontaktuj się z [zespołem ds. urządzeń z certyfikatem platformy Azure](mailto:iotcert@microsoft.com).

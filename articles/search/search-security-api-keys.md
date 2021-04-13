@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/03/2021
-ms.openlocfilehash: 8b2e85744923fb2e7e474e049df1536aebc56f3c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/08/2021
+ms.openlocfilehash: 6954ce289cb3cf219f8c4024a112411fd60d70e0
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99536937"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310669"
 ---
-# <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Tworzenie i zarządzanie kluczami interfejsu API dla usługi Wyszukiwanie poznawcze platformy Azure
+# <a name="create-and-manage-api-keys-for-authentication-to-azure-cognitive-search"></a>Tworzenie i zarządzanie kluczami interfejsu API na potrzeby uwierzytelniania na platformie Azure Wyszukiwanie poznawcze
 
-Wszystkie żądania do usługi wyszukiwania wymagają klucza interfejsu API tylko do odczytu, który został wygenerowany w ramach danej usługi. Klucz interfejsu API jest jedynym mechanizmem uwierzytelniania żądań przychodzących do punktu końcowego usługi wyszukiwania i jest wymagany dla każdego żądania. 
+Podczas nawiązywania połączenia z usługą wyszukiwania wszystkie żądania muszą zawierać klucz interfejsu API tylko do odczytu, który został wygenerowany w ramach danej usługi. Klucz interfejsu API jest jedynym mechanizmem uwierzytelniania żądań przychodzących do punktu końcowego usługi wyszukiwania i jest wymagany dla każdego żądania. 
 
 + W [rozwiązaniach REST](search-get-started-rest.md) `api-key` jest zazwyczaj określona w nagłówku żądania
 

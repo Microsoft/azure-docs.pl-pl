@@ -2,13 +2,13 @@
 title: Tworzenie pliku parametrów
 description: Utwórz plik parametrów do przekazywania wartości podczas wdrażania szablonu Azure Resource Manager
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.openlocfilehash: 2b6d942b21594fa608127bb8f403e72295671005
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: d557bcdfe246dc2c9bfccde17b7f9590c2686358
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89276664"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312046"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Utwórz plik parametrów Menedżer zasobów
 
@@ -210,6 +210,8 @@ Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów przy użyciu szablo
 
 > [!NOTE]
 > Nie można użyć pliku parametrów z blokiem szablonu niestandardowego w portalu.
+
+Jeśli używasz [projektu grupy zasobów platformy Azure w programie Visual Studio](create-visual-studio-deployment-project.md), upewnij się, że plik parametru ma ustawioną **akcję kompilacja** na **zawartość**.
 
 ## <a name="file-name"></a>Nazwa pliku
 

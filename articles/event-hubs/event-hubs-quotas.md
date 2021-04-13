@@ -3,12 +3,12 @@ title: Przydziały i limity — platforma Azure Event Hubs | Microsoft Docs
 description: Ten artykuł zawiera limity i przydziały dla usługi Azure Event Hubs. Na przykład liczba przestrzeni nazw na subskrypcję, liczba centrów zdarzeń na przestrzeń nazw.
 ms.topic: article
 ms.date: 03/31/2021
-ms.openlocfilehash: 9e32b8e7e43e8396c1606c80dd27c68563cdbf03
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: bd80cd5056ef662ba505e04e9af8f2e975b052be
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106107083"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310788"
 ---
 # <a name="azure-event-hubs-quotas-and-limits"></a>Limity przydziału i ograniczenia dotyczące usługi Azure Event Hubs
 
@@ -22,4 +22,4 @@ Następujące linki pozwalają dowiedzieć się więcej na temat usługi Event H
 
 * [Przegląd usługi Event Hubs](./event-hubs-about.md)
 * [Event Hubs autodostrajania](event-hubs-auto-inflate.md)
-* [Event Hubs — często zadawane pytania](event-hubs-faq.md)
+* [Event Hubs — często zadawane pytania](event-hubs-faq.yml)

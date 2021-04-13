@@ -3,12 +3,12 @@ title: Omówienie dedykowanych centrów zdarzeń — Azure Event Hubs | Microsof
 description: Ten artykuł zawiera omówienie dedykowanych Event Hubs platformy Azure, które oferują wdrożenia z jedną dzierżawą centrów zdarzeń.
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: 721acf354c7d14c1362b4f760982af37d59115f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fe63b074bfdd01191d81dfb7024af5532a87a12f
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101715619"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310771"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Omówienie Event Hubs — warstwa Dedykowana
 
@@ -71,4 +71,4 @@ Skontaktuj się z przedstawicielem handlowym firmy Microsoft lub pomoc techniczn
 
 - [Tworzenie klastra Event Hubs za pomocą Azure Portal](https://aka.ms/eventhubsclusterquickstart) 
 - [Cennik Event Hubs — warstwa dedykowana](https://azure.microsoft.com/pricing/details/event-hubs/). Możesz również skontaktować się z przedstawicielem handlowym firmy Microsoft lub pomoc techniczna firmy Microsoft, aby uzyskać dodatkowe informacje dotyczące Event Hubs — warstwa Dedykowana pojemności.
-- [Event Hubs często zadawane pytania](event-hubs-faq.md) zawierają informacje o cenach i odpowiedzi na kilka często zadawanych pytań dotyczących Event Hubs.
+- [Event Hubs często zadawane pytania](event-hubs-faq.yml) zawierają informacje o cenach i odpowiedzi na kilka często zadawanych pytań dotyczących Event Hubs.

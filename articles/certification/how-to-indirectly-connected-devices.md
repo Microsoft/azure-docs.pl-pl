@@ -7,16 +7,16 @@ ms.author: cbroad
 ms.date: 02/23/2021
 ms.topic: how-to
 ms.service: certification
-ms.openlocfilehash: da3110b562bc5ddbd37657f31cbdd3790a13b897
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 3a4fd2838c0ddf6d7d03d68f105fc59471b77dea
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105969466"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304481"
 ---
 # <a name="device-bundles-and-indirectly-connected-devices"></a>Pakiety urządzeń i bezpośrednio połączone urządzenia
 
-Aby obsłużyć urządzenia, które współpracują z platformą Azure za pomocą oferowanych przez urządzenie, SaaS lub PaaS, naszego portalu do tworzenia i https://www.certify.azure.com) wykazu urządzeń (należy https://devicecatalog.azure.com) włączyć koncepcje związane z przydzieleniem i włączeniem tych połączeń do naszego programu Device Certified platformy Azure.
+Aby obsłużyć urządzenia, które współpracują z platformą Azure za pomocą oferowanych przez urządzenie, SaaS lub PaaS, naszego portalu do tworzenia i https://certify.azure.com/) wykazu urządzeń (należy https://devicecatalog.azure.com) włączyć koncepcje związane z przydzieleniem i włączeniem tych połączeń do naszego programu Device Certified platformy Azure.
 
 W zależności od oferowanej linii i usług w danej sytuacji może być wymagana kombinacja następujących kroków:
 

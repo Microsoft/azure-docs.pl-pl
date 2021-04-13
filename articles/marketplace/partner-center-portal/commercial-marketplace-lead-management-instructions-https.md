@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 03/30/2020
-ms.openlocfilehash: 5bea2cf256e30bd896957bbee0e0ad824057a569
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/09/2021
+ms.openlocfilehash: 0da1fd7b98b86ebd75926cc8a2d2bb5294d048ca
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98247186"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308198"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Używanie punktu końcowego HTTPS do zarządzania komercyjnymi liderami w portalu Marketplace
 
@@ -31,13 +31,13 @@ W tym artykule wyjaśniono, jak utworzyć nowy przepływ w programie PowerShell 
 
     ![Zaloguj się do moich przepływów](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
-1. W obszarze **+ Nowy** wybierz pozycję **+ błyskawiczne — od zera**.
+1. W obszarze **+ Nowy** wybierz pozycję **+ przepływ usługi Instant Cloud**.
 
-    ![Moje przepływy + automatyczne — z pustej](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-create-fromblank.png)
+    ![Moje przepływy + automatyczne — z pustej](./media/commercial-marketplace-lead-management-instructions-https/https-my-flows-create-from-blank.png)
 
 1. Nadaj nazwę przepływowi, a następnie w obszarze **Wybierz sposób wyzwalania tego przepływu** wybierz opcję **po odebraniu żądania HTTP**.
 
-    ![Kompiluj przycisk pomijania okna przepływu automatycznego](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
+    ![Kompiluj przycisk pomijania okna przepływu automatycznego](./media/commercial-marketplace-lead-management-instructions-https/https-my-flows-pick-request-trigger.png)
 
 1. Kliknij krok przepływu, aby go rozwinąć.
 
@@ -137,9 +137,13 @@ W tym artykule wyjaśniono, jak utworzyć nowy przepływ w programie PowerShell 
 ### <a name="connect-to-a-crm-system"></a>Nawiązywanie połączenia z systemem CRM
 
 1. Wybierz pozycję **+ Nowy krok**.
-1. Wybierz wybrany przez siebie system CRM, wyszukując go w miejscu, w którym widnieją **łączniki i akcje**. Wybierz ją na karcie **Akcje** z akcją, aby utworzyć nowy rekord. Na poniższym ekranie przedstawiono przykład **tworzenia nowego rekordu (Dynamics 365)** .
+1. Wybierz wybrany przez siebie system CRM, wyszukując go w miejscu, w którym widnieją **łączniki i akcje**. Na poniższym ekranie przedstawiono przykład tworzenia nowego rekordu (Common Data Service).
 
     ![Tworzenie nowego rekordu](./media/commercial-marketplace-lead-management-instructions-https/create-new-record.png)
+
+1. Wybierz **kartę akcje** z akcją, aby **utworzyć nowy rekord**.
+
+    ![Wybierz pozycję Utwórz nowy rekord](./media/commercial-marketplace-lead-management-instructions-https/select-create-new-record.png)
 
 1. Podaj **nazwę organizacji** skojarzoną z systemem CRM. Wybierz pozycję **potencjalni klienci** z listy rozwijanej **Nazwa jednostki** .
 

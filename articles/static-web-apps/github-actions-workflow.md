@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 02/05/2021
+ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: c0cb32bd3308affa473e9039d92bd3cb23acabee
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 4f1f432da33bded4fc0f04170673e5943dec5fb0
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107027537"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311332"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Przepływy pracy akcji GitHub dla usługi Azure static Web Apps Preview
 
@@ -38,11 +38,11 @@ name: Azure Static Web Apps CI/CD
 on:
   push:
     branches:
-    - main
+      - main
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-    - main
+      - main
 
 jobs:
   build_and_deploy_job:
@@ -50,33 +50,33 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-    - uses: actions/checkout@v2
-      with:
-        submodules: true
-    - name: Build And Deploy
-      id: builddeploy
-      uses: Azure/static-web-apps-deploy@v0.0.1-preview
-      with:
-        azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
-        repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
-        action: 'upload'
-        ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
-        app_location: '/' # App source code path
-        api_location: 'api' # Api source code path - optional
-        output_location: 'dist' # Built app content directory - optional
-        ###### End of Repository/Build Configurations ######
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Build And Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v0.0.1-preview
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
+          action: 'upload'
+          ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
+          app_location: '/' # App source code path
+          api_location: 'api' # Api source code path - optional
+          output_location: 'dist' # Built app content directory - optional
+          ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
     name: Close Pull Request Job
     steps:
-    - name: Close Pull Request
-      id: closepullrequest
-      uses: Azure/static-web-apps-deploy@v0.0.1-preview
-      with:
-        azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
-        action: 'close'
+      - name: Close Pull Request
+        id: closepullrequest
+        uses: Azure/static-web-apps-deploy@v0.0.1-preview
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
+          action: 'close'
 ```
 
 ## <a name="triggers"></a>Wyzwalacze
@@ -87,11 +87,11 @@ jobs:
 on:
   push:
     branches:
-    - main
+      - main
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-    - main
+      - main
 ```
 
 Za pomocą ustawień skojarzonych z `on` właściwością można zdefiniować gałęzie wyzwalające zadanie i ustawić wyzwalacze do uruchamiania dla różnych stanów żądań ściągnięcia.
@@ -104,10 +104,10 @@ Każdy wyzwalacz zdarzenia wymaga programu obsługi zdarzeń. [Zadania](https://
 
 W pliku statycznego przepływu pracy Web Apps są dostępne dwa zadania.
 
-| Nazwa  | Opis |
-|---------|---------|
-|`build_and_deploy_job` | Wykonuje się w przypadku wypychania zatwierdzeń lub otwarcia żądania ściągnięcia względem gałęzi wymienionej we `on` właściwości. |
-|`close_pull_request_job` | Wykonuje tylko po zamknięciu żądania ściągnięcia, które usuwa środowisko przejściowe utworzone na podstawie żądań ściągnięcia. |
+| Nazwa                     | Opis                                                                                                    |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------- |
+| `build_and_deploy_job`   | Wykonuje się w przypadku wypychania zatwierdzeń lub otwarcia żądania ściągnięcia względem gałęzi wymienionej we `on` właściwości.          |
+| `close_pull_request_job` | Wykonuje tylko po zamknięciu żądania ściągnięcia, które usuwa środowisko przejściowe utworzone na podstawie żądań ściągnięcia. |
 
 ## <a name="steps"></a>Kroki
 
@@ -115,10 +115,10 @@ Kroki są zadaniami sekwencyjnymi dla zadania. Krok wykonuje akcje, takie jak in
 
 Plik przepływu pracy definiuje następujące kroki.
 
-| Zadanie  | Kroki  |
-|---------|---------|
-| `build_and_deploy_job` |<ol><li>Sprawdza repozytorium w środowisku działania.<li>Kompiluje i wdraża repozytorium w usłudze Azure static Web Apps.</ol>|
-| `close_pull_request_job` | <ol><li>Powiadamia Web Apps statycznej platformy Azure o zamknięciu żądania ściągnięcia.</ol>|
+| Zadanie                      | Kroki                                                                                                                              |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `build_and_deploy_job`   | <ol><li>Sprawdza repozytorium w środowisku działania.<li>Kompiluje i wdraża repozytorium w usłudze Azure static Web Apps.</ol> |
+| `close_pull_request_job` | <ol><li>Powiadamia Web Apps statycznej platformy Azure o zamknięciu żądania ściągnięcia.</ol>                                                        |
 
 ## <a name="build-and-deploy"></a>Tworzenie i wdrażanie
 
@@ -126,14 +126,14 @@ Krok o nazwie `Build and Deploy` builds i Deploys w wystąpieniu usługi Azure S
 
 ```yml
 with:
-    azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
-    repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
-    action: 'upload'
-    ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
-    app_location: '/' # App source code path
-    api_location: 'api' # Api source code path - optional
-    output_location: 'dist' # Built app content directory - optional
-    ###### End of Repository/Build Configurations ######
+  azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
+  repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
+  action: 'upload'
+  ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
+  app_location: '/' # App source code path
+  api_location: 'api' # Api source code path - optional
+  output_location: 'dist' # Built app content directory - optional
+  ###### End of Repository/Build Configurations ######
 ```
 
 [!INCLUDE [static-web-apps-folder-structure](../../includes/static-web-apps-folder-structure.md)]
@@ -146,10 +146,10 @@ Możesz mieć precyzyjną kontrolę nad tym, jakie polecenia są uruchamiane pod
 
 Wdrożenie zawsze wywołuje `npm install` przed dowolnym poleceniem niestandardowym.
 
-| Polecenie            | Opis |
-|---------------------|-------------|
-| `app_build_command` | Definiuje niestandardowe polecenie do uruchomienia podczas wdrażania aplikacji zawartości statycznej.<br><br>Na przykład, aby skonfigurować kompilację produkcyjną dla aplikacji kątowej, należy utworzyć skrypt npm o nazwie `build-prod` do uruchomienia `ng build --prod` i wprowadzić `npm run build-prod` jako polecenie niestandardowe. Jeśli pole pozostanie puste, przepływ pracy próbuje `npm run build` uruchomić `npm run build:azure` polecenia lub.  |
-| `api_build_command` | Definiuje niestandardowe polecenie do uruchomienia podczas wdrażania aplikacji interfejsu API Azure Functions. |
+| Polecenie             | Opis                                                                                                                                                                                                                                                                                                                                                                                |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `app_build_command` | Definiuje niestandardowe polecenie do uruchomienia podczas wdrażania aplikacji zawartości statycznej.<br><br>Na przykład, aby skonfigurować kompilację produkcyjną dla aplikacji kątowej, należy utworzyć skrypt npm o nazwie `build-prod` do uruchomienia `ng build --prod` i wprowadzić `npm run build-prod` jako polecenie niestandardowe. Jeśli pole pozostanie puste, przepływ pracy próbuje `npm run build` uruchomić `npm run build:azure` polecenia lub. |
+| `api_build_command` | Definiuje niestandardowe polecenie do uruchomienia podczas wdrażania aplikacji interfejsu API Azure Functions.                                                                                                                                                                                                                                                                                                  |
 
 ## <a name="skip-app-build"></a>Pomiń kompilację aplikacji
 
@@ -159,33 +159,33 @@ Aby pominąć Kompilowanie aplikacji, ustaw `skip_app_build` na `true` i `app_lo
 
 ```yml
 with:
-    azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
-    repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
-    action: 'upload'
-    ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
-    app_location: 'dist'  # Application build output generated by a previous step
-    api_location: 'api'   # Api source code path - optional
-    output_location: ''   # Leave this empty
-    skip_app_build: true
-    ###### End of Repository/Build Configurations ######
+  azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
+  repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
+  action: 'upload'
+  ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
+  app_location: 'dist' # Application build output generated by a previous step
+  api_location: 'api' # Api source code path - optional
+  output_location: '' # Leave this empty
+  skip_app_build: true
+  ###### End of Repository/Build Configurations ######
 ```
 
-| Właściwość            | Opis |
-|---------------------|-------------|
-| `skip_app_build`    | Ustaw wartość na `true` , aby pominąć tworzenie aplikacji frontonu. |
+| Właściwość         | Opis                                                 |
+| ---------------- | ----------------------------------------------------------- |
+| `skip_app_build` | Ustaw wartość na `true` , aby pominąć tworzenie aplikacji frontonu. |
 
 > [!NOTE]
 > Możesz pominąć kompilację tylko dla aplikacji frontonu. Jeśli aplikacja ma interfejs API, nadal będzie ona skompilowana za pomocą akcji Web Apps w witrynie GitHub.
 
 ## <a name="route-file-location"></a>Lokalizacja pliku tras
 
-Możesz dostosować przepływ pracy, aby wyszukać [routes.js](routes.md) w dowolnym folderze w repozytorium. Poniższe właściwości można zdefiniować w `with` sekcji zadania.
+Możesz dostosować przepływ pracy, aby wyszukać [staticwebapp.config.js](routes.md) w dowolnym folderze w repozytorium. Poniższe właściwości można zdefiniować w `with` sekcji zadania.
 
-| Właściwość            | Opis |
-|---------------------|-------------|
-| `routes_location` | Określa lokalizację katalogu, w którym znajduje się _routes.js_ pliku. Ta lokalizacja jest określana względem katalogu głównego repozytorium. |
+| Właściwość          | Opis                                                                                                                                 |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `routes_location` | Określa lokalizację katalogu, w którym znajduje się _staticwebapp.config.js_ pliku. Ta lokalizacja jest określana względem katalogu głównego repozytorium. |
 
- Jawne informacje o lokalizacji _routes.jsw_ pliku są szczególnie ważne, jeśli krok kompilacji platformy frontonu nie przenosi tego pliku do `output_location` domyślnego.
+Jawne informacje o lokalizacji _staticwebapp.config.jsw_ pliku są szczególnie ważne, jeśli krok kompilacji platformy frontonu nie przenosi tego pliku do `output_location` domyślnego.
 
 ## <a name="environment-variables"></a>Zmienne środowiskowe
 
@@ -207,11 +207,11 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          action: "upload"
+          action: 'upload'
           ###### Repository/Build Configurations
-          app_location: "/"
-          api_location: "api"
-          output_location: "public"
+          app_location: '/'
+          api_location: 'api'
+          output_location: 'public'
           ###### End of Repository/Build Configurations ######
         env: # Add environment variables here
           HUGO_VERSION: 0.58.0
@@ -219,7 +219,7 @@ jobs:
 
 ## <a name="monorepo-support"></a>Obsługa wielorepozytorium
 
-Transrepozytorium zawiera kod dla więcej niż jednej aplikacji. Domyślnie statyczny plik przepływu pracy Web Apps śledzi wszystkie pliki w repozytorium, ale można dostosować ją do docelowej pojedynczej aplikacji. W związku z tym, w przypadku repozytoriów, każda aplikacja statyczna ma własny plik konfiguracji, który działa obok siebie w folderze *. GitHub/przepływy pracy* repozytorium.
+Transrepozytorium zawiera kod dla więcej niż jednej aplikacji. Domyślnie statyczny plik przepływu pracy Web Apps śledzi wszystkie pliki w repozytorium, ale można dostosować ją do docelowej pojedynczej aplikacji. W związku z tym, w przypadku repozytoriów, każda aplikacja statyczna ma własny plik konfiguracji, który działa obok siebie w folderze _. GitHub/przepływy pracy_ repozytorium.
 
 ```files
 ├── .github
@@ -261,9 +261,9 @@ on:
 
 W tym przypadku tylko zmiany wprowadzone do następujących plików wyzwalają nową kompilację:
 
-- Wszystkie pliki w folderze *APP1*
-- Wszystkie pliki w folderze *API1*
-- Zmiany pliku przepływu pracy *Azure-static-Web-Apps-Purple-Pond. yml* aplikacji
+- Wszystkie pliki w folderze _APP1_
+- Wszystkie pliki w folderze _API1_
+- Zmiany pliku przepływu pracy _Azure-static-Web-Apps-Purple-Pond. yml_ aplikacji
 
 ## <a name="next-steps"></a>Następne kroki
 

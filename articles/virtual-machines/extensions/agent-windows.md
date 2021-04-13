@@ -8,12 +8,12 @@ ms.author: amjads
 author: amjads1
 ms.collection: windows
 ms.date: 07/20/2019
-ms.openlocfilehash: 33db214013111b0dd4540a1b1d2947b7d1854db9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd845c5ef5a06e3a0bca1cebe54ded2e49355617
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104607487"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309819"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Omówienie agenta maszyny wirtualnej platformy Azure
 Agent maszyny wirtualnej Microsoft Azure (Agent VM) to bezpieczny, lekki proces zarządzający interakcją maszyny wirtualnej z kontrolerem sieci szkieletowej Azure. Agent maszyny wirtualnej odgrywa podstawową rolę w procesie włączania i wykonywania rozszerzeń maszyny wirtualnej platformy Azure. Rozszerzenia maszyn wirtualnych umożliwiają konfigurację po wdrożeniu maszyny wirtualnej, taką jak instalowanie i Konfigurowanie oprogramowania. Rozszerzenia maszyn wirtualnych umożliwiają również włączenie funkcji odzyskiwania, takich jak resetowanie hasła administracyjnego maszyny wirtualnej. Bez agenta maszyny wirtualnej platformy Azure nie można uruchomić rozszerzeń maszyn wirtualnych.
@@ -121,7 +121,7 @@ Aby trwale usunąć certyfikat, należy usunąć go z usługi `OSProfile` , a na
 
 W przypadku maszyny wirtualnej Użyj polecenie [Remove-AzVMSecret]() , aby usunąć certyfikaty z programu `OSProfile` .
 
-Aby uzyskać więcej informacji na temat certyfikatów zestawu skalowania maszyn wirtualnych, zobacz [Virtual Machine Scale Sets-jak mogę usunąć przestarzałe certyfikaty?](../../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-remove-deprecated-certificates)
+Aby uzyskać więcej informacji na temat certyfikatów zestawu skalowania maszyn wirtualnych, zobacz [Virtual Machine Scale Sets-jak mogę usunąć przestarzałe certyfikaty?](../../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml#how-do-i-remove-deprecated-certificates-)
 
 
 ## <a name="next-steps"></a>Następne kroki

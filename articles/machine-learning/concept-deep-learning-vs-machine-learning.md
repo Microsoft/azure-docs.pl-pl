@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 01/14/2020
+ms.date: 04/12/2021
 ms.custom: contperf-fy21q1,contperfq1
-ms.openlocfilehash: 48de06d28442b4d05cd3a7ab287732c0999e434c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a9e87796c3557f21bb6192c7d7d0c0925d08d786
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101659702"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311757"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Uczenie głębokie a uczenie maszynowe w Azure Machine Learning
 
@@ -99,7 +99,7 @@ Dzięki odpowiedniej transformacji danych sieć neuronowych może zrozumieć syg
 
 Analiza tekstu oparta na metodach uczenia głębokiego polega na analizowaniu dużych ilości danych tekstowych (na przykład dokumentów medycznych lub przyjęć wydatków), rozpoznawaniu wzorców oraz tworzeniu zorganizowanych i zwięzłych informacji.
 
-Firmy wykorzystują głębokie uczenie do przeprowadzania analizy tekstu w celu wykrywania handlu niejawnego i zgodności z przepisami obowiązującymi w instytucji rządowych. Innym typowym przykładem jest oszustwo ubezpieczeniowe: Analiza tekstu często została użyta do przeanalizowania dużych ilości dokumentów w celu rozpoznania szans oszustw związanych z ubezpieczeniem. 
+Firmy wykorzystują głębokie uczenie do przeprowadzania analizy tekstu w celu wykrywania handlu niejawnego i zgodności z przepisami obowiązującymi w instytucji rządowych. Innym typowym przykładem jest oszustwo ubezpieczeniowe: Analiza tekstu często została użyta do przeanalizowania dużych ilości dokumentów w celu rozpoznania szans oszustw związanych z ubezpieczeniem.
 
 ## <a name="artificial-neural-networks"></a>Sztuczne sieci neuronowych
 
@@ -111,15 +111,33 @@ W poniższych sekcjach opisano najpopularniejsze Popularne sieci sztucznej neuro
 
 Sieć feedforward neuronowych jest najbardziej prostym typem sieci sztucznej neuronowych. W sieci feedforward informacje są przenoszone tylko jeden kierunek z warstwy wejściowej do warstwy wyjściowej. Feedforward sieci neuronowych przekształcają dane wejściowe, umieszczając je w szeregu ukrytych warstw. Każda warstwa składa się z zestawu neurons, a każda warstwa jest w pełni podłączona do wszystkich neurons w warstwie. Ostatnia w pełni łączona warstwa (warstwa wyjściowa) reprezentuje wygenerowane prognozy.
 
-### <a name="recurrent-neural-network"></a>Rebieżąca sieć neuronowych
+### <a name="recurrent-neural-network-rnn"></a>Rebieżąca sieć neuronowych (RNN)
 
 Recurrent neuronowych Networks to szeroko wykorzystywana sieć sztuczna neuronowych. Te sieci zapisują dane wyjściowe warstwy i odsyłają ją z powrotem do warstwy wejściowej w celu ułatwienia przewidywania wyniku warstwy. Neuronowych sieci mają doskonałe możliwości uczenia się. Są one szeroko stosowane do złożonych zadań, takich jak prognozowanie szeregów czasowych, uczenie ręczne i rozpoznawanie języka.
 
-### <a name="convolutional-neural-network"></a>Sieć splotowych neuronowych
+### <a name="convolutional-neural-network-cnn"></a>Splotowych neuronowych Network (CNN)
 
 Sieć splotowych neuronowych to szczególnie skuteczna sztuczna sieć neuronowych, która przedstawia unikatową architekturę. Warstwy są zorganizowane w trzy wymiary: Szerokość, Wysokość i głębokość. Neurons w jednej warstwie nie łączy się ze wszystkimi neurons w następnej warstwie, ale tylko do małego regionu neurons warstwy. Końcowe dane wyjściowe są skracane do jednego wektora wyników prawdopodobieństwa, zorganizowane wzdłuż wymiaru głębokości. 
 
 Sieci neuronowych splotowych są używane w takich obszarach jak rozpoznawanie wideo, rozpoznawanie obrazów i systemy zalecające.
+
+### <a name="generative-adversarial-network-gan"></a>Adversarial sieci (GAN)
+
+Adversarial sieci do odzyskania to modele odzyskania w celu utworzenia realistycznej zawartości, takiej jak obrazy. Składa się z dwóch sieci znanych jako generator i rozróżniacz. Obie sieci są przeszkolone jednocześnie. Podczas szkolenia Generator używa losowego szumu do tworzenia nowych danych syntetycznych, które są ściśle podobne do rzeczywistych danych. Rozróżniacz pobiera dane wyjściowe z generatora jako dane wejściowe i wykorzystuje rzeczywiste dane, aby określić, czy wygenerowana zawartość jest prawdziwa czy syntetyczna. Każda sieć jest ze sobą konkurująca. Generator próbuje wygenerować zawartość syntetyczną, która jest odróżnienie od rzeczywistej zawartości, a rozróżniacz próbuje prawidłowo sklasyfikować dane wejściowe jako prawdziwe lub syntetyczne. Dane wyjściowe są następnie używane do aktualizowania wag obu sieci, aby ułatwić im lepsze osiąganie odpowiednich celów.
+
+Używane sieci adversarial umożliwiają rozwiązywanie problemów, takich jak tłumaczenie obrazu na obraz i postęp wieku.
+
+### <a name="transformers"></a>Przekształca
+
+Transformatory są architekturą modelu, która jest odpowiednia do rozwiązywania problemów zawierających sekwencje, takie jak dane tekstowe lub szeregów czasowych. Składają się one z [koderów i warstw dekoderów](https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)#Encoder). Koder pobiera dane wejściowe i mapuje je na reprezentację liczbową zawierającą informacje takie jak kontekst. Dekoder używa informacji z kodera do tworzenia danych wyjściowych, takich jak przetłumaczony tekst. Co sprawia, że transformatory różnią się od innych architektur zawierających kodery i dekodery są podwarstwami uwagi. Uwaga jest pomysłem skoncentrowania się na konkretnych częściach danych wejściowych na podstawie znaczenia ich kontekstu w odniesieniu do innych wejść w sekwencji. Na przykład w przypadku podsumowywania artykułu z wiadomościami nie wszystkie zdania są istotne do opisania głównego pomysłu. Przez skoncentrowanie się na kluczowych słowach w całym artykule podsumowania można wykonać w pojedynczym zdaniu, nagłówku.
+
+Transformatory zostały użyte do rozwiązywania problemów z przetwarzaniem języka naturalnego, takich jak translacja, Generowanie tekstu, odpowiadanie na pytania i podsumowywanie tekstu.
+
+Niektóre dobrze znane implementacje transformatorów są następujące:
+
+- Dwukierunkowe reprezentacje koderów z transformatorów (BERT)
+- Wstępny przeszkolony transformator 2 (GPT-2)
+- Wstępny przeszkolony transformator 3 (GPT-3)
 
 ## <a name="next-steps"></a>Następne kroki
 

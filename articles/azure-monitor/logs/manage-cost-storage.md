@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/28/2021
 ms.author: bwren
-ms.openlocfilehash: 975a3ea250307e445e9bf48abdc669f2b035038a
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: ac2d1ea17460c56a3369d00d2cc8e41cca616363
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106554046"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310924"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor    
 
@@ -266,7 +266,7 @@ Aby rozpocząć, poniżej przedstawiono zalecane ustawienia alertów dotyczącyc
 - Cel: wybierz zasób Log Analytics
 - Określonych 
    - Nazwa sygnału: niestandardowe wyszukiwanie w dzienniku
-   - Zapytanie wyszukiwania: `_LogOperation | where Operation == "Data Collection Status" | where Detail contains "OverQuota"`
+   - Zapytanie wyszukiwania: `_LogOperation | where Operation == "Data collection Status" | where Detail contains "OverQuota"`
    - Na podstawie: liczba wyników
    - Warunek: większe niż
    - Próg: 0

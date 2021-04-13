@@ -10,16 +10,16 @@ ms.date: 04/08/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f104b98c870fe6eee1d32fe656c0bba416cf3700
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 268de3e8ea168ac721362d42149389b9f37c86fe
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259748"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305059"
 ---
 # <a name="blob-versioning"></a>Przechowywanie wersji obiektów BLOB
 
-Możesz włączyć przechowywanie wersji magazynu obiektów blob, aby automatycznie obsługiwać poprzednie wersje obiektu.  Po włączeniu obsługi wersji obiektów BLOB można przywrócić wcześniejszą wersję obiektu BLOB, aby odzyskać dane, jeśli są one błędnie modyfikowane lub usuwane.
+Możesz włączyć przechowywanie wersji magazynu obiektów blob, aby automatycznie obsługiwać poprzednie wersje obiektu. Po włączeniu obsługi wersji obiektów BLOB można przywrócić wcześniejszą wersję obiektu BLOB, aby odzyskać dane, jeśli są one błędnie modyfikowane lub usuwane.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -35,21 +35,21 @@ Aby dowiedzieć się więcej na temat zaleceń firmy Microsoft dotyczących ochr
 
 ## <a name="how-blob-versioning-works"></a>Jak działa wersja obiektów BLOB
 
-Wersja przechwytuje stan obiektu BLOB w danym momencie. Po włączeniu obsługi wersji obiektów BLOB dla konta magazynu usługa Azure Storage automatycznie tworzy nową wersję obiektu BLOB za każdym razem, gdy obiekt BLOB jest modyfikowany.
+Wersja przechwytuje stan obiektu BLOB w danym momencie. Każda wersja jest identyfikowana przy użyciu identyfikatora wersji. Po włączeniu obsługi wersji obiektów BLOB dla konta magazynu usługa Azure Storage automatycznie tworzy nową wersję z unikatowym IDENTYFIKATORem, gdy obiekt BLOB jest tworzony po raz pierwszy i za każdym razem, gdy obiekt BLOB zostanie następnie zmodyfikowany.
 
-Podczas tworzenia obiektu BLOB z włączoną obsługą wersji, nowy obiekt BLOB jest bieżącą wersją obiektu BLOB (lub podstawowy obiekt BLOB). Jeśli następnie zmodyfikujesz ten obiekt BLOB, usługa Azure Storage utworzy wersję, która przechwytuje stan obiektu BLOB przed jego modyfikacją. Zmodyfikowany obiekt BLOB zostanie nowym bieżącą wersją. Nowa wersja jest tworzona za każdym razem, gdy modyfikujesz obiekt BLOB.
+Identyfikator wersji może identyfikować bieżącą wersję lub poprzednią wersję. W danym momencie obiekt BLOB może mieć tylko jedną bieżącą wersję.
+
+Podczas tworzenia nowego obiektu BLOB istnieje jedna wersja, a ta wersja jest bieżącą wersją. Gdy modyfikujesz istniejący obiekt BLOB, bieżąca wersja zostanie poprzednia. Zostanie utworzona nowa wersja, aby przechwycić zaktualizowany stan i Nowa wersja była bieżącą wersją. Po usunięciu obiektu BLOB bieżąca wersja obiektu BLOB zostanie wykorzystana w poprzedniej wersji i nie istnieje już bieżąca wersja. Wszystkie poprzednie wersje obiektu BLOB są utrwalane.
 
 Na poniższym diagramie przedstawiono, jak wersje są tworzone w ramach operacji zapisu, a w jaki sposób można awansować poprzednią wersję jako bieżącą wersję:
 
 :::image type="content" source="media/versioning-overview/blob-versioning-diagram.png" alt-text="Diagram przedstawiający sposób działania wersji obiektów BLOB":::
 
-Po usunięciu obiektu BLOB z włączoną obsługą wersji bieżąca wersja obiektu BLOB zostanie poprzednia i nie będzie już bieżącą wersją. Wszystkie poprzednie wersje obiektu BLOB są utrwalane.
-
 Wersje obiektów BLOB są niezmienne. Nie można zmodyfikować zawartości ani metadanych istniejącej wersji obiektu BLOB.
 
 Duża liczba wersji na obiekt BLOB może zwiększyć opóźnienie operacji tworzenia listy obiektów BLOB. Firma Microsoft zaleca obsługę mniej niż 1000 wersji na obiekt BLOB. Za pomocą zarządzania cyklem życia można automatycznie usuwać stare wersje. Aby uzyskać więcej informacji na temat zarządzania cyklem życia, zobacz [Optymalizowanie kosztów dzięki automatyzowaniu warstw dostępu BLOB Storage platformy Azure](storage-lifecycle-management-concepts.md).
 
-Obsługa wersji obiektów BLOB jest dostępna dla kont ogólnego przeznaczenia w wersji 2, blokowych obiektów blob i BLOB Storage. Konta magazynu z hierarchiczną przestrzenią nazw włączone do użycia z Azure Data Lake Storage Gen2 nie są obecnie obsługiwane.
+Obsługa wersji obiektów BLOB jest dostępna dla standardowego ogólnego przeznaczenia w wersji 2, Premium blokowych obiektów blob i starszych kont magazynu obiektów BLOB. Konta magazynu z hierarchiczną przestrzenią nazw włączone do użycia z Azure Data Lake Storage Gen2 nie są obecnie obsługiwane.
 
 W wersji 2019-10-10 i nowszej interfejsu API REST usługi Azure Storage obsługiwane jest przechowywanie wersji obiektów BLOB.
 
@@ -58,9 +58,9 @@ W wersji 2019-10-10 i nowszej interfejsu API REST usługi Azure Storage obsługi
 
 ### <a name="version-id"></a>Identyfikator wersji
 
-Każda wersja obiektu BLOB jest identyfikowana przez identyfikator wersji. Wartość identyfikatora wersji to sygnatura czasowa, w której obiekt BLOB został zaktualizowany. Identyfikator wersji jest przypisywany podczas tworzenia wersji.
+Każda wersja obiektu BLOB jest identyfikowana przy użyciu unikatowego identyfikatora wersji. Wartość identyfikatora wersji to sygnatura czasowa, w której obiekt BLOB został zaktualizowany. Identyfikator wersji jest przypisywany podczas tworzenia wersji.
 
-Można wykonać operacje odczytu lub usuwania na określonej wersji obiektu BLOB, podając jego identyfikator wersji. W przypadku pominięcia identyfikatora wersji operacja działa w stosunku do bieżącej wersji (podstawowy obiekt BLOB).
+Można wykonać operacje odczytu lub usuwania na określonej wersji obiektu BLOB, podając jego identyfikator wersji. W przypadku pominięcia identyfikatora wersji operacja działa w stosunku do bieżącej wersji.
 
 W przypadku wywołania operacji zapisu w celu utworzenia lub zmodyfikowania obiektu BLOB usługa Azure Storage zwraca nagłówek *x-MS-Version-ID* w odpowiedzi. Ten nagłówek zawiera identyfikator wersji dla bieżącej wersji obiektu BLOB, który został utworzony przez operację zapisu.
 
@@ -70,11 +70,9 @@ Identyfikator wersji pozostaje taki sam dla okresu istnienia wersji.
 
 Po włączeniu obsługi wersji obiektów BLOB każda operacja zapisu w obiekcie blob tworzy nową wersję. Operacje zapisu obejmują [Put obiekt BLOB](/rest/api/storageservices/put-blob), [Umieść listę zablokowanych](/rest/api/storageservices/put-block-list), [Kopiuj obiekt BLOB](/rest/api/storageservices/copy-blob)i [Ustaw metadane obiektów BLOB](/rest/api/storageservices/set-blob-metadata).
 
-Jeśli operacja zapisu tworzy nowy obiekt BLOB, otrzymany obiekt BLOB jest bieżącą wersją obiektu BLOB. Jeśli operacja zapisu modyfikuje istniejący obiekt BLOB, nowe dane są przechwytywane w zaktualizowanym obiekcie blob, który jest bieżącą wersją, a usługa Azure Storage tworzy wersję, która zapisuje poprzedni stan obiektu BLOB.
+Jeśli operacja zapisu tworzy nowy obiekt BLOB, otrzymany obiekt BLOB jest bieżącą wersją obiektu BLOB. Jeśli operacja zapisu modyfikuje istniejący obiekt BLOB, bieżąca wersja jest poprzednią wersją i zostanie utworzona nowa bieżąca wersja, aby przechwycić zaktualizowany obiekt BLOB.
 
-Dla uproszczenia diagramy przedstawione w tym artykule wyświetlają identyfikator wersji jako prostą wartość całkowitą. W rzeczywistości identyfikator wersji jest sygnaturą czasową. Bieżąca wersja jest wyświetlana na niebiesko, a wcześniejsze wersje są oznaczone kolorem szarym.
-
-Na poniższym diagramie przedstawiono sposób, w jaki operacje zapisu wpływają na wersje obiektów BLOB. Gdy obiekt BLOB jest tworzony, ten obiekt BLOB jest bieżącą wersją. Po zmodyfikowaniu tego samego obiektu BLOB zostanie utworzona nowa wersja, aby zapisać poprzedni stan obiektu BLOB, a zaktualizowany obiekt BLOB stanie się bieżącą wersją.
+Na poniższym diagramie przedstawiono sposób, w jaki operacje zapisu wpływają na wersje obiektów BLOB. Dla uproszczenia diagramy przedstawione w tym artykule wyświetlają identyfikator wersji jako prostą wartość całkowitą. W rzeczywistości identyfikator wersji jest sygnaturą czasową. Bieżąca wersja jest wyświetlana na niebiesko, a wcześniejsze wersje są oznaczone kolorem szarym.
 
 :::image type="content" source="media/versioning-overview/write-operations-blob-versions.png" alt-text="Diagram przedstawiający sposób, w jaki operacje zapisu wpływają na obiekty blob z wersjami.":::
 

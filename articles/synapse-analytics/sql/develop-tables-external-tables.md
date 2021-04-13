@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 78e4b35feb4e830a9f4335614a55d49ca90cd791
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1977663f4661fca316e4839671abd76e07b5acda
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101667642"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304804"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Używanie tabel zewnętrznych z Synapse SQL
 
@@ -339,9 +339,9 @@ Określa folder lub ścieżkę pliku i nazwę pliku dla rzeczywistych danych w u
 W przypadku określenia lokalizacji folderu bezserwerowe zapytanie puli SQL zostanie wybrane z tabeli zewnętrznej i pobrane pliki z folderu.
 
 > [!NOTE]
-> W przeciwieństwie do usługi Hadoop i bazy danych, bezserwerowa Pula SQL nie zwraca podfolderów. Zwraca pliki, dla których nazwa pliku zaczyna się od podkreślenia (_) lub kropki (.).
+> W przeciwieństwie do usługi Hadoop i bazy danych, bezserwerowa Pula SQL nie zwraca podfolderów, chyba że na końcu ścieżki nie określono/* *.
 
-W tym przykładzie, jeśli LOCATION = "/webdata/", kwerenda puli SQL bezserwerowa zwróci wiersze z mydata.txt i _hidden.txt. Nie zwróci mydata2.txt i mydata3.txt, ponieważ znajdują się w podfolderze.
+W tym przykładzie, jeśli LOCATION = "/webdata/", kwerenda puli SQL bezserwerowa zwróci wiersze z mydata.txt. Nie zwróci mydata2.txt i mydata3.txt, ponieważ znajdują się w podfolderze.
 
 ![Dane cykliczne dla tabel zewnętrznych](./media/develop-tables-external-tables/folder-traversal.png)
 

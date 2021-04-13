@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: reference
-ms.date: 03/16/2021
-ms.openlocfilehash: 6c23fe86af030d371e12914062bb9558e8db3484
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: 1670d1bb291e30295018146f2a24c5282feac6e7
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104776302"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311655"
 ---
 # <a name="cef-and-commonsecuritylog-field-mapping"></a>CEF i CommonSecurityLog, Mapowanie pól
 
@@ -37,13 +37,13 @@ Aby uzyskać więcej informacji, zobacz [łączenie rozwiązania zewnętrznego p
 |Dostawca urządzenia     |  DeviceVendor       | Ciąg, który wraz z produktami i definicjami wersji urządzenia jednoznacznie identyfikuje typ urządzenia wysyłającego.       |
 |Produkt urządzenia     |   DeviceProduct      |   Ciąg, który wraz z definicją dostawcy i wersji urządzenia jednoznacznie identyfikuje typ urządzenia wysyłającego.        |
 |Wersja urządzenia     |   DeviceVersion      |      Ciąg, który wraz z definicją produktu i dostawcy urządzenia jednoznacznie identyfikuje typ urządzenia wysyłającego.     |
-|DeviceEventClassID     |   DeviceEventClassID     |   Ciąg lub liczba całkowita, która służy jako unikatowy identyfikator dla każdego typu zdarzenia.      |
 | destinationDnsDomain    | DestinationDnsDomain        |   Część DNS w pełni kwalifikowanej nazwy domeny (FQDN).      |
 | destinationServiceName | DestinationServiceName | Usługa, która jest przeznaczona dla zdarzenia. Na przykład `sshd`.|
 | destinationTranslatedAddress | DestinationTranslatedAddress | Identyfikuje przetłumaczone miejsce docelowe, do którego odwołuje się zdarzenie w sieci IP, jako adres IP IPv4. |
 | destinationTranslatedPort | DestinationTranslatedPort | Port po translacji, taki jak Zapora. <br>Prawidłowe numery portów: `0` - `65535` |
 | deviceDirection | <a name="communicationdirection"></a> CommunicationDirection | Wszelkie informacje o kierunku trwania komunikacji obserwowanej. Prawidłowe wartości: <br>- `0` = Przychodzące <br>- `1` = Wychodzące |
 | deviceDnsDomain | DeviceDnsDomain | Część domeny DNS w pełni kwalifikowana nazwa domeny (FQDN) |
+|DeviceEventClassID     |   DeviceEventClassID     |   Ciąg lub liczba całkowita, która służy jako unikatowy identyfikator dla każdego typu zdarzenia.      |
 | deviceExternalID | DeviceExternalID | Nazwa, która jednoznacznie identyfikuje urządzenie generujące zdarzenie. |
 | deviceFacility | DeviceFacility | Obiekt generujący zdarzenie.|
 | deviceInboundInterface | DeviceInboundInterface |Interfejs, w którym pakiet lub dane przeszedł do urządzenia.  |
@@ -118,7 +118,7 @@ Aby uzyskać więcej informacji, zobacz [łączenie rozwiązania zewnętrznego p
 | requestCookies | RequestCookies |Pliki cookie skojarzone z żądaniem. |
 | requestMethod | RequestMethod | Metoda używana do uzyskiwania dostępu do adresu URL. <br><br>Prawidłowe wartości to metody `POST` , `GET` , i tak dalej. |
 | RT | ReceiptTime | Godzina, o której otrzymano zdarzenie związane z działaniem. |
-|Ważność     |  <a name="logseverity"></a> LogSeverity       |  Ciąg lub liczba całkowita, która opisuje ważność zdarzenia.<br><br> Prawidłowe wartości ciągu: `Unknown` , `Low` , `Medium` , `High` , `Very-High` <br><br>Prawidłowe wartości całkowite to: `0` - `3` = Low, `4` - `6` = medium, `7` - `8` = High, `9` - `10` = Very-High |
+|Ważność     |  <a name="logseverity"></a> LogSeverity       |  Ciąg lub liczba całkowita, która opisuje ważność zdarzenia.<br><br> Prawidłowe wartości ciągu: `Unknown` , `Low` , `Medium` , `High` , `Very-High` <br><br>Prawidłowe wartości całkowite to:<br> - `0`-`3` = Niski <br>- `4`-`6` = Średni<br>- `7`-`8` = Wysoka<br>- `9`-`10` = Very-High |
 | shost    | SourceHostName        |Określa źródło, do którego odwołuje się zdarzenie w sieci IP. Format powinien być w pełni kwalifikowaną nazwą domeny (DQDN) skojarzoną z węzłem źródłowym, gdy węzeł jest dostępny. Na przykład: `host` lub `host.domain.com`. |
 | smac | SourceMacAddress | Źródłowy adres MAC. |
 | sntdom | SourceNTDomain | Nazwa domeny systemu Windows dla adresu źródłowego. |
@@ -133,13 +133,126 @@ Aby uzyskać więcej informacji, zobacz [łączenie rozwiązania zewnętrznego p
 | src | SourceIP |Źródło, do którego odwołuje się zdarzenie w sieci IP jako adres IPv4. |
 | start | StartTime | Czas rozpoczęcia działania, do którego odwołuje się zdarzenie. |
 | suid | SourceUserID | Identyfikuje użytkownika źródłowego według identyfikatora. |
+| SUSER | Polach | Identyfikuje użytkownika źródłowego według nazwy. |
 | typ | Typ zdarzenia | Typ zdarzenia. Wartości wartości to: <br>- `0`: zdarzenie podstawowe <br>- `1`: zagregowane <br>- `2`: zdarzenie korelacji <br>- `3`: zdarzenie akcji <br><br>**Uwaga**: to zdarzenie można pominąć dla zdarzeń podstawowych. |
 | | | |
 
-## <a name="unmapped-fields"></a>Niezamapowane pola
+## <a name="custom-fields"></a>Niestandardowe pola
 
-Następujące nazwy pól **CommonSecurityLog** nie mają mapowań w kluczach CEF:
+W poniższych tabelach zawarto Mapowanie nazw kluczy CEF i pól CommonSecurityLog, które są dostępne dla klientów do użycia w przypadku danych, które nie mają zastosowania do żadnych pól wbudowanych.
 
+### <a name="custom-ipv6-address-fields"></a>Pola niestandardowego adresu IPv6
+
+Poniższa tabela mapuje CEF klucze i nazwy CommonSecurityLog dla pól adresów *IPv6* dostępnych dla danych niestandardowych.
+
+|Nazwa klucza CEF  |Nazwa CommonSecurityLog  |
+|---------|---------|
+|     c6a1    |     DeviceCustomIPv6Address1       |
+|     c6a1Label    |     DeviceCustomIPv6Address1Label    |
+|     c6a2    |     DeviceCustomIPv6Address2    |
+|     c6a2Label    |     DeviceCustomIPv6Address2Label    |
+|     c6a3    |     DeviceCustomIPv6Address3    |
+|     c6a3Label    |     DeviceCustomIPv6Address3Label    |
+|     c6a4    |     DeviceCustomIPv6Address4    |
+|     c6a4Label    |     DeviceCustomIPv6Address4Label    |
+|     cfp1    |     DeviceCustomFloatingPoint1    |
+|     cfp1Label    |     deviceCustomFloatingPoint1Label    |
+|     cfp2    |     DeviceCustomFloatingPoint2    |
+|     cfp2Label    |     deviceCustomFloatingPoint2Label    |
+|     cfp3    |     DeviceCustomFloatingPoint3    |
+|     cfp3Label    |     deviceCustomFloatingPoint3Label    |
+|     cfp4    |     DeviceCustomFloatingPoint4    |
+|     cfp4Label    |     deviceCustomFloatingPoint4Label    |
+| | |
+
+### <a name="custom-number-fields"></a>Niestandardowe pola liczbowe
+
+Poniższa tabela mapuje CEF klucze i nazwy CommonSecurityLog dla pól *liczbowych* dostępnych dla danych niestandardowych.
+
+|Nazwa klucza CEF  |Nazwa CommonSecurityLog  |
+|---------|---------|
+|     CN1    |     DeviceCustomNumber1       |
+|     cn1Label    |     DeviceCustomNumber1Label       |
+|     CN2    |     DeviceCustomNumber2       |
+|     cn2Label    |     DeviceCustomNumber2Label       |
+|     cn3    |     DeviceCustomNumber3       |
+|     cn3Label    |     DeviceCustomNumber3Label       |
+| | |
+
+### <a name="custom-string-fields"></a>Niestandardowe pola ciągów
+
+Poniższa tabela mapuje klucze CEF i CommonSecurityLog dla pól *ciągów* , które są dostępne dla danych niestandardowych.
+
+|Nazwa klucza CEF  |Nazwa CommonSecurityLog  |
+|---------|---------|
+|     CS1    |     DeviceCustomString1 <sup> [1](#use-sparingly)</sup>    |
+|     cs1Label    |     DeviceCustomString1Label <sup> [1](#use-sparingly)</sup>    |
+|     CS2    |     DeviceCustomString2 <sup> [1](#use-sparingly)</sup>   |
+|     cs2Label    |     DeviceCustomString2Label <sup> [1](#use-sparingly)</sup> |
+|     CS3    |     DeviceCustomString3 <sup> [1](#use-sparingly)</sup>  |
+|     cs3Label    |     DeviceCustomString3Label <sup> [1](#use-sparingly)</sup> |
+|     CS4    |     DeviceCustomString4 <sup> [1](#use-sparingly)</sup> |
+|     cs4Label    |     DeviceCustomString4Label <sup> [1](#use-sparingly)</sup>  |
+|     cs5    |     DeviceCustomString5 <sup> [1](#use-sparingly)</sup>   |
+|     cs5Label    |     DeviceCustomString5Label <sup> [1](#use-sparingly)</sup>    |
+|     cs6    |     DeviceCustomString6 <sup> [1](#use-sparingly)</sup> |
+|     cs6Label    |     DeviceCustomString6Label <sup> [1](#use-sparingly)</sup> |
+|     flexString1    |     FlexString1    |
+|     flexString1Label    |     FlexString1Label    |
+|     flexString2    |     FlexString2    |
+|     flexString2Label    |     FlexString2Label    |
+| | |
+
+> [!TIP]
+> <a name="use-sparingly"></a><sup>1</sup> zalecamy użycie pól **DeviceCustomString** w sposób oszczędny i użycie bardziej szczegółowych pól wbudowanych, gdy jest to możliwe.
+> 
+
+### <a name="custom-timestamp-fields"></a>Niestandardowe pola sygnatur czasowych
+
+Poniższa tabela mapuje klucze CEF i CommonSecurityLog dla pól *sygnatur czasowych* dostępnych dla danych niestandardowych.
+
+|Nazwa klucza CEF  |Nazwa CommonSecurityLog  |
+|---------|---------|
+|     deviceCustomDate1    |     DeviceCustomDate1    |
+|     deviceCustomDate1Label    |     DeviceCustomDate1Label    |
+|     deviceCustomDate2       |     DeviceCustomDate2    |
+|     deviceCustomDate2Label    |     DeviceCustomDate2Label    |
+|     flexDate1    |     FlexDate1    |
+|     flexDate1Label    |     FlexDate1Label    |
+| | |
+
+### <a name="custom-integer-data-fields"></a>Niestandardowe pola danych liczb całkowitych
+
+Poniższa tabela mapuje CEF klucze i nazwy CommonSecurityLog dla pól *całkowitych* dostępnych dla danych niestandardowych.
+
+|Nazwa klucza CEF  |Nazwa CommonSecurityLog  |
+|---------|---------|
+|     flexNumber1    |     FlexNumber1    |
+|     flexNumber1Label    |     FlexNumber1Label    |
+|     flexNumber2    |     FlexNumber2    |
+|     flexNumber2Label    |     FlexNumber2Label    |
+| | |
+
+## <a name="enrichment-fields"></a>Pola wzbogacania
+
+Następujące pola **CommonSecurityLog** są dodawane przez wskaźnik platformy Azure do wzbogacania oryginalnych zdarzeń odebranych z urządzeń źródłowych i nie mają mapowań w kluczach CEF:
+
+### <a name="threat-intelligence-fields"></a>Pola analizy zagrożeń
+
+|Nazwa pola CommonSecurityLog  |Opis  |
+|---------|---------|
+|   **IndicatorThreatType**  |  Typ zagrożenia [MaliciousIP](#MaliciousIP) , zgodnie z kanałem informacyjnym analizy zagrożeń.       |
+| <a name="MaliciousIP"></a>**MaliciousIP** | Wyświetla listę adresów IP w komunikacie, które są skorelowane z bieżącym źródłem analizy zagrożeń. |
+|  **MaliciousIPCountry**   | Kraj [MaliciousIP](#MaliciousIP) , zgodnie z informacjami geograficznymi w czasie pozyskiwania rekordu.        |
+| **MaliciousIPLatitude**    |   Długość geograficzna [MaliciousIP](#MaliciousIP) , zgodnie z informacjami geograficznymi w czasie pozyskiwania rekordu.      |
+| **MaliciousIPLongitude**    |  Długość geograficzna [MaliciousIP](#MaliciousIP) , zgodnie z informacjami geograficznymi w czasie pozyskiwania rekordu.       |
+| **ReportReferenceLink**    |    Link do raportu analizy zagrożeń.     |
+|  **ThreatConfidence**   |   Zaufanie [MaliciousIP](#MaliciousIP) Threat, zgodnie z kanałem informacyjnym analizy zagrożeń.      |
+| **ThreatDescription**    |   Opis zagrożenia [MaliciousIP](#MaliciousIP) , zgodnie ze źródłem analizy zagrożeń.      |
+| **ThreatSeverity** | Ważność zagrożenia dla [MaliciousIP](#MaliciousIP), zgodnie ze źródłem analizy zagrożeń w czasie pozyskiwania rekordu. |
+|     |         |
+
+### <a name="additional-enrichment-fields"></a>Dodatkowe pola wzbogacania
 
 |Nazwa pola CommonSecurityLog  |Opis  |
 |---------|---------|
@@ -147,8 +260,8 @@ Następujące nazwy pól **CommonSecurityLog** nie mają mapowań w kluczach CEF
 |**RemoteIP**     |     Zdalny adres IP. <br>Ta wartość jest oparta na polu [CommunicationDirection](#communicationdirection) (jeśli to możliwe).     |
 |**RemotePort**     |   Port zdalny. <br>Ta wartość jest oparta na polu [CommunicationDirection](#communicationdirection) (jeśli to możliwe).      |
 |**SimplifiedDeviceAction**     |   Upraszcza wartość [DeviceAction](#deviceaction) do statycznego zestawu wartości, pozostawiając pierwotną wartość w polu [DeviceAction](#deviceaction) . <br>Na przykład: `Denied`  >  `Deny` .      |
+|**SourceSystem**     | Zawsze zdefiniowane jako **OpsManager**.        |
 |     |         |
-
 
 ## <a name="next-steps"></a>Następne kroki
 

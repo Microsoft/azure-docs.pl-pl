@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/22/2021
+ms.date: 04/12/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: e8192c5c6734009f69e3f741531251dd85675b47
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 4130ed4bb690edb3c0c5d72d7d158262ed6ff39d
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449464"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305603"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Samouczek: opracowywanie i planowanie aprowizacji dla punktu końcowego Standard scim
 
@@ -62,7 +62,7 @@ Standard Standard scim definiuje schemat do zarządzania użytkownikami i grupam
 **Podstawowy** schemat użytkownika wymaga tylko trzech atrybutów (wszystkie inne atrybuty są opcjonalne):
 
 - `id`, identyfikator zdefiniowany przez dostawcę usług
-- `externalId`, identyfikator zdefiniowany przez klienta
+- `userName`unikatowy identyfikator użytkownika (zazwyczaj jest mapowany na główną nazwę użytkownika usługi Azure AD)
 - `meta`, metadane *tylko do odczytu* utrzymywane przez dostawcę usług
 
 Oprócz **podstawowego** schematu użytkownika Standard Standard scim definiuje rozszerzenie użytkownika **przedsiębiorstwa** z modelem umożliwiającym rozszerzenie schematu użytkownika w celu spełnienia wymagań aplikacji. 

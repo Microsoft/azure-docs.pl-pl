@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: ad6696fc4fe2af7047c25a3a9c260d3b12588ee2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 69dec2ce00b263f3536e30ba0a5376e6d922b79c
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102203304"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308357"
 ---
 # <a name="high-availability-for-azure-cache-for-redis"></a>Wysoka dostępność dla usługi Azure cache for Redis
 
@@ -21,9 +21,9 @@ Usługa Azure cache for Redis implementuje wysoką dostępność przy użyciu wi
 
 | Opcja | Opis | Dostępność | Standardowa (Standard) | Premium | Przedsiębiorstwa |
 | ------------------- | ------- | ------- | :------: | :---: | :---: |
-| [Standardowa replikacja](#standard-replication)| Konfiguracja replikacji z dwoma węzłami w jednym centrum danych z automatycznym trybem failover | 99,9% |✔|✔|-|
-| [Nadmiarowość stref](#zone-redundancy) | Konfiguracja replikacji wielowęzłowej w systemie AZs z automatycznym trybem failover | 99,95% (warstwa Premium), 99,99% (warstwy przedsiębiorstwa) |-|Wersja zapoznawcza|Wersja zapoznawcza|
-| [Replikacja geograficzna](#geo-replication) | Wystąpienia połączonej pamięci podręcznej w dwóch regionach z trybem failover sterowanym przez użytkownika | 99,999% (warstwa przedsiębiorstwa) |-|✔|Wersja zapoznawcza|
+| [Standardowa replikacja](#standard-replication)| Konfiguracja replikacji z dwoma węzłami w jednym centrum danych z automatycznym trybem failover | 99,9% (zobacz [szczegóły](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)) |✔|✔|-|
+| [Nadmiarowość stref](#zone-redundancy) | Konfiguracja replikacji wielowęzłowej w systemie AZs z automatycznym trybem failover | Do 99,99% (zobacz [szczegóły](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)) |-|Wersja zapoznawcza|Wersja zapoznawcza|
+| [Replikacja geograficzna](#geo-replication) | Wystąpienia połączonej pamięci podręcznej w dwóch regionach z trybem failover sterowanym przez użytkownika | Do 99,999% (zobacz [szczegóły](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)) |-|✔|Wersja zapoznawcza|
 
 ## <a name="standard-replication"></a>Standardowa replikacja
 

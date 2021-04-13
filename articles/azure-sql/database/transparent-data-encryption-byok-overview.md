@@ -8,16 +8,16 @@ ms.subservice: security
 ms.custom: seo-lt-2019, azure-synapse
 ms.devlang: ''
 ms.topic: conceptual
-author: jaszymas
-ms.author: jaszymas
+author: shohamMSFT
+ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 02/01/2021
-ms.openlocfilehash: e096e21e7d20c992e18634d684f663f149cc3c55
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 098d874d7de85aa7c66f92703eea9b4d12cee8df
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101691250"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305297"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Funkcja Transparent Data Encryption usługi Azure SQL przy użyciu klucza zarządzanego przez klienta
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -86,13 +86,13 @@ Audytorzy mogą używać Azure Monitor do przeglądania dzienników AuditEvent m
 
 ### <a name="requirements-for-configuring-tde-protector"></a>Wymagania dotyczące konfigurowania funkcji ochrony TDE
 
-- Funkcja ochrony TDE może mieć tylko asymetryczny klucze HSM, RSA lub RSA. Obsługiwane długości kluczy to 2048 i 3072 bajtów.
+- Funkcja ochrony TDE może mieć tylko asymetryczny klucze HSM, RSA lub RSA. Obsługiwane długości kluczy to 2048 bajtów i 3072 bajtów.
 
 - Data aktywacji klucza (jeśli jest ustawiona) musi być datą i godziną w przeszłości. Data wygaśnięcia (jeśli jest ustawiona) musi być przyszłą datą i godziną.
 
 - Klucz musi być w stanie *włączony* .
 
-- W przypadku importowania istniejącego klucza do magazynu kluczy upewnij się, że jest on udostępniany w obsługiwanych formatach plików (PFX,. BYOK lub. Backup).
+- W przypadku importowania istniejącego klucza do magazynu kluczy upewnij się, że jest on udostępniany w obsługiwanych formatach plików ( `.pfx` , `.byok` lub `.backup` ).
 
 > [!NOTE]
 > Usługa Azure SQL obsługuje teraz użycie klucza RSA przechowywanego w zarządzanym module HSM jako funkcji ochrony TDE. Ta funkcja jest dostępna w **publicznej wersji zapoznawczej**. Azure Key Vault zarządzanym modułem HSM jest w pełni zarządzana usługa w chmurze o wysokiej dostępności, która jest zgodna ze standardami, która pozwala chronić klucze kryptograficzne dla aplikacji w chmurze przy użyciu zweryfikowanych sprzętowych modułów zabezpieczeń poziomu 3 w trybie FIPS 140-2. Dowiedz się więcej o [zarządzanym sprzętowych modułów zabezpieczeń](../../key-vault/managed-hsm/index.yml).
@@ -116,7 +116,7 @@ Audytorzy mogą używać Azure Monitor do przeglądania dzienników AuditEvent m
 
 - Jeśli klucz jest generowany w magazynie kluczy, Utwórz kopię zapasową klucza przed użyciem klucza w AKV po raz pierwszy. Kopię zapasową można przywrócić tylko do Azure Key Vault. Dowiedz się więcej na temat polecenia [Backup-AzKeyVaultKey](/powershell/module/az.keyvault/backup-azkeyvaultkey) .
 
-- Utwórz nową kopię zapasową po każdym wprowadzeniu zmian w kluczu (np. atrybuty klucza, znaczniki, listy ACL).
+- Utwórz nową kopię zapasową po każdym wprowadzeniu zmian w kluczu (na przykład atrybuty klucza, znaczniki, listy ACL).
 
 - **Zachowaj poprzednie wersje** klucza w magazynie kluczy podczas obracania kluczy, aby można było przywrócić starsze kopie zapasowe bazy danych. Gdy funkcja ochrony TDE została zmieniona dla bazy danych, stare kopie zapasowe bazy danych **nie są aktualizowane** do korzystania z najnowszej funkcji ochrony TDE. W czasie przywracania każda kopia zapasowa wymaga ochrony TDE, która została zaszyfrowana przy użyciu czasu utworzenia. Rotacje kluczy można wykonać zgodnie z instrukcjami w [obszarze obróć transparent Data Encryption funkcję ochrony przy użyciu programu PowerShell](transparent-data-encryption-byok-key-rotation.md).
 
@@ -133,9 +133,9 @@ W przypadku skonfigurowania funkcji transparent Data Encryption do korzystania z
 
 Po przywróceniu dostępu do klucza przełączenie bazy danych w tryb online wymaga dodatkowego czasu i kroków, które mogą się różnić w zależności od czasu, który upłynął bez dostępu do klucza i rozmiaru danych w bazie danych:
 
-- Jeśli dostęp do klucza zostanie przywrócony w ciągu 8 godzin, baza danych zostanie przewarta w ciągu następnej godziny.
+- Jeśli dostęp do klucza zostanie przywrócony w ciągu 8 godzin, baza danych zostanie przetworzone w ciągu następnej godziny.
 
-- Jeśli dostęp do klucza zostanie przywrócony po upływie ponad 8 godzin, automatyczne naprawienie jest niemożliwe, a przywrócenie bazy danych wymaga dodatkowych czynności w portalu i może zająć znaczną ilość czasu, zależnie od rozmiaru bazy danych. Gdy baza danych zostanie przywrócona w trybie online, wcześniej skonfigurowane ustawienia na poziomie serwera, takie jak konfiguracja [grupy trybu failover](auto-failover-group-overview.md) , historia przywracania do punktu w czasie i Tagi **zostaną utracone**. W związku z tym zaleca się zaimplementowanie systemu powiadomień, który pozwala identyfikować i rozwiązywać podstawowe problemy z dostępem do klucza w ciągu 8 godzin.
+- Jeśli dostęp do klucza jest przywracany po upływie ponad 8 godzin, nie jest możliwe, a przywrócenie bazy danych wymaga dodatkowych czynności w portalu i może zająć znaczną ilość czasu w zależności od rozmiaru bazy danych. Gdy baza danych zostanie przywrócona w trybie online, wcześniej skonfigurowane ustawienia na poziomie serwera, takie jak konfiguracja [grupy trybu failover](auto-failover-group-overview.md) , historia przywracania do punktu w czasie i Tagi **zostaną utracone**. W związku z tym zaleca się zaimplementowanie systemu powiadomień, który pozwala identyfikować i rozwiązywać podstawowe problemy z dostępem do klucza w ciągu 8 godzin.
 
 Poniżej znajduje się widok dodatkowych kroków wymaganych w portalu w celu przywrócenia niedostępnej bazy danych do trybu online.
 
@@ -164,7 +164,7 @@ Aby monitorować stan bazy danych i włączyć alert o utracie dostępu do funkc
 
 - [Azure Resource Health](../../service-health/resource-health-overview.md). Niedostępna baza danych, która utraciła dostęp do funkcji ochrony TDE, będzie wyświetlana jako "niedostępna" po odmowie pierwszego połączenia z bazą danych.
 - [Dziennik aktywności](../../service-health/alerts-activity-log-service-notifications-portal.md) , gdy dostęp do funkcji ochrony TDE w magazynie kluczy zarządzanych przez klienta nie powiedzie się, wpisy są dodawane do dziennika aktywności.  Utworzenie alertów dla tych zdarzeń umożliwi przywrócenie dostępu tak szybko, jak to możliwe.
-- [Grupy akcji](../../azure-monitor/alerts/action-groups.md) można definiować w celu wysyłania powiadomień i alertów na podstawie preferencji, np. wiadomości E-mail/SMS/wypychania/głosu, aplikacji logiki, elementu webhook, narzędzia ITSM lub elementu Runbook usługi Automation.
+- [Grupy akcji](../../azure-monitor/alerts/action-groups.md) można definiować w celu wysyłania powiadomień i alertów na podstawie preferencji, na przykład wiadomości E-mail/SMS/wypychania/głosu, aplikacji logiki, elementu webhook, narzędzia ITSM lub elementu Runbook usługi Automation.
 
 ## <a name="database-backup-and-restore-with-customer-managed-tde"></a>Tworzenie kopii zapasowej i przywracanie bazy danych za pomocą TDE zarządzanych przez klienta
 
@@ -187,13 +187,13 @@ Dodatkowe zagadnienia dotyczące plików dziennika: kopia zapasowa plików dzien
 
 Nawet w przypadkach, gdy nie ma skonfigurowanej nadmiarowości geograficznej serwera, zdecydowanie zaleca się skonfigurowanie serwera tak, aby korzystał z dwóch różnych magazynów kluczy w dwóch różnych regionach z tym samym kluczem. Klucz w magazynie kluczy pomocniczych w innym regionie nie powinien być oznaczony jako funkcja ochrony TDE i nie jest jeszcze dozwolony. Jeśli wystąpi awaria wpływająca na podstawowy Magazyn kluczy, system automatycznie przejdzie do innego połączonego klucza z tym samym odciskiem palca w magazynie kluczy pomocniczych, jeśli istnieje. Należy pamiętać, że ten przełącznik nie zostanie wykonany, jeśli funkcja ochrony TDE jest niedostępna z powodu odwołanych praw dostępu lub klucz lub Magazyn kluczy został usunięty, ponieważ może to wskazywać, że klient chce ograniczyć dostęp serwera do klucza. Dostarczenie tego samego klucza do dwóch magazynów kluczy w różnych regionach można wykonać, tworząc klucz poza magazynem kluczy i importując je do obu magazynów kluczy. 
 
-Alternatywnie można to zrobić przez wygenerowanie klucza przy użyciu podstawowego magazynu kluczy, który znajduje się w tym samym regionie co serwer i klonowanie klucza do magazynu kluczy w innym regionie świadczenia usługi Azure. Użyj polecenia cmdlet [Backup-AzKeyVaultKey](/powershell/module/az.keyvault/Backup-AzKeyVaultKey) , aby pobrać klucz w szyfrowanym formacie z magazynu kluczy podstawowych, a następnie użyć polecenia cmdlet [Restore-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey) i określić Magazyn kluczy w drugim regionie, aby sklonować klucz. Alternatywnie możesz użyć Azure Portal, aby utworzyć kopię zapasową i przywrócić klucz. Operacja tworzenia kopii zapasowej/przywracania klucza jest dozwolona tylko między magazynami kluczy w ramach tej samej subskrypcji platformy Azure i lokalizacji [geograficznej platformy Azure](https://azure.microsoft.com/global-infrastructure/geographies/).  
+Alternatywnie można to zrobić przez wygenerowanie klucza przy użyciu podstawowego magazynu kluczy w tym samym regionie co serwer i klonowanie klucza do magazynu kluczy w innym regionie świadczenia usługi Azure. Użyj polecenia cmdlet [Backup-AzKeyVaultKey](/powershell/module/az.keyvault/Backup-AzKeyVaultKey) , aby pobrać klucz w szyfrowanym formacie z magazynu kluczy podstawowych, a następnie użyć polecenia cmdlet [Restore-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey) i określić Magazyn kluczy w drugim regionie, aby sklonować klucz. Alternatywnie możesz użyć Azure Portal, aby utworzyć kopię zapasową i przywrócić klucz. Operacja tworzenia kopii zapasowej/przywracania klucza jest dozwolona tylko między magazynami kluczy w ramach tej samej subskrypcji platformy Azure i lokalizacji [geograficznej platformy Azure](https://azure.microsoft.com/global-infrastructure/geographies/).  
 
 ![Single-Server HA](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-ha.png)
 
 ## <a name="geo-dr-and-customer-managed-tde"></a>Geograficznie i TDE zarządzane przez klienta
 
-W scenariuszach [aktywnej replikacji geograficznej](active-geo-replication-overview.md) i [grup trybu failover](auto-failover-group-overview.md) każdy serwer ma wymagany osobny Magazyn kluczy, który musi znajdować się na serwerze w tym samym regionie świadczenia usługi Azure. Klient jest odpowiedzialny za utrzymywanie kluczowych materiałów w ramach spójnych magazynów kluczy, dzięki czemu lokacja podrzędna jest zsynchronizowana i może przejąć użycie tego samego klucza z lokalnego magazynu kluczy, jeśli podstawowa stanie się niedostępna z powodu awarii w regionie i zostanie wyzwolone przejście w tryb failover. Można skonfigurować maksymalnie cztery pomocnicze serwery, a Łączenie łańcuchowe (serwery pomocnicze serwerów pomocniczych) nie jest obsługiwane.
+W scenariuszach [aktywnej replikacji geograficznej](active-geo-replication-overview.md) i [grup trybu failover](auto-failover-group-overview.md) każdy serwer ma wymagany osobny Magazyn kluczy, który musi być wspólnie z serwerem w tym samym regionie świadczenia usługi Azure. Klient jest odpowiedzialny za utrzymywanie kluczowych materiałów w ramach spójnych magazynów kluczy, dzięki czemu lokacja podrzędna jest zsynchronizowana i może przejąć użycie tego samego klucza z lokalnego magazynu kluczy, jeśli podstawowa stanie się niedostępna z powodu awarii w regionie i zostanie wyzwolone przejście w tryb failover. Można skonfigurować maksymalnie cztery pomocnicze serwery, a Łączenie łańcuchowe (serwery pomocnicze serwerów pomocniczych) nie jest obsługiwane.
 
 Aby uniknąć problemów podczas ustanawiania lub podczas przeprowadzania replikacji geograficznej ze względu na niekompletny materiał klucza, ważne jest przestrzeganie tych reguł podczas konfigurowania TDE zarządzanych przez klienta:
 
@@ -205,7 +205,7 @@ Aby uniknąć problemów podczas ustanawiania lub podczas przeprowadzania replik
 
 ![Grupy trybu failover i geograficznie](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-bcdr.png)
 
-Aby przetestować tryb failover, wykonaj kroki opisane w temacie [Aktywna replikacja geograficzna](active-geo-replication-overview.md). Testowanie pracy w trybie failover powinno odbywać się regularnie, aby sprawdzić, czy SQL Database ma uprawnienia dostępu do obu magazynów kluczy.
+Aby przetestować tryb failover, wykonaj kroki opisane w temacie [Aktywna replikacja geograficzna](active-geo-replication-overview.md). Testowanie pracy w trybie failover należy regularnie wykonywać, aby sprawdzić, czy SQL Database ma uprawnienia dostępu do obu magazynów kluczy.
 
 ## <a name="next-steps"></a>Następne kroki
 

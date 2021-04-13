@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 03/30/2021
 ms.author: jgao
-ms.openlocfilehash: fb5fc0b6b673f8a754d0d6bb6ff962697cd5f38b
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 3240cce34a6fa645986a58ab43b28ad38485e97b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967340"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308969"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Używanie skryptów wdrażania w szablonach ARM
 
@@ -140,7 +140,7 @@ Szczegóły wartości właściwości:
 - `kind`: Określ typ skryptu. Obecnie obsługiwane są Azure PowerShell i skrypty interfejsu wiersza polecenia platformy Azure. Wartości to **AzurePowerShell** i **AzureCLI**.
 - `forceUpdateTag`: Zmiana tej wartości między wdrożeniami szablonów Wymusza ponowne uruchomienie skryptu wdrażania. Jeśli używasz `newGuid()` `utcNow()` funkcji lub, obie funkcje mogą być używane tylko w wartości domyślnej dla parametru. Aby dowiedzieć się więcej, zobacz [Uruchamianie skryptu więcej niż raz](#run-script-more-than-once).
 - `containerSettings`: Określ ustawienia umożliwiające dostosowanie wystąpienia kontenera platformy Azure. Skrypt wdrażania wymaga nowego wystąpienia kontenera platformy Azure. Nie można określić istniejącego wystąpienia kontenera platformy Azure. Można jednak dostosować nazwę grupy kontenerów za pomocą polecenia `containerGroupName` . Jeśli nie zostanie określony, nazwa grupy jest generowana automatycznie.
-- `storageAccountSettings`: Określ ustawienia do użycia istniejącego konta magazynu. Jeśli `containerGroupName` nie zostanie określony, konto magazynu jest tworzone automatycznie. Zobacz [Korzystanie z istniejącego konta magazynu](#use-existing-storage-account).
+- `storageAccountSettings`: Określ ustawienia do użycia istniejącego konta magazynu. Jeśli `storageAccountName` nie zostanie określony, konto magazynu jest tworzone automatycznie. Zobacz [Korzystanie z istniejącego konta magazynu](#use-existing-storage-account).
 - `azPowerShellVersion`/`azCliVersion`: Określ wersję modułu, która ma zostać użyta. Zapoznaj się z listą [obsługiwanych wersji Azure PowerShell](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Zapoznaj się z listą [obsługiwanych wersji interfejsu wiersza polecenia platformy Azure](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
   >[!IMPORTANT]
@@ -245,7 +245,7 @@ Poniższy szablon pokazuje, jak przekazać wartości między dwoma `deploymentSc
 W pierwszym zasobie należy zdefiniować zmienną o nazwie `$DeploymentScriptOutputs` i użyć jej do przechowywania wartości wyjściowych. Aby uzyskać dostęp do wartości wyjściowej z innego zasobu w ramach szablonu, użyj:
 
 ```json
-reference('<ResourceName>').output.text
+reference('<ResourceName>').outputs.text
 ```
 
 ## <a name="work-with-outputs-from-cli-script"></a>Pracuj z wynikami z poziomu skryptu interfejsu wiersza polecenia

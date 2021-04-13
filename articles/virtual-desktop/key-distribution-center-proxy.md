@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/20/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a1e6d2f4fc0444be364ce3c07c14f6408b3f19fe
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 21db7ed0cf13a3ed282929b09847c6c3ba8a36ed
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106446914"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307252"
 ---
 # <a name="configure-a-kerberos-key-distribution-center-proxy-preview"></a>Konfigurowanie serwera proxy protokołu Kerberos centrum dystrybucji kluczy (wersja zapoznawcza)
 
@@ -29,7 +29,7 @@ Istnieją dwa składniki usługi pulpitu wirtualnego systemu Windows, które mus
 - Kanał informacyjny klienta pulpitu wirtualnego systemu Windows, który zapewnia użytkownikom listę dostępnych pulpitów lub aplikacji, do których mają dostęp. Ten proces uwierzytelniania występuje w Azure Active Directory, co oznacza, że ten składnik nie jest fokusem tego artykułu.
 - Sesja RDP, która powoduje, że użytkownik wybiera jeden z tych dostępnych zasobów. Ten składnik używa uwierzytelniania Kerberos i wymaga serwera proxy centrum dystrybucji kluczy dla użytkowników zdalnych.
 
-W tym artykule przedstawiono sposób konfigurowania kanału informacyjnego w kliencie pulpitu wirtualnego systemu Windows w Azure Portal. Jeśli chcesz dowiedzieć się, jak skonfigurować rolę bramy usług pulpitu zdalnego, zobacz [Wdrażanie roli bramy usług pulpitu zdalnego](/windows-server/remote/rd-gateway-role).
+W tym artykule przedstawiono sposób konfigurowania kanału informacyjnego w kliencie pulpitu wirtualnego systemu Windows w Azure Portal. Jeśli chcesz dowiedzieć się, jak skonfigurować rolę bramy usług pulpitu zdalnego, zobacz [Wdrażanie roli bramy usług pulpitu zdalnego](/azure/virtual-desktop/rd-gateway-role).
 
 ## <a name="requirements"></a>Wymagania
 
