@@ -3,12 +3,12 @@ title: Co to jest usługa Azure Event Hubs? — usługa pozyskiwania danych big 
 description: Informacje na temat usługi Azure Event Hubs, usługi strumieniowego przesyłania danych big data, umożliwiającej pozyskiwanie milionów zdarzeń na sekundę.
 ms.topic: overview
 ms.date: 01/13/2021
-ms.openlocfilehash: 36eeb38d9ed1696c9524ae9b346065756ce49c46
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 35e89f60e93ec759d852641653ad138d7672cc37
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98195770"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303053"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Usługa Azure Event Hubs — platforma przesyłania strumieniowego danych big data i usługa pozyskiwania zdarzeń
 Usługa Azure Event Hubs to platforma przesyłania strumieniowego danych big data i usługa pozyskiwania zdarzeń. Może odbierać i przetwarzać miliony zdarzeń na sekundę. Dane wysłane do centrum zdarzeń mogą zostać przekształcone i zmagazynowane przy użyciu dowolnego dostawcy analityki czasu rzeczywistego lub adapterów przetwarzania wsadowego/magazynowania.
@@ -92,4 +92,4 @@ Aby rozpocząć korzystanie z Event Hubs, zobacz samouczki **wysyłania i odbier
 Więcej informacji na temat usługi Event Hubs zawierają następujące artykuły:
 
 - [Event Hubs features overview (Omówienie funkcji usługi Event Hubs)](event-hubs-features.md)
-- [Często zadawane pytania](event-hubs-faq.md).
+- [Często zadawane pytania](event-hubs-faq.yml).

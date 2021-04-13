@@ -376,6 +376,8 @@
         - name: Zalecenia dotyczące wydajności
           href: concepts-performance-recommendations.md
           displayName: recommendation
+        - name: Zalecenia dotyczące Azure Advisor
+          href: concepts-azure-advisor-recommendations.md
     - name: Najlepsze rozwiązania
       items:
         - name: Najlepsze rozwiązania w zakresie monitorowania

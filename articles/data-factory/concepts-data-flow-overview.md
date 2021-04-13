@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 12/10/2020
-ms.openlocfilehash: 1529d2d546227880fee71d1823482e040d2e57c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/11/2021
+ms.openlocfilehash: 53f300adb57eb17e704e7e3323b9829c485bb87a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103564324"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308986"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Mapowanie przepływów danych w Azure Data Factory
 
@@ -96,66 +96,6 @@ Tryb debugowania pozwala interaktywnie zobaczyć wyniki każdego kroku przekszta
 Mapowanie przepływu danych integruje się z istniejącymi możliwościami monitorowania Azure Data Factory. Aby dowiedzieć się, jak zrozumieć dane wyjściowe monitorowania przepływu danych, zobacz [monitorowanie przepływów danych](concepts-data-flow-monitoring.md).
 
 Zespół Azure Data Factory utworzył [Przewodnik dostrajania wydajności](concepts-data-flow-performance.md) , który pomaga zoptymalizować czas wykonywania przepływów danych po skompilowaniu logiki biznesowej.
-
-## <a name="available-regions"></a>Dostępne regiony
-
-= = = = = = = = Mapowanie przepływów danych jest dostępne w następujących regionach w podajniku APD:
-
-| Region platformy Azure | Przepływy danych w usłudze ADF |
-| ------------ | ----------------- |
-|  Australia Środkowa | |
-| Australia Środkowa 2 | |
-| Australia Wschodnia | ✓ |
-| Australia Południowo-Wschodnia   | ✓ |
-| Brazylia Południowa  | ✓ |
-| Kanada Środkowa | ✓ |
-| Indie Środkowe | ✓ |
-| Central US    | ✓ |
-| Chiny Wschodnie |      |
-| Chiny Wschodnie 2  |   |
-| Chiny nieregionalne | |
-| Chiny Północne |     |
-| Chiny Północne 2 | |
-| Azja Wschodnia | ✓ |
-| East US   | ✓ |
-| Wschodnie stany USA 2 | ✓ |
-| Francja Środkowa | ✓ |
-| Francja Południowa  | |
-| Niemcy środkowe (suwerenne) | |
-| Niemcy (inne niż regionalne) (suwerenne) | |
-| Niemcy Północne (Publiczny) | |
-| Niemcy północno-wschodnie | |
-| Niemcy Środkowo-Zachodnie (Publiczny) |  |
-| Japonia Wschodnia | ✓ |
-| Japonia Zachodnia |  |
-| Korea Środkowa | ✓ |
-| Korea Południowa | |
-| Północno-środkowe stany USA  | ✓ |
-| Europa Północna  | ✓ |
-| Norwegia Wschodnia | |
-| Norwegia Zachodnia | |
-| Północna Republika Południowej Afryki    | ✓ |
-| Zachodnia Republika Południowej Afryki |  |
-| South Central US  | |
-| Indie Południowe | |
-| Southeast Asia    | ✓ |
-| Szwajcaria Północna |   |
-| Szwajcaria Zachodnia | |
-| Środkowy Zjednoczone Emiraty Arabskie | |
-| Północne Zjednoczone Emiraty Arabskie |  |
-| Południowe Zjednoczone Królestwo  | ✓ |
-| Zachodnie Zjednoczone Królestwo |     |
-| US DoD (region środkowy) | |
-| US DoD (region wschodni) | |
-| US Gov Arizona |      |
-| US Gov (inne niż regionalne) | |
-| US Gov Teksas | |
-| US Gov Wirginia |     |
-| Zachodnio-środkowe stany USA |     |
-| West Europe   | ✓ |
-| Indie Zachodnie | |
-| Zachodnie stany USA   | ✓ |
-| Zachodnie stany USA 2 | ✓ |
 
 ## <a name="next-steps"></a>Następne kroki
 

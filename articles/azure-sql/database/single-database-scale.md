@@ -10,19 +10,26 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
-ms.date: 02/22/2021
-ms.openlocfilehash: c5b6509cabd743a01a085639a7b76d764555a9f8
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.date: 04/09/2021
+ms.openlocfilehash: 47686f457e2579ca8a643de6671c886effefa6f1
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106106657"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313525"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Skalowanie zasobów pojedynczej bazy danych w usłudze Azure SQL Database
 
 W tym artykule opisano, jak skalować zasoby obliczeniowe i magazynowe dostępne dla Azure SQL Database w warstwie obliczeniowej zainicjowanej. Alternatywnie [warstwa obliczeń bezserwerowych](serverless-tier-overview.md) oferuje Skalowanie automatyczne i opłaty za użycie obliczeń na sekundę.
 
-Po początkowym wybraniu liczby rdzeni wirtualnych lub DTU można dynamicznie skalować pojedynczą bazę danych w górę lub w dół na podstawie rzeczywistego środowiska przy użyciu [Azure Portal](single-database-manage.md#the-azure-portal), [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), interfejsu [wiersza polecenia platformy Azure](/cli/azure/sql/db#az-sql-db-update)lub [interfejsu API REST](/rest/api/sql/databases/update).
+Po początkowym wybraniu liczby rdzeni wirtualnych lub DTU można dynamicznie skalować pojedynczą bazę danych w górę lub w dół na podstawie rzeczywistego środowiska przy użyciu:
+
+* [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
+* [Witryna Azure Portal](single-database-manage.md#the-azure-portal)
+* [Program PowerShell](/powershell/module/az.sql/set-azsqldatabase)
+* [Interfejs wiersza polecenia platformy Azure](/cli/azure/sql/db#az-sql-db-update)
+* [Interfejs API REST](/rest/api/sql/databases/update)
+
 
 Poniższy film wideo pokazuje dynamicznie zmieniające się warstwy usług i rozmiar obliczeń, aby zwiększyć dostępne DTU dla pojedynczej bazy danych.
 
@@ -125,7 +132,7 @@ Opłaty są naliczane za każdą godzinę, gdy baza danych istnieje przy użyciu
 
 ### <a name="vcore-based-purchasing-model"></a>Model zakupów oparty na rdzeniach wirtualnych
 
-- Magazyn może być inicjowany do limitu maksymalnego rozmiaru magazynu danych przy użyciu przyrostów 1 GB. Minimalny konfigurowalny magazyn danych to 1 GB. Zobacz strony dokumentacji limitu zasobów dla [pojedynczych baz danych](resource-limits-vcore-single-databases.md) i [pul elastycznych](resource-limits-vcore-elastic-pools.md) dla limitów maksymalny rozmiar magazynu danych w każdym celu usługi.
+- Magazyn może być inicjowany do limitu maksymalnego rozmiaru magazynu danych przy użyciu przyrostów 1 GB. Minimalny konfigurowalny magazyn danych to 1 GB. W przypadku maksymalnych limitów rozmiaru magazynu danych w każdym celu usługi Zobacz strony dokumentacji limit zasobów dla [limitów zasobów dla pojedynczych baz danych przy użyciu modelu zakupów rdzeń wirtualny](resource-limits-vcore-single-databases.md) i [limitów zasobów dla pojedynczych baz danych przy użyciu modelu zakupu jednostek DTU](resource-limits-dtu-single-databases.md).
 - Przechowywanie danych dla pojedynczej bazy danych może być obsługiwane przez zwiększenie lub zmniejszenie maksymalnego rozmiaru przy użyciu [Azure Portal](https://portal.azure.com), [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), interfejsu [wiersza polecenia platformy Azure](/cli/azure/sql/db#az-sql-db-update)lub [API REST](/rest/api/sql/databases/update). Jeśli wartość maksymalnego rozmiaru jest określona w bajtach, musi być wielokrotnością 1 GB (1073741824 bajtów).
 - Ilość danych, które mogą być przechowywane w plikach danych bazy danych, jest ograniczona przez skonfigurowany maksymalny rozmiar magazynu danych. Oprócz tego magazynu Azure SQL Database automatycznie przydziela więcej niż 30% więcej miejsca do użycia w dzienniku transakcji.
 - Azure SQL Database automatycznie przydzieli 32 GB na rdzeń wirtualny dla `tempdb` bazy danych. `tempdb` znajduje się w lokalnym magazynie dysków SSD we wszystkich warstwach usługi.

@@ -2,16 +2,16 @@
 title: Samouczek — Tworzenie & wdrażanie Azure Resource Manager plików Bicep
 description: Utwórz pierwszy plik Bicep do wdrażania zasobów platformy Azure. Samouczek zawiera informacje na temat składni pliku Bicep oraz sposobu wdrażania konta magazynu.
 author: mumian
-ms.date: 03/17/2021
+ms.date: 04/12/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 8979585d7ec0fa6eac1866375fe1e80214f2d2e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ffd8a97d797144d458e7ec5836042cc6d8d8193
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104594278"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306686"
 ---
 # <a name="tutorial-create-and-deploy-first-azure-resource-manager-bicep-file"></a>Samouczek: Tworzenie i wdrażanie pierwszego Azure Resource Manager pliku Bicep
 
@@ -57,7 +57,7 @@ Teraz możesz zacząć uczenie się o Bicep.
 
     ```bicep
     resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
-      name: '{provide-unique-name}'
+      name: '{provide-unique-name}'  // must be globally unique
       location: 'eastus'
       sku: {
         name: 'Standard_LRS'
@@ -85,6 +85,10 @@ Teraz możesz zacząć uczenie się o Bicep.
         Jeśli zobaczysz starszą wersję interfejsu API, taką jak [storageAccounts 2016-05-01](/azure/templates/microsoft.storage/2016-05-01/storageaccounts), zobaczysz, że jest dostępny mniejszy zestaw właściwości.
 
         Jeśli zdecydujesz się zmienić wersję interfejsu API dla zasobu, upewnij się, że są oceniane właściwości tej wersji i odpowiednio Dostosuj plik Bicep.
+
+    Aby uzyskać więcej informacji, zobacz [Bicep Structure](./bicep-file.md).
+
+    Istnieje komentarz dla właściwości Nazwa.  Korzystanie `//` z komentarzy jednowierszowych lub `/* ... */` dla komentarzy wielowierszowych
 
 1. Zastąp tekst `{provide-unique-name}` nawiasem klamrowym `{}` z unikatową nazwą konta magazynu.
 

@@ -126,8 +126,6 @@
       href: disaster-recovery.md
     - name: Konfigurowanie serwera proxy centrum dystrybucji kluczy
       href: key-distribution-center-proxy.md
-    - name: Konfigurowanie roli bramy usług pulpitu zdalnego
-      href: rd-gateway-role.md
     - name: Uruchom maszynę wirtualną przy nawiązaniu połączenia
       items:
         - name: Skonfiguruj Uruchamianie maszyny wirtualnej w programie Connect

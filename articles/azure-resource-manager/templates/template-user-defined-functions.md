@@ -2,13 +2,13 @@
 title: Funkcje zdefiniowane przez użytkownika w szablonach
 description: Opisuje sposób definiowania i używania funkcji zdefiniowanych przez użytkownika w szablonie Azure Resource Manager (szablon ARM).
 ms.topic: conceptual
-ms.date: 02/11/2021
-ms.openlocfilehash: 9c7480958e6315c8aea1fd8d12613bcf9d606723
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: 802ac6e1c70db8caa58aecde3efe814430c79682
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100379628"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307779"
 ---
 # <a name="user-defined-functions-in-arm-template"></a>Funkcje zdefiniowane przez użytkownika w szablonie ARM
 
@@ -107,6 +107,7 @@ Podczas definiowania funkcji użytkownika istnieją pewne ograniczenia:
 * Funkcja może używać tylko parametrów, które są zdefiniowane w funkcji. Gdy używana jest funkcja [Parameters](template-functions-deployment.md#parameters) w funkcji zdefiniowanej przez użytkownika, są ograniczone do parametrów tej funkcji.
 * Funkcja nie może wywoływać innych funkcji zdefiniowanych przez użytkownika.
 * Funkcja nie może używać funkcji [Reference](template-functions-resource.md#reference) ani żadnej z funkcji [list](template-functions-resource.md#list) .
+* Funkcja nie może używać funkcji [dateTimeAdd](template-functions-date.md#datetimeadd) .
 * Parametry funkcji nie mogą mieć wartości domyślnych.
 
 ## <a name="next-steps"></a>Następne kroki

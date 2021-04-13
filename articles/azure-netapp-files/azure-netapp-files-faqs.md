@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 04/12/2021
 ms.author: b-juche
-ms.openlocfilehash: d63587eec1f7e6d24ae1638e8365b85fd1ec2c94
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: ae94ac9719a827a2d1af258398988f0972e61b3a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504995"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305518"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Często zadawane pytania dotyczące Azure NetApp Files
 
@@ -27,9 +27,9 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
 ## <a name="networking-faqs"></a>Często zadawane pytania dotyczące sieci
 
-### <a name="does-the-nfs-data-path-go-over-the-internet"></a>Czy ścieżka danych systemu plików NFS przechodzi przez Internet?  
+### <a name="does-the-data-path-for-nfs-or-smb-go-over-the-internet"></a>Czy ścieżka danych dla systemu plików NFS lub SMB przechodzi przez Internet?  
 
-Nie. Ścieżka danych NFS nie przechodzi przez Internet. Azure NetApp Files to usługa Azure Native, która jest wdrażana w usłudze Azure Virtual Network (VNet), gdzie usługa jest dostępna. Azure NetApp Files używa delegowanej podsieci i udostępnia interfejs sieciowy bezpośrednio w sieci wirtualnej. 
+Nie. Ścieżka danych dla systemu plików NFS lub SMB nie przechodzi przez Internet. Azure NetApp Files to usługa Azure Native, która jest wdrażana w usłudze Azure Virtual Network (VNet), gdzie usługa jest dostępna. Azure NetApp Files używa delegowanej podsieci i udostępnia interfejs sieciowy bezpośrednio w sieci wirtualnej. 
 
 Aby uzyskać szczegółowe informacje, zobacz [wytyczne dotyczące planowania sieci Azure NetApp Files](./azure-netapp-files-network-topologies.md) .  
 

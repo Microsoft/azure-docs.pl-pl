@@ -3,17 +3,16 @@ title: Monitorowanie przepływów danych mapowania
 description: Jak wizualnie monitorować mapowanie przepływów danych w Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/22/2020
-ms.openlocfilehash: 9ca5ea5cdebe297af5081ae6e219935c56ba942e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/11/2021
+ms.openlocfilehash: 82aba428627cba1a3df26fc67c5da0cde52d368c
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96004883"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309071"
 ---
 # <a name="monitor-data-flows"></a>Monitorowanie przepływów danych
 
@@ -77,9 +76,15 @@ Możesz również zobaczyć szczegółowy chronometraż dla każdego kroku przek
 }
 ```
 
-### <a name="post-processing-time"></a>Czas przetwarzania końcowego
+### <a name="sink-processing-time"></a>Czas przetwarzania ujścia
 
 Gdy wybierzesz ikonę przekształcenia ujścia na mapie, panel slajdu po prawej stronie wyświetli dodatkowy punkt danych o nazwie "czas przetwarzania" w dolnej części. Jest to ilość czasu poświęcanego na wykonanie zadania w klastrze Spark *po* załadowaniu i zapisaniu danych. Ten czas może obejmować zamykanie pul połączeń, zamykanie sterowników, usuwanie plików, łączenie plików itp. Gdy wykonujesz akcje w przepływie, takie jak "Przenieś pliki" i "dane wyjściowe do pojedynczego pliku", prawdopodobnie zobaczysz wzrost wartości czasu przetwarzania.
+
+* Czas trwania etapu zapisu: czas zapisywania danych w lokalizacji tymczasowej dla Synapse SQL
+* Czas trwania instrukcji SQL w tabeli: czas poświęcony na przeniesienie danych z tabel tymczasowych do tabeli docelowej
+* Czas trwania przed SQL & czas trwania po stronie SQL: czas spędzony na uruchamianiu poleceń SQL przed/post
+* Czas trwania poleceń przed poleceniami & czas trwania poleceń post: czas spędzony na wykonywaniu operacji poprzedzających/post dla źródła/ujścia na podstawie plików. Na przykład Przenieś lub Usuń pliki po przetworzeniu.
+* Czas trwania scalania: czas poświęcony na scalenie pliku, pliki scalania są używane w ujściach opartych na plikach podczas zapisywania do pojedynczego pliku lub w przypadku używania "nazwy pliku jako danych kolumn". Jeśli ta Metryka jest istotna, należy unikać korzystania z tych opcji.
   
 ## <a name="error-rows"></a>Wiersze błędów
 

@@ -4,12 +4,12 @@ description: Nie widzisz danych w usłudze Azure Application Insights? Spróbuj 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: fbf53f6d4a928215d25874f4e405147c73cbf81f
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 3b550e434db5b616ffedef7ebe9891b36fa431a2
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106056576"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311230"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Rozwiązywanie problemów z brakiem danych — Application Insights dla platformy .NET/.NET Core
 
@@ -28,6 +28,10 @@ ms.locfileid: "106056576"
 *Mam utratę danych w aplikacji konsolowej lub aplikacji sieci Web, gdy aplikacja zostanie zatrzymana.*
 
 * Kanał zestawu SDK przechowuje dane telemetryczne w buforze i wysyła je w partiach. Jeśli aplikacja jest zamykana, może być konieczne jawne wywołanie metody [Flush ()](api-custom-events-metrics.md#flushing-data). Zachowanie `Flush()` zależy od rzeczywistego używanego [kanału](telemetry-channels.md#built-in-telemetry-channels) .
+
+## <a name="request-count-collected-by-application-insights-sdk-does-not-match-the-iis-log-count-for-my-application"></a>Liczba żądań zebranych przez zestaw SDK Application Insights nie jest zgodna z liczbą dzienników IIS dla mojej aplikacji
+
+Dzienniki programu Internet Information Services (IIS) liczą wszystkie żądania, które docierają do usług IIS, a w zależności od łącznego żądania docierania do aplikacji. Z tego powodu nie jest gwarantowane, że liczba żądań zebranych przez zestawy SDK będzie zgodna z całkowitą liczbą dzienników IIS. 
 
 ## <a name="no-data-from-my-server"></a>Brak danych z mojego serwera
 *Moja aplikacja została zainstalowana na serwerze sieci Web, a teraz nie widzę żadnych danych telemetrycznych. Działa on prawidłowo na komputerze deweloperskim.*

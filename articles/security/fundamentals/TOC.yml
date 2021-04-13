@@ -64,9 +64,9 @@
     - name: Lista kontrolna zabezpieczeń
       href: steps-secure-identity.md
     - name: Wybieranie logowania bez hasła
-      href: ../../active-directory/authentication/concept-authentication-passwordless.md
+      href: ../../active-directory/authentication/concept-authentication-passwordless.md?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Authentication
-      href: /azure/architecture/framework/security/design-identity-authentication?toc=azure/security/fundamentals/toc.json&bc=azure/security/breadcrumb/toc.json
+      href: /azure/architecture/framework/security/design-identity-authentication?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
 - name: Bezpieczeństwo sieci
   items:
     - name: Omówienie zabezpieczeń
@@ -80,7 +80,7 @@
     - name: Zawieszone rekordy DNS i przejmowanie poddomen
       href: subdomain-takeover.md
     - name: Bezpieczna hybrydowa architektura sieci
-      href: /azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ftoc.json
+      href: /azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
 - name: Zabezpieczenia IaaS
   items:
     - name: Usługa firmy Microsoft chroniąca przed złośliwym kodem
@@ -120,7 +120,7 @@
         - name: Lista kontrolna zabezpieczeń
           href: database-security-checklist.md
     - name: Przewodnik po zabezpieczeniach magazynu
-      href: ../../storage/blobs/security-recommendations.md?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ftoc.json
+      href: ../../storage/blobs/security-recommendations.md?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Skrytka klienta
       href: customer-lockbox-overview.md
     - name: Punkt odniesienia zabezpieczeń skrytki klienta

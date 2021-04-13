@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 04/09/2021
 ms.author: ramakk
-ms.openlocfilehash: 96d8ba058a33d408ec2ee2a1adfba9011f393da9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d002932bca51300fa6a031ce7ab0d69186afe9c3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96184488"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311689"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Wytyczne dotyczące planowania sieci usługi Azure NetApp Files
 
@@ -46,7 +46,7 @@ Poniższe funkcje nie są obecnie obsługiwane w przypadku Azure NetApp Files:
 
 Następujące ograniczenia dotyczące sieci mają zastosowanie do Azure NetApp Files:
 
-* Liczba adresów IP używanych w sieci wirtualnej z Azure NetApp Files (w tym sieci wirtualnych komunikacji równorzędnej) nie może przekraczać 1000. Pracujemy nad zwiększeniem tego limitu, aby spełnić wymagania dotyczące skalowania klientów. 
+* Liczba adresów IP używanych w sieci wirtualnej z Azure NetApp Files (w tym *natychmiastowa* Komunikacja równorzędna sieci wirtualnych) nie może przekraczać 1000. Pracujemy nad zwiększeniem tego limitu, aby spełnić wymagania dotyczące skalowania klientów. 
 * W każdej sieci wirtualnej Azure Virtual Network (VNet) można delegować tylko jedną podsieć do usługi Azure NetApp Files.
 
 

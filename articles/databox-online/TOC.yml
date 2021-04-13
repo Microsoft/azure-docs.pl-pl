@@ -260,6 +260,8 @@
               href: azure-stack-edge-gpu-manage-virtual-machine-tags-powershell.md
             - name: Utwórz przełącznik wirtualny
               href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
+            - name: Tworzenie kopii zapasowych dysków maszyny wirtualnej
+              href: azure-stack-edge-gpu-back-up-virtual-machine-disks.md
         - name: Zarządzanie certyfikatami
           items:
             - name: Wymagania

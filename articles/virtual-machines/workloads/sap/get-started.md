@@ -13,15 +13,15 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/17/2021
+ms.date: 04/12/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5ab23b9c2ba4b4ef3c20188b2207d7718c30cfe6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 99af5ff3add6d002f3a0e5efdb91215873b8d3c7
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104599888"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304226"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Korzystanie z platformy Azure do hostowania i uruchamiania scenariuszy obciążeń SAP
 
@@ -82,6 +82,10 @@ W tej sekcji znajdziesz dokumenty o integracji z firmą Microsoft Power BI ze ź
 
 
 ## <a name="change-log"></a>Dziennik zmian
+- 04/12/2021: wersja [SAP HANA skalowalnego w poziomie HSR z Pacemaker na maszynach wirtualnych platformy Azure w](./sap-hana-high-availability-scale-out-hsr-suse.md) podręczniku konfiguracji SLES
+- 04/07/2021: wyjaśniono wsparcie dla SQL Server wielowystąpienie i obsługa z obsługą wiele baz danych w [SQL Server Azure Virtual Machines systemie DBMS dla oprogramowania SAP NetWeaver](./dbms_guide_sqlserver.md)
+- 04/07/2021: Dodano informacje dotyczące pomocniczych adresów IP na [platformie Azure Virtual Machines planowania i implementacji dla oprogramowania SAP NetWeaver](./planning-guide.md)
+- 04/07/2021: Dodano obsługę systemu Oracle DBMS dla ANF w [usłudze Azure Storage typy dla obciążenia SAP](./planning-guide-storage.md)
 - 03/17/2021: Zmień [ha dla SAP HANA na maszynach wirtualnych platformy Azure w systemie SLES](./sap-hana-high-availability.md), [ha dla SAP HANA na maszynach wirtualnych platformy Azure na RHEL](./sap-hana-high-availability-rhel.md) i [ha na potrzeby SAP HANA skalowanie z użyciem ANF na RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) , aby dodać instrukcje dotyczące replikacji systemu Hana Active/Read-Enabled w klastrze Pacemaker
 - 03/15/2021: zmiana [wystąpienia SAP ASCS/SCS z usługą WSFC i udziałem plików](./sap-high-availability-guide-wsfc-file-share.md),[zainstalowanie wystąpienia SAP ASCS/SCS z usługą WSFC i udziałem plików](./sap-high-availability-installation-wsfc-file-share.md) oraz [SAP ASCS/SCS z usługą WSFC i udziałem plików](./sap-ascs-ha-multi-sid-wsfc-file-share.md) , aby wyjaśnić, że wystąpienia SAP ASCS/SCS i udział SOFS muszą zostać wdrożone w oddzielnych klastrach
 - 03/03/2021: Przejdź do [przewodnika ha dla oprogramowania SAP ASCS/SCS za pomocą usługi WSFC i Azure NetApp Files (SMB)](./high-availability-guide-windows-netapp-files-smb.md) , aby dodać oświadczenie ostrzegawcze o podwyższonym poziomie uprawnień dla użytkownika z systemem SWPM, podczas instalacji systemu SAP

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/01/2021
+ms.date: 04/12/2021
 ms.author: alkohli
-ms.openlocfilehash: 937f0d1feb0c45c1c158b5e88daf268aeb383509
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e0eb976f655308082671afe2dc1923f082a3373b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102034748"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303172"
 ---
 # <a name="technical-specifications-and-compliance-for-azure-stack-edge-pro-with-gpu"></a>Specyfikacje techniczne i zgodność dla Azure Stack EDGE Pro z procesorem GPU 
 
@@ -23,10 +23,14 @@ Składniki sprzętowe Azure Stack Edge w firmie Pro z jednostką GPU (Graphics P
 
 Urządzenie Azure Stack EDGE Pro ma następujące specyfikacje dotyczące obliczeń i pamięci:
 
-| Specyfikacja           | Wartość                  |
-|-------------------------|----------------------------|
-| Procesor CPU                     | 2 X procesor Intel Xeon Silver 4214 (Kaskada Lake)<br> 24 rdzenie fizyczne (12 na procesor CPU)<br>48 rdzenie logiczne (procesorów wirtualnych vCPU) (24 na procesor CPU)       |
-| Pamięć                  | 128 (8x16 GB) GB pamięci RAM <br> Zgodny z firmą Dell 16 GB PC4-23400 DDR4-2933Mhz 2Rx8 1.2 v ECC, zarejestrowane RDIMM       |
+| Specyfikacja  | Wartość                                                                       |
+|----------------|-----------------------------------------------------------------------------|
+| Typ procesora       | Dwuprocesorowy procesor Intel Xeon Silver 4214 (Kaskada Lake)                              |
+| Procesor CPU: RAW       | 24 rdzenie łącznie, 48 łącznie procesorów wirtualnych vCPU                                              |
+| Procesor CPU: użyteczny    | 40 procesorów wirtualnych vCPU                                                                    |
+| Typ pamięci    | Zgodny z firmą Dell 16 GB PC4-23400 DDR4-2933Mhz 2Rx8 1.2 v ECC, zarejestrowane RDIMM |
+| Pamięć: RAW    | 128 GB pamięci RAM (8 x 16 GB)                                                      |
+| Pamięć: użyteczna | 102 GB PAMIĘCI RAM                                                                  |
 
 
 ## <a name="compute-acceleration-specifications"></a>Specyfikacje przyspieszania obliczeń
@@ -44,7 +48,7 @@ Urządzenie Azure Stack EDGE Pro ma dwie jednostki dostarczania 100-240 V (PSUs)
 
 | Specyfikacja           | 750 W PSU                  |
 |-------------------------|----------------------------|
-| Maksymalna moc wyjściowa    | 750 W                     |
+| Maksymalna moc wyjściowa    | 750 W                      |
 | Częstotliwość               | 50/60 Hz                   |
 | Wybór zakresu napięcia | Wybór na Wydziale: 100-240 V AC |
 | Możliwość podłączenia gorąca           | Tak                        |
@@ -56,11 +60,11 @@ Urządzenie Azure Stack EDGE Pro ma sześć interfejsów sieciowych, PORT1-PORT6
 
 | Specyfikacja           | Opis                 |
 |-------------------------|----------------------------|
-|  Interfejsy sieciowe    | **2 X 1 GbE interfejsy** — 1 interfejs zarządzania port 1 jest używany do początkowej konfiguracji i jest domyślnie statyczny. Po zakończeniu wstępnej instalacji można użyć interfejsu dla danych z dowolnymi adresami IP. Jednak po zresetowaniu interfejs przywraca statyczny adres IP. <br>Innym interfejsem jest port 2 konfigurowany przez użytkownika, który może być używany do transferu danych i domyślnie jest DHCP. <br>**interfejsy 4 X 25 GbE** — te interfejsy danych, port 3 przez port 6 mogą być konfigurowane przez użytkownika jako serwer DHCP (domyślnie) lub statyczny. Mogą również działać jako interfejsy 10 GbE.  | 
+|  Interfejsy sieciowe    | **2 X 1 GbE interfejsy** — 1 interfejs zarządzania port 1 jest używany do początkowej konfiguracji i jest domyślnie statyczny. Po zakończeniu wstępnej instalacji można użyć interfejsu dla danych z dowolnymi adresami IP. Jednak po zresetowaniu interfejs przywraca statyczny adres IP. <br>Innym interfejsem jest port 2 konfigurowany przez użytkownika, który może być używany do transferu danych i domyślnie jest DHCP. <br>**interfejsy 4 X 25-GbE** — te interfejsy danych, port 3 przez port 6 mogą być konfigurowane przez użytkownika jako serwer DHCP (domyślnie) lub statyczny. Mogą również działać jako interfejsy 10 GbE.  | 
 
 Urządzenie Azure Stack EDGE Pro ma następujący sprzęt sieciowy:
 
-* **Niestandardowy Microsoft QLogic Cavium 25G NDC adapter** -port 1 przez port 4.
+* **Niestandardowy firma Microsoft `Qlogic` Cavium 25G NDC adapter** -port 1 przez port 4.
 * **Mellanox Dual port 25G ConnectX-4 Channel karta sieciowa** -port 5 i port 6.
 
 Poniżej znajdują się szczegółowe informacje dotyczące karty Mellanox:
@@ -74,7 +78,7 @@ Poniżej znajdują się szczegółowe informacje dotyczące karty Mellanox:
 
 Aby uzyskać pełną listę obsługiwanych kabli, przełączników i urządzeń nadawczych dla tych kart sieciowych, przejdź do:
 
-- [Macierz programu QLogic Cavium 25G NDC adaptera współdziałania](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
+- [ `Qlogic` Macierz CAVIUM 25g NDC adaptera interoperacyjności](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
 - [Karta Mellanox Dual port 25G ConnectX-4 Channel Network zgodnych produktów](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).  
 
 ## <a name="storage-specifications"></a>Specyfikacje magazynu

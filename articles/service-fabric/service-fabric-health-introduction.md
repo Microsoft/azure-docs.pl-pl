@@ -3,12 +3,12 @@ title: Monitorowanie kondycji w Service Fabric
 description: Wprowadzenie do modelu monitorowania kondycji usługi Azure Service Fabric, który umożliwia monitorowanie klastra i jego aplikacji i usług.
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.openlocfilehash: a1c545048739182e3baba3e3d94da1accca227d1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1fa000d46a6199fa23f07e5310eaca96b60a183f
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105627419"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311281"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Wprowadzenie do monitorowania kondycji usługi Service Fabric
 Na platformie Azure Service Fabric wprowadzono model kondycji, który zapewnia rozbudowane, elastyczne i rozszerzalne oceny kondycji oraz raportowanie. Model umożliwia monitorowanie stanu klastra i usług działających w czasie niemal w czasie rzeczywistym. Możesz łatwo uzyskać informacje o kondycji i rozwiązać potencjalne problemy, zanim staną się one kaskadowe i powodują ogromne przestoje. W typowym modelu usługi wysyłają raporty na podstawie widoków lokalnych, a informacje te są agregowane w celu zapewnienia ogólnego widoku poziomu klastra.
@@ -99,7 +99,7 @@ Zasady dotyczące kondycji klastra obejmują:
   </FabricSettings>
   ```
 
-* [NodeTypeHealthPolicyMap](/dotnet/api/system.fabric.health.clusterhealthpolicy.nodetypehealthpolicymap). Mapa zasad kondycji typu węzła może być używana podczas oceny kondycji klastra do opisywania specjalnych typów węzłów. Typy węzłów są oceniane względem wartości procentowych skojarzonych z ich nazwą typu węzła na mapie. Ustawienie tej wartości nie ma wpływu na pulę globalną węzłów używanych dla programu `MaxPercentUnhealthyNodes` . Na przykład klaster zawiera setki węzłów różnych typów i kilka typów węzłów, które obsługują ważne działania. Nie powinno być żadnych węzłów w tym typie. Możesz określić globalne `MaxPercentUnhealthyNodes` do 20%, aby tolerować błędy dla wszystkich węzłów, ale dla typu węzła `SpecialNodeType` , ustaw wartość `MaxPercentUnhealthyNodes` na 0. W ten sposób, jeśli niektóre z wielu węzłów są w złej kondycji, ale poniżej wartości procentowej w złej kondycji, klaster będzie oceniany jako w stanie kondycji ostrzegawczej. Ostrzegawczy stan kondycji nie wpływa na uaktualnienie klastra ani inne monitorowanie wyzwalane przez stan kondycji błędu. Jednak nawet jeden węzeł typu `SpecialNodeType` w stanie kondycji błędów spowodowałaby wystąpienie klastra w złej kondycji i wyzwoli wycofanie lub wstrzymanie uaktualniania klastra, w zależności od konfiguracji uaktualnienia. Z kolei ustawienie globalne `MaxPercentUnhealthyNodes` na 0 i ustawienie `SpecialNodeType` maksymalnej liczby węzłów w złej kondycji na 100 z jednym węzłem typu `SpecialNodeType` w stanie błędu nadal powoduje wystąpienie błędu, ponieważ globalne ograniczenie jest bardziej rygorystyczne w tym przypadku. 
+* `NodeTypeHealthPolicyMap`. Mapa zasad kondycji typu węzła może być używana podczas oceny kondycji klastra do opisywania specjalnych typów węzłów. Typy węzłów są oceniane względem wartości procentowych skojarzonych z ich nazwą typu węzła na mapie. Ustawienie tej wartości nie ma wpływu na pulę globalną węzłów używanych dla programu `MaxPercentUnhealthyNodes` . Na przykład klaster zawiera setki węzłów różnych typów i kilka typów węzłów, które obsługują ważne działania. Nie powinno być żadnych węzłów w tym typie. Możesz określić globalne `MaxPercentUnhealthyNodes` do 20%, aby tolerować błędy dla wszystkich węzłów, ale dla typu węzła `SpecialNodeType` , ustaw wartość `MaxPercentUnhealthyNodes` na 0. W ten sposób, jeśli niektóre z wielu węzłów są w złej kondycji, ale poniżej wartości procentowej w złej kondycji, klaster będzie oceniany jako w stanie kondycji ostrzegawczej. Ostrzegawczy stan kondycji nie wpływa na uaktualnienie klastra ani inne monitorowanie wyzwalane przez stan kondycji błędu. Jednak nawet jeden węzeł typu `SpecialNodeType` w stanie kondycji błędów spowodowałaby wystąpienie klastra w złej kondycji i wyzwoli wycofanie lub wstrzymanie uaktualniania klastra, w zależności od konfiguracji uaktualnienia. Z kolei ustawienie globalne `MaxPercentUnhealthyNodes` na 0 i ustawienie `SpecialNodeType` maksymalnej liczby węzłów w złej kondycji na 100 z jednym węzłem typu `SpecialNodeType` w stanie błędu nadal powoduje wystąpienie błędu, ponieważ globalne ograniczenie jest bardziej rygorystyczne w tym przypadku. 
 
   Poniższy przykład to fragment z manifestu klastra. Aby zdefiniować wpisy na mapie typu węzła, poprzedź nazwę parametru prefiksem "NodeTypeMaxPercentUnhealthyNodes-", po którym następuje nazwa typu węzła.
 

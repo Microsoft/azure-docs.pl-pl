@@ -3,12 +3,12 @@ title: Azure Relay wyjątki i sposoby ich rozwiązywania | Microsoft Docs
 description: Lista wyjątków Azure Relay i sugerowanych działań, które można podjąć, aby rozwiązać te problemy.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 44eeba6eb7b8cfd4e81a923c2d9a3155f1709f2c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3f9fe2e8aac826bd63d9842bd3380be10e1b87e
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98625152"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313950"
 ---
 # <a name="azure-relay-exceptions"></a>Wyjątki Azure Relay
 
@@ -80,7 +80,7 @@ Istnieją dwie typowe przyczyny tego błędu:
     Czasami Usługa przekazywania może napotkać opóźnienia w przetwarzaniu żądań. Może się tak zdarzyć na przykład w okresach dużego ruchu. W takim przypadku ponów próbę wykonania operacji po opóźnieniu, dopóki operacja nie powiedzie się. Jeśli ta sama operacja nie powiedzie się po wielu próbach, należy sprawdzić [witrynę stanu usługi platformy Azure](https://azure.microsoft.com/status/) , aby sprawdzić, czy jest znana awaria usługi.
 
 ## <a name="next-steps"></a>Następne kroki
-* [Azure Relay często zadawane pytania](relay-faq.md)
+* [Azure Relay często zadawane pytania](relay-faq.yml)
 * [Tworzenie przestrzeni nazw przekaźnika](relay-create-namespace-portal.md)
 * [Wprowadzenie do Azure Relay i platformy .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Wprowadzenie do Azure Relay i węzła](relay-hybrid-connections-node-get-started.md)

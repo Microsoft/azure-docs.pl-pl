@@ -16,18 +16,20 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6253458bb31388e5f7e6f84b7720cce0dc22886c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d97f6e158065fd8f5f8a377b4da17b7b0357b66e
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99259964"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305399"
 ---
 # <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>Nieoczekiwany monit o zgodę podczas logowania się do aplikacji
 
 Wiele aplikacji, które integrują się z Azure Active Directory wymaga uprawnień do różnych zasobów do uruchomienia. Gdy te zasoby są również zintegrowane z Azure Active Directory, wymagane są uprawnienia dostępu do nich w ramach platformy zgody na korzystanie z usługi Azure AD. 
 
 Powoduje to wyświetlenie monitu o zgodę przy pierwszym użyciu aplikacji, co jest często jednorazową operacją. 
+
+> [!VIDEO https://www.youtube.com/embed/a1AjdvNDda4]
 
 ## <a name="scenarios-in-which-users-see-consent-prompts"></a>Scenariusze, w których użytkownicy widzą wyświetlane informacje o zgodzie
 

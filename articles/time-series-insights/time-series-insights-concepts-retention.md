@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4f236679d0662df852581a6a8408ed6bc0d4e3fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 26363031aea37c53cce098e2b6cbc2b4d93b918f
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91535693"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307082"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights-gen1"></a>Informacje o przechowywaniu danych w Azure Time Series Insights Gen1
 
@@ -85,7 +85,7 @@ W tym czasie środowisko pokazuje ten sam zestaw danych do momentu wznowienia tr
 Po wznowieniu transferu danych przychodzących:
 
 - Przepływy danych w kolejności, w jakiej zostały odebrane przez Źródło zdarzenia
-- Zdarzenia są indeksowane w oparciu o sygnaturę czasową, chyba że w źródle zdarzeń zostały przekroczone zasady przechowywania. Aby uzyskać więcej informacji na temat konfiguracji przechowywania źródła zdarzeń, [Event Hubs często zadawane pytania](../event-hubs/event-hubs-faq.md)
+- Zdarzenia są indeksowane w oparciu o sygnaturę czasową, chyba że w źródle zdarzeń zostały przekroczone zasady przechowywania. Aby uzyskać więcej informacji na temat konfiguracji przechowywania źródła zdarzeń, [Event Hubs często zadawane pytania](../event-hubs/event-hubs-faq.yml)
 
 > [!IMPORTANT]
 > Należy ustawić alerty, aby powiadomić o uniknięciu wstrzymania transferu danych przychodzących. Utrata danych jest możliwa od momentu domyślnego przechowywania dla źródeł zdarzeń platformy Azure. W związku z tym po wstrzymaniu transferu danych przychodzących prawdopodobnie utracisz najnowsze dane, chyba że zostanie podjęta dodatkowa akcja. Należy zwiększyć pojemność lub przełączać zachowanie w celu **przeczyszczenia starych danych** , aby uniknąć utraty danych.

@@ -7,12 +7,12 @@ ms.author: chpalm
 ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: e55cfb1a4dff7bfda2323e68777d6f50514b1608
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8301f81b21db50814df1bc764cc1fae38b4f14de
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105930238"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307643"
 ---
 # <a name="teams-embed"></a>Osadź zespoły
 
@@ -33,6 +33,6 @@ Osadź zespoły oferuje większość funkcji obsługiwanych w ramach spotkań ze
 - Środowisko w spotkaniu do konfigurowania urządzeń audio i wideo
 - [Tła wideo](https://support.microsoft.com/office/change-your-background-for-a-teams-meeting-f77a2381-443a-499d-825e-509a140f4780): umożliwienie uczestnikom rozmycia lub zastępowania tła
 - [Wiele opcji dla dużej galerii filmów wideo](https://support.microsoft.com/office/using-video-in-microsoft-teams-3647fc29-7b92-4c26-8c2d-8a596904cdae) , tryb razem, fokus, przypinanie i Spotlight
-- [Udostępnianie zawartości](https://support.microsoft.comoffice/share-content-in-a-meeting-in-teams-fcc2bf59-aecd-4481-8f99-ce55dd836ce8#ID0EABAAA=Mobile): umożliwienie uczestnikom udostępniania ich ekranu
+- [Udostępnianie zawartości](https://support.microsoft.com/en-us/office/share-content-in-a-meeting-in-teams-fcc2bf59-aecd-4481-8f99-ce55dd836ce8): umożliwienie uczestnikom udostępniania ich ekranu
 
 Aby uzyskać więcej informacji o interfejsie użytkownika w porównaniu z innymi zestawami SDK usługi Azure Communication, zobacz [wprowadzenie koncepcji zestawu interfejsu użytkownika](ui-sdk-overview.md). 

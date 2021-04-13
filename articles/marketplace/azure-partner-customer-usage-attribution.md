@@ -6,18 +6,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: cpercy737
 ms.author: camper
-ms.date: 03/22/2021
+ms.date: 04/12/2021
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 53edd3ec9a8d30d0c25f994db4a8b6f0199c2169
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7f09e744dfdd7be73c62c70bcfa91804f14aaa68
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558418"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313678"
 ---
 # <a name="azure-customer-usage-attribution"></a>Przypisanie użycia klienta platformy Azure
 
-Przypisanie użycia klientów kojarzy użycie zasobów platformy Azure w ramach subskrypcji klientów utworzonych podczas wdrażania adresu IP jako partnera. Takie skojarzenia w wewnętrznych systemach firmy Microsoft zapewniają większą widoczność platformy Azure, na której działa oprogramowanie. [W przypadku ofert aplikacji platformy Azure w komercyjnej witrynie Marketplace](#commercial-marketplace-azure-apps)ta funkcja śledzenia pomaga w wyrównaniu z zespołami sprzedaży firmy Microsoft i uzyskać środki na korzystanie z programów partnerskich firmy Microsoft.
+Przypisanie użycia klientów kojarzy użycie zasobów platformy Azure w ramach subskrypcji klientów utworzonych podczas wdrażania adresu IP jako partnera. Takie skojarzenia w wewnętrznych systemach firmy Microsoft zapewniają większą widoczność platformy Azure, na której działa oprogramowanie. [W przypadku ofert aplikacji platformy Azure w komercyjnej witrynie Marketplace](#commercial-marketplace-azure-apps)ta funkcja śledzenia pomaga w wyrównaniu z zespołami sprzedaży firmy Microsoft i uzyskać środki na korzystanie z programów partnerskich firmy Microsoft. Przypisanie użycia klienta nie ma zastosowania do [ofert maszyn wirtualnych platformy Azure w portalu komercyjnym](./azure-vm-create.md). Nie ma nic do wykonania przez wydawcę portalu Marketplace w przypadku ofert związanych z maszynami wirtualnymi, aby zapewnić, że ich użycie platformy Azure będzie śledzone w ramach subskrypcji klienta końcowego
 
 Przypisanie użycia klienta obsługuje trzy opcje wdrażania:
 

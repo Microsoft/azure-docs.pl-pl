@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/10/2021
 ms.author: duau
-ms.openlocfilehash: 7fb25892dc71c0bb4e73101e180a58be6c0c1195
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 8dee8e8175c97faf4877a57ac6cea821964910dc
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276811"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313236"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute
 
@@ -85,8 +85,8 @@ W poniższej tabeli przedstawiono lokalizacje połączeń i dostawców usług dl
 | **Berlinie** | [NTT GDC](https://www.e-shelter.de/en/location/berlin-1-data-center) | 1 | Niemcy Północne | ° | Equinix, NTT Global datacenters EMEA|
 | **Bogota** | [Equinix BG1](https://www.equinix.com/locations/americas-colocation/colombia-colocation/bogota-data-centers/bg1/) | 4 | n/d | ° | Equinix |
 | **Pusan** | [LG CNS](https://www.lgcns.com/En/Service/DataCenter) | 2 | Korea Południowa | n/d | LG CNS |
-| **Canberra** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Australia Środkowa | 10G, 100G | CDC |
-| **Canberra2** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Australia Środkowa 2| 10G, 100G | Przechwytywanie zmian, Equinix |
+| **Canberra** | [CDC](https://cdcdatacentres.com.au/about-us/) | 1 | Australia Środkowa | 10G, 100G | CDC |
+| **Canberra2** | [CDC](https://cdcdatacentres.com.au/about-us/) | 1 | Australia Środkowa 2| 10G, 100G | Przechwytywanie zmian, Equinix |
 | **Kapsztad** | [Teraco CT1](https://www.teraco.co.za/data-centre-locations/cape-town/) | 3 | Zachodnia Republika Południowej Afryki | ° | BCX, Internet Solutions — Cloud Connect, Liquid Telecom, Teraco |
 | **Chennai** | Tata Communications | 2 | Indie Południowe | ° | BSNL, Global CloudXchange (GCX), SIFY, Tata Communications, VodafoneIdea |
 | **Chennai2** | Airtel | 2 | Indie Południowe | ° | Airtel |
@@ -144,8 +144,8 @@ W poniższej tabeli przedstawiono lokalizacje połączeń i dostawców usług dl
 | **Sydney** | [Equinix SY2](https://www.equinix.com/locations/asia-colocation/australia-colocation/sydney-data-centers/sy2/) | 2 | Australia Wschodnia | 10G, 100G | AARNet, w&T teleobligacje, Brytyjskie Telecom, Devoli, Equinix, kordia, Megaport, NEXTDC, NTT Communications, Optus, pomarańczowy, Spark NZ, Telstra Corporation, TPG Telecom, Verizon, Vocus Group NZ |
 | **Sydney2** | [NextDC S1](https://www.nextdc.com/data-centres/s1-sydney-data-centre) | 2 | Australia Wschodnia | 10G, 100G | Megaport, NextDC |
 | **Tajpej** | Chief Telecom | 2 | n/d | ° | Dyrektor telekomunikacyjny, Chunghwa Telecom, FarEasTone |
-| **Tokio** | [Equinix TY4](https://www.equinix.com/locations/asia-colocation/japan-colocation/tokyo-data-centers/ty4/) | 2 | Japonia Wschodnia | 10G, 100G | Sieci aryaka Networks, w&T teleobligacje, BBIX, Brytyjskie Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet Initiative Japonia Inc.-IIJ, Megaport, NTT Communications, NTT wschód, pomarańczowy, Softbank, Verizon |
-| **Tokyo2** | [NA TOKIO](https://www.attokyo.com/) | 2 | Japonia Wschodnia | 10G, 100G | W witrynie Tokio, Megaport, z komunikacją Tokai |
+| **Tokio** | [Equinix TY4](https://www.equinix.com/locations/asia-colocation/japan-colocation/tokyo-data-centers/ty4/) | 2 | Japan East | 10G, 100G | Sieci aryaka Networks, w&T teleobligacje, BBIX, Brytyjskie Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet Initiative Japonia Inc.-IIJ, Megaport, NTT Communications, NTT wschód, pomarańczowy, Softbank, Verizon |
+| **Tokyo2** | [NA TOKIO](https://www.attokyo.com/) | 2 | Japan East | 10G, 100G | W witrynie Tokio, Megaport, z komunikacją Tokai |
 | **Toronto** | [Cologix TOR1](https://www.cologix.com/data-centers/toronto/tor1/) | 1 | Kanada Środkowa | 10G, 100G | W&T teleobligacji, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, IX zasięg Megaport, Telus, Verizon, Zayo |
 | **Toronto2** | [REIT pokrewnych](https://www.alliedreit.com/property/905-king-st-w/) | 1 | Kanada Środkowa | 10G, 100G | |
 | **Vancouver** | [Cologix VAN1](https://www.cologix.com/data-centers/vancouver/van1/) | 1 | n/d | ° | Cologix, Megaport, Telus |

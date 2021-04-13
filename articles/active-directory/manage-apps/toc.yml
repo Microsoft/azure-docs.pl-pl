@@ -321,7 +321,7 @@
 - name: Dokumentacja
   items:
     - name: Serwer proxy aplikacji — często zadawane pytania
-      href: application-proxy-faq.md
+      href: application-proxy-faq.yml
     - name: Często zadawane pytania dotyczące certyfikatów zarządzania aplikacjami
       href: application-management-certs-faq.md
     - name: Historia wersji serwera proxy aplikacji

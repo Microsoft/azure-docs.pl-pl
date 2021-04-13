@@ -3,12 +3,12 @@ title: Funkcje szablonu — zasoby
 description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager (szablon ARM) do pobierania wartości dotyczących zasobów.
 ms.topic: conceptual
 ms.date: 04/01/2021
-ms.openlocfilehash: caf95246e1a0e3954f8608f5c13b03e4390c36a2
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 2869f1ba1f7819fc793d95c7318b77fd8db8d7da
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106219556"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304889"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funkcje zasobów dla szablonów ARM
 
@@ -232,10 +232,10 @@ W poniższej tabeli przedstawiono możliwe zastosowania list *.
 | Microsoft. DataFactory/datafactors/Gateways | listauthkeys |
 | Microsoft. DataFactory/Factors/integrationruntimes | [listauthkeys](/rest/api/datafactory/integrationruntimes/listauthkeys) |
 | Microsoft. DataLakeAnalytics/accounts/storageAccounts/Containers | [listSasTokens](/rest/api/datalakeanalytics/storageaccounts/listsastokens) |
-| Microsoft. dataudział/konta/udziały | [listSynchronizations](/rest/api/datashare/shares/listsynchronizations) |
-| Microsoft. datashare/accounts/shareSubscriptions | [listSourceShareSynchronizationSettings](/rest/api/datashare/sharesubscriptions/listsourcesharesynchronizationsettings) |
-| Microsoft. datashare/accounts/shareSubscriptions | [listSynchronizationDetails](/rest/api/datashare/sharesubscriptions/listsynchronizationdetails) |
-| Microsoft. datashare/accounts/shareSubscriptions | [listSynchronizations](/rest/api/datashare/sharesubscriptions/listsynchronizations) |
+| Microsoft. dataudział/konta/udziały | [listSynchronizations](/rest/api/datashare/2020-09-01/shares/listsynchronizations) |
+| Microsoft. datashare/accounts/shareSubscriptions | [listSourceShareSynchronizationSettings](/rest/api/datashare/2020-09-01/sharesubscriptions/listsourcesharesynchronizationsettings) |
+| Microsoft. datashare/accounts/shareSubscriptions | [listSynchronizationDetails](/rest/api/datashare/2020-09-01/sharesubscriptions/listsynchronizationdetails) |
+| Microsoft. datashare/accounts/shareSubscriptions | [listSynchronizations](/rest/api/datashare/2020-09-01/sharesubscriptions/listsynchronizations) |
 | Microsoft. Devices/iotHubs | [listkeys](/rest/api/iothub/iothubresource/listkeys) |
 | Microsoft. Devices/iotHubs/iotHubKeys | [listkeys](/rest/api/iothub/iothubresource/getkeysforkeyname) |
 | Microsoft. Devices/provisioningServices/klucze | [listkeys](/rest/api/iot-dps/iotdpsresource/listkeysforkeyname) |
@@ -246,7 +246,7 @@ W poniższej tabeli przedstawiono możliwe zastosowania list *.
 | Microsoft. wspólny/Labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
 | Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/databaseaccounts/listconnectionstrings) |
 | Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/databaseaccounts/listkeys) |
-| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/notebookworkspaces/listconnectioninfo) |
+| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2021-03-15/notebookworkspaces/listconnectioninfo) |
 | Microsoft. DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft. DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
 | Microsoft. EventGrid/domeny | [listKeys](/rest/api/eventgrid/version2020-06-01/domains/listsharedaccesskeys) |

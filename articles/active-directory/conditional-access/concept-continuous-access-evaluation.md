@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80ee161944a48135778d12942964a88455ab756e
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: d707106d66c77ad1f3a1156906add8bb85fd0ce0
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055777"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305977"
 ---
 # <a name="continuous-access-evaluation"></a>Ciągła weryfikacja dostępu
 
@@ -142,7 +142,7 @@ Na tej stronie możesz opcjonalnie ograniczyć użytkowników i grupy, które b�
 W przypadku usługi CAE dostępne są tylko szczegółowe informacje o nazwanych lokalizacjach opartych na adresie IP. Nie mamy szczegółowych informacji na temat innych ustawień lokalizacji, takich jak [Zaufane adresy IP usługi MFA](../authentication/howto-mfa-mfasettings.md#trusted-ips) lub lokalizacje oparte na krajach. Jeśli użytkownik pochodzi z zaufanego adresu IP usługi MFA lub zaufanych lokalizacji, które zawierają zaufane IP lub lokalizacje krajów usługi MFA, CAE nie zostanie wymuszone po przeniesieniu użytkownika do innej lokalizacji. W takich przypadkach zostanie wystawiony token CAE o godzinie 1, bez kontroli przymusowego protokołu IP.
 
 > [!IMPORTANT]
-> Podczas konfigurowania lokalizacji na potrzeby oceny ciągłego dostępu należy używać tylko [warunku lokalizacji dostępu warunkowego na podstawie adresu IP](../conditional-access/location-condition.md#preview-features) i skonfigurować wszystkie adresy IP, w **tym Protokoły IPv4 i IPv6**, które mogą być widoczne dla dostawcy tożsamości i dostawcy zasobów. Nie używaj warunków lokalizacji kraju ani funkcji zaufanych adresów IP, która jest dostępna na stronie ustawień usługi Azure AD Multi-Factor Authentication.
+> Podczas konfigurowania lokalizacji na potrzeby oceny ciągłego dostępu należy używać tylko [warunku lokalizacji dostępu warunkowego na podstawie adresu IP](../conditional-access/location-condition.md) i skonfigurować wszystkie adresy IP, w **tym Protokoły IPv4 i IPv6**, które mogą być widoczne dla dostawcy tożsamości i dostawcy zasobów. Nie używaj warunków lokalizacji kraju ani funkcji zaufanych adresów IP, która jest dostępna na stronie ustawień usługi Azure AD Multi-Factor Authentication.
 
 ### <a name="ip-address-configuration"></a>Konfiguracja adresu IP
 

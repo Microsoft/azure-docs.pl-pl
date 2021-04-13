@@ -13,14 +13,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/01/2021
+ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: dd000ca36bb0ad586b973b2bcdc638d8992b1a73
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c2610ed46d707af6acfb1b6004df4367add94391
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101668643"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305161"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Wysoka dostępność SAP HANA skalowalnego w poziomie systemu na Red Hat Enterprise Linux 
 
@@ -215,7 +215,6 @@ Aby zapoznać się z konfiguracją przedstawioną w tym dokumencie, należy wdro
       1. Wprowadź nazwę nowej reguły modułu równoważenia obciążenia (na przykład **Hana-lb**).
       1. Wybierz adres IP frontonu, pulę zaplecza i sondę kondycji utworzoną wcześniej (na przykład **Hana-fronton**, **Hana — zaplecze** i **Hana-HP**).
       1. Wybierz pozycję **porty ha**.
-      1. Zwiększ **limit czasu bezczynności** do 30 minut.
       1. Upewnij się, że **włączono zmiennoprzecinkowy adres IP**.
       1. Wybierz przycisk **OK**.
 

@@ -1,14 +1,14 @@
 ---
 title: Jak chronić hierarchię zasobów — zarządzanie platformą Azure
 description: Dowiedz się, jak chronić hierarchię zasobów przy użyciu ustawień hierarchii, które obejmują ustawienie domyślnej grupy zarządzania.
-ms.date: 02/05/2021
+ms.date: 04/09/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5d13a0235152046eff2585da170d5fba0e9d3b09
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 11c20ccf5aff74d810533cd56e0a7b116f2dc64b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259085"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303648"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Jak chronić hierarchię zasobów
 
@@ -110,6 +110,28 @@ Aby skonfigurować to ustawienie za pomocą interfejsu API REST, zostanie wywoł
   ```
 
 Aby wyłączyć ustawienie, użyj tego samego punktu końcowego i ustaw **requireAuthorizationForGroupCreation** na wartość **false**.
+
+## <a name="powershell-sample"></a>Przykładowy skrypt programu PowerShell
+
+Program PowerShell nie ma polecenia "AZ", aby ustawić domyślną grupę zarządzania lub ustawić opcję Wymagaj autoryzacji, ale w przypadku obejścia można skorzystać z interfejsu API REST z poniższym przykładem programu PowerShell:
+
+```powershell
+$root_management_group_id = "Enter the ID of root management group"
+$default_management_group_id = "Enter the ID of default management group (or use the same ID of the root management group)"
+
+$body = '{
+     "properties": {
+          "defaultManagementGroup": "/providers/Microsoft.Management/managementGroups/' + $default_management_group_id + '",
+          "requireAuthorizationForGroupCreation": true
+     }
+}'
+
+$token = (Get-AzAccessToken).Token
+$headers = @{"Authorization"= "Bearer $token"; "Content-Type"= "application/json"}
+$uri = "https://management.azure.com/providers/Microsoft.Management/managementGroups/$root_management_group_id/settings/default?api-version=2020-02-01"
+
+Invoke-RestMethod -Method PUT -Uri $uri -Headers $headers -Body $body
+```
 
 ## <a name="next-steps"></a>Następne kroki
 

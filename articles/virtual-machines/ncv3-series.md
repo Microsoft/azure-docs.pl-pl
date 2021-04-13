@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: c28ed042156865c52607ce031507c696f28b4e7c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be76b2b6398048925ce308b421fcd776a7b7acbb
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102617305"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306402"
 ---
 # <a name="ncv3-series"></a>Seria NCv3
 
@@ -20,6 +20,7 @@ Maszyny wirtualne z serii seria NCV3 są obsługiwane przez procesory NVIDIA Tes
 
 [Premium Storage](premium-storage-performance.md): obsługiwane<br>
 [Buforowanie Premium Storage](premium-storage-performance.md): obsługiwane<br>
+[Ultra disks](disks-types.md#ultra-disk): obsługiwane ([Dowiedz się więcej](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) o dostępności, użyciu i wydajności) <br>
 [Migracja na żywo](maintenance-and-updates.md): nieobsługiwane<br>
 [Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): nieobsługiwane<br>
 [Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>

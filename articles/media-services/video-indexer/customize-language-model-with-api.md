@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/04/2020
 ms.author: kumud
-ms.openlocfilehash: f373afae03357ffb65eb459f806fe441e29b21b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 890e02812fb06cf0b0ebe990b0175311d5c85ab5
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87047081"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312930"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-api"></a>Dostosowywanie modelu języka za pomocą interfejsu API Video Indexer
 
@@ -27,7 +27,7 @@ Za pomocą interfejsów API Video Indexer można tworzyć i edytować niestandar
 
 ## <a name="create-a-language-model"></a>Tworzenie modelu języka
 
-Interfejs API [tworzenia modelu języka](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Language-Model?) tworzy nowy niestandardowy model języka na określonym koncie. Można przekazać pliki dla modelu języka w tym wywołaniu. Alternatywnie możesz utworzyć model języka tutaj i przekazać pliki dla modelu później, aktualizując model języka.
+Interfejs API [tworzenia modelu języka](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Language-Model) tworzy nowy niestandardowy model języka na określonym koncie. Można przekazać pliki dla modelu języka w tym wywołaniu. Alternatywnie możesz utworzyć model języka tutaj i przekazać pliki dla modelu później, aktualizując model języka.
 
 > [!NOTE]
 > Należy nadal przeszkolić model z włączonymi plikami dla modelu, aby poznać jego zawartość. Wskazówki dotyczące szkolenia języka znajdują się w następnej sekcji.
@@ -70,7 +70,7 @@ Odpowiedź zawiera metadane dotyczące nowo utworzonego modelu języka wraz z me
 
 ## <a name="train-a-language-model"></a>Uczenie modelu języka
 
-Interfejs API [uczenia modelu języka](https://api-portal.videoindexer.ai/docs/services/operations/operations/Train-Language-Model?&pattern=train) pociąga za siebie niestandardowy model języka na określonym koncie z zawartością plików, które zostały przekazane do i włączone w modelu języka.
+Interfejs API [uczenia modelu języka](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Train-Language-Model) pociąga za siebie niestandardowy model języka na określonym koncie z zawartością plików, które zostały przekazane do i włączone w modelu języka.
 
 > [!NOTE]
 > Najpierw należy utworzyć model języka i przekazać jego pliki. Pliki można przekazać podczas tworzenia modelu języka lub przez aktualizację modelu języka.
@@ -105,11 +105,11 @@ Odpowiedź zawiera metadane dotyczące nowo przeszkolonego modelu języka wraz z
 }
 ```
 
-Zwrócony `id` jest unikatowy identyfikator służący do rozróżniania modeli języka, podczas gdy `languageModelId` jest używany do [przekazywania wideo do indeksowania](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) i ponownego [indeksowania](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) interfejsów API wideo (nazywanych także `linguisticModelId` w Video Indexer interfejsów API przekazywania/ponownego indeksowania).
+Zwrócony `id` jest unikatowy identyfikator służący do rozróżniania modeli języka, podczas gdy `languageModelId` jest używany do [przekazywania wideo do indeksowania](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) i ponownego [indeksowania](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) interfejsów API wideo (nazywanych także `linguisticModelId` w Video Indexer interfejsów API przekazywania/ponownego indeksowania).
 
 ## <a name="delete-a-language-model"></a>Usuwanie modelu języka
 
-Interfejs API [usuwania modelu języka](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model?&pattern=delete) usuwa niestandardowy model języka z określonego konta. Wszystkie filmy wideo, które były używane w modelu języka, będą zachować ten sam indeks do momentu ponownego indeksowania wideo. Jeśli ponownie indeksujesz wideo, możesz przypisać nowy model języka do wideo. W przeciwnym razie Video Indexer będzie używać domyślnego modelu do ponownego indeksowania wideo.
+Interfejs API [usuwania modelu języka](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Language-Model) usuwa niestandardowy model języka z określonego konta. Wszystkie filmy wideo, które były używane w modelu języka, będą zachować ten sam indeks do momentu ponownego indeksowania wideo. Jeśli ponownie indeksujesz wideo, możesz przypisać nowy model języka do wideo. W przeciwnym razie Video Indexer będzie używać domyślnego modelu do ponownego indeksowania wideo.
 
 ### <a name="response"></a>Reakcja
 
@@ -117,7 +117,7 @@ Po pomyślnym usunięciu modelu języka nie jest zwracana zawartość.
 
 ## <a name="update-a-language-model"></a>Aktualizowanie modelu języka
 
-Interfejs API [aktualizacji modelu języka](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model?&pattern=update) aktualizuje niestandardowy model osoby językowej na określonym koncie.
+Interfejs API [aktualizacji modelu języka](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Language-Model) aktualizuje niestandardowy model osoby językowej na określonym koncie.
 
 > [!NOTE]
 > Musisz już utworzyć model języka. To wywołanie służy do włączania lub wyłączania wszystkich plików w ramach modelu, aktualizowania nazwy modelu języka i przekazywania plików do dodania do modelu języka.
@@ -161,7 +161,7 @@ Użyj `id` plików zwracanych w odpowiedzi na potrzeby pobrania zawartości plik
 
 ## <a name="update-a-file-from-a-language-model"></a>Aktualizowanie pliku z modelu języka
 
-[Aktualizacja pliku](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model-file?&pattern=update) umożliwia zaktualizowanie nazwy i `enable` stanu pliku w niestandardowym modelu języka na określonym koncie.
+[Aktualizacja pliku](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Language-Model-file) umożliwia zaktualizowanie nazwy i `enable` stanu pliku w niestandardowym modelu języka na określonym koncie.
 
 ### <a name="response"></a>Reakcja
 
@@ -181,7 +181,7 @@ Użyj `id` pliku zwróconego w odpowiedzi, aby pobrać zawartość pliku.
 
 ## <a name="get-a-specific-language-model"></a>Uzyskiwanie określonego modelu języka
 
-Interfejs [Get](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model?&pattern=get) API zwraca informacje dotyczące określonego modelu języka w określonym koncie, takim jak język i pliki, które znajdują się w modelu języka.
+Interfejs [Get](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Language-Model) API zwraca informacje dotyczące określonego modelu języka w określonym koncie, takim jak język i pliki, które znajdują się w modelu języka.
 
 ### <a name="response"></a>Reakcja
 
@@ -217,7 +217,7 @@ Użyj `id` pliku zwróconego w odpowiedzi, aby pobrać zawartość pliku.
 
 ## <a name="get-all-the-language-models"></a>Pobierz wszystkie modele języka
 
-Interfejs [Get All](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Models?&pattern=get) zwraca wszystkie niestandardowe modele języka na określonym koncie na liście.
+Interfejs [Get All](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Language-Models) zwraca wszystkie niestandardowe modele języka na określonym koncie na liście.
 
 ### <a name="response"></a>Reakcja
 
@@ -261,7 +261,7 @@ Odpowiedź zawiera listę wszystkich modeli języka na Twoim koncie oraz wszystk
 
 ## <a name="delete-a-file-from-a-language-model"></a>Usuwanie pliku z modelu języka
 
-Interfejs API [usuwania](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model-File?&pattern=delete) usuwa określony plik z określonego modelu języka w określonym koncie.
+Interfejs API [usuwania](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Language-Model-File) usuwa określony plik z określonego modelu języka w określonym koncie.
 
 ### <a name="response"></a>Reakcja
 
@@ -269,7 +269,7 @@ Nie jest zwracana zawartość, gdy plik zostanie pomyślnie usunięty z modelu j
 
 ## <a name="get-metadata-on-a-file-from-a-language-model"></a>Pobieranie metadanych z pliku z modelu języka
 
-[Pobieranie metadanych](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model-File-Data?&pattern=get%20language%20model) interfejsu API plików zwraca zawartość i metadane w określonym pliku z wybranego modelu języka na Twoim koncie.
+[Pobieranie metadanych](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Language-Model-File-Data) interfejsu API plików zwraca zawartość i metadane w określonym pliku z wybranego modelu języka na Twoim koncie.
 
 ### <a name="response"></a>Reakcja
 
@@ -291,7 +291,7 @@ Odpowiedź zawiera zawartość i metadane pliku w formacie JSON, podobnie jak w 
 
 ## <a name="download-a-file-from-a-language-model"></a>Pobieranie pliku z modelu języka
 
-Plik interfejsu API [pobierania plików](https://api-portal.videoindexer.ai/docs/services/operations/operations/Download-Language-Model-File-Content?) pobiera plik tekstowy zawierający zawartość określonego pliku z określonego modelu języka w określonym koncie. Ten plik tekstowy powinien być zgodny z zawartością pliku tekstowego, który został pierwotnie przekazany.
+Plik interfejsu API [pobierania plików](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Download-Language-Model-File-Content) pobiera plik tekstowy zawierający zawartość określonego pliku z określonego modelu języka w określonym koncie. Ten plik tekstowy powinien być zgodny z zawartością pliku tekstowego, który został pierwotnie przekazany.
 
 ### <a name="response"></a>Reakcja
 

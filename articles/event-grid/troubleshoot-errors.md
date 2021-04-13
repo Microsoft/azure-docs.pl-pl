@@ -2,13 +2,13 @@
 title: Azure Event Grid — Przewodnik rozwiązywania problemów
 description: Ten artykuł zawiera listę kodów błędów, komunikatów o błędach, opisów i zalecanych akcji.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 79533918ccc6995f459b39f058de9e01091c0958
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/09/2021
+ms.openlocfilehash: 4647039f67cf84a5471dc7b3f38ca754ca9eecb0
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94592995"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310873"
 ---
 # <a name="troubleshoot-azure-event-grid-errors"></a>Rozwiązywanie problemów z błędami Azure Event Grid
 Ten przewodnik rozwiązywania problemów zawiera następujące informacje: 
@@ -30,7 +30,7 @@ Ten przewodnik rozwiązywania problemów zawiera następujące informacje:
 | ---------- | ------------- | ----------- | -------------- | 
 | HttpStatusCode. konflikt <br/>409 | Temat o podanej nazwie już istnieje. Wybierz inną nazwę tematu.   | Nazwa tematu niestandardowego powinna być unikatowa w jednym regionie świadczenia usługi Azure, aby zapewnić poprawną operację publikowania. Tej samej nazwy można używać w różnych regionach świadczenia usługi Azure. | Wybierz inną nazwę tematu. |
 | HttpStatusCode. konflikt <br/> 409 | Domena o określonej już istnieje. Wybierz inną nazwę domeny. | Nazwa domeny powinna być unikatowa w jednym regionie świadczenia usługi Azure, aby zapewnić poprawną operację publikowania. Tej samej nazwy można używać w różnych regionach świadczenia usługi Azure. | Wybierz inną nazwę domeny. |
-| HttpStatusCode. konflikt<br/>409 | Osiągnięto limit przydziału. Aby uzyskać więcej informacji na temat tych limitów, zobacz [limity Azure Event Grid](../azure-resource-manager/management/azure-subscription-service-limits.md#event-grid-limits).  | Dla każdej subskrypcji platformy Azure obowiązuje limit liczby zasobów Azure Event Grid, których może używać. Przekroczono część lub wszystkie te limity przydziału i nie można utworzyć więcej zasobów. |    Sprawdź bieżące użycie zasobów i usuń te, które nie są potrzebne. Jeśli nadal trzeba zwiększyć limit przydziału, Wyślij wiadomość e-mail na adres [aeg@microsoft.com](mailto:aeg@microsoft.com) z dokładną liczbą potrzebnych zasobów. |
+| HttpStatusCode. konflikt<br/>409 | Osiągnięto limit przydziału. Aby uzyskać więcej informacji na temat tych limitów, zobacz [limity Azure Event Grid](../azure-resource-manager/management/azure-subscription-service-limits.md#event-grid-limits).  | Dla każdej subskrypcji platformy Azure obowiązuje limit liczby zasobów Azure Event Grid, których może używać. Przekroczono część lub wszystkie te limity przydziału i nie można utworzyć więcej zasobów. | Sprawdź bieżące użycie zasobów i usuń te, które nie są potrzebne. Jeśli nie możesz usunąć żadnych zasobów, Utwórz kolejną subskrypcję platformy Azure i Utwórz Event Grid zasoby w tej subskrypcji. |
 
 ## <a name="error-code-403"></a>Kod błędu: 403
 

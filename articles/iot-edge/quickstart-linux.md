@@ -4,17 +4,17 @@ description: W tym przewodniku szybki start dowiesz się, jak utworzyć urządze
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/12/2021
+ms.date: 04/07/2021
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 37f4a63d0a901fd70e0a60bb435efdaf08868616
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 10a073914a79d29ae4b1c1d90ae5be624e7d7673
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103463479"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303942"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Szybki Start: wdrażanie pierwszego modułu IoT Edge na wirtualnym urządzeniu z systemem Linux
 
@@ -263,32 +263,76 @@ Zarządzając urządzeniem usługi Azure IoT Edge z chmury, wdróż moduł przes
 
 ![Diagram — wdrażanie modułu z chmury do urządzenia](./media/quickstart-linux/deploy-module.png)
 
-[!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
+<!-- [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
+
+Include content included below to support versioned steps in Linux quickstart. Can update include file once Windows quickstart supports v1.2 -->
+
+Jedną z kluczowych możliwości Azure IoT Edge jest wdrożenie kodu na urządzeniach IoT Edge z chmury. *Moduły IoT Edge* są pakietami wykonywalnymi wdrożonymi jako kontenery. Ta sekcja obejmuje wdrożenie wstępnie skompilowanego modułu z [sekcji modułów IoT Edge w portalu Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) bezpośrednio z usługi Azure IoT Hub.
+
+Moduł, który wdrożysz w tej sekcji, symuluje czujnik i wysyła wygenerowane dane. Ten moduł jest przydatny, gdy rozpoczyna się pracę z usługą IoT Edge, ponieważ symulowane dane można wykorzystać przy programowaniu i testowaniu. Jeśli chcesz zobaczyć, co dokładnie robi ten moduł, możesz wyświetlić [kod źródłowy symulowanego czujnika temperatury](https://github.com/Azure/iotedge/blob/027a509549a248647ed41ca7fe1dc508771c8123/edge-modules/SimulatedTemperatureSensor/src/Program.cs).
+
+Wykonaj następujące kroki, aby uruchomić kreatora **ustawiania modułów** w celu wdrożenia pierwszego modułu z witryny Azure Marketplace.
+
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) i przejdź do centrum IoT Hub.
+
+1. Z menu po lewej stronie w obszarze **Automatyczne zarządzanie urządzeniami** wybierz pozycję **IoT Edge**.
+
+1. Wybierz identyfikator urządzenia docelowego z listy urządzeń.
+
+1. Na górnym pasku wybierz pozycję **Ustaw moduły**.
+
+   ![Zrzut ekranu pokazujący Wybieranie modułów zestawu.](./media/quickstart/select-set-modules.png)
+
+### <a name="modules"></a>Moduły
+
+Pierwszym krokiem kreatora jest wybranie modułów, które mają być uruchamiane na urządzeniu.
+
+W obszarze **IoT Edge modules** Otwórz menu rozwijane **Dodaj** , a następnie wybierz pozycję **moduł witryny Marketplace**.
+
+   ![Zrzut ekranu pokazujący menu rozwijane Dodaj.](./media/quickstart/add-marketplace-module.png)
+
+W **witrynie IoT Edge Portal Marketplace** Wyszukaj i wybierz `Simulated Temperature Sensor` moduł. Moduł zostanie dodany do sekcji modułów IoT Edge z żądanym stanem **uruchomienia** .
 
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
 
-Ponieważ IoT Edge wersja 1,2 jest dostępna w publicznej wersji zapoznawczej, istnieje dodatkowy krok, który należy wykonać w celu zaktualizowania modułów środowiska uruchomieniowego do ich wersji zapoznawczej.
+Wybierz pozycję **Ustawienia środowiska uruchomieniowego** , aby otworzyć ustawienia modułów EdgeHub i edgeAgent. Ta sekcja ustawień służy do zarządzania modułami uruchomieniowymi przez dodanie zmiennych środowiskowych lub zmianę opcji tworzenia.
 
-1. Na stronie Szczegóły urządzenia wybierz ponownie pozycję **Ustaw moduły** .
+Zaktualizuj pole **obrazu** dla modułów EdgeHub i edgeAgent, aby używało znacznika wersji 1,2. Na przykład:
 
-1. Wybierz pozycję **Ustawienia środowiska uruchomieniowego**.
+* `mcr.microsoft.com/azureiotedge-hub:1.2`
+* `mcr.microsoft.com/azureiotedge-agent:1.2`
 
-1. Zaktualizuj pole **obrazu** dla modułów IoT Edge hub i IoT Edge Agent, aby użyć znacznika wersji 1.2.0-RC4. Na przykład:
-
-   * `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4`
-   * `mcr.microsoft.com/azureiotedge-agent:1.2.0-rc4`
-
-1. Moduł symulowanej czujnika temperatury powinien nadal znajdować się w sekcji modułów. Nie musisz wprowadzać żadnych zmian w tym module dla publicznej wersji zapoznawczej.
-
-1. Wybierz pozycję **Przejrzyj i utwórz**.
-
-1. Wybierz pozycję **Utwórz**.
-
-1. Na stronie Szczegóły urządzenia możesz wybrać opcję **$edgeAgent** lub **$edgeHub** , aby wyświetlić szczegóły modułu odzwierciedlające publiczną wersję zapoznawczą obrazu.
+Wybierz pozycję **Zapisz** , aby zastosować zmiany do modułów czasu wykonywania.
 
 :::moniker-end
-<!-- end 1.2 -->
+<!--end 1.2-->
+
+Wybierz pozycję **Dalej: trasy** , aby przejść do następnego kroku kreatora.
+
+   ![Zrzut ekranu pokazujący przejście do następnego kroku po dodaniu modułu.](./media/quickstart/view-temperature-sensor-next-routes.png)
+
+### <a name="routes"></a>Trasy
+
+Na karcie **trasy** Usuń trasę **domyślną trasy,** a następnie wybierz kolejno pozycje **Dalej: przegląd + Utwórz** , aby przejść do następnego kroku kreatora.
+
+   >[!Note]
+   >Trasy są konstruowane przy użyciu par nazw i wartości. Na tej stronie powinny być widoczne dwie trasy. Trasa domyślna ( **Route**) wysyła wszystkie komunikaty do IoT Hub (nazywanego `$upstream` ). Druga trasa, **SimulatedTemperatureSensorToIoTHub**, została utworzona automatycznie podczas dodawania modułu z witryny Azure Marketplace. Ta trasa wysyła wszystkie komunikaty z modułu symulowanej temperatury do IoT Hub. Trasy domyślnej można usunąć, ponieważ jest ona nadmiarowa w tym przypadku.
+
+   ![Zrzut ekranu pokazujący usunięcie trasy domyślnej, a następnie przejście do następnego kroku.](./media/quickstart/delete-route-next-review-create.png)
+
+### <a name="review-and-create"></a>Przegląd i tworzenie
+
+Przejrzyj plik JSON, a następnie wybierz pozycję **Utwórz**. Plik JSON definiuje wszystkie moduły, które są wdrażane na urządzeniu IoT Edge. Zobaczysz moduł **SimulatedTemperatureSensor** oraz dwa moduły uruchomieniowe, **edgeAgent** i **edgeHub**.
+
+   >[!Note]
+   >Podczas przesłania nowego wdrożenia na urządzenie usługi IoT Edge do urządzenia nie jest wypychane żadne powiadomienie. Nie jest to konieczne, ponieważ urządzenie regularnie wysyła do usługi IoT Hub zapytania w celu odebrania wszelkich nowych instrukcji. Jeśli urządzenie znajdzie zaktualizowany manifest wdrażania, użyje informacji o nowym wdrożeniu, aby ściągnąć obrazy modułów z chmury, a następnie zacznie uruchamiać moduły lokalnie. Ten proces może potrwać kilka minut.
+
+Po utworzeniu szczegółów wdrożenia modułu Kreator powróci do strony szczegółów urządzenia. Wyświetl stan wdrożenia na karcie **moduły** .
+
+Powinny być widoczne trzy moduły: **$edgeAgent**, **$edgeHub** i **SimulatedTemperatureSensor**. Jeśli co najmniej jeden z modułów ma **wartość tak** w obszarze **wdrożenie** , ale nie w obszarze **zgłoszone przez urządzenie**, urządzenie IoT Edge nadal je uruchamia. Zaczekaj kilka minut, a następnie Odśwież stronę.
+
+   ![Zrzut ekranu pokazujący symulowany czujnik temperatury na liście wdrożonych modułów.](./media/quickstart/view-deployed-modules.png)
 
 ## <a name="view-generated-data"></a>Wyświetlanie wygenerowanych danych
 

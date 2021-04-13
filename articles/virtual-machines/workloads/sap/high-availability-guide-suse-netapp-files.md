@@ -13,14 +13,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/22/2020
+ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: 83e770cb7eb1aace49745253dac3c757cebb4047
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eed971471ad8a91f09a812830eb83ac17bc59a01
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101668677"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307575"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server z Azure NetApp Files dla aplikacji SAP
 
@@ -274,7 +274,6 @@ Najpierw należy utworzyć woluminy Azure NetApp Files. Wdróż maszyny wirtualn
          1. Wprowadź nazwę nowej reguły modułu równoważenia obciążenia (na przykład **LB. QAS. ASCS**)
          1. Wybierz adres IP frontonu dla ASCS, puli zaplecza i sondy kondycji utworzonej wcześniej (na przykład **frontonu). QAS. ASCS**, **zaplecze. QAS** i **kondycja. QAS. ASCS**)
          1. Wybieranie **portów ha**
-         1. Zwiększ limit czasu bezczynności do 30 minut
          1. **Upewnij się, że włączono zmiennoprzecinkowy adres IP**
          1. Kliknij przycisk OK.
          * Powtórz powyższe kroki, aby utworzyć reguły równoważenia obciążenia dla wykres WYWOŁUJĄCYCH (na przykład **LB. QAS. Wykres WYWOŁUJĄCYCH**)

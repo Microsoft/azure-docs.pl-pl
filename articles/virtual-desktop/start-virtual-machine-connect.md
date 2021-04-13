@@ -3,15 +3,15 @@ title: Uruchamianie połączenia z maszyną wirtualną — Azure
 description: Jak skonfigurować funkcję Uruchom maszynę wirtualną w programie Connect.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/31/2021
+ms.date: 04/10/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: d9ce9811cd660c9a9b1fcb6f9e24cadd65d3c2bc
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: d3ef8e3656051c4a99ab52a7b52a0d623fdf9ce2
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445605"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303966"
 ---
 # <a name="start-virtual-machine-on-connect-preview"></a>Uruchom maszynę wirtualną w programie Connect (wersja zapoznawcza)
 
@@ -35,8 +35,7 @@ Następujący klienci usług pulpitu zdalnego obsługują funkcję Uruchom maszy
 
 Możesz sprawdzić powiadomienia o aktualizacjach i obsłudze klienta na [forum społeczności Tech](https://aka.ms/wvdtc).
 
->[!IMPORTANT]
->Funkcja Uruchom maszynę wirtualną w programie Connect obecnie obsługuje tylko program PowerShell i interfejs API REST, a nie Azure Portal. Aby uzyskać więcej informacji, zobacz [Tworzenie lub aktualizowanie puli hostów](/rest/api/desktopvirtualization/hostpools/createorupdate).
+Chmura Azure Government nie obsługuje obecnie uruchamiania maszyny wirtualnej w programie Connect.
 
 ## <a name="create-a-custom-role-for-start-vm-on-connect"></a>Utwórz rolę niestandardową dla uruchomienia maszyny wirtualnej w programie Connect
 
@@ -115,6 +114,24 @@ Opcja Uruchom maszynę wirtualną w programie Connect jest ustawieniem puli host
 
 >[!IMPORTANT]
 > Tę funkcję można skonfigurować tylko w istniejących pulach hosta. Ta funkcja jest niedostępna podczas tworzenia nowej puli hostów.
+
+### <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
+
+Aby użyć Azure Portal, aby skonfigurować uruchamianie maszyny wirtualnej w programie Connect:
+
+1. Otwórz przeglądarkę i przejdź do [Azure Portal](https://portal.azure.com/?feature.startVMonConnect=true#home). Zalecamy otworzenie Azure Portal w oknie InPrivate.
+
+2. W Azure Portal przejdź do **pulpitu wirtualnego systemu Windows**.
+
+3. Wybierz pozycję **Pule hostów**, a następnie Znajdź pulę hostów zawierającą osobiste pulpity, do których przypisano rolę.
+
+   >[!NOTE]
+   > Pula hostów konfigurowana przez tę funkcję w programie musi mieć osobiste komputery stacjonarne z bezpośrednimi przypisaniami ról. Jeśli pulpity w puli hostów nie są prawidłowo skonfigurowane, proces konfiguracji nie będzie działał.
+
+4. W puli hostów wybierz pozycję **Właściwości**. W obszarze **Rozpocznij maszynę wirtualną w programie Connect** wybierz pozycję **tak**, a następnie wybierz pozycję **Zapisz** , aby natychmiast zastosować to ustawienie.
+
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający okno Właściwości. Opcja Uruchom maszynę wirtualną przy nawiązywaniu połączenia jest wyróżniona kolorem czerwonym.](media/properties-start-vm-on-connect.png)
 
 ### <a name="use-powershell"></a>Korzystanie z programu PowerShell
 

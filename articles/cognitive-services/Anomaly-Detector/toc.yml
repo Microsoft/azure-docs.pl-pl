@@ -3,12 +3,18 @@
 - name: Omówienie
   expanded: true
   items:
-    - name: Co to jest detektor anomalii?
+    - name: Co to jest detektor anomalii (wieloczynnikowa)?
+      href: overview-multivariate.md
+    - name: Co to jest detektor anomalii (univariate)?
       href: overview.md
     - name: Ceny i limity
       href: 'https://aka.ms/adpricing'
-- name: Wykrywanie anomalii — Szybki Start
-  href: ./quickstarts/client-libraries.md
+- name: Przewodniki Szybki Start dotyczące wykrywania anomalii
+  items:
+    - name: Wieloczynnikowa biblioteki klienckie
+      href: ./quickstarts/client-libraries-multivariate.md
+    - name: Univariate biblioteki klienckie
+      href: ./quickstarts/client-libraries.md
 - name: Samples
   items:
     - name: Interaktywny pokaz
@@ -39,10 +45,18 @@
               href: how-to/deploy-anomaly-detection-on-container-instances.md
 - name: Pojęcia
   items:
-    - name: Najlepsze rozwiązania dotyczące interfejsu API wykrywania anomalii
+    - name: Najlepsze praktyki dotyczące interfejsu API wykrywania anomalii (wieloczynnikowa)
+      href: concepts/best-practices-multivariate.md
+    - name: Najlepsze praktyki dotyczące interfejsu API wykrywania anomalii (univariate)
       href: concepts/anomaly-detection-best-practices.md
+    - name: Architektura konserwacji predykcyjnej (wieloczynnikowa)
+      href: concepts/multivariate-architecture.md
+    - name: Rozwiązywanie problemów z wieloczynnikowa
+      href: concepts/troubleshoot.md
     - name: Wykrywanie anomalii szczątkowej (SR) i Splotowych neuronowych Net (CNN)
       href: 'https://arxiv.org/abs/1906.03821'
+    - name: Wieloczynnikowa wykrywanie anomalii szeregów czasowych za pośrednictwem sieci uwagi dotyczącej grafu
+      href: 'https://arxiv.org/abs/2009.02040'
 - name: Samouczki
   items:
     - name: Wizualizowanie anomalii jako zadań wsadowych za pomocą usługi Power BI

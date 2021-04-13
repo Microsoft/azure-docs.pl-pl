@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/16/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: e778c7ee14d2115bf6d8cf7f12ceaa61e364a4a2
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: a5f4b23196a04d88e4329cb5ebf26d0b0a477444
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106120190"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307271"
 ---
 # <a name="device-update-agent-provisioning"></a>Inicjowanie obsługi administracyjnej agenta
 
@@ -81,8 +81,25 @@ Postępuj zgodnie z tymi instrukcjami, aby zainicjować obsługę administracyjn
 
 1. Postępuj zgodnie z instrukcjami, aby [zainstalować i udostępnić środowisko uruchomieniowe Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2020-11&preserve-view=true).
 
-1. Następnie Zainstaluj agenta aktualizacji urządzeń z [artefaktów](https://github.com/Azure/iot-hub-device-update/releases) , aby teraz można było uruchomić agenta aktualizacji urządzenia na urządzeniu IoT Edge.
+1. Zainstaluj agenta aktualizacji obrazu aktualizacji urządzenia
+    - Udostępniamy przykładowe obrazy w [artefaktach](https://github.com/Azure/iot-hub-device-update/releases) , aby wypróbować wdrożenia aktualizacji obrazów w różnych wersjach przy użyciu obrazu podstawowego (adu-Base-Image) i jednego obrazu aktualizacji (adu-Update-Image). Zobacz przykład [sposobu, w jaki można przeprowadzić błysk obrazu na urządzeniu IoT Hub](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-raspberry-pi#flash-sd-card-with-image).  
 
+1. Zainstaluj agenta aktualizacji pakietu aktualizacji urządzeń  
+    - Najnowsze wersje agenta z packages.miscrosoft.com: zaktualizuj listę pakietów na urządzeniu i zainstaluj pakiet agenta aktualizacji urządzenia wraz z jego zależnościami przy użyciu:   
+    ```shell
+    sudo apt-get update
+    ```
+    
+    ```shell
+    sudo apt-get install deviceupdate-agent deliveryoptimization-plugin-apt
+    ```
+    
+    - W przypadku przyszłych wersji kandydatów wydania z [artefaktów](https://github.com/Azure/iot-hub-device-update/releases) : Pobierz plik DEP na maszynę, na której chcesz zainstalować agenta aktualizacji urządzeń, a następnie:
+     ```shell
+    Sudo apt-get install -y ./"<PATH TO FILE>"/"<.DEP FILE NAME>"
+     ```
+    
+1. Teraz można przystąpić do uruchamiania agenta aktualizacji urządzenia na urządzeniu IoT Edge. 
 
 ### <a name="on-non-edge-iot-linux-devices"></a>Na urządzeniach z systemem IoT Linux bez krawędzi
 
@@ -130,14 +147,15 @@ Postępuj zgodnie z tymi instrukcjami, aby zainicjować obsługę administracyjn
     sudo aziotctl config apply
     ```
     
-1.  Na koniec Zainstaluj agenta aktualizacji urządzeń z [artefaktów](https://github.com/Azure/iot-hub-device-update/releases) , a teraz możesz uruchomić agenta aktualizacji urządzenia na urządzeniu IoT Edge.
+1.  Na koniec Zainstaluj agenta aktualizacji urządzenia. Udostępniamy przykładowe obrazy w [artefaktach](https://github.com/Azure/iot-hub-device-update/releases) , aby wypróbować wdrożenia aktualizacji obrazów w różnych wersjach przy użyciu obrazu podstawowego (adu-Base-Image) i jednego obrazu aktualizacji (adu-Update-Image). Zobacz przykład [sposobu, w jaki można przeprowadzić błysk obrazu na urządzeniu IoT Hub](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-raspberry-pi#flash-sd-card-with-image).
 
+1.  Teraz można przystąpić do uruchamiania agenta aktualizacji urządzenia na urządzeniu IoT. 
 
 ### <a name="other-iot-devices"></a>Inne urządzenia IoT
 
 Agenta aktualizacji urządzeń można również skonfigurować bez usługi tożsamości IoT do testowania lub urządzeń z ograniczeniami. Wykonaj poniższe kroki, aby zainicjować obsługę administracyjną agenta aktualizacji urządzenia przy użyciu parametrów połączenia (z modułu lub urządzenia).
 
-1.  Zainstaluj agenta aktualizacji urządzeń z [artefaktów](https://github.com/Azure/iot-hub-device-update/releases).
+1.  Udostępniamy przykładowe obrazy w [artefaktach](https://github.com/Azure/iot-hub-device-update/releases) , aby wypróbować wdrożenia aktualizacji obrazów w różnych wersjach przy użyciu obrazu podstawowego (adu-Base-Image) i jednego obrazu aktualizacji (adu-Update-Image). Zobacz przykład [sposobu, w jaki można przeprowadzić błysk obrazu na urządzeniu IoT Hub](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-raspberry-pi#flash-sd-card-with-image).
 
 1.  Zaloguj się na komputerze lub urządzeniu IoT Edge/urządzeniu IoT.
     
@@ -150,16 +168,17 @@ Agenta aktualizacji urządzeń można również skonfigurować bez usługi tożs
        
     1. Powinno zostać wyświetlone okno z otwartym tekstem. Usuń cały ciąg następujący po "connection_String =" przy pierwszym udostępnieniu agenta aktualizacji urządzenia na urządzeniu IoT. Jest to tylko tekst zastępczy.
     
-    1. W terminalu Zastąp <ciągu połączenia> z parametrami połączenia urządzenia dla wystąpienia agenta aktualizacji urządzenia.
+    1. W terminalu Zastąp ciąg "<-Connection-String>" parametrami połączenia urządzenia dla wystąpienia agenta aktualizacji urządzenia.
     
         > [!Important]
         > Nie należy dodawać cudzysłowów wokół parametrów połączenia.
-        
-        - connection_string =<ciągu połączenia>
+        ```shell
+        - connection_string=<ADD CONNECTION STRING HERE>
+       ```
        
     1. Wprowadź i Zapisz.
     
-1.  Teraz można przystąpić do uruchamiania agenta aktualizacji urządzenia na urządzeniu IoT Edge. 
+1.  Teraz możesz przystąpić do uruchamiania agenta aktualizacji urządzenia na urządzeniu IoT. 
 
 
 ## <a name="how-to-start-the-device-update-agent"></a>Jak uruchomić agenta aktualizacji urządzeń

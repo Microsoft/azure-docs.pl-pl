@@ -7,12 +7,12 @@ ms.author: andyriv
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 7facb74cd407c576b2a7b119f19427dcd185f04e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e9749dfd7b28551a4fc2e7c6ba70ba9cce4e5a69
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105568821"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307303"
 ---
 # <a name="microsoft-connected-cache-preview-deployment-scenario-sample-two-level-nested-azure-iot-edge-gateway-with-outbound-unauthenticated-proxy"></a>Przykład scenariusza wdrożenia w podglądzie połączonej pamięci podręcznej firmy Microsoft: dwupoziom zagnieżdżony Azure IoT Edge
 
@@ -70,7 +70,7 @@ Na poniższym diagramie przedstawiono scenariusz, w którym jedna brama Azure Io
 ## <a name="child-gateway-configuration"></a>Konfiguracja bramy podrzędnej
 
 >[!Note]
->Jeśli masz zreplikowane kontenery używane w konfiguracji w Twoim prywatnym rejestrze, należy zmodyfikować ustawienia konfiguracji. toml i ustawienia środowiska uruchomieniowego w ramach wdrożenia modułu. Aby uzyskać więcej informacji, zobacz [samouczek — Tworzenie hierarchii IoT Edge urządzeń — Azure IoT Edge](../iot-edge/tutorial-nested-iot-edge.md?preserve-view=true&tabs=azure-portal&view=iotedge-2020-11#deploy-modules-to-the-lower-layer-device) , aby uzyskać więcej szczegółów.
+>Jeśli masz zreplikowane kontenery używane w konfiguracji w Twoim prywatnym rejestrze, należy zmodyfikować ustawienia konfiguracji. toml i ustawienia środowiska uruchomieniowego w ramach wdrożenia modułu. Aby uzyskać więcej informacji, zapoznaj się z tematem [łączenie IoT Edge podrzędnych urządzeń — Azure IoT Edge](../iot-edge/how-to-connect-downstream-iot-edge-device.md?preserve-view=true&tabs=azure-portal&view=iotedge-2020-11#deploy-modules-to-lower-layer-devices) , aby uzyskać więcej szczegółów.
 
 1. Zmodyfikuj ścieżkę obrazu dla agenta usługi Edge, jak pokazano w poniższym przykładzie:
 

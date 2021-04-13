@@ -10,12 +10,12 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 5444f6adb9d441cb6253c180cf2d079c1c36316c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: de24f6c8436b4537519f8cc65931325dd7d5f8d9
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562685"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313355"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-windows-device-preview"></a>Szybki Start: wdrażanie pierwszego modułu IoT Edge na urządzeniu z systemem Windows (wersja zapoznawcza)
 
@@ -58,11 +58,9 @@ Upewnij się, że urządzenie IoT Edge spełnia następujące wymagania:
     * Professional, Enterprise, IoT Enterprise
   * Windows Server 2019 kompilacja 17763 lub nowsza
 
-  
 * Wymagania sprzętowe
   * Minimalna ilość wolnej pamięci: 2 GB
   * Minimalna ilość wolnego miejsca na dysku: 10 GB
-
 
 >[!NOTE]
 >Ten przewodnik Szybki Start używa centrum administracyjnego systemu Windows, aby utworzyć wdrożenie IoT Edge dla systemu Linux w systemie Windows. Można również użyć programu PowerShell. Jeśli chcesz użyć programu PowerShell do utworzenia wdrożenia, wykonaj kroki opisane w przewodniku krok po [instalacji i aprowizacji Azure IoT Edge dla systemu Linux na urządzeniu z systemem Windows](how-to-install-iot-edge-on-windows.md).
@@ -185,7 +183,57 @@ Zarządzając urządzeniem usługi Azure IoT Edge z chmury, wdróż moduł przes
 
 ![Diagram przedstawiający krok do wdrożenia modułu.](./media/quickstart/deploy-module.png)
 
+<!--
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
+
+Include content included below to support versioned steps in Linux quickstart. Can update include file once Windows quickstart supports v1.2
+-->
+
+Jedną z kluczowych możliwości Azure IoT Edge jest wdrożenie kodu na urządzeniach IoT Edge z chmury. *Moduły IoT Edge* są pakietami wykonywalnymi wdrożonymi jako kontenery. Ta sekcja obejmuje wdrożenie wstępnie skompilowanego modułu z [sekcji modułów IoT Edge w portalu Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) bezpośrednio z usługi Azure IoT Hub.
+
+Moduł, który wdrożysz w tej sekcji, symuluje czujnik i wysyła wygenerowane dane. Ten moduł jest przydatny, gdy rozpoczyna się pracę z usługą IoT Edge, ponieważ symulowane dane można wykorzystać przy programowaniu i testowaniu. Jeśli chcesz zobaczyć, co dokładnie robi ten moduł, możesz wyświetlić [kod źródłowy symulowanego czujnika temperatury](https://github.com/Azure/iotedge/blob/027a509549a248647ed41ca7fe1dc508771c8123/edge-modules/SimulatedTemperatureSensor/src/Program.cs).
+
+Wykonaj następujące kroki, aby wdrożyć pierwszy moduł z witryny Azure Marketplace.
+
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) i przejdź do centrum IoT Hub.
+
+1. Z menu po lewej stronie w obszarze **Automatyczne zarządzanie urządzeniami** wybierz pozycję **IoT Edge**.
+
+1. Wybierz identyfikator urządzenia docelowego z listy urządzeń.
+
+1. Na górnym pasku wybierz pozycję **Ustaw moduły**.
+
+   ![Zrzut ekranu pokazujący Wybieranie modułów zestawu.](./media/quickstart/select-set-modules.png)
+
+1. W obszarze **IoT Edge modules** Otwórz menu rozwijane **Dodaj** , a następnie wybierz pozycję **moduł witryny Marketplace**.
+
+   ![Zrzut ekranu pokazujący menu rozwijane Dodaj.](./media/quickstart/add-marketplace-module.png)
+
+1. W **witrynie IoT Edge Portal Marketplace** Wyszukaj i wybierz `Simulated Temperature Sensor` moduł.
+
+   Moduł zostanie dodany do sekcji modułów IoT Edge z żądanym stanem **uruchomienia** .
+
+1. Wybierz pozycję **Dalej: trasy** , aby przejść do następnego kroku kreatora.
+
+   ![Zrzut ekranu pokazujący przejście do następnego kroku po dodaniu modułu.](./media/quickstart/view-temperature-sensor-next-routes.png)
+
+1. Na karcie **trasy** Usuń trasę **domyślną trasy,** a następnie wybierz kolejno pozycje **Dalej: przegląd + Utwórz** , aby przejść do następnego kroku kreatora.
+
+   >[!Note]
+   >Trasy są konstruowane przy użyciu par nazw i wartości. Na tej stronie powinny być widoczne dwie trasy. Trasa domyślna ( **Route**) wysyła wszystkie komunikaty do IoT Hub (nazywanego `$upstream` ). Druga trasa, **SimulatedTemperatureSensorToIoTHub**, została utworzona automatycznie podczas dodawania modułu z witryny Azure Marketplace. Ta trasa wysyła wszystkie komunikaty z modułu symulowanej temperatury do IoT Hub. Trasy domyślnej można usunąć, ponieważ jest ona nadmiarowa w tym przypadku.
+
+   ![Zrzut ekranu pokazujący usunięcie trasy domyślnej, a następnie przejście do następnego kroku.](./media/quickstart/delete-route-next-review-create.png)
+
+1. Przejrzyj plik JSON, a następnie wybierz pozycję **Utwórz**. Plik JSON definiuje wszystkie moduły, które są wdrażane na urządzeniu IoT Edge. Zobaczysz moduł **SimulatedTemperatureSensor** oraz dwa moduły uruchomieniowe, **edgeAgent** i **edgeHub**.
+
+   >[!Note]
+   >Podczas przesłania nowego wdrożenia na urządzenie usługi IoT Edge do urządzenia nie jest wypychane żadne powiadomienie. Nie jest to konieczne, ponieważ urządzenie regularnie wysyła do usługi IoT Hub zapytania w celu odebrania wszelkich nowych instrukcji. Jeśli urządzenie znajdzie zaktualizowany manifest wdrażania, użyje informacji o nowym wdrożeniu, aby ściągnąć obrazy modułów z chmury, a następnie zacznie uruchamiać moduły lokalnie. Ten proces może potrwać kilka minut.
+
+1. Po utworzeniu szczegółów wdrożenia modułu Kreator powróci do strony szczegółów urządzenia. Wyświetl stan wdrożenia na karcie **moduły** .
+
+   Powinny być widoczne trzy moduły: **$edgeAgent**, **$edgeHub** i **SimulatedTemperatureSensor**. Jeśli co najmniej jeden z modułów ma **wartość tak** w obszarze **wdrożenie** , ale nie w obszarze **zgłoszone przez urządzenie**, urządzenie IoT Edge nadal je uruchamia. Zaczekaj kilka minut, a następnie Odśwież stronę.
+
+   ![Zrzut ekranu pokazujący symulowany czujnik temperatury na liście wdrożonych modułów.](./media/quickstart/view-deployed-modules.png)
 
 ## <a name="view-the-generated-data"></a>Wyświetlanie wygenerowanych danych
 

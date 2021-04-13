@@ -10,34 +10,34 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 7fe50a6236cf67f1048dddecbf46fea836ec05c5
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: e5b5433be4a95a9df9d3b3527473c3004d24acac
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106125962"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107327590"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Zestaw Java Development Kit (JDK)](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install) w wersji 8 lub nowszej.
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- [Zestaw Java Development Kit (JDK) w](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install) wersji 8 lub nowszej.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-- Wdrożony zasób usług komunikacyjnych i parametry połączenia. [Utwórz zasób usług komunikacyjnych](../../create-communication-resource.md).
-- [Token dostępu użytkownika](../../access-tokens.md). Upewnij się, że ustawiono zakres "Rozmowa" i zanotuj ciąg tokenu, a także ciąg identyfikatora użytkownika.
+- Wdrożony zasób Communication Services parametrów połączenia. [Utwórz zasób Communication Services zasobów.](../../create-communication-resource.md)
+- Token [dostępu użytkownika.](../../access-tokens.md) Pamiętaj, aby ustawić zakres na "chat" i zanotować ciąg tokenu, a także ciąg userId.
 
 ## <a name="setting-up"></a>Konfigurowanie
 
 ### <a name="create-a-new-java-application"></a>Tworzenie nowej aplikacji Java
 
-Otwórz terminal lub okno poleceń i przejdź do katalogu, w którym chcesz utworzyć aplikację Java. Uruchom poniższe polecenie, aby wygenerować projekt Java z szablonu Maven-Archetype-szybkiego startu.
+Otwórz terminal lub okno polecenia i przejdź do katalogu, w którym chcesz utworzyć aplikację Java. Uruchom poniższe polecenie, aby wygenerować projekt Java na podstawie szablonu maven-archetype-quickstart.
 
 ```console
 mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
 ```
 
-Zauważ, że cel "Generuj" utworzył katalog o takiej samej nazwie jak artifactId. W tym katalogu `src/main/java directory` zawiera kod źródłowy projektu, `src/test/java` katalog zawiera źródło testu, a plik pom.xml jest modelem obiektu projektu projektu lub [pliku pom](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html).
+Zauważysz, że cel "wygeneruj" utworzył katalog o takiej samej nazwie jak artifactId. W tym katalogu plik zawiera kod źródłowy projektu, katalog zawiera źródło testowe, a plik pom.xml to model obiektów projektu `src/main/java directory` `src/test/java` [(POM) projektu](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html).
 
-Zaktualizuj plik pliku pom aplikacji, aby używał języka Java 8 lub nowszego:
+Zaktualizuj plik POM aplikacji, aby używać języka Java 8 lub wyższego:
 
 ```xml
 <properties>
@@ -47,9 +47,9 @@ Zaktualizuj plik pliku pom aplikacji, aby używał języka Java 8 lub nowszego:
 </properties>
 ```
 
-### <a name="add-the-package-references-for-the-chat-sdk"></a>Dodaj odwołania do pakietu dla zestawu SDK usługi Chat
+### <a name="add-the-package-references-for-the-chat-sdk"></a>Dodawanie odwołań do pakietu dla zestawu SDK czatu
 
-W pliku pliku pom odwołuje się do `azure-communication-chat` pakietu za pomocą interfejsów API rozmowy:
+W pliku POM odwołuj się `azure-communication-chat` do pakietu za pomocą interfejsów API czatu:
 
 ```xml
 <dependency>
@@ -59,7 +59,7 @@ W pliku pliku pom odwołuje się do `azure-communication-chat` pakietu za pomoc�
 </dependency>
 ```
 
-W celu uwierzytelnienia klient musi odwołać się do `azure-communication-common` pakietu:
+W przypadku uwierzytelniania klient musi odwoływać się do `azure-communication-common` pakietu:
 
 ```xml
 <dependency>
@@ -71,21 +71,21 @@ W celu uwierzytelnienia klient musi odwołać się do `azure-communication-commo
 
 ## <a name="object-model"></a>Model obiektów
 
-Poniższe klasy i interfejsy obsługują niektóre główne funkcje zestawu Azure Communications Services Chat SDK dla języka Java.
+Poniższe klasy i interfejsy obsługują niektóre główne funkcje zestawu AZURE COMMUNICATION SERVICES Chat SDK dla języka Java.
 
 | Nazwa                                  | Opis                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| ChatClient | Ta klasa jest wymagana dla funkcji rozmowy. Tworzysz wystąpienie go przy użyciu informacji o subskrypcji i użyj go do tworzenia, pobierania i usuwania wątków. |
-| ChatAsyncClient | Ta klasa jest wymagana w przypadku funkcji rozmowy asynchronicznej. Tworzysz wystąpienie go przy użyciu informacji o subskrypcji i użyj go do tworzenia, pobierania i usuwania wątków. |
-| ChatThreadClient | Ta klasa jest wymagana dla funkcjonalności wątku rozmowy. Możesz uzyskać wystąpienie za pośrednictwem ChatClient i używać go do wysyłania/odbierania/aktualizowania/usuwania komunikatów, dodawania/usuwania/pobierania użytkowników, wysyłania powiadomień o wpisywaniu i otrzymywania potwierdzeń. |
-| ChatThreadAsyncClient | Ta klasa jest wymagana w przypadku asynchronicznych funkcji wątku rozmowy. Możesz uzyskać wystąpienie za pośrednictwem ChatAsyncClient i używać go do wysyłania/odbierania/aktualizowania/usuwania komunikatów, dodawania/usuwania/pobierania użytkowników, wysyłania powiadomień o wpisywaniu i otrzymywania potwierdzeń. |
+| ChatClient | Ta klasa jest potrzebna w przypadku funkcji czatów. Tworzysz je przy użyciu informacji o subskrypcji i używasz ich do tworzenia, get i usuwania wątków. |
+| ChatAsyncClient | Ta klasa jest potrzebna w przypadku funkcji asynchronicznego czatu. Tworzysz je przy użyciu informacji o subskrypcji i używasz ich do tworzenia, get i usuwania wątków. |
+| ChatThreadClient | Ta klasa jest potrzebna dla funkcji wątku czatu. Uzyskujesz wystąpienie za pośrednictwem klasy ChatClient i używasz go do wysyłania/odbierania/aktualizowania/usuwania komunikatów, dodawania/usuwania/uzyskiwania użytkowników, wysyłania powiadomień dotyczących wpisywania i odczytywania paragonów. |
+| ChatThreadAsyncClient | Ta klasa jest potrzebna dla funkcji asynchronicznego wątku czatu. Uzyskujesz wystąpienie za pośrednictwem klasy ChatAsyncClient i używasz go do wysyłania/odbierania/aktualizowania/usuwania komunikatów, dodawania/usuwania/uzyskiwania użytkowników, wysyłania powiadomień dotyczących wpisywania i odczytywania paragonów. |
 
 ## <a name="create-a-chat-client"></a>Tworzenie klienta czatu
-Aby utworzyć klienta programu chat, należy użyć punktu końcowego usługi komunikacyjnej i tokenu dostępu, który został wygenerowany w ramach kroków wymagań wstępnych. Tokeny dostępu użytkowników umożliwiają tworzenie aplikacji klienckich, które bezpośrednio uwierzytelniają się w usłudze Azure Communications Services. Po wygenerowaniu tych tokenów na serwerze Przekaż je z powrotem do urządzenia klienckiego. Aby przekazać token do klienta czatu, należy użyć klasy CommunicationTokenCredential ze wspólnego zestawu SDK.
+Aby utworzyć klienta czatu, użyjesz punktu końcowego usługi Communications Service i tokenu dostępu, który został wygenerowany w ramach kroków wymagań wstępnych. Tokeny dostępu użytkownika umożliwiają tworzenie aplikacji klienckich, które bezpośrednio uwierzytelniają się Azure Communication Services. Po wygenerowaniu tych tokenów na serwerze przekaż je z powrotem do urządzenia klienckiego. Musisz użyć klasy CommunicationTokenCredential z wspólnego zestawu SDK, aby przekazać token do klienta czatu.
 
-Dowiedz się więcej o [architekturze rozmowy](../../../concepts/chat/concepts.md)
+Dowiedz się więcej o [architekturze czatu](../../../concepts/chat/concepts.md)
 
-Podczas dodawania instrukcji import należy pamiętać, aby tylko dodać importy z przestrzeni nazw com. Azure. Communications. chat i com. Azure. Communications. chat. Models, a nie z obszaru nazw com. Azure. Communications. chat. Implementation. W pliku App. Java, który został wygenerowany za pośrednictwem Maven, można użyć następującego kodu, aby rozpocząć od:
+Podczas dodawania instrukcji import należy dodawać tylko importy z przestrzeni nazw com.azure.communication.chat i com.azure.communication.chat.models, a nie z przestrzeni nazw com.azure.communication.chat.implementation. W pliku App.java wygenerowanym za pośrednictwem programu Maven możesz użyć następującego kodu, aby rozpocząć od:
 
 ```Java
 package com.communication.quickstart;
@@ -122,24 +122,27 @@ public class App
 }
 ```
 
-## <a name="start-a-chat-thread"></a>Rozpocznij wątek rozmowy
+## <a name="start-a-chat-thread"></a>Uruchamianie wątku czatu
 
-Użyj `createChatThread` metody, aby utworzyć wątek rozmowy.
-`createChatThreadOptions` służy do opisywania żądania wątku.
+Użyj metody `createChatThread` , aby utworzyć wątek czatu.
+`createChatThreadOptions` Służy do opisywania żądania wątku.
 
-- Użyj `topic` parametru konstruktora, aby przekazać temat do tego rozmowy. Temat można zaktualizować po utworzeniu wątku rozmowy przy użyciu `UpdateThread` funkcji.
-- Użyj, `participants` Aby wyświetlić listę uczestników wątku, które mają zostać dodane do wątku. `ChatParticipant` Pobiera użytkownika utworzonego w ramach [tokenu dostępu użytkownika](../../access-tokens.md) — Szybki Start.
+- Użyj `topic` parametru konstruktora, aby przekazać temat do tego czatu; Temat można zaktualizować po utworzeniu wątku czatu przy użyciu `UpdateThread` funkcji .
+- Użyj `participants` , aby wyświetlić listę uczestników wątków, które mają zostać dodane do wątku. `ChatParticipant` przyjmuje użytkownika utworzonego w [przewodniku Szybki start dotyczącym tokenu](../../access-tokens.md) dostępu użytkownika.
 
-`CreateChatThreadResult` czy odpowiedź została zwrócona przez utworzenie wątku rozmowy.
-Zawiera metodę, `getChatThread()` która zwraca `ChatThread` obiekt, którego można użyć w celu uzyskania klienta wątku, z którego można uzyskać `ChatThreadClient` wykonywanie operacji w utworzonym wątku: Dodaj uczestników, Wyślij wiadomość itd. `ChatThread` Obiekt zawiera również `getId()` metodę, która pobiera unikatowy identyfikator wątku.
+`CreateChatThreadResult` to odpowiedź zwrócona podczas tworzenia wątku czatu.
+Zawiera on metodę , która zwraca obiekt , który może służyć do uzyskania klienta wątku, z którego można pobrać metodę do wykonywania operacji na utworzonym wątku: dodawanie uczestników, wysyłanie wiadomości `getChatThread()` `ChatThread` `ChatThreadClient` itp. Obiekt `ChatThread` zawiera również metodę , która pobiera unikatowy identyfikator `getId()` wątku.
 
 ```Java
+CommunicationUserIdentifier identity1 = new CommunicationUserIdentifier("<USER_1_ID>");
+CommunicationUserIdentifier identity2 = new CommunicationUserIdentifier("<USER_2_ID>");
+
 ChatParticipant firstThreadParticipant = new ChatParticipant()
-    .setCommunicationIdentifier(firstUser)
+    .setCommunicationIdentifier(identity1)
     .setDisplayName("Participant Display Name 1");
 
 ChatParticipant secondThreadParticipant = new ChatParticipant()
-    .setCommunicationIdentifier(secondUser)
+    .setCommunicationIdentifier(identity2)
     .setDisplayName("Participant Display Name 2");
 
 CreateChatThreadOptions createChatThreadOptions = new CreateChatThreadOptions("Topic")
@@ -150,9 +153,9 @@ CreateChatThreadResult result = chatClient.createChatThread(createChatThreadOpti
 String chatThreadId = result.getChatThread().getId();
 ```
 
-## <a name="list-chat-threads"></a>Wyświetl listę wątków czatu
+## <a name="list-chat-threads"></a>Lista wątków czatu
 
-Użyj `listChatThreads` metody, aby pobrać listę istniejących wątków rozmowy.
+Użyj metody `listChatThreads` , aby pobrać listę istniejących wątków czatu.
 
 ```java
 PagedIterable<ChatThreadItem> chatThreads = chatClient.listChatThreads();
@@ -162,24 +165,24 @@ chatThreads.forEach(chatThread -> {
 });
 ```
 
-## <a name="get-a-chat-thread-client"></a>Pobierz klienta wątku rozmowy
+## <a name="get-a-chat-thread-client"></a>Uzyskiwanie klienta wątku czatu
 
-`getChatThreadClient`Metoda zwraca klienta wątku dla wątku, który już istnieje. Może służyć do wykonywania operacji w utworzonym wątku: Dodaj uczestników, Wyślij wiadomość itd. `chatThreadId` jest unikatowym IDENTYFIKATORem istniejącego wątku rozmowy.
+Metoda `getChatThreadClient` zwraca klienta wątku dla wątku, który już istnieje. Może służyć do wykonywania operacji na utworzonym wątku: dodawania uczestników, wysyłania wiadomości itp. `chatThreadId` to unikatowy identyfikator istniejącego wątku czatu.
 
 ```Java
 ChatThreadClient chatThreadClient = chatClient.getChatThreadClient(chatThreadId);
 ```
 
-## <a name="send-a-message-to-a-chat-thread"></a>Wyślij wiadomość do wątku rozmowy
+## <a name="send-a-message-to-a-chat-thread"></a>Wysyłanie wiadomości do wątku czatu
 
-Użyj `sendMessage` metody, aby wysłać wiadomość do właśnie utworzonego wątku, identyfikowanego przez chatThreadId.
-`sendChatMessageOptions` służy do opisywania żądania komunikatu rozmowy.
+Użyj metody , aby wysłać komunikat do właśnie utworzonego wątku `sendMessage` identyfikowanego przez chatThreadId.
+`sendChatMessageOptions` Służy do opisywania żądania wiadomości na czacie.
 
-- Użyj, `content` Aby podać zawartość wiadomości czatu.
-- Służy `type` do określania typu zawartości wiadomości czatu, tekstu lub HTML.
-- Użyj, `senderDisplayName` Aby określić nazwę wyświetlaną nadawcy.
+- Użyj `content` , aby udostępnić zawartość wiadomości czatu.
+- Użyj `type` , aby określić typ zawartości wiadomości czatu, TEKST lub HTML.
+- Użyj `senderDisplayName` , aby określić nazwę wyświetlaną nadawcy.
 
-Odpowiedź `sendChatMessageResult` zawiera `id` , który jest UNIKATOWYm identyfikatorem komunikatu.
+Odpowiedź zawiera `sendChatMessageResult` element , który jest `id` unikatowym identyfikatorem komunikatu.
 
 ```Java
 SendChatMessageOptions sendChatMessageOptions = new SendChatMessageOptions()
@@ -191,9 +194,9 @@ SendChatMessageResult sendChatMessageResult = chatThreadClient.sendMessage(sendC
 String chatMessageId = sendChatMessageResult.getId();
 ```
 
-## <a name="receive-chat-messages-from-a-chat-thread"></a>Odbieranie komunikatów rozmowy z wątku rozmowy
+## <a name="receive-chat-messages-from-a-chat-thread"></a>Odbieranie wiadomości czatu z wątku czatu
 
-Komunikaty czatu można pobrać, sondowanie `listMessages` metody na kliencie wątku rozmowy w określonych odstępach czasu.
+Komunikaty czatu można pobrać, sondując metodę na kliencie wątku `listMessages` czatu w określonych odstępach czasu.
 
 ```Java
 chatThreadClient.listMessages().forEach(message -> {
@@ -201,23 +204,23 @@ chatThreadClient.listMessages().forEach(message -> {
 });
 ```
 
-`listMessages` zwraca najnowszą wersję komunikatu, w tym wszelkie edycje lub usunięcia, które wystąpiły w komunikacie przy użyciu. editMessage () i. deleteMessage (). W przypadku usuniętych komunikatów `chatMessage.getDeletedOn()` Funkcja zwraca wartość typu DateTime wskazującą, kiedy ten komunikat został usunięty. W przypadku edytowanych wiadomości `chatMessage.getEditedOn()` zwraca wartość typu DateTime wskazującą, kiedy wiadomość była edytowana. Pierwotny czas tworzenia wiadomości można uzyskać za pomocą polecenia `chatMessage.getCreatedOn()` i można go użyć do porządkowania komunikatów.
+`listMessages` Metoda zwraca najnowszą wersję komunikatu, w tym wszelkie zmiany lub usunięcia, które miały miejsce w komunikacie przy użyciu funkcji .editMessage() i .deleteMessage(). W przypadku usuniętych `chatMessage.getDeletedOn()` komunikatów zwraca wartość daty/godziny wskazującą, kiedy komunikat został usunięty. W przypadku edytowanych komunikatów `chatMessage.getEditedOn()` zwraca datę/godzinę wskazującą, kiedy komunikat został edytowany. Oryginalny czas tworzenia komunikatów można uzyskać za pomocą funkcji i można go użyć `chatMessage.getCreatedOn()` do zamawiania komunikatów.
 
-Przeczytaj więcej o typach komunikatów tutaj: [typy komunikatów](../../../concepts/chat/concepts.md#message-types).
+Więcej informacji na temat typów komunikatów można uzyskać tutaj: [Typy komunikatów](../../../concepts/chat/concepts.md#message-types).
 
-## <a name="send-read-receipt"></a>Wyślij potwierdzenie odczytania
+## <a name="send-read-receipt"></a>Wysyłanie potwierdzenia odczytu
 
-Użyj `sendReadReceipt` metody do publikowania zdarzenia odbioru do wątku rozmowy w imieniu użytkownika.
-`chatMessageId` jest unikatowym IDENTYFIKATORem wiadomości czatu, która została odczytana.
+Użyj metody , aby opublikować zdarzenie potwierdzenia odczytu w wątku czatu `sendReadReceipt` w imieniu użytkownika.
+`chatMessageId` to unikatowy identyfikator odczytanych wiadomości czatu.
 
 ```Java
 String chatMessageId = message.getId();
 chatThreadClient.sendReadReceipt(chatMessageId);
 ```
 
-## <a name="list-chat-participants"></a>Wyświetl listę uczestników rozmowy
+## <a name="list-chat-participants"></a>Lista uczestników czatu
 
-Służy `listParticipants` do pobierania kolekcji stronicowanej zawierającej uczestników wątku rozmowy identyfikowanego przez chatThreadId.
+Użyj `listParticipants` , aby pobrać stronicowane kolekcje zawierające uczestników wątku czatu identyfikowanego przez chatThreadId.
 
 ```Java
 PagedIterable<ChatParticipant> chatParticipantsResponse = chatThreadClient.listParticipants();
@@ -228,23 +231,26 @@ chatParticipantsResponse.forEach(chatParticipant -> {
 
 ## <a name="add-a-user-as-participant-to-the-chat-thread"></a>Dodawanie użytkownika jako uczestnika do wątku czatu
 
-Po utworzeniu wątku rozmowy można z niego dodawać i usuwać użytkowników. Przez dodanie użytkowników można udzielić im dostępu do wysyłania komunikatów do wątku rozmowy i dodawania/usuwania innych uczestników. Musisz zacząć od pobrania nowego tokenu dostępu i tożsamości dla tego użytkownika. Przed wywołaniem metody adduczestniks upewnij się, że uzyskano nowy token dostępu i tożsamość dla tego użytkownika. Użytkownik będzie potrzebować tego tokenu dostępu, aby można było zainicjować klienta rozmowy.
+Po utworzeniu wątku czatu można dodawać i usuwać użytkowników. Dodając użytkowników, dajesz im dostęp do wysyłania wiadomości do wątku czatu i dodawania/usuwania innych uczestników. Musisz zacząć od uzyskania nowego tokenu dostępu i tożsamości dla tego użytkownika. Przed wywołaniem metody addParticipants upewnij się, że uzyskasz nowy token dostępu i tożsamość dla tego użytkownika. Użytkownik będzie potrzebować tego tokenu dostępu do zainicjowania klienta czatu.
 
-Użyj `addParticipants` metody, aby dodać uczestników do wątku.
+Użyj metody `addParticipants` , aby dodać uczestników do wątku.
 
-- `communicationIdentifier`, wymagane, to CommunicationIdentifier, który został utworzony przez CommunicationIdentityClient w [tokenie dostępu użytkownika](../../access-tokens.md) — Szybki Start.
+- `communicationIdentifier`, jest identyfikatorem CommunicationIdentifier utworzonym przez communicationIdentityClient w [przewodniku Szybki start dotyczącym tokenu](../../access-tokens.md) dostępu użytkownika.
 - `displayName`, opcjonalnie, jest nazwą wyświetlaną uczestnika wątku.
-- `shareHistoryTime`, opcjonalnie, to czas, po którym historia rozmowy jest udostępniana uczestnikowi. Aby udostępnić historię od momentu rozpoczęcia wątku rozmowy, należy ustawić tę właściwość na dowolną datę równą lub mniejszą niż godzina utworzenia wątku. Aby po dodaniu uczestnika nie była udostępniona żadna historia, ustaw ją na bieżącą datę. Aby udostępnić historię częściową, ustaw ją na wymaganą datę.
+- `shareHistoryTime`, opcjonalnie, to czas, od którego historia czatu jest udostępniana uczestnikowi. Aby udostępnić historię od momentu utworzenia wątku czatu, ustaw tę właściwość na dowolną datę równą lub mniejszą niż czas tworzenia wątku. Aby nie udostępniać żadnej historii wcześniej niż, gdy uczestnik został dodany, ustaw ją na bieżącą datę. Aby udostępnić częściową historię, ustaw ją na wymaganą datę.
 
 ```Java
 List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
+CommunicationUserIdentifier identity3 = new CommunicationUserIdentifier("<USER_3_ID>");
+CommunicationUserIdentifier identity4 = new CommunicationUserIdentifier("<USER_4_ID>");
+
 ChatParticipant thirdThreadParticipant = new ChatParticipant()
-    .setCommunicationIdentifier(user3)
+    .setCommunicationIdentifier(identity3)
     .setDisplayName("Display Name 3");
 
 ChatParticipant fourthThreadParticipant = new ChatParticipant()
-    .setCommunicationIdentifier(user4)
+    .setCommunicationIdentifier(identity4)
     .setDisplayName("Display Name 4");
 
 participants.add(thirdThreadParticipant);
@@ -255,19 +261,19 @@ chatThreadClient.addParticipants(participants);
 
 ## <a name="run-the-code"></a>Uruchamianie kodu
 
-Przejdź do katalogu zawierającego plik *pom.xml* i skompiluj projekt przy użyciu następującego `mvn` polecenia.
+Przejdź do katalogu zawierającego *pom.xml* i skompiluj projekt przy użyciu następującego `mvn` polecenia.
 
 ```console
 mvn compile
 ```
 
-Następnie Skompiluj pakiet.
+Następnie skompilowanie pakietu.
 
 ```console
 mvn package
 ```
 
-Uruchom następujące `mvn` polecenie, aby uruchomić aplikację.
+Uruchom następujące `mvn` polecenie, aby wykonać aplikację.
 
 ```console
 mvn exec:java -Dexec.mainClass="com.communication.quickstart.App" -Dexec.cleanupDaemonThreads=false

@@ -4,12 +4,12 @@ description: W tym artykule opisano hosta procesora zdarzeń w usłudze Azure Ev
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: de5d8f0f8bf9f64a473b18a50434cac83e8e38c3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d97b446993d3f0a280c1f4fadb237726ac09228a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98622066"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313423"
 ---
 # <a name="event-processor-host"></a>Host procesora zdarzeń
 > [!NOTE]
@@ -199,5 +199,5 @@ Teraz, gdy znasz już hosta procesora zdarzeń, zapoznaj się z następującymi 
     - [JavaScript](event-hubs-node-get-started-send.md)
 * [Przewodnik programowania Event Hubs](event-hubs-programming-guide.md)
 * [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md) (Dostępność i spójność w usłudze Event Hubs)
-* [Event Hubs — często zadawane pytania](event-hubs-faq.md)
+* [Event Hubs — często zadawane pytania](event-hubs-faq.yml)
 * [Przykłady Event Hubs w witrynie GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)

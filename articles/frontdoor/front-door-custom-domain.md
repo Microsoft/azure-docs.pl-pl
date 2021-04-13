@@ -3,21 +3,21 @@ title: Samouczek — Dodawanie domeny niestandardowej do konfiguracji drzwi plat
 description: W tym samouczku dowiesz się, jak dodać domenę niestandardową do usługi Azure Front Door.
 services: frontdoor
 documentationcenter: ''
-author: duongau
+author: jessie-jyy
 editor: ''
 ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2020
-ms.author: duau
-ms.openlocfilehash: e1540602bae0779d69c0cb4bb59e93b810b52904
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.date: 04/12/2021
+ms.author: yuajia
+ms.openlocfilehash: 7e2f05a7d911ce2b311a423994d2b459de0fa269
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550765"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308867"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Samouczek: dodawanie domeny niestandardowej do usługi Front Door
 
@@ -40,9 +40,9 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 * Przed wykonaniem kroków opisanych w tym samouczku należy utworzyć usługę Front Door. Aby uzyskać więcej informacji, zobacz temat [Quickstart: Create a Front Door for a highly available global web application](quickstart-create-front-door.md) (Szybki start: tworzenie usługi Front Door na potrzeby łatwo dostępnej globalnej aplikacji internetowej).
 
-* Jeśli nie masz jeszcze domeny niestandardowej, musisz ją najpierw kupić od dostawcy domeny. Zobacz na przykład temat [Buy a custom domain name (Kupowanie nazwy domeny niestandardowej)](../app-service/manage-custom-dns-buy-domain.md).
+* Jeśli nie masz jeszcze domeny niestandardowej, musisz najpierw zakupić ją u dostawcy domeny. Zobacz na przykład temat [Buy a custom domain name (Kupowanie nazwy domeny niestandardowej)](../app-service/manage-custom-dns-buy-domain.md).
 
-* Jeśli używasz platformy Azure do hostowania [domen DNS](../dns/dns-overview.md), musisz delegować system nazw domen (DNS) dostawcy domen do usługi Azure DNS. Aby uzyskać więcej informacji, zobacz [delegowanie domeny do Azure DNS](../dns/dns-delegate-domain-azure-dns.md). W przeciwnym razie, jeśli używasz dostawcy domeny do obsługi domeny DNS, przejdź do sekcji [Tworzenie rekordu DNS CNAME](#create-a-cname-dns-record).
+* Jeśli używasz platformy Azure do hostowania [domen DNS](../dns/dns-overview.md), musisz delegować system nazw domen (DNS) dostawcy domeny do Azure DNS. Aby uzyskać więcej informacji, zobacz [delegowanie domeny do Azure DNS](../dns/dns-delegate-domain-azure-dns.md). W przeciwnym razie, jeśli używasz dostawcy domeny do obsługi domeny DNS, Kontynuuj [Tworzenie rekordu DNS CNAME](#create-a-cname-dns-record).
 
 
 ## <a name="create-a-cname-dns-record"></a>Tworzenie rekordu CNAME usługi DNS
@@ -54,9 +54,9 @@ Domenę niestandardową i jej poddomenę można skojarzyć tylko z jednymi przed
 
 ## <a name="map-the-temporary-afdverify-subdomain"></a>Mapowanie tymczasowej domeny podrzędnej afdverify
 
-W przypadku mapowania istniejącej domeny, która znajduje się w środowisku produkcyjnym, należy wziąć pod uwagę zagadnienia specjalne. W przypadku rejestrowania domeny niestandardowej w witrynie Azure Portal może wystąpić krótki przestój domeny. Aby uniknąć przerwania ruchu w sieci Web, najpierw zamapuj domenę niestandardową na domyślnego hosta frontonu z systemem Azure afdverify, aby utworzyć tymczasowe mapowanie CNAME. Przy użyciu tej metody użytkownicy mogą uzyskiwać dostęp do domeny bez zakłóceń w trakcie mapowania DNS.
+W przypadku mapowania istniejącej domeny, która znajduje się w środowisku produkcyjnym, należy wziąć pod uwagę zagadnienia specjalne. Gdy rejestrujesz domenę niestandardową w Azure Portal, może wystąpić krótki okres przestoju domeny. Aby uniknąć przerwania ruchu w sieci Web, najpierw zamapuj domenę niestandardową na domyślnego hosta frontonu z systemem Azure afdverify, aby utworzyć tymczasowe mapowanie CNAME. Przy użyciu tej metody użytkownicy mogą uzyskiwać dostęp do domeny bez zakłóceń w trakcie mapowania DNS.
 
-W przeciwnym razie, jeśli używasz domeny niestandardowej po raz pierwszy i nie ma w niej żadnego ruchu związanego ze środowiskiem produkcyjnym, domenę niestandardową można mapować bezpośrednio do usługi Front Door. Przejdź do sekcji [Mapowanie trwałej domeny niestandardowej](#map-the-permanent-custom-domain).
+W przeciwnym razie, jeśli używasz domeny niestandardowej po raz pierwszy i nie jest na nim uruchomiony żaden ruch produkcyjny, możesz bezpośrednio zmapować domenę niestandardową na tylne drzwi. Kontynuuj [Mapowanie trwałej domeny niestandardowej](#map-the-permanent-custom-domain).
 
 Aby utworzyć rekord CNAME z poziomu domeny podrzędnej afdverify:
 
@@ -70,7 +70,7 @@ Aby utworzyć rekord CNAME z poziomu domeny podrzędnej afdverify:
     |---------------------------|-------|---------------------------------|
     | afdverify.www.contoso.com | CNAME | afdverify.contoso-frontend.azurefd.net |
 
-    - Źródło: Wprowadź nazwę domeny niestandardowej, w tym poddomenę afdverify, w następującym formacie: afdverify. _&lt; niestandardowa &gt; nazwa domeny_. Na przykład afdverify.www.contoso.com. W przypadku mapowania domeny symboli wieloznacznych, takich jak \* contoso.com, wartość źródłowa jest taka sama jak w przypadku symboli wieloznacznych: afdverify.contoso.com.
+    - Źródło: Wprowadź nazwę domeny niestandardowej, w tym poddomenę afdverify, w następującym formacie: afdverify. _&lt; niestandardowa &gt; nazwa domeny_. Na przykład afdverify.www.contoso.com. Jeśli mapujesz domenę wieloznaczną, np \* . contoso.com, wartość źródłowa jest taka sama, jak w przypadku braku symbolu wieloznacznego: afdverify.contoso.com.
 
     - Typ: wprowadź wartość *CNAME*.
 
@@ -109,7 +109,7 @@ Po zarejestrowaniu domeny niestandardowej można dodać ją do usługi Front Doo
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) i przejdź do usługi Front Door zawierającej hosta frontonu, który ma być mapowany na domenę niestandardową.
     
-2. Na stronie **projektanta usługi Front Door** kliknij „+”, aby dodać domenę niestandardową.
+2. Na stronie **Projektant drzwi przednich** wybierz pozycję "+", aby dodać domenę niestandardową.
     
 3. Wybierz opcję **Domena niestandardowa**. 
 
@@ -126,14 +126,14 @@ Po zarejestrowaniu domeny niestandardowej można dodać ją do usługi Front Doo
 
 ## <a name="verify-the-custom-domain"></a>Weryfikowanie domeny niestandardowej
 
-Po zakończeniu rejestracji domeny niestandardowej sprawdź, czy odwołuje się ona do domyślnego hosta frontonu usługi Front Door.
+Po zakończeniu rejestracji domeny niestandardowej upewnij się, że domena niestandardowa odwołuje się do domyślnego hosta frontonu z przodu.
  
 W przeglądarce przejdź do adresu pliku przy użyciu domeny niestandardowej. Jeśli na przykład domena niestandardowa to robotics.contoso.com, adres URL buforowanego pliku powinien być podobny do następującego: http:\//robotics.contoso.com/my-public-container/my-file.jpg. Sprawdź, czy wynik jest taki sam jak w przypadku uzyskiwania dostępu do przednich drzwi bezpośrednio z *&lt; przodu &gt;*. azurefd.NET.
 
 
 ## <a name="map-the-permanent-custom-domain"></a>Mapowanie trwałej domeny niestandardowej
 
-Jeśli sprawdzono, że domena podrzędna afdverify została pomyślnie mapowana do usługi Front Door (lub jeśli używasz nowej domeny niestandardowej, która nie znajduje się w środowisku produkcyjnym), można mapować domenę niestandardową bezpośrednio do domyślnego hosta frontonu usługi Front Door.
+Jeśli została sprawdzona, że poddomena afdverify została pomyślnie zmapowana na tylne drzwi (lub jeśli używasz nowej domeny niestandardowej, która nie jest w środowisku produkcyjnym), możesz zmapować domenę niestandardową bezpośrednio na domyślnego hosta frontonu z przodu.
 
 Aby utworzyć rekord CNAME dla domeny niestandardowej:
 
@@ -157,7 +157,7 @@ Aby utworzyć rekord CNAME dla domeny niestandardowej:
 
 5. Jeśli wcześniej utworzono rekord CNAME tymczasowej domeny podrzędnej afdverify, usuń go. 
 
-6. Jeśli używasz tej domeny niestandardowej w środowisku produkcyjnym po raz pierwszy, wykonaj kroki z sekcji [Kojarzenie domeny niestandardowej z usługą Front Door](#associate-the-custom-domain-with-your-front-door) i [Weryfikowanie domeny niestandardowej](#verify-the-custom-domain).
+6. Jeśli używasz tej domeny niestandardowej w środowisku produkcyjnym po raz pierwszy, postępuj zgodnie z instrukcjami dotyczącymi [kojarzenia domeny niestandardowej z drzwiczkami przednimi](#associate-the-custom-domain-with-your-front-door) i [Weryfikuj domenę niestandardową](#verify-the-custom-domain).
 
 Na przykład procedura rejestratora domen GoDaddy wygląda następująco:
 
@@ -187,17 +187,18 @@ Na przykład procedura rejestratora domen GoDaddy wygląda następująco:
 
 8. Wybierz pozycję **Usuń**, aby usunąć rekord CNAME.
 
-
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-W poprzednich krokach dodano domenę niestandardową do usługi Front Door. Jeśli nie chcesz skojarzyć usługi Front Door z domeną niestandardową, możesz usunąć domenę niestandardową, wykonując następujące kroki:
+W poprzednich krokach dodano domenę niestandardową do usługi Front Door. Jeśli nie chcesz już kojarzyć swoich drzwi z domeną niestandardową, możesz usunąć domenę niestandardową, wykonując następujące czynności:
  
-1. W projektancie usługi Front Door wybierz domenę niestandardową, która ma zostać usunięta.
+1. Przejdź do dostawcy DNS, Usuń rekord CNAME dla domeny niestandardowej lub Zaktualizuj rekord CNAME dla domeny niestandardowej do punktu końcowego bez drzwi.
 
-2. Kliknij przycisk Usuń z menu kontekstowego dla domeny niestandardowej.  
+    > [!Important]
+    > Aby zapobiec zawieszonego wpisów DNS i ryzyku związanym z zabezpieczeniami, które tworzą, począwszy od 9 kwietnia 2021, drzwiczki frontonu platformy Azure wymagają usunięcia rekordów CNAME do frontonu punktów końcowych, aby można było usunąć zasoby. Zasoby obejmują domeny niestandardowe drzwi, punkty końcowe drzwi lub grupy zasobów platformy Azure, które mają włączone domeny niestandardowe drzwi.
 
-   Skojarzenie domeny niestandardowej z punktem końcowym zostanie usunięte.
+2. W projektancie usługi Front Door wybierz domenę niestandardową, która ma zostać usunięta.
 
+3. Wybierz pozycję **Usuń** z menu kontekstowego dla domeny niestandardowej. Domena niestandardowa usunie teraz skojarzenie z punktem końcowym.
 
 ## <a name="next-steps"></a>Następne kroki
 

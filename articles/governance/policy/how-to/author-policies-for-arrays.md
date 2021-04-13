@@ -3,12 +3,12 @@ title: Tworzenie zasad dla właściwości tablicy zasobów
 description: Dowiedz się, jak korzystać z parametrów tablicy i wyrażeń języka tablicowego, oszacować alias [*] i dołączać elementy z regułami definicji Azure Policy.
 ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: d4e059f3691554aa91dfd15cf308ef62afa58928
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 18afbee0ca8b1c488e3bd3ce50dacc726bd2ef25
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106089971"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305195"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Tworzenie zasad dla właściwości tablicy zasobów platformy Azure
 
@@ -95,7 +95,7 @@ Aby użyć tego ciągu z każdym zestawem SDK, użyj następujących poleceń:
 
 - Interfejs wiersza polecenia platformy Azure: polecenie [AZ Policy przypisanie Create](/cli/azure/policy/assignment#az_policy_assignment_create) **z parametrem** Parameter
 - Azure PowerShell: polecenie cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) z parametrem **PolicyParameter**
-- Interfejs API REST: w operacji _Put_ [Create](/rest/api/resources/policyassignments/create) jako część treści żądania jako wartość właściwości **Properties. Parameters**
+- Interfejs API REST: w operacji _Put_ [Create](/rest/api/policy/policyassignments/create) jako część treści żądania jako wartość właściwości **Properties. Parameters**
 
 ## <a name="using-arrays-in-conditions"></a>Używanie tablic w warunkach
 

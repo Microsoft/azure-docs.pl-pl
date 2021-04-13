@@ -4,13 +4,13 @@ description: W tym artykule opisano, jak można wykonywać zapytania względem z
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/22/2020
-ms.openlocfilehash: 57ed43b25c9031138a91f0870d316e1ae7a07a5b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 04/11/2021
+ms.openlocfilehash: e007f5af214dcfa475eb59a5981bc580b9499915
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102030971"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107314239"
 ---
 # <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>Wykonywanie zapytań dzienników w Azure Monitor obejmujących obszary robocze i aplikacje
 
@@ -27,7 +27,7 @@ Istnieją dwie metody wykonywania zapytań dotyczących danych przechowywanych w
 ## <a name="cross-resource-query-limits"></a>Limity zapytania między zasobami 
 
 * Liczba zasobów Application Insights i Log Analytics obszarów roboczych, które można uwzględnić w pojedynczym zapytaniu, jest ograniczona do 100.
-* Zapytanie krzyżowe nie jest obsługiwane w projektancie widoków. Możesz utworzyć zapytanie w Log Analytics i przypiąć je do pulpitu nawigacyjnego platformy Azure, aby [wyświetlić wizualizację zapytania dziennika](../visualize/tutorial-logs-dashboards.md). 
+* Zapytanie krzyżowe nie jest obsługiwane w projektancie widoków. Możesz utworzyć zapytanie w Log Analytics i przypiąć go do pulpitu nawigacyjnego platformy Azure, aby [wizualizować zapytanie dziennika](../visualize/tutorial-logs-dashboards.md) lub dołączyć do [skoroszytów](../visualize/workbooks-overview.md).
 * Zapytania między zasobami w alertach dziennika są obsługiwane tylko w bieżącym [interfejsie API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Jeśli używasz starszej wersji interfejsu API alertów Log Analytics, musisz [przełączyć się do bieżącego interfejsu API](../alerts/alerts-log-api-switch.md).
 
 
@@ -41,6 +41,9 @@ Identyfikację obszaru roboczego można wykonać na jeden z kilku sposobów:
 
 * Nazwa zasobu — to czytelna dla człowieka nazwa obszaru roboczego, nazywana również nazwą *składnika*. 
 
+    >[!Note]
+    >Ponieważ nazwy aplikacji i obszarów roboczych nie są unikatowe, ten identyfikator może być niejednoznaczny. Jeśli istnieje wiele wystąpień nazwy zasobu, należy odwołać się do nazwy kwalifikowanej, identyfikatora zasobu lub identyfikatora zasobu platformy Azure.
+
     `workspace("contosoretail-it").Update | count`
 
 * Kwalifikowana nazwa — to "pełna nazwa" obszaru roboczego, składająca się z nazwy subskrypcji, grupy zasobów i nazwy składnika w tym formacie: *subscriptionname/resourceName/ComponentName*. 
@@ -48,8 +51,7 @@ Identyfikację obszaru roboczego można wykonać na jeden z kilku sposobów:
     `workspace('contoso/contosoretail/contosoretail-it').Update | count`
 
     >[!NOTE]
-    >Ponieważ nazwy subskrypcji platformy Azure nie są unikatowe, ten identyfikator może być niejednoznaczny. 
-    >
+    >Ponieważ nazwy subskrypcji platformy Azure nie są unikatowe, ten identyfikator może być niejednoznaczny.
 
 * Identyfikator obszaru roboczego — identyfikator obszaru roboczego jest unikatowym, niezmiennym identyfikatorem przypisanym do każdego obszaru roboczego reprezentowanego jako unikatowy identyfikator globalny (GUID).
 

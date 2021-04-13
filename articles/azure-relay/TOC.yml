@@ -94,7 +94,7 @@
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/?category=enterprise-integration'
     - name: Często zadawane pytania
-      href: relay-faq.md
+      href: relay-faq.yml
     - name: Blog
       href: /archive/blogs/servicebus/
     - name: Cennik
