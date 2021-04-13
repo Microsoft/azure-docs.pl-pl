@@ -2,13 +2,13 @@
 title: Wdrażanie za pomocą usługi Resource Manager i klasyczne
 description: W tym artykule opisano różnice między modelem wdrażania przy użyciu usługi Resource Manager a modelem klasycznym (lub przy użyciu zarządzania usługami).
 ms.topic: conceptual
-ms.date: 02/06/2020
-ms.openlocfilehash: da260db84de0cc8bd092eb95491b7cc38df93a12
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: c2009034c431e53d162cb0f2c1f0d9815c8d1942
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96185848"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306941"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Wdrożenie przy użyciu usługi Azure Resource Manager a wdrożenie klasyczne: omówienie modeli wdrażania i stanu zasobów
 
@@ -17,7 +17,7 @@ ms.locfileid: "96185848"
 
 Ten artykuł zawiera informacje o modelu wdrażania przy użyciu usługi Resource Manager i modelu klasycznym. Model wdrażania przy użyciu usługi Resource Manager i model klasyczny to dwa różne sposoby wdrażania rozwiązań platformy Azure i zarządzania nimi. Stosuje się je za pośrednictwem dwóch różnych zestawów interfejsów API, a wdrożone zasoby mogą zawierać znaczące różnice. Te dwa modele nie są zgodne ze sobą. W tym artykule opisano te różnice.
 
-Aby uprościć wdrażanie i zarządzanie zasobami, firma Microsoft zaleca używanie usługi Resource Manager dla wszystkich nowych zasobów. Firma Microsoft zaleca ponowne wdrożenie istniejących zasobów przy użyciu usługi Resource Manager, jeśli to możliwe.
+Aby uprościć wdrażanie i zarządzanie zasobami, firma Microsoft zaleca używanie usługi Resource Manager dla wszystkich nowych zasobów. Firma Microsoft zaleca ponowne wdrożenie istniejących zasobów przy użyciu usługi Resource Manager, jeśli to możliwe. W przypadku korzystania z Cloud Services można migrować rozwiązanie do [Cloud Services (obsługa rozszerzona)](../../cloud-services-extended-support/overview.md).
 
 Jeśli dopiero zaczynasz Menedżer zasobów, warto najpierw zapoznać się z terminologią zdefiniowaną w [Azure Resource Manager przegląd](overview.md).
 
@@ -40,7 +40,7 @@ W momencie dodania usługi Resource Manager wszystkie zasoby zostały wstecznie 
 
 Istnieją trzy scenariusze:
 
-1. Cloud Services nie obsługuje Menedżer zasobów model wdrażania.
+1. [Cloud Services (klasyczny)](../../cloud-services/cloud-services-choose-me.md) nie obsługuje Menedżer zasobów model wdrażania. [Cloud Services (obsługa rozszerzona)](../../cloud-services-extended-support/overview.md) obsługuje Menedżer zasobów model wdrażania.
 2. Maszyny wirtualne, konta magazynu i sieci wirtualne obsługują zarówno model wdrażania przy użyciu usługi Resource Manager, jak i model klasyczny.
 3. Wszystkie pozostałe usługi platformy Azure obsługują usługę Resource Manager.
 
@@ -95,7 +95,7 @@ Poniżej przedstawiono składniki oraz ich relacje dla wdrożenia klasycznego:
 
 Klasyczne rozwiązanie dla hostowania maszyny wirtualnej obejmuje następujące elementy:
 
-* Wymagana usługa w chmurze, która działa jako kontener do hostowania maszyn wirtualnych (obliczenia). Maszyny wirtualne są automatycznie dostarczane z kartą sieciową i adresem IP przypisanym przez platformę Azure. Ponadto usługa w chmurze zawiera wystąpienie zewnętrznego modułu równoważenia obciążenia, publiczny adres IP oraz domyślne punkty końcowe umożliwiające korzystanie z ruchu pulpitu zdalnego i ruchu zdalnego programu PowerShell dla maszyn wirtualnych opartych na systemie Windows oraz z ruchu protokołu Secure Shell (SSH) dla maszyn wirtualnych opartych na systemie Linux.
+* Cloud Services (klasyczny) pełni rolę kontenera do hostowania maszyn wirtualnych (obliczeń). Maszyny wirtualne są automatycznie dostarczane z kartą sieciową i adresem IP przypisanym przez platformę Azure. Ponadto usługa w chmurze zawiera wystąpienie zewnętrznego modułu równoważenia obciążenia, publiczny adres IP oraz domyślne punkty końcowe umożliwiające korzystanie z ruchu pulpitu zdalnego i ruchu zdalnego programu PowerShell dla maszyn wirtualnych opartych na systemie Windows oraz z ruchu protokołu Secure Shell (SSH) dla maszyn wirtualnych opartych na systemie Linux.
 * Wymagane konto magazynu, w którym są przechowywane wirtualne dyski twarde maszyny wirtualnej, w tym system operacyjny, tymczasowe i dodatkowe dyski danych (magazyn).
 * Opcjonalna Sieć wirtualna, która pełni funkcję dodatkowego kontenera, w którym można utworzyć strukturę podsieci i wybrać podsieć, w której znajduje się maszyna wirtualna (Sieć).
 

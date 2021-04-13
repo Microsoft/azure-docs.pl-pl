@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 05/15/2019
 ms.author: ikbarmen
-ms.openlocfilehash: 18f2cf3daa281400151ba223e1735e7138d97e8e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7596aa4cef6c4bc601c15018e8ede4265f395eb7
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "76990508"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312862"
 ---
 # <a name="manage-multiple-tenants"></a>Zarządzanie wieloma dzierżawami
 
@@ -45,7 +45,7 @@ W przypadku korzystania z tej architektury konto Video Indexer jest tworzone dla
 * Trudniejsze do zarządzania ze względu na wiele kont Video Indexer (i skojarzonych Media Services) na dzierżawę.
 
 > [!TIP]
-> Utwórz użytkownika administracyjnego dla systemu w [portalu Video Indexer Developer](https://api-portal.videoindexer.ai/) i użyj interfejsu API autoryzacji, aby zapewnić dzierżawcom odpowiedni [token dostępu do konta](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token).
+> Utwórz użytkownika administracyjnego dla systemu w [portalu Video Indexer Developer](https://api-portal.videoindexer.ai/) i użyj interfejsu API autoryzacji, aby zapewnić dzierżawcom odpowiedni [token dostępu do konta](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account-Access-Token).
 
 ## <a name="single-video-indexer-account-for-all-users"></a>Pojedyncze konto Video Indexer dla wszystkich użytkowników
 
@@ -55,7 +55,7 @@ W przypadku korzystania z tej architektury klient jest odpowiedzialny za izolacj
 
 W przypadku tej opcji modele dostosowania (osoba, język i marki) mogą być udostępniane lub izolowane między dzierżawcami przez filtrowanie modeli według dzierżawców.
 
-Podczas [przekazywania filmów wideo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?)można określić inny atrybut partycji dla dzierżawy. Pozwoli to na izolację w [interfejsie API wyszukiwania](https://api-portal.videoindexer.ai/docs/services/operations/operations/Search-videos?). Określenie atrybutu Partition w interfejsie API wyszukiwania spowoduje uzyskanie tylko wyników określonej partycji. 
+Podczas [przekazywania filmów wideo](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video)można określić inny atrybut partycji dla dzierżawy. Pozwoli to na izolację w [interfejsie API wyszukiwania](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Search-Videos). Określenie atrybutu Partition w interfejsie API wyszukiwania spowoduje uzyskanie tylko wyników określonej partycji. 
 
 ### <a name="considerations"></a>Zagadnienia do rozważenia
 

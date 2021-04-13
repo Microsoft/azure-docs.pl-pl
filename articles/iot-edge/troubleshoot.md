@@ -8,12 +8,12 @@ ms.date: 04/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b82ad29b02e501d41653fd466e58218e35c3b93c
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 6fa49af946a1e5fc631eeb1ee9b9c7c99d3adff8
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012173"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308272"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Rozwiązywanie problemów z urządzeniem IoT Edge
 
@@ -64,6 +64,18 @@ Narzędzie do rozwiązywania problemów uruchamia wiele sprawdzeń, które są s
 * *Kontrole gotowości produkcyjnej* szukają zalecanych najlepszych rozwiązań w zakresie produkcji, takich jak stan certyfikatów urzędu certyfikacji urządzeń i konfiguracji pliku dziennika modułu.
 
 Narzędzie sprawdzania IoT Edge używa kontenera do uruchamiania jego diagnostyki. Obraz kontenera `mcr.microsoft.com/azureiotedge-diagnostics:latest` jest dostępny za pomocą [programu Microsoft Container Registry](https://github.com/microsoft/containerregistry). Jeśli musisz uruchomić kontrolę na urządzeniu bez bezpośredniego dostępu do Internetu, Twoje urządzenia będą potrzebować dostępu do obrazu kontenera.
+
+<!-- <1.2> -->
+:::moniker range=">=iotedge-2020-11"
+
+W scenariuszu korzystającym z zagnieżdżonych IoT Edge urządzeń można uzyskać dostęp do obrazu diagnostyki na urządzeniach podrzędnych przez kierowanie obrazu za pośrednictwem urządzeń nadrzędnych.
+
+```bash
+sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:<port_for_api_proxy_module>/azureiotedge-diagnostics:1.2
+```
+
+<!-- </1.2> -->
+:::moniker-end
 
 Aby uzyskać informacje o każdym z testów diagnostycznych wykonywanych przez to narzędzie, w tym o tym, co należy zrobić, jeśli wystąpi błąd lub ostrzeżenie, zobacz [IoT Edge Rozwiązywanie problemów z testami](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
 

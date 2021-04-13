@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/15/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 2cb203a00bb00767126f95e1fdc2f5aff8990f01
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1dd78ba3799573e05e4ebbf55887bae3d9674b7c
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103601285"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310085"
 ---
 Event Hubs organizuje sekwencje zdarzeń wysyłanych do centrum zdarzeń w co najmniej jednej partycji. Po nadejściu nowszych zdarzeń są one dodawane na końcu tej sekwencji. 
 
@@ -32,7 +32,7 @@ Event Hubs jest zaprojektowana w celu ułatwienia przetwarzania dużych ilości 
 ### <a name="number-of-partitions"></a>Liczba partycji
 Liczba partycji jest określana podczas tworzenia i musi zawierać się w przedziale od 1 do 32 w standardzie Event Hubs. Liczba partycji może należeć do 2000 partycji na jednostkę pojemności w Event Hubs — warstwa Dedykowana. 
 
-Zalecamy wybranie co najmniej tylu partycji, które powinny być wymagane w przypadku trwałych [jednostek przepływności (jednostek przepływności)](../articles/event-hubs/event-hubs-faq.md#what-are-event-hubs-throughput-units) podczas szczytowego ładowania aplikacji dla danego centrum zdarzeń. Należy obliczyć z jedną partycją o pojemności 1 jednostek PRZEPŁYWNOŚCI (1 MB w, 2 MB na zewnątrz). Możesz skalować TUs w przestrzeni nazw lub jednostki pojemności klastra niezależnie od liczby partycji. Centrum zdarzeń z partycjami 32 lub centrum zdarzeń z 1 partycją ponosi dokładnie ten sam koszt, gdy przestrzeń nazw jest ustawiona na 1 jednostek PRZEPŁYWNOŚCI pojemność. 
+Zalecamy wybranie co najmniej tylu partycji, które powinny być wymagane w przypadku trwałych [jednostek przepływności (jednostek przepływności)](../articles/event-hubs/event-hubs-faq.yml#what-are-event-hubs-throughput-units-) podczas szczytowego ładowania aplikacji dla danego centrum zdarzeń. Należy obliczyć z jedną partycją o pojemności 1 jednostek PRZEPŁYWNOŚCI (1 MB w, 2 MB na zewnątrz). Możesz skalować TUs w przestrzeni nazw lub jednostki pojemności klastra niezależnie od liczby partycji. Centrum zdarzeń z partycjami 32 lub centrum zdarzeń z 1 partycją ponosi dokładnie ten sam koszt, gdy przestrzeń nazw jest ustawiona na 1 jednostek PRZEPŁYWNOŚCI pojemność. 
 
 Liczba partycji centrum zdarzeń w [dedykowanym klastrze Event Hubs](../articles/event-hubs/event-hubs-dedicated-overview.md) można [zwiększyć](../articles/event-hubs/dynamically-add-partitions.md) po utworzeniu centrum zdarzeń, ale Rozkład strumieni między partycjami ulegnie zmianie, gdy zostanie on zmieniony, gdy zostanie zmienione mapowanie kluczy partycji na partycje, dlatego należy spróbować trudno uniknąć takich zmian, jeśli względna kolejność zdarzeń w aplikacji.
 

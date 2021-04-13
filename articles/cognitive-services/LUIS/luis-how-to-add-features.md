@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.openlocfilehash: 33435d2367b92f312d41f0e32fdbb3a93d59a9fd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c1a0fb15be92e25b576cd29e671eed3c6a5b948f
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95999930"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313270"
 ---
 # <a name="use-features-to-boost-signal-of-word-list"></a>Korzystaj z funkcji, aby zwiększyć liczbę sygnałów listy wyrazów
 
@@ -37,7 +37,7 @@ Zapoznaj się z [pojęciami](luis-concept-feature.md) , aby zrozumieć, kiedy i 
 
     Po wprowadzeniu wystarczającej wartości dla LUIS pojawia się sugestii. Możesz **dodać wszystkie** proponowane wartości lub wybrać poszczególne terminy.
 
-1. Należy pamiętać, że **te wartości są sprawdzane zamiennie** , jeśli frazy mogą być używane zamiennie.
+1. Należy pamiętać, że **te wartości są sprawdzane zamiennie** , jeśli frazy mogą być używane zamiennie. Funkcja wieloskładnikowej listy fraz służy jako lista synonimów do szkoleń. Lista fraz niewymiennych służy jako osobne funkcje szkoleniowe (co oznacza, że funkcje są podobne, ale zamiar zmienia się podczas wymiany fraz).
 
 1. Lista fraz może dotyczyć całej aplikacji z ustawieniem **globalnym** lub określonym modelem (intencją lub jednostką). Jeśli tworzysz listę fraz, jako _funkcję_ z intencją lub jednostką, przełącznik nie jest ustawiany dla elementu Global. W takim przypadku znaczenie przełącznika polega na tym, że funkcja jest lokalna tylko dla tego modelu, w związku z czym _nie jest globalna_ dla aplikacji.
 

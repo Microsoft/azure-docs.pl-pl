@@ -7,14 +7,14 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 04/06/2021
+ms.date: 04/12/2021
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 50e29262b609887d91c43ea8f012fad0c7a35ee2
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 879ca169604dcd61a79db4ec3ca937289dacdd9b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449277"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309870"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Szybki start: Tworzenie fabryki danych i potoku przy użyciu języka Python
 
@@ -40,7 +40,7 @@ Potoki mogą pozyskiwanie danych z różnych magazynów danych. Potoki przetwarz
 
 * [Eksplorator usługi Azure Storage](https://storageexplorer.com/) (opcjonalnie).
 
-* [Aplikacja w Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Należy pamiętać o następujących wartościach, które mają być używane w kolejnych krokach: **Identyfikator aplikacji**, **klucz uwierzytelniania** i **Identyfikator dzierżawy**. Przypisz aplikację do roli **współautor** , wykonując instrukcje opisane w tym samym artykule.
+* [Aplikacja w Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Należy pamiętać o następujących wartościach, które mają być używane w kolejnych krokach: **Identyfikator aplikacji**, **klucz uwierzytelniania** i **Identyfikator dzierżawy**. Przypisz aplikację do roli **współautor** , wykonując instrukcje opisane w tym samym artykule. Zwróć uwagę na następujące wartości, jak pokazano w artykule do użycia w kolejnych krokach: **Identyfikator aplikacji (identyfikator jednostki usługi poniżej), klucz uwierzytelniania (klucz tajny klienta poniżej) i identyfikator dzierżawy.**
 
 ## <a name="create-and-upload-an-input-file"></a>Tworzenie i przekazywanie pliku wejściowego
 
@@ -225,6 +225,9 @@ Należy zdefiniować zestaw danych reprezentujący źródło danych w obiekcie b
         rg_name, df_name, dsOut_name, dsOut_azure_blob)
     print_item(dsOut)
 ```
+ > [!NOTE] 
+ > Aby przekazać parametry do potoku, Dodaj je do ciągu JSON, params_for_pipeline pokazano poniżej w formacie **{"ParameterName1": "ParameterValue1"}** dla każdego z parametrów wymaganych w potoku. Aby przekazać parametry do przepływu danych, należy utworzyć parametr potoku, aby pomieścić nazwę parametru/wartość, a następnie użyć parametru potoku w parametrze przepływu danych w formacie **@pipeline (). Parameters. ParameterName.**
+
 
 ## <a name="create-a-pipeline"></a>Tworzenie potoku
 

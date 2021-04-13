@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: de16932f1f77e569302b222fe2948de3046fabd6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a5e00ef81afc709a9072eedbb07983057f57eb08
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104950601"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304306"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Pozyskiwanie danych telemetrycznych IoT Hub na platformie Azure Digital bliźniaczych reprezentacji
 
@@ -45,7 +45,7 @@ Za każdym razem, gdy zdarzenie telemetrii temperatury jest wysyłane przez urz�
 
 W tej sekcji opisano konfigurowanie [cyfrowej sieci dwucyfrowej](concepts-twins-graph.md) w usłudze Azure Digital bliźniaczych reprezentacji, która będzie reprezentować urządzenie termostatu i zostanie zaktualizowane informacjami z IoT Hub.
 
-Aby utworzyć sznurek termostatu, należy najpierw przekazać [model](concepts-models.md) termostatu do wystąpienia, który opisuje właściwości termostatu i będzie później używany do tworzenia sznurka. 
+Aby utworzyć sznurek termostatu, należy najpierw przekazać [model](concepts-models.md) termostatu do wystąpienia, który opisuje właściwości termostatu i będzie później używany do tworzenia sznurka.
 
 [!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
 

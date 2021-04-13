@@ -12,22 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/08/2021
+ms.date: 04/09/2021
 ms.author: b-juche
-ms.openlocfilehash: 9edf8c6eca223ece8728f9868ee9fe310c517ca9
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 2546236399853f3ed6fad9e07e031edb568fbfe9
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259714"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311536"
 ---
 # <a name="configure-adds-ldap-with-extended-groups-for-nfs-volume-access"></a>Konfiguracja dodaje protokół LDAP z rozszerzonymi grupami dla dostępu do woluminu NFS
 
-Podczas [tworzenia woluminu NFS](azure-netapp-files-create-volumes.md)można włączyć funkcję LDAP z rozszerzonymi grupami (opcja **LDAP** ) dla woluminu. Ta funkcja umożliwia Active Directory użytkownikom protokołu LDAP i grupom rozszerzonym (do 1024 grup) dostęp do woluminu.  
+Podczas [tworzenia woluminu NFS](azure-netapp-files-create-volumes.md)można włączyć funkcję LDAP z rozszerzonymi grupami (opcja **LDAP** ) dla woluminu. Ta funkcja umożliwia Active Directory użytkownikom protokołu LDAP i grupom rozszerzonym (do 1024 grup) dostęp do woluminu. Możesz użyć funkcji LDAP z rozszerzonymi grupami z zarówno woluminami NFSv 4.1, jak i NFSv3. 
 
 W tym artykule opisano zagadnienia i kroki umożliwiające włączenie protokołu LDAP z grupami rozszerzonymi podczas tworzenia woluminu NFS.  
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia
+
+* Usługa LDAP z grupami rozszerzonymi jest obsługiwana tylko w przypadku Active Directory Domain Services (dodaje) lub Azure Active Directory usług domenowych (AADDS). OpenLDAP lub inne usługi katalogowe LDAP innych firm nie są obsługiwane. 
 
 * *Nie* można włączyć protokołu LDAP over TLS, jeśli używasz Azure Active Directory Domain Services (AADDS).  
 
@@ -69,6 +71,9 @@ W tym artykule opisano zagadnienia i kroki umożliwiające włączenie protokoł
 
 2. Woluminy LDAP wymagają konfiguracji Active Directory dla ustawień serwera LDAP. Postępuj zgodnie z instrukcjami w temacie [wymagania dotyczące Active Directory połączeń](create-active-directory-connections.md#requirements-for-active-directory-connections) i [Utwórz połączenie Active Directory](create-active-directory-connections.md#create-an-active-directory-connection) , aby skonfigurować Active Directory połączeń na Azure Portal.  
 
+    > [!NOTE]
+    > Upewnij się, że skonfigurowano ustawienia połączenia Active Directory. Konto komputera zostanie utworzone w jednostce organizacyjnej (OU) określonej w ustawieniach połączenia Active Directory. Te ustawienia są używane przez klienta LDAP do uwierzytelniania za pomocą Active Directory.
+
 3. Upewnij się, że Active Directory serwer LDAP działa na Active Directory. 
 
 4. Użytkownicy NFS muszą mieć określone atrybuty POSIX na serwerze LDAP. Ustaw atrybuty dla użytkowników LDAP i grup LDAP w następujący sposób: 
@@ -82,7 +87,7 @@ W tym artykule opisano zagadnienia i kroki umożliwiające włączenie protokoł
 
     ![Edytor atrybutów Active Directory](../media/azure-netapp-files/active-directory-attribute-editor.png) 
 
-5. Jeśli chcesz skonfigurować klienta systemu Linux zintegrowanego z protokołem LDAP, zobacz [Konfigurowanie klienta NFS dla Azure NetApp Files](configure-nfs-clients.md).
+5. Jeśli chcesz skonfigurować klienta NFSv 4.1 systemu Linux zintegrowanego z protokołem LDAP, zobacz [Konfigurowanie klienta NFS dla Azure NetApp Files](configure-nfs-clients.md).
 
 6.  Wykonaj kroki opisane w temacie [Tworzenie woluminu NFS dla Azure NetApp Files](azure-netapp-files-create-volumes.md) , aby utworzyć wolumin systemu plików NFS. Podczas procesu tworzenia woluminu na karcie **Protokół** Włącz opcję **LDAP** .   
 

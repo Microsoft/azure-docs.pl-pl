@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 5bd89a734a20c913bacca1f5531aa76d76418c80
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 26262f83e14602d6ea93f96ec47630ef870c357d
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448223"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309309"
 ---
 # <a name="estimate-azure-monitor-costs"></a>Oszacuj koszty Azure Monitor
 
@@ -35,7 +35,7 @@ Wstępnie zdefiniowane zestawy danych dla Azure Monitor dla pulpitu wirtualnego 
 - Dzienniki zdarzeń systemu Windows z hostów sesji
 - Diagnostyka pulpitu wirtualnego systemu Windows z infrastruktury usług
 
-Koszty pozyskiwania i magazynowania danych zależą od rozmiaru środowiska, kondycji i użycia. Przykładowe oszacowania, które będziemy używać w tym artykule, aby obliczyć zakresy kosztów, których można oczekiwać, są oparte na zdrowych maszynach wirtualnych z lampą w celu użycia, na podstawie naszych [wytycznych dotyczących rozmiaru maszyn wirtualnych](/remote/remote-desktop-services/virtual-machine-recs), aby obliczyć zakres pozyskiwania danych i koszty magazynu, których można oczekiwać.
+Koszty pozyskiwania i magazynowania danych zależą od rozmiaru środowiska, kondycji i użycia. Przykładowe oszacowania, które będziemy używać w tym artykule, aby obliczyć zakresy kosztów, których można oczekiwać, są oparte na zdrowych maszynach wirtualnych z lampą w celu użycia, na podstawie naszych [wytycznych dotyczących rozmiaru maszyn wirtualnych](/windows-server/remote/remote-desktop-services/virtual-machine-recs), aby obliczyć zakres pozyskiwania danych i koszty magazynu, których można oczekiwać.
 
 Używana w naszym przykładzie maszyna wirtualna o uproszczonym użyciu obejmuje następujące składniki:
 

@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 03/24/2021
-ms.openlocfilehash: 4588eee721a58a7e4f3366d0d325b48de0f56ae5
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 267dc7c7d89bbecfbed127f4a46adb7cd9044bc4
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259816"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309377"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analizowanie danych za pomocą dedykowanych pul SQL
 
@@ -99,7 +99,7 @@ Dedykowana Pula SQL zużywa zasoby do rozliczenia, o ile jest ona aktywna. Pulę
 
 1. W programie Synapse Studio przejdź do centrum **danych** .
 1. Przejdź do   >  **tabel** SQLPOOL1. 
-3. Kliknij prawym przyciskiem myszy obiekt **dbo. Tabelę podróży** i wybierz pozycję **Nowy skrypt SQL**  >  **Wybierz pierwsze 100 wierszy**.
+3. Kliknij prawym przyciskiem myszy obiekt **dbo. NYCTaxiTripSmall** tabelę i wybierz pozycję **Nowy skrypt SQL**  >  **Wybierz pierwsze 100 wierszy**.
 4. Poczekaj, aż zostanie utworzony i uruchomiony nowy skrypt SQL.
 5. Zwróć uwagę, że u góry skryptu SQL **połączenie z programem** jest automatycznie ustawiana na pulę SQL o nazwie **SQLPOOL1**.
 6. Zastąp tekst skryptu SQL tym kodem i uruchom go.
@@ -108,7 +108,7 @@ Dedykowana Pula SQL zużywa zasoby do rozliczenia, o ile jest ona aktywna. Pulę
     SELECT PassengerCount,
           SUM(TripDistanceMiles) as SumTripDistance,
           AVG(TripDistanceMiles) as AvgTripDistance
-    FROM  dbo.Trip
+    FROM  dbo.NYCTaxiTripSmall
     WHERE TripDistanceMiles > 0 AND PassengerCount > 0
     GROUP BY PassengerCount
     ORDER BY PassengerCount;

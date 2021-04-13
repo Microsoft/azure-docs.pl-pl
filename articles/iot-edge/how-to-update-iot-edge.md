@@ -5,16 +5,16 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/01/2021
+ms.date: 04/07/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1ed9aef66e9e1a672274b814abbc4e83600761f5
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: e5034c228a354c98b5792492d484da9eb10b8cf2
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028710"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310856"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Aktualizowanie demona zabezpieczeń i środowiska uruchomieniowego usługi IoT Edge
 
@@ -202,9 +202,10 @@ Niektóre kluczowe różnice między 1,2 i wcześniejszymi wersjami obejmują:
 
 * Nazwa pakietu została zmieniona z **iotedge** na **aziot-Edge**.
 * Pakiet **libiothsm-STD** nie jest już używany. Jeśli użyto standardowego pakietu dostarczonego w ramach wydania IoT Edge, konfiguracje można przenieść do nowej wersji. Jeśli użyto innej implementacji libiothsm-STD, wówczas należy ponownie skonfigurować wszelkie certyfikaty dostarczone przez użytkownika, takie jak certyfikat tożsamości urządzenia, urząd certyfikacji urządzenia i pakiet zaufania.
-* Nowa usługa tożsamości, **aziot-Identity-Service** została wprowadzona w ramach wydania 1,2. Ta usługa obsługuje obsługę administracyjną i zarządzanie tożsamościami dla IoT Edge i innych składników urządzeń, które muszą komunikować się z IoT Hub, takimi jak aktualizacja urządzenia platformy Azure IoT Hub. <!--TODO: add link to ADU when available -->
-* Domyślny plik konfiguracji ma nową nazwę i lokalizację. Wcześniej `/etc/iotedge/config.yaml` Informacje o konfiguracji urządzenia są teraz domyślnie zgodne z oczekiwaniami `/etc/aziot/config.toml` . Za pomocą `iotedge config import` polecenia można przeprowadzić migrację informacji o konfiguracji do nowej lokalizacji i składni.
-* Po aktualizacji nie można odszyfrować żadnych modułów, które używają interfejsu API obciążenia IoT Edge do szyfrowania lub odszyfrowywania trwałych danych. IoT Edge dynamicznie generuje klucz głównej tożsamości i klucz szyfrowania do użytku wewnętrznego. Ten klucz nie zostanie przeniesiony do nowej usługi. IoT Edge v 1.2 wygeneruje nowy.
+* Nowa usługa tożsamości, **aziot-Identity-Service** została wprowadzona w ramach wydania 1,2. Ta usługa obsługuje obsługę administracyjną i zarządzanie tożsamościami dla IoT Edge i innych składników urządzeń, które muszą komunikować się z IoT Hub, na przykład z [aktualizacją urządzenia IoT Hub](../iot-hub-device-update/understand-device-update.md).
+* Domyślny plik konfiguracji ma nową nazwę i lokalizację. Wcześniej `/etc/iotedge/config.yaml` Informacje o konfiguracji urządzenia są teraz domyślnie zgodne z oczekiwaniami `/etc/aziot/config.toml` . Za pomocą `iotedge config import` polecenia można przeprowadzić migrację informacji o konfiguracji ze starej lokalizacji i składni do nowej.
+  * Polecenie import nie może wykryć ani zmodyfikować reguł dostępu do modułu TPM (Trusted Platform Module) urządzenia. Jeśli urządzenie korzysta z zaświadczania TPM, należy ręcznie zaktualizować plik/etc/udev/rules.d/tpmaccess.rules, aby zapewnić dostęp do usługi aziottpm. Aby uzyskać więcej informacji, zobacz [zapewnianie IoT Edge dostępu do modułu TPM](how-to-auto-provision-simulated-device-linux.md?view=iotedge-2020-11&preserve-view=true#give-iot-edge-access-to-the-tpm).
+* Interfejs API obciążenia w wersji 1,2 zapisuje zaszyfrowane klucze tajne w nowym formacie. W przypadku uaktualnienia ze starszej wersji do wersji 1,2 istniejący główny klucz szyfrowania zostanie zaimportowany. Interfejs API obciążenia może odczytywać wpisy tajne zapisane w poprzednim formacie przy użyciu zaimportowanego klucza szyfrowania. Jednak interfejs API obciążenia nie może zapisać zaszyfrowanych kluczy tajnych w starym formacie. Po ponownym zaszyfrowaniu klucza tajnego przez moduł zostanie on zapisany w nowym formacie. Wpisy tajne zaszyfrowane w wersji 1,2 nie są odczytywane przez ten sam moduł w wersji 1,1. W przypadku utrwalania zaszyfrowanych danych w folderze lub woluminie zainstalowanym przez hosta zawsze należy utworzyć kopię zapasową danych *przed* uaktualnieniem, aby zachować możliwość obniżenia poziomu w razie potrzeby.
 
 Przed zautomatyzowaniem wszelkich procesów aktualizacji Sprawdź, czy działa on na maszynach testowych.
 

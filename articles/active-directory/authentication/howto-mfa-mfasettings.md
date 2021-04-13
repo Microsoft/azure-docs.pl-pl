@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 78972c4db1802b479a698a22c456561170add4bf
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9d2c42a664c8d8a591d95a312cdf1c0034c4d031
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932917"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305467"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Konfigurowanie ustawień Multi-Factor Authentication usługi Azure AD
 
@@ -236,7 +236,7 @@ Funkcja _Zaufane adresy IP_ w usłudze Azure AD Multi-Factor Authentication pomi
 > [!NOTE]
 > W przypadku korzystania z serwera MFA Zaufane adresy IP mogą zawierać prywatne zakresy adresów IPv4. W przypadku usługi Azure AD Multi-Factor Authentication opartej na chmurze można używać tylko zakresów publicznych adresów IP.
 >
-> Zakresy adresów IPv6 są obsługiwane tylko w interfejsie [nazwanych lokalizacji (wersja zapoznawcza)](../conditional-access/location-condition.md#preview-features) .
+> Zakresy adresów IPv6 są obsługiwane tylko w interfejsie [nazwanych lokalizacji (wersja zapoznawcza)](../conditional-access/location-condition.md) .
 
 Jeśli w organizacji wdrożono rozszerzenie serwera NPS w celu zapewnienia uwierzytelniania MFA w aplikacjach lokalnych, należy zauważyć, że źródłowy adres IP zawsze będzie serwerem NPS, za pomocą którego nastąpi próba uwierzytelnienia.
 

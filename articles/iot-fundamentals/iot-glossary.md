@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/08/2021
-ms.openlocfilehash: d7ae1e72dee28509c1338a1b56cf42a5293af9bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a45b8db1f17ead8e55bac2b2bf82aa44cb7f080e
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104670260"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304703"
 ---
 # <a name="glossary-of-iot-terms"></a>Słownik terminów IoT
 
@@ -435,6 +435,12 @@ W [IoT Edge](#iot-edge)moduł jest kontenerem platformy Docker, który można wd
 [MQTT](https://mqtt.org/) jest jednym z protokołów obsługi komunikatów, które [IoT Hub](#iot-hub) obsługiwać komunikację z urządzeniami. Aby uzyskać więcej informacji na temat protokołów obsługi komunikatów obsługiwanych przez IoT Hub, zobacz [wysyłanie i odbieranie komunikatów przy użyciu IoT Hub](../iot-hub/iot-hub-devguide-messaging.md).
 
 ## <a name="o"></a>O
+
+### <a name="ontology"></a>Ontology
+
+Zestaw modeli dla konkretnej domeny, takich jak nieruchomości, inteligentne miasta, systemy IoT, sieci energetyczne i inne. Ontologie są często używane jako schematy dla wykresów merytorycznych, takich jak te w [usłudze Azure Digital bliźniaczych reprezentacji](#azure-digital-twins), ponieważ udostępniają one punkt początkowy oparty na standardach branżowych i najlepszych rozwiązaniach.
+
+Aby uzyskać więcej informacji na temat ontologie, zobacz [co to jest Ontology?](../digital-twins/concepts-ontologies.md)
 
 ### <a name="operations-monitoring"></a>Monitorowanie operacji
 

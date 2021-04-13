@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 03/15/2021
-ms.openlocfilehash: dd5b857c274e757f70920f244786df61c2770085
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/10/2021
+ms.openlocfilehash: cee7993116e746c7b827faaf94724033501f1318
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103561689"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309054"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Przewodnik dotyczący wydajności i dostrajania przepływu danych
 
@@ -132,14 +132,17 @@ Opłaty za przepływy danych są naliczane w rdzeń wirtualny godzinie, co oznac
 
 ### <a name="time-to-live"></a>Czas wygaśnięcia
 
-Domyślnie każde działanie przepływu danych uruchamia nowy klaster na podstawie konfiguracji środowiska IR. Czas uruchamiania klastra trwa kilka minut, a przetwarzanie danych nie będzie możliwe, dopóki nie zostanie ukończone. Jeśli potoki zawierają wiele **sekwencyjnych** przepływów danych, można włączyć wartość czasu wygaśnięcia (TTL). Określenie wartości czasu wygaśnięcia powoduje, że klaster działa przez określony czas po zakończeniu jego wykonywania. Jeśli nowe zadanie zostanie uruchomione przy użyciu środowiska IR w czasie trwania czasu wygaśnięcia, spowoduje to znaczne skrócenie czasu uruchomienia istniejącego klastra. Po zakończeniu drugiego zadania klaster będzie nadal działać przez czas TTL.
+Domyślnie każde działanie przepływu danych uruchamia nowy klaster Spark na podstawie konfiguracji Azure IR. Czas rozruchu zimnego klastra trwa kilka minut, a przetwarzanie danych nie będzie możliwe, dopóki nie zostanie ukończone. Jeśli potoki zawierają wiele **sekwencyjnych** przepływów danych, można włączyć wartość czasu wygaśnięcia (TTL). Określenie wartości czasu wygaśnięcia powoduje, że klaster działa przez określony czas po zakończeniu jego wykonywania. Jeśli nowe zadanie zostanie uruchomione przy użyciu środowiska IR w czasie trwania czasu wygaśnięcia, spowoduje to znaczne skrócenie czasu uruchomienia istniejącego klastra. Po zakończeniu drugiego zadania klaster będzie nadal działać przez czas TTL.
 
-Tylko jedno zadanie można uruchomić w pojedynczym klastrze naraz. Jeśli jest dostępny klaster, ale rozpocznie się dwa przepływy danych, tylko jedna z nich będzie korzystać z klastra na żywo. Drugie zadanie spowoduje przejęcie własnego klastra izolowanego.
+Można dodatkowo zminimalizować czas uruchamiania klastrów, ustawiając opcję "Szybkie ponowne używanie" w środowisku Azure Integration Runtime w obszarze właściwości przepływu danych. Ustawienie tej wartości na "true" spowoduje, że funkcja ADF nie będzie usuwania istniejącego klastra po każdym zadaniu, a zamiast tego ponownie korzysta z istniejącego klastra, co gwarantuje, że środowisko obliczeniowe, które zostało ustawione w Azure IR aktywności, przez okres określony w czasie TTL. Ta opcja umożliwia najkrótszy czas uruchomienia działań przepływu danych podczas wykonywania z potoku.
 
-Jeśli większość przepływów danych jest wykonywanych równolegle, nie zaleca się włączania czasu wygaśnięcia. 
+Jeśli jednak większość przepływów danych jest wykonywanych równolegle, nie zaleca się włączania czasu wygaśnięcia dla środowiska IR używanego dla tych działań. Tylko jedno zadanie można uruchomić w pojedynczym klastrze naraz. Jeśli jest dostępny klaster, ale rozpocznie się dwa przepływy danych, tylko jedna z nich będzie korzystać z klastra na żywo. Drugie zadanie spowoduje przejęcie własnego klastra izolowanego.
 
 > [!NOTE]
 > Czas wygaśnięcia nie jest dostępny w przypadku korzystania z rozwiązania Integration Runtime
+ 
+> [!NOTE]
+> Szybkie ponowne korzystanie z istniejących klastrów to funkcja w Azure Integration Runtime, która jest obecnie w publicznej wersji zapoznawczej
 
 ## <a name="optimizing-sources"></a>Optymalizowanie źródeł
 
@@ -304,9 +307,10 @@ Jeśli przepływy danych są wykonywane równolegle, zaleca się, aby nie włąc
 
 ### <a name="execute-data-flows-sequentially"></a>Wykonywanie przepływów danych sekwencyjnie
 
-Jeśli wykonujesz działania przepływu danych w sekwencji, zalecamy ustawienie czasu wygaśnięcia w konfiguracji Azure IR. ADF będzie ponownie używał zasobów obliczeniowych w wyniku szybszego uruchomienia klastra. Każde działanie nadal będzie odizolowane dla każdego wykonywania.
+Jeśli wykonujesz działania przepływu danych w sekwencji, zalecamy ustawienie czasu wygaśnięcia w konfiguracji Azure IR. ADF będzie ponownie używał zasobów obliczeniowych w wyniku szybszego uruchomienia klastra. Każde działanie nadal będzie odizolowane dla każdego wykonywania. Aby skrócić czas między działaniami sekwencyjnymi, Ustaw pole wyboru "Szybkie ponowne użycie" na Azure IR, aby poinformować moduł ADF o ponownym użyciu istniejącego klastra.
 
-Uruchamianie zadań sekwencyjnych będzie prawdopodobnie trwać najdłużej, ale zapewnia czyste rozdzielenie operacji logicznych.
+> [!NOTE]
+> Szybkie ponowne korzystanie z istniejących klastrów to funkcja w Azure Integration Runtime, która jest obecnie w publicznej wersji zapoznawczej
 
 ### <a name="overloading-a-single-data-flow"></a>Przeciążanie pojedynczego przepływu danych
 

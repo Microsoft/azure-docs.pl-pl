@@ -1,30 +1,30 @@
 ---
-title: Szybki Start — dodawanie telefonu VOIP do aplikacji internetowej przy użyciu usług Azure Communications Services
-description: W tym samouczku dowiesz się, jak używać zestawu SDK wywołań usługi Azure Communications Services dla języka JavaScript
+title: Szybki start — dodawanie wywołań VOIP do aplikacji internetowej przy użyciu Azure Communication Services
+description: Z tego samouczka dowiesz się, jak używać zestawu SDK wywoływania Azure Communication Services dla języka JavaScript
 author: ddematheu
 ms.author: nimag
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: be6ff629a651af5cc06d7928c7972f07aa0fd6e2
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: a93fe6c6203140bfed3771da8353ea7843b7694f
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107291381"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107327299"
 ---
-W tym przewodniku szybki start dowiesz się, jak rozpocząć wywoływanie przy użyciu zestawu SDK wywołania usługi Azure Communication Services dla języka JavaScript.
+W tym przewodniku Szybki start dowiesz się, jak rozpocząć wywołanie przy użyciu zestawu SDK wywoływania Azure Communication Services dla języka JavaScript.
 
 > [!NOTE]
-> Ten dokument używa wersji 1.0.0-beta. 10 wywołującego zestawu SDK.
+> W tym dokumencie jest używana wersja 1.0.0-beta.10 zestawu SDK wywołującego.
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Node.js](https://nodejs.org/) Aktywne wersje LTS LTS i Maintenance (zalecane 8.11.1 i 10.14.1).
-- Zasób aktywnych usług komunikacyjnych. [Utwórz zasób usług komunikacyjnych](../../create-communication-resource.md).
-- Token dostępu użytkownika do tworzenia wystąpienia klienta wywołania. Dowiedz się [, jak tworzyć tokeny dostępu użytkowników i zarządzać nimi](../../access-tokens.md).
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [Node.js](https://nodejs.org/) Wersje Active LTS i Maintenance LTS (zalecane wersje 8.11.1 i 10.14.1).
+- Aktywny zasób Communication Services zasobów. [Utwórz zasób Communication Services zasobów.](../../create-communication-resource.md)
+- Token dostępu użytkownika do wystąpienia klienta wywołania. Dowiedz się, jak [tworzyć tokeny dostępu użytkowników i zarządzać nimi.](../../access-tokens.md)
 
 
 [!INCLUDE [Calling with JavaScript](./get-started-javascript-setup.md)]
@@ -70,7 +70,7 @@ Oto kod:
 </html>
 ```
 
-Utwórz plik w katalogu głównym projektu o nazwie **client.js** , aby zawierał logikę aplikacji dla tego przewodnika Szybki Start. Dodaj następujący kod, aby zaimportować klienta wywołującego i uzyskać odwołania do elementów modelu DOM, dzięki czemu możemy dołączać logikę biznesową. 
+Utwórz plik w katalogu głównym projektu o nazwie **client.js,** który będzie zawierać logikę aplikacji na czas pracy z tym przewodnikiem Szybki start. Dodaj następujący kod, aby zaimportować klienta wywołującego i pobrać odwołania do elementów DOM, aby można było dołączyć logikę biznesową. 
 
 ```javascript
 import { CallClient, CallAgent } from "@azure/communication-calling";
@@ -86,20 +86,20 @@ const callButton = document.getElementById("call-button");
 const hangUpButton = document.getElementById("hang-up-button");
 ```
 
-## <a name="object-model"></a>Model obiektów
+## <a name="object-model"></a>Model obiektu
 
-Następujące klasy i interfejsy obsługują niektóre główne funkcje zestawu SDK wywołującego usługi Azure Communications Services:
+Następujące klasy i interfejsy obsługują niektóre główne funkcje zestawu AZURE COMMUNICATION SERVICES SDK:
 
 | Nazwa                             | Opis                                                                                                                                 |
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
 | CallClient                       | CallClient jest głównym punktem wejścia do wywołującego zestawu SDK.                                                                       |
-| CallAgent                        | CallAgent jest używany do uruchamiania wywołań i zarządzania nimi.                                                                                            |
-| AzureCommunicationTokenCredential | Klasa AzureCommunicationTokenCredential implementuje interfejs CommunicationTokenCredential, który jest używany do tworzenia wystąpienia CallAgent. |
+| CallAgent                        | Wywołanie jest używane do uruchamiania wywołań i zarządzania nimi.                                                                                            |
+| AzureCommunicationTokenCredential | Klasa AzureCommunicationTokenCredential implementuje interfejs CommunicationTokenCredential, który służy do wystąpienia klasy CallAgent. |
 
 
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
-Musisz wprowadzić prawidłowy token dostępu użytkownika dla zasobu w polu tekstowym, a następnie kliknąć przycisk Prześlij. Jeśli nie masz jeszcze dostępnego tokenu, zapoznaj się z dokumentacją [tokenu dostępu użytkownika](../../access-tokens.md) . Przy użyciu `CallClient` , zainicjuj `CallAgent` wystąpienie z, `CommunicationTokenCredential` które umożliwi nam wykonywanie i odbieranie wywołań. Dodaj następujący kod do **client.js**:
+Musisz wprowadzić prawidłowy token dostępu użytkownika dla zasobu w polu tekstowym i kliknąć pozycję "Prześlij". Jeśli token [nie jest](../../access-tokens.md) jeszcze dostępny, zapoznaj się z dokumentacją tokenu dostępu użytkownika. Za pomocą `CallClient` obiektu zaimicjuj wystąpienie za pomocą obiektu , co umożliwi nam `CallAgent` odbieranie `CommunicationTokenCredential` wywołań. Dodaj następujący kod, aby **client.js**:
 
 ```javascript
 submitToken.addEventListener("click", async () => {
@@ -116,9 +116,9 @@ submitToken.addEventListener("click", async () => {
 })
 ```
 
-## <a name="start-a-call"></a>Rozpocznij wywołanie
+## <a name="start-a-call"></a>Uruchamianie wywołania
 
-Dodaj procedurę obsługi zdarzeń w celu zainicjowania wywołania po `callButton` kliknięciu:
+Dodaj procedurę obsługi zdarzeń, aby zainicjować wywołanie po `callButton` kliknięciu polecenia :
 
 ```javascript
 callButton.addEventListener("click", () => {
@@ -136,7 +136,7 @@ callButton.addEventListener("click", () => {
 
 ## <a name="end-a-call"></a>Zakończenie wywołania
 
-Dodaj odbiornik zdarzeń, aby zakończyć bieżące wywołanie po `hangUpButton` kliknięciu:
+Dodaj odbiornik zdarzeń, aby zakończyć bieżące wywołanie po `hangUpButton` kliknięciu klasy :
 
 ```javascript
 hangUpButton.addEventListener("click", () => {
@@ -150,18 +150,22 @@ hangUpButton.addEventListener("click", () => {
 });
 ```
 
-`forEveryone`Właściwość przerywa wywołanie dla wszystkich uczestników wywołania.
+Właściwość `forEveryone` kończy wywołanie dla wszystkich uczestników rozmów.
 
 ## <a name="run-the-code"></a>Uruchamianie kodu
 
-Użyj, `webpack-dev-server` Aby skompilować i uruchomić aplikację. Uruchom następujące polecenie, aby powiązać hosta aplikacji w lokalnym serwerze WebServer:
+Użyj funkcji `webpack-dev-server` , aby skompilować i uruchomić aplikację. Uruchom następujące polecenie, aby do pakietu hosta aplikacji w programie na lokalnym serwerze internetowym:
 
 ```console
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```
 
-Otwórz przeglądarkę i przejdź do http://localhost:8080/ . Powinien zostać wyświetlony następujący ekran:
+Otwórz przeglądarkę i przejdź do strony http://localhost:8080/ . Powinien zostać wyświetlony następujący ekran:
 
-:::image type="content" source="../media/javascript/calling-javascript-app-2.png" alt-text="Zrzut ekranu ukończonej aplikacji JavaScript.":::
+:::image type="content" source="../media/javascript/calling-javascript-app-2.png" alt-text="Zrzut ekranu przedstawiający ukończoną aplikację JavaScript.":::
 
-Wychodzące wywołanie VOIP można utworzyć, podając identyfikator użytkownika w polu tekstowym i klikając przycisk **Rozpocznij połączenie** . Wywołanie `8:echo123` nawiązuje połączenie z botem ECHA. jest to doskonałe rozwiązanie do rozpoczęcia i sprawdzenia, czy urządzenia audio działają.
+Możesz wykonać wychodzące wywołanie VOIP, podając identyfikator użytkownika w polu tekstowym i klikając przycisk **Rozpocznij wywołanie.** Wywołanie `8:echo123` umożliwia połączenie z echobotem. Jest to doskonałe miejsce do rozpoczęcia pracy i sprawdzenia, czy urządzenia audio działają.
+
+## <a name="sample-code"></a>Przykładowy kod
+
+Przykładową aplikację możesz pobrać z usługi [Github.](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-voice-calling)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 745cc7be37120cda27fe4d4077b9bda0fa07badf
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: dc20ca3f3cf6197f8a3ed3a7e0362046f129d369
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550782"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305875"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Instrukcje: Planowanie wdrożenia usługi Azure AD Join
 
@@ -239,7 +239,7 @@ Wybierz pozycję **"tak"** , jeśli chcesz, aby użytkownicy korzystali z uwierz
 
 ![Wymagaj uwierzytelniania wieloskładnikowego w celu dołączania urządzeń](./media/azureadjoin-plan/03.png)
 
-**Zalecenie:** Korzystanie z akcji użytkownika [Zarejestruj lub Dołącz urządzenia](/conditional-access/concept-conditional-access-cloud-apps#user-actions) w dostęp warunkowy w celu wymuszania uwierzytelniania MFA na potrzeby dołączania urządzeń.
+**Zalecenie:** Korzystanie z akcji użytkownika [Zarejestruj lub Dołącz urządzenia](/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps#user-actions) w dostęp warunkowy w celu wymuszania uwierzytelniania MFA na potrzeby dołączania urządzeń.
 
 ## <a name="configure-your-mobility-settings"></a>Skonfiguruj ustawienia mobilności
 

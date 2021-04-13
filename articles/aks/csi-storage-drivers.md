@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: fa40ab22f0c1ebf47bb490a50f782a848d1441e1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ec8aeb07e54c6ec49647e7bb65284b6cb7343555
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102182115"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305671"
 ---
 # <a name="enable-container-storage-interface-csi-drivers-for-azure-disks-and-azure-files-on-azure-kubernetes-service-aks-preview"></a>Włącz sterowniki interfejsu magazynu kontenerów (CSI) dla dysków platformy Azure i Azure Files w usłudze Azure Kubernetes Service (wersja zapoznawcza)
 
@@ -86,7 +86,7 @@ Utwórz klaster AKS z obsługą sterowników magazynu CSI:
 
 ```azurecli-interactive
 # Create an AKS-managed Azure AD cluster
-az aks create -g MyResourceGroup -n MyManagedCluster --network-plugin azure -k 1.17.9 --aks-custom-headers EnableAzureDiskFileCSIDriver=true
+az aks create -g MyResourceGroup -n MyManagedCluster --network-plugin azure  --aks-custom-headers EnableAzureDiskFileCSIDriver=true
 ```
 
 Jeśli chcesz utworzyć klastry w ramach sterowników magazynu drzewa zamiast sterowników magazynu CSI, możesz to zrobić, pomijając `--aks-custom-headers` parametr niestandardowy.

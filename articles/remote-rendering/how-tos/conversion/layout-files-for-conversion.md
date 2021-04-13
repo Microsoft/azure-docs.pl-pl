@@ -5,20 +5,23 @@ author: MalcolmTyrrell
 ms.author: matyrr
 ms.date: 09/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 13c4b841fe2d0b62472628d9382b5f6ee3d1fa6c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9a094755dfb9381b1e4d6abdf1c0e6342d7427c1
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91318079"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308443"
 ---
 # <a name="laying-out-files-for-conversion"></a>Ustalanie układu plików na potrzeby konwersji
 
 Aby poprawnie przetworzyć element zawartości, usługa konwersji musi być w stanie znaleźć wszystkie pliki wejściowe.
 Składają się one z pliku głównego zasobu, który jest konwertowany i zwykle inne pliki, do których odwołują się ścieżki w pliku zasobów.
-Żądanie konwersji elementu zawartości ma dwa parametry, które określają, w jaki sposób usługa konwersji znajdzie te pliki: `input.folderPath` (opcjonalnie) i `input.inputAssetPath` .
+Żądanie konwersji elementu zawartości ma dwa parametry, które określają, w jaki sposób usługa konwersji znajdzie te pliki: `settings.inputLocation.blobPrefix` (opcjonalnie) i `settings.inputLocation.relativeInputAssetPath` .
 Są one w pełni udokumentowane na stronie [interfejsu API REST konwersji](conversion-rest-api.md) .
-Na potrzeby ułożenia plików warto zwrócić uwagę na to, że program `folderPath` określi kompletny zestaw plików, które są dostępne dla usługi konwersji podczas przetwarzania elementu zawartości.
+Na potrzeby ułożenia plików warto zwrócić uwagę na to, że program `BlobPrefix` określi kompletny zestaw plików, które są dostępne dla usługi konwersji podczas przetwarzania elementu zawartości.
+
+> [!Note]
+> Usługa pobierze wszystkie pliki w ramach danych wejściowych. Prefiksem obiektu BLOB. Upewnij się, że nazwy plików i ścieżki nie przekraczają [limitów długości ścieżki systemu Windows](https://docs.microsoft.com/windows/win32/fileio/maximum-file-path-limitation) , aby uniknąć problemów z usługą. 
 
 ## <a name="placing-files-so-they-can-be-found"></a>Umieszczanie plików, aby można je było znaleźć
 

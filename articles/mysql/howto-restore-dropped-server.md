@@ -1,21 +1,21 @@
 ---
-title: Przywróć usunięty serwer Azure Database for MySQL
+title: Przywracanie usuniętego serwera Azure Database for MySQL
 description: W tym artykule opisano sposób przywracania usuniętego serwera w Azure Database for MySQL przy użyciu Azure Portal.
 author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/09/2020
-ms.openlocfilehash: 34dddd8e5f3fb418fc7155630bf82a922e418402
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5fc1ab1b3dfbc324668873749c143846c2015cd4
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97657094"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306283"
 ---
-# <a name="restore-a-dropped-azure-database-for-mysql-server"></a>Przywróć usunięty serwer Azure Database for MySQL
+# <a name="restore-a-deleted-azure-database-for-mysql-server"></a>Przywracanie usuniętego serwera Azure Database for MySQL
 
-Po porzucenia serwera kopie zapasowe serwera bazy danych mogą być przechowywane nawet przez pięć dni w usłudze. Kopia zapasowa bazy danych jest dostępna i przywracana tylko w ramach subskrypcji platformy Azure, w której pierwotnie znajdowały się serwer. Następujące zalecane kroki można wykonać w celu odzyskania usuniętego zasobu serwera MySQL w ciągu 5 dni od momentu usunięcia serwera. Zalecane kroki będą działały tylko wtedy, gdy kopia zapasowa serwera jest nadal dostępna i nie została usunięta z systemu. 
+Po usunięciu serwera kopia zapasowa serwera bazy danych może być przechowywana nawet przez pięć dni w usłudze. Kopia zapasowa bazy danych jest dostępna i przywracana tylko w ramach subskrypcji platformy Azure, w której pierwotnie znajdowały się serwer. Następujące zalecane kroki można wykonać w celu odzyskania usuniętego zasobu serwera MySQL w ciągu 5 dni od momentu usunięcia serwera. Zalecane kroki będą działały tylko wtedy, gdy kopia zapasowa serwera jest nadal dostępna i nie została usunięta z systemu. 
 
 ## <a name="pre-requisites"></a>Wymagania wstępne
 Aby przywrócić usunięty serwer Azure Database for MySQL, potrzebne są następujące elementy:
@@ -42,7 +42,7 @@ Aby przywrócić usunięty serwer Azure Database for MySQL, potrzebne są nastę
  
      [![Tworzenie serwera przy użyciu interfejsu API REST](./media/howto-restore-dropped-server/create-server-from-rest-api.png)](./media/howto-restore-dropped-server/create-server-from-rest-api.png#lightbox)
   
- 6. Przewiń w sekcji treść żądania i wklej następujący tekst: "porzucona lokalizacja serwera", "submissionTimestamp" i "resourceId". Dla elementu "restorePointInTime" Określ wartość "submissionTimestamp" minus **15 minut** , aby upewnić się, że polecenie nie zostanie wychodzące.
+ 6. Przewiń zawartość poniżej sekcji treści żądania i wklej następujące elementy:
  
     ```json
     {
@@ -55,10 +55,14 @@ Aby przywrócić usunięty serwer Azure Database for MySQL, potrzebne są nastę
             }
     }
     ```
+7. Zastąp następujące wartości w powyższej treści żądania:
+   * "Porzucona lokalizacja serwera" z regionem świadczenia usługi Azure, w którym pierwotnie utworzono usunięty serwer
+   * "submissionTimestamp" i "resourceId" wartościami z przechwyconych w kroku 3. 
+   * Dla elementu "restorePointInTime" Określ wartość "submissionTimestamp" minus **15 minut** , aby upewnić się, że polecenie nie zostanie wychodzące.
+   
+8. Jeśli zobaczysz kod odpowiedzi 201 lub 202, żądanie przywrócenia zostało pomyślnie przesłane. 
 
-7. Jeśli zobaczysz kod odpowiedzi 201 lub 202, żądanie przywrócenia zostało pomyślnie przesłane. 
-
-8. Tworzenie serwera może zająć trochę czasu w zależności od rozmiaru bazy danych i zasobów obliczeniowych, które są obsługiwane na oryginalnym serwerze. Stan przywracania można monitorować z dziennika aktywności przez filtrowanie 
+9. Tworzenie serwera może zająć trochę czasu w zależności od rozmiaru bazy danych i zasobów obliczeniowych, które są obsługiwane na oryginalnym serwerze. Stan przywracania można monitorować z dziennika aktywności przez filtrowanie 
    - **Subskrypcja** = subskrypcja
    - **Typ zasobu** = serwery Azure Database for MySQL (Microsoft. DBforMySQL/serwery) 
    - **Operacja** = aktualizowanie serwera MySQL

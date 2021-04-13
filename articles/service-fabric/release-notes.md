@@ -5,16 +5,16 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 36fb512181986fd04a95e72aa028b7c0253aa45f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f7e929000b85462e7fabf6d717c52abc454b47ad
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731228"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313338"
 ---
 # <a name="service-fabric-releases"></a>Wersje Service Fabric
 
-- <a href="https://github.com/Azure/Service-Fabric-Troubleshooting-Guides" target="blank">Przewodniki dotyczące rozwiązywania problemów</a> 
+- <a href="https://github.com/Azure/Service-Fabric-Troubleshooting-Guides" target="blank">Przewodniki po rozwiązywaniu problemów</a> 
 - <a href="https://github.com/Azure/service-fabric-issues" target="blank">Śledzenie problemów</a> 
 - <a href="/azure/service-fabric/service-fabric-support" target="blank">Opcje pomocy technicznej</a> 
 - <a href="/azure/service-fabric/service-fabric-versions" target="blank">Obsługiwane wersje</a> 
@@ -22,11 +22,40 @@ ms.locfileid: "105731228"
 
 Ten artykuł zawiera więcej informacji o najnowszych wersjach i aktualizacjach środowiska uruchomieniowego Service Fabric i zestawów SDK.
 
-## <a name="service-fabric-72"></a>Service Fabric 7,2
+## <a name="service-fabric-80"></a>Service Fabric 8,0
 
-Przyjemnością się ogłaszamy, że Service Fabric wersja 7,2 środowiska uruchomieniowego została rozpoczęta w różnych regionach świadczenia usługi Azure wraz z narzędziami i aktualizacjami zestawu SDK. Aktualizacje zestawu .NET SDK, zestawu Java SDK i środowiska uruchomieniowego Service Fabric są dostępne za pomocą Instalatora platformy sieci Web, pakietów NuGet i repozytoriów Maven.
+Przyjemnością się ogłaszamy, że Service Fabric wersja 8,0 środowiska uruchomieniowego została wdrożona w różnych regionach platformy Azure wraz z narzędziami i aktualizacjami zestawu SDK. Aktualizacje zestawu .NET SDK, zestawu Java SDK i środowiska uruchomieniowego Service Fabric są dostępne za pomocą Instalatora platformy sieci Web, pakietów NuGet i repozytoriów Maven.
 
 ### <a name="key-announcements"></a>Anonse kluczy
+
+- **Ogólna dostępność** wsparcia dla programu .NET 5 dla systemu Windows
+- **Ogólna dostępność** [bezstanowej elementów NodeType](https://docs.microsoft.com/azure/service-fabric/service-fabric-stateless-node-types)
+- Możliwość przenoszenia wystąpień usługi bezstanowej
+- Możliwość dodawania sparametryzowanych DefaultLoad w manifeście aplikacji
+- W przypadku uaktualnień pojedynczej repliki — możliwość zdefiniowania niektórych ustawień poziomu klastra na poziomie aplikacji
+- Możliwość inteligentnego umieszczania na podstawie tagów węzła
+- Możliwość zdefiniowania progu procentowego węzłów w złej kondycji mających wpływ na kondycję klastra
+- Możliwość wykonywania zapytań dotyczących najczęściej ładowanych usług
+- Możliwość dodania nowego interwału dla nowych kodów błędów
+- Możliwość oznaczenia wystąpienia usługi jako ukończonej
+- Obsługa modelu wdrożenia opartego na usłudze Wave na potrzeby automatycznych uaktualnień
+- Dodano sondę gotowości dla aplikacji kontenerowych
+- Domyślnie Włącz UseSeparateSecondaryMoveCost z wartością true
+- Stały Stanmanager o wydanie odwołania zaraz po jego udostępnieniu
+- Blokuj usuwanie usługi centralnego wpisu tajnego podczas przechowywania wpisów tajnych użytkownika
+
+
+### <a name="service-fabric-80-releases"></a>Wersje 8,0 Service Fabric
+| Data wydania | Release | Więcej informacji |
+|---|---|---|
+| 08 kwietnia, 2021 | [Azure Service Fabric 8,0](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-0-release/ba-p/2260016)  | [Informacje o wersji](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_80.md)|
+
+
+## <a name="previous-versions"></a>Poprzednie wersje
+
+### <a name="service-fabric-72"></a>Service Fabric 7,2
+
+#### <a name="key-announcements"></a>Anonse kluczy
 
 - **Wersja zapoznawcza**: [**klastry zarządzane Service Fabric**](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-managed-clusters-are-now-in-public-preview/ba-p/1721572) są teraz dostępne w publicznej wersji zapoznawczej. Service Fabric zarządzane klastry mają na celu uproszczenie wdrażania klastrów i zarządzania nimi przez hermetyzację zasobów bazowych, które składają się na klaster Service Fabric, do pojedynczego zasobu ARM. Aby uzyskać więcej informacji, zobacz [Omówienie klastra zarządzanego Service Fabric](./overview-managed-cluster.md).
 - **Wersja zapoznawcza**: [**Obsługa bezstanowych usług z liczbą wystąpień większą niż liczba węzłów**](./service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) jest teraz w publicznej wersji zapoznawczej. Zasady umieszczania umożliwiają tworzenie wielu wystąpień bezstanowych partycji w węźle.
@@ -40,7 +69,7 @@ Przyjemnością się ogłaszamy, że Service Fabric wersja 7,2 środowiska uruch
 - **RunToCompletion**: Service Fabric obsługuje koncepcję przebiegu do ukończenia dla plików wykonywalnych gościa. W przypadku tej aktualizacji po zakończeniu działania repliki zostaną wydane zasoby klastra przydzieloną do tej repliki.
 - [**Ulepszono obsługę zarządzania zasobami**](./service-fabric-resource-governance.md): Zezwalanie na żądania i limity dla zasobów procesora i pamięci.
 
-### <a name="service-fabric-72-releases"></a>Wersje 7,2 Service Fabric
+#### <a name="service-fabric-72-releases"></a>Wersje 7,2 Service Fabric
 | Data wydania | Release | Więcej informacji |
 |---|---|---|
 | 21 października 2020 | [Azure Service Fabric 7,2](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-2-release/ba-p/1805653)  | [Informacje o wersji](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72-releasenotes.md)|
@@ -51,7 +80,6 @@ Przyjemnością się ogłaszamy, że Service Fabric wersja 7,2 środowiska uruch
 | 17 lutego 2021 | [Azure Service Fabric 7,2 szóste wydanie odświeżania](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-sixth-refresh-release/ba-p/2144685) | [Informacje o wersji](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72CU6-ReleaseNotes.md)
 | 10 marca 2021 | [Wydanie z platformy Azure Service Fabric 7,2 siódmego odświeżania](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-seventh-refresh-release/ba-p/2201100) | [Informacje o wersji](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72CU7-releasenotes.md)
 
-## <a name="previous-versions"></a>Poprzednie wersje
 
 ### <a name="service-fabric-71"></a>Service Fabric 7,1
 

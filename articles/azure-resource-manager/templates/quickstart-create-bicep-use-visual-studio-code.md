@@ -2,15 +2,15 @@
 title: Tworzenie plików Bicep — Visual Studio Code
 description: Użyj Visual Studio Code i rozszerzenia Bicep, aby Bicep pliki do wdrażania zasobów platformy Azure
 author: mumian
-ms.date: 03/26/2021
+ms.date: 04/12/2021
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 4d1064351ddfacdebfa67fd9b2f517f592de3a7c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e82f047f553290c9121d91060c347c5b242c7ec2
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612905"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306470"
 ---
 # <a name="quickstart-create-bicep-files-with-visual-studio-code"></a>Szybki Start: Tworzenie plików Bicep za pomocą Visual Studio Code
 
@@ -51,6 +51,10 @@ Deklaracja zasobu ma cztery składniki:
 - **Nazwa symboliczna** (STG): Nazwa symboliczna jest identyfikatorem do odwoływania się do zasobu w pliku Bicep. Nie jest to nazwa zasobu, który będzie wdrażany. Nazwa zasobu jest definiowana przez właściwość **name** .  Zapoznaj się z czwartym składnikiem na tej liście.
 - **Typ zasobu** ( Microsoft.Storage/storageAccounts@2019-06-01 ): składa się z dostawcy zasobów (Microsoft. Storage), typu zasobu (StorageAccounts) i apiVersion (2019-06-01). Każdy dostawca zasobów publikuje własne wersje interfejsu API, więc ta wartość jest specyficzna dla tego typu. Więcej typów i apiVersions dla różnych zasobów platformy Azure można znaleźć w temacie [odwołanie do szablonu ARM](/azure/templates/).
 - **Właściwości** (wszystkie elementy wewnątrz = {...}): Określ właściwości dla typu zasobu. Każdy zasób ma `name` Właściwość. Większość zasobów ma również `location` Właściwość, która ustawia region, w którym zasób jest wdrażany. Inne właściwości różnią się w zależności od typu zasobu i wersji interfejsu API.
+
+Aby uzyskać więcej informacji, zobacz [Bicep Structure](./bicep-file.md).
+
+Istnieje komentarz dla właściwości Nazwa.  Korzystanie `//` z komentarzy jednowierszowych lub `/* ... */` dla komentarzy wielowierszowych
 
 ## <a name="completion-and-validation"></a>Ukończenie i weryfikacja
 

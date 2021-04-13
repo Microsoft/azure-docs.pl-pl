@@ -5,13 +5,13 @@ author: kromerm
 ms.service: data-factory
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 01/03/2021
-ms.openlocfilehash: 0663690318773ccad3bddfaaa03e456c2f58895e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/11/2021
+ms.openlocfilehash: 3e48eee5bf36732edc4f897103cb72bbbe75a5c3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100383385"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306317"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Aktywność przepływu danych w Azure Data Factory
 
@@ -76,9 +76,9 @@ Właściwości liczba rdzeni i typ obliczeń można skonfigurować dynamicznie, 
 
 ### <a name="data-flow-integration-runtime"></a>Środowisko Integration Runtime
 
-Wybierz Integration Runtime, które mają być używane do wykonywania działań przepływu danych. Domyślnie Data Factory będzie używać automatycznie rozwiązywania środowiska Azure Integration Runtime z czterema rdzeniami procesów roboczych i bez czasu wygaśnięcia (TTL). Ten IR ma typ obliczeń ogólnego przeznaczenia i działa w tym samym regionie, w którym znajduje się fabryka. Możesz tworzyć własne środowiska Azure Integration Runtime, które definiują określone regiony, typ obliczeń, liczniki rdzeni i czas wygaśnięcia dla wykonywania działania przepływu danych.
+Wybierz Integration Runtime, które mają być używane do wykonywania działań przepływu danych. Domyślnie Data Factory będzie używać automatycznie rozwiązywania środowiska Azure Integration Runtime z czterema rdzeniami procesów roboczych. Ten IR ma typ obliczeń ogólnego przeznaczenia i działa w tym samym regionie, w którym znajduje się fabryka. W przypadku potoków operacyjnych zdecydowanie zaleca się utworzenie własnych środowisk integracji platformy Azure, które definiują określone regiony, typ obliczeń, liczniki rdzeni i czas wygaśnięcia dla wykonywania działania przepływu danych.
 
-W przypadku wykonań potoku klaster jest klastrem zadań, co potrwa kilka minut, zanim uruchomienie zostanie rozpoczęte. Jeśli nie określono czasu wygaśnięcia, ten czas uruchamiania jest wymagany dla każdego uruchomienia potoku. W przypadku określenia czasu wygaśnięcia (TTL) w czasie określonym po ostatnim wykonaniu zostanie uaktywniona bezczynna Pula klastra, co spowoduje skrócenie czasu uruchomienia. Jeśli na przykład czas wygaśnięcia wynosi 60 minut i uruchomisz na nim przepływ danych raz na godzinę, Pula klastrów pozostanie aktywna. Aby uzyskać więcej informacji, zobacz [Azure Integration Runtime](concepts-integration-runtime.md).
+Minimalny typ obliczeń Ogólnego przeznaczenia (Optymalizacja obliczeniowa nie jest zalecana w przypadku dużych obciążeń) z konfiguracją 8 + 8 (16 całkowitej liczby rdzeni v), a 10 minut jest minimalnym zaleceniem dla większości obciążeń produkcyjnych. Ustawiając niewielki czas TTL, Azure IR może obsługiwać rozgrzany klaster, który nie pociągnie za sobą kilku minut czasu rozpoczęcia dla zimnego klastra. Aby przyspieszyć wykonywanie przepływów danych, wybierz pozycję "Szybkie ponowne użycie" w konfiguracjach przepływu danych Azure IR. Aby uzyskać więcej informacji, zobacz [Azure Integration Runtime](concepts-integration-runtime.md).
 
 ![Azure Integration Runtime](media/data-flow/ir-new.png "Azure Integration Runtime")
 

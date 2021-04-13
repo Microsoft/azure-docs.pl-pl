@@ -3,12 +3,12 @@ title: Przewodnik Szybki Start platformy Azure — tworzenie centrum zdarzeń pr
 description: W tym przewodniku szybki start dowiesz się, jak utworzyć centrum zdarzeń platformy Azure przy użyciu Azure Portal.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 6bd9d247db6cd5a956ff4bce9b70f1f8a5a7499a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bf83c53792c4934f43e0039d092bb3e36954bf7b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101742045"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303121"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Szybki start: tworzenie centrum zdarzeń przy użyciu witryny Azure Portal
 Azure Event Hubs to usługa do przesyłania strumieniowego danych Big Data i usługi pozyskiwania zdarzeń, które mogą odbierać i przetwarzać miliony zdarzeń na sekundę. Usługa Event Hubs pozwala przetwarzać i przechowywać zdarzenia, dane lub dane telemetryczne generowane przez rozproszone oprogramowanie i urządzenia. Dane wysłane do centrum zdarzeń mogą zostać przekształcone i zmagazynowane przy użyciu dowolnego dostawcy analityki czasu rzeczywistego lub adapterów przetwarzania wsadowego/magazynowania. Aby zapoznać się ze szczegółowym omówieniem usługi Event Hubs, zobacz [Omówienie usługi Event Hubs](event-hubs-about.md) i [Funkcje usługi Event Hubs](event-hubs-features.md).
@@ -54,7 +54,7 @@ Przestrzeń nazw Event Hubs zapewnia unikatowy kontener zakresu, w którym możn
    1. Wybierz **grupę zasobów** utworzoną w poprzednim kroku.   
    1. Wprowadź **nazwę** dla przestrzeni nazw. System od razu sprawdza, czy nazwa jest dostępna.  
    1. Wybierz **lokalizację** dla przestrzeni nazw.
-   1. Wybierz **warstwę cenową** (podstawowa lub standardowa). Aby dowiedzieć się więcej o różnicach między warstwami podstawowa i standardowa, zobacz [Event Hubs Cennik](https://azure.microsoft.com/pricing/details/event-hubs/), [różnice między warstwami](event-hubs-faq.md#what-is-the-difference-between-event-hubs-basic-and-standard-tiers)oraz [limity przydziału i limitów](event-hubs-quotas.md). 
+   1. Wybierz **warstwę cenową** (podstawowa lub standardowa). Aby dowiedzieć się więcej o różnicach między warstwami podstawowa i standardowa, zobacz [Event Hubs Cennik](https://azure.microsoft.com/pricing/details/event-hubs/), [różnice między warstwami](event-hubs-faq.yml#what-is-the-difference-between-event-hubs-basic-and-standard-tiers-)oraz [limity przydziału i limitów](event-hubs-quotas.md). 
    1. Pozostaw ustawienia **jednostek przepływności** . Jednostki przepływności to zakupione wcześniej jednostki pojemności. Aby dowiedzieć się więcej o jednostkach przepływności, zobacz [Event Hubs skalowalność](event-hubs-scalability.md#throughput-units).  
    1. Wybierz pozycję **Recenzja + Utwórz** w dolnej części strony.
       

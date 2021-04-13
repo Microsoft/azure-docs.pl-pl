@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7b53b0bc8c7cc3df2123d327bf87a85081f88f50
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a03dab43c12b372fc52e7516821fe7aef22d2e16
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100589548"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305246"
 ---
 # <a name="sampling-in-application-insights"></a>Próbkowanie w usłudze Application Insights
 
@@ -184,7 +184,7 @@ Powyższy kod spowoduje wyłączenie próbkowania adaptacyjnego. Wykonaj poniżs
 Użyj metod rozszerzających `TelemetryProcessorChainBuilder` , jak pokazano poniżej, aby dostosować zachowanie próbkowania.
 
 > [!IMPORTANT]
-> W przypadku korzystania z tej metody w celu skonfigurowania próbkowania upewnij się, że właściwość jest ustawiona `aiOptions.EnableAdaptiveSampling` na wartość `false` podczas wywoływania `AddApplicationInsightsTelemetry()` .
+> W przypadku korzystania z tej metody w celu skonfigurowania próbkowania upewnij się, że właściwość jest ustawiona `aiOptions.EnableAdaptiveSampling` na wartość `false` podczas wywoływania `AddApplicationInsightsTelemetry()` . Po wprowadzeniu tej zmiany należy postępować zgodnie z **instrukcjami w bloku kodu poniżej,** aby ponownie włączyć adaptacyjne próbkowanie przy użyciu dostosowanych dostosowań. Niewykonanie tej czynności może spowodować nadmierne pozyskiwanie danych. Należy zawsze testować ustawienia pobierania próbek i ustawić odpowiedni [dzienny limit danych](pricing.md#set-the-daily-cap) w celu ułatwienia kontroli nad kosztami.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility

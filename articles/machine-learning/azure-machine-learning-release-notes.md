@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: 13ef91af5f7ed8398e3d23400fa5e9df467ce6bc
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: 7c22381d547029aedc5965d07033e8800fcbddc3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210898"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313151"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Informacje o wersji Azure Machine Learning
 
@@ -145,7 +145,7 @@ __Kanał informacyjny RSS__: otrzymuj powiadomienie, gdy ta strona zostanie zakt
 ### <a name="azure-machine-learning-studio-notebooks-experience-february-update"></a>Środowisko Azure Machine Learning Studio notesy (Aktualizacja z lutego)
 + **Nowe funkcje**
   + [Terminal macierzysty (ga)](./how-to-access-terminal.md). Użytkownicy będą mieli teraz dostęp do zintegrowanego terminalu, a także do operacji Git za pośrednictwem zintegrowanego terminalu.
-  + [Fragmenty notesu (wersja zapoznawcza)](https://azure.github.io/azureml-web/docs/vs-code-snippets/snippets). Najpopularniejsze fragmenty kodu usługi Azure ML są teraz dostępne na wyręką. Przejdź do panelu fragmenty kodu, dostępnego za pośrednictwem paska narzędzi lub Aktywuj menu fragmenty w kodzie za pomocą klawiszy CTRL + SPACJA.  
+  + Fragmenty notesu (wersja zapoznawcza). Najpopularniejsze fragmenty kodu usługi Azure ML są teraz dostępne na wyręką. Przejdź do panelu fragmenty kodu, dostępnego za pośrednictwem paska narzędzi lub Aktywuj menu fragmenty w kodzie za pomocą klawiszy CTRL + SPACJA.  
   + [Skróty klawiaturowe](./how-to-run-jupyter-notebooks.md#useful-keyboard-shortcuts). Pełna zgodność ze skrótami klawiaturowymi dostępnymi w Jupyter. 
   + Wskaż parametry komórki. Pokazuje użytkowników, którzy komórki w notesie są komórkami parametrycznymi i mogą uruchamiać sparametryzowane notesy za pośrednictwem [Papermill](https://github.com/nteract/papermill) na wystąpieniu obliczeniowym.
   + Menedżer sesji terminalu i jądra: użytkownicy będą mogli zarządzać wszystkimi jądrami i sesjami terminali działającymi w ramach obliczeń.

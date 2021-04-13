@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/01/2021
+ms.date: 04/12/2021
 ms.author: alkohli
-ms.openlocfilehash: 3a0b87f04e60fd56d543c7c7a752cd788e087c78
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0f3b81ac12d0ae96dde0397bc01a4570d992ea9
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101727485"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310176"
 ---
 # <a name="azure-stack-edge-mini-r-technical-specifications"></a>Wymagania techniczne dotyczące Azure Stack Edge
 
@@ -24,31 +24,35 @@ Składniki sprzętowe urządzenia Microsoft Azure Stack Edge mini R są zgodne z
 
 Urządzenie Azure Stack Edge mini R ma następujące specyfikacje dotyczące obliczeń i pamięci:
 
-| Specyfikacja           | Wartość                  |
-|-------------------------|------------------------|
-| Procesor CPU    | 16-rdzeniowy procesor, Intel Xeon-D 1577 |
-| Pamięć              | 48 GB pamięci RAM (2400 MT/s)                  |
+| Specyfikacja           | Wartość                           |
+|-------------------------|---------------------------------|
+| Typ procesora                | Intel Xeon-D 1577               |
+| Procesor CPU: RAW                | 16 rdzeni łącznie, 32 łącznie procesorów wirtualnych vCPU  |
+| Procesor CPU: użyteczny             | 24 procesorów wirtualnych vCPU                        |
+| Typ pamięci             | SODIMM 16 GB 2400 MT/s          |
+| Pamięć: RAW             | 48 GB pamięci RAM (3 x 16 GB)           |
+| Pamięć: użyteczna          | 32 GB pamięci RAM                       |
 
 
 ## <a name="compute-acceleration-specifications"></a>Specyfikacje przyspieszania obliczeń
 
 Jednostka przetwarzania wzrokowego (VPU) jest uwzględniona na każdym urządzeniu, na którym znajduje się urządzenie typu mini R o Azure Stack Edge, które umożliwia Kubernetes, głębokie neuronowych sieci i oparty na komputerach.
 
-| Specyfikacja           | Wartość                  |
-|-------------------------|------------------------|
-| Karta przyspieszania obliczeń         | Intel Movidius wyposażono X VPU <br> Aby uzyskać więcej informacji, zobacz [Intel Movidius wyposażono X VPU](https://www.movidius.com/MyriadX) |
+| Specyfikacja             | Wartość                  |
+|---------------------------|------------------------|
+| Karta przyspieszania obliczeń | Intel Movidius wyposażono X VPU <br> Aby uzyskać więcej informacji, zobacz [Intel Movidius wyposażono X VPU](https://www.movidius.com/MyriadX) |
 
 
 ## <a name="storage-specifications"></a>Specyfikacje magazynu
 
 Urządzenie Azure Stack Edge mini R ma 1 dysk danych i 1 dysk rozruchowy (który służy jako magazyn systemu operacyjnego). W poniższej tabeli przedstawiono szczegółowe informacje na temat pojemności magazynu urządzenia.
 
-|     Specyfikacja                          |     Wartość             |
-|--------------------------------------------|-----------------------|
-|    Liczba dysków półprzewodnikowych (dysków SSD)     |    2 X 1 TB dysków <br> Jeden dysk danych i jeden dysk rozruchowy                  |
-|    Pojemność jednego dysku SSD                     |    1 TB               |
-|    Całkowita pojemność (tylko dane)              |    1 TB              |
-|    Łączna pojemność użyteczna *                  |    ~ 750 GB        |
+|     Specyfikacja                          |     Wartość                                              |
+|--------------------------------------------|--------------------------------------------------------|
+|    Liczba dysków półprzewodnikowych (dysków SSD)     |    2 X 1 TB dysków <br> Jeden dysk danych i jeden dysk rozruchowy |
+|    Pojemność jednego dysku SSD                     |    1 TB                                                |
+|    Całkowita pojemność (tylko dane)              |    1 TB                                                |
+|    Łączna pojemność użyteczna *                  |    ~ 750 GB                                            |
 
 **Niektóre miejsca są zarezerwowane do użytku wewnętrznego.*
 
@@ -85,9 +89,9 @@ Urządzenie Azure Stack Edge mini R obejmuje również baterię dołączaną w r
 Dodatkowy [Typ baterii 2590](https://www.bren-tronics.com/bt-70791ck.html) może być używany w połączeniu z baterią dołączania, aby zwiększyć użycie urządzenia między opłatami. Ta bateria powinna być zgodna ze wszystkimi przepisami dotyczącymi bezpieczeństwa, transportu i środowiska, które mają zastosowanie w kraju użytkowania.
 
 
-| Specyfikacja           | Wartość                      |
-|-------------------------|----------------------------|
-| Pojemność baterii dołączania | 73 WH                    |
+| Specyfikacja            | Wartość                      |
+|--------------------------|----------------------------|
+| Pojemność baterii dołączania | 73 WH                     |
 
 ## <a name="enclosure-dimensions-and-weight-specifications"></a>Wymiary obudowy i specyfikacje wagi
 
@@ -99,18 +103,18 @@ W poniższej tabeli przedstawiono wymiary urządzenia i USP z niewytrzymałym pr
 
 |     Szaf     |     Milimetrach     |     15     |
 |-------------------|---------------------|----------------|
-|    Height         |    68            |    2,68          |
-|    Width          |    208          |      8,19          |
-|    Długość          |   259           |    10,20          |
+|    Height         |    68               |    2,68        |
+|    Width          |    208              |      8,19      |
+|    Długość          |   259              |    10,20       |
 
 
 ### <a name="enclosure-weight"></a>Waga obudowy
 
 Poniższa tabela zawiera listę wag urządzeń, w tym baterii.
 
-|     Szaf                                 |     Waga          |
-|-----------------------------------------------|---------------------|
-|    Łączna waga urządzenia     |    7 funtów          |
+|     Szaf                     |     Waga          |
+|-----------------------------------|---------------------|
+|    Łączna waga urządzenia     |     7 funtów           |
 
 ## <a name="enclosure-environment-specifications"></a>Specyfikacje środowiska obudowy
 

@@ -420,7 +420,7 @@
               href: search-security-get-encryption-keys.md
         - name: Zabezpieczenia ruchu przychodzącego
           items:
-            - name: Klucze dostępu do interfejsu API
+            - name: Uwierzytelnianie klucza interfejsu API
               href: search-security-api-keys.md
             - name: Konfigurowanie zapory IP
               href: service-configure-firewall.md
