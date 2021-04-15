@@ -1,5 +1,5 @@
 ---
-title: 'Azure VPN Gateway: przegląd — konfiguracje bramy o wysokiej dostępności'
+title: 'Azure VPN Gateway: Omówienie — konfiguracje bramy o wysokiej dostępie'
 description: Ten artykuł zawiera omówienie opcji konfiguracji o wysokiej dostępności przy użyciu bram Azure VPN Gateway.
 services: vpn-gateway
 author: yushwang
@@ -7,20 +7,20 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 48756b43e64576a5dd38467bb1dd97e91c168a06
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d193850461eeaa5041e1cfd6d64def503ad676d4
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91360858"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374764"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Połączenia obejmujące wiele lokalizacji i połączenia między sieciami wirtualnymi o wysokiej dostępności
 Ten artykuł zawiera omówienie opcji konfiguracji połączeń obejmujących wiele lokalizacji i połączeń między sieciami wirtualnymi o wysokiej dostępności przy użyciu bram Azure VPN Gateway.
 
 ## <a name="about-azure-vpn-gateway-redundancy"></a><a name = "activestandby"></a>Informacje o nadmiarowości bramy Azure VPN Gateway
-Każda brama Azure VPN Gateway składa się z dwóch wystąpień działających w konfiguracji aktywne-w gotowości. W przypadku każdej planowanej konserwacji lub nieplanowanych zakłóceń działania aktywnego wystąpienia wystąpienie w trybie gotowości automatycznie przejmie zadanie (tryb failover) i wznowi połączenia typu lokacja-lokacja (S2S) przez sieć VPN lub między sieciami wirtualnymi. Przełączenie spowoduje krótką przerwę w działaniu. W przypadku planowanej konserwacji łączność powinna zostać przywrócona w ciągu od 10 do 15 sekund. W przypadku nieplanowanych awarii odzyskiwanie połączenia potrwa dłużej — od ok. 1 do 1,5 minuty w najgorszym przypadku. W przypadku połączeń sieci VPN typu punkt-lokacja (P2S) między klientami i bramą połączenia P2S zostaną rozłączone, a użytkownicy będą musieli ponownie nawiązać połączenia z poziomu maszyn klienckich.
+Każda brama Azure VPN Gateway składa się z dwóch wystąpień działających w konfiguracji aktywne-w gotowości. W przypadku każdej planowanej konserwacji lub nieplanowanych zakłóceń działania aktywnego wystąpienia wystąpienie w trybie gotowości automatycznie przejmie zadanie (tryb failover) i wznowi połączenia typu lokacja-lokacja (S2S) przez sieć VPN lub między sieciami wirtualnymi. Przełączenie spowoduje krótką przerwę w działaniu. W przypadku planowanej konserwacji łączność powinna zostać przywrócona w ciągu od 10 do 15 sekund. W przypadku nieplanowanych problemów odzyskiwanie połączenia będzie trwać dłużej, w najgorszym przypadku około 1–3 minut. W przypadku połączeń sieci VPN typu punkt-lokacja (P2S) między klientami i bramą połączenia P2S zostaną rozłączone, a użytkownicy będą musieli ponownie nawiązać połączenia z poziomu maszyn klienckich.
 
-![Diagram przedstawia lokację lokalną z prywatnymi podsieciami i P i lokalnymi punktami V P N połączonymi z aktywną bramą Azure V P N do łączenia się z podsieciami hostowanymi na platformie Azure z dostępną bramą gotowości.](./media/vpn-gateway-highlyavailable/active-standby.png)
+![Diagram przedstawiający lokację lokalną z prywatnymi podsieciami I P i lokalnymi sieciami V P N połączonymi z aktywną bramą Azure V P N w celu nawiązania połączenia z podsieciami hostowaną na platformie Azure z dostępną bramą rezerwową.](./media/vpn-gateway-highlyavailable/active-standby.png)
 
 ## <a name="highly-available-cross-premises-connectivity"></a>Połączenia o wysokiej dostępności obejmujące wiele lokalizacji
 Dostępnych jest kilka opcji umożliwiających zapewnienie wyższej dostępności połączeń obejmujących wiele lokacji:
@@ -36,12 +36,12 @@ Można nawiązywać połączenie z bramą Azure VPN Gateway z sieci lokalnej prz
 
 Ta konfiguracja zapewnia wiele aktywnych tuneli z tej samej bramy Azure VPN Gateway do urządzeń lokalnych w tej samej lokalizacji. Istnieją pewne wymagania i ograniczenia:
 
-1. Należy utworzyć wiele połączeń typu lokacja-lokacja sieci VPN z urządzeń sieci VPN do platformy Azure. W przypadku łączenia wielu urządzeń sieci VPN z tej samej sieci lokalnej z platformą Azure należy utworzyć jedną bramę sieć lokalną dla każdego urządzenia sieci VPN i jedno połączenie z bramy sieci VPN platformy Azure z każdą bramą sieci lokalnej.
+1. Należy utworzyć wiele połączeń typu lokacja-lokacja sieci VPN z urządzeń sieci VPN do platformy Azure. W przypadku łączenia wielu urządzeń sieci VPN z tej samej sieci lokalnej z platformą Azure należy utworzyć jedną bramę sieci lokalnej dla każdego urządzenia sieci VPN i jedno połączenie z bramy sieci VPN platformy Azure do każdej bramy sieci lokalnej.
 2. Bramy sieci lokalnej odpowiadające urządzeniom sieci VPN muszą mieć unikatowe publiczne adresy IP we właściwości „GatewayIpAddress”.
 3. Ta konfiguracja wymaga użycia protokołu BGP. Każda brama sieci lokalnej reprezentującą urządzenie sieci VPN musi mieć unikatowy adres IP elementu równorzędnego protokołu BGP określony we właściwości „BgpPeerIpAddress”.
 4. Wartości w polu właściwości AddressPrefix w poszczególnych bramach sieci lokalnej nie mogą się nakładać. Należy określić wartość właściwości „BgpPeerIpAddress” w formacie /32 CIDR w polu AddressPrefix, na przykład 10.200.200.254/32.
 5. Należy użyć protokołu BGP, aby anonsować te same prefiksy co prefiksy sieci lokalnej dla bramy Azure VPN Gateway, a cały ruch będzie jednocześnie przekazywany przy użyciu tych tuneli.
-6. Należy użyć równorzędnego routingu z obsługą wielu ścieżek (ECMP).
+6. Należy użyć routingu ecmp (Equal-cost multi-path routing).
 7. Każde połączenie jest wliczane do maksymalnej liczby tuneli bramy Azure VPN Gateway wynoszącej 10 dla podstawowych i standardowych jednostek SKUs oraz 30 dla jednostek SKU wysokiej wydajności. 
 
 W tej konfiguracji brama Azure VPN Gateway jest nadal w trybie aktywny-w gotowości, dlatego będzie mieć miejsce to samo zachowanie i krótka przerwa jak w opisie [powyżej](#activestandby). Ta konfiguracja chroni przed awariami lub przerwami w działaniu sieci lokalnej i urządzeń sieci VPN.
@@ -49,7 +49,7 @@ W tej konfiguracji brama Azure VPN Gateway jest nadal w trybie aktywny-w gotowo�
 ### <a name="active-active-azure-vpn-gateway"></a>Brama Azure VPN Gateway w konfiguracji aktywne-aktywne
 Teraz można utworzyć bramę Azure VPN Gateway w konfiguracji aktywne-aktywne, gdzie oba wystąpienia maszyny wirtualnej bramy ustanowią tunele połączenia lokacja-lokacja sieci VPN do lokalnych urządzeń sieci VPN, jak przedstawiono na poniższym diagramie:
 
-![Diagram przedstawia lokację lokalną z prywatnymi podsieciami i P i lokalnymi punktami V P N połączonymi z dwoma aktywnymi bramami usługi Azure V P N w celu łączenia się z podsieciami hostowanymi na platformie Azure.](./media/vpn-gateway-highlyavailable/active-active.png)
+![Diagram przedstawiający lokację lokalną z prywatnymi podsieciami I P i lokalnymi sieciami V P N połączonymi z dwiema aktywną bramą azure V P N w celu nawiązania połączenia z podsieciami hostowaną na platformie Azure.](./media/vpn-gateway-highlyavailable/active-active.png)
 
 W tej konfiguracji każde wystąpienie bramy platformy Azure będzie mieć unikatowy publiczny adres IP i każde ustanowi tunel typu lokacja-lokacja sieci VPN przy użyciu protokołu IPsec/IKE do lokalnego urządzenia sieci VPN określonego w bramie sieci lokalnej i połączeniu. Należy pamiętać, że oba tunele sieci VPN są w rzeczywistości częścią tego samego połączenia. Nadal należy skonfigurować lokalne urządzenie sieci VPN, aby akceptowało lub ustanowiło dwa tunele typu lokacja-lokacja sieci VPN do tych dwóch publicznych adresów IP bramy Azure VPN Gateway.
 
@@ -71,7 +71,7 @@ Ta topologia wymaga dwóch bram sieci lokalnej i dwóch połączeń w celu obsł
 ## <a name="highly-available-vnet-to-vnet-connectivity-through-azure-vpn-gateways"></a>Połączenia o wysokiej dostępności między sieciami wirtualnymi za pośrednictwem bram Azure VPN Gateway
 Tę samą konfigurację typu aktywne-aktywne można również zastosować w przypadku połączeń między sieciami wirtualnymi platformy Azure. Można utworzyć bramy VPN Gateway typu aktywne-aktywne dla obu sieci wirtualnych i połączyć je ze sobą w celu utworzenia takiej samej pełnej siatki łączności złożonej z 4 tuneli między dwiema sieciami wirtualnymi, jak przedstawiono na poniższym diagramie:
 
-![Diagram przedstawia dwa regiony platformy Azure obsługujące prywatne I P podsieci oraz dwie bramy Azure V P N, za pomocą których łączą się dwie lokacje wirtualne.](./media/vpn-gateway-highlyavailable/vnet-to-vnet.png)
+![Diagram przedstawiający dwa regiony platformy Azure hostowania prywatnych podsieci I P i dwie bramy usługi Azure V P N, za pośrednictwem których dwie lokacje wirtualne nawiążą połączenie.](./media/vpn-gateway-highlyavailable/vnet-to-vnet.png)
 
 W tej konfiguracji zawsze istnieje para tuneli między dwiema sieciami wirtualnymi w przypadku planowanych zdarzeń konserwacji, co zapewnia jeszcze lepszą dostępność. Mimo że ta sama topologia dla łączności obejmującej wiele lokalizacji wymaga dwóch połączeń, topologia łączności między sieciami wirtualnymi będzie wymagać tylko jednego połączenia dla każdej bramy. Ponadto użycie protokołu BGP jest opcjonalne, o ile routing tranzytowy za pośrednictwem połączenia między sieciami wirtualnymi nie jest wymagany.
 
