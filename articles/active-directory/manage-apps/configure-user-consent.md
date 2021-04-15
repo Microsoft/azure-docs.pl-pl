@@ -1,67 +1,67 @@
 ---
-title: Konfigurowanie sposobu, w jaki użytkownicy końcowi wyrażają zgodę na aplikacje za pomocą usługi Azure AD
-description: Dowiedz się, jak i kiedy użytkownicy mogą wyrazić zgodę na aplikacje, które będą miały dostęp do danych organizacji.
+title: Konfigurowanie sposobu wyrażania zgody przez użytkowników końcowych na aplikacje przy użyciu usługi Azure AD
+description: Dowiedz się, jak i kiedy użytkownicy mogą wyrazić zgodę na aplikacje, które będą mieć dostęp do danych organizacji.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/01/2020
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 68bb846ebb0199691161bc501441df908eb8ad87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95a651f6201c9f60500c9191821edb7eb76b8535
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101643613"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374441"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Konfigurowanie sposobu, w jaki użytkownicy końcowi wyrażają zgodę na aplikacje
 
-Aplikacje można zintegrować z platformą tożsamości firmy Microsoft, aby umożliwić użytkownikom logowanie się przy użyciu konta służbowego i uzyskiwanie dostępu do danych organizacji w celu zapewnienia zaawansowanych środowisk opartych na danych.
+Aplikacje można zintegrować z platformą tożsamości firmy Microsoft, aby umożliwić użytkownikom logowanie się przy użyciu konta służbowego i uzyskiwanie dostępu do danych organizacji w celu zapewnienia rozbudowanych doświadczeń opartych na danych.
 
-Aby aplikacja mogła uzyskać dostęp do danych organizacji, użytkownik musi udzielić uprawnień aplikacji. Różne uprawnienia zezwalają na różne poziomy dostępu. Domyślnie wszyscy użytkownicy mogą wyrazić zgodę na aplikacje dla uprawnień, które nie wymagają zgody administratora. Na przykład użytkownik może wyrazić zgodę na zezwolenie aplikacji na dostęp do swojej skrzynki pocztowej, ale nie może wyrazić zgody, aby umożliwić aplikacji swobodnego dostęp do odczytu i zapisu do wszystkich plików w organizacji.
+Zanim aplikacja będzie mieć dostęp do danych organizacji, użytkownik musi udzielić aplikacji uprawnień, aby to zrobić. Różne uprawnienia zezwalają na różne poziomy dostępu. Domyślnie wszyscy użytkownicy mogą wyrazić zgodę na aplikacje w przypadku uprawnień, które nie wymagają zgody administratora. Na przykład domyślnie użytkownik może wyrazić zgodę na dostęp aplikacji do skrzynki pocztowej, ale nie może wyrazić zgody na umożliwienie aplikacji niesprawdowego dostępu do odczytu i zapisu we wszystkich plikach w organizacji.
 
-Dzięki umożliwieniu użytkownikom dostępu do danych aplikacji użytkownicy mogą łatwo uzyskać użyteczne aplikacje i pracować wydajnie. Jednak w niektórych sytuacjach taka konfiguracja może reprezentować ryzyko, jeśli nie jest dokładnie monitorowana i kontrolowana.
+Zezwalając użytkownikom na udzielanie aplikacjom dostępu do danych, użytkownicy mogą łatwo uzyskać przydatne aplikacje i pracować wydajnie. Jednak w niektórych sytuacjach taka konfiguracja może stanowić ryzyko, jeśli nie jest dokładnie monitorowana i kontrolowana.
 
 > [!IMPORTANT]
-> Aby zmniejszyć ryzyko złośliwych aplikacji próbujących nakłonić użytkowników do udzielenia im dostępu do danych organizacji, zalecamy zezwolenie użytkownikom na zgodę tylko na aplikacje, które zostały opublikowane przez [zweryfikowanego wydawcę](../develop/publisher-verification-overview.md).
+> Aby zmniejszyć ryzyko, że złośliwe aplikacje spróbują nakłonić użytkowników do udzielenia im dostępu do danych organizacji, zalecamy wyrażenie zgody tylko dla aplikacji opublikowanych przez zweryfikowanego [wydawcę.](../develop/publisher-verification-overview.md)
 
 ## <a name="user-consent-settings"></a>Ustawienia zgody użytkownika
 
-Zasady zgody aplikacji opisują warunki, które muszą zostać spełnione, aby można było przystąpić do aplikacji. Te zasady mogą obejmować warunki dotyczące aplikacji żądającej dostępu, a także uprawnienia, do których aplikacja żąda.
+Zasady wyrażania zgody aplikacji opisują warunki, które muszą zostać spełnione, aby można było wyrazić zgodę na aplikację. Te zasady mogą zawierać warunki dotyczące aplikacji żądających dostępu, a także uprawnienia, których żąda aplikacja.
 
-Wybierając zasady zgody aplikacji, które mają zastosowanie do wszystkich użytkowników, można ustawić limity, kiedy użytkownicy końcowi mogą przyznawać zgodę na aplikacje oraz kiedy będą musieli zażądać przeglądu i zatwierdzenia przez administratora:
+Wybierając zasady wyrażania zgody dla wszystkich użytkowników, można ustawić limity dotyczące sytuacji, w której użytkownicy końcowi mogą udzielić zgody na aplikacje oraz kiedy będą oni wymagać weryfikacji i zatwierdzenia przez administratora:
 
-* **Wyłącz wyrażanie zgody użytkownika** — użytkownicy nie mogą przyznawać uprawnień do aplikacji. Użytkownicy mogą nadal logować się do aplikacji, które wcześniej wyraziły zgodę lub które są do nich wysyłane przez administratorów w ich imieniu, ale nie będą mogli wyrazić zgody na nowe uprawnienia lub do nowych aplikacji. Tylko użytkownicy, którym przypisano rolę katalogu, która obejmuje uprawnienie do udzielania zgody, będą mogli wyrazić zgodę na nowe aplikacje.
+* **Wyłącz zgodę użytkownika —** użytkownicy nie mogą udzielać uprawnień aplikacjom. Użytkownicy mogą nadal logować się do aplikacji, na które wcześniej wyrażali zgodę lub na które administratorzy wyrażali zgodę w ich imieniu, ale nie będą mogli wyrazić zgody na nowe uprawnienia lub na nowe aplikacje samodzielnie. Tylko użytkownicy, którym udzielono roli katalogu, która obejmuje uprawnienie do udzielania zgody, będą mogli wyrazić zgodę na nowe aplikacje.
 
-* **Użytkownicy mogą wyrazić zgodę na aplikacje od zweryfikowanych wydawców lub w organizacji, ale tylko dla wybranych uprawnień** — wszyscy użytkownicy będą mogli wyrazić zgodę tylko na aplikacje, które zostały opublikowane przez [zweryfikowanego wydawcę](../develop/publisher-verification-overview.md) i aplikacje zarejestrowane w dzierżawie. Użytkownicy mogą wyrazić zgodę tylko na uprawnienia, które zostały sklasyfikowane jako "niski wpływ". Należy [sklasyfikować uprawnienia](configure-permission-classifications.md) , aby wybrać uprawnienia, do których użytkownicy mogą wyrazić zgodę.
+* Użytkownicy mogą wyrazić zgodę na aplikacje od zweryfikowanych wydawców lub **organizacji,** ale tylko w przypadku [](../develop/publisher-verification-overview.md) wybranych uprawnień — wszyscy użytkownicy mogą wyrazić zgodę tylko na aplikacje opublikowane przez zweryfikowanego wydawcę i aplikacje zarejestrowane w dzierżawie. Użytkownicy mogą wyrazić zgodę tylko na uprawnienia sklasyfikowane jako "niski wpływ". Należy [sklasyfikować uprawnienia,](configure-permission-classifications.md) aby wybrać uprawnienia, na które użytkownicy mogą wyrazić zgodę.
 
-* **Użytkownicy mogą wyrazić zgodę na wszystkie aplikacje** — ta opcja umożliwia wszystkim użytkownikom wyrażanie zgody na wszelkie uprawnienia, które nie wymagają zgody administratora na żadną aplikację.
+* **Użytkownicy mogą wyrazić zgodę na wszystkie aplikacje** — ta opcja umożliwia wszystkim użytkownikom wyrażanie zgody na wszelkie uprawnienia, które nie wymagają zgody administratora dla żadnej aplikacji.
 
-* **Zasady zgody aplikacji niestandardowych** — Aby uzyskać jeszcze więcej opcji dotyczących warunków, które są stosowane w przypadku wyrażania zgody użytkownika, możesz [utworzyć niestandardowe zasady zgody na aplikacje](manage-app-consent-policies.md#create-a-custom-app-consent-policy)i skonfigurować je do stosowania w przypadku zgody użytkownika.
+* **Niestandardowe zasady wyrażania** zgody aplikacji — aby uzyskać jeszcze [](manage-app-consent-policies.md#create-a-custom-app-consent-policy)więcej opcji dotyczących warunków, które obowiązują podczas wyrażania zgody przez użytkownika, możesz utworzyć niestandardowe zasady wyrażania zgody dla aplikacji i skonfigurować je do stosowania w celu wyrażenia zgody przez użytkownika.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Aby skonfigurować ustawienia zgody użytkowników za pomocą Azure Portal:
+Aby skonfigurować ustawienia zgody użytkownika za pośrednictwem Azure Portal:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako [administrator globalny](../roles/permissions-reference.md#global-administrator).
-1. Wybierz pozycję **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**  >  **i uprawnienia do**  >  **ustawień zgody użytkownika**.
-1. W obszarze **wyrażanie zgody użytkownika na aplikacje** wybierz ustawienie zgody, które chcesz skonfigurować dla wszystkich użytkowników.
-1. Wybierz pozycję **Zapisz** , aby zapisać ustawienia.
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) jako [administrator globalny.](../roles/permissions-reference.md#global-administrator)
+1. Wybierz **Azure Active Directory**  >  **przedsiębiorstwa Ustawienia**  >  **wyrażania zgody i** uprawnień przez  >  **użytkownika.**
+1. W **obszarze Zgoda użytkownika dla aplikacji** wybierz ustawienie zgody, które chcesz skonfigurować dla wszystkich użytkowników.
+1. Wybierz **pozycję Zapisz,** aby zapisać ustawienia.
 
 :::image type="content" source="media/configure-user-consent/setting-for-all-users.png" alt-text="Ustawienia zgody użytkownika":::
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-Możesz użyć najnowszego modułu programu Azure AD PowerShell w wersji zapoznawczej, [AzureADPreview](/powershell/azure/active-directory/install-adv2?preserve-view=true&view=azureadps-2.0-preview), aby wybrać zasady zgody aplikacji, które regulują zgodę użytkownika na aplikacje.
+Możesz użyć najnowszego modułu Azure AD PowerShell (wersja zapoznawcza), [AzureADPreview,](/powershell/azure/active-directory/install-adv2?preserve-view=true&view=azureadps-2.0-preview)aby wybrać zasady wyrażania zgody aplikacji, które określają zgodę użytkownika dla aplikacji.
 
-#### <a name="disable-user-consent"></a>Wyłącz wyrażanie zgody użytkownika
+#### <a name="disable-user-consent"></a>Wyłączanie zgody użytkownika
 
-Aby wyłączyć wyrażanie zgody użytkownika, ustaw zasady zgody, które regulują zgodę użytkownika na wartość pustą:
+Aby wyłączyć zgodę użytkownika, ustaw puste zasady wyrażania zgody, które określają zgodę użytkownika:
 
   ```powershell
   Set-AzureADMSAuthorizationPolicy `
@@ -69,9 +69,9 @@ Aby wyłączyć wyrażanie zgody użytkownika, ustaw zasady zgody, które regulu
      -PermissionGrantPolicyIdsAssignedToDefaultUserRole @()
   ```
 
-#### <a name="allow-user-consent-subject-to-an-app-consent-policy"></a>Zezwalaj na zgodę użytkownika na podlegające zasadom zgody na aplikacje
+#### <a name="allow-user-consent-subject-to-an-app-consent-policy"></a>Zezwalanie na zgodę użytkownika w przypadku zasad zgody aplikacji
 
-Aby zezwolić użytkownikom na zgodę, wybierz zasady zgody aplikacji, które powinny zarządzać autoryzacją użytkowników w celu udzielenia zgody na aplikacje:
+Aby zezwolić na zgodę użytkownika, wybierz zasady wyrażania zgody dla aplikacji, które powinny określać autoryzację użytkowników w celu udzielania zgody na aplikacje:
 
   ```powershell
   Set-AzureADMSAuthorizationPolicy `
@@ -79,14 +79,14 @@ Aby zezwolić użytkownikom na zgodę, wybierz zasady zgody aplikacji, które po
      -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("managePermissionGrantsForSelf.{consent-policy-id}")
   ```
 
-Zamień `{consent-policy-id}` na identyfikator zasad, które chcesz zastosować. Możesz wybrać [niestandardowe zasady zgody aplikacji](manage-app-consent-policies.md#create-a-custom-app-consent-policy) , które zostały utworzone, lub wybrać jedną z następujących zasad:
+Zastąp `{consent-policy-id}` identyfikatorem zasad, które chcesz zastosować. Możesz wybrać niestandardowe [zasady wyrażania](manage-app-consent-policies.md#create-a-custom-app-consent-policy) zgody dla aplikacji, które zostały utworzone, lub wybrać jedną z następujących wbudowanych zasad:
 
 | ID (Identyfikator) | Opis |
 |:---|:------------|
-| Microsoft-User-wartość domyślna — niska | **Zezwalaj użytkownikom na wyrażanie zgody na aplikacje od zweryfikowanych wydawców dla wybranych uprawnień**<br /> Zezwalaj na ograniczoną zgodę użytkownika tylko w przypadku aplikacji z zweryfikowanych wydawców i aplikacji zarejestrowanych w dzierżawie i tylko dla uprawnień sklasyfikowanych jako "niski wpływ". (Nie zapomnij [sklasyfikować uprawnień](configure-permission-classifications.md) , aby wybrać uprawnienia, do których użytkownicy mogą wyrazić zgodę). |
-| Microsoft-User-default-Legacy | **Zezwalaj na wyrażanie zgody użytkownika na aplikacje**<br /> Ta opcja umożliwia wszystkim użytkownikom wyrażanie zgody na wszelkie uprawnienia, które nie wymagają zgody administratora, dla żadnej aplikacji |
+| microsoft-user-default-low | **Zezwalaj na zgodę użytkownika dla aplikacji zweryfikowanych wydawców dla wybranych uprawnień**<br /> Zezwalaj na ograniczoną zgodę użytkownika tylko dla aplikacji zweryfikowanych wydawców i aplikacji zarejestrowanych w Twojej dzierżawie i tylko dla uprawnień sklasyfikowanych jako "Niski wpływ". (Nie zapomnij [sklasyfikować](configure-permission-classifications.md) uprawnień, aby wybrać uprawnienia, na które użytkownicy mogą wyrazić zgodę). |
+| microsoft-user-default-legacy | **Zezwalaj na zgodę użytkownika dla aplikacji**<br /> Ta opcja umożliwia wszystkim użytkownikom wyrażanie zgody na wszelkie uprawnienia, które nie wymagają zgody administratora dla żadnej aplikacji |
   
-Na przykład, aby włączyć zgodę użytkownika zgodnie z zasadami wbudowanymi `microsoft-user-default-low` :
+Aby na przykład włączyć zgodę użytkownika na podstawie wbudowanych zasad `microsoft-user-default-low` :
 
 ```powershell
 Set-AzureADMSAuthorizationPolicy `
@@ -97,39 +97,39 @@ Set-AzureADMSAuthorizationPolicy `
 ---
 
 > [!TIP]
-> [Włącz przepływ pracy zgody administratora](configure-admin-consent-workflow.md) , aby umożliwić użytkownikom zażądanie przeglądu i zatwierdzenia aplikacji, do których użytkownik nie może wyrazić zgody — na przykład gdy użytkownik ma zgodę na jego wyłączenie lub gdy aplikacja żąda uprawnień, których użytkownik nie może udzielić.
+> [](configure-admin-consent-workflow.md) Włącz przepływ pracy wyrażania zgody przez administratora, aby umożliwić użytkownikom żądanie przejrzenia i zatwierdzenia przez administratora aplikacji, na które użytkownik nie może wyrazić zgody — na przykład gdy zgoda użytkownika została wyłączona lub gdy aplikacja żąda uprawnień, na które użytkownik nie może udzielić.
 
-## <a name="risk-based-step-up-consent"></a>Wyrażanie zgody na ryzyko
+## <a name="risk-based-step-up-consent"></a>Zgoda na krok po kroku oparta na ryzyku
 
-Wyrażanie ryzyka krok po kroku pomaga zmniejszyć narażenie użytkowników na złośliwe aplikacje, które podejmują [nielegalne żądania zgody](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants). Jeśli firma Microsoft wykryje ryzykowne żądanie zgody użytkownika końcowego, żądanie będzie wymagało zgody administratora na "krok po kroku". Ta funkcja jest domyślnie włączona, ale powoduje to zmianę zachowania tylko wtedy, gdy jest włączona zgoda użytkownika końcowego.
+Zgoda krokowa oparta na ryzyku pomaga zmniejszyć narażenie użytkowników na złośliwe aplikacje, które [żądają niedozwolonej zgody.](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants) Jeśli firma Microsoft wykryje ryzykowne żądanie zgody użytkownika końcowego, zamiast tego będzie wymagać "kroku" w celu wyrażenia zgody przez administratora. Ta funkcja jest domyślnie włączona, ale spowoduje zmianę zachowania tylko wtedy, gdy jest włączona zgoda użytkownika końcowego.
 
-Po wykryciu ryzykownego żądania zgody w monicie zostanie wyświetlony komunikat informujący o konieczności zatwierdzenia przez administratora. Jeśli [przepływ pracy żądania zgody administratora](configure-admin-consent-workflow.md) jest włączony, użytkownik może wysłać żądanie do administratora w celu dalszej kontroli bezpośrednio z poziomu monitu o zgodę. Jeśli nie jest włączona, zostanie wyświetlony następujący komunikat:
+Po wykryciu ryzykownych żądań zgody w wierszu zgody zostanie wyświetlony komunikat informujący o potrzebie zatwierdzenia przez administratora. Jeśli przepływ [pracy żądania zgody administratora jest](configure-admin-consent-workflow.md) włączony, użytkownik może wysłać żądanie do administratora w celu dalszego przejrzenia bezpośrednio z monitu o wyrażenie zgody. Jeśli ta opcja nie jest włączona, zostanie wyświetlony następujący komunikat:
 
-* **AADSTS90094:** &lt; clientAppDisplayName &gt; musi mieć uprawnienia dostępu do zasobów w organizacji, które mogą przyznawać tylko Administratorzy. Poproś administratora o udzielenie uprawnienia do tej aplikacji, aby można było z niej korzystać.
+* **AADSTS90094:** &lt; Element clientAppDisplayName wymaga uprawnień dostępu do zasobów w organizacji, &gt; które może przyznać tylko administrator. Poproś administratora o udzielenie uprawnienia do tej aplikacji, aby można było z niej korzystać.
 
-W takim przypadku zdarzenie inspekcji zostanie również zarejestrowane z kategorią "ApplicationManagement", typem działania "zgody na aplikację" oraz przyczynie stanu "wykryto ryzykowną aplikację".
+W takim przypadku zdarzenie inspekcji zostanie również zarejestrowane z kategorią "ApplicationManagement", typem działania "Zgoda na aplikację" i przyczyną stanu "Wykryto ryzykowną aplikację".
 
 > [!IMPORTANT]
-> Administratorzy powinni uważnie [oszacować wszystkie żądania zgody](manage-consent-requests.md#evaluating-a-request-for-tenant-wide-admin-consent) przed zatwierdzeniem żądania, szczególnie w przypadku wykrycia ryzyka przez firmę Microsoft.
+> Administratorzy powinni dokładnie [ocenić wszystkie żądania zgody](manage-consent-requests.md#evaluating-a-request-for-tenant-wide-admin-consent) przed zatwierdzeniem żądania, szczególnie gdy firma Microsoft wykryła ryzyko.
 
-### <a name="disable-or-re-enable-risk-based-step-up-consent-using-powershell"></a>Wyłączenie lub ponowne włączenie zgody na ryzyko krok po kroku przy użyciu programu PowerShell
+### <a name="disable-or-re-enable-risk-based-step-up-consent-using-powershell"></a>Wyłączanie lub ponowne włączanie zgody krokowej opartej na ryzyku przy użyciu programu PowerShell
 
-Możesz użyć modułu Azure AD PowerShell w wersji zapoznawczej, aby wyłączyć krok do zgody administratora wymagany w [przypadkach, w](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview)których firma Microsoft wykryje ryzyko lub ponownie je włączać, jeśli wcześniej została wyłączona.
+Możesz użyć modułu Azure AD PowerShell (wersja zapoznawcza), [AzureADPreview,](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview)aby wyłączyć krok do zgody administratora wymagany w przypadkach, gdy firma Microsoft wykryje ryzyko lub ponownie je włączy, jeśli została wcześniej wyłączona.
 
-1. Upewnij się, że używasz modułu [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) . Ten krok jest ważny, jeśli zainstalowano moduł [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) i moduł [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) .
+1. Upewnij się, że używasz modułu [AzureADPreview.](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) Ten krok jest ważny, jeśli zainstalowano zarówno moduł [AzureAD,](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) jak i [moduł AzureADPreview).](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview)
 
     ```powershell
     Remove-Module AzureAD
     Import-Module AzureADPreview
     ```
 
-1. Nawiązywanie połączenia z usługą Azure AD PowerShell.
+1. Połącz się z programem PowerShell usługi Azure AD.
 
    ```powershell
    Connect-AzureAD
    ```
 
-1. Pobierz bieżącą wartość ustawień **zasad** dotyczących ustawień katalogu w dzierżawie. Wymaga to sprawdzenia, czy zostały utworzone ustawienia katalogu dla tej funkcji, a jeśli nie, użyj wartości z odpowiedniego szablonu ustawień katalogu.
+1. Pobierz bieżącą wartość ustawień katalogu **Ustawienia zasad zgody** w dzierżawie. Wymaga to sprawdzenia, czy ustawienia katalogu dla tej funkcji zostały utworzone, a jeśli nie, przy użyciu wartości z odpowiedniego szablonu ustawień katalogu.
 
     ```powershell
     $consentSettingsTemplateId = "dffd5d46-495d-40a9-8e21-954ff55e198a" # Consent Policy Settings
@@ -147,7 +147,7 @@ Możesz użyć modułu Azure AD PowerShell w wersji zapoznawczej, aby wyłączy�
 
     | Ustawienie       | Typ         | Opis  |
     | ------------- | ------------ | ------------ |
-    | _BlockUserConsentForRiskyApps_   | Wartość logiczna |  Flaga oznaczająca, czy zgoda użytkownika zostanie zablokowana w przypadku wykrycia ryzykownego żądania. |
+    | _BlockUserConsentForRiskyApps_   | Wartość logiczna |  Flaga wskazująca, czy zgoda użytkownika zostanie zablokowana po wykryciu ryzykownych żądań. |
 
 1. Zaktualizuj wartość ustawień dla żądanej konfiguracji:
 
@@ -180,9 +180,9 @@ Dodatkowe informacje:
 * [Konfigurowanie ustawień zgody użytkownika](configure-user-consent.md)
 * [Zarządzanie zasadami wyrażania zgody aplikacji](manage-app-consent-policies.md)
 * [Konfigurowanie przepływu pracy zgody administratora](configure-admin-consent-workflow.md)
-* [Dowiedz się, jak zarządzać zgodą na aplikacje i oszacować wnioski o zgodę](manage-consent-requests.md)
+* [Dowiedz się, jak zarządzać zgodami na aplikacje i oceniać żądania zgody](manage-consent-requests.md)
 * [Udzielanie zgody administratora całej dzierżawy dla aplikacji](grant-admin-consent.md)
 * [Uprawnienia i zgoda na platformie tożsamości firmy Microsoft](../develop/v2-permissions-and-consent.md)
 
-Aby uzyskać pomoc lub znaleźć odpowiedzi na pytania:
-* [Usługa Azure AD w firmie Microsoft Q&A.](/answers/topics/azure-active-directory.html)
+Aby uzyskać pomoc lub znaleźć odpowiedzi na swoje pytania:
+* [Usługa Azure AD w witrynie Microsoft Q&A.](/answers/topics/azure-active-directory.html)

@@ -1,28 +1,28 @@
 ---
-title: 'Samouczek: wdrażanie Django w klastrze AKS z serwerem elastycznym PostgreSQL przy użyciu interfejsu wiersza polecenia platformy Azure'
-description: Dowiedz się, jak szybko kompilować i wdrażać Django na AKS przy użyciu serwera Azure Database for PostgreSQL-elastycznie.
+title: 'Samouczek: wdrażanie platformy Django w klastrze usługi AKS za pomocą serwera elastycznego PostgreSQL przy użyciu interfejsu wiersza polecenia platformy Azure'
+description: Dowiedz się, jak szybko skompilować i wdrożyć platformę Django w u Azure Database for PostgreSQL — elastyczny serwer.
 ms.service: postgresql
 author: mksuni
 ms.author: sumuth
 ms.topic: tutorial
 ms.date: 12/10/2020
-ms.custom: mvc
-ms.openlocfilehash: 71066fc2e2f87405455a059fe23c20277c4b09fb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: b79b470a25a63c0a46ddef94ee65f47f37c560cb
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105726383"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107477812"
 ---
-# <a name="tutorial-deploy-django-app-on-aks-with-azure-database-for-postgresql---flexible-server"></a>Samouczek: wdrażanie aplikacji Django na AKS przy użyciu serwera Azure Database for PostgreSQL — elastyczny
+# <a name="tutorial-deploy-django-app-on-aks-with-azure-database-for-postgresql---flexible-server"></a>Samouczek: wdrażanie aplikacji Django w uwitrynie AKS Azure Database for PostgreSQL — elastyczny serwer
 
-W tym przewodniku szybki start wdrożono aplikację Django w klastrze usługi Azure Kubernetes Service (AKS) z serwerem elastycznym Azure Database for PostgreSQL (wersja zapoznawcza) przy użyciu interfejsu wiersza polecenia platformy Azure.
+W tym przewodniku Szybki start wdrożysz aplikację Django w klastrze Azure Kubernetes Service (AKS) za pomocą usługi Azure Database for PostgreSQL — elastyczny serwer (wersja zapoznawcza) przy użyciu interfejsu wiersza polecenia platformy Azure.
 
-**[AKS](../../aks/intro-kubernetes.md)** to zarządzana usługa Kubernetes, która umożliwia szybkie wdrażanie klastrów i zarządzanie nimi. **[Azure Database for PostgreSQL — elastyczny serwer (wersja zapoznawcza)](overview.md)** to w pełni zarządzana usługa bazy danych, która umożliwia dokładniejszą kontrolę i elastyczność w zakresie funkcji zarządzania bazami danych i ustawień konfiguracji.
+**[AKS](../../aks/intro-kubernetes.md)** to zarządzana usługa Kubernetes, która umożliwia szybkie wdrażanie klastrów i zarządzanie nimi. Azure Database for PostgreSQL — serwer elastyczny **[(wersja zapoznawcza)](overview.md)** to w pełni zarządzana usługa bazy danych zaprojektowana w celu zapewnienia bardziej szczegółowej kontroli i elastyczności funkcji zarządzania bazami danych i ustawień konfiguracji.
 
 > [!NOTE]
-> - Azure Database for PostgreSQL elastyczny serwer jest obecnie w publicznej wersji zapoznawczej
-> - W tym przewodniku szybki start założono podstawową wiedzę na temat koncepcji Kubernetes, Django i PostgreSQL.
+> - Azure Database for PostgreSQL serwer elastyczny jest obecnie w publicznej wersji zapoznawczej
+> - W tym przewodniku Szybki start założono, że rozumiesz pojęcia związane z platformą Kubernetes, platformą Django i bazą danych PostgreSQL.
 
 ## <a name="pre-requisites"></a>Wymagania wstępne
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -30,24 +30,24 @@ W tym przewodniku szybki start wdrożono aplikację Django w klastrze usługi Az
 - Skorzystaj z usługi [Azure Cloud Shell](../../cloud-shell/quickstart.md) za pośrednictwem środowiska bash.
 
    [![Uruchamianie osadzane](https://shell.azure.com/images/launchcloudshell.png "Uruchamianie usługi Azure Cloud Shell")](https://shell.azure.com)  
-- Jeśli wolisz, [Zainstaluj](/cli/azure/install-azure-cli) interfejs wiersza polecenia platformy Azure w celu uruchomienia poleceń referencyjnych interfejsu CLI.
+- Jeśli wolisz, zainstaluj [interfejs wiersza polecenia](/cli/azure/install-azure-cli) platformy Azure, aby uruchamiać polecenia referencyjne interfejsu wiersza polecenia.
   - Jeśli korzystasz z instalacji lokalnej, zaloguj się za pomocą polecenia [az login](/cli/azure/reference-index#az-login) interfejsu wiersza polecenia platformy Azure.  Aby ukończyć proces uwierzytelniania, wykonaj kroki wyświetlane w terminalu.  Dodatkowe opcje logowania opisano w sekcji [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli).
   - Po wyświetleniu monitu przy pierwszym użyciu zainstaluj rozszerzenia interfejsu wiersza polecenia platformy Azure.  Aby uzyskać więcej informacji na temat rozszerzeń, zobacz [Korzystanie z rozszerzeń w interfejsie wiersza polecenia platformy Azure](/cli/azure/azure-cli-extensions-overview).
-  - Uruchom polecenie [az version](/cli/azure/reference-index?#az_version), aby znaleźć zainstalowane wersje i biblioteki zależne. Aby uaktualnić do najnowszej wersji, uruchom polecenie [az upgrade](/cli/azure/reference-index?#az_upgrade). W tym artykule jest wymagana Najnowsza wersja interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
+  - Uruchom polecenie [az version](/cli/azure/reference-index?#az_version), aby znaleźć zainstalowane wersje i biblioteki zależne. Aby uaktualnić do najnowszej wersji, uruchom polecenie [az upgrade](/cli/azure/reference-index?#az_upgrade). Ten artykuł wymaga najnowszej wersji interfejsu wiersza polecenia platformy Azure. Jeśli używasz Azure Cloud Shell, najnowsza wersja jest już zainstalowana.
 
 > [!NOTE]
-> W przypadku uruchamiania poleceń w tym przewodniku szybki start lokalnie (zamiast Azure Cloud Shell) Upewnij się, że polecenia są uruchamiane jako administrator.
+> Jeśli polecenia w tym przewodniku Szybki start są uruchamiane lokalnie (zamiast Azure Cloud Shell), upewnij się, że polecenia są uruchamiane jako administrator.
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Grupa zasobów platformy Azure to logiczna grupa przeznaczona do wdrażania zasobów platformy Azure i zarządzania nimi. Utwórzmy grupę zasobów *Django-Project* przy użyciu polecenia [AZ Group Create] [AZ-Group-Create] w lokalizacji *Wschodnie* .
+Grupa zasobów platformy Azure to logiczna grupa przeznaczona do wdrażania zasobów platformy Azure i zarządzania nimi. Utwórzmy grupę zasobów *django-project* przy użyciu polecenia [az group create][az-group-create] w *lokalizacji eastus.*
 
 ```azurecli-interactive
 az group create --name django-project --location eastus
 ```
 
 > [!NOTE]
-> Lokalizacja grupy zasobów to miejsce, w którym przechowywane są metadane grupy zasobów. W przypadku, gdy zasoby są uruchamiane na platformie Azure, jeśli nie określisz innego regionu podczas tworzenia zasobu.
+> Lokalizacja grupy zasobów to lokalizacja, w której są przechowywane metadane grupy zasobów. Jest to również miejsce, w którym zasoby są uruchamiane na platformie Azure, jeśli nie określisz innego regionu podczas tworzenia zasobów.
 
 Następujące przykładowe dane wyjściowe przedstawiają pomyślnie utworzoną grupę zasobów:
 
@@ -67,7 +67,7 @@ Następujące przykładowe dane wyjściowe przedstawiają pomyślnie utworzoną 
 
 ## <a name="create-aks-cluster"></a>Tworzenie klastra AKS
 
-Utwórz klaster AKS za pomocą polecenia [az aks create](/cli/azure/aks#az-aks-create). W poniższym przykładzie pokazano tworzenie klastra o nazwie *myAKSCluster* z jednym węzłem. Wykonanie tej czynności potrwa kilka minut.
+Utwórz klaster AKS za pomocą polecenia [az aks create](/cli/azure/aks#az-aks-create). W poniższym przykładzie pokazano tworzenie klastra o nazwie *myAKSCluster* z jednym węzłem. Potrwa to kilka minut.
 
 ```azurecli-interactive
 az aks create --resource-group django-project --name djangoappcluster --node-count 1 --generate-ssh-keys
@@ -76,7 +76,7 @@ az aks create --resource-group django-project --name djangoappcluster --node-cou
 Po kilku minutach polecenie zostanie wykonane i zwróci informacje o klastrze w formacie JSON.
 
 > [!NOTE]
-> Podczas tworzenia klastra AKS zostaje automatycznie utworzona druga grupa zasobów do przechowywania zasobów AKS. Zobacz, [dlaczego dwie grupy zasobów utworzono za pomocą AKS?](../../aks/faq.md#why-are-two-resource-groups-created-with-aks)
+> Podczas tworzenia klastra AKS automatycznie tworzona jest druga grupa zasobów do przechowywania zasobów usługi AKS. Zobacz Why are two resource groups created with AKS? (Dlaczego dwie [grupy zasobów są tworzone za pomocą aKS?)](../../aks/faq.md#why-are-two-resource-groups-created-with-aks)
 
 ## <a name="connect-to-the-cluster"></a>Łączenie z klastrem
 
@@ -93,7 +93,7 @@ az aks get-credentials --resource-group django-project --name djangoappcluster
 ```
 
 > [!NOTE]
-> Powyższe polecenie używa domyślnej lokalizacji [pliku konfiguracji Kubernetes](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) `~/.kube/config` . Możesz określić inną lokalizację pliku konfiguracji Kubernetes za pomocą polecenia *--File*.
+> Powyższe polecenie używa domyślnej lokalizacji dla pliku konfiguracji [kubernetes](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/), którym jest `~/.kube/config` . Możesz określić inną lokalizację dla pliku konfiguracji kubernetes przy użyciu *opcji --file*.
 
 Aby sprawdzić połączenie z klastrem, użyj polecenia [kubectl get]( https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get), aby powrócić do listy węzłów klastra.
 
@@ -108,51 +108,51 @@ NAME                       STATUS   ROLES   AGE     VERSION
 aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 ```
 
-## <a name="create-an-azure-database-for-postgresql---flexible-server"></a>Utwórz serwer elastyczny Azure Database for PostgreSQL
-Utwórz elastyczny serwer przy użyciu polecenia [AZ PostgreSQL elastyczny-Server Create](/cli/azure/postgres/flexible-server#az_postgres_flexible_server_create). Następujące polecenie tworzy serwer przy użyciu wartości domyślnych usługi i z lokalnego kontekstu interfejsu wiersza polecenia platformy Azure:
+## <a name="create-an-azure-database-for-postgresql---flexible-server"></a>Tworzenie serwera Azure Database for PostgreSQL — elastyczny serwer
+Utwórz serwer elastyczny za pomocą [polecenia az postgreSQL flexible-server create.](/cli/azure/postgres/flexible-server#az_postgres_flexible_server_create) Następujące polecenie tworzy serwer przy użyciu wartości domyślnych i wartości usługi z kontekstu lokalnego interfejsu wiersza polecenia platformy Azure:
 
 ```azurecli-interactive
 az postgres flexible-server create --public-access <YOUR-IP-ADDRESS>
 ```
 
-Utworzony serwer ma następujące atrybuty:
-- Nowa pusta baza danych ```postgres``` jest tworzona podczas pierwszego aprowizacji serwera. W tym przewodniku szybki start użyjemy tej bazy danych.
-- Automatycznie wygenerowana nazwa serwera, nazwa użytkownika administratora, hasło administratora, nazwa grupy zasobów (jeśli nie została jeszcze określona w kontekście lokalnym) i w tej samej lokalizacji, w której znajduje się grupa zasobów
-- Ustawienia domyślne usługi dla pozostałych konfiguracji serwera: warstwa obliczeniowa (Ogólnego przeznaczenia), rozmiar obliczeń/jednostka SKU (Standard_D2s_v3, która używa 2vCores), okres przechowywania kopii zapasowych (7 dni) i wersja PostgreSQL (12)
-- Użycie argumentu dostęp publiczny umożliwia utworzenie serwera z dostępem publicznym chronionych przez reguły zapory. Podając swój adres IP, aby dodać regułę zapory, aby zezwolić na dostęp z komputera klienckiego.
-- Ponieważ polecenie używa kontekstu lokalnego, utworzy serwer w grupie zasobów ```django-project``` i w regionie ```eastus``` .
+Utworzony serwer ma poniższe atrybuty:
+- Nowa pusta baza danych ```postgres``` jest tworzona podczas pierwszej aprowrowi serwera. W tym przewodniku Szybki start użyjemy tej bazy danych.
+- Automatycznie wygenerowana nazwa serwera, nazwa użytkownika administratora, hasło administratora, nazwa grupy zasobów (jeśli nie została jeszcze określona w kontekście lokalnym) i w tej samej lokalizacji co grupa zasobów
+- Wartości domyślne usługi dla pozostałych konfiguracji serwera: warstwa obliczeniowa (Ogólnego przeznaczenia), rozmiar obliczeniowy/jednostkę SKU (Standard_D2s_v3 która używa 2 rdzenie), okres przechowywania kopii zapasowej (7 dni) i wersja PostgreSQL (12)
+- Użycie argumentu dostępu publicznego umożliwia utworzenie serwera z dostępem publicznym chronionym przez reguły zapory. Podając swój adres IP, aby dodać regułę zapory, aby zezwolić na dostęp z komputera klienckiego.
+- Ponieważ polecenie używa kontekstu lokalnego, utworzy serwer w grupie zasobów i ```django-project``` w regionie ```eastus``` .
 
 
-## <a name="build-your-django-docker-image"></a>Kompilowanie obrazu platformy Docker Django
+## <a name="build-your-django-docker-image"></a>Kompilowanie obrazu platformy Docker django
 
-Utwórz nową [aplikację Django](https://docs.djangoproject.com/en/3.1/intro/) lub Użyj istniejącego projektu Django. Upewnij się, że kod znajduje się w tej strukturze folderów.
+Utwórz nową aplikację [Django lub](https://docs.djangoproject.com/en/3.1/intro/) użyj istniejącego projektu Django. Upewnij się, że kod znajduje się w tej strukturze folderów.
 
 ```
-└───my-djangoapp
-    └───views.py
-    └───models.py
-    └───forms.py
-    ├───templates
+â””â”€â”€â”€my-djangoapp
+    â””â”€â”€â”€views.py
+    â””â”€â”€â”€models.py
+    â””â”€â”€â”€forms.py
+    â”œâ”€â”€â”€templates
           . . . . . . .
-    ├───static
+    â”œâ”€â”€â”€static
          . . . . . . .
-└───my-django-project
-    └───settings.py
-    └───urls.py
-    └───wsgi.py
+â””â”€â”€â”€my-django-project
+    â””â”€â”€â”€settings.py
+    â””â”€â”€â”€urls.py
+    â””â”€â”€â”€wsgi.py
         . . . . . . .
-    └─── Dockerfile
-    └─── requirements.txt
-    └─── manage.py
+    â””â”€â”€â”€ Dockerfile
+    â””â”€â”€â”€ requirements.txt
+    â””â”€â”€â”€ manage.py
     
 ```
-Zaktualizuj ```ALLOWED_HOSTS``` program w programie, ```settings.py``` Aby upewnić się, że aplikacja Django używa zewnętrznego adresu IP, który jest przypisywany do aplikacji Kubernetes.
+Zaktualizuj w programie , aby upewnić się, że aplikacja Django używa zewnętrznego adresu IP, który ```ALLOWED_HOSTS``` ```settings.py``` jest przypisywany do aplikacji kubernetes.
 
 ```python
 ALLOWED_HOSTS = ['*']
 ```
 
-Zaktualizuj ```DATABASES={ }``` sekcję w ```settings.py```  pliku. Poniższy fragment kodu odczytuje hosta bazy danych, nazwę użytkownika i hasło z pliku manifestu Kubernetes.
+Zaktualizuj ```DATABASES={ }``` sekcję w ```settings.py```  pliku . Poniższy fragment kodu odczytuje host bazy danych, nazwę użytkownika i hasło z pliku manifestu kubernetes.
 
 ```python
 DATABASES={
@@ -168,8 +168,8 @@ DATABASES={
 }
 ```
 
-### <a name="generate-a-requirementstxt-file"></a>Generuj plik requirements.txt
-Utwórz ```requirements.txt``` plik, aby wyświetlić listę zależności dla aplikacji Django. Oto przykładowy ```requirements.txt``` plik. Możesz użyć, [``` pip freeze > requirements.txt```](https://pip.pypa.io/en/stable/reference/pip_freeze/) Aby wygenerować plik requirements.txt dla istniejącej aplikacji.
+### <a name="generate-a-requirementstxt-file"></a>Generowanie requirements.txt plików
+Utwórz ```requirements.txt``` plik, aby wyświetlić listę zależności dla aplikacji Django. Oto ```requirements.txt``` przykładowy plik. Za pomocą funkcji [``` pip freeze > requirements.txt```](https://pip.pypa.io/en/stable/reference/pip_freeze/) można wygenerować plik requirements.txt dla istniejącej aplikacji.
 
 ``` text
 Django==2.2.17
@@ -180,7 +180,7 @@ pytz==2020.4
 ```
 
 ### <a name="create-a-dockerfile"></a>Tworzenie pliku Dockerfile
-Utwórz nowy plik o nazwie ```Dockerfile``` i Skopiuj poniższy fragment kodu. To pliku dockerfile w konfigurowaniu języka Python 3,8 i instalowania wszystkich wymagań wymienionych w pliku requirements.txt.
+Utwórz nowy plik o nazwie ```Dockerfile``` i skopiuj poniższy fragment kodu. Ten plik Dockerfile umożliwia skonfigurowanie środowiska Python 3.8 i zainstalowanie wszystkich wymagań wymienionych requirements.txt pliku.
 
 ```docker
 # Use the official Python image from the Docker Hub
@@ -203,7 +203,7 @@ CMD python manage.py runserver 0.0.0.0:8000
 ```
 
 ### <a name="build-your-image"></a>Kompilowanie obrazu
-Upewnij się, że jesteś w katalogu ```my-django-app``` w terminalu przy użyciu ```cd``` polecenia. Uruchom następujące polecenie, aby skompilować obraz tablicy biuletynu:
+Upewnij się, że jesteś w katalogu ```my-django-app``` w terminalu, używając ```cd``` polecenia . Uruchom następujące polecenie, aby skompilować obraz tablicy biuletynu:
 
 ``` bash
 
@@ -211,23 +211,23 @@ docker build --tag myblog:latest .
 
 ```
 
-Wdróż obraz w usłudze [Docker Hub](https://docs.docker.com/get-started/part3/#create-a-docker-hub-repository-and-push-your-image) lub [usłudze Azure Container Registry](../../container-registry/container-registry-get-started-azure-cli.md).
+Wd wdrażaj obraz [w usłudze Docker Hub](https://docs.docker.com/get-started/part3/#create-a-docker-hub-repository-and-push-your-image) [lub Azure Container Registry.](../../container-registry/container-registry-get-started-azure-cli.md)
 
 > [!IMPORTANT]
->Jeśli korzystasz z usługi Azure Container regdistry (ACR), uruchom ```az aks update``` polecenie w celu dołączenia konta ACR z klastrem AKS.
+>Jeśli używasz usługi Azure Container Regdistry (ACR), uruchom polecenie , aby dołączyć konto ```az aks update``` usługi ACR do klastra usługi AKS.
 >
 >```azurecli-interactive
 >az aks update -n myAKSCluster -g django-project --attach-acr <your-acr-name>
 > ```
 >
 
-## <a name="create-kubernetes-manifest-file"></a>Utwórz plik manifestu Kubernetes
+## <a name="create-kubernetes-manifest-file"></a>Tworzenie pliku manifestu kubernetes
 
-Plik manifestu platformy Kubernetes definiuje żądany stan klastra, w tym informacje o obrazach kontenera do uruchomienia. Utwórzmy plik manifestu o nazwie ```djangoapp.yaml``` i skopiujesz go w następującej definicji YAML.
+Plik manifestu platformy Kubernetes definiuje żądany stan klastra, w tym informacje o obrazach kontenera do uruchomienia. Utwórzmy plik manifestu o nazwie ```djangoapp.yaml``` i skopiujmy go do poniższej definicji YAML.
 
 >[!IMPORTANT]
-> - Zamień na na ```[DOCKER-HUB-USER/ACR ACCOUNT]/[YOUR-IMAGE-NAME]:[TAG]``` przykład rzeczywistą nazwę i tag obrazu platformy Docker Django ```docker-hub-user/myblog:latest``` .
-> - Zaktualizuj w ```env``` sekcji poniżej swój ```SERVERNAME``` ```YOUR-DATABASE-USERNAME``` ```YOUR-DATABASE-PASSWORD``` Postgres elastyczny serwer.
+> - Zastąp ```[DOCKER-HUB-USER/ACR ACCOUNT]/[YOUR-IMAGE-NAME]:[TAG]``` wartość rzeczywistą nazwą obrazu platformy Docker django i tagiem, na przykład ```docker-hub-user/myblog:latest``` .
+> - Zaktualizuj ```env``` sekcję poniżej przy użyciu ```SERVERNAME``` wartości , serwera ```YOUR-DATABASE-USERNAME``` ```YOUR-DATABASE-PASSWORD``` elastycznego postgres.
 
 
 ```yaml
@@ -282,7 +282,7 @@ spec:
     app: django-app
 ```
 
-## <a name="deploy-django-to-aks-cluster"></a>Wdrażanie Django w klastrze AKS
+## <a name="deploy-django-to-aks-cluster"></a>Wdrażanie rozwiązania Django w klastrze usługi AKS
 Wdróż aplikację przy użyciu polecenia [kubectl apply](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) i podaj nazwę manifestu YAML:
 
 ```console
@@ -296,7 +296,7 @@ deployment "django-app" created
 service "python-svc" created
 ```
 
-Wdrożenie ```django-app``` pozwala na opisywanie szczegółowych informacji na temat wdrożenia, takich jak obrazy, które mają być używane dla aplikacji, liczba numerów i konfiguracji. Utworzona zostanie usługa ```python-svc``` w celu udostępnienia aplikacji za pomocą zewnętrznego adresu IP.
+Wdrożenie umożliwia opis szczegółów wdrożenia, takich jak obrazy do użycia dla aplikacji, liczba zasobników i ```django-app``` konfiguracja zasobników. Usługa jest ```python-svc``` tworzona w celu uwidoczninia aplikacji za pośrednictwem zewnętrznego adresu IP.
 
 ## <a name="test-the-application"></a>Testowanie aplikacji
 
@@ -308,7 +308,7 @@ Aby monitorować postęp, użyj polecenia [kubectl get-service](https://kubernet
 kubectl get service django-app --watch
 ```
 
-Początkowo *adres IP* dla usługi *Django-App* jest pokazywany jako *oczekujący*.
+Początkowo adres *EXTERNAL-IP dla* usługi *django-app* service jest wyświetlany *jako* oczekujący .
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
@@ -321,27 +321,27 @@ Gdy dla adresu *EXTERNAL-IP* wartość *oczekujący* zmieni się na rzeczywisty 
 django-app  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-Teraz otwórz przeglądarkę internetową na zewnętrznym adresie IP usługi, a następnie Wyświetl aplikację Django.  
+Teraz otwórz w przeglądarce internetowej zewnętrzny adres IP twojej usługi w widoku aplikacji Django.  
 
 >[!NOTE]
-> - Obecnie lokacja Django nie korzysta z protokołu HTTPS. Zaleca się [włączenie protokołu TLS z własnymi certyfikatami](../../aks/ingress-own-tls.md).
-> - [Routing http](../../aks/http-application-routing.md) można włączyć dla klastra. Po włączeniu routingu http konfiguruje on kontroler transferu danych przychodzących w klastrze AKS. Po wdrożeniu aplikacji rozwiązanie tworzy również publicznie dostępne nazwy DNS dla punktów końcowych aplikacji.
+> - Obecnie witryna Django nie używa protokołu HTTPS. Zaleca się włączenie [obsługi TLS przy użyciu własnych certyfikatów.](../../aks/ingress-own-tls.md)
+> - Routing [HTTP można włączyć](../../aks/http-application-routing.md) dla klastra. Po włączeniu routingu HTTP konfiguruje kontroler ruchu przychodzących w klastrze usługi AKS. Podczas wdrażania aplikacji rozwiązanie tworzy również publicznie dostępne nazwy DNS dla punktów końcowych aplikacji.
 
-## <a name="run-database-migrations"></a>Uruchom migracje bazy danych
+## <a name="run-database-migrations"></a>Uruchamianie migracji bazy danych
 
-W przypadku dowolnej aplikacji Django należy uruchomić migrację bazy danych lub zebrać pliki statyczne. Te polecenia powłoki Django można uruchomić za pomocą programu ```$ kubectl exec <pod-name> -- [COMMAND]``` .  Przed uruchomieniem polecenia należy znaleźć nazwę pod przy użyciu ```kubectl get pods``` . 
+W przypadku dowolnej aplikacji django należy uruchomić migrację bazy danych lub zebrać pliki statyczne. Te polecenia powłoki django można uruchomić przy użyciu polecenia ```$ kubectl exec <pod-name> -- [COMMAND]``` .  Przed uruchomieniem polecenia należy znaleźć nazwę zasobnika przy użyciu polecenia ```kubectl get pods``` . 
 
 ```bash
 $ kubectl get pods
 ```
 
-Zobaczysz dane wyjściowe podobne do tego
+Zobaczysz dane wyjściowe podobne do tych
 ```output
 NAME                             READY   STATUS          RESTARTS   AGE
 django-app-5d9cd6cd8-l6x4b     1/1     Running              0       2m
 ```
 
-Po znalezieniu nazwy pod można uruchomić migracje bazy danych Django za pomocą polecenia ```$ kubectl exec <pod-name> -- [COMMAND]``` . Uwaga ```/code/``` to katalog roboczy dla projektu zdefiniowany ```Dockerfile``` powyżej.
+Po znalezionej nazwie zasobnika możesz uruchomić migracje baz danych django za pomocą polecenia ```$ kubectl exec <pod-name> -- [COMMAND]``` . Uwaga: ```/code/``` jest to katalog roboczy dla projektu, który został w powyższym ```Dockerfile``` zdefiniowaniu.
 
 ```bash
 $ kubectl exec django-app-5d9cd6cd8-l6x4b -- python /code/manage.py migrate
@@ -360,7 +360,7 @@ Running migrations:
   . . . . . . 
 ```
 
-Jeśli napotkasz problemy, uruchom polecenie, ```kubectl logs <pod-name>```  Aby zobaczyć, jaki wyjątek jest zgłaszany przez aplikację. Jeśli aplikacja działa prawidłowo, zobaczysz dane wyjściowe podobne do tego podczas uruchamiania ```kubectl logs``` .
+Jeśli wystąpią problemy, uruchom program , aby ```kubectl logs <pod-name>```  zobaczyć, jaki wyjątek jest zgłaszany przez aplikację. Jeśli aplikacja działa prawidłowo, podczas uruchamiania programu zobaczysz dane wyjściowe podobne do ```kubectl logs``` tych.
 
 ```output
 Watching for file changes with StatReloader
@@ -378,19 +378,19 @@ Quit the server with CONTROL-C.
 
 ## <a name="clean-up-the-resources"></a>Oczyszczanie zasobów
 
-Aby uniknąć naliczania opłat za platformę Azure, należy wyczyścić zasoby niepotrzebne.  Gdy klaster nie będzie już potrzebny, usuń grupę zasobów, usługę kontenera i wszystkie pokrewne zasoby za pomocą polecenia [az group delete](/cli/azure/group#az_group_delete).
+Aby uniknąć opłat za platformę Azure, należy wyczyścić niepotrzebnych zasobów.  Gdy klaster nie będzie już potrzebny, usuń grupę zasobów, usługę kontenera i wszystkie pokrewne zasoby za pomocą polecenia [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
 az group delete --name django-project --yes --no-wait
 ```
 
 > [!NOTE]
-> Po usunięciu klastra jednostka usługi Azure Active Directory używana przez klaster usługi AKS nie jest usuwana. Aby sprawdzić, jak usunąć jednostkę usługi, zobacz [AKS service principal considerations and deletion (Uwagi dotyczące jednostki usługi AKS i jej usuwanie)](../../aks/kubernetes-service-principal.md#additional-considerations). Jeśli używana jest tożsamość zarządzana, tożsamość jest zarządzana przez platformę i nie wymaga usunięcia.
+> Po usunięciu klastra jednostka usługi Azure Active Directory używana przez klaster usługi AKS nie jest usuwana. Aby sprawdzić, jak usunąć jednostkę usługi, zobacz [AKS service principal considerations and deletion (Uwagi dotyczące jednostki usługi AKS i jej usuwanie)](../../aks/kubernetes-service-principal.md#additional-considerations). Jeśli używasz tożsamości zarządzanej, tożsamość jest zarządzana przez platformę i nie wymaga usunięcia.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się [, jak uzyskać dostęp do pulpitu nawigacyjnego sieci Web Kubernetes](../../aks/kubernetes-dashboard.md) dla klastra AKS
+- Dowiedz się, jak uzyskać dostęp do internetowego pulpitu nawigacyjnego [usługi Kubernetes](../../aks/kubernetes-dashboard.md) dla klastra usługi AKS
 - Dowiedz się, jak [włączyć ciągłe wdrażanie](../../aks/deployment-center-launcher.md)
 - Dowiedz się, jak [skalować klaster](../../aks/tutorial-kubernetes-scale.md)
-- Dowiedz się, jak zarządzać [elastycznym serwerem Postgres](./quickstart-create-server-cli.md)
-- Dowiedz się, jak [skonfigurować parametry serwera](./howto-configure-server-parameters-using-cli.md) dla serwera bazy danych.
+- Dowiedz się, jak zarządzać [elastycznym serwerem postgres](./quickstart-create-server-cli.md)
+- Dowiedz się, [jak skonfigurować parametry serwera](./howto-configure-server-parameters-using-cli.md) dla serwera bazy danych.
