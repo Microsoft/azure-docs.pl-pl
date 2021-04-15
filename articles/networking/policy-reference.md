@@ -1,24 +1,24 @@
 ---
 title: Wbudowane definicje zasad dla usług sieciowych platformy Azure
-description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla usług sieciowych platformy Azure. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 03/31/2021
+description: Wyświetla Azure Policy wbudowanych definicji zasad dla usług sieciowych platformy Azure. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
+ms.date: 04/14/2021
 ms.topic: reference
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 7c27c2b9f6fc4804c691f33b164e2ad497149d4b
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: ad39c73e84f0143cc8216a71db5d69fb157ad5c6
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106096216"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107496994"
 ---
-# <a name="azure-policy-built-in-definitions-for-azure-networking-services"></a>Azure Policy wbudowane definicje dla usług sieciowych platformy Azure
+# <a name="azure-policy-built-in-definitions-for-azure-networking-services"></a>Azure Policy wbudowane definicje usług sieciowych platformy Azure
 
-Ta strona jest indeksem [Azure Policy](../governance/policy/overview.md) wbudowanych definicji zasad dla usług sieciowych platformy Azure. Aby uzyskać dodatkowe Azure Policy wbudowane dla innych usług, zobacz [Azure Policy wbudowane definicje](../governance/policy/samples/built-in-policies.md).
+Ta strona jest indeksem [Azure Policy](../governance/policy/overview.md) wbudowanych definicji zasad dla usług sieciowych platformy Azure. Aby uzyskać Azure Policy wbudowanych funkcji dla innych usług, [Azure Policy wbudowane definicje](../governance/policy/samples/built-in-policies.md).
 
-Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **wersja** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
+Nazwa każdej wbudowanej definicji zasad jest linkiem do definicji zasad w Azure Portal. Użyj linku w kolumnie **Wersja,** aby wyświetlić źródło w Azure Policy [GitHub.](https://github.com/Azure/azure-policy)
 
 ## <a name="azure-networking-services"></a>Usługi sieciowe platformy Azure
 

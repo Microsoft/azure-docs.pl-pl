@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 04/08/2021
 ms.author: banders
-ms.openlocfilehash: 996c974473c53833dd26abae2fb61585999f33b4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: ff53131f3078b33b7e7d853c1fca891b0b86d792
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050447"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484606"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Terminy na fakturze za umowę klienta firmy Microsoft
 
@@ -22,13 +22,25 @@ Ten artykuł dotyczy konta rozliczeniowego platformy Azure związanego z umową 
 
 Faktura zawiera podsumowanie opłat i instrukcje dotyczące płatności. Można ją pobrać w formacie PDF (Portable Document Format) z witryny [Azure Portal](https://portal.azure.com/) lub otrzymać w wiadomości e-mail. Aby uzyskać więcej informacji, zobacz [Wyświetlanie i pobieranie faktury platformy Microsoft Azure](download-azure-invoice.md).
 
-Obejrzyj swoją zawartość wideo z [faktury umów dla klientów firmy Microsoft](https://www.youtube.com/watch?v=e2LGZZ7GubA) , aby dowiedzieć się więcej na temat faktury i jak analizować opłaty.
+Obejrzyj film [Wideo Understand your Umowa z Klientem Microsoft invoice (Informacje](https://www.youtube.com/watch?v=e2LGZZ7GubA) o fakturze), aby dowiedzieć się więcej o fakturze i analizować związane z nim opłaty.
 
 >[!VIDEO https://www.youtube.com/embed/e2LGZZ7GubA]
 
 ## <a name="billing-period"></a>Okres rozliczeniowy
 
 Faktury są wystawiane co miesiąc. Aby dowiedzieć się, w który dzień miesiąca są wystawiane faktury, sprawdź *datę faktury* w obszarze właściwości profilu rozliczeniowego w witrynie [Azure Portal](https://portal.azure.com/). Opłaty naliczane od końca okresu rozliczeniowego do daty faktury są uwzględniane w następnym okresie rozliczeniowym, czyli na fakturze za kolejny miesiąc. Data początkowa i data końcowa okresu rozliczeniowego są widoczne nad sekcją **Podsumowanie rozliczeń** w pliku PDF z fakturą.
+
+Jeśli migrujesz z ea do Umowa z Klientem Microsoft, nadal otrzymujesz faktury za ea do daty migracji. Nowa faktura za Umowa z Klientem Microsoft jest generowana piątego dnia miesiąca po migracji. Pierwsza faktura zawiera częściową opłatę od daty migracji. Kolejne faktury są generowane co miesiąc i pokazują wszystkie opłaty za każdy miesiąc.
+
+### <a name="changes-for-pay-as-you-go-subscriptions"></a>Zmiany dotyczące subskrypcji z płatnością zgodnie z platformą
+
+W przypadku przeniesienia, przeniesienia lub anulowania subskrypcji ostatnia wygenerowana faktura zawiera opłaty za poprzedni okres rozliczeniowy i nowy, niekompletny cykl rozliczeniowy.
+
+Na przykład:
+
+Załóżmy, że cykl rozliczeniowy subskrypcji z płatnością zgodnie z potrzebami pochodzi od 8 do 7 dnia każdego miesiąca. Subskrypcja została przeniesiona do Umowa z Klientem Microsoft 16 listopada. Ostatnia faktura z płatnością zgodnie z użytkownikiem ma opłaty za 8 października 2020 r. do 7 listopada 2020 r. Są w nim również naliczane opłaty za nowy częściowy okres rozliczeniowy dla Umowa z Klientem Microsoft od 8 listopada 2020 r. do 16 listopada 2020 r. Oto przykładowa ilustracja.
+
+:::image type="content" source="./media/mca-understand-your-invoice/last-invoice-billing-cycle.png" alt-text="Przykładowy obraz faktury pokazującej ostatni cykl rozliczeniowy." lightbox="./media/mca-understand-your-invoice/last-invoice-billing-cycle.png" :::
 
 ## <a name="invoice-terms-and-descriptions"></a>Terminy na fakturze wraz z opisami
 

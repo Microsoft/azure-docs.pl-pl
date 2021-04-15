@@ -1,6 +1,6 @@
 ---
-title: Wykonaj kopię zapasową wpisu tajnego, klucza lub certyfikatu przechowywanego w Azure Key Vault | Microsoft Docs
-description: Ten dokument pomaga utworzyć kopię zapasową wpisu tajnego, klucza lub certyfikatu przechowywanego w Azure Key Vault.
+title: Kopię zapasową klucza tajnego, klucza lub certyfikatu przechowywanego w Azure Key Vault | Microsoft Docs
+description: Ten dokument pomaga w kopii zapasowej klucza tajnego, klucza lub certyfikatu przechowywanego w Azure Key Vault.
 services: key-vault
 author: ShaneBala-keyvault
 manager: ravijan
@@ -10,87 +10,87 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 3/18/2021
 ms.author: sudbalas
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3b148ac83b89850cad66bcd7254d385e655cc2fb
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 399f55d379f99a784fed97d7e9f72c456eb1f914
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968751"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484816"
 ---
-# <a name="azure-key-vault-backup"></a>Azure Key Vault kopia zapasowa
+# <a name="azure-key-vault-backup"></a>Azure Key Vault kopii zapasowej
 
-W tym dokumencie przedstawiono sposób tworzenia kopii zapasowych wpisów tajnych, kluczy i certyfikatów przechowywanych w magazynie kluczy. Kopia zapasowa jest przeznaczona do udostępnienia kopii w trybie offline wszystkich wpisów tajnych w przypadku, gdy najprawdopodobniej utracisz dostęp do magazynu kluczy.
+W tym dokumencie przedstawiono sposób kopii zapasowych wpisów tajnych, kluczy i certyfikatów przechowywanych w magazynie kluczy. Kopia zapasowa ma na celu zapewnienie kopii wszystkich wpisów tajnych w trybie offline w mało prawdopodobnym przypadku utraty dostępu do magazynu kluczy.
 
 ## <a name="overview"></a>Omówienie
 
-Azure Key Vault automatycznie udostępnia funkcje ułatwiające zachowanie dostępności i Zapobieganie utracie danych. Utwórz kopię zapasową wpisów tajnych tylko wtedy, gdy masz krytyczne uzasadnienie biznesowe. Tworzenie kopii zapasowych wpisów tajnych w magazynie kluczy może wprowadzać wyzwania operacyjne, takie jak utrzymywanie wielu zestawów dzienników, uprawnień i kopii zapasowych po wygaśnięciu lub przeniesieniu wpisów tajnych.
+Azure Key Vault automatycznie udostępnia funkcje, które pomagają zachować dostępność i zapobiec utracie danych. Kopię zapasową wpisów tajnych należy wrócić tylko wtedy, gdy użytkownik ma krytyczne uzasadnienie biznesowe. Tworzenie kopii zapasowych wpisów tajnych w magazynie kluczy może powodować wyzwania operacyjne, takie jak obsługa wielu zestawów dzienników, uprawnień i kopii zapasowych w przypadku wygaśnięcia lub rotacji wpisów tajnych.
 
-Key Vault utrzymuje dostępność w scenariuszach awarii i automatycznie przejdzie do trybu failover żądań do sparowanego regionu bez żadnej interwencji użytkownika. Aby uzyskać więcej informacji, zobacz [Azure Key Vault dostępności i nadmiarowości](./disaster-recovery-guidance.md).
+Key Vault dostępność w scenariuszach awarii i będzie automatycznie włączać żądania trybu fail over do sparowanego regionu bez żadnej interwencji użytkownika. Aby uzyskać więcej informacji, [zobacz Azure Key Vault dostępności i nadmiarowości.](./disaster-recovery-guidance.md)
 
-Jeśli chcesz chronić przed przypadkowym lub złośliwym usunięciem kluczy tajnych, skonfiguruj funkcje ochrony przed usuwaniem i przeczyszczaniem w magazynie kluczy. Aby uzyskać więcej informacji, zobacz [Azure Key Vault Omówienie usuwania nietrwałego](./soft-delete-overview.md).
+Jeśli chcesz chronić przed przypadkowym lub złośliwym usunięciem wpisów tajnych, skonfiguruj w magazynie kluczy funkcje usuwania nie soft-delete i przeczyszczania. Aby uzyskać więcej informacji, [zobacz Azure Key Vault omówienie usuwania nie programowego.](./soft-delete-overview.md)
 
 ## <a name="limitations"></a>Ograniczenia
 
 > [!IMPORTANT]
-> Key Vault nie obsługuje wykonywania kopii zapasowych więcej niż 500 poprzednich wersji obiektu Key, Secret lub Certificate. Próba utworzenia kopii zapasowej obiektu Key, Secret lub Certificate może spowodować wystąpienie błędu. Nie można usunąć poprzednich wersji klucza, wpisu tajnego ani certyfikatu.
+> Key Vault nie obsługuje możliwości tworzenia kopii zapasowej ponad 500 wcześniejszych wersji klucza, klucza tajnego lub obiektu certyfikatu. Próba kopii zapasowej klucza, klucza tajnego lub obiektu certyfikatu może spowodować błąd. Nie można usunąć poprzednich wersji klucza, klucza tajnego ani certyfikatu.
 
-Key Vault nie udostępnia obecnie metody tworzenia kopii zapasowej całego magazynu kluczy w ramach jednej operacji. Każda próba użycia poleceń wymienionych w tym dokumencie do wykonania zautomatyzowanej kopii zapasowej magazynu kluczy może spowodować błędy i nie będzie obsługiwana przez firmę Microsoft lub Azure Key Vault zespół. 
+Key Vault obecnie nie zapewnia możliwości kopii zapasowej całego magazynu kluczy w ramach jednej operacji. Każda próba użycia poleceń wymienionych w tym dokumencie do automatycznego tworzenia kopii zapasowej magazynu kluczy może spowodować błędy i nie będzie obsługiwana przez firmę Microsoft ani zespół Azure Key Vault zabezpieczeń. 
 
 Należy również wziąć pod uwagę następujące konsekwencje:
 
-* Tworzenie kopii zapasowych wpisów tajnych, które mają wiele wersji może spowodować błędy limitu czasu.
-* Kopia zapasowa tworzy migawkę do punktu w czasie. Wpisy tajne mogą zostać odnowione podczas tworzenia kopii zapasowej, co powoduje niezgodność kluczy szyfrowania.
-* W przypadku przekroczenia limitów usługi magazynu kluczy dla żądań na sekundę Magazyn kluczy zostanie ograniczony i wykonywanie kopii zapasowej zakończy się niepowodzeniem.
+* W przypadku kopii zapasowej wpisów tajnych, które mają wiele wersji, mogą wystąpić błędy przechowania.
+* Kopia zapasowa tworzy migawkę punktu w czasie. Wpisy tajne mogą być odnawiane podczas tworzenia kopii zapasowej, co powoduje niezgodność kluczy szyfrowania.
+* Przekroczenie limitów usługi magazynu kluczy dla żądań na sekundę spowoduje ograniczenie magazynu kluczy, a tworzenie kopii zapasowej nie powiedzie się.
 
 ## <a name="design-considerations"></a>Zagadnienia dotyczące projektowania
 
-Podczas tworzenia kopii zapasowej obiektu magazynu kluczy, takiego jak klucz tajny, klucz lub certyfikat, operacja tworzenia kopii zapasowej pobiera obiekt jako zaszyfrowany obiekt BLOB. Nie można odszyfrować tego obiektu blob poza platformą Azure. Aby uzyskać użyteczne dane z tego obiektu BLOB, należy przywrócić obiekt BLOB do magazynu kluczy w ramach tej samej subskrypcji platformy Azure i lokalizacji [geograficznej platformy Azure](https://azure.microsoft.com/global-infrastructure/geographies/).
+Podczas tworzenia kopii zapasowej obiektu magazynu kluczy, takiego jak klucz tajny, klucz lub certyfikat, operacja tworzenia kopii zapasowej pobierze obiekt jako zaszyfrowany obiekt blob. Tego obiektu blob nie można odszyfrować poza platformą Azure. Aby uzyskać użyteczne dane z tego obiektu blob, musisz przywrócić obiekt blob do magazynu kluczy w ramach tej samej subskrypcji platformy Azure i lokalizacji [geograficznej platformy Azure.](https://azure.microsoft.com/global-infrastructure/geographies/)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby utworzyć kopię zapasową obiektu magazynu kluczy, musisz dysponować: 
+Aby wykonać kopię zapasową obiektu magazynu kluczy, musisz mieć: 
 
-* Uprawnienia na poziomie współautora lub wyższym w ramach subskrypcji platformy Azure.
-* Magazyn kluczy głównych zawierający klucze tajne, dla których chcesz utworzyć kopię zapasową.
-* Pomocniczy Magazyn kluczy, w którym zostaną przywrócone wpisy tajne.
+* Uprawnienia na poziomie współautora lub wyższym w subskrypcji platformy Azure.
+* Podstawowy magazyn kluczy zawierający wpisy tajne, których kopię zapasową chcesz wrócić.
+* Pomocniczy magazyn kluczy, w którym zostaną przywrócone wpisy tajne.
 
-## <a name="back-up-and-restore-from-the-azure-portal"></a>Tworzenie kopii zapasowej i przywracanie danych z Azure Portal
+## <a name="back-up-and-restore-from-the-azure-portal"></a>Back up and restore from the Azure Portal (Tworzyć i przywracać kopię zapasową z Azure Portal
 
-Wykonaj kroki opisane w tej sekcji, aby utworzyć kopię zapasową i przywrócić obiekty przy użyciu Azure Portal.
+Wykonaj kroki opisane w tej sekcji, aby wykonać kopię zapasową i przywrócić obiekty przy użyciu Azure Portal.
 
 ### <a name="back-up"></a>Wykonywanie kopii zapasowej
 
 1. Przejdź do witryny Azure Portal.
 2. Wybierz magazyn kluczy.
-3. Przejdź do obiektu (tajny, klucz lub certyfikat), dla którego chcesz utworzyć kopię zapasową.
+3. Przejdź do obiektu (klucza tajnego, klucza lub certyfikatu), którego kopię zapasową chcesz wrócić.
 
-    ![Zrzut ekranu przedstawiający miejsce wybrania ustawienia klucze i obiektu w magazynie kluczy.](../media/backup-1.png)
+    ![Zrzut ekranu przedstawiający miejsce wybrania ustawienia Klucze i obiektu w magazynie kluczy.](../media/backup-1.png)
 
-4. Wybierz obiekt.
-5. Wybierz pozycję **Pobierz kopię zapasową**.
+4. Wybierz obiekt .
+5. Wybierz **pozycję Pobierz kopię zapasową.**
 
-    ![Zrzut ekranu pokazujący, gdzie wybrać przycisk Pobierz kopię zapasową w magazynie kluczy.](../media/backup-2.png)
+    ![Zrzut ekranu przedstawiający miejsce wybrania przycisku Pobierz kopię zapasową w magazynie kluczy.](../media/backup-2.png)
     
 6. Kliknij pozycję **Pobierz**.
 
-    ![Zrzut ekranu przedstawiający miejsce wybrania przycisku pobierania w magazynie kluczy.](../media/backup-3.png)
+    ![Zrzut ekranu przedstawiający miejsce wybrania przycisku Pobierz w magazynie kluczy.](../media/backup-3.png)
     
-7. Przechowuj zaszyfrowany obiekt BLOB w bezpiecznej lokalizacji.
+7. Przechowuj zaszyfrowany obiekt blob w bezpiecznej lokalizacji.
 
 ### <a name="restore"></a>Przywracanie
 
 1. Przejdź do witryny Azure Portal.
 2. Wybierz magazyn kluczy.
-3. Przejdź do typu obiektu (klucz tajny, klucz lub certyfikat), który chcesz przywrócić.
-4. Wybierz pozycję **Przywróć kopię zapasową**.
+3. Przejdź do typu obiektu (wpis tajny, klucz lub certyfikat), który chcesz przywrócić.
+4. Wybierz pozycję **Przywróć kopię zapasową.**
 
     ![Zrzut ekranu przedstawiający miejsce wybrania opcji Przywróć kopię zapasową w magazynie kluczy.](../media/backup-4.png)
     
-5. Przejdź do lokalizacji, w której zapisano zaszyfrowany obiekt BLOB.
+5. Przejdź do lokalizacji, w której został zapisany zaszyfrowany obiekt blob.
 6. Wybierz przycisk **OK**.
 
-## <a name="back-up-and-restore-from-the-azure-cli-or-azure-powershell"></a>Tworzenie kopii zapasowej i przywracanie za pomocą interfejsu wiersza polecenia platformy Azure lub Azure PowerShell
+## <a name="back-up-and-restore-from-the-azure-cli-or-azure-powershell"></a>Back up and restore from the Azure CLI or Azure PowerShell
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 ```azurecli
@@ -152,4 +152,4 @@ Restore-AzKeyVaultSecret -VaultName '{Key Vault Name}' -InputFile '{File Path}'
 
 ## <a name="next-steps"></a>Następne kroki
 
-Włącz [Rejestrowanie i monitorowanie](./logging.md) dla Key Vault.
+Włącz rejestrowanie [i monitorowanie dla](./logging.md) Key Vault.

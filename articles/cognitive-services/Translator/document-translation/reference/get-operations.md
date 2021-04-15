@@ -1,7 +1,7 @@
 ---
-title: Operacje pobierania tłumaczenia dokumentu
+title: Operacje get tłumaczenia dokumentów
 titleSuffix: Azure Cognitive Services
-description: Metoda Get Operations zwraca listę przesłanych żądań wsadowych i stan dla każdego żądania.
+description: Metoda get operations zwraca listę przesłanych żądań wsadowych oraz stan każdego żądania.
 services: cognitive-services
 author: jann-skotdal
 manager: nitinme
@@ -10,27 +10,27 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/25/2021
 ms.author: v-jansk
-ms.openlocfilehash: c42f3081a831c267c7bc605267b99e2a916ea3d8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fd7cee564aa3a00e21d1e707d08a18115d519925
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105613093"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484680"
 ---
-# <a name="document-translation-get-operations"></a>Tłumaczenie dokumentu: pobieranie operacji
+# <a name="document-translation-get-operations"></a>Tłumaczenie dokumentu: operacje get
 
-Metoda Get Operations zwraca listę przesłanych żądań wsadowych i stan dla każdego żądania. Ta lista zawiera tylko żądania wsadowe przesłane przez użytkownika (w oparciu o subskrypcję). Stan każdego żądania jest posortowany według identyfikatora.
+Metoda Get Operations zwraca listę przesłanych żądań wsadowych oraz stan każdego żądania. Ta lista zawiera tylko żądania wsadowe przesłane przez użytkownika (na podstawie subskrypcji). Stan każdego żądania jest sortowany według identyfikatora.
 
-Jeśli liczba żądań przekracza nasz limit stronicowania, używane jest stronicowanie po stronie serwera. Odpowiedzi z podziałem na strony wskazują częściowy wynik i w odpowiedzi zawierają token kontynuacji. Brak tokenu kontynuacji oznacza, że żadne dodatkowe strony nie są dostępne.
+Jeśli liczba żądań przekracza limit stronicowania, jest używane stronicowanie po stronie serwera. Odpowiedzi z podziałem na strony wskazują wynik częściowy i zawierają token kontynuacji w odpowiedzi. Brak tokenu kontynuacji oznacza, że żadne dodatkowe strony nie są dostępne.
 
-parametry zapytania $top i $skip mogą służyć do określania liczby wyników do zwrócenia i przesunięcia dla kolekcji.
+$top i $skip można użyć do określenia liczby wyników do zwrócenia oraz przesunięcia dla kolekcji.
 
-Serwer uznaje wartości określone przez klienta. Jednak klienci muszą być przygotowani do obsługi odpowiedzi zawierających inny rozmiar strony lub zawierają token kontynuacji.
+Serwer honoruje wartości określone przez klienta. Klienci muszą być jednak przygotowani do obsługi odpowiedzi, które zawierają inny rozmiar strony lub token kontynuacji.
 
-Po dołączeniu obu $top i $skip serwer powinien najpierw zastosować $skip a następnie $top na kolekcji. 
+Gdy są $top i $skip, serwer powinien najpierw zastosować $skip, a $top do kolekcji. 
 
 > [!NOTE]
-> Jeśli serwer nie może honorować $top i/lub $skip, serwer musi zwrócić błąd do klienta informującego o tym, zamiast pomijać opcje zapytania. Zmniejsza to ryzyko wprowadzenia przez klienta założeń dotyczących zwracanych danych.
+> Jeśli serwer nie może honorować $top i/lub $skip, serwer musi zwrócić klientowi komunikat o błędzie, zamiast po prostu zignorować opcje zapytania. Zmniejsza to ryzyko, że klient będzie przyjmował założenia dotyczące zwracanych danych.
 
 ## <a name="request-url"></a>Adres URL żądania
 
@@ -39,21 +39,21 @@ Wyślij `GET` żądanie do:
 GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches
 ```
 
-Dowiedz się, jak znaleźć swoją [niestandardową nazwę domeny](../get-started-with-document-translation.md#find-your-custom-domain-name).
+Dowiedz się, jak znaleźć [niestandardową nazwę domeny.](../get-started-with-document-translation.md#find-your-custom-domain-name)
 
 > [!IMPORTANT]
 >
 > * **Wszystkie żądania interfejsu API do usługi tłumaczenia dokumentów wymagają niestandardowego punktu końcowego domeny**.
-> * Nie można użyć punktu końcowego znalezionego na stronie klucze zasobów Azure Portal _i punktu_ końcowego ani globalnego punktu końcowego usługi Translator — `api.cognitive.microsofttranslator.com` w celu żądania protokołu HTTP do tłumaczenia dokumentów.
+> * Nie można użyć punktu końcowego znalezionego na  stronie kluczy Azure Portal punktu końcowego ani globalnego punktu końcowego translatora — do przesyłania żądań HTTP do `api.cognitive.microsofttranslator.com` tłumaczenia dokumentów.
 
 ## <a name="request-parameters"></a>Parametry żądania
 
-Parametry żądania przesłane na ciągu zapytania są następujące:
+Parametry żądania przekazane w ciągu zapytania to:
 
 |Parametr zapytania|Wymagane|Opis|
 |--- |--- |--- |
-|$skip|Fałsz|Pomiń wpisy $skip w kolekcji. Po podaniu obu $top i $skip należy najpierw zastosować $skip.|
-|$top|Fałsz|Wypełnij $top wpisów w kolekcji. Po podaniu obu $top i $skip należy najpierw zastosować $skip.|
+|$skip|Fałsz|Pomiń $skip wpisów w kolekcji. Po po $top i $skip zostaną podane $skip zostaną zastosowane jako pierwsze.|
+|$top|Fałsz|Weź $top wpisów w kolekcji. Po po $top i $skip zostaną podane $skip zostaną zastosowane jako pierwsze.|
 
 ## <a name="request-headers"></a>Nagłówki żądań
 
@@ -65,47 +65,47 @@ Nagłówki żądań to:
 
 ## <a name="response-status-codes"></a>Kody stanu odpowiedzi
 
-Oto możliwe kody stanu HTTP zwracane przez żądanie.
+Poniżej przedstawiono możliwe kody stanu HTTP zwracane przez żądanie.
 
 |Kod stanu|Opis|
 |--- |--- |
-|200|OK. Pomyślne żądanie i zwraca stan wszystkich operacji. HeadersRetry-After: integerETag: ciąg|
-|400|Nieprawidłowe żądanie. Nieprawidłowe żądanie. Sprawdź parametry wejściowe.|
-|401|Próby. Sprawdź swoje poświadczenia.|
+|200|OK. Żądanie pomyślne i zwraca stan wszystkich operacji. HeadersRetry-After: integerETag: string|
+|400|Złe żądanie. Nieprawidłowe żądanie. Sprawdź parametry wejściowe.|
+|401|Nieautoryzowanych. Sprawdź swoje poświadczenia.|
 |500|Wewnętrzny błąd serwera.|
-|Inne kody stanu|<ul><li>Zbyt wiele żądań</li><li>Serwer tymczasowy niedostępny</li></ul>|
+|Inne kody stanu|<ul><li>Zbyt wiele żądań</li><li>Serwer jest tymczasowo niedostępny</li></ul>|
 
-## <a name="get-operations-response"></a>Pobierz odpowiedź na operacje
+## <a name="get-operations-response"></a>Uzyskiwanie odpowiedzi operacji
 
-### <a name="successful-get-operations-response"></a>Pomyślne Pobieranie odpowiedzi operacji
+### <a name="successful-get-operations-response"></a>Pomyślna odpowiedź operacji get
 
-Poniższe informacje są zwracane w odpowiedzi na pomyślne.
+Po pomyślnym zwróceniu odpowiedzi są zwracane następujące informacje.
 
 |Nazwa|Typ|Opis|
 |--- |--- |--- |
 |identyfikator|ciąg|Identyfikator operacji.|
 |createdDateTimeUtc|ciąg|Data i godzina utworzenia operacji.|
 |lastActionDateTimeUtc|ciąg|Data i godzina aktualizacji stanu operacji.|
-|status|Ciąg|Lista możliwych stanów dla zadania lub dokumentu: <ul><li>Anulowane</li><li>Anulowanie</li><li>Niepowodzenie</li><li>NotStarted</li><li>Uruchomienie</li><li>Powodzenie</li><li>ValidationFailed</li></ul>|
+|status|Ciąg|Lista możliwych stanów zadania lub dokumentu: <ul><li>Anulowane</li><li>Anulowanie</li><li>Niepowodzenie</li><li>NotStarted</li><li>Uruchomienie</li><li>Powodzenie</li><li>Błąd walidacji</li></ul>|
 |Podsumowanie|StatusSummary[]|Podsumowanie zawierające szczegóły wymienione poniżej.|
-|summary. Total|liczba całkowita|Łączna liczba dokumentów.|
-|Podsumowanie. nie powiodło się|liczba całkowita|Liczba dokumentów zakończonych niepowodzeniem.|
-|summary. Success|liczba całkowita|Liczba pomyślnie przetłumaczonych dokumentów.|
-|Podsumowanie. w toku|liczba całkowita|Liczba dokumentów w toku.|
-|summary. notYetStarted|liczba całkowita|Liczba dokumentów, które nie zostały jeszcze uruchomione.|
-|Podsumowanie. anulowane|liczba całkowita|Liczba anulowanych dokumentów.|
-|summary. totalCharacterCharged|liczba całkowita|Łączna liczba znaków naliczanych.|
+|summary.total|liczba całkowita|Liczba wszystkich dokumentów.|
+|summary.failed|liczba całkowita|Liczba dokumentów nie powiodła się.|
+|summary.success|liczba całkowita|Liczba pomyślnie przetłumaczonych dokumentów.|
+|summary.inProgress|liczba całkowita|Liczba dokumentów w toku.|
+|summary.notYetStarted|liczba całkowita|Liczba dokumentów, których przetwarzanie nie zostało jeszcze rozpoczęte.|
+|summary.cancelled|liczba całkowita|Liczba anulowanych dokumentów.|
+|summary.totalCharacterCharged|liczba całkowita|Łączna liczba znaków, dla których naliczane są opłaty.|
 
-###<a name="error-response"></a>Odpowiedź na błąd
+### <a name="error-response"></a>Odpowiedź z błędem
 
 |Nazwa|Typ|Opis|
 |--- |--- |--- |
-|kod|ciąg|Wyliczenia zawierające kody błędów wysokiego poziomu. Możliwe wartości:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Brak autoryzacji</li></ul>|
+|kod|ciąg|Wylinia zawierające kody błędów wysokiego poziomu. Możliwe wartości:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Brak autoryzacji</li></ul>|
 |message|ciąg|Pobiera komunikat o błędzie wysokiego poziomu.|
-|obiektów|ciąg|Pobiera Źródło błędu. Na przykład może to być "Documents" lub "ID dokumentu" w przypadku nieprawidłowego dokumentu.|
-|innerError|InnerErrorV2|Nowy format błędu wewnętrznego, który jest zgodny ze wskazówkami dotyczącymi interfejsu API Cognitive Services. Zawiera wymagane właściwości ErrorCode, komunikat i opcjonalne właściwości target, szczegóły (para klucz wartość), błąd wewnętrzny (może to być zagnieżdżone).|
-|innerError. Code|ciąg|Pobiera ciąg błędu kodu.|
-|innerError. Message|ciąg|Pobiera komunikat o błędzie wysokiego poziomu.|
+|Docelowego|ciąg|Pobiera źródło błędu. Na przykład w przypadku nieprawidłowego dokumentu będzie to "dokumenty" lub "identyfikator dokumentu".|
+|innerError|InnerErrorV2|Nowy format błędu wewnętrznego, który jest zgodny z Cognitive Services API. Zawiera on wymagane właściwości ErrorCode, docelowy komunikat i opcjonalne właściwości, szczegóły (para wartości klucza), błąd wewnętrzny (może być zagnieżdżony).|
+|innerError.code|ciąg|Pobiera ciąg błędu kodu.|
+|innerError.message|ciąg|Pobiera komunikat o błędzie wysokiego poziomu.|
 
 ## <a name="examples"></a>Przykłady
 
@@ -135,9 +135,9 @@ Poniżej przedstawiono przykład pomyślnej odpowiedzi.
 }
 ```
 
-### <a name="example-error-response"></a>Przykładowa odpowiedź na błąd
+### <a name="example-error-response"></a>Przykładowa odpowiedź o błędzie
 
-Poniżej przedstawiono przykład odpowiedzi na błąd. Schemat dla innych kodów błędów jest taki sam.
+Poniżej przedstawiono przykład odpowiedzi z błędem. Schemat innych kodów błędów jest taki sam.
 
 Kod stanu: 500
 
@@ -157,7 +157,7 @@ Kod stanu: 500
 
 ## <a name="next-steps"></a>Następne kroki
 
-Skorzystaj z naszego przewodnika Szybki Start, aby dowiedzieć się więcej o korzystaniu z tłumaczenia dokumentów i biblioteki klienckiej.
+Postępuj zgodnie z naszymi przewodnikami Szybki start, aby dowiedzieć się więcej na temat korzystania z tłumaczenia dokumentów i biblioteki klienta.
 
 > [!div class="nextstepaction"]
-> [Wprowadzenie do tłumaczenia dokumentu](../get-started-with-document-translation.md)
+> [Wprowadzenie do tłumaczenia dokumentów](../get-started-with-document-translation.md)

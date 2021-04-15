@@ -1,15 +1,19 @@
-- name: Dokumentacja umowy klienta firmy Microsoft
+- name: Umowa z Klientem Microsoft dokumentacji
   href: index.yml?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
 - name: Omówienie
   expanded: true
   items:
-    - name: Microsoft Customer Agreement — Omówienie
+    - name: Umowa z Klientem Microsoft omówienie
       href: ../understand/mca-overview.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
 - name: Pojęcia
   items:
-    - name: Poznaj cykl użytkowania i rozliczeń
+    - name: Lista kontrolna po podpisaniu umowy
+      href: microsoft-customer-agreement-get-started.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: Zarządzanie dzierżawami w umowie
+      href: manage-tenants.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: Informacje o cyklu użycia i rozliczeń
       href: ../understand/mca-understand-your-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
-    - name: Warunki użytkowania i opłaty plików
+    - name: Terminy dotyczące pliku użycia i opłat
       href: ../understand/mca-understand-your-usage.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
 - name: Samouczki
   items:
@@ -28,7 +32,7 @@
       href: ../manage/mca-section-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
     - name: Wyświetlanie kont rozliczeniowych
       href: ../manage/view-all-accounts.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
-    - name: Role rozliczeń
+    - name: Role rozliczeniowe
       href: ../manage/understand-mca-roles.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
     - name: Zarządzanie dostępem do rozliczeń
       href: ../manage/manage-billing-access.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
@@ -40,13 +44,17 @@
       href: ../manage/pay-by-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
     - name: Płatność za rachunek
       href: ../understand/pay-bill.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
-    - name: Uzyskaj własność rozliczeń
+    - name: Przenoszenie własności rozliczeń
       href: ../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
-    - name: Migrowanie umowy EA do interfejsów API umów klienta firmy Microsoft
+    - name: Migrowanie z ea do Umowa z Klientem Microsoft API
       href: ../costs/migrate-cost-management-api.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
-    - name: Wyświetl i Pobierz użycie i opłaty
+    - name: Wyświetlanie i pobieranie danych użycia i opłat
       href: ../understand/download-azure-daily-usage.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
-    - name: Wyświetlanie i pobieranie cen platformy Azure
+    - name: Wyświetlanie i pobieranie cennika platformy Azure
       href: ../manage/ea-pricing.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
-    - name: Zadania EA w umowie klienta firmy Microsoft
+    - name: Zadania EA w Umowa z Klientem Microsoft
       href: ../manage/mca-enterprise-operations.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - name: Rozwiązywanie problemów
+      items:
+        - name: Dostęp do subskrypcji
+          href: troubleshoot-subscription-access.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json

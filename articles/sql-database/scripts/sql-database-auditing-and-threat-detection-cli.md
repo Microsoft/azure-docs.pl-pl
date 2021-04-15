@@ -1,26 +1,26 @@
 ---
 title: Przykład inspekcji i zaawansowanej ochrony przed zagrożeniami w interfejsie wiersza polecenia — Azure SQL Database
-description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure służący do konfigurowania inspekcji i zaawansowanej ochrony przed zagrożeniami w Azure SQL Database
+description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure do konfigurowania inspekcji i zaawansowanej ochrony przed zagrożeniami w Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: security
+ms.custom: security, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/09/2021
-ms.openlocfilehash: 7450911dabe04ea04ba16ec5e648f09ecf4a616f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1af5c3ede32ab85652b7f35d53694a77a36947b8
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100095991"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478254"
 ---
-# <a name="use-cli-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>Użyj interfejsu wiersza polecenia, aby skonfigurować inspekcję SQL Database i zaawansowaną ochronę przed zagrożeniami
+# <a name="use-cli-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>Konfigurowanie inspekcji SQL Database Advanced Threat Protection przy użyciu interfejsu wiersza polecenia
 
-Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure konfiguruje inspekcję SQL Database i zaawansowaną ochronę przed zagrożeniami.
+Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure SQL Database inspekcji i zaawansowanej ochrony przed zagrożeniami.
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
@@ -76,20 +76,20 @@ az sql db threat-policy update --email-account-admins Disabled --email-addresses
 
 ### <a name="clean-up-deployment"></a>Czyszczenie wdrożenia
 
-Użyj poniższego polecenia, aby usunąć grupę zasobów i wszystkie skojarzone z nią zasoby.
+Użyj następującego polecenia, aby usunąć grupę zasobów i wszystkie skojarzone z nią zasoby.
 
 ```azurecli-interactive
 az group delete --name $resource
 ```
 
-## <a name="sample-reference"></a>Przykładowe odwołanie
+## <a name="sample-reference"></a>Przykładowa referencja
 
 W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
 | Polecenie | Opis |
 |---|---|
-| [AZ SQL DB Audit-Policy](/cli/azure/sql/db/audit-policy) | Ustawia zasady inspekcji dla bazy danych. |
-| [AZ SQL DB Threat-Policy](/cli/azure/sql/db/threat-policy) | Ustawia zasady zaawansowanej ochrony przed zagrożeniami w bazie danych. |
+| [az sql db audit-policy](/cli/azure/sql/db/audit-policy) | Ustawia zasady inspekcji dla bazy danych. |
+| [az sql db threat-policy](/cli/azure/sql/db/threat-policy) | Ustawia zasady zaawansowanej ochrony przed zagrożeniami w bazie danych. |
 
 ## <a name="next-steps"></a>Następne kroki
 

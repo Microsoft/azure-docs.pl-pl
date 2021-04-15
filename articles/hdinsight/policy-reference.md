@@ -1,24 +1,24 @@
 ---
-title: Wbudowane definicje zasad usługi Azure HDInsight
-description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla usługi Azure HDInsight. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 03/31/2021
+title: Wbudowane definicje zasad dla Azure HDInsight
+description: Wyświetla Azure Policy wbudowane definicje zasad dla Azure HDInsight. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
+ms.date: 04/14/2021
 ms.topic: reference
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 897c3d0030a16ac139360277771446d9d73a2fcb
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 94671937bfdfa01b8f10ba5eb7f6ff9956bdec00
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106094494"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107497131"
 ---
-# <a name="azure-policy-built-in-definitions-for-azure-hdinsight"></a>Azure Policy wbudowane definicje dla usługi Azure HDInsight
+# <a name="azure-policy-built-in-definitions-for-azure-hdinsight"></a>Azure Policy wbudowane definicje dla Azure HDInsight
 
-Ta strona jest indeksem [Azure Policy](../governance/policy/overview.md) wbudowanych definicji zasad usługi Azure HDInsight. Aby uzyskać dodatkowe Azure Policy wbudowane dla innych usług, zobacz [Azure Policy wbudowane definicje](../governance/policy/samples/built-in-policies.md).
+Ta strona jest indeksem [Azure Policy](../governance/policy/overview.md) wbudowanych definicji zasad dla Azure HDInsight. Aby uzyskać Azure Policy wbudowanych funkcji dla innych usług, [Azure Policy wbudowane definicje](../governance/policy/samples/built-in-policies.md).
 
-Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **wersja** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
+Nazwa każdej wbudowanej definicji zasad jest linkiem do definicji zasad w Azure Portal. Użyj linku w kolumnie **Wersja,** aby wyświetlić źródło w Azure Policy [GitHub.](https://github.com/Azure/azure-policy)
 
 ## <a name="azure-hdinsight"></a>Azure HDInsight
 

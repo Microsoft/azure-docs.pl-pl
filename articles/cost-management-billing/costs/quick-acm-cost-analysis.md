@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.custom: contperf-fy21q2
-ms.openlocfilehash: 86f7bbbb52b1596e20fb1f3a67e42b2dd27c501a
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.custom: contperf-fy21q2, devx-track-azurecli
+ms.openlocfilehash: 9b73eeccad6d17df8c711671c56fbb7cee20b17a
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103012616"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484731"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Szybki start: Eksplorowanie i analizowanie kosztów za pomocą analizy kosztów
 
@@ -68,9 +68,9 @@ Początkowy widok analizy kosztów zawiera poniższe obszary.
 
 ### <a name="understand-forecast"></a>Informacje o prognozie
 
-W oparciu o ostatnie użycie, prognozy kosztów pokazują rzutowanie szacowanych kosztów w wybranym okresie. Jeśli budżet jest skonfigurowany w analizie kosztów, można zobaczyć, kiedy prognozowane wydatki mogą przekroczyć próg budżetu. Model prognozy może przewidywać przyszłe koszty przez maksymalnie rok. Wybierz pozycję Filtry, aby wyświetlić szczegółowy koszt prognozowany dla wybranego wymiaru.
+Na podstawie ostatniego użycia prognozy kosztów pokazują przewidywanie szacowanych kosztów dla wybranego okresu. Jeśli budżet jest ustawiony w analizie kosztów, możesz sprawdzić, kiedy prognozowane wydatki najprawdopodobniej przekroczą próg budżetu. Model prognozy może przewidywać przyszłe koszty przez maksymalnie rok. Wybierz filtry, aby wyświetlić szczegółowy prognozowany koszt dla wybranego wymiaru.
 
-Model prognozy jest oparty na modelu regresji szeregów czasowych. Do dokładnego przewidywania kosztów wymagane są dane dotyczące kosztów i użycia z co najmniej 10 ostatnich dni. W przypadku danego okresu model prognozy wymaga takiej samej ilości danych treningowych jak dla prognozowanego okresu. Na przykład prognoza na trzy miesiące wymaga danych użycia i kosztów z co najmniej trzech ostatnich miesięcy.
+Model prognozy jest oparty na modelu regresji szeregów czasu. Do dokładnego przewidywania kosztów wymagane są dane dotyczące kosztów i użycia z co najmniej 10 ostatnich dni. W przypadku danego okresu model prognozy wymaga takiej samej ilości danych treningowych jak dla prognozowanego okresu. Na przykład prognoza na trzy miesiące wymaga danych użycia i kosztów z co najmniej trzech ostatnich miesięcy.
 
 ## <a name="customize-cost-views"></a>Dostosowywanie widoków kosztów
 
