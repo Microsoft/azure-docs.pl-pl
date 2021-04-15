@@ -1,21 +1,21 @@
 ---
-title: 'Szybki Start: nowe przypisanie zasad przy użyciu języka Python'
-description: W tym przewodniku szybki start utworzysz przypisanie Azure Policy w celu zidentyfikowania niezgodnych zasobów przy użyciu języka Python.
+title: 'Szybki start: nowe przypisanie zasad przy użyciu języka Python'
+description: W tym przewodniku Szybki start użyjemy języka Python do utworzenia Azure Policy w celu zidentyfikowania niezgodnych zasobów.
 ms.date: 03/02/2021
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: e600f97dafdd1040c22b6e4d9e333f638334b663
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.custom: devx-track-python
+ms.openlocfilehash: 2c9a0d6bb00d82748505304264aeaefa409c4b06
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101742351"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379404"
 ---
-# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-python"></a>Szybki Start: Tworzenie przypisania zasad w celu zidentyfikowania niezgodnych zasobów przy użyciu języka Python
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-python"></a>Szybki start: tworzenie przypisania zasad w celu zidentyfikowania niezgodnych zasobów przy użyciu języka Python
 
-Pierwszym krokiem do zrozumienia pojęcia zgodności na platformie Azure jest określenie obecnej sytuacji dotyczącej Twoich zasobów. W tym przewodniku Szybki start utworzysz przypisanie zasad w celu zidentyfikowania maszyn wirtualnych, które nie korzystają z dysków zarządzanych. Po zakończeniu zidentyfikujesz maszyny wirtualne, które nie są _zgodne_.
+Pierwszym krokiem do zrozumienia pojęcia zgodności na platformie Azure jest określenie obecnej sytuacji dotyczącej Twoich zasobów. W tym przewodniku Szybki start utworzysz przypisanie zasad w celu zidentyfikowania maszyn wirtualnych, które nie korzystają z dysków zarządzanych. Po zakończeniu zidentyfikujesz maszyny wirtualne, które są _niezgodne._
 
-Biblioteka języka Python służy do zarządzania zasobami platformy Azure z poziomu wiersza polecenia lub skryptów. W tym przewodniku wyjaśniono, jak utworzyć przypisanie zasad przy użyciu biblioteki języka Python.
+Biblioteka języka Python służy do zarządzania zasobami platformy Azure z wiersza polecenia lub w skryptach. W tym przewodniku wyjaśniono, jak utworzyć przypisanie zasad za pomocą biblioteki języka Python.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -25,14 +25,14 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="add-the-policy-library"></a>Dodawanie biblioteki zasad
 
-Aby włączyć środowisko Python do pracy z Azure Policy, należy dodać bibliotekę. Ta biblioteka działa wszędzie tam, gdzie można korzystać z języka Python, [w tym bash w systemie Windows 10](/windows/wsl/install-win10) lub zainstalowanym lokalnie.
+Aby umożliwić językowi Python pracę Azure Policy, należy dodać bibliotekę. Ta biblioteka działa wszędzie tam, gdzie można używać języka Python, w tym [bash na Windows 10](/windows/wsl/install-win10) lub lokalnie zainstalowany.
 
-1. Sprawdź, czy jest zainstalowana najnowsza wersja języka Python (co najmniej **3,8**). Jeśli nie jest jeszcze zainstalowany, Pobierz go pod adresem [Python.org](https://www.python.org/downloads/).
+1. Sprawdź, czy jest zainstalowany najnowszy język Python (co najmniej **3.8).** Jeśli nie jest jeszcze zainstalowany, pobierz go ze [strony](https://www.python.org/downloads/)Python.org .
 
-1. Sprawdź, czy jest zainstalowany najnowszy interfejs wiersza polecenia platformy Azure (co najmniej **2.5.1**). Jeśli nie jest jeszcze zainstalowana, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+1. Sprawdź, czy jest zainstalowany najnowszy interfejs wiersza polecenia platformy Azure (co najmniej **2.5.1).** Jeśli nie jest jeszcze zainstalowany, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure.](/cli/azure/install-azure-cli)
 
    > [!NOTE]
-   > Interfejs wiersza polecenia platformy Azure jest wymagany, aby można było włączyć w języku Python użycie **uwierzytelniania opartego na interfejsie wiersza polecenia** w poniższych przykładach. Aby uzyskać informacje o innych opcjach, zobacz [uwierzytelnianie przy użyciu bibliotek zarządzania platformy Azure dla języka Python](/azure/developer/python/azure-sdk-authenticate).
+   > Interfejs wiersza polecenia platformy Azure jest wymagany, aby umożliwić językowi Python korzystanie **z** uwierzytelniania opartego na interfejsie wiersza polecenia w poniższych przykładach. Aby uzyskać informacje o innych opcjach, zobacz Authenticate using the Azure management libraries for Python (Uwierzytelnianie [za pomocą bibliotek zarządzania platformy Azure dla języka Python).](/azure/developer/python/azure-sdk-authenticate)
 
 1. Uwierzytelnianie za pomocą interfejsu wiersza polecenia platformy Azure.
 
@@ -40,7 +40,7 @@ Aby włączyć środowisko Python do pracy z Azure Policy, należy dodać biblio
    az login
    ```
 
-1. W wybranym środowisku języka Python Zainstaluj wymagane biblioteki dla Azure Policy:
+1. W swoim środowisku języka Python zainstaluj wymagane biblioteki dla Azure Policy:
 
    ```bash
    # Add the Python library for Python
@@ -54,9 +54,9 @@ Aby włączyć środowisko Python do pracy z Azure Policy, należy dodać biblio
    ```
 
    > [!NOTE]
-   > Jeśli język Python jest zainstalowany dla wszystkich użytkowników, polecenia te należy uruchomić z poziomu konsoli z podwyższonym poziomem uprawnień.
+   > Jeśli język Python jest zainstalowany dla wszystkich użytkowników, te polecenia muszą być uruchamiane z poziomu konsoli z podwyższonym poziomem uprawnień.
 
-1. Sprawdź, czy biblioteki zostały zainstalowane. `azure-mgmt-policyinsights` powinna być **0.5.0** lub wyższa, `azure-mgmt-resource` powinna być **9.0.0** lub większa i `azure-cli-core` powinna być **2.5.0** lub wyższa.
+1. Sprawdź, czy biblioteki zostały zainstalowane. `azure-mgmt-policyinsights` powinna mieć **wartość 0.5.0** lub wyższą, powinna mieć wartość `azure-mgmt-resource` **9.0.0** lub wyższą i powinna mieć wartość `azure-cli-core` **2.5.0 lub** wyższą.
 
    ```bash
    # Check each installed library
@@ -65,7 +65,7 @@ Aby włączyć środowisko Python do pracy z Azure Policy, należy dodać biblio
 
 ## <a name="create-a-policy-assignment"></a>Tworzenie przypisania zasad
 
-W tym przewodniku szybki start utworzysz przypisanie zasad i przypiszesz **maszyny wirtualne inspekcji, które nie używają definicji Managed disks** ( `06a78e20-9358-41c9-923c-fb736d382a4d` ). Ta definicja zasad identyfikuje zasoby, które nie spełniają warunków określonych w definicji zasad.
+W tym przewodniku Szybki start utworzysz przypisanie zasad i przypiszesz definicję **Audit VMs that do not use managed disks** ( `06a78e20-9358-41c9-923c-fb736d382a4d` ). Ta definicja zasad identyfikuje zasoby, które nie spełniają warunków określonych w definicji zasad.
 
 Uruchom następujący kod, aby utworzyć nowe przypisanie zasad:
 
@@ -92,22 +92,22 @@ print(policyAssignment)
 Poprzednie polecenia korzystają z następujących informacji:
 
 Szczegóły przypisania:
-- **display_name** — nazwa wyświetlana przypisania zasad. W takim przypadku używasz _maszyn wirtualnych inspekcji bez przypisania dysków zarządzanych_.
-- **policy_definition_id** — ścieżka definicji zasad, na podstawie której tworzysz przypisanie. W takim przypadku jest IDENTYFIKATORem _maszyn wirtualnych inspekcji definicji zasad, które nie korzystają z dysków zarządzanych_. W tym przykładzie definicja zasad jest wbudowana, a ścieżka nie zawiera informacji o grupie zarządzania lub subskrypcji.
-- **zakres** — zakres określa, jakie zasoby lub grupy zasobów są wymuszane w ramach przypisania zasad. Może ona przedziały od grupy zarządzania do pojedynczego zasobu. Pamiętaj, aby zastąpić `{scope}` jednym z następujących wzorców:
+- **display_name** — nazwa wyświetlana przypisania zasad. W tym przypadku używasz przypisania Audit VMs without managed disks Assignment (Przejmij maszyny _wirtualne bez dysków zarządzanych)._
+- **policy_definition_id** — ścieżka definicji zasad, na podstawie której tworzysz przypisanie. W tym przypadku jest to identyfikator definicji zasad Audit VMs that do not use managed disks (Przejmij maszyny _wirtualne, które nie korzystają z dysków zarządzanych)._ W tym przykładzie definicja zasad jest wbudowana, a ścieżka nie zawiera informacji o grupie zarządzania ani subskrypcji.
+- **zakres** — zakres określa, w jakich zasobach lub grupach zasobów jest wymuszane przypisanie zasad. Może to być zakres od grupy zarządzania do pojedynczego zasobu. Pamiętaj, aby zastąpić `{scope}` jeden z następujących wzorców:
   - Grupa zarządzania: `/providers/Microsoft.Management/managementGroups/{managementGroup}`
   - Subskrypcje: `/subscriptions/{subscriptionId}`
   - Grupa zasobów: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`
-  - Zasoby `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]`
-- **Opis** — dokładniejsze wyjaśnienie tego, czym są zasady lub dlaczego są przypisane do tego zakresu.
+  - Zasobów: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]`
+- **description** — bardziej szczegółowe wyjaśnienie działania zasad i przyczyny ich przypisania do tego zakresu.
 
 Tworzenie przypisania:
 
-- Zakres — ten zakres określa miejsce, w którym ma zostać zapisane przypisanie zasad. Zakres ustawiony w szczegółach przypisania musi istnieć w tym zakresie.
+- Zakres — ten zakres określa miejsce zapisania przypisania zasad. Zakres ustawiony w szczegółach przypisania musi istnieć w tym zakresie.
 - Nazwa —rzeczywista nazwa przypisania. W tym przykładzie użyto nazwy _audit-vm-manageddisks_.
-- Przypisanie zasad — obiekt **PolicyAssignment** języka Python utworzony w poprzednim kroku.
+- Przypisanie zasad — obiekt **PolicyAssignment języka** Python utworzony w poprzednim kroku.
 
-Teraz możesz zidentyfikować niezgodne zasoby, aby zrozumieć stan zgodności środowiska.
+Teraz możesz zidentyfikować niezgodne zasoby, aby poznać stan zgodności środowiska.
 
 ## <a name="identify-non-compliant-resources"></a>Identyfikowanie niezgodnych zasobów
 
@@ -132,7 +132,7 @@ results = policyInsightsClient.policy_states.list_query_results_for_subscription
 print(results)
 ```
 
-Zamień na `{subscriptionId}` subskrypcję, dla której chcesz zobaczyć wyniki zgodności dla tego przypisania zasad. Listę innych zakresów i sposobów podsumowywania danych można znaleźć w temacie [metody State Policy](/python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights.operations.policystatesoperations#methods).
+Zastąp `{subscriptionId}` subskrypcją, dla której chcesz wyświetlić wyniki zgodności dla tego przypisania zasad. Aby uzyskać listę innych zakresów i sposobów podsumowania danych, zobacz [Metody stanu zasad](/python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights.operations.policystatesoperations#methods).
 
 Wyniki powinny wyglądać podobnie do następujących:
 
@@ -147,7 +147,7 @@ Wyniki powinny wyglądać podobnie do następujących:
 }
 ```
 
-Wyniki są zgodne z informacjami wyświetlanymi na karcie **zgodność zasobów** w przypisaniu zasad w widoku Azure Portal.
+Wyniki są zgodne z tym, co widzisz na karcie **Zgodność** zasobów przypisania zasad w widoku Azure Portal zasobów.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
@@ -168,13 +168,13 @@ policyAssignment = policyClient.policy_assignments.delete("{scope}", "audit-vm-m
 print(policyAssignment)
 ```
 
-Zamień na ten `{scope}` sam zakres, który został użyty do utworzenia przypisania zasad.
+Zastąp `{scope}` wartości tym samym zakresem, który został użyty do utworzenia przypisania zasad.
 
 ## <a name="next-steps"></a>Następne kroki
 
 W tym przewodniku Szybki start została przypisana definicja zasad mających na celu zidentyfikowanie niezgodnych zasobów w środowisku platformy Azure.
 
-Aby dowiedzieć się więcej o przypisywaniu definicji zasad w celu sprawdzenia, czy nowe zasoby są zgodne, przejdź do samouczka:
+Aby dowiedzieć się więcej na temat przypisywania definicji zasad w celu sprawdzenia, czy nowe zasoby są zgodne, przejdź do samouczka:
 
 > [!div class="nextstepaction"]
 > [Tworzenie zasad i zarządzanie nimi](./tutorials/create-and-manage.md)

@@ -7,35 +7,35 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 01/28/2020
 ms.author: cynthn
-ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 6432c125c4fedd962faa28a4c84c7494300b0472
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: include file
+ms.openlocfilehash: 1c06f5ab8995e7285365fa2d0ee77c327be2b1bd
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92755589"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107386911"
 ---
-## <a name="list-information"></a>Informacje o liście
+## <a name="list-information"></a>Lista informacji
 
-Pobierz lokalizację, stan i inne informacje o dostępnych galeriach obrazów przy użyciu polecenia [AZ SIG list](/cli/azure/sig#az-sig-list).
+Pobierz lokalizację, stan i inne informacje o dostępnych galeriach obrazów przy użyciu [narzędzia az sig list](/cli/azure/sig#az-sig-list).
 
 ```azurecli-interactive 
 az sig list -o table
 ```
 
-Wyświetl listę definicji obrazów w galerii, w tym informacje o typie i stanie systemu operacyjnego za pomocą polecenia [AZ SIG Image-Definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list).
+Lista definicji obrazów w galerii, w tym informacje o typie i stanie systemu operacyjnego, przy użyciu [narzędzia az sig image-definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list).
 
 ```azurecli-interactive 
 az sig image-definition list --resource-group myGalleryRG --gallery-name myGallery -o table
 ```
 
-Wyświetl listę wersji obrazu udostępnionego w galerii przy użyciu polecenia [AZ SIG Image-Version list](/cli/azure/sig/image-version#az-sig-image-version-list).
+Aby wyświetlić listę wersji obrazu udostępnionego w galerii, należy użyć [narzędzia az sig image-version list.](/cli/azure/sig/image-version#az-sig-image-version-list)
 
 ```azurecli-interactive
 az sig image-version list --resource-group myGalleryRG --gallery-name myGallery --gallery-image-definition myImageDefinition -o table
 ```
 
-Pobierz identyfikator wersji obrazu przy użyciu polecenia [AZ SIG Image-Version show](/cli/azure/sig/image-version#az-sig-image-version-show).
+Pobierz identyfikator wersji obrazu za pomocą [narzędzia az sig image-version show](/cli/azure/sig/image-version#az-sig-image-version-show).
 
 ```azurecli-interactive
 az sig image-version show \

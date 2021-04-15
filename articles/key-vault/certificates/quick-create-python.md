@@ -1,37 +1,37 @@
 ---
-title: Szybki Start — Azure Key Vault biblioteki klienckiej języka Python — zarządzanie certyfikatami
-description: Dowiedz się, jak tworzyć, pobierać i usuwać certyfikaty z magazynu kluczy platformy Azure przy użyciu biblioteki klienckiej języka Python
+title: Szybki start — Azure Key Vault klienta języka Python — zarządzanie certyfikatami
+description: Dowiedz się, jak tworzyć, pobierać i usuwać certyfikaty z usługi Azure Key Vault przy użyciu biblioteki klienta języka Python
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 09/03/2020
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 2026b1721dbe05af1ecc52324d1dd0ebf2ec3d08
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-python
+ms.openlocfilehash: b8f36d7490e24247f1f8482c9dece86b68015d73
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104802662"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376107"
 ---
-# <a name="quickstart-azure-key-vault-certificate-client-library-for-python"></a>Szybki Start: Azure Key Vault Biblioteka kliencka certyfikatów dla języka Python
+# <a name="quickstart-azure-key-vault-certificate-client-library-for-python"></a>Szybki start: Azure Key Vault klienta certyfikatu dla języka Python
 
-Wprowadzenie do biblioteki klienta Azure Key Vault Certificate dla języka Python. Wykonaj poniższe kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań. Przy użyciu Key Vault do przechowywania certyfikatów można uniknąć przechowywania certyfikatów w kodzie, co zwiększa bezpieczeństwo aplikacji.
+Wprowadzenie do biblioteki klienta Azure Key Vault certyfikatów dla języka Python. Wykonaj poniższe kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań. Używając Key Vault do przechowywania certyfikatów, należy unikać przechowywania certyfikatów w kodzie, co zwiększa bezpieczeństwo aplikacji.
 
-[Dokumentacja](/python/api/overview/azure/keyvault-certificates-readme)  |  interfejsu API [Kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-certificates)  |  źródłowy biblioteki [Pakiet (indeks pakietu języka Python)](https://pypi.org/project/azure-keyvault-certificates)
+[Dokumentacja referencyjna interfejsu API](/python/api/overview/azure/keyvault-certificates-readme)  |  [Kod źródłowy biblioteki](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-certificates)  |  [Package (Python Package Index)](https://pypi.org/project/azure-keyvault-certificates)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python 2.7 + lub 3.6 +](/azure/developer/python/configure-local-development-environment)
+- Subskrypcja platformy Azure — [utwórz subskrypcję bezpłatnie.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- [Python 2.7+ lub 3.6+](/azure/developer/python/configure-local-development-environment)
 - [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)
 
-W tym przewodniku szybki start założono, że uruchomiono [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) w oknie terminalu systemu Linux.
+W tym przewodniku Szybki start założono, że używasz interfejsu wiersza [polecenia platformy Azure](/cli/azure/install-azure-cli) w oknie terminalu systemu Linux.
 
 ## <a name="set-up-your-local-environment"></a>Konfigurowanie środowiska lokalnego
 
-Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z interfejsem wiersza polecenia platformy Azure w celu uwierzytelniania użytkowników w usługach platformy Azure. Deweloperzy mogą również używać programu Visual Studio lub Visual Studio Code do uwierzytelniania wywołań, aby uzyskać więcej informacji, zobacz [uwierzytelnianie klienta przy użyciu biblioteki klienta tożsamości platformy Azure](/python/api/overview/azure/identity-readme)
+Ten przewodnik Szybki start używa biblioteki tożsamości platformy Azure z interfejsem wiersza polecenia platformy Azure do uwierzytelniania użytkownika w usługach platformy Azure. Deweloperzy mogą również używać Visual Studio lub Visual Studio Code do uwierzytelniania swoich wywołań. Aby uzyskać więcej informacji, zobacz Authenticate the client with Azure Identity client library (Uwierzytelnianie klienta za pomocą [biblioteki klienta tożsamości platformy Azure).](/python/api/overview/azure/identity-readme)
 
 ### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -41,24 +41,24 @@ Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z inter
     az login
     ```
 
-    Jeśli interfejs wiersza polecenia może otworzyć domyślną przeglądarkę, spowoduje to załadowanie strony logowania platformy Azure.
+    Jeśli interfejs wiersza polecenia może otworzyć domyślną przeglądarkę, zrobi to i załaduje stronę logowania platformy Azure.
 
-    W przeciwnym razie Otwórz stronę przeglądarki pod adresem [https://aka.ms/devicelogin](https://aka.ms/devicelogin) i wprowadź kod autoryzacji wyświetlany w terminalu.
+    W przeciwnym razie otwórz stronę przeglądarki pod [https://aka.ms/devicelogin](https://aka.ms/devicelogin) adresem i wprowadź kod autoryzacji wyświetlany w terminalu.
 
 2. Zaloguj się w przeglądarce przy użyciu poświadczeń swojego konta.
 
-### <a name="install-the-packages"></a>Zainstaluj pakiety
+### <a name="install-the-packages"></a>Instalowanie pakietów
 
-1. W terminalu lub wierszu polecenia Utwórz odpowiedni folder projektu, a następnie utwórz i aktywuj środowisko wirtualne języka Python zgodnie z opisem w temacie [Korzystanie z środowisk wirtualnych języka Python](/azure/developer/python/configure-local-development-environment?tabs=cmd#use-python-virtual-environments)
+1. W terminalu lub wierszu polecenia utwórz odpowiedni folder projektu, a następnie utwórz i aktywuj środowisko wirtualne języka Python zgodnie z opisem w tece [Use Python virtual environments (Używanie](/azure/developer/python/configure-local-development-environment?tabs=cmd#use-python-virtual-environments) środowisk wirtualnych języka Python)
 
-1. Zainstaluj bibliotekę tożsamości Azure Active Directory:
+1. Zainstaluj bibliotekę Azure Active Directory tożsamości:
 
     ```terminal
     pip install azure.identity
     ```
 
 
-1. Zainstaluj bibliotekę klienta Key Vault certyfikatów:
+1. Zainstaluj bibliotekę Key Vault klienta certyfikatu:
 
     ```terminal
     pip install azure-keyvault-certificates
@@ -70,7 +70,7 @@ Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z inter
 
 ### <a name="grant-access-to-your-key-vault"></a>Udzielanie dostępu do magazynu kluczy
 
-Tworzenie zasad dostępu dla magazynu kluczy, który przyznaje uprawnienia certyfikatu do konta użytkownika
+Tworzenie zasad dostępu dla magazynu kluczy, które przyznaje uprawnienia do certyfikatu do konta użytkownika
 
 ```console
 az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --certificate-permissions delete get list create
@@ -96,9 +96,9 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 ## <a name="create-the-sample-code"></a>Tworzenie przykładowego kodu
 
-Biblioteka klienta certyfikatu Azure Key Vault dla języka Python umożliwia zarządzanie certyfikatami. Poniższy przykład kodu demonstruje sposób tworzenia klienta, ustawiania certyfikatu, pobierania certyfikatu i usuwania certyfikatu.
+Biblioteka Azure Key Vault klienta certyfikatów dla języka Python umożliwia zarządzanie certyfikatami. W poniższym przykładzie kodu pokazano, jak utworzyć klienta, ustawić certyfikat, pobrać certyfikat i usunąć certyfikat.
 
-Utwórz plik o nazwie *kv_certificates. PR* , który zawiera ten kod.
+Utwórz plik o *nazwie kv_certificates.py zawierający* ten kod.
 
 ```python
 import os
@@ -136,31 +136,31 @@ print(" done.")
 
 ## <a name="run-the-code"></a>Uruchamianie kodu
 
-Upewnij się, że kod w poprzedniej sekcji znajduje się w pliku o nazwie *kv_certificates. PR*. Następnie uruchom kod przy użyciu następującego polecenia:
+Upewnij się, że kod w poprzedniej sekcji znajduje się w pliku *o nazwie kv_certificates.py.* Następnie uruchom kod za pomocą następującego polecenia:
 
 ```terminal
 python kv_certificates.py
 ```
 
-- W przypadku wystąpienia błędów uprawnień upewnij się, że uruchomiono [ `az keyvault set-policy` polecenie](#grant-access-to-your-key-vault).
-- Ponowne uruchomienie kodu o tej samej nazwie klucza może spowodować wystąpienie błędu, "(konflikt) certyfikat <name> jest obecnie usunięty, ale stan odzyskiwalny". Użyj innej nazwy klucza.
+- Jeśli wystąpią błędy uprawnień, upewnij się, że uruchomiono [ `az keyvault set-policy` polecenie](#grant-access-to-your-key-vault).
+- Ponowne uruchomienie kodu o tej samej nazwie klucza może spowodować błąd "(Konflikt) Certyfikat jest obecnie w stanie <name> usunięcia, ale można go odzyskać". Użyj innej nazwy klucza.
 
 ## <a name="code-details"></a>Szczegóły kodu
 
 ### <a name="authenticate-and-create-a-client"></a>Uwierzytelnianie i tworzenie klienta
 
-W tym przewodniku szybki start zalogowany użytkownik jest używany do uwierzytelniania w magazynie kluczy, który jest preferowaną metodą tworzenia lokalnego. W przypadku aplikacji wdrożonych na platformie Azure tożsamość zarządzana powinna być przypisana do App Service lub maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Omówienie tożsamości zarządzanej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+W tym przewodniku Szybki start zalogowany użytkownik jest używany do uwierzytelniania w magazynie kluczy, co jest preferowaną metodą tworzenia aplikacji lokalnych. W przypadku aplikacji wdrożonych na platformie Azure tożsamość zarządzana powinna być przypisana do usługi App Service lub maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz Omówienie [tożsamości zarządzanej.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-W poniższym przykładzie nazwa magazynu kluczy jest rozwinięta do identyfikatora URI magazynu kluczy w formacie "https:// \<your-key-vault-name\> . Vault.Azure.NET". W tym przykładzie użyto klasy  ["DefaultAzureCredential ()"](/python/api/azure-identity/azure.identity.defaultazurecredential) , która umożliwia użycie tego samego kodu w różnych środowiskach z różnymi opcjami w celu zapewnienia tożsamości. Aby uzyskać więcej informacji, zobacz [domyślne uwierzytelnianie poświadczeń platformy Azure](https://docs.microsoft.com/python/api/overview/azure/identity-readme). 
+W poniższym przykładzie nazwa magazynu kluczy jest rozszerzana do wartości URI magazynu kluczy w formacie "https:// \<your-key-vault-name\> .vault.azure.net". W tym przykładzie używa się klasy  ["DefaultAzureCredential()",](/python/api/azure-identity/azure.identity.defaultazurecredential) która umożliwia używanie tego samego kodu w różnych środowiskach z różnymi opcjami w celu zapewnienia tożsamości. Aby uzyskać więcej informacji, zobacz [Domyślne uwierzytelnianie poświadczeń platformy Azure.](https://docs.microsoft.com/python/api/overview/azure/identity-readme) 
 
 ```python
 credential = DefaultAzureCredential()
 client = CertificateClient(vault_url=KVUri, credential=credential)
 ```
 
-### <a name="save-a-certificate"></a>Zapisz certyfikat
+### <a name="save-a-certificate"></a>Zapisywanie certyfikatu
 
-Po uzyskaniu obiektu klienta dla magazynu kluczy można utworzyć certyfikat przy użyciu metody [begin_create_certificate](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?#begin-create-certificate-certificate-name--policy----kwargs-) : 
+Po uzyskaniu obiektu klienta dla magazynu kluczy możesz utworzyć certyfikat przy użyciu [begin_create_certificate](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?#begin-create-certificate-certificate-name--policy----kwargs-) metody: 
 
 ```python
 policy = CertificatePolicy.get_default()
@@ -168,43 +168,43 @@ poller = client.begin_create_certificate(certificate_name=certificateName, polic
 certificate = poller.result()
 ```
 
-W tym miejscu certyfikat wymaga zasad uzyskanych z użyciem metody [CertificatePolicy.get_default](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificatepolicy?#get-default--) .
+W tym miejscu certyfikat wymaga zasad uzyskanych za pomocą [CertificatePolicy.get_default](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificatepolicy?#get-default--) metody .
 
-Wywołanie `begin_create_certificate` metody generuje asynchroniczne wywołanie interfejsu API REST platformy Azure dla magazynu kluczy. Wywołanie asynchroniczne zwraca obiekt sondowający. Aby poczekać na wynik operacji, wywołaj metodę sondowania `result` .
+Wywołanie metody `begin_create_certificate` generuje asynchroniczne wywołanie interfejsu API REST platformy Azure dla magazynu kluczy. Wywołanie asynchroniczne zwraca obiekt poller. Aby zaczekać na wynik operacji, wywołaj metodę `result` pollera.
 
-Podczas obsługi żądania platforma Azure uwierzytelnia tożsamość wywołującego (nazwę główną usługi) przy użyciu obiektu Credential dostarczonego do klienta.
+Podczas obsługi żądania platforma Azure uwierzytelnia tożsamość obiektu wywołującego (jednostkę usługi) przy użyciu obiektu poświadczeń podanego klientowi.
 
 
-### <a name="retrieve-a-certificate"></a>Pobierz certyfikat
+### <a name="retrieve-a-certificate"></a>Pobieranie certyfikatu
 
-Aby odczytać certyfikat z Key Vault, użyj metody [get_certificate](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?#get-certificate-certificate-name----kwargs-) :
+Aby odczytać certyfikat z Key Vault, użyj [get_certificate](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?#get-certificate-certificate-name----kwargs-) metody :
 
 ```python
 retrieved_certificate = client.get_certificate(certificateName)
  ```
 
-Możesz również sprawdzić, czy certyfikat został ustawiony za pomocą polecenia interfejsu wiersza poleceń platformy Azure [AZ, Certificate webmagazynu show](/cli/azure/keyvault/certificate?#az-keyvault-certificate-show).
+Możesz również sprawdzić, czy certyfikat został ustawiony za pomocą polecenia interfejsu wiersza polecenia platformy Azure [az keyvault certificate show](/cli/azure/keyvault/certificate?#az-keyvault-certificate-show).
 
 ### <a name="delete-a-certificate"></a>Usuwanie certyfikatu
 
-Aby usunąć certyfikat, użyj metody [begin_delete_certificate](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?#begin-delete-certificate-certificate-name----kwargs-) :
+Aby usunąć certyfikat, użyj [begin_delete_certificate](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?#begin-delete-certificate-certificate-name----kwargs-) metody :
 
 ```python
 poller = client.begin_delete_certificate(certificateName)
 deleted_certificate = poller.result()
 ```
 
-`begin_delete_certificate`Metoda jest asynchroniczna i zwraca obiekt sondowaer. Wywołanie metody sondy `result` oczekuje na jego zakończenie.
+Metoda `begin_delete_certificate` jest asynchroniczna i zwraca obiekt poller. Wywołanie metody `result` pollera czeka na jego ukończenie.
 
-Możesz sprawdzić, czy certyfikat został usunięty za pomocą polecenia interfejsu CLI platformy Azure [AZ, Certificate show](/cli/azure/keyvault/certificate?#az-keyvault-certificate-show).
+Możesz sprawdzić, czy certyfikat został usunięty, za pomocą polecenia [az keyvault certificate](/cli/azure/keyvault/certificate?#az-keyvault-certificate-show)show interfejsu wiersza polecenia platformy Azure.
 
-Po usunięciu certyfikat pozostaje w stanie usunięty, ale jest w nim możliwy do odzyskania. Jeśli ponownie uruchomisz kod, użyj innej nazwy certyfikatu.
+Po usunięciu certyfikat pozostaje w stanie usuniętym, ale można go odzyskać przez jeden czas. Jeśli kod zostanie uruchomiony ponownie, użyj innej nazwy certyfikatu.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Aby eksperymentować z wpisami [tajnymi](../secrets/quick-create-python.md) i [kluczami](../keys/quick-create-python.md), możesz ponownie użyć Key Vault utworzonych w tym artykule.
+Jeśli chcesz również poeksperymentować z [wpisami tajnymi](../secrets/quick-create-python.md) i kluczami, [](../keys/quick-create-python.md)możesz ponownie użyć Key Vault utworzonych w tym artykule.
 
-W przeciwnym razie po zakończeniu tworzenia zasobów utworzonych w tym artykule Użyj następującego polecenia, aby usunąć grupę zasobów i wszystkie zawarte w niej zasoby:
+W przeciwnym razie po zakończeniu pracy z zasobami utworzonymi w tym artykule użyj następującego polecenia, aby usunąć grupę zasobów i wszystkie zawarte w niej zasoby:
 
 ```azurecli
 az group delete --resource-group KeyVault-PythonQS-rg
@@ -214,6 +214,6 @@ az group delete --resource-group KeyVault-PythonQS-rg
 
 - [Omówienie usługi Azure Key Vault](../general/overview.md)
 - [Bezpieczny dostęp do magazynu kluczy](../general/secure-your-key-vault.md)
-- [Przewodnik dewelopera Azure Key Vault](../general/developers-guide.md)
-- [Omówienie zabezpieczeń Key Vault](../general/security-overview.md)
+- [Azure Key Vault dewelopera](../general/developers-guide.md)
+- [Key Vault omówienie zabezpieczeń](../general/security-overview.md)
 - [Uwierzytelnianie za pomocą Key Vault](../general/authentication.md)

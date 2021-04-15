@@ -1,57 +1,66 @@
 ---
-title: Szybki Start — Konfigurowanie klastra hybrydowego przy użyciu wystąpienia zarządzanego platformy Azure dla oprogramowania Apache Cassandra
-description: Ten przewodnik Szybki Start przedstawia sposób konfigurowania klastra hybrydowego przy użyciu wystąpienia zarządzanego platformy Azure dla oprogramowania Apache Cassandra.
+title: Szybki start — konfigurowanie klastra hybrydowego za pomocą wystąpienia zarządzanego platformy Azure dla systemu Apache Cassandra
+description: W tym przewodniku Szybki start pokazano, jak skonfigurować klaster hybrydowy przy użyciu wystąpienia zarządzanego platformy Azure dla systemu Apache Cassandra.
 author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
-ms.openlocfilehash: b022bff9db87c248881cd18cc21569aaef8f404a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9f3ad2a5d5b275ff611653855eff73bd36afda9f
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562141"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379421"
 ---
-# <a name="quickstart-configure-a-hybrid-cluster-with-azure-managed-instance-for-apache-cassandra-preview"></a>Szybki Start: Konfigurowanie klastra hybrydowego przy użyciu wystąpienia zarządzanego platformy Azure dla oprogramowania Apache Cassandra (wersja zapoznawcza)
+# <a name="quickstart-configure-a-hybrid-cluster-with-azure-managed-instance-for-apache-cassandra-preview"></a>Szybki start: konfigurowanie klastra hybrydowego przy użyciu wystąpienia zarządzanego platformy Azure dla usługi Apache Cassandra (wersja zapoznawcza)
 
-Wystąpienie zarządzane platformy Azure dla systemu Apache Cassandra zapewnia zautomatyzowane operacje wdrażania i skalowania dla centrów danych w zarządzanych źródłach oprogramowania Apache Cassandra. Ta usługa ułatwia przyspieszenie scenariuszy hybrydowych i zmniejszenie trwającej konserwacji.
+Wystąpienie zarządzane platformy Azure dla systemu Apache Cassandra zapewnia zautomatyzowane operacje wdrażania i skalowania dla zarządzanych centrów danych Apache Cassandra typu open source. Ta usługa pomaga przyspieszyć scenariusze hybrydowe i ograniczyć bieżącą konserwację.
 
 > [!IMPORTANT]
-> Wystąpienie zarządzane platformy Azure dla systemu Apache Cassandra jest obecnie w publicznej wersji zapoznawczej.
+> Wystąpienie zarządzane platformy Azure dla serwera Apache Cassandra jest obecnie dostępne w publicznej wersji zapoznawczej.
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
 > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Ten przewodnik Szybki Start przedstawia sposób konfigurowania klastra hybrydowego przy użyciu poleceń interfejsu wiersza polecenia platformy Azure. Jeśli masz istniejące centra danych w środowisku lokalnym lub własnym, możesz użyć wystąpienia zarządzanego platformy Azure dla oprogramowania Apache Cassandra, aby dodać do niego inne centra danych i je zachować.
+W tym przewodniku Szybki start pokazano, jak skonfigurować klaster hybrydowy za pomocą poleceń interfejsu wiersza polecenia platformy Azure. Jeśli masz istniejące centra danych w środowisku lokalnym lub własnym, możesz użyć wystąpienia zarządzanego platformy Azure dla bazy danych Apache Cassandra, aby dodać inne centra danych do tego klastra i je konserwować.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-* Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.12.1 lub nowszej. Jeśli używasz Azure Cloud Shell, Najnowsza wersja jest już zainstalowana.
+* Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.12.1 lub wyższej. Jeśli używasz usługi Azure Cloud Shell, najnowsza wersja jest już zainstalowana.
 
-* [Platforma Azure Virtual Network](../virtual-network/virtual-networks-overview.md) z łącznością z własnym środowiskiem hostowanym lub lokalnym. Aby uzyskać więcej informacji na temat łączenia środowisk lokalnych z platformą Azure, zobacz artykuł [łączenie sieci lokalnej z platformą Azure](/azure/architecture/reference-architectures/hybrid-networking/) .
+* [Usługa Azure Virtual Network](../virtual-network/virtual-networks-overview.md) z łącznością ze środowiskiem własnym lub lokalnym. Aby uzyskać więcej informacji na temat łączenia środowisk lokalnych z platformą Azure, zobacz artykuł [Connect an on-premises network to Azure (Łączenie](/azure/architecture/reference-architectures/hybrid-networking/) sieci lokalnej z platformą Azure).
 
 ## <a name="configure-a-hybrid-cluster"></a><a id="create-account"></a>Konfigurowanie klastra hybrydowego
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/) i przejdź do zasobu Virtual Network.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/) i przejdź do swojego Virtual Network zasobu.
 
-1. Otwórz kartę **podsieci** i Utwórz nową podsieć. Aby dowiedzieć się więcej na temat pól w formularzu **Dodawanie podsieci** , zobacz artykuł [Virtual Network](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) :
+1. Otwórz **kartę Podsieci** i utwórz nową podsieć. Aby dowiedzieć się więcej na temat pól w formularzu **Dodawanie podsieci,** zobacz [Virtual Network](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) artykułu:
 
    :::image type="content" source="./media/configure-hybrid-cluster/subnet.png" alt-text="Dodaj nową podsieć do Virtual Network." lightbox="./media/configure-hybrid-cluster/subnet.png" border="true":::
     <!-- ![image](./media/configure-hybrid-cluster/subnet.png) -->
 
-1. Teraz zastosujemy specjalne uprawnienia do sieci wirtualnej i podsieci, których wystąpienie zarządzane Cassandra wymaga, przy użyciu interfejsu wiersza polecenia platformy Azure. Użyj `az role assignment create` polecenia, zastępując `<subscription ID>` ,, `<resource group name>` `<VNet name>` , i `<subnet name>` z odpowiednimi wartościami:
+    > [!NOTE]
+    > Wdrożenie wystąpienia zarządzanego platformy Azure dla oprogramowania Apache Cassandra wymaga dostępu do Internetu. Wdrożenie kończy się niepowodzeniem w środowiskach, w których dostęp do Internetu jest ograniczony. Upewnij się, że nie blokujesz dostępu w sieci wirtualnej do następujących istotnych usług platformy Azure, które są niezbędne do prawidłowego działania zarządzanego rozwiązania Cassandra:
+    > - Azure Storage
+    > - Azure KeyVault
+    > - Azure Virtual Machine Scale Sets
+    > - Monitorowanie platformy Azure
+    > - Azure Active Directory
+    > - Zabezpieczenia platformy Azure
+
+1. Teraz zastosujemy pewne specjalne uprawnienia do sieci wirtualnej i podsieci, których wymaga wystąpienie zarządzane Cassandra, przy użyciu interfejsu wiersza polecenia platformy Azure. Użyj polecenia `az role assignment create` , zastępując wartości , i odpowiednimi `<subscription ID>` `<resource group name>` `<VNet name>` wartościami:
 
    ```azurecli-interactive
-   az role assignment create --assignee e5007d2c-4b13-4a74-9b6a-605d99f03501 --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>/subnets/<subnet name>
+   az role assignment create --assignee a232010e-820c-4083-83bb-3ace5fc29d0b --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>
    ```
 
    > [!NOTE]
-   > `assignee`Wartości i `role` w poprzednim poleceniu są odpowiednio stałymi zasadami usługi i identyfikatorami ról.
+   > Wartości `assignee` i w poprzednim `role` poleceniu są odpowiednio stałą jednostką usługi i identyfikatorami ról.
 
-1. Następnie skonfigurujemy zasoby dla naszego klastra hybrydowego. Ponieważ masz już klaster, nazwa klastra będzie tylko zasobem logicznym, aby zidentyfikować nazwę istniejącego klastra. Upewnij się, że używasz nazwy istniejącego klastra podczas definiowania `clusterName` `clusterNameOverride` zmiennych i w poniższym skrypcie. Potrzebne są również węzły inicjatora, publiczne certyfikaty klientów (Jeśli skonfigurowano klucz publiczny/prywatny w punkcie końcowym Cassandra) i Gossip certyfikaty istniejącego klastra.
+1. Następnie skonfigurujemy zasoby dla naszego klastra hybrydowego. Ponieważ masz już klaster, nazwa klastra w tym miejscu będzie tylko zasobem logicznym identyfikującym nazwę istniejącego klastra. Pamiętaj, aby użyć nazwy istniejącego klastra podczas definiowania zmiennych `clusterName` i `clusterNameOverride` w poniższym skrypcie. Potrzebne są również węzły iniekcyjna, publiczne certyfikaty klienta (jeśli w punkcie końcowym cassandra skonfigurowano klucz publiczny/prywatny) oraz certyfikaty plotkowania istniejącego klastra.
 
    > [!NOTE]
-   > Wartość `delegatedManagementSubnetId` zmiennej, która zostanie podana poniżej, jest dokładnie taka sama jak wartość `--scope` podana w powyższym poleceniu:
+   > Wartość zmiennej, która zostanie dostarczona poniżej, jest dokładnie taka sama jak wartość zmiennej podanej `delegatedManagementSubnetId` `--scope` w poleceniu powyżej:
 
    ```azurecli-interactive
    resourceGroupName='MyResourceGroup'
@@ -75,9 +84,9 @@ Ten przewodnik Szybki Start przedstawia sposób konfigurowania klastra hybrydowe
    ```
 
     > [!NOTE]
-    > Należy wiedzieć, gdzie są przechowywane istniejące certyfikaty publiczne i/lub Gossip. Jeśli nie masz pewności, możesz uruchomić polecenie, `keytool -list -keystore <keystore-path> -rfc -storepass <password>` Aby wydrukować certyfikaty. 
+    > Należy wiedzieć, gdzie są przechowywane istniejące certyfikaty publiczne i/lub plotk. Jeśli nie masz pewności, powinno być możliwe uruchomienie, `keytool -list -keystore <keystore-path> -rfc -storepass <password>` aby wydrukować certyfikaty. 
 
-1. Po utworzeniu zasobu klastra uruchom następujące polecenie, aby uzyskać szczegółowe informacje dotyczące konfiguracji klastra:
+1. Po utworzeniu zasobu klastra uruchom następujące polecenie, aby uzyskać szczegóły konfiguracji klastra:
 
    ```azurecli-interactive
    resourceGroupName='MyResourceGroup'
@@ -88,12 +97,12 @@ Ten przewodnik Szybki Start przedstawia sposób konfigurowania klastra hybrydowe
        --resource-group $resourceGroupName \
    ```
 
-1. Poprzednie polecenie zwraca informacje o środowisku wystąpienia zarządzanego. Będziesz potrzebować certyfikatów Gossip, aby można było je zainstalować na węzłach w istniejącym centrum danych. Poniższy zrzut ekranu przedstawia dane wyjściowe poprzedniego polecenia i format certyfikatów:
+1. Poprzednie polecenie zwraca informacje o środowisku wystąpienia zarządzanego. Potrzebne będą certyfikaty plotkowe, aby można je było zainstalować w węzłach w istniejącym centrum danych. Poniższy zrzut ekranu przedstawia dane wyjściowe poprzedniego polecenia i format certyfikatów:
 
    :::image type="content" source="./media/configure-hybrid-cluster/show-cluster.png" alt-text="Pobierz szczegóły certyfikatu z klastra." lightbox="./media/configure-hybrid-cluster/show-cluster.png" border="true":::
     <!-- ![image](./media/configure-hybrid-cluster/show-cluster.png) -->
 
-1. Następnie utwórz nowe centrum danych w klastrze hybrydowym. Upewnij się, że wartości zmiennych zostały zamienione na szczegóły klastra:
+1. Następnie utwórz nowe centrum danych w klastrze hybrydowym. Pamiętaj, aby zastąpić wartości zmiennych szczegółami klastra:
 
    ```azurecli-interactive
    resourceGroupName='MyResourceGroup'
@@ -110,7 +119,7 @@ Ten przewodnik Szybki Start przedstawia sposób konfigurowania klastra hybrydowe
        --node-count 9 
    ```
 
-1. Po utworzeniu nowego centrum danych Uruchom polecenie Pokaż centrum danych, aby wyświetlić jego szczegóły:
+1. Teraz, po utworzeniu nowego centrum danych, uruchom polecenie pokaż centrum danych, aby wyświetlić jego szczegóły:
 
    ```azurecli-interactive
    resourceGroupName='MyResourceGroup'
@@ -123,15 +132,15 @@ Ten przewodnik Szybki Start przedstawia sposób konfigurowania klastra hybrydowe
        --data-center-name $dataCenterName 
    ```
 
-1. Poprzednie polecenie wyprowadza węzły inicjatora nowego centrum danych. Dodaj węzły inicjatora nowego centrum danych do konfiguracji istniejącego centrum danych w pliku *Cassandra. YAML* . I zainstaluj wcześniej zebrane certyfikaty Gossip wystąpienia zarządzanego:
+1. Poprzednie polecenie wyprowadza węzły iniekcyjne nowego centrum danych. Dodaj węzły iniekcyjne nowego centrum danych do konfiguracji istniejącego centrum danych w pliku *cassandra.yaml.* Zainstaluj zebrane wcześniej certyfikaty plotkowe wystąpienia zarządzanego:
 
    :::image type="content" source="./media/configure-hybrid-cluster/show-datacenter.png" alt-text="Pobierz szczegóły centrum danych." lightbox="./media/configure-hybrid-cluster/show-datacenter.png" border="true":::
     <!-- ![image](./media/configure-hybrid-cluster/show-datacenter.png) -->
 
     > [!NOTE]
-    > Jeśli chcesz dodać więcej centrów danych, możesz powtórzyć powyższe kroki, ale potrzebujesz tylko węzłów inicjatora. 
+    > Jeśli chcesz dodać więcej centrów danych, możesz powtórzyć powyższe kroki, ale potrzebne są tylko węzły iniekcyjna. 
 
-1. Na koniec użyj poniższego zapytania CQL, aby zaktualizować strategię replikacji w każdej przestrzeni kluczy w celu uwzględnienia wszystkich centrów danych w klastrze:
+1. Na koniec użyj następującego zapytania CQL, aby zaktualizować strategię replikacji w każdej przestrzeni kluczy, aby uwzględnić wszystkie centra danych w klastrze:
 
    ```bash
    ALTER KEYSPACE "ks" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', ‘on-premise-dc': 3, ‘managed-instance-dc': 3};
@@ -144,25 +153,25 @@ Ten przewodnik Szybki Start przedstawia sposób konfigurowania klastra hybrydowe
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Jeśli wystąpi błąd podczas stosowania uprawnień do Virtual Network, takich jak *nie można znaleźć użytkownika lub nazwy głównej usługi w bazie danych grafu dla "e5007d2c-4b13-4a74-9b6a-605d99f03501"*, można ręcznie zastosować to samo uprawnienie z Azure Portal. Aby zastosować uprawnienia z portalu, przejdź do okienka **Kontrola dostępu (IAM)** istniejącej sieci wirtualnej i Dodaj przypisanie roli dla "Azure Cosmos DB" do roli "administrator sieci". Jeśli dwa wpisy są wyświetlane podczas wyszukiwania "Azure Cosmos DB", Dodaj zarówno wpisy, jak pokazano na poniższej ilustracji: 
+Jeśli podczas stosowania uprawnień do usługi Virtual Network wystąpi błąd, taki jak Nie można znaleźć użytkownika lub jednostki usługi w grafowej bazie danych dla wartości *"e5007d2c-4b13-4a74-9b6a-605d99f03501",* możesz ręcznie zastosować to samo uprawnienie z poziomu Azure Portal. Aby zastosować uprawnienia z portalu, przejdź do okienka Kontrola dostępu **(IAM)** istniejącej sieci wirtualnej i dodaj przypisanie roli "Azure Cosmos DB" do roli "Administrator sieci". Jeśli podczas wyszukiwania ciągu "Azure Cosmos DB" są wyświetlane dwa wpisy, dodaj oba wpisy, jak pokazano na poniższej ilustracji: 
 
-   :::image type="content" source="./media/create-cluster-cli/apply-permissions.png" alt-text="Zastosuj uprawnienia" lightbox="./media/create-cluster-cli/apply-permissions.png" border="true":::
+   :::image type="content" source="./media/create-cluster-cli/apply-permissions.png" alt-text="Stosowanie uprawnień" lightbox="./media/create-cluster-cli/apply-permissions.png" border="true":::
 
 > [!NOTE] 
-> Przypisanie roli Azure Cosmos DB jest używane tylko do celów wdrożeniowych. Usługa Azure Managed instanced dla platformy Apache Cassandra nie ma zależności zaplecza na Azure Cosmos DB.  
+> Przypisanie Azure Cosmos DB jest używane tylko do celów wdrażania. Wystąpienie zarządzane platformy Azure dla bazy danych Apache Cassandra nie ma zależności zaplecza od Azure Cosmos DB.  
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli nie chcesz nadal korzystać z tego klastra wystąpienia zarządzanego, usuń go z następujących kroków:
+Jeśli nie zamierzasz nadal używać tego klastra wystąpień zarządzanych, usuń go, aby wykonać następujące czynności:
 
-1. W menu po lewej stronie Azure Portal wybierz pozycję **grupy zasobów**.
-1. Z listy wybierz grupę zasobów utworzoną dla tego przewodnika Szybki Start.
-1. W okienku **Przegląd** grupy zasobów wybierz pozycję **Usuń grupę zasobów**.
-3. W następnym oknie wprowadź nazwę grupy zasobów do usunięcia, a następnie wybierz pozycję **Usuń**.
+1. W menu po lewej stronie Azure Portal pozycję **Grupy zasobów.**
+1. Z listy wybierz grupę zasobów utworzoną na podstawie tego przewodnika Szybki start.
+1. W okienku **Przegląd grupy** zasobów wybierz pozycję Usuń **grupę zasobów.**
+3. W następnym oknie wprowadź nazwę grupy zasobów do usunięcia, a następnie wybierz pozycję **Usuń.**
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start przedstawiono sposób tworzenia klastra hybrydowego przy użyciu interfejsu wiersza polecenia platformy Azure i wystąpienia zarządzanego platformy Azure dla oprogramowania Apache Cassandra. Teraz można rozpocząć pracę z klastrem.
+W tym przewodniku Szybki start opisano sposób tworzenia klastra hybrydowego przy użyciu interfejsu wiersza polecenia platformy Azure i wystąpienia zarządzanego platformy Azure dla systemu Apache Cassandra. Teraz możesz rozpocząć pracę z klastrem.
 
 > [!div class="nextstepaction"]
 > [Zarządzanie wystąpieniem zarządzanym platformy Azure dla zasobów Apache Cassandra przy użyciu interfejsu wiersza polecenia platformy Azure](manage-resources-cli.md)

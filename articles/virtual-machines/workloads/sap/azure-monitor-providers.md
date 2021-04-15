@@ -1,115 +1,137 @@
 ---
-title: Azure Monitor dla dostawców rozwiązań SAP | Microsoft Docs
-description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące usługi Azure monitor dla dostawców rozwiązań SAP.
+title: Azure Monitor dla rozwiązań SAP dostawcy| Microsoft Docs
+description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące usługi Azure Monitor dla dostawców rozwiązań SAP.
 author: rdeltcheva
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.openlocfilehash: 1282d1916d669f1026707e15cc8d5437d885087f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 93e97f1f04aea2a31b62b2014a88a5aaa998ed2d
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101669002"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376090"
 ---
-# <a name="azure-monitor-for-sap-solutions-providers-preview"></a>Usługa Azure monitor dla dostawców rozwiązań SAP (wersja zapoznawcza)
+# <a name="azure-monitor-for-sap-solutions-providers-preview"></a>Usługa Azure Monitor dla dostawców rozwiązań SAP (wersja zapoznawcza)
 
 ## <a name="overview"></a>Omówienie  
 
-W kontekście Azure Monitor dla rozwiązań SAP *Typ dostawcy* odnosi się do określonego *dostawcy*. Na przykład *SAP HANA*, który jest skonfigurowany dla określonego składnika w oprogramowaniu SAP, takich jak SAP HANA Database. Dostawca zawiera informacje o połączeniu dla odpowiedniego składnika i pomaga zbierać dane telemetryczne z tego składnika. Jeden Azure Monitor dla zasobu rozwiązań SAP (znany również jako zasób monitora SAP) można skonfigurować przy użyciu wielu dostawców tego samego typu dostawcy lub wielu dostawców z wieloma typami dostawcy.
+W kontekście Azure Monitor dla rozwiązań SAP typ *dostawcy* odwołuje się do określonego *dostawcy*. Na przykład *SAP HANA*, który jest skonfigurowany dla określonego składnika w krajobrazie SAP, takiego jak SAP HANA danych. Dostawca zawiera informacje o połączeniu odpowiedniego składnika i pomaga zbierać dane telemetryczne z tego składnika. Jeden Azure Monitor dla rozwiązań SAP (znany również jako zasób monitora SAP) można skonfigurować przy użyciu wielu dostawców tego samego typu dostawcy lub wielu dostawców wielu typów dostawców.
    
-Klienci mogą konfigurować różne typy dostawców, aby umożliwić zbieranie danych z odpowiedniego składnika w systemie SAP. Na przykład klienci mogą skonfigurować jednego dostawcę dla typu dostawcy SAP HANA, innego dostawcę dla typu dostawcy klastrów o wysokiej dostępności i tak dalej.  
+Klienci mogą skonfigurować różne typy dostawców, aby umożliwić zbieranie danych z odpowiedniego składnika w ich krajobrazie SAP. Na przykład klienci mogą skonfigurować jednego dostawcę dla SAP HANA dostawcy, innego dostawcę dla typu dostawcy klastra o wysokiej dostępności i tak dalej.  
 
-Klienci mogą również skonfigurować wielu dostawców określonego typu dostawcy, aby ponownie używać tego samego zasobu monitora SAP i skojarzonej grupy zarządzanej. Więcej informacji na temat zarządzanej grupy zasobów. W publicznej wersji zapoznawczej obsługiwane są następujące typy dostawców:   
+Klienci mogą również skonfigurować wielu dostawców określonego typu, aby ponownie używać tego samego zasobu monitora SAP i skojarzonej grupy zarządzanej. Więcej informacji na temat zarządzanej grupy zasobów. W przypadku publicznej wersji zapoznawczej obsługiwane są następujące typy dostawców:   
 - SAP HANA
 - Klaster o wysokiej dostępności
 - Microsoft SQL Server
+- SAP NetWeaver
 
 ![Azure Monitor dla dostawców rozwiązań SAP](./media/azure-monitor-sap/azure-monitor-providers.png)
 
-Klienci są zalecani do skonfigurowania co najmniej jednego dostawcy spośród dostępnych typów dostawców w momencie wdrażania zasobu monitorowania SAP. Konfigurując dostawcę, klienci inicjują zbieranie danych z odpowiedniego składnika, dla którego skonfigurowano dostawcę.   
+Klientom zaleca się skonfigurowanie co najmniej jednego dostawcy z dostępnych typów dostawców w czasie wdrażania zasobu rozwiązania SAP Monitor. Konfigurując dostawcę, klienci inicjują zbieranie danych z odpowiedniego składnika, dla którego dostawca jest skonfigurowany.   
 
-Jeśli klienci nie skonfigurują żadnych dostawców w czasie wdrażania zasobu monitora SAP, mimo że zasób monitora SAP zostanie pomyślnie wdrożony, nie będą zbierane żadne dane telemetryczne. Klienci mają możliwość dodawania dostawców po wdrożeniu za pomocą zasobu monitorowania SAP w ramach Azure Portal. Klienci mogą dodawać lub usuwać dostawców z zasobu monitorowania SAP w dowolnym momencie.
+Jeśli klienci nie skonfigurują żadnych dostawców w czasie wdrażania zasobu monitora SAP, mimo że zasób monitora SAP zostanie pomyślnie wdrożony, żadne dane telemetryczne nie będą zbierane. Klienci mają możliwość dodawania dostawców po wdrożeniu za pośrednictwem zasobu monitora SAP w Azure Portal. Klienci mogą w dowolnym momencie dodawać lub usuwać dostawców z zasobu monitora SAP.
 
 > [!Tip]
-> Jeśli chcesz, aby firma Microsoft zaimplementował określonego dostawcę, wystaw opinię za pomocą linku na końcu tego dokumentu lub skontaktuj się z zespołem ds. klientów.  
+> Jeśli chcesz, aby firma Microsoft zaimplementowała określonego dostawcę, prosimy o pozostawienie opinii za pośrednictwem linku na końcu tego dokumentu lub s kontaktowanie się z zespołem obsługi klienta.  
 
 ## <a name="provider-type-sap-hana"></a>Typ dostawcy SAP HANA
 
-Klienci mogą skonfigurować jednego lub więcej dostawców typu dostawcy *SAP HANA* , aby umożliwić zbieranie danych z bazy danych SAP HANA Database. Dostawca SAP HANA nawiązuje połączenie z bazą danych SAP HANA za pośrednictwem portu SQL, pobiera dane telemetryczne z bazy danych i wypycha je do obszaru roboczego Log Analytics w ramach subskrypcji klienta. Dostawca SAP HANA zbiera dane co 1 minutę z bazy danych SAP HANA.  
+Klienci mogą skonfigurować co najmniej jednego dostawcę typu dostawcy, *SAP HANA* włączyć zbieranie danych z SAP HANA danych. Dostawca SAP HANA łączy się z bazą danych SAP HANA za pośrednictwem portu SQL, ściąga dane telemetryczne z bazy danych i wypycha je do obszaru roboczego usługi Log Analytics w subskrypcji klienta. Dostawca SAP HANA zbiera dane co 1 minutę z SAP HANA danych.  
 
-W publicznej wersji zapoznawczej klienci mogą oczekiwać, że następujące dane są dostępne dla SAP HANA dostawcy: podstawowego wykorzystania infrastruktury, SAP HANA stanu hosta, SAP HANA replikacji systemu i SAP HANA kopii zapasowych danych telemetrycznych. Aby skonfigurować dostawcę SAP HANA, adres IP hosta, numer portu SQL HANA i SYSTEMDB nazwę użytkownika i hasło są wymagane. Klienci są zalecani do konfigurowania dostawcy SAP HANA w SYSTEMDB, ale więcej dostawców można skonfigurować dla innych dzierżawców bazy danych.
+W publicznej wersji zapoznawczej klienci mogą spodziewać się następujących danych u dostawcy usługi SAP HANA: Bazowe wykorzystanie infrastruktury, stan hosta usługi SAP HANA, replikacja systemu SAP HANA i dane telemetryczne usługi SAP HANA Backup. Aby skonfigurować SAP HANA, wymagany jest adres IP hosta, numer portu SQL platformy HANA oraz nazwa użytkownika i hasło bazy danych SYSTEMDB. Klientom zaleca się skonfigurowanie dostawcy SAP HANA względem bazy danych SYSTEMDB, jednak w przypadku innych dzierżaw baz danych można skonfigurować większej liczby dostawców.
 
 ![Azure Monitor dla dostawców rozwiązań SAP — SAP HANA](./media/azure-monitor-sap/azure-monitor-providers-hana.png)
 
-## <a name="provider-type-high-availability-cluster"></a>Klaster o wysokiej dostępności typu dostawcy
-Klienci mogą skonfigurować co najmniej jednego dostawcę typu dostawcy *o wysokiej dostępności* , aby umożliwić zbieranie danych z klastra Pacemaker w poziomie SAP. Dostawca klastrów o wysokiej dostępności nawiązuje połączenie z usługą Pacemaker przy użyciu punktu końcowego [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) , ściąga dane telemetryczne z bazy danych i wypycha je do log Analytics obszaru roboczego w ramach subskrypcji klienta. Dostawca klastrów o wysokiej dostępności zbiera dane co 60 sekund od Pacemaker.  
+## <a name="provider-type-high-availability-cluster"></a>Typ dostawcy Klaster wysokiej dostępności
+Klienci mogą skonfigurować co najmniej  jednego dostawcę typu klaster o wysokiej dostępności, aby umożliwić zbieranie danych z klastra Pacemaker w krajobrazie SAP. Dostawca klastra o wysokiej dostępności łączy się z programem Pacemaker przy użyciu punktu końcowego usługi [ha_cluster_exporter,](https://github.com/ClusterLabs/ha_cluster_exporter) ściąga dane telemetryczne z bazy danych i wypycha je do obszaru roboczego usługi Log Analytics w subskrypcji klienta. Dostawca klastra o wysokiej dostępności zbiera dane z usługi Pacemaker co 60 sekund.  
 
-W publicznej wersji zapoznawczej klienci mogą oczekiwać, że zobaczysz następujące dane z dostawcą klastrów o wysokiej dostępności:   
- - Stan klastra reprezentowany jako pakiet zbiorczy stanu węzła i zasobu 
- - [Notes](https://github.com/ClusterLabs/ha_cluster_exporter/blob/master/doc/metrics.md) 
+W publicznej wersji zapoznawczej klienci mogą oczekiwać następujących danych u dostawcy klastra o wysokiej dostępności:   
+ - Stan klastra reprezentowany jako zbiorczy stan węzła i zasobu 
+ - [Innych](https://github.com/ClusterLabs/ha_cluster_exporter/blob/master/doc/metrics.md) 
 
 ![Azure Monitor dla dostawców rozwiązań SAP — klaster o wysokiej dostępności](./media/azure-monitor-sap/azure-monitor-providers-pacemaker-cluster.png)
 
-Aby skonfigurować dostawcę klastrów o wysokiej dostępności, należy wykonać dwa podstawowe czynności:
+Aby skonfigurować dostawcę klastra o wysokiej dostępności, należy wykonać dwa podstawowe kroki:
 
-1. Zainstaluj [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) w *każdym* węźle w klastrze Pacemaker.
+1. Zainstaluj [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) w *każdym węźle* klastra Pacemaker.
 
-   Dostępne są dwie opcje instalacji ha_cluster_exporter:
+   Dostępne są dwie opcje instalowania ha_cluster_exporter:
    
-   - Użyj skryptów Azure Automation do wdrożenia klastra o wysokiej dostępności. Skrypty instalują [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) na każdym węźle klastra.  
-   - Wykonaj [instalację ręczną](https://github.com/ClusterLabs/ha_cluster_exporter#manual-clone--build). 
+   - Użyj Azure Automation skryptów do wdrożenia klastra o wysokiej dostępności. Skrypty [instalują ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) każdym węźle klastra.  
+   - Wykonaj instalację [ręczną.](https://github.com/ClusterLabs/ha_cluster_exporter#manual-clone--build) 
 
-2. Skonfiguruj dostawcę klastrów o wysokiej dostępności dla *każdego* węzła w klastrze Pacemaker.
+2. Skonfiguruj dostawcę klastra o wysokiej dostępności dla *każdego węzła* w klastrze Pacemaker.
 
-   Aby skonfigurować dostawcę klastrów o wysokiej dostępności, wymagane są następujące informacje:
+   Aby skonfigurować dostawcę klastra o wysokiej dostępności, wymagane są następujące informacje:
    
-   - **Nazwa**. Nazwa tego dostawcy. Dla tego Azure Monitor dla wystąpienia rozwiązań SAP powinna być unikatowa.
-   - **Prometheus punkt końcowy**. http \: // \<servername or ip address\> : 9664/Metrics.
-   - **Identyfikator SID**. W przypadku systemów SAP Użyj identyfikatora SID SAP. W przypadku innych systemów (na przykład klastrów NFS) Użyj nazwy klastra o trzech znakach. Identyfikator SID musi być różny od innych monitorowanych klastrów.   
-   - **Nazwa klastra**. Nazwa klastra użyta podczas tworzenia klastra. Nazwę klastra można znaleźć we właściwości klastra `cluster-name` .
+   - **Nazwa**. Nazwa tego dostawcy. Powinna być unikatowa dla tego Azure Monitor dla wystąpienia rozwiązań SAP.
+   - **Prometheus Endpoint**. \: // \<servername or ip address\> http:9664/metrics.
+   - **Identyfikator SID**. W przypadku systemów SAP użyj identyfikatora SID SAP. W przypadku innych systemów (na przykład klastrów NFS) należy użyć trzy znakowej nazwy klastra. Identyfikator SID musi być inny niż inne monitorowane klastry.   
+   - **Nazwa klastra**. Nazwa klastra używana podczas tworzenia klastra. Nazwę klastra można znaleźć we właściwości klastra `cluster-name` .
    - **Nazwa hosta**. Nazwa hosta maszyny wirtualnej z systemem Linux.  
 
 
-## <a name="provider-type-os-linux"></a>Typ dostawcy systemu operacyjnego (Linux)
-Klienci mogą skonfigurować co najmniej jednego dostawcę typu system operacyjny (Linux), aby umożliwić zbieranie danych z węzła BareMetal lub VM. Dostawca systemu operacyjnego (Linux) łączy się z BareMetal lub węzłami maszyny [](https://github.com/prometheus/node_exporter)wirtualnej za pomocą   punktu końcowego Node_Exporter, ściąga dane telemetryczne z węzłów i wypycha je do log Analytics obszaru roboczego w ramach subskrypcji klienta. Dostawca systemu operacyjnego (Linux) zbiera dane co 60 sekund dla większości metryk z węzłów. 
+## <a name="provider-type-os-linux"></a>System operacyjny typu dostawcy (Linux)
+Klienci mogą skonfigurować jednego lub wielu dostawców typu dostawcy systemu operacyjnego (Linux), aby umożliwić zbieranie danych z programu BareMetal lub węzła maszyny wirtualnej. Dostawca systemu operacyjnego (Linux) łączy się z węzłami BareMetal lub VM Nodes przy użyciu punktu końcowego programu [Node_Exporter,](https://github.com/prometheus/node_exporter)ściąga dane telemetryczne z węzłów i wypycha je do obszaru roboczego usługi Log Analytics w subskrypcji   klienta. Dostawca systemu operacyjnego (Linux) zbiera dane co 60 sekund dla większości metryk z węzłów. 
 
-W publicznej wersji zapoznawczej klienci mogą oczekiwać, że następujące dane są dostępne w ramach dostawcy systemu operacyjnego (Linux): 
+W publicznej wersji zapoznawczej klienci mogą oczekiwać następujących danych od dostawcy systemu operacyjnego (Linux): 
    - Użycie procesora CPU, użycie procesora CPU według procesu 
-   - Użycie dysku, odczyt operacji we/wy & zapis 
-   - Dystrybucja pamięci, użycie pamięci, użycie pamięci do wymiany 
-   - Użycie sieci, ruch przychodzący w sieci & dane wychodzące. 
+   - Wykorzystanie dysku, odczyt we/wy & zapisu 
+   - Dystrybucja pamięci, użycie pamięci, użycie pamięci wymiany 
+   - Użycie sieci, Ruch przychodzący sieciowy & szczegóły ruchu wychodzącego. 
 
-Aby skonfigurować dostawcę systemu operacyjnego (Linux), są wykorzystywane dwa podstawowe kroki:
-1. Zainstaluj [Node_Exporter](https://github.com/prometheus/node_exporter)   na wszystkich węzłach BareMetal lub maszynach wirtualnych.
-   Dostępne są dwie opcje instalacji [Node_exporter](https://github.com/prometheus/node_exporter): 
-      - W przypadku instalacji automatyzacji za pomocą rozwiązania ansible Użyj [Node_Exporter](https://github.com/prometheus/node_exporter) na każdym BareMetal lub węźle maszyny wirtualnej w celu zainstalowania dostawcy systemu operacyjnego (Linux).  
-      - Wykonaj [instalację ręczną](https://prometheus.io/docs/guides/node-exporter/).
+Aby skonfigurować dostawcę systemu operacyjnego (Linux), należy wykonać dwa podstawowe kroki:
+1. Zainstaluj [Node_Exporter](https://github.com/prometheus/node_exporter)   w każdym węzłu baremetalu lub maszyny wirtualnej.
+   Dostępne są dwie opcje instalowania [Node_exporter:](https://github.com/prometheus/node_exporter) 
+      - W przypadku instalacji automatyzacji za pomocą rozwiązania Ansible użyj [Node_Exporter](https://github.com/prometheus/node_exporter) na każdym węzłom baremetalu lub maszyny wirtualnej, aby zainstalować dostawcę systemu operacyjnego (Linux).  
+      - Wykonaj instalację [ręczną.](https://prometheus.io/docs/guides/node-exporter/)
 
-2. Skonfiguruj dostawcę systemu operacyjnego (Linux) dla każdego wystąpienia BareMetal lub węzła maszyny wirtualnej w danym środowisku. 
+2. Skonfiguruj dostawcę systemu operacyjnego (Linux) dla każdego wystąpienia węzła baremetalu lub maszyny wirtualnej w środowisku. 
    Aby skonfigurować dostawcę systemu operacyjnego (Linux), wymagane są następujące informacje: 
-      - Nazwa. Nazwa tego dostawcy. Dla tego Azure Monitor dla wystąpienia rozwiązań SAP powinna być unikatowa. 
-      - Punkt końcowy eksportera węzła. Zazwyczaj http:// <servername or ip address> : 9100/Metrics 
+      - Nazwa. Nazwa tego dostawcy. Powinna być unikatowa dla tego Azure Monitor dla wystąpienia rozwiązań SAP. 
+      - Punkt końcowy eksportera węzłów. Zwykle <servername or ip address> http://:9100/metrics 
 
 > [!NOTE]
-> 9100 to port narażony na Node_Exporter punkt końcowy.
+> Port 9100 jest ujawniony dla Node_Exporter końcowego.
 
 > [!Warning]
-> Upewnij się, że eksporter węzłów działa po ponownym uruchomieniu węzła. 
+> Upewnij się, że eksporter węzłów będzie nadal działać po ponownym uruchomieniu węzła. 
 
 
-## <a name="provider-type-microsoft-sql-server"></a>Typ dostawcy programu Microsoft SQL Server
+## <a name="provider-type-microsoft-sql-server"></a>Typ dostawcy Microsoft SQL Server
 
-Klienci mogą skonfigurować jednego lub więcej dostawców typu dostawcy *Microsoft SQL Server* , aby umożliwić zbieranie danych z [program SQL Server w usłudze Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). Dostawca SQL Server nawiązuje połączenie z Microsoft SQL Server za pośrednictwem portu SQL, pobiera dane telemetryczne z bazy danych i wypycha je do obszaru roboczego Log Analytics w ramach subskrypcji klienta. Należy utworzyć SQL Server na potrzeby uwierzytelniania SQL i logowania SQL Server z użyciem usługi SAP DB jako domyślnej bazy danych dla dostawcy. Dostawca SQL Server zbiera dane od co 60 sekund do co godzinę od programu SQL Server.  
+Klienci mogą skonfigurować co najmniej jednego dostawcę typu *dostawcy, Microsoft SQL Server* włączyć zbieranie danych z [Program SQL Server w usłudze Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). SQL Server łączy się z usługą Microsoft SQL Server przez port SQL, ściąga dane telemetryczne z bazy danych i wypycha je do obszaru roboczego usługi Log Analytics w subskrypcji klienta. Serwer SQL Server musi być skonfigurowany do uwierzytelniania SQL i należy utworzyć identyfikator logowania usługi SQL Server z bazą danych SAP DB jako domyślną bazą danych dostawcy. SQL Server zbiera dane z programu SQL Server co 60 sekund do każdej godziny.  
 
-W publicznej wersji zapoznawczej klienci mogą oczekiwać, że następujące dane są dostępne w ramach dostawcy SQL Server: bazowego wykorzystania infrastruktury, najważniejszych instrukcji SQL, najwyższej największej tabeli, problemów zarejestrowanych w dziennikach błędów SQL Server, blokowania procesów i innych.  
+W publicznej wersji zapoznawczej klienci mogą spodziewać się następujących danych u dostawcy usługi SQL Server: wykorzystanie podstawowej infrastruktury, najważniejsze instrukcje SQL, największa tabela, problemy zarejestrowane w dziennikach błędów usługi SQL Server, procesy blokowania i inne.  
 
-Aby można było skonfigurować dostawcę Microsoft SQL Server, wymagany jest identyfikator systemu SAP, adres IP hosta, numer portu SQL Server i SQL Server Nazwa logowania i hasło.
+Do skonfigurowania Microsoft SQL Server wymagany jest identyfikator systemu SAP, adres IP hosta, numer portu SQL Server oraz SQL Server logowania i hasło.
 
 ![Azure Monitor dla dostawców rozwiązań SAP — SQL](./media/azure-monitor-sap/azure-monitor-providers-sql.png)
 
+## <a name="provider-type-sap-netweaver"></a>Typ dostawcy SAP NetWeaver
+
+Klienci mogą skonfigurować co najmniej jednego dostawcę typu SAP NetWeaver, aby umożliwić zbieranie danych z warstwy SAP NetWeaver. Dostawca AMS NetWeaver korzysta z istniejącego interfejsu usługi internetowej [SAPControl](https://www.sap.com/documents/2016/09/0a40e60d-8b7c-0010-82c7-eda71af511fa.html) w celu pobrania odpowiednich informacji telemetrycznych.
+
+W bieżącej wersji poniżej przedstawiono standardowe metody internetowe protokołu SOAP wywoływane przez usługę AMS.
+|Metoda internetowa|    Abap|   Java|   Metryki|
+|--|--|--|--|
+|GetSystemInstanceList| X|  X|  Dostępność wystąpienia, serwer komunikatów, brama, ICM, dostępność ABAP|
+|GetProcessList|    X|  X|  Jeśli lista wystąpień ma kolor CZERWONY, możemy określić, który proces powoduje, że ten serwer jest czerwony|
+|GetQueueStatistic| X|  X|  Statystyki kolejki (DIA/BATCH/UPD)|
+|TABELA ABAPGetWPTable|    X|   -| Wykorzystanie procesów pracy|
+|EnqGetStatistic|   X   |X  |Blokady|
+
+W publicznej wersji zapoznawczej klienci mogą spodziewać się następujących danych u dostawcy SAP NetWeaver: 
+- Dostępność systemu i wystąpienia
+- Wykorzystanie procesów pracy
+- Wykorzystanie kolejki
+- Statystyka blokady kolejkowania.
+
+![image (obraz)](https://user-images.githubusercontent.com/75772258/114581825-a9f2eb00-9c9d-11eb-8e6f-79cee7c5093f.png)
+
 ## <a name="next-steps"></a>Następne kroki
 
-- Utwórz pierwszy Azure Monitor dla zasobu rozwiązań SAP.
-- Masz pytania dotyczące Azure Monitor dla rozwiązań SAP? Zapoznaj się z sekcją [często zadawane pytania](./azure-monitor-faq.md)
+- Utwórz swój pierwszy Azure Monitor zasobów rozwiązań SAP.
+- Czy masz pytania dotyczące Azure Monitor dla rozwiązań SAP? Zapoznaj się z [sekcją często zadawanych](./azure-monitor-faq.md) pytań

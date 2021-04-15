@@ -1,71 +1,71 @@
 ---
 title: Konfigurowanie klasyfikacji uprawnień za pomocą usługi Azure AD
-description: Dowiedz się, jak zarządzać klasyfikacjami uprawnień delegowanych.
+description: Dowiedz się, jak zarządzać delegowanymi klasyfikacjami uprawnień.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/01/2020
-ms.author: phsignor
+ms.author: iangithinji
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 12a4ffb311e01ebb78b1ae392d1243c5d67eff6b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be58f5cd18d32302d1e92f00afb7d7e0aae09410
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101644568"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374475"
 ---
 # <a name="configure-permission-classifications"></a>Konfigurowanie klasyfikacji uprawnień
 
-Klasyfikacje uprawnień umożliwiają zidentyfikowanie wpływu różnych uprawnień zgodnie z zasadami organizacji i ocenami ryzyka. Można na przykład użyć klasyfikacji uprawnień w zasadach zgody, aby zidentyfikować zbiór uprawnień dozwolonych dla użytkowników.
+Klasyfikacje uprawnień umożliwiają zidentyfikowanie wpływu różnych uprawnień zgodnie z zasadami organizacji i ocenami ryzyka. Można na przykład użyć klasyfikacji uprawnień w zasadach wyrażania zgody, aby zidentyfikować zestaw uprawnień, na które użytkownicy mogą się zgadzać.
 
-## <a name="manage-permission-classifications"></a>Zarządzaj klasyfikacjami uprawnień
+## <a name="manage-permission-classifications"></a>Zarządzanie klasyfikacjami uprawnień
 
-Obecnie obsługiwana jest tylko Klasyfikacja uprawnień "niska wpływ". Tylko uprawnienia delegowane, które nie wymagają zgody administratora, mogą być klasyfikowane jako "niski wpływ".
+Obecnie obsługiwana jest tylko klasyfikacja uprawnień "Niski wpływ". Tylko delegowane uprawnienia, które nie wymagają zgody administratora, można sklasyfikować jako "Niski wpływ".
 
 > [!TIP]
-> Minimalnymi uprawnieniami wymaganymi do logowania podstawowego są `openid` ,, `profile` `email` , `User.Read` i `offline_access` , które są wszystkie uprawnienia delegowane na Microsoft Graph. Dzięki tym uprawnieniom aplikacja może odczytać pełne szczegóły profilu zalogowanego użytkownika i może obsługiwać ten dostęp nawet wtedy, gdy użytkownik nie korzysta już z aplikacji.
+> Minimalnymi uprawnieniami wymaganymi do podstawowego logowania są , , i , które są `openid` `profile` `email` `User.Read` `offline_access` uprawnieniami delegowanymi w Microsoft Graph. Dzięki tym uprawnień aplikacja może odczytywać pełne szczegóły profilu zalogowaowego użytkownika i może zachować ten dostęp nawet wtedy, gdy użytkownik nie korzysta już z aplikacji.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Wykonaj następujące kroki, aby sklasyfikować uprawnienia przy użyciu Azure Portal:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako administrator [globalny](../roles/permissions-reference.md#global-administrator), [administrator aplikacji](../roles/permissions-reference.md#application-administrator)lub [administrator aplikacji w chmurze](../roles/permissions-reference.md#cloud-application-administrator)
-1. Wybierz pozycję **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**  >  **i**  >  **klasyfikacje uprawnień**.
-1. Wybierz pozycję **Dodaj uprawnienia** , aby sklasyfikować inne uprawnienie jako "niski wpływ".
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) jako [administrator globalny,](../roles/permissions-reference.md#global-administrator) [administrator aplikacji](../roles/permissions-reference.md#application-administrator)lub administrator aplikacji [w chmurze](../roles/permissions-reference.md#cloud-application-administrator)
+1. Wybierz **Azure Active Directory**  >  **przedsiębiorstwa**  >  **Zgoda i uprawnienia**  >  **Klasyfikacje uprawnień.**
+1. Wybierz **pozycję Dodaj uprawnienia,** aby sklasyfikować kolejne uprawnienie jako "Niski wpływ".
 1. Wybierz interfejs API, a następnie wybierz delegowane uprawnienia.
 
-W tym przykładzie został sklasyfikowany minimalny zestaw uprawnień wymaganych do logowania jednokrotnego:
+W tym przykładzie sklasyfikowaliśmy minimalny zestaw uprawnień wymaganych dla logowania pojedynczego:
 
 :::image type="content" source="media/configure-permission-classifications/permission-classifications.png" alt-text="Klasyfikacje uprawnień":::
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-Aby sklasyfikować uprawnienia, można użyć najnowszego modułu programu Azure AD PowerShell w wersji zapoznawczej ( [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview)). Klasyfikacje uprawnień są konfigurowane w obiekcie **Serviceprincipal** interfejsu API, który publikuje uprawnienia.
+Aby sklasyfikować uprawnienia, możesz użyć najnowszego modułu Azure AD PowerShell (wersja [zapoznawcza) AzureADPreview.](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) Klasyfikacje uprawnień są konfigurowane w **obiekcie ServicePrincipal** interfejsu API, który publikuje uprawnienia.
 
-#### <a name="list-the-current-permission-classifications-for-an-api"></a>Wyświetlanie listy aktualnych klasyfikacji uprawnień dla interfejsu API
+#### <a name="list-the-current-permission-classifications-for-an-api"></a>Lista bieżących klasyfikacji uprawnień dla interfejsu API
 
-1. Pobierz obiekt **serviceprincipal** dla interfejsu API. W tym miejscu pobieramy obiekt serviceprincipal dla interfejsu API Microsoft Graph:
+1. Pobierz obiekt **ServicePrincipal** dla interfejsu API. W tym miejscu pobierzemy obiekt ServicePrincipal dla interfejsu API Microsoft Graph API:
 
    ```powershell
    $api = Get-AzureADServicePrincipal `
        -Filter "servicePrincipalNames/any(n:n eq 'https://graph.microsoft.com')"
    ```
 
-1. Przeczytaj klasyfikacje delegowanych uprawnień dla interfejsu API:
+1. Odczytaj delegowane klasyfikacje uprawnień dla interfejsu API:
 
    ```powershell
    Get-AzureADMSServicePrincipalDelegatedPermissionClassification `
        -ServicePrincipalId $api.ObjectId | Format-Table Id, PermissionName, Classification
    ```
 
-#### <a name="classify-a-permission-as-low-impact"></a>Klasyfikowanie uprawnień jako "słaby wpływ"
+#### <a name="classify-a-permission-as-low-impact"></a>Klasyfikowanie uprawnienia jako "Niski wpływ"
 
-1. Pobierz obiekt **serviceprincipal** dla interfejsu API. W tym miejscu pobieramy obiekt serviceprincipal dla interfejsu API Microsoft Graph:
+1. Pobierz obiekt **ServicePrincipal** dla interfejsu API. W tym miejscu pobierzemy obiekt ServicePrincipal dla interfejsu API Microsoft Graph API:
 
    ```powershell
    $api = Get-AzureADServicePrincipal `
@@ -78,7 +78,7 @@ Aby sklasyfikować uprawnienia, można użyć najnowszego modułu programu Azure
    $delegatedPermission = $api.OAuth2Permissions | Where-Object { $_.Value -eq "User.ReadBasic.All" }
    ```
 
-1. Ustaw klasyfikację uprawnień przy użyciu nazwy i identyfikatora uprawnienia:
+1. Ustaw klasyfikację uprawnień przy użyciu nazwy i identyfikatora uprawnień:
 
    ```powershell
    Add-AzureADMSServicePrincipalDelegatedPermissionClassification `
@@ -88,16 +88,16 @@ Aby sklasyfikować uprawnienia, można użyć najnowszego modułu programu Azure
       -Classification "low"
    ```
 
-#### <a name="remove-a-delegated-permission-classification"></a>Usuń klasyfikację uprawnień delegowanych
+#### <a name="remove-a-delegated-permission-classification"></a>Usuwanie delegowanej klasyfikacji uprawnień
 
-1. Pobierz obiekt **serviceprincipal** dla interfejsu API. W tym miejscu pobieramy obiekt serviceprincipal dla interfejsu API Microsoft Graph:
+1. Pobierz obiekt **ServicePrincipal** dla interfejsu API. W tym miejscu pobierzemy obiekt ServicePrincipal dla interfejsu API Microsoft Graph API:
 
    ```powershell
    $api = Get-AzureADServicePrincipal `
        -Filter "servicePrincipalNames/any(n:n eq 'https://graph.microsoft.com')"
    ```
 
-1. Znajdź klasyfikację uprawnień delegowanych, którą chcesz usunąć:
+1. Znajdź delegowaną klasyfikację uprawnień, którą chcesz usunąć:
 
    ```powershell
    $classifications = Get-AzureADMSServicePrincipalDelegatedPermissionClassification `
@@ -121,9 +121,9 @@ Dodatkowe informacje:
 
 * [Konfigurowanie ustawień zgody użytkownika](configure-user-consent.md)
 * [Konfigurowanie przepływu pracy zgody administratora](configure-admin-consent-workflow.md)
-* [Dowiedz się, jak zarządzać zgodą na aplikacje i oszacować wnioski o zgodę](manage-consent-requests.md)
+* [Dowiedz się, jak zarządzać zgodami na aplikacje i oceniać żądania zgody](manage-consent-requests.md)
 * [Udzielanie zgody administratora całej dzierżawy dla aplikacji](grant-admin-consent.md)
 * [Uprawnienia i zgoda na platformie tożsamości firmy Microsoft](../develop/v2-permissions-and-consent.md)
 
-Aby uzyskać pomoc lub znaleźć odpowiedzi na pytania:
-* [Usługa Azure AD w firmie Microsoft Q&A](/answers/topics/azure-active-directory.html)
+Aby uzyskać pomoc lub znaleźć odpowiedzi na swoje pytania:
+* [Usługa Azure AD w witrynie Microsoft Q&A](/answers/topics/azure-active-directory.html)
