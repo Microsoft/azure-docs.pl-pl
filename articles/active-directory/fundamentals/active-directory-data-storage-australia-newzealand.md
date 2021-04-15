@@ -1,6 +1,6 @@
 ---
-title: Magazyn danych klienta dla klientów Australii i Nowej Zelandii — Azure AD
-description: Dowiedz się, gdzie Azure Active Directory dane dotyczące klienta są przechowywane dla klientów Australii i Nowej Zelandii.
+title: Magazyn danych klientów dla klientów z Australii i Nowej Zelandii — Azure AD
+description: Dowiedz się, Azure Active Directory przechowuje dane dotyczące klientów w Australii i Nowej Zelandii.
 services: active-directory
 author: ajburnle
 manager: daveba
@@ -12,22 +12,22 @@ ms.topic: conceptual
 ms.date: 7/21/2020
 ms.custom: it-pro, seodec18, references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d7c37e64e4f1b339ae66fe3d9135b1874476eb3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 55504cf893081b7de4cced7afc43b46127f5bdfd
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94836975"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478730"
 ---
-# <a name="customer-data-storage-for-australian-and-new-zealand-customers-in-azure-active-directory"></a>Magazyn danych klienta dla klientów Australii i Nowej Zelandii w Azure Active Directory 
+# <a name="customer-data-storage-for-australian-and-new-zealand-customers-in-azure-active-directory"></a>Magazyn danych klienta dla klientów z Australii i Nowej Zelandii w Azure Active Directory 
 
-Usługa Azure Active Directory (Azure AD) przechowuje swoje dane klienta w lokalizacji geograficznej na podstawie kraju podanego podczas rejestrowania się w usłudze online firmy Microsoft. Usługi online firmy Microsoft obejmują Microsoft 365 i platformę Azure. 
+Azure Active Directory (Azure AD) przechowuje swoje dane klienta w lokalizacji geograficznej na podstawie kraju podanego podczas korzystania z usługi Online firmy Microsoft. Usługi online firmy Microsoft obejmują Microsoft 365 i platformę Azure. 
 
-Aby uzyskać informacje o tym, gdzie znajdują się dane usługi Azure AD i innych usług firmy Microsoft, zobacz sekcję [gdzie znajdują się dane?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) w centrum zaufania firmy Microsoft.
+Aby uzyskać informacje o tym, gdzie znajduje się usługa Azure AD i inne usługi firmy Microsoft, zobacz sekcję Gdzie znajdują się Twoje [dane?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) w Centrum zaufania Firmy Microsoft.
 
-Od 26 lutego 2020 firma Microsoft rozpoczęła przechowywanie danych klienta usługi Azure AD dla nowych dzierżawców z adresem rozliczeniowym Australii lub Nowej Zelandii w australijskich centrach danych. Od 1 maja 2020 do 31 marca 2021 firma Microsoft przeprowadzi migrację istniejących dzierżawców, którzy mają adres rozliczeniowy Australii lub Nowej Zelandii do australijskich centrów danych bez konieczności działania klienta. Proces migracji nie obejmuje żadnych przestojów dla klientów i nie ma wpływu na żadną funkcję dzierżawy podczas migracji.
+Od 26 lutego 2020 r. firma Microsoft rozpoczęła przechowywanie danych klientów usługi Azure AD dla nowych dzierżaw przy użyciu adresu rozliczeniowego w Australii lub Nowej Zelandii w australijskich centrach danych.
 
-Ponadto niektóre funkcje usługi Azure AD nie obsługują jeszcze magazynu danych klienta w Australii. Przejdź do [mapy danych usługi Azure AD](https://msit.powerbi.com/view?r=eyJrIjoiYzEyZTc5OTgtNTdlZS00ZTVkLWExN2ItOTM0OWU4NjljOGVjIiwidCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsImMiOjV9), aby uzyskać informacje o określonych funkcjach. Na przykład Microsoft Azure AD Multi-Factor Authentication przechowuje dane klienta w Stanach Zjednoczonych i przetwarza je globalnie. Zobacz [dane dotyczące miejsca zamieszkania i danych klienta w usłudze Azure AD Multi-Factor Authentication](../authentication/concept-mfa-data-residency.md).
+Ponadto niektóre funkcje usługi Azure AD nie obsługują jeszcze przechowywania danych klientów w Australii. Przejdź do mapy [danych usługi Azure AD,](https://msit.powerbi.com/view?r=eyJrIjoiYzEyZTc5OTgtNTdlZS00ZTVkLWExN2ItOTM0OWU4NjljOGVjIiwidCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsImMiOjV9)aby uzyskać szczegółowe informacje o funkcjach. Na przykład Microsoft Azure AD Multi-Factor Authentication przechowuje dane klienta w Usa i przetwarza je globalnie. Zobacz Data residency and customer data for Azure AD Multi-Factor Authentication (Rezydencja danych i [dane klientów na potrzeby uwierzytelniania wieloskładnikowego usługi Azure AD).](../authentication/concept-mfa-data-residency.md)
 
 > [!NOTE]
-> Produkty, usługi i aplikacje innych firm, które integrują się z usługą Azure AD, mają dostęp do danych klientów. Oceń każdy produkt, usługę i aplikację, których używasz, aby określić sposób przetwarzania danych klienta przez ten konkretny produkt, usługę i aplikację oraz czy spełniają wymagania dotyczące magazynu danych w firmie. Aby uzyskać więcej informacji na temat przechowywania danych usług firmy Microsoft, zobacz sekcję [Gdzie przechowywane są Twoje dane?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) w Centrum zaufania Microsoft.
+> Produkty, usługi i aplikacje innych firm firmy Microsoft zintegrowane z usługą Azure AD mają dostęp do danych klienta. Oceń każdy produkt, usługę i aplikację, których używasz, aby określić, w jaki sposób dane klienta są przetwarzane przez ten konkretny produkt, usługę i aplikację oraz czy spełniają one wymagania firmy dotyczące magazynowania danych. Aby uzyskać więcej informacji na temat przechowywania danych usług firmy Microsoft, zobacz sekcję [Gdzie przechowywane są Twoje dane?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) w Centrum zaufania Microsoft.

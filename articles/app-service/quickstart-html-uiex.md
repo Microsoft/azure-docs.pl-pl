@@ -1,29 +1,29 @@
 ---
-title: 'Szybki Start: Tworzenie statycznej aplikacji sieci Web w formacie HTML'
-description: Wdróż swoje pierwsze Hello world HTML do Azure App Service w ciągu kilku minut. Wdrażasz program przy użyciu narzędzia Git, który jest jednym z wielu sposobów wdrażania w App Service.
+title: 'Szybki start: tworzenie statycznej aplikacji internetowej HTML'
+description: Wd wdrażaj pierwszą aplikację HTML Hello world do Azure App Service w ciągu kilku minut. Wdrażanie przy użyciu usługi Git jest jednym z wielu sposobów wdrażania w App Service.
 author: msangapu-msft
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
-ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
+ms.custom: mvc, cli-validate, seodec18
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 538d414ce606b944fcea7adbb1c817386e13090e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: be555039375e2d71d00bcf8ee58898f54cc3645a
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102178579"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379574"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Tworzenie statycznej aplikacji internetowej w języku HTML na platformie Azure
 
-Ten przewodnik Szybki Start przedstawia sposób wdrażania podstawowej witryny HTML + CSS w programie <abbr title="Usługa oparta na protokole HTTP do hostowania aplikacji sieci Web, interfejsów API REST i aplikacji zaplecza mobilnego.">Azure App Service</abbr>. Ten przewodnik Szybki start można wykonać w usłudze [Cloud Shell](../cloud-shell/overview.md), ale można te polecenia uruchomić również lokalnie za pomocą [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+W tym przewodniku Szybki start pokazano, jak wdrożyć podstawową witrynę HTML+CSS w <abbr title="Oparta na protokołu HTTP usługa do hostowania aplikacji internetowych, interfejsów API REST i aplikacji mobilnych.">Azure App Service</abbr>. Ten przewodnik Szybki start można wykonać w usłudze [Cloud Shell](../cloud-shell/overview.md), ale można te polecenia uruchomić również lokalnie za pomocą [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
-## <a name="1-prepare-your-environment"></a>1. Przygotuj środowisko
+## <a name="1-prepare-your-environment"></a>1. Przygotowywanie środowiska
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-W [Cloud Shell](../cloud-shell/overview.md)Utwórz katalog szybkiego startu, a następnie przejdź do niego.
+W [Cloud Shell](../cloud-shell/overview.md)utwórz katalog Szybki start, a następnie zmień go na .
 
 ```bash
 mkdir quickstart
@@ -38,7 +38,7 @@ git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 ```
 <hr/>
 
-## <a name="2-create-a-web-app"></a>2. Tworzenie aplikacji sieci Web
+## <a name="2-create-a-web-app"></a>2. Tworzenie aplikacji internetowej
 
 Przejdź do katalogu, który zawiera przykładowy kod, i uruchom polecenie `az webapp up`. **Zamień** `<app-name>` z globalnie unikatową nazwą.
 
@@ -51,28 +51,28 @@ az webapp up --location westeurope --name <app_name> --html
 <details>
 <summary>Rozwiązywanie problemów</summary>
 <ul>
-<li>Jeśli <code>az</code> polecenie nie zostanie rozpoznane, upewnij się, że masz zainstalowany interfejs wiersza polecenia platformy Azure zgodnie z opisem w artykule <a href="#1-prepare-your-environment">Przygotowywanie środowiska</a>.</li>
-<li>Zamień na <code>&lt;app-name&gt;</code> nazwę, która jest unikatowa na całym systemie Azure ( <em> prawidłowe znaki to <code>a-z</code> , <code>0-9</code> i <code>-</code> </em> ). Dobrym wzorcem jest użycie kombinacji nazwy firmy i identyfikatora aplikacji.</li>
-<li><code>--sku F1</code>Argument tworzy aplikację sieci Web w warstwie cenowej bezpłatna. Pomiń ten argument, aby użyć szybszej warstwy Premium, która wiąże się z godziną.</li>
-<li><code>--html</code>Argument mówi, że cała zawartość folderu jest traktowana jako zawartość statyczna i wyłączyć automatyzację kompilacji.</li>
-<li>Opcjonalnie możesz dołączyć argument, <code>--location &lt;location-name&gt;</code> gdzie <code>&lt;location-name&gt;</code> jest dostępny region platformy Azure. Możesz pobrać listę dozwolonych regionów dla Twojego konta platformy Azure, uruchamiając <a href="/cli/azure/appservice#az-appservice-list-locations"> <code>az account list-locations</code> </a> polecenie.</li>
+<li>Jeśli polecenie nie zostanie rozpoznane, upewnij się, że masz zainstalowany interfejs wiersza polecenia platformy Azure zgodnie z opisem <code>az</code> w tesłudze <a href="#1-prepare-your-environment">Prepare your environment (Przygotowywanie środowiska).</a></li>
+<li>Zastąp nazwą unikatową na całej <code>&lt;app-name&gt;</code> platformie Azure (prawidłowe <em> znaki to , i <code>a-z</code> <code>0-9</code> <code>-</code> </em> ). Dobrym wzorcem jest użycie kombinacji nazwy firmy i identyfikatora aplikacji.</li>
+<li>Argument <code>--sku F1</code> tworzy aplikację internetową w warstwie cenowej Bezpłatna. Pomiń ten argument, aby użyć szybszej warstwy Premium, która wiąże się z godzinowym kosztem.</li>
+<li>Argument <code>--html</code> mówi, że cała zawartość folderu jest uważana za zawartość statyczną i wyłącza automatyzację kompilacji.</li>
+<li>Opcjonalnie możesz dołączyć argument <code>--location &lt;location-name&gt;</code> , gdzie <code>&lt;location-name&gt;</code> jest dostępnym regionem świadczenia usługi Azure. Listę regionów, które można zezwolić na korzystanie z konta platformy Azure, możesz pobrać, uruchamiając <a href="/cli/azure/appservice#az-appservice-list-locations"> <code>az account list-locations</code> </a> polecenie .</li>
 </ul>
 </details>
 
-Wykonanie polecenia może potrwać kilka minut. 
+Ukończenie polecenia może potrwać kilka minut. 
 
 <details>
-<summary>Co <code>az webapp up</code> robi?</summary>
+<summary>Co się <code>az webapp up</code> dzieje?</summary>
 <p>Polecenie <code>az webapp up</code> wykonuje następujące akcje:</p>
 <ul>
 <li>Utwórz domyślną grupę zasobów.</li>
-<li>Utwórz domyślny plan App Service.</li>
-<li><a href="/cli/azure/webapp#az-webapp-create">Utwórz aplikację App Service</a> o podanej nazwie.</li>
+<li>Utwórz domyślny App Service planu.</li>
+<li><a href="/cli/azure/webapp#az-webapp-create">Utwórz aplikację App Service o</a> określonej nazwie.</li>
 <li><a href="/azure/app-service/deploy-zip">Spakuj pliki</a> wdrożenia z bieżącego katalogu roboczego do aplikacji.</li>
-<li>W trakcie działania są dostępne komunikaty dotyczące tworzenia zasobów, rejestrowania i wdrażania pliku ZIP.</li>
+<li>Podczas działania zapewnia komunikaty dotyczące tworzenia zasobów, rejestrowania i wdrażania pliku ZIP.</li>
 </ul>
 
-Po zakończeniu wyświetla informacje podobne do następującego przykładu:
+Po zakończeniu zostaną wyświetlone informacje podobne do następujących:
 
 ```output
 {
@@ -90,7 +90,7 @@ Po zakończeniu wyświetla informacje podobne do następującego przykładu:
 
 </details>
 
-Będzie potrzebna `resourceGroup` wartość w celu późniejszego [oczyszczenia zasobów](#6-clean-up-resources) .
+Ta wartość będzie `resourceGroup` potrzebna do [późniejszego oczyszczenia](#6-clean-up-resources) zasobów.
 
 <hr/>
 
@@ -104,25 +104,25 @@ Strona działa jako aplikacja internetowa usługi Azure App Service.
 
 <hr/>
 
-## <a name="4-update-and-redeploy-the-app"></a>4. Zaktualizuj i Wdróż ponownie aplikację
+## <a name="4-update-and-redeploy-the-app"></a>4. Aktualizowanie i ponowne wdychaj aplikację
 
-W Cloud Shell **wpisz** polecenie, `nano index.html` Aby otworzyć Edytor tekstu nano. 
+W Cloud Shell **wpisz** , `nano index.html` aby otworzyć edytor tekstów nano. 
 
-W `<h1>` znaczniku nagłówka Zmień "Azure App Service przykładową statyczną witrynę HTML" na "Azure App Service".
+W `<h1>` tagu nagłówka zmień tekst "Azure App Service — przykładowa statyczna witryna HTML" na "Azure App Service".
 
 ![Plik index.html programu nano](media/quickstart-html/nano-index-html.png)
 
 **Zapisz** zmiany za pomocą polecenia `^O` .
 
-**Wyjdź** z systemu nano przy użyciu polecenia `^X` .
+**Zamknij** nano przy użyciu polecenia `^X` .
 
-Ponownie Wdróż aplikację za pomocą `az webapp up` polecenia.
+Ponownie wdychaj aplikację za pomocą `az webapp up` polecenia .
 
 ```bash
 az webapp up --html
 ```
 
-Przełącz się z powrotem do okna przeglądarki otwartego w kroku **Przejdź do aplikacji** .
+Wróć do okna przeglądarki otwartego w kroku **Przejdź do** aplikacji.
 
 **Odśwież** stronę.
 
@@ -132,9 +132,9 @@ Przełącz się z powrotem do okna przeglądarki otwartego w kroku **Przejdź do
 
 ## <a name="5-manage-your-new-azure-app"></a>5. Zarządzanie nową aplikacją platformy Azure
 
-**Przejdź** do [Azure Portal](https://portal.azure.com)., 
+**Przejdź** do [Azure Portal.](https://portal.azure.com) 
 
-**Wyszukaj** i **Wybierz** **App Services**.
+**Wyszukaj** i **wybierz pozycję** **App Services**.
 
 ![Wybierz App Services w Azure Portal](./media/quickstart-html/portal0.png)
 
@@ -150,7 +150,7 @@ Menu po lewej stronie zawiera różne strony służące do konfigurowania aplika
 
 <hr/>
 
-## <a name="6-clean-up-resources"></a>6. Wyczyść zasoby
+## <a name="6-clean-up-resources"></a>6. Czyszczenie zasobów
 
 W poprzednich krokach utworzono zasoby platformy Azure w grupie zasobów. Jeśli te zasoby nie będą raczej potrzebne w przyszłości, usuń grupę zasobów, uruchamiając następujące polecenie w usłudze Cloud Shell. Pamiętaj, że nazwa grupy zasobów została wygenerowana automatycznie w kroku [Tworzenie aplikacji internetowej](#2-create-a-web-app).
 

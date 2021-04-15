@@ -1,0 +1,85 @@
+### YamlMime:Landing
+title: Dokumentacja podróży po zabezpieczeniach w chmurze
+summary: Bez względu na to, czy rozważasz przejście do chmury, czy już przeprowadzasz migrację do chmury, w tym miejscu znajdziesz wskazówki dotyczące każdej fazy podróży w zakresie zabezpieczeń w chmurze.
+metadata:
+  title: Dokumentacja podróży po zabezpieczeniach platformy Azure
+  description: Znajdź wskazówki dotyczące każdej fazy podróży po zabezpieczeniach na platformie Azure.
+  services: security
+  ms.service: security
+  ms.subservice: journey
+  ms.topic: landing-page
+  author: TerryLanfear
+  ms.author: terrylan
+  manager: rkarlin
+  ms.date: 04/11/2021
+  ms.openlocfilehash: 624721931c459a164d4eae9957467c90d5845252
+  ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+  ms.translationtype: MT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 04/13/2021
+  ms.locfileid: "107379906"
+landingContent:
+- title: Informacje o zabezpieczeniach platformy Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Wspólna odpowiedzialność w chmurze
+      url: ../fundamentals/shared-responsibility.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: End-to-end security services
+      url: ../fundamentals/end-to-end.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - linkListType: concept
+    links:
+    - text: Jak firma Microsoft zabezpiecza infrastrukturę platformy Azure
+      url: ../fundamentals/infrastructure.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Zabezpieczenia i integralność platformy Azure
+      url: ../fundamentals/platform.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+- title: Rozpoczęcie pracy
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Implementowanie zabezpieczeń w całej firmie
+      url: /azure/cloud-adoption-framework/get-started/security?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - linkListType: concept
+    links:
+    - text: Projektowanie bezpiecznej architektury
+      url: /azure/architecture/framework/security/security-principles?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Migrowanie zabezpieczonych obciążeń
+      url: /azure/cloud-adoption-framework/migrate/azure-migration-guide/?tabs=MigrationTools?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+- title: Zabezpieczanie obciążeń w chmurze
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Najlepsze rozwiązania dotyczące zabezpieczeń
+      url: ../fundamentals/best-practices-and-patterns.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Mechanizmy kontroli zabezpieczeń i linie bazowe
+      url: ../benchmarks/introduction.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - linkListType: concept
+    links:
+    - text: Zarządzanie tożsamościami
+      url: ../fundamentals/identity-management-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Bezpieczeństwo sieci
+      url: ../fundamentals/network-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Bezpieczeństwo i szyfrowanie danych
+      url: ../fundamentals/encryption-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Usługa firmy Microsoft chroniąca przed złośliwym kodem
+      url: ../fundamentals/antimalware.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Zabezpieczenia maszyn wirtualnych
+      url: ../fundamentals/virtual-machines-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+- title: Eliminowanie zagrożeń
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Ochrona przed zagrożeniami
+      url: ../fundamentals/threat-detection.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Analiza zagrożeń
+      url: /azure/architecture/framework/security/design-threat-model?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+- title: Sprawdzaj, co się dzieje w Twoim środowisku
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Rejestrowanie na platformie Azure
+      url: ../fundamentals/log-audit.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Przeglądanie i inspekcje
+      url: /azure/architecture/framework/security/monitor-audit?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Czynniki ryzyka tożsamości i sieci
+      url: /azure/architecture/framework/security/monitor-identity-network?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json

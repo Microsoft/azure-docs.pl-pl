@@ -1,35 +1,35 @@
 ---
-title: Przykłady programu PowerShell dla Azure Active Directory zarządzania aplikacjami
-description: Te przykłady dla programu PowerShell są używane w przypadku aplikacji zarządzanych w dzierżawie Azure Active Directory. Za pomocą tych przykładowych skryptów można znaleźć informacje o wygasaniu dla wpisów tajnych i certyfikatów.
+title: Przykłady programu PowerShell Azure Active Directory zarządzania aplikacją
+description: Te przykłady programu PowerShell są używane dla aplikacji, które zarządzasz w Azure Active Directory dzierżawie. Możesz użyć tych przykładowych skryptów, aby znaleźć informacje o wygasaniu wpisów tajnych i certyfikatów.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: sample
 ms.date: 02/18/2021
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: mifarca
-ms.openlocfilehash: f5f7ec8245a43440a400b9ca6b55bf1093eb62cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b6314935bfafc2fe6288c30619e1d01242a991d
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102636192"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378826"
 ---
-# <a name="azure-active-directory-powershell-examples-for-application-management"></a>Przykłady programu Azure Active Directory PowerShell dla zarządzania aplikacjami
+# <a name="azure-active-directory-powershell-examples-for-application-management"></a>Azure Active Directory przykłady programu PowerShell do zarządzania aplikacją
 
-Poniższa tabela zawiera linki do przykładów skryptów programu PowerShell do zarządzania aplikacjami usługi Azure AD. Te przykłady wymagają:
-- [Moduł AzureAD v2 PowerShell for Graph](/powershell/azure/active-directory/install-adv2) lub,
-- [Wersja zapoznawcza modułu AzureAD v2 PowerShell dla programu Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true), chyba że wskazano inaczej.
+W poniższej tabeli przedstawiono linki do przykładów skryptów programu PowerShell dla usługi Azure AD Application Management. Te przykłady wymagają:
+- Moduł [AzureAD V2 PowerShell dla programu Graph lub](/powershell/azure/active-directory/install-adv2)
+- Program [AzureAD V2 PowerShell dla modułu Graph w](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true)wersji zapoznawczej , chyba że określono inaczej.
 
-Aby uzyskać więcej informacji o poleceniach cmdlet używanych w tych przykładach, zobacz [aplikacje](/powershell/module/azuread/#applications).
+Aby uzyskać więcej informacji o poleceniach cmdlet używanych w tych przykładach, zobacz [Aplikacje](/powershell/module/azuread/#applications).
 
 | Link | Opis |
 |---|---|
-|**Skrypty zarządzania aplikacjami**||
-| [Eksportowanie wpisów tajnych i certyfikatów (rejestracje aplikacji)](scripts/powershell-export-all-app-registrations-secrets-and-certs.md) | Eksportowanie wpisów tajnych i certyfikatów dla rejestracji aplikacji w dzierżawie Azure Active Directory. |
-| [Eksportowanie wpisów tajnych i certyfikatów (aplikacje dla przedsiębiorstw)](scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md) | Eksportuj wpisy tajne i certyfikaty dla aplikacji dla przedsiębiorstw w dzierżawie Azure Active Directory. |
-| [Eksportuj wpisy tajne i certyfikaty wygasające](scripts/powershell-export-apps-with-expriring-secrets.md) | Eksportuj rejestracje aplikacji z wygasaniem wpisów tajnych i certyfikatów oraz ich właścicieli w dzierżawie Azure Active Directory. |
-| [Eksport wpisów tajnych i certyfikatów wygasających poza datą wymaganą](scripts/powershell-export-apps-with-secrets-beyond-required.md) | Wyeksportuj rejestracje aplikacji z kluczami tajnymi i certyfikatami, które wygasają poza datą wymaganą w dzierżawie Azure Active Directory. Powoduje to użycie nieinteraktywnego przepływu OAuth Client_Credentials. |
+|**Skrypty zarządzania aplikacją**||
+| [Eksportowanie wpisów tajnych i certyfikatów (rejestracje aplikacji)](scripts/powershell-export-all-app-registrations-secrets-and-certs.md) | Eksportowanie wpisów tajnych i certyfikatów dla rejestracji aplikacji w Azure Active Directory dzierżawie. |
+| [Eksportowanie wpisów tajnych i certyfikatów (aplikacje dla przedsiębiorstw)](scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md) | Eksportowanie wpisów tajnych i certyfikatów dla aplikacji przedsiębiorstw w Azure Active Directory dzierżawy. |
+| [Eksportowanie wygasających wpisów tajnych i certyfikatów](scripts/powershell-export-apps-with-expriring-secrets.md) | Wyeksportuj rejestracje aplikacji z wygasających wpisów tajnych i certyfikatów oraz ich Azure Active Directory dzierżawy. |
+| [Eksportowanie wpisów tajnych i certyfikatów wygasających poza datą wymaganą](scripts/powershell-export-apps-with-secrets-beyond-required.md) | Wyeksportuj rejestracje aplikacji z wpisami tajnymi i certyfikatami, które w dzierżawie Azure Active Directory wymagane. W tym celu jest używany nieinterakcyjny Client_Credentials Oauth. |

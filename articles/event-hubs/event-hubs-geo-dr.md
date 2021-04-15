@@ -1,51 +1,51 @@
 ---
-title: Replikacja geograficzna — odzyskiwanie po awarii — Event Hubs platformy Azure | Microsoft Docs
-description: Jak używać regionów geograficznych do przełączania awaryjnego i wykonywania odzyskiwania po awarii na platformie Azure Event Hubs
+title: Geograficzne odzyskiwanie po awarii — Azure Event Hubs| Microsoft Docs
+description: Jak używać regionów geograficznych do pracy w trybie fail over i odzyskiwania po awarii w Azure Event Hubs
 ms.topic: article
-ms.date: 02/10/2021
-ms.openlocfilehash: 091c6c61b079ceb8f96f04e62fb772d91732eb2f
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 04/14/2021
+ms.openlocfilehash: 504a83772c2ac8e3afc86465899357d0eda4eb92
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311213"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478662"
 ---
-# <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs — odzyskiwanie geograficzne 
+# <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs — geograficzne odzyskiwanie po awarii 
 
-Odporność na katastrofalne przestoju zasobów przetwarzania danych jest wymagana dla wielu przedsiębiorstw, a w niektórych przypadkach jest wymagana przez regulacje branżowe. 
+Odporność na katastrofalne awarie zasobów przetwarzania danych jest wymagana dla wielu przedsiębiorstw, a w niektórych przypadkach nawet przez przepisy branżowe. 
 
-Platforma Azure Event Hubs już rozłożyć ryzyko katastrofalnych awarii poszczególnych maszyn, a nawet kompletnych stojaków w klastrach obejmujących wiele domen awarii w centrum danych i implementuje przejrzyste mechanizmy wykrywania błędów i trybu failover w taki sposób, aby usługa kontynuowała działanie w ramach gwarantowanych poziomów usług i zwykle bez zauważalnych przerw w wystąpieniu takich niepowodzeń. Jeśli Event Hubs przestrzeń nazw została utworzona z włączoną opcją dla [stref dostępności](../availability-zones/az-overview.md), ryzyko przestoju jest dodatkowo rozłożone na trzy fizycznie oddzielone urządzenia, a usługa ma wystarczającą ilość rezerw, aby szybko sprostać całkowitej, krytycznej utracie całego obiektu. 
+Azure Event Hubs już rozłożone ryzyko katastrofalnych awarii poszczególnych maszyn lub nawet kompletnych regałów w klastrach, które obejmują wiele domen awarii w centrum danych, i implementuje przezroczyste mechanizmy wykrywania awarii i trybu failover, dzięki którym usługa będzie nadal działać na wyższych poziomach usług i zwykle bez zauważalnych przerw w przypadku wystąpienia takich awarii. Jeśli przestrzeń nazw usługi Event Hubs została utworzona z włączoną opcją dla stref [dostępności,](../availability-zones/az-overview.md)ryzyko wystąpienia wyjścia jest jeszcze bardziej rozłożone na trzy fizycznie oddzielone obiekty, a usługa ma wystarczająco dużo rezerw pojemności, aby natychmiast poradzić sobie z całkowitą, katastrofalną utratą całego obiektu. 
 
-Model klastra "All-Active" platformy Azure Event Hubs z obsługą stref dostępności zapewnia odporność na słabe błędy sprzętu i nawet katastrofalną utratę całych centrów danych. Nadal mogą wystąpić poważne sytuacje w przypadku rozległego zniszczenia fizycznego, które nawet te środki nie mogą zapewnić wystarczającej obrony. 
+Model klastra wszystkich aktywnych Azure Event Hubs z obsługą strefy dostępności zapewnia odporność na awarie sprzętu sieciowego, a nawet katastrofalną utratę całych obiektów centrów danych. Mimo to mogą wystąpić sytuacje, w których nawet te środki nie mogą wystarczająco się przed nim obronić. 
 
-Event Hubs funkcja odzyskiwania geograficznego po awarii została zaprojektowana, aby ułatwić odzyskanie sprawności od awarii i porzucić niepowodzenie regionu platformy Azure dla dobra i bez konieczności zmiany konfiguracji aplikacji. Opuszczenie regionu platformy Azure zwykle obejmuje kilka usług, a ta funkcja ma głównie na celu zachowanie integralności konfiguracji złożonej aplikacji.  
+Funkcja Event Hubs geograficznego odzyskiwania po awarii została zaprojektowana w celu ułatwienia odzyskiwania po awarii takiej wielkości i porzucenia awarii regionu świadczenia usługi Azure na dobre i bez konieczności zmiany konfiguracji aplikacji. Porzucenie regionu świadczenia usługi Azure zwykle wiąże się z kilkoma usługami, a ta funkcja ma przede wszystkim na celu pomoc w zachowaniu integralności złożonej konfiguracji aplikacji.  
 
-Funkcja odzyskiwania Geo-Disaster zapewnia, że cała konfiguracja przestrzeni nazw (Event Hubs, grup konsumentów i ustawień) jest ciągle replikowana z podstawowej przestrzeni nazw do pomocniczej przestrzeni nazw po sparowaniu i umożliwia zainicjowanie przejścia w tryb failover tylko raz z poziomu podstawowego do pomocniczego w dowolnym momencie. Przeniesienie do trybu failover spowoduje ponowne wskazanie wybranej nazwy aliasu dla przestrzeni nazw dla pomocniczej przestrzeni nazw, a następnie przerwanie parowania. Tryb failover jest niemal natychmiast po zainicjowaniu. 
+Funkcja odzyskiwania Geo-Disaster zapewnia, że cała konfiguracja przestrzeni nazw (Event Hubs, grup odbiorców i ustawień) jest stale replikowana z podstawowej przestrzeni nazw do pomocniczej przestrzeni nazw po sparowaniu i umożliwia zainicjowanie przenoszenia tylko raz trybu failover z podstawowej do pomocniczej w dowolnym momencie. Przeniesienie trybu failover spowoduje ponowne wskazanie nazwy aliasu wybranego dla przestrzeni nazw do pomocniczej przestrzeni nazw, a następnie przerwie parowanie. Po zainicjowanym zakończeniu pracy w przypadku trybu failover proces ten jest niemal natychmiastowy. 
 
 > [!IMPORTANT]
-> Ta funkcja umożliwia natychmiastowe ciągłość operacji z tą samą konfiguracją, ale **nie replikuje danych zdarzenia**. O ile awaria spowodowała utratę wszystkich stref, dane zdarzenia, które są zachowywane w podstawowym centrum zdarzeń po przejściu w tryb failover, będą możliwe do odzyskania, a po przywróceniu dostępu można pobrać zdarzenia historyczne. Aby replikować dane zdarzeń i obsłużyć odpowiednie przestrzenie nazw w konfiguracjach aktywnych/aktywnych w celu sprostania awariom i katastrofom, nie należy obsłużyć tej funkcji odzyskiwania po awarii geograficznej, ale postępuj zgodnie ze [wskazówkami dotyczącymi replikacji](event-hubs-federation-overview.md).  
+> Ta funkcja umożliwia natychmiastową ciągłość operacji z taką samą konfiguracją, ale **nie replikuje danych zdarzenia**. O ile awaria nie spowodowała utraty wszystkich stref, dane zdarzeń zachowywane w podstawowym centrum zdarzeń po zakończeniu pracy w awarii będą można odzyskać, a zdarzenia historyczne można uzyskać z tego źródła po przywróceniu dostępu. W przypadku replikowania danych zdarzeń i obsługi odpowiednich przestrzeni nazw w konfiguracjach aktywne/aktywne w celu radzenia sobie z awariami i awariami nie należy opierać się na tym zestawie funkcji geograficznego odzyskiwania po awarii, ale postępuj zgodnie ze wskazówkami [replikacji](event-hubs-federation-overview.md).  
 
-## <a name="outages-and-disasters"></a>Awarie i katastrofy
+## <a name="outages-and-disasters"></a>Awarie i awarie
 
-Ważne jest, aby zauważyć rozróżnienie między "awariami" i "katastrofami". **Awaria** to tymczasowa niedostępność usługi Azure Event Hubs i może mieć wpływ na niektóre składniki usługi, takie jak magazyn komunikatów, a nawet całe centrum danych. Jednak po rozwiązaniu problemu Event Hubs znów będzie dostępny. Zazwyczaj awaria nie powoduje utraty komunikatów ani innych danych. Przykładem takiego przestoju może być awaria w centrum danych. Niektóre przestoje dotyczą tylko krótkich strat połączenia z powodu problemów przejściowych lub w sieci. 
+Ważne jest, aby zwrócić uwagę na rozróżnienie między "awariami" i "awariami". Niedostępność **to** tymczasowa niedostępność usługi Azure Event Hubs, która może mieć wpływ na niektóre składniki usługi, takie jak magazyn obsługi komunikatów, a nawet całe centrum danych. Jednak po naprawieniu problemu Event Hubs ponownie dostępne. Zazwyczaj nie powoduje to utraty komunikatów ani innych danych. Przykładem takiej awarii może być awaria zasilania w centrum danych. Niektóre awarie to tylko krótkie straty połączeń z powodu przejściowych problemów lub problemów z siecią. 
 
-*Awaria* jest definiowana jako trwała lub w długim czasie utrata Event Hubs klastra, regionu platformy Azure lub centrum danych. Region lub centrum danych może lub nie staje się dostępne ponownie lub mogą być wyłączone w godzinach lub dniach. Przykładami takich awarii są pożary, powodziowe lub ziemie. Awaria, która stała się trwała, może spowodować utratę niektórych komunikatów, zdarzeń lub innych danych. Jednak w większości przypadków nie powinno się odzyskać utraty danych, a komunikaty mogą być odzyskiwane po utworzeniu kopii zapasowej centrum danych.
+*Awaria* jest definiowana jako trwała lub długoterminowa utrata klastra Event Hubs, regionu platformy Azure lub centrum danych. Region lub centrum danych może być ponownie dostępne lub może nie być dostępne przez wiele godzin lub dni. Przykłady takich awarii to pożar, powódź lub trzęsienia ziemi. Awaria, która stanie się trwała, może spowodować utratę niektórych komunikatów, zdarzeń lub innych danych. Jednak w większości przypadków nie powinna być utrata danych i komunikaty mogą być odzyskiwane po kopii zapasowej centrum danych.
 
-Funkcja odzyskiwania po awarii geograficznej platformy Azure Event Hubs to rozwiązanie do odzyskiwania po awarii. Koncepcje i przepływ pracy opisane w tym artykule mają zastosowanie do scenariuszy awaryjnych, a nie przejściowych lub tymczasowych przestojów. Aby uzyskać szczegółowe omówienie odzyskiwania po awarii w Microsoft Azure, zobacz [ten artykuł](/azure/architecture/resiliency/disaster-recovery-azure-applications).
+Funkcja geograficznego odzyskiwania po awarii systemu Azure Event Hubs to rozwiązanie do odzyskiwania po awarii. Pojęcia i przepływ pracy opisane w tym artykule dotyczą scenariuszy awarii, a nie przejściowych lub tymczasowych awarii. Aby uzyskać szczegółowe omówienie odzyskiwania po awarii w Microsoft Azure, zobacz [ten artykuł.](/azure/architecture/resiliency/disaster-recovery-azure-applications)
 
-## <a name="basic-concepts-and-terms"></a>Podstawowe pojęcia i postanowienia
+## <a name="basic-concepts-and-terms"></a>Podstawowe pojęcia i terminy
 
 Funkcja odzyskiwania po awarii implementuje odzyskiwanie po awarii metadanych i opiera się na podstawowych i pomocniczych przestrzeniach nazw odzyskiwania po awarii. 
 
-Funkcja odzyskiwania geograficznego po awarii jest dostępna tylko dla [standardowych i dedykowanych jednostek SKU](https://azure.microsoft.com/pricing/details/event-hubs/) . Nie musisz wprowadzać żadnych zmian parametrów połączenia, ponieważ połączenie jest nawiązywane za pośrednictwem aliasu.
+Funkcja geograficznego odzyskiwania po awarii jest dostępna tylko dla [standardowych i dedykowanych jednostki SKU.](https://azure.microsoft.com/pricing/details/event-hubs/) Nie musisz wprowadzać żadnych zmian parametrów połączenia, ponieważ połączenie jest nasłane za pośrednictwem aliasu.
 
 W tym artykule są używane następujące terminy:
 
--  *Alias*: Nazwa skonfigurowanej konfiguracji odzyskiwania po awarii. Alias zawiera pojedyncze stałe parametry połączenia w pełni kwalifikowanej nazwy domeny (FQDN). Aplikacje używają tego ciągu połączenia z aliasem do łączenia się z przestrzenią nazw. 
+-  *Alias:* nazwa konfiguracji odzyskiwania po awarii, która jest konfigurowana. Alias udostępnia jeden stabilny w pełni kwalifikowanej nazwy domeny (FQDN) parametrów połączenia. Aplikacje używają tych parametrów połączenia aliasu do nawiązywania połączenia z przestrzenią nazw. 
 
--  *Podstawowa/pomocnicza przestrzeń nazw*: przestrzenie nazw, które odpowiadają aliasu. Podstawowa przestrzeń nazw jest "aktywna" i odbiera komunikaty (może to być istniejąca lub Nowa przestrzeń nazw). Pomocnicza przestrzeń nazw jest "pasywna" i nie odbiera komunikatów. Metadane między obydwoma są zsynchronizowane, dzięki czemu oba mogą bezproblemowo akceptować komunikaty bez konieczności zmiany kodu aplikacji ani parametrów połączenia. Aby upewnić się, że tylko aktywna przestrzeń nazw odbiera komunikaty, należy użyć aliasu.
--  *Metadane*: jednostki, takie jak centra zdarzeń i grupy konsumentów; i ich właściwości usługi, które są skojarzone z przestrzenią nazw. Tylko jednostki i ich ustawienia są replikowane automatycznie. Komunikaty i zdarzenia nie są replikowane. 
--  *Tryb failover*: proces aktywowania pomocniczej przestrzeni nazw.
+-  *Podstawowa/pomocnicza przestrzeń nazw:* przestrzenie nazw, które odpowiadają aliasowi. Podstawowa przestrzeń nazw jest "aktywna" i odbiera komunikaty (może to być istniejąca lub nowa przestrzeń nazw). Pomocnicza przestrzeń nazw jest "pasywna" i nie odbiera komunikatów. Metadane między nimi są zsynchronizowane, więc oba mogą bezproblemowo akceptować komunikaty bez konieczności zmiany kodu aplikacji ani parametrów połączenia. Aby upewnić się, że komunikaty są odbierane tylko przez aktywną przestrzeń nazw, należy użyć aliasu .
+-  *Metadane:* jednostki, takie jak centra zdarzeń i grupy odbiorców; i ich właściwości usługi, które są skojarzone z przestrzenią nazw . Tylko jednostki i ich ustawienia są replikowane automatycznie. Komunikaty i zdarzenia nie są replikowane. 
+-  *Failover*: proces aktywowania pomocniczej przestrzeni nazw.
 
 ## <a name="supported-namespace-pairs"></a>Obsługiwane pary przestrzeni nazw
 Obsługiwane są następujące kombinacje podstawowych i pomocniczych przestrzeni nazw:  
@@ -58,155 +58,153 @@ Obsługiwane są następujące kombinacje podstawowych i pomocniczych przestrzen
 | Dedykowane | Standardowa (Standard) | Nie | 
 
 > [!NOTE]
-> Nie można sparować przestrzeni nazw, które znajdują się w tym samym dedykowanym klastrze. Można sparować przestrzenie nazw, które znajdują się w osobnych klastrach. 
+> Nie można parować przestrzeni nazw, które znajdują się w tym samym dedykowanym klastrze. Przestrzenie nazw, które znajdują się w oddzielnych klastrach, można parować. 
 
-## <a name="setup-and-failover-flow"></a>Konfiguracja i przepływ pracy awaryjnej
+## <a name="setup-and-failover-flow"></a>Przepływ instalacji i trybu failover
 
-Poniższa sekcja zawiera omówienie procesu pracy w trybie failover i wyjaśnia, jak skonfigurować początkową pracę w trybie failover. 
+W poniższej sekcji opisano proces trybu failover i wyjaśniono sposób skonfigurowania początkowego trybu failover. 
 
 ![1][]
 
 ### <a name="setup"></a>Konfiguracja
 
-Najpierw należy utworzyć lub użyć istniejącej głównej przestrzeni nazw oraz nowej pomocniczej przestrzeni nazw, a następnie sparować te dwa. Ta parowanie zapewnia alias, którego można użyć do nawiązania połączenia. Ponieważ używasz aliasu, nie musisz zmieniać parametrów połączenia. Do parowania trybu failover można dodawać tylko nowe przestrzenie nazw. 
+Najpierw utwórz istniejącą podstawową przestrzeń nazw i nową pomocniczą przestrzeń nazw lub użyj jej, a następnie sparuj te dwie przestrzenie. To parowanie zapewnia alias, za pomocą których można nawiązać połączenie. Ponieważ używasz aliasu, nie musisz zmieniać parametry połączenia. Do parowania trybu failover można dodawać tylko nowe przestrzenie nazw. 
 
 1. Utwórz podstawową przestrzeń nazw.
-1. Utwórz pomocniczą przestrzeń nazw w innym regionie. Ta czynność jest opcjonalna. Można utworzyć pomocniczą przestrzeń nazw podczas tworzenia parowania w następnym kroku. 
+1. Utwórz pomocniczą przestrzeń nazw w innym regionie. Ta czynność jest opcjonalna. Pomocniczą przestrzeń nazw można utworzyć podczas tworzenia parowania w następnym kroku. 
 1. W Azure Portal przejdź do podstawowej przestrzeni nazw.
-1. Wybierz opcję **odzyskiwanie geograficzne** z menu po lewej stronie, a następnie wybierz pozycję **Inicjuj parowanie** na pasku narzędzi. 
+1. Wybierz **pozycję Odzyskiwanie geograficzne** w menu po lewej stronie, a następnie wybierz pozycję **Zainicjuj parowanie** na pasku narzędzi. 
 
-    :::image type="content" source="./media/event-hubs-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Inicjuj Parowanie z podstawowej przestrzeni nazw":::    
+    :::image type="content" source="./media/event-hubs-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Inicjowanie parowania z podstawowej przestrzeni nazw":::    
 1. Na stronie **Inicjowanie parowania** wykonaj następujące kroki:
-    1. Wybierz istniejącą pomocniczą przestrzeń nazw lub utwórz ją w innym regionie. W tym przykładzie wybrano istniejącą przestrzeń nazw.  
-    1. Dla **aliasu** wprowadź alias dla parowania geograficznego odzyskiwania po awarii. 
+    1. Wybierz istniejącą pomocniczą przestrzeń nazw lub utwórz ją w innym regionie. W tym przykładzie wybrana jest istniejąca przestrzeń nazw.  
+    1. W **przypadku aliasu** wprowadź alias dla parowania geograficznego dr. 
     1. Następnie wybierz przycisk **Utwórz**. 
 
-    :::image type="content" source="./media/event-hubs-geo-dr/initiate-pairing-page.png" alt-text="Wybierz pomocniczą przestrzeń nazw":::        
-1. Powinna zostać wyświetlona strona **aliasu Geo-Dr** . Możesz również przejść do tej strony z podstawowej przestrzeni nazw, wybierając opcję **odzyskiwanie geograficzne** w menu po lewej stronie.
+    :::image type="content" source="./media/event-hubs-geo-dr/initiate-pairing-page.png" alt-text="Wybieranie pomocniczej przestrzeni nazw":::        
+1. Powinna zostać wyświetlony strona **Alias geograficznego dr.** Możesz również przejść do tej strony z podstawowej przestrzeni nazw, wybierając pozycję **Odzyskiwanie** geograficzne w menu po lewej stronie.
 
-    :::image type="content" source="./media/event-hubs-geo-dr/geo-dr-alias-page.png" alt-text="Strona aliasu Geo-DR":::    
-1. Na stronie **aliasu Geo-Dr** wybierz pozycję **zasady dostępu współdzielonego** w menu po lewej stronie, aby uzyskać dostęp do podstawowych parametrów połączenia dla aliasu. Użyj tych parametrów połączenia zamiast używać parametrów połączenia do bezpośredniej/pomocniczej przestrzeni nazw. 
-1. Na tej stronie **przeglądu** można wykonać następujące czynności: 
-    1. Przerwij parowanie między podstawowymi i pomocniczymi przestrzeniami nazw. Wybierz pozycję **Przerwij parowanie** na pasku narzędzi. 
-    1. Ręczne przełączenie w tryb failover do pomocniczej przestrzeni nazw. Wybierz pozycję **tryb failover** na pasku narzędzi. 
+    :::image type="content" source="./media/event-hubs-geo-dr/geo-dr-alias-page.png" alt-text="Strona aliasu geograficznego dr":::    
+1. Na stronie **Alias geograficznego dr wybierz** pozycję **Zasady** dostępu współdzielonych w menu po lewej stronie, aby uzyskać dostęp do podstawowych parametrów połączenia aliasu. Użyj tych parametrów połączenia zamiast używać parametrów połączenia bezpośrednio z podstawową/pomocniczą przestrzenią nazw. 
+1. Na tej **stronie** Przegląd można wykonać następujące czynności: 
+    1. Przerwij parowanie między podstawową i pomocniczą przestrzenią nazw. Wybierz **pozycję Przerwij parowanie** na pasku narzędzi. 
+    1. Ręcznego trybu failover do pomocniczej przestrzeni nazw. Wybierz **pozycję Failover (Trybu failover)** na pasku narzędzi. 
     
         > [!WARNING]
-        > Przełączenie w tryb failover spowoduje uaktywnienie pomocniczej przestrzeni nazw i usunięcie podstawowej przestrzeni nazw z parowania odzyskiwania Geo-Disaster. Utwórz inną przestrzeń nazw, aby miała nową parę odzyskiwania po awarii geograficznej. 
+        > Tryb pracy w trybie pracy w trybie pracy w trybie Geo-Disaster nazw aktywuje pomocniczą przestrzeń nazw i usunie podstawową przestrzeń nazw z Geo-Disaster odzyskiwania. Utwórz kolejną przestrzeń nazw, aby mieć nową parę odzyskiwania po awarii geograficznej. 
 
-Na koniec należy dodać monitorowanie w celu wykrycia, czy jest konieczne przełączenie w tryb failover. W większości przypadków usługa jest jedną częścią dużego ekosystemu, dzięki czemu automatyczne przełączanie w tryb failover jest mało prawdopodobne, ponieważ często należy wykonać synchronizację z pozostałym podsystemem lub infrastrukturą.
+Na koniec należy dodać monitorowanie, aby wykryć, czy jest wymagane przejechienie do trybu failover. W większości przypadków usługa jest jedną z części dużego ekosystemu, w związku z tym automatyczne tryby failover są rzadko możliwe, ponieważ często tryb failover musi być zsynchronizowany z pozostałym podsystemem lub infrastrukturą.
 
 ### <a name="example"></a>Przykład
 
-W jednym z przykładów tego scenariusza Rozważmy rozwiązanie punktu sprzedaży (POS), które emituje komunikaty lub zdarzenia. Event Hubs przekazuje te zdarzenia do niektórych mapowań lub ponownego formatowania, a następnie przekazuje zmapowane dane do innego systemu w celu dalszej obróbki. W tym momencie wszystkie te systemy mogą być hostowane w tym samym regionie świadczenia usługi Azure. Decyzja o tym, kiedy i co część przełączenia w tryb failover zależy od przepływu danych w infrastrukturze. 
+W jednym z przykładów tego scenariusza rozważ rozwiązanie punktu sprzedaży (POS), które emituje komunikaty lub zdarzenia. Event Hubs przekazuje te zdarzenia do pewnego rozwiązania mapowania lub ponownie sformatowania, które następnie przekazuje zamapowane dane do innego systemu w celu dalszego przetwarzania. W tym momencie wszystkie te systemy mogą być hostowane w tym samym regionie świadczenia usługi Azure. Decyzja o tym, kiedy i w jakiej części ma być przejechy w trybu fail over, zależy od przepływu danych w infrastrukturze. 
 
-Możesz zautomatyzować tryb failover z systemami monitorowania lub z wbudowanymi rozwiązaniami do monitorowania. Jednak taka Automatyzacja wymaga dodatkowego planowania i pracy, która jest poza zakresem tego artykułu.
+Możesz zautomatyzować trybu failover za pomocą systemów monitorowania lub za pomocą niestandardowych rozwiązań do monitorowania. Jednak taka automatyzacja wymaga dodatkowego planowania i pracy, która jest poza zakresem tego artykułu.
 
-### <a name="failover-flow"></a>Przepływ pracy awaryjnej
+### <a name="failover-flow"></a>Przepływ trybu failover
 
-Po zainicjowaniu trybu failover wymagane są dwa kroki:
+W przypadku zainicjowania trybu failover wymagane są dwa kroki:
 
-1. W przypadku wystąpienia innej awarii należy ponownie przejść do trybu failover. W związku z tym Skonfiguruj inną pasywną przestrzeń nazw i zaktualizuj parowanie. 
+1. W przypadku wystąpienia innej awarii chcesz mieć możliwość pracy awaryjnej ponownie. W związku z tym skonfiguruj inną pasywną przestrzeń nazw i zaktualizuj parowanie. 
 
-2. Po ponownym udostępnieniu wiadomości ściągających z dawnej podstawowej przestrzeni nazw. Następnie należy użyć tej przestrzeni nazw do zwykłych komunikatów poza konfiguracją odzyskiwania geograficznego lub usunąć starą podstawową przestrzeń nazw.
+2. Ściągnij komunikaty z poprzedniej podstawowej przestrzeni nazw, gdy będzie ona ponownie dostępna. Następnie użyj tej przestrzeni nazw do regularnego przesyłania komunikatów poza konfiguracją odzyskiwania geograficznego lub usuń starą podstawową przestrzeń nazw.
 
 > [!NOTE]
-> Obsługiwane są tylko semantyki z przekazywaniem niepowodzeniem. W tym scenariuszu nastąpi przełączenie w tryb failover, a następnie ponowne Parowanie z nową przestrzenią nazw. Powrót po awarii nie jest obsługiwany; na przykład w klastrze SQL. 
+> Obsługiwana jest tylko semantyka przekazywania po awarii. W tym scenariuszu przejedziesz w tryb fail over, a następnie ponownie sparujesz z nową przestrzenią nazw. Powrót po awarii nie jest obsługiwany. na przykład w klastrze SQL. 
 
 ![2][]
 
 ## <a name="management"></a>Zarządzanie
 
-Jeśli popełniono błąd; na przykład podczas początkowej konfiguracji sparowano nieprawidłowe regiony, można przerwać parowanie dwóch przestrzeni nazw w dowolnym momencie. Jeśli chcesz używać par przestrzeni nazw jako zwykłych przestrzeni nazw, Usuń alias.
+Jeśli popełnisz błąd; Na przykład podczas początkowej konfiguracji sparowane niewłaściwe regiony można przerwać parowanie dwóch przestrzeni nazw w dowolnym momencie. Jeśli chcesz używać sparowanych przestrzeni nazw jako zwykłych przestrzeni nazw, usuń alias.
 
 ## <a name="samples"></a>Samples
 
-[Przykład w witrynie GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) pokazuje, jak skonfigurować i zainicjować tryb failover. Ten przykład ilustruje następujące koncepcje:
+Przykład [w witrynie GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) pokazuje, jak skonfigurować i zainicjować trybu failover. W tym przykładzie przedstawiono następujące pojęcia:
 
-- Ustawienia wymagane w Azure Active Directory do użycia Azure Resource Manager z Event Hubs. 
+- Ustawienia wymagane w Azure Active Directory do używania Azure Resource Manager z Event Hubs. 
 - Kroki wymagane do wykonania przykładowego kodu. 
-- Wyślij i Odbierz z bieżącej podstawowej przestrzeni nazw. 
+- Wysyłanie i odbieranie z bieżącej podstawowej przestrzeni nazw. 
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia
 
-Należy pamiętać o następujących kwestiach, które należy wziąć pod uwagę:
+Należy pamiętać o następujących kwestiach:
 
-1. Zgodnie z projektem, Event Hubs odzyskiwanie geograficznego systemu nie replikuje danych i w związku z tym nie można ponownie użyć starej wartości przesunięcia głównego centrum zdarzeń w pomocniczym centrum zdarzeń. Zalecamy ponowne uruchomienie odbiornika zdarzeń przy użyciu jednej z następujących metod:
+1. Domyślnie geograficzne Event Hubs po awarii nie replikuje danych, dlatego nie można ponownie użyć starej wartości przesunięcia podstawowego centrum zdarzeń w pomocniczym centrum zdarzeń. Zalecamy ponowne uruchomienie odbiornika zdarzeń przy użyciu jednej z następujących metod:
 
-   - *EventPosition. FromStart ()* — Jeśli chcesz odczytywać wszystkie dane z pomocniczego centrum zdarzeń.
-   - *EventPosition. FromEnd ()* — Jeśli chcesz odczytywać wszystkie nowe dane z czasu połączenia z pomocniczym centrum zdarzeń.
-   - *EventPosition. FromEnqueuedTime (DateTime)* — Jeśli chcesz odczytywać wszystkie dane odebrane w pomocniczym centrum zdarzeń, rozpoczynając od danego dnia i godziny.
+   - *EventPosition.FromStart()* — jeśli chcesz odczytać wszystkie dane w pomocniczym centrum zdarzeń.
+   - *EventPosition.FromEnd()* — jeśli chcesz odczytać wszystkie nowe dane od czasu połączenia z pomocniczym centrum zdarzeń.
+   - *EventPosition.FromEnqueuedTime(dateTime)* — jeśli chcesz odczytać wszystkie dane odebrane w pomocniczym centrum zdarzeń, zaczynając od danej daty i czasu.
 
-2. W planowaniu trybu failover należy również wziąć pod uwagę współczynnik czasu. Jeśli na przykład utracisz łączność dłużej niż od 15 do 20 minut, możesz zdecydować się na zainicjowanie trybu failover. 
+2. Podczas planowania trybu failover należy również wziąć pod uwagę czynnik czasu. Jeśli na przykład utracisz łączność przez okres dłuższy niż 15–20 minut, możesz zdecydować się na zainicjowanie trybu failover. 
  
-3. Fakt, że żadne dane nie są replikowane, oznacza, że bieżące aktywne sesje nie są replikowane. Ponadto może nie zadziałała funkcja wykrywania duplikatów i zaplanowanych komunikatów. Nowe sesje, zaplanowane wiadomości i nowe duplikaty będą działały. 
+3. Fakt, że żadne dane nie są replikowane, oznacza, że bieżące aktywne sesje nie są replikowane. Ponadto wykrywanie duplikatów i zaplanowane komunikaty mogą nie działać. Nowe sesje, zaplanowane komunikaty i nowe duplikaty będą działać. 
 
-4. Przełączenie w tryb failover złożonej infrastruktury rozproszonej powinno być [rehearsed](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) co najmniej raz. 
+4. Co najmniej raz należy ponownie przechowycać [złożoną infrastrukturę](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) rozproszoną. 
 
-5. Synchronizowanie jednostek może zająć trochę czasu, około 50-100 jednostek na minutę.
+5. Synchronizacja jednostek może zająć trochę czasu — około 50–100 jednostek na minutę.
 
 ## <a name="availability-zones"></a>Strefy dostępności 
 
-Standardowa jednostka SKU Event Hubs obsługuje [strefy dostępności](../availability-zones/az-overview.md), zapewniając lokalizację izolowaną od błędów w regionie świadczenia usługi Azure. 
+Usługa Event Hubs Standardowa obsługuje [Strefy dostępności](../availability-zones/az-overview.md), zapewniając lokalizacje izolowane od błędów w regionie świadczenia usługi Azure. 
 
 > [!NOTE]
-> Strefy dostępności pomoc techniczna dla usługi Azure Event Hubs Standard jest dostępna tylko w [regionach świadczenia usługi Azure](../availability-zones/az-region.md) , w których znajdują się strefy dostępności.
+> Obsługa Strefy dostępności dla Azure Event Hubs Standardowa jest dostępna tylko w regionach świadczenia [usługi Azure,](../availability-zones/az-region.md) w których znajdują się strefy dostępności.
 
-Strefy dostępności można włączyć tylko dla nowych przestrzeni nazw, korzystając z Azure Portal. Event Hubs nie obsługuje migracji istniejących przestrzeni nazw. Nie można wyłączyć nadmiarowości strefy po włączeniu jej w przestrzeni nazw.
+Możesz włączyć Strefy dostępności tylko w nowych przestrzeniach nazw przy użyciu Azure Portal. Event Hubs nie obsługuje migracji istniejących przestrzeni nazw. Nie można wyłączyć nadmiarowości strefy po włączeniu jej w przestrzeni nazw.
 
-W przypadku korzystania ze stref dostępności zarówno metadane, jak i dane (zdarzenia) są replikowane między centrami danych w strefie dostępności. 
+W przypadku korzystania ze stref dostępności zarówno metadane, jak i dane (zdarzenia) są replikowane w centrach danych w strefie dostępności. 
 
 ![3][]
 
 ## <a name="private-endpoints"></a>Prywatne punkty końcowe
-Ta sekcja zawiera dodatkowe zagadnienia dotyczące korzystania z funkcji odzyskiwania po awarii geograficznej z przestrzeniami nazw, które używają prywatnych punktów końcowych. Aby dowiedzieć się więcej na temat używania prywatnych punktów końcowych z Event Hubs ogólnie, zobacz [Konfigurowanie prywatnych punktów końcowych](private-link-service.md).
+Ta sekcja zawiera więcej kwestii do rozważenia podczas korzystania z geograficznego odzyskiwania po awarii z przestrzeniami nazw, które używają prywatnych punktów końcowych. Aby dowiedzieć się więcej na temat ogólnego używania prywatnych punktów końcowych Event Hubs, zobacz [Konfigurowanie prywatnych punktów końcowych.](private-link-service.md)
 
 ### <a name="new-pairings"></a>Nowe pary
-Jeśli spróbujesz utworzyć parowanie między podstawową przestrzenią nazw z prywatnym punktem końcowym i pomocniczą przestrzenią nazw bez prywatnego punktu końcowego, parowanie nie powiedzie się. Parowanie powiedzie się tylko wtedy, gdy zarówno podstawowa, jak i pomocnicza przestrzeń nazw mają prywatne punkty końcowe. Zalecamy używanie tych samych konfiguracji w podstawowych i pomocniczych obszarach nazw oraz w sieciach wirtualnych, w których są tworzone prywatne punkty końcowe.  
+Jeśli spróbujesz utworzyć parowanie między podstawową przestrzenią nazw z prywatnym punktem końcowym i pomocniczą przestrzenią nazw bez prywatnego punktu końcowego, parowanie nie powiedzie się. Parowanie powiedzie się tylko wtedy, gdy zarówno podstawowe, jak i pomocnicze przestrzenie nazw mają prywatne punkty końcowe. Zalecamy używanie tych samych konfiguracji w podstawowych i pomocniczych przestrzeniach nazw oraz w sieciach wirtualnych, w których tworzone są prywatne punkty końcowe.  
 
 > [!NOTE]
-> Podczas próby sparowania podstawowej przestrzeni nazw z prywatnym punktem końcowym i pomocniczą przestrzenią nazw proces sprawdzania poprawności sprawdza tylko, czy prywatny punkt końcowy istnieje w pomocniczej przestrzeni nazw. Nie sprawdza ona, czy punkt końcowy działa lub będzie działać po przejściu do trybu failover. Odpowiedzialność za zapewnienie, że pomocnicza przestrzeń nazw z prywatnym punktem końcowym będzie działała zgodnie z oczekiwaniami po przejściu do trybu failover.
+> Podczas próby sparowania podstawowej przestrzeni nazw z prywatnym punktem końcowym i pomocniczą przestrzenią nazw proces weryfikacji sprawdza tylko, czy prywatny punkt końcowy istnieje w pomocniczej przestrzeni nazw. Nie sprawdza, czy punkt końcowy działa lub będzie działać po zakończeniu pracy w trybu failover. Twoim zadaniem jest zapewnienie, że pomocnicza przestrzeń nazw z prywatnym punktem końcowym będzie działać zgodnie z oczekiwaniami po zakończeniu pracy w trybu failover.
 >
-> Aby sprawdzić, czy konfiguracje prywatnych punktów końcowych są takie same w podstawowych i pomocniczych przestrzeniach nazw, Wyślij żądanie odczytu (na przykład: [Pobierz centrum zdarzeń](/rest/api/eventhub/get-event-hub)) do pomocniczej przestrzeni nazw spoza sieci wirtualnej i sprawdź, czy jest wyświetlany komunikat o błędzie z usługi.
+> Aby sprawdzić, czy konfiguracje prywatnego punktu końcowego są takie same w podstawowej i pomocniczej przestrzeni nazw, wyślij żądanie odczytu (na [przykład:](/rest/api/eventhub/get-event-hub)Pobierz centrum zdarzeń ) do pomocniczej przestrzeni nazw spoza sieci wirtualnej i sprawdź, czy usługa otrzymuje komunikat o błędzie.
 
 ### <a name="existing-pairings"></a>Istniejące pary
-Jeśli parowanie między podstawową i pomocniczą przestrzenią nazw już istnieje, tworzenie prywatnego punktu końcowego w podstawowej przestrzeni nazw zakończy się niepowodzeniem. Aby rozwiązać ten problem, należy najpierw utworzyć prywatny punkt końcowy w pomocniczej przestrzeni nazw, a następnie utworzyć jeden dla podstawowej przestrzeni nazw.
+Jeśli istnieje już parowanie między podstawową i pomocniczą przestrzenią nazw, tworzenie prywatnego punktu końcowego w podstawowej przestrzeni nazw nie powiedzie się. Aby rozwiązać ten problem, najpierw utwórz prywatny punkt końcowy w pomocniczej przestrzeni nazw, a następnie utwórz go dla podstawowej przestrzeni nazw.
 
 > [!NOTE]
-> Chociaż zezwalamy na dostęp tylko do odczytu do pomocniczej przestrzeni nazw, dozwolone są aktualizacje konfiguracji prywatnych punktów końcowych. 
+> Zezwalamy na dostęp tylko do odczytu do pomocniczej przestrzeni nazw, ale aktualizacje konfiguracji prywatnego punktu końcowego są dozwolone. 
 
 ### <a name="recommended-configuration"></a>Zalecana konfiguracja
-Podczas tworzenia konfiguracji odzyskiwania po awarii dla aplikacji i Event Hubs przestrzeni nazw, należy utworzyć prywatne punkty końcowe dla podstawowych i pomocniczych przestrzeni nazw Event Hubs z sieciami wirtualnymi obsługującymi zarówno podstawowe, jak i pomocnicze wystąpienia aplikacji. 
+Podczas tworzenia konfiguracji odzyskiwania po awarii dla aplikacji i przestrzeni nazw usługi Event Hubs należy utworzyć prywatne punkty końcowe dla podstawowych i pomocniczych przestrzeni nazw usługi Event Hubs względem sieci wirtualnych hostowania zarówno podstawowego, jak i pomocniczego wystąpienia aplikacji. 
 
-Załóżmy, że masz dwie sieci wirtualne: Sieć wirtualna 1, Sieć wirtualna 2 i podstawowe i pomocnicze przestrzenie nazw: EventHubs-Namespace1-Primary, EventHubs-Namespace2-pomocniczy. Należy wykonać następujące czynności: 
+Załóżmy, że masz dwie sieci wirtualne: VNET-1, VNET-2 oraz podstawowe i pomocnicze przestrzenie nazw: EventHubs-Namespace1-Primary, EventHubs-Namespace2-Secondary. Należy wykonać następujące czynności: 
 
-- W przypadku EventHubs-Namespace1-Primary Utwórz dwa prywatne punkty końcowe, które używają podsieci z sieci VNET-1 i sieci wirtualnej 2
-- Na stronie EventHubs-Namespace2-pomocnicze Utwórz dwa prywatne punkty końcowe, które używają tych samych podsieci z sieci wirtualnej-1 i sieci wirtualnej 2 
+- W obszarze EventHubs-Namespace1-Primary utwórz dwa prywatne punkty końcowe, które używają podsieci z sieci VNET-1 i VNET-2
+- W obszarze EventHubs-Namespace2-Secondary utwórz dwa prywatne punkty końcowe, które używają tych samych podsieci z sieci VNET-1 i VNET-2 
 
 ![Prywatne punkty końcowe i sieci wirtualne](./media/event-hubs-geo-dr/private-endpoints-virtual-networks.png)
 
-Zaletą tego podejścia jest to, że przełączenie w tryb failover może wystąpić w przypadku warstwy aplikacji niezależnej od Event Hubs przestrzeni nazw. Rozważ następujące scenariusze: 
+Zaletą tego podejścia jest to, że do trybu failover może dojść w warstwie aplikacji niezależnie od Event Hubs nazw. Rozważ następujące scenariusze: 
 
-**Tryb failover tylko w aplikacji:** W tym miejscu aplikacja nie będzie istnieć w sieci wirtualnej 1, ale przejdzie do sieci VNET-2. Ponieważ zarówno prywatne punkty końcowe są skonfigurowane zarówno w sieci wirtualnej, jak i wirtualnej — 2 dla podstawowych i pomocniczych przestrzeni nazw, aplikacja będzie działać. 
+**Failover tylko dla aplikacji:** W tym przypadku aplikacja nie będzie istnieć w sieci VNET-1, ale zostanie przesłonięcie do sieci VNET-2. Ponieważ oba prywatne punkty końcowe są skonfigurowane zarówno w sieci VNET-1, jak i VNET-2 dla podstawowej i pomocniczej przestrzeni nazw, aplikacja po prostu będzie działać. 
 
-Event Hubs przełączenia w **tryb failover tylko dla obszaru nazw**: w tym miejscu, ponieważ oba prywatne punkty końcowe są konfigurowane w obu sieciach wirtualnych dla podstawowych i pomocniczych przestrzeni nazw, aplikacja będzie działać. 
+Event Hubs trybu **failover** tylko dla przestrzeni nazw: ponownie, ponieważ oba prywatne punkty końcowe są skonfigurowane w obu sieciach wirtualnych zarówno dla podstawowej, jak i pomocniczej przestrzeni nazw, aplikacja po prostu będzie działać. 
 
 > [!NOTE]
-> Aby uzyskać wskazówki dotyczące odzyskiwania po awarii geograficznej sieci wirtualnej, zobacz [Virtual Network — ciągłość](../virtual-network/virtual-network-disaster-recovery-guidance.md)działania.
+> Aby uzyskać wskazówki dotyczące geograficznego odzyskiwania po awarii sieci wirtualnej, [zobacz Virtual Network — Ciągłość działalności biznesowej.](../virtual-network/virtual-network-disaster-recovery-guidance.md)
  
 ## <a name="next-steps"></a>Następne kroki
-
-* [Przykład w witrynie GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) zawiera prosty przepływ pracy, który tworzy parowanie geograficzne i inicjuje tryb failover w przypadku scenariusza odzyskiwania po awarii.
-* [Dokumentacja interfejsu API REST](/rest/api/eventhub/) zawiera opis interfejsów API służących do wykonywania konfiguracji odzyskiwania po awarii geograficznej.
-
-Aby uzyskać więcej informacji na temat usługi Event Hubs, skorzystaj z następujących linków:
-
-- Rozpoczynanie pracy z usługą Event Hubs
-    - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
-    - [Java](event-hubs-java-get-started-send.md)
-    - [Python](event-hubs-python-get-started-send.md)
-    - [JavaScript](event-hubs-node-get-started-send.md)
-* [Event Hubs — często zadawane pytania](event-hubs-faq.yml)
-* [Przykładowe aplikacje korzystające z usługi Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
+Zapoznaj się z poniższymi przykładami lub dokumentacją referencyjną. 
+- [Przykład GeoDR dla .NET](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/DotNet/GeoDRClient) 
+- [Przykład GeoDR języka Java](https://github.com/Azure-Samples/eventhub-java-manage-event-hub-geo-disaster-recovery)
+- [.NET — przykłady dla usługi Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)
+- [.NET — przykłady dla pakietu Microsoft.Azure.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet)
+- [Java — przykłady dla usługi azure-messaging-eventhubs](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)
+- [Java — przykłady azure-eventhubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java)
+- [Przykłady w języku Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples)
+- [Przykłady skryptów w języku JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples/javascript)
+- [Przykłady języka TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples/typescript)
+- [Dokumentacja interfejsu API REST](/rest/api/eventhub/)
 
 [1]: ./media/event-hubs-geo-dr/geo1.png
 [2]: ./media/event-hubs-geo-dr/geo2.png

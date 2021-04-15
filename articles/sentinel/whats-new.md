@@ -1,223 +1,241 @@
 ---
-title: Nowości w platformie Azure — Wskaźnikowanie
-description: W tym artykule opisano nowe funkcje na platformie Azure — od ostatnich kilku miesięcy.
+title: Co nowego w programie Azure Sentinel
+description: W tym artykule opisano nowe funkcje Azure Sentinel w ciągu ostatnich kilku miesięcy.
 services: sentinel
 author: batamig
 ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 03/31/2021
-ms.openlocfilehash: 74cd5ce5912e5a656342a43b7c2b165fdf3c32d4
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.date: 04/08/2021
+ms.openlocfilehash: 7f9a8cb54458999d8f20a258bc36241dfdbd0de8
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490310"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376039"
 ---
-# <a name="whats-new-in-azure-sentinel"></a>Nowości w platformie Azure — Wskaźnikowanie
+# <a name="whats-new-in-azure-sentinel"></a>Co nowego w programie Azure Sentinel
 
-W tym artykule wymieniono najnowsze funkcje, które zostały dodane do usługi Azure, oraz nowe funkcje usług pokrewnych, które zapewniają Ulepszone środowisko użytkownika na platformie Azure.
+W tym artykule wymieniono najnowsze funkcje dodane Azure Sentinel i nowe funkcje w powiązanych usługach, które zapewniają ulepszone środowisko użytkownika w Azure Sentinel.
 
-Aby uzyskać informacje o wcześniejszych funkcjach, zobacz nasze [Blogi społeczności Tech](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
+Aby uzyskać informacje o poprzednich dostarczonych funkcjach, zobacz [blogi społeczności technicznej](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
-Notowane funkcje są obecnie dostępne w wersji zapoznawczej. [Postanowienia uzupełniające dotyczące platformy Azure w wersji zapoznawczej](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) zawierają dodatkowe postanowienia prawne dotyczące funkcji systemu Azure, które są w wersji beta, wersji zapoznawczej lub w inny sposób nie zostały jeszcze udostępnione.
+Zauważyć funkcje są obecnie w wersji zapoznawczej. Postanowienia [uzupełniające dotyczące wersji zapoznawczej](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) platformy Azure obejmują dodatkowe postanowienia prawne dotyczące funkcji platformy Azure, które są w wersji beta, wersji zapoznawczej lub w inny sposób nie zostały jeszcze wydane jako ogólnie dostępne.
 
 
 > [!TIP]
-> Nasze zespoły zajmujące się łowiectwem zagrożeń w ramach zapytań, elementy PlayBook, skoroszytów i notesów programu Microsoft, w tym określonych [zapytań polowających](https://github.com/Azure/Azure-Sentinel) [, które](https://github.com/Azure/Azure-Sentinel)zespoły mogą dostosowywać i stosować. 
+> Nasze zespoły do wyszukiwania zagrożeń w firmie Microsoft współtwoują zapytania, podręczniki, skoroszyty i notesy w społeczności [Azure Sentinel,](https://github.com/Azure/Azure-Sentinel)w tym konkretne zapytania dotyczące wyszukiwania zagrożeń, które zespoły mogą dostosować i których mogą używać. [](https://github.com/Azure/Azure-Sentinel)
 >
-> Możesz również współtworzyć. Dołącz do nas w [społeczności usługi GitHub](https://github.com/Azure/Azure-Sentinel/wiki).
-> 
+> Możesz również współtłać! Dołącz do nas w [społeczności Azure Sentinel Threat GitHub.](https://github.com/Azure/Azure-Sentinel/wiki)
+>
 
-## <a name="march-2021"></a>Marzec 2021
+## <a name="april-2021"></a>Kwiecień 2021 r.
 
-- [Ustaw automatyczne odświeżanie skoroszytów w trybie widoku](#set-workbooks-to-automatically-refresh-while-in-view-mode)
-- [Nowe wykrycia dla zapory platformy Azure](#new-detections-for-azure-firewall)
-- [Reguły automatyzacji i elementy PlayBook wyzwalane incydenty](#automation-rules-and-incident-triggered-playbooks) (w tym cała dokumentacja element PlayBook)
-- [Nowe wzbogacanie alertów: ulepszone mapowanie jednostek i szczegóły niestandardowe](#new-alert-enrichments-enhanced-entity-mapping-and-custom-details)
-- [Drukuj skoroszyty ze wskaźnikiem na platformie Azure lub Zapisz jako plik PDF](#print-your-azure-sentinel-workbooks-or-save-as-pdf)
-- [Filtry zdarzeń i preferencje sortowania teraz zapisywane w sesji (publiczna wersja zapoznawcza)](#incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview)
-- [Integracja zdarzeń Microsoft 365 Defender (publiczna wersja zapoznawcza)](#microsoft-365-defender-incident-integration-public-preview)
-- [Nowe łączniki usługi firmy Microsoft korzystające z Azure Policy](#new-microsoft-service-connectors-using-azure-policy)
+- [Oś czasu zdarzenia (publiczna wersja zapoznawcza)](#incident-timeline-public-preview)
 
-### <a name="set-workbooks-to-automatically-refresh-while-in-view-mode"></a>Ustaw automatyczne odświeżanie skoroszytów w trybie widoku
+### <a name="incident-timeline-public-preview"></a>Oś czasu zdarzenia (publiczna wersja zapoznawcza)
 
-Użytkownicy usługi Azure wskaźnikowego mogą teraz korzystać z nowej [Azure monitor możliwości](https://techcommunity.microsoft.com/t5/azure-monitor/azure-workbooks-set-it-to-auto-refresh/ba-p/2228555) automatycznego odświeżania danych skoroszytu podczas sesji wyświetlania.
+Pierwszą kartą na stronie szczegółów zdarzenia jest teraz **Oś czasu**, która pokazuje oś czasu alertów i zakładek w zdarzeniu. Oś czasu zdarzenia może pomóc w lepszym zrozumieniu zdarzenia i odtworzenie osi czasu działań osoby atakującej w powiązanych alertach i zakładkach.
 
-W każdym skoroszycie lub szablonie skoroszytu wybierz pozycję :::image type="icon" source="media/whats-new/auto-refresh-workbook.png" border="false"::: **AutoRefresh (Odśwież** ), aby wyświetlić opcje interwału. Wybierz opcję, która ma być używana dla bieżącej sesji widoku, a następnie wybierz pozycję **Zastosuj**.
+- Wybierz element na osi czasu, aby wyświetlić jego szczegóły bez opuszczania kontekstu zdarzenia
+- Filtruj zawartość osi czasu, aby wyświetlić tylko alerty lub zakładki albo elementy o określonej ważności lub taktyki MITRE.
+- Możesz wybrać link **Identyfikator alertu systemowego,** aby wyświetlić cały rekord, lub link **Zdarzenia,** aby wyświetlić powiązane zdarzenia w **obszarze** Dzienniki.
 
-- Obsługiwane interwały odświeżania mieszczą się w zakresie od **5 minut** do **1 dnia**.
-- Domyślnie funkcja AutoRefresh jest wyłączona. Aby zoptymalizować wydajność, Autoodświeżanie jest również wyłączone przy każdym zamknięciu skoroszytu i nie jest uruchamiane w tle. Włącz Autoodświeżanie w razie konieczności przy następnym otwarciu skoroszytu.
-- Autoodświeżanie jest wstrzymane podczas edytowania skoroszytu, a Interwały autoodświeżania są uruchamiane ponownie po każdym przełączeniu do trybu widoku z trybu edycji.
+Na przykład:
 
-    Interwały są również uruchamiane ponownie, jeśli skoroszyt zostanie ręcznie odświeżony przez wybranie :::image type="icon" source="media/whats-new/manual-refresh-button.png" border="false"::: przycisku **Odśwież** .
+:::image type="content" source="media/tutorial-investigate-cases/incident-timeline.png" alt-text="Karta Oś czasu zdarzenia":::
 
-Aby uzyskać więcej informacji, zobacz [Samouczek: wizualizacja i monitorowanie danych](tutorial-monitor-your-data.md) oraz [Dokumentacja Azure monitor](../azure-monitor/visualize/workbooks-overview.md).
+Aby uzyskać więcej informacji, zobacz [Samouczek: badanie zdarzeń za pomocą Azure Sentinel](tutorial-investigate-cases.md).
 
-### <a name="new-detections-for-azure-firewall"></a>Nowe wykrycia dla zapory platformy Azure
+## <a name="march-2021"></a>Marzec 2021 r.
 
-Kilka wbudowanych wykryć zapory platformy Azure zostały dodane do obszaru [Analiza](import-threat-intelligence.md#analytics-puts-your-threat-indicators-to-work-detecting-potential-threats) na platformie Azure. Te nowe wykrywania umożliwiają zespołom ds. zabezpieczeń otrzymywanie alertów, jeśli maszyny w sieci wewnętrznej próbują wykonać zapytania lub połączyć się z nazwami domen internetowych lub adresami IP skojarzonymi ze znanymi IOCs, zgodnie z definicją w zapytaniu reguły wykrywania.
+- [Ustawianie automatycznego odświeżania skoroszytów w trybie wyświetlania](#set-workbooks-to-automatically-refresh-while-in-view-mode)
+- [Nowe wykrycia dla Azure Firewall](#new-detections-for-azure-firewall)
+- [Reguły automatyzacji i podręczniki wyzwalane przez zdarzenia](#automation-rules-and-incident-triggered-playbooks) (w tym całą nową dokumentację podręcznika)
+- [Nowe wzbogacenia alertów: ulepszone mapowanie jednostek i niestandardowe szczegóły](#new-alert-enrichments-enhanced-entity-mapping-and-custom-details)
+- [Drukowanie skoroszytów Azure Sentinel lub zapisywanie w formacie PDF](#print-your-azure-sentinel-workbooks-or-save-as-pdf)
+- [Filtry zdarzeń i preferencje sortowania są teraz zapisywane w sesji (publiczna wersja zapoznawcza)](#incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview)
+- [Microsoft 365 zdarzenia usługi Defender (publiczna wersja zapoznawcza)](#microsoft-365-defender-incident-integration-public-preview)
+- [Nowe łączniki usług firmy Microsoft przy użyciu Azure Policy](#new-microsoft-service-connectors-using-azure-policy)
+
+### <a name="set-workbooks-to-automatically-refresh-while-in-view-mode"></a>Ustawianie automatycznego odświeżania skoroszytów w trybie wyświetlania
+
+Azure Sentinel użytkownicy mogą teraz używać nowej [Azure Monitor automatycznego](https://techcommunity.microsoft.com/t5/azure-monitor/azure-workbooks-set-it-to-auto-refresh/ba-p/2228555) odświeżania danych skoroszytu podczas sesji widoku.
+
+W każdym skoroszycie lub szablonie skoroszytu wybierz :::image type="icon" source="media/whats-new/auto-refresh-workbook.png" border="false"::: **pozycję Odśwież automatycznie,** aby wyświetlić opcje interwału. Wybierz opcję, której chcesz użyć dla bieżącej sesji widoku, a następnie wybierz pozycję **Zastosuj.**
+
+- Obsługiwane interwały odświeżania to **od 5 minut** **do 1 dnia.**
+- Domyślnie automatyczne odświeżanie jest wyłączone. Aby zoptymalizować wydajność, automatyczne odświeżanie jest również wyłączone przy każdym zamknięciu skoroszytu i nie działa w tle. Włącz automatyczne odświeżanie ponownie w razie potrzeby przy następnym otwarciu skoroszytu.
+- Automatyczne odświeżanie jest wstrzymane podczas edytowania skoroszytu, a interwały automatycznego odświeżania są ponownie uruchamiany po każdym przełączeniu z powrotem do trybu wyświetlania z trybu edycji.
+
+    Interwały są również ponownie uruchomione, jeśli ręcznie odświeżysz skoroszyt, wybierając :::image type="icon" source="media/whats-new/manual-refresh-button.png" border="false"::: **przycisk Odśwież.**
+
+Aby uzyskać więcej informacji, zobacz [Samouczek: wizualizowanie i monitorowanie danych](tutorial-monitor-your-data.md) oraz Azure Monitor [dokumentacji.](../azure-monitor/visualize/workbooks-overview.md)
+
+### <a name="new-detections-for-azure-firewall"></a>Nowe wykrycia dla Azure Firewall
+
+Do obszaru Analiza w obszarze analizy w Azure Sentinel dodano [](import-threat-intelligence.md#analytics-puts-your-threat-indicators-to-work-detecting-potential-threats) kilka funkcji wykrywania Azure Firewall od Azure Sentinel. Te nowe wykrycia umożliwiają zespołom ds. zabezpieczeń uzyskiwanie alertów, jeśli maszyny w sieci wewnętrznej spróbują odpytują lub połączą się z nazwami domen internetowych lub adresami IP skojarzonymi ze znanymi we/wy zgodnie z definicją w zapytaniu reguły wykrywania.
 
 Nowe wykrycia obejmują:
 
-- [Sygnał sieci Solorigate](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/Solorigate-Network-Beacon.yaml)
-- [Znane domeny i skróty GALLIUM](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/GalliumIOCs.yaml)
-- [Znany IRIDIUM IP](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/IridiumIOCs.yaml)
-- [Znane domeny grup fosforu/adres IP](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/PHOSPHORUSMarch2019IOCs.yaml)
-- [THALLIUM domeny zawarte w DCU Takedown](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ThalliumIOCs.yaml)
-- [Znany skrót maldoc związany z mieszaniem](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ZincJan272021IOCs.yaml)
-- [Znane domeny grupy strontu](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/STRONTIUMJuly2019IOCs.yaml)
-- [NOBELIUM-Domain i IP IOCs-marzec 2021](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_DomainIOCsMarch2021.yaml)
+- [Solorigate Network Sygnał nawigacyjny](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/Solorigate-Network-Beacon.yaml)
+- [Znane domeny i skróty GALIUM](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/GalliumIOCs.yaml)
+- [Znany adres IP IRIDIUM](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/IridiumIOCs.yaml)
+- [Znane domeny grupy Worus/adres IP](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/PHOSPHORUSMarch2019IOCs.yaml)
+- [Domeny FIRMY THALLIUM uwzględnione w odjęciu dcu](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ThalliumIOCs.yaml)
+- [Znany skrót maldoc związany z algorytmem HASH](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ZincJan272021IOCs.yaml)
+- [Znane domeny grup STRONTIUM](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/STRONTIUMJuly2019IOCs.yaml)
+- [NOBELIUM — Kontrolery we/wy domeny i adresów IP — marzec 2021 r.](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_DomainIOCsMarch2021.yaml)
 
 
-Wykrycia dla zapór platformy Azure są ciągle dodawane do wbudowanej galerii szablonów. Aby uzyskać najnowsze wykrycia dla zapory platformy Azure, w obszarze **Szablony reguł**, przefiltruj **źródła danych** według **zapory platformy Azure**:
+Wykrywanie za pomocą usługi Azure Firewall jest stale dodawane do wbudowanej galerii szablonów. Aby uzyskać najnowsze wykrycia dla Azure Firewall, w obszarze Szablony reguł odfiltruj źródła danych, **Azure Firewall** **:**
 
 :::image type="content" source="media/whats-new/new-detections-analytics-efficiency-workbook.jpg" alt-text="Nowe wykrycia w skoroszycie wydajności analizy":::
 
-Aby uzyskać więcej informacji, zobacz [nowe wykrywania zapory platformy Azure na platformie Azure — wskaźnik](https://techcommunity.microsoft.com/t5/azure-network-security/new-detections-for-azure-firewall-in-azure-sentinel/ba-p/2244958).
+Aby uzyskać więcej informacji, zobacz [New detections for Azure Firewall in Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-network-security/new-detections-for-azure-firewall-in-azure-sentinel/ba-p/2244958).
 
-### <a name="automation-rules-and-incident-triggered-playbooks"></a>Reguły automatyzacji i wyzwalane przez zdarzenia elementy PlayBook
+### <a name="automation-rules-and-incident-triggered-playbooks"></a>Reguły automatyzacji i podręczniki wyzwalane przez zdarzenia
 
-Reguły automatyzacji to nowe koncepcje na platformie Azure, które umożliwiają centralne zarządzanie automatyzacją obsługi zdarzeń. Oprócz tego, że przypiszesz elementy PlayBook do zdarzeń (nie tylko dla alertów, jak poprzednio), reguły automatyzacji umożliwiają również Automatyzowanie odpowiedzi dla wielu reguł analizy jednocześnie, automatyczne oznaczanie tagów, przypisywanie lub zamykanie incydentów bez potrzeby elementy playbook i sterowanie kolejnością wykonywanych akcji. Reguły automatyzacji usprawnią korzystanie z usługi Automation na platformie Azure i umożliwią uproszczenie złożonych przepływów pracy dla procesów aranżacji zdarzeń.
+Reguły automatyzacji to nowe pojęcie w Azure Sentinel, które umożliwia centralne zarządzanie automatyzacją obsługi zdarzeń. Oprócz umożliwienia przypisywania elementów playbook do zdarzeń (nie tylko do alertów, jak wcześniej), reguły automatyzacji umożliwiają również automatyzację odpowiedzi dla wielu reguł analizy jednocześnie, automatyczne tagowanie, przypisywanie lub zamykanie zdarzeń bez konieczności użycia elementów playbook oraz kontrolowanie kolejności wykonywanych akcji. Reguły automatyzacji usprawniają automatyzację Azure Sentinel i umożliwiają uproszczenie złożonych przepływów pracy dla procesów orkiestracji zdarzeń.
 
-Dowiedz się więcej, korzystając z tego [kompletnego wyjaśnienia reguł automatyzacji](automate-incident-handling-with-automation-rules.md).
+Dowiedz się więcej z tego [pełnego wyjaśnienia reguł automatyzacji.](automate-incident-handling-with-automation-rules.md)
 
-Jak wspomniano powyżej, elementy PlayBook można teraz aktywować przy użyciu wyzwalacza zdarzenia oprócz wyzwalacza alertu. Wyzwalacz zdarzenia zapewnia elementy PlayBook większy zestaw danych wejściowych do pracy z (ponieważ zdarzenie obejmuje również wszystkie dane alertu i jednostki), co zapewnia jeszcze większą moc i elastyczność w przepływach pracy odpowiedzi. Wyzwalane przez zdarzenie elementy PlayBook są aktywowane przez wywoływanie z reguł automatyzacji.
+Jak wspomniano powyżej, podręczniki oprócz wyzwalacza alertu można teraz aktywować za pomocą wyzwalacza zdarzenia. Wyzwalacz zdarzenia udostępnia podręcznikom większy zestaw danych wejściowych do pracy (ponieważ zdarzenie obejmuje również wszystkie dane alertów i jednostek), co zapewnia jeszcze większą moc i elastyczność przepływów pracy odpowiedzi. Podręczniki wyzwalane przez zdarzenia są aktywowane przez wywoływanie z reguł automatyzacji.
 
-Dowiedz się więcej o [ulepszonych](automate-responses-with-playbooks.md)funkcjach elementy playbook i sposobach tworzenia [przepływu pracy odpowiedzi](tutorial-respond-threats-playbook.md) przy użyciu elementy PlayBook wraz z regułami automatyzacji.
+Dowiedz się więcej o [ulepszonych](automate-responses-with-playbooks.md)możliwościach podręczników i [dziel](tutorial-respond-threats-playbook.md) się przepływem pracy odpowiedzi przy użyciu podręczników wraz z regułami automatyzacji.
 
-### <a name="new-alert-enrichments-enhanced-entity-mapping-and-custom-details"></a>Nowe wzbogacanie alertów: ulepszone mapowanie jednostek i szczegóły niestandardowe
+### <a name="new-alert-enrichments-enhanced-entity-mapping-and-custom-details"></a>Nowe wzbogacenia alertów: ulepszone mapowanie jednostek i niestandardowe szczegóły
 
-Wzbogacaj alerty na dwa nowe sposoby, aby zwiększyć ich użyteczność i więcej informacji.
+Wzbogać alerty na dwa nowe sposoby, aby były bardziej użyteczne i bardziej informacyjne.
 
-Zacznij od przełączenia mapowania jednostki na następny poziom. Teraz można mapować niemal 20 rodzajów jednostek, od użytkowników, hostów i adresów IP, do plików i procesów, skrzynek pocztowych, zasobów platformy Azure i urządzeń IoT. Można również użyć wielu identyfikatorów dla każdej jednostki, aby wzmocnić ich unikatową identyfikację. Zapewnia to znacznie bogatszy zestaw danych w zdarzeniach, zapewniając szersze korelację i bardziej zaawansowane badanie. [Zapoznaj się z nowym sposobem mapowania jednostek](map-data-fields-to-entities.md) w alertach.
+Zacznij od ustawienia mapowania jednostki na następny poziom. Teraz można mapować niemal 20 rodzajów jednostek, od użytkowników, hostów i adresów IP, do plików i procesów, do skrzynek pocztowych, zasobów platformy Azure i urządzeń IoT. Można również użyć wielu identyfikatorów dla każdej jednostki, aby zwiększyć ich unikatową identyfikację. Zapewnia to znacznie bogatszy zestaw danych w zdarzeniach, zapewniając szerszą korelację i bardziej zaawansowane badanie. [Poznaj nowy sposób mapowania jednostek w](map-data-fields-to-entities.md) alertach.
 
-[Przeczytaj więcej na temat jednostek](entities-in-azure-sentinel.md) i zobacz [pełną listę dostępnych jednostek i ich identyfikatorów](entities-reference.md).
+[Przeczytaj więcej na temat jednostek](entities-in-azure-sentinel.md) i zobacz pełną [listę dostępnych jednostek i ich identyfikatorów.](entities-reference.md)
 
-Zwiększ możliwości dochodzeniowe i reagowanie jeszcze bardziej zwiększające się, dostosowując alerty do szczegółów powierzchni ze zdarzeń pierwotnych. Zapewnij wgląd w zawartość zdarzeń do zdarzeń, co zapewnia większą moc i elastyczność w reagowaniu na zagrożenia bezpieczeństwa i badanie zagrożeń. [Dowiedz się, jak przedstawić niestandardowe szczegóły](surface-custom-details-in-alerts.md) w alertach.
+Zwiększ możliwości badania i reagowania dzięki dostosowywaniu alertów w celu nakierowania szczegółów na nieprzetworzone zdarzenia. Zapewnianie wglądu w zawartość zdarzeń w zdarzeniach, co zapewnia jeszcze większą moc i elastyczność reagowania na zagrożenia bezpieczeństwa i badania ich. [Dowiedz się, jak na powierzchni niestandardowych szczegółów](surface-custom-details-in-alerts.md) alertów.
 
 
 
-### <a name="print-your-azure-sentinel-workbooks-or-save-as-pdf"></a>Drukuj skoroszyty ze wskaźnikiem na platformie Azure lub Zapisz jako plik PDF
+### <a name="print-your-azure-sentinel-workbooks-or-save-as-pdf"></a>Drukowanie skoroszytów Azure Sentinel lub zapisywanie w formacie PDF
 
-Teraz można drukować skoroszyty ze wskaźnikiem na platformie Azure, które umożliwiają również eksportować do plików PDF i zapisywać lokalnie lub w udziale.
+Teraz możesz drukować Azure Sentinel, co umożliwia również eksportowanie do nich plików PDF i zapisywanie lokalnie lub udostępnianie.
 
-W skoroszycie wybierz menu Opcje > :::image type="icon" source="media/whats-new/print-icon.png" border="false"::: **Drukuj zawartość**. Następnie wybierz drukarkę lub w razie konieczności wybierz pozycję **Zapisz jako plik PDF** .
+W skoroszycie wybierz menu opcji > :::image type="icon" source="media/whats-new/print-icon.png" border="false"::: **Drukuj zawartość.** Następnie wybierz drukarkę lub wybierz pozycję **Zapisz jako plik PDF** zgodnie z potrzebami.
 
-:::image type="content" source="media/whats-new/print-workbook.png" alt-text="Wydrukuj skoroszyt lub Zapisz jako plik PDF.":::
+:::image type="content" source="media/whats-new/print-workbook.png" alt-text="Wydrukuj skoroszyt lub zapisz go jako plik PDF.":::
 
-Aby uzyskać więcej informacji, zobacz [Samouczek: wizualizowanie i monitorowanie danych](tutorial-monitor-your-data.md).
+Aby uzyskać więcej informacji, zobacz [Samouczek: wizualizowanie i monitorowanie danych.](tutorial-monitor-your-data.md)
 
-### <a name="incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview"></a>Filtry zdarzeń i preferencje sortowania teraz zapisywane w sesji (publiczna wersja zapoznawcza)
+### <a name="incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview"></a>Filtry zdarzeń i preferencje sortowania są teraz zapisane w sesji (publiczna wersja zapoznawcza)
 
-Teraz Twoje filtry i sortowanie zdarzeń są zapisywane w całej sesji wskaźnikowej platformy Azure, nawet podczas przechodzenia do innych obszarów produktu.
-Tak długo, jak nadal trwa ta sama sesja, przechodzenie z powrotem do obszaru [zdarzenia](tutorial-investigate-cases.md) na platformie Azure — pokazuje filtry i sortuje się tak samo jak w pozostałej postaci.
+Teraz filtry zdarzeń i sortowanie są zapisywane w Azure Sentinel, nawet podczas przechodzenia do innych obszarów produktu.
+Tak długo, jak nadal jesteś w tej samej [](tutorial-investigate-cases.md) sesji, przejście z powrotem do obszaru Zdarzenia w programie Azure Sentinel pokazuje filtry i sortowanie tak samo, jak zostało to pozostawione.
 
 > [!NOTE]
-> Filtry i sortowanie zdarzeń nie są zapisywane po opuszczeniu wskaźnikowej platformy Azure ani odświeżeniu przeglądarki.
+> Filtry zdarzeń i sortowanie nie są zapisywane po opuszczeniu Azure Sentinel odświeżeniu przeglądarki.
 
-### <a name="microsoft-365-defender-incident-integration-public-preview"></a>Integracja zdarzeń Microsoft 365 Defender (publiczna wersja zapoznawcza)
+### <a name="microsoft-365-defender-incident-integration-public-preview"></a>Microsoft 365 zdarzenia usługi Defender (publiczna wersja zapoznawcza)
 
-Integracja zdarzeń Microsoft 365 usługi Azure wskaźnikowej [(M365D)](/microsoft-365/security/mtp/microsoft-threat-protection) to usługa, która umożliwia przesyłanie strumieniowe wszystkich zdarzeń M365D do usługi Azure wskaźnikowej i utrzymywanie synchronizacji między obydwoma portalami. Zdarzenia z usługi M365D (dawniej znany jako Microsoft Threat Protection lub MTP) obejmują wszystkie skojarzone alerty, jednostki i istotne informacje, dzięki czemu można wykonać Klasyfikacja i wstępną badanie na platformie Azure. Gdy dane są wskazywane przez program, Zdarzenia nadal będą dwukierunkowe zsynchronizowane z usługą M365D, co pozwala korzystać z zalet obu portali w badaniu zdarzeń.
+Azure Sentinel zdarzeń usługi [Microsoft 365 Defender (M365D)](/microsoft-365/security/mtp/microsoft-threat-protection) umożliwia przesyłanie strumieniowe wszystkich zdarzeń M365D do usługi Azure Sentinel i synchronizowanie ich między dwoma portalami. Zdarzenia z usługi M365D (wcześniej znane jako Microsoft Threat Protection lub MTP) obejmują wszystkie skojarzone alerty, jednostki i istotne informacje, zapewniając kontekst wystarczający do przeprowadzenia triage i wstępnego badania w Azure Sentinel. W przypadku korzystania z usługi Sentinel zdarzenia pozostaną zsynchronizowane dwukierunkowo z usługą M365D, co pozwoli na skorzystanie z zalet obu portali podczas badania zdarzeń.
 
-Jednoczesne korzystanie z platformy Azure i usługi Microsoft 365 Defender zapewnia najlepsze rozwiązanie obu tych rozwiązań. Uzyskasz szeroki wgląd w to, że SIEM udostępnia użytkownikowi cały zakres zasobów informacyjnych w organizacji, a także głębokość dostosowanej i dopasowanej mocy dochodzeniowej, którą XDR oferuje do ochrony zasobów Microsoft 365, zarówno w przypadku skoordynowanego, jak i zsynchronizowanego działania, które można bezproblemowo SOC.
+Korzystanie zarówno Azure Sentinel, jak i Microsoft 365 Defender zapewnia najlepsze rozwiązania z obu tych świata. Możesz uzyskać zakres szczegółowych informacji zapewnianych przez rozwiązania SIEM w całym zakresie zasobów informacyjnych w organizacji, a także głębię dostosowanych i dostosowanych możliwości badania zapewnianych przez proces XDR w celu ochrony zasobów usługi Microsoft 365, zarówno tych skoordynowanych, jak i zsynchronizowanych w celu bezproblemowej operacji SOC.
 
-Aby uzyskać więcej informacji, zobacz [integracja z usługą Microsoft 365 Defender z platformą Azure — wskaźnikiem](microsoft-365-defender-sentinel-integration.md).
+Aby uzyskać więcej informacji, zobacz [Microsoft 365 Defender integration with Azure Sentinel (Integracja usługi Defender z Azure Sentinel](microsoft-365-defender-sentinel-integration.md)).
 
-### <a name="new-microsoft-service-connectors-using-azure-policy"></a>Nowe łączniki usługi firmy Microsoft korzystające z Azure Policy
+### <a name="new-microsoft-service-connectors-using-azure-policy"></a>Nowe łączniki usług firmy Microsoft przy użyciu Azure Policy
 
-[Azure Policy](../governance/policy/overview.md) to usługa platformy Azure, która umożliwia korzystanie z zasad w celu wymuszania i kontrolowania właściwości zasobu. Korzystanie z zasad zapewnia, że zasoby pozostają zgodne ze standardami zarządzania IT.
+[Azure Policy](../governance/policy/overview.md) to usługa platformy Azure, która umożliwia stosowanie zasad do wymuszania i kontrolowania właściwości zasobu. Korzystanie z zasad gwarantuje, że zasoby pozostają zgodne ze standardami ładu IT.
 
-Wśród właściwości zasobów, które mogą być kontrolowane przez zasady, jest tworzenie i obsługa dzienników diagnostycznych i inspekcji. Wskaźnik na platformie Azure używa teraz Azure Policy, aby umożliwić stosowanie wspólnego zestawu ustawień dzienników diagnostycznych do wszystkich (bieżących i przyszłych) zasobów określonego typu, których dzienników chcesz pozyskać na platformie Azure. Dziękujemy za Azure Policy, nie trzeba już ustawiać zasobów ustawień dzienników diagnostycznych według zasobu.
+Do właściwości zasobów, które mogą być kontrolowane przez zasady, należą tworzenie i obsługa dzienników diagnostycznych i inspekcji. Azure Sentinel teraz używa narzędzia Azure Policy, aby umożliwić zastosowanie wspólnego zestawu ustawień dzienników diagnostycznych do wszystkich (bieżących i przyszłych) zasobów określonego typu, których dzienniki chcesz pozysać do Azure Sentinel. Dzięki Azure Policy nie trzeba już ustawiać zasobów ustawień dzienników diagnostycznych według zasobu.
 
-Łączniki oparte na Azure Policy są teraz dostępne dla następujących usług platformy Azure:
-- [Azure Key Vault](connect-azure-key-vault.md) (publiczna wersja zapoznawcza)
-- [Usługa Azure Kubernetes](connect-azure-kubernetes-service.md) (publiczna wersja zapoznawcza)
-- Bazy danych i serwery usługi Azure SQL Database (wersja ogólnie dostępna)
+Azure Policy oparte na języku są teraz dostępne dla następujących usług platformy Azure:
+- [Azure Key Vault (publiczna](connect-azure-key-vault.md) wersja zapoznawcza)
+- [Azure Kubernetes Service (publiczna](connect-azure-kubernetes-service.md) wersja zapoznawcza)
+- Azure SQL baz danych/serwerów (GA)
 
-Klienci nadal będą mogli ręcznie wysyłać dzienniki dla określonych wystąpień i nie muszą używać aparatu zasad.
+Klienci nadal będą mogli wysyłać dzienniki ręcznie dla konkretnych wystąpień i nie muszą używać aparatu zasad.
 
 ## <a name="february-2021"></a>Luty 2021 r.
 
-- [Skoroszyt cyberbezpieczeństwa (CMMC) z modelem zapadalności](#cybersecurity-maturity-model-certification-cmmc-workbook)
+- [Skoroszyt certyfikatu CMMC (Cybersecurity Maturity Model Certification)](#cybersecurity-maturity-model-certification-cmmc-workbook)
 - [Łączniki danych innych firm](#third-party-data-connectors)
-- [UEBA wgląd w szczegółowe dane na stronie jednostki (publiczna wersja zapoznawcza)](#ueba-insights-in-the-entity-page-public-preview)
+- [Szczegółowe informacje o interfejsie UEBA na stronie jednostki (publiczna wersja zapoznawcza)](#ueba-insights-in-the-entity-page-public-preview)
 - [Ulepszone wyszukiwanie zdarzeń (publiczna wersja zapoznawcza)](#improved-incident-search-public-preview)
 
-### <a name="cybersecurity-maturity-model-certification-cmmc-workbook"></a>Skoroszyt cyberbezpieczeństwa (CMMC) z modelem zapadalności
+### <a name="cybersecurity-maturity-model-certification-cmmc-workbook"></a>Skoroszyt z certyfikatem CMMC (Cybersecurity Maturity Model Certification)
 
-Skoroszyt CMMC na platformie Azure obejmuje mechanizm wyświetlania zapytań dzienników wyrównanych do kontrolek CMMC w portfolio firmy Microsoft, w tym ofert zabezpieczeń firmy Microsoft, pakietu Office 365, zespołów, usługi Intune, pulpitu wirtualnego systemu Windows i wielu innych.
+Skoroszyt cmmc Azure Sentinel zapewnia mechanizm wyświetlania zapytań dziennika dostosowanych do kontrolek CMMC w portfolio firmy Microsoft, w tym ofert zabezpieczeń firmy Microsoft, usługi Office 365, Teams, Intune, Windows Virtual Desktop i wielu innych.
 
-Skoroszyt CMMC umożliwia architektom zabezpieczeń, inżynierom, analitykom operacji zabezpieczeń, menedżerom i specjalistom IT uzyskanie widoczności w zakresie bezpieczeństwa stan obciążeń w chmurze. Istnieją również zalecenia dotyczące wyboru, projektowania, wdrażania i konfigurowania ofert firmy Microsoft do wyrównania z odpowiednimi wymaganiami i praktyką CMMC.
+Skoroszyt cmmc umożliwia architektom zabezpieczeń, inżynierom, analitykom operacji zabezpieczeń, menedżerom i specjalistom IT uzyskanie wglądu w świadomość sycycyjną poziomu bezpieczeństwa obciążeń w chmurze. Istnieją również zalecenia dotyczące wybierania, projektowania, wdrażania i konfigurowania ofert firmy Microsoft w celu dostosowania ich do odpowiednich wymagań i praktyk dotyczących kontrolera CMMC.
 
-Nawet jeśli nie jest wymagana zgodność z programem CMMC, skoroszyt CMMC jest przydatny podczas tworzenia centrów zabezpieczeń, tworzenia alertów, wizualizacji zagrożeń i zapewnienia świadomości w zakresie obciążeń.
+Nawet jeśli nie jest wymagane zapewnienie zgodności z kontrolerem CMMC, skoroszyt kontrolera CMMC jest przydatny podczas tworzenia centrów operacji zabezpieczeń, opracowywania alertów, wizualizowania zagrożeń i zapewniania świadomości sytacyjnej obciążeń.
 
-Dostęp do skoroszytu CMMC w obszarze **skoroszyty** wskaźnikowego platformy Azure. Wybierz pozycję **szablon**, a następnie wyszukaj ciąg **CMMC**.
+Uzyskaj dostęp do skoroszytu kontrolera CMMC w Azure Sentinel **Skoroszyty.** Wybierz **pozycję Szablon**, a następnie wyszukaj pozycję **CMMC.**
 
-:::image type="content" source="media/whats-new/cmmc-guide-toggle.gif" alt-text="Włącz i Wyłącz Przewodnik po skoroszycie CMMC" lightbox="media/whats-new/cmmc-guide-toggle.gif":::
+:::image type="content" source="media/whats-new/cmmc-guide-toggle.gif" alt-text="Przełączanie i wyłączanie przewodnika po skoroszycie kontrolera CMMC" lightbox="media/whats-new/cmmc-guide-toggle.gif":::
 
 
 Aby uzyskać więcej informacji, zobacz:
 
-- [Skoroszyt cyberbezpieczeństwa (CMMC) na platformie Azure — wskaźnik zapadalności](https://techcommunity.microsoft.com/t5/public-sector-blog/azure-sentinel-cybersecurity-maturity-model-certification-cmmc/ba-p/2110524)
+- [Azure Sentinel certyfikat modelu dojrzałości cyberbezpieczeństwa (CMMC)](https://techcommunity.microsoft.com/t5/public-sector-blog/azure-sentinel-cybersecurity-maturity-model-certification-cmmc/ba-p/2110524)
 - [Samouczek: wizualizowanie i monitorowanie danych](tutorial-monitor-your-data.md)
 
 
 ### <a name="third-party-data-connectors"></a>Łączniki danych innych firm
 
-Nasza kolekcja integracji innych firm nadal rośnie, a w ciągu ostatnich dwóch miesięcy zostanie dodana trzydzieści łączników. Oto lista:
+Nasza kolekcja integracji innych firm wciąż rośnie, a w ciągu ostatnich dwóch miesięcy dodano 30 łączników. Oto lista:
 
-- [Agari phishing i ochrona przed markami](connect-agari-phishing-defense.md)
-- [Zdarzenia zabezpieczeń Akamai](connect-akamai-security-events.md)
-- [Alsid Active Directory](connect-alsid-active-directory.md)
-- [Serwer Apache HTTP](connect-apache-http-server.md)
+- [Agari Phishing Defense and Brand Protection](connect-agari-phishing-defense.md)
+- [Zdarzenia zabezpieczeń akamai](connect-akamai-security-events.md)
+- [Alsid dla usługi Active Directory](connect-alsid-active-directory.md)
+- [Apache HTTP Server](connect-apache-http-server.md)
 - [Aruba ClearPass](connect-aruba-clearpass.md)
-- [BlackBerry CylancePROTECT](connect-data-sources.md)
-- [Funkcja DLP firmy Symantec](connect-broadcom-symantec-dlp.md)
+- [Blackberry CylancePROTECT](connect-data-sources.md)
+- [Broadcom Symantec DLP](connect-broadcom-symantec-dlp.md)
 - [Cisco Firepower eStreamer](connect-data-sources.md)
 - [Cisco Meraki](connect-cisco-meraki.md)
 - [Cisco Umbrella](connect-cisco-umbrella.md)
 - [Cisco Unified Computing System (UCS)](connect-cisco-ucs.md)
 - [ESET Enterprise Inspector](connect-data-sources.md)
-- [Centrum zarządzania zabezpieczeniami ESET](connect-data-sources.md)
-- [Obszar roboczy Google (dawniej: zestaw G Suite)](connect-google-workspace.md)
+- [Centrum zarządzania zabezpieczeniami programu ESET](connect-data-sources.md)
+- [Obszar roboczy Google (dawniej G Suite)](connect-google-workspace.md)
 - [Imperva WAF Gateway](connect-imperva-waf-gateway.md)
 - [Juniper SRX](connect-juniper-srx.md)
 - [Netskope](connect-data-sources.md)
-- [NXLog dzienników DNS](connect-nxlog-dns.md)
-- [NXLog systemu Linux](connect-nxlog-linuxaudit.md)
+- [Dzienniki DNS NXLog](connect-nxlog-dns.md)
+- [Inspekcja systemu Linux NXLog](connect-nxlog-linuxaudit.md)
 - [Platforma Onapsis](connect-data-sources.md)
-- [Bezpieczeństwo poczty E-mail na żądanie Proofpoint (POD)](connect-proofpoint-pod.md)
-- [Baza wiedzy zarządzania lukami w Qualys](connect-data-sources.md)
+- [Proofpoint On Demand Email Security (POD)](connect-proofpoint-pod.md)
+- [Baza wiedzy na temat zarządzania lukami w zabezpieczeniach firmy Qualys](connect-data-sources.md)
 - [Salesforce Service Cloud](connect-salesforce-service-cloud.md)
-- [Zapora SonicWall](connect-data-sources.md)
-- [Sophos Cloud OPTIX](connect-sophos-cloud-optix.md)
+- [SonicWall Firewall](connect-data-sources.md)
+- [Sophos Cloud Zajmij się usługą](connect-sophos-cloud-optix.md)
 - [Squid Proxy](connect-squid-proxy.md)
-- [Endpoint Protection firmy Symantec](connect-data-sources.md)
+- [Symantec Endpoint Protection](connect-data-sources.md)
 - [Thycotic Secret Server](connect-thycotic-secret-server.md)
 - [Trend Micro XDR](connect-data-sources.md)
 - [VMware ESXi](connect-vmware-esxi.md)
 
-### <a name="ueba-insights-in-the-entity-page-public-preview"></a>UEBA wgląd w szczegółowe dane na stronie jednostki (publiczna wersja zapoznawcza)
+### <a name="ueba-insights-in-the-entity-page-public-preview"></a>Szczegółowe informacje o interfejsie UEBA na stronie jednostki (publiczna wersja zapoznawcza)
 
-Strony szczegółów jednostki wskaźnikowej platformy Azure udostępniają [okienko Insights](identify-threats-with-entity-behavior-analytics.md#entity-insights), w którym są wyświetlane szczegółowe informacje o działaniu jednostki i pomoc w szybkim wykrywaniu anomalii i zagrożeń bezpieczeństwa.
+Strony Azure Sentinel jednostki zawierają okienko Szczegółowe [informacje,](identify-threats-with-entity-behavior-analytics.md#entity-insights)które wyświetla szczegółowe informacje dotyczące zachowania jednostki i pomaga szybko identyfikować anomalie i zagrożenia bezpieczeństwa.
 
-Jeśli masz [UEBA włączony](ueba-enrichments.md)i wybrałeś okres z przedziału czasu wynoszący co najmniej cztery dni, to okienko szczegółowych informacji będzie zawierać również następujące nowe sekcje dla usługi UEBA Insights:
+Jeśli masz [włączoną](ueba-enrichments.md)funkcję UEBA i wybrano ramy czasowe co najmniej czterech dni, to okienko szczegółowych informacji będzie teraz zawierać również następujące nowe sekcje dotyczące szczegółowych informacji o analizie ueba:
 
 |Sekcja  |Opis  |
 |---------|---------|
-|**UEBA Insights**     | Podsumowuje nietypowe działania użytkowników: <br>— Między lokalizacjami geograficznymi, urządzeniami i środowiskami<br>— W Horizons czasu i częstotliwości w porównaniu z własną historią użytkownika <br>— W porównaniu z zachowaniem elementów równorzędnych <br>— W porównaniu z zachowaniem organizacji     |
-|**Elementy równorzędne użytkowników na podstawie przynależności do grupy zabezpieczeń**     |   Wyświetla listę elementów równorzędnych użytkownika w oparciu o członkostwo w grupach zabezpieczeń usługi Azure AD, dostarczając zespoły operacji zabezpieczeń z listą innych użytkowników, którzy mają podobne uprawnienia.  |
-|**Uprawnienia dostępu użytkowników do subskrypcji platformy Azure**     |     Wyświetla uprawnienia dostępu użytkownika do subskrypcji platformy Azure dostępnych bezpośrednio lub za pośrednictwem grup/jednostek usługi Azure AD.   |
-|**Wskaźniki zagrożeń powiązane z użytkownikiem**     |  Wyświetla listę znanych zagrożeń odnoszących się do adresów IP reprezentowanych w działaniach użytkownika. Zagrożenia są wymienione według typu i rodziny zagrożeń i są wzbogacane przez usługę analizy zagrożeń firmy Microsoft.       |
+|**UEBA Insights**     | Podsumowuje anomalie działań użytkownika: <br>— W różnych lokalizacjach geograficznych, urządzeniach i środowiskach<br>— Horyzonty czasu i częstotliwości w porównaniu z historią użytkownika <br>— W porównaniu z zachowaniem elementów równorzędnych <br>— W porównaniu z zachowaniem organizacji     |
+|**Komunikacja równorzędna użytkowników oparta na członkostwie w grupie zabezpieczeń**     |   Wyświetla listę elementów równorzędnych użytkownika opartych na członkostwie w grupach zabezpieczeń usługi Azure AD, udostępniając zespołom ds. operacji zabezpieczeń listę innych użytkowników, którzy mają podobne uprawnienia.  |
+|**Uprawnienia dostępu użytkowników do subskrypcji platformy Azure**     |     Przedstawia uprawnienia dostępu użytkownika do subskrypcji platformy Azure dostępnych bezpośrednio lub za pośrednictwem grup/podmiotów zabezpieczeń usługi Azure AD.   |
+|**Wskaźniki zagrożeń związane z użytkownikiem**     |  Wyświetla kolekcję znanych zagrożeń związanych z adresami IP reprezentowanymi w działaniach użytkownika. Zagrożenia są wymienione według typu i rodziny zagrożeń oraz są wzbogacane przez usługę analizy zagrożeń firmy Microsoft.       |
 |     |         |
 
 ### <a name="improved-incident-search-public-preview"></a>Ulepszone wyszukiwanie zdarzeń (publiczna wersja zapoznawcza)
 
-Ulepszono środowisko wyszukiwania zdarzeń na platformie Azure, co pozwala na szybsze nawigowanie po zdarzeniach podczas badania określonego zagrożenia.
+Ulepszyliśmy środowisko wyszukiwania Azure Sentinel zdarzeń, co umożliwia szybsze nawigowanie po zdarzeniach podczas badania określonego zagrożenia.
 
-Podczas wyszukiwania zdarzeń na platformie Azure wskaźnikowej jest teraz możliwe wyszukiwanie według następujących szczegółów zdarzenia:
+Podczas wyszukiwania zdarzeń w Azure Sentinel można teraz wyszukiwać według następujących szczegółów zdarzenia:
 
 - ID (Identyfikator)
 - Tytuł
@@ -228,173 +246,173 @@ Podczas wyszukiwania zdarzeń na platformie Azure wskaźnikowej jest teraz możl
 ## <a name="january-2021"></a>Styczeń 2021 r.
 
 - [Kreator reguł analizy: Ulepszone środowisko edytowania zapytań (publiczna wersja zapoznawcza)](#analytics-rule-wizard-improved-query-editing-experience-public-preview)
-- [AZ. SecurityInsights PowerShell — moduł (publiczna wersja zapoznawcza)](#azsecurityinsights-powershell-module-public-preview)
+- [Moduł Az.SecurityInsights programu PowerShell (publiczna wersja zapoznawcza)](#azsecurityinsights-powershell-module-public-preview)
 - [Łącznik bazy danych SQL](#sql-database-connector)
-- [Łącznik systemu Dynamics 365 (publiczna wersja zapoznawcza)](#dynamics-365-connector-public-preview)
-- [Ulepszone komentarze dotyczące zdarzeń](#improved-incident-comments)
-- [Dedykowane klastry Log Analytics](#dedicated-log-analytics-clusters)
-- [Tożsamości zarządzane przez aplikacje logiki](#logic-apps-managed-identities)
-- [Ulepszone dostrajanie reguł przy użyciu wykresów z podglądem reguł analizy](#improved-rule-tuning-with-the-analytics-rule-preview-graphs-public-preview)
+- [Łącznik usługi Dynamics 365 (publiczna wersja zapoznawcza)](#dynamics-365-connector-public-preview)
+- [Ulepszone komentarze do zdarzeń](#improved-incident-comments)
+- [Dedykowane klastry usługi Log Analytics](#dedicated-log-analytics-clusters)
+- [Tożsamości zarządzane aplikacji logiki](#logic-apps-managed-identities)
+- [Ulepszone dostrajanie reguł za pomocą wykresów w wersji zapoznawczej reguł analizy](#improved-rule-tuning-with-the-analytics-rule-preview-graphs-public-preview)
 
 
 ### <a name="analytics-rule-wizard-improved-query-editing-experience-public-preview"></a>Kreator reguł analizy: Ulepszone środowisko edytowania zapytań (publiczna wersja zapoznawcza)
 
-Kreator zaplanowanej reguły analizy wskaźnikowej platformy Azure obejmuje teraz następujące udoskonalenia dotyczące pisania i edytowania zapytań:
+Kreator Azure Sentinel reguły zaplanowanej analizy zawiera teraz następujące ulepszenia dotyczące pisania i edytowania zapytań:
 
--   Rozwijane okno edycji, które zapewnia więcej miejsca na ekranie, aby wyświetlić zapytanie.
--   Wyróżnianie kluczowych wyrazów w kodzie zapytania.
+-   Okno do edycji z możliwością rozwijania, które zapewnia więcej miejsca na ekranie do wyświetlania zapytania.
+-   Wyróżnianie kluczowych słów w kodzie zapytania.
 -   Rozszerzona obsługa autouzupełniania.
--   Walidacje zapytań w czasie rzeczywistym. Błędy w zapytaniu są teraz wyświetlane jako czerwony blok na pasku przewijania i jako czerwona kropka w nazwie karty **logiki zestawu reguł** . Ponadto nie można zapisać zapytania z błędami.
+-   Walidacje zapytań w czasie rzeczywistym. Błędy w zapytaniu są teraz wyświetlane jako czerwony blok na pasku przewijania i jako czerwona kropka w nazwie karty **Ustaw regułę** logiki. Ponadto nie można zapisać zapytania z błędami.
 
-Aby uzyskać więcej informacji, zobacz [Samouczek: Tworzenie niestandardowych reguł analizy w celu wykrywania zagrożeń](tutorial-detect-threats-custom.md).
-### <a name="azsecurityinsights-powershell-module-public-preview"></a>AZ. SecurityInsights PowerShell — moduł (publiczna wersja zapoznawcza)
+Aby uzyskać więcej informacji, [zobacz Samouczek: tworzenie niestandardowych reguł analizy w celu wykrywania zagrożeń.](tutorial-detect-threats-custom.md)
+### <a name="azsecurityinsights-powershell-module-public-preview"></a>Moduł Az.SecurityInsights programu PowerShell (publiczna wersja zapoznawcza)
 
-Usługa Azure SecurityInsights obsługuje teraz nowy moduł [AZ.](https://www.powershellgallery.com/packages/Az.SecurityInsights/) PowerShell.
+Azure Sentinel obsługuje teraz nowy [moduł Az.SecurityInsights](https://www.powershellgallery.com/packages/Az.SecurityInsights/) programu PowerShell.
 
-Moduł **AZ. SecurityInsights** obsługuje typowe przypadki użycia platformy Azure, takie jak manipulowanie zdarzeniami w celu zmiany Statues, ważności, właściciela i tak dalej, dodawania komentarzy i etykiet do zdarzeń oraz tworzenia zakładek.
+Moduł **Az.SecurityInsights** obsługuje typowe przypadki użycia systemu Azure Sentinel, takie jak interakcja ze zdarzeniami w celu zmiany ważności, ważności, właściciela itp., dodawanie komentarzy i etykiet do zdarzeń oraz tworzenie zakładek.
 
-Chociaż zalecamy używanie szablonów [Azure Resource Manager (ARM)](../azure-resource-manager/templates/index.yml) dla potoku ciągłej integracji/ciągłego wdrażania, moduł **AZ. SecurityInsights** jest przydatny do wykonywania zadań po wdrożeniu i jest przeznaczony dla automatyzacji SOC.  Na przykład Automatyzacja SOC może obejmować kroki konfigurowania łączników danych, tworzenia reguł analizy lub dodawania akcji automatyzacji do reguł analizy.
+Mimo że zalecamy używanie [szablonów Azure Resource Manager (ARM)](../azure-resource-manager/templates/index.yml) dla potoku ci/CD, moduł **Az.SecurityInsights** jest przydatny w przypadku zadań po wdrożeniu i jest ukierunkowany na automatyzację SOC.  Na przykład automatyzacja SOC może obejmować kroki konfigurowania łączników danych, tworzenia reguł analizy lub dodawania akcji automatyzacji do reguł analizy.
 
-Aby uzyskać więcej informacji, w tym pełną listę i opis dostępnych poleceń cmdlet, opisów parametrów i przykładów, zobacz [AZ. SecurityInsights PowerShell — dokumentacja](/powershell/module/az.securityinsights/).
+Aby uzyskać więcej informacji, w tym pełną listę i opis dostępnych poleceń cmdlet, opisy parametrów i przykłady, zobacz dokumentację programu [PowerShell Az.SecurityInsights.](/powershell/module/az.securityinsights/)
 
 ### <a name="sql-database-connector"></a>Łącznik bazy danych SQL
 
-Wskaźnik na platformie Azure przedstawia teraz łącznik usługi Azure SQL Database, który umożliwia przesyłanie strumieniowe dzienników inspekcji i diagnostyki baz danych do usługi Azure wskaźnikowej i ciągłego monitorowania aktywności we wszystkich wystąpieniach.
+Azure Sentinel teraz udostępnia łącznik bazy danych Azure SQL, który umożliwia przesyłanie strumieniowe dzienników inspekcji i diagnostycznych baz danych do usługi Azure Sentinel i ciągłe monitorowanie aktywności we wszystkich wystąpieniach.
 
-Azure SQL to w pełni zarządzany aparat bazy danych platformy jako usługi (PaaS), który obsługuje większość funkcji zarządzania bazami danych, takich jak uaktualnianie, stosowanie poprawek, tworzenie kopii zapasowych i monitorowanie, bez zaangażowania użytkowników.
+Azure SQL to w pełni zarządzany aparat bazy danych typu platforma jako usługa (PaaS), który obsługuje większość funkcji zarządzania bazami danych, takich jak uaktualnianie, stosowanie poprawek, tworzenie kopii zapasowych i monitorowanie, bez udziału użytkownika.
 
-Aby uzyskać więcej informacji, zobacz [łączenie dzienników diagnostyki i inspekcji usługi Azure SQL Database](connect-azure-sql-logs.md).
+Aby uzyskać więcej informacji, zobacz Connect Azure SQL database diagnostics and auditing logs (Łączenie z [Azure SQL danych diagnostycznych i dzienników inspekcji).](connect-azure-sql-logs.md)
 
-### <a name="dynamics-365-connector-public-preview"></a>Łącznik systemu Dynamics 365 (publiczna wersja zapoznawcza)
+### <a name="dynamics-365-connector-public-preview"></a>Łącznik usługi Dynamics 365 (publiczna wersja zapoznawcza)
 
-Centrum danych platformy Azure udostępnia teraz łącznik dla systemu Microsoft Dynamics 365, który umożliwia gromadzenie dzienników aktywności użytkowników, administratorów i pomocy technicznej usługi Dynamics 365 na platformie Azure. Za pomocą tych danych można przeprowadzić inspekcję całości operacji przetwarzania danych i analizować ją pod kątem potencjalnych naruszeń zabezpieczeń.
+Azure Sentinel udostępnia teraz łącznik dla usługi Microsoft Dynamics 365, który umożliwia zbieranie dzienników aktywności użytkowników, administratorów i pomocy technicznej aplikacji usługi Dynamics 365 w Azure Sentinel. Te dane mogą pomóc w inspekcji całego procesu przetwarzania danych i przeanalizowaniu ich pod uwagę pod uwagę możliwych naruszeń zabezpieczeń.
 
-Aby uzyskać więcej informacji, zobacz temat [łączenie dzienników aktywności Dynamics 365 z platformą Azure](connect-dynamics-365.md).
+Aby uzyskać więcej informacji, zobacz [Connect Dynamics 365 activity logs to Azure Sentinel](connect-dynamics-365.md)(Łączenie dzienników aktywności usługi Dynamics 365 z Azure Sentinel ).
 
-### <a name="improved-incident-comments"></a>Ulepszone komentarze dotyczące zdarzeń
+### <a name="improved-incident-comments"></a>Ulepszone komentarze do zdarzeń
 
-Analitycy wykorzystują Komentarze do zdarzeń do współpracy nad zdarzeniami, dokumentowania procesów i kroków ręcznie lub w ramach element PlayBook. 
+Analitycy używają komentarzy do zdarzeń, aby współpracować nad zdarzeniami, dokumentować procesy i kroki ręcznie lub w ramach podręcznika. 
 
-Nasze Ulepszone środowisko komentowania zdarzeń umożliwia formatowanie komentarzy i edytowanie lub usuwanie istniejących komentarzy.
+Nasze ulepszone środowisko komentowania zdarzeń umożliwia formatowanie komentarzy oraz edytowanie lub usuwanie istniejących komentarzy.
 
-Aby uzyskać więcej informacji, zobacz [Automatyczne tworzenie zdarzeń z alertów zabezpieczeń firmy Microsoft](create-incidents-from-alerts.md).
-### <a name="dedicated-log-analytics-clusters"></a>Dedykowane klastry Log Analytics
+Aby uzyskać więcej informacji, zobacz [Automatyczne tworzenie zdarzeń z alertów zabezpieczeń firmy Microsoft.](create-incidents-from-alerts.md)
+### <a name="dedicated-log-analytics-clusters"></a>Dedykowane klastry usługi Log Analytics
 
-Na platformie Azure jest teraz obsługiwane dedykowane klastry Log Analytics jako opcja wdrożenia. Zalecamy rozważenie dedykowanego klastra, jeśli:
+Azure Sentinel obsługuje teraz dedykowane klastry usługi Log Analytics jako opcję wdrażania. Zalecamy rozważenie dedykowanego klastra, jeśli:
 
-- Zyskaj **ponad 1 TB** dziennie do obszaru roboczego wskaźnikowego platformy Azure
-- **Posiadanie wielu obszarów roboczych usługi Azure** — Rejestracja na platformie Azure
+- **Pozysuj ponad 1 Tb dziennie** do swojego Azure Sentinel roboczego
+- **Wiele obszarów Azure Sentinel w** rejestracji platformy Azure
 
-Dedykowane klastry umożliwiają korzystanie z takich funkcji, jak klucze zarządzane przez klienta, skrytka, podwójne szyfrowanie i szybsze zapytania między obszarami roboczymi, gdy istnieje wiele obszarów roboczych w tym samym klastrze.
+Klastry dedykowane umożliwiają korzystanie z funkcji, takich jak klucze zarządzane przez klienta, skrytka, podwójne szyfrowanie i szybsze zapytania między obszarami roboczymi, gdy w tym samym klastrze znajduje się wiele obszarów roboczych.
 
-Aby uzyskać więcej informacji, zobacz [Azure monitor dzienniki dedykowanych klastrów](../azure-monitor/logs/logs-dedicated-clusters.md).
+Aby uzyskać więcej informacji, zobacz [Azure Monitor klastrów dedykowanych.](../azure-monitor/logs/logs-dedicated-clusters.md)
 
-### <a name="logic-apps-managed-identities"></a>Tożsamości zarządzane przez aplikacje logiki
+### <a name="logic-apps-managed-identities"></a>Tożsamości zarządzane aplikacji logiki
 
-Usługa Azure element PlayBook obsługuje teraz zarządzane tożsamości dla łącznika Logic Apps wskaźnikowego platformy Azure, dzięki czemu można przyznać uprawnienia bezpośrednio do konkretnej do działania na platformie Azure, zamiast tworzyć dodatkowe tożsamości.
+Azure Sentinel obsługuje teraz tożsamości zarządzane dla łącznika usługi Azure Sentinel Logic Apps, umożliwiając przyznawanie uprawnień bezpośrednio do określonego podręcznika w celu działania na Azure Sentinel zamiast tworzenia dodatkowych tożsamości.
 
-- **Bez tożsamości zarządzanej** łącznik Logic Apps wymaga oddzielnej tożsamości z rolą RBAC kontroli dostępu Azure Osobną tożsamością może być użytkownik usługi Azure AD lub nazwa główna usługi, na przykład zarejestrowana aplikacja usługi Azure AD.
+- **Bez tożsamości zarządzanej** łącznik Logic Apps wymaga oddzielnej tożsamości z Azure Sentinel RBAC w celu uruchomienia na Azure Sentinel. Oddzielną tożsamością może być użytkownik usługi Azure AD lub nazwa główna usługi, taka jak aplikacja zarejestrowana w usłudze Azure AD.
 
-- **Włączenie obsługi tożsamości zarządzanej w aplikacji logiki** spowoduje zarejestrowanie aplikacji logiki w usłudze Azure AD i podaje identyfikator obiektu. Użyj identyfikatora obiektu w wskaźniku kontroli platformy Azure, aby przypisać aplikację logiki z rolą RBAC platformy Azure w obszarze roboczym Azure wskaźnikowym. 
+- **Włączenie obsługi tożsamości zarządzanej w aplikacji logiki** rejestruje aplikację logiki w usłudze Azure AD i udostępnia identyfikator obiektu. Użyj identyfikatora obiektu w Azure Sentinel, aby przypisać aplikację logiki z rolą RBAC platformy Azure w twoim Azure Sentinel roboczym. 
 
 Aby uzyskać więcej informacji, zobacz:
 
 - [Uwierzytelnianie za pomocą tożsamości zarządzanej w Azure Logic Apps](../logic-apps/create-managed-service-identity.md)
-- [Dokumentacja dotycząca łącznika Logic Apps Azure wskaźnikowego](/connectors/azuresentinel) 
+- [Azure Sentinel Logic Apps dokumentacji łącznika](/connectors/azuresentinel) 
 
-### <a name="improved-rule-tuning-with-the-analytics-rule-preview-graphs-public-preview"></a>Ulepszone dostrajanie reguł przy użyciu wykresów z podglądem reguł analizy (publiczna wersja zapoznawcza)
+### <a name="improved-rule-tuning-with-the-analytics-rule-preview-graphs-public-preview"></a>Ulepszone dostrajanie reguł za pomocą wykresów w wersji zapoznawczej reguł analizy (publiczna wersja zapoznawcza)
 
-Na platformie Azure jest teraz pomocne lepsze dostosowanie reguł analitycznych, co pomaga zwiększyć ich dokładność i zmniejszyć szum.
+Azure Sentinel teraz ułatwia lepsze dostrojenie reguł analizy, co pomaga zwiększyć ich dokładność i zmniejszyć szum.
 
-Po przeprowadzeniu edycji reguły analizy na karcie **Ustawianie logiki reguły** Znajdź obszar **symulacja wyników** po prawej stronie. 
+Po edytowaniu reguły analizy na karcie **Ustawianie logiki reguły** znajdź obszar **Symulacja** wyników po prawej stronie. 
 
-Wybierz pozycję **Testuj z bieżącymi danymi** , aby usługa Azure wskaźnikowa uruchomiła symulację ostatnich 50ych uruchomień reguły analizy. Generowany jest wykres przedstawiający średnią liczbę alertów wygenerowanych przez regułę na podstawie danych nieprzetworzonych zdarzeń. 
+Wybierz **pozycję Testuj z bieżącymi** Azure Sentinel, aby uruchomić symulację ostatnich 50 przebiegów reguły analizy. Na podstawie ocenionych nieprzetworzonych danych zdarzenia generowany jest wykres pokazujący średnią liczbę alertów wygenerowanych przez regułę. 
 
-Aby uzyskać więcej informacji, zobacz [Definiowanie logiki zapytania reguły i Konfigurowanie ustawień](tutorial-detect-threats-custom.md#define-the-rule-query-logic-and-configure-settings).
+Aby uzyskać więcej informacji, zobacz [Definiowanie logiki zapytania reguły i konfigurowanie ustawień](tutorial-detect-threats-custom.md#define-the-rule-query-logic-and-configure-settings).
 
 ## <a name="december-2020"></a>Grudzień 2020 r.
 
-- [80 nowe wbudowane zapytania polowające](#80-new-built-in-hunting-queries)
-- [Udoskonalenia agenta Log Analytics](#log-analytics-agent-improvements)
+- [80 nowych wbudowanych zapytań wyszukiwania](#80-new-built-in-hunting-queries)
+- [Ulepszenia agenta usługi Log Analytics](#log-analytics-agent-improvements)
 
-### <a name="80-new-built-in-hunting-queries"></a>80 nowe wbudowane zapytania polowające
+### <a name="80-new-built-in-hunting-queries"></a>80 nowych wbudowanych zapytań wyszukiwania
  
-Wbudowane zapytania polowające na platformie Azure sprawdzają analityków SOC, aby ograniczyć przerwy w bieżącym pokryciu wykrywania i powodować zapłon nowych potencjalnych klientów.
+Azure Sentinel wbudowanych zapytań dotyczących wyszukiwania zagrożeń umożliwia analitykom SOC zmniejszenie luk w bieżącym zasięgu wykrywania i zapalenie nowych potencjalnych klientów.
 
-Ta aktualizacja dla systemu Azure wskaźnikowego obejmuje nowe zapytania polowające, które zapewniają pokrycie w macierzy MITRE ATT&
+Ta aktualizacja programu Azure Sentinel obejmuje nowe zapytania wyszukiwania danych, które zapewniają pokrycie w macierzy struktury MITRE ATT&CK:
 
 - **Kolekcja**
-- **Polecenie i kontrola**
-- **Dostęp do poświadczeń**
+- **Polecenie i kontrolka**
+- **Dostęp poświadczeń**
 - **Odnajdywanie**
-- **Działania**
-- **Eksfiltracji**
+- **Wykonanie**
+- **Eksfiltracja**
 - **Wpływ**
-- **Dostęp wstępny**
-- **Trwałość**
+- **Dostęp początkowy**
+- **Trwałości**
 - **Eskalacja uprawnień**
 
-Dodane zapytania dotyczące polowań zaprojektowano w celu ułatwienia znalezienia podejrzanych działań w Twoim środowisku. Chociaż mogą zwrócić wiarygodną aktywność i potencjalnie złośliwe działanie, mogą one być przydatne w przypadku wypróbowania Twojego polowania. 
+Dodane zapytania dotyczące wyszukiwania danych mają na celu pomoc w odnalezieniu podejrzanych działań w środowisku. Chociaż mogą one zwracać legalne działania i potencjalnie złośliwe działania, mogą być przydatne w kierowaniu łowami. 
 
-Jeśli po uruchomieniu tych zapytań masz pewność, że możesz chcieć przekonwertować je na reguły analizy lub dodać wyniki polowania do istniejących lub nowych zdarzeń.
+Jeśli po uruchomieniu tych zapytań masz pewność co do wyników, możesz przekonwertować je na reguły analizy lub dodać wyniki wyszukiwania do istniejących lub nowych zdarzeń.
 
-Wszystkie dodane zapytania są dostępne za pośrednictwem strony łowiectwa wskaźnikowego platformy Azure. Aby uzyskać więcej informacji, zobacz artykuł [w przypadku zagrożeń związanych z platformą Azure — wskaźnikiem](hunting.md).
+Wszystkie dodane zapytania są dostępne za pośrednictwem strony wyszukiwania Azure Sentinel wyszukiwania. Aby uzyskać więcej informacji, zobacz [Hunt for threats with Azure Sentinel (Wyszukanie](hunting.md)zagrożeń za pomocą Azure Sentinel ).
 
-### <a name="log-analytics-agent-improvements"></a>Udoskonalenia agenta Log Analytics
+### <a name="log-analytics-agent-improvements"></a>Ulepszenia agenta usługi Log Analytics
 
-Użytkownicy usługi Azure wskaźnikowego korzystają z następujących usprawnień Log Analytics Agent:
+Azure Sentinel korzyści z następujących ulepszeń agenta usługi Log Analytics:
 
-- **Obsługa większej liczby systemów operacyjnych**, w tym CentOS 8, RedHat 8 i SUSE Linux 15.
+- **Obsługa większej liczby systemów operacyjnych,** w tym CentOS 8, RedHat 8 i SUSE Linux 15.
 - **Obsługa języka Python 3** oprócz języka Python 2
 
-Usługa Azure CEF używa agenta Log Analytics do wysyłania zdarzeń do obszaru roboczego, w tym zdarzeń zabezpieczeń systemu Windows, zdarzeń dziennika systemowego, dzienników i innych.
+Azure Sentinel używa agenta usługi Log Analytics do wysłania zdarzeń do obszaru roboczego, w tym zdarzeń Zabezpieczenia Windows, zdarzeń dziennika systemowego, dzienników CEF i innych.
 
 > [!NOTE]
-> Agent Log Analytics jest czasami określany jako agent pakietu OMS lub Microsoft Monitoring Agent (MMA). 
+> Agent usługi Log Analytics jest czasami określany jako agent OMS lub agent usługi Microsoft Monitoring Agent (MMA). 
 > 
 
-Aby uzyskać więcej informacji, zobacz [dokumentację log Analytics](../azure-monitor/agents/log-analytics-agent.md) i informacje o [wersji agenta log Analytics](https://github.com/microsoft/OMS-Agent-for-Linux/releases).
+Aby uzyskać więcej informacji, zobacz [dokumentację usługi Log Analytics](../azure-monitor/agents/log-analytics-agent.md) i informacje o wersji agenta [usługi Log Analytics.](https://github.com/microsoft/OMS-Agent-for-Linux/releases)
 ## <a name="november-2020"></a>Listopad 2020 r.
 
-- [Monitoruj kondycję elementy PlayBook na platformie Azure — wskaźnik](#monitor-your-playbooks-health-in-azure-sentinel)
-- [Łącznik Microsoft 365 Defender (publiczna wersja zapoznawcza)](#microsoft-365-defender-connector-public-preview)
+- [Monitorowanie kondycji podręczników w Azure Sentinel](#monitor-your-playbooks-health-in-azure-sentinel)
+- [Microsoft 365 Defender (publiczna wersja zapoznawcza)](#microsoft-365-defender-connector-public-preview)
 
-### <a name="monitor-your-playbooks-health-in-azure-sentinel"></a>Monitoruj kondycję elementy PlayBook na platformie Azure — wskaźnik
+### <a name="monitor-your-playbooks-health-in-azure-sentinel"></a>Monitorowanie kondycji podręczników w Azure Sentinel
 
-Usługa Azure wskaźnik elementy PlayBook opiera się na przepływach pracy utworzonych w usłudze [Azure log Apps](../logic-apps/index.yml), usłudze w chmurze, która pomaga zaplanować, zautomatyzować i zorganizować zadania, procesy biznesowe i przepływy pracy. Elementy PlayBook może być wywoływana automatycznie podczas tworzenia zdarzenia lub podczas segregowania i pracy z zdarzeniami. 
+Azure Sentinel są oparte na przepływach pracy wbudowanych w usługę [Azure Log Apps](../logic-apps/index.yml), usługę w chmurze, która ułatwia planowanie, automatyzowanie i organizowanie zadań, procesów biznesowych i przepływów pracy. Podręczniki mogą być wywoływane automatycznie podczas tworzenia zdarzenia lub podczas ujednoliwiania i pracy ze zdarzeniami. 
 
-Aby uzyskać wgląd w kondycję, wydajność i użycie elementy PlayBook, dodaliśmy [skoroszyt](../azure-monitor/visualize/workbooks-overview.md) o nazwie **monitorowanie kondycji elementy PlayBook**. 
+Aby zapewnić wgląd w kondycję, wydajność i użycie podręczników, [](../azure-monitor/visualize/workbooks-overview.md) dodaliśmy skoroszyt o nazwie Monitorowanie kondycji **podręczników.** 
 
-Użyj skoroszytu **monitorowania kondycji programu elementy PlayBook** , aby monitorować kondycję elementy PlayBook, lub poszukać anomalii w ilości pomyślnych lub nieudanych uruchomień. 
+Użyj **skoroszytu monitorowania kondycji** podręczników, aby monitorować kondycję podręczników lub poszukać anomalii w ilości przebiegów, które zakończyły się powodzeniem lub niepowodzeniem. 
 
-Skoroszyt **monitorowania kondycji elementy PlayBook** jest teraz dostępny w galerii szablonów wskaźnikowych platformy Azure:
+Skoroszyt **monitorowania kondycji podręczników** jest teraz dostępny w galerii szablonów Azure Sentinel Playbook:
 
-:::image type="content" source="media/whats-new/playbook-monitoring-workbook.gif" alt-text="Przykładowy skoroszyt monitorowania kondycji elementy PlayBook":::
+:::image type="content" source="media/whats-new/playbook-monitoring-workbook.gif" alt-text="Przykładowy skoroszyt monitorowania kondycji podręczników":::
 
 Aby uzyskać więcej informacji, zobacz:
 
-- [Dokumentacja Logic Apps](../logic-apps/monitor-logic-apps-log-analytics.md#set-up-azure-monitor-logs)
+- [Logic Apps dokumentacji](../logic-apps/monitor-logic-apps-log-analytics.md#set-up-azure-monitor-logs)
 
 - [Dokumentacja usługi Azure Monitor](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace)
 
-### <a name="microsoft-365-defender-connector-public-preview"></a>Łącznik Microsoft 365 Defender (publiczna wersja zapoznawcza)
+### <a name="microsoft-365-defender-connector-public-preview"></a>Microsoft 365 Defender (publiczna wersja zapoznawcza)
  
-Łącznik usługi Microsoft 365 Defender dla platformy Azure (wskaźnik produkcji) umożliwia przesyłanie strumieniowe zaawansowanych dzienników łowiectwa (typu nieprzetworzonych danych zdarzeń) z Microsoft 365 Defender do platformy Azure. 
+Łącznik Microsoft 365 Defender dla usługi Azure Sentinel umożliwia przesyłanie strumieniowe zaawansowanych dzienników wyszukiwania informacji (typu nieprzetworzonych danych zdarzeń) z usługi Microsoft 365 Defender do Azure Sentinel. 
 
-Dzięki integracji usługi [Microsoft Defender dla punktów końcowych (MDATP)](/windows/security/threat-protection/) na parasol zabezpieczeń programu [Microsoft 365 Defender](/microsoft-365/security/mtp/microsoft-threat-protection) można teraz zbierać zaawansowane zdarzenia polowania usługi Microsoft Defender for Endpoint przy użyciu łącznika Microsoft 365 Defender i przesyłać je bezpośrednio do nowych, wbudowanych tabel w obszarze roboczym wskaźnikowego platformy Azure. 
+Dzięki integracji usługi Microsoft Defender dla punktu końcowego [(MDATP)](/windows/security/threat-protection/) z pakietem zabezpieczeń usługi [Microsoft 365 Defender](/microsoft-365/security/mtp/microsoft-threat-protection) można teraz zbierać zdarzenia zaawansowanego wyszukiwania punktów końcowych usługi Microsoft Defender za pomocą łącznika usługi Microsoft 365 Defender i przesyłać je bezpośrednio do nowych tabel wbudowanych w obszarze roboczym usługi Azure Sentinel. 
 
-Tabele wskaźnikowe platformy Azure są oparte na tym samym schemacie, który jest używany w portalu Microsoft 365 Defender, i zapewnia pełny dostęp do pełnego zestawu zaawansowanych dzienników łowiectwa. 
+Tabele Azure Sentinel są zbudowane na tym samym schemacie, który jest używany w portalu usługi Microsoft 365 Defender, i zapewniają pełny dostęp do pełnego zestawu zaawansowanych dzienników wyszukiwania. 
 
-Aby uzyskać więcej informacji, zobacz [łączenie danych z programu Microsoft 365 Defender z platformą Azure — wskaźnikiem](connect-microsoft-365-defender.md).
+Aby uzyskać więcej informacji, zobacz [Connect data from Microsoft 365 Defender to Azure Sentinel](connect-microsoft-365-defender.md)(Łączenie danych z usługi Microsoft 365 Defender z Azure Sentinel ).
 
 > [!NOTE]
-> Usługa Microsoft 365 Defender była znana wcześniej jako Microsoft Threat Protection lub MTP. Usługa Microsoft Defender dla punktu końcowego była znana wcześniej jako usługa Microsoft Defender Advanced Threat Protection lub MDATP.
+> Microsoft 365 Defender była wcześniej znana jako Microsoft Threat Protection lub MTP. Usługa Microsoft Defender dla punktu końcowego była wcześniej znana jako Zaawansowana ochrona przed zagrożeniami w usłudze Microsoft Defender lub MDATP.
 > 
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
->[Tablica wskaźnikowa platformy Azure](quickstart-onboard.md)
+>[Informacje Azure Sentinel](quickstart-onboard.md)
 
 > [!div class="nextstepaction"]
 >[Uzyskiwanie wglądu w alerty](quickstart-get-visibility.md)

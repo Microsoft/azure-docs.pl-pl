@@ -1,6 +1,6 @@
 ---
 title: Obsługa sieci w kontekście zestawów skalowania maszyn wirtualnych platformy Azure
-description: Jak skonfigurować niektóre bardziej zaawansowane właściwości sieci dla zestawów skalowania maszyn wirtualnych platformy Azure.
+description: Sposób konfigurowania niektórych bardziej zaawansowanych właściwości sieciowych dla zestawów skalowania maszyn wirtualnych platformy Azure.
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 9ad761f289805d15d316fc6f528a0049adb36b30
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mimckitt
+ms.openlocfilehash: e427d51068115db27a36243d738c0e93a10d3cb1
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97722321"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375920"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Obsługa sieci w kontekście zestawów skalowania maszyn wirtualnych platformy Azure
 
@@ -43,7 +43,7 @@ Usługa Azure Accelerated Networking zwiększa wydajność sieci, umożliwiając
 ```
 
 ## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Zestawy skalowania maszyn wirtualnych platformy Azure z Azure Load Balancer
-Zobacz [Azure Load Balancer i Virtual Machine Scale Sets](../load-balancer/load-balancer-standard-virtual-machine-scale-sets.md) , aby dowiedzieć się więcej o konfigurowaniu usługa Load Balancer w warstwie Standardowa z Virtual Machine Scale Sets w oparciu o twój scenariusz.
+Zobacz [Azure Load Balancer i Virtual Machine Scale Sets,](../load-balancer/load-balancer-standard-virtual-machine-scale-sets.md) aby dowiedzieć się więcej na temat sposobu konfigurowania aplikacji usługa Load Balancer w warstwie Standardowa użyciu Virtual Machine Scale Sets na podstawie scenariusza.
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Tworzenie zestawu skalowania, który odwołuje się do usługi Application Gateway
 Aby utworzyć zestaw skalowania, który używa bramy aplikacji, należy odwołać się do puli adresów zaplecza bramy aplikacji w sekcji ipConfiguration zestawu skalowania, tak jak w tej konfiguracji szablonu usługi ARM:
@@ -125,7 +125,7 @@ Dane wyjściowe dla nazwy DNS pojedynczej maszyny wirtualnej będą miały nast�
 ```
 
 ## <a name="public-ipv4-per-virtual-machine"></a>Publiczny adres IPv4 dla każdej maszyny wirtualnej
-Ogólnie maszyny wirtualne zestawu skalowania platformy Azure nie muszą mieć własnych publicznych adresów IP. W większości scenariuszy jest bardziej ekonomiczny i bezpieczny, aby skojarzyć publiczny adres IP z usługą równoważenia obciążenia lub do pojedynczej maszyny wirtualnej (znanej również jako serwera przesiadkowego), która następnie kieruje połączenia przychodzące do maszyn wirtualnych zestawu skalowania odpowiednio do potrzeb (na przykład za pomocą reguł NAT dla ruchu przychodzącego).
+Ogólnie maszyny wirtualne zestawu skalowania platformy Azure nie muszą mieć własnych publicznych adresów IP. W większości scenariuszy bardziej ekonomiczne i bezpieczne jest skojarzenie publicznego adresu IP z usługą równoważenia obciążenia lub z pojedynczą maszyną wirtualną (znaną również jako serwer przesłoniowy), która następnie kieruje połączenia przychodzące do maszyn wirtualnych zestawu skalowania zgodnie z potrzebami (na przykład za pośrednictwem reguł NAT dla ruchu przychodzącego).
 
 Jednak w niektórych scenariuszach maszyny wirtualne zestawu skalowania muszą mieć własne publiczne adresy IP. Przykładem są gry — gdy konsola musi nawiązać bezpośrednie połączenie z maszyną wirtualną w chmurze obsługującą przetwarzanie symulacji świata fizycznego w grze. Innym przykładem jest sytuacja, w której maszyny wirtualne muszą nawiązywać ze sobą połączenia zewnętrzne między regionami w rozproszonej bazie danych.
 
@@ -169,7 +169,7 @@ Aby wysłać zapytanie do witryny [Azure Resource Explorer](https://resources.az
 1. Rozwiń subskrypcję.
 1. Rozwiń grupę zasobów.
 1. Rozwiń pozycję *dostawcy*.
-1. Rozwiń pozycję *Microsoft. COMPUTE*.
+1. Rozwiń *rozszerzenie Microsoft.Compute.*
 1. Rozwiń pozycję *virtualMachineScaleSets*.
 1. Rozwiń zestaw skalowania.
 1. Kliknij pozycję *publicipaddresses*.
@@ -382,25 +382,25 @@ az vmss show \
 ]
 ```
 
-## <a name="make-networking-updates-to-specific-instances"></a>Aktualizowanie sieci do określonych wystąpień
+## <a name="make-networking-updates-to-specific-instances"></a>Aktualizacje sieci dla określonych wystąpień
 
-Można wprowadzać aktualizacje sieciowe do określonych wystąpień zestawu skalowania maszyn wirtualnych. 
+Możesz wprowadzić aktualizacje sieciowe dla określonych wystąpień zestawu skalowania maszyn wirtualnych. 
 
-`PUT`Aby zaktualizować konfigurację sieci, można użyć tego wystąpienia. Może to służyć do wykonywania czynności, takich jak dodawanie lub usuwanie kart interfejsu sieciowego (nic) lub usuwanie wystąpienia z puli zaplecza.
+Można względem `PUT` wystąpienia zaktualizować konfigurację sieci. Umożliwia to m.in. dodawanie lub usuwanie kart interfejsu sieciowego lub usuwanie wystąpienia z puli zaplecza.
 
 ```
 PUT https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
 ```
 
-Poniższy przykład pokazuje, jak dodać drugą konfigurację adresu IP do karty sieciowej.
+W poniższym przykładzie pokazano, jak dodać drugą konfigurację adresu IP do karty sieciowej.
 
-1. `GET` szczegóły określonego wystąpienia zestawu skalowania maszyn wirtualnych.
+1. `GET` szczegóły dla określonego wystąpienia zestawu skalowania maszyn wirtualnych.
     
     ``` 
     GET https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
     ```
 
-    *Poniżej przedstawiono Uproszczone wyświetlanie tylko parametrów sieciowych dla tego przykładu.*
+    *W tym przykładzie przedstawiono tylko parametry sieci, które zostały uproszczone.*
 
     ```json
     {
@@ -450,14 +450,14 @@ Poniższy przykład pokazuje, jak dodać drugą konfigurację adresu IP do karty
     }
     ```
  
-2. `PUT` w odniesieniu do wystąpienia zaktualizuj, aby dodać dodatkową konfigurację adresu IP. Jest to podobne do dodawania dodatkowych `networkInterfaceConfiguration` .
+2. `PUT` względem wystąpienia , aktualizując element w celu dodania dodatkowej konfiguracji adresu IP. Jest to podobne w przypadku dodawania kolejnych `networkInterfaceConfiguration` .
 
     
     ```
     PUT https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
     ```
 
-    *Poniżej przedstawiono Uproszczone wyświetlanie tylko parametrów sieciowych dla tego przykładu.*
+    *W tym przykładzie przedstawiono tylko parametry sieci, które zostały uproszczone.*
 
     ```json
       {
