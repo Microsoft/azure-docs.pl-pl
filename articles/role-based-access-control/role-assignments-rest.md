@@ -1,6 +1,6 @@
 ---
 title: Przypisywanie ról platformy Azure przy użyciu interfejsu API REST — Azure RBAC
-description: Dowiedz się, jak udzielić dostępu do zasobów platformy Azure dla użytkowników, grup, nazw głównych usług lub tożsamości zarządzanych przy użyciu interfejsu API REST i kontroli dostępu opartej na rolach (RBAC) platformy Azure.
+description: Dowiedz się, jak udzielić dostępu do zasobów platformy Azure użytkownikom, grupom, jednostkom usługi lub tożsamościom zarządzanym przy użyciu interfejsu API REST i kontroli dostępu na podstawie ról (RBAC) platformy Azure.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/06/2021
 ms.author: rolyon
-ms.openlocfilehash: 9a61f54530f25ac33c6ef097698198a11cf1275e
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 3baf44a4240b23b41ce2e80dc22dbda4c7d0672a
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581438"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363720"
 ---
 # <a name="assign-azure-roles-using-the-rest-api"></a>Przypisywanie ról platformy Azure przy użyciu interfejsu API REST
 
@@ -28,11 +28,11 @@ ms.locfileid: "106581438"
 
 ## <a name="assign-an-azure-role"></a>Przypisywanie roli platformy Azure
 
-Aby przypisać rolę, użyj [przypisań ról — tworzenie](/rest/api/authorization/roleassignments/create) interfejsu API REST i określanie podmiotu zabezpieczeń, definicji roli i zakresu. Aby wywołać ten interfejs API, musisz mieć dostęp do tej `Microsoft.Authorization/roleAssignments/write` operacji. W przypadku ról wbudowanych dostęp do tej operacji mają tylko [Administratorzy dostępu](built-in-roles.md#user-access-administrator) [właściciela](built-in-roles.md#owner) i użytkownika.
+Aby przypisać rolę, użyj przypisania [ról](/rest/api/authorization/roleassignments/create) — utwórz interfejs API REST i określ podmiot zabezpieczeń, definicję roli i zakres. Aby wywołać ten interfejs API, musisz mieć dostęp do `Microsoft.Authorization/roleAssignments/write` operacji. Z wbudowanych ról tylko [](built-in-roles.md#owner) właściciel i administrator dostępu użytkowników [mają](built-in-roles.md#user-access-administrator) dostęp do tej operacji.
 
-1. Aby uzyskać identyfikator definicji roli, która ma zostać przypisana, użyj sekcji [definicje ról-list](/rest/api/authorization/roledefinitions/list) API REST lub zobacz [wbudowane role](built-in-roles.md) .
+1. Użyj definicji [ról — wyświetl listę interfejsu](/rest/api/authorization/roledefinitions/list) API REST lub zobacz [Role](built-in-roles.md) wbudowane, aby uzyskać identyfikator definicji roli, którą chcesz przypisać.
 
-1. Użyj narzędzia GUID, aby wygenerować unikatowy identyfikator, który będzie używany dla identyfikatora przypisania roli. Identyfikator ma format: `00000000-0000-0000-0000-000000000000`
+1. Użyj narzędzia identyfikatora GUID, aby wygenerować unikatowy identyfikator, który będzie używany dla identyfikatora przypisania roli. Identyfikator ma format: `00000000-0000-0000-0000-000000000000`
 
 1. Rozpocznij od następującego żądania i treści:
 
@@ -49,7 +49,7 @@ Aby przypisać rolę, użyj [przypisań ról — tworzenie](/rest/api/authorizat
     }
     ```
 
-1. W identyfikatorze URI Zastąp wartość *{SCOPE}* zakresem przypisania roli.
+1. W ramach identyfikatorów URI zastąp *element {scope}* zakresem przypisania roli.
 
     > [!div class="mx-tableFixed"]
     > | Zakres | Typ |
@@ -59,11 +59,11 @@ Aby przypisać rolę, użyj [przypisań ról — tworzenie](/rest/api/authorizat
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Grupa zasobów |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/microsoft.web/sites/mysite1` | Zasób |
 
-    W poprzednim przykładzie firma Microsoft. Web jest dostawcą zasobów, który odwołuje się do wystąpienia App Service. Analogicznie, można użyć innych dostawców zasobów i określić zakres. Aby uzyskać więcej informacji, zobacz [dostawcy zasobów platformy Azure i typy](../azure-resource-manager/management/resource-providers-and-types.md) oraz obsługiwane operacje związane z [dostawcą zasobów platformy Azure](resource-provider-operations.md).  
+    W poprzednim przykładzie microsoft.web to dostawca zasobów, który odwołuje się do App Service wystąpienia. Podobnie można użyć innych dostawców zasobów i określić zakres. Aby uzyskać więcej informacji, zobacz Azure Resource providers and types and supported Azure resource provider operations [(Dostawcy zasobów](../azure-resource-manager/management/resource-providers-and-types.md) i typy zasobów platformy Azure oraz obsługiwane [operacje dostawcy zasobów platformy Azure).](resource-provider-operations.md)  
 
-1. Zastąp ciąg *{roleAssignmentId}* identyfikatorem GUID przypisania roli.
+1. Zastąp *element {roleAssignmentId}* identyfikatorem GUID przypisania roli.
 
-1. W treści żądania Zastąp wartość *{SCOPE}* zakresem przypisania roli.
+1. W treści żądania zastąp *element {scope}* zakresem przypisania roli.
 
     > [!div class="mx-tableFixed"]
     > | Zakres | Typ |
@@ -73,11 +73,11 @@ Aby przypisać rolę, użyj [przypisań ról — tworzenie](/rest/api/authorizat
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Grupa zasobów |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/microsoft.web/sites/mysite1` | Zasób |
 
-1. Zastąp ciąg *{zduplikowanych}* identyfikatorem definicji roli.
+1. Zastąp *element {roleDefinitionId}* identyfikatorem definicji roli.
 
-1. Zastąp ciąg *{principalId}* identyfikatorem obiektu użytkownika, grupy lub jednostki usługi, do której zostanie przypisana rola.
+1. Zastąp *element {principalId}* identyfikatorem obiektu użytkownika, grupy lub jednostki usługi, do których zostanie przypisana rola.
 
-Poniższe żądanie i treść przypisuje rolę [czytnika kopii zapasowych](built-in-roles.md#backup-reader) użytkownikowi w zakresie subskrypcji:
+Następujące żądanie i treść przypisze użytkownikowi [rolę](built-in-roles.md#backup-reader) Czytelnik kopii zapasowej w zakresie subskrypcji:
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId1}/providers/microsoft.authorization/roleassignments/{roleAssignmentId1}?api-version=2015-07-01
@@ -92,7 +92,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId1}/providers/micro
 }
 ```
 
-Poniżej przedstawiono przykład danych wyjściowych:
+Poniżej przedstawiono przykładowe dane wyjściowe:
 
 ```json
 {
@@ -111,14 +111,14 @@ Poniżej przedstawiono przykład danych wyjściowych:
 }
 ```
 
-### <a name="new-service-principal"></a>Nowa nazwa główna usługi
+### <a name="new-service-principal"></a>Nowa jednostka usługi
 
-Jeśli utworzysz nową nazwę główną usługi i natychmiast spróbujesz przypisać rolę do tej jednostki usługi, w niektórych przypadkach przypisanie roli może zakończyć się niepowodzeniem. Jeśli na przykład utworzysz nową tożsamość zarządzaną, a następnie spróbujesz przypisać rolę do tej jednostki usługi, przypisanie roli może się nie powieść. Przyczyną tego błędu jest prawdopodobnie opóźnienie replikacji. Nazwa główna usługi jest tworzona w jednym regionie; jednak przypisanie roli może wystąpić w innym regionie, który jeszcze nie replikuje jednostki usługi.
+Jeśli utworzysz nową jednostkę usługi i natychmiast spróbujesz przypisać rolę do tej jednostki usługi, w niektórych przypadkach przypisanie roli może się nie powieść. Jeśli na przykład utworzysz nową tożsamość zarządzaną, a następnie spróbujesz przypisać rolę do tej jednostki usługi, przypisanie roli może się nie powieść. Przyczyną tego niepowodzenia jest prawdopodobnie opóźnienie replikacji. Jednostkę usługi tworzy się w jednym regionie. Jednak przypisanie roli może wystąpić w innym regionie, który nie zreplikował jeszcze jednostki usługi.
 
-Aby rozwiązać ten scenariusz, należy ustawić `principalType` Właściwość na `ServicePrincipal` przy tworzeniu przypisania roli. Należy również ustawić `apiVersion` przypisanie roli do `2018-09-01-preview` lub nowszego.
+Aby rozwiązać ten scenariusz, użyj przypisania [ról — utwórz](/rest/api/authorization/roleassignments/create) interfejs API REST i ustaw właściwość na wartość `principalType` `ServicePrincipal` . Należy również ustawić wartość `apiVersion` `2018-09-01-preview` lub później.
 
 ```http
-PUT https://management.azure.com/subscriptions/{subscriptionId1}/providers/microsoft.authorization/roleassignments/{roleAssignmentId1}?api-version=2018-09-01-preview
+PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}?api-version=2018-09-01-preview
 ```
 
 ```json
@@ -133,7 +133,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId1}/providers/micro
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wyświetlanie listy przypisań ról platformy Azure przy użyciu interfejsu API REST](role-assignments-list-rest.md)
+- [Lista przypisań ról platformy Azure przy użyciu interfejsu API REST](role-assignments-list-rest.md)
 - [Deploy resources with Resource Manager templates and Resource Manager REST API (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i interfejsu API REST usługi Resource Manager)](../azure-resource-manager/templates/deploy-rest.md)
 - [Dokumentacja interfejsu API REST platformy Azure](/rest/api/azure/)
 - [Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu interfejsu API REST](custom-roles-rest.md)
