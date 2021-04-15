@@ -1,36 +1,36 @@
 ---
-title: Korzystanie z niestandardowego kontrolera traefik Ingres i Konfigurowanie protokołu HTTPS
+title: Używanie niestandardowego kontrolera ruchu przychodzących traefik i konfigurowanie protokołu HTTPS
 services: azure-dev-spaces
 ms.date: 12/10/2019
 ms.topic: conceptual
-description: Dowiedz się, jak skonfigurować Azure Dev Spaces, aby użyć niestandardowego kontrolera traefikal i skonfigurować protokół HTTPS za pomocą tego kontrolera
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s
-ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 036725f3c1eb909407e157d33ece05b1f55213ce
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+description: Dowiedz się, jak skonfigurować Azure Dev Spaces do korzystania z niestandardowego kontrolera ruchu przychodzących traefik i skonfigurować protokół HTTPS przy użyciu tego kontrolera ruchu wychodzącego
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
+ms.custom: devx-track-js
+ms.openlocfilehash: a04b46297d4eef6403f580206795bb492dd82516
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102204103"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374033"
 ---
-# <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>Korzystanie z niestandardowego kontrolera traefik Ingres i Konfigurowanie protokołu HTTPS
+# <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>Używanie niestandardowego kontrolera ruchu przychodzących traefik i konfigurowanie protokołu HTTPS
 
 [!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
-W tym artykule opisano sposób konfigurowania Azure Dev Spaces do używania niestandardowego kontrolera traefik. W tym artykule pokazano również, jak skonfigurować ten niestandardowy kontroler komunikacji przychodzącej do korzystania z protokołu HTTPS.
+W tym artykule pokazano, jak skonfigurować Azure Dev Spaces do korzystania z niestandardowego kontrolera ruchu przychodzących traefik. W tym artykule pokazano również, jak skonfigurować niestandardowy kontroler ruchu przychodzących do korzystania z protokołu HTTPS.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure. Jeśli nie masz, możesz utworzyć [bezpłatne konto][azure-account-create].
 * [Zainstalowany interfejs wiersza polecenia platformy Azure][az-cli].
-* [Klaster usługi Azure Kubernetes Service (AKS) z włączonym Azure Dev Spaces] [QS-CLI].
-* [polecenia kubectl][kubectl] .
-* [Helm 3][helm-installed].
-* [Domena niestandardowa][custom-domain] ze [strefą DNS][dns-zone]. W tym artykule przyjęto założenie, że domena niestandardowa i strefa DNS znajdują się w tej samej grupie zasobów co klaster AKS, ale można użyć domeny niestandardowej i strefy DNS w innej grupie zasobów.
+* [Azure Kubernetes Service (AKS) z włączonym Azure Dev Spaces] [qs-cli].
+* [Zainstalowany program kubectl.][kubectl]
+* [Program Helm 3 zainstalował program][helm-installed].
+* [Domena niestandardowa ze][custom-domain] [strefą DNS.][dns-zone] W tym artykule przyjęto założenie, że domena niestandardowa i strefa DNS znajdują się w tej samej grupie zasobów co klaster usługi AKS, ale istnieje możliwość użycia domeny niestandardowej i strefy DNS w innej grupie zasobów.
 
-## <a name="configure-a-custom-traefik-ingress-controller"></a>Konfigurowanie niestandardowego kontrolera traefik Ingres
+## <a name="configure-a-custom-traefik-ingress-controller"></a>Konfigurowanie niestandardowego kontrolera ruchu przychodzących traefik
 
-Nawiąż połączenie z klastrem za pomocą [polecenia kubectl][kubectl], Kubernetes klienta wiersza polecenia. Aby skonfigurować narzędzie `kubectl` w celu nawiązania połączenia z klastrem Kubernetes, użyj polecenia [az aks get-credentials][az-aks-get-credentials]. To polecenie powoduje pobranie poświadczeń i zastosowanie ich w konfiguracji interfejsu wiersza polecenia Kubernetes.
+Połącz się z klastrem przy użyciu [narzędzia kubectl][kubectl], klienta wiersza polecenia kubernetes. Aby skonfigurować narzędzie `kubectl` w celu nawiązania połączenia z klastrem Kubernetes, użyj polecenia [az aks get-credentials][az-aks-get-credentials]. To polecenie powoduje pobranie poświadczeń i zastosowanie ich w konfiguracji interfejsu wiersza polecenia Kubernetes.
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKS
@@ -44,16 +44,16 @@ NAME                                STATUS   ROLES   AGE    VERSION
 aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.1
 ```
 
-Dodaj [oficjalne, stabilne repozytorium Helm][helm-stable-repo], w którym znajduje się wykres traefik Helm kontroler transferu danych przychodzących.
+Dodaj oficjalne [stabilne repozytorium Helm,][helm-stable-repo]które zawiera pakiet Helm kontrolera ruchu wychodzącego traefik.
 
 ```console
 helm repo add stable https://charts.helm.sh/stable
 ```
 
-Utwórz przestrzeń nazw Kubernetes dla kontrolera traefik transferu danych przychodzących i zainstaluj ją za pomocą polecenia `helm` .
+Utwórz przestrzeń nazw Kubernetes dla kontrolera ruchu przychodzących traefik i zainstaluj ją przy użyciu elementu `helm` .
 
 > [!NOTE]
-> Jeśli w klastrze AKS nie włączono kontroli RBAC, Usuń parametr *--Set RBAC. Enabled = true* .
+> Jeśli klaster usługi AKS nie ma włączonej kontroli RBAC na platformie Kubernetes, usuń *parametr --set rbac.enabled=true.*
 
 ```console
 kubectl create ns traefik
@@ -61,19 +61,19 @@ helm install traefik stable/traefik --namespace traefik --set kubernetes.ingress
 ```
 
 > [!NOTE]
-> Powyższy przykład tworzy publiczny punkt końcowy dla kontrolera transferu danych przychodzących. Jeśli zamiast tego chcesz użyć prywatnego punktu końcowego dla kontrolera transferu danych przychodzących, Dodaj opcję *--Set Service. Annotations. Service \\ . beta \\ . Kubernetes \\ . IO/Azure-load-module-Internal "= true"* do polecenia *instalacji Helm* .
+> Powyższy przykład tworzy publiczny punkt końcowy dla kontrolera ruchu wychodzącego. Jeśli zamiast tego musisz użyć prywatnego punktu końcowego dla kontrolera ruchu przychodzących, dodaj *parametr --set service.annotations". service \\ .beta \\ .kubernetes \\ .io/azure-load-balancer-internal"=true* parametr polecenia *helm install.*
 > ```console
 > helm install traefik stable/traefik --namespace traefik --set kubernetes.ingressClass=traefik --set rbac.enabled=true --set fullnameOverride=customtraefik --set kubernetes.ingressEndpoint.useDefaultPublishedService=true --set service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true --version 1.85.0
 > ```
-> Ten prywatny punkt końcowy jest udostępniany w sieci wirtualnej, w której wdrożono klaster AKS.
+> Ten prywatny punkt końcowy jest ujawniony w sieci wirtualnej, w której wdrożono klaster usługi AKS.
 
-Pobierz adres IP usługi traefik Ingres Controller przy użyciu funkcji [polecenia kubectl Get][kubectl-get].
+Pobierz adres IP usługi kontrolera ruchu przychodzących traefik przy użyciu [narzędzia kubectl get][kubectl-get].
 
 ```console
 kubectl get svc -n traefik --watch
 ```
 
-Przykładowe dane wyjściowe przedstawiają adresy IP dla wszystkich usług w przestrzeni nazw *traefik* .
+Przykładowe dane wyjściowe pokazują adresy IP wszystkich usług w przestrzeni nazw *traefik.*
 
 ```console
 NAME      TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)                      AGE
@@ -82,7 +82,7 @@ traefik   LoadBalancer   10.0.205.78   <pending>     80:32484/TCP,443:30620/TCP 
 traefik   LoadBalancer   10.0.205.78   MY_EXTERNAL_IP   80:32484/TCP,443:30620/TCP   60s
 ```
 
-Dodawanie rekordu *A* do strefy DNS z zewnętrznym adresem IP usługi traefik przy użyciu polecenia [AZ Network DNS record-Set A Add-Record][az-network-dns-record-set-a-add-record].
+Dodaj rekord *A* do strefy DNS przy użyciu zewnętrznego adresu IP usługi traefik przy użyciu [az network dns record-set add-record.][az-network-dns-record-set-a-add-record]
 
 ```azurecli
 az network dns record-set a add-record \
@@ -92,18 +92,18 @@ az network dns record-set a add-record \
     --ipv4-address MY_EXTERNAL_IP
 ```
 
-Powyższy przykład dodaje rekord *A* do *MY_CUSTOM_DOMAIN* strefy DNS.
+Powyższy przykład dodaje *rekord A* do MY_CUSTOM_DOMAIN DNS. 
 
-W tym artykule użyto [przykładowej aplikacji do udostępniania Azure dev Spaces roweru](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp) do zademonstrowania przy użyciu Azure dev Spaces. Klonowanie aplikacji z usługi GitHub i przechodzenie do jej katalogu:
+W tym artykule użyjemy przykładowej [aplikacji Azure Dev Spaces Bike Sharing,](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp) aby zademonstrować korzystanie z Azure Dev Spaces. Klonowanie aplikacji z usługi GitHub i przechodzenie do jej katalogu:
 
 ```cmd
 git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/BikeSharingApp/charts
 ```
 
-Otwórz [wartość. YAML][values-yaml] i wprowadź następujące aktualizacje:
-* Zamień wszystkie wystąpienia *<REPLACE_ME_WITH_HOST_SUFFIX>* z *traefik. MY_CUSTOM_DOMAIN* przy użyciu domeny *MY_CUSTOM_DOMAIN*. 
-* Zastąp *Kubernetes.IO/Ingress.Class: traefik-azds # dev Spaces-swoisty* dla *Kubernetes.IO/Ingress.Class: traefik # Custom*. 
+Otwórz [program values.yaml][values-yaml] i dokonaj następujących aktualizacji:
+* Zastąp wszystkie wystąpienia<REPLACE_ME_WITH_HOST_SUFFIX>*za* pomocą *traefik. MY_CUSTOM_DOMAIN* domeny na MY_CUSTOM_DOMAIN *.* 
+* Zastąp *kubernetes.io/ingress.class: traefik-azds # Dev Spaces-specific* na *kubernetes.io/ingress.class: traefik # Custom Ingress*. 
 
 Poniżej znajduje się przykład zaktualizowanego `values.yaml` pliku:
 
@@ -128,27 +128,27 @@ gateway:
 
 Zapisz zmiany i zamknij plik.
 
-Utwórz miejsce *deweloperskie* za pomocą przykładowej aplikacji `azds space select` .
+Utwórz obszar *dewelopera* z przykładową aplikacją przy użyciu metody `azds space select` .
 
 ```console
 azds space select -n dev -y
 ```
 
-Wdróż przykładową aplikację przy użyciu polecenia `helm install` .
+Wd wdrażają przykładową aplikację przy użyciu narzędzia `helm install` .
 
 ```console
 helm install bikesharingsampleapp . --dependency-update --namespace dev --atomic
 ```
 
-Powyższy przykład służy do wdrażania przykładowej aplikacji w przestrzeni nazw *dev* .
+Powyższy przykład wdraża przykładową aplikację w przestrzeni *nazw dev.*
 
-Wyświetlenie adresów URL w celu uzyskania dostępu do przykładowej aplikacji przy użyciu programu `azds list-uris` .
+Wyświetl adresy URL w celu uzyskania dostępu do przykładowej aplikacji przy `azds list-uris` użyciu .
 
 ```console
 azds list-uris
 ```
 
-Poniższe dane wyjściowe pokazują przykładowe adresy URL z `azds list-uris` .
+Poniższe dane wyjściowe pokazują przykładowe adresy URL z tabeli `azds list-uris` .
 
 ```console
 Uri                                                  Status
@@ -157,19 +157,19 @@ http://dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/  Available
 http://dev.gateway.traefik.MY_CUSTOM_DOMAIN/         Available
 ```
 
-Przejdź do usługi *bikesharingweb* , otwierając publiczny adres URL z `azds list-uris` polecenia. W powyższym przykładzie publiczny adres URL usługi *bikesharingweb* to `http://dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/` .
+Przejdź do usługi *bikesharingweb,* otwierając publiczny adres URL z `azds list-uris` polecenia . W powyższym przykładzie publiczny adres URL usługi *bikesharingweb* to `http://dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/` .
 
 > [!NOTE]
-> Jeśli zamiast usługi *bikesharingweb* zostanie wyświetlona strona błędu, sprawdź, czy w pliku *Values. YAML* zaktualizowano **zarówno** adnotację *Kubernetes.IO/Ingress.class* , jak i hosta.
+> Jeśli zamiast usługi *bikesharingweb* zostanie wyświetlony komunikat o  błędzie, sprawdź, czy zaktualizowano zarówno adnotację kubernetes.io/ingress.class, jak i hosta w pliku *values.yaml.* 
 
-Użyj `azds space select` polecenia, aby utworzyć przestrzeń podrzędną w obszarze *dev* i wyświetlić listę adresów URL, aby uzyskać dostęp do podrzędnego obszaru dev.
+Użyj polecenia , aby utworzyć przestrzeń podrzędną w obszarze dev i wyświetlić listę adresów URL w `azds space select` celu uzyskania dostępu do podrzędnej przestrzeni dewelopera. 
 
 ```console
 azds space select -n dev/azureuser1 -y
 azds list-uris
 ```
 
-Poniższe dane wyjściowe przedstawiają przykładowe adresy URL z programu `azds list-uris` , aby uzyskać dostęp do przykładowej aplikacji w miejscu dev *azureuser1* .
+Poniższe dane wyjściowe pokazują przykładowe adresy URL z , aby uzyskać dostęp do `azds list-uris` przykładowej aplikacji w podrzędnej przestrzeni dewelopera *azureuser1.*
 
 ```console
 Uri                                                  Status
@@ -178,11 +178,11 @@ http://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/  Available
 http://azureuser1.s.dev.gateway.traefik.MY_CUSTOM_DOMAIN/         Available
 ```
 
-Przejdź do usługi *bikesharingweb* w podrzędnym obszarze deweloperskim *azureuser1* , otwierając publiczny adres URL za pomocą `azds list-uris` polecenia. W powyższym przykładzie publiczny adres URL dla usługi *bikesharingweb* w *azureuser1* podrzędnym jest `http://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/` .
+Przejdź do usługi *bikesharingweb* w podrzędnej przestrzeni deweloperskiej *azureuser1,* otwierając publiczny adres URL z `azds list-uris` polecenia . W powyższym przykładzie publiczny adres URL usługi *bikesharingweb* w podrzędnej przestrzeni deweloperskiej *azureuser1* to `http://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/` .
 
-## <a name="configure-the-traefik-ingress-controller-to-use-https"></a>Konfigurowanie kontrolera traefik Ingress do korzystania z protokołu HTTPS
+## <a name="configure-the-traefik-ingress-controller-to-use-https"></a>Konfigurowanie kontrolera ruchu przychodzących traefik do korzystania z protokołu HTTPS
 
-Za pomocą [Menedżera certyfikatów][cert-manager] Automatyzuj zarządzanie certyfikatem TLS podczas konfigurowania kontrolera traefik ingresing do korzystania z protokołu HTTPS. Służy `helm` do instalowania wykresu *certmanager* .
+Użyj [programu cert-manager,][cert-manager] aby zautomatyzować zarządzanie certyfikatem protokołu TLS podczas konfigurowania kontrolera ruchu przychodzących traefik do korzystania z protokołu HTTPS. Użyj `helm` , aby zainstalować pakiet *certmanager.*
 
 ```console
 kubectl apply --validate=false -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.12/deploy/manifests/00-crds.yaml --namespace traefik
@@ -192,7 +192,7 @@ helm repo update
 helm install cert-manager --namespace traefik --version v0.12.0 jetstack/cert-manager --set ingressShim.defaultIssuerName=letsencrypt --set ingressShim.defaultIssuerKind=ClusterIssuer
 ```
 
-Utwórz `letsencrypt-clusterissuer.yaml` plik i zaktualizuj pole e-mail przy użyciu adresu e-mail.
+Utwórz plik `letsencrypt-clusterissuer.yaml` i zaktualizuj pole adresu e-mail przy użyciu swojego adresu e-mail.
 
 ```yaml
 apiVersion: cert-manager.io/v1alpha2
@@ -212,7 +212,7 @@ spec:
 ```
 
 > [!NOTE]
-> W przypadku testowania istnieje również [serwer przejściowy][letsencrypt-staging-issuer] , którego można użyć do *ClusterIssuer*.
+> Na użytek testowania istnieje również serwer [przejściowy,][letsencrypt-staging-issuer] który może być dla usługi *ClusterIssuer.*
 
 Użyj `kubectl` , aby zastosować `letsencrypt-clusterissuer.yaml` .
 
@@ -220,10 +220,10 @@ Użyj `kubectl` , aby zastosować `letsencrypt-clusterissuer.yaml` .
 kubectl apply -f letsencrypt-clusterissuer.yaml --namespace traefik
 ```
 
-Usuń poprzednie *traefik* *ClusterRole* i *ClusterRoleBinding*, a następnie Uaktualnij traefik, aby użyć protokołu HTTPS za pomocą polecenia `helm` .
+Usuń poprzednie *traefik* *ClusterRole* i *ClusterRoleBinding,* a następnie uaktualnij traefik, aby używać protokołu HTTPS przy użyciu . `helm`
 
 > [!NOTE]
-> Jeśli w klastrze AKS nie włączono kontroli RBAC, Usuń parametr *--Set RBAC. Enabled = true* .
+> Jeśli klaster usługi AKS nie ma włączonej kontroli RBAC na platformie Kubernetes, usuń *parametr --set rbac.enabled=true.*
 
 ```console
 kubectl delete ClusterRole traefik
@@ -231,13 +231,13 @@ kubectl delete ClusterRoleBinding traefik
 helm upgrade traefik stable/traefik --namespace traefik --set kubernetes.ingressClass=traefik --set rbac.enabled=true --set kubernetes.ingressEndpoint.useDefaultPublishedService=true --version 1.85.0 --set ssl.enabled=true --set ssl.enforced=true --set ssl.permanentRedirect=true
 ```
 
-Uzyskaj zaktualizowany adres IP usługi traefik protokołu przychodzącego za pomocą funkcji [polecenia kubectl Get][kubectl-get].
+Pobierz zaktualizowany adres IP usługi kontrolera ruchu przychodzących traefik przy użyciu [narzędzia kubectl get][kubectl-get].
 
 ```console
 kubectl get svc -n traefik --watch
 ```
 
-Przykładowe dane wyjściowe przedstawiają adresy IP dla wszystkich usług w przestrzeni nazw *traefik* .
+Przykładowe dane wyjściowe pokazują adresy IP wszystkich usług w przestrzeni nazw *traefik.*
 
 ```console
 NAME      TYPE           CLUSTER-IP    EXTERNAL-IP          PORT(S)                      AGE
@@ -246,7 +246,7 @@ traefik   LoadBalancer   10.0.205.78   <pending>            80:32484/TCP,443:306
 traefik   LoadBalancer   10.0.205.78   MY_NEW_EXTERNAL_IP   80:32484/TCP,443:30620/TCP   60s
 ```
 
-Dodawanie rekordu *A* do strefy DNS z nowym zewnętrznym adresem IP usługi traefik przy użyciu polecenia [AZ Network DNS record-Set a Add-Record][az-network-dns-record-set-a-add-record] i *usuwania poprzedniego rekordu przy użyciu* polecenia [AZ Network DNS record-Set a Remove-Record][az-network-dns-record-set-a-remove-record].
+Dodaj rekord *A* do strefy DNS przy użyciu nowego zewnętrznego adresu IP usługi traefik przy użyciu [narzędzia az network dns record-set a add-record][az-network-dns-record-set-a-add-record] i usuń poprzedni rekord *A* przy użyciu narzędzia az network [dns record-set a remove-record][az-network-dns-record-set-a-remove-record].
 
 ```azurecli
 az network dns record-set a add-record \
@@ -262,9 +262,9 @@ az network dns record-set a remove-record \
     --ipv4-address PREVIOUS_EXTERNAL_IP
 ```
 
-Powyższy przykład aktualizuje rekord *A* w *MY_CUSTOM_DOMAIN* strefy DNS, aby użyć *PREVIOUS_EXTERNAL_IP*.
+Powyższy przykład aktualizuje *rekord A* w strefie *MY_CUSTOM_DOMAIN* DNS, aby używać *PREVIOUS_EXTERNAL_IP*.
 
-Zaktualizuj [wartości. YAML][values-yaml] , aby uwzględnić szczegóły dotyczące korzystania z *Menedżera certyfikatów* i protokołu HTTPS. Poniżej znajduje się przykład zaktualizowanego `values.yaml` pliku:
+Zaktualizuj [plik values.yaml,][values-yaml] aby uwzględnić szczegóły dotyczące korzystania z *narzędzia cert-manager i* protokołu HTTPS. Poniżej znajduje się przykład zaktualizowanego `values.yaml` pliku:
 
 ```yaml
 # This is a YAML-formatted file.
@@ -295,24 +295,24 @@ gateway:
       secretName: dev-gateway-secret
 ```
 
-Uaktualnij przykładową aplikację przy użyciu `helm` :
+Uaktualnij przykładową aplikację przy użyciu narzędzia `helm` :
 
 ```console
 helm upgrade bikesharingsampleapp . --namespace dev --atomic
 ```
 
-Przejdź do przykładowej aplikacji w obszarze podrzędnym *dev/azureuser1* i zwróć uwagę na to, że nastąpi przekierowanie do korzystania z protokołu HTTPS.
+Przejdź do przykładowej aplikacji w przestrzeni *podrzędnej dev/azureuser1* i zwróć uwagę, że nastąpi przekierowanie do korzystania z protokołu HTTPS.
 
 > [!IMPORTANT]
-> Ukończenie zmian DNS może potrwać 30 minut, a aplikacja Przykładowa będzie dostępna.
+> Ukończenie zmian DNS i dostępność przykładowej aplikacji może potrwać 30 minut lub dłużej.
 
-Zauważ również, że strona jest ładowana, ale w przeglądarce są wyświetlane pewne błędy. Otwarcie konsoli przeglądarki pokazuje błąd dotyczący strony HTTPS próbującej załadować zasoby HTTP. Na przykład:
+Zwróć również uwagę, że strona jest ładowana, ale przeglądarka wyświetla pewne błędy. Otwarcie konsoli przeglądarki pokazuje błąd związany ze stroną HTTPS próbującą załadować zasoby HTTP. Na przykład:
 
 ```console
 Mixed Content: The page at 'https://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/devsignin' was loaded over HTTPS, but requested an insecure resource 'http://azureuser1.s.dev.gateway.traefik.MY_CUSTOM_DOMAIN/api/user/allUsers'. This request has been blocked; the content must be served over HTTPS.
 ```
 
-Aby naprawić ten błąd, zaktualizuj [BikeSharingWeb/azds. YAML][azds-yaml] , aby użyć *traefik* dla *Kubernetes.IO/Ingress.class* i niestandardowej domeny dla *$ (hostSuffix)*. Na przykład:
+Aby naprawić ten *błąd,* zaktualizuj [wartość BikeSharingWeb/azds.yaml,][azds-yaml] aby używać pliku *traefik* dla usługi kubernetes.io/ingress.class i domeny niestandardowej dla *pliku $(hostSuffix).* Na przykład:
 
 ```yaml
 ...
@@ -325,7 +325,7 @@ Aby naprawić ten błąd, zaktualizuj [BikeSharingWeb/azds. YAML][azds-yaml] , a
 ...
 ```
 
-Zaktualizuj [BikeSharingWeb/package.jsw][package-json] zależności od pakietu *URL* .
+Zaktualizuj [właściwość BikeSharingWeb/package.jsna przy][package-json] użyciu zależności pakietu *adresu* URL.
 
 ```json
 {
@@ -337,7 +337,7 @@ Zaktualizuj [BikeSharingWeb/package.jsw][package-json] zależności od pakietu *
 ...
 ```
 
-Zaktualizuj metodę *getApiHostAsync* w [BikeSharingWeb/lib/helpers.js][helpers-js] , aby używać protokołu https:
+Zaktualizuj metodę *getApiHostAsync* w [pliku BikeSharingWeb/lib/helpers.js,][helpers-js] aby używać protokołu HTTPS:
 
 ```javascript
 ...
@@ -354,18 +354,18 @@ Zaktualizuj metodę *getApiHostAsync* w [BikeSharingWeb/lib/helpers.js][helpers-
 ...
 ```
 
-Przejdź do `BikeSharingWeb` katalogu i Użyj, `azds up` Aby uruchomić zaktualizowaną usługę BikeSharingWeb.
+Przejdź do katalogu `BikeSharingWeb` i użyj funkcji , aby uruchomić `azds up` zaktualizowaną usługę BikeSharingWeb.
 
 ```console
 cd ../BikeSharingWeb/
 azds up
 ```
 
-Przejdź do przykładowej aplikacji w obszarze podrzędnym *dev/azureuser1* i zwróć uwagę na to, że nastąpi przekierowanie do korzystania z protokołu HTTPS bez żadnych błędów.
+Przejdź do przykładowej aplikacji w przestrzeni podrzędnej *dev/azureuser1* i zwróć uwagę, że nastąpi przekierowanie do używania protokołu HTTPS bez żadnych błędów.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o tym, jak działa Azure Dev Spaces.
+Dowiedz się więcej o tym, Azure Dev Spaces działa.
 
 > [!div class="nextstepaction"]
 > [Jak działa usługa Azure Dev Spaces](../how-dev-spaces-works.md)

@@ -1,22 +1,22 @@
 ---
-title: Szybki Start — Azure Key Vault kluczową bibliotekę klienta dla języka Java
-description: Udostępnia Przewodnik Szybki Start dla biblioteki klienta kluczy Azure Key Vault dla języka Java.
+title: Szybki start — biblioteka klienta Azure Key Vault Key dla języka Java
+description: Zawiera przewodnik Szybki start dla biblioteki klienta Azure Key Vault Keys dla języka Java.
 author: msmbaldwin
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java
 ms.author: mbaldwin
 ms.date: 01/05/2021
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.openlocfilehash: cb5abf59c446ef0835375bac45d1e852144a6f28
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 124e56fad35be0f3ac5b08ee9dd66454b9d077c5
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97935278"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374696"
 ---
-# <a name="quickstart-azure-key-vault-key-client-library-for-java"></a>Szybki Start: Azure Key Vault kluczową bibliotekę klienta dla języka Java
-Zacznij korzystać z biblioteki klienta Key Azure Key Vault dla języka Java. Wykonaj poniższe kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.
+# <a name="quickstart-azure-key-vault-key-client-library-for-java"></a>Szybki start: biblioteka klienta Azure Key Vault Key dla języka Java
+Wprowadzenie do biblioteki klienta Azure Key Vault Key dla języka Java. Wykonaj poniższe kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.
 
 Dodatkowe zasoby:
 
@@ -26,15 +26,15 @@ Dodatkowe zasoby:
 * [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-keys/src/samples/java/com/azure/security/keyvault/keys)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-- Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Zestaw Java Development Kit (JDK)](/java/azure/jdk/) w wersji 8 lub nowszej
+- Subskrypcja platformy Azure — [utwórz subskrypcję bezpłatnie.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- [Zestaw Java Development Kit (JDK) w](/java/azure/jdk/) wersji 8 lub nowszej
 - [Apache Maven](https://maven.apache.org)
 - [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)
 
-W tym przewodniku szybki start założono, że uruchomiono [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) i [Apache Maven](https://maven.apache.org) w oknie terminalu systemu Linux.
+W tym przewodniku Szybki start założono, że używasz interfejsu [wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) i narzędzia Apache [Maven](https://maven.apache.org) w oknie terminalu systemu Linux.
 
 ## <a name="setting-up"></a>Konfigurowanie
-Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z interfejsem wiersza polecenia platformy Azure w celu uwierzytelniania użytkowników w usługach platformy Azure. Deweloperzy mogą również używać programu Visual Studio lub Visual Studio Code do uwierzytelniania wywołań, aby uzyskać więcej informacji, zobacz [uwierzytelnianie klienta przy użyciu biblioteki klienta tożsamości platformy Azure](/java/api/overview/azure/identity-readme).
+Ten przewodnik Szybki start używa biblioteki tożsamości platformy Azure z interfejsem wiersza polecenia platformy Azure do uwierzytelniania użytkownika w usługach platformy Azure. Deweloperzy mogą również używać Visual Studio lub Visual Studio Code do uwierzytelniania swoich wywołań. Aby uzyskać więcej informacji, zobacz Authenticate the client with Azure Identity client library (Uwierzytelnianie klienta za pomocą biblioteki klienta tożsamości [platformy Azure).](/java/api/overview/azure/identity-readme)
 
 ### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 1. Uruchom polecenie `login`.
@@ -43,14 +43,14 @@ Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z inter
     az login
     ```
 
-   Jeśli interfejs wiersza polecenia może otworzyć domyślną przeglądarkę, spowoduje to załadowanie strony logowania platformy Azure.
+   Jeśli interfejs wiersza polecenia może otworzyć domyślną przeglądarkę, zrobi to i załaduje stronę logowania platformy Azure.
 
-   W przeciwnym razie Otwórz stronę przeglądarki pod adresem [https://aka.ms/devicelogin](https://aka.ms/devicelogin) i wprowadź kod autoryzacji wyświetlany w terminalu.
+   W przeciwnym razie otwórz stronę przeglądarki pod [https://aka.ms/devicelogin](https://aka.ms/devicelogin) adresem i wprowadź kod autoryzacji wyświetlany w terminalu.
 
 2. Zaloguj się w przeglądarce przy użyciu poświadczeń swojego konta.
 
 ### <a name="create-a-new-java-console-app"></a>Tworzenie nowej aplikacji konsolowej Java
-W oknie konsoli Użyj `mvn` polecenia, aby utworzyć nową aplikację konsolową Java o nazwie `akv-keys-java` .
+W oknie konsoli użyj polecenia , aby utworzyć nową aplikację konsoli `mvn` Java o nazwie `akv-keys-java` .
 
 ```console
 mvn archetype:generate -DgroupId=com.keyvault.keys.quickstart
@@ -60,7 +60,7 @@ mvn archetype:generate -DgroupId=com.keyvault.keys.quickstart
                        -DinteractiveMode=false
 ```
 
-Dane wyjściowe generowania projektu będą wyglądać następująco:
+Dane wyjściowe wygenerowania projektu będą wyglądać podobnie do tych:
 
 ```console
 [INFO] ----------------------------------------------------------------------------
@@ -90,7 +90,7 @@ Zmień katalog na nowo utworzony `akv-keys-java/` folder.
 cd akv-keys-java
 ```
 
-### <a name="install-the-package"></a>Zainstaluj pakiet
+### <a name="install-the-package"></a>Instalowanie pakietu
 Otwórz plik *pom.xml* w edytorze tekstów. Dodaj następujące elementy zależności do grupy zależności.
 
 ```xml
@@ -111,7 +111,7 @@ Otwórz plik *pom.xml* w edytorze tekstów. Dodaj następujące elementy zależn
 [!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
 
 #### <a name="grant-access-to-your-key-vault"></a>Udzielanie dostępu do magazynu kluczy
-Utwórz zasady dostępu dla magazynu kluczy, które przyznaje kluczowe uprawnienia do konta użytkownika.
+Utwórz zasady dostępu dla magazynu kluczy, które będą udzielać uprawnień klucza do konta użytkownika.
 
 ```console
 az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --key-permissions delete get list create purge
@@ -135,12 +135,12 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 ```
 
 ## <a name="object-model"></a>Model obiektów
-Biblioteka klienta klucza Azure Key Vault dla języka Java umożliwia zarządzanie kluczami. W sekcji [przykłady kodu](#code-examples) pokazano, jak utworzyć klienta, utworzyć klucz, pobrać klucz i usunąć klucz.
+Biblioteka klienta Azure Key Vault Key dla języka Java umożliwia zarządzanie kluczami. W [sekcji Przykłady](#code-examples) kodu pokazano, jak utworzyć klienta, utworzyć klucz, pobrać klucz i usunąć klucz.
 
-Cała Aplikacja konsolowa znajduje się [poniżej](#sample-code).
+Cała aplikacja konsolowa znajduje się [poniżej .](#sample-code)
 
 ## <a name="code-examples"></a>Przykłady kodu
-### <a name="add-directives"></a>Dodaj dyrektywy
+### <a name="add-directives"></a>Dodawanie dyrektyw
 Dodaj następujące dyrektywy na początku kodu:
 
 ```java
@@ -155,9 +155,9 @@ import com.azure.security.keyvault.keys.models.KeyVaultKey;
 ```
 
 ### <a name="authenticate-and-create-a-client"></a>Uwierzytelnianie i tworzenie klienta
-W tym przewodniku szybki start zalogowany użytkownik jest używany do uwierzytelniania w Key Vault, który jest preferowaną metodą tworzenia lokalnego. W przypadku aplikacji wdrożonych na platformie Azure tożsamość zarządzana powinna być przypisana do App Service lub maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Omówienie tożsamości zarządzanej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+W tym przewodniku Szybki start zalogowany użytkownik jest używany do uwierzytelniania w Key Vault, co jest preferowaną metodą tworzenia aplikacji lokalnych. W przypadku aplikacji wdrożonych na platformie Azure tożsamość zarządzana powinna zostać przypisana do App Service wirtualnej. Aby uzyskać więcej informacji, zobacz [Omówienie tożsamości zarządzanej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-W poniższym przykładzie nazwa magazynu kluczy jest rozwinięta do identyfikatora URI magazynu kluczy w formacie "https:// \<your-key-vault-name\> . Vault.Azure.NET". W tym przykładzie użyto klasy ["DefaultAzureCredential ()"](https://docs.microsoft.com/java/api/com.azure.identity.defaultazurecredential) , która umożliwia użycie tego samego kodu w różnych środowiskach z różnymi opcjami w celu zapewnienia tożsamości. Aby uzyskać więcej informacji, zobacz [domyślne uwierzytelnianie poświadczeń platformy Azure](https://docs.microsoft.com/java/api/overview/azure/identity-readme).
+W poniższym przykładzie nazwa magazynu kluczy jest rozszerzana do wartości URI magazynu kluczy w formacie "https:// \<your-key-vault-name\> .vault.azure.net". W tym przykładzie używa się klasy ["DefaultAzureCredential()",](https://docs.microsoft.com/java/api/com.azure.identity.defaultazurecredential) która umożliwia używanie tego samego kodu w różnych środowiskach z różnymi opcjami w celu zapewnienia tożsamości. Aby uzyskać więcej informacji, zobacz [Domyślne uwierzytelnianie poświadczeń platformy Azure.](https://docs.microsoft.com/java/api/overview/azure/identity-readme)
 
 ```java
 String keyVaultName = System.getenv("KEY_VAULT_NAME");
@@ -170,45 +170,45 @@ KeyClient keyClient = new KeyClientBuilder()
 ```
 
 ### <a name="create-a-key"></a>Utwórz klucz
-Po uwierzytelnieniu aplikacji można utworzyć klucz w magazynie kluczy przy użyciu `keyClient.createKey` metody. Wymaga to nazwy klucza i typu klucza — przypisano wartość "klucze" do `keyName` zmiennej i użyj RSA `KeyType` w tym przykładzie.
+Po uwierzytelnieniu aplikacji możesz utworzyć klucz w magazynie kluczy przy użyciu `keyClient.createKey` metody . Wymaga to nazwy klucza i typu klucza — przypisaliśmy wartość "myKey" do zmiennej i w tym przykładzie użyjemy `keyName` `KeyType` RSA.
 
 ```java
 keyClient.createKey(keyName, KeyType.RSA);
 ```
 
-Możesz sprawdzić, czy klucz został ustawiony za pomocą polecenia [AZ Key magazynu klucz show](/cli/azure/keyvault/key?#az-keyvault-key-show) :
+Możesz sprawdzić, czy klucz został ustawiony za pomocą [polecenia az keyvault key show:](/cli/azure/keyvault/key?#az-keyvault-key-show)
 
 ```azurecli
 az keyvault key show --vault-name <your-unique-key-vault-name> --name myKey
 ```
 
-### <a name="retrieve-a-key"></a>Pobierz klucz
-Teraz można pobrać poprzednio utworzony klucz za pomocą `keyClient.getKey` metody.
+### <a name="retrieve-a-key"></a>Pobieranie klucza
+Teraz możesz pobrać wcześniej utworzony klucz za pomocą `keyClient.getKey` metody .
 
 ```java
 KeyVaultKey retrievedKey = keyClient.getKey(keyName);
  ```
 
-Teraz możesz uzyskać dostęp do szczegółów pobranego klucza za pomocą operacji takich jak `retrievedKey.getProperties` , `retrievedKey.getKeyOperations` itp.
+Teraz możesz uzyskać dostęp do szczegółów pobranego klucza za pomocą operacji, takich `retrievedKey.getProperties` `retrievedKey.getKeyOperations` jak , itp.
 
 ### <a name="delete-a-key"></a>Usuń klucz
-Na koniec usuńmy klucz z magazynu kluczy za pomocą `keyClient.beginDeleteKey` metody.
+Na koniec usuńmy klucz z magazynu kluczy przy użyciu `keyClient.beginDeleteKey` metody .
 
-Usuwanie klucza jest długotrwałą operacją, dla której można sondować postęp lub poczekać na jego zakończenie.
+Usuwanie klucza to długotrwała operacja, dla której można sondować postęp lub czekać na jej zakończenie.
 
 ```java
 SyncPoller<DeletedKey, Void> deletionPoller = keyClient.beginDeleteKey(keyName);
 deletionPoller.waitForCompletion();
 ```
 
-Możesz sprawdzić, czy klucz został usunięty za pomocą polecenia [AZ Key magazynu klucz show](/cli/azure/keyvault/key?#az-keyvault-key-show) :
+Możesz sprawdzić, czy klucz został usunięty, za pomocą polecenia [az keyvault key show:](/cli/azure/keyvault/key?#az-keyvault-key-show)
 
 ```azurecli
 az keyvault key show --vault-name <your-unique-key-vault-name> --name myKey
 ```
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
-Gdy nie jest już potrzebne, możesz użyć interfejsu wiersza polecenia platformy Azure lub Azure PowerShell, aby usunąć magazyn kluczy i odpowiednią grupę zasobów.
+Gdy magazyn kluczy i odpowiednia grupa zasobów nie będą już potrzebne, możesz Azure PowerShell interfejsu wiersza polecenia platformy Azure lub usługi Azure Key Vault.
 
 ```azurecli
 az group delete -g "myResourceGroup"
@@ -266,9 +266,9 @@ public class App {
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-W tym przewodniku szybki start utworzono Magazyn kluczy, utworzono klucz, pobrano go, a następnie został usunięty. Aby dowiedzieć się więcej na temat Key Vault i sposobu integrowania go z aplikacjami, przejdź do artykułu poniżej.
+W tym przewodniku Szybki start utworzono magazyn kluczy, utworzono klucz, pobrano go, a następnie usunięto. Aby dowiedzieć się więcej Key Vault o tym, jak zintegrować ją z aplikacjami, przejdź do poniższych artykułów.
 
-- Zapoznaj się [z omówieniem Azure Key Vault](../general/overview.md)
-- Przeczytaj [Omówienie zabezpieczeń Key Vault](../general/security-overview.md)
-- Zobacz [przewodnik dewelopera Azure Key Vault](../general/developers-guide.md)
-- Jak [zabezpieczyć dostęp do magazynu kluczy](../general/secure-your-key-vault.md)
+- Przeczytaj omówienie [Azure Key Vault](../general/overview.md)
+- Przeczytaj omówienie [Key Vault zabezpieczeń](../general/security-overview.md)
+- Zobacz Azure Key Vault [dewelopera](../general/developers-guide.md)
+- Jak zabezpieczyć [dostęp do magazynu kluczy](../general/secure-your-key-vault.md)

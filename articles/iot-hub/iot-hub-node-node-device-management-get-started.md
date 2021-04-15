@@ -1,6 +1,6 @@
 ---
-title: Rozpoczynanie pracy z usługą Azure IoT Hub Device Management (węzeł) | Microsoft Docs
-description: Jak za pomocą IoT Hub zarządzanie urządzeniami zainicjować zdalne ponowne uruchomienie urządzenia. Zestaw SDK usługi Azure IoT dla Node.js służy do implementowania aplikacji symulowanego urządzenia, która obejmuje metodę bezpośrednią i aplikację usługi, która wywołuje metodę bezpośrednią.
+title: Wprowadzenie do zarządzania Azure IoT Hub urządzeniami mobilnymi (Node) | Microsoft Docs
+description: Jak za pomocą IoT Hub urządzenia zainicjować zdalne ponowne uruchomienie urządzenia. Zestaw SDK usługi Azure IoT dla usługi Node.js służy do implementowania aplikacji urządzenia symulowanego, która zawiera metodę bezpośrednią i aplikację usługi, która wywołuje metodę bezpośrednią.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -8,13 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.custom: mqtt, devx-track-js
-ms.openlocfilehash: cfc0fa45c08f917b2e0b4a0b055e801173a4ba39
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mqtt, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 557cdc5fb71f998dc0b69e52148cc93da7cc8ea7
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91252021"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107477982"
 ---
 # <a name="get-started-with-device-management-nodejs"></a>Wprowadzenie do zarządzania urządzeniami (Node.js)
 
@@ -22,31 +22,31 @@ ms.locfileid: "91252021"
 
 Ten samouczek przedstawia sposób wykonania następujących czynności:
 
-* Użyj [Azure Portal](https://portal.azure.com) , aby utworzyć IoT Hub i utworzyć tożsamość urządzenia w centrum IoT.
+* Użyj [Azure Portal,](https://portal.azure.com) aby utworzyć IoT Hub i utworzyć tożsamość urządzenia w centrum IoT.
 
-* Utwórz aplikację symulowanego urządzenia, która zawiera metodę bezpośrednią, która uruchamia ponownie to urządzenie. Metody bezpośrednie są wywoływane z chmury.
+* Utwórz aplikację urządzenia symulowanego, która zawiera metodę bezpośrednią, która ponownie uruchamia to urządzenie. Metody bezpośrednie są wywoływane z chmury.
 
-* Utwórz aplikację konsolową Node.js, która wywołuje metodę bezpośredniego ponownego uruchomienia w aplikacji symulowanego urządzenia za pośrednictwem Centrum IoT.
+* Utwórz aplikację Node.js, która wywołuje metodę bezpośredniej ponownego uruchomienia w aplikacji urządzenia symulowanego za pośrednictwem centrum IoT.
 
-Na końcu tego samouczka będziesz mieć dwie Node.js aplikacje konsolowe:
+Na końcu tego samouczka będziesz mieć dwie Node.js konsoli:
 
-* **dmpatterns_getstarted_device.js**, która łączy się z Centrum IoT Hub przy użyciu utworzonej wcześniej tożsamości urządzenia, odbiera metodę bezpośredniego ponownego uruchomienia, symuluje rozruch fizyczny i raportuje godzinę ostatniego ponownego uruchomienia.
+* **dmpatterns_getstarted_device.js**, które łączy się z centrum IoT przy użyciu utworzonej wcześniej tożsamości urządzenia, odbiera metodę bezpośredniej ponownego uruchamiania, symuluje fizyczne ponowne uruchomienie i zgłasza czas ostatniego ponownego uruchomienia.
 
-* **dmpatterns_getstarted_service.js**, która wywołuje metodę bezpośrednią w aplikacji symulowanego urządzenia, wyświetli odpowiedź i wyświetla zaktualizowane raportowane właściwości.
+* **dmpatterns_getstarted_service.js**, która wywołuje metodę bezpośrednią w aplikacji urządzenia symulowanego, wyświetla odpowiedź i wyświetla zaktualizowane zgłaszane właściwości.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Node.js w wersji 10.0. x lub nowszej. [Przygotowanie środowiska programistycznego](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) opisuje sposób instalowania Node.js na potrzeby tego samouczka w systemie Windows lub Linux.
+* Node.js wersji 10.0.x lub nowszej. [W artykule Prepare your development environment (Przygotowywanie](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) środowiska projektowego) opisano Node.js tego samouczka w systemie Windows lub Linux.
 
-* Aktywne konto platformy Azure. (Jeśli nie masz konta, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/) w zaledwie kilka minut).
+* Aktywne konto platformy Azure. (Jeśli nie masz konta, możesz utworzyć [](https://azure.microsoft.com/pricing/free-trial/) bezpłatne konto w zaledwie kilka minut).
 
-* Upewnij się, że port 8883 jest otwarty w zaporze. W przykładzie urządzenia w tym artykule jest używany protokół MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Upewnij się, że port 8883 jest otwarty w zaporze. Przykładowe urządzenie w tym artykule używa protokołu MQTT, który komunikuje się za pośrednictwem portu 8883. Ten port może być zablokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów na ominiecie tego problemu, zobacz [Connecting to IoT Hub (MQTT) (Nawiązywanie połączenia z IoT Hub (MQTT).](iot-hub-mqtt-support.md#connecting-to-iot-hub)
 
 ## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="register-a-new-device-in-the-iot-hub"></a>Rejestrowanie nowego urządzenia w usłudze IoT Hub
+## <a name="register-a-new-device-in-the-iot-hub"></a>Rejestrowanie nowego urządzenia w centrum IoT
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
@@ -56,9 +56,9 @@ W tej sekcji omówiono następujące zagadnienia:
 
 * Tworzenie aplikacji konsolowej Node.js, która reaguje na metodę bezpośrednią wywołaną przez chmurę
 
-* Wyzwalanie ponownego uruchomienia symulowanego urządzenia
+* Wyzwalanie symulowanego ponownego uruchomienia urządzenia
 
-* Użyj raportowanych właściwości, aby włączyć do identyfikowania urządzeń i podczas ostatniego ponownego uruchomienia zapytania o sznury
+* Użyj zgłoszonych właściwości, aby włączyć zapytania bliźniaczej reprezentacji urządzenia w celu zidentyfikowania urządzeń i ich ostatniego ponownego uruchomienia
 
 1. Utwórz pusty folder o nazwie **manageddevice**.  W folderze **manageddevice** utwórz plik package.json przy użyciu następującego polecenia z poziomu wiersza polecenia.  Zaakceptuj wszystkie ustawienia domyślne:
 
@@ -66,15 +66,15 @@ W tej sekcji omówiono następujące zagadnienia:
     npm init
     ```
 
-2. W wierszu polecenia w folderze **manageddevice** Uruchom następujące polecenie, aby zainstalować pakiet zestawu SDK urządzenia **Azure-IoT-Device** i pakiet **Azure-IoT-Device-MQTT** :
+2. W wierszu polecenia w folderze **manageddevice** uruchom następujące polecenie, aby zainstalować pakiet zestawu SDK urządzenia **azure-iot-device** i **pakiet azure-iot-device-mqtt:**
 
     ```cmd/sh
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-3. Za pomocą edytora tekstów Utwórz plik **dmpatterns_getstarted_device.js** w folderze **manageddevice** .
+3. Za pomocą edytora tekstów utwórz **dmpatterns_getstarted_device.js** w **folderze manageddevice.**
 
-4. Dodaj następujące instrukcje "Wymagaj" na początku pliku **dmpatterns_getstarted_device.js** :
+4. Dodaj następujące instrukcje "require" na początku **dmpatterns_getstarted_device.js** pliku:
 
     ```javascript
     'use strict';
@@ -83,7 +83,7 @@ W tej sekcji omówiono następujące zagadnienia:
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
 
-5. Dodaj zmienną **connectionString** i użyj jej do utworzenia wystąpienia **Client**.  Zastąp `{yourdeviceconnectionstring}` wartość symbolu zastępczego parametrami połączenia urządzenia skopiowanymi wcześniej w temacie [Rejestrowanie nowego urządzenia w usłudze IoT Hub](#register-a-new-device-in-the-iot-hub).  
+5. Dodaj zmienną **connectionString** i użyj jej do utworzenia wystąpienia **Client**.  Zastąp wartość symbolu zastępczego wartością parametrów połączenia urządzenia skopiowanych wcześniej w teście `{yourdeviceconnectionstring}` Rejestrowanie nowego urządzenia w centrum [IoT.](#register-a-new-device-in-the-iot-hub)  
 
     ```javascript
     var connectionString = '{yourdeviceconnectionstring}';
@@ -132,7 +132,7 @@ W tej sekcji omówiono następujące zagadnienia:
     };
     ```
 
-7. Otwórz połączenie z Centrum IoT Hub i uruchom odbiornik metody bezpośredniej:
+7. Otwórz połączenie z centrum IoT i uruchom odbiornik metody bezpośredniej:
 
     ```javascript
     client.open(function(err) {
@@ -145,36 +145,36 @@ W tej sekcji omówiono następujące zagadnienia:
     });
     ```
 
-8. Zapisz i zamknij plik **dmpatterns_getstarted_device.js** .
+8. Zapisz i zamknij **dmpatterns_getstarted_device.js** plik.
 
 > [!NOTE]
-> Dla uproszczenia ten samouczek nie zawiera opisu wdrożenia żadnych zasad ponawiania. W kodzie produkcyjnym należy wdrożyć zasady ponawiania (np. wykładniczy wycofywania), zgodnie z opisem w artykule, [obsłudze błędów przejściowych](/azure/architecture/best-practices/transient-faults).
+> Dla uproszczenia ten samouczek nie zawiera opisu wdrożenia żadnych zasad ponawiania. W kodzie produkcyjnym należy zaimplementować zasady ponawiania (takie jak wykładniczego odejścia) zgodnie z sugestią w artykule Obsługa błędów [przejściowych.](/azure/architecture/best-practices/transient-faults)
 
-## <a name="get-the-iot-hub-connection-string"></a>Pobierz parametry połączenia usługi IoT Hub
+## <a name="get-the-iot-hub-connection-string"></a>Uzyskiwanie parametrów połączenia centrum IoT
 
 [!INCLUDE [iot-hub-howto-device-management-shared-access-policy-text](../../includes/iot-hub-howto-device-management-shared-access-policy-text.md)]
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
-## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Wyzwalanie zdalnego ponownego uruchomienia na urządzeniu przy użyciu metody bezpośredniej
+## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Wyzwalanie zdalnego ponownego uruchomienia urządzenia przy użyciu metody bezpośredniej
 
-W tej sekcji utworzysz aplikację konsolową Node.js, która inicjuje zdalne ponowne uruchomienie na urządzeniu przy użyciu metody bezpośredniej. Aplikacja używa zapytań o bliźniaczych urządzeniach do wykrywania czasu ostatniego rozruchu dla tego urządzenia.
+W tej sekcji utworzysz aplikację Node.js konsolową, która inicjuje zdalne ponowne uruchomienie urządzenia przy użyciu metody bezpośredniej. Aplikacja używa zapytań bliźniaczych reprezentacji urządzenia, aby wykryć czas ostatniego ponownego uruchomienia dla tego urządzenia.
 
-1. Utwórz pusty folder o nazwie **triggerrebootondevice**. W folderze **triggerrebootondevice** Utwórz package.jsw pliku przy użyciu następującego polecenia z poziomu wiersza polecenia. Zaakceptuj wszystkie ustawienia domyślne:
+1. Utwórz pusty folder o nazwie **triggerrebootondevice.** W **folderze triggerrebootondevice** utwórz package.jspliku przy użyciu następującego polecenia w wierszu polecenia. Zaakceptuj wszystkie ustawienia domyślne:
 
     ```cmd/sh
     npm init
     ```
 
-2. W wierszu polecenia w folderze **triggerrebootondevice** Uruchom następujące polecenie, aby zainstalować pakiet zestawu SDK urządzenia **Azure-iothub** i pakiet **Azure-IoT-Device-MQTT** :
+2. W wierszu polecenia w folderze **triggerrebootondevice** uruchom następujące polecenie, aby zainstalować pakiet zestawu SDK urządzenia **azure-iothub** i **pakiet azure-iot-device-mqtt:**
 
     ```cmd/sh
     npm install azure-iothub --save
     ```
 
-3. Za pomocą edytora tekstów Utwórz plik **dmpatterns_getstarted_service.js** w folderze **triggerrebootondevice** .
+3. Za pomocą edytora tekstów utwórz **dmpatterns_getstarted_service.js** w **folderze triggerrebootondevice.**
 
-4. Dodaj następujące instrukcje "Wymagaj" na początku pliku **dmpatterns_getstarted_service.js** :
+4. Dodaj następujące instrukcje "require" na początku **dmpatterns_getstarted_service.js** pliku:
 
     ```javascript
     'use strict';
@@ -183,7 +183,7 @@ W tej sekcji utworzysz aplikację konsolową Node.js, która inicjuje zdalne pon
     var Client = require('azure-iothub').Client;
     ```
 
-5. Dodaj następujące deklaracje zmiennych i Zastąp `{iothubconnectionstring}` wartość symbolu zastępczego parametrami połączenia usługi IoT Hub skopiowanymi wcześniej w polu [Pobierz parametry połączenia usługi IoT Hub](#get-the-iot-hub-connection-string):
+5. Dodaj następujące deklaracje zmiennych i zastąp wartość symbolu zastępczego wartością parametrów połączenia centrum IoT skopiowanych wcześniej w teście Get the IoT hub connection string (Uzyskiwanie parametrów połączenia `{iothubconnectionstring}` [centrum IoT):](#get-the-iot-hub-connection-string)
 
     ```javascript
     var connectionString = '{iothubconnectionstring}';
@@ -215,7 +215,7 @@ W tej sekcji utworzysz aplikację konsolową Node.js, która inicjuje zdalne pon
     };
     ```
 
-7. Dodaj następującą funkcję, aby wykonać zapytanie dotyczące urządzenia i uzyskać czas ostatniego ponownego uruchomienia:
+7. Dodaj następującą funkcję, aby odpytować urządzenie i uzyskać czas ostatniego ponownego uruchomienia:
 
     ```javascript
     var queryTwinLastReboot = function() {
@@ -236,38 +236,38 @@ W tej sekcji utworzysz aplikację konsolową Node.js, która inicjuje zdalne pon
     };
     ```
 
-8. Dodaj następujący kod, aby wywołać funkcje wyzwalające metodę ponownego rozruchu i zapytanie o czas ostatniego ponownego uruchomienia:
+8. Dodaj następujący kod, aby wywołać funkcje, które wyzwalają metodę bezpośrednią ponownego rozruchu i odpytują o czas ostatniego ponownego uruchomienia:
 
     ```javascript
     startRebootDevice();
     setInterval(queryTwinLastReboot, 2000);
     ```
 
-9. Zapisz i zamknij plik **dmpatterns_getstarted_service.js** .
+9. Zapisz i zamknij **dmpatterns_getstarted_service.js** plik.
 
 ## <a name="run-the-apps"></a>Uruchamianie aplikacji
 
-Teraz można przystąpić do uruchamiania aplikacji.
+Teraz możesz uruchomić aplikacje.
 
-1. W wierszu polecenia w folderze **manageddevice** Uruchom następujące polecenie, aby rozpocząć nasłuchiwanie metody bezpośredniego ponownego uruchomienia.
+1. W wierszu polecenia w **folderze manageddevice** uruchom następujące polecenie, aby rozpocząć nasłuchiwanie metody bezpośredniej ponownego uruchamiania.
 
     ```cmd/sh
     node dmpatterns_getstarted_device.js
     ```
 
-2. W wierszu polecenia w folderze **triggerrebootondevice** Uruchom następujące polecenie, aby wyzwolić zdalne ponowne uruchomienie i zapytanie dla sznurka urządzenia, aby znaleźć czas ostatniego ponownego uruchomienia.
+2. W wierszu polecenia w folderze **triggerrebootondevice** uruchom następujące polecenie, aby wyzwolić zdalne ponowne uruchomienie i odpytać bliźniacza reprezentacji urządzenia, aby znaleźć czas ostatniego ponownego uruchomienia.
 
     ```cmd/sh
     node dmpatterns_getstarted_service.js
     ```
 
-3. Zostanie wyświetlona odpowiedź urządzenia na metodę bezpośredniego ponownego uruchomienia i stan ponownego uruchomienia w konsoli programu.
+3. W konsoli zobaczysz odpowiedź urządzenia na metodę bezpośrednią ponownego uruchomienia i stan ponownego uruchomienia.
 
-   Poniżej przedstawiono odpowiedź urządzenia do metody ponownego uruchomienia bezpośredniego wysyłanej przez usługę:
+   Poniżej przedstawiono odpowiedź urządzenia na metodę bezpośrednią ponownego uruchomienia wysłaną przez usługę:
 
    ![dane wyjściowe aplikacji manageddevice](./media/iot-hub-node-node-device-management-get-started/device.png)
 
-   Poniżej przedstawiono usługę wyzwalającą ponowne uruchomienie i sondowanie sznurka urządzenia po ostatnim ponownym uruchomieniu:
+   Poniżej przedstawiono usługę, która wyzwala ponowne uruchomienie i sonduje bliźniacze reprezentacji urządzenia podczas ostatniego ponownego uruchomienia:
 
    ![dane wyjściowe aplikacji triggerrebootondevice](./media/iot-hub-node-node-device-management-get-started/service.png)
 
