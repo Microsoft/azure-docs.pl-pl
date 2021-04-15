@@ -48,7 +48,7 @@
           href: understand/analyze-unexpected-charges.md
         - name: Zarządzanie kosztami przy użyciu automatyzacji
           href: costs/manage-automation.md
-        - name: Pobierz duże zestawy danych z eksportami
+        - name: Pobieranie dużych zestawów danych za pomocą eksportów
           href: costs/ingest-azure-usage-at-scale.md
         - name: Usługa Cost Management dla partnerów
           href: costs/get-started-partners.md
@@ -98,7 +98,7 @@
           href: reservations/reserved-instance-windows-software-costs.md?toc=/azure/cost-management-billing/toc.json
         - name: Dane użycia poszczególnych subskrypcji
           href: reservations/understand-reserved-instance-usage.md?toc=/azure/cost-management-billing/toc.json
-        - name: Dane użycia umowy Enterprise i klienta firmy Microsoft
+        - name: Dane użycia Umowa z Klientem Microsoft przedsiębiorstwa i firmy
           href: reservations/understand-reserved-instance-usage-ea.md?toc=/azure/cost-management-billing/toc.json
     - name: Rozliczenia
       items:
@@ -148,7 +148,7 @@
               href: manage/understand-mca-roles.md
             - name: Identyfikator partnera linku
               href: manage/link-partner-id.md
-            - name: Łączenie identyfikatora partnera z kontami aplikacji zaawansowanych
+            - name: Łączenie identyfikatora partnera z Power Apps kont
               href: manage/link-partner-id-power-apps-accounts.md
         - name: Administrowanie subskrypcjami
           items:
@@ -162,9 +162,9 @@
               href: manage/azurestudents-subscription-disabled.md
             - name: Przenoszenie własności
               href: manage/billing-subscription-transfer.md
-            - name: Żądanie własności umowy klienta firmy Microsoft
+            - name: Przenoszenie Umowa z Klientem Microsoft własności
               href: manage/mca-request-billing-ownership.md
-            - name: Żądanie własności umowy Microsoft Partner Agreement
+            - name: Przenoszenie Microsoft Partner Agreement własności
               href: manage/mpa-request-ownership.md
             - name: Ustawianie i konfigurowanie integracji z usługami AWS
               href: costs/aws-integration-set-up-configure.md
@@ -280,7 +280,7 @@
           href: manage/cost-management-budget-scenario.md
         - name: Korzystanie z alertów dotyczących kosztów
           href: costs/cost-mgt-alerts-monitor-usage-spending.md
-        - name: Eksportowanie danych kosztów za pomocą klucza SAS magazynu
+        - name: Eksportowanie danych kosztów przy użyciu klucza sygnatury dostępu współdzielonego magazynu
           href: costs/export-cost-data-storage-account-sas-key.md
         - name: Alokowanie kosztów
           href: costs/allocate-costs.md
@@ -296,7 +296,7 @@
           href: manage/mca-check-azure-credits-balance.md
         - name: Migrowanie z interfejsów API EA do MCA
           href: costs/migrate-cost-management-api.md
-        - name: Przypisywanie ról do EA SPN
+        - name: Przypisywanie ról do spN ea
           href: manage/assign-roles-azure-service-principals.md
         - name: Migracja z systemu EA Reporting do interfejsów Azure Resource Manager API
           href: costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md
@@ -394,11 +394,11 @@
       href: /rest/api/cost-management
     - name: Interfejs API REST użycia platformy Azure
       href: /rest/api/consumption
-    - name: Szablon budżetu ARM interfejsu API REST użycia
+    - name: Szablon budżetu usługi ARM interfejsu API REST użycia
       href: /azure/templates/microsoft.consumption/budgets
     - name: Przykłady interfejsu API REST usługi Cost Management
       href: 'https://github.com/Azure-Samples/Cost-Management-Samples'
-    - name: Polecenia cmdlet Azure PowerShell dla Cost Management
+    - name: Azure PowerShell cmdlet dla Cost Management
       href: /powershell/module/Az.CostManagement
     - name: Scenariusze automatyzacji rozliczeń
       href: manage/cost-management-automation-scenarios.md
@@ -410,15 +410,15 @@
       href: manage/consumption-api-overview.md
     - name: Interfejs API REST użycia platformy Azure
       href: /rest/api/consumption
-    - name: Omówienie interfejsu API REST raportowania przedsiębiorstwa
+    - name: Omówienie interfejsu API REST raportowania korporacyjnego
       href: manage/enterprise-api.md
-    - name: Interfejsy API REST raportowania przedsiębiorstwa
+    - name: Interfejsy API REST raportowania korporacyjnego
       href: /rest/api/billing/enterprise/billing-enterprise-api-balance-summary
     - name: Rezerwacje
       items:
         - name: Interfejs API REST usługi Reservations
           href: reservations/reservation-apis.md?toc=/azure/cost-management-billing/toc.json
-        - name: Polecenia cmdlet Azure PowerShell dla rezerwacji
+        - name: Azure PowerShell cmdlet dla rezerwacji
           href: /powershell/module/azurerm.reservations
         - name: Interfejs wiersza polecenia platformy Azure dla rezerwacji
           href: /cli/azure/reservations/reservation

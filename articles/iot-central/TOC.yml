@@ -8,9 +8,11 @@
       href: core/overview-iot-central-tour.md
     - name: Najnowsze aktualizacje
       items:
-        - name: Luty 2021. nowe i zaktualizowane funkcje
+        - name: Nowe i zaktualizowane funkcje z marca 2021 r.
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-march-2021/'
+        - name: Nowe i zaktualizowane funkcje z lutego 2021 r.
           href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-february-2021/'
-        - name: Styczeń 2021. nowe i zaktualizowane funkcje
+        - name: Nowe i zaktualizowane funkcje ze stycznia 2021 r.
           href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-january-2021/'
         - name: "Nowe i zaktualizowane funkcje — listopad 2020\_r."
           href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-november-2020/'
@@ -49,7 +51,7 @@
       href: core/quick-monitor-devices.md
 - name: Samouczki
   items:
-    - name: Tworzenie i łączenie urządzeń
+    - name: Opracowywanie i łączenie urządzeń
       items:
         - name: Tworzenie i łączenie urządzenia
           href: core/tutorial-connect-device.md
@@ -65,7 +67,7 @@
           href: core/tutorial-create-telemetry-rules.md
         - name: Eksplorowanie interfejsów API usługi IoT Central
           href: /learn/modules/manage-iot-central-apps-with-rest-api/
-    - name: Rozwiązania dla branż
+    - name: Rozwiązania branżowe
       items:
         - name: Retail
           items:
@@ -131,7 +133,7 @@
       href: core/concepts-architecture.md
     - name: Przewodnik dla deweloperów urządzeń
       href: core/overview-iot-central-developer.md
-    - name: Przewodnik po konstruktorze rozwiązań
+    - name: Przewodnik konstruktora rozwiązań
       href: core/overview-iot-central-solution-builder.md
     - name: Podręcznik administratora
       href: core/overview-iot-central-admin.md
@@ -139,21 +141,21 @@
       href: core/overview-iot-central-operator.md
     - name: Co to są szablony aplikacji?
       href: core/concepts-app-templates.md
-    - name: Szablony aplikacji specyficznych dla branży
+    - name: Szablony aplikacji specyficzne dla branży
       items:
         - name: Retail
           items:
             - name: Omówienie
               href: retail/overview-iot-central-retail.md
-            - name: Architektura wyewidencjonowania analiz w sklepie
+            - name: Architektura wyewidencjonowania analizy w sklepie
               href: retail/store-analytics-architecture.md
-            - name: Architektura zarządzania magazynem inteligentnego
+            - name: Architektura inteligentnego zarządzania spisem
               href: retail/architecture-smart-inventory-management.md
-            - name: Architektura połączonej logistyki
+            - name: Połączona architektura logistyczna
               href: retail/architecture-connected-logistics.md
             - name: Cyfrowe centrum dystrybucji
               href: retail/architecture-digital-distribution-center.md
-            - name: Architektura centrum mikrorealizacji
+            - name: Architektura centrum mikrorealności
               href: retail/architecture-micro-fulfillment-center.md
             - name: Analiza wideo — wykrywanie obiektów i ruchu
               href: retail/architecture-video-analytics.md
@@ -169,7 +171,7 @@
           items:
             - name: Omówienie
               href: government/overview-iot-central-government.md
-            - name: Architektura monitorowania połączonych odpadów
+            - name: Architektura monitorowania połączonych strat
               href: government/concepts-connectedwastemanagement-architecture.md
             - name: Architektura monitorowania zużycia wody
               href: government/concepts-waterconsumptionmonitoring-architecture.md
@@ -193,7 +195,7 @@
       href: core/concepts-best-practices.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Tworzenie i łączenie urządzeń
+    - name: Opracowywanie i łączenie urządzeń
       items:
         - name: Konfigurowanie szablonu urządzenia
           href: core/howto-set-up-template.md
@@ -207,7 +209,7 @@
           href: core/how-to-connect-devices-x509.md
         - name: Monitorowanie łączności urządzeń przy użyciu interfejsu wiersza polecenia platformy Azure
           href: core/howto-monitor-devices-azure-cli.md
-        - name: Łączenie urządzeń za poorednictwem niewidocznej bramy IoT Edge
+        - name: Łączenie urządzeń za pośrednictwem IoT Edge przezroczystej bramy
           href: core/how-to-connect-iot-edge-transparent-gateway.md
         - name: Przygotowywanie i łączenie zestawu Azure Sphere DevKit
           href: core/howto-connect-sphere.md
@@ -241,7 +243,7 @@
           href: core/howto-create-custom-analytics.md
         - name: Wizualizacja danych w usłudze Power BI
           href: core/howto-connect-powerbi.md
-        - name: Łączenie aplikacji z usługami pól Dynamics 365
+        - name: Łączenie aplikacji z usługami Dynamics 365 Field Services
           href: government/how-to-configure-connected-field-services.md
     - name: Zarządzanie urządzeniami
       items:
@@ -263,7 +265,7 @@
           href: core/howto-customize-ui.md
         - name: Eksportowanie aplikacji
           href: core/howto-use-app-templates.md
-        - name: Migrowanie aplikacji z wersji 2 do v3
+        - name: Migrowanie aplikacji w wersji 2 do wersji 3
           href: core/howto-migrate.md
         - name: Monitorowanie kondycji aplikacji
           href: core/howto-monitor-application-health.md
