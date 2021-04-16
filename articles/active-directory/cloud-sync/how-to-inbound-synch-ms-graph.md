@@ -1,6 +1,6 @@
 ---
-title: Jak programowo skonfigurować synchronizację z chmurą przy użyciu usługi MS interfejs API programu Graph
-description: W tym temacie opisano sposób włączania synchronizacji przychodzącej przy użyciu tylko interfejs API programu Graph
+title: Jak programowo skonfigurować synchronizację chmury przy użyciu programu MS interfejs Graph API
+description: W tym temacie opisano sposób włączania synchronizacji ruchu przychodzącego przy użyciu tylko interfejs Graph API
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,43 +11,48 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c84636ea86b3b640aef365c1c5d8e634b9a1f48
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8fe220cf7b5cb8b67e5ab7ded221494e89a28aa5
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99593165"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530262"
 ---
-# <a name="how-to-programmatically-configure-cloud-sync-using-ms-graph-api"></a>Jak programowo skonfigurować synchronizację z chmurą przy użyciu usługi MS interfejs API programu Graph
+# <a name="how-to-programmatically-configure-cloud-sync-using-ms-graph-api"></a>Jak programowo skonfigurować synchronizację chmury przy użyciu programu MS interfejs Graph API
 
-W poniższym dokumencie opisano sposób replikowania profilu synchronizacji od podstaw przy użyciu tylko interfejsów API MSGraph.  
-Struktura, w jaki należy to zrobić, składa się z następujących kroków.  Są to:
+W poniższym dokumencie opisano sposób replikowania profilu synchronizacji od podstaw przy użyciu tylko interfejsów API usługi MSGraph.  
+Struktura tego, jak to zrobić, składa się z następujących kroków.  Są to:
 
-- [Konfiguracja podstawowa](#basic-setup)
-- [Tworzenie jednostek usługi](#create-service-principals)
-- [Utwórz zadanie synchronizacji](#create-sync-job)
-- [Aktualizowanie domeny dostosowanej](#update-targeted-domain)
-- [Włącz skróty haseł synchronizacji](#enable-sync-password-hashes-on-configuration-blade)
-- [Przypadkowe usunięcie](#accidental-deletes)
-- [Rozpocznij zadanie synchronizacji](#start-sync-job)
-- [Przegląd stanu](#review-status)
+- [Jak programowo skonfigurować synchronizację chmury przy użyciu programu MS interfejs Graph API](#how-to-programmatically-configure-cloud-sync-using-ms-graph-api)
+  - [Konfiguracja podstawowa](#basic-setup)
+    - [Włączanie flag dzierżawy](#enable-tenant-flags)
+  - [Tworzenie jednostek usługi](#create-service-principals)
+  - [Tworzenie zadania synchronizacji](#create-sync-job)
+  - [Aktualizowanie domeny docelowej](#update-targeted-domain)
+  - [Włączanie synchronizacji skrótów haseł w bloku konfiguracji](#enable-sync-password-hashes-on-configuration-blade)
+  - [Przypadkowe usunięcie](#accidental-deletes)
+    - [Włączanie i ustawianie progu](#enabling-and-setting-the-threshold)
+    - [Zezwalanie na usuwanie](#allowing-deletes)
+  - [Uruchamianie zadania synchronizacji](#start-sync-job)
+  - [Stan przeglądu](#review-status)
+  - [Następne kroki](#next-steps)
 
-Użyj tych poleceń [moduł Microsoft Azure Active Directory dla Windows PowerShell](/powershell/module/msonline/) , aby włączyć synchronizację dla dzierżawy produkcyjnej, wymaganie wstępne do wywołania administracyjnej usługi sieci Web dla tej dzierżawy.
+Użyj tych [Moduł Microsoft Azure Active Directory dla Windows PowerShell,](/powershell/module/msonline/) aby włączyć synchronizację dla dzierżawy produkcyjnej, która jest warunkiem wstępnym umożliwiającym wywołanie administracyjnej usługi sieci Web dla tej dzierżawy.
 
 ## <a name="basic-setup"></a>Konfiguracja podstawowa
 
-### <a name="enable-tenant-flags"></a>Włącz flagi dzierżawy
+### <a name="enable-tenant-flags"></a>Włączanie flag dzierżawy
 
  ```PowerShell
  Connect-MsolService ('-AzureEnvironment <AzureEnvironmnet>')
  Set-MsolDirSyncEnabled -EnableDirSync $true
  ```
-Pierwszy z tych dwóch poleceń wymaga poświadczeń Azure Active Directory. Polecenia cmdlet te niejawnie identyfikują dzierżawę i umożliwiają jej synchronizację.
+Pierwsze z tych dwóch poleceń wymaga Azure Active Directory poświadczeń. Te polecenia wiersza polecenia niejawnie identyfikują dzierżawę i umożliwiają jej synchronizację.
 
 ## <a name="create-service-principals"></a>Tworzenie jednostek usługi
-Następnie musimy utworzyć [aplikację AD2AAD/nazwę główną usługi](/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http)
+Następnie musimy utworzyć aplikację/jednostkę usługi [AD2AAD](/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http&preserve-view=true)
 
-Musisz użyć tego identyfikatora aplikacji 1a4721b3-e57f-4451-ae87-ef078703ec94. Nazwa wyświetlana to adres URL domeny usługi AD, jeśli jest używany w portalu (na przykład contoso.com), ale może mieć inną nazwę.
+Musisz użyć tego identyfikatora aplikacji 1a4721b3-e57f-4451-ae87-ef078703ec94. DisplayName jest adres URL domeny usługi AD, jeśli jest używany w portalu (na przykład contoso.com), ale może mieć nazwę coś innego.
 
  ```
  POST https://graph.microsoft.com/beta/applicationTemplates/1a4721b3-e57f-4451-ae87-ef078703ec94/instantiate
@@ -58,21 +63,21 @@ Musisz użyć tego identyfikatora aplikacji 1a4721b3-e57f-4451-ae87-ef078703ec94
  ```
 
 
-## <a name="create-sync-job"></a>Utwórz zadanie synchronizacji
-Dane wyjściowe powyższego polecenia zwracają identyfikator objectId jednostki usługi, która została utworzona. W tym przykładzie objectId jest 614ac0e9-a59b-481f-bd8f-79a73d167e1c.  Użyj Microsoft Graph, aby dodać synchronizationJob do tej nazwy głównej usługi.  
+## <a name="create-sync-job"></a>Tworzenie zadania synchronizacji
+Dane wyjściowe powyższego polecenia zwracają identyfikator objectId utworzonej jednostki usługi. W tym przykładzie objectId to 614ac0e9-a59b-481f-bd8f-79a73d167e1c.  Użyj Microsoft Graph, aby dodać do tej jednostki usługi synchronizationJob.  
 
-Dokumentację dotyczącą tworzenia zadania synchronizacji można znaleźć [tutaj](/graph/api/synchronization-synchronizationjob-post?tabs=http&view=graph-rest-beta).
+Dokumentację tworzenia zadania synchronizacji można znaleźć [tutaj.](/graph/api/synchronization-synchronizationjob-post?tabs=http&view=graph-rest-beta&preserve-view=true)
 
-Jeśli nie zarejestrowano powyższego identyfikatora, można znaleźć jednostkę usługi, uruchamiając następujące wywołanie programu MS Graph. Musisz mieć katalog. odczyt. wszystkie uprawnienia, aby to wywołać:
+Jeśli nie zanotowałsz powyższego identyfikatora, możesz znaleźć jednostkę usługi, uruchamiając następujące wywołanie programu MS Graph. Aby wywołać to wywołanie, musisz mieć uprawnienia Directory.Read.All:
  
  `GET https://graph.microsoft.com/beta/servicePrincipals `
 
 Następnie poszukaj nazwy aplikacji w danych wyjściowych.
 
-Uruchom następujące dwa polecenia, aby utworzyć dwa zadania: jeden dla aprowizacji użytkownika/grupy i jeden na potrzeby synchronizacji skrótów haseł. Jest to takie samo żądanie dwa razy, ale z różnymi identyfikatorami szablonów.
+Uruchom następujące dwa polecenia, aby utworzyć dwa zadania: jedno dla aprowzowania użytkowników/grup i jedno dla synchronizacji skrótów haseł. Jest to to samo żądanie dwa razy, ale z różnymi identyfikatorami szablonów.
 
 
-Wywołaj dwa następujące żądania:
+Wywołaj następujące dwa żądania:
 
  ```
  POST https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/jobs
@@ -90,9 +95,9 @@ Wywołaj dwa następujące żądania:
  }
  ```
 
-Wymagane są dwa wywołania, jeśli chcesz utworzyć oba te elementy.
+Jeśli chcesz utworzyć oba wywołania, potrzebujesz dwóch wywołań.
 
-Przykładowa wartość zwrotna (dla aprowizacji):
+Przykładowa wartość zwracana (do aprowowania):
 
  ```
 HTTP 201/Created
@@ -122,22 +127,22 @@ HTTP 201/Created
 }
 ```
 
-## <a name="update-targeted-domain"></a>Aktualizowanie domeny dostosowanej
-W przypadku tej dzierżawy identyfikator obiektu i identyfikator aplikacji nazwy głównej usługi są następujące:
+## <a name="update-targeted-domain"></a>Aktualizowanie domeny docelowej
+W przypadku tej dzierżawy identyfikator obiektu i identyfikator aplikacji jednostki usługi są następujące:
 
-ObjectId: 8895955e-2e6c-4d79-8943-4d72ca36878f AppId: 00000014-0000-0000-C000-000000000000 DisplayName: testApp
+ObjectId: 8895955e-2e6c-4d79-8943-4d72ca36878f AppId: 00000014-0000-0000-c000-0000000000000 DisplayName: testApp
 
-Będziemy musieli zaktualizować domenę, w której znajduje się ta konfiguracja, więc zaktualizuj wpisy tajne dla tej domeny.
+Będziemy musieli zaktualizować domenę, dla których ta konfiguracja jest ukierunkowana, więc zaktualizujemy wpisy tajne dla tej domeny.
 
-Upewnij się, że nazwa domeny, której używasz, jest tym samym adresem URL ustawionym dla kontrolera domeny Premium
+Upewnij się, że nazwa domeny jest taka sama jak ustawiona dla kontrolera domeny w sieci
 
  ```
  PUT – https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/secrets
  ```
- Dodaj następującą parę klucz/wartość w tabeli poniżej wartości na podstawie tego, co próbujesz zrobić:
- - Włącz flagi dzierżawy PHS i Sync {Key: "AppKey", Value: "{" appKeyScenario ":" AD2AADPasswordHash "}"}
+ Dodaj następującą parę klucz/wartość w poniższej tablicy wartości na podstawie tego, co próbujesz zrobić:
+ - Włącz zarówno phs, jak i synchronizuj flagi dzierżawy { key: "AppKey", value: "{"appKeyScenario":"AD2AADPasswordHash"}" }
  
- - Włącz tylko flagę synchronizacji dzierżawy (nie włączaj PHS) {Key: "AppKey", Value: "{" appKeyScenario ":" AD2AADProvisioning "}"}
+ - Włącz tylko flagę dzierżawy synchronizacji (nie włączaj phs) { key: "AppKey", value: "{"appKeyScenario":"AD2AADProvisioning"}" }
  ```
  Request body –
  {
@@ -150,19 +155,19 @@ Upewnij się, że nazwa domeny, której używasz, jest tym samym adresem URL ust
   }
 ```
 
-Oczekiwana odpowiedź to... HTTP 204/Brak zawartości
+Oczekiwana odpowiedź to ... HTTP 204/Brak zawartości
 
-W tym miejscu wyróżniona wartość "domena" jest nazwą lokalnej domeny Active Directory, z której mają być obsługiwane wpisy Azure Active Directory.
+W tym miejscu wyróżniona wartość "Domena" jest nazwą domeny lokalna usługa Active Directory, z której mają być aprowowane wpisy Azure Active Directory.
 
-## <a name="enable-sync-password-hashes-on-configuration-blade"></a>Włącz skróty synchronizacji haseł w bloku konfiguracji
+## <a name="enable-sync-password-hashes-on-configuration-blade"></a>Włączanie synchronizacji skrótów haseł w bloku konfiguracji
 
- Ta sekcja będzie obejmować włączenie synchronizacji skrótów haseł dla określonej konfiguracji. Jest to inne niż AppKey tajny, który włącza flagę funkcji na poziomie dzierżawy — jest to tylko dla jednej domeny/konfiguracji. Aby to zrobić, należy ustawić klucz aplikacji na PHS.
+ Ta sekcja obejmuje włączanie synchronizacji skrótów haseł dla określonej konfiguracji. Różni się to od klucza tajnego AppKey, który włącza flagę funkcji na poziomie dzierżawy — dotyczy to tylko jednej domeny/konfiguracji. Aby wszystko działało, należy ustawić klucz aplikacji na klucz PHS.
 
-1. Przechwyć schemat (Ostrzeżenie to jest dość duże) 
+1. Chwyć schemat (ostrzeżenie jest dość duże) 
  ```
  GET –https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/jobs/ [AD2AADProvisioningJobId]/schema
  ```
-2. Zrób to mapowanie atrybutów CredentialData:
+2. Weź to mapowanie atrybutów CredentialData:
  ``` 
  {
  "defaultValue": null,
@@ -178,13 +183,13 @@ W tym miejscu wyróżniona wartość "domena" jest nazwą lokalnej domeny Active
  "parameters": []
  }
  ```
-3. Znajdź następujące mapowania obiektów z następującymi nazwami w schemacie
- - Udostępnianie użytkownikom Active Directory
- - Inicjowanie obsługi Active Directory inetOrgPersons
+3. Znajdź następujące mapowania obiektów o następujących nazwach w schemacie
+ - Aprowizuj użytkowników usługi Active Directory
+ - Aprowizuj inetOrgPersons usługi Active Directory
 
- Mapowania obiektów znajdują się w schemacie. synchronizationRules [0]. objectMappings (dla teraz można założyć, że istnieje tylko 1 reguła synchronizacji)
+ Mapowania obiektów znajdują się w schema.synchronizationRules[0].objectMappings (na razie można założyć, że istnieje tylko 1 reguła synchronizacji)
 
-4. Przełącz mapowanie CredentialData z kroku (2) i Wstaw je do mapowań obiektów w kroku (3)
+4. Przejmij mapowanie credentialdata z kroku (2) i wstaw je do mapowań obiektów w kroku (3)
 
  Mapowanie obiektu wygląda następująco:
  ```
@@ -198,13 +203,13 @@ W tym miejscu wyróżniona wartość "domena" jest nazwą lokalnej domeny Active
  ...
  } 
  ```
- Skopiuj/wklej mapowanie z kroku **Utwórz AD2AADProvisioning i AD2AADPasswordHash zadania** powyżej do tablicy attributeMappings. 
+ Skopiuj/wklej mapowanie z kroku Tworzenie **zadań AD2AADProvisioning i AD2AADPasswordHash** powyżej do tablicy attributeMappings. 
 
- Kolejność elementów w tej tablicy nie ma znaczenia (zaplecze zostanie posortowane dla Ciebie). Należy zachować ostrożność przy dodawaniu tego mapowania atrybutów, jeśli nazwa istnieje już w tablicy (np. Jeśli istnieje już element w attributeMappings, który ma targetAttributeName CredentialData) — mogą wystąpić błędy konfliktów lub istniejące i nowe mapowania mogą być połączone razem (zazwyczaj nie jest to pożądane wyniki). Zaplecze nie powoduje deduplikowania. 
+ Kolejność elementów w tej tablicy nie ma znaczenia (zaplecza będą sortowane dla Ciebie). Należy zachować ostrożność podczas dodawania tego mapowania atrybutów, jeśli nazwa istnieje już w tablicy (np. jeśli istnieje już element w atrybutu attributeMappings, który ma targetAttributeName CredentialData) — mogą wystąpić błędy powodujące konflikt lub mogą wystąpić błędy powodujące konflikt i nowe mapowania mogą zostać połączone (zazwyczaj nie jest to pożądany wynik). Zaplecza nie deduują za Ciebie. 
 
- Pamiętaj, aby to zrobić zarówno dla użytkowników, jak i dla obiektów inetOrgperson
+ Pamiętaj, aby to zrobić zarówno dla użytkowników, jak i inetOrgpersons
 
-5. Zapisz utworzony schemat 
+5. Zapisywanie utworzonego schematu 
  ```
  PUT –
  https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/jobs/ [AD2AADProvisioningJobId]/schema
@@ -213,24 +218,24 @@ W tym miejscu wyróżniona wartość "domena" jest nazwą lokalnej domeny Active
  Dodaj schemat w treści żądania. 
 
 ## <a name="accidental-deletes"></a>Przypadkowe usunięcie
-Ta sekcja zawiera informacje na temat sposobu programistycznego włączania/wyłączania i używania [przypadkowych usunięć](how-to-accidental-deletes.md) .
+W tej sekcji opisano sposób programowego włączania/wyłączania oraz programowego używania [przypadkowego](how-to-accidental-deletes.md) usunięcia.
 
 
-### <a name="enabling-and-setting-the-threshold"></a>Włączanie i Ustawianie progu
-Istnieją dwa ustawienia poszczególnych zadań, których można użyć:
+### <a name="enabling-and-setting-the-threshold"></a>Włączanie i ustawianie progu
+Istnieją dwa ustawienia zadania, których można użyć:
 
- - DeleteThresholdEnabled — włącza zapobieganie przypadkowemu usuwaniu dla zadania, gdy ustawiono wartość "true". Domyślnie ustawiono wartość "true".
- - DeleteThresholdValue — określa maksymalną liczbę usunięć, która będzie dozwolona w każdym wykonaniu zadania w przypadku włączenia zapobiegania przypadkowym usunięciem. Wartość jest domyślnie ustawiona na 500.  Tak więc, jeśli wartość jest równa 500, Maksymalna Liczba usunięć dozwolonych będzie 499 w każdym wykonaniu.
+ - DeleteThresholdEnabled — włącza zapobieganie przypadkowemu usuwaniu zadania w przypadku ustawienia wartości "true". Domyślnie ustawiono wartość "true".
+ - DeleteThresholdValue — określa maksymalną liczbę usuwań, które będą dozwolone w każdym wykonaniu zadania po włączeniu zapobiegania przypadkowemu usuwaniu. Wartość jest domyślnie ustawiona na 500.  Dlatego jeśli wartość jest ustawiona na 500, maksymalna dozwolona liczba usuwań będzie 499 w każdym wykonaniu.
 
-Ustawienia progu usuwania są częścią `SyncNotificationSettings` i mogą być modyfikowane za pośrednictwem grafu. 
+Ustawienia progu usuwania są częścią obiektu `SyncNotificationSettings` i można je modyfikować za pomocą grafu. 
 
-Będziemy musieli zaktualizować SyncNotificationSettings tej konfiguracji, aby zaktualizować wpisy tajne.
+Będziemy musieli zaktualizować ustawienia SyncNotificationSettings, których dotyczy ta konfiguracja, więc zaktualizujemy wpisy tajne.
 
  ```
  PUT – https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/secrets
  ```
 
- Dodaj następującą parę klucz/wartość w tabeli poniżej wartości na podstawie tego, co próbujesz zrobić:
+ Dodaj następującą parę klucz/wartość w poniższej tablicy wartości na podstawie tego, co próbujesz zrobić:
 
 ```
  Request body -
@@ -246,19 +251,19 @@ Będziemy musieli zaktualizować SyncNotificationSettings tej konfiguracji, aby 
 
 ```
 
-Ustawienie "Enabled" w powyższym przykładzie dotyczy włączania/wyłączania wiadomości e-mail z powiadomieniami, gdy zadanie jest poddawane kwarantannie.
+Ustawienie "Włączone" w powyższym przykładzie dotyczy włączania/wyłączania wiadomości e-mail z powiadomieniami, gdy zadanie jest poddane kwarantannie.
 
 
-Obecnie nie są obsługiwane żądania poprawek dla wpisów tajnych, więc musisz dodać wszystkie wartości w treści żądania PUT (jak w powyższym przykładzie), aby zachować inne wartości.
+Obecnie nie obsługujemy żądań PATCH dla wpisów tajnych, dlatego należy dodać wszystkie wartości w treści żądania PUT (jak w powyższym przykładzie), aby zachować inne wartości.
 
-Istniejące wartości dla wszystkich wpisów tajnych można pobrać przy użyciu polecenia 
+Istniejące wartości dla wszystkich wpisów tajnych można pobrać przy użyciu 
 
 ```
 GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secrets 
 ```
 
 ### <a name="allowing-deletes"></a>Zezwalanie na usuwanie
-Aby umożliwić usuwanie przepływów po przejściu zadania do kwarantanny, należy wydać ponownie polecenie "ForceDeletes" jako zakres. 
+Aby zezwolić na przepływ usuwania po kwarantannie w ramach zadania, należy uruchomić ponownie tylko z zakresem "ForceDeletes". 
 
 ```
 Request:
@@ -277,26 +282,26 @@ Request Body:
 
 
 
-## <a name="start-sync-job"></a>Rozpocznij zadanie synchronizacji
+## <a name="start-sync-job"></a>Uruchamianie zadania synchronizacji
 Zadanie można pobrać ponownie za pomocą następującego polecenia:
 
  `GET https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/jobs/ ` 
 
-Dokumentację dotyczącą pobierania zadań można znaleźć [tutaj](/graph/api/synchronization-synchronizationjob-list?tabs=http&view=graph-rest-beta). 
+Dokumentację pobierania zadań można znaleźć [tutaj.](/graph/api/synchronization-synchronizationjob-list?tabs=http&view=graph-rest-beta&preserve-view=true) 
  
-Aby uruchomić zadanie, wydaj to żądanie, używając identyfikatora objectId jednostki usługi utworzonej w pierwszym kroku i identyfikatora zadania zwróconego przez żądanie, które utworzyło zadanie.
+Aby uruchomić zadanie, wyślij to żądanie, używając identyfikatora objectId jednostki usługi utworzonej w pierwszym kroku oraz identyfikatora zadania zwróconego z żądania, które utworzyło zadanie.
 
-Dokumentację dotyczącą sposobu uruchamiania zadania można znaleźć [tutaj](/graph/api/synchronization-synchronizationjob-start?tabs=http&view=graph-rest-beta). 
+Dokumentację uruchamiania zadania można znaleźć [tutaj.](/graph/api/synchronization-synchronizationjob-start?tabs=http&view=graph-rest-beta&preserve-view=true) 
 
  ```
  POST  https://graph.microsoft.com/beta/servicePrincipals/8895955e-2e6c-4d79-8943-4d72ca36878f/synchronization/jobs/AD2AADProvisioning.fc96887f36da47508c935c28a0c0b6da/start
  ```
 
-Oczekiwana odpowiedź to... HTTP 204/Brak zawartości.
+Oczekiwana odpowiedź to ... HTTP 204/Brak zawartości.
 
-Inne polecenia kontrolowania zadania są udokumentowane w [tym miejscu](/graph/api/resources/synchronization-synchronizationjob?view=graph-rest-beta).
+Inne polecenia służące do kontrolowania zadania są udokumentowane [tutaj.](/graph/api/resources/synchronization-synchronizationjob?view=graph-rest-beta&preserve-view=true)
  
-Aby ponownie uruchomić zadanie, jeden z nich użyje...
+Aby ponownie uruchomić zadanie, należy użyć ...
 
  ```
  POST  https://graph.microsoft.com/beta/servicePrincipals/8895955e-2e6c-4d79-8943-4d72ca36878f/synchronization/jobs/AD2AADProvisioning.fc96887f36da47508c935c28a0c0b6da/restart
@@ -307,17 +312,17 @@ Aby ponownie uruchomić zadanie, jeden z nich użyje...
  }
  ```
 
-## <a name="review-status"></a>Przegląd stanu
-Pobieranie stanów zadań za pośrednictwem...
+## <a name="review-status"></a>Stan przeglądu
+Pobieranie stanów zadań za pośrednictwem ...
 
  ```
  GET https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/jobs/ 
  ```
 
-Zapoznaj się z sekcją "status" obiektu Return, aby uzyskać odpowiednie szczegóły.
+Sprawdź odpowiednie szczegóły w sekcji "status" obiektu return
 
 ## <a name="next-steps"></a>Następne kroki 
 
-- [Co to jest Azure AD Connect Sync Cloud?](what-is-cloud-sync.md)
+- [Co to jest Azure AD Connect w chmurze?](what-is-cloud-sync.md)
 - [Przekształcenia](how-to-transformation.md)
-- [Interfejs API synchronizacji usługi Azure AD](/graph/api/resources/synchronization-overview?view=graph-rest-beta)
+- [Interfejs API synchronizacji usługi Azure AD](/graph/api/resources/synchronization-overview?view=graph-rest-beta&preserve-view=true)

@@ -1,29 +1,29 @@
 ---
-title: Szybki Start — Tworzenie wystąpienia zarządzanego platformy Azure dla klastra Apache Cassandra z poziomu Azure Portal
-description: Ten przewodnik Szybki Start przedstawia sposób tworzenia wystąpienia zarządzanego platformy Azure dla klastra Apache Cassandra przy użyciu Azure Portal.
+title: Szybki start — tworzenie wystąpienia zarządzanego platformy Azure dla klastra Apache Cassandra z Azure Portal
+description: W tym przewodniku Szybki start pokazano, jak utworzyć wystąpienie zarządzane platformy Azure dla klastra Apache Cassandra przy użyciu Azure Portal.
 author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
-ms.custom: references_regions
-ms.openlocfilehash: cb555eefb19b5db7ed7eb0792a813c295a4bf38b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: e42f85bb79dcb1bfe14cacbbfda3576888b841c9
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104588617"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481332"
 ---
-# <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal-preview"></a>Szybki Start: Tworzenie wystąpienia zarządzanego platformy Azure dla klastra Apache Cassandra z poziomu Azure Portal (wersja zapoznawcza)
+# <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal-preview"></a>Szybki start: tworzenie wystąpienia zarządzanego platformy Azure dla klastra Apache Cassandra z Azure Portal (wersja zapoznawcza)
  
-Wystąpienie zarządzane platformy Azure dla systemu Apache Cassandra zapewnia zautomatyzowane operacje wdrażania i skalowania dla zarządzanych centrów danych programu Apache Cassandra w środowiskach open source, przyspieszanie scenariuszy hybrydowych i zmniejszanie trwającej konserwacji.
+Usługa Azure Managed Instance dla systemu Apache Cassandra zapewnia zautomatyzowane operacje wdrażania i skalowania dla zarządzanych centrów danych Apache Cassandra typu open source, przyspieszając scenariusze hybrydowe i zmniejszając bieżącą konserwację.
 
 > [!IMPORTANT]
-> Wystąpienie zarządzane platformy Azure dla systemu Apache Cassandra jest obecnie w publicznej wersji zapoznawczej.
+> Wystąpienie zarządzane platformy Azure dla systemu Apache Cassandra jest obecnie dostępne w publicznej wersji zapoznawczej.
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
 > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-W tym przewodniku szybki start pokazano, jak za pomocą Azure Portal utworzyć wystąpienie zarządzane platformy Azure dla klastra Apache Cassandra.
+W tym przewodniku Szybki start pokazano, jak za pomocą Azure Portal utworzyć wystąpienie zarządzane platformy Azure dla klastra Apache Cassandra.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -33,65 +33,74 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-1. Na pasku wyszukiwania Wyszukaj **wystąpienie zarządzane dla platformy Apache Cassandra** i wybierz wynik.
+1. Na pasku wyszukiwania wyszukaj wystąpienie zarządzane dla **rozwiązania Apache Cassandra** i wybierz wynik.
 
-   :::image type="content" source="./media/create-cluster-portal/search-portal.png" alt-text="Wyszukaj wystąpienie zarządzane dla oprogramowania Apache Cassandra." lightbox="./media/create-cluster-portal/search-portal.png" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/search-portal.png" alt-text="Wyszukaj wystąpienie zarządzane dla rozwiązania Apache Cassandra." lightbox="./media/create-cluster-portal/search-portal.png" border="true":::
 
-1. Przycisk **Utwórz wystąpienie zarządzane dla klastra Apache Cassandra** .
+1. Wybierz **przycisk Utwórz wystąpienie zarządzane dla klastra Apache Cassandra.**
 
    :::image type="content" source="./media/create-cluster-portal/create-cluster.png" alt-text="Tworzenie klastra." lightbox="./media/create-cluster-portal/create-cluster.png" border="true":::
 
-1. W okienku **Utwórz wystąpienie zarządzane dla Apache Cassandra** wprowadź następujące szczegóły:
+1. W **okienku Create Managed Instance for Apache Cassandra** (Tworzenie wystąpienia zarządzanego dla systemu Apache Cassandra) wprowadź następujące informacje:
 
-   * **Subskrypcja** — z listy rozwijanej wybierz subskrypcję platformy Azure.
-   * **Grupa zasobów**— Określ, czy chcesz utworzyć nową grupę zasobów, czy użyć istniejącej. Grupa zasobów to kontener zawierający powiązane zasoby dla rozwiązania platformy Azure. Aby uzyskać więcej informacji, zobacz artykuł Omówienie [grupy zasobów platformy Azure](../azure-resource-manager/management/overview.md) .
+   * **Subskrypcja** — z listy rozwijanej wybierz swoją subskrypcję platformy Azure.
+   * **Grupa zasobów**— określ, czy chcesz utworzyć nową grupę zasobów, czy użyć istniejącej. Grupa zasobów to kontener zawierający powiązane zasoby dla rozwiązania platformy Azure. Aby uzyskać więcej informacji, zobacz artykuł Omówienie grupy zasobów platformy [Azure.](../azure-resource-manager/management/overview.md)
    * **Nazwa klastra** — wprowadź nazwę klastra.
-   * **Lokalizacja lokalizacji** , w której zostanie wdrożony klaster.
-   * **SKU** — typ jednostki SKU dla klastra.
-   * **Nie. węzłów**— liczba węzłów w klastrze. Te węzły pełnią rolę replik dla danych.
-   * **Początkowe hasło administratora Cassandra** — hasło, które jest używane do tworzenia klastra.
-   * **Potwierdź hasło administratora Cassandra** — ponownie wprowadź hasło.
+   * **Lokalizacja** — lokalizacja, w której zostanie wdrożony klaster.
+   * **SKU** — typ SKU klastra.
+   * **Nie. liczba węzłów**— liczba węzłów w klastrze. Te węzły działają jako repliki danych.
+   * **Początkowe hasło administratora cassandra** — hasło używane do tworzenia klastra.
+   * **Potwierdź hasło administratora cassandra** — ponownie wdaj swoje hasło.
 
     > [!NOTE]
-    > W publicznej wersji zapoznawczej można utworzyć klaster wystąpienia zarządzanego w regionach *Wschodnie stany USA, zachodnie stany USA, Wschodnie stany USA 2, zachodnie stany USA 2, środkowe stany USA, Południowo-środkowe stany USA, Europa Północna, Europa Zachodnia, południowe Azja Wschodnia i Australia Wschodnia* .
+    > W publicznej wersji zapoznawczej można utworzyć klaster wystąpień zarządzanych w regionach Wschodnie stany USA, Zachodnie stany USA, Wschodnie stany USA 2, Zachodnie stany USA 2, Środkowe stany USA, Południowo-środkowe stany USA, Europa *Północna,* Europa Zachodnia, Południowe Azja Wschodnia i Australia Wschodnia.
 
-   :::image type="content" source="./media/create-cluster-portal/create-cluster-page.png" alt-text="Wypełnij formularz Utwórz klaster." lightbox="./media/create-cluster-portal/create-cluster-page.png" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/create-cluster-page.png" alt-text="Wypełnij formularz tworzenia klastra." lightbox="./media/create-cluster-portal/create-cluster-page.png" border="true":::
 
-1. Następnie wybierz kartę **Sieć** .
+1. Następnie wybierz **kartę** Sieć.
 
-1. W okienku **Sieć** wybierz nazwę **Virtual Network** i **podsieć**. Możesz wybrać istniejący Virtual Network lub utworzyć nowy.
+1. W **okienku** Sieć wybierz **nazwę** Virtual Network **podsieci**. Możesz wybrać istniejącą Virtual Network lub utworzyć nową.
 
-   :::image type="content" source="./media/create-cluster-portal/networking.png" alt-text="Skonfiguruj szczegóły sieci." lightbox="./media/create-cluster-portal/networking.png" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/networking.png" alt-text="Konfigurowanie szczegółów sieci." lightbox="./media/create-cluster-portal/networking.png" border="true":::
 
-1. Jeśli w ostatnim kroku utworzono nową sieć wirtualną, przejdź do kroku 8. W przypadku wybrania istniejącej sieci wirtualnej przed utworzeniem klastra należy zastosować specjalne uprawnienia do Virtual Network i podsieci. Aby to zrobić, użyj `az role assignment create` polecenia, zastępując `<subscription ID>` ,, `<resource group name>` `<VNet name>` i `<subnet name>` z odpowiednimi wartościami:
+    > [!NOTE]
+    > Wdrożenie wystąpienia zarządzanego platformy Azure dla oprogramowania Apache Cassandra wymaga dostępu do Internetu. Wdrożenie kończy się niepowodzeniem w środowiskach, w których dostęp do Internetu jest ograniczony. Upewnij się, że nie blokujesz dostępu w sieci wirtualnej do następujących istotnych usług platformy Azure, które są niezbędne do prawidłowego działania zarządzanej platformy Cassandra:
+    > - Azure Storage
+    > - Azure KeyVault
+    > - Azure Virtual Machine Scale Sets
+    > - Monitorowanie platformy Azure
+    > - Azure Active Directory
+    > - Zabezpieczenia platformy Azure
+
+1. Jeśli w ostatnim kroku utworzono nową sieć wirtualną, przejdź do kroku 8. Jeśli wybrano istniejącą sieć wirtualną, przed utworzeniem klastra musisz zastosować pewne specjalne uprawnienia do Virtual Network podsieci. Aby to zrobić, użyj polecenia , zastępując wartości `az role assignment create` `<subscription ID>` , i odpowiednimi `<resource group name>` `<VNet name>` wartościami:
 
    ```azurecli-interactive
-   az role assignment create --assignee e5007d2c-4b13-4a74-9b6a-605d99f03501 --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>/subnets/<subnet name>
+   az role assignment create --assignee a232010e-820c-4083-83bb-3ace5fc29d0b --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>
    ```
 
    > [!NOTE]
-   > `assignee`Wartości i `role` w poprzednim poleceniu są stałymi wartościami, wprowadź te wartości dokładnie tak, jak wspomniano w poleceniu. Wykonanie tej czynności spowoduje błędy podczas tworzenia klastra. Jeśli wystąpią błędy podczas wykonywania tego polecenia, możesz nie mieć uprawnień do jego uruchamiania, skontaktuj się z administratorem w celu uzyskania uprawnień.
+   > Wartości `assignee` i w poprzednim poleceniu są wartościami stałymi. Wprowadź te wartości dokładnie tak, jak `role` wspomniano w poleceniu . Nie spowoduje to błędów podczas tworzenia klastra. Jeśli podczas wykonywania tego polecenia wystąpią błędy, być może nie masz uprawnień do jego uruchomienia. Skontaktuj się z administratorem, aby uzyskać uprawnienia.
 
-1. Teraz po zakończeniu pracy z siecią kliknij kolejno pozycje **Przegląd + Utwórz**  >  **Utwórz** .
+1. Teraz, po zakończeniu pracy z siecią, kliknij pozycję **Przejrzyj i utwórz**  >  **utwórz**
 
     > [!NOTE]
-    > Utworzenie klastra może potrwać do 15 minut.
+    > Do utworzenia klastra może upłynieć do 15 minut.
 
    :::image type="content" source="./media/create-cluster-portal/review-create.png" alt-text="Przejrzyj podsumowanie, aby utworzyć klaster." lightbox="./media/create-cluster-portal/review-create.png" border="true":::
 
 
-1. Po zakończeniu wdrożenia Sprawdź grupę zasobów, aby wyświetlić nowo utworzony klaster wystąpienia zarządzanego:
+1. Po zakończeniu wdrażania sprawdź grupę zasobów, aby wyświetlić nowo utworzony klaster wystąpienia zarządzanego:
 
-   :::image type="content" source="./media/create-cluster-portal/managed-instance.png" alt-text="Strona przegląd po utworzeniu klastra." lightbox="./media/create-cluster-portal/managed-instance.png" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/managed-instance.png" alt-text="Strona Przegląd po utworzeniu klastra." lightbox="./media/create-cluster-portal/managed-instance.png" border="true":::
 
-1. Aby przeglądać węzły klastra, przejdź do okienka Virtual Network, które zostało użyte do utworzenia klastra, i Otwórz okienko **przeglądu** , aby je wyświetlić:
+1. Aby przeglądać węzły klastra, przejdź do Virtual Network klastra użytego do utworzenia  klastra i otwórz okienko Przegląd, aby je wyświetlić:
 
    :::image type="content" source="./media/create-cluster-portal/resources.png" alt-text="Wyświetl zasoby klastra." lightbox="./media/create-cluster-portal/resources.png" border="true":::
 
 
 ## <a name="connecting-to-your-cluster"></a>Nawiązywanie połączenia z klastrem
 
-Wystąpienie zarządzane platformy Azure dla systemu Apache Cassandra nie tworzy węzłów z publicznymi adresami IP, dlatego w celu nawiązania połączenia z nowo utworzonym klastrem Cassandra należy utworzyć inny zasób wewnątrz sieci wirtualnej. Może to być aplikacja lub maszyna wirtualna z zainstalowanym narzędziem zapytania typu "open source" programu Apache [CQLSH](https://cassandra.apache.org/doc/latest/tools/cqlsh.html) . Możesz użyć [szablonu](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/) , aby wdrożyć maszynę wirtualną Ubuntu. Po wdrożeniu programu Użyj protokołu SSH, aby nawiązać połączenie z maszyną, i zainstaluj CQLSH przy użyciu poniższych poleceń:
+Wystąpienie zarządzane platformy Azure dla systemu Apache Cassandra nie tworzy węzłów z publicznymi adresami IP, dlatego aby nawiązać połączenie z nowo utworzonym klastrem Cassandra, należy utworzyć inny zasób w sieci wirtualnej. Może to być aplikacja lub maszyna wirtualna z zainstalowanym narzędziem do zapytań typu open source [języka CQLSH](https://cassandra.apache.org/doc/latest/tools/cqlsh.html) firmy Apache. Do wdrożenia maszyny [wirtualnej z](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/) systemem Ubuntu można użyć szablonu. Po wdrożeniu połącz się z maszyną za pomocą połączenia SSH, a następnie zainstaluj język CQLSH przy użyciu poniższych poleceń:
 
 ```bash
 # Install default-jre and default-jdk
@@ -115,25 +124,25 @@ cqlsh $host 9042 -u cassandra -p cassandra --ssl
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Jeśli wystąpi błąd podczas stosowania uprawnień do Virtual Network, takich jak *nie można znaleźć użytkownika lub nazwy głównej usługi w bazie danych grafu dla "e5007d2c-4b13-4a74-9b6a-605d99f03501"*, można ręcznie zastosować to samo uprawnienie z Azure Portal. Aby zastosować uprawnienia z portalu, przejdź do okienka **Kontrola dostępu (IAM)** istniejącej sieci wirtualnej i Dodaj przypisanie roli dla "Azure Cosmos DB" do roli "administrator sieci". Jeśli dwa wpisy są wyświetlane podczas wyszukiwania "Azure Cosmos DB", Dodaj zarówno wpisy, jak pokazano na poniższej ilustracji: 
+Jeśli podczas stosowania uprawnień do usługi Virtual Network wystąpi błąd, taki jak Nie można znaleźć użytkownika lub jednostki usługi w grafowej bazie danych dla wartości *"e5007d2c-4b13-4a74-9b6a-605d99f03501",* możesz ręcznie zastosować to samo uprawnienie z poziomu Azure Portal. Aby zastosować uprawnienia z portalu, przejdź do okienka Kontrola dostępu **(IAM)** istniejącej sieci wirtualnej i dodaj przypisanie roli "Azure Cosmos DB" do roli "Administrator sieci". Jeśli podczas wyszukiwania ciągu "Azure Cosmos DB" są wyświetlane dwa wpisy, dodaj oba wpisy, jak pokazano na poniższej ilustracji: 
 
-   :::image type="content" source="./media/create-cluster-cli/apply-permissions.png" alt-text="Zastosuj uprawnienia" lightbox="./media/create-cluster-cli/apply-permissions.png" border="true":::
+   :::image type="content" source="./media/create-cluster-cli/apply-permissions.png" alt-text="Stosowanie uprawnień" lightbox="./media/create-cluster-cli/apply-permissions.png" border="true":::
 
 > [!NOTE] 
-> Przypisanie roli Azure Cosmos DB jest używane tylko do celów wdrożeniowych. Usługa Azure Managed instanced dla platformy Apache Cassandra nie ma zależności zaplecza na Azure Cosmos DB.   
+> Przypisanie Azure Cosmos DB jest używane tylko do celów wdrażania. Wystąpienie zarządzane platformy Azure dla bazy danych Apache Cassandra nie ma zależności zaplecza od Azure Cosmos DB.   
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli nie chcesz nadal korzystać z tego klastra wystąpienia zarządzanego, usuń go z następujących kroków:
+Jeśli nie zamierzasz nadal używać tego klastra wystąpień zarządzanych, usuń go, aby wykonać następujące czynności:
 
-1. W menu po lewej stronie Azure Portal wybierz pozycję **grupy zasobów**.
-1. Z listy wybierz grupę zasobów utworzoną dla tego przewodnika Szybki Start.
-1. W okienku **Przegląd** grupy zasobów wybierz pozycję **Usuń grupę zasobów**.
-1. W następnym oknie wprowadź nazwę grupy zasobów do usunięcia, a następnie wybierz pozycję **Usuń**.
+1. W menu po lewej stronie Azure Portal pozycję **Grupy zasobów.**
+1. Z listy wybierz grupę zasobów utworzoną na podstawie tego przewodnika Szybki start.
+1. W okienku **Przegląd grupy** zasobów wybierz pozycję Usuń **grupę zasobów.**
+1. W następnym oknie wprowadź nazwę grupy zasobów do usunięcia, a następnie wybierz pozycję **Usuń.**
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start przedstawiono sposób tworzenia wystąpienia zarządzanego platformy Azure dla klastra Apache Cassandra przy użyciu Azure Portal. Teraz można rozpocząć pracę z klastrem:
+W tym przewodniku Szybki start opisano sposób tworzenia wystąpienia zarządzanego platformy Azure dla klastra Apache Cassandra przy użyciu Azure Portal. Teraz możesz rozpocząć pracę z klastrem:
 
 > [!div class="nextstepaction"]
-> [Wdróż zarządzany Klaster Apache Spark z Azure Databricks](deploy-cluster-databricks.md)
+> [Wdrażanie zarządzanego klastra Apache Spark za pomocą Azure Databricks](deploy-cluster-databricks.md)

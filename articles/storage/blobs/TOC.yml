@@ -173,7 +173,7 @@
           items:
             - name: Nadmiarowość danych
               href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Tryb failover zarządzany przez klienta w celu odzyskiwania po awarii
+            - name: Zarządzany przez klienta tryb failover na potrzeby odzyskiwania po awarii
               href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Replikacja obiektów
           href: object-replication-overview.md
@@ -289,7 +289,7 @@
               href: storage-blob-container-properties-metadata.md
         - name: Tworzenie obiektów blob i zarządzanie nimi
           items:
-            - name: Wyświetl listę obiektów BLOB (SDK)
+            - name: Lista obiektów blob (SDK)
               href: storage-blobs-list.md
             - name: Zarządzanie właściwościami i metadanymi obiektów blob (.NET)
               href: storage-blob-properties-metadata.md
@@ -299,7 +299,7 @@
               href: storage-blob-copy.md
             - name: Używanie tagów indeksu obiektów blob
               href: storage-blob-index-how-to.md
-            - name: Oblicz liczbę obiektów blob i łączny rozmiar
+            - name: Obliczanie liczby obiektów blob i całkowitego rozmiaru
               href: calculate-blob-count-size.md
         - name: Autoryzowanie dostępu do danych obiektów blob
           items:
@@ -405,19 +405,19 @@
                   href: ../common/configure-network-routing-preference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Konfigurowanie usługi Azure Defender na potrzeby ochrony przed zagrożeniami
               href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Ochrona danych obiektów BLOB
+        - name: Ochrona danych obiektów blob
           items:
-            - name: Zablokuj konto magazynu
+            - name: Blokowanie konta magazynu
               href: ../common/lock-account-resource.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Włączanie usuwania nietrwałego dla kontenerów
               href: soft-delete-container-enable.md
             - name: Włączanie obsługi wersji obiektów blob
               href: versioning-enable.md
-            - name: Włączanie i zarządzanie nietrwałego usuwania dla obiektów BLOB
+            - name: Włączanie usuwania nie softowego dla obiektów blob i zarządzanie nim
               items:
-                - name: Włącz usuwanie nietrwałe obiektów BLOB
+                - name: Włączanie usuwania nie softowego obiektu blob
                   href: soft-delete-blob-enable.md
-                - name: Zarządzanie i przywracanie nietrwałych usuniętych obiektów BLOB
+                - name: Zarządzanie nieukońcowane obiekty blob i ich przywracanie
                   href: soft-delete-blob-manage.md
             - name: Włączanie przywracania do punktu w czasie
               href: point-in-time-restore-manage.md
@@ -427,7 +427,7 @@
               href: storage-blob-change-feed-how-to.md
             - name: Ustawianie zasad niezmienności i zarządzanie nimi
               href: storage-blob-immutability-policies-manage.md
-        - name: Zarządzanie nadmiarowością i trybem failover
+        - name: Zarządzanie nadmiarowością i trybu failover
           items:
             - name: Zmienianie konfiguracji nadmiarowości
               href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -445,7 +445,7 @@
           items:
             - name: Korzystanie z emulatora typu open-source Azurite
               href: ../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Korzystanie z azurite do uruchamiania testów automatycznych
+            - name: Uruchamianie testów automatycznych za pomocą biblioteki Azurite
               href: use-azurite-to-run-automated-tests.md
             - name: Korzystanie z emulatora usługi Azure Storage
               href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -469,20 +469,22 @@
                   href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Autoryzacja przy użyciu usługi Azure AD
                   href: ../common/storage-use-azcopy-authorize-azure-active-directory.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Optymalizowanie wydajności
+                  href: ../common/storage-use-azcopy-optimize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Znajdowanie błędów i wznawianie zadań przy użyciu dzienników
+                  href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 'Przykłady: Upload'
                   href: ../common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 'Przykłady: Pobierz'
                   href: ../common/storage-use-azcopy-blobs-download.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: 'Przykłady: Synchronizowanie'
-                  href: ../common/storage-use-azcopy-blobs-synchronize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 'Przykłady: Kopiowanie między kontami'
                   href: ../common/storage-use-azcopy-blobs-copy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 'Przykłady: Synchronizowanie'
+                  href: ../common/storage-use-azcopy-blobs-synchronize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 'Przykłady: Zasobniki usługi Amazon S3'
                   href: ../common/storage-use-azcopy-s3.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: 'Przykłady: Zasobniki usługi Google Cloud Storage'
+                - name: 'Przykłady: zasobniki usługi Google Cloud Storage'
                   href: ../common/storage-use-azcopy-google-cloud.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: 'Konfigurowanie, optymalizowanie i rozwiązywanie problemów'
-                  href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Azure Data Factory
               href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Instalowanie magazynu przy użyciu systemu plików NFS
@@ -505,9 +507,9 @@
           href: ../common/storage-account-move.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Monitorowanie (klasyczne)
           items:
-            - name: Włącz metryki i zarządzaj nimi (klasyczne)
+            - name: Włączanie metryk i zarządzanie nimi (wersja klasyczna)
               href: ../common/manage-storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Włączanie dzienników i zarządzanie nimi (klasyczny)
+            - name: Włączanie dzienników i zarządzanie nimi (wersja klasyczna)
               href: ../common/manage-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Rozwiązywanie problemów
           items:
@@ -519,6 +521,8 @@
           href: ../blobs/reference.md
         - name: AzCopy (wersja 10)
           items:
+            - name: Ustawienia konfiguracji
+              href: ../common/storage-ref-azcopy-configuration-settings.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: azcopy
               href: ../common/storage-ref-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: azcopy bench
@@ -579,9 +583,9 @@
               href: 'https://github.com/microsoft/AzureStorageExplorer/releases'
             - name: Rozwiązywanie problemów z programem Storage Explorer
               href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Opcje wiersza polecenia Eksplorator usługi Storage
+            - name: Eksplorator usługi Storage wiersza polecenia
               href: ../common/storage-explorer-command-line-options.md
-            - name: Link bezpośredni Eksplorator usługi Storage
+            - name: Eksplorator usługi Storage link bezpośredni
               href: ../common/storage-explorer-direct-link.md
             - name: Zabezpieczenia Eksploratora usługi Storage
               href: ../common/storage-explorer-security.md
@@ -663,11 +667,11 @@
           href: data-lake-storage-introduction.md
     - name: Samouczki
       items:
-        - name: Używanie z modułami datakostks i Spark
+        - name: Używanie z databricks i spark
           href: data-lake-storage-use-databricks-spark.md
-        - name: Używanie z usługami Apache Hive i HDInsight
+        - name: Używanie z Apache Hive i HDInsight
           href: data-lake-storage-tutorial-extract-transform-load-hive.md
-        - name: Używany z różnicami w danych i Event Grid
+        - name: Używanie z deltą i Event Grid Databricks
           href: data-lake-storage-events.md
         - name: Używanie z innymi usługami platformy Azure
           href: data-lake-storage-integrate-with-services-tutorials.md
@@ -741,18 +745,24 @@
               items:
                 - name: Rozpoczęcie pracy
                   href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Autoryzacja przy użyciu usługi Azure AD
+                  href: ../common/storage-use-azcopy-authorize-azure-active-directory.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Optymalizowanie wydajności
+                  href: ../common/storage-use-azcopy-optimize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Znajdowanie błędów i wznawianie zadań przy użyciu dzienników
+                  href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 'Przykłady: Upload'
                   href: ../common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 'Przykłady: Pobierz'
                   href: ../common/storage-use-azcopy-blobs-download.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: 'Przykłady: Synchronizowanie'
-                  href: ../common/storage-use-azcopy-blobs-synchronize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 'Przykłady: Kopiowanie między kontami'
                   href: ../common/storage-use-azcopy-blobs-copy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 'Przykłady: Synchronizowanie'
+                  href: ../common/storage-use-azcopy-blobs-synchronize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 'Przykłady: Zasobniki usługi Amazon S3'
                   href: ../common/storage-use-azcopy-s3.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: 'Konfigurowanie, optymalizowanie i rozwiązywanie problemów'
-                  href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 'Przykłady: Zasobniki usługi Google Cloud Storage'
+                  href: ../common/storage-use-azcopy-google-cloud.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Azure Data Factory
               href: ../../data-factory/connector-azure-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Przenoszenie danych za pomocą narzędzia DistCp

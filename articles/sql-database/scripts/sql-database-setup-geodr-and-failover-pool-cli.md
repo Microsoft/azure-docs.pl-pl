@@ -1,26 +1,26 @@
 ---
-title: 'AZ CLI: Konfigurowanie aktywnej replikacji geograficznej dla puli elastycznej'
-description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure służący do konfigurowania aktywnej replikacji geograficznej dla bazy danych w puli w Azure SQL Database i przełączania jej w tryb failover.
+title: 'Az CLI: Konfigurowanie aktywnej replikacji geograficznej dla elastycznej puli'
+description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure do skonfigurowania aktywnej replikacji geograficznej dla bazy danych w puli w Azure SQL Database i trybu fail over.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 8d0860cc5a4ee60cbf60d7b55789c518049dfb90
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 093542a5cc977d30e2c33b320d5d7833a47232f5
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92742648"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482436"
 ---
-# <a name="use-cli-to-configure-active-geo-replication-for-a-pooled-database-in-azure-sql-database"></a>Użyj interfejsu wiersza polecenia, aby skonfigurować aktywną replikację geograficzną dla bazy danych w puli w Azure SQL Database
+# <a name="use-cli-to-configure-active-geo-replication-for-a-pooled-database-in-azure-sql-database"></a>Konfigurowanie aktywnej replikacji geograficznej dla bazy danych w puli w programie Azure SQL Database
 
-Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure konfiguruje aktywną replikację geograficzną dla bazy danych w puli w Azure SQL Database i przełącza ją w tryb failover do repliki pomocniczej bazy danych.
+Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure konfiguruje aktywną replikację geograficzną dla bazy danych w puli w usłudze Azure SQL Database i przejmuje ją w tryb pracy w trybie pracy dodatkowej bazy danych.
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten artykuł będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
@@ -42,21 +42,21 @@ az account set -s $subscription # ...or use 'az login'
 
 ### <a name="clean-up-deployment"></a>Czyszczenie wdrożenia
 
-Użyj poniższego polecenia, aby usunąć grupę zasobów i wszystkie skojarzone z nią zasoby.
+Użyj następującego polecenia, aby usunąć grupę zasobów i wszystkie skojarzone z nią zasoby.
 
 ```azurecli-interactive
 az group delete --name $resource
 az group delete --name $secondaryResource
 ```
 
-## <a name="sample-reference"></a>Przykładowe odwołanie
+## <a name="sample-reference"></a>Przykładowa referencja
 
 W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
 | Polecenie | Opis |
 |---|---|
-| [AZ SQL Elastic-Pool](/cli/azure/sql/elastic-pool) | Polecenia puli elastycznej |
-| [AZ SQL DB Replica](/cli/azure/sql/db/replica) | Polecenia replikacji bazy danych. |
+| [az sql elastic-pool](/cli/azure/sql/elastic-pool) | Polecenia puli elastycznej |
+| [az sql db replica](/cli/azure/sql/db/replica) | Polecenia replikacji bazy danych. |
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -3,13 +3,13 @@
 - name: Omówienie
   expanded: true
   items:
-    - name: Omówienie usługi rozpoznawania twarzy
+    - name: Co to jest usługa rozpoznawania twarzy
       href: Overview.md
     - name: Ceny
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/face-api'
     - name: Co nowego
       href: releasenotes.md
-- name: Przewodnik Szybki start dla rozpoznawania twarzy
+- name: Szybki start
   href: Quickstarts/client-libraries.md
 - name: Samples
   href: /samples/browse/?products=azure&term=face
@@ -45,6 +45,14 @@
           href: face-resource-container-config.md
         - name: Korzystanie z wystąpień kontenerów
           href: /azure/cognitive-services/containers/azure-container-instance-recipe?context=/azure/cognitive-services/face/context/context
+    - name: Gotowość przedsiębiorstwa
+      items:
+        - name: Konfigurowanie sieci wirtualnych
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/face/context/context
+        - name: Korzystanie z kluczy zarządzanych przez klienta
+          href: encrypt-data-at-rest.md
+        - name: Korzystanie z uwierzytelniania usługi Azure AD
+          href: ../authentication.md?context=/azure/cognitive-services/face/context/context
 - name: Pojęcia
   items:
     - name: Wykrywanie twarzy
@@ -75,15 +83,15 @@
       href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face'
 - name: Zasoby
   items:
-    - name: Obsługa regionów
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: Gotowość przedsiębiorstwa
+      items:
+        - name: Obsługa regionów
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Zgodność i certyfikacja
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Moduły learn
       href: 'https://docs.microsoft.com/learn/modules/detect-analyze-faces/'
     - name: Opcje wsparcia technicznego i pomocy
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/face/context/context
-    - name: Zgodność
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Szyfrowanie
-      href: encrypt-data-at-rest.md
     - name: Aktualizacje platformy Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'

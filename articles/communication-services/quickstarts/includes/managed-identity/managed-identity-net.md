@@ -1,29 +1,29 @@
 ---
-ms.openlocfilehash: 424e70f4f3656be2196f4dbdfbddb852846b6897
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
-ms.translationtype: MT
+ms.openlocfilehash: a055cc1b715f93830647c9b13793a59d09db605c
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307486"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107511289"
 ---
 ## <a name="setting-up"></a>Konfigurowanie
 
-### <a name="create-a-new-c-application"></a>Utwórz nową aplikację w języku C#
+### <a name="create-a-new-c-application"></a>Tworzenie nowej aplikacji w języku C#
 
-W oknie konsoli (na przykład cmd, PowerShell lub bash) Użyj `dotnet new` polecenia, aby utworzyć nową aplikację konsolową o nazwie `ManagedIdentitiesQuickstart` . To polecenie tworzy prosty projekt C# "Hello world" z pojedynczym plikiem źródłowym: `Program.cs` .
+W oknie konsoli (takim jak cmd, PowerShell lub Bash) użyj polecenia , aby utworzyć nową aplikację `dotnet new` konsolową o nazwie `ManagedIdentitiesQuickstart` . To polecenie tworzy prosty projekt języka C# "Hello world" z pojedynczym plikiem źródłowym: `Program.cs` .
 
 ```console
 dotnet new console -o ManagedIdentitiesQuickstartQuickstart
 ```
 
-Zmień katalog na nowo utworzony folder aplikacji i Użyj `dotnet build` polecenia, aby skompilować aplikację.
+Zmień katalog na nowo utworzony folder aplikacji i użyj `dotnet build` polecenia , aby skompilować aplikację.
 
 ```console
 cd ManagedIdentitiesQuickstart
 dotnet build
 ```
 
-### <a name="install-the-sdk-packages"></a>Instalowanie pakietów SDK
+### <a name="install-the-sdk-packages"></a>Instalowanie pakietów zestawu SDK
 
 ```console
 dotnet add package Azure.Communication.Identity
@@ -31,9 +31,9 @@ dotnet add package Azure.Communication.Sms
 dotnet add package Azure.Identity
 ```
 
-### <a name="use-the-sdk-packages"></a>Korzystanie z pakietów SDK
+### <a name="use-the-sdk-packages"></a>Korzystanie z pakietów zestawu SDK
 
-Dodaj następujące `using` dyrektywy, aby `Program.cs` użyć tożsamości platformy Azure i zestawów SDK usługi Azure Storage.
+Dodaj następujące dyrektywy `using` do funkcji , aby używać tożsamości platformy Azure i zestawów SDK usługi Azure `Program.cs` Storage.
 
 ```csharp
 using Azure.Identity;
@@ -43,17 +43,17 @@ using Azure.Core;
 using Azure;
 ```
 
-## <a name="create-a-defaultazurecredential"></a>Utwórz DefaultAzureCredential
+## <a name="create-a-defaultazurecredential"></a>Tworzenie wartości domyślnejAzureCredential
 
-W tym przewodniku szybki start będziemy używać [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) . To poświadczenie jest odpowiednie dla środowisk produkcyjnych i programistycznych. Ponieważ jest to konieczne dla każdej operacji, utwórz ją w `Program.cs` klasie. Dodaj następujący na początku pliku.
+W tym przewodniku Szybki start będziemy używać wartości [DefaultAzureCredential.](/dotnet/api/azure.identity.defaultazurecredential) To poświadczenie jest odpowiednie dla środowisk produkcyjnych i deweloperskich. Ponieważ jest to potrzebne dla każdej operacji, utwórzmy ją w klasie `Program.cs` . Dodaj następujący kod na początku pliku.
 
 ```csharp
      private DefaultAzureCredential credential = new DefaultAzureCredential();
 ```
 
-## <a name="issue-a-token-with-managed-identities"></a>Wystawianie tokenu z tożsamościami zarządzanymi
+## <a name="issue-a-token-with-managed-identities"></a>Wydawanie tokenu przy użyciu tożsamości zarządzanych
 
-Teraz dodamy kod używający utworzonego poświadczenia, aby wydać token dostępu VoIP. Kod ten zostanie wywołany później.
+Teraz dodamy kod, który używa utworzonego poświadczenia, aby wydać token dostępu VoIP. Ten kod wywołamy później.
 
 ```csharp
      public Response<AccessToken> CreateIdentityAndGetTokenAsync(Uri resourceEndpoint)
@@ -68,9 +68,9 @@ Teraz dodamy kod używający utworzonego poświadczenia, aby wydać token dostę
      }
 ```
 
-## <a name="send-an-sms-with-managed-identities"></a>Wyślij wiadomość SMS z tożsamościami zarządzanymi
+## <a name="send-an-sms-with-managed-identities"></a>Wysyłanie wiadomości SMS przy użyciu tożsamości zarządzanych
 
-Innym przykładem użycia tożsamości zarządzanych jest dodanie tego kodu, który używa tego samego poświadczenia do wysyłania wiadomości SMS:
+Jako kolejny przykład użycia tożsamości zarządzanych dodamy ten kod, który używa tego samego poświadczenia do wysyłania wiadomości SMS:
 
 ```csharp
      public SmsSendResult SendSms(Uri resourceEndpoint, string from, string to, string message)
@@ -87,9 +87,9 @@ Innym przykładem użycia tożsamości zarządzanych jest dodanie tego kodu, kt�
      }
 ```
 
-## <a name="write-the-main-method"></a>Napisz metodę Main
+## <a name="write-the-main-method"></a>Pisanie metody Main
 
-`Program.cs`Mamy już metodę Main, dodajmy kod, który będzie wywoływał nasz wcześniej utworzony kod, aby zademonstrować użycie zarządzanych tożsamości:
+Twoja metoda powinna już mieć metodę Main. Dodajmy kod, który wywoła utworzony wcześniej kod, aby zademonstrować użycie `Program.cs` tożsamości zarządzanych:
 
 ```csharp
      static void Main(string[] args)
@@ -114,7 +114,7 @@ Innym przykładem użycia tożsamości zarządzanych jest dodanie tego kodu, kt�
      }
 ```
 
-Ostatni `Program.cs` plik powinien wyglądać następująco:
+Ostateczny plik `Program.cs` powinien wyglądać tak:
 
 ```csharp
 class Program
@@ -165,9 +165,9 @@ class Program
     }
 ```
 
-## <a name="run-the-program"></a>Uruchom program
+## <a name="run-the-program"></a>Uruchamianie programu
 
-Teraz powinno być możliwe uruchamianie aplikacji przy użyciu `dotnet run` folderu aplikacji. Dane wyjściowe powinny wyglądać podobnie do następujących:
+Teraz powinno być możliwe uruchomienie aplikacji przy użyciu `dotnet run` z folderu aplikacji. Dane wyjściowe powinny wyglądać następująco:
 ```
 Retrieving new Access Token, using Managed Identities
 Retrieved Access Token: ey....

@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: wprowadzenie Eksplorowanie Synapse Knowledge Center'
-description: W tym samouczku dowiesz się, jak korzystać z centrum wiedzy Synapse.
+title: 'Samouczek: rozpoczynanie pracy z Centrum wiedzy synapse'
+description: Z tego samouczka dowiesz się, jak korzystać z Centrum wiedzy synapse.
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -10,58 +10,60 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 04/04/2021
-ms.openlocfilehash: 92d1534b5dd0233ce88b81d605c6502b67a121df
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: f4cc631bd3ff05dc63566677ec96ef0360d362c9
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307898"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517355"
 ---
-# <a name="explore-the-synapse-knowledge-center"></a>Poznaj centrum wiedzy Synapse
+# <a name="explore-the-synapse-knowledge-center"></a>Eksplorowanie rozwiązania Synapse Centrum wiedzy
 
-W tym samouczku dowiesz się, jak korzystać z centrum wiedzy Synapse Studio.
+Z tego samouczka dowiesz się, jak używać centrum Synapse Studio Wiedzy.
 
-## <a name="introduction-to-the-knowledge-center"></a>Wprowadzenie do centrum wiedzy
+## <a name="finding-to-the-knowledge-center"></a>Znajdowanie Centrum wiedzy
 
-Istnieją dwa sposoby znajdowania centrum wiedzy w programie Synapse Studio:
+Istnieją dwa sposoby znajdowania Centrum wiedzy w Synapse Studio:
 
-  1. W centrum Narzędzia główne w prawym górnym rogu strony kliknij pozycję **nauka**.
-  2. Na pasku menu u góry kliknij pozycję **?** a następnie **centrum merytoryczne**.
+  1. W centrum Strona główna w prawym górnym rogu strony kliknij pozycję **Dowiedz się.**
+  2. Na pasku menu u góry kliknij pozycję **?** a następnie **Centrum wiedzy**.
 
-Wybierz jedną z metod i Otwórz **centrum merytoryczne**.
+Wybierz jedną z metod i otwórz **Centrum wiedzy**.
 
-Gdy będzie widoczne, zobaczysz, że **centrum wiedzy** umożliwia wykonywanie trzech czynności:
-* **Użyj przykładów natychmiastowych**. Jeśli potrzebujesz szybkiego przykładu działania Synapse, wybierz tę opcję.
-* **Przeglądaj Galerię**. Ta opcja umożliwia łączenie przykładowych zestawów danych i Dodawanie przykładowego kodu w postaci skryptów SQL, notesów i potoków.
-* **Samouczek Synapse Studio**. Ta opcja umożliwia zapoznanie się z krótkim przewodnikiem dotyczącym podstawowych części programu Synapse Studio. Jest to przydatne, jeśli wcześniej nie korzystano z programu Synapse Studio.
+## <a name="exploring-the-knowledge-center"></a>Eksplorowanie Centrum wiedzy
 
-## <a name="exploring-use-samples-immediately"></a>Eksplorowanie: natychmiastowe korzystanie z przykładów
+Gdy będzie ona widoczna, zobaczysz, że **Centrum wiedzy** można wykonać trzy czynności:
+* **Natychmiast użyj przykładów.** Jeśli potrzebujesz szybkiego przykładu działania synapse, wybierz tę opcję.
+* **Przeglądaj galerię**. Ta opcja umożliwia łączenie przykładowych zestawów danych i dodawanie przykładowego kodu w postaci skryptów, notesów i potoków SQL.
+* **Przewodnik Synapse Studio**. Ta opcja umożliwia krótki przewodnik po podstawowych częściach Synapse Studio. Jest to przydatne, jeśli nigdy wcześniej nie Synapse Studio wcześniej.
+
+## <a name="use-samples-immediately-three-samples-to-help-you-get-started-fast"></a>Natychmiastowe używanie przykładów: trzy przykłady, które ułatwiają szybkie rozpoczynanie pracy
 
 W tej sekcji znajdują się trzy elementy:
 * Eksplorowanie przykładowych danych za pomocą platformy Spark
-* Wykonywanie zapytań dotyczących danych przy użyciu języka SQL
+* Wykonywanie zapytań o dane przy użyciu języka SQL
 * Tworzenie tabeli zewnętrznej przy użyciu języka SQL
 
-1. W **centrum wiedzy** kliknij pozycję **Użyj przykładów natychmiast**.
-1. Wybierz pozycję **kwerenda danych przy użyciu języka SQL**.
-1. Kliknij pozycję **Użyj przykładu**.
+1. Na stronie **Centrum wiedzy** kliknij pozycję **Użyj przykładów natychmiast.**
+1. Wybierz pozycję **Query data with SQL (Wykonywanie zapytań o dane przy użyciu języka SQL).**
+1. Kliknij **pozycję Użyj przykładu**.
 1. Zostanie otwarty nowy przykładowy skrypt SQL.
-1. Przewiń do pierwszego zapytania (wiersze 28 do 32) i wybierz tekst zapytania.
-1. Kliknij przycisk Uruchom. Zostanie uruchomiony tylko kod, który został wybrany.
+1. Przewiń do pierwszego zapytania (wiersze od 28 do 32) i wybierz tekst zapytania.
+1. Kliknij przycisk Uruchom. Zostanie uruchomiony tylko wybrany kod.
 
-## <a name="loading-more-nyc-taxi-data"></a>Ładowanie większej ilości danych NYC taksówki
+## <a name="gallery-a-collectiopn-of-sample-data-sets-and-sample-code"></a>Galeria: zbieranie przykładowych zestawów danych i przykładowego kodu
 
-1. Przejdź do **centrum wiedzy**, a następnie kliknij pozycję **Przeglądaj Galerię**.
-1. Wybierz kartę **skrypty SQL** w górnej części strony.
-1. Wybierz pozycję Załaduj próbkę pozyskiwania danych **w Nowym Jorku Taxicab** , kliknij przycisk **Kontynuuj**.
-1. W obszarze **Pula SQL** wybierz **pozycję Wybierz istniejącą pulę** i wybierz pozycję **SQLPOOL1**, a następnie wybierz utworzoną wcześniej bazę danych **SQLPOOL1** .
-1. Kliknij pozycję **Otwórz skrypt**.
+1. Przejdź do Centrum **wiedzy i** kliknij pozycję **Przeglądaj galerię.**
+1. Wybierz **kartę Skrypty SQL** u góry.
+1. Wybierz **pozycję Załaduj zestaw danych New York Taxicab** Przykład pozyskiwania danych, a następnie kliknij przycisk **Kontynuuj.**
+1. W **obszarze Pula SQL** wybierz pozycję Wybierz **istniejącą** pulę, wybierz pozycję **SQLPOOL1,** a następnie wybierz utworzoną wcześniej bazę danych **SQLPOOL1.**
+1. Kliknij **pozycję Open Script (Otwórz skrypt).**
 1. Zostanie otwarty nowy przykładowy skrypt SQL.
-1. Kliknij przycisk **Uruchom**
-1. Spowoduje to utworzenie kilku tabel dla wszystkich danych z NYC taksówki i załadowanie ich przy użyciu polecenia COPY T-SQL. Jeśli te tabele zostały utworzone w poprzednich krokach szybkiego startu, wybierz i wykonaj tylko kod w celu utworzenia i SKOPIOWAnia tabel, które nie istnieją.
+1. Kliknij pozycję **Uruchom.**
+1. Spowoduje to utworzenie kilku tabel dla wszystkich danych dotyczących taksówek w Stanie Nowy Jork i załadowanie ich przy użyciu polecenia T-SQL COPY. Jeśli te tabele zostały utworzone w poprzednich krokach Szybkiego startu, wybierz i wykonaj tylko kod create i copy dla tabel, które nie istnieją.
 
     > [!NOTE] 
-    > W przypadku korzystania z galerii przykładów dla skryptu SQL z dedykowaną pulą SQL (dawniej SQL DW) będzie można używać tylko istniejącej dedykowanej puli SQL (dawniej SQL DW).
+    > W przypadku używania przykładowej galerii dla skryptu SQL z dedykowaną pulą SQL (dawniej SQL DW) będzie można używać tylko istniejącej dedykowanej puli SQL (dawniej SQL DW).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,24 +1,22 @@
 ---
-title: Błędy niedostępne dla jednostki SKU
-description: Opisuje sposób rozwiązywania problemów z niedostępnym jednostką SKU podczas wdrażania zasobów przy użyciu Azure Resource Manager.
+title: Błędy niedostępnej wersji SKU
+description: Opisuje sposób rozwiązywania problemów z błędem Niedostępny sku podczas wdrażania zasobów za pomocą Azure Resource Manager.
 ms.topic: troubleshooting
-ms.date: 02/18/2020
-ms.openlocfilehash: 5b0bbd653907c109eca526af86979013b3137cfa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/14/2021
+ms.openlocfilehash: 3baedf6a5c9f2dbfd3ddf666b458fac649fce2ac
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98737154"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503902"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Usuwanie błędów związanych z niedostępną jednostką SKU
 
-W tym artykule opisano sposób rozwiązywania błędu **SkuNotAvailable** . Jeśli nie możesz znaleźć odpowiedniej jednostki SKU w tym regionie/strefie lub alternatywnego regionu/strefy, która spełnia Twoje potrzeby biznesowe, Prześlij [żądanie jednostki SKU](/troubleshoot/azure/general/region-access-request-process) do pomocy technicznej platformy Azure.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+W tym artykule opisano sposób rozwiązywania **błędu SkuNotAvailable.** Jeśli nie możesz znaleźć odpowiedniej sku w tym regionie/strefie lub alternatywnym regionie/strefie, która spełnia Twoje potrzeby biznesowe, prześlij żądanie [SKU](/troubleshoot/azure/general/region-access-request-process) do pomoc techniczna platformy Azure.
 
 ## <a name="symptom"></a>Objaw
 
-Podczas wdrażania zasobu (zazwyczaj maszyny wirtualnej) pojawia się następujący kod błędu i komunikat o błędzie:
+Podczas wdrażania zasobu (zazwyczaj maszyny wirtualnej) jest wyświetlany następujący kod błędu i komunikat o błędzie:
 
 ```
 Code: SkuNotAvailable
@@ -28,19 +26,19 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 ## <a name="cause"></a>Przyczyna
 
-Ten błąd występuje, gdy wybrana jednostka SKU zasobu (na przykład rozmiar maszyny wirtualnej) nie jest dostępna dla wybranej lokalizacji.
+Ten błąd występuje, gdy wybrana przez Ciebie wartość SKU zasobu (na przykład rozmiar maszyny wirtualnej) nie jest dostępna dla wybranej lokalizacji.
 
-Jeśli wdrażasz maszynę wirtualną platformy Azure lub wystąpienie zestawu skalowania punktowego, w tej lokalizacji nie ma żadnej pojemności dla platformy Azure. Aby uzyskać więcej informacji, zobacz [dodatkowe komunikaty o błędach](../../virtual-machines/error-codes-spot.md).
+Jeśli wdrażasz maszynę wirtualną usługi Azure Spot lub wystąpienie zestawu skalowania spot, w tej lokalizacji nie ma żadnej pojemności dla usługi Azure Spot. Aby uzyskać więcej informacji, zobacz [Spot error messages (Komunikaty o błędach punktowych).](../../virtual-machines/error-codes-spot.md)
 
 ## <a name="solution-1---powershell"></a>Rozwiązanie 1 — PowerShell
 
-Aby określić, które jednostki SKU są dostępne w regionie/strefie, użyj polecenia [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku) . Filtruj wyniki według lokalizacji. Dla tego polecenia trzeba mieć najnowszą wersję programu PowerShell.
+Aby określić, które jednostki SKU są dostępne w regionie/strefie, użyj [polecenia Get-AzComputeResourceSku.](/powershell/module/az.compute/get-azcomputeresourcesku) Przefiltruj wyniki według lokalizacji. Musisz mieć najnowszą wersję programu PowerShell dla tego polecenia.
 
 ```azurepowershell-interactive
 Get-AzComputeResourceSku | where {$_.Locations -icontains "centralus"}
 ```
 
-Wyniki obejmują listę jednostek SKU dla lokalizacji i wszelkie ograniczenia dotyczące tej jednostki SKU. Zwróć uwagę, że jednostka SKU może być wymieniona jako `NotAvailableForSubscription` .
+Wyniki zawierają listę jednostki SKU dla lokalizacji i wszelkie ograniczenia dotyczące tej jednostki SKU. Zwróć uwagę, że jako sku może być wymieniona `NotAvailableForSubscription` .
 
 ```output
 ResourceType          Name           Locations   Zone      Restriction                      Capability           Value
@@ -51,49 +49,85 @@ virtualMachines       Standard_A2    centralus             NotAvailableForSubscr
 virtualMachines       Standard_D1_v2 centralus   {2, 1, 3}                                  MaxResourceVolumeMB
 ```
 
-Kilka dodatkowych próbek:
+Aby filtrować według lokalizacji i sku, użyj:
 
 ```azurepowershell-interactive
-Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.ResourceType.Contains("virtualMachines") -and $_.Name.Contains("Standard_DS14_v2")}
-Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.ResourceType.Contains("virtualMachines") -and $_.Name.Contains("v3")} | fc
-```
+$SubId = (Get-AzContext).Subscription.Id
 
-Dołączanie "FC" na końcu zwraca więcej szczegółów.
+$Region = "centralus" # change region here
+$VMSku = "Standard_M" # change VM SKU here
 
-## <a name="solution-2---azure-cli"></a>Rozwiązanie 2 — interfejs wiersza polecenia platformy Azure
+$VMSKUs = Get-AzComputeResourceSku | where {$_.Locations.Contains($Region) -and $_.ResourceType.Contains("virtualMachines") -and $_.Name.Contains($VMSku)}
 
-Aby określić, które jednostki SKU są dostępne w regionie, użyj `az vm list-skus` polecenia. Użyj `--location` parametru, aby przefiltrować dane wyjściowe do lokalizacji, z której korzystasz. Użyj `--size` parametru, aby wyszukać według częściowej nazwy rozmiaru.
+$OutTable = @()
 
-```azurecli-interactive
-az vm list-skus --location southcentralus --size Standard_F --output table
+foreach ($SkuName in $VMSKUs.Name)
+        {
+            $LocRestriction = if ((($VMSKUs | where Name -EQ $SkuName).Restrictions.Type | Out-String).Contains("Location")){"NotAvavalableInRegion"}else{"Available - No region restrictions applied" }
+            $ZoneRestriction = if ((($VMSKUs | where Name -EQ $SkuName).Restrictions.Type | Out-String).Contains("Zone")){"NotAvavalableInZone: "+(((($VMSKUs | where Name -EQ $SkuName).Restrictions.RestrictionInfo.Zones)| Where-Object {$_}) -join ",")}else{"Available - No zone restrictions applied"}
+            
+            
+            $OutTable += New-Object PSObject -Property @{
+                                                         "Name" = $SkuName
+                                                         "Location" = $Region
+                                                         "Applies to SubscriptionID" = $SubId
+                                                         "Subscription Restriction" = $LocRestriction
+                                                         "Zone Restriction" = $ZoneRestriction
+                                                         }
+         }
+
+$OutTable | select Name, Location, "Applies to SubscriptionID", "Region Restriction", "Zone Restriction" | Sort-Object -Property Name | FT
 ```
 
 Polecenie zwraca wyniki, takie jak:
 
 ```output
-ResourceType     Locations       Name              Zones    Capabilities    Restrictions
----------------  --------------  ----------------  -------  --------------  --------------
-virtualMachines  southcentralus  Standard_F1                ...             None
-virtualMachines  southcentralus  Standard_F2                ...             None
-virtualMachines  southcentralus  Standard_F4                ...             None
+Name                   Location  Applies to SubscriptionID            Region Restriction                         Zone Restriction                        
+----                   --------  -------------------------            ------------------------                   ----------------     
+Standard_M128          centralus xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Available - No region restrictions applied Available - No zone restrictions applied
+Standard_M128-32ms     centralus xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Available - No region restrictions applied Available - No zone restrictions applied
+Standard_M128-64ms     centralus xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Available - No region restrictions applied Available - No zone restrictions applied
+Standard_M128dms_v2    centralus xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx NotAvavalableInRegion                      NotAvavalableInZone: 1,2,3
+```
+
+## <a name="solution-2---azure-cli"></a>Rozwiązanie 2 — interfejs wiersza polecenia platformy Azure
+
+Aby określić, które jednostki SKU są dostępne w regionie, użyj [polecenia az vm list-skus.](/cli/azure/vm#az_vm_list_skus) Użyj `--location` parametru , aby filtrować dane wyjściowe według lokalizacji. Użyj `--size` parametru , aby wyszukać według częściowej nazwy rozmiaru. Użyj `--all` parametru , aby wyświetlić wszystkie informacje, w tym rozmiary, które nie są dostępne dla bieżącej subskrypcji.
+
+Musisz mieć interfejs wiersza polecenia platformy Azure w wersji 2.15.0 lub nowszej. Aby sprawdzić swoją wersję, `az --version` użyj . W razie potrzeby [zaktualizuj instalację programu](/cli/azure/update-azure-cli).
+
+```azurecli-interactive
+az vm list-skus --location southcentralus --size Standard_F --all --output table
+```
+
+Polecenie zwraca wyniki takie jak:
+
+```output
+ResourceType     Locations       Name              Zones    Restrictions
+---------------  --------------  ----------------  -------  --------------
+virtualMachines  southcentralus  Standard_F1       1,2,3    None
+virtualMachines  southcentralus  Standard_F2       1,2,3    None
+virtualMachines  southcentralus  Standard_F4       1,2,3    None
+...
+virtualMachines  southcentralus  Standard_F72s_v2  1,2,3    NotAvailableForSubscription, type: Zone, locations: southcentralus, zones: 1,2,3
 ...
 ```
 
 ## <a name="solution-3---azure-portal"></a>Rozwiązanie 3 — Azure Portal
 
-Aby określić, które jednostki SKU są dostępne w regionie, użyj [portalu](https://portal.azure.com). Zaloguj się do portalu i Dodaj zasób za pomocą interfejsu. Podczas ustawiania wartości są wyświetlane dostępne jednostki SKU dla tego zasobu. Wdrożenie nie jest konieczne.
+Aby określić, które jednostki SKU są dostępne w regionie, użyj [portalu](https://portal.azure.com). Zaloguj się do portalu i dodaj zasób za pośrednictwem interfejsu . Po skonfigurowaniu wartości zobaczysz dostępne jednostki SKU dla tego zasobu. Nie musisz kończyć wdrażania.
 
-Na przykład Rozpocznij proces tworzenia maszyny wirtualnej. Aby wyświetlić inny dostępny rozmiar, wybierz pozycję **Zmień rozmiar**.
+Na przykład rozpocznij proces tworzenia maszyny wirtualnej. Aby wyświetlić inny dostępny rozmiar, wybierz **pozycję Zmień rozmiar**.
 
 ![Tworzenie maszyny wirtualnej](./media/error-sku-not-available/create-vm.png)
 
-Można filtrować i przewijać dostępne rozmiary.
+Dostępne rozmiary można filtrować i przewijać.
 
 ![Dostępne jednostki SKU](./media/error-sku-not-available/available-sizes.png)
 
 ## <a name="solution-4---rest"></a>Rozwiązanie 4 — REST
 
-Aby określić, które jednostki SKU są dostępne w danym regionie, użyj operacji [SKU zasobów — lista](/rest/api/compute/resourceskus/list) .
+Aby określić, które jednostki SKU są dostępne w regionie, użyj operacji [Resource Skus - List.](/rest/api/compute/resourceskus/list)
 
 Zwraca dostępne jednostki SKU i regiony w następującym formacie:
 

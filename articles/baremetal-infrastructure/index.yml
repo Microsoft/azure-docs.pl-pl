@@ -7,15 +7,15 @@ metadata:
   services: baremetal-infrastructure
   ms.service: baremetal-infrastructure
   ms.topic: landing-page
-  author: shortpatti
-  ms.author: v-patsho
-  ms.date: 03/19/2021
-  ms.openlocfilehash: 89bd62f1462f4b3a20b1fdb9469ccb75de93ce78
-  ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+  author: Ajayan1008
+  ms.author: v-hborys
+  ms.date: 04/14/2021
+  ms.openlocfilehash: 52e70d842f8e8237f1eee3446a8b70f867224be1
+  ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/24/2021
-  ms.locfileid: "104951610"
+  ms.lasthandoff: 04/16/2021
+  ms.locfileid: "107536846"
 landingContent:
 - title: Informacje o usłudze BareMetal Infrastructure
   linkLists:
@@ -25,10 +25,26 @@ landingContent:
       url: concepts-baremetal-infrastructure-overview.md
     - text: Poznawanie warunków
       url: know-baremetal-terms.md
-    - text: Typy obciążeń BareMetal
-      url: /azure/virtual-machines/workloads/sap/get-started?context=/azure/baremetal-infrastructure/workloads/sap/context/context
-    - text: Łączenie jednostek wystąpień BareMetal na platformie Azure
+    - text: Łączenie wystąpień programu BareMetal na platformie Azure
       url: connect-baremetal-infrastructure.md
+- title: BareMetal Infrastructure for Oracle
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest BareMetal Infrastructure for Oracle?
+      url: workloads/oracle/oracle-baremetal-overview.md
+    - text: Jednostki SKU BareMetal dla obciążeń Oracle
+      url: workloads/oracle/oracle-baremetal-skus.md
+    - text: Magazyn na platformie BareMetal dla programu Oracle
+      url: workloads/oracle/oracle-baremetal-storage.md
+    - text: Zagadnienia dotyczące poprawek
+      url: workloads/oracle/oracle-baremetal-patching.md
+    - text: Konfiguracja sieci Ethernet
+      url: workloads/oracle/oracle-baremetal-ethernet.md
+    - text: Architektura aplikacji BareMetal for Oracle
+      url: workloads/oracle/oracle-baremetal-architecture.md
+    - text: Aprowizuj oprogramowanie BareMetal dla programu Oracle
+      url: workloads/oracle/oracle-baremetal-provision.md
 - title: Oprogramowanie SAP HANA na platformie Azure (duże wystąpienia)
   linkLists:
   - linkListType: overview

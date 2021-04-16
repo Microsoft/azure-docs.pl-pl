@@ -1,24 +1,21 @@
 ---
-title: Konfigurowanie Windows Virtual Desktop aplikacji MSIX w celu dołączania skryptów programu PowerShell — Azure
-description: Jak tworzyć skrypty programu PowerShell dla dołączania aplikacji MSIX na Windows Virtual Desktop.
+title: Konfigurowanie Windows Virtual Desktop MSIX dołączania skryptów programu PowerShell — Azure
+description: Jak tworzyć skrypty programu PowerShell dla dołączania aplikacji MSIX dla Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 143f0a9d23cdc70425147faa95258ec753b92691
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: d1ca4a843c6731cde7ed70d65fc230a21ef6e7c4
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365384"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389438"
 ---
 # <a name="create-powershell-scripts-for-msix-app-attach"></a>Tworzenie skryptów programu PowerShell dla dołączania aplikacji MSIX
 
 W tym temacie opisano sposób skonfigurowania skryptów programu PowerShell dla dołączania aplikacji MSIX.
-
->[!IMPORTANT]
->Przed rozpoczęciem upewnij się, że wypełniasz i przesyłasz ten [formularz,](https://aka.ms/enablemsixappattach) aby włączyć dołączanie aplikacji MSIX w ramach subskrypcji. Jeśli nie masz zatwierdzonego żądania, dołączanie aplikacji MSIX nie będzie działać. Zatwierdzanie żądań może potrwać do 24 godzin w dniach roboczych. Po zaakceptowaniu i zakończeniu żądania otrzymasz wiadomość e-mail.
 
 ## <a name="install-certificates"></a>Instalowanie certyfikatów
 
@@ -28,14 +25,14 @@ Jeśli aplikacja używa certyfikatu, który nie jest zaufany publicznie lub zost
 
 1. Kliknij prawym przyciskiem myszy pakiet i wybierz polecenie **Właściwości.**
 2. W wyświetlonym oknie wybierz **kartę Podpisy** cyfrowe. Na karcie powinien być tylko jeden element, jak pokazano na poniższej ilustracji. Wybierz ten element, aby wyróżnić element, a następnie wybierz pozycję **Szczegóły.**
-3. Po wyświetleniu okna szczegółów podpisu cyfrowego wybierz kartę **Ogólne,** wybierz pozycję **Wyświetl certyfikat,** a następnie wybierz **pozycję Zainstaluj certyfikat.**
+3. Po wyświetleniu okna szczegółów podpisu cyfrowego wybierz **kartę Ogólne,** a następnie wybierz pozycję **Wyświetl certyfikat,** a następnie wybierz **pozycję Zainstaluj certyfikat.**
 4. Po otworeniu instalatora wybierz **maszynę lokalną** jako lokalizację magazynu, a następnie wybierz pozycję **Dalej.**
 5. Jeśli instalator zapyta, czy chcesz zezwolić aplikacji na zmianę urządzenia, wybierz pozycję **Tak.**
 6. Wybierz **pozycję Umieść wszystkie certyfikaty w następującym magazynie,** a następnie wybierz pozycję **Przeglądaj.**
 7. Po wyświetlonym oknie wybierania magazynu certyfikatów wybierz pozycję **Zaufane osoby,** a następnie wybierz przycisk **OK.**
 8. Wybierz **pozycję Dalej** i **Zakończ.**
 
-## <a name="enable-microsoft-hyper-v"></a>Włącz Microsoft Hyper-V
+## <a name="enable-microsoft-hyper-v"></a>Włączanie Microsoft Hyper-V
 
 Microsoft Hyper-V musi być włączona, ponieważ polecenie jest potrzebne do etapu `Mount-VHD` i jest potrzebne do `Dismount-VHD` cokołu.
 
@@ -63,7 +60,7 @@ Przed aktualizacją skryptów programu PowerShell upewnij się, że masz identyf
 
 1.  Otwórz udział sieciowy, w którym znajduje się wirtualny dysk twardy wewnątrz maszyny wirtualnej, na której zostanie uruchomiony skrypt.
 
-2.  Kliknij prawym przyciskiem myszy wirtualny dysk twardy i wybierz polecenie **Zainstaluj**. Spowoduje to zainstaluj dysk VHD na literę dysku.
+2.  Kliknij prawym przyciskiem myszy wirtualny dysk twardy i wybierz polecenie **Zainstaluj.** Spowoduje to zainstaluj dysk VHD na literę dysku.
 
 3.  Po instalacji dysku VHD zostanie **otwarte Eksplorator plików** dysku twardego. Przechwyć folder nadrzędny i zaktualizuj **zmienną $parentFolder** nadrzędnej
 
@@ -74,9 +71,9 @@ Przed aktualizacją skryptów programu PowerShell upewnij się, że masz identyf
 
     Na przykład `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`.
 
-5.  Otwórz wiersz polecenia i wprowadź **mountvol**. To polecenie spowoduje wyświetlenie listy woluminów i ich identyfikatorów GUID. Skopiuj identyfikator GUID woluminu, na którym litera dysku odpowiada dyskowi zainstalowanemu na dysku VHD w kroku 2.
+5.  Otwórz wiersz polecenia i wprowadź polecenie **mountvol.** To polecenie spowoduje wyświetlenie listy woluminów i ich identyfikatorów GUID. Skopiuj identyfikator GUID woluminu, na którym litera dysku odpowiada dyskowi zainstalowanemu na dysku VHD w kroku 2.
 
-    Na przykład w tym przykładzie danych wyjściowych dla polecenia mountvol, jeśli dysk VHD został zainstalowany na dysku C, należy skopiować wartość powyżej `C:\` :
+    Na przykład w tych przykładowych danych wyjściowych polecenia mountvol, jeśli dysk VHD został zainstalowany na dysku C, należy skopiować wartość powyżej `C:\` :
 
     ```cmd
     Possible values for VolumeName along with current mount points are:
@@ -148,7 +145,7 @@ Przed aktualizacją skryptów programu PowerShell upewnij się, że masz identyf
 
 ### <a name="register-powershell-script"></a>Rejestrowanie skryptu programu PowerShell
 
-Aby uruchomić skrypt rejestru, uruchom następujące polecenia cmdlet programu PowerShell z wartościami zastępczymi zastąpionymi wartościami, które mają zastosowanie do twojego środowiska.
+Aby uruchomić skrypt rejestrowania, uruchom następujące polecenia cmdlet programu PowerShell z wartościami zastępczymi zastąpionymi wartościami, które dotyczą Twojego środowiska.
 
 ```powershell
 #MSIX app attach registration sample
@@ -216,15 +213,15 @@ Każdy z tych skryptów automatycznych uruchamia jedną fazę dołączania skryp
 
 ## <a name="use-packages-offline"></a>Korzystanie z pakietów w trybie offline
 
-Jeśli używasz pakietów z usługi [Microsoft Store dla Firm](https://businessstore.microsoft.com/) lub [Microsoft Store dla Instytucji Edukacyjnych](https://educationstore.microsoft.com/) w sieci lub na urządzeniach, które nie są połączone z Internetem, musisz pobrać licencje pakietów z usługi Microsoft Store i zainstalować je na urządzeniu, aby pomyślnie uruchomić aplikację. Jeśli urządzenie jest w trybie online i może nawiązać połączenie z usługą Microsoft Store dla Firm, wymagane licencje powinny zostać automatycznie pobrać, ale jeśli jesteś w trybie offline, musisz ręcznie skonfigurować licencje.
+Jeśli używasz pakietów z usługi [Microsoft Store dla Firm](https://businessstore.microsoft.com/) lub [Microsoft Store dla Instytucji Edukacyjnych](https://educationstore.microsoft.com/) w sieci lub na urządzeniach, które nie są połączone z Internetem, musisz uzyskać licencje na pakiety z usługi Microsoft Store i zainstalować je na urządzeniu, aby pomyślnie uruchomić aplikację. Jeśli urządzenie jest w trybie online i może nawiązać połączenie z usługą Microsoft Store dla Firm, wymagane licencje powinny zostać automatycznie pobrać, ale jeśli jesteś w trybie offline, musisz ręcznie skonfigurować licencje.
 
 Aby zainstalować pliki licencji, należy użyć skryptu programu PowerShell, który wywołuje klasę MDM_EnterpriseModernAppManagement_StoreLicenses02_01 u dostawcy mostka usługi WMI.
 
 Oto jak skonfigurować licencje do użytku w trybie offline:
 
-1. Pobierz pakiet aplikacji, licencje i wymagane struktury z Microsoft Store dla Firm. Potrzebne są zarówno zakodowane, jak i niekodowane pliki licencji. Szczegółowe instrukcje dotyczące pobierania można [znaleźć tutaj.](/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app)
+1. Pobierz pakiet aplikacji, licencje i wymagane struktury z Microsoft Store dla Firm. Potrzebne są zarówno zakodowane, jak i niezakodowane pliki licencji. Szczegółowe instrukcje dotyczące pobierania można [znaleźć tutaj.](/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app)
 2. Zaktualizuj następujące zmienne w skrypcie dla kroku 3:
-      1. `$contentID` to wartość ContentID z niezakodowany plik licencji (XML). Plik licencji można otworzyć w edytorze tekstów.
+      1. `$contentID` to wartość ContentID z pliku licencji niekodowane (XML). Plik licencji można otworzyć w edytorze tekstów.
       2. `$licenseBlob` to cały ciąg obiektu blob licencji w zakodowanym pliku licencji (bin). Zakodowany plik licencji można otworzyć w edytorze tekstów.
 3. Uruchom następujący skrypt w wierszu polecenia programu PowerShell dla administratorów. Dobrym miejscem do przeprowadzenia instalacji licencji jest [](#stage-powershell-script) zakończenie przejściowego skryptu, który również musi zostać uruchomiony z monitu administratora.
 

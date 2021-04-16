@@ -1,84 +1,88 @@
 ---
-title: 'Szybki Start: Wstrzymywanie i wznawianie obliczeń w dedykowanej puli SQL (dawniej SQL DW) przy użyciu Azure PowerShell'
-description: Za pomocą Azure PowerShell można wstrzymywać i wznawiać dedykowaną pulę SQL (dawniej SQL DW). zasoby obliczeniowe.
+title: 'Szybki start: wstrzymywanie i wznawianie obliczeń w dedykowanej puli SQL (dawniej SQL DW) przy użyciu Azure PowerShell'
+description: Za pomocą usługi Azure PowerShell wstrzymywać i wznawiać dedykowaną pulę SQL (dawniej SQL DW). zasobów obliczeniowych.
 services: synapse-analytics
 author: gaursa
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: quickstart
-ms.subservice: sql-dw
-ms.date: 03/20/2019
 ms.author: gaursa
+manager: craigg
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse, devx-track-azurepowershell
-ms.openlocfilehash: 74c30a843ef5edd54c7cd19f3fd49acfe782f488
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 03/20/2019
+ms.topic: quickstart
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.custom:
+- seo-lt-2019
+- azure-synapse
+- devx-track-azurepowershell
+- mode-api
+ms.openlocfilehash: b204132a49a8790b35cc99af8eebf465fd90f041
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104602183"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536371"
 ---
-# <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>Szybki Start: Wstrzymywanie i wznawianie obliczeń w dedykowanej puli SQL (dawniej SQL DW) przy użyciu Azure PowerShell
+# <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>Szybki start: wstrzymywanie i wznawianie obliczeń w dedykowanej puli SQL (dawniej SQL DW) przy użyciu Azure PowerShell
 
-Za pomocą Azure PowerShell można wstrzymywać i wznawiać dedykowane pule SQL (dawniej SQL DW).
+Za pomocą usługi Azure PowerShell wstrzymywać i wznawiać dedykowane zasoby obliczeniowe puli SQL (dawniej SQL DW).
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-W tym przewodniku szybki start założono, że masz już dedykowaną pulę SQL (dawniej SQL DW), którą można wstrzymywać i wznawiać. Jeśli trzeba ją utworzyć, możesz użyć [Utwórz i Połącz Portal](create-data-warehouse-portal.md) , aby utworzyć dedykowaną pulę SQL (wcześniej SQL DW) o nazwie **mySampleDataWarehouse**.
+W tym przewodniku Szybki start założono, że masz już dedykowaną pulę SQL (dawniej SQL DW), która może być wstrzymywana i wznawiana. Jeśli musisz ją utworzyć, możesz użyć polecenia Utwórz i połącz — [portal,](create-data-warehouse-portal.md) aby utworzyć dedykowaną pulę SQL (dawniej SQL DW) o nazwie **mySampleDataWarehouse.**
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
-Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
+Zaloguj się do subskrypcji platformy Azure przy użyciu polecenia [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) i postępuj zgodnie z instrukcjami na ekranie.
 
 ```powershell
 Connect-AzAccount
 ```
 
-Aby sprawdzić, której subskrypcji używasz, uruchom polecenie [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Aby zobaczyć, której subskrypcji używasz, uruchom [get-AzSubscription](/powershell/module/az.accounts/get-azsubscription?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```powershell
 Get-AzSubscription
 ```
 
-Jeśli musisz użyć innej subskrypcji niż domyślna, uruchom polecenie [Set-AzContext](/powershell/module/az.accounts/set-azcontext?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Jeśli musisz użyć innej subskrypcji niż domyślna, uruchom [set-AzContext](/powershell/module/az.accounts/set-azcontext?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```powershell
 Set-AzContext -SubscriptionName "MySubscription"
 ```
 
-## <a name="look-up-dedicated-sql-pool-formerly-sql-dw-information"></a>Wyszukiwanie dedykowanej puli SQL (dawniej SQL DW)
+## <a name="look-up-dedicated-sql-pool-formerly-sql-dw-information"></a>Wyszukiwania informacji o dedykowanej puli SQL (dawniej SQL DW)
 
-Znajdź nazwę bazy danych, nazwę serwera i grupę zasobów dla dedykowanej puli SQL (dawniej SQL DW), którą planujesz wstrzymać i wznowić.
+Znajdź nazwę bazy danych, nazwę serwera i grupę zasobów dla dedykowanej puli SQL (dawniej SQL DW), która ma być wstrzymywana i wznawiana.
 
-Wykonaj następujące kroki, aby znaleźć informacje o lokalizacji dedykowanej puli SQL (dawniej SQL DW):
+Wykonaj następujące kroki, aby znaleźć informacje o lokalizacji dla dedykowanej puli SQL (dawniej SQL DW):
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-1. Kliknij pozycję **Azure Synapse Analytics (wcześniej SQL DW)** na lewej stronie Azure Portal.
-1. Wybierz pozycję **mySampleDataWarehouse** na stronie **usługi Azure Synapse Analytics (dawniej SQL DW)** . Zostanie otwarta Pula SQL.
+1. Kliknij **Azure Synapse Analytics (dawniej SQL DW)** na lewej stronie Azure Portal.
+1. Wybierz **pozycję mySampleDataWarehouse** na **stronie Azure Synapse Analytics (dawniej SQL DW).** Zostanie otwarta pula SQL.
 
     ![Nazwa serwera i grupa zasobów](./media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-1. Zanotuj dedykowaną pulę SQL (dawniej SQL DW), która jest nazwą bazy danych. Ponadto zanotuj nazwę serwera i grupy zasobów.
-1. Użyj tylko pierwszej części nazwy serwera w poleceniach cmdlet programu PowerShell. Na powyższym obrazie pełna nazwa serwera to sqlpoolservername.database.windows.net. Używamy **sqlpoolservername** jako nazwy serwera w poleceniu cmdlet programu PowerShell.
+1. Zapisz nazwę dedykowanej puli SQL (dawniej SQL DW), która jest nazwą bazy danych. Ponadto zanotuj nazwę serwera i grupy zasobów.
+1. Użyj tylko pierwszej części nazwy serwera w poleceniach cmdlet programu PowerShell. Na poprzedniej ilustracji pełna nazwa serwera jest sqlpoolservername.database.windows.net. W poleceniach cmdlet programu PowerShell używamy nazwy serwera **sqlpoolservername.**
 
-## <a name="pause-compute"></a>Wstrzymywanie obliczeń
+## <a name="pause-compute"></a>Wstrzymywanie zasobów obliczeniowych
 
-Aby zaoszczędzić koszty, możesz wstrzymywać i wznawiać zasoby obliczeniowe na żądanie. Na przykład jeśli baza danych nie jest używana w porze nocnej i w weekendy, możesz ją wstrzymać w tych godzinach i wznowić ją w ciągu dnia.
+Aby zaoszczędzić koszty, możesz wstrzymać i wznowić zasoby obliczeniowe na żądanie. Jeśli na przykład nie używasz bazy danych w nocy i w weekendy, możesz ją wstrzymać w tych godzinach i wznowić ją w ciągu dnia.
 
 >[!NOTE]
->Nie jest naliczana opłata za zasoby obliczeniowe, gdy baza danych jest wstrzymana. Opłata za magazyn jest jednak nadal naliczana.
+>Gdy baza danych jest wstrzymana, nie są naliczane opłaty za zasoby obliczeniowe. Jednak nadal będą naliczane opłaty za magazyn.
 
-Aby wstrzymać bazę danych, należy użyć polecenia cmdlet [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) . Poniższy przykład wstrzymuje pulę SQL o nazwie **mySampleDataWarehouse** hostowaną na serwerze o nazwie **sqlpoolservername**. Serwer należy do grupy zasobów platformy Azure o nazwie Moja **resourceName**.
+Aby wstrzymać bazę danych, użyj polecenia cmdlet [Suspend-AzSqlDatabase.](/powershell/module/az.sql/suspend-azsqldatabase?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Poniższy przykład wstrzymuje pulę SQL o **nazwie mySampleDataWarehouse** hostowaną na serwerze o **nazwie sqlpoolservername**. Serwer znajduje się w grupie zasobów platformy Azure o **nazwie myResourceGroup**.
 
 ```Powershell
 Suspend-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "sqlpoolservername" –DatabaseName "mySampleDataWarehouse"
 ```
 
-Poniższy przykład pobiera bazę danych do obiektu $database. Następnie przekazuje obiekt do [zawieszenia-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Wyniki są przechowywane w obiekcie resultDatabase. Końcowe polecenie wyświetla wyniki.
+Poniższy przykład pobiera bazę danych do obiektu $database danych. Następnie potokuje obiekt do [obiektu Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Wyniki są przechowywane w obiekcie resultDatabase. Końcowe polecenie wyświetla wyniki.
 
 ```Powershell
 $database = Get-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
@@ -87,16 +91,16 @@ $resultDatabase = $database | Suspend-AzSqlDatabase
 $resultDatabase
 ```
 
-## <a name="resume-compute"></a>Wznów Obliczanie
+## <a name="resume-compute"></a>Wznawianie obliczeń
 
-Aby uruchomić bazę danych, należy użyć polecenia cmdlet [Resume-AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) . W poniższym przykładzie jest uruchamiana baza danych o nazwie **mySampleDataWarehouse** hostowana na serwerze o nazwie **sqlpoolservername**. Serwer należy do grupy zasobów platformy Azure o nazwie Moja **resourceName**.
+Aby uruchomić bazę danych, użyj polecenia cmdlet [Resume-AzSqlDatabase.](/powershell/module/az.sql/resume-azsqldatabase?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Poniższy przykład uruchamia bazę danych o nazwie **mySampleDataWarehouse** hostowaną na serwerze o **nazwie sqlpoolservername**. Serwer znajduje się w grupie zasobów platformy Azure o **nazwie myResourceGroup**.
 
 ```Powershell
 Resume-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "sqlpoolservername" -DatabaseName "mySampleDataWarehouse"
 ```
 
-W następnym przykładzie baza danych jest pobierana do obiektu $database. Następnie przekazuje obiekt do [Resume-AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) i zapisuje wyniki w $resultDatabase. Końcowe polecenie wyświetla wyniki.
+W następnym przykładzie baza danych jest pobierana do obiektu $database . Następnie potokuje obiekt do [resume-AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) i zapisuje wyniki w $resultDatabase. Końcowe polecenie wyświetla wyniki.
 
 ```Powershell
 $database = Get-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
@@ -105,9 +109,9 @@ $resultDatabase = $database | Resume-AzSqlDatabase
 $resultDatabase
 ```
 
-## <a name="check-status-of-your-sql-pool-operation"></a>Sprawdź stan operacji puli SQL
+## <a name="check-status-of-your-sql-pool-operation"></a>Sprawdzanie stanu operacji puli SQL
 
-Aby sprawdzić stan dedykowanej puli SQL (dawniej SQL DW), użyj polecenia cmdlet [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/Get-AzSqlDatabaseActivity?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) .
+Aby sprawdzić stan dedykowanej puli SQL (dawniej SQL DW), użyj polecenia cmdlet [Get-AzSqlDatabaseActivity.](/powershell/module/az.sql/Get-AzSqlDatabaseActivity?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
 ```Powershell
 Get-AzSqlDatabaseActivity -ResourceGroupName "myResourceGroup" -ServerName "sqlpoolservername" -DatabaseName "mySampleDataWarehouse"
@@ -117,7 +121,7 @@ Get-AzSqlDatabaseActivity -ResourceGroupName "myResourceGroup" -ServerName "sqlp
 
 Opłaty są naliczane za jednostki magazynu danych i dane przechowywane w dedykowanej puli SQL (dawniej SQL DW). Opłaty za te zasoby obliczeniowe i magazynowe są naliczane osobno.
 
-- Jeśli chcesz zachować dane w magazynie, Wstrzymaj obliczenia.
+- Jeśli chcesz przechowywać dane w magazynie, wstrzymaj obliczenia.
 - Jeśli chcesz usunąć przyszłe opłaty, możesz usunąć pulę SQL.
 
 Wykonaj następujące kroki, aby wyczyścić zasoby zgodnie z potrzebami.
@@ -126,14 +130,14 @@ Wykonaj następujące kroki, aby wyczyścić zasoby zgodnie z potrzebami.
 
     ![Czyszczenie zasobów](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Aby wstrzymać obliczenia, kliknij przycisk **Wstrzymaj**. Gdy pula SQL jest wstrzymana, zobaczysz przycisk **Start** .  Aby wznowić obliczenia, kliknij przycisk **Uruchom**.
+2. Aby wstrzymać obliczenia, kliknij przycisk **Wstrzymaj**. Po wstrzymaniu puli SQL zostanie wyświetlony **przycisk** Uruchom.  Aby wznowić obliczenia, kliknij przycisk **Uruchom**.
 
-3. Aby usunąć pulę SQL, aby nie naliczać opłat za zasoby obliczeniowe i magazynowanie, kliknij przycisk **Usuń**.
+3. Aby usunąć pulę SQL, aby nie ponosić opłat za zasoby obliczeniowe lub magazynowe, kliknij pozycję **Usuń.**
 
-4. Aby usunąć utworzony serwer SQL, kliknij pozycję **sqlpoolservername.Database.Windows.NET**, a następnie kliknij pozycję **Usuń**.  Należy zachować ostrożność podczas usuwania, ponieważ usunięcie serwera spowoduje również usunięcie wszystkich baz danych przypisanych do tego serwera.
+4. Aby usunąć utworzony serwer SQL, kliknij przycisk **sqlpoolservername.database.windows.net**, a następnie kliknij pozycję **Usuń.**  Należy zachować ostrożność podczas usuwania, ponieważ usunięcie serwera spowoduje również usunięcie wszystkich baz danych przypisanych do tego serwera.
 
 5. Aby usunąć grupę zasobów, kliknij pozycję **myResourceGroup**, a następnie kliknij pozycję **Usuń grupę zasobów**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o puli SQL, przejdź do artykułu [ładowanie danych do dedykowanej puli SQL (dawniej SQL DW)](./load-data-from-azure-blob-storage-using-copy.md) . Aby uzyskać dodatkowe informacje na temat zarządzania możliwościami obliczeniowymi, zobacz artykuł [Zarządzanie obliczeniami obliczeniowymi](sql-data-warehouse-manage-compute-overview.md) .
+Aby dowiedzieć się więcej na temat puli SQL, przejdź do artykułu Ładowanie danych do dedykowanej puli [SQL (dawniej SQL DW).](./load-data-from-azure-blob-storage-using-copy.md) Aby uzyskać dodatkowe informacje na temat zarządzania możliwościami obliczeniowymi, zobacz [artykuł Manage compute overview (Omówienie zarządzania obliczeniami).](sql-data-warehouse-manage-compute-overview.md)

@@ -1,72 +1,72 @@
 ---
-title: Używanie dedykowanej puli do uruchamiania zadań podrzędnych
-description: Skonfiguruj dedykowaną pulę obliczeniową (pulę agentów) w rejestrze, aby uruchomić zadanie Azure Container Registry.
+title: Uruchamianie zadania za pomocą dedykowanej puli — zadania
+description: Skonfiguruj dedykowaną pulę obliczeniową (pulę agentów) w rejestrze, aby uruchomić Azure Container Registry obliczeniowe.
 ms.topic: article
 ms.date: 10/12/2020
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 8b1f077d6216443ad267f8620f87882439cb355c
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 21db066b3f18106938d11fbd8e2cfe688c1ef276
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284145"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389557"
 ---
 # <a name="run-an-acr-task-on-a-dedicated-agent-pool"></a>Uruchamianie zadania ACR w dedykowanej puli agentów
 
-Skonfiguruj pulę maszyn wirtualnych zarządzaną przez platformę Azure (*pulę agentów*), aby umożliwić uruchamianie [Azure Container Registry zadań][acr-tasks] w dedykowanym środowisku obliczeniowym. Po skonfigurowaniu co najmniej jednej puli w rejestrze można wybrać pulę służącą do uruchamiania zadania zamiast domyślnego środowiska obliczeniowego usługi.
+Skonfiguruj zarządzaną przez platformę Azure pulę maszyn wirtualnych *(pulę* agentów), aby umożliwić Azure Container Registry [zadań][acr-tasks] w dedykowanym środowisku obliczeniowym. Po skonfigurowaniu co najmniej jednej puli w rejestrze możesz wybrać pulę do uruchomienia zadania w miejsce domyślnego środowiska obliczeniowego usługi.
 
-Pula agentów oferuje następujące informacje:
+Pula agentów zapewnia:
 
-- **Obsługa sieci wirtualnych** — przypisywanie puli agentów do usługi Azure VNET, zapewniając dostęp do zasobów w sieci wirtualnej, takich jak rejestr kontenerów, Magazyn kluczy lub magazyn.
-- **Skalowanie w razie potrzeby** — zwiększenie liczby wystąpień w puli agentów na potrzeby zadań intensywnie korzystających z obliczeń lub skalowania do zera. Opłaty są naliczane na podstawie alokacji puli. Aby uzyskać szczegółowe informacje, zobacz [Cennik](https://azure.microsoft.com/pricing/details/container-registry/).
-- **Elastyczne opcje** — wybierz spośród różnych [warstw puli](#pool-tiers) i opcji skalowania, aby sprostać potrzebom obciążeń zadań.
-- **Zarządzanie platformą Azure** — pule zadań są poprawiane i obsługiwane przez platformę Azure, zapewniając alokację zarezerwowaną bez konieczności utrzymywania poszczególnych maszyn wirtualnych.
+- **Obsługa sieci wirtualnej** — przypisz pulę agentów do sieci wirtualnej platformy Azure, zapewniając dostęp do zasobów w sieci wirtualnej, takich jak rejestr kontenerów, magazyn kluczy lub magazyn.
+- **Skaluj** zgodnie z potrzebami — zwiększ liczbę wystąpień w puli agentów dla zadań wymagających intensywnych obliczeń lub skaluj do zera. Rozliczenia są oparte na alokacji puli. Aby uzyskać szczegółowe informacje, zobacz [Cennik](https://azure.microsoft.com/pricing/details/container-registry/).
+- **Elastyczne opcje** — wybierz jedną z różnych [warstw puli i](#pool-tiers) opcji skalowania, aby spełnić potrzeby obciążeń zadań.
+- **Zarządzanie platformą Azure** — pule zadań są poprawiane i konserwowane przez platformę Azure, zapewniając zarezerwowaną alokację bez konieczności obsługi poszczególnych maszyn wirtualnych.
 
-Ta funkcja jest dostępna w warstwie usługi kontenera **Premium** . Aby uzyskać informacje o warstwach i ograniczeniach usługi Registry, zobacz [Azure Container Registry SKU][acr-tiers].
+Ta funkcja jest dostępna w warstwie usługi rejestru kontenerów **Premium.** Aby uzyskać informacje o warstwach i limitach usługi rejestru, zobacz [Azure Container Registry SKU][acr-tiers].
 
 > [!IMPORTANT]
-> Ta funkcja jest obecnie dostępna w wersji zapoznawczej, a niektóre [ograniczenia mają zastosowanie](#preview-limitations). Wersje zapoznawcze są udostępniane pod warunkiem udzielenia zgody na [dodatkowe warunki użytkowania][terms-of-use]. Niektóre cechy funkcji mogą ulec zmianie, zanim stanie się ona ogólnie dostępna.
+> Ta funkcja jest obecnie dostępna w wersji zapoznawczej i obowiązują [pewne ograniczenia.](#preview-limitations) Wersje zapoznawcze są udostępniane pod warunkiem udzielenia zgody na [dodatkowe warunki użytkowania][terms-of-use]. Niektóre cechy funkcji mogą ulec zmianie, zanim stanie się ona ogólnie dostępna.
 >
 
 ## <a name="preview-limitations"></a>Ograniczenia wersji zapoznawczej
 
 - Pule agentów zadań obsługują obecnie węzły systemu Linux. Węzły systemu Windows nie są obecnie obsługiwane.
-- Pule agentów zadań są dostępne w wersji zapoznawczej w następujących regionach: zachodnie stany USA 2, Południowo-środkowe stany USA, Wschodnie stany USA 2, Wschodnie stany USA, środkowe stany USA, Europa Zachodnia, Kanada środkowa, USGov Arizona, USGov Texas Instruments i USGov Wirginia.
-- Dla każdego rejestru domyślny całkowity limit przydziału vCPU (rdzeń) wynosi 16 dla wszystkich standardowych pul agentów i ma wartość 0 dla izolowanych pul agentów. Otwórz [żądanie pomocy technicznej][open-support-ticket] , aby uzyskać dodatkowe alokacje.
-- Obecnie nie można anulować zadania uruchomionego w puli agentów.
+- Pule agentów zadań są dostępne w wersji zapoznawczej w następujących regionach: Zachodnie stany USA 2, Południowo-środkowe stany USA, Wschodnie stany USA 2, Wschodnie stany USA, Środkowe stany USA, Europa Zachodnia, Europa Północna, Kanada Środkowa, USGov Arizona, USGov Teksas i USGov Wirginia.
+- Dla każdego rejestru domyślny całkowity limit przydziału procesorów wirtualnych (rdzeni) wynosi 16 dla wszystkich standardowych pul agentów i wynosi 0 dla izolowanych pul agentów. Otwórz [wniosek o pomoc techniczną w][open-support-ticket] celu dodatkowej alokacji.
+- Obecnie nie można anulować uruchomienia zadania w puli agentów.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Aby skorzystać z kroków interfejsu wiersza polecenia platformy Azure w tym artykule, wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.3.1 lub nowszej. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli]. Lub Uruchom w [Azure Cloud Shell](../cloud-shell/quickstart.md).
-* Jeśli nie masz jeszcze rejestru kontenerów, [Utwórz go][create-reg-cli] (wymagana warstwa Premium) w regionie wersji zapoznawczej.
+* Aby wykonać kroki interfejsu wiersza polecenia platformy Azure opisane w tym artykule, wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.3.1 lub nowszej. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli]. Lub uruchom w [Azure Cloud Shell](../cloud-shell/quickstart.md).
+* Jeśli nie masz jeszcze rejestru [kontenerów,][create-reg-cli] utwórz go (wymagana warstwa Premium) w regionie w wersji zapoznawczej.
 
 ## <a name="pool-tiers"></a>Warstwy puli
 
-Warstwy puli agentów zapewniają następujące zasoby na wystąpienie w puli.
+Warstwy puli agentów zapewniają następujące zasoby dla każdego wystąpienia w puli.
 
 |Warstwa    | Typ  |  Procesor CPU  |Pamięć (GB)  |
 |---------|---------|---------|---------|
-|S1     |  Standardowa    | 2       |    3     |
-|S2     |  Standardowa    | 4       |    8     |
-|S3     |  Standardowa    | 8       |   16     |
-|I6     |  ogół    | 64     |   216     |
+|S1     |  Standardowych    | 2       |    3     |
+|S2     |  Standardowych    | 4       |    8     |
+|S3     |  Standardowych    | 8       |   16     |
+|I6     |  Izolowane    | 64     |   216     |
 
 
-## <a name="create-and-manage-a-task-agent-pool"></a>Tworzenie puli agentów zadań i zarządzanie nią
+## <a name="create-and-manage-a-task-agent-pool"></a>Tworzenie puli agentów zadań i zarządzanie nimi
 
-### <a name="set-default-registry-optional"></a>Ustaw domyślny Rejestr (opcjonalnie)
+### <a name="set-default-registry-optional"></a>Ustaw rejestr domyślny (opcjonalnie)
 
-Aby uprościć wykonywanie poleceń interfejsu wiersza polecenia platformy Azure, należy ustawić domyślny rejestr za pomocą polecenia [AZ Configure][az-configure] :
+Aby uprościć następujące polecenia interfejsu wiersza polecenia platformy Azure, ustaw rejestr domyślny, uruchamiając [polecenie az configure:][az-configure]
 
 ```azurecli
 az configure --defaults acr=<registryName>
 ```
 
-W poniższych przykładach przyjęto założenie, że domyślny rejestr został ustawiony. Jeśli nie, należy przekazać `--registry <registryName>` parametr w każdym `az acr` poleceniu.
+W poniższych przykładach przyjęto założenie, że ustawiono rejestr domyślny. Jeśli nie, przekaż `--registry <registryName>` parametr w każdym `az acr` poleceniu.
 
-### <a name="create-agent-pool"></a>Utwórz pulę agentów
+### <a name="create-agent-pool"></a>Tworzenie puli agentów
 
-Utwórz pulę agentów przy użyciu polecenia [AZ ACR nieznanej obiektu agentpool Create][az-acr-agentpool-create] . Poniższy przykład tworzy pulę warstwy S2 (4 procesor CPU/wystąpienie). Domyślnie pula zawiera 1 wystąpienie.
+Utwórz pulę agentów za pomocą [polecenia az acr agentpool create.][az-acr-agentpool-create] Poniższy przykład tworzy pulę warstwy S2 (4 procesory CPU/wystąpienie). Domyślnie pula zawiera 1 wystąpienie.
 
 ```azurecli
 az acr agentpool create \
@@ -75,11 +75,11 @@ az acr agentpool create \
 ```
 
 > [!NOTE]
-> Tworzenie puli agentów i innych operacji zarządzania puli trwa kilka minut.
+> Tworzenie puli agentów i innych operacji zarządzania pulą trwa kilka minut.
 
-### <a name="scale-pool"></a>Pula skalowania
+### <a name="scale-pool"></a>Skalowanie puli
 
-Skaluj rozmiar puli w górę lub w dół za pomocą polecenia [AZ ACR nieznanej obiektu agentpool Update][az-acr-agentpool-update] . Poniższy przykład skaluje pulę do 2 wystąpień. Można skalować do 0 wystąpień.
+Skaluj rozmiar puli w górę lub w dół za pomocą [polecenia az acr agentpool update.][az-acr-agentpool-update] Poniższy przykład skaluje pulę do 2 wystąpień. Można skalować do 0 wystąpień.
 
 ```azurecli
 az acr agentpool update \
@@ -91,22 +91,22 @@ az acr agentpool update \
 
 ### <a name="add-firewall-rules"></a>Dodawanie reguł zapory
 
-Pule agentów zadań wymagają dostępu do następujących usług platformy Azure. Następujące reguły zapory należy dodać do wszystkich istniejących sieciowych grup zabezpieczeń lub tras zdefiniowanych przez użytkownika.
+Pule agentów zadań wymagają dostępu do następujących usług platformy Azure. Poniższe reguły zapory należy dodać do istniejących sieciowych grup zabezpieczeń lub tras zdefiniowanych przez użytkownika.
 
-| Kierunek | Protokół | Element źródłowy         | Port źródłowy | Element docelowy          | Port docelowy | Użyte    |
+| Kierunek | Protokół | Element źródłowy         | Port źródłowy | Element docelowy          | Dest Port | Użyte    |
 |-----------|----------|----------------|-------------|----------------------|-----------|---------|
 | Wychodzący  | TCP      | VirtualNetwork | Dowolne         | AzureKeyVault        | 443       | Domyślne |
 | Wychodzący  | TCP      | VirtualNetwork | Dowolne         | Storage              | 443       | Domyślne |
 | Wychodzący  | TCP      | VirtualNetwork | Dowolne         | EventHub             | 443       | Domyślne |
-| Wychodzący  | TCP      | VirtualNetwork | Dowolne         | Usługi azureactivedirectory | 443       | Domyślne |
+| Wychodzący  | TCP      | VirtualNetwork | Dowolne         | AzureActiveDirectory | 443       | Domyślne |
 | Wychodzący  | TCP      | VirtualNetwork | Dowolne         | AzureMonitor         | 443       | Domyślne |
 
 > [!NOTE]
-> Jeśli zadania wymagają dodatkowych zasobów z publicznego Internetu, Dodaj odpowiednie reguły. Na przykład do uruchomienia zadania kompilacji platformy Docker, które pobiera obrazy podstawowe z usługi Docker Hub lub przywraca pakiet NuGet, są potrzebne dodatkowe reguły.
+> Jeśli zadania wymagają dodatkowych zasobów z publicznego Internetu, dodaj odpowiednie reguły. Na przykład do uruchomienia zadania kompilacji platformy Docker, które ściąga obrazy podstawowe z Docker Hub lub przywraca pakiet NuGet, potrzebne są dodatkowe reguły.
 
 ### <a name="create-pool-in-vnet"></a>Tworzenie puli w sieci wirtualnej
 
-Poniższy przykład tworzy pulę agentów w podsieci *myvnet* sieci *:*
+Poniższy przykład tworzy pulę agentów w *podsieci mysubnet* sieci *myvnet:*
 
 ```azurecli
 # Get the subnet ID
@@ -122,17 +122,17 @@ az acr agentpool create \
     --subnet-id $subnetId
 ```
 
-## <a name="run-task-on-agent-pool"></a>Uruchom zadanie w puli agentów
+## <a name="run-task-on-agent-pool"></a>Uruchamianie zadania w puli agentów
 
-W poniższych przykładach pokazano, jak określić pulę agentów podczas kolejkowania zadania.
+Poniższe przykłady pokazują, jak określić pulę agentów podczas kolejkowania zadania.
 
 > [!NOTE]
-> Aby użyć puli agentów w zadaniu ACR, upewnij się, że pula zawiera co najmniej jedno wystąpienie.
+> Aby użyć puli agentów w zadaniu usługi ACR, upewnij się, że pula zawiera co najmniej 1 wystąpienie.
 >
 
 ### <a name="quick-task"></a>Szybkie zadanie
 
-Kolejkowanie szybkiego zadania w puli agentów przy użyciu polecenia [AZ ACR Build][az-acr-build] i przekazywanie `--agent-pool` parametru:
+Za pomocą polecenia [az acr build][az-acr-build] przekaż parametr do kolejki szybkiego zadania w puli `--agent-pool` agentów:
 
 ```azurecli
 az acr build \
@@ -142,9 +142,9 @@ az acr build \
     https://github.com/Azure-Samples/acr-build-helloworld-node.git#main
 ```
 
-### <a name="automatically-triggered-task"></a>Zadanie wyzwolone automatycznie
+### <a name="automatically-triggered-task"></a>Automatycznie wyzwalane zadanie
 
-Na przykład utwórz zaplanowane zadanie w puli agentów przy użyciu [AZ ACR Task Create][az-acr-task-create], przekazując `--agent-pool` parametr.
+Na przykład utwórz zaplanowane zadanie w puli agentów za pomocą funkcji [az acr task create][az-acr-task-create], przekazując parametr `--agent-pool` .
 
 ```azurecli
 az acr task create \
@@ -157,7 +157,7 @@ az acr task create \
     --commit-trigger-enabled false
 ```
 
-Aby sprawdzić konfigurację zadania, uruchom polecenie [AZ ACR Task Run][az-acr-task-run]:
+Aby zweryfikować konfigurację zadania, uruchom [az acr task run][az-acr-task-run]:
 
 ```azurecli
 az acr task run \
@@ -166,7 +166,7 @@ az acr task run \
 
 ### <a name="query-pool-status"></a>Stan puli zapytań
 
-Aby sprawdzić liczbę przebiegów aktualnie zaplanowanych w puli agentów, uruchom polecenie [AZ ACR nieznanej obiektu agentpool show][az-acr-agentpool-show].
+Aby znaleźć liczbę przebiegów aktualnie zaplanowanych w puli agentów, uruchom [az acr agentpool show][az-acr-agentpool-show].
 
 ```azurecli
 az acr agentpool show \
@@ -176,7 +176,7 @@ az acr agentpool show \
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej przykładów kompilacji i konserwacji obrazów kontenerów w chmurze, zapoznaj się z [serią samouczka zadań ACR](container-registry-tutorial-quick-task.md).
+Aby uzyskać więcej przykładów kompilacji i konserwacji obrazu kontenera w chmurze, zapoznaj się z [zadania usługi ACR samouczka.](container-registry-tutorial-quick-task.md)
 
 
 

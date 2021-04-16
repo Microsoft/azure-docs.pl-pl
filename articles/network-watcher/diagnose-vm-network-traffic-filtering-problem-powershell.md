@@ -1,27 +1,31 @@
 ---
-title: 'Szybki Start: diagnozowanie problemu z filtrem ruchu sieciowego maszyny wirtualnej — Azure PowerShell'
+title: 'Szybki start: diagnozowanie problemu z filtrowaniem ruchu sieciowego maszyny wirtualnej — Azure PowerShell'
 titleSuffix: Azure Network Watcher
-description: Dowiedz się, jak za pomocą Azure PowerShell zdiagnozować problem z filtrem ruchu sieciowego maszyny wirtualnej za pomocą funkcji weryfikacji przepływu IP w usłudze Azure Network Watcher.
+description: Dowiedz się, jak używać Azure PowerShell do diagnozowania problemu z filtrowaniem ruchu sieciowego maszyny wirtualnej przy użyciu funkcji weryfikowania przepływu adresów IP usługi Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
 author: damendo
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: network-watcher
-ms.devlang: na
-ms.topic: quickstart
-ms.tgt_pltfrm: network-watcher
-ms.workload: infrastructure
-ms.date: 01/07/2021
 ms.author: damendo
-ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 9cccd6d17cb741a616d428db5b318fab2334f73b
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+editor: ''
+ms.date: 01/07/2021
+ms.assetid: ''
+ms.topic: quickstart
+ms.service: network-watcher
+ms.workload: infrastructure
+ms.tgt_pltfrm: network-watcher
+ms.devlang: na
+tags:
+- azure-resource-manager
+ms.custom:
+- mvc
+- devx-track-azurepowershell
+- mode-api
+ms.openlocfilehash: fafe090d72d53b33ddb3e9863b7e62deba1055c5
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065569"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535773"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-powershell"></a>Szybki start: diagnozowanie problemu z filtrowaniem ruchu sieciowego maszyny wirtualnej — Azure PowerShell
 
@@ -33,7 +37,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować program PowerShell i używać go lokalnie, ten przewodnik Szybki Start będzie wymagał `Az` modułu Azure PowerShell. Aby dowiedzieć się, jaka wersja została zainstalowana, uruchom polecenie `Get-Module -ListAvailable Az`. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-Az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure.
+Jeśli zdecydujesz się zainstalować program PowerShell i używać go lokalnie, ten przewodnik Szybki start wymaga Azure PowerShell `Az` modułu. Aby dowiedzieć się, jaka wersja została zainstalowana, uruchom polecenie `Get-Module -ListAvailable Az`. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-Az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure.
 
 
 
@@ -62,7 +66,7 @@ Aby przetestować komunikację sieciową za pomocą usługi Network Watcher, nal
 
 ### <a name="enable-network-watcher"></a>Włączanie usługi Network Watcher
 
-Jeśli masz już włączony obserwator sieciowy w regionie Wschodnie stany USA, użyj polecenie [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher) , aby pobrać obserwatora sieci. Poniższy przykład pobiera istniejącą usługę Network Watcher o nazwie *NetworkWatcher_eastus* znajdującą się w grupie zasobów *NetworkWatcherRG*:
+Jeśli masz już włączoną usługę Network Watcher w regionie Wschodniestany USA, użyj [get-AzNetworkWatcher,](/powershell/module/az.network/get-aznetworkwatcher) aby pobrać usługę Network Watcher. Poniższy przykład pobiera istniejącą usługę Network Watcher o nazwie *NetworkWatcher_eastus* znajdującą się w grupie zasobów *NetworkWatcherRG*:
 
 ```azurepowershell-interactive
 $networkWatcher = Get-AzNetworkWatcher `
@@ -70,7 +74,7 @@ $networkWatcher = Get-AzNetworkWatcher `
   -ResourceGroupName NetworkWatcherRG
 ```
 
-Jeśli nie masz jeszcze włączonego obserwatora sieciowego w regionie Wschodnie stany USA, użyj polecenie [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher) , aby utworzyć obserwatora sieci w regionie Wschodnie stany USA:
+Jeśli nie masz jeszcze włączonej usługi Network Watcher w regionie Wschodnie usa, użyj opcji [New-AzNetworkWatcher,](/powershell/module/az.network/new-aznetworkwatcher) aby utworzyć usługę Network Watcher w regionie Wschodnie usa:
 
 ```azurepowershell-interactive
 $networkWatcher = New-AzNetworkWatcher `
@@ -81,7 +85,7 @@ $networkWatcher = New-AzNetworkWatcher `
 
 ### <a name="use-ip-flow-verify"></a>Korzystanie z weryfikowania przepływu adresów IP
 
-Podczas tworzenia maszyny wirtualnej platforma Azure domyślnie zezwala na i blokuje ruch sieciowy do i z maszyny wirtualnej. Domyślne ustawienia platformy Azure można później zastąpić, aby zezwalać lub nie zezwalać na dodatkowe typy ruchu. Aby sprawdzić, czy ruch jest dozwolony lub zabroniony dla różnych miejsc docelowych i ze źródłowego adresu IP, użyj polecenia [test-AzNetworkWatcherIPFlow](/powershell/module/az.network/test-aznetworkwatcheripflow) .
+Podczas tworzenia maszyny wirtualnej platforma Azure domyślnie zezwala na i blokuje ruch sieciowy do i z maszyny wirtualnej. Domyślne ustawienia platformy Azure można później zastąpić, aby zezwalać lub nie zezwalać na dodatkowe typy ruchu. Aby sprawdzić, czy ruch do różnych miejsc docelowych i ze źródłowego adresu IP jest dozwolony, czy zabroniony, użyj polecenia [Test-AzNetworkWatcherIPFlow.](/powershell/module/az.network/test-aznetworkwatcheripflow)
 
 Przetestuj komunikację wychodzącą z maszyny wirtualnej do jednego z adresów IP domeny www.bing.com:
 
@@ -133,7 +137,7 @@ Zwrócony wynik informuje o odmowie dostępu z powodu reguły zabezpieczeń o na
 
 ## <a name="view-details-of-a-security-rule"></a>Wyświetlanie szczegółów reguły zabezpieczeń
 
-Aby określić, dlaczego reguły [komunikacji sieciowej](#test-network-communication) umożliwiają lub uniemożliwiają komunikację, przejrzyj obowiązujące reguły zabezpieczeń interfejsu sieciowego za pomocą [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup):
+Aby ustalić, [](#test-network-communication) dlaczego reguły w testowej komunikacji sieciowej zezwalają na komunikację lub uniemożliwiają jej komunikację, zapoznaj się z obowiązującą regułą zabezpieczeń dla interfejsu sieciowego za pomocą [get-AzEffectiveNetworkSecurityGroup:](/powershell/module/az.network/get-azeffectivenetworksecuritygroup)
 
 ```azurepowershell-interactive
 Get-AzEffectiveNetworkSecurityGroup `
@@ -176,7 +180,7 @@ Zwrócone dane wyjściowe obejmują następujący tekst dla reguły **AllowInter
   },
 ```
 
-W danych wyjściowych można zobaczyć, że właściwość **DestinationAddressPrefix** jest określona jako **Internet**. Nie jest jednak jasne, jak adres 13.107.21.200, który był testowany w kroku [Korzystanie z weryfikowania przepływu adresów IP](#use-ip-flow-verify), jest związany z **Internetem**. Zobaczysz kilka prefiksów adresów wymienionych w obszarze **ExpandedDestinationAddressPrefix**. Jednym z prefiksów na liście jest prefiks **12.0.0.0/6**, który obejmuje zakres adresów IP 12.0.0.1-15.255.255.254. Ponieważ adres 13.107.21.200 mieści się w tym zakresie adresów, reguła **AllowInternetOutBound** zezwala na ruch wychodzący. Ponadto na liście danych wyjściowych zwracanych przez polecenie `Get-AzEffectiveNetworkSecurityGroup` nie ma żadnych reguł o wyższym **priorytecie** (niższym numerze), które przesłaniają tę regułę. Aby blokować komunikację wychodzącą z adresem 13.107.21.200, możesz dodać regułę zabezpieczeń o wyższym priorytecie, która blokuje ruch wychodzący na porcie 80 do tego adresu IP.
+W danych wyjściowych można zobaczyć, że właściwość **DestinationAddressPrefix** jest określona jako **Internet**. Nie jest jednak jasne, jak adres 13.107.21.200, który był testowany w kroku [Korzystanie z weryfikowania przepływu adresów IP](#use-ip-flow-verify), jest związany z **Internetem**. W obszarze **ExpandedDestinationAddressPrefix** znajduje się kilka prefiksów adresów. Jednym z prefiksów na liście jest prefiks **12.0.0.0/6**, który obejmuje zakres adresów IP 12.0.0.1-15.255.255.254. Ponieważ adres 13.107.21.200 mieści się w tym zakresie adresów, reguła **AllowInternetOutBound** zezwala na ruch wychodzący. Ponadto na liście danych wyjściowych zwracanych przez polecenie `Get-AzEffectiveNetworkSecurityGroup` nie ma żadnych reguł o wyższym **priorytecie** (niższym numerze), które przesłaniają tę regułę. Aby blokować komunikację wychodzącą z adresem 13.107.21.200, możesz dodać regułę zabezpieczeń o wyższym priorytecie, która blokuje ruch wychodzący na porcie 80 do tego adresu IP.
 
 Po uruchomieniu polecenia `Test-AzNetworkWatcherIPFlow` w celu przetestowania komunikacji wychodzącej na adres 172.131.0.100 w kroku [Korzystanie z weryfikowania przepływu adresów IP](#use-ip-flow-verify) dane wyjściowe zawierały informację, że reguła **DefaultOutboundDenyAll** blokuje komunikację. Reguła **DefaultOutboundDenyAll** odpowiada regule **DenyAllOutBound** wymienionej w następujących danych wyjściowych polecenia `Get-AzEffectiveNetworkSecurityGroup`:
 
@@ -204,7 +208,7 @@ Po uruchomieniu polecenia `Test-AzNetworkWatcherIPFlow` w celu przetestowania ko
 }
 ```
 
-Reguła ma listę **0.0.0.0/0** jako **DestinationAddressPrefix**. Reguła odmówi komunikacji wychodzącej 172.131.0.100, ponieważ adres nie należy do **DestinationAddressPrefix** żadnej z innych reguł wychodzących w danych wyjściowych `Get-AzEffectiveNetworkSecurityGroup` polecenia. Aby zezwolić na komunikację wychodzącą, możesz dodać regułę zabezpieczeń o wyższym priorytecie, która zezwala na ruch wychodzący na porcie 80 pod adresem 172.131.0.100.
+Reguła wyświetla **listę 0.0.0.0/0 jako** **destinationAddressPrefix**. Reguła nie zezwala na komunikację wychodzącą do adresu 172.131.0.100, ponieważ adres nie mieści się w ramach poprawki **DestinationAddressPrefix** żadnej innej reguły ruchu wychodzącego w danych wyjściowych polecenia `Get-AzEffectiveNetworkSecurityGroup` . Aby zezwolić na komunikację wychodzącą, możesz dodać regułę zabezpieczeń o wyższym priorytecie, która zezwala na ruch wychodzący na porcie 80 pod adresem 172.131.0.100.
 
 Po uruchomieniu polecenia `Test-AzNetworkWatcherIPFlow` w celu przetestowania komunikacji przychodzącej z adresu 172.131.0.100 w kroku [Korzystanie z weryfikowania przepływu adresów IP](#use-ip-flow-verify) dane wyjściowe zawierały informację, że reguła **DefaultInboundDenyAll** blokuje komunikację. Reguła **DefaultInboundDenyAll** odpowiada regule **DenyAllInBound** wymienionej w następujących danych wyjściowych polecenia `Get-AzEffectiveNetworkSecurityGroup`:
 
@@ -238,7 +242,7 @@ Za pomocą testów w tym przewodniku Szybki start przetestowano konfigurację pl
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) :
+Gdy grupa zasobów i wszystkie jej zasoby nie będą już potrzebne, można je usunąć za pomocą funkcji [Remove-AzResourceGroup:](/powershell/module/az.resources/remove-azresourcegroup)
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force

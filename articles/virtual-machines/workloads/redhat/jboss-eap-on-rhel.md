@@ -1,181 +1,183 @@
 ---
-title: Szybki Start — wdrażanie JBoss platformy aplikacji dla przedsiębiorstw (EAP) na Red Hat Enterprise Linux (RHEL) na maszynach wirtualnych platformy Azure i w zestawach skalowania maszyn wirtualnych
-description: Jak wdrażać aplikacje Java dla przedsiębiorstw przy użyciu Red Hat JBoss EAP na maszynach wirtualnych Azure RHEL i w zestawach skalowania maszyn wirtualnych.
+title: Szybki start — wdrażanie platformy aplikacji JBoss Enterprise Application Platform (EAP) w systemie Red Hat Enterprise Linux (RHEL) na maszynach wirtualnych platformy Azure i w zestawach skalowania maszyn wirtualnych
+description: Jak wdrażać aplikacje Java dla przedsiębiorstw przy użyciu oprogramowania Red Hat JBoss EAP na maszynach wirtualnych ZHEL platformy Azure i zestawach skalowania maszyn wirtualnych.
 author: theresa-nguyen
 ms.author: bicnguy
+ms.date: 10/30/2020
+ms.assetid: 8a4df7bf-be49-4198-800e-db381cda98f5
 ms.topic: quickstart
 ms.service: virtual-machines
 ms.subservice: redhat
+ms.custom:
+- mode-api
 ms.collection: linux
-ms.assetid: 8a4df7bf-be49-4198-800e-db381cda98f5
-ms.date: 10/30/2020
-ms.openlocfilehash: 4027e9c336d938c3877e56b0eb59edea6ac1d992
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 18cf093adad858f50b2b1fa1c97e38821bd1c949
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101671970"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538676"
 ---
 # <a name="deploy-enterprise-java-applications-to-azure-with-jboss-eap-on-red-hat-enterprise-linux"></a>Wdrażanie firmowych aplikacji Java na platformie Azure przy użyciu platformy JBoss EAP w systemie Red Hat Enterprise Linux
 
-Szablony szybkiego startu platformy Azure w tym artykule przedstawiają sposób wdrażania usługi [JBoss Enterprise Application Platform (EAP)](https://www.redhat.com/en/technologies/jboss-middleware/application-platform) z usługą [Red Hat Enterprise Linux (RHEL)](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux) na maszynach wirtualnych platformy Azure i w zestawach skalowania maszyn wirtualnych. Użyjesz przykładowej aplikacji Java do zweryfikowania wdrożenia. 
+Szablony szybkiego startu platformy Azure w tym artykule pokazują, jak wdrożyć aplikację [JBoss Enterprise Application Platform (EAP)](https://www.redhat.com/en/technologies/jboss-middleware/application-platform) z programem [Red Hat Enterprise Linux (RHEL)](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux) na maszynach wirtualnych platformy Azure i w zestawach skalowania maszyn wirtualnych. Do zweryfikowania wdrożenia użyjesz przykładowej aplikacji Java. 
 
-JBoss EAP to platforma serwera aplikacji open source. Zapewnia ona zabezpieczenia, skalowalność i wydajność klasy korporacyjnej dla aplikacji Java. RHEL to platforma systemu operacyjnego Open Source. Pozwala ona skalować istniejące aplikacje i wdrażać nowe technologie we wszystkich środowiskach. 
+JBoss EAP to platforma serwera aplikacji typu open source. Zapewnia ona bezpieczeństwo, skalowalność i wydajność klasy korporacyjnej dla aplikacji Java. RHEL to platforma systemu operacyjnego typu open source. Umożliwia ona skalowanie istniejących aplikacji i wycofywanie nowych technologii we wszystkich środowiskach. 
 
-JBoss EAP i RHEL obejmują wszystko, co jest potrzebne do kompilowania, uruchamiania i wdrażania aplikacji Java przedsiębiorstwa oraz zarządzania nimi w dowolnym środowisku. Kombinacja to rozwiązanie "open source" dla środowisk lokalnych, wirtualnych i prywatnych, publicznych lub hybrydowych.
+Rozwiązania JBoss EAP i RHEL obejmują wszystko, czego potrzebujesz do tworzenia, uruchamiania i wdrażania aplikacji Java przedsiębiorstwa w dowolnym środowisku oraz zarządzania nimi. Połączenie jest rozwiązaniem typu open source dla środowisk lokalnych, wirtualnych oraz chmur prywatnych, publicznych lub hybrydowych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
-* Konto platformy Azure z aktywną subskrypcją. Aby uzyskać subskrypcję platformy Azure, Aktywuj środki na korzystanie z [platformy Azure dla subskrybentów programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) lub [Utwórz bezpłatne konto](https://azure.microsoft.com/pricing/free-trial).
+* Konto platformy Azure z aktywną subskrypcją. Aby uzyskać subskrypcję platformy Azure, aktywuj środki na korzystanie z platformy [Azure Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) subskrybentów lub utwórz [bezpłatne konto.](https://azure.microsoft.com/pricing/free-trial)
 
-* JBoss instalację protokołu EAP. Musisz mieć konto Red Hat z uprawnieniem do zarządzania subskrypcją Red Hat (RHSM) dla JBoss protokołu EAP. To uprawnienie umożliwia pobranie przetestowanej i certyfikowanej wersji protokołu EAP JBoss firmy Red Hat.  
+* Instalacja oprogramowania JBoss EAP. Musisz mieć konto red hat z uprawnieniami do zarządzania subskrypcjami red hat (RHSM) dla JBoss EAP. To uprawnienie umożliwia pobranie przetestowanej i certyfikowanej wersji protokołu EAP firmy Red Hat.  
 
-  Jeśli nie masz uprawnień do protokołu EAP, przed rozpoczęciem Uzyskaj [subskrypcję ewaluacyjną JBoss EAP](https://access.redhat.com/products/red-hat-jboss-enterprise-application-platform/evaluation) . Aby utworzyć nową subskrypcję Red Hat, przejdź do [portalu Red Hat Customer Portal](https://access.redhat.com/) i skonfiguruj konto.
+  Jeśli nie masz uprawnień protokołu EAP, przed rozpoczęciem uzyskaj subskrypcję ewaluacyjną [JBoss EAP.](https://access.redhat.com/products/red-hat-jboss-enterprise-application-platform/evaluation) Aby utworzyć nową subskrypcję usługi Red Hat, przejdź do portalu klienta [firmy Red Hat](https://access.redhat.com/) i skonfiguruj konto.
 
-* [Interfejs wiersza polecenia platformy Azure](/cli/azure/overview).
+* Interfejs [wiersza polecenia platformy Azure](/cli/azure/overview).
 
-* Opcje RHEL. Wybierz pozycję płatność zgodnie z rzeczywistym użyciem lub Przenieś własną subskrypcję (BYOS). W przypadku BYOS należy aktywować obraz [Red Hat Cloud Access](https://access.redhat.com/) RHEL Gold przed wdrożeniem szablonu szybkiego startu.
+* Opcje RHEL. Wybierz płatność zgodnie z potrzebami (PAYG) lub bring-your-own-subscription (BYOS). W systemie BYOS musisz aktywować aplikację [Red Hat Cloud Access](https://access.redhat.com/) RHEL Gold Image przed wdrożeniem szablonu Szybkiego startu.
 
-## <a name="java-ee-and-jakarta-ee-application-migration"></a>Migracja aplikacji Java EE i Dżakarta EE
+## <a name="java-ee-and-jakarta-ee-application-migration"></a>Migracja aplikacji Java EE i Jakarta EE
 
-### <a name="migrate-to-jboss-eap"></a>Migrowanie do JBoss EAP
-JBoss EAP 7,2 i 7,3 są certyfikowanymi implementacjami specyfikacji Java Enterprise Edition (Java EE) 8 i Dżakarta EE 8. JBoss EAP udostępnia wstępnie skonfigurowane opcje dla funkcji, takich jak klastrowanie wysokiej dostępności (HA), obsługa komunikatów i buforowanie rozproszone. Umożliwia ona również użytkownikom pisanie, wdrażanie i uruchamianie aplikacji przy użyciu różnych interfejsów API i usług udostępnianych przez protokół EAP JBoss.  
+### <a name="migrate-to-jboss-eap"></a>Migrowanie do protokołu EAP JBoss
+JBoss EAP 7.2 i 7.3 to certyfikowane implementacje specyfikacji Java Enterprise Edition (Java EE) 8 i Jakarta EE 8. Funkcja JBoss EAP udostępnia wstępnie skonfigurowane opcje funkcji, takich jak klastrowanie o wysokiej dostępności, obsługa komunikatów i rozproszone buforowanie. Umożliwia również użytkownikom pisanie, wdrażanie i uruchamianie aplikacji przy użyciu różnych interfejsów API i usług zapewnianych przez JBoss EAP.  
 
-Aby uzyskać więcej informacji na temat JBoss EAP, zobacz [wprowadzenie do JBoss protokołu eap 7,2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html-single/introduction_to_jboss_eap/index) lub [wprowadzenie do JBoss EAP 7,3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/introduction_to_jboss_eap/index).
+Aby uzyskać więcej informacji na temat JBoss EAP, zobacz Wprowadzenie do [JBoss EAP 7.2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html-single/introduction_to_jboss_eap/index) lub Wprowadzenie do [JBoss EAP 7.3.](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/introduction_to_jboss_eap/index)
 
- #### <a name="applications-on-jboss-eap"></a>Aplikacje na JBoss EAP
+ #### <a name="applications-on-jboss-eap"></a>Aplikacje w JBoss EAP
 
-* **Aplikacje usług sieci Web**. Usługi sieci Web zapewniają standardowy sposób współpracy między aplikacjami oprogramowania. Każda aplikacja może działać na różnych platformach i strukturach. Te usługi sieci Web ułatwiają komunikację wewnętrzną i heterogeniczną podsystemu. 
+* **Aplikacje usług internetowych.** Usługi sieci Web zapewniają standardowy sposób współdziałania między aplikacjami. Każda aplikacja może działać na różnych platformach i platformach. Te usługi sieci Web ułatwiają komunikację między podsystemami wewnętrznymi i heterogenicznymi. 
 
-  Aby dowiedzieć się więcej, zobacz [opracowywanie aplikacji usług sieci Web w protokole eap 7,2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/developing_web_services_applications/index) lub [opracowywanie aplikacji usług sieci Web na protokole EAP 7,3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/developing_web_services_applications/index).
+  Aby dowiedzieć się więcej, zobacz Developing Web Services Applications on EAP 7.2 (Tworzenie aplikacji usług internetowych w witrynie [EAP 7.2)](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/developing_web_services_applications/index) lub Developing Web Services Applications on EAP 7.3 (Tworzenie aplikacji usług internetowych [w witrynie EAP 7.3).](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/developing_web_services_applications/index)
 
-* **Aplikacje języka Java dla przedsiębiorstw (EJB)**. EJB 3,2 to interfejs API służący do tworzenia rozproszonych, transakcyjnych, bezpiecznych i przenośnych aplikacji Java EE i Dżakarta EE. EJB używa składników po stronie serwera o nazwie fasola przedsiębiorstwa do implementacji logiki biznesowej aplikacji w oddzielnym sposób, który zachęca do ponownego użycia. 
+* **Aplikacje Enterprise Java Beans (EJB).** EJB 3.2 to interfejs API do tworzenia rozproszonych, transakcyjnych, bezpiecznych i przenośnych aplikacji Java EE i Jakarta EE. Usługa EJB używa składników po stronie serwera o nazwie Enterprise Beans w celu zaimplementowania logiki biznesowej aplikacji w sposób oddzielony, co zachęca do ponownego użycia. 
 
-  Aby dowiedzieć się więcej, zobacz [opracowywanie aplikacji EJB w protokole eap 7,2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/developing_ejb_applications/index) lub [opracowywanie aplikacji EJB na protokole EAP 7,3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/developing_ejb_applications/index).
+  Aby dowiedzieć się więcej, zobacz [Developing EJB Applications on EAP 7.2 (Tworzenie aplikacji EJB dla protokołu EAP 7.2)](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/developing_ejb_applications/index) lub [Developing EJB Applications on EAP 7.3 (Tworzenie aplikacji EJB w 7.3).](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/developing_ejb_applications/index)
 
-* **Aplikacje w trybie hibernacji**. Deweloperzy i Administratorzy mogą opracowywać i wdrażać interfejsy API trwałości Java (JPA) i aplikacje w trybie hibernacji przy użyciu protokołu JBoss EAP. Hibernacja to struktura mapowania obiektów relacyjnych dla języka Java. Zapewnia ona strukturę mapowania modelu domeny zorientowanego obiektowo do relacyjnej bazy danych, dzięki czemu aplikacje mogą uniknąć bezpośredniej interakcji z bazą danych. 
+* **Hibernacja aplikacji.** Deweloperzy i administratorzy mogą opracowywać i wdrażać aplikacje Java Persistence API (JPA) i Hibernate przy użyciu protokołu EAP JBoss. Hibernate Core to środowisko mapowania obiektowo-relacyjne dla języka Java. Zapewnia platformę do mapowania zorientowanego obiektowo modelu domeny na relacyjną bazę danych, dzięki czemu aplikacje mogą uniknąć bezpośredniej interakcji z bazą danych. 
 
-  Program hibernacji programu Entity Manager implementuje interfejsy programowania i reguły cyklu życia zgodnie z definicją w [specyfikacji JPA 2,1](https://www.jcp.org/en/jsr/overview). Wraz z adnotacjami hibernacji ta otoka implementuje kompletne (i autonomiczne) rozwiązanie JPA na początku systemu w przypadku dorosłych. 
+  Hibernate Entity Manager implementuje interfejsy programowania i reguły cyklu życia zgodnie ze specyfikacją [JPA 2.1.](https://www.jcp.org/en/jsr/overview) Wraz z adnotacjami hibernacji ta otoka implementuje kompletne (i autonomiczne) rozwiązanie JPA na podstawie dojrzałego rdzenia hibernacji. 
   
-  Aby dowiedzieć się więcej o hibernacji, zobacz [JPA on eap 7,2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/development_guide/java_persistence_api) lub  [trwałości Dżakarta w protokole EAP 7,3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/development_guide/java_persistence_api).
+  Aby dowiedzieć się więcej na temat hibernacji, zobacz [JPA na EAP 7.2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/development_guide/java_persistence_api) lub [Jakarta Persistence on EAP 7.3 (Trwałość Jakarta w przypadku protokołu EAP 7.3).](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/development_guide/java_persistence_api)
 
-#### <a name="red-hat-migration-toolkit-for-applications"></a>Zestaw narzędzi do migracji Red Hat dla aplikacji
-[Red Hat Migration Toolkit for Applications (MTA)](https://developers.redhat.com/products/mta/overview) to narzędzie do migracji serwerów aplikacji Java. Za pomocą tego narzędzia można przeprowadzić migrację z innego serwera aplikacji do JBoss protokołu EAP. Współpracuje z wtyczkami IDE w celu przeszukania [środowiska IDE](https://www.eclipse.org/ide/), [obszarów roboczych Red Hat CodeReady](https://developers.redhat.com/products/codeready-workspaces/overview)i [Visual Studio Code](https://code.visualstudio.com/docs/languages/java) dla języka Java. 
+#### <a name="red-hat-migration-toolkit-for-applications"></a>Red Hat Migration Toolkit for Applications
+[Red Hat Migration Toolkit for Applications (MTA)](https://developers.redhat.com/products/mta/overview) to narzędzie do migracji serwerów aplikacji Java. To narzędzie umożliwia migrację z innego serwera aplikacji do serwera JBoss EAP. Działa z wtyczkami IDE dla środowisk [IDE Eclipse,](https://www.eclipse.org/ide/) [obszarami roboczymi Red Hat CodeReady](https://developers.redhat.com/products/codeready-workspaces/overview)i Visual Studio Code [dla](https://code.visualstudio.com/docs/languages/java) języka Java. 
 
-MTA to bezpłatne narzędzie typu "open source", które umożliwia:
+MTA to bezpłatne narzędzie typu open source, które:
 * Automatyzuje analizę aplikacji.
 * Obsługuje szacowanie nakładu pracy.
 * Przyspiesza migrację kodu.
-* Obsługuje kontenerach.
-* Integruje się z konstruktorem obciążeń platformy Azure.
+* Obsługuje konteneryzację.
+* Integruje się z usługą Azure Workload Builder.
 
-### <a name="migrate-jboss-eap-from-on-premises-to-azure"></a>Migrowanie JBoss EAP z lokalnego na platformę Azure
-Oferta platformy Azure Marketplace JBoss EAP w usłudze RHEL zainstaluje i udostępni na maszynach wirtualnych platformy Azure mniej niż 20 minut. Możesz uzyskać dostęp do tych ofert z [witryny Azure Marketplace](https://azuremarketplace.microsoft.com/).
+### <a name="migrate-jboss-eap-from-on-premises-to-azure"></a>Migrowanie protokołu JBoss EAP ze środowisk lokalnych na platformę Azure
+Ta Azure Marketplace JBoss EAP w systemie RHEL zainstaluje i aprowizuje maszyny wirtualne platformy Azure w mniej niż 20 minut. Dostęp do tych ofert można uzyskać na [stronie Azure Marketplace](https://azuremarketplace.microsoft.com/).
 
-Ta oferta platformy Azure Marketplace obejmuje różne kombinacje wersji protokołu EAP i RHEL do obsługi Twoich wymagań. JBoss EAP jest zawsze BYOS, ale w przypadku systemu operacyjnego RHEL można wybrać opcję BYOS lub PAYG. Oferta portalu Azure Marketplace obejmuje opcje planu JBoss EAP na RHEL jako autonomiczne lub klastrowane maszyny wirtualne:
+Ta Azure Marketplace obejmuje różne kombinacje wersji protokołu EAP i RHEL w celu obsługi wymagań. JBoss EAP jest zawsze BYOS, ale w przypadku systemu operacyjnego RHEL można wybrać między BYOS lub PAYG. Ta Azure Marketplace obejmuje opcje planu dla protokołu EAP JBoss w RHEL jako autonomicznych lub klastrowanych maszyn wirtualnych:
 
-* JBoss EAP 7,2 na maszynie wirtualnej RHEL 7,7 (PAYG)
-* JBoss EAP 7,2 na maszynie wirtualnej RHEL 8,0 (PAYG)
-* JBoss EAP 7,3 na maszynie wirtualnej RHEL 8,0 (PAYG)
-* JBoss EAP 7,2 na maszynie wirtualnej RHEL 7,7 (BYOS)
-* JBoss EAP 7,2 na maszynie wirtualnej RHEL 8,0 (BYOS)
-* JBoss EAP 7,3 na maszynie wirtualnej RHEL 8,0 (BYOS)
+* JBoss EAP 7.2 na maszynie wirtualnej RHEL 7.7 (PŁATNOŚĆ)
+* JBoss EAP 7.2 na maszynie wirtualnej RHEL 8.0 (PŁATNOŚĆ)
+* JBoss EAP 7.3 na maszynie wirtualnej RHEL 8.0 (PŁATNOŚĆ)
+* JBoss EAP 7.2 na maszynie wirtualnej RHEL 7.7 (BYOS)
+* JBoss EAP 7.2 na maszynie wirtualnej RHEL 8.0 (BYOS)
+* JBoss EAP 7.3 na maszynie wirtualnej RHEL 8.0 (BYOS)
 
-Wraz z ofertami w portalu Azure Marketplace można korzystać z szablonów szybkiego startu, aby rozpocząć pracę z migracją na platformę Azure. Te Przewodniki Szybki Start obejmują prebudowane szablony i skrypty Azure Resource Manager (ARM) do wdrażania protokołu EAP JBoss na RHEL w różnych konfiguracjach i kombinacjach wersji. Masz:
+Oprócz ofert Azure Marketplace możesz użyć szablonów szybkiego startu, aby rozpocząć swoją podróż po migracji na platformę Azure. Te przewodniki Szybki start obejmują wstępnie utworzone szablony Azure Resource Manager (ARM) i skrypty do wdrażania protokołu EAP JBoss w programie RHEL w różnych konfiguracjach i kombinacjach wersji. Będziesz mieć:
 
-* Moduł równoważenia obciążenia.
-* Prywatny adres IP na potrzeby równoważenia obciążenia i maszyn wirtualnych.
-* Sieć wirtualna z pojedynczą podsiecią.
-* Konfiguracja maszyny wirtualnej (klaster lub autonomiczna).
-* Przykładowa aplikacja w języku Java.
+* Równoważenie obciążenia.
+* Prywatny adres IP do równoważenia obciążenia i maszyn wirtualnych.
+* Sieć wirtualna z jedną podsiecią.
+* Konfiguracja maszyny wirtualnej (klastra lub autonomicznej).
+* Przykładowa aplikacja Java.
 
-Architektura rozwiązania dla tych szablonów obejmuje:
+Architektura rozwiązań dla tych szablonów obejmuje:
 
-* JBoss EAP na autonomicznej maszynie wirtualnej RHEL.
-* JBoss protokół EAP na wielu maszynach wirtualnych RHEL.
-* JBoss protokół EAP przy użyciu zestawów skalowania maszyn wirtualnych platformy Azure.
+* JBoss EAP na autonomicznej maszynie wirtualnej ZHEL.
+* JBoss EAP klastrowane na wielu RHEL maszyn wirtualnych.
+* JBoss EAP clustered through Azure virtual machine scale sets (JBoss EAP klastrowany za pośrednictwem zestawów skalowania maszyn wirtualnych platformy Azure).
 
-#### <a name="linux-workload-migration-for-jboss-eap"></a>Migracja obciążenia systemu Linux dla JBoss EAP
-Konstruktor obciążeń platformy Azure upraszcza proces sprawdzania koncepcji, oceny i migracji lokalnych aplikacji Java na platformę Azure. Konstruktor obciążeń integruje się z narzędziem odnajdywania Azure Migrate, aby identyfikować serwery JBoss EAP. Następnie dynamicznie generuje rozwiązania ansible element PlayBook do wdrożenia serwera JBoss protokołu EAP. Używa narzędzia Red Hat MTA do migrowania serwerów z innych serwerów aplikacji do JBoss protokołu EAP. 
+#### <a name="linux-workload-migration-for-jboss-eap"></a>Migracja obciążenia systemu Linux dla protokołu EAP JBoss
+Narzędzie Azure Workload Builder upraszcza proces weryfikacji koncepcji, oceny i migracji lokalnych aplikacji Java na platformę Azure. Narzędzie Workload Builder integruje się z narzędziem Azure Migrate Discovery w celu identyfikowania serwerów JBoss EAP. Następnie dynamicznie generuje podręcznik rozwiązania Ansible dla wdrożenia serwera JBoss EAP. Używa narzędzia Red Hat MTA do migrowania serwerów z innych serwerów aplikacji do serwera JBoss EAP. 
 
-Do uproszczenia migracji należą:
-1. **Ocena**. Oceń JBoss klastry EAP przy użyciu maszyny wirtualnej platformy Azure lub zestawu skalowania maszyn wirtualnych.
+Kroki upraszczania migracji obejmują:
+1. **Ocena**. Oceń klastry JBoss EAP przy użyciu maszyny wirtualnej platformy Azure lub zestawu skalowania maszyn wirtualnych.
 1. **Ocena**. Skanuj aplikacje i infrastrukturę.
 1. **Konfiguracja infrastruktury**. Utwórz profil obciążenia.
-1. **Wdrażanie i testowanie**. Wdrażanie, migrowanie i testowanie obciążenia.
-1. **Konfiguracja po wdrożeniu**. Integruj z danymi, monitorowaniem, zabezpieczeniami, kopiami zapasowymi i innymi.
+1. **Wdrażanie i testowanie.** Wdrażanie, migrowanie i testowanie obciążenia.
+1. **Konfiguracja po wdrożeniu.** Integracja z danymi, monitorowaniem, zabezpieczeniami, kopiami zapasami i nie tylko.
 
 ## <a name="server-configuration-choice"></a>Wybór konfiguracji serwera
 
-W przypadku wdrażania maszyny wirtualnej RHEL można wybrać opcję PAYG lub BYOS. Obrazy z [witryny Azure Marketplace](https://azuremarketplace.microsoft.com) domyślnie do PAYG. Wdróż maszynę wirtualną BYOS-Type RHEL, jeśli masz własny obraz RHEL systemu operacyjnego. Przed wdrożeniem maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych upewnij się, że konto usługi RHSM ma uprawnienia BYOS za pośrednictwem dostępu do chmury.
+W przypadku wdrażania maszyny wirtualnej RHEL można wybrać płatność według(PAYG) lub BYOS (BYOS). Obrazy z [Azure Marketplace](https://azuremarketplace.microsoft.com) są domyślnie opłacane w płatnościach. Wdrażanie maszyny wirtualnej RHEL typu BYOS, jeśli masz własny obraz systemu operacyjnego RHEL. Przed wdrożeniem maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych upewnij się, że twoje konto Cloud Access SYSTEMU BYOS za pośrednictwem usługi .
 
-JBoss EAP ma zaawansowane możliwości zarządzania oraz zapewnia funkcje i interfejsy API dla aplikacji. Te funkcje zarządzania różnią się w zależności od trybu operacyjnego używanego do uruchamiania JBoss EAP. Jest on obsługiwany w systemach RHEL i Windows Server. JBoss EAP oferuje autonomiczny Tryb operacyjny serwera do zarządzania wystąpieniami dyskretnymi. Oferuje również tryb operacyjny domeny zarządzanej do zarządzania grupami wystąpień z jednego punktu kontrolnego. 
+JBoss EAP ma zaawansowane możliwości zarządzania oraz zapewnia funkcje i interfejsy API dla swoich aplikacji. Te możliwości zarządzania różnią się w zależności od trybu operacyjnego, którego używasz do uruchamiania protokołu EAP JBoss. Jest on obsługiwany w systemach RHEL i Windows Server. JBoss EAP oferuje autonomiczny tryb operacyjny serwera do zarządzania dyskretnych wystąpień. Oferuje również tryb operacyjny domeny zarządzanej do zarządzania grupami wystąpień z jednego punktu kontrolnego. 
 
 > [!NOTE]
-> JBoss domeny zarządzane przez protokół EAP nie są obsługiwane w Microsoft Azure ponieważ usługi infrastruktury platformy Azure zarządzają funkcją HA. 
+> Domeny zarządzane przez JBoss EAP nie są obsługiwane w usłudze Microsoft Azure ponieważ usługi infrastruktury platformy Azure zarządzają funkcją wysokiej jakości. 
 
-Zmienna środowiskowa `EAP_HOME` oznacza ścieżkę do instalacji JBoss EAP. Użyj następującego polecenia, aby uruchomić usługę JBoss EAP w trybie autonomicznym:
+Zmienna `EAP_HOME` środowiskowa określa ścieżkę do instalacji JBoss EAP. Użyj następującego polecenia, aby uruchomić usługę JBoss EAP w trybie autonomicznym:
 
 ```
 $EAP_HOME/bin/standalone.sh
 ```
     
-Ten skrypt uruchamiania używa pliku EAP_HOME/bin/Standalone.conf w celu ustawienia niektórych preferencji domyślnych, takich jak opcje JVM. Ustawienia w tym pliku można dostosować. JBoss EAP używa pliku konfiguracji standalone.xml do uruchamiania w trybie autonomicznym domyślnie, ale można go uruchomić przy użyciu innego trybu. 
+Ten skrypt uruchamiania używa pliku EAP_HOME/bin/standalone.conf do ustawienia niektórych preferencji domyślnych, takich jak opcje JVM. Ustawienia można dostosować w tym pliku. JBoss EAP używa pliku konfiguracji standalone.xml, aby domyślnie uruchomić w trybie autonomicznym, ale można użyć innego trybu, aby go uruchomić. 
 
-Aby uzyskać szczegółowe informacje o dostępnych autonomicznych plikach konfiguracji i sposobach ich użycia, zobacz [pliki konfiguracji serwera autonomicznego dla plików konfiguracji protokołu eap 7,2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/configuration_guide/jboss_eap_management#standalone_server_configuration_files) lub [autonomicznego serwera dla protokołu EAP 7,3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/configuration_guide/jboss_eap_management#standalone_server_configuration_files). 
+Aby uzyskać szczegółowe informacje na temat dostępnych autonomicznych plików konfiguracji i sposobu ich używania, zobacz Pliki konfiguracji serwera autonomicznego dla protokołu [EAP 7.2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/configuration_guide/jboss_eap_management#standalone_server_configuration_files) lub Pliki konfiguracji serwera autonomicznego dla protokołu [EAP 7.3.](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/configuration_guide/jboss_eap_management#standalone_server_configuration_files) 
 
-Aby rozpocząć JBoss EAP z inną konfiguracją, użyj `--server-config` argumentu. Na przykład:
+Aby uruchomić JBoss EAP z inną konfiguracją, użyj `--server-config` argumentu . Na przykład:
     
  ```
  $EAP_HOME/bin/standalone.sh --server-config=standalone-full.xml
  ```
     
-Aby uzyskać pełną listę wszystkich dostępnych argumentów skryptu uruchamiania i ich przeznaczenia, użyj `--help` argumentu. Aby uzyskać więcej informacji, zobacz [argumenty środowiska uruchomieniowego serwera w przypadku protokołu eap 7,2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/configuration_guide/reference_material#reference_of_switches_and_arguments_to_pass_at_server_runtime) lub [argumentów środowiska uruchomieniowego serwera w protokole EAP 7,3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/configuration_guide/reference_material#reference_of_switches_and_arguments_to_pass_at_server_runtime).
+Aby uzyskać pełną listę wszystkich dostępnych argumentów skryptu uruchamiania i ich celów, użyj `--help` argumentu . Aby uzyskać więcej informacji, zobacz [Server Runtime Arguments on EAP 7.2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/configuration_guide/reference_material#reference_of_switches_and_arguments_to_pass_at_server_runtime) or Server Runtime Arguments on EAP 7.3 (Argumenty środowiska uruchomieniowego serwera w przypadku protokołu [EAP 7.2) lub Server Runtime Arguments on EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/configuration_guide/reference_material#reference_of_switches_and_arguments_to_pass_at_server_runtime)(Argumenty środowiska uruchomieniowego serwera w wersji EAP 7.3).
     
-JBoss EAP może również współpracować z trybem klastra. Obsługa komunikatów klastra protokołu EAP JBoss umożliwia grupowanie serwerów komunikatów protokołu EAP JBoss w celu udostępniania obciążenia przetwarzania komunikatów. Każdy aktywny węzeł w klastrze jest aktywnym serwerem komunikatów protokołu EAP JBoss, który zarządza własnymi komunikatami i obsługuje własne połączenia. Aby dowiedzieć się więcej, zobacz [Omówienie klastrów w temacie eap 7,2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/configuring_messaging/clusters_overview) lub [ Omówienie klastrów w protokole EAP 7,3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/configuring_messaging/clusters_overview). 
+JBoss EAP może również działać w trybie klastra. Obsługa komunikatów klastra JBoss EAP umożliwia grupowanie serwerów obsługi komunikatów JBoss EAP w celu udostępniania obciążenia przetwarzania komunikatów. Każdy aktywny węzeł w klastrze jest aktywnym serwerem obsługi komunikatów EAP JBoss, który zarządza własnymi komunikatami i obsługuje własne połączenia. Aby dowiedzieć się więcej, zobacz [Clusters Overview on EAP 7.2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html/configuring_messaging/clusters_overview) (Omówienie klastrów w przypadku protokołu EAP 7.2) lub [ Clusters Overview on EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/configuring_messaging/clusters_overview)(Omówienie klastrów w przypadku protokołu EAP 7.3). 
 
 ## <a name="support-and-subscription-notes"></a>Uwagi dotyczące pomocy technicznej i subskrypcji
 Te szablony szybkiego startu są oferowane w następujący sposób: 
 
-- System operacyjny RHEL jest oferowany jako PAYG lub BYOS za pośrednictwem modelu obrazów Red Hat Gold.
-- JBoss EAP jest oferowany tylko jako BYOS.
+- System operacyjny RHEL jest oferowany jako model płatności zgodnie z płatnością zgodnie z płatnością (PAYG) lub BYOS (BYOS) za pośrednictwem modelu Red Hat Gold Image.
+- JBoss EAP jest oferowana tylko jako BYOS.
 
-#### <a name="using-rhel-os-with-the-payg-model"></a>Korzystanie z systemu operacyjnego RHEL z modelem PAYG
+#### <a name="using-rhel-os-with-the-payg-model"></a>Używanie systemu operacyjnego RHEL z modelem płatności zgodnie z płatnością zgodnie z modelem
 
-Domyślnie te szablony szybkiego startu korzystają z obrazu na żądanie RHEL 7,7 lub 8,0 PAYG z witryny Azure Marketplace. Obrazy PAYG mają dodatkową RHELą subskrypcję co godzinę w stosunku do normalnych kosztów obliczeniowych, sieci i magazynu. W tym samym czasie wystąpienie jest zarejestrowane w Twojej subskrypcji Red Hat. Oznacza to, że będziesz korzystać z jednego z uprawnień użytkownika. 
+Domyślnie w tych szablonach Szybkiego startu jest domyślnie Azure Marketplace RHEL 7.7 lub 8.0 z systemu Azure Marketplace. Obrazy z płatnością godzinową mają dodatkową opłatę godzinową za subskrypcję RHEL na podstawie normalnych kosztów obliczeń, sieci i magazynu. W tym samym czasie wystąpienie jest rejestrowane w subskrypcji red hat. Oznacza to, że będziesz używać jednego z uprawnień. 
 
-Ten obraz PAYG będzie prowadzić do "podwójnego rozliczania". Możesz uniknąć tego problemu, tworząc własny obraz RHEL. Aby dowiedzieć się więcej, przeczytaj artykuł z bazy wiedzy Red Hat [jak udostępnić maszynę wirtualną RHEL dla Microsoft Azure](https://access.redhat.com/articles/uploading-rhel-image-to-azure). Lub Aktywuj swój obraz [Red Hat Cloud Access](https://access.redhat.com/) RHEL Gold.
+Ten obraz płatności za próg spowoduje "podwójne rozliczenia". Ten problem można uniknąć, budowania własnego obrazu systemu RHEL. Aby dowiedzieć się więcej, zapoznaj się z artykułem Bazy wiedzy systemu Red Hat Jak aprowizować maszynę wirtualną [ZHEL dla systemu Microsoft Azure.](https://access.redhat.com/articles/uploading-rhel-image-to-azure) Lub [aktywuj Red Hat Cloud Access](https://access.redhat.com/) RHEL Gold Image.
 
-Aby uzyskać szczegółowe informacje na temat cen maszyn wirtualnych PAYG, zobacz [Cennik usługi Red Hat Enterprise Linux](https://azure.microsoft.com/pricing/details/virtual-machines/red-hat/). Aby korzystać z RHEL w modelu PAYG, musisz mieć subskrypcję platformy Azure z określoną metodą płatności dla [RHEL 7,7 w witrynie Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RedHatEnterpriseLinux77-ARM) lub [RHEL 8,0 w witrynie Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RedHatEnterpriseLinux80-ARM). Oferty te wymagają określenia metody płatności w ramach subskrypcji platformy Azure.
+Aby uzyskać szczegółowe informacje na temat cennika maszyn wirtualnych z płatnością [Red Hat Enterprise Linux, zobacz cennik usługi](https://azure.microsoft.com/pricing/details/virtual-machines/red-hat/). Aby korzystać z systemu RHEL w modelu płatności zgodnie z płatnością zgodnie z płatnością, musisz mieć subskrypcję platformy Azure z określoną metodą płatności dla systemu [RHEL 7.7](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RedHatEnterpriseLinux77-ARM) w systemie Azure Marketplace lub [RHEL 8.0](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RedHatEnterpriseLinux80-ARM)w systemie Azure Marketplace . Te oferty wymagają, aby w subskrypcji platformy Azure została określona metoda płatności.
 
 #### <a name="using-rhel-os-with-the-byos-model"></a>Używanie systemu operacyjnego RHEL z modelem BYOS
 
-Aby korzystać z BYOS dla systemu operacyjnego RHEL, musisz mieć prawidłową subskrypcję Red Hat z uprawnieniami do korzystania z systemu operacyjnego RHEL na platformie Azure. Przed wdrożeniem systemu operacyjnego RHEL z modelem BYOS należy spełnić następujące wymagania wstępne:
+Aby używać systemu BYOS dla systemu operacyjnego RHEL, musisz mieć prawidłową subskrypcję Red Hat z uprawnieniami do korzystania z systemu operacyjnego RHEL na platformie Azure. Przed wdrożeniem systemu operacyjnego RHEL z modelem BYOS należy spełnić następujące wymagania wstępne:
 
-1. Upewnij się, że masz uprawnienia do RHEL systemu operacyjnego i JBoss protokołu EAP dołączone do Twojej subskrypcji Red Hat.
-2. Autoryzuj swój identyfikator subskrypcji platformy Azure, aby korzystać z obrazów RHEL BYOS. Postępuj zgodnie z [dokumentacją dotyczącą zarządzania subskrypcją Red Hat](https://access.redhat.com/documentation/red_hat_subscription_management/1/) , aby ukończyć proces, który obejmuje następujące kroki:
+1. Upewnij się, że masz uprawnienia RHEL OS i JBoss EAP dołączone do subskrypcji red hat.
+2. Autoryzowanie identyfikatora subskrypcji platformy Azure do używania obrazów systemu RHEL BYOS. Postępuj zgodnie z [dokumentacją dotyczącą zarządzania subskrypcjami](https://access.redhat.com/documentation/red_hat_subscription_management/1/) systemu Red Hat, aby ukończyć proces, który obejmuje następujące kroki:
 
-   1. Włącz Microsoft Azure jako dostawcę na pulpicie nawigacyjnym usługi Red Hat Cloud Access.
+   1. Włącz Microsoft Azure jako dostawcę na pulpicie nawigacyjnym Red Hat Cloud Access nawigacyjnym.
 
    1. Dodaj identyfikatory subskrypcji platformy Azure.
 
-   1. Włącz nowe produkty na potrzeby dostępu do chmury na Microsoft Azure.
+   1. Włącz nowe produkty dla Cloud Access na Microsoft Azure.
     
-   1. Aktywuj obrazy Red Hat Gold dla Twojej subskrypcji platformy Azure. Aby uzyskać więcej informacji, zobacz [obrazy Red Hat Gold na Microsoft Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/cloud-access-gold-images_cloud-access#proc_using-gold-images-azure_cloud-access).
+   1. Aktywuj usługę Red Hat Gold Images dla subskrypcji platformy Azure. Aby uzyskać więcej informacji, zobacz [Red Hat Gold Images on Microsoft Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/cloud-access-gold-images_cloud-access#proc_using-gold-images-azure_cloud-access).
 
-   1. Zaczekaj, aż obrazy Red Hat Gold będą dostępne w Twojej subskrypcji platformy Azure. Te obrazy są zwykle dostępne w ciągu trzech godzin od złożenia.
+   1. Poczekaj, aż obrazy Red Hat Gold będą dostępne w ramach subskrypcji platformy Azure. Te obrazy są zwykle dostępne w ciągu trzech godzin od przesłania.
     
-3. Zaakceptuj warunki i postanowienia witryny Azure Marketplace dotyczące obrazów RHEL BYOS. Ten proces można wykonać, uruchamiając następujące polecenia interfejsu wiersza poleceń platformy Azure. Aby uzyskać więcej informacji, zobacz artykuły z [RHEL BYOS Gold w dokumentacji platformy Azure](./byos.md) . Ważne jest, aby uruchomić najnowszą wersję interfejsu wiersza polecenia platformy Azure.
+3. Zaakceptuj warunki Azure Marketplace obrazów systemu RHEL BYOS. Możesz ukończyć ten proces, uruchamiając następujące polecenia interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [dokumentację RHEL BYOS Gold Images in Azure (Złote obrazy systemu RHEL BYOS na platformie Azure).](./byos.md) Ważne jest, aby uruchamiać najnowszą wersję interfejsu wiersza polecenia platformy Azure.
 
-   1. Otwórz sesję interfejsu wiersza polecenia platformy Azure i Uwierzytelnij się przy użyciu konta platformy Azure. Aby uzyskać pomoc, zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli).
+   1. Otwórz sesję interfejsu wiersza polecenia platformy Azure i uwierzytelnij się przy użyciu konta platformy Azure. Aby uzyskać pomoc, zobacz [Logowanie się za pomocą interfejsu wiersza polecenia platformy Azure.](/cli/azure/authenticate-azure-cli)
 
-   1. Sprawdź, czy w Twojej subskrypcji są dostępne obrazy RHEL BYOS, uruchamiając następujące polecenie interfejsu wiersza polecenia. Jeśli nie otrzymasz żadnych wyników w tym miejscu, upewnij się, że subskrypcja platformy Azure została aktywowana dla obrazów RHEL BYOS.
+   1. Sprawdź, czy obrazy systemu RHEL BYOS są dostępne w twojej subskrypcji, uruchamiając następujące polecenie interfejsu wiersza polecenia. Jeśli nie otrzymasz tutaj żadnych wyników, upewnij się, że subskrypcja platformy Azure została aktywowana dla obrazów systemu RHEL BYOS.
    
       ```
       az vm image list --offer rhel-byos --all
       ```
 
-   1. Uruchom następujące polecenie, aby zaakceptować odpowiednio warunki systemu Azure Marketplace dotyczące RHEL 7,7 BYOS i RHEL 8,0 BYOS:
+   1. Uruchom następujące polecenie, aby zaakceptować Azure Marketplace odpowiednio RHEL 7.7 BYOS i RHEL 8.0 BYOS:
       ```
       az vm image terms accept --publisher redhat --offer rhel-byos --plan rhel-lvm77
       ``` 
@@ -184,17 +186,17 @@ Aby korzystać z BYOS dla systemu operacyjnego RHEL, musisz mieć prawidłową s
       az vm image terms accept --publisher redhat --offer rhel-byos --plan rhel-lvm8
       ``` 
    
-Twoja subskrypcja jest teraz gotowa do wdrożenia RHEL 7,7 lub 8,0 BYOS na maszynach wirtualnych platformy Azure.
+Twoja subskrypcja jest teraz gotowa do wdrożenia systemu RHEL 7.7 lub 8.0 BYOS na maszynach wirtualnych platformy Azure.
 
-#### <a name="using-jboss-eap-with-the-byos-model"></a>Korzystanie z JBoss EAP z modelem BYOS
+#### <a name="using-jboss-eap-with-the-byos-model"></a>Używanie protokołu EAP JBoss z modelem BYOS
 
-JBoss EAP jest dostępny tylko w systemie Azure za pomocą modelu BYOS. Podczas wdrażania tego szablonu należy podać poświadczenia RHSM wraz z IDENTYFIKATORem puli RHSM z prawidłowymi uprawnieniami protokołu EAP. Jeśli nie masz uprawnień do protokołu EAP, przed rozpoczęciem Uzyskaj [subskrypcję ewaluacyjną JBoss EAP](https://access.redhat.com/products/red-hat-jboss-enterprise-application-platform/evaluation) .
+JBoss EAP jest dostępny na platformie Azure tylko za pośrednictwem modelu BYOS. Podczas wdrażania tego szablonu należy podać poświadczenia programu RHSM wraz z identyfikatorem puli RHSM z prawidłowymi uprawnieniami protokołu EAP. Jeśli nie masz uprawnień EAP, przed rozpoczęciem uzyskaj subskrypcję ewaluacyjną [JBoss EAP.](https://access.redhat.com/products/red-hat-jboss-enterprise-application-platform/evaluation)
 
 ## <a name="deployment-options"></a>Opcje wdrożenia
 
 Szablon można wdrożyć w następujący sposób:
 
-- **Program PowerShell**. Wdróż szablon, uruchamiając następujące polecenia: 
+- **Program PowerShell**. Wd wdrażaj szablon, uruchamiając następujące polecenia: 
 
   ```
   New-AzResourceGroup -Name <resource-group-name> -Location <resource-group-location> #use this command when you need to create a new resource group for your deployment
@@ -204,9 +206,9 @@ Szablon można wdrożyć w następujący sposób:
   New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri <raw link to the template which can be obtained from github>
   ```
  
-  Informacje o instalowaniu i konfigurowaniu Azure PowerShell można znaleźć w [dokumentacji programu PowerShell](/powershell/azure/).  
+  Aby uzyskać informacje na temat instalowania i konfigurowania Azure PowerShell, zobacz [dokumentację programu PowerShell](/powershell/azure/).  
 
-- **Interfejs wiersza polecenia platformy Azure**. Wdróż szablon, uruchamiając następujące polecenia:
+- **Interfejs wiersza polecenia platformy Azure**. Wd wdrażaj szablon, uruchamiając następujące polecenia:
 
   ```
   az group create --name <resource-group-name> --location <resource-group-location> #use this command when you need to create a new resource group for your deployment
@@ -216,33 +218,33 @@ Szablon można wdrożyć w następujący sposób:
   az deployment group create --resource-group <my-resource-group> --template-uri <raw link to the template which can be obtained from github>
   ```
 
-  Aby uzyskać szczegółowe informacje na temat instalowania i konfigurowania interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia](/cli/azure/install-azure-cli).
+  Aby uzyskać szczegółowe informacje na temat instalowania i konfigurowania interfejsu wiersza polecenia platformy Azure, [zobacz Instalowanie interfejsu wiersza polecenia](/cli/azure/install-azure-cli).
 
-- Użycie witryny **Azure Portal**. Możesz wdrożyć do Azure Portal, przechodząc do szablonów szybkiego startu platformy Azure zgodnie z opisem w następnej sekcji. Po wybraniu przewodnika Szybki Start wybierz przycisk **Wdróż na platformie Azure** lub **Przeglądaj w serwisie GitHub** .
+- Użycie witryny **Azure Portal**. Możesz wdrożyć je w Azure Portal, przechodząc do szablonów szybkiego startu platformy Azure, jak wspomniano w następnej sekcji. Po zakończeniu przewodnika Szybki start wybierz przycisk Deploy to Azure (Wd wdrażaj na platformie **Azure)** **lub Browse on GitHub (Przeglądaj w witrynie GitHub).**
 
 ## <a name="azure-quickstart-templates"></a>Szablony przewodników Szybki start platformy Azure
 
-Możesz rozpocząć od użycia jednego z następujących szablonów szybkiego startu dla JBoss EAP na RHEL, który spełnia cel wdrożenia:
+Możesz rozpocząć od użycia jednego z następujących szablonów Szybkiego startu dla aplikacji JBoss EAP w programie RHEL, który spełnia cel wdrożenia:
 
-* <a href="https://azure.microsoft.com/resources/templates/jboss-eap-standalone-rhel/"> JBoss protokół EAP na RHEL (autonomiczna maszyna wirtualna)</a>. Spowoduje to wdrożenie aplikacji sieci Web o nazwie JBoss-EAP na platformie Azure do JBoss protokołu EAP 7,2 lub 7,3 uruchomionego na maszynie wirtualnej RHEL 7,7 lub 8,0.
+* <a href="https://azure.microsoft.com/resources/templates/jboss-eap-standalone-rhel/">JBoss EAP on RHEL (standalone VM) (Autonomiczna maszyna wirtualna) JBoss EAP on RHEL (autonomiczna maszyna wirtualna).</a> Spowoduje to wdrożenie aplikacji internetowej o nazwie JBoss-EAP na platformie Azure do aplikacji JBoss EAP 7.2 lub 7.3 działającej na maszynie wirtualnej z systemem RHEL 7.7 lub 8.0.
 
-* <a href="https://azure.microsoft.com/resources/templates/jboss-eap-clustered-multivm-rhel/"> JBoss protokół EAP w RHEL (klastrowane, wiele maszyn wirtualnych)</a>. Spowoduje to wdrożenie aplikacji sieci Web o nazwie EAP-Session-Replication w klastrze JBoss z protokołem EAP 7,2 lub 7,3 działającym na *n* liczbach maszyn wirtualnych RHEL 7,7 lub 8,0. Użytkownik decyduje o *n* wartości. Wszystkie maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obciążenia.
+* <a href="https://azure.microsoft.com/resources/templates/jboss-eap-clustered-multivm-rhel/"> JBoss EAP on RHEL (klastrowane, wiele maszyn wirtualnych)</a>. Spowoduje to wdrożenie aplikacji internetowej o nazwie eap-session-replication w klastrze JBoss EAP 7.2 lub 7.3 uruchomionym na n liczbie maszyn wirtualnych ZHEL 7.7 lub 8.0.  Użytkownik decyduje o *wartości n.* Wszystkie maszyny wirtualne są dodawane do puli zasobów serwera równoważenia obciążenia.
 
-* <a href="https://azure.microsoft.com/en-us/resources/templates/jboss-eap-clustered-vmss-rhel/"> JBoss protokół EAP w RHEL (klastrowane, zestaw skalowania maszyn wirtualnych)</a>. Spowoduje to wdrożenie aplikacji sieci Web o nazwie EAP-Session-Replication w klastrze JBoss EAP 7,2 lub 7,3 z systemem RHEL 7,7 lub 8,0.
+* <a href="https://azure.microsoft.com/en-us/resources/templates/jboss-eap-clustered-vmss-rhel/"> JBoss EAP on RHEL (klastrowany zestaw skalowania maszyn wirtualnych)</a>. Spowoduje to wdrożenie aplikacji internetowej o nazwie eap-session-replication w klastrze JBoss EAP 7.2 lub 7.3 z systemem RHEL 7.7 lub 8.0.
 
 ## <a name="resource-links"></a>Linki zasobów
 
 * [Korzyść użycia hybrydowego platformy Azure](../../windows/hybrid-use-benefit-licensing.md)
 * [Konfigurowanie aplikacji Java dla Azure App Service](../../../app-service/configure-language-java.md)
-* [JBoss EAP na platformie Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)
+* [JBoss EAP na Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)
 * [JBoss EAP w systemie Azure App Service Linux](../../../app-service/quickstart-java.md)
-* [Wdróż JBoss EAP na Azure App Service](https://github.com/JasonFreeberg/jboss-on-app-service)
+* [Wdrażanie protokołu EAP JBoss na Azure App Service](https://github.com/JasonFreeberg/jboss-on-app-service)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [JBoss EAP 7,2](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/).
-* Dowiedz się więcej o [JBoss EAP 7,3](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.3/).
-* Dowiedz się więcej o [zarządzaniu subskrypcją Red Hat](https://access.redhat.com/products/red-hat-subscription-management).
-* Dowiedz się więcej [na temat obciążeń firmy Red Hat na platformie Azure](./overview.md).
-* Wdróż [JBoss EAP na maszynie wirtualnej RHEL lub zestawu skalowania maszyn wirtualnych w witrynie Azure Marketplace](https://aka.ms/AMP-JBoss-EAP).
-* Wdróż [JBoss EAP na maszynie wirtualnej RHEL lub zestawu skalowania maszyn wirtualnych na podstawie szablonów szybkiego startu platformy Azure](https://aka.ms/Quickstart-JBoss-EAP).
+* Dowiedz się więcej o [JBoss EAP 7.2.](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/)
+* Dowiedz się więcej o [JBoss EAP 7.3.](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.3/)
+* Dowiedz się więcej o [zarządzaniu subskrypcjami systemu Red Hat.](https://access.redhat.com/products/red-hat-subscription-management)
+* Dowiedz się więcej o [obciążeniach systemu Red Hat na platformie Azure.](./overview.md)
+* Wdrażanie [protokołu EAP JBoss na maszynie wirtualnej z](https://aka.ms/AMP-JBoss-EAP)systemu RHEL lub zestawie skalowania maszyn wirtualnych z Azure Marketplace .
+* Wdrażanie [protokołu JBoss EAP na maszynie wirtualnej z](https://aka.ms/Quickstart-JBoss-EAP)system RHEL lub zestawie skalowania maszyn wirtualnych z szablonów szybkiego startu platformy Azure.

@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie zasobami Azure Cosmos DB API SQL przy użyciu zestawu SDK platformy .NET w wersji 4
-description: 'Szybki start: tworzenie aplikacji konsolowej przy użyciu zestawu SDK platformy .NET w wersji 4 do zarządzania Azure Cosmos DB konta interfejsu API SQL.'
+description: Przewodnik Szybki start tworzenia aplikacji konsolowej przy użyciu zestawu SDK platformy .NET w wersji 4 do zarządzania Azure Cosmos DB konta interfejsu API SQL.
 author: anfeldma-ms
 ms.author: anfeldma
 ms.service: cosmos-db
@@ -8,15 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/07/2021
-ms.custom: devx-track-dotnet
-ms.openlocfilehash: 559ace3e9cb9f6daeb6dc3da581bb99d3ff9145e
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.custom: devx-track-dotnet, devx-track-azurecli
+ms.openlocfilehash: 495191dfcdfd7a4d318bef508878e951d88b3ae6
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365165"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483898"
 ---
-# <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-preview-to-manage-azure-cosmos-db-sql-api-account-resources"></a>Szybki start: tworzenie aplikacji konsolowej przy użyciu zestawu .NET V4 SDK (wersja zapoznawcza) do zarządzania Azure Cosmos DB konta interfejsu API SQL.
+# <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-preview-to-manage-azure-cosmos-db-sql-api-account-resources"></a>Szybki start: tworzenie aplikacji konsolowej przy użyciu zestawu SDK platformy .NET w wersji 4 (wersja zapoznawcza) do zarządzania Azure Cosmos DB konta interfejsu API SQL.
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -29,14 +29,14 @@ ms.locfileid: "107365165"
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-Rozpoczynanie pracy z Azure Cosmos DB klienta interfejsu API SQL dla platformy .NET. Postępuj zgodnie z instrukcjami w tym witrynie, aby zainstalować pakiet .NET V4 (Azure.Cosmos), skompilować aplikację i wypróbować przykładowy kod dla podstawowych operacji CRUD na danych przechowywanych w usłudze Azure Cosmos DB.
+Rozpoczynanie pracy z biblioteką Azure Cosmos DB klienta interfejsu API SQL dla platformy .NET. Postępuj zgodnie z instrukcjami w tym witrynie, aby zainstalować pakiet .NET V4 (Azure.Cosmos), skompilować aplikację i wypróbować przykładowy kod dla podstawowych operacji CRUD na danych przechowywanych w usłudze Azure Cosmos DB.
 
 > [!IMPORTANT]
-> Zestaw SDK platformy .NET w wersji 4 dla Azure Cosmos DB jest obecnie dostępny w publicznej wersji zapoznawczej.
+> Zestaw SDK platformy .NET w wersji 4 dla Azure Cosmos DB jest obecnie w publicznej wersji zapoznawczej.
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
 > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Cosmos DB to szybka baza danych NoSQL firmy Microsoft z otwartymi interfejsami API dla dowolnej skali. Za pomocą Azure Cosmos DB można szybko tworzyć bazy danych klucz/wartość, dokument i graf oraz tworzyć zapytania. Użyj biblioteki Azure Cosmos DB klienta interfejsu API SQL dla platformy .NET, aby:
+Azure Cosmos DB to szybka baza danych NoSQL firmy Microsoftâ€™ z otwartymi interfejsami API dla dowolnej skali. Za pomocą Azure Cosmos DB można szybko tworzyć i tworzyć zapytania dotyczące klucza/wartości, dokumentu i grafowych baz danych. Użyj biblioteki Azure Cosmos DB klienta interfejsu API SQL dla platformy .NET, aby:
 
 * Tworzenie bazy danych i kontenera usługi Azure Cosmos
 * Dodawanie przykładowych danych do kontenera
@@ -47,7 +47,7 @@ Azure Cosmos DB to szybka baza danych NoSQL firmy Microsoft z otwartymi interfej
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure [— utwórz](https://azure.microsoft.com/free/) [](https://azure.microsoft.com/try/cosmosdb/) ją bezpłatnie lub wypróbuj Azure Cosmos DB bezpłatnie bez subskrypcji platformy Azure — bezpłatnie i bez zobowiązań. 
+* Subskrypcja platformy Azure [— utwórz](https://azure.microsoft.com/free/) ją bezpłatnie lub wypróbuj [Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bezpłatnie bez subskrypcji platformy Azure — bezpłatnie i bez zobowiązań. 
 * [ZESTAW SDK platformy NET Core 3.](https://dotnet.microsoft.com/download/dotnet-core) Możesz sprawdzić, która wersja jest dostępna w Twoim środowisku, uruchamiając program `dotnet --version` .
 
 ## <a name="setting-up"></a>Konfigurowanie
@@ -56,13 +56,13 @@ Ta sekcja zawiera instrukcje tworzenia konta usługi Azure Cosmos i konfigurowan
 
 ### <a name="create-an-azure-cosmos-account"></a><a id="create-account"></a>tworzenie konta usługi Azure Cosmos
 
-Jeśli używasz opcji [Wypróbuj bezpłatnie Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) usługi Azure Cosmos, musisz utworzyć konto usługi Azure Cosmos DB typu INTERFEJS API **SQL.** Konto Azure Cosmos DB testowe zostało już utworzone. Nie musisz jawnie tworzyć konta, więc możesz pominąć tę sekcję i przejść do następnej sekcji.
+Jeśli do utworzenia konta usługi Azure Cosmos [używasz](https://azure.microsoft.com/try/cosmosdb/) Azure Cosmos DB Wypróbuj bezpłatnie, musisz utworzyć konto usługi Azure Cosmos DB typu **INTERFEJS API SQL.** Konto Azure Cosmos DB testowe zostało już utworzone. Nie musisz jawnie tworzyć konta, więc możesz pominąć tę sekcję i przejść do następnej sekcji.
 
 Jeśli masz własną subskrypcję platformy Azure lub bezpłatnie utworzono subskrypcję, musisz jawnie utworzyć konto usługi Azure Cosmos. Poniższy kod spowoduje utworzenie konta usługi Azure Cosmos ze spójnością sesji. Konto jest replikowane w `South Central US` programach i `North Central US` .  
 
-Konta usługi Azure Cosmos Azure Cloud Shell użyć do utworzenia konta usługi Azure Cosmos. Azure Cloud Shell to interaktywna, uwierzytelniona, dostępna w przeglądarce powłoka służąca do zarządzania zasobami platformy Azure. Oferuje ona elastyczny wybór środowiska powłoki, Bash lub PowerShell, które najlepiej pasuje do sposobu, w jaki wykonujesz swoją pracę. Na przykład w tym przewodniku Szybki start wybierz **pozycję Tryb powłoki Bash.** Azure Cloud Shell wymaga również konta magazynu, możesz je utworzyć po wyświetleniu monitu.
+Możesz użyć Azure Cloud Shell, aby utworzyć konto usługi Azure Cosmos. Azure Cloud Shell to interaktywna, uwierzytelniona, dostępna w przeglądarce powłoka służąca do zarządzania zasobami platformy Azure. Oferuje ona elastyczny wybór środowiska powłoki, Bash lub PowerShell, które najlepiej pasuje do sposobu, w jaki wykonujesz swoją pracę. Na przykład w tym przewodniku Szybki start wybierz **pozycję Tryb powłoki Bash.** Azure Cloud Shell wymaga również konta magazynu, można je utworzyć po wyświetleniu monitu.
 
-Wybierz przycisk **Wypróbuj** obok poniższego kodu, wybierz pozycję Tryb **powłoki Bash,** a następnie wybierz pozycję **Utwórz konto** magazynu i zaloguj się do Cloud Shell. Następnie skopiuj i wklej następujący kod, aby Azure Cloud Shell i uruchom go. Nazwa konta usługi Azure Cosmos musi być globalnie unikatowa. Pamiętaj o zaktualizowaniu wartości przed `mysqlapicosmosdb` uruchomieniem polecenia.
+Wybierz przycisk **Wypróbuj** obok poniższego kodu, wybierz pozycję Tryb **powłoki Bash,** a następnie wybierz pozycję Utwórz **konto magazynu** i zaloguj się do Cloud Shell. Następnie skopiuj i wklej następujący kod, aby Azure Cloud Shell i uruchom go. Nazwa konta usługi Azure Cosmos musi być globalnie unikatowa. Pamiętaj o zaktualizowaniu wartości przed `mysqlapicosmosdb` uruchomieniem polecenia.
 
 ```azurecli-interactive
 
@@ -89,14 +89,14 @@ az cosmosdb create \
 
 ```
 
-Tworzenie konta usługi Azure Cosmos zajmuje trochę czasu. Po pomyślnym zakończeniu operacji można wyświetlić dane wyjściowe potwierdzenia. Po pomyślnym zakończeniu polecenia zaloguj się do witryny [Azure Portal](https://portal.azure.com/) i sprawdź, czy istnieje konto usługi Azure Cosmos o określonej nazwie. Okno aplikacji można Azure Cloud Shell po utworzeniu zasobu. 
+Utworzenie konta usługi Azure Cosmos zajmuje trochę czasu. Po pomyślnym zakończeniu operacji można zobaczyć dane wyjściowe potwierdzenia. Po pomyślnym zakończeniu polecenia [](https://portal.azure.com/) zaloguj się do Azure Portal i sprawdź, czy istnieje konto usługi Azure Cosmos o określonej nazwie. Okno aplikacji można Azure Cloud Shell po utworzeniu zasobu. 
 
 ### <a name="create-a-new-net-app"></a><a id="create-dotnet-core-app"></a>Tworzenie nowej aplikacji .NET
 
-Utwórz nową aplikację .NET w preferowanym edytorze lub w preferowanym środowiskach IDE. Otwórz wiersz polecenia systemu Windows lub okno terminalu z komputera lokalnego. Wszystkie polecenia zostaną uruchomione w następnych sekcjach z wiersza polecenia lub terminalu.  Uruchom następujące polecenie dotnet new, aby utworzyć nową aplikację o nazwie `todo` . Parametr --langVersion ustawia właściwość LangVersion w utworzonym pliku projektu.
+Utwórz nową aplikację .NET w preferowanym edytorze lub w preferowanym idee. Otwórz wiersz polecenia systemu Windows lub okno terminalu z komputera lokalnego. Wszystkie polecenia zostaną uruchomione w następnych sekcjach z wiersza polecenia lub terminalu.  Uruchom następujące polecenie dotnet new, aby utworzyć nową aplikację o nazwie `todo` . Parametr --langVersion ustawia właściwość LangVersion w utworzonym pliku projektu.
 
    ```bash
-   dotnet new console –langVersion:8 -n todo
+   dotnet new console â€“langVersion:8 -n todo
    ```
 
 Zmień katalog na nowo utworzony folder aplikacji. Aplikację można skompilować za pomocą:
@@ -129,7 +129,7 @@ Nadal w katalogu aplikacji zainstaluj bibliotekę klienta Azure Cosmos DB dla pr
 
 ### <a name="copy-your-azure-cosmos-account-credentials-from-the-azure-portal"></a>Skopiuj poświadczenia konta usługi Azure Cosmos z Azure Portal
 
-Przykładowa aplikacja wymaga uwierzytelnienia na koncie usługi Azure Cosmos. Aby się uwierzytelnić, należy przekazać poświadczenia konta usługi Azure Cosmos do aplikacji. Uzyskaj poświadczenia konta usługi Azure Cosmos, wykonać następujące kroki:
+Przykładowa aplikacja wymaga uwierzytelnienia na koncie usługi Azure Cosmos. Aby się uwierzytelnić, należy przekazać poświadczenia konta usługi Azure Cosmos do aplikacji. Pobierz poświadczenia konta usługi Azure Cosmos, wykonać następujące kroki:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
@@ -139,7 +139,7 @@ Przykładowa aplikacja wymaga uwierzytelnienia na koncie usługi Azure Cosmos. A
 
 ## <a name="object-model"></a><a id="object-model"></a>Model obiektów
 
-Przed rozpoczęciem tworzenia aplikacji przyjrzyjmy się hierarchii zasobów w programie Azure Cosmos DB oraz modelowi obiektów używanego do tworzenia tych zasobów i uzyskiwania do nich dostępu. Ten Azure Cosmos DB tworzy zasoby w następującej kolejności:
+Przed rozpoczęciem tworzenia aplikacji przyjrzyjmy się hierarchii zasobów w programie Azure Cosmos DB i modelowi obiektów używanego do tworzenia tych zasobów i uzyskiwania do nich dostępu. Ten Azure Cosmos DB tworzy zasoby w następującej kolejności:
 
 * Konto usługi Azure Cosmos 
 * Bazy danych 

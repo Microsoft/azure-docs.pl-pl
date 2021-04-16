@@ -16,7 +16,7 @@ ms.locfileid: "107497471"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-data-lake-analytics"></a>Azure Policy wbudowane definicje dla Azure Data Lake Analytics
 
-Ta strona jest indeksem [Azure Policy](../governance/policy/overview.md) wbudowanych definicji zasad dla Azure Data Lake Analytics. Aby uzyskać Azure Policy wbudowanych funkcji dla innych usług, [Azure Policy wbudowane definicje](../governance/policy/samples/built-in-policies.md).
+Ta strona jest indeksem [Azure Policy](../governance/policy/overview.md) wbudowanych definicji zasad dla Azure Data Lake Analytics. Aby uzyskać Azure Policy wbudowanych dla innych usług, [zobacz Azure Policy wbudowane definicje](../governance/policy/samples/built-in-policies.md).
 
 Nazwa każdej wbudowanej definicji zasad jest linkiem do definicji zasad w Azure Portal. Użyj linku w kolumnie **Wersja,** aby wyświetlić źródło w Azure Policy [GitHub.](https://github.com/Azure/azure-policy)
 

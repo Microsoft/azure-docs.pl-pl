@@ -1,73 +1,88 @@
 ---
 title: Często zadawane pytania — Azure Monitor dla rozwiązań SAP | Microsoft Docs
-description: W tym artykule przedstawiono odpowiedzi na często zadawane pytania dotyczące Azure Monitor dla rozwiązań SAP.
+description: W tym artykule znajdziesz odpowiedzi na często zadawane pytania dotyczące Azure Monitor rozwiązań SAP.
 author: rdeltcheva
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.openlocfilehash: 3732189c1d2e09b648a2fba0a39e7e4113a76d48
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b84f07f637b0a8925dec96c8c609101247ffd64
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101675943"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377128"
 ---
 # <a name="azure-monitor-for-sap-solutions-faq-preview"></a>Azure Monitor dla rozwiązań SAP — często zadawane pytania (wersja zapoznawcza)
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
-Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące Azure Monitor dla rozwiązań SAP.  
+Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące Azure Monitor rozwiązań SAP.  
 
- - **Czy muszę płacisz za Azure Monitor dla rozwiązań SAP?**  
-Za korzystanie z rozwiązań SAP nie jest naliczana opłata licencyjna za Azure Monitor.  
-Jednak klienci są zobowiązani do ponoszenia kosztów składników zarządzanej grupy zasobów.  
+ - **Czy muszę płacić za Azure Monitor dla rozwiązań SAP?**  
+Nie ma opłaty licencyjnej za Azure Monitor dla rozwiązań SAP.  
+Jednak klienci są odpowiedzialni za poniesienie kosztów składników zarządzanej grupy zasobów.  
 
- - **W jakich regionach ta usługa jest dostępna w publicznej wersji zapoznawczej?**  
-W publicznej wersji zapoznawczej ta usługa będzie dostępna w regionach Wschodnie stany USA 2, zachodnie stany USA 2, Wschodnie stany USA i Europa Zachodnia.  
+ - **W których regionach ta usługa jest dostępna w publicznej wersji zapoznawczej?**  
+W publicznej wersji zapoznawczej ta usługa będzie dostępna w regionach Wschodnie stany USA 2, Zachodnie stany USA 2, Wschodnie stany USA i Europa Zachodnia.  
 
- - **Czy muszę podać uprawnienia zezwalające na wdrożenie zarządzanej grupy zasobów w mojej subskrypcji?**  
+ - **Czy muszę podać uprawnienia, aby umożliwić wdrożenie zarządzanej grupy zasobów w subskrypcji?**  
 Nie, jawne uprawnienia nie są wymagane.  
 
  - **Gdzie znajduje się maszyna wirtualna modułu zbierającego?**  
-W czasie wdrażania Azure Monitor dla zasobów rozwiązań SAP zalecamy, aby klienci wybierali tę samą sieć wirtualną dla zasobu monitorowania jako serwer SAP HANA. Z tego powodu zaleca się, aby maszyna wirtualna modułu zbierającego znajdować się w tej samej sieci wirtualnej co SAP HANA Server. Jeśli klienci korzystają z bazy danych innej niż HANA, maszyna wirtualna modułu zbierającego będzie znajdować się w tej samej sieci wirtualnej co baza danych innej niż HANA.  
+W momencie wdrażania zasobu Azure Monitor dla rozwiązań SAP zalecamy klientom wybranie tej samej sieci wirtualnej do monitorowania zasobu jako SAP HANA serwera. W związku z tym zaleca się, aby maszyna wirtualna modułu zbierającego znajdowała się w tej samej sieci wirtualnej co SAP HANA serwera. Jeśli klienci będą korzystać z bazy danych spoza platformy HANA, maszyna wirtualna modułu zbierającego będzie znajdować się w tej samej sieci wirtualnej co baza danych spoza platformy HANA.  
 
  - **Które wersje platformy HANA są obsługiwane?**  
-HANA 1,0 SPS 12 (Rev. 120 lub nowszy) oraz HANA 2,0 SPS03 lub nowszy  
+HANA 1.0 SPS 12 (wersja 120 lub wyższa) i HANA 2.0 SPS03 lub wyższa  
 
- - **Które konfiguracje wdrożenia platformy HANA są obsługiwane?**  
+ - **Które konfiguracje wdrażania platformy HANA są obsługiwane?**  
 Obsługiwane są następujące konfiguracje:
-   - Pojedynczy węzeł (skalowanie w górę) i wiele węzłów (skalowanie w poziomie)  
-   - Kontener pojedynczej bazy danych (HANA 1,0 SPS 12) i wiele kontenerów bazy danych (HANA 1,0 SPS 12 lub HANA 2,0)  
-   - Przełączenie w tryb failover (n + 1) i HSR  
+   - Jeden węzeł (skalowanie w górę) i wiele węzłów (skalowanie w górę)  
+   - Pojedynczy kontener bazy danych (HANA 1.0 SPS 12) i wiele kontenerów baz danych (HANA 1.0 SPS 12 lub HANA 2.0)  
+   - Automatyczny tryb failover hosta (n+1) i moduł HSR  
 
- - **Które wersje SQL Server są obsługiwane?**  
-SQL Server 2012 z dodatkiem SP4 lub nowszym.  
+ - **Które SQL Server są obsługiwane?**  
+SQL Server 2012 z dodatkiem SP4 lub wyższym.  
 
- - **Które konfiguracje SQL Server są obsługiwane?**  
+ - **Które SQL Server konfiguracji są obsługiwane?**  
 Obsługiwane są następujące konfiguracje:
-   - Domyślne lub nazwane wystąpienia autonomiczne na maszynie wirtualnej  
-   - Wystąpienia klastrowane lub wystąpienia w konfiguracji AlwaysOn przy użyciu nazwy wirtualnej zasobu klastra lub nazwy odbiornika AlwaysOn. Obecnie nie są zbierane żadne metryki specyficzne dla klastra ani funkcji AlwaysOn    
-   - Azure SQL Database (PAAS) nie jest obecnie obsługiwana  
+   - Wystąpienia autonomiczne domyślne lub nazwane na maszynie wirtualnej  
+   - Wystąpienia klastrowane lub wystąpienia w konfiguracji AlwaysOn, gdy jest to nazwa wirtualna zasobu klastra lub nazwa odbiornika AlwaysOn. Obecnie nie są zbierane metryki specyficzne dla klastra lub alwayson    
+   - Azure SQL Database (PAAS) nie jest obecnie obsługiwane  
 
  - **Co się stanie w przypadku przypadkowego usunięcia zarządzanej grupy zasobów?**  
-Zarządzana Grupa zasobów jest domyślnie zablokowana. W związku z tym ryzyko przypadkowego usunięcia zarządzanej grupy zasobów przez klientów to minuscule.  
-Jeśli klient usunie zarządzaną grupę zasobów, Azure Monitor dla rozwiązań SAP przestanie działać. Klient będzie musiał wdrożyć nowe Azure Monitor dla zasobów rozwiązań SAP i zacząć od nowa.  
+Zarządzana grupa zasobów jest domyślnie zablokowana. W związku z tym prawdopodobieństwo przypadkowego usunięcia zarządzanej grupy zasobów przez klientów jest pomniejszone.  
+Jeśli klient usunie zarządzaną grupę zasobów, Azure Monitor dla rozwiązań SAP przestanie działać. Klient będzie musiał wdrożyć nowy zasób usługi Azure Monitor dla rozwiązań SAP i zacząć od nowa.  
 
- - **Jakie role są potrzebne w mojej subskrypcji platformy Azure w celu wdrożenia Azure Monitor dla zasobu rozwiązań SAP?**  
-Rola współautor.  
+ - **Jakich ról potrzebuję w subskrypcji platformy Azure, aby wdrożyć Azure Monitor dla rozwiązań SAP zasobów?**  
+Rola współautora.  
 
- - **Co to jest umowa SLA dotycząca tego produktu?**  
-Wersje zapoznawcze są wykluczone z umów dotyczących poziomu usług. Przeczytaj pełną licencję za pomocą narzędzia Azure Monitor for SAP Solutions Marketplace Image.  
+ - **Jaka jest umowa SLA dla tego produktu?**  
+Wersje zapoznawcze są wykluczone z umów dotyczących poziomu usług. Przeczytaj pełny okres licencji za pośrednictwem Azure Monitor dla rozwiązań SAP marketplace.  
 
- - **Czy mogę monitorować cały poziom w tym rozwiązaniu?**  
-Obecnie możesz monitorować bazę danych platformy HANA, podstawową infrastrukturę, klaster o wysokiej dostępności i program Microsoft SQL Server w publicznej wersji zapoznawczej.  
+ - **Czy mogę monitorować całe swoje krajobrazy za pomocą tego rozwiązania?**  
+Obecnie można monitorować bazę danych HANA, podstawową infrastrukturę, klaster wysokiej dostępności, program Microsoft SQL Server, dostępność oprogramowania SAP Netweaver i metryki dostępności wystąpienia aplikacji SAP w publicznej wersji zapoznawczej.  
 
- - **Czy ta usługa zastępuje Menedżera rozwiązań SAP?**  
-Nie. Klienci nadal mogą korzystać z Menedżera rozwiązań SAP do monitorowania procesów firmowych.  
+ - **Czy ta usługa zastępuje menedżera rozwiązań SAP?**  
+Nie. Klienci nadal mogą używać programu SAP Solution Manager do monitorowania procesów biznesowych.  
 
- - **Jaka jest wartość tej usługi w porównaniu z tradycyjnymi rozwiązaniami, takimi jak SAP HANA Panel sterowania/Studio?**  
-Azure Monitor dla rozwiązań SAP nie jest specyficzna dla bazy danych HANA. Azure Monitor dla rozwiązań SAP obsługuje również AnyDB.  
+ - **Jaka jest wartość tej usługi w przeciwieństwie do tradycyjnych rozwiązań, takich jak SAP HANA Panel/Studio?**  
+Azure Monitor dla rozwiązań SAP nie jest specyficzna dla bazy danych HANA. Azure Monitor dla rozwiązań SAP obsługuje również program AnyDB.  
+
+- **Które wersje oprogramowania SAP NetWeaver są obsługiwane?**  
+OPROGRAMOWANIE SAP NetWeaver 7.0 lub wyższe.  
+
+- **Które konfiguracje oprogramowania SAP NetWeaver są obsługiwane?**  
+Obsługuje konfiguracje ABAP, Java i SAP NetWeaver Application Server z dwoma stosami.
+
+- **Dlaczego należy wyłączyć ochronę metod monitorowania aplikacji SAP NetWeaver?**  
+W wersjach SAP >= 7.3 większość metod usługi internetowej jest domyślnie chroniona. Aby pobrać metryki dostępności i wydajności przez wywołanie tych metod, należy wyłączyć ochronę następujących metod: GetQueueStatistic, ABAPGetWPTable, GetProcessList, EnqGetStatistic i GetSystemInstancelist.
+
+- **Czy istnieje ryzyko związane z cofaniem ochrony webmethodów SAPCONTROL?**  
+Ogólnie rzecz biorąc, niechronienie elementów webmethod [](https://launchpad.support.sap.com/#/notes/1439348)SAPCONTROL nie stanowi zagrożenia dla bezpieczeństwa, jednak jeśli klienci chcą ograniczyć/uniemożliwić dostęp do niechronionych elementów webmethod za pośrednictwem portów serwera (5XX13/5XX14) serwera sapstartsrv, można to zrobić, dodając filtr w liście ACL (SAP Access Control List), w uwagach [systemu operacyjnego](https://service.sap.com/sap/support/notes/1495075) opisano wymaganą konfigurację, aby to osiągnąć. 
+
+- **Czy muszę ponownie uruchomić wystąpienia sap po przeprowadzeniu konfiguracji systemu w celu skonfigurowania dostawcy SAP NetWeaver?**  
+Tak, po zmianie konfiguracji systemu SAP w przypadku niechronionych metod należy ponownie uruchomić odpowiednie systemy SAP, aby upewnić się, że zmiany konfiguracji zostały zaktualizowane.  
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Utwórz pierwszy Azure Monitor dla zasobu rozwiązań SAP.
+- Utwórz swoją pierwszą Azure Monitor zasobów rozwiązań SAP.

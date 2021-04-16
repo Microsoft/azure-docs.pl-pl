@@ -45,7 +45,7 @@ Użytkowników można przypisywać do jednostek administracyjnych pojedynczo lub
 
        ![Zrzut ekranu przedstawiający okienko "Jednostki administracyjne" służące do przypisywania użytkownika do jednostki administracyjnej.](./media/admin-units-add-manage-users/assign-users-individually.png)
 
-- Przypisz poszczególnych użytkowników z jednostki administracyjnej:
+- Przypisywanie poszczególnych użytkowników z jednostki administracyjnej:
 
    1. Zaloguj się do centrum [administracyjnego usługi Azure AD z](https://portal.azure.com) uprawnieniami administratora ról uprzywilejowanych.
    1. Wybierz **pozycję Jednostki** administracyjne, a następnie wybierz jednostkę administracyjną, do której ma zostać przypisany użytkownik.
