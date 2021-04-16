@@ -1,33 +1,41 @@
 ---
 title: Limity usługi
 titleSuffix: Azure Digital Twins
-description: Wykres przedstawiający limity usługi Azure Digital bliźniaczych reprezentacji.
+description: Wykres przedstawiający limity Azure Digital Twins usługi.
 author: baanders
 ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 165fa23cf3965d3017b15c27fedc2846f97d8d11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 46f378baad51e959f8b3c074cc24e5bbdfdd95d4
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99054403"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389608"
 ---
-# <a name="azure-digital-twins-service-limits"></a>Limity usługi Digital bliźniaczych reprezentacji na platformie Azure
+# <a name="azure-digital-twins-service-limits"></a>Azure Digital Twins limity usługi
 
-Oto limity usługi Azure Digital bliźniaczych reprezentacji.
+Są to limity usług Azure Digital Twins.
 
 > [!NOTE]
-> Niektóre obszary tej usługi mają regulowane limity. Jest to reprezentowane w poniższych tabelach z kolumną z możliwością *dopasowywania?* Aby można było dostosować limit, wartość *ustawiana* to *tak*.
+> Niektóre obszary tej usługi mają dostosowywane limity. Jest on reprezentowany w poniższych tabelach z *kolumną Można* dostosowywać?. Gdy można dostosować limit, wartość *Dostosowywane?* ma wartość *Tak.*
 >
-> Jeśli firma wymaga podniesienia regulowanego limitu lub limitu przydziału powyżej domyślnego limitu, można zażądać dodatkowych zasobów, [otwierając bilet pomocy technicznej](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+> Jeśli Twoja firma wymaga podniesienia dostosowywanego limitu lub limitu przydziału powyżej domyślnego limitu, możesz zażądać dodatkowych zasobów, otwierając [bilet pomocy technicznej](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="limits-by-type"></a>Limity według typu
 
 [!INCLUDE [Azure Digital Twins limits](../../includes/digital-twins-limits.md)]
 
+## <a name="working-with-limits"></a>Praca z limitami
+
+Po osiągnięciu limitu usługa ogranicza dodatkowe żądania. Spowoduje to odpowiedź błędu 404 z tych żądań.
+
+Aby nimi zarządzać, poniżej znajdują się zalecenia dotyczące pracy z limitami.
+* **Użyj logiki ponawiania prób.** Zestawy [AZURE DIGITAL TWINS implementują](how-to-use-apis-sdks.md) logikę ponawiania dla żądań, które zakończyły się niepowodzeniem, więc jeśli pracujesz z dostarczonym zestawem SDK, jest to już wbudowane. W przeciwnym razie rozważ zaimplementowanie logiki ponawiania prób we własnej aplikacji. Usługa wysyła z powrotem nagłówek w odpowiedzi na błąd, którego można użyć do określenia, jak długo należy `Retry-After` czekać przed ponowieniem próby.
+* **Użyj progów i powiadomień, aby ostrzec o zbliżaniu się do limitów.** Niektóre limity usługi dla Azure Digital Twins mają odpowiednie [metryki,](troubleshoot-metrics.md) których można użyć do śledzenia użycia w tych obszarach. Aby skonfigurować progi i skonfigurować alert dla dowolnej metryki w przypadku zbliżania się progu, zobacz instrukcje w tece [*Rozwiązywanie problemów: Konfigurowanie alertów*](troubleshoot-alerts.md). Aby skonfigurować powiadomienia dla innych limitów, w przypadku których metryki nie są dostarczane, rozważ zaimplementowanie tej logiki we własnym kodzie aplikacji.
+
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o bieżącej wersji usługi Azure Digital bliźniaczych reprezentacji w temacie Omówienie usługi:
-* [*Omówienie: co to jest usługa Azure Digital bliźniaczych reprezentacji?*](overview.md)
+Dowiedz się więcej na temat bieżącej wersji Azure Digital Twins w przeglądzie usługi:
+* [*Omówienie: Co to jest Azure Digital Twins?*](overview.md)

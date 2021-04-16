@@ -1,6 +1,6 @@
 ---
-title: Tworzenie maszyny wirtualnej na podstawie uogólnionego obrazu przy użyciu interfejsu wiersza polecenia platformy Azure
-description: Utwórz maszynę wirtualną na podstawie uogólnionej wersji obrazu przy użyciu interfejsu wiersza polecenia platformy Azure.
+title: Tworzenie maszyny wirtualnej na użyciu uogólninego obrazu przy użyciu interfejsu wiersza polecenia platformy Azure
+description: Utwórz maszynę wirtualną z uogólnionych wersji obrazu przy użyciu interfejsu wiersza polecenia platformy Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
@@ -9,21 +9,21 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2bcaf85f61a4d8cf4d23c9c5be7f46d765d77dbb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 41c6995f16b836231142520362f9aace7d91ffe0
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102551046"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500315"
 ---
-# <a name="create-a-vm-from-a-generalized-image-version-using-the-cli"></a>Tworzenie maszyny wirtualnej na podstawie uogólnionej wersji obrazu przy użyciu interfejsu wiersza polecenia
+# <a name="create-a-vm-from-a-generalized-image-version-using-the-azure-cli"></a>Tworzenie maszyny wirtualnej na użyciu uogólnionych wersji obrazu przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Utwórz maszynę wirtualną na podstawie [uogólnionej wersji obrazu](./shared-image-galleries.md#generalized-and-specialized-images) przechowywanej w galerii obrazów udostępnionych. Jeśli chcesz utworzyć maszynę wirtualną przy użyciu wyspecjalizowanego obrazu, zobacz [Tworzenie maszyny wirtualnej na podstawie wyspecjalizowanego obrazu](vm-specialized-image-version-powershell.md). 
+Utwórz maszynę wirtualną na stronie [uogólnionych wersji obrazu](./shared-image-galleries.md#generalized-and-specialized-images) przechowywanych w Shared Image Gallery. Jeśli chcesz utworzyć maszynę wirtualną przy użyciu wyspecjalizowanego obrazu, zobacz [Tworzenie maszyny wirtualnej na pomocą wyspecjalizowanego obrazu.](vm-specialized-image-version-powershell.md) 
 
 
-## <a name="get-the-image-id"></a>Pobieranie identyfikatora obrazu
+## <a name="get-the-image-id"></a>Uzyskiwanie identyfikatora obrazu
 
-Wyświetl listę definicji obrazów w galerii za pomocą polecenia [AZ SIG Image-Definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list) , aby wyświetlić nazwę i identyfikator definicji.
+Wyświetl listę definicji obrazów w galerii przy użyciu [narzędzia az sig image-definition list,](/cli/azure/sig/image-definition#az-sig-image-definition-list) aby wyświetlić nazwę i identyfikator definicji.
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG
@@ -33,9 +33,9 @@ az sig image-definition list --resource-group $resourceGroup --gallery-name $gal
 
 ## <a name="create-the-vm"></a>Tworzenie maszyny wirtualnej
 
-Utwórz maszynę wirtualną przy użyciu polecenia [az vm create](/cli/azure/vm#az-vm-create). Aby użyć najnowszej wersji obrazu, ustaw `--image` na identyfikator definicji obrazu. 
+Utwórz maszynę wirtualną przy użyciu polecenia [az vm create](/cli/azure/vm#az-vm-create). Aby użyć najnowszej wersji obrazu, ustaw identyfikator `--image` definicji obrazu. 
 
-W tym przykładzie Zastąp nazwy zasobów zgodnie z wymaganiami. 
+W razie potrzeby w tym przykładzie zastąp nazwy zasobów. 
 
 ```azurecli-interactive 
 imgDef="/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition"
@@ -55,8 +55,8 @@ az vm create\
    --generate-ssh-keys
 ```
 
-Można również użyć określonej wersji, używając identyfikatora wersji obrazu dla `--image` parametru. Na przykład, aby użyć *1.0.0* wersji obrazu typu: `--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"` .
+Możesz również użyć określonej wersji, używając identyfikatora wersji obrazu dla `--image` parametru . Aby na przykład użyć obrazu w *wersji 1.0.0,* wpisz: `--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"` .
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Usługa Azure Image Builder (wersja zapoznawcza)](./image-builder-overview.md) ułatwia automatyzację tworzenia wersji obrazu. można nawet użyć jej do aktualizacji i [tworzenia nowej wersji obrazu z istniejącej wersji obrazu](./linux/image-builder-gallery-update-image-version.md).
+[Usługa Azure Image Builder (wersja zapoznawcza)](./image-builder-overview.md) może pomóc zautomatyzować tworzenie wersji obrazu. Można jej nawet użyć do zaktualizowania i utworzenia nowej wersji obrazu z [istniejącej wersji obrazu.](./linux/image-builder-gallery-update-image-version.md)

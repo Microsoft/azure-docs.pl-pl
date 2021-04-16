@@ -1,5 +1,5 @@
 ---
-title: Zarządzana sieć wirtualna & zarządzanych prywatnych punktów końcowych
+title: Zarządzana sieć wirtualna & zarządzane prywatne punkty końcowe
 description: Dowiedz się więcej o zarządzanej sieci wirtualnej i zarządzanych prywatnych punktach końcowych w Azure Data Factory.
 ms.author: abnarain
 author: nabhishek
@@ -9,55 +9,55 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: d777588f0abdd1f771deb259c597f6407e61d874
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 1213d5f7421cc71255f29d013fa47878559110ee
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364621"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481586"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory Managed Virtual Network (wersja zapoznawcza)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-W tym artykule wyjaśniono zarządzane Virtual Network i zarządzane prywatne punkty końcowe w Azure Data Factory.
+W tym artykule wyjaśniono zarządzane Virtual Network prywatne punkty końcowe w Azure Data Factory.
 
 
 ## <a name="managed-virtual-network"></a>Zarządzana sieć wirtualna
 
-Po utworzeniu środowiska Azure Integration Runtime (IR) w programie Azure Data Factory Managed Virtual Network (VNET) środowisko Integration Runtime zostanie aprowizowane z zarządzanym środowiskiem Virtual Network i będzie korzystać z prywatnych punktów końcowych do bezpiecznego łączenia się z obsługiwanymi magazynami danych. 
+Podczas tworzenia środowiska Azure Integration Runtime (IR) w programie Azure Data Factory Managed Virtual Network (VNET) środowisko Integration Runtime zostanie aprowizowane za pomocą zarządzanego środowiska Virtual Network i będzie korzystać z prywatnych punktów końcowych do bezpiecznego łączenia się z obsługiwanymi magazynami danych. 
 
-Utworzenie Azure IR w ramach zarządzanych Virtual Network gwarantuje, że proces integracji danych jest izolowany i bezpieczny. 
+Utworzenie Azure IR w ramach zarządzanego Virtual Network gwarantuje, że proces integracji danych jest izolowany i bezpieczny. 
 
 Zalety korzystania z usługi Managed Virtual Network:
 
-- Dzięki zarządzanej Virtual Network można odciążyć zarządzanie Virtual Network, aby Azure Data Factory. Nie musisz tworzyć podsieci dla usługi Azure Integration Runtime która może ostatecznie używać wielu prywatnych ip z twojego Virtual Network i wymagałaby wcześniejszego planowania infrastruktury sieciowej. 
+- Dzięki zarządzanej Virtual Network można odciążyć zarządzanie Virtual Network, aby Azure Data Factory. Nie musisz tworzyć podsieci dla usługi Azure Integration Runtime, która może ostatecznie korzystać z wielu prywatnych ip z twojego Virtual Network i wymagałaby wcześniejszego planowania infrastruktury sieciowej. 
 - Do bezpiecznego integrowania danych nie jest wymagana głęboka wiedza na temat sieci platformy Azure. Zamiast tego rozpoczęcie pracy z bezpiecznym procesem ETL jest znacznie uproszczone dla inżynierów danych. 
-- Zarządzane Virtual Network razem z zarządzanymi prywatnymi punktami końcowymi chronią przed eksfiltracją danych. 
+- Zarządzane Virtual Network wraz z zarządzanymi prywatnymi punktami końcowymi chronią przed eksfiltracją danych. 
 
 > [!IMPORTANT]
 >Obecnie zarządzana sieć wirtualna jest obsługiwana tylko w tym samym regionie co Azure Data Factory wirtualnej.
  
 
-![Architektura zarządzanej aplikacji Virtual Network ADF](./media/managed-vnet/managed-vnet-architecture-diagram.png)
+![Architektura zarządzanej usługi ADF Virtual Network ADF](./media/managed-vnet/managed-vnet-architecture-diagram.png)
 
 ## <a name="managed-private-endpoints"></a>Zarządzane prywatne punkty końcowe
 
-Zarządzane prywatne punkty końcowe to prywatne punkty końcowe utworzone w usłudze Azure Data Factory managed Virtual Network ustanowienie prywatnego połączenia z zasobami platformy Azure. Usługa Azure Data Factory zarządza tymi prywatnymi punktami końcowymi w Twoim imieniu. 
+Zarządzane prywatne punkty końcowe to prywatne punkty końcowe utworzone w usłudze Azure Data Factory Managed Virtual Network ustanowienie prywatnego połączenia z zasobami platformy Azure. Usługa Azure Data Factory zarządza tymi prywatnymi punktami końcowymi w Twoim imieniu. 
 
 ![Nowy zarządzany prywatny punkt końcowy](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-Azure Data Factory obsługuje linki prywatne. Link prywatny umożliwia dostęp do usług platformy Azure (PaaS), takich jak Azure Storage, Azure Cosmos DB, Azure Synapse Analytics).
+Azure Data Factory obsługuje linki prywatne. Usługa Private Link umożliwia dostęp do usług platformy Azure (PaaS), takich jak Azure Storage, Azure Cosmos DB, Azure Synapse Analytics).
 
-W przypadku korzystania z łącza prywatnego ruch między magazynami danych i zarządzanymi Virtual Network przechodzi całkowicie przez sieć szkieletową firmy Microsoft. Private Link chroni przed zagrożeniami eksfiltracji danych. Połączenie prywatne z zasobem jest ustanawiane przez utworzenie prywatnego punktu końcowego.
+W przypadku korzystania z łącza prywatnego ruch między magazynami danych i zarządzanymi Virtual Network odbywa się całkowicie za pośrednictwem sieci szkieletowej firmy Microsoft. Private Link chroni przed zagrożeniami eksfiltracji danych. Połączenie prywatne z zasobem jest ustanawiane przez utworzenie prywatnego punktu końcowego.
 
-Prywatny punkt końcowy używa prywatnego adresu IP w zarządzanym Virtual Network w celu skutecznego doprowadzenia do niego usługi. Prywatne punkty końcowe są mapowane na określony zasób na platformie Azure, a nie na całą usługę. Klienci mogą ograniczyć łączność do określonego zasobu zatwierdzonego przez ich organizację. Dowiedz się więcej na [temat linków prywatnych i prywatnych punktów końcowych.](../private-link/index.yml)
+Prywatny punkt końcowy używa prywatnego adresu IP w zarządzanym Virtual Network, aby skutecznie wprowadzić do niego usługę. Prywatne punkty końcowe są mapowane na określony zasób na platformie Azure, a nie na całą usługę. Klienci mogą ograniczyć łączność do określonego zasobu zatwierdzonego przez ich organizację. Dowiedz się więcej na [temat linków prywatnych i prywatnych punktów końcowych.](../private-link/index.yml)
 
 > [!NOTE]
 > Zaleca się utworzenie zarządzanych prywatnych punktów końcowych w celu nawiązania połączenia ze wszystkimi źródłami danych platformy Azure. 
  
 > [!WARNING]
-> Jeśli magazyn danych PaaS (blob, ADLS Gen2, Azure Synapse Analytics) ma już utworzony prywatny punkt końcowy, a nawet jeśli zezwala na dostęp ze wszystkich sieci, usługa ADF będzie mogła uzyskać do niego dostęp tylko przy użyciu zarządzanego prywatnego punktu końcowego. Upewnij się, że w takich scenariuszach tworzysz prywatny punkt końcowy. 
+> Jeśli magazyn danych PaaS (Blob, ADLS Gen2, Azure Synapse Analytics) ma już utworzony prywatny punkt końcowy, a nawet jeśli zezwala na dostęp ze wszystkich sieci, usługa ADF będzie mogła uzyskać do niego dostęp tylko przy użyciu zarządzanego prywatnego punktu końcowego. Upewnij się, że w takich scenariuszach tworzysz prywatny punkt końcowy. 
 
 Połączenie prywatnego punktu końcowego jest tworzone w stanie "Oczekiwanie" podczas tworzenia zarządzanego prywatnego punktu końcowego w Azure Data Factory. Inicjowany jest przepływ pracy zatwierdzania. Właściciel zasobu łącza prywatnego jest odpowiedzialny za zatwierdzenie lub odrzucenie połączenia.
 
@@ -70,7 +70,7 @@ Jeśli właściciel zatwierdzi połączenie, zostanie nawiązane połączenie pr
 Tylko zarządzany prywatny punkt końcowy w stanie zatwierdzonym może wysyłać ruch do danego zasobu łącza prywatnego.
 
 ## <a name="interactive-authoring"></a>Tworzenie interakcyjne
-Funkcje tworzenia interakcyjnego są używane dla funkcji, takich jak połączenie testowe, przeglądanie listy folderów i listy tabel, uzyskiwanie schematu i wyświetlanie podglądu danych. Tworzenie interakcyjne można włączyć podczas tworzenia lub edytowania Azure Integration Runtime, która znajduje się w sieci wirtualnej zarządzanej przez usługę ADF. Usługa zaplecza wstępnie przydzieli zasoby obliczeniowe dla funkcji tworzenia interakcyjnego. W przeciwnym razie obliczenia będą przydzielane za każdym razem, gdy zostanie wykonana każda interaktywna operacja, co zajmie więcej czasu. Czas wygaśnięcia (TTL) dla tworzenia interaktywnego wynosi 60 minut, co oznacza, że zostanie on automatycznie wyłączony po 60 minutach od ostatniej operacji tworzenia interaktywnego.
+Funkcje tworzenia interakcyjnego są używane dla funkcji, takich jak połączenie testowe, przeglądanie listy folderów i listy tabel, uzyskiwanie schematu i wyświetlanie podglądu danych. Tworzenie interakcyjne można włączyć podczas tworzenia lub edytowania Azure Integration Runtime, która znajduje się w sieci wirtualnej zarządzanej przez usługę ADF. Usługa zaplecza wstępnie przydzieli zasoby obliczeniowe dla funkcji tworzenia interakcyjnego. W przeciwnym razie obliczenia będą przydzielane za każdym razem, gdy zostanie wykonana dowolna interaktywna operacja, co zajmie więcej czasu. Czas wygaśnięcia (TTL) dla tworzenia interaktywnego wynosi 60 minut, co oznacza, że zostanie on automatycznie wyłączony po 60 minutach od ostatniej operacji tworzenia interaktywnego.
 
 ![Tworzenie interakcyjne](./media/managed-vnet/interactive-authoring.png)
 
@@ -120,10 +120,10 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
 
 ## <a name="limitations-and-known-issues"></a>Ograniczenia i znane problemy
 ### <a name="supported-data-sources"></a>Obsługiwane źródła danych
-Poniższe źródła danych są obsługiwane do nawiązywania połączeń za pośrednictwem łącza prywatnego z usługi ADF Managed Virtual Network.
-- Azure Blob Storage
-- Azure Table Storage
-- Azure Files
+Poniższe źródła danych są obsługiwane w celu nawiązywania połączeń za pośrednictwem łącza prywatnego z usługi ADF Managed Virtual Network.
+- Azure Blob Storage (bez konta magazynu w wersji 1)
+- Azure Table Storage (bez konta magazynu w wersji 1)
+- Azure Files (bez konta magazynu w wersji 1)
 - Azure Data Lake Gen2
 - Azure SQL Database (bez uwzględnienia Azure SQL Managed Instance)
 - Azure Synapse Analytics
@@ -167,7 +167,7 @@ Poniższe źródła danych są obsługiwane do nawiązywania połączeń za poś
 ### <a name="linked-service-creation-of-azure-key-vault"></a>Tworzenie połączonej usługi Azure Key Vault 
 - W przypadku tworzenia połączonej usługi dla usługi Azure Key Vault nie można odwołać się do środowiska Azure Integration Runtime. Dlatego nie można utworzyć prywatnego punktu końcowego podczas tworzenia usługi połączonej Azure Key Vault. Jednak po utworzeniu połączonej usługi dla magazynów danych, która odwołuje się do połączonej usługi usługi Azure Key Vault i ta połączona usługa odwołuje się do usługi Azure Integration Runtime z włączoną usługą Managed Virtual Network, podczas tworzenia można utworzyć prywatny punkt końcowy dla połączonej usługi Azure Key Vault. 
 - **Test connection** dla połączonej usługi usługi Azure Key Vault tylko weryfikuje format adresu URL, ale nie robi żadnych operacji sieciowych.
-- Kolumna Korzystanie **z prywatnego punktu końcowego** jest zawsze wyświetlana jako pusta, nawet jeśli utworzysz prywatny punkt końcowy dla Azure Key Vault.
+- Kolumna Korzystanie **z prywatnego punktu końcowego** jest zawsze wyświetlana jako pusta, nawet jeśli tworzysz prywatny punkt końcowy dla Azure Key Vault.
 ![Prywatny punkt końcowy usługi AKV](./media/managed-vnet/akv-pe.png)
 
 ## <a name="next-steps"></a>Następne kroki

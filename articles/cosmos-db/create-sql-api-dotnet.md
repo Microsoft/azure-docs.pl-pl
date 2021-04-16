@@ -1,5 +1,5 @@
 ---
-title: Szybki start — tworzenie aplikacji konsolowej .NET do zarządzania zasobami Azure Cosmos DB API SQL
+title: Szybki start — tworzenie aplikacji konsolowej .NET do zarządzania zasobami interfejsu API SQL Azure Cosmos DB SQL
 description: Z tego przewodnika Szybki start dowiesz się, jak utworzyć aplikację konsolą platformy .NET do zarządzania Azure Cosmos DB kontami interfejsu API SQL.
 author: anfeldma-ms
 ms.author: anfeldma
@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/07/2021
-ms.custom: devx-track-dotnet
-ms.openlocfilehash: c7dc3a230e2cd3f990771c297de29891de347089
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.custom: devx-track-dotnet, devx-track-azurecli
+ms.openlocfilehash: 21b2459294b3465ba147cb454b93ac0da0081c5d
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107363414"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480889"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>Szybki start: tworzenie aplikacji konsolowej .NET do zarządzania zasobami interfejsu API SQL Azure Cosmos DB SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -29,9 +29,9 @@ ms.locfileid: "107363414"
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-Rozpoczynanie pracy z biblioteką Azure Cosmos DB klienta interfejsu API SQL dla platformy .NET. Postępuj zgodnie z instrukcjami w tym instrukcjami, aby zainstalować pakiet .NET, skompilować aplikację i wypróbować przykładowy kod dla podstawowych operacji CRUD na danych przechowywanych w programie Azure Cosmos DB. 
+Rozpoczynanie pracy z biblioteką Azure Cosmos DB klienta interfejsu API SQL dla platformy .NET. Postępuj zgodnie z instrukcjami w tym instrukcje, aby zainstalować pakiet .NET, skompilować aplikację i wypróbować przykładowy kod dla podstawowych operacji CRUD na danych przechowywanych w programie Azure Cosmos DB. 
 
-Azure Cosmos DB to szybka baza danych NoSQL firmy Microsoft z otwartymi interfejsami API dla dowolnej skali. Za pomocą Azure Cosmos DB można szybko tworzyć i tworzyć zapytania dotyczące klucza/wartości, dokumentu i grafowych baz danych. Użyj biblioteki Azure Cosmos DB klienta interfejsu API SQL dla platformy .NET, aby:
+Azure Cosmos DB to szybka baza danych NoSQL firmy Microsoftâ€™ z otwartymi interfejsami API dla dowolnej skali. Za pomocą Azure Cosmos DB można szybko tworzyć i tworzyć zapytania dotyczące klucza/wartości, dokumentu i grafowych baz danych. Użyj biblioteki Azure Cosmos DB klienta interfejsu API SQL dla platformy .NET, aby:
 
 * Tworzenie bazy danych i kontenera usługi Azure Cosmos
 * Dodawanie przykładowych danych do kontenera
@@ -158,7 +158,7 @@ export EndpointUrl = "<Your_Azure_Cosmos_account_URI>"
 export PrimaryKey = "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
 ```
 
- ## <a name="object-model"></a><a id="object-model"></a>Model obiektów
+ ## <a name="object-model"></a><a id="object-model"></a>Model obiektu
 
 Przed rozpoczęciem tworzenia aplikacji przyjrzyjmy się hierarchii zasobów w programie Azure Cosmos DB i modelowi obiektów używanego do tworzenia tych zasobów i uzyskiwania do nich dostępu. Ten Azure Cosmos DB tworzy zasoby w następującej kolejności:
 
@@ -250,7 +250,7 @@ using System.Net;
 using Microsoft.Azure.Cosmos;
 ```
 
-Do pliku **Program.cs** dodaj kod, aby odczytać zmienne środowiskowe ustawione w poprzednim kroku. `CosmosClient`Zdefiniuj `Database` obiekty , i `Container` . Następnie dodaj kod do metody main, która wywołuje `GetStartedDemoAsync` metodę, w której zarządzasz zasobami konta usługi Azure Cosmos. 
+Do pliku **Program.cs** dodaj kod, aby odczytać zmienne środowiskowe ustawione w poprzednim kroku. `CosmosClient`Zdefiniuj `Database` obiekty , i `Container` . Następnie dodaj kod do metody main, która wywołuje `GetStartedDemoAsync` metodę , w której zarządzasz zasobami konta usługi Azure Cosmos. 
 
 ```csharp
 namespace todo

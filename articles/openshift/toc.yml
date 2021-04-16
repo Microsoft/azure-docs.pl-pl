@@ -121,6 +121,8 @@
       href: support-policies-v4.md
     - name: Cykl życia pomocy technicznej dla usługi ARO 4
       href: support-lifecycle.md
+    - name: Macierz odpowiedzialności
+      href: responsibility-matrix.md
     - name: Dostępność regionalna
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Dokumentacja usługi Red Hat OpenShift 4

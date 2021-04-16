@@ -1,13 +1,13 @@
 ---
-ms.openlocfilehash: 55876d85e72555f51ce47b9bd77a961a194f4e4a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: b51f52e24ca843abd94a8511e86b3193a797edd5
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307453"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107513086"
 ---
 ## <a name="additional-prerequisites-for-java"></a>Dodatkowe wymagania wstępne dotyczące języka Java
-W przypadku języka Java wymagane są również:
+W przypadku języka Java potrzebne będą również:
 - [Zestaw Java Development Kit (JDK)](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install) w wersji 8 lub nowszej.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
@@ -15,15 +15,15 @@ W przypadku języka Java wymagane są również:
 
 ### <a name="create-a-new-java-application"></a>Tworzenie nowej aplikacji Java
 
-Otwórz terminal lub okno poleceń. Przejdź do katalogu, w którym chcesz utworzyć aplikację Java. Uruchom poniższe polecenie, aby wygenerować projekt Java z szablonu Maven-Archetype-szybkiego startu.
+Otwórz terminal lub okno polecenia. Przejdź do katalogu, w którym chcesz utworzyć aplikację Java. Uruchom poniższe polecenie, aby wygenerować projekt Java na podstawie szablonu maven-archetype-quickstart.
 
 ```console
 mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
 ```
 
-Zauważ, że zadanie "Generuj" utworzyło katalog o takiej samej nazwie jak nazwa `artifactId` . W tym katalogu Katalog Src/Main/Java zawiera kod źródłowy projektu, `src/test/java directory` zawiera źródło testu, a `pom.xml` plik jest modelem obiektu projektu projektu lub pliku pom.
+Zauważysz, że zadanie "wygeneruj" utworzyło katalog o takiej samej nazwie jak `artifactId` . W tym katalogu katalog src/main/java zawiera kod źródłowy projektu, plik zawiera źródło testowe, a plik jest modelem project `src/test/java directory` `pom.xml` object model (POM) projektu.
 
-### <a name="install-the-package"></a>Zainstaluj pakiet
+### <a name="install-the-package"></a>Instalowanie pakietu
 
 Otwórz plik **pom.xml** w edytorze tekstów. Dodaj następujący element zależności do grupy zależności.
 
@@ -45,9 +45,9 @@ Otwórz plik **pom.xml** w edytorze tekstów. Dodaj następujący element zależ
 </dependency>
 ```
 
-### <a name="use-the-sdk-packages"></a>Korzystanie z pakietów SDK
+### <a name="use-the-sdk-packages"></a>Korzystanie z pakietów zestawu SDK
 
-Dodaj następujące `import` dyrektywy do kodu, aby użyć tożsamości platformy Azure i zestawów SDK usługi Azure Communication.
+Dodaj następujące dyrektywy `import` do kodu, aby użyć zestawów SDK tożsamości platformy Azure i usługi Azure Communication.
 
 ```java
 import com.azure.communication.common.*;
@@ -61,17 +61,17 @@ import com.azure.identity.*;
 import java.util.*;
 ```
 
-## <a name="create-a-defaultazurecredential"></a>Utwórz DefaultAzureCredential
+## <a name="create-a-defaultazurecredential"></a>Tworzenie wartości DefaultAzureCredential
 
-W tym przewodniku szybki start będziemy używać [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential) . To poświadczenie jest odpowiednie dla środowisk produkcyjnych i programistycznych. Ponieważ jest to konieczne dla każdej operacji, utwórz ją w `App.java` klasie. Dodaj następujący na początku `App.java` klasy.
+W tym przewodniku Szybki start będziemy używać wartości [DefaultAzureCredential.](/java/api/com.azure.identity.defaultazurecredential) To poświadczenie jest odpowiednie dla środowisk produkcyjnych i deweloperskich. Ponieważ jest to potrzebne dla każdej operacji, utwórzmy ją w `App.java` klasie . Dodaj następujący kod na początku `App.java` klasy .
 
 ```java
 private TokenCredential credential = new DefaultAzureCredentialBuilder().build();
 ```
 
-## <a name="issue-a-token-with-managed-identities"></a>Wystawianie tokenu z tożsamościami zarządzanymi
+## <a name="issue-a-token-with-managed-identities"></a>Wydawanie tokenu przy użyciu tożsamości zarządzanych
 
-Teraz dodamy kod używający utworzonego poświadczenia, aby wydać token dostępu VoIP. Kod ten zostanie wywołany później;
+Teraz dodamy kod, który używa utworzonego poświadczenia, aby wydać token dostępu VoIP. Ten kod wywołamy później.
 
 ```java
     public AccessToken createIdentityAndGetTokenAsync(String endpoint) {
@@ -85,9 +85,9 @@ Teraz dodamy kod używający utworzonego poświadczenia, aby wydać token dostę
     }
 ```
 
-## <a name="send-an-sms-with-managed-identities"></a>Wyślij wiadomość SMS z tożsamościami zarządzanymi
+## <a name="send-an-sms-with-managed-identities"></a>Wysyłanie wiadomości SMS przy użyciu tożsamości zarządzanych
 
-Innym przykładem użycia tożsamości zarządzanych jest dodanie tego kodu, który używa tego samego poświadczenia do wysyłania wiadomości SMS:
+Jako kolejny przykład użycia tożsamości zarządzanych dodamy ten kod, który używa tego samego poświadczenia do wysyłania wiadomości SMS:
 
 ```java
      public SmsSendResult sendSms(String endpoint, String from, String to, String message) {
@@ -100,9 +100,9 @@ Innym przykładem użycia tożsamości zarządzanych jest dodanie tego kodu, kt�
           return smsClient.send(from, to, message);
      }
 ```
-## <a name="write-the-main-method"></a>Napisz metodę Main
+## <a name="write-the-main-method"></a>Pisanie metody Main
 
-`App.java`Mamy już metodę Main, dodajmy kod, który będzie wywoływał nasz wcześniej utworzony kod, aby zademonstrować użycie zarządzanych tożsamości:
+Twoja metoda powinna już mieć metodę Main. Dodajmy kod, który wywoła utworzony wcześniej kod, aby zademonstrować użycie `App.java` tożsamości zarządzanych:
 ```java
     public static void main(String[] args) {
           App instance = new App();
@@ -122,7 +122,7 @@ Innym przykładem użycia tożsamości zarządzanych jest dodanie tego kodu, kt�
     }
 ```
 
-Ostatni `App.java` powinien wyglądać następująco:
+Końcowy wynik `App.java` powinien wyglądać tak:
 
 ```java
 package com.communication.quickstart;
@@ -182,25 +182,25 @@ public class App
 
 ## <a name="run-the-code"></a>Uruchamianie kodu
 
-Przejdź do katalogu zawierającego plik *pom.xml* i skompiluj projekt przy użyciu następującego `mvn` polecenia.
+Przejdź do katalogu zawierającego *pom.xml* i skompiluj projekt przy użyciu następującego `mvn` polecenia.
 
 ```console
 mvn compile
 ```
 
-Następnie Skompiluj pakiet.
+Następnie skompilowanie pakietu.
 
 ```console
 mvn package
 ```
 
-Uruchom następujące `mvn` polecenie, aby uruchomić aplikację.
+Uruchom następujące `mvn` polecenie, aby wykonać aplikację.
 
 ```console
 mvn exec:java -Dexec.mainClass="com.communication.quickstart.App" -Dexec.cleanupDaemonThreads=false
 ```
 
-Ostateczne dane wyjściowe powinny wyglądać następująco:
+Końcowe dane wyjściowe powinny wyglądać następująco:
 ```
 Retrieving new Access Token, using Managed Identities
 Retrieved Access Token: ey..A

@@ -1,6 +1,6 @@
 ---
 title: 'Interfejs wiersza polecenia: łączenie aplikacji z kontem magazynu'
-description: Dowiedz się, jak zautomatyzować wdrażanie aplikacji App Service i zarządzanie nią za pomocą interfejsu wiersza polecenia platformy Azure. Ten przykład pokazuje, jak połączyć aplikację z kontem magazynu.
+description: Dowiedz się, jak używać interfejsu wiersza polecenia platformy Azure do automatyzowania wdrażania aplikacji App Service zarządzania nimi. W tym przykładzie pokazano, jak połączyć aplikację z kontem magazynu.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: bc8345b2-8487-40c6-a91f-77414e8688e6
@@ -8,13 +8,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 508fef1a7467af6874271b5ef37c30a9a16dec95
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: bc0dc403e6987743c97982924348cbe345d15c48
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97006320"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482347"
 ---
 # <a name="connect-an-app-service-app-to-a-storage-account-using-cli"></a>Łączenie aplikacji usługi App Service z kontem magazynu przy użyciu interfejsu wiersza polecenia
 

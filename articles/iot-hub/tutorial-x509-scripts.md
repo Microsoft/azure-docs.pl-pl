@@ -1,6 +1,6 @@
 ---
-title: Samouczek — używanie skryptów Microsoft do tworzenia certyfikatów testów x. 509 dla platformy Azure IoT Hub | Microsoft Docs
-description: Samouczek — używanie niestandardowych skryptów do tworzenia certyfikatów urzędu certyfikacji i urządzeń dla platformy Azure IoT Hub
+title: Samouczek — używanie skryptów firmy Microsoft do tworzenia certyfikatów testowych x.509 dla Azure IoT Hub | Microsoft Docs
+description: Samouczek — używanie skryptów niestandardowych do tworzenia certyfikatów urzędu certyfikacji i urządzeń dla Azure IoT Hub
 author: v-gpettibone
 manager: philmea
 ms.service: iot-hub
@@ -12,87 +12,86 @@ ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-- devx-track-azurecli
-ms.openlocfilehash: fc3717436619468e2db0bf4b408059112dae24cc
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: ff4b63f49a87dd9ca6b0ef458bdcf1c285a34a18
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384157"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378214"
 ---
-# <a name="tutorial-using-microsoft-supplied-scripts-to-create-test-certificates"></a>Samouczek: używanie skryptów dostarczonych przez firmę Microsoft do tworzenia certyfikatów testowych
+# <a name="tutorial-using-microsoft-supplied-scripts-to-create-test-certificates"></a>Samouczek: tworzenie certyfikatów testowych za pomocą skryptów dostarczonych przez firmę Microsoft
 
-Firma Microsoft udostępnia skrypty programu PowerShell i bash, które ułatwiają zrozumienie sposobu tworzenia własnych certyfikatów X. 509 i uwierzytelniania ich w IoT Hub. Skrypty znajdują się w [repozytorium](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates)GitHub. Są one dostępne tylko w celach demonstracyjnych. Certyfikaty utworzone przez nie mogą być używane w środowisku produkcyjnym. Certyfikaty zawierają zakodowane hasła ("1234") i wygasają po upływie 30 dni. W środowisku produkcyjnym należy użyć własnych najlepszych rozwiązań w zakresie tworzenia certyfikatów i zarządzania okresem istnienia.
+Firma Microsoft udostępnia skrypty programu PowerShell i powłoki Bash, które ułatwiają zrozumienie sposobu tworzenia własnych certyfikatów X.509 i uwierzytelniania ich w IoT Hub. Skrypty znajdują się w [repozytorium](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates)GitHub . Są one udostępniane wyłącznie w celach demonstracyjnych. Utworzone przez nie certyfikaty nie mogą być używane w środowisku produkcyjnym. Certyfikaty zawierają zakodowane hasła ("1234") i wygasają po upływie 30 dni. W przypadku środowiska produkcyjnego należy użyć własnych najlepszych rozwiązań w zakresie tworzenia certyfikatów i zarządzania okresem istnienia.
 
 ## <a name="powershell-scripts"></a>Skrypty środowiska PowerShell
 
-### <a name="step-1---setup"></a>Krok 1 — Instalacja
+### <a name="step-1---setup"></a>Krok 1. Konfiguracja
 
-Pobierz OpenSSL dla systemu Windows. Zapoznaj się z tematem <https://www.openssl.org/docs/faq.html#MISC4> miejsca, aby pobrać go lub <https://www.openssl.org/source/> skompilować ze źródła. Następnie Uruchom skrypty wstępne:
+Pobierz program OpenSSL dla systemu Windows. Zobacz <https://www.openssl.org/docs/faq.html#MISC4> , aby znaleźć miejsca, w których można je pobrać lub <https://www.openssl.org/source/> skompilować ze źródła. Następnie uruchom skrypty wstępne:
 
-1. Skopiuj skrypty z tego [repozytorium](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) GitHub do katalogu lokalnego, w którym chcesz się zadziałała. Wszystkie pliki zostaną utworzone jako elementy podrzędne tego katalogu.
+1. Skopiuj skrypty z tego [repozytorium](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) GitHub do katalogu lokalnego, w którym chcesz pracować. Wszystkie pliki zostaną utworzone jako dzieci tego katalogu.
 
 1. Uruchom program PowerShell jako administrator.
 
-1. Przejdź do katalogu, w którym załadowano skrypty.
+1. Zmień katalog na katalog, do którego załadowano skrypty.
 
-1. W wierszu polecenia Ustaw zmienną środowiskową `$ENV:OPENSSL_CONF` na katalog, w którym znajduje się plik konfiguracyjny OpenSSL (OpenSSL. cnf).
+1. W wierszu polecenia ustaw zmienną środowiskową na katalog, w którym znajduje się plik konfiguracji `$ENV:OPENSSL_CONF` openssl (openssl.cnf).
 
-1. Uruchom, `Set-ExecutionPolicy -ExecutionPolicy Unrestricted` Aby program PowerShell mógł uruchamiać skrypty.
+1. Uruchom `Set-ExecutionPolicy -ExecutionPolicy Unrestricted` polecenia , aby program PowerShell może uruchamiać skrypty.
 
-1. Uruchom polecenie `. .\ca-certs.ps1`. Dzięki temu funkcje skryptu są przywracane do globalnej przestrzeni nazw programu PowerShell.
+1. Uruchom polecenie `. .\ca-certs.ps1`. Dzięki temu funkcje skryptu są dostępne w globalnej przestrzeni nazw programu PowerShell.
 
-1. Uruchom polecenie `Test-CACertsPrerequisites`. Program PowerShell używa magazynu certyfikatów systemu Windows do zarządzania certyfikatami. To polecenie sprawdza, czy nie będzie można później kolizji nazw z istniejącymi certyfikatami i czy OpenSSL jest poprawnie skonfigurowany.
+1. Uruchom polecenie `Test-CACertsPrerequisites`. Program PowerShell używa magazynu certyfikatów systemu Windows do zarządzania certyfikatami. To polecenie sprawdza, czy później nie będzie kolizji nazw z istniejącymi certyfikatami i czy program OpenSSL jest poprawnie skonfigurowany.
 
 ### <a name="step-2---create-certificates"></a>Krok 2. Tworzenie certyfikatów
 
-Uruchom polecenie `New-CACertsCertChain [ecc|rsa]`. W przypadku certyfikatów urzędu certyfikacji zaleca się używanie ECC, ale nie jest to wymagane. Ten skrypt aktualizuje katalog i magazyn certyfikatów systemu Windows przy użyciu następującego urzędu certyfikacji i certyfikatów pośrednich:
+Uruchom polecenie `New-CACertsCertChain [ecc|rsa]`. EcC jest zalecana dla certyfikatów urzędu certyfikacji, ale nie jest wymagana. Ten skrypt aktualizuje katalog i magazyn certyfikatów systemu Windows przy użyciu następujących certyfikatów urzędu certyfikacji i certyfikatów pośrednich:
 
-* intermediate1. pem
-* intermediate2. pem
-* intermediate3. pem
-* RootCA. cer
-* RootCA. pem
+* intermediate1.pem
+* intermediate2.pem
+* intermediate3.pem
+* RootCA.cer
+* RootCA.pem
 
-Po uruchomieniu skryptu Dodaj nowy certyfikat urzędu certyfikacji (RootCA. pem) do IoT Hub:
+Po uruchomieniu skryptu dodaj nowy certyfikat urzędu certyfikacji (RootCA.pem) do swojego IoT Hub:
 
-1. Przejdź do IoT Hub i przejdź do pozycji certyfikaty.
+1. Przejdź do swojego IoT Hub i przejdź do menu Certyfikaty.
 
 1. Wybierz pozycję **Dodaj**.
 
-1. Wprowadź nazwę wyświetlaną dla certyfikatu urzędu certyfikacji.
+1. Wprowadź nazwę wyświetlaną certyfikatu urzędu certyfikacji.
 
 1. Przekaż certyfikat urzędu certyfikacji.
 
 1. Wybierz pozycję **Zapisz**.
 
-### <a name="step-3---prove-possession"></a>Krok 3 — dowód posiadania
+### <a name="step-3---prove-possession"></a>Krok 3. Udowodnienie posiadania
 
-Teraz, gdy certyfikat urzędu certyfikacji został przekazany do IoT Hub, musisz udowodnić, że jesteś jego własnością:
+Teraz, po przesłaniu certyfikatu urzędu certyfikacji do IoT Hub, musisz udowodnić, że faktycznie jest on właścicielem:
 
 1. Wybierz nowy certyfikat urzędu certyfikacji.
 
-1. Wybierz pozycję **Generuj kod weryfikacyjny** w oknie dialogowym **Szczegóły certyfikatu** . Aby uzyskać więcej informacji, zobacz potwierdzenie [posiadania certyfikatu urzędu certyfikacji](tutorial-x509-prove-possession.md).
+1. Wybierz **pozycję Generuj kod** weryfikacyjny w **oknie dialogowym Szczegóły** certyfikatu. Aby uzyskać więcej informacji, zobacz [Prove Possession of a CA certificate (Udowodnij posiadanie certyfikatu urzędu certyfikacji).](tutorial-x509-prove-possession.md)
 
-1. Utwórz certyfikat zawierający kod weryfikacyjny. Na przykład, jeśli kod weryfikacyjny to `"106A5SD242AF512B3498BD6098C4941E66R34H268DDB3288"` , uruchom następujące polecenie, aby utworzyć nowy certyfikat w katalogu roboczym zawierającym temat `CN = 106A5SD242AF512B3498BD6098C4941E66R34H268DDB3288` . Skrypt tworzy certyfikat o nazwie `VerifyCert4.cer` .
+1. Utwórz certyfikat zawierający kod weryfikacyjny. Jeśli na przykład kod weryfikacyjny to , uruchom następujące czynności, aby utworzyć nowy certyfikat w katalogu roboczy `"106A5SD242AF512B3498BD6098C4941E66R34H268DDB3288"` zawierającym podmiot `CN = 106A5SD242AF512B3498BD6098C4941E66R34H268DDB3288` . Skrypt tworzy certyfikat o nazwie `VerifyCert4.cer` .
 
     `New-CACertsVerificationCert "106A5SD242AF512B3498BD609C4941E66R34H268DDB3288"`
 
-1. Przekaż `VerifyCert4.cer` do IoT Hub w oknie dialogowym **Szczegóły certyfikatu** .
+1. Przekaż `VerifyCert4.cer` plik do IoT Hub w **oknie dialogowym Szczegóły** certyfikatu.
 
 1. Wybierz pozycję **Weryfikuj**.
 
-### <a name="step-4---create-a-new-device"></a>Krok 4 — Tworzenie nowego urządzenia
+### <a name="step-4---create-a-new-device"></a>Krok 4. Tworzenie nowego urządzenia
 
-Utwórz urządzenie dla IoT Hub:
+Utwórz urządzenie dla swojego IoT Hub:
 
-1. W IoT Hub przejdź do sekcji **urządzenia IoT** .
+1. W swoim IoT Hub przejdź do sekcji **Urządzenia IoT.**
 
-1. Dodaj nowe urządzenie o IDENTYFIKATORze `mydevice` .
+1. Dodaj nowe urządzenie o identyfikatorze `mydevice` .
 
-1. W obszarze Uwierzytelnianie wybierz pozycję **podpisany urząd certyfikacji X. 509**.
+1. W przypadku uwierzytelniania wybierz **pozycję X.509 Ca Signed (Podpisany urząd certyfikacji X.509).**
 
-1. Uruchom `New-CACertsDevice mydevice` , aby utworzyć nowy certyfikat urządzenia. Spowoduje to utworzenie następujących plików w katalogu roboczym:
+1. Uruchom `New-CACertsDevice mydevice` , aby utworzyć nowy certyfikat urządzenia. Powoduje to utworzenie następujących plików w katalogu roboczy:
 
    * `mydevice.pfx`
    * `mydevice-all.pem`
@@ -101,74 +100,74 @@ Utwórz urządzenie dla IoT Hub:
 
 ### <a name="step-5---test-your-device-certificate"></a>Krok 5. Testowanie certyfikatu urządzenia
 
-Przejdź do [testowania uwierzytelniania certyfikatu](tutorial-x509-test-certificate.md) , aby określić, czy certyfikat urządzenia może być uwierzytelniany w IoT Hub. Wymagana jest wersja PFX certyfikatu `mydevice.pfx` .
+Przejdź do [testowania uwierzytelniania](tutorial-x509-test-certificate.md) certyfikatu, aby określić, czy certyfikat urządzenia może zostać uwierzytelniony w IoT Hub. Potrzebny będzie certyfikat w wersji `mydevice.pfx` PFX.
 
-### <a name="step-6---cleanup"></a>Krok 6. Czyszczenie
+### <a name="step-6---cleanup"></a>Krok 6. Oczyszczanie
 
-Z menu Start Otwórz pozycję **Zarządzanie certyfikatami komputerów** i przejdź do menu  **Certyfikaty — komputer lokalny > osobisty**. Usuń certyfikaty wystawione przez "Azure IoT CA TestOnly *". Podobnie Usuń odpowiednie certyfikaty z **>zaufanego głównego urzędu certyfikacji > certyfikaty i >urzędów certyfikacji Pośrednich > certyfikatów**.
+W menu Start otwórz pozycję **Zarządzaj certyfikatami** komputera i przejdź do pozycji Certyfikaty — **komputer > osobisty.** Usuń certyfikaty wystawione przez "TestOnly urzędu certyfikacji usługi Azure IoT*". Analogicznie usuń odpowiednie certyfikaty z>zaufanego głównego urzędu certyfikacji > certyfikatów i >certyfikatów pośrednich > **certyfikatów.**
 
-## <a name="bash-scripts"></a>Skrypty bash
+## <a name="bash-scripts"></a>Skrypty powłoki Bash
 
-### <a name="step-1---setup"></a>Krok 1 — Instalacja
+### <a name="step-1---setup"></a>Krok 1. Konfiguracja
 
-1. Uruchom bash.
+1. Uruchom powłokę Bash.
 
-1. Przejdź do katalogu, w którym chcesz korzystać z programu. Wszystkie pliki zostaną utworzone w tym katalogu.
+1. Zmień katalog na katalog, w którym chcesz pracować. Wszystkie pliki zostaną utworzone w tym katalogu.
 
-1. Skopiuj `*.cnf` i `*.sh` do katalogu roboczego.
+1. Skopiuj `*.cnf` i do katalogu `*.sh` roboczego.
 
 ### <a name="step-2---create-certificates"></a>Krok 2. Tworzenie certyfikatów
 
-1. Uruchom polecenie `./certGen.sh create_root_and_intermediate`. Spowoduje to utworzenie następujących plików w katalogu **certyfikatów** :
+1. Uruchom polecenie `./certGen.sh create_root_and_intermediate`. Powoduje to utworzenie następujących plików w katalogu **certs:**
 
-    * Azure-IoT-test-Only. łańcuch. ca. CERT. pem
-    * Azure-IoT-test-Only. Średniozaawansowany. CERT. pem
-    * Azure-IoT-test-Only. root. ca. CERT. pem
+    * azure-iot-test-only.chain.ca.cert.pem
+    * azure-iot-test-only.intermediate.cert.pem
+    * azure-iot-test-only.root.ca.cert.pem
 
-1. Przejdź do IoT Hub i przejdź do pozycji **Certyfikaty**.
+1. Przejdź do swojego IoT Hub i przejdź do **menu Certyfikaty.**
 
 1. Wybierz pozycję **Dodaj**.
 
-1. Wprowadź nazwę wyświetlaną dla certyfikatu urzędu certyfikacji.
+1. Wprowadź nazwę wyświetlaną certyfikatu urzędu certyfikacji.
 
 1. Przekaż tylko certyfikat urzędu certyfikacji do IoT Hub. Nazwa certyfikatu to `./certs/azure-iot-test-only.root.ca.cert.pem.`
 
 1. Wybierz pozycję **Zapisz**.
 
-### <a name="step-3---prove-possession"></a>Krok 3 — dowód posiadania
+### <a name="step-3---prove-possession"></a>Krok 3. Udowodnienie posiadania
 
 1. Wybierz nowy certyfikat urzędu certyfikacji utworzony w poprzednim kroku.
 
-1. Wybierz pozycję **Generuj kod weryfikacyjny** w oknie dialogowym **Szczegóły certyfikatu** . Aby uzyskać więcej informacji, zobacz potwierdzenie [posiadania certyfikatu urzędu certyfikacji](tutorial-x509-prove-possession.md).
+1. Wybierz **pozycję Generuj** kod weryfikacyjny w **oknie dialogowym Szczegóły** certyfikatu. Aby uzyskać więcej informacji, zobacz [Prove Possession of a CA certificate (Udowodnij posiadanie certyfikatu urzędu certyfikacji).](tutorial-x509-prove-possession.md)
 
-1. Utwórz certyfikat zawierający kod weryfikacyjny. Na przykład, jeśli kod weryfikacyjny to `"106A5SD242AF512B3498BD6098C4941E66R34H268DDB3288"` , uruchom następujące polecenie, aby utworzyć nowy certyfikat w katalogu roboczym o nazwie, `verification-code.cert.pem` który zawiera temat `CN = 106A5SD242AF512B3498BD6098C4941E66R34H268DDB3288` .
+1. Utwórz certyfikat zawierający kod weryfikacyjny. Jeśli na przykład kod weryfikacyjny to , uruchom następujące czynności, aby utworzyć nowy certyfikat w katalogu pracy o nazwie , `"106A5SD242AF512B3498BD6098C4941E66R34H268DDB3288"` `verification-code.cert.pem` który zawiera podmiot `CN = 106A5SD242AF512B3498BD6098C4941E66R34H268DDB3288` .
 
     `./certGen.sh create_verification_certificate "106A5SD242AF512B3498BD6098C4941E66R34H268DDB3288"`
 
-1. Przekaż certyfikat do centrum IoT Hub w oknie dialogowym **Szczegóły certyfikatu** .
+1. Przekaż certyfikat do centrum IoT w **oknie dialogowym Szczegóły** certyfikatu.
 
 1. Wybierz pozycję **Weryfikuj**.
 
-### <a name="step-4---create-a-new-device"></a>Krok 4 — Tworzenie nowego urządzenia
+### <a name="step-4---create-a-new-device"></a>Krok 4. Tworzenie nowego urządzenia
 
-Utwórz urządzenie dla Centrum IoT Hub:
+Utwórz urządzenie dla centrum IoT:
 
-1. W IoT Hub przejdź do sekcji urządzenia IoT.
+1. W swoim IoT Hub przejdź do sekcji Urządzenia IoT.
 
-1. Dodaj nowe urządzenie o IDENTYFIKATORze `mydevice` .
+1. Dodaj nowe urządzenie o identyfikatorze `mydevice` .
 
-1. W obszarze Uwierzytelnianie wybierz pozycję **podpisany urząd certyfikacji X. 509**.
+1. W przypadku uwierzytelniania wybierz **pozycję X.509 Urząd certyfikacji ze podpisem**.
 
-1. Uruchom `./certGen.sh create_device_certificate mydevice` , aby utworzyć nowy certyfikat urządzenia. Spowoduje to utworzenie dwóch plików o nazwach `new-device.cert.pem` i `new-device.cert.pfx` plikach w katalogu roboczym.
+1. Uruchom `./certGen.sh create_device_certificate mydevice` , aby utworzyć nowy certyfikat urządzenia. Powoduje to utworzenie dwóch plików `new-device.cert.pem` o nazwie i w katalogu `new-device.cert.pfx` roboczy.
 
 ### <a name="step-5---test-your-device-certificate"></a>Krok 5. Testowanie certyfikatu urządzenia
 
-Przejdź do [testowania uwierzytelniania certyfikatu](tutorial-x509-test-certificate.md) , aby określić, czy certyfikat urządzenia może być uwierzytelniany w IoT Hub. Wymagana jest wersja PFX certyfikatu `new-device.cert.pfx` .
+Przejdź do [uwierzytelniania certyfikatu testowania,](tutorial-x509-test-certificate.md) aby określić, czy certyfikat urządzenia może zostać uwierzytelniony w IoT Hub. Potrzebny będzie certyfikat w wersji `new-device.cert.pfx` PFX.
 
 ### <a name="step-6---cleanup"></a>Krok 6. Czyszczenie
 
-Ponieważ skrypt bash po prostu tworzy certyfikaty w katalogu roboczym, wystarczy je usunąć po zakończeniu testowania.
+Ponieważ skrypt powłoki bash po prostu tworzy certyfikaty w katalogu pracy, po prostu usuń je po przeprowadzaniu testowania.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby przetestować certyfikat, przejdź do [testowania uwierzytelniania certyfikatu](tutorial-x509-test-certificate.md) w celu ustalenia, czy certyfikat może uwierzytelniać urządzenie w IoT Hub.
+Aby przetestować certyfikat, przejdź do [testowania uwierzytelniania](tutorial-x509-test-certificate.md) certyfikatu, aby określić, czy certyfikat może uwierzytelnić urządzenie w IoT Hub.

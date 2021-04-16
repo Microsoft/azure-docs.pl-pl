@@ -1,6 +1,6 @@
 ---
-title: Rozpoczynanie pracy z usługą Azure IoT Hub Device Management (Python) | Microsoft Docs
-description: Jak za pomocą IoT Hub zarządzanie urządzeniami zainicjować zdalne ponowne uruchomienie urządzenia. Zestaw SDK usługi Azure IoT dla języka Python służy do implementowania aplikacji symulowanego urządzenia, która obejmuje metodę bezpośrednią i aplikację usługi, która wywołuje metodę bezpośrednią.
+title: Wprowadzenie do zarządzania urządzeniami Azure IoT Hub (Python) | Microsoft Docs
+description: Jak za pomocą IoT Hub urządzenia zainicjować zdalne ponowne uruchomienie urządzenia. Za pomocą zestawu SDK usługi Azure IoT dla języka Python można zaimplementować symulowaną aplikację urządzenia, która zawiera metodę bezpośrednią i aplikację usługi, która wywołuje metodę bezpośrednią.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,13 +8,13 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: robinsh
-ms.custom: mqtt, devx-track-python
-ms.openlocfilehash: d4c514042b89341b90b0bb9c939ef4b463741916
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mqtt, devx-track-python, devx-track-azurecli
+ms.openlocfilehash: c07d26715aff2c8dd5e00a7d7adbb548adf00a28
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87872722"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482504"
 ---
 # <a name="get-started-with-device-management-python"></a>Wprowadzenie do zarządzania urządzeniami (Python)
 
@@ -22,17 +22,17 @@ ms.locfileid: "87872722"
 
 Ten samouczek przedstawia sposób wykonania następujących czynności:
 
-* Użyj Azure Portal, aby utworzyć IoT Hub i utworzyć tożsamość urządzenia w centrum IoT.
+* Skorzystaj z Azure Portal, aby utworzyć IoT Hub i utworzyć tożsamość urządzenia w centrum IoT.
 
-* Utwórz aplikację symulowanego urządzenia, która zawiera metodę bezpośrednią, która uruchamia ponownie to urządzenie. Metody bezpośrednie są wywoływane z chmury.
+* Utwórz aplikację urządzenia symulowanego, która zawiera metodę bezpośrednią, która ponownie uruchamia to urządzenie. Metody bezpośrednie są wywoływane z chmury.
 
-* Utwórz aplikację konsolową w języku Python, która wywołuje metodę bezpośredniego ponownego uruchomienia w aplikacji symulowanego urządzenia za pośrednictwem Centrum IoT.
+* Utwórz aplikację konsolową w języku Python, która wywołuje metodę bezpośredniej ponownego uruchomienia w aplikacji urządzenia symulowanego za pośrednictwem centrum IoT.
 
-Na końcu tego samouczka masz dwie aplikacje konsolowe języka Python:
+Na końcu tego samouczka będziesz mieć dwie aplikacje konsolowe języka Python:
 
-* **dmpatterns_getstarted_device. PR**, który łączy się z Centrum IoT Hub przy użyciu utworzonej wcześniej tożsamości urządzenia, odbiera metodę bezpośredniego ponownego uruchomienia, symuluje rozruch fizyczny i raportuje godzinę ostatniego ponownego uruchomienia.
+* **dmpatterns_getstarted_device.py** łączy się z centrum IoT przy użyciu utworzonej wcześniej tożsamości urządzenia, odbiera metodę bezpośrednią ponownego uruchomienia, symuluje fizyczny ponowny rozruch i zgłasza czas ostatniego ponownego uruchomienia.
 
-* **dmpatterns_getstarted_service. PR**, która wywołuje metodę bezpośrednią w aplikacji symulowanego urządzenia, wyświetla odpowiedź i wyświetla zaktualizowane raportowane właściwości.
+* **dmpatterns_getstarted_service.py**, który wywołuje metodę bezpośrednią w aplikacji urządzenia symulowanego, wyświetla odpowiedź i wyświetla zaktualizowane zgłaszane właściwości.
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
@@ -40,13 +40,13 @@ Na końcu tego samouczka masz dwie aplikacje konsolowe języka Python:
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
 
-* Upewnij się, że port 8883 jest otwarty w zaporze. W przykładzie urządzenia w tym artykule jest używany protokół MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Upewnij się, że port 8883 jest otwarty w zaporze. Przykładowe urządzenie w tym artykule używa protokołu MQTT, który komunikuje się za pośrednictwem portu 8883. Ten port może być zablokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów na ominiecie tego problemu, zobacz [Connecting to IoT Hub (MQTT) (Nawiązywanie połączenia z IoT Hub (MQTT).](iot-hub-mqtt-support.md#connecting-to-iot-hub)
 
 ## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="register-a-new-device-in-the-iot-hub"></a>Rejestrowanie nowego urządzenia w usłudze IoT Hub
+## <a name="register-a-new-device-in-the-iot-hub"></a>Rejestrowanie nowego urządzenia w centrum IoT
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
@@ -54,21 +54,21 @@ Na końcu tego samouczka masz dwie aplikacje konsolowe języka Python:
 
 W tej sekcji omówiono następujące zagadnienia:
 
-* Tworzenie aplikacji konsolowej w języku Python, która reaguje na bezpośrednią metodę wywoływaną przez chmurę
+* Tworzenie aplikacji konsolowej w języku Python, która reaguje na metodę bezpośrednią wywoływaną przez chmurę
 
-* Symulowanie ponownego uruchamiania urządzenia
+* Symulowanie ponownego uruchomienia urządzenia
 
-* Użyj raportowanych właściwości, aby włączyć do identyfikowania urządzeń i podczas ostatniego ponownego uruchomienia zapytania o sznury
+* Użyj zgłoszonych właściwości, aby włączyć zapytania bliźniaczej reprezentacji urządzenia w celu zidentyfikowania urządzeń i ich ostatniego ponownego uruchomienia
 
-1. W wierszu polecenia Uruchom następujące polecenie, aby zainstalować pakiet **Azure-IoT-Device** :
+1. W wierszu polecenia uruchom następujące polecenie, aby zainstalować **pakiet azure-iot-device:**
 
     ```cmd/sh
     pip install azure-iot-device
     ```
 
-2. Za pomocą edytora tekstów Utwórz plik o nazwie **dmpatterns_getstarted_device. PR** w katalogu roboczym.
+2. Za pomocą edytora tekstów utwórz plik o **nazwie dmpatterns_getstarted_device.py w** katalogu roboczy.
 
-3. Dodaj następujące `import` instrukcje na początku pliku **dmpatterns_getstarted_device. PR** .
+3. Dodaj następujące `import` instrukcje na początku **pliku dmpatterns_getstarted_device.py.**
 
     ```python
     import threading
@@ -77,13 +77,13 @@ W tej sekcji omówiono następujące zagadnienia:
     from azure.iot.device import IoTHubDeviceClient, MethodResponse
     ```
 
-4. Dodaj zmienną **CONNECTION_STRING** . Zastąp `{deviceConnectionString}` wartość symbolu zastępczego parametrami połączenia urządzenia. Te parametry połączenia zostały wcześniej skopiowane przez [zarejestrowanie nowego urządzenia w usłudze IoT Hub](#register-a-new-device-in-the-iot-hub).  
+4. Dodaj **CONNECTION_STRING** zmienną. Zastąp wartość `{deviceConnectionString}` symbolu zastępczego swoimi ciągami połączenia urządzenia. Te ciągi połączenia zostały skopiowane wcześniej w teście [Rejestrowanie nowego urządzenia w centrum IoT Hub.](#register-a-new-device-in-the-iot-hub)  
 
     ```python
     CONNECTION_STRING = "{deviceConnectionString}"
     ```
 
-5. Dodaj następujące wywołania zwrotne funkcji w celu zaimplementowania metody bezpośredniej na urządzeniu.
+5. Dodaj następujące wywołania zwrotne funkcji, aby zaimplementować metodę bezpośrednią na urządzeniu.
 
     ```python
     def reboot_listener(client):
@@ -109,7 +109,7 @@ W tej sekcji omówiono następujące zagadnienia:
             client.send_method_response(method_response)
     ```
 
-6. Uruchom odbiornik metody Direct i poczekaj.
+6. Uruchom odbiornik metody bezpośredniej i poczekaj.
 
     ```python
     def iothub_client_init():
@@ -138,30 +138,30 @@ W tej sekcji omówiono następujące zagadnienia:
         iothub_client_sample_run()
     ```
 
-7. Zapisz i zamknij plik **dmpatterns_getstarted_device. PR** .
+7. Zapisz i zamknij **plik dmpatterns_getstarted_device.py.**
 
 > [!NOTE]
-> Dla uproszczenia ten samouczek nie zawiera opisu wdrożenia żadnych zasad ponawiania. W kodzie produkcyjnym należy wdrożyć zasady ponawiania (np. wykładniczy wycofywania), zgodnie z opisem w artykule, [obsłudze błędów przejściowych](/azure/architecture/best-practices/transient-faults).
+> Dla uproszczenia ten samouczek nie zawiera opisu wdrożenia żadnych zasad ponawiania. W kodzie produkcyjnym należy zaimplementować zasady ponawiania (takie jak wykładniczego odejścia) zgodnie z sugestią w artykule Obsługa błędów [przejściowych.](/azure/architecture/best-practices/transient-faults)
 
-## <a name="get-the-iot-hub-connection-string"></a>Pobierz parametry połączenia usługi IoT Hub
+## <a name="get-the-iot-hub-connection-string"></a>Uzyskiwanie parametrów połączenia centrum IoT
 
 [!INCLUDE [iot-hub-howto-device-management-shared-access-policy-text](../../includes/iot-hub-howto-device-management-shared-access-policy-text.md)]
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
-## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Wyzwalanie zdalnego ponownego uruchomienia na urządzeniu przy użyciu metody bezpośredniej
+## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Wyzwalanie zdalnego ponownego uruchomienia urządzenia przy użyciu metody bezpośredniej
 
-W tej sekcji utworzysz aplikację konsolową języka Python, która inicjuje zdalne ponowne uruchomienie na urządzeniu przy użyciu metody bezpośredniej. Aplikacja używa zapytań o bliźniaczych urządzeniach do wykrywania czasu ostatniego rozruchu dla tego urządzenia.
+W tej sekcji utworzysz aplikację konsolową języka Python, która inicjuje zdalne ponowne uruchomienie urządzenia przy użyciu metody bezpośredniej. Aplikacja używa zapytań bliźniaczych reprezentacji urządzenia, aby wykryć czas ostatniego ponownego uruchomienia dla tego urządzenia.
 
-1. W wierszu polecenia Uruchom następujące polecenie, aby zainstalować pakiet **Azure-IoT-Hub** :
+1. W wierszu polecenia uruchom następujące polecenie, aby zainstalować **pakiet azure-iot-hub:**
 
     ```cmd/sh
     pip install azure-iot-hub
     ```
 
-2. Za pomocą edytora tekstów Utwórz plik o nazwie **dmpatterns_getstarted_service. PR** w katalogu roboczym.
+2. Za pomocą edytora tekstów utwórz plik o **nazwie dmpatterns_getstarted_service.py w** katalogu roboczy.
 
-3. Dodaj następujące `import` instrukcje na początku pliku **dmpatterns_getstarted_service. PR** .
+3. Dodaj następujące `import` instrukcje na początku **pliku dmpatterns_getstarted_service.py.**
 
     ```python
     import sys, time
@@ -170,7 +170,7 @@ W tej sekcji utworzysz aplikację konsolową języka Python, która inicjuje zda
     from azure.iot.hub.models import CloudToDeviceMethod, CloudToDeviceMethodResult, Twin
     ```
 
-4. Dodaj następujące deklaracje zmiennych. Zastąp `{IoTHubConnectionString}` wartość symbolu zastępczego parametrami połączenia usługi IoT Hub skopiowanymi wcześniej w polu [Pobierz parametry połączenia usługi IoT Hub](#get-the-iot-hub-connection-string). Zastąp `{deviceId}` wartość symbolu zastępczego identyfikatorem urządzenia zarejestrowanym w [Zarejestruj nowe urządzenie w usłudze IoT Hub](#register-a-new-device-in-the-iot-hub).
+4. Dodaj następujące deklaracje zmiennych. Zastąp wartość `{IoTHubConnectionString}` symbolu zastępczego wartością parametrów połączenia centrum IoT skopiowanych wcześniej w teście [Get the IoT hub connection string (Uzyskiwanie](#get-the-iot-hub-connection-string)parametrów połączenia centrum IoT). Zastąp wartość `{deviceId}` symbolu zastępczego identyfikatorem urządzenia zarejestrowanym w teście [Rejestrowanie nowego urządzenia w centrum IoT.](#register-a-new-device-in-the-iot-hub)
 
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"
@@ -182,7 +182,7 @@ W tej sekcji utworzysz aplikację konsolową języka Python, która inicjuje zda
     WAIT_COUNT = 10
     ```
 
-5. Dodaj następującą funkcję, aby wywołać metodę urządzenia w celu ponownego uruchomienia urządzenia docelowego, a następnie wyszukać bliźniaczych reprezentacji urządzenia i uzyskać czas ostatniego ponownego uruchomienia.
+5. Dodaj następującą funkcję w celu wywołania metody urządzenia w celu ponownego uruchomienia urządzenia docelowego, a następnie zapytania o bliźniacze reprezentacji urządzenia i uzyskania czasu ostatniego ponownego uruchomienia.
 
     ```python
     def iothub_devicemethod_sample_run():
@@ -235,32 +235,32 @@ W tej sekcji utworzysz aplikację konsolową języka Python, która inicjuje zda
         iothub_devicemethod_sample_run()
     ```
 
-6. Zapisz i zamknij plik **dmpatterns_getstarted_service. PR** .
+6. Zapisz i zamknij **plik dmpatterns_getstarted_service.py.**
 
 ## <a name="run-the-apps"></a>Uruchamianie aplikacji
 
-Teraz można przystąpić do uruchamiania aplikacji.
+Teraz możesz uruchomić aplikacje.
 
-1. W wierszu polecenia Uruchom następujące polecenie, aby rozpocząć nasłuchiwanie metody bezpośredniego ponownego uruchomienia.
+1. W wierszu polecenia uruchom następujące polecenie, aby rozpocząć nasłuchiwanie metody bezpośredniej ponownego uruchomienia.
 
     ```cmd/sh
     python dmpatterns_getstarted_device.py
     ```
 
-2. W innym wierszu polecenia Uruchom następujące polecenie, aby wyzwolić zdalne ponowne uruchomienie i zapytanie dla sznurka urządzenia, aby znaleźć czas ostatniego ponownego uruchomienia.
+2. W innym wierszu polecenia uruchom następujące polecenie, aby wyzwolić zdalne ponowne uruchomienie i zapytanie o bliźniacze reprezentacji urządzenia w celu znalezienia czasu ostatniego ponownego uruchomienia.
 
     ```cmd/sh
     python dmpatterns_getstarted_service.py
     ```
 
-3. Odpowiedź urządzenia na metodę bezpośrednią w konsoli programu.
+3. W konsoli zobaczysz odpowiedź urządzenia na metodę bezpośrednią.
 
-   Poniżej przedstawiono odpowiedzi urządzenia na metodę bezpośredniego ponownego uruchomienia:
+   Poniżej przedstawiono odpowiedź urządzenia na metodę bezpośrednią ponownego uruchomienia:
 
-   ![Dane wyjściowe aplikacji symulowanego urządzenia](./media/iot-hub-python-python-device-management-get-started/device.png)
+   ![Dane wyjściowe symulowanej aplikacji urządzenia](./media/iot-hub-python-python-device-management-get-started/device.png)
 
-   Poniżej przedstawiono usługę wywołującą metodę bezpośredniego ponownego uruchomienia i sondowanie sznurka urządzenia pod kątem stanu:
+   Poniżej przedstawiono usługę wywołującą metodę bezpośrednią ponownego uruchomienia i sondując bliźniacze reprezentacji urządzenia pod celu jej stanu:
 
-   ![Wyzwalanie danych wyjściowych usługi ponownego uruchomienia](./media/iot-hub-python-python-device-management-get-started/service.png)
+   ![Wyzwalanie ponownego uruchamiania danych wyjściowych usługi](./media/iot-hub-python-python-device-management-get-started/service.png)
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]

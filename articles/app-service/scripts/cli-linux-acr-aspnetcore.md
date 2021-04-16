@@ -1,6 +1,6 @@
 ---
-title: 'Interfejs wiersza polecenia: Tworzenie aplikacji ASP.NET Core z ACR'
-description: Dowiedz się, jak zautomatyzować wdrażanie aplikacji App Service i zarządzanie nią za pomocą interfejsu wiersza polecenia platformy Azure. Ten przykład pokazuje, jak utworzyć aplikację ASP.NET Core systemu Linux z ACR.
+title: 'Interfejs wiersza polecenia: ASP.NET Core z usługi ACR'
+description: Dowiedz się, jak używać interfejsu wiersza polecenia platformy Azure do automatyzowania wdrażania aplikacji App Service zarządzania nimi. W tym przykładzie pokazano, jak utworzyć aplikację Linux ASP.NET Core z usługi ACR.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 3a2d1983-ff7b-476a-ac44-49ec2aabb31a
@@ -8,13 +8,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/13/2018
 ms.author: msangapu
-ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: b4c96b14a24cdc4b953d072dd51f4cb0ca5d67c8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-dotnet, mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: 4d4e2ccd8a433f0c0e83236941f78d4e2fad0f45
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97006059"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479087"
 ---
 # <a name="create-an-aspnet-core-app-in-a-docker-container-in-app-service-from-azure-container-registry"></a>Tworzenie aplikacji ASP.NET Core w kontenerze platformy Docker w usłudze App Service z usługi Azure Container Registry
 

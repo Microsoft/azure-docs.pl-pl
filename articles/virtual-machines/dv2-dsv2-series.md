@@ -1,38 +1,38 @@
 ---
-title: Dv2 i DSv2 — seria Virtual Machines platformy Azure
-description: Specyfikacje dotyczące maszyn wirtualnych z serii Dv2 i Dsv2.
+title: Serie Dv2 i DSv2 — Azure Virtual Machines
+description: Specyfikacje maszyn wirtualnych z serii Dv2 i Dsv2.
 author: joelpelley
 ms.service: virtual-machines
 ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: a3dee22a1ee793641e48be6edb1b33a00219217e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 71a4cebcc11657566f65f53508df18efe822c409
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560314"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107514788"
 ---
 # <a name="dv2-and-dsv2-series"></a>Serie Dv2 i DSv2
 
-Serie Dv2 i DSv2, kolejne z serii D, oferują bardziej wydajny procesor CPU i optymalną konfigurację procesora CPU i pamięci, które są odpowiednie dla większości obciążeń produkcyjnych. Seria Dv2 jest o około 35% szybsza niż seria D. Seria Dv2 jest uruchamiana na Intel® Xeon® Platinum 8272CL (Kaskada Lake), Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) lub Intel® Xeon® E5-2673 v3 2,4 (Haswell), z technologią Intel Turbo do wzrostu technologii 2,0. Konfiguracje pamięci i dysków serii Dv2 są takie same jak w przypadku serii D.
+Seria Dv2 i DSv2, kontynuacja oryginalnej serii D, cechują się bardziej wydajnym procesorem CPU i optymalną konfiguracją procesora CPU do pamięci, dzięki czemu są odpowiednie dla większości obciążeń produkcyjnych. Seria Dv2 jest o około 35% szybsza niż seria D. Seria Dv2 działa na urządzeniach Intel® Xeon® (Kaskada Lake), Intel® Xeon® 8171M 2,1 GHz (Skylake), Intel® Xeon® Procesory E5-2673 v4 2,3 GHz (Broadwell) lub Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell) z technologią Intel Turbo Boost 2.0. Konfiguracje pamięci i dysków serii Dv2 są takie same jak w przypadku serii D.
 
 ## <a name="dv2-series"></a>Seria Dv2
 
-Rozmiary serii Dv2 są uruchamiane na platformie Intel® Xeon® Platinum 8272CL (Kaskada Lake), Intel® Xeon® 8171M 2.1 GHz (Skylake) lub Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) lub Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell) procesora z technologią Intel Turbo — rozwiązanie 2,0.
+Rozmiary serii Dv2 działają na urządzeniach Intel® Xeon® Dvr 8272CL (Cascade Lake), Intel® Xeon® 8171M 2,1 GHz (Skylake) lub Intel® Xeon® <2> procesory E5-2673 v4 2,3 GHz (Broadwell) lub Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) z technologią Intel Turbo Boost 2.0.
 
-[ACU](acu.md): 210-250<br>
-[Premium Storage](premium-storage-performance.md): nieobsługiwane<br>
-[Buforowanie Premium Storage](premium-storage-performance.md): nieobsługiwane<br>
-[Migracja na żywo](maintenance-and-updates.md): obsługiwane<br>
-[Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): obsługiwane<br>
-[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1<br>
-[Przyspieszone sieci](../virtual-network/create-vm-accelerated-networking-cli.md): obsługiwane (*wymaga co najmniej 4 vCPU*)<br>
-[Dyski tymczasowe systemu operacyjnego](ephemeral-os-disks.md): nieobsługiwane <br>
+[ACU:](acu.md)210–250<br>
+[Premium Storage:](premium-storage-performance.md)nie jest obsługiwana<br>
+[Premium Storage buforowania:](premium-storage-performance.md)nie jest obsługiwane<br>
+[migracja na żywo:](maintenance-and-updates.md)obsługiwane<br>
+[Aktualizacje zachowujące pamięć:](maintenance-and-updates.md)obsługiwane<br>
+[Obsługa generacji maszyny wirtualnej:](generation-2.md)generacja 1<br>
+[Przyspieszona sieć:](../virtual-network/create-vm-accelerated-networking-cli.md)obsługiwana *(wymaga co najmniej 2 procesorów wirtualnych)*<br>
+[Efemeracyjne dyski systemu operacyjnego:](ephemeral-os-disks.md)nie są obsługiwane <br>
 <br>
 
-| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maksymalna przepływność magazynu: IOPS/Odczyt MB/s/zapis MB/s | Maks. liczba dysków danych | Przepływność: operacje we/wy | Maksymalna liczba kart sieciowych | Oczekiwana przepustowość sieci (MB/s) |
+| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maksymalna przepływność magazynu tymczasowego: liczba IOPS/odczyt MB/s/zapis MB/s | Maks. liczba dysków danych | Przepływność: IOPS | Maksymalna liczba kart sieciowych | Oczekiwana przepustowość sieci (Mb/s) |
 |---|---|---|---|---|---|---|---|---|
 | Standardowa_D1_v2 | 1  | 3,5 | 50  | 3000/46/23    | 4  | 4 x 500  | 2|750   |
 | Standardowa_D2_v2 | 2  | 7   | 100 | 6000/93/46    | 8  | 8 x 500  | 2|1500  |
@@ -42,19 +42,19 @@ Rozmiary serii Dv2 są uruchamiane na platformie Intel® Xeon® Platinum 8272CL 
 
 ## <a name="dsv2-series"></a>Seria DSv2
 
-Rozmiary serii DSv2 są uruchamiane na platformie Intel® Xeon® Platinum 8272CL (Kaskada Lake), Intel® Xeon® 8171M 2.1 GHz (Skylake) lub Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) lub procesora Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell) z technologią Intel Turbo — rozwiązanie 2,0 i korzystanie z magazynu Premium Storage.
+Rozmiary serii DSv2 działają na procesorach Intel® Xeon®Hz 8272CL (Cascade Lake), Intel® Xeon® 8171M 2,1 GHz (Skylake) lub Intel® Xeon® ® E5-2673 v4 2,3 GHz (Broadwell) lub Procesory Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell) z technologią Intel Turbo Boost 2.0 i korzystają z magazynu Premium Storage.
 
-[ACU](acu.md): 210-250<br>
-[Premium Storage](premium-storage-performance.md): obsługiwane<br>
-[Buforowanie Premium Storage](premium-storage-performance.md): obsługiwane<br>
-[Migracja na żywo](maintenance-and-updates.md): obsługiwane<br>
-[Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): obsługiwane<br>
-[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>
-[Przyspieszone sieci](../virtual-network/create-vm-accelerated-networking-cli.md): obsługiwane (*wymaga co najmniej 4 vCPU*)<br>
-[Dyski tymczasowe systemu operacyjnego](ephemeral-os-disks.md): obsługiwane <br>
+[ACU:](acu.md)210–250<br>
+[Premium Storage:](premium-storage-performance.md)Obsługiwane<br>
+[Premium Storage buforowania:](premium-storage-performance.md)obsługiwane<br>
+[migracja na żywo:](maintenance-and-updates.md)Obsługiwane<br>
+[Aktualizacje zachowujące pamięć:](maintenance-and-updates.md)obsługiwane<br>
+[Obsługa generacji maszyn wirtualnych:](generation-2.md)generacja 1 i 2<br>
+[Przyspieszona sieć:](../virtual-network/create-vm-accelerated-networking-cli.md)obsługiwana *(wymaga co najmniej 2 procesorów wirtualnych)*<br>
+[Efemeracyjne dyski systemu operacyjnego:](ephemeral-os-disks.md)obsługiwane <br>
 <br>
 
-| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu w pamięci podręcznej i temp: IOPS/MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność dysku w pamięci podręcznej: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych|Oczekiwana przepustowość sieci (MB/s) |
+| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność pamięci podręcznej i magazynu tymczasowego: liczba IOPS/MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność dysku bez pamięci: liczba IOPS/MB/s | Maksymalna liczba kart sieciowych|Oczekiwana przepustowość sieci (Mb/s) |
 |---|---|---|---|---|---|---|---|---|
 | Standardowa_DS1_v2 | 1  | 3,5 | 7   | 4  | 4000/32 (43)    | 3200/48   | 2|750   |
 | Standard_DS2_v2 | 2  | 7   | 14  | 8  | 8000/64 (86)    | 6400/96   | 2|1500  |
@@ -75,8 +75,8 @@ Rozmiary serii DSv2 są uruchamiane na platformie Intel® Xeon® Platinum 8272CL
 
 Kalkulator cen: [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 
-Więcej informacji na temat typów dysków: [typy dysków](./disks-types.md#ultra-disk)
+Więcej informacji na temat typów dysków: [Typy dysków](./disks-types.md#ultra-disk)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o tym, jak [usługa Azure COMPUTE units (ACU)](acu.md) może pomóc w porównaniu wydajności obliczeniowej w ramach jednostek SKU platformy Azure.
+Dowiedz się więcej o tym, [jak jednostki obliczeniowe platformy Azure (ACU)](acu.md) mogą pomóc w porównaniu wydajności obliczeniowej między jednostkami SKU platformy Azure.

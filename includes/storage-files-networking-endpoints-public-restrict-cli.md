@@ -7,15 +7,15 @@ ms.service: storage
 ms.topic: include
 ms.date: 6/2/2020
 ms.author: rogarana
-ms.custom: include file
-ms.openlocfilehash: a42f963f5eb79ef5b430f6fc9d2a0144c370353a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: d3d2afa3b02d4ab4524d9b5c5d5f981cddebe1a9
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98673855"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107512531"
 ---
-Aby ograniczyć dostęp do publicznego punktu końcowego konta magazynu do określonych sieci wirtualnych za pomocą punktów końcowych usługi, najpierw musimy zebrać informacje o koncie magazynu i sieci wirtualnej. Wypełnij pola `<storage-account-resource-group>` , `<storage-account-name>` , `<vnet-resource-group-name>` , `<vnet-name>` i, `<subnet-name>` Aby zebrać te informacje.
+Aby ograniczyć dostęp do publicznego punktu końcowego konta magazynu do określonych sieci wirtualnych przy użyciu punktów końcowych usługi, najpierw musimy zebrać informacje o koncie magazynu i sieci wirtualnej. Wypełnij pola `<storage-account-resource-group>` , , , i , aby zebrać te `<storage-account-name>` `<vnet-resource-group-name>` `<vnet-name>` `<subnet-name>` informacje.
 
 ```bash
 storageAccountResourceGroupName="<storage-account-resource-group>"
@@ -44,7 +44,7 @@ subnet=$(az network vnet subnet show \
     tr -d '"')
 ```
 
-Aby ruch z sieci wirtualnej był dozwolony przez sieć szkieletową platformy Azure, aby uzyskać dostęp do publicznego punktu końcowego konta magazynu, podsieć sieci wirtualnej musi mieć `Microsoft.Storage` uwidoczniony punkt końcowy usługi. Następujące polecenie interfejsu wiersza polecenia spowoduje dodanie `Microsoft.Storage` punktu końcowego usługi do podsieci, jeśli jeszcze nie istnieje.
+Aby ruch z sieci wirtualnej mógł zostać dozwolony przez sieć szkieletową platformy Azure w celu uzyskania dostępu do publicznego punktu końcowego konta magazynu, podsieć sieci wirtualnej musi mieć ujawniony `Microsoft.Storage` punkt końcowy usługi. Następujące polecenia interfejsu wiersza polecenia dodają punkt końcowy usługi `Microsoft.Storage` do podsieci, jeśli jeszcze nie istnieje.
 
 ```bash
 serviceEndpoints=$(az network vnet subnet show \
@@ -82,7 +82,7 @@ then
 fi
 ```
 
-Ostatnim krokiem ograniczającym ruch do konta magazynu jest utworzenie reguły sieci i dodanie jej do zestawu reguł sieci konta magazynu.
+Ostatnim krokiem ograniczania ruchu do konta magazynu jest utworzenie reguły sieci i dodanie jej do zestawu reguł sieciowych konta magazynu.
 
 ```azurecli
 az storage account network-rule add \

@@ -1,5 +1,5 @@
 ---
-title: Tworzenie kopii zapasowych i przywracanie — skalowanie (Citus) — Azure Database for PostgreSQL
+title: Tworzenie i przywracanie kopii zapasowych — Hiperskala (Citus) — Azure Database for PostgreSQL
 description: Ochrona danych przed przypadkowym uszkodzeniem lub usunięciem
 author: jonels-msft
 ms.author: jonels
@@ -7,63 +7,50 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 90b2a39b9a5f3b4d011ff1a1ef3651dff75a1cf6
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 8dfc82ce79f33553be5220b52a1e415d99c26518
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968309"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483915"
 ---
-# <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Tworzenie kopii zapasowych i przywracanie w Azure Database for PostgreSQL-ze skalowaniem (Citus)
+# <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Tworzenie i przywracanie kopii zapasowej w Azure Database for PostgreSQL — Hiperskala (Citus)
 
-Azure Database for PostgreSQL — funkcja Citus) automatycznie tworzy kopie zapasowe każdego węzła i zapisuje je w magazynie lokalnie nadmiarowy. Za pomocą kopii zapasowych można przywrócić klaster z Citus w określonym czasie. Tworzenie kopii zapasowych i przywracanie jest istotną częścią strategii ciągłości biznesowej, ponieważ chronią dane przed przypadkowym uszkodzeniem lub usunięciem.
+Azure Database for PostgreSQL — Hiperskala (Citus) automatycznie tworzy kopie zapasowe każdego węzła i zapisuje je w magazynie lokalnie nadmiarowym. Kopie zapasowe mogą służyć do przywracania Hiperskala (Citus) klastra do określonego czasu. Tworzenie kopii zapasowych i przywracanie jest istotną częścią strategii ciągłości biznesowej, ponieważ chronią dane przed przypadkowym uszkodzeniem lub usunięciem.
 
 ## <a name="backups"></a>Tworzenie kopii zapasowych
 
-Co najmniej raz dziennie Azure Database for PostgreSQL wykonuje kopie zapasowe migawek plików danych i dziennika transakcji bazy danych. Kopie zapasowe umożliwiają przywrócenie serwera do dowolnego punktu w czasie w okresie przechowywania. (Okres przechowywania jest obecnie 35 dni dla wszystkich klastrów). Wszystkie kopie zapasowe są szyfrowane przy użyciu szyfrowania AES 256-bitowego.
+Co najmniej raz dziennie program Azure Database for PostgreSQL kopie zapasowe migawek plików danych i dziennika transakcji bazy danych. Kopie zapasowe umożliwiają przywrócenie serwera do dowolnego punktu w czasie w okresie przechowywania. (Okres przechowywania dla wszystkich klastrów wynosi obecnie 35 dni). Wszystkie kopie zapasowe są szyfrowane przy użyciu 256-bitowego szyfrowania AES.
 
-W regionach platformy Azure, które obsługują strefy dostępności, migawki kopii zapasowych są przechowywane w trzech strefach dostępności. Tak długo, jak co najmniej jedna strefa dostępności jest w trybie online, klaster Citus jest dostępnych.
+W regionach świadczenia usługi Azure, które obsługują strefy dostępności, migawki kopii zapasowych są przechowywane w trzech strefach dostępności. Dopóki co najmniej jedna strefa dostępności jest w trybie online, klaster Hiperskala (Citus) można przywrócić.
 
-Nie można eksportować plików kopii zapasowej. Mogą być używane tylko w przypadku operacji przywracania w Azure Database for PostgreSQL.
+Nie można eksportować plików kopii zapasowej. Mogą być używane tylko do operacji przywracania w Azure Database for PostgreSQL.
 
 ### <a name="backup-storage-cost"></a>Koszt magazynu kopii zapasowych
 
-Aktualną cenę magazynu kopii zapasowych można znaleźć na [stronie z cennikiem](https://azure.microsoft.com/pricing/details/postgresql/hyperscale-citus/)Azure Database for PostgreSQL-Citus.
+Aby uzyskać bieżące ceny magazynu kopii zapasowych, zobacz stronę Azure Database for PostgreSQL — Hiperskala (Citus) [cennik.](https://azure.microsoft.com/pricing/details/postgresql/hyperscale-citus/)
 
 ## <a name="restore"></a>Przywracanie
 
-W Azure Database for PostgreSQL przywracanie klastra Citus (prescaleing) powoduje utworzenie nowego klastra z kopii zapasowych pierwotnych węzłów. 
+W Azure Database for PostgreSQL przywracanie klastra Hiperskala (Citus) tworzy nowy klaster z kopii zapasowych oryginalnych węzłów. 
 
 > [!IMPORTANT]
->Można przywrócić tylko klaster ze skalowaniem (Citus) w ramach tej samej subskrypcji i grupy zasobów oraz inną nazwę klastra.
+>Klaster można przywrócić tylko Hiperskala (Citus) w ramach tej samej subskrypcji i grupy zasobów oraz z inną nazwą klastra.
 
 
 > [!IMPORTANT]
-> Nie można przywrócić usuniętych klastrów Citus. Jeśli usuniesz klaster, wszystkie węzły należące do klastra zostaną usunięte i nie będzie można go odzyskać. Aby chronić zasoby klastra, po ich wdrożeniu przed przypadkowym usunięciem lub nieoczekiwanymi zmianami Administratorzy mogą korzystać z [blokad zarządzania](../azure-resource-manager/management/lock-resources.md).
+> Usuniętych Hiperskala (Citus) nie można przywrócić. Jeśli usuniesz klaster, wszystkie węzły należące do klastra zostaną usunięte i nie będzie można ich odzyskać. Aby chronić zasoby klastra po wdrożeniu, przed przypadkowym usunięciem lub nieoczekiwanymi zmianami, administratorzy mogą korzystać z [blokad zarządzania](../azure-resource-manager/management/lock-resources.md).
 
-### <a name="point-in-time-restore-pitr"></a>Przywracanie do punktu w czasie (kopie)
+### <a name="point-in-time-restore-pitr"></a>Przywracanie do punktu w czasie (PITR)
 
 Klaster można przywrócić do dowolnego punktu w czasie w ciągu ostatnich 35 dni.
 Przywracanie do punktu w czasie jest przydatne w wielu scenariuszach. Gdy na przykład użytkownik przypadkowo usunie dane, porzuci ważną tabelę lub bazę danych bądź gdy aplikacja przypadkowo zastąpi dobre dane za pomocą nieprawidłowych danych.
 
-Proces przywracania powoduje utworzenie nowego klastra w tym samym regionie, subskrypcji i grupie zasobów platformy Azure co wersja oryginalna. Klaster ma oryginalną konfigurację: tę samą liczbę węzłów, liczbę rdzeni wirtualnych, rozmiar magazynu, role użytkowników, wersję PostgreSQL i wersję rozszerzenia Citus.
+Proces przywracania tworzy nowy klaster w tym samym regionie, subskrypcji i grupie zasobów platformy Azure co oryginalny. Klaster ma oryginalną konfigurację: taką samą liczbę węzłów, liczbę rdzeni wirtualnych, rozmiar magazynu, role użytkownika, wersję postgreSQL i wersję rozszerzenia Citus.
 
-Ustawienia zapory i parametry serwera PostgreSQL nie są zachowywane z oryginalnej grupy serwerów, są resetowane do wartości domyślnych. Zapora uniemożliwi wszystkie połączenia. Po przywróceniu trzeba ręcznie dostosować te ustawienia.
-
-> [!IMPORTANT]
-> Musisz otworzyć żądanie obsługi, aby przeprowadzić przywracanie do punktu w czasie dla klastra Citus.
-
-### <a name="post-restore-tasks"></a>Post-restore tasks
-
-Po przywróceniu z dowolnego mechanizmu odzyskiwania należy wykonać następujące czynności, aby zapewnić i uruchomić kopie zapasowe użytkowników i aplikacji:
-
-* Jeśli nowy serwer ma zastąpić oryginalny serwer, przekierować klientów i aplikacje klienckie na nowy serwer
-* Należy upewnić się, że użytkownicy mogą nawiązywać połączenia na poziomie serwera. Te reguły nie są kopiowane z oryginalnej grupy serwerów.
-* Dostosuj parametry serwera PostgreSQL zgodnie z wymaganiami. Parametry nie są kopiowane z oryginalnej grupy serwerów.
-* Upewnij się, że istnieją odpowiednie identyfikatory logowania i uprawnienia na poziomie bazy danych
-* W razie potrzeby skonfiguruj alerty
+Ustawienia zapory i parametry serwera PostgreSQL nie są zachowywane z oryginalnej grupy serwerów. Są one resetowane do wartości domyślnych. Zapora uniemożliwi wszystkie połączenia. Po przywróceniu należy ręcznie dostosować te ustawienia. Ogólnie rzecz biorąc, zapoznaj się z naszą listą sugerowanych [zadań po przywróceniu](howto-hyperscale-restore-portal.md#post-restore-tasks).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [strefach dostępności platformy Azure](../availability-zones/az-overview.md).
-* Ustawianie [sugerowanych alertów](./howto-hyperscale-alert-on-metric.md#suggested-alerts) w grupach serwerów Citus.
+* Zobacz kroki [przywracania grupy serwerów w](howto-hyperscale-restore-portal.md) Azure Portal.
+* Dowiedz się więcej [o strefach dostępności platformy Azure.](../availability-zones/az-overview.md)

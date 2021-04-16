@@ -1,171 +1,169 @@
 ---
-title: Rejestrowanie skanowania źródła Oracle i Instalatora (wersja zapoznawcza) w usłudze Azure kontrolą
-description: W tym artykule opisano sposób rejestrowania źródła Oracle w usłudze Azure kontrolą i konfigurowania skanowania.
+title: Rejestrowanie skanowania źródła i konfiguracji bazy danych Oracle (wersja zapoznawcza) w usłudze Azure Purview
+description: W tym artykule opisano, jak zarejestrować źródło Oracle w usłudze Azure Purview i skonfigurować skanowanie.
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 76aadd667691e12c61e0e5e13c13ca0241a9f0ce
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 40c5e0ff2c2301607f5a548ff05c742c5c5a948d
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045505"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517066"
 ---
 # <a name="register-and-scan-oracle-source-preview"></a>Rejestrowanie i skanowanie źródła Oracle (wersja zapoznawcza)
 
-W tym artykule opisano sposób rejestrowania bazy danych Oracle w programie kontrolą i konfigurowania skanowania.
+W tym artykule opisano, jak zarejestrować bazę danych Oracle w aplikacji Purview i skonfigurować skanowanie.
 
 ## <a name="supported-capabilities"></a>Obsługiwane funkcje
 
-Źródło Oracle obsługuje **pełne skanowanie** w celu wyodrębnienia metadanych z bazy danych programu Oracle i  pobrania elementów zawartości z zasobów.
+Źródło Oracle obsługuje pełne **skanowanie w** celu wyodrębnienia metadanych z bazy danych Oracle i pobrania **pochodzenia między** zasobami danych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-1.  Skonfiguruj najnowsze [środowisko Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-    Aby uzyskać więcej informacji, zobacz [Tworzenie i Konfigurowanie własnego środowiska Integration Runtime](../data-factory/create-self-hosted-integration-runtime.md).
+1.  Skonfiguruj najnowsze własne [środowisko Integration Runtime.](https://www.microsoft.com/download/details.aspx?id=39717)
+    Aby uzyskać więcej informacji, zobacz [Tworzenie i konfigurowanie własnego środowiska Integration Runtime.](../data-factory/create-self-hosted-integration-runtime.md)
 
-2.  Upewnij się, że na maszynie wirtualnej jest zainstalowana funkcja [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) , w której jest zainstalowany własny środowisko Integration Runtime.
+2.  Upewnij się, że na maszynie wirtualnej, na której zainstalowano własne środowisko Integration Runtime, jest zainstalowany dysk [JDK 11.](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
 
-3.  Upewnij się \" , Visual C++ pakiet redystrybucyjny 2012 Update 4 \" jest zainstalowany na komputerze, na którym działa środowisko Integration Runtime. Jeśli \' nie masz jeszcze zainstalowanej usługi, pobierz ją z tego [miejsca](https://www.microsoft.com/download/details.aspx?id=30679).
+3.  Upewnij się pakiet redystrybucyjny programu Visual C++ że na maszynie środowiska Integration Runtime (Self-hosted) jest zainstalowana aktualizacja \" 2012 Update \" 4. Jeśli nie masz \' jeszcze zainstalowanego pliku [](https://www.microsoft.com/download/details.aspx?id=30679), pobierz go stąd.
 
-4.  Konieczne będzie ręczne pobranie sterownika Oracle JDBC z tego [miejsca](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html) na maszynie wirtualnej, w której działa środowisko Integration Runtime.
+4.  Musisz ręcznie pobrać sterownik Oracle JDBC [](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html) z tego miejsca na maszynie wirtualnej, na której jest uruchomione własne środowisko Integration Runtime.
 
     > [!Note] 
-    > Sterownik powinien być dostępny dla wszystkich kont w maszynie wirtualnej. Nie należy instalować go na koncie użytkownika.
+    > Sterownik powinien być dostępny dla wszystkich kont na maszynie wirtualnej. Nie instaluj go na koncie użytkownika.
 
-5.  Obsługiwane wersje bazy danych Oracle to 6i 19c.
+5.  Obsługiwane wersje bazy danych Oracle to od 6i do 19c.
 
-6.  Uprawnienie użytkownika: aby zapewnić pomyślne skanowanie po raz pierwszy, wymagane jest pełne uprawnienie do typu administrator.
-
-    W przypadku kolejnych operacji skanowania wymagany jest dostęp tylko do odczytu do tabel systemowych. Użytkownik powinien mieć uprawnienia do tworzenia sesji oraz roli Wybieranie \_ \_ przypisanej roli katalogu. Użytkownik może również mieć uprawnienie Wybieranie dla każdej oddzielnej tabeli systemowej, z której ten łącznik wysyła zapytania do metadanych:
-       > Udziel użytkownikowi tworzenia sesji \[ \] ; \
-        Przyznaj wybór wszystkim \_ użytkownikom \[ \] ; \
-        Przyznaj wybór dla \_ obiektów dba do \[ użytkownika \] ; \
-        przyznaj uprawnienie SELECT na \_ karcie administrator \_ do \[ użytkownika \] ; \
-        Przyznaj wybranemu \_ \_ użytkownikowi lokalizacje zewnętrzne \[ \]
-        Przyznaj wybór dla \_ katalogów dba do \[ użytkownika \] ; \
-        Udziel opcji Select on dba \_ mviews to \[ User \] ; \
-        Przyznaj wybrane \_ kolumny CLU dba \_ do \[ użytkownika \] ; \
-        Udziel opcji wybierz na karcie administratorów baz wiedzy \_ \_ do \[ użytkownika \] ; \
-        Przyznaj użytkownikowi uprawnienia do wyboru w \_ kolumnie administrator \_ \[ \]
-        przyznaj uprawnienia SELECT na administratorach \_ dla \[ użytkownika \] ; \
-        przyznaj uprawnienia SELECT \_ \_ do \[ użytkownika \] .
-        Przyznaj wybór na \_ potrzeby indeksów administratorów do \[ użytkownika \] ; \
-        Przyznaj wybór dla \_ \_ kolumn dba \[ \] :
-        Udziel opcji SELECT na administratorach dla \_ \[ użytkownika \] ; \
-        Przyznaj wybór \_ synonimów administratora dba \[ użytkownikowi \] ; \
-        Przyznaj wybór dla \_ widoków dba do \[ użytkownika \] ; \
-        Przyznaj wybranemu \_ użytkownikowi źródło danych administratora \[ \] : \
-        Udziel opcji SELECT na \_ wyzwalaczach administratorów administratora \[ \] .
-        Udziel opcji Select on on dba \_ dla \[ użytkownika \] ; \
-        Udziel opcji SELECT na \_ sequences \[ użytkownika Administrator \] ; \
-        Przyznaj wybranemu \_ użytkownikowi zależności od administratora \[ \] ; \
-        Przyznaj wybór dla wystąpienia w wersji V \_ \$ \[ użytkownikowi \] ; \
-        Przyznaj wybór dla bazy danych w wersji v \_ \$ do \[ użytkownika \] ;
+6.  Uprawnienie użytkownika: wymagany jest dostęp tylko do odczytu do tabel systemowych. Użytkownik powinien mieć uprawnienia do tworzenia sesji oraz przypisanej roli SELECT \_ \_ CATALOG ROLE. Alternatywnie użytkownik może mieć przyznane uprawnienie SELECT dla każdej tabeli systemowej, z poziomu których ten łącznik wysyła zapytanie o metadane:
+       > przyznaj użytkownikowi sesję \[ tworzenia \] ;\
+        ujmij wszystkich \_ użytkowników na \[ użytkownika \] ;\
+        u grant select on dba \_ objects to \[ user \] ;\
+        przyznaj użytkownikowi wybór w \_ \_ komentarzach na karcie dba \[ \] ;\
+        grant select on dba \_ external \_ locations to \[ user \] ;\
+        grant select on dba \_ directories to \[ user \] ;\
+        grant select on dba \_ mviews to \[ user \] ;\
+        grant select on dba \_ clu \_ columns to user \[ \] ;\
+        grant select on dba \_ tab columns to user \_ \[ \] ;\
+        grant select on dba \_ col comments to user \_ \[ \] ;\
+        grant select on dba \_ constraints to \[ user \] ;\
+        grant select on dba \_ cons columns to user \_ \[ \] ;\
+        grant select on dba \_ indexes to \[ user \] ;\
+        grant select on dba \_ ind \_ columns to user \[ \] ;\
+        grant select on dba \_ procedures to \[ user \] ;\
+        grant select on dba \_ synonyms to \[ user \] ;\
+        grant select on dba \_ views to \[ user \] ;\
+        grant select on dba \_ source to \[ user \] ;\
+        grant select on dba \_ triggers to \[ user \] ;\
+        grant select on dba \_ arguments to \[ user \] ;\
+        grant select on dba \_ sequences to \[ user \] ;\
+        grant select on dba \_ dependencies to \[ user \] ;\
+        przyznaj użytkownikowi wybieranie \_ \$ wystąpienia \[ \] wirtualnego;\
+        przyznaj użytkownikowi polecenie select on v \_ \$ \[ database \] ;
     
-## <a name="setting-up-authentication-for-a-scan"></a>Konfigurowanie uwierzytelniania na potrzeby skanowania
+## <a name="setting-up-authentication-for-a-scan"></a>Konfigurowanie uwierzytelniania dla skanowania
 
-Jedynym obsługiwanym uwierzytelnianiem dla źródła Oracle jest **uwierzytelnianie podstawowe**.
+Jedynym obsługiwanym uwierzytelnianiem dla źródła Oracle jest **uwierzytelnianie podstawowe.**
 
 ## <a name="register-an-oracle-source"></a>Rejestrowanie źródła Oracle
 
 Aby zarejestrować nowe źródło Oracle w wykazie danych, wykonaj następujące czynności:
 
-1.  Przejdź do konta kontrolą.
-2.  Wybierz pozycję **źródła** na lewym pasku nawigacyjnym.
-3.  Wybierz pozycję **zarejestruj**
-4.  W obszarze Rejestruj źródła wybierz pozycję **Oracle**. Wybierz opcję **Kontynuuj**.
+1.  Przejdź do konta programu Purview.
+2.  Wybierz **pozycję Źródła** na lewym pasku nawigacyjnym.
+3.  Wybierz **pozycję Zarejestruj**
+4.  Na stronie Rejestrowanie źródeł wybierz pozycję **Oracle**. Wybierz opcję **Kontynuuj**.
 
-    :::image type="content" source="media/register-scan-oracle-source/register-sources.png" alt-text="Rejestruj źródła" border="true":::
+    :::image type="content" source="media/register-scan-oracle-source/register-sources.png" alt-text="rejestrowanie źródeł" border="true":::
 
-Na ekranie **Rejestr sources (Oracle)** wykonaj następujące czynności:
+Na **ekranie Rejestrowanie źródeł (Oracle)** wykonaj następujące czynności:
 
-1.  Wprowadź **nazwę** , która zostanie wyświetlona na liście w wykazie.
+1.  Wprowadź nazwę **źródła** danych, które będzie wyświetlane w wykazie.
 
-2.  Wprowadź nazwę **hosta** , aby nawiązać połączenie ze źródłem Oracle. Może to być:
+2.  Wprowadź nazwę **hosta,** aby nawiązać połączenie ze źródłem Oracle. Może to być:
     - Nazwa hosta używana przez JDBC do nawiązywania połączenia z serwerem bazy danych. Na przykład MyDatabaseServer.com lub
     - Adres IP. Na przykład 192.169.1.2 lub
-    - Jego w pełni kwalifikowane parametry połączenia JDBC. Na przykład \
-        JDBC: Oracle: wąska: @ (DESCRIPTION = ( \_ równoważenie obciążenia = on) (Address = (protokół = TCP) (host = oracleserver1) (port = 1521)) (Address = (protokół = TCP) (host = oracleserver2) (port = 1521)) (Address = (protokół = TCP) (host = oracleserver3) (port = 1521)) (Połącz \_ dane = ( \_ nazwa usługi = ORCL)))
+    - Jej w pełni kwalifikowane ciągi połączenia JDBC. Na przykład\
+        jdbc:oracle:thin:@(DESCRIPTION=(LOAD \_ BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver1)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver2)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver3)(PORT=1521)))(CONNECT \_ DATA=(NAZWA \_ USŁUGI=orcl)))
 
-3.  Wprowadź **numer portu** używany przez JDBC do nawiązywania połączenia z serwerem bazy danych (domyślnie 1521 dla programu Oracle).
+3.  Wprowadź numer **portu używany** przez połączenie JDBC do nawiązywania połączenia z serwerem bazy danych (domyślnie 1521 dla programu Oracle).
 
-4.  Aby nawiązać połączenie z serwerem bazy danych, wprowadź **nazwę usługi Oracle** używaną przez JDBC.
+4.  Wprowadź nazwę **usługi Oracle używaną** przez JDBC do nawiązywania połączenia z serwerem bazy danych.
 
-5.  Wybierz kolekcję lub Utwórz nową (opcjonalnie)
+5.  Wybierz kolekcję lub utwórz nową (opcjonalnie)
 
 6.  Zakończ, aby zarejestrować źródło danych.
 
     :::image type="content" source="media/register-scan-oracle-source/register-sources-2.png" alt-text="opcje rejestrowania źródeł" border="true":::
 
-## <a name="creating-and-running-a-scan"></a>Tworzenie i Uruchamianie skanowania
+## <a name="creating-and-running-a-scan"></a>Tworzenie i uruchamianie skanowania
 
 Aby utworzyć i uruchomić nowe skanowanie, wykonaj następujące czynności:
 
-1.  W centrum zarządzania kliknij pozycję Integration Runtimes. Upewnij się, że jest skonfigurowany własny środowisko Integration Runtime. Jeśli nie jest on skonfigurowany, wykonaj kroki opisane [tutaj](./manage-integration-runtimes.md) , aby utworzyć własne środowisko Integration Runtime.
+1.  W Centrum zarządzania kliknij pozycję Środowiska Integration Runtime. Upewnij się, że jest ustawione własne środowisko Integration Runtime. Jeśli nie jest ono ustawione, skorzystaj z kroków wymienionych [tutaj,](./manage-integration-runtimes.md) aby utworzyć własne środowisko Integration Runtime.
 
-2.  Przejdź do **źródeł**.
+2.  Przejdź do **źródła**.
 
 3.  Wybierz zarejestrowane źródło Oracle.
 
-4.  Wybierz pozycję **+ Nowe skanowanie**.
+4.  Wybierz **pozycję + Nowe skanowanie.**
 
-5.  Podaj poniżej szczegóły:
+5.  Podaj poniższe szczegóły:
 
-    a.  **Name**: Nazwa skanowania
+    a.  **Nazwa:** nazwa skanowania
 
-    b.  **Połącz za pośrednictwem środowiska Integration Runtime**: Wybierz skonfigurowane środowisko Integration Runtime (własne)
+    b.  **Nawiązywanie połączenia za pośrednictwem środowiska Integration Runtime:** wybierz skonfigurowane własne środowisko Integration Runtime
 
-    c.  **Poświadczenie**: Wybierz poświadczenie, aby nawiązać połączenie ze źródłem danych. Upewnij się, że:
-    - Podczas tworzenia poświadczenia wybierz pozycję Uwierzytelnianie podstawowe.        
-    - Podaj nazwę użytkownika używaną przez JDBC do nawiązania połączenia z serwerem bazy danych w polu wejściowym nazwa użytkownika        
-    - Przechowuj hasło użytkownika używane przez JDBC do nawiązywania połączenia z serwerem bazy danych w kluczu tajnym.
+    c.  Poświadczenie: wybierz poświadczenie, aby nawiązać połączenie ze źródłem danych. Upewnij się, że:
+    - Wybierz pozycję Uwierzytelnianie podstawowe podczas tworzenia poświadczeń.        
+    - Podaj nazwę użytkownika używaną przez interfejs JDBC do nawiązywania połączenia z serwerem bazy danych w polu danych wejściowych Nazwa użytkownika        
+    - Przechowuj hasło użytkownika używane przez interfejs JDBC do nawiązywania połączenia z serwerem bazy danych w kluczu tajnym.
 
-    d.  **Schemat**: Lista podzestawu schematów do zaimportowania wyrażona jako lista rozdzielonych średnikami. Na przykład Schema1; schema2. Wszystkie schematy użytkownika są importowane, jeśli lista jest pusta. Wszystkie schematy systemowe (na przykład sysadmin) i obiekty są domyślnie ignorowane. Gdy lista jest pusta, wszystkie dostępne schematy są importowane.
-        Dozwolone wzorce nazw schematu przy użyciu składni wyrażeń, takich jak wyrażenia SQL, obejmują na przykład użycie%. %; B % C%; Wykres
-       -   Zacznij od lub        
+    d.  **Schemat:** Lista podzbiorów schematów do zaimportowania wyrażonych jako lista rozdzielona średnikami. Na przykład schema1; schema2. Wszystkie schematy użytkowników są importowane, jeśli ta lista jest pusta. Wszystkie schematy systemu (na przykład SysAdmin) i obiekty są domyślnie ignorowane. Gdy lista jest pusta, importowane są wszystkie dostępne schematy.
+        Dopuszczalne wzorce nazw schematów używające składni wyrażeń SQL LIKE obejmują na przykład użycie %. A%; %B; %C%; D
+       -   rozpoczynanie od A lub        
        -   kończy się na B lub        
-       -   zawiera C lub        
+       -   zawierają C lub        
        -   równe D
 
-    Użycie znaków NOT i Special nie jest akceptowalne.
+    Użycie znaków NOT i znaków specjalnych jest niedopuszczalne.
 
-6.  **Lokalizacja sterownika**: Określ ścieżkę do lokalizacji sterownika JDBC na maszynie wirtualnej, w której działa środowisko Integration Runtime. Powinna to być ścieżka do prawidłowej lokalizacji folderu JAR.
+6.  **Lokalizacja sterownika:** określ ścieżkę do lokalizacji sterownika JDBC na maszynie wirtualnej, na której działa środowisko Integration Runtime samodzielnego hosta. Powinna to być ścieżka do prawidłowej lokalizacji folderu JAR.
 
-7.  **Maksymalna dostępna pamięć**: Maksymalna ilość pamięci (w GB) dostępna na maszynie wirtualnej klienta do użycia przez procesy skanowania. Jest to zależne od rozmiaru źródła SAP S/4HANA, które ma zostać przeskanowane.
+7.  **Maksymalna dostępna pamięć:** maksymalna ilość pamięci (w GB) dostępna na maszynie wirtualnej klienta do użycia przez procesy skanowania. Zależy to od rozmiaru skanowanego źródła SAP S/4HANA.
 
-    :::image type="content" source="media/register-scan-oracle-source/scan.png" alt-text="Skanuj oprogramowanie Oracle" border="true":::
+    :::image type="content" source="media/register-scan-oracle-source/scan.png" alt-text="scan oracle" border="true":::
 
-8.  Kliknij przycisk **Kontynuuj**.
+8.  Kliknij pozycję **Kontynuuj.**
 
-9.  Wybierz **wyzwalacz skanowania**. Można skonfigurować harmonogram lub przeprowadzić skanowanie raz.
+9.  Wybierz wyzwalacz **skanowania.** Możesz skonfigurować harmonogram lub raz uruchomić skanowanie.
 
-10.  Przejrzyj skanowanie i kliknij pozycję **Zapisz i uruchom**.
+10.  Przejrzyj skanowanie, a następnie kliknij pozycję **Zapisz i uruchom**.
 
-## <a name="viewing-your-scans-and-scan-runs"></a>Wyświetlanie skanów i uruchomień skanowania
+## <a name="viewing-your-scans-and-scan-runs"></a>Wyświetlanie skanowań i przebiegów skanowania
 
-1. Przejdź do centrum zarządzania. Wybierz pozycję **źródła danych** w sekcji **źródła i Skanuj** .
+1. Przejdź do centrum zarządzania. Wybierz **pozycję Źródła danych** w sekcji Źródła i **skanowanie.**
 
-2. Wybierz żądane źródło danych. Zostanie wyświetlona lista istniejących skanów w tym źródle danych.
+2. Wybierz odpowiednie źródło danych. Zostanie wyświetlona lista istniejących skanowań dla tego źródła danych.
 
 3. Wybierz skanowanie, którego wyniki chcesz wyświetlić.
 
-4. Na tej stronie zostaną wyświetlone wszystkie poprzednie uruchomienia skanowania wraz z metrykami i Stanami dla każdego przebiegu skanowania. Zostanie również wyświetlona, czy Twoje skanowanie zostało zaplanowane, czy ręczne, ile zasobów ma zastosowane klasyfikacje, ile łącznych zasobów zostało wykrytych, czasu rozpoczęcia i zakończenia skanowania oraz łącznego czasu trwania skanowania.
+4. Na tej stronie będą wyświetlane wszystkie poprzednie uruchomienia skanowania wraz z metrykami i stanem każdego uruchomienia skanowania. Będzie również wyświetlana, czy skanowanie zostało zaplanowane, czy ręczne, ilu zasobów ma zastosowane klasyfikacje, ile łącznej liczby odnalezionych zasobów, godzina rozpoczęcia i zakończenia skanowania oraz łączny czas trwania skanowania.
 
-## <a name="manage-your-scans"></a>Zarządzanie skanami
+## <a name="manage-your-scans"></a>Zarządzanie skanowaniami
 
-Aby zarządzać skanowaniem lub usunąć je, wykonaj następujące czynności:
+Aby zarządzać skanowaniem lub je usunąć, wykonaj następujące czynności:
 
-1. Przejdź do centrum zarządzania. Wybierz pozycję **źródła danych** w sekcji **źródła i skanowanie** , a następnie wybierz odpowiednie źródło danych.
+1. Przejdź do centrum zarządzania. Wybierz **pozycję Źródła** danych w sekcji Źródła i **skanowanie,** a następnie wybierz żądane źródło danych.
 
-2. Wybierz skanowanie, którymi chcesz zarządzać. Skanowanie można edytować, wybierając pozycję **Edytuj**.
+2. Wybierz skanowanie, które chcesz zarządzać. Możesz edytować skanowanie, wybierając pozycję **Edytuj**.
 
-3. Możesz usunąć skanowanie, wybierając pozycję **Usuń**.
+3. Możesz usunąć skanowanie, wybierając pozycję **Usuń.**
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przeglądanie wykazu danych usługi Azure kontrolą](how-to-browse-catalog.md)
-- [Przeszukaj Data Catalog Azure kontrolą](how-to-search-catalog.md)
+- [Przeglądanie katalogu danych usługi Azure Purview](how-to-browse-catalog.md)
+- [Wyszukaj w witrynie Azure Purview Data Catalog](how-to-search-catalog.md)

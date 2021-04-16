@@ -1,49 +1,49 @@
 ---
-title: Konfigurowanie zaświadczania platformy Azure za pomocą Azure PowerShell
-description: Jak skonfigurować i skonfigurować dostawcę zaświadczania przy użyciu Azure PowerShell.
+title: Konfigurowanie Azure Attestation za pomocą Azure PowerShell
+description: Jak skonfigurować i skonfigurować dostawcę zaświadczenia przy użyciu Azure PowerShell.
 services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: cbc415411e05d6fdecee1acf2fbc02b3c170b9d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 80f0efe0894c54d1499bbfdce2317a38dff9299d
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102501128"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481620"
 ---
-# <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>Szybki Start: Konfigurowanie zaświadczania platformy Azure za pomocą Azure PowerShell
+# <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>Szybki start: konfigurowanie Azure Attestation za pomocą Azure PowerShell
 
-Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć i skonfigurować dostawcę zaświadczania przy użyciu Azure PowerShell. Więcej informacji na temat instalowania i uruchamiania Azure PowerShell można znaleźć w temacie [omówienie Azure PowerShell](/powershell/azure/) .
+Wykonaj poniższe kroki, aby utworzyć i skonfigurować dostawcę zaświadczenia przy użyciu Azure PowerShell. Zobacz [Overview of Azure PowerShell (Omówienie](/powershell/azure/) Azure PowerShell), aby uzyskać informacje na temat sposobu instalowania i uruchamiania Azure PowerShell.
 
-Należy pamiętać, że Galeria programu PowerShell ma przestarzałe wersje Transport Layer Security (TLS) 1,0 i 1,1. Zalecane jest szyfrowanie TLS 1,2 lub nowsza. W związku z tym mogą pojawić się następujące błędy:
+Należy pamiętać, że Galeria programu PowerShell jest przestarzała Transport Layer Security (TLS) w wersjach 1.0 i 1.1. Zalecana jest wersja TLS 1.2 lub nowsza. W związku z tym mogą wystąpić następujące błędy:
 
-- Ostrzeżenie: nie można rozpoznać źródła pakietu " https://www.powershellgallery.com/api/v2 "
-- PackageManagement\Install-Package: nie znaleziono dopasowania dla określonych kryteriów wyszukiwania i nazwy modułu 
+- OSTRZEŻENIE: Nie można rozpoznać źródła pakietu " https://www.powershellgallery.com/api/v2 "
+- PackageManagement\Install-Package: Nie znaleziono dopasowania dla określonych kryteriów wyszukiwania i nazwy modułu 
 
-Aby nadal korzystać z Galeria programu PowerShell, uruchom następujące polecenie przed poleceniami Install-Module
+Aby kontynuować interakcję z Galeria programu PowerShell, uruchom następujące polecenie przed Install-Module poleceniami
 
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 ```
 
-## <a name="install-azattestation-powershell-module"></a>Instalowanie polecenia AZ. zaświadczanie programu PowerShell
+## <a name="install-azattestation-powershell-module"></a>Instalowanie modułu Az.Attestation programu PowerShell
 
-Na maszynie z Azure PowerShell zainstaluj moduł programu PowerShell AZ. zaświadczania, który zawiera polecenia cmdlet dla zaświadczania platformy Azure.  
+Na maszynie z Azure PowerShell zainstaluj moduł Az.Attestation programu PowerShell, który zawiera polecenia cmdlet dla Azure Attestation.  
 
 ### <a name="initial-installation"></a>Instalacja początkowa
 
-Przerwij wszystkie istniejące okna programu PowerShell.
+Zakończ wszystkie istniejące okna programu PowerShell.
 
-Aby zainstalować aplikację "bieżący użytkownik", Uruchom okno programu PowerShell bez podwyższonego poziomu i uruchom polecenie:
+Aby zainstalować dla "bieżącego użytkownika", uruchom okno programu PowerShell z podwyższonym poziomem uprawnień i uruchom:
 
 ```powershell
 Install-Module -Name Az.Attestation -AllowClobber -Scope CurrentUser
 ```
 
-Aby zainstalować aplikację "Wszyscy użytkownicy", Uruchom okno programu PowerShell z podwyższonym poziomem uprawnień i uruchom polecenie:
+Aby zainstalować dla "wszystkich użytkowników", uruchom okno programu PowerShell z podwyższonym poziomem uprawnień i uruchom:
 
 ```powershell
 Install-Module -Name Az.Attestation -AllowClobber -Scope AllUsers
@@ -53,15 +53,15 @@ Zamknij konsolę programu PowerShell z podwyższonym poziomem uprawnień.
 
 ### <a name="update-the-installation"></a>Aktualizowanie instalacji
 
-Przerwij wszystkie istniejące okna programu PowerShell.
+Zakończ wszystkie istniejące okna programu PowerShell.
 
-Aby zaktualizować "bieżący użytkownik", Uruchom okno programu PowerShell bez podwyższonego poziomu i uruchom polecenie:
+Aby zaktualizować dla "bieżącego użytkownika", uruchom okno programu PowerShell z podwyższonym poziomem uprawnień i uruchom:
 
 ```powershell
 Update-Module -Name Az.Attestation
 ```
 
-Aby zaktualizować aplikację "Wszyscy użytkownicy", Uruchom okno programu PowerShell z podwyższonym poziomem uprawnień i uruchom polecenie:
+Aby zaktualizować program dla "wszystkich użytkowników", uruchom okno programu PowerShell z podwyższonym poziomem uprawnień i uruchom:
 
 ```powershell
 Update-Module -Name Az.Attestation
@@ -71,17 +71,17 @@ Zamknij konsolę programu PowerShell z podwyższonym poziomem uprawnień.
 
 ### <a name="get-installed-modules"></a>Pobieranie zainstalowanych modułów
 
-Minimalna wersja AZ modułów wymaganych do obsługi operacji zaświadczania:
-- AZ 4.5.0
-- AZ. Accounts 1.9.2
-- AZ. zaświadczanie 0.1.8
+Minimalna wersja modułów Az wymagana do obsługi operacji zaświadczenia:
+- Az 4.5.0
+- Az.Accounts 1.9.2
+- Az.Attestation 0.1.8
 
-Uruchom poniższe polecenie, aby sprawdzić zainstalowaną wersję wszystkich poleceń AZ module 
+Uruchom poniższe polecenie, aby sprawdzić zainstalowaną wersję wszystkich modułów Az 
 
 ```powershell
 Get-InstalledModule
 ```
-Jeśli wersje nie są zgodne z wymaganiem minimalnym, uruchom polecenia Update-Module.
+Jeśli wersje nie są zgodne z minimalnym wymaganiem, uruchom Update-Module polecenia.
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -91,20 +91,20 @@ Zaloguj się do platformy Azure w konsoli programu PowerShell (bez podniesionych
 Connect-AzAccount
 ```
 
-W razie potrzeby przejdź do subskrypcji, która ma być używana na potrzeby zaświadczania platformy Azure.
+W razie potrzeby przejdź do subskrypcji, która ma być używana na potrzeby Azure Attestation.
 
 ```powershell
 Set-AzContext -Subscription <subscription id>  
 ```
 
-## <a name="register-microsoftattestation-resource-provider"></a>Zarejestruj dostawcę zasobów Microsoft. zaświadczania
+## <a name="register-microsoftattestation-resource-provider"></a>Rejestrowanie dostawcy zasobów Microsoft.Attestation
 
-Zarejestruj dostawcę zasobów Microsoft. zaświadczania w subskrypcji. Aby uzyskać więcej informacji o dostawcach zasobów platformy Azure oraz sposobie konfigurowania dostawców zasobów i zarządzania nimi, zobacz [dostawcy zasobów platformy Azure i ich typy](../azure-resource-manager/management/resource-providers-and-types.md). Należy pamiętać, że Rejestracja dostawcy zasobów jest wymagana tylko raz dla subskrypcji.
+Zarejestruj dostawcę zasobów Microsoft.Attestation w subskrypcji. Aby uzyskać więcej informacji na temat dostawców zasobów platformy Azure oraz sposobu konfigurowania dostawców zasobów i zarządzania nimi, zobacz Azure resource providers and types (Dostawcy [zasobów i typy zasobów platformy Azure).](../azure-resource-manager/management/resource-providers-and-types.md) Pamiętaj, że zarejestrowanie dostawcy zasobów jest wymagane tylko raz dla subskrypcji.
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.Attestation
 ```
-## <a name="regional-availability-of-azure-attestation"></a>Regionalna dostępność zaświadczania platformy Azure
+## <a name="regional-availability-of-azure-attestation"></a>Dostępność regionalna Azure Attestation
 
 ```powershell
 (Get-AzResourceProvider -ProviderNamespace Microsoft.Attestation)[0].Locations
@@ -112,7 +112,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Attestation
 
 ## <a name="create-an-azure-resource-group"></a>Tworzenie grupy zasobów platformy Azure
 
-Utwórz grupę zasobów dla dostawcy zaświadczania. Zwróć uwagę, że inne zasoby platformy Azure (w tym maszyna wirtualna z wystąpieniem aplikacji klienta) można umieścić w tej samej grupie zasobów.
+Utwórz grupę zasobów dla dostawcy zaświadczenia. Należy pamiętać, że inne zasoby platformy Azure (w tym maszyna wirtualna z wystąpieniem aplikacji klienckiej) można umieścić w tej samej grupie zasobów.
 
 ```powershell
 $location = "uksouth" 
@@ -120,30 +120,30 @@ $attestationResourceGroup = "<attestation provider resource group name>"
 New-AzResourceGroup -Name $attestationResourceGroup -Location $location 
 ```
 
-## <a name="create-and-manage-an-attestation-provider"></a>Tworzenie dostawcy zaświadczania i zarządzanie nim
+## <a name="create-and-manage-an-attestation-provider"></a>Tworzenie dostawcy zaświadczenia i zarządzanie tym dostawcą
 
-New-AzAttestation tworzy dostawcę zaświadczania.
+New-AzAttestation tworzy dostawcę zaświadczenia.
 
 ```powershell
 $attestationProvider = "<attestation provider name>" 
 New-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Location $location
 ```
 
-PolicySignerCertificateFile to plik określający zestaw zaufanych kluczy podpisywania. Jeśli nazwa pliku jest określona dla parametru PolicySignerCertificateFile, dostawca zaświadczania można skonfigurować tylko przy użyciu zasad w formacie z podpisem JWT. Zasady else można skonfigurować w formacie text lub unsigned JWT.
+PolicySignerCertificateFile to plik określający zestaw zaufanych kluczy podpisywania. Jeśli dla parametru PolicySignerCertificateFile zostanie określona nazwa pliku, dostawcę zasyłania można skonfigurować tylko przy użyciu zasad w formacie JWT ze podpisem. W innym przypadku zasady można skonfigurować w formacie tekstowym lub niepodpisanym JWT.
 
 ```powershell
 New-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Location $location -PolicySignersCertificateFile "C:\test\policySignersCertificates.pem"
 ```
 
-Aby uzyskać przykład PolicySignersCertificateFile, zobacz [przykłady certyfikatu podpisywania zasad](policy-signer-examples.md).
+Przykład PolicySignersCertificateFile można znaleźć w [przykładach certyfikatu podpisywania zasad.](policy-signer-examples.md)
 
-Get-AzAttestation pobiera właściwości dostawcy zaświadczania, takie jak status i AttestURI. Zanotuj AttestURI, ponieważ będzie on potrzebny później.
+Get-AzAttestation pobiera właściwości dostawcy zaświadczenia, takie jak stan i attestURI. Zanotuj attestURI, ponieważ będzie on potrzebny później.
 
 ```azurepowershell
 Get-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup  
 ```
 
-Powyższe polecenie powinno generować dane wyjściowe podobne do poniższego: 
+Powyższe polecenie powinno tworzyć dane wyjściowe podobne do poniższych: 
 
 ```
 Id:/subscriptions/MySubscriptionID/resourceGroups/MyResourceGroup/providers/Microsoft.Attestation/attestationProviders/MyAttestationProvider
@@ -157,7 +157,7 @@ Tags:
 TagsTable: 
 ```
 
-Dostawców zaświadczania można usunąć za pomocą polecenia cmdlet Remove-AzAttestation.  
+Dostawców zaświadczenia można usunąć za pomocą Remove-AzAttestation cmdlet.  
 
 ```powershell
 Remove-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup
@@ -165,21 +165,21 @@ Remove-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationR
 
 ## <a name="policy-management"></a>Zarządzanie zasadami
 
-Aby można było zarządzać zasadami, użytkownik usługi Azure AD wymaga następujących uprawnień dla "akcji":
-- Microsoft. zaświadczanie/attestationProviders/zaświadczanie/odczytanie
-- Microsoft. zaświadczanie/attestationProviders/zaświadczanie/zapis
-- Microsoft. zaświadczanie/attestationProviders/zaświadczanie/usunięcie
+Aby zarządzać zasadami, użytkownik usługi Azure AD wymaga następujących uprawnień dla akcji:
+- Microsoft.Attestation/attestationProviders/attestation/read
+- Microsoft.Attestation/attestationProviders/attestation/write
+- Microsoft.Attestation/attestationProviders/attestation/delete
 
-Te uprawnienia można przypisać do użytkownika usługi AD za pomocą roli, takiej jak "właściciel" (uprawnienia symboli wieloznacznych), "Współautor" (uprawnienia symboli wieloznacznych) lub "Współautor zaświadczania" (określone uprawnienia tylko do zaświadczania platformy Azure).  
+Aby wykonać te akcje, użytkownik usługi Azure AD musi mieć rolę "Współautor zaświadczenia" u dostawcy zaświadczenia. Te uprawnienia mogą być również dziedziczone z rolami, takimi jak "Właściciel" (uprawnienia z symbolami wieloznacznymi), "Współautor" (uprawnienia z symbolami wieloznaczny) na poziomie subskrypcji/grupy zasobów.  
 
-Aby można było odczytać zasady, użytkownik usługi Azure AD wymaga następującego uprawnienia dla "akcji":
-- Microsoft. zaświadczanie/attestationProviders/zaświadczanie/odczytanie
+Aby można było odczytać zasady, użytkownik usługi Azure AD wymaga następującego uprawnienia dla akcji:
+- Microsoft.Attestation/attestationProviders/attestation/read
 
-To uprawnienie można przypisać do użytkownika usługi AD za pomocą roli, takiej jak "czytelnik" (uprawnienia symboli wieloznacznych) lub "czytelnik zaświadczania" (określone uprawnienia tylko do zaświadczania platformy Azure).
+Aby wykonać tę akcję, użytkownik usługi Azure AD musi mieć rolę "Czytelnik zaświadczenia" u dostawcy zaświadczenia. Uprawnienie do odczytu może być również dziedziczone z rolami, takimi jak "Czytelnik" (uprawnienia z symbolami wieloznacznymi) na poziomie subskrypcji/grupy zasobów.  
 
-Poniższe polecenia cmdlet programu PowerShell zapewniają Zarządzanie zasadami dla dostawcy zaświadczania (jedna TEE w danej chwili).
+Poniższe polecenia cmdlet programu PowerShell zapewniają zarządzanie zasadami dla dostawcy zaświadczenia (po jednej tee jednocześnie).
 
-Get-AzAttestationPolicy zwraca bieżące zasady dla określonego TEE. Polecenie cmdlet wyświetla zasady zarówno w formacie tekstu, jak i JWT dla zasad.
+Get-AzAttestationPolicy zwraca bieżące zasady dla określonej aplikacji TEE. Polecenie cmdlet wyświetla zasady w formacie tekstowym i JWT zasad.
 
 ```powershell
 $teeType = "<tee Type>"
@@ -188,7 +188,7 @@ Get-AzAttestationPolicy   -Name $attestationProvider -ResourceGroupName $attesta
 
 Obsługiwane typy TEE to "SgxEnclave", "OpenEnclave" i "VbsEnclave".
 
-Set-AttestationPolicy ustawia nowe zasady dla określonego TEE. Polecenie cmdlet akceptuje zasady w formacie tekstowym lub JWT i jest kontrolowane przez parametr PolicyFormat. "Tekst" jest wartością domyślną dla PolicyFormat. 
+Set-AttestationPolicy ustawia nowe zasady dla określonej aplikacji TEE. Polecenie cmdlet akceptuje zasady w formacie tekstowym lub JWT i jest kontrolowane przez parametr PolicyFormat. Wartość "Text" jest wartością domyślną formatu PolicyFormat. 
 
 ```powershell
 $policyFormat = "<policy format>"
@@ -196,21 +196,21 @@ $policy=Get-Content -path "C:\test\policy.txt" -Raw
 Set-AzAttestationPolicy   -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Tee $teeType -Policy $policy -PolicyFormat $policyFormat 
 ```
 
-Jeśli PolicySignerCertificateFile jest dostarczany podczas tworzenia dostawcy zaświadczania, zasady można skonfigurować tylko w formacie z podpisem JWT. Zasady else można skonfigurować w formacie text lub unsigned JWT.
+Jeśli plik PolicySignerCertificateFile zostanie podany podczas tworzenia dostawcy zaswiadczenia, zasady można skonfigurować tylko w formacie JWT ze podpisem. W innym przypadku zasady można skonfigurować w formacie tekstowym lub niepodpisanym JWT.
 
-Zasady zaświadczania w formacie JWT muszą zawierać element Claim o nazwie "AttestationPolicy". W przypadku zasad podpisanych token JWT musi być podpisany przy użyciu klucza prywatnego odpowiadającego dowolnemu z istniejących certyfikatów podpisywania zasad.
+Zasady zaświadczenia w formacie JWT muszą zawierać oświadczenie o nazwie "AttestationPolicy". W przypadku podpisanych zasad JWT musi być podpisany za pomocą klucza prywatnego odpowiadającego dowolne z istniejących certyfikatów osoby podpiszcej zasady.
 
-Aby uzyskać przykłady zasad, zobacz [przykłady zasad zaświadczania](policy-examples.md).
+Przykłady zasad można znaleźć [w przykładach zasad zaświadczenia.](policy-examples.md)
 
-Reset-AzAttestationPolicy resetuje zasady do domyślnych dla określonego TEE.
+Reset-AzAttestationPolicy zasady są resetowane do domyślnych dla określonej aplikacji TEE.
 
 ```powershell
 Reset-AzAttestationPolicy -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Tee $teeType 
 ```
 
-## <a name="policy-signer-certificates-management"></a>Zarządzanie certyfikatami podpisywania zasad
+## <a name="policy-signer-certificates-management"></a>Zarządzanie certyfikatami podpisatora zasad
 
-Poniższe polecenia cmdlet programu PowerShell zapewniają zarządzanie certyfikatami podpisywania zasad dla dostawcy zaświadczania:
+Poniższe polecenia cmdlet programu PowerShell zapewniają zarządzanie certyfikatami podpisywania zasad dla dostawcy zaświadczeń:
 
 ```powershell
 Get-AzAttestationPolicySigners -Name $attestationProvider -ResourceGroupName $attestationResourceGroup
@@ -220,15 +220,15 @@ Add-AzAttestationPolicySigner -Name $attestationProvider -ResourceGroupName $att
 Remove-AzAttestationPolicySigner -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Signer <signer>
 ```
 
-Certyfikat podpisywania zasad jest podpisanym tokenem JWT z usługą Claim o nazwie "Maa-policyCertificate". Wartość tego żądania to JWK, który zawiera zaufany klucz podpisywania do dodania. Token JWT musi być podpisany przy użyciu klucza prywatnego odpowiadającego dowolnemu z istniejących certyfikatów podpisywania zasad.
+Certyfikat osoby podpisywanej zasad to podpisany JWT z oświadczeniem o nazwie "maa-policyCertificate". Wartość oświadczenia to zestaw JWK zawierający zaufany klucz podpisywania do dodania. JWT musi być podpisany za pomocą klucza prywatnego odpowiadającego dowolne z istniejących certyfikatów osoby podpiszcej zasady.
 
-Należy pamiętać, że wszystkie operacje manipulowania semantyką certyfikatu osoby podpisującej zasady muszą być wykonywane poza programem PowerShell. Jeśli chodzi o program PowerShell, jest to prosty ciąg.
+Należy pamiętać, że wszystkie semantyczne manipulowanie certyfikatem podpisatora zasad musi odbywać się poza programem PowerShell. Jeśli chodzi o program PowerShell, jest to prosty ciąg.
 
-Aby zapoznać się z przykładem certyfikatu podpisywania zasad, zobacz [przykłady certyfikatu podpisywania zasad](policy-signer-examples.md).
+Przykład certyfikatu podpisywania zasad można znaleźć w [przykładach certyfikatu podpisywania zasad.](policy-signer-examples.md)
 
-Aby uzyskać więcej informacji na temat poleceń cmdlet i ich parametrów, zobacz [polecenia cmdlet programu PowerShell dotyczące zaświadczania platformy Azure](/powershell/module/az.attestation/#attestation) 
+Aby uzyskać więcej informacji na temat poleceń cmdlet i ich parametrów, zobacz [Azure Attestation poleceń cmdlet programu PowerShell](/powershell/module/az.attestation/#attestation) 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Tworzenie i podpisywanie zasad zaświadczania](author-sign-policy.md)
-- [Zaświadcz SGX enklawy przy użyciu przykładów kodu](/samples/browse/?expanded=azure&terms=attestation)
+- [Tworzenie i podpisywanie zasad zaświadczenia](author-sign-policy.md)
+- [Attest enklawy SGX przy użyciu przykładów kodu](/samples/browse/?expanded=azure&terms=attestation)

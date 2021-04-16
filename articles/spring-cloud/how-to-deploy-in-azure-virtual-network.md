@@ -1,37 +1,37 @@
 ---
-title: Wdróż chmurę wiosenną platformy Azure w sieci wirtualnej
-description: Wdróż chmurę wiosenną platformy Azure w sieci wirtualnej (wstrzykiwanie wirtualnej).
+title: Wdrażanie Azure Spring Cloud w sieci wirtualnej
+description: Wdrażanie Azure Spring Cloud sieci wirtualnej (iniekcja sieci wirtualnej).
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/21/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 82dcd8c59c55a2866b51fd6dee896ea1298b6cf6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: b0ea5728618c7b69403fcc4c0a3575b70fac6038
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878248"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482606"
 ---
-# <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>Wdróż chmurę wiosenną platformy Azure w sieci wirtualnej
+# <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>Wdrażanie Azure Spring Cloud w sieci wirtualnej
 
-**Ten artykuł ma zastosowanie do:** ✔️ Java ✔️ C #
+**Ten artykuł ma zastosowanie do:** ââ" za â za java â ââ" za â â C #
 
-W tym samouczku wyjaśniono, jak wdrożyć w sieci wirtualnej wystąpienie chmury wiosennej na platformie Azure. To wdrożenie jest czasami nazywane iniekcją sieci wirtualnej.
+W tym samouczku wyjaśniono, jak wdrożyć wystąpienie Azure Spring Cloud w sieci wirtualnej. To wdrożenie jest czasami nazywane iniekcją sieci wirtualnej.
 
 Wdrożenie umożliwia:
 
-* Izolacja aplikacji w chmurze i środowiska uruchomieniowego usługi Azure wiosny z Internetu w sieci firmowej.
-* Usługa Azure Wiosenna w chmurze współpracuje z systemami w lokalnych centrach danych lub usługach platformy Azure w innych sieciach wirtualnych.
-* Umożliwienie klientom kontrolowania przychodzącej i wychodzącej komunikacji sieciowej dla chmury wiosennej platformy Azure.
+* Izolacja Azure Spring Cloud aplikacji i środowiska uruchomieniowego usługi z internetâ €® w sieci firmowejâ €®.
+* Azure Spring Cloud interakcje z systemami w lokalnych centrach danych â€®lub usługami platformy Azure w innych sieciach wirtualnych.
+* Zwiększenie uprawnień klientów do kontrolowania przychodzącej i wychodzącej komunikacji sieciowej na Azure Spring Cloud.
 
 > [!Note]
-> Sieć wirtualną platformy Azure można wybrać tylko podczas tworzenia nowego wystąpienia usługi w chmurze Azure wiosny. Po utworzeniu chmury Azure wiosennej nie można zmienić innej sieci wirtualnej.
+> Sieć wirtualną platformy Azure można wybrać tylko podczas tworzenia nowego Azure Spring Cloud usługi. Nie można zmienić używania innej sieci wirtualnej po Azure Spring Cloud została utworzona.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Zarejestruj dostawcę zasobów w chmurze Azure wiosny **Microsoft. AppPlatform** i **Microsoft. ContainerService** zgodnie z instrukcjami w temacie [Rejestrowanie dostawcy zasobów na Azure Portal](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) lub uruchamiając następujące polecenie interfejsu wiersza polecenia platformy Azure:
+Zarejestruj dostawcę Azure Spring Cloud **Microsoft.AppPlatform** i **Microsoft.ContainerService** zgodnie z instrukcjami w te stronie Register resource provider on Azure Portal (Rejestrowanie dostawcy zasobów w usłudze [Azure Portal)](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) lub uruchamiając następujące polecenie interfejsu wiersza polecenia platformy Azure:
 
 ```azurecli
 az provider register --namespace Microsoft.AppPlatform
@@ -40,66 +40,66 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="virtual-network-requirements"></a>Wymagania dotyczące sieci wirtualnej
 
-Sieć wirtualna, w której jest wdrażane wystąpienie chmury Azure wiosennej, musi spełniać następujące wymagania:
+Sieć wirtualna, w której wdrażasz wystąpienie Azure Spring Cloud musi spełniać następujące wymagania:
 
-* **Lokalizacja**: Sieć wirtualna musi znajdować się w tej samej lokalizacji co wystąpienie chmury wiosennej platformy Azure.
-* **Subskrypcja**: Sieć wirtualna musi znajdować się w tej samej subskrypcji co wystąpienie chmury wiosennej platformy Azure.
-* **Podsieci**: Sieć wirtualna musi zawierać dwie podsieci dedykowane dla wystąpienia chmury wiosennej platformy Azure:
+* **Lokalizacja:** sieć wirtualna musi znajdować się w tej samej lokalizacji co Azure Spring Cloud wystąpienia.
+* **Subskrypcja:** sieć wirtualna musi znajdować się w tej samej subskrypcji co Azure Spring Cloud wystąpienie.
+* **Podsieci:** sieć wirtualna musi zawierać dwie podsieci dedykowane Azure Spring Cloud wystąpienia:
 
     * Jeden dla środowiska uruchomieniowego usługi.
-    * Jeden dla aplikacji mikrousług rozruchu sprężynowego.
-    * Istnieje relacja jeden do jednego między tymi podsieciami i wystąpieniem chmury Azure wiosennej. Użyj nowej podsieci dla każdego wdrożonego wystąpienia usługi. Każda podsieć może zawierać tylko jedno wystąpienie usługi.
-* **Przestrzeń adresowa**: bloki CIDR są blokowane do */28* dla podsieci środowiska uruchomieniowego usługi i podsieci aplikacji mikrousług rozruchowych.
-* **Tabela tras**: domyślnie podsieci nie potrzebują istniejących tabel tras. Możesz [przenieść własną tabelę tras](#bring-your-own-route-table).
+    * Jeden dla aplikacji Spring Boot mikrousług.
+    * Między tymi podsieciami a wystąpieniem usługi Azure Spring Cloud istnieje relacja jeden do jednego. Użyj nowej podsieci dla każdego wdrażanych wystąpień usługi. Każda podsieć może zawierać tylko jedno wystąpienie usługi.
+* **Przestrzeń adresowa:** cidr blokuje do */28* dla podsieci środowiska uruchomieniowego usługi i podsieci Spring Boot mikrousług.
+* **Tabela tras:** domyślnie podsieci nie muszą skojarzyć istniejących tabel tras. Możesz użyć [własnej tabeli tras](#bring-your-own-route-table).
 
-Poniższe procedury opisują konfigurację sieci wirtualnej, aby zawierała wystąpienie chmury wiosennej platformy Azure.
+Poniższe procedury opisują konfigurację sieci wirtualnej tak, aby zawierała wystąpienie Azure Spring Cloud.
 
 ## <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
 
-Jeśli masz już sieć wirtualną do hostowania wystąpienia chmury ze sprężyną Azure, Pomiń kroki 1, 2 i 3. Możesz rozpocząć od kroku 4, aby przygotować podsieci dla sieci wirtualnej.
+Jeśli masz już sieć wirtualną do hostować wystąpienie Azure Spring Cloud, pomiń kroki 1, 2 i 3. Możesz rozpocząć od kroku 4, aby przygotować podsieci dla sieci wirtualnej.
 
-1. W menu witryny Azure Portal wybierz pozycję **Utwórz zasób**. W portalu Azure Marketplace wybierz pozycję **Sieć**  >  **Sieć wirtualna**.
+1. W menu witryny Azure Portal wybierz pozycję **Utwórz zasób**. Z Azure Marketplace sieci **wirtualnej** wybierz  >  **pozycję Sieć wirtualna.**
 
-1. W oknie dialogowym **Tworzenie sieci wirtualnej** wprowadź lub wybierz następujące informacje:
+1. W **oknie dialogowym Tworzenie sieci** wirtualnej wprowadź lub wybierz następujące informacje:
 
     |Ustawienie          |Wartość                                             |
     |-----------------|--------------------------------------------------|
     |Subskrypcja     |Wybierz subskrypcję.                         |
-    |Grupa zasobów   |Wybierz grupę zasobów lub Utwórz nową.  |
-    |Nazwa             |Wprowadź **Azure-Sprężyna-chmura-Sieć wirtualna**.                 |
+    |Grupa zasobów   |Wybierz grupę zasobów lub utwórz nową.  |
+    |Nazwa             |Wprowadź **wartość azure-spring-cloud-vnet.**                 |
     |Lokalizacja         |Wybierz pozycję **Wschodnie stany USA**.                               |
 
-1. Wybierz pozycję **Dalej: adresy IP**.
+1. Wybierz **pozycję Dalej: Adresy IP.**
 
-1. W polu przestrzeń adresowa IPv4 wprowadź **10.1.0.0/16**.
+1. W przypadku przestrzeni adresowej IPv4 wprowadź **wartość 10.1.0.0/16.**
 
-1. Wybierz pozycję **Dodaj podsieć**. Następnie wprowadź **10.1.0.0/28** dla **nazwy podsieci** , a następnie wprowadź **wartości** dla **zakresu adresów podsieci**. Następnie wybierz pozycję **Dodaj**.
+1. Wybierz **pozycję Dodaj podsieć.** Następnie wprowadź **wartość service-runtime-subnet w** polach **Nazwa** podsieci i wprowadź **wartość 10.1.0.0/28** w polach **Zakres adresów podsieci.** Następnie wybierz pozycję **Dodaj**.
 
-1. Ponownie wybierz pozycję **Dodaj podsieć** , a następnie wprowadź **nazwę podsieci** i **zakres adresów podsieci**. Na przykład wprowadź **aplikacje-Subnet** i **10.1.1.0/28**. Następnie wybierz pozycję **Dodaj**.
+1. Wybierz **ponownie pozycję Dodaj podsieć,** a następnie wprowadź nazwę podsieci **i** zakres **adresów podsieci.** Na przykład wprowadź **wartość apps-subnet** i **10.1.1.0/28.** Następnie wybierz pozycję **Dodaj**.
 
-1. Wybierz pozycję **Przejrzyj i utwórz**. Pozostaw pozostałe jako domyślne, a następnie wybierz pozycję **Utwórz**.
+1. Wybierz pozycję **Przejrzyj i utwórz**. Pozostaw resztę jako wartości domyślne, a następnie wybierz **pozycję Utwórz**.
 
-## <a name="grant-service-permission-to-the-virtual-network"></a>Udziel uprawnienia usługi do sieci wirtualnej
-Chmura sprężynowa platformy Azure wymaga uprawnień **właściciela** do Twojej sieci wirtualnej, aby przyznać dedykowaną i dynamiczną jednostkę usługi w sieci wirtualnej w celu dodatkowego wdrożenia i konserwacji.
+## <a name="grant-service-permission-to-the-virtual-network"></a>Udzielanie usłudze uprawnień do sieci wirtualnej
+Azure Spring Cloud wymaga **uprawnień właściciela** do sieci wirtualnej w celu udzielenia dedykowanej i dynamicznej jednostki usługi w sieci wirtualnej w celu dalszego wdrażania i konserwacji.
 
-Wybierz wcześniej utworzoną sieć wirtualną **Azure-sprężynę i chmurę** .
+Wybierz sieć wirtualną **azure-spring-cloud-vnet,** która została wcześniej utworzona.
 
-1. Wybierz pozycję **Kontrola dostępu (IAM)**, a następnie wybierz pozycję **Dodaj**  >  **Dodaj przypisanie roli**.
+1. Wybierz **pozycję Kontrola dostępu (IAM),** a następnie wybierz pozycję Dodaj   >  **przypisanie roli.**
 
-    ![Zrzut ekranu przedstawiający ekran kontroli dostępu.](./media/spring-cloud-v-net-injection/access-control.png)
+    ![Zrzut ekranu przedstawiający ekran Kontrola dostępu.](./media/spring-cloud-v-net-injection/access-control.png)
 
-1. W oknie dialogowym **Dodaj przypisanie roli** wprowadź lub wybierz następujące informacje:
+1. W **oknie dialogowym Dodawanie przypisania** roli wprowadź lub wybierz następujące informacje:
 
     |Ustawienie  |Wartość                                             |
     |---------|--------------------------------------------------|
-    |Rola     |Wybierz pozycję **właściciel**.                                 |
-    |Wybierz pozycję   |Wprowadź **dostawcę zasobów chmury Azure wiosennej**.   |
+    |Rola     |Wybierz **pozycję Właściciel**.                                 |
+    |Wybierz pozycję   |Wprowadź **Azure Spring Cloud zasobów usługi**.   |
 
-    Następnie wybierz pozycję **dostawca źródła zasobów w chmurze Azure** i wybierz pozycję **Zapisz**.
+    Następnie wybierz **Azure Spring Cloud zasobów** i wybierz pozycję **Zapisz.**
 
-    ![Zrzut ekranu pokazujący wybieranie dostawcy zasobów w chmurze platformy Azure.](./media/spring-cloud-v-net-injection/grant-azure-spring-cloud-resource-provider-to-vnet.png)
+    ![Zrzut ekranu przedstawiający wybieranie Azure Spring Cloud dostawcy zasobów.](./media/spring-cloud-v-net-injection/grant-azure-spring-cloud-resource-provider-to-vnet.png)
 
-Ten krok można także wykonać, uruchamiając następujące polecenie interfejsu wiersza polecenia platformy Azure:
+Możesz również wykonać ten krok, uruchamiając następujące polecenie interfejsu wiersza polecenia platformy Azure:
 
 ```azurecli
 VIRTUAL_NETWORK_RESOURCE_ID=`az network vnet show \
@@ -114,61 +114,61 @@ az role assignment create \
     --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
 ```
 
-## <a name="deploy-an-azure-spring-cloud-instance"></a>Wdróż wystąpienie chmury wiosennej na platformie Azure
+## <a name="deploy-an-azure-spring-cloud-instance"></a>Wdrażanie Azure Spring Cloud danych
 
-Aby wdrożyć wystąpienie chmury wiosennej platformy Azure w sieci wirtualnej:
+Aby wdrożyć Azure Spring Cloud w sieci wirtualnej:
 
 1. Otwórz witrynę [Azure Portal](https://portal.azure.com).
 
-1. W górnym polu wyszukiwania Wyszukaj **chmurę Azure wiosenną**. Wybierz z wyniku **chmurę z usługą Azure wiosną** .
+1. W górnym polu wyszukiwania wyszukaj tekst **Azure Spring Cloud**. Wybierz **Azure Spring Cloud** z wyniku.
 
-1. Na stronie **chmura ze sprężyną Azure** wybierz pozycję **+ Dodaj**.
+1. Na stronie **Azure Spring Cloud** wybierz pozycję **+ Dodaj**.
 
-1. Wypełnij formularz na stronie **Tworzenie** chmury Azure wiosennej.
+1. Wypełnij formularz na stronie Azure Spring Cloud **Tworzenie.**
 
-1. Wybierz tę samą grupę zasobów i region, w której znajduje się sieć wirtualna.
+1. Wybierz tę samą grupę zasobów i region co sieć wirtualna.
 
-1. W **obszarze** **Szczegóły usługi** wybierz pozycję **Azure-Sprężyna-chmura-Sieć wirtualna**.
+1. W **obszarze Nazwa** w obszarze Szczegóły **usługi** wybierz pozycję **azure-spring-cloud-vnet.**
 
-1. Wybierz kartę **Sieć** i wybierz następujące wartości:
+1. Wybierz **kartę** Sieć i wybierz następujące wartości:
 
     |Ustawienie                                |Wartość                                             |
     |---------------------------------------|--------------------------------------------------|
     |Wdrażanie we własnej sieci wirtualnej     |Wybierz pozycję **Tak**.                                   |
-    |Sieć wirtualna                        |Wybierz pozycję **Azure-Sprężyna-chmura-Sieć wirtualna**.               |
-    |Podsieć środowiska uruchomieniowego usługi                 |Wybierz pozycję **Usługa — środowisko uruchomieniowe — podsieć**.                |
-    |Podsieć aplikacji mikrousług rozruchu sprężynowego   |Wybierz pozycję **aplikacje — podsieć**.                           |
+    |Sieć wirtualna                        |Wybierz **pozycję azure-spring-cloud-vnet.**               |
+    |Podsieć środowiska uruchomieniowego usługi                 |Wybierz **podsieć service-runtime-subnet.**                |
+    |Spring Boot podsieci aplikacji mikrousług   |Wybierz **pozycję apps-subnet**.                           |
 
-    ![Zrzut ekranu przedstawiający kartę Sieć na stronie Tworzenie chmury Azure wiosennej.](./media/spring-cloud-v-net-injection/creation-blade-networking-tab.png)
+    ![Zrzut ekranu przedstawiający kartę Sieć na Azure Spring Cloud Tworzenie.](./media/spring-cloud-v-net-injection/creation-blade-networking-tab.png)
 
-1. Wybierz pozycję **Przejrzyj i Utwórz**.
+1. Wybierz **pozycję Przejrzyj i utwórz .**
 
-1. Sprawdź specyfikacje i wybierz pozycję **Utwórz**.
+1. Sprawdź specyfikacje, a następnie wybierz pozycję **Utwórz.**
 
-    ![Zrzut ekranu pokazujący sprawdzanie specyfikacji.](./media/spring-cloud-v-net-injection/verify-specifications.png)
+    ![Zrzut ekranu przedstawiający weryfikowanie specyfikacji.](./media/spring-cloud-v-net-injection/verify-specifications.png)
 
-Po wdrożeniu zostaną utworzone dwie dodatkowe grupy zasobów w ramach subskrypcji w celu hostowania zasobów sieciowych dla wystąpienia chmury wiosennej na platformie Azure. Przejdź do **strony głównej**, a następnie wybierz pozycję **grupy zasobów** z górnych elementów menu, aby znaleźć następujące nowe grupy zasobów.
+Po wdrożeniu w subskrypcji zostaną utworzone dwie dodatkowe grupy zasobów, które będą hostować zasoby sieciowe dla Azure Spring Cloud zasobów. Przejdź do **strony głównej**, a następnie wybierz pozycję **Grupy zasobów** z górnego menu, aby znaleźć następujące nowe grupy zasobów.
 
-Grupa zasobów o nazwie **AP-SVC-RT_ {wystąpienie usługi o nazwie} _ {region wystąpienia usługi}** zawiera zasoby sieciowe dla środowiska uruchomieniowego usługi wystąpienia usługi.
+Grupa zasobów o nazwie **ap-svc-rt_{nazwa wystąpienia usługi}_{region** wystąpienia usługi} zawiera zasoby sieciowe dla środowiska uruchomieniowego usługi wystąpienia usługi.
 
-  ![Zrzut ekranu pokazujący środowisko uruchomieniowe usługi.](./media/spring-cloud-v-net-injection/service-runtime-resource-group.png)
+  ![Zrzut ekranu przedstawiający środowisko uruchomieniowe usługi.](./media/spring-cloud-v-net-injection/service-runtime-resource-group.png)
 
-Grupa zasobów o nazwie **"AP" App_ {instance Service Name} _ {region wystąpienia usługi}** zawiera zasoby sieciowe dla aplikacji mikrousług rozruchu sprężynowego wystąpienia usługi.
+Grupa zasobów o nazwie **ap-app_{nazwa wystąpienia usługi}_{region** wystąpienia usługi} zawiera zasoby sieciowe dla Spring Boot aplikacji mikrousług wystąpienia usługi.
 
-  ![Zrzut ekranu pokazujący grupę zasobów aplikacji.](./media/spring-cloud-v-net-injection/apps-resource-group.png)
+  ![Zrzut ekranu przedstawiający grupę zasobów aplikacji.](./media/spring-cloud-v-net-injection/apps-resource-group.png)
 
-Te zasoby sieciowe są połączone z siecią wirtualną utworzoną na powyższym obrazie.
+Te zasoby sieciowe są połączone z siecią wirtualną utworzoną na poprzedniej ilustracji.
 
   ![Zrzut ekranu przedstawiający sieć wirtualną z połączonymi urządzeniami.](./media/spring-cloud-v-net-injection/vnet-with-connected-device.png)
 
    > [!Important]
-   > Grupy zasobów są w pełni zarządzane przez usługę w chmurze Azure wiosną. Nie usuwaj ręcznie ani *nie* Modyfikuj żadnego zasobu w ramach.
+   > Grupy zasobów są w pełni zarządzane przez usługę Azure Spring Cloud zasobów. Nie *należy* ręcznie usuwać ani modyfikować żadnych zasobów wewnątrz.
 
-## <a name="using-smaller-subnet-ranges"></a>Używanie mniejszych zakresów podsieci
+## <a name="using-smaller-subnet-ranges"></a>Korzystanie z mniejszych zakresów podsieci
 
-W tej tabeli przedstawiono maksymalną liczbę wystąpień aplikacji w chmurze Azure wiosennej obsługiwanych przy użyciu mniejszych zakresów podsieci.
+W tej tabeli przedstawiono maksymalną liczbę wystąpień aplikacji, które Azure Spring Cloud przy użyciu mniejszych zakresów podsieci.
 
-| Routing CIDR podsieci aplikacji | Łączna liczba adresów IP | Dostępne adresy IP | Maksymalna liczba wystąpień aplikacji                                        |
+| CiDR podsieci aplikacji | Łączna liczba ip | Dostępne ip | Maksymalna liczba wystąpień aplikacji                                        |
 | --------------- | --------- | ------------- | ------------------------------------------------------------ |
 | /28             | 16        | 8             | <p> Aplikacja z 1 rdzeniem: 96 <br/> Aplikacja z 2 rdzeniami: 48<br/>  Aplikacja z 3 rdzeniami: 32 <br/> Aplikacja z 4 rdzeniami: 24 </p> |
 | /27             | 32        | 24            | <p> Aplikacja z 1 rdzeniem: 228<br/> Aplikacja z 2 rdzeniami: 144<br/>  Aplikacja z 3 rdzeniami: 96 <br/>  Aplikacja z 4 rdzeniami: 72</p> |
@@ -176,35 +176,35 @@ W tej tabeli przedstawiono maksymalną liczbę wystąpień aplikacji w chmurze A
 | /25             | 128       | 120           | <p> Aplikacja z 1 rdzeniem: 500<br> Aplikacja z 2 rdzeniami: 500<br>  Aplikacja z 3 rdzeniami: 480<br>  Aplikacja z 4 rdzeniami: 360</p> |
 | /24             | 256       | 248           | <p> Aplikacja z 1 rdzeniem: 500<br/> Aplikacja z 2 rdzeniami: 500<br/>  Aplikacja z 3 rdzeniami: 500<br/>  Aplikacja z 4 rdzeniami: 500</p> |
 
-W przypadku podsieci pięć adresów IP jest zarezerwowanych przez platformę Azure, a co najmniej cztery adresy są wymagane przez chmurę z platformą Azure. Wymagane są co najmniej dziewięć adresów IP, więc/29 i/30 są nieoperacyjne.
+W przypadku podsieci platforma Azure rezerwuje pięć adresów IP, a co najmniej cztery adresy są wymagane przez Azure Spring Cloud. Wymaganych jest co najmniej dziewięć adresów IP, więc /29 i /30 są nieoperacyjne.
 
-Dla podsieci środowiska uruchomieniowego usługi minimalny rozmiar to/28. Ten rozmiar nie ma wpływu na liczbę wystąpień aplikacji.
+W przypadku podsieci środowiska uruchomieniowego usługi minimalny rozmiar to /28. Ten rozmiar nie ma wpływu na liczbę wystąpień aplikacji.
 
-## <a name="bring-your-own-route-table"></a>Przenoszenie własnej tabeli tras
+## <a name="bring-your-own-route-table"></a>Bring your own route table
 
-Chmura sprężynowa platformy Azure obsługuje używanie istniejących podsieci i tabel tras.
+Azure Spring Cloud obsługuje korzystanie z istniejących podsieci i tabel tras.
 
-Jeśli podsieci niestandardowe nie zawierają tabel tras, Chmura sprężynowa platformy Azure tworzy je dla każdej podsieci i dodaje do nich reguły w całym cyklu życia wystąpienia. Jeśli podsieci niestandardowe zawierają tabele tras, Chmura sprężynowa platformy Azure potwierdzi istniejące tabele tras podczas operacji wystąpienia i dodaje odpowiednio/aktualizuje i/lub reguły dla operacji.
+Jeśli podsieci niestandardowe nie zawierają tabel tras, program Azure Spring Cloud je dla każdej podsieci i dodaje do nich reguły w całym cyklu życia wystąpienia. Jeśli podsieci niestandardowe zawierają tabele tras, Azure Spring Cloud istniejące tabele tras podczas operacji wystąpienia i odpowiednio dodaje/aktualizuje i/lub reguły dla operacji.
 
 > [!Warning] 
-> Reguły niestandardowe można dodawać do tabel tras niestandardowych i aktualizować. Reguły są jednak dodawane przez chmurę z platformą Azure i nie mogą być aktualizowane ani usuwane. Reguły, takie jak 0.0.0.0/0, muszą zawsze istnieć w danej tabeli tras i mapowane na obiekt docelowy bramy internetowej, np. urządzenie WUS lub inną bramę ruchu wychodzącego. Należy zachować ostrożność podczas aktualizowania reguł, gdy są modyfikowane tylko reguły niestandardowe.
+> Reguły niestandardowe można dodawać do niestandardowych tabel tras i aktualizować. Jednak reguły są dodawane przez Azure Spring Cloud i nie mogą być aktualizowane ani usuwane. Reguły, takie jak 0.0.0.0/0, muszą zawsze istnieć w danej tabeli tras i być mapowanie na element docelowy bramy internetowej, na przykład urządzenie WUS lub inną bramę ruchu wychodzącego. Należy zachować ostrożność podczas aktualizowania reguł, gdy modyfikowane są tylko reguły niestandardowe.
 
 
-### <a name="route-table-requirements"></a>Wymagania tabeli tras
+### <a name="route-table-requirements"></a>Wymagania dotyczące tabeli tras
 
-Tabele tras, do których jest skojarzona niestandardowa Sieć wirtualna, muszą spełniać następujące wymagania:
+Tabele tras, z którymi jest skojarzona niestandardowa sieć wirtualna, muszą spełniać następujące wymagania:
 
-* Tabele tras platformy Azure można kojarzyć z siecią wirtualną tylko podczas tworzenia nowego wystąpienia usługi w chmurze Azure wiosną. Nie można zmienić innej tabeli tras po utworzeniu chmury Azure wiosennej.
-* Zarówno podsieć aplikacji mikrousług, jak i podsieć środowiska uruchomieniowego usługi muszą być skojarzone z różnymi tabelami tras lub żadnymi z nich.
-* Przed utworzeniem wystąpienia należy przypisać uprawnienia. Upewnij się, że przyznano uprawnienia *właściciela chmury Azure wiosny* do tabel tras.
-* Nie można zaktualizować skojarzonego zasobu tabeli tras po utworzeniu klastra. Nie można zaktualizować zasobu tabeli tras, reguły niestandardowe można modyfikować w tabeli tras.
-* Nie można ponownie użyć tabeli tras z wieloma wystąpieniami ze względu na potencjalne reguły routingu powodujące konflikt.
+* Tabele tras platformy Azure można skojarzyć z siecią wirtualną tylko podczas tworzenia nowego Azure Spring Cloud usługi. Nie można zmienić tak, aby używać innej tabeli tras Azure Spring Cloud została utworzona.
+* Zarówno podsieć aplikacji mikrousługi, jak i podsieć środowiska uruchomieniowego usługi muszą skojarzyć się z różnymi tabelami tras lub żadną z nich.
+* Uprawnienia muszą zostać przypisane przed utworzeniem wystąpienia. Pamiętaj, aby przyznać usłudze Azure *Spring Cloud uprawnienia właściciela* do tabel tras.
+* Skojarzonego zasobu tabeli tras nie można zaktualizować po utworzeniu klastra. Chociaż zasobu tabeli tras nie można zaktualizować, reguły niestandardowe można modyfikować w tabeli tras.
+* Nie można ponownie użyć tabeli tras z wieloma wystąpieniami ze względu na potencjalne konflikty reguł routingu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Wdrażanie aplikacji w chmurze Azure wiosny w sieci wirtualnej](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/02-deploy-application-to-azure-spring-cloud-in-your-vnet.md)
+[Wdrażanie aplikacji w Azure Spring Cloud sieci wirtualnej](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/02-deploy-application-to-azure-spring-cloud-in-your-vnet.md)
 
 ## <a name="see-also"></a>Zobacz też
 
-- [Rozwiązywanie problemów z chmurą wiosenną platformy Azure w sieci wirtualnej](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/05-troubleshooting-azure-spring-cloud-in-vnet.md)
-- [Obowiązki klientów do uruchamiania chmury Azure wiosny w sieci wirtualnej](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/06-customer-responsibilities-for-running-azure-spring-cloud-in-vnet.md)
+- [Rozwiązywanie problemów Azure Spring Cloud sieci wirtualnej](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/05-troubleshooting-azure-spring-cloud-in-vnet.md)
+- [Obowiązki klienta dotyczące uruchamiania Azure Spring Cloud sieci wirtualnej](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/06-customer-responsibilities-for-running-azure-spring-cloud-in-vnet.md)

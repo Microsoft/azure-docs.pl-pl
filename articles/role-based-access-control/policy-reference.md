@@ -1,24 +1,24 @@
 ---
-title: Wbudowane definicje zasad dla usługi Azure RBAC
-description: Wyświetla listę wbudowanych definicji zasad usługi Azure RBAC, Azure Policy. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 03/31/2021
+title: Wbudowane definicje zasad dla kontroli RBAC platformy Azure
+description: Wyświetla Azure Policy wbudowanych definicji zasad dla kontroli RBAC platformy Azure. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
+ms.date: 04/14/2021
 ms.topic: reference
 author: rolyon
 ms.author: rolyon
 ms.service: role-based-access-control
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 792e984f8b717c7ec5474df7021a72b5e3b49ca4
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 0517a273684c26001af5a8e7e11eb5df56e04f86
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106094834"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500122"
 ---
-# <a name="azure-policy-built-in-definitions-for-azure-rbac"></a>Azure Policy wbudowane definicje dla usługi Azure RBAC
+# <a name="azure-policy-built-in-definitions-for-azure-rbac"></a>Azure Policy wbudowane definicje kontroli RBAC platformy Azure
 
-Ta strona jest indeksem [Azure Policy](../governance/policy/overview.md) wbudowanych definicji zasad dla systemu Azure RBAC. Aby uzyskać dodatkowe Azure Policy wbudowane dla innych usług, zobacz [Azure Policy wbudowane definicje](../governance/policy/samples/built-in-policies.md).
+Ta strona jest indeksem [Azure Policy](../governance/policy/overview.md) wbudowanych definicji zasad dla kontroli RBAC platformy Azure. Aby uzyskać Azure Policy wbudowanych dla innych usług, [zobacz Azure Policy wbudowane definicje](../governance/policy/samples/built-in-policies.md).
 
-Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **wersja** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
+Nazwa każdej wbudowanej definicji zasad jest linkiem do definicji zasad w Azure Portal. Użyj linku w kolumnie **Wersja,** aby wyświetlić źródło w Azure Policy [GitHub.](https://github.com/Azure/azure-policy)
 
 ## <a name="azure-rbac"></a>Kontrola dostępu na podstawie ról platformy Azure
 

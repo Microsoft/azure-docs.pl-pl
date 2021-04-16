@@ -1,61 +1,61 @@
 ---
-title: 'Samouczek: wdrażanie konfiguracji przy użyciu GitOps na klastrze Kubernetes z włączonym usługą Azure Arc'
-description: W tym samouczku pokazano, jak zastosować konfiguracje w klastrze Kubernetes z włączoną funkcją Azure Arc. Aby uzyskać informacje o pojęciach związanych z tym procesem, zobacz artykuł konfiguracje i GitOps — usługa Azure ARC z włączoną obsługą Kubernetes.
+title: 'Samouczek: wdrażanie konfiguracji przy użyciu usługi GitOps Azure Arc klastrze Kubernetes z włączoną obsługą usługi'
+description: W tym samouczku pokazano stosowanie konfiguracji w Azure Arc Kubernetes z włączoną obsługą. Aby uzyskać koncepcyjne omówienie tego procesu, zobacz artykuł Configurations and GitOps - Azure Arc enabled Kubernetes (Konfiguracje i gitOps — Azure Arc rozwiązania Kubernetes).
 author: shashankbarsin
 ms.author: shasb
 ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/02/2021
-ms.custom: template-tutorial
-ms.openlocfilehash: ec83d8d56ad67d8c64c6ac3151ca3819e88c0616
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.custom: template-tutorial , devx-track-azurecli
+ms.openlocfilehash: 0f1172ffa0d29734e7ec005bf2812eeca215aa0d
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449600"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484170"
 ---
-# <a name="tutorial-deploy-configurations-using-gitops-on-an-azure-arc-enabled-kubernetes-cluster"></a>Samouczek: wdrażanie konfiguracji przy użyciu GitOps na klastrze Kubernetes z włączonym usługą Azure Arc 
+# <a name="tutorial-deploy-configurations-using-gitops-on-an-azure-arc-enabled-kubernetes-cluster"></a>Samouczek: wdrażanie konfiguracji przy użyciu usługi GitOps Azure Arc klastrze Kubernetes z włączoną obsługą usługi 
 
-W ramach tego samouczka nastąpi zastosowanie konfiguracji przy użyciu programu GitOps w klastrze Kubernetes z włączoną funkcją Azure Arc. Omawiane tematy:
+W tym samouczku zastosujemy konfiguracje przy użyciu usługi GitOps w Azure Arc Kubernetes z włączoną obsługą. Omawiane tematy:
 
 > [!div class="checklist"]
-> * Utwórz konfigurację w klastrze Kubernetes z obsługą usługi Azure ARC przy użyciu przykładowego repozytorium git.
+> * Utwórz konfigurację w klastrze Kubernetes z włączoną Azure Arc przy użyciu przykładowego repozytorium Git.
 > * Sprawdź, czy konfiguracja została pomyślnie utworzona.
-> * Zastosuj konfigurację z prywatnego repozytorium git.
-> * Sprawdź poprawność konfiguracji Kubernetes.
+> * Zastosuj konfigurację z prywatnego repozytorium Git.
+> * Zweryfikuj konfigurację usługi Kubernetes.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Istniejący klaster z włączonym usługą Azure Arc Kubernetes.
-    - Jeśli jeszcze nie nawiązano połączenia z klastrem, zapoznaj [się z naszymi krokami Przewodnik Szybki Start dotyczący usługi Azure Arc Kubernetes](quickstart-connect-cluster.md).
-- Zrozumienie korzyści i architektury tej funkcji. Więcej informacji można znaleźć w temacie [konfiguracje i GitOps — artykuł Kubernetes z obsługą usługi Azure Arc](conceptual-configurations.md).
-- Zainstaluj `k8s-configuration` rozszerzenie interfejsu wiersza polecenia platformy Azure w wersji >= 1.0.0:
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Istniejący klaster Azure Arc z usługą Kubernetes.
+    - Jeśli jeszcze nie połączono klastra, przewodnik Szybki start Connect [an Azure Arc enabled Kubernetes cluster (Łączenie klastra Kubernetes](quickstart-connect-cluster.md)z włączoną obsługą usługi Kubernetes).
+- Znajomość zalet i architektury tej funkcji. Przeczytaj więcej w artykule [Configurations and GitOps - Azure Arc enabled Kubernetes (Konfiguracje i gitops — Azure Arc kubernetes).](conceptual-configurations.md)
+- Zainstaluj rozszerzenie `k8s-configuration` interfejsu wiersza polecenia platformy Azure dla wersji >= 1.0.0:
   
   ```azurecli
   az extension add --name k8s-configuration
   ```
 
     >[!TIP]
-    > Jeśli `k8s-configuration` rozszerzenie jest już zainstalowane, można je zaktualizować do najnowszej wersji za pomocą następującego polecenia: `az extension update --name k8s-configuration`
+    > Jeśli rozszerzenie `k8s-configuration` jest już zainstalowane, możesz zaktualizować je do najnowszej wersji za pomocą następującego polecenia : `az extension update --name k8s-configuration`
 
-## <a name="create-a-configuration"></a>Utwórz konfigurację
+## <a name="create-a-configuration"></a>Tworzenie konfiguracji
 
-[Przykładowe repozytorium](https://github.com/Azure/arc-k8s-demo) używane w tym artykule jest strukturalne wokół osoby będącej operatorem klastra. Manifesty w tym repozytorium zastrzegają kilka przestrzeni nazw, wdrażają obciążenia i udostępniają pewne konfiguracje specyficzne dla zespołu. Użycie tego repozytorium z programem GitOps powoduje utworzenie następujących zasobów w klastrze:
+Przykładowe [repozytorium](https://github.com/Azure/arc-k8s-demo) używane w tym artykule jest ustrukturyzowane wokół osoby operatora klastra. Manifesty w tym repozytorium aprowizują kilka przestrzeni nazw, wdrażają obciążenia i zapewniają konfigurację specyficzną dla zespołu. Użycie tego repozytorium z usługą GitOps powoduje utworzenie następujących zasobów w klastrze:
 
 * Przestrzenie nazw: `cluster-config` , `team-a` , `team-b`
-* Mieszczeniu `cluster-config/azure-vote`
+* Wdrażania: `cluster-config/azure-vote`
 * ConfigMap: `team-a/endpoints`
 
-`config-agent`Sonduje platformę Azure pod kątem nowych lub zaktualizowanych konfiguracji. To zadanie zajmie do 30 sekund.
+Sonduje `config-agent` platformę Azure pod temat nowych lub zaktualizowanych konfiguracji. To zadanie potrwa do 30 sekund.
 
-W przypadku kojarzenia repozytorium prywatnego z konfiguracją wykonaj poniższe kroki w temacie [apply Configuration from a Private git](#apply-configuration-from-a-private-git-repository).
+Jeśli skojarzysz repozytorium prywatne z konfiguracją, wykonaj poniższe kroki opisane w artykule Apply configuration from a private Git repository (Stosowanie konfiguracji [z prywatnego repozytorium Git).](#apply-configuration-from-a-private-git-repository)
 
 ## <a name="use-azure-cli"></a>Interfejs wiersza polecenia platformy Azure
-Użyj rozszerzenia interfejsu wiersza polecenia platformy Azure, aby `k8s-configuration` połączyć połączony klaster z [przykładowym repozytorium git](https://github.com/Azure/arc-k8s-demo). 
-1. Nadaj nazwę tej konfiguracji `cluster-config` .
-1. Nakazuje agentowi wdrożenie operatora w `cluster-config` przestrzeni nazw.
-1. Nadaj uprawnienia operatora `cluster-admin` .
+Użyj rozszerzenia interfejsu wiersza polecenia platformy Azure dla polecenia , `k8s-configuration` aby połączyć połączony klaster z [przykładowe repozytorium Git.](https://github.com/Azure/arc-k8s-demo) 
+1. Nadaj tej konfiguracji nazwę `cluster-config` .
+1. Poinstruuj agenta, aby wdrożył operator w przestrzeni `cluster-config` nazw .
+1. Nadaj operatorowi `cluster-admin` uprawnienia.
 
     ```azurecli
     az k8s-configuration create --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name cluster-config --operator-namespace cluster-config --repository-url https://github.com/Azure/arc-k8s-demo --scope cluster --cluster-type connectedClusters
@@ -95,95 +95,95 @@ Użyj rozszerzenia interfejsu wiersza polecenia platformy Azure, aby `k8s-config
       "type": "Microsoft.KubernetesConfiguration/sourceControlConfigurations"
       ```
 
-### <a name="use-a-public-git-repository"></a>Używanie publicznego repozytorium git
+### <a name="use-a-public-git-repository"></a>Korzystanie z publicznego repozytorium Git
 
 | Parametr | Format |
 | ------------- | ------------- |
-| `--repository-url` | http [s]://Server/repo [. git] lub git://Server/repo [. git]
+| `--repository-url` | http[s]://server/repo[.git] lub git://server/repo[.git]
 
-### <a name="use-a-private-git-repository-with-ssh-and-flux-created-keys"></a>Korzystanie z prywatnego repozytorium git z użyciem kluczy SSH i strumieniowego tworzenia
+### <a name="use-a-private-git-repository-with-ssh-and-flux-created-keys"></a>Używanie prywatnego repozytorium Git z kluczami utworzonymi przez SSH i Flux
 
-Dodaj klucz publiczny wygenerowany przez strumień do konta użytkownika w dostawcy usługi git. Jeśli klucz zostanie dodany do repozytorium zamiast konta użytkownika, użyj `git@` zamiast `user@` adresu URL. 
+Dodaj klucz publiczny wygenerowany przez platformę Flux do konta użytkownika u dostawcy usług Git. Jeśli klucz zostanie dodany do repozytorium, a nie do konta użytkownika, użyj wartości zamiast w `git@` `user@` adresie URL. 
 
-Aby uzyskać więcej informacji, przejdź do sekcji [Zastosuj konfigurację z prywatnego repozytorium git](#apply-configuration-from-a-private-git-repository) .
+Przejdź do sekcji [Zastosuj konfigurację z prywatnego repozytorium Git,](#apply-configuration-from-a-private-git-repository) aby uzyskać więcej szczegółów.
 
 
 | Parametr | Format | Uwagi
 | ------------- | ------------- | ------------- |
-| `--repository-url` | ssh://user@server/repo[. git] lub user@server:repo [. git] | `git@` może zastąpić `user@`
+| `--repository-url` | ssh://user@server/repo[.git] lub user@server:repo [.git] | `git@` może zastąpić `user@`
 
-### <a name="use-a-private-git-repository-with-ssh-and-user-provided-keys"></a>Korzystanie z prywatnego repozytorium git z kluczami SSH i dostarczonymi przez użytkownika
+### <a name="use-a-private-git-repository-with-ssh-and-user-provided-keys"></a>Używanie prywatnego repozytorium Git z kluczami SSH i kluczami dostarczonymi przez użytkownika
 
-Podaj własny klucz prywatny bezpośrednio lub w pliku. Klucz musi mieć [Format PEM](https://aka.ms/PEMformat) i kończyć się znakiem nowego wiersza (\n). 
+Podaj własny klucz prywatny bezpośrednio lub w pliku. Klucz musi być w [formacie PEM i](https://aka.ms/PEMformat) kończyć się nowym wierszem (\n). 
 
-Dodaj skojarzony klucz publiczny do konta użytkownika w dostawcy usługi git. Jeśli klucz zostanie dodany do repozytorium zamiast konta użytkownika, Użyj zamiast `git@` `user@` . 
+Dodaj skojarzony klucz publiczny do konta użytkownika w dostawcy usług Git. Jeśli klucz zostanie dodany do repozytorium, a nie do konta użytkownika, użyj `git@` zamiast . `user@` 
 
-Aby uzyskać więcej informacji, przejdź do sekcji [Zastosuj konfigurację z prywatnego repozytorium git](#apply-configuration-from-a-private-git-repository) .  
-
-| Parametr | Format | Uwagi |
-| ------------- | ------------- | ------------- |
-| `--repository-url`  | ssh://user@server/repo[. git] lub user@server:repo [. git] | `git@` może zastąpić `user@` |
-| `--ssh-private-key` | klucz szyfrowany algorytmem Base64 w [formacie PEM](https://aka.ms/PEMformat) | Podaj klucz bezpośrednio |
-| `--ssh-private-key-file` | Pełna ścieżka do pliku lokalnego | Podaj pełną ścieżkę do pliku lokalnego, który zawiera klucz w formacie PEM
-
-### <a name="use-a-private-git-host-with-ssh-and-user-provided-known-hosts"></a>Korzystanie z prywatnego hosta git z użyciem protokołów SSH i znanych przez użytkownika
-
-Operator strumień przechowuje listę typowych hostów Git w rozpoznawanym pliku hosts w celu uwierzytelnienia repozytorium git przed nawiązaniem połączenia SSH. Jeśli używasz *nietypowego* repozytorium Git lub własnego hosta git, możesz podać klucz hosta, aby strumień mógł identyfikować repozytorium. 
-
-Podobnie jak w przypadku kluczy prywatnych, możesz podać zawartość known_hosts bezpośrednio lub w pliku. Dostarczając swoją zawartość, użyj [specyfikacji formatu zawartości known_hosts](https://aka.ms/KnownHostsFormat)wraz z dowolnym z powyższych scenariuszy dotyczących kluczy SSH.
+Przejdź do sekcji [Zastosuj konfigurację z prywatnego repozytorium Git,](#apply-configuration-from-a-private-git-repository) aby uzyskać więcej szczegółów.  
 
 | Parametr | Format | Uwagi |
 | ------------- | ------------- | ------------- |
-| `--repository-url`  | ssh://user@server/repo[. git] lub user@server:repo [. git] | `git@` może zastąpić `user@` |
-| `--ssh-known-hosts` | kodowane algorytmem Base64 | Zapewnianie informacji o znanych hostach bezpośrednio |
-| `--ssh-known-hosts-file` | Pełna ścieżka do pliku lokalnego | Podaj zawartość znanych hostów w pliku lokalnym |
+| `--repository-url`  | ssh://user@server/repo[.git] lub user@server:repo [.git] | `git@` może zastąpić `user@` |
+| `--ssh-private-key` | Klucz zakodowany w formacie base64 w [formacie PEM](https://aka.ms/PEMformat) | Bezpośrednie podanie klucza |
+| `--ssh-private-key-file` | pełna ścieżka do pliku lokalnego | Podaj pełną ścieżkę do pliku lokalnego, który zawiera klucz formatu PEM
 
-### <a name="use-a-private-git-repository-with-https"></a>Korzystanie z prywatnego repozytorium git z protokołem HTTPS
+### <a name="use-a-private-git-host-with-ssh-and-user-provided-known-hosts"></a>Używanie prywatnego hosta Git z programem SSH i znanymi hostami dostarczonymi przez użytkownika
+
+Operator Flux przechowuje listę typowych hostów Git w pliku znanych hostów w celu uwierzytelnienia repozytorium Git przed nawiązaniem połączenia SSH. Jeśli używasz *nietypowego* repozytorium Git lub własnego hosta Git, możesz podać klucz hosta, aby strumień Flux rozpoznał Twoje repozytorium. 
+
+Podobnie jak klucze prywatne, możesz podać known_hosts zawartości bezpośrednio lub w pliku. Podczas dostarczania własnej zawartości należy użyć [known_hosts formatu](https://aka.ms/KnownHostsFormat)zawartości wraz z jednym z powyższych scenariuszy kluczy SSH.
 
 | Parametr | Format | Uwagi |
 | ------------- | ------------- | ------------- |
-| `--repository-url` | https://server/repo[. git] | HTTPS z uwierzytelnianiem podstawowym |
-| `--https-user` | nieprzetworzone lub zakodowane algorytmem Base64 | Nazwa użytkownika protokołu HTTPS |
-| `--https-key` | nieprzetworzone lub zakodowane algorytmem Base64 | Osobisty token dostępu HTTPS lub hasło
+| `--repository-url`  | ssh://user@server/repo[.git] lub user@server:repo [.git] | `git@` może zastąpić `user@` |
+| `--ssh-known-hosts` | Zakodowane w formacie base64 | Bezpośrednie zapewnianie zawartości znanych hostów |
+| `--ssh-known-hosts-file` | pełna ścieżka do pliku lokalnego | Podaj zawartość znanych hostów w pliku lokalnym |
+
+### <a name="use-a-private-git-repository-with-https"></a>Używanie prywatnego repozytorium Git z protokołem HTTPS
+
+| Parametr | Format | Uwagi |
+| ------------- | ------------- | ------------- |
+| `--repository-url` | https://server/repo[.git] | Protokół HTTPS z uwierzytelnianiem podstawowym |
+| `--https-user` | nieprzetworzone lub zakodowane w formacie base64 | Nazwa użytkownika protokołu HTTPS |
+| `--https-key` | nieprzetworzone lub zakodowane w formacie base64 | Osobisty token dostępu HTTPS lub hasło
 
 >[!NOTE]
->* Wykres operatora Helm w wersji 1.2.0 + obsługuje uwierzytelnianie prywatne w wersji HTTPS Helm.
->* Wydanie HTTPS Helm nie jest obsługiwane w przypadku klastrów zarządzanych AKS.
->* Jeśli potrzebujesz strumieniowego dostępu do repozytorium Git za pomocą serwera proxy, musisz zaktualizować agentów usługi Azure ARC przy użyciu ustawień serwera proxy. Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia przy użyciu serwera proxy wychodzącego](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server).
+>* Pakiet operatorów programu Helm w wersji 1.2.0 lub nowsza obsługuje prywatne uwierzytelnianie wersji programu Helm dla protokołu HTTPS.
+>* Wersja helm protokołu HTTPS nie jest obsługiwana w przypadku klastrów zarządzanych usługi AKS.
+>* Jeśli potrzebujesz strumienia w celu uzyskania dostępu do repozytorium Git za pośrednictwem serwera proxy, musisz zaktualizować agentów Azure Arc przy użyciu ustawień serwera proxy. Aby uzyskać więcej informacji, zobacz [Connect using an outbound proxy server (Nawiązywanie połączenia przy użyciu serwera proxy ruchu wychodzącego).](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server)
 
 
 ## <a name="additional-parameters"></a>Dodatkowe parametry
 
-Dostosuj konfigurację przy użyciu następujących parametrów opcjonalnych:
+Dostosuj konfigurację za pomocą następujących parametrów opcjonalnych:
 
 | Parametr | Opis |
 | ------------- | ------------- |
-| `--enable-helm-operator`| Przełącz, aby włączyć obsługę wdrożeń wykresów Helm. |
-| `--helm-operator-params` | Wartości wykresu dla operatora Helm (jeśli jest włączony). Na przykład `--set helm.versions=v3`. |
-| `--helm-operator-chart-version` | Wersja wykresu dla operatora Helm (jeśli jest włączona). Użyj wersji 1.2.0 +. Wartość domyślna: "1.2.0". |
-| `--operator-namespace` | Nazwa dla przestrzeni nazw operatora. Wartość domyślna: "default". Maks.: 23 znaki. |
-| `--operator-params` | Parametry operatora. Musi być określona w cudzysłowie pojedynczym. Na przykład ```--operator-params='--git-readonly --sync-garbage-collection --git-branch=main'``` 
+| `--enable-helm-operator`| Przełącz się, aby włączyć obsługę wdrożeń pakietu Helm. |
+| `--helm-operator-params` | Wartości wykresów dla operatora Helm (jeśli są włączone). Na przykład `--set helm.versions=v3`. |
+| `--helm-operator-chart-version` | Wersja wykresu dla operatora Helm (jeśli jest włączona). Użyj wersji 1.2.0+. Wartość domyślna: "1.2.0". |
+| `--operator-namespace` | Nazwa przestrzeni nazw operatora. Ustawienie domyślne: "default". Maksymalnie: 23 znaki. |
+| `--operator-params` | Parametry operatora. Musi być podany w pojedynczych cudzysłowach. Na przykład ```--operator-params='--git-readonly --sync-garbage-collection --git-branch=main'``` 
 
-### <a name="options-supported-in----operator-params"></a>Opcje obsługiwane w  `--operator-params` :
+### <a name="options-supported-in----operator-params"></a>Opcje obsługiwane w programie  `--operator-params` :
 
 | Opcja | Opis |
 | ------------- | ------------- |
-| `--git-branch`  | Gałąź repozytorium git do użycia na potrzeby manifestów Kubernetes. Wartość domyślna to "Master". Nowsze repozytoria mają gałąź główną o nazwie `main` , w tym przypadku należy ustawić `--git-branch=main` . |
-| `--git-path`  | Ścieżka względna w repozytorium Git na potrzeby strumieniowego lokalizowania manifestów Kubernetes. |
-| `--git-readonly` | Repozytorium Git będzie traktowane jako tylko do odczytu. Strumień nie będzie próbować zapisywać do niego. |
-| `--manifest-generation`  | Jeśli ta funkcja jest włączona, strumień będzie szukać metadanych. strumień. YAML i Run Kustomize lub innych generatorów manifestów. |
-| `--git-poll-interval`  | Okres, w którym ma być sondowanie repozytorium git dla nowych zatwierdzeń. Wartość domyślna to `5m` (5 minut). |
-| `--sync-garbage-collection`  | Jeśli ta funkcja jest włączona, strumień spowoduje usunięcie utworzonych przez siebie zasobów, ale nie są już dostępne w usłudze git. |
-| `--git-label`  | Etykieta do śledzenia postępu synchronizacji. Używane do tagowania gałęzi git.  Wartość domyślna to `flux-sync`. |
-| `--git-user`  | Nazwa użytkownika dla zatwierdzenia git. |
-| `--git-email`  | Wiadomość e-mail do użycia na potrzeby zatwierdzenia git. 
+| `--git-branch`  | Gałąź repozytorium Git do użycia dla manifestów kubernetes. Wartość domyślna to "master". Nowsze repozytoria mają gałąź główną o nazwie . W `main` takim przypadku należy ustawić wartość `--git-branch=main` . |
+| `--git-path`  | Ścieżka względna w repozytorium Git dla strumienia Flux w celu zlokalizowania manifestów kubernetes. |
+| `--git-readonly` | Repozytorium Git będzie uznawane za tylko do odczytu. Strumień nie będzie próbował zapisywać w nim danych. |
+| `--manifest-generation`  | Jeśli ta opcja jest włączona, funkcja Flux będzie szukać pliku flux.yaml i uruchamia program Kustomize lub inne generatory manifestu. |
+| `--git-poll-interval`  | Okres, w którym ma być sondowanych repozytorium Git dla nowych zatwierdzeń. Wartość domyślna `5m` to (5 minut). |
+| `--sync-garbage-collection`  | Jeśli ta opcja jest włączona, strumień Flux usunie utworzone zasoby, ale nie będą już dostępne w usłudze Git. |
+| `--git-label`  | Etykieta do śledzenia postępu synchronizacji. Służy do oznaczania gałęzi Git.  Wartość domyślna to `flux-sync`. |
+| `--git-user`  | Nazwa użytkownika dla zatwierdzenia usługi Git. |
+| `--git-email`  | Adres e-mail do użycia na użytek zatwierdzania usługi Git. 
 
-Jeśli nie chcesz, aby strumień zapisu do repozytorium i `--git-user` lub `--git-email` nie został ustawiony, `--git-readonly` zostanie automatycznie ustawiony.
+Jeśli nie chcesz, aby strumień Flux zapisywał w repozytorium i nie został ustawiony, zostanie `--git-user` `--git-email` on ustawiony `--git-readonly` automatycznie.
 
-Aby uzyskać więcej informacji, zobacz [dokumentację strumienia](https://aka.ms/FluxcdReadme).
+Aby uzyskać więcej informacji, zobacz [dokumentację flux](https://aka.ms/FluxcdReadme).
 
 > [!TIP]
-> Konfigurację można utworzyć w Azure Portal na karcie **GitOps** zasobu Kubernetes w usłudze Azure Arc.
+> Konfigurację można utworzyć w witrynie Azure Portal na karcie **GitOps** Azure Arc zasobu Kubernetes.
 
 ## <a name="validate-the-configuration"></a>Weryfikowanie konfiguracji
 
@@ -193,7 +193,7 @@ Użyj interfejsu wiersza polecenia platformy Azure, aby sprawdzić, czy konfigur
 az k8s-configuration show --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 
-Zasób konfiguracji zostanie zaktualizowany ze stanem zgodności, komunikatami i informacjami o debugowaniu.
+Zasób konfiguracji zostanie zaktualizowany o informacje o stanie zgodności, komunikatach i debugowaniu.
 
 ```output
 {
@@ -233,33 +233,33 @@ Zasób konfiguracji zostanie zaktualizowany ze stanem zgodności, komunikatami i
 }
 ```
 
-Po utworzeniu lub zaktualizowaniu konfiguracji następuje kilka rzeczy:
+Podczas tworzenia lub aktualizowania konfiguracji dzieje się kilka rzeczy:
 
-1. Usługa Azure Arc `config-agent` monitoruje Azure Resource Manager w przypadku nowych lub zaktualizowanych konfiguracji ( `Microsoft.KubernetesConfiguration/sourceControlConfigurations` ) i zauważy nową `Pending` konfigurację.
-1. `config-agent`Odczytuje właściwości konfiguracji i tworzy przestrzeń nazw docelowy.
-1. Usługa Azure Arc `controller-manager` tworzy konto usługi Kubernetes i mapuje je do [ClusterRoleBinding lub rolebinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) dla odpowiednich uprawnień ( `cluster` lub `namespace` zakresu). Następnie wdraża wystąpienie programu `flux` .
-1. W przypadku używania opcji SSH z kluczami generowanymi strumieniowo program `flux` generuje klucz SSH i rejestruje klucz publiczny.
-1. `config-agent`Raporty stanu z powrotem do zasobu konfiguracji na platformie Azure.
+1. Program Azure Arc monitoruje Azure Resource Manager dla nowych lub zaktualizowanych `config-agent` konfiguracji ( ) i zauważa `Microsoft.KubernetesConfiguration/sourceControlConfigurations` nową `Pending` konfigurację.
+1. Obiekt `config-agent` odczytuje właściwości konfiguracji i tworzy docelową przestrzeń nazw.
+1. Aplikacja Azure Arc konto usługi Kubernetes i mapuje je na `controller-manager` [klasterRoleBinding lub RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) dla odpowiednich uprawnień ( `cluster` lub `namespace` zakresu). Następnie wdraża wystąpienie klasy `flux` .
+1. Jeśli używasz opcji SSH z kluczami wygenerowanym przez flux, program generuje klucz SSH i `flux` rejestruje klucz publiczny.
+1. Stan `config-agent` jest zgłaszany z powrotem do zasobu konfiguracji na platformie Azure.
 
-Podczas procesu aprowizacji zasób konfiguracji będzie przenoszony przez kilka zmian stanu. Monitoruj postęp przy użyciu `az k8s-configuration show ...` powyższego polecenia:
+Podczas procesu aprowizowania zasób konfiguracji przechodzi przez kilka zmian stanu. Monitoruj postęp za pomocą `az k8s-configuration show ...` powyższego polecenia:
 
 | Zmiana etapu | Opis |
 | ------------- | ------------- |
-| `complianceStatus`-> `Pending` | Reprezentuje Stany początkowe i w toku. |
-| `complianceStatus` -> `Installed`  | `config-agent` Pomyślnie skonfigurowano klaster i wdrożono go `flux` bez błędu. |
-| `complianceStatus` -> `Failed` | `config-agent` Wystąpił błąd podczas wdrażania `flux` . Szczegóły znajdują się w `complianceStatus.message` treści odpowiedzi. |
+| `complianceStatus`-> `Pending` | Reprezentuje stany początkowe i w toku. |
+| `complianceStatus` -> `Installed`  | `config-agent` pomyślnie skonfigurował klaster i został `flux` wdrożony bez błędu. |
+| `complianceStatus` -> `Failed` | `config-agent` wystąpił błąd podczas wdrażania `flux` . Szczegółowe informacje znajdują się w `complianceStatus.message` treści odpowiedzi. |
 
-## <a name="apply-configuration-from-a-private-git-repository"></a>Zastosuj konfigurację z prywatnego repozytorium git
+## <a name="apply-configuration-from-a-private-git-repository"></a>Stosowanie konfiguracji z prywatnego repozytorium Git
 
-Jeśli używasz prywatnego repozytorium git, musisz skonfigurować klucz publiczny SSH w repozytorium. Użytkownik dostarczy lub strumień generuje klucz publiczny SSH. Klucz publiczny można skonfigurować w określonym repozytorium Git lub na użytkowniku git, który ma dostęp do repozytorium. 
+Jeśli używasz prywatnego repozytorium Git, musisz skonfigurować klucz publiczny SSH w swoim repozytorium. W przypadku podania lub wygenerowania klucza publicznego SSH przez strumień Flux. Klucz publiczny można skonfigurować dla określonego repozytorium Git lub użytkownika usługi Git, który ma dostęp do repozytorium. 
 
-### <a name="get-your-own-public-key"></a>Pobierz swój własny klucz publiczny
+### <a name="get-your-own-public-key"></a>Uzyskiwanie własnego klucza publicznego
 
-Jeśli wygenerowałeś własne klucze SSH, masz już klucze prywatne i publiczne.
+Jeśli wygenerowano własne klucze SSH, masz już klucze prywatne i publiczne.
 
-#### <a name="get-the-public-key-using-azure-cli"></a>Pobieranie klucza publicznego przy użyciu interfejsu wiersza polecenia platformy Azure 
+#### <a name="get-the-public-key-using-azure-cli"></a>Uzyskiwanie klucza publicznego przy użyciu interfejsu wiersza polecenia platformy Azure 
 
-Jeśli strumień generuje klucze, użyj następujących poleceń w interfejsie wiersza polecenia platformy Azure.
+Jeśli narzędzie Flux generuje klucze, użyj następującego polecenia w interfejsie wiersza polecenia platformy Azure.
 
 ```console
 $ az k8s-configuration show --resource-group <resource group name> --cluster-name <connected cluster name> --name <configuration name> --cluster-type connectedClusters --query 'repositoryPublicKey' 
@@ -268,49 +268,49 @@ $ az k8s-configuration show --resource-group <resource group name> --cluster-nam
 
 #### <a name="get-the-public-key-from-the-azure-portal"></a>Pobierz klucz publiczny z Azure Portal
 
-Zapoznaj się z poniższym opisem w Azure Portal, jeśli strumień generuje klucze.
+W poniższej ilustracji Azure Portal, czy strumień generuje klucze.
 
-1. W Azure Portal przejdź do zasobu połączonego klastra.
-2. Na stronie zasób wybierz pozycję "GitOps" i sprawdź listę konfiguracji dla tego klastra.
-3. Wybierz konfigurację, która używa prywatnego repozytorium git.
-4. W otwartym oknie kontekstu w dolnej części okna Skopiuj **klucz publiczny repozytorium**.
+1. W Azure Portal przejdź do połączonego zasobu klastra.
+2. Na stronie zasobu wybierz pozycję "GitOps" i zobacz listę konfiguracji dla tego klastra.
+3. Wybierz konfigurację, która używa prywatnego repozytorium Git.
+4. W oknie kontekstowym, które zostanie otwarte, w dolnej części okna skopiuj klucz **publiczny Repozytorium**.
 
-#### <a name="add-public-key-using-github"></a>Dodawanie klucza publicznego za pomocą usługi GitHub
+#### <a name="add-public-key-using-github"></a>Dodawanie klucza publicznego przy użyciu usługi GitHub
 
 Skorzystaj z jednej z następujących opcji:
 
-* Opcja 1: Dodaj klucz publiczny do konta użytkownika (dotyczy wszystkich repozytoriów na Twoim koncie):  
-    1. Otwórz witrynę GitHub i kliknij ikonę profilu w prawym górnym rogu strony.
+* Opcja 1. Dodaj klucz publiczny do konta użytkownika (dotyczy wszystkich repozytoriów na twoim koncie):  
+    1. Otwórz repozytorium GitHub i kliknij ikonę profilu w prawym górnym rogu strony.
     2. Kliknij pozycję **Settings** (Ustawienia).
-    3. Kliknij pozycję **klucze SSH i GPG**.
-    4. Kliknij pozycję **nowy klucz SSH**.
-    5. Podaj tytuł.
-    6. Wklej klucz publiczny bez żadnego otaczającego cudzysłowu.
-    7. Kliknij pozycję **Dodaj klucz SSH**.
+    3. Kliknij pozycję **Klucze SSH i GPG.**
+    4. Kliknij pozycję **Nowy klucz SSH.**
+    5. Należy podać tytuł.
+    6. Wklej klucz publiczny bez cudzysłowów otaczających.
+    7. Kliknij pozycję **Dodaj klucz SSH.**
 
-* Opcja 2: Dodaj klucz publiczny jako klucz wdrożenia do repozytorium git (dotyczy tylko tego repozytorium):  
-    1. Otwórz witrynę GitHub i przejdź do repozytorium.
+* Opcja 2. Dodaj klucz publiczny jako klucz wdrażania do repozytorium Git (dotyczy tylko tego repozytorium):  
+    1. Otwórz repozytorium GitHub i przejdź do repozytorium.
     1. Kliknij pozycję **Settings** (Ustawienia).
-    1. Kliknij pozycję **Wdróż klucze**.
-    1. Kliknij pozycję **Dodaj klucz wdrożenia**.
-    1. Podaj tytuł.
-    1. Zaznacz pole wyboru **Zezwalaj na dostęp do zapisu**.
-    1. Wklej klucz publiczny bez żadnego otaczającego cudzysłowu.
-    1. Kliknij pozycję **Dodaj klucz**.
+    1. Kliknij pozycję **Deploy keys (Wd wdrażaj klucze).**
+    1. Kliknij pozycję **Dodaj klucz wdrażania.**
+    1. W tym celu należy podać tytuł.
+    1. Zaznacz pole **wyboru Zezwalaj na dostęp do zapisu.**
+    1. Wklej klucz publiczny bez żadnych otaczających cudzysłowów.
+    1. Kliknij pozycję **Dodaj klucz.**
 
-#### <a name="add-public-key-using-an-azure-devops-repository"></a>Dodawanie klucza publicznego przy użyciu repozytorium usługi Azure DevOps
+#### <a name="add-public-key-using-an-azure-devops-repository"></a>Dodawanie klucza publicznego przy użyciu Azure DevOps repozytorium
 
-Aby dodać klucz do kluczy SSH, wykonaj następujące kroki:
+Aby dodać klucz do kluczy SSH, należy wykonać następujące czynności:
 
-1. W obszarze **Ustawienia użytkownika** w prawym górnym rogu (obok obrazu profilu) kliknij pozycję **klucze publiczne SSH**.
-1. Wybierz pozycję  **+ nowy klucz**.
-1. Podaj nazwę.
-1. Wklej klucz publiczny bez żadnego otaczającego cudzysłowu.
+1. W **obszarze Ustawienia** użytkownika w prawym górnym rogu (obok obrazu profilu) kliknij pozycję Klucze publiczne **SSH.**
+1. Wybierz **pozycję + Nowy klucz.**
+1. Podać nazwę.
+1. Wklej klucz publiczny bez żadnych otaczających cudzysłowów.
 1. Kliknij pozycję **Dodaj**.
 
-## <a name="validate-the-kubernetes-configuration"></a>Weryfikowanie konfiguracji Kubernetes
+## <a name="validate-the-kubernetes-configuration"></a>Weryfikowanie konfiguracji usługi Kubernetes
 
-Po `config-agent` zainstalowaniu wystąpienia zasoby, które znajdują się `flux` w repozytorium git, powinny zacząć przepływać do klastra. Sprawdź, czy przestrzenie nazw, wdrożenia i zasoby zostały utworzone za pomocą następującego polecenia:
+Po zainstalowaniu wystąpienia zasoby przechowywane w repozytorium `config-agent` `flux` Git powinny zacząć przepływać do klastra. Sprawdź, czy przestrzenie nazw, wdrożenia i zasoby zostały utworzone za pomocą następującego polecenia:
 
 ```console
 kubectl get ns --show-labels
@@ -329,9 +329,9 @@ team-a            Active   177m   fluxcd.io/sync-gc-mark=sha256.CS5boSi8kg_vyxfA
 team-b            Active   177m   fluxcd.io/sync-gc-mark=sha256.vF36thDIFnDDI2VEttBp5jgdxvEuaLmm7yT_cuA2UEw,name=team-b
 ```
 
-Możemy zobaczyć, że `team-a` zostały `team-b` `itops` `cluster-config` utworzone przestrzenie nazw,,, i.
+Widzimy, `team-a` że utworzono `team-b` `itops` przestrzenie nazw , , `cluster-config` i .
 
-`flux`Operator został wdrożony w `cluster-config` przestrzeni nazw, zgodnie z podanym przez zasób konfiguracji:
+Operator `flux` został wdrożony w przestrzeni `cluster-config` nazw zgodnie z zaleceniami zasobu konfiguracji:
 
 ```console
 kubectl -n cluster-config get deploy  -o wide
@@ -353,19 +353,19 @@ kubectl -n itops get all
 ```
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Usuń konfigurację przy użyciu interfejsu wiersza polecenia platformy Azure lub Azure Portal. Po uruchomieniu polecenia Delete zasób konfiguracji zostanie natychmiast usunięty na platformie Azure. Pełne usunięcie skojarzonych obiektów z klastra powinno wystąpić w ciągu 10 minut. Jeśli po usunięciu konfiguracja jest w stanie niepowodzenia, pełne usunięcie skojarzonych obiektów może potrwać do godziny.
+Usuń konfigurację przy użyciu interfejsu wiersza polecenia platformy Azure lub Azure Portal. Po uruchomieniu polecenia delete zasób konfiguracji zostanie natychmiast usunięty na platformie Azure. Pełne usunięcie skojarzonych obiektów z klastra powinno nastąpić w ciągu 10 minut. Jeśli konfiguracja po usunięciu jest w stanie niepowodzeniem, całkowite usunięcie skojarzonych obiektów może potrwać do godziny.
 
-Po `namespace` usunięciu konfiguracji z zakresem przestrzeń nazw nie jest usuwana przez łuk Azure, aby uniknąć przerywania istniejących obciążeń. W razie konieczności można ręcznie usunąć tę przestrzeń nazw za pomocą polecenia `kubectl` .
+Po usunięciu konfiguracji z zakresem przestrzeń nazw nie jest usuwana przez Azure Arc, aby `namespace` uniknąć przerywania istniejących obciążeń. W razie potrzeby możesz ręcznie usunąć tę przestrzeń nazw przy użyciu elementu `kubectl` .
 
 ```azurecli
 az k8s-configuration delete --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 
 > [!NOTE]
-> Po usunięciu konfiguracji wszystkie zmiany w klastrze, które były wynikiem wdrożeń z śledzonego repozytorium git, nie są usuwane.
+> Wszelkie zmiany w klastrze, które były wynikiem wdrożeń ze śledzone repozytorium Git, nie zostaną usunięte po usunięciu konfiguracji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przejdź do następnego samouczka, aby dowiedzieć się, jak zaimplementować CI/CD z GitOps.
+Przejść do następnego samouczka, aby dowiedzieć się, jak zaimplementować ciszą/cd za pomocą usługi GitOps.
 > [!div class="nextstepaction"]
-> [Implementowanie ciągłej integracji/ciągłego wdrażania za pomocą GitOps](./tutorial-gitops-ci-cd.md)
+> [Implementowanie ciasnych/cd za pomocą usługi GitOps](./tutorial-gitops-ci-cd.md)

@@ -35,7 +35,7 @@ Aby sprawdzić, jak dostępne Azure Policy dla wszystkich usług platformy Azure
 ## <a name="cis-microsoft-azure-foundations-benchmark-130"></a>CIS Microsoft Azure Foundations Benchmark 1.3.0
 
 Aby sprawdzić, jak dostępne Azure Policy dla wszystkich usług platformy Azure są mapowe na ten standard zgodności, zobacz [Azure Policy Regulatory Compliance - CIS Microsoft Azure Foundations Benchmark 1.3.0 (Zgodność z przepisami — CIS Microsoft Azure Foundations Benchmark 1.3.0).](../../../../articles/governance/policy/samples/cis-azure-1-3-0.md)
-Aby uzyskać więcej informacji na temat tego standardu zgodności, [zobacz CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/).
+Aby uzyskać więcej informacji na temat tego standardu zgodności, zobacz [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/).
 
 |Domena |Identyfikator kontrolki |Tytuł kontrolki |Zasady<br /><sub>(Azure Portal)</sub> |Wersja zasad<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|

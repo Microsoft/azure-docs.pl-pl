@@ -9,12 +9,12 @@ metadata:
   author: jimzim
   ms.author: jzim
   ms.date: 03/06/2020
-  ms.openlocfilehash: 06c6b14d62bb471ecc6dee50d72f11469e3cd161
-  ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+  ms.openlocfilehash: fad34c10d02d4a9daa8795cf77ab76903d8360f4
+  ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 02/17/2021
-  ms.locfileid: "100633210"
+  ms.lasthandoff: 04/14/2021
+  ms.locfileid: "107501199"
 landingContent:
 - title: Informacje o usłudze Azure Red Hat OpenShift
   linkLists:
@@ -26,23 +26,23 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Tworzenie klastra usługi Azure Red Hat OpenShift 4
+    - text: Tworzenie klastra usługi Azure Red Hat OpenShift
       url: tutorial-create-cluster.md
-    - text: Nawiązywanie połączenia z klastrem usługi Azure Red Hat OpenShift 4
+    - text: Nawiązywanie połączenia z klastrem Azure Red Hat OpenShift klastra
       url: tutorial-connect-cluster.md
-    - text: Usuwanie klastra usługi Azure Red Hat OpenShift 4
+    - text: Usuwanie klastra usługi Azure Red Hat OpenShift
       url: tutorial-delete-cluster.md
-- title: Konfigurowanie
+- title: Konfiguruj
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Tworzenie prywatnego klastra usługi Azure Red Hat OpenShift 4
-      url: ./howto-create-private-cluster-3x.md
-    - text: Konfigurowanie przekazywania DNS dla klastra usługi Azure Red Hat OpenShift 4
+    - text: Tworzenie prywatnego klastra Azure Red Hat OpenShift klastra
+      url: ./howto-create-private-cluster-4x.md
+    - text: Konfigurowanie przekazywania DNS dla klastra Azure Red Hat OpenShift klastra
       url: dns-forwarding.md
-    - text: Konfigurowanie wbudowanego rejestru kontenerów dla systemu Azure Red Hat OpenShift 4
+    - text: Konfigurowanie wbudowanego rejestru kontenerów dla Azure Red Hat OpenShift
       url: built-in-container-registry.md
-    - text: Wdrażanie aplikacji Open Liberty/WebSphere Liberty w klastrze systemu Azure Red Hat OpenShift 4
+    - text: Wdrażanie aplikacji open -Sphere/WebSphere w klastrze Azure Red Hat OpenShift klastra
       url: howto-deploy-java-liberty-app.md
 - title: Dokumentacja
   linkLists:

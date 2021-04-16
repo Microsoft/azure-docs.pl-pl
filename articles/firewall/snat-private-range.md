@@ -1,44 +1,59 @@
 ---
-title: Zakresy prywatnych adresów IP zapory systemu Azure
-description: Zakresy adresów IP można skonfigurować dla tego elementu.
+title: Azure Firewall prywatnych adresów IP SNAT
+description: Zakresy adresów IP można skonfigurować dla SNAT.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 01/11/2021
+ms.date: 04/14/2021
 ms.author: victorh
-ms.openlocfilehash: c425afc314435c38d15d53ab0c38dcd48e35a40b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 91d4d631376c03b668128936f3840ce1119f9b6f
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102508932"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482753"
 ---
-# <a name="azure-firewall-snat-private-ip-address-ranges"></a>Zakresy prywatnych adresów IP zapory systemu Azure
+# <a name="azure-firewall-snat-private-ip-address-ranges"></a>Azure Firewall prywatnych adresów IP SNAT
 
-Zapora platformy Azure zapewnia automatyczny ruch przychodzący do publicznych adresów IP. Domyślnie Zapora platformy Azure nie ma protokołu IPSec z regułami sieci, gdy docelowy adres IP należy do zakresu prywatnych adresów IP na podstawie programu [Iana RFC 1918](https://tools.ietf.org/html/rfc1918). Reguły aplikacji są zawsze stosowane przy użyciu [przezroczystego serwera proxy](https://wikipedia.org/wiki/Proxy_server#Transparent_proxy) niezależnie od docelowego adresu IP.
+Azure Firewall zapewnia automatyczne SNAT dla całego ruchu wychodzącego do publicznych adresów IP. Domyślnie program Azure Firewall SNAT z regułami sieci, gdy docelowy adres IP znajduje się w zakresie prywatnych adresów IP zgodnie ze standardem [IANA RFC 1918.](https://tools.ietf.org/html/rfc1918) Reguły aplikacji są zawsze stosowane przy użyciu [przezroczystego serwera proxy](https://wikipedia.org/wiki/Proxy_server#Transparent_proxy) niezależnie od docelowego adresu IP.
 
-Ta logika działa prawidłowo w przypadku kierowania ruchu bezpośrednio do Internetu. Jeśli jednak włączono [tunelowanie wymuszone](forced-tunneling.md), ruch związany z Internetem jest podłączony do jednego z prywatnych adresów IP zapory w AzureFirewallSubnet, ukrywając źródło z lokalnej zapory.
+Ta logika działa dobrze w przypadku bezpośredniego przekierowywu ruchu do Internetu. Jeśli jednak włączono [](forced-tunneling.md)wymuszone tunelowanie, ruch internetowy jest przekierowywał ruch do jednego z prywatnych adresów IP zapory w podsieci AzureFirewallSubnet, ukrywając źródło przed lokalną zaporą.
 
-Jeśli Twoja organizacja używa zakresu publicznego adresu IP dla sieci prywatnych, Zapora platformy Azure SNATs ruch do jednego z prywatnych adresów IP zapory w AzureFirewallSubnet. Można jednak skonfigurować zaporę platformy Azure w taki sposób, aby **nie** przywiązać do tego zakresu publicznych adresów IP. Na przykład, aby określić pojedynczy adres IP, można określić go następująco: `192.168.1.10` . Aby określić zakres adresów IP, można określić go następująco: `192.168.1.0/24` .
+Jeśli Twoja organizacja używa zakresu publicznych adresów IP dla sieci prywatnych, Azure Firewall SNAT ruch do jednego z prywatnych adresów IP zapory w podsieci AzureFirewallSubnet. Można jednak skonfigurować nie Azure Firewall **SNAT** zakresu publicznych adresów IP. Aby na przykład określić pojedynczy adres IP, można go określić w ten sposób: `192.168.1.10` . Aby określić zakres adresów IP, możesz określić go w ten sposób: `192.168.1.0/24` .
 
-- Aby skonfigurować zaporę platformy Azure w taki sposób, aby **nigdy nie** były kierowane adresy IP, należy użyć wartości **0.0.0.0/0** jako zakresu prywatnych adresów IP. W przypadku tej konfiguracji zapora platformy Azure nigdy nie może kierować ruchu bezpośrednio do Internetu. 
+- Aby skonfigurować Azure Firewall **SNAT** niezależnie od docelowego adresu IP, użyj **wartości 0.0.0.0/0 jako** zakresu prywatnych adresów IP. Dzięki tej konfiguracji Azure Firewall nigdy nie może przekierowyć ruchu bezpośrednio do Internetu. 
 
-- Aby skonfigurować zaporę w taki sposób, aby **zawsze** używała adresów IP bez względu na adres docelowy, użyj wartości **255.255.255.255/32** jako zakresu prywatnego adresu.
-
-> [!IMPORTANT]
-> Określony zakres adresów prywatnych dotyczy tylko reguł sieci. Obecnie reguły aplikacji zawsze są poddanymi translatorem adresów sieciowych.
+- Aby skonfigurować zaporę do zawsze **SNAT** niezależnie od adresu docelowego, użyj **255.255.255.255/32** jako zakres prywatnych adresów IP.
 
 > [!IMPORTANT]
-> Jeśli chcesz określić własne zakresy prywatnych adresów IP i zachować domyślne zakresy organizacji IANA RFC 1918, upewnij się, że Lista niestandardowa nadal zawiera zakres w dokumencie IANA RFC 1918. 
+> Określony zakres adresów prywatnych ma zastosowanie tylko do reguł sieci. Obecnie reguły aplikacji zawsze SNAT.
 
-## <a name="configure-snat-private-ip-address-ranges---azure-powershell"></a>Skonfiguruj zakresy prywatnych adresów IP współdziałania — Azure PowerShell
+> [!IMPORTANT]
+> Jeśli chcesz określić własne zakresy prywatnych adresów IP i zachować domyślne zakresy adresów IANA RFC 1918, upewnij się, że lista niestandardowa nadal zawiera zakres IANA RFC 1918. 
+
+Prywatne adresy IP SNAT można skonfigurować przy użyciu następujących metod. Prywatne adresy SNAT należy skonfigurować przy użyciu metody odpowiedniej dla twojej konfiguracji. Zapory skojarzone z zasadami zapory muszą określać zakres w zasadach, a nie używać `AdditionalProperties` .
+
+
+|Metoda            |Używanie reguł klasycznych  |Korzystanie z zasad zapory  |
+|---------|---------|---------|
+|Azure Portal     | [Obsługiwane](#classic-rules-3)| [Obsługiwane](#firewall-policy-1)|
+|Azure PowerShell     |[Skonfigurować `PrivateRange`](#classic-rules)|obecnie nieobsługiwane|
+|Interfejs wiersza polecenia platformy Azure|[Skonfigurować `--private-ranges`](#classic-rules-1)|obecnie nieobsługiwane|
+|Szablon ARM     |[konfigurowanie `AdditionalProperties` we właściwości zapory](#classic-rules-2)|[konfigurowanie `snat/privateRanges` w zasadach zapory](#firewall-policy)|
+
+
+## <a name="configure-snat-private-ip-address-ranges---azure-powershell"></a>Konfigurowanie zakresów prywatnych adresów IP SNAT — Azure PowerShell
+### <a name="classic-rules"></a>Reguły klasyczne
 
 Możesz użyć Azure PowerShell, aby określić zakresy prywatnych adresów IP dla zapory.
 
-### <a name="new-firewall"></a>Nowa Zapora
+> [!NOTE]
+> Właściwość zapory `PrivateRange` jest ignorowana w przypadku zapór skojarzonych z zasadami zapory. Należy użyć właściwości w pliku zgodnie z opisem w tece `SNAT` Configure SNAT private IP address ranges - ARM template (Konfigurowanie zakresów prywatnych adresów `firewallPolicies` [IP SNAT — szablon usługi ARM).](#firewall-policy)
 
-W przypadku nowej zapory Azure PowerShell polecenie cmdlet to:
+#### <a name="new-firewall"></a>Nowa zapora
+
+W przypadku nowej zapory korzystającej z reguł klasycznych polecenie cmdlet Azure PowerShell to:
 
 ```azurepowershell
 $azFw = @{
@@ -53,16 +68,16 @@ $azFw = @{
 New-AzFirewall @azFw
 ```
 > [!NOTE]
-> Wdrożenie zapory platformy Azure przy użyciu programu `New-AzFirewall` Wymaga istniejącej sieci wirtualnej i publicznego adresu IP. Zapoznaj się z tematem [wdrażanie i Konfigurowanie zapory platformy Azure przy użyciu Azure PowerShell](deploy-ps.md) w przypadku pełnego przewodnika wdrażania.
+> Wdrażanie Azure Firewall pomocą `New-AzFirewall` usługi wymaga istniejącej sieci wirtualnej i publicznego adresu IP. Zobacz [Wdrażanie i konfigurowanie Azure Firewall użyciu Azure PowerShell,](deploy-ps.md) aby uzyskać pełny przewodnik wdrażania.
 
 > [!NOTE]
-> IANAPrivateRanges jest rozwinięty do bieżących ustawień domyślnych w zaporze platformy Azure, podczas gdy inne zakresy są do niej dodawane. Aby zachować wartość domyślną IANAPrivateRanges w specyfikacji zakresu prywatnego, należy pozostawać w `PrivateRange` specyfikacji, jak pokazano w poniższych przykładach.
+> Rozszerzenie IANAPrivateRanges jest rozszerzane do bieżących wartości domyślnych na Azure Firewall podczas gdy inne zakresy są do niego dodawane. Aby zachować wartość domyślną IANAPrivateRanges w specyfikacji zakresu prywatnego, musi ona pozostać w Twojej specyfikacji, jak pokazano `PrivateRange` w poniższych przykładach.
 
-Aby uzyskać więcej informacji, zobacz polecenie [New-AzFirewall](/powershell/module/az.network/new-azfirewall).
+Aby uzyskać więcej informacji, zobacz [New-AzFirewall](/powershell/module/az.network/new-azfirewall).
 
-### <a name="existing-firewall"></a>Istniejąca Zapora
+#### <a name="existing-firewall"></a>Istniejąca zapora
 
-Aby skonfigurować istniejącą zaporę, użyj następujących poleceń cmdlet Azure PowerShell:
+Aby skonfigurować istniejącą zaporę przy użyciu reguł klasycznych, użyj następujących Azure PowerShell cmdlet:
 
 ```azurepowershell
 $azfw = Get-AzFirewall -Name '<fw-name>' -ResourceGroupName '<resourcegroup-name>'
@@ -70,13 +85,14 @@ $azfw.PrivateRange = @("IANAPrivateRanges","192.168.1.0/24", "192.168.1.10")
 Set-AzFirewall -AzureFirewall $azfw
 ```
 
-## <a name="configure-snat-private-ip-address-ranges---azure-cli"></a>Konfigurowanie zakresów prywatnych adresów IP współdziałania — interfejs wiersza polecenia platformy Azure
+## <a name="configure-snat-private-ip-address-ranges---azure-cli"></a>Konfigurowanie zakresów prywatnych adresów IP SNAT — interfejs wiersza polecenia platformy Azure
+### <a name="classic-rules"></a>Reguły klasyczne
 
-Możesz użyć interfejsu wiersza polecenia platformy Azure, aby określić zakresy prywatnych adresów IP dla zapory.
+Za pomocą interfejsu wiersza polecenia platformy Azure można określić zakresy prywatnych adresów IP dla zapory przy użyciu reguł klasycznych. 
 
-### <a name="new-firewall"></a>Nowa Zapora
+#### <a name="new-firewall"></a>Nowa zapora
 
-W przypadku nowej zapory polecenie interfejsu wiersza polecenia platformy Azure jest następujące:
+W przypadku nowej zapory korzystającej z reguł klasycznych polecenie interfejsu wiersza polecenia platformy Azure to:
 
 ```azurecli-interactive
 az network firewall create \
@@ -86,14 +102,14 @@ az network firewall create \
 ```
 
 > [!NOTE]
-> Wdrożenie zapory platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure `az network firewall create` wymaga wykonania dodatkowych czynności konfiguracyjnych w celu utworzenia publicznych adresów IP i konfiguracji protokołu IP. Zobacz [wdrażanie i Konfigurowanie zapory platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](deploy-cli.md) w celu uzyskania pełnego przewodnika wdrażania.
+> Wdrażanie Azure Firewall za pomocą polecenia interfejsu wiersza polecenia platformy Azure wymaga dodatkowych kroków konfiguracji `az network firewall create` w celu utworzenia publicznych adresów IP i konfiguracji adresów IP. Pełny [przewodnik wdrażania Azure Firewall wdrażania można](deploy-cli.md) znaleźć w tesłudze Deploy and configure Azure Firewall using Azure CLI (Wdrażanie i konfigurowanie aplikacji przy użyciu interfejsu wiersza polecenia platformy Azure).
 
 > [!NOTE]
-> IANAPrivateRanges jest rozwinięty do bieżących ustawień domyślnych w zaporze platformy Azure, podczas gdy inne zakresy są do niej dodawane. Aby zachować wartość domyślną IANAPrivateRanges w specyfikacji zakresu prywatnego, należy pozostawać w `PrivateRange` specyfikacji, jak pokazano w poniższych przykładach.
+> Rozszerzenie IANAPrivateRanges jest rozszerzane do bieżących wartości domyślnych na Azure Firewall podczas gdy inne zakresy są do niego dodawane. Aby zachować wartość domyślną IANAPrivateRanges w specyfikacji zakresu prywatnego, musi ona pozostać w Twojej specyfikacji, jak pokazano `private-ranges` w poniższych przykładach.
 
-### <a name="existing-firewall"></a>Istniejąca Zapora
+#### <a name="existing-firewall"></a>Istniejąca zapora
 
-Aby skonfigurować istniejącą zaporę, polecenie interfejsu wiersza polecenia platformy Azure jest następujące:
+Aby skonfigurować istniejącą zaporę przy użyciu reguł klasycznych, polecenie interfejsu wiersza polecenia platformy Azure to:
 
 ```azurecli-interactive
 az network firewall update \
@@ -102,30 +118,64 @@ az network firewall update \
 --private-ranges 192.168.1.0/24 192.168.1.10 IANAPrivateRanges
 ```
 
-## <a name="configure-snat-private-ip-address-ranges---arm-template"></a>Skonfiguruj zakresy prywatnych adresów IP współdziałania — szablon ARM
+## <a name="configure-snat-private-ip-address-ranges---arm-template"></a>Konfigurowanie zakresów prywatnych adresów IP SNAT — szablon usługi ARM
+### <a name="classic-rules"></a>Reguły klasyczne
 
-Aby skonfigurować w Template deployment ARM, należy dodać następujący do `additionalProperties` Właściwości:
+Aby skonfigurować SNAT podczas Template deployment ARM, do właściwości można dodać następujące `additionalProperties` elementy:
 
 ```json
 "additionalProperties": {
    "Network.SNAT.PrivateRanges": "IANAPrivateRanges , IPRange1, IPRange2"
 },
 ```
+### <a name="firewall-policy"></a>Zasady zapory
 
-## <a name="configure-snat-private-ip-address-ranges---azure-portal"></a>Skonfiguruj zakresy prywatnych adresów IP współdziałania — Azure Portal
+Zapory platformy Azure skojarzone z zasadami zapory mają obsługiwane zakresy prywatne SNAT od wersji 2020-11-01 interfejsu API. Obecnie można użyć szablonu do zaktualizowania prywatnego zakresu SNAT w zasadach zapory. W poniższym przykładzie skonfigurowano zaporę tak, aby **zawsze ruch** sieciowy SNAT był zawsze:
 
-Możesz użyć Azure Portal, aby określić zakresy prywatnych adresów IP dla zapory.
+```json
+{ 
+
+            "type": "Microsoft.Network/firewallPolicies", 
+            "apiVersion": "2020-11-01", 
+            "name": "[parameters('firewallPolicies_DatabasePolicy_name')]", 
+            "location": "eastus", 
+            "properties": { 
+                "sku": { 
+                    "tier": "Standard" 
+                }, 
+                "snat": { 
+                    "privateRanges": [255.255.255.255/32] 
+                } 
+            } 
+```
+
+## <a name="configure-snat-private-ip-address-ranges---azure-portal"></a>Konfigurowanie zakresów prywatnych adresów IP SNAT — Azure Portal
+### <a name="classic-rules"></a>Reguły klasyczne
+
+Za pomocą tej Azure Portal określić zakresy prywatnych adresów IP dla zapory.
 
 1. Wybierz grupę zasobów, a następnie wybierz zaporę.
-2. Na stronie **Przegląd** , **prywatne zakresy adresów IP** wybierz wartość domyślną **Iana RFC 1918**.
+2. Na stronie **Przegląd,** **Prywatne zakresy adresów IP,** wybierz wartość domyślną **IANA RFC 1918.**
 
-   Zostanie otwarta strona **Edytowanie prefiksów prywatnych adresów IP** :
+   Zostanie **otwarta strona Edytowanie prywatnych prefiksów** IP:
 
-   :::image type="content" source="media/snat-private-range/private-ip.png" alt-text="Edytuj prefiksy prywatnych adresów IP":::
+   :::image type="content" source="media/snat-private-range/private-ip.png" alt-text="Edytowanie prywatnych prefiksów IP":::
 
-1. Domyślnie **IANAPrivateRanges** jest skonfigurowany.
-2. Edytuj zakresy prywatnych adresów IP dla danego środowiska, a następnie wybierz pozycję **Zapisz**.
+1. Domyślnie skonfigurowano **ustawienie IANAPrivateRanges.**
+2. Edytuj zakresy prywatnych adresów IP dla swojego środowiska, a następnie wybierz pozycję **Zapisz.**
+
+### <a name="firewall-policy"></a>Zasady zapory
+
+1.  Wybierz grupę zasobów, a następnie wybierz zasady zapory.
+2.  Wybierz **pozycję Prywatne zakresy adresów IP (SNAT)** w **kolumnie** Ustawienia.
+
+    Domyślnie jest **zaznaczone ustawienie Użyj domyślnego Azure Firewall SNAT** zasad. 
+3. Aby dostosować konfigurację SNAT, wyczyść pole wyboru i w obszarze Wykonywanie **SNAT** wybierz warunki, aby wykonać SNAT dla środowiska.
+      :::image type="content" source="media/snat-private-range/private-ip-ranges-snat.png" alt-text="Prywatne zakresy adresów IP (SNAT)":::
+
+
+4.   Wybierz przycisk **Zastosuj**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej na temat [wymuszonego tunelowania zapory platformy Azure](forced-tunneling.md).
+- Dowiedz się więcej [Azure Firewall wymuszonego tunelowania.](forced-tunneling.md)
