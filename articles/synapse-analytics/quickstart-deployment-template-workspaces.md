@@ -1,23 +1,24 @@
 ---
-title: 'Szybki Start: Tworzenie szablonu Azure Resource Manager obszaru roboczego usługi Azure Synapse'
-description: Dowiedz się, jak utworzyć obszar roboczy Synapse przy użyciu szablonu Azure Resource Manager (szablon ARM).
+title: 'Szybki start: tworzenie szablonu Azure Synapse roboczego Azure Resource Manager roboczego'
+description: Dowiedz się, jak utworzyć obszar roboczy usługi Synapse przy użyciu Azure Resource Manager (szablonu usługi ARM).
 services: azure-resource-manager
 author: julieMSFT
-ms.service: azure-resource-manager
+ms.service: synapse-analytics
+ms.subservice: workspace
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 08/07/2020
-ms.openlocfilehash: 2b05220081dde4db6f07f21fb9978d9e466235ca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7317b7f51c6d0f9d72e3aad81794a569276d2145
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92740368"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566124"
 ---
-# <a name="quickstart-create-an-azure-synapse-workspace-using-an-arm-template"></a>Szybki Start: Tworzenie obszaru roboczego usługi Azure Synapse przy użyciu szablonu ARM
+# <a name="quickstart-create-an-azure-synapse-workspace-using-an-arm-template"></a>Szybki start: tworzenie nowego Azure Synapse roboczego przy użyciu szablonu usługi ARM
 
-Ten szablon Azure Resource Manager (szablon ARM) utworzy obszar roboczy Azure Synapse z podstawowym Data Lake Storage. Obszar roboczy usługi Azure Synapse to zabezpieczana granica współpracy dla procesów analitycznych w usłudze Azure Synapse Analytics.
+Ten Azure Resource Manager (szablon usługi ARM) utworzy obszar roboczy Azure Synapse z podstawowymi Data Lake Storage. Obszar Azure Synapse jest zabezpieczaną granicą współpracy dla procesów analitycznych w Azure Synapse Analytics.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -31,7 +32,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="review-the-template"></a>Przegląd szablonu
 
-Możesz przejrzeć szablon, wybierając link **Wizualizacja** . Następnie wybierz pozycję **Edytuj szablon**.
+Możesz przejrzeć szablon, wybierając link **Visualize (Wizualizacja).** Następnie wybierz **pozycję Edytuj szablon.**
 
 [![Wizualizacja](../media/template-deployments/template-visualize-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FSynapse%2Fmaster%2FManage%2FDeployWorkspace%2Fazuredeploy.json)
 
@@ -42,26 +43,26 @@ Szablon definiuje dwa zasoby:
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
-1. Wybierz Poniższy obraz, aby zalogować się do platformy Azure i otworzyć szablon. Ten szablon służy do tworzenia obszaru roboczego Synapse.
+1. Wybierz poniższy obraz, aby zalogować się do platformy Azure i otworzyć szablon. Ten szablon tworzy obszar roboczy usługi Synapse.
 
    [![Wdrażanie na platformie Azure 2](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FSynapse%2Fmaster%2FManage%2FDeployWorkspace%2Fazuredeploy.json)
 
 1. Wprowadź lub zaktualizuj następujące wartości:
 
-   - **Subskrypcja**: wybierz subskrypcję platformy Azure.
-   - **Grupa zasobów**: wybierz pozycję **Utwórz nową** i wprowadź unikatową nazwę grupy zasobów, a następnie wybierz **przycisk OK**. Nowa grupa zasobów ułatwi czyszczenie zasobów.
-   - **Region**: Wybierz region.  Na przykład **Środkowe stany USA**.
-   - **Nazwa**: Wprowadź nazwę obszaru roboczego.
-   - **Logowanie administratora SQL**: Wprowadź nazwę użytkownika administratora dla SQL Server.
-   - **Hasło administratora SQL**: wprowadź hasło administratora dla SQL Server.
-   - **Wartości tagów**: Zaakceptuj wartość domyślną.
-   - **Przejrzyj i Utwórz**: Wybierz.
-   - **Utwórz**: Wybierz.
+   - **Subskrypcja:** wybierz subskrypcję platformy Azure.
+   - **Grupa zasobów:** wybierz **pozycję Utwórz nową,** wprowadź unikatową nazwę grupy zasobów, a następnie wybierz przycisk **OK.** Nowa grupa zasobów ułatwi oczyszczanie zasobów.
+   - **Region:** Wybierz region.  Na przykład **Środkowe stany USA**.
+   - **Nazwa:** wprowadź nazwę obszaru roboczego.
+   - **Identyfikator logowania administratora SQL:** wprowadź nazwę użytkownika administratora SQL Server.
+   - **Hasło administratora SQL:** wprowadź hasło administratora SQL Server.
+   - **Wartości tagów:** zaakceptuj wartość domyślną.
+   - **Przejrzyj i utwórz:** Wybierz.
+   - **Utwórz:** Wybierz.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o usłudze Azure Synapse Analytics i Azure Resource Manager, przejdź do artykułu poniżej.
+Aby dowiedzieć się więcej Azure Synapse Analytics i Azure Resource Manager, przejdź do poniższych artykułów.
 
-- Zapoznaj się [z omówieniem usługi Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+- Przeczytaj omówienie [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 - Dowiedz się więcej o usłudze [Azure Resource Manager](../azure-resource-manager/management/overview.md)
-- [Tworzenie i wdrażanie pierwszego szablonu ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+- [Tworzenie i wdrażanie pierwszego szablonu usługi ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

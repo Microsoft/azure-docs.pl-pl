@@ -1,33 +1,35 @@
 ---
-title: 'Szybki Start: pierwsze zapytanie JavaScript'
-description: W tym przewodniku szybki start wykonaj kroki umożliwiające włączenie biblioteki grafu zasobów dla języka JavaScript i uruchomienie pierwszego zapytania.
+title: 'Szybki start: pierwsze zapytanie JavaScript'
+description: W tym przewodniku Szybki start wykonaj kroki, aby włączyć bibliotekę Resource Graph dla języka JavaScript i uruchomić pierwsze zapytanie.
 ms.date: 01/27/2021
 ms.topic: quickstart
-ms.custom: devx-track-js
-ms.openlocfilehash: 97cbd9ddf65a4135f55304f6dd67c704c6fcac5d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- devx-track-js
+- mode-api
+ms.openlocfilehash: ef93378acaf2c92cf4f7761345cea326af63d300
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98917525"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533044"
 ---
-# <a name="quickstart-run-your-first-resource-graph-query-using-javascript"></a>Szybki Start: uruchamianie pierwszego zapytania wykresu zasobów przy użyciu języka JavaScript
+# <a name="quickstart-run-your-first-resource-graph-query-using-javascript"></a>Szybki start: uruchamianie pierwszego zapytania Resource Graph pomocą języka JavaScript
 
-Ten przewodnik Szybki Start przeprowadzi Cię przez proces dodawania bibliotek do instalacji języka JavaScript. Pierwszym krokiem do korzystania z grafu zasobów platformy Azure jest zainicjowanie aplikacji JavaScript z wymaganymi bibliotekami.
+Ten przewodnik Szybki start umożliwia rozpoczęcie procesu dodawania bibliotek do instalacji języka JavaScript. Pierwszym krokiem do korzystania z Azure Resource Graph jest zainicjowanie aplikacji JavaScript z wymaganymi bibliotekami.
 
-Po zakończeniu tego procesu dodaliśmy biblioteki do instalacji języka JavaScript i uruchomimy pierwsze zapytanie dotyczące grafu zasobów.
+Po zakończeniu tego procesu biblioteki zostaną dodane do instalacji języka JavaScript i uruchomione pierwsze Resource Graph zapytania.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- **Subskrypcja platformy Azure**: Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+- **Subskrypcja platformy Azure:** jeśli nie masz subskrypcji [](https://azure.microsoft.com/free/) platformy Azure, przed rozpoczęciem utwórz bezpłatne konto.
 
-- **Node.js**: wymagana jest [Node.js](https://nodejs.org/) wersja 12 lub nowsza.
+- **Node.js:** [Node.js](https://nodejs.org/) wymagana jest wersja 12 lub nowsza.
 
 ## <a name="application-initialization"></a>Inicjowanie aplikacji
 
-Aby włączyć JavaScript do tworzenia zapytań dotyczących grafu zasobów platformy Azure, środowisko musi być skonfigurowane. Ta konfiguracja działa wszędzie tam, gdzie można używać języka JavaScript, [w tym bash w systemie Windows 10](/windows/wsl/install-win10).
+Aby umożliwić językowi JavaScript wykonywanie Azure Resource Graph, należy skonfigurować środowisko. Ta konfiguracja działa wszędzie tam, gdzie można używać języka JavaScript, w tym [bash na Windows 10](/windows/wsl/install-win10).
 
-1. Zainicjuj nowy projekt Node.js, uruchamiając następujące polecenie.
+1. Zaimicjuj nowy Node.js, uruchamiając następujące polecenie.
 
    ```bash
    npm init -y
@@ -39,7 +41,7 @@ Aby włączyć JavaScript do tworzenia zapytań dotyczących grafu zasobów plat
    npm install yargs
    ```
 
-1. Dodaj odwołanie do modułu grafu zasobów platformy Azure.
+1. Dodaj odwołanie do Azure Resource Graph modułu.
 
    ```bash
    npm install @azure/arm-resourcegraph
@@ -52,11 +54,11 @@ Aby włączyć JavaScript do tworzenia zapytań dotyczących grafu zasobów plat
    ```
 
    > [!NOTE]
-   > Sprawdź, czy w _package.jsjest w_ `@azure/arm-resourcegraph` wersji **2.0.0** lub nowszej i czy `@azure/ms-rest-nodeauth` jest w wersji **3.0.3** lub nowszej.
+   > Sprawdź, _package.jsw programie_ jest w wersji 2.0.0 lub wyższej i czy jest to wersja `@azure/arm-resourcegraph`  `@azure/ms-rest-nodeauth` **3.0.3 lub** nowsza.
 
-## <a name="query-the-resource-graph"></a>Zapytanie dotyczące wykresu zasobów
+## <a name="query-the-resource-graph"></a>Wykonywanie zapytania Resource Graph
 
-1. Utwórz nowy plik o nazwie _index.js_ i wprowadź następujący kod.
+1. Utwórz nowy plik o _nazwieindex.js_ i wprowadź następujący kod.
 
    ```javascript
    const argv = require("yargs").argv;
@@ -90,33 +92,33 @@ Aby włączyć JavaScript do tworzenia zapytań dotyczących grafu zasobów plat
    node index.js --query "Resources | project name, type | limit 5" --subs <YOUR_SUBSCRIPTION_ID_LIST>
    ```
 
-   Pamiętaj, aby zastąpić `<YOUR_SUBSCRIPTION_ID_LIST>` symbol zastępczy rozdzieloną przecinkami listą identyfikatorów subskrypcji platformy Azure.
+   Pamiętaj, aby zastąpić symbol zastępczy rozdzielaną przecinkami `<YOUR_SUBSCRIPTION_ID_LIST>` listą identyfikatorów subskrypcji platformy Azure.
 
    > [!NOTE]
-   > Ponieważ w tym przykładzie zapytania nie określono modyfikatora sortowania, takiego jak `order by` uruchomienie tego zapytania wiele razy, prawdopodobnie zostanie wyznaczony inny zestaw zasobów dla każdego żądania.
+   > Ponieważ to przykładowe zapytanie nie zapewnia modyfikatora sortowania, takiego jak , wielokrotne uruchomienie tego zapytania prawdopodobnie spowoduje uzyskanie innego zestawu `order by` zasobów dla każdego żądania.
 
-1. Zmień pierwszy parametr na `index.js` i Zmień zapytanie na `order by` Właściwość **name** . Zamień `<YOUR_SUBSCRIPTION_ID_LIST>` na identyfikator subskrypcji:
+1. Zmień pierwszy parametr na `index.js` i zmień zapytanie na właściwość `order by` Name.  Zastąp `<YOUR_SUBSCRIPTION_ID_LIST>` identyfikatorem subskrypcji:
 
    ```bash
    node index.js --query "Resources | project name, type | limit 5 | order by name asc" --subs "<YOUR_SUBSCRIPTION_ID_LIST>"
    ```
 
-   Po próbie uwierzytelnienia skryptu w terminalu zostanie wyświetlony komunikat podobny do następującego:
+   Podczas próby uwierzytelnienia skryptu w terminalu zostanie wyświetlony komunikat podobny do następującego:
 
-   > Aby się zalogować, użyj przeglądarki sieci Web, aby otworzyć stronę https://microsoft.com/devicelogin i wprowadzić kod FGB56WJUGK do uwierzytelnienia.
+   > Aby się zalogować, otwórz stronę w przeglądarce internetowej i wprowadź kod https://microsoft.com/devicelogin FGB56WJUGK w celu uwierzytelnienia.
 
-   Po uwierzytelnieniu w przeglądarce, skrypt będzie nadal działać.
+   Po uwierzytelnieniu w przeglądarce skrypt będzie nadal działać.
 
    > [!NOTE]
-   > Tak samo jak w przypadku pierwszego zapytania, wielokrotne uruchomienie tego zapytania prawdopodobnie zwróci inny zestaw zasobów dla każdego żądania. Kolejność poleceń zapytania jest ważna. W tym przykładzie polecenie `order by` następuje po poleceniu `limit`. Ta kolejność poleceń najpierw ogranicza wyniki zapytania, a następnie porządkuje je.
+   > Tak samo jak w przypadku pierwszego zapytania, wielokrotne uruchomienie tego zapytania prawdopodobnie zwróci inny zestaw zasobów dla każdego żądania. Kolejność poleceń zapytania jest ważna. W tym przykładzie polecenie `order by` następuje po poleceniu `limit`. Ta kolejność poleceń najpierw ogranicza wyniki zapytania, a następnie je zamówia.
 
-1. Zmień pierwszy parametr na `index.js` i Zmień zapytanie na najpierw `order by` Właściwość **name** , a następnie `limit` na pięć pierwszych wyników. Zamień `<YOUR_SUBSCRIPTION_ID_LIST>` na identyfikator subskrypcji:
+1. Zmień pierwszy parametr na i zmień zapytanie na pierwszą właściwość Name, a następnie na `index.js` `order by` pięć pierwszych  `limit` wyników. Zastąp `<YOUR_SUBSCRIPTION_ID_LIST>` identyfikatorem subskrypcji:
 
    ```bash
    node index.js --query "Resources | project name, type | order by name asc | limit 5" --subs "<YOUR_SUBSCRIPTION_ID_LIST>"
    ```
 
-Gdy ostateczne zapytanie jest uruchamiane kilka razy, przy założeniu, że nic w środowisku nie zmienia się, zwracane wyniki są spójne i uporządkowane według właściwości **nazwy** , ale nadal są ograniczone do pięciu pierwszych wyników.
+Gdy końcowe zapytanie jest uruchamiane kilka razy, przy założeniu, że nic się nie zmienia w twoim środowisku, zwrócone wyniki są spójne i uporządkowane według właściwości **Name,** ale nadal ograniczone do pięciu najlepszych wyników.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
@@ -128,7 +130,7 @@ npm uninstall @azure/arm-resourcegraph @azure/ms-rest-nodeauth yargs
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start dodano biblioteki grafu zasobów do środowiska JavaScript i uruchomiono pierwsze zapytanie. Aby dowiedzieć się więcej na temat języka grafu zasobów, przejdź do strony szczegółów języka zapytań.
+W tym przewodniku Szybki start dodano biblioteki Resource Graph do środowiska języka JavaScript i uruchamiano pierwsze zapytanie. Aby dowiedzieć się więcej o języku Resource Graph, przejdź do strony szczegółów języka zapytań.
 
 > [!div class="nextstepaction"]
 > [Uzyskaj więcej informacji na temat języka zapytań](./concepts/query-language.md)

@@ -1,6 +1,6 @@
 ---
-title: Jak korzystać z funkcji OPENROWSET w puli SQL bezserwerowej
-description: W tym artykule opisano składnię OPENROWSET w puli SQL bezserwerowej i wyjaśniono, jak używać argumentów.
+title: How to use OPENROWSET in serverless SQL pool (Jak używać funkcji OPENROWSET w bez serwerach puli SQL)
+description: W tym artykule opisano składnię funkcji OPENROWSET w bez serwerach puli SQL i wyjaśniono, jak używać argumentów.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,24 +9,24 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: c37f6d89d5ebd3e18177db8add048739a62c883f
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 28c54865ab9c2876d998896f5f536a11088962f8
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307949"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566430"
 ---
-# <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Jak używać funkcji OPENROWSET przy użyciu bezserwerowej puli SQL w usłudze Azure Synapse Analytics
+# <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Jak używać zestawu OPENROWSET przy użyciu bez serwera puli SQL w Azure Synapse Analytics
 
-`OPENROWSET(BULK...)`Funkcja umożliwia dostęp do plików w usłudze Azure Storage. `OPENROWSET` Funkcja odczytuje zawartość zdalnego źródła danych (na przykład pliku) i zwraca zawartość jako zestaw wierszy. W ramach zasobu puli SQL bezserwerowej można uzyskać dostęp do dostawcy zestawów wierszy zbiorczych OPENROWSET, wywołując funkcję OPENROWSET i określając opcję ZBIORCZą.  
+Funkcja `OPENROWSET(BULK...)` umożliwia dostęp do plików w usłudze Azure Storage. `OPENROWSET` Funkcja odczytuje zawartość zdalnego źródła danych (na przykład pliku) i zwraca zawartość jako zestaw wierszy. W ramach bez serwera zasobów puli SQL dostęp do dostawcy zbiorczego zestawu wierszy OPENROWSET uzyskuje się przez wywołanie funkcji OPENROWSET i określenie opcji BULK.  
 
-Do `OPENROWSET` funkcji można odwoływać się w `FROM` klauzuli zapytania, tak jakby była nazwą tabeli `OPENROWSET` . Obsługuje operacje zbiorcze za pośrednictwem wbudowanego dostawcy ZBIORCZego, który umożliwia odczytywanie danych z pliku i zwracanie ich jako zestawu wierszy.
+Do `OPENROWSET` funkcji można odwoływać się w `FROM` klauzuli zapytania tak, jakby była nazwą tabeli `OPENROWSET` . Obsługuje operacje zbiorcze za pośrednictwem wbudowanego dostawcy BULK, który umożliwia odczytywanie i zwracanie danych z pliku jako zestawu wierszy.
 
 ## <a name="data-source"></a>Źródło danych
 
-Funkcja OPENROWSET w Synapse SQL odczytuje zawartość plików ze źródła danych. Źródło danych jest kontem usługi Azure Storage i może być jawnie przywoływane w `OPENROWSET` funkcji lub może być dynamicznie wywnioskowane z adresu URL plików, które mają zostać odczytane.
-`OPENROWSET`Funkcja może opcjonalnie zawierać parametr, `DATA_SOURCE` Aby określić źródło danych, które zawiera pliki.
-- `OPENROWSET` bez `DATA_SOURCE` może służyć do bezpośredniego odczytywania zawartości plików z lokalizacji URL określonej jako `BULK` Opcja:
+Funkcja OPENROWSET w Synapse SQL odczytuje zawartość plików ze źródła danych. Źródłem danych jest konto usługi Azure Storage i można do niego jawnie odwoływać się w funkcji lub można je dynamicznie wywnioskować z adresu URL plików, które `OPENROWSET` chcesz odczytać.
+Funkcja `OPENROWSET` może opcjonalnie zawierać `DATA_SOURCE` parametr w celu określenia źródła danych zawierającego pliki.
+- `OPENROWSET` Bez może służyć do bezpośredniego odczytywania zawartości plików z lokalizacji `DATA_SOURCE` adresu URL określonej jako `BULK` opcja:
 
     ```sql
     SELECT *
@@ -34,9 +34,9 @@ Funkcja OPENROWSET w Synapse SQL odczytuje zawartość plików ze źródła dany
                     FORMAT = 'PARQUET') AS file
     ```
 
-Jest to szybka i łatwa metoda odczytywania zawartości plików bez wstępnej konfiguracji. Ta opcja umożliwia korzystanie z opcji uwierzytelniania podstawowego w celu uzyskania dostępu do magazynu (usługa Azure AD Passthrough dla nazw logowania usługi Azure AD i token sygnatury dostępu współdzielonego dla logowań SQL). 
+Jest to szybki i łatwy sposób odczytywania zawartości plików bez wstępnej konfiguracji. Ta opcja umożliwia użycie opcji uwierzytelniania podstawowego w celu uzyskania dostępu do magazynu (przekaż dane logowania usługi Azure AD w usłudze Azure AD i token SAS dla identyfikatorów logowania SQL). 
 
-- `OPENROWSET` Program with `DATA_SOURCE` umożliwia dostęp do plików na określonym koncie magazynu:
+- `OPENROWSET` Za `DATA_SOURCE` pomocą pliku można uzyskać dostęp do plików na określonym koncie magazynu:
 
     ```sql
     SELECT *
@@ -46,26 +46,26 @@ Jest to szybka i łatwa metoda odczytywania zawartości plików bez wstępnej ko
     ```
 
 
-    Ta opcja umożliwia skonfigurowanie lokalizacji konta magazynu w źródle danych i określenie metody uwierzytelniania, która ma być używana do uzyskiwania dostępu do magazynu. 
+    Ta opcja umożliwia skonfigurowanie lokalizacji konta magazynu w źródle danych i określenie metody uwierzytelniania, która ma być używana w celu uzyskania dostępu do magazynu. 
     
     > [!IMPORTANT]
-    > `OPENROWSET` bez `DATA_SOURCE` zapewnia szybki i łatwy sposób uzyskiwania dostępu do plików magazynu, ale oferuje ograniczoną liczbę opcji uwierzytelniania. Na przykład podmioty zabezpieczeń usługi Azure AD mogą uzyskiwać dostęp do plików tylko przy użyciu [tożsamości usługi Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity) lub publicznie dostępnych plików. Jeśli potrzebujesz bardziej zaawansowanych opcji uwierzytelniania, użyj `DATA_SOURCE` opcji i zdefiniuj poświadczenia, które mają być używane do uzyskiwania dostępu do magazynu.
+    > `OPENROWSET` Bez `DATA_SOURCE` zapewnia szybki i łatwy sposób uzyskiwania dostępu do plików magazynu, ale oferuje ograniczone opcje uwierzytelniania. Na przykład podmioty zabezpieczeń usługi Azure AD mogą uzyskać dostęp do plików tylko przy użyciu tożsamości usługi [Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity) lub publicznie dostępnych plików. Jeśli potrzebujesz bardziej zaawansowanych opcji uwierzytelniania, użyj opcji i `DATA_SOURCE` zdefiniuj poświadczenia, których chcesz użyć w celu uzyskania dostępu do magazynu.
 
 
 ## <a name="security"></a>Zabezpieczenia
 
-Użytkownik bazy danych musi mieć `ADMINISTER BULK OPERATIONS` uprawnienia do korzystania z `OPENROWSET` funkcji.
+Użytkownik bazy danych musi mieć `ADMINISTER BULK OPERATIONS` uprawnienia do korzystania z funkcji `OPENROWSET` .
 
-Administrator magazynu musi także umożliwić użytkownikowi dostęp do plików przez udostępnienie prawidłowego tokenu SAS lub włączenie podmiotu zabezpieczeń usługi Azure AD w celu uzyskania dostępu do plików magazynu. Dowiedz się więcej o kontroli dostępu do magazynu w [tym artykule](develop-storage-files-storage-access-control.md).
+Administrator magazynu musi również umożliwić użytkownikowi dostęp do plików przez podanie prawidłowego tokenu SAS lub włączenie podmiotu zabezpieczeń usługi Azure AD w celu uzyskania dostępu do plików magazynu. Dowiedz się więcej o kontroli dostępu do magazynu w [tym artykule.](develop-storage-files-storage-access-control.md)
 
-`OPENROWSET` Użyj następujących reguł, aby określić sposób uwierzytelniania do magazynu:
-- W programie `OPENROWSET` bez `DATA_SOURCE` mechanizmu uwierzytelniania zależy od typu obiektu wywołującego.
-  - Każdy użytkownik może używać `OPENROWSET` bez `DATA_SOURCE` konieczności odczytywania publicznie dostępnych plików w usłudze Azure Storage.
-  - Identyfikatory logowania usługi Azure AD mogą uzyskiwać dostęp do chronionych plików przy użyciu własnej [tożsamości usługi Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) , jeśli usługa Azure Storage umożliwia użytkownikowi usługi Azure AD dostęp do plików źródłowych (na przykład jeśli obiekt wywołujący ma `Storage Reader` uprawnienia do usługi Azure Storage).
-  - Identyfikatory logowania SQL mogą być również używane `OPENROWSET` bez `DATA_SOURCE` uzyskiwania dostępu do publicznie dostępnych plików, plików chronionych przy użyciu tokenu SAS lub zarządzanej tożsamości obszaru roboczego Synapse. Należy [utworzyć poświadczenia o zakresie serwera](develop-storage-files-storage-access-control.md#examples) , aby umożliwić dostęp do plików magazynu. 
-- W programie `OPENROWSET` z `DATA_SOURCE` mechanizmem uwierzytelniania jest zdefiniowany w poświadczeniach o zakresie bazy danych przypisanych do źródła danych, do którego się odwołuje. Ta opcja umożliwia dostęp do dostępnego publicznie magazynu lub dostęp do magazynu przy użyciu tokenu SAS, zarządzanej tożsamości obszaru roboczego lub [tożsamości obiektu wywołującego usługi Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) (Jeśli obiekt wywołujący jest podmiotem zabezpieczeń usługi Azure AD). Jeśli `DATA_SOURCE` odwołuje się do usługi Azure Storage, która nie jest publiczna, należy [utworzyć poświadczenia w zakresie bazy danych](develop-storage-files-storage-access-control.md#examples) i odwołać się do nich w `DATA SOURCE` celu zezwolenia na dostęp do plików magazynu.
+`OPENROWSET` Użyj następujących reguł, aby określić sposób uwierzytelniania w magazynie:
+- W `OPENROWSET` programie `DATA_SOURCE` bez mechanizmu uwierzytelniania zależy od typu obiektu wywołującego.
+  - Każdy użytkownik może używać `OPENROWSET` programu bez `DATA_SOURCE` do odczytywania publicznie dostępnych plików w usłudze Azure Storage.
+  - Identyfikatory logowania usługi Azure AD mogą uzyskać dostęp do chronionych plików przy użyciu własnej tożsamości usługi [Azure AD,](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) jeśli usługa Azure Storage umożliwia użytkownikowi usługi Azure AD dostęp do podstawowych plików (na przykład jeśli wywołujący ma uprawnienia do usługi `Storage Reader` Azure Storage).
+  - Identyfikatory logowania SQL mogą również używać bez uzyskiwania dostępu do publicznie dostępnych plików, plików chronionych przy użyciu tokenu SAS lub tożsamości zarządzanej `OPENROWSET` `DATA_SOURCE` obszaru roboczego usługi Synapse. Należy utworzyć poświadczenia [w zakresie serwera,](develop-storage-files-storage-access-control.md#examples) aby umożliwić dostęp do plików magazynu. 
+- W programie z mechanizmem uwierzytelniania jest zdefiniowany w poświadczeń o zakresie bazy danych `OPENROWSET` `DATA_SOURCE` przypisanych do źródła danych, do których istnieje odwołanie. Ta opcja umożliwia dostęp do publicznie dostępnego magazynu lub magazynu przy użyciu tokenu SAS, tożsamości zarządzanej obszaru roboczego lub tożsamości usługi [Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) wywołującego (jeśli wywołujący jest podmiotem zabezpieczeń usługi Azure AD). Jeśli odwołuje się do usługi Azure Storage, która nie jest publiczna, należy utworzyć poświadczenia w zakresie bazy danych i odwoływać się do niego w programie , aby umożliwić dostęp `DATA_SOURCE` do plików [](develop-storage-files-storage-access-control.md#examples) `DATA SOURCE` magazynu.
 
-Obiekt wywołujący musi mieć `REFERENCES` uprawnienia do poświadczeń, aby można było go użyć do uwierzytelnienia w magazynie.
+Wywołujący musi mieć `REFERENCES` uprawnienia do poświadczeń, aby używać go do uwierzytelniania w magazynie.
 
 ## <a name="syntax"></a>Składnia
 
@@ -104,64 +104,64 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })
 
 Dostępne są dwie opcje dla plików wejściowych, które zawierają dane docelowe do wykonywania zapytań. Prawidłowe wartości:
 
-- "CSV" — zawiera dowolny rozdzielany plik tekstowy z separatorami wierszy/kolumn. Dowolny znak może być używany jako separator pola, na przykład TSV: FIELDTERMINATOR = Tab.
+- "CSV" — zawiera dowolny rozdzielany plik tekstowy z separatorami wierszy/kolumn. Każdy znak może być używany jako separator pola, taki jak TSV: FIELDTERMINATOR = tab.
 
 - "PARQUET" — plik binarny w formacie Parquet 
 
 **"unstructured_data_path"**
 
-Unstructured_data_path, który ustanawia ścieżkę do danych może być ścieżką bezwzględną lub względną:
-- Ścieżka bezwzględna w formacie " \<prefix> :// \<storage_account_path> / \<storage_path> " umożliwia użytkownikowi bezpośrednie odczytywanie plików.
-- Ścieżka względna w formacie "<storage_path>", która musi być używana z `DATA_SOURCE` parametrem i opisuje wzorzec pliku w lokalizacji <storage_account_path> zdefiniowanej w `EXTERNAL DATA SOURCE` . 
+Element unstructured_data_path, który ustanawia ścieżkę do danych, może być ścieżką bezwzględną lub względną:
+- Ścieżka bezwzględna w formacie \<prefix> " :// " umożliwia użytkownikowi bezpośrednie \<storage_account_path> / \<storage_path> odczytywanie plików.
+- Ścieżka względna w formacie "<storage_path>", która musi być używana z parametrem i opisuje wzorzec pliku w lokalizacji `DATA_SOURCE` <storage_account_path> zdefiniowanej w `EXTERNAL DATA SOURCE` pliku . 
 
-Poniżej znajdziesz odpowiednie <storage account path> wartości, które zostaną połączone z określonym zewnętrznym źródłem danych. 
+Poniżej znajdziesz odpowiednie wartości, które będą łączyć się z <storage account path> konkretnym zewnętrznym źródłem danych. 
 
 | Zewnętrzne źródło danych       | Prefiks | Ścieżka konta magazynu                                 |
 | -------------------------- | ------ | ---------------------------------------------------- |
-| Azure Blob Storage         | http [s]  | \<storage_account>. blob.core.windows.net/path/file   |
-| Azure Blob Storage         | wasb [s]  | \<container>@\<storage_account>. blob.core.windows.net/path/file |
-| Azure Data Lake Store Gen1 | http [s]  | \<storage_account>. azuredatalakestore.net/webhdfs/v1 |
-| Azure Data Lake Store Gen2 | http [s]  | \<storage_account>. dfs.core.windows.net/Path/File   |
-| Azure Data Lake Store Gen2 | ABFS [s]  | [\<file_system>@\<account_name>. dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
+| Azure Blob Storage         | http[s]  | \<storage_account>.blob.core.windows.net/path/file   |
+| Azure Blob Storage         | wasb[s]  | \<container>@\<storage_account>.blob.core.windows.net/path/file |
+| Azure Data Lake Store Gen1 | http[s]  | \<storage_account>.azuredatalakestore.net/webhdfs/v1 |
+| Azure Data Lake Store Gen2 | http[s]  | \<storage_account>.dfs.core.windows.net /path/file   |
+| Azure Data Lake Store Gen2 | abfs[s]  | [\<file_system>@\<account_name>.dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
 ||||
 
 '\<storage_path>'
 
-Określa ścieżkę w magazynie, która wskazuje folder lub plik, który ma zostać odczytany. Jeśli ścieżka wskazuje kontener lub folder, wszystkie pliki zostaną odczytane z danego kontenera lub folderu. Pliki w podfolderach nie będą uwzględniane. 
+Określa ścieżkę w magazynie, która wskazuje folder lub plik, który chcesz odczytać. Jeśli ścieżka wskazuje kontener lub folder, wszystkie pliki zostaną odczytane z tego konkretnego kontenera lub folderu. Pliki w podfolderach nie będą uwzględniane. 
 
-Możesz użyć symboli wieloznacznych, aby docelowa była wiele plików lub folderów. Dozwolone jest użycie wielu niesąsiadujących symboli wieloznacznych.
-Poniżej znajduje się przykład, który odczytuje wszystkie pliki *CSV* zaczynające się od *populacji* ze wszystkich folderów zaczynających się od */CSV/Population*:  
+Symboli wieloznacznych można używać do wielu plików lub folderów docelowych. Użycie wielu niezabezpieczonych symboli wieloznacznych jest dozwolone.
+Poniżej znajduje się przykład, który odczytuje wszystkie *pliki csv* rozpoczynające się od populacji ze wszystkich folderów rozpoczynających się *od /csv/population*:   
 `https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
-Jeśli określisz unstructured_data_path jako folder, zapytanie puli SQL bezserwerowe pobierze pliki z tego folderu. 
+Jeśli określisz unstructured_data_path jako folder, bez serwera zapytanie puli SQL pobierze pliki z tego folderu. 
 
-Można nakazać bezserwerowej puli SQL przechodzenie między folderami, określając/* na końcu ścieżki, jak na przykład: `https://sqlondemandstorage.blob.core.windows.net/csv/population/**`
+Możesz poinstruować bez serwera pulę SQL, aby przechodziła przez foldery, określając /* na końcu ścieżki, jak na przykład: `https://sqlondemandstorage.blob.core.windows.net/csv/population/**`
 
 > [!NOTE]
-> W przeciwieństwie do usługi Hadoop i bazy danych, bezserwerowa Pula SQL nie zwraca podfolderów, chyba że na końcu ścieżki nie określono/* *.
+> W przeciwieństwie do usług Hadoop i PolyBase bez serwera pula SQL nie zwraca podfolderów, chyba że określisz /** na końcu ścieżki. Podobnie jak w przypadku platform Hadoop i PolyBase, nie zwraca ono plików, dla których nazwa pliku zaczyna się od podkreślenia (_) lub okresu (.).
 
-W poniższym przykładzie, jeśli unstructured_data_path = `https://mystorageaccount.dfs.core.windows.net/webdata/` , bezserwerowe zapytanie puli SQL zwróci wiersze z mydata.txt. Nie zwróci mydata2.txt i mydata3.txt, ponieważ znajdują się w podfolderze.
+W poniższym przykładzie, jeśli unstructured_data_path = , bez serwera zapytanie puli `https://mystorageaccount.dfs.core.windows.net/webdata/` SQL zwróci wiersze z mydata.txt. Nie zwróci ono mydata2.txt i mydata3.txt ponieważ znajdują się w podfolderze.
 
-![Dane cykliczne dla tabel zewnętrznych](./media/develop-openrowset/folder-traversal.png)
+![Rekursywne dane dla tabel zewnętrznych](./media/develop-openrowset/folder-traversal.png)
 
 `[WITH ( {'column_name' 'column_type' [ 'column_ordinal'] }) ]`
 
 Klauzula WITH umożliwia określenie kolumn, które mają być odczytywane z plików.
 
-- W przypadku plików danych CSV odczytywanie wszystkich kolumn, dostarczanie nazw kolumn i ich typów danych. Jeśli chcesz podzbiór kolumn, Użyj numerów porządkowych, aby wybrać kolumny z plików danych źródłowych według liczby porządkowej. Kolumny będą powiązane z oznaczeniem porządkowym. Jeśli jest używana wartość HEADER_ROW = TRUE, powiązanie kolumny jest wykonywane według nazwy kolumny zamiast pozycji porządkowej.
+- Aby odczytać wszystkie kolumny w plikach danych CSV, podaj nazwy kolumn i ich typy danych. Jeśli chcesz użyć podzestawu kolumn, użyj liczb porządkowych, aby wybrać kolumny z plików danych pochodzących według liczby porządkowej. Kolumny będą powiązane przez oznaczenie porządkowe. Jeśli HEADER_ROW = TRUE, powiązanie kolumny jest wykonywane według nazwy kolumny zamiast pozycji porządkowej.
     > [!TIP]
-    > Można również pominąć klauzulę WITH dla plików CSV. Typy danych zostaną automatycznie wywnioskowane z zawartości pliku. Można użyć argumentu HEADER_ROW, aby określić istnienie wiersza nagłówka, w którym nazwy kolumn przypadków będą odczytywane z wiersza nagłówka. Aby uzyskać szczegółowe informacje, sprawdź [automatyczne odnajdowanie schematów](#automatic-schema-discovery).
+    > Możesz również pominąć klauzulę WITH dla plików CSV. Typy danych będą automatycznie wywnioskowane z zawartości pliku. Możesz użyć argumentu HEADER_ROW, aby określić istnienie wiersza nagłówka, w którym to przypadku nazwy kolumn będą odczytywane z wiersza nagłówka. Aby uzyskać szczegółowe informacje, [sprawdź automatyczne odnajdywanie schematów.](#automatic-schema-discovery)
     
-- W przypadku plików danych Parquet Podaj nazwy kolumn, które pasują do nazw kolumn w źródłowych plikach danych. Kolumny będą powiązane według nazwy i uwzględniają wielkość liter. Jeśli klauzula WITH zostanie pominięta, zostaną zwrócone wszystkie kolumny z plików Parquet.
+- W przypadku plików danych Parquet podaj nazwy kolumn zgodne z nazwami kolumn w plikach danych pochodzących z programu . Kolumny będą powiązane według nazwy i będzie zróżnicowyana wielkość liter. Jeśli klauzula WITH zostanie pominięta, zostaną zwrócone wszystkie kolumny z plików Parquet.
     > [!IMPORTANT]
-    > Nazwy kolumn w plikach Parquet uwzględniają wielkość liter. Jeśli określisz nazwę kolumny z wielkością liter inną niż nazwa kolumny w pliku Parquet, wartości NULL zostaną zwrócone dla tej kolumny.
+    > W nazwach kolumn w plikach Parquet jest wielkość liter. Jeśli określisz nazwę kolumny z wielkością inną niż nazwa kolumny w pliku Parquet, dla tej kolumny zostaną zwrócone wartości NULL.
 
 
-column_name = nazwa kolumny wyjściowej. W przypadku podanej nazwy zastępuje ona nazwę kolumny w pliku źródłowym i w nazwie kolumny podanej w ścieżce JSON, jeśli istnieje. Jeśli nie podano json_path, zostanie ona automatycznie dodana jako "$ .column_name". Sprawdź json_path argument w celu zachowania.
+column_name = nazwa kolumny wyjściowej. Jeśli zostanie podany, ta nazwa zastąpi nazwę kolumny w pliku źródłowym i nazwę kolumny podaną w ścieżce JSON, jeśli istnieje. Jeśli json_path nie zostanie podany, zostanie on automatycznie dodany jako "$.column_name". Sprawdź json_path argumentu zachowania.
 
-column_type = typ danych dla kolumny wyjściowej. Niejawna konwersja typu danych zostanie przeprowadzona tutaj.
+column_type = Typ danych dla kolumny wyjściowej. W tym miejscu będzie miała miejsce niejawna konwersja typu danych.
 
-column_ordinal = numer porządkowy kolumny w plikach źródłowych. Ten argument jest ignorowany dla plików Parquet, ponieważ wiązanie jest wykonywane według nazwy. Poniższy przykład zwróci drugą kolumnę tylko z pliku CSV:
+column_ordinal = liczba porządkowa kolumny w plikach źródłowych. Ten argument jest ignorowany w przypadku plików Parquet, ponieważ powiązanie jest wykonywane według nazwy. Poniższy przykład zwróci drugą kolumnę tylko z pliku CSV:
 
 ```sql
 WITH (
@@ -172,137 +172,137 @@ WITH (
 )
 ```
 
-json_path = [wyrażenie ścieżki JSON](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true) do kolumny lub właściwości zagnieżdżonej. Domyślny [tryb ścieżki](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true#PATHMODE) to swobodny.
+json_path = [wyrażenie ścieżki JSON do](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true) kolumny lub zagnieżdżonych właściwości. Domyślny [tryb ścieżki to](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true#PATHMODE) lax.
 
 > [!NOTE]
-> W zapytaniu w trybie Strict nie powiedzie się z błędem, jeśli podana ścieżka nie istnieje. Zapytanie w trybie swobodny zostanie wykonane pomyślnie, a wyrażenie ścieżki JSON zwróci wartość NULL.
+> Zapytanie w trybie ścisłym nie powiedzie się z błędem, jeśli podana ścieżka nie istnieje. W trybie lax zapytanie zakończy się powodzeniem, a wyrażenie ścieżki JSON będzie mieć wartość NULL.
 
 **\<bulk_options>**
 
-FIELDTERMINATOR = "field_terminator"
+FIELDTERMINATOR ='field_terminator'
 
-Określa terminator pola do użycia. Domyślny terminator pola jest przecinkiem ("**,**").
+Określa terminator pola, który ma być używany. Domyślnym terminatorem pola jest przecinek ("**,**").
 
-ROWTERMINATOR = "row_terminator" "
+ROWTERMINATOR ='row_terminator''
 
-Określa terminator wiersza, który ma być używany. Jeśli terminator wiersza nie zostanie określony, zostanie użyty jeden z domyślnych terminatorów. Domyślne terminatory dla PARSER_VERSION = "1,0" to \r\n, \n i \r. Domyślne terminatory dla PARSER_VERSION = "2,0" to \r\n i \n.
+Określa terminator wiersza, który ma być używany. Jeśli terminator wiersza nie zostanie określony, zostanie użyty jeden z domyślnych terminatorów. Domyślne terminatory dla PARSER_VERSION = "1.0" to \r\n, \n i \r. Domyślne terminatory dla PARSER_VERSION = "2.0" to \r\n i \n.
 
-ESCAPE_CHAR = "char"
+ESCAPE_CHAR = 'char'
 
-Określa znak w pliku, który jest używany do wyprowadzania samego siebie i wszystkich wartości ogranicznika w pliku. Jeśli po znaku ucieczki następuje wartość inna niż sama lub jakakolwiek z wartości ogranicznika, znak ucieczki jest usuwany podczas odczytywania wartości. 
+Określa znak w pliku, który jest używany do ucieczki samego siebie i wszystkie wartości ogranicznika w pliku. Jeśli po znaku ucieczki następuje wartość inna niż sama lub dowolna z wartości ogranicznika, znak ucieczki jest porzucany podczas odczytywania wartości. 
 
-Parametr ESCAPE_CHAR zostanie zastosowany niezależnie od tego, czy FIELDQUOTE jest czy nie jest włączony. Nie będzie on używany do ucieczki znaku cudzysłowu. Znak cudzysłowu musi być zmieniony przy użyciu innego znaku cudzysłowu. Znak quota może pojawić się w wartości kolumny tylko wtedy, gdy wartość jest hermetyzowana przy użyciu znaków cudzysłowu.
+Parametr ESCAPE_CHAR zostanie zastosowany niezależnie od tego, czy parametr FIELDQUOTE jest włączony, czy nie. Nie będzie on używany do ucieczki znaku cudzysłowego. Znak cudzysłowy musi być znak ucieczki z innym znakiem cudzysłowy. Znak cudzysłowy może występować w wartości kolumny tylko wtedy, gdy wartość jest hermetyzowana z cudzysłowy.
 
-FIRSTROW = "first_row" 
+FIRSTROW = 'first_row' 
 
-Określa numer pierwszego wiersza do załadowania. Wartość domyślna to 1 i wskazuje pierwszy wiersz w określonym pliku danych. Numery wierszy są określane przez liczenie terminatorów wierszy. FIRSTROW jest oparty na 1.
+Określa liczbę pierwszego wiersza do załadowania. Wartość domyślna to 1 i wskazuje pierwszy wiersz w określonym pliku danych. Numery wierszy są określane przez zliczanie terminatorów wierszy. FirstROW jest oparty na 1.
 
-FIELDQUOTE = "field_quote" 
+FIELDQUOTE = 'field_quote' 
 
 Określa znak, który będzie używany jako znak cudzysłowu w pliku CSV. Jeśli nie zostanie określony, zostanie użyty znak cudzysłowu ("). 
 
 DATA_COMPRESSION = "data_compression_method"
 
-Określa metodę kompresji. Obsługiwane tylko w PARSER_VERSION = "1.0". Obsługiwana jest następująca metoda kompresji:
+Określa metodę kompresji. Obsługiwane tylko PARSER_VERSION ='1.0'. Obsługiwana jest następująca metoda kompresji:
 
-- GZIP
+- Gzip
 
 PARSER_VERSION = "parser_version"
 
-Określa wersję parsera, która ma być używana podczas odczytywania plików. Obecnie obsługiwane wersje analizatora woluminów CSV to 1,0 i 2,0:
+Określa wersję parsera, która ma być używana podczas odczytywania plików. Obecnie obsługiwane wersje parsera CSV to 1.0 i 2.0:
 
-- PARSER_VERSION = "1,0"
-- PARSER_VERSION = "2,0"
+- PARSER_VERSION = '1.0'
+- PARSER_VERSION = '2.0'
 
-Analizator CSV w wersji 1,0 jest domyślny i bogaty w funkcję. Wersja 2,0 została skompilowana z myślą o wydajności i nie obsługuje wszystkich opcji i kodowań. 
+Program CSV Parser w wersji 1.0 jest wersją domyślną i zawiera rozbudowane funkcje. Wersja 2.0 została s zbudowana z myślą o wydajności i nie obsługuje wszystkich opcji i kodowań. 
 
-Specyficzne dla analizatora CSV wersja 1,0:
+Specyfika parsera CSV w wersji 1.0:
 
 - Następujące opcje nie są obsługiwane: HEADER_ROW.
 
-Specyficzne dla analizatora CSV wersja 2,0:
+Specyfika parsera CSV w wersji 2.0:
 
 - Nie wszystkie typy danych są obsługiwane.
-- Maksymalna długość kolumny znaku to 8000.
-- Maksymalny rozmiar wiersza to 8 MB.
+- Maksymalna długość kolumny znaków to 8000.
+- Maksymalny limit rozmiaru wiersza to 8 MB.
 - Następujące opcje nie są obsługiwane: DATA_COMPRESSION.
-- Pusty ciąg w cudzysłowie ("") jest interpretowany jako pusty ciąg.
-- Obsługiwany format typu danych Data: RRRR-MM-DD
-- Obsługiwany format typu danych TIME: HH: MM: SS [. ułamkowe sekundy]
-- Obsługiwany format dla typu danych DATETIME2: RRRR-MM-DD GG: MM: SS [. ułamkowe sekundy]
+- Pusty ciąg w cudzysłowy ("") jest interpretowany jako pusty ciąg.
+- Obsługiwany format danych DATE: YYYY-MM-DD
+- Obsługiwany format dla typu danych TIME: HH:MM:SS[.fractional seconds]
+- Obsługiwany format dla typu danych DATETIME2: YYYY-MM-DD HH:MM:SS[.fractional seconds]
 
-HEADER_ROW = {TRUE | FALSE
+HEADER_ROW = { TRUE | FALSE }
 
-Określa, czy plik CSV zawiera wiersz nagłówka. Wartość domyślna to FALSE. Obsługiwane w PARSER_VERSION = "2.0". Jeśli wartość jest równa TRUE, nazwy kolumn są odczytywane z pierwszego wiersza zgodnie z argumentem FIRSTROW. Jeśli wartość jest równa TRUE i schemat jest określony przy użyciu WITH, powiązanie nazw kolumn będzie odbywać się według nazwy kolumny, a nie pozycji porządkowej.
+Określa, czy plik CSV zawiera wiersz nagłówka. Wartość domyślna to FALSE. Obsługiwane w PARSER_VERSION='2.0'. W przypadku wartości TRUE nazwy kolumn będą odczytywane z pierwszego wiersza zgodnie z argumentem FIRSTROW. Jeśli wartość TRUE i schemat zostaną określone przy użyciu funkcji WITH, powiązanie nazw kolumn będzie wykonywane według nazwy kolumny, a nie pozycji porządkowych.
 
-DataFileType = {"char" | "widechar"}
+DATAFILETYPE = { 'char' | "widechar" }
 
-Określa kodowanie: char jest używany dla UTF8, widechar jest używany dla plików UTF16.
+Określa kodowanie: znak jest używany dla utf8, widechar jest używany dla plików UTF16.
 
-CODEPAGE = {"AKP" | "OEM" | "RAW" | "code_page"}
+CODEPAGE = { 'ACP' | "OEM" | "NIEPRZETWORZONE" | "code_page" }
 
-Określa stronę kodową danych w pliku danych. Wartość domyślna to 65001 (kodowanie UTF-8). Więcej informacji na temat tej opcji można znaleźć [tutaj](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15&preserve-view=true#codepage).
+Określa stronę kodową danych w pliku danych. Wartość domyślna to 65001 (kodowanie UTF-8). Więcej szczegółów na temat tej opcji można [znaleźć tutaj.](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15&preserve-view=true#codepage)
 
-## <a name="fast-delimited-text-parsing"></a>Szybkie rozdzielone analizowanie tekstu
+## <a name="fast-delimited-text-parsing"></a>Szybkie analizowanie tekstu rozdzielanego
 
-Istnieją dwa rozdzielone wersje analizatora tekstu, których można użyć. Analizator woluminów CSV w wersji 1,0 jest domyślny i jest bogaty, a w przypadku usługi parser w wersji 2,0 jest tworzona dla wydajności. Poprawa wydajności w analizatorze 2,0 pochodzi z zaawansowanych technik analizy i wielowątkowości. Różnica w szybkości będzie większa w miarę zwiększania się rozmiaru pliku.
+Istnieją dwie wersje rozdzielanego parsera tekstu, których można użyć. Program CSV Parser w wersji 1.0 jest wersją domyślną i zawiera rozbudowane funkcje, podczas gdy parser w wersji 2.0 jest zbudowany z myślą o wydajności. Poprawa wydajności w parserze 2.0 wynika z zaawansowanych technik analizy i wielowątkowych. Różnica w szybkości będzie większa w miarę wzrostu rozmiaru pliku.
 
-## <a name="automatic-schema-discovery"></a>Automatyczne odnajdowanie schematów
+## <a name="automatic-schema-discovery"></a>Automatyczne odnajdywanie schematów
 
-Można łatwo badać pliki CSV i Parquet bez znajomości lub określania schematu, pomijając klauzulę WITH. Nazwy kolumn i typy danych zostaną wywnioskowane na podstawie plików.
+Można łatwo odpytować pliki CSV i Parquet bez znajomości ani określania schematu przez pominięcie klauzuli WITH. Nazwy kolumn i typy danych będą wywnioskować z plików.
 
-Pliki Parquet zawierają metadane kolumn, które zostaną odczytane, mapowania typów można znaleźć w [mapowaniach typów dla Parquet](#type-mapping-for-parquet). Sprawdź [odczytywanie plików Parquet bez określania schematu](#read-parquet-files-without-specifying-schema) dla przykładów.
+Pliki Parquet zawierają metadane kolumn, które będą odczytywane. Mapowania typów można znaleźć w mapowaniach typów [dla parquet](#type-mapping-for-parquet). Sprawdź [odczytywanie plików Parquet bez określania schematu przykładów.](#read-parquet-files-without-specifying-schema)
 
-Nazwy kolumn dla plików CSV można odczytywać z wiersza nagłówka. Można określić, czy wiersz nagłówka istnieje przy użyciu argumentu HEADER_ROW. Jeśli HEADER_ROW = FALSE, zostaną użyte ogólne nazwy kolumn: C1, C2,... Nazwa pospolita, gdzie n jest liczbą kolumn w pliku. Typy danych zostaną wywnioskowane z pierwszych 100 wierszy danych. Sprawdź [odczytywanie plików CSV bez określania schematu](#read-csv-files-without-specifying-schema) dla przykładów.
+Nazwy kolumn plików CSV można odczytać z wiersza nagłówka. Możesz określić, czy wiersz nagłówka istnieje, używając HEADER_ROW argumentu. Jeśli HEADER_ROW = FALSE, zostaną użyte ogólne nazwy kolumn: C1, C2, ... Cn, gdzie n to liczba kolumn w pliku. Typy danych zostaną wywnioskować z pierwszych 100 wierszy danych. Sprawdź [odczytywanie plików CSV bez określania schematu](#read-csv-files-without-specifying-schema) przykładów.
 
 > [!IMPORTANT]
-> Istnieją przypadki, w których nie można wywnioskować odpowiedniego typu danych z powodu braku informacji, a zamiast tego zostanie użyty większy typ danych. Zapewnia to obciążenie wydajności i jest szczególnie ważne w przypadku kolumn znaków, które zostaną wywnioskowane jako varchar (8000). Aby uzyskać optymalną wydajność, [Sprawdź wywnioskowane typy danych](best-practices-sql-on-demand.md#check-inferred-data-types) i [Używaj odpowiednich typów danych](best-practices-sql-on-demand.md#use-appropriate-data-types).
+> Istnieją przypadki, w których nie można wywnioskować odpowiedniego typu danych z powodu braku informacji i zamiast tego zostanie użyty większy typ danych. Prowadzi to do narzutu na wydajność i jest szczególnie ważne w przypadku kolumn znaków, które zostaną wywnioskować jako varchar(8000). Aby uzyskać optymalną wydajność, [sprawdź wywnioskowane typy danych i](best-practices-sql-on-demand.md#check-inferred-data-types) użyj odpowiednich typów [danych.](best-practices-sql-on-demand.md#use-appropriate-data-types)
 
-### <a name="type-mapping-for-parquet"></a>Mapowanie typu dla Parquet
+### <a name="type-mapping-for-parquet"></a>Mapowanie typów dla usługi Parquet
 
-Pliki Parquet zawierają opisy typów dla każdej kolumny. W poniższej tabeli opisano, jak typy Parquet są mapowane na typy natywne języka SQL.
+Pliki Parquet zawierają opisy typów dla każdej kolumny. W poniższej tabeli opisano sposób mapowania typów Parquet na typy natywne SQL.
 
-| Typ Parquet | Parquet — typ logiczny (Adnotacja) | Typ danych SQL |
+| Typ Parquet | Typ logiczny Parquet (adnotacja) | Typ danych SQL |
 | --- | --- | --- |
-| TYPU | | bit |
-| DANE BINARNE/BYTE_ARRAY | | varbinary |
-| DOUBLE | | float |
-| FLOAT | | liczba rzeczywista |
-| ELEMENTEM | | int |
+| Boolean | | bit |
+| DANE BINARNE /BYTE_ARRAY | | varbinary |
+| Podwójne | | float |
+| Float | | liczba rzeczywista |
+| INT32 | | int |
 | INT64 | | bigint |
 | INT96 | |datetime2 |
 | FIXED_LEN_BYTE_ARRAY | |binarny |
-| BINARNY |KODOWANIA |varchar \* (sortowanie UTF8) |
-| BINARNY |PARAMETRY |varchar \* (sortowanie UTF8) |
-| BINARNY |PODSTAWOWE|varchar \* (sortowanie UTF8) |
-| FIXED_LEN_BYTE_ARRAY |INTERFEJSU |uniqueidentifier |
-| BINARNY |DOKŁADNOŚCI |decimal |
-| BINARNY |JSON |varchar (8000) \* (sortowanie UTF8) |
-| BINARNY |BSON | Nieobsługiwane |
-| FIXED_LEN_BYTE_ARRAY |DOKŁADNOŚCI |decimal |
-| BYTE_ARRAY |DAT | Nieobsługiwane |
-| ELEMENTEM |INT (8, prawda) |smallint |
-| ELEMENTEM |INT (16, true) |smallint |
-| ELEMENTEM |INT (32, true) |int |
-| ELEMENTEM |INT (8, FAŁSZ) |tinyint |
-| ELEMENTEM |INT (16, FAŁSZ) |int |
-| ELEMENTEM |INT (32, false) |bigint |
-| ELEMENTEM |DATE |data |
-| ELEMENTEM |DOKŁADNOŚCI |decimal |
-| ELEMENTEM |CZAS (MŁYNER)|time |
-| INT64 |INT (64, true) |bigint |
-| INT64 |INT (64, false) |Liczba dziesiętna (20, 0) |
-| INT64 |DOKŁADNOŚCI |decimal |
-| INT64 |CZAS (MICROS) |czas czasu (NANOs) nie jest obsługiwany |
-|INT64 |SYGNATURA CZASOWA (MILL/MICROS) |datetime2 — SYGNATURa CZASowa (NANOs) nie jest obsługiwana |
-|[Typ złożony](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |STAW |varchar (8000), serializacja do formatu JSON |
-|[Typ złożony](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|ZMAPOWAĆ|varchar (8000), serializacja do formatu JSON |
+| Binarnym |UTF8 |varchar \* (sortowanie UTF8) |
+| Binarnym |Ciąg |varchar \* (sortowanie UTF8) |
+| Binarnym |Enum|varchar \* (sortowanie UTF8) |
+| FIXED_LEN_BYTE_ARRAY |Uuid |uniqueidentifier |
+| Binarnym |Dziesiętnych |decimal |
+| Binarnym |JSON |varchar(8000) \* (sortowanie UTF8) |
+| Binarnym |Bson | Nieobsługiwane |
+| FIXED_LEN_BYTE_ARRAY |Dziesiętnych |decimal |
+| BYTE_ARRAY |Interwał | Nieobsługiwane |
+| INT32 |INT(8, true) |smallint |
+| INT32 |INT(16, true) |smallint |
+| INT32 |INT(32, true) |int |
+| INT32 |INT(8, false) |tinyint |
+| INT32 |INT(16, false) |int |
+| INT32 |INT(32, false) |bigint |
+| INT32 |DATE |data |
+| INT32 |Dziesiętnych |decimal |
+| INT32 |TIME (MILLIS)|time |
+| INT64 |INT(64, true) |bigint |
+| INT64 |INT(64, false) |decimal(20,0) |
+| INT64 |Dziesiętnych |decimal |
+| INT64 |TIME (MICROS) |time — time (NANOS) nie jest obsługiwany |
+|INT64 |SYGNATURA CZASOWA (MILLIS/MICROS) |datetime2 — znacznik czasu (NANOS) nie jest obsługiwany |
+|[Typ złożony](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |Listy |varchar(8000), serializowana do JSON |
+|[Typ złożony](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|Mapę|varchar(8000), serializowana do JSON |
 
 ## <a name="examples"></a>Przykłady
 
-### <a name="read-csv-files-without-specifying-schema"></a>Odczytaj pliki CSV bez określania schematu
+### <a name="read-csv-files-without-specifying-schema"></a>Odczytywanie plików CSV bez określania schematu
 
-Poniższy przykład odczytuje plik CSV, który zawiera wiersz nagłówka bez określania nazw kolumn i typów danych: 
+Poniższy przykład odczytuje plik CSV zawierający wiersz nagłówka bez określania nazw kolumn i typów danych: 
 
 ```sql
 SELECT 
@@ -325,7 +325,7 @@ FROM OPENROWSET(
     PARSER_VERSION = '2.0') as [r]
 ```
 
-### <a name="read-parquet-files-without-specifying-schema"></a>Odczytaj pliki Parquet bez określania schematu
+### <a name="read-parquet-files-without-specifying-schema"></a>Odczytywanie plików Parquet bez określania schematu
 
 Poniższy przykład zwraca wszystkie kolumny pierwszego wiersza z zestawu danych spisu, w formacie Parquet i bez określania nazw kolumn i typów danych: 
 
@@ -339,9 +339,9 @@ FROM
     ) AS [r]
 ```
 
-### <a name="read-specific-columns-from-csv-file"></a>Odczytaj określone kolumny z pliku CSV
+### <a name="read-specific-columns-from-csv-file"></a>Odczytywanie określonych kolumn z pliku CSV
 
-Poniższy przykład zwraca tylko dwie kolumny z numerami porządkowymi 1 i 4 z plików Population*. csv. Ponieważ w plikach nie ma wiersza nagłówka, rozpocznie się odczytywanie z pierwszego wiersza:
+Poniższy przykład zwraca tylko dwie kolumny z liczbami porządkowymi 1 i 4 z plików population*.csv. Ponieważ w plikach nie ma wiersza nagłówka, rozpoczyna on odczytywanie od pierwszego wiersza:
 
 ```sql
 SELECT 
@@ -357,7 +357,7 @@ WITH (
 ) AS [r]
 ```
 
-### <a name="read-specific-columns-from-parquet-file"></a>Odczytaj określone kolumny z pliku Parquet
+### <a name="read-specific-columns-from-parquet-file"></a>Odczytywanie określonych kolumn z pliku Parquet
 
 Poniższy przykład zwraca tylko dwie kolumny pierwszego wiersza z zestawu danych spisu w formacie Parquet: 
 
@@ -377,7 +377,7 @@ WITH (
 
 ### <a name="specify-columns-using-json-paths"></a>Określanie kolumn przy użyciu ścieżek JSON
 
-Poniższy przykład pokazuje, jak można użyć [wyrażeń ścieżki JSON](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true) w klauzuli with i ilustruje różnicę między trybami ścieżki ścisłej i swobodny: 
+W poniższym przykładzie pokazano, jak używać wyrażeń ścieżki [JSON](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true) w klauzuli WITH i przedstawiono różnicę między trybami ścieżki ścisłej i lax: 
 
 ```sql
 SELECT 
@@ -403,4 +403,4 @@ AS [r]
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej przykładów, zobacz [Przewodnik Szybki Start dotyczący usługi Query Data Storage](query-data-storage.md) , aby dowiedzieć się, jak używać `OPENROWSET` programu do odczytywania formatów plików [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md)i [JSON](query-json-files.md) . Zapoznaj się z [najlepszymi rozwiązaniami](best-practices-sql-on-demand.md) w celu uzyskania optymalnej wydajności. Możesz również dowiedzieć się, jak zapisać wyniki zapytania w usłudze Azure Storage przy użyciu [CETAS](develop-tables-cetas.md).
+Aby uzyskać więcej przykładów, zobacz [przewodnik](query-data-storage.md) Szybki start dla magazynu danych zapytań, aby dowiedzieć się, jak odczytywać formaty `OPENROWSET` plików [CSV,](query-single-csv-file.md) [PARQUET](query-parquet-files.md)i [JSON.](query-json-files.md) Sprawdź [najlepsze rozwiązania w celu](best-practices-sql-on-demand.md) osiągnięcia optymalnej wydajności. Możesz również dowiedzieć się, jak zapisać wyniki zapytania w usłudze Azure Storage przy użyciu [funkcji CETAS.](develop-tables-cetas.md)

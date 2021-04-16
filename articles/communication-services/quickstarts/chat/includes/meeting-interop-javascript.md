@@ -1,24 +1,24 @@
 ---
-title: Szybki Start — Dołącz do spotkania zespołów
+title: Szybki start — dołączanie do spotkania w zespołów
 author: askaur
 ms.author: askaur
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 773bca81694534346019e30e9d55190af6f51e74
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 49f9bac40ae803f980a22c19fd5d44d85fa99e9e
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105106801"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107564445"
 ---
-## <a name="joining-the-meeting-chat"></a>Dołączanie do rozmowy o spotkaniu 
+## <a name="joining-the-meeting-chat"></a>Dołączanie do czatu na spotkanie 
 
-Po włączeniu współdziałania zespołów użytkownik usług komunikacyjnych może przyłączyć się do zespołów jako zewnętrzny użytkownik korzystający z wywołującego zestawu SDK. Dołączenie do wywołania spowoduje dodanie ich jako uczestnika do rozmowy o spotkaniu, w którym mogą oni wysyłać i odbierać wiadomości z innymi użytkownikami w wywołaniu. Użytkownik nie będzie miał dostępu do komunikatów rozmowy, które zostały wysłane przed dołączeniem do wywołania. Aby przyłączyć się do spotkania i zacząć czatować, możesz wykonać kolejne kroki.
+Po włączeniu współdziałania aplikacji Teams użytkownik Communication Services dołączyć do wywołania usługi Teams jako użytkownik zewnętrzny przy użyciu zestawu SDK wywoływania. Dołączenie do rozmowy spowoduje dodanie ich jako uczestnika do rozmowy na spotkanie, gdzie będą oni w stanie wysyłać i odbierać wiadomości z innymi użytkownikami podczas rozmowy. Użytkownik nie będzie miał dostępu do wiadomości czatu, które zostały wysłane przed dołączenia do połączenia. Aby dołączyć do spotkania i rozpocząć rozmowę, możesz wykonać następne kroki.
 
 ## <a name="install-the-chat-packages"></a>Instalowanie pakietów czatu
 
-Użyj `npm install` polecenia, aby zainstalować wymagane zestawy SDK usług komunikacyjnych dla języka JavaScript.
+Użyj polecenia `npm install` , aby zainstalować niezbędne zestawy Communication Services SDK dla języka JavaScript.
 
 ```console
 npm install @azure/communication-common --save
@@ -32,13 +32,13 @@ npm install @azure/communication-chat --save
 npm install @azure/communication-calling --save
 ```
 
-`--save`Opcja zawiera listę bibliotek jako zależność w **package.js** pliku.
+Opcja `--save` wyświetla bibliotekę jako zależność w plikupackage.js **pliku.**
 
-## <a name="add-the-teams-ui-controls"></a>Dodawanie formantów interfejsu użytkownika zespołów
+## <a name="add-the-teams-ui-controls"></a>Dodawanie kontrolek interfejsu użytkownika aplikacji Teams
 
-Zastąp kod w index.html następującym fragmentem kodu.
-Pola tekstowe w górnej części strony będą używane do wprowadzania kontekstu spotkań zespołów i identyfikatora wątku spotkań. Przycisk "Dołącz do spotkania zespołu" zostanie użyty w celu dołączenia do określonego spotkania.
-Zostanie wyświetlone okno podręczne rozmowy w dolnej części strony. Może służyć do wysyłania wiadomości w wątku spotkań i wyświetlania ich w czasie rzeczywistym komunikaty wysyłane w wątku, gdy użytkownik usług ACS jest członkiem.
+Zastąp kod w index.html poniższym fragmentem kodu.
+Pola tekstowe w górnej części strony będą używane do wprowadzania kontekstu spotkania aplikacji Teams i identyfikatora wątku spotkania. Przycisk "Dołącz do spotkania zespołów" będzie używany do dołączenia do określonego spotkania.
+W dolnej części strony zostanie wyświetlone okno podręczne czatu. Może służyć do wysyłania komunikatów w wątku spotkania i będzie wyświetlana w czasie rzeczywistym wszystkie komunikaty wysyłane w wątku, gdy użytkownik ACS jest członkiem.
 
 ```html
 <!DOCTYPE html>
@@ -140,13 +140,13 @@ Zostanie wyświetlone okno podręczne rozmowy w dolnej części strony. Może s�
 </html>
 ```
 
-## <a name="enable-the-teams-ui-controls"></a>Włączanie formantów interfejsu użytkownika zespołów
+## <a name="enable-the-teams-ui-controls"></a>Włączanie kontrolek interfejsu użytkownika aplikacji Teams
 
-Zastąp zawartość pliku client.js następującym fragmentem kodu.
+Zastąp zawartość pliku client.js poniższym fragmentem kodu.
 
-W tym fragmencie kodu Zastąp 
-- `SECRET CONNECTION STRING` z parametrami połączenia usługi komunikacyjnej 
-- `ENDPOINT URL` za pomocą adresu URL punktu końcowego usługi komunikacyjnej
+W tym fragmencie kodu zastąp 
+- `SECRET CONNECTION STRING` z parametrów połączenia usługi Communication Service 
+- `ENDPOINT URL` za pomocą adresu URL punktu końcowego usługi Communication Service
 
 ```javascript
 // run using
@@ -284,17 +284,17 @@ sendMessageButton.addEventListener("click", async () =>
   });
 ```
 
-## <a name="get-a-teams-meeting-chat-thread-for-a-communication-services-user"></a>Pobierz wątek rozmów dla użytkowników usług komunikacyjnych dla zespołów
+## <a name="get-a-teams-meeting-chat-thread-for-a-communication-services-user"></a>Uzyskiwanie wątku rozmowy na spotkanie z zespołem dla Communication Services użytkownika
 
-Łącze do spotkania zespołów i rozmowa można pobrać przy użyciu interfejsów API programu Graph, które opisano szczegółowo w [dokumentacji grafu](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta). Zestaw SDK wywoływania usług komunikacyjnych akceptuje łącze do spotkania z pełnymi zespołami. Ten link jest zwracany jako część `onlineMeeting` zasobu, dostępne w ramach [ `joinWebUrl` Właściwości](/graph/api/resources/onlinemeeting?view=graph-rest-beta) z [interfejsami API programu Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta), można również uzyskać `threadId` . Odpowiedź będzie zawierać `chatInfo` obiekt, który zawiera `threadID` . 
+Link do spotkania i czat z zespołem można pobrać przy użyciu interfejsów API programu Graph, szczegółowo opisanego w [dokumentacji programu Graph.](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true) Wywołanie Communication Services SDK akceptuje pełny link spotkania usługi Teams. Ten link jest zwracany jako część zasobu i jest dostępny we właściwości Za pomocą interfejsów API graph można `onlineMeeting` również uzyskać [ `joinWebUrl` ](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true) element [](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true) `threadId` . Odpowiedź będzie mieć obiekt `chatInfo` , który zawiera obiekt `threadID` . 
 
-Wymagane informacje o spotkaniu i identyfikator wątku można także uzyskać od adresu URL **spotkania przyłączenia** do zespołu spotkanie.
-Łącze do spotkania zespołów wygląda następująco: `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here` . `threadId`W tym miejscu `meeting_chat_thread_id` znajduje się link. Przed użyciem upewnij się, że `meeting_chat_thread_id` jest on niezmieniony. Powinien mieć następujący format: `19:meeting_ZWRhZDY4ZGUtYmRlNS00OWZaLTlkZTgtZWRiYjIxOWI2NTQ4@thread.v2`
+Wymagane informacje o spotkaniu i identyfikator wątku można również uzyskać z adresu **URL** dołączenia do spotkania w samym zaproszeniu na spotkanie w aplikacji Teams.
+Link do spotkania z zespołem wygląda następująco: `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here` . Będzie `threadId` gdzie `meeting_chat_thread_id` znajduje się w linku. Przed użyciem upewnij się, że nie `meeting_chat_thread_id` ma to zastosowania. Powinna ona mieć następujący format: `19:meeting_ZWRhZDY4ZGUtYmRlNS00OWZaLTlkZTgtZWRiYjIxOWI2NTQ4@thread.v2`
 
 
 ## <a name="run-the-code"></a>Uruchamianie kodu
 
-Użytkownicy pakietu WebPack mogą używać programu `webpack-dev-server` do kompilowania i uruchamiania aplikacji. Uruchom następujące polecenie, aby powiązać hosta aplikacji na lokalnym serwerze WebServer:
+Użytkownicy pakietów WebPack mogą używać programu `webpack-dev-server` do kompilowania i uruchamiania aplikacji. Uruchom następujące polecenie, aby po pakiecie hosta aplikacji na lokalnym serwerze internetowym:
 
 ```console
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
@@ -302,9 +302,9 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 
 Otwórz przeglądarkę i przejdź do http://localhost:8080/ . Powinien zostać wyświetlony następujący ekran:
 
-:::image type="content" source="../acs-join-teams-meeting-chat-quickstart.png" alt-text="Zrzut ekranu ukończonej aplikacji JavaScript.":::
+:::image type="content" source="../acs-join-teams-meeting-chat-quickstart.png" alt-text="Zrzut ekranu przedstawiający ukończoną aplikację JavaScript.":::
 
-Wstaw łącze do programu Teams i identyfikator wątku do pól tekstowych. Naciśnij pozycję *Dołącz zespoły do spotkania* , aby dołączyć do spotkania zespołów. Po dodaniu użytkownika usługi ACS do spotkania można rozmawiać z poziomu aplikacji usług komunikacyjnych. Przejdź do pola w dolnej części strony, aby rozpocząć czatowanie.
+Wstaw link spotkania aplikacji Teams i identyfikator wątku do pól tekstowych. Naciśnij *przycisk Dołącz do spotkania zespołów,* aby dołączyć do spotkania teams. Gdy użytkownik ACS zostanie przyjęty na spotkanie, możesz porozmawiać z poziomu Communication Services aplikacji. Przejdź do pola w dolnej części strony, aby rozpocząć rozmowę.
 
 > [!NOTE] 
-> Obecnie tylko wysyłanie, otrzymywanie i edytowanie komunikatów jest obsługiwane w scenariuszach współdziałania z zespołami. Inne funkcje, takie jak wpisywanie wskaźników i użytkowników usług komunikacyjnych, Dodawanie lub usuwanie innych użytkowników z spotkania zespołów nie są jeszcze obsługiwane.  
+> Obecnie tylko wysyłanie, odbieranie i edytowanie komunikatów jest obsługiwane w scenariuszach współdziałania z usługą Teams. Inne funkcje, takie jak wpisywanie wskaźników i Communication Services użytkowników dodających lub usuwających innych użytkowników ze spotkania w aplikacji Teams, nie są jeszcze obsługiwane.  

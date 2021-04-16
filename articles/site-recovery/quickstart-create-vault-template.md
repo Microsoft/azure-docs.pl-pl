@@ -1,19 +1,21 @@
 ---
-title: Przewodnik Szybki Start dotyczący tworzenia magazynu usługi Azure Recovery Services przy użyciu szablonu Azure Resource Manager.
-description: W tym przewodniku szybki start dowiesz się, jak utworzyć magazyn usługi Azure Recovery Services przy użyciu szablonu Azure Resource Manager (szablon ARM).
-ms.topic: quickstart
-ms.custom: subject-armqs
+title: Przewodnik Szybki start tworzenia magazynu usługi Azure Recovery Services przy użyciu Azure Resource Manager szablonu.
+description: Z tego przewodnika Szybki start dowiesz się, jak utworzyć magazyn usługi Azure Recovery Services przy użyciu szablonu usługi Azure Resource Manager (szablonu usługi ARM).
 ms.date: 04/29/2020
-ms.openlocfilehash: 62bfe71c397367282c696eecdf55ab9c900c69a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: 11a88b5485ad970802a65af31daccdb30a1c86df
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92745885"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533255"
 ---
-# <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>Szybki Start: Tworzenie magazynu Recovery Services przy użyciu szablonu ARM
+# <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>Szybki start: tworzenie magazynu usługi Recovery Services przy użyciu szablonu usługi ARM
 
-W tym przewodniku szybki start opisano sposób konfigurowania magazynu Recovery Services przy użyciu szablonu Azure Resource Manager (szablon ARM). Usługa [Azure Site Recovery](site-recovery-overview.md) przyczynia się do strategii ciągłości działania i odzyskiwania po awarii (BCDR), dzięki czemu aplikacje biznesowe pozostają w trybie online podczas planowanych i nieplanowanych przestojów. Site Recovery zarządza odzyskiwaniem po awarii maszyn lokalnych i maszyn wirtualnych platformy Azure, w tym replikacji, trybu failover i odzyskiwania.
+W tym przewodniku Szybki start opisano sposób skonfigurowania magazynu usługi Recovery Services przy użyciu Azure Resource Manager usługi (szablonu USŁUGI ARM). Usługa [Azure Site Recovery](site-recovery-overview.md) przyczynia się do strategii ciągłości działania i odzyskiwania po awarii (BCDR, business continuity and disaster recovery), dzięki czemu aplikacje biznesowe pozostają w trybie online podczas planowanych i nieplanowanych przestojów. Site Recovery zarządza odzyskiwaniem po awarii maszyn lokalnych i maszyn wirtualnych platformy Azure, w tym replikacją, trybem failover i odzyskiwaniem.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -23,7 +25,7 @@ Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w kor
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz aktywnej subskrypcji platformy Azure, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz aktywnej subskrypcji platformy Azure, przed rozpoczęciem możesz utworzyć [bezpłatne](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto.
 
 ## <a name="review-the-template"></a>Przegląd szablonu
 
@@ -31,43 +33,43 @@ Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybki
 
 :::code language="json" source="~/quickstart-templates/101-recovery-services-vault-create/azuredeploy.json":::
 
-Dwa zasoby platformy Azure są zdefiniowane w szablonie:
+W szablonie zdefiniowano dwa zasoby platformy Azure:
 
-- [Magazyny Microsoft. RecoveryServices](/azure/templates/microsoft.recoveryservices/vaults): tworzy magazyn.
-- [Microsoft. RecoveryServices/magazyny/backupstorageconfig](/rest/api/backup/backupresourcestorageconfigs): konfiguruje ustawienia nadmiarowości kopii zapasowej magazynu.
+- [Magazyny Microsoft.RecoveryServices:](/azure/templates/microsoft.recoveryservices/vaults)tworzy magazyn.
+- [Microsoft.RecoveryServices/vaults/backupstorageconfig:](/rest/api/backup/backupresourcestorageconfigs)konfiguruje ustawienia nadmiarowości kopii zapasowych magazynu.
 
-Szablon zawiera opcjonalne parametry konfiguracji kopii zapasowej magazynu. Ustawienia nadmiarowości magazynu to magazyn lokalnie nadmiarowy (LRS) lub magazyn Geograficznie nadmiarowy (GRS). Aby uzyskać więcej informacji, zobacz [Ustawianie nadmiarowości magazynu](../backup/backup-create-rs-vault.md#set-storage-redundancy).
+Szablon zawiera opcjonalne parametry konfiguracji kopii zapasowej magazynu. Ustawienia nadmiarowości magazynu to magazyn lokalnie nadmiarowy (LRS) lub magazyn geograficznie nadmiarowy (GRS). Aby uzyskać więcej informacji, zobacz [Ustawianie nadmiarowości magazynu.](../backup/backup-create-rs-vault.md#set-storage-redundancy)
 
-Aby uzyskać więcej szablonów Recovery Services platformy Azure, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Recoveryservices&pageNumber=1&sort=Popular).
+Aby uzyskać więcej szablonów usługi Azure Recovery Services, zobacz [Szablony szybkiego startu platformy Azure.](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Recoveryservices&pageNumber=1&sort=Popular)
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
-Aby wdrożyć szablon, wymagana jest **subskrypcja**, **Grupa zasobów** i **Nazwa magazynu** .
+Do wdrożenia szablonu wymagane **są pola Subskrypcja,** **Grupa zasobów** i **Nazwa magazynu.**
 
-1. Aby zalogować się do platformy Azure i otworzyć szablon, wybierz pozycję **Wdróż na platformie Azure** .
+1. Aby zalogować się do platformy Azure i otworzyć szablon, wybierz obraz **Deploy to Azure (Wd wdrażaj na platformie Azure).**
 
    [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-recovery-services-vault-create%2Fazuredeploy.json)
 
 1. Wybierz lub wprowadź następujące wartości:
 
-   :::image type="content" source="media/quickstart-create-vault-template/create-vault-template.png" alt-text="Szablon służący do tworzenia magazynu Recovery Services.":::
+   :::image type="content" source="media/quickstart-create-vault-template/create-vault-template.png" alt-text="Szablon do tworzenia magazynu usługi Recovery Services.":::
 
-   - **Subskrypcja**: wybierz subskrypcję platformy Azure.
-   - **Grupa zasobów**: wybierz istniejącą grupę lub wybierz pozycję **Utwórz nową** , aby dodać grupę.
-   - **Lokalizacja**: wartość domyślna lokalizacji grupy zasobów i jest niedostępna po wybraniu grupy zasobów.
-   - **Nazwa magazynu**: Podaj nazwę magazynu.
-   - **Zmień typ magazynu**: wartość domyślna to **false**. Wybierz **wartość true** tylko wtedy, gdy musisz zmienić typ magazynu dla magazynu.
-   - **Typ magazynu** magazynu: wartość domyślna to **GloballyRedundant**. Jeśli typ magazynu został ustawiony na **wartość true**, wybierz pozycję **LocallyRedundant**.
-   - **Lokalizacja**: funkcja `[resourceGroup().location]` Domyślnie jest lokalizacją grupy zasobów. Aby zmienić lokalizację, wprowadź wartość taką jak **zachodnie**.
-   - Zaznacz pole wyboru **Akceptuję warunki i postanowienia podane powyżej**.
+   - **Subskrypcja:** wybierz swoją subskrypcję platformy Azure.
+   - **Grupa zasobów:** wybierz istniejącą grupę lub wybierz **pozycję Utwórz nową,** aby dodać grupę.
+   - **Lokalizacja:** wartość domyślna to lokalizacja grupy zasobów i staje się niedostępna po wybraniu grupy zasobów.
+   - **Nazwa magazynu:** podaj nazwę magazynu.
+   - **Zmień typ magazynu:** wartość domyślna to **false.** Wybierz **wartość true** tylko wtedy, gdy musisz zmienić typ magazynu.
+   - **Typ magazynu magazynu:** wartość domyślna to **GlobalRedundant.** Jeśli typ magazynu został ustawiony na **wartość true,** wybierz pozycję **LocallyRedundant**.
+   - **Lokalizacja**: funkcja `[resourceGroup().location]` domyślnie jest lokalizacją grupy zasobów. Aby zmienić lokalizację, wprowadź wartość, taką jak **westus**.
+   - Zaznacz pole wyboru **Wyrażam zgodę na powyższe warunki i postanowienia.**
 
-1. Aby rozpocząć wdrażanie magazynu, wybierz przycisk **Kup** . Po pomyślnym wdrożeniu zostanie wyświetlone powiadomienie.
+1. Aby rozpocząć wdrażanie magazynu, wybierz **przycisk** Kup. Po pomyślnym wdrożeniu zostanie wyświetlone powiadomienie.
 
-   :::image type="content" source="media/quickstart-create-vault-template/deployment-success.png" alt-text="Wdrażanie magazynu powiodło się.":::
+   :::image type="content" source="media/quickstart-create-vault-template/deployment-success.png" alt-text="Wdrożenie magazynu powiodło się.":::
 
 ## <a name="validate-the-deployment"></a>Weryfikowanie wdrożenia
 
-Aby upewnić się, że magazyn został utworzony, użyj interfejsu wiersza polecenia platformy Azure lub Azure PowerShell.
+Aby potwierdzić, że magazyn został utworzony, użyj interfejsu wiersza polecenia platformy Azure lub Azure PowerShell.
 
 # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
 
@@ -128,7 +130,7 @@ GeoRedundant
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli planujesz korzystanie z nowych zasobów, nie jest wymagana żadna akcja. W przeciwnym razie można usunąć grupę zasobów i magazyn, które zostały utworzone w tym przewodniku Szybki Start. Aby usunąć grupę zasobów i jej zasoby, użyj interfejsu wiersza polecenia platformy Azure lub Azure PowerShell.
+Jeśli planujesz używać nowych zasobów, nie są wymagane żadne działania. W przeciwnym razie możesz usunąć grupę zasobów i magazyn, które zostały utworzone w tym przewodniku Szybki start. Aby usunąć grupę zasobów i jej zasoby, użyj interfejsu wiersza polecenia platformy Azure lub Azure PowerShell.
 
 # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
 
@@ -151,7 +153,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono magazyn Recovery Services. Aby dowiedzieć się więcej o odzyskiwaniu po awarii, przejdź do następnego artykułu Szybki Start.
+W tym przewodniku Szybki start utworzono magazyn usługi Recovery Services. Aby dowiedzieć się więcej na temat odzyskiwania po awarii, przejdź do następnego artykułu Szybki start.
 
 > [!div class="nextstepaction"]
 > [Konfigurowanie odzyskiwania po awarii](azure-to-azure-quickstart.md)

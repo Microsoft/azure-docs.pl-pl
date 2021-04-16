@@ -1,29 +1,30 @@
 ---
-title: 'Szybki Start: Tworzenie usługi Azure front-drzwi przy użyciu szablonu Azure Resource Manager (szablon ARM)'
-description: W tym przewodniku szybki start opisano sposób tworzenia usługi Azure front-drzwi przy użyciu szablonu Azure Resource Manager (szablon ARM).
+title: 'Szybki start: tworzenie Azure Front Door Service przy użyciu szablonu Azure Resource Manager (szablonu USŁUGI ARM)'
+description: W tym przewodniku Szybki start opisano, jak utworzyć Azure Front Door Service przy użyciu Azure Resource Manager szablonu usługi ARM.
 services: front-door
 documentationcenter: ''
 author: duongau
-editor: ''
-ms.assetid: ''
-ms.service: frontdoor
-ms.devlang: na
-ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/14/2020
 ms.author: duau
-ms.custom: subject-armqs
-ms.openlocfilehash: 223006193219afe4179f3161d5e60e6439207b22
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+editor: ''
+ms.date: 09/14/2020
+ms.topic: quickstart
+ms.service: frontdoor
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: de8a592f6eecbb43b58a044096e8ba2e0f9b5973
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92896059"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538993"
 ---
-# <a name="quickstart-create-a-front-door-using-an-arm-template"></a>Szybki Start: Tworzenie drzwi z przodu przy użyciu szablonu ARM
+# <a name="quickstart-create-a-front-door-using-an-arm-template"></a>Szybki start: tworzenie aplikacji Front Door użyciu szablonu usługi ARM
 
-W tym przewodniku szybki start opisano, jak używać szablonu Azure Resource Manager (szablon ARM) do tworzenia czołowych drzwi w celu skonfigurowania wysokiej dostępności dla punktu końcowego sieci Web.
+W tym przewodniku Szybki start opisano, jak używać szablonu usługi Azure Resource Manager (arm) w celu utworzenia Front Door w celu skonfigurowania wysokiej dostępności dla internetowego punktu końcowego.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -34,23 +35,23 @@ Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w kor
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Adres IP lub nazwa FQDN witryny internetowej lub aplikacji sieci Web.
+* Adres IP lub WQDN witryny internetowej lub aplikacji internetowej.
 
 ## <a name="review-the-template"></a>Przegląd szablonu
 
 Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-front-door-create-basic).
 
-W tym przewodniku szybki start utworzysz konfigurację dla drzwi z pojedynczym zapleczem i jedną domyślną ścieżkę `/*` .
+W tym przewodniku Szybki start utworzysz konfigurację usługi Front Door z pojedynczymi zapleczami i jedną ścieżką domyślną pasującą do . `/*`
 
 :::code language="json" source="~/quickstart-templates/101-front-door-create-basic/azuredeploy.json":::
 
 Jeden zasób platformy Azure jest zdefiniowany w szablonie:
 
-* [**Microsoft. Network/usługi frontdoor**](/azure/templates/microsoft.network/frontDoors)
+* [**Microsoft.Network/frontDoors**](/azure/templates/microsoft.network/frontDoors)
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
-1. Wybierz opcję **Wypróbuj** z następującego bloku kodu, aby otworzyć Azure Cloud Shell, a następnie postępuj zgodnie z instrukcjami, aby zalogować się do platformy Azure.
+1. Wybierz **pozycję Wypróbuj w** poniższym bloku kodu, aby otworzyć Azure Cloud Shell, a następnie postępuj zgodnie z instrukcjami, aby zalogować się do platformy Azure.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -65,42 +66,42 @@ Jeden zasób platformy Azure jest zdefiniowany w szablonie:
     Read-Host -Prompt "Press [ENTER] to continue ..."
     ```
 
-    Poczekaj, aż zobaczysz monit z konsoli programu.
+    Zaczekaj, aż zostanie wyświetlony monit z konsoli.
 
-1. Wybierz pozycję **Kopiuj** z poprzedniego bloku kodu, aby skopiować skrypt programu PowerShell.
+1. Wybierz **pozycję Kopiuj** z poprzedniego bloku kodu, aby skopiować skrypt programu PowerShell.
 
-1. Kliknij prawym przyciskiem myszy okienko konsoli powłoki, a następnie wybierz polecenie **Wklej**.
+1. Kliknij prawym przyciskiem myszy okienko konsoli powłoki, a następnie wybierz pozycję **Wklej**.
 
 1. Wprowadź wartości.
 
-    Wdrożenie szablonu tworzy drzwi tylne z pojedynczym zapleczem. W tym przykładzie `microsoft.com` jest używany jako **backendAddress**.
+    Wdrożenie szablonu tworzy Front Door z jednym zaplecza. W tym `microsoft.com` przykładzie jest używany jako **backendAddress**.
 
-    Nazwa grupy zasobów jest nazwą projektu z dołączoną **RG** .
+    Nazwa grupy zasobów to nazwa projektu z dołączonym **rg.**
 
     > [!NOTE]
-    > **frontDoorName** musi być globalnie unikatową nazwą, aby szablon został pomyślnie wdrożony. Jeśli wdrożenie nie powiedzie się, Zacznij od początku, korzystając z kroku 1.
+    > **FrontDoorName** musi być globalnie unikatową nazwą, aby szablon został pomyślnie wdrożony. Jeśli wdrożenie zakończy się niepowodzeniem, zacznij od początku od kroku 1.
 
-    Wdrożenie szablonu trwa kilka minut. Po zakończeniu dane wyjściowe są podobne do:
+    Wdrożenie szablonu może potrwać kilka minut. Po zakończeniu dane wyjściowe będą podobne do:
 
-    :::image type="content" source="./media/quickstart-create-front-door-template/front-door-template-deployment-powershell-output.png" alt-text="Dane wyjściowe wdrożenia programu PowerShell dla drzwi przednich Menedżer zasobów szablonu":::
+    :::image type="content" source="./media/quickstart-create-front-door-template/front-door-template-deployment-powershell-output.png" alt-text="Front Door Resource Manager danych wyjściowych wdrożenia programu PowerShell dla szablonu":::
 
-Azure PowerShell służy do wdrożenia szablonu. Oprócz Azure PowerShell można również użyć Azure Portal, interfejsu wiersza polecenia platformy Azure i API REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../azure-resource-manager/templates/deploy-portal.md).
+Azure PowerShell służy do wdrażania szablonu. Oprócz interfejsu Azure PowerShell można również używać interfejsu wiersza polecenia platformy Azure Portal, interfejsu wiersza polecenia platformy Azure i interfejsu API REST. Aby poznać inne metody wdrażania, zobacz [Deploy templates (Wdrażanie szablonów).](../azure-resource-manager/templates/deploy-portal.md)
 
 ## <a name="validate-the-deployment"></a>Weryfikowanie wdrożenia
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. W okienku po lewej stronie wybierz pozycję **grupy zasobów** .
+1. Wybierz **pozycję Grupy zasobów** w okienku po lewej stronie.
 
-1. Wybierz grupę zasobów utworzoną w poprzedniej sekcji. Domyślną nazwą grupy zasobów jest nazwa projektu z dołączoną **RG** .
+1. Wybierz grupę zasobów utworzoną w poprzedniej sekcji. Domyślna nazwa grupy zasobów to nazwa projektu z dołączonym **rg.**
 
-1. Wybierz utworzone wcześniej drzwi i kliknij link **hosta frontonu** . Link spowoduje otwarcie przeglądarki sieci Web przekierowanie użytkownika do nazwy FQDN zaplecza zdefiniowanej podczas tworzenia.
+1. Wybierz wcześniej Front Door i kliknij link **Host frontonie.** Link spowoduje otwarcie przeglądarki internetowej przekierowuje Cię do twojej domeny FQDN zaplecza zdefiniowanej podczas tworzenia.
 
-    :::image type="content" source="./media/quickstart-create-front-door-template/front-door-overview.png" alt-text="Omówienie portalu z przodu":::
+    :::image type="content" source="./media/quickstart-create-front-door-template/front-door-overview.png" alt-text="Front Door omówienie portalu":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy nie potrzebujesz już usługi front-drzwi, Usuń grupę zasobów. Spowoduje to usunięcie drzwi z przodu i wszystkich powiązanych zasobów.
+Jeśli nie potrzebujesz już usługi Front Door, usuń grupę zasobów. Spowoduje to usunięcie Front Door i wszystkich powiązanych zasobów.
 
 Aby usunąć grupę zasobów, wywołaj `Remove-AzResourceGroup` polecenie cmdlet:
 
@@ -110,9 +111,9 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono drzwi z przodu.
+W tym przewodniku Szybki start utworzono Front Door.
 
-Aby dowiedzieć się, jak dodać domenę niestandardową do swoich drzwi, przejdź do samouczków dotyczących drzwi.
+Aby dowiedzieć się, jak dodać domenę niestandardową do Front Door, przejdź do Front Door samouczków.
 
 > [!div class="nextstepaction"]
-> [Samouczki dotyczące drzwi](front-door-custom-domain.md)
+> [Front Door samouczków](front-door-custom-domain.md)

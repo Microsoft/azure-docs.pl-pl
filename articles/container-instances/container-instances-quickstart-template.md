@@ -1,21 +1,24 @@
 ---
-title: Szybki Start — Tworzenie wystąpienia kontenera — szablon Azure Resource Manager
-description: W tym przewodniku szybki start użyjesz szablonu Azure Resource Manager, aby szybko wdrożyć aplikację sieci Web, która działa w izolowanym wystąpieniu kontenera platformy Azure.
+title: Szybki start — tworzenie wystąpienia kontenera — Azure Resource Manager szablonu
+description: W tym przewodniku Szybki start użyjemy szablonu usługi Azure Resource Manager, aby szybko wdrożyć konteneryzowana aplikację internetową, która działa w izolowanym wystąpieniu kontenera platformy Azure.
 services: azure-resource-manager
-ms.service: azure-resource-manager
-ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-js
 ms.date: 04/30/2020
-ms.openlocfilehash: 621e3e1cef39e34656c094a39d218d5d5866fa26
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.service: azure-resource-manager
+ms.custom:
+- subject-armqs
+- devx-track-js
+- mode-arm
+ms.openlocfilehash: 5e8b9e1b2a396bb20b35dd69efe26758ba0db543
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91309085"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537511"
 ---
-# <a name="quickstart-deploy-a-container-instance-in-azure-using-an-arm-template"></a>Szybki Start: Wdrażanie wystąpienia kontenera na platformie Azure przy użyciu szablonu ARM
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-an-arm-template"></a>Szybki start: wdrażanie wystąpienia kontenera na platformie Azure przy użyciu szablonu usługi ARM
 
-Używanie Azure Container Instances do uruchamiania kontenerów platformy Docker bez serwera na platformie Azure z prostotą i szybkością. Wdróż aplikację w wystąpieniu kontenera na żądanie, gdy nie potrzebujesz pełnej platformy aranżacji kontenerów, takiej jak usługa Azure Kubernetes. W tym przewodniku szybki start użyjesz szablonu Azure Resource Manager (szablon ARM) do wdrożenia izolowanego kontenera platformy Docker i udostępnienia jego aplikacji sieci Web za pomocą publicznego adresu IP.
+Używaj Azure Container Instances do uruchamiania bez serwera kontenerów platformy Docker na platformie Azure z prostotą i szybkością. Wdrażanie aplikacji w wystąpieniu kontenera na żądanie, gdy nie potrzebujesz pełnej platformy orkiestracji kontenerów, na przykład Azure Kubernetes Service. W tym przewodniku Szybki start użyjemy szablonu usługi Azure Resource Manager (arm), aby wdrożyć izolowany kontener platformy Docker i udostępnić jego aplikację internetową przy użyciu publicznego adresu IP.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -33,11 +36,11 @@ Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybki
 
 :::code language="json" source="~/quickstart-templates/101-aci-linuxcontainer-public-ip/azuredeploy.json":::
 
-Następujący zasób jest zdefiniowany w szablonie:
+W szablonie zdefiniowano następujący zasób:
 
-* **[Microsoft. ContainerInstance/containerGroups](/azure/templates/microsoft.containerinstance/containergroups)**: Tworzenie grupy kontenerów platformy Azure. Ten szablon definiuje grupę składającą się z jednego wystąpienia kontenera.
+* **[Microsoft.ContainerInstance/containerGroups:](/azure/templates/microsoft.containerinstance/containergroups)** utwórz grupę kontenerów platformy Azure. Ten szablon definiuje grupę składającą się z jednego wystąpienia kontenera.
 
-Więcej przykładów szablonów Azure Container Instances można znaleźć w [galerii szablonów szybkiego startu](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerinstance&pageNumber=1&sort=Popular).
+Więcej Azure Container Instances przykładów szablonów można znaleźć w [galerii szablonów szybkiego startu.](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerinstance&pageNumber=1&sort=Popular)
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
@@ -48,34 +51,34 @@ Więcej przykładów szablonów Azure Container Instances można znaleźć w [ga
  2. Wybierz lub wprowadź następujące wartości.
 
     * **Subskrypcja**: wybierz subskrypcję platformy Azure.
-    * **Grupa zasobów**: wybierz pozycję **Utwórz nową**, wprowadź unikatową nazwę grupy zasobów, a następnie wybierz przycisk **OK**.
-    * **Lokalizacja**: wybierz lokalizację grupy zasobów. Przykład: **środkowe stany USA**.
-    * **Nazwa**: Zaakceptuj wygenerowaną nazwę wystąpienia lub wprowadź nazwę.
-    * **Obraz**: zaakceptuj domyślną nazwę obrazu. W tym przykładowym obrazie systemu Linux jest to mała aplikacja internetowa zapisywana w Node.js, która obsługuje statyczną stronę HTML. 
+    * **Grupa zasobów:** wybierz **pozycję Utwórz nową,** wprowadź unikatową nazwę grupy zasobów, a następnie wybierz przycisk **OK.**
+    * **Lokalizacja**: wybierz lokalizację grupy zasobów. Przykład: **Środkowe usa**.
+    * **Nazwa:** zaakceptuj wygenerowaną nazwę wystąpienia lub wprowadź nazwę.
+    * **Obraz:** zaakceptuj domyślną nazwę obrazu. Ten przykładowy obraz systemu Linux zawiera małą aplikację internetową napisaną w Node.js, która obsługuje statyczną stronę HTML. 
 
     Zaakceptuj wartości domyślne dla pozostałych właściwości.
 
-    Przejrzyj warunki i postanowienia. Jeśli zgadzasz się, wybierz opcję **Akceptuję warunki i postanowienia podane powyżej**.
+    Przejrzyj warunki i postanowienia. Jeśli się zgadzasz, wybierz **pozycję Wyrażam zgodę na powyższe warunki i postanowienia.**
 
     ![Właściwości szablonu](media/container-instances-quickstart-template/template-properties.png)
 
- 3. Po pomyślnym utworzeniu wystąpienia otrzymujesz powiadomienie:
+ 3. Po pomyślnym utworzeniu wystąpienia otrzymasz powiadomienie:
 
-    ![Powiadomienie portalu](media/container-instances-quickstart-template/deployment-notification.png)
+    ![Powiadomienie w portalu](media/container-instances-quickstart-template/deployment-notification.png)
 
- Szablon jest wdrażany za pomocą witryny Azure Portal. Oprócz Azure Portal można użyć Azure PowerShell, interfejsu wiersza polecenia platformy Azure i usługi API REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../azure-resource-manager/templates/deploy-cli.md).
+ Szablon jest wdrażany za pomocą witryny Azure Portal. Oprócz interfejsu Azure Portal można użyć interfejsu Azure PowerShell, interfejsu wiersza polecenia platformy Azure i interfejsu API REST. Aby poznać inne metody wdrażania, zobacz [Wdrażanie szablonów](../azure-resource-manager/templates/deploy-cli.md).
 
-## <a name="review-deployed-resources"></a>Przejrzyj wdrożone zasoby
+## <a name="review-deployed-resources"></a>Przeglądanie wdrożonych zasobów
 
-Użyj Azure Portal lub narzędzia, takiego jak [interfejs wiersza polecenia platformy Azure](container-instances-quickstart.md) , aby przejrzeć właściwości wystąpienia kontenera.
+Użyj Azure Portal lub narzędzia, takiego jak interfejs wiersza polecenia platformy [Azure,](container-instances-quickstart.md) aby przejrzeć właściwości wystąpienia kontenera.
 
-1. W portalu Wyszukaj Container Instances i wybierz utworzone wystąpienie kontenera.
+1. W portalu wyszukaj pozycję Container Instances i wybierz utworzone wystąpienie kontenera.
 
-1. Na stronie **Przegląd** Sprawdź **stan** wystąpienia i jego **adres IP**.
+1. Na **stronie Przegląd** zanotuj **stan** wystąpienia i jego **adres IP**.
 
     ![Przegląd wystąpienia](media/container-instances-quickstart-template/aci-overview.png)
 
-2. Gdy stan jest *uruchomiony*, przejdź na adres IP w przeglądarce. 
+2. Gdy jego stan to *Uruchomiona,* przejdź do adresu IP w przeglądarce. 
 
     ![Widziana w przeglądarce aplikacja wdrożona za pomocą usługi Azure Container Instances](media/container-instances-quickstart-template/view-application-running-in-an-azure-container-instance.png)
 
@@ -83,22 +86,22 @@ Użyj Azure Portal lub narzędzia, takiego jak [interfejs wiersza polecenia plat
 
 W przypadku rozwiązywania problemów z kontenerem lub uruchomioną w nim aplikacją przydatne jest przeglądanie dzienników wystąpienia kontenera.
 
-Aby wyświetlić dzienniki kontenera, w obszarze **Ustawienia** wybierz pozycję Dzienniki **kontenerów**  >  . Powinno pojawić się żądanie HTTP GET generowane podczas wyświetlania aplikacji w przeglądarce.
+Aby wyświetlić dzienniki kontenera, w obszarze **Ustawienia wybierz** pozycję **Dzienniki**  >  **kontenerów.** Powinno pojawić się żądanie HTTP GET generowane podczas wyświetlania aplikacji w przeglądarce.
 
 ![Dzienniki kontenera w witrynie Azure Portal](media/container-instances-quickstart-template/aci-logs.png)
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Po zakończeniu pracy z kontenerem na stronie **Przegląd** dla wystąpienia kontenera wybierz pozycję **Usuń**. Po wyświetleniu monitu potwierdź usunięcie.
+Gdy wszystko będzie gotowe do pracy z kontenerem, na stronie **Przegląd** wystąpienia kontenera wybierz pozycję **Usuń**. Po wyświetleniu monitu potwierdź usunięcie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono wystąpienie kontenera platformy Azure na podstawie publicznego obrazu firmy Microsoft. Jeśli chcesz skompilować obraz kontenera i wdrożyć go za pomocą prywatnej usługi Azure Container Registry, przejdź do samouczka dotyczącego usługi Azure Container Instances.
+W tym przewodniku Szybki start utworzono wystąpienie kontenera platformy Azure na podstawie publicznego obrazu firmy Microsoft. Jeśli chcesz skompilować obraz kontenera i wdrożyć go za pomocą prywatnej usługi Azure Container Registry, przejdź do samouczka dotyczącego usługi Azure Container Instances.
 
 > [!div class="nextstepaction"]
-> [Samouczek: Tworzenie obrazu kontenera na potrzeby wdrożenia Azure Container Instances](./container-instances-tutorial-prepare-app.md)
+> [Samouczek: tworzenie obrazu kontenera do wdrożenia w Azure Container Instances](./container-instances-tutorial-prepare-app.md)
 
-Aby zapoznać się z samouczkiem krok po kroku, który przeprowadzi Cię przez proces tworzenia szablonu, zobacz:
+Aby uzyskać samouczek krok po kroku, który przeprowadzi Cię przez proces tworzenia szablonu, zobacz:
 
 > [!div class="nextstepaction"]
-> [Samouczek: Tworzenie i wdrażanie pierwszego szablonu ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [Samouczek: tworzenie i wdrażanie pierwszego szablonu usługi ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

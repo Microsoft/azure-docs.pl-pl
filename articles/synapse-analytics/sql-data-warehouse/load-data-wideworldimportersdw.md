@@ -1,26 +1,26 @@
 ---
 title: 'Samouczek: ładowanie danych przy użyciu Azure Portal & SSMS'
-description: Samouczek używa Azure Portal i SQL Server Management Studio do ładowania magazynu danych WideWorldImportersDW z globalnego obiektu blob platformy Azure do puli SQL usługi Azure Synapse Analytics.
+description: W samouczku Azure Portal i SQL Server Management Studio magazynu danych WideWorldImportersDW z globalnego obiektu blob platformy Azure do Azure Synapse Analytics SQL.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 01/12/2021
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: f41d7359b8273d685d0ab3c962697ca45ff7d18f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fa2d720d995fdaa76a9aa98659edf4060ea6509b
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104598035"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565971"
 ---
-# <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Samouczek: ładowanie danych do puli SQL usługi Azure Synapse Analytics
+# <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Samouczek: ładowanie danych do Azure Synapse Analytics SQL
 
-W tym samouczku pokazano, jak załadować magazyn danych WideWorldImportersDW z usługi Azure Blob Storage do magazynu danych w puli SQL usługi Azure Synapse Analytics. W tym samouczku użyto witryny [Azure Portal](https://portal.azure.com) i programu [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS), aby wykonać następujące czynności:
+W tym samouczku użyto programu PolyBase do załadowania magazynu danych WideWorldImportersDW z usługi Azure Blob Storage do magazynu danych w Azure Synapse Analytics SQL. W tym samouczku użyto witryny [Azure Portal](https://portal.azure.com) i programu [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS), aby wykonać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -37,14 +37,14 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpł
 
 Zanim rozpoczniesz ten samouczek, pobierz i zainstaluj najnowszą wersję programu [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS).
 
-W tym samouczku założono, że utworzono już dedykowaną pulę SQL z poziomu poniższego [samouczka](./create-data-warehouse-portal.md#connect-to-the-server-as-server-admin). 
+W tym samouczku przyjęto założenie, że utworzono już dedykowaną pulę SQL z następującego [samouczka:](./create-data-warehouse-portal.md#connect-to-the-server-as-server-admin). 
 
 > [!NOTE]
-> Zaleca się użycie co najmniej DW1000c dla tego samouczka. 
+> W tym samouczku zaleca się użycie co najmniej dw1000c. 
 
 ## <a name="create-a-user-for-loading-data"></a>Tworzenie użytkownika do ładowania danych
 
-Konto administratora serwera jest przeznaczone do wykonywania operacji zarządzania i nie jest odpowiednie do wykonywania zapytań względem danych użytkownika. Operacja ładowania danych bardzo obciąża pamięć. Maksymalne wartości pamięci są zdefiniowane w zależności od generacji puli SQL, która jest używana, [jednostek magazynu danych](what-is-a-data-warehouse-unit-dwu-cdwu.md)i [klasy zasobów](resource-classes-for-workload-management.md).
+Konto administratora serwera jest przeznaczone do wykonywania operacji zarządzania i nie jest odpowiednie do wykonywania zapytań względem danych użytkownika. Operacja ładowania danych bardzo obciąża pamięć. Maksymalne wartości pamięci są definiowane zgodnie z generacją używanej puli SQL, [jednostkami magazynu](what-is-a-data-warehouse-unit-dwu-cdwu.md)danych i [klasą zasobów](resource-classes-for-workload-management.md).
 
 Najlepszym rozwiązaniem jest utworzenie identyfikatora logowania i użytkownika, które są przeznaczone do ładowania danych. Następnie należy dodać użytkownika ładującego do [klasy zasobów](resource-classes-for-workload-management.md), która umożliwia odpowiednią maksymalną alokację pamięci.
 
@@ -95,7 +95,7 @@ Pierwszym krokiem do załadowania danych jest zalogowanie się jako użytkownik 
 
 ## <a name="create-external-tables-and-objects"></a>Tworzenie tabel zewnętrznych i obiektów
 
-Wszystko jest gotowe do rozpoczęcia procesu ładowania danych do nowego magazynu danych. Aby dowiedzieć się, jak pobrać dane do usługi Azure Blob Storage lub załadować je bezpośrednio ze źródła do puli SQL, zobacz [Omówienie ładowania](design-elt-data-loading.md).
+Wszystko jest gotowe do rozpoczęcia procesu ładowania danych do nowego magazynu danych. Aby dowiedzieć się, jak w przyszłości pobrać dane do usługi Azure Blob Storage lub załadować je bezpośrednio ze źródła do puli SQL, zobacz [omówienie ładowania](design-elt-data-loading.md).
 
 Uruchom następujące skrypty SQL, aby podać informacje o danych do załadowania. Informacje te obejmują obecną lokalizację danych, format zawartości danych i definicję tabel dla danych. Dane znajdują się w globalnym obiekcie blob platformy Azure.
 
@@ -111,7 +111,7 @@ Uruchom następujące skrypty SQL, aby podać informacje o danych do załadowani
     CREATE MASTER KEY;
     ```
 
-4. Uruchom następującą instrukcję [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), aby określić lokalizację obiektu blob platformy Azure. Jest to lokalizacja zewnętrznych danych na całym świecie.  Aby uruchomić polecenie dołączone do okna zapytania, wyróżnij polecenia, które chcesz uruchomić, a następnie kliknij przycisk **Wykonaj**.
+4. Uruchom następującą instrukcję [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), aby określić lokalizację obiektu blob platformy Azure. Jest to lokalizacja zewnętrznych danych dotyczących importerów na całym świecie.  Aby uruchomić polecenie dołączone do okna zapytania, wyróżnij polecenia, które chcesz uruchomić, a następnie kliknij przycisk **Wykonaj**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -420,20 +420,20 @@ Uruchom następujące skrypty SQL, aby podać informacje o danych do załadowani
     );
     ```
 
-8. W Eksplorator obiektów rozwiń węzeł SampleDW, aby wyświetlić listę utworzonych tabel zewnętrznych.
+8. W Eksplorator obiektów rozwiń listę SampleDW, aby wyświetlić listę utworzonych tabel zewnętrznych.
 
     ![Wyświetlanie tabel zewnętrznych](./media/load-data-wideworldimportersdw/view-external-tables.png)
 
 ## <a name="load-the-data-into-sql-pool"></a>Ładowanie danych do puli SQL
 
-W tej sekcji są stosowane tabele zewnętrzne zdefiniowane w celu załadowania przykładowych danych z obiektu blob platformy Azure do puli SQL.  
+W tej sekcji użyto zdefiniowanych tabel zewnętrznych do załadowania przykładowych danych z usługi Azure Blob do puli SQL.  
 
 > [!NOTE]
 > W tym samouczku dane są ładowane bezpośrednio do tabeli końcowej. W środowisku produkcyjnym zazwyczaj używa się instrukcji CREATE TABLE AS SELECT, aby załadować dane do tabeli przejściowej. Gdy dane znajdują się w tabeli przejściowej, można wykonać wszelkie niezbędne przekształcenia. Aby dołączyć dane z tabeli przejściowej do tabeli produkcyjnej, można użyć instrukcji INSERT...SELECT. Aby uzyskać więcej informacji, zobacz [Wstawianie danych do tabeli produkcyjnej](guidance-for-loading-data.md#inserting-data-into-a-production-table).
 
-W skrypcie użyto instrukcji języka T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), aby załadować dane z usługi Azure Storage Blob do nowych tabel w magazynie danych. Instrukcja CTAS tworzy nową tabelę na podstawie wyników instrukcji select. Nowa tabela ma takie same kolumny i typy danych jak wyniki instrukcji select. Gdy instrukcja SELECT wybiera z tabeli zewnętrznej, dane są importowane do relacyjnej tabeli w magazynie danych.
+W skrypcie użyto instrukcji języka T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), aby załadować dane z usługi Azure Storage Blob do nowych tabel w magazynie danych. Instrukcja CTAS tworzy nową tabelę na podstawie wyników instrukcji select. Nowa tabela ma takie same kolumny i typy danych jak wyniki instrukcji select. Po wybraniu instrukcji select z tabeli zewnętrznej dane są importowane do tabeli relacyjnej w magazynie danych.
 
-Ten skrypt nie ładuje danych do tabel wwi.dimension_Date i wwi.fact_Sale. Te tabele są generowane w późniejszym kroku, aby mogły mieć znaczną liczbę wierszy.
+Ten skrypt nie ładuje danych do wwi.dimension_Date i wwi.fact_Sale tabel. Te tabele są generowane w późniejszym kroku, aby mogły mieć znaczną liczbę wierszy.
 
 1. Uruchom następujący skrypt, aby załadować dane do nowych tabel w magazynie danych.
 
@@ -582,7 +582,7 @@ Ten skrypt nie ładuje danych do tabel wwi.dimension_Date i wwi.fact_Sale. Te ta
     ;
     ```
 
-2. Wyświetlaj dane podczas ładowania. Ładujesz kilka gigabajtów danych i skompresujesz ją na wysoce wydajne klastrowane indeksy magazynu kolumn. Otwórz nowe okno zapytania dla bazy danych SampleDW, a następnie uruchom następujące zapytanie w celu pokazania stanu ładowania. Po rozpoczęciu zapytania Pochwyć kawę i aż, gdy pula SQL wykonuje bardzo duże podnoszenie poziomu.
+2. Wyświetlaj dane podczas ładowania. Ładujesz kilka kb/s danych i kompresujesz je do wysoce wydajnych klastrowanych indeksów magazynu kolumn. Otwórz nowe okno zapytania dla bazy danych SampleDW, a następnie uruchom następujące zapytanie w celu pokazania stanu ładowania. Po uruchomieniu zapytania zajmij się przerwą, podczas gdy pula SQL będzie wymagać dużo pracy.
 
     ```sql
     SELECT
@@ -629,7 +629,7 @@ Ten skrypt nie ładuje danych do tabel wwi.dimension_Date i wwi.fact_Sale. Te ta
 
 ## <a name="create-tables-and-procedures-to-generate-the-date-and-sales-tables"></a>Tworzenie tabel i procedur w celu wygenerowania tabel dat i sprzedaży
 
-Ta sekcja tworzy tabele wwi.dimension_Date i wwi.fact_Sale. Tworzy również procedury składowane, które mogą generować miliony wierszy w tabelach wwi.dimension_Date i wwi.fact_Sale.
+W tej sekcji są wwi.dimension_Date i wwi.fact_Sale tabel. Tworzy również procedury składowane, które mogą generować miliony wierszy w wwi.dimension_Date i wwi.fact_Sale tabel.
 
 1. Utwórz tabele dimension_Date i fact_Sale.  
 
@@ -773,7 +773,7 @@ Ta sekcja tworzy tabele wwi.dimension_Date i wwi.fact_Sale. Tworzy również pro
     END;
     ```
 
-4. Utwórz tę procedurę, która wypełnia tabele wwi.dimension_Date i wwi.fact_Sale. Wywołuje ona procedurę [wwi].[PopulateDateDimensionForYear] w celu wypełnienia tabeli wwi.dimension_Date.
+4. Utwórz tę procedurę, która wypełnia wwi.dimension_Date i wwi.fact_Sale tabel. Wywołuje ona procedurę [wwi].[PopulateDateDimensionForYear] w celu wypełnienia tabeli wwi.dimension_Date.
 
     ```sql
     CREATE PROCEDURE [wwi].[Configuration_PopulateLargeSaleTable] @EstimatedRowsPerDay [bigint],@Year [int] AS
@@ -830,7 +830,7 @@ Ta sekcja tworzy tabele wwi.dimension_Date i wwi.fact_Sale. Tworzy również pro
 
 ## <a name="generate-millions-of-rows"></a>Generowanie milionów wierszy
 
-Użyj utworzonych procedur składowanych w celu wygenerowania milionów wierszy w tabeli wwi.fact_Sale i odpowiednich danych w tabeli wwi.dimension_Date.
+Użyj utworzonych procedur składowanych, aby wygenerować miliony wierszy w tabeli wwi.fact_Sale i odpowiadające im dane w wwi.dimension_Date tabeli.
 
 1. Uruchom tę procedurę w celu umieszczenia w tabeli [wwi].[seed_Sale] większej liczby wierszy.
 
@@ -838,7 +838,7 @@ Użyj utworzonych procedur składowanych w celu wygenerowania milionów wierszy 
     EXEC [wwi].[InitialSalesDataPopulation]
     ```
 
-2. Uruchom tę procedurę, aby wypełnić wwi.fact_Sale z 100 000 wierszy dziennie dla każdego dnia w roku 2000.
+2. Uruchom tę procedurę, aby wypełnić wwi.fact_Sale 100 000 wierszy dziennie dla każdego dnia w roku 2000.
 
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000
@@ -858,7 +858,7 @@ Użyj utworzonych procedur składowanych w celu wygenerowania milionów wierszy 
 
 ## <a name="populate-the-replicated-table-cache"></a>Wypełnienie pamięci podręcznej replikowanej tabeli
 
-Pula SQL replikuje tabelę przez buforowanie danych w poszczególnych węzłach obliczeniowych. Pamięć podręczna jest wypełniana po uruchomieniu zapytania względem tabeli. W związku z tym pierwsze zapytanie dotyczące replikowanej tabeli może wymagać dodatkowego czasu na wypełnienie pamięci podręcznej. Po zapełnieniu pamięci podręcznej zapytania względem replikowanych tabel są wykonywane szybciej.
+Pula SQL replikuje tabelę przez buforowanie danych do każdego węzła obliczeniowego. Pamięć podręczna jest wypełniana po uruchomieniu zapytania względem tabeli. W związku z tym pierwsze zapytanie dotyczące replikowanej tabeli może wymagać dodatkowego czasu na wypełnienie pamięci podręcznej. Po zapełnieniu pamięci podręcznej zapytania względem replikowanych tabel są wykonywane szybciej.
 
 Uruchom te zapytania SQL w celu wypełnienia pamięci podręcznej replikowanej tabeli w węzłach obliczeniowych.
 
@@ -980,11 +980,11 @@ Wykonaj następujące kroki, aby wyczyścić zasoby zgodnie z potrzebami.
 
     ![Czyszczenie zasobów](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Jeśli chcesz przechowywać dane w magazynie, możesz wstrzymać obliczenia, gdy nie korzystasz z magazynu danych. Dzięki wstrzymaniu obliczeń opłaty są naliczane tylko za magazyn danych i można wznowić obliczenia za każdym razem, gdy wszystko będzie gotowe do pracy z danymi. Aby wstrzymać obliczenia, kliknij przycisk **Wstrzymaj**. Gdy magazyn danych jest wstrzymany, widoczny jest przycisk **Uruchom**.  Aby wznowić obliczenia, kliknij przycisk **Uruchom**.
+2. Jeśli chcesz przechowywać dane w magazynie, możesz wstrzymać obliczenia, gdy nie korzystasz z magazynu danych. Wstrzymanie obliczeń spowoduje naliczanie opłat tylko za magazyn danych i możesz wznowić obliczenia zawsze wtedy, gdy wszystko będzie gotowe do pracy z danymi. Aby wstrzymać obliczenia, kliknij przycisk **Wstrzymaj**. Gdy magazyn danych jest wstrzymany, widoczny jest przycisk **Uruchom**.  Aby wznowić obliczenia, kliknij przycisk **Uruchom**.
 
 3. Aby uniknąć opłat w przyszłości, możesz usunąć magazyn danych. Aby usunąć magazyn danych i nie płacić za obliczenia oraz magazynowanie, kliknij przycisk **Usuń**.
 
-4. Aby usunąć utworzony serwer, kliknij pozycję **Sample-SVR.Database.Windows.NET** na poprzednim obrazie, a następnie kliknij pozycję **Usuń**.  Należy zachować ostrożność, ponieważ usunięcie serwera spowoduje usunięcie wszystkich baz danych przypisanych do tego serwera.
+4. Aby usunąć utworzony serwer, kliknij **sample-svr.database.windows.net** na poprzedniej ilustracji, a następnie kliknij pozycję **Usuń**.  Należy zachować ostrożność, ponieważ usunięcie serwera spowoduje usunięcie wszystkich baz danych przypisanych do tego serwera.
 
 5. Aby usunąć grupę zasobów, kliknij pozycję **SampleRG**, a następnie kliknij pozycję **Usuń grupę zasobów**.
 
@@ -995,16 +995,16 @@ W tym samouczku przedstawiono sposób tworzenia magazynu danych i tworzenia uży
 Zostały wykonane następujące zadania:
 > [!div class="checklist"]
 >
-> * Utworzono magazyn danych z użyciem puli SQL w Azure Portal
+> * Utworzono magazyn danych przy użyciu puli SQL w Azure Portal
 > * Konfigurowanie reguły zapory na poziomie serwera w witrynie Azure Portal
-> * Połączono z pulą SQL za pomocą programu SSMS
+> * Połączenie z pulą SQL za pomocą programu SSMS
 > * Utworzenie użytkownika wyznaczonego do ładowania danych
 > * Utworzenie tabel zewnętrznych dla danych w usłudze Azure Storage Blob
 > * Załadowanie danych do magazynu danych za pomocą instrukcji CTAS T-SQL
 > * Wyświetlenie postępu ładowania danych
 > * Utworzenie statystyk dotyczących nowo załadowanych danych
 
-Przejdź do omówienia opracowywania, aby dowiedzieć się, jak przeprowadzić migrację istniejącej bazy danych do puli SQL usługi Azure Synapse.
+Aby dowiedzieć się, jak przeprowadzić migrację istniejącej bazy danych do puli SQL, należy przejść do Azure Synapse projektowania.
 
 > [!div class="nextstepaction"]
->[Podejmowanie decyzji projektowych dotyczących migracji istniejącej bazy danych do puli SQL](sql-data-warehouse-overview-develop.md)
+>[Decyzje projektowe dotyczące migrowania istniejącej bazy danych do puli SQL](sql-data-warehouse-overview-develop.md)

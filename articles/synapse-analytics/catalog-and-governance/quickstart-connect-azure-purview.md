@@ -1,52 +1,52 @@
 ---
 title: Łączenie konta usługi Azure Purview 
-description: Połącz konto usługi Azure kontrolą z obszarem roboczym Synapse.
-services: synapse-analytics
+description: Łączenie konta usługi Azure Purview z obszarem roboczym usługi Synapse.
 author: julieMSFT
 ms.service: synapse-analytics
+ms.subservice: ''
 ms.topic: quickstart
 ms.date: 12/16/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 73ea2f43591d1c7ca2d42591e14b4ff04eb7e496
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ad9250d022f02db06c9c5251c1fccfbfb730af67
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105628632"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567880"
 ---
-# <a name="quickstartconnect-an-azure-purview-account-to-a-synapse-workspace"></a>Szybki Start: Łączenie konta usługi Azure kontrolą z obszarem roboczym Synapse 
+# <a name="quickstartconnect-an-azure-purview-account-to-a-synapse-workspace"></a>Szybki start: łączenie konta usługi Azure Purview z obszarem roboczym usługi Synapse 
 
 
-W tym przewodniku szybki start będziesz rejestrować konto usługi Azure kontrolą w obszarze roboczym Synapse. To połączenie umożliwia odnajdywanie zasobów usługi Azure kontrolą i współdziałanie z nimi za pomocą funkcji Synapse. 
+W tym przewodniku Szybki start zarejestrujesz konto usługi Azure Purview w obszarze roboczym usługi Synapse. To połączenie umożliwia odnajdywanie zasobów usługi Azure Purview i interakcję z nimi za pośrednictwem funkcji usługi Synapse. 
 
-W programie Synapse można wykonywać następujące zadania: 
-- Użyj pola wyszukiwania u góry, aby znaleźć kontrolą zasoby na podstawie słów kluczowych 
-- Informacje na temat metadanych, elementów zależnych, adnotacji 
+W ujmie synapse można wykonać następujące zadania: 
+- Użyj pola wyszukiwania u góry, aby znaleźć zasoby Purview oparte na słowach kluczowych 
+- Informacje o danych opartych na metadanych, pozytywu i adnotacjach 
 - Łączenie tych danych z obszarem roboczym za pomocą połączonych usług lub zestawów danych integracji 
-- Analizowanie tych zestawów danych za pomocą Synapse Apache Spark, Synapse SQL i przepływu danych 
+- Analizowanie tych zestawów danych za pomocą Apache Spark, Synapse SQL i Przepływ danych 
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
-- [Konto usługi Azure kontrolą](../../purview/create-catalog-portal.md) 
-- [Obszar roboczy Synapse](../quickstart-create-workspace.md) 
+- [Konto usługi Azure Purview](../../purview/create-catalog-portal.md) 
+- [Obszar roboczy synapse](../quickstart-create-workspace.md) 
 
-## <a name="signin-toa-synapse-workspace"></a>Logowanie się do obszaru roboczego Synapse 
+## <a name="signin-toa-synapse-workspace"></a>Logowanie do obszaru roboczego synapse 
 
-Przejdź do  [https://web.azuresynapse.net](https://web.azuresynapse.net) obszaru roboczego i zaloguj się do niego. 
+Przejdź do  [https://web.azuresynapse.net](https://web.azuresynapse.net) witryny i zaloguj się do obszaru roboczego. 
 
-## <a name="permissions-for-connecting-an-azure-purview-account"></a>Uprawnienia do nawiązywania połączenia z kontem usługi Azure kontrolą 
+## <a name="permissions-for-connecting-an-azure-purview-account"></a>Uprawnienia do łączenia konta usługi Azure Purview 
 
-- Aby można było połączyć konto usługi Azure kontrolą z obszarem roboczym Synapse, potrzebna jest rola **współautor** w obszarze roboczym Synapse z Azure portal usługi IAM i będzie potrzebny dostęp do tego konta kontrolą platformy Azure. Aby uzyskać więcej informacji, zobacz [uprawnienia usługi Azure kontrolą](../../purview/catalog-permissions.md).
+- Aby połączyć konto usługi Azure Purview z obszarem roboczym usługi Synapse, potrzebujesz roli Współautor w obszarze roboczym usługi Synapse z usługi Azure Portal IAM i potrzebujesz dostępu do tego konta usługi Azure Purview.  Aby uzyskać więcej informacji, zobacz [Azure Purview permissions (Uprawnienia usługi Azure Purview).](../../purview/catalog-permissions.md)
 
 ## <a name="connect-an-azure-purview-account"></a>Łączenie konta usługi Azure Purview  
 
-- W obszarze roboczym Synapse przejdź do pozycji **Zarządzaj**  ->  **usługą Azure kontrolą**. Wybierz pozycję **Połącz z kontem kontrolą**. 
-- Możesz wybrać jedną **z subskrypcji platformy Azure** lub **wprowadzić ją ręcznie**. **W ramach subskrypcji platformy Azure** możesz wybrać konto, do którego masz dostęp. 
-- Po nawiązaniu połączenia powinna być widoczna nazwa konta kontrolą na karcie **Azure kontrolą Account**. 
-- Możesz użyć paska wyszukiwania w górnej części obszaru roboczego Synapse, aby wyszukać dane. 
+- W obszarze roboczym usługi Synapse przejdź do obszaru **Zarządzanie**  ->  **usługą Azure Purview.** Wybierz **pozycję Połącz z kontem programu Purview.** 
+- Możesz wybrać pozycję **Z subskrypcji platformy Azure** lub ręcznie wprowadzić **wartość**. **W subskrypcji platformy Azure** możesz wybrać konto, do których masz dostęp. 
+- Po na połączeniu powinno być możliwe wyświetlanie nazwy konta purview na karcie **Konto usługi Azure Purview.** 
+- Aby wyszukać dane, możesz użyć paska wyszukiwania w górnej części obszaru roboczego synapse. 
 
 ## <a name="nextsteps"></a>Następne kroki 
 
-[Rejestrowanie i skanowanie zasobów usługi Azure Synapse na platformie Azure kontrolą](../../purview/register-scan-azure-synapse-analytics.md)
+[Rejestrowanie i skanowanie zasobów Azure Synapse usłudze Azure Purview](../../purview/register-scan-azure-synapse-analytics.md)
 
 [Odkrywanie, łączenie i eksplorowanie danych w usłudze Synapse przy użyciu usługi Azure Purview](how-to-discover-connect-analyze-azure-purview.md)   

@@ -1,174 +1,174 @@
 ---
 title: Kontrola źródła w programie Synapse Studio
-description: Dowiedz się, jak skonfigurować kontrolę źródła w usłudze Azure Synapse Studio
-services: synapse-analytics
+description: Dowiedz się, jak skonfigurować kontrolę źródła w programie Azure Synapse Studio
 author: liud
 ms.service: synapse-analytics
+ms.subservice: workspace
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 3564609d869bef090f0a3db5e6040ba0f5ad80b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f1b459c2644472463004c231f5827ff653d2da1
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98796971"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567846"
 ---
-# <a name="source-control-in-azure-synapse-studio"></a>Kontrola źródła w usłudze Azure Synapse Studio
+# <a name="source-control-in-azure-synapse-studio"></a>Kontrola źródła w programie Azure Synapse Studio
 
-Domyślnie autorzy usługi Azure Synapse Studio bezpośrednio w usłudze Synapse. Jeśli potrzebujesz współpracy przy użyciu narzędzia Git na potrzeby kontroli źródła, Synapse Studio umożliwia skojarzenie obszaru roboczego z repozytorium git, Azure DevOps lub GitHub. 
+Domyślnie autorzy Azure Synapse Studio bezpośrednio w usłudze Synapse. Jeśli potrzebujesz współpracy przy użyciu narzędzia Git do kontroli źródła, usługa Synapse Studio umożliwia skojarzenie obszaru roboczego z repozytorium Git, Azure DevOps lub GitHub. 
 
-W tym artykule opisano sposób konfigurowania i pracy w obszarze roboczym usługi Synapse z włączonym repozytorium git. Ponadto wyróżniamy niektóre najlepsze rozwiązania i wskazówki dotyczące rozwiązywania problemów.
-
-> [!NOTE]
-> Integracja usługi Azure Synapse Studio Git nie jest dostępna w chmurze Azure Government.
-
-## <a name="configure-git-repository-in-synapse-studio"></a>Konfigurowanie repozytorium Git w programie Synapse Studio 
-
-Po uruchomieniu programu Synapse Studio można skonfigurować repozytorium Git w obszarze roboczym. Obszar roboczy programu Synapse Studio może być skojarzony tylko z jednym repozytorium git naraz. 
-
-### <a name="configuration-method-1-global-bar"></a>Konfiguracja Metoda 1: pasek globalny
-
-Na pasku globalnym Synapse Studio zaznacz menu rozwijane **Synapse Live** , a następnie wybierz pozycję **Konfiguruj repozytorium kodu**.
-
-![Konfigurowanie ustawień repozytorium kodu na podstawie tworzenia](media/configure-repo-1.png)
-
-### <a name="configuration-method-2-manage-hub"></a>Konfiguracja Metoda 2. zarządzanie centrum
-
-Przejdź do centrum zarządzania programu Synapse Studio. Wybierz pozycję **konfiguracja Git** w sekcji **Kontrola źródła** . Jeśli nie masz połączenia z repozytorium, kliknij przycisk **Konfiguruj**.
-
-![Konfigurowanie ustawień repozytorium kodu z poziomu centrum zarządzania](media/configure-repo-2.png)
+W tym artykule opisano sposób konfigurowania i pracy w obszarze roboczym usługi Synapse z włączonym repozytorium Git. Ponadto wyróżnimy niektóre najlepsze rozwiązania i przewodnik rozwiązywania problemów.
 
 > [!NOTE]
-> Użytkownicy otrzymani jako role współautor obszaru roboczego, właściciel lub wyższego poziomu mogą konfigurować, edytować ustawienia i rozłączać repozytorium Git w usłudze Azure Synapse Studio 
+> Azure Synapse Studio git nie jest dostępna w chmurze Azure Government Cloud.
 
-W obszarze roboczym możesz połączyć repozytorium usługi Azure DevOps lub GitHub.
+## <a name="configure-git-repository-in-synapse-studio"></a>Konfigurowanie repozytorium Git w usłudze Synapse Studio 
 
-## <a name="connect-with-azure-devops-git"></a>Nawiązywanie połączenia z usługą Azure DevOps git 
+Po uruchomieniu Synapse Studio możesz skonfigurować repozytorium git w obszarze roboczym. Obszar Synapse Studio może być skojarzony tylko z jednym repozytorium Git na raz. 
 
-Możesz skojarzyć obszar roboczy Synapse z repozytorium Azure DevOps w celu kontroli źródła, współpracy, obsługi wersji i tak dalej. Jeśli nie masz repozytorium Azure DevOps, postępuj zgodnie z [tymi instrukcjami](/azure/devops/organizations/accounts/create-organization-msa-or-work-student) , aby utworzyć zasoby repozytorium.
+### <a name="configuration-method-1-global-bar"></a>Metoda konfiguracji 1: pasek globalny
 
-### <a name="azure-devops-git-repository-settings"></a>Ustawienia repozytorium git usługi Azure DevOps
+Na pasku Synapse Studio wybierz menu rozwijane **Synapse Live,** a następnie wybierz pozycję **Skonfiguruj repozytorium kodu.**
 
-Podczas nawiązywania połączenia z repozytorium git wybierz typ repozytorium jako Azure DevOps git, a następnie wybierz jedną dzierżawę usługi Azure AD z listy rozwijanej, a następnie kliknij przycisk **Kontynuuj**.
+![Konfigurowanie ustawień repozytorium kodu podczas tworzenia](media/configure-repo-1.png)
+
+### <a name="configuration-method-2-manage-hub"></a>Metoda konfiguracji 2: Zarządzanie centrum
+
+Przejdź do centrum Zarządzanie Synapse Studio. Wybierz **pozycję Konfiguracja usługi Git** w sekcji **Kontrola** źródła. Jeśli nie masz połączonego repozytorium, kliknij pozycję **Konfiguruj.**
+
+![Konfigurowanie ustawień repozytorium kodu z centrum zarządzania](media/configure-repo-2.png)
+
+> [!NOTE]
+> Użytkownicy z uprawnieniami współautora obszaru roboczego, właściciela lub wyższego poziomu mogą konfigurować, edytować ustawienia i rozłączać repozytorium Git w programie Azure Synapse Studio 
+
+W obszarze roboczym Azure DevOps repozytorium GitHub lub repozytorium GitHub.
+
+## <a name="connect-with-azure-devops-git"></a>Nawiązywanie połączenia z Azure DevOps Git 
+
+Obszar roboczy synapse można skojarzyć z repozytorium Azure DevOps na temat kontroli źródła, współpracy, wersji i tak dalej. Jeśli nie masz repozytorium Azure DevOps, [postępuj](/azure/devops/organizations/accounts/create-organization-msa-or-work-student) zgodnie z tymi instrukcjami, aby utworzyć zasoby repozytorium.
+
+### <a name="azure-devops-git-repository-settings"></a>Azure DevOps repozytorium Git
+
+Podczas nawiązywania połączenia z repozytorium git najpierw wybierz typ repozytorium jako Azure DevOps git, a następnie wybierz jedną dzierżawę usługi Azure AD z listy rozwijanej i kliknij przycisk **Kontynuuj.**
 
 ![Konfigurowanie ustawień repozytorium kodu](media/connect-with-azuredevops-repo-selected.png)
 
-W okienku Konfiguracja są wyświetlane następujące ustawienia usługi Azure DevOps git:
+W okienku konfiguracji są Azure DevOps ustawienia usługi Git:
 
 | Ustawienie | Opis | Wartość |
 |:--- |:--- |:--- |
-| **Typ repozytorium** | Typ repozytorium kodu Azure Repos.<br/> | Azure DevOps Git lub GitHub |
+| **Typ repozytorium** | Typ repozytorium Azure Repos kodu.<br/> | Azure DevOps Git lub GitHub |
 | **Azure Active Directory** | Nazwa dzierżawy usługi Azure AD. | `<your tenant name>` |
-| **Konto usługi Azure DevOps** | Nazwa organizacji Azure Repos. Nazwę organizacji Azure Repos można znaleźć pod adresem `https://{organization name}.visualstudio.com` . Możesz [zalogować się do organizacji Azure Repos](https://www.visualstudio.com/team-services/git/) , aby uzyskać dostęp do profilu programu Visual Studio i zobaczyć repozytoria i projekty. | `<your organization name>` |
-| **ProjectName** | Nazwa projektu Azure Repos. Nazwę projektu Azure Repos można znaleźć pod adresem `https://{organization name}.visualstudio.com/{project name}` . | `<your Azure Repos project name>` |
-| **Nr repozytorium** | Nazwa repozytorium kodu Azure Repos. Projekty Azure Repos zawierają repozytoria Git umożliwiające zarządzanie kodem źródłowym w miarę rozwoju projektu. Można utworzyć nowe repozytorium lub użyć istniejącego repozytorium, które już istnieje w projekcie. | `<your Azure Repos code repository name>` |
-| **Rozgałęzienie współpracy** | Gałąź współpracy Azure Repos, która jest używana do publikowania. Domyślnie jego `master` . Zmień to ustawienie, jeśli chcesz opublikować zasoby z innej gałęzi. Możesz wybrać istniejące gałęzie lub utworzyć nowe | `<your collaboration branch name>` |
-| **Folder główny** | Folder główny w gałęzi współpracy Azure Repos. | `<your root folder name>` |
-| **Importuj istniejące zasoby do repozytorium** | Określa, czy zaimportować istniejące zasoby z programu Synapse Studio do repozytorium Azure Repos git. Zaznacz pole wyboru w celu zaimportowania zasobów obszaru roboczego (z wyjątkiem pul) do skojarzonego repozytorium Git w formacie JSON. Ta akcja eksportuje poszczególne zasoby pojedynczo. Gdy to pole nie zostanie zaznaczone, istniejące zasoby nie zostaną zaimportowane. | Zaznaczone (domyślnie) |
-| **Importuj zasób do tej gałęzi** | Wybierz gałąź, do której zostaną zaimportowane zasoby (skrypt SQL, Notes, definicja zadania platformy Spark, zestaw danych, przepływu danych itp.). 
+| **Azure DevOps konto** | Nazwa Azure Repos organizacji. Swoją nazwę organizacji Azure Repos znaleźć pod `https://{organization name}.visualstudio.com` adresem . Możesz [zalogować się do swojej organizacji Azure Repos,](https://www.visualstudio.com/team-services/git/) aby uzyskać dostęp do profilu aplikacji Visual Studio oraz wyświetlić repozytoria i projekty. | `<your organization name>` |
+| **Nazwaprojektu** | Nazwa Azure Repos projektu. Nazwę projektu można Azure Repos pod adresem `https://{organization name}.visualstudio.com/{project name}` . | `<your Azure Repos project name>` |
+| **RepositoryName** | Nazwa Azure Repos repozytorium kodu. Azure Repos projektów zawierają repozytoria Git do zarządzania kodem źródłowym w miarę rozwoju projektu. Możesz utworzyć nowe repozytorium lub użyć istniejącego repozytorium, które już istnieje w projekcie. | `<your Azure Repos code repository name>` |
+| **Gałąź współpracy** | Gałąź Azure Repos współpracy, która jest używana do publikowania. Domyślnie jest to jego `master` . Zmień to ustawienie, jeśli chcesz opublikować zasoby z innej gałęzi. Możesz wybrać istniejące gałęzie lub utworzyć nowe | `<your collaboration branch name>` |
+| **Folder główny** | Folder główny w gałęzi Azure Repos współpracy. | `<your root folder name>` |
+| **Importowanie istniejących zasobów do repozytorium** | Określa, czy chcesz zaimportować istniejące zasoby z Synapse Studio do Azure Repos Git. Zaznacz pole wyboru, aby zaimportować zasoby obszaru roboczego (z wyjątkiem pul) do skojarzonego repozytorium Git w formacie JSON. Ta akcja eksportuje każdy zasób indywidualnie. Jeśli to pole nie jest zaznaczone, istniejące zasoby nie są importowane. | Zaznaczone (ustawienie domyślne) |
+| **Importowanie zasobu do tej gałęzi** | Wybierz gałąź, do której mają być importowane zasoby (skrypt SQL, notes, definicja zadania platformy Spark, zestaw danych, przepływ danych itp.). 
 
 Możesz również użyć linku repozytorium, aby szybko wskazać repozytorium git, z którym chcesz nawiązać połączenie. 
 
-### <a name="use-a-different-azure-active-directory-tenant"></a>Korzystanie z innej dzierżawy Azure Active Directory
+### <a name="use-a-different-azure-active-directory-tenant"></a>Używanie innej dzierżawy Azure Active Directory dzierżawy
 
-Repozytorium git Azure Repos może znajdować się w innej dzierżawie Azure Active Directory. Aby określić inną dzierżawę usługi Azure AD, musisz mieć uprawnienia administratora w używanej subskrypcji platformy Azure. Aby uzyskać więcej informacji, zobacz [Zmienianie administratora subskrypcji](../../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator)
+Repozytorium Azure Repos Git może się różnić od Azure Active Directory dzierżawy. Aby określić inną dzierżawę usługi Azure AD, musisz mieć uprawnienia administratora w używanej subskrypcji platformy Azure. Aby uzyskać więcej informacji, zobacz [Zmienianie administratora subskrypcji](../../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator)
 
 > [!IMPORTANT]
-> Aby nawiązać połączenie z innym Azure Active Directory, zalogowany użytkownik musi być częścią usługi Active Directory. 
+> Aby nawiązać Azure Active Directory, zalogowany użytkownik musi być częścią tej usługi Active Directory. 
 
-### <a name="use-your-personal-microsoft-account"></a>Korzystanie z konto Microsoft osobistych
+### <a name="use-your-personal-microsoft-account"></a>Korzystanie z osobistych konto Microsoft
 
-Aby skorzystać z osobistego konto Microsoft na potrzeby integracji z usługą git, możesz połączyć swoje osobiste repozytorium platformy Azure z Active Directoryą swojej organizacji.
+Aby użyć osobistego konta konto Microsoft integracji z usługą Git, możesz połączyć osobiste repozytorium platformy Azure z usługą Active Directory organizacji.
 
-1. Dodaj osobistą konto Microsoft do Active Directory organizacji jako gość. Aby uzyskać więcej informacji, zobacz [dodawanie Azure Active Directory użytkowników współpracy B2B w Azure Portal](../../active-directory/external-identities/add-users-administrator.md).
+1. Dodaj osobisty konto Microsoft do usługi Active Directory organizacji jako gościa. Aby uzyskać więcej informacji, zobacz [Add Azure Active Directory B2B collaboration users in the Azure Portal](../../active-directory/external-identities/add-users-administrator.md)(Dodawanie użytkowników współpracy B2B w Azure Portal).
 
-2. Zaloguj się do Azure Portal przy użyciu konto Microsoft osobistych. Następnie przejdź do Active Directory organizacji.
+2. Zaloguj się do aplikacji Azure Portal przy użyciu osobistych konto Microsoft. Następnie przejdź do usługi Active Directory organizacji.
 
-3. Przejdź do sekcji Azure DevOps, w której możesz teraz zobaczyć Twoje osobiste repozytorium. Wybierz repozytorium i Połącz się z Active Directory.
+3. Przejdź do Azure DevOps, w której jest teraz dostępne twoje osobiste repo. Wybierz repo i połącz się z usługą Active Directory.
 
-Po wykonaniu tych kroków konfiguracyjnych Twoje repozytorium osobiste będzie dostępne po skonfigurowaniu integracji usługi Git w programie Synapse Studio.
+Po tych krokach konfiguracji Twoje osobiste repozytorium jest dostępne podczas konfigurowania integracji z usługą Git w Synapse Studio.
 
-Aby uzyskać więcej informacji na temat łączenia Azure Repos z Active Directory organizacji, zobacz [łączenie organizacji z Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
+Aby uzyskać więcej informacji na Azure Repos z usługą Active Directory organizacji, zobacz Łączenie organizacji [z usługą Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
 
-## <a name="connect-with-github"></a>Łączenie z usługą GitHub 
+## <a name="connect-with-github"></a>Nawiązywanie połączenia z repozytorium GitHub 
 
- Możesz skojarzyć obszar roboczy z repozytorium GitHub na potrzeby kontroli źródła, współpracy i przechowywania wersji. Jeśli nie masz konta lub repozytorium usługi GitHub, postępuj zgodnie z [tymi instrukcjami](https://github.com/join) , aby utworzyć zasoby.
+ Obszar roboczy można skojarzyć z repozytorium GitHub w celu kontroli źródła, współpracy i wersjonarowania. Jeśli nie masz konta lub repozytorium GitHub, postępuj zgodnie z tymi instrukcjami, [aby](https://github.com/join) utworzyć zasoby.
 
-Integracja usługi GitHub z programem Synapse Studio obsługuje zarówno publiczną witrynę GitHub (czyli [https://github.com](https://github.com) ), jak i witrynę GitHub Enterprise. Można używać publicznych i prywatnych repozytoriów GitHub, o ile masz uprawnienia do odczytu i zapisu w repozytorium w usłudze GitHub.
+Integracja usługi GitHub z usługą Synapse Studio obsługuje zarówno publiczną usługę GitHub (czyli ), jak [https://github.com](https://github.com) i GitHub Enterprise. Możesz używać zarówno publicznych, jak i prywatnych repozytoriów GitHub, o ile masz uprawnienia do odczytu i zapisu w repozytorium w usłudze GitHub.
 
 ### <a name="github-settings"></a>Ustawienia usługi GitHub
 
-Podczas nawiązywania połączenia z repozytorium git najpierw wybierz typ repozytorium jako GitHub, a następnie podaj konto usługi GitHub lub adres URL serwera GitHub Enterprise, jeśli używasz programu GitHub Enterprise Server, a następnie kliknij przycisk **Kontynuuj**.
+Podczas nawiązywania połączenia z repozytorium Git najpierw wybierz typ repozytorium jako GitHub, a następnie podaj konto usługi GitHub lub adres URL serwera GitHub Enterprise Server, jeśli używasz programu GitHub Enterprise Server, a następnie kliknij **przycisk** Kontynuuj.
 
 ![Ustawienia repozytorium GitHub](media/connect-with-github-repo-1.png)
 
-W okienku Konfiguracja są wyświetlane następujące ustawienia repozytorium GitHub:
+Okienko konfiguracji zawiera następujące ustawienia repozytorium GitHub:
 
 | **Ustawienie** | **Opis**  | **Wartość**  |
 |:--- |:--- |:--- |
-| **Typ repozytorium** | Typ repozytorium kodu Azure Repos. | GitHub |
-| **Korzystanie z usługi GitHub Enterprise** | Zaznacz pole wyboru usługi GitHub Enterprise | niezaznaczony (domyślnie) |
-| **Adres URL przedsiębiorstwa usługi GitHub** | Główny adres URL przedsiębiorstwa usługi GitHub (musi być adresem HTTPS dla lokalnego serwera usługi GitHub Enterprise). Na przykład: `https://github.mydomain.com`. Wymagane tylko wtedy, gdy wybrano korzystanie z usługi **GitHub Enterprise** | `<your GitHub enterprise url>` |                                                           
-| **Konto usługi GitHub** | Nazwa konta usługi GitHub. Tę nazwę można znaleźć z protokołu https: \/ /GitHub.com/{account name}/{Repository Name}. Przechodzenie na stronę z prośbą o wprowadzenie poświadczeń OAuth usługi GitHub na Twoje konto w usłudze GitHub. | `<your GitHub account name>` |
-| **Nazwa repozytorium**  | Nazwa repozytorium kodu usługi GitHub. Konta usługi GitHub zawierają repozytoria Git do zarządzania kodem źródłowym. Można utworzyć nowe repozytorium lub użyć istniejącego repozytorium, które już znajduje się na Twoim koncie. | `<your repository name>` |
-| **Rozgałęzienie współpracy** | Gałąź współpracy GitHub, która jest używana do publikowania. Domyślnie jego główna. Zmień to ustawienie, jeśli chcesz opublikować zasoby z innej gałęzi. | `<your collaboration branch>` |
-| **Folder główny** | Twój folder główny w gałęzi współpracy usługi GitHub. |`<your root folder name>` |
-| **Importuj istniejące zasoby do repozytorium** | Określa, czy zaimportować istniejące zasoby z programu Synapse Studio do repozytorium git. Zaznacz pole wyboru w celu zaimportowania zasobów obszaru roboczego (z wyjątkiem pul) do skojarzonego repozytorium Git w formacie JSON. Ta akcja eksportuje poszczególne zasoby pojedynczo. Gdy to pole nie zostanie zaznaczone, istniejące zasoby nie zostaną zaimportowane. | Wybrane (domyślnie) |
-| **Importuj zasób do tej gałęzi** | Wybierz gałąź, do której zostaną zaimportowane zasoby (skrypt SQL, Notes, definicja zadania platformy Spark, zestaw danych, przepływu danych itp.). 
+| **Typ repozytorium** | Typ repozytorium Azure Repos kodu. | GitHub |
+| **Korzystanie z GitHub Enterprise** | Pole wyboru, aby wybrać GitHub Enterprise | unselected (wartość domyślna) |
+| **GitHub Enterprise URL** | Główny GitHub Enterprise URL (musi być adresem HTTPS dla lokalnego GitHub Enterprise serwera). Na przykład: `https://github.mydomain.com`. Wymagane tylko w **przypadku GitHub Enterprise** użyj | `<your GitHub enterprise url>` |                                                           
+| **Konto usługi GitHub** | Nazwa konta usługi GitHub. Tę nazwę można znaleźć pod adresem https: \/ /github.com/{nazwa konta}/{nazwa repozytorium}. Przejście do tej strony monituje o wprowadzenie poświadczeń OAuth usługi GitHub na koncie usługi GitHub. | `<your GitHub account name>` |
+| **Nazwa repozytorium**  | Nazwa repozytorium kodu GitHub. Konta usługi GitHub zawierają repozytoria Git do zarządzania kodem źródłowym. Możesz utworzyć nowe repozytorium lub użyć istniejącego repozytorium, które już istnieje na Twoim koncie. | `<your repository name>` |
+| **Gałąź współpracy** | Gałąź współpracy usługi GitHub, która jest używana do publikowania. Domyślnie jest to jego wzorzec. Zmień to ustawienie, jeśli chcesz opublikować zasoby z innej gałęzi. | `<your collaboration branch>` |
+| **Folder główny** | Folder główny w gałęzi współpracy usługi GitHub. |`<your root folder name>` |
+| **Importowanie istniejących zasobów do repozytorium** | Określa, czy chcesz zaimportować istniejące zasoby z Synapse Studio do repozytorium Git. Zaznacz pole wyboru, aby zaimportować zasoby obszaru roboczego (z wyjątkiem pul) do skojarzonego repozytorium Git w formacie JSON. Ta akcja eksportuje każdy zasób osobno. Jeśli to pole nie jest zaznaczone, istniejące zasoby nie są importowane. | Wybrane (ustawienie domyślne) |
+| **Importowanie zasobu do tej gałęzi** | Wybierz gałąź, do której mają być importowane zasoby (skrypt SQL, notes, definicja zadania platformy Spark, zestaw danych, przepływ danych itp.). 
 
-### <a name="github-organizations"></a>Organizacje GitHub
+### <a name="github-organizations"></a>Organizacje usługi GitHub
 
-Połączenie z organizacją GitHub wymaga od organizacji udzielenia uprawnienia do Synapse Studio. Użytkownik z uprawnieniami administratora w organizacji musi wykonać poniższe czynności.
+Nawiązywanie połączenia z organizacją usługi GitHub wymaga, aby organizacja udzielała uprawnień do Synapse Studio. Użytkownik z uprawnieniami ADMINISTRATORA w organizacji musi wykonać poniższe kroki.
 
 #### <a name="connecting-to-github-for-the-first-time"></a>Nawiązywanie połączenia z serwisem GitHub po raz pierwszy
 
-Jeśli łączysz się z usługą GitHub z programu Synapse Studio po raz pierwszy, wykonaj następujące kroki, aby nawiązać połączenie z organizacją usługi GitHub.
+Jeśli łączysz się z serwisem GitHub z Synapse Studio po raz pierwszy, wykonaj następujące kroki, aby nawiązać połączenie z organizacją usługi GitHub.
 
-1. W okienku Konfiguracja usługi git wprowadź nazwę organizacji w polu konto usługi *GitHub* . Zostanie wyświetlony monit o zalogowanie się do usługi GitHub. 
+1. W okienku konfiguracji usługi Git wprowadź nazwę organizacji w polu *Konto usługi GitHub.* Zostanie wyświetlony monit o zalogowanie się do usługi GitHub. 
 
 1. Zaloguj się przy użyciu poświadczeń użytkownika.
 
-1. Użytkownik zostanie poproszony o autoryzowanie Synapse jako aplikacji o nazwie *Azure Synapse*. Na tym ekranie zostanie wyświetlona opcja udzielenia uprawnienia do Synapse w celu uzyskania dostępu do organizacji. Jeśli nie widzisz opcji udzielenia uprawnienia, poprosimy administratora o ręczne przyznanie uprawnienia za pomocą usługi GitHub.
+1. Zostanie poproszony o autoryzowanie synapse jako aplikacji o nazwie *Azure Synapse*. Na tym ekranie zobaczysz opcję udzielenia ujmowania u usługę Synapse uprawnień dostępu do organizacji. Jeśli nie widzisz opcji udzielenia uprawnień, poproś administratora o ręczne udzielenie uprawnień za pośrednictwem usługi GitHub.
 
-Po wykonaniu tych kroków obszar roboczy będzie mógł połączyć się z repozytoriami publicznymi i prywatnymi w organizacji. Jeśli nie możesz nawiązać połączenia, spróbuj wyczyścić pamięć podręczną przeglądarki i ponowić próbę.
+Po zakończeniu tych kroków obszar roboczy będzie mógł łączyć się zarówno z repozytoriami publicznymi, jak i prywatnymi w organizacji. Jeśli nie możesz nawiązać połączenia, spróbuj wyczyścić pamięć podręczną przeglądarki i ponów próbę.
 
-#### <a name="already-connected-to-github-using-a-personal-account"></a>Nawiązano już połączenie z usługą GitHub przy użyciu konta osobistego
+#### <a name="already-connected-to-github-using-a-personal-account"></a>Już nałączono połączenie z usługą GitHub przy użyciu konta osobistego
 
-Jeśli masz już połączenie z usługą GitHub i masz przyznane uprawnienia dostępu do konta osobistego, postępuj zgodnie z poniższymi instrukcjami, aby udzielić uprawnień do organizacji.
+Jeśli masz już połączenie z usługą GitHub i masz uprawnienia dostępu tylko do konta osobistego, wykonaj poniższe kroki, aby udzielić uprawnień organizacji.
 
-1. Przejdź do witryny GitHub i Otwórz pozycję **Ustawienia**.
+1. Przejdź do witryny GitHub i otwórz **pozycję Ustawienia**.
 
-    ![Otwórz ustawienia usługi GitHub](media/github-settings.png)
+    ![Otwieranie ustawień usługi GitHub](media/github-settings.png)
 
-1. Wybierz pozycję **aplikacje**. Na karcie **autoryzowane aplikacje OAuth** powinna zostać wyświetlona *usługa Azure Synapse*.
+1. Wybierz **pozycję Aplikacje.** Na karcie **Autoryzowane aplikacje OAuth** powinien zostać wyświetlony *Azure Synapse*.
 
-    ![Autoryzuj aplikacje OAuth](media/authorize-app.png)
+    ![Autoryzowanie aplikacji OAuth](media/authorize-app.png)
 
-1. Wybierz *usługę Azure Synapse* i Udziel dostępu do swojej organizacji.
+1. Wybierz *Azure Synapse* i przyznaj dostęp do swojej organizacji.
 
-    ![Uprawnienie przyznawania organizacji](media/grant-organization-permission.png)
+    ![Przyznawanie uprawnień organizacji](media/grant-organization-permission.png)
 
-Po wykonaniu tych kroków obszar roboczy będzie mógł połączyć się z repozytoriami publicznymi i prywatnymi w organizacji.
+Po ukończeniu tych kroków obszar roboczy będzie mógł łączyć się zarówno z repozytoriami publicznymi, jak i prywatnymi w organizacji.
 
 ## <a name="version-control"></a>Kontrola wersji
 
-Systemy kontroli wersji (znane także jako _Kontrola źródła_) umożliwiają deweloperom współpracę w kodzie i śledzenie zmian. Kontrola źródła to podstawowe narzędzie dla projektów z obsługą kilku deweloperów.
+Systemy kontroli wersji (nazywane również _kontrolą źródła)_ umożliwiają deweloperom współpracę nad kodem i śledzenie zmian. Kontrola źródła to podstawowe narzędzie dla projektów dla wielu deweloperów.
 
 ### <a name="creating-feature-branches"></a>Tworzenie gałęzi funkcji
 
-Każde repozytorium git skojarzone z programem Synapse Studio ma rozgałęzienie współpracy. ( `main` lub `master` jest domyślną gałęzią współpracy). Użytkownicy mogą również tworzyć gałęzie funkcji, klikając pozycję **+ Nowa gałąź** na liście rozwijanej rozgałęzienie. Gdy zostanie wyświetlone okienko nowe rozgałęzienie, wprowadź nazwę gałęzi funkcji.
+Każde repozytorium Git skojarzone z skojarzoną Synapse Studio ma gałąź współpracy. ( `main` lub `master` jest domyślną gałęzią współpracy). Użytkownicy mogą również tworzyć gałęzie funkcji, klikając **pozycję + Nowa gałąź** na liście rozwijanej gałęzi. Gdy pojawi się okienko nowej gałęzi, wprowadź nazwę gałęzi funkcji.
 
-![Utwórz nową gałąź](media/create-new-branch.png)
+![Tworzenie nowej gałęzi](media/create-new-branch.png)
 
-Gdy wszystko będzie gotowe do scalenia zmian z gałęzi funkcji z gałęzią współpracy, kliknij listę rozwijaną rozgałęzienie i wybierz pozycję **Utwórz żądanie ściągnięcia**. Ta akcja spowoduje przejście do dostawcy usługi git, gdzie można zgłaszać żądania ściągnięcia, przeprowadzać przeglądy kodu i scalać zmiany w gałęzi współpracy. Możliwe jest tylko publikowanie w usłudze Synapse z poziomu gałęzi współpracy. 
+Gdy wszystko będzie gotowe do scalenia zmian z gałęzi funkcji z gałęzią współpracy, kliknij pozycję listy rozwijanej gałęzi i wybierz **pozycję Utwórz żądanie ściągnięcie.** Ta akcja przenosi cię do dostawcy usługi Git, gdzie możesz zgłaszać żądania ściągnięć, przeglądać kod i scalać zmiany z gałęzią współpracy. Publikowanie w usłudze Synapse można publikować tylko z gałęzi współpracy. 
 
-![Utwórz nowe żądanie ściągnięcia](media/create-pull-request.png)
+![Tworzenie nowego żądania ściągnnięcia](media/create-pull-request.png)
 
 ### <a name="configure-publishing-settings"></a>Konfigurowanie ustawień publikowania
 
-Domyślnie program Synapse Studio generuje szablony obszarów roboczych i zapisuje je w rozgałęzieniu o nazwie `workspace_publish` . Aby skonfigurować niestandardową gałąź publikowania, Dodaj `publish_config.json` plik do folderu głównego w gałęzi współpracy. Podczas publikowania program Synapse Studio odczytuje ten plik, szuka pola `publishBranch` i zapisuje pliki szablonów obszaru roboczego do określonej lokalizacji. Jeśli gałąź nie istnieje, Synapse Studio utworzy ją automatycznie. Przykład tego, jak wygląda następujący plik:
+Domyślnie program Synapse Studio szablony obszarów roboczych i zapisuje je w gałęzi o nazwie `workspace_publish` . Aby skonfigurować niestandardową gałąź publikowania, `publish_config.json` dodaj plik do folderu głównego w gałęzi współpracy. Podczas publikowania Synapse Studio ten plik, wyszukuje pole i zapisuje pliki szablonów obszaru `publishBranch` roboczego w określonej lokalizacji. Jeśli gałąź nie istnieje, Synapse Studio automatycznie ją utworzy. Przykładowy wygląd tego pliku znajduje się poniżej:
 
 ```json
 {
@@ -176,68 +176,68 @@ Domyślnie program Synapse Studio generuje szablony obszarów roboczych i zapisu
 }
 ```
 
-Usługa Azure Synapse Studio może mieć tylko jedną gałąź publikowania jednocześnie. Po określeniu nowej gałęzi publikowania Poprzednia gałąź publikacji nie zostanie usunięta. Jeśli chcesz usunąć poprzednią gałąź publikowania, usuń ją ręcznie.
+Azure Synapse Studio może mieć tylko jedną gałąź publikowania na raz. Po określeniu nowej gałęzi publikowania poprzednia gałąź publikowania nie zostałaby usunięta. Jeśli chcesz usunąć poprzednią gałąź publikowania, usuń ją ręcznie.
 
 
-### <a name="publish-code-changes"></a>Publikuj zmiany kodu
+### <a name="publish-code-changes"></a>Publikowanie zmian kodu
 
-Po scaleniu zmian w gałęzi współpracy kliknij przycisk **Opublikuj** , aby ręcznie opublikować zmiany kodu w gałęzi współpracy do usługi Synapse.
+Po scaleniu zmian do gałęzi  współpracy kliknij przycisk Publikuj, aby ręcznie opublikować zmiany kodu w gałęzi współpracy w usłudze Synapse.
 
 ![Publikowanie zmian](media/gitmode-publish.png)
 
-Zostanie otwarte okienko boczne, w którym można potwierdzić, że gałąź publikowania i oczekujące zmiany są poprawne. Po sprawdzeniu zmian kliknij przycisk **OK** , aby potwierdzić publikowanie.
+Zostanie otwarte okienko boczne z potwierdzeniem, że gałąź publikowania i oczekujące zmiany są poprawne. Po zweryfikowaniu zmian kliknij przycisk **OK,** aby potwierdzić opublikowanie.
 
-![Potwierdź poprawną gałąź publikacji](media/publish-change.png)
-
-> [!IMPORTANT]
-> Rozgałęzienie współpracy nie jest reprezentatywne dla zawartości wdrożonej w usłudze. Zmiany w gałęzi współpracy *muszą* być publikowane ręcznie.
-
-## <a name="switch-to-a-different-git-repository"></a>Przechodzenie do innego repozytorium git
-
-Aby przełączyć się do innego repozytorium git, przejdź do strony Konfiguracja usługi Git w centrum zarządzania pod **kontrolą źródła**. Wybierz pozycję **Rozłącz**. 
-
-![Ikona git](media/remove-repository.png)
-
-Wprowadź nazwę obszaru roboczego, a następnie kliknij przycisk **Rozłącz** , aby usunąć repozytorium git skojarzone z Twoim obszarem roboczym.
-
-Po usunięciu skojarzenia z bieżącym repozytorium można skonfigurować ustawienia Git w taki sposób, aby korzystało z innego repozytorium, a następnie zaimportować istniejące zasoby do nowego repozytorium.
+![Potwierdzanie poprawnej gałęzi publikowania](media/publish-change.png)
 
 > [!IMPORTANT]
-> Usunięcie konfiguracji usługi git z obszaru roboczego nie powoduje usunięcia żadnych elementów z repozytorium. Obszar roboczy Synapse będzie zawierać wszystkie opublikowane zasoby. Możesz kontynuować edytowanie obszaru roboczego bezpośrednio w usłudze.
+> Gałąź współpracy nie jest reprezentatywna dla tego, co jest wdrożone w usłudze. Zmiany w gałęzi współpracy *muszą zostać* opublikowane ręcznie.
 
-## <a name="best-practices-for-git-integration"></a>Najlepsze rozwiązania związane z integracją z usługą git
+## <a name="switch-to-a-different-git-repository"></a>Przełączanie do innego repozytorium Git
 
--   **Uprawnienia**. Gdy repozytorium git jest połączone z obszarem roboczym, każda osoba, która ma dostęp do repozytorium git z dowolną rolą w obszarze roboczym, będzie mogła aktualizować artefakty, takie jak skrypt SQL, Notes, definicja zadania platformy Spark, zestaw danych, przepływu danych i potok w trybie git. Zwykle nie chcesz, aby każdy członek zespołu miał uprawnienia do aktualizowania obszaru roboczego. Przyznaj uprawnienia repozytorium git tylko dla autorów artefaktów obszaru roboczego Synapse. 
--   **Współpraca**. Zaleca się, aby nie zezwalać na bezpośrednie ewidencjonowanie gałęzi współpracy. To ograniczenie może pomóc zapobiec wystąpieniu błędów, ponieważ każde zaewidencjonowanie przejdzie przez proces przeglądu żądania ściągnięcia opisany w temacie [Tworzenie gałęzi funkcji](source-control.md#creating-feature-branches).
--   **Synapse tryb na żywo**. Po opublikowaniu w trybie git wszystkie zmiany zostaną odzwierciedlone w trybie Synapse na żywo. W trybie Synapse na żywo publikowanie jest wyłączone. Można też wyświetlać i uruchamiać artefakty w trybie na żywo, jeśli masz przyznane odpowiednie uprawnienia. 
--   **Edytuj artefakty w programie Studio**. Synapse Studio jest jedynym miejscem, w którym można włączyć kontrolę źródła obszaru roboczego i automatycznie synchronizować zmiany w usłudze git. Wszelkie zmiany za pomocą zestawu SDK i programu PowerShell nie będą synchronizowane z usługą git. Zalecamy, aby podczas włączania usługi git zawsze edytować artefakt w programie Studio.
+Aby przełączyć się do innego repozytorium Git, przejdź do strony konfiguracji usługi Git w centrum zarządzania w obszarze **Kontrola źródła**. Wybierz pozycję **Rozłącz.** 
 
-## <a name="troubleshooting-git-integration"></a>Rozwiązywanie problemów z integracją narzędzia Git
+![Ikona usługi Git](media/remove-repository.png)
+
+Wprowadź nazwę obszaru roboczego i kliknij pozycję **Rozłącz,** aby usunąć repozytorium Git skojarzone z obszarem roboczym.
+
+Po usunięciu skojarzenia z bieżącym repozytorium można skonfigurować ustawienia usługi Git do używania innego repozytorium, a następnie zaimportować istniejące zasoby do nowego repozytorium.
+
+> [!IMPORTANT]
+> Usunięcie konfiguracji usługi Git z obszaru roboczego nie powoduje usunięcia niczego z repozytorium. Obszar roboczy synapse będzie zawierać wszystkie opublikowane zasoby. Obszar roboczy można nadal edytować bezpośrednio w usłudze.
+
+## <a name="best-practices-for-git-integration"></a>Najlepsze rozwiązania dotyczące integracji z usługą Git
+
+-   **Uprawnienia**. Po połączeniu repozytorium Git z obszarem roboczym każda osoba, która ma dostęp do repozytorium git z dowolną rolą w Twoim obszarze roboczym, będzie mogła aktualizować artefakty, takie jak skrypt SQL, notes, definicja zadania spark, zestaw danych, przepływ danych i potok w trybie git. Zazwyczaj nie chcesz, aby każdy członek zespołu miał uprawnienia do aktualizowania obszaru roboczego. Przyznaj uprawnienie do repozytorium git tylko autorom artefaktów obszaru roboczego usługi Synapse. 
+-   **Współpraca**. Nie zaleca się zezwalania na bezpośrednie zaewidencje do gałęzi współpracy. To ograniczenie może pomóc w zapobieganiu usterce, ponieważ każde zaewidencjonienie przechodzi przez proces przeglądu żądania ściągnnięcia opisany w tece [Tworzenie gałęzi funkcji.](source-control.md#creating-feature-branches)
+-   **Tryb na żywo usługi Synapse**. Po opublikowaniu w trybie git wszystkie zmiany zostaną odzwierciedlone w trybie na żywo usługi Synapse. W trybie na żywo usługi Synapse publikowanie jest wyłączone. Możesz również wyświetlać i uruchamiać artefakty w trybie na żywo, jeśli masz przyznane odpowiednie uprawnienia. 
+-   **Edytuj artefakty w programie Studio.** Program Synapse Studio to jedyne miejsce, w którym można włączyć kontrolę źródła obszaru roboczego i automatycznie synchronizować zmiany w usłudze Git. Wszelkie zmiany za pośrednictwem zestawu SDK, programu PowerShell, nie zostaną zsynchronizowane z usługą git. Zalecamy, aby zawsze edytować artefakt w programie Studio, gdy usługa git jest włączona.
+
+## <a name="troubleshooting-git-integration"></a>Rozwiązywanie problemów z integracją z usługą Git
 
 ### <a name="access-to-git-mode"></a>Dostęp do trybu git 
 
-Jeśli udzielono uprawnienia do repozytorium git usługi GitHub połączonego z Twoim obszarem roboczym, ale nie możesz uzyskać dostępu do trybu git: 
+Jeśli masz przyznane uprawnienie do repozytorium GitHub połączonego z obszarem roboczym, ale nie możesz uzyskać dostępu do trybu Git: 
 
-1. Wyczyść pamięć podręczną i Odśwież stronę. 
+1. Wyczyść pamięć podręczną i odśwież stronę. 
 
-1. Zaloguj się do swojego konta usługi GitHub.
+1. Zaloguj się do konta usługi GitHub.
 
-### <a name="stale-publish-branch"></a>Nieodświeżona gałąź publikowania
+### <a name="stale-publish-branch"></a>Nieodświeżone gałęzie publikowania
 
-Jeśli gałąź publikowania nie jest zsynchronizowana z gałęzią współpracy i zawiera nieaktualne zasoby pomimo niedawnego publikowania, spróbuj wykonać następujące czynności:
+Jeśli gałąź publikowania nie jest zsynchronizowana z gałęzią współpracy i zawiera aktualne zasoby pomimo ostatniej publikacji, spróbuj wykonać następujące czynności:
 
-1. Usuń bieżące repozytorium git
+1. Usuwanie bieżącego repozytorium Git
 
-1. Skonfiguruj ponownie git przy użyciu tych samych ustawień, ale upewnij się, że zaznaczono pole wyboru **Importuj istniejące zasoby do repozytorium** i wybierz tę samą gałąź.  
+1. Skonfiguruj ponownie system Git przy użyciu tych samych ustawień, ale upewnij się, że zaznaczono pole wyboru **Importuj** istniejące zasoby do repozytorium i wybierz tę samą gałąź.  
 
 1. Utwórz żądanie ściągnięcia, aby scalić zmiany w gałęzi współpracy 
 
 ## <a name="unsupported-features"></a>Nieobsługiwane funkcje
 
-- Synapse Studio nie zezwala na wybór zatwierdzeń lub selektywne Publikowanie zasobów. 
-- Synapse Studio nie obsługuje dostosowywania komunikatu zatwierdzania.
-- Po zaprojektowaniu Akcja usuwania w programie Studio zostanie przekazana bezpośrednio do usługi git
+- Synapse Studio nie zezwala na wybiórcze wybieranie zatwierdzeń ani selektywne publikowanie zasobów. 
+- Synapse Studio nie obsługuje dostosowywania komunikatu zatwierdzenia.
+- Zgodnie z projektem akcja usuwania w programie Studio zostanie zatwierdzona bezpośrednio w usłudze git
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby wdrożyć ciągłą integrację i wdrażanie, zobacz [ciągłej integracji i dostarczania (Ci/CD)](continuous-integration-deployment.md).
+* Aby zaimplementować ciągłą integrację i ciągłe wdrażanie, zobacz [Ciągła integracja i ciągłe dostarczanie (CI/CD).](continuous-integration-deployment.md)

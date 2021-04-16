@@ -1,74 +1,74 @@
 ---
-title: Odkrywanie, łączenie i Eksplorowanie danych w programie Synapse przy użyciu usługi Azure kontrolą
-description: Przewodnik po odnajdywaniu danych, łączeniu ich i eksplorowaniu w usłudze Synapse
-services: synapse-analytics
+title: Odnajdywanie, łączenie i eksplorowanie danych w usłudze Synapse przy użyciu usługi Azure Purview
+description: Przewodnik po tym, jak odnajdywać dane, łączyć je i eksplorować w u usługi Synapse
 author: Rodrigossz
 ms.service: synapse-analytics
+ms.subservice: ''
 ms.topic: how-to
 ms.date: 12/16/2020
 ms.author: rosouz
 ms.reviewer: jrasnick
-ms.openlocfilehash: 79090bfbf08cde3f18b1ca734b8af22d16e7e0ea
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f98507fa72f4503700bf39393063dd1ecc650e91
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105628666"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567897"
 ---
-# <a name="discover-connect-and-explore-data-in-synapse-using-azure-purview"></a>Odkrywanie, łączenie i Eksplorowanie danych w programie Synapse przy użyciu usługi Azure kontrolą 
+# <a name="discover-connect-and-explore-data-in-synapse-using-azure-purview"></a>Odnajdywanie, łączenie i eksplorowanie danych w usłudze Synapse przy użyciu usługi Azure Purview 
 
-W tym dokumencie przedstawiono typ interakcji, które można wykonać podczas rejestrowania konta usługi Azure kontrolą w usłudze Synapse. 
+W tym dokumencie poznasz typy interakcji, które można wykonywać podczas rejestrowania konta usługi Azure Purview w usłudze Synapse. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
-- [Konto usługi Azure kontrolą](../../purview/create-catalog-portal.md) 
-- [Obszar roboczy Synapse](../quickstart-create-workspace.md) 
-- [Łączenie konta usługi Azure kontrolą w usłudze Synapse](quickstart-connect-azure-purview.md) 
+- [Konto usługi Azure Purview](../../purview/create-catalog-portal.md) 
+- [Obszar roboczy synapse](../quickstart-create-workspace.md) 
+- [Łączenie konta usługi Azure Purview z usługą Synapse](quickstart-connect-azure-purview.md) 
 
-## <a name="using-azure-purview-in-synapse"></a>Korzystanie z usługi Azure kontrolą w Synapse 
+## <a name="using-azure-purview-in-synapse"></a>Korzystanie z usługi Azure Purview w usłudze Synapse 
 
-Korzystanie z usługi Azure kontrolą w Synapse wymaga posiadania dostępu do tego konta kontrolą. Synapse Pass-through the kontrolą. Jeśli masz na przykład rolę uprawnienia Curator, będziesz mieć możliwość edytowania metadanych przeskanowanych przez usługę Azure kontrolą. 
+Korzystanie z usługi Azure Purview w usłudze Synapse wymaga dostępu do tego konta programu Purview. Synapse przekazuje uprawnienie purview. Jeśli na przykład masz rolę uprawnień curatora, możesz edytować metadane skanowane przez usługę Azure Purview. 
 
-### <a name="data-discovery-search-datasets"></a>Odnajdywanie danych: Przeszukaj zbiory 
+### <a name="data-discovery-search-datasets"></a>Odnajdywanie danych: wyszukiwanie zestawów danych 
 
-Aby odnajdywać dane zarejestrowane i przeskanowane przez usługę Azure kontrolą, możesz użyć paska wyszukiwania w górnym centrum obszaru roboczego Synapse. Upewnij się, że wybrano pozycję Azure kontrolą, aby wyszukać wszystkie dane organizacji. 
+Aby odnaleźć dane zarejestrowane i zeskanowane przez usługę Azure Purview, możesz użyć paska wyszukiwania w górnej części obszaru roboczego usługi Synapse. Upewnij się, że wybierasz pozycję Azure Purview, aby wyszukać wszystkie dane organizacji. 
 
-[![Wyszukaj zasoby usługi Azure kontrolą](./media/purview-access.png)](./media/purview-access.png#lightbox)
+[![Wyszukiwanie zasobów usługi Azure Purview](./media/purview-access.png)](./media/purview-access.png#lightbox)
 
-## <a name="azure-purview-actions"></a>Akcje usługi Azure kontrolą 
+## <a name="azure-purview-actions"></a>Akcje usługi Azure Purview 
 
-Poniżej znajduje się lista funkcji usługi Azure kontrolą, które są dostępne w Synapse: 
-- **Przegląd** metadanych 
-- Wyświetlanie i edytowanie **schematu** metadanych przy użyciu klasyfikacji, terminów słownika, typów danych i opisów 
-- Wyświetl **elementy powiązane, aby** zrozumieć zależności i przeanalizować wpływ. Aby uzyskać więcej informacji [na temat, zobacz temat](../../purview/catalog-lineage-user-guide.md) elementy powiązane
-- Wyświetlaj i edytuj **kontakty** , aby wiedzieć, kto jest właścicielem lub ekspertem nad zestawem danych 
-- **Powiązane** z zrozumienie hierarchicznych zależności określonego zestawu danych. To środowisko ułatwia przeglądanie hierarchii danych.
+Oto lista funkcji usługi Azure Purview dostępnych w usłudze Synapse: 
+- **Omówienie** metadanych 
+- Wyświetlanie i edytowanie **schematu** metadanych z klasyfikacjami, terminami słownika, typami danych i opisami 
+- Wyświetl **informacje o pokładzie,** aby zrozumieć zależności i wykonać analizę wpływu. Aby uzyskać więcej informacji na temat, zobacz [temat](../../purview/catalog-lineage-user-guide.md)
+- Wyświetlanie i edytowanie **kontaktów,** aby dowiedzieć się, kto jest właścicielem lub ekspertem w zestawie danych 
+- **Powiązane** w celu zrozumienia zależności hierarchicznych określonego zestawu danych. To środowisko jest przydatne podczas przeglądania hierarchii danych.
 
-## <a name="actions-that-you-can-perform-over-datasets-with-synapse-resources"></a>Akcje, które można wykonywać na zestawach danych przy użyciu zasobów Synapse 
+## <a name="actions-that-you-can-perform-over-datasets-with-synapse-resources"></a>Akcje, które można wykonywać na zestawach danych za pomocą zasobów synapse 
 
-### <a name="connect-data-to-synapse"></a>Połącz dane z Synapse 
+### <a name="connect-data-to-synapse"></a>Łączenie danych z synapse 
 
-- Można utworzyć **nową połączoną usługę** do Synapse. Ta akcja będzie wymagana do kopiowania danych do Synapse lub ich w centrum danych (dla obsługiwanych źródeł danych, takich jak ADLSg2) 
-- W przypadku obiektów, takich jak pliki, foldery lub tabele, można bezpośrednio utworzyć **Nowy zestaw danych integracji** i użyć istniejącej połączonej usługi, jeśli został już utworzony. 
+- Możesz utworzyć nową **usługę połączona z usługą** Synapse. Ta akcja będzie wymagana do skopiowania danych do usługi Synapse lub ich ustawienia w centrum danych (w przypadku obsługiwanych źródeł danych, takich jak ADLSg2) 
+- W przypadku obiektów, takich jak pliki, foldery lub tabele, można bezpośrednio utworzyć nowy zestaw danych integracji i skorzystać z istniejącej połączonej usługi, jeśli została już utworzona  
 
-Nie jesteśmy jeszcze w stanie stwierdzić, czy istnieje już połączona usługa lub zestaw danych integracji. 
+Nie możemy jeszcze wywnioskować, czy istnieje połączona usługa lub zestaw danych integracji. 
 
-###  <a name="develop-in-synapse"></a>Programowanie w Synapse 
+###  <a name="develop-in-synapse"></a>Opracowywanie w uciekinie Synapse 
 
-Istnieją trzy akcje, które można wykonać: **Nowy skrypt SQL**, **Nowy Notes** i **Nowy przepływ danych**. 
+Istnieją trzy akcje, które można wykonać: Nowy skrypt **SQL,** **Nowy notes** i Nowy **Przepływ danych**. 
 
-Za pomocą **nowego skryptu SQL**, w zależności od typu pomocy technicznej, można: 
-- Wyświetl pierwsze 100 wierszy, aby zrozumieć kształt danych. 
-- Tworzenie tabeli zewnętrznej z bazy danych SQL Synapse 
-- Ładowanie danych do bazy danych SQL Synapse 
+Za **pomocą nowego skryptu SQL** w zależności od typu pomocy technicznej można: 
+- Wyświetl 100 górnych wierszy, aby zrozumieć kształt danych. 
+- Tworzenie tabeli zewnętrznej na Synapse SQL danych 
+- Ładowanie danych do bazy Synapse SQL danych 
  
-Za pomocą **nowego notesu** można: 
-- Ładowanie danych do ramki Dataframe platformy Spark 
-- Utwórz tabelę Spark (w przypadku przekroczenia formatu parquet) tworzy również tabelę puli SQL bez serwera). 
+Za **pomocą nowego notesu** można: 
+- Ładowanie danych do ramki danych platformy Spark 
+- Utwórz tabelę platformy Spark (jeśli to zrobisz za pośrednictwem formatu Parquet, zostanie również tworzymy tabelę puli SQL bez serwera). 
  
-Przy użyciu **nowego przepływu danych** można utworzyć zestaw danych integracji, który może być używany jako źródło w potoku przepływu danych. Przepływ danych to brak możliwości programisty, który umożliwia przekształcanie danych. Więcej informacji o [używaniu przepływu danych w programie Synapse](../quickstart-data-flow.md).
+Za **pomocą nowego przepływu** danych można utworzyć zestaw danych integracji, który może być używany jako źródło w potoku przepływu danych. Przepływ danych to możliwość wykonywania przekształceń danych przez deweloperów bez kodu. Aby uzyskać więcej informacji na [temat korzystania z przepływu danych w u usługi Synapse.](../quickstart-data-flow.md)
 
 ##  <a name="nextsteps"></a>Następne kroki 
 
-- [Rejestrowanie i skanowanie zasobów usługi Azure Synapse na platformie Azure kontrolą](../../purview/register-scan-azure-synapse-analytics.md)
-- [Jak wyszukiwać dane w usłudze Azure kontrolą Data Catalog](../../purview/how-to-search-catalog.md)
+- [Rejestrowanie i skanowanie zasobów Azure Synapse usłudze Azure Purview](../../purview/register-scan-azure-synapse-analytics.md)
+- [Jak wyszukiwać dane w usłudze Azure Purview Data Catalog](../../purview/how-to-search-catalog.md)

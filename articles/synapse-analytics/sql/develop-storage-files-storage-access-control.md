@@ -1,6 +1,6 @@
 ---
-title: Kontrolowanie dostępu do konta magazynu dla puli SQL bezserwerowej
-description: Opisuje sposób, w jaki Pula SQL bezserwerowa uzyskuje dostęp do usługi Azure Storage oraz jak można kontrolować dostęp do magazynu dla puli SQL bezserwerowej w usłudze Azure Synapse Analytics.
+title: Kontrolowanie dostępu do konta magazynu dla bez serwera puli SQL
+description: Opisuje sposób, w jaki bez serwera pula SQL uzyskuje dostęp do usługi Azure Storage i jak można kontrolować dostęp do magazynu dla bez serwera puli SQL w Azure Synapse Analytics.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,143 +9,143 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: acfaa780f21f5264b546f97e9a3792aa43e9c30b
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 266a6c27261107b883fdc0c1cdd274e6345de6db
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107029747"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483456"
 ---
-# <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Kontrolowanie dostępu do konta magazynu dla puli SQL bezserwerowej w usłudze Azure Synapse Analytics
+# <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Kontrolowanie dostępu do konta magazynu dla bez serwera puli SQL w Azure Synapse Analytics
 
-Zapytanie puli SQL bezserwerowe odczytuje pliki bezpośrednio z usługi Azure Storage. Uprawnienia dostępu do plików w usłudze Azure Storage są kontrolowane na dwóch poziomach:
-- **Poziom magazynu** — użytkownik powinien mieć uprawnienia dostępu do podstawowych plików magazynu. Administrator magazynu powinien zezwalać podmiotowi zabezpieczeń usługi Azure AD na odczyt/zapis plików lub generowanie klucza SAS, który będzie używany do uzyskiwania dostępu do magazynu.
-- **Poziom usługi SQL** — użytkownik powinien mieć uprawnienia do odczytu danych przy użyciu [tabeli zewnętrznej](develop-tables-external-tables.md) lub do wykonywania `OPENROWSET` funkcji. Więcej informacji o [wymaganych uprawnieniach znajduje się w tej sekcji](develop-storage-files-overview.md#permissions).
+Bez serwera zapytanie puli SQL odczytuje pliki bezpośrednio z usługi Azure Storage. Uprawnienia dostępu do plików w usłudze Azure Storage są kontrolowane na dwóch poziomach:
+- **Poziom magazynu** — użytkownik powinien mieć uprawnienia dostępu do bazowych plików magazynu. Administrator magazynu powinien zezwolić podmiotów zabezpieczeń usługi Azure AD na odczyt/zapis plików lub wygenerować klucz SAS, który będzie używany do uzyskiwania dostępu do magazynu.
+- **Poziom usługi SQL —** użytkownik powinien mieć uprawnienia do odczytu danych przy użyciu tabeli zewnętrznej [lub](develop-tables-external-tables.md) do wykonywania `OPENROWSET` funkcji. Przeczytaj więcej na [temat wymaganych uprawnień w tej sekcji.](develop-storage-files-overview.md#permissions)
 
-W tym artykule opisano typy poświadczeń, których można użyć oraz sposób przeszukiwania poświadczeń dla użytkowników usług SQL i Azure AD.
+W tym artykule opisano typy poświadczeń, których można użyć, oraz sposób, w jaki wyszukiwania poświadczeń są wprowadzane dla użytkowników usług SQL i Azure AD.
 
 ## <a name="storage-permissions"></a>Uprawnienia magazynu
 
-Bezserwerowa Pula SQL w obszarze roboczym Synapse Analytics może odczytywać zawartość plików przechowywanych w magazynie Azure Data Lake. Należy skonfigurować uprawnienia do magazynu, aby umożliwić użytkownikowi, który wykonuje zapytanie SQL w celu odczytania plików. Istnieją trzy metody włączania dostępu do plików>
-- **[Kontrola dostępu oparta na rolach (RBAC)](../../role-based-access-control/overview.md)** umożliwia przypisywanie roli do niektórych użytkowników usługi Azure AD w dzierżawie, w której znajduje się magazyn. Role RBAC mogą być przypisane do użytkowników usługi Azure AD. Czytnik musi mieć `Storage Blob Data Reader` rolę, `Storage Blob Data Contributor` , lub `Storage Blob Data Owner` . Użytkownik, który zapisuje dane w usłudze Azure Storage, musi `Storage Blob Data Writer` mieć `Storage Blob Data Owner` rolę lub. Należy pamiętać, że `Storage Owner` rola nie oznacza, że użytkownik jest również `Storage Data Owner` .
-- **Listy Access Control (ACL)** pozwalają definiować szczegółowy model uprawnień dla plików i katalogów w usłudze Azure Storage. Listę ACL można przypisać do użytkowników usługi Azure AD. Jeśli czytelnicy chcą odczytać plik w ścieżce w usłudze Azure Storage, musi mieć listę ACL Execute (X) dla każdego folderu w ścieżce pliku i odczytać (R) listę ACL dla tego pliku. [Dowiedz się więcej na temat ustawiania uprawnień listy ACL w warstwie magazynu](../../storage/blobs/data-lake-storage-access-control.md#how-to-set-acls)
-- **Sygnatura dostępu współdzielonego** umożliwia czytelnikowi dostęp do plików w magazynie Azure Data Lake przy użyciu tokenu ograniczonego czasowo. Czytnik nie musi nawet być uwierzytelniany jako użytkownik usługi Azure AD. Token SYGNATURy dostępu współdzielonego zawiera uprawnienia przyznane czytelnikowi oraz okres ważności tokenu. Token SAS jest dobrym rozwiązaniem dla ograniczonego dostępu do dowolnego użytkownika, który nie musi jeszcze znajdować się w tej samej dzierżawie usługi Azure AD. Token SAS można zdefiniować na koncie magazynu lub w określonych katalogach. Dowiedz się więcej [na temat przyznawania ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego](../../storage/common/storage-sas-overview.md).
+Bez serwera pula SQL w Synapse Analytics roboczym może odczytywać zawartość plików przechowywanych w usłudze Azure Data Lake Storage. Należy skonfigurować uprawnienia do magazynu, aby umożliwić użytkownikowi, który wykonuje zapytanie SQL, odczytywanie plików. Istnieją trzy metody włączania dostępu do plików>
+- **[Kontrola dostępu oparta na rolach (RBAC)](../../role-based-access-control/overview.md)** umożliwia przypisanie roli do niektórych użytkowników usługi Azure AD w dzierżawie, w której znajduje się magazyn. Role RBAC można przypisać do użytkowników usługi Azure AD. Czytelnik musi mieć `Storage Blob Data Reader` rolę `Storage Blob Data Contributor` , lub `Storage Blob Data Owner` . Użytkownik, który zapisuje dane w usłudze Azure Storage, musi mieć `Storage Blob Data Writer` rolę `Storage Blob Data Owner` lub . Pamiętaj, `Storage Owner` że rola nie oznacza, że użytkownik jest również `Storage Data Owner` użytkownikiem .
+- **Access Control (ACL)** umożliwiają definiowanie precyzyjnego modelu uprawnień dla plików i katalogów w usłudze Azure Storage. Listy ACL można przypisać do użytkowników usługi Azure AD. Jeśli czytelnicy chcą odczytać plik w ścieżce w usłudze Azure Storage, muszą wykonać (X) listy ACL w każdym folderze w ścieżce pliku i listy ACL odczytu (R) w pliku. [Dowiedz się więcej na temat sposobu ustawienia uprawnień listy ACL w warstwie magazynu](../../storage/blobs/data-lake-storage-access-control.md#how-to-set-acls)
+- **Sygnatura dostępu współdzielonego umożliwia** czytelnikowi dostęp do plików w usłudze Azure Data Lake Storage przy użyciu tokenu ograniczonego czasowo. Czytelnik nie musi nawet być uwierzytelniany jako użytkownik usługi Azure AD. Token SAS zawiera uprawnienia przyznane czytelnikowi, a także okres ważności tokenu. Token SAS jest dobrym wyborem w przypadku ograniczonego w czasie dostępu do dowolnego użytkownika, który nie musi nawet być w tej samej dzierżawie usługi Azure AD. Token SAS można zdefiniować na koncie magazynu lub w określonych katalogach. Dowiedz się więcej o [udzielaniu ograniczonego dostępu do zasobów usługi Azure Storage przy użyciu sygnatur dostępu współdzielonych.](../../storage/common/storage-sas-overview.md)
 
 ## <a name="supported-storage-authorization-types"></a>Obsługiwane typy autoryzacji magazynu
 
-Użytkownik zalogowany do bezserwerowej puli SQL musi mieć autoryzację, aby uzyskać dostęp do plików w usłudze Azure Storage i wysyłać do nich zapytania, jeśli pliki nie są publicznie dostępne. Możesz użyć trzech typów autoryzacji, aby uzyskać dostęp do [tożsamości użytkownika](?tabs=user-identity)niepublicznego, [sygnatury dostępu współdzielonego](?tabs=shared-access-signature)i [tożsamości zarządzanej](?tabs=managed-identity).
+Użytkownik, który zalogował się do bez serwera w puli SQL, musi być autoryzowany do uzyskiwania dostępu do plików i wykonywania zapytań w usłudze Azure Storage, jeśli pliki nie są publicznie dostępne. Możesz użyć trzech typów autoryzacji, aby uzyskać dostęp do magazynu niepublicznie — [tożsamość użytkownika,](?tabs=user-identity) [sygnatura](?tabs=shared-access-signature)dostępu współdzielona i tożsamość [zarządzana.](?tabs=managed-identity)
 
 > [!NOTE]
-> **Usługa Azure AD Pass-through** to domyślne zachowanie podczas tworzenia obszaru roboczego.
+> **Domyślną zachowaniem podczas tworzenia obszaru** roboczego jest pass-through usługi Azure AD.
 
 ### <a name="user-identity"></a>[Tożsamość użytkownika](#tab/user-identity)
 
-**Tożsamość użytkownika**, znana również jako "przekazywanie usługi Azure AD", jest typem autoryzacji, w którym tożsamość użytkownika usługi Azure AD, która została zarejestrowana w puli SQL bezserwerowej, jest używana do autoryzowania dostępu do danych. Przed uzyskaniem dostępu do danych administrator usługi Azure Storage musi udzielić uprawnień użytkownikowi usługi Azure AD. Zgodnie z poniższą tabelą, nie jest obsługiwana w przypadku typu użytkownika SQL.
+**Tożsamość użytkownika**, znana również jako "azure AD pass-through", to typ autoryzacji, w którym tożsamość użytkownika usługi Azure AD zalogowanego do bez serwera puli SQL jest używana do autoryzowania dostępu do danych. Przed uzyskaniem dostępu do danych administrator usługi Azure Storage musi udzielić uprawnień użytkownikowi usługi Azure AD. Jak wskazano w poniższej tabeli, nie jest ona obsługiwana w przypadku typu użytkownika SQL.
 
 > [!IMPORTANT]
-> Token uwierzytelniania usługi AAD może być buforowany przez aplikacje klienckie. Przykładowo usługi PowerBI buforuje token usługi AAD i ponownie używa tego samego tokenu przez godzinę. Długie zapytania rozpoczęciem mogą się nie powieść, jeśli token wygaśnie w trakcie wykonywania zapytania. Jeśli występują błędy zapytań spowodowane przez token dostępu usługi AAD, który wygasa w trakcie wykonywania zapytania, rozważ przełączenie na [tożsamość zarządzaną](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) lub [sygnaturę dostępu współdzielonego](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types).
+> Token uwierzytelniania usługi AAD może być buforowany przez aplikacje klienckie. Na przykład program PowerBI buforuje token usługi AAD i ponownie używa tego samego tokenu przez godzinę. Długotrwałe zapytania mogą zakończyć się niepowodzeniem, jeśli token wygaśnie w trakcie wykonywania zapytania. Jeśli występują błędy zapytań spowodowane przez token dostępu usługi AAD, który wygasa w [](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) trakcie zapytania, rozważ przełączenie na tożsamość zarządzaną lub sygnaturę [dostępu współdzielonych](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types).
 
-Aby móc uzyskiwać dostęp do danych, musisz mieć rolę właściciel danych obiektów BLOB/współautor/czytelnik. Alternatywnie można określić szczegółowe reguły listy kontroli dostępu, aby uzyskać dostęp do plików i folderów. Nawet jeśli jesteś właścicielem konta magazynu, nadal musisz dodać siebie do jednej z ról danych obiektów blob magazynu.
-Aby dowiedzieć się więcej na temat kontroli dostępu w Azure Data Lake Store Gen2, zapoznaj się z informacjami na temat [kontroli dostępu w Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md) artykule.
+Aby uzyskać dostęp do danych, musisz mieć rolę właściciela/współautora/czytelnika danych obiektu blob usługi Storage. Alternatywnie można określić szczegółowe reguły listy ACL, aby uzyskać dostęp do plików i folderów. Nawet jeśli jesteś właścicielem konta magazynu, nadal musisz dodać siebie do jednej z ról danych obiektu blob magazynu.
+Aby dowiedzieć się więcej na temat kontroli dostępu w usłudze Azure Data Lake Store Gen2, zapoznaj się z artykułem [Access control in Azure Data Lake Storage Gen2 (Kontrola](../../storage/blobs/data-lake-storage-access-control.md) dostępu w usłudze Azure Azure Data Lake Storage Gen2 Gen2).
 
 
 ### <a name="shared-access-signature"></a>[Sygnatura dostępu współdzielonego](#tab/shared-access-signature)
 
-**Sygnatura dostępu współdzielonego (SAS)** zapewnia delegowany dostęp do zasobów na koncie magazynu. Za pomocą sygnatury dostępu współdzielonego klient może udzielić klientom dostępu do zasobów na koncie magazynu bez udostępniania kluczy konta. Sygnatura dostępu współdzielonego zapewnia szczegółową kontrolę nad dostępem udzielonym klientom, którzy mają SYGNATURę czasową, w tym interwałem ważności, udzielonymi uprawnieniami, akceptowalnym zakresem adresów IP i dozwolonym protokołem (https/http).
+**Sygnatura dostępu współdzielonego (SAS)** zapewnia delegowany dostęp do zasobów na koncie magazynu. Dzięki sygnaturze dostępu współdzielonego klient może udzielić klientom dostępu do zasobów na koncie magazynu bez udostępniania kluczy konta. Sygnatura dostępu współdzielonego zapewnia szczegółową kontrolę nad typem dostępu udzielanych klientom, którzy mają sygnaturę dostępu współdzielonego, w tym interwałem ważności, udzielonym uprawnieniam, dopuszczalnym zakresem adresów IP i akceptowalnym protokołem (https/http).
 
-Token SYGNATURy dostępu współdzielonego można uzyskać, przechodząc do **konta magazynu Azure Portal-> Storage-> sygnatura dostęp współdzielony-> skonfigurować uprawnienia-> generować sygnatury SAS i parametry połączenia.**
+Token sygnatury dostępu współdzielonego można uzyskać, przechodząc do konta magazynu **Azure Portal -> ->** Sygnatura dostępu współdzielonego -> Konfigurowanie uprawnień -> Generowanie sygnatury dostępu współdzielonego i parametrów połączenia.
 
 > [!IMPORTANT]
-> Po wygenerowaniu tokenu SAS zawiera znak zapytania ("?") na początku tokenu. Aby użyć tokenu w puli SQL bezserwerowej, należy usunąć znak zapytania ("?") podczas tworzenia poświadczenia. Na przykład:
+> Po wygenerowaniu tokenu sygnatury dostępu współdzielonego zawiera on znak zapytania ("?"") na początku tokenu. Aby użyć tokenu w bez serwerach puli SQL, należy usunąć znak zapytania ("?"") podczas tworzenia poświadczeń. Na przykład:
 >
-> Token sygnatury dostępu współdzielonego:? SV = 2018 r-03-28&SS = bfqt&narzędzia SRT = SCO&Sp = rwdlacup&SE = 2019-04-18T20:42:12Z&St = 2019-04-18T12:42:12Z&spr = https&SIG = lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78% 3D
+> Token sygnatury dostępu współdzielonego: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&<6> st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
-Aby włączyć dostęp przy użyciu tokenu SAS, należy utworzyć poświadczenia w zakresie bazy danych lub serwera 
+Aby włączyć dostęp przy użyciu tokenu SAS, musisz utworzyć poświadczenia w zakresie bazy danych lub serwera 
 
 
 > [!IMPORTANT]
-> Nie można dostęp do prywatnych kont magazynu za pomocą tokenu SAS. Rozważ przełączenie na [zarządzaną tożsamość](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) lub uwierzytelnianie [przekazywane usługi Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) w celu uzyskania dostępu do chronionego magazynu.
+> Nie można uzyskać dostępu do kont magazynu prywatnego przy użyciu tokenu SAS. Rozważ przełączenie na tożsamość [zarządzaną lub](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) uwierzytelnianie [pass-through usługi Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) w celu uzyskania dostępu do magazynu chronionego.
 
 ### <a name="managed-identity"></a>[Tożsamość zarządzana](#tab/managed-identity)
 
-**Tożsamość zarządzana** jest również znana jako plik msi. Jest to funkcja Azure Active Directory (Azure AD), która zapewnia usługi platformy Azure dla puli SQL bezserwerowej. Wdraża także automatycznie zarządzaną tożsamość w usłudze Azure AD. Ta tożsamość może służyć do autoryzowania żądania dostępu do danych w usłudze Azure Storage.
+**Tożsamość zarządzana** jest również znana jako tożsamość usługi zarządzanej. Jest to funkcja usługi azure Azure Active Directory (Azure AD), która zapewnia usługi platformy Azure dla bez serwera puli SQL. Ponadto wdraża automatycznie zarządzaną tożsamość w usłudze Azure AD. Ta tożsamość może służyć do autoryzowania żądania dostępu do danych w usłudze Azure Storage.
 
-Przed uzyskaniem dostępu do danych administrator usługi Azure Storage musi udzielić uprawnień do zarządzanej tożsamości na potrzeby uzyskiwania dostępu do danych. Przyznawanie uprawnień do tożsamości zarządzanej odbywa się tak samo jak udzielanie uprawnień innym użytkownikom usługi Azure AD.
+Przed uzyskaniem dostępu do danych administrator usługi Azure Storage musi udzielić tożsamości zarządzanej uprawnień dostępu do danych. Udzielanie uprawnień tożsamości zarządzanej odbywa się tak samo, jak udzielanie uprawnień dowolnej innej użytkownikowi usługi Azure AD.
 
 ### <a name="anonymous-access"></a>[Dostęp anonimowy](#tab/public-access)
 
-Możesz uzyskać dostęp do publicznie dostępnych plików umieszczonych na kontach usługi Azure Storage, które [zezwalają na dostęp anonimowy](../../storage/blobs/anonymous-read-access-configure.md).
+Możesz uzyskać dostęp do publicznie dostępnych plików umieszczonych na kontach usługi Azure Storage, które [zezwalają na dostęp anonimowy.](../../storage/blobs/anonymous-read-access-configure.md)
 
 ---
 
 ### <a name="supported-authorization-types-for-databases-users"></a>Obsługiwane typy autoryzacji dla użytkowników baz danych
 
-W poniższej tabeli znajdują się dostępne typy autoryzacji:
+W poniższej tabeli można znaleźć dostępne typy autoryzacji:
 
 | Typ autoryzacji                    | *Użytkownik SQL*    | *Użytkownik usługi Azure AD*     |
 | ------------------------------------- | ------------- | -----------    |
 | [Tożsamość użytkownika](?tabs=user-identity#supported-storage-authorization-types)       | Nieobsługiwane | Obsługiwane      |
 | [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | Obsługiwane     | Obsługiwane      |
-| [Tożsamość zarządzana](?tabs=managed-identity#supported-storage-authorization-types) | Nieobsługiwane | Obsługiwane      |
+| [Tożsamość zarządzana](?tabs=managed-identity#supported-storage-authorization-types) | Obsługiwane | Obsługiwane      |
 
 ### <a name="supported-storages-and-authorization-types"></a>Obsługiwane magazyny i typy autoryzacji
 
-Można użyć następujących kombinacji typów autoryzacji i usługi Azure Storage:
+Można użyć następujących kombinacji autoryzacji i typów usługi Azure Storage:
 
 | Typ autoryzacji  | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
-| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Obsługiwane\*      | Nieobsługiwane   | Obsługiwane\*     |
+| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Obsługiwane\*      | Nie są obsługiwane   | Obsługiwane\*     |
 | [Tożsamość zarządzana](?tabs=managed-identity#supported-storage-authorization-types) | Obsługiwane      | Obsługiwane        | Obsługiwane     |
 | [Tożsamość użytkownika](?tabs=user-identity#supported-storage-authorization-types)    | Obsługiwane\*      | Obsługiwane\*        | Obsługiwane\*     |
 
-\* Token sygnatury dostępu współdzielonego i tożsamość usługi Azure AD mogą być używane do uzyskiwania dostępu do magazynu, który nie jest chroniony za pomocą zapory.
+\* Token SAS i tożsamość usługi Azure AD mogą służyć do uzyskiwania dostępu do magazynu, który nie jest chroniony za pomocą zapory.
 
 
 ### <a name="querying-firewall-protected-storage"></a>Wykonywanie zapytań względem magazynu chronionego przez zaporę
 
-Podczas uzyskiwania dostępu do magazynu chronionego za pomocą zapory można użyć **tożsamości użytkownika** lub **tożsamości zarządzanej**.
+Podczas uzyskiwania dostępu do magazynu chronionego przez zaporę można użyć tożsamości **użytkownika** lub tożsamości **zarządzanej.**
 
 > [!NOTE]
-> Funkcja zapory w magazynie jest w publicznej wersji zapoznawczej i jest dostępna we wszystkich regionach chmury publicznej. 
+> Funkcja zapory w usłudze Storage jest w publicznej wersji zapoznawczej i jest dostępna we wszystkich regionach chmury publicznej. 
 
 #### <a name="user-identity"></a>Tożsamość użytkownika
 
-Aby uzyskać dostęp do magazynu chronionego za pomocą zapory za pośrednictwem tożsamości użytkownika, można użyć interfejsu użytkownika Azure Portal lub modułu programu PowerShell AZ. Storage.
+Aby uzyskać dostęp do magazynu chronionego za pomocą zapory za pośrednictwem tożsamości użytkownika, możesz użyć Azure Portal użytkownika lub modułu Programu PowerShell Az.Storage.
 #### <a name="configuration-via-azure-portal"></a>Konfiguracja za pośrednictwem Azure Portal
 
-1. Wyszukaj swoje konto magazynu w Azure Portal.
-1. Przejdź do pozycji sieć w obszarze Ustawienia sekcji.
-1. W sekcji "wystąpienia zasobów" Dodaj wyjątek dla obszaru roboczego Synapse.
-1. Wybierz pozycję Microsoft. Synapse/Workspaces jako typ zasobu.
-1. Wybierz nazwę swojego obszaru roboczego jako nazwę wystąpienia.
+1. Wyszukaj konto magazynu w Azure Portal.
+1. Przejdź do sekcji Sieć w sekcji Ustawienia.
+1. W sekcji "Wystąpienia zasobów" dodaj wyjątek dla obszaru roboczego usługi Synapse.
+1. Wybierz pozycję Microsoft.Synapse/workspaces jako typ zasobu.
+1. Wybierz nazwę obszaru roboczego w obszarze Nazwa wystąpienia.
 1. Kliknij pozycję Zapisz.
 
 #### <a name="configuration-via-powershell"></a>Konfiguracja za pośrednictwem programu PowerShell
 
-Wykonaj następujące kroki, aby skonfigurować zaporę konta magazynu i dodać wyjątek dla obszaru roboczego Synapse.
+Wykonaj następujące kroki, aby skonfigurować zaporę konta magazynu i dodać wyjątek dla obszaru roboczego usługi Synapse.
 
-1. Otwórz program PowerShell lub [Zainstaluj program PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows)
-2. Zainstaluj moduł AZ. Storage 3.4.0 i AZ. Synapse 0.7.0: 
+1. Otwórz program PowerShell lub [zainstaluj program PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows)
+2. Zainstaluj moduł Az.Storage 3.4.0 i Az.Synapse 0.7.0: 
     ```powershell
     Install-Module -Name Az.Storage -RequiredVersion 3.4.0
     Install-Module -Name Az.Synapse -RequiredVersion 0.7.0
     ```
     > [!IMPORTANT]
-    > Upewnij się, że używasz **wersji 3.4.0**. Możesz sprawdzić wersję AZ. Storage, uruchamiając następujące polecenie:  
+    > Upewnij się, że używasz **wersji 3.4.0.** Wersję pakietu Az.Storage możesz sprawdzić, uruchamiając to polecenie:  
     > ```powershell 
     > Get-Module -ListAvailable -Name  Az.Storage | select Version
     > ```
     > 
 
-3. Nawiąż połączenie z dzierżawcą platformy Azure: 
+3. Połącz się z dzierżawą platformy Azure: 
     ```powershell
     Connect-AzAccount
     ```
-4. Definiuj zmienne w programie PowerShell: 
-    - Nazwa grupy zasobów — można to znaleźć w Azure Portal w temacie Omówienie konta magazynu.
-    - Nazwa konta — Nazwa konta magazynu, które jest chronione przez reguły zapory.
-    - Identyfikator dzierżawy — możesz go znaleźć w Azure Portal w Azure Active Directory informacji o dzierżawie.
-    - Nazwa obszaru roboczego — nazwa obszaru roboczego Synapse.
+4. Zdefiniuj zmienne w programie PowerShell: 
+    - Nazwa grupy zasobów — tę nazwę można znaleźć w Azure Portal w przeglądzie konta magazynu.
+    - Nazwa konta — nazwa konta magazynu chronionego przez reguły zapory.
+    - Identyfikator dzierżawy — ten identyfikator można znaleźć w Azure Portal w Azure Active Directory w informacjach o dzierżawie.
+    - Nazwa obszaru roboczego — nazwa obszaru roboczego synapse.
 
     ```powershell
         $resourceGroupName = "<resource group name>"
@@ -161,9 +161,9 @@ Wykonaj następujące kroki, aby skonfigurować zaporę konta magazynu i dodać 
         $resourceId
     ```
     > [!IMPORTANT]
-    > Upewnij się, że identyfikator zasobu jest zgodny z tym szablonem w wydrukowanym zmiennej resourceId.
+    > Upewnij się, że identyfikator zasobu jest taki jak ten szablon na wydruku zmiennej resourceId.
     >
-    > Ważne jest, aby pisać **ResourceGroups** w małych przypadkach.
+    > Ważne jest, aby zapisywać **grupy zasobów pisane** małe literami.
     > Przykład jednego identyfikatora zasobu: 
     > ```
     > /subscriptions/{subscription-id}/resourcegroups/{resource-group}/providers/Microsoft.Synapse/workspaces/{name-of-workspace}
@@ -188,58 +188,58 @@ Wykonaj następujące kroki, aby skonfigurować zaporę konta magazynu i dodać 
     ```
 
 #### <a name="managed-identity"></a>Tożsamość zarządzana
-Musisz [zezwolić na zaufane usługi firmy Microsoft... ustawienie](../../storage/common/storage-network-security.md#trusted-microsoft-services) i jawne [przypisanie roli platformy Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) do [zarządzanej tożsamości przypisanej do systemu](../../active-directory/managed-identities-azure-resources/overview.md) dla tego wystąpienia zasobu. W takim przypadku zakres dostępu dla wystąpienia odpowiada roli platformy Azure przypisanej do zarządzanej tożsamości.
+Musisz zezwolić [na zaufane usługi firmy Microsoft... ustawienie](../../storage/common/storage-network-security.md#trusted-microsoft-services) i [jawne przypisanie roli platformy Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) do [przypisanej](../../active-directory/managed-identities-azure-resources/overview.md) przez system tożsamości zarządzanej dla tego wystąpienia zasobu. W takim przypadku zakres dostępu dla wystąpienia odpowiada roli platformy Azure przypisanej do tożsamości zarządzanej.
 
 ## <a name="credentials"></a>Poświadczenia
 
-Aby wysłać zapytanie do pliku znajdującego się w usłudze Azure Storage, punkt końcowy puli SQL bezserwerowej musi mieć poświadczenia zawierające informacje o uwierzytelnianiu. Używane są dwa typy poświadczeń:
-- POŚWIADCZENIA na poziomie serwera są używane dla zapytań ad hoc wykonywanych za pomocą `OPENROWSET` funkcji. Nazwa poświadczenia musi być zgodna z adresem URL magazynu.
-- Poświadczenie o zakresie bazy danych jest używane w przypadku tabel zewnętrznych. Tabela zewnętrzna zawiera odwołania `DATA SOURCE` do poświadczeń, które powinny być używane do uzyskiwania dostępu do magazynu.
+Aby można było odpytować plik znajdujący się w usłudze Azure Storage, punkt końcowy bez serwera w puli SQL wymaga poświadczeń, które zawierają informacje o uwierzytelnianiu. Używane są dwa typy poświadczeń:
+- Funkcja CREDENTIAL na poziomie serwera jest używana w przypadku zapytań ad hoc wykonywanych przy użyciu `OPENROWSET` funkcji . Nazwa poświadczeń musi być dopasowana do adresu URL magazynu.
+- POŚWIADCZENIA W ZAKRESIE BAZY DANYCH są używane w przypadku tabel zewnętrznych. Odwołania do tabeli `DATA SOURCE` zewnętrznej z poświadczeniami, które powinny być używane do uzyskiwania dostępu do magazynu.
 
-Aby zezwolić użytkownikowi na tworzenie lub porzucanie poświadczeń, administrator może udzielić/odmówić zmiany uprawnień poświadczeń użytkownikowi:
+Aby umożliwić użytkownikowi utworzenie lub upuszczenie poświadczeń, administrator może udzielić lub odmówić użytkownikowi uprawnienia ALTER ANY CREDENTIAL:
 
 ```sql
 GRANT ALTER ANY CREDENTIAL TO [user_name];
 ```
 
-Użytkownicy baz danych, którzy uzyskują dostęp do magazynu zewnętrznego, muszą mieć uprawnienia do korzystania z poświadczeń.
+Użytkownicy bazy danych, którzy mają dostęp do magazynu zewnętrznego, muszą mieć uprawnienia do używania poświadczeń.
 
-### <a name="grant-permissions-to-use-credential"></a>Przyznawanie uprawnień do korzystania z poświadczeń
+### <a name="grant-permissions-to-use-credential"></a>Udzielanie uprawnień do używania poświadczeń
 
-Aby można było korzystać z poświadczeń, użytkownik musi mieć `REFERENCES` uprawnienia do określonego poświadczenia. Aby udzielić `REFERENCES` uprawnienia storage_credential dla specific_user, wykonaj następujące polecenie:
+Aby użyć poświadczeń, użytkownik musi mieć `REFERENCES` uprawnienia do określonego poświadczenia. Aby udzielić `REFERENCES` uprawnienia NA storage_credential dla specific_user, wykonaj:
 
 ```sql
 GRANT REFERENCES ON CREDENTIAL::[storage_credential] TO [specific_user];
 ```
 
-## <a name="server-scoped-credential"></a>Poświadczenie o zakresie serwera
+## <a name="server-scoped-credential"></a>Poświadczenie w zakresie serwera
 
-Poświadczenia z zakresem serwera są używane, gdy logowanie SQL wywołuje `OPENROWSET` funkcję bez `DATA_SOURCE` odczytywania plików na niektórych kontach magazynu. Nazwa poświadczenie o zakresie serwera **musi** odpowiadać PODSTAWOWEmu adresowi URL usługi Azure Storage (opcjonalnie po nazwie kontenera). Poświadczenie jest dodawane przez uruchomienie [Create Credential](/sql/t-sql/statements/create-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true). Musisz podać argument nazwy poświadczenia.
+Poświadczenia w zakresie serwera są używane, gdy logowanie SQL wywołuje `OPENROWSET` funkcję bez `DATA_SOURCE` odczytywania plików na niektórych kontach magazynu. Nazwa poświadczeń w zakresie serwera musi **być** dopasowana do podstawowego adresu URL usługi Azure Storage (opcjonalnie z nazwą kontenera). Poświadczenie jest dodawane przez uruchomienie [create credential](/sql/t-sql/statements/create-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true). Należy podać argument CREDENTIAL NAME.
 
 > [!NOTE]
 > `FOR CRYPTOGRAPHIC PROVIDER`Argument nie jest obsługiwany.
 
-Nazwa poświadczeń na poziomie serwera musi być zgodna z pełną ścieżką do konta magazynu (i opcjonalnie kontenera) w następującym formacie: `<prefix>://<storage_account_path>[/<container_name>]` . Ścieżki kont magazynu są opisane w poniższej tabeli:
+Nazwa CREDENTIAL na poziomie serwera musi odpowiadać pełnej ścieżce do konta magazynu (i opcjonalnie kontenera) w następującym formacie: `<prefix>://<storage_account_path>[/<container_name>]` . Ścieżki konta magazynu zostały opisane w poniższej tabeli:
 
 | Zewnętrzne źródło danych       | Prefiks | Ścieżka konta magazynu                                |
 | -------------------------- | ------ | --------------------------------------------------- |
-| Azure Blob Storage         | https  | <storage_account>. blob.core.windows.net             |
-| Usługa Azure Data Lake Storage 1. generacji | https  | <storage_account>. azuredatalakestore.net/webhdfs/v1 |
-| Usługa Azure Data Lake Storage 2. generacji | https  | <storage_account>. dfs.core.windows.net              |
+| Azure Blob Storage         | https  | <storage_account>.blob.core.windows.net             |
+| Usługa Azure Data Lake Storage 1. generacji | https  | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
+| Usługa Azure Data Lake Storage 2. generacji | https  | <storage_account>.dfs.core.windows.net              |
 
-Poświadczenia o zakresie serwera umożliwiają dostęp do usługi Azure Storage przy użyciu następujących typów uwierzytelniania:
+Poświadczenia w zakresie serwera umożliwiają dostęp do usługi Azure Storage przy użyciu następujących typów uwierzytelniania:
 
 ### <a name="user-identity"></a>[Tożsamość użytkownika](#tab/user-identity)
 
-Użytkownicy usługi Azure AD mogą uzyskać dostęp do dowolnego pliku w usłudze Azure Storage, jeśli ma `Storage Blob Data Owner` `Storage Blob Data Contributor` rolę, lub `Storage Blob Data Reader` . Użytkownicy usługi Azure AD nie potrzebują poświadczeń w celu uzyskania dostępu do magazynu. 
+Użytkownicy usługi Azure AD mogą uzyskać dostęp do dowolnego pliku w usłudze Azure Storage, jeśli mają `Storage Blob Data Owner` `Storage Blob Data Contributor` rolę , lub `Storage Blob Data Reader` . Użytkownicy usługi Azure AD nie potrzebują poświadczeń, aby uzyskać dostęp do magazynu. 
 
-Użytkownicy SQL nie mogą uzyskać dostępu do magazynu przy użyciu uwierzytelniania usługi Azure AD.
+Użytkownicy SQL nie mogą używać uwierzytelniania usługi Azure AD do uzyskiwania dostępu do magazynu.
 
 ### <a name="shared-access-signature"></a>[Sygnatura dostępu współdzielonego](#tab/shared-access-signature)
 
-Poniższy skrypt tworzy poświadczenia na poziomie serwera, które mogą być używane przez `OPENROWSET` funkcję do uzyskiwania dostępu do dowolnych plików w usłudze Azure Storage przy użyciu tokenu SAS. Utwórz to poświadczenie, aby włączyć podmiot zabezpieczeń SQL, który wykonuje `OPENROWSET` funkcję do odczytu plików chronionych za pomocą klucza SAS w usłudze Azure Storage, które pasują do adresu URL w nazwie poświadczenia.
+Poniższy skrypt tworzy poświadczenia na poziomie serwera, które mogą być używane przez funkcję do uzyskiwania dostępu do dowolnego pliku w usłudze `OPENROWSET` Azure Storage przy użyciu tokenu SAS. Utwórz to poświadczenie, aby włączyć podmiot zabezpieczeń SQL, który wykonuje funkcję, aby odczytywać pliki chronione za pomocą klucza SYGNATURY dostępu współdzielonego w usłudze Azure Storage, które są takie sama jak `OPENROWSET` adres URL w nazwie poświadczeń.
 
-Program Exchange <*mystorageaccountname*> z rzeczywistą nazwą konta magazynu i <*mystorageaccountcontainername*> z rzeczywistą nazwą kontenera:
+Program Exchange <*mystorageaccountname*> rzeczywistą nazwą konta magazynu, <*mystorageaccountcontainername*> rzeczywistą nazwą kontenera:
 
 ```sql
 CREATE CREDENTIAL [https://<mystorageaccountname>.dfs.core.windows.net/<mystorageaccountcontainername>]
@@ -252,7 +252,7 @@ Opcjonalnie możesz użyć tylko podstawowego adresu URL konta magazynu bez nazw
 
 ### <a name="managed-identity"></a>[Tożsamość zarządzana](#tab/managed-identity)
 
-Poniższy skrypt tworzy poświadczenia na poziomie serwera, które mogą być używane przez `OPENROWSET` funkcję do uzyskiwania dostępu do dowolnych plików w usłudze Azure Storage przy użyciu tożsamości zarządzanej przez obszar roboczy.
+Poniższy skrypt tworzy poświadczenia na poziomie serwera, które mogą być używane przez funkcję do uzyskiwania dostępu do dowolnego pliku w usłudze Azure Storage przy użyciu tożsamości `OPENROWSET` zarządzanej przez obszar roboczy.
 
 ```sql
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
@@ -263,19 +263,19 @@ Opcjonalnie możesz użyć tylko podstawowego adresu URL konta magazynu bez nazw
 
 ### <a name="public-access"></a>[Dostęp publiczny](#tab/public-access)
 
-Poświadczenia w zakresie bazy danych nie są wymagane, aby zezwolić na dostęp do publicznie dostępnych plików. Utwórz [Źródło danych bez poświadczeń w zakresie bazy danych](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) , aby uzyskać dostęp do publicznie dostępnych plików w usłudze Azure Storage.
+Poświadczenia o zakresie bazy danych nie są wymagane, aby zezwolić na dostęp do publicznie dostępnych plików. Utwórz [źródło danych bez poświadczeń o zakresie bazy danych,](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) aby uzyskać dostęp do publicznie dostępnych plików w usłudze Azure Storage.
 
 ---
 
-## <a name="database-scoped-credential"></a>Poświadczenia w zakresie bazy danych
+## <a name="database-scoped-credential"></a>Poświadczenie w zakresie bazy danych
 
-Poświadczenia w zakresie bazy danych są używane, gdy każda `OPENROWSET` funkcja wywołuje `DATA_SOURCE` lub wybiera dane z [tabeli zewnętrznej](develop-tables-external-tables.md) , która nie uzyskuje dostępu do plików publicznych. Poświadczenia w zakresie bazy danych nie muszą być zgodne z nazwą konta magazynu. Zostanie on jawnie użyty w źródle danych, który definiuje lokalizację magazynu.
+Poświadczenia o zakresie bazy danych są używane, gdy dowolny podmiot zabezpieczeń wywołuje funkcję z tabelą zewnętrzną lub wybiera dane z tabeli zewnętrznej, `OPENROWSET` które nie mają dostępu do plików `DATA_SOURCE` publicznych. [](develop-tables-external-tables.md) Poświadczenia o zakresie bazy danych nie muszą być zgodne z nazwą konta magazynu. Będzie on jawnie używany w ŹRÓDLE DANYCH, które definiuje lokalizację magazynu.
 
-Poświadczenia w zakresie bazy danych umożliwiają dostęp do usługi Azure Storage przy użyciu następujących typów uwierzytelniania:
+Poświadczenia o zakresie bazy danych umożliwiają dostęp do usługi Azure Storage przy użyciu następujących typów uwierzytelniania:
 
 ### <a name="azure-ad-identity"></a>[Tożsamość usługi Azure AD](#tab/user-identity)
 
-Użytkownicy usługi Azure AD mogą uzyskać dostęp do dowolnego pliku w usłudze Azure Storage, jeśli ma ona co najmniej jedną `Storage Blob Data Owner` `Storage Blob Data Contributor` `Storage Blob Data Reader` rolę. Użytkownicy usługi Azure AD nie potrzebują poświadczeń w celu uzyskania dostępu do magazynu.
+Użytkownicy usługi Azure AD mogą uzyskać dostęp do dowolnego pliku w usłudze Azure Storage, jeśli mają co `Storage Blob Data Owner` najmniej rolę , lub `Storage Blob Data Contributor` `Storage Blob Data Reader` . Użytkownicy usługi Azure AD nie potrzebują poświadczeń, aby uzyskać dostęp do magazynu.
 
 ```sql
 CREATE EXTERNAL DATA SOURCE mysample
@@ -283,7 +283,7 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 )
 ```
 
-Użytkownicy SQL nie mogą uzyskać dostępu do magazynu przy użyciu uwierzytelniania usługi Azure AD.
+Użytkownicy SQL nie mogą używać uwierzytelniania usługi Azure AD do uzyskiwania dostępu do magazynu.
 
 ### <a name="shared-access-signature"></a>[Sygnatura dostępu współdzielonego](#tab/shared-access-signature)
 
@@ -305,7 +305,7 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 
 ### <a name="managed-identity"></a>[Tożsamość zarządzana](#tab/managed-identity)
 
-Poniższy skrypt tworzy poświadczenia w zakresie bazy danych, które mogą służyć do personifikacji bieżącego użytkownika usługi Azure AD jako tożsamości zarządzanej usługi. Skrypt utworzy przykładowe zewnętrzne źródło danych korzystające z tożsamości obszaru roboczego w celu uzyskania dostępu do magazynu.
+Poniższy skrypt tworzy poświadczenia w zakresie bazy danych, których można użyć do personifikacji bieżącego użytkownika usługi Azure AD jako tożsamości zarządzanej usługi. Skrypt utworzy przykładowe zewnętrzne źródło danych, które używa tożsamości obszaru roboczego do uzyskiwania dostępu do magazynu.
 
 ```sql
 -- Optional: Create MASTER KEY if not exists in database:
@@ -319,11 +319,11 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 )
 ```
 
-Poświadczenia w zakresie bazy danych nie muszą być zgodne z nazwą konta magazynu, ponieważ zostaną jawnie użyte w źródle danych, które definiuje lokalizację magazynu.
+Poświadczenia o zakresie bazy danych nie muszą być zgodne z nazwą konta magazynu, ponieważ będą jawnie używane w źródle danych, które definiuje lokalizację magazynu.
 
 ### <a name="public-access"></a>[Dostęp publiczny](#tab/public-access)
 
-Poświadczenia w zakresie bazy danych nie są wymagane, aby zezwolić na dostęp do publicznie dostępnych plików. Utwórz [Źródło danych bez poświadczeń w zakresie bazy danych](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) , aby uzyskać dostęp do publicznie dostępnych plików w usłudze Azure Storage.
+Poświadczenia o zakresie bazy danych nie są wymagane, aby zezwolić na dostęp do publicznie dostępnych plików. Utwórz [źródło danych bez poświadczeń o zakresie bazy danych,](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) aby uzyskać dostęp do publicznie dostępnych plików w usłudze Azure Storage.
 
 ```sql
 CREATE EXTERNAL DATA SOURCE mysample
@@ -332,7 +332,7 @@ WITH (    LOCATION   = 'https://<storage_account>.blob.core.windows.net/<contain
 ```
 ---
 
-Poświadczenia w zakresie bazy danych są używane w zewnętrznych źródłach danych w celu określenia metody uwierzytelniania, która będzie używana w celu uzyskania dostępu do tego magazynu:
+Poświadczenia o zakresie bazy danych są używane w zewnętrznych źródłach danych w celu określenia metody uwierzytelniania, która będzie używana do uzyskiwania dostępu do tego magazynu:
 
 ```sql
 CREATE EXTERNAL DATA SOURCE mysample
@@ -343,7 +343,7 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 
 ## <a name="examples"></a>Przykłady
 
-### <a name="access-a-publicly-available-data-source"></a>**Dostęp do publicznie dostępnego źródła danych**
+### <a name="access-a-publicly-available-data-source"></a>**Uzyskiwanie dostępu do publicznie dostępnego źródła danych**
 
 Użyj poniższego skryptu, aby utworzyć tabelę, która uzyskuje dostęp do publicznie dostępnego źródła danych.
 
@@ -361,7 +361,7 @@ WITH ( LOCATION = 'parquet/user-data/*.parquet',
        FILE_FORMAT = [SynapseParquetFormat] )
 ```
 
-Użytkownik bazy danych może odczytać zawartość plików ze źródła danych przy użyciu tabeli zewnętrznej lub funkcji [OPENROWSET](develop-openrowset.md) , która odwołuje się do źródła danych:
+Użytkownik bazy danych może odczytać zawartość plików ze źródła danych przy użyciu tabeli zewnętrznej lub [funkcji OPENROWSET,](develop-openrowset.md) która odwołuje się do źródła danych:
 
 ```sql
 SELECT TOP 10 * FROM dbo.userPublicData;
@@ -374,7 +374,7 @@ GO
 
 ### <a name="access-a-data-source-using-credentials"></a>**Uzyskiwanie dostępu do źródła danych przy użyciu poświadczeń**
 
-Zmodyfikuj Poniższy skrypt, aby utworzyć zewnętrzną tabelę, która uzyskuje dostęp do usługi Azure Storage przy użyciu tokenu SAS, tożsamości usługi Azure AD dla użytkownika lub zarządzanej tożsamości obszaru roboczego.
+Zmodyfikuj poniższy skrypt, aby utworzyć tabelę zewnętrzną, która uzyskuje dostęp do usługi Azure Storage przy użyciu tokenu SAS, tożsamości użytkownika usługi Azure AD lub tożsamości zarządzanej obszaru roboczego.
 
 ```sql
 -- Create master key in databases with some password (one-off per database)
@@ -408,7 +408,7 @@ WITH ( LOCATION = 'parquet/user-data/*.parquet',
 
 ```
 
-Użytkownik bazy danych może odczytać zawartość plików ze źródła danych przy użyciu [tabeli zewnętrznej](develop-tables-external-tables.md) lub funkcji [OPENROWSET](develop-openrowset.md)  , która odwołuje się do źródła danych:
+Użytkownik bazy danych może odczytać zawartość plików [](develop-tables-external-tables.md) ze źródła danych przy użyciu tabeli zewnętrznej lub [funkcji OPENROWSET,](develop-openrowset.md) która odwołuje się do źródła danych:
 
 ```sql
 SELECT TOP 10 * FROM dbo.userdata;
@@ -419,11 +419,11 @@ GO
 
 ## <a name="next-steps"></a>Następne kroki
 
-Artykuły wymienione poniżej zawierają informacje o sposobie wykonywania zapytań dotyczących różnych typów folderów, typów plików i tworzenia i używania widoków:
+Poniższe artykuły pomogą Ci dowiedzieć się, jak tworzyć zapytania dotyczące różnych typów folderów, typów plików oraz tworzyć widoki i używać ich:
 
-- [Kwerenda pojedynczego pliku CSV](query-single-csv-file.md)
-- [Foldery zapytań i wiele plików CSV](query-folders-multiple-csv-files.md)
-- [Kwerenda określonych plików](query-specific-files.md)
+- [Wykonywanie zapytań o pojedynczy plik CSV](query-single-csv-file.md)
+- [Wykonywanie zapytań o foldery i wiele plików CSV](query-folders-multiple-csv-files.md)
+- [Wykonywanie zapytań o określone pliki](query-specific-files.md)
 - [Wykonywanie zapytań względem plików Parquet](query-parquet-files.md)
 - [Tworzenie widoków i korzystanie z nich](create-use-views.md)
 - [Wykonywanie zapytań względem plików JSON](query-json-files.md)

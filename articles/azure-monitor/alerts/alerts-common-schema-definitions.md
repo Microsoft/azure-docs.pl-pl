@@ -1,23 +1,23 @@
 ---
 title: Definicje schematu alertów w Azure Monitor
-description: Informacje o typowych definicjach schematu alertów dla Azure Monitor
+description: Opis typowych definicji schematu alertów dla Azure Monitor
 author: ofirmanor
 ms.topic: conceptual
 ms.date: 04/12/2021
-ms.openlocfilehash: 5ec2adc4594c71f640b027d799b0a3c133ca2333
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 6d835b6d2c3519bc47decf8256ab3f3380170df6
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308663"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565121"
 ---
 # <a name="common-alert-schema-definitions"></a>Definicje typowych schematów alertów
 
-W tym artykule opisano [typowe definicje schematów alertów](./alerts-common-schema.md) dla Azure monitor, w tym te dla elementów webhook, Azure Logic Apps, Azure Functions i Azure Automation Runbook. 
+W tym artykule opisano typowe [definicje schematu alertów](./alerts-common-schema.md) dla Azure Monitor, w tym definicje dla webhooków, Azure Logic Apps, Azure Functions i Azure Automation runbook. 
 
-Każde wystąpienie alertu opisuje zaatakowany zasób i przyczynę alertu. Te wystąpienia są opisane we wspólnym schemacie w następujących sekcjach:
-* **Podstawowe**: zestaw standardowych pól, wspólnych dla wszystkich typów alertów, opisujących zasób, na którym znajduje się alert, wraz z dodatkowymi typowymi metadanymi alertów (na przykład ważności lub opisu). Definicje ważności można znaleźć w [opisie alertów](alerts-overview.md#overview). 
-* **Kontekst alertu**: zestaw pól, które opisują przyczynę alertu, z polami, które różnią się w zależności od typu alertu. Na przykład alert dotyczący metryki zawiera pola, takie jak nazwa metryki i wartość metryki w kontekście alertu, podczas gdy alert dziennika aktywności zawiera informacje o zdarzeniu, które wygenerowało alert. 
+Każde wystąpienie alertu opisuje zasób, którego dotyczy problem, oraz jego przyczynę. Te wystąpienia są opisane we wspólnym schemacie w poniższych sekcjach:
+* **Podstawowe informacje:** zestaw standardowych pól, wspólnych dla wszystkich typów alertów, które opisują zasób, na którym znajduje się alert, wraz z dodatkowymi wspólnymi metadanymi alertów (na przykład ważnością lub opisem). Definicje ważności można znaleźć w [przeglądzie alertów](alerts-overview.md#overview). 
+* **Kontekst alertu:** zestaw pól opisujący przyczynę alertu z polami, które różnią się w zależności od typu alertu. Na przykład alert metryki zawiera pola, takie jak nazwa metryki i wartość metryki w kontekście alertu, natomiast alert dziennika aktywności zawiera informacje o zdarzeniu, które wygenerował alert. 
 
 **Przykładowy ładunek alertu**
 ```json
@@ -72,18 +72,18 @@ Każde wystąpienie alertu opisuje zaatakowany zasób i przyczynę alertu. Te wy
 
 | Pole | Opis|
 |:---|:---|
-| alertId | Identyfikator GUID, który unikatowo identyfikuje wystąpienie alertu. |
+| alertId | Unikatowy identyfikator zasobu identyfikujący wystąpienie alertu. |
 | alertRule | Nazwa reguły alertu, która wygenerowała wystąpienie alertu. |
 | Ważność | Ważność alertu. Możliwe wartości: Sev0, Sev1, Sev2, Sev3 lub Sev4. |
-| sygnałtype | Identyfikuje sygnał, na którym zdefiniowano regułę alertu. Możliwe wartości: Metryka, dziennik lub Dziennik aktywności. |
-| monitorCondition | Po uruchomieniu alertu warunek monitora alertu jest ustawiany na wartość **wyzwolone**. Gdy podstawowy warunek, który spowodował wyczyszczenie alertu, zostanie ustawiony jako **rozwiązany**.   |
-| monitoringService | Usługa monitorowania lub rozwiązanie, które wygenerowało alert. Pola dla kontekstu alertu są podyktowane przez usługę monitorowania. |
-| alertTargetIds | Lista identyfikatorów Azure Resource Manager, których dotyczą cele alertu. W przypadku alertu dziennika zdefiniowanego w obszarze roboczym Log Analytics lub w wystąpieniu Application Insights jest to odpowiedni obszar roboczy lub aplikacja. |
-| originAlertId | Identyfikator wystąpienia alertu, zgodnie z wygenerowaniem przez usługę monitorowania. |
-| firedDateTime | Data i godzina uruchomienia wystąpienia alertu w uniwersalnym czasie koordynowanym (UTC). |
-| resolvedDateTime | Data i godzina, kiedy warunek monitora dla wystąpienia alertu jest ustawiony na **rozwiązany** w formacie UTC. Dotyczy tylko alertów dotyczących metryk.|
-| description (opis) | Opis, zgodnie z definicją w regule alertu. |
-|essentialsVersion| Numer wersji sekcji podstawy.|
+| typ sygnału | Identyfikuje sygnał, na którym zdefiniowano regułę alertu. Możliwe wartości: Metryka, Dziennik lub Dziennik aktywności. |
+| monitorCondition | Po wyzłoceni alertu warunek monitora alertu jest ustawiany na **Wyzpalony .** Gdy podstawowy warunek, który spowodował wyczyszczenie alertu, jest czyszczyny, warunek monitora jest ustawiany na **Rozwiązano**.   |
+| monitoringService | Usługa monitorowania lub rozwiązanie, które wygenerowała alert. Pola dla kontekstu alertu są dyktowane przez usługę monitorowania. |
+| alertTargetIds | Lista identyfikatorów Azure Resource Manager, których dotyczy alert. W przypadku alertu dziennika zdefiniowanego w obszarze roboczym usługi Log Analytics Application Insights wystąpieniu jest to odpowiedni obszar roboczy lub aplikacja. |
+| originAlertId | Identyfikator wystąpienia alertu wygenerowany przez usługę monitorowania, która je generuje. |
+| firedDateTime | Data i godzina rozpoczęcia działania wystąpienia alertu w Uniwersalny czas koordynowany (UTC). |
+| resolvedDateTime | Data i godzina ustawienia warunku monitora dla wystąpienia alertu na Wartość **rozwiązana w** formacie UTC. Obecnie dotyczy tylko alertów dotyczących metryk.|
+| description (opis) | Opis, zgodnie z definicją w regułę alertu. |
+|essentialsVersion| Numer wersji dla sekcji podstawowe.|
 |alertContextVersion | Numer wersji `alertContext` sekcji. |
 
 **Przykładowe wartości**
@@ -110,7 +110,7 @@ Każde wystąpienie alertu opisuje zaatakowany zasób i przyczynę alertu. Te wy
 
 ## <a name="alert-context"></a>Kontekst alertu
 
-### <a name="metric-alerts-excluding-availability-tests"></a>Alerty metryk (z wyłączeniem testów dostępności)
+### <a name="metric-alerts-excluding-availability-tests"></a>Alerty metryk (z wyjątkiem testów dostępności)
 
 #### <a name="monitoringservice--platform"></a>`monitoringService` = `Platform`
 
@@ -145,7 +145,7 @@ Każde wystąpienie alertu opisuje zaatakowany zasób i przyczynę alertu. Te wy
 }
 ```
 
-### <a name="metric-alerts-availability-tests"></a>Alerty metryk (testy dostępności)
+### <a name="metric-alerts-availability-tests"></a>Alerty dotyczące metryk (testy dostępności)
 
 #### <a name="monitoringservice--platform"></a>`monitoringService` = `Platform`
 
@@ -179,7 +179,7 @@ Każde wystąpienie alertu opisuje zaatakowany zasób i przyczynę alertu. Te wy
 ### <a name="log-alerts"></a>Alerty dotyczące dzienników
 
 > [!NOTE]
-> W przypadku alertów dziennika, które mają zdefiniowany niestandardowy element tematu wiadomości e-mail i/lub ładunek JSON, włączenie wspólnego schematu powoduje przywrócenie tematu i/lub schematu ładunku poczty e-mail do opisanego w poniższej kolejności. Alerty z włączonym wspólnym schematem mają górny limit rozmiaru wynoszący 256 KB na alert. Wyniki wyszukiwania nie są osadzane w ładunku alertów dziennika, jeśli powodują, że rozmiar alertu przekracza ten próg. Można to określić, sprawdzając flagę `IncludeSearchResults` . Gdy wyniki wyszukiwania nie zostaną uwzględnione, należy użyć `LinkToFilteredSearchResultsAPI` lub `LinkToSearchResultsAPI` uzyskać dostęp do wyników zapytania za pomocą [interfejsu API log Analytics](/rest/api/loganalytics/dataaccess/query/get).
+> W przypadku alertów dziennika, które mają zdefiniowany niestandardowy temat wiadomości e-mail i/lub ładunek JSON, włączenie wspólnego schematu przywraca schemat tematu wiadomości e-mail i/lub ładunku do opisanego poniżej. Alerty z włączonym wspólnym schematem mają górny limit rozmiaru 256 KB na alert. Wyniki wyszukiwania nie są osadzone w ładunku alertów dziennika, jeśli powodują przekroczenie tego progu przez rozmiar alertu. Można to ustalić, sprawdzając flagę `IncludeSearchResults` . Jeśli wyniki wyszukiwania nie zostaną uwzględnione, należy użyć lub , aby uzyskać dostęp do wyników zapytania `LinkToFilteredSearchResultsAPI` `LinkToSearchResultsAPI` za pomocą interfejsu API usługi Log [Analytics.](/rest/api/loganalytics/dataaccess/query/get)
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
@@ -571,5 +571,5 @@ Każde wystąpienie alertu opisuje zaatakowany zasób i przyczynę alertu. Te wy
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [typowym schemacie alertów](./alerts-common-schema.md).
-- Dowiedz się [, jak utworzyć aplikację logiki, która korzysta ze wspólnego schematu alertu do obsługi wszystkich alertów](./alerts-common-schema-integrations.md).
+- Dowiedz się więcej na temat [wspólnego schematu alertów](./alerts-common-schema.md).
+- Dowiedz [się, jak utworzyć aplikację logiki, która używa wspólnego schematu alertów do obsługi wszystkich alertów.](./alerts-common-schema-integrations.md)

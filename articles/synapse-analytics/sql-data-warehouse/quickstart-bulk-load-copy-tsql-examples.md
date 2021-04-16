@@ -1,38 +1,38 @@
 ---
-title: Mechanizmy uwierzytelniania przy użyciu instrukcji COPY
-description: Zawiera opis mechanizmów uwierzytelniania do zbiorczego ładowania danych
+title: Mechanizmy uwierzytelniania za pomocą instrukcji COPY
+description: Przedstawia mechanizmy uwierzytelniania w celu zbiorczego ładowania danych
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 07/10/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 70e8f15b2b02008f24c87cfe70372fccbf0506fd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 510f2556fba42176817b782fe48d01d76eaa3fd7
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104600126"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568458"
 ---
-# <a name="securely-load-data-using-synapse-sql"></a>Bezpieczne ładowanie danych przy użyciu języka SQL Synapse
+# <a name="securely-load-data-using-synapse-sql"></a>Bezpieczne ładowanie danych przy użyciu Synapse SQL
 
-W tym artykule omówiono i przedstawiono przykłady mechanizmów bezpiecznego uwierzytelniania [instrukcji Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true). Instrukcja COPY to najbardziej elastyczny i bezpieczny sposób ładowania danych w języku SQL Synapse.
+W tym artykule przedstawiono i przedstawiono przykłady mechanizmów bezpiecznego uwierzytelniania dla [instrukcji COPY.](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) Instrukcja COPY to najbardziej elastyczny i bezpieczny sposób zbiorczego ładowania danych w Synapse SQL.
 ## <a name="supported-authentication-mechanisms"></a>Obsługiwane mechanizmy uwierzytelniania
 
-W poniższej macierzy opisano obsługiwane metody uwierzytelniania dla poszczególnych typów plików i kont magazynu. Dotyczy to źródłowej lokalizacji przechowywania i lokalizacji pliku błędów.
+W poniższej macierzy opisano obsługiwane metody uwierzytelniania dla każdego typu pliku i konta magazynu. Dotyczy to źródłowej lokalizacji magazynu i lokalizacji pliku błędu.
 
-|                          |                CSV                |                      Parquet                       |                        ORC                         |
+|                          |                CSV                |                      Parquet                       |                        Orc                         |
 | :----------------------: | :-------------------------------: | :------------------------------------------------: | :------------------------------------------------: |
-|  **Azure Blob Storage**  | SAS/MSI/NAZWA GŁÓWNA USŁUGI/USŁUGA/AAD |                      SYGNATURA DOSTĘPU WSPÓŁDZIELONEGO/KLUCZ                       |                      SYGNATURA DOSTĘPU WSPÓŁDZIELONEGO/KLUCZ                       |
-| **Azure Data Lake Gen2** | SAS/MSI/NAZWA GŁÓWNA USŁUGI/USŁUGA/AAD | Sygnatura dostępu współdzielonego (BLOB<sup>1</sup>)/MSI (DFS<sup>2</sup>)/Service Principal/Key/AAD | Sygnatura dostępu współdzielonego (BLOB<sup>1</sup>)/MSI (DFS<sup>2</sup>)/Service Principal/Key/AAD |
+|  **Azure Blob Storage**  | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |                      SYGNATURA DOSTĘPU WSPÓŁDZIELONEGO/KLUCZ                       |                      SYGNATURA DOSTĘPU WSPÓŁDZIELONEGO/KLUCZ                       |
+| **Azure Data Lake Gen2** | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS (blob<sup>1</sup>)/MSI (dfs<sup>2</sup>)/SERVICE PRINCIPAL/KEY/AAD | SAS (blob<sup>1</sup>)/MSI (dfs<sup>2</sup>)/SERVICE PRINCIPAL/KEY/AAD |
 
-1: Ta metoda uwierzytelniania wymaga punktu końcowego. blob (**. blob**. Core.Windows.NET) w ścieżce lokalizacji zewnętrznej.
+1: Punkt końcowy .blob **(.blob**.core.windows.net) w ścieżce lokalizacji zewnętrznej jest wymagany dla tej metody uwierzytelniania.
 
-2: dla tej metody uwierzytelniania wymagana jest punkt końcowy systemu plików DFS (**. DFS**. Core.Windows.NET) w ścieżce lokalizacji zewnętrznej.
+2: Punkt końcowy dfs **(.dfs**.core.windows.net) w ścieżce lokalizacji zewnętrznej jest wymagany dla tej metody uwierzytelniania.
 
-## <a name="a-storage-account-key-with-lf-as-the-row-terminator-unix-style-new-line"></a>A. Klucz konta magazynu z LF jako terminator wiersza (nowy wiersz w stylu systemu UNIX)
+## <a name="a-storage-account-key-with-lf-as-the-row-terminator-unix-style-new-line"></a>A. Klucz konta magazynu z terminatorem wierszy LF (nowy wiersz w stylu systemu Unix)
 
 
 ```sql
@@ -49,9 +49,9 @@ WITH (
 ```
 > [!IMPORTANT]
 >
-> - Użyj wartości szesnastkowej (0x0A), aby określić znak wysuwu wiersza/wiersz. Zwróć uwagę, że instrukcja COPY interpretuje ciąg "\n" jako "\r\n" (wiersz powrotu karetki).
+> - Użyj wartości szesnastkowej (0x0A), aby określić znak nowego wiersza/nowego wiersza. Zwróć uwagę, że instrukcja COPY zinterpretuje ciąg "\n" jako "\r\n" (znak powrotu karetki nowego linii).
 
-## <a name="b-shared-access-signatures-sas-with-crlf-as-the-row-terminator-windows-style-new-line"></a>B. Sygnatury dostępu współdzielonego (SAS) z CRLF jako terminator wiersza (nowy wiersz w stylu systemu Windows)
+## <a name="b-shared-access-signatures-sas-with-crlf-as-the-row-terminator-windows-style-new-line"></a>B. Sygnatury dostępu współdzielonego (SAS) z crlf jako terminatorem wierszy (nowy wiersz w stylu systemu Windows)
 ```sql
 COPY INTO target_table
 FROM 'https://adlsgen2account.dfs.core.windows.net/myblobcontainer/folder1/'
@@ -66,7 +66,7 @@ WITH (
 
 > [!IMPORTANT]
 >
-> - Nie należy określać ROWTERMINATOR jako "\r\n", który będzie interpretowany jako "\r\r\n" i może powodować problemy z analizowaniem
+> - Nie określaj wartości ROWTERMINATOR jako "\r\n", która będzie interpretowana jako "\r\r\n" i może powodować analizowanie problemów
 
 ## <a name="c-managed-identity"></a>C. Tożsamość zarządzana
 
@@ -76,11 +76,11 @@ Uwierzytelnianie tożsamości zarządzanej jest wymagane, gdy konto magazynu jes
 
 1. Zainstaluj program Azure PowerShell, korzystając z tego [przewodnika](/powershell/azure/install-az-ps?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Jeśli masz konto ogólnego przeznaczenia w wersji 1 lub konto magazynu blob, najpierw musisz przeprowadzić uaktualnienie do konta ogólnego przeznaczenia w wersji 2, korzystając z tego [przewodnika](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-3. Musisz **zezwolić zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu** , włączone w obszarze zapory konta usługi Azure Storage i menu ustawienia **sieci wirtualnych** . Aby uzyskać więcej informacji, zapoznaj się z tym [przewodnikiem](../../storage/common/storage-network-security.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#exceptions).
+3. Opcja Zezwalaj zaufanym **usługi firmy Microsoft** na dostęp do tego konta magazynu musi być włączona w menu ustawień Zapory i sieci **wirtualne** konta usługi Azure Storage. Aby uzyskać więcej informacji, zapoznaj się z tym [przewodnikiem](../../storage/common/storage-network-security.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#exceptions).
 
 #### <a name="steps"></a>Kroki
 
-1. Jeśli masz autonomiczną dedykowaną pulę SQL, zarejestruj swój serwer SQL w usłudze Azure Active Directory (AAD) przy użyciu programu PowerShell: 
+1. Jeśli masz autonomiczną dedykowaną pulę SQL, zarejestruj serwer SQL w Azure Active Directory (AAD) przy użyciu programu PowerShell: 
 
    ```powershell
    Connect-AzAccount
@@ -88,34 +88,34 @@ Uwierzytelnianie tożsamości zarządzanej jest wymagane, gdy konto magazynu jes
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
 
-   Ten krok nie jest wymagany w przypadku dedykowanych pul SQL w obszarze roboczym Synapse.
+   Ten krok nie jest wymagany w przypadku dedykowanych pul SQL w obszarze roboczym usługi Synapse.
 
-1. Jeśli masz obszar roboczy Synapse, zarejestruj tożsamość zarządzaną przez system obszaru roboczego:
+1. Jeśli masz obszar roboczy usługi Synapse, zarejestruj tożsamość zarządzaną przez system obszaru roboczego:
 
-   1. Przejdź do obszaru roboczego Synapse w Azure Portal
-   2. Przejdź do bloku zarządzane tożsamości 
+   1. Przejdź do obszaru roboczego synapse w Azure Portal
+   2. Przejdź do bloku Tożsamości zarządzane 
    3. Upewnij się, że opcja "Zezwalaj na potoki" jest włączona
    
-   ![Zarejestruj plik msi systemu obszaru roboczego](./media/quickstart-bulk-load-copy-tsql-examples/msi-register-example.png)
+   ![Rejestrowanie msi systemu obszaru roboczego](./media/quickstart-bulk-load-copy-tsql-examples/msi-register-example.png)
 
-1. Utwórz **konto magazynu ogólnego przeznaczenia w wersji 2** za pomocą tego [przewodnika](../../storage/common/storage-account-create.md).
+1. Utwórz konto **magazynu ogólnego przeznaczenia w wersji 2, korzystając** z tego [przewodnika.](../../storage/common/storage-account-create.md)
 
    > [!NOTE]
    >
-   > - Jeśli masz konto usługi Magazyn ogólnego przeznaczenia w wersji 1 lub BLOB, musisz **najpierw przeprowadzić uaktualnienie do wersji 2** przy użyciu tego [przewodnika](../../storage/common/storage-account-upgrade.md).
-   > - Aby uzyskać znane problemy z Azure Data Lake Storage Gen2, zapoznaj się z tym [przewodnikiem](../../storage/blobs/data-lake-storage-known-issues.md).
+   > - Jeśli masz konto ogólnego przeznaczenia w wersji 1 lub konto usługi Blob Storage, musisz najpierw wykonać uaktualnienie do wersji **2,** korzystając z tego [przewodnika](../../storage/common/storage-account-upgrade.md).
+   > - W przypadku znanych problemów z Azure Data Lake Storage Gen2 zapoznaj się z tym [przewodnikiem.](../../storage/blobs/data-lake-storage-known-issues.md)
 
-1. W obszarze konto magazynu przejdź do pozycji **Access Control (IAM)**, a następnie wybierz pozycję **Dodaj przypisanie roli**. Przypisywanie **danych obiektów blob magazynu współautor** roli platformy Azure do serwera lub obszaru roboczego hostującym dedykowaną pulę SQL, która została zarejestrowana w usłudze Azure Active Directory (AAD).
+1. W obszarze konta magazynu przejdź do **Access Control (IAM)** i wybierz **pozycję Dodaj przypisanie roli.** Przypisz **rolę Współautor danych obiektu blob** usługi Storage na platformie Azure do serwera lub obszaru roboczego hostowania dedykowanej puli SQL zarejestrowanej w usłudze Azure Active Directory (AAD).
 
    > [!NOTE]
-   > Tylko członkowie z uprawnieniami właściciela mogą wykonać ten krok. W przypadku różnych wbudowanych ról platformy Azure Zapoznaj się z tym [przewodnikiem](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+   > Ten krok mogą wykonać tylko członkowie z uprawnieniami właściciela. Aby uzyskać informacje na temat różnych wbudowanych ról platformy Azure, zapoznaj się z tym [przewodnikiem.](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
    
     > [!IMPORTANT]
-    > Określ rolę właściciela **danych obiektów BLOB** , współautora lub czytelnika usługi **Storage** . Role te są inne niż wbudowane role właściciela, współautora i czytelnika. 
+    > Określ rolę **właściciela, współautora** lub czytelnika danych obiektu blob usługi **Storage** na platformie Azure. Te role różnią się od wbudowanych ról właściciela, współautora i czytelnika platformy Azure. 
 
-    ![Przyznawanie uprawnień usługi Azure RBAC do ładowania](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
+    ![Udzielanie uprawnień RBAC platformy Azure do ładowania](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
-4. Teraz można uruchomić instrukcję COPY określającą "tożsamość zarządzaną":
+4. Teraz możesz uruchomić instrukcje COPY, określając "Tożsamość zarządzana":
 
     ```sql
     COPY INTO dbo.target_table
@@ -129,16 +129,16 @@ Uwierzytelnianie tożsamości zarządzanej jest wymagane, gdy konto magazynu jes
 ## <a name="d-azure-active-directory-authentication"></a>D. Uwierzytelnianie usługi Azure Active Directory
 #### <a name="steps"></a>Kroki
 
-1. W obszarze konto magazynu przejdź do pozycji **Access Control (IAM)**, a następnie wybierz pozycję **Dodaj przypisanie roli**. Przypisz rolę **właściciel danych obiektów blob magazynu, współautor lub czytelnika** do użytkownika usługi Azure AD. 
+1. W obszarze konta magazynu przejdź do **Access Control (IAM)** i wybierz **pozycję Dodaj przypisanie roli.** Przypisz **rolę właściciela, współautora lub czytelnika** danych obiektu blob usługi Storage na platformie Azure do użytkownika usługi Azure AD. 
 
     > [!IMPORTANT]
-    > Określ rolę właściciela **danych obiektów BLOB** , współautora lub czytelnika usługi **Storage** . Role te są inne niż wbudowane role właściciela, współautora i czytelnika.
+    > Określ rolę **właściciela, współautora** lub czytelnika danych obiektu blob usługi **Storage** na platformie Azure. Te role różnią się od wbudowanych ról właściciela, współautora i czytelnika platformy Azure.
 
-    ![Przyznawanie uprawnień usługi Azure RBAC do ładowania](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
+    ![Udzielanie uprawnień RBAC platformy Azure do ładowania](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
-2. Skonfiguruj uwierzytelnianie usługi Azure AD, wykonując poniższą [dokumentację](../../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell). 
+2. Skonfiguruj uwierzytelnianie usługi Azure AD, korzystając z poniższej [dokumentacji.](../../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell) 
 
-3. Połącz się z pulą SQL przy użyciu Active Directory, gdzie można teraz uruchomić instrukcję COPY bez określania poświadczeń:
+3. Połącz się z pulą SQL przy użyciu usługi Active Directory, w której można teraz uruchomić instrukcję COPY bez określania poświadczeń:
 
     ```sql
     COPY INTO dbo.target_table
@@ -152,12 +152,12 @@ Uwierzytelnianie tożsamości zarządzanej jest wymagane, gdy konto magazynu jes
 ## <a name="e-service-principal-authentication"></a>E. Uwierzytelnianie jednostki usługi
 #### <a name="steps"></a>Kroki
 
-1. [Tworzenie aplikacji Azure Active Directory](../..//active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
-2. [Pobierz identyfikator aplikacji](../..//active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)
-3. [Pobierz klucz uwierzytelniania](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options)
-4. [Pobierz punkt końcowy tokenu OAuth 2,0 w wersji 1](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications)
+1. [Tworzenie aplikacji Azure Active Directory aplikacji](../..//active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
+2. [Uzyskiwanie identyfikatora aplikacji](../..//active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)
+3. [Uzyskiwanie klucza uwierzytelniania](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options)
+4. [Uzyskiwanie punktu końcowego tokenu OAuth 2.0 w wersji 1](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications)
 5. [Przypisywanie uprawnień do odczytu, zapisu i wykonywania do aplikacji usługi Azure AD](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder) na koncie magazynu
-6. Teraz można uruchomić instrukcję COPY:
+6. Teraz możesz uruchomić instrukcje COPY:
 
     ```sql
     COPY INTO dbo.target_table
@@ -172,9 +172,9 @@ Uwierzytelnianie tożsamości zarządzanej jest wymagane, gdy konto magazynu jes
 
 > [!IMPORTANT]
 >
-> - Użyj wersji **1** punktu końcowego tokenu OAuth 2,0
+> - Używanie wersji **1** punktu końcowego tokenu OAuth 2.0
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zapoznaj się ze szczegółowym opisem składni artykułu w artykule dotyczącym [kopiowania instrukcji](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax)
-- Zapoznaj się z artykułem [Przegląd ładowania danych](./design-elt-data-loading.md#what-is-elt) w celu załadowania najlepszych rozwiązań
+- Zapoznaj się [z artykułem instrukcji COPY,](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax) aby uzyskać szczegółową składnię
+- Zapoznaj się z [artykułem z omówieniem ładowania](./design-elt-data-loading.md#what-is-elt) danych, aby uzyskać najlepsze rozwiązania dotyczące ładowania

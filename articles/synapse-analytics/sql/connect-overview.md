@@ -1,45 +1,44 @@
 ---
-title: Nawiązywanie połączenia z usługą Synapse SQL
-description: Połączono z usługą SQL Synapse.
-services: synapse-analytics
+title: Nawiązywanie połączenia z Synapse SQL
+description: Połącz się z Synapse SQL.
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3165b72ae5612aaeaa66a95299db97182fef2232
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f5682302ea0fa83c04a8560ba3f0f98ea075e072
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101677587"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565546"
 ---
-# <a name="connect-to-synapse-sql"></a>Nawiązywanie połączenia z usługą Synapse SQL
-Połącz się z funkcją SQL Synapse w usłudze Azure Synapse Analytics.
+# <a name="connect-to-synapse-sql"></a>Nawiązywanie połączenia z Synapse SQL
+Połącz się z Synapse SQL w Azure Synapse Analytics.
 
-## <a name="supported-tools-for-serverless-sql-pool"></a>Obsługiwane narzędzia dla puli SQL bezserwerowej
+## <a name="supported-tools-for-serverless-sql-pool"></a>Obsługiwane narzędzia dla bez serwera puli SQL
 
-[Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) jest w pełni obsługiwana począwszy od wersji 1.18.0. Program SSMS jest częściowo obsługiwany począwszy od wersji 18,5, można go używać do nawiązywania połączeń i tylko zapytań.
+[Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) jest w pełni obsługiwana, począwszy od wersji 1.18.0. Program SSMS jest obsługiwany częściowo, począwszy od wersji 18.5. Można go używać tylko do nawiązywania połączeń i wykonywania zapytań.
 
 > [!NOTE]
-> Jeśli logowanie za pomocą usługi AAD ma otwarte połączenie przez ponad 1 godzinę w czasie wykonywania zapytania, wszelkie zapytania, które opierają się na usłudze AAD, zakończą się niepowodzeniem. Obejmuje to wysyłanie zapytań do magazynu przy użyciu przekazywania usługi AAD i instrukcji, które współpracują z usługą AAD (na przykład CREATE EXTERNAL PROVIDER). Ma to wpływ na wszystkie narzędzia, które utrzymują otwarte połączenia, takie jak w edytorze zapytań w programie SSMS i ADS. Nie dotyczy narzędzi otwierających nowe połączenia do wykonywania zapytań, takich jak Synapse Studio.
+> Jeśli w czasie wykonywania zapytania połączenie logowania do usług AAD jest otwarte dłużej niż przez 1 godzinę, wszystkie zapytania, które są związane z usługą AAD, nie powiodą się. Obejmuje to wykonywanie zapytań o magazyn przy użyciu przekazania usługi AAD i instrukcji, które wchodzą w interakcję z usługą AAD (na przykład CREATE EXTERNAL PROVIDER). Ma to wpływ na każde narzędzie, które utrzymuje otwarte połączenia, na przykład w edytorze zapytań w programie SSMS i narzędziu ADS. Nie ma to wpływu na narzędzia, które otwierają nowe połączenia w celu wykonania zapytania, takie Synapse Studio połączenia.
 
-> Aby rozwiązać ten problem, możesz uruchomić ponownie narzędzie SSMS lub połączyć się i rozłączyć w usłudze ADS. 
+> Aby rozwiązać ten problem, możesz ponownie uruchomić program SSMS lub nawiązać połączenie i rozłączyć się w programie ADS. 
 
 ## <a name="find-your-server-name"></a>Znajdowanie nazwy serwera
 
-Nazwa serwera dla dedykowanej puli SQL w następującym przykładzie to: showdemoweu.sql.azuresynapse.net.
-Nazwa serwera dla puli SQL bezserwerowej w następującym przykładzie: showdemoweu-ondemand.sql.azuresynapse.net.
+Nazwa serwera dla dedykowanej puli SQL w poniższym przykładzie to: showdemoweu.sql.azuresynapse.net.
+Nazwa serwera dla bez serwera puli SQL w poniższym przykładzie to: showdemoweu-ondemand.sql.azuresynapse.net.
 
 Aby znaleźć w pełni kwalifikowaną nazwę serwera:
 
 1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
-2. Wybierz pozycję w **obszarze roboczym Synapse**.
+2. Wybierz pozycję w **obszarach roboczych synapse.**
 3. Wybierz obszar roboczy, z którym chcesz nawiązać połączenie.
-4. Przejdź do omówienia.
+4. Przejdź do o omówienie.
 5. Znajdź pełną nazwę serwera.
 
 ## <a name="sql-pool"></a>**Pula SQL**
@@ -48,10 +47,10 @@ Aby znaleźć w pełni kwalifikowaną nazwę serwera:
 
 ## <a name="serverless-sql-pool"></a>**Bezserwerowa pula SQL**
 
-![Pełna nazwa serwera bezserwerowa Pula SQL](./media/connect-overview/server-connect-example-sqlod.png)
+![Pełna nazwa serwera bez serwera bez serwera puli SQL](./media/connect-overview/server-connect-example-sqlod.png)
 
 ## <a name="supported-drivers-and-connection-strings"></a>Obsługiwane sterowniki i parametry połączenia
-Synapse SQL obsługuje [ADO.NET](/dotnet/framework/data/adonet/), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows), [php](/sql/connect/php/overview-of-the-php-sql-driver?f=255&MSPPError=-2147217396)i [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server). Aby znaleźć najnowszą wersję i dokumentację, wybierz jeden z powyższych sterowników. Aby automatycznie wygenerować parametry połączenia dla sterownika, którego używasz z Azure Portal, wybierz pozycję **Pokaż parametry połączenia bazy danych** z poprzedniego przykładu. Poniżej przedstawiono również przykłady parametrów połączenia dla każdego sterownika.
+Synapse SQL obsługuje [ADO.NET](/dotnet/framework/data/adonet/), [ODBC,](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows) [PHP](/sql/connect/php/overview-of-the-php-sql-driver?f=255&MSPPError=-2147217396)i [JDBC.](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) Aby znaleźć najnowszą wersję i dokumentację, wybierz jeden z powyższych sterowników. Aby automatycznie wygenerować parametry połączenia dla sterownika, którego używasz z Azure Portal, wybierz pozycję Pokaż parametry połączenia bazy danych **z** poprzedniego przykładu. Poniżej przedstawiono również przykłady parametrów połączenia dla każdego sterownika.
 
 > [!NOTE]
 > Rozważ ustawienie limitu czasu połączenia na wartość 300 sekund, aby połączenie nie zostało zakończone mimo krótkich okresów niedostępności.
@@ -81,7 +80,7 @@ jdbc:sqlserver://yourserver.sql.azuresynapse.net:1433;database=yourdatabase;user
 ```
 
 ## <a name="connection-settings"></a>Ustawienia połączenia
-Synapse SQL Standard podczas tworzenia połączeń i obiektów. Te ustawienia nie mogą zostać zastąpione i obejmują:
+Synapse SQL standaryzuje niektóre ustawienia podczas tworzenia połączenia i obiektu. Tych ustawień nie można przesłonić i obejmują:
 
 | Ustawienia bazy danych | Wartość |
 |:--- |:--- |
@@ -92,7 +91,7 @@ Synapse SQL Standard podczas tworzenia połączeń i obiektów. Te ustawienia ni
 
 ## <a name="recommendations"></a>Zalecenia
 
-W przypadku wykonywania zapytań **puli SQL bezserwerowych** zalecane narzędzia są [Azure Data Studio](get-started-azure-data-studio.md) i Azure Synapse Studio.
+W przypadku wykonywania bez **serwera zapytań puli SQL** zalecane narzędzia to Azure Data Studio i Azure Synapse Studio. [](get-started-azure-data-studio.md)
 
 ## <a name="next-steps"></a>Następne kroki
-Aby nawiązać połączenie i rozpocząć tworzenie zapytań przy użyciu programu Visual Studio, zobacz artykuł [Query with Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (Wykonywanie zapytań przy użyciu programu Visual Studio). Aby dowiedzieć się więcej na temat opcji uwierzytelniania, zobacz [uwierzytelnianie w programie SQL Synapse](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Aby nawiązać połączenie i rozpocząć tworzenie zapytań przy użyciu programu Visual Studio, zobacz artykuł [Query with Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (Wykonywanie zapytań przy użyciu programu Visual Studio). Aby dowiedzieć się więcej na temat opcji uwierzytelniania, zobacz [Authentication to Synapse SQL (Uwierzytelnianie w u Synapse SQL](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)).

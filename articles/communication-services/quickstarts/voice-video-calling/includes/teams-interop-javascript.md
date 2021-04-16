@@ -1,30 +1,30 @@
 ---
-title: Szybki Start — Dołącz do spotkania zespołów z poziomu aplikacji sieci Web
-description: W tym samouczku dowiesz się, jak przyłączyć się do spotkania zespołów przy użyciu zestawu SDK wywołania usługi Azure Communication Services dla języka JavaScript
+title: Szybki start — dołączanie do spotkania usługi Teams z aplikacji internetowej
+description: Z tego samouczka dowiesz się, jak dołączyć do spotkania usługi Teams przy użyciu zestawu SDK wywoływania Azure Communication Services dla języka JavaScript
 author: chpalm
 ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 4b6cf48c577bb6f22f497007c4b1c1b57ab6f187
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6747d1d3cfba1c9e2bee7a8a7a48d67d6bed9f8e
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105108202"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107564530"
 ---
-W tym przewodniku szybki start dowiesz się, jak dołączać do spotkania zespołów przy użyciu zestawu SDK wywołania usługi Azure Communication Services dla języka JavaScript.
+W tym przewodniku Szybki start dowiesz się, jak dołączyć do spotkania usługi Teams przy użyciu zestawu SDK wywoływania Azure Communication Services dla języka JavaScript.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Działająca [usługa komunikacyjna wywołująca aplikację sieci Web](../getting-started-with-calling.md).
-- [Wdrożenie zespołów](/deployoffice/teams-install).
+- Działa aplikacja [Communication Services wywoływania aplikacji internetowej](../getting-started-with-calling.md).
+- Wdrożenie [usługi Teams.](/deployoffice/teams-install)
 
 
-## <a name="add-the-teams-ui-controls"></a>Dodawanie formantów interfejsu użytkownika zespołów
+## <a name="add-the-teams-ui-controls"></a>Dodawanie kontrolek interfejsu użytkownika aplikacji Teams
 
-Zastąp kod w index.html następującym fragmentem kodu.
-Pole tekstowe zostanie użyte do wprowadzenia kontekstu spotkania zespołów, a przycisk zostanie użyty w celu dołączenia do określonego spotkania:
+Zastąp kod w index.html poniższym fragmentem kodu.
+Pole tekstowe zostanie użyte do wprowadzenia kontekstu spotkania w u użytkownika Teams, a przycisk zostanie użyty do dołączenia do określonego spotkania:
 
 ```html
 <!DOCTYPE html>
@@ -53,9 +53,9 @@ Pole tekstowe zostanie użyte do wprowadzenia kontekstu spotkania zespołów, a 
 </html>
 ```
 
-## <a name="enable-the-teams-ui-controls"></a>Włączanie formantów interfejsu użytkownika zespołów
+## <a name="enable-the-teams-ui-controls"></a>Włączanie kontrolek interfejsu użytkownika aplikacji Teams
 
-Zastąp zawartość pliku client.js następującym fragmentem kodu.
+Zastąp zawartość pliku client.js poniższym fragmentem kodu.
 
 ```javascript
 import { CallClient } from "@azure/communication-calling";
@@ -110,14 +110,14 @@ teamsMeetingJoinButton.addEventListener("click", () => {
 });
 ```
 
-## <a name="get-the-teams-meeting-link"></a>Pobierz link do spotkania dla zespołów
+## <a name="get-the-teams-meeting-link"></a>Uzyskiwanie linku do spotkania z zespołem
 
-Link do spotkania zespołów można pobrać przy użyciu interfejsów API programu Graph. Jest to szczegółowo opisany w [dokumentacji programu Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta).
-Zestaw SDK wywoływania usług komunikacyjnych akceptuje łącze do spotkania z pełnymi zespołami. Ten link jest zwracany jako część `onlineMeeting` zasobu, który jest dostępny w ramach [ `joinWebUrl` Właściwości](/graph/api/resources/onlinemeeting?view=graph-rest-beta) , można także uzyskać wymagane informacje o spotkaniu z adresu URL **spotkania dołączania** w przypadku, gdy spotkanie zespołu się zaprosiło.
+Link do spotkania usługi Teams można pobrać przy użyciu interfejsów API programu Graph. Jest to szczegółowo opisane w [dokumentacji programu Graph.](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true)
+Wywołanie Communication Services SDK akceptuje pełny link spotkania usługi Teams. Ten link jest zwracany jako część zasobu i dostępny w ramach właściwości Wymagane informacje o spotkaniu można również uzyskać z adresu URL dołączenia do spotkania w ramach zaproszenia `onlineMeeting` na spotkanie w aplikacji Teams. [ `joinWebUrl` ](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true) 
 
 ## <a name="run-the-code"></a>Uruchamianie kodu
 
-Użytkownicy pakietu WebPack mogą używać programu `webpack-dev-server` do kompilowania i uruchamiania aplikacji. Uruchom następujące polecenie, aby powiązać hosta aplikacji na lokalnym serwerze WebServer:
+Użytkownicy pakietów WebPack mogą używać programu `webpack-dev-server` do kompilowania i uruchamiania aplikacji. Uruchom następujące polecenie, aby po pakiecie hosta aplikacji na lokalnym serwerze internetowym:
 
 ```console
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
@@ -125,6 +125,6 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 
 Otwórz przeglądarkę i przejdź do http://localhost:8080/ . Powinien zostać wyświetlony następujący ekran:
 
-:::image type="content" source="../media/javascript/acs-join-teams-meeting-quickstart.PNG" alt-text="Zrzut ekranu ukończonej aplikacji JavaScript.":::
+:::image type="content" source="../media/javascript/acs-join-teams-meeting-quickstart.PNG" alt-text="Zrzut ekranu przedstawiający ukończoną aplikację JavaScript.":::
 
-Wstaw kontekst zespołów do pola tekstowego i naciśnij pozycję *Dołącz zespoły spotkanie* , aby dołączyć zespoły do spotkania z poziomu aplikacji usług komunikacyjnych.
+Wstaw kontekst aplikacji Teams w polu tekstowym i naciśnij pozycję *Dołącz* do spotkania zespołów, aby dołączyć do spotkania aplikacji Teams z poziomu Communication Services aplikacji.

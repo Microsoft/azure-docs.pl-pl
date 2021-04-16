@@ -6,14 +6,14 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/24/2021
+ms.date: 04/15/2021
 ms.author: banders
-ms.openlocfilehash: b88a5bc10afeffe7e15ad7a90e28bd8b8ff28688
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 687db46ea2f6c9c4fae6e5355e3236cde3d7a401
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105046559"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567251"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Przenoszenie subskrypcji platformy Azure między subskrybentami i dostawcami usług w chmurze
 
@@ -21,7 +21,7 @@ W tym artykule przedstawiono ogólną procedurę przenoszenia subskrypcji platfo
 
 Przed rozpoczęciem żądania przeniesienia musisz pobrać lub wyeksportować wszelkie informacje dotyczące kosztów i rozliczeń, które chcesz zachować. Informacje dotyczące rozliczeń i wykorzystania nie są przenoszone razem z subskrypcją. Aby uzyskać więcej informacji na temat eksportowania danych dotyczących zarządzania kosztami, zobacz [Eksportowanie danych i zarządzanie nimi](../costs/tutorial-export-acm-data.md). Aby uzyskać więcej informacji na temat pobierania danych dotyczących faktur i użycia, zobacz [Pobieranie lub wyświetlanie faktury rozliczeniowej i danych dziennego użycia na platformie Azure](download-azure-invoice-daily-usage-date.md).
 
-Jeśli masz jakieś istniejące rezerwacje, przestaną one zastosowanie do 90 dni po przeniesieniu subskrypcji. Pamiętaj o [anulowaniu wszelkich rezerwacji i zwrocie ich](../reservations/exchange-and-refund-azure-reservations.md) przed przekazaniem subskrypcji, aby uniknąć naliczania opłat po okresie prolongaty 90.
+Jeśli masz jakiekolwiek istniejące rezerwacje, przestają one być stosowanie po upływie 90 dni od przeniesienia subskrypcji. Pamiętaj, aby [anulować wszelkie rezerwacje i zwrócić](../reservations/exchange-and-refund-azure-reservations.md) je przed przeniesieniem subskrypcji, aby uniknąć nalicznych opłat po 90-dniowym okresie prolongaty.
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Przenoszenie subskrypcji EA do partnera CSP
 
@@ -36,7 +36,7 @@ Po zatwierdzeniu żądania dostawca usług w chmurze może udostępnić swoim kl
 
 Aby przenieść wszelkie inne subskrypcje platformy Azure do partnera będącego dostawcą usług w chmurze, subskrybent musi przenieść zasoby z subskrypcji źródłowych do subskrypcji dostawcy usług w chmurze. Poniższe wskazówki pokazują, jak przenosić zasoby między subskrypcjami.
 
-1. Ustanów [relację odsprzedawcy](/partner-center/request-a-relationship-with-a-customer) z klientem. Zapoznaj się z [omówieniem regionalnej autoryzacji dostawcy usług kryptograficznych](/partner-center/regional-authorization-overview) , aby upewnić się, że wszyscy klienci i partnerzy znajdują się w tych samych uprawnionych
+1. Ustanów [relację odsprzedawcy](/partner-center/request-a-relationship-with-a-customer) z klientem. Przejrzyj omówienie [autoryzacji regionalnej programu CSP,](/partner-center/regional-authorization-overview) aby upewnić się, że klient i dzierżawa partnera znajdują się w tych samych autoryzowanych regionach.
 1. Aby utworzyć docelowe subskrypcje dostawcy usług w chmurze platformy Azure, należy współpracować z partnerem będącym dostawcą usług w chmurze.
 1. Upewnij się, że źródłowa i docelowa subskrypcja dostawcy usług w chmurze znajdują się w tej samej dzierżawie usługi Azure Active Directory (Azure AD).  
     Nie możesz zmienić dzierżawy usługi Azure AD dla subskrypcji dostawcy usług w chmurze platformy Azure. Zamiast tego musisz dodać lub skojarzyć subskrypcję źródłową z dzierżawą usługi Azure AD dostawcy usług w chmurze. Aby uzyskać więcej informacji, zobacz [Kojarzenie subskrypcji platformy Azure z dzierżawą usługi Azure Active Directory lub jej dodawanie do niej](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
@@ -55,9 +55,9 @@ Aby przenieść wszelkie inne subskrypcje platformy Azure do partnera będącego
 
 ## <a name="transfer-csp-subscription-to-other-offer"></a>Przenoszenie subskrypcji dostawcy CSP do innej oferty
 
-Aby przenieść wszelkie inne subskrypcje od partnera będącego dostawcą usług w chmurze do dowolnej innej oferty platformy Azure, subskrybent musi przenieść zasoby między źródłowymi subskrypcjami partnera CSP a subskrypcjami docelowymi.
+Aby przenieść wszelkie inne subskrypcje od partnera będącego dostawcą usług w chmurze do dowolnej innej oferty platformy Azure, subskrybent musi przenieść zasoby między źródłowymi subskrypcjami partnera CSP a subskrypcjami docelowymi. Jest to praca wykonywana przez partnera i klienta — nie jest to praca wykonana przez przedstawiciela firmy Microsoft.
 
-1. Utwórz docelowe subskrypcje platformy Azure.
+1. Klient tworzy docelowe subskrypcje platformy Azure.
 1. Upewnij się, że subskrypcje źródłowe i docelowe znajdują się w tej samej dzierżawie usługi Azure Active Directory (Azure AD). Aby uzyskać więcej informacji na temat zmiany dzierżawy usługi Azure AD, zobacz [Kojarzenie subskrypcji platformy Azure z dzierżawą usługi Azure Active Directory lub dodawanie subskrypcji](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
     Pamiętaj, że opcja katalogu zmian nie jest obsługiwana w ramach subskrypcji programu CSP. Na przykład przechodzisz z programu CSP na subskrypcję z opcją płatności zgodnie z rzeczywistym użyciem. Aby zapewnić zgodność z katalogiem, należy zmienić katalog subskrypcji z opcją płatności zgodnie z rzeczywistym użyciem.
 
@@ -65,7 +65,7 @@ Aby przenieść wszelkie inne subskrypcje od partnera będącego dostawcą usłu
     >  - Po skojarzeniu subskrypcji z innym katalogiem użytkownicy, którzy mają przypisane role za pomocą systemu [RBAC platformy Azure](../../role-based-access-control/role-assignments-portal.md), utracą dostęp. Klasyczni administratorzy subskrypcji, w tym administrator usługi i współadministratorzy, również utracą dostęp.
     >  - Przypisania zasad są również usuwane z subskrypcji, gdy subskrypcja jest kojarzona z innym katalogiem.
 
-1. Konto użytkownika używane do przenoszenia musi mieć dostęp właściciela [RBAC platformy Azure](add-change-subscription-administrator.md) do obu subskrypcji.
+1. Konto użytkownika klienta, które jest służące do przenoszenia, musi mieć dostęp właściciela [RBAC](add-change-subscription-administrator.md) platformy Azure w obu subskrypcjach.
 1. Przed rozpoczęciem [zweryfikuj](/rest/api/resources/resources/validatemoveresources), czy wszystkie zasoby platformy Azure mogą zostać przeniesione z subskrypcji źródłowej do subskrypcji docelowej.
     > [!IMPORTANT]
     >  - Niektórych zasobów platformy Azure nie można przenosić między subskrypcjami. Aby wyświetlić pełną listę zasobów platformy Azure, które można przenieść, zobacz [Obsługa operacji przenoszenia dla zasobów](../../azure-resource-manager/management/move-support-resources.md).

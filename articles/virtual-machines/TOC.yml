@@ -251,6 +251,8 @@
               href: hbv3-series.md
             - name: Seria HC
               href: hc-series.md
+        - name: Stany i rozliczenia
+          href: states-billing.md
         - name: Limity przydziału procesorów wirtualnych
           items:
             - name: Interfejs wiersza polecenia
@@ -795,6 +797,8 @@
               href: 'https://azure.microsoft.com/resources/templates/101-sig-image-version-create/'
             - name: Tworzenie maszyny wirtualnej na podstawie wersji obrazu
               href: 'https://azure.microsoft.com/resources/templates/101-vm-from-sig/'
+        - name: Ansible
+          href: 'https://docs.microsoft.com/azure/developer/ansible/vm-configure-from-azure-shared-image-gallery?tabs=ansible'
         - name: Rozwiązywanie problemów z obrazami udostępnionymi
           displayName: 'Shared Image Gallery, SIG, sig, gallery, image, troubleshooting'
           href: troubleshooting-shared-images.md
@@ -944,8 +948,6 @@
           href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
     - name: Opis ponownych uruchomień maszyn wirtualnych
       href: understand-vm-reboots.md
-    - name: Stany i rozliczenia
-      href: states-billing.md
     - name: Regiony platformy Azure
       href: regions.md
 - name: Dyski
@@ -1679,7 +1681,7 @@
     - name: Omówienie
       displayName: Backup and recovery
       href: backup-recovery.md
-    - name: Przerwy w działaniu usług
+    - name: Przerwy w działaniu usługi
       href: virtual-machines-disaster-recovery-guidance.md
     - name: Tworzenie kopii zapasowej maszyn wirtualnych
       items:

@@ -1,7 +1,7 @@
 ---
-title: Co to jest rozpoznawanie znaków optycznych?
+title: Co to jest optyczne rozpoznawanie znaków?
 titleSuffix: Azure Cognitive Services
-description: Usługa optycznego rozpoznawania znaków (OCR) wyodrębnia widoczny tekst w obrazie i zwraca go jako ciągi strukturalne.
+description: Usługa optycznego rozpoznawania znaków (OCR) wyodrębnia widoczny tekst na obrazie i zwraca go jako ciągi strukturalne.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,57 +11,71 @@ ms.topic: overview
 ms.date: 03/29/2021
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 41b3552a633c9cebce1138fa042dbd154eee0cb5
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: da4ada8b505c747d24738e175a1701b5ea73b4e4
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107314120"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536744"
 ---
-# <a name="what-is-optical-character-recognition"></a>Co to jest rozpoznawanie znaków optycznych?
+# <a name="what-is-optical-character-recognition"></a>Co to jest optyczne rozpoznawanie znaków?
 
-Usługa optycznego rozpoznawania znaków (OCR) umożliwia wyodrębnianie drukowanych lub odręcznych tekstu z obrazów, takich jak zdjęcia ulic i produktów, a także dokumenty &mdash; faktury, weksle, raporty finansowe, artykuły i inne. Używa on modeli opartych na uczeniu głębokiego i współpracuje z tekstem na różnych powierzchniach i w tle.
+Usługa optycznego rozpoznawania znaków (OCR, Optical Character Recognition) umożliwia wyodrębnianie z obrazów tekstu drukowanego lub odręcznego, takiego jak zdjęcia znaków i produktów na ulicy, a także z faktur dokumentów, faktur, raportów finansowych, artykułów &mdash; i innych. Używa modeli opartych na uczeniu głębokim i pracuje z tekstem na różnych powierzchniach i tłach.
 
-Interfejsy API OCR obsługują wyodrębnianie drukowanego tekstu w [kilku językach](./language-support.md). Aby rozpocząć, Skorzystaj z [przewodnika Szybki Start](./quickstarts-sdk/client-library.md) .
+Interfejsy API OCR obsługują wyodrębnianie tekstu drukowanego w [kilku językach.](./language-support.md) Postępuj zgodnie z [przewodnika Szybki start,](./quickstarts-sdk/client-library.md) aby rozpocząć pracę.
 
-![Demonstracje OCR](./Images/ocr-demo.gif)
+![Pokazy OCR](./Images/ocr-demo.gif)
 
 Ta dokumentacja zawiera następujące typy artykułów:
-* [Przewodniki Szybki Start](./quickstarts-sdk/client-library.md) to instrukcje krok po kroku, które umożliwiają wykonywanie wywołań do usługi i uzyskiwanie wyników w krótkim czasie. 
-* [Przewodniki z](./Vision-API-How-to-Topics/call-read-api.md) instrukcjami zawiera instrukcje dotyczące korzystania z usługi w bardziej specyficzny lub dostosowany sposób.
+* Przewodnik [Szybki start to](./quickstarts-sdk/client-library.md) instrukcje krok po kroku, które pozwalają na wywołania usługi i uzyskiwanie wyników w krótkim czasie. 
+* Przewodniki [z instrukcjami zawierają](./Vision-API-How-to-Topics/call-read-api.md) instrukcje dotyczące korzystania z usługi w bardziej szczegółowe lub dostosowane sposoby.
 <!--* The [conceptual articles](Vision-API-How-to-Topics/call-read-api.md) provide in-depth explanations of the service's functionality and features.
 * The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions. -->
 
 ## <a name="supported-languages"></a>Obsługiwane języki
-Interfejsy API OCR obsługują łącznie 73 języków na potrzeby tekstu w stylu drukowania. Zapoznaj się z pełną listą [języków obsługiwanych przez aparat OCR](./language-support.md#optical-character-recognition-ocr). ROZPOZNAWANIE w stylu odręcznego jest obsługiwane wyłącznie w języku angielskim.
+Interfejsy API OCR obsługują łącznie 73 języki dla tekstu w stylu wydruku. Zapoznaj się z pełną listą języków obsługiwanych [przez OCR.](./language-support.md#optical-character-recognition-ocr) Rozpoznawanie znaków OCR w stylu odręcznym jest obsługiwane wyłącznie w języku angielskim.
 
-## <a name="input-requirements"></a>Wymagania wejściowe
+## <a name="input-requirements"></a>Wymagania dotyczące danych wejściowych
 
-Wywołanie **odczytu** pobiera obrazy i dokumenty jako dane wejściowe. Mają one następujące wymagania:
+Wywołanie **Read** przyjmuje obrazy i dokumenty jako dane wejściowe. Mają one następujące wymagania:
 
 * Obsługiwane formaty plików: JPEG, PNG, BMP, PDF i TIFF
-* W przypadku plików PDF i TIFF, do 2000 stron (tylko pierwsze dwie strony dla warstwy Bezpłatna) są przetwarzane.
-* Rozmiar pliku musi być mniejszy niż 50 MB (4 MB dla warstwy Bezpłatna) i wymiary co najmniej 50 x 50 pikseli i maksymalnie 10000 x 10000 pikseli. 
-* Wymiary PDF muszą mieć co najwyżej 17 x 17 cali, odpowiadające rozmiarowi papieru legalnego lub A3 i mniejszym.
+* W przypadku plików PDF i TIFF przetwarzanych jest maksymalnie 2000 stron (tylko dwie pierwsze strony w warstwie Bezpłatna).
+* Rozmiar pliku musi być mniejszy niż 50 MB (4 MB dla warstwy Bezpłatna) i mieć wymiary co najmniej 50 x 50 pikseli i nie więcej niż 10000 x 10000 pikseli. 
 
-## <a name="read-api"></a>Odczytaj interfejs API 
+## <a name="read-api"></a>Odczytywanie interfejsu API 
 
-[Interfejs API odczytu](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) przetwarzanie obrazów to najnowsza technologia OCR platformy Azure ([Dowiedz się, co nowego](./whats-new.md)), która wyodrębnia drukowany tekst (w kilku językach), tekst odręczny (tylko w języku angielskim), cyfry i symbole walutowe z obrazów i wielostronicowych dokumentów PDF. Jest zoptymalizowany pod kątem wyodrębniania tekstu z obrazów z obrazami i wielostronicowych dokumentów PDF z wielojęzycznymi językami. Obsługuje ona wykrywanie wydrukowanych i odręcznych tekstu w tym samym obrazie lub dokumencie.
+Interfejs [API](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) przetwarzanie obrazów Read to najnowsza technologia OCR platformy Azure[(dowiedz](./whats-new.md)się, co nowego), która wyodrębnia tekst drukowany (w kilku językach), tekst odręczny (tylko w języku angielskim), cyfry i symbole walut z obrazów oraz wielostronicowych dokumentów PDF. Jest ona zoptymalizowana pod kątem wyodrębniania tekstu z obrazów z dużym obciążeniem tekstem i wielostronicowych dokumentów PDF w różnych językach. Obsługuje wykrywanie zarówno tekstu drukowanego, jak i odręcznego na tym samym obrazie lub dokumencie.
 
-![Jak OCR konwertuje obrazy i dokumenty na strukturalne dane wyjściowe z wyodrębnionym tekstem](./Images/how-ocr-works.svg)
+![Jak OCR konwertuje obrazy i dokumenty na ustrukturyzowane dane wyjściowe z wyodrębnianym tekstem](./Images/how-ocr-works.svg)
 
+### <a name="key-features"></a>Najważniejsze funkcje
 
-## <a name="use-the-cloud-api-or-deploy-on-premise"></a>Korzystanie z interfejsu API chmury lub Wdrażanie lokalne
-Interfejs API chmury odczytywania 3. x jest preferowaną opcją dla większości klientów ze względu na łatwość integracji i szybką produktywność z usługi Box. Platforma Azure i usługa przetwarzanie obrazów obsługują skalowanie, wydajność, bezpieczeństwo danych i wymagania dotyczące zgodności podczas skoncentrowania się na potrzebach klientów.
+Interfejs API odczytu zawiera następujące funkcje. 
 
-W przypadku wdrożenia lokalnego [odczytywanie kontenera Docker (wersja zapoznawcza)](./computer-vision-how-to-install-containers.md) umożliwia wdrażanie nowych funkcji rozpoznawania w środowisku lokalnym. Kontenery doskonale nadają się do określonych wymagań w zakresie zabezpieczeń i zarządzania danymi.
+* Wyodrębnianie tekstu wydruku w 73 językach
+* Wyodrębnianie tekstu odręcznego w języku angielskim
+* Wiersze tekstowe i wyrazy z lokalizacją i wynikami ufności
+* Nie jest wymagana identyfikacja języka
+* Obsługa języków mieszanych, w trybie mieszanym (drukowanie i odręczne)
+* Wybieranie stron i zakresów stron z dużych dokumentów wielostronicowych
+* Naturalna kolejność odczytywania wierszy tekstu
+* Klasyfikacja pisma ręcznego dla wierszy tekstowych
+* Dostępny jako bezbłędny kontener platformy Docker do wdrażania lokalnego
 
-## <a name="ocr-api"></a>INTERFEJS API OCR
+Dowiedz [się, jak korzystać z funkcji OCR.](./vision-api-how-to-topics/call-read-api.md)
 
-Starsza wersja [interfejsu API OCR](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f20d) korzysta ze starszego modelu rozpoznawania, obsługuje tylko obrazy i wykonuje synchronicznie, zwracając natychmiast z wykrytym tekstem. Listę obsługiwanych języków można znaleźć w kolumnie OCR dla [obsługiwanych języków](./language-support.md#optical-character-recognition-ocr) .
+## <a name="use-the-cloud-api-or-deploy-on-premise"></a>Korzystanie z interfejsu API w chmurze lub wdrażanie lokalne
+Interfejsy API read 3.x w chmurze są preferowaną opcją dla większości klientów ze względu na łatwość integracji i wysoką produktywność. Platforma Azure i przetwarzanie obrazów obsługują potrzeby w zakresie skalowania, wydajności, bezpieczeństwa danych i zgodności, a ty koncentrujesz się na spełnianiu potrzeb klientów.
+
+W przypadku wdrożenia lokalnego kontener [Read Docker (wersja zapoznawcza)](./computer-vision-how-to-install-containers.md) umożliwia wdrożenie nowych funkcji OCR we własnym środowisku lokalnym. Kontenery doskonale nadają się do określonych wymagań w zakresie zabezpieczeń i zarządzania danymi.
+
+## <a name="ocr-api"></a>OCR API
+
+Starszy interfejs [API OCR](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f20d) używa starszego modelu rozpoznawania, obsługuje tylko obrazy i wykonuje je synchronicznie, natychmiast po zwróceniu wykrytego tekstu. Listę obsługiwanych języków można znaleźć w kolumnie OCR [obsługiwanych](./language-support.md#optical-character-recognition-ocr) języków.
 
 > [!WARNING]
-> Operacje RecognizeText przetwarzanie obrazów 2,0 są w trakcie wycofywania na korzyść nowego [interfejsu API odczytu](#read-api) omówionego w tym artykule. Istniejący klienci powinni [przejść do korzystania z operacji odczytu](upgrade-api-versions.md).
+> Operacje przetwarzanie obrazów 2.0 RecognizeText są w trakcie oznaczania jako przestarzałe na rzecz nowego interfejsu [API](#read-api) odczytu uwzględnionego w tym artykule. Istniejący klienci powinni [przejść na operacje odczytu.](upgrade-api-versions.md)
 
 ## <a name="data-privacy-and-security"></a>Prywatność i zabezpieczenia danych
 
@@ -69,5 +83,5 @@ Jak w przypadku wszystkich usług Cognitive Services, deweloperzy korzystający 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Rozpocznij pracę z [interfejsem API REST (odczyt) lub biblioteką klienta — szybki start](./quickstarts-sdk/client-library.md).
-- Dowiedz się więcej o [interfejsie API REST do odczytu 3,2](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005).
+- Wprowadzenie do interfejsu [API REST OCR (Read)](./quickstarts-sdk/client-library.md)lub biblioteki klienta szybki start .
+- Dowiedz się więcej o [interfejsie API REST read 3.2.](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)

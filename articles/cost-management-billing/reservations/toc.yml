@@ -53,7 +53,7 @@
       href: reserved-instance-windows-software-costs.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Dane użycia poszczególnych subskrypcji
       href: understand-reserved-instance-usage.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Dane użycia umowy Enterprise i klienta firmy Microsoft
+    - name: Dane użycia przedsiębiorstwa Umowa z Klientem Microsoft danych użycia
       href: understand-reserved-instance-usage-ea.md?toc=/azure/cost-management-billing/reservations/toc.json
 - name: Przewodniki z instrukcjami
   expanded: true
@@ -102,7 +102,7 @@
           href: ../../azure-sql/database/reserved-capacity-overview.md?toc=%2fazure%2fcost-management-billing%2freservations%2ftoc.json
         - name: Maszyny wirtualne
           href: ../../virtual-machines/prepay-reserved-vm-instances.md?toc=%2fazure%2fcost-management-billing%2freservations%2ftoc.json
-    - name: 'Wyświetlanie, zarządzanie i optymalizowanie po zakupie'
+    - name: 'Uprawnienia, Wyświetlanie i zarządzanie'
       items:
         - name: Uprawnienia do wyświetlania i zarządzania
           href: view-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
@@ -112,23 +112,27 @@
           href: manage-reserved-vm-instance.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Zmienianie ustawienia optymalizacji
           href: manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances
-        - name: Wymiana i zwrot rezerwacji
-          href: exchange-and-refund-azure-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Raportowanie kosztów
+    - name: Raporty dotyczące użycia i kosztów
       items:
+        - name: Wyświetlanie wykorzystania rezerwacji
+          href: reservation-utilization.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Wyświetlanie transakcji rezerwacji
           href: view-purchase-refunds.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Obciążanie zwrotne kosztów rezerwacji
           href: charge-back-usage.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Wymiana i zwrot kosztów
+      items:
+        - name: Wymiana i zwrot rezerwacji
+          href: exchange-and-refund-azure-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Odnawianie rezerwacji
       items:
         - name: Odnawianie rezerwacji
           href: reservation-renew.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Rozwiązywanie problemów
       items:
-        - name: Znajdź zakup rezerwacji z dzienników platformy Azure
+        - name: Znajdowanie nabywcy rezerwacji w dziennikach platformy Azure
           href: find-reservation-purchaser-from-logs.md?toc=/azure/cost-management-billing/reservations/toc.json
-        - name: Rozwiązywanie problemów z przesyłaniem między dzierżawcami
+        - name: Rozwiązywanie problemów z transferami między dzierżawami
           href: troubleshoot-reservation-transfers-between-tenants.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Brak kwalifikujących się subskrypcji
           href: troubleshoot-no-eligible-subscriptions.md?toc=/azure/cost-management-billing/reservations/toc.json

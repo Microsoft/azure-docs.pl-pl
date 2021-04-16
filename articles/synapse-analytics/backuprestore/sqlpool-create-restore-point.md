@@ -1,7 +1,6 @@
 ---
 title: Tworzenie punktu przywracania zdefiniowanego przez użytkownika dla dedykowanej puli SQL
-description: Dowiedz się, jak za pomocą Azure Portal utworzyć punkt przywracania zdefiniowany przez użytkownika dla dedykowanej puli SQL w usłudze Azure Synapse Analytics.
-services: synapse-analytics
+description: Dowiedz się, jak za pomocą Azure Portal utworzyć zdefiniowany przez użytkownika punkt przywracania dla dedykowanej puli SQL w Azure Synapse Analytics.
 author: joannapea
 manager: igorstan
 ms.service: synapse-analytics
@@ -11,30 +10,30 @@ ms.date: 10/29/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 21fd20100095040fda9f72b00e17147ff560fbca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b695f6c7aabc21541fcc48efed54bbecd022f65a
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94579542"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567931"
 ---
 # <a name="user-defined-restore-points"></a>Punkty przywracania zdefiniowane przez użytkownika
 
-W tym artykule opisano tworzenie nowego punktu przywracania zdefiniowanego przez użytkownika dla dedykowanej puli SQL w usłudze Azure Synapse Analytics przy użyciu Azure Portal.
+W tym artykule dowiesz się, jak utworzyć nowy punkt przywracania zdefiniowany przez użytkownika dla dedykowanej puli SQL w programie Azure Synapse Analytics przy użyciu Azure Portal.
 
-## <a name="create-user-defined-restore-points-through-the-azure-portal"></a>Utwórz punkty przywracania zdefiniowane przez użytkownika za pomocą Azure Portal
+## <a name="create-user-defined-restore-points-through-the-azure-portal"></a>Tworzenie punktów przywracania zdefiniowanych przez użytkownika za pośrednictwem Azure Portal
 
-Punkty przywracania zdefiniowane przez użytkownika mogą być również tworzone za poorednictwem Azure Portal.
+Punkty przywracania zdefiniowane przez użytkownika można również tworzyć za pośrednictwem Azure Portal.
 
-1. Zaloguj się do konta [Azure Portal](https://portal.azure.com/) .
+1. Zaloguj się do [swojego Azure Portal](https://portal.azure.com/) konta.
 
 2. Przejdź do dedykowanej puli SQL, dla której chcesz utworzyć punkt przywracania.
 
-3. Wybierz pozycję **Przegląd** w okienku po lewej stronie, a następnie wybierz pozycję **+ nowy punkt przywracania**. Jeśli przycisk Nowy punkt przywracania nie jest włączony, upewnij się, że dedykowana Pula SQL nie jest wstrzymana.
+3. Wybierz **pozycję Przegląd** w okienku po lewej stronie, a następnie wybierz pozycję + Nowy punkt **przywracania.** Jeśli przycisk Nowy punkt przywracania nie jest włączony, upewnij się, że dedykowana pula SQL nie jest wstrzymana.
 
     ![Nowy punkt przywracania](../media/sql-pools/create-sqlpool-restore-point-01.png)
 
-4. Określ nazwę punktu przywracania zdefiniowanego przez użytkownika, a następnie kliknij przycisk **Zastosuj**. Punkty przywracania zdefiniowane przez użytkownika mają domyślny okres przechowywania wynoszący siedem dni.
+4. Określ nazwę punktu przywracania zdefiniowanego przez użytkownika i kliknij przycisk **Zastosuj.** Punkty przywracania zdefiniowane przez użytkownika mają domyślny okres przechowywania siedmiu dni.
 
     ![Nazwa punktu przywracania](../media/sql-pools/create-sqlpool-restore-point-02.png)
 

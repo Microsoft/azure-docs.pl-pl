@@ -1,7 +1,7 @@
 ---
-title: Wypychanie platformy Docker dla kontenera analiza tonacji
+title: Ściąganie platformy Docker dla analiza tonacji kontenera
 titleSuffix: Azure Cognitive Services
-description: Polecenie Docker pull dla kontenera analiza tonacji
+description: Polecenie ściągnięć platformy Docker dla analiza tonacji kontenera
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,34 +9,39 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 549ecf940c53267db6b3caa576c4c24db414337a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32a550e120331a8255281d51725d2d5fc8ca1e05
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "90906064"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107564664"
 ---
-#### <a name="docker-pull-for-the-sentiment-analysis-v3-container"></a>Wypychanie platformy Docker dla kontenera analiza tonacji v3
+#### <a name="docker-pull-for-the-sentiment-analysis-v3-container"></a>Ściąganie platformy Docker dla analiza tonacji w wersji 3
 
-Kontener tonacji Analysis Container V3 jest dostępny w kilku językach. Aby pobrać kontener dla kontenera angielskiego, użyj poniższego polecenia. 
+Kontener analizy tonacji w wersji 3 jest dostępny w kilku językach. Aby pobrać kontener dla kontenera w języku angielskim, użyj poniższego polecenia. 
 
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-en
 ```
 
-Aby pobrać kontener dla innego języka, Zamień `en` na jeden z poniższych kodów języka. 
+Aby pobrać kontener dla innego języka, zastąp `en` jednym z poniższych kodów języków. 
 
-| Kontener analiza tekstu | Kod języka |
+| analiza tekstu kontenera | Kod języka |
 |--|--|
-| Angielski | `en` |
-| Hiszpański | `es` |
-| Francuski | `fr` |
-| Włoski | `it` |
-| Niemiecki | `de` |
-| Chiński (uproszczony) | `zh` |
-| Chiński (tradycyjny) | `zht` |
-| japoński | `ja` |
-| Portugalski | `pt` |
-| Niderlandzki | `nl` |
+| Chiński uproszczony    |   `zh-hans`   |
+| Chiński tradycyjny   |   `zh-hant`   |
+| Niderlandzki                 |     `nl`      |
+| Angielski               |     `en`      |
+| Francuski                |     `fr`      |
+| Niemiecki                |     `de`      |
+| Hindi                 |    `hi`       |
+| Włoski               |     `it`      |
+| japoński              |     `ja`      |
+| Koreański                |     `ko`      |
+| Norweski (Bokmål)   |     `no`      |
+| portugalski (Brazylia)   |    `pt-BR`    |
+| Portugalski (Portugalia) |    `pt-PT`    |
+| Hiszpański               |     `es`      |
+| turecki               |     `tr`      |
 
-Pełny opis znaczników dostępnych dla kontenerów analiza tekstu można znaleźć w temacie [Docker Hub](https://go.microsoft.com/fwlink/?linkid=2018654).
+Aby uzyskać pełny opis dostępnych tagów dla kontenerów analiza tekstu, zobacz [Docker Hub](https://go.microsoft.com/fwlink/?linkid=2018654).
