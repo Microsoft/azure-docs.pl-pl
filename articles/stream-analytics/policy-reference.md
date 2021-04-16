@@ -1,24 +1,24 @@
 ---
 title: Wbudowane definicje zasad dla Azure Stream Analytics
-description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Stream Analytics. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 03/31/2021
+description: Wyświetla Azure Policy wbudowane definicje zasad dla Azure Stream Analytics. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
+ms.date: 04/14/2021
 ms.topic: reference
 author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 5cab2caee2057afacc8db7fe7e701b36f1e84fb3
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: bfe79c6949bcc2520a35e6bb8901a2a56c97489a
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106095514"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107499987"
 ---
-# <a name="azure-policy-built-in-definitions-for-azure-stream-analytics"></a>Azure Policy wbudowane definicje Azure Stream Analytics
+# <a name="azure-policy-built-in-definitions-for-azure-stream-analytics"></a>Azure Policy wbudowane definicje dla Azure Stream Analytics
 
-Ta strona jest indeksem [Azure Policy](../governance/policy/overview.md) wbudowanych definicji zasad dla Azure Stream Analytics. Aby uzyskać dodatkowe Azure Policy wbudowane dla innych usług, zobacz [Azure Policy wbudowane definicje](../governance/policy/samples/built-in-policies.md).
+Ta strona jest indeksem [Azure Policy](../governance/policy/overview.md) wbudowanych definicji zasad dla Azure Stream Analytics. Aby uzyskać Azure Policy wbudowanych funkcji dla innych usług, [Azure Policy wbudowane definicje](../governance/policy/samples/built-in-policies.md).
 
-Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **wersja** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
+Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **Wersja,** aby wyświetlić źródło w [repozytorium Azure Policy GitHub.](https://github.com/Azure/azure-policy)
 
 ## <a name="azure-stream-analytics"></a>Usługa Azure Stream Analytics
 

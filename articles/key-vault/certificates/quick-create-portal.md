@@ -1,6 +1,6 @@
 ---
-title: Przewodnik Szybki Start platformy Azure — Ustawianie i pobieranie certyfikatu z Key Vault przy użyciu Azure Portal | Microsoft Docs
-description: Przewodnik Szybki Start przedstawiający sposób ustawiania i pobierania certyfikatu z Azure Key Vault przy użyciu Azure Portal
+title: Przewodnik Szybki start platformy Azure — konfigurowanie i pobieranie certyfikatu z Key Vault przy użyciu Azure Portal | Microsoft Docs
+description: Przewodnik Szybki start przedstawiający sposób ustawienia i pobrania certyfikatu z usługi Azure Key Vault użyciu Azure Portal
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/24/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e55c0832638105ad681f74cbeb6429a6704b7fb2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a35f83286abe5ae33f6d3c44ee7b05faf692512
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97935142"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479223"
 ---
-# <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-the-azure-portal"></a>Szybki Start: Ustawianie i pobieranie certyfikatu z Azure Key Vault przy użyciu Azure Portal
+# <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-the-azure-portal"></a>Szybki start: konfigurowanie i pobieranie certyfikatu z Azure Key Vault użyciu Azure Portal
 
-Azure Key Vault to usługa w chmurze, która zapewnia bezpieczny magazyn wpisów tajnych. Możesz bezpiecznie przechowywać klucze, hasła, certyfikaty oraz inne wpisy tajne. Magazyny kluczy platformy Azure można tworzyć oraz nimi zarządzać za pośrednictwem witryny Azure Portal. W tym przewodniku szybki start utworzysz Magazyn kluczy, a następnie użyjesz go do przechowywania certyfikatu. Aby uzyskać więcej informacji na temat usługi Key Vault, możesz zapoznać się z [omówieniem](../general/overview.md).
+Azure Key Vault to usługa w chmurze, która zapewnia bezpieczny magazyn wpisów tajnych. Możesz bezpiecznie przechowywać klucze, hasła, certyfikaty oraz inne wpisy tajne. Magazyny kluczy platformy Azure można tworzyć oraz nimi zarządzać za pośrednictwem witryny Azure Portal. W tym przewodniku Szybki start utworzysz magazyn kluczy, a następnie użyjemy go do przechowywania certyfikatu. Aby uzyskać więcej informacji na temat usługi Key Vault, możesz zapoznać się z [omówieniem](../general/overview.md).
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -30,21 +30,21 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Tworzenie magazynu
 
-1. W menu Azure Portal lub na stronie **głównej** wybierz pozycję **Utwórz zasób**.
-2. W polu wyszukiwania wprowadź **Key Vault**.
+1. W menu Azure Portal lub **na** stronie głównej wybierz pozycję **Utwórz zasób.**
+2. W polu Wyszukaj wprowadź **Key Vault**.
 3. Na liście wyników wybierz pozycję **Key Vault**.
 4. W sekcji Key Vault, wybierz przycisk **Utwórz**.
 5. W sekcji **Tworzenie magazynu kluczy** podaj następujące informacje:
-    - **Nazwa**: wymagana jest unikatowa nazwa. W tym przewodniku szybki start użyjemy **przykładowego magazynu**. 
+    - **Nazwa**: wymagana jest unikatowa nazwa. W tym przewodniku Szybki start **użyjemy usługi Example-Vault.** 
     - **Subskrypcja**: wybierz subskrypcję.
-    - W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów.
+    - W **obszarze Grupa zasobów** wybierz pozycję Utwórz **nową** i wprowadź nazwę grupy zasobów.
     - W menu rozwijanym **Lokalizacja** wybierz lokalizację.
     - Dla pozostałych opcji zostaw wartości domyślne.
 6. Po podaniu powyższych informacje wybierz przycisk **Utwórz**.
 
 Zanotuj dwie poniższe właściwości:
 
-* **Nazwa magazynu**: w tym przykładzie **przykład-magazyn**. Użyjesz tej nazwy w innych krokach.
+* **Nazwa magazynu:** w tym przykładzie jest to **example-vault**. Użyjesz tej nazwy w innych krokach.
 * **Identyfikator URI magazynu**: w tym przykładzie jest to `https://example-vault.vault.azure.net/`. Aplikacje korzystające z magazynu za pomocą jego interfejsu API REST muszą używać tego identyfikatora URI.
 
 Twoje konto platformy Azure jest teraz jedynym kontem z uprawnieniami do wykonywania operacji na tym nowym magazynie.
@@ -53,21 +53,22 @@ Twoje konto platformy Azure jest teraz jedynym kontem z uprawnieniami do wykonyw
 
 ## <a name="add-a-certificate-to-key-vault"></a>Dodawanie certyfikatu do Key Vault
 
-Aby dodać certyfikat do magazynu, wystarczy wykonać kilka dodatkowych kroków. W tym przypadku dodamy certyfikat z podpisem własnym, który może być używany przez aplikację. Certyfikat ma nazwę **ExampleCertificate**.
+Aby dodać certyfikat do magazynu, wystarczy wykonać kilka dodatkowych czynności. W tym przypadku dodajemy certyfikat z podpisem własnym, który może być używany przez aplikację. Certyfikat nosi nazwę **ExampleCertificate**.
 
-1. Na stronie właściwości Key Vault wybierz pozycję **Certyfikaty**.
+1. Na Key Vault właściwości wybierz pozycję **Certyfikaty.**
 2. Kliknij pozycję **Wygeneruj/zaimportuj**.
-3. Na ekranie **Tworzenie certyfikatu** wybierz następujące wartości:
-    - **Metoda tworzenia certyfikatu**: generate.
-    - **Nazwa certyfikatu**: ExampleCertificate.
-    - **Podmiot**: CN = ExampleDomain
-    - Dla pozostałych opcji zostaw wartości domyślne. Kliknij pozycję **Utwórz**.
+3. Na **ekranie Tworzenie certyfikatu** wybierz następujące wartości:
+    - **Metoda tworzenia certyfikatu:** Generuj.
+    - **Nazwa certyfikatu:** ExampleCertificate.
+    - **Temat:** CN=ExampleDomain
+    - Dla pozostałych opcji zostaw wartości domyślne. (Domyślnie, jeśli nie określisz niczego specjalnego w zasadach zaawansowanych, będzie można go używać jako certyfikatu uwierzytelniania klienta).
+ 4. Kliknij pozycję **Utwórz**.
 
-Po otrzymaniu komunikatu o pomyślnym utworzeniu certyfikatu można go kliknąć na liście. Zostaną wtedy wyświetlone niektóre jego właściwości. Jeśli klikniesz bieżącą wersję, zostanie wyświetlona wartość określona w poprzednim kroku.
+Po otrzymaniu komunikatu o pomyślnym utworzeniu certyfikatu możesz go kliknąć na liście. Zostaną wtedy wyświetlone niektóre jego właściwości. Jeśli klikniesz bieżącą wersję, zostanie wyświetlona wartość określona w poprzednim kroku.
 
 ![Właściwości certyfikatu](../media/certificates/quick-create-portal/current-version-hidden.png)
 
-## <a name="export-certificate-from-key-vault"></a>Eksportuj certyfikat z Key Vault
+## <a name="export-certificate-from-key-vault"></a>Eksportowanie certyfikatu z Key Vault
 Klikając przycisk "Pobierz w formacie CER" lub "Pobierz w formacie PFX/PEM", możesz pobrać certyfikat. 
 
 ![Pobieranie certyfikatu](../media/certificates/quick-create-portal/current-version-shown.png)
@@ -84,8 +85,8 @@ Jeśli nie będą Ci one już potrzebne, usuń grupę zasobów, a zostanie takż
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono Key Vault i Zapisano w nim certyfikat. Aby dowiedzieć się więcej na temat Key Vault i sposobu integrowania go z aplikacjami, przejdź do artykułu poniżej.
+W tym przewodniku Szybki start utworzono Key Vault przechowywany w nim certyfikat. Aby dowiedzieć się więcej Key Vault o tym, jak zintegrować ją z aplikacjami, przejdź do poniższych artykułów.
 
-- Zapoznaj się [z omówieniem Azure Key Vault](../general/overview.md)
-- Zobacz [przewodnik dewelopera Azure Key Vault](../general/developers-guide.md)
-- Zapoznaj się z [omówieniem zabezpieczeń Key Vault](../general/security-overview.md)
+- Przeczytaj omówienie [Azure Key Vault](../general/overview.md)
+- Zobacz [Azure Key Vault dewelopera](../general/developers-guide.md)
+- Przejrzyj omówienie [Key Vault zabezpieczeń](../general/security-overview.md)

@@ -1,6 +1,6 @@
 ---
-title: Role niestandardowe platformy Azure — RBAC na platformie Azure
-description: Dowiedz się, jak tworzyć role niestandardowe platformy Azure przy użyciu kontroli dostępu opartej na rolach (Azure RBAC) na potrzeby precyzyjnego zarządzania dostępem do zasobów platformy Azure.
+title: Role niestandardowe platformy Azure — RBAC platformy Azure
+description: Dowiedz się, jak tworzyć role niestandardowe platformy Azure za pomocą kontroli dostępu opartej na rolach (RBAC) platformy Azure w celu precyzyjnego zarządzania dostępem do zasobów platformy Azure.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -9,73 +9,73 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/15/2020
 ms.author: rolyon
-ms.openlocfilehash: 79aaeee942a6d46243ee1c72d5904484b8698ebe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9779c2a269902d856d1639ce78028d0e658656bb
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97617327"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479835"
 ---
 # <a name="azure-custom-roles"></a>Role niestandardowe platformy Azure
 
 > [!IMPORTANT]
-> Dodawanie grupy zarządzania do programu `AssignableScopes` jest obecnie w wersji zapoznawczej.
+> Dodawanie grupy zarządzania do programu `AssignableScopes` jest obecnie dostępne w wersji zapoznawczej.
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
 > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Jeśli [wbudowane role platformy Azure](built-in-roles.md) nie są zgodne z konkretnymi potrzebami organizacji, możesz utworzyć własne role niestandardowe. Podobnie jak wbudowane role można przypisywać niestandardowe role do użytkowników, grup i jednostek usługi w ramach grupy zarządzania, subskrypcji i zakresów grup zasobów.
+Jeśli role [wbudowane platformy Azure](built-in-roles.md) nie spełniają określonych potrzeb organizacji, możesz utworzyć własne role niestandardowe. Podobnie jak role wbudowane, role niestandardowe można przypisywać użytkownikom, grupom i jednostkom usługi w grupach zarządzania (tylko w wersji zapoznawczej), subskrypcjach i zakresach grupy zasobów.
 
-Role niestandardowe mogą być współużytkowane przez subskrypcje, które ufają temu samemu katalogowi usługi Azure AD. Obowiązuje limit **5 000** ról niestandardowych dla katalogu. (W przypadku platformy Azure (Niemcy i Azure Chiny 21Vianet limit wynosi 2 000 ról niestandardowych). Role niestandardowe można tworzyć przy użyciu Azure Portal, Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub API REST.
+Role niestandardowe mogą być współdzielone między subskrypcjami, które ufają tym samym katalogowi usługi Azure AD. Istnieje limit **5000 ról niestandardowych** na katalog. (W przypadku platformy Azure (Niemcy) Azure (Chiny) — 21Vianet limit wynosi 2000 ról niestandardowych). Role niestandardowe można tworzyć przy użyciu interfejsu Azure Portal, Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub interfejsu API REST.
 
-## <a name="steps-to-create-a-custom-role"></a>Procedura tworzenia roli niestandardowej
+## <a name="steps-to-create-a-custom-role"></a>Kroki tworzenia roli niestandardowej
 
-Poniżej przedstawiono podstawowe kroki tworzenia roli niestandardowej.
+Poniżej znajdują się podstawowe kroki tworzenia roli niestandardowej.
 
 1. Określ wymagane uprawnienia.
 
-    Podczas tworzenia roli niestandardowej należy znać operacje, które są dostępne do definiowania uprawnień. Zazwyczaj należy zacząć od istniejącej wbudowanej roli, a następnie zmodyfikować ją na potrzeby Twoich potrzeb. Operacje zostaną dodane do `Actions` `NotActions` właściwości lub [definicji roli](role-definitions.md). Jeśli masz operacje na danych, dodasz je do `DataActions` `NotDataActions` właściwości lub.
+    Podczas tworzenia roli niestandardowej musisz znać operacje, które są dostępne do definiowania uprawnień. Zazwyczaj rozpoczyna się od istniejącej wbudowanej roli, a następnie modyfikuje ją zgodnie z potrzebami. Dodasz operacje do właściwości `Actions` lub `NotActions` definicji [roli](role-definitions.md). Jeśli masz operacje na danych, dodasz je do `DataActions` właściwości `NotDataActions` lub .
 
-    Aby uzyskać więcej informacji, zobacz następną sekcję [jak określić wymagane uprawnienia](#how-to-determine-the-permissions-you-need).
+    Aby uzyskać więcej informacji, zobacz następną sekcję [Jak określić potrzebne uprawnienia.](#how-to-determine-the-permissions-you-need)
 
-1. Zdecyduj, w jaki sposób chcesz utworzyć rolę niestandardową.
+1. Zdecyduj, jak chcesz utworzyć rolę niestandardową.
 
-    Role niestandardowe można tworzyć przy użyciu [Azure Portal](custom-roles-portal.md), [Azure PowerShell](custom-roles-powershell.md), interfejsu [wiersza polecenia platformy Azure](custom-roles-cli.md)lub [interfejsu API REST](custom-roles-rest.md).
+    Role niestandardowe można tworzyć przy [użyciu Azure Portal](custom-roles-portal.md), [Azure PowerShell,](custom-roles-powershell.md) [interfejsu](custom-roles-cli.md)wiersza polecenia platformy Azure lub interfejsu [API REST.](custom-roles-rest.md)
 
 1. Utwórz rolę niestandardową.
 
-    Najprostszym sposobem jest użycie Azure Portal. Aby uzyskać instrukcje dotyczące sposobu tworzenia roli niestandardowej przy użyciu Azure Portal, zobacz [Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu Azure Portal](custom-roles-portal.md).
+    Najprostszym sposobem jest użycie Azure Portal. Aby uzyskać instrukcje dotyczące sposobu tworzenia roli niestandardowej przy użyciu Azure Portal, zobacz Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu [Azure Portal](custom-roles-portal.md).
 
 1. Przetestuj rolę niestandardową.
 
-    Gdy masz rolę niestandardową, musisz ją przetestować, aby upewnić się, że działa zgodnie z oczekiwaniami. Aby później wprowadzić zmiany, możesz zaktualizować rolę niestandardową.
+    Gdy masz już rolę niestandardową, musisz ją przetestować, aby sprawdzić, czy działa ona zgodnie z oczekiwaniami. Jeśli musisz później wprowadzić zmiany, możesz zaktualizować rolę niestandardową.
 
-## <a name="how-to-determine-the-permissions-you-need"></a>Jak określić wymagane uprawnienia
+## <a name="how-to-determine-the-permissions-you-need"></a>Jak określić potrzebne uprawnienia
 
-Platforma Azure ma tysiące uprawnień, które można dołączyć do roli niestandardowej. Poniżej przedstawiono niektóre metody, które mogą pomóc w ustaleniu uprawnień, które mają zostać dodane do roli niestandardowej:
+Platforma Azure ma tysiące uprawnień, które możesz potencjalnie uwzględnić w swojej roli niestandardowej. Oto kilka metod, które mogą pomóc w ustaleniu uprawnień, które chcesz dodać do roli niestandardowej:
 
-- Zapoznaj się z istniejącymi [wbudowanymi rolami](built-in-roles.md).
+- Przyjrzyj się istniejącym [wbudowanym rolam](built-in-roles.md).
 
-    Może zajść potrzeba zmodyfikowania istniejącej roli lub połączenia uprawnień używanych w wielu rolach.
+    Możesz zmodyfikować istniejącą rolę lub połączyć uprawnienia używane w wielu rolach.
 
-- Utwórz listę usług platformy Azure, do których chcesz udzielić dostępu.
+- Lista usług platformy Azure, do których chcesz udzielić dostępu.
 
-- Określ [dostawców zasobów mapowanych na usługi platformy Azure](../azure-resource-manager/management/azure-services-resource-providers.md).
+- Określ dostawców [zasobów mapowych na usługi platformy Azure.](../azure-resource-manager/management/azure-services-resource-providers.md)
 
-    Usługi platformy Azure uwidaczniają swoje funkcje i uprawnienia za pomocą [dostawców zasobów](../azure-resource-manager/management/overview.md). Na przykład dostawca zasobów Microsoft. COMPUTE dostarcza zasoby maszyn wirtualnych i dostawcę zasobów Microsoft. rozliczeń dostarcza subskrypcję i zasoby rozliczeń. Znajomość dostawców zasobów może pomóc w zawężaniu i ustaleniu uprawnień potrzebnych dla roli niestandardowej.
+    Usługi platformy Azure uwidoczniają swoje funkcje i uprawnienia za [pośrednictwem dostawców zasobów.](../azure-resource-manager/management/overview.md) Na przykład dostawca zasobów Microsoft.Compute dostarcza zasoby maszyny wirtualnej, a dostawca zasobów Microsoft.Billing dostarcza zasoby subskrypcji i rozliczeń. Znajomość dostawców zasobów może ułatwić zawężenie i określenie uprawnień potrzebnych dla roli niestandardowej.
 
-    Podczas tworzenia roli niestandardowej przy użyciu Azure Portal można także określić dostawców zasobów, wyszukując słowa kluczowe. Ta funkcja wyszukiwania została opisana w temacie [Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu Azure Portal](custom-roles-portal.md#step-4-permissions).
+    Podczas tworzenia roli niestandardowej przy użyciu Azure Portal można również określić dostawców zasobów, wyszukując słowa kluczowe. Ta funkcja wyszukiwania została opisana w te [tematu Create or update Azure custom roles using the Azure Portal](custom-roles-portal.md#step-4-permissions)( Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu Azure Portal .
 
-    ![Dodawanie okienka uprawnień przy użyciu dostawcy zasobów](./media/custom-roles-portal/add-permissions-provider.png)
+    ![Okienko Dodawanie uprawnień z dostawcą zasobów](./media/custom-roles-portal/add-permissions-provider.png)
 
-- Wyszukaj uprawnienia [dostępne](resource-provider-operations.md) , aby znaleźć uprawnienia, które chcesz dołączyć.
+- Przeszukaj [dostępne uprawnienia,](resource-provider-operations.md) aby znaleźć uprawnienia, które chcesz uwzględnić.
 
-    Podczas tworzenia roli niestandardowej przy użyciu Azure Portal można wyszukać uprawnienia według słowa kluczowego. Można na przykład wyszukać *maszynę wirtualną* lub uprawnienia do *rozliczeń* . Możesz również pobrać wszystkie uprawnienia jako plik CSV, a następnie przeszukać ten plik. Ta funkcja wyszukiwania została opisana w temacie [Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu Azure Portal](custom-roles-portal.md#step-4-permissions).
+    Podczas tworzenia roli niestandardowej przy użyciu Azure Portal można wyszukiwać uprawnienia według słowa kluczowego. Możesz na przykład wyszukać maszynę *wirtualną lub* *uprawnienia do* rozliczeń. Możesz również pobrać wszystkie uprawnienia jako plik CSV, a następnie przeszukać ten plik. Ta funkcja wyszukiwania została opisana w te [tematu Create or update Azure custom roles using the Azure Portal](custom-roles-portal.md#step-4-permissions)(Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu Azure Portal .
 
-    ![Dodaj listę uprawnień](./media/custom-roles-portal/add-permissions-list.png)
+    ![Dodawanie listy uprawnień](./media/custom-roles-portal/add-permissions-list.png)
 
 ## <a name="custom-role-example"></a>Przykład roli niestandardowej
 
-Poniżej pokazano, jak wygląda rola niestandardowa, jak wyświetlana przy użyciu Azure PowerShell w formacie JSON. Ta rola niestandardowa może służyć do monitorowania i ponownego uruchamiania maszyn wirtualnych.
+Poniżej pokazano, jak wygląda rola niestandardowa wyświetlana przy użyciu Azure PowerShell w formacie JSON. Ta rola niestandardowa może służyć do monitorowania i ponownego uruchamiania maszyn wirtualnych.
 
 ```json
 {
@@ -147,7 +147,7 @@ Poniżej przedstawiono tę samą rolę niestandardową, która jest wyświetlana
 ]
 ```
 
-Gdy tworzysz rolę niestandardową, zostanie ona wyświetlona w Azure Portal z pomarańczowym ikoną zasobu.
+Po utworzeniu roli niestandardowej zostanie ona wyświetlona w Azure Portal z pomarańczową ikoną zasobu.
 
 ![Ikona roli niestandardowej](./media/custom-roles/roles-custom-role-icon.png)
 
@@ -157,19 +157,19 @@ W poniższej tabeli opisano znaczenie właściwości roli niestandardowej.
 
 | Właściwość | Wymagany | Typ | Opis |
 | --- | --- | --- | --- |
-| `Name`</br>`roleName` | Tak | Ciąg | Nazwa wyświetlana roli niestandardowej. Chociaż definicja roli jest grupą zarządzania lub zasobem na poziomie subskrypcji, definicja roli może być używana w wielu subskrypcjach, które współużytkują ten sam katalog usługi Azure AD. Ta nazwa wyświetlana musi być unikatowa w zakresie katalogu usługi Azure AD. Może zawierać litery, cyfry, spacje i znaki specjalne. Maksymalna liczba znaków to 128. |
-| `Id`</br>`name` | Tak | Ciąg | Unikatowy identyfikator roli niestandardowej. W przypadku Azure PowerShell i interfejsu wiersza polecenia platformy Azure ten identyfikator jest generowany automatycznie podczas tworzenia nowej roli. |
-| `IsCustom`</br>`roleType` | Tak | Ciąg | Wskazuje, czy jest to rola niestandardowa. Ustaw na `true` lub `CustomRole` dla ról niestandardowych. Ustaw dla `false` `BuiltInRole` ról wbudowanych lub. |
+| `Name`</br>`roleName` | Tak | Ciąg | Nazwa wyświetlana roli niestandardowej. Chociaż definicja roli jest grupą zarządzania lub zasobem na poziomie subskrypcji, definicja roli może być używana w wielu subskrypcjach, które współużytkuje ten sam katalog usługi Azure AD. Ta nazwa wyświetlana musi być unikatowa w zakresie katalogu usługi Azure AD. Może zawierać litery, cyfry, spacje i znaki specjalne. Maksymalna liczba znaków to 128. |
+| `Id`</br>`name` | Tak | Ciąg | Unikatowy identyfikator roli niestandardowej. W Azure PowerShell i interfejsu wiersza polecenia platformy Azure ten identyfikator jest generowany automatycznie podczas tworzenia nowej roli. |
+| `IsCustom`</br>`roleType` | Tak | Ciąg | Wskazuje, czy jest to rola niestandardowa. Ustaw na `true` lub `CustomRole` dla ról niestandardowych. Ustaw na `false` lub `BuiltInRole` dla ról wbudowanych. |
 | `Description`</br>`description` | Tak | Ciąg | Opis roli niestandardowej. Może zawierać litery, cyfry, spacje i znaki specjalne. Maksymalna liczba znaków to 1024. |
-| `Actions`</br>`actions` | Tak | Ciąg [] | Tablica ciągów, która określa operacje zarządzania, które mogą być wykonywane przez rolę. Aby uzyskać więcej informacji, zobacz [Akcje](role-definitions.md#actions). |
-| `NotActions`</br>`notActions` | Nie | Ciąg [] | Tablica ciągów, która określa operacje zarządzania, które są wykluczone z dozwolonej wartości `Actions` . Aby uzyskać więcej informacji, zobacz [Nonaruszone](role-definitions.md#notactions). |
-| `DataActions`</br>`dataActions` | Nie | Ciąg [] | Tablica ciągów, która określa operacje na danych, które mogą być wykonywane na danych w tym obiekcie. Jeśli utworzysz rolę niestandardową z `DataActions` , ta rola nie może zostać przypisana w zakresie grupy zarządzania. Aby uzyskać więcej informacji, zobacz temat [Dataactions](role-definitions.md#dataactions). |
-| `NotDataActions`</br>`notDataActions` | Nie | Ciąg [] | Tablica ciągów, która określa operacje na danych, które są wykluczone z dozwolonej wartości `DataActions` . Aby uzyskać więcej informacji, zobacz [NotDataActions](role-definitions.md#notdataactions). |
-| `AssignableScopes`</br>`assignableScopes` | Tak | Ciąg [] | Tablica ciągów, która określa zakresy, które rola niestandardowa jest dostępna do przypisania. W roli niestandardowej można zdefiniować tylko jedną grupę zarządzania `AssignableScopes` . Dodawanie grupy zarządzania do programu `AssignableScopes` jest obecnie w wersji zapoznawczej. Aby uzyskać więcej informacji, zobacz [AssignableScopes](role-definitions.md#assignablescopes). |
+| `Actions`</br>`actions` | Tak | String[] | Tablica ciągów określająca operacje zarządzania, które mogą być wykonywane przez rolę. Aby uzyskać więcej informacji, zobacz [Akcje](role-definitions.md#actions). |
+| `NotActions`</br>`notActions` | Nie | String[] | Tablica ciągów określająca operacje zarządzania, które są wykluczone z `Actions` dozwolonego . Aby uzyskać więcej informacji, zobacz [NotActions](role-definitions.md#notactions). |
+| `DataActions`</br>`dataActions` | Nie | String[] | Tablica ciągów określająca operacje na danych, które rola może wykonywać na danych w tym obiekcie. W przypadku tworzenia roli niestandardowej za pomocą funkcji nie można przypisać tej roli `DataActions` w zakresie grupy zarządzania. Aby uzyskać więcej informacji, zobacz [DataActions](role-definitions.md#dataactions). |
+| `NotDataActions`</br>`notDataActions` | Nie | String[] | Tablica ciągów określająca operacje na danych, które są wykluczone z `DataActions` dozwolonego . Aby uzyskać więcej informacji, zobacz [NotDataActions](role-definitions.md#notdataactions). |
+| `AssignableScopes`</br>`assignableScopes` | Tak | String[] | Tablica ciągów określająca zakresy, które rola niestandardowa jest dostępna do przypisania. W roli niestandardowej można zdefiniować tylko jedną `AssignableScopes` grupę zarządzania. Dodawanie grupy zarządzania do programu `AssignableScopes` jest obecnie dostępne w wersji zapoznawczej. Aby uzyskać więcej informacji, zobacz [AssignableScopes](role-definitions.md#assignablescopes). |
 
-## <a name="wildcard-permissions"></a>Uprawnienia symboli wieloznacznych
+## <a name="wildcard-permissions"></a>Uprawnienia z symbolami wieloznacznymi
 
-`Actions`, `NotActions` , `DataActions` i `NotDataActions` obsługują symbole wieloznaczne ( `*` ) do definiowania uprawnień. Symbol wieloznaczny ( `*` ) rozszerza uprawnienia do wszystkich elementów, które pasują do podanego ciągu akcji. Załóżmy na przykład, że chcesz dodać wszystkie uprawnienia związane z Azure Cost Management i eksportami. Można dodać wszystkie te ciągi akcji:
+`Actions`, `NotActions` , i obsługują symbole `DataActions` `NotDataActions` wieloznaczne ( `*` ) w celu definiowania uprawnień. Symbol wieloznaczny ( `*` ) rozszerza uprawnienia do wszystkiego, co pasuje do ciągu akcji, który podaniem. Załóżmy na przykład, że chcesz dodać wszystkie uprawnienia związane z Azure Cost Management eksportami. Możesz dodać wszystkie te ciągi akcji:
 
 ```
 Microsoft.CostManagement/exports/action
@@ -179,13 +179,13 @@ Microsoft.CostManagement/exports/delete
 Microsoft.CostManagement/exports/run/action
 ```
 
-Zamiast dodawać wszystkie te ciągi, można po prostu dodać symbol wieloznaczny. Na przykład następujący ciąg symboli wieloznacznych jest odpowiednikiem pięciu poprzednich ciągów. Obejmuje to również wszelkie przyszłe uprawnienia eksportu, które mogą zostać dodane.
+Zamiast dodawać wszystkie te ciągi, można po prostu dodać ciąg z symbolami wieloznacznymi. Na przykład następujący ciąg z symbolami wieloznacznymi jest odpowiednikiem pięciu poprzednich ciągów. Obejmuje to również wszelkie przyszłe uprawnienia eksportu, które mogą zostać dodane.
 
 ```
 Microsoft.CostManagement/exports/*
 ```
 
-Można też użyć wielu symboli wieloznacznych w ciągu. Na przykład następujący ciąg reprezentuje wszystkie uprawnienia zapytania dla Cost Management.
+W ciągu może być również wiele symboli wieloznacznych. Na przykład następujący ciąg reprezentuje wszystkie uprawnienia zapytania dla Cost Management.
 
 ```
 Microsoft.CostManagement/*/query/*
@@ -193,31 +193,31 @@ Microsoft.CostManagement/*/query/*
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>Kto może tworzyć, usuwać, aktualizować lub wyświetlać rolę niestandardową
 
-Podobnie jak wbudowane role, `AssignableScopes` Właściwość określa zakresy, które rola jest dostępna do przypisania. `AssignableScopes`Właściwość roli niestandardowej kontroluje również, kto może tworzyć, usuwać, aktualizować lub wyświetlać rolę niestandardową.
+Podobnie jak role wbudowane, właściwość `AssignableScopes` określa zakresy, które rola jest dostępna do przypisania. Właściwość roli niestandardowej kontroluje również, kto może `AssignableScopes` tworzyć, usuwać, aktualizować lub wyświetlać rolę niestandardową.
 
 | Zadanie | Operacja | Opis |
 | --- | --- | --- |
-| Utwórz/Usuń rolę niestandardową | `Microsoft.Authorization/ roleDefinitions/write` | Użytkownicy, którym udzielono tej operacji na wszystkich `AssignableScopes` roli niestandardowej, mogą tworzyć (lub usuwać) role niestandardowe do użycia w tych zakresach. Na przykład [właściciele](built-in-roles.md#owner) i [Administratorzy dostępu użytkowników do](built-in-roles.md#user-access-administrator) grup zarządzania, subskrypcji i grup zasobów. |
-| Aktualizacja roli niestandardowej | `Microsoft.Authorization/ roleDefinitions/write` | Użytkownicy, którym udzielono tej operacji na wszystkich `AssignableScopes` roli niestandardowej, mogą aktualizować role niestandardowe w tych zakresach. Na przykład [właściciele](built-in-roles.md#owner) i [Administratorzy dostępu użytkowników do](built-in-roles.md#user-access-administrator) grup zarządzania, subskrypcji i grup zasobów. |
-| Wyświetlanie roli niestandardowej | `Microsoft.Authorization/ roleDefinitions/read` | Użytkownicy, którym udzielono tej operacji w zakresie, mogą wyświetlać role niestandardowe, które są dostępne do przypisania w tym zakresie. Wszystkie role wbudowane umożliwiają udostępnianie ról niestandardowych do przypisania. |
+| Tworzenie/usuwanie roli niestandardowej | `Microsoft.Authorization/ roleDefinitions/write` | Użytkownicy, którzy mają przyznaną tę operację dla wszystkich ról niestandardowych, mogą tworzyć (lub usuwać) role niestandardowe do użycia `AssignableScopes` w tych zakresach. Na przykład [właściciele i](built-in-roles.md#owner) [administratorzy dostępu użytkowników](built-in-roles.md#user-access-administrator) grup zarządzania, subskrypcji i grup zasobów. |
+| Aktualizacja roli niestandardowej | `Microsoft.Authorization/ roleDefinitions/write` | Użytkownicy, którzy mają przyznaną tę operację we wszystkich `AssignableScopes` rolach niestandardowych, mogą aktualizować role niestandardowe w tych zakresach. Na przykład [właściciele i](built-in-roles.md#owner) [administratorzy dostępu użytkowników](built-in-roles.md#user-access-administrator) grup zarządzania, subskrypcji i grup zasobów. |
+| Wyświetlanie roli niestandardowej | `Microsoft.Authorization/ roleDefinitions/read` | Użytkownicy, którzy mają przyznaną tę operację w zakresie, mogą wyświetlać role niestandardowe, które są dostępne do przypisania w tym zakresie. Wszystkie role wbudowane umożliwiają udostępnianie ról niestandardowych do przypisania. |
 
 ## <a name="custom-role-limits"></a>Limity ról niestandardowych
 
 Na poniższej liście opisano limity ról niestandardowych.
 
 - Każdy katalog może mieć maksymalnie **5000** ról niestandardowych.
-- Platformy Azure (Niemcy i Azure Chiny) mogą mieć do 2000 ról niestandardowych dla każdego katalogu.
-- Nie można ustawić `AssignableScopes` zakresu głównego ( `"/"` ).
-- Nie można używać symboli wieloznacznych ( `*` ) w `AssignableScopes` . To ograniczenie symboli wieloznacznych pomaga upewnić się, że użytkownik nie może uzyskać dostępu do zakresu przez zaktualizowanie definicji roli.
-- W roli niestandardowej można zdefiniować tylko jedną grupę zarządzania `AssignableScopes` . Dodawanie grupy zarządzania do programu `AssignableScopes` jest obecnie w wersji zapoznawczej.
-- Ról niestandardowych z `DataActions` nie można przypisać do zakresu grupy zarządzania.
-- Azure Resource Manager nie sprawdza poprawności istnienia grupy zarządzania w zakresie możliwym do przypisania definicji roli.
+- Platforma Azure w Niemczech Azure (Chiny) — 21Vianet może mieć do 2000 ról niestandardowych dla każdego katalogu.
+- Nie można `AssignableScopes` ustawić zakresu głównego ( `"/"` ).
+- W programie nie można używać symboli wieloznacznych ( `*` `AssignableScopes` ). To ograniczenie z symbolami wieloznacznych pomaga zapewnić, że użytkownik nie może potencjalnie uzyskać dostępu do zakresu, aktualizując definicję roli.
+- W roli niestandardowej można zdefiniować tylko jedną `AssignableScopes` grupę zarządzania. Dodawanie grupy zarządzania do programu `AssignableScopes` jest obecnie dostępne w wersji zapoznawczej.
+- Ról niestandardowych `DataActions` z programem nie można przypisać w zakresie grupy zarządzania.
+- Azure Resource Manager nie weryfikuje istnienia grupy zarządzania w zakresie, który można przypisać definicji roli.
 
-Aby uzyskać więcej informacji na temat ról niestandardowych i grup zarządzania, zobacz [organizowanie zasobów przy użyciu grup zarządzania platformy Azure](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment).
+Aby uzyskać więcej informacji na temat ról niestandardowych i grup zarządzania, zobacz [Organize your resources with Azure management groups (Organizowanie zasobów przy użyciu grup zarządzania platformy Azure).](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment)
 
 ## <a name="input-and-output-formats"></a>Formaty danych wejściowych i wyjściowych
 
-Aby utworzyć rolę niestandardową przy użyciu wiersza polecenia, zazwyczaj używany jest kod JSON do określenia właściwości dla roli niestandardowej. W zależności od używanych narzędzi Formatowanie danych wejściowych i wyjściowych będzie wyglądać nieco inaczej. Ta sekcja zawiera listę formatów wejściowych i wyjściowych w zależności od narzędzia.
+Aby utworzyć rolę niestandardową przy użyciu wiersza polecenia, zazwyczaj używa się danych JSON do określenia właściwości roli niestandardowej. W zależności od narzędzi, których używasz, formaty danych wejściowych i wyjściowych będą wyglądać nieco inaczej. W tej sekcji wymieniono formaty danych wejściowych i wyjściowych w zależności od narzędzia.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -235,7 +235,7 @@ Aby utworzyć rolę niestandardową przy użyciu Azure PowerShell, należy poda�
 }
 ```
 
-Aby zaktualizować rolę niestandardową przy użyciu Azure PowerShell, należy podać następujące dane wejściowe. Należy zauważyć, że `Id` Właściwość została dodana. 
+Aby zaktualizować rolę niestandardową przy Azure PowerShell, należy podać następujące dane wejściowe. Zwróć `Id` uwagę, że właściwość została dodana. 
 
 ```json
 {
@@ -250,7 +250,7 @@ Aby zaktualizować rolę niestandardową przy użyciu Azure PowerShell, należy 
 }
 ```
 
-Poniżej przedstawiono przykład danych wyjściowych podczas wyświetlania listy ról niestandardowych przy użyciu Azure PowerShell i polecenia [ConvertTo-JSON](/powershell/module/microsoft.powershell.utility/convertto-json) . 
+Poniżej przedstawiono przykładowe dane wyjściowe po liście roli niestandardowej przy użyciu polecenia Azure PowerShell polecenia [ConvertTo-Json.](/powershell/module/microsoft.powershell.utility/convertto-json) 
 
 ```json
 {
@@ -268,7 +268,7 @@ Poniżej przedstawiono przykład danych wyjściowych podczas wyświetlania listy
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Aby utworzyć lub zaktualizować rolę niestandardową przy użyciu interfejsu wiersza polecenia platformy Azure, musisz podać następujące dane wejściowe. Ten format jest ten sam format podczas tworzenia roli niestandardowej przy użyciu Azure PowerShell.
+Aby utworzyć lub zaktualizować rolę niestandardową przy użyciu interfejsu wiersza polecenia platformy Azure, należy podać następujące dane wejściowe. Ten format jest taki sam podczas tworzenia roli niestandardowej przy użyciu Azure PowerShell.
 
 ```json
 {
@@ -282,7 +282,7 @@ Aby utworzyć lub zaktualizować rolę niestandardową przy użyciu interfejsu w
 }
 ```
 
-Poniżej przedstawiono przykład danych wyjściowych podczas wyświetlania listy ról niestandardowych przy użyciu interfejsu wiersza polecenia platformy Azure.
+Poniżej przedstawiono przykładowe dane wyjściowe po liście roli niestandardowej przy użyciu interfejsu wiersza polecenia platformy Azure.
 
 ```json
 [
@@ -308,7 +308,7 @@ Poniżej przedstawiono przykład danych wyjściowych podczas wyświetlania listy
 
 ### <a name="rest-api"></a>Interfejs API REST
 
-Aby utworzyć lub zaktualizować rolę niestandardową przy użyciu interfejsu API REST, należy podać następujące dane wejściowe. Ten format jest tym samym formatem, który jest generowany podczas tworzenia roli niestandardowej przy użyciu Azure Portal.
+Aby utworzyć lub zaktualizować rolę niestandardową przy użyciu interfejsu API REST, należy podać następujące dane wejściowe. Ten format jest ten sam, który jest generowany podczas tworzenia roli niestandardowej przy użyciu Azure Portal.
 
 ```json
 {
@@ -328,7 +328,7 @@ Aby utworzyć lub zaktualizować rolę niestandardową przy użyciu interfejsu A
 }
 ```
 
-Poniżej przedstawiono przykład danych wyjściowych podczas wyświetlania listy ról niestandardowych przy użyciu interfejsu API REST.
+Poniżej przedstawiono przykładowe dane wyjściowe po liście roli niestandardowej przy użyciu interfejsu API REST.
 
 ```json
 {
@@ -360,5 +360,5 @@ Poniżej przedstawiono przykład danych wyjściowych podczas wyświetlania listy
 
 - [Samouczek: tworzenie roli niestandardowej platformy Azure przy użyciu Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Samouczek: tworzenie roli niestandardowej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](tutorial-custom-role-cli.md)
-- [Informacje o definicjach ról platformy Azure](role-definitions.md)
-- [Rozwiązywanie problemów z usługą Azure RBAC](troubleshooting.md)
+- [Opis definicji ról platformy Azure](role-definitions.md)
+- [Rozwiązywanie problemów z kontroli RBAC na platformie Azure](troubleshooting.md)

@@ -27,7 +27,7 @@
         - name: Migracja z minimalnym przestojem za pomocą usługi DMS
           href: howto-migrate-online.md
           displayName: 'dms, data migration service'
-        - name: Migrowanie z programu Oracle
+        - name: Migrowanie z bazy danych Oracle
           href: howto-migrate-from-oracle.md
     - name: Zasady wersji
       href: concepts-version-policy.md
@@ -215,7 +215,7 @@
             - name: Zalecenia dotyczące wydajności
               href: concepts-performance-recommendations.md
               displayName: 'query store, performance, optimize, recommendations'
-            - name: Zalecenia dotyczące Azure Advisor
+            - name: Azure Advisor zalecenia
               href: concepts-azure-advisor-recommendations.md
         - name: Opracowywanie aplikacji
           items:
@@ -684,6 +684,10 @@
             - name: Uzyskiwanie dostępu do dzienników bazy danych
               href: howto-hyperscale-logging.md
               displayName: 'log, hyperscale'
+        - name: Przywracanie grupy serwerów
+          items:
+            - name: Azure Portal
+              href: howto-hyperscale-restore-portal.md
         - name: Uaktualnienia wersji głównych
           href: howto-hyperscale-upgrade.md
         - name: Rozwiązywanie problemów

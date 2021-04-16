@@ -1,138 +1,138 @@
 ---
-title: Wdróż konsorcjum sieci szkieletowej w usłudze Azure Kubernetes Service
-description: Jak wdrożyć i skonfigurować sieć konsorcjum sieci szkieletowej w usłudze Azure Kubernetes Service
+title: Wdrażanie Hyperledger Fabric konsorcjum na Azure Kubernetes Service
+description: Jak wdrożyć i skonfigurować sieć Hyperledger Fabric konsorcjum na Azure Kubernetes Service
 ms.date: 03/01/2021
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.custom: contperf-fy21q3
-ms.openlocfilehash: 42d16adbc5e6396c8d5d38176ac7681c712f4555
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: contperf-fy21q3, devx-track-azurecli
+ms.openlocfilehash: 03f19d1922c011c1b5304b66488e9fa8de703bf9
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102101107"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478321"
 ---
-# <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Wdróż konsorcjum sieci szkieletowej w usłudze Azure Kubernetes Service
+# <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Wdrażanie Hyperledger Fabric konsorcjum na Azure Kubernetes Service
 
-W celu wdrożenia i skonfigurowania sieci szkieletowej dla konsorcjum Fabric na platformie Azure można użyć szablonu Sieć szkieletowa w ramach usługi Azure Kubernetes Service (AKS).
+Szablon usługi Hyperledger Fabric on Azure Kubernetes Service (AKS) umożliwia wdrożenie i skonfigurowanie sieci Hyperledger Fabric konsorcjum na platformie Azure.
 
 Zapoznanie się z tym artykułem umożliwi:
 
-- Posiadanie działającej wiedzy o sieci szkieletowej i składników, które tworzą bloki konstrukcyjne sieci szkieletowej łańcucha bloków.
-- Dowiedz się, jak wdrażać i konfigurować sieć konsorcjum sieci szkieletowej w usłudze Azure Kubernetes na potrzeby scenariuszy produkcyjnych.
+- Posiadaj wiedzę na temat Hyperledger Fabric i składników, które tworzą bloki konstrukcyjne Hyperledger Fabric łańcucha bloków.
+- Wiesz, jak wdrożyć i skonfigurować sieć Hyperledger Fabric konsorcjum na Azure Kubernetes Service dla scenariuszy produkcyjnych.
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
-## <a name="choose-an-azure-blockchain-solution"></a>Wybierz rozwiązanie Azure łańcucha bloków
+## <a name="choose-an-azure-blockchain-solution"></a>Wybieranie Azure Blockchain rozwiązania
 
-Przed rozpoczęciem korzystania z szablonu rozwiązania Porównaj swój scenariusz ze wspólnym przypadkiem użycia dostępnych opcji usługi Azure łańcucha bloków:
+Zanim zdecydujesz się użyć szablonu rozwiązania, porównaj swój scenariusz z najczęściej występującymi przypadkami użycia dostępnych Azure Blockchain opcji:
 
-Opcja | Model usług | Typowy przypadek użycia
+Opcja | Model usług | Wspólny przypadek użycia
 -------|---------------|-----------------
-Szablony rozwiązań | IaaS | Szablony rozwiązań są Azure Resource Manager szablonów, których można użyć do aprowizacji w pełni skonfigurowanej topologii sieci łańcucha bloków. Szablony wdrażają i konfigurują Microsoft Azure usług obliczeniowych, sieciowych i magazynowych dla typu sieci łańcucha bloków. Szablony rozwiązań są udostępniane bez umowy dotyczącej poziomu usług. Aby uzyskać pomoc techniczną, użyj [strony Microsoft Q&](/answers/topics/azure-blockchain-workbench.html) .
-[Usługa Azure Blockchain](../service/overview.md) | PaaS | Usługa Azure łańcucha bloków w wersji zapoznawczej upraszcza tworzenie, zarządzanie i nadzór nad sieciami łańcucha bloków konsorcjum. Usługa Azure łańcucha bloków Service umożliwia korzystanie z rozwiązań, które wymagają PaaS, zarządzania konsorcjum oraz prywatności umów i transakcji.
-[Azure Blockchain Workbench](../workbench/overview.md) | IaaS i PaaS | Usługa Azure łańcucha bloków Workbench w wersji zapoznawczej to zbiór usług i funkcji platformy Azure, które ułatwiają tworzenie i wdrażanie aplikacji łańcucha bloków w celu udostępniania procesów i danych firmowych innym organizacjom. Użyj usługi Azure łańcucha bloków Workbench do prototypowania rozwiązania łańcucha bloków lub weryfikacji koncepcji dla aplikacji łańcucha bloków. Usługa Azure łańcucha bloków Workbench jest świadczona bez umowy dotyczącej poziomu usług. Aby uzyskać pomoc techniczną, użyj [strony Microsoft Q&](/answers/topics/azure-blockchain-workbench.html) .
+Szablony rozwiązań | IaaS | Szablony rozwiązań to Azure Resource Manager, których można użyć do aprowizować w pełni skonfigurowaną topologię sieci łańcucha bloków. Szablony wdrażają i konfigurują Microsoft Azure obliczeniowe, sieciowe i magazynowe dla typu sieci łańcucha bloków. Szablony rozwiązań są udostępniane bez umowy poziomu usług. Użyj strony [Microsoft Q&A, aby](/answers/topics/azure-blockchain-workbench.html) uzyskać pomoc techniczną.
+[Usługa Azure Blockchain](../service/overview.md) | PaaS | Azure Blockchain Service zapoznawcza upraszcza tworzenie i zarządzanie sieciami łańcucha bloków konsorcjum oraz zarządzanie nimi. Użyj Azure Blockchain Service rozwiązań, które wymagają rozwiązania PaaS, zarządzania konsorcjum lub prywatności kontraktów i transakcji.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS i PaaS | Azure Blockchain Workbench zapoznawcza to zbiór usług i możliwości platformy Azure, które ułatwiają tworzenie i wdrażanie aplikacji łańcucha bloków w celu udostępniania procesów biznesowych i danych innym organizacjom. Użyj Azure Blockchain Workbench do tworzenia prototypów rozwiązania łańcucha bloków lub weryfikacji koncepcji dla aplikacji łańcucha bloków. Azure Blockchain Workbench jest dostarczany bez umowy poziomu usług. Aby uzyskać [pomoc techniczną, skorzystaj ze](/answers/topics/azure-blockchain-workbench.html) strony&A usługi Microsoft Q.
 
-## <a name="deploy-the-orderer-and-peer-organization"></a>Wdróż organizację orderer i webpeer
+## <a name="deploy-the-orderer-and-peer-organization"></a>Wdrażanie zamawiania i organizacji równorzędnej
 
-Aby rozpocząć, musisz mieć subskrypcję platformy Azure, która może obsługiwać wdrażanie kilku maszyn wirtualnych i kont magazynu w warstwie Standardowa. Jeśli nie masz subskrypcji platformy Azure, możesz [utworzyć bezpłatne konto platformy Azure](https://azure.microsoft.com/free/).
+Aby rozpocząć, potrzebujesz subskrypcji platformy Azure, która może obsługiwać wdrażanie kilku maszyn wirtualnych i standardowych kont magazynu. Jeśli nie masz subskrypcji platformy Azure, możesz utworzyć [bezpłatne konto platformy Azure.](https://azure.microsoft.com/free/)
 
-Aby rozpocząć wdrażanie składników sieciowych w sieci szkieletowej, przejdź do [Azure Portal](https://portal.azure.com).
+Aby rozpocząć wdrażanie składników Hyperledger Fabric, przejdź do Azure Portal [.](https://portal.azure.com)
 
-1. Wybierz pozycję **Utwórz zasób**  >  **łańcucha bloków**, a następnie wyszukaj w **usłudze Azure Kubernetes Service (wersja zapoznawcza)**.
+1. Wybierz **pozycję Utwórz zasób Łańcuch**  >  **bloków,** a następnie wyszukaj Hyperledger Fabric na Azure Kubernetes Service **(wersja zapoznawcza).**
 
-2. Wprowadź szczegóły projektu na karcie **podstawy** .
+2. Wprowadź szczegóły projektu na **karcie Podstawowe** informacje.
 
-    ![Zrzut ekranu, na którym jest wyświetlana karta podstawy.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-basics.png)
+    ![Zrzut ekranu przedstawiający kartę Podstawowe.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-basics.png)
 
 3. Wprowadź następujące informacje:
-    - **Subskrypcja**: wybierz nazwę subskrypcji, w której chcesz wdrożyć składniki sieci szkieletowej.
-    - **Grupa zasobów**: Utwórz nową grupę zasobów lub wybierz istniejącą pustą grupę zasobów. Grupa zasobów będzie przechowywać wszystkie zasoby wdrożone w ramach szablonu.
-    - **Region**: Wybierz region platformy Azure, w którym chcesz wdrożyć klaster usługi Azure Kubernetes dla składników sieci szkieletowej. Szablon jest dostępny we wszystkich regionach, w których AKS jest dostępny. Wybierz region, w którym subskrypcja nie ma limitu przydziału maszyny wirtualnej (VM).
-    - **Prefiks zasobu**: wprowadź prefiks do nazewnictwa wdrożonych zasobów. Musi zawierać mniej niż sześć znaków, a kombinacja znaków musi zawierać zarówno cyfry, jak i litery.
-4. Wybierz kartę **Ustawienia sieci szkieletowej** , aby zdefiniować składniki sieci szkieletowej, które zostaną wdrożone.
+    - **Subskrypcja:** wybierz nazwę subskrypcji, w której chcesz wdrożyć składniki Hyperledger Fabric sieci.
+    - **Grupa zasobów:** utwórz nową grupę zasobów lub wybierz istniejącą pustą grupę zasobów. Grupa zasobów będzie zawierać wszystkie zasoby wdrożone w ramach szablonu.
+    - **Region:** wybierz region platformy Azure, w którym chcesz wdrożyć klaster Azure Kubernetes Service dla Hyperledger Fabric klastra. Szablon jest dostępny we wszystkich regionach, w których jest dostępna usługi AKS. Wybierz region, w którym twoja subskrypcja nie ma limitu przydziału maszyny wirtualnej.
+    - **Prefiks zasobu:** wprowadź prefiks nazewnictwa wdrożonych zasobów. Musi zawierać mniej niż sześć znaków, a kombinacja znaków musi zawierać zarówno cyfry, jak i litery.
+4. Wybierz **kartę Ustawienia sieci szkieletowej,** aby zdefiniować Hyperledger Fabric sieciowe, które zostaną wdrożone.
 
     ![Zrzut ekranu przedstawiający kartę Ustawienia sieci szkieletowej.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-settings.png)
 
 5. Wprowadź następujące informacje:
-    - **Nazwa organizacji**: Wprowadź nazwę organizacji sieci szkieletowej transakcji, która jest wymagana dla różnych operacji na płaszczyźnie danych. Nazwa organizacji musi być unikatowa dla każdego wdrożenia.
-    - **Składnik sieci szkieletowej**: wybierz pozycję **porządkowanie usług** lub **węzłów równorzędnych** w oparciu o składnik sieci łańcucha bloków, który chcesz skonfigurować.
-    - **Liczba węzłów**: poniższe dwa typy węzłów:
-        - **Porządkowanie usługi**: węzły odpowiedzialne za porządkowanie transakcji w księdze. Wybierz liczbę węzłów, aby zapewnić odporność na uszkodzenia sieci. Obsługiwana liczba węzłów zamówienia to 3, 5 i 7.
-        - **Węzły równorzędne**: węzły obsługujące księgi i kontrakty inteligentne. Możesz wybrać od 1 do 10 węzłów na podstawie wymagań.
-    - **Baza danych stanu świata węzła równorzędnego**: bazy danych stanu globalnego dla węzłów równorzędnych. LevelDB jest domyślną bazą danych stanu osadzoną w węźle równorzędnym. Przechowuje dane chaincode jako proste pary klucz/wartość i obsługuje tylko klucz, zakres kluczy i kwerendy klucza złożonego. CouchDB to opcjonalna alternatywna baza danych stanu, która obsługuje zaawansowane zapytania, gdy wartości danych chaincode są modelowane jako kod JSON. To pole jest wyświetlane po wybraniu **węzła równorzędnego** na liście rozwijanej **składnik sieci szkieletowej** .
-    - **Nazwa użytkownika urzędu sieci szkieletowej**: Urząd certyfikacji sieci szkieletowej umożliwia zainicjowanie i uruchomienie procesu serwera, który hostuje urząd certyfikacji. Umożliwia zarządzanie tożsamościami i certyfikatami. Każdy klaster AKS wdrożony jako część szablonu będzie miał domyślnie ten urząd certyfikacji sieci szkieletowej. Wprowadź nazwę użytkownika używaną do uwierzytelniania urzędu certyfikacji sieci szkieletowej.
-    - **Hasło urzędu sieci szkieletowej**: wprowadź hasło do uwierzytelniania urzędu certyfikacji sieci szkieletowej.
-    - **Potwierdź hasło**: Potwierdź hasło urzędu sieci szkieletowej.
-    - **Certyfikaty**: Jeśli chcesz użyć własnych certyfikatów głównych, aby zainicjować urząd certyfikacji sieci szkieletowej, a następnie wybierz opcję **Przekaż certyfikat główny dla urzędu certyfikacji sieci szkieletowej** . W przeciwnym razie urząd certyfikacji sieci szkieletowej domyślnie tworzy certyfikaty z podpisem własnym.
-    - **Certyfikat główny**: Przekaż certyfikat główny (klucz publiczny), z którym musi zostać zainicjowany urząd certyfikacji sieci szkieletowej. Obsługiwane są certyfikaty formatu PEM. Certyfikaty powinny być prawidłowe i znajdować się w strefie czasowej UTC.
-    - **Klucz prywatny certyfikatu głównego**: Przekaż klucz prywatny certyfikatu głównego. Jeśli masz certyfikat. pem, który ma połączony klucz publiczny i prywatny, przekaż go również w tym miejscu.
+    - **Nazwa organizacji:** wprowadź nazwę organizacji Hyperledger Fabric, która jest wymagana dla różnych operacji płaszczyzny danych. Nazwa organizacji musi być unikatowa dla każdego wdrożenia.
+    - **Składnik sieci szkieletowej:** wybierz pozycję **Usługa** zamawiania lub Węzły równorzędne **na** podstawie składnika sieci łańcucha bloków, który chcesz skonfigurować.
+    - **Liczba węzłów:** dwa typy węzłów są następujące:
+        - **Usługa zamawiania:** Węzły odpowiedzialne za kolejność transakcji w rejestrach. Wybierz liczbę węzłów, aby zapewnić odporność na uszkodzenia sieci. Obsługiwana liczba węzłów w kolejności to 3, 5 i 7.
+        - **Węzły równorzędne:** węzły, które hostują rejestry i kontrakty inteligentne. W zależności od wymagań można wybrać od 1 do 10 węzłów.
+    - **Równorzędna baza danych stanu świata węzła:** bazy danych stanu świata dla węzłów równorzędnych. LevelDB to domyślna baza danych stanu osadzona w węźle równorzędym. Przechowuje dane kodu łańcuchowego jako proste pary klucz/wartość i obsługuje tylko zapytania dotyczące klucza, zakresu kluczy i klucza złożonego. CouchDB to opcjonalna alternatywna baza danych stanu, która obsługuje rozbudowane zapytania, gdy wartości danych kodu łańcuchowego są modelowane jako dane JSON. To pole jest wyświetlane po wybraniu opcji Węzły **równorzędne** **z** listy rozwijanej Składnik sieci szkieletowej.
+    - **Nazwa użytkownika urzędu certyfikacji** sieci szkieletowej: urząd certyfikacji sieci szkieletowej umożliwia zainicjowanie i uruchomienie procesu serwera, który hostuje urząd certyfikacji. Umożliwia zarządzanie tożsamościami i certyfikatami. Każdy klaster usługi AKS wdrożony w ramach szablonu będzie domyślnie miał zasobnik urzędu certyfikacji sieci szkieletowej. Wprowadź nazwę użytkownika używaną do uwierzytelniania urzędu certyfikacji sieci szkieletowej.
+    - **Hasło urzędu certyfikacji sieci szkieletowej:** wprowadź hasło do uwierzytelniania urzędu certyfikacji sieci szkieletowej.
+    - **Potwierdź hasło:** Potwierdź hasło urzędu certyfikacji sieci szkieletowej.
+    - **Certyfikaty:** jeśli chcesz użyć własnych certyfikatów głównych do zainicjowania urzędu certyfikacji sieci szkieletowej, wybierz opcję Przekaż certyfikat główny dla urzędu **certyfikacji sieci szkieletowej.** W przeciwnym razie urząd certyfikacji sieci szkieletowej domyślnie tworzy certyfikaty z podpisem własnym.
+    - **Certyfikat główny:** przekaż certyfikat główny (klucz publiczny), za pomocą którego należy zainicjować urząd certyfikacji sieci szkieletowej. Certyfikaty w formacie PEM są obsługiwane. Certyfikaty powinny być prawidłowe i w strefie czasowej UTC.
+    - **Klucz prywatny certyfikatu głównego:** przekaż klucz prywatny certyfikatu głównego. Jeśli masz certyfikat PEM z połączonym kluczem publicznym i prywatnym, przekaż go również tutaj.
 
 
-6. Wybierz kartę **Ustawienia klastra AKS** , aby zdefiniować konfigurację klastra usługi Azure Kubernetes. Klaster AKS ma różne zasobniki skonfigurowane do uruchamiania składników sieci szkieletowej. Wdrożone zasoby platformy Azure to:
+6. Wybierz **kartę Ustawienia klastra usługi AKS,** aby zdefiniować Azure Kubernetes Service konfiguracji klastra. Klaster usługi AKS ma różne zasobniki skonfigurowane do uruchamiania Hyperledger Fabric sieci. Wdrożone zasoby platformy Azure to:
 
-    - **Narzędzia sieci szkieletowej**: narzędzia odpowiedzialne za Konfigurowanie składników sieci szkieletowej.
-    - **Zamówienie/elementy równorzędne**: węzły sieci szkieletowej.
-    - **Serwer proxy**: serwer proxy NGNIX pod za pomocą którego aplikacje klienckie mogą komunikować się z klastrem AKS.
-    - **Urząd certyfikacji sieci szkieletowej**: na tym komputerze, na którym działa urząd certyfikacji sieci szkieletowej.
-    - **PostgreSQL**: wystąpienie bazy danych, która przechowuje tożsamości urzędu certyfikacji sieci szkieletowej.
-    - **Magazyn kluczy**: wystąpienie usługi Azure Key Vault, która została wdrożona w celu zapisania poświadczeń urzędu certyfikacji sieci szkieletowej oraz certyfikatów głównych dostarczonych przez klienta. Magazyn jest używany w przypadku ponawiania próby wdrożenia szablonu, aby obsłużyć Mechanics szablonu.
-    - **Dysk zarządzany**: wystąpienie usługi Managed disks platformy Azure, która zapewnia trwały magazyn dla księgi i dla bazy danych stanu świata węzła równorzędnego.
-    - **Publiczny adres IP**: punkt końcowy klastra AKS wdrożony na potrzeby komunikacji z klastrem.
+    - **Narzędzia sieci** szkieletowej: narzędzia, które są odpowiedzialne za konfigurowanie Hyperledger Fabric sieci szkieletowej.
+    - **Zasobniki zamawiania/elementów równorzędnych:** węzły Hyperledger Fabric sieci.
+    - **Serwer proxy:** zasobnik serwera proxy NGNIX, za pomocą którego aplikacje klienckie mogą komunikować się z klastrem usługi AKS.
+    - **Urząd certyfikacji sieci** szkieletowej: zasobnik, który uruchamia urząd certyfikacji sieci szkieletowej.
+    - **PostgreSQL:** wystąpienie bazy danych, które przechowuje tożsamości urzędu certyfikacji sieci szkieletowej.
+    - **Magazyn kluczy:** wystąpienie usługi Azure Key Vault wdrożone w celu zapisania poświadczeń urzędu certyfikacji sieci szkieletowej i certyfikatów głównych dostarczonych przez klienta. Magazyn jest używany w przypadku ponowienia próby wdrożenia szablonu w celu obsługi mechaniki szablonu.
+    - **Dysk zarządzany:** wystąpienie usługi Azure Dyski zarządzane, która zapewnia trwały magazyn dla rejestru i bazy danych stanu świata węzła równorzędnego.
+    - **Publiczny adres IP:** punkt końcowy klastra usługi AKS wdrożony do komunikacji z klastrem.
 
     Wprowadź następujące informacje: 
 
-    ![Zrzut ekranu przedstawiający kartę Ustawienia klastra K S.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-aks-cluster-settings-1.png)
+    ![Zrzut ekranu przedstawiający kartę Ustawienia klastra A K S.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-aks-cluster-settings-1.png)
 
-    - **Nazwa klastra Kubernetes**: Zmień nazwę klastra AKS, jeśli to konieczne. To pole jest wstępnie wypełniane na podstawie podanego prefiksu zasobu.
-    - **Wersja Kubernetes**: Wybierz wersję Kubernetes, która zostanie wdrożona w klastrze. W zależności od regionu wybranego na karcie **podstawowe** dostępne wersje mogą ulec zmianie.
-    - **Prefiks DNS**: wprowadź prefiks nazwy systemu nazw domen (DNS) dla klastra AKS. Użyjesz usługi DNS do nawiązywania połączenia z interfejsem API Kubernetes podczas zarządzania kontenerami po utworzeniu klastra.
-    - **Rozmiar węzła**: rozmiar węzła Kubernetes można wybrać z listy jednostek składowania maszyn wirtualnych (SKU) dostępnych na platformie Azure. W celu uzyskania optymalnej wydajności zalecamy użycie standardowego DS3 v2.
-    - **Liczba węzłów**: wprowadź liczbę węzłów Kubernetes, które mają zostać wdrożone w klastrze. Zaleca się pozostawienie tej liczby węzłów równej lub większej niż liczba węzłów sieci szkieletowej w ramach księgi głównej określonych na karcie **Ustawienia sieci szkieletowej** .
-    - **Identyfikator klienta nazwy głównej usługi**: Wprowadź identyfikator klienta istniejącej jednostki usługi lub Utwórz nową. Nazwa główna usługi jest wymagana do uwierzytelniania AKS. Zapoznaj się z [instrukcjami tworzenia nazwy głównej usługi](/powershell/azure/create-azure-service-principal-azureps#create-a-service-principal).
-    - **Klucz tajny klienta jednostki usługi**: Wprowadź klucz tajny klienta w jednostce usługi podanej w identyfikatorze klienta dla jednostki usługi.
-    - **Potwierdź klucz tajny klienta**: Potwierdź klucz tajny klienta dla jednostki usługi.
-    - **Włącz monitorowanie kontenera**: Wybierz, aby włączyć monitorowanie AKS, które umożliwia wypychanie dzienników AKS do określonego obszaru roboczego log Analytics.
-    - **Obszar roboczy log Analytics**: obszar roboczy log Analytics zostanie wypełniony domyślnym obszarem roboczym, który został utworzony, jeśli monitorowanie jest włączone.
+    - **Nazwa klastra Kubernetes:** w razie potrzeby zmień nazwę klastra usługi AKS. To pole jest wstępnie zasypyowane na podstawie podanego prefiksu zasobu.
+    - **Wersja rozwiązania Kubernetes:** wybierz wersję rozwiązania Kubernetes, która zostanie wdrożona w klastrze. W zależności od regionu wybranego na karcie **Podstawowe** dostępne obsługiwane wersje mogą ulec zmianie.
+    - **Prefiks DNS:** wprowadź prefiks nazwy systemu nazw domen (DNS) dla klastra usługi AKS. Użyjesz usługi DNS do nawiązania połączenia z interfejsem API kubernetes podczas zarządzania kontenerami po utworzeniu klastra.
+    - **Rozmiar węzła:** rozmiar węzła Kubernetes można wybrać z listy jednostek magazynowych maszyn wirtualnych (SKU) dostępnych na platformie Azure. Aby uzyskać optymalną wydajność, zalecamy usługę Ds3 w standardowych wersjach 2.
+    - **Liczba węzłów:** wprowadź liczbę węzłów Kubernetes do wdrożenia w klastrze. Zalecamy, aby ta liczba węzłów była równa lub większa niż liczba węzłów Hyperledger Fabric określona na karcie **Ustawienia sieci szkieletowej.**
+    - **Identyfikator klienta jednostki usługi:** wprowadź identyfikator klienta istniejącej jednostki usługi lub utwórz nową. Do uwierzytelniania usługi AKS jest wymagana jednostka usługi. Zobacz kroki [tworzenia jednostki usługi](/powershell/azure/create-azure-service-principal-azureps#create-a-service-principal).
+    - **Klucz tajny klienta jednostki** usługi: wprowadź wpis tajny klienta jednostki usługi podany w identyfikatorze klienta dla jednostki usługi.
+    - **Potwierdź klucz tajny** klienta: potwierdź klucz tajny klienta dla jednostki usługi.
+    - **Włącz monitorowanie kontenerów:** włącz monitorowanie usługi AKS, co umożliwi wypychanie dzienników usługi AKS do określonego obszaru roboczego usługi Log Analytics.
+    - **Obszar roboczy usługi Log Analytics:** obszar roboczy usługi Log Analytics zostanie wypełniony domyślnym obszarem roboczym utworzonym, jeśli jest włączone monitorowanie.
 
-8. Wybierz kartę **Przegląd i tworzenie** . Ten krok wyzwala sprawdzanie poprawności dla podanych wartości.
+8. Wybierz **kartę Przeglądanie i** tworzenie. Ten krok wyzwala weryfikację podanych wartości.
 9. Po zakończeniu walidacji wybierz pozycję **Utwórz**.
 
-    Wdrożenie zazwyczaj trwa od 10 do 12 minut. Czas może się różnić w zależności od rozmiaru i liczby określonych węzłów AKS.
-10. Po pomyślnym wdrożeniu otrzymasz powiadomienie za pomocą powiadomień platformy Azure w prawym górnym rogu.
-11. Wybierz pozycję **Przejdź do grupy zasobów** , aby sprawdzić wszystkie zasoby utworzone w ramach wdrożenia szablonu. Wszystkie nazwy zasobów rozpoczną się od prefiksu podanego na karcie **podstawy** .
+    Wdrożenie trwa zwykle od 10 do 12 minut. Czas może się różnić w zależności od rozmiaru i liczby określonych węzłów usługi AKS.
+10. Po pomyślnym wdrożeniu będziesz otrzymywać powiadomienia za pośrednictwem platformy Azure w prawym górnym rogu.
+11. Wybierz **pozycję Przejdź do grupy zasobów,** aby sprawdzić wszystkie zasoby utworzone w ramach wdrożenia szablonu. Wszystkie nazwy zasobów będą rozpoczynać się prefiksem podanym na **karcie Podstawy.**
 
-## <a name="build-the-consortium"></a>Kompiluj konsorcjum
+## <a name="build-the-consortium"></a>Tworzenie konsorcjum
 
-Aby skompilować konsorcjum łańcucha bloków po wdrożeniu usługi porządkowania i węzłów równorzędnych, wykonaj następujące kroki w kolejności. Skrypt sieci szkieletowej Azure (azhlf) pomaga w konfigurowaniu konsorcjum, tworzeniu kanału i wykonywaniu operacji chaincode.
-
-> [!NOTE]
-> Skrypt sieci szkieletowej Azure (azhlf) został zaktualizowany w celu zapewnienia większej funkcjonalności. Jeśli chcesz odwołać się do starego skryptu, zobacz [plik Readme w witrynie GitHub](https://github.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/blob/master/consortiumScripts/README.md). Ten skrypt jest zgodny z siecią szkieletową Kubernetes w wersji szablonu usługi Azure 2.0.0 i nowszych. Aby sprawdzić wersję wdrożenia, wykonaj kroki opisane w sekcji [Rozwiązywanie problemów](#troubleshoot).
+Aby utworzyć konsorcjum łańcucha bloków po wdrożeniu usługi zamawiania i węzłów równorzędnych, należy wykonać następujące kroki po kolei. Skrypt usługi Azure Hyperledger Fabric (alf) ułatwia skonfigurowanie konsorcjum, utworzenie kanału i wykonanie operacji kodu łańcucha.
 
 > [!NOTE]
-> Skrypt jest dostarczany, aby pomóc w tworzeniu tylko scenariuszy demonstracyjnych, deweloperskich i testowych. Kanał i konsorcjum tworzone przez ten skrypt mają podstawowe zasady dotyczące sieci szkieletowej w celu uproszczenia, programowania i testowania scenariuszy. W przypadku konfiguracji produkcyjnej Zalecamy zaktualizowanie zasad sieci szkieletowej kanału/konsorcjum zgodnie z wymaganiami dotyczącymi zgodności w organizacji przy użyciu natywnych interfejsów API sieci szkieletowej.
+> Skrypt azure Hyperledger Fabric (alf) został zaktualizowany w celu zapewnienia większej funkcjonalności. Jeśli chcesz odwołać się do starego skryptu, zobacz [readme w witrynie GitHub.](https://github.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/blob/master/consortiumScripts/README.md) Ten skrypt jest zgodny z Hyperledger Fabric na Azure Kubernetes Service szablonu w wersji 2.0.0 lub nowszej. Aby sprawdzić wersję wdrożenia, wykonaj kroki opisane w te tematze [Rozwiązywanie problemów.](#troubleshoot)
+
+> [!NOTE]
+> Skrypt jest dostarczany, aby ułatwić tylko scenariusze demonstracyjne, programowe i testowe. Kanał i konsorcjum, które tworzy ten skrypt, mają podstawowe Hyperledger Fabric, które upraszczają scenariusze pokazowe, programowe i testowe. W przypadku konfiguracji produkcyjnej zalecamy zaktualizowanie zasad kanału/konsorcjum Hyperledger Fabric zgodnie z potrzebami organizacji w zakresie zgodności przy użyciu natywnych interfejsów API Hyperledger Fabric.
 
 
-Wszystkie polecenia do uruchamiania skryptu sieci szkieletowej platformy Azure można wykonać za pomocą interfejsu wiersza polecenia (CLI) platformy Azure bash. Możesz zalogować się do Azure Cloud Shell za pomocą ![ opcji szablonu usługi Sieć szkieletowa w usłudze Azure Kubernetes w ](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) prawym górnym rogu Azure Portal. W wierszu polecenia wpisz `bash` i wybierz klawisz ENTER, aby przełączyć się do interfejsu CLI bash, lub wybierz pozycję **bash** na pasku narzędzi Cloud Shell.
+Wszystkie polecenia uruchamiania skryptu usługi Azure Hyperledger Fabric można wykonać za pomocą interfejsu wiersza polecenia (CLI) powłoki Azure Bash. Możesz zalogować się do Azure Cloud Shell za pośrednictwemâ€ âthe Hyperledger Fabric w Azure Kubernetes Service szablonu w prawym górnym ![ ](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) rogu Azure Portal. W wierszu polecenia wpisz i wybierz klawisz Enter, aby przełączyć się do interfejsu wiersza polecenia powłoki Bash, lub wybierz pozycję Bash Cloud Shell `bash` pasku narzędzi. 
 
-Aby uzyskać więcej informacji, zobacz [Azure Cloud Shell](../../cloud-shell/overview.md) .
+Zobacz [Azure Cloud Shell,](../../cloud-shell/overview.md) aby uzyskać więcej informacji.
 
 ![Zrzut ekranu przedstawiający polecenia w Azure Cloud Shell.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/hyperledger-powershell.png)
 
 
-Na poniższej ilustracji przedstawiono krok po kroku proces tworzenia konsorcjum między organizacją programu orderer a organizacją równorzędną. Poniższe sekcje zawierają szczegółowe polecenia, aby wykonać te kroki.
+Na poniższej ilustracji przedstawiono krok po kroku proces tworzenia konsorcjum między organizacją zamawiania a organizacją równorzędną. W poniższych sekcjach przedstawiono szczegółowe polecenia służące do wykonania tych kroków.
 
-![Diagram procesu, w którym ma zostać skompilowany konsorcjum.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/process-to-build-consortium-flow-chart.png)
+![Diagram przedstawiający proces tworzenia konsorcjum.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/process-to-build-consortium-flow-chart.png)
 
-Po zakończeniu początkowej konfiguracji Użyj aplikacji klienckiej, aby wykonać następujące operacje:  
+Po zakończeniu początkowej konfiguracji użyj aplikacji klienckiej, aby uzyskać następujące operacje: â€ za pomocą
 
 - Zarządzanie kanałami
 - Zarządzanie konsorcjum
-- Chaincode Management
+- Zarządzanie kodem łańcucha
 
-### <a name="download-client-application-files"></a>Pobierz pliki aplikacji klienckiej
+### <a name="download-client-application-files"></a>Pobieranie plików aplikacji klienckiej
 
-Pierwszą konfiguracją jest pobranie plików aplikacji klienta. Uruchom następujące polecenia, aby pobrać wszystkie wymagane pliki i pakiety:
+Pierwszą konfiguracją jest pobranie plików aplikacji klienckiej. Uruchom następujące polecenia, aby pobrać wszystkie wymagane pliki i pakiety:
 
 ```bash-interactive
 curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/master/azhlfToolSetup.sh | bash
@@ -141,13 +141,13 @@ npm install
 npm run setup
 ```
 
-Te polecenia spowodują klonowanie kodu aplikacji klienta sieci szkieletowej platformy Azure z publicznej repozytorium GitHub, a następnie załadowanie wszystkich zależnych pakietów npm. Po pomyślnym wykonaniu polecenia zobaczysz folder node_modules w bieżącym katalogu. Wszystkie wymagane pakiety są ładowane w folderze node_modules.
+Te polecenia sklonuje kod aplikacji Hyperledger Fabric Azure z publicznego repozytorium GitHub, a następnie załaduje wszystkie zależne pakiety npm. Po pomyślnym wykonaniu polecenia w bieżącym katalogu node_modules folder. Wszystkie wymagane pakiety są ładowane do node_modules folderze.
 
 ### <a name="set-up-environment-variables"></a>Konfigurowanie zmiennych środowiskowych
 
 Wszystkie zmienne środowiskowe są zgodne z konwencją nazewnictwa zasobów platformy Azure.
 
-#### <a name="set-environment-variables-for-the-orderer-organizations-client"></a>Ustawianie zmiennych środowiskowych dla klienta organizacji programu orderer
+#### <a name="set-environment-variables-for-the-orderer-organizations-client"></a>Ustawianie zmiennych środowiskowych dla klienta organizacji zamawiania
 
 ```bash
 ORDERER_ORG_SUBSCRIPTION=<ordererOrgSubscription>
@@ -157,7 +157,7 @@ ORDERER_ADMIN_IDENTITY="admin.$ORDERER_ORG_NAME"
 CHANNEL_NAME=<channelName>
 ```
 
-#### <a name="set-environment-variables-for-the-peer-organizations-client"></a>Ustawianie zmiennych środowiskowych dla klienta w organizacji równorzędnej
+#### <a name="set-environment-variables-for-the-peer-organizations-client"></a>Ustawianie zmiennych środowiskowych dla klienta organizacji równorzędnej
 
 ```bash
 PEER_ORG_SUBSCRIPTION=<peerOrgSubscritpion>
@@ -167,7 +167,7 @@ PEER_ADMIN_IDENTITY="admin.$PEER_ORG_NAME"
 CHANNEL_NAME=<channelName>
 ```
 
-Na podstawie liczby organizacji równorzędnych w danym konsorcjum może być konieczne powtórzenie poleceń elementów równorzędnych i odpowiednie ustawienie zmiennej środowiskowej.
+Na podstawie liczby organizacji równorzędnych w konsorcjum może być konieczne powtórzenie poleceń równorzędnych i odpowiednie ustawienie zmiennej środowiskowej.
 
 #### <a name="set-environment-variables-for-an-azure-storage-account"></a>Ustawianie zmiennych środowiskowych dla konta usługi Azure Storage
 
@@ -179,7 +179,7 @@ STORAGE_LOCATION=<azureStorageAccountLocation>
 STORAGE_FILE_SHARE=<azureFileShareName>
 ```
 
-Użyj następujących poleceń, aby utworzyć konto usługi Azure Storage. Jeśli masz już konto usługi Azure Storage, Pomiń ten krok.
+Użyj poniższych poleceń, aby utworzyć konto usługi Azure Storage. Jeśli masz już konto usługi Azure Storage, pomiń ten krok.
 
 ```bash
 az account set --subscription $STORAGE_SUBSCRIPTION
@@ -187,14 +187,14 @@ az group create -l $STORAGE_LOCATION -n $STORAGE_RESOURCE_GROUP
 az storage account create -n $STORAGE_ACCOUNT -g  $STORAGE_RESOURCE_GROUP -l $STORAGE_LOCATION --sku Standard_LRS
 ```
 
-Użyj następujących poleceń, aby utworzyć udział plików na koncie usługi Azure Storage. Jeśli masz już udział plików, Pomiń ten krok.
+Użyj poniższych poleceń, aby utworzyć udział plików na koncie usługi Azure Storage. Jeśli masz już udział plików, pomiń ten krok.
 
 ```bash
 STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
 az storage share create  --account-name $STORAGE_ACCOUNT  --account-key $STORAGE_KEY  --name $STORAGE_FILE_SHARE
 ```
 
-Użyj następujących poleceń, aby wygenerować parametry połączenia dla udziału plików platformy Azure.
+Użyj następujących poleceń, aby wygenerować ciąg połączenia dla udziału plików platformy Azure.
 
 ```bash
 STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
@@ -203,11 +203,11 @@ AZURE_FILE_CONNECTION_STRING=https://$STORAGE_ACCOUNT.file.core.windows.net/$STO
 
 ```
 
-### <a name="import-an-organization-connection-profile-admin-user-identity-and-msp"></a>Importowanie profilu połączenia z organizacją, tożsamości administratora i MSP
+### <a name="import-an-organization-connection-profile-admin-user-identity-and-msp"></a>Importowanie profilu połączenia organizacji, tożsamości użytkownika administratora i dostawcy usług mSP
 
-Użyj następujących poleceń, aby pobrać profil połączenia organizacji, tożsamość użytkownika administratora i dostawcę usług zarządzanych (MSP) z klastra usługi Azure Kubernetes i zapisać te tożsamości w lokalnym magazynie aplikacji klienta. Przykładem lokalnego magazynu jest katalog *azhlfTool/* Stores.
+Użyj następujących poleceń, aby pobrać profil połączenia organizacji, tożsamość użytkownika administratora i dostawcę usług zarządzanych (MSP) z klastra usługi Azure Kubernetes Service i zapisać te tożsamości w magazynie lokalnym aplikacji klienckiej. Przykładem magazynu lokalnego jest *katalog alfTool/stores.*
 
-W przypadku organizacji programu orderer:
+W przypadku organizacji zamawiania:
 
 ```bash
 ./azhlf adminProfile import fromAzure -o $ORDERER_ORG_NAME -g $ORDERER_ORG_RESOURCE_GROUP -s $ORDERER_ORG_SUBSCRIPTION
@@ -225,7 +225,7 @@ W przypadku organizacji równorzędnej:
 
 ### <a name="create-a-channel"></a>Tworzenie kanału
 
-Z poziomu klienta organizacji programu orderer Użyj następującego polecenia, aby utworzyć kanał, który zawiera tylko organizację programu orderer.  
+Z klienta organizacji zamawiania użyj następującego polecenia, aby utworzyć kanał, który zawiera tylko organizację zamawiania.  
 
 ```bash
 ./azhlf channel create -c $CHANNEL_NAME -u $ORDERER_ADMIN_IDENTITY -o $ORDERER_ORG_NAME
@@ -234,16 +234,16 @@ Z poziomu klienta organizacji programu orderer Użyj następującego polecenia, 
 ### <a name="add-a-peer-organization-for-consortium-management"></a>Dodawanie organizacji równorzędnej do zarządzania konsorcjum
 
 >[!NOTE]
-> Przed rozpoczęciem pracy z każdą operacją konsorcjum upewnij się, że ukończono wstępne konfigurowanie aplikacji klienckiej.  
+> Przed rozpoczęciem jakiejkolwiek operacji konsorcjum upewnij się, że wstępna konfiguracja aplikacji klienckiej została zakończona.  
 
-Uruchom następujące polecenia w danej kolejności, aby dodać organizację równorzędną w kanale i konsorcjum: 
+Uruchom następujące polecenia w podanej kolejności, aby dodać organizację równorzędną w kanale i konsorcjum: 
 
-1.  Z poziomu klienta organizacji równorzędnej Przekaż MSP organizacji równorzędnej w usłudze Azure Storage.
+1.  Z klienta organizacji równorzędnej przekaż do usługi Azure Storage usługę MSP organizacji równorzędnej.
 
       ```bash
       ./azhlf msp export toAzureStorage -f  $AZURE_FILE_CONNECTION_STRING -o $PEER_ORG_NAME
       ```
-2.  Z poziomu klienta organizacji programu orderer Pobierz MSP organizacji równorzędnej z usługi Azure Storage. Następnie wydaj polecenie, aby dodać organizację równorzędną w kanale i konsorcjum.
+2.  Z klienta organizacji zamawiania pobierz usługę MSP organizacji równorzędnej z usługi Azure Storage. Następnie wydaj polecenie , aby dodać organizację równorzędną w kanale i konsorcjum.
 
       ```bash
       ./azhlf msp import fromAzureStorage -o $PEER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
@@ -251,88 +251,88 @@ Uruchom następujące polecenia w danej kolejności, aby dodać organizację ró
       ./azhlf consortium join -o $ORDERER_ORG_NAME  -u $ORDERER_ADMIN_IDENTITY -p $PEER_ORG_NAME
       ```
 
-3.  Z poziomu klienta organizacji programu orderer Przekaż profil połączenia programu orderer do usługi Azure Storage, aby organizacja równorzędna mogła łączyć się z węzłami programu orderer przy użyciu tego profilu połączenia.
+3.  Z klienta organizacji zamawiania przekaż profil połączenia z zamówieniem w usłudze Azure Storage, aby organizacja równorzędna była w stanie połączyć się z węzłami osoby zamawiania przy użyciu tego profilu połączenia.
 
       ```bash
       ./azhlf connectionProfile  export toAzureStorage -o $ORDERER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
       ```
 
-4.  Z poziomu klienta organizacji równorzędnej Pobierz profil połączenia programu orderer z usługi Azure Storage. Następnie uruchom polecenie, aby dodać węzły równorzędne w kanale.
+4.  Z klienta organizacji równorzędnej pobierz profil połączenia osoby zamawiania z usługi Azure Storage. Następnie uruchom polecenie , aby dodać węzły równorzędne w kanale.
 
       ```bash
       ./azhlf connectionProfile  import fromAzureStorage -o $ORDERER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
       ./azhlf channel joinPeerNodes -o $PEER_ORG_NAME  -u $PEER_ADMIN_IDENTITY -c $CHANNEL_NAME --ordererOrg $ORDERER_ORG_NAME
       ```
 
-Podobnie aby dodać więcej organizacji równorzędnych w kanale, zaktualizuj zmienne środowiskowe elementów równorzędnych zgodnie z wymaganą organizacją równorzędną i wykonaj kroki od 1 do 4.
+Podobnie, aby dodać więcej organizacji równorzędnych w kanale, zaktualizuj zmienne środowiskowe elementów równorzędnych zgodnie z wymaganą organizacją równorzędną i ponownie wykonać kroki od 1 do 4.
 
-### <a name="set-anchor-peers"></a>Ustawianie zakotwiczenia elementów równorzędnych
+### <a name="set-anchor-peers"></a>Ustawianie elementów równorzędnych zakotwiczenia
 
-Z poziomu klienta organizacji równorzędnej Uruchom polecenie, aby ustawić kotwicę elementów równorzędnych dla organizacji równorzędnej w określonym kanale.
+Z klienta organizacji równorzędnej uruchom polecenie , aby ustawić kotwicę równorzędną dla organizacji równorzędnej w określonym kanale.
 
 >[!NOTE]
-> Przed uruchomieniem tego polecenia upewnij się, że w kanale jest dodana organizacja równorzędna przy użyciu poleceń zarządzania konsorcjum.
+> Przed uruchomieniem tego polecenia upewnij się, że w kanale dodano organizację równorzędną przy użyciu poleceń zarządzania konsorcjum.
 
 ```bash
 ./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY --ordererOrg $ORDERER_ORG_NAME
 ```
 
-`<anchorPeersList>` jest rozdzielaną spacją listą węzłów równorzędnych, które mają być ustawiane jako zakotwiczenie elementu równorzędnego. Na przykład:
+`<anchorPeersList>` to rozdzielana spacjami lista węzłów równorzędnych, które mają być ustawione jako element równorzędny kotwicy. Na przykład:
 
-  - Ustaw `<anchorPeersList>` jako, `"peer1"` Jeśli chcesz ustawić tylko węzeł Peer1 jako zakotwiczenie elementu równorzędnego.
-  - Ustaw `<anchorPeersList>` jako, `"peer1" "peer3"` Jeśli chcesz ustawić zarówno węzły Peer1, jak i peer3 jako elementy równorzędne zakotwiczenia.
+  - Ustaw tak, jakby jako element równorzędny kotwicy był ustawiany `<anchorPeersList>` `"peer1"` tylko węzeł peer1.
+  - Ustaw tak, jakby węzły peer1 i peer3 ustawiały `<anchorPeersList>` się jako `"peer1" "peer3"` kotwicze równorzędne.
 
-## <a name="chaincode-management-commands"></a>Polecenia zarządzania Chaincode
+## <a name="chaincode-management-commands"></a>Polecenia zarządzania kodem łańcuchowym
 
 >[!NOTE]
-> Przed rozpoczęciem pracy z dowolną operacją chaincode upewnij się, że wykonano początkową konfigurację aplikacji klienckiej.  
+> Przed rozpoczęciem jakiejkolwiek operacji kodu łańcucha upewnij się, że została wykonana początkowa konfiguracja aplikacji klienckiej.  
 
-### <a name="set-the-chaincode-specific-environment-variables"></a>Ustawianie zmiennych środowiskowych specyficznych dla chaincode
+### <a name="set-the-chaincode-specific-environment-variables"></a>Ustawianie zmiennych środowiskowych specyficznych dla kodu łańcucha
 
 ```bash
 # Peer organization name where the chaincode operation will be performed
 ORGNAME=<PeerOrgName>
 USER_IDENTITY="admin.$ORGNAME"  
-# If you are using chaincode_example02 then set CC_NAME=“chaincode_example02”
+# If you are using chaincode_example02 then set CC_NAME=â€œchaincode_example02â€
 CC_NAME=<chaincodeName>  
-# If you are using chaincode_example02 then set CC_VERSION=“1” for validation
+# If you are using chaincode_example02 then set CC_VERSION=â€œ1â€ for validation
 CC_VERSION=<chaincodeVersion>
 # Language in which chaincode is written. Supported languages are 'node', 'golang', and 'java'  
 # Default value is 'golang'  
 CC_LANG=<chaincodeLanguage>  
 # CC_PATH contains the path where your chaincode is placed. This is the absolute path to the chaincode project root directory.
-# If you are using chaincode_example02 to validate then CC_PATH=“/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/go”
+# If you are using chaincode_example02 to validate then CC_PATH=â€œ/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/goâ€
 CC_PATH=<chaincodePath>  
 # Channel on which chaincode will be instantiated/invoked/queried  
 CHANNEL_NAME=<channelName>  
 ```
 
-### <a name="install-chaincode"></a>Zainstaluj chaincode  
+### <a name="install-chaincode"></a>Instalowanie kodu łańcucha  
 
-Uruchom następujące polecenie, aby zainstalować chaincode w organizacji równorzędnej.  
+Uruchom następujące polecenie, aby zainstalować kod łańcucha w organizacji równorzędnej.  
 
 ```bash
 ./azhlf chaincode install -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -l $CC_LANG -v $CC_VERSION  
 
 ```
-Polecenie zainstaluje chaincode na wszystkich węzłach równorzędnych zestawu organizacji równorzędnych w `ORGNAME` zmiennej środowiskowej. Jeśli co najmniej dwie organizacje równorzędne znajdują się w kanale i chcesz zainstalować chaincode na wszystkich z nich, Uruchom to polecenie oddzielnie dla każdej organizacji równorzędnej.  
+Polecenie zainstaluje kod łańcucha na wszystkich węzłach równorzędnych organizacji równorzędnej ustawionych w zmiennej `ORGNAME` środowiskowej . Jeśli co najmniej dwie organizacje równorzędne znajdują się w kanale i chcesz zainstalować kod łańcucha na wszystkich z nich, uruchom to polecenie oddzielnie dla każdej organizacji równorzędnej.  
 
 Wykonaj następujące kroki:  
 
-1.  Ustaw `ORGNAME` i zgodnie z parametrem `USER_IDENTITY` `peerOrg1` i uruchom `./azhlf chaincode install` polecenie.  
-2.  Ustaw `ORGNAME` i zgodnie z parametrem `USER_IDENTITY` `peerOrg2` i uruchom `./azhlf chaincode install` polecenie.  
+1.  Ustaw `ORGNAME` i zgodnie z i uruchom `USER_IDENTITY` `peerOrg1` `./azhlf chaincode install` polecenie.  
+2.  Ustaw `ORGNAME` i zgodnie z i uruchom `USER_IDENTITY` `peerOrg2` `./azhlf chaincode install` polecenie.  
 
-### <a name="instantiate-chaincode"></a>Tworzenie wystąpienia chaincode  
+### <a name="instantiate-chaincode"></a>Kod łańcucha wystąpienia  
 
-W aplikacji klienckiej równorzędnej Uruchom następujące polecenie, aby utworzyć wystąpienie chaincode w kanale.  
+Z aplikacji klienta równorzędnego uruchom następujące polecenie, aby utworzyć wystąpienia kodu łańcucha w kanale.  
 
 ```bash
 ./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>
 ```
 
-Przekaż nazwę funkcji tworzenia wystąpień i listę oddzielonych spacjami argumentów w `<instantiateFunc>` i `<instantiateFuncArgs>` odpowiednio. Na przykład, aby utworzyć wystąpienie chaincode_example02. go chaincode, `<instantiateFunc>` Ustaw `init` na `<instantiateFuncArgs>` i `"a" "2000" "b" "1000"` .
+Przekaż nazwę funkcji wystąpienia i rozdzielaną spacjami listę argumentów odpowiednio w i `<instantiateFunc>` `<instantiateFuncArgs>` . Aby na przykład utworzyć wystąpienia chaincode_example02.go, ustaw `<instantiateFunc>` na `init` i na wartość `<instantiateFuncArgs>` `"a" "2000" "b" "1000"` .
 
-Możesz również przekazać plik JSON konfiguracji kolekcji przy użyciu `--collections-config` flagi. Lub ustaw argumenty przejściowe przy użyciu `-t` flagi podczas tworzenia wystąpienia chaincode używanych dla transakcji prywatnych.
+Możesz również przekazać plik JSON konfiguracji kolekcji przy użyciu `--collections-config` flagi . Można też ustawić argumenty przejściowe przy użyciu flagi podczas wystąpienia `-t` kodu łańcucha używanego dla transakcji prywatnych.
 
 Na przykład:
 
@@ -341,67 +341,67 @@ Na przykład:
 ./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath> -t <transientArgs>
 ```
 
-`<collectionConfigJSONFilePath>`Część jest ścieżką do pliku JSON, który zawiera kolekcje zdefiniowane dla tworzenia wystąpienia chaincode danych prywatnych. Plik JSON konfiguracji kolekcji przykładowej można znaleźć względem katalogu *azhlfTool* w następującej ścieżce: `./samples/chaincode/src/private_marbles/collections_config.json` .
-Przekaż `<transientArgs>` jako prawidłowy kod JSON w formacie ciągu. Wszystkie znaki specjalne są wyprowadzane. Na przykład: `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
+Część jest ścieżką do pliku JSON, który zawiera kolekcje zdefiniowane do wystąpienia kodu `<collectionConfigJSONFilePath>` prywatnego łańcucha danych. Plik konfiguracji przykładowej kolekcji JSON względem katalogu *alfTool* można znaleźć w następującej ścieżce: `./samples/chaincode/src/private_marbles/collections_config.json` .
+Przekaż `<transientArgs>` jako prawidłowy kod JSON w formacie ciągu. Znak ucieczki dla wszystkich znaków specjalnych. Na przykład: `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
 
 > [!NOTE]
-> Uruchom polecenie jeden raz z dowolnej organizacji równorzędnej w kanale. Po pomyślnym przesłaniu transakcji do programu orderer program zamawiający dystrybuuje tę transakcję do wszystkich organizacji równorzędnych w kanale. Następnie Chaincode jest tworzone na wszystkich węzłach równorzędnych na wszystkich organizacjach równorzędnych w kanale.  
+> Uruchom polecenie raz z dowolnej organizacji równorzędnej w kanale. Po pomyślnym przesłaniu transakcji do złóż zamówienie dystrybuuje tę transakcję do wszystkich organizacji równorzędnych w kanale. Kod łańcucha jest następnie owijany na wszystkich węzłach równorzędnych we wszystkich organizacjach równorzędnych w kanale.  
 
-### <a name="invoke-chaincode"></a>Wywołaj chaincode  
+### <a name="invoke-chaincode"></a>Wywoływanie kodu łańcucha  
 
-Z poziomu klienta organizacji równorzędnej Uruchom następujące polecenie, aby wywołać funkcję chaincode:  
+Z klienta organizacji równorzędnej uruchom następujące polecenie, aby wywołać funkcję chaincode:  
 
 ```bash
 ./azhlf chaincode invoke -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <invokeFunc> -a <invokeFuncArgs>  
 ```
 
-Przekaż nazwę funkcji Invoke i rozdzieloną spacjami listę argumentów w  `<invokeFunction>`   i  `<invokeFuncArgs>`   odpowiednio. Kontynuując korzystanie z chaincode_example02. chaincode. Przejdź do przykładu, aby wykonać operację Invoke, ustaw  `<invokeFunction>`   na wartość  `invoke`   i  `<invokeFuncArgs>`   `"a" "b" "10"` .  
+Przekaż nazwę funkcji wywołania i rozdzielaną spacjami listę argumentów inâ€ `<invokeFunction>` â€ â€ âandâ€ `<invokeFuncArgs>` â â€ â€ ârespectively. Kontynuując przykład kodu łańcucha chaincode_example02.go, aby wykonać operację wywołania, setâ€ `<invokeFunction>` â â€ âtoâ€ â `invoke` â€ âandâ€ `<invokeFuncArgs>` â â€ â€ âto `"a" "b" "10"` .  
 
 >[!NOTE]
-> Uruchom polecenie jeden raz z dowolnej organizacji równorzędnej w kanale. Po pomyślnym przesłaniu transakcji do programu orderer program zamawiający dystrybuuje tę transakcję do wszystkich organizacji równorzędnych w kanale. Stan Światowy jest następnie aktualizowany na wszystkich węzłach równorzędnych wszystkich organizacji równorzędnych w kanale.  
+> Uruchom polecenie raz z dowolnej organizacji równorzędnej w kanale. Po pomyślnym przesłaniu transakcji do zamawiania, zamówienie dystrybuuje tę transakcję do wszystkich organizacji równorzędnych w kanale. Stan świata jest następnie aktualizowany we wszystkich węzłach równorzędnych wszystkich organizacji równorzędnych w kanale.  
 
 
-### <a name="query-chaincode"></a>Chaincode zapytania  
+### <a name="query-chaincode"></a>Kod łańcucha zapytań  
 
-Uruchom następujące polecenie, aby wysłać zapytanie do chaincode:  
+Uruchom następujące polecenie, aby odpytywać kod łańcucha:  
 
 ```bash
 ./azhlf chaincode query -o $ORGNAME -p <endorsingPeers> -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs> 
 ```
-Zatwierdzanie elementów równorzędnych jest elementami równorzędnymi, gdzie chaincode jest zainstalowana i jest wywoływana do wykonania transakcji. Należy ustawić `<endorsingPeers>` , aby zawierała nazwy węzłów równorzędnych z bieżącej organizacji równorzędnej. Wyświetl listę elementów równorzędnych poświadczających dla danej kombinacji chaincode i kanału rozdzielonych spacjami. Na przykład: `-p "peer1" "peer3"`.
+Endorsing peers to równorzędne, w których zainstalowano kod łańcucha i który jest wywoływany w celu wykonania transakcji. Należy ustawić, `<endorsingPeers>` aby zawierały nazwy węzłów równorzędnych z bieżącej organizacji równorzędnej. Wyliczysz endoring peers dla danej kombinacji kodu łańcucha i kanału rozdzielonych spacjami. Na przykład: `-p "peer1" "peer3"`.
 
-Jeśli używasz *azhlfTool* do instalacji chaincode, Przekaż wszystkie nazwy węzłów równorzędnych jako wartość do argumentu zatwierdzania elementu równorzędnego. Chaincode jest zainstalowany w każdym węźle równorzędnym dla tej organizacji. 
+Jeśli używasz narzędzia *alfTool* do instalowania kodu łańcucha, przekaż wszystkie nazwy węzłów równorzędnych jako wartość do argumentu elementu równorzędnego. Kod łańcucha jest instalowany w każdym węźle równorzędym dla tej organizacji. 
 
-Przekaż nazwę funkcji zapytania i listę argumentów rozdzielonych spacjami w  `<queryFunction>`   i  `<queryFuncArgs>`   odpowiednio. Ponownie pobierając chaincode_example02. Przejdź chaincode jako odwołanie, aby wysłać zapytanie o wartość "a" w stanie światowym, ustaw  `<queryFunction>`   na  `query` i  `<queryArgs>` `"a"` .  
+Przekaż nazwę funkcji zapytania i rozdzielaną spacjami listę argumentów inâ€ `<queryFunction>` â€ â€ âandâ€ `<queryFuncArgs>` â â€ â€ ârespectively. Ponownie takingâ€ â chaincode_example02.goââ€ âchaincode as a reference, to query the value of "a" in the world state, setâ€ `<queryFunction>` â â€ âââ€ â `query` andâ€ â€ â to `<queryArgs>` `"a"` .  
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
-### <a name="find-deployed-version"></a>Znajdź wdrożoną wersję
+### <a name="find-deployed-version"></a>Znajdowanie wdrożonej wersji
 
-Uruchom następujące polecenia, aby znaleźć wersję wdrożenia szablonu. Ustaw zmienne środowiskowe zgodnie z grupą zasobów, w której szablon został wdrożony.
+Uruchom następujące polecenia, aby znaleźć wersję wdrożenia szablonu. Ustaw zmienne środowiskowe zgodnie z grupą zasobów, w której wdrożono szablon.
 
 ```bash
 SWITCH_TO_AKS_CLUSTER $AKS_CLUSTER_RESOURCE_GROUP $AKS_CLUSTER_NAME $AKS_CLUSTER_SUBSCRIPTION
 kubectl describe pod fabric-tools -n tools | grep "Image:" | cut -d ":" -f 3
 ```
 
-### <a name="patch-previous-version"></a>Poprawka poprzedniej wersji
+### <a name="patch-previous-version"></a>Poprawianie poprzedniej wersji
 
-Jeśli masz problemy z uruchamianiem programu chaincode na wszystkich wdrożeniach wersji szablonu poniżej v 3.0.0, wykonaj poniższe kroki, aby zastosować poprawkę do węzłów równorzędnych.
+Jeśli masz problemy z uruchamianiem kodu łańcucha we wszystkich wdrożeniach szablonu w wersji 3.0.0, wykonaj poniższe kroki, aby poprawić węzły równorzędne za pomocą poprawki.
 
-Pobierz skrypt wdrażania elementu równorzędnego.
+Pobierz skrypt wdrażania elementów równorzędnych.
 
 ```bash
 curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/master/scripts/patchPeerDeployment.sh -o patchPeerDeployment.sh; chmod 777 patchPeerDeployment.sh
 ```
 
-Uruchom skrypt przy użyciu następującego polecenia zastępującego parametry dla elementu równorzędnego.
+Uruchom skrypt przy użyciu następującego polecenia, zastępując parametry elementu równorzędnego.
 
 ```bash
 source patchPeerDeployment.sh <peerOrgSubscription> <peerOrgResourceGroup> <peerOrgAKSClusterName>
 ```
 
-Zaczekaj, aż wszystkie węzły równorzędne zostaną pobrane. Można zawsze sprawdzić stan węzłów równorzędnych w innym wystąpieniu powłoki przy użyciu poniższego polecenia.
+Poczekaj na poprawki wszystkich węzłów równorzędnych. Zawsze możesz sprawdzić stan węzłów równorzędnych w innym wystąpieniu powłoki przy użyciu następującego polecenia.
 
 ```bash
 kubectl get pods -n hlf
@@ -409,16 +409,16 @@ kubectl get pods -n hlf
 
 ## <a name="support-and-feedback"></a>Pomoc techniczna i opinie
 
-Aby zachować aktualność w przypadku ofert usług łańcucha bloków i informacji z zespołu inżynierów łańcucha bloków platformy Azure, odwiedź [Blog Azure łańcucha bloków](https://azure.microsoft.com/blog/topics/blockchain/).
+Aby być na bieżąco z ofertami usług łańcucha bloków i informacjami od zespołu inżynierów Azure Blockchain, odwiedź blog Azure Blockchain [łańcucha bloków.](https://azure.microsoft.com/blog/topics/blockchain/)
 
-Aby przekazać opinie o produkcie lub zażądać nowych funkcji, opublikuj lub zagłosuj na pomysł za pośrednictwem [forum opinii platformy Azure dla usługi łańcucha bloków](https://aka.ms/blockchainuservoice).
+Aby przekazać opinię na temat produktu lub poprosić o nowe funkcje, opublikuj lub zagłosuj na pomysł za pośrednictwem forum opinii platformy [Azure na temat łańcucha bloków](https://aka.ms/blockchainuservoice).
 
 ### <a name="community-support"></a>Pomoc techniczna w społeczności
 
-Zaangażuj się z specjalistami ds. inżynierów firmy Microsoft i usługi Azure łańcucha bloków Community:
+Zaangażuj inżynierów firmy Microsoft i Azure Blockchain ekspertów społeczności:
 
-- [Microsoft Q&stronie](/answers/topics/azure-blockchain-workbench.html) 
+- [Strona microsoft Q&A](/answers/topics/azure-blockchain-workbench.html) 
    
-  Wsparcie inżynieryjne dla szablonów łańcucha bloków jest ograniczone do problemów z wdrażaniem.
+  Obsługa inżynieryjna szablonów łańcucha bloków jest ograniczona do problemów z wdrażaniem.
 - [Społeczność techniczna firmy Microsoft](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)

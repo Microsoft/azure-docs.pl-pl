@@ -1,21 +1,21 @@
 ---
 title: Zmiana informacji kontaktowych na koncie rozliczeniowym platformy Azure
 description: Opisano tutaj sposób modyfikowania informacji kontaktowych konta rozliczeniowego platformy Azure
-author: genlin
-ms.reviewer: dcscontentpm
+author: bandersmsft
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 04/08/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 776c207387ee55b998615131baf77e6c13655b49
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
-ms.translationtype: HT
+ms.openlocfilehash: f394b6b44b2030253f7b78ec68459819c82c3c27
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033941"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480906"
 ---
 # <a name="change-contact-information-for-an-azure-billing-account"></a>Zmiana informacji kontaktowych na koncie rozliczeniowym platformy Azure
 
@@ -64,6 +64,21 @@ Jeśli chcesz zaktualizować informacje o profilu użytkownika w usłudze Azure 
     ![Zrzut ekranu przedstawiający miejsce aktualizowania adresu](./media/change-azure-account-profile/update-bill-to-list-properties-mca.png)
 1. Wprowadź nowy adres, a następnie wybierz pozycję **Zapisz**.  
     ![Zrzut ekranu przedstawiający aktualizowanie adresu](./media/change-azure-account-profile/update-bill-to-save-mca.png)
+
+## <a name="update-a-po-number"></a>Aktualizowanie numeru popytowego
+
+Domyślnie faktura dla profilu rozliczeniowego nie ma skojarzonego numeru zakupu. Po dodaniu numeru zakupu dla profilu rozliczeniowego jest on wyświetlany na fakturach dla profilu rozliczeniowego.
+
+Aby dodać lub zmienić numer po stronie klienta dla profilu rozliczeniowego, należy wykonać następujące kroki.
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Wyszukaj pozycję **Cost Management + Billing** a następnie wybierz **pozycję Zakresy rozliczeniowe.**
+1. Wybierz zakres rozliczeniowy.
+1. W menu po lewej stronie w **obszarze Rozliczenia** wybierz pozycję **Profile rozliczeniowe.**
+1. Wybierz odpowiedni profil rozliczeniowy.
+1. W menu po lewej stronie w **obszarze Ustawienia** wybierz pozycję **Właściwości.**
+1. Wybierz **pozycję Zaktualizuj numer po stronie.**
+1. Wprowadź numer po stronie, a następnie wybierz pozycję **Aktualizuj**.
 
 ## <a name="service-and-marketing-emails"></a>Wiadomości e-mail dotyczące usług i marketingu
 

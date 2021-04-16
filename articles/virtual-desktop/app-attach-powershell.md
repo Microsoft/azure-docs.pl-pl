@@ -1,17 +1,17 @@
 ---
-title: Windows Virtual Desktop aplikacji MSIX dołącz program PowerShell — Azure
+title: Windows Virtual Desktop aplikacji MSIX dołączyć program PowerShell — Azure
 description: How to set up MSIX app attach for Windows Virtual Desktop using PowerShell (Jak skonfigurować dołączanie aplikacji MSIX Windows Virtual Desktop programie PowerShell).
 author: Heidilohr
 ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: f44cbf3764063c511c896f11bb7ebfaae2973f0c
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: ebc403553443a9ea04525323b751fbdb51d23c6e
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365403"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500587"
 ---
 # <a name="set-up-msix-app-attach-using-powershell"></a>Konfigurowanie dołączania aplikacji MSIX przy użyciu programu PowerShell
 
@@ -19,16 +19,12 @@ Oprócz tej Azure Portal można również ręcznie skonfigurować dołączanie a
 
 ## <a name="requirements"></a>Wymagania
 
->[!IMPORTANT]
->Przed rozpoczęciem upewnij się, że wypełniasz i przesyłasz ten [formularz,](https://aka.ms/enablemsixappattach) aby włączyć dołączanie aplikacji MSIX w ramach subskrypcji. Jeśli nie masz zatwierdzonego żądania, dołączanie aplikacji MSIX nie będzie działać. Zatwierdzenie żądań może potrwać do 24 godzin w dniach roboczych. Po zaakceptowaniu i zakończeniu żądania otrzymasz wiadomość e-mail.
-
 Oto, co jest potrzebne do skonfigurowania dołączania aplikacji MSIX:
 
-- Działające wdrożenie Windows Virtual Desktop wdrożenia. Aby dowiedzieć się, jak wdrożyć Windows Virtual Desktop (klasyczne), zobacz [Tworzenie dzierżawy w](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)Windows Virtual Desktop . Aby dowiedzieć się, jak wdrożyć Windows Virtual Desktop z Azure Resource Manager integracji, zobacz Tworzenie puli [hostów przy](./create-host-pools-azure-marketplace.md)użyciu Azure Portal .
+- Działające wdrożenie Windows Virtual Desktop wdrożenia. Aby dowiedzieć się, jak wdrożyć Windows Virtual Desktop (klasycznej), zobacz [Tworzenie dzierżawy w](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)Windows Virtual Desktop . Aby dowiedzieć się, jak wdrożyć Windows Virtual Desktop z Azure Resource Manager integracji, zobacz Tworzenie puli [hostów przy](./create-host-pools-azure-marketplace.md)użyciu Azure Portal .
 - Pula Windows Virtual Desktop z co najmniej jednym aktywnym hostem sesji.
-- Ta pula hostów musi znajdować się w środowisku weryfikacji.
 - Grupa zdalnych aplikacji pulpitu.
-- Narzędzie do tworzenia pakietów MSIX.
+- Narzędzie do pakowania MSIX.
 - Aplikacja w pakiecie MSIX rozszerzona na obraz MSIX przekazany do udziału plików.
 - Udział plików we wdrożeniu Windows Virtual Desktop, w którym będzie przechowywany pakiet MSIX.
 - Udział plików, do którego został przekazany obraz MSIX, musi być również dostępny dla wszystkich maszyn wirtualnych w puli hostów. Użytkownicy będą potrzebować uprawnień tylko do odczytu, aby uzyskać dostęp do obrazu.
@@ -203,7 +199,7 @@ Remove-AzWvdMsixPackage -FullName $obj.PackageFullName -HostPoolName $hp -Resour
 
 Instrukcje w tej sekcji można wykonać tylko po zakończeniu pracy z instrukcjami w poprzednich sekcjach. Jeśli masz pulę hostów z aktywnym hostem sesji, co najmniej jedną grupą aplikacji klasycznych i dodano pakiet MSIX do puli hostów, możesz rozpocząć.
 
-Aby opublikować aplikację z pakietu MSIX w grupie aplikacji, należy znaleźć jej nazwę, a następnie użyć tej nazwy w poleceniach cmdlet publikowania.
+Aby opublikować aplikację z pakietu MSIX do grupy aplikacji, należy znaleźć jej nazwę, a następnie użyć tej nazwy w poleceniach cmdlet publikowania.
 
 Aby opublikować aplikację:
 

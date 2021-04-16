@@ -1,72 +1,72 @@
 ---
-title: Wdrażanie usług API Management platformy Azure w wielu regionach platformy Azure
+title: Wdrażanie usług Azure API Management w wielu regionach świadczenia usługi Azure
 titleSuffix: Azure API Management
-description: Dowiedz się, jak wdrożyć wystąpienie usługi Azure API Management w wielu regionach platformy Azure.
-services: api-management
-documentationcenter: ''
+description: Dowiedz się, jak wdrożyć wystąpienie usługi Azure API Management Service w wielu regionach platformy Azure.
 author: mikebudzynski
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 04/20/2020
+ms.topic: how-to
+ms.date: 04/13/2021
 ms.author: apimpm
-ms.openlocfilehash: 427ebfe865002612be2f9aeb9db416f5c2f41e52
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9546813173e72b1f264c3668ee889bbeea07ce7f
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88065458"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534090"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Jak wdrożyć wystąpienie usługi Azure API Management w wielu regionach świadczenia usługi Azure
 
-Usługa Azure API Management obsługuje wdrażanie w wielu regionach, co umożliwia wydawcom interfejsu API dystrybucję pojedynczej usługi Azure API Management w dowolnej liczbie obsługiwanych regionów platformy Azure. Funkcja wieloregionowa pomaga zmniejszyć opóźnienie żądania postrzegane przez geograficznie rozproszonych klientów interfejsu API i zwiększa dostępność usługi, jeśli jeden region przejdzie w tryb offline.
+Usługa Azure API Management obsługuje wdrażanie w wielu regionach, co umożliwia wydawcom interfejsów API dystrybucję pojedynczej usługi Azure API Management w dowolnej liczbie obsługiwanych regionów świadczenia usługi Azure. Funkcja obsługi wielu regionów pomaga zmniejszyć opóźnienie żądań odbierane przez geograficznie rozproszonych odbiorców interfejsu API i zwiększa dostępność usługi, jeśli jeden region przejdzie w tryb offline.
 
-Nowa usługa API Management platformy Azure początkowo zawiera tylko jedną [jednostkę][unit] w jednym regionie platformy Azure, regionie podstawowym. Dodatkowe jednostki można dodać do regionu podstawowego lub pomocniczego. Składnik bramy API Management jest wdrażany w każdym wybranym regionie podstawowym i pomocniczym. Przychodzące żądania interfejsu API są automatycznie kierowane do najbliższego regionu. Jeśli region przejdzie w tryb offline, żądania interfejsu API będą automatycznie kierowane wokół regionu zakończonego niepowodzeniem do następnej najbliższej bramy.
+Nowa usługa Azure API Management początkowo zawiera tylko jedną jednostkę [w][unit] jednym regionie świadczenia usługi Azure , regionie podstawowym. Dodatkowe jednostki można dodać do regionów podstawowych lub pomocniczych. Składnik API Management jest wdrażany w każdym wybranym regionie podstawowym i pomocniczym. Przychodzące żądania interfejsu API są automatycznie kierowane do najbliższego regionu. Jeśli region przejdzie w tryb offline, żądania interfejsu API będą automatycznie kierowane wokół regionu, który zakończył się niepowodzeniem, do następnej najbliższej bramy.
 
 > [!NOTE]
-> Tylko składnik bramy API Management jest wdrażany we wszystkich regionach. Składnik zarządzania usługami i Portal dla deweloperów są hostowane tylko w regionie podstawowym. W związku z tym, w przypadku awarii regionu podstawowego, dostęp do portalu dla deweloperów i możliwość zmiany konfiguracji (np. dodanie interfejsów API, zastosowanie zasad) zostanie ograniczony do momentu powrotu do trybu online w regionie podstawowym. Chociaż region podstawowy jest dostępny w trybie offline, regiony pomocnicze będą nadal obsługiwały ruch interfejsu API przy użyciu najnowszej dostępnej konfiguracji.
+> Tylko składnik bramy usługi API Management wdrożony we wszystkich regionach. Składnik zarządzania usługami i portal dla deweloperów są hostowane tylko w regionie podstawowym. W związku z tym w przypadku wyłączenie regionu podstawowego dostęp do portalu dla deweloperów i możliwość zmiany konfiguracji (np. dodania interfejsów API, zastosowania zasad) będzie ograniczona do momentu powrotu regionu podstawowego do trybu online. Gdy region podstawowy jest w trybie offline, dostępne regiony pomocnicze będą nadal obsługiwać ruch interfejsu API przy użyciu najnowszej dostępnej konfiguracji. Opcjonalnie włącz [redundacy](zone-redundancy.md) strefy, aby zwiększyć dostępność i odporność regionów podstawowych lub pomocniczych.
 
 >[!IMPORTANT]
-> Funkcja umożliwiająca przechowywanie danych klienta w jednym regionie jest obecnie dostępna tylko w regionie Azja Południowo-Wschodnia (Singapur) Azja i Pacyfik geograficznej. W przypadku wszystkich innych regionów dane klienta są przechowywane w lokalizacji geograficznej.
+> Funkcja, która umożliwia przechowywanie danych klientów w jednym regionie, jest obecnie dostępna tylko w regionie Azja Południowo-Wschodnia (Singapur) Azja i Pacyfik Geograficznego. W przypadku wszystkich innych regionów dane klientów są przechowywane w lokalizacji geograficznej.
 
 [!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
-## <a name="deploy-api-management-service-to-a-new-region"></a><a name="add-region"> </a>Wdrażanie usługi API Management w nowym regionie
 
-> [!NOTE]
-> Jeśli nie utworzono jeszcze wystąpienia usługi API Management, zobacz [Tworzenie wystąpienia usługi API Management][create an api management service instance].
+## <a name="prerequisites"></a>Wymagania wstępne
 
-1. W Azure Portal przejdź do usługi API Management i kliknij wpis **lokalizacje** w menu.
-2. Kliknij pozycję **+ Dodaj** na górnym pasku.
-3. Z listy rozwijanej wybierz lokalizację i ustaw liczbę jednostek z suwakiem.
-4. Kliknij przycisk **Dodaj** , aby potwierdzić.
-5. Powtarzaj ten proces do momentu skonfigurowania wszystkich lokalizacji.
-6. Kliknij przycisk **Zapisz** na górnym pasku, aby rozpocząć proces wdrażania.
+* Jeśli jeszcze nie utworzono wystąpienia usługi API Management, zobacz [Tworzenie API Management usługi](get-started-create-service-instance.md). Wybierz warstwę usługi Premium.
+* Jeśli twoje API Management jest wdrożone w sieci [wirtualnej,](api-management-using-with-vnet.md)upewnij się, że sieć wirtualna, podsieć i publiczny adres IP zostały ustawione w lokalizacji, która ma zostać do dodania.
 
-## <a name="delete-an-api-management-service-location"></a><a name="remove-region"> </a>Usuwanie lokalizacji usługi API Management
+## <a name="deploy-api-management-service-to-an-additional-location"></a><a name="add-region"> </a>Wdrażanie API Management usługi w dodatkowej lokalizacji
 
-1. W Azure Portal przejdź do usługi API Management i kliknij wpis **lokalizacje** w menu.
-2. W przypadku lokalizacji, którą chcesz usunąć, otwórz menu kontekstowe za pomocą przycisku **...** na prawym końcu tabeli. Wybierz opcję **Usuń** .
-3. Potwierdź usunięcie i kliknij przycisk **Zapisz** , aby zastosować zmiany.
+1. W Azure Portal przejdź do usługi API Management i wybierz **pozycję Lokalizacje** w menu.
+1. Wybierz **pozycję + Dodaj** na górnym pasku.
+1. Wybierz lokalizację z listy rozwijanej.
+1. Wybierz liczbę jednostek **[skalowania](upgrade-and-scale.md)** w lokalizacji.
+1. Opcjonalnie włącz [**strefy dostępności.**](zone-redundancy.md)
+1. Jeśli wystąpienie API Management jest wdrożone w sieci [wirtualnej,](api-management-using-with-vnet.md)skonfiguruj ustawienia sieci wirtualnej w tej lokalizacji. Wybierz istniejącą sieć wirtualną, podsieć i publiczny adres IP, które są dostępne w lokalizacji.
+1. Wybierz **pozycję Dodaj,** aby potwierdzić.
+1. Powtarzaj ten proces do momentu skonfigurowania wszystkich lokalizacji.
+1. Wybierz **pozycję** Zapisz na górnym pasku, aby rozpocząć proces wdrażania.
 
-## <a name="route-api-calls-to-regional-backend-services"></a><a name="route-backend"> </a>Kierowanie wywołań interfejsu API do regionalnych usług zaplecza
+## <a name="delete-an-api-management-service-location"></a><a name="remove-region"> </a>Usuwanie API Management usługi
 
-Usługa Azure API Management zawiera tylko jeden adres URL usługi wewnętrznej bazy danych. Mimo że istnieją wystąpienia usługi Azure API Management w różnych regionach, Brama interfejsu API nadal będzie przesyłać żądania do tej samej usługi zaplecza, która jest wdrażana w tylko jednym regionie. W takim przypadku wzrost wydajności będzie występować tylko z odpowiedzi w pamięci podręcznej w systemie Azure API Management w regionie określonym dla żądania, ale kontaktowanie się z zapleczem na całym świecie może nadal spowodować duże opóźnienia.
+1. W Azure Portal przejdź do usługi API Management i kliknij pozycję **Lokalizacje** w menu.
+2. W przypadku lokalizacji, która ma być usuwana, otwórz menu kontekstowe przy użyciu przycisku **...** na prawym końcu tabeli. Wybierz opcję **Usuń.**
+3. Potwierdź usunięcie i kliknij **przycisk Zapisz,** aby zastosować zmiany.
 
-Aby w pełni wykorzystać rozkład geograficzny systemu, należy wdrożyć usługi zaplecza w tych samych regionach co wystąpienia usługi Azure API Management. Następnie przy użyciu zasad i `@(context.Deployment.Region)` właściwości można skierować ruch do lokalnych wystąpień zaplecza.
+## <a name="route-api-calls-to-regional-backend-services"></a><a name="route-backend"> </a>Przekieruj wywołania interfejsu API do regionalnych usług zaplecza
 
-1. Przejdź do wystąpienia usługi Azure API Management i kliknij pozycję **interfejsy API** w menu po lewej stronie.
+Usługa Azure API Management zawiera tylko jeden adres URL usługi zaplecza. Mimo że istnieją wystąpienia usługi Azure API Management w różnych regionach, brama interfejsu API nadal będzie przesyłać żądania do tej samej usługi zaplecza, która jest wdrażana tylko w jednym regionie. W takim przypadku wzrost wydajności będzie pochodzić tylko z odpowiedzi buforowanych w usłudze Azure API Management w regionie specyficznym dla żądania, ale kontaktowanie się z zapleczami na całym świecie może nadal powodować duże opóźnienie.
+
+Aby w pełni wykorzystać geograficzną dystrybucję systemu, usługi zaplecza powinny być wdrożone w tych samych regionach co usługi Azure API Management wystąpienia. Następnie przy użyciu zasad `@(context.Deployment.Region)` i właściwości można przekierowyć ruch do lokalnych wystąpień zaplecza.
+
+1. Przejdź do wystąpienia usługi Azure API Management i kliknij pozycję **Interfejsy API** w menu po lewej stronie.
 2. Wybierz żądany interfejs API.
-3. Kliknij przycisk **Edytor kodu** na liście rozwijanej strzałki w **przetwarzaniu przychodzącym**.
+3. Kliknij **pozycję Edytor kodu** na liście rozwijanej strzałki w obszarze Przychodzące **przetwarzanie**.
 
     ![Edytor kodu interfejsu API](./media/api-management-howto-deploy-multi-region/api-management-api-code-editor.png)
 
-4. Użyj `set-backend` połączonych z zasadami warunkowymi, `choose` Aby utworzyć odpowiednie zasady routingu w `<inbound> </inbound>` sekcji pliku.
+4. Użyj instrukcji `set-backend` połączonej z `choose` zasadami warunkowym, aby utworzyć odpowiednie zasady rozsyłania w sekcji `<inbound> </inbound>` pliku.
 
-    Na przykład poniższy plik XML będzie działał w regionach zachodnie stany USA i Azja Wschodnia:
+    Na przykład poniższy plik XML będzie działać w regionach Zachodnie stany USA i Azja Wschodnia USA:
 
     ```xml
     <policies>
@@ -97,16 +97,16 @@ Aby w pełni wykorzystać rozkład geograficzny systemu, należy wdrożyć usłu
     ```
 
 > [!TIP]
-> Możesz również połączyć usługi zaplecza z [platformą Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), skierować wywołania interfejsu API do Traffic Manager i umożliwić automatyczne rozwiązanie routingu.
+> Możesz również korzystać z usług zaplecza za pomocą usługi [Azure Traffic Manager,](https://azure.microsoft.com/services/traffic-manager/)kierować wywołania interfejsu API do interfejsu Traffic Manager i pozwolić na automatyczne rozwiązywanie problemów z routingiem.
 
 ## <a name="use-custom-routing-to-api-management-regional-gateways"></a><a name="custom-routing"> </a>Używanie routingu niestandardowego do API Management bram regionalnych
 
-API Management kieruje żądania do _bramy_ regionalnej na podstawie [najmniejszego opóźnienia](../traffic-manager/traffic-manager-routing-methods.md#performance). Chociaż nie jest możliwe przesłonięcie tego ustawienia w API Management, możesz użyć własnych Traffic Manager z niestandardowymi regułami routingu.
+API Management kieruje żądania do bramy _regionalnej_ w oparciu o [najmniejsze opóźnienie](../traffic-manager/traffic-manager-routing-methods.md#performance). Chociaż nie jest możliwe zastąpienie tego ustawienia w programie API Management, można użyć własnej Traffic Manager z niestandardowymi regułami routingu.
 
-1. Utwórz własne [Traffic Manager platformy Azure](https://azure.microsoft.com/services/traffic-manager/).
-1. Jeśli używasz domeny niestandardowej, [Użyj jej z Traffic Manager](../traffic-manager/traffic-manager-point-internet-domain.md) zamiast usługi API Management.
+1. Utwórz własny [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/).
+1. Jeśli używasz domeny [niestandardowej,](../traffic-manager/traffic-manager-point-internet-domain.md) użyj jej z Traffic Manager zamiast domeny API Management usługi.
 1. [Skonfiguruj API Management regionalne punkty końcowe w Traffic Manager](../traffic-manager/traffic-manager-manage-endpoints.md). Regionalne punkty końcowe są zgodne ze wzorcem adresu URL `https://<service-name>-<region>-01.regional.azure-api.net` , na przykład `https://contoso-westus2-01.regional.azure-api.net` .
-1. [Skonfiguruj punkty końcowe API Management stanu regionalne w Traffic Manager](../traffic-manager/traffic-manager-monitoring.md). Punkty końcowe stanu regionalnego są zgodne ze wzorcem adresu URL `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef` , na przykład `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef` .
+1. [Skonfiguruj punkty końcowe API Management stan regionalny w programie Traffic Manager](../traffic-manager/traffic-manager-monitoring.md). Regionalne punkty końcowe stanu są zgodne ze wzorcem adresu URL `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef` , na przykład `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef` .
 1. Określ [metodę routingu](../traffic-manager/traffic-manager-routing-methods.md) Traffic Manager.
 
 [create an api management service instance]: get-started-create-service-instance.md

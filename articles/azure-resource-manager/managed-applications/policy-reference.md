@@ -1,23 +1,23 @@
 ---
 title: Wbudowane definicje zasad dla Azure Managed Applications
-description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Managed Applications. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 03/31/2021
+description: Wyświetla Azure Policy wbudowane definicje zasad dla Azure Managed Applications. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
+ms.date: 04/14/2021
 ms.topic: reference
 author: tfitzmac
 ms.author: tomfitz
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 333c009fd3149505ede3f5611f5fbb3929bdaed8
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 2cfc57931f041ceaa5fa59cddf9fc6be2a83bbc3
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106094578"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500264"
 ---
-# <a name="azure-policy-built-in-definitions-for-azure-managed-applications"></a>Azure Policy wbudowane definicje Azure Managed Applications
+# <a name="azure-policy-built-in-definitions-for-azure-managed-applications"></a>Azure Policy wbudowane definicje dla Azure Managed Applications
 
-Ta strona jest indeksem [Azure Policy](../../governance/policy/overview.md) wbudowanych definicji zasad dla Azure Managed Applications. Aby uzyskać dodatkowe Azure Policy wbudowane dla innych usług, zobacz [Azure Policy wbudowane definicje](../../governance/policy/samples/built-in-policies.md).
+Ta strona jest indeksem [Azure Policy](../../governance/policy/overview.md) wbudowanych definicji zasad dla Azure Managed Applications. Aby uzyskać Azure Policy wbudowanych funkcji dla innych usług, [Azure Policy wbudowane definicje](../../governance/policy/samples/built-in-policies.md).
 
-Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **wersja** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
+Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **Wersja,** aby wyświetlić źródło w Azure Policy [GitHub.](https://github.com/Azure/azure-policy)
 
 ## <a name="azure-managed-applications"></a>Azure Managed Applications
 

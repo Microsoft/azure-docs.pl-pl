@@ -16,7 +16,7 @@
   items:
     - name: Korzystanie z biblioteki klienta lub interfejsu API REST
       href: client-libraries.md
-    - name: Korzystanie z interfejsu użytkownika opartego na sieci Web
+    - name: Korzystanie z internetowego interfejsu użytkownika
       href: quick-start.md
 - name: Samples
   items:
@@ -82,6 +82,12 @@
       items:
         - name: 'Przeglądy, przepływy pracy i zadania'
           href: review-api.md
+    - name: Gotowość przedsiębiorstwa
+      items:
+        - name: Konfigurowanie sieci wirtualnych
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/content-moderator/context/context
+        - name: Korzystanie z kluczy zarządzanych przez klienta
+          href: encrypt-data-at-rest.md
 - name: Pojęcia
   items:
     - name: Moderowanie obrazów
@@ -100,7 +106,7 @@
       href: facebook-post-moderation.md
 - name: Odwołanie
   items:
-    - name: Interfejs API REST Content Moderator
+    - name: Content Moderator REST API
       href: api-reference.md
     - name: .NET
       href: /dotnet/api/overview/azure/cognitiveservices/client/contentmoderator
@@ -114,19 +120,21 @@
       href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator'
 - name: Zasoby
   items:
-    - name: Seria seminariów internetowych na temat platformy Azure
-      href: 'https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html'
-    - name: Obsługa regionów
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Gotowość przedsiębiorstwa
+      items:
+        - name: Obsługa regionów
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Zgodność i certyfikacja
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Opcje wsparcia technicznego i pomocy
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/content-moderator/context/context
     - name: Moduły Microsoft Learn
       href: /learn/browse/?terms=content+moderator
-    - name: Opcje pomocy technicznej
-      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/content-moderator/context/context
-    - name: Azure Government i globalny platformę Azure
+    - name: Seria seminariów internetowych na temat platformy Azure
+      href: 'https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html'
+    - name: Azure Government i globalna platforma Azure
       href: ../../azure-government/compare-azure-government-global-azure.md
     - name: Aktualizacje platformy Azure
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Zgodność
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Szyfrowanie
-      href: encrypt-data-at-rest.md

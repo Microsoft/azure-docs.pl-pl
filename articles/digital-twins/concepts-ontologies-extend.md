@@ -1,93 +1,93 @@
 ---
-title: Rozszerzanie ontologie
+title: Rozszerzanie nalogi
 titleSuffix: Azure Digital Twins
-description: Zapoznaj się z przyczynami i strategiami związanymi z rozszerzaniem Ontology
+description: Poznaj przyczyny i strategie rozszerzania ontologii
 author: baanders
 ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: e5973f58887b212919ad739232faafddcf9e735c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b38b4910773c433ed63fd2082c5cbefce81e0e9e
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100561544"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480234"
 ---
-# <a name="extending-ontologies"></a>Rozszerzanie ontologie 
+# <a name="extending-ontologies"></a>Rozszerzanie nalogi 
 
-Standardowe [Ontology](concepts-ontologies.md), takie jak [DTDL RealEstateCore Ontology dla budynków inteligentnych](https://github.com/Azure/opendigitaltwins-building), to doskonały sposób na rozpoczęcie tworzenia rozwiązania IoT. Branżowe ontologie zapewniają bogaty zestaw podstawowych interfejsów, które są zaprojektowane dla Twojej domeny i zaprojektowane do pracy z usługą Azure IoT Services, takich jak Azure Digital bliźniaczych reprezentacji. 
+Standardowa w branży [ontologia,](concepts-ontologies.md)taka jak [ontologia RealEstateCore](https://github.com/Azure/opendigitaltwins-building)oparta na standardach DTDL dla inteligentnych budynków, to doskonały sposób na rozpoczęcie tworzenia rozwiązania IoT. Branżowe ontologie zapewniają bogaty zestaw podstawowych interfejsów, które są przeznaczone dla Twojej domeny i zaprojektowane do pracy od podstaw w usługach Azure IoT, takich jak Azure Digital Twins. 
 
-Istnieje jednak możliwość, że rozwiązanie może mieć określone wymagania, które nie są objęte ontologyem branżowym. Na przykład możesz chcieć połączyć bliźniaczych reprezentacji cyfrowy z modelami 3D przechowywanymi w osobnym systemie. W takim przypadku można zwiększyć jeden z tych ontologie, aby dodać własne funkcje, zachowując jednocześnie wszystkie korzyści wynikające z oryginalnego Ontology.
+Jednak rozwiązanie może mieć określone potrzeby, które nie są objęte ontologią branżową. Na przykład możesz chcieć połączyć swoje bliźniacze reprezentacjiki cyfrowe z modelami 3D przechowywanymi w oddzielnym systemie. W takim przypadku można rozszerzyć jedną z tych nalogi, aby dodać własne możliwości przy jednoczesnym zachowaniu wszystkich zalet oryginalnej ontologii.
 
-W tym artykule jest stosowana DTDL [RealEstateCore](https://www.realestatecore.io/) Ontology, jako podstawa dla przykładów rozszerzania ontologie z nowymi właściwościami DTDL. Techniki opisane tutaj są ogólne, ale mogą być stosowane do dowolnej części Ontology opartej na DTDL z jakąkolwiek funkcją DTDL (telemetrii, właściwości, relacji, składnika lub polecenia). 
+W tym artykule użyto ontologii [RealEstateCore](https://www.realestatecore.io/) opartej na dtdl jako podstawy przykładów rozszerzania nalogi przy użyciu nowych właściwości DTDL. Techniki opisane w tym miejscu są jednak ogólne i można je stosować do dowolnej części ontologii opartej na dtdl z dowolną możliwością języka DTDL (telemetrii, właściwości, relacji, składnika lub polecenia). 
 
-## <a name="realestatecore-space-hierarchy"></a>Hierarchia przestrzeni RealEstateCore 
+## <a name="realestatecore-space-hierarchy"></a>RealEstateCore, hierarchia przestrzeni 
 
-W DTDL RealEstateCore Ontology, hierarchia miejsca służy do definiowania różnych rodzajów spacji: pokojów, budynków, strefy itp. Hierarchia programu rozciąga się od każdego z tych modeli w celu zdefiniowania różnych rodzajów pokojów, budynków i stref. 
+W ontologii RealEstateCore opartej na DTDL hierarchia Space służy do definiowania różnych rodzajów przestrzeni: pomieszczeń, budynków, strefy itp. Hierarchia rozszerza każdy z tych modeli, definiując różne rodzaje pomieszczeń, budynków i stref. 
 
 Część hierarchii wygląda jak na poniższym diagramie. 
 
-:::image type="content" source="media/concepts-extending-ontologies/RealEstateCore-original.png" alt-text="Diagram przepływu ilustrujący część hierarchii przestrzeni RealEstateCore. Na najwyższego poziomu występuje element o nazwie Space; jest on połączony przez strzałkę &quot;rozszerza&quot; w dół do pokoju; Pomieszczenie jest połączone dwoma strzałkami &quot;extends&quot; w dół o poziomie do ConferenceRoom i Office."::: 
+:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-original.png" alt-text="Diagram przepływu ilustrujący część hierarchii przestrzeni RealEstateCore. Na najwyższym poziomie znajduje się element o nazwie Spacja. Jest on połączony strzałką &quot;rozszerza&quot; poziomą w dół do pozycji Pomieszczenie; Pomieszczenie jest połączone dwoma strzałkami &quot;rozszerza&quot; w dół poziomu do sali konferencyjnej i biura."::: 
 
-Aby uzyskać więcej informacji na temat RealEstateCore Ontology, zobacz [*pojęcia: przyjmowanie standardowych ontologie*](concepts-ontologies-adopt.md#realestatecore-smart-building-ontology).
+Aby uzyskać więcej informacji na temat ontologii RealEstateCore, zobacz [*Concepts: Adopting industry-standard ontologies (Pojęcia: adoptowanie standardowych w branży ontologi).*](concepts-ontologies-adopt.md#realestatecore-smart-building-ontology)
 
 ## <a name="extending-the-realestatecore-space-hierarchy"></a>Rozszerzanie hierarchii przestrzeni RealEstateCore 
 
-Czasami Twoje rozwiązanie ma konkretne potrzeby, które nie są objęte ontologyem branżowym. W takim przypadku rozszerzenie hierarchii pozwala nadal korzystać z Ontology branżowych, a jednocześnie dostosowywać je do Twoich potrzeb. 
+Czasami twoje rozwiązanie ma określone potrzeby, które nie są objęte ontologią branżową. W takim przypadku rozszerzenie hierarchii umożliwia kontynuowanie korzystania z ontologii branżowej podczas dostosowywania jej do własnych potrzeb. 
 
-W tym artykule omówiono dwa różne przypadki, w których rozszerzanie hierarchii Ontology jest przydatne: 
+W tym artykule omówiono dwa różne przypadki, w których rozszerzanie hierarchii ontologii jest przydatne: 
 
-* Dodawanie nowych interfejsów dla koncepcji nieznajdujących się w ontologyach branżowych. 
+* Dodanie nowych interfejsów dla pojęć, które nie są związane z ontologią branżową. 
 * Dodawanie dodatkowych właściwości (lub relacji, składników, telemetrii lub poleceń) do istniejących interfejsów.
 
-### <a name="add-new-interfaces-for-new-concepts"></a>Dodawanie nowych interfejsów dla nowych koncepcji 
+### <a name="add-new-interfaces-for-new-concepts"></a>Dodawanie nowych interfejsów dla nowych pojęć 
 
-W takim przypadku należy dodać interfejsy dla koncepcji potrzebnych do rozwiązania, ale nie są one obecne w branży Ontology. Na przykład jeśli rozwiązanie ma inne typy pokojów, które nie są reprezentowane w DTDL RealEstateCore Ontology, można je dodać, rozszerzając bezpośrednio z interfejsów RealEstateCore. 
+W tym przypadku chcesz dodać interfejsy dla koncepcji potrzebnych do rozwiązania, ale które nie są obecne w ontologii branżowej. Jeśli na przykład twoje rozwiązanie ma inne typy pomieszczeń, które nie są reprezentowane w ontologii RealEstateCore opartej na języku DTDL, możesz je dodać, rozszerzając je bezpośrednio z interfejsów RealEstateCore. 
 
-W poniższym przykładzie przedstawiono rozwiązanie, które musi reprezentować "pokoje ostrości", które nie są obecne w RealEstateCore Ontology. Pomieszczenie do koncentracji uwagi to małe miejsce przeznaczone do skoncentrowania się na zadaniach przez kilka godzin jednocześnie. 
+W poniższym przykładzie przedstawiono rozwiązanie, które musi reprezentować "pomieszczenia fokusu", które nie są obecne w ontologii RealEstateCore. Pomieszczenie koncentracji uwagi to mała przestrzeń przeznaczona dla osób, które mogą skupić się na zadaniu przez kilka godzin na raz. 
 
-Aby rozszerzyć branżowe Ontology z tą nową koncepcją, Utwórz nowy interfejs, który [rozciąga się od](concepts-models.md#model-inheritance) interfejsów w branży Ontology. 
+Aby rozszerzyć ontologię branżową o tę [](concepts-models.md#model-inheritance) nową koncepcję, utwórz nowy interfejs, który będzie rozszerzać interfejsy w ontologii branżowej. 
 
-Po dodaniu interfejsu pokoju fokusu rozszerzona hierarchia pokazuje nowy typ pokoju. 
+Po dodaniu interfejsu pokoju fokusu hierarchia rozszerzona pokazuje nowy typ pomieszczenia. 
 
-:::image type="content" source="media/concepts-extending-ontologies/RealEstateCore-extended-1.png" alt-text="Diagram przepływu ilustrujący hierarchię obszaru RealEstateCore z powyżej z nowym dodaniem. Na najniższym poziomie z ConferenceRoom i pakietem Office istnieje nowy element o nazwie FocusRoom (połączony również za pomocą strzałki &quot;extends&quot; z pokoju)"::: 
+:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-extended-1.png" alt-text="Diagram przepływu ilustrujący hierarchię przestrzeni RealEstateCore z nową wartością. Na dolnym poziomie, w przypadku sali konferencyjnej i pakietu Office, istnieje nowy element o nazwie FocusRoom (połączony również za pośrednictwem strzałki &quot;rozszerza&quot; z okna Room)"::: 
 
 ### <a name="add-additional-capabilities-to-existing-interfaces"></a>Dodawanie dodatkowych możliwości do istniejących interfejsów 
 
-W takim przypadku należy dodać więcej właściwości (lub relacje, składniki, dane telemetryczne lub polecenia) do interfejsów, które znajdują się w branży Ontology.
+W takim przypadku chcesz dodać więcej właściwości (lub relacji, składników, telemetrii lub poleceń) do interfejsów, które znajdują się w ontologii branżowej.
 
 W tej sekcji zobaczysz dwa przykłady: 
-* Jeśli tworzysz rozwiązanie, które wyświetla rysunki 3D miejsc, które znajdują się już w istniejącym systemie, możesz chcieć skojarzyć poszczególne sznury cyfrowe z rysunkiem 3D (według identyfikatora), aby gdy rozwiązanie wyświetli informacje o tym miejscu, można również pobrać rysunek 3W z istniejącego systemu. 
-* Jeśli Twoje rozwiązanie wymaga śledzenia stanu trybu online/offline pokojów konferencyjnych, możesz chcieć śledzić stan pokoju konferencyjnego na potrzeby wyświetlania lub zapytań. 
+* W przypadku tworzenia rozwiązania, które wyświetla rysunki 3D miejsc, które już znajdują się w istniejącym systemie, warto skojarzyć każdą cyfrową bliźniacę z jej rysunkiem 3D (według identyfikatora), aby gdy rozwiązanie wyświetla informacje o przestrzeni, mogło również pobrać rysunek 3D z istniejącego systemu. 
+* Jeśli rozwiązanie musi śledzić stan online/offline sal konferencyjnych, warto śledzić stan sali konferencyjnej do użycia w wyświetlaniu lub zapytaniach. 
 
-Oba przykłady można zaimplementować z nowymi właściwościami: `drawingId` Właściwość, która kojarzy rysunek 3W z dwuosiową i właściwością "online" wskazującą, czy pokój konferencyjny jest w trybie online, czy nie. 
+Oba przykłady można zaimplementować z nowymi właściwościami: właściwością, która kojarzy rysowanie 3D z bliźniakiem cyfrowym, i właściwością "online", która wskazuje, czy salę konferencyjną jest `drawingId` w trybie online, czy nie. 
 
-Zwykle nie chcesz modyfikować Ontology branżowych bezpośrednio, ponieważ chcesz mieć możliwość dołączania do nich aktualizacji w rozwiązaniu w przyszłości (co spowoduje zastąpienie dodatków). Zamiast tego rodzaje dodatków można wprowadzać we własnej hierarchii interfejsów, która rozciąga się od DTDL RealEstateCore Ontology. Każdy tworzony interfejs używa wielu dziedziczenia interfejsów, aby rozszerzyć swój nadrzędny interfejs RealEstateCore i jego interfejs nadrzędny z hierarchii interfejsu rozszerzonego. Takie podejście umożliwia korzystanie z Ontology branżowych i dodatków. 
+Zazwyczaj nie chcesz bezpośrednio modyfikować ontologii branżowej, ponieważ chcesz mieć możliwość dołączania aktualizacji do rozwiązania w przyszłości (co zastąpiłoby Twoje dodatki). Zamiast tego tego rodzaju dodatki można dodać w hierarchii interfejsu, która stanowi rozszerzenie na podstawie dtdl realEstateCore ontology. Każdy interfejs, który tworzysz, używa wielu dziedziczenia interfejsu w celu rozszerzenia jego nadrzędnego interfejsu RealEstateCore i jego interfejsu nadrzędnego z hierarchii rozszerzonego interfejsu. Takie podejście umożliwia wykorzystanie razem ontologii branżowej i dodatków. 
 
-Aby rozszerzyć branżowe Ontology, należy utworzyć własne interfejsy, które rozszerzają się z interfejsów w branży Ontology i dodają nowe funkcje do rozszerzonych interfejsów. Dla każdego interfejsu, który ma zostać rozszerzona, należy utworzyć nowy interfejs. Rozszerzone interfejsy są zapisywane w DTDL (zobacz sekcję DTDL for Extended Interfaces w dalszej części tego dokumentu). 
+Aby rozszerzyć ontologię branżową, tworzysz własne interfejsy, które rozszerzają się z interfejsów w ontologii branżowej i dodają nowe możliwości do rozszerzonych interfejsów. Dla każdego interfejsu, który chcesz rozszerzyć, należy utworzyć nowy interfejs. Interfejsy rozszerzone są napisane w języku DTDL (zobacz sekcję DTDL for Extended Interfaces w dalszej części tego dokumentu). 
 
-Po rozszerzeniu części hierarchii pokazanej powyżej rozszerzona hierarchia wygląda jak poniżej diagramu. W tym miejscu interfejs Extended Space dodaje `drawingId` Właściwość, która będzie zawierać identyfikator, który kojarzy dwuosiową cyfrę z rysunkiem 3D. Ponadto interfejs ConferenceRoom dodaje właściwość "online", która będzie zawierać stan online sali konferencyjnej. Dzięki dziedziczeniu interfejs ConferenceRoom zawiera wszystkie możliwości z interfejsu RealEstateCore ConferenceRoom, a także wszystkie możliwości z interfejsu rozszerzonego miejsca. 
+Po rozszerzeniu części hierarchii przedstawionej powyżej hierarchia rozszerzona wygląda jak na poniższym diagramie. W tym miejscu interfejs rozszerzonej przestrzeni dodaje właściwość , która będzie zawierać identyfikator, który kojarzy cyfrową bliźniacze reprezentacji `drawingId` z rysunkiem 3D. Ponadto interfejs ConferenceRoom dodaje właściwość "online", która będzie zawierać stan online sali konferencyjnej. Dzięki dziedziczeniu interfejs ConferenceRoom zawiera wszystkie możliwości interfejsu RealEstateCore ConferenceRoom, a także wszystkie możliwości interfejsu rozszerzonej przestrzeni. 
 
-:::image type="content" source="media/concepts-extending-ontologies/RealEstateCore-extended-2.png" alt-text="Diagram przepływu pokazujący rozszerzoną hierarchię przestrzeni RealEstateCore z powyżej, z nowymi dodatkowymi dodatkami. Pomieszczenie udostępnia teraz swój poziom za pomocą elementu spacji, który łączy się ze strzałką &quot;rozszerza&quot; w dół do nowego elementu pokoju obok ConferenceRoom i pakietu Office.  Nowe elementy są połączone z istniejącym Ontology o większej liczbie relacji &quot;extends&quot;."::: 
+:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-extended-2.png" alt-text="Diagram przepływu ilustrujący rozszerzoną hierarchię przestrzeni RealEstateCore z powyższymi większej liczby nowych dodatków. Poziom pomieszczenia jest teraz połączony z elementem Space, który łączy się ze strzałką &quot;rozszerza&quot; w dół o poziom do nowego elementu Room (Pomieszczenie) obok pozycji ConferenceRoom (Pomieszczenie) i Office (Biuro).  Nowe elementy są połączone z istniejącą ontologią przy użyciu bardziej &quot;rozszerzanych&quot; relacji."::: 
 
-## <a name="using-the-extended-space-hierarchy"></a>Korzystanie z rozszerzonej hierarchii odstępów 
+## <a name="using-the-extended-space-hierarchy"></a>Korzystanie z hierarchii rozszerzonego miejsca 
 
-Po utworzeniu bliźniaczych reprezentacji cyfrowej przy użyciu rozszerzonej hierarchii odstępów każdy model cyfrowej przędzy będzie miał jedną z rozszerzonych hierarchii przestrzeni (a nie pierwotną branżową Ontology) i będzie obejmować wszystkie możliwości z Ontology branżowych i rozszerzonych interfejsów, Chociaż dziedziczenie interfejsu.
+Podczas tworzenia bliźniaczych reprezentacji cyfrowych przy użyciu hierarchii rozszerzonej przestrzeni każdy model bliźniaczej reprezentacji cyfrowej będzie pochodził z hierarchii rozszerzonej przestrzeni (a nie oryginalnej ontologii branżowej) i będzie zawierać wszystkie możliwości z ontologii branżowej i rozszerzonych interfejsów za pośrednictwem dziedziczenia interfejsów.
 
-Każda z modeli cyfrowych przędzy będzie interfejsem z hierarchii rozszerzonej, pokazane na poniższym diagramie. 
+Każdy model bliźniaczej reprezentacji cyfrowej będzie interfejsem z hierarchii rozszerzonej, jak pokazano na poniższym diagramie. 
  
-:::image type="content" source="media/concepts-extending-ontologies/ontology-with-models.png" alt-text="Fragment z rozszerzonej hierarchii RealEstateCore Space, w tym miejsce (najwyższy poziom), jeden pokój (poziom środkowy), ConferenceRoom, Office i FocusRoom (niższy poziom). Nazwy modeli są połączone z każdym elementem (na przykład pomieszczenie jest połączone z modelem o nazwie Room101)."::: 
+:::image type="content" source="media/concepts-ontologies-extend/ontology-with-models.png" alt-text="Fragment rozszerzonej hierarchii przestrzeni RealEstateCore, w tym space (najwyższy poziom), jeden pokój (środkowy poziom) i ConferenceRoom, Office i FocusRoom (niższy poziom). Nazwy modeli są połączone z każdym elementem (na przykład room jest połączony z modelem o nazwie Room101)."::: 
 
-Podczas wykonywania zapytań dotyczących bliźniaczych reprezentacji cyfrowych przy użyciu identyfikatora modelu ( `IS_OF_MODEL` operatora) należy używać identyfikatorów modelu z hierarchii rozszerzonej. Na przykład `SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:com:example:Office;1')`. 
+Podczas wykonywania zapytań o cyfrowe bliźniacze reprezentacji przy użyciu identyfikatora modelu (operatora) należy użyć identyfikatorów modelu z `IS_OF_MODEL` hierarchii rozszerzonej. Na przykład `SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:com:example:Office;1')`. 
 
-## <a name="contributing-back-to-the-original-ontology"></a>Współtworzenie z powrotem do oryginalnego Ontology 
+## <a name="contributing-back-to-the-original-ontology"></a>Współtworowanie oryginalnej ontologii 
 
-W niektórych przypadkach można zwiększyć branżowe Ontology w sposób szeroko przydatny dla większości użytkowników Ontology. W takim przypadku należy rozważyć Współtworzenie rozszerzeń z powrotem do oryginalnego Ontology. Każdy Ontology ma inny proces do współtworzenia, więc Sprawdź repozytorium GitHub Ontology, aby uzyskać szczegółowe informacje dotyczące udziału. 
+W niektórych przypadkach rozszerzysz ontologię branżową w sposób, który będzie szeroko przydatny dla większości użytkowników ontologii. W takim przypadku należy rozważyć współtwoowanie rozszerzeń z powrotem do oryginalnej ontologii. Każda ontologia ma inny proces współtwożu, dlatego sprawdź repozytorium ontology w serwisie GitHub, aby uzyskać szczegółowe informacje o współtwożu. 
 
-## <a name="dtdl-for-new-interfaces"></a>DTDL dla nowych interfejsów 
+## <a name="dtdl-for-new-interfaces"></a>Język DTDL dla nowych interfejsów 
 
-DTDL dla nowych interfejsów, które są rozbudowane bezpośrednio z branży Ontology, będzie wyglądać następująco. 
+Kod DTDL dla nowych interfejsów, które rozszerzają się bezpośrednio z ontologii branżowej, będzie wyglądać tak. 
 
 ```json
 {
@@ -98,9 +98,9 @@ DTDL dla nowych interfejsów, które są rozbudowane bezpośrednio z branży Ont
 } 
 ```
 
-## <a name="dtdl-for-extended-interfaces"></a>DTDL dla rozszerzonych interfejsów 
+## <a name="dtdl-for-extended-interfaces"></a>DtDL dla interfejsów rozszerzonych 
 
-DTDL dla rozszerzonych interfejsów, ograniczone do części omówionej powyżej, będzie wyglądać następująco. 
+Kod DTDL dla interfejsów rozszerzonych ograniczony do omówionej powyżej części będzie wyglądać tak. 
 
 ```json
 [
@@ -162,4 +162,4 @@ DTDL dla rozszerzonych interfejsów, ograniczone do części omówionej powyżej
 
 ## <a name="next-steps"></a>Następne kroki
 
-Kontynuuj na ścieżce tworzenia modeli opartych na ontologie: [*Używanie strategii Ontology w ścieżce projektowania modelu*](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).
+Kontynuuj ścieżkę tworzenia modeli w oparciu o ontologie: [*Używanie strategii ontologii w ścieżce projektowania modelu.*](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path)

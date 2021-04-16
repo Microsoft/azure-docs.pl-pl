@@ -1,7 +1,7 @@
 ---
-title: Omówienie zestawu SDK rozmowy dla usług Azure Communications Services
+title: Omówienie zestawu SDK czatu dla Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
-description: Dowiedz się więcej o zestawie SDK usługi Azure Communication Services.
+description: Dowiedz się więcej o zestawie SDK Azure Communication Services Chat.
 author: mikben
 manager: jken
 services: azure-communication-services
@@ -9,63 +9,63 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 520dc611e49675f35b8ba0330448438192770773
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 561855704d157f9ad826b5db83600a79d9437fc6
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168879"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500689"
 ---
-# <a name="chat-sdk-overview"></a>Omówienie zestawu SDK rozmowy 
+# <a name="chat-sdk-overview"></a>Omówienie zestawu SDK czatu 
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include-chat.md)]
 
-Zestawy SDK rozmowy z usługami Azure Communication Services mogą służyć do dodawania rozbudowanej, w czasie rzeczywistym rozmowy do aplikacji.
+Azure Communication Services Sdk czatów mogą służyć do dodawania rozbudowanych czatów w czasie rzeczywistym do aplikacji.
     
-## <a name="chat-sdk-capabilities"></a>Możliwości zestawu SDK rozmowy    
+## <a name="chat-sdk-capabilities"></a>Możliwości zestawu SDK czatu    
 
-Poniższa lista przedstawia zbiór funkcji, które są obecnie dostępne w zestawach SDK rozmowy usług komunikacyjnych.  
+Na poniższej liście przedstawiono zestaw funkcji, które są obecnie dostępne w zestawach SDK Communication Services czatów.  
 
 | Grupa funkcji | Możliwość | JavaScript  | Java | .NET | Python | iOS | Android |
 |-----------------|-------------------|---|-----|----|-----|----|----|
-| Podstawowe możliwości | Tworzenie wątku rozmowy między 2 lub większą liczbą użytkowników                                                     | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |    
-|                   | Aktualizowanie tematu wątku rozmowy                                                                              | ✔️   | ✔️ | ✔️    | ✔️   |  ✔️    | ✔️   |   
-|                   | Dodawanie uczestników rozmowy lub usuwanie ich z wątku                                                                           | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
-|                   | Zdecyduj, czy chcesz udostępniać historię wiadomości czatu uczestnikowi dodawanemu                                   | ✔️   | ✔️   | ✔️    | ✔️  |  ✔️    | ✔️   | 
-|                   | Pobierz listę uczestników w wątku rozmowy                                                                          | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   | 
-|                   | Usuwanie wątku rozmowy                                                                                              | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
-|                   | Użytkownik komunikacyjny otrzymuje listę wątków rozmowy, do których należy użytkownik                                           | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |   
-|                   | Uzyskaj informacje dotyczące określonego wątku rozmowy                                                                              | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |   
-|                   | Wysyłanie i odbieranie wiadomości w wątku rozmowy                                                                            | ✔️   | ✔️   | ✔️    | ✔️  |  ✔️    | ✔️   |   
+| Podstawowe możliwości | Tworzenie wątku czatu między co najmniej 2 użytkownikami                                                     | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |    
+|                   | Aktualizowanie tematu wątku czatu                                                                              | ✔️   | ✔️ | ✔️    | ✔️   |  ✔️    | ✔️   |   
+|                   | Dodawanie lub usuwanie uczestników z wątku czatu                                                                           | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
+|                   | Wybieranie, czy historia wiadomości czatu ma być udostępniana dodawanej uczestnikowi                                   | ✔️   | ✔️   | ✔️    | ✔️  |  ✔️    | ✔️   | 
+|                   | Uzyskiwanie listy uczestników wątku czatu                                                                          | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   | 
+|                   | Usuwanie wątku czatu                                                                                              | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
+|                   | Jeśli użytkownik komunikuje się z użytkownikiem, pobierz listę wątków czatu, do których należy                                           | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |   
+|                   | Uzyskiwanie informacji o konkretnym wątku czatu                                                                              | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |   
+|                   | Wysyłanie i odbieranie komunikatów w wątku czatu                                                                            | ✔️   | ✔️   | ✔️    | ✔️  |  ✔️    | ✔️   |   
 |                   | Aktualizowanie zawartości wysłanej wiadomości                                                                               | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |    
-|                   | Usuwanie wcześniej wysłanej wiadomości                                                                                                      | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |    
-|                   | Odczytaj potwierdzenia dla wiadomości, które zostały odczytane przez innych uczestników rozmowy                                        | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |   
-|                   | Otrzymuj powiadomienia, gdy uczestnicy aktywnie wpisują komunikat w wątku rozmowy                                         | ✔️   | ✔️   | ✔️    | ✔️    |  ✔️    | ✔️   | 
-|                   | Pobierz wszystkie komunikaty w wątku rozmowy                                                                        | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   | 
-|                   | Wyślij znaki emoji Unicode jako część zawartości komunikatu                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
-|Powiadomienia w czasie rzeczywistym (włączone przez zastrzeżony pakiet sygnalizujący * *)|  Klienci programu Chat mogą subskrybować aktualizacje w czasie rzeczywistym dla wiadomości przychodzących i innych operacji w wątku rozmowy. Aby wyświetlić listę obsługiwanych aktualizacji dla powiadomień w czasie rzeczywistym, zobacz [pojęcia dotyczące rozmowy](concepts.md#real-time-notifications)                                     | ✔️   | ❌    | ❌  | ❌  | ❌  | ❌  | 
-| Integracja z usługą Azure Event Grid             | Użyj zdarzeń czatu dostępnych w Azure Event Grid, aby podłączyć niestandardowe usługi powiadomień lub opublikować to zdarzenie do elementu webhook, aby wykonać logikę biznesową, taką jak aktualizowanie rekordów CRM po zakończeniu rozmowy   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
-| Raportowanie </br>(Te informacje są dostępne na karcie monitorowanie dla zasobu usług komunikacyjnych w Azure Portal)      | Informacje o ruchu interfejsu API z aplikacji czatu przez monitorowanie opublikowanych metryk w usłudze Azure Eksplorator metryk i Ustawianie alertów w celu wykrycia nieprawidłowości     | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
-|                   | Monitoruj i Debuguj rozwiązanie usług komunikacyjnych, włączając rejestrowanie diagnostyczne dla zasobu    | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |   
+|                   | Usuwanie wcześniej wysłanego komunikatu                                                                                                      | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |    
+|                   | Odczytywanie paragonów dla wiadomości odczytanych przez innych uczestników czatu                                        | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |   
+|                   | Otrzymuj powiadomienia, gdy uczestnicy aktywnie wpisują wiadomość w wątku czatu                                         | ✔️   | ✔️   | ✔️    | ✔️    |  ✔️    | ✔️   | 
+|                   | Pobierz wszystkie wiadomości w wątku czatu                                                                        | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   | 
+|                   | Wysyłanie emoji Unicode w ramach zawartości wiadomości                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
+|Powiadomienia w czasie rzeczywistym (włączone przez zastrzeżony pakiet sygnałów**)|  Klienci czatu mogą subskrybować komunikaty przychodzące i inne operacje wykonywane w wątku czatu w czasie rzeczywistym. Aby wyświetlić listę obsługiwanych aktualizacji powiadomień w czasie rzeczywistym, zobacz [Pojęcia dotyczące czatu](concepts.md#real-time-notifications)                                     | ✔️   | ❌    | ❌  | ❌  | ✔️  | ✔️  |   
+| Integracja z Azure Event Grid             | Użyj zdarzeń czatu dostępnych w u Azure Event Grid, aby podłączyć niestandardowe usługi powiadomień lub opublikować to zdarzenie do webhook, aby wykonać logikę biznesową, na przykład aktualizowanie rekordów CRM po zakończeniu czatu   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
+| Raportowanie </br>(Te informacje są dostępne na karcie Monitorowanie dla zasobu Communication Services na Azure Portal)      | Zrozumienie ruchu interfejsu API z aplikacji do czatów przez monitorowanie opublikowanych metryk w usłudze Azure Eksplorator metryk i ustawianie alertów w celu wykrywania nieprawidłowości     | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
+|                   | Monitorowanie i debugowanie rozwiązania Communication Services przez włączenie rejestrowania diagnostycznego dla zasobu    | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |   
 
 
-* * Zastrzeżony pakiet sygnalizowania jest implementowany przy użyciu gniazd sieci Web. Nastąpi powrót do długiego sondowania, jeśli gniazda sieci Web nie są obsługiwane.  
+**Zastrzeżony pakiet sygnałów jest implementowane przy użyciu gniazd internetowych. Jeśli gniazda internetowe nie są obsługiwane, zostanie przeprowadzone długie sondowanie.  
 
-## <a name="javascript-chat-sdk-support-by-os-and-browser"></a>Obsługa zestawu SDK rozmowy JavaScript według systemu operacyjnego i przeglądarki    
+## <a name="javascript-chat-sdk-support-by-os-and-browser"></a>Obsługa zestawu JAVAScript Chat SDK przez system operacyjny i przeglądarkę    
 
-Poniższa tabela przedstawia zestaw obsługiwanych przeglądarek i wersji, które są obecnie dostępne.
+W poniższej tabeli przedstawiono zestaw obsługiwanych przeglądarek i wersji, które są obecnie dostępne.
     
-|                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    | system operacyjny iPad|
+|                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    | System operacyjny iPad|
 |--------------------------------|----------------|--------------|-------|------|------|------|-------|
-| **Zestaw SDK rozmowy** | Firefox *, Chrome*, Nowa krawędź | Firefox *, Chrome*, Safari * | Własnego  | Własnego | Własnego | Safari | Safari |
+| **Zestaw SDK czatu** | Firefox,*Chrome,* nowa przeglądarka Edge | Firefox,*Chrome,* Safari* | Chrome*  | Chrome* | Chrome* | Safari* | Safari* |
 
-* Warto zauważyć, że Najnowsza wersja jest obsługiwana oprócz poprzednich dwóch wersji.<br/>   
+*Pamiętaj, że najnowsza wersja jest obsługiwana oprócz dwóch poprzednich wersji.<br/>   
 
 ## <a name="next-steps"></a>Następne kroki   
 
 > [!div class="nextstepaction"] 
-> [Wprowadzenie do rozmowy](../../quickstarts/chat/get-started.md)    
+> [Wprowadzenie do czatu](../../quickstarts/chat/get-started.md)    
 
-Następujące dokumenty mogą być interesujące:  
-- Zapoznaj się z [pojęciami dotyczącymi rozmowy](../chat/concepts.md)
-- Zapoznaj się z [cennikiem](../pricing.md#chat) usługi Chat
+Następujące dokumenty mogą Cię zaciekawieć:  
+- Zapoznaj się z pojęciami [czatu](../chat/concepts.md)
+- Informacje na temat [sposobu działania](../pricing.md#chat) cennika na czacie

@@ -97,13 +97,13 @@
       href: ./workloads/sap/get-started.md
     - name: Oracle
       href: ./workloads/oracle/oracle-database-quick-create.md
-    - name: Platforma Azure dla gier
+    - name: Azure for Gaming
       href: 'https://docs.microsoft.com/gaming/azure/'
     - name: Elasticsearch
       href: ./linux/tutorial-elasticsearch.md
     - name: Zmiana hosta komputera mainframe
       href: ./workloads/mainframe-rehosting/overview.md
-    - name: Poufne obliczenia na platformie Azure
+    - name: Poufne zasoby obliczeniowe platformy Azure
       href: ../confidential-computing/overview.md
     - name: SQL on Virtual Machines
       href: ../azure-sql/virtual-machines/index.yml
@@ -617,7 +617,7 @@
           href: ./linux/imaging.md
         - name: Aprowizowanie systemu Linux
           href: ./linux/provisioning.md
-        - name: Wymagania dotyczące dystrybucji systemu Linux
+        - name: Wymagania specyficzne dla dystrybucji systemu Linux
           items:
             - name: Ogólne kroki
               displayName: 'Linux distribution specific requirements, generic'
@@ -942,7 +942,7 @@
         - name: Tryby aranżacji
           displayName: 'VMSS, flex, scale set, scale, virtual machine sacle set'
           href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
-    - name: Opis ponownego uruchamiania maszyny wirtualnej
+    - name: Opis ponownych uruchomień maszyn wirtualnych
       href: understand-vm-reboots.md
     - name: Stany i rozliczenia
       href: states-billing.md
@@ -1139,7 +1139,7 @@
           href: ./linux/snapshot-copy-managed-disk.md
         - name: Tworzenie migawki dysku — PowerShell
           href: ./windows/snapshot-copy-managed-disk.md
-        - name: Tworzenie kopii zapasowej dysków niezamanagedowych
+        - name: Tworzenie kopii zapasowej dysków niezamażnych
           href: ./linux/incremental-snapshots.md
     - name: Efemeryczne dyski systemu operacyjnego
       href: ephemeral-os-disks.md
@@ -1199,13 +1199,13 @@
         - name: Windows
           displayName: detach a disk
           href: ./windows/detach-disk.md
-    - name: Rozszerzanie dysku systemu operacyjnego
+    - name: Rozszerzanie dysku
       items:
         - name: Linux
-          displayName: Expand OS disk
+          displayName: Expand a disk - Linux
           href: ./linux/expand-disks.md
         - name: Windows
-          displayName: Expand OS disk
+          displayName: Expand a disk - Windows
           href: ./windows/expand-os-disk.md
     - name: Zarządzanie magazynem
       items:
@@ -1314,7 +1314,7 @@
         - name: Linux przy użyciu interfejsu wiersza polecenia
           displayName: Use multipe NICs
           href: ./linux/multiple-nics.md
-        - name: System Windows przy użyciu programu PowerShell
+        - name: Windows przy użyciu programu PowerShell
           displayName: Use multipe NICs
           href: ./windows/multiple-nics.md
     - name: Korzystanie z przyspieszonej sieci
@@ -1344,7 +1344,7 @@
           href: ./windows/security-baseline.md
     - name: Zalecenia
       href: security-recommendations.md
-    - name: Zaufane uruchamianie
+    - name: Uruchamianie zaufane
       items:
         - name: Omówienie
           href: trusted-launch.md
@@ -1437,7 +1437,7 @@
         - name: Zestawy Azure SDK
           displayName: Configured managed identies
           href: ../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?context=/azure/virtual-machines/context/context
-    - name: Logowanie w usłudze Active Directory dla systemu Linux
+    - name: Logowanie do usługi Active Directory w systemie Linux
       href: ./linux/login-using-aad.md
 - name: Aktualizacje i konserwacja
   items:
@@ -1449,7 +1449,7 @@
         - name: Omówienie
           displayName: 'Automatic OS image upgrade, image, upgrade, OS'
           href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context
-        - name: Sterowanie konserwacją uaktualniania obrazu systemu operacyjnego
+        - name: Kontrola konserwacji uaktualniania obrazu systemu operacyjnego
           items:
             - name: Przegląd (wersja zapoznawcza)
               displayName: 'Maintenance control for OS image upgrade, OS, image, upgrade'
@@ -1462,12 +1462,12 @@
         - name: Omówienie
           displayName: 'Automatic VM guest patching, guest, OS, patching'
           href: automatic-vm-guest-patching.md
-        - name: Hotpatch (Hotpatch)
+        - name: Hotpatch
           displayName: 'patching, patch, update'
           href: ../automanage/automanage-hotpatch.md?context=/azure/virtual-machines/context/context
     - name: Automatyczne uaktualnianie rozszerzeń (wersja zapoznawcza)
       href: automatic-extension-upgrade.md
-    - name: Update Management w programie Azure Automation
+    - name: Update Management w Azure Automation
       href: ../automation/update-management/overview.md?context=/azure/virtual-machines/context/context
     - name: Konserwacja
       items:
@@ -1573,7 +1573,7 @@
                 - name: Niestandardowe dane JSON
                   displayName: 'Data sources, log Analytics'
                   href: ../azure-monitor/agents/data-sources-json.md?context=/azure/virtual-machines/context/context
-                - name: zbieranie danych dotyczących wydajności
+                - name: zbieranie danych wydajności
                   displayName: 'Data sources, log Analytics'
                   href: ../azure-monitor/agents/data-sources-collectd.md?context=/azure/virtual-machines/context/context
                 - name: Dziennik systemu
@@ -1740,7 +1740,7 @@
             - name: PowerShell
               displayName: Change subscription or resource group
               href: ./windows/move-vm.md
-            - name: Zmienianie subskrypcji dla maszyn wirtualnych z witryny Marketplace
+            - name: Zmienianie subskrypcji dla maszyn wirtualnych w witrynie Marketplace
               displayName: Change subscription or resource group
               href: azure-cli-change-subscription-marketplace.md
         - name: Przenoszenie maszyn wirtualnych do innego regionu
@@ -1800,9 +1800,9 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Samples
       items:
-        - name: Przykładowe repo interfejsu wiersza polecenia platformy Azure
+        - name: Przykłady interfejsu wiersza polecenia platformy Azure
           href: 'https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine'
-        - name: Przykładowe repo programu PowerShell
+        - name: Przykłady programu PowerShell
           href: 'https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine'
     - name: Typowe polecenia interfejsu wiersza polecenia
       href: ./linux/cli-manage.md
