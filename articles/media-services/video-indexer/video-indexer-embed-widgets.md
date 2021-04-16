@@ -1,7 +1,7 @@
 ---
-title: Osadź Video Indexer widżety w aplikacjach
+title: Osadzanie Video Indexer widget w aplikacjach
 titleSuffix: Azure Media Services
-description: Dowiedz się, jak osadzić elementy widget Video Indexer w aplikacjach.
+description: Dowiedz się, jak osadzać Video Indexer widget w aplikacjach.
 services: media-services
 author: Juliako
 manager: femila
@@ -11,145 +11,145 @@ ms.topic: article
 ms.date: 01/25/2021
 ms.author: juliako
 ms.custom: devx-track-js
-ms.openlocfilehash: 56db88bff5b0e92a3819670e200177f10609aaa8
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 822d50bca6bc1139e9b5f0554bcf9a56a8fcbd74
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107029730"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532887"
 ---
-# <a name="embed-video-indexer-widgets-in-your-apps"></a>Osadź Video Indexer widżety w aplikacjach
+# <a name="embed-video-indexer-widgets-in-your-apps"></a>Osadzanie Video Indexer widget w aplikacjach
 
-W tym artykule przedstawiono sposób osadzania Video Indexer widżetów w aplikacjach. Usługa Video Indexer obsługuje osadzanie trzech typów widżetów w aplikacjach: *Szczegółowe informacje*, *Odtwarzacz* i *Edytor*.
+W tym artykule pokazano, jak osadzać Video Indexer widgety w aplikacjach. Usługa Video Indexer obsługuje osadzanie trzech typów widżetów w aplikacjach: *Szczegółowe informacje*, *Odtwarzacz* i *Edytor*.
 
-Począwszy od wersji 2, podstawowy adres URL widżetu zawiera region określonego konta. Na przykład konto w regionie zachodnie stany USA generuje: `https://www.videoindexer.ai/embed/insights/.../?location=westus2` .
+Począwszy od wersji 2, podstawowy adres URL widżetu zawiera region określonego konta. Na przykład konto w regionie Zachodnie stany USA generuje: `https://www.videoindexer.ai/embed/insights/.../?location=westus2` .
 
 ## <a name="widget-types"></a>Typy widżetów
 
 ### <a name="cognitive-insights-widget"></a>Widżet Cognitive Insights
 
-Widżet Cognitive Insights (Szczegółowe informacje) zawiera wszystkie szczegóły wizualne wyodrębnione z filmu wideo w procesie indeksowania. Widżet szczegółowe informacje obsługuje następujące opcjonalne parametry adresu URL:
+Widżet Cognitive Insights (Szczegółowe informacje) zawiera wszystkie szczegóły wizualne wyodrębnione z filmu wideo w procesie indeksowania. Widżet Cognitive Insights obsługuje następujące opcjonalne parametry adresu URL:
 
 |Nazwa|Definicja|Opis|
 |---|---|---|
-|`widgets` | Ciągi rozdzielone przecinkami | Umożliwia kontrolowanie szczegółowych informacji, które mają być renderowane.<br/>Przykład: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` renderuje tylko osoby i słowa kluczowe dotyczące interfejsu użytkownika.<br/>Dostępne opcje: ludzie, animatedCharacters, keywords, Labels, mową, emocji, tematy, ramki kluczowe, Transkrypcja, OCR, głośniki, sceny i namedEntities.|
-|`controls`|Ciągi rozdzielone przecinkami|Umożliwia kontrolowanie formantów, które mają być renderowane.<br/>Przykład: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?controls=search,download` renderuje tylko opcję wyszukiwania i przycisk pobierania.<br/>Dostępne opcje: wyszukiwanie, pobieranie, ustawienia wstępne, język.|
-|`language`|Kod w języku krótkim (nazwa języka)|Steruje językiem usługi Insights.<br/>Przykład: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` <br/>oraz `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
-|`locale` | Kod w języku krótkim | Kontroluje język interfejsu użytkownika. Wartość domyślna to `en`. <br/>Przykład: `locale=de`.|
-|`tab` | Domyślna wybrana karta | Steruje kartą usługi **Insights** , która jest renderowana domyślnie. <br/>Przykład: `tab=timeline` renderuje szczegółowych informacji przy użyciu karty **oś czasu** .|
-|`location` ||`location`Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial` jest wartością domyślną dla `location` parametru.| 
+|`widgets` | Ciągi rozdzielone przecinkami | Umożliwia kontrolowanie szczegółowych informacji, które mają być renderowane.<br/>Przykład: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` renderuje tylko szczegółowe informacje interfejsu użytkownika dotyczące osób i słów kluczowych.<br/>Dostępne opcje: people, animatedCharacters ,keywords, labels, sentiments, emotions, topics, keyframes, transcript, ocr, speakers, scenes, and namedEntities (osoby mówiące, słowa kluczowe, etykiety, emocje, tematy, ramki kluczowe, transkrypcja, ocr, osoby mówiące, sceny i nazwaneJednostki).|
+|`controls`|Ciągi rozdzielone przecinkami|Umożliwia sterowanie kontrolkami, które mają być renderowane.<br/>Przykład: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?controls=search,download` renderuje tylko opcję wyszukiwania i przycisk pobierania.<br/>Dostępne opcje: wyszukiwanie, pobieranie, ustawienia wstępne, język.|
+|`language`|Krótki kod języka (nazwa języka)|Kontroluje język szczegółowych informacji.<br/>Przykład: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` <br/>Lub `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
+|`locale` | Krótki kod języka | Steruje językiem interfejsu użytkownika. Wartość domyślna to `en`. <br/>Przykład: `locale=de`.|
+|`tab` | Domyślna wybrana karta | Steruje **kartą Szczegółowe** informacje, która jest domyślnie renderowana. <br/>Przykład: `tab=timeline` renderuje szczegółowe informacje z wybraną **kartą Oś** czasu.|
+|`location` ||Parametr `location` musi znajdować się w osadzonych linkach. Zobacz, jak uzyskać [nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, dla wartości lokalizacji należy `trial` użyć wartości . `trial` jest wartością domyślną `location` parametru .| 
 
 ### <a name="player-widget"></a>Widżet Player
 
-Możesz użyć widżetu odtwarzacza do przesyłania strumieniowego wideo przy użyciu adaptacyjnej szybkości transmisji bitów. Widżet odtwarzacza obsługuje następujące opcjonalne parametry adresu URL.
+Widżet Player umożliwia przesyłanie strumieniowe wideo przy użyciu adaptacyjnej szybkości transmisji bitów. Widżet Player obsługuje następujące opcjonalne parametry adresu URL.
 
 |Nazwa|Definicja|Opis|
 |---|---|---|
-|`t` | Sekund od początku | Sprawia, że gracz rozpocznie odtwarzanie od określonego momentu.<br/> Przykład: `t=60`. |
-|`captions` | Kod języka | Pobiera podpis w określonym języku podczas ładowania elementu widget, aby był dostępny w menu **podpisy** .<br/> Przykład: `captions=en-US`. |
+|`t` | Sekundy od początku | Sprawia, że gracz rozpoczyna odtwarzanie od określonego punktu czasu.<br/> Przykład: `t=60`. |
+|`captions` | Kod języka | Pobiera podpis w określonym języku podczas ładowania widżetu, aby był dostępny w menu **Napisy.**<br/> Przykład: `captions=en-US`. |
 |`showCaptions` | Wartość logiczna | Powoduje załadowanie już włączonych napisów.<br/> Przykład: `showCaptions=true`. |
-|`type`| | Aktywuje karnację odtwarzacza audio (część wideo jest usuwana).<br/> Przykład: `type=audio`. |
+|`type`| | Aktywuje wygląd odtwarzacza audio (część wideo jest usuwana).<br/> Przykład: `type=audio`. |
 |`autoplay` | Wartość logiczna | Wskazuje, czy odtwarzacz powinien rozpocząć odtwarzanie wideo po załadowaniu. Wartość domyślna to `true`.<br/> Przykład: `autoplay=false`. |
-|`language`/`locale` | Kod języka | Kontroluje język odtwarzacza. Wartość domyślna to `en-US`.<br/>Przykład: `language=de-DE`.|
-|`location` ||`location`Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial` jest wartością domyślną dla `location` parametru.| 
+|`language`/`locale` | Kod języka | Steruje językiem odtwarzacza. Wartość domyślna to `en-US`.<br/>Przykład: `language=de-DE`.|
+|`location` ||Parametr `location` musi znajdować się w osadzonych linkach. Zobacz, jak uzyskać [nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, dla wartości lokalizacji należy `trial` użyć wartości . `trial` jest wartością domyślną `location` parametru .| 
 
 ### <a name="editor-widget"></a>Widżet edytora
 
-Za pomocą widżetu edytora można tworzyć nowe projekty i zarządzać szczegółowymi informacjami wideo. Widżet edytora obsługuje następujące opcjonalne parametry adresu URL.
+Widżet Edytor umożliwia tworzenie nowych projektów i zarządzanie analizami wideo. Widżet Edytor obsługuje następujące opcjonalne parametry adresu URL.
 
 |Nazwa|Definicja|Opis|
 |---|---|---|
-|`accessToken`<sup>*</sup> | Ciąg | Zapewnia dostęp do filmów wideo, które są tylko na koncie używanym do osadzenia widżetu.<br> Widżet edytora wymaga `accessToken` parametru. |
-|`language` | Kod języka | Kontroluje język odtwarzacza. Wartość domyślna to `en-US`.<br/>Przykład: `language=de-DE`. |
-|`locale` | Kod w języku krótkim | Steruje językiem usługi Insights. Wartość domyślna to `en`.<br/>Przykład: `language=de`. |
-|`location` ||`location`Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial` jest wartością domyślną dla `location` parametru.| 
+|`accessToken`<sup>*</sup> | Ciąg | Zapewnia dostęp do filmów wideo, które znajdują się tylko na koncie używanym do osadzania widżetu.<br> Widżet Edytor wymaga `accessToken` parametru . |
+|`language` | Kod języka | Steruje językiem odtwarzacza. Wartość domyślna to `en-US`.<br/>Przykład: `language=de-DE`. |
+|`locale` | Krótki kod języka | Steruje językiem szczegółowych informacji. Wartość domyślna to `en`.<br/>Przykład: `language=de`. |
+|`location` ||Parametr `location` musi znajdować się w linkach osadzonych. Zobacz, jak [uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, jako wartości lokalizacji należy `trial` użyć wartości . `trial` jest wartością domyślną `location` parametru .| 
 
-<sup>*</sup>Właściciel powinien zapewnić `accessToken` ostrożność.
+<sup>*</sup>Właściciel powinien zachować `accessToken` ostrożność.
 
-## <a name="embed-videos"></a>Osadź wideo
+## <a name="embed-videos"></a>Osadzanie wideo
 
-W tej sekcji omówiono osadzanie filmów wideo przy [użyciu portalu](#the-portal-experience) lub [Ręczne umieszczenie adresu URL](#assemble-the-url-manually) w aplikacjach. 
+W tej sekcji omówiono osadzanie filmów wideo przy [użyciu portalu](#the-portal-experience) lub przez ręczne składanie adresu [URL](#assemble-the-url-manually) w aplikacjach. 
 
-`location`Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial` jest wartością domyślną dla `location` parametru. Na przykład: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+Parametr `location` musi znajdować się w linkach osadzonych. Zobacz, jak [uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, jako wartości lokalizacji należy `trial` użyć wartości . `trial` jest wartością domyślną `location` parametru . Na przykład: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 ### <a name="the-portal-experience"></a>Środowisko portalu
 
-Aby osadzić wideo, użyj portalu zgodnie z poniższym opisem:
+Aby osadzić film wideo, użyj portalu zgodnie z poniższym opisem:
 
-1. Zaloguj się do witryny sieci Web [Video Indexer](https://www.videoindexer.ai/) .
-1. Wybierz wideo, z którym chcesz korzystać, i naciśnij klawisz **Play**.
-1. Wybierz odpowiedni typ widżetu (**poznawcze informacje**, **odtwarzacz** lub **Edytor**).
-1. Kliknij przycisk **&lt; / &gt; Osadź**.
-5. Skopiuj kod osadzania (jest wyświetlany w obszarze **Kopiuj osadzony kod** w oknie dialogowym **udział & Osadź** ).
+1. Zaloguj się do witryny [Video Indexer](https://www.videoindexer.ai/) internetowej.
+1. Wybierz film wideo, z którym chcesz pracować, a następnie naciśnij przycisk **Odtąd.**
+1. Wybierz typ odpowiedniego widżetu **(Cognitive Insights,** **Player** lub **Editor).**
+1. Kliknij pozycję **&lt; / &gt; Osadź.**
+5. Skopiuj kod osadzania (jest wyświetlany w oknie dialogowym Kopiowanie **osadzonego** kodu & **osadzania).**
 6. Dodaj kod do aplikacji.
 
 > [!NOTE]
-> Udostępnienie linku dla widżetu **Player** lub **szczegółowych** informacji spowoduje uwzględnienie tokenu dostępu i przyznanie uprawnień tylko do odczytu kontu.
+> Udostępnienie linku do **widżetu Player** lub **Insights** spowoduje dołączenie tokenu dostępu i przyznanie uprawnień tylko do odczytu do Twojego konta.
 
-### <a name="assemble-the-url-manually"></a>Ręcznie złóż adres URL
+### <a name="assemble-the-url-manually"></a>Ręczne składanie adresu URL
 
 #### <a name="public-videos"></a>Publiczne wideo
 
-Możesz osadzić publiczne wideo z asemblerem adresu URL w następujący sposób:
+Możesz osadzić publiczne filmy wideo, aby utworzyć adres URL w następujący sposób:
 
 `https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>`
   
   
-#### <a name="private-videos"></a>Prywatne wideo
+#### <a name="private-videos"></a>Prywatne filmy wideo
 
-Aby osadzić prywatny film wideo, należy przekazać token dostępu (Użyj tokenu uzyskiwania [dostępu wideo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Access-Token?) w `src` atrybucie elementu iframe:
+Aby osadzić prywatny film wideo, musisz przekazać token dostępu (użyj właściwości [Pobierz token](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Access-Token) dostępu wideo w `src` atrybutze iframe:
 
 `https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>`
   
-### <a name="provide-editing-insights-capabilities"></a>Udostępnianie możliwości edytowania szczegółowych informacji
+### <a name="provide-editing-insights-capabilities"></a>Zapewnianie możliwości edytowania szczegółowych informacji
 
-Aby zapewnić możliwości edytowania szczegółowych informacji w osadzonym elemencie widget, należy przekazać token dostępu, który obejmuje uprawnienia do edycji. Użyj [tokenu uzyskiwania dostępu wideo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Access-Token?) z `&allowEdit=true` .
+Aby zapewnić możliwości edytowania szczegółowych informacji w osadzonym widżecie, musisz przekazać token dostępu, który obejmuje uprawnienia do edycji. Użyj funkcji [Pobierz token dostępu do wideo za](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Access-Token) pomocą funkcji `&allowEdit=true` .
 
 ## <a name="widgets-interaction"></a>Interakcje z widżetami
 
-Widżet wglądu w szczegółowe dane może korzystać z filmu wideo w aplikacji. W tej sekcji pokazano, jak zrealizować taką interakcję.
+Widżet Cognitive Insights może wchodzić w interakcje z wideo w aplikacji. W tej sekcji pokazano, jak zrealizować taką interakcję.
 
-![Widżet szczegółowe informacje o poznawczej Video Indexer](./media/video-indexer-embed-widgets/video-indexer-widget03.png)
+![Widżet Cognitive Insights Video Indexer](./media/video-indexer-embed-widgets/video-indexer-widget03.png)
 
 ### <a name="flow-overview"></a>Omówienie przepływu
 
 Podczas edytowania transkrypcji następuje następujący przepływ:
 
-1. Edytuj transkrypcję na osi czasu.
-1. Video Indexer pobiera te aktualizacje i zapisuje je w ramach [edycji z transkrypcji](customize-language-model-with-website.md#customize-language-models-by-correcting-transcripts) w modelu języka.
+1. Transkrypcja jest edytowana na osi czasu.
+1. Video Indexer pobiera te aktualizacje i zapisuje je w zapisie z [edycji transkrypcji](customize-language-model-with-website.md#customize-language-models-by-correcting-transcripts) w modelu językowym.
 1. Napisy są aktualizowane:
 
-    * Jeśli używasz widżetu Video Indexer odtwarzacza, zostanie on automatycznie zaktualizowany.
-    * Jeśli używasz zewnętrznego odtwarzacza, otrzymujesz nowe podpisy, które **są wywoływane przez** użytkownika.
+    * Jeśli używasz widżetu Video Indexer odtwarzacza — jest on automatycznie aktualizowany.
+    * Jeśli używasz odtwarzacza zewnętrznego — użytkownik otrzyma nowy plik napisów w wywołaniu **Pobierz napisy** wideo.
 
 ### <a name="cross-origin-communications"></a>Komunikacja między źródłami
 
-Aby uzyskać Video Indexer widżety do komunikowania się z innymi składnikami, usługa Video Indexer:
+Aby Video Indexer widgety do komunikowania się z innymi składnikami, usługa Video Indexer service:
 
-- Używa metody komunikacji między źródłami HTML5 `postMessage` .
+- Używa metody HTML5 komunikacji między `postMessage` źródłami.
 - weryfikuje komunikaty w źródle videoIndexer.ai.
 
-Jeśli zaimplementowasz własny kod odtwarzacza i zintegrujesz go z widżetami poznawcze spostrzeżenia, odpowiadasz za potwierdzenie pochodzenia wiadomości, która pochodzi z VideoIndexer.ai.
+Jeśli zaim implementujesz własny kod odtwarzacza i integrujesz się z widżetami cognitive insights, Twoim zadaniem jest zweryfikowanie źródła komunikatu, który pochodzi z VideoIndexer.ai.
 
-### <a name="embed-widgets-in-your-app-or-blog-recommended"></a>Osadź widżety w aplikacji lub blogu (zalecane)
+### <a name="embed-widgets-in-your-app-or-blog-recommended"></a>Osadzanie widżetów w aplikacji lub blogu (zalecane)
 
-W tej sekcji przedstawiono sposób osiągnięcia interakcji między dwoma Video Indexer widżetami, dzięki czemu gdy użytkownik wybierze kontrolę wglądu w aplikację, gracz przejdzie do odpowiedniego momentu.
+W tej sekcji pokazano, jak uzyskać interakcję między dwoma Video Indexer widgetami, dzięki czemu gdy użytkownik wybierze kontrolkę wglądu w szczegółowe dane w aplikacji, odtwarzacz przeskoczy do odpowiedniego momentu.
 
 1. Skopiuj kod osadzania widżetu Player.
 2. Skopiuj kod osadzania widżetu Cognitive Insights.
 3. Dodaj [plik mediatora](https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js) do obsługi komunikacji między dwoma widżetami:<br/> 
 `<script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script>`
 
-Teraz, gdy użytkownik wybierze kontrolę wglądu w aplikację, gracz przechodzi do odpowiedniego momentu.
+Teraz, gdy użytkownik wybierze kontrolkę szczegółowych informacji w aplikacji, odtwarzacz przeskoczy do odpowiedniego momentu.
 
-Aby uzyskać więcej informacji, zobacz [Video Indexer — osadzanie obu elementów widget](https://codepen.io/videoindexer/pen/NzJeOb).
+Aby uzyskać więcej informacji, zobacz [pokaz Video Indexer — Osadź oba widżety.](https://codepen.io/videoindexer/pen/NzJeOb)
 
 ### <a name="embed-the-cognitive-insights-widget-and-use-azure-media-player-to-play-the-content"></a>Osadzanie widżetu Cognitive Insights i odtwarzanie zawartości za pomocą usługi Azure Media Player
 
-W tej sekcji przedstawiono sposób osiągnięcia interakcji między widżetem analizy poznawczej a wystąpieniem Azure Media Player za pomocą [wtyczki amp](https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js).
+W tej sekcji pokazano, jak uzyskać interakcję między widżetem cognitive insights i wystąpieniem Azure Media Player za pomocą [wtyczki AMP.](https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js)
 
-1. Dodaj wtyczkę Video Indexer dla odtwarzacza AMP:<br/> `<script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>`
-2. Tworzenie wystąpienia Azure Media Player za pomocą wtyczki Video Indexer.
+1. Dodaj Video Indexer wtyczki dla odtwarzacza AMP:<br/> `<script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>`
+2. Za pomocą Azure Media Player Video Indexer wystąpienia.
 
     ```javascript
     // Init the source.
@@ -196,13 +196,13 @@ W tej sekcji przedstawiono sposób osiągnięcia interakcji między widżetem an
 
 3. Skopiuj kod osadzania widżetu Cognitive Insights.
 
-Teraz można komunikować się z Azure Media Player.
+Teraz możesz komunikować się z Azure Media Player.
 
-Aby uzyskać więcej informacji, zobacz [demonstracja Azure Media Player + VI Insights](https://codepen.io/videoindexer/pen/rYONrO).
+Aby uzyskać więcej informacji, zobacz [pokaz Azure Media Player + VI Insights.](https://codepen.io/videoindexer/pen/rYONrO)
 
-### <a name="embed-the-video-indexer-cognitive-insights-widget-and-use-a-different-video-player"></a>Osadź widżet Video Indexer poznawcze spostrzeżenia i użyj innego odtwarzacza wideo
+### <a name="embed-the-video-indexer-cognitive-insights-widget-and-use-a-different-video-player"></a>Osadzanie Video Indexer Cognitive Insights i używanie innego odtwarzacza wideo
 
-Jeśli używasz odtwarzacza wideo innego niż Azure Media Player, musisz ręcznie manipulować odtwarzaczem wideo w celu osiągnięcia komunikacji.
+Jeśli używasz odtwarzacza wideo innego niż Azure Media Player, musisz ręcznie manipulować odtwarzaczem wideo, aby osiągnąć komunikację.
 
 1. Wstaw odtwarzacz wideo.
 
@@ -249,27 +249,27 @@ Jeśli używasz odtwarzacza wideo innego niż Azure Media Player, musisz ręczni
     </script>
     ```
 
-Aby uzyskać więcej informacji, zobacz [demonstracja Azure Media Player + VI Insights](https://codepen.io/videoindexer/pen/YEyPLd).
+Aby uzyskać więcej informacji, zobacz [pokaz Azure Media Player + VI Insights.](https://codepen.io/videoindexer/pen/YEyPLd)
 
 ## <a name="adding-subtitles"></a>Dodawanie napisów
 
-Jeśli osadzisz Video Indexer Insights przy użyciu własnych [Azure Media Player](https://aka.ms/azuremediaplayer), możesz użyć `GetVttUrl` metody, aby uzyskać napisy (napisy). Możesz również wywołać metodę JavaScript z wtyczki Video Indexer AMP `getSubtitlesUrl` (jak pokazano wcześniej).
+Jeśli osadzasz Video Indexer szczegółowych informacji przy użyciu własnego [Azure Media Player](https://aka.ms/azuremediaplayer), możesz użyć metody , aby uzyskać `GetVttUrl` napisy (napisy). Możesz również wywołać metodę JavaScript z Video Indexer AMP `getSubtitlesUrl` (jak pokazano wcześniej).
 
 ## <a name="customizing-embeddable-widgets"></a>Dostosowywanie osadzalnych widżetów
 
 ### <a name="cognitive-insights-widget"></a>Widżet Cognitive Insights
 
-Możesz wybrać typy szczegółowych informacji. W tym celu należy określić jako wartość następujący parametr adresu URL, który jest dodawany do kodu osadzania, który otrzymujesz (z interfejsu API lub z aplikacji sieci Web): `&widgets=<list of wanted widgets>` .
+Możesz wybrać typy szczegółowych informacji. W tym celu określ je jako wartość następującego parametru adresu URL dodanego do kodu osadzania, który można pobrać (z interfejsu API lub aplikacji internetowej): `&widgets=<list of wanted widgets>` .
 
-Możliwe wartości to:,,,,,,,,, `people` `animatedCharacters` `keywords` `labels` `sentiments` `emotions` `topics` `keyframes` `transcript` `ocr` , `speakers` , `scenes` , i `namedEntities` .
+Możliwe wartości to: `people` , , , , , , , , `animatedCharacters` , , `keywords` , , `labels` i `sentiments` `emotions` `topics` `keyframes` `transcript` `ocr` `speakers` `scenes` `namedEntities` .
 
-Na przykład jeśli chcesz osadzić widżet zawierający tylko osoby i szczegółowe informacje o słowach kluczowych, adres URL osadzania elementu iframe będzie wyglądać następująco:
+Jeśli na przykład chcesz osadzić widżet zawierający tylko szczegółowe informacje o osobach i słowach kluczowych, adres URL osadzania elementu iframe będzie wyglądać tak:
 
 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords`
 
-Tytuł okna elementu IFRAME można również dostosować, podając `&title=<YourTitle>` adres URL elementu iframe. (Dostosowuje `<title>` wartość html).
+Tytuł okna iframe można również dostosować, podając `&title=<YourTitle>` adres URL ramki iframe. (Dostosowuje wartość `<title>` HTML).
    
-Na przykład jeśli chcesz nadać polu elementu IFRAME tytuł "MyInsights", adres URL będzie wyglądać następująco:
+Jeśli na przykład chcesz nadać oknie iframe tytuł "MyInsights", adres URL będzie wyglądać tak:
 
 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?title=MyInsights`
 
@@ -283,41 +283,41 @@ Na przykład:
 
 `<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 
-Domyślnie program Video Indexer Player automatycznie wygenerował napisy, które są oparte na transkrypcji filmu wideo. Transkrypcja jest wyodrębniana z filmu wideo z językiem źródłowym, który został wybrany podczas przekazywania wideo.
+Domyślnie Video Indexer ma automatycznie wygenerowane napisy, które są oparte na transkrypcji wideo. Transkrypcja jest wyodrębniona z wideo przy użyciu języka źródłowego wybranego podczas jego przesłania.
 
-Jeśli chcesz osadzić w innym języku, możesz dodać `&captions=<Language Code>` do adresu URL osadzania odtwarzacza. Jeśli chcesz, aby podpisy były wyświetlane domyślnie, możesz przekazać &showCaptions = true.
+Jeśli chcesz osadzić przy użyciu innego języka, możesz dodać adres `&captions=<Language Code>` URL osadzania odtwarzacza. Jeśli chcesz, aby napisy były wyświetlane domyślnie, możesz przekazać &showCaptions=true.
 
-Adres URL osadzania będzie wyglądać następująco:
+Adres URL osadzania będzie wyglądać tak:
 
 `https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/?captions=en-us`
 
-#### <a name="autoplay"></a>Autoodtwarzania
+#### <a name="autoplay"></a>Autoodtwarzanie
 
-Domyślnie gracz rozpocznie odtwarzanie filmu wideo. Możesz zrezygnować z przekazywania `&autoplay=false` na poprzedni adres URL osadzania.
+Domyślnie odtwarzacz rozpocznie odtwarzanie wideo. Możesz z tego nie korzystać, przekazując `&autoplay=false` do poprzedniego adresu URL osadzania.
 
 ## <a name="code-samples"></a>Przykłady kodu
 
-Zobacz repozytorium [przykłady kodu](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets) zawierające przykłady Video Indexer interfejsu API i widżetów:
+Zobacz [przykłady kodu,](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets) które zawiera przykłady dla Video Indexer API i widżetów:
 
 | Plik/folder                       | Opis                                |
 |-----------------------------------|--------------------------------------------|
-| `azure-media-player`              | Ładuj wideo indeksatora wideo w niestandardowym Azure Media Player.                        |
-| `azure-media-player-vi-insights`  | Osadź informacje o przeanalizie VI przy użyciu niestandardowego Azure Media Player.                             |
+| `azure-media-player`              | Ładowanie wideo indeksatora wideo w niestandardowym Azure Media Player.                        |
+| `azure-media-player-vi-insights`  | Osadź szczegółowe informacje usługi VI za pomocą niestandardowego Azure Media Player.                             |
 | `control-vi-embedded-player`      | Osadź odtwarzacz VI i kontroluj go z zewnątrz.                                    |
-| `custom-index-location`           | Osadź informacje o VI z niestandardowej lokalizacji zewnętrznej (może to być odbiorca obiektu BLOB).     |
-| `embed-both-insights`             | Podstawowe użycie programu VI Insights w usłudze Player i szczegółowych informacji.                            |
-| `embed-insights-with-AMP`         | Osadź widżet analizy danych w usłudze VI z niestandardowym Azure Media Player.                      |
-| `customize-the-widgets`           | Osadź elementy widget VI z dostosowanymi opcjami.                                     |
-| `embed-both-widgets`              | Osadź program Player i szczegółowe informacje i Komunikuj się między nimi.                      |
+| `custom-index-location`           | Osadź szczegółowe informacje o interfejsie VI z niestandardowej lokalizacji zewnętrznej (może to być obiekt blob klienta).     |
+| `embed-both-insights`             | Podstawowe użycie usługi VI Insights zarówno dla odtwarzacza, jak i szczegółowych informacji.                            |
+| `embed-insights-with-AMP`         | Osadź widżet VI Insights przy użyciu niestandardowego Azure Media Player.                      |
+| `customize-the-widgets`           | Osadź widżety VI z dostosowanymi opcjami.                                     |
+| `embed-both-widgets`              | Osadź vi player i insights oraz komunikuj się między nimi.                      |
 | `url-generator`                   | Generuje niestandardowy adres URL osadzania widżetów na podstawie opcji określonych przez użytkownika.             |
-| `html5-player`                    | Osadź plik VI Insights przy użyciu domyślnego odtwarzacza wideo HTML5.                           |
+| `html5-player`                    | Osadź analizę VI za pomocą domyślnego odtwarzacza wideo HTML5.                           |
 
 ## <a name="supported-browsers"></a>Obsługiwane przeglądarki
 
-Aby uzyskać więcej informacji, zobacz [obsługiwane przeglądarki](video-indexer-overview.md#supported-browsers).
+Aby uzyskać więcej informacji, zobacz [obsługiwane przeglądarki.](video-indexer-overview.md#supported-browsers)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać informacje na temat sposobu wyświetlania i edytowania Video Indexer szczegółowych informacji, zobacz [Wyświetlanie i edytowanie Video Indexer szczegółowych](video-indexer-view-edit.md)informacji.
+Aby uzyskać informacje na temat wyświetlania i edytowania Video Indexer szczegółowych informacji, zobacz Wyświetlanie i edytowanie [Video Indexer szczegółowych informacji.](video-indexer-view-edit.md)
 
-Zapoznaj się również z [CodePen indeksatora wideo](https://codepen.io/videoindexer/pen/eGxebZ).
+Zapoznaj się również z [plikiem CodePen indeksatora wideo.](https://codepen.io/videoindexer/pen/eGxebZ)

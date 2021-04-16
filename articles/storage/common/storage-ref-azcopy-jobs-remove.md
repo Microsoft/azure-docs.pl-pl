@@ -1,6 +1,6 @@
 ---
-title: AzCopy zadania usuwania | Microsoft Docs
-description: Ten artykuł zawiera informacje referencyjne dotyczące polecenia AzCopy zadania usuwania.
+title: azcopy jobs remove | Microsoft Docs
+description: Ten artykuł zawiera informacje referencyjne dotyczące polecenia azcopy jobs remove.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -8,30 +8,29 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 2744c2a082b5321fb671de08301981fd17396640
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c6a4745c4059c81384448deba37495030c4bf3a3
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879092"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503375"
 ---
 # <a name="azcopy-jobs-remove"></a>azcopy jobs remove
 
-Usuń wszystkie pliki skojarzone z danym IDENTYFIKATORem zadania.
+Usuń wszystkie pliki skojarzone z danym identyfikatorem zadania.
 
 > [!NOTE] 
-> Można dostosować lokalizację, w której zapisywane są pliki dziennika i planowania. Aby dowiedzieć się więcej, zobacz [AzCopy ENV](storage-ref-azcopy-env.md) .
+> Możesz dostosować lokalizację, w której są zapisywane pliki dziennika i planu. Zobacz polecenie [azcopy env,](storage-ref-azcopy-env.md) aby dowiedzieć się więcej.
 
 ```
 azcopy jobs remove [jobID] [flags]
 ```
 
-## <a name="related-conceptual-articles"></a>Pokrewne artykuły koncepcyjne
+## <a name="related-conceptual-articles"></a>Powiązane artykuły koncepcyjne
 
 - [Wprowadzenie do narzędzia AzCopy](storage-use-azcopy-v10.md)
-- [Transferowanie danych za pomocą AzCopy i magazynu obiektów BLOB](./storage-use-azcopy-v10.md#transfer-data)
+- [Transferowanie danych za pomocą programu AzCopy i usługi Blob Storage](./storage-use-azcopy-v10.md#transfer-data)
 - [Transferowanie danych za pomocą narzędzia AzCopy i magazynu plików](storage-use-azcopy-files.md)
-- [Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="examples"></a>Przykłady
 
@@ -41,15 +40,15 @@ azcopy jobs remove [jobID] [flags]
 
 ## <a name="options"></a>Opcje
 
-**--Pomoc**                Pomoc dotycząca usuwania.
+**— pomoc**                Pomoc w przypadku usuwania.
 
 ## <a name="options-inherited-from-parent-commands"></a>Opcje dziedziczone z poleceń nadrzędnych
 
-**--Cap-MB/s**      Szybkość transferu w megabitach na sekundę. Przepływność czasu na chwilę może się nieco różnić od końca. Jeśli ta opcja jest ustawiona na zero lub zostanie pominięta, przepływność nie zostanie ograniczona.
+**--cap-mb/s float**      Limituje szybkość transferu w megabitach na sekundę. Przepływność moment po chwili może się nieznacznie różnić od limitu. Jeśli ta opcja jest ustawiona na zero lub zostanie pominięta, przepływność nie jest ograniczona.
 
-**--** format ciągu typu danych wyjściowych polecenia. Dostępne opcje to: text, JSON. Wartość domyślna to `text`. (ustawienie domyślne `text` )
+**--output-type** ciąg Format danych wyjściowych polecenia. Dostępne opcje to: text, json. Wartość domyślna to `text`. (wartość `text` domyślna )
 
-**--Zaufane — ciąg sufiksów firmy Microsoft** określa dodatkowe sufiksy domeny, w których mogą być wysyłane Azure Active Directory tokeny logowania.  Wartość domyślna to "*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net '. Wszystkie wymienione tutaj są dodawane do ustawień domyślnych. W celu zapewnienia bezpieczeństwa należy tu umieścić tylko domeny Microsoft Azure. Rozdziel wiele wpisów średnikami.
+**--trusted-microsoft-suffixes** ciąg Określa dodatkowe sufiksy domeny, Azure Active Directory tokeny logowania mogą być wysyłane.  Wartość domyślna to '*.core.windows.net;*. core.chinacloudapi.cn; *.core.cloudapi.de;*. core.usgovcloudapi.net". Wszystkie wymienione w tym miejscu są dodawane do wartości domyślnej. Ze względów bezpieczeństwa należy w tym miejscu Microsoft Azure tylko domen. Oddziel wiele wpisów średnikami.
 
 ## <a name="see-also"></a>Zobacz też
 

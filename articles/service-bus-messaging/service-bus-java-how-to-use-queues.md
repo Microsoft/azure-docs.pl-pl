@@ -1,40 +1,45 @@
 ---
-title: Korzystanie z kolejek Azure Service Bus w języku Java (Azure-Messaging-ServiceBus)
-description: W ramach tego samouczka nauczysz się używać języka Java do wysyłania komunikatów do i odbierania komunikatów z kolejki Azure Service Bus. Używasz nowego pakietu Azure-Messaging-ServiceBus.
-ms.devlang: Java
-ms.topic: quickstart
+title: Używanie Azure Service Bus kolejek w języku Java (azure-messaging-servicebus)
+description: Z tego samouczka dowiesz się, jak używać języka Java do wysyłania komunikatów do i odbierania komunikatów z Azure Service Bus kolejki. Użyj nowego pakietu azure-messaging-servicebus.
 ms.date: 02/13/2021
-ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 1fab8d3f603b3c2c7e3c307d3d2ce53590d7511c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.topic: quickstart
+ms.devlang: Java
+ms.custom:
+- seo-java-july2019
+- seo-java-august2019
+- seo-java-september2019
+- devx-track-java
+- mode-api
+ms.openlocfilehash: e3998e812bb921ff8bea5e83199bc4e142ed2e83
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739767"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533421"
 ---
-# <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-java"></a>Wysyłanie komunikatów do i odbieranie komunikatów z kolejek Azure Service Bus (Java)
-W tym przewodniku szybki start utworzysz aplikację Java do wysyłania komunikatów do i odbierania komunikatów z kolejki Azure Service Bus. 
+# <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-java"></a>Wysyłanie i odbieranie komunikatów z Azure Service Bus kolejek (Java)
+W tym przewodniku Szybki start utworzysz aplikację w języku Java do wysyłania komunikatów do i odbierania komunikatów z Azure Service Bus kolejki. 
 
 > [!IMPORTANT]
-> Ten przewodnik Szybki Start używa nowego pakietu Azure-Messaging-ServiceBus. Aby zapoznać się z przewodnikiem Szybki Start korzystającym z starego pakietu Azure-ServiceBus, zobacz [wysyłanie i odbieranie komunikatów przy użyciu platformy Azure-ServiceBus](service-bus-java-how-to-use-queues-legacy.md).
+> W tym przewodniku Szybki start jest używany nowy pakiet azure-messaging-servicebus. Aby uzyskać przewodnik Szybki start korzystający ze starego pakietu azure-servicebus, zobacz Wysyłanie i odbieranie komunikatów [przy użyciu usługi azure-servicebus.](service-bus-java-how-to-use-queues-legacy.md)
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-- Subskrypcja platformy Azure. Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Możesz aktywować korzyści dla [subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Jeśli nie masz kolejki do współpracy z programem, postępuj zgodnie z instrukcjami w temacie [Use Azure Portal, aby utworzyć](service-bus-quickstart-portal.md) kolejkę Service Bus w celu utworzenia kolejki. Zanotuj **Parametry połączenia** dla przestrzeni nazw Service Bus i nazwę utworzonej **kolejki** .
-- Zainstaluj [zestaw Azure SDK dla języka Java][Azure SDK for Java]. W przypadku korzystania z programu Zastąp, można zainstalować [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] zawierający zestaw Azure SDK dla języka Java. Następnie można dodać **biblioteki Microsoft Azure dla języka Java** do projektu. Jeśli używasz programu IntelliJ, zobacz [Install the Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/installation). 
+- Subskrypcja platformy Azure. Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Możesz aktywować korzyści [dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) lub utworzyć bezpłatne [konto.](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)
+- Jeśli nie masz kolejki do pracy, wykonaj kroki opisane w artykule Use [Azure Portal to create a Service Bus queue to](service-bus-quickstart-portal.md) create a queue (Tworzenie kolejki przy użyciu usługi Azure Portal do tworzenia kolejki). Zanotuj **ciąg** połączenia dla Service Bus nazw i nazwę **utworzonej** kolejki.
+- Zainstaluj [zestaw Azure SDK dla języka Java.][Azure SDK for Java] Jeśli używasz środowiska Eclipse, możesz zainstalować pakiet Azure Toolkit for Eclipse [który][Azure Toolkit for Eclipse] zawiera zestaw Azure SDK dla języka Java. Następnie możesz dodać **biblioteki Microsoft Azure dla języka Java** do projektu. Jeśli używasz programu IntelliJ, zobacz Instalowanie programu [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/installation). 
 
 
 ## <a name="send-messages-to-a-queue"></a>Wysyłanie komunikatów do kolejki
-W tej sekcji utworzysz projekt konsoli Java, a następnie dodasz kod do wysyłania wiadomości do kolejki utworzonej wcześniej. 
+W tej sekcji utworzysz projekt konsoli Java i dodasz kod w celu wysyłania komunikatów do utworzonej wcześniej kolejki. 
 
-### <a name="create-a-java-console-project"></a>Tworzenie projektu konsoli języka Java
-Utwórz projekt Java przy użyciu narzędzia do zaszeregowania lub wybranego przez siebie narzędzi. 
+### <a name="create-a-java-console-project"></a>Tworzenie projektu konsoli Java
+Utwórz projekt w języku Java przy użyciu środowiska Eclipse lub wybranego narzędzia. 
 
-### <a name="configure-your-application-to-use-service-bus"></a>Skonfiguruj aplikację do używania Service Bus
-Dodaj odwołania do bibliotek podstawowych i Azure Service Bus platformy Azure. 
+### <a name="configure-your-application-to-use-service-bus"></a>Konfigurowanie aplikacji do używania Service Bus
+Dodawanie odwołań do platformy Azure Core Azure Service Bus bibliotek. 
 
-Jeśli używasz funkcji Zastąp i utworzono aplikację konsolową Java, przekonwertuj swój projekt Java na Maven: kliknij prawym przyciskiem myszy projekt w oknie **Eksplorator pakietów** , a następnie wybierz polecenie **Konfiguruj**  ->  **konwersję do Maven Project**. Następnie Dodaj zależności do tych dwóch bibliotek, jak pokazano w poniższym przykładzie.
+Jeśli używasz środowiska Eclipse i utworzono aplikację konsolową Java, przekonwertuj projekt Java na projekt Maven: kliknij prawym przyciskiem myszy projekt w oknie **Eksplorator pakietów,** wybierz pozycję Konfiguruj konwertowanie na projekt  ->  **Maven.** Następnie dodaj zależności do tych dwóch bibliotek, jak pokazano w poniższym przykładzie.
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -80,15 +85,15 @@ Jeśli używasz funkcji Zastąp i utworzono aplikację konsolową Java, przekonw
     import java.util.Arrays;
     import java.util.List;
     ```    
-5. W klasie Zdefiniuj zmienne do przechowywania parametrów połączenia i nazwy kolejki, jak pokazano poniżej: 
+5. W klasie zdefiniuj zmienne do przechowywania parametrów połączenia i nazwy kolejki, jak pokazano poniżej: 
 
     ```java
     static String connectionString = "<NAMESPACE CONNECTION STRING>";
     static String queueName = "<QUEUE NAME>";    
     ```
 
-    Zamień na `<NAMESPACE CONNECTION STRING>` Parametry połączenia z przestrzenią nazw Service Bus. I Zamień na `<QUEUE NAME>` nazwę kolejki.
-3. Dodaj metodę o nazwie `sendMessage` w klasie w celu wysłania jednej wiadomości do kolejki. 
+    Zastąp `<NAMESPACE CONNECTION STRING>` ciąg ciągami połączenia z Service Bus nazw. Zamień `<QUEUE NAME>` na nazwę kolejki.
+3. Dodaj metodę o nazwie `sendMessage` w klasie , aby wysłać jeden komunikat do kolejki. 
 
     ```java
     static void sendMessage()
@@ -105,7 +110,7 @@ Jeśli używasz funkcji Zastąp i utworzono aplikację konsolową Java, przekonw
         System.out.println("Sent a single message to the queue: " + queueName);        
     }
     ```
-1. Dodaj metodę o nazwie `createMessages` w klasie, aby utworzyć listę komunikatów. Zwykle te komunikaty są uzyskiwane z różnych części aplikacji. Tutaj tworzymy listę przykładowych wiadomości.
+1. Dodaj metodę o `createMessages` nazwie w klasie , aby utworzyć listę komunikatów. Zazwyczaj te komunikaty są odbierane z różnych części aplikacji. W tym miejscu utworzymy listę przykładowych komunikatów.
 
     ```java
     static List<ServiceBusMessage> createMessages()
@@ -119,7 +124,7 @@ Jeśli używasz funkcji Zastąp i utworzono aplikację konsolową Java, przekonw
         return Arrays.asList(messages);
     }
     ```
-1. Dodaj metodę o nazwie `sendMessageBatch` Method, aby wysyłać komunikaty do utworzonej kolejki. Ta metoda tworzy `ServiceBusSenderClient` dla kolejki, wywołuje `createMessages` metodę w celu pobrania listy komunikatów, przygotowuje co najmniej jedną partię i wysyła partie do kolejki. 
+1. Dodaj metodę o nazwie `sendMessageBatch` , aby wysyłać komunikaty do utworzonej kolejki. Ta metoda tworzy dla kolejki, wywołuje metodę w celu uzyskania listy komunikatów, przygotowuje co najmniej jedną partię i wysyła partie `ServiceBusSenderClient` `createMessages` do kolejki. 
 
     ```java
     static void sendMessageBatch()
@@ -169,12 +174,12 @@ Jeśli używasz funkcji Zastąp i utworzono aplikację konsolową Java, przekonw
     ```
 
 ## <a name="receive-messages-from-a-queue"></a>Odbieranie komunikatów z kolejki
-W tej sekcji dodasz kod umożliwiający pobieranie komunikatów z kolejki. 
+W tej sekcji dodasz kod do pobierania komunikatów z kolejki. 
 
-1. Dodaj metodę o nazwie `receiveMessages` , aby odbierać komunikaty z kolejki. Ta metoda tworzy `ServiceBusProcessorClient` dla kolejki przez określenie programu obsługi do przetwarzania komunikatów i drugiego dla obsługi błędów. Następnie uruchamia procesor, czeka kilka sekund, drukuje odebrane komunikaty, a następnie kończy i zamyka procesor.
+1. Dodaj metodę o nazwie `receiveMessages` , aby odbierać komunikaty z kolejki. Ta metoda tworzy dla kolejki, określając program obsługi do przetwarzania komunikatów, a drugi do `ServiceBusProcessorClient` obsługi błędów. Następnie uruchamia procesor, czeka kilka sekund, drukuje odebrane komunikaty, a następnie zatrzymuje i zamyka procesor.
 
     > [!IMPORTANT]
-    > Zamień `QueueTest` w `QueueTest::processMessage` kodzie na nazwę klasy. 
+    > Zastąp `QueueTest` w kodzie nazwą swojej `QueueTest::processMessage` klasy. 
 
     ```java
     // handles received messages
@@ -199,7 +204,7 @@ W tej sekcji dodasz kod umożliwiający pobieranie komunikatów z kolejki.
         processorClient.close();        
     }   
     ```
-2. Dodaj `processMessage` metodę, aby przetworzyć komunikat otrzymany z subskrypcji Service Bus. 
+2. Dodaj metodę `processMessage` , aby przetworzyć komunikat otrzymany z subskrypcji Service Bus subskrypcji. 
 
     ```java
     private static void processMessage(ServiceBusReceivedMessageContext context) {
@@ -208,7 +213,7 @@ W tej sekcji dodasz kod umożliwiający pobieranie komunikatów z kolejki.
             message.getSequenceNumber(), message.getBody());
     }    
     ```
-3. Dodaj `processError` metodę, aby obsłużyć komunikaty o błędach.
+3. Dodaj metodę `processError` do obsługi komunikatów o błędach.
 
     ```java
     private static void processError(ServiceBusErrorContext context, CountDownLatch countdownLatch) {
@@ -245,7 +250,7 @@ W tej sekcji dodasz kod umożliwiający pobieranie komunikatów z kolejki.
         }
     }  
     ```
-2. Zaktualizuj `main` metodę, aby wywołać `sendMessage` metody Invoke, `sendMessageBatch` , i, `receiveMessages` Aby zgłosić `InterruptedException` .     
+2. Zaktualizuj metodę `main` , aby wywoływać metody , i i , aby `sendMessage` `sendMessageBatch` `receiveMessages` zgłaszały wyjątek `InterruptedException` .     
 
     ```java
     public static void main(String[] args) throws InterruptedException {        
@@ -256,7 +261,7 @@ W tej sekcji dodasz kod umożliwiający pobieranie komunikatów z kolejki.
     ```
 
 ## <a name="run-the-app"></a>Uruchamianie aplikacji
-Po uruchomieniu aplikacji w oknie konsoli są wyświetlane następujące komunikaty. 
+Po uruchomieniu aplikacji w oknie konsoli zobaczysz następujące komunikaty. 
 
 ```console
 Sent a single message to the queue: myqueue
@@ -269,20 +274,20 @@ Processing message. Session: f9a871be07414baf9505f2c3d466c4ab, Sequence #: 4. Co
 Stopping and closing the processor
 ```
 
-Na stronie **Omówienie** przestrzeni nazw Service Bus w Azure Portal można zobaczyć liczbę wiadomości **przychodzących** i **wychodzących** . Może być konieczne poczekanie na minutę lub, a następnie odświeżenie strony, aby zobaczyć najnowsze wartości. 
+Na stronie **Przegląd** dla Service Bus nazw w Azure Portal można zobaczyć **liczbę** komunikatów przychodzących **i wychodzących.** Może być konieczne odczekenie około minuty, a następnie odświeżenie strony w celu zobaczenia najnowszych wartości. 
 
-:::image type="content" source="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png" alt-text="Liczba wiadomości przychodzących i wychodzących" lightbox="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png":::
+:::image type="content" source="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png" alt-text="Liczba komunikatów przychodzących i wychodzących" lightbox="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png":::
 
-Wybierz kolejkę na tej stronie **przeglądu** , aby przejść do strony **kolejki Service Bus** . Na tej stronie jest również wyświetlana liczba komunikatów **przychodzących** i **wychodzących** . Widoczne są również inne informacje, takie jak **bieżący rozmiar** kolejki, **Maksymalny rozmiar**, **Liczba aktywnych komunikatów** itd. 
+Wybierz kolejkę na tej **stronie Przegląd,** aby przejść do Service Bus **kolejki.** Na tej stronie **zobaczysz** również **liczbę** komunikatów przychodzących i wychodzących. Zobaczysz również inne informacje, takie jak **bieżący rozmiar** **kolejki,** maksymalny **rozmiar,** liczba aktywnych komunikatów i tak dalej. 
 
 :::image type="content" source="./media/service-bus-java-how-to-use-queues/queue-details.png" alt-text="Szczegóły kolejki" lightbox="./media/service-bus-java-how-to-use-queues/queue-details.png":::
 
 
 
 ## <a name="next-steps"></a>Następne kroki
-Zapoznaj się z poniższą dokumentacją i przykładami:
+Zapoznaj się z następującą dokumentacją i przykładami:
 
-- [Azure Service Busa Biblioteka kliencka dla języka Java — plik Readme](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/README.md)
+- [Azure Service Bus klienta dla języka Java — Readme](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/README.md)
 - [Przykłady w witrynie GitHub](/samples/azure/azure-sdk-for-java/servicebus-samples/)
 - [Dokumentacja interfejsów API języka Java](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-messaging-servicebus/7.0.0/index.html)
 

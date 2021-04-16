@@ -1,18 +1,20 @@
 ---
-title: Szybki Start — Konfigurowanie zapory serwera Azure Analysis Services | Microsoft Docs
-description: Ten przewodnik Szybki Start pomaga skonfigurować zaporę dla serwera Azure Analysis Services przy użyciu Azure Portal.
+title: Szybki start — konfigurowanie Azure Analysis Services zapory serwera | Microsoft Docs
+description: Ten przewodnik Szybki start pomaga skonfigurować zaporę dla serwera Azure Analysis Services przy użyciu Azure Portal.
 author: minewiskan
-ms.service: azure-analysis-services
-ms.topic: quickstart
-ms.date: 08/12/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e4953137cf939c35c6ac73fe51ca43eca6e99edc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/12/2020
+ms.topic: quickstart
+ms.service: azure-analysis-services
+ms.custom:
+- mode-portal
+ms.openlocfilehash: dd8324607667c6d1f5e397a3266026cf7f2dcc93
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88192440"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536716"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>Szybki start: konfigurowanie zapory serwera — Portal
 
@@ -24,18 +26,18 @@ Ten przewodnik Szybki start ułatwia konfigurowanie zapory na potrzeby serwera u
 - Co najmniej jeden zakres adresów IP na potrzeby komputerów klienckich (w razie potrzeby).
 
 > [!NOTE]
-> Importowanie danych (odświeżanie) i połączenia z podziałem na strony z Power BI Premium w Microsoft Cloud Niemczech nie są obecnie obsługiwane w przypadku włączenia zapory, nawet jeśli ustawienie Zezwalaj na dostęp z Power BI jest ustawione na wartość włączone.
+> Importowanie (odświeżanie) danych i połączenia raportów podzielonych na strony z usługi Power BI Premium w usłudze Microsoft Cloud w Niemczech nie są obecnie obsługiwane, gdy zapora jest włączona, nawet jeśli ustawienie Zezwalaj na dostęp z sieci Power BI jest włączone.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal 
 
-[Logowanie się do portalu](https://portal.azure.com)
+[Zaloguj się do portalu](https://portal.azure.com)
 
 ## <a name="configure-a-firewall"></a>Konfigurowanie zapory
 
 1. Kliknij serwer, aby otworzyć stronę Omówienie. 
-2. W obszarze **Ustawienia**  >  **zapory**  >  **Włącz zaporę** wybierz pozycję **włączone**.
-3. Aby włączyć połączenia z Power BI i Power BI Premium, w obszarze **Zezwalaj na dostęp z Power BI** wybierz pozycję **włączone**.  
-4. (Opcjonalnie) Podaj co najmniej jeden zakres adresów IP. Wprowadź nazwę oraz początkowy i końcowy adres IP dla każdego zakresu. Nazwa reguły zapory powinna być ograniczona do 128 znaków i może zawierać tylko wielkie litery, małe litery, cyfry, znaki podkreślenia i łącznik. Spacje i inne znaki specjalne są niedozwolone.
+2. W   >  **ustawieniach**  >  **Zapora Włącz zaporę** wybierz pozycję **Wł.**
+3. Aby włączyć połączenia z Power BI i Power BI Premium, w opcji **Zezwalaj** na dostęp z Power BI wybierz pozycję **Wł.**.  
+4. (Opcjonalnie) Podaj co najmniej jeden zakres adresów IP. Wprowadź nazwę oraz początkowy i końcowy adres IP dla każdego zakresu. Nazwa reguły zapory powinna być ograniczona do 128 znaków i może zawierać tylko wielkie litery, małe litery, cyfry, podkreślenie i łącznik. Puste spacje i inne znaki specjalne nie są dozwolone.
 5. Kliknij pozycję **Zapisz**.
 
      ![Ustawienia zapory](./media/analysis-services-qs-firewall/aas-qs-firewall.png)

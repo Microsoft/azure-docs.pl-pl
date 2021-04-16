@@ -1,6 +1,6 @@
 ---
-title: Wdrażanie oprogramowania SAP BusinessObjects BI platform na platformie Azure dla systemu Linux | Microsoft Docs
-description: Wdrażanie i Konfigurowanie platformy SAP BusinessObjects BI na platformie Azure dla systemu Linux
+title: Wdrażanie platformy SAP BusinessObjects BI na platformie Azure dla systemu Linux | Microsoft Docs
+description: Wdrażanie i konfigurowanie platformy SAP BusinessObjects BI Platform na platformie Azure dla systemu Linux
 services: virtual-machines-windows,virtual-network,storage,azure-netapp-files,azure-files,mysql
 documentationcenter: saponazure
 author: dennispadia
@@ -14,110 +14,110 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: b94e1f82409da3329eb6d978fa2ae0222928cd97
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b16a2d9f779232e59eb883f6a254be22990f5c78
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102505940"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107520024"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Przewodnik wdrażania platformy SAP BusinessObjects BI dla systemu Linux na platformie Azure
 
-W tym artykule opisano strategię wdrażania platformy SAP BOBI na platformie Azure dla systemu Linux. W tym przykładzie są skonfigurowane dwie maszyny wirtualne z SSD w warstwie Premium Managed Disks jako katalog instalacji. Azure Database for MySQL jest używany w przypadku bazy danych CMS, a Azure NetApp Files dla serwera repozytorium plików jest współużytkowany na obu serwerach. Domyślna aplikacja sieci Web Tomcat Java i aplikacja platformy BI są instalowane razem na obu maszynach wirtualnych. W celu zrównoważenia obciążenia żądania użytkownika używane jest Application Gateway, które ma natywne możliwości odciążania protokołów TLS/SSL.
+W tym artykule opisano strategię wdrażania platformy SAP BOBI na platformie Azure dla systemu Linux. W tym przykładzie dwie maszyny wirtualne z SSD w warstwie Premium Dyski zarządzane jako katalogiem instalacji. Azure Database for MySQL jest używana dla bazy danych programu CMS, a Azure NetApp Files dla serwera repozytorium plików jest współużytkowana na obu serwerach. Domyślna aplikacja internetowa Tomcat Java i aplikacja platformy usługi BI są instalowane razem na obu maszynach wirtualnych. Aby zrównoważyć obciążenie żądania użytkownika, Application Gateway ma natywne funkcje odciążania protokołu TLS/SSL.
 
-Ten typ architektury jest skuteczny dla małego wdrożenia lub środowiska nieprodukcyjnego. W przypadku wdrożenia produkcyjnego lub w dużej skali można mieć oddzielne hosty dla aplikacji sieci Web, a także wiele hostów aplikacji BOBI umożliwiających serwerowi przetworzenie dodatkowych informacji.
+Ten typ architektury jest skuteczny w przypadku małych wdrożeń lub nieprodukcyjnych środowisk. W przypadku wdrożenia produkcyjnego lub na dużą skalę można mieć oddzielne hosty dla aplikacji internetowej oraz wiele hostów aplikacji BOBI, co umożliwia serwerowi przetwarzanie większej ilości informacji.
 
 ![Wdrażanie oprogramowania SAP BOBI na platformie Azure dla systemu Linux](media/businessobjects-deployment-guide/businessobjects-deployment-linux.png)
 
-W tym przykładzie użyto wersji produktu i układu systemu plików
+W tym przykładzie jest używany poniżej wersji produktu i układ systemu plików
 
-- Platforma SAP BusinessObjects 4,3
+- SAP BusinessObjects Platform 4.3
 - SUSE Linux Enterprise Server 12 SP5
 - Azure Database for MySQL (wersja: 8.0.15)
-- Łącznik interfejsu API MySQL C — libmysqlclient (wersja: 6.1.11)
+- Łącznik interfejsu API języka C mySQL — libmysqlclient (wersja: 6.1.11)
 
 | System plików        | Opis                                                                                                               | Rozmiar (GB)             | Właściciel  | Group (Grupa)  | Storage                    |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------------------|--------|--------|----------------------------|
-| /usr/sap           | System plików na potrzeby instalacji wystąpienia SAP BOBI, domyślnej aplikacji sieci Web Tomcat i sterowników bazy danych (w razie potrzeby) | Wytyczne dotyczące ustalania wielkości SAP | bl1adm | sapsys | Zarządzany dysk w warstwie Premium — SSD |
-| /usr/sap/frsinput  | Katalog instalacji jest przeznaczony dla plików udostępnionych na wszystkich hostach BOBI, które będą używane jako katalog repozytorium plików wejściowych  | Potrzeby biznesowe         | bl1adm | sapsys | Azure NetApp Files         |
-| /usr/sap/frsoutput | Katalog instalacji jest przeznaczony dla plików udostępnionych na wszystkich hostach BOBI, które będą używane jako katalog plików wyjściowych repozytorium | Potrzeby biznesowe         | bl1adm | sapsys | Azure NetApp Files         |
+| /usr/sap           | System plików do instalacji wystąpienia SAP BOBI, domyślna aplikacja internetowa Tomcat i sterowniki bazy danych (w razie potrzeby) | Wytyczne dotyczące rozmiarów oprogramowania SAP | bl1adm | sapsys | Zarządzany dysk w warstwie Premium — SSD |
+| /usr/sap/frsinput  | Katalog instalacji jest dla plików udostępnionych na wszystkich hostach BOBI, które będą używane jako katalog repozytorium plików wejściowych  | Potrzeby biznesowe         | bl1adm | sapsys | Azure NetApp Files         |
+| /usr/sap/frsoutput | Katalog instalacji jest dla plików udostępnionych na wszystkich hostach BOBI, które będą używane jako katalog repozytorium plików wyjściowych | Potrzeby biznesowe         | bl1adm | sapsys | Azure NetApp Files         |
 
-## <a name="deploy-linux-virtual-machine-via-azure-portal"></a>Wdróż maszynę wirtualną z systemem Linux za pomocą Azure Portal
+## <a name="deploy-linux-virtual-machine-via-azure-portal"></a>Wdrażanie maszyny wirtualnej z systemem Linux za pośrednictwem Azure Portal
 
-W tej sekcji utworzymy dwie maszyny wirtualne z obrazem systemu operacyjnego Linux dla platformy SAP BOBI. Poniżej przedstawiono procedurę wysokiego poziomu służącą do tworzenia Virtual Machines:
+W tej sekcji utworzymy dwie maszyny wirtualne z obrazem systemu operacyjnego Linux dla platformy SAP BOBI. Kroki wysokiego poziomu w celu utworzenia Virtual Machines są następujące:
 
 1. Tworzenie [grupy zasobów](../../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups)
 
 2. Utwórz [Virtual Network](../../../virtual-network/quick-create-portal.md#create-a-virtual-network).
 
-   - Nie używaj jednej podsieci dla wszystkich usług platformy Azure we wdrożeniu platformy SAP BI. Na podstawie architektury platformy SAP BI należy utworzyć wiele podsieci. W tym wdrożeniu utworzymy trzy podsieci — podsieć aplikacji, podsieć magazynu repozytorium plików oraz podsieć Application Gateway.
-   - Na platformie Azure Application Gateway i Azure NetApp Files zawsze muszą znajdować się w osobnej podsieci. Aby uzyskać więcej informacji, sprawdź [Application Gateway platformy Azure](../../../application-gateway/configuration-overview.md) i [wskazówki dotyczące artykułu Planowanie sieci Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-network-topologies.md) .
+   - Nie używaj pojedynczej podsieci dla wszystkich usług platformy Azure we wdrożeniu platformy SAP BI. W oparciu o architekturę platformy SAP BI Platform należy utworzyć wiele podsieci. W tym wdrożeniu utworzymy trzy podsieci — podsieć aplikacji, podsieć magazynu repozytoriów plików i podsieć Application Gateway Podsieci.
+   - Na platformie Azure Application Gateway i Azure NetApp Files zawsze muszą być w oddzielnej podsieci. Zobacz [Azure Application Gateway](../../../application-gateway/configuration-overview.md) i [wskazówki dotyczące Azure NetApp Files planowania sieci,](../../../azure-netapp-files/azure-netapp-files-network-topologies.md) aby uzyskać więcej szczegółów.
 
 3. Utwórz zestaw dostępności.
 
-   - Aby zapewnić nadmiarowość dla każdej warstwy w przypadku wdrożenia z obsługą wiele wystąpień, należy umieścić maszyny wirtualne dla każdej warstwy w zestawie dostępności. Upewnij się, że zestawy dostępności dla każdej warstwy są rozdzielone na podstawie architektury.
+   - Aby uzyskać nadmiarowość dla każdej warstwy we wdrożeniu z wieloma wystąpieniami, umieść maszyny wirtualne dla każdej warstwy w zestawie dostępności. Upewnij się, że zestawy dostępności są oddzielone dla każdej warstwy na podstawie architektury.
 
 4. Utwórz maszynę wirtualną 1 **(azusbosl1).**
 
-   - Możesz użyć obrazu niestandardowego lub wybrać obraz z witryny Azure Marketplace. Zapoznaj się z artykułem [Wdrażanie maszyny wirtualnej z poziomu portalu Azure Marketplace dla oprogramowania SAP](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/workloads/sap/deployment-guide.md#scenario-1-deploying-a-vm-from-the-azure-marketplace-for-sap) lub [Wdrażanie maszyny wirtualnej z niestandardowym obrazem dla oprogramowania SAP](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/workloads/sap/deployment-guide.md#scenario-2-deploying-a-vm-with-a-custom-image-for-sap) na podstawie Twoich potrzeb.
+   - Możesz użyć obrazu niestandardowego lub wybrać obraz z Azure Marketplace. Zapoznaj się [z tematem Deploying a VM from the Azure Marketplace for SAP](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/workloads/sap/deployment-guide.md#scenario-1-deploying-a-vm-from-the-azure-marketplace-for-sap) (Wdrażanie maszyny wirtualnej na potrzeby oprogramowania SAP) lub [Deploying a VM with a custom image for SAP](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/workloads/sap/deployment-guide.md#scenario-2-deploying-a-vm-with-a-custom-image-for-sap) (Wdrażanie maszyny wirtualnej z niestandardowym obrazem dla oprogramowania SAP w zależności od potrzeb).
 
 5. Utwórz maszynę wirtualną 2 **(azusbosl2).**
-6. Dodaj jeden SSD w warstwie Premium dysk. Będzie on używany jako katalog instalacji SAP BOBI.
+6. Dodaj jeden SSD w warstwie Premium dysku. Będzie on używany jako katalog instalacyjny SAP BOBI.
 
-## <a name="provision-azure-netapp-files"></a>Azure NetApp Files udostępniania
+## <a name="provision-azure-netapp-files"></a>Aprowizuj Azure NetApp Files
 
-Przed kontynuowaniem instalacji Azure NetApp Files zapoznaj się z dokumentacją usługi Azure [NetApp](../../../azure-netapp-files/azure-netapp-files-introduction.md).
+Przed kontynuowaniem konfigurowania usługi Azure NetApp Files zapoznaj się z dokumentacją usługi Azure [NetApp Files.](../../../azure-netapp-files/azure-netapp-files-introduction.md)
 
-Azure NetApp Files jest dostępna w kilku [regionach świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). Sprawdź, czy wybrany region platformy Azure oferuje Azure NetApp Files.
+Azure NetApp Files jest dostępna w kilku regionach [świadczenia usługi Azure.](https://azure.microsoft.com/global-infrastructure/services/?products=netapp) Sprawdź, czy wybrany region świadczenia usługi Azure oferuje Azure NetApp Files.
 
-Użyj [Azure NetApp Files dostępność według regionów platformy Azure](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all) , aby sprawdzić dostępność Azure NetApp Files według regionów.
+Użyj [Azure NetApp Files dostępność według regionów platformy Azure,](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all) aby sprawdzić dostępność Azure NetApp Files według regionów.
 
-Zażądaj dołączenia do Azure NetApp Files, przechodząc do [instrukcji Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-register.md) przed wdrożeniem Azure NetApp Files.
+Przed wdrożeniem aplikacji Azure NetApp Files żądanie dołączania do usługi Azure NetApp Files się w celu Azure NetApp Files do Azure NetApp Files. [](../../../azure-netapp-files/azure-netapp-files-register.md)
 
-### <a name="deploy-azure-netapp-files-resources"></a>Wdrażanie zasobów Azure NetApp Files
+### <a name="deploy-azure-netapp-files-resources"></a>Wdrażanie Azure NetApp Files zasobów
 
-W poniższych instrukcjach przyjęto założenie, że [usługa Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md)została już wdrożona. Azure NetApp Files zasoby i maszyny wirtualne, w których zostaną zainstalowane zasoby Azure NetApp Files, muszą być wdrożone w tej samej sieci wirtualnej platformy Azure lub w równorzędnych sieciach wirtualnych platformy Azure.
+W poniższych instrukcjach przyjęto założenie, że sieć wirtualna platformy Azure została [już wdrożona.](../../../virtual-network/virtual-networks-overview.md) Zasoby Azure NetApp Files i maszyny wirtualne, na których zostaną zainstalowane zasoby usługi Azure NetApp Files, muszą zostać wdrożone w tej samej sieci wirtualnej platformy Azure lub w wirtualnych sieciach równorzędnych platformy Azure.
 
-1. Jeśli zasoby nie zostały jeszcze wdrożone, zażądaj dołączenia [do Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-register.md).
+1. Jeśli zasoby nie zostały jeszcze wdrożone, [zażądaj](../../../azure-netapp-files/azure-netapp-files-register.md)do Azure NetApp Files .
 
-2. Utwórz konto NetApp w wybranym regionie świadczenia usługi Azure, postępując zgodnie z instrukcjami w temacie [Tworzenie konta NetApp](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).
+2. Utwórz konto usługi NetApp w wybranym regionie platformy Azure, zgodnie z instrukcjami w tece [Tworzenie konta usługi NetApp.](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md)
 
-3. Skonfiguruj pulę pojemności Azure NetApp Files, postępując zgodnie z instrukcjami w temacie [konfigurowanie Azure NetApp Files puli pojemności](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).
+3. Skonfiguruj pulę Azure NetApp Files pojemności, zgodnie z instrukcjami w te Azure NetApp Files [puli pojemności.](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md)
 
-   - Architektura platformy SAP BI przedstawiona w tym artykule korzysta z jednej Azure NetApp Files puli pojemności na poziomie usługi *Premium* . W przypadku serwera repozytorium plików analizy biznesowej SAP na platformie Azure zalecamy użycie poziomu Azure NetApp Files *Premium* lub *Ultra* [Service](../../../azure-netapp-files/azure-netapp-files-service-levels.md).
+   - Architektura platformy SAP BI przedstawiona w tym artykule używa jednej Azure NetApp Files pojemności na poziomie *usługi Premium.* W przypadku serwera repozytorium plików SAP BI na platformie Azure zalecamy użycie usługi Azure NetApp Files *Premium* lub *Ultra.* [](../../../azure-netapp-files/azure-netapp-files-service-levels.md)
 
-4. Delegowanie podsieci do Azure NetApp Files, zgodnie z opisem w temacie [delegowanie podsieci do Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).
+4. Deleguj podsieć do Azure NetApp Files, zgodnie z opisem w instrukcjach w tece [Delegowanie](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md)podsieci do Azure NetApp Files .
 
-5. Wdróż woluminy Azure NetApp Files, postępując zgodnie z instrukcjami w temacie [Tworzenie woluminu NFS dla Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md).
+5. Wd Azure NetApp Files woluminów sieciowych, zgodnie z instrukcjami w te [tematu Create an NFS volume for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md)(Tworzenie woluminu NFS dla Azure NetApp Files ).
 
-   Wolumin ANF można wdrożyć jako NFSv3 i NFSv 4.1, ponieważ oba protokoły są obsługiwane przez platformę SAP BOBI. Wdróż woluminy w odpowiedniej podsieci Azure NetApp Files. Adresy IP woluminów NetApp platformy Azure są przypisywane automatycznie.
+   Wolumin ANF można wdrożyć jako NFSv3 i NFSv4.1, ponieważ oba protokoły są obsługiwane w przypadku platformy SAP BOBI. Wd wdrażaj woluminy w odpowiedniej Azure NetApp Files podsieci. Adresy IP woluminów Usługi Azure NetApp są przypisywane automatycznie.
 
-Należy pamiętać, że zasoby Azure NetApp Files i maszyny wirtualne platformy Azure muszą znajdować się w tej samej sieci wirtualnej platformy Azure lub w równorzędnych sieciach wirtualnych platformy Azure. Na przykład azusbobi-frsinput, azusbobi-frsoutput są nazwami woluminów i nfs://10.31.2.4/azusbobi-frsinput, nfs://10.31.2.4/azusbobi-frsoutput są ścieżkami plików dla woluminów Azure NetApp Files.
+Należy pamiętać, że zasoby Azure NetApp Files i maszyny wirtualne platformy Azure muszą znajdować się w tej samej sieci wirtualnej platformy Azure lub w wirtualnych sieciach równorzędnych platformy Azure. Na przykład azusbobi-frsinput, azusbobi-frsoutput to nazwy woluminów i nfs://10.31.2.4/azusbobi-frsinput, nfs://10.31.2.4/azusbobi-frsoutput są ścieżkami plików dla woluminów Azure NetApp Files woluminów.
 
-- Volume azusbobi-frsinput (nfs://10.31.2.4/azusbobi-frsinput)
-- Volume azusbobi-frsoutput (nfs://10.31.2.4/azusbobi-frsoutput)
+- Wolumin azusbobi-frsinput (nfs://10.31.2.4/azusbobi-frsinput)
+- Wolumin azusbobi-frsoutput (nfs://10.31.2.4/azusbobi-frsoutput)
 
 ### <a name="important-considerations"></a>Istotne zagadnienia
 
-Podczas tworzenia Azure NetApp Files dla serwera repozytorium plików platformy SAP BOBI należy pamiętać o następujących kwestiach:
+Podczas tworzenia aplikacji dla Azure NetApp Files SAP BOBI Platform File Repository Server należy pamiętać o następujących zagadnieniach:
 
-1. Minimalna Pula pojemności to 4 tebibajtów (TiB).
-2. Minimalny rozmiar woluminu to 100 gibibajtach (GiB).
-3. Azure NetApp Files i wszystkie maszyny wirtualne, na których zostaną zainstalowane woluminy Azure NetApp Files, muszą znajdować się w tej samej sieci wirtualnej platformy Azure lub w [równorzędnych sieciach wirtualnych](../../../virtual-network/virtual-network-peering-overview.md) w tym samym regionie. Azure NetApp Files dostęp za pośrednictwem komunikacji równorzędnej sieci wirtualnej w tym samym regionie jest obecnie obsługiwany. Dostęp do usługi Azure NetApp za pośrednictwem globalnej komunikacji równorzędnej nie jest jeszcze obsługiwany.
-4. Wybrana Sieć wirtualna musi mieć podsieć delegowaną do Azure NetApp Files.
-5. Za pomocą [zasad eksportu](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md)Azure NetApp Files można kontrolować dozwolonych klientów, typ dostępu (odczyt i zapis, tylko do odczytu itd.).
-6. Funkcja Azure NetApp Files nie jest jeszcze dostępna dla strefy. Obecnie funkcja nie jest wdrażana we wszystkich strefach dostępności w regionie świadczenia usługi Azure. Weź pod uwagę potencjalne konsekwencje opóźnienia w niektórych regionach świadczenia usługi Azure.
-7. Woluminy Azure NetApp Files można wdrożyć jako woluminy NFSv3 lub NFSv 4.1. Oba protokoły są obsługiwane w przypadku aplikacji platformy SAP BI.
+1. Minimalna pula pojemności to 4 tebibajty (TiB).
+2. Minimalny rozmiar woluminu to 100 gibibajtów (GiB).
+3. Azure NetApp Files i wszystkie maszyny wirtualne, na których zostaną zainstalowane woluminy Azure NetApp Files, muszą [](../../../virtual-network/virtual-network-peering-overview.md) znajdować się w tej samej sieci wirtualnej platformy Azure lub w wirtualnych sieciach równorzędnych w tym samym regionie. Azure NetApp Files jest teraz obsługiwany dostęp za pośrednictwem komunikacji równorzędnej sieci wirtualnych w tym samym regionie. Dostęp do usługi Azure NetApp za pośrednictwem globalnej komunikacji równorzędnej nie jest jeszcze obsługiwany.
+4. Wybrana sieć wirtualna musi mieć podsieć delegowaną do Azure NetApp Files.
+5. Za pomocą Azure NetApp Files [eksportu](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md)można kontrolować dozwolonych klientów, typ dostępu (odczyt-zapis, tylko do odczytu itd.).
+6. Funkcja Azure NetApp Files nie ma jeszcze funkcji strefowej. Obecnie funkcja nie jest wdrażana we wszystkich strefach dostępności w regionie świadczenia usługi Azure. Należy pamiętać o potencjalnych konsekwencjach opóźnienia w niektórych regionach świadczenia usługi Azure.
+7. Azure NetApp Files można wdrożyć jako woluminy NFSv3 lub NFSv4.1. Oba protokoły są obsługiwane w przypadku aplikacji platformy SAP BI.
 
 ## <a name="configure-file-systems-on-linux-servers"></a>Konfigurowanie systemów plików na serwerach z systemem Linux
 
-W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
+W krokach w tej sekcji są następujące prefiksy:
 
-**[A]**: krok dotyczy wszystkich hostów
+**[A]**: Krok ma zastosowanie do wszystkich hostów
 
-### <a name="format-and-mount-sap-file-system"></a>Sformatuj i zainstaluj system plików SAP
+### <a name="format-and-mount-sap-file-system"></a>Formatowanie i montowania systemu plików SAP
 
-1. **[A]** Wyświetl listę wszystkich dołączonych dysków
+1. **[A] Lista** wszystkich dołączonych dysków
 
     ```bash
     sudo lsblk
@@ -134,19 +134,19 @@ W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
     # Premium SSD of 128 GB is attached to Virtual Machine, whose device name is sdc
     ```
 
-2. **[A]** format bloku urządzenia dla/usr/SAP
+2. **[A] Formatuj** urządzenie blokowe dla /usr/sap
 
     ```bash
     sudo mkfs.xfs /dev/sdc
     ```
 
-3. **[A]** Utwórz katalog instalacji
+3. **[A] Tworzenie** katalogu instalacji
 
     ```bash
     sudo mkdir -p /usr/sap
     ```
 
-4. **[A]** Pobieranie identyfikatora UUID urządzenia blokowego
+4. **[A]** Pobierz UUID urządzenia blokowego
 
     ```bash
     sudo blkid
@@ -156,13 +156,13 @@ W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
     /dev/sdc: UUID="0eb5f6f8-fa77-42a6-b22d-7a9472b4dd1b" TYPE="xfs"
     ```
 
-5. **[A]** obsługa wpisu instalacji systemu plików w/etc/fstab
+5. **[A]** Obsługa wpisu instalacji systemu plików w /etc/fstab
 
     ```bash
     sudo echo "UUID=0eb5f6f8-fa77-42a6-b22d-7a9472b4dd1b /usr/sap xfs defaults,nofail 0 2" >> /etc/fstab
     ```
 
-6. **[A]** Zainstaluj system plików
+6. **[A] Zainstaluj** system plików
 
     ```bash
     sudo mount -a
@@ -181,7 +181,7 @@ W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
     /dev/sdc                       128G   29G  100G  23% /usr/sap
     ```
 
-### <a name="mount-azure-netapp-files-volume"></a>Zainstaluj wolumin Azure NetApp Files
+### <a name="mount-azure-netapp-files-volume"></a>Zainstaluj Azure NetApp Files woluminu
 
 1. **[A]** Tworzenie katalogów instalacji
 
@@ -190,13 +190,13 @@ W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
    sudo mkdir -p /usr/sap/frsoutput
    ```
 
-2. **[A]** Skonfiguruj system operacyjny klienta do obsługi instalacji nfsv 4.1 **(dotyczy tylko sytuacji, gdy używany jest nfsv 4.1)**
+2. **[A]** Skonfiguruj system operacyjny klienta do obsługi instalacji NFSv4.1 (dotyczy tylko w przypadku korzystania z **NFSv4.1)**
 
-   Jeśli używasz Azure NetApp Files woluminów z protokołem NFSv 4.1, wykonaj następującą konfigurację na wszystkich maszynach wirtualnych, gdzie należy zainstalować woluminy Azure NetApp Files NFSv 4.1.
+   Jeśli używasz woluminów Azure NetApp Files z protokołem NFSv4.1, wykonaj następującą konfigurację na wszystkich maszyn wirtualnych, na których należy Azure NetApp Files NFSv4.1.
 
-   **Weryfikowanie ustawień domeny systemu plików NFS**
+   **Weryfikowanie ustawień domeny NFS**
 
-   Upewnij się, że domena jest skonfigurowana jako domyślna domena Azure NetApp Files,  **defaultv4iddomain.com** , a mapowanie jest ustawione na wartość **nikt**.
+   Upewnij się, że domena jest skonfigurowana jako domyślna  Azure NetApp Files, czyli defaultv4iddomain.com, a mapowanie jest **ustawione** na nikt.
 
    ```bash
    sudo cat /etc/idmapd.conf
@@ -210,9 +210,9 @@ W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
 
    > [!Important]
    >
-   > Upewnij się, że ustawiono domenę systemu plików NFS w/etc/idmapd.conf na maszynie wirtualnej tak, aby była zgodna z domyślną konfiguracją domeny w Azure NetApp Files: **defaultv4iddomain.com**. Jeśli istnieje niezgodność między konfiguracją domeny na kliencie NFS (tj. maszyną wirtualną) a serwerem NFS, tj. konfiguracją usługi Azure NetApp, uprawnienia do plików na woluminach NetApp platformy Azure, które są zainstalowane na maszynach wirtualnych, będą wyświetlane jako nikt.
+   > Upewnij się, że ustawiono domenę NFS w pliku /etc/idmapd.conf na maszynie wirtualnej, aby dopasować domyślną konfigurację domeny na Azure NetApp Files: **defaultv4iddomain.com**. Jeśli wystąpi niezgodność między konfiguracją domeny na kliencie systemu plików NFS (tj. maszynie wirtualnej) a serwerem NFS, tj. konfiguracji usługi Azure NetApp, uprawnienia do plików na woluminach usługi Azure NetApp zainstalowanych na maszynach wirtualnych będą wyświetlane jako nikt.
 
-   Sprawdź `nfs4_disable_idmapping` . Powinna być ustawiona na wartość **Y**. Aby utworzyć strukturę katalogów, w której `nfs4_disable_idmapping` znajduje się, wykonaj polecenie instalacji. Nie będzie można ręcznie utworzyć katalogu w obszarze/sys/modules, ponieważ dostęp jest zarezerwowany dla jądra/sterowników.
+   Zweryfikuj `nfs4_disable_idmapping` . Powinna być ustawiona wartość **Y**. Aby utworzyć strukturę katalogów, w `nfs4_disable_idmapping` której się znajduje, wykonaj polecenie instalacji. Nie będzie można ręcznie utworzyć katalogu w obszarze /sys/modules, ponieważ dostęp jest zarezerwowany dla jądra/sterowników.
 
    ```bash
    # Check nfs4_disable_idmapping
@@ -231,21 +231,21 @@ W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
 
 3. **[A]** Dodawanie wpisów instalacji
 
-   Jeśli jest używany NFSv3
+   W przypadku korzystania z systemu plików NFSv3
 
    ```bash
    sudo echo "10.31.2.4:/azusbobi-frsinput /usr/sap/frsinput  nfs   rw,hard,rsize=65536,wsize=65536,vers=3" >> /etc/fstab
    sudo echo "10.31.2.4:/azusbobi-frsoutput /usr/sap/frsoutput  nfs   rw,hard,rsize=65536,wsize=65536,vers=3" >> /etc/fstab
    ```
 
-   Jeśli jest używany program NFSv 4.1
+   W przypadku korzystania z systemu plików NFSv4.1
 
    ```bash
    sudo echo "10.31.2.4:/azusbobi-frsinput /usr/sap/frsinput  nfs   rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys" >> /etc/fstab
    sudo echo "10.31.2.4:/azusbobi-frsoutput /usr/sap/frsoutput  nfs   rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys" >> /etc/fstab
    ```
 
-4. **[A]** Zainstaluj WOLUMINy NFS
+4. **[A]** Zainstaluj woluminy NFS
 
    ```bash
    sudo mount -a
@@ -266,49 +266,49 @@ W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
    10.31.2.4:/azusbobi-frsoutput  100T  512K  100T   1% /usr/sap/frsoutput
    ```
 
-## <a name="configure-cms-database---azure-database-for-mysql"></a>Konfigurowanie usługi CMS Database — Azure Database for MySQL
+## <a name="configure-cms-database---azure-database-for-mysql"></a>Konfigurowanie bazy danych programu CMS — Azure Database for MySQL
 
-Ta sekcja zawiera szczegółowe informacje na temat udostępniania Azure Database for MySQL przy użyciu Azure Portal. Zawiera również instrukcje dotyczące tworzenia baz danych CMS i Audit dla platformy SAP BOBI oraz konta użytkownika w celu uzyskania dostępu do bazy danych.
+Ta sekcja zawiera szczegółowe informacje na temat Azure Database for MySQL przy użyciu Azure Portal. Zawiera on również instrukcje dotyczące tworzenia baz danych cms i inspekcji dla platformy SAP BOBI oraz konta użytkownika w celu uzyskania dostępu do bazy danych.
 
-Wytyczne są stosowane tylko w przypadku korzystania z usługi Azure DB for MySQL. Aby uzyskać instrukcje dotyczące innych baz danych, zapoznaj się z dokumentacją dotyczącą oprogramowania SAP lub bazy danych.
+Wytyczne mają zastosowanie tylko wtedy, gdy używasz Azure DB for MySQL. Instrukcje dotyczące innych baz danych można znaleźć w dokumentacji oprogramowania SAP lub specyficznej dla bazy danych.
 
-### <a name="create-an-azure-database-for-mysql"></a>Tworzenie usługi Azure Database for MySQL
+### <a name="create-an-azure-database-for-mysql"></a>Tworzenie bazy danych platformy Azure dla programu MySQL
 
-Zaloguj się do Azure Portal i wykonaj kroki opisane w tym [przewodniku szybki start dotyczące Azure Database for MySQL](../../../mysql/quickstart-create-mysql-server-database-using-azure-portal.md). Kilka punktów do zanotowania podczas aprowizacji Azure Database for MySQL —
+Zaloguj się do Azure Portal i wykonaj kroki opisane w przewodniku Szybki [start](../../../mysql/quickstart-create-mysql-server-database-using-azure-portal.md)Azure Database for MySQL . Kilka punktów, na które należy zwrócić uwagę podczas Azure Database for MySQL —
 
-1. Wybierz ten sam region dla Azure Database for MySQL, w którym są uruchomione serwery aplikacji platformy SAP BI platform.
+1. Wybierz ten sam region dla Azure Database for MySQL, w którym działają serwery aplikacji platformy SAP BI.
 
-2. Wybierz obsługiwaną wersję bazy danych opartą na [macierzy dostępności produktu (PAM) dla usługi SAP BI](https://support.sap.com/pam) specyficznej dla wersji SAP BOBI. Postępuj zgodnie z tymi samymi wskazówkami dotyczącymi zgodności, które zostały uwzględnione w programie MySQL
+2. Wybierz obsługiwaną wersję bazy danych na podstawie macierzy dostępności [produktu (PAM) dla usługi SAP BI](https://support.sap.com/pam) specyficznej dla danej wersji SAP BOBI. Postępuj zgodnie z tymi samymi wytycznymi dotyczącymi zgodności, które zostały rozwiązane dla usługi MySQL AB w programie SAP PAM
 
-3. W obszarze "obliczeniowe + magazyn" Wybierz pozycję **Konfiguruj serwer** i wybierz odpowiednią warstwę cenową na podstawie wielkości danych wyjściowych.
+3. W warstwie "obliczenia+magazyn" wybierz pozycję **Konfiguruj serwer** i wybierz odpowiednią warstwę cenową na podstawie rozmiaru danych wyjściowych.
 
-4. Funkcja **automatycznego wzrostu magazynu** jest domyślnie włączona. Należy pamiętać, że [Magazyn](../../../mysql/concepts-pricing-tiers.md#storage) można skalować w górę, nie w dół.
+4. **Automatyczne skalowanie magazynu** jest domyślnie włączone. Należy pamiętać, że [magazyn można](../../../mysql/concepts-pricing-tiers.md#storage) skalować tylko w górę, a nie w dół.
 
-5. Domyślnie **kopia zapasowa okresu przechowywania** wynosi siedem dni, ale opcjonalnie można ją [skonfigurować](../../../mysql/howto-restore-server-portal.md#set-backup-configuration) do 35 dni.
+5. Domyślnie okres **przechowywania kopii zapasowej** wynosi siedem dni, ale [opcjonalnie](../../../mysql/howto-restore-server-portal.md#set-backup-configuration) można go skonfigurować do 35 dni.
 
-6. Kopie zapasowe Azure Database for MySQL są domyślnie lokalnie nadmiarowe, więc jeśli chcesz, aby kopie zapasowe serwera były wykonywane w magazynie geograficznie nadmiarowym, wybierz opcję **Geograficznie nadmiarowy** z **opcji nadmiarowości kopii zapasowej**.
+6. Kopie zapasowe Azure Database for MySQL są domyślnie lokalnie nadmiarowe, więc jeśli chcesz, aby kopie  zapasowe serwera były przechowywane w magazynie geograficznie nadmiarowym, wybierz pozycję Geograficznie nadmiarowe w obszarze Opcje **nadmiarowości kopii zapasowej.**
 
 > [!NOTE]
-> Zmiana [opcji nadmiarowości kopii zapasowej](../../../mysql/concepts-backup.md#backup-redundancy-options) po utworzeniu serwera nie jest obsługiwana.
+> Zmiana opcji [nadmiarowości kopii zapasowej](../../../mysql/concepts-backup.md#backup-redundancy-options) po utworzeniu serwera nie jest obsługiwana.
 
 ### <a name="configure-connection-security"></a>Konfigurowanie zabezpieczeń połączeń
 
-Domyślnie utworzony serwer jest chroniony za pomocą zapory i nie jest dostępny publicznie. Aby zapewnić dostęp do sieci wirtualnej, w której działają serwery aplikacji usługi SAP BI platform, wykonaj poniższe czynności.  
+Domyślnie utworzony serwer jest chroniony przez zaporę i nie jest dostępny publicznie. Aby zapewnić dostęp do sieci wirtualnej, w której działają serwery aplikacji platformy SAP BI, wykonaj następujące kroki:  
 
-1. Przejdź do zasobów serwera w Azure Portal i wybierz pozycję **zabezpieczenia połączeń** z menu po lewej stronie dla zasobu serwera.
-2. Wybierz pozycję **tak** , aby **zezwolić na dostęp do usług platformy Azure**.
-3. W obszarze reguły sieci wirtualnej wybierz pozycję **Dodawanie istniejącej sieci wirtualnej**. Wybierz sieć wirtualną i podsieć serwera aplikacji SAP BI platform. Ponadto należy zapewnić dostęp do pola skoku lub innych serwerów, z których można połączyć [MySQL Workbench](../../../mysql/connect-workbench.md) z Azure Database for MySQL. Program MySQL Workbench zostanie użyty do utworzenia usługi CMS i bazy danych inspekcji
-4. Po dodaniu sieci wirtualnych wybierz pozycję **Zapisz**.
+1. Przejdź do zasobów serwera w Azure Portal i wybierz pozycję **Zabezpieczenia** połączeń z menu po lewej stronie dla zasobu serwera.
+2. Wybierz **pozycję Tak,** **aby zezwolić na dostęp do usług platformy Azure.**
+3. W obszarze Reguły sieci wirtualnej wybierz **pozycję Dodawanie istniejącej sieci wirtualnej.** Wybierz sieć wirtualną i podsieć serwera aplikacji platformy SAP BI. Należy również zapewnić dostęp do serwera przeskoku lub innych serwerów, z których można połączyć program [MySQL Workbench](../../../mysql/connect-workbench.md) z Azure Database for MySQL. Baza danych programu MySQL Workbench zostanie użyta do utworzenia bazy danych cms i inspekcji
+4. Po dodaniu sieci wirtualnych wybierz pozycję **Zapisz.**
 
-### <a name="create-cms-and-audit-database"></a>Tworzenie usługi CMS i bazy danych inspekcji
+### <a name="create-cms-and-audit-database"></a>Tworzenie bazy danych cms i inspekcji
 
-1. Pobierz i zainstaluj program MySQL Workbench z [witryny sieci Web MySQL](https://dev.mysql.com/downloads/workbench/). Upewnij się, że instalujesz program MySQL Workbench na serwerze, który ma dostęp do Azure Database for MySQL.
+1. Pobierz i zainstaluj aplikację MySQL Workbench z [witryny internetowej MySQL.](https://dev.mysql.com/downloads/workbench/) Upewnij się, że instalujesz aplikację MySQL Workbench na serwerze, który może uzyskać dostęp Azure Database for MySQL.
 
-2. Połącz się z serwerem za pomocą programu MySQL Workbench. Postępuj zgodnie z instrukcjami wymienionymi w tym [artykule](../../../mysql/connect-workbench.md#get-connection-information). Jeśli test połączenia zakończy się pomyślnie, zostanie wyświetlony następujący komunikat:
+2. Nawiązywanie połączenia z serwerem przy użyciu aplikacji MySQL Workbench. Postępuj zgodnie z instrukcjami wymienionymi w tym [artykule.](../../../mysql/connect-workbench.md#get-connection-information) Jeśli test połączenia zostanie pomyślny, zostanie wyświetlony następujący komunikat :
 
-   ![Połączenie SQL Workbench](media/businessobjects-deployment-guide/businessobjects-sql-workbench.png)
+   ![Połączenie z usługą SQL Workbench](media/businessobjects-deployment-guide/businessobjects-sql-workbench.png)
 
-3. Na karcie zapytanie SQL Uruchom poniższe zapytanie, aby utworzyć schemat dla usługi CMS i bazy danych inspekcji.
+3. Na karcie Zapytanie SQL uruchom poniższe zapytanie, aby utworzyć schemat dla bazy danych cms i inspekcji.
 
    ```sql
    # Here cmsbl1 is the database name of CMS database. You can provide the name you want for CMS database.
@@ -318,7 +318,7 @@ Domyślnie utworzony serwer jest chroniony za pomocą zapory i nie jest dostępn
    CREATE SCHEMA `auditbl1` DEFAULT CHARACTER SET utf8;
    ```
    
-4. Utwórz konto użytkownika, aby nawiązać połączenie ze schematem
+4. Tworzenie konta użytkownika w celu nawiązania połączenia ze schematem
 
    ```sql
    # Create a user that can connect from any host, use the '%' wildcard as a host part
@@ -333,7 +333,7 @@ Domyślnie utworzony serwer jest chroniony za pomocą zapory i nie jest dostępn
    FLUSH PRIVILEGES;
    ```
 
-5. Aby sprawdzić uprawnienia i role konta użytkownika programu MySQL
+5. Aby sprawdzić uprawnienia i role konta użytkownika mySQL
 
    ```sql
    USE sys;
@@ -355,15 +355,15 @@ Domyślnie utworzony serwer jest chroniony za pomocą zapory i nie jest dostępn
    +----------------------------------------------------------------------------+
    ```
 
-### <a name="install-mysql-c-api-connector-libmysqlclient-on-linux-server"></a>Zainstaluj łącznik interfejsu API MySQL C (libmysqlclient) na serwerze z systemem Linux
+### <a name="install-mysql-c-api-connector-libmysqlclient-on-linux-server"></a>Instalowanie łącznika interfejsu API języka C mySQL (libmysqlclient) na serwerze z systemem Linux
 
-Aby serwer aplikacji SAP BOBI mógł uzyskać dostęp do bazy danych, wymaga klienta/sterowników bazy danych. Łącznik interfejsu API MySQL C dla systemu Linux musi być używany w celu uzyskiwania dostępu do baz danych CMS i Audit. Połączenie ODBC z bazą danych CMS nie jest obsługiwane. Ta sekcja zawiera instrukcje dotyczące konfigurowania łącznika interfejsu API MySQL C w systemie Linux.
+Aby serwer aplikacji SAP BOBI uzyskać dostęp do bazy danych, wymaga klienta/sterowników bazy danych. Łącznik interfejsu API języka C mySQL dla systemu Linux musi być używany do uzyskiwania dostępu do baz danych cms i inspekcji. Połączenie ODBC z bazą danych programu CMS nie jest obsługiwane. Ta sekcja zawiera instrukcje dotyczące sposobu skonfigurowania łącznika interfejsu API języka C mySQL w systemie Linux.
 
-1. Zapoznaj się z artykułami [dotyczącymi sterowników MySQL i narzędzi do zarządzania, które są zgodne z Azure Database for MySQL](../../../mysql/concepts-compatibility.md) artykule, w którym opisano sterowniki, które są zgodne z Azure Database for MySQL. Sprawdź, czy w artykule znajduje się sterownik **łącznika MySQL/C (libmysqlclient)** .
+1. Zapoznaj się ze sterownikami i narzędziami do zarządzania [MySQL](../../../mysql/concepts-compatibility.md) zgodnymi z Azure Database for MySQL, w którym opisano sterowniki zgodne z Azure Database for MySQL. Sprawdź sterownik **łącznika MySQL/C (libmysqlclient)** w artykule.
 
-2. Skorzystaj z tego [linku](https://downloads.mysql.com/archives/c-c/) , aby pobrać sterowniki.
+2. Skorzystaj z tego [linku, aby](https://downloads.mysql.com/archives/c-c/) pobrać sterowniki.
 
-3. Wybierz system operacyjny i Pobierz pakiet współużytkowanego składnika RPM łącznika programu MySQL. W tym przykładzie używany jest program MySQL-Connector-c-Shared-6.1.11 Connector.
+3. Wybierz system operacyjny i pobierz pakiet rpm składnika udostępnionego łącznika MySQL. W tym przykładzie jest używana wersja łącznika mysql-connector-c-shared-6.1.11.
 
 4. Zainstaluj łącznik we wszystkich wystąpieniach aplikacji SAP BOBI.
 
@@ -383,7 +383,7 @@ Aby serwer aplikacji SAP BOBI mógł uzyskać dostęp do bazy danych, wymaga kli
    libmysqlclient: /usr/lib64/libmysqlclient.so
    ```
 
-6. Ustaw LD_LIBRARY_PATH na `/usr/lib64` katalog dla konta użytkownika, które będzie używane do instalacji.
+6. Ustaw LD_LIBRARY_PATH, aby `/usr/lib64` wskazać katalog dla konta użytkownika, które będzie używane do instalacji.
 
    ```bash
    # This configuration is for bash shell. If you are using any other shell for sidadm, kindly set environment variable accordingly.
@@ -392,19 +392,19 @@ Aby serwer aplikacji SAP BOBI mógł uzyskać dostęp do bazy danych, wymaga kli
    export LD_LIBRARY_PATH=/usr/lib64
    ```
 
-## <a name="server-preparation"></a>Przygotowywanie serwera
+## <a name="server-preparation"></a>Przygotowanie serwera
 
-W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
+W krokach w tej sekcji są następujące prefiksy:
 
-**[A]**: krok ma zastosowanie do wszystkich hostów.
+**[A]**: Krok ma zastosowanie do wszystkich hostów.
 
-1. **[A]** na podstawie wersji systemu Linux (SLES lub RHEL), należy ustawić parametry jądra i zainstalować wymagane biblioteki. Zapoznaj się z sekcją **wymagania systemowe** w [podręczniku instalacji platformy analizy biznesowej dla systemu UNIX](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3/en-US).
+1. **[A]** W zależności od wersji systemu Linux (SLES lub RHEL) należy ustawić parametry jądra i zainstalować wymagane biblioteki. Zapoznaj się z **sekcją Wymagania systemowe** w przewodniku instalacji platformy analizy [biznesowej dla systemu Unix.](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3/en-US)
 
-2. **[A]** upewnij się, że strefa czasowa na maszynie jest prawidłowo ustawiona. Zapoznaj się z [sekcją dodatkowe wymagania dotyczące systemów UNIX i Linux](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3/en-US/46b143336e041014910aba7db0e91070.html) w podręczniku instalacji.
+2. **[A]** Upewnij się, że strefa czasowa na maszynie została prawidłowo ustawiona. Zapoznaj się z [sekcją Dodatkowe wymagania dotyczące systemów Unix i Linux w](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3/en-US/46b143336e041014910aba7db0e91070.html) przewodniku instalacji.
 
-3. **[A]** Utwórz konto użytkownika (**BL1** adm) i grupę (sapsys), w ramach którego mogą być uruchamiane procesy w tle oprogramowania. Użyj tego konta do wykonania instalacji i uruchomienia oprogramowania. Konto nie wymaga uprawnień głównych.
+3. **[A]** Utwórz konto użytkownika **(bl1** adm) i grupę (sapsys), w ramach której mogą być uruchamiane procesy oprogramowania w tle. To konto umożliwia wykonanie instalacji i uruchomienie oprogramowania. Konto nie wymaga uprawnień użytkownika głównego.
 
-4. **[A]** Skonfiguruj środowisko konta użytkownika (**BL1** adm) do korzystania z obsługiwanych ustawień regionalnych UTF-8 i upewnij się, że oprogramowanie konsoli obsługuje zestawy znaków UTF-8. Aby upewnić się, że system operacyjny używa prawidłowych ustawień regionalnych, Ustaw zmienne środowiskowe LC_ALL i LANG na preferowane ustawienia regionalne w środowisku użytkownika (**BL1** adm).
+4. **[A]** Ustaw środowisko konta użytkownika **(bl1** adm) do używania obsługiwanych ustawieniach regionalnych UTF-8 i upewnij się, że oprogramowanie konsolowe obsługuje zestawy znaków UTF-8. Aby upewnić się, że system operacyjny używa prawidłowych wartości regionalnych, ustaw zmienne środowiskowe LC_ALL i LANG na preferowane ustawienia lokalne w środowisku użytkownika (**bl1** adm).
 
    ```bash
    # This configuration is for bash shell. If you are using any other shell for sidadm, kindly set environment variable accordingly.
@@ -414,7 +414,7 @@ W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
    export LC_ALL=en_US.utf8
    ```
 
-5. **[A]** Skonfiguruj konto użytkownika (**BL1** adm).
+5. **[A]** Konfigurowanie konta użytkownika **(bl1** adm).
 
    ```bash
    # Set ulimit for bl1adm to unlimited
@@ -442,11 +442,11 @@ W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
    file locks                      (-x) unlimited
    ```
 
-6. Pobierz i Wyodrębnij multimedia dla platformy SAP BusinessObjects BI platform z witryny SAP Service Marketplace.
+6. Pobierz i wyodrębnij nośnik dla platformy SAP BusinessObjects BI Platform z witryny SAP Service Marketplace.
 
 ## <a name="installation"></a>Instalacja
 
-Sprawdź ustawienia regionalne konta użytkownika **BL1** adm na serwerze
+Sprawdź ustawienia lokalne konta użytkownika **bl1** adm na serwerze
 
 ```bash
 bl1adm@azusbosl1:~> locale
@@ -454,39 +454,39 @@ LANG=en_US.utf8
 LC_ALL=en_US.utf8
 ```
 
-Przejdź do nośnika platformy SAP BusinessObjects BI platform i uruchom polecenie poniżej z użytkownikiem **BL1** adm —
+Przejdź do nośnika platformy SAP BusinessObjects BI i uruchom poniższe polecenie z **użytkownikiem bl1** adm —
 
 ```bash
 ./setup.sh -InstallDir /usr/sap/BL1
 ```
 
-Postępuj zgodnie z przewodnikiem instalacji [platformy SAP BOBI](https://help.sap.com/viewer/product/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM) dla systemu UNIX, który jest specyficzny dla danej wersji. Kilka punktów do zanotowania podczas instalowania platformy SAP BOBI.
+Postępuj [zgodnie z przewodnikiem instalacji platformy SAP BOBI](https://help.sap.com/viewer/product/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM) dla systemu Unix specyficznym dla Danej wersji. Kilka punktów, na które należy zwrócić uwagę podczas instalowania platformy SAP BOBI.
 
-- Na ekranie **Konfigurowanie rejestracji produktu** możesz użyć tymczasowego klucza licencji dla rozwiązań SAP BusinessObjects z poziomu programu sap Uwaga [1288121](https://launchpad.support.sap.com/#/notes/1288121) lub wygenerować klucz licencji w portalu usługi SAP
+- Na **ekranie Konfigurowanie** rejestracji produktu można użyć tymczasowego klucza licencji dla rozwiązań SAP BusinessObjects z oprogramowania SAP Note [1288121](https://launchpad.support.sap.com/#/notes/1288121) lub wygenerować klucz licencji w witrynie SAP Service Marketplace
 
-- Na ekranie **Wybieranie typu instalacji** wybierz pozycję **pełna** instalacja na pierwszym serwerze (azusbosl1), a dla opcji inny serwer (Azusbosl2) wybierz pozycję **niestandardowy/rozwiń** , która spowoduje rozwinięcie istniejącej konfiguracji BOBI.
+- Na **ekranie** Wybierz  typ instalacji wybierz pozycję Pełna instalacja na pierwszym serwerze (azusbosl1), a dla innego serwera (azusbosl2) wybierz pozycję **Niestandardowy/Rozwiń,** co spowoduje rozwinięcie istniejącej konfiguracji bobi.
 
-- Na ekranie **Wybierz domyślną lub istniejącą bazę** danych wybierz pozycję **Konfiguruj istniejącą bazę danych**, która wyświetli monit o wybranie opcji CMS i Audit Database. Wybierz typ bazy danych **MySQL** dla usługi CMS i typ bazy danych inspekcji.
+- Na **ekranie Wybierz domyślną lub** istniejącą bazę danych wybierz pozycję Skonfiguruj istniejącą **bazę** danych, co spowoduje monit o wybranie poleceń CMS i Audit database. Wybierz **pozycję MySQL dla** opcji Typ bazy danych programu CMS i Typ bazy danych inspekcji.
 
-  Możesz również wybrać opcję Brak bazy danych inspekcji, jeśli nie chcesz konfigurować inspekcji podczas instalacji.
+  Możesz również wybrać pozycję Brak bazy danych inspekcji, jeśli nie chcesz konfigurować inspekcji podczas instalacji.
 
-- Wybierz odpowiednie opcje na **ekranie Wybieranie serwera aplikacji sieci Web Java** na podstawie architektury SAP BOBI. W tym przykładzie wybrano opcję 1, która instaluje serwer Tomcat na tej samej platformie SAP BOBI.
+- Wybierz odpowiednie opcje na **ekranie Wybieranie serwera aplikacji internetowej Java** na podstawie architektury SAP BOBI. W tym przykładzie wybraliśmy opcję 1, która instaluje serwer tomcat na tej samej platformie SAP BOBI.
 
-- Wprowadź informacje o bazie danych CMS w temacie **Konfigurowanie REPOZYTORIUM CMS baza danych — MySQL**. Przykładowe dane wejściowe dotyczące instalacji systemu Linux dotyczącej bazy danych CMS. Azure Database for MySQL jest używany na domyślnym porcie 3306
+- Wprowadź informacje o bazie danych programu CMS w **te tematu Configure CMS Repository Database - MySQL (Konfigurowanie bazy danych repozytorium programu CMS — MySQL).** Przykładowe dane wejściowe dla informacji o bazie danych cms dla instalacji systemu Linux. Azure Database for MySQL jest używany na domyślnym porcie 3306
   
-  ![Wdrażanie oprogramowania SAP BOBI w systemie Linux — baza danych CMS](media/businessobjects-deployment-guide/businessobjects-deployment-linux-sql-cms.png)
+  ![Wdrażanie oprogramowania SAP BOBI w systemie Linux — baza danych PROGRAMU CMS](media/businessobjects-deployment-guide/businessobjects-deployment-linux-sql-cms.png)
 
-- Obowiązkowe Wprowadź informacje o bazie danych inspekcji w obszarze **Konfigurowanie repozytorium inspekcji bazy danych programu MySQL**. Przykładowe dane wejściowe dla informacji dotyczących bazy danych inspekcji dla instalacji systemu Linux.
+- (Opcjonalnie) Wprowadź informacje o bazie danych inspekcji w **konfiguracji bazy danych repozytorium inspekcji — MySQL.** Przykładowe dane wejściowe inspekcji informacji o bazie danych dla instalacji systemu Linux.
 
   ![Wdrażanie oprogramowania SAP BOBI w systemie Linux — baza danych inspekcji](media/businessobjects-deployment-guide/businessobjects-deployment-linux-sql-audit.png)
 
 - Postępuj zgodnie z instrukcjami i wprowadź wymagane dane wejściowe, aby ukończyć instalację.
 
-W przypadku wdrożenia z obsługą wiele wystąpień należy uruchomić Instalatora instalacji na drugim hoście (azusbosl2). Na ekranie **Wybieranie typu instalacji** wybierz opcję **niestandardowy/rozwiń** , która spowoduje rozwinięcie istniejącej konfiguracji BOBI.
+W przypadku wdrożenia z wieloma wystąpieniami uruchom konfigurację instalacji na drugim hoście (azusbosl2). Na **ekranie Wybierz typ instalacji** wybierz pozycję **Niestandardowy/Rozwiń,** co spowoduje rozwinięcie istniejącej konfiguracji bobi.
 
-W przypadku oferty usługi Azure Database for MySQL Brama jest używana do przekierowywania połączeń z wystąpieniami serwera. Po nawiązaniu połączenia klient oprogramowania MySQL wyświetla wersję oprogramowania MySQL ustawioną w bramie, a nie rzeczywistą wersję uruchomioną w wystąpieniu serwera MySQL. Aby określić wersję wystąpienia serwera MySQL, użyj polecenia `SELECT VERSION();` w wierszu polecenia MySQL. W tym celu w programie Central Management Console (CMC) znajdziesz inną wersję bazy danych, która jest zasadniczo wersją ustawioną w bramie. Sprawdź [obsługiwane wersje serwera Azure Database for MySQL](../../../mysql/concepts-supported-versions.md) , aby uzyskać więcej szczegółów.
+W ofercie usługi Azure Database for MySQL brama służy do przekierowywania połączeń do wystąpień serwera. Po nawiązaniu połączenia klient oprogramowania MySQL wyświetla wersję oprogramowania MySQL ustawioną w bramie, a nie rzeczywistą wersję uruchomioną w wystąpieniu serwera MySQL. Aby określić wersję wystąpienia serwera MySQL, użyj polecenia `SELECT VERSION();` w wierszu polecenia MySQL. Dlatego w programie Central Management Console (CMC) znajdziesz inną wersję bazy danych, która zasadniczo jest wersją ustawioną na bramie. Aby [uzyskać więcej informacji, Azure Database for MySQL obsługiwane](../../../mysql/concepts-supported-versions.md) wersje serwera.
 
-![Wdrażanie oprogramowania SAP BOBI w systemie Linux — ustawienia interfejsu CMC](media/businessobjects-deployment-guide/businessobjects-deployment-linux-sql-cmc.png)
+![Wdrażanie oprogramowania SAP BOBI w systemie Linux — ustawienia cmc](media/businessobjects-deployment-guide/businessobjects-deployment-linux-sql-cmc.png)
 
 ```sql
 # Run direct query to the database using MySQL Workbench
@@ -502,197 +502,197 @@ select version();
 
 ## <a name="post-installation"></a>Po instalacji
 
-### <a name="tomcat-clustering---session-replication"></a>Tomcat klastrowanie — replikacja sesji
+### <a name="tomcat-clustering---session-replication"></a>Klastrowanie Tomcat — replikacja sesji
 
-Tomcat obsługuje klastrowanie co najmniej dwóch serwerów aplikacji na potrzeby replikacji sesji i trybu failover. Sesje platformy SAP BOBI są serializowane, sesja użytkownika może bezproblemowo przełączać w tryb failover do innego wystąpienia programu Tomcat, nawet w przypadku awarii serwera aplikacji.
+Serwer Tomcat obsługuje klastrowanie co najmniej dwóch serwerów aplikacji w celu replikacji sesji i trybu failover. Sesje platformy SAP BOBI są serializowane, a sesja użytkownika może bezproblemowo przejść w trybu fail over do innego wystąpienia serwera tomcat, nawet jeśli serwer aplikacji ulegnie awarii.
 
-Na przykład jeśli użytkownik jest połączony z serwerem sieci Web, który się nie powiódł podczas nawigowania w hierarchii folderów w aplikacji SAP BI. Po prawidłowym skonfigurowaniu klastra użytkownik może kontynuować nawigowanie w hierarchii folderów bez przekierowania na stronę logowania.
+Na przykład jeśli użytkownik jest połączony z serwerem internetowym, który ulegnie awarii, gdy użytkownik nawiguje po hierarchii folderów w aplikacji SAP BI. W przypadku prawidłowo skonfigurowanego klastra użytkownik może kontynuować nawigowanie po hierarchii folderów bez przekierowania do strony logowania.
 
-W programie SAP Uwaga [2808640](https://launchpad.support.sap.com/#/notes/2808640)kroki konfigurowania klastrowania Tomcat są udostępniane przy użyciu multiemisji. Jednak Multiemisja nie jest obsługiwana w systemie Azure. Aby klaster Tomcat działał na platformie Azure, musisz użyć [StaticMembershipInterceptor](https://tomcat.apache.org/tomcat-8.0-doc/config/cluster-interceptor.html#Static_Membership) (Uwaga dotycząca oprogramowania SAP [2764907](https://launchpad.support.sap.com/#/notes/2764907)). Sprawdź [Tomcat klastrowanie przy użyciu członkostwa statycznego dla platformy SAP BUSINESSOBJECTS BI platform](https://blogs.sap.com/2020/09/04/sap-on-azure-tomcat-clustering-using-static-membership-for-sap-businessobjects-bi-platform/) na blogu SAP, aby skonfigurować klaster Tomcat na platformie Azure.
+Uwaga [2808640](https://launchpad.support.sap.com/#/notes/2808640)oprogramowania SAP umożliwia skonfigurowanie klastrowania tomcat przy użyciu multiemisji. Jednak na platformie Azure multiemisja nie jest obsługiwana. Aby klaster Tomcat działał na platformie Azure, należy użyć [klasy StaticMembershipInterceptor](https://tomcat.apache.org/tomcat-8.0-doc/config/cluster-interceptor.html#Static_Membership) (uwaga [SAP 2764907).](https://launchpad.support.sap.com/#/notes/2764907) Aby skonfigurować klaster tomcat na platformie Azure, zobacz blog [Tomcat Clustering using Static Membership for SAP BusinessObjects BI Platform](https://blogs.sap.com/2020/09/04/sap-on-azure-tomcat-clustering-using-static-membership-for-sap-businessobjects-bi-platform/) (Klastrowanie Tomcat przy użyciu członkostwa statycznego dla platformy SAP BusinessObjects BI Platform).
 
-### <a name="load-balancing-web-tier-of-sap-bi-platform"></a>Warstwa sieci Web równoważenia obciążenia platformy SAP BI
+### <a name="load-balancing-web-tier-of-sap-bi-platform"></a>Warstwa internetowa równoważenia obciążenia platformy SAP BI
 
-W przypadku wdrażania z wieloma wystąpieniami w programie SAP BOBI serwery aplikacji sieci Web Java (warstwa sieci Web) są uruchomione na co najmniej dwóch hostach. Aby równomiernie rozłożyć obciążenie użytkownikami między serwerami sieci Web, można użyć modułu równoważenia obciążenia między użytkownikami końcowymi i serwerami sieci Web. Na platformie Azure Możesz użyć Azure Load Balancer lub Application Gateway platformy Azure do zarządzania ruchem do serwerów aplikacji sieci Web. Szczegółowe informacje o poszczególnych ofertach zostały omówione w sekcji poniżej.
+W przypadku wdrażania wielu wystąpień systemu SAP BOBI serwery aplikacji internetowej Java (warstwa internetowa) działają na co najmniej dwóch hostach. Aby równomiernie dystrybuować obciążenie użytkowników między serwerami internetowymi, można użyć usługi równoważenia obciążenia między użytkownikami i serwerami internetowymi. Na platformie Azure do zarządzania ruchem do serwerów aplikacji internetowych można Azure Load Balancer lub Azure Application Gateway za pomocą usługi azure. Szczegółowe informacje o każdej ofercie zostały wyjaśnione w poniższej sekcji.
 
-#### <a name="azure-load-balancer-network-based-load-balancer"></a>Moduł równoważenia obciążenia platformy Azure (usługa równoważenia obciążenia opartego na sieci)
+#### <a name="azure-load-balancer-network-based-load-balancer"></a>Azure Load Balancer (oparty na sieci)
 
-[Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) to usługa równoważenia obciążenia w warstwie 4 (TCP, UDP) o wysokiej wydajności, która dystrybuuje ruch między Virtual Machines w dobrej kondycji. Sonda kondycji modułu równoważenia obciążenia monitoruje dany port na poszczególnych maszynach wirtualnych i dystrybuuje ruch tylko do operacyjnych maszyn wirtualnych. Możesz wybrać publiczny moduł równoważenia obciążenia lub wewnętrzny moduł równoważenia obciążenia w zależności od tego, czy chcesz, aby platforma SAP BI była dostępna z Internetu, czy nie. Jego strefowo nadmiarowe, zapewniając wysoką dostępność w Strefy dostępności.
+[Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) jest wysoką wydajnością i małym opóźnieniem w warstwie 4 (TCP, UDP), który dystrybuuje ruch między sieciami o dobrej Virtual Machines. Sonda kondycji usługi równoważenia obciążenia monitoruje dany port na każdej maszynie wirtualnej i dystrybuuje ruch tylko do operacyjnych maszyn wirtualnych. Możesz wybrać publiczny lub wewnętrzny usługę równoważenia obciążenia w zależności od tego, czy platforma SAP BI Ma być dostępna z Internetu, czy nie. Jest strefowo nadmiarowy, zapewniając wysoką dostępność Strefy dostępności.
 
-Zapoznaj się z sekcją Load Balancer wewnętrzna na poniższej ilustracji, na której serwer aplikacji sieci Web działa na porcie 8080, domyślny port HTTP Tomcat, który będzie monitorowany przez sondę kondycji. W związku z tym wszystkie przychodzące żądania, które pochodzą od użytkowników końcowych, zostaną przekierowane do serwerów aplikacji sieci Web (azusbosl1 lub azusbosl2) w puli zaplecza. Moduł równoważenia obciążenia nie obsługuje kończenia protokołu TLS/SSL (znanego również jako odciążania protokołu TLS/SSL). Jeśli używasz modułu równoważenia obciążenia platformy Azure do dystrybucji ruchu między serwerami sieci Web, zalecamy korzystanie z usługa Load Balancer w warstwie Standardowa.
-
-> [!NOTE]
-> Gdy maszyny wirtualne bez publicznych adresów IP są umieszczane w puli zaplecza wewnętrznego (bez publicznego adresu IP) standardowego modułu równoważenia obciążenia platformy Azure, nie będzie wychodzące połączenie z Internetem, chyba że zostanie przeprowadzona dodatkowa konfiguracja zezwalająca na kierowanie do publicznych punktów końcowych. Aby uzyskać szczegółowe informacje na temat sposobu osiągnięcia łączności wychodzącej, zobacz [publiczna łączność z punktem końcowym dla Virtual Machines przy użyciu usługi Azure usługa Load Balancer w warstwie Standardowa w scenariuszach wysokiej dostępności SAP](high-availability-guide-standard-load-balancer-outbound-connections.md).
-
-![Azure Load Balancer równoważenia ruchu między serwerami sieci Web](media/businessobjects-deployment-guide/businessobjects-deployment-load-balancer.png)
-
-#### <a name="azure-application-gateway-web-application-load-balancer"></a>Azure Application Gateway (moduł równoważenia obciążenia aplikacji sieci Web)
-
-Usługa [Azure Application Gateway (AGW)](../../../application-gateway/overview.md) udostępnia kontroler dostarczania aplikacji (ADC, Application Delivery Controller) jako usługę, która ułatwia aplikacji kierowanie ruchu użytkowników do co najmniej jednego serwera aplikacji sieci Web. Oferuje różne możliwości równoważenia obciążenia warstwy 7, takie jak wyciążanie protokołu TLS/SSL, Zapora aplikacji sieci Web (WAF), koligacja sesji oparta na plikach cookie i inne aplikacje.
-
-W platformie SAP BI Usługa Application Gateway kieruje ruch internetowy aplikacji do określonych zasobów w puli zaplecza — azusbosl1 lub azusbos2. Do portu, tworzenia reguł i dodawania zasobów do puli zaplecza można przypisać odbiornik. Na poniższej ilustracji usługi Application Gateway z prywatnym adresem IP frontonu (10.31.3.20) pełnią rolę punktu wejścia dla użytkowników, obsługują połączenia przychodzące protokołu TLS/SSL (HTTPS), odszyfrowywania protokołu TLS/SSL i przekazywania żądania nieszyfrowanego (HTTP-TCP/8080) do serwerów w puli zaplecza. Dzięki wbudowanej funkcji obsługi protokołu TLS/SSL wystarczy zachować jeden certyfikat TLS/SSL w bramie aplikacji, co upraszcza operacje.
-
-![Application Gateway równoważenia ruchu między serwerami sieci Web](media/businessobjects-deployment-guide/businessobjects-deployment-application-gateway.png)
-
-Aby skonfigurować Application Gateway dla serwera sieci Web SAP BOBI, można odwoływać się do [równoważenia obciążenia serwerów sieci Web SAP BOBI przy użyciu usługi Azure Application Gateway](https://blogs.sap.com/2020/09/17/sap-on-azure-load-balancing-web-application-servers-for-sap-bobi-using-azure-application-gateway/) na blogu SAP.
+Zapoznaj się z sekcją Load Balancer na poniższej ilustracji, w której serwer aplikacji internetowej działa na porcie 8080 (domyślnym porcie HTTP serwera Tomcat), który będzie monitorowany przez sondę kondycji. Dlatego każde żądanie przychodzące od użytkowników końcowych zostanie przekierowane do serwerów aplikacji internetowych (azusbosl1 lub azusbosl2) w puli zaplecza. Równoważenie obciążenia nie obsługuje kończania protokołu TLS/SSL (znanego również jako odciążanie protokołu TLS/SSL). Jeśli używasz usługi Azure Load Balancer do dystrybucji ruchu między serwerami internetowymi, zalecamy użycie usługa Load Balancer w warstwie Standardowa.
 
 > [!NOTE]
-> Zalecamy używanie Application Gateway platformy Azure do równoważenia obciążenia ruchu na serwerze sieci Web, ponieważ udostępnia on funkcję, takie jak odciążanie protokołu SSL, scentralizowane zarządzanie protokołem SSL w celu zredukowania obciążenia szyfrowania i odszyfrowywania na serwerze, Round-Robin algorytmem do dystrybucji ruchu, funkcji zapory aplikacji sieci Web (WAF), wysokiej dostępności i tak dalej.
+> Jeśli maszyny wirtualne bez publicznych adresów IP zostaną umieszczone w puli zaplecza wewnętrznego (bez publicznego adresu IP) usługi Load Balancer w witrynie Azure Standard, nie będzie żadnych wychodzących połączeń z Internetem, chyba że zostanie wykonana dodatkowa konfiguracja zezwalania na routing do publicznych punktów końcowych. Aby uzyskać szczegółowe informacje na temat sposobu osiągnięcia łączności wychodzącej, zobacz Public [endpoint connectivity for Virtual Machines using Azure usługa Load Balancer w warstwie Standardowa in SAP high-availability scenarios](high-availability-guide-standard-load-balancer-outbound-connections.md)(Łączność z publicznym punktem końcowym dla usługi Azure usługa Load Balancer w warstwie Standardowa w scenariuszach wysokiej dostępności oprogramowania SAP).
 
-### <a name="sap-businessobjects-bi-platform---back-up-and-restore"></a>Platforma SAP BusinessObjects BI — wykonywanie kopii zapasowych i przywracanie
+![Azure Load Balancer równoważenia ruchu między serwerami internetowymi](media/businessobjects-deployment-guide/businessobjects-deployment-load-balancer.png)
 
-Tworzenie i przywracanie kopii zapasowych to proces tworzenia okresowych kopii danych i aplikacji w oddzielnym miejscu. W związku z tym można go przywrócić lub odzyskać do poprzedniego stanu, jeśli oryginalne dane lub aplikacje zostaną utracone lub uszkodzone. Jest to również zasadniczy składnik każdej strategii odzyskiwania po awarii firmy.
+#### <a name="azure-application-gateway-web-application-load-balancer"></a>Azure Application Gateway (usługa równoważenia obciążenia aplikacji internetowej)
 
-Aby opracować kompleksową strategię tworzenia kopii zapasowych i przywracania dla platformy SAP BOBI, zidentyfikuj składniki, które prowadzą do przestoju systemu lub przerwy w działaniu aplikacji. W przypadku platformy SAP BOBI kopia zapasowa następujących składników jest konieczna do ochrony aplikacji.
+[Azure Application Gateway (AGW)](../../../application-gateway/overview.md) zapewniają kontroler dostarczania aplikacji (ADC, Application Delivery Controller) jako usługę, która pomaga aplikacji kierować ruch użytkowników do co najmniej jednego serwera aplikacji internetowej. Oferuje ona różne możliwości równoważenia obciążenia warstwy 7, takie jak odciążanie protokołu TLS/SSL, Web Application Firewall (WAF), koligacja sesji na podstawie plików cookie i inne dla Twoich aplikacji.
 
-- Katalog instalacyjny oprogramowania SAP BOBI (zarządzane dyski w warstwie Premium)
-- Serwer repozytorium plików (Azure NetApp Files lub pliki Azure Premium)
-- Baza danych CMS (Azure Database for MySQL lub baza danych na maszynie wirtualnej platformy Azure)
+Na platformie SAP BI Gateway brama aplikacji kieruje ruch internetowy aplikacji do określonych zasobów w puli zaplecza — azusbosl1 lub azusbos2. Przypiszesz odbiornik do portu, utworzysz reguły i dodasz zasoby do puli zaplecza. Na poniższej ilustracji brama aplikacji z prywatnym adresem IP frontonu (10.31.3.20) działa jako punkt wejścia dla użytkowników, obsługuje przychodzące połączenia TLS/SSL (HTTPS - TCP/443), odszyfrowuje protokół TLS/SSL i przesyła niezaszyfrowane żądanie (HTTP - TCP/8080) do serwerów w puli zaplecza. Dzięki wbudowanej funkcji końowania protokołu TLS/SSL wystarczy zachować jeden certyfikat TLS/SSL w bramie aplikacji, co upraszcza operacje.
+
+![Application Gateway równoważenia ruchu między serwerami internetowymi](media/businessobjects-deployment-guide/businessobjects-deployment-application-gateway.png)
+
+Aby skonfigurować Application Gateway dla serwera internetowego SAP BOBI, można znaleźć w blogu [Load Balancing SAP BOBI Web Servers using Azure Application Gateway](https://blogs.sap.com/2020/09/17/sap-on-azure-load-balancing-web-application-servers-for-sap-bobi-using-azure-application-gateway/) (Równoważenie obciążenia serwerów sieci Web SAP BOBI przy Azure Application Gateway sap).
+
+> [!NOTE]
+> Firma Microsoft zaleca używanie usługi Azure Application Gateway do równoważenia obciążenia ruchu do serwera internetowego, ponieważ zapewnia funkcje takie jak odciążanie protokołu SSL, scentralizowane zarządzanie protokołem SSL w celu zmniejszenia narzutu związanego z szyfrowaniem i odszyfrowywaniem na serwerze, algorytm Round-Robin do dystrybucji ruchu, funkcje Web Application Firewall (WAF), wysoka dostępność i tak dalej.
+
+### <a name="sap-businessobjects-bi-platform---back-up-and-restore"></a>Platforma SAP BusinessObjects BI — kopii zapasowej i przywracania
+
+Tworzenie kopii zapasowych i przywracanie to proces tworzenia okresowych kopii danych i aplikacji w oddzielnej lokalizacji. W przypadku zgubionych lub uszkodzonych oryginalnych danych lub aplikacji można je przywrócić lub odzyskać do poprzedniego stanu. Jest to również podstawowy składnik każdej strategii odzyskiwania po awarii firmy.
+
+Aby opracować kompleksową strategię tworzenia kopii zapasowych i przywracania dla platformy SAP BOBI, zidentyfikuj składniki, które prowadzą do przestojów lub zakłóceń w działaniu systemu w aplikacji. Na platformie SAP BOBI kopia zapasowa następujących składników jest niezbędna do ochrony aplikacji.
+
+- Katalog instalacyjny SAP BOBI (zarządzane dyski w warstwie Premium)
+- Serwer repozytorium plików (Azure NetApp Files lub Azure Premium Files)
+- Baza danych programu CMS (Azure Database for MySQL lub baza danych na maszynie wirtualnej platformy Azure)
 
 W poniższej sekcji opisano sposób implementacji strategii tworzenia kopii zapasowych i przywracania dla każdego składnika na platformie SAP BOBI.
 
-#### <a name="backup--restore-for-sap-bobi-installation-directory"></a>Kopia zapasowa & przywracanie dla katalogu instalacyjnego SAP BOBI
+#### <a name="backup--restore-for-sap-bobi-installation-directory"></a>Tworzenie kopii & kopii zapasowej dla katalogu instalacyjnego SAP BOBI
 
-Najprostszym sposobem tworzenia kopii zapasowych serwerów aplikacji i wszystkich dołączonych dysków jest użycie usługi [Azure Backup](../../../backup/backup-overview.md) na platformie Azure. Zapewnia niezależne i izolowane kopie zapasowe w celu ochrony niezamierzonego zniszczenia danych na maszynach wirtualnych. Kopie zapasowe są przechowywane w magazynie usługi Recovery Services z wbudowanymi funkcjami zarządzania punktami odzyskiwania. Konfiguracja i skalowanie są proste, kopie zapasowe są optymalizowane i mogą być łatwo przywracane w razie potrzeby.
+Na platformie Azure najprostszym sposobem na kopię zapasową serwerów aplikacji i wszystkich dołączonych dysków jest użycie [usługi Azure Backup](../../../backup/backup-overview.md) Service. Zapewnia ona niezależne i odizolowane kopie zapasowe, aby chronić niezamierzone zniszczenie danych na twoich maszyn wirtualnych. Kopie zapasowe są przechowywane w magazynie usługi Recovery Services z wbudowanymi funkcjami zarządzania punktami odzyskiwania. Konfiguracja i skalowanie są proste, kopie zapasowe są zoptymalizowane i można je łatwo przywrócić w razie potrzeby.
 
-W ramach procesu tworzenia kopii zapasowej wykonywana jest migawka, a dane są przesyłane do magazynu usługi Recovery Service bez wpływu na obciążenia produkcyjne. Migawka zapewnia różny poziom spójności, zgodnie z opisem w artykule [spójności migawek](../../../backup/backup-azure-vms-introduction.md#snapshot-consistency) . Można również utworzyć kopię zapasową podzbioru dysków danych w maszynie wirtualnej, używając funkcji tworzenia kopii zapasowych i przywracania dysków selektywnych. Aby uzyskać więcej informacji, zobacz dokument i często zadawane pytania dotyczące [usługi Azure VM](../../../backup/backup-azure-vms-introduction.md) [— Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure](../../../backup/backup-azure-vm-backup-faq.yml).
+W ramach procesu tworzenia kopii zapasowej jest nosowana migawka, a dane są przesyłane do magazynu usługi Recovery Service bez wpływu na obciążenia produkcyjne. Migawka zapewnia inny poziom spójności, zgodnie z opisem w artykule [Snapshot Consistency (Spójność migawki).](../../../backup/backup-azure-vms-introduction.md#snapshot-consistency) Możesz również utworzyć kopię zapasową podzestawu dysków danych na maszynie wirtualnej przy użyciu funkcji tworzenia kopii zapasowej i przywracania dysków selektywnych. Aby uzyskać więcej informacji, zobacz [dokument Kopia zapasowa maszyny wirtualnej platformy Azure](../../../backup/backup-azure-vms-introduction.md) i Często zadawane pytania — tworzenie kopii zapasowych maszyn wirtualnych platformy [Azure.](../../../backup/backup-azure-vm-backup-faq.yml)
 
 #### <a name="backup--restore-for-file-repository-server"></a>Przywracanie & kopii zapasowej dla serwera repozytorium plików
 
-W przypadku **Azure NetApp Files** można utworzyć migawki na żądanie i zaplanować automatyczną migawkę przy użyciu zasad migawek. Kopie migawek zawierają kopię woluminu ANF w danym momencie. Aby uzyskać więcej informacji, zobacz [Zarządzanie migawkami przy użyciu Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-manage-snapshots.md).
+Na **Azure NetApp Files** można utworzyć migawki na żądanie i zaplanować automatyczne tworzenie migawek przy użyciu zasad migawek. Kopie migawki zapewniają kopię woluminu ANF do punktu w czasie. Aby uzyskać więcej informacji, zobacz [Zarządzanie migawkami przy użyciu Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-manage-snapshots.md).
 
-**Azure Files** kopia zapasowa jest zintegrowana z natywną usługą [Azure Backup](../../../backup/backup-overview.md) , która scentralizowano funkcję tworzenia kopii zapasowych i przywracania wraz z tworzeniem kopii zapasowych maszyn wirtualnych i upraszcza pracę. Aby uzyskać więcej informacji, zobacz kopia zapasowa i często zadawane pytania dotyczące [udziałów plików platformy Azure](../../../backup/azure-file-share-backup-overview.md) [— Tworzenie kopii zapasowej Azure Files](../../../backup/backup-azure-files-faq.md).
+**Azure Files** kopii zapasowej jest zintegrowana z natywną [usługą Azure Backup,](../../../backup/backup-overview.md) która scentralizować funkcję tworzenia kopii zapasowych i przywracania oraz tworzenie kopii zapasowych maszyn wirtualnych i upraszcza pracę. Aby uzyskać więcej informacji, zobacz [Tworzenie kopii zapasowej udziału plików](../../../backup/azure-file-share-backup-overview.md) platformy Azure i często zadawane pytania — tworzenie kopii [zapasowej Azure Files.](../../../backup/backup-azure-files-faq.yml)
 
-#### <a name="backup--restore-for-cms-database"></a>Przywracanie & kopii zapasowej dla bazy danych CMS
+#### <a name="backup--restore-for-cms-database"></a>Tworzenie kopii & kopii zapasowej bazy danych programu CMS
 
-Usługa Azure Database of MySQL to oferta DBaaS na platformie Azure, która automatycznie tworzy kopie zapasowe serwera i przechowuje je w ramach użytkownika skonfigurowanego lokalnie nadmiarowy lub magazynu geograficznie nadmiarowego. Usługa Azure Database of MySQL pobiera kopie zapasowe plików danych i dziennika transakcji. W zależności od obsługiwanego maksymalnego rozmiaru magazynu są to pełne i różnicowe kopie zapasowe (maksymalnie 4 serwery magazynu) lub kopia zapasowa migawek (maksymalnie 16 TB serwerów magazynu). Te kopie zapasowe umożliwiają przywrócenie serwera w dowolnym momencie w ramach skonfigurowanego okresu przechowywania kopii zapasowych. Domyślny okres przechowywania kopii zapasowych wynosi siedem dni, a [Opcjonalnie można skonfigurować go](../../../mysql/howto-restore-server-portal.md#set-backup-configuration) do trzech dni. Wszystkie kopie zapasowe są szyfrowane za pomocą 256-bitowego szyfrowania AES.
+Usługa Azure Database of MySQL to oferta DBaaS na platformie Azure, która automatycznie tworzy kopie zapasowe serwera i przechowuje je w magazynie lokalnie nadmiarowym lub geograficznie nadmiarowym skonfigurowanym przez użytkownika. Usługa Azure Database of MySQL pobiera kopie zapasowe plików danych i dziennika transakcji. W zależności od obsługiwanego maksymalnego rozmiaru magazynu tworzyć będą pełne i różnicowe kopie zapasowe (maksymalnie 4 TB serwerów magazynu) lub kopie zapasowe migawek (maksymalnie 16 TB maksymalnych serwerów magazynu). Te kopie zapasowe umożliwiają przywrócenie serwera w dowolnym momencie w skonfigurowanym okresie przechowywania kopii zapasowej. Domyślny okres przechowywania kopii zapasowej wynosi siedem dni. Opcjonalnie można go [skonfigurować do](../../../mysql/howto-restore-server-portal.md#set-backup-configuration) trzech dni. Wszystkie kopie zapasowe są szyfrowane za pomocą 256-bitowego szyfrowania AES.
 
-Te pliki kopii zapasowej nie są uwidaczniane przez użytkownika i nie można ich eksportować. Te kopie zapasowe mogą być używane tylko w przypadku operacji przywracania w Azure Database for MySQL. Możesz użyć [mysqldump](../../../mysql/concepts-migrate-dump-restore.md) , aby skopiować bazę danych. Aby uzyskać więcej informacji, zobacz [kopia zapasowa i przywracanie w Azure Database for MySQL](../../../mysql/concepts-backup.md).
+Te pliki kopii zapasowej nie są udostępniane przez użytkownika i nie można ich wyeksportować. Tych kopii zapasowych można używać tylko w przypadku operacji przywracania w Azure Database for MySQL. Aby skopiować bazę danych, możesz użyć programu [mysqldump.](../../../mysql/concepts-migrate-dump-restore.md) Aby uzyskać więcej informacji, zobacz [Backup and restore in Azure Database for MySQL](../../../mysql/concepts-backup.md)(Tworzenie kopii zapasowych i przywracanie w Azure Database for MySQL ).
 
-W przypadku bazy danych zainstalowanej na Virtual Machines można użyć standardowych narzędzi do tworzenia kopii zapasowych lub [Azure Backup](../../../backup/sap-hana-db-about.md) bazy danych Hana. Ponadto, jeśli usługi i narzędzia platformy Azure nie spełniają wymagań, można utworzyć kopię zapasową dysków przy użyciu innych narzędzi do tworzenia kopii zapasowych lub skryptu.
+W przypadku bazy danych zainstalowanej Virtual Machines można użyć standardowych narzędzi do tworzenia kopii zapasowych [lub](../../../backup/sap-hana-db-about.md) Azure Backup bazy danych HANA. Ponadto jeśli usługi i narzędzia platformy Azure nie spełniają wymagań, możesz użyć innych narzędzi do tworzenia kopii zapasowych lub skryptu, aby utworzyć kopię zapasową dysków.
 
-## <a name="sap-businessobjects-bi-platform-reliability"></a>Niezawodność usługi SAP BusinessObjects BI platform
+## <a name="sap-businessobjects-bi-platform-reliability"></a>Niezawodność platformy SAP BusinessObjects BI
 
-Platforma SAP BusinessObjects BI obejmuje różne warstwy, które są zoptymalizowane pod kątem określonych zadań i operacji. Gdy składnik z jednej warstwy staje się niedostępny, aplikacja SAP BOBI stanie się niedostępna, a niektóre funkcje aplikacji nie będą działać. Dlatego należy upewnić się, że każda warstwa jest zaprojektowana tak, aby zapewnić niezawodne działanie aplikacji bez zakłócania działania firmy.
+Platforma SAP BusinessObjects BI Platform zawiera różne warstwy, które są zoptymalizowane pod kątem określonych zadań i operacji. Gdy składnik z dowolnej warstwy stanie się niedostępny, aplikacja SAP BOBI stanie się niedostępna lub niektóre funkcje aplikacji nie będą działać. Dlatego należy upewnić się, że każda warstwa została zaprojektowana tak, aby zapewnić niezawodność, aby zapewnić działanie aplikacji bez żadnych zakłóceń w działalności biznesowej.
 
-Ta sekcja koncentruje się na następujących opcjach platformy SAP BOBI —
+Ta sekcja koncentruje się na następujących opcjach dla platformy SAP BOBI —
 
-- **Wysoka dostępność:** Duża dostępna platforma ma co najmniej dwa elementy wszystkich elementów w regionie świadczenia usługi Azure, aby aplikacja działała, jeśli jeden z serwerów przestanie być dostępny.
-- **Odzyskiwanie po awarii:** Jest to proces przywracania funkcjonalności aplikacji, jeśli wystąpi spadek strat, taki jak cały region platformy Azure, z powodu klęski żywiołowej.
+- **Wysoka dostępność:** Wysoka dostępna platforma ma co najmniej dwa z wszystkich zasobów w regionie świadczenia usługi Azure, co pozwala zapewnić, że aplikacja będzie działać, jeśli jeden z serwerów stanie się niedostępny.
+- **Odzyskiwanie po awarii:** Jest to proces przywracania funkcji aplikacji w przypadku utraty w razie katastrofalnej utraty, jak w przypadku niedostępności całego regionu świadczenia usługi Azure z powodu klęski żywiołowej.
 
-Implementacja tego rozwiązania różni się w zależności od rodzaju konfiguracji systemu na platformie Azure. Dlatego klient musi dostosować rozwiązanie wysokiej dostępności i odzyskiwania po awarii w oparciu o ich wymagania biznesowe.
+Implementacja tego rozwiązania różni się w zależności od charakteru konfiguracji systemu na platformie Azure. Dlatego klient musi dostosować rozwiązanie wysokiej dostępności i odzyskiwania po awarii na podstawie swoich wymagań biznesowych.
 
 ### <a name="high-availability"></a>Wysoka dostępność
 
-Wysoka dostępność odnosi się do zestawu technologii, które mogą zminimalizować zakłócenia, zapewniając ciągłość działania aplikacji/usług za pomocą nadmiarowych, odpornych na uszkodzenia lub składników chronionych przez tryb failover w tym samym centrum danych. W naszym przypadku centra danych znajdują się w obrębie jednego regionu świadczenia usługi Azure. [Architektura i scenariusze wysokiej dostępności artykułu dla oprogramowania SAP](sap-high-availability-architecture-scenarios.md) zapewniają wstępny wgląd w różne techniki wysokiej dostępności i rekomendacje oferowane w przypadku aplikacji SAP na platformie Azure, które pomogą wykonać instrukcje podane w tej sekcji.
+Wysoka dostępność odnosi się do zestawu technologii, które mogą zminimalizować przerwy w działaniu it, zapewniając ciągłość działania aplikacji/usług za pośrednictwem nadmiarowych składników, które są zabezpieczone przed błędami lub w trybie failover w tym samym centrum danych. W naszym przypadku centra danych znajdują się w jednym regionie świadczenia usługi Azure. Artykuł [High-availability Architecture and Scenarios for SAP](sap-high-availability-architecture-scenarios.md) (Architektura i scenariusze wysokiej dostępności dla systemu SAP) zawiera wstępne informacje na temat różnych technik wysokiej dostępności i rekomendacji oferowanych na platformie Azure dla aplikacji SAP, które uzupełnią instrukcje w tej sekcji.
 
-Na podstawie wyniku zmiany wielkości platformy SAP BOBI należy zaprojektować krajobraz i określić dystrybucję składników analizy biznesowej między Virtual Machinesami i podsieciami platformy Azure. Poziom nadmiarowości w architekturze rozproszonej zależy od wymaganego przez firmę celu czasu odzyskiwania (RTO) i celu punktu odzyskiwania. Platforma SAP BOBI obejmuje różne warstwy i składniki w każdej warstwie, powinny być zaprojektowane w celu zapewnienia nadmiarowości. W związku z tym, jeśli jeden składnik ulegnie awarii, nie ma przerw w działaniu aplikacji SAP BOBI. Na przykład
+Na podstawie wyniku ustalania rozmiaru platformy SAP BOBI należy zaprojektować krajobraz i określić dystrybucję składników usługi BI w różnych Virtual Machines Azure i podsieciach. Poziom nadmiarowości w architekturze rozproszonej zależy od wymaganego przez firmę celu czasu odzyskiwania (RTO) i celu punktu odzyskiwania (RPO, Recovery Point Objective). Platforma SAP BOBI platform zawiera różne warstwy i składniki w każdej warstwie powinny być zaprojektowane w celu zapewnienia nadmiarowości. Dlatego jeśli jeden składnik ulegnie awarii, nie będzie żadnych zakłóceń w działaniu aplikacji SAP BOBI. Na przykład
 
-- Nadmiarowe serwery aplikacji, takie jak serwery aplikacji analizy biznesowej i serwer sieci Web
-- Unikatowe składniki, takie jak CMS Database, serwer repozytorium plików, Load Balancer
+- Nadmiarowe serwery aplikacji, takie jak serwery aplikacji usługi BI i serwer internetowy
+- Unikatowe składniki, takie jak baza danych cms, serwer repozytorium plików, Load Balancer
 
-W poniższej sekcji opisano, jak uzyskać wysoką dostępność na każdym składniku platformy SAP BOBI.
+W poniższej sekcji opisano sposób osiągnięcia wysokiej dostępności dla każdego składnika platformy SAP BOBI.
 
 #### <a name="high-availability-for-application-servers"></a>Wysoka dostępność dla serwerów aplikacji
 
-W przypadku serwerów aplikacji analizy biznesowej i sieci Web, niezależnie od tego, czy są one instalowane osobno, czy też razem, nie potrzebują określonego rozwiązania o wysokiej dostępności. Wysoką dostępność można osiągnąć przez nadmiarowość, czyli konfigurując wiele wystąpień serwerów analizy biznesowej i sieci Web w różnych Virtual Machines platformy Azure.
+W przypadku serwerów usługi BI i aplikacji internetowych, niezależnie od tego, czy są instalowane oddzielnie, czy razem, nie jest potrzebne konkretne rozwiązanie o wysokiej dostępności. Wysoką dostępność można osiągnąć przez nadmiarowość, czyli konfigurując wiele wystąpień usługi BI i serwerów internetowych w różnych usługach Azure Virtual Machines.
 
-Aby zmniejszyć wpływ przestoju ze względu na jedno lub więcej zdarzeń, zaleca się przestrzeganie poniższych zasad wysokiej dostępności dla serwerów aplikacji działających na wielu maszynach wirtualnych.
+Aby zmniejszyć wpływ przestoju spowodowanego co najmniej jednym z zdarzeń, zaleca się stosowanie poniższych rozwiązań wysokiej dostępności dla serwerów aplikacji uruchomionych na wielu maszynach wirtualnych.
 
-- Użyj Strefy dostępności, aby chronić awarie centrów danych.
+- Użyj Strefy dostępności, aby chronić awarie centrum danych.
 - Skonfiguruj wiele Virtual Machines w zestawie dostępności w celu zapewnienia nadmiarowości.
-- Użyj Managed Disks dla maszyn wirtualnych w zestawie dostępności.
-- Skonfiguruj poszczególne warstwy aplikacji w osobnych zestawach dostępności.
+- Użyj Dyski zarządzane dla maszyn wirtualnych w zestawie dostępności.
+- Skonfiguruj każdą warstwę aplikacji w oddzielnych zestawach dostępności.
 
-Aby uzyskać więcej informacji, sprawdź [Zarządzanie dostępnością maszyn wirtualnych z systemem Linux](../../availability.md)
+Aby uzyskać więcej informacji, zobacz [Manage the availability of Linux virtual machines (Zarządzanie dostępnością maszyn wirtualnych z systemem Linux)](../../availability.md)
 
-#### <a name="high-availability-for-cms-database"></a>Wysoka dostępność dla bazy danych CMS
+#### <a name="high-availability-for-cms-database"></a>Wysoka dostępność bazy danych programu CMS
 
-Jeśli używasz usługi Azure Database as a Service (DBaaS) dla bazy danych CMS, domyślnie jest dostępna platforma o wysokiej dostępności. Wystarczy wybrać region i usługę nieodłączną dostępność, nadmiarowość i możliwości odporności, bez konieczności konfigurowania dodatkowych składników. Aby uzyskać więcej informacji na temat umowy SLA obsługiwanej oferty DBaaS na platformie Azure, sprawdź [wysoką dostępność w Azure Database for MySQL](../../../mysql/concepts-high-availability.md) i [wysoką dostępność dla Azure SQL Database](../../../azure-sql/database/high-availability-sla.md)
+Jeśli używasz usługi Azure Database as a Service (DBaaS) dla bazy danych CMS, platforma wysokiej dostępności jest domyślnie dostarczana. Wystarczy wybrać region i usługę z możliwością wysokiej dostępności, nadmiarowości i odporności bez konieczności konfigurowania dodatkowych składników. Aby uzyskać więcej informacji na temat umowy SLA dotyczącej obsługiwanej oferty DBaaS na platformie Azure, zapoznaj się z tematem Wysoka dostępność w usłudze [Azure Database for MySQL](../../../mysql/concepts-high-availability.md) oraz Wysoka dostępność [dla Azure SQL Database](../../../azure-sql/database/high-availability-sla.md)
 
-W przypadku innych wdrożeń systemu DBMS dla bazy danych CMS zapoznaj się z [przewodnikami wdrażania systemu DBMS dotyczącymi obciążeń SAP](dbms_guide_general.md), które zapewniają wgląd w różne wdrożenie systemu DBMS i podejście do uzyskania wysokiej dostępności.
+Inne wdrożenie systemu DBMS dla bazy danych CMS można znaleźć w przewodnikach wdrażania systemu [DBMS](dbms_guide_general.md)dla obciążenia SAP, które zapewniają szczegółowe informacje na temat różnych wdrożeń systemu DBMS i jego podejścia do osiągnięcia wysokiej dostępności.
 
-#### <a name="high-availability-for-file-repository-server"></a>Wysoka dostępność dla serwera repozytorium plików
+#### <a name="high-availability-for-file-repository-server"></a>Wysoka dostępność serwera repozytorium plików
 
-Serwer repozytorium plików (FRS) odnosi się do katalogów dysków, w których są przechowywane zawartości, takie jak raporty, miejsca i połączenia. Jest ona udostępniana na wszystkich serwerach aplikacji tego systemu. Dlatego należy się upewnić, że jest ona wysoce dostępna.
+File Repository Server (FRS) odnosi się do katalogów dysków, w których jest przechowywana zawartość, na przykład raporty, uniwersum i połączenia. Jest on udostępniany na wszystkich serwerach aplikacji tego systemu. Dlatego należy upewnić się, że jest wysoce dostępna.
 
-Na platformie Azure Możesz wybrać [pliki usługi Azure Premium](../../../storage/files/storage-files-introduction.md) lub [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) dla udziału plików, który ma być wysoce dostępny i wysoce trwały. Aby uzyskać więcej informacji, zobacz sekcję [nadmiarowości](../../../storage/files/storage-files-planning.md#redundancy) dla Azure Files.
+Na platformie Azure możesz wybrać [](../../../azure-netapp-files/azure-netapp-files-introduction.md) usługę [Azure Premium Files](../../../storage/files/storage-files-introduction.md) lub Azure NetApp Files dla udziału plików, który został zaprojektowany tak, aby zapewniał wysoką dostęp i trwałość. Aby uzyskać więcej informacji, zobacz [sekcję Nadmiarowość](../../../storage/files/storage-files-planning.md#redundancy) dla Azure Files.
 
 > [!NOTE]
-> Protokół SMB dla Azure Files jest ogólnie dostępny, ale obsługa protokołu NFS dla Azure Files jest obecnie w wersji zapoznawczej. Aby uzyskać więcej informacji, zobacz [Pomoc techniczna NFS 4,1 dla Azure Files jest teraz w wersji zapoznawczej](https://azure.microsoft.com/en-us/blog/nfs-41-support-for-azure-files-is-now-in-preview/)
+> Protokół SMB dla Azure Files jest ogólnie dostępny, ale obsługa protokołu NFS Azure Files jest obecnie w wersji zapoznawczej. Aby uzyskać więcej informacji, zobacz [NFS 4.1 support for Azure Files is now in preview (Obsługa systemu plików NFS 4.1 w wersji zapoznawczej)](https://azure.microsoft.com/en-us/blog/nfs-41-support-for-azure-files-is-now-in-preview/)
 
-Ponieważ ta usługa udziału plików nie jest dostępna we wszystkich regionach, należy się upewnić, że zapoznaj się z tematem [produkty dostępne według regionów](https://azure.microsoft.com/en-us/global-infrastructure/services/) , aby dowiedzieć się, jak uzyskać aktualne informacje. Jeśli usługa nie jest dostępna w Twoim regionie, można utworzyć serwer systemu plików NFS, z którego można udostępnić system plików aplikacji SAP BOBI. Należy również wziąć pod uwagę jego wysoką dostępność.
+Ponieważ ta usługa udziału plików nie jest dostępna we [](https://azure.microsoft.com/en-us/global-infrastructure/services/) wszystkich regionach, zapoznaj się z tematem Produkty dostępne według witryny regionów, aby uzyskać aktualne informacje. Jeśli usługa nie jest dostępna w Twoim regionie, możesz utworzyć serwer NFS, z którego można udostępnić system plików aplikacji SAP BOBI. Należy jednak również wziąć pod uwagę jej wysoką dostępność.
 
 #### <a name="high-availability-for-load-balancer"></a>Wysoka dostępność dla usługi równoważenia obciążenia
 
-Aby dystrybuować ruch między serwerami sieci Web, można użyć Azure Load Balancer lub Application Gateway platformy Azure. Nadmiarowość dla dowolnego modułu równoważenia obciążenia można osiągnąć w oparciu o jednostkę SKU wybraną do wdrożenia.
+Aby dystrybuować ruch między serwerami internetowymi, możesz użyć Azure Load Balancer lub Azure Application Gateway. Nadmiarowość dla jednego z usług równoważenia obciążenia można osiągnąć w oparciu oku SKU, który wybierzesz do wdrożenia.
 
-- Aby uzyskać Azure Load Balancer, nadmiarowość można osiągnąć przez skonfigurowanie usługa Load Balancer w warstwie Standardowa frontonu jako strefy nadmiarowej. Aby uzyskać więcej informacji, zobacz [Usługa Load Balancer w warstwie Standardowa i strefy dostępności](../../../load-balancer/load-balancer-standard-availability-zones.md)
-- Aby uzyskać Application Gateway, można uzyskać wysoką dostępność na podstawie typu warstwy wybranej podczas wdrażania.
-  - jednostka SKU w wersji 1 obsługuje scenariusze wysokiej dostępności, gdy wdrożono dwa lub więcej wystąpień. Platforma Azure dystrybuuje te wystąpienia między domenami aktualizacji i błędów, aby upewnić się, że wystąpienia nie będą działać w tym samym czasie. Tak więc w przypadku tej jednostki SKU można osiągnąć nadmiarowość w obrębie strefy
-  - jednostka SKU v2 automatycznie zapewnia, że nowe wystąpienia są rozłożone w domenach błędów i domenach aktualizacji. W przypadku wybrania nadmiarowości strefy najnowsze wystąpienia są również rozproszone w różnych strefach dostępności, aby zaoferować odporność na awarie. Aby uzyskać więcej informacji, zobacz [Skalowanie automatyczne i strefowo nadmiarowe Application Gateway v2](../../../application-gateway/application-gateway-autoscaling-zone-redundant.md)
+- Na Azure Load Balancer nadmiarowość można osiągnąć, konfigurując usługa Load Balancer w warstwie Standardowa frontonie jako strefowo nadmiarowy. Aby uzyskać więcej informacji, [zobacz usługa Load Balancer w warstwie Standardowa i Strefy dostępności](../../../load-balancer/load-balancer-standard-availability-zones.md)
+- Na Application Gateway wysoką dostępność można osiągnąć na podstawie typu warstwy wybranej podczas wdrażania.
+  - Wersja 1 SKU obsługuje scenariusze wysokiej dostępności po wdrożeniu co najmniej dwóch wystąpień. Platforma Azure dystrybuuje te wystąpienia między domenami aktualizacji i błędów, aby zapewnić, że wystąpienia nie wszystkie utkną w tym samym czasie. W związku z tym w ramach tej sku można osiągnąć nadmiarowość w strefie
+  - Wersja 2 SKU automatycznie zapewnia, że nowe wystąpienia są rozłożone między domenami błędów i domenami aktualizacji. W przypadku wybrania nadmiarowości strefy najnowsze wystąpienia są również rozłożone w różnych strefach dostępności, aby zapewnić strefową odporność na awarie. Aby uzyskać więcej informacji, zobacz [Autoscaling and Zone-redundant Application Gateway v2](../../../application-gateway/application-gateway-autoscaling-zone-redundant.md) (Skalowanie automatyczne i strefowo nadmiarowe Application Gateway wersji 2)
 
-#### <a name="reference-high-availability-architecture-for-sap-businessobjects-bi-platform"></a>Architektura wysokiej dostępności referencyjnej dla platformy SAP BusinessObjects BI
+#### <a name="reference-high-availability-architecture-for-sap-businessobjects-bi-platform"></a>Odwołanie do architektury wysokiej dostępności dla platformy SAP BusinessObjects BI
 
-W poniższej architekturze referencyjnej opisano konfigurację platformy SAP BOBI przy użyciu zestawu dostępności, która zapewnia nadmiarowość i dostępność maszyn wirtualnych w strefie. Architektura umożliwia korzystanie z różnych usług platformy Azure, takich jak Azure Application Gateway, Azure NetApp Files i Azure Database for MySQL dla platformy SAP BOBI, która oferuje wbudowaną nadmiarowość, co zmniejsza złożoność zarządzania różnymi rozwiązaniami wysokiej dostępności.
+Poniżej opisano architekturę referencyjną konfiguracji platformy SAP BOBI przy użyciu zestawu dostępności, który zapewnia nadmiarowość i dostępność maszyn wirtualnych w strefie. Architektura przedstawia użycie różnych usług platformy Azure, takich jak Azure Application Gateway, Azure NetApp Files i Azure Database for MySQL, dla platformy SAP BOBI Platform, która oferuje wbudowaną nadmiarowość, co zmniejsza złożoność zarządzania różnymi rozwiązaniami o wysokiej dostępności.
 
-Na poniższej ilustracji ruch przychodzący (HTTPS-TCP/443) jest zrównoważony przy użyciu jednostki SKU platformy Azure Application Gateway V1, która jest wysoce dostępna w przypadku wdrożenia w dwóch lub większej liczbie wystąpień. Wiele wystąpień serwera sieci Web, serwerów zarządzania i serwerów przetwarzania są wdrażane w osobnych Virtual Machinesach w celu zapewnienia nadmiarowości, a każda warstwa jest wdrażana w różnych zestawach dostępności. Azure NetApp Files ma wbudowaną nadmiarowość w centrum danych, więc woluminy ANF dla serwera repozytorium plików będą wysoce dostępne. Obsługa bazy danych CMS została zainicjowana na Azure Database for MySQL (DBaaS), która ma nieodłączną wysoką dostępność. Aby uzyskać więcej informacji, zobacz [wysoka dostępność w](../../../mysql/concepts-high-availability.md) przewodniku Azure Database for MySQL.
+Na poniższej ilustracji ruch przychodzący (HTTPS - TCP/443) jest równoważyć obciążenie przy użyciu SKU programu Azure Application Gateway v1, która jest wysoce dostępna w przypadku wdrożenia w co najmniej dwóch wystąpieniach. Wiele wystąpień serwera internetowego, serwerów zarządzania i serwerów przetwarzania jest wdrażanych w osobnych Virtual Machines celu zapewnienia nadmiarowości, a każda warstwa jest wdrażana w oddzielnych zestawach dostępności. Azure NetApp Files ma wbudowaną nadmiarowość w centrum danych, więc woluminy ANF dla serwera repozytorium plików będą wysoce dostępne. Baza danych programu CMS jest aprowizowana Azure Database for MySQL (DBaaS), która ma naturalną wysoką dostępność. Aby uzyskać więcej informacji, zobacz [High availability in Azure Database for MySQL](../../../mysql/concepts-high-availability.md) guide (Wysoka dostępność w Azure Database for MySQL przewodniku).
 
 ![Nadmiarowość platformy SAP BusinessObjects BI przy użyciu zestawów dostępności](media/businessobjects-deployment-guide/businessobjects-deployment-high-availability.png)
 
-Powyższa architektura zawiera szczegółowe informacje na temat sposobu wdrażania rozwiązań SAP BOBI na platformie Azure. Nie dotyczy to jednak wszystkich możliwych opcji konfiguracji platformy SAP BOBI na platformie Azure. Klient może dostosować wdrożenie w zależności od wymagań firmy, wybierając różne produkty/usługi dla różnych składników, takich jak Load Balancer, serwer repozytorium plików i system DBMS.
+Powyższy przykład architektury zapewnia wgląd w sposób, w jaki można wykonać wdrożenie SAP BOBI na platformie Azure. Nie obejmuje jednak wszystkich możliwych opcji konfiguracji platformy SAP BOBI Platform na platformie Azure. Klient może dostosować swoje wdrożenie do swoich wymagań biznesowych, wybierając różne produkty/usługi dla różnych składników, takich jak Load Balancer, serwer repozytorium plików i system DBMS.
 
-W kilku regionach świadczenia usługi Azure są oferowane Strefy dostępności, co oznacza, że ma niezależną dostawę do źródła prądu, chłodzenia i sieci. Umożliwia klientowi wdrażanie aplikacji w dwóch lub trzech strefach dostępności. Klienci, którzy chcą uzyskać wysoką dostępność w ramach usługi AZs, mogą wdrożyć platformę SAP BOBI w różnych strefach dostępności, upewniając się, że każdy składnik w aplikacji jest nadmiarowy strefy.
+W kilku regionach świadczenia Strefy dostępności platformy Azure, co oznacza, że ma niezależne źródło zasilania, chłodzenie i sieć. Umożliwia to klientowi wdrażanie aplikacji w dwóch lub trzech strefach dostępności. Klient, który chce uzyskać wysoką dostępność w strefach dostępności, może wdrożyć platformę SAP BOBI Platform w różnych strefach dostępności, upewniąc się, że każdy składnik w aplikacji jest strefowo nadmiarowy.
 
 ### <a name="disaster-recovery"></a>Odzyskiwanie po awarii
 
-Instrukcje w tej sekcji wyjaśniają strategię zapewniania ochrony przed odzyskiwaniem po awarii dla platformy SAP BOBI. Uzupełnia ona [odzyskiwanie po awarii dla dokumentu SAP](../../../site-recovery/site-recovery-sap.md) , który reprezentuje podstawowe zasoby dla ogólnego podejścia do odzyskiwania po awarii oprogramowania SAP.
+W instrukcji w tej sekcji wyjaśniono strategię zapewnienia ochrony odzyskiwania po awarii dla platformy SAP BOBI. Uzupełnia on dokument [Odzyskiwanie po awarii dla oprogramowania SAP,](../../../site-recovery/site-recovery-sap.md) który reprezentuje podstawowe zasoby dla ogólnego podejścia do odzyskiwania po awarii sap.
 
-#### <a name="reference-disaster-recovery-architecture-for-sap-businessobjects-bi-platform"></a>Architektura odzyskiwania po awarii odwołania dla platformy SAP BusinessObjects BI
+#### <a name="reference-disaster-recovery-architecture-for-sap-businessobjects-bi-platform"></a>Referencyjna architektura odzyskiwania po awarii dla platformy SAP BusinessObjects BI
 
-Ta architektura referencyjna uruchamia wdrożenie wielu wystąpień platformy SAP BOBI z nadmiarowymi serwerami aplikacji. W przypadku odzyskiwania po awarii należy przełączyć warstwę do trybu failover do regionu pomocniczego. Każda warstwa używa innej strategii w celu zapewnienia ochrony przed odzyskiwaniem po awarii.
+W tej architekturze referencyjnej jest uruchomione wdrożenie wielu wystąpień platformy SAP BOBI z nadmiarowych serwerów aplikacji. W przypadku odzyskiwania po awarii należy przesieć wszystkie warstwy do regionu pomocniczego w trybie fail over. Każda warstwa używa innej strategii w celu zapewnienia ochrony odzyskiwania po awarii.
 
 ![Odzyskiwanie po awarii platformy SAP BusinessObjects BI](media/businessobjects-deployment-guide/businessobjects-deployment-disaster-recovery.png)
 
 #### <a name="load-balancer"></a>Moduł równoważenia obciążenia
 
-Load Balancer służy do dystrybuowania ruchu między serwerami aplikacji sieci Web platformy SAP BOBI. Aby uzyskać Application Gateway dla platformy Azure, zaimplementuj konfigurację równoległą bramy Application Gateway w regionie pomocniczym.
+Load Balancer służy do dystrybucji ruchu między serwerami aplikacji internetowych platformy SAP BOBI. Aby uzyskać dostęp do Azure Application Gateway, należy zaimplementować równoległą konfigurację bramy aplikacji w regionie pomocniczym.
 
-#### <a name="virtual-machines-running-web-and-bi-application-servers"></a>Maszyny wirtualne z serwerami aplikacji sieci Web i analizy biznesowej
+#### <a name="virtual-machines-running-web-and-bi-application-servers"></a>Maszyny wirtualne z serwerami aplikacji internetowych i usługi BI
 
-Usługa Azure Site Recovery może służyć do replikowania Virtual Machines uruchomionych serwerów aplikacji sieci Web i analizy biznesowej w regionie pomocniczym. Replikuje serwery w regionie pomocniczym, dzięki czemu w przypadku awarii i przestoju można łatwo przejść do trybu failover w replikowanym środowisku i kontynuować pracę
+Azure Site Recovery może służyć do replikowania Virtual Machines serwerów aplikacji sieci Web i usługi BI w regionie pomocniczym. Serwery są replikowane w regionie pomocniczym, dzięki czemu w przypadku wystąpienia awarii i awarii można łatwo przejść w stan fail over w zreplikowanym środowisku i kontynuować pracę
 
 #### <a name="file-repository-servers"></a>Serwery repozytorium plików
 
-- **Azure NetApp Files** udostępnia woluminy NFS i SMB, dlatego można użyć dowolnego narzędzia do kopiowania opartego na plikach do replikowania danych między regionami platformy Azure. Aby uzyskać więcej informacji na temat kopiowania woluminu ANF w innym regionie, zobacz [często zadawane pytania dotyczące Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-faqs.md#how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region)
+- **Azure NetApp Files** udostępnia woluminy NFS i SMB, dzięki czemu do replikowania danych między regionami platformy Azure można użyć dowolnego narzędzia kopiowania opartego na plikach. Aby uzyskać więcej informacji na temat kopiowania woluminu ANF w innym regionie, zobacz często zadawane pytania [dotyczące Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-faqs.md#how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region)
 
-  Możesz użyć Azure NetApp Files replikacji między regionami, która jest obecnie dostępna w [wersji zapoznawczej](https://azure.microsoft.com/en-us/blog/azure-netapp-files-cross-region-replication-and-new-enhancements-in-preview/) , która korzysta z technologii NetApp SnapMirror®. Dlatego tylko zmienione bloki są wysyłane przez sieć w skompresowanym i wydajnym formacie. Ta technologia własnościowa minimalizuje ilość danych wymaganych do replikacji w regionach, co pozwala zaoszczędzić koszty transferu danych. Skraca również czas replikacji, aby można było osiągnąć mniejszy cel punktu przywracania (RPO). Aby uzyskać więcej informacji, zapoznaj się z [wymaganiami i zagadnieniami dotyczącymi korzystania z replikacji między regionami](../../../azure-netapp-files/cross-region-replication-requirements-considerations.md) .
+  Można użyć usługi Azure NetApp Files replikacji między regionami, która jest obecnie w wersji [zapoznawczej,](https://azure.microsoft.com/en-us/blog/azure-netapp-files-cross-region-replication-and-new-enhancements-in-preview/) która korzysta z technologii NetApp SnapMirror®. Dlatego tylko zmienione bloki są wysyłane przez sieć w skompresowanym, wydajnym formacie. Ta zastrzeżona technologia minimalizuje ilość danych wymaganych do replikacji między regionami, co pozwala zmniejszyć koszty transferu danych. Skraca również czas replikacji, dzięki czemu można osiągnąć mniejszy cel punktu przywracania (RPO, Restore Point Objective). Aby uzyskać więcej informacji, zobacz [Wymagania i zagadnienia dotyczące korzystania z replikacji między regionami.](../../../azure-netapp-files/cross-region-replication-requirements-considerations.md)
 
-- **Pliki systemu Azure Premium** obsługują tylko lokalnie nadmiarowy (LRS) i magazyn strefowo nadmiarowy (ZRS). W przypadku strategii odzyskiwania plików na platformie Azure Premium możesz użyć [AzCopy](../../../storage/common/storage-use-azcopy-v10.md) lub [Azure PowerShell](/powershell/module/az.storage/) , aby skopiować pliki do innego konta magazynu w innym regionie. Aby uzyskać więcej informacji, zobacz [odzyskiwanie po awarii i konto magazynu w trybie failover](../../../storage/common/storage-disaster-recovery-guidance.md)
+- **Usługa Azure Premium Files** obsługuje tylko magazyn lokalnie nadmiarowy (LRS) i magazyn strefowo nadmiarowy (ZRS). W przypadku strategii drowania usługi Azure Premium Files możesz użyć narzędzia [AzCopy](../../../storage/common/storage-use-azcopy-v10.md) [lub Azure PowerShell,](/powershell/module/az.storage/) aby skopiować pliki na inne konto magazynu w innym regionie. Aby uzyskać więcej informacji, zobacz [Odzyskiwanie po awarii i tryb failover konta magazynu](../../../storage/common/storage-disaster-recovery-guidance.md)
 
-#### <a name="cms-database"></a>Baza danych CMS
+#### <a name="cms-database"></a>Baza danych programu CMS
 
-Azure Database for MySQL udostępnia wiele opcji odzyskania bazy danych w przypadku awarii. Wybierz odpowiednią opcję, która działa dla Twojej firmy.
+Azure Database for MySQL zapewnia wiele opcji odzyskiwania bazy danych w przypadku awarii. Wybierz odpowiednią opcję, która będzie odpowiednia dla Twojej firmy.
 
-- Włącz repliki odczytu między regionami, aby zwiększyć ciągłość działania i planowanie odzyskiwania po awarii. Można replikować z serwera źródłowego do maksymalnie pięciu replik. Repliki odczytu są aktualizowane asynchronicznie przy użyciu technologii replikacji binarnych dzienników MySQL. Repliki to nowe serwery, którymi można zarządzać podobnie jak regularne Azure Database for MySQL serwery. Dowiedz się więcej na temat odczytywania replik, dostępnych regionów, ograniczeń oraz sposobu przełączenia w tryb failover z [artykułu pojęć dotyczących replik](../../../mysql/concepts-read-replicas.md).
+- Włącz repliki odczytu w różnych regionach, aby zwiększyć ciągłość działalności biznesowej i planowanie odzyskiwania po awarii. Można replikować z serwera źródłowego do maksymalnie pięciu replik. Repliki do odczytu są aktualizowane asynchronicznie przy użyciu technologii replikacji dzienników binarnych programu MySQL. Repliki to nowe serwery, które można zarządzać podobnie jak zwykłe Azure Database for MySQL serwerów. Dowiedz się więcej na temat replik do odczytu, dostępnych regionów, ograniczeń i sposobu pracy awaryjnej z artykułu [read replicas concepts (Pojęcia](../../../mysql/concepts-read-replicas.md)dotyczące replik do odczytu).
 
-- Użyj funkcji przywracania geograficznego Azure Database for MySQL, która przywraca serwer przy użyciu geograficznie nadmiarowych kopii zapasowych. Te kopie zapasowe są dostępne nawet wtedy, gdy region, w którym znajduje się serwer, jest w trybie offline. Można przywrócić z tych kopii zapasowych do dowolnego innego regionu i przywrócić serwer do trybu online.
+- Użyj Azure Database for MySQL funkcji przywracania geograficznego, która przywraca serwer przy użyciu geograficznie nadmiarowych kopii zapasowych. Te kopie zapasowe są dostępne nawet wtedy, gdy region, w którym jest hostowany serwer, jest w trybie offline. Możesz przywrócić z tych kopii zapasowych do dowolnego innego regionu i przywrócić serwer z powrotem do trybu online.
 
   > [!NOTE]
-  > Przywracanie geograficzne jest możliwe tylko w przypadku aprowizacji serwera z magazynem kopii zapasowych nadmiarowego. Zmiana **opcji nadmiarowości kopii zapasowej** po utworzeniu serwera nie jest obsługiwana. Aby uzyskać więcej informacji, zobacz artykuł [nadmiarowości kopii zapasowej](../../../mysql/concepts-backup.md#backup-redundancy-options) .
+  > Przywracanie geograficzne jest możliwe tylko w przypadku aprowizacji serwera z geograficznie nadmiarowym magazynem kopii zapasowych. Zmiana opcji **nadmiarowości kopii zapasowej** po utworzeniu serwera nie jest obsługiwana. Aby uzyskać więcej informacji, zobacz [artykuł Nadmiarowość kopii](../../../mysql/concepts-backup.md#backup-redundancy-options) zapasowych.
 
-Poniżej znajduje się zalecenie dotyczące odzyskiwania po awarii dla każdej warstwy używanej w tym przykładzie.
+Poniżej przedstawiono zalecenie dotyczące odzyskiwania po awarii dla każdej warstwy używanej w tym przykładzie.
 
 | Warstwy platformy SAP BOBI   | Zalecenie                                                                                           |
 |---------------------------|----------------------------------------------------------------------------------------------------------|
 | Azure Application Gateway | Równoległa konfiguracja Application Gateway w regionie pomocniczym                                                |
-| Serwery aplikacji sieci Web   | Replikacja przy użyciu Site Recovery                                                                         |
-| Serwery aplikacji analizy biznesowej    | Replikacja przy użyciu Site Recovery                                                                         |
-| Azure NetApp Files        | Narzędzie kopiowania oparte na plikach do replikowania danych do regionu pomocniczego **lub** replikacji między regionami ANF (wersja zapoznawcza) |
-| Azure Database for MySQL  | Repliki odczytu między regionami **lub** przywracania kopii zapasowych z kopii lustrzanych nadmiarowych.                             |
+| Serwery aplikacji internetowych   | Replikowanie przy użyciu Site Recovery                                                                         |
+| Serwery aplikacji usługi BI    | Replikowanie przy użyciu Site Recovery                                                                         |
+| Azure NetApp Files        | Narzędzie do kopiowania opartego na plikach do replikowania danych do regionu pomocniczego **lub** replikacji między regionami ANF (wersja zapoznawcza) |
+| Azure Database for MySQL  | Repliki odczytu między regionami **lub przywracanie** kopii zapasowej z geograficznie nadmiarowych kopii zapasowych.                             |
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Konfigurowanie odzyskiwania po awarii dla wielowarstwowego wdrożenia aplikacji SAP](../../../site-recovery/site-recovery-sap.md)
-- [Planowanie i wdrażanie Virtual Machines platformy Azure dla oprogramowania SAP](planning-guide.md)
-- [Wdrożenie Virtual Machines platformy Azure dla oprogramowania SAP](deployment-guide.md)
-- [Wdrożenie systemu Azure Virtual Machines DBMS dla oprogramowania SAP](./dbms_guide_general.md)
+- [Planowanie Virtual Machines wdrożenia oprogramowania SAP na platformie Azure](planning-guide.md)
+- [Wdrożenie usługi Azure Virtual Machines sap](deployment-guide.md)
+- [Wdrażanie usługi Azure Virtual Machines DBMS dla oprogramowania SAP](./dbms_guide_general.md)

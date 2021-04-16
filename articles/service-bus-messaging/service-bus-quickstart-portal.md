@@ -1,32 +1,34 @@
 ---
-title: Tworzenie kolejki Service Bus za pomocą Azure Portal
-description: W tym przewodniku szybki start dowiesz się, jak utworzyć Service Bus przestrzeń nazw i kolejkę w przestrzeni nazw przy użyciu Azure Portal.
+title: Tworzenie kolejki Azure Portal za pomocą Service Bus kolejki
+description: Z tego przewodnika Szybki start dowiesz się, jak utworzyć przestrzeń nazw Service Bus kolejkę w przestrzeni nazw przy użyciu Azure Portal.
 author: spelluru
-ms.topic: quickstart
-ms.date: 08/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 79dd751c43443790aafc494d89ad45e3b6705a64
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/12/2020
+ms.topic: quickstart
+ms.custom:
+- mode-portal
+ms.openlocfilehash: e38d32c93453737060f654add58f09902b05ee45
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95799224"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537200"
 ---
-# <a name="use-azure-portal-to-create-a-service-bus-namespace-and-a-queue"></a>Użyj Azure Portal, aby utworzyć Service Bus przestrzeń nazw i kolejkę
-Ten przewodnik Szybki Start przedstawia sposób tworzenia Service Bus przestrzeni nazw i kolejki przy użyciu [Azure Portal][Azure portal]. Pokazano w nim także, jak uzyskać poświadczenia autoryzacji, które mogą być używane przez aplikację kliencką do wysyłania/odbierania komunikatów z kolejki. 
+# <a name="use-azure-portal-to-create-a-service-bus-namespace-and-a-queue"></a>Używanie Azure Portal do tworzenia Service Bus nazw i kolejki
+W tym przewodniku Szybki start pokazano, jak utworzyć przestrzeń nazw Service Bus kolejkę przy użyciu [Azure Portal][Azure portal]. Pokazano w nim również, jak uzyskać poświadczenia autoryzacji, których aplikacja klienca może użyć do wysyłania i odbierania komunikatów do/z kolejki. 
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten przewodnik Szybki Start, upewnij się, że masz subskrypcję platformy Azure. Jeśli nie masz subskrypcji platformy Azure, możesz utworzyć [bezpłatne konto][] przed rozpoczęciem.
+Aby ukończyć ten przewodnik Szybki start, upewnij się, że masz subskrypcję platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem możesz utworzyć [bezpłatne][] konto.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule opisano tworzenie Service Bus przestrzeni nazw i kolejki w przestrzeni nazw. Aby dowiedzieć się, jak wysyłać/odbierać komunikaty do/z kolejki, zobacz jeden z następujących przewodników szybki start w sekcji **wysyłanie i odbieranie komunikatów** . 
+W tym artykule utworzono przestrzeń Service Bus i kolejkę w przestrzeni nazw . Aby dowiedzieć się, jak wysyłać i odbierać komunikaty do/z kolejki, zobacz jeden z następujących przewodników Szybki start w sekcji Wysyłanie i **odbieranie komunikatów.** 
 
 - [.NET](service-bus-dotnet-get-started-with-queues.md)
 - [Java](service-bus-java-how-to-use-queues.md)

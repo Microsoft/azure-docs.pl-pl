@@ -1,7 +1,7 @@
 ---
 title: Zarządzanie zasobami za pomocą Microsoft Graph
 titleSuffix: Azure AD B2C
-description: Jak zarządzać zasobami w dzierżawie Azure AD B2C przez wywołanie interfejsu API Microsoft Graph i użycie tożsamości aplikacji w celu zautomatyzowania procesu.
+description: Jak zarządzać zasobami w dzierżawie Azure AD B2C, wywołując interfejs API usługi Microsoft Graph i automatyzując proces przy użyciu tożsamości aplikacji.
 services: B2C
 author: msmimart
 manager: celestedg
@@ -12,32 +12,32 @@ ms.date: 01/28/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 41336d59d51685d5daf78a1809ce6c0df2cd6124
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 884cb0c30bc754366fda79a4b54b977517fbadd3
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104781317"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530540"
 ---
-# <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Zarządzanie Azure AD B2C przy użyciu Microsoft Graph
+# <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Zarządzanie Azure AD B2C za pomocą Microsoft Graph
 
-Microsoft Graph umożliwia zarządzanie zasobami w katalogu Azure AD B2C. Następujące Microsoft Graph operacje interfejsu API są obsługiwane na potrzeby zarządzania zasobami Azure AD B2C, w tym użytkownikami, dostawcami tożsamości, przepływami użytkowników, zasadami niestandardowymi i kluczami zasad. Każdy link w poniższych sekcjach odwołuje się do odpowiedniej strony w ramach odwołania do interfejsu API Microsoft Graph dla tej operacji. 
+Microsoft Graph umożliwia zarządzanie zasobami w katalogu Azure AD B2C. Następujące operacje Microsoft Graph API są obsługiwane w przypadku zarządzania zasobami usługi Azure AD B2C, w tym użytkownikami, dostawcami tożsamości, przepływami użytkowników, zasadami niestandardowymi i kluczami zasad. Każdy link w poniższych sekcjach dotyczy odpowiedniej strony w Microsoft Graph API dla tej operacji. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby korzystać z programu MS interfejs API programu Graph i korzystać z zasobów w dzierżawie Azure AD B2C, potrzebna jest rejestracja aplikacji, która przyznaje uprawnienia. Wykonaj kroki opisane w artykule [zarządzanie Azure AD B2C w programie Microsoft Graph](microsoft-graph-get-started.md) , aby utworzyć rejestrację aplikacji, która może być używana przez aplikację zarządzania. 
+Aby korzystać z usługi ms interfejs Graph API i wchodzić w interakcje z zasobami w dzierżawie usługi Azure AD B2C, potrzebna jest rejestracja aplikacji, która przyznaje odpowiednie uprawnienia. Wykonaj kroki opisane w artykule [Manage Azure AD B2C with Microsoft Graph (Zarządzanie](microsoft-graph-get-started.md) urządzeniami za pomocą programu Microsoft Graph), aby utworzyć rejestrację aplikacji, z których może korzystać aplikacja do zarządzania. 
 
 ## <a name="user-management"></a>Zarządzanie użytkownikami
 
 - [Wyświetlanie użytkowników](/graph/api/user-list)
-- [Tworzenie użytkownika odbiorcy](/graph/api/user-post-users)
-- [Pobierz użytkownika](/graph/api/user-get)
+- [Tworzenie użytkownika](/graph/api/user-post-users)
+- [Uzyskiwanie użytkownika](/graph/api/user-get)
 - [Aktualizowanie użytkownika](/graph/api/user-update)
 - [Usuwanie użytkownika](/graph/api/user-delete)
 
-## <a name="user-phone-number-management-beta"></a>Zarządzanie numerami telefonów użytkowników (beta)
+## <a name="user-phone-number-management-beta"></a>Zarządzanie numerami telefonów użytkowników (wersja beta)
 
-Numer telefonu, który może być używany przez użytkownika do logowania za pomocą [wiadomości SMS lub połączeń głosowych](identity-provider-local.md#phone-sign-in-preview)lub [uwierzytelniania wieloskładnikowego](multi-factor-authentication.md). Aby uzyskać więcej informacji, zobacz [interfejs API metod uwierzytelniania usługi Azure AD](/graph/api/resources/phoneauthenticationmethod).
+Numer telefonu, który może być używany przez użytkownika do logowania się przy użyciu wiadomości [SMS](identity-provider-local.md#phone-sign-in-preview)lub połączeń głosowych albo [uwierzytelniania wieloskładnikowego.](multi-factor-authentication.md) Aby uzyskać więcej informacji, zobacz [Interfejs API metod uwierzytelniania usługi Azure AD.](/graph/api/resources/phoneauthenticationmethod)
 
 - [Dodaj](/graph/api/authentication-post-phonemethods)
 - [Lista](/graph/api/authentication-list-phonemethods)
@@ -45,13 +45,13 @@ Numer telefonu, który może być używany przez użytkownika do logowania za po
 - [Aktualizowanie](/graph/api/phoneauthenticationmethod-update)
 - [Usuwanie](/graph/api/phoneauthenticationmethod-delete)
 
-Zwróć uwagę na to, że operacja [listy](/graph/api/authentication-list-phonemethods) zwraca tylko włączone numery telefonów. Następujący numer telefonu powinien zostać włączony do użycia z operacjami listy. 
+Pamiętaj, że operacja [listy](/graph/api/authentication-list-phonemethods) zwraca tylko włączone numery telefonów. Poniższy numer telefonu powinien być włączony do obsługi operacji listy. 
 
-![Włącz logowanie przy użyciu telefonu](./media/microsoft-graph-operations/enable-phone-sign-in.png)
+![Włączanie logowania za pomocą telefonu](./media/microsoft-graph-operations/enable-phone-sign-in.png)
 
-## <a name="self-service-password-reset-email-address-beta"></a>Adres e-mail funkcji samoobsługowego resetowania hasła (beta)
+## <a name="self-service-password-reset-email-address-beta"></a>Adres e-mail samoobsługowego resetowania hasła (beta)
 
-Adres e-mail, który może być używany przez [konto logowania do nazwy użytkownika](identity-provider-local.md#username-sign-in) w celu zresetowania hasła. Aby uzyskać więcej informacji, zobacz [interfejs API metod uwierzytelniania usługi Azure AD](/graph/api/resources/emailauthenticationmethod).
+Adres e-mail, który może być używany przez konto logowania nazwy [użytkownika](identity-provider-local.md#username-sign-in) do resetowania hasła. Aby uzyskać więcej informacji, zobacz [Interfejs API metod uwierzytelniania usługi Azure AD.](/graph/api/resources/emailauthenticationmethod)
 
 - [Dodaj](/graph/api/emailauthenticationmethod-post)
 - [Lista](/graph/api/emailauthenticationmethod-list)
@@ -61,9 +61,9 @@ Adres e-mail, który może być używany przez [konto logowania do nazwy użytko
 
 ## <a name="identity-providers"></a>Dostawcy tożsamości
 
-Zarządzaj [dostawcami tożsamości](add-identity-provider.md) dostępnymi dla przepływów użytkowników w dzierżawie Azure AD B2C.
+Zarządzanie [dostawcami tożsamości](add-identity-provider.md) dostępnymi dla przepływów użytkownika w dzierżawie Azure AD B2C dzierżawy.
 
-- [Wyświetlanie listy dostawców tożsamości zarejestrowanych w dzierżawie Azure AD B2C](/graph/api/identityprovider-list)
+- [Lista dostawców tożsamości zarejestrowanych w dzierżawie Azure AD B2C dzierżawy](/graph/api/identityprovider-list)
 - [Tworzenie dostawcy tożsamości](/graph/api/identityprovider-post-identityproviders)
 - [Uzyskiwanie dostawcy tożsamości](/graph/api/identityprovider-get)
 - [Aktualizowanie dostawcy tożsamości](/graph/api/identityprovider-update)
@@ -71,121 +71,121 @@ Zarządzaj [dostawcami tożsamości](add-identity-provider.md) dostępnymi dla p
 
 ## <a name="user-flow"></a>Przepływ użytkownika
 
-Skonfiguruj wstępnie skompilowane zasady rejestracji, logowania, połączonego rejestrowania i logowania, resetowania haseł i aktualizacji profilu.
+Skonfiguruj wstępnie skonfigurowane zasady dotyczące rejestracji, logowania, połączonego rejestracji i logowania, resetowania hasła i aktualizowania profilu.
 
-- [Wyświetlanie listy przepływów użytkownika](/graph/api/identitycontainer-list-b2cuserflows)
+- [Lista przepływów użytkownika](/graph/api/identitycontainer-list-b2cuserflows)
 - [Tworzenie przepływu użytkownika](/graph/api/identitycontainer-post-b2cuserflows)
-- [Pobierz przepływ użytkownika](/graph/api/b2cidentityuserflow-get)
+- [Uzyskiwanie przepływu użytkownika](/graph/api/b2cidentityuserflow-get)
 - [Usuwanie przepływu użytkownika](/graph/api/b2cidentityuserflow-delete)
 
-## <a name="user-flow-authentication-methods-beta"></a>Metody uwierzytelniania przepływu użytkownika (wersja beta)
+## <a name="user-flow-authentication-methods-beta"></a>Metody uwierzytelniania przepływu użytkownika (beta)
 
-Wybierz mechanizm zezwalania użytkownikom na rejestrację za pomocą kont lokalnych. Konta lokalne to konta, na których usługa Azure AD wykonuje potwierdzenie tożsamości. Aby uzyskać więcej informacji, zobacz [b2cAuthenticationMethodsPolicy typu zasobu](/graph/api/resources/b2cauthenticationmethodspolicy).
+Wybierz mechanizm umożliwiania użytkownikom rejestrowania się za pośrednictwem kont lokalnych. Konta lokalne to konta, na których usługa Azure AD obsługuje asercja tożsamości. Aby uzyskać więcej informacji, zobacz typ zasobu [b2cAuthenticationMethodsPolicy](/graph/api/resources/b2cauthenticationmethodspolicy).
 
 - [Get](/graph/api/b2cauthenticationmethodspolicy-get)
 - [Aktualizowanie](/graph/api/b2cauthenticationmethodspolicy-update)
 
 ## <a name="custom-policies"></a>Zasady niestandardowe
 
-Poniższe operacje umożliwiają zarządzanie Azure AD B2C zasadami struktury zaufania, znanymi jako [zasady niestandardowe](custom-policy-overview.md).
+Następujące operacje umożliwiają zarządzanie zasadami struktury zaufania Azure AD B2C, nazywanymi zasadami [niestandardowymi.](custom-policy-overview.md)
 
-- [Wyświetl listę wszystkich zasad struktury zaufania skonfigurowanych w dzierżawie](/graph/api/trustframework-list-trustframeworkpolicies)
-- [Utwórz zasady dotyczące struktury zaufania](/graph/api/trustframework-post-trustframeworkpolicy)
-- [Odczytaj właściwości istniejących zasad struktury zaufania](/graph/api/trustframeworkpolicy-get)
+- [Lista wszystkich zasad struktury zaufania skonfigurowanych w dzierżawie](/graph/api/trustframework-list-trustframeworkpolicies)
+- [Tworzenie zasad struktury zaufania](/graph/api/trustframework-post-trustframeworkpolicy)
+- [Odczytywanie właściwości istniejących zasad struktury zaufania](/graph/api/trustframeworkpolicy-get)
 - [Aktualizowanie lub tworzenie zasad struktury zaufania.](/graph/api/trustframework-put-trustframeworkpolicy)
 - [Usuwanie istniejących zasad struktury zaufania](/graph/api/trustframeworkpolicy-delete)
 
 ## <a name="policy-keys"></a>Klucze zasad
 
-Struktura środowiska tożsamości przechowuje wpisy tajne, do których odwołuje się zasada niestandardowa, aby ustanowić relację zaufania między składnikami. Te klucze tajne mogą być symetrycznymi lub asymetryczne klucze/wartości. W Azure Portal te jednostki są wyświetlane jako **klucze zasad**.
+W Identity Experience Framework wpisy tajne, do których odwołują się zasady niestandardowe, są przechowywane w celu ustanowienia zaufania między składnikami. Te wpisy tajne mogą być kluczami/wartościami symetrycznymi lub asymetrycznymi. W Azure Portal te jednostki są wyświetlane jako **klucze zasad**.
 
-Zasób najwyższego poziomu dla kluczy zasad w interfejsie API Microsoft Graph jest [zaufanym zestawem kluczy](/graph/api/resources/trustframeworkkeyset). Każdy **zestaw kluczy** zawiera co najmniej jeden **klucz**. Aby utworzyć klucz, najpierw utwórz pusty zestaw kluczy, a następnie Wygeneruj klucz w zestawie kluczy. Można utworzyć Ręczny klucz tajny, przekazać certyfikat lub klucz PKCS12. Klucz może być wygenerowanym wpisem tajnym, ciągiem (na przykład wpisem tajnym aplikacji Facebook) lub przekazywanym certyfikatem. Jeśli zestaw kluczy ma wiele kluczy, tylko jeden z kluczy jest aktywny.
+Zasób najwyższego poziomu dla kluczy zasad w interfejsie API Microsoft Graph to zestaw kluczy [zaufanej struktury](/graph/api/resources/trustframeworkkeyset). Każdy **zestaw kluczy** zawiera co najmniej jeden **klucz**. Aby utworzyć klucz, najpierw utwórz pusty zestaw kluczy, a następnie wygeneruj klucz w tym zsetze kluczy. Można utworzyć ręczny klucz tajny, przekazać certyfikat lub klucz PKCS12. Klucz może być wygenerowanym wpisem tajnym, ciągiem (takim jak wpis tajny aplikacji serwisu Facebook) lub przesyłanym certyfikatem. Jeśli zestaw kluczy ma wiele kluczy, aktywny jest tylko jeden z nich.
 
-### <a name="trust-framework-policy-keyset"></a>Zestaw kluczy zasad zaufania platformy
+### <a name="trust-framework-policy-keyset"></a>Zestaw kluczy zasad struktury zaufania
 
-- [Wyświetl listę zestawów ustawień struktury zaufania](/graph/api/trustframework-list-keysets)
-- [Tworzenie zestawów narzędzi struktury zaufania](/graph/api/trustframework-post-keysets)
-- [Pobierz zestaw kluczy](/graph/api/trustframeworkkeyset-get)
-- [Aktualizowanie zestawów danych struktury zaufania](/graph/api/trustframeworkkeyset-update)
-- [Usuwanie zestawów danych struktury zaufania](/graph/api/trustframeworkkeyset-delete)
+- [Lista ets kluczy struktury zaufania](/graph/api/trustframework-list-keysets)
+- [Tworzenie tworzyć grupy kluczy struktury zaufania](/graph/api/trustframework-post-keysets)
+- [Uzyskiwanie zestawu kluczy](/graph/api/trustframeworkkeyset-get)
+- [Aktualizowanie ets kluczy struktury zaufania](/graph/api/trustframeworkkeyset-update)
+- [Usuwanie ets kluczy struktury zaufania](/graph/api/trustframeworkkeyset-delete)
 
-### <a name="trust-framework-policy-key"></a>Klucz zasad zaufania platformy
+### <a name="trust-framework-policy-key"></a>Klucz zasad struktury zaufania
 
-- [Pobierz obecnie aktywny klucz w zestawie kluczy](/graph/api/trustframeworkkeyset-getactivekey)
-- [Generowanie klucza w zestawie kluczy](/graph/api/trustframeworkkeyset-generatekey)
-- [Przekazywanie klucza tajnego opartego na ciągu](/graph/api/trustframeworkkeyset-uploadsecret)
-- [Przekaż certyfikat X. 509](/graph/api/trustframeworkkeyset-uploadcertificate)
-- [Przekaż certyfikat formatu PKCS12](/graph/api/trustframeworkkeyset-uploadpkcs12)
+- [Pobierz obecnie aktywny klucz w zsetze kluczy](/graph/api/trustframeworkkeyset-getactivekey)
+- [Generowanie klucza w zsetze kluczy](/graph/api/trustframeworkkeyset-generatekey)
+- [Przekazywanie ciągu opartego na kluczu tajnym](/graph/api/trustframeworkkeyset-uploadsecret)
+- [Przekazywanie certyfikatu X.509](/graph/api/trustframeworkkeyset-uploadcertificate)
+- [Przekazywanie certyfikatu w formacie PKCS12](/graph/api/trustframeworkkeyset-uploadpkcs12)
 
 ## <a name="applications"></a>Aplikacje
 
 - [Wyświetlanie listy aplikacji](/graph/api/application-list)
 - [Tworzenie aplikacji](/graph/api/resources/application)
-- [Aktualizuj aplikację](/graph/api/application-update)
-- [Utwórz obiekt serviceprincipal](/graph/api/resources/serviceprincipal)
-- [Utwórz przyznanie oauth2Permission](/graph/api/resources/oauth2permissiongrant)
-- [Usuń aplikację](/graph/api/application-delete)
+- [Aktualizowanie aplikacji](/graph/api/application-update)
+- [Tworzenie usługi servicePrincipal](/graph/api/resources/serviceprincipal)
+- [Tworzenie przyznawania oauth2Permission](/graph/api/resources/oauth2permissiongrant)
+- [Usuwanie aplikacji](/graph/api/application-delete)
 
 ## <a name="application-extension-properties"></a>Właściwości rozszerzenia aplikacji
 
-- [Wyświetl właściwości rozszerzenia](/graph/api/application-list-extensionproperty)
+- [Lista właściwości rozszerzenia](/graph/api/application-list-extensionproperty)
 
-Azure AD B2C udostępnia katalog, który może zawierać 100 atrybutów niestandardowych na użytkownika. W przypadku przepływów użytkowników te właściwości rozszerzenia są [zarządzane przy użyciu Azure Portal](user-flow-custom-attributes.md). W przypadku zasad niestandardowych Azure AD B2C tworzy dla Ciebie właściwość, podczas gdy zasady zapisują wartość do właściwości rozszerzenia.
+Azure AD B2C udostępnia katalog, w którym można przechowywać 100 atrybutów niestandardowych na użytkownika. W przypadku przepływów użytkownika te właściwości rozszerzenia są [zarządzane przy użyciu Azure Portal](user-flow-custom-attributes.md). W przypadku zasad niestandardowych Azure AD B2C tworzy właściwość przy pierwszym zapisie wartości we właściwości rozszerzenia.
 
 ## <a name="audit-logs"></a>Dzienniki inspekcji
 
-- [Wyświetl listę dzienników inspekcji](/graph/api/directoryaudit-list)
+- [Lista dzienników inspekcji](/graph/api/directoryaudit-list)
 
-Aby uzyskać więcej informacji na temat uzyskiwania dostępu do dzienników inspekcji Azure AD B2C, zobacz [dostęp do Azure AD B2C inspekcji dzienników](view-audit-logs.md).
+Aby uzyskać więcej informacji na temat uzyskiwania dostępu do Azure AD B2C inspekcji, zobacz [Accessing Azure AD B2C audit logs](view-audit-logs.md)(Uzyskiwanie dostępu do Azure AD B2C inspekcji).
 
 ## <a name="conditional-access"></a>Dostęp warunkowy
 
-- [Wyświetl wszystkie zasady dostępu warunkowego](/graph/api/conditionalaccessroot-list-policies?view=graph-rest-beta&tabs=http)
-- [Odczytaj właściwości i relacje zasad dostępu warunkowego](/graph/api/conditionalaccesspolicy-get)
+- [Lista wszystkich zasad dostępu warunkowego](/graph/api/conditionalaccessroot-list-policies?tabs=http)
+- [Odczytywanie właściwości i relacji zasad dostępu warunkowego](/graph/api/conditionalaccesspolicy-get)
 - [Tworzenie nowych zasad dostępu warunkowego](/graph/api/resources/application)
 - [Aktualizowanie zasad dostępu warunkowego](/graph/api/conditionalaccesspolicy-update)
 - [Usuwanie zasad dostępu warunkowego](/graph/api/conditionalaccesspolicy-delete)
 
-## <a name="code-sample-how-to-programmatically-manage-user-accounts"></a>Przykład kodu: jak programowo zarządzać kontami użytkowników
+## <a name="code-sample-how-to-programmatically-manage-user-accounts"></a>Przykładowy kod: Jak programowo zarządzać kontami użytkowników
 
-Ten przykładowy kod jest aplikacją konsolową platformy .NET Core, która korzysta z [zestawu SDK Microsoft Graph](/graph/sdks/sdks-overview) , aby współdziałać z interfejsem API Microsoft Graph. W jego kodzie pokazano, jak wywołać interfejs API, aby programowo zarządzać użytkownikami w dzierżawie Azure AD B2C.
-Możesz [pobrać przykładowe archiwum](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management/archive/master.zip) (*. zip), [przejrzeć repozytorium](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management) w witrynie GitHub lub sklonować repozytorium:
+Ten przykładowy kod to aplikacja konsolowa platformy .NET Core, która używa [zestawu SDK](/graph/sdks/sdks-overview) Microsoft Graph do interakcji z Microsoft Graph API. W jego kodzie pokazano, jak wywołać interfejs API w celu programowego zarządzania użytkownikami w Azure AD B2C dzierżawie.
+Możesz pobrać [przykładowe archiwum](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management/archive/master.zip) (*.zip), przejrzeć [repozytorium w](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management) witrynie GitHub lub sklonować repozytorium:
 
 ```cmd
 git clone https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management.git
 ```
 
-Po uzyskaniu przykładowego kodu skonfiguruj go dla środowiska, a następnie Skompiluj projekt:
+Po pobraniu przykładowego kodu skonfiguruj go dla swojego środowiska, a następnie skonstruuj projekt:
 
-1. Otwórz projekt w programie [Visual Studio](https://visualstudio.microsoft.com) lub [Visual Studio Code](https://code.visualstudio.com).
+1. Otwórz projekt w [Visual Studio](https://visualstudio.microsoft.com) lub [Visual Studio Code](https://code.visualstudio.com).
 1. Otwórz plik `src/appsettings.json`.
-1. W `appSettings` sekcji Zamień na `your-b2c-tenant` nazwę dzierżawy oraz `Application (client) ID` `Client secret` wartości dla rejestracji aplikacji zarządzania. Aby uzyskać więcej informacji, zobacz [Rejestrowanie aplikacji Microsoft Graph](microsoft-graph-get-started.md).
-1. Otwórz okno konsoli w ramach lokalnego klonu repozytorium, przejdź do `src` katalogu, a następnie Skompiluj projekt:
+1. W sekcji `appSettings` zastąp wartość nazwą dzierżawy, a wartościami dla `your-b2c-tenant` rejestracji aplikacji do `Application (client) ID` `Client secret` zarządzania. Aby uzyskać więcej informacji, [zobacz Register a Microsoft Graph Application (Rejestrowanie Microsoft Graph aplikacji).](microsoft-graph-get-started.md)
+1. Otwórz okno konsoli w lokalnym klonie repo, przełącz się do katalogu, a `src` następnie skompilować projekt:
 
     ```console
     cd src
     dotnet build
     ```
     
-1. Uruchom aplikację za pomocą `dotnet` polecenia:
+1. Uruchom aplikację za pomocą `dotnet` polecenia :
 
     ```console
     dotnet bin/Debug/netcoreapp3.1/b2c-ms-graph.dll
     ```
 
-Aplikacja wyświetla listę poleceń, które można wykonać. Na przykład Pobierz wszystkich użytkowników, uzyskaj jednego użytkownika, Usuń użytkownika, zaktualizuj hasło użytkownika i Importuj zbiorczo.
+Aplikacja wyświetla listę poleceń, które można wykonać. Na przykład pobierz wszystkich użytkowników, pobierz jednego użytkownika, usuń użytkownika, zaktualizuj hasło użytkownika i importu zbiorczego.
 
-### <a name="code-discussion"></a>Dyskusja o kodzie
+### <a name="code-discussion"></a>Omówienie kodu
 
-Przykładowy kod używa [zestawu SDK Microsoft Graph](/graph/sdks/sdks-overview), który jest przeznaczony do uproszczenia tworzenia wysokiej jakości, wydajnych i odpornych aplikacji, które mają dostęp Microsoft Graph.
+Przykładowy kod korzysta z Microsoft Graph [SDK](/graph/sdks/sdks-overview), który został zaprojektowany w celu uproszczenia tworzenia wysokiej jakości, wydajnych i odpornych aplikacji, które mają dostęp do Microsoft Graph.
 
-Każde żądanie do interfejsu API Microsoft Graph wymaga tokenu dostępu do uwierzytelniania. Rozwiązanie korzysta z pakietu NuGet [Microsoft. Graph. auth](https://www.nuget.org/packages/Microsoft.Graph.Auth/) , który udostępnia otokę opartą na scenariuszu uwierzytelniania biblioteki uwierzytelniania firmy Microsoft (MSAL) do użycia z zestawem SDK Microsoft Graph.
+Każde żądanie do interfejsu API Microsoft Graph wymaga tokenu dostępu do uwierzytelniania. Rozwiązanie korzysta z pakietu NuGet [Microsoft.Graph.Auth,](https://www.nuget.org/packages/Microsoft.Graph.Auth/) który udostępnia opartą na scenariuszu uwierzytelnianie otokę biblioteki Microsoft Authentication Library (MSAL) do użycia z zestawem MICROSOFT GRAPH SDK.
 
-`RunAsync`Metoda w pliku _program. cs_ :
+Metoda `RunAsync` w pliku _Program.cs:_
 
-1. Odczytuje ustawienia aplikacji z _appsettings.jsw_ pliku
-1. Inicjuje dostawcę uwierzytelniania przy użyciu funkcji przepływu [przydzielenia poświadczeń klienta OAuth 2,0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) . Za pomocą przepływu Przydziel poświadczenia klienta aplikacja może uzyskać token dostępu do wywołania interfejsu API Microsoft Graph.
-1. Konfiguruje klienta usługi Microsoft Graph przy użyciu dostawcy uwierzytelniania:
+1. Odczytuje ustawienia aplikacji z _appsettings.jspliku_
+1. Inicjuje dostawcę uwierzytelniania przy użyciu przepływu udzielania poświadczeń klienta [OAuth 2.0.](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) W przypadku przepływu udzielania poświadczeń klienta aplikacja może uzyskać token dostępu w celu wywołania interfejsu API Microsoft Graph API.
+1. Konfiguruje klienta Microsoft Graph u dostawcy uwierzytelniania:
 
     ```csharp
     // Read application settings from appsettings.json (tenant ID, app ID, client secret, etc.)
@@ -203,7 +203,7 @@ Każde żądanie do interfejsu API Microsoft Graph wymaga tokenu dostępu do uwi
     GraphServiceClient graphClient = new GraphServiceClient(authProvider);
     ```
 
-Zainicjowany *GraphServiceClient* jest następnie używany w _UserService. cs_ do wykonywania operacji zarządzania użytkownikami. Na przykład, aby uzyskać listę kont użytkowników w dzierżawie:
+Zainicjowany interfejs *GraphServiceClient* jest następnie używany w _userService.cs_ do wykonywania operacji zarządzania użytkownikami. Na przykład uzyskanie listy kont użytkowników w dzierżawie:
 
 ```csharp
 public static async Task ListUsers(GraphServiceClient graphClient)
@@ -228,7 +228,7 @@ public static async Task ListUsers(GraphServiceClient graphClient)
 }
 ```
 
-[Wykonywanie wywołań interfejsu API za pomocą zestawów sdk Microsoft Graph](/graph/sdks/create-requests) zawiera informacje na temat odczytywania i zapisywania informacji z Microsoft Graph, używania `$select` do kontrolowania zwracanych właściwości, dostarczania niestandardowych parametrów zapytania i używania `$filter` `$orderBy` parametrów i.
+Wykonywanie [wywołań](/graph/sdks/create-requests) interfejsu API przy użyciu zestawów SDK usługi Microsoft Graph zawiera informacje na temat odczytywania i zapisu informacji z usługi Microsoft Graph, używania funkcji do kontrolowania zwracanych właściwości, zapewnienia niestandardowych parametrów zapytania oraz używania parametrów zapytania i `$select` `$filter` `$orderBy` .
 
 <!-- LINK -->
 

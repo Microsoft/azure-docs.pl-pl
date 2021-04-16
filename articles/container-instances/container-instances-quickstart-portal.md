@@ -1,21 +1,24 @@
 ---
-title: Szybki Start — wdrażanie kontenera platformy Docker do wystąpienia kontenera — Portal
-description: W tym przewodniku szybki start użyjesz Azure Portal, aby szybko wdrożyć aplikację sieci Web, która działa w izolowanym wystąpieniu kontenera platformy Azure
-ms.topic: quickstart
+title: Szybki start — wdrażanie kontenera platformy Docker w wystąpieniu kontenera — portal
+description: W tym przewodniku Szybki start użyjemy interfejsu Azure Portal szybko wdrożyć konteneryzowana aplikację internetową, która działa w izolowanym wystąpieniu kontenera platformy Azure
 ms.date: 08/24/2020
-ms.custom: seodec18, mvc, devx-track-js
-ms.openlocfilehash: c8477bd91c3a02a2cd02d341c38c16da251902ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.custom:
+- mvc
+- devx-track-js
+- mode-portal
+ms.openlocfilehash: c0189bbd04e454205b34a6415ab6109f95b6f51a
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96004810"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536224"
 ---
-# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Szybki Start: Wdrażanie wystąpienia kontenera na platformie Azure przy użyciu Azure Portal
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Szybki start: wdrażanie wystąpienia kontenera na platformie Azure przy użyciu Azure Portal
 
-Używanie Azure Container Instances do uruchamiania kontenerów platformy Docker bez serwera na platformie Azure z prostotą i szybkością. Wdróż aplikację w wystąpieniu kontenera na żądanie, gdy nie potrzebujesz pełnej platformy aranżacji kontenerów, takiej jak usługa Azure Kubernetes.
+Używaj Azure Container Instances do uruchamiania bez serwera kontenerów platformy Docker na platformie Azure z prostotą i szybkością. Wdrażanie aplikacji w wystąpieniu kontenera na żądanie, gdy nie potrzebujesz pełnej platformy orkiestracji kontenerów, na przykład Azure Kubernetes Service.
 
-W tym przewodniku szybki start użyjesz Azure Portal do wdrożenia izolowanego kontenera platformy Docker i udostępnienia jego aplikacji za pomocą w pełni kwalifikowanej nazwy domeny (FQDN). Po skonfigurowaniu kilku ustawień i wdrożeniu kontenera możesz przejść do uruchomionej aplikacji:
+W tym przewodniku Szybki start użyjesz usługi Azure Portal do wdrożenia izolowanego kontenera platformy Docker i udostępnisz jego aplikację za pomocą w pełni kwalifikowanej nazwy domeny (FQDN). Po skonfigurowaniu kilku ustawień i wdrożeniu kontenera możesz przejść do uruchomionej aplikacji:
 
 :::image type="content" source="media/container-instances-quickstart-portal/qs-portal-07.png" alt-text="Widziana w przeglądarce aplikacja wdrożona za pomocą usługi Azure Container Instances":::
 
@@ -27,34 +30,34 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="create-a-container-instance"></a>Tworzenie wystąpienia kontenera
 
-Wybierz Container Instances **tworzenia**  >  **kontenerów** zasobów  >  .
+Wybierz pozycję **Utwórz zasób**  >  **Kontenery**  >  **Container Instances**.
 
 :::image type="content" source="media/container-instances-quickstart-portal/qs-portal-01.png" alt-text="Rozpoczynanie tworzenia nowego wystąpienia kontenera w witrynie Azure Portal":::
 
-Na stronie **podstawowe** wprowadź następujące wartości w polach tekstowych **Grupa zasobów**, **nazwa kontenera** i **obraz kontenera** . Pozostaw domyślne wartości w pozostałych polach i kliknij przycisk **OK**.
+Na stronie **Podstawowe wprowadź** następujące wartości w polach tekstowych Grupa **zasobów,** **Nazwa kontenera** i **Obraz** kontenera. Pozostaw domyślne wartości w pozostałych polach i kliknij przycisk **OK**.
 
-* Grupa zasobów: **Utwórz nową** > `myresourcegroup`
+* Grupa zasobów: **utwórz nową** > `myresourcegroup`
 * Nazwa kontenera: `mycontainer`
 * Źródło obrazu: **obrazy szybkiego startu**
 * Obraz kontenera: `mcr.microsoft.com/azuredocs/aci-helloworld` (Linux)
 
 :::image type="content" source="media/container-instances-quickstart-portal/qs-portal-03.png" alt-text="Konfigurowanie podstawowych ustawień nowego wystąpienia kontenera w witrynie Azure Portal":::
 
-W tym przewodniku szybki start użyjesz domyślnych ustawień do wdrożenia publicznego `aci-helloworld` obrazu firmy Microsoft. W tym przykładowym obrazie systemu Linux jest to mała aplikacja internetowa zapisywana w Node.js, która obsługuje statyczną stronę HTML. Możesz również umieścić własne obrazy kontenerów przechowywane w Azure Container Registry, Docker Hub lub innych rejestrach.
+W tym przewodniku Szybki start użyjemy ustawień domyślnych do wdrożenia publicznego obrazu firmy `aci-helloworld` Microsoft. Ten przykładowy obraz systemu Linux zawiera małą aplikację internetową napisaną w Node.js, która obsługuje statyczną stronę HTML. Możesz również korzystać z własnych obrazów kontenerów przechowywanych w Azure Container Registry, Docker Hub lub innych rejestrach.
 
-Na stronie **Sieć** Określ **etykietę nazwy DNS** dla kontenera. Nazwa musi być unikatowa w regionie świadczenia usługi Azure, w którym tworzysz wystąpienie kontenera. Twój kontener będzie dostępny publicznie pod adresem `<dns-name-label>.<region>.azurecontainer.io`. Jeśli zostanie wyświetlony komunikat o błędzie „Etykieta nazwy DNS nie jest dostępna”, spróbuj użyć innej etykiety nazwy DNS.
+Na stronie **Sieć** określ etykietę **nazwy DNS** dla kontenera. Nazwa musi być unikatowa w obrębie regionu świadczenia usługi Azure, w którym tworzysz wystąpienie kontenera. Twój kontener będzie dostępny publicznie pod adresem `<dns-name-label>.<region>.azurecontainer.io`. Jeśli zostanie wyświetlony komunikat o błędzie „Etykieta nazwy DNS nie jest dostępna”, spróbuj użyć innej etykiety nazwy DNS.
 
 :::image type="content" source="media/container-instances-quickstart-portal/qs-portal-04.png" alt-text="Konfigurowanie ustawień sieciowych dla nowego wystąpienia kontenera w Azure Portal":::
 
-Pozostaw wartości domyślne pozostałych ustawień, a następnie wybierz pozycję **Przegląd + Utwórz**.
+Pozostaw wartości domyślne pozostałych ustawień, a następnie wybierz **pozycję Przejrzyj i utwórz.**
 
-Po zakończeniu weryfikacji zostanie wyświetlone podsumowanie ustawień kontenera. Wybierz pozycję **Utwórz** , aby przesłać żądanie wdrożenia kontenera.
+Po zakończeniu weryfikacji zostanie wyświetlone podsumowanie ustawień kontenera. Wybierz **pozycję Utwórz,** aby przesłać żądanie wdrożenia kontenera.
 
 :::image type="content" source="media/container-instances-quickstart-portal/qs-portal-05.png" alt-text="Podsumowanie ustawień nowego wystąpienia kontenera w witrynie Azure Portal":::
 
-Po rozpoczęciu wdrażania zostanie wyświetlone powiadomienie informujące o tym, że wdrożenie jest w toku. Kolejne powiadomienie zostanie wyświetlone, gdy grupa kontenerów zostanie wdrożona.
+Po zakończeniu wdrażania zostanie wyświetlone powiadomienie informujące o tym, że wdrożenie jest w toku. Kolejne powiadomienie zostanie wyświetlone, gdy grupa kontenerów zostanie wdrożona.
 
-Otwórz przegląd dla grupy kontenerów, przechodząc do sekcji **grupy zasobów** moje  >  **zasoby**  >  . Zwróć uwagę na wartość **FQDN** (w pełni kwalifikowana nazwa domeny) wystąpienia kontenera, a także na jego **Stan**.
+Otwórz omówienie grupy kontenerów, przechodząc do tematu **Grupy** zasobów  >  **myresourcegroup**  >  **mycontainer.** Zwróć uwagę na wartość **FQDN** (w pełni kwalifikowana nazwa domeny) wystąpienia kontenera, a także na jego **Stan**.
 
 :::image type="content" source="media/container-instances-quickstart-portal/qs-portal-06.png" alt-text="Przegląd grupy kontenerów w witrynie Azure Portal":::
 
@@ -68,7 +71,7 @@ Gratulacje! Konfigurując zaledwie kilku ustawień, udało Ci się wdrożyć pub
 
 W przypadku rozwiązywania problemów z kontenerem lub uruchomioną w nim aplikacją przydatne jest przeglądanie dzienników wystąpienia kontenera.
 
-Aby wyświetlić dzienniki kontenera, w obszarze **Ustawienia** wybierz opcję **kontenery**, a następnie pozycję **dzienniki**. Powinno pojawić się żądanie HTTP GET generowane podczas wyświetlania aplikacji w przeglądarce.
+Aby wyświetlić dzienniki kontenera, w obszarze Ustawienia **wybierz** pozycję **Kontenery**, a następnie pozycję **Dzienniki.** Powinno pojawić się żądanie HTTP GET generowane podczas wyświetlania aplikacji w przeglądarce.
 
 :::image type="content" source="media/container-instances-quickstart-portal/qs-portal-11.png" alt-text="Dzienniki kontenera w witrynie Azure Portal":::
 
@@ -85,7 +88,7 @@ Po pojawieniu się okna dialogowego potwierdzenia wybierz pozycję **Tak**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono wystąpienie kontenera platformy Azure na podstawie publicznego obrazu firmy Microsoft. Jeśli chcesz skompilować obraz kontenera i wdrożyć go za pomocą prywatnej usługi Azure Container Registry, przejdź do samouczka dotyczącego usługi Azure Container Instances.
+W tym przewodniku Szybki start utworzono wystąpienie kontenera platformy Azure na podstawie publicznego obrazu firmy Microsoft. Jeśli chcesz skompilować obraz kontenera i wdrożyć go za pomocą prywatnej usługi Azure Container Registry, przejdź do samouczka dotyczącego usługi Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Samouczek dotyczący usługi Azure Container Instances](./container-instances-tutorial-prepare-app.md)

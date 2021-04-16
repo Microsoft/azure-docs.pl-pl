@@ -1,192 +1,192 @@
 ---
 title: 'Dostęp do Azure SQL Database: Przewodnik migracji'
-description: W tym przewodniku dowiesz się, jak migrować bazy danych programu Microsoft Access do bazy danych Azure SQL Database przy użyciu Asystent migracji do programu SQL Server dostępu (ASYSTENCIE migracji for Access).
+description: Z tego przewodnika dowiesz się, jak przeprowadzić migrację baz danych programu Microsoft Access do bazy danych programu Azure SQL przy użyciu programu Asystent migracji do programu SQL Server for Access (SSMA for Access).
 ms.service: sql-database
 ms.subservice: migration-guide
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: 73ee4d4be16284880b10df4a52b422a08c04c6a0
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 137adbb045a4c449193f9029b9c72f09ddc439b1
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107284191"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388469"
 ---
 # <a name="migration-guide-access-to-azure-sql-database"></a>Przewodnik migracji: dostęp do Azure SQL Database
 
-W tym przewodniku dowiesz się, [Jak przeprowadzić migrację](https://azure.microsoft.com/migration/migration-journey) bazy danych programu Microsoft Access do bazy danych Azure SQL Database przy użyciu Asystenta [migracji SQL Server](https://azure.microsoft.com/en-us/migration/sql-server/) , aby uzyskać dostęp (Asystencie migracji for Access).
+Z tego przewodnika [](https://azure.microsoft.com/migration/migration-journey) dowiesz się, jak przeprowadzić migrację bazy danych programu Microsoft Access do bazy danych programu Azure SQL przy użyciu programu [SQL Server Migration](https://azure.microsoft.com/en-us/migration/sql-server/) Assistant for Access (SSMA for Access).
 
-Aby poznać inne przewodniki dotyczące migracji, zobacz [Przewodnik migracji usługi Azure Database](https://docs.microsoft.com/data-migration). 
+Aby uzyskać informacje na temat innych przewodników migracji, [zobacz Przewodnik po migracji bazy danych platformy Azure.](https://docs.microsoft.com/data-migration) 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem migrowania bazy danych programu Access do bazy danych SQL wykonaj następujące czynności:
+Przed rozpoczęciem migracji bazy danych programu Access do bazy danych SQL wykonaj następujące czynności:
 
 - Sprawdź, czy środowisko źródłowe jest obsługiwane. 
-- Pobierz i zainstaluj [Asystent migracji do programu SQL Server, aby uzyskać dostęp](https://www.microsoft.com/download/details.aspx?id=54255).
-- Upewnij się, że masz łączność i wystarczające uprawnienia dostępu do źródła i celu.
+- Pobierz i zainstaluj [program Asystent migracji do programu SQL Server for Access.](https://www.microsoft.com/download/details.aspx?id=54255)
+- Upewnij się, że masz łączność i wystarczające uprawnienia, aby uzyskać dostęp zarówno do źródła, jak i do obiektu docelowego.
 
 ## <a name="pre-migration"></a>Przed migracją
 
-Po spełnieniu wymagań wstępnych można przystąpić do odnajdywania topologii środowiska i oceny wykonalności [migracji w chmurze platformy Azure](https://azure.microsoft.com/migration).
+Po spełnianiu wymagań wstępnych możesz poznać topologię środowiska i ocenić możliwość migracji do [chmury na platformie Azure.](https://azure.microsoft.com/migration)
 
 
 ### <a name="assess"></a>Ocena 
 
-Za pomocą programu ASYSTENCIE migracji można przeglądać obiekty bazy danych i dane oraz oceniać bazy danych do migracji. 
+Użyj programu SSMA for Access, aby przeglądać obiekty i dane bazy danych oraz oceniać bazy danych do migracji. 
 
 Aby utworzyć ocenę, wykonaj następujące czynności: 
 
-1. Otwórz [Asystencie migracji, aby uzyskać dostęp](https://www.microsoft.com/download/details.aspx?id=54255). 
-1. Wybierz pozycję **plik**, a następnie wybierz pozycję **Nowy projekt**. 
-1. Podaj nazwę projektu i lokalizację projektu, a następnie na liście rozwijanej wybierz **Azure SQL Database** jako cel migracji. 
+1. Otwórz [program SSMA for Access.](https://www.microsoft.com/download/details.aspx?id=54255) 
+1. Wybierz **pozycję File**(Plik), a następnie wybierz pozycję New Project **(Nowy projekt).** 
+1. Podaj nazwę projektu i lokalizację projektu, a następnie z listy rozwijanej wybierz pozycję **Azure SQL Database** jako cel migracji. 
 1. Wybierz przycisk **OK**. 
 
-   ![Zrzut ekranu przedstawiający okienko "nowy projekt" służący do wprowadzania nazwy i lokalizacji projektu migracji.](./media/access-to-sql-database-guide/new-project.png)
+   ![Zrzut ekranu przedstawiający okienko "Nowy projekt" służące do wprowadzania nazwy i lokalizacji projektu migracji.](./media/access-to-sql-database-guide/new-project.png)
 
-1. Wybierz pozycję **Dodaj bazy danych**, a następnie wybierz bazy danych, które mają zostać dodane do nowego projektu. 
+1. Wybierz **pozycję Dodaj bazy** danych, a następnie wybierz bazy danych, które mają zostać dodane do nowego projektu. 
 
-   ![Zrzut ekranu przedstawiający kartę "Dodawanie baz danych" w programie ASYSTENCIE migracji, aby uzyskać dostęp.](./media/access-to-sql-database-guide/add-databases.png)
+   ![Zrzut ekranu przedstawiający kartę "Dodawanie baz danych" w programie SSMA for Access.](./media/access-to-sql-database-guide/add-databases.png)
 
-1. W okienku **dostęp do Eksploratora metadanych** kliknij prawym przyciskiem myszy bazę danych, a następnie wybierz polecenie **Utwórz raport**. Alternatywnie możesz wybrać kartę **Utwórz raport** w prawym górnym rogu.
+1. W **okienku Eksplorator metadanych dostępu** kliknij prawym przyciskiem myszy bazę danych, a następnie wybierz pozycję **Utwórz raport.** Alternatywnie możesz wybrać kartę **Utwórz raport** w prawym górnym rogu.
 
    ![Zrzut ekranu przedstawiający polecenie "Utwórz raport" w Eksploratorze metadanych dostępu.](./media/access-to-sql-database-guide/create-report.png)
 
-1. Przejrzyj raport HTML, aby poznać statystyki konwersji oraz błędy lub ostrzeżenia. Możesz również otworzyć raport w programie Excel, aby uzyskać spis obiektów dostępu i zrozumieć nakład pracy wymagany do wykonania konwersji schematu. Domyślna lokalizacja raportu znajduje się w folderze raportów w SSMAProjects. Na przykład:
+1. Przejrzyj raport HTML, aby poznać statystyki konwersji oraz wszelkie błędy lub ostrzeżenia. Możesz również otworzyć raport w programie Excel, aby uzyskać spis obiektów programu Access i zrozumieć nakład pracy wymagany do przeprowadzenia konwersji schematu. Domyślna lokalizacja raportu znajduje się w folderze raportu w ramach SSMAProjects. Na przykład:
 
    `drive:\<username>\Documents\SSMAProjects\MyAccessMigration\report\report_<date>`
 
-   ![Zrzut ekranu przykładowej oceny raportu bazy danych w ASYSTENCIE migracji.](./media/access-to-sql-database-guide/sample-assessment.png)
+   ![Zrzut ekranu przedstawiający przykład oceny raportu bazy danych w ramach programu SSMA.](./media/access-to-sql-database-guide/sample-assessment.png)
 
-### <a name="validate-the-data-types"></a>Sprawdzanie poprawności typów danych
+### <a name="validate-the-data-types"></a>Weryfikowanie typów danych
 
-Sprawdź poprawność domyślnych mapowań typów danych i zmień je w zależności od potrzeb, w razie potrzeby. W tym celu:
+W razie potrzeby zweryfikuj domyślne mapowania typów danych i zmień je w zależności od wymagań. W tym celu:
 
-1. W programie ASYSTENCIE migracji for Access wybierz pozycję **Narzędzia**, a następnie wybierz pozycję **Ustawienia projektu**. 
-1. Wybierz kartę **Mapowanie typu** . 
+1. W narzędziu SSMA for Access wybierz **pozycję Narzędzia**, a następnie wybierz pozycję Project **Settings (Ustawienia projektu).** 
+1. Wybierz **kartę Mapowanie** typów. 
 
-   ![Zrzut ekranu okienka "Mapowanie typów" w ASYSTENCIE migracji, aby uzyskać dostęp.](./media/access-to-sql-database-guide/type-mappings.png)
+   ![Zrzut ekranu przedstawiający okienko "Mapowanie typów" w funkcji SSMA for Access.](./media/access-to-sql-database-guide/type-mappings.png)
 
-1. Można zmienić mapowanie typu dla każdej tabeli, wybierając nazwę tabeli w okienku **Eksploratora metadanych dostępu** .
+1. Mapowanie typów dla każdej tabeli można zmienić, wybierając nazwę tabeli w okienku **Eksplorator metadanych** dostępu.
 
 
-### <a name="convert-the-schema"></a>Konwertuj schemat
+### <a name="convert-the-schema"></a>Konwertowanie schematu
 
-Aby skonwertować obiekty bazy danych, wykonaj następujące czynności: 
+Aby przekonwertować obiekty bazy danych, wykonaj następujące czynności: 
 
-1. Wybierz kartę **Połącz z Azure SQL Database** , a następnie wykonaj następujące czynności:
+1. Wybierz **kartę Połącz Azure SQL Database,** a następnie wykonaj następujące czynności:
 
-   a. Wprowadź szczegóły dotyczące łączenia się z bazą danych SQL.  
-   b. Z listy rozwijanej wybierz docelową bazę danych SQL. Możesz też wprowadzić nową nazwę, w której przypadku zostanie utworzona baza danych na serwerze docelowym.  
+   a. Wprowadź szczegóły dotyczące nawiązywania połączenia z bazą danych SQL.  
+   b. Z listy rozwijanej wybierz docelową bazę danych SQL. Możesz też wprowadzić nową nazwę. W takim przypadku baza danych zostanie utworzona na serwerze docelowym.  
    c. Podaj szczegóły uwierzytelniania.   
    d. Wybierz pozycję **Połącz**.
 
-   ![Zrzut ekranu okienka "łączenie z Azure SQL Database", aby wprowadzić szczegóły połączenia.](./media/access-to-sql-database-guide/connect-to-sqldb.png)
+   ![Zrzut ekranu przedstawiający okienko "Połącz z Azure SQL Database" służące do wprowadzania szczegółów połączenia.](./media/access-to-sql-database-guide/connect-to-sqldb.png)
 
-1. W okienku **dostęp do Eksploratora metadanych** kliknij prawym przyciskiem myszy bazę danych, a następnie wybierz polecenie **Konwertuj schemat**. Alternatywnie możesz wybrać swoją bazę danych, a następnie wybrać kartę **Konwertuj schemat** .
+1. W **okienku Eksplorator metadanych dostępu** kliknij prawym przyciskiem myszy bazę danych, a następnie wybierz polecenie **Konwertuj schemat.** Alternatywnie możesz wybrać bazę danych, a następnie wybrać **kartę Konwertuj** schemat.
 
-   ![Zrzut ekranu przedstawiający polecenie "Konwertuj schemat" w okienku "Eksplorator metadanych dostępu".](./media/access-to-sql-database-guide/convert-schema.png)
+   ![Zrzut ekranu przedstawiający polecenie "Konwertuj schemat" w okienku "Uzyskiwanie dostępu do eksploratora metadanych".](./media/access-to-sql-database-guide/convert-schema.png)
 
-1. Po zakończeniu konwersji Porównaj przekonwertowane obiekty z oryginalnymi obiektami, aby zidentyfikować potencjalne problemy i rozwiązać problemy na podstawie zaleceń.
+1. Po zakończeniu konwersji porównaj przekonwertowane obiekty z oryginalnymi obiektami, aby zidentyfikować potencjalne problemy i rozwiązać problemy na podstawie zaleceń.
 
-   ![Zrzut ekranu przedstawiający porównanie przekonwertowanych obiektów do obiektów źródłowych.](./media/access-to-sql-database-guide/table-comparison.png)
+   ![Zrzut ekranu przedstawiający porównanie przekonwertowanych obiektów z obiektami źródłowymi.](./media/access-to-sql-database-guide/table-comparison.png)
 
-    Porównaj przekonwertowany tekst języka Transact-SQL z oryginalnym kodem i zapoznaj się z zaleceniami.
+    Porównaj przekonwertowany tekst transact-SQL z oryginalnym kodem i przejrzyj zalecenia.
 
-   ![Zrzut ekranu przedstawiający porównanie przekonwertowanych zapytań do kodu źródłowego.](./media/access-to-sql-database-guide/query-comparison.png) 
+   ![Zrzut ekranu przedstawiający porównanie przekonwertowanych zapytań z kodem źródłowym.](./media/access-to-sql-database-guide/query-comparison.png) 
 
-1. Obowiązkowe Aby skonwertować pojedynczy obiekt, kliknij prawym przyciskiem myszy obiekt, a następnie wybierz polecenie **Konwertuj schemat**. Skonwertowane obiekty są wyświetlane w postaci pogrubionego tekstu w **Eksploratorze metadanych programu Access**: 
+1. (Opcjonalnie) Aby przekonwertować pojedynczy obiekt, kliknij go prawym przyciskiem myszy, a następnie wybierz polecenie **Konwertuj schemat**. Przekonwertowane obiekty są wyświetlane w pogrubionym tekście w **Eksploratorze metadanych dostępu:** 
 
-   ![Zrzut ekranu przedstawiający, że obiekty w Eksploratorze metadanych dostępu są konwertowane.](./media/access-to-sql-database-guide/converted-items.png)
+   ![Zrzut ekranu przedstawiający konwertowanie obiektów w Eksploratorze metadanych dostępu.](./media/access-to-sql-database-guide/converted-items.png)
  
-1. W okienku **danych wyjściowych** wybierz ikonę **przegląd wyników** i Przejrzyj błędy w okienku **Lista błędów** . 
-1. Zapisz projekt lokalnie dla ćwiczenia korygowania schematu w trybie offline. W tym celu wybierz pozycję **plik**  >  **Zapisz projekt**. Dzięki temu można oszacować schematy źródłowe i docelowe w trybie offline i przeprowadzić korygowanie przed opublikowaniem ich w bazie danych SQL.
+1. W **okienku Dane** wyjściowe wybierz **ikonę Przejrzyj wyniki** i przejrzyj błędy w **okienku Lista błędów.** 
+1. Zapisz projekt lokalnie w celu skorygowania schematu w trybie offline. W tym celu wybierz **pozycję Plik Zapisz**  >  **projekt.** Daje to możliwość oceny schematów źródłowych i docelowych w trybie offline i wykonania korygowania przed opublikowaniem ich w bazie danych SQL.
 
 ## <a name="migrate-the-databases"></a>Migrowanie baz danych
 
-Po przeprowadzeniu oceny baz danych i rozpoczęciu wszelkich rozbieżności można uruchomić proces migracji. Migrowanie danych jest operacją ładowania zbiorczego, która przenosi wiersze danych do usługi Azure SQL Database w ramach transakcji. Liczba wierszy do załadowania do bazy danych SQL w każdej transakcji jest konfigurowana w ustawieniach projektu.
+Po ocenie baz danych i wylieniu wszelkich rozbieżności można uruchomić proces migracji. Migrowanie danych to operacja ładowania zbiorczego, która przenosi wiersze danych do bazy Azure SQL w transakcjach. Liczba wierszy do załadowania do bazy danych SQL w każdej transakcji jest konfigurowana w ustawieniach projektu.
 
-Aby opublikować schemat i przeprowadzić migrację danych przy użyciu usługi ASYSTENCIE migracji w celu uzyskania dostępu, wykonaj następujące czynności: 
+Aby opublikować schemat i przeprowadzić migrację danych przy użyciu usługi SSMA for Access, wykonaj następujące czynności: 
 
-1. Jeśli jeszcze tego nie zrobiono, wybierz pozycję **Połącz z Azure SQL Database** i podaj szczegóły połączenia. 
+1. Jeśli jeszcze tego nie zrobiono, wybierz pozycję Połącz z Azure SQL Database **i** podaj szczegóły połączenia. 
 
-1. Opublikuj schemat. W okienku **Azure SQL Database Metadata Explorer** kliknij prawym przyciskiem myszy bazę danych, z którą pracujesz, a następnie wybierz polecenie **Synchronizuj z bazą danych**. Ta akcja powoduje opublikowanie schematu MySQL w bazie danych SQL.
+1. Opublikuj schemat. W **okienku Azure SQL Database Metadata Explorer** (Eksplorator metadanych) kliknij prawym przyciskiem myszy bazę danych, z która pracujesz, a następnie wybierz pozycję **Synchronizuj** z bazą danych . Ta akcja publikuje schemat MySQL w bazie danych SQL.
 
-1. W okienku **Synchronizuj z bazą danych** Przejrzyj mapowanie między projektem źródłowym a obiektem docelowym:
+1. W **okienku Synchronizuj z bazą** danych przejrzyj mapowanie między projektem źródłowym a obiektem docelowym:
 
-   ![Zrzut ekranu przedstawiający okienko "Synchronizuj z bazą danych" w celu przejrzenia synchronizacji z bazą danych.](./media/access-to-sql-database-guide/synchronize-with-database-review.png)
+   ![Zrzut ekranu przedstawiający okienko "Synchronizuj z bazą danych" służące do przeglądania synchronizacji z bazą danych.](./media/access-to-sql-database-guide/synchronize-with-database-review.png)
 
-1. W okienku **dostęp do Eksploratora metadanych** zaznacz pola wyboru obok elementów, które chcesz zmigrować. Aby przeprowadzić migrację całej bazy danych, zaznacz pole wyboru obok bazy danych. 
+1. W **okienku Eksplorator metadanych** dostępu zaznacz pola wyboru obok elementów, które chcesz migrować. Aby przeprowadzić migrację całej bazy danych, zaznacz pole wyboru obok tej bazy danych. 
 
-1. Migruj dane. Kliknij prawym przyciskiem myszy bazę danych lub obiekt, który chcesz zmigrować, a następnie wybierz polecenie **Migruj dane**. Alternatywnie możesz wybrać kartę **Migrowanie danych** w prawym górnym rogu.  
+1. Migrowanie danych. Kliknij prawym przyciskiem myszy bazę danych lub obiekt, który chcesz zmigrować, a następnie wybierz pozycję **Migruj dane.** Alternatywnie możesz wybrać kartę **Migruj dane** w prawym górnym rogu.  
 
-   Aby migrować dane dla całej bazy danych, zaznacz pole wyboru obok nazwy bazy danych. Aby przeprowadzić migrację danych z pojedynczych tabel, rozwiń bazę danych, rozwiń węzeł **tabele**, a następnie zaznacz pole wyboru obok tabeli. Aby pominąć dane z poszczególnych tabel, wyczyść to pole wyboru.
+   Aby przeprowadzić migrację danych dla całej bazy danych, zaznacz pole wyboru obok nazwy bazy danych. Aby przeprowadzić migrację danych z poszczególnych tabel, rozwiń bazę danych, rozwiń pozycję **Tabele**, a następnie zaznacz pole wyboru obok tabeli. Aby pominąć dane z poszczególnych tabel, wyczyść pole wyboru.
 
-    ![Zrzut ekranu przedstawiający polecenie "Migrowanie danych" w okienku "Eksplorator metadanych dostępu".](./media/access-to-sql-database-guide/migrate-data.png)
+    ![Zrzut ekranu przedstawiający polecenie "Migruj dane" w okienku "Uzyskiwanie dostępu do eksploratora metadanych".](./media/access-to-sql-database-guide/migrate-data.png)
 
-1. Po zakończeniu migracji Wyświetl **raport dotyczący migracji danych**.  
+1. Po zakończeniu migracji wyświetl raport **migracji danych**.  
 
-    ![Zrzut ekranu okienka "Migrowanie danych raportu" pokazujący przykładowy raport do przeglądu.](./media/access-to-sql-database-guide/migrate-data-review.png)
+    ![Zrzut ekranu przedstawiający okienko "Migrowanie raportu danych" z przykładowym raportem do przeglądu.](./media/access-to-sql-database-guide/migrate-data-review.png)
 
-1. Nawiąż połączenie z bazą danych Azure SQL Database przy użyciu [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)i Zweryfikuj migrację, przeglądając dane i schemat.
+1. Połącz się z bazą Azure SQL danych przy [użyciu SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms), a następnie zweryfikuj migrację, przeglądając dane i schemat.
 
-   ![Zrzut ekranu przedstawiający SQL Server Management Studio Eksplorator obiektów do sprawdzania poprawności migracji w ASYSTENCIE migracji.](./media/access-to-sql-database-guide/validate-data.png)
+   ![Zrzut ekranu SQL Server Management Studio Eksplorator obiektów sprawdzania poprawności migracji w programie SSMA.](./media/access-to-sql-database-guide/validate-data.png)
 
 ## <a name="post-migration"></a>Po migracji 
 
-Po pomyślnym zakończeniu etapu *migracji* należy wykonać serię zadań po migracji, aby upewnić się, że wszystko działa jak najszybciej i efektywnie.
+Po pomyślnym ukończeniu  etapu migracji należy wykonać serię zadań po migracji, aby upewnić się, że wszystko działa tak bezproblemowo i wydajnie, jak to możliwe.
 
-### <a name="remediate-applications"></a>Koryguj aplikacje
+### <a name="remediate-applications"></a>Korygowanie aplikacji
 
-Po przeprowadzeniu migracji danych do środowiska docelowego wszystkie aplikacje, które wcześniej korzystały ze źródła, muszą zacząć zużywać miejsce docelowe. W niektórych przypadkach będzie wymagane wprowadzenie zmian w aplikacjach.
+Po migracji danych do środowiska docelowego wszystkie aplikacje, które wcześniej zużywały źródło, muszą zacząć korzystać z obiektu docelowego. W niektórych przypadkach będzie to wymagało zmian w aplikacjach.
 
-### <a name="perform-tests"></a>Wykonaj testy
+### <a name="perform-tests"></a>Wykonywanie testów
 
-Podejście testowe do migracji bazy danych obejmuje następujące działania:
+Testowe podejście do migracji bazy danych obejmuje następujące działania:
 
-1. **Opracowywanie testów weryfikacyjnych**: Aby przetestować migrację bazy danych, należy użyć zapytań SQL. Należy utworzyć zapytania walidacji do uruchomienia zarówno dla źródłowej, jak i docelowej bazy danych. Zapytania weryfikacyjne powinny obejmować zdefiniowany zakres.
+1. **Opracowywanie testów weryfikacyjnych:** aby przetestować migrację bazy danych, należy użyć zapytań SQL. Należy utworzyć zapytania weryfikacji, aby uruchamiać je zarówno względem źródłowej, jak i docelowej bazy danych. Zapytania weryfikacji powinny obejmować zdefiniowany zakres.
 
-1. **Konfigurowanie środowiska testowego**: środowisko testowe powinno zawierać kopię źródłowej bazy danych i docelowej bazy danych. Należy pamiętać o odizolowaniu środowiska testowego.
+1. **Konfigurowanie środowiska testowego:** środowisko testowe powinno zawierać kopię źródłowej bazy danych i docelowej bazy danych. Pamiętaj, aby odizolować środowisko testowe.
 
-1. **Uruchom testy weryfikacyjne**: Uruchom testy weryfikacyjne względem źródła i celu, a następnie Przeanalizuj wyniki.
+1. **Uruchamianie testów walidacji:** uruchom testy weryfikacyjne względem źródła i obiektu docelowego, a następnie przeanalizuj wyniki.
 
-1. **Uruchom testy wydajnościowe**: Uruchom testy wydajności względem źródła i celu, a następnie Przeanalizuj i Porównaj wyniki.
+1. **Uruchamianie testów wydajnościowych:** uruchom testy wydajnościowe względem źródła i obiektu docelowego, a następnie przeanalizuj i porównaj wyniki.
 
 
 ### <a name="optimize"></a>Optymalizacja
 
-Faza po migracji jest kluczowa do uzgadniania problemów z dokładnością danych, sprawdzania kompletności i rozwiązywania problemów z wydajnością w ramach obciążenia.
+Faza po migracji ma kluczowe znaczenie dla uzgadniania wszelkich problemów z dokładnością danych, weryfikowania kompletności i rozwiązywania problemów z wydajnością obciążenia.
 
-Więcej informacji o tych problemach i krokach, które należy rozwiązać, można znaleźć w [przewodniku po sprawdzeniu poprawności po migracji i optymalizacji](/sql/relational-databases/post-migration-validation-and-optimization-guide).
+Aby uzyskać więcej informacji na temat tych problemów i czynności w celu ich ograniczenia, zobacz Przewodnik po [weryfikacji i optymalizacji](/sql/relational-databases/post-migration-validation-and-optimization-guide)po migracji.
 
 ## <a name="migration-assets"></a>Zasoby migracji 
 
-Aby uzyskać więcej pomocy przy wykonywaniu tego scenariusza migracji, zobacz następujący zasób. Opracowano w ramach obsługi rzeczywistego zaangażowania projektu migracji.
+Aby uzyskać więcej pomocy przy ukończeniu tego scenariusza migracji, zobacz następujący zasób. Został on opracowany w celu wspierania rzeczywistego zaangażowania projektu migracji.
 
 | Tytuł | Opis |
 | --- | --- |
-| [Model i narzędzie oceny obciążenia danych](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Oferuje sugerowane "najlepsze dopasowania" platform docelowych, gotowość chmury oraz poziomy korygowania aplikacji/bazy danych dla określonych obciążeń. Oferuje proste, oparte na jednym kliknięcie Obliczanie i generowanie raportów, które ułatwiają przyspieszenie oceny dużych ilości, zapewniając zautomatyzowany, jednolity proces podejmowania decyzji na platformie docelowej. |
+| [Model i narzędzie do oceny obciążenia danych](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Zapewnia sugerowane "najlepsze dopasowanie" platform docelowych, gotowość do chmury oraz poziomy korygowania aplikacji/bazy danych dla określonych obciążeń. Oferuje proste obliczenia i generowanie raportów jednym kliknięciem, które pomagają przyspieszyć ocenę dużych nieruchomości, zapewniając zautomatyzowany, jednolity proces podejmowania decyzji na platformie docelowej. |
 
-Zespół inżynierów danych SQL Data opracował te zasoby. Podstawowa karta tego zespołu ma odblokować i przyspieszyć kompleksową modernizację projektów migracji platformy danych do platformy danych platformy Microsoft Azure.
+Zespół inżynierów ds. danych SQL opracował te zasoby. Podstawowym procesem tego zespołu jest odblokowanie i przyspieszenie złożonej modernizacji projektów migracji platformy danych na platformę danych Microsoft Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Macierz usług i narzędzi firmy Microsoft i innych firm, które są dostępne w celu ułatwienia pracy z różnymi scenariuszami bazy danych i migracji danych oraz zadaniami specjalistycznymi, można znaleźć w temacie [Usługa i narzędzia do migracji danych](../../../dms/dms-tools-matrix.md).
+- Aby uzyskać macierz usług i narzędzi firmy Microsoft oraz innych firm, które są dostępne w celu pomocy w różnych scenariuszach migracji bazy danych i danych oraz zadaniach specjalnych, zobacz Service and tools for data migration (Usługi i narzędzia do migracji [danych).](../../../dms/dms-tools-matrix.md)
 
-- Aby dowiedzieć się więcej na temat Azure SQL Database, zobacz:
+- Aby dowiedzieć się więcej o Azure SQL Database zobacz:
    - [Omówienie SQL Database](../../database/sql-database-paas-overview.md)
-   - [Kalkulator całkowitego kosztu posiadania na platformę Azure](https://azure.microsoft.com/pricing/tco/calculator/) 
+   - [Kalkulator całkowitego kosztu posiadania platformy Azure](https://azure.microsoft.com/pricing/tco/calculator/) 
 
 
-- Aby dowiedzieć się więcej na temat cyklu i wdrożenia migracji do chmury, zobacz:
+- Aby dowiedzieć się więcej na temat struktury i cyklu wdrożenia migracji do chmury, zobacz:
    -  [Przewodnik Cloud Adoption Framework dla platformy Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
-   -  [Najlepsze rozwiązania dotyczące kosztów i rozmiarów obciążeń na potrzeby migracji na platformę Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
-   -  [Zasoby Migracja do chmury](https://azure.microsoft.com/migration/resources)
+   -  [Najlepsze rozwiązania dotyczące wyceny i rozmiarów obciążeń na potrzeby migracji na platformę Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Migracja do chmury zasobów](https://azure.microsoft.com/migration/resources)
 
 
-- Aby ocenić warstwę dostępu do aplikacji, zobacz [zestaw narzędzi do migracji dostępu do danych (wersja zapoznawcza)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).
-- Aby uzyskać informacje o sposobie wykonywania testów warstwy dostępu do danych A/B, zobacz [omówienie asystent eksperymentowania z bazą danych](/sql/dea/database-experimentation-assistant-overview).
+- Aby ocenić warstwę dostępu do aplikacji, zobacz [Data Access Migration Toolkit (wersja zapoznawcza).](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)
+- Aby uzyskać informacje na temat sposobu wykonywania testowania warstwy A/B dostępu do danych, zobacz [Omówienie Asystent eksperymentowania z bazą danych](/sql/dea/database-experimentation-assistant-overview).

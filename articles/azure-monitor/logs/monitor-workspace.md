@@ -1,71 +1,71 @@
 ---
-title: Monitoruj kondycję obszaru roboczego Log Analytics w Azure Monitor
-description: Opisuje sposób monitorowania kondycji obszaru roboczego Log Analytics przy użyciu danych z tabeli operacji.
+title: Monitorowanie kondycji obszaru roboczego usługi Log Analytics w Azure Monitor
+description: Opisuje sposób monitorowania kondycji obszaru roboczego usługi Log Analytics przy użyciu danych w tabeli Operacja.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: 9eda0acc15badfe7bb2e754d887786aa990d6e24
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6f1a23170d84e39e5d531ae4e3a64b59d29bd677
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102034969"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538854"
 ---
-# <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Monitoruj kondycję obszaru roboczego Log Analytics w Azure Monitor
-Aby zachować wydajność i dostępność obszaru roboczego Log Analytics w Azure Monitor, musisz mieć możliwość aktywnego wykrywania wszelkich powstających problemów. W tym artykule opisano sposób monitorowania kondycji obszaru roboczego Log Analytics przy użyciu danych z tabeli [operacje](/azure/azure-monitor/reference/tables/operation) . Ta tabela jest uwzględniona w każdym obszarze roboczym Log Analytics i zawiera błędy i ostrzeżenia, które występują w obszarze roboczym. Należy regularnie przeglądać te dane i tworzyć alerty w celu ich aktywnego powiadamiania o wszelkich ważnych zdarzeniach w obszarze roboczym.
+# <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Monitorowanie kondycji obszaru roboczego usługi Log Analytics w Azure Monitor
+Aby zachować wydajność i dostępność obszaru roboczego usługi Log Analytics na Azure Monitor, musisz mieć możliwość proaktywnego wykrywania wszelkich problemów, które się pojawią. W tym artykule opisano sposób monitorowania kondycji obszaru roboczego usługi Log Analytics przy użyciu danych z [tabeli Operacja.](/azure/azure-monitor/reference/tables/operation) Ta tabela jest zawarta w każdym obszarze roboczym usługi Log Analytics i zawiera błędy i ostrzeżenia występujące w obszarze roboczym. Należy regularnie przeglądać te dane i tworzyć alerty, aby proaktywnie powiadamiać o wszelkich ważnych zdarzeniach w obszarze roboczym.
 
-## <a name="_logoperation-function"></a>Funkcja _LogOperation
+## <a name="_logoperation-function"></a>_LogOperation, funkcja
 
-Dzienniki Azure Monitor wysyłają szczegóły wszelkich problemów do tabeli [operacji](/azure/azure-monitor/reference/tables/operation) w obszarze roboczym, w którym wystąpił problem. Funkcja system **_LogOperation** jest oparta na tabeli **operacji** i zawiera uproszczony zestaw informacji na potrzeby analizy i generowania alertów.
+Azure Monitor dzienniki wysyłają szczegółowe informacje o wszelkich problemach do tabeli [Operacja](/azure/azure-monitor/reference/tables/operation) w obszarze roboczym, w którym wystąpił problem. Funkcja **_LogOperation** jest oparta na tabeli **Operation** i udostępnia uproszczony zestaw informacji na temat analizy i alertów.
 
 ## <a name="columns"></a>Kolumny
 
-Funkcja **_LogOperation** zwraca kolumny w poniższej tabeli.
+Funkcja **_LogOperation** zwraca kolumny z poniższej tabeli.
 
 | Kolumna | Opis |
 |:---|:---|
-| TimeGenerated | Czas wystąpienia zdarzenia w formacie UTC. |
-| Kategoria  | Grupa kategorii operacji. Może służyć do filtrowania typów operacji i pomaga w tworzeniu dokładniejszych inspekcji i alertów systemowych. Zapoznaj się z sekcją poniżej, aby zapoznać się z listą kategorii. |
-| Operacja  | Opis typu operacji. Może to wskazywać jeden z Log Analytics limitów, typ operacji lub część procesu. |
-| Poziom | Poziom ważności problemu:<br>-Info: nie jest wymagana żadna konkretna Uwaga.<br>-Warning: proces nie został ukończony zgodnie z oczekiwaniami i należy zwrócić uwagę.<br>-Error: proces nie powiódł się i konieczna jest pilna Uwaga. 
-| Szczegóły | Szczegółowy opis operacji obejmuje określony komunikat o błędzie, jeśli istnieje. |
-| _ResourceId | Identyfikator zasobu zasobu platformy Azure związanego z operacją.  |
-| Computer (Komputer) | Nazwa komputera, jeśli operacja jest powiązana z agentem Azure Monitor. |
-| CorrelationId | Używane do grupowania kolejnych powiązanych operacji. |
+| TimeGenerated | Czas zdarzenia w czasie UTC. |
+| Kategoria  | Grupa kategorii operacji. Może służyć do filtrowania typów operacji i tworzenia bardziej precyzyjnej inspekcji systemu i alertów. Lista kategorii znajduje się w poniższej sekcji. |
+| Operacja  | Opis typu operacji. Może to oznaczać jeden z limitów usługi Log Analytics, typ operacji lub część procesu. |
+| Poziom | Poziom ważności problemu:<br>- Informacje: Nie jest potrzebna żadna konkcyjna uwaga.<br>— Ostrzeżenie: Proces nie został ukończony zgodnie z oczekiwaniami i potrzebna jest uwaga.<br>— Błąd: Proces nie powiódł się i potrzebna jest pilna uwaga. 
+| Szczegóły | Szczegółowy opis operacji zawiera określony komunikat o błędzie, jeśli istnieje. |
+| _ResourceId | Identyfikator zasobu platformy Azure powiązany z operacją.  |
+| Computer (Komputer) | Nazwa komputera, jeśli operacja jest powiązana z Azure Monitor agenta. |
+| CorrelationId | Służy do grupowania kolejnych powiązanych operacji. |
 
 
 ## <a name="categories"></a>Kategorie
 
-W poniższej tabeli opisano kategorie z funkcji _LogOperation. 
+W poniższej tabeli opisano kategorie z _LogOperation funkcji. 
 
 | Kategoria | Opis |
 |:---|:---|
 | Pozyskiwanie           | Operacje, które są częścią procesu pozyskiwania danych. Aby uzyskać więcej informacji, zobacz poniżej. |
 | Agent               | Wskazuje problem z instalacją agenta. |
 | Zbieranie danych     | Operacje związane z procesami zbierania danych. |
-| Określanie celu rozwiązania  | Operacja typu *ConfigurationScope* została przetworzona. |
-| Rozwiązanie do oceny | Proces oceny został wykonany. |
+| Kierowanie rozwiązań  | Operacja typu *ConfigurationScope* została przetworzona. |
+| Rozwiązanie do oceny | Wykonano proces oceny. |
 
 
 ### <a name="ingestion"></a>Pozyskiwanie
-Operacje pozyskiwania to problemy, które wystąpiły podczas przyjmowania danych, w tym powiadomienia o osiągnięciu limitów obszaru roboczego Log Analytics platformy Azure. Warunki błędów w tej kategorii mogą sugerować utratę danych, więc są one szczególnie ważne do monitorowania. Poniższa tabela zawiera szczegółowe informacje dotyczące tych operacji. Zobacz [limity usługi Azure monitor](../service-limits.md#log-analytics-workspaces) dla limitów usługi dla log Analytics obszarów roboczych.
+Operacje pozyskiwania to problemy, które wystąpiły podczas pozyskiwania danych, w tym powiadomienia o osiągnięciu limitów obszaru roboczego usługi Azure Log Analytics. Warunki błędów w tej kategorii mogą sugerować utratę danych, dlatego są szczególnie ważne do monitorowania. W poniższej tabeli przedstawiono szczegółowe informacje na temat tych operacji. Zobacz [Azure Monitor limity usług dla](../service-limits.md#log-analytics-workspaces) obszarów roboczych usługi Log Analytics.
 
 
 | Operacja | Poziom | Szczegóły | Powiązany artykuł |
 |:---|:---|:---|:---|
 | Dziennik niestandardowy | Błąd   | Osiągnięto limit kolumn pól niestandardowych. | [Limity usługi Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Dziennik niestandardowy | Błąd   | Pozyskiwanie dzienników niestandardowych nie powiodło się. | |
-| Metadane. | Błąd | Wykryto błąd konfiguracji. | |
-| Zbieranie danych | Błąd   | Dane zostały usunięte, ponieważ żądanie zostało utworzone wcześniej niż określona liczba dni. | [Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor](./manage-cost-storage.md#alert-when-daily-cap-reached)
+| Metadanych. | Błąd | Wykryto błąd konfiguracji. | |
+| Zbieranie danych | Błąd   | Dane zostały porzucone, ponieważ żądanie zostało utworzone wcześniej niż liczba ustawionych dni. | [Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor](./manage-cost-storage.md#alert-when-daily-cap-reached)
 | Zbieranie danych | Info    | Wykryto konfigurację maszyny kolekcji.| |
-| Zbieranie danych | Info    | Zbieranie danych zostało uruchomione z powodu nowego dnia. | [Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor](./manage-cost-storage.md#alert-when-daily-cap-reached) |
-| Zbieranie danych | Ostrzeżenie | Zbieranie danych zostało zatrzymane z powodu osiągnięcia dziennego limitu.| [Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor](./manage-cost-storage.md#alert-when-daily-cap-reached) |
-| Przetwarzanie danych | Błąd   | Nieprawidłowy format JSON. | [Wysyłanie danych dziennika do Azure Monitor za pomocą interfejsu API modułu zbierającego dane HTTP (publiczna wersja zapoznawcza)](../logs/data-collector-api.md#request-body) | 
-| Przetwarzanie danych | Ostrzeżenie | Wartość została przycięta do maksymalnego dozwolonego rozmiaru. | [Limity usługi Azure Monitor](../service-limits.md#log-analytics-workspaces) |
-| Przetwarzanie danych | Ostrzeżenie | Osiągnięto limit rozmiaru wartości pola. | [Limity usługi Azure Monitor](../service-limits.md#log-analytics-workspaces) | 
-| Szybkość pozyskiwania | Info | Limit szybkości pozyskiwania zbliżający się do 70%. | [Limity usługi Azure Monitor](../service-limits.md#log-analytics-workspaces) |
-| Szybkość pozyskiwania | Ostrzeżenie | Limit szybkości pozyskiwania zbliżający się do limitu. | [Limity usługi Azure Monitor](../service-limits.md#log-analytics-workspaces) |
+| Zbieranie danych | Info    | Zbieranie danych rozpoczęło się od nowego dnia. | [Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor](./manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Zbieranie danych | Ostrzeżenie | Zbieranie danych zostało zatrzymane z powodu osiągnięto dzienny limit.| [Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor](./manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Przetwarzanie danych | Błąd   | Nieprawidłowy format JSON. | [Wysyłanie danych dziennika do usługi Azure Monitor za pomocą interfejsu API modułu zbierającego dane HTTP (publiczna wersja zapoznawcza)](../logs/data-collector-api.md#request-body) | 
+| Przetwarzanie danych | Ostrzeżenie | Wartość została przycięty do maksymalnego dozwolonego rozmiaru. | [Limity usługi Azure Monitor](../service-limits.md#log-analytics-workspaces) |
+| Przetwarzanie danych | Ostrzeżenie | Wartość pola przycinana po osiągnięciu limitu rozmiaru. | [Limity usługi Azure Monitor](../service-limits.md#log-analytics-workspaces) | 
+| Szybkość pozyskiwania | Info | Limit szybkości pozyskiwania zbliża się do 70%. | [Limity usługi Azure Monitor](../service-limits.md#log-analytics-workspaces) |
+| Szybkość pozyskiwania | Ostrzeżenie | Limit szybkości pozyskiwania zbliża się do tego limitu. | [Limity usługi Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Szybkość pozyskiwania | Błąd   | Osiągnięto limit szybkości. | [Limity usługi Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Storage | Błąd   | Nie można uzyskać dostępu do konta magazynu, ponieważ użyte poświadczenia są nieprawidłowe.  |
 
@@ -74,11 +74,11 @@ Operacje pozyskiwania to problemy, które wystąpiły podczas przyjmowania danyc
    
 
 ## <a name="alert-rules"></a>Zasady alertów
-[Alerty zapytań dzienników](../alerts/alerts-log-query.md) w programie Azure monitor być proaktywnie powiadamiane o wykryciu problemu w obszarze roboczym log Analytics. Należy używać strategii, która pozwala na czasowo reagować na problemy, jednocześnie minimalizując koszty. Opłata jest naliczana za każdą regułę alertu z kosztem w zależności od częstotliwości, która jest szacowana.
+Alerty [zapytań dzienników w](../alerts/alerts-log-query.md) Azure Monitor, aby proaktywnie powiadamiać o wykryciu problemu w obszarze roboczym usługi Log Analytics. Należy użyć strategii, która pozwala na terminowe reagowanie na problemy przy jednoczesnym zminimalizowaniu kosztów. Opłata za subskrypcję jest naliczana za każdą regułę alertu, a koszt zależy od częstotliwości jej oceny.
 
-Zalecaną strategią jest rozpoczęcie od dwóch reguł alertów na podstawie poziomu problemu. Aby uzyskać ostrzeżenia, należy użyć krótkiej częstotliwości, takiej jak co 5 minut. Ponieważ błędy wskazują na potencjalną utratę danych, chcesz szybko odpowiedzieć na nie, aby zminimalizować wszelkie straty. Ostrzeżenia zwykle wskazują na problem, który nie wymaga natychmiastowej uwagi, aby można było przejrzeć je codziennie.
+Zalecaną strategią jest rozpoczęcie od dwóch reguł alertów w zależności od poziomu problemu. Użyj krótkiej częstotliwości, takiej jak co 5 minut, w przypadku błędów i dłuższej częstotliwości, takiej jak 24 godziny, w przypadku ostrzeżeń. Ponieważ błędy wskazują na potencjalną utratę danych, chcesz szybko zareagować na nie, aby zminimalizować wszelkie straty. Ostrzeżenia zwykle wskazują na problem, który nie wymaga natychmiastowej uwagi, dlatego można je przeglądać codziennie.
 
-Użyj procesu w temacie [Tworzenie, wyświetlanie i zarządzanie alertami dzienników przy użyciu Azure monitor](../alerts/alerts-log.md) , aby utworzyć reguły alertów dziennika. W poniższych sekcjach opisano szczegóły dla każdej reguły.
+Użyj procesu z procedury [Tworzenie i wyświetlanie alertów dzienników](../alerts/alerts-log.md) oraz zarządzanie nimi przy użyciu Azure Monitor, aby utworzyć reguły alertów dzienników. W poniższych sekcjach opisano szczegóły każdej reguły.
 
 
 | Zapytanie | Wartość progu | Okres | Częstotliwość |
@@ -86,42 +86,42 @@ Użyj procesu w temacie [Tworzenie, wyświetlanie i zarządzanie alertami dzienn
 | `_LogOperation | where Level == "Error"`   | 0 | 5 | 5 |
 | `_LogOperation | where Level == "Warning"` | 0 | 1440 | 1440 |
 
-Te reguły alertów będą odpowiadać na wszystkie operacje z błędem lub ostrzeżeniem. W miarę jak lepiej poznać operacje generujące alerty, możesz chcieć inaczej reagować na konkretne operacje. Na przykład możesz chcieć wysyłać powiadomienia do różnych osób w celu wykonywania określonych operacji. 
+Te reguły alertów będą odpowiadać tak samo dla wszystkich operacji z błędem lub ostrzeżeniem. W przypadku coraz większej liczby operacji generujących alerty możesz chcieć reagować inaczej na konkretne operacje. Na przykład możesz chcieć wysłać powiadomienia do różnych osób dotyczące konkretnych operacji. 
 
-Aby utworzyć regułę alertu dla określonej operacji, należy użyć zapytania, które zawiera kolumny **Kategoria** i **operacja** . 
+Aby utworzyć regułę alertu dla określonej operacji, użyj zapytania, które zawiera **kolumny Category** i **Operation.** 
 
-Poniższy przykład tworzy Alert ostrzegawczy, gdy współczynnik wolumenu pozyskiwania osiągnął 80% limitu.
+Poniższy przykład tworzy alert ostrzegawczy, gdy szybkość pozyskiwania woluminu osiągnie 80% limitu.
 
-- Obiekt docelowy: Wybierz obszar roboczy Log Analytics
-- Określonych
-  - Nazwa sygnału: niestandardowe wyszukiwanie w dzienniku
+- Cel: wybierz obszar roboczy usługi Log Analytics
+- Kryteria:
+  - Nazwa sygnału: Niestandardowe przeszukiwanie dzienników
   - Zapytanie wyszukiwania: `_LogOperation | where Category == "Ingestion" | where Operation == "Ingestion rate" | where Level == "Warning"`
-  - Na podstawie: liczba wyników
-  - Warunek: większe niż
+  - Na podstawie: Liczba wyników
+  - Warunek: Większe niż
   - Próg: 0
-  - Okres: 5 (minuty)
-  - Częstotliwość: 5 (minuty)
-- Nazwa reguły alertu: osiągnięto dzienny limit danych
-- Ważność: ostrzeżenie (ważność 1)
+  - Okres: 5 (min)
+  - Częstotliwość: 5 (min)
+- Nazwa reguły alertu: Osiągnięto dzienny limit danych
+- Ważność: Ostrzeżenie (ważność 1)
 
 
-Poniższy przykład powoduje utworzenie alertu ostrzegawczego, gdy zbieranie danych osiągnie limit dzienny. 
+Poniższy przykład tworzy alert ostrzegawczy, gdy zbieranie danych osiągnie dzienny limit. 
 
-- Obiekt docelowy: Wybierz obszar roboczy Log Analytics
-- Określonych
-  - Nazwa sygnału: niestandardowe wyszukiwanie w dzienniku
-  - Zapytanie wyszukiwania: `_LogOperation | where Category == "Ingestion" | where Operation == "Data Collection" | where Level == "Warning"`
-  - Na podstawie: liczba wyników
-  - Warunek: większe niż
+- Cel: wybierz obszar roboczy usługi Log Analytics
+- Kryteria:
+  - Nazwa sygnału: Niestandardowe przeszukiwanie dzienników
+  - Zapytanie wyszukiwania: `_LogOperation | where Category == "Ingestion" | where Operation == "Data collection Status" | where Level == "Warning"`
+  - Na podstawie: Liczba wyników
+  - Warunek: Większe niż
   - Próg: 0
-  - Okres: 5 (minuty)
-  - Częstotliwość: 5 (minuty)
-- Nazwa reguły alertu: osiągnięto dzienny limit danych
-- Ważność: ostrzeżenie (ważność 1)
+  - Okres: 5 (min)
+  - Częstotliwość: 5 (min)
+- Nazwa reguły alertu: Osiągnięto dzienny limit danych
+- Ważność: Ostrzeżenie (ważność 1)
 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [alertach dzienników](../alerts/alerts-log.md).
-- [Zbieraj dane inspekcji zapytania](./query-audit.md) dla obszaru roboczego.
+- Dowiedz się więcej o [alertach dzienników.](../alerts/alerts-log.md)
+- [Zbieranie danych inspekcji zapytań](./query-audit.md) dla obszaru roboczego.

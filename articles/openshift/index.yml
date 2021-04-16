@@ -9,12 +9,12 @@ metadata:
   author: jimzim
   ms.author: jzim
   ms.date: 03/06/2020
-  ms.openlocfilehash: d6c9d2ae5a2f91cd0c9c5b0b902b254ffcd8c8f8
-  ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+  ms.openlocfilehash: 25c96daa5bdebb07eb868a5e2d5b574e14e38d96
+  ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 04/15/2021
-  ms.locfileid: "107517882"
+  ms.lasthandoff: 04/16/2021
+  ms.locfileid: "107535623"
 landingContent:
 - title: Informacje o usłudze Azure Red Hat OpenShift
   linkLists:
@@ -36,15 +36,17 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Tworzenie prywatnego klastra Azure Red Hat OpenShift klastra
+    - text: Tworzenie prywatnego Azure Red Hat OpenShift klastra
       url: ./howto-create-private-cluster-4x.md
     - text: Konfigurowanie przekazywania DNS dla klastra Azure Red Hat OpenShift klastra
       url: dns-forwarding.md
     - text: Konfigurowanie wbudowanego rejestru kontenerów dla Azure Red Hat OpenShift
       url: built-in-container-registry.md
-    - text: Wdrażanie aplikacji na serwerze przy użyciu Azure Red Hat OpenShift OpenShift Serverless
+    - text: Wdrażanie aplikacji ze źródła
+      url: howto-deploy-with-s2i.md
+    - text: Wdrażanie aplikacji przy użyciu rozwiązania OpenShift Serverless
       url: howto-deploy-with-serverless.md
-    - text: Wdrażanie aplikacji Open Liberty/WebSphere Liberty w klastrze systemu Azure Red Hat OpenShift 4
+    - text: Wdrażanie aplikacji Open -Sphere/WebSphere Zasób w klastrze Azure Red Hat OpenShift klastra
       url: howto-deploy-java-liberty-app.md
 - title: Dokumentacja
   linkLists:

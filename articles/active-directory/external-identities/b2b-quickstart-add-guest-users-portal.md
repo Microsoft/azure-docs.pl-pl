@@ -1,31 +1,34 @@
 ---
-title: 'Szybki Start: Dodawanie użytkowników-Gości w Azure Portal — Azure AD'
+title: 'Szybki start: dodawanie użytkowników-gości w aplikacji Azure Portal — Azure AD'
 description: Korzystając z tego przewodnika Szybki start, możesz dowiedzieć się, jak administratorzy usługi Azure AD mogą dodawać użytkowników-gości B2B w witrynie Azure Portal, oraz zapoznać się z przepływem pracy zaproszenia B2B.
 services: active-directory
-ms.service: active-directory
-ms.subservice: B2B
-ms.topic: quickstart
-ms.date: 08/05/2020
-ms.author: mimart
 author: msmimart
+ms.author: mimart
 manager: celestedg
 ms.reviewer: mal
-ms.custom: it-pro, seo-update-azuread-jan
+ms.date: 08/05/2020
+ms.topic: quickstart
+ms.service: active-directory
+ms.subservice: B2B
+ms.custom:
+- it-pro
+- seo-update-azuread-jan
+- mode-portal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12f134a11b6d0a561a8b53156c927906afe2874a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7326a35d07715eae75f70f2f33763f82946c589c
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87906087"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529849"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Szybki start: Dodawanie użytkowników-gości do katalogu w witrynie Azure Portal
 
-Dodając dowolną osobę do Twojego katalogu jako użytkownika-gościa, możesz zaprosić ją do współpracy z Twoją organizacją. Następnie możesz wysłać wiadomość e-mail z zaproszeniem zawierającym link do realizacji lub wysłać bezpośredni link do aplikacji, którą chcesz udostępnić. Użytkownicy-goście mogą zalogować się za pomocą własnych tożsamości służbowych lub społecznościowych. Wraz z tym przewodnikiem Szybki Start można dowiedzieć się więcej o dodawaniu użytkowników-Gości [w Azure Portal](add-users-administrator.md)za pośrednictwem [programu PowerShell](b2b-quickstart-invite-powershell.md)lub [zbiorczo](tutorial-bulk-invite.md).
+Dodając dowolną osobę do Twojego katalogu jako użytkownika-gościa, możesz zaprosić ją do współpracy z Twoją organizacją. Następnie możesz wysłać wiadomość e-mail z zaproszeniem zawierającym link do realizacji lub wysłać bezpośredni link do aplikacji, którą chcesz udostępnić. Użytkownicy-goście mogą zalogować się za pomocą własnych tożsamości służbowych lub społecznościowych. Z tego przewodnika Szybki start dowiesz się więcej na temat dodawania użytkowników-gości w Azure Portal [,](add-users-administrator.md)za pomocą programu [PowerShell](b2b-quickstart-invite-powershell.md)lub [zbiorczo.](tutorial-bulk-invite.md)
 
-W tym przewodniku szybki start dodasz nowego użytkownika-gościa do katalogu usługi Azure AD za pośrednictwem Azure Portal, wyślesz zaproszenie i zobaczysz, jak wygląda proces wykupu zaproszeń użytkownika-gościa.
+W tym przewodniku Szybki start dodasz nowego użytkownika-gościa do katalogu usługi Azure AD za pośrednictwem witryny Azure Portal, wyślesz zaproszenie i zobaczysz, jak wygląda proces realizacji zaproszenia użytkownika-gościa.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, [](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem utwórz bezpłatne konto.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -36,23 +39,23 @@ Do ukończenia scenariusza zaprezentowanego w tym samouczku potrzebne są nastę
 
 ## <a name="add-a-new-guest-user-in-azure-ad"></a>Dodawanie nowego użytkownika-gościa w usłudze Azure AD
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/) jako administrator usługi Azure AD.
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/) jako administrator usługi Azure AD.
 2. W lewym okienku wybierz pozycję **Azure Active Directory**.
 3.  W obszarze **Zarządzanie** wybierz pozycję **Użytkownicy**.
 
-    ![Zrzut ekranu przedstawiający miejsce wybrania opcji użytkownicy](media/quickstart-add-users-portal/quickstart-users-portal-user.png)
+    ![Zrzut ekranu przedstawiający miejsce wybrania opcji Użytkownicy](media/quickstart-add-users-portal/quickstart-users-portal-user.png)
 
 4.  Wybierz pozycję **Nowy użytkownik-gość**.
 
-    ![Zrzut ekranu przedstawiający miejsce wybrania nowej opcji użytkownika-gościa](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
+    ![Zrzut ekranu przedstawiający miejsce wybrania opcji Nowy użytkownik-gość](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
 
-5. Na stronie **nowy użytkownik** wybierz pozycję **Zaproś użytkownika** , a następnie Dodaj informacje o użytkowniku gościa. 
+5. Na stronie **Nowy użytkownik** wybierz pozycję **Zaproś użytkownika,** a następnie dodaj informacje o użytkowniku-gościu. 
 
-   - **Nazwij.** Imię i nazwisko użytkownika-gościa.
+   - **Nazwa.** Imię i nazwisko użytkownika-gościa.
    - **Adres e-mail (wymagany)**. Adres e-mail użytkownika-gościa.
-   - **Wiadomość osobista (opcjonalnie)** Dołącz do użytkownika-gościa osobistą wiadomość powitalną.
-   - **Grupy**: można dodać użytkownika-gościa do jednej lub kilku istniejących grup lub później.
-   - **Rola katalogu**: Jeśli wymagane są uprawnienia administracyjne usługi Azure AD dla użytkownika, można je dodać do roli usługi Azure AD. 
+   - **Wiadomość osobista (opcjonalnie)** Dołącz osobistą wiadomość powitaną do użytkownika-gościa.
+   - **Grupy:** możesz dodać użytkownika-gościa do co najmniej jednej istniejącej grupy lub zrobić to później.
+   - **Rola katalogu:** jeśli potrzebujesz uprawnień administracyjnych usługi Azure AD dla użytkownika, możesz dodać je do roli usługi Azure AD. 
 
 6. Wybierz pozycję **Zaproś**, aby automatycznie wysłać zaproszenie do użytkownika-gościa. W prawym górnym rogu zostanie wyświetlone powiadomienie z komunikatem **Pomyślnie zaproszono użytkownika**. 
 7.  Po wysłaniu zaproszenia konto użytkownika zostanie automatycznie dodane do katalogu jako gość.
@@ -64,7 +67,7 @@ Dodaj aplikację Salesforce do swojej dzierżawy testowej i przypisz testowego u
 3.  Wybierz pozycję **Nowa aplikacja**.
 4. W obszarze **Dodaj z galerii** wyszukaj pozycję **Salesforce**, a następnie wybierz ją.
 
-    ![Zrzut ekranu przedstawiający Dodawanie z galerii pola wyszukiwania](media/quickstart-add-users-portal/quickstart-users-portal-select-salesforce.png)
+    ![Zrzut ekranu przedstawiający pole wyszukiwania Dodaj z galerii](media/quickstart-add-users-portal/quickstart-users-portal-select-salesforce.png)
 5. Wybierz pozycję **Dodaj**.
 6. W obszarze **Zarządzaj** wybierz pozycję **Logowanie jednokrotne**, a w obszarze **Tryb logowania jednokrotnego** wybierz pozycję **Logowanie oparte na haśle** i kliknij przycisk **Zapisz**.
 7. W obszarze **Zarządzaj** wybierz pozycję **Użytkownicy i grupy** > **Dodaj użytkownika** > **Użytkownicy i grupy**.
@@ -80,7 +83,7 @@ Teraz zaloguj się jako użytkownik-gość, aby zobaczyć zaproszenie.
 
 3.  W treści wiadomości e-mail wybierz pozycję **Rozpocznij**. W przeglądarce zostanie otwarta strona **Przejrzyj uprawnienia**. 
 
-    ![Zrzut ekranu przedstawiający stronę przegląd uprawnień](media/quickstart-add-users-portal/quickstart-users-portal-accept.png)
+    ![Zrzut ekranu przedstawiający stronę Przeglądanie uprawnień](media/quickstart-add-users-portal/quickstart-users-portal-accept.png)
 
 4. Wybierz pozycję **Zaakceptuj**. Zostanie otwarty Panel dostępu zawierający listę aplikacji, do których może uzyskać dostęp użytkownik-gość.
 

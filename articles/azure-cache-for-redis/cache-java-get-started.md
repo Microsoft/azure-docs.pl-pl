@@ -1,31 +1,36 @@
 ---
-title: 'Szybki Start: korzystanie z usługi Azure cache for Redis w języku Java'
+title: 'Szybki start: korzystanie z Azure Cache for Redis w języku Java'
 description: W tym przewodniku Szybki start utworzysz nową aplikację Java, która korzysta z pamięci podręcznej Azure Cache for Redis.
 author: yegu-ms
+ms.author: yegu
+ms.date: 05/22/2020
+ms.topic: quickstart
 ms.service: cache
 ms.devlang: java
-ms.topic: quickstart
-ms.date: 05/22/2020
-ms.author: yegu
-ms.custom: mvc, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 856f33875316eca8b3c16f28c6c222f42e0a0be5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom:
+- mvc
+- seo-java-august2019
+- seo-java-september2019
+- devx-track-java
+- mode-api
+ms.openlocfilehash: 7128ff1e20439c57d3e6212f29e6f871997584c6
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121273"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538609"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-in-java"></a>Szybki Start: korzystanie z usługi Azure cache for Redis w języku Java
+# <a name="quickstart-use-azure-cache-for-redis-in-java"></a>Szybki start: korzystanie z Azure Cache for Redis w języku Java
 
-W tym przewodniku szybki start dodaliśmy usługę Azure cache for Redis do aplikacji Java przy użyciu klienta [Jedis](https://github.com/xetorthio/jedis) Redis, aby uzyskać dostęp do bezpiecznej, dedykowanej pamięci podręcznej dostępnej z dowolnej aplikacji na platformie Azure.
+W tym przewodniku Szybki start dołączasz aplikację Azure Cache for Redis Java przy użyciu klienta [Jedis](https://github.com/xetorthio/jedis) Redis, aby mieć dostęp do bezpiecznej, dedykowanej pamięci podręcznej dostępnej z dowolnej aplikacji na platformie Azure.
 
-## <a name="skip-to-the-code-on-github"></a>Przejdź do kodu w usłudze GitHub
+## <a name="skip-to-the-code-on-github"></a>Przejdź do kodu w witrynie GitHub
 
-Jeśli chcesz pominąć prosty kod, zobacz [Przewodnik Szybki Start dla języka Java](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/java) w witrynie GitHub.
+Jeśli chcesz przejść bezpośrednio do kodu, zobacz Przewodnik Szybki start [języka Java w](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/java) witrynie GitHub.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+- Subskrypcja platformy Azure [— utwórz subskrypcję bezpłatnie](https://azure.microsoft.com/free/)
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
 ## <a name="create-an-azure-cache-for-redis"></a>Tworzenie usługi Azure Cache for Redis
@@ -36,7 +41,7 @@ Jeśli chcesz pominąć prosty kod, zobacz [Przewodnik Szybki Start dla języka 
 
 ## <a name="setting-up-the-working-environment"></a>Konfigurowanie środowiska roboczego 
 
-W zależności od używanego systemu operacyjnego Dodaj zmienne środowiskowe dla **nazwy hosta** i **podstawowego klucza dostępu**. Otwórz wiersz polecenia lub okno terminalu i skonfiguruj następujące wartości:
+W zależności od systemu operacyjnego dodaj zmienne środowiskowe dla wartości **Nazwa hosta** i Podstawowy **klucz dostępu.** Otwórz wiersz polecenia lub okno terminalu i skonfiguruj następujące wartości:
 
 ```CMD 
 set REDISCACHEHOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
@@ -50,8 +55,8 @@ export REDISCACHEKEY=<YOUR_PRIMARY_ACCESS_KEY>
 
 Zastąp symbole zastępcze następującymi wartościami:
 
-- `<YOUR_HOST_NAME>`: Nazwa hosta DNS uzyskana z sekcji *Właściwości* w pamięci podręcznej platformy Azure dla zasobu Redis w Azure Portal.
-- `<YOUR_PRIMARY_ACCESS_KEY>`: Podstawowy klucz dostępu uzyskany z sekcji *klucze dostępu* w pamięci podręcznej platformy Azure dla zasobu Redis w Azure Portal.
+- `<YOUR_HOST_NAME>`: nazwa hosta DNS uzyskana z sekcji *Właściwości* zasobu Azure Cache for Redis w Azure Portal.
+- `<YOUR_PRIMARY_ACCESS_KEY>`: podstawowy klucz dostępu uzyskany z sekcji *Klucze* dostępu zasobu Azure Cache for Redis w Azure Portal.
 
 ## <a name="create-a-new-java-app"></a>Tworzenie nowej aplikacji Java
 
@@ -75,7 +80,7 @@ Otwórz plik *pom.xml* i dodaj zależność dla [Jedis](https://github.com/xetor
     </dependency>
 ```
 
-Zapisz plik *pom.xml* .
+Zapisz *pom.xml* plik.
 
 Otwórz plik *App.java* i zastąp kod następującym:
 
@@ -144,7 +149,7 @@ mvn exec:java -D exec.mainClass=example.demo.App
 
 W poniższym przykładzie widać, że klucz `Message` miał już w pamięci podręcznej wartość, która została ustawiona za pomocą konsoli Redis w witrynie Azure Portal. Aplikacja zaktualizowała tę wartość w pamięci podręcznej. Aplikacja również wykonała polecenia `PING` i `CLIENT LIST`.
 
-![Ukończono aplikację Azure cache for Redis](./media/cache-java-get-started/azure-cache-redis-complete.png)
+![Azure Cache for Redis ukończona](./media/cache-java-get-started/azure-cache-redis-complete.png)
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
@@ -158,11 +163,11 @@ W przeciwnym razie po zakończeniu pracy z przykładową aplikacją poradnika Sz
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i wybierz pozycję **Grupy zasobów**.
 
-1. W polu tekstowym **Filtruj według nazwy** wpisz nazwę grupy zasobów. Instrukcje w tym artykule używają grupy zasobów o nazwie *TestResources*. W grupie zasobów na liście wynik wybierz pozycję **...** , a następnie **Usuń grupę zasobów**.
+1. W polu **tekstowym Filtruj** według nazwy wpisz nazwę grupy zasobów. Instrukcje w tym artykule używają grupy zasobów o nazwie *TestResources*. W grupie zasobów na liście wyników wybierz pozycję ... , **a** następnie **pozycję Usuń grupę zasobów.**
 
    ![Usunięto grupę zasobów platformy Azure](./media/cache-java-get-started/azure-cache-redis-delete-resource-group.png)
 
-1. Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Wpisz nazwę grupy zasobów, aby potwierdzić, a następnie wybierz pozycję **Usuń**.
+1. Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Wpisz nazwę grupy zasobów, aby potwierdzić, a następnie wybierz pozycję **Usuń.**
 
 Po krótkim czasie grupa zasobów i wszystkie zawarte w niej zasoby zostaną usunięte.
 

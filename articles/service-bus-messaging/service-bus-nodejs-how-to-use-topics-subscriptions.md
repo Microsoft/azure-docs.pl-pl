@@ -1,41 +1,43 @@
 ---
-title: Korzystanie z wersji zapoznawczej JavaScript Azure/Service-Bus z tematami i subskrypcjami
-description: Dowiedz się, jak napisać program JavaScript, który używa najnowszej wersji zapoznawczej @azure/service-bus pakietu do wysyłania komunikatów do Service Bus tematu i odbierania komunikatów z subskrypcji do tematu.
+title: Używanie wersji zapoznawczej języka JavaScript azure/service-bus z tematami i subskrypcjami
+description: Dowiedz się, jak napisać program w języku JavaScript, który używa najnowszej wersji zapoznawczej pakietu do wysyłania komunikatów do tematu Service Bus i odbierania komunikatów z subskrypcji @azure/service-bus do tematu.
 author: spelluru
-ms.devlang: nodejs
-ms.topic: quickstart
-ms.date: 11/09/2020
 ms.author: spelluru
-ms.custom: devx-track-js
-ms.openlocfilehash: a1afe4207ce3833f3bcb55bc7bc2e8e27f393f63
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 11/09/2020
+ms.topic: quickstart
+ms.devlang: nodejs
+ms.custom:
+- devx-track-js
+- mode-api
+ms.openlocfilehash: 59f1bb29099f2b921e687ca9de46365bc34f1b91
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98180000"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537249"
 ---
-# <a name="quickstart-service-bus-topics-and-subscriptions-with-nodejs-and-the-preview-azureservice-bus-package"></a>Szybki Start: Tematy Service Bus i subskrypcje z Node.js i pakietem wersji zapoznawczej platformy Azure/usługi Service-Bus
-W ramach tego samouczka nauczysz się używać [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) pakietu w programie JavaScript do wysyłania komunikatów do Service Bus tematu i odbierania komunikatów z subskrypcji Service Bus do tego tematu.
+# <a name="quickstart-service-bus-topics-and-subscriptions-with-nodejs-and-the-preview-azureservice-bus-package"></a>Szybki start: Service Bus tematach i subskrypcjach przy użyciu usługi Node.js i pakietu azure/service-bus w wersji zapoznawczej
+Z tego samouczka dowiesz się, jak używać pakietu w programie JavaScript do wysyłania komunikatów do tematu Service Bus i odbierania komunikatów z subskrypcji Service Bus tego [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) tematu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-- Subskrypcja platformy Azure. Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Możesz aktywować korzyści dla [subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Wykonaj kroki opisane w [przewodniku szybki start: użyj Azure Portal, aby utworzyć temat Service Bus i subskrypcje w temacie](service-bus-quickstart-topics-subscriptions-portal.md). Zanotuj parametry połączenia, nazwę tematu i nazwę subskrypcji. W tym przewodniku szybki start będziesz używać tylko jednej subskrypcji. 
+- Subskrypcja platformy Azure. Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Możesz aktywować korzyści [dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) lub utworzyć bezpłatne [konto.](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)
+- Wykonaj kroki opisane w [przewodniku Szybki start: tworzenie](service-bus-quickstart-topics-subscriptions-portal.md)Azure Portal tematu i subskrypcji Service Bus tematu . Zanotuj ciąg połączenia, nazwę tematu i nazwę subskrypcji. W tym przewodniku Szybki start będziesz używać tylko jednej subskrypcji. 
 
 > [!NOTE]
-> - Ten samouczek współpracuje z przykładami, które można kopiować i uruchamiać przy użyciu [NodeJS](https://nodejs.org/). Aby uzyskać instrukcje dotyczące sposobu tworzenia aplikacji Node.js, zobacz [Tworzenie i wdrażanie aplikacji Node.js w witrynie sieci Web platformy Azure](../app-service/quickstart-nodejs.md)lub [Node.js usługi w chmurze przy użyciu programu Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
+> - Ten samouczek współpracuje z przykładami, które można skopiować i uruchomić przy użyciu [oprogramowania Nodejs.](https://nodejs.org/) Aby uzyskać instrukcje dotyczące sposobu tworzenia aplikacji Node.js, zobacz Create [and deploy a Node.js application to an Azure Website](../app-service/quickstart-nodejs.md), orNode.js Cloud Service using Windows PowerShell (Tworzenie i wdrażanie aplikacji usługi Node.js w witrynie internetowej platformy Azure lub usługaNode.js Cloud Service przy użyciu usługi [Windows PowerShell).](../cloud-services/cloud-services-nodejs-develop-deploy-app.md)
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>Instalowanie menedżera NPM (Node Package Manager)
-Aby zainstalować pakiet npm dla Service Bus, Otwórz wiersz polecenia, który znajduje `npm` się w jego ścieżce, Zmień katalog na folder, w którym chcesz uzyskać przykłady, a następnie Uruchom to polecenie.
+Aby zainstalować pakiet npm dla programu Service Bus, otwórz wiersz polecenia, który ma w swojej ścieżce, zmień katalog na folder, w którym chcesz mieć przykłady, a następnie `npm` uruchom to polecenie.
 
 ```bash
 npm install @azure/service-bus
 ```
 
 ## <a name="send-messages-to-a-topic"></a>Wysyłanie komunikatów do tematu
-Poniższy przykładowy kod pokazuje, jak wysłać partię komunikatów do tematu Service Bus. Szczegóły można znaleźć w komentarzach do kodu. 
+Poniższy przykładowy kod przedstawia sposób wysyłania partii komunikatów do Service Bus tematu. Aby uzyskać szczegółowe informacje, zobacz komentarze do kodu. 
 
-1. Otwórz ulubiony Edytor, taki jak [Visual Studio Code](https://code.visualstudio.com/)
-2. Utwórz plik o nazwie `sendtotopic.js` i wklej do niego Poniższy kod. Ten kod wyśle wiadomość do tematu.
+1. Otwórz ulubiony edytor, na przykład [Visual Studio Code](https://code.visualstudio.com/)
+2. Utwórz plik o nazwie `sendtotopic.js` i wklej do niego poniższy kod. Ten kod spowoduje wysłanie komunikatu do tematu.
 
     ```javascript
     const { ServiceBusClient } = require("@azure/service-bus");
@@ -108,8 +110,8 @@ Poniższy przykładowy kod pokazuje, jak wysłać partię komunikatów do tematu
         process.exit(1);
      });    
     ```
-3. Zamień na `<SERVICE BUS NAMESPACE CONNECTION STRING>` Parametry połączenia z przestrzenią nazw Service Bus.
-1. Zamień na `<TOPIC NAME>` nazwę tematu. 
+3. Zastąp `<SERVICE BUS NAMESPACE CONNECTION STRING>` ciąg ciągami połączenia z twoją Service Bus nazw.
+1. Zastąp `<TOPIC NAME>` nazwą tematu. 
 1. Następnie uruchom polecenie w wierszu polecenia, aby wykonać ten plik.
 
     ```console
@@ -122,8 +124,8 @@ Poniższy przykładowy kod pokazuje, jak wysłać partię komunikatów do tematu
     ```
 
 ## <a name="receive-messages-from-a-subscription"></a>Odbieranie komunikatów z subskrypcji
-1. Otwórz ulubiony Edytor, taki jak [Visual Studio Code](https://code.visualstudio.com/)
-2. Utwórz plik o nazwie **receivefromsubscription.js** i wklej do niego następujący kod. Szczegóły można znaleźć w komentarzach do kodu. 
+1. Otwórz ulubiony edytor, na przykład [Visual Studio Code](https://code.visualstudio.com/)
+2. Utwórz plik o nazwie **receivefromsubscription.js** i wklej do niego następujący kod. Aby uzyskać szczegółowe informacje, zobacz komentarze do kodu. 
 
     ```javascript
     const { delay, ServiceBusClient, ServiceBusMessage } = require("@azure/service-bus");
@@ -168,9 +170,9 @@ Poniższy przykładowy kod pokazuje, jak wysłać partię komunikatów do tematu
         process.exit(1);
      });    
     ```
-3. Zamień na `<SERVICE BUS NAMESPACE CONNECTION STRING>` Parametry połączenia z przestrzenią nazw. 
-1. Zamień na `<TOPIC NAME>` nazwę tematu. 
-1. Zamień na `<SUBSCRIPTION NAME>` nazwę subskrypcji tematu. 
+3. Zastąp `<SERVICE BUS NAMESPACE CONNECTION STRING>` ciąg ciągami połączenia z przestrzenią nazw . 
+1. Zastąp `<TOPIC NAME>` nazwą tematu. 
+1. Zastąp `<SUBSCRIPTION NAME>` nazwą subskrypcji tematu. 
 1. Następnie uruchom polecenie w wierszu polecenia, aby wykonać ten plik.
 
     ```console
@@ -191,21 +193,21 @@ Poniższy przykładowy kod pokazuje, jak wysłać partię komunikatów do tematu
     Received message: Nikolaus Kopernikus
     ```
 
-W Azure Portal przejdź do przestrzeni nazw Service Bus i wybierz temat w dolnym okienku, aby wyświetlić stronę **tematu Service Bus** tematu. Na tej stronie powinny być widoczne trzy przychodzące i trzy komunikaty wychodzące na wykresie **komunikatów** . 
+W okienku Azure Portal przejdź do przestrzeni nazw usługi Service Bus, a następnie wybierz temat w dolnym okienku, aby wyświetlić stronę Service Bus **tematu** dla tematu. Na tej stronie powinny być wyświetlane trzy komunikaty przychodzące i trzy wychodzące na **wykresie Komunikaty.** 
 
 :::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/topic-page-portal.png" alt-text="Komunikaty przychodzące i wychodzące":::
 
-Jeśli uruchamiasz jedyną aplikację Wyślij ponownie, na stronie **tematu Service Bus** zobaczysz sześć komunikatów przychodzących (3 nowe), ale trzy komunikaty wychodzące. 
+Jeśli następnym razem uruchamiasz tylko aplikację wysyłania, na stronie **tematu** Service Bus zostanie wyświetlonych sześć komunikatów przychodzących (3 nowe), ale trzy komunikaty wychodzące. 
 
-:::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/updated-topic-page.png" alt-text="Zaktualizowana Strona tematu":::
+:::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/updated-topic-page.png" alt-text="Zaktualizowana strona tematu":::
 
-Na tej stronie, jeśli wybierzesz subskrypcję, uzyskasz dostęp do strony **subskrypcji Service Bus** . Na tej stronie można zobaczyć liczbę aktywnych komunikatów, liczbę wiadomości utraconych i więcej. W tym przykładzie istnieją trzy aktywne komunikaty, które nie zostały jeszcze odebrane przez odbiornik. 
+Na tej stronie, jeśli wybierzesz subskrypcję, zostanie Service Bus **Subskrypcja.** Na tej stronie można zobaczyć liczbę aktywnych komunikatów, liczbę utraconych komunikatów i inne. W tym przykładzie istnieją trzy aktywne komunikaty, które nie zostały jeszcze odebrane przez odbiornik. 
 
 :::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/active-message-count.png" alt-text="Liczba aktywnych komunikatów":::
 
 ## <a name="next-steps"></a>Następne kroki
-Zapoznaj się z poniższą dokumentacją i przykładami: 
+Zapoznaj się z następującą dokumentacją i przykładami: 
 
-- [Azure Service Bus Biblioteka kliencka dla języka Python](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md)
-- [Przykłady](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples). Folder **JavaScript** zawiera przykłady JavaScript, a język **TypeScript** zawiera próbki TypeScript. 
-- [Dokumentacja referencyjna platformy Azure-ServiceBus](/javascript/api/overview/azure/service-bus)
+- [Azure Service Bus klienta dla języka Python](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md)
+- [Przykłady](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples). Folder **javascript zawiera** przykłady języka JavaScript, a **kod typescript** zawiera przykłady języka TypeScript. 
+- [Dokumentacja referencyjna usługi azure-servicebus](/javascript/api/overview/azure/service-bus)

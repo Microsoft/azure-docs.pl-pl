@@ -1,6 +1,6 @@
 ---
-title: Planowanie wdrożenia przeglądów dostępu Azure Active Directory
-description: Przewodnik planowania dla pomyślnego wdrożenia przeglądów dostępu
+title: Planowanie wdrożenia Azure Active Directory przeglądów dostępu
+description: Przewodnik planowania pomyślnego wdrożenia przeglądów dostępu
 services: active-directory
 documentationCenter: ''
 author: BarbaraSelden
@@ -16,181 +16,181 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4122e645b76751e8944704a6405cf5dee09129f1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3af783d7ff8be36c63af871ab4f2d214ca9f9405
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97932439"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532593"
 ---
-# <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planowanie wdrożenia Azure Active Directory przeglądy dostępu
+# <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planowanie Azure Active Directory przeglądów dostępu
 
-[Przeglądy dostępu w usłudze Azure Active Directory (Azure AD)](access-reviews-overview.md) ułatwiają organizacji utrzymywanie bezpieczeństwa sieci przez zarządzanie [cyklem życia dostępu do zasobów](identity-governance-overview.md). Za pomocą przeglądów dostępu można:
+[Azure Active Directory (Azure AD) Access Reviews (Przeglądy dostępu w](access-reviews-overview.md) usłudze Azure AD) pomagają organizacji zapewnić większe bezpieczeństwo sieci dzięki zarządzaniu [cyklem życia dostępu do zasobów.](identity-governance-overview.md) Przeglądy dostępu:
 
-* Zaplanuj regularne przeglądy lub wykonaj przeglądy ad hoc, aby zobaczyć, kto ma dostęp do określonych zasobów, takich jak aplikacje i grupy
+* Zaplanuj regularne przeglądy lub przeprowadzaj przeglądy ad hoc, aby zobaczyć, kto ma dostęp do określonych zasobów, takich jak aplikacje i grupy
 
-* Śledzenie przeglądów szczegółowych informacji, zgodności lub zasad
+* Śledzenie przeglądów w celu analizy, zgodności lub przyczyn dotyczących zasad
 
-* Deleguj przeglądy do określonych administratorów, właścicieli firm lub użytkowników końcowych, którzy mogą zaświadczać o konieczności ciągłego dostępu
+* Delegowanie przeglądów do określonych administratorów, właścicieli firm lub użytkowników końcowych, którzy mogą samodzielnie potwierdzać potrzebę dalszego dostępu
 
-* Korzystaj z szczegółowych informacji, aby efektywnie określić, czy użytkownicy powinni nadal mieć dostęp
+* Skorzystaj ze szczegółowych informacji, aby efektywnie określić, czy użytkownicy powinni nadal mieć dostęp
 
-* Automatyzuj wyniki przeglądu, takie jak usuwanie dostępu użytkowników do zasobów
+* Automatyzowanie wyników przeglądu, takich jak usuwanie dostępu użytkowników do zasobów
 
   ![Diagram przedstawiający przepływ przeglądów dostępu.](./media/deploy-access-review/1-planning-review.png)
 
-Przeglądy dostępu to [Azure AD Identity Governance](identity-governance-overview.md) możliwości. Inne funkcje to [Zarządzanie uprawnieniami](entitlement-management-overview.md), [Privileged Identity Management](../privileged-identity-management/pim-configure.md) i [warunki użytkowania](../conditional-access/terms-of-use.md). Wspólnie ułatwiają one organizacjom rozwiązywanie tych czterech pytań:
+Przeglądy dostępu to [Azure AD Identity Governance](identity-governance-overview.md) możliwości. Inne możliwości to [zarządzanie uprawnieniami,](entitlement-management-overview.md) [Privileged Identity Management](../privileged-identity-management/pim-configure.md) i [warunki użytkowania.](../conditional-access/terms-of-use.md) Razem pomagają organizacjom rozwiązać te cztery pytania:
 
-* Którzy użytkownicy powinni mieć dostęp do zasobów?
+* Którzy użytkownicy powinni mieć dostęp do jakich zasobów?
 
-* Jakie są użytkownicy korzystający z tego dostępu?
+* Co ci użytkownicy robią z tym dostępem?
 
-* Czy istnieje skuteczna kontrola organizacyjna na potrzeby zarządzania dostępem?
+* Czy istnieje efektywna kontrola organizacyjna nad zarządzaniem dostępem?
 
-* Czy inspekcje mogą sprawdzić, czy kontrolki działają?
+* Czy audytorzy mogą sprawdzić, czy kontrolki działają?
 
-Planowanie wdrożenia recenzji dostępu jest niezbędne w celu zapewnienia osiągnięcia odpowiedniej strategii zarządzania dla użytkowników w organizacji.
+Planowanie wdrożenia przeglądów dostępu jest niezbędne, aby upewnić się, że można osiągnąć żądaną strategię ładu dla użytkowników w organizacji.
 
 ### <a name="key-benefits"></a>Najważniejsze korzyści
 
-Najważniejsze zalety włączenia przeglądów dostępu to:
+Najważniejsze zalety włączania przeglądów dostępu to:
 
-* **Kontrola współpracy**. Przeglądy dostępu umożliwiają organizacjom zarządzanie dostępem do wszystkich zasobów, których potrzebują użytkownicy. Gdy użytkownicy współużytkują i współpracują, organizacje mogą mieć pewność, że informacje są tylko dla autoryzowanych użytkowników.
+* **Kontroluj współpracę.** Przeglądy dostępu umożliwiają organizacjom zarządzanie dostępem do wszystkich zasobów potrzebnych użytkownikom. Gdy użytkownicy dzielą się informacjami i współpracują, organizacje mogą mieć pewność, że informacje są tylko wśród autoryzowanych użytkowników.
 
-* **Zarządzanie ryzykiem**. Przeglądy dostępu zapewniają organizacjom możliwość przeglądania dostępu do danych i aplikacji, co zmniejsza ryzyko wycieku danych i wycieku danych. Obejmuje to możliwości regularnego przeglądania dostępu partnera zewnętrznego do zasobów firmy. 
+* **Zarządzanie ryzykiem.** Przeglądy dostępu zapewniają organizacjom sposób przeglądania dostępu do danych i aplikacji, co zmniejsza ryzyko wycieku danych i wycieku danych. Obejmuje to możliwości regularnego przeglądania dostępu partnerów zewnętrznych do zasobów firmy. 
 
-* **Adresowanie zgodności i zarządzania**. Za pomocą przeglądów dostępu można zarządzać cyklem życia dostępu do grup, aplikacji i witryn oraz je zatwierdzać. Możesz kontrolować przeglądy śledzenia pod kątem zgodności lub aplikacji zależnych od ryzyka, które są specyficzne dla Twojej organizacji. 
+* **Adresowanie zgodności i ładu.** Dzięki przeglądom dostępu można zarządzać cyklem życia dostępu do grup, aplikacji i witryn oraz ponownie je certyfikowania. Możesz kontrolować śledzenie przeglądów zgodności lub aplikacji wrażliwych na ryzyko specyficznych dla Twojej organizacji. 
 
-* **Obniżyć koszty**. Przeglądy dostępu są kompilowane w chmurze i natywnie współdziałają z zasobami w chmurze, takimi jak grupy, aplikacje i pakiety dostępu. Korzystanie z przeglądów dostępu jest tańsze niż tworzenie własnych narzędzi lub w inny sposób uaktualnianie lokalnego zestawu danych.
+* **Zmniejsz koszt.** Przeglądy dostępu są wbudowane w chmurze i natywnie współpracuje z zasobami w chmurze, takimi jak grupy, aplikacje i pakiety dostępu. Korzystanie z przeglądów dostępu jest mniej kosztowne niż tworzenie własnych narzędzi lub inne uaktualnianie lokalnego zestawu narzędzi.
 
 ### <a name="training-resources"></a>Zasoby szkoleniowe
 
-Następujące filmy wideo mogą być przydatne podczas nauki dotyczącej przeglądów dostępu:
+Następujące filmy wideo mogą być przydatne podczas poznania przeglądów dostępu:
 
 * [Co to są przeglądy dostępu w usłudze Azure AD?](https://youtu.be/kDRjQQ22Wkk)
 
-* [Jak utworzyć przeglądy dostępu w usłudze Azure AD](https://youtu.be/6KB3TZ8Wi40)
+* [Jak tworzyć przeglądy dostępu w usłudze Azure AD](https://youtu.be/6KB3TZ8Wi40)
 
 * [Jak włączyć przeglądy dostępu w usłudze Azure AD](https://youtu.be/X1SL2uubx9M)
 
-* [Jak przejrzeć dostęp przy użyciu dostępu](https://youtu.be/tIKdQhdHLXU)
+* [Jak przejrzeć dostęp przy użyciu Mój dostęp](https://youtu.be/tIKdQhdHLXU)
 
 ### <a name="licenses"></a>Licencje
 
-Wymagana jest prawidłowa licencja na Azure AD — wersja Premium (P2) dla każdej osoby, innej niż administratorzy globalni lub Administratorzy użytkowników, którzy będą tworzyć lub wykonywać przeglądy dostępu. Aby uzyskać więcej informacji, zobacz [wymagania licencyjne dotyczące przeglądów dostępu](access-reviews-overview.md).
+Potrzebujesz ważnej licencji Azure AD — wersja Premium (P2) dla każdej osoby, innej niż administratorzy globalni lub administratorzy użytkowników, którzy będą tworzyć lub wykonywać przeglądy dostępu. Aby uzyskać więcej informacji, zobacz [Wymagania licencyjne przeglądów dostępu.](access-reviews-overview.md)
 
-Mogą być również wymagane inne funkcje zarządzania tożsamościami, takie jak [Zarządzanie cyklem życia uprawnień](entitlement-management-overview.md) lub Zarządzanie tożsamościami uprzywilejowanymi. W takim przypadku może być również konieczne pokrewnych licencji. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Mogą być również potrzebne inne funkcje zarządzania tożsamościami, takie jak [Zarządzanie cyklem życia uprawnień](entitlement-management-overview.md) lub Privileged Identity Management. W takim przypadku mogą być również potrzebne powiązane licencje. Aby uzyskać więcej informacji, zobacz [Azure Active Directory cennika](https://azure.microsoft.com/pricing/details/active-directory/).
 
-## <a name="plan-the-access-reviews-deployment-project"></a>Planowanie projektu wdrożenia przeglądy dostępu
+## <a name="plan-the-access-reviews-deployment-project"></a>Planowanie projektu wdrażania przeglądów dostępu
 
-Należy wziąć pod uwagę potrzebę organizacji, aby określić strategię wdrażania przeglądów dostępu w danym środowisku.
+Należy wziąć pod uwagę potrzeby organizacji, aby określić strategię wdrażania przeglądów dostępu w środowisku.
 
-### <a name="engage-the-right-stakeholders"></a>Zaangażuj odpowiednich uczestników projektu
+### <a name="engage-the-right-stakeholders"></a>Angażowanie odpowiednich uczestników projektu
 
-Gdy projekty technologii kończą się niepowodzeniem, zazwyczaj są to spowodowane niezgodnością oczekiwań, rezultatów i obowiązków. Aby uniknąć tych pułapek, [upewnij się, że interesują](../fundamentals/active-directory-deployment-plans.md) Cię odpowiednie osoby zainteresowane i że role projektu są jasne.
+Gdy projekty technologiczne nie powiodą się, zwykle robią to z powodu niedopasowanych oczekiwań w zakresie wpływu, wyników i obowiązków. Aby uniknąć tych pułapek, [upewnij się,](../fundamentals/active-directory-deployment-plans.md) że angażujesz odpowiednich uczestników projektu i że role projektu są jasne.
 
-Aby zapoznać się z przeglądami dostępu, prawdopodobnie zostaną uwzględnione przedstawiciele następujących zespołów w organizacji:
+W przypadku przeglądów dostępu prawdopodobnie uwzględnisz przedstawicieli następujących zespołów w organizacji:
 
-* **Administracja IT** służy do zarządzania infrastrukturą IT i administrowania inwestycjami w chmurze oraz aplikacjami oprogramowania jako usługi (SaaS). Ten zespół będzie:
+* **Administracja IT** zarządza infrastrukturą IT i administruje inwestycjami w chmurę oraz aplikacjami Typu oprogramowanie jako usługa (SaaS). Ten zespół:
 
-   * Przejrzyj dostęp uprzywilejowany do infrastruktury i aplikacji, w tym Microsoft 365 i usługi Azure AD.
+   * Przejrzyj uprzywilejowany dostęp do infrastruktury i aplikacji, w tym do Microsoft 365 i usługi Azure AD.
 
    * Zaplanuj i uruchom przeglądy dostępu dla grup, które są używane do obsługi list wyjątków lub projektów pilotażowych IT, aby zachować aktualne listy dostępu.
 
-   * Upewnij się, że programistyczny (skryptowy) dostęp do zasobów za pomocą jednostek usługi jest podlegał i przeglądany.
+   * Upewnij się, że dostęp programowy (skryptowy) do zasobów za pośrednictwem jednostki usługi podlega i podlega przeglądowi.
 
-* **Zespoły deweloperów** kompilują i utrzymują aplikacje dla organizacji. Ten zespół będzie:
+* **Zespoły programowe** kompilowały i konserwowały aplikacje dla twojej organizacji. Ten zespół:
 
-   * Kontroluj, kto może uzyskiwać dostęp do składników w SaaS, PaaS i IaaS i zarządzać nimi, które obejmują opracowane rozwiązania.
+   * Kontroluj, kto może uzyskać dostęp do składników SaaS, PaaS i IaaS, które składają się na opracowane rozwiązania, i zarządzaj nimi.
 
-   * Zarządzaj grupami, które mogą uzyskiwać dostęp do aplikacji i narzędzi do wewnętrznego tworzenia aplikacji.
+   * Zarządzanie grupami, które mogą uzyskać dostęp do aplikacji i narzędzi do tworzenia aplikacji wewnętrznych.
 
-   * Wymagaj tożsamości uprzywilejowanych mających dostęp do oprogramowania lub rozwiązań produkcyjnych hostowanych dla klientów
+   * Wymagaj uprzywilejowanych tożsamości, które mają dostęp do produkcyjnego oprogramowania lub rozwiązań hostowanych dla klientów
 
-* **Jednostki biznesowe** zarządzają projektami i własnymi aplikacjami. Ten zespół będzie: 
+* **Jednostki biznesowe zarządzają** projektami i własnymi aplikacjami. Ten zespół: 
 
-   * Przeglądanie i zatwierdzanie lub odrzucanie dostępu do grup i aplikacji dla użytkowników wewnętrznych i zewnętrznych.
+   * Przejrzyj i zatwierdź lub odmów dostępu do grup i aplikacji dla użytkowników wewnętrznych i zewnętrznych.
 
-   * Zaplanuj i wykonaj przeglądy, aby zaświadczać ciągły dostęp do pracowników i tożsamości zewnętrznych, takich jak partnerzy biznesowi.
+   * Planowanie i przeprowadzanie przeglądów w celu poświadczania dalszego dostępu dla pracowników i tożsamości zewnętrznych, takich jak partnerzy biznesowi.
 
-* **Nadzór korporacyjny** gwarantuje, że organizacja korzysta z zasad wewnętrznych i jest zgodna z przepisami. Ten zespół będzie:
+* **Ład korporacyjny** zapewnia, że organizacja przestrzega wewnętrznych zasad i jest zgodna z przepisami. Ten zespół:
 
-   * Żądaj lub Zaplanuj nowe przeglądy dostępu.
+   * Zażądaj lub zaplanuj nowe przeglądy dostępu.
 
-   * Oceniaj procesy i procedury umożliwiające przeglądanie dostępu, w tym dokumentację i rejestrowanie w celu zachowania zgodności.
+   * Ocenianie procesów i procedur w celu przeglądania dostępu, w tym dokumentacji i przechowywania rekordów w celu zachowania zgodności.
 
-   * Przejrzyj wyniki poprzednich przeglądów dla najbardziej krytycznych zasobów.
+   * Przejrzyj wyniki wcześniejszych przeglądów dla najbardziej krytycznych zasobów.
 
 > [!NOTE]
-> W przypadku przeglądów wymagających ręcznych ocen należy zaplanować odpowiednie recenzentów i przejrzeć cykle, które spełniają wymagania zasad i zgodności. Jeśli cykle przeglądu są zbyt częste lub jest zbyt mało recenzentów, jakość może zostać utracona, a zbyt wiele lub zbyt mało osób może uzyskać dostęp. 
+> W przypadku przeglądów wymagających ręcznej oceny należy zaplanować odpowiednie recenzentów i przejrzeć cykle spełniające wymagania dotyczące zasad i zgodności. Jeśli cykle przeglądu są zbyt częste lub jest zbyt mało recenzentów, jakość może zostać utracona, a zbyt wiele lub zbyt mało osób może mieć dostęp. 
 
 ### <a name="plan-communications"></a>Planowanie komunikacji
 
-Komunikacja jest niezwykle ważna dla sukcesu każdego nowego procesu biznesowego. Aktywnie Komunikuj się z użytkownikami, jak i kiedy ich środowisko zostanie zmienione i jak uzyskać pomoc techniczną, jeśli wystąpią problemy. 
+Komunikacja ma kluczowe znaczenie dla sukcesu każdego nowego procesu biznesowego. Proaktywne komunikowanie użytkownikom, jak i kiedy ich środowisko zmieni się, oraz jak uzyskać pomoc techniczną, jeśli wystąpią problemy. 
 
-#### <a name="communicate-changes-in-accountability"></a>Powiadamiaj o zmianach w odpowiedzialności
+#### <a name="communicate-changes-in-accountability"></a>Przekaż zmiany w odpowiedzialności
 
-Przeglądy dostępu obsługują przenoszony zakres odpowiedzialności za przeglądanie i działanie w przypadku ciągłego dostępu do właścicieli firmy. Podejmowanie decyzji o oddzieleniu dostępu od stacji dysków IT bardziej precyzyjne decyzje dotyczące dostępu. Jest to kulturowe zmiany odpowiedzialności i odpowiedzialności właściciela zasobu. Proaktywnie Komunikuj się z tą zmianą i zapewnij, że właściciele zasobów są przeszkoleni i mogą korzystać z szczegółowych informacji w celu podejmowania właściwych decyzji.
+Przeglądy dostępu obsługują zmianę odpowiedzialności za przeglądanie i działanie w zakresie dalszego dostępu do właścicieli firm. Oddzielenie decyzji dotyczących dostępu od it prowadzi do bardziej precyzyjnych decyzji dotyczących dostępu. Jest to zmiana kulturowa w zakresie odpowiedzialności i odpowiedzialności właściciela zasobu. Proaktywne komunikowanie tej zmiany i zapewnienie, że właściciele zasobów są przeszkoleni i mogą korzystać ze szczegółowych informacji w celu podejmowania dobrych decyzji.
 
-Jasno, będzie ona mieć kontrolę nad wszystkimi decyzjami dotyczącymi dostępu do infrastruktury i przypisaniami ról uprzywilejowanych. 
+Oczywiście it będzie chciał zachować kontrolę nad wszystkimi decyzjami dotyczącymi dostępu związanych z infrastrukturą i przypisaniami ról uprzywilejowanych. 
 
-#### <a name="customize-email-communication"></a>Dostosowywanie komunikacji e-mail
+#### <a name="customize-email-communication"></a>Dostosowywanie komunikacji za pośrednictwem poczty e-mail
 
-Po zaplanowaniu przeglądu należy określić użytkowników, którzy będą przeprowadzali ten przegląd. Ci recenzenci otrzymają wiadomość e-mail z powiadomieniem o nowych przypisanych do nich recenzjach, a także przypomnieniami przed wygaśnięciem przypisanej do nich recenzji.
+Podczas planowania przeglądu należy wyznaczyć użytkowników, którzy będą go wykonywać. Ci recenzentzy otrzymują następnie wiadomość e-mail z powiadomieniem o nowych przypisanych do nich recenzjach, a także przypomnienia przed wygaśnięciem przypisanej do nich recenzji.
 
-Administratorzy mogą zdecydować się na wysłanie powiadomienia w połowie drogi przed wygaśnięciem lub upływem dnia przed jego wygaśnięciem. 
+Administratorzy mogą wysłać to powiadomienie w połowie okresu przed wygaśnięciem przeglądu lub dzień przed jego wygaśnięciem. 
 
-Wiadomość e-mail wysłana do recenzentów można dostosować w taki sposób, aby zawierała niestandardowy krótki komunikat, który zachęca je do działania na przegląd. Zalecamy użycie dodatkowego tekstu do:
+Wiadomość e-mail wysłana do recenzentów może zostać dostosowana tak, aby zawierała niestandardową krótką wiadomość, która zachęca ich do działania w sprawie przeglądu. Zalecamy użycie dodatkowego tekstu w celu:
 
-* Dołącz osobistą wiadomość do recenzentów, aby zrozumieć, że są one wysyłane przez dział IT lub działu IT.
+* Dołącz osobistą wiadomość do recenzentów, aby rozumieli, że jest ona wysyłana przez dział zgodności lub IT.
 
-* Dołącz hiperłącze lub odwołanie do wewnętrznych informacji na temat oczekiwań przeglądu oraz dodatkowych materiałów referencyjnych lub szkoleniowych.
+* Dołącz hiperlink lub odwołanie do wewnętrznych informacji na temat oczekiwań przeglądu oraz dodatkowe materiały referencyjne lub szkoleniowe.
 
-* Dołącz link do instrukcji dotyczących przeprowadzania samodzielnej [oceny dostępu.](review-your-access.md) 
+* Dołącz link do instrukcji dotyczących [przeprowadzania samodzielnego przeglądu dostępu.](review-your-access.md) 
 
-  ![Adres e-mail recenzenta](./media/deploy-access-review/2-plan-reviewer-email.png)
+  ![Wiadomość e-mail recenzenta](./media/deploy-access-review/2-plan-reviewer-email.png)
 
-Po wybraniu pozycji Rozpocznij przegląd Recenzenci będą kierowani do [portalu dostępu](https://myapplications.microsoft.com/) w celu uzyskiwania dostępu do grup i aplikacji. Portal udostępnia im przegląd wszystkich użytkowników, którzy mają dostęp do przeglądanego zasobu, oraz Zalecenia systemu na podstawie ostatniego logowania i informacji o dostępie.
+Po wybraniu przycisku Rozpocznij przegląd recenzentzy zostaną kierowani do portalu [myAccess](https://myapplications.microsoft.com/) w celu uzyskania przeglądów dostępu do grup i aplikacji. Portal zawiera omówienie wszystkich użytkowników, którzy mają dostęp do przeglądanych zasobów, oraz rekomendacje systemowe na podstawie informacji dotyczących ostatniego logowania i dostępu.
 
 ### <a name="plan-a-pilot"></a>Planowanie pilotażu
 
-Zachęcamy klientów do wstępnego przeglądu dostępu pilotażowego z małą grupą i ukierunkowanych zasobów niekrytycznych. Pilotażowe informacje mogą pomóc w dostosowaniu procesów i komunikacji zgodnie z potrzebami oraz zwiększyć możliwości użytkowników i recenzentów w celu spełnienia wymagań dotyczących zabezpieczeń i zgodności.
+Zachęcamy klientów do początkowego pilotażowego przeglądu dostępu z małą grupą i kierowania do nich zasobów niekrytycznie. Pilotaż może pomóc w dostosowaniu procesów i komunikacji zgodnie z potrzebami oraz zwiększeniu możliwości użytkowników i recenzentów do spełnienia wymagań dotyczących zabezpieczeń i zgodności.
 
-W programie pilotażowym zalecamy:
+W ramach pilotażu zalecamy:
 
 * Zacznij od przeglądów, w których wyniki nie są automatycznie stosowane, i możesz kontrolować implikacje.
 
-* Upewnij się, że wszyscy użytkownicy mają prawidłowe adresy e-mail na liście w usłudze Azure AD i otrzymują do nich komunikację e-mail w celu podjęcia odpowiedniej akcji. 
+* Upewnij się, że wszyscy użytkownicy mają prawidłowe adresy e-mail wymienione w usłudze Azure AD i otrzymują wiadomość e-mail w celu podjęcia odpowiednich działań. 
 
-* Udokumentowanie dowolnego dostępu usuniętego jako część pilotażu w przypadku konieczności szybkiego przywrócenia go.
+* Udokumentuj dostęp usunięty w ramach pilotażu, jeśli trzeba go szybko przywrócić.
 
-* Monitoruj dzienniki inspekcji, aby upewnić się, że wszystkie zdarzenia są prawidłowo poddawane inspekcji.
+* Monitoruj dzienniki inspekcji, aby upewnić się, że wszystkie zdarzenia są prawidłowo monitorowane.
 
-Aby uzyskać więcej informacji, zobacz [najlepsze rozwiązania dla pilotażu](../fundamentals/active-directory-deployment-plans.md).
+Aby uzyskać więcej informacji, [zobacz najlepsze rozwiązania dotyczące pilotażu.](../fundamentals/active-directory-deployment-plans.md)
 
 ## <a name="introduction-to-access-reviews"></a>Wprowadzenie do przeglądów dostępu
 
-Ta sekcja zawiera informacje o pojęciach dotyczących przeglądu dostępu, które należy znać przed rozpoczęciem planowania recenzji.
+Ta sekcja zawiera wprowadzenie do pojęć związanych z przeglądem dostępu, które należy znać przed rozpoczęciem planowania przeglądów.
 
-### <a name="what-resource-types-can-be-reviewed"></a>Jakie typy zasobów można sprawdzić?
+### <a name="what-resource-types-can-be-reviewed"></a>Jakie typy zasobów można przeglądać?
 
-Po zintegrowaniu zasobów organizacji z usługą Azure AD (na przykład użytkownikami, aplikacjami i grupami) można je zarządzać i przeglądać. 
+Po zintegrowaniu zasobów organizacji z usługą Azure AD (takich jak użytkownicy, aplikacje i grupy) można nimi zarządzać i przeglądać. 
 
-Typowe elementy docelowe do przeglądu obejmują:
+Typowe cele przeglądu obejmują:
 
-* [Aplikacje zintegrowane z usługą Azure AD na potrzeby logowania jednokrotnego](../manage-apps/what-is-application-management.md) (na przykład SaaS).
+* [Aplikacje zintegrowane z usługą Azure AD na potrzeby logowania](../manage-apps/what-is-application-management.md) pojedynczego (na przykład SaaS, biznesowe).
 
-* [Członkostwo](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) w grupach (synchronizowane z usługą Azure AD lub utworzone w usłudze Azure ad lub Microsoft 365, w tym Microsoft Teams).
+* Członkostwo [w grupie](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) (zsynchronizowane z usługą Azure AD lub utworzone w usłudze Azure AD lub Microsoft 365, w tym Microsoft Teams).
 
-* [Pakiet dostępu](./entitlement-management-overview.md) , który grupuje zasoby (grupy, aplikacje i lokacje) w jednym pakiecie w celu zarządzania dostępem.
+* [Uzyskaj dostęp do](./entitlement-management-overview.md) pakietu, który grupuje zasoby (grupy, aplikacje i witryny) w jednym pakiecie w celu zarządzania dostępem.
 
-* [Role usługi Azure AD i role zasobów platformy Azure](../privileged-identity-management/pim-resource-roles-assign-roles.md) zgodnie z definicją w Privileged Identity Management.
+* [Role usługi Azure AD i role zasobów platformy Azure zdefiniowane](../privileged-identity-management/pim-resource-roles-assign-roles.md) w Privileged Identity Management.
 
 ### <a name="who-will-create-and-manage-access-reviews"></a>Kto będzie tworzyć przeglądy dostępu i zarządzać nimi?
 
-Rola administracyjna wymagana do tworzenia i odczytywania przeglądu dostępu oraz zarządzania nim zależy od typu przeglądanego zasobu. W poniższej tabeli przedstawiono role wymagane dla każdego typu zasobu:
+Rola administracyjna wymagana do tworzenia i odczytywania przeglądu dostępu oraz zarządzania nimi zależy od typu przeglądanych zasobów. W poniższej tabeli przedstawiono role wymagane dla każdego typu zasobu:
 
-| Typ zasobu| Tworzenie przeglądów dostępu i zarządzanie nimi (twórcy)| Wyniki przeglądu dostępu do odczytu |
+| Typ zasobu| Tworzenie przeglądów dostępu (twórców) i zarządzanie nimi| Wyniki przeglądu dostępu do odczytu |
 | - | - | -|
 | Grupa lub aplikacja| Administrator globalny <p>Administrator użytkowników| Twórcy i administrator zabezpieczeń |
 | Role uprzywilejowane w usłudze Azure AD| Administrator globalny <p>Administrator ról uprzywilejowanych| twórcy <p>Czytelnik zabezpieczeń<p>Administrator zabezpieczeń |
@@ -198,268 +198,268 @@ Rola administracyjna wymagana do tworzenia i odczytywania przeglądu dostępu or
 | Pakiet dostępu| Administrator globalny<p>Twórca pakietu dostępu| Tylko administrator globalny |
 
 
-Aby uzyskać więcej informacji, zobacz [uprawnienia roli administrator w Azure Active Directory](../roles/permissions-reference.md).
+Aby uzyskać więcej informacji, zobacz [Uprawnienia roli administratora w Azure Active Directory](../roles/permissions-reference.md).
 
 ### <a name="who-will-review-the-access-to-the-resource"></a>Kto będzie przeglądać dostęp do zasobu?
 
-Twórca przeglądu dostępu decyduje się w momencie utworzenia, który przeprowadzi przegląd. Nie można zmienić tego ustawienia po rozpoczęciu przeglądu. Recenzenci są reprezentowani przez trzy osób:
+Twórca przeglądu dostępu decyduje o tym, kto w czasie tworzenia wykona przegląd. Tego ustawienia nie można zmienić po zakończeniu przeglądu. Recenzentów reprezentują trzy osoby:
 
-* Właściciele zasobów, którzy są właścicielami tego zasobu.
+* Właściciele zasobów, którzy są właścicielami biznesowymi zasobu.
 
-* Zestaw indywidualnie wybranych delegatów wybrany przez administratora przeglądów dostępu.
+* Zestaw indywidualnie wybranych delegatów wybranych przez administratora przeglądów dostępu.
 
-* Użytkownicy końcowi, którzy każdy z nich zaświadczą w celu uzyskania ciągłego dostępu.
+* Użytkownicy końcowi, którzy będą samodzielnie potwierdzać potrzebę dalszego dostępu.
 
-Podczas tworzenia przeglądu dostępu Administratorzy mogą wybrać co najmniej jednego recenzenta. Wszyscy recenzenci mogą rozpocząć i przeprowadzić przegląd, wybierając użytkowników w celu uzyskania dostępu do zasobu lub usunięcia ich. 
+Podczas tworzenia przeglądu dostępu administratorzy mogą wybrać co najmniej jednego recenzenta. Wszyscy recenzentzy mogą rozpocząć i przeprowadzić przegląd, wybierając użytkowników w celu dalszego dostępu do zasobu lub usuwając ich. 
 
 ### <a name="components-of-an-access-review"></a>Składniki przeglądu dostępu
 
-Przed wdrożeniem przeglądów dostępu należy zaplanować typy przeglądów odpowiednie dla Twojej organizacji. Aby to zrobić, należy podjąć decyzje biznesowe na temat tego, co chcesz przejrzeć, oraz działań, które należy podjąć w oparciu o te przeglądy.
+Przed zaimplementowaniem przeglądów dostępu należy zaplanować typy przeglądów odpowiednie dla twojej organizacji. W tym celu należy podjąć decyzje biznesowe dotyczące tego, co chcesz przejrzeć, oraz akcji do podjęcia na podstawie tych przeglądów.
 
-Aby utworzyć zasady przeglądu dostępu, musisz dysponować następującymi informacjami.
+Aby utworzyć zasady przeglądu dostępu, musisz mieć następujące informacje.
 
-* Co to są zasoby do przejrzenia?
+* Jakie zasoby należy przejrzeć?
 
-* Którego dostępu jest sprawdzany.
+* Czyj dostęp jest przeglądany.
 
-* Jak często ma się odbywać przegląd?
+* Jak często ma nastąpić przegląd?
 
-* Kto będzie wykonywał przegląd?
+* Kto wykona przegląd?
 
-   * Jak będą one powiadamiane o przejrzeniu?
+   * W jaki sposób będą oni powiadomieni o weryfikacji?
 
-   * Jakie są osie czasu, które mają być wymuszane na potrzeby recenzji?
+   * Jakie osie czasu mają być wymuszane do przeglądu?
 
 * Jakie akcje automatyczne powinny być wymuszane na podstawie przeglądu?
 
-   * Co się stanie, jeśli recenzent nie odpowie w czasie?
+   * Co się stanie, jeśli recenzent nie odpowie na czas?
 
 * Jakie działania ręczne zostaną podjęte w wyniku przeglądu?
 
-* Jaka Komunikacja powinna być wysyłana na podstawie podjętych akcji?
+* Jaka komunikacja powinna być wysyłana na podstawie podjętych akcji?
 
 
 **Przykładowy plan przeglądu dostępu**
 
 | Składnik| Wartość |
 | - | - |
-| **Zasoby do przejrzenia**| Dostęp do systemu Microsoft Dynamics |
-| **Częstotliwość przeglądu**| Miesięcznie |
-| **Kto wykonuje przegląd**| Menedżerowie programów grupy Dynamics Business |
-| **Powiadomienie**| Wyślij wiadomość e-mail na 24 godziny przed rozpoczęciem przeglądu aliasu Dynamics-Pms<p>Dołącz do recenzentów niestandardową wiadomość, aby zabezpieczyć swój zakup |
+| **Zasoby do przejrzenia**| Dostęp do usługi Microsoft Dynamics |
+| **Częstotliwość przeglądu**| Co miesiąc |
+| **Kto wykonuje przegląd**| Menedżerowie programu grupy biznesowej Dynamics |
+| **Powiadomienie**| Wyślij wiadomość e-mail na 24 godziny przed sprawdzeniem aliasu Dynamics-Pms<p>Dołącz zachętę do niestandardowych wiadomości do recenzentów w celu zabezpieczenia swoich wpisów |
 | **Oś czasu**| 48 godzin od powiadomienia |
-|**Akcje automatyczne**| Usuń dostęp z dowolnego konta, które nie ma interakcyjnego logowania w ciągu 90 dni, usuwając użytkownika z grupy zabezpieczeń Dynamics. <p>*Wykonaj akcje, jeśli nie zostały zrecenzowane na osi czasu.* |
-| **Akcje ręczne**| Recenzenci mogą wykonać zatwierdzenie usunięcia przed automatycznym akcją w razie potrzeby. |
-| **Wiadomości**| Wyślij użytkowników wewnętrznych (członków), którzy zostali usunięci w wiadomości e-mail z informacją, że są usunięci i jak odzyskać dostęp. |
+|**Akcje automatyczne**| Usuń dostęp z dowolnego konta, które nie ma logowania interakcyjnego w ciągu 90 dni, usuwając użytkownika z grupy zabezpieczeń dynamics-access. <p>*Wykonaj akcje, jeśli nie są przeglądane na osi czasu.* |
+| **Akcje ręczne**| W razie potrzeby recenzentzy mogą wykonać zatwierdzenie usunięcia przed wykonaniem akcji zautomatyzowanej. |
+| **Wiadomości**| Wyślij do użytkowników wewnętrznych (członków), którzy zostali usunięci, wiadomość e-mail z wyjaśnieniem, że zostali usunięci i jak odzyskać dostęp. |
 
 
  
 
-### <a name="automate-actions-based-on-access-reviews"></a>Automatyzowanie akcji opartych na przeglądach dostępu
+### <a name="automate-actions-based-on-access-reviews"></a>Automatyzowanie akcji na podstawie przeglądów dostępu
 
-Można wybrać opcję automatycznego usuwania dostępu przez ustawienie opcji automatycznie Zastosuj do zasobu, aby włączyć.
+Usuwanie dostępu można zautomatyzować, ustawiając opcję Automatycznie zastosuj wyniki do zasobu na pozycję Włącz.
 
   ![Planowanie przeglądów dostępu](./media/deploy-access-review/3-automate-actions-settings.png)
 
-Po zakończeniu przeglądu i zakończeniu jego pracy użytkownicy, którzy nie zostali zatwierdzeni przez recenzenta, zostaną automatycznie usunięci z zasobu lub utrzymani z ciągłym dostępem. Może to oznaczać usunięcie członkostwa w grupie, ich przypisanie aplikacji lub odwołanie ich bezpośrednio w celu podniesienia uprawnień do roli uprzywilejowanej.
+Po ukończeniu i zakończeniu przeglądu użytkownicy, którzy nie zostali zatwierdzeni przez recenzenta, zostaną automatycznie usunięci z zasobu lub będą nadal mieć dostęp. Może to oznaczać usunięcie członkostwa w grupach, przypisania aplikacji lub odwołanie prawa do podnieść uprawnienia do roli uprzywilejowanej.
 
-Zapoznaj się z zaleceniami
+Rekomendacje
 
-Zalecenia są wyświetlane recenzentom w ramach środowiska recenzenta i wskazują Ostatnie Logowanie osoby do dzierżawy lub ostatni dostęp do aplikacji. Te informacje ułatwiają recenzentom podejmowanie właściwych decyzji dotyczących dostępu. Wybranie pozycji Wypełnij zalecenia spowoduje przestrzeganie zaleceń dotyczących przeglądu dostępu. Po zakończeniu przeglądu dostępu system zastosuje te zalecenia automatycznie dla użytkowników, dla których recenzenci nie odpowiedzieli.
+Zalecenia są wyświetlane recenzentom w ramach obsługi recenzentów i wskazują ostatnie logowanie danej osoby do dzierżawy lub ostatni dostęp do aplikacji. Te informacje pomagają recenzentom w podejmowaniu właściwej decyzji dotyczącej dostępu. Wybranie opcji Take recommendations (Wykonaj rekomendacje) będzie zgodne z zaleceniami przeglądu dostępu. Po zakończeniu przeglądu dostępu system zastosuje te zalecenia automatycznie do użytkowników, na które recenzentzy nie odpowiedzieli.
 
-Zalecenia są zależne od kryteriów w przeglądzie dostępu. Na przykład jeśli skonfigurujesz przegląd w celu usunięcia dostępu bez interakcyjnego logowania przez 90 dni, zalecamy usunięcie wszystkich użytkowników spełniających te kryteria. Firma Microsoft stale pracuje nad ulepszaniem zaleceń. 
+Rekomendacje są oparte na kryteriach przeglądu dostępu. Jeśli na przykład skonfigurujesz przegląd w celu usunięcia dostępu bez logowania interakcyjnego przez 90 dni, zaleca się usunięcie wszystkich użytkowników, którzy spełniają te kryteria. Firma Microsoft nieustannie pracuje nad udoskonalaniem rekomendacji. 
 
-### <a name="review-guest-user-access"></a>Przeglądanie dostępu użytkowników-Gości
+### <a name="review-guest-user-access"></a>Przeglądanie dostępu użytkowników-gości
 
-Za pomocą przeglądów dostępu można przeglądać i czyścić tożsamości partnerów współpracy z organizacji zewnętrznych. Konfiguracja przeglądu dla partnerów może spełniać wymagania dotyczące zgodności.
+Użyj przeglądów dostępu, aby przeglądać i czyścić tożsamości partnerów współpracy z organizacji zewnętrznych. Konfiguracja przeglądu dla per-partner może spełniać wymagania dotyczące zgodności.
 
-Tożsamościom zewnętrznym można udzielić dostępu do zasobów firmy za pomocą jednej z następujących akcji:
+Tożsamościom zewnętrznym można przyznać dostęp do zasobów firmy za pomocą jednej z następujących akcji:
 
 * Dodano do grupy 
 
-* Zaproszeni do zespołów 
+* Zaproszenie do zespołu 
 
-* Przypisane do aplikacji dla przedsiębiorstw lub pakietu dostępu
+* Przypisane do aplikacji przedsiębiorstwa lub pakietu dostępu
 
-* Przypisano rolę uprzywilejowaną w usłudze Azure AD lub w ramach subskrypcji platformy Azure
+* Przypisano rolę uprzywilejowana w usłudze Azure AD lub w subskrypcji platformy Azure
 
-Zobacz [przykładowy skrypt](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse). Skrypt będzie przedstawiał użycie tożsamości zewnętrznych zaproszonych do dzierżawy. W usłudze Azure AD można zobaczyć członkostwo w grupach użytkowników zewnętrznych, przypisania ról i przypisania aplikacji. Skrypt nie będzie zawierać żadnych przypisań poza usługą Azure AD, na przykład bezpośrednie przypisanie praw do zasobów programu SharePoint bez użycia grup.
+Zobacz [przykładowy skrypt](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse). Skrypt pokaże, gdzie są używane tożsamości zewnętrzne zaproszone do dzierżawy. W usłudze Azure AD można zobaczyć członkostwo w grupach użytkowników zewnętrznych, przypisania ról i przypisania aplikacji. Skrypt nie wyświetla żadnych przypisań poza usługą Azure AD, na przykład bezpośredniego przypisywania praw do zasobów programu Sharepoint bez użycia grup.
 
-Podczas tworzenia przeglądu dostępu dla grup lub aplikacji można wybrać opcję zezwalania Fokusowi recenzenta na wszystkich użytkowników z dostępem lub tylko Gości. Wybierając pozycję tylko użytkownicy-Goście, recenzenci otrzymują skoncentrowaną listę tożsamości zewnętrznych z usługi Azure AD B2B, która ma dostęp do zasobu.
+Podczas tworzenia przeglądu dostępu dla grup lub aplikacji można pozwolić recenzentowi skoncentrować się na wszystkich z dostępem lub tylko na użytkownikach-gościach. Wybranie tylko użytkowników-gości umożliwia recenzentom uzyskanie ukierunkowanej listy tożsamości zewnętrznych z usługi Azure AD B2B, które mają dostęp do zasobu.
 
- ![Przeglądanie użytkowników-Gości](./media/deploy-access-review/4-review-guest-users-admin-ui.png)
+ ![Przeglądanie użytkowników-gości](./media/deploy-access-review/4-review-guest-users-admin-ui.png)
 
 > [!IMPORTANT]
-> NIE będzie to obejmować zewnętrznych elementów członkowskich, którzy mają element UserType elementu członkowskiego. Nie obejmuje to również użytkowników zaproszonych poza środowiskiem współpracy B2B usługi Azure AD, na przykład tych, którzy mają dostęp do zawartości udostępnionej bezpośrednio za pomocą programu SharePoint.
+> NIE będzie to dotyczyć zewnętrznych członków, którzy mają userType członka. Nie będzie to również obejmować użytkowników zapraszanych poza współpracę B2B w usłudze Azure AD, na przykład tych, którzy mają dostęp do zawartości udostępnionej bezpośrednio za pośrednictwem programu SharePoint.
 
 ## <a name="plan-access-reviews-for-access-packages"></a>Planowanie przeglądów dostępu dla pakietów dostępu
 
-[Pakiety dostępu](entitlement-management-overview.md) mogą znacznie uprościć strategię przeglądu i kontroli dostępu. Pakiet dostępu to pakiet wszystkich zasobów z dostępem, które użytkownik musi pracować nad projektem lub wykonać ich zadanie. Na przykład możesz chcieć utworzyć pakiet dostępu zawierający wszystkie aplikacje, które są wymagane przez deweloperów w organizacji, lub wszystkie aplikacje, do których mają dostęp użytkownicy zewnętrzni. Administrator lub Menedżer pakietów dostępu delegowanego następnie grupuje zasoby (grupy lub aplikacje) i role, których użytkownicy potrzebują dla tych zasobów.
+[Pakiety dostępu mogą](entitlement-management-overview.md) znacznie uprościć ład i strategię przeglądu dostępu. Pakiet dostępu to pakiet wszystkich zasobów z dostępem, który użytkownik musi mieć do pracy nad projektem lub wykonywania zadania. Na przykład można utworzyć pakiet dostępu, który zawiera wszystkie aplikacje potrzebne deweloperom w organizacji lub wszystkie aplikacje, do których użytkownicy zewnętrzni powinni mieć dostęp. Następnie administrator lub menedżer delegowanych pakietów dostępu grupuje zasoby (grupy lub aplikacje) i role, których użytkownicy potrzebują dla tych zasobów.
 
-Podczas [tworzenia pakietu dostępu](entitlement-management-access-package-create.md)można utworzyć co najmniej jedną zasadę dostępu, która określa warunki, dla których użytkownicy mogą zażądać pakietu dostępu, jak wygląda proces zatwierdzania i jak często osoba musiałaby ponownie zażądać dostępu. Przeglądy dostępu są konfigurowane podczas tworzenia lub edytowania zasad pakietu dostępu.
+Podczas tworzenia pakietu [dostępu](entitlement-management-access-package-create.md)można utworzyć co najmniej jedną zasady dostępu, które ustawiają warunki, dla których użytkownicy mogą żądać pakietu dostępu, jak wygląda proces zatwierdzania i jak często dana osoba będzie musiała ponownie zażądać dostępu. Przeglądy dostępu są konfigurowane podczas tworzenia lub edytowania zasad pakietu dostępu.
 
-Otwórz kartę cykl życia, aby przewinąć w dół do okna przeglądy dostępu.
+Otwórz kartę Cykl życia, aby przewinąć w dół do ekranu Przeglądy dostępu.
 
- ![Zrzut ekranu, który pokazuje "Edytuj zasady" na karcie "cykl życia".](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
+ ![Zrzut ekranu przedstawiający pozycję "Edytuj zasady" na karcie "Cykl życia".](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
 
 ## <a name="plan-access-reviews-for-groups"></a>Planowanie przeglądów dostępu dla grup
 
-Oprócz pakietów dostępu przeglądanie członkostwa w grupie jest najbardziej skutecznym sposobem na dostęp. Zaleca się, aby dostęp do zasobów był przypisany za pośrednictwem [grup zabezpieczeń lub grup Microsoft 365](../fundamentals/active-directory-manage-groups.md), a użytkownicy są dodawani do tych grup w celu uzyskania dostępu.
+Oprócz pakietów dostępu przeglądanie członkostwa w grupie jest najskuteczniejszym sposobem regulowania dostępu. Zalecamy, aby dostęp do zasobów był przypisywany za pośrednictwem grup zabezpieczeń lub [grup Microsoft 365](../fundamentals/active-directory-manage-groups.md), a użytkownicy są dodawana do tych grup w celu uzyskania dostępu.
 
-Pojedynczej grupie można udzielić dostępu do wszystkich odpowiednich zasobów. Dostęp do grupy można przypisać do poszczególnych zasobów lub do pakietu dostępu, który grupuje aplikacje i inne zasoby. Za pomocą tej metody można przeglądać dostęp do grupy, a nie dostęp do poszczególnych aplikacji. 
+Jednej grupie można przyznać dostęp do wszystkich odpowiednich zasobów. Dostęp grupy można przypisać do poszczególnych zasobów lub do pakietu dostępu, który grupuje aplikacje i inne zasoby. Za pomocą tej metody można przeglądać dostęp do grupy, a nie dostęp osoby do poszczególnych aplikacji. 
 
-Członkostwo w grupie może być analizowane przez: 
+Członkostwo w grupie można przeglądać przez: 
 
 * Administratorzy
 
-* Właściciele grupy
+* Właściciele grup
 
-* Wybrani użytkownicy, możliwość recenzji delegowanej podczas tworzenia przeglądu
+* Wybrani użytkownicy, delegowana możliwość przeglądu po utworzeniu przeglądu
 
-* Członkowie grupy, zaświadczanie dla siebie
+* Członkowie grupy, atestując się samodzielnie
 
 ### <a name="group-ownership"></a>Własność grupy
 
-Zaleca się, aby właściciele grup przeglądali członkostwo, ponieważ są one najlepszym rozwiązaniem, aby wiedzieć, kto potrzebuje dostępu. Własność grup różni się od typu grupy:
+Zalecamy, aby właściciele grup przeglądali członkostwo, ponieważ najlepiej jest wiedzieć, kto potrzebuje dostępu. Własność grup różni się w zależności od typu grupy:
 
-Grupy, które są tworzone w Microsoft 365 i usługa Azure AD, mają co najmniej jednego dobrze zdefiniowanego właściciela. W większości przypadków tacy właściciele tworzą idealnych recenzentów dla własnych grup, ponieważ wiedzą, kto powinien mieć dostęp. 
+Grupy, które są tworzone w usługach Microsoft 365 i Azure AD, mają co najmniej jednego dobrze zdefiniowanego właściciela. W większości przypadków właściciele ci są doskonałymi recenzentami dla własnych grup, ponieważ wiedzą, kto powinien mieć dostęp. 
 
-Na przykład firma Microsoft Teams używa grup Microsoft 365 jako podstawowego modelu autoryzacji, aby udzielić użytkownikom dostępu do zasobów w programie SharePoint, programie Exchange, programie OneNote lub w innych usługach Microsoft 365. Twórca zespołu automatycznie otrzymuje właściciela i powinien być odpowiedzialny za zaświadczenie członkostwa w tej grupie. 
+Na przykład usługa Microsoft Teams używa usługi Grupy usługi Microsoft 365 jako podstawowego modelu autoryzacji, aby udzielić użytkownikom dostępu do zasobów, które znajdują się w programie SharePoint, programie Exchange, programie OneNote lub innych Microsoft 365 usługach. Twórca zespołu automatycznie staje się właścicielem i powinien być odpowiedzialny za poświadczanie członkostwa w tej grupie. 
 
-Grupy utworzone ręcznie w portalu usługi Azure AD lub za pośrednictwem skryptów za pośrednictwem Microsoft Graph mogą nie mieć zdefiniowanych właścicieli. Zalecamy Definiowanie ich za pośrednictwem portalu usługi Azure AD w sekcji "właściciele" grupy lub za pośrednictwem grafu.
+Grupy utworzone ręcznie w portalu usługi Azure AD lub za pomocą skryptów Microsoft Graph nie muszą mieć zdefiniowanych właścicieli. Zalecamy ich zdefiniowanie za pośrednictwem portalu usługi Azure AD w sekcji "Właściciele" grupy lub za pośrednictwem programu Graph.
 
-Grupy, które są synchronizowane z Active Directory lokalnych, nie mogą mieć właściciela w usłudze Azure AD. Podczas tworzenia dla nich przeglądu dostępu należy wybrać osoby, które najlepiej nadają się do podejmowania decyzji dotyczących członkostwa w nich.
+Grupy synchronizowane z lokalna usługa Active Directory nie mogą mieć właściciela w usłudze Azure AD. Podczas tworzenia przeglądu dostępu należy wybrać osoby, które najlepiej nadają się do decydowania o członkostwie w nich.
 
 > [!NOTE]
-> Zalecamy zdefiniowanie zasad biznesowych, które definiują sposób tworzenia grup, aby zapewnić przejrzyste własności grup i odpowiedzialność za regularne przeglądy członkostwa. 
+> Zalecamy zdefiniowanie zasad biznesowych, które definiują sposób tworzenia grup w celu zapewnienia jasnej własności grup i odpowiedzialności w przypadku regularnego przeglądu członkostwa. 
 
-### <a name="review-membership-of-exclusion-groups-in-conditional-access-policies"></a>Przeglądanie członkostwa grup wykluczeń w zasadach dostępu warunkowego 
+### <a name="review-membership-of-exclusion-groups-in-conditional-access-policies"></a>Przeglądanie członkostwa w grupach wykluczeń w zasadach dostępu warunkowego 
 
-Istnieją przypadki, w których zasady dostępu warunkowego mające na celu zapewnienie bezpieczeństwa sieci nie powinny mieć zastosowania do wszystkich użytkowników. Na przykład zasady dostępu warunkowego, które umożliwiają użytkownikom logowanie się tylko w sieci firmowej, mogą nie dotyczyć zespołu sprzedaży, który jest szeroko przenoszone. W takim przypadku członkowie zespołu sprzedaży zostaną przeniesieni do grupy, a grupa ta zostanie wykluczona z zasad dostępu warunkowego. 
+Czasami zasady dostępu warunkowego zaprojektowane w celu zapewnienia bezpieczeństwa sieci nie powinny mieć zastosowania do wszystkich użytkowników. Na przykład zasady dostępu warunkowego, które zezwalają użytkownikom tylko na logowanie się w sieci firmowej, mogą nie mieć zastosowania do zespołu sprzedaży, który podróżuje w szerokim zakresie. W takim przypadku członkowie zespołu sprzedażowego zostaną uwzględnieni w grupie, a ta grupa zostanie wykluczona z zasad dostępu warunkowego. 
 
-Należy regularnie przeglądać takie członkostwo w grupach, ponieważ wykluczenie reprezentuje potencjalne ryzyko, jeśli złe elementy członkowskie zostały wykluczone z wymogu.
+Regularnie sprawdzaj takie członkostwo w grupie, ponieważ wykluczenie reprezentuje potencjalne ryzyko, jeśli niewłaściwi członkowie zostaną wykluczeni z wymagania.
 
-Za [pomocą przeglądów dostępu usługi Azure AD można zarządzać użytkownikami wykluczonymi z zasad dostępu warunkowego](conditional-access-exclusion.md).
+Przeglądy dostępu [usługi Azure AD mogą być służące do zarządzania użytkownikami wykluczonym z zasad dostępu warunkowego.](conditional-access-exclusion.md)
 
-### <a name="review-external-users-group-memberships"></a>Przejrzyj członkostwa w grupach użytkowników zewnętrznych
+### <a name="review-external-users-group-memberships"></a>Przeglądanie członkosstwa w grupach użytkowników zewnętrznych
 
-Aby zminimalizować liczbę czynności ręcznych i związanych z nimi potencjalnych błędów, należy rozważyć użycie [grup dynamicznych](../enterprise-users/groups-create-rule.md) do przypisywania członkostwa w grupach na podstawie atrybutów użytkownika. Można utworzyć co najmniej jedną grupę dynamiczną dla użytkowników zewnętrznych. Wewnętrzny sponsor może działać jako recenzent dla członkostwa w grupie. 
+Aby zminimalizować pracę ręczną i związane z nią potencjalne błędy, rozważ użycie grup [dynamicznych](../enterprise-users/groups-create-rule.md) do przypisania członkostwa w grupie na podstawie atrybutów użytkownika. Możesz utworzyć jedną lub więcej grup dynamicznych dla użytkowników zewnętrznych. Sponsor wewnętrzny może działać jako recenzent członkostwa w grupie. 
 
-Uwaga: użytkownicy zewnętrzni usunięci z grupy w wyniku przeglądu dostępu nie zostaną usunięci z dzierżawy. 
+Uwaga: Użytkownicy zewnętrzni usunięci z grupy w wyniku przeglądu dostępu nie są usuwani z dzierżawy. 
 
-Można je usunąć z dzierżawy usuniętej ręcznie lub za pomocą skryptu.
+Można je usunąć z dzierżawy ręcznie lub za pomocą skryptu.
 
 ### <a name="review-access-to-on-premises-groups"></a>Przeglądanie dostępu do grup lokalnych
 
-Przeglądy dostępu nie mogą zmieniać członkostwa w grupach grup synchronizowanych z lokalizacji lokalnej za pomocą [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md). Wynika to z faktu, że źródło danych jest w środowisku lokalnym.
+Przeglądy dostępu nie mogą zmieniać członkostwa w grupach grup, które są synchronizowane ze środowiskiem lokalnym z [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md). Jest to spowodowane tym, że źródło urzędu znajduje się w środowisku lokalnym.
 
-Nadal można korzystać z przeglądów dostępu w celu planowania i obsługi regularnych przeglądów grup lokalnych. Następnie recenzenci będą podejmować działania w grupie lokalnej. Ta strategia zachowuje przeglądy dostępu jako narzędzie dla wszystkich przeglądów.
+Nadal można używać przeglądów dostępu do planowania i utrzymywania regularnych przeglądów grup lokalnych. Recenzentzy będą następnie podjąć działania w grupie lokalnej. Ta strategia zapewnia przeglądy dostępu jako narzędzie do wszystkich przeglądów.
 
-Możesz użyć wyników z przeglądu dostępu do grup lokalnych i przetworzyć je w dalszej postaci:
+Możesz użyć wyników przeglądu dostępu dla grup lokalnych i przetworzyć je dalej, za pomocą:
 
-* Pobieranie raportu CSV z przeglądu dostępu i czynności podejmowanych ręcznie.
+* Pobieranie raportu CSV z przeglądu dostępu i ręczne podejmowanie działań.
 
-* Używanie Microsoft Graph do programistycznego uzyskiwania dostępu do wyników i decyzji w ramach ukończonych przeglądów dostępu.
+* Używanie Microsoft Graph programowego uzyskiwania dostępu do wyników i decyzji w ukończonych przeglądach dostępu.
 
-Aby na przykład uzyskać dostęp do wyników dla grupy zarządzanej przez usługi Windows AD, użyj tego [skryptu przykładowego programu PowerShell](https://github.com/microsoft/access-reviews-samples/tree/master/AzureADAccessReviewsOnPremises). Skrypt zawiera opis wymaganych wywołań wykresów i eksportuje polecenia AD-PowerShell systemu Windows w celu przeprowadzenia zmian.
+Aby na przykład uzyskać dostęp do wyników dla grupy zarządzanej przez usługę Windows AD, użyj tego [przykładowego skryptu programu PowerShell.](https://github.com/microsoft/access-reviews-samples/tree/master/AzureADAccessReviewsOnPremises) Skrypt zawiera opis wymaganych wywołań programu Graph i eksportuje polecenia AD-PowerShell Windows w celu wykonania zmian.
 
 ## <a name="plan-access-reviews-for-applications"></a>Planowanie przeglądów dostępu dla aplikacji 
 
-Gdy przeglądasz dostęp do aplikacji, przeglądasz dostęp dla pracowników i tożsamości zewnętrznych do informacji i danych w aplikacji. Wybierz, aby przejrzeć aplikację, jeśli chcesz wiedzieć, kto ma dostęp do określonej aplikacji, a nie pakietu dostępu lub grupy. 
+Przeglądając dostęp do aplikacji, przeglądasz dostęp pracowników i tożsamości zewnętrznych do informacji i danych w aplikacji. Wybierz opcję przeglądania aplikacji, gdy musisz wiedzieć, kto ma dostęp do określonej aplikacji, zamiast pakietu dostępu lub grupy. 
 
-Zalecamy planowanie przeglądów aplikacji w następujących scenariuszach:
+Zalecamy zaplanowanie przeglądów aplikacji w następujących scenariuszach:
 
-* Użytkownicy uzyskują bezpośredni dostęp do aplikacji (poza grupą lub pakietem dostępu).
+* Użytkownicy mają bezpośredni dostęp do aplikacji (spoza grupy lub pakietu dostępu).
 
-* Aplikacja uwidacznia krytyczne lub poufne informacje.
+* Aplikacja uwidacznia informacje krytyczne lub poufne.
 
-* Aplikacja ma określone wymagania w zakresie zgodności, do których należy zaświadczać.
+* Aplikacja ma określone wymagania dotyczące zgodności, które należy atestować.
 
 * Podejrzewasz niewłaściwy dostęp.
 
-Aby utworzyć przeglądy dostępu dla aplikacji, należy ustawić wymagane przypisanie użytkownika? Właściwość na wartość tak. W przypadku wybrania opcji nie wszyscy użytkownicy w katalogu, w tym tożsamości zewnętrzne, mogą uzyskiwać dostęp do aplikacji i nie można przeglądać dostępu do aplikacji. 
+Aby utworzyć przeglądy dostępu dla aplikacji, ustaw wymagane przypisanie użytkownika? na wartość Tak. Jeśli ustawisz wartość Nie, wszyscy użytkownicy w katalogu, w tym tożsamości zewnętrzne, będą mieć dostęp do aplikacji i nie będzie można przejrzeć dostępu do aplikacji. 
 
- ![Planowanie przypisań aplikacji](./media/deploy-access-review/6-plan-applications-assignment-required.png)
+ ![planowanie przypisań aplikacji](./media/deploy-access-review/6-plan-applications-assignment-required.png)
 
-Następnie należy [przypisać użytkowników i grupy](../manage-apps/assign-user-or-group-access-portal.md) , do których chcesz uzyskać dostęp. 
+Następnie należy [przypisać użytkowników i grupy,](../manage-apps/assign-user-or-group-access-portal.md) do których chcesz mieć dostęp. 
 
-### <a name="reviewers-for-an-application"></a>Recenzenci dla aplikacji
+### <a name="reviewers-for-an-application"></a>Recenzentzy aplikacji
 
-Przeglądy dostępu mogą dotyczyć członków grupy lub użytkowników, którzy zostali przypisani do aplikacji. Aplikacje w usłudze Azure AD nie muszą mieć właściciela, co oznacza, że opcja wyboru właściciela aplikacji jako recenzenta nie jest możliwa. Można dodatkowo przekroczyć zakres przeglądu, aby przejrzeć tylko użytkowników-Gości przypisanych do aplikacji, a nie sprawdzać całego dostępu.
+Przeglądy dostępu mogą być przeznaczone dla członków grupy lub użytkowników przypisanych do aplikacji. Aplikacje w usłudze Azure AD nie muszą mieć właściciela, dlatego opcja wyboru właściciela aplikacji jako recenzenta nie jest możliwa. Możesz dodatkowo określić zakres przeglądu, aby przeglądać tylko użytkowników-gości przypisanych do aplikacji, zamiast przeglądać cały dostęp.
 
-## <a name="plan-review-of-azure-ad-and-azure-resource-roles"></a>Planowanie przeglądu usługi Azure AD i ról zasobów platformy Azure
+## <a name="plan-review-of-azure-ad-and-azure-resource-roles"></a>Planowanie przeglądu ról zasobów usługi Azure AD i platformy Azure
 
-[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) upraszcza zarządzanie dostępem uprzywilejowanym do zasobów w usłudze Azure AD. Dzięki temu można zachować listę ról uprzywilejowanych, zarówno w [usłudze Azure AD](../roles/permissions-reference.md) , jak i w przypadku [zasobów platformy Azure](../../role-based-access-control/built-in-roles.md) znacznie mniejszych i zwiększyć ogólne zabezpieczenia katalogu.
+[Privileged Identity Management (PIM) upraszcza](../privileged-identity-management/pim-configure.md) zarządzanie uprzywilejowanym dostępem do zasobów w usłudze Azure AD przez przedsiębiorstwa. Dzięki temu lista ról uprzywilejowanych, zarówno w usłudze [Azure AD,](../roles/permissions-reference.md) jak i zasobach platformy [Azure,](../../role-based-access-control/built-in-roles.md) jest znacznie mniejsza i zwiększa ogólny poziom zabezpieczeń katalogu.
 
-Przeglądy dostępu umożliwiają recenzentom potwierdzenie, czy użytkownicy nadal muszą znajdować się w roli. Podobnie jak przeglądy dostępu dla pakietów dostępu, przeglądy dla ról usługi Azure AD i zasobów platformy Azure są zintegrowane z użytkownikami administracyjnymi PIM. Zalecamy regularne przeglądanie następujących przypisań ról:
+Przeglądy dostępu umożliwiają recenzentom potwierdzanie, czy użytkownicy nadal muszą być w roli. Podobnie jak przeglądy dostępu dla pakietów dostępu, przeglądy ról usługi Azure AD i zasobów platformy Azure są zintegrowane ze środowiskom użytkownika administratora usługi PIM. Zalecamy regularne przeglądanie następujących przypisań ról:
 
 * Administrator globalny
 
 * Administrator użytkowników
 
-* Administrator uprzywilejowanego uwierzytelniania
+* Administrator uwierzytelniania uprzywilejowanego
 
 * Administrator dostępu warunkowego
 
 * Administrator zabezpieczeń
 
-* Wszystkie role administracyjne usług Microsoft 365 i Dynamics
+* Wszystkie Microsoft 365 i administracja usługą Dynamics
 
-Role wybrane w tym miejscu obejmują stałą i kwalifikującą się rolę. 
+Role wybrane w tym miejscu obejmują rolę trwałą i kwalifikującą się. 
 
-W sekcji recenzenci wybierz co najmniej jedną osobę, aby przejrzeć wszystkich użytkowników. Możesz również wybrać, aby członkowie mogli przeglądać swój własny dostęp.
+W sekcji Recenzentzy wybierz co najmniej jedną osoba, aby przejrzeć wszystkich użytkowników. Możesz też wybrać, aby członkowie przejrzeli swój własny dostęp.
 
  ![Edycja zasad](./media/deploy-access-review/7-plan-azure-resources-reviewers-selection.png)
 
-## <a name="deploy-access-reviews"></a>Wdróż przeglądy dostępu
+## <a name="deploy-access-reviews"></a>Wdrażanie przeglądów dostępu
 
-Po przygotowaniu strategii i planowaniu dostępu do zasobów zintegrowanych z usługą Azure AD należy wdrożyć przeglądy i zarządzać nimi, korzystając z poniższych zasobów.
+Po przygotowaniu strategii i planu przeglądania dostępu do zasobów zintegrowanych z usługą Azure AD należy wdrożyć przeglądy i zarządzać nimi przy użyciu poniższych zasobów.
 
-### <a name="review-access-packages"></a>Przejrzyj pakiety dostępu
+### <a name="review-access-packages"></a>Przeglądanie pakietów dostępu
 
-Aby zmniejszyć ryzyko nieaktualnego dostępu, Administratorzy mogą włączyć okresowe przeglądy użytkowników, którzy mają aktywne przypisania do pakietu dostępu. Postępuj zgodnie z instrukcjami podanymi w poniższym linku:
+Aby zmniejszyć ryzyko nieaktywnego dostępu, administratorzy mogą włączyć okresowe przeglądy użytkowników, którzy mają aktywne przypisania do pakietu dostępu. Postępuj zgodnie z instrukcjami podanymi pod poniższym linkiem:
 
 | Instrukcje| Opis |
 | - | - |
 | [Tworzenie przeglądów dostępu](entitlement-management-access-reviews-create.md)| Włącz przeglądy pakietu dostępu. |
-| [Wykonaj przeglądy dostępu](entitlement-management-access-reviews-review-access.md)| Wykonaj przeglądy dostępu dla innych użytkowników przypisanych do pakietu dostępu. |
-| [Samodzielne przeglądanie przypisanych pakietów dostępu](entitlement-management-access-reviews-self-review.md)| Samodzielna weryfikacja przypisanych pakietów dostępu |
+| [Przeprowadzanie przeglądów dostępu](entitlement-management-access-reviews-review-access.md)| Przeprowadzanie przeglądów dostępu dla innych użytkowników przypisanych do pakietu dostępu. |
+| [Samodzielne przeglądanie przypisanych pakietów dostępu](entitlement-management-access-reviews-self-review.md)| Samodzielne przeglądanie przypisanych pakietów dostępu |
 
 
 > [!NOTE]
-> Użytkownicy końcowi, którzy dokonają samooceny i mówią, że nie potrzebują już dostępu, nie są natychmiast usuwani z pakietu dostępu. Są one usuwane z pakietu dostępu po zakończeniu przeglądu lub jeśli administrator zatrzyma przegląd.
+> Użytkownicy końcowi, którzy samodzielnie przeglądają zawartość i mówią, że nie potrzebują już dostępu, nie są natychmiast usuwani z pakietu dostępu. Są one usuwane z pakietu dostępu po zakończeniu przeglądu lub po zatrzymaniu przeglądu przez administratora.
 
 ### <a name="review-groups-and-apps"></a>Przeglądanie grup i aplikacji
 
-Dostęp do grup i aplikacji musi być zmieniany w miarę upływu czasu. Aby zmniejszyć ryzyko związane ze starymi przypisaniami dostępu, Administratorzy mogą tworzyć przeglądy dostępu dla członków grupy lub dostępu do aplikacji. Postępuj zgodnie z instrukcjami podanymi w poniższym linku:
+Dostęp do grup i aplikacji dla pracowników i gości prawdopodobnie zmienia się z czasem. Aby zmniejszyć ryzyko związane z nieodświeżonymi przypisaniami dostępu, administratorzy mogą tworzyć przeglądy dostępu dla członków grupy lub dostępu do aplikacji. Postępuj zgodnie z instrukcjami podanymi pod poniższym linkiem:
 
 | Instrukcje| Opis |
 | - | - |
-| [Tworzenie przeglądów dostępu](create-access-review.md)| Utwórz co najmniej jedną weryfikację dostępu dla członków grupy lub dostępu do aplikacji. |
-| [Wykonaj przeglądy dostępu](perform-access-review.md)| Przeprowadź przegląd dostępu dla członków grupy lub użytkowników mających dostęp do aplikacji. |
-| [Samoobsługowe przeglądanie dostępu](review-your-access.md)| Członkowie przeglądają własny dostęp do grupy lub aplikacji |
-| [Ukończ przegląd dostępu](complete-access-review.md)| Wyświetl przegląd dostępu i Zastosuj wyniki |
-| [Podejmowanie akcji dla grup lokalnych](https://github.com/microsoft/access-reviews-samples/tree/master/AzureADAccessReviewsOnPremises)| Przykładowy skrypt programu PowerShell do działania na przeglądach dostępu dla grup lokalnych. |
+| [Tworzenie przeglądów dostępu](create-access-review.md)| Utwórz co najmniej jeden przegląd dostępu dla członków grupy lub dostępu do aplikacji. |
+| [Przeprowadzanie przeglądów dostępu](perform-access-review.md)| Przeprowadzanie przeglądu dostępu dla członków grupy lub użytkowników z dostępem do aplikacji. |
+| [Samodzielne przeglądanie dostępu](review-your-access.md)| Członkowie przeglądają własny dostęp do grupy lub aplikacji |
+| [Ukończenie przeglądu dostępu](complete-access-review.md)| Wyświetlanie przeglądu dostępu i stosowanie wyników |
+| [Akcja dla grup lokalnych](https://github.com/microsoft/access-reviews-samples/tree/master/AzureADAccessReviewsOnPremises)| Przykładowy skrypt programu PowerShell do wykonywania przeglądów dostępu dla grup lokalnych. |
 
 
 ### <a name="review-azure-ad-roles"></a>Przeglądanie ról usługi Azure AD
 
-Aby zmniejszyć ryzyko związane ze starymi przypisaniami ról, należy regularnie przeglądać dostęp do ról uprzywilejowanych usługi Azure AD.
+Aby zmniejszyć ryzyko związane z nieodświeżonymi przypisaniami ról, należy regularnie przeglądać dostęp uprzywilejowanych ról usługi Azure AD.
 
-![Zrzut ekranu przedstawiający listę "przegląd członkostwa" ról Azure A D.](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
+![Zrzut ekranu przedstawiający listę "Przegląd członkostwa" ról usługi Azure A D.](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
 
 Postępuj zgodnie z instrukcjami pod poniższymi linkami:
 
 | Instrukcje | Opis |
 | - | - |
  [Tworzenie przeglądów dostępu](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Tworzenie przeglądów dostępu dla uprzywilejowanych ról usługi Azure AD w usłudze PIM |
-| [Samoobsługowe przeglądanie dostępu](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Jeśli masz przypisaną rolę administracyjną, Zatwierdź lub Odmów dostępu do roli |
-| [Ukończ przegląd dostępu](../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Wyświetl przegląd dostępu i Zastosuj wyniki |
+| [Samodzielne przeglądanie dostępu](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Jeśli masz przypisaną rolę administracyjną, zatwierdź lub odmów dostępu do swojej roli |
+| [Ukończenie przeglądu dostępu](../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Wyświetlanie przeglądu dostępu i stosowanie wyników |
 
 
 ### <a name="review-azure-resource-roles"></a>Przeglądanie ról zasobów platformy Azure
 
-Aby zmniejszyć ryzyko związane ze starymi przypisaniami ról, należy regularnie przeglądać dostęp do ról uprzywilejowanych zasobów platformy Azure. 
+Aby zmniejszyć ryzyko związane z nieodświeżonymi przypisaniami ról, należy regularnie przeglądać dostęp do ról uprzywilejowanych zasobów platformy Azure. 
 
 ![przeglądanie ról usługi Azure AD](./media/deploy-access-review/9-review-azure-roles-picker.png)
 
@@ -467,54 +467,54 @@ Postępuj zgodnie z instrukcjami pod poniższymi linkami:
 
 | Instrukcje| Opis |
 | - | -|
-| [Tworzenie przeglądów dostępu](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Tworzenie przeglądów dostępu dla uprzywilejowanych ról zasobów platformy Azure w usłudze PIM |
-| [Samoobsługowe przeglądanie dostępu](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Jeśli masz przypisaną rolę administracyjną, Zatwierdź lub Odmów dostępu do roli |
-| [Ukończ przegląd dostępu](../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Wyświetl przegląd dostępu i Zastosuj wyniki |
+| [Tworzenie przeglądów dostępu](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Tworzenie przeglądów dostępu dla ról uprzywilejowanych zasobów platformy Azure w usłudze PIM |
+| [Samodzielne przeglądanie dostępu](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Jeśli masz przypisaną rolę administracyjną, zatwierdź lub odmów dostępu do swojej roli |
+| [Ukończenie przeglądu dostępu](../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Wyświetlanie przeglądu dostępu i stosowanie wyników |
 
 
 ## <a name="use-the-access-reviews-api"></a>Korzystanie z interfejsu API przeglądów dostępu
 
-Zobacz [metody interfejsu API programu Graph](/graph/api/resources/accessreviews-root?view=graph-rest-beta) oraz [uprawnienia roli i aplikacji sprawdzanie autoryzacji](/graph/api/resources/accessreviews-root?view=graph-rest-beta) w celu współpracy z zasobami do przeglądania i zarządzania nimi. Metody przeglądy dostępu w interfejsie API Microsoft Graph są dostępne dla kontekstów aplikacji i użytkowników. Podczas uruchamiania skryptów w kontekście aplikacji, konto używane do uruchamiania interfejsu API (zasady usługi) musi mieć przyznane uprawnienie "AccessReview. Read. All", aby wykonywać zapytania dotyczące informacji o przeglądach dostępu.
+Zobacz graph API methods and [role and application permission authorization checks](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true) to interact with and manage reviewable resources (Metody [interfejsu API](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true) programu Graph oraz sprawdzanie autoryzacji uprawnień ról i aplikacji), aby wchodzić w interakcje z przeglądalnymi zasobami i zarządzać nimi. Metody przeglądów dostępu w interfejsie API Microsoft Graph są dostępne dla kontekstów aplikacji i użytkownika. Podczas uruchamiania skryptów w kontekście aplikacji konto używane do uruchamiania interfejsu API (zasada usługi) musi mieć przyznane uprawnienie "AccessReview.Read.All", aby wykonać zapytanie o informacje dotyczące przeglądów dostępu.
 
-Popularne zadania przeglądów dostępu do automatyzowania przy użyciu interfejs API programu Graph do przeglądów dostępu są następujące:
+Popularne zadania przeglądów dostępu do automatyzacji przy użyciu interfejs Graph API przeglądów dostępu to:
 
-* Utwórz i uruchom przegląd dostępu
+* Tworzenie i uruchamianie przeglądu dostępu
 
-* Ręcznie Zakończ przegląd dostępu przed zaplanowanym końcem
+* Ręczne zakończenie przeglądu dostępu przed zaplanowanym zakończeniem
 
-* Wyświetl wszystkie uruchomione przeglądy dostępu i ich stan
+* Lista wszystkich uruchomionych przeglądów dostępu i ich stanu
 
-* Zapoznaj się z historią serii przeglądu oraz podejmowanych decyzji i działań.
+* Zapoznaj się z historią serii przeglądów oraz decyzjami i akcjami podejmowanymi w poszczególnych przeglądach.
 
-* Zbierz decyzje z przeglądu dostępu
+* Zbieranie decyzji z przeglądu dostępu
 
-* Zbieraj decyzje od zakończonych przeglądów, w których recenzent podjął inną decyzję niż zalecany system.
+* Zbieranie decyzji z ukończonych przeglądów, w przypadku których recenzent podjął inną decyzję niż zalecana przez system.
 
-Podczas tworzenia nowych zapytań interfejs API programu Graph dla usługi Automation zalecamy korzystanie z [Eksploratora grafów](https://developer.microsoft.com/en-us/graph/graph-explorer). Możesz tworzyć i eksplorować zapytania grafu przed umieszczeniem ich w skryptach i kodzie. Może to pomóc szybko wykonać iterację zapytania, aby uzyskać dokładne wyniki wyszukiwania, bez zmiany kodu skryptu.
+Podczas tworzenia nowych zapytań interfejs Graph API automatyzacji zalecamy użycie [Eksploratora programu Graph.](https://developer.microsoft.com/en-us/graph/graph-explorer) Zapytania programu Graph można tworzyć i eksplorować przed umieszczeniem ich w skryptach i kodzie. Może to pomóc w szybkiej iterowania zapytania w taki sposób, aby uzyskać dokładnie te wyniki, których szukasz, bez konieczności zmieniania kodu skryptu.
 
-## <a name="monitor-access-reviews"></a>Monitoruj przeglądy dostępu
+## <a name="monitor-access-reviews"></a>Monitorowanie przeglądów dostępu
 
-Działania przeglądów dostępu są rejestrowane i dostępne w [dziennikach inspekcji usługi Azure AD](../reports-monitoring/concept-audit-logs.md). Dane inspekcji można filtrować według kategorii, typu działania i zakresu dat. Oto przykładowe zapytanie:
+Działania przeglądów dostępu są rejestrowane i dostępne w dziennikach inspekcji [usługi Azure AD.](../reports-monitoring/concept-audit-logs.md) Dane inspekcji można filtrować według kategorii, typu działania i zakresu dat. Oto przykładowe zapytanie:
 
 | Kategoria| Zasady |
 | - | - |
 | Typ działania| Tworzenie przeglądu dostępu |
-| | Aktualizuj przegląd dostępu |
-| | Zakończono przegląd dostępu |
+| | Aktualizowanie przeglądu dostępu |
+| | Przegląd dostępu zakończył się |
 | | Usuwanie przeglądu dostępu |
 | | Zatwierdzanie decyzji |
 | | Odmów decyzji |
-| | Resetowanie decyzji |
-| | Zastosuj decyzję |
+| | Decyzja o zresetowaniu |
+| | Stosowanie decyzji |
 | Zakres dat| siedem dni |
 
 
-Aby uzyskać bardziej zaawansowane zapytania i analizę kontroli dostępu, a także śledzić zmiany i dokonywać przeglądów, zalecamy wyeksportowanie dzienników inspekcji usługi Azure AD do [usługi azure log Analytics](../reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) lub centrum zdarzeń platformy Azure. W przypadku przechowywania danych w usłudze Azure Log Analytics można użyć [zaawansowanego języka analitycznego](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md) — i utworzyć własne pulpity nawigacyjne.
+Aby uzyskać bardziej zaawansowane zapytania i analizę przeglądów dostępu oraz śledzić zmiany i uzupełnianie przeglądów, zalecamy wyeksportowanie dzienników inspekcji usługi Azure AD do usługi [Azure Log Analytics](../reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) lub Azure Event Hubs. W przypadku przechowywania w usłudze Azure Log Analytics można używać zaawansowanego języka analizy [i](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md) tworzyć własne pulpity nawigacyjne.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na temat pokrewnych technologii.
+Dowiedz się więcej o poniższych powiązanych technologiach.
 
-* [Co to jest zarządzanie prawami w usłudze Azure AD?](entitlement-management-overview.md)
+* [Co to jest zarządzanie uprawnieniami usługi Azure AD?](entitlement-management-overview.md)
 
 * [Co to jest usługa Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)

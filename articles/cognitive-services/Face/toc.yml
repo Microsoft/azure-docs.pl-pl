@@ -3,23 +3,23 @@
 - name: Omówienie
   expanded: true
   items:
-    - name: Przegląd usługi kroju
+    - name: Omówienie usługi rozpoznawania twarzy
       href: Overview.md
     - name: Ceny
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/face-api'
     - name: Co nowego
       href: releasenotes.md
-- name: Tworzenie czołowe — Szybki Start
+- name: Przewodnik Szybki start dla rozpoznawania twarzy
   href: Quickstarts/client-libraries.md
 - name: Samples
   href: /samples/browse/?products=azure&term=face
 - name: Przewodniki z instrukcjami
   items:
-    - name: Wykrywaj i Analizuj twarze
+    - name: Wykrywanie i analizowanie twarzy
       href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-    - name: Określ wersję modelu rozpoznawania kroju
+    - name: Określanie wersji modelu rozpoznawania twarzy
       href: Face-API-How-to-Topics/specify-recognition-model.md
-    - name: Określ wersję modelu wykrywania kroju
+    - name: Określanie wersji modelu wykrywania twarzy
       href: Face-API-How-to-Topics/specify-detection-model.md
     - name: Dodawanie twarzy do grupy
       href: Face-API-How-to-Topics/how-to-add-faces.md
@@ -33,19 +33,18 @@
       href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
     - name: Migrowanie danych twarzy
       href: Face-API-How-to-Topics/how-to-migrate-face-data.md
-    - name: Korzystanie z kontenera rozpoznawania
+    - name: Korzystanie z kontenera rozpoznawania twarzy
       items:
         - name: Dokumentacja kontenerów usługi Cognitive Services
-          href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
+          href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/face/context/context
         - name: Przegląd kontenerów
-          href: /azure/cognitive-services/cognitive-services-container-support?context=/azure/cognitive-services/computer-vision/context/context
+          href: /azure/cognitive-services/cognitive-services-container-support?context=/azure/cognitive-services/face/context/context
         - name: Instalowanie i uruchamianie kontenerów
           href: face-how-to-install-containers.md
         - name: Konfigurowanie kontenerów
           href: face-resource-container-config.md
         - name: Korzystanie z wystąpień kontenerów
-          maintainContext: true
-          href: ../containers/azure-container-instance-recipe.md
+          href: /azure/cognitive-services/containers/azure-container-instance-recipe?context=/azure/cognitive-services/face/context/context
 - name: Pojęcia
   items:
     - name: Wykrywanie twarzy
@@ -54,17 +53,15 @@
       href: concepts/face-recognition.md
 - name: Samouczki
   items:
-    - name: Tworzenie aplikacji czujnika kroju
-      href: Tutorials/FaceAPIinCSharpTutorial.md
-    - name: Dodawanie użytkowników do usługi kroju
+    - name: Dodawanie użytkowników do usługi rozpoznawania twarzy
       items:
         - name: Najlepsze rozwiązania dotyczące dodawania użytkowników
           href: enrollment-overview.md
-        - name: Tworzenie aplikacji do reagowania na dodawanie użytkowników
+        - name: Tworzenie aplikacji React w celu dodawania użytkowników
           href: build-enrollment-app.md
 - name: Odwołanie
   items:
-    - name: Interfejs API REST
+    - name: Interfejs API REST rozpoznawania twarzy
       href: APIReference.md
     - name: .NET
       href: /dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
@@ -80,7 +77,7 @@
   items:
     - name: Obsługa regionów
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
-    - name: Uczenie modułów
+    - name: Moduły learn
       href: 'https://docs.microsoft.com/learn/modules/detect-analyze-faces/'
     - name: Opcje wsparcia technicznego i pomocy
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/face/context/context

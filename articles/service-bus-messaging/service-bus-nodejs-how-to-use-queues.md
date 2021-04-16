@@ -1,31 +1,33 @@
 ---
-title: Jak używać kolejek usługi Azure/Service-Bus w języku JavaScript
-description: Dowiedz się, jak napisać program JavaScript, który używa najnowszej wersji @azure/service-bus pakietu do wysyłania komunikatów do i odbierania komunikatów z kolejki Service Bus.
+title: Jak używać kolejek azure/service-bus w języku JavaScript
+description: Dowiedz się, jak napisać program w języku JavaScript, który używa najnowszej wersji pakietu do wysyłania komunikatów do kolejki Service Bus @azure/service-bus odbierania komunikatów.
 author: spelluru
-ms.devlang: nodejs
-ms.topic: quickstart
-ms.date: 11/09/2020
 ms.author: spelluru
-ms.custom: devx-track-js
-ms.openlocfilehash: 3c499dcb5233cbf5cd4048c641d1b38e289cc35f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 11/09/2020
+ms.topic: quickstart
+ms.devlang: nodejs
+ms.custom:
+- devx-track-js
+- mode-api
+ms.openlocfilehash: aee67becf7519f03839eafbd897838f938871307
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739716"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537240"
 ---
-# <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-javascript"></a>Wysyłanie komunikatów do i odbieranie komunikatów z kolejek Azure Service Bus (JavaScript)
-W ramach tego samouczka nauczysz się używać [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) pakietu w programie JavaScript do wysyłania komunikatów do i odbierania komunikatów z kolejki Service Bus.
+# <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-javascript"></a>Wysyłanie i odbieranie komunikatów z Azure Service Bus (JavaScript)
+Z tego samouczka dowiesz się, jak używać pakietu w programie JavaScript do wysyłania komunikatów do kolejki Service Bus [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) komunikatów.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-- Subskrypcja platformy Azure. Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Możesz aktywować korzyści dla [subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Jeśli nie masz kolejki do współpracy z programem, postępuj zgodnie z instrukcjami w temacie [Use Azure Portal, aby utworzyć](service-bus-quickstart-portal.md) kolejkę Service Bus w celu utworzenia kolejki. Zanotuj **Parametry połączenia** dla przestrzeni nazw Service Bus i nazwę utworzonej **kolejki** .
+- Subskrypcja platformy Azure. Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Możesz aktywować korzyści [dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) lub utworzyć bezpłatne [konto.](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)
+- Jeśli nie masz kolejki do pracy, wykonaj kroki opisane w artykule Use [Azure Portal to create a Service Bus queue to](service-bus-quickstart-portal.md) create a queue (Tworzenie kolejki przy użyciu usługi Azure Portal do tworzenia kolejki). Zanotuj **ciąg** połączenia dla Service Bus nazw i nazwę **utworzonej** kolejki.
 
 > [!NOTE]
-> - Ten samouczek współpracuje z przykładami, które można kopiować i uruchamiać przy użyciu [NodeJS](https://nodejs.org/). Aby uzyskać instrukcje dotyczące sposobu tworzenia aplikacji Node.js, zobacz [Tworzenie i wdrażanie aplikacji Node.js w witrynie sieci Web platformy Azure](../app-service/quickstart-nodejs.md)lub [Node.js usługi w chmurze przy użyciu programu Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
+> - Ten samouczek współpracuje z przykładami, które można skopiować i uruchomić przy użyciu [oprogramowania Nodejs.](https://nodejs.org/) Aby uzyskać instrukcje dotyczące tworzenia aplikacji Node.js, zobacz Create [and deploy a Node.js application to an Azure Website](../app-service/quickstart-nodejs.md), orNode.js cloud service using Windows PowerShell (Tworzenie i wdrażanie aplikacji usługi Node.js w witrynie sieci Web platformy Azure lub usługaNode.js w chmurze przy użyciu usługi [ Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md)).
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>Instalowanie menedżera NPM (Node Package Manager)
-Aby zainstalować pakiet npm dla Service Bus, Otwórz wiersz polecenia, który znajduje `npm` się w jego ścieżce, Zmień katalog na folder, w którym chcesz uzyskać przykłady, a następnie Uruchom to polecenie.
+Aby zainstalować pakiet npm dla programu Service Bus, otwórz wiersz polecenia, który ma w swojej ścieżce, zmień katalog na folder, w którym chcesz mieć przykłady, a następnie `npm` uruchom to polecenie.
 
 ```bash
 npm install @azure/service-bus
@@ -34,8 +36,8 @@ npm install @azure/service-bus
 ## <a name="send-messages-to-a-queue"></a>Wysyłanie komunikatów do kolejki
 Poniższy przykładowy kod pokazuje, jak wysłać komunikat do kolejki.
 
-1. Otwórz ulubiony Edytor, taki jak [Visual Studio Code](https://code.visualstudio.com/).
-2. Utwórz plik o nazwie `send.js` i wklej do niego Poniższy kod. Ten kod wyśle komunikat do kolejki. Komunikat ma etykietę (Naukowc) i treść (Einstein).
+1. Otwórz ulubiony edytor, taki [jak Visual Studio Code](https://code.visualstudio.com/).
+2. Utwórz plik o nazwie `send.js` i wklej do niego poniższy kod. Ten kod spowoduje wysłanie komunikatu do kolejki. Komunikat ma etykietę (Analityk) i treść (Przemysł).
 
     ```javascript
     const { ServiceBusClient } = require("@azure/service-bus");
@@ -111,8 +113,8 @@ Poniższy przykładowy kod pokazuje, jak wysłać komunikat do kolejki.
         process.exit(1);
      });
     ```
-3. Zamień na `<CONNECTION STRING TO SERVICE BUS NAMESPACE>` Parametry połączenia z przestrzenią nazw Service Bus.
-1. Zamień `<QUEUE NAME>` na nazwę kolejki. 
+3. Zastąp `<CONNECTION STRING TO SERVICE BUS NAMESPACE>` ciąg ciągami połączenia z twoją Service Bus nazw.
+1. Zastąp `<QUEUE NAME>` nazwą kolejki. 
 1. Następnie uruchom polecenie w wierszu polecenia, aby wykonać ten plik.
 
     ```console
@@ -126,7 +128,7 @@ Poniższy przykładowy kod pokazuje, jak wysłać komunikat do kolejki.
 
 ## <a name="receive-messages-from-a-queue"></a>Odbieranie komunikatów z kolejki
 
-1. Otwórz ulubiony Edytor, taki jak [Visual Studio Code](https://code.visualstudio.com/)
+1. Otwórz ulubiony edytor, na przykład [Visual Studio Code](https://code.visualstudio.com/)
 2. Utwórz plik o nazwie `receive.js` i wklej do niego następujący kod.
 
     ```javascript
@@ -173,8 +175,8 @@ Poniższy przykładowy kod pokazuje, jak wysłać komunikat do kolejki.
         process.exit(1);
      });
     ```
-3. Zamień na `<CONNECTION STRING TO SERVICE BUS NAMESPACE>` Parametry połączenia z przestrzenią nazw Service Bus.
-1. Zamień `<QUEUE NAME>` na nazwę kolejki. 
+3. Zastąp `<CONNECTION STRING TO SERVICE BUS NAMESPACE>` ciąg ciągami połączenia z Service Bus nazw.
+1. Zastąp `<QUEUE NAME>` nazwą kolejki. 
 1. Następnie uruchom polecenie w wierszu polecenia, aby wykonać ten plik.
 
     ```console
@@ -195,17 +197,17 @@ Poniższy przykładowy kod pokazuje, jak wysłać komunikat do kolejki.
     Received message: Nikolaus Kopernikus
     ```
 
-Na stronie **Omówienie** przestrzeni nazw Service Bus w Azure Portal można zobaczyć liczbę wiadomości **przychodzących** i **wychodzących** . Może być konieczne poczekanie na minutę lub, a następnie odświeżenie strony, aby zobaczyć najnowsze wartości. 
+Na stronie **Przegląd** dla Service Bus nazw w Azure Portal można zobaczyć **liczbę** komunikatów przychodzących **i** wychodzących. Może być konieczne odczekenie około minuty, a następnie odświeżenie strony w celu zobaczenia najnowszych wartości. 
 
-:::image type="content" source="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png" alt-text="Liczba wiadomości przychodzących i wychodzących":::
+:::image type="content" source="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png" alt-text="Liczba komunikatów przychodzących i wychodzących":::
 
-Wybierz kolejkę na tej stronie **przeglądu** , aby przejść do strony **kolejki Service Bus** . Na tej stronie jest również wyświetlana liczba komunikatów **przychodzących** i **wychodzących** . Widoczne są również inne informacje, takie jak **bieżący rozmiar** kolejki, **Maksymalny rozmiar**, **Liczba aktywnych komunikatów** itd. 
+Wybierz kolejkę na tej **stronie Przegląd,** aby przejść do **Service Bus kolejki.** Na tej stronie **jest** **również** wyświetlany licznik komunikatów przychodzących i wychodzących. Zobaczysz również inne informacje, takie jak bieżący **rozmiar** **kolejki,** maksymalny rozmiar, liczba aktywnych **komunikatów** i tak dalej. 
 
 :::image type="content" source="./media/service-bus-java-how-to-use-queues/queue-details.png" alt-text="Szczegóły kolejki":::
 ## <a name="next-steps"></a>Następne kroki
-Zapoznaj się z poniższą dokumentacją i przykładami: 
+Zapoznaj się z następującą dokumentacją i przykładami: 
 
-- [Azure Service Bus Biblioteka kliencka dla języka JavaScript](https://www.npmjs.com/package/@azure/service-bus)
+- [Azure Service Bus klienta dla języka JavaScript](https://www.npmjs.com/package/@azure/service-bus)
 - [Przykłady skryptów w języku JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
 - [Przykłady języka TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
 - [Dokumentacja referencyjna interfejsu API](/javascript/api/overview/azure/service-bus)

@@ -99,7 +99,7 @@
           href: visualize/resource-manager-workbooks.md
         - name: Szczegółowe informacje o kontenerze
           href: containers/resource-manager-container-insights.md
-        - name: Szczegółowe informacje o maszynie wirtualnej
+        - name: Szczegółowe informacje o maszynach wirtualnych
           href: vm/resource-manager-vminsights.md
     - name: Interfejs wiersza polecenia platformy Azure
       href: cli-samples.md
@@ -329,7 +329,7 @@
               href: agents/data-sources-linux-applications.md
             - name: Dzienniki usług IIS
               href: agents/data-sources-iis-logs.md
-            - name: Śledzenie zdarzeń dla danych systemu Windows
+            - name: Śledzenie zdarzeń systemu Windows danych
               href: agents/data-sources-event-tracing-windows.md
             - name: Niestandardowe dzienniki
               href: agents/data-sources-custom-logs.md
@@ -426,9 +426,9 @@
             - name: Linux
               displayname: diagnostics extension
               items:
-                - name: 'Wersja 4,0'
+                - name: Wersja 4.0
                   href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
-                - name: 'Wersja 3,0'
+                - name: Wersja 3.0
                   href: ../virtual-machines/extensions/diagnostics-linux-v3.md?toc=/azure/azure-monitor/toc.json
                 - name: Zbieranie metryk za pomocą programu Telegraf
                   href: essentials/collect-custom-metrics-linux-telegraf.md
@@ -722,7 +722,7 @@
                       items:
                         - name: Metryki JMX
                           href: app/java-jmx-metrics-configuration.md
-                        - name: Zastępowanie próbek
+                        - name: Przesłonięcia próbkowania
                           href: app/java-standalone-sampling-overrides.md
                         - name: Procesory telemetrii
                           items:
@@ -777,6 +777,8 @@
           displayname: 'e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies'
         - name: Dostępność
           items:
+            - name: Omówienie
+              href: app/availability-overview.md
             - name: Testy adresów URL
               displayname: 'ping, ping tests, availability, GSM, up/down'
               href: app/monitor-web-app-availability.md
@@ -789,7 +791,7 @@
             - name: Alerty dostępności
               displayname: 'alerts, global, alerting'
               href: app/availability-alerts.md
-            - name: Raport SLA
+            - name: Raport umowy SLA
               href: app/sla-report.md
             - name: Rozwiązywanie problemów
               displayname: 'availability, troubleshoot, troubleshoot availability'
@@ -804,7 +806,7 @@
         - name: Transmisja strumieniowa metryk na żywo
           displayname: 'live, quickpulse, quick pulse, live metrics'
           href: app/live-stream.md
-        - name: Integracja elementów roboczych
+        - name: Integracja elementu roboczego
           href: app/work-item-integration.md
         - name: Metryki
           items:
@@ -988,7 +990,7 @@
           href: app/change-analysis-visualizations.md
         - name: Rozwiązywanie problemów
           href: app/change-analysis-troubleshoot.md
-    - name: Szczegółowe informacje o maszynie wirtualnej
+    - name: Szczegółowe informacje o maszynach wirtualnych
       items:
         - name: Omówienie
           href: vm/vminsights-overview.md
@@ -1082,7 +1084,7 @@
           href: insights/container-insights-reports.md
         - name: Wyświetlanie danych na żywo
           items:
-            - name: Dane na żywo — Omówienie
+            - name: Omówienie danych na żywo
               href: containers/container-insights-livedata-overview.md
             - name: Konfigurowanie
               href: containers/container-insights-livedata-setup.md
@@ -1132,7 +1134,7 @@
           href: insights/network-insights-overview.md
         - name: Usługa Key Vault
           href: insights/key-vault-insights-overview.md
-        - name: SQL Insights (wersja zapoznawcza)
+        - name: Szczegółowe informacje SQL (wersja zapoznawcza)
           items:
             - name: Omówienie
               href: insights/sql-insights-overview.md

@@ -1,225 +1,225 @@
 ---
-title: Tworzenie kopii zapasowych udziałów plików platformy Azure w Azure Portal
-description: Dowiedz się, jak używać Azure Portal do tworzenia kopii zapasowych udziałów plików platformy Azure w magazynie Recovery Services
+title: Kopii zapasowej udziałów plików platformy Azure w Azure Portal
+description: Dowiedz się, jak za pomocą Azure Portal kopii zapasowej udziałów plików platformy Azure w magazynie usługi Recovery Services
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: ca49f1ad48ab0534b27b91ad6a5a50b393cda782
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e7f44a71388468be432bdfcb0eb2bf67c0fcc8ef
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88890352"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519939"
 ---
 # <a name="back-up-azure-file-shares"></a>Tworzenie kopii zapasowej udziałów plików platformy Azure
 
-W tym artykule wyjaśniono, jak utworzyć kopię zapasową [udziałów plików platformy Azure](../storage/files/storage-files-introduction.md) z Azure Portal.
+W tym artykule opisano sposób kopii zapasowej [udziałów plików platformy Azure](../storage/files/storage-files-introduction.md) z Azure Portal.
 
 Ten artykuł obejmuje następujące zagadnienia:
 
 * Utwórz magazyn usługi Recovery Services.
-* Konfigurowanie kopii zapasowej z magazynu Recovery Services
-* Konfiguruj kopię zapasową z okienka udostępniania plików
+* Konfigurowanie kopii zapasowej z magazynu usługi Recovery Services
+* Konfigurowanie kopii zapasowej z okienka udziału plików
 * Uruchomianie zadania tworzenia kopii zapasowej na żądanie w celu tworzenia punktu przywracania
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Dowiedz się więcej](azure-file-share-backup-overview.md) na temat rozwiązania do tworzenia kopii zapasowych opartego na migawce udziałów plików platformy Azure.
-* Upewnij się, że udział plików jest obecny w jednym z [obsługiwanych typów kont magazynu](azure-file-share-support-matrix.md).
-* Zidentyfikuj lub Utwórz [magazyn Recovery Services](#create-a-recovery-services-vault) w tym samym regionie, w którym znajduje się konto magazynu obsługujące udział plików.
+* [Dowiedz się](azure-file-share-backup-overview.md) więcej o rozwiązaniu do tworzenia kopii zapasowych opartym na migawkach udziału plików platformy Azure.
+* Upewnij się, że udział plików znajduje się w jednym z [obsługiwanych typów kont magazynu.](azure-file-share-support-matrix.md)
+* Zidentyfikuj lub utwórz magazyn [usługi Recovery Services](#create-a-recovery-services-vault) w tym samym regionie co konto magazynu, które hostuje udział plików.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
-## <a name="configure-backup-from-the-recovery-services-vault"></a>Konfigurowanie kopii zapasowej z magazynu Recovery Services
+## <a name="configure-backup-from-the-recovery-services-vault"></a>Konfigurowanie kopii zapasowej z magazynu usługi Recovery Services
 
-Poniższe kroki wyjaśniają, jak można skonfigurować tworzenie kopii zapasowych wielu udziałów plików w okienku magazynu Recovery Services:
+W poniższych krokach wyjaśniono, jak skonfigurować kopię zapasową dla wielu udziałów plików w okienku magazynu usługi Recovery Services:
 
-1. W [Azure Portal](https://portal.azure.com/)otwórz magazyn Recovery Services, którego chcesz użyć do skonfigurowania kopii zapasowej udziału plików.
+1. W [Azure Portal](https://portal.azure.com/)otwórz magazyn usługi Recovery Services, którego chcesz użyć do konfigurowania kopii zapasowej udziału plików.
 
-1. W okienku **magazyn Recovery Services** wybierz pozycję **+ kopia zapasowa** z menu u góry.
+1. W **okienku Magazyn usługi Recovery Services** wybierz pozycję **+Kopia** zapasowa z menu u góry.
 
    ![Magazyn usługi Recovery Services](./media/backup-afs/recovery-services-vault.png)
 
-    1. W okienku **cel kopii zapasowej** ustaw, **gdzie działa Twoje obciążenie?** na **platformę Azure** , wybierając opcję **Azure** z listy rozwijanej.
+    1. W **okienku Cel kopii** zapasowej ustaw pozycję Gdzie działa Twoje **obciążenie?** na **platformę Azure,** wybierając opcję **Azure** z listy rozwijanej.
 
-          ![Wybierz platformę Azure jako obciążenie](./media/backup-afs/backup-goal.png)
+          ![Wybieranie platformy Azure jako obciążenia](./media/backup-afs/backup-goal.png)
 
-    2. W **czym chcesz utworzyć kopię zapasową?** wybierz pozycję **udział plików platformy Azure** z listy rozwijanej.
+    2. W **witrynie What do you want to back up?**(Co chcesz wykonać? ) wybierz pozycję **Azure File Share (Udział plików** platformy Azure) z listy rozwijanej.
 
-          ![Wybieranie udziału plików platformy Azure](./media/backup-afs/select-azure-file-share.png)
+          ![Wybieranie usługi Azure FileShare](./media/backup-afs/select-azure-file-share.png)
 
-    3. Wybierz pozycję **kopia zapasowa** , aby zarejestrować rozszerzenie udziału plików platformy Azure w magazynie.
+    3. Wybierz **pozycję Kopia** zapasowa, aby zarejestrować rozszerzenie udziału plików platformy Azure w magazynie.
 
           ![Wybierz pozycję Kopia zapasowa, aby skojarzyć udział plików platformy Azure z magazynem](./media/backup-afs/register-extension.png)
 
-1. Po wybraniu opcji **kopia zapasowa** zostanie otwarte okienko **kopia zapasowa** . Aby wybrać konto magazynu obsługujące udział plików, który ma być chroniony, zaznacz pole **wyboru wybierz** tekst linku poniżej pola tekstowego **konto magazynu** .
+1. Po wybraniu opcji **Kopia zapasowa** zostanie **otwarte** okienko Kopia zapasowa. Aby wybrać konto magazynu hostowania udziału plików, który chcesz chronić, wybierz **tekst** linku Wybierz poniżej **pola tekstowego Konto** magazynu.
 
-   ![Wybieranie linku wybierz](./media/backup-afs/choose-select-link.png)
+   ![Wybierz link Wybierz](./media/backup-afs/choose-select-link.png)
 
-1. Po prawej stronie zostanie otwarte **okienko Wybieranie konta magazynu** z listą odnalezionych obsługiwanych kont magazynu. Są one skojarzone z tym magazynem lub znajdują się w tym samym regionie co magazyn, ale nie są jeszcze skojarzone z żadnym magazynem Recovery Services.
+1. Po **prawej stronie zostanie** otwarte okienko Wybieranie konta magazynu z listą odnalezionych obsługiwanych kont magazynu. Są one skojarzone z tym magazynem lub obecne w tym samym regionie co magazyn, ale jeszcze nie są skojarzone z żadnym magazynem usługi Recovery Services.
 
-1. Z listy odnalezionych kont magazynu wybierz konto, a następnie wybierz **przycisk OK**.
+1. Z listy odnalezionych kont magazynu wybierz konto, a następnie wybierz przycisk **OK.**
 
-   ![Wybierz z odnalezionych kont magazynu](./media/backup-afs/select-discovered-storage-account.png)
+   ![Wybieranie z odnalezionych kont magazynu](./media/backup-afs/select-discovered-storage-account.png)
 
-1. Następnym krokiem jest wybranie udziałów plików, dla których ma zostać utworzona kopia zapasowa. Wybierz przycisk **Dodaj** w sekcji **udziałów plików do kopii zapasowej** .
+1. Następnym krokiem jest wybranie udziałów plików, których kopię zapasową chcesz wrócić. Wybierz przycisk **Dodaj** w sekcji **Udziały plików do kopii zapasowej.**
 
-   ![Wybierz udziały plików do utworzenia kopii zapasowej](./media/backup-afs/select-file-shares-to-back-up.png)
+   ![Wybieranie udziałów plików do kopii zapasowej](./media/backup-afs/select-file-shares-to-back-up.png)
 
-1. Po prawej stronie zostanie otwarte okienko kontekstowe **udziały plików** . Platforma Azure przeszukuje konto magazynu pod kątem udziałów plików, których kopię zapasową można utworzyć. Jeśli niedawno dodano udziały plików i nie są one widoczne na liście, poczekaj chwilę na wyświetlenie udziałów plików.
+1. Po **prawej stronie** zostanie otwarte okienko kontekstowe Wybieranie udziałów plików. Platforma Azure wyszukuje udziały plików, których kopię zapasową można utworzyć na koncie magazynu. Jeśli niedawno dodano udziały plików i nie są one widoczne na liście, pośwęć trochę czasu na ich wyświetlanie.
 
-1. Z listy **Wybierz udziały plików** wybierz co najmniej jeden udział plików, dla którego chcesz utworzyć kopię zapasową. Wybierz przycisk **OK**.
+1. Z listy **Wybierz udziały** plików wybierz co najmniej jeden udział plików, którego kopię zapasową chcesz wrócić. Wybierz przycisk **OK**.
 
-   ![Wybierz udziały plików](./media/backup-afs/select-file-shares.png)
+   ![Wybieranie udziałów plików](./media/backup-afs/select-file-shares.png)
 
-1. Aby wybrać zasady tworzenia kopii zapasowych dla udziału plików, dostępne są trzy opcje:
+1. Aby wybrać zasady tworzenia kopii zapasowej dla udziału plików, dostępne są trzy opcje:
 
    * Wybierz zasady domyślne.<br>
-   Ta opcja umożliwia włączenie codziennej kopii zapasowej, która będzie przechowywana przez 30 dni. Jeśli nie masz istniejących zasad tworzenia kopii zapasowych w magazynie, zostanie otwarte okienko kopia zapasowa z domyślnymi ustawieniami zasad. Jeśli chcesz wybrać ustawienia domyślne, możesz wybrać pozycję **Włącz kopię zapasową**.
+   Ta opcja umożliwia włączenie codziennej kopii zapasowej, która będzie zachowywana przez 30 dni. Jeśli nie masz istniejących zasad tworzenia kopii zapasowych w magazynie, zostanie otwarte okienko kopii zapasowej z domyślnymi ustawieniami zasad. Jeśli chcesz wybrać ustawienia domyślne, możesz bezpośrednio wybrać pozycję **Włącz kopię zapasową.**
 
    * Tworzenie nowych zasad <br>
 
-      1. Aby utworzyć nowe zasady tworzenia kopii zapasowych dla udziału plików, wybierz link tekst poniżej listy rozwijanej w sekcji **zasady tworzenia kopii zapasowych** .<br>
+      1. Aby utworzyć nowe zasady tworzenia kopii zapasowych dla udziału plików, wybierz tekst linku poniżej listy rozwijanej w sekcji **Zasady kopii zapasowych.**<br>
 
-         ![Utwórz nowe zasady](./media/backup-afs/create-new-policy.png)
+         ![Tworzenie nowych zasad](./media/backup-afs/create-new-policy.png)
 
-      1. Po prawej stronie zostanie otwarte okienko kontekstowe **zasad tworzenia kopii zapasowej** . W polu tekstowym Określ nazwę zasad i wybierz okres przechowywania zgodnie z wymaganiami. Domyślnie włączona jest tylko opcja przechowywania dziennego. Jeśli chcesz mieć tygodniowe, miesięczne lub roczne przechowywanie, zaznacz odpowiednie pole wyboru i podaj żądaną wartość przechowywania.
+      1. Po **prawej stronie** zostanie otwarte okienko kontekstowe Zasady tworzenia kopii zapasowych. Określ nazwę zasad w polu tekstowym i wybierz okres przechowywania zgodnie z wymaganiami. Domyślnie włączona jest tylko opcja dziennego przechowywania. Jeśli chcesz mieć przechowywanie co tydzień, co miesiąc lub co rok, zaznacz odpowiednie pole wyboru i podaj żądaną wartość przechowywania.
 
-      1. Po określeniu wartości przechowywania i prawidłowej nazwy zasad wybierz pozycję **OK**.<br>
+      1. Po określeniu wartości przechowywania i prawidłowej nazwy zasad wybierz przycisk **OK.**<br>
 
-         ![Podaj nazwę zasad i wartości przechowywania](./media/backup-afs/policy-name.png)
+         ![Nadaj nazwę zasad i wartości przechowywania](./media/backup-afs/policy-name.png)
 
    * Wybierz jedną z istniejących zasad tworzenia kopii zapasowych <br>
 
-      Aby wybrać jedną z istniejących zasad tworzenia kopii zapasowych w celu skonfigurowania ochrony, wybierz odpowiednie zasady z listy rozwijanej **zasady tworzenia kopii zapasowej** .<br>
+      Aby wybrać jedną z istniejących zasad tworzenia kopii zapasowych na  potrzeby konfigurowania ochrony, wybierz odpowiednie zasady z listy rozwijanej Zasady kopii zapasowych.<br>
 
       ![Wybieranie istniejących zasad](./media/backup-afs/choose-existing-policy.png)
 
-1. Wybierz pozycję **Włącz kopię zapasową** , aby rozpocząć ochronę udziału plików.
+1. Wybierz **pozycję Włącz kopię** zapasową, aby rozpocząć ochronę udziału plików.
 
-   ![Wybierz pozycję Włącz kopię zapasową](./media/backup-afs/enable-backup.png)
+   ![Wybierz pozycję Włącz tworzenie kopii zapasowej](./media/backup-afs/enable-backup.png)
 
-Po ustawieniu zasad tworzenia kopii zapasowej migawka udziałów plików jest wykonywana w zaplanowanym czasie. Punkt odzyskiwania jest również zachowywany przez wybrany okres.
+Po skonfigurowaniu zasad tworzenia kopii zapasowej migawka udziałów plików jest tworzyć w zaplanowanym czasie. Punkt odzyskiwania jest również zachowywany dla wybranego okresu.
 
 >[!NOTE]
->Azure Backup teraz obsługuje zasady z codziennym/tygodniowym/miesięcznym przechowywaniem kopii zapasowych udziałów plików platformy Azure.
+>Azure Backup obsługuje teraz zasady z przechowywaniem kopii zapasowej udziału plików platformy Azure codziennie/co tydzień/co miesiąc/co rok.
 
-## <a name="configure-backup-from-the-file-share-pane"></a>Konfiguruj kopię zapasową z okienka udostępniania plików
+## <a name="configure-backup-from-the-file-share-pane"></a>Konfigurowanie kopii zapasowej z okienka udziału plików
 
-Poniższe kroki wyjaśniają, jak można skonfigurować kopię zapasową poszczególnych udziałów plików z odpowiedniego okienka udostępniania plików:
+W poniższych krokach wyjaśniono, jak skonfigurować kopię zapasową dla poszczególnych udziałów plików z odpowiedniego okienka udziału plików:
 
-1. W [Azure Portal](https://portal.azure.com/)Otwórz konto magazynu hostujący udział plików, dla którego chcesz utworzyć kopię zapasową.
+1. W [Azure Portal](https://portal.azure.com/)otwórz konto magazynu hostowania udziału plików, którego kopię zapasową chcesz wrócić.
 
-1. Na koncie magazynu wybierz kafelek z etykietą **udziały plików**. Możesz również przejść do **udziałów plików** za pośrednictwem spisu treści dla konta magazynu.
+1. Na koncie magazynu wybierz kafelek z etykietą **Udziały plików.** Możesz również przejść do **folderu Udziały** plików za pośrednictwem spisu treści dla konta magazynu.
 
    ![Konto magazynu](./media/backup-afs/storage-account.png)
 
-1. Na liście udział plików powinny być widoczne wszystkie udziały plików znajdujące się na koncie magazynu. Wybierz udział plików, dla którego chcesz utworzyć kopię zapasową.
+1. Na liście udziałów plików powinny zostać wyświetlony wszystkie udziały plików obecne na koncie magazynu. Wybierz udział plików, którego kopię zapasową chcesz wrócić.
 
    ![Lista udziałów plików](./media/backup-afs/file-shares-list.png)
 
-1. Wybierz pozycję **kopia zapasowa** w sekcji **operacje** w okienku udział plików. Okienko **Konfiguruj kopię zapasową** zostanie załadowane po prawej stronie.
+1. Wybierz **pozycję Kopia** zapasowa w sekcji Operacje okienka udziału plików.  Okienko **Konfigurowanie kopii** zapasowej zostanie załadowane po prawej stronie.
 
-   ![Konfigurowanie okienka kopia zapasowa](./media/backup-afs/configure-backup.png)
+   ![Konfigurowanie okienka kopii zapasowej](./media/backup-afs/configure-backup.png)
 
-1. Aby wybrać magazyn Recovery Services, wykonaj jedną z następujących czynności:
+1. W przypadku wyboru magazynu usługi Recovery Services wykonaj jedną z następujących czynności:
 
-    * Jeśli masz już magazyn, wybierz przycisk radiowy **Wybierz istniejący** Recovery Services magazyn, a następnie wybierz jeden z istniejących magazynów z menu rozwijanego **Nazwa magazynu** .
+    * Jeśli masz już magazyn, wybierz przycisk radiowy **Wybierz** istniejący magazyn usługi Recovery Services, a następnie wybierz jeden z istniejących magazynów **z** menu rozwijanego Nazwa magazynu.
 
-       ![Wybierz istniejący magazyn](./media/backup-afs/select-existing-vault.png)
+       ![Wybieranie istniejącego magazynu](./media/backup-afs/select-existing-vault.png)
 
-    * Jeśli nie masz magazynu, wybierz przycisk radiowy **Utwórz nowy** magazyn Recovery Services. Określ nazwę magazynu. Jest on tworzony w tym samym regionie co udział plików. Domyślnie magazyn jest tworzony w tej samej grupie zasobów co udział plików. Jeśli chcesz wybrać inną grupę zasobów, wybierz pozycję **Utwórz nowe** łącze poniżej listy rozwijanej **Typ zasobu** i określ nazwę grupy zasobów. Kliknij przycisk **OK**, aby kontynuować.
+    * Jeśli nie masz magazynu, wybierz przycisk radiowy Utwórz nowy magazyn usługi **Recovery** Services. Określ nazwę magazynu. Jest on tworzony w tym samym regionie co udział plików. Domyślnie magazyn jest tworzony w tej samej grupie zasobów co udział plików. Jeśli chcesz wybrać inną grupę zasobów, wybierz **link** Utwórz nową poniżej listy rozwijanej **Typ** zasobu i określ nazwę grupy zasobów. Kliknij przycisk **OK**, aby kontynuować.
 
        ![Tworzenie nowego magazynu](./media/backup-afs/create-new-vault.png)
 
       >[!IMPORTANT]
-      >Jeśli konto magazynu jest zarejestrowane w magazynie lub istnieje kilka chronionych udziałów na koncie magazynu hostującym udział plików, który próbujesz chronić, nazwa magazynu Recovery Services zostanie wstępnie wypełniona i nie będzie można jej edytować [więcej informacji](backup-azure-files-faq.md#why-cant-i-change-the-vault-to-configure-backup-for-the-file-share).
+      >Jeśli konto magazynu jest zarejestrowane w magazynie lub istnieje kilka chronionych udziałów na koncie magazynu hostującym udział plików, który chcesz chronić, nazwa magazynu usługi Recovery Services zostanie wstępnie wypełniona i nie będzie można go edytować Dowiedz się więcej [tutaj.](backup-azure-files-faq.yml#why-can-t-i-change-the-vault-to-configure-backup-for-the-file-share-)
 
-1. Dla opcji wybór **zasad tworzenia kopii zapasowej** wykonaj jedną z następujących czynności:
+1. W przypadku **zaznaczenia opcji Zasady** kopii zapasowej wykonaj jedną z następujących czynności:
 
-    * Pozostaw zasady domyślne. Spowoduje to zaplanowanie codziennych kopii zapasowych z zachowaniem 30 dni.
+    * Pozostaw zasady domyślne. Zaplanuje tworzenie codziennych kopii zapasowych z okresem przechowywania 30 dni.
 
-    * Wybierz istniejące zasady tworzenia kopii zapasowych, jeśli je masz, z menu rozwijanego **zasady tworzenia kopii zapasowych** .
+    * Wybierz istniejące zasady tworzenia kopii zapasowych,  jeśli je masz, z menu rozwijanego Zasady kopii zapasowych.
 
        ![Wybieranie zasad kopii zapasowych](./media/backup-afs/choose-backup-policy.png)
 
-    * Utwórz nowe zasady za pomocą dziennego/cotygodniowego/miesięcznego okresu przechowywania zgodnie z wymaganiami.  
+    * Utwórz nowe zasady z przechowywaniem codziennie/co tydzień/co miesiąc/co rok zgodnie z wymaganiami.  
 
-         1. Zaznacz tekst linku **Utwórz nowe zasady** .
+         1. Wybierz tekst **linku Utwórz nowe** zasady.
 
-         2. Po prawej stronie zostanie otwarte okienko kontekstowe **zasad tworzenia kopii zapasowej** . W polu tekstowym Określ nazwę zasad i wybierz okres przechowywania zgodnie z wymaganiami. Domyślnie włączona jest tylko opcja przechowywania dziennego. Jeśli chcesz mieć tygodniowe, miesięczne lub roczne przechowywanie, zaznacz odpowiednie pole wyboru i podaj żądaną wartość przechowywania.
+         2. Po **prawej stronie** zostanie otwarte okienko kontekstowe Zasady tworzenia kopii zapasowych. Określ nazwę zasad w polu tekstowym i wybierz okres przechowywania zgodnie z wymaganiami. Domyślnie włączona jest tylko opcja dziennego przechowywania. Jeśli chcesz mieć przechowywanie co tydzień, co miesiąc lub co rok, zaznacz odpowiednie pole wyboru i podaj żądaną wartość przechowywania.
 
-         3. Po określeniu wartości przechowywania i prawidłowej nazwy zasad wybierz pozycję **OK**.
+         3. Po określeniu wartości przechowywania i prawidłowej nazwy zasad wybierz przycisk **OK.**
 
-            ![Utwórz nowe zasady kopii zapasowej](./media/backup-afs/create-new-backup-policy.png)
+            ![Tworzenie nowych zasad kopii zapasowych](./media/backup-afs/create-new-backup-policy.png)
 
-1. Wybierz pozycję **Włącz kopię zapasową** , aby rozpocząć ochronę udziału plików.
+1. Wybierz **pozycję Włącz kopię** zapasową, aby rozpocząć ochronę udziału plików.
 
-   ![Wybierz pozycję Włącz kopię zapasową](./media/backup-afs/select-enable-backup.png)
+   ![Wybierz pozycję Włącz tworzenie kopii zapasowej](./media/backup-afs/select-enable-backup.png)
 
-1. Możesz śledzić postęp konfiguracji w powiadomieniach portalu lub monitorować zadania tworzenia kopii zapasowej w magazynie używanym do ochrony udziału plików.
+1. Postęp konfiguracji można śledzić w powiadomieniach portalu lub monitorując zadania tworzenia kopii zapasowej w magazynie, za pomocą których chronisz udział plików.
 
    ![Powiadomienia portalu](./media/backup-afs/portal-notifications.png)
 
-1. Po zakończeniu operacji Konfiguruj kopię zapasową wybierz pozycję **kopia zapasowa** w sekcji **operacje** w okienku udział plików. Okienko kontekstu z listą **podstawowych elementów magazynu** zostanie załadowane po prawej stronie. Z tego miejsca można wyzwolić operacje tworzenia kopii zapasowych na żądanie i przywracania.
+1. Po zakończeniu operacji konfigurowania kopii zapasowej wybierz pozycję **Kopia** zapasowa w sekcji **Operacje** okienka udziału plików. Po prawej stronie zostanie załadowana lista okienka kontekstowego **Vault Essentials.** W tym miejscu można wyzwalać operacje tworzenia kopii zapasowej i przywracania na żądanie.
 
    ![Podstawowe informacje o magazynie](./media/backup-afs/vault-essentials.png)
 
 ## <a name="run-an-on-demand-backup-job"></a>Uruchamianie zadania tworzenia kopii zapasowej na żądanie
 
-Czasami może być konieczne wygenerowanie migawki kopii zapasowej lub punktu odzyskiwania poza godzinami zaplanowanymi w ramach zasad tworzenia kopii zapasowych. Typowym powodem generowania kopii zapasowej na żądanie jest prawidłowe po skonfigurowaniu zasad tworzenia kopii zapasowych. Na podstawie harmonogramu w ramach zasad tworzenia kopii zapasowych może to potrwać kilka godzin lub dni do momentu utworzenia migawki. Aby chronić dane przed rozpoczęciem obowiązywania zasad tworzenia kopii zapasowych, zainicjuj tworzenie kopii zapasowej na żądanie. Tworzenie kopii zapasowej na żądanie jest często wymagane przed wprowadzeniem planowanych zmian w udziałach plików.
+Czasami może być konieczne wygenerowanie migawki kopii zapasowej lub punktu odzyskiwania poza godzinami zaplanowanym w zasadach tworzenia kopii zapasowej. Częstą przyczyną generowania kopii zapasowej na żądanie jest skonfigurowanie zasad tworzenia kopii zapasowych. Zgodnie z harmonogramem w zasadach tworzenia kopii zapasowych tworzenie migawki może potrwać kilka godzin lub dni. Aby chronić dane przed rozpoczęciem obowiązywania zasad tworzenia kopii zapasowych, zainicjuj tworzenie kopii zapasowej na żądanie. Tworzenie kopii zapasowej na żądanie jest często wymagane przed zaplanowanym zmianą udziałów plików.
 
-### <a name="from-the-recovery-services-vault"></a>Z magazynu Recovery Services
+### <a name="from-the-recovery-services-vault"></a>Z magazynu usługi Recovery Services
 
-1. Otwórz magazyn Recovery Services użyty do utworzenia kopii zapasowej udziału plików. W okienku **Przegląd** wybierz pozycję **elementy kopii zapasowej** w sekcji **chronione elementy** .
+1. Otwórz magazyn usługi Recovery Services, który został użyty do kopii zapasowej udziału plików. W **okienku Przegląd** wybierz pozycję **Elementy kopii zapasowej** w **sekcji Chronione** elementy.
 
-   ![Wybierz elementy kopii zapasowej](./media/backup-afs/backup-items.png)
+   ![Wybieranie elementów kopii zapasowej](./media/backup-afs/backup-items.png)
 
-1. Po wybraniu **pozycji elementy kopii zapasowej** w okienku **Przegląd** pojawia się nowe okienko zawierające listę wszystkich **typów zarządzania kopiami zapasowymi** .
+1. Po wybraniu pozycji **Elementy kopii zapasowej** obok okienka **Przegląd** zostanie wyświetlone nowe okienko z listą wszystkich typów zarządzania kopiami zapasowymi. 
 
    ![Lista typów zarządzania kopiami zapasowymi](./media/backup-afs/backup-management-types.png)
 
-1. Z listy **Typ zarządzania kopiami zapasowymi** wybierz pozycję **Azure Storage (Azure Files)**. Zostanie wyświetlona lista wszystkich udziałów plików i odpowiednich kont magazynu, których kopię zapasową utworzono przy użyciu tego magazynu.
+1. Z listy **Typ zarządzania kopiami zapasowymi** wybierz **pozycję Azure Storage (Azure Files).** Zostanie wyświetlona lista wszystkich udziałów plików i odpowiednich kont magazynu, których kopię zapasową pozyskano przy użyciu tego magazynu.
 
    ![Elementy kopii zapasowej usługi Azure Storage (Azure Files)](./media/backup-afs/azure-files-backup-items.png)
 
-1. Z listy udziałów plików platformy Azure wybierz żądany udział plików. Pojawią się szczegóły **elementu kopia zapasowa** . W menu **element kopii zapasowej** wybierz pozycję **Utwórz kopię zapasową teraz**. Ponieważ to zadanie tworzenia kopii zapasowej jest na żądanie, nie ma żadnych zasad przechowywania skojarzonych z punktem odzyskiwania.
+1. Z listy udziałów plików platformy Azure wybierz udział plików, którego potrzebujesz. Zostaną **wyświetlone szczegóły elementu** kopii zapasowej. W menu **Element kopii zapasowej** wybierz pozycję **Kopia zapasowa teraz.** Ponieważ to zadanie tworzenia kopii zapasowej jest na żądanie, z punktem odzyskiwania nie są skojarzone żadne zasady przechowywania.
 
-   ![Wybierz pozycję Utwórz kopię zapasową teraz](./media/backup-afs/backup-now.png)
+   ![Wybierz pozycję Kopia zapasowa teraz](./media/backup-afs/backup-now.png)
 
-1. Zostanie otwarte okienko **Tworzenie kopii zapasowej** . Określ ostatni dzień zachowywania punktu odzyskiwania. Możesz mieć maksymalnie 10 lat na tworzenie kopii zapasowej na żądanie.
+1. Zostanie **otwarte okienko Tworzenie kopii** zapasowej teraz. Określ ostatni dzień zachowywania punktu odzyskiwania. Maksymalny okres przechowywania kopii zapasowej na żądanie wynosi 10 lat.
 
-   ![Wybierz datę przechowywania](./media/backup-afs/retention-date.png)
+   ![Wybieranie daty przechowywania](./media/backup-afs/retention-date.png)
 
-1. Wybierz **przycisk OK** , aby potwierdzić uruchomione zadanie tworzenia kopii zapasowej na żądanie.
+1. Wybierz **przycisk OK,** aby potwierdzić uruchamiane zadanie tworzenia kopii zapasowej na żądanie.
 
-1. Monitoruj powiadomienia portalu, aby śledzić Kończenie wykonywania zadania tworzenia kopii zapasowej. Postęp zadania można monitorować na pulpicie nawigacyjnym magazynu. Wybierz pozycję **zadania tworzenia kopii zapasowej**  >  **w toku**.
+1. Monitoruj powiadomienia portalu, aby śledzić ukończenie zadania tworzenia kopii zapasowej. Postęp zadania można monitorować na pulpicie nawigacyjnym magazynu. Wybierz pozycję **Zadania tworzenia kopii**  >  **zapasowej W toku.**
 
-### <a name="from-the-file-share-pane"></a>W okienku udział plików
+### <a name="from-the-file-share-pane"></a>W okienku udziału plików
 
-1. Otwórz okienko **Przegląd** udziału plików, dla którego chcesz wykonać kopię zapasową na żądanie.
+1. Otwórz okienko Przegląd **udziału** plików, dla którego chcesz utworzyć kopię zapasową na żądanie.
 
-1. Wybierz pozycję **kopia zapasowa** w sekcji **operacja** . Okienko kontekstu z listą **podstawowych elementów magazynu** zostanie załadowane po prawej stronie. Wybierz pozycję **Utwórz kopię zapasową teraz** , aby wykonać kopię zapasową na żądanie.
+1. Wybierz **pozycję Kopia** zapasowa w **sekcji** Operacja. Po prawej stronie zostanie załadowana lista okienka kontekstowego **Vault Essentials.** Wybierz **pozycję Kopia zapasowa** teraz, aby utworzyć kopię zapasową na żądanie.
 
-   ![Wybierz pozycję Utwórz kopię zapasową teraz](./media/backup-afs/select-backup-now.png)
+   ![Wybierz pozycję Kopia zapasowa teraz](./media/backup-afs/select-backup-now.png)
 
-1. Zostanie otwarte okienko **Tworzenie kopii zapasowej** . Określ przechowywanie punktu odzyskiwania. Możesz mieć maksymalnie 10 lat na tworzenie kopii zapasowej na żądanie.
+1. Zostanie **otwarte okienko Tworzenie kopii zapasowej** teraz. Określ okres przechowywania punktu odzyskiwania. Maksymalny okres przechowywania kopii zapasowej na żądanie wynosi 10 lat.
 
-   ![Zachowaj datę kopii zapasowej](./media/backup-afs/retain-backup-date.png)
+   ![Zachowywanie daty kopii zapasowej](./media/backup-afs/retain-backup-date.png)
 
 1. Wybierz przycisk **OK**, aby potwierdzić.
 
 >[!NOTE]
->Azure Backup blokuje konto magazynu podczas konfigurowania ochrony dowolnego udziału plików na odpowiednim koncie. Zapewnia to ochronę przed przypadkowym usunięciem konta magazynu przy użyciu kopii zapasowych udziałów plików.
+>Azure Backup blokuje konto magazynu podczas konfigurowania ochrony dla dowolnego udziału plików na odpowiednim koncie. Zapewnia to ochronę przed przypadkowym usunięciem konta magazynu z kopii zapasowej udziałów plików.
 
 ## <a name="best-practices"></a>Najlepsze rozwiązania
 
 * Nie usuwaj migawek utworzonych przez Azure Backup. Usunięcie migawek może spowodować utratę punktów odzyskiwania i/lub błędy przywracania.
 
-* Nie usuwaj blokady wykonanej na koncie magazynu przez Azure Backup. Jeśli usuniesz blokadę, Twoje konto magazynu będzie podatne na przypadkowe usunięcie i jeśli zostanie usunięte, utracisz migawki lub kopie zapasowe.
+* Nie usuwaj blokady konta magazynu przez Azure Backup. Jeśli usuniesz blokadę, twoje konto magazynu będzie podatne na przypadkowe usunięcie, a jeśli zostanie usunięte, utracisz migawki lub kopie zapasowe.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Instrukcje:
 
 * [Przywracanie udziałów plików platformy Azure](restore-afs.md)
-* [Zarządzanie kopiami zapasowymi udziałów plików platformy Azure](manage-afs-backup.md)
+* [Zarządzanie kopiami zapasami udziałów plików platformy Azure](manage-afs-backup.md)

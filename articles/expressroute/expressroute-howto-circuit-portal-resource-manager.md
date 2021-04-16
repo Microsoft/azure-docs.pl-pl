@@ -1,180 +1,182 @@
 ---
-title: 'Szybki Start: Tworzenie i modyfikowanie obwodu za pomocą ExpressRoute Azure Portal'
-description: W tym przewodniku szybki start dowiesz się, jak tworzyć, inicjować, sprawdzać, aktualizować, usuwać i anulować obsługę obwodu usługi ExpressRoute przy użyciu Azure Portal.
+title: 'Szybki start: tworzenie i modyfikowanie obwodu za pomocą expressRoute — Azure Portal'
+description: W tym przewodniku Szybki start dowiesz się, jak utworzyć, aprowizować, weryfikować, aktualizować, usuwać i coprowizować obwód usługi ExpressRoute przy użyciu Azure Portal.
 services: expressroute
 author: duongau
-ms.service: expressroute
-ms.topic: quickstart
-ms.date: 10/21/2020
 ms.author: duau
-ms.openlocfilehash: b0fd844021e7398e061072d7939b782616580c1c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 10/21/2020
+ms.topic: quickstart
+ms.service: expressroute
+ms.custom:
+- mode-portal
+ms.openlocfilehash: f62b60a9c33cd1b813b8f3307ec82d4242be168b
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96185202"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534800"
 ---
-# <a name="quickstart-create-and-modify-an-expressroute-circuit"></a>Szybki Start: Tworzenie i modyfikowanie obwodu ExpressRoute
+# <a name="quickstart-create-and-modify-an-expressroute-circuit"></a>Szybki start: tworzenie i modyfikowanie obwodu expressRoute
 
-Ten przewodnik Szybki Start przedstawia sposób tworzenia obwodu usługi ExpressRoute przy użyciu Azure Portal i Azure Resource Manager modelu wdrażania. Możesz również sprawdzić stan, zaktualizować, usunąć lub anulować obsługę administracyjną obwodu.
+W tym przewodniku Szybki start pokazano, jak utworzyć obwód usługi ExpressRoute przy użyciu Azure Portal i Azure Resource Manager wdrożenia. Możesz również sprawdzić stan, zaktualizować, usunąć lub coprowizować obwód.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Przed rozpoczęciem konfiguracji Przejrzyj [wymagania wstępne](expressroute-prerequisites.md) i [przepływy pracy](expressroute-workflows.md) .
-* [Film wideo można wyświetlić](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit) przed rozpoczęciem, aby lepiej zrozumieć kroki.
+* Konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Przed rozpoczęciem [konfiguracji przejrzyj wymagania wstępne](expressroute-prerequisites.md) [i](expressroute-workflows.md) przepływy pracy.
+* Możesz [obejrzeć film wideo przed](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit) rozpoczęciem, aby lepiej zrozumieć kroki.
 
-## <a name="create-and-provision-an-expressroute-circuit"></a><a name="create"></a>Tworzenie i Inicjowanie obsługi obwodu ExpressRoute
+## <a name="create-and-provision-an-expressroute-circuit"></a><a name="create"></a>Tworzenie i aprowizować obwód usługi ExpressRoute
 
 ### <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
 Przejdź w przeglądarce do witryny [Azure Portal](https://portal.azure.com) i zaloguj się przy użyciu konta platformy Azure.
 
-### <a name="create-a-new-expressroute-circuit"></a>Tworzenie nowego obwodu ExpressRoute
+### <a name="create-a-new-expressroute-circuit"></a>Tworzenie nowego obwodu expressRoute
 
 > [!IMPORTANT]
-> Obwód usługi ExpressRoute jest rozliczany od momentu, gdy zostanie wystawiony klucz usług. Upewnij się, że ta operacja jest wykonywana, gdy dostawca łączności jest gotowy do aprowizacji obwodu.
+> Obwód usługi ExpressRoute jest rozliczany od momentu, gdy zostanie wystawiony klucz usługi. Upewnij się, że tę operację wykonujesz, gdy dostawca połączenia jest gotowy do aprowizowania obwodu.
 
-Obwód ExpressRoute można utworzyć, wybierając opcję tworzenia nowego zasobu. 
+Obwód expressRoute można utworzyć, wybierając opcję utworzenia nowego zasobu. 
 
-1. W menu witryny Azure Portal wybierz pozycję **Utwórz zasób**. Wybierz pozycję **Sieć**  >  **ExpressRoute**, jak pokazano na poniższej ilustracji:
+1. W menu witryny Azure Portal wybierz pozycję **Utwórz zasób**. Wybierz **pozycję Sieć**  >  **ExpressRoute,** jak pokazano na poniższej ilustracji:
 
     :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/create-expressroute-circuit-menu.png" alt-text="Create an ExpressRoute circuit (Tworzenie obwodu usługi ExpressRoute)":::
 
-2. Po wybraniu **ExpressRoute** zostanie wyświetlona strona **Tworzenie ExpressRoute** . Podaj **grupę zasobów**, **region** i  **nazwę** obwodu. Następnie wybierz pozycję **Next (dalej): Configuration >**.
+2. Po wybraniu opcji **ExpressRoute** zobaczysz stronę **Tworzenie expressRoute.** Podaj **grupę zasobów,** **region**  **i nazwę** obwodu. Następnie wybierz **pozycję Dalej: konfiguracja >**.
 
     :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-basic.png" alt-text="Konfigurowanie grupy zasobów i regionu":::
 
-3. Podczas wypełniania wartości na tej stronie upewnij się, że określono poprawną warstwę SKU (lokalna, standardowa lub Premium) i model rozliczeń pomiaru danych (nieograniczoną lub taryfową).
+3. Podczas wypełniania wartości na tej stronie upewnij się, że określono poprawną warstwę SKU (Lokalna, Standardowa lub Premium) oraz model rozliczeń pomiaru danych (nieograniczony lub mierzony).
 
     :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-configuration.png" alt-text="Konfigurowanie obwodu":::
     
-    * **Typ portu** określa, czy nawiązujesz połączenie z dostawcą usług lub bezpośrednio w sieci globalnej firmy Microsoft w lokalizacji komunikacji równorzędnej.
-    * **Utwórz nowy lub Importuj z klasycznego** określa, czy jest tworzony nowy obwód, czy też w przypadku migrowania klasycznego obwodu do Azure Resource Manager.
-    * **Dostawca** jest usługodawcą internetowym, z którego będziesz żądać usługi.
-    * **Lokalizacja komunikacji równorzędnej** to fizyczna lokalizacja, w której użytkownik nawiązuje komunikację równorzędną z firmą Microsoft.
+    * **Typ portu** określa, czy łączysz się z dostawcą usług, czy bezpośrednio z siecią globalną firmy Microsoft w lokalizacji komunikacji równorzędnej.
+    * **Tworzenie nowego obwodu** lub importowanie z wersji klasycznej określa, czy jest tworzony nowy obwód, czy migrujesz obwód klasyczny do Azure Resource Manager.
+    * **Dostawca** to dostawca usług internetowych, od których będziesz żądać usługi.
+    * **Lokalizacja komunikacji równorzędnej** to fizyczna lokalizacja komunikacji równorzędnej z firmą Microsoft.
 
     > [!IMPORTANT]
-    > Lokalizacja komunikacji równorzędnej wskazuje [lokalizację fizyczną](expressroute-locations.md) , w której jest przeprowadzana Komunikacja równorzędna z firmą Microsoft. **Nie** jest to połączenie z właściwością "Location", która odnosi się do lokalizacji geograficznej, w której znajduje się dostawca zasobów sieciowych platformy Azure. Chociaż nie są one powiązane, dobrym sposobem jest wybranie dostawcy zasobów sieciowych geograficznie blisko lokalizacji komunikacji równorzędnej obwodu.
+    > Lokalizacja komunikacji równorzędnej wskazuje lokalizację [fizyczną,](expressroute-locations.md) w której jest nasyłana komunikacja równorzędna z firmą Microsoft. Nie jest **to połączone** z właściwością "Location", która odnosi się do lokalizacji geograficznej, w której znajduje się dostawca zasobów sieciowych platformy Azure. Chociaż nie są one powiązane, dobrym rozwiązaniem jest wybranie dostawcy zasobów sieciowych geograficznie blisko lokalizacji komunikacji równorzędnej obwodu.
 
-    * **Jednostka SKU** określa, czy włączono dodatek ExpressRoute Local, ExpressRoute Standard lub ExpressRoute Premium. Możesz określić **lokalną** jednostkę SKU, **Standard** , aby uzyskać standardową jednostkę SKU lub **Premium** dla dodatku Premium. Można zmienić jednostkę SKU, aby włączyć dodatek Premium.
+    * **SKU** określa, czy jest włączony dodatek ExpressRoute w wersji Premium, lokalny, expressRoute, czy premium. Możesz określić wartość **Lokalna,** aby uzyskać lokalną wersję SKU, **Standardowa,** aby uzyskać standardową wersję SKU lub **Premium** dla dodatku Premium. Możesz zmienić wersję SKU, aby włączyć dodatek Premium.
     > [!IMPORTANT]
-    > Nie można zmienić jednostki SKU z warstwy **standardowa/Premium** na **lokalną**.
+    > Nie można zmienić wersji **standardowej/premium** na **lokalną.**
     
-    * **Model rozliczeń** określa typ rozliczeń. Możesz określić **taryfowy** plan taryfowy i **nieograniczone** dla nieograniczonego planu taryfowego. Typ rozliczeń można zmienić z **taryfowe** na **nieograniczony**.
+    * **Model rozliczeń** określa typ rozliczeń. Możesz określić wartość **Mierzone dla** taryfowego planu danych i wartość **Bez ograniczeń** dla nieograniczonego planu danych. Typ rozliczeń można zmienić z **Mierzone na** **Bez ograniczeń.**
 
     > [!IMPORTANT]
-    > Nie można zmienić typu z **nieograniczonego** na **taryfowy**.
+    > Nie można zmienić typu z **Nieograniczone na** **Mierzone.**
 
-    * Wartość **Zezwalaj na użycie klasycznej** sieci wirtualnej będzie zawierać link do obwodu.
+    * **Zezwalaj na operację klasyczną** umożliwi łączenie klasycznych sieci wirtualnych z obwodem.
 
 ### <a name="view-the-circuits-and-properties"></a>Wyświetlanie obwodów i właściwości
 
-**Wyświetl wszystkie obwody**
+**Wyświetl wszystko obwodów**
 
-Można wyświetlić wszystkie utworzone przez Ciebie obwody, wybierając pozycję **wszystkie usługi > sieć > obwody ExpressRoute** w menu po lewej stronie.
+Wszystkie utworzone obwody można wyświetlić, wybierając pozycję Wszystkie usługi > **sieciowe > Obwody usługi ExpressRoute** w menu po lewej stronie.
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-menu.png" alt-text="Menu obwodu ExpressRoute":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-menu.png" alt-text="Menu obwodu expressroute":::
 
-W tym miejscu będą wyświetlane wszystkie obwody usługi ExpressRoute utworzone w ramach subskrypcji.
+W tym miejscu zostaną wyświetlone wszystkie obwody usługi ExpressRoute utworzone w ramach subskrypcji.
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-list.png" alt-text="Lista obwodów ExpressRoute":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-list.png" alt-text="Lista obwodów expressroute":::
 
-**Wyświetl właściwości**
+**Wyświetlanie właściwości**
 
-Możesz wyświetlić właściwości obwodu, zaznaczając go. Na stronie **Omówienie** obwodu w polu klucz usługi pojawi się klucz usługi. Zapoznaj się z kluczem usługi dla obwodu i podaj jej dostawcę usług w celu ukończenia procesu aprowizacji. Klucz usługi jest specyficzny dla obwodu.
+Możesz wyświetlić właściwości obwodu, wybierając go. Na stronie **Przegląd** obwodu klucz usługi jest wyświetlany w polu klucz usługi. Zapoznaj się z kluczem usługi dla obwodu i podaj go dostawcy usług, aby ukończyć proces aprowacji. Klucz usługi jest specyficzny dla Obwodu.
 
 :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview.png" alt-text="Wyświetl właściwości":::
 
-### <a name="send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>Wyślij klucz usługi do dostawcy połączenia w celu aprowizacji
+### <a name="send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>Wyślij klucz usługi do dostawcy łączności w celu aprowizowania
 
-Na tej stronie **stan dostawcy** zapewnia bieżący stan aprowizacji po stronie Dostawca usług. **Stan obwodu** zapewnia stan po stronie firmy Microsoft. Aby uzyskać więcej informacji o Stanach aprowizacji obwodów, zobacz artykuł [przepływy pracy](expressroute-workflows.md#expressroute-circuit-provisioning-states) .
+Na tej stronie **stan dostawcy** zawiera bieżący stan aprowizowania po stronie dostawcy usług. **Stan obwodu** zawiera stan po stronie firmy Microsoft. Aby uzyskać więcej informacji o stanach aprowowania obwodu, zobacz [artykuł Przepływy](expressroute-workflows.md#expressroute-circuit-provisioning-states) pracy.
 
-Podczas tworzenia nowego obwodu ExpressRoute obwód jest w następującym stanie:
+Podczas tworzenia nowego obwodu expressRoute obwód jest w następującym stanie:
 
-Stan dostawcy: **nie zainicjowano obsługi administracyjnej**<BR>
-Stan obwodu: **włączony**
+Stan dostawcy: **Nie aprowizowane**<BR>
+Stan obwodu: **Włączone**
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview-provisioning-state.png" alt-text="Uruchamia proces aprowizacji":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview-provisioning-state.png" alt-text="Rozpoczyna proces aprowacji":::
 
-Obwód zostanie zmieniony na następujący stan, gdy dostawca łączności aktualnie go włączy:
+Obwód zmieni się na następujący, gdy dostawca połączenia aktualnie go dla Ciebie wł.
 
-Stan dostawcy: **Inicjowanie obsługi**<BR>
-Stan obwodu: **włączony**
+Stan dostawcy: **Aprowizowanie**<BR>
+Stan obwodu: **Włączone**
 
-Aby użyć obwodu ExpressRoute, musi on być w następującym stanie:
+Aby można było korzystać z obwodu expressRoute, musi on mieć następujący stan:
 
-Stan dostawcy: **zainicjowano**<BR>
-Stan obwodu: **włączony**
+Stan dostawcy: **Aprowizowana**<BR>
+Stan obwodu: **Włączone**
 
 ### <a name="periodically-check-the-status-and-the-state-of-the-circuit-key"></a>Okresowe sprawdzanie stanu i stanu klucza obwodu
 
-Możesz wyświetlić właściwości obwodu, który Cię interesuje, zaznaczając go. Sprawdź **stan dostawcy** i upewnij się, że został przeniesiony do programu z **obsługą administracyjną** przed kontynuowaniem.
+Możesz wyświetlić właściwości obwodu, który Cię interesuje, wybierając go. Przed **kontynuowaniem sprawdź stan dostawcy** i upewnij się, że został **on** przeniesiony do aprowizowanych.
 
 :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/provisioned.png" alt-text="Stan obwodu i dostawcy":::
 
-### <a name="create-your-routing-configuration"></a>Utwórz konfigurację routingu
+### <a name="create-your-routing-configuration"></a>Tworzenie konfiguracji routingu
 
-Aby uzyskać instrukcje krok po kroku, zapoznaj się z artykułem [Konfiguracja routingu obwodów usługi ExpressRoute](expressroute-howto-routing-portal-resource-manager.md) w celu utworzenia i zmodyfikowania komunikacji równorzędnej obwodu.
+Aby uzyskać instrukcje krok po kroku, zapoznaj się z artykułem [ExpressRoute circuit routing configuration (Konfiguracja routingu](expressroute-howto-routing-portal-resource-manager.md) obwodu usługi ExpressRoute), aby utworzyć i zmodyfikować komunikacji równorzędne obwodów.
 
 > [!IMPORTANT]
-> Te instrukcje dotyczą tylko obwodów, które są tworzone za pomocą dostawców usług oferujących usługi łączności warstwy 2. Jeśli używasz dostawcy usług oferującego zarządzane usługi warstwy 3 (zazwyczaj sieć VPN sieci IP, na przykład MPLS), dostawca łączności konfiguruje i zarządza routingiem.
+> Te instrukcje dotyczą tylko obwodów utworzonych za pomocą dostawców usług, którzy oferują usługi łączności warstwy 2. Jeśli używasz dostawcy usług, który oferuje usługi zarządzane w warstwie 3 (zazwyczaj sieć VPN ip, na przykład MPLS), dostawca połączenia konfiguruje routing i zarządza tym routingiem.
 
 ### <a name="link-a-virtual-network-to-an-expressroute-circuit"></a>Łączenie sieci wirtualnej z obwodem usługi ExpressRoute
 
-Następnie połącz sieć wirtualną z obwodem ExpressRoute. Podczas pracy z modelem wdrażania Menedżer zasobów należy użyć artykułu [łączenie sieci wirtualnych do obwodów usługi ExpressRoute](expressroute-howto-linkvnet-arm.md) .
+Następnie połącz sieć wirtualną z obwodem usługi ExpressRoute. Podczas pracy z modelem wdrażania usługi Resource Manager artykuł Linking virtual [networks to ExpressRoute circuits](expressroute-howto-linkvnet-arm.md) (Łączenie sieci wirtualnych z obwodami usługi ExpressRoute).
 
-## <a name="getting-the-status-of-an-expressroute-circuit"></a><a name="status"></a>Pobieranie stanu obwodu ExpressRoute
+## <a name="getting-the-status-of-an-expressroute-circuit"></a><a name="status"></a>Pobieranie stanu obwodu expressRoute
 
-Stan obwodu można wyświetlić, zaznaczając go i wyświetlając stronę przegląd.
+Stan obwodu można wyświetlić, wybierając go i wyświetlając stronę Przegląd.
 
-## <a name="modifying-an-expressroute-circuit"></a><a name="modify"></a>Modyfikowanie obwodu ExpressRoute
+## <a name="modifying-an-expressroute-circuit"></a><a name="modify"></a>Modyfikowanie obwodu expressRoute
 
-Niektóre właściwości obwodu usługi ExpressRoute można modyfikować bez wpływu na łączność. Na stronie **Konfiguracja** można modyfikować przepustowość, jednostkę SKU, model rozliczeń i zezwalać na działania klasyczne. Aby uzyskać informacje o limitach i ograniczeniach, zobacz [często zadawane pytania](expressroute-faqs.md)dotyczące usługi ExpressRoute.
+Niektóre właściwości obwodu usługi ExpressRoute można modyfikować bez wpływu na łączność. Na stronie Konfiguracja można zmodyfikować przepustowość, sku, model rozliczeń i zezwolić na operacje **klasyczne.** Aby uzyskać informacje na temat limitów i ograniczeń, zobacz [ExpressRoute FAQ (ExpressRoute — często zadawane pytania).](expressroute-faqs.md)
 
-W przypadku braku przestojów można wykonać następujące zadania:
+Można wykonać następujące zadania bez przestoju:
 
-* Włącz lub Wyłącz dodatek ExpressRoute Premium dla obwodu usługi ExpressRoute.
+* Włączanie lub wyłączanie dodatku usługi ExpressRoute Premium dla obwodu usługi ExpressRoute.
 
 > [!IMPORTANT]
-  > Zmiana jednostki SKU z warstwy **standardowa/Premium** na **lokalną** nie jest obsługiwana.
+  > Zmiana wersji SKU z **Standardowa/Premium** **na Lokalna** nie jest obsługiwana.
 
-* Zwiększ przepustowość obwodu ExpressRoute, pod warunkiem, że na porcie jest dostępna pojemność.
-
-  > [!IMPORTANT]
-  > Obniżenie przepustowości obwodu nie jest obsługiwane.
-
-* Zmień plan pomiaru z *danych mierzonych* na *dane nieograniczone*.
+* Zwiększ przepustowość obwodu usługi ExpressRoute, pod warunkiem, że na porcie jest dostępna pojemność.
 
   > [!IMPORTANT]
-  > Zmiana planu pomiaru z **nieograniczonej ilości danych** na **dane taryfowe** nie jest obsługiwana.
+  > Nie jest obsługiwana klasyfikacja przepustowości obwodu.
 
-* Można włączać i wyłączać *Zezwalanie na klasyczne operacje*.
+* Zmień plan pomiarów z *Dane taryfowe na* Nieograniczone *dane.*
+
   > [!IMPORTANT]
-  > Może być konieczne ponowne utworzenie obwodu ExpressRoute, jeśli nie ma odpowiedniej pojemności na istniejącym porcie. Nie można uaktualnić obwodu, jeśli w tej lokalizacji nie ma dodatkowej pojemności.
+  > Zmiana planu pomiaru z **Nieograniczone dane** na **Dane taryfowe** nie jest obsługiwana.
+
+* Można włączyć i wyłączyć opcję *Zezwalaj na operacje klasyczne.*
+  > [!IMPORTANT]
+  > W przypadku niewystarczającej pojemności istniejącego portu może być trzeba ponownie utworzyć obwód usługi ExpressRoute. Nie można uaktualnić obwodu, jeśli w tej lokalizacji nie ma dostępnej dodatkowej pojemności.
   >
-  > Chociaż można bezproblemowo uaktualnić przepustowość, nie można zmniejszyć przepustowości obwodu ExpressRoute bez zakłóceń. Obniżenie przepustowości wymaga anulowania aprowizacji obwodu ExpressRoute, a następnie ponownego aprowizacji nowego obwodu ExpressRoute.
+  > Chociaż można bezproblemowo uaktualnić przepustowość, nie można zmniejszyć przepustowości obwodu usługi ExpressRoute bez zakłóceń. Ograniczenie przepustowości wymaga coprowizowania obwodu expressRoute, a następnie ponownego aprowizowania nowego obwodu expressRoute.
   >
-  > Wyłączenie operacji dodatku Premium może zakończyć się niepowodzeniem, jeśli używasz zasobów, które są większe niż dozwolone dla obwodu standardowego.
+  > Wyłączenie operacji dodatku Premium może się nie powieść, jeśli używasz zasobów większych niż dozwolone dla obwodu standardowego.
 
-Aby zmodyfikować obwód ExpressRoute, wybierz pozycję **Konfiguracja**.
+Aby zmodyfikować obwód usługi ExpressRoute, wybierz pozycję **Konfiguracja**.
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-configuration.png" alt-text="Modyfikuj obwód":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-configuration.png" alt-text="Modyfikowanie obwodu":::
 
-## <a name="deprovisioning-an-expressroute-circuit"></a><a name="delete"></a>Anulowanie aprowizacji obwodu ExpressRoute
+## <a name="deprovisioning-an-expressroute-circuit"></a><a name="delete"></a>Coprowizowanie obwodu expressRoute
 
-Jeśli stan aprowizacji dostawcy usługi obwodu ExpressRoute jest inicjowany lub **Zainicjowano obsługę administracyjną** , należy skontaktować się z dostawcą usług w celu **anulowania aprowizacji** obwodu po stronie. Nadal rezerwujemy zasoby i obciążamy Cię, dopóki dostawca usług nie ukończy anulowania aprowizacji obwodu i powiadamia nas.
+Jeśli stan aprowizowania dostawcy usług  obwodu  usługi ExpressRoute to Aprowizowanie lub Aprowizowanie, musisz współpracować z dostawcą usług, aby coprowizować obwód po jego stronie. Nadal rezerwujemy zasoby i naliczamy rachunek, dopóki dostawca usług nie zakończy aprowizowania obwodu i powiadomi nas.
 
 > [!NOTE]
->* Przed cofnięciem aprowizacji należy odłączyć *wszystkie sieci wirtualne* od obwodu usługi ExpressRoute. Jeśli ta operacja nie powiedzie się, sprawdź, czy wszystkie sieci wirtualne są połączone z obwodem.
->* Jeśli dostawca usług anulował obsługę administracyjną obwodu (stan aprowizacji dostawcy usług jest ustawiony na **nieinicjowany**), można usunąć obwód. Spowoduje to zatrzymanie naliczania opłat za obwód.
+>* Przed cofzeniem *aprowizowania* należy odłączyć wszystkie sieci wirtualne od obwodu usługi ExpressRoute. Jeśli ta operacja nie powiedzie się, sprawdź, czy jakiekolwiek sieci wirtualne są połączone z obwodem.
+>* Jeśli dostawca usług coprowizował obwód (stan aprowizowania dostawcy usług jest ustawiony na Nie **aprowizowany),** możesz usunąć obwód. Spowoduje to zatrzymanie naliczania opłat za obwód.
 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Obwód ExpressRoute można usunąć, wybierając ikonę **Usuń** . Przed kontynuowaniem upewnij się, że stan dostawcy *nie jest zainicjowany* .
+Obwód expressRoute można usunąć, wybierając **ikonę** Usuń. Przed podjęciem czynności upewnij się, że dostawca ma *stan Nie aprowizowany.*
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-delete.png" alt-text="Usuń obwód":::
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-delete.png" alt-text="Usuwanie obwodu":::
 
 ## <a name="next-steps"></a>Następne kroki
 

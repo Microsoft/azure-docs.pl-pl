@@ -1,34 +1,35 @@
 ---
-title: 'Szybki Start: Konfigurowanie wysokiej dostępności przy użyciu usług Azure Front-Azure PowerShell'
-description: W tym przewodniku szybki start pokazano, jak utworzyć aplikację sieci Web o wysokiej dostępności i wysokiej wydajności przy użyciu programu Azure PowerShell.
+title: 'Szybki start: konfigurowanie wysokiej dostępności za pomocą Azure Front Door — Azure PowerShell'
+description: Ten przewodnik Szybki start pokazuje, jak za pomocą usługi Azure Front Door utworzyć globalną aplikację internetową o wysokiej dostępności i wysokiej wydajności przy użyciu Azure PowerShell.
 services: front-door
 documentationcenter: na
 author: duongau
-manager: KumudD
-ms.assetid: ''
-ms.service: frontdoor
-ms.devlang: na
-ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/21/2020
 ms.author: duau
-ms.openlocfilehash: a3ecb8cacd8fa47709432e26243bd754511658d2
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+manager: KumudD
+ms.date: 09/21/2020
+ms.topic: quickstart
+ms.service: frontdoor
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.custom:
+- mode-api
+ms.openlocfilehash: cd439a5931340f56401e5f6ba7a4e09f35ab7c7d
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057919"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107539059"
 ---
-# <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application-using-azure-powershell"></a>Szybki Start: Tworzenie czołowych drzwi dla globalnej aplikacji sieci Web o wysokiej dostępności przy użyciu Azure PowerShell
+# <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application-using-azure-powershell"></a>Szybki start: tworzenie aplikacji Front Door dla globalnej aplikacji internetowej o wysokiej Azure PowerShell
 
-Rozpocznij pracę z usługami Azure Front platform przy użyciu Azure PowerShell, aby utworzyć globalną aplikację sieci Web o wysokiej dostępności i wysokiej wydajności.
+Rozpoczynanie pracy z Azure Front Door przy użyciu Azure PowerShell tworzenia globalnej aplikacji internetowej o wysokiej Azure PowerShell o wysokiej wydajności.
 
-Drzwi tylne kierują ruch internetowy do określonych zasobów w puli zaplecza. Zdefiniowano domenę frontonu, dodanie zasobów do puli zaplecza i utworzenie reguły routingu. W tym artykule jest używana prosta konfiguracja jednej puli zaplecza z dwoma zasobami aplikacji sieci Web i pojedynczą regułą routingu korzystającą ze ścieżki domyślnej "/*".
+Interfejs Front Door kieruje ruch internetowy do określonych zasobów w puli zaplecza. Zdefiniowano domenę frontonia, dodasz zasoby do puli zaplecza i utworzysz regułę rozsyłania. W tym artykule użyto prostej konfiguracji jednej puli zaplecza z dwoma zasobami aplikacji internetowej i jednej reguły rozsyłania przy użyciu domyślnego dopasowania ścieżki "/*".
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell zainstalowane lokalnie lub Azure Cloud Shell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -39,17 +40,17 @@ Drzwi tylne kierują ruch internetowy do określonych zasobów w puli zaplecza. 
 
 Na platformie Azure możesz przydzielić powiązane zasoby do grupy zasobów. Możesz użyć istniejącej grupy zasobów lub utworzyć nową.
 
-Utwórz grupę zasobów przy użyciu elementu [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup):
+Utwórz grupę zasobów za pomocą [new-AzResourceGroup:](/powershell/module/az.resources/new-azresourcegroup)
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroupFD -Location centralus
 ```
 
-## <a name="create-two-instances-of-a-web-app"></a>Tworzenie dwóch wystąpień aplikacji sieci Web
+## <a name="create-two-instances-of-a-web-app"></a>Tworzenie dwóch wystąpień aplikacji internetowej
 
-Ten przewodnik Szybki Start wymaga dwóch wystąpień aplikacji sieci Web, które działają w różnych regionach świadczenia usługi Azure. Oba wystąpienia aplikacji sieci Web działają w trybie aktywny/aktywny, więc jeden może przyjmować ruch. Ta konfiguracja różni się od konfiguracji aktywnej/gotowości, która działa jako tryb failover.
+Ten przewodnik Szybki start wymaga dwóch wystąpień aplikacji internetowej, które działają w różnych regionach świadczenia usługi Azure. Oba wystąpienia aplikacji internetowej działają w trybie aktywny/aktywny, więc jedno z nich może przyjmować ruch. Ta konfiguracja różni się od konfiguracji aktywnej/autonomicznej, w której działa jako tryb failover.
 
-Jeśli nie masz jeszcze aplikacji sieci Web, użyj poniższego skryptu, aby skonfigurować dwa przykładowe aplikacje sieci Web.
+Jeśli nie masz jeszcze aplikacji internetowej, użyj poniższego skryptu, aby skonfigurować dwie przykładowe aplikacje internetowe.
 
 ```azurepowershell-interactive
 # Create first web app in Central US region.
@@ -69,15 +70,15 @@ $webapp2 = New-AzWebApp `
 
 ## <a name="create-a-front-door"></a>Tworzenie usługi Front Door
 
-W tej sekcji szczegółowo opisano, jak utworzyć i skonfigurować następujące składniki drzwi przednich:
+W tej sekcji szczegółowo opisano sposób tworzenia i konfigurowania następujących składników Front Door:
     
-* Obiekt frontonu zawiera domyślną domenę drzwi z przodu.
-* Pula zaplecza jest zestawem równorzędnych punktów końcowych, do których obciążenie przede wszystkim równoważy żądanie klienta.
-* Reguła routingu mapuje hosta frontonu i zgodny ze wzorcem ścieżka URL do określonej puli zaplecza.
+* Obiekt frontendu zawiera Front Door domenę domyślną.
+* Pula zaplecza to zestaw równoważnych za zaplecza, do których Front Door równoważenie obciążenia żądania klienta.
+* Reguła rozsyłania mapuje hosta frontonia i pasujący wzorzec ścieżki URL na określoną pulę zaplecza.
 
-### <a name="create-a-frontend-object"></a>Tworzenie obiektu frontonu
+### <a name="create-a-frontend-object"></a>Tworzenie obiektu frontonia
 
-Obiekt frontonu konfiguruje nazwę hosta dla drzwi z przodu. Domyślnie nazwa hosta będzie miała sufiks **. azurefd.NET*.
+Obiekt frontendu konfiguruje nazwę hosta dla Front Door. Domyślnie nazwa hosta będzie mieć sufiks **.azurefd.net*.
 
 ```azurepowershell-interactive
 # Create a unique name
@@ -91,7 +92,7 @@ $FrontendEndObject = New-AzFrontDoorFrontendEndpointObject `
 
 ### <a name="create-the-backend-pool"></a>Tworzenie puli zaplecza
 
-Pula zaplecza składa się z dwóch aplikacji sieci Web utworzonych na początku tego przewodnika Szybki Start. Ustawienia sondy kondycji i równoważenia obciążenia zdefiniowane w tym kroku używają wartości domyślnych.
+Pula zaplecza składa się z dwóch aplikacji internetowych utworzonych na początku tego przewodnika Szybki start. Ustawienia sondy kondycji i równoważenia obciążenia zdefiniowane w tym kroku wykorzystują wartości domyślne.
 
 ```azurepowershell-interactive
 # Create backend objects that points to the hostname of the web apps
@@ -123,7 +124,7 @@ $BackendPoolObject = New-AzFrontDoorBackendPoolObject `
 
 ### <a name="create-a-routing-rule"></a>Tworzenie reguły rozsyłania
 
-Reguła routingu mapuje pulę zaplecza na domenę frontonu i ustawia domyślną wartość dopasowania ścieżki na "/*".
+Reguła rozsyłania mapuje pulę zaplecza na domenę frontonia i ustawia domyślną wartość dopasowania ścieżki na "/*".
 
 ```azurepowershell-interactive
 # Create a routing rule mapping the frontend host to the backend pool
@@ -135,9 +136,9 @@ $RoutingRuleObject = New-AzFrontDoorRoutingRuleObject `
 -BackendPoolName "myBackendPool" `
 -PatternToMatch "/*"
 ```
-### <a name="create-the-front-door"></a>Utwórz drzwi tylne
+### <a name="create-the-front-door"></a>Tworzenie Front Door
 
-Po utworzeniu niezbędnych obiektów Utwórz drzwi z przodu:
+Teraz, po utworzeniu niezbędnych obiektów, utwórz Front Door:
 
 ```azurepowershell-interactive
 # Creates the Front Door
@@ -151,11 +152,11 @@ New-AzFrontDoor `
 -HealthProbeSetting $HealthProbeObject
 ```
 
-Po pomyślnym wdrożeniu możesz go przetestować, wykonując kroki opisane w następnej sekcji.
+Po pomyślnym wdrożeniu możesz je przetestować, korzystając z kroków w następnej sekcji.
 
-## <a name="test-the-front-door"></a>Testowanie drzwi przednich
+## <a name="test-the-front-door"></a>Testowanie Front Door
 
-Uruchom następujące polecenia, aby uzyskać nazwę hosta dla drzwi z przodu.
+Uruchom następujące polecenia, aby uzyskać nazwę hosta dla Front Door.
 
 ```azurepowershell-interactive
 # Gets Front Door in resource group and output the hostname of the frontend domain.
@@ -163,15 +164,15 @@ $fd = Get-AzFrontDoor -ResourceGroupName myResourceGroupFD
 $fd.FrontendEndpoints[0].Hostname
 ```
 
-Otwórz przeglądarkę internetową i wprowadź nazwę hosta uzyskaną z poleceń. Drzwi tylne przekierują Twoje żądanie do jednego z zasobów zaplecza. 
+Otwórz przeglądarkę internetową i wprowadź nazwę hosta uzyskaną z poleceń . Żądanie Front Door kierowanie żądania do jednego z zasobów zaplecza. 
 
-:::image type="content" source="./media/quickstart-create-front-door-powershell/front-door-test-page.png" alt-text="Strona testowa z przednim Drzwiem":::
+:::image type="content" source="./media/quickstart-create-front-door-powershell/front-door-test-page.png" alt-text="Front Door testowa":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy nie potrzebujesz już zasobów utworzonych przy użyciu drzwi przednich, Usuń grupę zasobów. Po usunięciu grupy zasobów można także usunąć drzwi z przodu i wszystkie powiązane z nią zasoby. 
+Jeśli nie potrzebujesz już zasobów utworzonych za pomocą Front Door, usuń grupę zasobów. Usunięcie grupy zasobów powoduje również usunięcie grupy Front Door i wszystkich powiązanych z nią zasobów. 
 
-Aby usunąć grupę zasobów, wywołaj `Remove-AzResourceGroup` polecenie cmdlet:
+Aby usunąć grupę zasobów, wywołaj `Remove-AzResourceGroup` polecenie cmdlet :
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroupFD
@@ -179,11 +180,11 @@ Remove-AzResourceGroup -Name myResourceGroupFD
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono:
+W tym przewodniku Szybki start utworzono:
 * Front Door
-* Dwie aplikacje sieci Web
+* Dwie aplikacje internetowe
 
-Aby dowiedzieć się, jak dodać domenę niestandardową do swoich drzwi, przejdź do samouczków dotyczących drzwi.
+Aby dowiedzieć się, jak dodać domenę niestandardową do Front Door, przejdź do Front Door samouczków.
 
 > [!div class="nextstepaction"]
 > [Dodawanie domeny niestandardowej](front-door-custom-domain.md)

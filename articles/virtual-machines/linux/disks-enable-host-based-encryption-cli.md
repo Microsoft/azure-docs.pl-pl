@@ -1,6 +1,6 @@
 ---
-title: Włącz kompleksowe szyfrowanie przy użyciu szyfrowania w usłudze Host-dyski zarządzane w interfejsie wiersza polecenia platformy Azure
-description: Użyj szyfrowania na hoście, aby umożliwić kompleksowe szyfrowanie na dyskach zarządzanych platformy Azure.
+title: Włączanie szyfrowania end-to-end przy użyciu szyfrowania na hoście — interfejs wiersza polecenia platformy Azure — dyski zarządzane
+description: Użyj szyfrowania na hoście, aby włączyć szyfrowanie end-to-end na dyskach zarządzanych platformy Azure.
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
@@ -8,16 +8,16 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 3eecb584f468bc170f0325da8d734a1890691483
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 45cdb9217eebf6e3129718a96d9f7b72a3ab62b3
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104601775"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533611"
 ---
-# <a name="use-the-azure-cli-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure w celu umożliwienia kompleksowego szyfrowania przy użyciu szyfrowania na hoście
+# <a name="use-the-azure-cli-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Włączanie szyfrowania end-to-end przy użyciu szyfrowania na hoście za pomocą interfejsu wiersza polecenia platformy Azure
 
-Po włączeniu szyfrowania na hoście dane przechowywane na hoście maszyny wirtualnej są szyfrowane w stanie spoczynku i są zaszyfrowane w usłudze Storage. Aby uzyskać informacje koncepcyjne na temat szyfrowania na hoście, a także inne typy szyfrowania dysków zarządzanych, zobacz [szyfrowanie na hoście-end-to-end dla danych maszyny wirtualnej](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+Po włączeniu szyfrowania na hoście dane przechowywane na hoście maszyny wirtualnej są szyfrowane podczas magazynowania i szyfrowane przepływy do usługi Storage. Aby uzyskać koncepcyjne informacje na temat szyfrowania na hoście, a także innych typów szyfrowania dysków zarządzanych, zobacz Szyfrowanie na hoście — [end-to-end encryption for your VM data](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)(Szyfrowanie na hoście — szyfrowanie danych maszyny wirtualnej).
 
 ## <a name="restrictions"></a>Ograniczenia
 
@@ -27,11 +27,12 @@ Po włączeniu szyfrowania na hoście dane przechowywane na hoście maszyny wirt
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](../../../includes/virtual-machines-disks-encryption-at-host-suported-sizes.md)]
 
-Rozmiary maszyn wirtualnych można również wyszukać programowo. Aby dowiedzieć się, jak je pobrać programowo, zapoznaj się z sekcją [Znajdowanie obsługiwanych rozmiarów maszyn wirtualnych](#finding-supported-vm-sizes) .
+Pełną listę obsługiwanych rozmiarów maszyn wirtualnych można ściągnąć programowo. Aby dowiedzieć się, jak pobrać je programowo, zapoznaj się z [sekcją Znajdowanie obsługiwanych rozmiarów maszyn](#finding-supported-vm-sizes) wirtualnych.
+Uaktualnienie rozmiaru maszyny wirtualnej spowoduje weryfikację w celu sprawdzenia, czy nowy rozmiar maszyny wirtualnej obsługuje funkcję EncryptionAtHost.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed użyciem właściwości EncryptionAtHost dla maszyny wirtualnej/VMSS należy włączyć tę funkcję dla subskrypcji. Wykonaj poniższe kroki, aby włączyć funkcję dla subskrypcji:
+Należy włączyć tę funkcję dla subskrypcji przed użyciem właściwości EncryptionAtHost dla maszyny wirtualnej/zestawu usług VMSS. Wykonaj poniższe kroki, aby włączyć funkcję dla subskrypcji:
 
 1.  Wykonaj następujące polecenie, aby zarejestrować funkcję dla subskrypcji
 
@@ -39,24 +40,24 @@ Przed użyciem właściwości EncryptionAtHost dla maszyny wirtualnej/VMSS nale�
     az feature register --namespace Microsoft.Compute --name EncryptionAtHost
     ```
  
-2.  Sprawdź, czy stan rejestracji został zarejestrowany (trwa kilka minut) przy użyciu poniższego polecenia przed podjęciem próby wykonania tej funkcji.
+2.  Przed wypróbowaniem funkcji sprawdź, czy stan rejestracji to Zarejestrowano (trwa kilka minut) przy użyciu poniższego polecenia.
 
     ```azurecli
     az feature show --namespace Microsoft.Compute --name EncryptionAtHost
     ```
 
 
-### <a name="create-an-azure-key-vault-and-diskencryptionset"></a>Tworzenie Azure Key Vault i DiskEncryptionSet
+### <a name="create-an-azure-key-vault-and-diskencryptionset"></a>Tworzenie zestawu Azure Key Vault DiskEncryptionSet
 
-Po włączeniu tej funkcji musisz skonfigurować Azure Key Vault i DiskEncryptionSet, jeśli jeszcze tego nie zrobiono.
+Po włączeniu tej funkcji należy skonfigurować zestaw Azure Key Vault DiskEncryptionSet, jeśli jeszcze tego nie zrobiliśmy.
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-cli](../../../includes/virtual-machines-disks-encryption-create-key-vault-cli.md)]
 
 ## <a name="examples"></a>Przykłady
 
-### <a name="create-a-vm-with-encryption-at-host-enabled-with-customer-managed-keys"></a>Utwórz maszynę wirtualną z szyfrowaniem na hoście z włączonymi kluczami zarządzanymi przez klienta. 
+### <a name="create-a-vm-with-encryption-at-host-enabled-with-customer-managed-keys"></a>Utwórz maszynę wirtualną z włączonym szyfrowaniem na hoście przy użyciu kluczy zarządzanych przez klienta. 
 
-Utwórz maszynę wirtualną z dyskami zarządzanymi przy użyciu identyfikatora URI zasobu DiskEncryptionSet utworzonego wcześniej w celu szyfrowania pamięci podręcznej dysków systemu operacyjnego i danych z kluczami zarządzanymi przez klienta. Dyski tymczasowe są szyfrowane za pomocą kluczy zarządzanych przez platformę. 
+Utwórz maszynę wirtualną z dyskami zarządzanymi przy użyciu utworzonego wcześniej klucza URI zasobu DiskEncryptionSet w celu zaszyfrowania pamięci podręcznej dysków systemu operacyjnego i danych przy użyciu kluczy zarządzanych przez klienta. Dyski tymczasowe są szyfrowane przy użyciu kluczy zarządzanych przez platformę. 
 
 ```azurecli
 rgName=yourRGName
@@ -80,9 +81,9 @@ az vm create -g $rgName \
 --data-disk-encryption-sets $diskEncryptionSetId $diskEncryptionSetId
 ```
 
-### <a name="create-a-vm-with-encryption-at-host-enabled-with-platform-managed-keys"></a>Utwórz maszynę wirtualną z szyfrowaniem na hoście z włączonymi kluczami zarządzanymi na platformie. 
+### <a name="create-a-vm-with-encryption-at-host-enabled-with-platform-managed-keys"></a>Utwórz maszynę wirtualną z włączonym szyfrowaniem na hoście przy użyciu kluczy zarządzanych przez platformę. 
 
-Tworzenie maszyny wirtualnej z szyfrowaniem na hoście z włączoną obsługą szyfrowania pamięci podręcznej dysków systemu operacyjnego/danych i dysków tymczasowych przy użyciu kluczy zarządzanych przez platformę. 
+Utwórz maszynę wirtualną z włączonym szyfrowaniem na hoście, aby zaszyfrować pamięć podręczną dysków systemu operacyjnego/danych i dysków tymczasowych przy użyciu kluczy zarządzanych przez platformę. 
 
 ```azurecli
 rgName=yourRGName
@@ -112,7 +113,7 @@ az vm update -n $vmName \
 --set securityProfile.encryptionAtHost=true
 ```
 
-### <a name="check-the-status-of-encryption-at-host-for-a-vm"></a>Sprawdź stan szyfrowania na hoście dla maszyny wirtualnej
+### <a name="check-the-status-of-encryption-at-host-for-a-vm"></a>Sprawdzanie stanu szyfrowania na hoście dla maszyny wirtualnej
 
 ```azurecli
 rgName=yourRGName
@@ -123,9 +124,9 @@ az vm show -n $vmName \
 --query [securityProfile.encryptionAtHost] -o tsv
 ```
 
-### <a name="create-a-virtual-machine-scale-set-with-encryption-at-host-enabled-with-customer-managed-keys"></a>Utwórz zestaw skalowania maszyn wirtualnych z szyfrowaniem na hoście z włączonymi kluczami zarządzanymi przez klienta. 
+### <a name="create-a-virtual-machine-scale-set-with-encryption-at-host-enabled-with-customer-managed-keys"></a>Utwórz zestaw skalowania maszyn wirtualnych z włączonym szyfrowaniem na hoście przy użyciu kluczy zarządzanych przez klienta. 
 
-Utwórz zestaw skalowania maszyn wirtualnych z dyskami zarządzanymi przy użyciu identyfikatora URI zasobu DiskEncryptionSet utworzonego wcześniej w celu szyfrowania pamięci podręcznej dysków systemu operacyjnego i danych z kluczami zarządzanymi przez klienta. Dyski tymczasowe są szyfrowane za pomocą kluczy zarządzanych przez platformę. 
+Utwórz zestaw skalowania maszyn wirtualnych z dyskami zarządzanymi przy użyciu utworzonego wcześniej klucza URI zasobu DiskEncryptionSet w celu zaszyfrowania pamięci podręcznej dysków systemu operacyjnego i danych przy użyciu kluczy zarządzanych przez klienta. Dyski tymczasowe są szyfrowane przy użyciu kluczy zarządzanych przez platformę. 
 
 ```azurecli
 rgName=yourRGName
@@ -149,9 +150,9 @@ az vmss create -g $rgName \
 --data-disk-encryption-sets $diskEncryptionSetId $diskEncryptionSetId
 ```
 
-### <a name="create-a-virtual-machine-scale-set-with-encryption-at-host-enabled-with-platform-managed-keys"></a>Utwórz zestaw skalowania maszyn wirtualnych z szyfrowaniem na hoście z włączonymi kluczami zarządzanymi na platformie. 
+### <a name="create-a-virtual-machine-scale-set-with-encryption-at-host-enabled-with-platform-managed-keys"></a>Utwórz zestaw skalowania maszyn wirtualnych z włączonym szyfrowaniem na hoście przy użyciu kluczy zarządzanych przez platformę. 
 
-Utwórz zestaw skalowania maszyn wirtualnych z szyfrowaniem na hoście włączonym do szyfrowania pamięci podręcznej dysków systemu operacyjnego/danych i dysków tymczasowych przy użyciu kluczy zarządzanych przez platformę. 
+Utwórz zestaw skalowania maszyn wirtualnych z włączonym szyfrowaniem na hoście w celu szyfrowania pamięci podręcznej dysków systemu operacyjnego/danych i dysków tymczasowych przy użyciu kluczy zarządzanych przez platformę. 
 
 ```azurecli
 rgName=yourRGName
@@ -170,7 +171,7 @@ az vmss create -g $rgName \
 --data-disk-sizes-gb 64 128 \
 ```
 
-### <a name="update-a-virtual-machine-scale-set-to-enable-encryption-at-host"></a>Zaktualizuj zestaw skalowania maszyn wirtualnych, aby włączyć szyfrowanie na hoście. 
+### <a name="update-a-virtual-machine-scale-set-to-enable-encryption-at-host"></a>Aktualizowanie zestawu skalowania maszyn wirtualnych w celu włączenia szyfrowania na hoście. 
 
 ```azurecli
 rgName=yourRGName
@@ -181,7 +182,7 @@ az vmss update -n $vmssName \
 --set virtualMachineProfile.securityProfile.encryptionAtHost=true
 ```
 
-### <a name="check-the-status-of-encryption-at-host-for-a-virtual-machine-scale-set"></a>Sprawdź stan szyfrowania na hoście dla zestawu skalowania maszyn wirtualnych
+### <a name="check-the-status-of-encryption-at-host-for-a-virtual-machine-scale-set"></a>Sprawdzanie stanu szyfrowania na hoście dla zestawu skalowania maszyn wirtualnych
 
 ```azurecli
 rgName=yourRGName
@@ -194,9 +195,9 @@ az vmss show -n $vmssName \
 
 ## <a name="finding-supported-vm-sizes"></a>Znajdowanie obsługiwanych rozmiarów maszyn wirtualnych
 
-Starsze rozmiary maszyn wirtualnych nie są obsługiwane. Listę obsługiwanych rozmiarów maszyn wirtualnych można znaleźć w:
+Starsze rozmiary maszyn wirtualnych nie są obsługiwane. Listę obsługiwanych rozmiarów maszyn wirtualnych można znaleźć w jednym z tych elementów:
 
-Wywoływanie [interfejsu API zasobów SKU](/rest/api/compute/resourceskus/list) i sprawdzanie, czy `EncryptionAtHostSupported` możliwość jest ustawiona na **wartość true**.
+Wywołanie [interfejsu API jednostki SKU zasobów](/rest/api/compute/resourceskus/list) i sprawdzenie, czy `EncryptionAtHostSupported` dla możliwości ustawiono wartość **True.**
 
 ```json
     {
@@ -217,7 +218,7 @@ Wywoływanie [interfejsu API zasobów SKU](/rest/api/compute/resourceskus/list) 
     }
 ```
 
-Lub wywołując polecenie cmdlet [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku) programu PowerShell.
+Lub wywołanie polecenia cmdlet [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku) programu PowerShell.
 
 ```powershell
 $vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')} 
@@ -238,6 +239,6 @@ foreach($vmSize in $vmSizes)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po utworzeniu i skonfigurowaniu tych zasobów można użyć ich do zabezpieczenia dysków zarządzanych. Poniższy link zawiera przykładowe skrypty, każdy z odpowiednim scenariuszem, który służy do zabezpieczania dysków zarządzanych.
+Teraz, po utworzeniu i skonfigurowaniu tych zasobów, możesz użyć ich do zabezpieczenia dysków zarządzanych. Poniższy link zawiera przykładowe skrypty, z których każdy ma odpowiedni scenariusz, których można użyć do zabezpieczenia dysków zarządzanych.
 
 [Przykłady szablonów usługi Azure Resource Manager](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/EncryptionAtHost)

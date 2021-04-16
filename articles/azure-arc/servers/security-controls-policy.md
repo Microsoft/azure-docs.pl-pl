@@ -13,7 +13,7 @@ ms.locfileid: "107498031"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-arc-enabled-servers"></a>Azure Policy kontroli zgodności z przepisami dla Azure Arc z włączoną obsługą usługi
 
-[Zgodność z przepisami](../../governance/policy/concepts/regulatory-compliance.md) w Azure Policy udostępnia definicje inicjatyw utworzonych przez firmę  Microsoft i  zarządzanych, znane jako _wbudowane,_ dla domen zgodności i kontroli zabezpieczeń związanych z różnymi standardami zgodności. Na tej stronie **wymieniono domeny zgodności i** **mechanizmy kontroli zabezpieczeń** Azure Arc serwerach z włączoną obsługą. Możesz przypisać wbudowane elementy kontroli  zabezpieczeń indywidualnie, aby ułatwić zgodność zasobów platformy Azure z określonym standardem.
+[Zgodność z przepisami](../../governance/policy/concepts/regulatory-compliance.md) w Azure Policy udostępnia definicje inicjatyw utworzonych przez firmę  Microsoft i  zarządzanych, znane jako _wbudowane,_ dla domen zgodności i kontroli zabezpieczeń związanych z różnymi standardami zgodności. Na tej stronie **wymieniono domeny zgodności i** **mechanizmy kontroli zabezpieczeń** dla Azure Arc serwerów z włączoną obsługą. Możesz przypisać wbudowane elementy kontroli  zabezpieczeń indywidualnie, aby ułatwić zgodność zasobów platformy Azure z określonym standardem.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../../includes/policy/standards/intro-warning.md)]
 

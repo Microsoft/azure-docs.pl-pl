@@ -1,48 +1,50 @@
 ---
-title: Szybki Start — wysyłanie zapytania do interfejsu API w języku Python — wyszukiwanie lokalne firmy Bing
+title: Szybki start — wysyłanie zapytania do interfejsu API w języku Python — Wyszukiwanie lokalnych firm Bing
 titleSuffix: Azure Cognitive Services
-description: Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć korzystanie z interfejsu API wyszukiwania lokalnego firmy Bing w języku Python.
+description: Skorzystaj z tego przewodnika Szybki start, aby rozpocząć korzystanie z Wyszukiwanie lokalnych firm Bing API w języku Python.
 services: cognitive-services
 author: aahill
+ms.author: aahi
 manager: nitinme
+ms.date: 05/12/2020
+ms.topic: quickstart
 ms.service: cognitive-services
 ms.subservice: bing-local-business
-ms.topic: quickstart
-ms.date: 05/12/2020
-ms.author: aahi
-ms.custom: devx-track-python
-ms.openlocfilehash: ff06d29c613b626c48c347628992576fc29b3a89
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.custom:
+- devx-track-python
+- mode-api
+ms.openlocfilehash: adbf3d9abddf01ba67046cfa433ffd46f713ff83
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430143"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536671"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>Szybki Start: wysyłanie zapytania do lokalnego interfejsu API wyszukiwania biznesowego Bing w języku Python
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>Szybki start: wysyłanie zapytania do interfejsu API Wyszukiwanie lokalnych firm Bing Python
 
 > [!WARNING]
-> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Enterprise Agreement, w zależności od tego, co nastąpi wcześniej.
-> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Wyszukiwanie Bing API są przechodnie z Cognitive Services do Wyszukiwanie Bing Services. Od **30 października 2020** r. wszystkie nowe wystąpienia usługi Wyszukiwanie Bing należy aprowizować zgodnie z procesem [udokumentowanym tutaj.](/bing/search-apis/bing-web-search/create-bing-search-service-resource)
+> Wyszukiwanie Bing aprowowane przy użyciu Cognitive Services będą obsługiwane przez następne trzy lata lub do końca Enterprise Agreement, w zależności od tego, co nastąpi najpierw.
+> Aby uzyskać instrukcje dotyczące migracji, [zobacz Wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-Skorzystaj z tego przewodnika Szybki Start, aby dowiedzieć się, jak wysyłać żądania do lokalnego interfejsu API wyszukiwania biznesowego Bing, który jest usługą poznawczej platformy Azure. Chociaż ta prosta aplikacja jest zapisywana w języku Python, interfejs API jest usługą sieci Web RESTful zgodną z dowolnym językiem programowania, który umożliwia wykonywanie żądań HTTP i analizowanie kodu JSON.
+Skorzystaj z tego przewodnika Szybki start, aby dowiedzieć się, jak wysyłać żądania do interfejsu API usługi Wyszukiwanie lokalnych firm Bing, który jest usługą Azure Cognitive Service. Chociaż ta prosta aplikacja jest napisana w języku Python, interfejs API jest usługą internetową zgodną ze standardem RESTful i dowolnym językiem programowania umożliwiającym wykonywanie żądań HTTP i analizowanie danych JSON.
 
-Ta przykładowa aplikacja pobiera dane lokalnego odpowiedzi z interfejsu API dla zapytania wyszukiwania.
+Ta przykładowa aplikacja pobiera lokalne dane odpowiedzi z interfejsu API dla zapytania wyszukiwania.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
-* Język [Python](https://www.python.org/) 2. x lub 3. x.
-* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Utwórz zasób wyszukiwanie Bing "  target="_blank"> utwórz zasób Wyszukiwanie Bing </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
+* Subskrypcja platformy Azure — [tworzenie bezpłatnej subskrypcji](https://azure.microsoft.com/free/cognitive-services/)
+* [Python](https://www.python.org/) 2.x lub 3.x.
+* Po utworzeniu subskrypcji platformy Azure utwórz zasób Wyszukiwanie Bing utwórz zasób usługi Wyszukiwanie Bing w witrynie Azure Portal, aby uzyskać <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" "  target="_blank"> klucz i punkt </a> końcowy. Po wdrożeniu kliknij pozycję **Przejdź do zasobu**.
 
-## <a name="run-the-complete-application"></a>Uruchom kompletną aplikację
+## <a name="run-the-complete-application"></a>Uruchamianie kompletnej aplikacji
 
 Poniższy przykład pobiera zlokalizowane wyniki, które są implementowane w następujących krokach:
 1. Zadeklaruj zmienne, aby określić punkt końcowy na podstawie hosta i ścieżki.
 2. Określ parametr zapytania. 
-3. Zdefiniuj funkcję wyszukiwania, która tworzy żądanie i dodaje `Ocp-Apim-Subscription-Key` nagłówek.
-4. Ustaw `Ocp-Apim-Subscription-Key` nagłówek. 
-5. Utwórz połączenie i Wyślij żądanie.
+3. Zdefiniuj funkcję wyszukiwania, która tworzy żądanie i dodaje `Ocp-Apim-Subscription-Key` nagłówek .
+4. Ustaw `Ocp-Apim-Subscription-Key` nagłówek . 
+5. Nawiązaniu połączenia i wysłaniu żądania.
 6. Wydrukuj wyniki w formacie JSON.
 
 Pełny kod dla tej wersji demonstracyjnej jest następujący:
@@ -79,6 +81,6 @@ print (json.dumps(json.loads(result), indent=4))
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-- [Lokalne wyszukiwanie biznesowe w języku Java — Szybki Start](local-search-java-quickstart.md)
-- [Lokalne wyszukiwanie biznesowe — Przewodnik Szybki Start](local-quickstart.md)
-- [Lokalne wyszukiwanie biznesowe Node.js Szybki Start](local-search-node-quickstart.md)
+- [Przewodnik Szybki start dla języka Java wyszukiwania lokalnych firm](local-search-java-quickstart.md)
+- [Przewodnik Szybki start dla języka C# dla funkcji wyszukiwania lokalnych firm](local-quickstart.md)
+- [Przewodnik Szybki start dla Node.js wyszukiwania lokalnych firm](local-search-node-quickstart.md)

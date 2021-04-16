@@ -67,6 +67,9 @@
         - name: Raporty i monitorowanie
           tocHref: /azure/active-directory/reports-monitoring/
           topicHref: /azure/active-directory/reports-monitoring/
+        - name: Weryfikowalne poświadczenia
+          tocHref: /azure/active-directory/verifiable-credentials/
+          topicHref: /azure/active-directory/verifable-credentials/
     - name: Analysis Services
       tocHref: /azure/analysis-services/
       topicHref: /azure/analysis-services/
@@ -271,7 +274,7 @@
       tocHref: /azure/partner-solutions/
       topicHref: /azure/partner-solutions/
       items:
-        - name: Apache Kafka dla chmury z niefluent
+        - name: Apache Kafka for Confluent Cloud
           tocHref: /azure/partner-solutions/apache-kafka-confluent-cloud/
           topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud/
     - name: SignalR Service
@@ -467,7 +470,7 @@
     - name: Cosmos DB
       tocHref: /azure/cosmos-db/
       topicHref: /azure/cosmos-db/
-    - name: Wystąpienie zarządzane dla platformy Apache Cassandra
+    - name: Wystąpienie zarządzane dla serwera Apache Cassandra
       tocHref: /azure/managed-instance-apache-cassandra/
       topicHref: /azure/managed-instance-apache-cassandra/
     - name: Magazyn
@@ -679,7 +682,7 @@
         - name: Front Door Service
           tocHref: /azure/frontdoor/
           topicHref: /azure/frontdoor/
-        - name: Warstwa czołowa i warstwa Premium (wersja zapoznawcza)
+        - name: Front Door Standardowa/Premium (wersja zapoznawcza)
           tocHref: /azure/frontdoor/standard-premium
           topicHref: /azure/frontdoor/standard-premium
         - name: Internet Analyzer
@@ -770,6 +773,9 @@
         - name: Programowanie
           tocHref: /azure/security/develop/
           topicHref: /azure/security/develop/
+        - name: Podróż
+          tocHref: /azure/security/journey
+          topicHref: /azure/security/journey
         - name: Testy porównawcze
           tocHref: /azure/security/benchmarks/
           topicHref: /azure/security/benchmarks/

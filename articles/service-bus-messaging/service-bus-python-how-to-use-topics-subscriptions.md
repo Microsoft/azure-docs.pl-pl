@@ -1,31 +1,33 @@
 ---
-title: Korzystanie z Azure Service Bus tematów i subskrypcji w języku Python Azure-ServiceBus w wersji 7.0.0
+title: Używanie Azure Service Bus tematach i subskrypcjach za pomocą pakietu azure-servicebus języka Python w wersji 7.0.0
 description: W tym artykule pokazano, jak używać języka Python do wysyłania komunikatów do tematu i odbierania komunikatów z subskrypcji.
 documentationcenter: python
 author: spelluru
-ms.devlang: python
-ms.topic: quickstart
-ms.date: 11/18/2020
 ms.author: spelluru
-ms.custom: devx-track-python
-ms.openlocfilehash: 4eba3ea055e78888d482927fa6eed5c7d41fa0ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 11/18/2020
+ms.topic: quickstart
+ms.devlang: python
+ms.custom:
+- devx-track-python
+- mode-api
+ms.openlocfilehash: 49e80e277c6df5372341293861d5bda0580f3e8c
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98630051"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537169"
 ---
-# <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-python"></a>Wysyłanie komunikatów do tematu Azure Service Bus i odbieranie komunikatów z subskrypcji do tematu (Python)
-W tym artykule pokazano, jak za pomocą języka Python wysyłać komunikaty do Service Bus tematu i odbierać komunikaty z subskrypcji do tematu. 
+# <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-python"></a>Wysyłanie komunikatów do Azure Service Bus tematu i odbieranie komunikatów z subskrypcji do tematu (Python)
+W tym artykule pokazano, jak używać języka Python do wysyłania komunikatów Service Bus tematu i odbierania komunikatów z subskrypcji do tematu. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-- Subskrypcja platformy Azure. Możesz aktywować korzyści dla [subskrybentów programu Visual Studio lub MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Wykonaj kroki opisane w [przewodniku szybki start: użyj Azure Portal, aby utworzyć temat Service Bus i subskrypcje w temacie](service-bus-quickstart-topics-subscriptions-portal.md). Zanotuj parametry połączenia, nazwę tematu i nazwę subskrypcji. W tym przewodniku szybki start będziesz używać tylko jednej subskrypcji. 
-- Język Python 2,7 lub nowszy z zainstalowanym pakietem [Azure Python SDK] [pakiet platformy Azure Python]. Aby uzyskać więcej informacji, zobacz [Przewodnik instalacji języka Python](/azure/developer/python/azure-sdk-install).
+- Subskrypcja platformy Azure. Możesz aktywować korzyści [dla subskrybentów Visual Studio MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) lub zarejestrować się w celu korzystania z [bezpłatnego konta.](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)
+- Wykonaj kroki opisane w [przewodniku Szybki start: tworzenie](service-bus-quickstart-topics-subscriptions-portal.md)Azure Portal tematu i subskrypcji Service Bus tematu . Zanotuj ciąg połączenia, nazwę tematu i nazwę subskrypcji. W tym przewodniku Szybki start użyjesz tylko jednej subskrypcji. 
+- Język Python w wersji 2.7 lub wyższej z zainstalowanym pakietem [Azure Python SDK][Pakiet Języka Python] platformy Azure. Aby uzyskać więcej informacji, zobacz [Przewodnik instalacji języka Python](/azure/developer/python/azure-sdk-install).
 
 ## <a name="send-messages-to-a-topic"></a>Wysyłanie komunikatów do tematu
 
-1. Dodaj następującą instrukcję importu. 
+1. Dodaj następującą instrukcje importu. 
 
     ```python
     from azure.servicebus import ServiceBusClient, ServiceBusMessage
@@ -39,10 +41,10 @@ W tym artykule pokazano, jak za pomocą języka Python wysyłać komunikaty do S
     ```
     
     > [!IMPORTANT]
-    > - Zamień na `<NAMESPACE CONNECTION STRING>` Parametry połączenia dla przestrzeni nazw.
-    > - Zamień na `<TOPIC NAME>` nazwę tematu.
-    > - Zamień na `<SUBSCRIPTION NAME>` nazwę subskrypcji tematu. 
-3. Dodaj metodę w celu wysłania pojedynczej wiadomości.
+    > - Zastąp `<NAMESPACE CONNECTION STRING>` ciąg ciągami połączenia dla przestrzeni nazw.
+    > - Zastąp `<TOPIC NAME>` nazwą tematu.
+    > - Zastąp `<SUBSCRIPTION NAME>` nazwą subskrypcji tematu. 
+3. Dodaj metodę w celu wysłania pojedynczego komunikatu.
 
     ```python
     def send_single_message(sender):
@@ -54,7 +56,7 @@ W tym artykule pokazano, jak za pomocą języka Python wysyłać komunikaty do S
     ```
 
     Nadawca jest obiektem, który działa jako klient dla utworzonego tematu. Utworzysz go później i wyślesz jako argument do tej funkcji. 
-4. Dodaj metodę, aby wysłać listę komunikatów.
+4. Dodaj metodę wysyłania listy komunikatów.
 
     ```python
     def send_a_list_of_messages(sender):
@@ -82,7 +84,7 @@ W tym artykule pokazano, jak za pomocą języka Python wysyłać komunikaty do S
         sender.send_messages(batch_message)
         print("Sent a batch of 10 messages")
     ```
-6. Utwórz klienta Service Bus, a następnie obiekt nadawcy tematu do wysyłania wiadomości.
+6. Utwórz klienta Service Bus, a następnie obiekt nadawcy tematu do wysyłania komunikatów.
 
     ```python
     # create a Service Bus client using the connection string
@@ -103,7 +105,7 @@ W tym artykule pokazano, jak za pomocą języka Python wysyłać komunikaty do S
     ```
  
 ## <a name="receive-messages-from-a-subscription"></a>Odbieranie komunikatów z subskrypcji
-Dodaj następujący kod po instrukcji Print. Ten kod ciągle otrzymuje nowe wiadomości, dopóki nie otrzyma żadnych nowych komunikatów przez 5 ( `max_wait_time` ) s. 
+Dodaj następujący kod po instrukcji print. Ten kod stale odbiera nowe komunikaty, dopóki nie odbierze żadnych nowych komunikatów przez 5 `max_wait_time` ( ) sekund. 
 
 ```python
 with servicebus_client:
@@ -168,7 +170,7 @@ with servicebus_client:
 ```
 
 ## <a name="run-the-app"></a>Uruchamianie aplikacji
-Po uruchomieniu aplikacji powinny zostać wyświetlone następujące dane wyjściowe: 
+Po uruchomieniu aplikacji powinny zostać wyświetlony następujące dane wyjściowe: 
 
 ```console
 Sent a single message
@@ -194,27 +196,27 @@ Received: Message inside a ServiceBusMessageBatch
 Received: Message inside a ServiceBusMessageBatch
 ```
 
-W Azure Portal przejdź do przestrzeni nazw Service Bus. Na stronie **Przegląd** Sprawdź, czy liczba komunikatów **przychodzących** i **wychodzących** wynosi 16. Jeśli liczby nie są widoczne, Odśwież stronę po odczekaniu przez kilka minut. 
+W Azure Portal przejdź do swojej Service Bus nazw. Na stronie **Przegląd** sprawdź, czy  **liczba** komunikatów przychodzących i wychodzących wynosi 16. Jeśli nie widzisz liczby, odśwież stronę po odczekieniu kilku minut. 
 
-:::image type="content" source="./media/service-bus-python-how-to-use-queues/overview-incoming-outgoing-messages.png" alt-text="Liczba wiadomości przychodzących i wychodzących":::
+:::image type="content" source="./media/service-bus-python-how-to-use-queues/overview-incoming-outgoing-messages.png" alt-text="Liczba komunikatów przychodzących i wychodzących":::
 
-Wybierz temat w dolnym okienku, aby wyświetlić stronę **tematu Service Bus** tematu. Na tej stronie powinny być widoczne trzy przychodzące i trzy komunikaty wychodzące na wykresie **komunikatów** . 
+Wybierz temat w dolnym okienku, aby wyświetlić Service Bus **tematu** dla tematu. Na tej stronie powinny być wyświetlane trzy komunikaty przychodzące i trzy wychodzące na **wykresie Komunikaty.** 
 
 :::image type="content" source="./media/service-bus-python-how-to-use-topics-subscriptions/topic-page-portal.png" alt-text="Komunikaty przychodzące i wychodzące":::
 
-Na tej stronie, jeśli wybierzesz subskrypcję, uzyskasz dostęp do strony **subskrypcji Service Bus** . Na tej stronie można zobaczyć liczbę aktywnych komunikatów, liczbę wiadomości utraconych i więcej. W tym przykładzie wszystkie komunikaty zostały odebrane, więc liczba aktywnych komunikatów wynosi zero. 
+Na tej stronie, jeśli wybierzesz subskrypcję, zostanie Service Bus **Subskrypcja.** Na tej stronie można zobaczyć liczbę aktywnych komunikatów, liczbę utraconych komunikatów i inne. W tym przykładzie odebrano wszystkie komunikaty, więc liczba aktywnych komunikatów wynosi zero. 
 
 :::image type="content" source="./media/service-bus-python-how-to-use-topics-subscriptions/active-message-count.png" alt-text="Liczba aktywnych komunikatów":::
 
-Jeśli dodasz komentarz do kodu odbioru, liczba aktywnych komunikatów zostanie wyświetlona jako 16. 
+Jeśli kod odbioru zostanie w komentarzu, zobaczysz aktywną liczbę komunikatów jako 16. 
 
 :::image type="content" source="./media/service-bus-python-how-to-use-topics-subscriptions/active-message-count-2.png" alt-text="Liczba aktywnych komunikatów — brak odbierania":::
 
 ## <a name="next-steps"></a>Następne kroki
-Zapoznaj się z poniższą dokumentacją i przykładami: 
+Zapoznaj się z następującą dokumentacją i przykładami: 
 
-- [Azure Service Bus Biblioteka kliencka dla języka Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus)
+- [Azure Service Bus klienta dla języka Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus)
 - [Przykłady](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus/samples). 
-    - Folder **sync_samples** zawiera przykłady pokazujące, jak w sposób synchroniczny korzystać z Service Bus. W tym przewodniku szybki start użyto tej metody. 
-    - Folder **async_samples** zawiera przykłady pokazujące, jak interakcyjnie korzystać z Service Bus w sposób asynchroniczny. 
-- [Dokumentacja referencyjna platformy Azure-ServiceBus](/python/api/azure-servicebus/azure.servicebus?preserve-view=true)
+    - Folder **sync_samples** zawiera przykłady, które pokazują, jak korzystać z Service Bus w sposób synchroniczny. W tym przewodniku Szybki start została użyta ta metoda. 
+    - Folder **async_samples** zawiera przykłady, które pokazują, jak korzystać z Service Bus w sposób asynchroniczny. 
+- [Dokumentacja referencyjna usługi azure-servicebus](/python/api/azure-servicebus/azure.servicebus?preserve-view=true)
