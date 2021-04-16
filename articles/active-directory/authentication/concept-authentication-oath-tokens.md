@@ -1,6 +1,6 @@
 ---
 title: Metoda uwierzytelniania tokenów OATH — Azure Active Directory
-description: Dowiedz się więcej na temat używania tokenów OATH w Azure Active Directory, aby pomóc w ulepszaniu i zabezpieczaniu zdarzeń związanych z logowaniem
+description: Dowiedz się więcej o używaniu tokenów OATH w Azure Active Directory, aby ułatwić ulepszanie i zabezpieczanie zdarzeń logowania
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -10,38 +10,38 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44016d81b18e8df7b6e2ed7c14559cf19ac0c07d
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 99d0dd081e3e1a681ba55e3457b79a548d6b2bb7
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106106640"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530389"
 ---
-# <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Metody uwierzytelniania w tokenach OATH Azure Active Directory 
+# <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Metody uwierzytelniania w Azure Active Directory — tokeny OATH 
 
-TOTP OATH (oparte na czasie, hasło jednorazowe) to otwarty standard, który określa sposób generowania kodów haseł jednorazowych (OTP). TOTP OATH można zaimplementować przy użyciu oprogramowania lub sprzętu w celu wygenerowania kodów. Usługa Azure AD nie obsługuje HOTP OATH, innego standardu generowania kodu.
+OATH TOTP (time-based One Time Password) to otwarty standard określający sposób generowania kodów haseł jednorazowych (OTP). OATH TOTP można zaimplementować przy użyciu oprogramowania lub sprzętu do generowania kodów. Usługa Azure AD nie obsługuje standardu OATH HOTP, czyli innego standardu generowania kodu.
 
 ## <a name="oath-software-tokens"></a>Tokeny oprogramowania OATH
 
-Tokeny OATH oprogramowania są zazwyczaj aplikacjami, takimi jak aplikacja Microsoft Authenticator i inne aplikacje uwierzytelniające. Usługa Azure AD generuje klucz tajny lub inicjator, który jest wprowadzany do aplikacji i użyty do wygenerowania każdego uwierzytelniania OTP.
+Tokeny OATH oprogramowania to zazwyczaj aplikacje, takie jak Microsoft Authenticator i inne aplikacje wystawcy uwierzytelnień. Usługa Azure AD generuje klucz tajny ,czyli iniekcję, który jest wejściowy do aplikacji i używany do generowania poszczególnych uwierzytelniania OTP.
 
-Aplikacja Authenticator automatycznie generuje kody po skonfigurowaniu do wykonywania powiadomień wypychanych, aby użytkownik miał kopię zapasową nawet wtedy, gdy ich urządzenie nie ma łączności. Można również użyć aplikacji innych firm, które używają TOTP OATH do generowania kodów.
+Aplikacja Authenticator automatycznie generuje kody w przypadku skonfigurowania powiadomień wypychanych, dzięki czemu użytkownik może utworzyć kopię zapasową, nawet jeśli urządzenie nie ma łączności. Można również używać aplikacji innych firm, które używają protokołu OATH TOTP do generowania kodów.
 
-Niektóre tokeny sprzętowe TOTP OATH są programowalne, co oznacza, że nie są one dostarczane z kluczem tajnym lub wstępnie zaprogramowanym inicjatorem. Te programowalne tokeny sprzętowe można skonfigurować przy użyciu klucza tajnego lub inicjatora uzyskanego w ramach przepływu instalacji tokenu oprogramowania. Klienci mogą zakupić te tokeny od wybranego dostawcy i używać klucza tajnego lub inicjatora w procesie instalacji dostawcy.
+Niektóre tokeny sprzętowe OATH TOTP są programowalne, co oznacza, że nie są one ze wstępnie zaprogramowanym kluczem tajnym ani wstępnie zaprogramowanym iniekcją. Te programowalne tokeny sprzętowe można skonfigurować przy użyciu klucza tajnego lub iniekcyju uzyskanego z przepływu konfiguracji tokenu oprogramowania. Klienci mogą zakupić te tokeny od wybranego dostawcy i użyć klucza tajnego lub iniekta w procesie konfiguracji dostawcy.
 
 ## <a name="oath-hardware-tokens-preview"></a>Tokeny sprzętowe OATH (wersja zapoznawcza)
 
-Usługa Azure AD obsługuje użycie tokenów TOTP SHA-1, które odświeżają kody co 30 lub 60 sekund. Klienci mogą zakupić te tokeny od wybranego przez siebie dostawcy.
+Usługa Azure AD obsługuje korzystanie z tokenów SHA-1 OATH-TOTP, które odświeżają kody co 30 lub 60 sekund. Klienci mogą zakupić te tokeny od wybranego dostawcy.
 
-Tokeny sprzętowe TOTP OATH zazwyczaj pochodzą z kluczem tajnym lub inicjatorem, który jest wstępnie zaprogramowany w tokenie. Te klucze muszą być danymi wejściowymi do usługi Azure AD, zgodnie z opisem w poniższych krokach. Klucze tajne są ograniczone do 128 znaków, które mogą nie być zgodne ze wszystkimi tokenami. Klucz tajny może zawierać tylko znaki *a-z* lub *a-z* i cyfry *2-7*, a także musi być zakodowany w *Base32*.
+Tokeny sprzętowe OATH TOTP są zwykle wyposażone w klucz tajny lub iniekcję wstępnie zaprogramowane w tokenie. Te klucze muszą być wprowadzane do usługi Azure AD zgodnie z opisem w poniższych krokach. Klucze tajne są ograniczone do 128 znaków, które mogą nie być zgodne ze wszystkimi tokenami. Klucz tajny może zawierać tylko znaki *a–z* lub *A–Z* i *cyfry 2–7* i musi być zakodowany w *formacie Base32*.
 
-Programowalne tokeny sprzętowe TOTP OATH można również skonfigurować za pomocą usługi Azure AD w przepływie instalacji tokenu oprogramowania.
+Programowalne tokeny sprzętowe OATH TOTP, które można ponownie edytować, można również skonfigurować za pomocą usługi Azure AD w przepływie konfiguracji tokenu oprogramowania.
 
-Tokeny sprzętowe OATH są obsługiwane w ramach publicznej wersji zapoznawczej. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
+Tokeny sprzętowe OATH są obsługiwane w ramach publicznej wersji zapoznawczej. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz Dodatkowe warunki użytkowania dotyczące [wersji Microsoft Azure zapoznawczych.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-![Przekazywanie tokenów OATH do bloku tokenów OATH usługi MFA](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
+![Przekazywanie tokenów OATH do bloku tokenów uwierzytelniania wieloskładnikowego OATH](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
-Po uzyskaniu tokenów należy je przekazać w formacie pliku wartości rozdzielanych przecinkami (CSV), w tym nazwy UPN, numeru seryjnego, klucza tajnego, interwału czasu, producenta i modelu, jak pokazano w następującym przykładzie:
+Pozyskane tokeny należy przekazać w formacie pliku wartości rozdzielanych przecinkami (CSV), w tym nazwę UPN, numer seryjny, klucz tajny, przedział czasu, producenta i model, jak pokazano w poniższym przykładzie:
 
 ```csv
 upn,serial number,secret key,time interval,manufacturer,model
@@ -49,16 +49,16 @@ Helga@contoso.com,1234567,2234567abcdef2234567abcdef,60,Contoso,HardwareKey
 ```  
 
 > [!NOTE]
-> Upewnij się, że dołączysz wiersz nagłówka do pliku CSV. Jeśli nazwa UPN ma pojedyncze cudzysłowy, należy to zrobić z innym pojedynczym cudzysłowem. Na przykład jeśli nazwa UPN to my user@domain.com , Zmień ją na mój "" user@domain.com podczas przekazywania pliku.
+> Upewnij się, że w pliku CSV znajduje się wiersz nagłówka. Jeśli upn ma pojedynczy cudzysłów, należy go ominąć innym pojedynczym cudzysłowem. Jeśli na przykład nazwa UPN to my, zmień ją na user@domain.com my'' user@domain.com podczas przekazywania pliku.
 
-Po prawidłowym sformatowaniu pliku CSV Administrator globalny może następnie zalogować się do Azure Portal, przejść do **Azure Active Directory > zabezpieczenia > MFA > tokeny Oath** i przekazać plik CSV.
+Po prawidłowym sformatowaniu jako plik CSV administrator globalny może zalogować się do usługi Azure Portal, przejść do usługi **Azure Active Directory > Security > MFA > tokenów OATH** i przekazać wynikowy plik CSV.
 
-Proces może potrwać kilka minut, w zależności od rozmiaru pliku CSV. Wybierz przycisk **Odśwież** , aby uzyskać bieżący stan. W przypadku wystąpienia błędów w pliku można pobrać plik CSV, który zawiera listę błędów, które należy rozwiązać. Nazwy pól w pobranym pliku CSV różnią się od przekazanej wersji.  
+W zależności od rozmiaru pliku CSV przetwarzanie może potrwać kilka minut. Wybierz przycisk **Odśwież,** aby uzyskać bieżący stan. Jeśli w pliku występują błędy, możesz pobrać plik CSV zawierający listę błędów do rozwiązania. Nazwy pól w pobranym pliku CSV różnią się od przekazanej wersji.  
 
-Po rozwiązaniu jakichkolwiek błędów administrator może aktywować każdy klucz, wybierając pozycję **Aktywuj** dla tokenu i wprowadzając uwierzytelnianie OTP wyświetlane na tokenie. Maksymalnie 200 tokenów OATH można aktywować co 5 minut. 
+Po wprowadzeniu jakichkolwiek błędów administrator może aktywować  każdy klucz, wybierając pozycję Aktywuj dla tokenu i wprowadzając uwierzytelnianie OTP wyświetlane w tokenie. Co 5 minut można aktywować maksymalnie 200 tokenów OATH. 
 
-Użytkownicy mogą mieć kombinację maksymalnie pięciu tokenów sprzętowych OATH lub aplikacji uwierzytelniania, takich jak Microsoft Authenticator aplikacji skonfigurowanych do użycia w dowolnym momencie. Tokeny OATH sprzętu nie mogą być przypisane do użytkowników-Gości w dzierżawie zasobów.
+Użytkownicy mogą mieć kombinację maksymalnie pięciu tokenów sprzętowych OATH lub aplikacji wystawcy uwierzytelnień, takich jak Microsoft Authenticator aplikacji, skonfigurowanych do użycia w dowolnym momencie. Sprzętowych tokenów OATH nie można przypisać do użytkowników-gości w dzierżawie zasobów.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na temat konfigurowania metod uwierzytelniania przy użyciu [interfejsu API REST Microsoft Graph w wersji beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+Dowiedz się więcej na temat konfigurowania metod uwierzytelniania przy użyciu [Microsoft Graph API REST.](/graph/api/resources/authenticationmethods-overview)

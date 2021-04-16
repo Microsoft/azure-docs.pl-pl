@@ -1,23 +1,23 @@
 ---
-title: Obsługiwane funkcje FHIR na platformie Azure — interfejs API platformy Azure dla FHIR
-description: W tym artykule wyjaśniono, które funkcje specyfikacji FHIR wdrożone w interfejsie API platformy Azure dla FHIR
+title: Obsługiwane funkcje platformy FHIR na platformie Azure — Azure API for FHIR
+description: W tym artykule wyjaśniono, które funkcje specyfikacji FHIR zaimplementowane w Azure API for FHIR
 services: healthcare-apis
 author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 1/30/2021
+ms.date: 4/15/2021
 ms.author: cavoeg
-ms.openlocfilehash: 9bd61d65d6d64dac6081d3491deb8a15efc4a45b
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 56e3ba46ffb43aec907d729a2e74cdf6f7a62c32
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105048423"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530641"
 ---
 # <a name="features"></a>Funkcje
 
-Interfejs API platformy Azure dla usługi FHIR zapewnia w pełni zarządzane wdrożenie serwera programu Microsoft FHIR dla platformy Azure. Serwer jest implementacją standardu [FHIR](https://hl7.org/fhir) . Ten dokument zawiera listę głównych funkcji serwera FHIR.
+Azure API for FHIR zapewnia w pełni zarządzane wdrożenie serwera Microsoft FHIR dla platformy Azure. Serwer jest implementacją [standardu FHIR.](https://hl7.org/fhir) Ten dokument zawiera listę głównych funkcji serwera FHIR.
 
 ## <a name="fhir-version"></a>Wersja FHIR
 
@@ -27,149 +27,149 @@ Obecnie obsługiwane są również poprzednie wersje: `3.0.2`
 
 ## <a name="rest-api"></a>Interfejs API REST
 
-| Interfejs API                            | Obsługiwane — PaaS | Obsługiwane — OSS (SQL) | Obsługiwane — OSS (Cosmos DB) | Komentarz                                             |
+| Interfejs API                            | Obsługiwane — PaaS | Obsługiwane — OSS (SQL) | Obsługiwane — system operacyjny (Cosmos DB) | Komentarz                                             |
 |--------------------------------|-----------|-----------|-----------|-----------------------------------------------------|
-| odczyt                           | Tak       | Tak       | Tak       |                                                     |
-| vread                          | Tak       | Tak       | Tak       |                                                     |
-| update                         | Tak       | Tak       | Tak       |                                                     |
-| Aktualizuj przy użyciu optymistycznego blokowania | Tak       | Tak       | Tak       |                                                     |
-| Aktualizuj (warunkowo)           | Tak       | Tak       | Tak       |                                                     |
-| wysłana                          | Nie        | Nie        | Nie        |                                                     |
-| delete                         | Tak       | Tak       | Tak       |  Zobacz uwagę poniżej.                                   |
-| Usuń (warunkowe)           | Nie        | Nie        | Nie        |                                                     |
-| historia                        | Tak       | Tak       | Tak       |                                                     |
-| create                         | Tak       | Tak       | Tak       | Obsługa funkcji POST/PUT                               |
-| Utwórz (warunkowo)           | Tak       | Tak       | Tak       | [#1382](https://github.com/microsoft/fhir-server/issues/1382) problemu |
-| search                         | Częściowe   | Częściowe   | Częściowe   | Zobacz sekcję Wyszukaj poniżej.                           |
-| Wyszukiwanie łańcuchowe                 | Tak       | Tak       | Częściowe   | Patrz Uwaga 2 poniżej.                                   |
-| Wyszukiwanie w łańcuchu wstecznym         | Tak       | Tak       | Częściowe   | Patrz Uwaga 2 poniżej.                                   |
-| możliwości                   | Tak       | Tak       | Tak       |                                                     |
-| partia                          | Tak       | Tak       | Tak       |                                                     |
-| Transaction                    | Nie        | Tak       | Nie        |                                                     |
-| stronicowania                         | Częściowe   | Częściowe   | Częściowe   | `self` i `next` są obsługiwane                     |
-| pośredników                 | Nie        | Nie        | Nie        |                                                     |
+| odczyt                           | Yes       | Yes       | Yes       |                                                     |
+| vread                          | Yes       | Yes       | Yes       |                                                     |
+| update                         | Yes       | Yes       | Yes       |                                                     |
+| aktualizowanie za pomocą optymistycznego blokowania | Yes       | Yes       | Yes       |                                                     |
+| aktualizacja (warunkowa)           | Yes       | Yes       | Yes       |                                                     |
+| Patch                          | Nie        | Nie        | Nie        |                                                     |
+| delete                         | Yes       | Yes       | Yes       |  Zobacz uwaga poniżej.                                   |
+| usuwanie (warunkowe)           | Nie        | Nie        | Nie        |                                                     |
+| historia                        | Yes       | Yes       | Yes       |                                                     |
+| create                         | Yes       | Yes       | Yes       | Obsługa zarówno post/PUT                               |
+| create (warunkowe)           | Yes       | Yes       | Yes       | Problem [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
+| search                         | Częściowe   | Częściowe   | Częściowe   | Zobacz sekcję Wyszukiwanie poniżej.                           |
+| wyszukiwanie łańcuchowe                 | Częściowe       | Yes       | Częściowe   | Zobacz uwaga 2 poniżej.                                   |
+| wyszukiwanie odwrotne łańcuchowe         | Częściowe       | Yes       | Częściowe   | Zobacz uwaga 2 poniżej.                                   |
+| możliwości                   | Yes       | Yes       | Yes       |                                                     |
+| partia                          | Yes       | Yes       | Yes       |                                                     |
+| Transakcji                    | Nie        | Yes       | Nie        |                                                     |
+| Stronicowania                         | Częściowe   | Częściowe   | Częściowe   | `self` i `next` są obsługiwane                     |
+| Pośredników                 | Nie        | Nie        | Nie        |                                                     |
 
 > [!Note]
-> Usunięcie zdefiniowane przez specyfikację FHIR wymaga, aby po usunięciu kolejne odczyty zasobów, które nie są specyficzne dla wersji, zwracały kod stanu HTTP 410, a zasób nie został już odnaleziony przez wyszukiwanie. Interfejs API platformy Azure dla usługi FHIR umożliwia również całkowite usunięcie (łącznie z całą historią) zasobu. Aby całkowicie usunąć zasób, można przekazać ustawienia parametru `hardDelete` do wartości true ( `DELETE {server}/{resource}/{id}?hardDelete=true` ). Jeśli nie przekażesz tego parametru lub nie ustawisz `hardDelete` wartości false, nadal będą dostępne wersje historyczne zasobu.
+> Usunięcie zdefiniowane przez specyfikację FHIR wymaga, aby po usunięciu kolejnych odczytów zasobu innych niż specyficzne dla wersji zwracał kod stanu HTTP 410 i zasób nie był już wyszukiwany. Ta Azure API for FHIR umożliwia również całkowite usunięcie zasobu (w tym całej historii). Aby całkowicie usunąć zasób, możesz przekazać ustawienia parametrów `hardDelete` do wartości true ( `DELETE {server}/{resource}/{id}?hardDelete=true` ). Jeśli nie przekażemy tego parametru lub ustawisz wartość false, historyczne wersje zasobu będą `hardDelete` nadal dostępne.
 
 
  **Uwaga 2**
-* Dodaje obsługę programu MVP dla łańcuchowych i odwracających łańcucha FHIR w CosmosDB. 
+* Dodano obsługę MVP dla wyszukiwania łańcuchowego i odwrotnie łańcuchowego FHIR w bazie danych CosmosDB. 
 
-  W interfejsie API platformy Azure dla usługi FHIR i serwera FHIR Open Source obsługiwanego przez Cosmos wyszukiwanie łańcuchowe wyszukiwania i łańcucha wstecznego jest implementacją MVP. Aby wykonać wyszukiwanie łańcuchowe na Cosmos DB, implementacja sprawdza wyrażenie wyszukiwania i wystawia zapytania podrzędne, aby rozwiązać dopasowane zasoby. Jest to wykonywane dla każdego poziomu wyrażenia. Jeśli dowolne zapytanie zwróci więcej niż 100 wyników, zostanie zgłoszony błąd. Domyślnie wyszukiwanie łańcuchowe jest za flagą funkcji. Aby użyć wyszukiwania łańcuchowego na Cosmos DB, użyj nagłówka `x-ms-enable-chained-search: true` . Aby uzyskać więcej informacji, zobacz [PR 1695](https://github.com/microsoft/fhir-server/pull/1695).
+  W modelu Azure API for FHIR i serwerze FHIR typu open source, który jest zapasowy przez usługę Cosmos, łańcuchowe wyszukiwanie i wyszukiwanie łańcuchowe to implementacja MVP. Aby wykonać wyszukiwanie łańcuchowe na Cosmos DB, implementacja przechodzi w dół wyrażenia wyszukiwania i wysyła zapytania podrzędne, aby rozwiązać dopasowane zasoby. Odbywa się to dla każdego poziomu wyrażenia. Jeśli jakiekolwiek zapytanie zwróci więcej niż 100 wyników, zostanie zgłoszony błąd. Domyślnie wyszukiwanie łańcuchowe znajduje się za flagą funkcji. Aby użyć wyszukiwania łańcuchowego na Cosmos DB, użyj nagłówka `x-ms-enable-chained-search: true` . Aby uzyskać więcej informacji, zobacz [PR 1695](https://github.com/microsoft/fhir-server/pull/1695).
 
 ## <a name="search"></a>Wyszukaj
 
-Wszystkie typy parametrów wyszukiwania są obsługiwane. 
+Obsługiwane są wszystkie typy parametrów wyszukiwania. 
 
-| Typ parametru wyszukiwania | Obsługiwane — PaaS | Obsługiwane — OSS (SQL) | Obsługiwane — OSS (Cosmos DB) | Komentarz |
+| Typ parametru wyszukiwania | Obsługiwane — PaaS | Obsługiwane — OSS (SQL) | Obsługiwane — system operacyjny (Cosmos DB) | Komentarz |
 |-----------------------|-----------|-----------|-----------|---------|
-| Liczba                | Tak       | Tak       | Tak       |         |
-| Data/godzina         | Tak       | Tak       | Tak       |         |
-| Ciąg                | Tak       | Tak       | Tak       |         |
-| Token                 | Tak       | Tak       | Tak       |         |
-| Odwołanie             | Tak       | Tak       | Tak       |         |
-| Złożenie             | Tak       | Tak       | Tak       |         |
-| Liczba              | Tak       | Tak       | Tak       |         |
-| URI                   | Tak       | Tak       | Tak       |         |
-| Jako               | Nie        | Nie        | Nie        |         |
+| Liczba                | Yes       | Yes       | Yes       |         |
+| Date/DateTime         | Yes       | Yes       | Tak       |         |
+| Ciąg                | Yes       | Yes       | Yes       |         |
+| Token                 | Yes       | Yes       | Yes       |         |
+| Odwołanie             | Yes       | Yes       | Yes       |         |
+| Złożenie             | Yes       | Yes       | Yes       |         |
+| Liczba              | Yes       | Yes       | Yes       |         |
+| URI                   | Yes       | Yes       | Yes       |         |
+| Specjalne               | Nie        | Nie        | Nie        |         |
 
 
-| Modyfikatory             | Obsługiwane — PaaS | Obsługiwane — OSS (SQL) | Obsługiwane — OSS (Cosmos DB) | Komentarz |
+| Modyfikatory             | Obsługiwane — PaaS | Obsługiwane — OSS (SQL) | Obsługiwane — system operacyjny (Cosmos DB) | Komentarz |
 |-----------------------|-----------|-----------|-----------|---------|
-|`:missing`             | Tak       | Tak       | Tak       |         |
-|`:exact`               | Tak       | Tak       | Tak       |         |
-|`:contains`            | Tak       | Tak       | Tak       |         |
-|`:text`                | Tak       | Tak       | Tak       |         |
-|`:[type]` odwoła  | Tak       | Tak       | Tak       |         |
-|`:not`                 | Tak       | Tak       | Tak       |         |
-|`:below` adresu         | Tak       | Tak       | Tak       |         |
-|`:above` adresu         | Nie        | Nie        | Nie        | [#158](https://github.com/Microsoft/fhir-server/issues/158) problemu |
-|`:in` klucza          | Nie        | Nie        | Nie        |         |
-|`:below` klucza       | Nie        | Nie        | Nie        |         |
-|`:above` klucza       | Nie        | Nie        | Nie        |         |
-|`:not-in` klucza      | Nie        | Nie        | Nie        |         |
+|`:missing`             | Yes       | Yes       | Yes       |         |
+|`:exact`               | Yes       | Yes       | Yes       |         |
+|`:contains`            | Yes       | Yes       | Yes       |         |
+|`:text`                | Yes       | Yes       | Yes       |         |
+|`:[type]` (odwołanie)  | Yes       | Yes       | Yes       |         |
+|`:not`                 | Yes       | Yes       | Yes       |         |
+|`:below` (URI)         | Yes       | Yes       | Yes       |         |
+|`:above` (URI)         | Nie        | Nie        | Nie        | Problem [#158](https://github.com/Microsoft/fhir-server/issues/158) |
+|`:in` (token)          | Nie        | Nie        | Nie        |         |
+|`:below` (token)       | Nie        | Nie        | Nie        |         |
+|`:above` (token)       | Nie        | Nie        | Nie        |         |
+|`:not-in` (token)      | Nie        | Nie        | Nie        |         |
 
-| Typowy parametr wyszukiwania | Obsługiwane — PaaS | Obsługiwane — OSS (SQL) | Obsługiwane — OSS (Cosmos DB) | Komentarz |
+| Parametr wyszukiwania wspólnego | Obsługiwane — PaaS | Obsługiwane — OSS (SQL) | Obsługiwane — system operacyjny (Cosmos DB) | Komentarz |
 |-------------------------| ----------| ----------| ----------|---------|
-| `_id`                   | Tak       | Tak       | Tak       |         |
-| `_lastUpdated`          | Tak       | Tak       | Tak       |         |
-| `_tag`                  | Tak       | Tak       | Tak       |         |
-| `_list`                 | Tak       | Tak       | Tak       |         |
-| `_type`                 | Tak       | Tak       | Tak       | [#1562](https://github.com/microsoft/fhir-server/issues/1562) problemu        |
-| `_security`             | Tak       | Tak       | Tak       |         |
-| `_profile`              | Częściowe   | Częściowe   | Częściowe   | Obsługiwane w STU3. Jeśli baza danych została utworzona **po** 20 lutego 2021, będziesz mieć również pomoc techniczną. Pracujemy nad włączeniem _profile baz danych utworzonych przed 20 lutego 2021. |
+| `_id`                   | Yes       | Yes       | Yes       |         |
+| `_lastUpdated`          | Yes       | Yes       | Yes       |         |
+| `_tag`                  | Yes       | Yes       | Yes       |         |
+| `_list`                 | Yes       | Yes       | Yes       |         |
+| `_type`                 | Yes       | Yes       | Yes       | Problem [#1562](https://github.com/microsoft/fhir-server/issues/1562)        |
+| `_security`             | Yes       | Yes       | Yes       |         |
+| `_profile`              | Częściowe   | Częściowe   | Częściowe   | Obsługiwane w przypadku 3. Jeśli baza danych została utworzona **po** 20 lutego 2021 r., obsługa będzie również w 4. Pracujemy nad włączeniem obsługi _profile baz danych utworzonych przed 20 lutego 2021 r. |
 | `_text`                 | Nie        | Nie        | Nie        |         |
 | `_content`              | Nie        | Nie        | Nie        |         |
 | `_has`                  | Nie        | Nie        | Nie        |         |
 | `_query`                | Nie        | Nie        | Nie        |         |
 | `_filter`               | Nie        | Nie        | Nie        |         |
 
-| Parametry wyników wyszukiwania | Obsługiwane — PaaS | Obsługiwane — OSS (SQL) | Obsługiwane — OSS (Cosmos DB) | Komentarz |
+| Parametry wyników wyszukiwania | Obsługiwane — PaaS | Obsługiwane — OSS (SQL) | Obsługiwane — system operacyjny (Cosmos DB) | Komentarz |
 |-------------------------|-----------|-----------|-----------|---------|
-| `_elements`             | Tak       | Tak       | Tak       | [#1256](https://github.com/microsoft/fhir-server/issues/1256) problemu        |
-| `_count`                | Tak       | Tak       | Tak       | `_count` jest ograniczone do 1000 znaków. Jeśli ustawiona na wartość większą niż 1000, zostaną zwrócone tylko 1000, a w pakiecie zostanie zwrócone ostrzeżenie. |
-| `_include`              | Tak       | Tak       | Tak       |Uwzględnione elementy są ograniczone do 100. Dołączenie do PaaS i OSS na Cosmos DB nie obejmuje: ITERING support.|
-| `_revinclude`           | Tak       | Tak       | Tak       | Uwzględnione elementy są ograniczone do 100. Dołączenie do PaaS i OSS na Cosmos DB nie [obejmuje: ITERING support](https://github.com/microsoft/fhir-server/issues/1313). [#1319](https://github.com/microsoft/fhir-server/issues/1319) problemu|
-| `_summary`              | Częściowe   | Częściowe   | Częściowe   | `_summary=count` jest obsługiwana |
+| `_elements`             | Yes       | Yes       | Yes       | Problem [#1256](https://github.com/microsoft/fhir-server/issues/1256)        |
+| `_count`                | Yes       | Yes       | Yes       | `_count` jest ograniczona do 1000 znaków. Jeśli wartość jest większa niż 1000, zostanie zwróconych tylko 1000, a w pakiecie zostanie zwrócone ostrzeżenie. |
+| `_include`              | Yes       | Yes       | Yes       |Dołączone elementy są ograniczone do 100. Uwzględnianie w systemach PaaS i OSS na Cosmos DB nie obejmuje obsługi iterować.|
+| `_revinclude`           | Yes       | Yes       | Yes       | Dołączone elementy są ograniczone do 100. Uwzględnij w paaS i OSS na Cosmos DB [nie obejmuje obsługi iterować](https://github.com/microsoft/fhir-server/issues/1313). Problem [#1319](https://github.com/microsoft/fhir-server/issues/1319)|
+| `_summary`              | Częściowe   | Częściowe   | Częściowe   | `_summary=count` jest obsługiwany |
 | `_total`                | Częściowe   | Częściowe   | Częściowe   | `_total=none` i `_total=accurate`      |
-| `_sort`                 | Częściowe   | Częściowe   | Częściowe   |   `_sort=_lastUpdated` jest obsługiwana       |
+| `_sort`                 | Częściowe   | Częściowe   | Częściowe   |   `_sort=_lastUpdated` jest obsługiwany       |
 | `_contained`            | Nie        | Nie        | Nie        |         |
 | `containedType`         | Nie        | Nie        | Nie        |         |
 | `_score`                | Nie        | Nie        | Nie        |         |
 
 ## <a name="extended-operations"></a>Operacje rozszerzone
 
-Wszystkie obsługiwane operacje, które zwiększają interfejs API RESTful.
+Wszystkie obsługiwane operacje rozszerzające interfejs API RESTful.
 
-| Typ parametru wyszukiwania | Obsługiwane — PaaS | Obsługiwane — OSS (SQL) | Obsługiwane — OSS (Cosmos DB) | Komentarz |
+| Typ parametru wyszukiwania | Obsługiwane — PaaS | Obsługiwane — OSS (SQL) | Obsługiwane — system operacyjny (Cosmos DB) | Komentarz |
 |------------------------|-----------|-----------|-----------|---------|
-| $export (cały system) | Tak       | Tak       | Tak       |         |
-| Pacjent/$export        | Tak       | Tak       | Tak       |         |
-| Grupuj/$export          | Tak       | Tak       | Tak       |         |
-| $convert — dane          | Tak       | Tak       | Tak       |         |
+| $export (cały system) | Yes       | Yes       | Yes       |         |
+| Pacjent/$export        | Yes       | Yes       | Yes       |         |
+| Grupa/$export          | Yes       | Yes       | Yes       |         |
+| $convert danych          | Yes       | Yes       | Yes       |         |
 
 
 ## <a name="persistence"></a>Trwałość
 
-Serwer programu Microsoft FHIR ma podłączany moduł trwałości (zobacz [`Microsoft.Health.Fhir.Core.Features.Persistence`](https://github.com/Microsoft/fhir-server/tree/master/src/Microsoft.Health.Fhir.Core/Features/Persistence) ).
+Serwer Microsoft FHIR ma podłączany moduł trwałości (zobacz [`Microsoft.Health.Fhir.Core.Features.Persistence`](https://github.com/Microsoft/fhir-server/tree/master/src/Microsoft.Health.Fhir.Core/Features/Persistence) ).
 
-Obecnie kod "open-source" serwera FHIR zawiera implementację [Azure Cosmos DB](../../cosmos-db/index-overview.md) i [SQL Database](https://azure.microsoft.com/services/sql-database/).
+Obecnie kod open-source serwera FHIR zawiera implementację dla Azure Cosmos DB [i](../../cosmos-db/index-overview.md) [SQL Database](https://azure.microsoft.com/services/sql-database/).
 
-Cosmos DB to baza danych oparta na globalnie rozproszonym modelu (SQL API, MongoDB API itp.). Obsługuje różne [poziomy spójności](../../cosmos-db/consistency-levels.md). Domyślny szablon wdrożenia konfiguruje serwer FHIR ze `Strong` spójnością, ale zasady spójności mogą być modyfikowane (zwykle swobodne) na żądanie przez podstawę żądania przy użyciu `x-ms-consistency-level` nagłówka żądania.
+Cosmos DB to globalnie dystrybuowana wielo modelowa baza danych (interfejs API SQL, interfejs API bazy danych MongoDB itp.). Obsługuje różne [poziomy spójności.](../../cosmos-db/consistency-levels.md) Domyślny szablon wdrożenia umożliwia skonfigurowanie spójności serwera FHIR, ale zasady spójności mogą być modyfikowane (zwykle luźne) na podstawie żądań przy użyciu `Strong` `x-ms-consistency-level` nagłówka żądania.
 
 ## <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
 
-Serwer FHIR używa [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) na potrzeby kontroli dostępu. W konkretnym przypadku kontrola dostępu oparta na rolach (RBAC) jest wymuszana, jeśli `FhirServer:Security:Enabled` parametr konfiguracji jest ustawiony na `true` , a wszystkie żądania (z wyjątkiem `/metadata` ) do serwera FHIR muszą mieć `Authorization` nagłówek żądania ustawiony na `Bearer <TOKEN>` . Token musi zawierać co najmniej jedną rolę zdefiniowaną w ramach tego `roles` żądania. Żądanie będzie dozwolone, jeśli token zawiera rolę, która zezwala na określoną akcję dla określonego zasobu.
+Serwer FHIR używa [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) kontroli dostępu. W szczególności wymuszana jest kontrola dostępu oparta na rolach (RBAC), jeśli parametr konfiguracji jest ustawiony na wartość , a wszystkie żądania (z wyjątkiem ) do serwera FHIR muszą mieć nagłówek żądania ustawiony na `FhirServer:Security:Enabled` `true` wartość `/metadata` `Authorization` `Bearer <TOKEN>` . Token musi zawierać co najmniej jedną rolę zgodnie z definicją w `roles` oświadczenie. Żądanie będzie dozwolone, jeśli token zawiera rolę, która umożliwia określoną akcję dla określonego zasobu.
 
-Obecnie dozwolone akcje dla danej roli są stosowane *globalnie* w interfejsie API.
+Obecnie dozwolone akcje dla danej roli są stosowane *globalnie w* interfejsie API.
 
 ## <a name="service-limits"></a>Limity usługi
 
-* [**Jednostki żądań (jednostek ru)**](../../cosmos-db/concepts-limits.md) — możesz skonfigurować do 10 000 jednostek RU w portalu dla interfejsu API platformy Azure dla FHIR. Wymagana jest co najmniej 400 jednostek ru lub 10 jednostek ru/GB, w zależności od tego, co będzie większe. Jeśli potrzebujesz więcej niż 10 000 jednostek ru, możesz umieścić bilet pomocy technicznej w celu zwiększenia tego problemu. Maksymalna dostępna wartość to 1 000 000.
+* [**Jednostki żądań (JEDNOSTKI ŻĄDAŃ)**](../../cosmos-db/concepts-limits.md) — w portalu można skonfigurować maksymalnie 10 000 jednostek AZURE API FOR FHIR. Będziesz potrzebować co najmniej 400 lub 40 PROCESORÓW/GB, w zależności od tego, która z tych wartości jest większa. Jeśli potrzebujesz więcej niż 10 000 procesorów, możesz umieścić bilet pomocy technicznej, aby to zwiększyć. Maksymalna dostępna liczba to 1 000 000.
 
-* **Współbieżne połączenia** i **wystąpienia** — domyślnie masz pięć współbieżnych połączeń w dwóch wystąpieniach w klastrze (w sumie 10 współbieżnych żądań). Jeśli uważasz, że potrzebujesz więcej współbieżnych żądań, Otwórz bilet pomocy technicznej ze szczegółowymi informacjami dotyczącymi Twoich potrzeb.
+* **Połączenia współbieżne** i **wystąpienia** — domyślnie masz pięć połączeń współbieżnych w dwóch wystąpieniach w klastrze (łącznie 10 równoczesnych żądań). Jeśli uważasz, że potrzebujesz większej liczby współbieżnych żądań, otwórz bilet pomocy technicznej ze szczegółami swoich potrzeb.
 
 * **Rozmiar pakietu** — każdy pakiet jest ograniczony do 500 elementów.
 
-* **Rozmiar danych** — dane/dokumenty muszą być nieco mniejsze niż 2 MB.
+* **Rozmiar danych** — rozmiar danych/dokumentów musi być nieco mniejszy niż 2 MB.
 
 ## <a name="performance-expectations"></a>Oczekiwania dotyczące wydajności
 
-Wydajność systemu zależy od liczby jednostek ru, połączeń współbieżnych i typu wykonywanych operacji (Put, post itp.). Poniżej znajdują się niektóre ogólne zakresy, których można oczekiwać na podstawie skonfigurowanych jednostek ru. Ogólnie rzecz biorąc, wydajność skaluje się liniowo ze wzrostem jednostek ru:
+Wydajność systemu zależy od liczby wystąpień żądań, połączeń współbieżnych i typu wykonywanych operacji (Put, Post itp.). Poniżej przedstawiono niektóre ogólne zakresy tego, czego można oczekiwać na podstawie skonfigurowanych procesorów. Ogólnie rzecz biorąc, wydajność jest skalowana liniowo ze wzrostem liczby procesorów:
 
-| Liczba jednostek ru | Zasoby/s |    Maksymalna ilość miejsca w magazynie (GB) *    |
+| Liczba procesorów | Zasoby/s |    Maksymalny rozmiar magazynu (GB)*    |
 |----------|---------------|--------|                 
-| 400      | 5-10          |     40   |
-| 1000    | 100-150       |      100  |
-| 10 000   | 225-400       |      1000  |
-| 100 000  | 2500 – 4000   |      10 000  |
+| 400      | 5-10          |     10   |
+| 1000    | 100-150       |      25  |
+| 10 000   | 225-400       |      250  |
+| 100 000  | 2,500-4,000   |      2500  |
 
-Uwaga: zgodnie z wymaganiami Cosmos DB wymagana jest minimalna przepływność 10 jednostek RU/s na GB magazynu. Aby uzyskać więcej informacji, zapoznaj się z [przydziałami usługi Cosmos DB](../../cosmos-db/concepts-limits.md).
+Uwaga: na Cosmos DB wymagana jest minimalna przepływność 40 RU/s na GB magazynu. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Ten artykuł zawiera informacje o obsługiwanych funkcjach FHIR w interfejsie API platformy Azure dla FHIR. Następnie wdróż interfejs API platformy Azure dla usługi FHIR.
+W tym artykule poczytaliśmy o obsługiwanych funkcjach FHIR w Azure API for FHIR. Następnie wd wdrażaj Azure API for FHIR.
  
 >[!div class="nextstepaction"]
 >[Wdrażanie usługi Azure API for FHIR](fhir-paas-portal-quickstart.md)

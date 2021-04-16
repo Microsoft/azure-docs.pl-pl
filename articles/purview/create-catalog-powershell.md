@@ -1,35 +1,37 @@
 ---
-title: 'Szybki Start: Tworzenie konta usługi Azure kontrolą za pomocą usługi Azure PowerShell/interfejsu wiersza polecenia platformy Azure (wersja zapoznawcza)'
-description: W tym przewodniku szybki start opisano sposób tworzenia konta usługi Azure kontrolą przy użyciu interfejsu wiersza polecenia Azure PowerShell/platformy Azure.
+title: 'Szybki start: tworzenie konta usługi Azure Purview przy użyciu interfejsu wiersza Azure PowerShell/interfejsu wiersza polecenia platformy Azure (wersja zapoznawcza)'
+description: W tym przewodniku Szybki start opisano sposób tworzenia konta usługi Azure Purview przy użyciu Azure PowerShell interfejsu wiersza polecenia platformy Azure.
 author: hophanms
 ms.author: hophan
+ms.date: 11/23/2020
+ms.topic: quickstart
 ms.service: purview
 ms.subservice: purview-data-catalog
-ms.topic: quickstart
-ms.date: 11/23/2020
-ms.openlocfilehash: 0698295688a4587a704e8cdba0a4796e8d1e6fcd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- mode-api
+ms.openlocfilehash: 6266aedaec8f171a1a6ff3e0d15abdad0263767a
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98880003"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530868"
 ---
-# <a name="quickstart-create-an-azure-purview-account-using-azure-powershellazure-cli"></a>Szybki Start: Tworzenie konta usługi Azure kontrolą za pomocą Azure PowerShell/interfejsu wiersza polecenia platformy Azure
+# <a name="quickstart-create-an-azure-purview-account-using-azure-powershellazure-cli"></a>Szybki start: tworzenie konta usługi Azure Purview przy użyciu interfejsu wiersza Azure PowerShell platformy Azure
 
 > [!IMPORTANT]
-> Usługa Azure kontrolą jest obecnie dostępna w wersji zapoznawczej. Dodatkowe [warunki użytkowania](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych programu Microsoft Azure to m.in. Postanowienia prawne dotyczące funkcji systemu Azure, które są dostępne w wersjach beta, Preview lub w inny sposób nie są jeszcze ogólnie udostępniane.
+> Usługa Azure Purview jest obecnie dostępna w wersji zapoznawczej. Dodatkowe warunki użytkowania wersji [zapoznawczych](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) programu Microsoft Azure obejmują dodatkowe postanowienia prawne dotyczące funkcji platformy Azure, które są w wersji beta, wersji zapoznawczej lub w inny sposób nie zostały jeszcze wydane jako ogólnie dostępne.
 
-W tym przewodniku szybki start utworzysz konto usługi Azure kontrolą przy Azure PowerShell użyciu interfejsu wiersza polecenia platformy Azure.
+W tym przewodniku Szybki start utworzysz konto usługi Azure Purview przy użyciu Azure PowerShell/interfejsu wiersza polecenia platformy Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Konto użytkownika używane do logowania się na platformie Azure musi być członkiem roli współautora lub właściciela albo administratorem subskrypcji platformy Azure.
+* Konto użytkownika, za pomocą których logujesz się do platformy Azure, musi być członkiem roli współautora lub właściciela albo administratorem subskrypcji platformy Azure.
 
 * Własna [dzierżawa usługi Azure Active Directory](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
-* Zainstaluj Azure PowerShell lub interfejs wiersza polecenia platformy Azure na komputerze klienckim, aby wdrożyć szablon: [wdrażanie w wierszu poleceń](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-cli#command-line-deployment)
+* Zainstaluj Azure PowerShell interfejsu wiersza polecenia platformy Azure na komputerze klienckim, aby wdrożyć szablon: [Wdrożenie przy użyciu wiersza polecenia](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-cli#command-line-deployment)
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -37,26 +39,26 @@ Zaloguj się w [witrynie Azure Portal](https://portal.azure.com) przy użyciu da
 
 ## <a name="configure-your-subscription"></a>Konfigurowanie subskrypcji
 
-W razie potrzeby wykonaj następujące kroki, aby skonfigurować swoją subskrypcję, aby umożliwić uruchamianie usługi Azure kontrolą w ramach subskrypcji:
+W razie potrzeby wykonaj następujące kroki, aby skonfigurować subskrypcję, aby umożliwić uruchamianie usługi Azure Purview w ramach subskrypcji:
 
-   1. W Azure Portal Wyszukaj i wybierz pozycję **subskrypcje**.
+   1. W skrypcie Azure Portal wyszukaj i wybierz **pozycję Subskrypcje.**
 
    1. Z listy subskrypcji wybierz subskrypcję, której chcesz użyć. Wymagane jest uprawnienie dostępu administracyjnego dla subskrypcji.
 
       :::image type="content" source="./media/create-catalog-portal/select-subscription.png" alt-text="Zrzut ekranu przedstawiający sposób wybierania subskrypcji w Azure Portal.":::
 
-   1. W przypadku subskrypcji wybierz pozycję **dostawcy zasobów**. W okienku **dostawcy zasobów** Wyszukaj i zarejestruj wszystkich trzech dostawców zasobów: 
-       1. **Microsoft. kontrolą**
+   1. W przypadku subskrypcji wybierz pozycję **Dostawcy zasobów.** W **okienku Dostawcy zasobów** wyszukaj i zarejestruj wszystkich trzech dostawców zasobów: 
+       1. **Microsoft.Purview**
        1. **Microsoft.Storage**
-       1. **Microsoft. EventHub** 
+       1. **Microsoft.EventHub** 
       
-      Jeśli nie są zarejestrowane, zarejestruj je, wybierając pozycję **zarejestruj**.
+      Jeśli użytkownik nie jest zarejestrowany, zarejestruj go, wybierając pozycję **Zarejestruj.**
 
-      :::image type="content" source="./media/create-catalog-portal/register-purview-resource-provider.png" alt-text="Zrzut ekranu przedstawiający sposób rejestrowania dostawcy zasobów usługi Azure kontrolą firmy Microsoft w Azure Portal.":::
+      :::image type="content" source="./media/create-catalog-portal/register-purview-resource-provider.png" alt-text="Zrzut ekranu przedstawiający sposób rejestrowania dostawcy zasobów Microsoft dot Azure Purview w Azure Portal.":::
 
-## <a name="create-an-azure-purview-account-instance"></a>Tworzenie wystąpienia konta usługi Azure kontrolą
+## <a name="create-an-azure-purview-account-instance"></a>Tworzenie wystąpienia konta usługi Azure Purview
 
-1. Zaloguj się przy użyciu poświadczeń platformy Azure
+1. Logowanie się przy użyciu poświadczeń platformy Azure
 
     # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
     
@@ -88,7 +90,7 @@ W razie potrzeby wykonaj następujące kroki, aby skonfigurować swoją subskryp
     
     ---
 
-1. Utwórz grupę zasobów dla konta usługi kontrolą. Możesz pominąć ten krok, jeśli masz już jeden:
+1. Utwórz grupę zasobów dla konta programu Purview. Możesz pominąć ten krok, jeśli już istnieje:
 
     # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
     
@@ -108,7 +110,7 @@ W razie potrzeby wykonaj następujące kroki, aby skonfigurować swoją subskryp
     
     ---
 
-1. Utwórz plik szablonu kontrolą, taki jak `purviewtemplate.json` . Możesz zaktualizować `name` , `location` i `capacity` ( `4` lub `16` ):
+1. Utwórz plik szablonu programu Purview, taki jak `purviewtemplate.json` . Możesz zaktualizować `name` , , i ( lub `location` `capacity` `4` `16` ):
 
     ```json
     {
@@ -140,7 +142,7 @@ W razie potrzeby wykonaj następujące kroki, aby skonfigurować swoją subskryp
     }
     ```
 
-1. Wdróż szablon kontrolą
+1. Wdrażanie szablonu programu Purview
 
     # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
     
@@ -158,13 +160,13 @@ W razie potrzeby wykonaj następujące kroki, aby skonfigurować swoją subskryp
     
     ---
 
-1. Polecenie wdrożenia zwraca wyniki. Wyszukaj `ProvisioningState` , aby sprawdzić, czy wdrożenie zakończyło się pomyślnie.
+1. Polecenie wdrożenia zwraca wyniki. Sprawdź, `ProvisioningState` czy wdrożenie zakończyło się pomyślnie.
     
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start przedstawiono sposób tworzenia konta usługi Azure kontrolą.
+W tym przewodniku Szybki start opisano sposób tworzenia konta usługi Azure Purview.
 
-Przejdź do następnego artykułu, aby dowiedzieć się, jak umożliwić użytkownikom dostęp do konta usługi Azure kontrolą. 
+W następnym artykule dowiesz się, jak zezwolić użytkownikom na dostęp do konta usługi Azure Purview. 
 
 > [!div class="nextstepaction"]
-> [Dodawanie użytkowników do konta usługi Azure kontrolą](catalog-permissions.md)
+> [Dodawanie użytkowników do konta usługi Azure Purview](catalog-permissions.md)

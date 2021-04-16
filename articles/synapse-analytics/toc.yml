@@ -1,7 +1,7 @@
 items:
   - name: Azure Synapse Analytics
     href: index.yml
-  - name: Przełącz do dedykowanej puli SQL (dawniej SQL DW) >
+  - name: Przejdź do dedykowanej puli SQL (dawniej SQL DW) >
     href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
   - name: Omówienie
     items:
@@ -21,13 +21,13 @@ items:
       - name: 1. Tworzenie obszaru roboczego usługi Synapse
         href: get-started-create-workspace.md
         displayName: 'get, started'
-      - name: 2 analizowanie przy użyciu puli SQL bezserwerowej
+      - name: 2. Analizowanie przy użyciu bez serwera puli SQL
         href: get-started-analyze-sql-on-demand.md
         displayName: 'get, started'
-      - name: 3 analizowanie przy użyciu puli platformy Spark bezobsługowej
+      - name: 3. Analizowanie przy użyciu bez serwera puli Spark
         href: get-started-analyze-spark.md
         displayName: 'get, started'
-      - name: 4 analizowanie przy użyciu dedykowanej puli SQL
+      - name: 4. Analizowanie przy użyciu dedykowanej puli SQL
         href: get-started-analyze-sql-pool.md
         displayName: 'get, started'
       - name: 5. Analizowanie danych na koncie magazynu
@@ -45,7 +45,7 @@ items:
       - name: 9. Eksplorowanie Centrum wiedzy
         href: get-started-knowledge-center.md
         displayName: 'get, started'
-      - name: 10 Dodaj administratora
+      - name: 10. Dodawanie administratora
         href: get-started-add-admin.md
         displayName: 'get, started'
   - name: Workspace
@@ -69,7 +69,7 @@ items:
           - name: Podłączanie obszaru roboczego usługi Power BI
             href: quickstart-power-bi.md
             displayName: quickstart
-          - name: Odczytaj ADLS Gen2 do Pandas Dataframe
+          - name: Odczytywanie ADLS Gen2 do ramki danych pandas
             href: quickstart-read-from-gen2-to-pandas-dataframe.md
             displayName: quickstart
           - name: Połączenie z usługą Azure Data Explorer
@@ -105,7 +105,7 @@ items:
             href: ./cicd/continuous-integration-deployment.md
           - name: Zabezpieczenia
             items:
-              - name: Kontrola zabezpieczeń według Azure Policy
+              - name: Mechanizmy kontroli zabezpieczeń według Azure Policy
                 href: ./security-controls-policy.md
               - name: Szyfrowanie
                 href: ./security/workspaces-encryption.md
@@ -177,7 +177,7 @@ items:
                   - name: Łączenie z obszarem roboczym usługi Azure Synapse za pomocą prywatnych punktów końcowych
                     href: security/how-to-connect-to-workspace-with-private-links.md
                     displayname: links
-                  - name: Aprowizowanie połączonej usługi z zarządzaną siecią wirtualną i zabezpieczanie jej
+                  - name: Aprowizowania i zabezpieczania połączonej usługi za pomocą zarządzanej sieci wirtualnej
                     href: ./data-integration/linked-service.md
                   - name: Łączenie z obszarem roboczym usługi Synapse z sieci z ograniczeniami
                     href: security/how-to-connect-to-workspace-from-restricted-network.md
@@ -354,9 +354,9 @@ items:
                     href: sql/develop-stored-procedures.md
                   - name: Transakcje
                     items:
-                      - name: Dedykowane transakcje puli SQL
+                      - name: Transakcje dedykowanej puli SQL
                         href: sql/develop-transactions.md
-                      - name: Transakcje dotyczące najlepszych rozwiązań w puli SQL
+                      - name: Transakcje najlepszych rozwiązań dla dedykowanej puli SQL
                         displayname: 'Transaction, best, practices'
                         href: sql/develop-transaction-best-practices.md
                   - name: Schematy definiowane przez użytkownika
@@ -564,17 +564,17 @@ items:
             href: ./spark/apache-spark-machine-learning-mllib-notebook.md
           - name: Przesyłanie definicji zadań platformy Spark
             href: ./spark/apache-spark-job-definitions.md
-          - name: Łączenie i monitorowanie metryk na poziomie aplikacji platformy Azure Synapse Spark
+          - name: Łączenie i monitorowanie Azure Synapse na poziomie aplikacji platformy Spark
             href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
-          - name: Monitoruj Apache Spark metryki na poziomie aplikacji za pomocą Prometheus i Grafana
+          - name: Monitorowanie Apache Spark na poziomie aplikacji za pomocą prometheus i Grafana
             href: ./spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics.md
-          - name: Zbieranie i wizualizowanie metryk i dzienników przy użyciu usługi Azure Log Analytics (wersja zapoznawcza)
+          - name: Używanie usługi Azure Log Analytics do zbierania i wizualizowania metryk i dzienników (wersja zapoznawcza)
             href: ./spark/apache-spark-azure-log-analytics.md
       - name: Pojęcia
         items:
           - name: Apache Spark
             href: ./spark/apache-spark-concepts.md
-          - name: Konfiguracje puli Apache Spark
+          - name: Apache Spark konfiguracji puli
             href: ./spark/apache-spark-pool-configurations.md
           - name: Delta Lake
             href: ./spark/apache-spark-what-is-delta-lake.md
@@ -598,11 +598,11 @@ items:
             items:
               - name: Zarządzanie pakietami języka Python
                 href: ./spark/apache-spark-manage-python-packages.md
-              - name: Zarządzanie pakietami Scala
+              - name: Zarządzanie pakietami scala
                 href: ./spark/apache-spark-manage-scala-packages.md
               - name: Rozwiązywanie problemów z błędami instalacji pakietu języka Python
                 href: ./spark/apache-spark-troubleshoot-library-errors.md
-              - name: Utwórz kanał prywatny Conda
+              - name: Tworzenie kanału prywatnego Conda
                 href: ./spark/apache-spark-custom-conda-channel.md
           - name: Korzystanie z notesów i narzędzi IDE
             items:
@@ -1148,7 +1148,7 @@ items:
             href: ./machine-learning/tutorial-cognitive-services-sentiment.md
           - name: Wykrywanie anomalii przy użyciu usługi Cognitive Services
             href: ./machine-learning/tutorial-cognitive-services-anomaly.md
-          - name: Kompiluj aplikacje uczenia maszynowego przy użyciu programu Microsoft Machine Learning dla Apache Spark (wersja zapoznawcza)
+          - name: Tworzenie aplikacji uczenia maszynowego przy użyciu usługi Microsoft Machine Learning for Apache Spark (wersja zapoznawcza)
             href: ./machine-learning/tutorial-build-applications-use-mmlspark.md
   - name: Wykaz danych i ład
     items:

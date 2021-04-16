@@ -1,6 +1,6 @@
 ---
 title: Dowiedz się, kiedy określony użytkownik będzie mógł uzyskać dostęp do aplikacji
-description: Jak dowiedzieć się, kiedy krytycznie ważny jest dostęp do aplikacji skonfigurowanej do aprowizacji użytkowników w usłudze Azure AD
+description: Jak dowiedzieć się, kiedy niezwykle ważny użytkownik może uzyskać dostęp do aplikacji skonfigurowanej do aprowizowania użytkowników w usłudze Azure AD
 services: active-directory
 author: kenwith
 manager: daveba
@@ -11,92 +11,92 @@ ms.topic: how-to
 ms.date: 09/03/2019
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 890c4a8a5aec3b15b150908c64bb114bd85a61a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9835ba2b6db2d71d0ff5825f2eb1996133e75537
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99256766"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530818"
 ---
-# <a name="check-the-status-of-user-provisioning"></a>Sprawdź stan aprowizacji użytkowników
+# <a name="check-the-status-of-user-provisioning"></a>Sprawdzanie stanu aprowizowania użytkowników
 
-Usługa Azure AD Provisioning uruchamia początkowy cykl aprowizacji dla systemu źródłowego i systemu docelowego, a następnie okresowe cykle przyrostowe. Podczas konfigurowania aprowizacji dla aplikacji można sprawdzić bieżący stan usługi aprowizacji i zobaczyć, kiedy użytkownik będzie mógł uzyskać dostęp do aplikacji.
+Usługa aprowizowania Azure AD uruchamia początkowy cykl inicjowania obsługi dla systemu źródłowego i docelowego, po którym następuje okresowe cykle przyrostowe. Konfigurując aprowizowanie dla aplikacji, możesz sprawdzić bieżący stan usługi aprowizowania i sprawdzić, kiedy użytkownik będzie mógł uzyskać dostęp do aplikacji.
 
-## <a name="view-the-provisioning-progress-bar"></a>Wyświetl pasek postępu aprowizacji
+## <a name="view-the-provisioning-progress-bar"></a>Wyświetlanie paska postępu aprowizowania
 
- Na stronie **aprowizacji** aplikacji można wyświetlić stan usługi Azure AD Provisioning. **Bieżąca sekcja stanu** w dolnej części strony pokazuje, czy cykl aprowizacji rozpoczął Inicjowanie obsługi kont użytkowników. Postęp cyklu można obejrzeć, sprawdzić, ilu użytkowników i grup została zainicjowana, i zobaczyć, ile ról zostało utworzonych.
+ Na **stronie Aprowizowanie** dla aplikacji można wyświetlić stan usługi aprowności Azure AD. W **sekcji Bieżący** stan w dolnej części strony pokazano, czy cykl aprowizowania rozpoczął aprowizowanie kont użytkowników. Możesz obserwować postęp cyklu, zobaczyć, ilu użytkowników i grup zostało aprowowanych, i zobaczyć, ile ról zostało utworzonych.
 
-Podczas pierwszej konfiguracji automatycznej aprowizacji, **Bieżąca sekcja stanu** w dolnej części strony pokazuje stan początkowego cyklu aprowizacji. Ta sekcja jest aktualizowana za każdym razem, gdy cykl zostanie uruchomiony przyrostowo. Przedstawiono następujące szczegóły:
-- Typ cyklu aprowizacji (początkowy lub przyrostowy), który jest aktualnie uruchomiony lub ostatnio zakończony.
-- **Pasek postępu** przedstawiający procent cyklu aprowizacji, który został ukończony. Wartość procentowa odzwierciedla liczbę zainicjowanych stron. Należy pamiętać, że każda strona może zawierać wielu użytkowników lub grup, więc wartość procentowa nie jest bezpośrednio skorelowana z liczbą użytkowników, grup lub ról, które są obsługiwane.
-- Przycisk **odświeżania** , którego można użyć, aby zachować zaktualizowany widok.
-- Liczba **użytkowników** i **grup** w magazynie danych łącznika. Liczba rośnie wszędzie po dodaniu obiektu do zakresu aprowizacji. Ta liczba nie zostanie wyłączona, jeśli użytkownik zostanie usunięty lub usunięty trwale, ponieważ nie spowoduje to usunięcia obiektu z magazynu danych łącznika. Liczba zostanie ponownie obliczona po pierwszej synchronizacji po [zresetowaniu](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta) dysków CD 
-- Łącze **Wyświetl dzienniki inspekcji** , które otwiera dzienniki aprowizacji usługi Azure AD, aby uzyskać szczegółowe informacje o wszystkich operacjach wykonywanych przez usługę aprowizacji użytkowników, w tym o stanie aprowizacji poszczególnych użytkowników (zobacz sekcję korzystanie z [dzienników aprowizacji](#use-provisioning-logs-to-check-a-users-provisioning-status) poniżej).
+Po pierwszym skonfigurowaniu automatycznego  aprowizowania w sekcji Bieżący stan w dolnej części strony jest przedstawiany stan początkowego cyklu aprowizowania. Ta sekcja jest aktualizowana przy każdym uruchamianiu cyklu przyrostowego. Wyświetlane są następujące szczegóły:
+- Typ cyklu inicjowania obsługi administracyjnej (początkowy lub przyrostowy), który jest aktualnie uruchomiony lub został ostatnio ukończony.
+- Pasek **postępu przedstawiający** procent ukończonego cyklu inicjowania obsługi administracyjnej. Wartość procentowa odzwierciedla liczbę aprowowanych stron. Należy pamiętać, że każda strona może zawierać wielu użytkowników lub grupy, więc wartość procentowa nie jest bezpośrednio skorelowana z liczbą aprowizowanych użytkowników, grup lub ról.
+- Przycisk **Odśwież** umożliwia zaktualizowanie widoku.
+- Liczba użytkowników **i grup** **w** magazynie danych łącznika. Liczba zwiększa się za każdym razem, gdy obiekt zostanie dodany do zakresu aprowizowania. Liczba nie zejdzie, jeśli użytkownik zostanie usunięty nieułamkowo lub trwale, ponieważ nie spowoduje to usunięcia obiektu z magazynu danych łącznika. Po zresetowaniu usługi CDS liczba zostanie ponownie obliczona podczas pierwszej [synchronizacji](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true) 
+- Link **Wyświetl** dzienniki inspekcji, który otwiera dzienniki aprowizowania usługi Azure AD, aby uzyskać szczegółowe informacje o [](#use-provisioning-logs-to-check-a-users-provisioning-status) wszystkich operacjach uruchamianych przez usługę aprowiowania użytkowników, w tym o stanie inicjowania obsługi dla poszczególnych użytkowników (zobacz sekcję Korzystanie z dzienników aprowności poniżej).
 
-Po zakończeniu cyklu aprowizacji sekcja **statystyki do daty** pokazuje skumulowaną liczbę użytkowników i grup, których zainicjowano na dzień, wraz z datą ukończenia i czasem trwania ostatniego cyklu. **Identyfikator działania** jednoznacznie identyfikuje najnowszy cykl aprowizacji. **Identyfikator zadania** jest unikatowym identyfikatorem zadania aprowizacji i jest specyficzny dla aplikacji w dzierżawie.
+Po zakończeniu cyklu aprowizowania sekcja Statystyki do tej pory zawiera zbiorczą liczbę użytkowników i grup, które do tej pory zostały zaaprowizowane, wraz z datą ukończenia i czasem trwania ostatniego cyklu.  Identyfikator **działania jednoznacznie** identyfikuje najnowszy cykl aprowrowowania. Identyfikator **zadania jest** unikatowym identyfikatorem zadania aprowizowania i jest specyficzny dla aplikacji w dzierżawie.
 
-Postęp aprowizacji można wyświetlić w Azure Portal z poziomu karty **&gt; aplikacje Azure Active Directory Enterprise &gt; \[ aplikacji \] &gt;** .
+Postęp aprowizowania można wyświetlić na stronie Azure Portal na karcie Aprowowanie aplikacji Azure Active Directory **&gt; Enterprise Apps. &gt; \[ \] &gt;**
 
-![Pasek postępu strony aprowizacji](./media/application-provisioning-when-will-provisioning-finish-specific-user/provisioning-progress-bar-section.png)
+![Pasek postępu strony aprowizowania](./media/application-provisioning-when-will-provisioning-finish-specific-user/provisioning-progress-bar-section.png)
 
-## <a name="use-provisioning-logs-to-check-a-users-provisioning-status"></a>Korzystanie z dzienników aprowizacji w celu sprawdzenia stanu aprowizacji użytkownika
+## <a name="use-provisioning-logs-to-check-a-users-provisioning-status"></a>Sprawdzanie stanu aprowizowania użytkownika za pomocą dzienników aprowiwizowania
 
-Aby sprawdzić stan aprowizacji wybranego użytkownika, zapoznaj się z [dziennikami aprowizacji (wersja zapoznawcza)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) w usłudze Azure AD. Wszystkie operacje wykonywane przez usługę aprowizacji użytkowników są rejestrowane w dziennikach aprowizacji usługi Azure AD. Obejmuje to wszystkie operacje odczytu i zapisu dokonane w systemach źródłowych i docelowych oraz dane użytkownika, które zostały odczytane lub zapisane podczas każdej operacji.
+Aby wyświetlić stan aprowizowania dla wybranego użytkownika, zapoznaj się z dziennikami [aprowności (wersja zapoznawcza) w](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) usłudze Azure AD. Wszystkie operacje uruchamiane przez usługę aprowizowania użytkowników są rejestrowane w dziennikach aprowności usługi Azure AD. Obejmuje to wszystkie operacje odczytu i zapisu wykonywane w systemach źródłowym i docelowym oraz dane użytkownika, które zostały odczytane lub zapisane podczas każdej operacji.
 
-Możesz uzyskać dostęp do dzienników aprowizacji w Azure Portal, wybierając pozycję **Azure Active Directory** &gt; dzienniki aprowizacji **aplikacji w przedsiębiorstwie** &gt; **(wersja zapoznawcza)** w sekcji **działanie** . Możesz przeszukiwać dane aprowizacji na podstawie nazwy użytkownika lub identyfikatora w systemie źródłowym lub docelowym. Aby uzyskać szczegółowe informacje, zobacz [dzienniki aprowizacji (wersja zapoznawcza)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
+Aby uzyskać dostęp do dzienników aprowizowania w oknie Azure Portal, wybierz pozycję **dzienniki** aprow Azure Active Directory &gt; **Enterprise Apps** (wersja zapoznawcza) w &gt;  **sekcji** Aktywność. Dane aprowizowania można przeszukiwać na podstawie nazwy użytkownika lub identyfikatora w systemie źródłowym lub docelowym. Aby uzyskać szczegółowe informacje, zobacz [Dzienniki aprowowania (wersja zapoznawcza).](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) 
 
-Dzienniki aprowizacji rejestrują wszystkie operacje wykonywane przez usługę aprowizacji, w tym:
+Dzienniki aprowizowania rejestruje wszystkie operacje wykonywane przez usługę aprowiwizowania, w tym:
 
-* Wykonywanie zapytania dotyczącego usługi Azure AD dla przypisanych użytkowników, którzy znajdują się w zakresie aprowizacji
-* Wykonywanie zapytania dotyczącego aplikacji docelowej pod kątem istnienia tych użytkowników
+* Wykonywanie zapytania do usługi Azure AD dla przypisanych użytkowników, którzy znajdują się w zakresie aprowności
+* Wykonywanie zapytania o istnienie tych użytkowników w aplikacji docelowej
 * Porównywanie obiektów użytkownika między systemem
 * Dodawanie, aktualizowanie lub wyłączanie konta użytkownika w systemie docelowym na podstawie porównania
 
-Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji w Azure Portal, zobacz [Przewodnik po raportowaniu obsługi administracyjnej](check-status-user-account-provisioning.md).
+Aby uzyskać więcej informacji na temat odczytywania dzienników aprowizowania w Azure Portal, zobacz [przewodnik po raportowaniu aprowizowania.](check-status-user-account-provisioning.md)
 
-## <a name="how-long-will-it-take-to-provision-users"></a>Jak długo trwa inicjowanie obsługi administracyjnej użytkowników?
-W przypadku korzystania z automatycznej aprowizacji użytkowników w aplikacji usługa Azure AD automatycznie inicjuje i aktualizuje konta użytkowników w aplikacji na podstawie takich elementów, jak [przypisywanie użytkowników i grup](../manage-apps/assign-user-or-group-access-portal.md) w regularnych zaplanowanych odstępach czasu, zazwyczaj co 40 minut.
+## <a name="how-long-will-it-take-to-provision-users"></a>Jak długo potrwa aprowizować użytkowników?
+W przypadku korzystania z automatycznego aprowizowania użytkowników za pomocą aplikacji usługa [](../manage-apps/assign-user-or-group-access-portal.md) Azure AD automatycznie aprowizuje i aktualizuje konta użytkowników w aplikacji na podstawie takich czynności, jak przypisywanie użytkowników i grup w zaplanowanym odstępie czasu, zwykle co 40 minut.
 
-Czas, w którym dany użytkownik ma zostać zainicjowany, zależy głównie od tego, czy zadanie aprowizacji wykonuje cykl początkowy czy cykl przyrostowy.
+Czas aprowizowania danego użytkownika zależy głównie od tego, czy w zadaniu aprowowania jest uruchomiony cykl początkowy, czy przyrostowy.
 
-- W przypadku **cyklu początkowego** czas zadania zależy od wielu czynników, takich jak liczba użytkowników i grup w zakresie dla aprowizacji oraz łączna liczba użytkowników i grup w systemie źródłowym. Pierwsza synchronizacja między usługą Azure AD a aplikacją może zająć od 20 minut do kilku godzin, w zależności od rozmiaru katalogu usługi Azure AD i liczby użytkowników w zakresie aprowizacji. Kompleksowa lista czynników wpływających na wydajność cyklu początkowego znajduje się w dalszej części tej sekcji.
+- W **przypadku początkowego** cyklu czas zadania zależy od wielu czynników, w tym liczby użytkowników i grup w zakresie aprowowania oraz całkowitej liczby użytkowników i grup w systemie źródłowym. Pierwsza synchronizacja między usługą Azure AD i aplikacją może potrwać od 20 minut do kilku godzin, w zależności od rozmiaru katalogu usługi Azure AD i liczby użytkowników w zakresie aprowowania. Pełna lista czynników, które mają wpływ na wydajność cyklu początkowego, znajduje się w dalszej części tej sekcji.
 
-- W przypadku **cykli przyrostowych** po cyklu początkowym czasy zadań mają być szybsze (np. w ciągu 10 minut), ponieważ usługa aprowizacji przechowuje znaki wodne, które reprezentują stan obu systemów po cyklu początkowym, co poprawia wydajność kolejnych synchronizacji. Czas zadania zależy od liczby zmian wykrytych w tym cyklu aprowizacji. Jeśli istnieje mniej niż 5 000 zmian członkostwa użytkowników lub grup, zadanie może zakończyć się w ramach pojedynczego przyrostowego cyklu udostępniania. 
+- W  przypadku cykli przyrostowych po cyklu początkowym czasy zadań są szybsze (np. w ciągu 10 minut), ponieważ usługa aprowizacji przechowuje znaki wodne reprezentujące stan obu systemów po początkowym cyklu, co poprawia wydajność kolejnych synchronizacji. Czas zadania zależy od liczby zmian wykrytych w tym cyklu inicjowania obsługi administracyjnej. Jeśli liczba zmian członkostwa użytkownika lub grupy jest mniejsza niż 5000, zadanie można zakończyć w ramach jednego przyrostowego cyklu inicjowania obsługi administracyjnej. 
 
-Poniższa tabela zawiera podsumowanie czasów synchronizacji typowych scenariuszy aprowizacji. W tych scenariuszach system źródłowy jest usługą Azure AD, a system docelowy to aplikacja SaaS. Czasy synchronizacji są uzyskiwane z analizy statystycznej zadań synchronizacji dla aplikacji SaaS usługi ServiceNow, miejsc pracy, usług Salesforce i G Suite.
+W poniższej tabeli podsumowano czasy synchronizacji dla typowych scenariuszy aprowowania. W tych scenariuszach systemem źródłowym jest usługa Azure AD, a systemem docelowym jest aplikacja SaaS. Czasy synchronizacji pochodzą z analizy statystycznej zadań synchronizacji dla aplikacji SaaS ServiceNow, Workplace, Salesforce i G Suite.
 
 
-| Konfiguracja zakresu | Użytkownicy, grupy i członkowie w zakresie | Czas wstępnego cyklu | Przyrostowy czas cyklu |
+| Konfiguracja zakresu | Użytkownicy, grupy i członkowie w zakresie | Początkowy czas cyklu | Czas cyklu przyrostowego |
 | -------- | -------- | -------- | -------- |
-| Synchronizuj tylko przypisanych użytkowników i grupy |  < 1 000 |  < 30 minut | < 30 minut |
-| Synchronizuj tylko przypisanych użytkowników i grupy |  1 000 – 10 000 | 142 – 708 minut | < 30 minut |
-| Synchronizuj tylko przypisanych użytkowników i grupy |   10 000 – 100 000 | 1 170 – 2 340 minut | < 30 minut |
-| Synchronizuj wszystkich użytkowników i grupy w usłudze Azure AD |  < 1 000 | < 30 minut  | < 30 minut |
-| Synchronizuj wszystkich użytkowników i grupy w usłudze Azure AD |  1 000 – 10 000 | < 30-120 minut | < 30 minut |
-| Synchronizuj wszystkich użytkowników i grupy w usłudze Azure AD |  10 000 – 100 000  | 713 – 1 425 minut | < 30 minut |
-| Synchronizuj wszystkich użytkowników w usłudze Azure AD|  < 1 000  | < 30 minut | < 30 minut |
-| Synchronizuj wszystkich użytkowników w usłudze Azure AD | 1 000 – 10 000  | 43 – 86 minut | < 30 minut |
+| Synchronizuj tylko przypisanych użytkowników i grupy |  < 1000 |  < 30 minut | < 30 minut |
+| Synchronizuj tylko przypisanych użytkowników i grupy |  1,000 - 10,000 | 142–708 min | < 30 minut |
+| Synchronizuj tylko przypisanych użytkowników i grupy |   10,000 - 100,000 | 1170–2340 minut | < 30 minut |
+| Synchronizowanie wszystkich użytkowników i grup w usłudze Azure AD |  < 1000 | < 30 minut  | < 30 minut |
+| Synchronizowanie wszystkich użytkowników i grup w usłudze Azure AD |  1,000 - 10,000 | < 30–120 minut | < 30 minut |
+| Synchronizowanie wszystkich użytkowników i grup w usłudze Azure AD |  10,000 - 100,000  | 713–1425 min | < 30 minut |
+| Synchronizowanie wszystkich użytkowników w usłudze Azure AD|  < 1000  | < 30 minut | < 30 minut |
+| Synchronizowanie wszystkich użytkowników w usłudze Azure AD | 1,000 - 10,000  | 43–86 min | < 30 minut |
 
-W przypadku **tylko przypisanego użytkownika i grup dla synchronizacji** konfiguracji można użyć następujących formuł, aby określić przybliżoną minimalną i maksymalną oczekiwany czas **cykli początkowej** :
+W przypadku konfiguracji **Synchronizuj** tylko przypisanych użytkowników i grup można użyć następujących formuł do określenia przybliżonego minimalnego i maksymalnego oczekiwanego **początkowego czasu cyklu:**
 
-- Minimum minut = 0,01 x [liczba przypisanych użytkowników, grup i członków grupy]
-- Maksymalna liczba minut = 0,08 x [liczba przypisanych użytkowników, grup i członków grupy]
+- Minimalna liczba minut = 0,01 x [Liczba przypisanych użytkowników, grup i członków grupy]
+- Maksymalna liczba minut = 0,08 x [Liczba przypisanych użytkowników, grup i członków grupy]
 
-Podsumowanie czynników wpływających na czas trwania **cyklu początkowego**:
+Podsumowanie czynników, które mają wpływ na czas trwania **początkowego cyklu:**
 
-- Łączna liczba użytkowników i grup w zakresie aprowizacji.
+- Łączna liczba użytkowników i grup w zakresie aprowizowania.
 
-- Łączna liczba użytkowników, grup i członków grupy obecnych w systemie źródłowym (Azure AD).
+- Całkowita liczba użytkowników, grup i członków grupy obecnych w systemie źródłowym (Azure AD).
 
-- Określa, czy użytkownicy w zakresie aprowizacji są dopasowywani do istniejących użytkowników w aplikacji docelowej, czy też muszą być tworzone po raz pierwszy. Zadania synchronizacji, dla których wszyscy użytkownicy są tworzone po raz pierwszy, są wykonywane *dwa razy* , o ile zadania synchronizacji, dla których wszyscy użytkownicy są dopasowane do istniejących użytkowników.
+- Określa, czy użytkownicy w zakresie aprowizowania są do siebie domierzone z istniejącymi użytkownikami w aplikacji docelowej, czy muszą zostać utworzeni po raz pierwszy. Zadania synchronizacji, dla których po raz pierwszy utworzono wszystkich użytkowników, trwa około *dwa* razy więcej niż zadania synchronizacji, dla których wszyscy użytkownicy są do siebie dopasowani z istniejącymi użytkownikami.
 
-- Liczba błędów w [dziennikach aprowizacji](check-status-user-account-provisioning.md). Wydajność jest wolniejsza, jeśli wystąpi wiele błędów, a usługa aprowizacji przestała się na stan kwarantanny. 
+- Liczba błędów w dziennikach [aprowizowania.](check-status-user-account-provisioning.md) Wydajność jest niższa, jeśli wystąpiło wiele błędów, a usługa aprowicyjna przeszła w stan kwarantanny. 
 
-- Limity szybkości żądań i ograniczanie wydajności zaimplementowane przez system docelowy. Niektóre systemy docelowe implementują limity szybkości żądań i ograniczania przepustowości, co może mieć wpływ na wydajność podczas dużych operacji synchronizacji. W tych warunkach aplikacja, która otrzymuje zbyt wiele żądań zbyt szybko, może spowalniać swoją szybkość reakcji lub zamknąć połączenie. Aby zwiększyć wydajność, łącznik musi zostać dostosowany przez niewysyłanie żądań aplikacji szybciej niż aplikacja może je przetworzyć. Dla łączników aprowizacji utworzonych przez firmę Microsoft należy wprowadzić tę korektę. 
+- Limity szybkości żądań i ograniczanie przepustowości zaimplementowane przez system docelowy. Niektóre systemy docelowe implementują limity liczby żądań i ograniczanie przepustowości, co może mieć wpływ na wydajność podczas dużych operacji synchronizacji. W tych warunkach aplikacja, która odbiera zbyt wiele żądań zbyt szybko, może spowolnić jej odsetek odpowiedzi lub zamknąć połączenie. Aby zwiększyć wydajność, łącznik musi dostosowywać się, nie wysyłając żądań aplikacji szybciej, niż aplikacja może je przetworzyć. Aprowizowanie łączników sbudowaną przez firmę Microsoft pozwala wprowadzić to dostosowanie. 
 
-- Liczba i rozmiary przypisanych grup. Synchronizowanie przypisanych grup trwa dłużej niż synchronizowanie użytkowników. Zarówno liczba, jak i rozmiary przypisanych grup wpływają na wydajność. Jeśli aplikacja ma [mapowania włączone dla synchronizacji obiektów grup](customize-application-attributes.md#editing-group-attribute-mappings), w dodatku do użytkowników są synchronizowane właściwości grupy, takie jak nazwy grup i członkostwa. Te dodatkowe synchronizacje będą trwać dłużej niż tylko synchronizowanie obiektów użytkownika.
+- Liczba i rozmiary przypisanych grup. Synchronizowanie przypisanych grup trwa dłużej niż synchronizowanie użytkowników. Zarówno liczba, jak i rozmiar przypisanych grup mają wpływ na wydajność. Jeśli aplikacja ma włączone [mapowania](customize-application-attributes.md#editing-group-attribute-mappings)dla synchronizacji obiektów grupy, właściwości grupy, takie jak nazwy grup i członkostwa, są synchronizowane oprócz użytkowników. Te dodatkowe synchronizacje będą trwać dłużej niż tylko synchronizacja obiektów użytkownika.
 
-- Jeśli wydajność jest problemem i podjęto próbę aprowizacji większości użytkowników i grup w dzierżawie, użyj filtrów zakresu. Filtry zakresu umożliwiają precyzyjne dostosowywanie danych, które usługa aprowizacji wyodrębnia z usługi Azure AD przez filtrowanie użytkowników na podstawie określonych wartości atrybutów. Aby uzyskać więcej informacji na temat określania zakresu filtrów, zobacz Tworzenie [aplikacji opartych na atrybutach przy użyciu filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+- Jeśli wydajność staje się problemem i próbujesz aprowizować większość użytkowników i grup w dzierżawie, użyj filtrów zakresu. Filtry zakresu umożliwiają dostosowanie danych wyodrębnianych z usługi Azure AD przez odfiltrowanie użytkowników na podstawie określonych wartości atrybutów. Aby uzyskać więcej informacji na temat filtrów zakresu, zobacz Aprowizowanie aplikacji opartej na atrybutach [za pomocą filtrów zakresu.](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
 
 ## <a name="next-steps"></a>Następne kroki
 [Automatyzacja aprowizacji i anulowania aprowizacji użytkowników w aplikacjach SaaS przy użyciu usługi Azure Active Directory](user-provisioning.md)

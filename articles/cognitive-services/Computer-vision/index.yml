@@ -16,7 +16,7 @@ highlightedContent:
     - title: Informacje o przetwarzaniu obrazów
       itemType: overview
       url: overview.md
-    - title: Co nowego w przetwarzanie obrazów?
+    - title: Co nowego w programie przetwarzanie obrazów?
       itemType: whats-new
       url: whats-new.md
     - title: Obsługa języków
@@ -33,21 +33,21 @@ conceptualContent:
           text: Wprowadzenie do OCR
           url: quickstarts-sdk/client-library.md
         - itemType: how-to-guide
-          text: Wywoływanie interfejsu API odczytu
+          text: Wywołanie interfejsu API odczytu
           url: Vision-API-How-to-Topics/call-read-api.md
         - itemType: deploy
-          text: Używanie kontenera OCR do odczytu
+          text: Korzystanie z kontenera odczytu OCR
           url: computer-vision-how-to-install-containers.md
         - itemType: reference
           text: Dokumentacja interfejsu API OCR
-          url: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005'
+          url: 'https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005'
       footerLink:
         text: Więcej
         url: index-ocr.yml
     - title: Analiza obrazu
       links:
         - itemType: overview
-          text: Informacje o analizie obrazu
+          text: Informacje o analizie obrazów
           url: overview-image-analysis.md
         - itemType: quickstart
           text: Wprowadzenie do analizy obrazów
@@ -73,7 +73,7 @@ conceptualContent:
     - title: Analiza przestrzenna
       links:
         - itemType: overview
-          text: Analiza przestrzenna — informacje
+          text: Informacje o analizie przestrzennej
           url: intro-to-spatial-analysis-public-preview.md
         - itemType: quickstart
           text: Wprowadzenie do analizy przestrzennej
@@ -95,7 +95,7 @@ conceptualContent:
         url: index-spatial-analysis.yml
 tools:
   title: Zestawy SDK
-  summary: Rozpocznij pracę z zestawem SDK przetwarzanie obrazów w ulubionym języku programowania.
+  summary: Rozpoczynanie pracy z zestawem PRZETWARZANIE OBRAZÓW SDK w ulubionym języku programowania.
   items:
     - title: C#
       imageSrc: media/index/logo_Csharp.svg

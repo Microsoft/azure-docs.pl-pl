@@ -1,27 +1,33 @@
 ---
-title: 'Szybki Start: Tworzenie aplikacji Java na platformie Azure Service Fabric'
+title: 'Szybki start: tworzenie aplikacji Java w usłudze Azure Service Fabric'
 description: W ramach tego przewodnika Szybki start utworzysz aplikację Java dla platformy Azure za pomocą aplikacji przykładowej niezawodnych usług usługi Service Fabric.
-ms.topic: quickstart
 ms.date: 01/29/2019
-ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 2f1e5f8f73f74d4b427e574b9e6a75aaf84a4211
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.custom:
+- mvc
+- devcenter
+- seo-java-august2019
+- seo-java-september2019
+- devx-track-java
+- mode-api
+ms.openlocfilehash: 199fe459ec8fd58d05b4946dda4291c46a4881c3
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91529866"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530905"
 ---
-# <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Szybki Start: wdrażanie aplikacji Java na platformie Azure Service Fabric w systemie Linux
+# <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Szybki start: wdrażanie aplikacji Java na platformie Azure Service Fabric systemie Linux
 
-W tym przewodniku szybki start wdrożono aplikację Java na platformie Azure Service Fabric przy użyciu środowiska IDE w języku zaćmienie na komputerze dewelopera systemu Linux. Po zakończeniu pracy będziesz mieć aplikację do głosowania z frontonem internetowym w języku Java, która zapisuje wyniki głosowania w stanowej usłudze zaplecza w klastrze.
+W tym przewodniku Szybki start wdrożysz aplikację Java na platformie Azure Service Fabric środowisku ECLIPSE IDE na maszynie dewelopera z systemem Linux. Po zakończeniu pracy będziesz mieć aplikację do głosowania z frontonem internetowym w języku Java, która zapisuje wyniki głosowania w stanowej usłudze zaplecza w klastrze.
 
 Usługa Azure Service Fabric to platforma systemów rozproszonych umożliwiająca wdrażanie mikrousług i kontenerów, a także zarządzanie nimi.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Środowisko Java](./service-fabric-get-started-linux.md#set-up-java-development) i [Narzędzia Yeoman](./service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables)
-- [Zaćmienie (4.6) +](https://www.eclipse.org/downloads/packages/) i [zaćmienie plug-in dla Service Fabric](./service-fabric-get-started-linux.md#install-the-eclipse-plug-in-optional)
-- [Service Fabric zestawu SDK i interfejsu wiersza polecenia (CLI)](./service-fabric-get-started-linux.md#installation-methods)
+- [Środowisko Java i](./service-fabric-get-started-linux.md#set-up-java-development) [yeoman](./service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables)
+- [Eclipse Neon (4.6)+](https://www.eclipse.org/downloads/packages/) i [wtyczka środowiska Eclipse dla Service Fabric](./service-fabric-get-started-linux.md#install-the-eclipse-plug-in-optional)
+- [Service Fabric SDK i interfejs wiersza polecenia (CLI)](./service-fabric-get-started-linux.md#installation-methods)
 - [Usługa Git](https://git-scm.com/downloads)
 
 ## <a name="download-the-sample"></a>Pobieranie przykładu
@@ -41,46 +47,46 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ```
     Uruchamianie klastra lokalnego zajmuje nieco czasu. Aby potwierdzić, że klaster jest w pełni uruchomiony, otwórz narzędzie Service Fabric Explorer dostępne pod adresem `http://localhost:19080`. Pięć węzłów w dobrej kondycji oznacza, że klaster lokalny jest uruchomiony.
 
-    ![Usługa Azure Service Fabric Explorer wyświetla w dobrej kondycji węzły](./media/service-fabric-quickstart-java/service-fabric-explorer-healthy-nodes.png)
+    ![Usługa Azure Service Fabric Explorer pokazuje węzły w dobrej kondycji](./media/service-fabric-quickstart-java/service-fabric-explorer-healthy-nodes.png)
 
 2. Otwórz program Eclipse.
-3. Wybierz pozycję **plik**  >  **Import**  >  **Gradle**  >  **istniejący projekt Gradle** i postępuj zgodnie z instrukcjami kreatora.
-4. Wybierz pozycję **katalog** i wybierz katalog **głosowania** z folderu **Service-Fabric-Java-Start** , który został sklonowany z witryny GitHub. Wybierz pozycję **Zakończ**.
+3. Wybierz **pozycję Importuj** plik w istniejącym projekcie  >    >    >  **gradle i** postępuj zgodnie z kroku kreatora.
+4. Wybierz **pozycję Katalog** i wybierz katalog **Voting** z folderu **service-fabric-java-quickstart** sklonowanego z usługi GitHub. Wybierz pozycję **Zakończ**.
 
-    ![Importuj projekt Gradle do przezaćmienia](./media/service-fabric-quickstart-java/eclipse-import-gradle-project.png)
+    ![Importowanie projektu Gradle do środowiska Eclipse](./media/service-fabric-quickstart-java/eclipse-import-gradle-project.png)
 
 5. Teraz projekt `Voting` będzie dostępny w widoku Eksplorator pakietów programu Eclipse.
-6. Kliknij prawym przyciskiem myszy projekt i wybierz pozycję **Opublikuj aplikację** na liście rozwijanej **Service Fabric** . Wybierz pozycję **PublishProfiles/Local.js** jako profil docelowy, a następnie wybierz pozycję **Publikuj**.
+6. Kliknij prawym przyciskiem myszy projekt i wybierz pozycję **Publish Application (Publikuj aplikację)** Service Fabric **rozwijanej.** Wybierz **pozycję PublishProfiles/Local.jsna jako** Profil docelowy, a następnie wybierz pozycję **Opublikuj.**
 
-    ![Usługa Azure Service Fabric publikowanie lokalnego pliku JSON](./media/service-fabric-quickstart-java/service-fabric-publish-local-json.png)
+    ![Publikowanie Service Fabric JSON na platformie Azure](./media/service-fabric-quickstart-java/service-fabric-publish-local-json.png)
 
 7. Uruchom przeglądarkę internetową i uzyskaj dostęp do aplikacji, przechodząc do adresu `http://localhost:8080`.
 
-    ![Host lokalny Service Fabric platformy Azure](./media/service-fabric-quickstart-java/service-fabric-local-host.png)
+    ![Usługa Azure Service Fabric hosta lokalnego](./media/service-fabric-quickstart-java/service-fabric-local-host.png)
 
 Teraz możesz dodać zestaw opcji głosowania i rozpocząć obsługę głosów. Aplikacja zostanie uruchomiona i będzie przechować wszystkie dane w klastrze usługi Service Fabric, bez konieczności używania oddzielnej bazy danych.
 
-![Przykład głosowania Service Fabric platformy Azure](./media/service-fabric-quickstart-java/service-fabric-voting-sample.png)
+![Przykład głosowania Service Fabric azure](./media/service-fabric-quickstart-java/service-fabric-voting-sample.png)
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Skalowanie aplikacji i usług w klastrze
 
-Usługi można skalować na klaster w celu dostosowania ich do zmiany obciążenia. Skalowanie usługi odbywa się przez zmienianie liczby wystąpień uruchomionych w klastrze. Istnieje wiele sposobów skalowania usług. Można na przykład użyć skryptów lub poleceń z Service Fabric interfejsu wiersza polecenia ( `sfctl` ). W poniższych krokach będzie używane narzędzie Service Fabric Explorer.
+Usługi można skalować na klaster w celu dostosowania ich do zmiany obciążenia. Skalowanie usługi odbywa się przez zmienianie liczby wystąpień uruchomionych w klastrze. Istnieje wiele sposobów skalowania usług. Na przykład można użyć skryptów lub poleceń z interfejsu wiersza Service Fabric wiersza polecenia ( `sfctl` ). W poniższych krokach będzie używane narzędzie Service Fabric Explorer.
 
-Service Fabric Explorer działa we wszystkich klastrach Service Fabric i można uzyskać do nich dostęp z przeglądarki, przechodząc do portu HTTP zarządzania klastrami (19080). Na przykład `http://localhost:19080`.
+Service Fabric Explorer działa we wszystkich Service Fabric klastrach i można uzyskać do niego dostęp z przeglądarki, przeglądając port zarządzania HTTP klastra (19080). Na przykład `http://localhost:19080`.
 
 Aby skalować usługę internetową frontonu, wykonaj następujące czynności:
 
 1. Otwórz Service Fabric Explorer w klastrze. Na przykład `https://localhost:19080`.
-2. Wybierz wielokropek (**...**) obok węzła **Sieć szkieletowa:/głosu/VotingWeb** w elemencie TreeView i wybierz pozycję **Skaluj usługę**.
+2. Wybierz wielokropek (**...**) obok węzła **fabric:/Voting/VotingWeb** w widoku drzewa i wybierz pozycję **Skaluj usługę**.
 
     ![Skalowanie usługi w usłudze Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-scale-service.png)
 
     Teraz możesz skalować liczbę wystąpień usługi internetowej frontonu.
 
-3. Zmień liczbę na **2** i wybierz pozycję **Skaluj usługę**.
-4. Wybierz węzeł **Sieć szkieletowa:/głosowania/VotingWeb** w widoku drzewa i rozwiń węzeł partycji (reprezentowany przez identyfikator GUID).
+3. Zmień liczbę na **2 i** wybierz pozycję **Skaluj usługę**.
+4. Wybierz węzeł **fabric:/Voting/VotingWeb** w widoku drzewa i rozwiń węzeł partycji (reprezentowany przez identyfikator GUID).
 
-    ![Usługa skalowana w Service Fabric na platformie Azure](./media/service-fabric-quickstart-java/service-fabric-explorer-service-scaled.png)
+    ![Skalowana usługa w usłudze Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-explorer-service-scaled.png)
 
     Teraz widać, że usługa ma dwa wystąpienia, a w widoku drzewa można dostrzec węzły, w których są one uruchomione.
 

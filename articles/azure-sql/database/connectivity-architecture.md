@@ -1,6 +1,6 @@
 ---
-title: Architektura łączności Azure SQL Database
-description: W tym dokumencie opisano architekturę Azure SQL Database łączności dla połączeń z bazą danych z platformy Azure lub spoza platformy Azure.
+title: Azure SQL Database architektury łączności
+description: W tym dokumencie wyjaśniono Azure SQL Database łączności dla połączeń z bazą danych z platformy Azure lub spoza platformy Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,67 +12,67 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 01/25/2021
-ms.openlocfilehash: 40962d0c104fc90385ba4b93852991c7b63e186a
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 3442e3003ef8a299beb88cd212602c8713915474
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105961901"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107499958"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Architektura łączności usług Azure SQL Database i Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-W tym artykule opisano architekturę różnych składników, które kierują ruch sieciowy do serwera w Azure SQL Database lub Azure Synapse Analytics. Opisano w nim również różne zasady połączeń i wpływ na klientów nawiązujących połączenie z platformy Azure i klientów nawiązujących połączenie spoza platformy Azure.
+W tym artykule wyjaśniono architekturę różnych składników, które kierują ruch sieciowy do serwera w Azure SQL Database lub Azure Synapse Analytics. Opisano w nim również różne zasady połączeń i ich wpływ na klientów łączących się z poziomu platformy Azure i klientów łączących się spoza platformy Azure.
 
 > [!IMPORTANT]
-> Ten artykuł *nie* dotyczy **wystąpienia zarządzanego usługi Azure SQL**. Zapoznaj się z [architekturą łączności dla wystąpienia zarządzanego](../managed-instance/connectivity-architecture-overview.md).
+> Ten artykuł nie *dotyczy* Azure SQL Managed Instance **.** Zapoznaj się z [tematem Connectivity architecture for a managed instance (Architektura łączności dla wystąpienia zarządzanego).](../managed-instance/connectivity-architecture-overview.md)
 
 ## <a name="connectivity-architecture"></a>Architektura łączności
 
-Poniższy diagram zawiera ogólne omówienie architektury łączności.
+Na poniższym diagramie przedstawiono ogólne omówienie architektury łączności.
 
-![Diagram przedstawiający ogólne omówienie architektury łączności.](./media/connectivity-architecture/connectivity-overview.png)
+![Diagram przedstawiający ogólny przegląd architektury łączności.](./media/connectivity-architecture/connectivity-overview.png)
 
-Poniższe kroki opisują, jak nawiązywane jest połączenie Azure SQL Database:
+W poniższych krokach opisano sposób nawiązynia połączenia w Azure SQL Database:
 
 - Klienci łączą się z bramą, która ma publiczny adres IP i nasłuchuje na porcie 1433.
-- Brama, w zależności od obowiązujących zasad połączenia, przekierowuje lub proxy ruchu do odpowiedniego klastra bazy danych.
-- Wewnątrz ruchu klastra bazy danych jest przekazywany do odpowiedniej bazy danych.
+- Brama, w zależności od efektywnych zasad połączenia, przekierowuje lub serwer proxy ruchu do odpowiedniego klastra bazy danych.
+- Wewnątrz klastra bazy danych ruch jest przesyłany do odpowiedniej bazy danych.
 
-## <a name="connection-policy"></a>Zasady połączenia
+## <a name="connection-policy"></a>Zasady połączeń
 
-Serwery w SQL Database i Azure Synapse obsługują następujące trzy opcje dla ustawienia zasad połączenia serwera:
+Serwery w SQL Database i Azure Synapse obsługują następujące trzy opcje ustawienia zasad połączenia serwera:
 
-- **Przekierowanie (zalecane):** Klienci nawiązują połączenia bezpośrednio z węzłem hostującym bazę danych, co prowadzi do zredukowania opóźnień i zwiększonej przepływności. W przypadku połączeń do korzystania z tego trybu klienci muszą:
-  - Zezwalaj na komunikację wychodzącą od klienta do wszystkich adresów IP usługi Azure SQL w regionie na portach z zakresu 11000 11999. Użyj tagów usługi dla SQL, aby ułatwić zarządzanie nimi.  
-  - Zezwalaj na komunikację wychodzącą od klienta do Azure SQL Database adresów IP bramy na porcie 1433.
+- **Przekierowanie (zalecane):** Klienci ustanawiają połączenia bezpośrednio z węzłem hostującym bazę danych, co prowadzi do zmniejszenia opóźnienia i zwiększenia przepływności. Aby połączenia używać tego trybu, klienci muszą:
+  - Zezwalaj na komunikację wychodzącą od klienta do wszystkich Azure SQL IP w regionie na portach w zakresie 11000 11999. Użyj tagów usługi dla języka SQL, aby ułatwić zarządzanie nimi.  
+  - Zezwalaj na komunikację wychodzącą od klienta do Azure SQL Database IP bramy na porcie 1433.
 
-- **Serwer proxy:** W tym trybie wszystkie połączenia są nawiązywane za pośrednictwem bram Azure SQL Database, co prowadzi do zwiększonego opóźnienia i ograniczonej przepływności. W przypadku połączeń do korzystania z tego trybu klienci muszą zezwalać na komunikację wychodzącą od klienta do Azure SQL Database adresów IP bramy na porcie 1433.
+- **Serwer proxy:** W tym trybie wszystkie połączenia są proxied za pośrednictwem bram Azure SQL Database, co prowadzi do zwiększenia opóźnienia i zmniejszenia przepływności. Aby połączenia korzystać z tego trybu, klienci muszą zezwolić na komunikację wychodzącą od klienta do Azure SQL Database ip bramy na porcie 1433.
 
-- **Wartość domyślna:** Jest to zasada połączenia obowiązująca na wszystkich serwerach po utworzeniu, chyba że jawnie zmienisz zasady połączenia na `Proxy` lub `Redirect` . Zasady domyślne są `Redirect` przeznaczone dla wszystkich połączeń klientów pochodzących z platformy Azure (na przykład z maszyny wirtualnej platformy Azure) i `Proxy` dla wszystkich połączeń klientów pochodzących z zewnątrz (na przykład połączeń z lokalnej stacji roboczej).
+- **Ustawienie domyślne:** Są to zasady połączenia, które są obowiązywać na wszystkich serwerach po utworzeniu, chyba że jawnie zmienisz zasady połączenia na `Proxy` lub `Redirect` . Zasady domyślne są dla wszystkich połączeń klienckich pochodzących z platformy Azure (na przykład z maszyny wirtualnej platformy Azure) i dla wszystkich połączeń klienckich pochodzących spoza firmy (na przykład połączeń z lokalnej stacji `Redirect` `Proxy` roboczej).
 
-Zdecydowanie zalecamy stosowanie `Redirect` zasad połączenia za pośrednictwem `Proxy` zasad połączenia dla najniższych opóźnień i najwyższej przepływności. Należy jednak spełnić dodatkowe wymagania dotyczące zezwalania na ruch sieciowy opisany powyżej. Jeśli klient jest maszyną wirtualną platformy Azure, możesz to zrobić za pomocą sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń) z [tagami usług](../../virtual-network/network-security-groups-overview.md#service-tags). Jeśli klient nawiązuje połączenie z lokalnej stacji roboczej, może być konieczne skontaktowanie się z administratorem sieci w celu zezwolenia na ruch sieciowy za pośrednictwem firmowej zapory.
+Zdecydowanie zalecamy stosowanie zasad `Redirect` połączenia za pośrednictwem zasad `Proxy` połączenia w celu najmniejszego opóźnienia i najwyższej przepływności. Należy jednak spełnić dodatkowe wymagania dotyczące zezwalania na ruch sieciowy, jak opisano powyżej. Jeśli klient jest maszyną wirtualną platformy Azure, można to zrobić przy użyciu sieciowych grup zabezpieczeń z [tagami usługi.](../../virtual-network/network-security-groups-overview.md#service-tags) Jeśli klient łączy się ze stacji roboczej lokalnie, być może trzeba będzie współpracować z administratorem sieci, aby zezwolić na ruch sieciowy przez zaporę firmową.
 
 ## <a name="connectivity-from-within-azure"></a>Łączność z poziomu platformy Azure
 
-W przypadku łączenia się z poziomu platformy Azure połączenia mają domyślnie przypisanych zasad połączenia `Redirect` . Zasady oznacza, `Redirect` że po ustanowieniu sesji protokołu TCP do Azure SQL Database, sesja klienta zostanie przekierowana do odpowiedniego klastra bazy danych ze zmianą docelowego wirtualnego adresu IP z bramy Azure SQL Database do klastra. Następnie wszystkie kolejne pakiety przepływają bezpośrednio do klastra, pomijając Azure SQL Database bramę. Na poniższym diagramie przedstawiono ten przepływ ruchu.
+Jeśli łączysz się z poziomu platformy Azure, połączenia mają domyślnie `Redirect` zasady połączenia. Zasady programu oznaczają, że po nawiąźle sesji TCP z usługą Azure SQL Database sesja klienta jest przekierowywana do odpowiedniego klastra bazy danych ze zmianą docelowego wirtualnego adresu IP z bramy Azure SQL Database do tego `Redirect` klastra. Następnie wszystkie kolejne pakiety przepływa bezpośrednio do klastra, pomijając Azure SQL Database bramy. Na poniższym diagramie przedstawiono ten przepływ ruchu.
 
-![Przegląd architektury](./media/connectivity-architecture/connectivity-azure.png)
+![omówienie architektury](./media/connectivity-architecture/connectivity-azure.png)
 
 ## <a name="connectivity-from-outside-of-azure"></a>Łączność spoza platformy Azure
 
-Jeśli łączysz się z spoza systemu Azure, połączenia mają domyślnie zasady połączeń `Proxy` . Zasady `Proxy` oznacza, że sesja protokołu TCP jest ustanawiana za pośrednictwem bramy Azure SQL Database i wszystkie kolejne pakiety będą przepływać przez bramę. Na poniższym diagramie przedstawiono ten przepływ ruchu.
+Jeśli łączysz się spoza platformy Azure, połączenia mają domyślnie `Proxy` zasady połączenia. Zasada oznacza, że sesja TCP jest ustanowiona za pośrednictwem bramy Azure SQL Database, a wszystkie kolejne pakiety `Proxy` przepływa za pośrednictwem bramy. Na poniższym diagramie przedstawiono ten przepływ ruchu.
 
-![Diagram przedstawiający sposób ustanawiania sesji protokołu TCP za pośrednictwem bramy Azure SQL Database i wszystkie kolejne pakiety są przesyłane przez bramę.](./media/connectivity-architecture/connectivity-onprem.png)
+![Diagram przedstawiający sposób, w jaki sesja TCP jest ustanowiona za pośrednictwem Azure SQL Database i przepływu wszystkich kolejnych pakietów za pośrednictwem bramy.](./media/connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
-> Dodatkowo Otwórz porty TCP 1434 i 14000-14999, aby włączyć [łączenie z programem DAC](/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators#connecting-with-dac)
+> Ponadto otwórz porty TCP 1434 i 14000–14999, aby włączyć [łączenie z usługą DAC](/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators#connecting-with-dac)
 
 ## <a name="gateway-ip-addresses"></a>Adresy IP bramy
 
-W poniższej tabeli przedstawiono adresy IP bram według regionów. Aby nawiązać połączenie z usługą SQL Database lub Azure Synapse, musisz zezwolić na ruch sieciowy do i ze **wszystkich** bram dla regionu.
+W poniższej tabeli wymieniono adresy IP bram według regionów. Aby nawiązać SQL Database lub Azure Synapse, musisz zezwolić na ruch  sieciowy do i ze wszystkich bram dla regionu.
 
-Szczegóły dotyczące sposobu migrowania ruchu do nowych bram w określonych regionach znajdują się w następującym artykule: [Azure SQL Database migracji ruchu do nowszych bram](gateway-migration.md)
+Szczegółowe informacje na temat migracji ruchu do nowych bram w określonych regionach znajdują się w następującym artykule: Azure SQL Database migracji ruchu do [nowszej bramy](gateway-migration.md)
 
 | Nazwa regionu          | Adresy IP bramy |
 | --- | --- |
@@ -83,7 +83,7 @@ Szczegóły dotyczące sposobu migrowania ruchu do nowych bram w określonych re
 | Brazylia Południowa         | 191.233.200.14, 191.234.144.16, 191.234.152.3 |
 | Kanada Środkowa       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
 | Kanada Wschodnia          | 40.86.226.166, 52.242.30.154, 40.69.105.9 , 40.69.105.10 |
-| Central US           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1, 13.89.169.20 |
+| Central US           | 13.67.215.62, 52.182.137.15, 104.208.16.96, 104.208.21.1, 13.89.169.20 |
 | Chiny Wschodnie           | 139.219.130.35     |
 | Chiny Wschodnie 2         | 40.73.82.1         |
 | Chiny Północne          | 139.219.15.17      |
@@ -94,8 +94,8 @@ Szczegóły dotyczące sposobu migrowania ruchu do nowych bram w określonych re
 | Francja Środkowa       | 40.79.137.0, 40.79.129.1, 40.79.137.8, 40.79.145.12 |
 | Francja Południowa         | 40.79.177.0, 40.79.177.10 ,40.79.177.12 |
 | Niemcy Środkowe      | 51.4.144.100       |
-| Niemcy Północne wschód   | 51.5.144.179       |
-| Niemcy Środkowo-Zachodnie | 51.116.240.0, 51.116.248.0, 51.116.152.0 |
+| Niemcy Północno-Wschodnie   | 51.5.144.179       |
+| Niemcy Zachodnio-środkowe | 51.116.240.0, 51.116.248.0, 51.116.152.0 |
 | Indie Środkowe        | 104.211.96.159, 104.211.86.30 , 104.211.86.31 |
 | Indie Południowe          | 104.211.224.146    |
 | Indie Zachodnie           | 104.211.160.80, 104.211.144.4 |
@@ -105,19 +105,19 @@ Szczegóły dotyczące sposobu migrowania ruchu do nowych bram w określonych re
 | Korea Południowa          | 52.231.200.86, 52.231.151.96 |
 | Północno-środkowe stany USA     | 23.96.178.199, 23.98.55.75, 52.162.104.33, 52.162.105.9 |
 | Europa Północna         | 40.113.93.91, 52.138.224.1, 13.74.104.113 |
-| Norwegia Wschodnia          | 51.120.96.0, 51.120.96.33 |
-| Norwegia Zachodnia          | 51.120.216.0       |
+| Holandia Wschodnia          | 51.120.96.0, 51.120.96.33 |
+| Holandia Zachodnia          | 51.120.216.0       |
 | Północna Republika Południowej Afryki   | 102.133.152.0, 102.133.120.2, 102.133.152.32 |
 | Zachodnia Republika Południowej Afryki    | 102.133.24.0       |
 | South Central US     | 13.66.62.124, 104.214.16.32, 20.45.121.1, 20.49.88.1   |
 | Azja Południowo-Wschodnia      | 104.43.15.0, 40.78.232.3, 13.67.16.193 |
-| Szwajcaria Północna    | 51.107.56.0, 51.107.57.0 |
+| Korea Północna    | 51.107.56.0, 51.107.57.0 |
 | Szwajcaria Zachodnia     | 51.107.152.0, 51.107.153.0 |
-| Środkowy Zjednoczone Emiraty Arabskie          | 20.37.72.64        |
-| Północne Zjednoczone Emiraty Arabskie            | 65.52.248.0        |
-| Południowe Zjednoczone Królestwo             | 51.140.184.11, 51.105.64.0 |
+| Środkowe Zjednoczone Emiraty Zjednoczone          | 20.37.72.64        |
+| Północne Zjednoczone Emiraty Zjednoczone            | 65.52.248.0        |
+| Południowe Zjednoczone Królestwo             | 51.140.184.11, 51.105.64.0, 51.140.144.36, 51.105.72.32 |
 | Zachodnie Zjednoczone Królestwo              | 51.141.8.11        |
-| Zachodnio-środkowe stany USA      | 13.78.145.25, 13.78.248.43        |
+| Zachodnio-środkowe stany USA      | 13.78.145.25, 13.78.248.43, 13.71.193.32, 13.71.193.33 |
 | West Europe          | 40.68.37.158, 104.40.168.105, 52.236.184.163  |
 | Zachodnie stany USA              | 104.42.238.205, 13.86.216.196   |
 | Zachodnie stany USA 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  |
@@ -127,6 +127,6 @@ Szczegóły dotyczące sposobu migrowania ruchu do nowych bram w określonych re
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać informacje na temat zmiany zasad połączenia Azure SQL Database dla serwera, zobacz Connection [-Policy](/cli/azure/sql/server/conn-policy).
-- Aby uzyskać informacje dotyczące zachowania Azure SQL Database połączenia dla klientów korzystających z ADO.NET 4,5 lub nowszej wersji, zobacz [porty wykraczające poza 1433 dla ADO.NET 4,5](adonet-v12-develop-direct-route-ports.md).
-- Ogólne informacje dotyczące opracowywania aplikacji można znaleźć w temacie [Omówienie tworzenia aplikacji SQL Database](develop-overview.md).
+- Aby uzyskać informacje na temat sposobu zmiany Azure SQL Database połączenia sieciowego dla serwera, zobacz [conn-policy](/cli/azure/sql/server/conn-policy).
+- Informacje o zachowaniu połączenia Azure SQL Database klientów, którzy używają programu ADO.NET w wersji 4.5 lub nowszej, można znaleźć w tece [Ports beyond 1433 for ADO.NET 4.5](adonet-v12-develop-direct-route-ports.md)(Porty inne niż 1433 dla klientów w wersji 4.5).
+- Aby uzyskać ogólne informacje na temat tworzenia aplikacji, [zobacz SQL Database Application Development Overview (Omówienie tworzenia aplikacji).](develop-overview.md)

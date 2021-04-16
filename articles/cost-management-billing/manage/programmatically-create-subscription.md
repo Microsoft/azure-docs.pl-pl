@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 03/11/2021
 ms.reviewer: andalmia
 ms.author: banders
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 9ec0ffeb930fd9285f34ad9ba9e6aa606b15b5a2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ce08ebf473b11eecae327c7de050c791f5bc1b1a
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593892"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379013"
 ---
 # <a name="create-azure-subscriptions-programmatically"></a>Programowe tworzenie subskrypcji platformy Azure
 
@@ -26,7 +26,7 @@ Korzystając z różnych interfejsów API REST, można utworzyć subskrypcję dl
 - Umowa klienta firmy Microsoft (MCA)
 - Umowa partnerska firmy Microsoft
 
-Nie można programowo tworzyć dodatkowych subskrypcji dla innych typów umów z interfejsami API REST.
+Za pomocą interfejsów API REST nie można programowo tworzyć dodatkowych subskrypcji dla innych typów umów.
 
 Wymagania i szczegółowe informacje dotyczące tworzenia subskrypcji różnią się w zależności od różnych umów i wersji interfejsu API. Zapoznaj się z następującymi artykułami dotyczącymi danej sytuacji:
 
@@ -36,9 +36,9 @@ Najnowsze interfejsy API:
 - [Tworzenie subskrypcji MCA](programmatically-create-subscription-microsoft-customer-agreement.md)
 - [Tworzenie subskrypcji MPA](programmatically-create-subscription-microsoft-partner-agreement.md)
 
-W tych artykułach przedstawiono również sposób tworzenia subskrypcji z szablonem Azure Resource Manager (szablon ARM). Szablon ARM pomaga zautomatyzować proces tworzenia subskrypcji.
+W tych artykułach popisano również, jak tworzyć subskrypcje za pomocą Azure Resource Manager szablonu usługi ARM. Szablon usługi ARM pomaga zautomatyzować proces tworzenia subskrypcji.
 
-Jeśli nadal używasz [wersji zapoznawczej interfejsów API](programmatically-create-subscription-preview.md), możesz nadal tworzyć subskrypcje z nimi. 
+Jeśli nadal używasz interfejsów API w wersji [zapoznawczej,](programmatically-create-subscription-preview.md)możesz nadal tworzyć za ich pomocą subskrypcje. 
 
 ## <a name="next-steps"></a>Następne kroki
 
