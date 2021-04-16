@@ -11,76 +11,76 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d707106d66c77ad1f3a1156906add8bb85fd0ce0
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 74009759bb9ca2a0516148fc1387b150b67452ab
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305977"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387908"
 ---
 # <a name="continuous-access-evaluation"></a>Ciągła weryfikacja dostępu
 
-Wygaśnięcie i odświeżenie tokenu jest standardowym mechanizmem w branży. Gdy aplikacja kliencka, taka jak program Outlook, nawiązuje połączenie z usługą, taką jak Exchange Online, żądania interfejsu API są autoryzowane przy użyciu tokenów dostępu OAuth 2,0. Domyślnie te tokeny dostępu są ważne przez jedną godzinę, a po ich wygaśnięciu klient zostanie przekierowany z powrotem do usługi Azure AD w celu jego odświeżenia. Ten okres odświeżania umożliwia ocenę zasad dostępu użytkowników. Na przykład: Firma Microsoft może zrezygnować z odświeżenia tokenu z powodu zasad dostępu warunkowego lub wyłączania użytkownika w katalogu. 
+Wygaśnięcie i odświeżanie tokenu to standardowy mechanizm w branży. Gdy aplikacja kliency, na przykład Outlook, łączy się z usługą, np. Exchange Online, żądania interfejsu API są autoryzowane przy użyciu tokenów dostępu OAuth 2.0. Domyślnie te tokeny dostępu są ważne przez jedną godzinę, a po wygaśnięciu klient jest przekierowywany z powrotem do usługi Azure AD w celu ich odświeżenia. Ten okres odświeżania daje możliwość ponownej wyceny zasad dostępu użytkowników. Na przykład: możemy zdecydować, aby nie odświeżać tokenu z powodu zasad dostępu warunkowego lub dlatego, że użytkownik został wyłączony w katalogu. 
 
-Klienci wyrazili wątpliwości dotyczące zwłoki między zmianami warunków użytkownika, np. lokalizacją sieciową lub kradzieżą poświadczeń, a także w przypadku wymuszania zasad związanych z tą zmianą. Poznamy podejście "Blunt Object" dotyczące krótszych okresów istnienia tokenu, ale znaleziono, że mogą one obniżyć wydajność i niezawodność użytkowników bez eliminowania zagrożeń.
+Klienci wyrazili obawy dotyczące opóźnienia między zmianami warunków dla użytkownika, na przykład lokalizacją sieciową lub kradzieżą poświadczeń, a wymuszania zasad związanych z tymi zmianami. Eksperymentujemy z podejściem "obiektu tępego" w przypadku skróconych okresów istnienia tokenów, ale okazało się, że mogą one obniżyć jakość obsługi i niezawodność użytkowników bez eliminowania ryzyka.
 
-Czasowa reakcja na naruszenia zasad lub problemy z zabezpieczeniami naprawdę wymaga "konwersacji" między wystawcą tokenów, takimi jak Azure AD, a jednostką uzależnioną, taką jak Exchange Online. Ta dwukierunkowa konwersacja daje nam dwie ważne możliwości. Jednostka uzależniona może zwrócić uwagę na to, że zmiany uległy zmianie, takie jak klient pochodzący z nowej lokalizacji i informujący wystawca tokenów. Zapewnia również wystawcy tokenów sposób informowania jednostki uzależnionej o zaprzestanie poszanowania tokenów dla danego użytkownika ze względu na złamanie konta, wyłączenie lub inne problemy. Mechanizmem tej konwersacji jest ciągły dostęp do wersji ewaluacyjnej (CAE). Celem jest osiągnięcie niemal rzeczywistego czasu reakcji, ale w niektórych przypadkach można zaobserwować opóźnienie do 15 minut z powodu czasu propagacji zdarzeń.
+Terminowe reagowanie na naruszenia zasad lub problemy z zabezpieczeniami naprawdę wymaga "konwersacji" między wystawcą tokenu, np. usługą Azure AD, a jednostką jednostki zależnej, np. usługą Exchange Online. Ta dwukierunkowa konwersacja daje nam dwie ważne możliwości. Jednostki zależne mogą zauważyć zmiany, takie jak klient z nowej lokalizacji, i poinformować wystawcę tokenu. Daje również wystawcy tokenu sposób na nakłonienie jednostki zależnej, aby przestała uwzględniać tokeny dla danego użytkownika z powodu naruszenia zabezpieczeń konta, wyłączenia lub innych problemów. Mechanizmem tej konwersacji jest ciągła ocena dostępu (CAE). Celem jest, aby odpowiedź była prawie w czasie rzeczywistym, ale w niektórych przypadkach można zaobserwować opóźnienie do 15 minut z powodu czasu propagacji zdarzenia.
 
-Początkowa implementacja oceny ciągłego dostępu koncentruje się na wymianie, zespołach i usłudze SharePoint Online.
+Początkowa implementacja ciągłej oceny dostępu koncentruje się na programach Exchange, Teams i SharePoint Online.
 
-Aby przygotować aplikacje do korzystania z programu CAE, zobacz [jak używać interfejsów API do oceny dostępu ciągłego w aplikacjach](../develop/app-resilience-continuous-access-evaluation.md).
+Aby przygotować aplikacje do korzystania z funkcji CAE, zobacz How to use Ciągła weryfikacja dostępu enabled APIs in your applications (Jak używać interfejsów API z włączoną [obsługą interfejsów API w aplikacjach).](../develop/app-resilience-continuous-access-evaluation.md)
 
 ### <a name="key-benefits"></a>Najważniejsze korzyści
 
-- Zakończenie lub zmiana hasła użytkownika: odwoływanie sesji użytkownika zostanie wymuszone w czasie niemal rzeczywistym.
+- Zakończenie działania użytkownika lub zmiana/zresetowanie hasła: odwołanie sesji użytkownika zostanie wymuszone niemal w czasie rzeczywistym.
 - Zmiana lokalizacji sieciowej: zasady lokalizacji dostępu warunkowego będą wymuszane niemal w czasie rzeczywistym.
-- Eksport tokenu do maszyny spoza zaufanej sieci można zablokować przy użyciu zasad lokalizacji dostępu warunkowego.
+- Eksportowanie tokenu na maszynę spoza zaufanej sieci można uniemożliwić przy użyciu zasad lokalizacji dostępu warunkowego.
 
 ## <a name="scenarios"></a>Scenariusze 
 
-Istnieją dwa scenariusze, które składają się na ciągłą ocenę dostępu, krytyczną ocenę zdarzeń i ocenę zasad dostępu warunkowego.
+Istnieją dwa scenariusze, które są procesem ciągłej oceny dostępu: ocena krytycznych zdarzeń i ocena zasad dostępu warunkowego.
 
-### <a name="critical-event-evaluation"></a>Krytyczne oszacowanie zdarzeń
+### <a name="critical-event-evaluation"></a>Ocena zdarzeń krytycznych
 
-Ciągła ocena dostępu jest implementowana przez włączenie usług, takich jak Exchange Online, SharePoint Online i zespoły, aby subskrybować krytyczne zdarzenia w usłudze Azure AD, dzięki czemu te zdarzenia można ocenić i wymusić niemal w czasie rzeczywistym. Ocena zdarzeń krytycznych nie polega na zasadach dostępu warunkowego, tak aby była dostępna w żadnej dzierżawie. Następujące zdarzenia są obecnie oceniane:
+Ciągła ocena dostępu jest implementowana przez umożliwienie usługom, np. Exchange Online, SharePoint Online i Teams, subskrybowania zdarzeń krytycznych w usłudze Azure AD, aby zdarzenia te można było oceniać i wymuszać niemal w czasie rzeczywistym. Ocena zdarzeń krytycznych nie zależy od zasad dostępu warunkowego, dlatego jest dostępna w dowolnej dzierżawie. Obecnie oceniane są następujące zdarzenia:
 
 - Konto użytkownika zostało usunięte lub wyłączone
-- Hasło użytkownika jest zmieniane lub resetowane
+- Hasło użytkownika zostało zmienione lub zresetowane
 - Uwierzytelnianie wieloskładnikowe jest włączone dla użytkownika
 - Administrator jawnie odwołuje wszystkie tokeny odświeżania dla użytkownika
-- Wykryto duże ryzyko dla użytkownika Azure AD Identity Protection
+- Wysokie ryzyko związane z użytkownikiem wykryte przez Azure AD Identity Protection
 
-Ten proces umożliwia scenariuszowi, w którym użytkownicy tracą dostęp do organizacyjnych plików usługi SharePoint Online, wiadomości e-mail, kalendarza lub zadań, a także zespoły z Microsoft 365 aplikacji klienckich w ciągu minut od jednego z tych zdarzeń krytycznych. 
+Ten proces umożliwia scenariusz, w którym użytkownicy utracą dostęp do organizacyjnych plików usługi SharePoint Online, poczty e-mail, kalendarza lub zadań oraz aplikacji Teams z aplikacji klienckich usługi Microsoft 365 w ciągu kilku minut po jednym z tych zdarzeń krytycznych. 
 
 > [!NOTE] 
-> Zespoły nie obsługują jeszcze zdarzeń ryzyka użytkownika.
+> Usługi Teams i SharePoint Online nie obsługują jeszcze zdarzeń o ryzyku użytkowników.
 
 ### <a name="conditional-access-policy-evaluation-preview"></a>Ocena zasad dostępu warunkowego (wersja zapoznawcza)
 
-Programy Exchange i SharePoint mogą synchronizować kluczowe zasady dostępu warunkowego, aby mogły być oceniane w ramach samej usługi.
+Program Exchange i SharePoint mogą synchronizować kluczowe zasady dostępu warunkowego, aby można je było ocenić w ramach samej usługi.
 
-Ten proces umożliwia scenariuszowi, w którym użytkownicy tracą dostęp do plików organizacji, wiadomości e-mail, kalendarza lub zadań z Microsoft 365 aplikacji klienckich lub usługi SharePoint Online bezpośrednio po zmianie lokalizacji sieciowej.
+Ten proces umożliwia scenariusz, w którym użytkownicy utracą dostęp do plików organizacji, poczty e-mail, kalendarza lub zadań z aplikacji klienckich usługi Microsoft 365 Lub SharePoint Online natychmiast po zmianie lokalizacji sieciowej.
 
 > [!NOTE]
-> Nie wszystkie kombinacje aplikacji i dostawcy zasobów są obsługiwane. Zobacz poniższą tabelę. Pakiet Office odnosi się do programów Word, Excel i PowerPoint.
+> Nie wszystkie kombinacje aplikacji i dostawcy zasobów są obsługiwane. Zobacz tabelę poniżej. Pakiet Office odnosi się do programów Word, Excel i PowerPoint.
 
-| | Sieć Web programu Outlook | Program Outlook Win32 | Outlook iOS | Program Outlook Android | Komputer Mac z programem Outlook |
+| | Outlook Web | Outlook Win32 | Outlook iOS | Outlook Android | Outlook Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | **SharePoint Online** | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane |
 | **Exchange Online** | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane |
 
-| | Aplikacje sieci Web pakietu Office | Aplikacje pakietu Office Win32 | Pakiet Office dla systemu iOS | Pakiet Office dla systemu Android | Pakiet Office dla komputerów Mac |
+| | Aplikacje internetowe pakietu Office | Aplikacje Win32 pakietu Office | Pakiet Office dla systemu iOS | Pakiet Office dla systemu Android | Pakiet Office dla komputerów Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | **SharePoint Online** | Nieobsługiwane | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane |
 | **Exchange Online** | Nieobsługiwane | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane |
 
-| | Usługa OneDrive w sieci Web | Usługa OneDrive Win32 | OneDrive dla systemu iOS | Usługa OneDrive dla systemu Android | Adres MAC usługi OneDrive |
+| | OneDrive — Internet | OneDrive Win32 | OneDrive dla systemu iOS | OneDrive Android | OneDrive Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | **SharePoint Online** | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane |
 
-### <a name="client-side-claim-challenge"></a>Wyzwanie dla żądania po stronie klienta
+### <a name="client-side-claim-challenge"></a>Żądanie oświadczenia po stronie klienta
 
-Przed ciągłą oceną dostępu klienci będą zawsze próbować odtworzyć token dostępu z jego pamięci podręcznej, o ile nie wygasł. Dzięki CAE wprowadzamy nowy przypadek, że dostawca zasobów może odrzucić token nawet wtedy, gdy nie wygasł. Aby poinformować klientów o konieczności obejścia swojej pamięci podręcznej, nawet jeśli tokeny buforowane nie wygasły, wprowadzimy mechanizm o nazwie **wyzwanie** , aby wskazać, że token został odrzucony, a nowy token dostępu musi być wystawiony przez usługę Azure AD. CAE wymaga aktualizacji klienta w celu zrozumienia wyzwania żądania. Najnowsza wersja następujących aplikacji poniżej obsługuje wyzwanie dla żądania:
+Przed ciągłą oceną dostępu klienci zawsze próbowali odtworzyć token dostępu ze swojej pamięci podręcznej, o ile nie wygasł. Wraz z cae wprowadzamy nowy przypadek, w którym dostawca zasobów może odrzucić token nawet wtedy, gdy nie wygasł. Aby poinformować klientów o pomijaniu pamięci podręcznej, nawet jeśli buforowane tokeny nie wygasły, wprowadzamy mechanizm nazywany żądaniem oświadczenia, aby wskazać, że token został odrzucony, i że usługa Azure AD musi wystawić nowy token dostępu.  CaE wymaga aktualizacji klienta, aby zrozumieć wyzwanie oświadczenia. Najnowsza wersja poniższych aplikacji obsługuje żądanie roszczenia:
 
 | | Internet | Win32 | iOS | Android | Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
@@ -91,11 +91,11 @@ Przed ciągłą oceną dostępu klienci będą zawsze próbować odtworzyć toke
 
 ### <a name="token-lifetime"></a>Okres istnienia tokenu
 
-Ze względu na to, że ryzyko i zasady są oceniane w czasie rzeczywistym, klienci, którzy negocjują sesje z obsługą oceny ciągłego dostępu, będą korzystać z CAE zamiast istniejących zasad okresów istnienia tokenu dostępu statycznego, co oznacza, że zasady okresowego okresu istnienia tokenów nie będą już brane pod uwagę dla klientów obsługujących CAE.
+Ponieważ ryzyko i zasady są oceniane w czasie rzeczywistym, klienci, którzy negocjują sesje z świadomą ciągłą oceną dostępu, będą polegać na cae zamiast istniejących zasadach okresu istnienia tokenu dostępu statycznego, co oznacza, że konfigurowalne zasady okresu istnienia tokenu nie będą już honorowane dla klientów z możliwością oceny dostępu cae, którzy negocjują sesje z usługą CAE.
 
-Okres istnienia tokenu może być długi, do 28 godzin w sesjach CAE. Odwołanie jest obsługiwane przez krytyczne zdarzenia i oceny zasad, a nie tylko w danym okresie. Ta zmiana zwiększa stabilność aplikacji bez wpływu na stan zabezpieczeń. 
+Okres istnienia tokenu jest zwiększany do długiego okresu istnienia(do 28 godzin) w sesjach CAE. Odwoływanie jest oparte na krytycznych zdarzeniach i ocenie zasad, a nie tylko na dowolnym okresie. Ta zmiana zwiększa stabilność aplikacji bez wpływu na poziom zabezpieczeń. 
 
-Jeśli nie korzystasz z klientów z systemem CAE, domyślny okres istnienia tokenu dostępu będzie pozostawać w ciągu 1 godziny, chyba że okres istnienia tokenu dostępu został skonfigurowany z użyciem funkcji wersji zapoznawczej [okres istnienia tokenu](../develop/active-directory-configurable-token-lifetimes.md) .
+Jeśli nie używasz klientów z funkcją CAE, domyślny okres istnienia tokenu dostępu pozostanie 1 godzinę, chyba że skonfigurowano okres istnienia tokenu dostępu za pomocą funkcji konfigurowalnego okresu istnienia tokenu [(CTL)](../develop/active-directory-configurable-token-lifetimes.md) w wersji zapoznawczej.
 
 ## <a name="example-flows"></a>Przykładowe przepływy
 
@@ -103,88 +103,88 @@ Jeśli nie korzystasz z klientów z systemem CAE, domyślny okres istnienia toke
 
 ![Przepływ zdarzeń odwołania użytkownika](./media/concept-continuous-access-evaluation/user-revocation-event-flow.png)
 
-1. Klient obsługujący CAE przedstawia poświadczenia lub token odświeżenia w usłudze Azure AD z prośbą o token dostępu dla pewnego zasobu.
-1. Token dostępu jest zwracany wraz z innymi artefaktami dla klienta.
-1. Administrator jawnie [odwołuje wszystkie tokeny odświeżania dla użytkownika](/powershell/module/azuread/revoke-azureaduserallrefreshtoken). Zdarzenie odwołania zostanie wysłane do dostawcy zasobów z usługi Azure AD.
-1. Dostawca zasobów przedstawia token dostępu. Dostawca zasobów szacuje ważność tokenu i sprawdza, czy istnieją jakieś zdarzenia odwołania dla użytkownika. Dostawca zasobów używa tych informacji do podejmowania decyzji o udzieleniu dostępu do zasobu.
-1. W takim przypadku dostawca zasobów nie zezwala na dostęp i wysyła wezwanie do klienta 401 + roszczeń z powrotem.
-1. Klient z obsługą CAE rozumie wyzwanie 401 i roszczeń. Pomija pamięć podręczną i wraca do kroku 1, wysyłając token odświeżania wraz z wezwaniem do usługi Azure AD. Usługa Azure AD będzie następnie ponownie szacować wszystkie warunki i monitować użytkownika o ponowne uwierzytelnienie w tym przypadku.
+1. Klient z możliwością cae przedstawia poświadczenia lub token odświeżania w usłudze Azure AD z prośbą o token dostępu dla pewnego zasobu.
+1. Token dostępu jest zwracany wraz z innymi artefaktami do klienta.
+1. Administrator [jawnie odwołuje wszystkie tokeny odświeżania dla użytkownika](/powershell/module/azuread/revoke-azureaduserallrefreshtoken). Zdarzenie odwołania zostanie wysłane do dostawcy zasobów z usługi Azure AD.
+1. Dostawca zasobów przedstawia token dostępu. Dostawca zasobów ocenia poprawność tokenu i sprawdza, czy istnieje jakiekolwiek zdarzenie odwołania dla użytkownika. Dostawca zasobów używa tych informacji do podjęcia decyzji o przyznaniu dostępu do zasobu.
+1. W takim przypadku dostawca zasobów nie zezwala na dostęp i wysyła żądanie oświadczeń 401+ do klienta.
+1. Klient z możliwością obsługi cae rozumie ponad 401 wyzwań roszczenia. Pomija pamięci podręczne i wraca do kroku 1, wysyłając token odświeżania wraz z żądaniem oświadczenia z powrotem do usługi Azure AD. Usługa Azure AD następnie ponownie przesprawdzi wszystkie warunki i wyświetli użytkownikowi monit o ponowne uwierzytelnienie w tym przypadku.
 
-### <a name="user-condition-change-flow-preview"></a>Przepływ zmian warunku użytkownika (wersja zapoznawcza):
+### <a name="user-condition-change-flow-preview"></a>Przepływ zmiany warunku użytkownika (wersja zapoznawcza):
 
-W poniższym przykładzie administrator dostępu warunkowego skonfigurował zasady dostępu warunkowego na podstawie lokalizacji, aby zezwalać na dostęp tylko z określonych zakresów adresów IP:
+W poniższym przykładzie administrator dostępu warunkowego skonfigurował zasady dostępu warunkowego opartego na lokalizacji, aby zezwalać na dostęp tylko z określonych zakresów adresów IP:
 
 ![Przepływ zdarzeń warunku użytkownika](./media/concept-continuous-access-evaluation/user-condition-change-flow.png)
 
-1. Klient obsługujący CAE przedstawia poświadczenia lub token odświeżenia w usłudze Azure AD z prośbą o token dostępu dla pewnego zasobu.
-1. Usługa Azure AD szacuje wszystkie zasady dostępu warunkowego, aby sprawdzić, czy użytkownik i klient spełniają warunki.
-1. Token dostępu jest zwracany wraz z innymi artefaktami dla klienta.
-1. Użytkownik przechodzi poza dozwolony zakres adresów IP
-1. Klient przedstawia token dostępu dostawcy zasobów spoza dozwolonego zakresu adresów IP.
-1. Dostawca zasobów szacuje ważność tokenu i sprawdza zasady lokalizacji zsynchronizowane z usługą Azure AD.
-1. W takim przypadku dostawca zasobów nie zezwala na dostęp i wysyła żądanie 401 + żądanie z powrotem do klienta, ponieważ nie pochodzi z dozwolonego zakresu adresów IP.
-1. Klient z obsługą CAE rozumie wyzwanie 401 i roszczeń. Pomija pamięć podręczną i wraca do kroku 1, wysyłając token odświeżania wraz z wezwaniem do usługi Azure AD. Usługa Azure AD przeprowadzi ocenę wszystkich warunków i odmówi dostępu w tym przypadku.
+1. Klient z możliwością cae przedstawia poświadczenia lub token odświeżania usłudze Azure AD z prośbą o token dostępu dla pewnego zasobu.
+1. Usługa Azure AD ocenia wszystkie zasady dostępu warunkowego, aby sprawdzić, czy użytkownik i klient spełniają warunki.
+1. Token dostępu jest zwracany do klienta wraz z innymi artefaktami.
+1. Użytkownik przenosi się poza dozwolony zakres adresów IP
+1. Klient przedstawia dostawcy zasobów token dostępu spoza dozwolonego zakresu adresów IP.
+1. Dostawca zasobów ocenia poprawność tokenu i sprawdza zasady lokalizacji zsynchronizowane z usługą Azure AD.
+1. W takim przypadku dostawca zasobów odmawia dostępu i wysyła do klienta żądanie oświadczenia 401+, ponieważ nie pochodzi ono z dozwolonego zakresu adresów IP.
+1. Klient z możliwością obsługi cae rozumie ponad 401 wyzwania związane z oświadczeniem. Pomija pamięci podręczne i wraca do kroku 1, wysyłając token odświeżania wraz z żądaniem oświadczenia z powrotem do usługi Azure AD. Usługa Azure AD ponownieocjuje wszystkie warunki i w tym przypadku odmówi dostępu.
 
-## <a name="enable-or-disable-cae-preview"></a>Włącz lub Wyłącz CAE (wersja zapoznawcza)
+## <a name="enable-or-disable-cae-preview"></a>Włączanie lub wyłączanie funkcji CAE (wersja zapoznawcza)
 
-1. Zaloguj się do **Azure Portal** jako administrator dostępu warunkowego, administrator zabezpieczeń lub Administrator globalny
-1. Przejdź do wersji  >    >  **ewaluacyjnej ciągłego dostępu** Azure Active Directory zabezpieczeń.
-1. Wybierz pozycję **Włącz podgląd**.
+1. Zaloguj się do witryny **Azure Portal** jako administrator dostępu warunkowego, administrator zabezpieczeń lub administrator globalny
+1. Przejdź do **witryny Azure Active Directory**  >    >  **ciągłej oceny dostępu zabezpieczeń.**
+1. Wybierz pozycję **Włącz podgląd.**
 
-Na tej stronie możesz opcjonalnie ograniczyć użytkowników i grupy, które będą podlegać wersji zapoznawczej.
+Na tej stronie możesz opcjonalnie ograniczyć użytkowników i grupy, które będą objęte podglądem.
 
-![Włączanie podglądu CAE w Azure Portal](./media/concept-continuous-access-evaluation/enable-cae-preview.png)
+![Włączanie podglądu urzędu certyfikacji w Azure Portal](./media/concept-continuous-access-evaluation/enable-cae-preview.png)
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 ### <a name="supported-location-policies"></a>Obsługiwane zasady lokalizacji
 
-W przypadku usługi CAE dostępne są tylko szczegółowe informacje o nazwanych lokalizacjach opartych na adresie IP. Nie mamy szczegółowych informacji na temat innych ustawień lokalizacji, takich jak [Zaufane adresy IP usługi MFA](../authentication/howto-mfa-mfasettings.md#trusted-ips) lub lokalizacje oparte na krajach. Jeśli użytkownik pochodzi z zaufanego adresu IP usługi MFA lub zaufanych lokalizacji, które zawierają zaufane IP lub lokalizacje krajów usługi MFA, CAE nie zostanie wymuszone po przeniesieniu użytkownika do innej lokalizacji. W takich przypadkach zostanie wystawiony token CAE o godzinie 1, bez kontroli przymusowego protokołu IP.
+W przypadku technologii CAE mamy wgląd tylko w nazwane nazwane lokalizacje oparte na adresach IP. Nie ma wglądu w inne ustawienia lokalizacji, takie jak zaufane [ip usługi MFA](../authentication/howto-mfa-mfasettings.md#trusted-ips) lub lokalizacje oparte na kraju. Jeśli użytkownik pochodzi z zaufanego adresu IP usługi MFA lub zaufanych lokalizacji, które obejmują zaufane adresy IP usługi MFA lub lokalizację kraju, urząd certyfikacji usługi MFA nie zostanie wymuszony po przeniesienia użytkownika do innej lokalizacji. W takich przypadkach wystawiamy 1-godzinny token CAE bez natychmiastowego sprawdzania wymuszania adresów IP.
 
 > [!IMPORTANT]
-> Podczas konfigurowania lokalizacji na potrzeby oceny ciągłego dostępu należy używać tylko [warunku lokalizacji dostępu warunkowego na podstawie adresu IP](../conditional-access/location-condition.md) i skonfigurować wszystkie adresy IP, w **tym Protokoły IPv4 i IPv6**, które mogą być widoczne dla dostawcy tożsamości i dostawcy zasobów. Nie używaj warunków lokalizacji kraju ani funkcji zaufanych adresów IP, która jest dostępna na stronie ustawień usługi Azure AD Multi-Factor Authentication.
+> Podczas konfigurowania lokalizacji na użytek ciągłej oceny dostępu należy użyć tylko warunku lokalizacji dostępu warunkowego opartego na protokole IP i skonfigurować wszystkie adresy [IP,](../conditional-access/location-condition.md) w tym **adresy IPv4 i IPv6,** które są widoczne dla dostawcy tożsamości i dostawcy zasobów. Nie używaj warunków lokalizacji kraju ani funkcji zaufanych adresów IP, która jest dostępna na stronie ustawień usługi Azure AD Multi-Factor Authentication.
 
 ### <a name="ip-address-configuration"></a>Konfiguracja adresu IP
 
-Dostawca tożsamości i dostawcy zasobów mogą zobaczyć różne adresy IP. Taka niezgodność może wystąpić ze względu na implementacje serwera proxy sieci w organizacji lub nieprawidłowe konfiguracje protokołu IPv4/IPv6 między dostawcą tożsamości i dostawcą zasobów. Na przykład:
+Dostawcy tożsamości i dostawcy zasobów mogą widzieć różne adresy IP. Ta niezgodność może wystąpić z powodu implementacji serwera proxy sieci w organizacji lub nieprawidłowych konfiguracji protokołu IPv4/IPv6 między dostawcą tożsamości i dostawcą zasobów. Na przykład:
 
 - Dostawca tożsamości widzi jeden adres IP od klienta.
-- Dostawca zasobów widzi inny adres IP od klienta po przejściu przez serwer proxy.
-- Adres IP widziany dla dostawcy tożsamości jest częścią dozwolonego zakresu adresów IP w zasadach, ale adres IP od dostawcy zasobów nie jest.
+- Dostawca zasobów widzi inny adres IP niż klient po przejściu przez serwer proxy.
+- Adres IP, który widzi dostawca tożsamości, jest częścią dozwolonego zakresu adresów IP w zasadach, ale adres IP od dostawcy zasobów nie jest.
 
-Jeśli ten scenariusz istnieje w Twoim środowisku, aby uniknąć nieskończonych pętli, usługa Azure AD wystawia token CAE w ciągu godziny i nie wymusi zmiany lokalizacji klienta. Nawet w tym przypadku Ulepszono zabezpieczenia w porównaniu z tradycyjnymi tokenami jednogodzinnymi, ponieważ nadal oceniamy [inne zdarzenia](#critical-event-evaluation) poza zdarzeniami zmiany lokalizacji klienta.
+Jeśli ten scenariusz istnieje w Twoim środowisku w celu uniknięcia nieskończonych pętli, usługa Azure AD wyemituje godzinny token CAE i nie będzie wymuszać zmiany lokalizacji klienta. Nawet w tym przypadku zabezpieczenia są lepsze w porównaniu do tradycyjnych [](#critical-event-evaluation) tokenów godzinowych, ponieważ nadal oceniamy inne zdarzenia oprócz zdarzeń zmiany lokalizacji klienta.
 
-### <a name="office-and-web-account-manager-settings"></a>Ustawienia pakietu Office i Menedżera kont sieci Web
+### <a name="office-and-web-account-manager-settings"></a>Ustawienia pakietu Office Menedżer kont internetowych pakietu Office
 
 | Kanał aktualizacji pakietu Office | DisableADALatopWAMOverride | DisableAADWAM |
 | --- | --- | --- |
-| Semi-Annual kanału przedsiębiorstwa | Jeśli ustawiona na wartość Enabled lub 1, CAE nie jest obsługiwana. | Jeśli ustawiona na wartość Enabled lub 1, CAE nie jest obsługiwana. |
-| Bieżący kanał <br> lub <br> Miesięczny kanał przedsiębiorstwa | CAE jest obsługiwany niezależnie od ustawienia | CAE jest obsługiwany niezależnie od ustawienia |
+| Semi-Annual Enterprise Channel | Jeśli ustawiono wartość włączone lub 1, funkcja CAE nie jest obsługiwana. | Jeśli ustawiono wartość włączone lub 1, funkcja CAE nie jest obsługiwana. |
+| Bieżący kanał <br> lub <br> Miesięczny kanał przedsiębiorstwa | CaE jest obsługiwany niezależnie od ustawienia | CaE jest obsługiwany niezależnie od ustawienia |
 
-Aby uzyskać wyjaśnienie kanałów aktualizacji pakietu Office, zobacz [Omówienie kanałów aktualizacji dla aplikacji Microsoft 365](/deployoffice/overview-update-channels). Zalecane jest, aby organizacje nie wyłączać Menedżera kont sieci Web (WAM).
+Aby uzyskać informacje o kanałach aktualizacji pakietu Office, zobacz [Overview of update channels for Microsoft 365 Apps (Omówienie](/deployoffice/overview-update-channels)kanałów aktualizacji Microsoft 365 Apps). Zaleca się, aby organizacje nie wyłączały Menedżer kont internetowych (CI).
 
-### <a name="group-membership-and-policy-update-effective-time"></a>Członkostwo w grupie i czas obowiązywania aktualizacji zasad
+### <a name="group-membership-and-policy-update-effective-time"></a>Członkostwo w grupie i czas wejścia w życie aktualizacji zasad
 
-Członkostwo w grupach i aktualizacja zasad podejmowanych przez administratorów może zająć do jednego dnia. Niektóre optymalizacje zostały wykonane w przypadku aktualizacji zasad, co zmniejsza opóźnienie do dwóch godzin. Nie dotyczy to jednak wszystkich scenariuszy. 
+Aby członkostwo w grupie i aktualizacja zasad wprowadzone przez administratorów było skuteczne, może upłynieć nawet jeden dzień. Niektóre optymalizacje zostały wykonane dla aktualizacji zasad, które zmniejszają opóźnienie do dwóch godzin. Nie obejmuje on jednak jeszcze wszystkich scenariuszy. 
 
-Jeśli występują sytuacje awaryjne i konieczne jest zaktualizowanie zasad lub zmiana członkostwa w grupie w celu natychmiastowego zastosowania do określonych użytkowników, należy użyć tego [polecenia programu PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) lub "odwołaj sesję" na stronie profilu użytkownika, aby odwołać sesję użytkowników, co spowoduje, że zaktualizowane zasady zostaną zastosowane natychmiast.
+W razie zagrożenia i konieczności natychmiastowego zaktualizowania zasad lub natychmiastowego zastosowania zmiany członkostwa w grupach do niektórych użytkowników należy użyć tego polecenia programu [PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) lub polecenia "Odwołaj sesję" na stronie profilu użytkownika, aby odwołać sesję użytkowników, co zapewnia natychmiastowe zastosowanie zaktualizowanych zasad.
 
 ### <a name="coauthoring-in-office-apps"></a>Współtworzenie w aplikacjach pakietu Office
 
-Gdy wielu użytkowników współpracują nad tym samym dokumentem w tym samym czasie, dostęp użytkownika do dokumentu może nie być natychmiast odwoływany przez CAE na podstawie zdarzenia odwołania lub zmiany zasad przez użytkownika. W takim przypadku użytkownik utraci dostęp całkowicie po, zamykając dokument, zamyka Word, Excel lub PowerPoint lub po upływie 10 godzin.
+Jeśli wielu użytkowników jednocześnie współpracuje nad tym samym dokumentem, dostęp użytkownika do dokumentu może nie zostać natychmiast odwołany przez urząd certyfikacji na podstawie zdarzeń odwołania użytkownika lub zmiany zasad. W takim przypadku użytkownik traci dostęp całkowicie po zamknięciu dokumentu, zamknięciu programu Word, Excel lub PowerPoint lub po upływie 10 godzin.
 
-Aby skrócić ten czas, administrator programu SharePoint może opcjonalnie skrócić maksymalny okres istnienia sesji współtworzenia dla dokumentów przechowywanych w usługach SharePoint Online i OneDrive dla firm, [konfigurując zasady lokalizacji sieciowej w usłudze SharePoint Online](/sharepoint/control-access-based-on-network-location). Po zmianie tej konfiguracji maksymalny okres istnienia sesji współtworzenia będzie krótszy niż 15 minut i można go dodatkowo dostosować przy użyciu polecenia programu SharePoint Online PowerShell "Set-SPOTenant – IPAddressWACTokenLifetime"
+Aby skrócić ten czas, administrator programu SharePoint może opcjonalnie skrócić maksymalny okres istnienia sesji współuwierzytelniania dla dokumentów przechowywanych w usługach SharePoint Online i OneDrive dla Firm, konfigurując zasady lokalizacji sieciowej w usłudze [SharePoint Online.](/sharepoint/control-access-based-on-network-location) Po zmianie tej konfiguracji maksymalny okres istnienia sesji współtworzenie zostanie skrócony do 15 minut i będzie można go dostosować za pomocą polecenia programu PowerShell usługi SharePoint Online "Set-SPOTenant –IPAddressWACTokenLifetime"
 
 ### <a name="enable-after-a-user-is-disabled"></a>Włącz po wyłączeniu użytkownika
 
-Jeśli po wyłączeniu zostanie włączone uprawnienie użytkownika. Aby można było włączyć konto, będą dostępne pewne opóźnienia. SPO i zespoły będą mieć opóźnienie 15 minut. Opóźnienie wynosi 35-40 minut dla EXO.
+Jeśli włączysz użytkownika bezpośrednio po jego wyłączeniu. Zanim będzie można włączyć konto, będzie pewne opóźnienie. Spo i Teams będą miały opóźnienie 15 minut. Opóźnienie wynosi 35–40 minut dla exo.
 
 ## <a name="faqs"></a>Często zadawane pytania
 
-### <a name="how-will-cae-work-with-sign-in-frequency"></a>Jak będzie CAE z częstotliwością logowania?
+### <a name="how-will-cae-work-with-sign-in-frequency"></a>Jak będzie działać urząd certyfikacji cae z częstotliwością logowania?
 
-Częstotliwość logowania będzie uznawana za CAE lub bez niej.
+Częstotliwość logowania będzie honorowana z cae lub bez.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Ogłaszanie ciągłej oceny dostępu](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933)
+[Announcing continuous access evaluation (Ogłaszamy ciągłą ocenę dostępu)](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933)

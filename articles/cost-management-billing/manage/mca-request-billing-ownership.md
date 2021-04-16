@@ -1,21 +1,21 @@
 ---
-title: Uzyskiwanie własności rozliczeń subskrypcji platformy Azure
-description: Dowiedz się, jak uzyskiwać własność rozliczeń subskrypcji platformy Azure od innych użytkowników.
+title: Przenoszenie własności rozliczeń subskrypcji platformy Azure dla Umowa z Klientem Microsoft
+description: Dowiedz się, jak przenieść własność rozliczeń subskrypcji platformy Azure.
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/09/2020
+ms.date: 04/08/2021
 ms.author: banders
-ms.openlocfilehash: ca55773b2deb74ea0647ed33df4040065762f94a
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
-ms.translationtype: HT
+ms.openlocfilehash: 4cfb5c0b746ab8cf4ebb26ee0f755b34b6289982
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938481"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481433"
 ---
-# <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>Uzyskiwanie własności rozliczeń subskrypcji platformy Azure z innych kont
+# <a name="transfer-azure-subscription-billing-ownership-for-a-microsoft-customer-agreement"></a>Przenoszenie własności rozliczeń subskrypcji platformy Azure dla Umowa z Klientem Microsoft
 
 Możesz zdecydować się przejąć własność subskrypcji platformy Azure, jeśli istniejący właściciel rozliczeń opuszcza organizację lub jeśli chcesz uregulować płatność za subskrypcje za pośrednictwem konta rozliczeniowego. Przejęcie własności przenosi obowiązki dotyczące rozliczeń subskrypcji na Twoje konto.
 

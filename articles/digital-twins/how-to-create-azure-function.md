@@ -1,148 +1,150 @@
 ---
-title: Konfigurowanie funkcji na platformie Azure na potrzeby przetwarzania danych
+title: Konfigurowanie funkcji na platformie Azure w celu przetwarzania danych
 titleSuffix: Azure Digital Twins
-description: Zobacz, jak utworzyć funkcję na platformie Azure, która może uzyskać dostęp i wyzwolenie przez Digital bliźniaczych reprezentacji.
+description: Zobacz, jak utworzyć na platformie Azure funkcję, która może uzyskać dostęp do usługi Digital Twins i może być wyzwalana przez tę funkcję.
 author: baanders
 ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f1ed4b9beda9848bba8fb12783f49dcf8016d3dd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5dddaabf47a261f741b3b1cb8d3319d589c4e474
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104590623"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480771"
 ---
-# <a name="connect-function-apps-in-azure-for-processing-data"></a>Łączenie aplikacji funkcji na platformie Azure na potrzeby przetwarzania danych
+# <a name="connect-function-apps-in-azure-for-processing-data"></a>Łączenie aplikacji funkcji na platformie Azure w celu przetwarzania danych
 
-Aktualizowanie cyfrowych bliźniaczych reprezentacji na podstawie danych jest obsługiwane przy użyciu [**tras zdarzeń**](concepts-route-events.md) za pośrednictwem zasobów obliczeniowych, takich jak funkcja, która jest wykonywana przy użyciu [Azure Functions](../azure-functions/functions-overview.md). Funkcje mogą służyć do aktualizowania wielocyfrowej dwuosiowej odpowiedzi na:
-* dane telemetryczne urządzenia pochodzące z IoT Hub
-* Zmiana właściwości lub inne dane pochodzące z innego cyfrowego sznurka w grafie bliźniaczym
+Bliźniacze reprezentacji cyfrowe można aktualizować na podstawie danych przy użyciu [tras zdarzeń za](concepts-route-events.md) pośrednictwem zasobów obliczeniowych. Na przykład funkcja wykonana przy użyciu usługi [Azure Functions](../azure-functions/functions-overview.md) może zaktualizować cyfrową bliźniacę w odpowiedzi na:
+* Dane telemetryczne urządzenia z Azure IoT Hub.
+* Zmiana właściwości lub inne dane z innej bliźniaczej reprezentacji cyfrowej w grafie bliźniaczej reprezentacji.
 
-W tym artykule opisano tworzenie funkcji platformy Azure do użycia z usługą Azure Digital bliźniaczych reprezentacji. 
+W tym artykule pokazano, jak utworzyć funkcję na platformie Azure do użycia z Azure Digital Twins. Aby utworzyć funkcję, wykonaj następujące podstawowe kroki:
 
-Poniżej przedstawiono przegląd kroków, które zawiera:
+1. Utwórz projekt Azure Functions w Visual Studio.
+2. Napisz funkcję, która ma [Azure Event Grid](../event-grid/overview.md) wyzwalacz.
+3. Dodaj kod uwierzytelniania do funkcji , aby uzyskać dostęp do Azure Digital Twins.
+4. Opublikuj aplikację funkcji na platformie Azure.
+5. Skonfiguruj [zabezpieczenia](concepts-security.md) dla aplikacji funkcji.
 
-1. Tworzenie projektu usługi Azure Functions w programie Visual Studio
-2. Napisz funkcję z wyzwalaczem [Event Grid](../event-grid/overview.md)
-3. Dodawanie kodu uwierzytelniania do funkcji (aby można było uzyskać dostęp do usługi Azure Digital bliźniaczych reprezentacji)
-4. Publikowanie aplikacji funkcji na platformie Azure
-5. Konfigurowanie dostępu [zabezpieczeń](concepts-security.md) do aplikacji funkcji
-
-## <a name="prerequisite-set-up-azure-digital-twins-instance"></a>Wymaganie wstępne: Konfigurowanie wystąpienia usługi Azure Digital bliźniaczych reprezentacji
+## <a name="prerequisite-set-up-azure-digital-twins"></a>Wymaganie wstępne: Konfigurowanie Azure Digital Twins
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
-## <a name="create-a-function-app-in-visual-studio"></a>Tworzenie aplikacji funkcji w programie Visual Studio
+## <a name="create-a-function-app-in-visual-studio"></a>Tworzenie aplikacji funkcji w Visual Studio
 
-W programie Visual Studio 2019 wybierz pozycję _plik > nowy > projekt_ i wyszukaj szablon _Azure Functions_ . Wybierz opcję _Dalej_.
+W Visual Studio 2019 r. wybierz pozycję **File** New Project  >  **(Plik nowy**  >  **projekt).** Wyszukaj szablon **Azure Functions** szablonu. Wybierz opcję **Dalej**.
 
-:::image type="content" source="media/how-to-create-azure-function/create-azure-function-project.png" alt-text="Zrzut ekranu programu Visual Studio pokazujący okno dialogowe Nowy projekt. Szablon projektu Azure Functions jest wyróżniony.":::
+:::image type="content" source="media/how-to-create-azure-function/create-azure-function-project.png" alt-text="Zrzut ekranu Visual Studio przedstawiający okno dialogowe nowego projektu. Szablon Azure Functions projektu został wyróżniony.":::
 
-Określ nazwę aplikacji funkcji i wybierz pozycję _Utwórz_.
+Określ nazwę aplikacji funkcji, a następnie wybierz pozycję __Utwórz.__
 
-:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Zrzut ekranu programu Visual Studio pokazujący okno dialogowe umożliwiające skonfigurowanie nowego projektu, w tym nazwy projektu, lokalizacji zapisywania, wybór tworzenia nowego rozwiązania i nazwy rozwiązania.":::
+:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Zrzut ekranu Visual Studio przedstawiający okno dialogowe służące do konfigurowania nowego projektu. Ustawienia obejmują nazwę projektu, lokalizację zapisu, wybór utworzenia nowego rozwiązania i nazwę rozwiązania.":::
 
-Wybierz typ aplikacji funkcji *Event Grid wyzwalacza* , a następnie wybierz pozycję _Utwórz_.
+Wybierz typ aplikacji funkcji dla **Event Grid,** a następnie wybierz pozycję __Utwórz.__
 
-:::image type="content" source="media/how-to-create-azure-function/event-grid-trigger-function.png" alt-text="Zrzut ekranu programu Visual Studio pokazujący okno dialogowe umożliwiające utworzenie nowej aplikacji Azure Functions. Opcja wyzwalacza Event Grid jest wyróżniona.":::
+:::image type="content" source="media/how-to-create-azure-function/event-grid-trigger-function.png" alt-text="Zrzut ekranu Visual Studio przedstawiający okno dialogowe służące do tworzenia nowej Azure Functions aplikacji. Opcja Event Grid wyzwalacza jest wyróżniona.":::
 
-Po utworzeniu aplikacji funkcji program Visual Studio wygeneruje przykład kodu w pliku **Function1. cs** w folderze projektu. Ta krótka funkcja jest używana do rejestrowania zdarzeń.
+Po utworzeniu aplikacji funkcji program Visual Studio przykładowy kod w pliku *Function1.cs* w folderze projektu. Ta krótka funkcja służy do rejestrować zdarzenia.
 
-:::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Zrzut ekranu programu Visual Studio w oknie projektu dla nowego projektu, który został utworzony. Istnieje kod dla przykładowej funkcji o nazwie Function1." lightbox="media/how-to-create-azure-function/visual-studio-sample-code.png":::
+:::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Zrzut ekranu przedstawiający Visual Studio. Zostanie wyświetlone okno projektu dla nowego projektu. Kod przykładowej funkcji jest wyświetlany w pliku o nazwie Function1." lightbox="media/how-to-create-azure-function/visual-studio-sample-code.png":::
 
-## <a name="write-a-function-with-an-event-grid-trigger"></a>Napisz funkcję z wyzwalaczem Event Grid
+## <a name="write-a-function-that-has-an-event-grid-trigger"></a>Pisanie funkcji z wyzwalaczem Event Grid wyzwalacza
 
-Można napisać funkcję, dodając zestaw SDK do aplikacji funkcji. Aplikacja funkcji współdziała z usługą Azure Digital bliźniaczych reprezentacji przy użyciu [usługi Azure Digital bliźniaczych reprezentacji SDK dla platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client). 
+Funkcję można napisać, dodając zestaw SDK do aplikacji funkcji. Aplikacja funkcji współdziała z Azure Digital Twins pomocą zestawu SDK Azure Digital Twins [dla platformy .NET (C#).](/dotnet/api/overview/azure/digitaltwins/client) 
 
-Aby można było korzystać z zestawu SDK, należy dołączyć następujące pakiety do projektu. Możesz zainstalować pakiety przy użyciu Menedżera pakietów NuGet programu Visual Studio lub dodać pakiety przy użyciu `dotnet` narzędzia wiersza polecenia.
+Aby użyć zestawu SDK, w projekcie należy uwzględnić następujące pakiety. Zainstaluj pakiety przy użyciu menedżera Visual Studio NuGet. Możesz też dodać pakiety przy użyciu `dotnet` polecenia w narzędziu wiersza polecenia.
 
-* [Azure. DigitalTwins. Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core/)
-* [Azure. Identity](https://www.nuget.org/packages/Azure.Identity/)
-* [System .NET. http](https://www.nuget.org/packages/System.Net.Http/)
-* [Azure. Core](https://www.nuget.org/packages/Azure.Core/)
+* [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core/)
+* [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/)
+* [System.Net.Http](https://www.nuget.org/packages/System.Net.Http/)
+* [Azure.Core](https://www.nuget.org/packages/Azure.Core/)
 
-Następnie w Eksplorator rozwiązań programu Visual Studio Otwórz plik _Function1. cs_ z przykładowym kodem i Dodaj następujące `using` instrukcje dla tych pakietów do funkcji.
+Następnie w Visual Studio Eksplorator rozwiązań otwórz plik _Function1.cs,_ który zawiera przykładowy kod. Dodaj następujące `using` instrukcje dla pakietów.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="Function_dependencies":::
 
 ## <a name="add-authentication-code-to-the-function"></a>Dodawanie kodu uwierzytelniania do funkcji
 
-Teraz deklarujesz zmienne na poziomie klasy i dodajesz kod uwierzytelniania, który umożliwi funkcji dostęp do usługi Azure Digital bliźniaczych reprezentacji. Do funkcji w pliku _Function1. cs_ zostanie dodana następująca wartość:
+Teraz zadeklaruj zmienne na poziomie klasy i dodaj kod uwierzytelniania, który umożliwi funkcji dostęp do Azure Digital Twins. Dodaj zmienne i kod do funkcji w pliku _Function1.cs._
 
-* Kod odczytywania adresu URL usługi Digital bliźniaczych reprezentacji platformy Azure jako **zmiennej środowiskowej**. Dobrym sposobem jest odczytanie adresu URL usługi ze zmiennej środowiskowej, a nie kodowanie twarde w funkcji. Wartość tej zmiennej środowiskowej zostanie ustawiona [w dalszej części tego artykułu](#set-up-security-access-for-the-function-app). Aby uzyskać więcej informacji na temat zmiennych środowiskowych, zobacz [*Zarządzanie aplikacją funkcji*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal).
+* **Kod odczytu adresu URL Azure Digital Twins jako zmiennej środowiskowej.** Dobrym rozwiązaniem jest odczytanie adresu URL usługi ze zmiennej środowiskowej zamiast kodowania go w funkcji. Wartość tej zmiennej środowiskowej ustawisz w [dalszej części tego artykułu.](#set-up-security-access-for-the-function-app) Aby uzyskać więcej informacji na temat zmiennych środowiskowych, zobacz [Zarządzanie aplikacją funkcji](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal).
 
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ADT_service_URL":::
 
-* Zmienna statyczna do przechowywania wystąpienia HttpClient. Tworzenie HttpClient jest stosunkowo kosztowne i chcemy unikać wykonywania tych czynności w przypadku każdego wywołania funkcji.
+* **Zmienna statyczna do przechowywania wystąpienia HttpClient.** Tworzenie aplikacji HttpClient jest stosunkowo kosztowne, dlatego chcemy uniknąć jej tworzenia dla każdego wywołania funkcji.
 
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="HTTP_client":::
 
-* W Azure Functions można użyć poświadczeń tożsamości zarządzanej.
+* **Poświadczenia tożsamości zarządzanej.**
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ManagedIdentityCredential":::
 
-* Dodaj zmienną lokalną _DigitalTwinsClient_ wewnątrz funkcji, aby pomieścić wystąpienie klienta cyfrowego bliźniaczych reprezentacji platformy Azure. *Nie* ustawiaj tej zmiennej jako statycznej wewnątrz klasy.
+* **Zmienna lokalna _DigitalTwinsClient._** Dodaj zmienną wewnątrz funkcji w celu przechowywania Azure Digital Twins klienta. Nie *należy oznaczać* tej zmiennej jako statycznej wewnątrz klasy.
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="DigitalTwinsClient":::
 
-* Dodaj sprawdzanie wartości null dla _adtInstanceUrl_ i zawiń logikę funkcji w bloku try/catch, aby przechwytywać wyjątki.
+* **Sprawdzanie wartości null dla _adtInstanceUrl_.** Dodaj sprawdzanie wartości null, a następnie opakuj logikę funkcji w blok try/catch, aby przechwyć wszelkie wyjątki.
 
-Po wprowadzeniu tych zmian kod funkcji będzie wyglądać podobnie do poniższego:
+Po tych zmianach kod funkcji będzie wyglądać podobnie do poniższego przykładu.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs":::
 
-Teraz, gdy aplikacja jest zapisywana, możesz ją opublikować na platformie Azure, wykonując kroki opisane w następnej sekcji.
+Teraz, gdy aplikacja została napisana, możesz opublikować ją na platformie Azure.
 
 ## <a name="publish-the-function-app-to-azure"></a>Publikowanie aplikacji funkcji na platformie Azure
 
 [!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
 
-### <a name="verify-function-publish"></a>Weryfikuj funkcję publikowania
+### <a name="verify-the-publication-of-your-function"></a>Weryfikowanie publikacji funkcji
 
 1. Zaloguj się przy użyciu swoich poświadczeń w [Azure Portal](https://portal.azure.com/).
-2. Na pasku wyszukiwania w górnej części okna Wyszukaj **nazwę aplikacji funkcji**.
+2. W polu wyszukiwania w górnej części okna wyszukaj nazwę aplikacji funkcji, a następnie wybierz ją.
 
-    :::image type="content" source="media/how-to-create-azure-function/search-function-app.png" alt-text="Wyszukaj swoją aplikację funkcji przy użyciu jej nazwy w Azure Portal." lightbox="media/how-to-create-azure-function/search-function-app.png":::
+    :::image type="content" source="media/how-to-create-azure-function/search-function-app.png" alt-text="Zrzut ekranu przedstawiający Azure Portal. W polu wyszukiwania wprowadź nazwę aplikacji funkcji." lightbox="media/how-to-create-azure-function/search-function-app.png":::
 
-3. Na stronie *aplikacja funkcji* , która zostanie otwarta, wybierz pozycję *funkcje* w menu po lewej stronie. Jeśli funkcja została pomyślnie opublikowana, zobaczysz nazwę funkcji na liście.
-Należy pamiętać, że może być konieczne odczekanie kilku minut lub odświeżenie strony, zanim będzie można zobaczyć swoją funkcję na liście opublikowanych funkcji.
+3. Na stronie **Aplikacji funkcji,** która zostanie otwarta, w menu po lewej stronie wybierz pozycję **Funkcje.** Jeśli funkcja została pomyślnie opublikowana, jej nazwa zostanie wyświetlona na liście.
+
+    > [!Note] 
+    > Może być konieczne odczekenie kilku minut lub odświeżenie strony kilka razy, zanim funkcja pojawi się na liście opublikowanych funkcji.
 
     :::image type="content" source="media/how-to-create-azure-function/view-published-functions.png" alt-text="Wyświetlanie opublikowanych funkcji w Azure Portal." lightbox="media/how-to-create-azure-function/view-published-functions.png":::
 
-Aby aplikacja funkcji mogła uzyskać dostęp do usługi Azure Digital bliźniaczych reprezentacji, musi mieć tożsamość zarządzaną przez system z uprawnieniami dostępu do wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Ustawisz tę wartość w następnej kolejności.
+Aby uzyskać Azure Digital Twins, aplikacja funkcji wymaga tożsamości zarządzanej przez system z uprawnieniami dostępu do Azure Digital Twins wystąpienia. Skonfigurujesz to w następnej.
 
-## <a name="set-up-security-access-for-the-function-app"></a>Konfigurowanie dostępu zabezpieczeń do aplikacji funkcji
+## <a name="set-up-security-access-for-the-function-app"></a>Konfigurowanie dostępu zabezpieczeń dla aplikacji funkcji
 
-Dostęp zabezpieczeń do aplikacji funkcji można skonfigurować przy użyciu interfejsu wiersza polecenia platformy Azure lub Azure Portal. Postępuj zgodnie z instrukcjami dla preferowanej opcji poniżej.
+Dostęp do zabezpieczeń dla aplikacji funkcji można skonfigurować przy użyciu interfejsu wiersza polecenia platformy Azure lub interfejsu Azure Portal. Postępuj zgodnie z instrukcjami dla preferowanej opcji.
 
 # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/cli)
 
-Te polecenia można uruchomić w [Azure Cloud Shell](https://shell.azure.com) lub w [lokalnej instalacji interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
-Można użyć tożsamości zarządzanej przez system aplikacji funkcji, aby nadać jej rolę _**właściciela danych Digital bliźniaczych reprezentacji**_ na platformie Azure dla Twojego wystąpienia bliźniaczych reprezentacji. Spowoduje to nadanie uprawnienia aplikacji funkcji w wystąpieniu do wykonywania działań płaszczyzny danych. Następnie Udostępnij adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji dostępnego dla funkcji przez ustawienie zmiennej środowiskowej.
+Uruchom te polecenia [w](https://shell.azure.com) Azure Cloud Shell lub lokalnej instalacji [interfejsu wiersza polecenia platformy Azure.](/cli/azure/install-azure-cli)
+Możesz użyć tożsamości zarządzanej przez system aplikacji funkcji, aby nadać jej rolę **właściciela** Azure Digital Twins danych dla twojego Azure Digital Twins wystąpienia. Rola zapewnia aplikacji funkcji uprawnienia w wystąpieniu do wykonywania działań płaszczyzny danych. Następnie udostępnij adres URL wystąpienia funkcji, ustawiając zmienną środowiskową.
 
-### <a name="assign-access-role"></a>Przypisywanie roli dostępu
+### <a name="assign-an-access-role"></a>Przypisywanie roli dostępu
 
 [!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
-Funkcja szkieletu z wcześniejszych przykładów wymaga, aby token okaziciela został przesłany do niego, aby można było uwierzytelniać za pomocą usługi Azure Digital bliźniaczych reprezentacji. Aby upewnić się, że ten token okaziciela jest zakończony, musisz skonfigurować uprawnienia [tożsamość usługi zarządzanej (msi)](../active-directory/managed-identities-azure-resources/overview.md) dla aplikacji funkcji, aby uzyskać dostęp do usługi Azure Digital bliźniaczych reprezentacji. Należy to zrobić tylko raz dla każdej aplikacji funkcji.
+Szkielet funkcji we wcześniejszych przykładach wymaga, aby do niego został przekazany token bearer. Jeśli token bearer nie zostanie przekazany, aplikacja funkcji nie może uwierzytelnić się za pomocą Azure Digital Twins. 
+
+Aby upewnić się, że token okaziciela został przekazany, skonfiguruj uprawnienia tożsamości zarządzanych, aby aplikacja funkcji mieć dostęp do Azure Digital Twins. [](../active-directory/managed-identities-azure-resources/overview.md) Te uprawnienia można skonfigurować tylko raz dla każdej aplikacji funkcji.
 
 
-1. Użyj poniższego polecenia, aby wyświetlić szczegóły dotyczące tożsamości zarządzanej przez system dla funkcji. Zwróć uwagę na pole _principalId_ w danych wyjściowych.
+1. Użyj następującego polecenia, aby wyświetlić szczegóły tożsamości zarządzanej przez system dla funkcji. Zanotuj `principalId` pole w danych wyjściowych.
 
     ```azurecli-interactive 
     az functionapp identity show -g <your-resource-group> -n <your-App-Service-(function-app)-name> 
     ```
 
     >[!NOTE]
-    > Jeśli wynik jest pusty zamiast wyświetlania szczegółów tożsamości, Utwórz nową tożsamość zarządzaną przez system dla funkcji za pomocą tego polecenia:
+    > Jeśli wynik jest pusty zamiast wyświetlania szczegółów tożsamości, utwórz nową tożsamość zarządzaną przez system dla funkcji za pomocą tego polecenia:
     > 
     >```azurecli-interactive    
     >az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>  
     >```
     >
-    > Następnie dane wyjściowe będą wyświetlały szczegóły tożsamości, w tym wartość _principalId_ , która jest wymagana do następnego kroku. 
+    > W danych wyjściowych są wyświetlane szczegóły tożsamości, w tym `principalId` wartość wymagana w następnym kroku. 
 
-1. Użyj wartości _principalId_ w poniższym poleceniu, aby przypisać tożsamość aplikacji funkcji do roli _Właściciel danych usługi Azure Digital Twins_ dla wystąpienia usługi Azure Digital Twins.
+1. Użyj wartości w poniższym poleceniu, aby przypisać tożsamość aplikacji funkcji do roli właściciela Azure Digital Twins danych dla `principalId` Azure Digital Twins wystąpienia. 
 
     ```azurecli-interactive 
     az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
@@ -150,10 +152,10 @@ Funkcja szkieletu z wcześniejszych przykładów wymaga, aby token okaziciela zo
 
 ### <a name="configure-application-settings"></a>Konfigurowanie ustawień aplikacji
 
-Na koniec Udostępnij adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji dostępnego dla funkcji przez ustawienie dla niego **zmiennej środowiskowej** . Aby uzyskać więcej informacji na temat zmiennych środowiskowych, zobacz [*Zarządzanie aplikacją funkcji*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
+Udostępnij adres URL wystąpienia funkcji, ustawiając dla niego zmienną środowiskową. Aby uzyskać więcej informacji na temat zmiennych środowiskowych, zobacz [Zarządzanie aplikacją funkcji](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
 
 > [!TIP]
-> Adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji jest tworzony przez dodanie *https://* do początku *nazwy hosta* wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Aby wyświetlić nazwę hosta wraz ze wszystkimi właściwościami wystąpienia, można uruchomić polecenie `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
+> Adres URL Azure Digital Twins jest made przez dodanie https:// *na* początku nazwy hosta wystąpienia. Aby wyświetlić nazwę hosta wraz ze wszystkimi właściwościami wystąpienia, `az dt show --dt-name <your-Azure-Digital-Twins-instance>` uruchom .
 
 ```azurecli-interactive 
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
@@ -161,80 +163,83 @@ az functionapp config appsettings set -g <your-resource-group> -n <your-App-Serv
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
-Wykonaj następujące kroki w [Azure Portal](https://portal.azure.com/).
+Wykonaj następujące kroki w Azure Portal [.](https://portal.azure.com/)
 
-### <a name="assign-access-role"></a>Przypisywanie roli dostępu
+### <a name="assign-an-access-role"></a>Przypisywanie roli dostępu
 
 [!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
-Tożsamość zarządzana przypisana przez system umożliwia zasobom platformy Azure uwierzytelnianie w usługach w chmurze (na przykład Azure Key Vault) bez zapisywania poświadczeń w kodzie. Po włączeniu wszystkich wymaganych uprawnień można udzielić za pośrednictwem kontroli dostępu opartej na rolach platformy Azure. Cykl życia tego typu tożsamości zarządzanej jest powiązany z cyklem życia tego zasobu. Ponadto każdy zasób może mieć tylko jedną tożsamość zarządzaną przypisaną przez system.
+Tożsamość zarządzana przypisana przez system umożliwia zasobom platformy Azure uwierzytelnianie w usługach w chmurze (na przykład Azure Key Vault) bez przechowywania poświadczeń w kodzie. Po włączeniu tożsamości zarządzanej przypisanej przez system wszystkie niezbędne uprawnienia można przyznać za pośrednictwem kontroli dostępu opartej na rolach platformy Azure. 
 
-1. W [Azure Portal](https://portal.azure.com/)Wyszukaj aplikację funkcji, wpisując jej nazwę na pasku wyszukiwania. Wybierz swoją aplikację z wyników. 
+Cykl życia tożsamości zarządzanej tego typu jest powiązany z cyklem życia tego zasobu. Ponadto każdy zasób może mieć tylko jedną tożsamość zarządzaną przypisaną przez system.
 
-    :::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Zrzut ekranu przedstawiający Azure Portal: Nazwa aplikacji funkcji jest przeszukiwana na pasku wyszukiwania portalu, a wynik wyszukiwania zostanie wyróżniony.":::
+1. W [Azure Portal](https://portal.azure.com/)wyszukaj aplikację funkcji, wpisując jej nazwę w polu wyszukiwania. Wybierz aplikację z wyników. 
 
-1. Na stronie aplikacja funkcji wybierz opcję _tożsamość_ na pasku nawigacyjnym po lewej stronie, aby współpracować z zarządzaną tożsamością dla funkcji. Na stronie _przypisana przez system_ Sprawdź, czy _stan_ jest ustawiony na wartość **włączone** (jeśli nie, ustaw ją teraz i *Zapisz* zmianę).
+    :::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Zrzut ekranu przedstawiający Azure Portal. Nazwa aplikacji funkcji znajduje się na pasku wyszukiwania portalu, a wynik wyszukiwania jest wyróżniony.":::
 
-    :::image type="content" source="media/how-to-create-azure-function/verify-system-managed-identity.png" alt-text="Zrzut ekranu przedstawiający Azure Portal: na stronie tożsamość aplikacji funkcji jest ustawiona opcja stan na włączone." lightbox="media/how-to-create-azure-function/verify-system-managed-identity.png":::
+1. Na stronie aplikacji funkcji w menu po lewej stronie wybierz pozycję __Tożsamość,__ aby pracować z tożsamością zarządzaną dla funkcji. Na stronie __Przypisana przez system__ sprawdź, czy dla ustawienia __Stan__ ustawiono wartość **Wł.**. Jeśli tak nie jest, ustaw ją teraz, a następnie **zapisz** zmianę.
 
-1. Wybierz przycisk _przypisania roli platformy Azure_ , który spowoduje otwarcie strony *przypisania roli platformy Azure* .
+    :::image type="content" source="media/how-to-create-azure-function/verify-system-managed-identity.png" alt-text="Zrzut ekranu przedstawiający Azure Portal. Na stronie Tożsamość dla aplikacji funkcji opcja Stan jest ustawiona na wartość Wł." lightbox="media/how-to-create-azure-function/verify-system-managed-identity.png":::
 
-    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-1.png" alt-text="Zrzut ekranu przedstawiający Azure Portal: wyróżniony przycisk &quot;przypisań roli platformy Azure&quot; w obszarze uprawnienia na stronie tożsamości funkcji platformy Azure." lightbox="media/how-to-create-azure-function/add-role-assignment-1.png":::
+1. Wybierz __pozycję Przypisania ról platformy Azure.__
 
-    Wybierz pozycję _+ Dodaj przypisanie roli (wersja zapoznawcza)_.
+    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-1.png" alt-text="Zrzut ekranu przedstawiający Azure Portal. Na stronie Tożsamość funkcji platformy Azure w obszarze Uprawnienia wyróżniony jest przycisk Przypisania ról platformy Azure." lightbox="media/how-to-create-azure-function/add-role-assignment-1.png":::
 
-    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-2.png" alt-text="Zrzut ekranu przedstawiający Azure Portal: Wyróżnij około + Dodaj przypisanie roli (wersja zapoznawcza) na stronie przydziały ról platformy Azure." lightbox="media/how-to-create-azure-function/add-role-assignment-2.png":::
+    Wybierz __pozycję + Dodaj przypisanie roli (wersja zapoznawcza).__
 
-1. Na stronie _Dodaj przypisanie roli (wersja zapoznawcza)_ , która zostanie otwarta, wybierz następujące wartości:
+    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-2.png" alt-text="Zrzut ekranu przedstawiający Azure Portal. Na stronie Przypisania ról platformy Azure wyróżniony jest przycisk Dodaj przypisanie roli (wersja zapoznawcza)." lightbox="media/how-to-create-azure-function/add-role-assignment-2.png":::
 
-    * **Zakres**: grupa zasobów
-    * **Subskrypcja**: wybierz subskrypcję platformy Azure
-    * **Grupa zasobów**: Wybierz grupę zasobów z listy rozwijanej
-    * **Rola**: Wybierz _właściciela danych Digital bliźniaczych reprezentacji platformy Azure_ z listy rozwijanej
+1. Na stronie __Dodawanie przypisania roli (wersja zapoznawcza)__ wybierz następujące wartości:
 
-    Następnie Zapisz szczegóły, naciskając przycisk _Zapisz_ .
+    * **Zakres:** _grupa zasobów_
+    * **Subskrypcja**: wybierz subskrypcję platformy Azure.
+    * **Grupa zasobów:** wybierz grupę zasobów.
+    * **Rola:** _Azure Digital Twins danych_
 
-    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-3.png" alt-text="Zrzut ekranu przedstawiający okno dialogowe Azure Portal: aby dodać nowe przypisanie roli (wersja zapoznawcza). Istnieją pola dla zakresu, subskrypcji, grupy zasobów i roli.":::
+    Zapisz szczegóły, wybierając pozycję __Zapisz.__
+
+    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-3.png" alt-text="Zrzut ekranu przedstawiający Azure Portal, w którym pokazano, jak dodać nowe przypisanie roli. W oknie dialogowym są wyświetlane pola Zakres, Subskrypcja, Grupa zasobów i Rola.":::
 
 ### <a name="configure-application-settings"></a>Konfigurowanie ustawień aplikacji
 
-Aby adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji był dostępny dla funkcji, można ustawić dla niej **zmienną środowiskową** . Aby uzyskać więcej informacji na temat zmiennych środowiskowych, zobacz [*Zarządzanie aplikacją funkcji*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). Ustawienia aplikacji są udostępniane jako zmienne środowiskowe w celu uzyskania dostępu do wystąpienia usługi Azure Digital bliźniaczych reprezentacji. 
+Aby adres URL wystąpienia Azure Digital Twins był dostępny dla funkcji, możesz ustawić zmienną środowiskową. Ustawienia aplikacji są udostępniane jako zmienne środowiskowe, aby umożliwić dostęp do Azure Digital Twins wystąpienia. Aby uzyskać więcej informacji na temat zmiennych środowiskowych, zobacz [Zarządzanie aplikacją funkcji](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
 
-Aby ustawić zmienną środowiskową przy użyciu adresu URL wystąpienia, należy najpierw uzyskać adres URL, wyszukując nazwę hosta wystąpienia bliźniaczych reprezentacji cyfrowych platformy Azure. Wyszukaj swoje wystąpienie na pasku wyszukiwania [Azure Portal](https://portal.azure.com) . Następnie wybierz pozycję _Przegląd_ na lewym pasku nawigacyjnym, aby wyświetlić _nazwę hosta_. Skopiuj tę wartość.
+Aby ustawić zmienną środowiskową przy użyciu adresu URL wystąpienia, najpierw znajdź nazwę hosta wystąpienia: 
 
-:::image type="content" source="media/how-to-create-azure-function/instance-host-name.png" alt-text="Zrzut ekranu przedstawiający Azure Portal: na stronie Przegląd wystąpienia usługi Azure Digital bliźniaczych reprezentacji zostanie wyróżniona wartość Nazwa hosta.":::
+1. Wyszukaj wystąpienie w [Azure Portal](https://portal.azure.com). 
+1. W menu po lewej stronie wybierz pozycję __Przegląd.__ 
+1. Skopiuj __wartość Nazwa__ hosta.
 
-Teraz można utworzyć ustawienie aplikacji z następującymi krokami:
+    :::image type="content" source="media/how-to-create-azure-function/instance-host-name.png" alt-text="Zrzut ekranu przedstawiający Azure Portal. Na stronie Przegląd wystąpienia wartość nazwy hosta jest wyróżniona.":::
 
-1. Wyszukaj aplikację funkcji na pasku wyszukiwania portalu i wybierz ją z wyników.
+Teraz możesz utworzyć ustawienie aplikacji:
 
-    :::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Zrzut ekranu przedstawiający Azure Portal: Nazwa aplikacji funkcji jest przeszukiwana na pasku wyszukiwania portalu, a wynik wyszukiwania zostanie wyróżniony.":::
+1. Na pasku wyszukiwania portalu wyszukaj aplikację funkcji, a następnie wybierz ją z wyników.
 
-1. Na pasku nawigacyjnym po lewej stronie wybierz pozycję _Konfiguracja_ . Na karcie _Ustawienia aplikacji_ wybierz pozycję _+ nowe ustawienie aplikacji_.
+    :::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Zrzut ekranu przedstawiający Azure Portal. Nazwa aplikacji funkcji jest przeszukiwana na pasku wyszukiwania portalu. Wynik wyszukiwania zostanie wyróżniony.":::
 
-    :::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Zrzut ekranu przedstawiający Azure Portal: na stronie Konfiguracja aplikacji funkcji zostanie wyróżniony przycisk służący do tworzenia nowego ustawienia aplikacji.":::
+1. Po lewej stronie wybierz pozycję __Konfiguracja.__ Następnie na karcie __Ustawienia aplikacji__ wybierz pozycję + Nowe __ustawienie aplikacji.__
 
-1. W otwartym oknie Użyj wartości Nazwa hosta skopiowanej powyżej, aby utworzyć ustawienie aplikacji.
-    * **Nazwa**: ADT_SERVICE_URL
-    * **Wartość**: https://{The-Azure-Digital-bliźniaczych reprezentacji-Host-Name}
+    :::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Zrzut ekranu przedstawiający Azure Portal. Na karcie Konfiguracja aplikacji funkcji wyróżniony jest przycisk tworzenia ustawienia Nowa aplikacja.":::
+
+1. W otwieranym oknie użyj skopiowanej wartości nazwy hosta, aby utworzyć ustawienie aplikacji.
+    * **Nazwa:** ADT_SERVICE_URL
+    * **Wartość:** https://{twoja-azure-digital-twins-host-name}
     
-    Wybierz _przycisk OK_ , aby utworzyć ustawienie aplikacji.
+    Wybierz __przycisk OK,__ aby utworzyć ustawienie aplikacji.
     
-    :::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Zrzut ekranu przedstawiający Azure Portal: przycisk OK zostanie wyróżniony po wypełnieniu pól Nazwa i wartość na stronie Dodawanie/Edytowanie ustawienia aplikacji.":::
+    :::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Zrzut ekranu przedstawiający Azure Portal. Na stronie Dodawanie/edytowanie ustawień aplikacji wypełniane są pola Nazwa i Wartość. Przycisk O K został wyróżniony.":::
 
-1. Po utworzeniu ustawienia powinien on zostać wyświetlony z powrotem na karcie _Ustawienia aplikacji_ . Sprawdź, czy *ADT_SERVICE_URL* pojawia się na liście, a następnie Zapisz nowe ustawienie aplikacji, wybierając przycisk _Zapisz_ .
+1. Po utworzeniu ustawienia powinno ono zostać wyświetlone na __karcie Ustawienia__ aplikacji. Sprawdź, **ADT_SERVICE_URL** na liście. Następnie zapisz nowe ustawienie aplikacji, wybierając pozycję __Zapisz.__
 
-    :::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Zrzut ekranu przedstawiający Azure Portal: Strona Ustawienia aplikacji z wyróżnionym nowym ustawieniem ADT_SERVICE_URL. Przycisk Zapisz jest również wyróżniony.":::
+    :::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Zrzut ekranu przedstawiający Azure Portal. Na karcie ustawień aplikacji wyróżnione zostanie nowe ustawienie A D T SERVICE U R L. Przycisk Zapisz również został wyróżniony.":::
 
-1. Wszelkie zmiany w ustawieniach aplikacji wymagają ponownego uruchomienia aplikacji, dlatego po wyświetleniu monitu wybierz pozycję _Kontynuuj_ , aby ponownie uruchomić aplikację.
+1. Wszelkie zmiany ustawień aplikacji wymagają ponownego  uruchomienia aplikacji, dlatego po wyświetleniu monitu wybierz pozycję Kontynuuj, aby ponownie uruchomić aplikację.
 
-    :::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Zrzut ekranu przedstawiający Azure Portal: należy zauważyć, że wszelkie zmiany ustawień aplikacji z ponownym uruchomieniem aplikacji. Przycisk Kontynuuj jest wyróżniony.":::
+    :::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Zrzut ekranu przedstawiający Azure Portal. Należy pamiętać, że wszelkie zmiany ustawień aplikacji spowoduje ponowne uruchomienie aplikacji. Przycisk Kontynuuj został wyróżniony.":::
 
 ---
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule opisano kroki konfigurowania aplikacji funkcji na platformie Azure do użycia z usługą Azure Digital bliźniaczych reprezentacji.
-
-Następnie zapoznaj się z tematem jak skompilować swoją podstawową funkcję, aby uzyskać IoT Hub dane do usługi Azure Digital bliźniaczych reprezentacji:
-* [*Instrukcje: pozyskiwanie danych telemetrycznych z IoT Hub*](how-to-ingest-iot-hub-data.md)
+W tym artykule skonfigurujemy aplikację funkcji na platformie Azure do użycia z Azure Digital Twins. Następnie zobacz, jak utworzyć podstawową funkcję w celu IoT Hub [danych do Azure Digital Twins](how-to-ingest-iot-hub-data.md).

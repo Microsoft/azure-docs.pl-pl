@@ -1,21 +1,21 @@
 ---
 author: baanders
-description: Dołącz plik do usługi Azure Digital bliźniaczych reprezentacji — wymaganie wstępne, aby skonfigurować wystąpienie
+description: plik dołączania dla Azure Digital Twins — wymaganie wstępne dotyczące skonfigurowania wystąpienia
 ms.service: digital-twins
 ms.topic: include
 ms.date: 10/29/2020
 ms.author: baanders
-ms.openlocfilehash: 3f46f7131d5465ec6542d9212e310c04a656f50c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 270be8a38a0419527622ffbdaa1874dfdc5d694c
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104774208"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480739"
 ---
-Aby można było korzystać z usługi Azure Digital bliźniaczych reprezentacji w tym artykule, należy najpierw **skonfigurować wystąpienie usługi Azure Digital bliźniaczych reprezentacji** i wymagane uprawnienia do korzystania z niego. Jeśli masz już skonfigurowane wystąpienie usługi Azure Digital bliźniaczych reprezentacji na podstawie poprzedniej pracy, możesz użyć tego wystąpienia.
+Aby pracować z Azure Digital Twins w tym artykule, musisz najpierw skonfigurować *wystąpienie Azure Digital Twins*. Potrzebne są również wymagane uprawnienia do korzystania z niego. Jeśli masz już Azure Digital Twins, możesz go użyć.
 
-W przeciwnym razie postępuj zgodnie z instrukcjami podanymi w temacie [*How to: Konfigurowanie wystąpienia i uwierzytelniania*](../articles/digital-twins/how-to-set-up-instance-portal.md). Instrukcje zawierają również kroki umożliwiające zweryfikowanie, że wszystkie czynności zostały wykonane pomyślnie i są gotowe do przejścia do korzystania z nowego wystąpienia.
+W przeciwnym razie wykonaj instrukcje [z tematu Konfigurowanie wystąpienia i uwierzytelniania](../articles/digital-twins/how-to-set-up-instance-portal.md). Instrukcje zawierają informacje, które ułatwiają sprawdzenie, czy każdy krok został ukończony pomyślnie.
 
-Po skonfigurowaniu wystąpienia usługi Azure Digital bliźniaczych reprezentacji należy pamiętać o następujących wartościach, które będą potrzebne do późniejszego nawiązania połączenia z wystąpieniem:
-* **Nazwa hosta** wystąpienia. Tę wartość można znaleźć w Azure Portal ([instrukcje](../articles/digital-twins/how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
-* **subskrypcja platformy Azure** użyta do utworzenia wystąpienia (jego nazwa lub identyfikator będzie działała). Możesz sprawdzić, z jaką subskrypcją jest wystąpienie usługi Azure Digital bliźniaczych reprezentacji, wyświetlając tę samą stronę *przeglądu* dla danego wystąpienia w [Azure Portal](https://portal.azure.com).
+Po skonfigurowaniu wystąpienia zanotuj następujące wartości. Te wartości będą potrzebne do późniejszego nawiązania połączenia z wystąpieniem:
+* Nazwa hosta *wystąpienia*. Nazwę [hosta można znaleźć w Azure Portal](../articles/digital-twins/how-to-set-up-instance-portal.md#verify-success-and-collect-important-values).
+* Subskrypcja *platformy Azure* użyta do utworzenia wystąpienia. Będzie działać jego nazwa lub identyfikator. Subskrypcję można znaleźć na stronie  Przegląd wystąpienia w Azure Portal [.](https://portal.azure.com)

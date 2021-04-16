@@ -1,28 +1,28 @@
 ---
-ms.openlocfilehash: d70514e81bc838b4193862e66b0c03440d006128
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: ce29158c2a44f01fa06649e4b4497bf5c5076866
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307464"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107510840"
 ---
 ## <a name="setting-up"></a>Konfigurowanie
 
-### <a name="create-a-new-nodejs-application"></a>Utwórz nową aplikację Node.js
+### <a name="create-a-new-nodejs-application"></a>Tworzenie nowej aplikacji Node.js
 
-Otwórz terminal lub okno poleceń Utwórz nowy katalog dla aplikacji i przejdź do niego.
+Otwórz terminal lub okno polecenia, aby utworzyć nowy katalog dla aplikacji, i przejdź do niego.
 
 ```console
 mkdir managed-identity-quickstart && cd managed-identity-quickstart
 ```
 
-Uruchom `npm init -y` , aby utworzyć **package.jsw** pliku z ustawieniami domyślnymi.
+Uruchom `npm init -y` , aby utworzyćpackage.js **pliku** z ustawieniami domyślnymi.
 
 ```console
 npm init -y
 ```
 
-### <a name="install-the-sdk-packages"></a>Instalowanie pakietów SDK
+### <a name="install-the-sdk-packages"></a>Instalowanie pakietów zestawu SDK
 
 ```console
 npm install @azure/communication-identity
@@ -33,28 +33,28 @@ npm install @azure/identity
 
 ### <a name="create-a-new-file"></a>Tworzenie nowego pliku
 
-Otwórz nowy plik z edytorem tekstu i Zapisz go jako `index.js` , umieszczamy kod w tym pliku.
+Otwórz nowy plik za pomocą edytora tekstów i zapisz go jako plik . Kod zostanie umieszczany `index.js` wewnątrz tego pliku.
 
-### <a name="use-the-sdk-packages"></a>Korzystanie z pakietów SDK
+### <a name="use-the-sdk-packages"></a>Korzystanie z pakietów zestawu SDK
 
-Dodaj następujące `require` dyrektywy na początku, `index.js` Aby użyć tożsamości platformy Azure i zestawów SDK usługi Azure Storage.
+Dodaj następujące dyrektywy `require` w górnej części strony, `index.js` aby użyć zestawów SDK tożsamości platformy Azure i usługi Azure Storage.
 
 ```JavaScript
 const { DefaultAzureCredential } = require("@azure/identity");
 const { CommunicationIdentityClient, CommunicationUserToken } = require("@azure/communication-identity");
 const { SmsClient, SmsSendRequest } = require("@azure/communication-sms");
 ```
-## <a name="create-a-defaultazurecredential"></a>Utwórz DefaultAzureCredential
+## <a name="create-a-defaultazurecredential"></a>Tworzenie wartości domyślnejAzureCredential
 
-W tym przewodniku szybki start będziemy używać [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential) . To poświadczenie jest odpowiednie dla środowisk produkcyjnych i programistycznych. Ponieważ jest to konieczne dla każdej operacji, utwórz ją w górnej części naszego `index.js` pliku. 
+W tym przewodniku Szybki start będziemy używać wartości [DefaultAzureCredential.](/javascript/api/@azure/identity/defaultazurecredential) To poświadczenie jest odpowiednie dla środowisk produkcyjnych i deweloperskich. Ponieważ jest to potrzebne dla każdej operacji, utwórzmy ją w górnej części `index.js` pliku. 
 
 ```JavaScript
     const credential = new DefaultAzureCredential();
 ```
 
-## <a name="create-an-identity-and-issue-a-token-with-managed-identities"></a>Tworzenie tożsamości i wystawianie tokenów z tożsamościami zarządzanymi
+## <a name="create-an-identity-and-issue-a-token-with-managed-identities"></a>Tworzenie tożsamości i wydawanie tokenu przy użyciu tożsamości zarządzanych
 
-Następnie napiszemy funkcję, która tworzy nową tożsamość i wystawia token dla tej tożsamości. użyjemy tego później do testowania konfiguracji zarządzanej tożsamości.
+Następnie napiszemy funkcję, która tworzy nową tożsamość i generuje token dla tej tożsamości. Użyjemy jej później do przetestowania konfiguracji tożsamości zarządzanej.
 
 ```JavaScript
 async function createIdentityAndIssueToken(resourceEndpoint) {
@@ -63,9 +63,9 @@ async function createIdentityAndIssueToken(resourceEndpoint) {
 }
 ```
 
-## <a name="send-an-sms-with-managed-identity"></a>Wyślij wiadomość SMS z zarządzaną tożsamością
+## <a name="send-an-sms-with-managed-identity"></a>Wysyłanie wiadomości SMS z tożsamością zarządzaną
 
-Teraz program pozwala pisać funkcję, która używa tożsamości zarządzanych do wysyłania wiadomości SMS:
+Teraz napiszmy funkcję, która używa tożsamości zarządzanych do wysyłania wiadomości SMS:
 
 ```JavaScript
 async function sendSms(resourceEndpoint, fromNumber, toNumber, message) {
@@ -82,9 +82,9 @@ async function sendSms(resourceEndpoint, fromNumber, toNumber, message) {
 }
 ```
 
-## <a name="write-the-main-method"></a>Napisz metodę Main
+## <a name="write-the-main-function"></a>Pisanie funkcji main
 
-Dzięki naszym funkcjom utworzone możemy teraz napisać główną funkcję w celu wywołania ich i zademonstrowania użycia zarządzanych tożsamości:
+Po utworzeniu funkcji możemy napisać funkcję main, aby je wywołać i zademonstrować użycie tożsamości zarządzanych:
 ```JavaScript
 async function main() {
     // You can find your endpoint and access key from your resource in the Azure portal
@@ -107,7 +107,7 @@ async function main() {
 main();
 ```
 
-Ostatni `index.js` plik powinien wyglądać następująco:
+Ostateczny plik `index.js` powinien wyglądać tak:
 ```JavaScript
 const { DefaultAzureCredential } = require("@azure/identity");
 const { CommunicationIdentityClient, CommunicationUserToken } = require("@azure/communication-identity");
@@ -154,9 +154,9 @@ async function main() {
 main();
 ```
 
-## <a name="run-the-program"></a>Uruchom program
+## <a name="run-the-program"></a>Uruchamianie programu
 
-Po zakończeniu wszystkiego można uruchomić plik, wprowadzając go `node index.js` w katalogu projektu. Jeśli wszystko poszło dobrze, należy zobaczyć coś podobnego do poniższego.
+Po zakończeniu wszystkiego możesz uruchomić plik, wprowadzając go `node index.js` z katalogu projektu. Jeśli wszystko poszło dobrze, powinien zostać wyświetlony kod podobny do poniższego.
 
 ```Bash
     $ node index.js

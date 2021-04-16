@@ -1,38 +1,38 @@
 ---
-title: Zbieraj metryki wyłącznika Resilience4J chmury z chmurą Micrometer
-description: Jak zbierać metryki wyłącznika usługi Cloud Resilience4J z chmurą Micrometer w chmurze wiosennej platformy Azure.
+title: Zbieranie Spring Cloud zbierania metryk wyłącznika Resilience4J za pomocą mikrometrów
+description: Jak zbierać metryki Spring Cloud Resilience4J wyłącznika za pomocą mikrometrów w Azure Spring Cloud.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 0b24e8e07b4038d6def9945b7c347bb81ae5378b
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: fedebd9182c168b9b7c455d5f6726e66720e0a8b
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258184"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479163"
 ---
-# <a name="collect-spring-cloud-resilience4j-circuit-breaker-metrics-with-micrometer-preview"></a>Zbieraj metryki wyłącznika Resilience4J chmury z chmurą z Micrometer (wersja zapoznawcza)
+# <a name="collect-spring-cloud-resilience4j-circuit-breaker-metrics-with-micrometer-preview"></a>Zbierz Spring Cloud resilience4J wyłącznika za pomocą mikrometrów (wersja zapoznawcza)
 
-W tym dokumencie wyjaśniono, jak zbierać metryki wyłącznika usługi Cloud Resilience4j Application Insights z chmurą w języku Java. Za pomocą tej funkcji można monitorować metryki wyłącznika usługi resilience4j z Application Insights z Micrometer.
+W tym dokumencie wyjaśniono, jak Spring Cloud metryk wyłącznika Resilience4j za pomocą Application Insights java in-process agent. Ta funkcja umożliwia monitorowanie metryk wyłącznika resilience4j z Application Insights micrometer.
 
-Aby zobaczyć, jak działa, korzystamy z [demonstracji obwodowej z chmurą](https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo) .
+Aby pokazać, jak działa, używamy pokazu [spring-cloud-circuit-breaker-demo.](https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Włącz agenta In-Process Java z poziomu [agenta In-Process Java dla przewodnika Application Insights](./spring-cloud-howto-application-insights.md#enable-java-in-process-agent-for-application-insights). 
+* Włącz agenta In-Process Java w [przewodniku Java In-Process Agent for Application Insights .](./spring-cloud-howto-application-insights.md#enable-java-in-process-agent-for-application-insights) 
 
-* Włącz zbieranie wymiarów dla metryk resilience4j z poziomu [przewodnika Application Insights](../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
+* Włącz zbieranie wymiarów dla metryk resilience4j z Application Insights [.](../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation)
 
-* Zainstaluj narzędzia Git, Maven i Java, jeśli nie są jeszcze używane przez komputer deweloperski.
+* Zainstaluj narzędzia git, Maven i Java, jeśli nie są jeszcze one w użyciu przez komputer dewelopera.
 
 ## <a name="build-and-deploy-apps"></a>Kompilowanie i wdrażanie aplikacji
 
-Poniższa procedura umożliwia kompilację i wdrożenie aplikacji.
+Następująca procedura służy do kompilowania i wdrażania aplikacji.
 
-1. Klonowanie i kompilowanie repozytorium demonstracyjnego.
+1. Sklonuj i skompilowaj repozytorium demonstracyjne.
 
 ```bash
 git clone https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo.git
@@ -48,7 +48,7 @@ az spring-cloud app create --name reactive-resilience4j --assign-endpoint \
     -s ${asc-service-name} -g ${asc-resource-group}
 ```
 
-3. Wdrażaj aplikacje.
+3. Wdrażanie aplikacji.
 
 ```azurecli
 az spring-cloud app deploy -n resilience4j \
@@ -61,7 +61,7 @@ az spring-cloud app deploy -n reactive-resilience4j \
 
 > [!Note]
 >
-> * Uwzględnij wymaganą zależność dla Resilience4j:
+> * Uwzględnij wymaganą zależność dla resilience4j:
 >
 >   ```xml
 >   <dependency>
@@ -73,9 +73,9 @@ az spring-cloud app deploy -n reactive-resilience4j \
 >       <artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
 >   </dependency>
 >   ```
-> * Kod klienta musi używać interfejsu API programu `CircuitBreakerFactory` , który jest implementowany jako `bean` automatycznie tworzony po dołączeniu wyłącznika chmurowego sprężyny Starter. Aby uzyskać szczegółowe informacje, zobacz Sprężyna wyłącznika [chmurowego](https://spring.io/projects/spring-cloud-circuitbreaker#overview).
+> * Kod klienta musi używać interfejsu API programu , który jest implementowane jako automatycznie tworzony po dojechanie `CircuitBreakerFactory` `bean` początkowego Spring Cloud wyłącznika. Aby uzyskać szczegółowe [informacje, Spring Cloud Wyłącznik](https://spring.io/projects/spring-cloud-circuitbreaker#overview).
 >
-> * Poniższe 2 zależności powodują konflikt z pakietami resilient4j powyżej.  Upewnij się, że klient nie uwzględni ich.
+> * Następujące 2 zależności mają konflikty z pakietami resilient4j powyżej.  Upewnij się, że klient ich nie zawiera.
 >
 >   ```xml
 >   <dependency>
@@ -89,7 +89,7 @@ az spring-cloud app deploy -n reactive-resilience4j \
 >   ```
 >
 >
-> Przejdź do adresu URL dostarczonego przez aplikacje bramy i uzyskaj dostęp do punktu końcowego z poziomu [demona z chmurą w chmurze](https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo) w następujący sposób:
+> Przejdź do adresu URL dostarczonego przez aplikacje bramy i uzyskaj dostęp do punktu końcowego z [witryny spring-cloud-circuit-breaker-demo](https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo) w następujący sposób:
 >
 >   ```console
 >   /get
@@ -97,29 +97,29 @@ az spring-cloud app deploy -n reactive-resilience4j \
 >   /get/fluxdelay/{seconds}
 >   ```
 
-## <a name="locate-resilence4j-metrics-from-portal"></a>Lokalizowanie metryk Resilence4j z portalu
+## <a name="locate-resilence4j-metrics-from-portal"></a>Zlokalizuj metryki Resilence4j w portalu
 
-1. Wybierz blok **Application Insights** w portalu Azure wiosny Cloud, a następnie kliknij pozycję **Application Insights**.
+1. Wybierz blok **Application Insights** w Azure Spring Cloud portal, a następnie kliknij **pozycję Application Insights**.
 
    [![resilience4J 0](media/spring-cloud-resilience4j/resilience4J-0.png)](media/spring-cloud-resilience4j/resilience4J-0.PNG)
 
-2. Na stronie **Application Insights** wybierz pozycję **metryki** .  Wybierz pozycję **Azure. ApplicationInsights** z **przestrzeni nazw metryk**.  Należy również wybrać metryki **resilience4j_circuitbreaker_buffered_calls** ze **średnią**.
+2. Wybierz **pozycję Metryki** na **Application Insights** strony.  Wybierz **pozycję azure.applicationinsights w** obszarze Przestrzeń nazw **metryk.**  Wybierz również **metryki resilience4j_circuitbreaker_buffered_calls** za pomocą opcji **Średnia.**
 
    [![resilience4J 1](media/spring-cloud-resilience4j/resilience4J-1.png)](media/spring-cloud-resilience4j/resilience4J-1.PNG)
 
-3. Wybierz pozycję **resilience4j_circuitbreaker_calls** metryki i **średnią**.
+3. Wybierz **resilience4j_circuitbreaker_calls** metryki i pozycję **Średnia.**
 
    [![resilience4J 2](media/spring-cloud-resilience4j/resilience4J-2.png)](media/spring-cloud-resilience4j/resilience4J-2.PNG)
 
-4. Wybierz pozycję **resilience4j_circuitbreaker_calls**  metryki i **średnią**.  Kliknij pozycję **Dodaj filtr**, a następnie wybierz pozycję Nazwa jako **createNewAccount**.
+4. Wybierz **resilience4j_circuitbreaker_calls** metryki i pozycję **Średnia.**  Kliknij **pozycję Dodaj filtr,** a następnie wybierz pozycję nazwa **jako createNewAccount.**
 
    [![resilience4J 3](media/spring-cloud-resilience4j/resilience4J-3.png)](media/spring-cloud-resilience4j/resilience4J-3.PNG)
 
-5. Wybierz pozycję **resilience4j_circuitbreaker_calls**  metryki i **średnią**.  Następnie kliknij przycisk **Zastosuj podział** i wybierz pozycję **rodzaj**.
+5. Wybierz **resilience4j_circuitbreaker_calls** metryki i pozycję **Średnia.**  Następnie kliknij **pozycję Zastosuj podział** i wybierz **rodzaj**.
 
    [![resilience4J 4](media/spring-cloud-resilience4j/resilience4J-4.png)](media/spring-cloud-resilience4j/resilience4J-4.PNG)
 
-6. Wybierz **resilience4j_circuitbreaker_calls**, "**resilience4j_circuitbreaker_buffered_calls** i metryki **resilience4j_circuitbreaker_slow_calls** ze **średnią**.
+6. Wybierz **resilience4j_circuitbreaker_calls**, "**resilience4j_circuitbreaker_buffered_calls** i resilience4j_circuitbreaker_slow_calls **metryki** za pomocą opcji **Średnia.**
 
    [![resilience4J 5](media/spring-cloud-resilience4j/resilience4j-5.png)](media/spring-cloud-resilience4j/resilience4j-5.PNG)
 

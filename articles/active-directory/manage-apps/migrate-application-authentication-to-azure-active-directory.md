@@ -1,429 +1,427 @@
 ---
 title: Migrowanie uwierzytelniania aplikacji do Azure Active Directory
-description: Ten oficjalny dokument zawiera szczegółowe informacje na temat planowania i korzystania z migracji aplikacji do usługi Azure AD.
+description: W tym oficjalnych oficjalnych planach i korzyściach związanych z migracją uwierzytelniania aplikacji do usługi Azure AD.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 02/05/2021
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e05a7af3f0b95470432b4fb9602e1b41da9f72f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3458f358c12ef33a337e50066e83b6e59273ccf1
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952970"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376753"
 ---
 # <a name="migrate-application-authentication-to-azure-active-directory"></a>Migrowanie uwierzytelniania aplikacji do Azure Active Directory
 
 ## <a name="about-this-paper"></a>Informacje o tym dokumencie
 
-Ten oficjalny dokument zawiera szczegółowe informacje na temat planowania i korzystania z migracji aplikacji do usługi Azure AD. Jest ona przeznaczona dla administratorów platformy Azure i specjalistów ds. tożsamości.
+W tym oficjalnych oficjalnych planach i korzyściach związanych z migracją uwierzytelniania aplikacji do usługi Azure AD. Jest przeznaczona dla administratorów platformy Azure i specjalistów ds. tożsamości.
 
-Rozdzielenie tego procesu na cztery etapy, z których każdy ma szczegółowe kryteria planowania i wyjścia, jest przeznaczone do zaplanowania strategii migracji i zrozumienia, jak uwierzytelnianie usługi Azure AD obsługuje cele organizacji.
+Podział procesu na cztery fazy, z których każda zawiera szczegółowe kryteria planowania i zakończenia, ma na celu pomoc w zaplanowaniu strategii migracji i zrozumieniu, w jaki sposób uwierzytelnianie usługi Azure AD obsługuje cele organizacji.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Obecnie organizacja wymaga, aby użytkownicy mogli korzystać z aplikacji (aplikacji). W każdym dniu możesz nadal dodawać, opracowywać i wycofać aplikacje. Użytkownicy uzyskują dostęp do tych aplikacji z szerokiej gamy urządzeń firmowych i osobistych oraz lokalizacji. Aplikacje są otwierane na wiele sposobów, w tym:
+Obecnie Twoja organizacja wymaga wielu aplikacji (aplikacji) dla użytkowników, aby wykonać pracę. Prawdopodobnie będziesz codziennie dodawać, opracowywać lub wycofywać aplikacje. Użytkownicy mają dostęp do tych aplikacji z szerokiej gamy firmowych i osobistych urządzeń oraz lokalizacji. Otwierają aplikacje na wiele sposobów, w tym:
 
-- za pomocą strony głównej lub portalu firmy
+- za pośrednictwem strony głównej firmy lub portalu
 
-- tworzenie zakładek w swoich przeglądarkach
+- przez dodawanie zakładek w przeglądarkach
 
-- za pośrednictwem adresu URL dostawcy dla aplikacji oprogramowanie jako usługa (SaaS)
+- za pośrednictwem adresu URL dostawcy dla aplikacji SaaS (oprogramowanie jako usługa)
 
-- linki wypychane bezpośrednio do komputerów stacjonarnych lub urządzeń przenośnych za pośrednictwem rozwiązania do zarządzania urządzeniami przenośnymi i aplikacjami (MDM/MAM)
+- linki wypychane bezpośrednio do komputerów stacjonarnych lub urządzeń przenośnych użytkownika za pośrednictwem rozwiązania do zarządzania urządzeniami przenośnymi/aplikacjami (MDM/MAM)
 
-Aplikacje mogą korzystać z następujących typów uwierzytelniania:
+Twoje aplikacje prawdopodobnie będą używać następujących typów uwierzytelniania:
 
-- Lokalne rozwiązania federacyjne (takie jak Active Directory Federation Services (ADFS) i polecenie ping
+- Lokalne rozwiązania federowe (takie jak Active Directory Federation Services (ADFS) i Ping
 
-- Active Directory (na przykład uwierzytelnianie Kerberos i uwierzytelnianie Windows-Integrated)
+- Usługa Active Directory (na przykład uwierzytelnianie Kerberos i Windows-Integrated uwierzytelnianie)
 
-- Inne rozwiązania do zarządzania tożsamościami i dostępem w chmurze (na przykład usługi okta lub Oracle)
+- Inne rozwiązania do zarządzania tożsamościami i dostępem w chmurze (IAM, cloud-based identity and access management) (takie jak Okta lub Oracle)
 
-- Lokalna infrastruktura sieci Web (np. usługi IIS i Apache)
+- Lokalna infrastruktura sieci Web (taka jak usługi IIS i Apache)
 
-- Infrastruktura hostowana w chmurze (na przykład Azure i AWS)
+- Infrastruktura hostowana w chmurze (taka jak platforma Azure i platforma AWS)
 
-**Aby mieć pewność, że użytkownicy będą mogli łatwo i bezpiecznie uzyskiwać dostęp do aplikacji, celem jest posiadanie jednego zestawu kontroli dostępu i zasad w środowiskach lokalnych i w chmurze.**
+**Aby zapewnić użytkownikom łatwy i bezpieczny dostęp do aplikacji, twoim celem jest zastosowanie jednego zestawu kontroli dostępu i zasad w środowiskach lokalnych i w chmurze.**
 
-[Azure Active Directory (Azure AD)](../fundamentals/active-directory-whatis.md) oferuje uniwersalną platformę do obsługi tożsamości, która umożliwia osobom, partnerom i klientom pojedynczą tożsamość dostęp do potrzebnych aplikacji oraz współpracę z dowolnego platformy i urządzenia.
+[Azure Active Directory (Azure AD)](../fundamentals/active-directory-whatis.md) oferuje uniwersalną platformę tożsamości, która zapewnia osobom, partnerom i klientom jedną tożsamość na potrzeby dostępu do aplikacji, których chcą i które współpracują z dowolnej platformy i urządzenia.
 
-![Diagram Azure Active Directory łączności](media/migrating-application-authentication-to-azure-active-directory-1.jpg)
+![Diagram przedstawiający łączność Azure Active Directory sieci](media/migrating-application-authentication-to-azure-active-directory-1.jpg)
 
-Usługa Azure AD ma [pełen pakiet funkcji zarządzania tożsamościami](../fundamentals/active-directory-whatis.md#which-features-work-in-azure-ad). Ujednolicenie uwierzytelniania aplikacji i autoryzacji do usługi Azure AD pozwala uzyskać korzyści oferowane przez te funkcje.
+Usługa Azure AD oferuje [pełny zestaw funkcji zarządzania tożsamościami.](../fundamentals/active-directory-whatis.md#which-features-work-in-azure-ad) Standaryzacja uwierzytelniania aplikacji i autoryzacji w usłudze Azure AD umożliwia uzyskanie korzyści zapewnianych przez te możliwości.
 
-Więcej zasobów migracji można znaleźć pod adresem [https://aka.ms/migrateapps](./migration-resources.md)
+Więcej zasobów migracji można znaleźć na stronie [https://aka.ms/migrateapps](./migration-resources.md)
 
-## <a name="benefits-of-migrating-app-authentication-to-azure-ad"></a>Zalety migrowania uwierzytelniania aplikacji do usługi Azure AD
+## <a name="benefits-of-migrating-app-authentication-to-azure-ad"></a>Korzyści wynikające z migracji uwierzytelniania aplikacji do usługi Azure AD
 
-Przeniesienie uwierzytelniania aplikacji do usługi Azure AD pomoże Ci zarządzać ryzykiem i kosztem, zwiększyć produktywność i spełnić wymagania dotyczące zgodności i zarządzania.
+Przeniesienie uwierzytelniania aplikacji do usługi Azure AD pomoże Ci zarządzać ryzykiem i kosztami, zwiększyć produktywność oraz spełnić wymagania dotyczące zgodności i ładu.
 
 ### <a name="manage-risk"></a>Zarządzanie ryzykiem
 
-Ochrona aplikacji wymaga pełnego wglądu w wszystkie czynniki ryzyka. Migrowanie aplikacji do usługi Azure AD konsoliduje rozwiązania zabezpieczeń. Dzięki niej można:
+Ochrona aplikacji wymaga pełnego widoku wszystkich czynników ryzyka. Migracja aplikacji do usługi Azure AD konsoliduje rozwiązania w zakresie zabezpieczeń. Za jego pomocą można:
 
-- Ulepszaj bezpieczny dostęp użytkowników do aplikacji i skojarzonych danych firmowych przy użyciu [zasad dostępu warunkowego](../conditional-access/overview.md), [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)i technologii [ochrony tożsamości](../identity-protection/overview-identity-protection.md) opartej na ryzyku w czasie rzeczywistym.
+- Zwiększ bezpieczeństwo dostępu użytkowników do aplikacji [](../conditional-access/overview.md)i skojarzonych danych firmowych przy użyciu zasad dostępu warunkowego, [usługi Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)i technologii [ochrony](../identity-protection/overview-identity-protection.md) tożsamości opartej na ryzyku w czasie rzeczywistym.
 
-- Ochrona dostępu uprzywilejowanego użytkownika do środowiska za pomocą dostępu administratora [just in Time](../../azure-resource-manager/managed-applications/request-just-in-time-access.md) .
+- Ochrona dostępu uprzywilejowanych użytkowników do środowiska przy użyciu dostępu administratora just [in time.](../../azure-resource-manager/managed-applications/request-just-in-time-access.md)
 
-- Korzystaj z [wielodostępnego, geograficznie rozproszonego projektu usługi Azure AD](https://cloudblogs.microsoft.com/enterprisemobility/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-distributed-cloud-directory/)w celu zapewnienia najbardziej krytycznych potrzeb firmy.
+- Użyj [wielodostępnej, rozproszonej geograficznie i wysokiej](https://cloudblogs.microsoft.com/enterprisemobility/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-distributed-cloud-directory/)dostępności projektu usługi Azure AD na potrzeby najważniejszych potrzeb biznesowych.
 
-- Chroń starsze aplikacje, korzystając z jednej z naszych [bezpiecznych integracji partnera dostępu hybrydowego](https://aka.ms/secure-hybrid-access) , które mogły już zostać wdrożone.
+- Chroń starsze aplikacje za pomocą jednej z naszych bezpiecznych integracji z [partnerami](https://aka.ms/secure-hybrid-access) dostępu hybrydowego, które być może zostały już wdrożone.
 
 ### <a name="manage-cost"></a>Zarządzanie kosztami
 
-Organizacja może mieć wiele rozwiązań do zarządzania dostępem do tożsamości (IAM). Migrowanie do jednej infrastruktury usługi Azure AD umożliwia zredukowanie zależności od licencji na usługę IAM (lokalnie lub w chmurze) oraz kosztów infrastruktury. W przypadkach, gdy można już zapłacić za usługę Azure AD za pośrednictwem licencji Microsoft 365, nie ma powodów, aby płacić za dodatkowe rozwiązanie IAM.
+Organizacja może mieć wiele rozwiązań do zarządzania dostępem do tożsamości (IAM). Migracja do jednej infrastruktury usługi Azure AD jest okazją do zmniejszenia zależności od licencji IAM (lokalnie lub w chmurze) i kosztów infrastruktury. W przypadkach, w których usługa Azure AD była już opłacana za pośrednictwem licencji usługi Microsoft 365, nie ma powodu, aby płacić dodatkowy koszt innego rozwiązania IAM.
 
-**Za pomocą usługi Azure AD możesz zmniejszyć koszty infrastruktury, wykonując następujące polecenie:**
+**Usługa Azure AD umożliwia obniżenie kosztów infrastruktury przez:**
 
-- Zapewnianie bezpiecznego dostępu zdalnego do aplikacji lokalnych przy użyciu [usługi Azure serwer proxy aplikacji usługi Azure AD](./application-proxy.md).
+- Zapewnianie bezpiecznego dostępu zdalnego do aplikacji lokalnych przy użyciu [usługi Azure AD serwer proxy aplikacji.](./application-proxy.md)
 
-- Oddzielanie aplikacji od metody Premium Credential w dzierżawie przez [skonfigurowanie usługi Azure AD jako zaufanego dostawcy tożsamości uniwersalnej](../hybrid/plan-connect-user-signin.md#choosing-the-user-sign-in-method-for-your-organization).
+- Oddzielenie aplikacji od lokalnego podejścia do poświadczeń w dzierżawie przez skonfigurowanie usługi [Azure AD jako zaufanego](../hybrid/plan-connect-user-signin.md#choosing-the-user-sign-in-method-for-your-organization)uniwersalnego dostawcy tożsamości.
 
-### <a name="increase-productivity"></a>Zwiększ produktywność
+### <a name="increase-productivity"></a>Zwiększanie produktywności
 
-Korzyści związane z ekonomią i zabezpieczeniami umożliwiają wdrażanie usługi Azure AD, ale pełne wdrożenie i zgodność są bardziej korzystne, jeśli korzyści użytkowników. Za pomocą usługi Azure AD można:
+Korzyści ekonomiczne i związane z zabezpieczeniami wpływają na to, że organizacje mogą przyjąć usługę Azure AD, ale pełne wdrożenie i zgodność również będą korzystne dla użytkowników. Usługa Azure AD umożliwia:
 
-- Ulepszaj interfejs użytkownika końcowego [Sign-On (SSO)](./what-is-single-sign-on.md) dzięki bezproblemowemu i bezpiecznym dostępowi do dowolnej aplikacji z dowolnego urządzenia i lokalizacji.
+- Ulepszanie obsługi logowania jednokrotnego Sign-On [(SSO)](./what-is-single-sign-on.md) przez bezproblemowy i bezpieczny dostęp do dowolnej aplikacji z dowolnego urządzenia i z dowolnej lokalizacji.
 
-- Korzystaj z samoobsługowych funkcji usługi IAM, takich jak [resetowanie haseł](../authentication/concept-sspr-howitworks.md) samoobsługowych i [Zarządzanie grupami samoobsługowy](../enterprise-users/groups-self-service-management.md).
+- Korzystaj z funkcji samoobsługowego zarządzania zarządzaniem hasłami, takich jak samoobsługowe resetowanie [haseł](../authentication/concept-sspr-howitworks.md) i [samoobsługowe zarządzanie grupą.](../enterprise-users/groups-self-service-management.md)
 
-- Zmniejszenie kosztów administracyjnych przez zarządzanie tylko jedną tożsamością dla każdego użytkownika w środowiskach w chmurze i lokalnych:
+- Zmniejsz koszty administracyjne, zarządzając tylko jedną tożsamością dla każdego użytkownika w środowisku chmurowym i lokalnym:
 
-  - [Automatyzowanie aprowizacji](../app-provisioning/user-provisioning.md) kont użytkowników (w [galerii usługi Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps)) w oparciu o tożsamości usługi Azure AD
-  - Dostęp do wszystkich aplikacji z poziomu panelu Moje aplikacje w [Azure Portal ](https://portal.azure.com/)
+  - [Automatyzowanie aprowizowania](../app-provisioning/user-provisioning.md) kont użytkowników (w [galerii usługi Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps)) na podstawie tożsamości usługi Azure AD
+  - Uzyskiwanie dostępu do wszystkich aplikacji z panelu MyApps w [Azure Portal ](https://portal.azure.com/)
 
-- Umożliwienie deweloperom zabezpieczania dostępu do aplikacji i ulepszania środowiska użytkownika końcowego przy użyciu [platformy tożsamości firmy Microsoft](../develop/v2-overview.md) z biblioteką uwierzytelniania firmy Microsoft (MSAL).
+- Umożliwienie deweloperom bezpiecznego dostępu do swoich aplikacji i ulepszanie obsługi użytkowników końcowych przy użyciu platformy tożsamości firmy [Microsoft](../develop/v2-overview.md) z biblioteką Microsoft Authentication Library (MSAL).
 
-- Zapewnij swoim partnerom dostęp do zasobów w chmurze przy użyciu [funkcji współpracy B2B usługi Azure AD](../external-identities/what-is-b2b.md). Zasoby w chmurze usuwają obciążenie dotyczące konfigurowania Federacji punkt-punkt z partnerami.
+- Zapewnij partnerom dostęp do zasobów w chmurze przy użyciu [funkcji współpracy B2B w](../external-identities/what-is-b2b.md)usłudze Azure AD. Zasoby w chmurze usuwają obciążenie związane z konfigurowaniem federacji punkt-punkt z partnerami.
 
-### <a name="address-compliance-and-governance"></a>Zgodność i zarządzanie adresami
+### <a name="address-compliance-and-governance"></a>Adresowanie zgodności i ładu
 
-Zapewnienie zgodności z wymaganiami prawnymi przez wymuszenie zasad dostępu do zasobów firmy i monitorowanie dostępu użytkowników do aplikacji i skojarzonych z nimi danych za pomocą zintegrowanych narzędzi i interfejsów API inspekcji. Za pomocą usługi Azure AD można monitorować logowanie do aplikacji za pomocą raportów, które używają [narzędzi zdarzenia zabezpieczeń i monitorowanie zdarzeń (Siem)](../reports-monitoring/plan-monitoring-and-reporting.md). Możesz uzyskać dostęp do raportów z portalu lub interfejsów API i programowo przeprowadzić inspekcję, kto ma dostęp do aplikacji, i usunąć dostęp dla nieaktywnych użytkowników za pośrednictwem przeglądów dostępu.
+Zapewnij zgodność z wymaganiami prawnymi, wymuszając zasady dostępu firmowego i monitorując dostęp użytkowników do aplikacji i skojarzonych danych przy użyciu zintegrowanych narzędzi inspekcji i interfejsów API. Za pomocą usługi Azure AD można monitorować logowania aplikacji za pomocą raportów, które korzystają z narzędzi do monitorowania zdarzeń i zdarzeń zabezpieczeń [(SIEM).](../reports-monitoring/plan-monitoring-and-reporting.md) Dostęp do raportów można uzyskać z portalu lub interfejsów API, a także programowo sprawdzać, kto ma dostęp do aplikacji, i usuwać dostęp nieaktywnych użytkowników za pośrednictwem przeglądów dostępu.
 
 ## <a name="plan-your-migration-phases-and-project-strategy"></a>Planowanie faz migracji i strategii projektu
 
-Gdy projekty technologii kończą się niepowodzeniem, często wynikają z niedopasowanych oczekiwań, odpowiednich uczestników nie zaangażowanych lub braku komunikacji. Zadbaj o pomyślne zaplanowanie projektu.
+Gdy projekty technologiczne nie powiodą się, często wynika to z niezgodności oczekiwań, braku zaangażowania odpowiednich uczestników projektu lub braku komunikacji. Zapewnij powodzenie, planując sam projekt.
 
 ### <a name="the-phases-of-migration"></a>Fazy migracji
 
-Przed rozpoczęciem pracy z narzędziami należy zrozumieć, jak należy wziąć pod uwagę proces migracji. Za pomocą kilku bezpośrednich warsztatów zalecamy użycie następujących czterech etapów:
+Zanim dojdą do narzędzi, należy zrozumieć, jak myśleć o procesie migracji. W ramach kilku warsztatów bezpośrednich dla klientów zalecamy następujące cztery fazy:
 
 ![Diagram faz migracji](media/migrating-application-authentication-to-azure-active-directory-2.jpg)
 
-### <a name="assemble-the-project-team"></a>Złóż zespół projektu
+### <a name="assemble-the-project-team"></a>Składanie zespołu projektu
 
-Migracja aplikacji jest wysiłkem zespołu i należy upewnić się, że wszystkie wymagane pozycje zostały wypełnione. Pomoc techniczna z wyższych liderów firmy jest ważna. Upewnij się, że powiążesz właściwy zestaw sponsorów wykonawczych, podejmowania decyzji służbowych i ekspertów z dziedziny (msp).
+Migracja aplikacji jest wysiłkiem zespołu i należy upewnić się, że wszystkie ważne pozycje zostały wypełnione. Ważne jest wsparcie starszych liderów biznesowych. Upewnij się, że uczestniczysz w odpowiednim zestawie sponsorów wykonawczych, osób decyzyjnych biznesowych i ekspertów w tej dziedzinie (MSP).
 
-W projekcie migracji jedna osoba może spełnić wiele ról lub wiele osób spełnia każdą rolę, w zależności od rozmiaru i struktury organizacji. Możesz również mieć zależność od innych zespołów, które odgrywają kluczową rolę w poziomie zabezpieczeń.
+W trakcie projektu migracji jedna osoba może pełnić wiele ról lub wiele osób pełni każdą rolę, w zależności od rozmiaru i struktury organizacji. Możesz również mieć zależność od innych zespołów, które odgrywają kluczową rolę w twoim krajobrazie zabezpieczeń.
 
-Poniższa tabela zawiera podstawowe role i ich wkłady:
+W poniższej tabeli przedstawiono najważniejsze role i ich wkład:
 
 | Rola          | Contributions                                              |
 | ------------- | ---------------------------------------------------------- |
-| **Project Manager** | Autokar projektu dla identyfikatora GUID projektu, w tym:<br /> — Uzyskaj pomoc techniczną<br /> — Przenieś na uczestników projektu<br /> — Zarządzanie harmonogramami, dokumentacją i komunikacją |
-| **Administrator architekta tożsamości/aplikacja usługi Azure AD** | Są one odpowiedzialne za następujące:<br /> — Zaprojektuj rozwiązanie we współpracy z uczestnikami projektu<br /> -udokumentowanie projektu rozwiązania i procedur operacyjnych do przekazania do zespołu operacyjnego<br /> — Zarządzanie środowiskami przedprodukcyjnymi i produkcyjnymi |
-| **Lokalny zespół operacyjny usługi AD** | Organizacja, która zarządza różnymi lokalnymi źródłami tożsamości, takimi jak lasy usługi AD, katalogi LDAP, systemy kadr itp.<br /> -Wykonaj wszelkie zadania zaradcze potrzebne przed synchronizacją<br /> — Podaj konta usługi wymagane do synchronizacji<br /> -zapewnianie dostępu do konfigurowania Federacji w usłudze Azure AD |
-| **Menedżer pomocy technicznej IT** | Przedstawiciel firmy z działu pomocy technicznej IT, który może dostarczyć dane wejściowe dotyczące możliwości obsługi tej zmiany w perspektywie pomocy technicznej. |
-| **Właściciel zabezpieczeń**  | Przedstawiciel zespołu ds. zabezpieczeń, który może zapewnić spełnienie wymagań w zakresie bezpieczeństwa organizacji. |
-| **Właściciele techniczni aplikacji** | Obejmuje technicznych właścicieli aplikacji i usług, które będą integrowane z usługą Azure AD. Zapewniają one atrybuty tożsamości aplikacji, które powinny obejmować proces synchronizacji. Zwykle mają one relację z przedstawicielami woluminu CSV. |
-| **Właściciele firmy aplikacji** | Reprezentatywnych współpracowników, którzy mogą dostarczać dane wejściowe dotyczące środowiska użytkownika i użyteczności tej zmiany z perspektywy użytkownika i są własnością ogólnego aspektu biznesowego aplikacji, co może obejmować zarządzanie dostępem. |
-| **Grupa pilotażowa użytkowników** | Użytkownicy, którzy będą testować się w ramach codziennej pracy, doświadczenia pilotażowego i przekazywania informacji zwrotnych dotyczących reszty wdrożeń. |
+| **Project Manager** | Kierownik projektu, który jest odpowiedzialna za prowadzenie projektu, w tym:<br /> — zyskaj wsparcie kadry kierowniczej<br /> — przyniesienie uczestników projektu<br /> — zarządzanie harmonogramami, dokumentacją i komunikacją |
+| **Architekt tożsamości/ aplikacja usługi Azure AD administratora** | Są oni odpowiedzialni za następujące czynności:<br /> — projektowanie rozwiązania we współpracy z uczestnikami projektu<br /> — udokumentowanie projektu rozwiązania i procedur operacyjnych w celu ich reprezentacji zespołowi operacyjnemu<br /> — zarządzanie środowiskami przedprodukcyjną i produkcyjną |
+| **Zespół operacyjny lokalnej usługi AD** | Organizacja, która zarządza różnymi lokalnymi źródłami tożsamości, takimi jak lasy usługi AD, katalogi LDAP, systemy hr itp.<br /> — wykonywanie wszelkich wymaganych zadań korygowania przed synchronizacją<br /> - Podaj konta usług wymagane do synchronizacji<br /> — zapewnianie dostępu do konfigurowania federacji w usłudze Azure AD |
+| **Menedżer pomocy technicznej IT** | Przedstawiciel organizacji pomocy technicznej IT, który może udzielić opinii na temat możliwości obsługi tej zmiany z perspektywy działu pomocy technicznej. |
+| **Właściciel zabezpieczeń**  | Przedstawiciel zespołu ds. zabezpieczeń, który może zagwarantować, że plan będzie spełniał wymagania organizacji dotyczące zabezpieczeń. |
+| **Właściciele techniczna aplikacji** | Obejmuje właścicieli technicznych aplikacji i usług, które zostaną zintegrowane z usługą Azure AD. Zapewniają one atrybuty tożsamości aplikacji, które powinny zostać uwzględnić w procesie synchronizacji. Zazwyczaj mają one relację z przedstawicielami woluminów CSV. |
+| **Właściciele firm aplikacji** | Reprezentatywni współpracownicy, którzy mogą dostarczyć opinii na temat środowiska użytkownika i przydatności tej zmiany z perspektywy użytkownika i są właścicielami ogólnego aspektu biznesowego aplikacji, który może obejmować zarządzanie dostępem. |
+| **Grupa pilotażowa użytkowników** | Użytkownicy, którzy będą testować w ramach codziennej pracy, doświadczenia pilotażowego i przekazać opinię, aby kierować resztą wdrożeń. |
 
 ### <a name="plan-communications"></a>Planowanie komunikacji
 
-Skuteczna praca i komunikacja jest kluczem do sukcesu. Ważne jest, aby umożliwić uczestnikom projektu i użytkownikom końcowym dostęp do informacji i informować o zaplanowanych aktualizacjach. Zapoznaj się z informacjami na temat migracji, oczekiwanych osi czasu oraz Zaplanuj ewentualne tymczasowe zakłócenia biznesowe. Używaj wielu ścieżek, takich jak sesje krótkie, wiadomości e-mail, spotkania jedno-do-jednego, transparenty i townhalls.
+Skuteczne zaangażowanie biznesowe i komunikacja są kluczem do sukcesu. Ważne jest, aby zapewnić uczestnikom projektu i użytkownikom końcowych drogi do uzyskania informacji i na bieżąco z harmonogramem aktualizacji. Edukować wszystkich na temat wartości migracji, oczekiwanych harmonogramów oraz sposobu planowania tymczasowych zakłóceń w działalności biznesowej. Korzystanie z wielu sposobów, takich jak sesje z krótkich okresów, wiadomości e-mail, spotkania "jeden do jednego", banery i miejscowości.
 
-Na podstawie strategii komunikacji, która została wybrana dla aplikacji, możesz chcieć przypominać użytkowników o zbliżającym się przestoju. Należy również upewnić się, że nie ma żadnych ostatnich zmian lub wpływów na działalność biznesową, które wymagają odłożenia wdrożenia.
+Na podstawie strategii komunikacji wybranej dla aplikacji możesz przypominać użytkownikom o oczekującym przestoju. Należy również sprawdzić, czy nie ma najnowszych zmian ani wpływu na działalność biznesową, które wymagałyby odroczenia wdrożenia.
 
-W poniższej tabeli znajdziesz minimalną sugerowaną komunikację, która będzie informować zainteresowanych stron:
+W poniższej tabeli znajdziesz minimalną sugerowaną komunikację, aby informować uczestników projektu:
 
-**Etapy planu i strategia projektu**:
-
-| Komunikacja      | Grupy odbiorców                                          |
-| ------------------ | ------------------------------------------------- |
-| Świadomość i biznes/wartość techniczna projektu | Wszystkie z wyjątkiem użytkowników końcowych |
-| Żądanie dotyczące aplikacji pilotażowych | — Właściciele firmy aplikacji<br />— Właściciele techniczna aplikacji<br />-Architektzy i zespół ds. tożsamości |
-
-**Faza 1 — odnajdywanie i zakres**:
+**Fazy planu i strategia projektu:**
 
 | Komunikacja      | Grupy odbiorców                                          |
 | ------------------ | ------------------------------------------------- |
-| -Żądanie dotyczące informacji o aplikacji<br />— Wynik realizacji zakresu | — Właściciele techniczna aplikacji<br />— Właściciele firmy aplikacji |
+| Świadomość i wartość biznesowa/techniczna projektu | Wszyscy z wyjątkiem użytkowników końcowych |
+| Nagabędanie do aplikacji pilotażowych | — Właściciele firm aplikacji<br />— Właściciele techniczna aplikacji<br />— Architekci i zespół tożsamości |
 
-**Faza 2 — klasyfikowanie aplikacji i planów pilotażowych**:
-
-| Komunikacja      | Grupy odbiorców                                          |
-| ------------------ | ------------------------------------------------- |
-| -Wyniki klasyfikacji i znaczenie dla harmonogramu migracji<br />— Harmonogram migracji wstępnej | — Właściciele techniczna aplikacji<br /> — Właściciele firmy aplikacji |
-
-**Faza 3 — Planowanie migracji i testowania**:
+**Faza 1 — odnajdywanie i zakres:**
 
 | Komunikacja      | Grupy odbiorców                                          |
 | ------------------ | ------------------------------------------------- |
-| -Wyniki testowania migracji aplikacji | — Właściciele techniczna aplikacji<br />— Właściciele firmy aplikacji |
-| — Powiadomienie o tym, że migracja jest dostępna i wyjaśni wynikowe środowisko użytkownika końcowego.<br />— Przestoje związane z przesyłaniem i pełną łącznością, w tym informacje o tym, co powinno teraz robić, opinie i jak uzyskać pomoc | -Użytkownicy końcowi (i wszystkie inne) |
+| — Nagabędanie o informacje o aplikacji<br />— Wynik ćwiczenia z zakresu | — Właściciele techniczna aplikacji<br />— Właściciele firm aplikacji |
 
-**Faza 4 — zarządzanie i uzyskiwanie szczegółowych** informacji:
+**Faza 2 — klasyfikowanie aplikacji i planowanie pilotażu:**
 
 | Komunikacja      | Grupy odbiorców                                          |
 | ------------------ | ------------------------------------------------- |
-| Dostępna analiza i sposób uzyskiwania dostępu | — Właściciele techniczna aplikacji<br />— Właściciele firmy aplikacji |
+| - Wynik klasyfikacji i co to oznacza dla harmonogramu migracji<br />— Wstępny harmonogram migracji | — Właściciele techniczna aplikacji<br /> — Właściciele firm aplikacji |
 
-### <a name="migration-states-communication-dashboard"></a>Pulpit nawigacyjny komunikacji Stanów migracji
+**Faza 3 — planowanie migracji i testowania:**
 
-Przekazywanie informacji o ogólnym stanie projektu migracji ma kluczowe znaczenie, ponieważ pokazuje postęp i pomaga właścicielom aplikacji, których aplikacje są dostępne do migracji w celu przygotowania do przeniesienia. Możesz połączyć prosty pulpit nawigacyjny za pomocą Power BI lub innych narzędzi do raportowania, aby zapewnić widoczność stanu aplikacji podczas migracji.
+| Komunikacja      | Grupy odbiorców                                          |
+| ------------------ | ------------------------------------------------- |
+| — Wynik testowania migracji aplikacji | — Właściciele techniczna aplikacji<br />— Właściciele firm aplikacji |
+| — Powiadomienie o zbliżających się migracjach i wyjaśnienie wynikowych doświadczeń użytkowników końcowych.<br />— Nadchodzące przestoje i pełne komunikaty, w tym informacje o tym, co powinni teraz zrobić, opinie i jak uzyskać pomoc | — Użytkownicy końcowi (i wszystkie inne) |
 
-Można rozważyć następujące stany migracji:
+**Faza 4 — zarządzanie i uzyskanie szczegółowych informacji:**
+
+| Komunikacja      | Grupy odbiorców                                          |
+| ------------------ | ------------------------------------------------- |
+| Dostępna analiza i sposób uzyskiwania dostępu | — Właściciele techniczna aplikacji<br />— Właściciele firm aplikacji |
+
+### <a name="migration-states-communication-dashboard"></a>Pulpit nawigacyjny komunikacji stanów migracji
+
+Informowanie o ogólnym stanie projektu migracji ma kluczowe znaczenie, ponieważ pokazuje postęp, i pomaga właścicielom aplikacji, których aplikacje nadchodzą do migracji, w przygotowaniu się do przeniesienia. Możesz utworzyć prosty pulpit nawigacyjny przy użyciu Power BI lub innych narzędzi do raportowania, aby zapewnić wgląd w stan aplikacji podczas migracji.
+
+Stany migracji, których można użyć, są następujące:
 
 | Stany migracji       | Plan działania                                   |
 | ---------------------- | --------------------------------------------- |
-| **Początkowe żądanie** | Znajdź aplikację i skontaktuj się z właścicielem, aby uzyskać więcej informacji |
-| **Ocena zakończona** | Właściciel aplikacji szacuje wymagania aplikacji i zwraca kwestionariusz aplikacji</td>
+| **Żądanie początkowe** | Znajdź aplikację i skontaktuj się z właścicielem, aby uzyskać więcej informacji |
+| **Ocena ukończona** | Właściciel aplikacji ocenia wymagania aplikacji i zwraca ankiety aplikacji</td>
 | **Konfiguracja w toku** | Opracowywanie zmian niezbędnych do zarządzania uwierzytelnianiem w usłudze Azure AD |
-| **Konfiguracja testu powiodła się** | Oceń zmiany i Uwierzytelnij aplikację w odniesieniu do testowej dzierżawy usługi Azure AD w środowisku testowym |
-| **Konfiguracja produkcyjna zakończona pomyślnie** | Zmień konfiguracje, aby współpracowały z produkcyjną dzierżawą usługi AD i ocenić uwierzytelnianie aplikacji w środowisku testowym |
-| **Zakończ/Wyloguj** | Wdróż zmiany dla aplikacji w środowisku produkcyjnym i wykonaj względem produkcyjnej dzierżawy usługi Azure AD |
+| **Konfiguracja testu powiodła się** | Ocena zmian i uwierzytelnianie aplikacji względem testowej dzierżawy usługi Azure AD w środowisku testowym |
+| **Konfiguracja produkcyjna powiodła się** | Zmień konfiguracje, aby działały z produkcyjną dzierżawą usługi AD i oceniały uwierzytelnianie aplikacji w środowisku testowym |
+| **Ukończenie/wylogowanie** | Wdrażanie zmian aplikacji w środowisku produkcyjnym i wykonywanie polecenia względem produkcyjnej dzierżawy usługi Azure AD |
 
-Dzięki temu właściciele aplikacji będą wiedzieli, czym jest harmonogram migracji i testowania aplikacji, gdy ich aplikacje są do migracji, a wyniki pochodzą z innych aplikacji, które zostały już zmigrowane. Możesz również zastanowić się nad dostarczeniem linków do bazy danych śledzenia usterek dla właścicieli, aby można było plików i wyświetlać problemy dotyczące migrowanych aplikacji.
+Dzięki temu właściciele aplikacji będą wiedzieć, jaki jest harmonogram migracji i testowania aplikacji, gdy ich aplikacje są w stanie migracji, oraz jakie są wyniki innych aplikacji, które zostały już zmigrowane. Możesz również rozważyć udostępnienie właścicielom linków do bazy danych śledzenia usterek, aby właściciele mogli plikować i wyświetlać problemy dotyczące migrowanych aplikacji.
 
 ### <a name="best-practices"></a>Najlepsze rozwiązania
 
-Poniżej przedstawiono scenariusze sukcesów klientów i partnerów oraz sugerowane najlepsze rozwiązania:
+Poniżej przedstawiono historie sukcesu naszych klientów i partnerów oraz sugerowane najlepsze rozwiązania:
 
-- [Pięć wskazówek dotyczących ulepszania procesu migracji do Azure Active Directory](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Five-tips-to-improve-the-migration-process-to-Azure-Active/ba-p/445364) przez konsultacje patriotą, który jest członkiem naszej sieci partnerskiej, która koncentruje się na ułatwianiu klientom wdrażania rozwiązań w chmurze firmy Microsoft.
+- [Pięć porad dotyczących usprawnienia procesu](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Five-tips-to-improve-the-migration-process-to-Azure-Active/ba-p/445364) migracji w celu Azure Active Directory firmy Patriot Consulting, członka naszej sieci partnerskiej, która koncentruje się na pomaganiu klientom w bezpiecznym wdrażaniu rozwiązań w chmurze firmy Microsoft.
 
-- [Utwórz strategię zarządzania ryzykiem dla migracji aplikacji usługi Azure AD](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Develop-a-risk-management-strategy-for-your-Azure-AD-application/ba-p/566488) przez Edgile, czyli partnera, który koncentruje się na rozwiązaniach do zarządzania w usłudze IAM i czynnikami ryzyka.
+- [Opracuj strategię zarządzania ryzykiem dla migracji](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Develop-a-risk-management-strategy-for-your-Azure-AD-application/ba-p/566488) aplikacji usługi Azure AD, firmy Edgile, partnera, który koncentruje się na rozwiązaniach do zarządzania dostępem i dostępem i ryzykiem.
 
-## <a name="phase-1-discover-and-scope-apps"></a>Faza 1: odnajdywanie i zakres aplikacji
+## <a name="phase-1-discover-and-scope-apps"></a>Faza 1. Odnajdywanie aplikacji i ich zakres
 
-**Odnajdywanie i analiza aplikacji to podstawowe ćwiczenie zapewniające dobry początek.** Możesz nie wiedzieć wszystko, co jest gotowe do uwzględnienia nieznanych aplikacji.
+**Odnajdywanie i analiza aplikacji to podstawowe ćwiczenie, które daje dobry początek.** Być może nie znasz wszystkiego, więc przygotuj się do uwzględnienia nieznanych aplikacji.
 
 ### <a name="find-your-apps"></a>Znajdowanie aplikacji
 
-Pierwszy punkt decyzyjny migracji aplikacji to aplikacje, które mają zostać poddane migracji, które w razie potrzeby powinny pozostać i które aplikacje są przestarzałe. Zawsze istnieje możliwość wycofania aplikacji, które nie będą używane w Twojej organizacji. Istnieje kilka sposobów znajdowania aplikacji w organizacji. **Podczas odnajdywania aplikacji upewnij się, że zawarto w nim aplikacje deweloperskie i planowane. Użyj usługi Azure AD do uwierzytelniania we wszystkich przyszłych aplikacjach.**
+Pierwszym punktem decyzyjnym migracji aplikacji jest to, które aplikacje mają zostać zmigrowane, które powinny pozostać i które aplikacje mają zostać wycofane. Zawsze istnieje możliwość wycofania aplikacji, których nie będziesz używać w organizacji. Istnieje kilka sposobów na znalezienie aplikacji w organizacji. **Podczas odnajdywania aplikacji upewnij się, że aplikacje są w trakcie opracowywania i planowane. Użyj usługi Azure AD do uwierzytelniania we wszystkich przyszłych aplikacjach.**
 
-**Używanie Active Directory Federation Services (AD FS) do zbierania prawidłowego spisu aplikacji:**
+**Przy Active Directory Federation Services (AD FS) W celu zebrania prawidłowego spisu aplikacji:**
 
-- **Używanie programu Azure AD Connect Health.** Jeśli masz licencję na Azure AD — wersja Premium, zalecamy wdrożenie [Azure AD Connect Health](../hybrid/how-to-connect-health-adfs.md) w celu przeanalizowania użycia aplikacji w środowisku lokalnym. [Raport aplikacji ADFS](./migrate-adfs-application-activity.md) (wersja zapoznawcza) umożliwia odnajdywanie aplikacji usług ADFS, które można migrować i ocenę gotowości aplikacji do migracji. Po zakończeniu migracji Wdróż [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery) , który umożliwia ciągłe monitorowanie w tle w organizacji po zakończeniu korzystania z chmury.
+- **Używanie programu Azure AD Connect Health.** Jeśli masz licencję usługi Azure AD — wersja Premium, zalecamy wdrożenie usługi [Azure AD Connect Health](../hybrid/how-to-connect-health-adfs.md) analizowania użycia aplikacji w środowisku lokalnym. Raport aplikacji usług [AD FS](./migrate-adfs-application-activity.md) (wersja zapoznawcza) umożliwia odnajdywanie aplikacji usług AD FS, które można migrować, i ocenianie gotowości aplikacji do migracji. Po zakończeniu migracji należy wdrożyć [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery) który umożliwia ciągłe monitorowanie rozwiązań w tle IT w organizacji po pracy w chmurze.
 
-- **Analiza dzienników AD FS**. Jeśli nie masz licencji Azure AD — wersja Premium, zalecamy użycie usług AD FS do migracji aplikacji usługi Azure AD opartych na programie [PowerShell.](https://github.com/AzureAD/Deployment-Plans/tree/master/ADFS%20to%20AzureAD%20App%20Migration) Zapoznaj się z [przewodnikiem po rozwiązaniu](./migrate-adfs-apps-to-azure.md):
+- **AD FS analizowania dzienników.** Jeśli nie masz licencji usługi Azure AD — wersja Premium, zalecamy użycie narzędzi migracji aplikacji usług AD FS do usługi Azure AD w oparciu o [program PowerShell.](https://github.com/AzureAD/Deployment-Plans/tree/master/ADFS%20to%20AzureAD%20App%20Migration). Zapoznaj się z [przewodnikiem po rozwiązaniu:](./migrate-adfs-apps-to-azure.md)
 
 [Migrowanie aplikacji z Active Directory Federation Services (AD FS) do usługi Azure AD.](./migrate-adfs-apps-to-azure.md)
 
-### <a name="using-other-identity-providers-idps"></a>Korzystanie z innych dostawców tożsamości (dostawców tożsamości)
+### <a name="using-other-identity-providers-idps"></a>Korzystanie z innych dostawców tożsamości
 
-W przypadku innych dostawców tożsamości (takich jak usługi okta lub ping) do eksportowania spisu aplikacji można użyć ich narzędzi. Możesz rozważyć przeglądanie zasad usługi zarejestrowanych w Active Directory, które odpowiadają aplikacjom sieci Web w organizacji.
+W przypadku innych dostawców tożsamości (takich jak Okta lub Ping) można użyć ich narzędzi do wyeksportowania spisu aplikacji. Warto rozważyć przeglądanie zasad usług zarejestrowanych w usłudze Active Directory, które odpowiadają aplikacjom internetowym w organizacji.
 
-### <a name="using-cloud-discovery-tools"></a>Korzystanie z narzędzi usługi Cloud Discovery
+### <a name="using-cloud-discovery-tools"></a>Korzystanie z narzędzi do odnajdywania w chmurze
 
-W środowisku chmury trzeba mieć rozbudowaną widoczność, kontrolę nad przejazdami danych oraz zaawansowaną analizę, aby znaleźć i zwalczać zagrożenia cybernetycznymi w ramach wszystkich usług w chmurze. Spis aplikacji w chmurze można zebrać przy użyciu następujących narzędzi:
+W środowisku chmury potrzebujesz rozbudowanego wglądu, kontroli nad podróżami danych oraz zaawansowanej analizy, aby znaleźć i znoczyć zagrożenia cybernetyczne we wszystkich usługach w chmurze. Spis aplikacji w chmurze można zebrać przy użyciu następujących narzędzi:
 
-- Usługa **Cloud Access Security Broker (CASB**) — [CASB](/cloud-app-security/) zazwyczaj działa wraz z zaporą w celu zapewnienia wglądu w użycie aplikacji w chmurze pracowników i pomaga chronić dane firmowe przed zagrożeniami cyberbezpieczeństwa. Raport CASB może pomóc w ustaleniu najczęściej używanych aplikacji w organizacji oraz wczesnych celach migracji do usługi Azure AD.
+- **Cloud Access Security Broker (CASB)**— system [CASB](/cloud-app-security/) zazwyczaj współpracuje z zaporą w celu zapewnienia wglądu w użycie aplikacji w chmurze pracowników i pomaga chronić dane firmowe przed zagrożeniami cyberbezpieczeństwa. Raport CASB może pomóc w ustaleniu najczęściej używanych aplikacji w organizacji oraz wczesnych celów migracji do usługi Azure AD.
 
-- **Cloud Discovery** — przez skonfigurowanie [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery)można uzyskać wgląd w użycie aplikacji w chmurze i odkryć niezaakceptowane lub zasłonięte aplikacje IT.
+- **Cloud Discovery** — konfigurując aplikacje [Cloud Discovery,](/cloud-app-security/set-up-cloud-discovery)zyskujesz wgląd w użycie aplikacji w chmurze i możesz odnajdywać niezaakcjonowane lub niezaakcjonowane aplikacje IT.
 
-- **Interfejsy API** — dla aplikacji podłączonych do infrastruktury chmurowej można użyć interfejsów API i narzędzi w tych systemach, aby zacząć korzystać ze spisu hostowanych aplikacji. W środowisku platformy Azure:
+- **Interfejsy API** — w przypadku aplikacji połączonych z infrastrukturą chmury możesz użyć interfejsów API i narzędzi w tych systemach, aby rozpocząć spis hostowanych aplikacji. W środowisku platformy Azure:
 
-  - Użyj polecenia cmdlet [Get-AzureWebsite](/powershell/module/servicemanagement/azure.service/get-azurewebsite) , aby uzyskać informacje o usłudze Azure Websites.
+  - Użyj polecenia cmdlet [Get-AzureWebsite,](/powershell/module/servicemanagement/azure.service/get-azurewebsite) aby uzyskać informacje o witrynach internetowych platformy Azure.
 
-  - Użyj polecenia cmdlet [Get-AzureRMWebApp](/powershell/module/azurerm.websites/get-azurermwebapp) , aby uzyskać informacje na temat Web Apps platformy Azure.
+  - Użyj polecenia cmdlet [Get-AzureRMWebApp,](/powershell/module/azurerm.websites/get-azurermwebapp) aby uzyskać informacje o usłudze Azure Web Apps.
 D
-  - Wszystkie aplikacje działające w usługach IIS firmy Microsoft można znaleźć w wierszu polecenia systemu Windows przy użyciu [AppCmd.exe](/iis/get-started/getting-started-with-iis/getting-started-with-appcmdexe#working-with-sites-applications-virtual-directories-and-application-pools).
+  - Wszystkie aplikacje działające w usługach Microsoft IIS można znaleźć w wierszu polecenia systemu Windows przy [ użyciuAppCmd.exe](/iis/get-started/getting-started-with-iis/getting-started-with-appcmdexe#working-with-sites-applications-virtual-directories-and-application-pools).
 
-  - Użyj [aplikacji](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) i nazw [głównych usługi](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity) , aby uzyskać informacje o aplikacji i wystąpieniu aplikacji w katalogu w usłudze Azure AD.
+  - Użyj [aplikacji](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) i [jednostki usługi,](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity) aby uzyskać informacje o aplikacji i wystąpieniu aplikacji w katalogu w usłudze Azure AD.
 
-### <a name="using-manual-processes"></a>Korzystanie z procesów ręcznych
+### <a name="using-manual-processes"></a>Używanie procesów ręcznych
 
-Po wykonaniu opisanych powyżej metod automatycznych będziesz mieć dobre dojście do aplikacji. Można jednak wziąć pod uwagę następujące kwestie, aby mieć pewność, że masz dobre pokrycie we wszystkich obszarach dostępu użytkowników:
+Po użyciu zautomatyzowanych metod opisanych powyżej będziesz mieć dobrą obsługę aplikacji. Można jednak rozważyć wykonanie następujących czynności, aby zapewnić dobre pokrycie we wszystkich obszarach dostępu użytkowników:
 
-- Skontaktuj się z różnymi właścicielami firmy w organizacji, aby znaleźć aplikacje używane w organizacji.
+- Skontaktuj się z różnymi właścicielami biznesowymi w twojej organizacji, aby znaleźć aplikacje, które są w użyciu w Twojej organizacji.
 
-- Uruchom narzędzie do inspekcji HTTP na serwerze proxy lub Analizuj dzienniki proxy, aby zobaczyć, gdzie ruch jest często kierowany.
+- Uruchom narzędzie inspekcji HTTP na serwerze proxy lub przeanalizuj dzienniki serwera proxy, aby sprawdzić, gdzie ruch jest często przekierowyny.
 
-- Przejrzyj dzienniki Weblogs z popularnych witryn portalu firmy, aby zobaczyć, jakie linki użytkownicy uzyskują do nich dostęp.
+- Przejrzyj blogi z popularnych witryn portalu firmy, aby zobaczyć, do jakich linków użytkownicy mają najwięcej dostępu.
 
-- Skontaktuj się z dyrektorami lub innymi kluczowymi członkami biznesowymi, aby upewnić się, że aplikacje o znaczeniu krytycznym zostały omówione w firmie.
+- Skons out to executives or other key business members to ensure you have covered the business-critical apps.
 
 ### <a name="type-of-apps-to-migrate"></a>Typ aplikacji do migracji
 
-Po znalezieniu aplikacji możesz zidentyfikować następujące typy aplikacji w organizacji:
+Po odnalezieniu aplikacji rozpoznasz następujące typy aplikacji w organizacji:
 
-- Aplikacje korzystające już z nowoczesnych protokołów uwierzytelniania
+- Aplikacje, które już używają nowoczesnych protokołów uwierzytelniania
 
-- Aplikacje korzystające z starszych protokołów uwierzytelniania wybranych do modernizacji
+- Aplikacje, które korzystają ze starszych protokołów uwierzytelniania, które chcesz zmodernizować
 
-- Aplikacje korzystające z starszych protokołów uwierzytelniania, które nie zostały wybrane do modernizacji
+- Aplikacje, które używają starszych protokołów uwierzytelniania, których nie chcesz modernizować
 
-- Nowe aplikacje biznesowe (LoB)
+- Nowe aplikacje biznesowe
 
-### <a name="apps-that-use-modern-authentication-already"></a>Aplikacje korzystające już z nowoczesnego uwierzytelniania
+### <a name="apps-that-use-modern-authentication-already"></a>Aplikacje, które już używają nowoczesnego uwierzytelniania
 
-Już nowoczesne aplikacje są najprawdopodobniej przeniesione do usługi Azure AD. Te aplikacje używają już nowoczesnych protokołów uwierzytelniania (takich jak SAML lub OpenID Connect Connect) i można je ponownie skonfigurować do uwierzytelniania w usłudze Azure AD.
+Już zmodernizowane aplikacje najprawdopodobniej zostaną przeniesione do usługi Azure AD. Te aplikacje już używają nowoczesnych protokołów uwierzytelniania (takich jak SAML lub OpenID Connect) i można je ponownie skonfigurować do uwierzytelniania w usłudze Azure AD.
 
-Oprócz opcji dostępnych w [galerii aplikacji usługi Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) mogą to być aplikacje, które już istnieją w organizacji, lub wszelkie aplikacje innych firm od dostawcy, który nie jest częścią galerii usługi Azure AD ([aplikacje spoza galerii)](./add-application-portal.md).
+Oprócz opcji dostępnych w galerii aplikacji usługi Azure AD mogą to być aplikacje, które już istnieją w [organizacji,](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) lub aplikacje innych firm od dostawcy, który nie należy do galerii usługi Azure AD (aplikacje spoza galerii).[](./add-application-portal.md)
 
-Starsze aplikacje wybrane do modernizacji
+Starsze aplikacje, które chcesz zmodernizować
 
-W przypadku starszych aplikacji, które chcesz przeprowadzić modernizację, przejście do usługi Azure AD na potrzeby uwierzytelniania podstawowego i autoryzacja powoduje odblokowanie wszystkich możliwości i bogactwa danych, które [Microsoft Graph](https://developer.microsoft.com/graph/gallery/?filterBy=Samples,SDKs) i [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence?rtc=1) mają być oferowane.
+W przypadku starszych aplikacji, które chcesz zmodernizować, przejście do usługi Azure AD w celu uwierzytelniania [](https://developer.microsoft.com/graph/gallery/?filterBy=Samples,SDKs) podstawowego i [](https://www.microsoft.com/security/operations/intelligence?rtc=1) autoryzacji odblokowuje wszystkie możliwości i możliwości danych, które Microsoft Graph i Intelligent Security Graph mają do zaoferowania.
 
-Zalecamy **zaktualizowanie kodu stosu uwierzytelniania** dla tych aplikacji ze starszego protokołu (takiego jak uwierzytelnianie Windows-Integrated, ograniczone delegowanie protokołu Kerberos, uwierzytelnianie na podstawie nagłówków HTTP) do nowoczesnego protokołu (na przykład SAML lub OpenID Connect Connect).
+Zalecamy **zaktualizowanie** kodu stosu uwierzytelniania dla tych aplikacji ze starszego protokołu (takiego jak uwierzytelnianie Windows-Integrated, ograniczone delegowanie Kerberos, uwierzytelnianie oparte na nagłówkach HTTP) do nowoczesnego protokołu (takiego jak SAML lub OpenID Connect).
 
-### <a name="legacy-apps-that-you-choose-not-to-modernize"></a>Starsze aplikacje, które nie zostały wybrane do modernizacji
+### <a name="legacy-apps-that-you-choose-not-to-modernize"></a>Starsze aplikacje, których nie chcesz modernizować
 
-W przypadku niektórych aplikacji korzystających ze starszych protokołów uwierzytelniania czasami modernizowanie ich uwierzytelniania nie jest właściwe w przypadku przyczyn związanych z biznesem. Należą do nich następujące typy aplikacji:
+W przypadku niektórych aplikacji korzystających ze starszych protokołów uwierzytelniania czasami modernizacja ich uwierzytelniania nie jest właściwym zastosowaniem ze względów biznesowych. Należą do nich następujące typy aplikacji:
 
-- Aplikacje przechowywane lokalnie w celu zapewnienia zgodności lub kontroli.
+- Aplikacje przechowywane lokalnie ze względu na zgodność lub kontrolę.
 
-- Aplikacje połączone z tożsamością lokalną lub dostawcą federacyjnym, których nie chcesz zmienić.
+- Aplikacje połączone z lokalną tożsamością lub dostawcą federacyjną, których nie chcesz zmieniać.
 
-- Aplikacje opracowane przy użyciu lokalnych standardów uwierzytelniania, które nie są planowane do przeniesienia
+- Aplikacje opracowane przy użyciu lokalnych standardów uwierzytelniania, których nie planujesz przenosić
 
-Usługa Azure AD może przynieść doskonałe korzyści dla tych starszych aplikacji, ponieważ można włączyć nowoczesne funkcje zabezpieczeń i zarządzania usługą Azure AD, takie jak [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md), [dostęp warunkowy](../conditional-access/overview.md), [Ochrona tożsamości](../identity-protection/index.yml), [dostęp do aplikacji delegowanych](./access-panel-manage-self-service-access.md)i [przeglądy dostępu do](../governance/manage-user-access-with-access-reviews.md#create-and-perform-an-access-review) tych aplikacji bez konieczności dotykania aplikacji.
+Usługa Azure AD może przynieść ogromne korzyści tym starszym aplikacjom, ponieważ można włączyć nowoczesne funkcje zabezpieczeń i ładu usługi [](../governance/manage-user-access-with-access-reviews.md#create-and-perform-an-access-review) Azure AD, takie jak [Multi-Factor Authentication,](../authentication/concept-mfa-howitworks.md) [dostęp](../conditional-access/overview.md)warunkowy, [](../identity-protection/index.yml)ochrona [tożsamości,](./access-panel-manage-self-service-access.md)delegowany dostęp do aplikacji i przeglądy dostępu dla tych aplikacji bez w ogóle dotykania aplikacji.
 
-Zacznij od **rozszerzenia tych aplikacji do chmury** za pomocą [serwera proxy aplikacji](./application-proxy-configure-single-sign-on-password-vaulting.md) usługi Azure AD przy użyciu prostego sposobu uwierzytelniania (takiego jak przechowywanie haseł), aby szybko przeprowadzić migrację użytkowników lub z naszych [integracji partnerów](https://azure.microsoft.com/services/active-directory/sso/secure-hybrid-access/) z kontrolerami dostarczania aplikacji, które zostały już wdrożone.
+Zacznij  od rozszerzenia tych aplikacji do chmury za pomocą usługi Azure AD [serwer proxy aplikacji](./application-proxy-configure-single-sign-on-password-vaulting.md) przy użyciu prostych metod uwierzytelniania [](https://azure.microsoft.com/services/active-directory/sso/secure-hybrid-access/) (takich jak usługa Magazynu haseł), aby szybko przeprowadzić migrację użytkowników, lub za pośrednictwem integracji naszych partnerów z kontrolerami dostarczania aplikacji, które mogły już zostać wdrożone.
 
-### <a name="new-line-of-business-lob-apps"></a>Nowe aplikacje biznesowe (LoB)
+### <a name="new-line-of-business-lob-apps"></a>Nowe aplikacje biznesowe
 
-Zwykle opracowujesz aplikacje LoB do użytku wewnętrznego w organizacji. Jeśli w potoku masz nowe aplikacje, zalecamy użycie [platformy tożsamości firmy Microsoft](../develop/v2-overview.md) w celu zaimplementowania OpenID Connect Connect.
+Zazwyczaj opracowywać aplikacje typu LoB do użytku w firmie. Jeśli masz nowe aplikacje w potoku, zalecamy użycie platformy [tożsamości firmy Microsoft](../develop/v2-overview.md) w celu zaimplementowania OpenID Connect.
 
 ### <a name="apps-to-deprecate"></a>Aplikacje do wycofania
 
-Aplikacje bez wyraźnych właścicieli i jasne konserwacje i monitorowanie powodują zagrożenie bezpieczeństwa dla organizacji. Rozważ przestarzałe aplikacje w przypadku:
+Aplikacje bez jasnych właścicieli oraz przejrzystej konserwacji i monitorowania stanowić zagrożenie bezpieczeństwa dla organizacji. Rozważ wycofanie aplikacji, gdy:
 
-- ich **funkcjonalność jest wysoce nadmiarowa** w innych systemach • **nie ma właściciela firmy**
+- Ich **funkcje są wysoce nadmiarowe** w innych systemach • nie ma właściciela **firmy**
 
-- nie ma jasnego **użycia**.
+- nie ma wyraźnie **żadnego użycia**.
 
-Zalecamy **, aby nie zaniechać wysokiego wpływu na aplikacje o znaczeniu krytycznym**. W takich przypadkach współpraca z właścicielami firmy w celu ustalenia odpowiedniej strategii.
+Zalecamy, aby nie oznaczać aplikacji o dużym znaczeniu krytycznym dla działalności firmy jako **przestarzałych.** W takich przypadkach należy współpracować z właścicielami biznesowymi, aby określić właściwą strategię.
 
-### <a name="exit-criteria"></a>Kryteria wyjścia
+### <a name="exit-criteria"></a>Kryteria zakończenia
 
-W tej fazie zakończono pomyślnie:
+W tej fazie udało Ci się pomyślnie:
 
-- Dobre zrozumienie systemów w zakresie migracji (które można wycofać po przeniesieniu do usługi Azure AD)
+- Dobre zrozumienie systemów w zakresie migracji (które można wycofać po przejściu do usługi Azure AD)
 
 - Lista aplikacji, które obejmują:
 
-  - Jakie systemy są połączone z tymi aplikacjami
-  - Z lokalizacji i na urządzeniach, do których użytkownicy uzyskują do nich dostęp
-  - Czy zostaną zmigrowane, zaniechane lub połączone z [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md).
+  - Z jakimi systemami łączą się te aplikacje
+  - Skąd i na jakich urządzeniach użytkownicy mają do nich dostęp
+  - Określa, czy będą one migrowane, przestarzałe, czy połączone z [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md).
 
 > [!NOTE]
-> Możesz pobrać [Arkusz odnajdowania aplikacji](https://download.microsoft.com/download/2/8/3/283F995C-5169-43A0-B81D-B0ED539FB3DD/Application%20Discovery%20worksheet.xlsx) , aby zarejestrować aplikacje, które mają zostać zmigrowane do uwierzytelniania w usłudze Azure AD, a także te, które chcesz opuścić przy użyciu [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md).
+> Arkusz [odnajdywania](https://download.microsoft.com/download/2/8/3/283F995C-5169-43A0-B81D-B0ED539FB3DD/Application%20Discovery%20worksheet.xlsx) aplikacji można pobrać, aby zarejestrować aplikacje, które mają zostać zmigrowane do uwierzytelniania usługi Azure AD, oraz te, które chcesz opuścić, ale zarządzać nimi przy użyciu Azure AD Connect [.](../hybrid/whatis-azure-ad-connect.md)
 
-## <a name="phase-2-classify-apps-and-plan-pilot"></a>Faza 2: klasyfikowanie aplikacji i planowanie pilotażu
+## <a name="phase-2-classify-apps-and-plan-pilot"></a>Faza 2: Klasyfikowanie aplikacji i planowanie pilotażu
 
-Klasyfikowanie migracji aplikacji jest ważnym zadaniem. Nie wszystkie aplikacje muszą być migrowane i przenoszone w tym samym czasie. Po zebraniu informacji o każdej z nich można usprawnić, które aplikacje powinny być migrowane w pierwszej kolejności, co może zająć trochę czasu.
+Klasyfikowanie migracji aplikacji jest ważnym ćwiczeniem. Nie każda aplikacja musi zostać zmigrowana i przeniesiona w tym samym czasie. Po zebrania informacji o poszczególnych aplikacjach można zracjonalizować, które aplikacje powinny zostać zmigrowane jako pierwsze, a które mogą zająć dodatkowy czas.
 
 ### <a name="classify-in-scope-apps"></a>Klasyfikowanie aplikacji w zakresie
 
-Jednym z nich jest to, że jest to na przykład zależność od stopnia zagrożenia firmy, użycia i cykl życia, z których każda jest zależna od wielu czynników.
+Jednym ze sposobów myślenia o tym jest wzdłuż osi krytycznego dla działania firmy, użycia i cyklu życia, z których każda jest zależna od wielu czynników.
 
 ### <a name="business-criticality"></a>Znaczenie biznesowe
 
-Krytyczne znaczenie biznesowe będzie miało różne wymiary dla każdej firmy, ale dwie miary, które należy wziąć pod uwagę, to **funkcje i funkcje** oraz **Profile użytkowników**. Przypisywanie aplikacji z unikatowymi funkcjami wyższego poziomu niż te z funkcją nadmiarową lub przestarzałą.
+Krytyczne znaczenie biznesowe będzie mieć różne wymiary dla każdej firmy, ale dwie miary, które należy wziąć pod uwagę, to funkcje, **funkcje** i **profile użytkowników.** Przypisz aplikacjom o unikatowej funkcjonalności wyższą wartość punktu niż aplikacje z nadmiarową lub przestarzałą funkcjonalnością.
 
-![Diagram spektrum funkcji & funkcje i profile użytkowników](media/migrating-application-authentication-to-azure-active-directory-3.jpg)
+![Diagram przedstawiający spektrum funkcji & funkcjonalności i profilów użytkowników](media/migrating-application-authentication-to-azure-active-directory-3.jpg)
 
 ### <a name="usage"></a>Użycie
 
-Aplikacje o **wysokich numerach użycia** powinny otrzymać wyższą wartość niż aplikacje o niskim zużyciu. Przypisz wyższą wartość do aplikacji z użytkownikami zespołu zewnętrznego, kierowniczego lub zabezpieczeń. Wykonaj te oceny dla każdej aplikacji w portfolio migracji.
+Aplikacje o **wysokim użyciu powinny** otrzymać wyższą wartość niż aplikacje o niskim użyciu. Przypisz wyższą wartość do aplikacji z użytkownikami zewnętrznymi, wykonawczymi lub z zespołu ds. zabezpieczeń. Dla każdej aplikacji w portfolio migracji wykonaj te oceny.
 
-![Diagram spektrum wielkości woluminu użytkownika i użytkownika](media/migrating-application-authentication-to-azure-active-directory-4.jpg)
+![Diagram spektrum woluminu użytkownika i szerokości użytkownika](media/migrating-application-authentication-to-azure-active-directory-4.jpg)
 
-Po ustaleniu wartości dla celów krytycznych i użycia w firmie można określić **aplikację cykl życia** i utworzyć macierz priorytetów. Zobacz jedną z poniższych macierzy:
+Po określeniu wartości krytycznych dla działania firmy i użycia można określić cykl życia aplikacji i utworzyć macierz priorytetów. Zobacz jedną z takich macierzy poniżej:
 
-![Trójkątny diagram przedstawiający relacje między użyciem, oczekiwany cykl życia i krytyczność firmy](media/migrating-application-authentication-to-azure-active-directory5.jpg)
+![Diagram trójkąta przedstawiający relacje między użyciem, oczekiwanym cyklem życia i krytycznością działania firmy](media/migrating-application-authentication-to-azure-active-directory5.jpg)
 
 ### <a name="prioritize-apps-for-migration"></a>Określanie priorytetów aplikacji do migracji
 
-Możesz rozpocząć migrację aplikacji przy użyciu aplikacji o najniższym priorytecie lub aplikacji o najwyższym priorytecie w zależności od potrzeb organizacji.
+Możesz rozpocząć migrację aplikacji od aplikacji o najniższym priorytecie lub aplikacji o najwyższym priorytecie w zależności od potrzeb organizacji.
 
-W scenariuszu, w którym możesz nie korzystać z usług Azure AD i Identity Services, rozważ najpierw przeniesienie **aplikacji o najniższym priorytecie** do usługi Azure AD. Pozwoli to zminimalizować wpływ na firmę i można utworzyć chwilę. Po pomyślnym przeniesieniu tych aplikacji i uzyskaniu zaufania uczestnika projektu można kontynuować migrację innych aplikacji.
+W scenariuszu, w którym możesz nie mieć doświadczenia w używaniu usług Azure AD i Identity, rozważ najpierw przeniesienie aplikacji o najniższym priorytecie **do** usługi Azure AD. Spowoduje to zminimalizowanie wpływu na działalność biznesową i pozwoli na rozwój. Po pomyślnym przenoszeniu tych aplikacji i zyskaniu pewności uczestnika projektu można kontynuować migrację innych aplikacji.
 
-Jeśli nie ma żadnych jasnych priorytetów, należy rozważyć przeniesienie aplikacji znajdujących się w [galerii usługi Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) najpierw i obsłudze wielu dostawców tożsamości (AD FS lub usługi okta), ponieważ są one łatwiejsze do integracji. Najprawdopodobniej te aplikacje są aplikacjami o **najwyższym priorytecie** w organizacji. Aby ułatwić integrację aplikacji SaaS z usługą Azure AD, opracowano kolekcję [samouczków](../saas-apps/tutorial-list.md) , które przeprowadzą Cię przez proces konfiguracji.
+Jeśli nie ma wyraźnego priorytetu, należy najpierw rozważyć przeniesienie aplikacji, które znajdują się w galerii usługi [Azure AD,](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) i obsługę wielu dostawców tożsamości (ADFS lub Okta), ponieważ są one łatwiejsze do zintegrowania. Prawdopodobnie są to aplikacje o **najwyższym priorytecie** w organizacji. Aby ułatwić integrację aplikacji SaaS z usługą Azure AD, opracowaliśmy kolekcję [samouczków,](../saas-apps/tutorial-list.md) które ułatwiają konfigurowanie.
 
-Po upływie ostatecznego terminu migracji aplikacji ten zasobnik aplikacji o najwyższym priorytecie zajmie się dużym obciążeniem. Możesz ostatecznie wybrać aplikacje o niższym priorytecie, ponieważ nie zmienią one kosztu nawet po przeniesieniu terminu ostatecznego. Nawet jeśli musisz odnowić licencję, będzie to mała kwota.
+Po upływie ostatecznego terminu migracji aplikacji te zasobniki o najwyższym priorytecie przejmą główne obciążenie. Możesz ostatecznie wybrać aplikacje o niższym priorytecie, ponieważ nie zmienią one kosztu, nawet jeśli termin ostateczny został przeniesiony. Nawet jeśli musisz odnowić licencję, będzie ona za niewielką kwotę.
 
-Oprócz tej klasyfikacji i w zależności od pilności migracji można również rozważyć zastosowanie **harmonogramu migracji** , w ramach którego właściciele aplikacji muszą mieć możliwość migrowania aplikacji. Po zakończeniu tego procesu powinna istnieć lista wszystkich aplikacji w zasobnikach z priorytetami na potrzeby migracji.
+Oprócz tej klasyfikacji i w zależności od pilności migracji można również  rozważyć zaplanowanie migracji, w ramach którego właściciele aplikacji muszą zaangażować się w migrację swoich aplikacji. Po zakończeniu tego procesu powinna zostać wyświetlona lista wszystkich aplikacji w zasobnikach z priorytetami migracji.
 
-### <a name="document-your-apps"></a>Dokumentowanie aplikacji
+### <a name="document-your-apps"></a>Dokumentować aplikacje
 
-Najpierw Zacznij od zebrania najważniejszych informacji dotyczących aplikacji. [Arkusz odnajdowania aplikacji](https://download.microsoft.com/download/2/8/3/283F995C-5169-43A0-B81D-B0ED539FB3DD/Application%20Discovery%20worksheet.xlsx)pomoże Ci w szybkim podejmowaniu decyzji dotyczących migracji i w ogóle uzyskać zalecenie dotyczące Twojej grupy biznesowej.
+Najpierw należy rozpocząć od zebrania kluczowych informacji o aplikacjach. Arkusz [odnajdywania aplikacji](https://download.microsoft.com/download/2/8/3/283F995C-5169-43A0-B81D-B0ED539FB3DD/Application%20Discovery%20worksheet.xlsx)pomoże Ci szybko podjąć decyzje dotyczące migracji i uzyskać zalecenie do grupy biznesowej w żadnym momencie.
 
-Informacje ważne do podejmowania decyzji dotyczących migracji obejmują:
+Informacje, które są ważne podczas podejmowania decyzji dotyczącej migracji, obejmują:
 
-- **Nazwa aplikacji** — ta aplikacja jest znana dla firmy?
+- **Nazwa aplikacji** — jak ta aplikacja jest znana firmie?
 
-- **Typ aplikacji** — czy jest to aplikacja SaaS innej firmy? Niestandardowa aplikacja sieci Web biznesowa? Interfejs API?
+- **Typ aplikacji** — czy jest to aplikacja SaaS innej firmy? Niestandardowa aplikacja internetowa biznesowa? Interfejs API?
 
-- **Krytyczne znaczenie biznesowe** ? Małą? Lub gdzieś między nimi?
+- **Krytyczne znaczenie dla działania** firmy — czy ma ona wysoki poziom krytyczności? Niskie? Czy gdzieś pomiędzy nimi?
 
-- **Wolumin dostępu użytkownika** — czy wszyscy uzyskują dostęp do tej aplikacji, czy tylko kilku osób?
+- **Wolumin dostępu użytkowników** — czy wszyscy mają dostęp do tej aplikacji, czy tylko kilka osób?
 
-- **Planowane cykl życia** — jak długo będzie mieć tę aplikację? Mniej niż sześć miesięcy? Ponad dwa lata?
+- **Planowany cykl** życia — jak długo będzie się ona czekać? Mniej niż sześć miesięcy? Więcej niż dwa lata?
 
-- **Bieżący dostawca tożsamości** — co to jest podstawowy dostawcy tożsamości dla tej aplikacji? Czy jest ona zależna od lokalnego magazynu?
+- **Bieżący dostawca tożsamości** — jaki jest podstawowy dostawca tożsamości dla tej aplikacji? Czy może korzysta z magazynu lokalnego?
 
 - **Metoda uwierzytelniania** — czy aplikacja jest uwierzytelniana przy użyciu otwartych standardów?
 
-- **Czy planujesz zaktualizować kod aplikacji** — czy jest to aplikacja zaplanowana czy aktywna?
+- **Czy zamierzasz zaktualizować kod aplikacji** — czy aplikacja jest planowana, czy aktywna?
 
-- **Czy planujesz zachowanie aplikacji** w środowisku lokalnym — czy chcesz zachować swoją aplikację w Twoim centrum danych długoterminowym?
+- **Czy planujesz zachować aplikację** lokalnie — czy chcesz przechowywać aplikację w centrum danych w dłuższym okresie?
 
-- **Niezależnie od tego, czy aplikacja jest zależna od innych aplikacji czy interfejsów API** — czy aplikacja aktualnie wywołuje inne aplikacje lub interfejsy API?
+- **Czy aplikacja jest zależna od innych aplikacji, czy** interfejsów API — czy aplikacja aktualnie jest wywoływana do innych aplikacji lub interfejsów API?
 
-- **Czy aplikacja znajduje się w galerii usługi Azure AD — czy** aplikacja jest już zintegrowana z [galerią usługi Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps)?
+- **Czy aplikacja znajduje się w galerii usługi Azure AD** — czy aplikacja jest już zintegrowana z [galerią usługi Azure AD?](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps)
 
-Inne dane, które pomogą później, ale nie trzeba podejmować decyzji o natychmiastowej migracji:
+Inne dane, które będą pomocne później, ale nie trzeba podjąć natychmiastowej decyzji dotyczącej migracji, obejmują:
 
-- **Adres URL aplikacji** — gdzie użytkownicy przejdą w celu uzyskania dostępu do aplikacji?
+- **Adres URL aplikacji** — gdzie użytkownicy mogą uzyskać dostęp do aplikacji?
 
-- **Opis aplikacji** — Krótki opis działania aplikacji?
+- **Opis aplikacji** — jaki jest krótki opis tego, co robi aplikacja?
 
-- **Właściciel aplikacji** — kto w firmie jest główną ZK dla aplikacji?
+- **Właściciel aplikacji** — kto w firmie jest głównym centrum pochyłu aplikacji?
 
-- **Ogólne komentarze lub uwagi** — inne ogólne informacje dotyczące aplikacji lub własności biznesowej
+- **Ogólne komentarze lub uwagi** — wszelkie inne ogólne informacje o aplikacji lub własności firmy
 
-Po sklasyfikowaniu aplikacji i udokumentowaniu szczegółowych informacji, należy się upewnić, że wszyscy właściciele firmy kupią do planowanej strategii migracji.
+Po sklasyfikowania aplikacji i udokumentowaniu szczegółów pamiętaj o wykupienie właściciela firmy w ramach strategii planowanej migracji.
 
 ### <a name="plan-a-pilot"></a>Planowanie pilotażu
 
-Aplikacje wybrane dla pilotażu powinny reprezentować kluczowe wymagania dotyczące tożsamości i zabezpieczeń organizacji, a użytkownik musi mieć wyraźny zakup od właścicieli aplikacji. Pilotaży są zwykle uruchamiane w osobnym środowisku testowym. Zapoznaj się z [najlepszymi rozwiązaniami dla pilotażów](../fundamentals/active-directory-deployment-plans.md#best-practices-for-a-pilot) na stronie plany wdrożenia.
+Aplikacje wybrane na potrzeby pilotażu powinny reprezentować kluczowe wymagania organizacji dotyczące tożsamości i zabezpieczeń, a właściciel aplikacji musi wyraźnie wykupować aplikację. Pilotaż zwykle działa w osobnym środowisku testowym. Zobacz [najlepsze rozwiązania dotyczące pilotażu](../fundamentals/active-directory-deployment-plans.md#best-practices-for-a-pilot) na stronie planów wdrażania.
 
-**Nie zapomnij partnerów zewnętrznych.** Upewnij się, że biorą udział w harmonogramie i testowaniu migracji. Na koniec upewnij się, że masz dostęp do pomocy technicznej, jeśli wystąpiły problemy z przerwaniem.
+**Nie zapomnij o partnerach zewnętrznych.** Upewnij się, że uczestniczą one w harmonogramach migracji i testach. Na koniec upewnij się, że mają one sposób uzyskiwania dostępu do pomocy technicznej, jeśli występują istotne problemy.
 
 ### <a name="plan-for-limitations"></a>Planowanie ograniczeń
 
-Chociaż niektóre aplikacje są łatwe do migracji, inne mogą trwać dłużej ze względu na wiele serwerów lub wystąpień. Na przykład migracja programu SharePoint może trwać dłużej ze względu na niestandardową stronę logowania.
+Chociaż migracja niektórych aplikacji jest łatwa, inne mogą trwać dłużej ze względu na wiele serwerów lub wystąpień. Na przykład migracja programu SharePoint może trwać dłużej ze względu na niestandardowe strony logowania.
 
-Wielu dostawców aplikacji SaaS jest opłatą za zmianę połączenia SSO. Sprawdź je i Zaplanuj.
+Wielu dostawców aplikacji SaaS nalicza opłaty za zmianę połączenia logowania jednokrotnego. Skontaktuj się z nimi i zaplanuj to.
 
-Usługa Azure AD ma także [limity i ograniczenia usługi](../enterprise-users/directory-service-limits-restrictions.md) .
+Usługa Azure AD ma [również limity i ograniczenia usług,](../enterprise-users/directory-service-limits-restrictions.md) o których należy pamiętać.
 
-### <a name="app-owner-sign-off"></a>Wylogowywanie właściciela aplikacji
+### <a name="app-owner-sign-off"></a>Rejestracja właściciela aplikacji
 
-Aplikacje o znaczeniu krytycznym dla firmy i powszechnie używane mogą potrzebować grupy użytkowników pilotażowych do testowania aplikacji na etapie pilotażu. Po przetestowaniu aplikacji w środowisku przedprodukcyjnym lub pilotażowym upewnij się, że właściciele firmy aplikacji mogą się wylogować z wydajności przed migracją aplikacji i wszyscy użytkownicy korzystający z usługi Azure AD na potrzeby uwierzytelniania.
+Aplikacje krytyczne dla działania firmy i powszechnie używane mogą wymagać grupy użytkowników pilotażowych, aby przetestować aplikację na etapie pilotażu. Po przetestowania aplikacji w środowisku przedprodukcyjnym lub pilotażowym upewnij się, że właściciele firmy aplikacji wylogują się z wydajności przed migracją aplikacji i wszyscy użytkownicy do produkcyjnego użycia usługi Azure AD na potrzeby uwierzytelniania.
 
-### <a name="plan-the-security-posture"></a>Planowanie stan zabezpieczeń
+### <a name="plan-the-security-posture"></a>Planowanie postawy zabezpieczeń
 
-Przed rozpoczęciem procesu migracji należy w pełni rozważyć stan zabezpieczeń, które mają być opracowane dla firmowego systemu tożsamości. Jest to oparte na zbieraniu tych cennych zestawów informacji: **tożsamości, urządzeń i lokalizacji, które uzyskują dostęp do danych.**
+Zanim zainicjujesz proces migracji, pomiń trochę czasu, aby w pełni rozważyć poziom zabezpieczeń, który chcesz opracować dla firmowego systemu tożsamości. Jest to oparte na zbieraniu cennych zestawów informacji: tożsamości, urządzeń i lokalizacji, które **mają dostęp do danych.**
 
 ### <a name="identities-and-data"></a>Tożsamości i dane
 
-Większość organizacji ma określone wymagania dotyczące tożsamości i ochrony danych, które różnią się w zależności od segmentów branżowych i funkcji zadań w organizacjach. Zapoznaj się z [konfiguracją konfiguracji i dostępu do urządzenia](/microsoft-365/enterprise/microsoft-365-policies-configurations) , aby poznać nasze zalecenia, w tym określony zestaw [zasad dostępu warunkowego](../conditional-access/overview.md) i powiązane funkcje.
+Większość organizacji ma określone wymagania dotyczące tożsamości i ochrony danych, które różnią się w zależności od segmentu branży i funkcji zadań w organizacji. Zapoznaj się [z konfiguracjami tożsamości i dostępu do](/microsoft-365/enterprise/microsoft-365-policies-configurations) urządzeń, aby uzyskać rekomendacje, w tym określony zestaw zasad dostępu [warunkowego i](../conditional-access/overview.md) powiązane możliwości.
 
-Te informacje służą do ochrony dostępu do wszystkich usług zintegrowanych z usługą Azure AD. Te zalecenia są wyrównane z bezpiecznym wynikiem firmy Microsoft i [oceną tożsamości w usłudze Azure AD](../fundamentals/identity-secure-score.md). Ten wskaźnik ułatwi Ci:
+Tych informacji można użyć do ochrony dostępu do wszystkich usług zintegrowanych z usługą Azure AD. Te zalecenia są zgodne z wynikiem bezpieczeństwa firmy Microsoft i wynikiem [tożsamości w usłudze Azure AD.](../fundamentals/identity-secure-score.md) Ten wskaźnik ułatwi Ci:
 
 - Obiektywne mierzenie poziomu bezpieczeństwa tożsamości
 
@@ -431,212 +429,212 @@ Te informacje służą do ochrony dostępu do wszystkich usług zintegrowanych z
 
 - Sprawdzanie powodzenia wprowadzonych udoskonaleń
 
-Pomoże to również zaimplementować [pięć kroków w celu zabezpieczenia infrastruktury tożsamości](../../security/fundamentals/steps-secure-identity.md). Skorzystaj ze wskazówek jako punktu wyjścia dla organizacji i Dostosuj zasady, aby spełniały określone wymagania organizacji.
+Pomoże to również zaimplementować pięć [kroków zabezpieczania infrastruktury tożsamości.](../../security/fundamentals/steps-secure-identity.md) Skorzystaj ze wskazówek jako punktu wyjścia dla swojej organizacji i dostosuj zasady, aby spełnić określone wymagania organizacji.
 
 ### <a name="who-is-accessing-your-data"></a>Kto uzyskuje dostęp do danych?
 
-Istnieją dwie główne kategorie użytkowników aplikacji i zasobów obsługiwanych przez usługę Azure AD:
+Istnieją dwie główne kategorie użytkowników aplikacji i zasobów, które obsługuje usługa Azure AD:
 
-- **Wewnętrzny:** Pracownicy, wykonawcy i dostawcy, którzy mają konta w ramach dostawcy tożsamości. Może to wymagać dalszej tabeli przestawnej z różnymi regułami dla menedżerów lub liderów, a nie innych pracowników.
+- **Wewnętrzne:** Pracownicy, wykonawcy i dostawcy, którzy mają konta w ramach dostawcy tożsamości. Może to wymagać dalszych przestawnych zasad dla menedżerów lub kierownictwa w porównaniu z innymi pracownikami.
 
-- **Zewnętrzny:** Dostawcy, dostawcy, dystrybutorzy lub inni partnerzy biznesowi, którzy współpracują z Twoją organizacją w regularnych działaniach dotyczących [współpracy B2B usługi Azure AD.](../external-identities/what-is-b2b.md)
+- **Zewnętrzne:** Dostawcy, dostawcy, dystrybutorzy lub inni partnerzy biznesowi, którzy w regularnych odstępach czasu wchodzą w interakcje z Twoją organizacją dzięki współpracy [B2B](../external-identities/what-is-b2b.md) w usłudze Azure AD.
 
-Można definiować grupy dla tych użytkowników i wypełniać te grupy na różne sposoby. Możesz zdecydować, że administrator musi ręcznie dodać członków do grupy lub włączyć członkostwo w grupie samoobsługowy. Można ustalić reguły, które automatycznie dodają członków do grup na podstawie określonych kryteriów przy użyciu [grup dynamicznych](../enterprise-users/groups-dynamic-membership.md).
+Grupy dla tych użytkowników można definiować i wypełniać je na różne sposoby. Możesz zdecydować, że administrator musi ręcznie dodać członków do grupy lub włączyć samoobsługowe członkostwo w grupie. Można określić reguły, które automatycznie dodają członków do grup na podstawie określonych kryteriów przy użyciu [grup dynamicznych.](../enterprise-users/groups-dynamic-membership.md)
 
-Użytkownicy zewnętrzni mogą również odnosić się do klientów. [Azure AD B2C](../../active-directory-b2c/overview.md), oddzielny produkt obsługuje uwierzytelnianie klienta. Jednak jest to poza zakresem tego dokumentu.
+Użytkownicy zewnętrzni mogą również odwoływać się do klientów. [Azure AD B2C](../../active-directory-b2c/overview.md), oddzielny produkt obsługuje uwierzytelnianie klientów. Jednak jest on poza zakresem tego dokumentu.
 
-### <a name="devicelocation-used-to-access-data"></a>Urządzenie/lokalizacja służąca do uzyskiwania dostępu do danych
+### <a name="devicelocation-used-to-access-data"></a>Urządzenie/lokalizacja używane do uzyskiwania dostępu do danych
 
-Ważne jest również urządzenie i lokalizacja, za pomocą których użytkownik uzyskuje dostęp do aplikacji. Urządzenia fizycznie połączone z siecią firmową są bezpieczniejsze. Połączenia spoza sieci za pośrednictwem sieci VPN mogą wymagać przeprowadzenia kontroli.
+Ważne jest również urządzenie i lokalizacja, których użytkownik używa do uzyskiwania dostępu do aplikacji. Urządzenia fizycznie połączone z siecią firmową są bezpieczniejsze. Połączenia spoza sieci za pośrednictwem sieci VPN mogą wymagać kontroli.
 
 ![Diagram przedstawiający relację między lokalizacją użytkownika i dostępem do danych](media/migrating-application-authentication-to-azure-active-directory-6.jpg)
 
-Korzystając z tych aspektów zasobów, użytkowników i urządzeń, możesz korzystać z możliwości [dostępu warunkowego usługi Azure AD](../conditional-access/overview.md) . Dostęp warunkowy wykracza poza uprawnienia użytkownika: jest on oparty na kombinacji czynników, takich jak tożsamość użytkownika lub grupy, Sieć, z którą jest połączony użytkownik, używane urządzenie i aplikacja oraz typ danych, do których próbują uzyskać dostęp. Dostęp udzielony użytkownikowi dostosowuje się do tego szerszego zestawu warunków.
+Mając na uwadze te aspekty zasobów, użytkowników i urządzeń, możesz użyć funkcji [dostępu warunkowego usługi Azure AD.](../conditional-access/overview.md) Dostęp warunkowy wykracza poza uprawnienia użytkownika: opiera się na kombinacji czynników, takich jak tożsamość użytkownika lub grupy, sieć, z która użytkownik jest połączony, urządzenie i aplikacja, z których korzysta, oraz typ danych, do których próbuje uzyskać dostęp. Dostęp udzielany użytkownikowi dostosowuje się do tego szerszego zestawu warunków.
 
-### <a name="exit-criteria"></a>Kryteria wyjścia
+### <a name="exit-criteria"></a>Kryteria zakończenia
 
-W tej fazie zakończono pomyślnie:
+Ta faza jest pomyślna, jeśli:
 
-- Znajomość aplikacji
-  - W pełni udokumentowane aplikacje, które zamierzasz zmigrować
-  - Aplikacje z priorytetami na podstawie stopnia ważności firmy, woluminu użycia i cykl życia
+- Poznasz swoje aplikacje
+  - W pełni udokumentowano aplikacje, które mają być migrowane
+  - Określanie priorytetów aplikacji na podstawie krytyczności dla działania firmy, ilości użycia i cyklu życia
 
-- Wybierz aplikacje, które reprezentują wymagania dla pilotażu
+- Wybrano aplikacje, które reprezentują twoje wymagania dotyczące pilotażu
 
-- Biznes — kupowanie w ramach priorytetyzacji i strategii
+- Włoź właściciela firmy do priorytetów i strategii
 
-- Zapoznaj się z wymaganiami dotyczącymi stan zabezpieczeń i sposobami ich implementacji
+- Zrozumienie potrzeb w zakresie bezpieczeństwa i sposobu ich implementowanie
 
 ## <a name="phase-3-plan-migration-and-testing"></a>Faza 3: Planowanie migracji i testowania
 
-Po uzyskaniu zakupów w firmie następnym krokiem jest rozpoczęcie migrowania tych aplikacji do uwierzytelniania usługi Azure AD.
+Po zakupieniu konta biznesowego następnym krokiem jest rozpoczęcie migracji tych aplikacji do uwierzytelniania w usłudze Azure AD.
 
 ### <a name="migration-tools-and-guidance"></a>Narzędzia i wskazówki dotyczące migracji
 
-Skorzystaj z poniższych narzędzi i wskazówek, aby wykonać dokładne kroki wymagane do migrowania aplikacji do usługi Azure AD:
+Użyj poniższych narzędzi i wskazówek, aby wykonać dokładne kroki wymagane do zmigrowania aplikacji do usługi Azure AD:
 
-- **Ogólne wskazówki dotyczące migracji** — korzystanie z kwestionariusza, narzędzi, szablonów poczty e-mail i aplikacji w ramach [zestawu narzędzi do migracji aplikacji usługi Azure AD](./migration-resources.md) w celu odnajdywania, klasyfikowania i migrowania aplikacji.
+- **Ogólne wskazówki dotyczące** migracji — skorzystaj z oficjalnych dokumentów, narzędzi, szablonów wiadomości e-mail i aplikacji w zestawie narzędzi do migracji aplikacji usługi [Azure AD,](./migration-resources.md) aby odnajdywać, klasyfikować i migrować aplikacje.
 
-- **Aplikacje SaaS** — zapoznaj się z naszą listą [setek samouczków aplikacji SaaS](../saas-apps/tutorial-list.md) i kompletnym [PLANem wdrażania rejestracji JEDNOkrotnej usługi Azure AD](https://aka.ms/ssodeploymentplan) , aby zapoznać się z kompleksowym procesem.
+- **Aplikacje SaaS** — zapoznaj się z naszą listą setek samouczków aplikacji [SaaS](../saas-apps/tutorial-list.md) i kompletnym planem wdrożenia logowania jednokrotnego usługi [Azure AD,](https://aka.ms/ssodeploymentplan) aby przejść przez cały proces.
 
-- **Aplikacje działające lokalnie** — Dowiedz się więcej [o usłudze Azure serwer proxy aplikacji usługi Azure AD](./application-proxy.md) i Skorzystaj z kompletnego [planu wdrażania serwer proxy aplikacji usługi Azure AD platformy Azure](https://aka.ms/AppProxyDPDownload) , aby szybko rozpocząć pracę.
+- **Aplikacje działające lokalnie —** dowiedz się wszystkiego o usłudze [Azure AD serwer proxy aplikacji](./application-proxy.md) i użyj pełnego planu wdrożenia usługi Azure AD [serwer proxy aplikacji,](https://aka.ms/AppProxyDPDownload) aby szybko rozpocząć.
 
-- **Aplikacje, które** tworzysz — zapoznaj się z naszymi krok po kroku [integrację](../develop/quickstart-register-app.md) i wskazówki dotyczące [rejestracji](../develop/quickstart-register-app.md) .
+- **Aplikacje, które opracowujesz** — przeczytaj nasze szczegółowe wskazówki dotyczące integracji [i](../develop/quickstart-register-app.md) [rejestracji.](../develop/quickstart-register-app.md)
 
-Po migracji można wysłać komunikat informujący użytkowników o pomyślnym wdrożeniu i przypomnieniu o wszelkich nowych krokach, które muszą zostać wykonane.
+Po migracji można wysłać wiadomość z informacjami o pomyślnym wdrożeniu i przypomnieć im o wszelkich nowych krokach, które należy wykonać.
 
-### <a name="plan-testing"></a>Testowanie planu
+### <a name="plan-testing"></a>Planowanie testowania
 
-Podczas procesu migracji aplikacja może już mieć środowisko testowe używane podczas zwykłych wdrożeń. Można nadal używać tego środowiska do testowania migracji. Jeśli środowisko testowe nie jest obecnie dostępne, można je skonfigurować za pomocą Azure App Service lub Virtual Machines platformy Azure, w zależności od architektury aplikacji. Możesz skonfigurować oddzielną dzierżawę usługi Azure AD, która będzie używana podczas tworzenia konfiguracji aplikacji. Ta dzierżawa zostanie uruchomiona w stanie czystym i nie zostanie skonfigurowana do synchronizacji z żadnym systemem.
+Podczas migracji aplikacja może już mieć środowisko testowe używane podczas regularnych wdrożeń. Możesz nadal używać tego środowiska do testowania migracji. Jeśli środowisko testowe nie jest obecnie dostępne, może być możliwe skonfigurowanie go przy użyciu programu Azure App Service lub usługi Azure Virtual Machines, w zależności od architektury aplikacji. Możesz skonfigurować oddzielną dzierżawę testów usługi Azure AD do użycia podczas opracowywania konfiguracji aplikacji. Ta dzierżawa rozpocznie się w stanie czystym i nie zostanie skonfigurowana do synchronizacji z żadnym systemem.
 
-Możesz testować każdą aplikację, logując się przy użyciu użytkownika testowego i upewniając się, że wszystkie funkcje są takie same jak przed migracją. W przypadku określenia podczas testowania, że użytkownicy będą musieli zaktualizować ustawienia usługi [MFA](/azure/active-directory/authentication/howto-mfa-userstates) lub [SSPR](../authentication/tutorial-enable-sspr.md)lub dodać tę funkcję podczas migracji, pamiętaj o dodaniu jej do planu komunikacji z użytkownikami końcowymi. Zobacz szablony komunikacji usługi [MFA](https://aka.ms/mfatemplates) i [SSPR](https://aka.ms/ssprtemplates) dla użytkowników końcowych.
+Każdą aplikację można przetestować, logując się przy użyciu użytkownika testowego i upewniać się, że wszystkie funkcje są takie same jak przed migracją. Jeśli podczas testowania określisz, że użytkownicy będą musieli zaktualizować ustawienia usługi [MFA](/azure/active-directory/authentication/howto-mfa-userstates) lub [funkcji SSPR](../authentication/tutorial-enable-sspr.md)lub dodajesz tę funkcję podczas migracji, pamiętaj o dodaniu tej funkcji do planu komunikacji użytkownika końcowego. Zobacz [MfA](https://aka.ms/mfatemplates) and SSPR end-user communication templates (Szablony komunikacji użytkownika końcowego usługi MFA i funkcji [SSPR).](https://aka.ms/ssprtemplates)
 
-Po przeprowadzeniu migracji aplikacji przejdź do [Azure Portal](https://aad.portal.azure.com/) , aby sprawdzić, czy migracja zakończyła się pomyślnie. Postępuj zgodnie z poniższymi instrukcjami:
+Po zmigrowanych aplikacjach przejdź [](https://aad.portal.azure.com/) do Azure Portal, aby sprawdzić, czy migracja się udało. Postępuj zgodnie z poniższymi instrukcjami:
 
-- Wybierz pozycję **aplikacje dla przedsiębiorstw &gt; wszystkie aplikacje** i Znajdź aplikację z listy.
+- Wybierz **pozycję Aplikacje dla przedsiębiorstw &gt; Wszystkie** aplikacje i znajdź swoją aplikację na liście.
 
-- Wybierz pozycję **Zarządzaj &gt; użytkownikami i grupami** , aby przypisać do aplikacji co najmniej jednego użytkownika lub grupę.
+- Wybierz **pozycję &gt; Zarządzaj użytkownikami i grupami,** aby przypisać do aplikacji co najmniej jednego użytkownika lub grupę.
 
-- Wybierz pozycję **Zarządzaj &gt; dostępem warunkowym**. Przejrzyj listę zasad i upewnij się, że nie blokujesz dostępu do aplikacji za pomocą [zasad dostępu warunkowego](../conditional-access/overview.md).
+- Wybierz **pozycję Zarządzaj &gt; dostępem warunkowym.** Przejrzyj listę zasad i upewnij się, że nie blokujesz dostępu do aplikacji przy użyciu [zasad dostępu warunkowego.](../conditional-access/overview.md)
 
-W zależności od sposobu skonfigurowania aplikacji Sprawdź, czy logowanie jednokrotne działa prawidłowo.
+W zależności od sposobu konfigurowania aplikacji sprawdź, czy logowanie jednokrotne działa prawidłowo.
 
 | Typ uwierzytelniania      | Testowanie                                             |
 | ------------------------ | --------------------------------------------------- |
-| **Połączenie OAuth/OpenID Connect** | Wybierz **&gt; uprawnienia aplikacje dla przedsiębiorstw** i upewnij się, że masz zgodę na użycie aplikacji w organizacji w ustawieniach użytkownika aplikacji. |
-| **Logowanie jednokrotne oparte na języku SAML** | Użyj przycisku [Testuj ustawienia SAML](./debug-saml-sso-issues.md) w obszarze **Logowanie jednokrotne.** |
-| **Logowanie jednokrotne oparte na hasłach** | Pobierz i zainstaluj [rozszerzenie moje aplikacje bezpieczne logowanie](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension). To rozszerzenie ułatwia rozpoczęcie pracy z aplikacjami w chmurze w organizacji, które wymagają korzystania z procesu rejestracji jednokrotnej. |
+| **Uwierzytelnianie OAuth/OpenID Connect** | Wybierz **pozycję &gt; Aplikacje dla** przedsiębiorstw Uprawnienia i upewnij się, że aplikacja ma być używana w organizacji w ustawieniach użytkownika aplikacji. |
+| **Logowanie jednokrotne oparte na języku SAML** | Użyj [przycisku Testuj ustawienia saml](./debug-saml-sso-issues.md) w obszarze **Logowanie pojedynczej.** |
+| **Logowanie jednokrotne oparte na hasłach** | Pobierz i zainstaluj rozszerzenie bezpiecznego logowania [myApps.](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) To rozszerzenie ułatwia uruchamianie dowolnych aplikacji w chmurze organizacji, które wymagają użycia procesu logowania jednokrotnego. |
 
-| **[Serwer proxy aplikacji](./application-proxy.md)** | Upewnij się, że łącznik jest uruchomiony i przypisany do aplikacji. Więcej informacji można znaleźć w [przewodniku rozwiązywania problemów z serwerem proxy aplikacji](./application-proxy-troubleshoot.md) . |
+| **[serwer proxy aplikacji](./application-proxy.md)** | Upewnij się, że łącznik jest uruchomiony i przypisany do aplikacji. Odwiedź stronę [serwer proxy aplikacji rozwiązywania problemów, aby](./application-proxy-troubleshoot.md) uzyskać dalszą pomoc. |
 
 ### <a name="troubleshoot"></a>Rozwiązywanie problemów
 
-Jeśli występują problemy, zapoznaj się z [przewodnikiem rozwiązywania problemów z aplikacjami](../app-provisioning/isv-automatic-provisioning-multi-tenant-apps.md) , aby uzyskać pomoc. Możesz również zapoznać się z artykułami dotyczącymi rozwiązywania problemów, zobacz temat [problemy z logowaniem do aplikacji logowania](/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps)jednokrotnego opartego na protokole SAML.
+Jeśli występują problemy, zapoznaj się z naszym przewodnikiem rozwiązywania problemów z [aplikacjami,](../app-provisioning/isv-automatic-provisioning-multi-tenant-apps.md) aby uzyskać pomoc. Możesz również zapoznaj się z naszymi artykułami na temat rozwiązywania problemów. Zobacz Problemy z logowaniem do aplikacji skonfigurowanych do logowania się za pomocą [logowania pojedynczego opartego na saml.](/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps)
 
-### <a name="plan-rollback"></a>Planowanie wycofywania
+### <a name="plan-rollback"></a>Wycofywanie planu
 
-Jeśli migracja nie powiedzie się, najlepszą strategią jest wycofanie i przetestowanie. Poniżej przedstawiono kroki, które można wykonać, aby wyeliminować problemy z migracją:
+Jeśli migracja zakończy się niepowodzeniem, najlepszą strategią jest wycofywanie i testowanie. Poniżej podano kroki, które można wykonać, aby rozwiązać problemy z migracją:
 
-- **Wykonaj zrzuty ekranu** istniejącej konfiguracji aplikacji. Po ponownym skonfigurowaniu aplikacji ponownie możesz ją wyszukać.
+- **Zrób zrzuty** ekranu z istniejącą konfiguracją aplikacji. Możesz zajrzeć wstecz, jeśli musisz ponownie skonfigurować aplikację.
 
-- Możesz również rozważyć **dostarczenie linków do starszego uwierzytelniania**, jeśli wystąpią problemy z uwierzytelnianiem w chmurze.
+- Możesz również rozważyć udostępnienie **linków do starszego uwierzytelniania,** jeśli występują problemy z uwierzytelnianiem w chmurze.
 
-- Przed ukończeniem migracji nie należy **zmieniać istniejącej konfiguracji** przy użyciu wcześniejszego dostawcy tożsamości.
+- Przed ukończeniem migracji nie **zmieniaj istniejącej konfiguracji za** pomocą wcześniejszego dostawcy tożsamości.
 
-- Zacznij od migrowania **aplikacji, które obsługują wiele dostawców tożsamości**. Jeśli coś się nie dzieje, zawsze możesz zmienić konfigurację preferowanych dostawcy tożsamości.
+- Rozpocznij od migracji **aplikacji, które obsługują wielu idPs.** Jeśli coś pójdzie nie tak, zawsze możesz przejść do konfiguracji preferowanego identyfikatora.
 
-- Upewnij się, że środowisko aplikacji zawiera **przycisk opinii** lub wskaźniki do problemów z działem **pomocy technicznej** .
+- Upewnij się, że środowisko aplikacji ma **przycisk Opinii** lub wskaźniki do problemów z **pomocą techniczną.**
 
-### <a name="exit-criteria"></a>Kryteria wyjścia
+### <a name="exit-criteria"></a>Kryteria zakończenia
 
-W tej fazie kończy się powodzeniem, gdy masz:
+Ta faza jest pomyślna, jeśli masz:
 
-- Określa sposób migrowania poszczególnych aplikacji
+- Określono sposób migrowania poszczególnych aplikacji
 
 - Przegląd narzędzi migracji
 
-- Planowane testowanie, w tym środowiska testowe i grupy
+- Zaplanowano testowanie, w tym środowiska testowe i grupy
 
 - Planowane wycofywanie
 
-## <a name="phase-4-plan-management-and-insights"></a>Faza 4: Planowanie zarządzania i szczegółowych informacji
+## <a name="phase-4-plan-management-and-insights"></a>Faza 4. Planowanie zarządzania i szczegółowe informacje
 
-Po przeprowadzeniu migracji aplikacji należy upewnić się, że:
+Po migracji aplikacji należy upewnić się, że:
 
-- Użytkownicy mogą bezpiecznie uzyskać dostęp do programu i zarządzać nim
+- Użytkownicy mogą bezpiecznie uzyskać dostęp do aplikacji i zarządzać nimi
 
-- Możesz uzyskać odpowiednie szczegółowe informacje dotyczące użycia i kondycji aplikacji
+- Możesz uzyskać odpowiednie szczegółowe informacje na temat użycia i kondycji aplikacji
 
-Zalecamy wykonanie poniższych czynności zgodnie z potrzebami organizacji.
+Zalecamy podjęcie następujących działań zgodnie z potrzebami Twojej organizacji.
 
 ### <a name="manage-your-users-app-access"></a>Zarządzanie dostępem do aplikacji użytkowników
 
-Po przeprowadzeniu migracji aplikacji można wzbogacić środowisko użytkownika na wiele sposobów
+Po zmigrowanych aplikacjach możesz na wiele sposobów wzbogacić środowisko użytkownika
 
-**Umożliwianie odnajdywania aplikacji**
+**Spraw, aby aplikacje można było odnajdywać**
 
-**Wskaż użytkownika** w środowisku portalu Moje [aplikacje](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension). W tym miejscu użytkownicy mogą uzyskiwać dostęp do wszystkich aplikacji opartych na chmurze, aplikacji udostępnianych przy użyciu [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md)i aplikacji korzystających z [serwera proxy aplikacji](./application-proxy.md) , pod warunkiem, że mają uprawnienia dostępu do tych aplikacji.
-
-
-Możesz poprowadzić użytkowników na temat odnajdywania swoich aplikacji:
-
-- Korzystanie z [istniejącej funkcji logowania](./view-applications-portal.md) jednokrotnego w celu **łączenia użytkowników z dowolnymi aplikacjami**
+**Wskaż użytkownikowi** środowisko [portalu MyApps.](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) W tym miejscu mogą uzyskać dostęp do wszystkich aplikacji opartych na chmurze, aplikacji dostępnych przy użyciu usługi [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md)i aplikacji przy użyciu usługi [serwer proxy aplikacji](./application-proxy.md) pod warunkiem, że mają uprawnienia dostępu do tych aplikacji.
 
 
-- Włączanie [samoobsługowego dostępu](./manage-self-service-access.md)do aplikacji i **Zezwalanie użytkownikom na dodawanie aplikacji, które są nadzorowane**
+Możesz pokierować użytkowników, jak odnajdywać ich aplikacje:
 
-- [Ukryj aplikacje od użytkowników końcowych](./hide-application-from-user-portal.md) (domyślne aplikacje firmy Microsoft lub inne aplikacje) **, aby aplikacje, których potrzebują, były bardziej wykrywalne**
+- Użyj [istniejącej funkcji logowania pojedynczego,](./view-applications-portal.md) aby **połączyć użytkowników z dowolną aplikacją**
 
-### <a name="make-apps-accessible"></a>Udostępnianie aplikacji
 
-**Zezwól użytkownikom na dostęp do aplikacji z urządzeń przenośnych**. Użytkownicy mogą uzyskiwać dostęp do portalu aplikacji za pomocą programu Intune Managed Browser na urządzeniach z [systemem iOS](./hide-application-from-user-portal.md) 7,0 lub nowszym lub [Android](./hide-application-from-user-portal.md) .
+- Włączanie [dostępu do aplikacji samoobsługowej](./manage-self-service-access.md)dla aplikacji i **umożliwianie użytkownikom dodawania aplikacji, które są przez Ciebie wytwarzane**
 
-Użytkownicy mogą pobrać **przeglądarkę zarządzaną przez usługę Intune**:
+- [Ukryj aplikacje przed użytkownikami końcowi](./hide-application-from-user-portal.md) (domyślne aplikacje firmy Microsoft lub inne aplikacje), aby **aplikacje, których potrzebują, były bardziej wykrywalne**
 
-- W **przypadku urządzeń z systemem Android** w [sklepie Google Play](https://play.google.com/store/apps/details?id=com.microsoft.intune)
+### <a name="make-apps-accessible"></a>Udostępnij aplikacje
 
-- W **przypadku urządzeń firmy Apple** w [sklepie Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) można pobrać [aplikację mobilną moje aplikacje dla systemu iOS](https://apps.apple.com/us/app/my-apps-azure-active-directory/id824048653)
+**Umożliwia użytkownikom dostęp do aplikacji z urządzeń przenośnych.** Użytkownicy mogą uzyskać dostęp do portalu MyApps za pomocą przeglądarki zarządzanej przez usługę Intune na urządzeniach z systemem [iOS](./hide-application-from-user-portal.md) 7.0 lub nowszym lub [Android.](./hide-application-from-user-portal.md)
 
-**Zezwól użytkownikom na otwieranie aplikacji z poziomu rozszerzenia przeglądarki.**
+Użytkownicy mogą pobrać przeglądarkę **zarządzaną przez usługę Intune:**
 
-Użytkownicy mogą [pobrać rozszerzenie "bezpieczne logowanie](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) do usługi Moje aplikacje" w przeglądarce [Chrome,](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) [Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/) lub [Microsoft Edge](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) i mogą uruchamiać aplikacje bezpośrednio z poziomu paska przeglądarki, aby:
+- **W przypadku urządzeń z systemem Android** ze [sklepu Google Play](https://play.google.com/store/apps/details?id=com.microsoft.intune)
 
-- **Wyszukaj swoje aplikacje i Wyświetl ich ostatnio używane aplikacje**
+- **W przypadku urządzeń** [](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) firmy Apple można pobrać App Store apple lub pobrać Moje aplikacje aplikację [mobilną dla systemu iOS](https://apps.apple.com/us/app/my-apps-azure-active-directory/id824048653)
 
-- **Automatyczne konwertowanie wewnętrznych adresów URL** , które zostały skonfigurowane w [serwerze proxy aplikacji](./application-proxy.md) , do odpowiednich zewnętrznych adresów URL. Użytkownicy mogą teraz korzystać z linków, które są znane, niezależnie od tego, gdzie się znajdują.
+**Umożliwia użytkownikom otwieranie aplikacji z rozszerzenia przeglądarki.**
 
-**Zezwól użytkownikom na otwieranie aplikacji z usługi Office.com.**
+Użytkownicy mogą pobrać rozszerzenie bezpiecznego logowania [MyApps](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) w przeglądarce [Chrome,](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) [FireFox](https://addons.mozilla.org/firefox/addon/access-panel-extension/) [lub Microsoft Edge](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) uruchamiać aplikacje bezpośrednio na pasku przeglądarki, aby:
 
-Użytkownicy mogą przejść do [Office.com](https://www.office.com/) , aby **wyszukać swoje aplikacje, a ich najczęściej używane aplikacje pojawiają się** w tym miejscu, w którym pracują.
+- **Wyszukiwanie aplikacji i pojawianie się ostatnio używanych aplikacji**
+
+- **Automatyczne konwertowanie wewnętrznych adresów URL** skonfigurowanych w [serwer proxy aplikacji](./application-proxy.md) na odpowiednie zewnętrzne adresy URL. Użytkownicy mogą teraz korzystać z linków, które znają, niezależnie od tego, gdzie się znajdują.
+
+**Umożliwianie użytkownikom otwierania aplikacji z Office.com.**
+
+Użytkownicy mogą przejść do  [Office.com,](https://www.office.com/) aby wyszukać swoje aplikacje, a ich ostatnio używane aplikacje będą dla nich wyświetlane bezpośrednio z miejsca, w którym pracują.
 
 ### <a name="secure-app-access"></a>Bezpieczny dostęp do aplikacji
 
-Usługa Azure AD zapewnia scentralizowaną lokalizację dostępu do zarządzania migrowanymi aplikacjami. Przejdź do [Azure Portal](https://portal.azure.com/) i Włącz następujące możliwości:
+Usługa Azure AD zapewnia scentralizowaną lokalizację dostępu do zarządzania zmigrowanych aplikacji. Przejdź do [Azure Portal](https://portal.azure.com/) i włącz następujące możliwości:
 
-- **Zabezpiecz dostęp użytkowników do aplikacji.** Włącz [zasady dostępu warunkowego](../conditional-access/overview.md)lub [ochronę tożsamości](../identity-protection/overview-identity-protection.md), aby zabezpieczyć dostęp użytkowników do aplikacji na podstawie stanu urządzenia, lokalizacji i innych.
+- **Zabezpieczanie dostępu użytkowników do aplikacji.** Włącz [zasady dostępu warunkowego lub](../conditional-access/overview.md) [usługę Identity Protection,](../identity-protection/overview-identity-protection.md)aby zabezpieczyć dostęp użytkowników do aplikacji na podstawie stanu urządzenia, lokalizacji i nie tylko.
 
-- **Automatyczne Inicjowanie obsługi.** Skonfiguruj [Automatyczne Inicjowanie obsługi użytkowników](../app-provisioning/user-provisioning.md) przy użyciu różnych aplikacji SaaS innych firm, do których użytkownicy muszą uzyskać dostęp. Oprócz tworzenia tożsamości użytkowników, obejmuje to konserwację i usuwanie tożsamości użytkowników jako zmiany stanu lub ról.
+- **Automatyczna aprowizowanie.** Skonfiguruj [automatyczną aprowizowanie użytkowników za](../app-provisioning/user-provisioning.md) pomocą różnych aplikacji SaaS innych firm, do których użytkownicy muszą uzyskać dostęp. Oprócz tworzenia tożsamości użytkowników obejmuje to obsługę i usuwanie tożsamości użytkowników w przypadku zmiany stanu lub ról.
 
-- **Delegowanie zarządzania dostępem użytkowników** . W razie potrzeby Włącz samoobsługowy dostęp do aplikacji i *Przypisz osobę zatwierdzającą w firmie, aby zatwierdzić dostęp do tych* aplikacji. Korzystanie z [samoobsługowego zarządzania grupami](../enterprise-users/groups-self-service-management.md)dla grup przypisanych do kolekcji aplikacji.
+- **Delegowanie zarządzania dostępem** **użytkowników.** W razie potrzeby włącz dostęp aplikacji samoobsługowej do aplikacji i przypisz do nich osoby zatwierdzającej w firmie, aby *zatwierdzić dostęp do tych aplikacji.* Samoobsługowe [zarządzanie grupami jest przeznaczone](../enterprise-users/groups-self-service-management.md)dla grup przypisanych do kolekcji aplikacji.
 
-- **Delegowanie dostępu administratora.** Użycie **roli katalogu** do przypisania roli administratora (takiej jak administrator aplikacji, administrator aplikacji w chmurze lub Deweloper aplikacji) do użytkownika.
+- **Delegowanie dostępu administratora.** **przypisywanie** użytkownikowi roli administratora (takiej jak administrator aplikacji, Cloud administrator aplikacji lub deweloper aplikacji).
 
-### <a name="audit-and-gain-insights-of-your-apps"></a>Inspekcja i uzyskiwanie wglądu w dane aplikacji
+### <a name="audit-and-gain-insights-of-your-apps"></a>Inspekcja i szczegółowe informacje o aplikacjach
 
-Możesz również użyć [Azure Portal](https://portal.azure.com/) do inspekcji wszystkich aplikacji z centralnej lokalizacji,
+Możesz również użyć tej [Azure Portal](https://portal.azure.com/) do inspekcji wszystkich aplikacji ze scentralizowanej lokalizacji.
 
-- **Przeprowadź inspekcję aplikacji** przy użyciu funkcji * * aplikacje dla przedsiębiorstw, Przeprowadź inspekcję lub uzyskaj dostęp do tych samych informacji z [interfejsu API raportowania usługi Azure AD](../reports-monitoring/concept-reporting-api.md) w celu zintegrowania z ulubionymi narzędziami
+- **Przejmij inspekcję** aplikacji przy użyciu funkcji **Aplikacje dla przedsiębiorstw, Inspekcja lub uzyskaj dostęp do tych samych informacji z interfejsu API raportowania usługi [Azure AD,](../reports-monitoring/concept-reporting-api.md) aby zintegrować ją z ulubionymi narzędziami.
 
-- **Wyświetlanie uprawnień aplikacji** przy użyciu aplikacji dla **przedsiębiorstw, uprawnień** do aplikacji przy użyciu protokołu OAuth/OpenID Connect Connect.
+- **Wyświetl uprawnienia dla aplikacji przy użyciu aplikacji** dla **przedsiębiorstw,** uprawnienia dla aplikacji korzystających z protokołu OAuth/OpenID Connect.
 
-- **Uzyskaj wgląd w szczegółowe dane** za pomocą **aplikacji dla przedsiębiorstw, zaloguj się**. Uzyskaj dostęp do tych samych informacji z [interfejsu API raportowania usługi Azure AD.](../reports-monitoring/concept-reporting-api.md)
+- **Uzyskaj szczegółowe informacje dotyczące logowania przy** użyciu aplikacji dla przedsiębiorstw i **logowania.** Uzyskaj dostęp do tych samych informacji z interfejsu [API raportowania usługi Azure AD.](../reports-monitoring/concept-reporting-api.md)
 
-- **Wizualizowanie użycia aplikacji** za pomocą [pakietu zawartości usługi Azure AD Power BI](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
+- **Wizualizowanie użycia aplikacji z** pakietu [zawartości usługi Azure AD Power BI](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
-### <a name="exit-criteria"></a>Kryteria wyjścia
+### <a name="exit-criteria"></a>Kryteria zakończenia
 
-W tej fazie zakończono pomyślnie:
+Ta faza jest pomyślna w przypadku:
 
 - Zapewnianie użytkownikom bezpiecznego dostępu do aplikacji
 
-- Zarządzaj inspekcją i zyskaj wgląd w zmigrowane aplikacje
+- Zarządzanie inspekcją i uzyskaniem szczegółowych informacji o zmigrowanych aplikacjach
 
-### <a name="do-even-more-with-deployment-plans"></a>Kontynuuj jeszcze więcej dzięki planom wdrażania
+### <a name="do-even-more-with-deployment-plans"></a>Jeszcze więcej działań dzięki planom wdrażania
 
-Plany wdrożenia przeprowadzą Cię przez wartość biznesową, planowanie, etapy implementacji i zarządzanie rozwiązaniami usługi Azure AD, w tym scenariusze migracji aplikacji. Łączą wszystko, co jest potrzebne do rozpoczęcia wdrażania i pobierania wartości z funkcji usługi Azure AD. Przewodniki wdrażania obejmują takie elementy, jak zalecane przez firmę Microsoft najlepsze rozwiązania, komunikacja użytkowników końcowych, przewodniki dotyczące planowania, kroki implementacji, przypadki testowe i inne.
+Plany wdrażania przejdą przez proces wartości biznesowej, planowania, kroków implementacji i zarządzania rozwiązaniami usługi Azure AD, w tym scenariuszami migracji aplikacji. Łączy on wszystkie funkcje potrzebne do rozpoczęcia wdrażania i uzyskiwania korzyści z możliwości usługi Azure AD. Przewodniki wdrażania obejmują zawartość, taką jak zalecane przez firmę Microsoft najlepsze rozwiązania, komunikacja z użytkownikami końcowi, przewodniki planowania, kroki implementacji, przypadki testowe i inne.
 
-Wiele [planów wdrażania](../fundamentals/active-directory-deployment-plans.md) jest dostępnych do użytku, a zawsze wszystko!
+Wiele [planów wdrażania](../fundamentals/active-directory-deployment-plans.md) jest dostępnych do użycia, a my zawsze staramy się jeszcze więcej.
 
 ### <a name="contact-support"></a>Kontakt z pomocą techniczną
 
-Odwiedź następujące linki pomocy technicznej, aby utworzyć lub śledzić bilet pomocy technicznej oraz monitorować kondycję.
+Odwiedź następujące linki do pomocy technicznej, aby utworzyć lub śledzić bilet pomocy technicznej i monitorować kondycję.
 
-- **Pomoc techniczna platformy Azure:** Możesz wywołać [Pomoc techniczna firmy Microsoft](https://azure.microsoft.com/support) i otworzyć bilet dla dowolnego systemu Azure
+- **pomoc techniczna platformy Azure:** Możesz wywołać tę [Pomoc techniczna Microsoft](https://azure.microsoft.com/support) i otworzyć bilet dla dowolnej platformy Azure
 
-Problem z wdrożeniem tożsamości w zależności od Enterprise Agreement firmy Microsoft.
+Problem z wdrażaniem tożsamości w zależności od Enterprise Agreement z firmą Microsoft.
 
-- **FastTrack**.: Jeśli zakupiono licencje Enterprise Mobility and Security (EMS) lub Azure AD — wersja Premium, masz prawo do otrzymywania pomocy dotyczącej wdrażania z [programu FastTrack.](/enterprise-mobility-security/solutions/enterprise-mobility-fasttrack-program)
+- **FastTrack:** Jeśli zakupiono pakiet Enterprise Mobility and Security (EMS) lub Azure AD — wersja Premium licencji, masz uprawnienia do otrzymania pomocy dotyczącej wdrażania z [programu FastTrack.](/enterprise-mobility-security/solutions/enterprise-mobility-fasttrack-program)
 
-- **Zaangażuj zespół inżynierów produktu:** Jeśli pracujesz nad głównym wdrożeniem klienta za pomocą milionów użytkowników, masz prawo do pomocy technicznej z zespołu konto Microsoft lub architekta rozwiązań w chmurze. Na podstawie złożoności wdrożenia projektu można bezpośrednio współpracować z [zespołem inżynierów ds. tożsamości platformy Azure.](https://aad.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/solutionProviders)
+- **Sangażuj zespół inżynierów produktu:** Jeśli pracujesz nad dużym wdrożeniem klientów z milionami użytkowników, masz prawo do pomocy technicznej od zespołu konto Microsoft lub zespołu architekci rozwiązań. W zależności od złożoności wdrożenia projektu możesz pracować bezpośrednio z zespołem inżynierów produktu [tożsamości platformy Azure.](https://aad.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/solutionProviders)
 
-- **Blog dotyczący tożsamości usługi Azure AD:** Zasubskrybuj Blog dotyczący [tożsamości usługi Azure AD](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/bg-p/Identity) , aby uzyskać aktualność, korzystając ze wszystkich najnowszych ogłoszeń o produkcie, omówieniach szczegółowych informacji i przewodników udostępnianych bezpośrednio przez zespół inżynierów ds. tożsamości.
+- **Blog tożsamości usługi Azure AD:** Zasubskrybuj blog dotyczący tożsamości usługi [Azure AD,](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/bg-p/Identity) aby być na bieżąco ze wszystkimi najnowszymi ogłoszeniami o produktach, szczegółowe informacje i informacje o planach udostępniane bezpośrednio przez zespół inżynierów ds. tożsamości.

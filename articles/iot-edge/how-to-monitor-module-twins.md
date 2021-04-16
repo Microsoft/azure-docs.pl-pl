@@ -1,6 +1,6 @@
 ---
-title: Monitorowanie modułu bliźniaczych reprezentacji — Azure IoT Edge
-description: Jak interpretować bliźniaczych reprezentacji urządzeń i bliźniaczych reprezentacji modułu w celu określenia łączności i kondycji.
+title: Monitorowanie bliźniaczych reprezentacji modułu — Azure IoT Edge
+description: Interpretowanie bliźniaczych reprezentacji urządzeń i bliźniaczych reprezentacji modułów w celu określenia łączności i kondycji.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,38 +9,38 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0b7013979199eefa873a651d99e87dc8b2c47856
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a5a31e15c88cef588c93f44c8fe5303d930b5b2c
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103201596"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479376"
 ---
 # <a name="monitor-module-twins"></a>Monitorowanie bliźniaczych reprezentacji modułu
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Bliźniaczych reprezentacji modułów na platformie Azure IoT Hub umożliwia monitorowanie łączności i kondycji wdrożeń IoT Edge. Moduł bliźniaczych reprezentacji przechowuje przydatne informacje w usłudze IoT Hub dotyczące wydajności uruchomionych modułów. [IoT Edge Agent](iot-edge-runtime.md#iot-edge-agent) i moduły środowiska uruchomieniowego [Centrum IoT Edge](iot-edge-runtime.md#iot-edge-hub) każdy z nich utrzymuje bliźniaczych reprezentacji modułów `$edgeAgent` i `$edgeHub` , odpowiednio:
+Bliźniacze Azure IoT Hub umożliwiają monitorowanie łączności i kondycji IoT Edge wdrożeń. Bliźniacze reprezentacji modułów przechowują w centrum IoT przydatne informacje o wydajności uruchomionych modułów. Agent [IoT Edge i](iot-edge-runtime.md#iot-edge-agent) moduły [IoT Edge uruchomieniowe](iot-edge-runtime.md#iot-edge-hub) centrum danych utrzymują bliźniacze bliźniacze reprezentacji modułów i , `$edgeAgent` `$edgeHub` odpowiednio:
 
-* `$edgeAgent` zawiera dane o kondycji i łączności dotyczące modułów IoT Edge Agent i IoT Edge Hub oraz modułów niestandardowych. Agent IoT Edge jest odpowiedzialny za wdrażanie modułów, monitorowanie ich i raportowanie stanu połączenia do usługi Azure IoT Hub.
-* `$edgeHub` zawiera dane dotyczące komunikacji między centrum IoT Edge działającym na urządzeniu a usługą Azure IoT Hub. Obejmuje to przetwarzanie komunikatów przychodzących z urządzeń podrzędnych. Centrum IoT Edge jest odpowiedzialne za przetwarzanie komunikacji między usługą Azure IoT Hub i urządzeniami IoT Edge i modułami.
+* `$edgeAgent` Zawiera dane dotyczące kondycji i łączności dotyczące IoT Edge i IoT Edge środowiska uruchomieniowego centrum danych oraz modułów niestandardowych. Agent IoT Edge odpowiada za wdrażanie modułów, monitorowanie ich i raportowanie stanu połączenia z centrum Azure IoT.
+* `$edgeHub` Zawiera dane dotyczące komunikacji między centrum IoT Edge uruchomionym na urządzeniu a centrum Azure IoT Hub. Obejmuje to przetwarzanie komunikatów przychodzących z urządzeń dalszych. IoT Edge jest odpowiedzialne za przetwarzanie komunikacji między Azure IoT Hub a IoT Edge modułami.
 
-Dane są zorganizowane w metadane, znaczniki, wraz z żądanymi i zgłoszonymi zestawami właściwości w strukturach JSON modułu bliźniaczych reprezentacji. Żądane właściwości określone w deployment.jsw pliku są kopiowane do modułu bliźniaczych reprezentacji. Agent IoT Edge i centrum IoT Edge każda aktualizuje raportowane właściwości dla swoich modułów.
+Dane są zorganizowane w metadane, tagi oraz zestawy żądanych i zgłaszanych właściwości w strukturach JSON bliźniaczych reprezentacji modułu. Żądane właściwości określone w pliku deployment.jssą kopiowane do bliźniaczych reprezentacji modułu. Agent IoT Edge i centrum IoT Edge aktualizują zgłaszane właściwości modułów.
 
-Podobnie wymagane właściwości określone dla modułów niestandardowych w deployment.jsw pliku są kopiowane do postaci sznurka modułowego, ale rozwiązanie jest odpowiedzialne za dostarczanie wartości właściwości, które zostały zgłoszone.
+Podobnie żądane właściwości określone dla modułów niestandardowych w pliku deployment.jssą kopiowane do bliźniaczej reprezentacji modułu, ale rozwiązanie jest odpowiedzialne za podanie wartości zgłaszanych właściwości.
 
-W tym artykule opisano sposób przeglądania modułu bliźniaczych reprezentacji w Azure Portal, interfejsu wiersza polecenia platformy Azure i Visual Studio Code. Aby uzyskać informacje na temat monitorowania sposobu, w jaki urządzenia odbierają wdrożenia, zobacz [monitorowanie wdrożeń IoT Edge](how-to-monitor-iot-edge-deployments.md). Aby zapoznać się z omówieniem koncepcji modułu bliźniaczych reprezentacji, zobacz temat Omówienie [i Używanie modułu bliźniaczych reprezentacji w IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md).
+W tym artykule opisano sposób przeglądania bliźniaczych reprezentacji modułu w witrynie Azure Portal, interfejsie wiersza polecenia platformy Azure i w Visual Studio Code. Aby uzyskać informacje na temat monitorowania sposobu odbierania wdrożeń przez urządzenia, zobacz [Monitorowanie IoT Edge wdrożeń.](how-to-monitor-iot-edge-deployments.md) Aby uzyskać omówienie koncepcji bliźniaczych reprezentacji modułów, zobacz [Understand and use module twins in IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md)(Omówienie bliźniaczych reprezentacji modułów i korzystanie z nich w IoT Hub).
 
 > [!TIP]
-> Raportowane właściwości modułu uruchomieniowego mogą być nieodświeżone, jeśli urządzenie IoT Edge zostanie odłączone od centrum IoT Hub. Można [wysłać polecenie ping](how-to-edgeagent-direct-method.md#ping) `$edgeAgent` do modułu, aby określić, czy połączenie zostało utracone.
+> Zgłaszane właściwości modułu środowiska uruchomieniowego mogą być nieaktualne, jeśli urządzenie IoT Edge odłączone od centrum IoT. Możesz [wysłać polecenie ping](how-to-edgeagent-direct-method.md#ping) `$edgeAgent` do modułu, aby ustalić, czy połączenie zostało utracone.
 
-## <a name="monitor-runtime-module-twins"></a>Monitorowanie modułu uruchomieniowego bliźniaczych reprezentacji
+## <a name="monitor-runtime-module-twins"></a>Monitorowanie bliźniaczych reprezentacji modułu środowiska uruchomieniowego
 
-Aby rozwiązać problemy z łącznością wdrożenia, przejrzyj bliźniaczych reprezentacji agenta i IoT Edge module środowiska uruchomieniowego Centrum IoT Edge a następnie przejdź do szczegółów innych modułów.
+Aby rozwiązać problemy z łącznością wdrażania, przejrzyj IoT Edge i IoT Edge modułu środowiska uruchomieniowego centrum danych, a następnie przejdź do szczegółów innych modułów.
 
-### <a name="monitor-iot-edge-agent-module-twin"></a>Monitorowanie sznurka modułu IoT Edge Agent
+### <a name="monitor-iot-edge-agent-module-twin"></a>Monitorowanie IoT Edge bliźniaczej reprezentacji modułu agenta
 
-Poniższy kod JSON pokazuje `$edgeAgent` sznurki modułu w Visual Studio Code z większością sekcji JSON zwinięte.
+Poniższy kod JSON przedstawia bliźniacze reprezentacji modułu w Visual Studio Code z zwiniętą `$edgeAgent` większość sekcji JSON.
 
 ```json
 {
@@ -81,41 +81,41 @@ Poniższy kod JSON pokazuje `$edgeAgent` sznurki modułu w Visual Studio Code z 
 }
 ```
 
-KOD JSON można opisać w poniższych sekcjach, zaczynając od początku:
+Kod JSON można opisać w poniższych sekcjach, zaczynając od góry:
 
-* Metadata — zawiera dane łączności. W interesujący sposób stan połączenia agenta IoT Edge jest zawsze w stanie rozłączenia: `"connectionState": "Disconnected"` . Powód stanu połączenia odnosi się do komunikatów z urządzenia do chmury (D2C), a agent IoT Edge nie wysyła komunikatów D2C.
-* Właściwości — zawiera `desired` `reported` podsekcje i.
-* Properties. żądana — (pokazana zwinięte) oczekiwano wartości właściwości ustawionych przez operatora w deployment.jspliku.
-* Właściwości. zgłoszono najnowsze wartości właściwości zgłoszone przez agenta IoT Edge.
+* Metadane — zawiera dane łączności. Co ciekawe, stan połączenia agenta IoT Edge jest zawsze w stanie rozłączenia: `"connectionState": "Disconnected"` . Przyczyna stanu połączenia dotyczy komunikatów z urządzenia do chmury (D2C), a agent IoT Edge nie wysyła komunikatów D2C.
+* Właściwości — zawiera `desired` `reported` podsekcję i .
+* Properties.desired — (pokazane zwinięte) Oczekiwane wartości właściwości ustawione przez operator w deployment.jspliku.
+* Properties.reported — najnowsze wartości właściwości zgłaszane przez IoT Edge agenta.
 
-Obie `properties.desired` sekcje i `properties.reported` mają podobną strukturę i zawierają dodatkowe metadane dotyczące schematu, wersji i informacji o środowisku uruchomieniowym. Uwzględniona jest także `modules` sekcja dla wszystkich modułów niestandardowych (takich jak `SimulatedTemperatureSensor` ) i `systemModules` sekcja dla `$edgeAgent` i `$edgeHub` modułów środowiska uruchomieniowego.
+Obie sekcje i mają podobną strukturę i zawierają dodatkowe metadane dotyczące informacji o `properties.desired` `properties.reported` schemacie, wersji i środowisku uruchomieniowym. Uwzględniono również sekcję dla wszystkich modułów niestandardowych (takich jak ), a także sekcję `modules` modułów `SimulatedTemperatureSensor` środowiska `systemModules` `$edgeAgent` `$edgeHub` uruchomieniowego i .
 
-Porównując wartości właściwości raportowanych z odpowiednimi wartościami, można określić rozbieżności i zidentyfikować odłączenia, które mogą pomóc w rozwiązywaniu problemów. W tym porównań Sprawdź `$lastUpdated` wartość raportowaną w `metadata` sekcji dla właściwości, którą badasz.
+Porównując wartości zgłaszanej właściwości z żądanymi wartościami, można określić rozbieżności i zidentyfikować rozłączenia, które mogą pomóc w rozwiązywaniu problemów. Wykonując te porównania, sprawdź zgłoszoną wartość w sekcji pod względem `$lastUpdated` `metadata` badanej właściwości.
 
-Następujące właściwości są ważne do sprawdzenia pod kątem rozwiązywania problemów:
+Następujące właściwości są ważne do zbadania w celu rozwiązywania problemów:
 
-* **ExitCode** — każda wartość różna od zera wskazuje, że moduł został zatrzymany z błędem. Jednak kody błędów 137 lub 143 są używane, jeśli moduł został celowo ustawiony na stan zatrzymany.
+* **exitcode** — dowolna wartość inna niż zero wskazuje, że moduł został zatrzymany z błędem. Kody błędów 137 lub 143 są jednak używane, jeśli moduł został celowo ustawiony na stan zatrzymania.
 
-* **lastStartTimeUtc** — pokazuje **datę i godzinę** ostatniego uruchomienia kontenera. Ta wartość to 0,001-01-01T00:00:00Z, jeśli kontener nie został uruchomiony.
+* **lastStartTimeUtc** — pokazuje **datę i** godzinę ostatniego rozpoczęcia kontenera. Ta wartość to 0001-01-01T00:00:00Z, jeśli kontener nie został uruchomiony.
 
-* **lastExitTimeUtc** — pokazuje **datę i godzinę** ostatniego zakończenia kontenera. Ta wartość to 0,001-01-01T00:00:00Z, jeśli kontener jest uruchomiony i nigdy nie został zatrzymany.
+* **lastExitTimeUtc** — pokazuje **datę/godzinę** ostatniego zakończenia kontenera. Ta wartość to 0001-01-01T00:00:00Z, jeśli kontener jest uruchomiony i nigdy nie został zatrzymany.
 
 * **runtimeStatus** — może być jedną z następujących wartości:
 
     | Wartość | Opis |
     | --- | --- |
     | unknown | Stan domyślny do momentu utworzenia wdrożenia. |
-    | wycofywania | Zaplanowano uruchomienie modułu, ale nie jest on obecnie uruchomiony. Ta wartość jest przydatna dla modułu, w którym zmiany stanu są zmieniane po ponownym uruchomieniu. Gdy niepowodzenie modułu oczekuje na ponowne uruchomienie w okresie chłodzenia, moduł będzie w stanie wycofywania. |
-    | uruchomion | Wskazuje, że moduł jest obecnie uruchomiony. |
-    | złej kondycji | Wskazuje, że sprawdzanie kondycji nie powiodło się lub upłynął limit czasu. |
-    | przerwać | Wskazuje, że moduł został zakończony pomyślnie (z kodem zakończenia zero). |
-    | niepowodzenie | Wskazuje, że moduł zakończył pracę z kodem zakończenia błędu (niezerowym). Moduł może przejść z powrotem do wycofywania z tego stanu w zależności od zasad ponownego uruchomienia. Ten stan może wskazywać, że moduł napotkał nieodwracalny błąd. Błąd występuje, gdy Microsoft Monitoring Agent (MMA) nie może już resuscitate modułu, wymagając nowego wdrożenia. |
+    | backoff | Zaplanowano uruchomienie modułu, ale nie jest on obecnie uruchomiony. Ta wartość jest przydatna w przypadku modułu, który przechodzi zmiany stanu podczas ponownego uruchamiania. Gdy moduł, który się nie powróci, oczekuje na ponowne uruchomienie w okresie ochłodzenia, moduł będzie w stanie odczekania. |
+    | Uruchomiona | Wskazuje, że moduł jest aktualnie uruchomiony. |
+    | Niezdrowe | Wskazuje, że sprawdzanie sondy kondycji nie powiodło się lub ułożyło się przeo jej czas. |
+    | Zatrzymany | Wskazuje, że moduł zakończył się pomyślnie (z zerowym kodem zakończenia). |
+    | niepowodzenie | Wskazuje, że moduł został exited z kodem zakończenia błędu (niezerowym). Moduł może przejść z powrotem do odsyłania z tego stanu w zależności od obowiązywałych zasad ponownego uruchamiania. Ten stan może wskazywać, że w module wystąpił nieodwracalny błąd. Błąd występuje, gdy Microsoft Monitoring Agent (MMA) nie może już ponownie użyć modułu, co wymaga nowego wdrożenia. |
 
-Aby uzyskać szczegółowe informacje, zobacz [EdgeAgent raportowane właściwości](module-edgeagent-edgehub.md#edgeagent-reported-properties) .
+Aby uzyskać [szczegółowe informacje, zobacz Zgłoszone właściwości edgeAgent.](module-edgeagent-edgehub.md#edgeagent-reported-properties)
 
-### <a name="monitor-iot-edge-hub-module-twin"></a>Monitorowanie sznurka modułu IoT Edge Hub
+### <a name="monitor-iot-edge-hub-module-twin"></a>Monitorowanie IoT Edge bliźniaczej reprezentacji modułu centrum danych
 
-Poniższy kod JSON pokazuje `$edgeHub` sznurki modułu w Visual Studio Code z większością sekcji JSON zwinięte.
+Poniższy kod JSON przedstawia bliźniacze reprezentacji modułu w Visual Studio Code z zwiniętą `$edgeHub` większość sekcji JSON.
 
 ```json
 {
@@ -156,71 +156,71 @@ Poniższy kod JSON pokazuje `$edgeHub` sznurki modułu w Visual Studio Code z wi
 
 ```
 
-KOD JSON można opisać w poniższych sekcjach, zaczynając od początku:
+Kod JSON można opisać w poniższych sekcjach, zaczynając od góry:
 
-* Metadata — zawiera dane łączności.
+* Metadane — zawiera dane łączności.
 
-* Właściwości — zawiera `desired` `reported` podsekcje i.
-* Properties. żądana — (pokazana zwinięte) oczekiwano wartości właściwości ustawionych przez operatora w deployment.jspliku.
-* Properties. zgłosiło najnowsze wartości właściwości zgłoszone przez Centrum IoT Edge.
+* Właściwości — zawiera `desired` `reported` podsekcję i .
+* Properties.desired — (pokazane zwinięte) Oczekiwane wartości właściwości ustawione przez operator w deployment.jspliku.
+* Properties.reported — najnowsze wartości właściwości zgłoszone przez IoT Edge Hub.
 
-Jeśli występują problemy z urządzeniami podrzędnymi, badanie tych danych byłoby dobrym miejscem do rozpoczęcia.
+Jeśli występują problemy z urządzeniami nadrzędnymi, warto zacząć od zbadania tych danych.
 
-## <a name="monitor-custom-module-twins"></a>Monitorowanie niestandardowego modułu bliźniaczych reprezentacji
+## <a name="monitor-custom-module-twins"></a>Monitorowanie bliźniaczych reprezentacji modułu niestandardowego
 
-Informacje o łączności modułów niestandardowych są utrzymywane w wieloosiowym module agenta IoT Edge. Sznurek modułu dla modułu niestandardowego jest używany głównie do obsługi danych dla rozwiązania. Żądane właściwości zdefiniowane w deployment.jsw pliku są odzwierciedlane w postaci sznurka modułowego, a moduł może aktualizować raportowane wartości właściwości zgodnie z potrzebami.
+Informacje o łączności modułów niestandardowych są zachowywane w bliźniaczej reprezentacji IoT Edge agenta. Bliźniacza bliźniak modułu dla modułu niestandardowego jest używana głównie do obsługi danych dla rozwiązania. Żądane właściwości zdefiniowane w pliku deployment.jssą odzwierciedlane w bliźniaczej reprezentacji modułu, a moduł może aktualizować wartości zgłaszanej właściwości zgodnie z potrzebami.
 
-Możesz użyć preferowanego języka programowania z zestawami [SDK urządzeń IoT Hub platformy Azure](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) , aby zaktualizować raportowane wartości właściwości w postaci sznurka modułu na podstawie kodu aplikacji modułu. Poniższa procedura korzysta z zestawu Azure SDK dla platformy .NET w tym celu przy użyciu kodu z modułu [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs) :
+Możesz użyć preferowanego języka programowania z zestawami SDK urządzeń [Azure IoT Hub,](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) aby zaktualizować zgłaszane wartości właściwości w bliźniaczej reprezentacji modułu na podstawie kodu aplikacji modułu. W poniższej procedurze użyto zestawu Azure SDK dla platformy .NET, aby to zrobić, używając kodu z modułu [SimulatedTemperatureSensor:](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs)
 
-1. Utwórz wystąpienie [ModuleClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) za pomocą metody [CreateFromEnvironmentAysnc](/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync) .
+1. Utwórz wystąpienie klasy [ModuleClient za](/dotnet/api/microsoft.azure.devices.client.moduleclient) pomocą [metody CreateFromEnvironmentAysnc.](/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync)
 
-1. Pobierz kolekcję właściwości sznurka modułu za pomocą metody [GetTwinAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.gettwinasync) .
+1. Pobierz kolekcję właściwości bliźniaczej reprezentacji modułu za pomocą [metody GetTwinAsync.](/dotnet/api/microsoft.azure.devices.client.moduleclient.gettwinasync)
 
-1. Utwórz odbiornik (przekazując wywołanie zwrotne), aby przechwycić zmiany do żądanych właściwości przy użyciu metody [SetDesiredPropertyUpdateCallbackAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync) .
+1. Utwórz odbiornik (przekazując wywołanie zwrotne), aby przechwytować zmiany żądanych właściwości za pomocą metody [SetDesiredPropertyUpdateCallbackAsync.](/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync)
 
-1. W metodzie wywołania zwrotnego zaktualizuj raportowane właściwości w postaci sznurka modułu za pomocą metody [UpdateReportedPropertiesAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient) , przekazując element [bliźniaczycollection](/dotnet/api/microsoft.azure.devices.shared.twincollection) wartości właściwości, które chcesz ustawić.
+1. W metodzie wywołania zwrotnego zaktualizuj zgłaszane właściwości w bliźniaczej reprezentacji modułu za pomocą metody [UpdateReportedPropertiesAsync,](/dotnet/api/microsoft.azure.devices.client.moduleclient) przekazując wartość [TwinCollection](/dotnet/api/microsoft.azure.devices.shared.twincollection) wartości właściwości, które chcesz ustawić.
 
-## <a name="access-the-module-twins"></a>Dostęp do modułu bliźniaczych reprezentacji
+## <a name="access-the-module-twins"></a>Uzyskiwanie dostępu do bliźniaczych reprezentacji modułu
 
-Możesz przejrzeć plik JSON dla modułu bliźniaczych reprezentacji w IoT Hub platformy Azure, w Visual Studio Code i przy użyciu interfejsu wiersza polecenia platformy Azure.
+Możesz przejrzeć JSON dla bliźniaczych reprezentacji modułu w witrynie Azure IoT Hub, w Visual Studio Code i za pomocą interfejsu wiersza polecenia platformy Azure.
 
-### <a name="monitor-in-azure-iot-hub"></a>Monitorowanie w usłudze Azure IoT Hub
+### <a name="monitor-in-azure-iot-hub"></a>Monitorowanie w Azure IoT Hub
 
-Aby wyświetlić kod JSON dla sznurka modułu:
+Aby wyświetlić JSON bliźniaczej reprezentacji modułu:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) i przejdź do centrum IoT Hub.
-1. W menu po lewej stronie wybierz pozycję **IoT Edge** .
-1. Na karcie **IoT Edge urządzenia** wybierz **Identyfikator urządzenia** dla urządzenia z modułami, które chcesz monitorować.
-1. Wybierz nazwę modułu z karty **moduły** , a następnie wybierz opcję **sznury tożsamości modułu** z górnego paska menu.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) i przejdź do centrum IoT.
+1. Wybierz **IoT Edge** z menu okienka po lewej stronie.
+1. Na **karcie IoT Edge urządzenia** wybierz identyfikator  urządzenia z modułami, które chcesz monitorować.
+1. Wybierz nazwę modułu na karcie **Moduły,** a następnie wybierz pozycję **Bliźniaczka tożsamości** modułu na górnym pasku menu.
 
-  ![Wybierz sznurek modułu do wyświetlenia w Azure Portal](./media/how-to-monitor-module-twins/select-module-twin.png)
+  ![Wybieranie bliźniaczej reprezentacji modułu do wyświetlenia w Azure Portal](./media/how-to-monitor-module-twins/select-module-twin.png)
 
-Jeśli zobaczysz komunikat "tożsamość modułu nie istnieje dla tego modułu", ten błąd wskazuje, że rozwiązanie zaplecza nie jest już dostępne, które pierwotnie utworzyło tożsamość.
+Jeśli zostanie wyświetlony komunikat "Tożsamość modułu nie istnieje dla tego modułu", ten błąd wskazuje, że rozwiązanie usługi back-end nie jest już dostępne, które pierwotnie utworzyło tożsamość.
 
-### <a name="monitor-module-twins-in-visual-studio-code"></a>Monitorowanie modułu bliźniaczych reprezentacji w Visual Studio Code
+### <a name="monitor-module-twins-in-visual-studio-code"></a>Monitorowanie bliźniaczych reprezentacji modułu w Visual Studio Code
 
-Aby przejrzeć i edytować sznurek modułu:
+Aby przejrzeć i edytować bliźniacze reprezentacji modułu:
 
-1. Jeśli jeszcze nie zainstalowano, zainstaluj [rozszerzenie narzędzi Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) dla Visual Studio Code.
-1. W **Eksploratorze** rozwiń węzeł **Azure IoT Hub**, a następnie rozwiń urządzenie przy użyciu modułu, który chcesz monitorować.
-1. Kliknij prawym przyciskiem myszy moduł i wybierz polecenie **Edytuj sznurek modułu**. Tymczasowy plik sznurka modułu jest pobierany na komputer i wyświetlany w Visual Studio Code.
+1. Jeśli nie jest jeszcze zainstalowany, [zainstaluj rozszerzenie Azure IoT Tools dla](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) Visual Studio Code.
+1. W **eksploratorze** rozwiń **Azure IoT Hub**, a następnie rozwiń urządzenie przy użyciu modułu, który chcesz monitorować.
+1. Kliknij prawym przyciskiem myszy moduł i wybierz polecenie **Edytuj bliźniacze reprezentacji modułu.** Tymczasowy plik bliźniaczej reprezentacji modułu jest pobierany na komputer i wyświetlany w Visual Studio Code.
 
-  ![Pobierz sznurek modułu do edycji w Visual Studio Code](./media/how-to-monitor-module-twins/edit-module-twin-vscode.png)
+  ![Uzyskiwanie bliźniaczej reprezentacji modułu do edytowania w Visual Studio Code](./media/how-to-monitor-module-twins/edit-module-twin-vscode.png)
 
-Jeśli wprowadzisz zmiany, wybierz pozycję **Aktualizuj sznurek modułu** powyżej kodu w edytorze, aby zapisać zmiany w centrum IoT.
+Jeśli wprowadzasz zmiany, wybierz pozycję **Zaktualizuj bliźniacze** reprezentacji modułu nad kodem w edytorze, aby zapisać zmiany w centrum IoT.
 
-  ![Aktualizowanie sznurka modułu w Visual Studio Code](./media/how-to-monitor-module-twins/update-module-twin-vscode.png)
+  ![Aktualizowanie bliźniaczej reprezentacji modułu w Visual Studio Code](./media/how-to-monitor-module-twins/update-module-twin-vscode.png)
 
-### <a name="monitor-module-twins-in-azure-cli"></a>Monitorowanie modułu bliźniaczych reprezentacji w interfejsie wiersza polecenia platformy Azure
+### <a name="monitor-module-twins-in-azure-cli"></a>Monitorowanie bliźniaczych reprezentacji modułu w interfejsie wiersza polecenia platformy Azure
 
-Aby sprawdzić, czy IoT Edge jest uruchomiona, użyj polecenia [AZ IoT Hub Invoke-module-Method](how-to-edgeagent-direct-method.md#ping) , aby wysłać polecenie ping do agenta IoT Edge.
+Aby sprawdzić, IoT Edge jest uruchomiona, użyj polecenia [az iot hub invoke-module-method,](how-to-edgeagent-direct-method.md#ping) aby wysłać polecenie ping IoT Edge agenta.
 
-Polecenie [AZ IoT Hub module-sznuring](/cli/azure/ext/azure-iot/iot/hub/module-twin) udostępnia następujące polecenia:
+Struktura [az iot hub module-twin](/cli/azure/iot/hub/module-twin) udostępnia następujące polecenia:
 
-* **AZ IoT Hub module-sznury show** -show a module — definicja
-* **AZ IoT Hub module-splot Update** -Update a module — definicja
-* **AZ IoT Hub module-sznury zastępuje** definicję z docelową notacją JSON.
+* **az iot hub module-twin show** — pokaż definicję bliźniaczej reprezentacji modułu.
+* **az iot hub module-twin update** — aktualizowanie definicji bliźniaczej reprezentacji modułu.
+* **az iot hub module-twin replace** — zastąp definicję bliźniaczej reprezentacji modułu docelowym kodem JSON.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak [komunikować się z usługą EdgeAgent przy użyciu wbudowanych metod bezpośrednich](how-to-edgeagent-direct-method.md).
+Dowiedz się, jak [komunikować się z usługą EdgeAgent przy użyciu wbudowanych metod bezpośrednich.](how-to-edgeagent-direct-method.md)
