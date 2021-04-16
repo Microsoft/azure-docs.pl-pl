@@ -109,7 +109,7 @@
         - name: Tworzenie baz danych i użytkowników
           href: howto-create-users.md
           displayName: users
-        - name: Monitoruj serwer
+        - name: Monitorowanie serwera
           items:
             - name: Tworzenie alertów dotyczących metryk
               href: howto-alert-on-metric.md
@@ -142,7 +142,7 @@
             - name: Pojęcia
               href: concepts-connectivity.md
               displayName: 'connection, resiliency'
-            - name: Przykład — Konfigurowanie puli połączeń Java
+            - name: Przykład — konfigurowanie puli połączeń Java
               href: sample-scripts-java-connection-pooling.md
             - name: Łączenie z użyciem przekierowania
               href: howto-redirection.md
@@ -157,7 +157,7 @@
           items:
             - name: Pojęcia
               href: concepts-data-access-and-security-vnet.md
-            - name: Skonfiguruj punkty końcowe usługi sieci wirtualnej przy użyciu Azure Portal
+            - name: Konfigurowanie punktów końcowych usługi sieci wirtualnej przy użyciu Azure Portal
               href: howto-manage-vnet-using-portal.md
               displayName: 'vnet, virtual network, service endpoint'
             - name: Konfigurowanie punktów końcowych usługi sieci wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -167,10 +167,10 @@
           items:
             - name: Pojęcia
               href: concepts-data-access-security-private-link.md
-            - name: Konfigurowanie prywatnego linku przy użyciu Azure Portal
+            - name: Konfigurowanie Private Link przy użyciu Azure Portal
               href: howto-configure-privatelink-portal.md
               displayName: 'private link, private endpoint'
-            - name: Konfigurowanie interfejsu wiersza polecenia usingAzure prywatnego linku
+            - name: Konfigurowanie usługi Private Link pomocą interfejsu wiersza polecenia usługiAzure
               href: howto-configure-privatelink-cli.md
               displayName: 'private link, private endpoint'
     - name: Zabezpieczenia
@@ -212,7 +212,7 @@
                 - name: Konfigurowanie szyfrowania za pomocą kluczy zarządzanych przez klienta przy użyciu Azure Portal
                   href: howto-data-encryption-portal.md
                   displayName: 'encryption, security'
-                - name: Konfigurowanie szyfrowania za pomocą kluczy zarządzanych przez klienta przy użyciu interfejsu wiersza polecenia platformy Azure
+                - name: Konfigurowanie szyfrowania przy użyciu kluczy zarządzanych przez klienta przy użyciu interfejsu wiersza polecenia platformy Azure
                   href: howto-data-encryption-cli.md
                   displayName: 'encryption, security'
                 - name: Walidacja szyfrowania danych
@@ -302,7 +302,7 @@
             - name: Korzystanie z witryny Azure Portal
               href: howto-move-regions-portal.md
               displayName: move servers across regions
-    - name: Przywracanie & kopii zapasowej
+    - name: Przywracanie kopii & kopii zapasowej
       items:
         - name: Tworzenie kopii zapasowych
           href: concepts-backup.md
@@ -334,20 +334,20 @@
             - name: Pojęcia
               href: concepts-read-replicas.md
               displayName: 'replication, read replica'
-            - name: Utwórz replikę odczytu przy użyciu Azure Portal
+            - name: Tworzenie repliki do odczytu przy użyciu Azure Portal
               href: howto-read-replicas-portal.md
               displayName: 'data-in replication, replica, failover'
-            - name: 'Tworzenie replik odczytu przy użyciu interfejsu wiersza polecenia platformy Azure, interfejs API REST'
+            - name: 'Tworzenie replik do odczytu przy użyciu interfejsu wiersza polecenia platformy Azure, interfejsu API REST'
               href: howto-read-replicas-cli.md
               displayName: 'data-in replication, replica, failover'
-            - name: Tworzenie replik odczytu przy użyciu Azure PowerShell
+            - name: Tworzenie replik do odczytu przy użyciu Azure PowerShell
               href: howto-read-replicas-powershell.md
               displayName: 'data-in replication, replica, failover'
     - name: Konserwacja usługi
       items:
         - name: Planowana konserwacja
           href: concepts-planned-maintenance-notification.md
-        - name: Obsługa bramy
+        - name: Konserwacja bramy
           href: concepts-connectivity-architecture.md
         - name: Certyfikat główny SSL wygasa
           href: concepts-certificate-rotation.md
@@ -361,10 +361,10 @@
             - name: Pojęcia
               href: concepts-server-logs.md
               displayName: 'monitor, slow query log, alert'
-            - name: Konfigurowanie wolnych dzienników zapytań przy użyciu Azure Portal
+            - name: Konfigurowanie dzienników wolnych zapytań przy użyciu Azure Portal
               href: howto-configure-server-logs-in-portal.md
               displayName: 'debug, slow query log , performance'
-            - name: Konfigurowanie wolnych dzienników zapytań przy użyciu interfejsu wiersza polecenia platformy Azure
+            - name: Konfigurowanie dzienników wolnych zapytań przy użyciu interfejsu wiersza polecenia platformy Azure
               href: howto-configure-server-logs-in-cli.md
               displayName: 'debug, slow query log , performance'
         - name: Magazyn zapytań
@@ -376,7 +376,7 @@
         - name: Zalecenia dotyczące wydajności
           href: concepts-performance-recommendations.md
           displayName: recommendation
-        - name: Zalecenia dotyczące Azure Advisor
+        - name: Azure Advisor zalecenia
           href: concepts-azure-advisor-recommendations.md
     - name: Najlepsze rozwiązania
       items:
@@ -384,7 +384,7 @@
           href: concept-monitoring-best-practices.md
         - name: Najlepsze rozwiązania w zakresie wydajności
           href: concept-performance-best-practices.md
-        - name: Najlepsze rozwiązania dotyczące projektowania aplikacji
+        - name: Najlepsze rozwiązania dotyczące tworzenia aplikacji
           href: app-development-best-practices.md
           displayName: application
         - name: Najlepsze rozwiązania w zakresie operacji
@@ -402,7 +402,7 @@
     - name: Przewodniki Szybki start
       expanded: true
       items:
-        - name: Tworzenie elastycznego serwera MySQL
+        - name: Tworzenie serwera elastycznego MySQL
           items:
             - name: Azure Portal
               href: flexible-server/quickstart-create-server-portal.md
@@ -438,7 +438,7 @@
         - name: Tworzenie baz danych i użytkowników
           href: howto-create-users.md
           displayName: users
-        - name: Monitoruj serwer
+        - name: Monitorowanie serwera
           href: flexible-server/how-to-alert-on-metric.md
     - name: Projektowanie aplikacji
       items:
@@ -462,10 +462,12 @@
               href: flexible-server/how-to-manage-server-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: flexible-server/how-to-manage-server-cli.md
-        - name: Zatrzymaj/Uruchom serwer przy użyciu Azure Portal
+        - name: Zatrzymywanie/uruchamianie serwera przy użyciu Azure Portal
           href: flexible-server/how-to-stop-start-server-portal.md
         - name: Uruchom ponownie serwer przy użyciu Azure Portal
           href: flexible-server/how-to-restart-server-portal.md
+        - name: Uruchamianie/zatrzymywanie/ponowne uruchamianie za pomocą interfejsu wiersza polecenia platformy Azure
+          href: flexible-server/how-to-restart-stop-start-server-cli.md
     - name: Sieć
       items:
         - name: Pojęcia
@@ -485,9 +487,9 @@
               href: flexible-server/how-to-manage-firewall-cli.md
     - name: Konserwacja usługi
       items:
-        - name: Zaplanowana konserwacja
+        - name: Konserwacja zaplanowana
           href: flexible-server/concepts-maintenance.md
-        - name: Skonfiguruj zaplanowaną konserwację przy użyciu Azure Portal
+        - name: Konfigurowanie zaplanowanej konserwacji przy użyciu Azure Portal
           href: flexible-server/how-to-maintenance-portal.md
     - name: Wysoka dostępność
       items:
@@ -497,6 +499,8 @@
           href: flexible-server/concepts-high-availability.md
         - name: Konfigurowanie wysokiej dostępności przy użyciu Azure Portal
           href: flexible-server/how-to-configure-high-availability.md
+        - name: Konfigurowanie wysokiej dostępności przy użyciu interfejsu wiersza polecenia platformy Azure
+          href: flexible-server/how-to-configure-high-availability-cli.md
     - name: Monitorowanie i dzienniki
       items:
         - name: Pojęcia
@@ -505,30 +509,36 @@
           items:
             - name: Pojęcia
               href: flexible-server/concepts-slow-query-logs.md
-            - name: Konfigurowanie wolnych dzienników zapytań przy użyciu Azure Portal
+            - name: Konfigurowanie dzienników wolnych zapytań przy użyciu Azure Portal
               href: flexible-server/how-to-configure-slow-query-logs-portal.md
+            - name: Konfigurowanie dzienników wolnych zapytań przy użyciu interfejsu wiersza polecenia platformy Azure
+              href: flexible-server/how-to-configure-slow-query-log-cli.md
         - name: Dzienniki inspekcji
           items:
             - name: Pojęcia
               href: flexible-server/concepts-audit-logs.md
             - name: Konfigurowanie dzienników inspekcji
               href: flexible-server/how-to-configure-audit-logs-portal.md
+            - name: Konfigurowanie dzienników inspekcji za pomocą interfejsu wiersza polecenia platformy Azure
+              href: flexible-server/how-to-configure-audit-log-cli.md
     - name: Replikacja
       items:
         - name: Repliki do odczytu
           href: flexible-server/concepts-read-replicas.md
-        - name: Tworzenie replik odczytu
+        - name: Tworzenie replik do odczytu
           items:
-            - name: Tworzenie replik odczytu przy użyciu Azure Portal
+            - name: Tworzenie replik do odczytu przy użyciu Azure Portal
               href: flexible-server/how-to-read-replicas-portal.md
-            - name: Tworzenie replik odczytu przy użyciu interfejsu wiersza polecenia platformy Azure
+            - name: Tworzenie replik do odczytu przy użyciu interfejsu wiersza polecenia platformy Azure
               href: flexible-server/how-to-read-replicas-cli.md
-    - name: Przywracanie & kopii zapasowej
+    - name: Przywracanie kopii & kopii zapasowej
       items:
         - name: Pojęcia
           href: flexible-server/concepts-backup-restore.md
         - name: Przywracanie serwera przy użyciu witryny Azure Portal
           href: flexible-server/how-to-restore-server-portal.md
+        - name: Przywracanie serwera przy użyciu interfejsu wiersza polecenia platformy Azure
+          href: flexible-server/how-to-restore-server-cli.md
     - name: Rozwiązywanie problemów
       items:
         - name: Rozwiązywanie problemów z błędami połączenia
@@ -538,7 +548,7 @@
     - name: Migrowanie danych za pomocą narzędzia mysqldump lub phpmyadmin
       href: concepts-migrate-dump-restore.md
       displayName: 'migrate, mysqldump'
-    - name: Migrowanie danych za pomocą programu dbfałszerstw Studio for MySQL
+    - name: Migrowanie danych za pomocą programu dbForge Studio for MySQL
       href: concepts-migrate-dbforge-studio-for-mysql.md
       displayName: 'migrate, dbforge'
     - name: Migrowanie danych za pomocą programu MySQL Workbench

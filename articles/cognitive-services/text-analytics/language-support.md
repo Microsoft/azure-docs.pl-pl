@@ -1,7 +1,7 @@
 ---
-title: Obsługa języka — interfejs API analizy tekstu
+title: Obsługa języków — interfejs API analiza tekstu
 titleSuffix: Azure Cognitive Services
-description: Lista języków naturalnych obsługiwanych przez interfejs API analizy tekstu. W tym artykule wyjaśniono, które języki są obsługiwane dla każdej operacji.
+description: Lista języków naturalnych obsługiwanych przez interfejs API analiza tekstu API. W tym artykule wyjaśniono, które języki są obsługiwane dla każdej operacji.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,21 +10,22 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: aahi
-ms.openlocfilehash: 9e257209060396fbf45a4a24c38bc6950acb5168
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: c0d91f803822e018f4363bb78d9138e2efe16f8a
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106387030"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531443"
 ---
-# <a name="text-analytics-api-v3-language-support"></a>Obsługa języków interfejs API analizy tekstu v3 
+# <a name="text-analytics-api-v3-language-support"></a>analiza tekstu języka interfejsu API w wersji 3 
 
 #### <a name="sentiment-analysis"></a>[Analiza tonacji](#tab/sentiment-analysis)
 
-| Język              | Kod języka | Obsługa wersji 3 | Początkowa wersja modelu v3: |              Uwagi |
+| Język              | Kod języka | Obsługa wersji 3 | Uruchamianie wersji 3 modelu: |              Uwagi |
 |:----------------------|:-------------:|:----------:|:--------------------------:|-------------------:|
-| Chiński uproszczony    |   `zh-hans`   |     ✓      |         2019-10-01         | `zh` również zaakceptowane |
+| Chiński uproszczony    |   `zh-hans`   |     ✓      |         2019-10-01         | `zh` zaakceptowane również |
 | Chiński tradycyjny   |   `zh-hant`   |    ✓      |         2019-10-01         |                    |
+| Niderlandzki                 |     `nl`      |     ✓      |         2019-10-01        |                    |
 | Angielski               |     `en`      |     ✓      |         2019-10-01         |                    |
 | Francuski                |     `fr`      |     ✓      |         2019-10-01         |                    |
 | Niemiecki                |     `de`      |     ✓      |         2019-10-01         |                    |
@@ -32,28 +33,28 @@ ms.locfileid: "106387030"
 | Włoski               |     `it`      |     ✓      |         2019-10-01         |                    |
 | japoński              |     `ja`      |     ✓      |         2019-10-01         |                    |
 | Koreański                |     `ko`      |    ✓      |         2019-10-01         |                    |
-| Norweski (bokmål)   |     `no`      |     ✓      |         2020-07-01         |                    |
+| Norweski (Bokmål)   |     `no`      |     ✓      |         2020-07-01         |                    |
 | Portugalski (Brazylia)   |    `pt-BR`    |     ✓      |         2020-04-01         |                    |
-| Portugalski (Portugalia) |    `pt-PT`    |     ✓      |         2019-10-01         | `pt` również zaakceptowane |
+| Portugalski (Portugalia) |    `pt-PT`    |     ✓      |         2019-10-01         | `pt` zaakceptowane również |
 | Hiszpański               |     `es`      |     ✓      |         2019-10-01         |                    |
 | Turecki               |     `tr`      |     ✓       |         2020-07-01        |                    |
 
-### <a name="opinion-mining-v31-preview-only"></a>Wyszukiwanie opinii (tylko wersja zapoznawcza w wersji 3.1)
+### <a name="opinion-mining-v31-preview-only"></a>Wyszukiwanie opinii (tylko wersja 3.1-zapoznawcza)
 
-| Język              | Kod języka | Począwszy od wersji modelu v3: |              Uwagi |
+| Język              | Kod języka | Począwszy od wersji 3 modelu: |              Uwagi |
 |:----------------------|:-------------:|:------------------------------------:|-------------------:|
 | Angielski               |     `en`      |              2020-04-01              |                    |
 
 
-#### <a name="named-entity-recognition-ner"></a>[Rozpoznawanie jednostek nazwanych (NER)](#tab/named-entity-recognition)
+#### <a name="named-entity-recognition-ner"></a>[rozpoznawanie jednostek nazwanych (NER)](#tab/named-entity-recognition)
 
 > [!NOTE]
-> * Tylko jednostki "Person", "Location" i "Organization" są zwracane dla języków oznaczonych gwiazdką *.
+> * Tylko jednostki "Osoba", "Lokalizacja" i "Organizacja" są zwracane dla języków oznaczonych znakiem *.
 
-| Język               | Kod języka | Obsługa wersji 3 | Począwszy od wersji modelu v3: |       Uwagi        |
+| Język               | Kod języka | Obsługa wersji 3 | Począwszy od wersji 3 modelu: |       Uwagi        |
 |:-----------------------|:-------------:|:----------:|:-------------------------------:|:------------------:|
 | Arabski                 |     `ar`      |      ✓*    |               2019-10-01        |                    |
-| Chiński uproszczony     |   `zh-hans`   |     ✓      |               2021-01-15        | `zh` również zaakceptowane |
+| Chiński uproszczony     |   `zh-hans`   |     ✓      |               2021-01-15        | `zh` zaakceptowane również |
 | Chiński tradycyjny   |   `zh-hant`   |     ✓*      |               2019-10-01        |                    |
 | Czeski                 |     `cs`      |     ✓*      |               2019-10-01        |                    |
 | Duński                |     `da`      |     ✓*      |               2019-10-01        |                    |
@@ -67,10 +68,10 @@ ms.locfileid: "106387030"
 | Włoski               |     `it`      |     ✓       |               2021-01-15        |                    |
 | japoński              |     `ja`      |     ✓       |               2021-01-15        |                    |
 | Koreański                |     `ko`      |     ✓       |               2021-01-15        |                    |
-| Norweski (bokmål)   |     `no`      |     ✓*      |               2019-10-01        | `nb` również zaakceptowane |
+| Norweski (Bokmål)   |     `no`      |     ✓*      |               2019-10-01        | `nb` zaakceptowane również |
 | Polski                |     `pl`      |     ✓*      |               2019-10-01        |                    |
 | Portugalski (Brazylia)   |    `pt-BR`    |     ✓       |               2021-01-15        |                    |
-| Portugalski (Portugalia) |    `pt-PT`    |     ✓       |               2021-01-15        | `pt` również zaakceptowane |
+| Portugalski (Portugalia) |    `pt-PT`    |     ✓       |               2021-01-15        | `pt` zaakceptowane również |
 | Rosyjski              |     `ru`      |     ✓*       |               2019-10-01        |                    |
 | Hiszpański               |     `es`      |     ✓       |               2020-04-01        |                    |
 | Szwedzki               |     `sv`      |     ✓*      |               2019-10-01        |                    |
@@ -78,7 +79,7 @@ ms.locfileid: "106387030"
 
 #### <a name="key-phrase-extraction"></a>[Wyodrębnianie kluczowych fraz](#tab/key-phrase-extraction)
 
-| Język              | Kod języka |  Obsługa wersji 3 | Dostępne począwszy od wersji modelu v3: |       Uwagi        |
+| Język              | Kod języka |  Obsługa wersji 3 | Dostępne od wersji 3 modelu: |       Uwagi        |
 |:----------------------|:-------------:|:----------:|:-----------------------------------------:|:------------------:|
 | Duński                |     `da`      |     ✓     |                2019-10-01                 |                    |
 | Niderlandzki                 |     `nl`      |     ✓      |                2019-10-01                 |                    |
@@ -89,26 +90,26 @@ ms.locfileid: "106387030"
 | Włoski               |     `it`      |     ✓      |                2019-10-01                 |                    |
 | japoński              |     `ja`      |     ✓      |                2019-10-01                 |                    |
 | Koreański                |     `ko`      |     ✓      |                2019-10-01                 |                    |
-| Norweski (bokmål)   |     `no`      |     ✓      |                2020-07-01                 | `nb` również zaakceptowane |
+| Norweski (Bokmål)   |     `no`      |     ✓      |                2020-07-01                 | `nb` zaakceptowane również |
 | Polski                |     `pl`      |    ✓      |                2019-10-01                 |                    |
 | Portugalski (Brazylia)   |    `pt-BR`    |     ✓      |                2019-10-01                 |                    |
-| Portugalski (Portugalia) |    `pt-PT`    |    ✓      |                2019-10-01                 | `pt` również zaakceptowane |
+| Portugalski (Portugalia) |    `pt-PT`    |    ✓      |                2019-10-01                 | `pt` zaakceptowane również |
 | Rosyjski               |     `ru`      |     ✓      |                2019-10-01                 |                    |
 | Hiszpański               |     `es`      |     ✓      |                2019-10-01                 |                    |
 | Szwedzki               |     `sv`      |     ✓      |                2019-10-01                 |                    |
 
 #### <a name="entity-linking"></a>[Łączenie jednostek](#tab/entity-linking)
 
-| Język | Kod języka |  Obsługa wersji 3 | Dostępne począwszy od wersji modelu v3: | Uwagi |
+| Język | Kod języka |  Obsługa wersji 3 | Dostępne od wersji 3 modelu: | Uwagi |
 |:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
 | Angielski  |     `en`      |     ✓      |                2019-10-01                 |       |
 | Hiszpański  |     `es`      |    ✓      |                2019-10-01                 |       |
 
-#### <a name="personally-identifiable-information-pii"></a>[Identyfikowalne dane osobowe](#tab/pii)
+#### <a name="personally-identifiable-information-pii"></a>[Dane osobowe](#tab/pii)
 
-| Język               | Kod języka | Obsługa wersji 3 | Począwszy od wersji modelu v3: |       Uwagi        |
+| Język               | Kod języka | Obsługa wersji 3 | Począwszy od wersji 3 modelu: |       Uwagi        |
 |:-----------------------|:-------------:|:----------:|:-------------------------------:|:------------------:|
-| Chiński uproszczony     |   `zh-hans`   |     ✓      |               2021-01-15        | `zh` również zaakceptowane |
+| Chiński uproszczony     |   `zh-hans`   |     ✓      |               2021-01-15        | `zh` zaakceptowane również |
 | Angielski                |     `en`      |     ✓      |               2020-07-01        |                    |
 | Francuski                 |     `fr`      |     ✓      |               2021-01-15        |                    |
 | Niemiecki                 |     `de`      |     ✓      |               2021-01-15        |                    |
@@ -116,24 +117,24 @@ ms.locfileid: "106387030"
 | japoński              |     `ja`      |     ✓       |               2021-01-15        |                    |
 | Koreański                |     `ko`      |     ✓       |               2021-01-15        |                    |
 | Portugalski (Brazylia)   |    `pt-BR`    |     ✓       |               2021-01-15        |                    |
-| Portugalski (Portugalia) |    `pt-PT`    |     ✓       |               2021-01-15        | `pt` również zaakceptowane |
+| Portugalski (Portugalia) |    `pt-PT`    |     ✓       |               2021-01-15        | `pt` zaakceptowane również |
 | Hiszpański               |     `es`      |     ✓       |               2020-04-01        |                    |
 
 #### <a name="language-detection"></a>[Wykrywanie języka](#tab/language-detection)
 
-Interfejs API analizy tekstu może wykryć szeroką gamę języków, wariantów, dialektów i niektórych języków regionalnych/kulturowych oraz zwracać wykryte Języki o ich nazwie i kodzie. Parametry kodu języka analiza tekstu wykrywanie języka są zgodne ze standardem [BCP-47](https://tools.ietf.org/html/bcp47) z większością z nich zgodnymi z identyfikatorami [ISO-639-1](https://www.iso.org/iso-639-language-codes.html) . 
+Interfejs API analiza tekstu wykrywa szeroką gamę języków, wariantów, dialektów i niektórych języków regionalnych/kulturowych, a także zwraca wykryte języki wraz z ich nazwą i kodem. analiza tekstu wykrywanie języka kod języka są zgodne ze standardem [BCP-47,](https://tools.ietf.org/html/bcp47) a większość z nich jest zgodna z identyfikatorami [ISO-639-1.](https://www.iso.org/iso-639-language-codes.html) 
 
-Jeśli masz zawartość wyrażoną w rzadziej używanym języku, możesz spróbować wykrywanie języka, aby sprawdzić, czy zwróci kod. Odpowiedź dla języków, których nie można wykryć, to `unknown` .
+Jeśli masz zawartość wyrażoną w rzadziej używanym języku, możesz spróbować wykrywanie języka, czy zwraca kod. Odpowiedzią dla języków, których nie można wykryć, jest `unknown` .
 
-| Język | Kod języka | Obsługa wersji 3 | Dostępne począwszy od wersji modelu v3: |
+| Język | Kod języka | Obsługa wersji 3 | Dostępne od wersji 3 modelu: |
 |:-|:-:|:-:|:-:|
 |Afrikaans|`af`|✓|    |
 |Albański|`sq`|✓|    |
 |Amharski|`am`|✓|2021-01-05|
 |Arabski|`ar`|✓|    |
 |Armeński|`hy`|✓|    |
-|Assamski|`as`|✓|2021-01-05|
-|Azerbejdżański|`az`|✓|2021-01-05|
+|Assamese|`as`|✓|2021-01-05|
+|Azerski|`az`|✓|2021-01-05|
 |Baskijski|`eu`|✓|    |
 |Białoruski|`be`|✓|    |
 |Bengalski|`bn`|✓|    |
@@ -141,7 +142,7 @@ Jeśli masz zawartość wyrażoną w rzadziej używanym języku, możesz spróbo
 |Bułgarski|`bg`|✓|    |
 |Birmański|`my`|✓|    |
 |Kataloński|`ca`|✓|    |
-|Khmerski centralny|`km`|✓|    |
+|Środkowy Porter|`km`|✓|    |
 |Chiński|`zh`|✓|    |
 |Chiński (uproszczony)|`zh_chs`|✓|    |
 |Chiński (tradycyjny)|`zh_cht`|✓|    |
@@ -163,11 +164,11 @@ Jeśli masz zawartość wyrażoną w rzadziej używanym języku, możesz spróbo
 |Niemiecki|`de`|✓|    |
 |Grecki|`el`|✓|    |
 |Gudżarati|`gu`|✓|    |
-|Kreolski|`ht`|✓|    |
-|Haus|`ha`|✓|2021-01-05|
+|Haiti|`ht`|✓|    |
+|Hausa|`ha`|✓|2021-01-05|
 |Hebrajski|`he`|✓|    |
 |Hindi|`hi`|✓|    |
-|Hmong Kowalski|`mww`|✓|2020-09-01|
+|Hmong Zajm|`mww`|✓|2020-09-01|
 |Węgierski|`hu`|✓|    |
 |Islandzki|`is`|✓|    |
 |Igbo|`ig`|✓|2021-01-05|
@@ -179,16 +180,16 @@ Jeśli masz zawartość wyrażoną w rzadziej używanym języku, możesz spróbo
 |Jawajski|`jv`|✓|2021-01-05|
 |Kannada|`kn`|✓|    |
 |Kazachski|`kk`|✓|2020-09-01|
-|Kinjarwanda|`rw`|✓|2021-01-05|
+|Kinyarwanda|`rw`|✓|2021-01-05|
 |Kirghiz|`ky`|✓|2021-01-05|
 |Koreański|`ko`|✓|    |
 |Kurdyjski|`ku`|✓|    |
-|-|`lo`|✓|    |
-|Wielka|`la`|✓|    |
+|Lao|`lo`|✓|    |
+|Łacińskiej|`la`|✓|    |
 |Łotewski|`lv`|✓|    |
 |Litewski|`lt`|✓|    |
 |Luksemburski|`lb`|✓|2021-01-05|
-|Macedonii|`mk`|✓|    |
+|Macedoński|`mk`|✓|    |
 |Madagaskaru|`mg`|✓|2020-09-01|
 |Malajski|`ms`|✓|    |
 |Malayalam|`ml`|✓|    |
@@ -208,19 +209,19 @@ Jeśli masz zawartość wyrażoną w rzadziej używanym języku, możesz spróbo
 |Queretaro Otomi|`otq`|✓|2020-09-01|
 |Rumuński|`ro`|✓|    |
 |Rosyjski|`ru`|✓|    |
-|Samoan|`sm`|✓|2020-09-01|
+|Samoański|`sm`|✓|2020-09-01|
 |Serbski|`sr`|✓|    |
 |Shona|`sn`|✓|2021-01-05|
 |Sindhi|`sd`|✓|2021-01-05|
 |Syngaleski|`si`|✓|    |
 |Słowacki|`sk`|✓|    |
 |Słoweński|`sl`|✓|    |
-|Somalijski|`so`|✓|    |
+|Somalii|`so`|✓|    |
 |Hiszpański|`es`|✓|    |
 |Sundanese|`su`|✓|2021-01-05|
 |Suahili|`sw`|✓|    |
 |Szwedzki|`sv`|✓|    |
-|Tagalski|`tl`|✓|    |
+|Tagalog|`tl`|✓|    |
 |Tahitian|`ty`|✓|2020-09-01|
 |Tadżycki|`tg`|✓|2021-01-05|
 |Tamilski|`ta`|✓|    |

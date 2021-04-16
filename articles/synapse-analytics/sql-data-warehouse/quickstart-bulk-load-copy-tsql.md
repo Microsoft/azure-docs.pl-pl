@@ -1,42 +1,42 @@
 ---
-title: 'Szybki Start: ładowanie danych zbiorczo przy użyciu jednej instrukcji języka T-SQL'
-description: Ładowanie zbiorcze danych za pomocą instrukcji COPY
+title: 'Szybki start: zbiorcze ładowanie danych przy użyciu pojedynczej instrukcji języka T-SQL'
+description: Zbiorcze ładowanie danych przy użyciu instrukcji COPY
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 11/20/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 2f97c630189a0f037f1231bb2386fcb7226a9350
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2b41342ab7d267c37b8e68fdbcaa9d570034ac17
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104600041"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568441"
 ---
-# <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>Szybki Start: ładowanie danych przy użyciu instrukcji COPY
+# <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>Szybki start: zbiorcze ładowanie danych przy użyciu instrukcji COPY
 
-W tym przewodniku szybki start załadujesz dane do dedykowanej puli SQL przy użyciu prostej i elastycznej [instrukcji Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) do pozyskiwania danych o wysokiej przepływności. Instrukcja COPY jest zalecanym narzędziem do ładowania, ponieważ pozwala bezproblemowo i elastycznie ładować dane przez zapewnienie funkcjonalności:
+W tym przewodniku Szybki start załadujesz zbiorczo dane do dedykowanej puli SQL przy użyciu prostej i elastycznej instrukcji [COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) do pozyskiwania danych o wysokiej przepływności. Instrukcja COPY jest zalecanym narzędziem do ładowania, ponieważ umożliwia bezproblemowe i elastyczne ładowanie danych dzięki udostępnianiu funkcji:
 
-- Zezwalaj niższym uprzywilejowanym użytkownikom na ładowanie bez konieczności stosowania ścisłych kontroli w magazynie danych
-- Wykorzystanie tylko jednej instrukcji języka T-SQL bez konieczności tworzenia dodatkowych obiektów bazy danych
-- Wykorzystanie bardziej precyzyjnego modelu uprawnień bez uwidaczniania kluczy konta magazynu za pomocą sygnatur dostępu współdzielonego (SAS)
+- Zezwalaj użytkownikom z niższymi uprawnieniami na ładowanie bez konieczności ścisłego kontrolowania uprawnień w magazynie danych
+- Korzystanie tylko z jednej instrukcji języka T-SQL bez konieczności tworzenia dodatkowych obiektów bazy danych
+- Korzystanie z modelu uprawnień o wzorcu finer bez ujawniania kluczy konta magazynu przy użyciu sygnatur dostępu współdzielonego (SAS)
 - Określ inne konto magazynu dla lokalizacji ERRORFILE (REJECTED_ROW_LOCATION)
-- Dostosuj wartości domyślne dla każdej kolumny docelowej i Określ pola danych źródłowych do załadowania do określonych kolumn docelowych
-- Określ niestandardowy terminator wiersza dla plików CSV
-- Ciąg ucieczki, pole i ograniczniki wierszy dla plików CSV
-- Wykorzystanie SQL Server formatach dat dla plików CSV
+- Dostosowywanie wartości domyślnych dla każdej kolumny docelowej i określanie pól danych źródłowych do załadowania do określonych kolumn docelowych
+- Określanie niestandardowego terminatora wierszy dla plików CSV
+- Ograniczniki ciągu ucieczki, pola i wiersza dla plików CSV
+- Korzystanie SQL Server formatów daty dla plików CSV
 - Określanie symboli wieloznacznych i wielu plików w ścieżce lokalizacji magazynu
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym przewodniku szybki start założono, że masz już dedykowaną pulę SQL. Jeśli dedykowana Pula SQL nie została utworzona, Skorzystaj z przewodnika Szybki Start dotyczącego [tworzenia i łączenia z portalem](create-data-warehouse-portal.md) .
+W tym przewodniku Szybki start założono, że masz już dedykowaną pulę SQL. Jeśli nie utworzono dedykowanej puli SQL, skorzystaj z przewodnika Szybki start Tworzenie i łączenie [—](create-data-warehouse-portal.md) portal.
 
-## <a name="set-up-the-required-permissions"></a>Skonfiguruj wymagane uprawnienia
+## <a name="set-up-the-required-permissions"></a>Konfigurowanie wymaganych uprawnień
 
 ```sql
 -- List the permissions for your user
@@ -66,7 +66,7 @@ GRANT INSERT ON <yourtable> TO <yourusername>
 
 ## <a name="create-the-target-table"></a>Tworzenie tabeli docelowej
 
-W tym przykładzie będziemy ładować dane z nowego zestawu danych programu York. Załadujemy tabelę o nazwie rejs, która reprezentuje podróże w jednym roku. Uruchom następujące kroki, aby utworzyć tabelę:
+W tym przykładzie będziemy ładować dane z zestawu danych nowojorskich taksówek. Załadujmy tabelę o nazwie Trip (Podróż), która reprezentuje przejazdy taksówką w ciągu jednego roku. Uruchom następujące kroki, aby utworzyć tabelę:
 
 ```sql
 CREATE TABLE [dbo].[Trip]
@@ -102,9 +102,9 @@ WITH
 );
 ```
 
-## <a name="run-the-copy-statement"></a>Uruchom instrukcję COPY
+## <a name="run-the-copy-statement"></a>Uruchamianie instrukcji COPY
 
-Uruchom następującą instrukcję COPY, która spowoduje załadowanie danych z konta usługi Azure Blob Storage do tabeli rejsów.
+Uruchom następującą instrukcje COPY, która załaduje dane z konta usługi Azure Blob Storage do tabeli Trip.
 
 ```sql
 COPY INTO [dbo].[Trip] FROM 'https://nytaxiblob.blob.core.windows.net/2013/Trip2013/'
@@ -116,7 +116,7 @@ WITH (
 
 ## <a name="monitor-the-load"></a>Monitorowanie obciążenia
 
-Sprawdź, czy obciążenie jest wykonywane przez okresowe uruchamianie następującej kwerendy:
+Sprawdź, czy obciążenie postępuje, okresowo uruchamiając następujące zapytanie:
 
 ```sql
 SELECT  r.[request_id]                           
@@ -138,5 +138,5 @@ GROUP BY r.[request_id]
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać najlepsze rozwiązania dotyczące ładowania danych, zobacz [najlepsze rozwiązania dotyczące ładowania danych](./guidance-for-loading-data.md).
-- Aby uzyskać informacje na temat sposobu zarządzania zasobami na potrzeby ładowania danych, zobacz [izolacja obciążenia](./quickstart-configure-workload-isolation-tsql.md).
+- Aby uzyskać najlepsze rozwiązania dotyczące ładowania danych, zobacz [Best Practices for Loading Data](./guidance-for-loading-data.md)(Najlepsze rozwiązania dotyczące ładowania danych).
+- Aby uzyskać informacje na temat zarządzania zasobami ładowania danych, zobacz [Izolacja obciążenia](./quickstart-configure-workload-isolation-tsql.md).

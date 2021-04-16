@@ -1,21 +1,21 @@
-- name: Dokumentacja urządzeń z certyfikatem platformy Azure
+- name: Dokumentacja certyfikowanego urządzenia platformy Azure
   href: index.yml
 - name: Omówienie
   items:
-    - name: Co to jest program urządzenia z certyfikatem platformy Azure?
+    - name: Co to jest program certyfikowanego urządzenia platformy Azure?
       href: overview.md
 - name: Samouczki
   expanded: true
   items:
-    - name: 1 — wybór odpowiedniej certyfikacji
+    - name: 1 — Wybieranie odpowiedniej certyfikacji
       href: tutorial-00-selecting-your-certification.md
     - name: 2 — Tworzenie projektu
       href: tutorial-01-creating-your-project.md
     - name: 3 — Dodawanie szczegółów urządzenia
       href: tutorial-02-adding-device-details.md
-    - name: 4 — testowanie urządzenia
+    - name: 4 — Testowanie urządzenia
       href: tutorial-03-testing-your-device.md
-    - name: 5 — publikowanie urządzenia
+    - name: 5 — Publikowanie urządzenia
       href: tutorial-04-publishing-your-device.md
 - name: Wymagania programu
   items:
@@ -23,23 +23,25 @@
       href: program-requirements-azure-certified-device.md
     - name: IoT Plug and Play
       href: program-requirements-pnp.md
-    - name: Zarządzane przez brzeg
+    - name: Zarządzane przez usługę Edge
       href: program-requirements-edge-managed.md
-    - name: Zabezpieczenia z systemem Edge (wersja zapoznawcza)
+    - name: Edge Secured-Core (wersja zapoznawcza)
       href: program-requirements-edge-secured-core.md
 - name: Pojęcia
   items:
     - name: Starsze urządzenia
       href: concepts-legacy.md
-    - name: Koncepcje marketingowe
+    - name: Pojęcia marketingowe
       href: concepts-marketing.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Jak edytować opublikowane urządzenie
       href: how-to-edit-published-device.md
-    - name: Jak zatwierdzić bezpośrednio połączone urządzenie
+    - name: Jak certyfikować urządzenie połączone pośrednio
       href: how-to-indirectly-connected-devices.md
-    - name: Jak używać funkcji składniki
+    - name: Jak rozwiązywać problemy z IoT Plug and Play urządzenia
+      href: how-to-troubleshoot-pnp.md
+    - name: Jak korzystać z funkcji składników
       href: how-to-using-the-components-feature.md
 - name: Zasoby
   items:

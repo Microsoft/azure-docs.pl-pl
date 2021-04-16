@@ -1,6 +1,6 @@
 ---
 title: Microsoft Graph API
-description: Interfejs API Microsoft Graph to interfejs API sieci Web RESTful, który umożliwia dostęp do Microsoft Cloud zasobów usługi.
+description: Interfejs Microsoft Graph API to internetowy interfejs API RESTful, który umożliwia dostęp do zasobów usługi Microsoft Cloud.
 author: davidmu1
 services: active-directory
 manager: CelesteDG
@@ -11,50 +11,50 @@ ms.workload: identity
 ms.date: 02/13/2020
 ms.author: davidmu
 ms.custom: aaddev
-ms.openlocfilehash: a799d7c32ad632303931adf838ca8e2e715b2adc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e689e620a5aeb7c5028f1a1b30dd6def8e447ab
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96860188"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529994"
 ---
 # <a name="microsoft-graph-api"></a>Microsoft Graph API
 
-Interfejs API Microsoft Graph to interfejs API sieci Web RESTful, który umożliwia dostęp do Microsoft Cloud zasobów usługi. Po zarejestrowaniu aplikacji i uzyskaniu tokenów uwierzytelniania dla użytkownika lub usługi można wykonać żądania do interfejsu API Microsoft Graph. Aby uzyskać więcej informacji, zobacz [omówienie Microsoft Graph](/graph/overview).
+Interfejs Microsoft Graph API to internetowy interfejs API RESTful, który umożliwia dostęp do zasobów usługi Microsoft Cloud. Po zarejestrowaniu aplikacji i uzyskania tokenów uwierzytelniania dla użytkownika lub usługi możesz rejestrować żądania do interfejsu API Microsoft Graph API. Aby uzyskać więcej informacji, [zobacz Omówienie Microsoft Graph](/graph/overview).
 
-Microsoft Graph udostępnia interfejsy API REST i biblioteki klienckie umożliwiające dostęp do danych w następujących usługach Microsoft 365 Services:
-- Microsoft 365 Services: Delve, Excel, Microsoft Books, Microsoft Teams, OneDrive, OneNote, Outlook/Exchange, Planner i SharePoint
-- Usługi Enterprise Mobility i Security: Advanced Threat Analytics, zaawansowana ochrona przed zagrożeniami, Azure Active Directory, program Identity Manager i usługa Intune
-- Windows 10 Services: działania, urządzenia, powiadomienia
+Microsoft Graph udostępnia interfejsy API REST i biblioteki klienckie w celu uzyskania dostępu do danych w następujących Microsoft 365 usługach:
+- Microsoft 365 usług: Delve, Excel, Microsoft Bookings, Microsoft Teams, OneDrive, OneNote, Outlook/Exchange, Planner i SharePoint
+- Usługi Enterprise Mobility i Security: Advanced Threat Analytics, Advanced Threat Protection, Azure Active Directory, Identity Manager i Intune
+- Windows 10 usługi: działania, urządzenia, powiadomienia
 - Dynamics 365 Business Central
 
 ## <a name="versions"></a>Wersje
 
-Microsoft Graph obecnie obsługuje dwie wersje: v 1.0 i beta. Wersja v 1.0 zawiera ogólnie dostępne interfejsy API. Użyj wersji 1.0 dla wszystkich aplikacji produkcyjnych. Wersja beta zawiera interfejsy API, które są obecnie dostępne w wersji zapoznawczej. Ze względu na to, że możemy wprowadzić istotne zmiany w interfejsie API w wersji beta, zalecamy używanie wersji beta wyłącznie do testowania aplikacji, które są opracowywane. nie należy używać interfejsów API beta w aplikacjach produkcyjnych. Aby uzyskać więcej informacji, zobacz temat [przechowywanie wersji, obsługa i zmiana dotycząca nieprzerwanych zasad Microsoft Graph](/graph/versioning-and-support).
+Microsoft Graph obecnie obsługuje dwie wersje: 1.0 i beta. Wersja 1.0 zawiera ogólnie dostępne interfejsy API. Użyj wersji 1.0 dla wszystkich aplikacji produkcyjnych. Wersja beta zawiera interfejsy API, które są obecnie dostępne w wersji zapoznawczej. Ze względu na to, że możemy wprowadzić istotne zmiany w naszych interfejsach API w wersji beta, zalecamy używanie wersji beta tylko do testowania aplikacji, które są w fazie projektowania. Nie używaj interfejsów API w wersji beta w aplikacjach produkcyjnych. Aby uzyskać więcej informacji, zobacz [Versioning, support, and breaking change policies for Microsoft Graph](/graph/versioning-and-support).
 
-Aby rozpocząć korzystanie z interfejsów API beta, zobacz [Informacje o punkcie końcowym Microsoft Graph beta](/graph/api/overview?view=graph-rest-beta)
+Aby rozpocząć korzystanie z interfejsów API w wersji beta, zobacz Microsoft Graph beta endpoint reference (Informacje o [punkcie końcowym beta)](/graph/api/overview?view=graph-rest-beta&preserve-view=true)
 
-Aby rozpocząć korzystanie z interfejsów API protokołu v 1.0, zobacz [Microsoft Graph dokumentacja interfejsu API REST v 1.0](/graph/api/overview)
+Aby rozpocząć korzystanie z interfejsów API w wersji 1.0, zobacz Microsoft Graph api REST 1.0 reference (Dokumentacja interfejsu API REST w wersji [1.0)](/graph/api/overview?view=graph-rest-1.0&preserve-view=true)
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 
-Aby czytać lub zapisywać dane w ramach zasobu, takiego jak użytkownik lub wiadomość e-mail, należy utworzyć żądanie, które wygląda następująco:
+Aby odczytać lub zapisać w zasobie, takim jak użytkownik lub wiadomość e-mail, należy utworzyć żądanie, które wygląda następująco:
 
 `{HTTP method} https://graph.microsoft.com/{version}/{resource}?{query-parameters}`
 
-Aby uzyskać więcej informacji o elementach konstruowanego żądania, zobacz [Korzystanie z interfejsu API Microsoft Graph](/graph/use-the-api)
+Aby uzyskać więcej informacji na temat elementów skonstruowanego żądania, zobacz [Używanie interfejsu API Microsoft Graph API](/graph/use-the-api)
 
-Przykłady szybkiego startu są dostępne, aby zobaczyć, jak uzyskać dostęp do możliwości interfejsu API Microsoft Graph. Dostępne są przykłady dostępu do dwóch usług z jednym uwierzytelnianiem: konto Microsoft i Outlook. Każdy Przewodnik Szybki Start uzyskuje dostęp do informacji od profilów użytkowników konto Microsoft i wyświetla zdarzenia z kalendarza.
-Przewodniki Szybki Start obejmują cztery kroki:
+Dostępne są przykłady szybkiego startu, które pokazują, jak uzyskać dostęp do możliwości interfejsu API Microsoft Graph API. Dostępne przykłady mają dostęp do dwóch usług z jednym uwierzytelnianiem: konto Microsoft i Outlook. Każdy przewodnik Szybki start uzyskuje dostęp do informacji konto Microsoft profilach użytkowników i wyświetla zdarzenia z kalendarza.
+Przewodnik Szybki start obejmuje cztery kroki:
 - Wybierz platformę
-- Pobieranie identyfikatora aplikacji (identyfikator klienta)
-- Kompiluj przykład
-- Logowanie i Wyświetlanie zdarzeń w kalendarzu
+- Uzyskiwanie identyfikatora aplikacji (identyfikatora klienta)
+- Kompilowanie przykładu
+- Logowanie i wyświetlanie zdarzeń w kalendarzu
 
-Po zakończeniu przewodnika Szybki Start masz aplikację, która jest gotowa do uruchomienia. Aby uzyskać więcej informacji, zobacz [Microsoft Graph szybki start — często zadawane pytania](/graph/quick-start-faq). Aby rozpocząć pracę z przykładami, zobacz [Microsoft Graph przewodnika Szybki Start](https://developer.microsoft.com/graph/quick-start).
+Po ukończeniu tego przewodnika Szybki start będziesz mieć aplikację, która jest gotowa do uruchomienia. Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące Microsoft Graph Szybki start.](/graph/quick-start-faq) Aby rozpocząć pracę z przykładami, zobacz [Microsoft Graph Szybki start.](https://developer.microsoft.com/graph/quick-start)
 
 ## <a name="tools"></a>Narzędzia
 
-Microsoft Graph Explorer to narzędzie oparte na sieci Web, za pomocą którego można tworzyć i testować żądania przy użyciu Microsoft Graph interfejsów API. Dostęp do Microsoft Graph Explorer można uzyskać w: `https://developer.microsoft.com/graph/graph-explorer` .
+Microsoft Graph Explorer to narzędzie internetowe, które umożliwia kompilowanie i testowanie żądań przy użyciu Microsoft Graph API. Dostęp do eksploratora Microsoft Graph można uzyskać pod: `https://developer.microsoft.com/graph/graph-explorer` .
 
-Poster to narzędzie, za pomocą którego można tworzyć i testować żądania przy użyciu Microsoft Graph interfejsów API. Możesz pobrać wpis: `https://www.getpostman.com/` . Aby móc korzystać z Microsoft Graph w programie Poster, Użyj kolekcji Microsoft Graph w programie Poster. Aby uzyskać więcej informacji, zobacz [Korzystanie z programu Poster przy użyciu interfejsu API Microsoft Graph](/graph/use-postman?context=graph%2Fapi%2Fbeta&view=graph-rest-beta).
+Postman to narzędzie, które umożliwia również kompilowanie i testowanie żądań przy użyciu Microsoft Graph API. Program Postman można pobrać pod: `https://www.getpostman.com/` . Aby korzystać z Microsoft Graph w programie Postman, należy użyć kolekcji Microsoft Graph postman. Aby uzyskać więcej informacji, zobacz Use Postman with the Microsoft Graph API (Używanie [Microsoft Graph Postman z interfejsem API](/graph/use-postman)).

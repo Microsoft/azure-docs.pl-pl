@@ -1,72 +1,72 @@
 ---
-title: Zasady obsługi wersji — Azure Database for MySQL — pojedynczy serwer i elastyczny serwer (wersja zapoznawcza)
-description: Opisuje zasady dotyczące wersji głównych i pomocniczych programu MySQL w Azure Database for MySQL
+title: Zasady obsługi wersji — Azure Database for MySQL — pojedynczy serwer i serwer elastyczny (wersja zapoznawcza)
+description: Opisuje zasady dotyczące wersji głównych i pomocniczych programu MySQL w programie Azure Database for MySQL
 author: sr-msft
 ms.author: srranga
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 35ed677c3176fb990f752f3204a1ae11bf39896c
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 49e59c43e9eaedf770b1a8e052dd73aa331d31ce
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106121697"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389574"
 ---
-# <a name="azure-database-for-mysql-version-support-policy"></a>Zasady obsługi wersji Azure Database for MySQL
+# <a name="azure-database-for-mysql-version-support-policy"></a>Azure Database for MySQL obsługi wersji
 
-Ta strona zawiera opis zasad dotyczących wersji Azure Database for MySQL i ma zastosowanie do trybu wdrożenia serwera Azure Database for MySQL i Azure Database for MySQL-elastycznym (wersja zapoznawcza).
+Na tej stronie opisano zasady Azure Database for MySQL wersji i ma zastosowanie do trybów wdrażania Azure Database for MySQL — pojedynczy serwer i Azure Database for MySQL — elastyczny serwer (wersja zapoznawcza).
 
 ## <a name="supported--mysql-versions"></a>Obsługiwane wersje programu MySQL
 
-Azure Database for MySQL został opracowany z firmy [MySQL Community Edition](https://www.mysql.com/products/community/)przy użyciu aparatu magazynu InnoDB. Usługa obsługuje wszystkie bieżące wersje główne obsługiwane przez społeczność, mianowicie MySQL 5,6, 5,7 i 8,0. Baza danych MySQL używa schematu nazewnictwa X. Y, gdzie X jest wersją główną, Y jest wersją pomocniczą, a Z Z to Poprawka błędu. Aby uzyskać więcej informacji na temat schematu, zobacz [dokumentację programu MySQL](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
+Azure Database for MySQL została opracowana z [programu MySQL Community Edition](https://www.mysql.com/products/community/)przy użyciu aparatu magazynu InnoDB. Usługa obsługuje wszystkie bieżące wersje główne obsługiwane przez społeczność, czyli MySQL 5.6, 5.7 i 8.0. Program MySQL używa schematu nazewnictwa X.Y.Z, gdzie X jest wersją główną, Y jest wersją pomocniczą, a Z jest wydaniem poprawki usterki. Aby uzyskać więcej informacji na temat schematu, zobacz [dokumentację programu MySQL](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
 
 Azure Database for MySQL obecnie obsługuje następujące główne i pomocnicze wersje programu MySQL:
 
-| Wersja | [Pojedynczy serwer](overview.md) <br/> Bieżąca wersja pomocnicza |[Serwer elastyczny (wersja zapoznawcza)](/../flexible-server/overview.md) <br/> Bieżąca wersja pomocnicza  |
+| Wersja | [Pojedynczy serwer](overview.md) <br/> Bieżąca wersja pomocnicza |[Serwer elastyczny (wersja zapoznawcza)](/azure/mysql/flexible-server/overview) <br/> Bieżąca wersja pomocnicza  |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|
-|Baza danych MySQL w wersji 5,6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html)(wycofane) | Nieobsługiwane|
-|Baza danych MySQL w wersji 5,7 | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html)|
-|Baza danych MySQL w wersji 8,0 | [8.0.15](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) | [8.0.21](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)|
+|MySQL w wersji 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html)(wycofane) | Nieobsługiwane|
+|MySQL w wersji 5.7 | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html)|
+|MySQL w wersji 8.0 | [8.0.15](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) | [8.0.21](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)|
 
 > [!NOTE]
-> W przypadku opcji wdrożenia pojedynczego serwera Brama jest używana do przekierowywania połączeń z wystąpieniami serwera. Po nawiązaniu połączenia klient oprogramowania MySQL wyświetla wersję oprogramowania MySQL ustawioną w bramie, a nie rzeczywistą wersję uruchomioną w wystąpieniu serwera MySQL. Aby określić wersję wystąpienia serwera MySQL, użyj polecenia `SELECT VERSION();` w wierszu polecenia MySQL. Jeśli aplikacja wymaga nawiązania połączenia z konkretną wersją główną 3.0 lub 8.0, można to zrobić, zmieniając port w parametrach połączenia serwera, jak wyjaśniono w naszej dokumentacji [.](concepts-supported-versions.md#connect-to-a-gateway-node-that-is-running-a-specific-mysql-version)
+> W opcji wdrożenia pojedynczego serwera brama służy do przekierowywania połączeń do wystąpień serwera. Po nawiązaniu połączenia klient oprogramowania MySQL wyświetla wersję oprogramowania MySQL ustawioną w bramie, a nie rzeczywistą wersję uruchomioną w wystąpieniu serwera MySQL. Aby określić wersję wystąpienia serwera MySQL, użyj polecenia `SELECT VERSION();` w wierszu polecenia MySQL. Jeśli aplikacja ma wymagać połączenia z określoną wersją główną, np. v5.7 lub v8.0, możesz to zrobić, zmieniając port w parametrów połączenia serwera, jak wyjaśniono w naszej dokumentacji [tutaj.](concepts-supported-versions.md#connect-to-a-gateway-node-that-is-running-a-specific-mysql-version)
 
 > [!IMPORTANT]
-> Baza danych MySQL w wersji 5.6 została wycofana na pojedynczym serwerze z febuary 2021. Począwszy od 1 września 2021, nie będzie można tworzyć nowych serwerów z systemem v 5.6 w ramach opcji wdrażania na jednym serwerze Azure Database for MySQL. Można jednak przeprowadzić odzyskiwanie do punktu w czasie i utworzyć repliki odczytu dla istniejących serwerów.
+> Serwer MySQL w wersji 5.6 został wycofany na pojedynczym serwerze od lutego 2021 r. Od 1 września 2021 r. nie będzie można tworzyć nowych serwerów w wersji 5.6 na Azure Database for MySQL — opcja wdrażania pojedynczego serwera. Będzie można jednak przeprowadzić odzyskiwanie do punktu w czasie i utworzyć repliki do odczytu dla istniejących serwerów.
 
 Zapoznaj się z zasadami obsługi wersji dla wycofanych wersji w [dokumentacji zasad obsługi wersji.](concepts-version-policy.md#retired-mysql-engine-versions-not-supported-in-azure-database-for-mysql)
 
-## <a name="major-version-support"></a>Obsługa wersji głównej
-Każda główna wersja programu MySQL będzie obsługiwana przez Azure Database for MySQL od daty, w której platforma Azure zacznie obsługiwać wersję, dopóki wersja nie zostanie wycofana przez społeczność MySQL zgodnie z [zasadami przechowywania wersji](https://www.mysql.com/support/eol-notice.html).
+## <a name="major-version-support"></a>Obsługa wersji głównych
+Każda główna wersja programu MySQL będzie obsługiwana przez usługę Azure Database for MySQL od daty rozpoczęcia obsługi wersji przez platformę Azure do momentu jej wycofanie przez społeczność programu MySQL, zgodnie z zasadami obsługi wersji [.](https://www.mysql.com/support/eol-notice.html)
 
 ## <a name="minor-version-support"></a>Obsługa wersji pomocniczej
-Azure Database for MySQL automatycznie przeprowadza uaktualnienia wersji pomocniczej do preferowanej wersji programu MySQL platformy Azure w ramach okresowej konserwacji. 
+Azure Database for MySQL automatycznie przeprowadza uaktualnienia wersji pomocniczej do preferowanej wersji programu MySQL na platformie Azure w ramach okresowej konserwacji. 
 
-## <a name="major-version-retirement-policy"></a>Zasady wycofywania wersji głównych
-Poniższa tabela zawiera szczegóły wycofania dla wersji głównych programu MySQL. Daty są zgodne z [zasadami przechowywania wersji programu MySQL](https://www.mysql.com/support/eol-notice.html).
+## <a name="major-version-retirement-policy"></a>Zasady wycofania wersji głównych
+W poniższej tabeli przedstawiono szczegóły wycofania wersji głównych programu MySQL. Daty są zgodne z [zasadami wersji programu MySQL](https://www.mysql.com/support/eol-notice.html).
 
 | Wersja | Nowości | Data rozpoczęcia pomocy technicznej platformy Azure | Data wycofania|
 | ----- | ----- | ------ | ----- |
-| [MySQL 5,6](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/)| [Funkcje](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-49.html)  | 20 marca 2018 | Luty 2021 r.
-| [MySQL 5,7](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/) | [Funkcje](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-31.html) | 20 marca 2018 | Październik 2023
-| [Baza danych MySQL 8](https://mysqlserverteam.com/whats-new-in-mysql-8-0-generally-available/) | [Funkcje](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)) | 11 grudnia 2019 | Kwiecień 2026
+| [MySQL 5.6](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/)| [Funkcje](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-49.html)  | 20 marca 2018 r. | Luty 2021 r.
+| [MySQL 5.7](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/) | [Funkcje](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-31.html) | 20 marca 2018 r. | Październik 2023 r.
+| [MySQL 8](https://mysqlserverteam.com/whats-new-in-mysql-8-0-generally-available/) | [Funkcje](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)) | 11 grudnia 2019 r. | Kwiecień 2026 r.
 
 
 ## <a name="retired-mysql-engine-versions-not-supported-in-azure-database-for-mysql"></a>Wycofane wersje aparatu MySQL nie są obsługiwane w Azure Database for MySQL
 
-Po upływie daty wycofania dla każdej wersji bazy danych MySQL należy pamiętać o następujących ograniczeniach:
-- Ponieważ Wspólnota nie będzie zwalniać żadnych dalszych poprawek lub poprawek zabezpieczeń, Azure Database for MySQL nie będzie w żaden sposób naprawiać niewycofanego aparatu bazy danych pod kątem błędów lub problemów z zabezpieczeniami albo podjąć środki bezpieczeństwa w odniesieniu do wycofanego aparatu bazy danych. Jednak platforma Azure będzie kontynuowała okresowe konserwacje i stosowanie poprawek dla hosta, systemu operacyjnego, kontenerów i innych składników związanych z usługą.
-- W przypadku problemów z obsługą, które mogą wystąpić w odniesieniu do bazy danych MySQL, firma Microsoft może nie mieć możliwości zapewnienia pomocy technicznej. W takich przypadkach trzeba będzie uaktualnić bazę danych, aby umożliwić nam zapewnienie pomocy technicznej.
-- Nie będzie można tworzyć nowych serwerów baz danych dla wycofanej wersji. Można jednak przeprowadzić odzyskiwanie do punktu w czasie i utworzyć repliki odczytu dla istniejących serwerów.
+Po dacie wycofania dla każdej wersji bazy danych MySQL, jeśli nadal używasz wycofanej wersji, zwróć uwagę na następujące ograniczenia:
+- Ponieważ społeczność nie będzie wydawać żadnych dalszych poprawek błędów ani poprawek zabezpieczeń, program Azure Database for MySQL nie będzie poprawiać wycofanych aparatów bazy danych w przypadku jakichkolwiek usterek lub problemów z zabezpieczeniami ani w inny sposób nie podejmie środków bezpieczeństwa dotyczących wycofanych aparatów bazy danych. Jednak platforma Azure będzie nadal przeprowadzać okresową konserwację i stosowanie poprawek dla hosta, systemu operacyjnego, kontenerów i innych składników związanych z usługą.
+- Jeśli jakikolwiek problem z pomocą techniczną, który może wystąpić, jest związany z bazą danych MySQL, możemy nie być w stanie zapewnić Ci pomocy technicznej. W takich przypadkach należy uaktualnić bazę danych, aby umożliwić nam świadczenie pomocy technicznej.
+- Nie będzie można tworzyć nowych serwerów baz danych dla wycofanej wersji. Będzie można jednak wykonywać odzyskiwanie do punktu w czasie i tworzyć repliki do odczytu dla istniejących serwerów.
 - Nowe możliwości usługi opracowane przez Azure Database for MySQL mogą być dostępne tylko dla obsługiwanych wersji serwera bazy danych.
-- Czas przestoju umowy SLA będzie stosowany wyłącznie do Azure Database for MySQL problemów związanych z usługą, a nie do przestojów spowodowanych błędami związanymi z aparatem bazy danych.  
-- W skrajnym zdarzeniu w przypadku poważnych zagrożeń dla usługi spowodowanej przez lukę w zabezpieczeniach aparatu bazy danych MySQL zidentyfikowaną w wycofanej wersji bazy danych, platforma Azure może zrezygnować z wcześniejszego zabezpieczenia usługi w węźle obliczeniowym serwera bazy danych. Przed przełączeniem serwera w tryb online zostanie wyświetlony monit o uaktualnienie serwera. W trakcie procesu uaktualniania dane będą zawsze chronione przy użyciu automatycznych kopii zapasowych wykonywanych w ramach usługi, których można użyć do przywrócenia starszej wersji w razie potrzeby. 
+- Umowy SLA dotyczące czasu pracy będą stosowane wyłącznie do Azure Database for MySQL związanych z usługą, a nie do żadnych przestojów spowodowanych przez błędy związane z aparatem bazy danych.  
+- W skrajnym przypadku poważnego zagrożenia dla usługi spowodowanego przez lukę w zabezpieczeniach aparatu bazy danych MySQL zidentyfikowaną w wycofanej wersji bazy danych platforma Azure może zdecydować się zatrzymać węzeł obliczeniowy serwera bazy danych, aby najpierw zabezpieczyć usługę. Przed wprowadzeniem serwera do trybu online zostanie poproszony o uaktualnienie serwera. Podczas procesu uaktualniania dane będą zawsze chronione przy użyciu automatycznych kopii zapasowych wykonywanych w usłudze, które w razie potrzeby mogą zostać przywrócone do starszej wersji. 
 
 
 
 ## <a name="next-steps"></a>Następne kroki
-- Zobacz Azure Database for MySQL — [obsługiwane wersje](./concepts-supported-versions.md) pojedynczego serwera
-- Zobacz [obsługiwane wersje](flexible-server/concepts-supported-versions.md) serwera Azure Database for MySQL (wersja zapoznawcza)
-- Aby przeprowadzić uaktualnienia, zobacz artykuł dotyczący [zrzutów i przywracania](./concepts-migrate-dump-restore.md) bazy danych MySQL.
+- Zobacz Azure Database for MySQL — obsługiwane wersje [pojedynczego serwera](./concepts-supported-versions.md)
+- Zobacz Azure Database for MySQL — obsługiwane wersje serwera [elastycznego (wersja zapoznawcza)](flexible-server/concepts-supported-versions.md)
+- Aby przeprowadzić uaktualnienia, zobacz Zrzut i [przywracanie](./concepts-migrate-dump-restore.md) bazy danych MySQL.

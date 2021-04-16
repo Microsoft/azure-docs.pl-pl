@@ -1,7 +1,7 @@
 ---
-title: 'Szybki Start: Tworzenie wewnętrznego modułu równoważenia obciążenia — Azure PowerShell'
+title: 'Szybki start: tworzenie wewnętrznego równoważenia obciążenia — Azure PowerShell'
 titleSuffix: Azure Load Balancer
-description: Ten przewodnik Szybki Start przedstawia sposób tworzenia wewnętrznego modułu równoważenia obciążenia przy użyciu Azure PowerShell
+description: W tym przewodniku Szybki start pokazano, jak utworzyć wewnętrzny usługę równoważenia obciążenia przy użyciu Azure PowerShell
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,21 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/27/2020
 ms.author: allensu
-ms:custom: seodec18
-ms.openlocfilehash: 8d94a784aba5995fd7e4645c3b56929874da2bcd
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 618ca8722cef1959fddc5dcd24e8e8bdbb1f620a
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106056372"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530038"
 ---
-# <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Szybki Start: Tworzenie wewnętrznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu Azure PowerShell
+# <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Szybki start: tworzenie wewnętrznego równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu Azure PowerShell
 
-Wprowadzenie do Azure Load Balancer przy użyciu Azure PowerShell do tworzenia wewnętrznego modułu równoważenia obciążenia i dwóch maszyn wirtualnych.
+Rozpoczynanie pracy z Azure Load Balancer przy użyciu Azure PowerShell do utworzenia wewnętrznego równoważenia obciążenia i dwóch maszyn wirtualnych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell zainstalowane lokalnie lub Azure Cloud Shell
 
 Jeśli postanowisz zainstalować program PowerShell i używać go lokalnie, ten artykuł wymaga modułu Azure PowerShell w wersji 5.4.1 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-Az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure.
@@ -47,19 +46,19 @@ New-AzResourceGroup -Name 'CreateIntLBQS-rg' -Location 'eastus'
 # <a name="standard-sku"></a>[**Standardowy SKU**](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
->Moduł równoważenia obciążenia w warstwie Standardowa jest zalecany w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji o jednostkach SKU, zobacz **[Azure Load Balancer SKU](skus.md)**.
+>W przypadku obciążeń produkcyjnych zalecany jest standardowy sku równoważenia obciążenia. Aby uzyskać więcej informacji na temat jednostki SKU, **[zobacz Azure Load Balancer SKU](skus.md)**.
 
-W tej sekcji utworzysz moduł równoważenia obciążenia, który równoważy obciążenie maszyn wirtualnych. 
+W tej sekcji utworzysz równoważenie obciążenia, które równoważy obciążenie maszyn wirtualnych. 
 
-Podczas tworzenia wewnętrznego modułu równoważenia obciążenia Sieć wirtualna jest konfigurowana jako sieć dla modułu równoważenia obciążenia. 
+Podczas tworzenia wewnętrznego równoważenia obciążenia sieć wirtualna jest konfigurowana jako sieć dla tego usługi. 
 
-Na poniższym diagramie przedstawiono zasoby utworzone w ramach tego przewodnika Szybki Start:
+Na poniższym diagramie przedstawiono zasoby utworzone w tym przewodniku Szybki start:
 
-:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Zasoby usługi równoważenia obciążenia w warstwie Standardowa utworzone w ramach szybkiego startu." border="false":::
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Zasoby w standardowych zasobach równoważenia obciążenia utworzone na podstawie przewodnika Szybki start." border="false":::
 
 ## <a name="configure-virtual-network---standard"></a>Konfigurowanie sieci wirtualnej — standardowa
 
-Przed wdrożeniem maszyn wirtualnych i przetestowanie modułu równoważenia obciążenia, należy utworzyć pomocnicze zasoby sieci wirtualnej.
+Przed wdrożeniem maszyn wirtualnych i przetestowanie usługi Load Balancer utwórz zasoby sieci wirtualnej.
 
 Utwórz sieć wirtualną dla maszyn wirtualnych zaplecza.
 
@@ -69,9 +68,9 @@ Utwórz sieciową grupę zabezpieczeń, aby zdefiniować połączenia przychodz�
 
 * Utwórz sieć wirtualną przy użyciu polecenia [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork).
 
-* Utwórz regułę sieciowej grupy zabezpieczeń przy użyciu elementu [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig).
+* Utwórz regułę sieciowej grupy zabezpieczeń za [pomocą polecenie New-AzNetworkSecurityRuleConfig.](/powershell/module/az.network/new-aznetworksecurityruleconfig)
 
-* Utwórz hosta usługi Azure bastionu za pomocą elementu [New-AzBastion](/powershell/module/az.network/new-azbastion).
+* Utwórz hosta Azure Bastion pomocą [new-AzBastion.](/powershell/module/az.network/new-azbastion)
 
 * Utwórz sieciową grupę zabezpieczeń przy użyciu polecenia [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
 
@@ -144,19 +143,19 @@ $nsg = @{
 New-AzNetworkSecurityGroup @nsg
 
 ```
-## <a name="create-standard-load-balancer"></a>Tworzenie usługi równoważenia obciążenia w warstwie Standardowa
+## <a name="create-standard-load-balancer"></a>Tworzenie standardowego równoważenia obciążenia
 
 W tej sekcji opisano szczegółowo procedurę tworzenia i konfigurowania następujących składników modułu równoważenia obciążenia:
 
-* Utwórz adres IP frontonu przy użyciu elementu [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) dla puli adresów IP frontonu. Ten adres IP odbiera ruch przychodzący z modułu równoważenia obciążenia
+* Utwórz adres IP frontendu za [pomocą polecenie New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) dla puli adresów IP frontonia. Ten adres IP odbiera ruch przychodzący do usługi równoważenia obciążenia
 
-* Utwórz pulę adresów zaplecza z [nowym AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) dla ruchu wysyłanego z frontonu modułu równoważenia obciążenia. Ta pula ma wdrożone maszyny wirtualne zaplecza.
+* Utwórz pulę adresów zaplecza za pomocą polecenie [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) dla ruchu wysyłanego z frontona usługi równoważenia obciążenia. W tej puli są wdrażane maszyny wirtualne zaplecza.
 
-* Utwórz sondę kondycji z [dodatkiem Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig) , która określa kondycję wystąpień maszyn wirtualnych zaplecza.
+* Utwórz sondę kondycji za pomocą polecenie [Add-AzLoadBalancerProbeConfig,](/powershell/module/az.network/add-azloadbalancerprobeconfig) które określa kondycję wystąpień maszyn wirtualnych zaplecza.
 
-* Utwórz regułę modułu równoważenia obciążenia z [dodatkiem Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig) , która definiuje sposób dystrybucji ruchu do maszyn wirtualnych.
+* Utwórz regułę równoważenia obciążenia za pomocą [poleceniem Add-AzLoadBalancerRuleConfig,](/powershell/module/az.network/add-azloadbalancerruleconfig) która definiuje sposób dystrybucji ruchu do maszyn wirtualnych.
 
-* Utwórz publiczny moduł równoważenia obciążenia za pomocą elementu [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer).
+* Utwórz publiczny równoważenie obciążenia za pomocą [new-AzLoadBalancer.](/powershell/module/az.network/new-azloadbalancer)
 
 
 ```azurepowershell-interactive
@@ -212,13 +211,13 @@ New-AzLoadBalancer @loadbalancer
 
 ```
 
-## <a name="create-virtual-machines---standard"></a>Tworzenie maszyn wirtualnych — Standard
+## <a name="create-virtual-machines---standard"></a>Tworzenie maszyn wirtualnych — standardowa
 
-W tej sekcji utworzysz trzy maszyny wirtualne dla puli zaplecza modułu równoważenia obciążenia.
+W tej sekcji utworzysz trzy maszyny wirtualne dla puli zaplecza usługi równoważenia obciążenia.
 
-* Utwórz trzy interfejsy sieciowe za pomocą [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface).
+* Utwórz trzy interfejsy sieciowe za [pomocą new-AzNetworkInterface.](/powershell/module/az.network/new-aznetworkinterface)
 
-* Ustaw nazwę użytkownika i hasło administratora dla maszyn wirtualnych z opcją [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential).
+* Ustaw nazwę użytkownika i hasło administratora dla maszyn wirtualnych za pomocą [get-credential.](/powershell/module/microsoft.powershell.security/get-credential)
 
 * Utwórz maszyny wirtualne za pomocą:
     * [New-AzVM](/powershell/module/az.compute/new-azvm)
@@ -290,7 +289,7 @@ New-AzVM @vm -AsJob
 
 ```
 
-Wdrożenia maszyn wirtualnych i hosta bastionu są przesyłane jako zadania programu PowerShell. Aby wyświetlić stan zadań, użyj polecenie [Get-Job](/powershell/module/microsoft.powershell.core/get-job):
+Wdrożenia maszyn wirtualnych i hosta bastionu są przesyłane jako zadania programu PowerShell. Aby wyświetlić stan zadań, użyj [get-job:](/powershell/module/microsoft.powershell.core/get-job)
 
 ```azurepowershell-interactive
 Get-Job
@@ -303,22 +302,24 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 4      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 ```
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 # <a name="basic-sku"></a>[**Podstawowy SKU**](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
->Moduł równoważenia obciążenia w warstwie Standardowa jest zalecany w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji o jednostkach SKU, zobacz **[Azure Load Balancer SKU](skus.md)**.
+>W przypadku obciążeń produkcyjnych zalecany jest standardowy sku równoważenia obciążenia. Aby uzyskać więcej informacji na temat jednostki SKU, **[zobacz Azure Load Balancer SKU](skus.md)**.
 
-W tej sekcji utworzysz moduł równoważenia obciążenia, który równoważy obciążenie maszyn wirtualnych. 
+W tej sekcji utworzysz równoważenie obciążenia, które równoważy obciążenie maszyn wirtualnych. 
 
-Podczas tworzenia wewnętrznego modułu równoważenia obciążenia Sieć wirtualna jest konfigurowana jako sieć dla modułu równoważenia obciążenia. 
+Podczas tworzenia wewnętrznego równoważenia obciążenia sieć wirtualna jest konfigurowana jako sieć dla tego usługi. 
 
-Na poniższym diagramie przedstawiono zasoby utworzone w ramach tego przewodnika Szybki Start:
+Na poniższym diagramie przedstawiono zasoby utworzone w tym przewodniku Szybki start:
 
-:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Zasoby podstawowego modułu równoważenia obciążenia utworzone w ramach szybkiego startu." border="false":::
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Podstawowe zasoby równoważenia obciążenia utworzone w przewodniku Szybki start." border="false":::
 
-## <a name="configure-virtual-network---basic"></a>Konfigurowanie sieci wirtualnej — podstawowe
+## <a name="configure-virtual-network---basic"></a>Konfigurowanie sieci wirtualnej — podstawowa
 
-Przed wdrożeniem maszyn wirtualnych i przetestowanie modułu równoważenia obciążenia, należy utworzyć pomocnicze zasoby sieci wirtualnej.
+Przed wdrożeniem maszyn wirtualnych i przetestowanie usługi Load Balancer utwórz zasoby sieci wirtualnej.
 
 Utwórz sieć wirtualną dla maszyn wirtualnych zaplecza.
 
@@ -328,9 +329,9 @@ Utwórz sieciową grupę zabezpieczeń, aby zdefiniować połączenia przychodz�
 
 * Utwórz sieć wirtualną przy użyciu polecenia [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork).
 
-* Utwórz regułę sieciowej grupy zabezpieczeń przy użyciu elementu [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig).
+* Utwórz regułę sieciowej grupy zabezpieczeń za [pomocą polecenie New-AzNetworkSecurityRuleConfig.](/powershell/module/az.network/new-aznetworksecurityruleconfig)
 
-* Utwórz hosta usługi Azure bastionu za pomocą elementu [New-AzBastion](/powershell/module/az.network/new-azbastion).
+* Utwórz hosta Azure Bastion pomocą [new-AzBastion.](/powershell/module/az.network/new-azbastion)
 
 * Utwórz sieciową grupę zabezpieczeń przy użyciu polecenia [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
 
@@ -403,19 +404,19 @@ $nsg = @{
 New-AzNetworkSecurityGroup @nsg
 
 ```
-## <a name="create-basic-load-balancer"></a>Tworzenie podstawowego modułu równoważenia obciążenia
+## <a name="create-basic-load-balancer"></a>Tworzenie podstawowego równoważenia obciążenia
 
 W tej sekcji opisano szczegółowo procedurę tworzenia i konfigurowania następujących składników modułu równoważenia obciążenia:
 
-* Utwórz adres IP frontonu przy użyciu elementu [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) dla puli adresów IP frontonu. Ten adres IP odbiera ruch przychodzący z modułu równoważenia obciążenia
+* Utwórz adres IP frontendu za [pomocą polecenie New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) dla puli adresów IP frontonia. Ten adres IP odbiera ruch przychodzący do usługi równoważenia obciążenia
 
-* Utwórz pulę adresów zaplecza z [nowym AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) dla ruchu wysyłanego z frontonu modułu równoważenia obciążenia. Ta pula ma wdrożone maszyny wirtualne zaplecza.
+* Utwórz pulę adresów zaplecza za pomocą polecenie [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) dla ruchu wysyłanego z frontona usługi równoważenia obciążenia. W tej puli są wdrażane maszyny wirtualne zaplecza.
 
-* Utwórz sondę kondycji z [dodatkiem Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig) , która określa kondycję wystąpień maszyn wirtualnych zaplecza.
+* Utwórz sondę kondycji za pomocą polecenie [Add-AzLoadBalancerProbeConfig,](/powershell/module/az.network/add-azloadbalancerprobeconfig) które określa kondycję wystąpień maszyn wirtualnych zaplecza.
 
-* Utwórz regułę modułu równoważenia obciążenia z [dodatkiem Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig) , która definiuje sposób dystrybucji ruchu do maszyn wirtualnych.
+* Utwórz regułę równoważenia obciążenia za pomocą [poleceniem Add-AzLoadBalancerRuleConfig,](/powershell/module/az.network/add-azloadbalancerruleconfig) która definiuje sposób dystrybucji ruchu do maszyn wirtualnych.
 
-* Utwórz publiczny moduł równoważenia obciążenia za pomocą elementu [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer).
+* Utwórz publiczny równoważenie obciążenia za pomocą [new-AzLoadBalancer.](/powershell/module/az.network/new-azloadbalancer)
 
 ```azurepowershell-interactive
 ## Place virtual network created in previous step into a variable. ##
@@ -473,15 +474,15 @@ New-AzLoadBalancer @loadbalancer
 
 ```
 
-## <a name="create-virtual-machines---basic"></a>Tworzenie maszyn wirtualnych — podstawowe
+## <a name="create-virtual-machines---basic"></a>Tworzenie maszyn wirtualnych — podstawowa
 
-W tej sekcji opisano tworzenie maszyn wirtualnych dla puli zaplecza modułu równoważenia obciążenia.
+W tej sekcji utworzysz maszyny wirtualne dla puli zaplecza usługi równoważenia obciążenia.
 
-* Utwórz trzy interfejsy sieciowe za pomocą [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface).
+* Utwórz trzy interfejsy sieciowe za [pomocą new-AzNetworkInterface.](/powershell/module/az.network/new-aznetworkinterface)
 
-* Ustaw nazwę użytkownika i hasło administratora dla maszyn wirtualnych z opcją [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential).
+* Ustaw nazwę użytkownika i hasło administratora dla maszyn wirtualnych za pomocą [get-credential.](/powershell/module/microsoft.powershell.security/get-credential)
 
-* Użyj opcji [New-AzAvailabilitySet](/powershell/module/az.compute/new-azvm) , aby utworzyć zestaw dostępności dla maszyn wirtualnych.
+* Użyj [new-AzAvailabilitySet,](/powershell/module/az.compute/new-azvm) aby utworzyć zestaw dostępności dla maszyn wirtualnych.
 
 * Utwórz maszyny wirtualne za pomocą:
     * [New-AzVM](/powershell/module/az.compute/new-azvm)
@@ -564,7 +565,7 @@ New-AzVM @vm -AsJob
 
 ```
 
-Wdrożenia maszyn wirtualnych i hosta bastionu są przesyłane jako zadania programu PowerShell. Aby wyświetlić stan zadań, użyj polecenie [Get-Job](/powershell/module/microsoft.powershell.core/get-job):
+Wdrożenia maszyn wirtualnych i hosta bastionu są przesyłane jako zadania programu PowerShell. Aby wyświetlić stan zadań, użyj [get-job:](/powershell/module/microsoft.powershell.core/get-job)
 
 ```azurepowershell-interactive
 Get-Job
@@ -577,6 +578,8 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 4      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 ```
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ---
 
 ## <a name="install-iis"></a>Instalowanie usług IIS
@@ -586,7 +589,7 @@ Zainstaluj rozszerzenie niestandardowego skryptu przy użyciu polecenia [Set-AzV
 To rozszerzenie uruchamia polecenie `PowerShell Add-WindowsFeature Web-Server`, aby zainstalować serwer internetowy usług IIS, a następnie aktualizuje stronę Default.htm w celu wyświetlenia nazwy hosta maszyny wirtualnej:
 
 > [!IMPORTANT]
-> Przed kontynuowaniem upewnij się, że wdrożenia maszyny wirtualnej zostały ukończone w poprzednich krokach.  Służy `Get-Job` do sprawdzania stanu zadań wdrożenia maszyny wirtualnej.
+> Przed podjęciem dalszych działań upewnij się, że wdrożenia maszyn wirtualnych zostały ukończone z poprzednich kroków.  Użyj `Get-Job` programu , aby sprawdzić stan zadań wdrażania maszyny wirtualnej.
 
 ```azurepowershell-interactive
 ## For loop with variable to install custom script extension on virtual machines. ##
@@ -606,7 +609,7 @@ Set-AzVMExtension @ext -AsJob
 }
 ```
 
-Rozszerzenia są wdrażane jako zadania programu PowerShell. Aby wyświetlić stan zadań instalacyjnych, użyj polecenie [Get-Job](/powershell/module/microsoft.powershell.core/get-job):
+Rozszerzenia są wdrażane jako zadania programu PowerShell. Aby wyświetlić stan zadań instalacji, użyj [get-job:](/powershell/module/microsoft.powershell.core/get-job)
 
 
 ```azurepowershell-interactive
@@ -624,7 +627,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 
 ### <a name="create-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-Utwórz maszynę wirtualną przy użyciu:
+Utwórz maszynę wirtualną za pomocą:
 
 * [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)
 * [New-AzVM](/powershell/module/az.compute/new-azvm)
@@ -687,27 +690,27 @@ New-AzVM @vm
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. Znajdź prywatny adres IP dla modułu równoważenia obciążenia na ekranie **Przegląd** . Wybierz pozycję **wszystkie usługi** w menu po lewej stronie, wybierz pozycję **wszystkie zasoby**, a następnie wybierz pozycję **myLoadBalancer**.
+1. Znajdź prywatny adres IP dla usługi równoważenia obciążenia na **ekranie** Przegląd. Wybierz **pozycję Wszystkie usługi** w menu po lewej stronie, wybierz pozycję Wszystkie **zasoby,** a następnie wybierz **pozycję myLoadBalancer.**
 
-2. Zanotuj lub skopiuj adres obok **prywatnego adresu IP** w **omówieniu** **myLoadBalancer**.
+2. Zanotuj lub skopiuj adres obok prywatnego adresu **IP** w **części Omówienie** **usługi myLoadBalancer.**
 
-3. Wybierz pozycję **wszystkie usługi** w menu po lewej stronie, wybierz pozycję **wszystkie zasoby**, a następnie na liście zasobów wybierz pozycję **myTestVM** , która znajduje się w grupie zasobów **CreateIntLBQS-RG** .
+3. Wybierz **pozycję** Wszystkie usługi w menu po lewej stronie, wybierz pozycję Wszystkie **zasoby,** a następnie z listy zasobów wybierz pozycję **myTestVM** znajdującą się w grupie zasobów **CreateIntLBQS-rg.**
 
-4. Na stronie **Przegląd** wybierz opcję **Połącz**, a następnie **bastionu**.
+4. Na stronie **Przegląd** wybierz pozycję **Połącz,** a następnie **pozycję Bastion**.
 
 6. Wprowadź nazwę użytkownika i hasło wprowadzone podczas tworzenia maszyny wirtualnej.
 
-7. Otwórz program **Internet Explorer** w systemie **myTestVM**.
+7. Otwórz **Internet Explorer** na **myTestVM.**
 
 8. Wprowadź adres IP z poprzedniego kroku na pasku adresu przeglądarki. W przeglądarce jest wyświetlana domyślna strona internetowego serwera usług IIS.
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Tworzenie standardowego wewnętrznego modułu równoważenia obciążenia" border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Tworzenie standardowego wewnętrznego równoważenia obciążenia" border="true":::
    
-Aby zobaczyć, jak moduł równoważenia obciążenia dystrybuuje ruch między wszystkimi trzema maszynami wirtualnymi, można dostosować domyślną stronę każdego z serwerów sieci Web usług IIS na maszynie wirtualnej, a następnie wymusić odświeżenie przeglądarki sieci Web na komputerze klienckim.
+Aby zobaczyć, jak równoważenie obciążenia dystrybuuje ruch na wszystkich trzech maszynach wirtualnych, można dostosować domyślną stronę serwera sieci Web usług IIS każdej maszyny wirtualnej, a następnie wymusić odświeżenie przeglądarki internetowej z maszyny klienckiej.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy grupa zasobów, moduł równoważenia obciążenia i pozostałe zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) .
+Gdy grupa zasobów, usługa równoważenia obciążenia i pozostałe zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzResourceGroup.](/powershell/module/az.resources/remove-azresourcegroup)
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name 'CreateIntLBQS-rg'
@@ -717,11 +720,11 @@ Remove-AzResourceGroup -Name 'CreateIntLBQS-rg'
 
 W tym przewodniku Szybki start przyjęto następujące założenia:
 
-* Utworzono standardowy lub podstawowy moduł równoważenia obciążenia wewnętrznego
+* Utworzono standardowy lub podstawowy wewnętrzny równoważenie obciążenia
 * Dołączone maszyny wirtualne. 
-* Skonfigurowano regułę ruchu modułu równoważenia obciążenia i sondę kondycji.
-* Przetestowano moduł równoważenia obciążenia.
+* Skonfigurowano regułę ruchu i sondę kondycji usługi równoważenia obciążenia.
+* Przetestowano równoważenie obciążenia.
 
-Aby dowiedzieć się więcej na temat Azure Load Balancer, przejdź do:
+Aby dowiedzieć się więcej o Azure Load Balancer, przejdź do:
 > [!div class="nextstepaction"]
 > [Co to jest usługa Azure Load Balancer?](load-balancer-overview.md)

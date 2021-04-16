@@ -1,40 +1,40 @@
 ---
 title: Typy danych w szablonach
-description: Opisuje typy danych, które są dostępne w szablonach Azure Resource Manager.
+description: Opisuje typy danych, które są dostępne w Azure Resource Manager szablonów.
 ms.topic: conceptual
 ms.author: tomfitz
 author: tfitzmac
 ms.date: 03/04/2021
-ms.openlocfilehash: 7d3f15c8852e6e25c621baad9bc6f20c303ffdb9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4d6c8306b3dbdfe895055dc008d81cc0d85d8d6c
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102125142"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538066"
 ---
-# <a name="data-types-in-arm-templates"></a>Typy danych w szablonach ARM
+# <a name="data-types-in-arm-templates"></a>Typy danych w szablonach arm
 
-W tym artykule opisano typy danych obsługiwane w szablonach Azure Resource Manager (szablony ARM). Obejmuje to zarówno typy danych JSON, jak i Bicep.
+W tym artykule opisano typy danych obsługiwane w Azure Resource Manager szablonów (szablonów ARM). Obejmuje zarówno typy danych JSON, jak i Bicep.
 
 ## <a name="supported-types"></a>Obsługiwane typy
 
-W ramach szablonu ARM można używać następujących typów danych:
+W szablonie usługi ARM można używać następujących typów danych:
 
 * array
 * bool
 * int
 * object
-* secureobject — wskazanie modyfikatora w Bicep
-* secureString — wskazywany przez modyfikator w Bicep
+* secureObject — wskazywany przez modyfikator w bicepsie
+* secureString — wskazywane przez modyfikator w bicepsie
 * ciąg
 
 ## <a name="arrays"></a>Tablice
 
-Tablice zaczynają się od lewego nawiasu kwadratowego ( `[` ) i kończą się znakiem prawego nawiasu kwadratowego ( `]` ).
+Tablice zaczynają się lewym nawiasem kwadratowym ( `[` ), a kończą się prawym nawiasem kwadratowym ( `]` ).
 
-W formacie JSON tablica może być zadeklarowana w pojedynczym wierszu lub wielu wierszach. Każdy element jest oddzielony przecinkami.
+W danych JSON tablicę można zadeklarować w jednym wierszu lub w wielu wierszach. Każdy element jest oddzielony przecinkiem.
 
-W Bicep Tablica musi być zadeklarowana w wielu wierszach. Nie używaj przecinków między wartościami.
+W bicepie tablica musi być zadeklarowana w wielu wierszach. Nie używaj przecinków między wartościami.
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -93,7 +93,7 @@ var mixedArray = [
 
 ## <a name="booleans"></a>Wartości logiczne
 
-Podczas określania wartości logicznych należy użyć `true` lub `false` . Nie otaczaj wartości cudzysłowami.
+Podczas określania wartości logicznych użyj wartości `true` lub `false` . Nie otaczaj wartości cudzysłowami.
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -116,7 +116,7 @@ param exampleBool bool = true
 
 ## <a name="integers"></a>Liczby całkowite
 
-Podczas określania wartości całkowitych nie używaj cudzysłowów.
+Podczas określania wartości całkowitych nie używaj znaków cudzysłowu.
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -137,17 +137,15 @@ param exampleInt int = 1
 
 ---
 
-W przypadku liczb całkowitych przewidzianych jako parametry wbudowane zakres wartości może być ograniczony przez zestaw SDK lub narzędzie wiersza polecenia, które jest używane do wdrożenia. Na przykład w przypadku wdrażania szablonu przy użyciu programu PowerShell typy całkowite mogą przyjmować wartość od-2147483648 do 2147483647. Aby uniknąć tego ograniczenia, określ w [pliku parametrów](parameter-files.md)duże wartości całkowite. Typy zasobów stosują własne limity dla właściwości Integer.
+W przypadku liczb całkowitych przekazanych jako parametry wbudowane zakres wartości może być ograniczony przez zestaw SDK lub narzędzie wiersza polecenia służące do wdrażania. Na przykład w przypadku wdrażania szablonu przy użyciu programu PowerShell typy całkowite mogą mieć zakres od -2147483648 do 2147483647. Aby uniknąć tego ograniczenia, określ duże wartości całkowite w pliku [parametrów](parameter-files.md). Typy zasobów stosują własne limity dla właściwości liczb całkowitych.
 
 ## <a name="objects"></a>Obiekty
 
-Obiekty zaczynają się od lewego nawiasu klamrowego ( `{` ) i kończyć znakiem prawego nawiasu klamrowego ( `}` ). Każda właściwość w obiekcie składa się z klucza i wartości. Klucz i wartość są oddzielone dwukropkiem ( `:` ).
-
-W formacie JSON klucz jest ujęty w cudzysłów. Każda właściwość jest oddzielona przecinkiem.
-
-W Bicep klucz nie jest ujęty w cudzysłów. Nie używaj przecinków do między właściwościami.
+Obiekty rozpoczynają się od lewego nawiasu klamrowego `{` () i kończą się prawym nawiasem klamrowy ( `}` ). Każda właściwość w obiekcie składa się z klucza i wartości. Klucz i wartość są oddzielone dwukropkiem ( `:` ).
 
 # <a name="json"></a>[JSON](#tab/json)
+
+W danych JSON klucz jest ujęty w cudzysłów. Każda właściwość jest oddzielona przecinkiem.
 
 ```json
 "parameters": {
@@ -165,6 +163,8 @@ W Bicep klucz nie jest ujęty w cudzysłów. Nie używaj przecinków do między 
 
 # <a name="bicep"></a>[Bicep](#tab/bicep)
 
+W bicepie klucz nie jest ujęty w cudzysłów. Nie używaj przecinków do między właściwościami.
+
 ```bicep
 param exampleObject object = {
   name: 'test name'
@@ -174,11 +174,27 @@ param exampleObject object = {
 }
 ```
 
+Dostęp do właściwości jest używany do uzyskiwania dostępu do właściwości obiektu. Są one konstruowane przy użyciu `.` operatora . Na przykład:
+
+```bicep
+var x = {
+  y: {
+    z: 'Hello`
+    a: true
+  }
+  q: 42
+}
+```
+
+Biorąc pod uwagę poprzednią deklarację, wyrażenie x.y.z oblicza ciąg literału "Hello". Podobnie wyrażenie x.q oblicza literał liczby całkowitej 42.
+
+Dostępy do właściwości mogą być używane z dowolnym obiektem. Obejmuje to parametry i zmienne typów obiektów i literałów obiektów. Użycie dostępu do właściwości w wyrażeniu typu innego niż obiekt jest błędem.
+
 ---
 
 ## <a name="strings"></a>Ciągi
 
-W formacie JSON ciągi są oznaczone podwójnymi cudzysłowami. W Bicep ciągi są oznaczane pojedynczymi cudzysłowami.
+W danych JSON ciągi są oznaczone podwójnymi cudzysłowami. W bicepie ciągi są oznaczone pojedynczymi cudzysłowami.
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -200,9 +216,9 @@ param exampleString string = 'test value'
 
 ## <a name="secure-strings-and-objects"></a>Zabezpieczanie ciągów i obiektów
 
-Bezpieczny ciąg używa tego samego formatu co ciąg, a bezpieczny obiekt używa tego samego formatu co obiekt. Po ustawieniu parametru na bezpieczny ciąg lub zabezpieczony obiekt wartość parametru nie jest zapisywana w historii wdrożenia i nie jest rejestrowana. Jeśli jednak ustawisz tę bezpieczną wartość na właściwość, która nie oczekuje bezpiecznej wartości, wartość nie jest chroniona. Na przykład, jeśli ustawisz bezpieczny ciąg na tag, ta wartość jest przechowywana w postaci zwykłego tekstu. Użyj bezpiecznych ciągów dla haseł i wpisów tajnych.
+Bezpieczny ciąg używa tego samego formatu co ciąg, a bezpieczny obiekt używa tego samego formatu co obiekt . W przypadku ustawienia parametru na bezpieczny ciąg lub bezpieczny obiekt wartość parametru nie jest zapisywana w historii wdrażania i nie jest rejestrowana. Jeśli jednak ustawisz bezpieczną wartość na właściwość, która nie oczekuje bezpiecznej wartości, ta wartość nie będzie chroniona. Jeśli na przykład ustawisz bezpieczny ciąg na tag, ta wartość będzie przechowywana jako zwykły tekst. Używanie bezpiecznych ciągów haseł i wpisów tajnych.
 
-Za pomocą Bicep, można dodać `@secure()` modyfikator do ciągu lub obiektu.
+Za pomocą bicep można dodać `@secure()` modyfikator do ciągu lub obiektu.
 
 W poniższym przykładzie przedstawiono dwa bezpieczne parametry:
 
@@ -233,4 +249,4 @@ param configValues object
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o składni szablonów, zobacz [Opis struktury i składni szablonów ARM](template-syntax.md).
+Aby dowiedzieć się więcej o składni szablonu, zobacz [Understand the structure and syntax of ARM templates (Opis struktury i składni szablonów usługi ARM).](template-syntax.md)

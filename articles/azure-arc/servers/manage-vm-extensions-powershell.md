@@ -1,36 +1,39 @@
 ---
-title: Włącz rozszerzenie maszyny wirtualnej przy użyciu Azure PowerShell
-description: W tym artykule opisano sposób wdrażania rozszerzeń maszyn wirtualnych na serwerach z obsługą usługi Azure ARC z włączonymi środowiskami chmury hybrydowej przy użyciu Azure PowerShell.
-ms.date: 01/05/2021
+title: Włączanie rozszerzenia maszyny wirtualnej przy użyciu Azure PowerShell
+description: W tym artykule opisano sposób wdrażania rozszerzeń maszyn wirtualnych na Azure Arc działających w środowiskach chmury hybrydowej przy użyciu Azure PowerShell.
+ms.date: 04/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: 9b1f83ad976aa3471430a912280fac25dc5c5c0c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0cb854c9745e8bd7eef35c6f6467c284a6327349
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97916188"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388588"
 ---
-# <a name="enable-azure-vm-extensions-using-azure-powershell"></a>Włącz rozszerzenia maszyny wirtualnej platformy Azure przy użyciu Azure PowerShell
+# <a name="enable-azure-vm-extensions-using-azure-powershell"></a>Włączanie rozszerzeń maszyn wirtualnych platformy Azure przy użyciu Azure PowerShell
 
-W tym artykule opisano sposób wdrażania i odinstalowywania rozszerzeń maszyn wirtualnych platformy Azure, które są obsługiwane przez serwery z obsługą usługi Azure ARC, na maszynę hybrydową z systemem Linux lub Windows przy użyciu Azure PowerShell.
+W tym artykule przedstawiono sposób wdrażania i odinstalowywania rozszerzeń maszyn wirtualnych platformy Azure obsługiwanych przez serwery z obsługą Azure Arc na maszynie hybrydowej z systemem Linux lub Windows przy użyciu Azure PowerShell.
+
+> [!NOTE]
+> Azure Arc obsługuje wdrażania rozszerzeń maszyn wirtualnych i zarządzania nimi na maszynach wirtualnych platformy Azure. W przypadku maszyn wirtualnych platformy Azure zobacz następujący artykuł [z omówieniem rozszerzenia maszyny wirtualnej.](../../virtual-machines/extensions/overview.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Komputer z Azure PowerShell. Aby uzyskać instrukcje, zobacz [Instalowanie i konfigurowanie Azure PowerShell](/powershell/azure/).
+- Komputer z Azure PowerShell. Aby uzyskać instrukcje, [zobacz Instalowanie i konfigurowanie Azure PowerShell](/powershell/azure/).
 
-Przed użyciem Azure PowerShell do zarządzania rozszerzeniami maszyn wirtualnych na serwerze hybrydowym zarządzanym przez serwery z obsługą łuku należy zainstalować `Az.ConnectedMachine` moduł. Uruchom następujące polecenie na serwerze z włączonym Łukem:
+Przed użyciem Azure PowerShell do zarządzania rozszerzeniami maszyn wirtualnych na serwerze hybrydowym zarządzanym przez serwery z usługą Arc należy zainstalować `Az.ConnectedMachine` moduł . Uruchom następujące polecenie na serwerze z usługą Arc:
 
 `Install-Module -Name Az.ConnectedMachine`.
 
-Po zakończeniu instalacji zostanie zwrócony następujący komunikat:
+Po zakończeniu instalacji jest zwracany następujący komunikat:
 
-`The installed extension `AZ. ConnectedMachine` is experimental and not covered by customer support. Please use with discretion.`
+`The installed extension `Az.ConnectedMachine` is experimental and not covered by customer support. Please use with discretion.`
 
-## <a name="enable-extension"></a>Włącz rozszerzenie
+## <a name="enable-extension"></a>Włączanie rozszerzenia
 
-Aby włączyć rozszerzenie maszyny wirtualnej na serwerze z włączonym łukem, użyj polecenie [New-AzConnectedMachineExtension](/powershell/module/az.connectedmachine/new-azconnectedmachineextension) z `-Name` `-ResourceGroupName` `-MachineName` parametrami,,,, `-Location` `-Publisher` `ExtensionType` i `-Settings` .
+Aby włączyć rozszerzenie maszyny wirtualnej na serwerze z obsługą usługi Arc, użyj polecenia [New-AzConnectedMachineExtension](/powershell/module/az.connectedmachine/new-azconnectedmachineextension) z parametrami `-Name` , , , , , i `-ResourceGroupName` `-MachineName` `-Location` `-Publisher` `ExtensionType` `-Settings` .
 
-Poniższy przykład włącza rozszerzenie maszyny wirtualnej Log Analytics na serwerze z systemem Linux z włączonym łukiem:
+Poniższy przykład umożliwia włączenie rozszerzenia maszyny wirtualnej usługi Log Analytics na serwerze z systemem Linux z obsługą usługi Arc:
 
 ```powershell
 PS C:\> $Setting = @{ "workspaceId" = "workspaceId" }
@@ -38,21 +41,21 @@ PS C:\> $protectedSetting = @{ "workspaceKey" = "workspaceKey" }
 PS C:\> New-AzConnectedMachineExtension -Name OMSLinuxAgent -ResourceGroupName "myResourceGroup" -MachineName "myMachine" -Location "eastus" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -TypeHandlerVersion "1.10" -Settings $Setting -ProtectedSetting $protectedSetting -ExtensionType "OmsAgentForLinux"
 ```
 
-Aby włączyć rozszerzenie maszyny wirtualnej Log Analytics na serwerze z włączonym łuku, Zmień wartość `-ExtensionType` parametru na `"MicrosoftMonitoringAgent"` w poprzednim przykładzie.
+Aby włączyć rozszerzenie maszyny wirtualnej usługi Log Analytics na serwerze z systemem Windows z obsługą usługi Arc, zmień wartość parametru na `-ExtensionType` `"MicrosoftMonitoringAgent"` w poprzednim przykładzie.
 
-Poniższy przykład włącza rozszerzenie niestandardowego skryptu na serwerze z włączonym Łukem:
+Poniższy przykład włącza rozszerzenie niestandardowego skryptu na serwerze z włączoną usługą Arc:
 
 ```powershell
 PS C:\> $Setting = @{ "commandToExecute" = "powershell.exe -c Get-Process" }
 PS C:\> New-AzConnectedMachineExtension -Name custom -ResourceGroupName myResourceGroup -MachineName myMachineName -Location eastus -Publisher "Microsoft.Compute" -TypeHandlerVersion 1.10 -Settings $Setting -ExtensionType CustomScriptExtension
 ```
 
-### <a name="key-vault-vm-extension-preview"></a>Rozszerzenie maszyny wirtualnej Key Vault (wersja zapoznawcza)
+### <a name="key-vault-vm-extension-preview"></a>Key Vault maszyny wirtualnej (wersja zapoznawcza)
 
 > [!WARNING]
-> Klienci programu PowerShell często dodają `\` do `"` programu w settings.js, na którym spowoduje to niepowodzenie akvvm_service z powodu błędu: `[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`
+> Klienci programu PowerShell często dodają do polecenia w settings.js, co spowoduje, że akvvm_service `\` `"` się z błędem: `[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`
 
-Poniższy przykład włącza rozszerzenie maszyny wirtualnej Key Vault (wersja zapoznawcza) na serwerze z włączonym łukiem:
+Poniższy przykład umożliwia włączenie Key Vault maszyny wirtualnej (wersja zapoznawcza) na serwerze z obsługą usługi Arc:
 
 ```powershell
 # Build settings
@@ -78,9 +81,9 @@ Poniższy przykład włącza rozszerzenie maszyny wirtualnej Key Vault (wersja z
     New-AzConnectedMachineExtension -ResourceGroupName $resourceGRoup -Location $location -MachineName $machineName -Name "KeyVaultForWindows or KeyVaultforLinux" -Publisher "Microsoft.Azure.KeyVault" -ExtensionType "KeyVaultforWindows or KeyVaultforLinux" -Setting (ConvertTo-Json $settings)
 ```
 
-## <a name="list-extensions-installed"></a>Zainstalowano rozszerzenia list
+## <a name="list-extensions-installed"></a>Lista zainstalowanych rozszerzeń
 
-Aby uzyskać listę rozszerzeń maszyn wirtualnych na serwerze z włączonym łukiem, użyj parametru [Get-AzConnectedMachineExtension](/powershell/module/az.connectedmachine/get-azconnectedmachineextension) z `-MachineName` `-ResourceGroupName` parametrami i.
+Aby uzyskać listę rozszerzeń maszyn wirtualnych na serwerze z usługą Arc, użyj polecenia [Get-AzConnectedMachineExtension](/powershell/module/az.connectedmachine/get-azconnectedmachineextension) z `-MachineName` `-ResourceGroupName` parametrami i .
 
 Przykład:
 
@@ -92,11 +95,11 @@ Name    Location  PropertiesType        ProvisioningState
 custom  westus2   CustomScriptExtension Succeeded
 ```
 
-## <a name="remove-an-installed-extension"></a>Usuń zainstalowane rozszerzenie
+## <a name="remove-an-installed-extension"></a>Usuwanie zainstalowanego rozszerzenia
 
-Aby usunąć zainstalowane rozszerzenie maszyny wirtualnej na serwerze z włączonym Łukem, użyj polecenie [Remove-AzConnectedMachineExtension](/powershell/module/az.connectedmachine/remove-azconnectedmachineextension) z `-Name` `-MachineName` `-ResourceGroupName` parametrami i.
+Aby usunąć zainstalowane rozszerzenie maszyny wirtualnej na serwerze z usługą Arc, użyj [polecenia Remove-AzConnectedMachineExtension](/powershell/module/az.connectedmachine/remove-azconnectedmachineextension) z `-Name` parametrami i `-MachineName` `-ResourceGroupName` .
 
-Aby na przykład usunąć rozszerzenie maszyny wirtualnej Log Analytics dla systemu Linux, uruchom następujące polecenie:
+Aby na przykład usunąć rozszerzenie maszyny wirtualnej usługi Log Analytics dla systemu Linux, uruchom następujące polecenie:
 
 ```powershell
 Remove-AzConnectedMachineExtension -MachineName myMachineName -ResourceGroupName myResourceGroup -Name OmsAgentforLinux
@@ -104,6 +107,6 @@ Remove-AzConnectedMachineExtension -MachineName myMachineName -ResourceGroupName
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Można wdrażać i usuwać rozszerzenia maszyn wirtualnych oraz zarządzać nimi przy użyciu [interfejsu wiersza polecenia platformy Azure](manage-vm-extensions-cli.md), z poziomu szablonów [Azure Portal](manage-vm-extensions-portal.md)lub [Azure Resource Manager](manage-vm-extensions-template.md).
+- Rozszerzenia maszyn wirtualnych można wdrażać i usuwać oraz zarządzać nimi przy użyciu interfejsu wiersza polecenia platformy [Azure](manage-vm-extensions-cli.md), z witryny [Azure Portal](manage-vm-extensions-portal.md)lub [Azure Resource Manager szablonów.](manage-vm-extensions-template.md)
 
-- Informacje dotyczące rozwiązywania problemów można znaleźć w [podręczniku Rozwiązywanie problemów z maszynami](troubleshoot-vm-extensions.md)wirtualnymi.
+- Informacje dotyczące rozwiązywania problemów można znaleźć w [przewodniku Rozwiązywanie problemów z rozszerzeniami maszyn wirtualnych.](troubleshoot-vm-extensions.md)

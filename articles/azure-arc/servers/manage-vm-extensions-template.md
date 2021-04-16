@@ -1,27 +1,30 @@
 ---
-title: Włączanie rozszerzenia maszyny wirtualnej przy użyciu szablonu Azure Resource Manager
-description: W tym artykule opisano sposób wdrażania rozszerzeń maszyn wirtualnych na serwerach z obsługą usługi Azure ARC z włączonymi środowiskami chmury hybrydowej przy użyciu szablonu Azure Resource Manager.
-ms.date: 03/01/2021
+title: Włączanie rozszerzenia maszyny wirtualnej przy użyciu Azure Resource Manager szablonu
+description: W tym artykule opisano sposób wdrażania rozszerzeń maszyn wirtualnych na serwerach z Azure Arc działających w środowiskach chmury hybrydowej przy użyciu Azure Resource Manager szablonu.
+ms.date: 04/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: 88296cd4f410defcaf7db15507ddac42e80cba2d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 095f95192a2054d34e438d8683ac9c2e20a824f1
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101688267"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389642"
 ---
-# <a name="enable-azure-vm-extensions-by-using-arm-template"></a>Włączanie rozszerzeń maszyny wirtualnej platformy Azure przy użyciu szablonu ARM
+# <a name="enable-azure-vm-extensions-by-using-arm-template"></a>Włączanie rozszerzeń maszyn wirtualnych platformy Azure przy użyciu szablonu usługi ARM
 
-W tym artykule przedstawiono sposób użycia szablonu Azure Resource Manager (szablon ARM) do wdrażania rozszerzeń maszyn wirtualnych platformy Azure obsługiwanych przez serwery z obsługą usługi Azure Arc.
+W tym artykule pokazano, jak używać szablonu usługi Azure Resource Manager usługi Arm do wdrażania rozszerzeń maszyn wirtualnych platformy Azure obsługiwanych Azure Arc serwerach z włączoną obsługą usługi .
 
-Rozszerzenia maszyny wirtualnej można dodać do szablonu Azure Resource Manager i wykonać przy użyciu wdrożenia szablonu. Rozszerzenia maszyn wirtualnych obsługiwane przez serwery z obsługą Arc można wdrożyć na maszynach z systemem Linux lub Windows przy użyciu Azure PowerShell. Każdy przykład poniżej zawiera plik szablonu i plik parametrów z przykładowymi wartościami do udostępnienia szablonowi.
+Rozszerzenia maszyn wirtualnych można dodać do Azure Resource Manager szablonu i wykonać wraz z wdrożeniem szablonu. Rozszerzenia maszyn wirtualnych obsługiwane przez serwery z usługą Arc umożliwia wdrożenie obsługiwanego rozszerzenia maszyny wirtualnej na maszynach z systemem Linux lub Windows przy użyciu Azure PowerShell. Każdy z poniższych przykładów zawiera plik szablonu i plik parametrów z przykładami wartości do podania w szablonie.
 
 >[!NOTE]
->Chociaż wiele rozszerzeń można wsadowo i przetwarzać, są one instalowane seryjnie. Po zakończeniu instalacji pierwszego rozszerzenia zostanie podjęta próba instalacji następnego rozszerzenia.
+>Chociaż wiele rozszerzeń może być tworzona wsadowo i przetwarzana, są one instalowane szeregowo. Po zakończeniu pierwszej instalacji rozszerzenia podejmowana jest próba zainstalowania następnego rozszerzenia.
 
-## <a name="deploy-the-log-analytics-vm-extension"></a>Wdrażanie rozszerzenia maszyny wirtualnej Log Analytics
+> [!NOTE]
+> Azure Arc z włączoną obsługą usługi nie obsługują wdrażania rozszerzeń maszyn wirtualnych i zarządzania nimi na maszynach wirtualnych platformy Azure. W przypadku maszyn wirtualnych platformy Azure zobacz następujący artykuł [z omówieniem rozszerzenia maszyny wirtualnej.](../../virtual-machines/extensions/overview.md)
 
-Aby łatwo wdrożyć agenta Log Analytics, podano następujący przykład w celu zainstalowania agenta w systemie Windows lub Linux.
+## <a name="deploy-the-log-analytics-vm-extension"></a>Wdrażanie rozszerzenia maszyny wirtualnej usługi Log Analytics
+
+Aby łatwo wdrożyć agenta usługi Log Analytics, dostępny jest następujący przykład instalacji agenta w systemie Windows lub Linux.
 
 ### <a name="template-file-for-linux"></a>Plik szablonu dla systemu Linux
 
@@ -129,23 +132,23 @@ Aby łatwo wdrożyć agenta Log Analytics, podano następujący przykład w celu
 }
 ```
 
-Zapisz szablon i pliki parametrów na dysku, a następnie edytuj plik parametrów z odpowiednimi wartościami dla danego wdrożenia. Następnie można zainstalować rozszerzenie na wszystkich połączonych maszynach w grupie zasobów przy użyciu poniższego polecenia. Polecenie używa parametru *TemplateFile* , aby określić szablon i parametr *TemplateParameterFile* , aby określić plik, który zawiera parametry i wartości parametrów.
+Zapisz pliki szablonu i parametrów na dysku, a następnie edytuj plik parametrów z odpowiednimi wartościami dla wdrożenia. Następnie możesz zainstalować rozszerzenie na wszystkich połączonych maszynach w grupie zasobów za pomocą następującego polecenia. Polecenie używa *parametru TemplateFile* do określenia szablonu i *parametru TemplateParameterFile w* celu określenia pliku zawierającego parametry i wartości parametrów.
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\LogAnalyticsAgent.json" -TemplateParameterFile "D:\Azure\Templates\LogAnalyticsAgentParms.json"
 ```
 
-## <a name="deploy-the-custom-script-extension"></a>Wdróż rozszerzenie niestandardowego skryptu
+## <a name="deploy-the-custom-script-extension"></a>Wdrażanie rozszerzenia niestandardowego skryptu
 
-Aby użyć niestandardowego rozszerzenia skryptu, do uruchamiania w systemach Windows i Linux jest dostarczany następujący przykład. Jeśli nie znasz rozszerzenia niestandardowego skryptu, zobacz [rozszerzenie niestandardowego skryptu dla systemu Windows](../../virtual-machines/extensions/custom-script-windows.md) lub [rozszerzenie niestandardowego skryptu dla Linux](../../virtual-machines/extensions/custom-script-linux.md). Istnieje kilka różnych cech, które należy zrozumieć w przypadku używania tego rozszerzenia z maszynami hybrydowymi:
+Aby użyć rozszerzenia niestandardowego skryptu, przedstawiono następujący przykład do uruchomienia w systemach Windows i Linux. Jeśli nie masz informacji o rozszerzeniu niestandardowego skryptu, zobacz Rozszerzenie niestandardowego skryptu dla systemu [Windows](../../virtual-machines/extensions/custom-script-windows.md) lub Rozszerzenie niestandardowego skryptu [dla systemu Linux.](../../virtual-machines/extensions/custom-script-linux.md) Istnieje kilka różnych cech, które należy zrozumieć podczas korzystania z tego rozszerzenia na maszynach hybrydowych:
 
-* Lista obsługiwanych systemów operacyjnych z rozszerzeniem niestandardowego skryptu maszyny wirtualnej platformy Azure nie ma zastosowania do serwerów z obsługą usługi Azure Arc. Listę obsługiwanych serwerów OSs dla serwera z włączoną funkcją Arc można znaleźć [tutaj](agent-overview.md#supported-operating-systems).
+* Lista obsługiwanych systemów operacyjnych z rozszerzeniem niestandardowego skryptu maszyny wirtualnej platformy Azure nie ma zastosowania Azure Arc serwerach z włączoną obsługą. Listę obsługiwanych systemu operacyjnego dla serwerów z usługą Arc można [znaleźć tutaj.](agent-overview.md#supported-operating-systems)
 
 * Szczegóły konfiguracji dotyczące usługi Azure Virtual Machine Scale Sets lub klasycznych maszyn wirtualnych nie mają zastosowania.
 
-* Jeśli maszyny wymagają pobrania skryptu zewnętrznie i mogą komunikować się tylko za pomocą serwera proxy, należy [skonfigurować agenta połączonej maszyny](manage-agent.md#update-or-remove-proxy-settings) w celu ustawienia zmiennej środowiskowej serwera proxy.
+* Jeśli maszyny muszą pobrać skrypt zewnętrznie i mogą komunikować się tylko za pośrednictwem serwera proxy, należy skonfigurować agenta Connected [Machine,](manage-agent.md#update-or-remove-proxy-settings) aby ustawić zmienną środowiskową serwera proxy.
 
-Konfiguracja rozszerzenia niestandardowego skryptu określa elementy, takie jak lokalizacja skryptu i polecenie do uruchomienia. Ta konfiguracja jest określona w szablonie Azure Resource Manager, który znajduje się poniżej dla maszyn hybrydowych z systemem Linux i Windows.
+Konfiguracja rozszerzenia niestandardowego skryptu określa takie rzeczy jak lokalizacja skryptu i polecenie do uruchomienia. Ta konfiguracja jest określona w szablonie Azure Resource Manager, który został podany poniżej dla maszyn hybrydowych z systemami Linux i Windows.
 
 ### <a name="template-file-for-linux"></a>Plik szablonu dla systemu Linux
 
@@ -291,9 +294,9 @@ Konfiguracja rozszerzenia niestandardowego skryptu określa elementy, takie jak 
 }
 ```
 
-## <a name="deploy-the-dependency-agent-extension"></a>Wdróż rozszerzenie agenta zależności
+## <a name="deploy-the-dependency-agent-extension"></a>Wdrażanie rozszerzenia agenta zależności
 
-Aby użyć rozszerzenia Agent zależności Azure Monitor, do uruchamiania w systemach Windows i Linux jest dostarczany następujący przykład. Jeśli nie znasz agenta zależności, zobacz [Omówienie agentów Azure monitor](../../azure-monitor/agents/agents-overview.md#dependency-agent).
+Aby użyć Azure Monitor agenta zależności, przedstawiono następujący przykład do uruchomienia w systemach Windows i Linux. Jeśli nie masz informacji o agencie Zależności, zobacz [Overview of Azure Monitor agents (Omówienie agentów zależności).](../../azure-monitor/agents/agents-overview.md#dependency-agent)
 
 ### <a name="template-file-for-linux"></a>Plik szablonu dla systemu Linux
 
@@ -373,15 +376,15 @@ Aby użyć rozszerzenia Agent zależności Azure Monitor, do uruchamiania w syst
 
 ### <a name="template-deployment"></a>Wdrażanie na podstawie szablonu
 
-Zapisz plik szablonu na dysku. Następnie można wdrożyć rozszerzenie na połączonej maszynie przy użyciu poniższego polecenia.
+Zapisz plik szablonu na dysku. Następnie możesz wdrożyć rozszerzenie na połączonej maszynie za pomocą następującego polecenia.
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\DependencyAgent.json"
 ```
 
-## <a name="deploy-azure-key-vault-vm-extension-preview"></a>Wdróż rozszerzenie maszyny wirtualnej Azure Key Vault (wersja zapoznawcza)
+## <a name="deploy-azure-key-vault-vm-extension-preview"></a>Wdrażanie Azure Key Vault maszyny wirtualnej (wersja zapoznawcza)
 
-Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Key Vault (wersja zapoznawcza). Rozszerzenie nie wymaga ustawień chronionych — wszystkie jego ustawienia są uznawane za informacje publiczne. Rozszerzenie wymaga listy monitorowanych certyfikatów, częstotliwości sondowania i docelowego magazynu certyfikatów. W szczególności:
+Poniższy kod JSON przedstawia schemat rozszerzenia maszyny Key Vault wirtualnej (wersja zapoznawcza). Rozszerzenie nie wymaga ustawień chronionych — wszystkie jego ustawienia są traktowane jako informacje publiczne. Rozszerzenie wymaga listy monitorowanych certyfikatów, częstotliwości sondowania i docelowego magazynu certyfikatów. W szczególności:
 
 ### <a name="template-file-for-linux"></a>Plik szablonu dla systemu Linux
 
@@ -522,22 +525,22 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Key Vault
 > [!NOTE]
 > Adresy URL obserwowanych certyfikatów powinny mieć postać `https://myVaultName.vault.azure.net/secrets/myCertName` .
 >
-> Wynika to z faktu, że `/secrets` ścieżka zwraca pełny certyfikat, w tym klucz prywatny, podczas gdy `/certificates` ścieżka nie jest. Więcej informacji o certyfikatach można znaleźć tutaj: [Key Vault Certificates](../../key-vault/general/about-keys-secrets-certificates.md)
+> Wynika to z `/secrets` tego, że ścieżka zwraca pełny certyfikat, w tym klucz prywatny, podczas gdy ścieżka `/certificates` nie. Więcej informacji na temat certyfikatów można znaleźć tutaj: [Key Vault Certyfikatów](../../key-vault/general/about-keys-secrets-certificates.md)
 
 ### <a name="template-deployment"></a>Wdrażanie na podstawie szablonu
 
-Zapisz plik szablonu na dysku. Następnie można wdrożyć rozszerzenie na połączonej maszynie przy użyciu poniższego polecenia.
+Zapisz plik szablonu na dysku. Następnie możesz wdrożyć rozszerzenie na połączonej maszynie za pomocą następującego polecenia.
 
 > [!NOTE]
-> Rozszerzenie maszyny wirtualnej wymaga przypisania tożsamości przypisanej do systemu do uwierzytelniania w magazynie kluczy. Zobacz [Jak przeprowadzić uwierzytelnianie, Key Vault przy użyciu tożsamości zarządzanej](managed-identity-authentication.md) dla serwerów z systemem Windows i Linux.
+> Rozszerzenie maszyny wirtualnej wymaga przypisania tożsamości przypisanej przez system w celu uwierzytelnienia w magazynie kluczy. Zobacz [Jak uwierzytelniać się w Key Vault przy użyciu tożsamości zarządzanej](managed-identity-authentication.md) dla serwerów z systemami Windows i Linux Arc.
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\KeyVaultExtension.json"
 ```
 
-## <a name="deploy-the-azure-defender-integrated-scanner"></a>Wdrażanie skanera zintegrowanego usługi Azure Defender
+## <a name="deploy-the-azure-defender-integrated-scanner"></a>Wdrażanie zintegrowanego Azure Defender skanera
 
-Aby można było korzystać z rozszerzenia skanera zintegrowanego z usługą Azure Defender, do uruchamiania w systemach Windows i Linux jest dostarczany następujący przykład. Jeśli nie znasz skanera zintegrowanego, zobacz [Omówienie rozwiązania do oceny luk w zabezpieczeniach usługi Azure Defender](../../security-center/deploy-vulnerability-assessment-vm.md) dla maszyn hybrydowych.
+Aby użyć zintegrowanego Azure Defender skanera, można uruchomić następujący przykład w systemach Windows i Linux. Jeśli nie masz informacji o zintegrowanym skanerze, zobacz Overview of Azure Defender of [the vulnerability assessment solution](../../security-center/deploy-vulnerability-assessment-vm.md) for hybrid machines (Omówienie rozwiązania do oceny luk w zabezpieczeniach dla maszyn hybrydowych).
 
 ### <a name="template-file-for-windows"></a>Plik szablonu dla systemu Windows
 
@@ -615,7 +618,7 @@ Aby można było korzystać z rozszerzenia skanera zintegrowanego z usługą Azu
 
 ### <a name="template-deployment"></a>Wdrażanie na podstawie szablonu
 
-Zapisz plik szablonu na dysku. Następnie można wdrożyć rozszerzenie na połączonej maszynie przy użyciu poniższego polecenia.
+Zapisz plik szablonu na dysku. Następnie możesz wdrożyć rozszerzenie na połączonej maszynie za pomocą następującego polecenia.
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\AzureDefenderScanner.json"
@@ -623,6 +626,6 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Korzystając z [Azure PowerShell](manage-vm-extensions-powershell.md), z [Azure Portal](manage-vm-extensions-portal.md)lub [interfejsu wiersza polecenia platformy Azure](manage-vm-extensions-cli.md), można wdrażać i usuwać rozszerzenia maszyn wirtualnych oraz zarządzać nimi.
+* Rozszerzenia maszyn wirtualnych można wdrażać i usuwać oraz zarządzać nimi przy użyciu interfejsu [Azure PowerShell](manage-vm-extensions-powershell.md), z witryny [Azure Portal](manage-vm-extensions-portal.md)lub interfejsu wiersza polecenia [platformy Azure.](manage-vm-extensions-cli.md)
 
-* Informacje dotyczące rozwiązywania problemów można znaleźć w [podręczniku Rozwiązywanie problemów z maszynami](troubleshoot-vm-extensions.md)wirtualnymi.
+* Informacje dotyczące rozwiązywania problemów można znaleźć w [przewodniku Rozwiązywanie problemów z rozszerzeniami maszyn wirtualnych.](troubleshoot-vm-extensions.md)

@@ -1,26 +1,26 @@
 ---
-title: 'Samouczek: ładowanie danych z Nowego Jorku Taxicab'
-description: Samouczek używa Azure Portal i SQL Server Management Studio do załadowania Taxicab danych z obiektu blob platformy Azure dla Synapse SQL.
+title: 'Samouczek: ładowanie danych dotyczących taksówek w Nowym Jorku'
+description: Samouczek używa Azure Portal i SQL Server Management Studio do ładowania danych taksówek w Nowym Jorku z obiektu blob platformy Azure na Synapse SQL.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 11/23/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 1490a0e094c6ce2665e28f7d32540ad58d53cb2a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7ede40aba8e2d36e4262b4bc89a35f5d67079e0e
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104600143"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567512"
 ---
-# <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Samouczek: Załaduj zestaw danych Taxicab Nowego Jorku
+# <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Samouczek: ładowanie zestawu danych New York Taxicab
 
-Ten samouczek używa [instrukcji Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) do załadowania zestawu danych Taxicab New York z konta usługi Azure Blob Storage. W tym samouczku użyto witryny [Azure Portal](https://portal.azure.com) i programu [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS), aby wykonać następujące czynności:
+W tym samouczku instrukcja [COPY jest używana do](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) ładowania zestawu danych New York Taxicab z Azure Blob Storage konta. W tym samouczku użyto witryny [Azure Portal](https://portal.azure.com) i programu [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS), aby wykonać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -35,17 +35,17 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpł
 
 Zanim rozpoczniesz ten samouczek, pobierz i zainstaluj najnowszą wersję programu [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS).  
 
-W tym samouczku założono, że utworzono już dedykowaną pulę SQL z poziomu poniższego [samouczka](./create-data-warehouse-portal.md#connect-to-the-server-as-server-admin).
+W tym samouczku przyjęto założenie, że utworzono już dedykowaną pulę SQL z następującego [samouczka:](./create-data-warehouse-portal.md#connect-to-the-server-as-server-admin).
 
 ## <a name="create-a-user-for-loading-data"></a>Tworzenie użytkownika do ładowania danych
 
-Konto administratora serwera jest przeznaczone do wykonywania operacji zarządzania i nie jest odpowiednie do wykonywania zapytań względem danych użytkownika. Operacja ładowania danych bardzo obciąża pamięć. Maksymalne wartości pamięci są definiowane zgodnie z konfiguracją [jednostki magazynu danych](what-is-a-data-warehouse-unit-dwu-cdwu.md) i [klasą zasobów](resource-classes-for-workload-management.md) .
+Konto administratora serwera jest przeznaczone do wykonywania operacji zarządzania i nie jest odpowiednie do wykonywania zapytań względem danych użytkownika. Operacja ładowania danych bardzo obciąża pamięć. Maksymalne wartości pamięci są definiowane zgodnie ze skonfigurowanymi jednostkami [magazynu](what-is-a-data-warehouse-unit-dwu-cdwu.md) danych [i klasą](resource-classes-for-workload-management.md) zasobów.
 
 Najlepszym rozwiązaniem jest utworzenie identyfikatora logowania i użytkownika, które są przeznaczone do ładowania danych. Następnie należy dodać użytkownika ładującego do [klasy zasobów](resource-classes-for-workload-management.md), która umożliwia odpowiednią maksymalną alokację pamięci.
 
-Połącz się jako administrator serwera, aby można było tworzyć identyfikatory logowania i użytkowników. Wykonaj następujące czynności, aby utworzyć identyfikator logowania i użytkownika o nazwie **LoaderRC20**. Następnie przypisz tego użytkownika do klasy zasobów **staticrc20**.
+Połącz się jako administrator serwera, aby można było tworzyć nazwy logowania i użytkowników. Wykonaj następujące czynności, aby utworzyć identyfikator logowania i użytkownika o nazwie **LoaderRC20**. Następnie przypisz tego użytkownika do klasy zasobów **staticrc20**.
 
-1. W programie SSMS kliknij prawym przyciskiem myszy pozycję **Master** , aby wyświetlić menu rozwijane, a następnie wybierz pozycję **nowe zapytanie**. Otworzy się okno nowego zapytania.
+1. W programie SSMS wybierz prawym przyciskiem myszy **pozycję master,** aby wyświetlić menu rozwijane, a następnie wybierz **pozycję Nowe zapytanie.** Otworzy się okno nowego zapytania.
 
     ![Nowe zapytanie w bazie danych master](./media/load-data-from-azure-blob-storage-using-polybase/create-loader-login.png)
 
@@ -76,7 +76,7 @@ Połącz się jako administrator serwera, aby można było tworzyć identyfikato
 
 Pierwszym krokiem do załadowania danych jest zalogowanie się jako użytkownik LoaderRC20.  
 
-1. W Eksplorator obiektów wybierz menu rozwijane **Połącz** i wybierz pozycję **aparat bazy danych**. Zostanie wyświetlone okno dialogowe **Nawiązywanie połączenia z serwerem**.
+1. W Eksplorator obiektów wybierz menu rozwijane **Połącz,** a następnie wybierz pozycję **Aparat bazy danych**. Zostanie wyświetlone okno dialogowe **Nawiązywanie połączenia z serwerem**.
 
     ![Nawiązywanie połączenia za pomocą nowego konta logowania](./media/load-data-from-azure-blob-storage-using-polybase/connect-as-loading-user.png)
 
@@ -90,9 +90,9 @@ Pierwszym krokiem do załadowania danych jest zalogowanie się jako użytkownik 
 
 ## <a name="create-tables-for-the-sample-data"></a>Tworzenie tabel dla przykładowych danych
 
-Wszystko jest gotowe do rozpoczęcia procesu ładowania danych do nowego magazynu danych. W tej części samouczka pokazano, jak użyć instrukcji COPY do załadowania zestawu danych cab w Nowym Jorku z obiektu BLOB usługi Azure Storage. Aby dowiedzieć się, jak pobierać dane na platformę Azure Blob Storage lub załadować je bezpośrednio ze źródła, zobacz [Omówienie ładowania](design-elt-data-loading.md).
+Wszystko jest gotowe do rozpoczęcia procesu ładowania danych do nowego magazynu danych. W tej części samouczka pokazano, jak załadować zestaw danych taksówek w Nowym Jorku z obiektu blob usługi Azure Storage za pomocą instrukcji COPY. Aby dowiedzieć się, jak w przyszłości pobrać dane do Azure Blob Storage lub załadować je bezpośrednio ze źródła, zobacz [omówienie ładowania](design-elt-data-loading.md).
 
-Uruchom następujące skrypty SQL i podaj informacje o danych, które chcesz załadować. Informacje te obejmują obecną lokalizację danych, format zawartości danych i definicję tabel dla danych.
+Uruchom następujące skrypty SQL i określ informacje o danych, które chcesz załadować. Informacje te obejmują obecną lokalizację danych, format zawartości danych i definicję tabel dla danych.
 
 1. W poprzedniej sekcji zalogowano się do magazynu danych jako użytkownik LoaderRC20. W programie SSMS kliknij prawym przyciskiem myszy połączenie użytkownika LoaderRC20, a następnie wybierz polecenie **Nowe zapytanie**.  Zostanie otwarte okno nowego zapytania.
 
@@ -251,12 +251,12 @@ Uruchom następujące skrypty SQL i podaj informacje o danych, które chcesz za�
 
 ## <a name="load-the-data-into-your-data-warehouse"></a>Ładowanie danych do magazynu danych
 
-Ta sekcja używa [instrukcji Copy do ładowania](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) przykładowych danych z Azure Storage BLOB.  
+W tej sekcji użyto [instrukcji COPY, aby załadować](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) przykładowe dane z Azure Storage Blob.  
 
 > [!NOTE]
-> W tym samouczku dane są ładowane bezpośrednio do tabeli końcowej. Zwykle można ładować do tabeli przemieszczania dla obciążeń produkcyjnych. Gdy dane znajdują się w tabeli przejściowej, można wykonać wszelkie niezbędne przekształcenia. 
+> W tym samouczku dane są ładowane bezpośrednio do tabeli końcowej. Zazwyczaj ładuje się do tabeli przejściowej dla obciążeń produkcyjnych. Gdy dane znajdują się w tabeli przejściowej, można wykonać wszelkie niezbędne przekształcenia. 
 
-1. Aby załadować dane, uruchom następujące instrukcje:
+1. Uruchom następujące instrukcje, aby załadować dane:
 
     ```sql
     COPY INTO [dbo].[Date]
@@ -334,7 +334,7 @@ Ta sekcja używa [instrukcji Copy do ładowania](/sql/t-sql/statements/copy-into
     OPTION (LABEL = 'COPY : Load [dbo].[Trip] - Taxi dataset');
     ```
 
-2. Wyświetlaj dane podczas ładowania. Ładujesz kilka gigabajtów danych i skompresujesz ją na wysoce wydajne klastrowane indeksy magazynu kolumn. Uruchom następujące zapytanie korzystające z dynamicznych widoków zarządzania (DMV), aby wyświetlić stan ładowania.
+2. Wyświetlaj dane podczas ładowania. Ładujesz kilka kb/s danych i kompresujesz je do wysoce wydajnych klastrowanych indeksów magazynu kolumn. Uruchom następujące zapytanie korzystające z dynamicznych widoków zarządzania (DMV), aby wyświetlić stan ładowania.
 
     ```sql
     SELECT  r.[request_id]                           
@@ -379,21 +379,21 @@ Opłaty są naliczane za zasoby obliczeniowe i dane załadowane do magazynu dany
 
 Wykonaj następujące kroki, aby wyczyścić zasoby zgodnie z potrzebami.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com), wybierz magazyn danych.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com), wybierz swój magazyn danych.
 
     ![Czyszczenie zasobów](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Aby wstrzymać obliczenia, wybierz przycisk **Wstrzymaj** . Gdy magazyn danych jest wstrzymany, widoczny jest przycisk **Uruchom**.  Aby wznowić obliczenia, wybierz pozycję **Uruchom**.
+2. Aby wstrzymać obliczenia, wybierz przycisk **Wstrzymaj.** Gdy magazyn danych jest wstrzymany, widoczny jest przycisk **Uruchom**.  Aby wznowić obliczenia, wybierz pozycję **Uruchom.**
 
-3. Aby usunąć magazyn danych, aby nie naliczać opłat za zasoby obliczeniowe i magazynowanie, wybierz pozycję **Usuń**.
+3. Aby usunąć magazyn danych, aby nie naliczać opłat za zasoby obliczeniowe ani magazynowe, wybierz pozycję **Usuń.**
 
-4. Aby usunąć utworzony serwer, wybierz pozycję **mynewserver-20180430.Database.Windows.NET** na poprzednim obrazie, a następnie wybierz pozycję **Usuń**.  Należy zachować ostrożność, ponieważ usunięcie serwera spowoduje usunięcie wszystkich baz danych przypisanych do tego serwera.
+4. Aby usunąć utworzony serwer, wybierz pozycję **mynewserver-20180430.database.windows.net** na poprzedniej ilustracji, a następnie wybierz pozycję **Usuń.**  Należy zachować ostrożność, ponieważ usunięcie serwera spowoduje usunięcie wszystkich baz danych przypisanych do tego serwera.
 
-5. Aby usunąć grupę zasobów, wybierz pozycję Moja **zasobów**, a następnie wybierz pozycję **Usuń grupę zasobów**.
+5. Aby usunąć grupę zasobów, wybierz **grupę zasobów myResourceGroup,** a następnie wybierz **pozycję Usuń grupę zasobów.**
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono sposób tworzenia magazynu danych i tworzenia użytkownika wyznaczonego do ładowania danych. Użyto prostej [instrukcji Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples) do załadowania danych do magazynu danych.
+W tym samouczku przedstawiono sposób tworzenia magazynu danych i tworzenia użytkownika wyznaczonego do ładowania danych. Za pomocą prostej instrukcji [COPY załadowaliśmy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples) dane do magazynu danych.
 
 Zostały wykonane następujące zadania:
 > [!div class="checklist"]
@@ -403,16 +403,16 @@ Zostały wykonane następujące zadania:
 > * Nawiązanie połączenia z magazynem danych za pomocą programu SSMS
 > * Utworzenie użytkownika wyznaczonego do ładowania danych
 > * Utworzono tabele dla przykładowych danych
-> * Użyto instrukcji COPY T-SQL do załadowania danych do magazynu danych
+> * Ładowanie danych do magazynu danych za pomocą instrukcji COPY języka T-SQL
 > * Wyświetlenie postępu ładowania danych
 
-Przejdź do omówienia opracowywania, aby dowiedzieć się, jak przeprowadzić migrację istniejącej bazy danych do usługi Azure Synapse Analytics:
+Aby dowiedzieć się, jak przeprowadzić migrację istniejącej bazy danych do bazy danych, należy przejść do przeglądu Azure Synapse Analytics:
 
 > [!div class="nextstepaction"]
-> [Podejmowanie decyzji projektowych dotyczących migracji istniejącej bazy danych do usługi Azure Synapse Analytics](sql-data-warehouse-overview-develop.md)
+> [Decyzje projektowe dotyczące migrowania istniejącej bazy danych do Azure Synapse Analytics](sql-data-warehouse-overview-develop.md)
 
-Aby uzyskać więcej przykładów i odwołań, zapoznaj się z następującą dokumentacją:
+Aby uzyskać więcej przykładów i odwołań ładowania, zobacz następującą dokumentację:
 
-- [Kopiuj dokumentację referencyjną instrukcji](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax)
-- [Kopiuj przykłady dla każdej metody uwierzytelniania](./quickstart-bulk-load-copy-tsql-examples.md)
-- [Kopiuj Przewodnik Szybki Start dla pojedynczej tabeli](./quickstart-bulk-load-copy-tsql.md)
+- [Dokumentacja referencyjna instrukcji COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax)
+- [Przykłady copy dla każdej metody uwierzytelniania](./quickstart-bulk-load-copy-tsql-examples.md)
+- [Copy quickstart for a single table (Szybki start: kopiowanie pojedynczej tabeli)](./quickstart-bulk-load-copy-tsql.md)

@@ -173,7 +173,7 @@
           items:
             - name: Nadmiarowość danych
               href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Zarządzany przez klienta tryb failover na potrzeby odzyskiwania po awarii
+            - name: Tryb failover zarządzany przez klienta na potrzeby odzyskiwania po awarii
               href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Replikacja obiektów
           href: object-replication-overview.md
@@ -299,7 +299,7 @@
               href: storage-blob-copy.md
             - name: Używanie tagów indeksu obiektów blob
               href: storage-blob-index-how-to.md
-            - name: Obliczanie liczby obiektów blob i całkowitego rozmiaru
+            - name: Obliczanie liczby obiektów blob i łącznego rozmiaru
               href: calculate-blob-count-size.md
         - name: Autoryzowanie dostępu do danych obiektów blob
           items:
@@ -413,11 +413,11 @@
               href: soft-delete-container-enable.md
             - name: Włączanie obsługi wersji obiektów blob
               href: versioning-enable.md
-            - name: Włączanie usuwania nie softowego dla obiektów blob i zarządzanie nim
+            - name: Włączanie usuwania nie programowego dla obiektów blob i zarządzanie nim
               items:
                 - name: Włączanie usuwania nie softowego obiektu blob
                   href: soft-delete-blob-enable.md
-                - name: Zarządzanie nieukońcowane obiekty blob i ich przywracanie
+                - name: Zarządzanie nieukońcamiatywnie usuniętymi obiektami blob i ich przywracanie
                   href: soft-delete-blob-manage.md
             - name: Włączanie przywracania do punktu w czasie
               href: point-in-time-restore-manage.md
@@ -579,11 +579,13 @@
               href: 'https://azure.microsoft.com/features/storage-explorer/'
             - name: Wprowadzenie do Eksploratora usługi Storage
               href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Zaloguj się do Eksplorator usługi Storage
+              href: ../common/storage-explorer-sign-in.md
             - name: Informacje o wersji programu Storage Explorer
               href: 'https://github.com/microsoft/AzureStorageExplorer/releases'
             - name: Rozwiązywanie problemów z programem Storage Explorer
               href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Eksplorator usługi Storage wiersza polecenia
+            - name: Eksplorator usługi Storage opcje wiersza polecenia
               href: ../common/storage-explorer-command-line-options.md
             - name: Eksplorator usługi Storage link bezpośredni
               href: ../common/storage-explorer-direct-link.md
@@ -671,7 +673,7 @@
           href: data-lake-storage-use-databricks-spark.md
         - name: Używanie z Apache Hive i HDInsight
           href: data-lake-storage-tutorial-extract-transform-load-hive.md
-        - name: Używanie z deltą i Event Grid Databricks
+        - name: Używanie z różnicą i Event Grid databricks
           href: data-lake-storage-events.md
         - name: Używanie z innymi usługami platformy Azure
           href: data-lake-storage-integrate-with-services-tutorials.md
@@ -761,7 +763,7 @@
                   href: ../common/storage-use-azcopy-blobs-synchronize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 'Przykłady: Zasobniki usługi Amazon S3'
                   href: ../common/storage-use-azcopy-s3.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: 'Przykłady: Zasobniki usługi Google Cloud Storage'
+                - name: 'Przykłady: zasobniki usługi Google Cloud Storage'
                   href: ../common/storage-use-azcopy-google-cloud.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Azure Data Factory
               href: ../../data-factory/connector-azure-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json

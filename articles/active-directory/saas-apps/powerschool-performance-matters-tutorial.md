@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: integracja Azure Active Directory z zagadnieniami dotyczącymi wydajności Powerschool | Microsoft Docs'
-description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i wydajnością Powerschool.
+title: 'Samouczek: Azure Active Directory integracji z usługą Powerschool Performance Matters | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować logowanie pojedynczej aplikacji Azure Active Directory Powerschool Performance Matters.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,99 +9,76 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/08/2019
+ms.date: 04/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 1312a995589b0408edc56a0883cc9fd899fc9e6f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b75e2cbffaaf05dc0f5ca30497c165b91adf6d1
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92515444"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515349"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-powerschool-performance-matters"></a>Samouczek: integracja Azure Active Directory z zagadnieniami dotyczącymi wydajności Powerschool
+# <a name="tutorial-azure-active-directory-integration-with-powerschool-performance-matters"></a>Samouczek: Azure Active Directory integracji z powerschool performance matters
 
-W tym samouczku dowiesz się, jak zintegrować zagadnienia dotyczące wydajności Powerschool z Azure Active Directory (Azure AD).
-Integracja zagadnień dotyczących wydajności Powerschool z usługą Azure AD zapewnia następujące korzyści:
+Z tego samouczka dowiesz się, jak zintegrować usługę Powerschool Performance Matters z usługą Azure Active Directory (Azure AD). Integrowanie aplikacji Powerschool Performance Matters z usługą Azure AD umożliwia:
 
-* W usłudze Azure AD można kontrolować, kto ma dostęp do zagadnień dotyczących wydajności Powerschool.
-* Możesz pozwolić użytkownikom na automatyczne logowanie się do Powerschool związanych z wydajnością (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
-* Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
-
-Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
+* Kontroluj w usłudze Azure AD, kto ma dostęp do aplikacji Powerschool Performance Matters.
+* Umożliwianie użytkownikom automatycznego zalogowania się do aplikacji Powerschool Performance Matters przy użyciu kont usługi Azure AD.
+* Zarządzanie kontami w jednej centralnej lokalizacji — Azure Portal.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z zagadnieniami wydajności Powerschool, potrzebne są następujące elementy:
+Do rozpoczęcia pracy potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz skorzystać z miesięcznej wersji próbnej [tutaj](https://azure.microsoft.com/pricing/free-trial/)
-* Powerschool wydajność — subskrypcja z włączonym logowaniem jednokrotnym
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać bezpłatne [konto](https://azure.microsoft.com/free/).
+* Subskrypcja aplikacji Powerschool Performance Matters z obsługą logowania jednokrotnego.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Zagadnienia dotyczące wydajności Powerschool obsługują Logowanie jednokrotne w usłudze **SP**
+* Powerschool Performance Matters obsługuje logowanie **jednokrotne inicjowane** przez sp.
 
-## <a name="adding-powerschool-performance-matters-from-the-gallery"></a>Dodawanie zagadnień dotyczących wydajności Powerschool z galerii
+> [!NOTE]
+> Identyfikator tej aplikacji jest stałą wartością ciągu, więc w jednej dzierżawie można skonfigurować tylko jedno wystąpienie.
 
-Aby skonfigurować integrację zagadnień dotyczących wydajności Powerschool w usłudze Azure AD, musisz dodać zagadnienia dotyczące wydajności Powerschool z galerii do listy zarządzanych aplikacji SaaS.
+## <a name="add-powerschool-performance-matters-from-the-gallery"></a>Dodawanie aplikacji Powerschool Performance Matters z galerii
 
-**Aby dodać zagadnienia dotyczące wydajności Powerschool z galerii, wykonaj następujące czynności:**
+Aby skonfigurować integrację aplikacji Powerschool Performance Matters z usługą Azure AD, musisz dodać aplikację Powerschool Performance Matters z galerii do swojej listy zarządzanych aplikacji SaaS.
 
-1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konta konto Microsoft.
+1. W okienku nawigacji po lewej stronie wybierz **Azure Active Directory** usługi.
+1. Przejdź do opcji **Aplikacje dla przedsiębiorstw,** a następnie wybierz **pozycję Wszystkie aplikacje.**
+1. Aby dodać nową aplikację, wybierz **pozycję Nowa aplikacja.**
+1. W sekcji **Dodaj z galerii** wpisz **Powerschool Performance Matters** w polu wyszukiwania.
+1. Wybierz **pozycję Powerschool Performance Matters z** panelu wyników, a następnie dodaj aplikację. Zaczekaj kilka sekund na dodanie aplikacji do dzierżawy.
 
-    ![Przycisk Azure Active Directory](common/select-azuread.png)
+## <a name="configure-and-test-azure-ad-sso-for-powerschool-performance-matters"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD dla aplikacji Powerschool Performance Matters
 
-2. Przejdź do grupy **Aplikacje dla przedsiębiorstw** i wybierz opcję **Wszystkie aplikacje**.
+Skonfiguruj i przetestuj logowanie jednokrotne usługi Azure AD Form.com przy użyciu użytkownika testowego **o nazwie B.Simon.** Aby logowanie jednokrotne działało, należy ustanowić relację połączenia między użytkownikiem usługi Azure AD i powiązanym użytkownikiem aplikacji Form.com.
 
-    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
+Aby skonfigurować i przetestować logowanie jednokrotne usługi Azure AD Form.com, wykonaj następujące kroki:
 
-3. Aby dodać nową aplikację, kliknij przycisk **Nowa aplikacja** w górnej części okna dialogowego.
+1. **[Konfigurowanie logowania jednokrotnego w usłudze Azure AD](#configure-azure-ad-sso)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
+    1. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie pojedyncze usługi Azure AD z użytkownikiem B.Simon.
+    1. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić aplikacji B.Simon korzystanie z logowania pojedynczego usługi Azure AD.
+1. **[Konfigurowanie logowania jednokrotnego w](#configure-powerschool-performance-matters-sso)** aplikacji Powerschool Performance Matters — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+    1. **[Tworzenie użytkownika testowego](#create-powerschool-performance-matters-test-user)** aplikacji Powerschool Performance Matters — aby mieć w aplikacji Powerschool Performance Matters odpowiednik użytkownika B.Simon połączony z reprezentacją użytkownika w usłudze Azure AD.
+1. **[Testowanie logowania jednokrotnego](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
-    ![Przycisk Nowa aplikacja](common/add-new-app.png)
+## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
-4. W polu wyszukiwania wpisz **Powerschool wydajność**, wybierz pozycję **Powerschoole zagadnienia dotyczące wydajności** z panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-    ![Zagadnienia dotyczące wydajności Powerschool na liście wyników](common/search-new-app.png)
+1. Na stronie Azure Portal **Aplikacji Powerschool Performance Matters** znajdź sekcję  Zarządzanie i wybierz pozycję **Logowanie pojedynczej.**
+1. Na stronie **Select a single sign-on method (Wybieranie metody logowania pojedynczego)** wybierz pozycję **SAML**.
+1. Na stronie **Konfigurowanie logowania pojedynczego za pomocą saml** kliknij ikonę ołówka dla opcji **Podstawowa konfiguracja saml,** aby edytować ustawienia.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
-
-Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD z zagadnieniami dotyczącymi wydajności Powerschool na podstawie użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Powerschool wydajności.
-
-Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD z zagadnieniami dotyczącymi wydajności Powerschool, należy wykonać następujące bloki konstrukcyjne:
-
-1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Konfigurowanie logowania](#configure-powerschool-performance-matters-single-sign-on)** jednokrotnego dotyczącego wydajności Powerschool — aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
-3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
-4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Twórz zagadnienia dotyczące wydajności Powerschool użytkownika testowego](#create-powerschool-performance-matters-test-user)** , aby dysponować odpowiednikiem Britta Simon w kwestiach dotyczących wydajności, które są połączone z reprezentacją użytkownika w usłudze Azure AD.
-6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
-
-W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
-
-Aby skonfigurować Logowanie jednokrotne usługi Azure AD z zagadnieniami dotyczącymi wydajności Powerschool, wykonaj następujące czynności:
-
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja z **zagadnieniami dotyczącymi wydajności Powerschool** wybierz pozycję **Logowanie jednokrotne**.
-
-    ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
-
-2. W oknie dialogowym **Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed**, aby włączyć logowanie jednokrotne.
-
-    ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
-
-3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe **Podstawowa konfiguracja protokołu SAML**.
-
-    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
+   ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
 4. W sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujący krok:
 
-    ![Informacje o domenie i adresach URL aplikacji [Nazwa aplikacji] na potrzeby logowania jednokrotnego](common/sp-signonurl.png)
-
-    W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: 
+    W **polu tekstowym Adres URL** logowania wpisz adres URL, korzystając z jednego z następujących wzorców:
     
     ```https
         https://ola.performancematters.com/ola/?clientcode=<Client Code>
@@ -109,91 +86,58 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD z zagadnieniami dotycz
     ```
 
     > [!NOTE]
-    > Ta wartość nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. Skontaktuj się z [zespołem pomocy technicznej Powerschool](mailto:pmsupport@powerschoo.com) , aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Ta wartość nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. Skontaktuj się z zespołem pomocy technicznej klienta [Powerschool Performance Matters,](mailto:pmsupport@powerschoo.com) aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/metadataxml.png)
 
-6. W sekcji **Konfigurowanie zagadnień dotyczących wydajności Powerschool** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
+6. W **sekcji Konfigurowanie aplikacji Powerschool Performance Matters** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
-    a. Adres URL logowania
-
-    b. Identyfikator usługi Azure AD
-
-    c. Adres URL wylogowywania
-
-### <a name="configure-powerschool-performance-matters-single-sign-on"></a>Konfigurowanie Sign-Onych zagadnień dotyczących wydajności Powerschool
-
-Aby skonfigurować Logowanie jednokrotne po stronie **Powerschool z zagadnieniami** dotyczącymi wydajności, należy wysłać pobrany **kod XML metadanych Federacji** i odpowiednie skopiowane adresy URL z Azure Portal do usługi [Powerschoole zagadnienia dotyczące wydajności](mailto:pmsupport@powerschoo.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
-
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie Britta Simon.
+W tej sekcji utworzysz użytkownika testowego w aplikacji Azure Portal B.Simon.
 
-1. W witrynie Azure Portal w okienku po lewej stronie wybierz pozycję **Azure Active Directory**, wybierz opcję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
-
-    ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
-
-2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
-
-    ![Przycisk Nowy użytkownik](common/new-user.png)
-
-3. We właściwościach użytkownika wykonaj następujące kroki.
-
-    ![Okno dialogowe Użytkownik](common/user-properties.png)
-
-    a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
-    b. W polu **Nazwa użytkownika** wpisz **brittasimon@yourcompanydomain.extension**  
-    Na przykład BrittaSimon@contoso.com
-
-    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
-
-    d. Kliknij pozycję **Utwórz**.
+1. W okienku po lewej stronie Azure Portal pozycję Azure Active Directory **pozycję** **Użytkownicy,** a następnie pozycję **Wszyscy użytkownicy.**
+1. Wybierz **pozycję Nowy** użytkownik w górnej części ekranu.
+1. We **właściwościach** Użytkownik wykonaj następujące kroki:
+   1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
+   1. W **polu Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
+   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-Ta sekcja umożliwia włączenie usługi Britta Simon w celu korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do zagadnień związanych z wydajnością Powerschool.
+W tej sekcji włączysz dla użytkownika B.Simon możliwość korzystania z logowania pojedynczego platformy Azure, udzielając dostępu do aplikacji Powerschool Performance Matters.
 
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **zagadnienia dotyczące wydajności Powerschool**.
+1. W Azure Portal pozycję **Aplikacje dla przedsiębiorstw,** a następnie pozycję **Wszystkie aplikacje.**
+1. Na liście aplikacji wybierz pozycję **Powerschool Performance Matters**.
+1. Na stronie przeglądu aplikacji znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy.**
+1. Wybierz **pozycję Dodaj użytkownika,** a następnie wybierz **pozycję Użytkownicy i grupy w** **oknie dialogowym Dodawanie** przypisania.
+1. W **oknie dialogowym** Użytkownicy i grupy wybierz **pozycję B.Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+1. Jeśli oczekujesz przypisania roli do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz** rolę. Jeśli dla tej aplikacji nie została ustawiona żadna rola, zobaczysz wybraną rolę "Dostęp domyślny".
+1. W **oknie dialogowym Dodawanie przypisania** kliknij przycisk **Przypisz.**
 
-    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
+## <a name="configure-powerschool-performance-matters-sso"></a>Konfigurowanie aplikacji Powerschool Performance Matters SSO
 
-2. Na liście Aplikacje wybierz pozycję **zagadnienia dotyczące wydajności Powerschool**.
+Aby skonfigurować logowanie pojedynczy po stronie aplikacji **Powerschool Performance Matters,** musisz wysłać pobrany plik XML metadanych federacji i odpowiednie adresy **URL** skopiowane z aplikacji Azure Portal do zespołu pomocy technicznej aplikacji [Powerschool Performance Matters.](mailto:pmsupport@powerschoo.com) Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
-    ![Łącze Powerschool wydajności na liście aplikacji](common/all-applications.png)
+### <a name="create-powerschool-performance-matters-test-user"></a>Tworzenie użytkownika testowego aplikacji Powerschool Performance Matters
 
-3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
+W tej sekcji utworzysz użytkownika Britta Simon w aplikacji Powerschool Performance Matters. We współpracy z zespołem pomocy technicznej aplikacji [Powerschool Performance Matters](mailto:pmsupport@powerschoo.com) dodaj użytkowników na platformie Powerschool Performance Matters. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
-    ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
+## <a name="test-sso"></a>Testowanie logowania jednokrotnego
 
-4. Kliknij przycisk **Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania**.
+W tej sekcji przetestujemy konfigurację logowania pojedynczego usługi Azure AD przy użyciu następujących opcji. 
 
-    ![Okienko Dodawanie przypisania](common/add-assign-user.png)
+* Kliknij pozycję **Testuj tę aplikację w** Azure Portal. Spowoduje to przekierowanie do adresu URL logowania Powerschool Performance Matters, pod którym można zainicjować przepływ logowania. 
 
-5. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **Britta Simon** na liście Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+* Przejdź bezpośrednio do adresu URL logowania i zainicjuj przepływ logowania.
 
-6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+* Możesz użyć usługi Microsoft Moje aplikacje. Po kliknięciu kafelka Powerschool Performance Matters w Moje aplikacje nastąpi przekierowanie do adresu URL logowania Powerschool Performance Matters. Aby uzyskać więcej informacji na temat Moje aplikacje, [zobacz Wprowadzenie do Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
+## <a name="next-steps"></a>Następne kroki
 
-### <a name="create-powerschool-performance-matters-test-user"></a>Utwórz użytkownika testowego zagadnień dotyczących wydajności Powerschool
-
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w kwestiach dotyczących wydajności Powerschool. Współpraca z [zespołem pomocy technicznej w zakresie wydajności Powerschool](mailto:pmsupport@powerschoo.com) do dodawania użytkowników na platformie zagadnień dotyczących wydajności Powerschool. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
-
-### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
-
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
-
-Po kliknięciu kafelka zagadnienia dotyczącego wydajności Powerschool w panelu dostępu należy automatycznie zalogować się do zagadnień dotyczących wydajności Powerschool, dla których skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
-
-## <a name="additional-resources"></a>Dodatkowe zasoby
-
-- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
-
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](../conditional-access/overview.md)
+Po skonfigurowaniu aplikacji Powerschool Performance Matters można wymusić kontrolę sesji, która chroni eksfiltrację i przefiltrowanie poufnych danych organizacji w czasie rzeczywistym. Kontrola sesji wykracza poza dostęp warunkowy. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

@@ -1,32 +1,32 @@
 ---
 title: Typ jednostki uczenia maszynowego — LUIS
 titleSuffix: Azure Cognitive Services
-description: Jednostka uczenia maszynowego jest preferowaną jednostką do kompilowania aplikacji LUIS.
+description: Jednostka uczenia maszynowego jest preferowaną jednostką do tworzenia aplikacji usługi LUIS.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 04/30/2020
-ms.openlocfilehash: f16f3ec445af777c3bde1cb2ab0735df4b6614f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/13/2021
+ms.openlocfilehash: 12724175ebb9e23efa431169c01a804cd193cdd5
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91542244"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502593"
 ---
 # <a name="machine-learning-entity"></a>Jednostka uczenia maszynowego
 
-Jednostka uczenia maszynowego jest preferowaną jednostką do kompilowania aplikacji LUIS.
+Jednostka uczenia maszynowego jest preferowaną jednostką do tworzenia aplikacji usługi LUIS.
 
 
-## <a name="example-json"></a>Przykładowy kod JSON
+## <a name="example-json"></a>Przykładowy JSON
 
-Załóżmy, że aplikacja zajmuje się Pizza zamówieniami, takimi jak wieloelementowy [samouczek](tutorial-machine-learned-entity.md). Każde zamówienie może zawierać kilka różnych pizzami, w tym różne rozmiary.
+Załóżmy, że aplikacja przyjmuje zamówienia na pizzę, na przykład samouczek dotyczący [dekompozyowalnej jednostki](tutorial-machine-learned-entity.md). Każde zamówienie może zawierać kilka różnych pizz, w tym różne rozmiary.
 
 Przykładowe wypowiedzi mogą być następujące:
 
-|Przykład wyrażenia długości dla aplikacji Pizza|
+|Przykładowe wypowiedzi dla aplikacji do pizzy|
 |--|
 |`Can I get a pepperoni pizza and a can of coke please`|
 |`can I get a small pizza with onions peppers and olives`|
@@ -34,15 +34,15 @@ Przykładowe wypowiedzi mogą być następujące:
 
 
 
-#### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania w wersji 3](#tab/V3)
 
-Ponieważ jednostka uczenia maszynowego może mieć wiele podjednostek z wymaganymi funkcjami, jest to tylko przykład. Powinien być uważany za przewodnik dotyczący tego, co jednostka zwróci.
+Ponieważ jednostka uczenia maszynowego może mieć wiele podjęć z wymaganymi funkcjami, jest to tylko przykład. Powinien on być traktowany jako przewodnik po tym, co zostanie zwrócone przez jednostkę.
 
-Rozważmy zapytanie:
+Rozważ zapytanie:
 
 `deliver 1 large cheese pizza on thin crust and 2 medium pepperoni pizzas on deep dish crust`
 
-Jest to kod JSON, jeśli `verbose=false` jest ustawiony w ciągu zapytania:
+Jest to JSON, `verbose=false` jeśli jest ustawiony w ciągu zapytania:
 
 ```json
 "entities": {
@@ -100,7 +100,7 @@ Jest to kod JSON, jeśli `verbose=false` jest ustawiony w ciągu zapytania:
 
 ```
 
-Jest to kod JSON, jeśli `verbose=true` jest ustawiony w ciągu zapytania:
+Jest to JSON, `verbose=true` jeśli jest ustawiony w ciągu zapytania:
 
 ```json
 "entities": {
@@ -339,13 +339,13 @@ Jest to kod JSON, jeśli `verbose=true` jest ustawiony w ciągu zapytania:
     }
 }
 ```
-#### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania wersji 2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania w wersji 2](#tab/V2)
 
-Ta jednostka nie jest dostępna w środowisku uruchomieniowym przewidywania v2.
+Ta jednostka nie jest dostępna w środowisku uruchomieniowym przewidywania w wersji 2.
 * * *
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na temat jednostki uczenia maszynowego, w tym [samouczka](tutorial-machine-learned-entity.md), [koncepcji](luis-concept-entity-types.md#design-entities-for-decomposition)i [przewodnika](luis-how-to-add-entities.md#create-a-machine-learned-entity).
+Dowiedz się więcej o jednostce uczenia maszynowego, w tym [samouczku,](tutorial-machine-learned-entity.md) [pojęciach](luis-concept-entity-types.md#machine-learned-ml-entity)i [przewodniku.](luis-how-to-add-entities.md#create-a-machine-learned-entity)
 
-Dowiedz się więcej na temat jednostki [listy](reference-entity-list.md) i jednostki [wyrażenia regularnego](reference-entity-regular-expression.md) .
+Dowiedz się więcej o [jednostce listy](reference-entity-list.md) [i jednostce wyrażenia regularnego.](reference-entity-regular-expression.md)

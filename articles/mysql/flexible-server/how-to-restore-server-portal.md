@@ -1,83 +1,87 @@
 ---
-title: Przywracanie Azure Portal-Azure Database for MySQL-elastyczny serwer
-description: W tym artykule opisano sposób wykonywania operacji przywracania w Azure Database for MySQL przez Azure Portal.
+title: Przywróć Azure Database for MySQL elastyczny serwer przy użyciu Azure Portal.
+description: W tym artykule opisano sposób wykonywania operacji przywracania w Azure Database for MySQL elastycznym serwerze za pośrednictwem Azure Portal
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
-ms.date: 09/21/2020
-ms.openlocfilehash: 062d53fcb122ebacd004d7dca5e11f5a883354cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/01/2021
+ms.openlocfilehash: 962a2cbdbcc238517616c9ade235eed9b8cae6f7
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93241960"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502049"
 ---
-# <a name="point-in-time-restore-of-a-azure-database-for-mysql---flexible-server-preview"></a>Przywracanie do punktu w czasie na serwerze elastycznym Azure Database for MySQL (wersja zapoznawcza)
+# <a name="point-in-time-restore-of-a-azure-database-for-mysql---flexible-server-preview-using-azure-portal"></a>Przywracanie do punktu w czasie Azure Database for MySQL — elastyczny serwer (wersja zapoznawcza) przy użyciu Azure Portal
 
 
 > [!IMPORTANT]
-> Serwer elastyczny Azure Database for MySQL jest obecnie w publicznej wersji zapoznawczej.
+> Azure Database for MySQL — serwer elastyczny jest obecnie dostępny w publicznej wersji zapoznawczej.
 
-Ten artykuł zawiera procedury krok po kroku umożliwiające odzyskiwanie do punktu w czasie na serwerze elastycznym przy użyciu kopii zapasowych.
+Ten artykuł zawiera procedurę krok po kroku w celu wykonania odzyskiwania do punktu w czasie na serwerze elastycznym przy użyciu kopii zapasowych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten przewodnik, musisz:
+Do wykonania instrukcji w tym przewodniku potrzebne są:
 
--   Musisz mieć Azure Database for MySQL elastyczny serwer.
+-   Musisz mieć serwer Azure Database for MySQL elastyczny.
 
-## <a name="restore-to-the-latest-restore-point"></a>Przywróć do najnowszego punktu przywracania
+## <a name="restore-to-the-latest-restore-point"></a>Przywracanie do najnowszego punktu przywracania
 
-Wykonaj następujące kroki, aby przywrócić elastyczny serwer przy użyciu najwcześniejszej istniejącej kopii zapasowej.
+Wykonaj następujące kroki, aby przywrócić serwer elastyczny przy użyciu najwcześniejszej istniejącej kopii zapasowej.
 
 1.  W [Azure Portal](https://portal.azure.com/)wybierz serwer elastyczny, z którego chcesz przywrócić kopię zapasową.
 
-2.  Kliknij pozycję **Przegląd** w lewym panelu.
+2.  Kliknij **pozycję Przegląd** w lewym panelu.
 
-3.  Na stronie Przegląd kliknij przycisk **Przywróć**.
+3.  Na stronie przeglądu kliknij pozycję **Przywróć.**
 
-    Symbol
+4.  Zostanie pokazana strona przywracania z opcją wyboru między najnowszym **punktem przywracania** a niestandardowym punktem przywracania.
 
-4.  Zostanie wyświetlona strona Przywróć z opcją wyboru między **najnowszym punktem przywracania** a niestandardowym punktem przywracania.
+5.  Wybierz **pozycję Najnowszy punkt przywracania.**
 
-5.  Wybierz **najnowszy punkt przywracania**.
+6.  Podaj nową nazwę serwera w **polu Przywróć do nowego** serwera.
 
-
-6.  Podaj nową nazwę serwera w polu **Przywróć do nowego serwera** .
-
-    :::image type="content" source="./media/concept-backup-restore/restore-blade-latest.png" alt-text="Najwcześniejszy czas przywracania":::
+    :::image type="content" source="./media/concept-backup-restore/restore-blade-latest.png" alt-text="Najwcześniejsza godzina przywracania":::
 
 8.  Kliknij przycisk **OK**.
 
-9.  Zostanie wyświetlone powiadomienie z informacją o zainicjowaniu operacji przywracania.
+9.  Zostanie wyświetlone powiadomienie o zainicjowaniu operacji przywracania.
 
 ## <a name="restoring-to-a-custom-restore-point"></a>Przywracanie do niestandardowego punktu przywracania
 
-Wykonaj następujące kroki, aby przywrócić elastyczny serwer przy użyciu najwcześniejszej istniejącej kopii zapasowej.
+Wykonaj następujące kroki, aby przywrócić serwer elastyczny przy użyciu najwcześniejszej istniejącej kopii zapasowej.
 
 1.  W [Azure Portal](https://portal.azure.com/)wybierz serwer elastyczny, z którego chcesz przywrócić kopię zapasową.
 
-2.  Na stronie Przegląd kliknij przycisk **Przywróć**.
+2.  Na stronie przeglądu kliknij pozycję **Przywróć.**
 
-    Symbol
+3.  Zostanie pokazana strona przywracania z opcją wyboru między najwcześniejszym punktem przywracania a niestandardowym punktem przywracania.
 
-3.  Zostanie wyświetlona strona Przywróć z opcją wyboru między najwcześniejszym punktem przywracania i niestandardowym punktem przywracania.
+4.  Wybierz **pozycję Niestandardowy punkt przywracania.**
 
-4.  Wybierz **niestandardowy punkt przywracania**.
+5.  Wybierz datę i godzina.
 
-5.  Wybierz datę i godzinę.
+6.  Podaj nową nazwę serwera w **polu Przywróć do nowego** serwera.
 
-6.  Podaj nową nazwę serwera w polu **Przywróć do nowego serwera** .
+6.  Podaj nową nazwę serwera w **polu Przywróć do nowego** serwera.
 
-6.  Podaj nową nazwę serwera w polu **Przywróć do nowego serwera** . 
-   
-    :::image type="content" source="./media/concept-backup-restore/restore-blade-custom.png" alt-text="Przegląd widoku":::
- 
+    :::image type="content" source="./media/concept-backup-restore/restore-blade-custom.png" alt-text="przegląd widoku":::
+
 7.  Kliknij przycisk **OK**.
 
-8.  Zostanie wyświetlone powiadomienie z informacją o zainicjowaniu operacji przywracania.
+8.  Zostanie wyświetlone powiadomienie o zainicjowaniu operacji przywracania.
+
+
+## <a name="perform-post-restore-tasks"></a>Wykonywanie zadań po przywróceniu
+Po zakończeniu przywracania należy wykonać następujące zadania, aby przywrócić użytkowników i aplikacje do pracy:
+
+- Jeśli nowy serwer ma zastąpić oryginalny serwer, przekieruj klientów i aplikacje klienckie na nowy serwer.
+- Upewnij się, że istnieją odpowiednie reguły sieci wirtualnej, aby użytkownicy nawiązyli połączenie. Te reguły nie są kopiowane z oryginalnego serwera.
+- Upewnij się, że są dostępne odpowiednie nazwy logowania i uprawnienia na poziomie bazy danych.
+- Skonfiguruj alerty odpowiednio dla nowo przywróconego serwera.
+
 
 ## <a name="next-steps"></a>Następne kroki
-
-Symbol zastępczy
+Dowiedz się więcej o [ciągłości działania](concepts-business-continuity.md)

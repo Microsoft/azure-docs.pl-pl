@@ -1,11 +1,11 @@
-- name: Dokumentacja usługi translator
+- name: Dokumentacja usługi Translator
   href: index.yml
 - name: Omówienie
   expanded: true
   items:
     - name: Obsługa języków
       href: language-support.md
-    - name: Ceny i limity
+    - name: Ceny
       href: 'https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator'
 - name: Tłumaczenie tekstu
   expanded: true
@@ -18,7 +18,7 @@
       href: quickstart-translator.md
     - name: Samples
       items:
-        - name: Przykładowa strona kodowa
+        - name: Przykładowa strona kodu
           href: /samples/browse/?terms=microsoft%20translator
         - name: C#
           href: /samples/microsofttranslator/text-translation-api-v3-c-sharp/translator-c-sharp-v3/
@@ -36,7 +36,7 @@
           href: 'https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby'
     - name: Przewodniki z instrukcjami
       items:
-        - name: Tworzenie zasobu usługi translator
+        - name: Tworzenie zasobu usługi Translator
           href: ./translator-how-to-signup.md
         - name: Migrowanie do interfejsu API V3 tłumaczenia tekstu
           href: migrate-to-v3.md
@@ -134,42 +134,52 @@
           href: custom-translator/training-and-model.md
         - name: Wynik BLEU
           href: custom-translator/what-is-bleu-score.md
-- name: Tłumaczenie dokumentu
+- name: Tłumaczenie dokumentów
   items:
-    - name: Co to jest tłumaczenie dokumentu?
+    - name: Co to jest tłumaczenie dokumentów?
       href: document-translation/overview.md
     - name: Szybki start
       href: document-translation/get-started-with-document-translation.md
     - name: Przewodniki z instrukcjami
       items:
-        - name: Utwórz tokeny sygnatury dostępu współdzielonego na potrzeby tłumaczenia dokumentu
+        - name: Tworzenie tokenów SAS do tłumaczenia dokumentów
           href: document-translation/create-sas-tokens.md
     - name: Odwołanie
       items:
-        - name: Pobierz formaty dokumentów
+        - name: Uzyskiwanie formatów dokumentów
           href: document-translation/reference/get-document-formats.md
-        - name: Pobierz formaty słownika
+        - name: Uzyskiwanie formatów słownika
           href: document-translation/reference/get-glossary-formats.md
-        - name: Pobierz Źródło magazynu dokumentów
+        - name: Uzyskiwanie źródła magazynu dokumentów
           href: document-translation/reference/get-document-storage-source.md
-        - name: Prześlij żądanie wsadowe
+        - name: Przesyłanie żądania wsadowego
           href: document-translation/reference/submit-batch-request.md
-        - name: Pobierz stan dokumentów operacji
+        - name: Uzyskiwanie stanu dokumentów operacji
           href: document-translation/reference/get-operation-documents-status.md
-        - name: Pobierz stan dokumentów
+        - name: Uzyskiwanie stanu dokumentów
           href: document-translation/reference/get-document-status.md
-        - name: Pobierz operacje
+        - name: Operacje get
           href: document-translation/reference/get-operations.md
-        - name: Anuluj operację
+        - name: Operacja anulowania
           href: document-translation/reference/cancel-operation.md
+- name: Przewodniki z instrukcjami
+  items:
+    - name: Gotowość przedsiębiorstwa
+      items:
+        - name: Konfigurowanie sieci wirtualnych
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/translator/context/context
+        - name: Korzystanie z kluczy zarządzanych przez klienta
+          href: encrypt-data-at-rest.md
 - name: Zasoby
   items:
-    - name: Opcje pomocy technicznej
+    - name: Gotowość przedsiębiorstwa
+      items:
+        - name: Obsługa regionów
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Zgodność i certyfikacja
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Opcje wsparcia technicznego i pomocy
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
-    - name: Zgodność
-      href: 'https://azure.microsoft.com/en-us/support/legal/cognitive-services-compliance-and-privacy'
-    - name: Szyfrowanie
-      href: encrypt-data-at-rest.md
     - name: Przykłady kodu w serwisie GitHub
       href: 'https://aka.ms/TranslatorGitHub'
     - name: Ochrona prywatności i pliki cookie
