@@ -1,48 +1,49 @@
 ---
 title: Różnice w stosunku do usługi Azure Data Factory
-description: Dowiedz się, jak możliwości integracji danych usługi Azure Synapse Analytics różnią się w zależności od Azure Data Factory
+description: Dowiedz się, jak możliwości integracji danych Azure Synapse Analytics się od tych w Azure Data Factory
 services: synapse-analytics
 author: kromerm
 ms.service: synapse-analytics
+ms.subservice: pipeline
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: makromer
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9cd3fc9353c684ec6617761616b958477ca83ee3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 144bdf5e94f753090dd73e5839b6c1fd25f11811
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102183645"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567642"
 ---
-# <a name="data-integration-in-azure-synapse-analytics-versus-azure-data-factory"></a>Integracja danych w usłudze Azure Synapse Analytics a Azure Data Factory
+# <a name="data-integration-in-azure-synapse-analytics-versus-azure-data-factory"></a>Integracja danych w Azure Synapse Analytics a Azure Data Factory
 
-W usłudze Azure Synapse Analytics funkcje integracji danych, takie jak potoki Synapse i przepływy danych, opierają się na tych Azure Data Factory. Aby uzyskać więcej informacji, zobacz [co to jest Azure Data Factory](../../data-factory/introduction.md).
+W Azure Synapse Analytics możliwości integracji danych, takie jak potoki synapse i przepływy danych, są oparte na tych, które Azure Data Factory. Aby uzyskać więcej informacji, [zobacz co to jest Azure Data Factory](../../data-factory/introduction.md).
 
 
-## <a name="available-features-in-adf--azure-synapse-analytics"></a>Dostępne funkcje w module ADF & Azure Synapse Analytics
+## <a name="available-features-in-adf--azure-synapse-analytics"></a>Dostępne funkcje w UDF & Azure Synapse Analytics
 
-Sprawdź w poniższej tabeli dostępność funkcji:
+Sprawdź dostępność funkcji w poniższej tabeli:
 
 | Kategoria                 | Cecha    |  Azure Data Factory  | Azure Synapse Analytics |
 | ------------------------ | ---------- | :------------------: | :---------------------: |
-| **Integration Runtime**  | Korzystanie z Integration Runtime SSIS i SSIS | ✓ | ✗ |
-|                          | Obsługa Integration Runtime między regionami (przepływy danych) | ✓ | ✗ |
-|                          | Udostępnianie Integration Runtime | ✓<br><small>*Może być współużytkowany przez różne fabryki danych* | ✗ |
-|                          | Czas wygaśnięcia | ✓ | ✗ |
+| **Integration Runtime**  | Korzystanie z usług SSIS i SSIS Integration Runtime | ✓ | ✗ |
+|                          | Obsługa przepływów danych Integration Runtime między regionami | ✓ | ✗ |
+|                          | Integration Runtime udostępniania | ✓<br><small>*Mogą być udostępniane w różnych fabrykach danych* | ✗ |
+|                          | Czas do transmisji | ✓ | ✗ |
 | **Działania potoków** | Działanie pakietu SSIS | ✓ | ✗ |
-|                          | Obsługa działania Power Query | ✓ | ✓ |
-| **Galeria szablonów i centrum wiedzy** | Szablony rozwiązań | ✓<br><small>*Galeria szablonów Azure Data Factory* | ✓<br><small>*Centrum wiedzy Synapse Workspace* |
+|                          | Obsługa Power Query danych | ✓ | ✓ |
+| **Galeria szablonów i Centrum wiedzy** | Szablony rozwiązań | ✓<br><small>*Azure Data Factory galerii szablonów* | ✓<br><small>*Centrum wiedzy obszaru roboczego synapse* |
 | **Integracja repozytorium GIT** | Integracja z usługą GIT | ✓ | ✓ |
-| **Monitorowanie**           | Monitorowanie zadań platformy Spark dla przepływu danych | ✗ | ✓<br><small>*Korzystanie z pul Synapse Spark* |
-|                          | Integracja z usługą Azure Monitor | ✓ | ✗ |
-| **Pochodzenie** | Obsługuje publikowanie danych z potoku w programie kontrolą  | ✓ | ✗ |  
+| **Monitorowanie**           | Monitorowanie zadań Platformy Spark dla Przepływ danych | ✗ | ✓<br><small>*Korzystanie z pul synapse Spark* |
+|                          | Integracja z Azure Monitor | ✓ | ✗ |
+| **Pochodzenie** | Obsługuje publikowanie danych z potoku w aplikacji Purview  | ✓ | ✗ |  
 
 > [!Note]
-> **Czas wygaśnięcia** jest ustawieniem Azure Integration Runtime, które umożliwia klastrowi Spark *przeprowadzenie pracy* przez pewien czas po wykonaniu przepływu danych.
+> **Czas do transmisji na** żywo to Azure Integration Runtime, które  umożliwia zachować ciepło klastra Spark przez okres po wykonaniu przepływu danych.
 >
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Rozpocznij pracę z integracją danych w obszarze roboczym Synapse, aby dowiedzieć się, jak pozyskać [dane na koncie Azure Data Lake Storage Gen2](data-integration-data-lake.md).
+Rozpoczynanie pracy z integracją danych w obszarze roboczym synapse przez uczenie się, jak pozyskać dane do konta [Azure Data Lake Storage gen2.](data-integration-data-lake.md)

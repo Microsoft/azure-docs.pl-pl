@@ -1,38 +1,38 @@
 ---
-title: Samouczek — Wdrażanie chmury prywatnej rozwiązania Azure VMware
-description: Dowiedz się, jak utworzyć i wdrożyć chmurę prywatną rozwiązania Azure VMware
+title: Samouczek — wdrażanie Azure VMware Solution prywatnej
+description: Dowiedz się, jak utworzyć i wdrożyć Azure VMware Solution chmurę prywatną
 ms.topic: tutorial
 ms.date: 02/22/2021
-ms.openlocfilehash: ed916305cd1a67162f07c24e3bf97766e5389b74
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 89a44ce7e5910609068f72c321971ced2e3646b4
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103462171"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374849"
 ---
-# <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud"></a>Samouczek: Wdrażanie chmury prywatnej rozwiązania Azure VMware
+# <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud"></a>Samouczek: wdrażanie Azure VMware Solution prywatnej
 
-Rozwiązanie Azure VMware umożliwia wdrażanie klastra vSphere na platformie Azure. Minimalne początkowe wdrożenie to trzy hosty. Dodatkowe hosty mogą być dodawane pojedynczo do maksymalnie 16 hostów na klaster.
+Azure VMware Solution umożliwia wdrożenie klastra vSphere na platformie Azure. Minimalne początkowe wdrożenie to trzy hosty. Dodatkowe hosty można dodawać po jednym na raz, maksymalnie 16 hostów na klaster.
 
-Ponieważ rozwiązanie Azure VMware nie pozwala na zarządzanie chmurą prywatną przy użyciu lokalnego programu vCenter podczas uruchamiania, wymagana jest dodatkowa konfiguracja. Te procedury i powiązane z nim wymagania wstępne zostały omówione w tym samouczku.
+Ponieważ Azure VMware Solution nie pozwala na zarządzanie chmurą prywatną przy użyciu lokalnego programu vCenter podczas uruchamiania, potrzebna jest dodatkowa konfiguracja. Te procedury i powiązane wymagania wstępne zostały uwzględnione w tym samouczku.
 
 Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
-> * Utwórz chmurę prywatną rozwiązania Azure VMware
-> * Weryfikowanie wdrożenia chmury prywatnej
+> * Tworzenie Azure VMware Solution prywatnej
+> * Weryfikowanie wdrożonej chmury prywatnej
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Odpowiednie prawa administracyjne i uprawnienia do tworzenia chmury prywatnej. Musisz mieć co najmniej poziom współautor w subskrypcji.
-- Postępuj zgodnie z informacjami w artykule [Planowanie](production-ready-deployment-steps.md) , aby wdrożyć rozwiązanie VMware dla platformy Azure.
-- Upewnij się, że skonfigurowano odpowiednią sieć, zgodnie z opisem w [samouczku: Lista kontrolna sieci](tutorial-network-checklist.md).
-- Hosty zostały wdrożone i dostawca zasobów Microsoft. Automatyczna synchronizacja został zarejestrowany zgodnie z opisem w artykule [Żądaj hostów i Włącz dostawcę zasobów Microsoft. Automatyczna synchronizacja](enable-azure-vmware-solution.md).
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Odpowiednie prawa administracyjne i uprawnienia do tworzenia chmury prywatnej. Musisz mieć co najmniej poziom współautora w subskrypcji.
+- Postępuj zgodnie z informacjami zebranymi w artykule [planowania,](production-ready-deployment-steps.md) aby wdrożyć Azure VMware Solution.
+- Upewnij się, że skonfigurowano odpowiednią sieć zgodnie z opisem w części [Samouczek: Lista kontrolna sieci.](tutorial-network-checklist.md)
+- Hosty zostały zaaprowizowane, a dostawca zasobów Microsoft.AVS został zarejestrowany zgodnie z opisem w żądaniu hostów i włącz [dostawcę zasobów Microsoft.AVS.](enable-azure-vmware-solution.md)
 
 ## <a name="create-a-private-cloud"></a>Tworzenie chmury prywatnej
 
-Chmurę prywatną rozwiązania Azure VMware można utworzyć za pomocą [Azure Portal](#azure-portal) lub przy użyciu [interfejsu wiersza polecenia platformy Azure](#azure-cli).
+Możesz utworzyć chmurę prywatną Azure VMware Solution przy użyciu interfejsu [Azure Portal](#azure-portal) lub interfejsu wiersza polecenia [platformy Azure.](#azure-cli)
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -40,15 +40,15 @@ Chmurę prywatną rozwiązania Azure VMware można utworzyć za pomocą [Azure P
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Zamiast Azure Portal utworzyć chmurę prywatną rozwiązania Azure VMware, możesz użyć interfejsu wiersza polecenia platformy Azure przy użyciu Azure Cloud Shell.  Aby zapoznać się z listą poleceń, których można używać z rozwiązaniem VMware platformy Azure, zobacz [Azure VMware Commands](/cli/azure/ext/vmware/vmware).
+Zamiast tworzyć Azure Portal chmury Azure VMware Solution, można użyć interfejsu wiersza polecenia platformy Azure przy użyciu Azure Cloud Shell.  Aby uzyskać listę poleceń, których można używać z programem Azure VMware Solution, [zobacz Polecenia programu Azure VMware.](/cli/azure/ext/vmware/vmware)
 
 #### <a name="open-azure-cloud-shell"></a>Otwieranie usługi Azure Cloud Shell
 
-Wybierz opcję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/bash](https://shell.azure.com/bash) . Wybierz pozycję **Kopiuj** , aby skopiować bloki kodu, wkleić je do Cloud Shell i naciśnij klawisz **Enter** , aby go uruchomić.
+Wybierz **pozycję Wypróbuj** w prawym górnym rogu bloku kodu. Możesz również uruchomić Cloud Shell na osobnej karcie przeglądarki, przechodząc do strony [https://shell.azure.com/bash](https://shell.azure.com/bash) . Wybierz **pozycję** Kopiuj, aby skopiować bloki kodu, wklej je do Cloud Shell i naciśnij klawisz **Enter,** aby go uruchomić.
 
 #### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz grupę zasobów za pomocą polecenia ["AZ Group Create"](/cli/azure/group) . Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Poniższy przykład tworzy grupę zasobów o nazwie Moja *zasobów* w lokalizacji *Wschodnie* :
+Utwórz grupę zasobów za pomocą [polecenia "az group create".](/cli/azure/group) Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w *lokalizacji eastus:*
 
 ```azurecli-interactive
 
@@ -57,36 +57,36 @@ az group create --name myResourceGroup --location eastus
 
 #### <a name="create-a-private-cloud"></a>Tworzenie chmury prywatnej
 
-Podaj nazwę grupy zasobów oraz chmurę prywatną, lokalizację i rozmiar klastra.
+Podaj nazwę grupy zasobów i chmurę prywatną, lokalizację i rozmiar klastra.
 
 | Właściwość  | Opis  |
 | --------- | ------------ |
-| **-g** (nazwa grupy zasobów)     | Nazwa grupy zasobów dla zasobów w chmurze prywatnej.        |
-| **-n** (nazwa chmury prywatnej)     | Nazwa chmury prywatnej rozwiązania Azure VMware.        |
-| **--Lokalizacja**     | Lokalizacja używana dla chmury prywatnej.         |
-| **--rozmiar klastra**     | Rozmiar klastra. Wartość minimalna to 3.         |
-| **--Blok sieci**     | Blok sieciowy adresu IP CIDR używany przez chmurę prywatną. Blok adresów nie powinien nakładać się na bloki adresów używane w innych sieciach wirtualnych, które znajdują się w ramach subskrypcji i sieci lokalnych.        |
-| **--SKU** | Wartość jednostki SKU: AV36 |
+| **-g** (Nazwa grupy zasobów)     | Nazwa grupy zasobów dla zasobów chmury prywatnej.        |
+| **-n** (Nazwa chmury prywatnej)     | Nazwa chmury Azure VMware Solution prywatnej.        |
+| **--location**     | Lokalizacja używana dla chmury prywatnej.         |
+| **--cluster-size**     | Rozmiar klastra. Minimalna wartość to 3.         |
+| **--network-block**     | Blok sieci adresów IP CIDR do użycia w chmurze prywatnej. Blok adresów nie powinien pokrywać się z blokami adresów używanymi w innych sieciach wirtualnych, które znajdują się w twojej subskrypcji i sieciach lokalnych.        |
+| **--sku** | Wartość SKU: AV36 |
 
 ```azurecli-interactive
 az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --location eastus --cluster-size 3 --network-block xx.xx.xx.xx/22 --sku AV36
 ```
 
-## <a name="azure-vmware-commands"></a>Polecenia programu VMware platformy Azure
+## <a name="azure-vmware-commands"></a>Polecenia programu Azure VMware
 
-Aby zapoznać się z listą poleceń, których można używać z rozwiązaniem VMware platformy Azure, zobacz [Azure VMware Commands](/cli/azure/ext/vmware/vmware).
+Aby uzyskać listę poleceń, których można używać z programem Azure VMware Solution, [zobacz Polecenia programu Azure VMware.](/cli/azure/ext/vmware/vmware)
 
 ## <a name="next-steps"></a>Następne kroki
 
 W tym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Utwórz chmurę prywatną rozwiązania Azure VMware
-> * Weryfikowanie wdrożenia chmury prywatnej
-> * Usuń chmurę prywatną rozwiązania Azure VMware
+> * Tworzenie Azure VMware Solution prywatnej
+> * Weryfikowanie wdrożonej chmury prywatnej
+> * Usuwanie Azure VMware Solution prywatnej
 
-Przejdź do następnego samouczka, aby dowiedzieć się, jak utworzyć pole skoku. Możesz użyć pola skoku, aby nawiązać połączenie ze środowiskiem, aby można było zarządzać chmurą prywatną lokalnie.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak utworzyć pole przeskoku. Za pomocą usługi przeskoku możesz połączyć się ze środowiskiem, aby zarządzać chmurą prywatną lokalnie.
 
 
 > [!div class="nextstepaction"]
-> [Dostęp do chmury prywatnej rozwiązania Azure VMware](tutorial-access-private-cloud.md)
+> [Uzyskiwanie dostępu do Azure VMware Solution prywatnej](tutorial-access-private-cloud.md)

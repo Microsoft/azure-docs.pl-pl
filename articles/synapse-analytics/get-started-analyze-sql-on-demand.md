@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Rozpoczynanie analizy danych za pomocą puli SQL bezserwerowej'
-description: W tym samouczku dowiesz się, jak analizować dane za pomocą puli SQL bezserwerowej przy użyciu danych znajdujących się w bazach danych platformy Spark.
+title: 'Samouczek: wprowadzenie do analizowania danych przy użyciu bez serwera puli SQL'
+description: Z tego samouczka dowiesz się, jak analizować dane za pomocą bez serwera puli SQL przy użyciu danych znajdujących się w bazach danych platformy Spark.
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -9,43 +9,42 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 12/31/2020
-ms.openlocfilehash: 7c228bfe5897b45e6345234f2ed8e0f5cfbec73a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 04/15/2021
+ms.openlocfilehash: c6f2dfe0d4846227400ac9b3c7ac3e6ead8f0b57
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107312794"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567557"
 ---
-# <a name="analyze-data-with-a-serverless-sql-pool"></a>Analizowanie danych za pomocą bezserwerowej puli SQL
+# <a name="analyze-data-with-a-serverless-sql-pool"></a>Analizowanie danych przy użyciu bez serwera puli SQL
 
-W tym samouczku dowiesz się, jak analizować dane za pomocą puli SQL bezserwerowej. 
+Z tego samouczka dowiesz się, jak analizować dane przy użyciu bez serwera puli SQL. 
 
-## <a name="the-built-in-serverless-sql-pool"></a>Wbudowana Pula SQL bezserwerowa
+## <a name="the-built-in-serverless-sql-pool"></a>Wbudowana bez serwera pula SQL
 
-Pule SQL bezserwerowe umożliwiają korzystanie z języka SQL bez konieczności rezerwowania pojemności. Rozliczanie dla bezserwerowej puli SQL jest zależne od ilości danych przetworzonych w celu uruchomienia zapytania, a nie liczby węzłów używanych do uruchomienia zapytania.
+Bez serwerowe pule SQL umożliwiają korzystanie z bazy danych SQL bez konieczności rezerwy pojemności. Rozliczenia dla bez serwera puli SQL są oparte na ilości danych przetworzonych w celu uruchomienia zapytania, a nie na liczbie węzłów używanych do uruchomienia zapytania.
 
-Każdy obszar roboczy jest dostarczany ze wstępnie skonfigurowaną bezserwerową pulą SQL o nazwie **wbudowane**. 
+Każdy obszar roboczy zawiera wstępnie skonfigurowaną bez serwera pulę SQL o nazwie **Wbudowana.** 
 
-## <a name="analyze-nyc-taxi-data-with-a-serverless-sql-pool"></a>Analizowanie danych z NYC taksówki przy użyciu bezserwerowej puli SQL
+## <a name="analyze-nyc-taxi-data-with-a-serverless-sql-pool"></a>Analizowanie danych dotyczących taksówek w NYC przy użyciu bez serwera puli SQL
 
-
-1. W programie Synapse Studio przejdź do centrum **opracowywania**
+1. W Synapse Studio przejdź do centrum **Opracowywanie**
 1. Utwórz nowy skrypt SQL.
-1. Wklej poniższy kod do skryptu.
+1. Wklej następujący kod do skryptu.
 
     ```
     SELECT
         TOP 100 *
     FROM
         OPENROWSET(
-                BULK 'https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet',
+            BULK 'https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet',
             FORMAT='PARQUET'
         ) AS [result]
     ```
-1. Kliknij przycisk **Uruchom**
+1. Kliknij przycisk **Uruchom**. 
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Analizowanie danych za pomocą bezserwerowej puli platformy Spark](get-started-analyze-spark.md)
+> [Analizowanie danych za pomocą bez serwera puli spark](get-started-analyze-spark.md)

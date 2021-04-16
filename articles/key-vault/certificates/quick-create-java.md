@@ -1,22 +1,22 @@
 ---
-title: Przewodnik Szybki Start dotyczący Azure Key Vault Biblioteka kliencka certyfikatów — Java
-description: Więcej informacji na temat biblioteki klienta Azure Key Vault Certificate dla języka Java z krokami opisanymi w tym przewodniku Szybki Start.
+title: Przewodnik Szybki start dla Azure Key Vault klienta certyfikatów — Java
+description: Dowiedz się więcej o Azure Key Vault klienta certyfikatu dla języka Java, instrukcje opisane w tym przewodniku Szybki start.
 author: msmbaldwin
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java
 ms.author: mbaldwin
 ms.date: 12/18/2020
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.openlocfilehash: 99b8c63060cebeffea0f3473e03b5f49a415230b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: db69258a774343af18e683444d22530a32f85555
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97936043"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374951"
 ---
-# <a name="quickstart-azure-key-vault-certificate-client-library-for-java-certificates"></a>Szybki Start: Azure Key Vault Biblioteka kliencka certyfikatów dla języka Java (certyfikaty)
-Zacznij korzystać z biblioteki klienta Azure Key Vault Certificate dla języka Java. Wykonaj poniższe kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.
+# <a name="quickstart-azure-key-vault-certificate-client-library-for-java-certificates"></a>Szybki start: Azure Key Vault klienta certyfikatów dla języka Java (certyfikaty)
+Wprowadzenie do biblioteki klienta Azure Key Vault certyfikatów dla języka Java. Wykonaj poniższe kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.
 
 Dodatkowe zasoby:
 
@@ -26,15 +26,15 @@ Dodatkowe zasoby:
 * [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-certificates/src/samples/java/com/azure/security/keyvault/certificates)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-- Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Zestaw Java Development Kit (JDK)](/java/azure/jdk/) w wersji 8 lub nowszej
+- Subskrypcja platformy Azure — [utwórz subskrypcję bezpłatnie.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- [Zestaw Java Development Kit (JDK) w](/java/azure/jdk/) wersji 8 lub nowszej
 - [Apache Maven](https://maven.apache.org)
 - [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)
 
-W tym przewodniku szybki start założono, że uruchomiono [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) i [Apache Maven](https://maven.apache.org) w oknie terminalu systemu Linux.
+W tym przewodniku Szybki start założono, że używasz interfejsu wiersza [polecenia platformy Azure](/cli/azure/install-azure-cli) i narzędzia Apache [Maven](https://maven.apache.org) w oknie terminalu systemu Linux.
 
 ## <a name="setting-up"></a>Konfigurowanie
-Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z interfejsem wiersza polecenia platformy Azure w celu uwierzytelniania użytkowników w usługach platformy Azure. Deweloperzy mogą również używać programu Visual Studio lub Visual Studio Code do uwierzytelniania wywołań, aby uzyskać więcej informacji, zobacz [uwierzytelnianie klienta przy użyciu biblioteki klienta tożsamości platformy Azure](/java/api/overview/azure/identity-readme).
+Ten przewodnik Szybki start używa biblioteki tożsamości platformy Azure z interfejsem wiersza polecenia platformy Azure do uwierzytelniania użytkownika w usługach platformy Azure. Deweloperzy mogą również Visual Studio lub Visual Studio Code do uwierzytelniania swoich wywołań. Aby uzyskać więcej informacji, zobacz Authenticate the client with Azure Identity client library (Uwierzytelnianie klienta za pomocą [biblioteki klienta tożsamości platformy Azure).](/java/api/overview/azure/identity-readme)
 
 ### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 1. Uruchom polecenie `login`.
@@ -43,14 +43,14 @@ Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z inter
     az login
     ```
 
-   Jeśli interfejs wiersza polecenia może otworzyć domyślną przeglądarkę, spowoduje to załadowanie strony logowania platformy Azure.
+   Jeśli interfejs wiersza polecenia może otworzyć domyślną przeglądarkę, zrobi to i załaduje stronę logowania platformy Azure.
 
-   W przeciwnym razie Otwórz stronę przeglądarki pod adresem [https://aka.ms/devicelogin](https://aka.ms/devicelogin) i wprowadź kod autoryzacji wyświetlany w terminalu.
+   W przeciwnym razie otwórz stronę przeglądarki pod [https://aka.ms/devicelogin](https://aka.ms/devicelogin) adresem i wprowadź kod autoryzacji wyświetlany w terminalu.
 
 2. Zaloguj się w przeglądarce przy użyciu poświadczeń swojego konta.
 
 ### <a name="create-a-new-java-console-app"></a>Tworzenie nowej aplikacji konsolowej Java
-W oknie konsoli Użyj `mvn` polecenia, aby utworzyć nową aplikację konsolową Java o nazwie `akv-certificates-java` .
+W oknie konsoli użyj polecenia , aby utworzyć nową aplikację konsoli `mvn` Java o nazwie `akv-certificates-java` .
 
 ```console
 mvn archetype:generate -DgroupId=com.keyvault.certificates.quickstart
@@ -60,7 +60,7 @@ mvn archetype:generate -DgroupId=com.keyvault.certificates.quickstart
                        -DinteractiveMode=false
 ```
 
-Dane wyjściowe generowania projektu będą wyglądać następująco:
+Dane wyjściowe wygenerowania projektu będą wyglądać podobnie do tych:
 
 ```console
 [INFO] ----------------------------------------------------------------------------
@@ -90,7 +90,7 @@ Zmień katalog na nowo utworzony `akv-certificates-java/` folder.
 cd akv-certificates-java
 ```
 
-### <a name="install-the-package"></a>Zainstaluj pakiet
+### <a name="install-the-package"></a>Instalowanie pakietu
 Otwórz plik *pom.xml* w edytorze tekstów. Dodaj następujące elementy zależności do grupy zależności.
 
 ```xml
@@ -111,7 +111,7 @@ Otwórz plik *pom.xml* w edytorze tekstów. Dodaj następujące elementy zależn
 [!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
 
 #### <a name="grant-access-to-your-key-vault"></a>Udzielanie dostępu do magazynu kluczy
-Utwórz zasady dostępu dla magazynu kluczy, które przyznaje uprawnienia certyfikatów do konta użytkownika.
+Utwórz zasady dostępu dla magazynu kluczy, które będą udzielać uprawnień do certyfikatów kontu użytkownika.
 
 ```console
 az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --certificate-permissions delete get list create purge
@@ -134,13 +134,13 @@ macOS lub Linux
 export KEY_VAULT_NAME=<your-key-vault-name>
 ```
 
-## <a name="object-model"></a>Model obiektów
-Biblioteka klienta certyfikatu Azure Key Vault dla języka Java umożliwia zarządzanie certyfikatami. W sekcji [przykłady kodu](#code-examples) pokazano, jak utworzyć klienta, utworzyć certyfikat, pobrać certyfikat i usunąć certyfikat.
+## <a name="object-model"></a>Model obiektu
+Biblioteka klienta Azure Key Vault Certificate dla języka Java umożliwia zarządzanie certyfikatami. W [sekcji Przykłady](#code-examples) kodu pokazano, jak utworzyć klienta, utworzyć certyfikat, pobrać certyfikat i usunąć certyfikat.
 
-Cała Aplikacja konsolowa znajduje się [poniżej](#sample-code).
+Cała aplikacja konsolowa znajduje się [poniżej .](#sample-code)
 
 ## <a name="code-examples"></a>Przykłady kodu
-### <a name="add-directives"></a>Dodaj dyrektywy
+### <a name="add-directives"></a>Dodawanie dyrektyw
 Dodaj następujące dyrektywy na początku kodu:
 
 ```java
@@ -157,9 +157,9 @@ import com.azure.security.keyvault.certificates.models.KeyVaultCertificateWithPo
 ```
 
 ### <a name="authenticate-and-create-a-client"></a>Uwierzytelnianie i tworzenie klienta
-W tym przewodniku szybki start zalogowany użytkownik jest używany do uwierzytelniania w Key Vault, który jest preferowaną metodą tworzenia lokalnego. W przypadku aplikacji wdrożonych na platformie Azure tożsamość zarządzana powinna być przypisana do App Service lub maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Omówienie tożsamości zarządzanej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+W tym przewodniku Szybki start zalogowany użytkownik jest używany do uwierzytelniania w Key Vault, co jest preferowaną metodą tworzenia aplikacji lokalnych. W przypadku aplikacji wdrożonych na platformie Azure tożsamość zarządzana powinna zostać przypisana do App Service lub maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Omówienie tożsamości zarządzanej.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-W poniższym przykładzie nazwa magazynu kluczy jest rozwinięta do identyfikatora URI magazynu kluczy w formacie "https:// \<your-key-vault-name\> . Vault.Azure.NET". W tym przykładzie użyto klasy ["DefaultAzureCredential ()"](https://docs.microsoft.com/java/api/com.azure.identity.defaultazurecredential) , która umożliwia użycie tego samego kodu w różnych środowiskach z różnymi opcjami w celu zapewnienia tożsamości. Aby uzyskać więcej informacji, zobacz [domyślne uwierzytelnianie poświadczeń platformy Azure](https://docs.microsoft.com/java/api/overview/azure/identity-readme).
+W poniższym przykładzie nazwa magazynu kluczy jest rozszerzana do wartości URI magazynu kluczy w formacie "https:// \<your-key-vault-name\> .vault.azure.net". W tym przykładzie jest to klasa ["DefaultAzureCredential()",](https://docs.microsoft.com/java/api/com.azure.identity.defaultazurecredential) która umożliwia używanie tego samego kodu w różnych środowiskach z różnymi opcjami w celu zapewnienia tożsamości. Aby uzyskać więcej informacji, zobacz [Domyślne uwierzytelnianie poświadczeń platformy Azure.](https://docs.microsoft.com/java/api/overview/azure/identity-readme)
 
 ```java
 String keyVaultName = System.getenv("KEY_VAULT_NAME");
@@ -171,10 +171,10 @@ CertificateClient certificateClient = new CertificateClientBuilder()
     .buildClient();
 ```
 
-### <a name="save-a-secret"></a>Zapisz klucz tajny
-Po uwierzytelnieniu aplikacji można utworzyć certyfikat w magazynie kluczy przy użyciu `certificateClient.beginCreateCertificate` metody. Wymaga to nazwy certyfikatu i zasad certyfikatów — do zmiennej w tym przykładzie przypisano wartość "Moje certyfikaty" `certificateName` i Użyj domyślnych zasad.
+### <a name="save-a-secret"></a>Zapisywanie tajnego
+Teraz, po uwierzytelnieniu aplikacji, możesz utworzyć certyfikat w magazynie kluczy przy użyciu `certificateClient.beginCreateCertificate` metody . Wymaga to nazwy certyfikatu i zasad certyfikatu — przypisaliśmy wartość "myCertificate" do zmiennej w tym przykładzie i użyjemy `certificateName` zasad domyślnych.
 
-Tworzenie certyfikatu to długotrwała operacja, dla której można sondować postęp lub poczekać na jego zakończenie.
+Tworzenie certyfikatu jest długotrwałą operacją, dla której można sondować postęp lub czekać na jej zakończenie.
 
 ```java
 SyncPoller<CertificateOperation, KeyVaultCertificateWithPolicy> certificatePoller =
@@ -182,23 +182,23 @@ SyncPoller<CertificateOperation, KeyVaultCertificateWithPolicy> certificatePolle
 certificatePoller.waitForCompletion();
 ```
 
-Certyfikat można uzyskać po zakończeniu tworzenia przy użyciu następującego wywołania:
+Certyfikat można uzyskać po zakończeniu tworzenia za pomocą następującego wywołania:
 
 ```java
 KeyVaultCertificate createdCertificate = certificatePoller.getFinalResult();
 ```
 
-### <a name="retrieve-a-certificate"></a>Pobierz certyfikat
-Teraz można pobrać wcześniej utworzony certyfikat przy użyciu `certificateClient.getCertificate` metody.
+### <a name="retrieve-a-certificate"></a>Pobieranie certyfikatu
+Teraz możesz pobrać wcześniej utworzony certyfikat za pomocą `certificateClient.getCertificate` metody .
 
 ```java
 KeyVaultCertificate retrievedCertificate = certificateClient.getCertificate(certificateName);
  ```
 
-Teraz możesz uzyskać dostęp do szczegółów pobranego certyfikatu z użyciem operacji takich jak `retrievedCertificate.getName` , `retrievedCertificate.getProperties` itp. Również jego zawartość `retrievedCertificate.getCer` .
+Teraz możesz uzyskać dostęp do szczegółów pobranego certyfikatu za pomocą operacji, takich `retrievedCertificate.getName` `retrievedCertificate.getProperties` jak , itp. A także jego zawartość `retrievedCertificate.getCer` .
 
 ### <a name="delete-a-certificate"></a>Usuwanie certyfikatu
-Na koniec usuńmy certyfikat z magazynu kluczy za pomocą `certificateClient.beginDeleteCertificate` metody, która jest również długotrwałą operacją.
+Na koniec usuńmy certyfikat z magazynu kluczy przy użyciu metody , która jest `certificateClient.beginDeleteCertificate` również długotrwałą operacją.
 
 ```java
 SyncPoller<DeletedCertificate, Void> deletionPoller = certificateClient.beginDeleteCertificate(certificateName);
@@ -206,7 +206,7 @@ deletionPoller.waitForCompletion();
 ```
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
-Gdy nie jest już potrzebne, możesz użyć interfejsu wiersza polecenia platformy Azure lub Azure PowerShell, aby usunąć magazyn kluczy i odpowiednią grupę zasobów.
+Gdy magazyn kluczy i odpowiednia grupa zasobów nie będą już potrzebne, możesz Azure PowerShell interfejsu wiersza polecenia platformy Azure lub usługi Azure Key Vault.
 
 ```azurecli
 az group delete -g "myResourceGroup"
@@ -268,8 +268,8 @@ public class App {
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-W tym przewodniku szybki start utworzono Magazyn kluczy, utworzono certyfikat, został pobrany, a następnie usunięty. Aby dowiedzieć się więcej na temat Key Vault i sposobu integrowania go z aplikacjami, przejdź do artykułu poniżej.
+W tym przewodniku Szybki start utworzono magazyn kluczy, utworzono certyfikat, pobrano go, a następnie usunięto. Aby dowiedzieć się więcej Key Vault o tym, jak zintegrować ją z aplikacjami, przejdź do poniższych artykułów.
 
-- Zapoznaj się [z omówieniem Azure Key Vault](../general/overview.md)
-- Zobacz [przewodnik dewelopera Azure Key Vault](../general/developers-guide.md)
-- Jak [zabezpieczyć dostęp do magazynu kluczy](../general/secure-your-key-vault.md)
+- Przeczytaj omówienie [Azure Key Vault](../general/overview.md)
+- Zobacz Azure Key Vault [dewelopera](../general/developers-guide.md)
+- Jak zabezpieczyć [dostęp do magazynu kluczy](../general/secure-your-key-vault.md)

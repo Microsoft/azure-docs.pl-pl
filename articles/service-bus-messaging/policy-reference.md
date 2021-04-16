@@ -1,26 +1,26 @@
 ---
-title: Wbudowane definicje zasad dla Azure Service Bus Messaging
-description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Service Bus komunikatów. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 03/31/2021
+title: Wbudowane definicje zasad dla komunikatów Azure Service Bus wiadomości
+description: Wyświetla Azure Policy wbudowanych definicji zasad dla usługi Azure Service Bus Messaging. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
+ms.date: 04/14/2021
 ms.topic: reference
 author: spelluru
 ms.author: spelluru
 ms.service: service-bus-messaging
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 3488aba49cebdcc46b6a446fc17a174d3d8c7503
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 693cb34723ee2987472e3431a40d20f412df4cbe
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106089394"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107501143"
 ---
-# <a name="azure-policy-built-in-definitions-for-azure-service-bus-messaging"></a>Azure Policy wbudowane definicje dla Azure Service Bus komunikatów
+# <a name="azure-policy-built-in-definitions-for-azure-service-bus-messaging"></a>Azure Policy wbudowane definicje komunikatów Azure Service Bus messaging
 
-Ta strona jest indeksem [Azure Policy](../governance/policy/overview.md) wbudowanych definicji zasad dla Azure Service Bus komunikatów. Aby uzyskać dodatkowe Azure Policy wbudowane dla innych usług, zobacz [Azure Policy wbudowane definicje](../governance/policy/samples/built-in-policies.md).
+Ta strona jest indeksem [Azure Policy](../governance/policy/overview.md) wbudowanych definicji zasad dla usługi Azure Service Bus Messaging. Aby uzyskać Azure Policy wbudowanych funkcji dla innych usług, [Azure Policy wbudowane definicje](../governance/policy/samples/built-in-policies.md).
 
-Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **wersja** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
+Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **Wersja,** aby wyświetlić źródło w [repozytorium Azure Policy GitHub.](https://github.com/Azure/azure-policy)
 
-## <a name="azure-service-bus-messaging"></a>Azure Service Bus Messaging
+## <a name="azure-service-bus-messaging"></a>Azure Service Bus komunikatów
 
 [!INCLUDE [azure-policy-reference-rp-servicebusmsg](../../includes/policy/reference/byrp/microsoft.servicebus.md)]
 
