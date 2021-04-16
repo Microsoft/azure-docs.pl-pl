@@ -36,7 +36,7 @@
           href: connect-ios.md
         - name: Nawiązywanie połączenia z klientem sklepu Microsoft Store
           href: connect-microsoft-store.md
-        - name: Łączenie z klientami zubożonymi
+        - name: Nawiązywanie połączenia z klientami zuni ciemniami
           href: linux-overview.md
     - name: Konfigurowanie przekierowań urządzeń
       href: configure-device-redirections.md
@@ -126,12 +126,14 @@
       href: disaster-recovery.md
     - name: Konfigurowanie serwera proxy centrum dystrybucji kluczy
       href: key-distribution-center-proxy.md
-    - name: Uruchom maszynę wirtualną przy nawiązaniu połączenia
+    - name: Uruchamianie maszyny wirtualnej przy nawiązywanie połączenia
       items:
-        - name: Skonfiguruj Uruchamianie maszyny wirtualnej w programie Connect
+        - name: Konfigurowanie uruchamiania maszyny wirtualnej przy nawiązywaniu połączenia
           href: start-virtual-machine-connect.md
-        - name: Uruchom maszynę wirtualną przy połączeniu — często zadawane pytania
+        - name: Uruchamianie maszyny wirtualnej na stronie Łączenie — często zadawane pytania
           href: start-virtual-machine-connect-faq.md
+    - name: Ustawianie trybu opróżniania
+      href: drain-mode.md
 - name: Pojęcia
   items:
     - name: Wbudowane role
@@ -214,7 +216,7 @@
       href: linux-overview.md
     - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/ext/desktopvirtualization/desktopvirtualization
-    - name: Oszacuj koszty Azure Monitor
+    - name: Szacowanie Azure Monitor kosztów
       href: azure-monitor-costs.md
     - name: Obsługiwane ustawienia pliku RDP
       href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context

@@ -1,6 +1,6 @@
 ---
 title: Konfigurowanie automatycznego przyspieszania logowania przy użyciu funkcji odnajdywania home realm
-description: Dowiedz się, jak skonfigurować zasady odnajdywania home realm na Azure Active Directory dla użytkowników federowanych, w tym automatyczne przyspieszanie i wskazówki dotyczące domeny.
+description: Dowiedz się, jak skonfigurować zasady odnajdywania w domenie głównej na Azure Active Directory dla użytkowników federowanych, w tym automatyczne przyspieszanie i wskazówki dotyczące domeny.
 services: active-directory
 author: iantheninja
 manager: CelesteDG
@@ -12,16 +12,16 @@ ms.date: 02/12/2021
 ms.author: iangithinji
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92dea75855ab1e5486b39d072692e72b26c4da1c
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 1af80979a4712f6d25d994835128f9d5d2205f42
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107377772"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534737"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Konfigurowanie Azure Active Directory logowania dla aplikacji przy użyciu zasad odnajdywania home realm
 
-Ten artykuł zawiera wprowadzenie do konfigurowania zachowania uwierzytelniania Azure Active Directory dla użytkowników federowanych przy użyciu zasad odnajdywania home realm discovery (HRD).  Obejmuje to korzystanie z automatycznego przyspieszania w celu pominięcia ekranu wprowadzania nazwy użytkownika i automatycznego przekazywania użytkowników do punktów końcowych logowania federowego.  Firma Microsoft nie zaleca już konfigurowania automatycznego przyspieszania, ponieważ może uniemożliwić korzystanie z silniejszych metod uwierzytelniania, takich jak FIDO, i zakłóca współpracę.
+Ten artykuł zawiera wprowadzenie do konfigurowania zachowania uwierzytelniania Azure Active Directory dla użytkowników federowanych przy użyciu zasad odnajdywania home realm discovery (HRD).  Obejmuje to korzystanie z automatycznego przyspieszania w celu pominięcia ekranu wprowadzania nazwy użytkownika i automatycznego przekazywania użytkowników do punktów końcowych logowania federowego.  Firma Microsoft nie zaleca już konfigurowania automatycznego przyspieszania, ponieważ może uniemożliwić stosowanie silniejszych metod uwierzytelniania, takich jak FIDO, i zakłóca współpracę.
 
 ## <a name="home-realm-discovery"></a>Odnajdowanie obszaru głównego
 
@@ -33,7 +33,7 @@ Użytkownik zostanie zabrany do jednego z następujących dostawców tożsamośc
 
 - konto Microsoft.  Użytkownik jest gościem w dzierżawie zasobów, która używa konta użytkownika do uwierzytelniania.
 
-- Lokalnego dostawcy tożsamości, takiego jak Active Directory Federation Services (AD FS).
+- Dostawca tożsamości lokalnej, taki jak Active Directory Federation Services (AD FS).
 
 - Inny dostawca tożsamości, który jest federowany z dzierżawą usługi Azure AD.
 
@@ -41,24 +41,24 @@ Użytkownik zostanie zabrany do jednego z następujących dostawców tożsamośc
 
 Niektóre organizacje konfigurują domeny w dzierżawie Azure Active Directory do federowania z innym identyfikatorem, na przykład AD FS uwierzytelniania użytkowników.  
 
-Gdy użytkownik zaloguje się do aplikacji, najpierw zostanie im przedstawiona strona logowania usługi Azure AD. Po wpisaniu nazwy UPN, jeśli znajdują się w domenie federskiej, są one następnie przekierowyowane do strony logowania w tożsamości obsługującej tę domenę. W pewnych okolicznościach administratorzy mogą chcieć skierować użytkowników do strony logowania podczas logowania się do określonych aplikacji.
+Gdy użytkownik zaloguje się do aplikacji, najpierw zostanie im przedstawiona strona logowania usługi Azure AD. Po wpisaniu nazwy UPN, jeśli znajdują się w domenie federskiej, są one następnie przekierowyowane do strony logowania usługi tożsamości obsługującej tę domenę. W pewnych okolicznościach administratorzy mogą chcieć skierować użytkowników do strony logowania podczas logowania się do określonych aplikacji.
 
 W związku z tym użytkownicy mogą pominąć początkową Azure Active Directory strony. Ten proces jest określany jako "automatyczne przyspieszanie logowania".
 
-W przypadkach, gdy dzierżawa jest federowana z innym identyfikatorem w celu logowania, automatyczne przyspieszanie sprawia, że logowanie użytkowników jest bardziej usprawnione.  Można skonfigurować automatyczne przyspieszanie dla poszczególnych aplikacji.
+W przypadkach, gdy dzierżawa jest federowana z innym identyfikatorem tożsamości w celu logowania, automatyczne przyspieszanie sprawia, że logowanie użytkowników jest bardziej usprawnione.  Możesz skonfigurować automatyczne przyspieszanie dla poszczególnych aplikacji.
 
 >[!NOTE]
->W przypadku skonfigurowania aplikacji do automatycznego przyspieszania użytkownicy nie mogą używać poświadczeń zarządzanych (takich jak FIDO), a użytkownicy-goście nie mogą się logować. Jeśli zabierzesz użytkownika bezpośrednio do federowego identyfikatora tożsamości w celu uwierzytelnienia, nie ma możliwości powrotu do Azure Active Directory logowania. Użytkownicy-goście, którzy mogą być kierowani do innych dzierżaw lub zewnętrznego podmiotu tożsamości, takiego jak konto Microsoft, nie mogą zalogować się do tej aplikacji, ponieważ pomijają krok odnajdywania w przód.  
+>W przypadku skonfigurowania aplikacji do automatycznego przyspieszania użytkownicy nie mogą używać poświadczeń zarządzanych (takich jak FIDO), a użytkownicy-goście nie mogą się logować. Jeśli zabierzesz użytkownika bezpośrednio do feder typowego identyfikatora tożsamości w celu uwierzytelnienia, nie ma możliwości powrotu do strony logowania Azure Active Directory tożsamości. Użytkownicy-goście, którzy mogą być kierowani do innych dzierżaw lub zewnętrznego podmiotu tożsamości, takiego jak konto Microsoft, nie mogą zalogować się do tej aplikacji, ponieważ pomijają krok odnajdywania w całym kraju.  
 
-Istnieją trzy sposoby kontrolowania automatycznego przyspieszania do federowego tożsamości:
+Istnieją trzy sposoby kontrolowania automatycznego przyspieszania do federowania idP:
 
-- Użyj wskazówki [dotyczącej domeny dotyczącej](#domain-hints) żądań uwierzytelniania dla aplikacji.
-- Skonfiguruj zasady odnajdywania w zakresie strony głównej, aby [wymusić automatyczne przyspieszanie.](#home-realm-discovery-policy-for-auto-acceleration)
-- Skonfiguruj zasady odnajdywania w obszarach domowych, aby [ignorować](prevent-domain-hints-with-home-realm-discovery.md) wskazówki dotyczące domeny z określonych aplikacji lub dla niektórych domen.
+- Użyj wskazówki [dotyczącej domeny na](#domain-hints) żądaniach uwierzytelniania dla aplikacji.
+- Skonfiguruj zasady odnajdywania home w celu [wymusenia automatycznego przyspieszenia](#home-realm-discovery-policy-for-auto-acceleration).
+- Skonfiguruj zasady odnajdywania domeny głównej, aby [ignorować wskazówki dotyczące domeny z](prevent-domain-hints-with-home-realm-discovery.md) określonych aplikacji lub dla niektórych domen.
 
 ### <a name="domain-hints"></a>Wskazówki dotyczące domeny
 
-Wskazówki dotyczące domeny to dyrektywy uwzględnione w żądaniu uwierzytelniania z aplikacji. Mogą one służyć do przyspieszania działania użytkownika do strony logowania federacji. Mogą być one również używane przez aplikację wielodostępną w celu przyspieszenia działania użytkownika bezpośrednio na stronie logowania do usługi Azure AD z marką dla swojej dzierżawy.  
+Wskazówki dotyczące domeny to dyrektywy uwzględnione w żądaniu uwierzytelniania z aplikacji. Mogą one służyć do przyspieszania działania użytkownika do strony logowania federacyjną tożsamości. Mogą być one również używane przez aplikację wielodostępną w celu przyspieszenia działania użytkownika bezpośrednio na stronie logowania do usługi Azure AD pod marką swojej dzierżawy.  
 
 Na przykład aplikacja "largeapp.com" może umożliwić swoim klientom dostęp do aplikacji pod niestandardowym adresem URL "contoso.largeapp.com". Aplikacja może również zawierać wskazówkę domeny, która contoso.com w żądaniu uwierzytelniania.
 
@@ -86,20 +86,20 @@ Aby uzyskać więcej informacji na temat automatycznego przyspieszania przy uży
 
 Niektóre aplikacje nie zapewniają sposobu konfigurowania emitowane przez nie żądania uwierzytelniania. W takich przypadkach nie jest możliwe używanie wskazówek dotyczących domeny do sterowania automatycznym przyspieszaniem. Automatyczne przyspieszanie można skonfigurować za pomocą zasad odnajdywania home realm w celu osiągnięcia tego samego zachowania.  
 
-### <a name="home-realm-discovery-policy-to-prevent-auto-acceleration"></a>Zasady odnajdywania home-realm w celu zapobiegania automatycznemu przyspieszaniu
+### <a name="home-realm-discovery-policy-to-prevent-auto-acceleration"></a>Zasady odnajdywania home realm w celu zapobiegania automatycznemu przyspieszaniu
 
 Niektóre aplikacje Firmy Microsoft i SaaS automatycznie dołączają domain_hints (na przykład powoduje żądanie logowania z dołączonym), co może zakłócić dołączanie poświadczeń zarządzanych, takich jak `https://outlook.com/contoso.com` `&domain_hint=contoso.com` FIDO.  Za pomocą zasad [odnajdywania home realm](/graph/api/resources/homeRealmDiscoveryPolicy) można ignorować wskazówki dotyczące domeny z określonych aplikacji lub dla niektórych domen podczas stosowania poświadczeń zarządzanych.  
 
 ## <a name="enable-direct-ropc-authentication-of-federated-users-for-legacy-applications"></a>Włączanie bezpośredniego uwierzytelniania ZAC dla użytkowników federowanych dla starszych aplikacji
 
-Najlepszym rozwiązaniem jest, aby aplikacje używały bibliotek usługi AAD i logowania interakcyjnego do uwierzytelniania użytkowników. Biblioteki dbają o przepływy użytkowników federowanych.  Czasami starsze aplikacje, zwłaszcza te, które korzystają z grantów SMTPC, przesyłają nazwę użytkownika i hasło bezpośrednio do usługi Azure AD i nie są zapisywane w celu zrozumienia federacji. Nie wykonują odnajdywania w domu i nie wchodzą w interakcje z prawidłowym federowym punktem końcowym w celu uwierzytelnienia użytkownika. Jeśli wybierzesz tę opcję, możesz użyć zasad HRD, aby włączyć określone starsze aplikacje, które przesyłają poświadczenia nazwy użytkownika/hasła przy użyciu grantu SMTPC, aby uwierzytelniać się bezpośrednio w Azure Active Directory. Synchronizacja skrótów haseł musi być włączona.
+Najlepszym rozwiązaniem jest, aby aplikacje używały bibliotek usługi AAD i logowania interakcyjnego do uwierzytelniania użytkowników. Biblioteki te zajmą się przepływami użytkowników federowanych.  Czasami starsze aplikacje, szczególnie te, które korzystają z funkcji grantowania ZCC, przesyłają nazwę użytkownika i hasło bezpośrednio do usługi Azure AD i nie są napisane w celu zrozumienia federacji. Nie wykonują odnajdywania w domu i nie wchodzą w interakcję z poprawnym federacyjną punktem końcowym w celu uwierzytelnienia użytkownika. Jeśli wybierzesz tę opcję, możesz użyć zasad HRD, aby włączyć określone starsze aplikacje, które przesyłają poświadczenia nazwy użytkownika/hasła przy użyciu grantu SMTPC, aby uwierzytelniać się bezpośrednio w Azure Active Directory. Synchronizacja skrótów haseł musi być włączona.
 
 > [!IMPORTANT]
-> Uwierzytelnianie bezpośrednie należy włączyć tylko wtedy, gdy synchronizacja skrótów haseł jest włączona i wiesz, że można uwierzytelnić tę aplikację bez żadnych zasad implementowanych przez lokalnego administratora tożsamości. Jeśli z jakiegokolwiek powodu wyłączysz synchronizację skrótów haseł lub wyłączysz synchronizację katalogów z programem AD Connect, usuń te zasady, aby zapobiec możliwości bezpośredniego uwierzytelniania przy użyciu nieaktualnego skrótu hasła.
+> Włącz uwierzytelnianie bezpośrednie tylko wtedy, gdy masz włączoną synchronizację skrótów haseł i wiesz, że możesz uwierzytelnić tę aplikację bez żadnych zasad implementowanych przez lokalnego administratora tożsamości. Jeśli z jakiegokolwiek powodu wyłączysz synchronizację skrótów haseł lub wyłączysz synchronizację katalogów z programem AD Connect, usuń te zasady, aby zapobiec możliwości bezpośredniego uwierzytelniania przy użyciu nieaktualnego skrótu hasła.
 
 ## <a name="set-hrd-policy"></a>Ustawianie zasad HRD
 
-Istnieją trzy kroki ustawiania zasad HRD dla aplikacji dla federowanych aplikacji z automatycznym przyspieszaniem logowania lub bezpośrednimi aplikacjami opartymi na chmurze:
+Istnieją trzy kroki ustawiania zasad HRD dla aplikacji dla automatycznego przyspieszania logowania federowego lub bezpośrednich aplikacji opartych na chmurze:
 
 1. Utwórz zasady HRD.
 
@@ -111,7 +111,7 @@ Zasady mają zastosowanie tylko w przypadku określonej aplikacji, gdy są doł�
 
 Tylko jedna zasada HRD może być aktywna dla jednostki usługi w dowolnym momencie.  
 
-Polecenia cmdlet programu PowerShell Azure Active Directory do tworzenia zasad HRD i zarządzania nimi.
+Za pomocą poleceń cmdlet Azure Active Directory PowerShell można tworzyć zasady HRD i zarządzać nimi.
 
 Poniżej przedstawiono przykładową definicję zasad HRD:
 
@@ -128,9 +128,9 @@ Poniżej przedstawiono przykładową definicję zasad HRD:
 
 Typ zasad to "[HomeRealmDiscoveryPolicy".](/graph/api/resources/homeRealmDiscoveryPolicy)
 
-**Parametr AccelerateToFederatedDomain** jest opcjonalny. Jeśli **wartość AccelerateToFederatedDomain ma** wartość false, zasady nie mają wpływu na automatyczne przyspieszanie. Jeśli **wartość AccelerateToFederatedDomain** ma wartość true i w dzierżawie znajduje się tylko jedna zweryfikowana i federowana domena, użytkownicy zostaną zalogowani bezpośrednio do federatora tożsamości. Jeśli ta wartość jest prawdziwa i w dzierżawie znajduje się więcej niż jedna zweryfikowana domena, należy określić **wartość PreferredDomain.**
+**Parametr AccelerateToFederatedDomain** jest opcjonalny. Jeśli **wartość AccelerateToFederatedDomain ma** wartość false, zasady nie mają wpływu na automatyczne przyspieszanie. Jeśli **wartość AccelerateToFederatedDomain** jest prawdziwa, a w dzierżawie znajduje się tylko jedna zweryfikowana i federowana domena, użytkownicy będą przekierowyani bezpośrednio do federatora tożsamości w celu zalogowania. Jeśli ta wartość jest prawdziwa i w dzierżawie znajduje się więcej niż jedna zweryfikowana domena, należy określić **wartość PreferredDomain.**
 
-**Domena PreferredDomain** jest opcjonalna. **Domena PreferredDomain** powinna wskazywać domenę, do której ma na celu przyspieszenie. Można go pominąć, jeśli dzierżawa ma tylko jedną domenę federacyjną.  Jeśli zostanie ona pominięta i istnieje więcej niż jedna zweryfikowana domena federowana, zasady nie będą obowiązywać.
+**Parametr PreferredDomain** jest opcjonalny. **Domena PreferredDomain** powinna wskazywać domenę, do której ma na celu przyspieszenie. Można go pominąć, jeśli dzierżawa ma tylko jedną domenę federacyjną.  Jeśli zostanie ona pominięta i istnieje więcej niż jedna zweryfikowana domena federowana, zasady nie będą obowiązywać.
 
  Jeśli **określono wartość PreferredDomain,** musi ona być dopasowana do zweryfikowanych domen federowanych dla dzierżawy. Wszyscy użytkownicy aplikacji muszą mieć możliwość logowania się do tej domeny — użytkownicy, którzy nie mogą zalogować się w domenie federacji, zostaną wyłamieni i nie będą mogli ukończyć logowania.
 
@@ -144,9 +144,9 @@ Ponadto istnieją dwie opcje HRD na poziomie dzierżawy, które nie zostały pok
 
 ### <a name="priority-and-evaluation-of-hrd-policies"></a>Priorytet i ocena zasad HRD
 
-Zasady HRD można tworzyć, a następnie przypisywać do określonych organizacji i podmiotów zabezpieczeń usług. Oznacza to, że istnieje możliwość zastosowania wielu zasad do określonej aplikacji, dlatego usługa Azure AD musi zdecydować, która z nich ma pierwszeństwo. Zestaw reguł decyduje o tym, które zasady HRD (z wielu zastosowanych zasad) obowiązują:
+Zasady HRD można tworzyć, a następnie przypisywać do określonych organizacji i podmiotów zabezpieczeń usług. Oznacza to, że istnieje możliwość zastosowania wielu zasad do określonej aplikacji, dlatego usługa Azure AD musi zdecydować, która z nich ma pierwszeństwo. Zestaw reguł decyduje o tym, które zasady HRD (wiele zastosowanych zasad) mają zastosowanie:
 
-- Jeśli wskazówka domeny jest obecna w żądaniu uwierzytelniania, zasady HRD dla dzierżawy (zasady ustawione jako domyślna dzierżawa) są sprawdzane w celu sprawdzenia, czy wskazówki dotyczące domeny powinny być [ignorowane.](prevent-domain-hints-with-home-realm-discovery.md) Jeśli wskazówki dotyczące domeny są dozwolone, używane jest zachowanie określone przez wskazówkę domeny.
+- Jeśli wskazówka domeny jest obecna w żądaniu uwierzytelniania, zasady HRD dla dzierżawy (zasady ustawione jako domyślne dzierżawy) są sprawdzane, czy wskazówki dotyczące domeny powinny być [ignorowane.](prevent-domain-hints-with-home-realm-discovery.md) Jeśli wskazówki dotyczące domeny są dozwolone, używane jest zachowanie określone przez wskazówkę domeny.
 
 - W przeciwnym razie, jeśli zasady są jawnie przypisane do jednostki usługi, są wymuszane.
 
@@ -154,7 +154,7 @@ Zasady HRD można tworzyć, a następnie przypisywać do określonych organizacj
 
 - Jeśli nie ma wskazówki dotyczącej domeny i żadne zasady nie zostały przypisane do jednostki usługi lub organizacji, zostanie użyte domyślne zachowanie HRD.
 
-## <a name="tutorial-for-setting-hrd-policy-on-an-application"></a>Samouczek dotyczący ustawiania zasad HRD w aplikacji
+## <a name="tutorial-for-setting-hrd-policy-on-an-application"></a>Samouczek dotyczący ustawiania zasad HRD dla aplikacji
 
 Użyjemy poleceń cmdlet programu PowerShell usługi Azure AD, aby przejść przez kilka scenariuszy, w tym:
 
@@ -162,7 +162,7 @@ Użyjemy poleceń cmdlet programu PowerShell usługi Azure AD, aby przejść prz
 
 - Konfigurowanie zasad HRD w celu automatycznego przyspieszenia aplikacji w jednej z kilku domen, które są weryfikowane dla dzierżawy.
 
-- Skonfigurowanie zasad HRD w celu umożliwienia starszej aplikacji bezpośredniego uwierzytelniania za pomocą nazwy użytkownika/hasła Azure Active Directory dla użytkownika federowego.
+- Konfigurowanie zasad HRD w celu umożliwienia starszej aplikacji bezpośredniego uwierzytelniania nazwy użytkownika/hasła w Azure Active Directory dla użytkownika federowego.
 
 - Wyświetlanie listy aplikacji, dla których skonfigurowano zasady.
 
@@ -226,7 +226,7 @@ Aby zastosować zasady HRD po ich utworzeniu, możesz przypisać je do wielu pod
 
 Potrzebujesz wartości **ObjectID** jednostki usługi, do której chcesz przypisać zasady. Istnieje kilka sposobów znalezienia **identyfikatorów obiektów** jednostki usługi.
 
-Możesz użyć portalu lub utworzyć zapytanie dotyczące [Microsoft Graph](/graph/api/resources/serviceprincipal?view=graph-rest-beta). Możesz również przejść do narzędzia Eksplorator programu [Graph](https://developer.microsoft.com/graph/graph-explorer) i zalogować się do konta usługi Azure AD, aby wyświetlić wszystkie jednostki usług w organizacji.
+Możesz użyć portalu lub utworzyć zapytanie dotyczące [Microsoft Graph](/graph/api/resources/serviceprincipal). Możesz również przejść do narzędzia Eksplorator programu [Graph](https://developer.microsoft.com/graph/graph-explorer) i zalogować się do konta usługi Azure AD, aby wyświetlić wszystkie jednostki usług w organizacji.
 
 Ponieważ używasz programu PowerShell, możesz użyć następującego polecenia cmdlet, aby wyświetlić listę jednostki usługi i ich identyfikatorów.
 
@@ -246,7 +246,7 @@ To polecenie można powtórzyć dla każdej jednostki usługi, do której chcesz
 
 Jeśli aplikacja ma już przypisane zasady HomeRealmDiscovery, nie będzie można dodać drugiej.  W takim przypadku zmień definicję zasad odnajdywania home realm przypisaną do aplikacji, aby dodać dodatkowe parametry.
 
-#### <a name="step-4-check-which-application-service-principals-your-hrd-policy-is-assigned-to"></a>Krok 4. Sprawdzenie, do których podmiotów usługi aplikacji są przypisane zasady HRD
+#### <a name="step-4-check-which-application-service-principals-your-hrd-policy-is-assigned-to"></a>Krok 4. Sprawdzenie, do których podmiotów usługi aplikacji przypisano zasady HRD
 
 Aby sprawdzić, które aplikacje mają skonfigurowane zasady HRD, użyj polecenia cmdlet **Get-AzureADPolicyAppliedObject.** Przekaż do **niego identyfikator ObjectID** zasad, które chcesz sprawdzić.
 
@@ -268,7 +268,7 @@ Get-AzureADPolicy
 
 **Zanotuj** identyfikator ObjectID zasad, dla których chcesz wyświetlić listę przypisań.
 
-#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Krok 2. Lista podmiotów zabezpieczeń usługi, do których przypisano zasady  
+#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Krok 2. Lista podmiotów usługi, do których przypisano zasady  
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
@@ -286,7 +286,7 @@ Użyj poprzedniego przykładu, aby uzyskać **identyfikator ObjectID** zasad ora
 Remove-AzureADServicePrincipalPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
-#### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>Krok 3. Sprawdzenie usunięcia przez wyświetlanie listy podmiotów usługi, do których przypisano zasady
+#### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>Krok 3. Sprawdzenie usunięcia przez listę podmiotów usługi, do których przypisano zasady
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
@@ -295,5 +295,5 @@ Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby uzyskać więcej informacji na temat sposobu działania uwierzytelniania w usłudze Azure AD, zobacz [Scenariusze uwierzytelniania dla usługi Azure AD.](../develop/authentication-vs-authorization.md)
-- Aby uzyskać więcej informacji na temat logowania pojedynczego użytkownika, zobacz [Single sign-on to applications in Azure Active Directory](what-is-single-sign-on.md)( Logowanie Azure Active Directory .
+- Aby uzyskać więcej informacji na temat logowania pojedynczego użytkownika, zobacz [Single sign-on to applications in Azure Active Directory](what-is-single-sign-on.md).
 - Odwiedź stronę [platformy tożsamości firmy Microsoft,](../develop/v2-overview.md) aby uzyskać przegląd całej zawartości związanej z deweloperami.

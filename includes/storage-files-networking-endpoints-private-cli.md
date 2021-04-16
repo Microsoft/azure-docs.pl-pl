@@ -7,15 +7,15 @@ ms.service: storage
 ms.topic: include
 ms.date: 5/11/2020
 ms.author: rogarana
-ms.custom: include file
-ms.openlocfilehash: b6f0f77da639bceaea680f015dad5c0d3d6dbda6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: e6cc45c3aedc013b63f9d7876b923e7db36ccd37
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84465072"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107512220"
 ---
-Aby utworzyć prywatny punkt końcowy dla konta magazynu, najpierw musisz uzyskać odwołanie do konta magazynu i podsieci sieci wirtualnej, do której chcesz dodać prywatny punkt końcowy. Zamień `<storage-account-resource-group-name>` ,  `<storage-account-name>` , `<vnet-resource-group-name>` , `<vnet-name>` i `<vnet-subnet-name>` poniżej:
+Aby utworzyć prywatny punkt końcowy dla konta magazynu, należy najpierw uzyskać odwołanie do konta magazynu i podsieci sieci wirtualnej, do której chcesz dodać prywatny punkt końcowy. Zastąp `<storage-account-resource-group-name>` wartości , , , i  `<storage-account-name>` `<vnet-resource-group-name>` `<vnet-name>` `<vnet-subnet-name>` poniżej:
 
 ```bash
 storageAccountResourceGroupName="<storage-account-resource-group-name>"
@@ -47,7 +47,7 @@ subnet=$(az network vnet subnet show \
     tr -d '"')
 ```
 
-Aby utworzyć prywatny punkt końcowy, należy najpierw upewnić się, że zasady sieci prywatnego punktu końcowego podsieci są ustawione na wartość wyłączone. Następnie można utworzyć prywatny punkt końcowy przy użyciu `az network private-endpoint create` polecenia.
+Aby utworzyć prywatny punkt końcowy, należy najpierw upewnić się, że zasady sieci prywatnego punktu końcowego podsieci są wyłączone. Następnie możesz utworzyć prywatny punkt końcowy za pomocą `az network private-endpoint create` polecenia .
 
 ```bash
 # Disable private endpoint network policies
@@ -75,7 +75,7 @@ privateEndpoint=$(az network private-endpoint create \
     tr -d '"')
 ```
 
-Utworzenie prywatnej strefy DNS platformy Azure umożliwia pierwotną nazwę konta magazynu, na przykład w `storageaccount.file.core.windows.net` celu rozpoznania prywatnego adresu IP w sieci wirtualnej. Chociaż jest to opcjonalne z punktu widzenia tworzenia prywatnego punktu końcowego, jest on jawnie wymagany do zainstalowania udziału plików platformy Azure przy użyciu podmiotu zabezpieczeń usługi AD lub dostępu za pośrednictwem interfejsu API REST.  
+Utworzenie prywatnej strefy DNS platformy Azure umożliwia włączenie oryginalnej nazwy konta magazynu, takiej jak rozpoznawanie prywatnego adresu IP wewnątrz `storageaccount.file.core.windows.net` sieci wirtualnej. Mimo że jest to opcjonalne z punktu widzenia tworzenia prywatnego punktu końcowego, jest jawnie wymagane do instalowanie udziału plików platformy Azure przy użyciu jednostki użytkownika usługi AD lub uzyskiwania dostępu za pośrednictwem interfejsu API REST.  
 
 ```bash
 # Get the desired storage account suffix (core.windows.net for public cloud).

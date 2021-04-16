@@ -2,7 +2,7 @@
   href: index.yml
 - name: Omówienie
   items:
-    - name: Omówienie czytnika immersyjny
+    - name: Co to jest czytnik immersyjny?
       href: Overview.md
     - name: Obsługa języków
       href: language-support.md
@@ -10,17 +10,17 @@
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/'
     - name: Informacje o wersji
       href: release-notes.md
-- name: Czytnik immersyjny — Szybki Start
+- name: Szybki start
   href: ./quickstarts/client-libraries.md
 - name: Instrukcje
   items:
     - name: Tworzenie zasobu czytnika immersyjnego
       href: how-to-create-immersive-reader.md
-    - name: Uruchom czytnik immersyjny
+    - name: Uruchom Czytnik immersyjny
       href: how-to-launch-immersive-reader.md
-    - name: Przygotuj zawartość HTML
+    - name: Przygotowywanie zawartości HTML
       href: how-to-prepare-html.md
-    - name: Edytuj przycisk uruchamiania czytnika immersyjny
+    - name: Edytowanie przycisku Czytnik immersyjny uruchamiania
       href: how-to-customize-launch-button.md
     - name: Buforowanie tokenu uwierzytelniania
       href: how-to-cache-token.md
@@ -36,15 +36,25 @@
       href: how-to-store-user-preferences.md
     - name: Korzystanie z wielu zasobów czytnika immersyjnego
       href: how-to-multiple-resources.md
+    - name: Gotowość przedsiębiorstwa
+      items:
+        - name: Konfigurowanie sieci wirtualnych
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/immersive-reader/context/context
+        - name: Korzystanie z uwierzytelniania usługi Azure AD
+          href: ../authentication.md?context=/azure/cognitive-services/immersive-reader/context/context
 - name: Dokumentacja
   items:
     - name: Zestaw SDK dla języka JavaScript
       href: reference.md
 - name: Zasoby
   items:
-    - name: Wsparcie regionalne
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
-    - name: Opcje pomocy technicznej
+    - name: Gotowość przedsiębiorstwa
+      items:
+        - name: Obsługa regionów
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Zgodność i certyfikacja
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Opcje wsparcia technicznego i pomocy
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/immersive-reader/context/context
     - name: Aktualizacje platformy Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'

@@ -1,5 +1,5 @@
 ---
-title: Limity — USŁUGA LUIS
+title: Limity — usługa LUIS
 description: Ten artykuł zawiera znane limity usługi Azure Cognitive Services Language Understanding (LUIS). Usługa LUIS ma kilka obszarów limitów. Limit modelu steruje intencjami, jednostkami i funkcjami usługi LUIS. Limity przydziału na podstawie typu klucza. Kombinacja klawiatury steruje witryną internetową usługi LUIS.
 ms.service: cognitive-services
 ms.subservice: language-understanding
@@ -13,7 +13,7 @@ ms.lasthandoff: 04/14/2021
 ms.locfileid: "107497204"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limity modelu i kluczy usługi LUIS
-Usługa LUIS ma kilka obszarów limitów. Pierwszy z nich to [limit modelu](#model-limits), który kontroluje intencje, jednostki i funkcje usługi LUIS. Drugi obszar to [limity przydziału na](#key-limits) podstawie typu klucza. Trzecim obszarem limitów jest kombinacja [klawiatury do](#keyboard-controls) kontrolowania witryny internetowej usługi LUIS. Czwartym obszarem jest [mapowanie regionów na świecie](luis-reference-regions.md) między witryną internetową tworzenia usługi LUIS a interfejsami API [punktu końcowego usługi](luis-glossary.md#endpoint) LUIS.
+Usługa LUIS ma kilka obszarów limitów. Pierwszy z nich to [limit modelu](#model-limits), który kontroluje intencje, jednostki i funkcje usługi LUIS. Drugi obszar to [limity przydziału](#key-limits) na podstawie typu klucza. Trzecim obszarem limitów jest kombinacja [klawiatury do](#keyboard-controls) kontrolowania witryny internetowej usługi LUIS. Czwartym obszarem jest [mapowanie regionów na świecie między](luis-reference-regions.md) witryną internetową tworzenia usługi LUIS a interfejsami API [punktu końcowego](luis-glossary.md#endpoint) usługi LUIS.
 
 <a name="model-boundaries"></a>
 
@@ -23,7 +23,7 @@ Jeśli Twoja aplikacja przekracza limity modelu usługi LUIS, rozważ użycie ap
 
 |Warstwowy|Limit|
 |--|:--|
-| [Nazwa aplikacji][luis-get-started-create-app] | *Maksymalna domyślna wartość znaku |
+| [Nazwa aplikacji][luis-get-started-create-app] | *Domyślna maksymalna liczba znaków |
 | Aplikacje| 500 aplikacji na zasób tworzenia platformy Azure |
 | [Testowanie wsadowe][batch-testing]| 10 zestawów danych, 1000 wypowiedzi na zestaw danych|
 | Lista jawna | 50 na aplikację|
@@ -91,18 +91,18 @@ Użyj _rodzaju_, `LUIS.Authoring` , podczas filtrowania zasobów w Azure Portal.
 
 Użyj _rodzaju_, `LUIS` , podczas filtrowania zasobów w Azure Portal. Zasób punktu końcowego przewidywania zapytania usługi LUIS używany w środowisku uruchomieniowym jest prawidłowy tylko dla zapytań punktu końcowego.
 
-|Zasób przewidywań zapytań|Wykonywanie zapytań o moduł TPS|
+|Zasób Przewidywanie zapytań|Wykonywanie zapytań o moduł TPS|
 |--|--|
 |F0 — warstwa Bezpłatna |10 tys./miesiąc, 5/s|
 |S0 — warstwa Standardowa|50/s|
 
 ### <a name="sentiment-analysis"></a>Analiza tonacji
 
-[Integracja analizy tonacji](luis-how-to-publish-app.md#enable-sentiment-analysis), która dostarcza informacje o tonacji, jest udostępniana bez konieczności użycia innego zasobu platformy Azure.
+[Integracja analizy tonacji](luis-how-to-publish-app.md#enable-sentiment-analysis), która dostarcza informacje o tonacji, jest zapewniana bez konieczności użycia innego zasobu platformy Azure.
 
 ### <a name="speech-integration"></a>Integracja mowy
 
-[Integracja mowy zapewnia](../speech-service/how-to-recognize-intents-from-speech-csharp.md) 1 000 żądań punktu końcowego na jednostkę kosztu.
+[Integracja mowy zapewnia](../speech-service/how-to-recognize-intents-from-speech-csharp.md) 1000 żądań punktu końcowego na koszt jednostkowy.
 
 [Dowiedz się więcej o cenach.][pricing]
 
@@ -114,7 +114,7 @@ Użyj _rodzaju_, `LUIS` , podczas filtrowania zasobów w Azure Portal. Zasób pu
 
 ## <a name="website-sign-in-time-period"></a>Okres logowania do witryny internetowej
 
-Dostęp do logowania wynosi **60 minut.** Po tym okresie wystąpi ten błąd. Musisz zalogować się ponownie.
+Dostęp do logowania to **60 minut.** Po upływie tego czasu wystąpi ten błąd. Musisz zalogować się ponownie.
 
 [luis-get-started-create-app]: ./luis-get-started-create-app.md
 [batch-testing]: ./luis-concept-test.md#batch-testing
