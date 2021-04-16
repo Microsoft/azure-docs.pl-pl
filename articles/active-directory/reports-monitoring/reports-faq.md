@@ -1,5 +1,5 @@
 ---
-title: Raporty Azure Active Directory często zadawane pytania | Microsoft Docs
+title: Raporty Azure Active Directory — często zadawane pytania | Microsoft Docs
 description: Często zadawane pytania dotyczące Azure Active Directory raportów.
 services: active-directory
 documentationcenter: ''
@@ -16,52 +16,52 @@ ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45b6b182d030c267dcec7ed57c0c0dd1901b0cb1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4da0083a236900037b388798d825515e94613c20
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97935091"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533718"
 ---
-# <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Często zadawane pytania dotyczące Azure Active Directory raportów
+# <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Często zadawane pytania dotyczące raportów Azure Active Directory raportów
 
-Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące raportowania Azure Active Directory (Azure AD). Aby uzyskać więcej informacji, zobacz [Raporty w usłudze Azure Active Directory](overview-reports.md). 
+Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące Azure Active Directory (Azure AD). Aby uzyskać więcej informacji, zobacz [Raporty w usłudze Azure Active Directory](overview-reports.md). 
 
 ## <a name="getting-started"></a>Wprowadzenie 
 
-**P: obecnie korzystam z `https://graph.windows.net/<tenant-name>/reports/` interfejsów API punktu końcowego, aby przeprowadzić programistyczne raportowanie usługi Azure AD i raporty użycia zintegrowanej aplikacji w naszych systemach raportowania. Z czym mam się przełączyć?**
+**Pytanie: Obecnie używam interfejsów API punktu końcowego do programowego ściągania inspekcji usługi Azure AD i zintegrowanych raportów użycia `https://graph.windows.net/<tenant-name>/reports/` aplikacji do naszych systemów raportowania. Na co należy się przełączyć?**
 
-Odp **.:** Zapoznaj się z dokumentacją [interfejsu API](https://developer.microsoft.com/graph/) , aby zobaczyć, jak można [używać interfejsów API do uzyskiwania dostępu do raportów aktywności](concept-reporting-api.md). Ten punkt końcowy ma dwa raporty (**Inspekcja** i **logowania**), które zawierają wszystkie dane, które zostały uzyskane w starym punkcie końcowym interfejsu API. Ten nowy punkt końcowy zawiera również raport dotyczący logowania z licencją Azure AD — wersja Premium, za pomocą której można uzyskać informacje dotyczące użycia aplikacji, użycia urządzenia i logowania użytkownika.
-
----
-
-**P: obecnie używam `https://graph.windows.net/<tenant-name>/reports/` interfejsów API punktu końcowego do ściągania raportów zabezpieczeń usługi Azure AD (określone typy wykrywania, takie jak nieujawnione poświadczenia lub logowania z anonimowych adresów IP) w naszych systemach raportowania programistycznie. Z czym mam się przełączyć?**
-
-Odp **.:** Korzystając z [interfejsu API wykrywania ryzyka ochrony tożsamości](../identity-protection/howto-identity-protection-graph-api.md) , można uzyskać dostęp do wykrywania zabezpieczeń za pomocą Microsoft Graph. Ten nowy format zapewnia większą elastyczność w zakresie wykonywania zapytań dotyczących danych, z zaawansowanymi filtrowaniem, zaznaczaniem pól i wieloma innymi, a także umożliwia ujednolicenie wykrywania ryzyka w jednym typie w celu łatwiejszej integracji z rozwiązań Siem i innymi narzędziami zbierania danych. Ponieważ dane są w innym formacie, nie można zastąpić nowego zapytania dla starych zapytań. Jednak [Nowy interfejs API używa Microsoft Graph](/graph/api/resources/identityriskevent?view=graph-rest-beta), który jest standardem firmy Microsoft dla takich interfejsów api jak Microsoft 365 lub Azure AD. W związku z tym wymagana nakład pracy może stanowić zwiększenie bieżącej Microsoft Graph inwestycji lub pomóc Ci w rozpoczęciu przejścia na nową platformę standardową.
+**A:** Sprawdź odwołanie do [interfejsu API,](https://developer.microsoft.com/graph/) aby zobaczyć, jak można używać interfejsów [API do uzyskiwania dostępu do raportów aktywności.](concept-reporting-api.md) Ten punkt końcowy ma dwa raporty **(inspekcja** i **logowania),** które zawierają wszystkie dane, które zostały w starym punkcie końcowym interfejsu API. Ten nowy punkt końcowy zawiera również raport logowania z licencją usługi Azure AD — wersja Premium, który umożliwia uzyskiwanie informacji o użyciu aplikacji, użyciu urządzenia i logie użytkownika.
 
 ---
 
-**P: Jak mogę uzyskać licencji Premium?**
+**Pytanie: Obecnie używam interfejsów API punktu końcowego do programowego ściągania raportów zabezpieczeń usługi Azure AD (określonych typów wykrywania, takich jak wyciek poświadczeń lub logowania z anonimowych adresów IP) do systemów `https://graph.windows.net/<tenant-name>/reports/` raportowania. Na co należy się przełączyć?**
 
-Odp **.:** Aby uaktualnić wersję Azure Active Directory, zobacz [wprowadzenie do Azure Active Directory — wersja Premium](../fundamentals/active-directory-get-started-premium.md) .
-
----
-
-**P: jak wkrótce należy zobaczyć dane o działaniach po uzyskaniu licencji Premium?**
-
-Odp **.:** Jeśli masz już dane dotyczące działań jako bezpłatną licencję, możesz ją natychmiast zobaczyć. Jeśli nie masz żadnych danych, wyświetlenie danych w raportach zajmie do 3 dni.
+**A:** Interfejs API wykrywania [ryzyka usługi Identity Protection](../identity-protection/howto-identity-protection-graph-api.md) umożliwia dostęp do wykrywania zabezpieczeń za pośrednictwem Microsoft Graph. Ten nowy format zapewnia większą elastyczność w zakresie wykonywania zapytań o dane dzięki zaawansowanemu filtrowaniu, wyborze pól i nie tylko oraz standaryzacji wykrywania ryzyka w jednym typie w celu łatwiejszej integracji z rozwiązaniami SIEM i innymi narzędziami do zbierania danych. Ponieważ dane są w innym formacie, nie można zastąpić nowego zapytania starymi zapytaniami. Jednak nowy [interfejs API używa Microsoft Graph](/graph/api/resources/identityriskevent?view=graph-rest-beta&preserve-view=true), która jest standardem firmy Microsoft dla takich interfejsów API jak Microsoft 365 lub Azure AD. Dlatego wymagane prace mogą rozszerzyć bieżące inwestycje Microsoft Graph lub rozpocząć przejście na tę nową standardową platformę.
 
 ---
 
-**P: Czy mogę zobaczyć dane z ostatniego miesiąca po uzyskaniu licencji usługi Azure AD Premium?**
+**Pytanie: Jak mogę uzyskać licencję Premium?**
 
-Odp **.:** Jeśli ostatnio przełączono się do wersji Premium (w tym wersji próbnej), na początku można zobaczyć dane do 7 dni. Po zebraniu danych można zobaczyć dane z ostatnich 30 dni.
+**A:** Zobacz [Wprowadzenie do Azure Active Directory — wersja Premium,](../fundamentals/active-directory-get-started-premium.md) aby uaktualnić wersję Azure Active Directory.
 
 ---
 
-**P: Czy muszę być administratorem globalnym, aby zobaczyć operacje logowania do Azure Portal lub pobrać dane za pomocą interfejsu API?**
+**Pytanie: Jak szybko powinny zostać wyświetlony dane działań po otrzymaniu licencji Premium?**
 
-Odp **.:** Nie. Możesz również uzyskać dostęp do danych raportowania za pomocą portalu lub za pomocą interfejsu API, jeśli jesteś **czytelnikiem zabezpieczeń** lub **administratorem zabezpieczeń** dla dzierżawy. Oczywiście **administratorzy globalni** będą również mieli dostęp do tych danych.
+**A:** Jeśli masz już dane działań jako bezpłatną licencję, możesz je natychmiast zobaczyć. Jeśli nie masz żadnych danych, ich wyświetlanie w raportach może potrwać do 3 dni.
+
+---
+
+**Pytanie: Czy mogę wyświetlić dane z ostatniego miesiąca po otrzymaniu licencji usługi Azure AD w wersji Premium?**
+
+**A:** Jeśli niedawno przeszliśmy do wersji Premium (w tym wersji próbnej), początkowo możesz zobaczyć dane z okresu do 7 dni. Gdy dane kumulują się, można zobaczyć dane z ostatnich 30 dni.
+
+---
+
+**Pytanie: Czy muszę być administratorem globalnym, aby zobaczyć logowania działania do aplikacji Azure Portal lub pobrać dane za pośrednictwem interfejsu API?**
+
+**A:** Nie. Dostęp do danych raportowania można również uzyskać za pośrednictwem portalu lub interfejsu API, jeśli jesteś czytelnikiem **zabezpieczeń** lub **administratorem** zabezpieczeń dzierżawy. Oczywiście administratorzy **globalni** będą również mieć dostęp do tych danych.
 
 ---
 
@@ -69,97 +69,97 @@ Odp **.:** Nie. Możesz również uzyskać dostęp do danych raportowania za pom
 ## <a name="activity-logs"></a>Dzienniki aktywności
 
 
-**P: co to jest przechowywanie danych dla dzienników aktywności (inspekcja i logowania) w Azure Portal?** 
+**Pytanie: jaki jest okres przechowywania danych dla dzienników aktywności (inspekcji i logowania) w Azure Portal?** 
 
-Odp **.:** Aby uzyskać więcej informacji, zobacz [zasady przechowywania danych dla raportów usługi Azure AD](reference-reports-data-retention.md).
-
----
-
-**P: jak długo trwa czas, aż zobaczysz dane dotyczące aktywności po zakończeniu zadania?**
-
-Odp **.:** Dzienniki inspekcji mają opóźnienie z przedziału od 15 minut do godziny. Dzienniki aktywności logowania mogą trwać od 15 minut do 2 godzin w przypadku niektórych rekordów.
+**A:** Aby uzyskać więcej informacji, zobacz [zasady przechowywania danych dla raportów usługi Azure AD.](reference-reports-data-retention.md)
 
 ---
 
-**P: Czy można uzyskać Microsoft 365 informacje dziennika aktywności za pomocą Azure Portal?**
+**Pytanie: Jak długo trwa wyświetlanie danych aktywności po ukończeniu zadania?**
 
-Odp **.:** Mimo że Microsoft 365 działania i dzienniki aktywności usługi Azure AD dzielą wiele zasobów katalogu, aby uzyskać pełny widok Microsoft 365 dzienników aktywności, należy przejść do [Centrum administracyjnego Microsoft 365](https://admin.microsoft.com) , aby uzyskać informacje o dzienniku aktywności pakietu Office 365.
-
----
-
-**P: które interfejsy API są używane do uzyskiwania informacji o Microsoft 365 dziennikach aktywności?**
-
-Odp **.:** Użyj [interfejsów API zarządzania Microsoft 365](/office/office-365-management-api/office-365-management-apis-overview) , aby uzyskać dostęp do dzienników aktywności Microsoft 365 za pomocą interfejsu API.
+**A:** Dzienniki inspekcji mają opóźnienie od 15 minut do godziny. Dzienniki aktywności logowania w przypadku niektórych rekordów mogą potrwać od 15 minut do 2 godzin.
 
 ---
 
-**P: ile rekordów można pobrać z Azure Portal?**
+**Pytanie: Czy mogę uzyskać Microsoft 365 dziennika aktywności za pośrednictwem Azure Portal?**
 
-Odp **.:** Możesz pobrać do 5000 rekordów z Azure Portal. Rekordy są sortowane według *najnowszych ustawień i domyślnie* otrzymują najnowsze rekordy 5000.
+**A:** Mimo że Microsoft 365 aktywności i dzienniki aktywności usługi Azure AD współdzielą wiele zasobów katalogu, jeśli potrzebujesz pełnego widoku dzienników aktywności usługi Microsoft 365, przejdź do witryny [centrum administracyjne platformy Microsoft 365,](https://admin.microsoft.com) aby uzyskać informacje dziennika aktywności usługi Office 365.
+
+---
+
+**Pytanie: których interfejsów API używam do uzyskania informacji o Microsoft 365 aktywności?**
+
+**A:** Użyj [interfejsów API Microsoft 365 Management,](/office/office-365-management-api/office-365-management-apis-overview) aby uzyskać dostęp do dzienników Microsoft 365 za pośrednictwem interfejsu API.
+
+---
+
+**Pytanie: Ile rekordów mogę pobrać z Azure Portal?**
+
+**A:** Możesz pobrać maksymalnie 5000 rekordów z Azure Portal. Rekordy są sortowane według *najnowszych* i domyślnie jest 5000 najnowszych rekordów.
 
 ---
 
 ## <a name="risky-sign-ins"></a>Ryzykowne logowania
 
-**Pytanie: wystąpiło wykrywanie ryzyka w usłudze Identity Protection, ale nie widzę odpowiedniego logowania w raporcie logowania. Czy jest to oczekiwane?**
+**Pytanie: W umacie Identity Protection istnieje wykrywanie ryzyka, ale nie widzę odpowiedniego logowania w raporcie logowania. Czy jest to oczekiwane?**
 
-Odp **.:** Tak, program Identity Protection szacuje ryzyko dla wszystkich przepływów uwierzytelniania niezależnie od tego, czy interaktywny, czy nieinteraktywny. Jednak wszystkie raporty dotyczące tylko logowania są wyświetlane tylko w przypadku logowania interakcyjnego.
-
----
-
-**P: Jak mogę wiedzieć, dlaczego zalogowanie lub użytkownik został oflagowany w Azure Portal?**
-
-Odp **.:** Jeśli masz subskrypcję usługi **Azure AD — wersja Premium** , możesz dowiedzieć się więcej na temat podstawowych wykryć ryzyka, wybierając użytkownika w **przypadku użytkowników oflagowanych w ramach ryzyka** lub wybierając rekord w raporcie **ryzykowne logowania** . Jeśli masz subskrypcję **bezpłatną** lub **podstawową** , możesz przeglądać użytkowników na ryzyko i ryzykowne raporty dotyczące logowania, ale nie widzisz podstawowych informacji o wykrywaniu ryzyka.
+**A:** Tak, ochrona tożsamości ocenia ryzyko dla wszystkich przepływów uwierzytelniania, zarówno interakcyjnych, jak i nieinterakcyjnych. Jednak wszystkie logowania raport zawiera tylko logowania interakcyjne.
 
 ---
 
-**P: w jaki sposób adresy IP są obliczane w raporcie logowania i ryzykowne logowania?**
+**Pytanie: Jak mogę wiedzieć, dlaczego logowanie lub użytkownik został oflagowany jako ryzykowny w Azure Portal?**
 
-Odp **.:** Adresy IP są wystawiane w taki sposób, że nie istnieje ostateczne połączenie między adresem IP i lokalizacją, w której komputer z tym adresem jest fizycznie zlokalizowany. Mapowanie adresów IP jest bardziej skomplikowane, ponieważ takie czynniki jak dostawcy urządzeń przenośnych i sieci VPN wystawiające adresy IP z pul centralnych często są bardzo daleko od miejsca, w którym urządzenie klienckie jest rzeczywiście używane. Obecnie w raportach usługi Azure AD konwertowanie adresu IP na lokalizację fizyczną jest najlepszym nakładem pracy na podstawie śladów, danych rejestru, wyszukiwania wstecznego i innych informacji. 
+**A:** Jeśli masz subskrypcję **usługi Azure AD — wersja Premium,** możesz dowiedzieć się więcej o podstawowych  wykrywaniu ryzyka, wybierając użytkownika w  skrypcie Użytkownicy oflagowanych w związku z ryzykiem lub wybierając rekord w raporcie Ryzykowne logowania. Jeśli masz subskrypcję  **Bezpłatna** lub Podstawowa, możesz wyświetlać raporty dotyczące zagrożonych użytkowników i ryzykownych logów, ale nie widzisz podstawowych informacji dotyczących wykrywania ryzyka.
 
 ---
 
-**P: co oznacza wykrycie ryzyka "Logowanie z dodatkowym ryzykiem" oznacza?**
+**Pytanie: Jak są obliczane adresy IP w raporcie logowania i ryzykownych logie?**
 
-Odp **.:** Aby uzyskać wgląd we wszystkie ryzykowne logowania w środowisku, "Zaloguj się z dodatkowym ryzykiem wykrytym" funkcji jako symbol zastępczy dla logowań do wykrycia, które są wyłączne dla subskrybentów Azure AD Identity Protection.
+**A:** Adresy IP są wystawiane w taki sposób, że nie istnieje ostateczne połączenie między adresem IP a komputerem z tym adresem fizycznie zlokalizowanym. Mapowanie adresów IP jest bardziej skomplikowane przez czynniki takie jak dostawcy urządzeń przenośnych i sieci VPN wystawiające adresy IP z pul centralnych często bardzo daleko od miejsca, w którym faktycznie jest używane urządzenie klienckie. Obecnie w raportach usługi Azure AD konwersja adresu IP na lokalizację fizyczną jest najlepszym rozwiązaniem na podstawie śladów, danych rejestru, wyszukiwania wstecznego i innych informacji. 
+
+---
+
+**Pytanie: Co oznacza wykrycie ryzyka "Logowanie z wykrytym dodatkowym ryzykiem"?**
+
+**A:** Aby uzyskać wgląd we wszystkie ryzykowne logowania w twoim środowisku, funkcja "Logowanie z wykrytym dodatkowym ryzykiem" pełni funkcję symbolu zastępczego logowania dla wykryć, które są dostępne wyłącznie dla Azure AD Identity Protection subskrybentów.
 
 ---
 
 ## <a name="conditional-access"></a>Dostęp warunkowy
 
-**P: co nowego w tej funkcji?**
+**Pytanie: Co nowego w tej funkcji?**
 
-Odp **.:** Klienci mogą teraz rozwiązywać problemy z zasadami dostępu warunkowego za całym raportem logowania. Klienci mogą zapoznać się ze stanem dostępu warunkowego i szczegółowe w celu uzyskania szczegółowych informacji dotyczących zasad, które zastosowały się do logowania, oraz wyników dla każdej zasady.
+**A:** Klienci mogą teraz rozwiązywać problemy z zasadami dostępu warunkowego za pośrednictwem wszystkich raportów logowania. Klienci mogą przejrzeć stan dostępu warunkowego i zapoznać się ze szczegółami zasad zastosowanych do logowania oraz wynikami poszczególnych zasad.
 
-**P: Jak mogę zacząć?**
+**Pytanie: Jak mogę rozpocząć?**
 
-Odp **.:** Aby rozpocząć:
+**A:** Aby rozpocząć pracę:
 
-* Przejdź do raportu logowania w [Azure Portal](https://portal.azure.com).
-* Kliknij Logowanie, które chcesz rozwiązać.
-* Przejdź do karty **dostęp warunkowy** . W tym miejscu można wyświetlić wszystkie zasady, które mają wpływ na logowanie i wyniki dla każdej zasady. 
+* Przejdź do raportu logowania w Azure Portal [.](https://portal.azure.com)
+* Kliknij logowanie, które chcesz rozwiązać.
+* Przejdź do karty **Dostęp warunkowy.** W tym miejscu możesz wyświetlić wszystkie zasady, które miały wpływ na logowanie, i wynik dla każdej zasady. 
     
-**P: Jakie są wszystkie możliwe wartości dla stanu dostępu warunkowego?**
+**Pytanie: Jakie są wszystkie możliwe wartości stanu dostępu warunkowego?**
 
-Odp **.:** Stan dostępu warunkowego może mieć następujące wartości:
+**A:** Stan dostępu warunkowego może mieć następujące wartości:
 
-* **Nie zastosowano**: oznacza to, że nie ma żadnych zasad dostępu warunkowego z użytkownikiem i aplikacją w zakresie. 
-* **Sukces**: oznacza to, że wystąpiły zasady dostępu warunkowego z użytkownikiem i aplikacją w zakresie, a zasady dostępu warunkowego zostały pomyślnie spełnione. 
-* **Niepowodzenie**: zalogowanie zostało spełnione warunek użytkownika i aplikacji co najmniej jednej zasady dostępu warunkowego, a kontrolki grantu nie są spełnione lub ustawione na zablokowanie dostępu.
+* **Nie zastosowano:** oznacza to, że nie było żadnych zasad dostępu warunkowego z użytkownikiem i aplikacją w zakresie. 
+* **Powodzenie:** oznacza to, że zostały spełnione zasady dostępu warunkowego z użytkownikiem i aplikacją w zakresie oraz zasady dostępu warunkowego. 
+* **Niepowodzenie:** Logowanie spełnia warunek użytkownika i aplikacji dla co najmniej jednej zasady dostępu warunkowego i nie spełniło warunków kontroli udzielenia dostępu albo nie zostało ustawione na blokowanie dostępu.
     
-**P: Jakie są wszystkie możliwe wartości wyniku zasady dostępu warunkowego?**
+**Pytanie: Jakie są wszystkie możliwe wartości wyniku zasad dostępu warunkowego?**
 
-Odp **.:** Zasady dostępu warunkowego mogą mieć następujące wyniki:
+**A:** Zasady dostępu warunkowego mogą mieć następujące wyniki:
 
-* **Sukces**: zasady zostały pomyślnie spełnione.
-* **Niepowodzenie**: zasady nie zostały spełnione.
-* **Nie zastosowano**: może to być spowodowane tym, że warunki zasad nie zostały spełnione.
-* **Niewłączone**: jest to spowodowane zasadami w stanie wyłączenia. 
+* **Powodzenie:** zasady zostały pomyślnie spełnione.
+* **Błąd:** Zasady nie zostały spełnione.
+* **Nie zastosowano:** może to być spowodowane tym, że warunki zasad nie zostały spełnione.
+* **Niewłączona:** jest to spowodowane tym, że zasady są w stanie wyłączonym. 
     
-**P: Nazwa zasad we wszystkich raportach logowania nie jest zgodna z nazwą zasad w urzędzie certyfikacji. Dlaczego?**
+**Pytanie: Nazwa zasad w raporcie logowania wszystkich nie jest dopasowana do nazwy zasad w urzędu certyfikacji. Dlaczego?**
 
-Odp **.:** Nazwa zasad we wszystkich raportach logowania jest oparta na nazwie zasad dostępu warunkowego w momencie logowania. Ta wartość może być niespójna z nazwą zasad w urzędzie certyfikacji w przypadku późniejszej aktualizacji nazwy zasad, czyli po zalogowaniu się.
+**A:** Nazwa zasad w raporcie logowania wszystkich jest oparta na nazwie zasad dostępu warunkowego w momencie logowania. Może to być niespójne z nazwą zasad w urzędu certyfikacji, jeśli nazwa zasad zostanie zaktualizowana później, czyli po zalogowaniu.
 
-**P: moje logowanie zostało zablokowane z powodu zasad dostępu warunkowego, ale raport działań związanych z logowaniem pokazuje, że logowanie powiodło się. Zalet?**
+**Pytanie: Moje logowanie zostało zablokowane z powodu zasad dostępu warunkowego, ale raport aktywności logowania pokazuje, że logowanie zakończyło się pomyślnie. Dlaczego?**
 
-Odp **.:** Obecnie raport logowania może nie wyświetlać dokładnych wyników scenariuszy programu Exchange ActiveSync, gdy jest stosowany dostęp warunkowy. Mogą wystąpić sytuacje, w których wynik logowania w raporcie przedstawia Pomyślne logowanie, ale logowanie nie powiodło się z powodu zasad dostępu warunkowego.
+**A:** Obecnie raport logowania może nie pokazywać dokładnych wyników dla scenariuszy programu Exchange ActiveSync w przypadku zastosowania dostępu warunkowego. W niektórych przypadkach wynik logowania w raporcie może oznaczać pomyślne zalogowanie, ale logowanie faktycznie nie powiodło się z powodu zasad dostępu warunkowego.

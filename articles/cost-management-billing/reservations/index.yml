@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 03/01/2021
-  ms.openlocfilehash: b25d522d5db9f513628e43724cb1abde9f55e99c
-  ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+  ms.date: 04/15/2021
+  ms.openlocfilehash: c7c9a72e3954598e0cb3265e0533ccbd14b68e4b
+  ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/04/2021
-  ms.locfileid: "102040825"
+  ms.lasthandoff: 04/16/2021
+  ms.locfileid: "107532662"
 landingContent:
 - title: Kup rezerwacje
   linkLists:
@@ -24,6 +24,12 @@ landingContent:
     links:
     - text: Co to są rezerwacje platformy Azure?
       url: save-compute-costs-reservations.md
+    - text: Zalecenia dotyczące zakupów rezerwacji
+      url: reserved-instance-purchase-recommendations.md
+    - text: Elastyczność rozmiaru wystąpienia
+      url: ../../virtual-machines/reserved-vm-instance-size-flexibility.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - text: Koszt oprogramowania dla systemu Windows i programu SQL jest naliczany osobno
+      url: reserved-instance-windows-software-costs.md
   - linkListType: how-to-guide
     links:
     - text: Kupowanie rezerwacji
@@ -36,16 +42,24 @@ landingContent:
     links:
     - text: Jak jest naliczany rabat za rezerwację
       url: reservation-discount-application.md
-- title: Zarządzanie rezerwacjami
+- title: Zarządzanie rezerwacjami po zakupie
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Zarządzanie rezerwacjami
-      url: manage-reserved-vm-instance.md
-    - text: Wyświetlanie rezerwacji i zarządzanie uprawnieniami
+    - text: Uprawnienia do wyświetlania rezerwacji i zarządzania nimi
       url: view-reservations.md
+    - text: Zmienianie zakresu rezerwacji, dzielenie, scalanie
+      url: manage-reserved-vm-instance.md
     - text: Wymiana i zwrot rezerwacji
       url: exchange-and-refund-azure-reservations.md
+- title: Raport kosztów po zakupie
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Koszty rezerwacji platformy Azure — obciążenie zwrotne
+      url: charge-back-usage.md
+    - text: Wyświetlanie transakcji zakupu i zwrotów za rezerwacje
+      url: view-purchase-refunds.md
   - linkListType: reference
     links:
     - text: Interfejsy API rezerwacji

@@ -1,71 +1,74 @@
 ---
-title: Włącz rozszerzenie maszyny wirtualnej na podstawie Azure Portal
-description: W tym artykule opisano sposób wdrażania rozszerzeń maszyn wirtualnych na serwerach z obsługą usługi Azure ARC z systemem w środowiskach chmury hybrydowej z poziomu Azure Portal.
-ms.date: 01/22/2020
+title: Włączanie rozszerzenia maszyny wirtualnej z Azure Portal
+description: W tym artykule opisano sposób wdrażania rozszerzeń maszyn wirtualnych na Azure Arc serwerów działających w środowiskach chmury hybrydowej z Azure Portal.
+ms.date: 04/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: b0e114b314179d42ccd47b7d7bd534d3a824a411
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b5b4ff79d68ec9ff0cc61b9dbb7d3c5d7fe93598
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100587666"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388282"
 ---
-# <a name="enable-azure-vm-extensions-from-the-azure-portal"></a>Włącz rozszerzenia maszyny wirtualnej platformy Azure z poziomu Azure Portal
+# <a name="enable-azure-vm-extensions-from-the-azure-portal"></a>Włączanie rozszerzeń maszyn wirtualnych platformy Azure z Azure Portal
 
-W tym artykule opisano sposób wdrażania i odinstalowywania rozszerzeń maszyn wirtualnych platformy Azure, które są obsługiwane przez serwery z obsługą usługi Azure ARC, na maszynę hybrydową z systemem Linux lub Windows za pomocą Azure Portal.
+W tym artykule przedstawiono sposób wdrażania i odinstalowywania rozszerzeń maszyn wirtualnych platformy Azure obsługiwanych przez serwery z obsługą usługi Azure Arc na maszynie hybrydowej z systemem Linux lub Windows za pośrednictwem Azure Portal.
 
 > [!NOTE]
-> Rozszerzenie maszyny wirtualnej Key Vault (wersja zapoznawcza) nie obsługuje wdrożenia z Azure Portal, tylko przy użyciu interfejsu wiersza polecenia platformy Azure, Azure PowerShell lub przy użyciu szablonu Azure Resource Manager.
+> Rozszerzenie Key Vault maszyny wirtualnej (wersja zapoznawcza) nie obsługuje wdrażania z usługi Azure Portal, tylko przy użyciu interfejsu wiersza polecenia platformy Azure, interfejsu Azure PowerShell lub szablonu Azure Resource Manager szablonu.
 
-## <a name="enable-extensions-from-the-portal"></a>Włącz rozszerzenia portalu
+> [!NOTE]
+> Azure Arc obsługuje wdrażania rozszerzeń maszyn wirtualnych i zarządzania nimi na maszynach wirtualnych platformy Azure. W przypadku maszyn wirtualnych platformy Azure zobacz następujący artykuł [z omówieniem rozszerzenia maszyny wirtualnej.](../../virtual-machines/extensions/overview.md)
 
-Rozszerzenia maszyny wirtualnej mogą być stosowane do Twojego łuku dla maszyny zarządzanej przez serwer za pomocą Azure Portal.
+## <a name="enable-extensions-from-the-portal"></a>Włączanie rozszerzeń z portalu
 
-1. W przeglądarce przejdź do [Azure Portal](https://portal.azure.com).
+Rozszerzenia maszyny wirtualnej można zastosować do usługi Arc dla maszyny zarządzanej przez serwer za pośrednictwem Azure Portal.
 
-2. W portalu przejdź do opcji **serwery — Azure Arc** i wybierz maszynę hybrydową z listy.
+1. W przeglądarce przejdź do strony [Azure Portal](https://portal.azure.com).
 
-3. Wybierz pozycję **rozszerzenia**, a następnie wybierz pozycję **Dodaj**. Wybierz odpowiednie rozszerzenie z listy dostępnych rozszerzeń i postępuj zgodnie z instrukcjami wyświetlanymi w kreatorze. W tym przykładzie zostanie wdrożone rozszerzenie maszyny wirtualnej Log Analytics.
+2. W portalu przejdź do opcji **Serwery — Azure Arc** wybierz maszynę hybrydową z listy.
 
-    ![Wybierz rozszerzenie maszyny wirtualnej dla wybranej maszyny](./media/manage-vm-extensions/add-vm-extensions.png)
+3. Wybierz **pozycję Rozszerzenia,** a następnie wybierz **pozycję Dodaj.** Wybierz rozszerzenie z listy dostępnych rozszerzeń i postępuj zgodnie z instrukcjami w kreatorze. W tym przykładzie wdrożymy rozszerzenie maszyny wirtualnej usługi Log Analytics.
 
-    W poniższym przykładzie przedstawiono instalację rozszerzenia maszyny wirtualnej Log Analytics z Azure Portal:
+    ![Wybieranie rozszerzenia maszyny wirtualnej dla wybranej maszyny](./media/manage-vm-extensions/add-vm-extensions.png)
 
-    ![Zainstaluj rozszerzenie maszyny wirtualnej Log Analytics](./media/manage-vm-extensions/mma-extension-config.png)
+    W poniższym przykładzie pokazano instalację rozszerzenia maszyny wirtualnej usługi Log Analytics z Azure Portal:
 
-    Aby ukończyć instalację, należy podać identyfikator obszaru roboczego i klucz podstawowy. Jeśli nie wiesz, jak znaleźć te informacje, zobacz temat [Uzyskiwanie identyfikatora i klucza obszaru roboczego](../../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
+    ![Instalowanie rozszerzenia maszyny wirtualnej usługi Log Analytics](./media/manage-vm-extensions/mma-extension-config.png)
 
-4. Po potwierdzeniu wymaganych informacji wybierz pozycję **Utwórz**. Zostanie wyświetlone podsumowanie wdrożenia i można sprawdzić stan wdrożenia.
+    Aby ukończyć instalację, musisz podać identyfikator obszaru roboczego i klucz podstawowy. Jeśli nie wiesz, jak znaleźć te informacje, zobacz Uzyskiwanie identyfikatora i klucza obszaru [roboczego](../../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
+
+4. Po potwierdzeniu podanych wymaganych informacji wybierz pozycję **Utwórz**. Zostanie wyświetlone podsumowanie wdrożenia. Możesz sprawdzić jego stan.
 
 >[!NOTE]
->Chociaż wiele rozszerzeń można wsadowo i przetwarzać, są one instalowane seryjnie. Po zakończeniu instalacji pierwszego rozszerzenia zostanie podjęta próba instalacji następnego rozszerzenia.
+>Chociaż wiele rozszerzeń można tworzyć wsadowo i przetwarzać, są one instalowane szeregowo. Po zakończeniu pierwszej instalacji rozszerzenia podejmowana jest próba zainstalowania następnego rozszerzenia.
 
-## <a name="list-extensions-installed"></a>Zainstalowano rozszerzenia list
+## <a name="list-extensions-installed"></a>Lista zainstalowanych rozszerzeń
 
-Możesz uzyskać listę rozszerzeń maszyn wirtualnych na serwerze z włączonym Łukem z Azure Portal. Wykonaj następujące kroki, aby je zobaczyć.
+Listę rozszerzeń maszyn wirtualnych na serwerze z usługą Arc można uzyskać z Azure Portal. Wykonaj poniższe kroki, aby je wyświetlić.
 
-1. W przeglądarce przejdź do [Azure Portal](https://portal.azure.com).
+1. W przeglądarce przejdź do strony [Azure Portal](https://portal.azure.com).
 
-2. W portalu przejdź do opcji **serwery — Azure Arc** i wybierz maszynę hybrydową z listy.
+2. W portalu przejdź do opcji **Serwery — Azure Arc** wybierz maszynę hybrydową z listy.
 
-3. Wybierz **rozszerzenia** i zostanie zwrócona lista zainstalowanych rozszerzeń.
+3. Wybierz **pozycję Rozszerzenia**. Zostanie zwrócona lista zainstalowanych rozszerzeń.
 
-    ![Wyświetl listę rozszerzeń maszyny wirtualnej wdrożonych na wybranej maszynie](./media/manage-vm-extensions/list-vm-extensions.png)
+    ![Lista rozszerzeń maszyn wirtualnych wdrożonych na wybranej maszynie](./media/manage-vm-extensions/list-vm-extensions.png)
 
-## <a name="uninstall-extension"></a>Odinstaluj rozszerzenie
+## <a name="uninstall-extension"></a>Odinstalowywanie rozszerzenia
 
-Można usunąć jedno lub więcej rozszerzeń z serwera z obsługą łuku z Azure Portal. Wykonaj następujące kroki, aby usunąć rozszerzenie.
+Z serwera z usługą Arc można usunąć co najmniej jedno rozszerzenie z Azure Portal. Wykonaj poniższe kroki, aby usunąć rozszerzenie.
 
-1. W przeglądarce przejdź do [Azure Portal](https://portal.azure.com).
+1. W przeglądarce przejdź do strony [Azure Portal](https://portal.azure.com).
 
-2. W portalu przejdź do opcji **serwery — Azure Arc** i wybierz maszynę hybrydową z listy.
+2. W portalu przejdź do opcji **Serwery — Azure Arc** wybierz maszynę hybrydową z listy.
 
-3. Wybierz **rozszerzenia**, a następnie wybierz rozszerzenie z listy zainstalowanych rozszerzeń.
+3. Wybierz **pozycję Rozszerzenia,** a następnie wybierz rozszerzenie z listy zainstalowanych rozszerzeń.
 
-4. Wybierz pozycję **Odinstaluj** , a po wyświetleniu monitu o potwierdzenie wybierz pozycję **tak** , aby wykonać operację.
+4. Wybierz **pozycję Odinstaluj.** Po wyświetleniu monitu o zweryfikowanie wybierz **pozycję Tak,** aby kontynuować.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Można wdrażać i usuwać rozszerzenia maszyn wirtualnych oraz zarządzać nimi przy użyciu szablonów [interfejsu wiersza polecenia platformy Azure](manage-vm-extensions-cli.md), [programu PowerShell](manage-vm-extensions-powershell.md)lub [Azure Resource Manager](manage-vm-extensions-template.md).
+- Rozszerzenia maszyn wirtualnych można wdrażać i usuwać oraz zarządzać nimi przy użyciu interfejsu wiersza polecenia platformy [Azure,](manage-vm-extensions-cli.md)programu [PowerShell](manage-vm-extensions-powershell.md) [lub Azure Resource Manager szablonów.](manage-vm-extensions-template.md)
 
-- Informacje dotyczące rozwiązywania problemów można znaleźć w [podręczniku Rozwiązywanie problemów z maszynami](troubleshoot-vm-extensions.md)wirtualnymi.
+- Informacje dotyczące rozwiązywania problemów można znaleźć w [przewodniku Rozwiązywanie problemów z rozszerzeniami maszyn wirtualnych.](troubleshoot-vm-extensions.md)

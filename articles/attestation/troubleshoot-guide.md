@@ -1,40 +1,39 @@
 ---
 title: Przewodnik rozwiązywania problemów z usługą Azure Attestation
-description: Rozwiązywanie problemów z często obserwowanymi problemami
+description: Przewodnik po problemach z często obserwowanymi problemami
 services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 3ae3e12c11f194b3efcc149382dc952bd74d38b5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5eefcb55bb5447d557f097af872847576aa86eed
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97704320"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519310"
 ---
-# <a name="microsoft-azure-attestation-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów z zaświadczeniem Microsoft Azure
+# <a name="microsoft-azure-attestation-troubleshooting-guide"></a>Microsoft Azure rozwiązywania problemów z zaświadczeniami
 
-Obsługa błędów w zaświadczeniu platformy Azure została zaimplementowana zgodnie z [zaleceniami interfejsu API REST firmy Microsoft](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#7102-error-condition-responses). Odpowiedź na błąd zwrócona przez interfejsy API zaświadczania platformy Azure zawiera kod stanu HTTP i pary nazwa/wartość z nazwami "Code" i "Message". Wartość "Code" jest czytelna dla człowieka i jest wskaźnikiem typu błędu. Wartość "Message" ma pomóc użytkownikowi i zawiera szczegóły błędu.
+Obsługa błędów w Azure Attestation jest implementowane zgodnie z [wytycznymi interfejsu API REST firmy Microsoft.](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#7102-error-condition-responses) Odpowiedź na błąd zwrócona przez interfejsy API Azure Attestation API zawiera kod stanu HTTP i pary nazwa/wartość z nazwami "code" i "message". Wartość "kodu" jest czytelna dla człowieka i jest wskaźnikiem typu błędu. Wartość "message" ma pomóc użytkownikowi i zawiera szczegóły błędu.
 
-Jeśli problem nie został rozwiązany w tym artykule, możesz również przesłać żądanie pomocy technicznej platformy Azure na [stronie pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/).
+Jeśli problem nie został rozwiązany w tym artykule, możesz również przesłać wniosek o pomoc techniczną platformy Azure na stronie [pomocy technicznej platformy Azure.](https://azure.microsoft.com/support/options/)
 
-Poniżej przedstawiono przykłady błędów zwracanych przez zaświadczanie platformy Azure:
+Poniżej przedstawiono kilka przykładów błędów zwracanych przez Azure Attestation:
 
-## <a name="1-http401--unauthorized-exception"></a>1. HTTP – 401: nieautoryzowany wyjątek
+## <a name="1-http401--unauthorized-exception"></a>1. HTTP–401: Brak autoryzacji wyjątku
 
 ### <a name="http-status-code"></a>Kod stanu HTTP
 401
 
-**Kod błędu** Próby
+**Kod błędu** Nieautoryzowanych
 
 **Przykłady scenariuszy**
-  - Niepowodzenie zaświadczania, jeśli użytkownik nie jest przypisany do roli czytelnik zaświadczania
-  - Nie można zarządzać zasadami zaświadczania, ponieważ użytkownik nie jest przypisany przy użyciu odpowiednich ról
-  - Nie można zarządzać osobami podpisującymi zasady zaświadczania, ponieważ użytkownik nie jest przypisany przy użyciu odpowiednich ról
+  - Nie można zarządzać zasadami zaświadczenia, ponieważ użytkownik nie ma przypisanych odpowiednich ról
+  - Nie można zarządzać podpisujących zasady za pomocą zaświadczenia, ponieważ użytkownik nie ma przypisanych odpowiednich ról
 
-Użytkownik z rolą czytnika próbujących edytować zasady zaświadczania w programie PowerShell 
+Użytkownik z rolą Czytelnik próbujący edytować zasady zaświadczenia w programie PowerShell 
 
   ```powershell
   Set-AzAttestationPolicy : Operation returned HTTP Status Code 401
@@ -47,70 +46,40 @@ At line:1 char:1
 
 **Kroki rozwiązywania problemów**
 
-Aby można było wyświetlić zasady zaświadczania/podpisywanie zasad, użytkownik usługi Azure AD wymaga uprawnień do działania:
-- Microsoft. zaświadczanie/attestationProviders/zaświadczanie/odczytanie
+Aby zarządzać zasadami, użytkownik usługi Azure AD wymaga następujących uprawnień dla akcji:
+- Microsoft.Attestation/attestationProviders/attestation/read
+- Microsoft.Attestation/attestationProviders/attestation/write
+- Microsoft.Attestation/attestationProviders/attestation/delete
 
-  To uprawnienie można przypisać do użytkownika usługi AD za pomocą roli, takiej jak "właściciel" (uprawnienia symboli wieloznacznych) lub "czytelnik" (uprawnienia symboli wieloznacznych) lub "czytelnik zaświadczania" (określone uprawnienia tylko do zaświadczania platformy Azure).
+  Aby wykonać te akcje, użytkownik usługi Azure AD musi mieć rolę "Współautor zaświadczenia" u dostawcy zaświadczenia. Te uprawnienia mogą być również dziedziczone z rolami, takimi jak "Właściciel" (uprawnienia z symbolami wieloznacznymi), "Współautor" (uprawnienia z symbolami wieloznaczny) w subskrypcji/grupie zasobów.  
 
-Aby można było dodawać/usuwać osoby podpisujące zasady lub aby skonfigurować zasady, użytkownik usługi Azure AD musi mieć następujące uprawnienia dla "akcji":
-- Microsoft. zaświadczanie/attestationProviders/zaświadczanie/zapis
-- Microsoft. zaświadczanie/attestationProviders/zaświadczanie/usunięcie
+Aby można było odczytać zasady, użytkownik usługi Azure AD wymaga następującego uprawnienia dla akcji:
+- Microsoft.Attestation/attestationProviders/attestation/read
 
-  Te uprawnienia można przypisać do użytkownika usługi AD za pomocą roli, takiej jak "właściciel" (uprawnienia symboli wieloznacznych), "Współautor" (uprawnienia symboli wieloznacznych) lub "Współautor zaświadczania" (określone uprawnienia tylko do zaświadczania platformy Azure).
+  Aby wykonać tę akcję, użytkownik usługi Azure AD musi mieć rolę "Czytelnik zaświadczenia" u dostawcy zaświadczenia. Uprawnienie do odczytu może być również dziedziczone z rolami, takimi jak "Czytelnik" (uprawnienia z symbolami wieloznacznymi) w subskrypcji/grupie zasobów.  
 
-Klienci mogą wybrać użycie domyślnego dostawcy zaświadczania lub utworzyć własnych dostawców przy użyciu zasad niestandardowych. Aby wysyłać żądania zaświadczania do niestandardowych dostawców zaświadczania, dla użytkownika wymagana jest rola "właściciel" (uprawnienia symboli wieloznacznych) lub "czytelnik" (uprawnienia symboli wieloznacznych) lub "czytelnik zaświadczania". Dostawcy domyślnie są dostępni przez dowolnego użytkownika usługi Azure AD.
-
-Aby sprawdzić role w programie PowerShell, uruchom następujące polecenie:
+Aby zweryfikować role w programie PowerShell, uruchom następujące kroki:
 
 a. Uruchom program PowerShell i zaloguj się do platformy Azure za pomocą polecenia cmdlet "Connect-AzAccount"
 
-b. Weryfikowanie ustawień przypisywania ról platformy Azure
+b. Zapoznaj się ze wskazówkami [w tym miejscu,](../role-based-access-control/role-assignments-list-powershell.md) aby zweryfikować przypisanie roli platformy Azure u dostawcy za pomocą zaświadczenia
 
+c. Jeśli nie znajdziesz odpowiedniego przypisania roli, postępuj zgodnie z instrukcjami podanymi [tutaj](../role-based-access-control/role-assignments-powershell.md)
 
-  ```powershell
-  $c = Get-AzContext
-  Get-AzRoleAssignment -ResourceGroupName $attestationResourceGroup -ResourceName $attestationProvider -ResourceType Microsoft.Attestation/attestationProviders -SignInName $c.Account.Id
-  ```
-
-  Powinny zostać wyświetlone informacje podobne do następujących:
-
-  ```
-  RoleAssignmentId   :/subscriptions/subscriptionId/providers/Microsoft.Authorization/roleAssignments/roleAssignmentId
-  
-  Scope              : /subscriptions/subscriptionId
-  
-  DisplayName        : displayName
-  
-  SignInName         : signInName
-  
-  RoleDefinitionName : Reader
-  
-  RoleDefinitionId   : roleDefinitionId
-  
-  ObjectId           : objectid
-  
-  ObjectType         : User
-  
-  CanDelegate        : False
- 
-  ```
-
-c. Jeśli na liście nie znajduje się odpowiednie przypisanie roli, postępuj zgodnie z instrukcjami w [tym miejscu](../role-based-access-control/role-assignments-powershell.md)
-
-## <a name="2-http--400-errors"></a>2. HTTP – błędy 400
+## <a name="2-http--400-errors"></a>2. Błędy HTTP –400
 
 ### <a name="http-status-code"></a>Kod stanu HTTP
 400
 
-Istnieją różne przyczyny, dla których żądanie może zwrócić 400. Poniżej przedstawiono kilka przykładów błędów zwracanych przez interfejsy API zaświadczania platformy Azure:
+Istnieją różne przyczyny, dla których żądanie może zwrócić 400. Poniżej przedstawiono kilka przykładów błędów zwracanych przez Azure Attestation API:
 
-### <a name="21-attestation-failure-due-to-policy-evaluation-errors"></a>2.1. Niepowodzenie zaświadczania z powodu błędów oceny zasad
+### <a name="21-attestation-failure-due-to-policy-evaluation-errors"></a>2.1. Niepowodzenie zaświadczenia z powodu błędów oceny zasad
 
-Zasady zaświadczania obejmują reguły autoryzacji i reguły wystawiania. Enklawy dowody są oceniane na podstawie reguł autoryzacji. Reguły wystawiania definiują oświadczenia, które mają być zawarte w tokenie zaświadczania. Jeśli oświadczenia w dowodu enklawy są niezgodne z regułami autoryzacji, zaświadczanie wywołań zwróci błąd oceny zasad. 
+Zasady zaświadczenia obejmują reguły autoryzacji i reguły wystawiania. Dowód enklawy jest oceniany na podstawie reguł autoryzacji. Reguły wystawiania definiują oświadczenia, które mają być uwzględnione w tokenie zaświadczenia. Jeśli oświadczenia w dowodach enklawy nie są zgodne z regułami autoryzacji, wywołania atestu będą zwracać błąd oceny zasad. 
 
 **Kod błędu** PolicyEvaluationError
 
-**Przykłady scenariuszy** Gdy oświadczenia w ofercie enklawy są niezgodne z regułami autoryzacji zasad zaświadczania
+**Przykłady scenariuszy** Gdy oświadczenia w cudzysłowie enklawy nie są zgodne z regułami autoryzacji zasad zaświadczenia
 
 ```
 Native operation failed with 65518: G:\Az\security\Attestation\src\AttestationServices\Instance\NativePolicyWrapper\NativePolicyEngine.cpp(168)\(null)!00007FF801762308: (caller: 00007FF80143DCC8) Exception(0) 83FFFFEE Policy Evaluation Error has occurred Msg:[Policy Engine Exception: A Deny claim was issued, authorization failed.]
@@ -119,32 +88,32 @@ G:\Az\security\Attestation\src\AttestationServices\Instance\Enclave\api.cpp(840)
 
 ```
 
-**Kroki rozwiązywania problemów** Użytkownicy mogą oszacować enklawy przed zasadami zaświadczania o SGX przed rozpoczęciem konfigurowania tego samego.
+**Kroki rozwiązywania problemów** Użytkownicy mogą ocenić dowód enklawy względem zasad zaświadczenia SGX przed skonfigurowaniem tych samych.
 
-Wyślij żądanie zaświadczania interfejsu API, dostarczając tekst zasad w parametrze "draftPolicyForAttestation". Interfejs API AttestSgxEnclave użyje tego dokumentu zasad podczas wywołania zaświadczania i może służyć do testowania zasad zaświadczania przed ich użyciem. Token zaświadczania wygenerowany, gdy to pole jest obecne, będzie niezabezpieczony.
+Wyślij żądanie do interfejsu API zaświadczenia, podając tekst zasad w parametrze "draftPolicyForAttestation". Interfejs API AttestSgxEnclave będzie używać tego dokumentu zasad podczas wywołania testu i może służyć do testowania zasad zawiadczania przed ich użyciem. Token zaświadczenia wygenerowany, gdy to pole jest obecne, będzie niezabezpieczony.
 
-Zobacz [przykłady zasad zaświadczania](./policy-examples.md)
+Zobacz [przykłady zasad zaświadczenia](./policy-examples.md)
 
-### <a name="22-attestation-failure-due-to-invalid-input"></a>2.2. Niepowodzenie zaświadczania z powodu nieprawidłowych danych wejściowych
+### <a name="22-attestation-failure-due-to-invalid-input"></a>2.2. Niepowodzenie zaświadczenia z powodu nieprawidłowych danych wejściowych
 
-**Kod błędu** Nieprawidłowy parametr
+**Kod błędu** InvalidParameter
 
-**Przykłady scenariuszy** Niepowodzenie zaświadczania SGX z powodu nieprawidłowych danych wejściowych. Poniżej przedstawiono przykłady dla komunikatów o błędach:
-- Określony cytat jest nieprawidłowy z powodu błędu w zabezpieczeniach oferty 
-- Określony cytat jest nieprawidłowy, ponieważ urządzenie, na którym wygenerowało ofertę, nie spełnia wymagań dotyczących planu bazowego platformy Azure
-- Określony cytat jest nieprawidłowy, ponieważ TCBInfo lub QEID dostarczony przez Cache Service PCK jest nieprawidłowy
+**Przykłady scenariuszy** Niepowodzenie zaświadczenia SGX z powodu nieprawidłowych danych wejściowych. Poniżej przedstawiono niektóre przykłady komunikatów o błędach:
+- Określony cudzysłów był nieprawidłowy z powodu błędu w cudzysłowie 
+- Określony cudzysłów był nieprawidłowy, ponieważ urządzenie, na którym została wygenerowana oferta, nie spełnia wymagań linii bazowej platformy Azure
+- Określony cudzysłów był nieprawidłowy, ponieważ TCBInfo lub QEID dostarczone przez usługę pamięci podręcznej PCK były nieprawidłowe
 
 **Kroki rozwiązywania problemów**
 
-Zaświadczanie Microsoft Azure obsługuje zaświadczanie ofert SGX generowanych przez zestaw SDK firmy Intel i Open enklawy SDK.
+Microsoft Azure Attestation obsługuje zaświadczenia ofert SGX wygenerowanych przez zestaw Intel SDK i zestaw OPEN Enclave SDK.
 
-Zapoznaj się z [przykładami kodu](/samples/browse/?expanded=azure&terms=attestation) dotyczącymi wykonywania zaświadczania przy użyciu zestawu SDK open enklawy/zestawu Intel SDK
+Zapoznaj się z [przykładami kodu](/samples/browse/?expanded=azure&terms=attestation) do przeprowadzania zaświadczenia przy użyciu zestawu OPEN Enclave SDK/Intel SDK
 
-### <a name="23-invalid-certificate-chain-error-while-uploading-policypolicy-signer"></a>2.3. Nieprawidłowy błąd łańcucha certyfikatów podczas przekazywania osoby podpisującej zasady/zasady
+### <a name="23-invalid-certificate-chain-error-while-uploading-policypolicy-signer"></a>2.3. Błąd nieprawidłowego łańcucha certyfikatów podczas przekazywania zasad/podpisywania zasad
 
-**Kod błędu** Nieprawidłowy parametr
+**Kod błędu** InvalidParameter
 
-**Przykłady scenariuszy** Skonfiguruj podpisane zasady lub Dodaj/Usuń podpisywanie zasad, które są podpisane przy użyciu nieprawidłowego łańcucha certyfikatów (na przykład gdy podstawowe warunki ograniczające certyfikatu głównego nie są ustawione na typ podmiotu = CA)
+**Przykłady scenariuszy** Skonfiguruj podpisane zasady lub dodaj/usuń podpiszatora zasad, który jest podpisany nieprawidłowym łańcuchem certyfikatów (na przykład gdy rozszerzenie Podstawowe ograniczenia certyfikatu głównego nie jest ustawione na typ podmiotu = urząd certyfikacji)
 
 ```
 Native operation failed with 65529: C:\source\src\AttestationServices\Instance\SgxPal\sgxcert.cpp(1074)\(null)!00007FFA285CDAED: (caller: 00007FFA285C36E8) Exception(0) 83FFFFF9 The requested item is not found    Msg:[Unable to find issuer certificate CN=attestationsigningcert]
@@ -157,21 +126,21 @@ At line:1 char:1
 
 ```
 
-**Kroki rozwiązywania problemów** Certyfikat główny musi być oflagowany jako wystawiony przez urząd certyfikacji (ograniczenia podstawowe X. 509), w przeciwnym razie nie będzie traktowany jako prawidłowy certyfikat. 
+**Kroki rozwiązywania problemów** Certyfikat główny musi być oflagowany jako wystawiony przez urząd certyfikacji (podstawowe ograniczenia X.509), w innym przypadku nie będzie traktowany jako prawidłowy certyfikat. 
 
-Upewnij się, że rozszerzenie podstawowych warunków ograniczających certyfikatu głównego jest ustawione na wskazuje, że typ podmiotu = CA
+Upewnij się, że dla rozszerzenia Podstawowe ograniczenia certyfikatu głównego ustawiono wartość , aby wskazać, że typ podmiotu = urząd certyfikacji
 
-W przeciwnym razie łańcuch certyfikatów jest uznawany za nieprawidłowy.
+W innym przypadku łańcuch certyfikatów jest uznawany za nieprawidłowy.
 
-Zobacz przykłady dotyczące [podpisywania zasad](./policy-signer-examples.md) i [zasad](./policy-examples.md) 
+Zobacz [przykłady osób podpisanych](./policy-signer-examples.md) [zasad i](./policy-examples.md) zasad 
 
-### <a name="24-adddelete-policy-signer-failure"></a>2.4. Błąd dodawania/usuwania osoby podpisującej zasady
+### <a name="24-adddelete-policy-signer-failure"></a>2.4. Niepowodzenie dodawania/usuwania podpisatora zasad
 
 **Kod błędu** InvalidOperation
 
 **Przykłady scenariuszy**
 
-Gdy użytkownik przekazuje JWS bez żądania "Maa-policyCertificate"
+Gdy użytkownik przekaże usługę JWS bez oświadczenia "maa-policyCertificate"
 
 ```
 Add-AzAttestationPolicySigner : Operation returned HTTP Status Code 400
@@ -188,7 +157,7 @@ At line:1 char:1
 
 ```
 
-Jeśli użytkownik nie przekaże certyfikatu w formacie JWS
+Gdy użytkownik nie przekaże certyfikatu w formacie JWS
 
 ```
 Add-AzAttestationPolicySigner : Operation returned HTTP Status Code 400
@@ -209,13 +178,13 @@ At line:1 char:1
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.Attestation.AddAzureAttestationPolicySigner
 ```
 
-**Kroki rozwiązywania problemów** Aby dodać/usunąć nowy certyfikat osoby podpisującej zasady, użyj tokenu sieci Web JSON RFC7519 (JWT) z zastrzeżeniem o nazwie "x-MS-policyCertificate". Wartość tego żądania jest kluczem sieci Web JSON RFC7517, który zawiera certyfikat do dodania. Token JWT musi być podpisany za pomocą klucza prywatnego dowolnego z prawidłowych certyfikatów podpisywania zasad skojarzonych z dostawcą. Zobacz [przykłady dotyczące podpisywania zasad](./policy-signer-examples.md).
+**Kroki rozwiązywania problemów** Aby dodać/usunąć nowy certyfikat podpisywania zasad, użyj RFC7519 JSON Web Token (JWT) z oświadczeniem o nazwie "x-ms-policyCertificate". Wartość oświadczenia to RFC7517 JSON Web Key, która zawiera certyfikat do dodania. JWT musi być podpisany za pomocą klucza prywatnego dowolnego z prawidłowych certyfikatów osoby podpiszcej zasad skojarzonych z dostawcą. Zobacz [przykłady podpisów zasad.](./policy-signer-examples.md)
 
-### <a name="25-attestation-policy-configuration-failure"></a>2.5. Niepowodzenie konfiguracji zasad zaświadczania
+### <a name="25-attestation-policy-configuration-failure"></a>2.5. Niepowodzenie konfiguracji zasad zaświadczenia
 
 **Kod błędu** PolicyParsingError
 
-**Przykłady scenariuszy** Podano zasady z nieprawidłową składnią (na przykład brak średnika)/Valid zasady JWT)
+**Przykłady scenariuszy** Zasady z niepoprawną składnią (na przykład z brakującymi średnikami)/prawidłowymi zasadami JWT)
 
 ```
 Native operation failed with 65526: ..\NativePolicyWrapper\NativePolicyEngine.cpp(31)\(null)!: (caller: ) Exception(0) 83FFFFF6 Invalid policy was specified    Msg:[Policy Parser Exception Thrown: Offending
@@ -233,7 +202,7 @@ At line:1 char:1
 
 **Kod błędu** InvalidOperation
 
-**Przykłady scenariuszy** Podano nieprawidłową zawartość (na przykład przekazywanie zasad/niepodpisanych zasad, gdy jest wymagane podpisywanie zasad)
+**Przykłady scenariuszy** Podano nieprawidłową zawartość (na przykład zasady przekazywania/zasady niepodpisane, gdy jest wymagane podpisywanie zasad)
 
 ```
 Native operation failed with 74: ..\Shared\base64url.h(226)\(null)!: (caller: ) Exception(0) 83FF004A Bad message    Msg:[Unknown base64 character: 41 (')')]
@@ -245,59 +214,59 @@ At line:1 char:1
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.Attestation.SetAzureAttestationPolicy
 ```
 
-**Kroki rozwiązywania problemów** Upewnij się, że zasady w formacie tekstowym są zakodowane przy użyciu kodowania UTF-8.
+**Kroki rozwiązywania problemów** Upewnij się, że zasady w formacie tekstowym są zakodowane w formacie UTF-8.
 
-Jeśli podpisywanie zasad jest wymagane, zasady zaświadczania muszą być skonfigurowane tylko w formacie tokenu RFC7519 JSON (JWT). Jeśli podpisywanie zasad nie jest wymagane, zasady można skonfigurować w formacie tekstu lub tokenu JWT.
+Jeśli podpisywanie zasad jest wymagane, zasady zaświadczenia muszą być skonfigurowane tylko w formacie RFC7519 JSON Web Token (JWT). Jeśli podpisywanie zasad nie jest wymagane, można skonfigurować zasady w formacie tekstowym lub JWT.
 
-Aby skonfigurować zasady w formacie JWT, użyj tokenu JWT z zastrzeżeniem o nazwie "AttestationPolicy". Wartość tego żądania jest Base64URL zaszyfrowanej wersji tekstu zasad. Jeśli dostawca zaświadczania jest skonfigurowany przy użyciu certyfikatów podpisywania zasad, token JWT musi być podpisany przy użyciu klucza prywatnego dowolnego z prawidłowych certyfikatów podpisywania zasad skojarzonych z dostawcą. 
+Aby skonfigurować zasady w formacie JWT, należy użyć JWT z oświadczeniem o nazwie "AttestationPolicy". Wartością oświadczenia jest zakodowana w formacie Base64URL wersja tekstu zasad. Jeśli dostawca zaświadczeń jest skonfigurowany przy użyciu certyfikatów osoby podpiszcej zasady, JWT musi być podpisany za pomocą klucza prywatnego dowolnego z prawidłowych certyfikatów podpisów zasad skojarzonych z dostawcą. 
 
-Aby skonfigurować zasady w formacie tekstowym, należy bezpośrednio określić tekst zasad.
+Aby skonfigurować zasady w formacie tekstowym, określ tekst zasad bezpośrednio.
 
-W programie PowerShell Określ PolicyFormat jako JWT, aby skonfigurować zasady w formacie JWT. Domyślny format zasad to Text.
+W programie PowerShell określ format PolicyFormat jako JWT, aby skonfigurować zasady w formacie JWT. Domyślny format zasad to Tekst.
 
-Zobacz [przykłady zasad](./policy-examples.md) zaświadczania i [sposób tworzenia zasad zaświadczania](./author-sign-policy.md) 
+Zobacz przykłady zasad [zaświadczenia](./policy-examples.md) [i sposób tworzenia zasad zaświadczenia](./author-sign-policy.md) 
 
-## <a name="3-azattestation-installation-issues-in-powershell"></a>3. AZ. zaświadczanie problemów z instalacją w programie PowerShell
+## <a name="3-azattestation-installation-issues-in-powershell"></a>3. Problemy z instalacją az.attestation w programie PowerShell
 
-Nie można zainstalować poleceń AZ lub AZ. zaświadczania w programie PowerShell
+Nie można zainstalować modułów Az lub Az.Attestation w programie PowerShell
 
 ### <a name="error"></a>Błąd
 
-Ostrzeżenie: nie można rozpoznać źródła pakietu " https://www.powershellgallery.com/api/v2 " PackageManagement\Install-Package: nie znaleziono dopasowania dla określonych kryteriów wyszukiwania i nazwy modułu
+OSTRZEŻENIE: Nie można rozpoznać źródła pakietu " PackageManagement\Install-Package: Nie znaleziono dopasowania dla określonych https://www.powershellgallery.com/api/v2 kryteriów wyszukiwania i nazwy modułu
 
 ### <a name="troubleshooting-steps"></a>Kroki rozwiązywania problemów
 
-Galeria programu PowerShell ma przestarzałe wersje Transport Layer Security (TLS) 1,0 i 1,1. 
+Galeria programu PowerShell jest przestarzała Transport Layer Security (TLS) w wersjach 1.0 i 1.1. 
 
-Zalecane jest szyfrowanie TLS 1,2 lub nowsza. 
+Zalecana jest wersja TLS 1.2 lub nowsza. 
 
-Aby nadal korzystać z Galeria programu PowerShell, uruchom następujące polecenie przed poleceniami Install-Module
+Aby kontynuować interakcję z Galeria programu PowerShell, uruchom następujące polecenie przed Install-Module poleceniami
 
-**[Net. ServicePointManager]:: to elementu SecurityProtocol = [net. SecurityProtocolType]:: Tls12**
+**[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12**
 
-## <a name="4-policy-accessconfiguration-issues-in-powershell"></a>4. problemy z dostępem/konfiguracją zasad w programie PowerShell
+## <a name="4-policy-accessconfiguration-issues-in-powershell"></a>4. Problemy z dostępem/konfiguracją zasad w programie PowerShell
 
-Użytkownik przypisany do odpowiednich ról. Jednak podczas zarządzania zasadami zaświadczania przy użyciu programu PowerShell występują problemy z autoryzacją.
+Użytkownik przypisany z odpowiednimi rolami. Jednak w przypadku problemów z autoryzacją podczas zarządzania zasadami zaświadczenia za pomocą programu PowerShell.
 
 ### <a name="error"></a>Błąd
-Klient z identyfikatorem obiektu o identyfikatorze obiektu nie &lt; &gt;  ma autoryzacji do wykonania akcji Microsoft. Authorization/RoleAssignments/Write w zakresie "kupione/ &lt; subskrypcji &gt; ResourceGroups/secure_enclave_poc/Providers/Microsoft.Authorization/RoleAssignments/ &lt; role assignmentId &gt; " lub zakres jest nieprawidłowy. Jeśli dostęp został niedawno udzielony, Odśwież swoje poświadczenia
+Klient z identyfikatorem obiektu Identyfikator obiektu nie ma autoryzacji do wykonania akcji &lt; &gt;  Microsoft.Authorization/roleassignments/write w zakresie "subctions/ &lt; subscriptionId &gt; resourcegroups/secure_enclave_poc/providers/Microsoft.Authorization/roleassignments/role &lt; assignmentId" lub zakres &gt; jest nieprawidłowy. Jeśli niedawno udzielono dostępu, odśwież swoje poświadczenia
 
 ### <a name="troubleshooting-steps"></a>Kroki rozwiązywania problemów
 
-Poniżej wymieniono minimalną wersję AZ modułów wymaganą do obsługi operacji zaświadczania: 
+Poniżej przedstawiono minimalną wersję modułów Az wymaganą do obsługi operacji zaświadczenia: 
 
- **AZ 4.5.0** 
+ **Az 4.5.0** 
  
- **AZ. Accounts 1.9.2**
+ **Az.Accounts 1.9.2**
  
- **AZ. zaświadczanie 0.1.8** 
+ **Az.Attestation 0.1.8** 
 
-Uruchom poniższe polecenie, aby sprawdzić zainstalowaną wersję wszystkich poleceń AZ module 
+Uruchom poniższe polecenie, aby sprawdzić zainstalowaną wersję wszystkich modułów Az 
 
 ```powershell
 Get-InstalledModule 
 ```
 
-Jeśli wersje nie są zgodne z wymaganiem minimalnym, uruchom polecenia Update-Module
+Jeśli wersje nie są zgodne z minimalnym wymaganiem, uruchom Update-Module polecenia
 
-np.-Update-Module-Name AZ. zaświadczanie
+np. - Update-Module -Name Az.Attestation

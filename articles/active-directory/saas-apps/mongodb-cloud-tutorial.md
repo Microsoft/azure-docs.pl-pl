@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z chmurą MongoDB | Microsoft Docs'
-description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i chmurą MongoDB.
+title: 'Samouczek: Azure Active Directory logowania jednokrotnego z usługą MongoDB Cloud | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować logowanie pojedyncze między usługą Azure Active Directory a usługą MongoDB Cloud.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,93 +9,89 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/03/2020
+ms.date: 04/14/2021
 ms.author: jeedes
-ms.openlocfilehash: af1c0702929e7cd700c8d19ab24e40f9c6f43a21
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5904d3eeec3f5880213f8a8c6a41cefbe76801b3
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96602176"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107520092"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mongodb-cloud"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z chmurą MongoDB
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mongodb-cloud"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego z usługą MongoDB Cloud
 
-W tym samouczku dowiesz się, jak zintegrować chmurę MongoDB z usługą Azure Active Directory (Azure AD). W przypadku integracji chmury MongoDB z usługą Azure AD można:
+Z tego samouczka dowiesz się, jak zintegrować usługę MongoDB Cloud z usługą Azure Active Directory (Azure AD). Po zintegrowaniu usługi MongoDB Cloud z usługą Azure AD można:
 
-* Kontrola w usłudze Azure AD, która ma dostęp do MongoDB Cloud, MongoDB Atlas, społeczność MongoDB, University MongoDB i MongoDB support.
-* Zezwól użytkownikom na automatyczne logowanie do chmury MongoDB przy użyciu kont usługi Azure AD.
-* Zarządzaj kontami w jednej centralnej lokalizacji: Azure Portal.
-
-Aby dowiedzieć się więcej o integracji aplikacji oprogramowania jako usługi (SaaS) z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+* Kontroluj w usłudze Azure AD, kto ma dostęp do chmury MongoDB, usługi MongoDB Atlas, społeczności bazy danych MongoDB, uniwersytetu MongoDB i pomocy technicznej bazy danych MongoDB.
+* Umożliwianie użytkownikom automatycznego zalogowania się do usługi MongoDB Cloud przy użyciu kont usługi Azure AD.
+* Zarządzanie kontami w jednej centralnej lokalizacji: Azure Portal.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby rozpocząć pracę, potrzebne będą następujące elementy:
+Do rozpoczęcia pracy potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
-* Organizacja w chmurze MongoDB, w której włączono obsługę logowania jednokrotnego (SSO), można skorzystać z [bezpłatnego klastra](https://www.mongodb.com/cloud)
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać bezpłatne [konto](https://azure.microsoft.com/free/).
+* Subskrypcja aplikacji MongoDB Cloud z obsługą logowania jednokrotnego.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
-W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
+W tym samouczku skonfigurujesz i przetestujemy logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Chmura MongoDB obsługuje funkcję SSO zainicjowaną przez usługę **SP** i **dostawcy tożsamości** .
-* Chmura MongoDB obsługuje Inicjowanie obsługi użytkowników **just in Time** .
-* Po skonfigurowaniu chmury MongoDB można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. Aby uzyskać więcej informacji, zobacz [Informacje o sposobie wymuszania kontroli sesji przy użyciu Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Usługa MongoDB Cloud obsługuje logowanie **jednokrotne** **inicjowane przez** dostawców usług oraz dostawców tożsamości.
+* Usługa MongoDB Cloud obsługuje **aprowizowanie** użytkowników just in time.
 
-## <a name="add-mongodb-cloud-from-the-gallery"></a>Dodaj chmurę MongoDB z galerii
+## <a name="add-mongodb-cloud-from-the-gallery"></a>Dodawanie usługi MongoDB Cloud z galerii
 
-Aby skonfigurować integrację MongoDB w chmurze z usługą Azure AD, musisz dodać chmurę MongoDB z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację usługi MongoDB Cloud z usługą Azure AD, musisz dodać usługę MongoDB Cloud z galerii do swojej listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
-1. W okienku po lewej stronie wybierz pozycję **Azure Active Directory**.
-1. Przejdź do pozycji **Aplikacje dla przedsiębiorstw** i wybierz pozycję **Wszystkie aplikacje**.
-1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
+1. Zaloguj się do konta Azure Portal przy użyciu konta służbowego lub osobistego konta konto Microsoft.
+1. W okienku nawigacji po lewej stronie wybierz **Azure Active Directory** usługi.
+1. Przejdź do opcji **Aplikacje dla przedsiębiorstw,** a następnie wybierz **pozycję Wszystkie aplikacje.**
+1. Aby dodać nową aplikację, wybierz **pozycję Nowa aplikacja.**
 1. W sekcji **Dodaj z galerii** wpisz **MongoDB Cloud** w polu wyszukiwania.
-1. Wybierz z wyników pozycję **MongoDB Cloud** , a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
+1. Wybierz **pozycję MongoDB Cloud** z panelu wyników, a następnie dodaj aplikację. Zaczekaj kilka sekund na dodanie aplikacji do dzierżawy.
 
+## <a name="configure-and-test-azure-ad-sso-for-mongodb-cloud"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD dla usługi MongoDB Cloud
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-mongodb-cloud"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla chmury MongoDB
+Skonfiguruj i przetestuj logowanie jednokrotne usługi Azure AD z usługą MongoDB Cloud przy użyciu użytkownika testowego **O nazwie B.Simon.** Aby logowanie jednokrotne działało, należy ustanowić relację połączenia między użytkownikiem usługi Azure AD i powiązanym użytkownikiem usługi MongoDB Cloud.
 
-Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą chmury MongoDB przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy nawiązać relację między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w chmurze MongoDB.
+Aby skonfigurować i przetestować logowanie jednokrotne usługi Azure AD z usługą MongoDB Cloud, wykonaj następujące kroki:
 
-Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą chmury MongoDB, wykonaj następujące bloki konstrukcyjne:
-
-1. [Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso) , aby umożliwić użytkownikom korzystanie z tej funkcji.
-    1. [Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user) , aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
-    1. [Przypisz użytkownika testowego usługi Azure AD,](#assign-the-azure-ad-test-user) aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-1. [Skonfiguruj logowanie](#configure-mongodb-cloud-sso) jednokrotne w chmurze MongoDB, aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
-    1. [Utwórz użytkownika testowego w chmurze MongoDB](#create-a-mongodb-cloud-test-user) , aby miał odpowiednik B. Simon w chmurze MongoDB, połączony z reprezentacją usługi Azure AD.
-1. [Przetestuj Logowanie jednokrotne](#test-sso) , aby sprawdzić, czy konfiguracja działa.
+1. [Skonfiguruj logowanie jednokrotne usługi Azure AD,](#configure-azure-ad-sso) aby umożliwić użytkownikom korzystanie z tej funkcji.
+    1. [Tworzenie użytkownika testowego usługi Azure AD w](#create-an-azure-ad-test-user) celu przetestowania logowania pojedynczego usługi Azure AD z użytkownikiem B.Simon.
+    1. [Przypisz użytkownika testowego usługi Azure AD,](#assign-the-azure-ad-test-user) aby umożliwić aplikacji B.Simon korzystanie z logowania pojedynczego usługi Azure AD.
+1. [Konfigurowanie logowania jednokrotnego w usłudze MongoDB Cloud SSO](#configure-mongodb-cloud-sso) w celu skonfigurowania ustawień logowania jednokrotnego po stronie aplikacji.
+    1. [Tworzenie użytkownika testowego usługi MongoDB w](#create-a-mongodb-cloud-test-user) chmurze, aby mieć w usłudze MongoDB Cloud odpowiednik użytkownika B.Simon połączony z reprezentacją użytkownika w usłudze Azure AD.
+1. [Przetestuj logowanie jednokrotne,](#test-sso) aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji w **chmurze MongoDB** Znajdź sekcję **Zarządzanie** . Wybierz pozycję **Logowanie jednokrotne**.
-1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** wybierz ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
+1. Na stronie [Azure Portal](https://portal.azure.com/)aplikacji **MongoDB Cloud** znajdź **sekcję** Zarządzanie. Wybierz **pozycję Logowanie pojedyncze.**
+1. Na stronie **Select a single sign-on method (Wybieranie metody logowania pojedynczego)** wybierz pozycję **SAML**.
+1. Na stronie **Konfigurowanie aplikacji Sign-On saml** wybierz ikonę ołówka dla opcji **Podstawowa konfiguracja saml,** aby edytować ustawienia.
 
-   ![Zrzut ekranu przedstawiający Konfigurowanie pojedynczej Sign-On ze stroną SAML z wyróżnioną ikoną ołówka](common/edit-urls.png)
+   ![Zrzut ekranu przedstawiający konfigurowanie aplikacji Sign-On za pomocą strony SAML z wyróżniona ikoną ołówka](common/edit-urls.png)
 
-1. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wprowadź wartości dla następujących pól:
+1. Jeśli chcesz skonfigurować aplikację w trybie inicjowanym  przez dostawcy tożsamości, w sekcji Podstawowa konfiguracja protokołu **SAML** wprowadź wartości następujących pól:
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL, który używa następującego wzorca: `https://www.okta.com/saml2/service-provider/<Customer_Unique>`
+    a. W polu **tekstowym** Identyfikator wpisz adres URL, który używa następującego wzorca: `https://www.okta.com/saml2/service-provider/<Customer_Unique>`
 
-    b. W polu tekstowym **adres URL odpowiedzi** wpisz adres URL, który używa następującego wzorca: `https://auth.mongodb.com/sso/saml2/<Customer_Unique>`
+    b. W polu **tekstowym Adres URL** odpowiedzi wpisz adres URL, który używa następującego wzorca: `https://auth.mongodb.com/sso/saml2/<Customer_Unique>`
 
-1. Wybierz opcję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie zainicjowania programu **SP** :
+1. Wybierz **pozycję Ustaw dodatkowe adresy URL** i wykonaj następujący krok, jeśli chcesz skonfigurować aplikację w trybie **inicjowanym przez** spjęcie:
 
-    W polu tekstowym **adres URL logowania** wpisz adres URL, który używa następującego wzorca:  `https://cloud.mongodb.com/sso/<Customer_Unique>`
+    W **polu tekstowym Adres URL** logowania wpisz adres URL, który używa następującego wzorca:  `https://cloud.mongodb.com/sso/<Customer_Unique>`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Aby uzyskać te wartości, skontaktuj się z [zespołem obsługi klienta w chmurze MongoDB](https://support.mongodb.com/). Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Aby uzyskać te wartości, skontaktuj się z zespołem [pomocy technicznej klienta usługi MongoDB Cloud](https://support.mongodb.com/). Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-1. Aplikacja w chmurze MongoDB oczekuje, że potwierdzenia SAML mają być w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
+1. Aplikacja MongoDB Cloud oczekuje asercji SAML w określonym formacie, który wymaga dodania mapowań atrybutów niestandardowych do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
-    ![Zrzut ekranu atrybutów domyślnych](common/default-attributes.png)
+    ![Zrzut ekranu przedstawiający atrybuty domyślne](common/default-attributes.png)
 
-1. Oprócz powyższych atrybutów aplikacja w chmurze MongoDB oczekuje kilku atrybutów do przekazania z powrotem do odpowiedzi SAML. Te atrybuty są również wstępnie wypełnione, ale można je przejrzeć zgodnie z wymaganiami.
+1. Oprócz powyższych atrybutów aplikacja MongoDB Cloud oczekuje jeszcze kilku atrybutów, które zostaną przekazane w odpowiedzi SAML. Te atrybuty są również wstępnie wypełnione, ale można je przejrzeć według wymagań.
     
     | Nazwa | Atrybut źródłowy|
     | ---------------| --------- |
@@ -103,69 +99,62 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     | firstName | user.givenname |
     | lastName | user.surname |
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **plik XML metadanych Federacji**. Wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
+1. Na stronie Konfigurowanie logowania pojedynczego za pomocą języka **SAML** w sekcji Certyfikat podpisywania **SAML** znajdź plik **XML metadanych federacji**. Wybierz **pozycję** Pobierz, aby pobrać certyfikat i zapisać go na komputerze.
 
-    ![Zrzut ekranu przedstawiający sekcję certyfikat podpisywania SAML z wyróżnionym linkiem pobierania](common/metadataxml.png)
+    ![Zrzut ekranu przedstawiający sekcję Certyfikat podpisywania SAML z wyróżnionym linkiem Pobierz](common/metadataxml.png)
 
-1. W sekcji **Konfigurowanie usługi MongoDB Cloud** skopiuj odpowiednie adresy URL na podstawie wymagań.
+1. W **sekcji Konfigurowanie usługi MongoDB Cloud** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
 
-    ![Zrzut ekranu przedstawiający sekcję Konfigurowanie chmury Mongo DB z wyróżnionymi adresami URL](common/copy-configuration-urls.png)
+    ![Zrzut ekranu przedstawiający sekcję Konfigurowanie chmury usługi Mongo DB z wyróżnieniami adresów URL](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
+W tej sekcji utworzysz użytkownika testowego w aplikacji Azure Portal o nazwie B.Simon.
 
-1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**  >  **Użytkownicy**  >  **Wszyscy użytkownicy**.
-1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
-1. We właściwościach **użytkownika** wykonaj następujące kroki:
+1. W okienku po lewej stronie w Azure Portal wybierz pozycję **Azure Active Directory**  >  **Wszyscy**  >  **użytkownicy.**
+1. Wybierz **pozycję Nowy** użytkownik w górnej części ekranu.
+1. We **właściwościach** Użytkownik wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
-   1. Zaznacz pole wyboru **Pokaż hasło** , a następnie wpisz hasło.
+   1. W **polu Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
+   1. Zaznacz pole **wyboru Pokaż hasło,** a następnie zapisz hasło.
    1. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do chmury MongoDB.
+W tej sekcji włączysz dla użytkownika B.Simon możliwość korzystania z logowania pojedynczego platformy Azure, udzielając dostępu do usługi MongoDB Cloud.
 
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**.
-1. Na liście Aplikacje wybierz pozycję **MongoDB Cloud**.
-1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
+1. W Azure Portal pozycję **Aplikacje dla przedsiębiorstw,** a następnie pozycję **Wszystkie aplikacje.**
+1. Na liście aplikacji wybierz pozycję **MongoDB Cloud.**
+1. Na stronie przeglądu aplikacji znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy.**
+1. Wybierz **pozycję Dodaj użytkownika,** a następnie wybierz **pozycję Użytkownicy i grupy** w **oknie dialogowym Dodawanie** przypisania.
+1. W **oknie dialogowym** Użytkownicy i grupy wybierz **pozycję B.Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+1. Jeśli oczekujesz przypisania roli do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz** rolę. Jeśli dla tej aplikacji nie ustawiono żadnej roli, zostanie wybrana rola "Dostęp domyślny".
+1. W **oknie dialogowym Dodawanie przypisania** kliknij przycisk **Przypisz.**
 
-   ![Zrzut ekranu przedstawiający sekcję Zarządzanie z wyróżnionymi użytkownikami i grupami](common/users-groups-blade.png)
+## <a name="configure-mongodb-cloud-sso"></a>Konfigurowanie logowania jednokrotnego w chmurze usługi MongoDB
 
-1. Wybierz pozycję **Dodaj użytkownika**. Następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy**.
+Aby skonfigurować logowanie pojedyncze po stronie usługi MongoDB Cloud, potrzebne są odpowiednie adresy URL skopiowane z Azure Portal. Należy również skonfigurować aplikację federacyjną dla organizacji mongoDB w chmurze. Postępuj zgodnie z instrukcjami w [dokumentacji usługi MongoDB Cloud.](https://docs.atlas.mongodb.com/security/federated-auth-azure-ad/) Jeśli masz problem, skontaktuj się z zespołem pomocy [technicznej usługi MongoDB Cloud.](https://support.mongodb.com/)
 
-    ![Zrzut ekranu strony użytkownicy i grupy z wyróżnioną pozycją Dodaj użytkownika](common/add-assign-user.png)
+### <a name="create-a-mongodb-cloud-test-user"></a>Tworzenie użytkownika testowego usługi MongoDB Cloud
 
-1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy użytkowników. Następnie wybierz **pozycję zaznacz** w dolnej części ekranu.
-1. Jeśli oczekujesz, że jakakolwiek wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz z listy odpowiednią rolę dla użytkownika. Następnie wybierz **pozycję zaznacz** w dolnej części ekranu.
-1. W oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Przypisz**.
+Usługa MongoDB Cloud obsługuje aprowizowanie użytkowników just in time, które jest domyślnie włączone. Nie ma żadnych dodatkowych czynności do podjęcia. Jeśli użytkownik jeszcze nie istnieje w chmurze MongoDB, zostanie utworzony po uwierzytelnieniu.
 
-## <a name="configure-mongodb-cloud-sso"></a>Konfigurowanie logowania jednokrotnego w chmurze MongoDB
+## <a name="test-sso"></a>Testowanie logowania jednokrotnego 
 
-Aby skonfigurować Logowanie jednokrotne na stronie chmurowej MongoDB, potrzebne są odpowiednie adresy URL skopiowane z Azure Portal. Należy również skonfigurować aplikację federacyjną dla organizacji w chmurze MongoDB. Postępuj zgodnie z instrukcjami w [dokumentacji chmury MongoDB](https://docs.atlas.mongodb.com/security/federated-auth-azure-ad/). Jeśli wystąpi problem, skontaktuj się z [zespołem pomocy technicznej w chmurze MongoDB](https://support.mongodb.com/).
+W tej sekcji przetestujemy konfigurację logowania pojedynczego usługi Azure AD przy użyciu następujących opcji. 
 
-### <a name="create-a-mongodb-cloud-test-user"></a>Tworzenie użytkownika testowego w chmurze MongoDB
+#### <a name="sp-initiated"></a>Inicjowane przez sp:
 
-Chmura MongoDB obsługuje Inicjowanie obsługi użytkowników just in Time, która jest domyślnie włączona. Nie ma żadnych dodatkowych akcji do wykonania. Jeśli użytkownik nie istnieje jeszcze w chmurze MongoDB, zostanie utworzony nowy po uwierzytelnieniu.
+* Kliknij pozycję **Testuj tę aplikację w** Azure Portal. Spowoduje to przekierowanie do adresu URL logowania do chmury bazy danych MongoDB, pod którym można zainicjować przepływ logowania.  
 
-## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
+* Przejdź bezpośrednio do adresu URL logowania do chmury usługi MongoDB i zainicjuj przepływ logowania.
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD za pomocą panelu dostępu.
+#### <a name="idp-initiated"></a>Inicjowane przez IDP:
 
-Po wybraniu kafelka MongoDB Cloud w panelu dostępu użytkownik zostanie automatycznie zalogowany do chmury MongoDB, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji, zobacz artykuł [Logowanie i uruchamianie aplikacji z poziomu portalu Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
+* Kliknij pozycję **Test this application** in Azure Portal and you should be automatically signed in to the MongoDB Cloud which you set up the SSO (Przetestuj tę aplikację w usłudze Azure Portal i powinno nas na przykład automatycznie zalogować się do chmury bazy danych MongoDB, dla której została skonfigurowania logowania jednokrotnego. 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+Możesz również użyć usługi Microsoft Moje aplikacje, aby przetestować aplikację w dowolnym trybie. Po kliknięciu kafelka MongoDB Cloud w usłudze Moje aplikacje, jeśli zostanie skonfigurowany w trybie SP, nastąpi przekierowanie do strony logowania do aplikacji w celu zainicjowania przepływu logowania. Jeśli jest on skonfigurowany w trybie dostawcy tożsamości, powinno na celu automatyczne zalogowanie się do chmury mongoDB, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat Moje aplikacje, [zobacz Wprowadzenie do Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Samouczki dotyczące integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
+## <a name="next-steps"></a>Następne kroki
 
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
-
-- [Utwórz konto w usłudze MongoDB Atlas na platformie Azure](https://azuremarketplace.microsoft.com/marketplace/apps/mongodb.mdb_atlas_oct2020?tab=Overview)
-
-- [Wypróbuj chmurę MongoDB z usługą Azure AD](https://aad.portal.azure.com/)
-
-- [Co to jest kontrola sesji w Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
-
-- [Ochrona chmury MongoDB z zaawansowaną widocznością i kontrolkami](/cloud-app-security/proxy-intro-aad)
+Po skonfigurowaniu chmury Bazy danych MongoDB można wymusić kontrolę sesji, która chroni eksfiltrację i infiltrację poufnych danych organizacji w czasie rzeczywistym. Kontrola sesji wykracza poza dostęp warunkowy. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

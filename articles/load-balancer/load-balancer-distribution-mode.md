@@ -1,33 +1,33 @@
 ---
-title: Konfigurowanie trybu dystrybucji Azure Load Balancer
+title: Konfigurowanie Azure Load Balancer dystrybucji
 titleSuffix: Azure Load Balancer
-description: W tym artykule Rozpocznij Konfigurowanie trybu dystrybucji dla Azure Load Balancer w celu obsługi koligacji źródłowego adresu IP.
+description: W tym artykule rozpoczynasz konfigurowanie trybu dystrybucji dla Azure Load Balancer do obsługi koligacji źródłowego adresu IP.
 services: load-balancer
 documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: how-to
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2021
 ms.author: allensu
-ms.openlocfilehash: 2d8d5d84d32cdb8cc813d033f3f3fbb453b538fe
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0c6b845a8176054dc5ec6cfc239e609f568c925d
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739920"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483643"
 ---
-# <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Skonfiguruj tryb dystrybucji dla Azure Load Balancer
+# <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Konfigurowanie trybu dystrybucji dla Azure Load Balancer
 
 Azure Load Balancer obsługuje dwa tryby dystrybucji do dystrybucji ruchu do aplikacji:
 
 * Oparte na skrótach
 * Koligacja źródłowego adresu IP
 
-W tym artykule dowiesz się, jak skonfigurować tryb dystrybucji dla Azure Load Balancer.
+Z tego artykułu dowiesz się, jak skonfigurować tryb dystrybucji dla Azure Load Balancer.
 
 
 ## <a name="configure-distribution-mode"></a>Konfigurowanie trybu dystrybucji
@@ -38,27 +38,27 @@ W tym artykule dowiesz się, jak skonfigurować tryb dystrybucji dla Azure Load 
 
 Konfigurację trybu dystrybucji można zmienić, modyfikując regułę równoważenia obciążenia w portalu.
 
-1. Zaloguj się do Azure Portal i Znajdź grupę zasobów zawierającą moduł równoważenia obciążenia, który chcesz zmienić, klikając pozycję **grupy zasobów**.
-2. Na ekranie przegląd usługi równoważenia obciążenia wybierz pozycję **reguły równoważenia obciążenia** w obszarze **Ustawienia**.
-3. Na ekranie reguły równoważenia obciążenia wybierz regułę równoważenia obciążenia, w której chcesz zmienić tryb dystrybucji.
-4. W ramach zasady tryb dystrybucji jest zmieniany, zmieniając pole listy rozwijanej **trwałość sesji** . 
+1. Zaloguj się do Azure Portal zasobów i znajdź grupę zasobów zawierającą równoważenie obciążenia, które chcesz zmienić, klikając pozycję **Grupy zasobów.**
+2. Na ekranie przeglądu równoważenia obciążenia wybierz pozycję **Reguły równoważenia** obciążenia w obszarze **Ustawienia**.
+3. Na ekranie reguły równoważenia obciążenia wybierz regułę równoważenia obciążenia, dla których chcesz zmienić tryb dystrybucji.
+4. W ramach reguły tryb dystrybucji jest zmieniany przez zmianę **pola** listy rozwijanej Trwałość sesji. 
 
 Dostępne są następujące opcje: 
 
-* **Brak (oparte na skrócie)** — określa, że kolejne żądania z tego samego klienta mogą być obsługiwane przez dowolną maszynę wirtualną.
-* **Adres IP klienta (koligacja źródłowego adresu IP — dwie kolekcje)** — określa, że kolejne żądania z tego samego adresu IP klienta będą obsługiwane przez tę samą maszynę wirtualną.
-* Adres **IP i protokół klienta (koligacja źródłowego adresu IP z trzema krotką)** — określa, że kolejne żądania z tego samego adresu IP klienta i kombinacji protokołów będą obsługiwane przez tę samą maszynę wirtualną.
+* **Brak (oparty na skrótach)** — określa, że kolejne żądania od tego samego klienta mogą być obsługiwane przez dowolną maszynę wirtualną.
+* **Adres IP klienta (dwuplejowa koligacja** źródłowego adresu IP) — określa, że kolejne żądania z tego samego adresu IP klienta będą obsługiwane przez tę samą maszynę wirtualną.
+* **Adres IP klienta i** protokół (trzy krotka źródłowego koligacji IP) — określa, że kolejne żądania z tego samego adresu IP klienta i kombinacji protokołu będą obsługiwane przez tę samą maszynę wirtualną.
 
-5. Wybierz tryb dystrybucji, a następnie wybierz pozycję **Zapisz**.
+5. Wybierz tryb dystrybucji, a następnie wybierz pozycję **Zapisz.**
 
-:::image type="content" source="./media/load-balancer-distribution-mode/session-persistence.png" alt-text="Zmień trwałość sesji w regule modułu równoważenia obciążenia." border="true":::
+:::image type="content" source="./media/load-balancer-distribution-mode/session-persistence.png" alt-text="Zmiana trwałości sesji dla reguły równoważenia obciążenia." border="true":::
 
 
 # <a name="powershell"></a>[**PowerShell**](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Za pomocą programu PowerShell Zmień ustawienia dystrybucji modułu równoważenia obciążenia na istniejącą regułę równoważenia obciążenia. Następujące polecenie aktualizuje tryb dystrybucji: 
+Użyj programu PowerShell, aby zmienić ustawienia dystrybucji usługi równoważenia obciążenia dla istniejącej reguły równoważenia obciążenia. Następujące polecenie aktualizuje tryb dystrybucji: 
 
 ```azurepowershell-interactive
 $lb = Get-AzLoadBalancer -Name MyLoadBalancer -ResourceGroupName MyResourceGroupLB
@@ -66,19 +66,19 @@ $lb.LoadBalancingRules[0].LoadDistribution = 'default'
 Set-AzLoadBalancer -LoadBalancer $lb
 ```
 
-Ustaw wartość `LoadDistribution` elementu dla typu wymaganego do równoważenia obciążenia. 
+Ustaw wartość elementu `LoadDistribution` dla typu wymaganego równoważenia obciążenia. 
 
-* Określ **SourceIP** dla dwóch krotek (źródłowy adres IP i docelowy adres IP). 
+* Określ **wartość SourceIP** dla równoważenia obciążenia dla dwóch krotek (źródłowy adres IP i docelowy adres IP). 
 
-* Określ **SourceIPProtocol** dla funkcji równoważenia obciążenia dla trzech krotek (źródłowy adres IP, docelowy adres IP i typ protokołu). 
+* Określ **sourceIPProtocol** dla trzech krotki (źródłowy adres IP, docelowy adres IP i typ protokołu) równoważenia obciążenia. 
 
-* Określ **wartość domyślną** dla zachowania domyślnego z pięcioma kolekcjami równoważenia obciążenia.
+* Określ **domyślne** zachowanie równoważenia obciążenia krotki z pięcioma krotami.
 
 # <a name="cli"></a>[**Interfejs wiersza polecenia**](#tab/azure-cli)
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Użyj interfejsu wiersza polecenia platformy Azure, aby zmienić ustawienia dystrybucji modułu równoważenia obciążenia na istniejącą regułę równoważenia obciążenia.  Następujące polecenie aktualizuje tryb dystrybucji:
+Użyj interfejsu wiersza polecenia platformy Azure, aby zmienić ustawienia dystrybucji usługi równoważenia obciążenia dla istniejącej reguły równoważenia obciążenia.  Następujące polecenie aktualizuje tryb dystrybucji:
 
 ```azurecli-interactive
 az network lb rule update \
@@ -87,20 +87,20 @@ az network lb rule update \
     --name myHTTPRule \
     --resource-group myResourceGroupLB 
 ```
-Ustaw wartość `--load-distribution` dla wymaganego typu równoważenia obciążenia.
+Ustaw wartość `--load-distribution` dla typu wymaganego równoważenia obciążenia.
 
-* Określ **SourceIP** dla dwóch krotek (źródłowy adres IP i docelowy adres IP). 
+* Określ **wartość SourceIP** dla równoważenia obciążenia dla krotki dwuliniowej (źródłowy adres IP i docelowy adres IP). 
 
-* Określ **SourceIPProtocol** dla funkcji równoważenia obciążenia dla trzech krotek (źródłowy adres IP, docelowy adres IP i typ protokołu). 
+* Określ **sourceIPProtocol** dla trzech krotki (źródłowy adres IP, docelowy adres IP i typ protokołu) równoważenia obciążenia. 
 
-* Określ **wartość domyślną** dla zachowania domyślnego z pięcioma kolekcjami równoważenia obciążenia.
+* Określ **domyślne** zachowanie równoważenia obciążenia krotki z pięcioma krotami.
 
-Aby uzyskać więcej informacji na temat polecenia użytego w tym artykule, zobacz [AZ Network lb Rule Update](/cli/azure/network/lb/rule#az_network_lb_rule_update)
+Aby uzyskać więcej informacji na temat polecenia używanego w tym artykule, zobacz [az network lb rule update](/cli/azure/network/lb/rule#az_network_lb_rule_update)
 
 ---
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Omówienie usługi Azure Load Balancer](load-balancer-overview.md)
-* [Wprowadzenie do konfigurowania modułu równoważenia obciążenia dostępnego z Internetu](quickstart-load-balancer-standard-public-powershell.md)
+* [Wprowadzenie do konfigurowania internetowego usługi równoważenia obciążenia](quickstart-load-balancer-standard-public-powershell.md)
 * [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md) (Konfigurowanie ustawień limitu czasu bezczynności protokołu TCP dla modułu równoważenia obciążenia)

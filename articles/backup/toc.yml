@@ -68,7 +68,7 @@
           href: azure-file-share-support-matrix.md
         - name: Macierz obsługi kopii zapasowych dysków na platformie Azure
           href: disk-backup-support-matrix.md
-        - name: Macierz obsługi kopii zapasowych obiektów blob platformy Azure
+        - name: Tabela obsługi kopii zapasowych obiektów blob platformy Azure
           href: blob-backup-support-matrix.md
         - name: Kontrolery domeny usługi Active Directory
           href: active-directory-backup-restore.md
@@ -77,25 +77,25 @@
     - name: Często zadawane pytania
       items:
         - name: Często zadawane pytania — magazyny usługi Recovery Services
-          href: backup-azure-backup-faq.md
+          href: backup-azure-backup-faq.yml
         - name: Często zadawane pytania — centrum kopii zapasowych
           href: backup-center-faq.yml
         - name: Często zadawane pytania — kopia zapasowa maszyny wirtualnej platformy Azure
           href: backup-azure-vm-backup-faq.yml
         - name: Często zadawane pytania — agent usługi MARS
-          href: backup-azure-file-folder-backup-faq.md
+          href: backup-azure-file-folder-backup-faq.yml
         - name: Często zadawane pytania — tworzenie kopii zapasowej plików w usłudze Azure Files
-          href: backup-azure-files-faq.md
+          href: backup-azure-files-faq.yml
         - name: Często zadawane pytania — kopia zapasowa dysku na platformie Azure
-          href: disk-backup-faq.md
+          href: disk-backup-faq.yml
         - name: Często zadawane pytania — tworzenie kopii zapasowych baz danych programu SQL Server na maszynach wirtualnych platformy Azure
-          href: faq-backup-sql-server.md
+          href: faq-backup-sql-server.yml
         - name: Często zadawane pytania — tworzenie kopii zapasowych baz danych platformy SAP HANA na maszynach wirtualnych platformy Azure
-          href: sap-hana-faq-backup-azure-vm.md
+          href: sap-hana-faq-backup-azure-vm.yml
         - name: Często zadawane pytania — usługa Azure Backup Server i program DPM
-          href: backup-azure-dpm-azure-server-faq.md
+          href: backup-azure-dpm-azure-server-faq.yml
         - name: Często zadawane pytania — alert monitora usługi Azure Backup
-          href: backup-azure-monitor-alert-faq.md
+          href: backup-azure-monitor-alert-faq.yml
     - name: Architektura kopii zapasowych
       href: backup-architecture.md
     - name: Wskazówki i najlepsze rozwiązania
@@ -214,7 +214,7 @@
           items:
             - name: Odzyskiwanie plików z platformy Azure do systemu Windows Server
               href: backup-azure-restore-windows-server.md
-            - name: Przywróć wszystkie pliki w woluminie
+            - name: Przywracanie wszystkich plików w woluminie
               href: restore-all-files-volume-mars.md
             - name: Przywracanie stanu systemu Windows Server
               href: backup-azure-restore-system-state.md
@@ -374,7 +374,7 @@
           href: monitor-azure-backup-with-backup-explorer.md
         - name: Korzystanie z witryny Azure Portal
           href: backup-azure-monitoring-built-in-monitor.md
-        - name: Korzystanie z dzienników Azure Monitor
+        - name: Korzystanie z Azure Monitor dzienników
           href: backup-azure-monitoring-use-azuremonitor.md
     - name: Raporty
       items:
@@ -382,7 +382,7 @@
           items:
             - name: Konfigurowanie raportów usługi Azure Backup
               href: configure-reports.md
-            - name: Raporty Azure Backup e-mail
+            - name: Wysyłanie raportów Azure Backup e-mail
               href: backup-reports-email.md
         - name: Konfigurowanie zdarzeń diagnostyki dla magazynów usługi Recovery Services
           items:

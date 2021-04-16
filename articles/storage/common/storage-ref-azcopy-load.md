@@ -1,7 +1,7 @@
 ---
-title: AzCopy obciążenia | Microsoft Docs
+title: azcopy load | Microsoft Docs
 titleSuffix: Azure Storage
-description: Ten artykuł zawiera informacje referencyjne dotyczące polecenia Load AzCopy.
+description: Ten artykuł zawiera informacje referencyjne dotyczące polecenia azcopy load.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -9,31 +9,30 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: d3d15b7dd5a44245a6a501dc4a4a324e93f3a7a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c2187f52503159c8efc199cb7d09a147c2c1455
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879041"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503256"
 ---
 # <a name="azcopy-load"></a>azcopy load
 
-Podpolecenia związane z transferem danych w określonych formatach
+Podgrupy związane z przesyłaniem danych w określonych formatach
 
 ## <a name="synopsis"></a>Streszczenie
 
-Podpolecenia związane z transferem danych w określonych formatach, takich jak format avere w chmurze firmy Microsoft (CLFS).
+Podgrupy związane z przesyłaniem danych w określonych formatach, takich jak Avere Cloud FileSystem (CLFS) firmy Microsoft.
 
-## <a name="related-conceptual-articles"></a>Pokrewne artykuły koncepcyjne
+## <a name="related-conceptual-articles"></a>Powiązane artykuły koncepcyjne
 
 - [Wprowadzenie do narzędzia AzCopy](storage-use-azcopy-v10.md)
-- [Transferowanie danych za pomocą AzCopy i magazynu obiektów BLOB](./storage-use-azcopy-v10.md#transfer-data)
+- [Transferowanie danych za pomocą programu AzCopy i usługi Blob Storage](./storage-use-azcopy-v10.md#transfer-data)
 - [Transferowanie danych za pomocą narzędzia AzCopy i magazynu plików](storage-use-azcopy-files.md)
-- [Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="examples"></a>Przykłady
 
-Załaduj cały katalog do kontenera z sygnaturą dostępu współdzielonego w formacie CLFS:
+Załaduj cały katalog do kontenera przy użyciu sygnatury dostępu współdzielonego w formacie CLFS:
 
 ```azcopy
 azcopy load clfs "/path/to/dir" "https://[account].blob.core.windows.net/[container]?[SAS]" --state-path="/path/to/state/path"
@@ -43,16 +42,16 @@ azcopy load clfs "/path/to/dir" "https://[account].blob.core.windows.net/[contai
 
 |Opcja|Opis|
 |--|--|
-|-h,--pomoc|Wyświetla zawartość pomocy dla polecenia Load.|
+|-h, --help|Wyświetla zawartość pomocy dla załadować polecenia.|
 
 ## <a name="options-inherited-from-parent-commands"></a>Opcje dziedziczone z poleceń nadrzędnych
 
 |Opcja|Opis|
 |---|---|
-|--Cap-MB/s|Szybkość transferu w megabitach na sekundę. Przepływność czasu na chwilę może się nieco różnić od końca. Jeśli ta opcja jest ustawiona na zero lub zostanie pominięta, przepływność nie zostanie ograniczona.|
-|--ciąg typu wyjściowego|Format danych wyjściowych polecenia. Dostępne opcje to: text, JSON. Wartość domyślna to "text".|
-|--Zaufane — ciąg sufiksów firmy Microsoft   | Określa dodatkowe sufiksy domeny, w których mogą być wysyłane Azure Active Directory tokeny logowania.  Wartość domyślna to "*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net '. Wszystkie wymienione tutaj są dodawane do ustawień domyślnych. W celu zapewnienia bezpieczeństwa należy tu umieścić tylko domeny Microsoft Azure. Rozdziel wiele wpisów średnikami.|
+|--cap-mb/s float|Limituje szybkość transferu w megabitach na sekundę. Przepływność chwila po chwili może się nieznacznie różnić od limitu. Jeśli ta opcja jest ustawiona na zero lub zostanie pominięta, przepływność nie jest ograniczona.|
+|--output-type string|Format danych wyjściowych polecenia. Dostępne opcje to: text, json. Wartość domyślna to "text".|
+|Ciąg --trusted-microsoft-suffixes   | Określa dodatkowe sufiksy domeny, Azure Active Directory tokeny logowania mogą być wysyłane.  Wartość domyślna to '*.core.windows.net;*. core.chinacloudapi.cn; *.core.cloudapi.de;*. core.usgovcloudapi.net". Wszystkie wymienione w tym miejscu są dodawane do wartości domyślnej. Ze względów bezpieczeństwa należy w tym miejscu Microsoft Azure tylko domen. Oddziel wiele wpisów średnikami.|
 
 ## <a name="see-also"></a>Zobacz też
 
-- [AzCopy](storage-ref-azcopy.md)
+- [azcopy](storage-ref-azcopy.md)

@@ -1,36 +1,36 @@
 ---
-title: wersja serwera 4,0 obsługiwane funkcje i składnia w interfejsie API Azure Cosmos DB dla MongoDB
-description: Dowiedz się więcej o interfejsie API Azure Cosmos DB dla wersji serwera MongoDB 4,0 obsługiwane funkcje i składnia. Dowiedz się więcej na temat poleceń bazy danych, obsługi języka zapytań, typów danych, poleceń potoku agregacji i obsługiwanych operatorów.
+title: Obsługiwane funkcje i składnia wersji 4.0 serwera w interfejsie API Azure Cosmos DB dla bazy danych MongoDB
+description: Dowiedz się Azure Cosmos DB obsługiwanych funkcji i składni interfejsu API usługi MongoDB 4.0 server. Dowiedz się więcej na temat poleceń bazy danych, obsługi języka zapytań, typów danych, poleceń potoku agregacji i obsługiwanych operatorów.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
 ms.date: 03/02/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: 9eebc77c5b3d9402c766320fddfdaf05d50b574f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 74e08cce381d173e0c5e1458ae99167a0c8c697f
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102485405"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107504514"
 ---
-# <a name="azure-cosmos-dbs-api-for-mongodb-40-server-version-supported-features-and-syntax"></a>Azure Cosmos DB API for MongoDB (wersja serwera 4,0): obsługiwane funkcje i składnia
+# <a name="azure-cosmos-dbs-api-for-mongodb-40-server-version-supported-features-and-syntax"></a>Azure Cosmos DB API dla bazy danych MongoDB (wersja serwera 4.0): obsługiwane funkcje i składnia
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
-Azure Cosmos DB to rozproszona globalnie, wielomodelowa usługa bazy danych firmy Microsoft. Można komunikować się z interfejsem API Azure Cosmos DB dla MongoDB przy użyciu dowolnego ze [sterowników](https://docs.mongodb.org/ecosystem/drivers)klienta MongoDB typu open source. Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB umożliwia korzystanie z istniejących sterowników klienta dzięki przestrzeganiu [protokołu przewodowego](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol) MongoDB.
+Azure Cosmos DB to rozproszona globalnie, wielomodelowa usługa bazy danych firmy Microsoft. Możesz komunikować się z interfejsem API usługi Azure Cosmos DB dla bazy danych MongoDB przy użyciu dowolnych sterowników klienta bazy danych MongoDB typu open [source.](https://docs.mongodb.org/ecosystem/drivers) Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB umożliwia korzystanie z istniejących sterowników klienta dzięki przestrzeganiu [protokołu przewodowego](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol) MongoDB.
 
-Za pomocą interfejsu API Azure Cosmos DB dla MongoDB można korzystać z zalet MongoDB, z których korzystasz, ze wszystkimi możliwościami przedsiębiorstwa, które Cosmos DB oferuje: [globalna dystrybucja](distribute-data-globally.md), [Automatyczna fragmentowania](partitioning-overview.md), dostępność i gwarancje opóźnienia, szyfrowanie w spoczynku, tworzenie kopii zapasowych i wiele innych.
+Korzystając z interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB, można korzystać z zalet bazy danych MongoDB, która była wcześniej używana, wraz ze wszystkimi funkcjami przedsiębiorstwa, które oferuje usługa [Cosmos DB:](distribute-data-globally.md)dystrybucja globalna, [](partitioning-overview.md)automatyczne fragmentowanie, gwarancje dostępności i opóźnień, szyfrowanie danych w spoczynku, kopie zapasowe i wiele innych.
 
 ## <a name="protocol-support"></a>Obsługa protokołu
 
-Poniżej wymieniono obsługiwane operacje wraz z ewentualnymi ograniczeniami lub wyjątkami. Dowolny sterownik klienta działający zgodnie z tymi protokołami umożliwia połączenie z interfejsem API usługi Azure Cosmos DB dla bazy danych MongoDB. W przypadku korzystania z interfejsu API Azure Cosmos DB dla kont MongoDB, nowsze i wersje kont mają punkt końcowy w formacie, `*.mongo.cosmos.azure.com` podczas gdy wersja 3,2 kont ma punkt końcowy w formacie `*.documents.azure.com` .
+Poniżej wymieniono obsługiwane operacje wraz z ewentualnymi ograniczeniami lub wyjątkami. Dowolny sterownik klienta działający zgodnie z tymi protokołami umożliwia połączenie z interfejsem API usługi Azure Cosmos DB dla bazy danych MongoDB. W przypadku korzystania z interfejsu API usługi Azure Cosmos DB dla kont bazy danych MongoDB punkty końcowe w ponad 3.6 wersjach mają format punktu końcowego, natomiast konta w wersji 3.2 mają punkt końcowy w `*.mongo.cosmos.azure.com` formacie `*.documents.azure.com` .
 
 > [!NOTE]
-> W tym artykule wymieniono tylko obsługiwane polecenia serwera i wykluczono funkcje otoki po stronie klienta. Funkcje otoki po stronie klienta, takie jak `deleteMany()` i `updateMany()` wewnętrznie `delete()` używają `update()` poleceń i serwera. Funkcje wykorzystujące obsługiwane polecenia serwera są zgodne z interfejsem API Azure Cosmos DB dla MongoDB.
+> W tym artykule wymieniono tylko obsługiwane polecenia serwera i wykluczane są funkcje otoki po stronie klienta. Funkcje otoki po stronie klienta, takie jak `deleteMany()` i wewnętrzne korzystanie z poleceń serwera i `updateMany()` `delete()` `update()` . Funkcje korzystające z obsługiwanych poleceń serwera są zgodne Azure Cosmos DB API usługi MongoDB.
 
 ## <a name="query-language-support"></a>Obsługa języka zapytań
 
-Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB zapewnia niemal pełną obsługę konstrukcji języka zapytań bazy danych MongoDB. Poniżej znajdziesz szczegółową listę obecnie obsługiwanych operacji, operatorów, etapów, poleceń i opcji.
+Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB zapewnia niemal pełną obsługę konstrukcji języka zapytań bazy danych MongoDB. Poniżej znajduje się szczegółowa lista aktualnie obsługiwanych operacji, operatorów, etapów, poleceń i opcji.
 
 ## <a name="database-commands"></a>Polecenia bazy danych
 
@@ -40,9 +40,9 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 
 | Polecenie | Obsługiwane |
 |---------|---------|
-| [Zmień strumienie](mongodb-change-streams.md) | Tak |
+| [zmienianie strumieni](mongodb-change-streams.md) | Tak |
 | delete | Tak |
-| powiadomienie | Nie |
+| Eval | Nie |
 | find | Tak |
 | findAndModify | Tak |
 | getLastError | Tak |
@@ -58,7 +58,7 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 | Polecenie | Obsługiwane |
 |---------|---------|
 | abortTransaction | Tak |
-| commitTransaction | Tak |
+| Committransaction | Tak |
 
 ### <a name="authentication-commands"></a>Polecenia uwierzytelniania
 
@@ -90,7 +90,7 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 | listDatabases | Tak |
 | listIndexes | Tak |
 | reIndex | Tak |
-| Nazwa nazwy | Nie |
+| renameCollection | Nie |
 
 ### <a name="diagnostics-commands"></a>Polecenia diagnostyki
 
@@ -100,15 +100,15 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 | collStats | Tak |
 | connPoolStats | Nie |
 | connectionStatus | Nie |
-| dataSize | Nie |
-| dbhash | Nie |
+| Datasize | Nie |
+| dbHash | Nie |
 | dbStats | Tak |
-| uzasadnieni | Tak |
+| Wyjaśnić | Tak |
 | funkcje | Nie |
 | hostInfo | Tak |
 | listDatabases | Tak |
 | listCommands | Nie |
-| profilera | Nie |
+| Profiler | Nie |
 | serverStatus | Nie |
 | top (pierwsze) | Nie |
 | whatsmyuri | Tak |
@@ -143,7 +143,7 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 | $limit | Tak |
 | $listLocalSessions | Nie |
 | $listSessions | Nie |
-| $lookup | Tak |
+| $lookup | Częściowe |
 | $match | Tak |
 | $out | Tak |
 | $project | Tak |
@@ -155,6 +155,9 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 | $sort | Tak |
 | $sortByCount | Tak |
 | $unwind | Tak |
+
+> [!NOTE]
+> `$lookup` nie obsługuje jeszcze funkcji [niepowiązanych podzapytań](https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/#join-conditions-and-uncorrelated-sub-queries) wprowadzonej w wersji 3.6 serwera. Jeśli spróbujemy użyć operatora z polami i , zostanie wyświetlony komunikat o `let is not supported` `$lookup` `let` `pipeline` błędzie z komunikatem.
 
 ### <a name="boolean-expressions"></a>Wyrażenia logiczne
 
@@ -280,12 +283,12 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 
 | Polecenie | Obsługiwane |
 |---------|---------|
-| $ $CURRENT | Tak |
-| $ $DESCEND | Tak |
-| $ $KEEP | Tak |
-| $ $PRUNE | Tak |
-| $ $REMOVE | Tak |
-| $ $ROOT | Tak |
+| $$CURRENT | Tak |
+| $$DESCEND | Tak |
+| $$KEEP | Tak |
+| $$PRUNE | Tak |
+| $$REMOVE | Tak |
+| $$ROOT | Tak |
 
 ### <a name="literal-operator"></a>Operator literału
 
@@ -329,7 +332,7 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 |---------|---------|
 | $type | Tak |
 
-### <a name="accumulator-expressions"></a>Wyrażenia akumulowana
+### <a name="accumulator-expressions"></a>Wyrażenia skumulowane
 
 | Polecenie | Obsługiwane |
 |---------|---------|
@@ -352,9 +355,9 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 
 ## <a name="data-types"></a>Typy danych
 
-Interfejs API Azure Cosmos DB dla MongoDB obsługuje dokumenty kodowane w formacie MongoDB BSON. Wersja interfejsu API 4,0 rozszerza wewnętrzne użycie tego formatu w celu poprawy wydajności i obniżenia kosztów. Dokumenty zapisywane lub aktualizowane za pośrednictwem punktu końcowego z systemem 4,0.
+Azure Cosmos DB API usługi MongoDB obsługuje dokumenty zakodowane w formacie BSON bazy danych MongoDB. Wersja 4.0 interfejsu API rozszerza wewnętrzne użycie tego formatu w celu zwiększenia wydajności i obniżenia kosztów. Dokumenty napisane lub zaktualizowane za pośrednictwem punktu końcowego z systemem 4.0 korzystają z tej korzyści.
  
-W [scenariuszu uaktualnienia](mongodb-version-upgrade.md)dokumenty pisane przed uaktualnieniem do wersji 4,0 nie będą korzystać z zwiększonej wydajności, dopóki nie zostaną zaktualizowane za pośrednictwem operacji zapisu w punkcie końcowym 4,0.
+W [scenariuszu](mongodb-version-upgrade.md)uaktualniania dokumenty napisane przed uaktualnieniem do wersji 4.0 nie będą korzystać z ulepszonej wydajności, dopóki nie zostaną zaktualizowane za pośrednictwem operacji zapisu za pośrednictwem punktu końcowego 4.0.
 
 | Polecenie | Obsługiwane |
 |---------|---------|
@@ -369,7 +372,7 @@ W [scenariuszu uaktualnienia](mongodb-version-upgrade.md)dokumenty pisane przed 
 | Zero | Tak |
 | 32-bitowa liczba całkowita (int) | Tak |
 | Znacznik czasu | Tak |
-| 64-bitowa liczba całkowita (Long) | Tak |
+| 64-bitowa liczba całkowita (długa) | Tak |
 | MinKey | Tak |
 | MaxKey | Tak |
 | Decimal128 | Tak | 
@@ -384,13 +387,13 @@ W [scenariuszu uaktualnienia](mongodb-version-upgrade.md)dokumenty pisane przed 
 
 | Polecenie | Obsługiwane |
 |---------|---------|
-| Indeks jednego pola | Tak |
+| Indeks pojedynczego pola | Tak |
 | Indeks złożony | Tak |
-| Indeks MultiKey | Tak |
+| Indeks wielokluczowy | Tak |
 | Indeks tekstu | Nie |
 | 2dsphere | Tak |
-| Indeks 2D | Nie |
-| Indeks z wartością skrótu | Tak |
+| Indeks 2d | Nie |
+| Indeks skrótów | Tak |
 
 ### <a name="index-properties"></a>Właściwości indeksu
 
@@ -399,7 +402,7 @@ W [scenariuszu uaktualnienia](mongodb-version-upgrade.md)dokumenty pisane przed 
 | TTL | Tak |
 | Unikatowe | Tak |
 | Częściowe | Nie |
-| Bez uwzględniania wielkości liter | Nie |
+| Bez uwzględniania liter | Nie |
 | Rozrzedzone | Nie |
 | Tło | Tak |
 
@@ -414,7 +417,7 @@ W [scenariuszu uaktualnienia](mongodb-version-upgrade.md)dokumenty pisane przed 
 | $not | Tak |
 | $nor | Tak | 
 
-### <a name="element-operators"></a>Operatory elementu
+### <a name="element-operators"></a>Operatory elementów
 
 | Polecenie | Obsługiwane |
 |---------|---------|
@@ -429,12 +432,12 @@ W [scenariuszu uaktualnienia](mongodb-version-upgrade.md)dokumenty pisane przed 
 | $jsonSchema | Nie |
 | $mod | Tak |
 | $regex | Tak |
-| $text | Nie (nieobsługiwane. Użyj zamiast tego $regex.)| 
+| $text | Nie (nie jest obsługiwane. Zamiast $regex użyj $regex).| 
 | $where | Nie | 
 
-W zapytaniach $regex wyrażenia zakotwiczone w lewo umożliwiają wyszukiwanie indeksu. Jednak użycie modyfikatora „i” (wielkość liter nie ma znaczenia) oraz modyfikatora „m” (wiele wierszy) powoduje skanowanie kolekcji we wszystkich wyrażeniach.
+W zapytaniach $regex wyrażenia zakotwiczone po lewej stronie umożliwiają wyszukiwanie indeksów. Jednak użycie modyfikatora „i” (wielkość liter nie ma znaczenia) oraz modyfikatora „m” (wiele wierszy) powoduje skanowanie kolekcji we wszystkich wyrażeniach.
 
-Jeśli istnieje potrzeba dołączenia „$” lub „|”, najlepiej utworzyć dwa lub więcej zapytań regex. Na przykład, uwzględniając następujące oryginalne zapytanie: `find({x:{$regex: /^abc$/})` , należy je zmodyfikować w następujący sposób:
+Jeśli istnieje potrzeba dołączenia „$” lub „|”, najlepiej utworzyć dwa lub więcej zapytań regex. Na przykład, biorąc pod uwagę następujące oryginalne zapytanie: `find({x:{$regex: /^abc$/})` , należy je zmodyfikować w następujący sposób:
 
 `find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})`
 
@@ -492,7 +495,7 @@ Pierwsza część użyje indeksu, aby ograniczyć wyszukiwanie do dokumentów, k
 | $push | Tak |
 | $pushAll | Tak |
 
-#### <a name="update-modifiers"></a>Aktualizuj Modyfikatory
+#### <a name="update-modifiers"></a>Modyfikatory aktualizacji
 
 | Polecenie | Obsługiwane |
 |---------|---------|
@@ -533,7 +536,7 @@ W przypadku używania operacji `findOneAndUpdate` obsługiwane są operacje sort
 
 ## <a name="unique-indexes"></a>Indeksy unikatowe
 
-[Unikatowe indeksy](mongodb-indexing.md#unique-indexes) zapewniają, że określone pole nie ma zduplikowanych wartości we wszystkich dokumentach w kolekcji, podobnie jak w przypadku domyślnego klucza "_id". Można utworzyć unikatowe indeksy w Azure Cosmos DB przy użyciu `createIndex` polecenia z `unique` parametrem ograniczenia:
+[Indeksy unikatowe zapewniają,](mongodb-indexing.md#unique-indexes) że określone pole nie ma zduplikowanych wartości we wszystkich dokumentach w kolekcji, podobnie jak unikatowość w przypadku domyślnego klucza "_id". Możesz utworzyć unikatowe indeksy w Azure Cosmos DB za pomocą `createIndex` polecenia z `unique` parametrem ograniczenia:
 
 ```javascript
 globaldb:PRIMARY> db.coll.createIndex( { "amount" : 1 }, {unique:true} )
@@ -548,7 +551,7 @@ globaldb:PRIMARY> db.coll.createIndex( { "amount" : 1 }, {unique:true} )
 
 ## <a name="compound-indexes"></a>Indeksy złożone
 
-[Indeksy złożone](mongodb-indexing.md#compound-indexes-mongodb-server-version-36) zapewniają sposób tworzenia indeksu dla grup pól dla maksymalnie ośmiu pól. Ten typ indeksu różni się od natywnych indeksów złożonych MongoDB. W Azure Cosmos DB indeksy złożone są używane do sortowania operacji, które są stosowane do wielu pól. Aby utworzyć indeks złożony, należy określić więcej niż jedną właściwość jako parametr:
+[Indeksy złożone](mongodb-indexing.md#compound-indexes-mongodb-server-version-36) zapewniają sposób tworzenia indeksu dla grup pól dla maksymalnie ośmiu pól. Ten typ indeksu różni się od natywnych indeksów złożonych bazy danych MongoDB. W Azure Cosmos DB indeksy złożone są używane do operacji sortowania, które są stosowane do wielu pól. Aby utworzyć indeks złożony, należy określić więcej niż jedną właściwość jako parametr:
 
 ```javascript
 globaldb:PRIMARY> db.coll.createIndex({"amount": 1, "other":1})
@@ -562,19 +565,19 @@ globaldb:PRIMARY> db.coll.createIndex({"amount": 1, "other":1})
 
 ## <a name="gridfs"></a>Kolekcja GridFS
 
-Azure Cosmos DB obsługuje GridFS za poorednictwem dowolnego sterownika Mongo zgodnego z GridFS.
+Azure Cosmos DB obsługuje system plików GridFS za pośrednictwem dowolnego sterownika Mongo zgodnego z systemem plików GridFS.
 
 ## <a name="replication"></a>Replikacja
 
 Usługa Azure Cosmos DB obsługuje automatyczną, natywną replikację na najniższych warstwach. Ta logika została rozszerzona, aby osiągnąć małe opóźnienia oraz replikację globalną. Usługa Cosmos DB nie obsługuje poleceń dotyczących replikacji ręcznej.
 
-## <a name="retryable-writes"></a>Ponowne zapisywanie
+## <a name="retryable-writes"></a>Ponowne próby zapisu
 
-Cosmos DB nie obsługuje jeszcze ponawiania zapisów. Sterowniki klientów muszą dodać parametr adresu URL "retryWrites = false" do ich parametrów połączenia. Więcej parametrów adresu URL można dodać, tworząc je za pomocą prefiksu "&". 
+Cosmos DB nie obsługuje jeszcze ponownych prób zapisu. Sterowniki klienta muszą dodać parametr adresu URL "retryWrites=false" do parametrów połączenia. Więcej parametrów adresu URL można dodać, poprzedzając je prefiksem "&". 
 
 ## <a name="sharding"></a>Dzielenie na fragmenty
 
-Usługa Azure Cosmos DB obsługuje automatyczne dzielenie na fragmenty po stronie serwera. Zarządza on fragmentu tworzeniem, umieszczaniem i zrównoważeniem automatycznie. Azure Cosmos DB nie obsługuje ręcznych poleceń fragmentowania, co oznacza, że nie trzeba Wywoływanie poleceń takich jak addShard, balancerStart, moveChunk itp. Wystarczy określić klucz fragmentu podczas tworzenia kontenerów lub wykonywania zapytań dotyczących danych.
+Usługa Azure Cosmos DB obsługuje automatyczne dzielenie na fragmenty po stronie serwera. Automatycznie zarządza tworzeniem, umieszczaniem i równoważeniem fragmentów. Azure Cosmos DB nie obsługuje poleceń ręcznego fragmentowania, co oznacza, że nie trzeba wywoływać poleceń, takich jak addShard, balancerStart, moveChunk itp. Klucz fragmentu należy określić tylko podczas tworzenia kontenerów lub wykonywania zapytań o dane.
 
 ## <a name="sessions"></a>Sesje
 
@@ -582,19 +585,19 @@ Azure Cosmos DB nie obsługuje jeszcze poleceń sesji po stronie serwera.
 
 ## <a name="time-to-live-ttl"></a>Czas wygaśnięcia (TTL)
 
-Azure Cosmos DB obsługuje czas wygaśnięcia (TTL) w oparciu o sygnaturę czasową dokumentu. Czas wygaśnięcia można włączyć dla kolekcji, przechodząc do witryny [Azure Portal](https://portal.azure.com).
+Azure Cosmos DB obsługuje czas wygaśnięcia (TTL) na podstawie sygnatury czasowej dokumentu. Czas wygaśnięcia można włączyć dla kolekcji, przechodząc do witryny [Azure Portal](https://portal.azure.com).
 
 ## <a name="transactions"></a>Transakcje
 
-Transakcje wielodokumentowe są obsługiwane w ramach kolekcji unsharded. Transakcje wielodokumentowe nie są obsługiwane między kolekcjami ani kolekcjami podzielonej na fragmenty. Limit czasu dla transakcji to stała 5 sekund.
+Transakcje z wieloma dokumentami są obsługiwane w ramach kolekcji bez fragmentów. Transakcje z wieloma dokumentami nie są obsługiwane w kolekcjach ani kolekcjach podzielonych na fragmenty. Limit czasu transakcji wynosi stałe 5 sekund.
 
 ## <a name="user-and-role-management"></a>Zarządzanie użytkownikami i rolami
 
-Usługa Azure Cosmos DB nie obsługuje jeszcze użytkowników i ról. Jednak Cosmos DB obsługuje kontrolę dostępu opartą na rolach (Azure RBAC) oraz hasła do odczytu i zapisu oraz klucze, które można uzyskać za pośrednictwem [Azure Portal](https://portal.azure.com) (strona parametrów połączenia).
+Usługa Azure Cosmos DB nie obsługuje jeszcze użytkowników i ról. Usługa Cosmos DB obsługuje jednak kontrolę dostępu opartą na rolach (RBAC) platformy Azure oraz hasła/klucze tylko do odczytu i zapisu, które można uzyskać za pośrednictwem Azure Portal (strona [Parametrów](https://portal.azure.com) połączenia).
 
 ## <a name="write-concern"></a>Ustawienie Write Concern
 
-Niektóre aplikacje korzystają z [obaw dotyczących zapisu](https://docs.mongodb.com/manual/reference/write-concern/), które określają liczbę odpowiedzi wymaganych podczas operacji zapisu. Ze względu na sposób obsługi replikacji w tle w usłudze Cosmos DB wszystkie operacje zapisu mają domyślnie automatycznie ustawioną opcję Quorum (Kworum). Ustawienia Write Concern określone w kodzie klienta są ignorowane. Aby dowiedzieć się więcej, zobacz [Maksymalizowanie dostępności i wydajności za pomocą poziomów spójności](consistency-levels.md).
+Niektóre aplikacje korzystają z write [concern](https://docs.mongodb.com/manual/reference/write-concern/), który określa liczbę odpowiedzi wymaganych podczas operacji zapisu. Ze względu na sposób obsługi replikacji w tle w usłudze Cosmos DB wszystkie operacje zapisu mają domyślnie automatycznie ustawioną opcję Quorum (Kworum). Ustawienia Write Concern określone w kodzie klienta są ignorowane. Aby dowiedzieć się więcej, zobacz [Maksymalizowanie dostępności i wydajności za pomocą poziomów spójności](consistency-levels.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

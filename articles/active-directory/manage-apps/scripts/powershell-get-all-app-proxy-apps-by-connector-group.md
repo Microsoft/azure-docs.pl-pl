@@ -1,9 +1,9 @@
 ---
-title: Wyświetl listę grup łączników usługi Azure serwer proxy aplikacji usługi Azure AD dla aplikacji
-description: Przykład programu PowerShell, który wyświetla listę wszystkich grup łączników serwera proxy aplikacji programu Azure Active Directory (Azure AD) z przypisanymi aplikacjami.
+title: Lista grup łączników usługi Azure AD serwer proxy aplikacji dla aplikacji
+description: Przykład programu PowerShell, który wyświetla Azure Active Directory grupy łączników serwer proxy aplikacji (Azure AD) z przypisanymi aplikacjami.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,16 +11,16 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: de4177917beafd05295bab0379eadc718428c24a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1adb576e751d93dc4a9d240546325d7e671d0892
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102565666"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377036"
 ---
-# <a name="get-all-application-proxy-apps-and-list-by-connector-group"></a>Pobierz wszystkie aplikacje i listy serwerów proxy aplikacji według grupy łączników
+# <a name="get-all-application-proxy-apps-and-list-by-connector-group"></a>Pobierz wszystkie serwer proxy aplikacji i listę według grupy łączników
 
-Ten przykładowy skrypt programu PowerShell zawiera listę informacji o wszystkich grupach łączników serwera proxy aplikacji programu Azure Active Directory (Azure AD) z przypisanymi aplikacjami.
+Ten przykładowy skrypt programu PowerShell zawiera informacje o wszystkich Azure Active Directory (Azure AD) serwer proxy aplikacji Connector z przypisanymi aplikacjami.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -28,7 +28,7 @@ Ten przykładowy skrypt programu PowerShell zawiera listę informacji o wszystki
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Ten przykład wymaga [AzureAD v2 PowerShell for Graph module](/powershell/azure/active-directory/install-adv2) (AzureAD) lub [AzureAD v2 PowerShell dla programu Graph (wersja zapoznawcza](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true) ) (AzureADPreview).
+Ten przykład wymaga modułu [AzureAD V2 PowerShell for Graph](/powershell/azure/active-directory/install-adv2) (AzureAD) lub wersji zapoznawczej modułu [AzureAD V2 PowerShell dla](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true) programu Graph (AzureADPreview).
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -38,14 +38,14 @@ Ten przykład wymaga [AzureAD v2 PowerShell for Graph module](/powershell/azure/
 
 | Polecenie | Uwagi |
 |---|---|
-|[Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) | Pobiera nazwę główną usługi. |
+|[Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) | Pobiera jednostkę usługi. |
 |[Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) | Pobiera aplikację usługi Azure AD. |
-|[Get-AzureADApplicationProxyApplication](/powershell/module/azuread/get-azureadapplicationproxyapplication) | Pobiera aplikację skonfigurowaną dla serwera proxy aplikacji w usłudze Azure AD. |
-| [Get-AzureADApplicationProxyConnectorGroup](/powershell/module/azuread/get-azureadapplicationproxyconnectorgroup) | Pobiera listę wszystkich grup łączników lub jeśli określono, szczegóły określonej grupy łączników. |
+|[Get-AzureADApplicationProxyApplication](/powershell/module/azuread/get-azureadapplicationproxyapplication) | Pobiera aplikację skonfigurowaną do serwer proxy aplikacji usłudze Azure AD. |
+| [Get-AzureADApplicationProxyConnectorGroup](/powershell/module/azuread/get-azureadapplicationproxyconnectorgroup) | Pobiera listę wszystkich grup łączników lub, jeśli jest określona, szczegóły określonej grupy łączników. |
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat modułu Azure AD PowerShell, zobacz [Omówienie modułu programu Azure AD PowerShell](/powershell/azure/active-directory/overview).
+Aby uzyskać więcej informacji na temat modułu Azure AD PowerShell, zobacz [Azure AD PowerShell module overview (Omówienie modułu Azure AD PowerShell).](/powershell/azure/active-directory/overview)
 
-Aby poznać inne przykłady programu PowerShell dla serwera proxy aplikacji, zobacz [przykłady programu Azure AD PowerShell dla usługi azure serwer proxy aplikacji usługi Azure AD](../application-proxy-powershell-samples.md).
+Aby uzyskać inne przykłady programu PowerShell dla serwer proxy aplikacji, zobacz [Przykłady programu Azure AD PowerShell dla usługi Azure AD serwer proxy aplikacji](../application-proxy-powershell-samples.md).

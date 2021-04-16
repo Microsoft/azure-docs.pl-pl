@@ -1,6 +1,6 @@
 ---
-title: AzCopy | Microsoft Docs
-description: Ten artykuł zawiera informacje referencyjne dotyczące polecenia AzCopy.
+title: azcopy | Microsoft Docs
+description: Ten artykuł zawiera informacje referencyjne dotyczące polecenia azcopy.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -8,39 +8,39 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 19d5a5214ae4d2d6c0a18b68863211aa1f6573c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b3b4f7737320cc0359192f947271a0f4beb3c478
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98878990"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503001"
 ---
 # <a name="azcopy"></a>azcopy
 
-AzCopy to narzędzie wiersza polecenia, które przenosi dane do i z usługi Azure Storage.
+AzCopy to narzędzie wiersza polecenia, które przenosi dane do i z usługi Azure Storage. Zobacz artykuł [Wprowadzenie do programu AzCopy,](storage-use-azcopy-v10.md) aby pobrać program AzCopy i poznać sposoby poświadczeń autoryzacji w usłudze magazynu.
 
 ## <a name="synopsis"></a>Streszczenie
 
-Ogólny format poleceń to: `azcopy [command] [arguments] --[flag-name]=[flag-value]` .
+Ogólny format poleceń to : `azcopy [command] [arguments] --[flag-name]=[flag-value]` .
 
-Aby zgłosić problemy lub dowiedzieć się więcej na temat narzędzia, zobacz [https://github.com/Azure/azure-storage-azcopy](https://github.com/Azure/azure-storage-azcopy) .
+Aby zgłosić problemy lub dowiedzieć się więcej o narzędziu, zobacz [https://github.com/Azure/azure-storage-azcopy](https://github.com/Azure/azure-storage-azcopy) .
 
-## <a name="related-conceptual-articles"></a>Pokrewne artykuły koncepcyjne
+## <a name="related-conceptual-articles"></a>Powiązane artykuły koncepcyjne
 
 - [Wprowadzenie do narzędzia AzCopy](storage-use-azcopy-v10.md)
-- [Transferowanie danych za pomocą AzCopy i magazynu obiektów BLOB](./storage-use-azcopy-v10.md#transfer-data)
+- [Samouczek: migrowanie danych lokalnych do magazynu w chmurze za pomocą programu AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
+- [Transferowanie danych za pomocą programu AzCopy i usługi Blob Storage](./storage-use-azcopy-v10.md#transfer-data)
 - [Transferowanie danych za pomocą narzędzia AzCopy i magazynu plików](storage-use-azcopy-files.md)
-- [Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="options"></a>Opcje
 
-**--Cap-MB/s** (zmiennoprzecinkowe) szybkość transferu w megabitach na sekundę. Przepływność czasu na chwilę może się nieco różnić od końca. Jeśli ta opcja jest ustawiona na zero lub zostanie pominięta, przepływność nie zostanie ograniczona.
+**--cap-mb/s** (float) Limituje szybkość transferu w megabitach na sekundę. Przepływność moment po chwili może się nieznacznie różnić od limitu. Jeśli ta opcja jest ustawiona na zero lub zostanie pominięta, przepływność nie jest ograniczona.
 
-**--Pomoc** Pomoc dla AzCopy
+**— pomoc** Pomoc dla azcopy
       
-**--Output-Type**  (String) format danych wyjściowych polecenia. Dostępne opcje to: text, JSON. Wartość domyślna to `text`. (ustawienie domyślne `text` )
+**--output-type**  (ciąg) Format danych wyjściowych polecenia. Dostępne opcje to: text, json. Wartość domyślna to `text`. (wartość `text` domyślna )
 
-**--Zaufane sufiksy firmy Microsoft** (ciąg) określa dodatkowe sufiksy domeny, w których mogą być wysyłane Azure Active Directory tokeny logowania.  Wartość domyślna to "*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net '. Wszystkie wymienione tutaj są dodawane do ustawień domyślnych. W celu zapewnienia bezpieczeństwa należy tu umieścić tylko domeny Microsoft Azure. Rozdziel wiele wpisów średnikami.
+**--trusted-microsoft-suffixes** (ciąg) Określa dodatkowe sufiksy domeny, Azure Active Directory mogą być wysyłane tokeny logowania.  Wartość domyślna to '*.core.windows.net;*. core.chinacloudapi.cn; *.core.cloudapi.de;*. core.usgovcloudapi.net". Wszystkie wymienione w tym miejscu są dodawane do wartości domyślnej. Ze względów bezpieczeństwa należy w tym miejscu Microsoft Azure tylko domen. Oddziel wiele wpisów średnikami.
 
 ## <a name="see-also"></a>Zobacz też
 

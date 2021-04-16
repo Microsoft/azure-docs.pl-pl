@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów z błędami w interfejsie API raportowania Azure Active Directory | Microsoft Docs
-description: Zapewnia rozwiązanie błędów podczas wywoływania interfejsów API raportowania Azure Active Directory.
+title: Rozwiązywanie problemów z błędami Azure Active Directory interfejsu API raportowania | Microsoft Docs
+description: Zapewnia rozwiązanie błędów podczas wywoływania interfejsów API Azure Active Directory raportowania.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -17,38 +17,38 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abc8badf261e631dd6ceb7af9a6a0cb3676ae25d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 445514297550210d80cd50895201d1129fac4f20
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96017597"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533696"
 ---
-# <a name="troubleshoot-errors-in-azure-active-directory-reporting-api"></a>Rozwiązywanie problemów z błędami w interfejsie API raportowania Azure Active Directory
+# <a name="troubleshoot-errors-in-azure-active-directory-reporting-api"></a>Rozwiązywanie problemów z błędami w interfejsie API Azure Active Directory raportowania
 
-W tym artykule wymieniono typowe komunikaty o błędach, które można napotkać podczas uzyskiwania dostępu do raportów aktywności przy użyciu interfejsu API Microsoft Graph i kroki dla ich rozdzielczości.
+W tym artykule wymieniono typowe komunikaty o błędach, które mogą wystąpić podczas uzyskiwania dostępu do raportów aktywności przy użyciu interfejsu API Microsoft Graph, oraz kroki rozwiązywania problemów.
 
-### <a name="500-http-internal-server-error-while-accessing-microsoft-graph-v2-endpoint"></a>Błąd wewnętrzny serwera HTTP 500 podczas uzyskiwania dostępu do punktu końcowego Microsoft Graph v2
+### <a name="500-http-internal-server-error-while-accessing-microsoft-graph-v2-endpoint"></a>Wewnętrzny błąd serwera HTTP 500 podczas uzyskiwania dostępu do punktu końcowego Microsoft Graph V2
 
-Obecnie nie obsługujemy punktu końcowego Microsoft Graph v2 — upewnij się, że uzyskujesz dostęp do dzienników aktywności przy użyciu punktu końcowego Microsoft Graph v1.
+Obecnie punkt końcowy usługi Microsoft Graph w wersji 2 — upewnij się, że uzyskujesz dostęp do dzienników aktywności przy użyciu punktu końcowego Microsoft Graph v1.
 
-### <a name="error-neither-tenant-is-b2c-or-tenant-doesnt-have-premium-license"></a>Błąd: żaden dzierżawca nie jest B2C lub dzierżawa nie ma licencji Premium
+### <a name="error-neither-tenant-is-b2c-or-tenant-doesnt-have-premium-license"></a>Błąd: Żadna dzierżawa nie jest dzierżawą B2C lub dzierżawa nie ma licencji Premium
 
-Uzyskiwanie dostępu do raportów logowania wymaga licencji Azure Active Directory Premium 1 (P1). Jeśli ten komunikat o błędzie jest wyświetlany podczas uzyskiwania dostępu do logowania, upewnij się, że dzierżawa jest licencjonowana przy użyciu licencji usługi Azure AD P1.
+Uzyskiwanie dostępu do raportów logowania wymaga licencji Azure Active Directory Premium 1 (P1). Jeśli ten komunikat o błędzie jest wyświetlany podczas uzyskiwania dostępu do logowania, upewnij się, że dzierżawa ma licencję usługi Azure AD P1.
 
-### <a name="error-user-is-not-in-the-allowed-roles"></a>Błąd: użytkownik nie znajduje się w dozwolonych rolach 
+### <a name="error-user-is-not-in-the-allowed-roles"></a>Błąd: Użytkownik nie znajduje się w dozwolonych rolach 
 
-Jeśli ten komunikat o błędzie jest wyświetlany podczas próby dostępu do dzienników inspekcji lub logowania przy użyciu interfejsu API, upewnij się, że konto należy do roli **czytelnik zabezpieczeń** lub **czytelnik raportu** w dzierżawie Azure Active Directory. 
+Jeśli ten komunikat o błędzie jest wyświetlany podczas próby uzyskania dostępu do dzienników inspekcji  lub logowania  przy użyciu interfejsu API, upewnij się, że Twoje konto jest częścią roli Czytelnik zabezpieczeń lub Czytelnik raportów w dzierżawie usługi Azure Active Directory dzierżawie. 
 
-### <a name="error-application-missing-aad-read-directory-data-permission"></a>Błąd: brak uprawnienia do odczytu danych katalogu usługi AAD w aplikacji 
+### <a name="error-application-missing-aad-read-directory-data-permission"></a>Błąd: Aplikacja nie ma uprawnienia "Odczyt danych katalogu" w usłudze AAD 
 
-Wykonaj kroki opisane w sekcji [wymagania wstępne, aby uzyskać dostęp do interfejsu API raportowania Azure Active Directory](howto-configure-prerequisites-for-reporting-api.md) , aby upewnić się, że aplikacja działa z odpowiednim zestawem uprawnień. 
+Wykonaj kroki opisane w części Wymagania wstępne, aby uzyskać dostęp do interfejsu [API](howto-configure-prerequisites-for-reporting-api.md) raportowania Azure Active Directory, aby upewnić się, że aplikacja działa z odpowiednim zestawem uprawnień. 
 
-### <a name="error-application-missing-microsoft-graph-api-read-all-audit-log-data-permission"></a>Błąd: brak aplikacji Microsoft Graph interfejs API "Odczyt wszystkich danych dziennika inspekcji"
+### <a name="error-application-missing-microsoft-graph-api-read-all-audit-log-data-permission"></a>Błąd: Aplikacja nie ma uprawnienia Microsoft Graph API "Odczyt wszystkich danych dziennika inspekcji"
 
-Wykonaj kroki opisane w sekcji [wymagania wstępne, aby uzyskać dostęp do interfejsu API raportowania Azure Active Directory](howto-configure-prerequisites-for-reporting-api.md) , aby upewnić się, że aplikacja działa z odpowiednim zestawem uprawnień. 
+Wykonaj kroki opisane w części Wymagania wstępne, aby uzyskać dostęp do interfejsu [API](howto-configure-prerequisites-for-reporting-api.md) raportowania Azure Active Directory, aby upewnić się, że aplikacja działa z odpowiednim zestawem uprawnień. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Użyj dokumentacji dotyczącej](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
- interfejsu API inspekcji [Korzystanie z interfejsu API raportów działań związanych z logowaniem](/graph/api/resources/signin?view=graph-rest-beta)
+[Korzystanie z odwołania do interfejsu API inspekcji](/graph/api/resources/directoryaudit) 
+ [Używanie odwołania interfejsu API raportu działań logowania](/graph/api/resources/signin)

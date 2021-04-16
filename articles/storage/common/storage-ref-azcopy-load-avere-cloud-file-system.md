@@ -1,7 +1,7 @@
 ---
-title: AzCopy obciążenia CLFS | Microsoft Docs
+title: azcopy load clfs | Microsoft Docs
 titleSuffix: Azure Storage
-description: Ten artykuł zawiera informacje referencyjne dotyczące polecenia AzCopy Load CLFS.
+description: Ten artykuł zawiera informacje referencyjne dotyczące polecenia azcopy load clfs.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -9,45 +9,44 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: b36ea25180c31fef199aaacb10e46b3caa20f807
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ebf04531f29e18f9d120ca2efa17244c4282084c
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98878379"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503273"
 ---
 # <a name="azcopy-load-clfs"></a>azcopy load clfs
 
-Przenosi dane lokalne do kontenera i zapisuje je w formacie avere Cloud system plików (CLFS) firmy Microsoft.
+Przesyła dane lokalne do kontenera i zapisuje je w formacie Avere Cloud FileSystem (CLFS) firmy Microsoft.
 
 ## <a name="synopsis"></a>Streszczenie
 
-Polecenie load kopiuje dane do kontenerów usługi Azure Blob Storage, a następnie przechowuje te dane w formacie avere Cloud system plików (CLFS) firmy Microsoft. Własny format CLFS jest używany przez pamięć podręczną platformy Azure HPC i avere vFXT dla produktów platformy Azure.
+Polecenie ładowania kopiuje dane do kontenerów usługi Azure Blob Storage, a następnie zapisuje je w formacie Avere Cloud FileSystem (CLFS) firmy Microsoft. Zastrzeżony format CLFS jest używany przez Azure HPC Cache i Avere vFXT for Azure produktów.
 
-Aby użyć tego polecenia, Zainstaluj wymagane rozszerzenie za pośrednictwem: PIP3 Install clfsload ~ = 1.0.23. Upewnij się, że CLFSLoad.py znajduje się w ścieżce. Aby uzyskać więcej informacji na ten temat, odwiedź stronę [https://aka.ms/azcopy/clfs](https://aka.ms/azcopy/clfs) .
+Aby skorzystać z tego polecenia, zainstaluj wymagane rozszerzenie za pośrednictwem polecenia: pip3 install clfsload~=1.0.23. Upewnij się, CLFSLoad.py znajduje się w ścieżce PATH. Aby uzyskać więcej informacji na temat tego kroku, odwiedź stronę [https://aka.ms/azcopy/clfs](https://aka.ms/azcopy/clfs) .
 
-To polecenie jest prostą opcją przeniesienia istniejących danych do magazynu w chmurze w celu użycia z konkretnymi produktami pamięci podręcznej o wysokiej wydajności obliczeniowej firmy Microsoft. 
+To polecenie jest prostą opcją przenoszenia istniejących danych do magazynu w chmurze do użycia z konkretnymi produktami pamięci podręcznej obliczeń o wysokiej wydajności firmy Microsoft. 
 
-Ponieważ te produkty używają zastrzeżonego formatu systemu plików w chmurze do zarządzania danymi, te dane nie mogą zostać załadowane za pomocą polecenia kopiowania natywnego. 
+Ponieważ te produkty używają zastrzeżonego formatu systemu plików w chmurze do zarządzania danymi, tych danych nie można załadować za pomocą natywnego polecenia kopiowania. 
 
-Zamiast tego dane muszą zostać załadowane za pośrednictwem samego produktu pamięci podręcznej lub za pomocą tego polecenia ładowania, które używa poprawnego formatu własności.
-To polecenie umożliwia transfer danych bez użycia pamięci podręcznej. Na przykład, aby wstępnie wypełnić magazyn lub dodać pliki do zestawu roboczego bez zwiększania obciążenia pamięci podręcznej.
+Zamiast tego dane muszą zostać załadowane za pośrednictwem samego produktu pamięci podręcznej lub za pomocą tego polecenia ładowania, które używa poprawnego zastrzeżonego formatu.
+To polecenie umożliwia przesyłanie danych bez użycia pamięci podręcznej. Na przykład w celu wstępnego wypełnienia magazynu lub dodania plików do zestawu roboczego bez zwiększania obciążenia pamięci podręcznej.
 
-Lokalizacją docelową jest pusty kontener usługi Azure Storage. Po zakończeniu transferu kontener docelowy może być używany z wystąpieniem pamięci podręcznej platformy Azure HPC lub avere vFXT dla klastra platformy Azure.
+Miejsce docelowe jest pustym kontenerem usługi Azure Storage. Po zakończeniu transferu kontener docelowy może być używany z wystąpieniem Azure HPC Cache lub klastrem Avere vFXT for Azure klastra.
 
 > [!NOTE] 
-> To jest wersja zapoznawcza polecenia ładowania. Zgłoś wszelkie problemy w repozytorium GitHub AzCopy.
+> Jest to wersja zapoznawcza polecenia ładowania. Zgłoś wszelkie problemy w repozytorium GitHub narzędzia AzCopy.
 
 ```
 azcopy load clfs [local dir] [container URL] [flags]
 ```
 
-## <a name="related-conceptual-articles"></a>Pokrewne artykuły koncepcyjne
+## <a name="related-conceptual-articles"></a>Powiązane artykuły koncepcyjne
 
 - [Wprowadzenie do narzędzia AzCopy](storage-use-azcopy-v10.md)
-- [Transferowanie danych za pomocą AzCopy i magazynu obiektów BLOB](./storage-use-azcopy-v10.md#transfer-data)
+- [Transferowanie danych za pomocą programu AzCopy i usługi Blob Storage](./storage-use-azcopy-v10.md#transfer-data)
 - [Transferowanie danych za pomocą narzędzia AzCopy i magazynu plików](storage-use-azcopy-files.md)
-- [Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="examples"></a>Przykłady
 
@@ -59,28 +58,28 @@ azcopy load clfs "/path/to/dir" "https://[account].blob.core.windows.net/[contai
 
 ## <a name="options"></a>Opcje
 
-**--ciąg typu kompresji** określa typ kompresji, który ma być używany do transferów. Dostępne wartości to: `DISABLED` , `LZ4` . (ustawienie domyślne `LZ4` )
+**--compression-type** string określ typ kompresji do użycia na użytek transferów. Dostępne wartości to: `DISABLED` , `LZ4` . (wartość `LZ4` domyślna )
 
-**--Pomoc**    dla `azcopy load clfs` polecenia.
+**--help**    pomoc dla `azcopy load clfs` polecenia.
 
-**--ciąg poziomu dziennika** definiuje szczegółowość dziennika dla pliku dziennika, dostępne poziomy: `DEBUG` ,, `INFO` `WARNING` , `ERROR` . (ustawienie domyślne `INFO` )
+**--log-level** string Define the log verbosity for the log file, available levels: `DEBUG` , , , `INFO` `WARNING` `ERROR` . (wartość `INFO` domyślna )
 
-**--Max-errorss** Określ maksymalną dozwoloną liczbę niepowodzeń transferu. W przypadku wystąpienia wystarczającej ilości błędów Zatrzymaj zadanie natychmiast.
+**--max-errors** uint32 Określ maksymalną liczbę dopuszczalnych niepowodzeń transferu. Jeśli wystąpi wystarczająca ilość błędów, zatrzymaj zadanie natychmiast.
 
-**--Nowa sesja**   Rozpocznij nowe zadanie, zamiast kontynuować już istniejące, którego informacje śledzenia są przechowywane w `--state-path` . (wartość domyślna to true)
+**--new-session**   Rozpocznij nowe zadanie, zamiast kontynuować istniejące zadanie, którego informacje dotyczące śledzenia są przechowywane w lokalizacji `--state-path` . (wartość domyślna true)
 
-**--Preserve-Hardlinks**    Zachowaj relacje twarde łącza.
+**--preserve-hardlinks**    Zachowywanie twardych relacji linków.
 
-parametr **--State-Path** wymaga ścieżki do katalogu lokalnego na potrzeby śledzenia stanu zadań. Ścieżka musi wskazywać istniejący katalog w celu wznowienia zadania. Dla nowego zadania musi być pusty.
+**--state-path** string Wymagana ścieżka do katalogu lokalnego na potrzeby śledzenia stanu zadania. Ścieżka musi wskazać istniejący katalog w celu wznowienia zadania. Musi być pusty dla nowego zadania.
 
 ## <a name="options-inherited-from-parent-commands"></a>Opcje dziedziczone z poleceń nadrzędnych
 
 |Opcja|Opis|
 |---|---|
-|--Cap-MB/s|Szybkość transferu w megabitach na sekundę. Przepływność czasu na chwilę może się nieco różnić od końca. Jeśli ta opcja jest ustawiona na zero lub zostanie pominięta, przepływność nie zostanie ograniczona.|
-|--ciąg typu wyjściowego|Format danych wyjściowych polecenia. Dostępne opcje to: text, JSON. Wartość domyślna to "text".|
-|--Zaufane — ciąg sufiksów firmy Microsoft   | Określa dodatkowe sufiksy domeny, w których mogą być wysyłane Azure Active Directory tokeny logowania.  Wartość domyślna to "*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net '. Wszystkie wymienione tutaj są dodawane do ustawień domyślnych. W celu zapewnienia bezpieczeństwa należy tu umieścić tylko domeny Microsoft Azure. Rozdziel wiele wpisów średnikami.|
+|--cap-mb/s float|Limituje szybkość transferu w megabitach na sekundę. Przepływność moment po chwili może się nieznacznie różnić od limitu. Jeśli ta opcja jest ustawiona na zero lub zostanie pominięta, przepływność nie jest ograniczona.|
+|--output-type string|Format danych wyjściowych polecenia. Dostępne opcje to: text, json. Wartość domyślna to "text".|
+|Ciąg --trusted-microsoft-suffixes   | Określa dodatkowe sufiksy domeny, Azure Active Directory mogą być wysyłane tokeny logowania.  Wartość domyślna to '*.core.windows.net;*. core.chinacloudapi.cn; *.core.cloudapi.de;*. core.usgovcloudapi.net". Wszystkie wymienione tutaj wartości są dodawane do wartości domyślnej. Ze względów bezpieczeństwa należy w tym miejscu Microsoft Azure tylko domen. Oddziel wiele wpisów średnikami.|
 
 ## <a name="see-also"></a>Zobacz też
 
-- [AzCopy](storage-ref-azcopy.md)
+- [azcopy](storage-ref-azcopy.md)

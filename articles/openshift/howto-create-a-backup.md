@@ -1,39 +1,39 @@
 ---
-title: Tworzenie kopii zapasowej aplikacji klastra usługi Azure Red Hat OpenShift 4 przy użyciu Velero
-description: Dowiedz się, jak utworzyć kopię zapasową aplikacji klastra Red Hat OpenShift na platformie Azure przy użyciu Velero
+title: Tworzenie kopii zapasowej aplikacji klastra Azure Red Hat OpenShift 4 przy użyciu narzędzia Velero
+description: Dowiedz się, jak utworzyć kopię zapasową aplikacji klastra Azure Red Hat OpenShift przy użyciu narzędzia Velero
 ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 06/22/2020
 author: troy0820
 ms.author: b-trconn
-keywords: ARO, OpenShift, AZ ARO, Red Hat, CLI
-ms.custom: mvc
-ms.openlocfilehash: bbfe280ed0b1b562e0f50b23a09ea159750c4a79
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+keywords: aro, openshift, az aro, red hat, cli
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: c8bf722bd77372cd89e7c64757347b5fd07eb1ed
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102217095"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481365"
 ---
-# <a name="create-an-azure-red-hat-openshift-4-cluster-application-backup"></a>Tworzenie kopii zapasowej aplikacji klastra usługi Azure Red Hat OpenShift 4
+# <a name="create-an-azure-red-hat-openshift-4-cluster-application-backup"></a>Tworzenie kopii zapasowej Azure Red Hat OpenShift 4 klastrów
 
-W tym artykule opisano przygotowanie środowiska do utworzenia kopii zapasowej aplikacji klastra Red Hat OpenShift 4. Omawiane tematy:
+W tym artykule przygotujesz środowisko do utworzenia kopii zapasowej aplikacji klastra Azure Red Hat OpenShift 4. Omawiane tematy:
 
 > [!div class="checklist"]
-> * Skonfiguruj wymagania wstępne i Zainstaluj niezbędne narzędzia
-> * Tworzenie kopii zapasowej aplikacji usługi Azure Red Hat OpenShift 4
+> * Konfigurowanie wymagań wstępnych i instalowanie niezbędnych narzędzi
+> * Tworzenie kopii zapasowej Azure Red Hat OpenShift 4
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i używać go lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
-### <a name="install-velero"></a>Zainstaluj Velero
+### <a name="install-velero"></a>Instalowanie oprogramowania Velero
 
-Aby [zainstalować](https://velero.io/docs/main/basic-install/) program Velero w systemie, postępuj zgodnie z zalecanym procesem dla danego systemu operacyjnego.
+Aby [zainstalować](https://velero.io/docs/main/basic-install/) velero w systemie, postępuj zgodnie z zalecanym procesem dla swojego systemu operacyjnego.
 
-### <a name="set-up-azure-storage-account-and-blob-container"></a>Konfigurowanie konta usługi Azure Storage i kontenera obiektów BLOB
+### <a name="set-up-azure-storage-account-and-blob-container"></a>Konfigurowanie konta magazynu platformy Azure i kontenera obiektów blob
 
-Ten krok spowoduje utworzenie grupy zasobów poza grupą zasobów klastra ARO.  Ta grupa zasobów umożliwi utrwalenie kopii zapasowych i przywrócenie aplikacji do nowych klastrów.
+Ten krok spowoduje utworzenie grupy zasobów poza grupą zasobów klastra ARO.  Ta grupa zasobów umożliwi utrwalanie kopii zapasowych i przywracanie aplikacji do nowych klastrów.
 
 ```bash
 AZURE_BACKUP_RESOURCE_GROUP=Velero_Backups
@@ -53,11 +53,11 @@ BLOB_CONTAINER=velero
 az storage container create -n $BLOB_CONTAINER --public-access off --account-name $AZURE_STORAGE_ACCOUNT_ID
 ```
 
-## <a name="set-permissions-for-velero"></a>Ustaw uprawnienia dla Velero
+## <a name="set-permissions-for-velero"></a>Ustawianie uprawnień dla Velero
 
 ### <a name="create-service-principal"></a>Tworzenie jednostki usługi
 
-Velero potrzebuje uprawnień do wykonywania kopii zapasowych i przywracania. Podczas tworzenia nazwy głównej usługi nadajesz Velero uprawnienia dostępu do grupy zasobów zdefiniowanej w poprzednim kroku. Ten krok spowoduje uzyskanie grupy zasobów klastra:
+Velero musi mieć uprawnienia do wykonywania kopii zapasowych i przywracania. Podczas tworzenia jednostki usługi udzielasz uprawnień Velero w celu uzyskania dostępu do grupy zasobów, która jest zdefiniowana w poprzednim kroku. Ten krok spowoduje pobrać grupę zasobów klastra:
 
 ```bash
 export AZURE_RESOURCE_GROUP=$(az aro show --name <name of cluster> --resource-group <name of resource group> | jq -r .clusterProfile.resourceGroupId | cut -d '/' -f 5,5)
@@ -88,9 +88,9 @@ AZURE_CLOUD_NAME=AzurePublicCloud
 EOF
 ```
 
-## <a name="install-velero-on-azure-red-hat-openshift-4-cluster"></a>Zainstaluj Velero na platformie Azure Red Hat OpenShift 4
+## <a name="install-velero-on-azure-red-hat-openshift-4-cluster"></a>Instalowanie aplikacji Velero w Azure Red Hat OpenShift 4
 
-Ten krok spowoduje zainstalowanie Velero we własnym projekcie oraz [niestandardowych definicji zasobów](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) potrzebnych do wykonywania kopii zapasowych i przywracania za pomocą Velero. Upewnij się, że pomyślnie zalogowano się w klastrze usługi Azure Red Hat OpenShift v4.
+Ten krok spowoduje zainstalowanie velero we [](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) własnym projekcie i niestandardowych definicjach zasobów niezbędnych do tworzenia kopii zapasowych i przywracania za pomocą programu Velero. Upewnij się, że pomyślnie zalogowano się do klastra Azure Red Hat OpenShift w wersji 4.
 
 
 ```bash
@@ -105,9 +105,9 @@ velero install \
 --velero-pod-mem-request="0" --velero-pod-cpu-request="0"
 ```
 
-## <a name="create-a-backup-with-velero"></a>Tworzenie kopii zapasowej za pomocą Velero
+## <a name="create-a-backup-with-velero"></a>Tworzenie kopii zapasowej za pomocą usługi Velero
 
-Aby utworzyć kopię zapasową aplikacji za pomocą Velero, należy uwzględnić przestrzeń nazw, w której znajduje się ta aplikacja.  Jeśli masz `nginx-example` przestrzeń nazw i chcesz uwzględnić wszystkie zasoby w tej przestrzeni nazw w kopii zapasowej, uruchom następujące polecenie w terminalu:
+Aby utworzyć kopię zapasową aplikacji za pomocą usługi Velero, należy dołączyć przestrzeń nazw, w których znajduje się ta aplikacja.  Jeśli masz przestrzeń nazw i chcesz uwzględnić wszystkie zasoby w tej przestrzeni nazw w kopii zapasowej, uruchom następujące polecenie `nginx-example` w terminalu:
 
 ```bash
 velero create backup <name of backup> --include-namespaces=nginx-example
@@ -118,11 +118,11 @@ Stan kopii zapasowej można sprawdzić, uruchamiając:
 oc get backups -n velero <name of backup> -o yaml
 ```
 
-Pomyślna kopia zapasowa zostanie wyprodukowana `phase:Completed` i obiekty będą przechowywane w kontenerze na koncie magazynu.
+Pomyślna kopia zapasowa będzie tworzyć `phase:Completed` dane wyjściowe, a obiekty będą się żyć w kontenerze na koncie magazynu.
 
-## <a name="create-a-backup-with-velero-to-include-snapshots"></a>Tworzenie kopii zapasowej z Velero w celu uwzględnienia migawek
+## <a name="create-a-backup-with-velero-to-include-snapshots"></a>Tworzenie kopii zapasowej za pomocą programu Velero w celu dołączania migawek
 
-Aby utworzyć kopię zapasową aplikacji za pomocą Velero w celu uwzględnienia trwałych woluminów aplikacji, należy uwzględnić przestrzeń nazw, w której aplikacja jest, oraz dodać `snapshot-volumes=true` flagę podczas tworzenia kopii zapasowej.
+Aby utworzyć kopię zapasową aplikacji za pomocą usługi Velero, aby uwzględnić trwałe woluminy aplikacji, należy dołączyć przestrzeń nazw, w którym znajduje się aplikacja, a także dołączyć flagę podczas tworzenia kopii `snapshot-volumes=true` zapasowej
 
 ```bash
 velero backup create <name of backup> --include-namespaces=nginx-example --snapshot-volumes=true --include-cluster-resources=true
@@ -134,20 +134,20 @@ Stan kopii zapasowej można sprawdzić, uruchamiając:
 oc get backups -n velero <name of backup> -o yaml
 ```
 
-Pomyślna kopia zapasowa z danymi wyjściowymi `phase:Completed` i obiekty będą przechowywane w kontenerze na koncie magazynu.
+Pomyślnie tworzyć kopię `phase:Completed` zapasową z danych wyjściowych i obiekty będą się żyć w kontenerze na koncie magazynu.
 
-Aby uzyskać więcej informacji na temat tworzenia kopii zapasowych i przywracania przy użyciu programu Velero [, zobacz Backup OpenShift Resources w sposób natywny](https://www.openshift.com/blog/backup-openshift-resources-the-native-way)
+Aby uzyskać więcej informacji na temat tworzenia kopii zapasowych i przywracania przy użyciu narzędzia Velero, zobacz Backup OpenShift resources the native way (Tworzenie kopii zapasowych [zasobów OpenShift w sposób natywny)](https://www.openshift.com/blog/backup-openshift-resources-the-native-way)
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule utworzono kopię zapasową aplikacji klastra Red Hat OpenShift 4 platformy Azure. W tym samouczku omówiono:
+W tym artykule została Azure Red Hat OpenShift kopii zapasowej aplikacji klastra z 4 elementami. W tym samouczku omówiono:
 
 > [!div class="checklist"]
-> * Tworzenie kopii zapasowej aplikacji klastra OpenShift v4 przy użyciu Velero
-> * Tworzenie kopii zapasowej aplikacji klastra OpenShift v4 z użyciem migawek przy użyciu Velero
+> * Tworzenie kopii zapasowej aplikacji klastra OpenShift v4 przy użyciu narzędzia Velero
+> * Tworzenie kopii zapasowej aplikacji klastra OpenShift v4 z migawkami przy użyciu narzędzia Velero
 
 
-Przejdź do następnego artykułu, aby dowiedzieć się, jak utworzyć Przywracanie aplikacji klastra usługi Azure Red Hat OpenShift 4.
+W następnym artykule dowiesz się, jak utworzyć klaster z Azure Red Hat OpenShift przywracania aplikacji z 4 klasterami.
 
-* [Tworzenie aplikacji klastra usługi Azure Red Hat OpenShift 4](howto-create-a-restore.md)
-* [Tworzenie aplikacji klastra usługi Azure Red Hat OpenShift 4 z uwzględnieniem migawek](howto-create-a-restore.md)
+* [Tworzenie klastra Azure Red Hat OpenShift przywracania aplikacji z 4 klastrami](howto-create-a-restore.md)
+* [Tworzenie aplikacji klastra Azure Red Hat OpenShift 4, w tym migawek](howto-create-a-restore.md)

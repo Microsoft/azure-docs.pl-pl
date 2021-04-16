@@ -3,22 +3,24 @@ title: Tworzenie centrum powiadomień przy użyciu witryny Azure Portal | Micros
 description: W ramach tego samouczka nauczysz się tworzyć centrum powiadomień platformy Azure przy użyciu witryny Azure Portal.
 services: notification-hubs
 author: sethmanheim
+ms.author: sethm
 manager: femila
+ms.reviewer: thsomasu
+ms.date: 08/04/2020
+ms.lastreviewed: 02/14/2019
+ms.topic: quickstart
 ms.service: notification-hubs
 ms.workload: mobile
-ms.topic: quickstart
-ms.date: 08/04/2020
-ms.author: sethm
-ms.reviewer: thsomasu
-ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: 141812e83653b458a2562bf73b70117c39bf7be0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- mode-portal
+ms.openlocfilehash: 4381c9259788982832a02ecbe2c87c6f6e723772
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92426561"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533597"
 ---
-# <a name="quickstart-create-an-azure-notification-hub-in-the-azure-portal"></a>Szybki Start: tworzenie centrum powiadomień platformy Azure w Azure Portal
+# <a name="quickstart-create-an-azure-notification-hub-in-the-azure-portal"></a>Szybki start: tworzenie centrum powiadomień platformy Azure w Azure Portal
 
 Usługa Azure Notification Hubs oferuje łatwy w użyciu, skalowany w poziomie mechanizm, który umożliwia wysyłanie powiadomień do dowolnej platformy (iOS, Android, Windows, Kindle, Baidu, itp.) z poziomu dowolnego zaplecza (w chmurze lub w środowisku lokalnym). Aby uzyskać więcej informacji na temat usługi, zobacz [Co to jest usługa Azure Notification Hubs?](notification-hubs-push-notification-overview.md)
 
@@ -52,7 +54,7 @@ W tej sekcji utworzysz centrum powiadomień w istniejącej przestrzeni nazw.
       ![Powiadomienie dotyczące wdrożenia](./media/create-notification-hub-portal/deployment-notification.png)
 7. Odśwież stronę internetową **Przestrzenie nazw centrum powiadomień**, aby zobaczyć nowe centrum na liście.
 
-      ![Zrzut ekranu pokazujący stronę sieci Web Centrum powiadomień z nowym centrum na liście.](./media/create-notification-hub-portal/new-hub-in-list.png)
+      ![Zrzut ekranu przedstawiający stronę internetową Przestrzenie nazw centrum powiadomień z nowym centrum na liście.](./media/create-notification-hub-portal/new-hub-in-list.png)
 8. Wybierz swoje **centrum powiadomień**, aby wyświetlić jego stronę główną.
 
       ![Zrzut ekranu przedstawiający stronę główną centrum powiadomień.](./media/create-notification-hub-portal/hub-home-page.png)

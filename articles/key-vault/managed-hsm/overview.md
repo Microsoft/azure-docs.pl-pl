@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie modułem HSM zarządzanym przez platformę Azure — zarządzany moduł HSM Azure | Microsoft Docs
-description: Moduł HSM zarządzany przez platformę Azure to usługa w chmurze, która chroni klucze kryptograficzne dla aplikacji w chmurze.
+title: Omówienie zarządzanego modułu HSM platformy Azure — zarządzane przez platformę Azure moduły HSM | Microsoft Docs
+description: Zarządzany moduł HSM platformy Azure to usługa w chmurze, która zabezpiecza klucze kryptograficzne dla aplikacji w chmurze.
 services: key-vault
 tags: azure-resource-manager
 ms.service: key-vault
@@ -10,47 +10,47 @@ ms.custom: mvc
 ms.date: 04/01/2021
 ms.author: mbaldwin
 author: msmbaldwin
-ms.openlocfilehash: 605e3f0451cc2029ecc98e42741f30a2d3ef190b
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: b56031d131743a3dc8c97bcd3e85d4653cdd2833
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167961"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484187"
 ---
-# <a name="what-is-azure-key-vault-managed-hsm-preview"></a>Co to jest Azure Key Vault zarządzanym modułem HSM (wersja zapoznawcza)?
+# <a name="what-is-azure-key-vault-managed-hsm"></a>Co to jest zarządzany moduł HSM usługi Azure Key Vault?
 
-Azure Key Vault zarządzanym modułem HSM jest w pełni zarządzana usługa w chmurze o wysokiej dostępności, która jest zgodna ze standardami, która pozwala chronić klucze kryptograficzne dla aplikacji w chmurze przy użyciu zweryfikowanych sprzętowych modułów zabezpieczeń **poziomu 3 w trybie FIPS 140-2** .  
+Azure Key Vault HSM to w pełni zarządzana, wysoce dostępna, zgodna ze standardami usługa w chmurze z jedną dzierżawą, która umożliwia ochronę kluczy kryptograficznych dla aplikacji w chmurze przy użyciu modułów HSM zweryfikowanych w trybie **FIPS 140-2 poziom 3.**  
 
 ## <a name="why-use-managed-hsm"></a>Dlaczego warto używać zarządzanego modułu HSM?
 
-### <a name="fully-managed-highly-available-single-tenant-hsm-as-a-service"></a>W pełni zarządzane, wysoce dostępne i jednodostępne moduły HSM jako usługa
+### <a name="fully-managed-highly-available-single-tenant-hsm-as-a-service"></a>W pełni zarządzany, wysoce dostępny, jednodostępny moduł HSM jako usługa
 
-- W **pełni zarządzane**: Inicjowanie obsługi, konfiguracja, stosowanie poprawek i konserwacja modułu HSM jest obsługiwane przez usługę. 
-- **Wysoce dostępna i odporna na strefy (w** których są obsługiwane strefy dostępności): każdy klaster HSM składa się z wielu partycji modułu HSM, które obejmują co najmniej dwie strefy dostępności. Jeśli sprzęt ulegnie awarii, partycje elementów członkowskich dla klastra HSM zostaną automatycznie zmigrowane do węzłów w dobrej kondycji.
-- **Pojedyncze dzierżawca**: każde zarządzane wystąpienie modułu HSM jest przeznaczone dla jednego klienta i składa się z klastra wielu partycji modułu HSM. Każdy klaster HSM używa oddzielnej domeny zabezpieczeń specyficznej dla klienta, która kryptograficznie izoluje klaster modułu HSM każdego klienta.
+- **W pełni zarządzane:** aprowizowanie, konfigurowanie, stosowanie poprawek i konserwacja modułu HSM jest obsługiwane przez usługę. 
+- **Wysoka dostępność i odporność** na strefy (gdzie obsługiwane są strefy dostępności): każdy klaster HSM składa się z wielu partycji HSM, które obejmują co najmniej dwie strefy dostępności. Jeśli sprzęt ulegnie awarii, partycje członkowskie klastra HSM zostaną automatycznie zmigrowane do węzłów w dobrej kondycji.
+- **Pojedyncza dzierżawa:** każde wystąpienie zarządzanego modułu HSM jest przeznaczone dla jednego klienta i składa się z klastra z wieloma partycjami modułu HSM. Każdy klaster HSM używa oddzielnej domeny zabezpieczeń specyficznej dla klienta, która kryptograficznie izoluje klaster HSM każdego klienta.
 
 
-### <a name="access-control-enhanced-data-protection--compliance"></a>Kontrola dostępu, Ulepszona ochrona danych &
+### <a name="access-control-enhanced-data-protection--compliance"></a>Kontrola dostępu, rozszerzona ochrona & zgodności
 
-- **Scentralizowane zarządzanie kluczami**: Zarządzaj kluczami o krytycznym znaczeniu w organizacji w jednym miejscu. Z szczegółowymi uprawnieniami na klucz, kontrolują dostęp do każdego klucza w zasadzie "najmniej uprzywilejowany dostęp".
-- **Izolowana kontrola dostępu**: zarządzany model modułu HSM "Local RBAC" modelu kontroli dostępu umożliwia Wyznaczeni administratorom klastrów modułu HSM pełną kontrolę nad sprzętowych modułów zabezpieczeńem, że nawet Administratorzy grupy zarządzania, subskrypcji lub grupy zasobów nie mogą przesłonić.
-- **Fips 140-2 Level 3 sprawdzony sprzętowych modułów zabezpieczeń**: Chroń dane i spełniaj wymagania dotyczące zgodności z FIPS ((Federal Information Protection standard)) 140-2 zweryfikowane sprzętowych modułów zabezpieczeń poziomu 3. Zarządzane sprzętowych modułów zabezpieczeń używają kart HSM LiquidSecurity firmy Marvell.
-- **Monitorowanie i inspekcja**: w pełni zintegrowana z usługą Azure monitor. Pobierz pełne dzienniki wszystkich działań za pośrednictwem Azure Monitor. Użyj usługi Azure Log Analytics na potrzeby analiz i alertów.
-- Miejsce **zamieszkania**: ZARZĄDZANY moduł HSM nie zapisuje/nie przetwarza danych klienta poza regionem, w którym klient wdraża wystąpienie modułu HSM.
+- **Scentralizowane zarządzanie kluczami:** zarządzanie krytycznymi kluczami o wysokiej wartości w całej organizacji w jednym miejscu. Dzięki szczegółowym uprawnień do poszczególnych kluczy możesz kontrolować dostęp do każdego klucza zgodnie z zasadą "najmniej uprzywilejowanego dostępu".
+- **Izolowana** kontrola dostępu: model kontroli dostępu "lokalnego RBAC" zarządzanego modułu HSM umożliwia wyznaczonym administratorom klastra HSM pełną kontrolę nad modułami HSM, których nie mogą zastąpić nawet administratorzy grupy zarządzania, subskrypcji lub grupy zasobów.
+- Moduły HSM zweryfikowane w trybie **FIPS 140-2 poziom 3:** chronią dane i spełniają wymagania zgodności za pomocą modułów HSM zweryfikowanych w trybie FIPS ((Federal Information Protection Standard)) 140-2 poziom 3. Zarządzane moduły HSM używają adapterów HSM LiquidSecurity.
+- **Monitorowanie i inspekcja:** w pełni zintegrowane z usługą Azure Monitor. Pobierz pełne dzienniki wszystkich aktywności za pośrednictwem Azure Monitor. Użyj usługi Azure Log Analytics do analizy i alertów.
+- **Rezydencja danych:** zarządzany moduł HSM nie przechowuje/nie przetwarza danych klienta poza regionem, w którym klient wdraża wystąpienie modułu HSM.
 
 ### <a name="integrated-with-azure-and-microsoft-paassaas-services"></a>Integracja z platformą Azure i usługami Microsoft PaaS/SaaS 
 
-- Generuj (lub Importuj przy użyciu [BYOK](hsm-protected-keys-byok.md)) klucze i używaj ich do szyfrowania danych przechowywanych w usługach platformy Azure, takich jak [Azure Storage](../../storage/common/customer-managed-keys-overview.md), [Azure SQL](../../azure-sql/database/transparent-data-encryption-byok-overview.md)i [Azure Information Protection](/azure/information-protection/byok-price-restrictions).
+- Wygeneruj (lub zaimportuj klucze przy użyciu funkcji [BYOK)](hsm-protected-keys-byok.md)i użyj ich do szyfrowania danych magazynowanych w usługach platformy Azure, takich jak [Azure Storage,](../../storage/common/customer-managed-keys-overview.md) [Azure SQL](../../azure-sql/database/transparent-data-encryption-byok-overview.md)i [Azure Information Protection](/azure/information-protection/byok-price-restrictions).
 
-### <a name="uses-same-api-and-management-interfaces-as-key-vault"></a>Używa tych samych interfejsów API i zarządzania co Key Vault
+### <a name="uses-same-api-and-management-interfaces-as-key-vault"></a>Używa tych samych interfejsów API i interfejsów zarządzania co Key Vault
 
-- Z łatwością Migruj istniejące aplikacje, które używają magazynu (z wieloma dzierżawcami) do korzystania z usługi Managed sprzętowych modułów zabezpieczeń.
-- Używaj tych samych wzorców tworzenia aplikacji i wdrażania dla wszystkich aplikacji niezależnie od używanego rozwiązania do zarządzania kluczami: magazyny z wieloma dzierżawcami lub sprzętowych modułów zabezpieczeń zarządzane z jedną dzierżawą
+- Łatwe migrowanie istniejących aplikacji, które używają magazynu (wielodostępu) do korzystania z zarządzanych modułów HSM.
+- Używaj tych samych wzorców tworzenia i wdrażania aplikacji dla wszystkich aplikacji niezależnie od rozwiązania do zarządzania kluczami w użyciu: magazynów z wieloma dzierżawami lub zarządzanych modułów HSM z jedną dzierżawą
 
-### <a name="import-keys-from-your-on-premise-hsms"></a>Importuj klucze z lokalnego sprzętowych modułów zabezpieczeń
+### <a name="import-keys-from-your-on-premise-hsms"></a>Importowanie kluczy z lokalnego modułu HSM
 
-- Generuj klucze chronione przez moduł HSM w lokalnym module HSM i zaimportuj je bezpiecznie do zarządzanego modułu HSM
+- Generowanie kluczy chronionych przez moduł HSM w lokalnym modułów HSM i bezpieczne importowanie ich do zarządzanego modułu HSM
 
 ## <a name="next-steps"></a>Następne kroki
-- Zobacz [Szybki Start: udostępnianie i aktywowanie zarządzanego modułu HSM przy użyciu interfejsu wiersza polecenia platformy Azure](quick-create-cli.md) w celu utworzenia i aktywowania zarządzanego modułu HSM
-- Zapoznaj się [z najlepszymi rozwiązaniami przy użyciu Azure Key Vault zarządzanego modułu HSM](best-practices.md)
+- Zobacz [Szybki start: aprowizować i aktywować zarządzany moduł HSM](quick-create-cli.md) przy użyciu interfejsu wiersza polecenia platformy Azure w celu utworzenia i aktywowania zarządzanego modułu HSM
+- Zobacz [Najlepsze rozwiązania dotyczące korzystania z zarządzanego Azure Key Vault HSM](best-practices.md)

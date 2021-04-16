@@ -1,6 +1,6 @@
 ---
-title: Samouczek — używanie OpenSSL do tworzenia certyfikatów testów X. 509 dla platformy Azure IoT Hub | Microsoft Docs
-description: Samouczek — używanie OpenSSL do tworzenia certyfikatów urzędu certyfikacji i urządzeń dla usługi Azure IoT Hub
+title: Samouczek — używanie programu OpenSSL do tworzenia certyfikatów testowych X.509 dla Azure IoT Hub| Microsoft Docs
+description: Samouczek — używanie programu OpenSSL do tworzenia certyfikatów urzędu certyfikacji i urządzeń dla usługi Azure IoT Hub
 author: v-gpettibone
 manager: philmea
 ms.service: iot-hub
@@ -12,25 +12,24 @@ ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-- devx-track-azurecli
-ms.openlocfilehash: 4379c8f43bbfa539179b821bf6b18a01518afad6
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 0843e5d3a5e91cb4acdf18ad6bdf6f4f0c214f72
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384310"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378299"
 ---
-# <a name="tutorial-using-openssl-to-create-test-certificates"></a>Samouczek: Tworzenie certyfikatów testowych przy użyciu programu OpenSSL
+# <a name="tutorial-using-openssl-to-create-test-certificates"></a>Samouczek: tworzenie certyfikatów testowych przy użyciu programu OpenSSL
 
-Mimo że można zakupić certyfikaty X. 509 z zaufanego urzędu certyfikacji, utworzenie własnej hierarchii certyfikatów testowych lub użycie certyfikatów z podpisem własnym jest wystarczające do testowania uwierzytelniania urządzenia usługi IoT Hub. Poniższy przykład używa [OpenSSL](https://www.openssl.org/) i [OpenSSL Cookbook](https://www.feistyduck.com/library/openssl-cookbook/online/ch-openssl.html) do tworzenia urzędu certyfikacji, podrzędnego urzędu certyfikacji i certyfikatu urządzenia. Przykład następnie podpisuje podrzędny urząd certyfikacji i certyfikat urządzenia do hierarchii certyfikatów. Jest to przedstawione tylko do celów.
+Chociaż certyfikaty X.509 można kupić od zaufanego urzędu certyfikacji, utworzenie własnej hierarchii certyfikatów testowych lub użycie certyfikatów z podpisem własnym jest odpowiednie do testowania uwierzytelniania urządzeń usługi IoT Hub. W poniższym przykładzie użyto [openssl](https://www.openssl.org/) i [podręcznika OpenSSL](https://www.feistyduck.com/library/openssl-cookbook/online/ch-openssl.html) do utworzenia urzędu certyfikacji (CA), podrzędnego urzędu certyfikacji i certyfikatu urządzenia. Następnie przykład podpisuje podrzędny urząd certyfikacji i certyfikat urządzenia w hierarchii certyfikatów. Jest to prezentowane tylko w celach przykładowych.
 
-## <a name="step-1---create-the-root-ca-directory-structure"></a>Krok 1. Tworzenie struktury katalogu głównego urzędu certyfikacji
+## <a name="step-1---create-the-root-ca-directory-structure"></a>Krok 1 . Tworzenie struktury katalogów głównego urzędu certyfikacji
 
 Utwórz strukturę katalogów dla urzędu certyfikacji.
 
-* W katalogu **certyfikatów** są przechowywane nowe certyfikaty.
-* Katalog **bazy danych jest** używany w przypadku certyfikatu.
-* Katalog **prywatny** przechowuje klucz prywatny urzędu certyfikacji.
+* W **katalogu certyfikatów** są przechowywane nowe certyfikaty.
+* Katalog **db** jest używany dla bazy danych certyfikatów.
+* W **katalogu prywatnym** jest przechowywane klucz prywatny urzędu certyfikacji.
 
 ```bash
   mkdir rootca
@@ -41,9 +40,9 @@ Utwórz strukturę katalogów dla urzędu certyfikacji.
   echo 1001 > db/crlnumber
 ```
 
-## <a name="step-2---create-a-root-ca-configuration-file"></a>Krok 2. Tworzenie pliku konfiguracji głównego urzędu certyfikacji
+## <a name="step-2---create-a-root-ca-configuration-file"></a>Krok 2 . Tworzenie pliku konfiguracji głównego urzędu certyfikacji
 
-Przed utworzeniem urzędu certyfikacji Utwórz plik konfiguracji i Zapisz go jako `rootca.conf` katalog rootca.
+Przed utworzeniem urzędu certyfikacji utwórz plik konfiguracji i zapisz go jako `rootca.conf` w katalogu rootca.
 
 ```xml
 [default]
@@ -112,21 +111,21 @@ subjectKeyIdentifier     = hash
 
 ```
 
-## <a name="step-3---create-a-root-ca"></a>Krok 3 — Tworzenie głównego urzędu certyfikacji
+## <a name="step-3---create-a-root-ca"></a>Krok 3. Tworzenie głównego urzędu certyfikacji
 
-Najpierw Wygeneruj klucz i żądanie podpisania certyfikatu (CSR) w katalogu rootca.
+Najpierw wygeneruj klucz i żądanie podpisania certyfikatu (CSR) w katalogu rootca.
 
 ```bash
   openssl req -new -config rootca.conf -out rootca.csr -keyout private/rootca.key
 ```
 
-Następnie Utwórz certyfikat urzędu certyfikacji z podpisem własnym. Samopodpisywania jest odpowiednie do celów testowych. Określ ca_ext rozszerzenia pliku konfiguracji w wierszu polecenia. Wskazują one, że certyfikat jest przeznaczony dla głównego urzędu certyfikacji i może służyć do podpisywania certyfikatów i list odwołania certyfikatów (CRL). Podpisz certyfikat i przekaż go do bazy danych.
+Następnie utwórz certyfikat urzędu certyfikacji z podpisem własnym. Podpisywanie samodzielne jest odpowiednie do celów testowych. Określ ca_ext plików konfiguracji w wierszu polecenia. Wskazują one, że certyfikat jest dla głównego urzędu certyfikacji i może służyć do podpisywania certyfikatów i list odwołania certyfikatów (CRL). Podpisz certyfikat i zat zatwierdzanie go w bazie danych.
 
 ```bash
   openssl ca -selfsign -config rootca.conf -in rootca.csr -out rootca.crt -extensions ca_ext
 ```
 
-## <a name="step-4---create-the-subordinate-ca-directory-structure"></a>Krok 4. Tworzenie struktury katalogu podrzędnego urzędu certyfikacji
+## <a name="step-4---create-the-subordinate-ca-directory-structure"></a>Krok 4 . Tworzenie struktury katalogów podrzędnego urzędu certyfikacji
 
 Utwórz strukturę katalogów dla podrzędnego urzędu certyfikacji.
 
@@ -139,9 +138,9 @@ Utwórz strukturę katalogów dla podrzędnego urzędu certyfikacji.
   echo 1001 > db/crlnumber
 ```
 
-## <a name="step-5---create-a-subordinate-ca-configuration-file"></a>Krok 5. Tworzenie podrzędnego pliku konfiguracji urzędu certyfikacji
+## <a name="step-5---create-a-subordinate-ca-configuration-file"></a>Krok 5 . Tworzenie pliku konfiguracji podrzędnego urzędu certyfikacji
 
-Utwórz plik konfiguracji i Zapisz go jako SubCA. conf w `subca` katalogu.
+Utwórz plik konfiguracji i zapisz go jako plik subca.conf w `subca` katalogu .
 
 ```bash
 [default]
@@ -209,49 +208,49 @@ keyUsage                 = critical,digitalSignature
 subjectKeyIdentifier     = hash
 ```
 
-## <a name="step-6---create-a-subordinate-ca"></a>Krok 6. Tworzenie podrzędnego urzędu certyfikacji
+## <a name="step-6---create-a-subordinate-ca"></a>Krok 6 . Tworzenie podrzędnego urzędu certyfikacji
 
-Utwórz nowy numer seryjny w `rootca/db/serial` pliku dla certyfikatu podrzędnego urzędu certyfikacji.
+Utwórz nowy numer seryjny w pliku `rootca/db/serial` dla certyfikatu podrzędnego urzędu certyfikacji.
 
 ```bash
   openssl rand -hex 16 > db/serial
 ```
 
 >[!IMPORTANT]
->Należy utworzyć nowy numer seryjny dla każdego certyfikatu podrzędnego urzędu certyfikacji i każdego tworzonego certyfikatu urządzenia. Różne certyfikaty nie mogą mieć tego samego numeru seryjnego.
+>Należy utworzyć nowy numer seryjny dla każdego certyfikatu podrzędnego urzędu certyfikacji i każdego certyfikatu urządzenia, który tworzysz. Różne certyfikaty nie mogą mieć tego samego numeru seryjnego.
 
-W tym przykładzie pokazano, jak utworzyć podwładnego lub urzędu certyfikacji z rejestracją. Ze względu na to, że można użyć głównego urzędu certyfikacji do podpisywania certyfikatów, utworzenie podrzędnego urzędu certyfikacji nie jest absolutnie konieczne. Mając podrzędny urząd certyfikacji, należy jednak naśladować rzeczywiste hierarchie certyfikatów, w których główny urząd certyfikacji jest przechowywany w trybie offline, a podrzędne urzędy certyfikacji wystawiają certyfikaty klientów.
+W tym przykładzie pokazano, jak utworzyć podrzędny lub rejestracji urzędu certyfikacji. Ponieważ można użyć głównego urzędu certyfikacji do podpisywania certyfikatów, tworzenie podrzędnego urzędu certyfikacji nie jest ściśle konieczne. Jednak podrzędny urząd certyfikacji naśladuje prawdziwe hierarchie certyfikatów, w których główny urząd certyfikacji jest przechowywany w trybie offline, a podrzędne urzędu certyfikacji wystawiają certyfikaty klienta.
 
-Użyj pliku konfiguracji w celu wygenerowania klucza i żądania podpisania certyfikatu (CSR).
+Użyj pliku konfiguracji, aby wygenerować klucz i żądanie podpisania certyfikatu (CSR).
 
 ```bash
   openssl req -new -config subca.conf -out subca.csr -keyout private/subca.key
 ```
 
-Prześlij CSR do głównego urzędu certyfikacji i użyj głównego urzędu certyfikacji do wystawiania i podpisywania certyfikatu podrzędnego urzędu certyfikacji. Określ sub_ca_ext dla przełącznika rozszerzeń w wierszu polecenia. Rozszerzenia wskazują, że certyfikat dotyczy urzędu certyfikacji, który może podpisywać certyfikaty i listy odwołania certyfikatów (CRL). Po wyświetleniu monitu Podpisz certyfikat i przekaż go do bazy danych.
+Prześlij żądania CSR do głównego urzędu certyfikacji i użyj głównego urzędu certyfikacji do wystawienia i podpisania certyfikatu podrzędnego urzędu certyfikacji. Określ sub_ca_ext przełącznika rozszerzeń w wierszu polecenia. Rozszerzenia wskazują, że certyfikat jest dla urzędu certyfikacji, który może podpisywać certyfikaty i listy odwołania certyfikatów (CRL). Po wyświetleniu monitu podpisz certyfikat i zat zatwierdzanie go w bazie danych.
 
 ```bash
   openssl ca -config ../rootca/rootca.conf -in subca.csr -out subca.crt -extensions sub_ca_ext
 ```
 
-## <a name="step-7---demonstrate-proof-of-possession"></a>Krok 7. przedstawienie dowodu posiadania
+## <a name="step-7---demonstrate-proof-of-possession"></a>Krok 7. Demonstruj dowód posiadania
 
-Masz teraz zarówno certyfikat głównego urzędu certyfikacji, jak i podrzędny certyfikat urzędu certyfikacji. Możesz użyć jednej z nich do podpisywania certyfikatów urządzeń. Wybrany wybór musi zostać przekazany do IoT Hub. W poniższych krokach przyjęto założenie, że jest używany certyfikat podrzędnego urzędu certyfikacji. Aby przekazać i zarejestrować podrzędny certyfikat urzędu certyfikacji w IoT Hub:
+Teraz masz zarówno certyfikat głównego urzędu certyfikacji, jak i certyfikat podrzędnego urzędu certyfikacji. Możesz użyć jednego z nich do podpisywania certyfikatów urządzeń. Ten, który wybierzesz, musi zostać przekazany do twojego IoT Hub. W poniższych krokach przyjęto założenie, że używasz certyfikatu podrzędnego urzędu certyfikacji. Aby przekazać i zarejestrować certyfikat podrzędnego urzędu certyfikacji do IoT Hub:
 
-1. W Azure Portal przejdź do IoTHub i wybierz pozycję **ustawienia > certyfikaty**.
+1. W witrynie Azure Portal do usługi IoTHub i wybierz pozycję **Ustawienia > certyfikatów.**
 
-1. Wybierz pozycję **Dodaj** , aby dodać nowy certyfikat podrzędnego urzędu certyfikacji.
+1. Wybierz **pozycję Dodaj,** aby dodać nowy certyfikat podrzędnego urzędu certyfikacji.
 
-1. Wprowadź nazwę wyświetlaną w polu **Nazwa certyfikatu** i wybierz utworzony wcześniej plik certyfikatu PEM.
+1. Wprowadź nazwę wyświetlaną w **polu Nazwa certyfikatu** i wybierz utworzony wcześniej plik certyfikatu PEM.
 
-1. Wybierz pozycję **Zapisz**. Certyfikat zostanie wyświetlony na liście certyfikatów z **niezweryfikowanym** stanem. Proces weryfikacji będzie udowodnić, że posiadasz certyfikat.
+1. Wybierz pozycję **Zapisz**. Certyfikat jest wyświetlany na liście certyfikatów ze stanem **Niezweryfikowany.** Proces weryfikacji potwierdzi, że jesteś właścicielem certyfikatu.
 
    
-1. Wybierz certyfikat, aby wyświetlić okno dialogowe **Szczegóły certyfikatu** .
+1. Wybierz certyfikat, aby wyświetlić **okno dialogowe Szczegóły** certyfikatu.
 
-1. Wybierz pozycję **Generuj kod weryfikacyjny**. Aby uzyskać więcej informacji, zobacz potwierdzenie [posiadania certyfikatu urzędu certyfikacji](tutorial-x509-prove-possession.md).
+1. Wybierz **pozycję Generuj kod weryfikacyjny.** Aby uzyskać więcej informacji, zobacz [Prove Possession of a CA certificate (Udowodnij posiadanie certyfikatu urzędu certyfikacji).](tutorial-x509-prove-possession.md)
 
-1. Skopiuj kod weryfikacyjny do schowka. Kod weryfikacyjny należy ustawić jako podmiot certyfikatu. Na przykład jeśli kod weryfikacyjny to BB0C656E69AF75E3FB3C8D922C1760C58C1DA5B05AAA9D0A, Dodaj go jako podmiot certyfikatu, jak pokazano w kroku 9.
+1. Skopiuj kod weryfikacyjny do schowka. Należy ustawić kod weryfikacyjny jako podmiot certyfikatu. Jeśli na przykład kod weryfikacyjny to BB0C656E69AF75E3FB3C8D922C1760C58C1DA5B05AAA9D0A, dodaj go jako podmiot certyfikatu, jak pokazano w kroku 9.
 
 1. Wygeneruj klucz prywatny.
 
@@ -259,7 +258,7 @@ Masz teraz zarówno certyfikat głównego urzędu certyfikacji, jak i podrzędny
     $ openssl genpkey -out pop.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
   ```
 
-9. Wygeneruj żądanie podpisania certyfikatu (CSR) z klucza prywatnego. Dodaj kod weryfikacyjny jako podmiot certyfikatu.
+9. Wygeneruj żądanie podpisania certyfikatu (CSR) na podstawie klucza prywatnego. Dodaj kod weryfikacyjny jako podmiot certyfikatu.
 
   ```bash
   openssl req -new -key pop.key -out pop.csr
@@ -280,36 +279,36 @@ Masz teraz zarówno certyfikat głównego urzędu certyfikacji, jak i podrzędny
  
   ```
 
-10. Utwórz certyfikat przy użyciu pliku konfiguracyjnego głównego urzędu certyfikacji i CSR do potwierdzenia certyfikatu posiadania.
+10. Utwórz certyfikat przy użyciu pliku konfiguracji głównego urzędu certyfikacji i żądania CSR w celu potwierdzenia posiadania certyfikatu.
 
   ```bash
     openssl ca -config rootca.conf -in pop.csr -out pop.crt -extensions client_ext
 
   ```
 
-11. Wybierz nowy certyfikat w widoku **Szczegóły certyfikatu** . Aby znaleźć plik PEM, przejdź do folderu certyfikaty.
+11. Wybierz nowy certyfikat w widoku **Szczegóły** certyfikatu. Aby znaleźć plik PEM, przejdź do folderu certs.
 
-12. Po przeładowaniu certyfikatu wybierz pozycję **Weryfikuj**. Stan certyfikatu urzędu certyfikacji powinien zostać zmieniony na **zweryfikowane**.
+12. Po zakończeniu przekazywania certyfikatu wybierz pozycję **Weryfikuj**. Stan certyfikatu urzędu certyfikacji powinien zmienić się na **Zweryfikowano**.
 
 ## <a name="step-8---create-a-device-in-your-iot-hub"></a>Krok 8. Tworzenie urządzenia w IoT Hub
 
-Przejdź do IoT Hub w Azure Portal i Utwórz nową tożsamość urządzenia IoT przy użyciu następujących wartości:
+Przejdź do swojego IoT Hub w Azure Portal i utwórz nową tożsamość urządzenia IoT z następującymi wartościami:
 
-1. Podaj **Identyfikator urządzenia** , który jest zgodny z nazwą podmiotu certyfikatów urządzeń.
+1. Podaj **identyfikator urządzenia,** który odpowiada nazwie podmiotu certyfikatów urządzenia.
 
-1. Wybierz typ uwierzytelniania **podpisanego przez urząd certyfikacji X. 509** .
+1. Wybierz typ **uwierzytelniania X.509 urzędu certyfikacji ze podpisem.**
 
 1. Wybierz pozycję **Zapisz**.
 
 ## <a name="step-9---create-a-client-device-certificate"></a>Krok 9. Tworzenie certyfikatu urządzenia klienckiego
 
-Aby wygenerować certyfikat klienta, należy najpierw wygenerować klucz prywatny. Następujące polecenie pokazuje, jak utworzyć klucz prywatny przy użyciu OpenSSL. Utwórz klucz w katalogu SubCA.
+Aby wygenerować certyfikat klienta, należy najpierw wygenerować klucz prywatny. Następujące polecenie pokazuje, jak utworzyć klucz prywatny za pomocą openssl. Utwórz klucz w katalogu podrzędnym.
 
 ```bash
 openssl genpkey -out device.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
 ```
 
-Utwórz żądanie podpisania certyfikatu (CSR) dla klucza. Nie trzeba wprowadzać hasła wyzwania ani opcjonalnej nazwy firmy. Należy jednak wprowadzić identyfikator urządzenia w polu Nazwa pospolita.
+Utwórz żądanie podpisania certyfikatu (CSR) dla klucza. Nie musisz wprowadzać hasła wyzwania ani opcjonalnej nazwy firmy. Należy jednak wprowadzić identyfikator urządzenia w polu nazwa pospolita.
 
 ```bash
 openssl req -new -key device.key -out device.csr
@@ -330,13 +329,13 @@ An optional company name []:
 
 ```
 
-Sprawdź, czy CSR jest oczekiwany.
+Sprawdź, czy raport CSR jest tym, czego oczekujesz.
 
 ```bash
 openssl req -text -in device.csr -noout
 ```
 
-Wyślij CSR do podrzędnego urzędu certyfikacji w celu zalogowania się do hierarchii certyfikatów. Określ `client_ext` w `-extensions` przełączniku. Zwróć uwagę, że `Basic Constraints` w wystawionym certyfikacie wskazuje, że ten certyfikat nie jest urzędem certyfikacji. W przypadku podpisywania wielu certyfikatów Pamiętaj o zaktualizowaniu numeru seryjnego przed wygenerowaniem każdego certyfikatu za pomocą polecenia OpenSSL `rand -hex 16 > db/serial` .
+Wyślij żądania CSR do podrzędnego urzędu certyfikacji w celu zalogowania się do hierarchii certyfikatów. Określ `client_ext` w `-extensions` przełączniku . Należy zauważyć, `Basic Constraints` że w wystawionym certyfikacie wskazuje, że ten certyfikat nie jest dla urzędu certyfikacji. W przypadku podpisywania wielu certyfikatów należy zaktualizować numer seryjny przed wygenerowaniem każdego certyfikatu za pomocą polecenia `rand -hex 16 > db/serial` openssl.
 
 ```bash
 openssl ca -config subca.conf -in device.csr -out device.crt -extensions client_ext
@@ -344,4 +343,4 @@ openssl ca -config subca.conf -in device.csr -out device.crt -extensions client_
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przejdź do [testowania uwierzytelniania certyfikatu](tutorial-x509-test-certificate.md) , aby określić, czy certyfikat może uwierzytelniać urządzenie w IoT Hub.
+Przejdź do [uwierzytelniania certyfikatu testowania,](tutorial-x509-test-certificate.md) aby określić, czy certyfikat może uwierzytelniać urządzenie w IoT Hub.

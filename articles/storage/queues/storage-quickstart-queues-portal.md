@@ -1,6 +1,6 @@
 ---
-title: 'Szybki Start: Tworzenie kolejek usługi Azure Storage w portalu'
-description: Użyj Azure Portal, aby utworzyć kolejkę. Następnie użyj Azure Portal, aby dodać komunikat, wyświetlić właściwości wiadomości i usunąć z kolejki komunikat.
+title: 'Szybki start: tworzenie kolejek usługi Azure Storage w portalu'
+description: Użyj Azure Portal, aby utworzyć kolejkę. Następnie użyj Azure Portal, aby dodać komunikat, wyświetlić jego właściwości i zdać komunikat z kolejkowania.
 author: twooley
 ms.author: twooley
 ms.reviewer: dineshm
@@ -8,14 +8,16 @@ ms.date: 08/13/2020
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 146a6809baebde406fb94f0d36973f95c971170b
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.custom:
+- mode-portal
+ms.openlocfilehash: f0e7a5a514f2d68fce025ea9fb354f29fa068561
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106275825"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534393"
 ---
-# <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Szybki Start: Tworzenie kolejki i Dodawanie komunikatu z Azure Portal
+# <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Szybki start: tworzenie kolejki i dodawanie komunikatu za pomocą Azure Portal
 
 W tym przewodniku Szybki start dowiesz się, jak używać witryny [Azure Portal](https://portal.azure.com/) do tworzenia kolejki w usłudze Azure Storage oraz do dodawania komunikatów do kolejki i usuwania ich z kolejki.
 
@@ -28,7 +30,7 @@ W tym przewodniku Szybki start dowiesz się, jak używać witryny [Azure Portal]
 Aby utworzyć kolejkę w witrynie Azure Portal, wykonaj następujące kroki:
 
 1. W witrynie Azure Portal przejdź do swojego nowego konta magazynu.
-2. W menu po lewej stronie konta magazynu przewiń do sekcji **queue storage** , a następnie wybierz **kolejno pozycje kolejki**.
+2. W menu po lewej stronie dla konta magazynu przewiń do **sekcji Queue Storage, a** następnie wybierz **pozycję Kolejki**.
 3. Wybierz przycisk **+ Kolejka**.
 4. Wpisz nazwę nowej kolejki. Nazwa kolejki musi być zapisana małymi literami, zaczynać się literą lub cyfrą i może zawierać tylko litery, cyfry i znak kreski (-).
 6. Wybierz przycisk **OK**, aby utworzyć kolejkę.
@@ -41,7 +43,7 @@ Następnie dodaj komunikat do nowej kolejki. Maksymalny rozmiar komunikatu wynos
 
 1. Wybierz nową kolejkę z listy kolejek na koncie magazynu.
 1. Wybierz przycisk **+ Dodaj komunikat**, aby dodać komunikat do kolejki. Wprowadź komunikat w polu **Tekst komunikatu**.
-1. Określ termin wygaśnięcia ważności komunikatu. Prawidłowe wartości, które można wprowadzić w polu **wygasa w** , to od 1 sekundy do 7 dni. Wybierz opcję **komunikat nigdy nie wygasa** , aby wskazać komunikat, który pozostanie w kolejce, dopóki nie zostanie on jawnie usunięty.
+1. Określ termin wygaśnięcia ważności komunikatu. Prawidłowe wartości, które można wprowadzić w polu **Wygasa w,** to od 1 sekundy do 7 dni. Wybierz **pozycję Komunikat nigdy nie wygasa,** aby wskazać komunikat, który pozostanie w kolejce, dopóki nie zostanie jawnie usunięty.
 1. Wskaż, czy komunikat ma być kodowany przy użyciu schematu Base64. Kodowanie danych binarnych jest zalecane.
 1. Wybierz przycisk **OK**, aby dodać komunikat.
 
