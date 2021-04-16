@@ -1,6 +1,6 @@
 ---
-title: Użyj przejdź do zapytania
-description: Użyj języka go do utworzenia programu, który nawiązuje połączenie z bazą danych w Azure SQL Database lub wystąpieniu zarządzanym usługi Azure SQL, i uruchamia zapytania.
+title: Używanie zapytania przejdź do
+description: Użyj funkcji Go, aby utworzyć program, który nawiązuje połączenie z bazą danych Azure SQL Database lub Azure SQL Managed Instance i uruchamia zapytania.
 titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
@@ -11,57 +11,57 @@ ms.topic: quickstart
 author: David-Engel
 ms.author: sstein
 ms.reviewer: MightyPen
-ms.date: 02/12/2019
-ms.openlocfilehash: b4a22c734d2afb90d5ea7bc1bda17d3f8fcf585a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/14/2021
+ms.openlocfilehash: 1a479572ba8dbd68ccc072fce32446abcc9b873c
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91327548"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517784"
 ---
-# <a name="quickstart-use-golang-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Szybki Start: używanie golang do wykonywania zapytań dotyczących bazy danych w Azure SQL Database lub wystąpieniu zarządzanym Azure SQL
+# <a name="quickstart-use-golang-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Szybki start: używanie języka Golang do wykonywania zapytań w bazie danych w Azure SQL Database lub Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-W tym przewodniku szybki start użyjesz języka programowania [golang](https://godoc.org/github.com/denisenkom/go-mssqldb) w celu nawiązania połączenia z bazą danych w Azure SQL Database lub wystąpienia zarządzanego Azure SQL. Następnie uruchomisz instrukcje języka Transact-SQL (T-SQL), aby wykonać zapytanie i zmodyfikować dane. [Golang](https://golang.org/) jest językiem programowania typu „open source”, który umożliwia łatwe tworzenie prostego, niezawodnego i wydajnego oprogramowania.  
+W tym przewodniku Szybki start użyjesz języka programowania [Golang](https://godoc.org/github.com/denisenkom/go-mssqldb) do nawiązania połączenia z bazą danych w Azure SQL Database lub Azure SQL Managed Instance. Następnie uruchomisz instrukcje języka Transact-SQL (T-SQL), aby wykonać zapytanie i zmodyfikować dane. [Golang](https://golang.org/) jest językiem programowania typu „open source”, który umożliwia łatwe tworzenie prostego, niezawodnego i wydajnego oprogramowania.  
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Do wykonania czynności opisanych w tym przewodniku Szybki start potrzebne są następujące elementy:
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Baza danych programu Azure SQL Database lub wystąpienia zarządzanego Azure SQL. Aby utworzyć bazę danych, można użyć jednego z tych przewodników szybki start:
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- Baza danych w Azure SQL Database lub Azure SQL Managed Instance. Aby utworzyć bazę danych, możesz użyć jednego z tych przewodników Szybki start:
 
   || Baza danych SQL | Wystąpienie zarządzane SQL | Program SQL Server na maszynie wirtualnej platformy Azure |
   |:--- |:--- |:---|:---|
   | **Utwórz**| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   | **Utwórz** | [Interfejs wiersza polecenia](scripts/create-and-configure-database-cli.md) | [Interfejs wiersza polecenia](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  | **Utwórz** | [Program PowerShell](scripts/create-and-configure-database-powershell.md) | [Program PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | [Program PowerShell](../virtual-machines/windows/sql-vm-create-powershell-quickstart.md)
+  | **Utwórz** | [PowerShell](scripts/create-and-configure-database-powershell.md) | [PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | [PowerShell](../virtual-machines/windows/sql-vm-create-powershell-quickstart.md)
   | **Ustaw opcję** | [Reguła zapory bazująca na adresach IP na poziomie serwera](firewall-create-server-level-portal-quickstart.md)| [Łączność z maszyny wirtualnej](../managed-instance/connect-vm-instance-configure.md)|
-  | **Ustaw opcję** ||[Łączność z lokalnego](../managed-instance/point-to-site-p2s-configure.md) | [Nawiązywanie połączenia z wystąpieniem SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
+  | **Ustaw opcję** ||[Łączność ze środowisk lokalnych](../managed-instance/point-to-site-p2s-configure.md) | [Nawiązywanie połączenia z SQL Server wystąpieniem](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   |**Ładowanie danych**|Ładowanie bazy danych Adventure Works na potrzeby samouczka Szybki start|[Przywracanie bazy danych Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) | [Przywracanie bazy danych Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) |
-  | **Ładowanie danych** ||Przywróć lub zaimportuj Adventure Works z pliku [BACPAC](database-import.md) z usługi [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)| Przywróć lub zaimportuj Adventure Works z pliku [BACPAC](database-import.md) z usługi [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  | **Ładowanie danych** ||Przywracanie lub importowanie firmy Adventure Works z [pliku BACPAC](database-import.md) z usługi [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)| Przywracanie lub importowanie firmy Adventure Works z [pliku BACPAC](database-import.md) z usługi [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
 
   > [!IMPORTANT]
-  > Skrypty zamieszczone w tym artykule korzystają z bazy danych Adventure Works. W przypadku wystąpienia zarządzanego SQL należy zaimportować bazę danych firmy Adventure Works do bazy danych wystąpienia lub zmodyfikować skrypty w tym artykule, aby użyć bazy danych Wide World Imports.
+  > Skrypty zamieszczone w tym artykule korzystają z bazy danych Adventure Works. W przypadku SQL Managed Instance należy zaimportować bazę danych Adventure Works do bazy danych wystąpienia lub zmodyfikować skrypty w tym artykule, aby używać bazy danych Wide World Importers.
 
 - Zainstalowany język Golang i związane z nim oprogramowanie dla systemu operacyjnego:
 
-  - **macOS**: Zainstaluj oprogramowania Homebrew i golang. Zobacz [Krok 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
-  - **Ubuntu**: Zainstaluj golang. Zobacz [Krok 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
-  - **Windows**: Zainstaluj golang. Zobacz [Krok 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/).
+  - **macOS:** zainstaluj oprogramowanie Homebrew i Golang. Zobacz [Krok 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
+  - **Ubuntu:** zainstaluj oprogramowanie Golang. Zobacz [Krok 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
+  - **Windows:** zainstaluj oprogramowanie Golang. Zobacz [Krok 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/).
 
-## <a name="get-server-connection-information"></a>Pobierz informacje o połączeniu z serwerem
+## <a name="get-server-connection-information"></a>Uzyskiwanie informacji o połączeniu z serwerem
 
-Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z bazą danych. W następnych procedurach będą potrzebne w pełni kwalifikowana nazwa serwera lub nazwa hosta, nazwa bazy danych i informacje logowania.
+Uzyskaj informacje o połączeniu potrzebne do nawiązania połączenia z bazą danych. W następnych procedurach będą potrzebne w pełni kwalifikowana nazwa serwera lub nazwa hosta, nazwa bazy danych i informacje logowania.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-2. Przejdź do strony **bazy danych SQL**  lub **wystąpienia zarządzane SQL** .
+2. Przejdź do strony **Bazy danych SQL** lub Wystąpienia zarządzane **SQL.**
 
-3. Na stronie **Przegląd** Przejrzyj w pełni kwalifikowaną nazwę serwera obok pozycji **Nazwa serwera** dla bazy danych w Azure SQL Database lub w pełni kwalifikowana nazwa serwera (lub adres IP) obok **hosta** dla wystąpienia zarządzanego usługi Azure SQL lub SQL Server na maszynie wirtualnej platformy Azure. Aby skopiować nazwę serwera lub hosta, umieść na niej wskaźnik myszy i wybierz ikonę **Kopiuj**.
+3. Na  stronie Przegląd przejrzyj w pełni kwalifikowaną nazwę serwera obok pola Nazwa serwera dla bazy danych w usłudze Azure SQL Database lub w pełni kwalifikowaną nazwę serwera (lub adres IP) obok pola Host dla maszyny wirtualnej platformy Azure SQL Managed Instance lub SQL Server na maszynie wirtualnej platformy Azure.   Aby skopiować nazwę serwera lub hosta, umieść na niej wskaźnik myszy i wybierz ikonę **Kopiuj**.
 
 > [!NOTE]
-> Aby uzyskać informacje o połączeniu dla SQL Server na maszynie wirtualnej platformy Azure, zobacz [nawiązywanie połączenia z wystąpieniem SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server).
+> Aby uzyskać informacje o połączeniu SQL Server na maszynie wirtualnej platformy Azure, zobacz Connect to a SQL Server instance (Nawiązywanie [połączenia SQL Server wirtualnej).](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server)
 
 ## <a name="create-golang-project-and-dependencies"></a>Tworzenie projektu języka Golang i zależności
 
@@ -76,7 +76,6 @@ Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z bazą 
    ```bash
    cd SqlServerSample
    go get github.com/denisenkom/go-mssqldb
-   go install github.com/denisenkom/go-mssqldb
    ```
 
 ## <a name="create-sample-data"></a>Tworzenie danych przykładowych
@@ -104,17 +103,17 @@ Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z bazą 
    GO
    ```
 
-2. Użyj `sqlcmd` , aby nawiązać połączenie z bazą danych i uruchomić nowo utworzony skrypt SQL platformy Azure. Zastąp odpowiednie wartości dla swojego serwera, bazy danych, nazwy użytkownika i hasła.
+2. Użyj `sqlcmd` polecenia , aby nawiązać połączenie z bazą danych i uruchomić nowo Azure SQL skryptu. Zastąp odpowiednie wartości dla swojego serwera, bazy danych, nazwy użytkownika i hasła.
 
    ```bash
    sqlcmd -S <your_server>.database.windows.net -U <your_username> -P <your_password> -d <your_database> -i ./CreateTestData.sql
    ```
 
-## <a name="insert-code-to-query-the-database"></a>Wstaw kod do wykonywania zapytań w bazie danych
+## <a name="insert-code-to-query-the-database"></a>Wstawianie kodu w celu wykonywania zapytań w bazie danych
 
 1. Utwórz plik o nazwie **sample.go** w folderze **SqlServerSample**.
 
-2. Wklej ten kod w pliku. Dodaj wartości dla swojego serwera, bazy danych, nazwy użytkownika i hasła. W tym przykładzie zastosowano [metody kontekstowe](https://golang.org/pkg/context/) golang, aby upewnić się, że istnieje aktywne połączenie.
+2. Wklej ten kod w pliku. Dodaj wartości dla swojego serwera, bazy danych, nazwy użytkownika i hasła. W tym przykładzie użyto metod [kontekstu języka](https://golang.org/pkg/context/) Golang, aby upewnić się, że istnieje aktywne połączenie.
 
    ```go
    package main
@@ -335,7 +334,7 @@ Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z bazą 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Projektuj swoją pierwszą bazę danych w Azure SQL Database](design-first-database-tutorial.md)
-- [Sterownik golang dla SQL Server](https://github.com/denisenkom/go-mssqldb)
+- [Projektowanie pierwszej bazy danych w Azure SQL Database](design-first-database-tutorial.md)
+- [Sterownik Języka Golang dla SQL Server](https://github.com/denisenkom/go-mssqldb)
 - [Zgłaszanie problemów/zadawanie pytań](https://github.com/denisenkom/go-mssqldb/issues)
 

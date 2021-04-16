@@ -1,355 +1,365 @@
 ---
 title: Partnerzy, którzy integrują się z Azure Monitor
-description: Dowiedz się więcej o partnerach Azure Monitor i sposobach ich integracji z dokumentacją.
+description: Dowiedz się Azure Monitor partnerów firmy i dowiedz się, jak uzyskać dostęp do dokumentacji dotyczącej integracji z nimi.
+author: rboucher
+ms.author: robb
 ms.topic: conceptual
-ms.date: 02/19/2021
-ms.openlocfilehash: ca58023510eb9329bc8ddf1339df4d8c27aae5e6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 04/14/2021
+ms.openlocfilehash: c10e11fe547f643e04b5dbdeaf9e233b7105ce9a
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102101022"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517496"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integracje partnerów w usłudze Azure Monitor
 
-Na liście w kolejności alfabetycznej. 
+Wyświetlane w kolejności alfabetycznej. 
 
-## <a name="aims"></a>OSIĄGNIĘCIA
+## <a name="aims"></a>Ma
 
-![CELE AIOps](./media/partners/aims.jpg)
+![Logo AIMS AIOps](./media/partners/aims.jpg)
 
-CELE AIOps (sztuczna inteligencja dla operacji IT) automatyzują analizę metryk wydajności platformy Azure (dla infrastruktury i usług) w celu zapewnienia szczegółowych informacji umożliwiających podjęcie odpowiednich działań i skalowalność, a następnie kontrolę kosztów i zapewnienie wglądu w dane biznesowe.  CELE wykorzystują Uczenie maszynowe, aby zlikwidować zespoły Ops IT od ręcznego działania żmudnym.  CELE są również obsługiwane w przypadku technologii lokalnych w celu zapewnienia bezproblemowej kontroli hybrydowej.  CELE są dostępne w portalu Azure Marketplace i jako w pełni funkcjonalne wersje Community Edition.
+AIMS AIOps (Artificial Intelligence for IT Operations) automatyzuje analizę metryk wydajności platformy Azure (dla infrastruktury i usług), aby zapewnić praktyczne informacje w celu zwiększenia wydajności, odpowiedniego skalowania, kontrolowania kosztów i zapewnienia szczegółowych informacji biznesowych.  CELEM jest wykorzystanie uczenia maszynowego do ograniczania pracy zespołów operacyjno-itowych przed pracą ręczną.  Rozwiązanie AIMS obsługuje również technologie lokalne w celu bezproblemowej kontroli hybrydowej.  Program AIMS jest dostępny w Azure Marketplace i jako w pełni funkcjonalna wersja Bezpłatna Community Edition.
 
-[CELE dokumentacji AIOps dla platformy Azure](https://www.aims.ai/platform/azure)
+[Dokumentacja aplikacji AIMS AIOps dla platformy Azure](https://www.aims.ai/platform/azure)
 
 ## <a name="alertlogic-log-manager"></a>AlertLogic Log Manager
 
-![Logo AlertLogic](./media/partners/alertlogic.png)
+![AlertLogic Logo](./media/partners/alertlogic.png)
 
-Menedżer dzienników logiki alertów zbiera maszyny wirtualne, aplikacje i dzienniki platformy platformy Azure na potrzeby analizy i przechowywania zabezpieczeń. Gromadzi również informacje o dzienniku aktywności platformy Azure za pomocą interfejsu API Azure Monitor. Te informacje służą do wykrywania malfeasance i spełnienia wymagań dotyczących zgodności.
+Usługa Logic Log Manager alertów zbiera dzienniki maszyn wirtualnych, aplikacji i platformy Azure w celu analizy i przechowywania zabezpieczeń. Zbiera również dziennik aktywności platformy Azure za pośrednictwem interfejsu API Azure Monitor API. Te informacje są używane do wykrywania wad i spełniania wymagań dotyczących zgodności.
 
-[Dokumentacja AlertLogic.](https://legacy.docs.alertlogic.com/userGuides/log-manager-collection-sources.htm)
+[Dokumentacja systemu AlertLogic.](https://legacy.docs.alertlogic.com/userGuides/log-manager-collection-sources.htm)
 
 ## <a name="appdynamics"></a>AppDynamics
 
-![Logo AppDynamics](./media/partners/appdynamics.png)
+![AppDynamics Logo](./media/partners/appdynamics.png)
 
-AppDynamics Application Performance Management (APM) umożliwia właścicielom aplikacji szybkie rozwiązywanie wąskich gardeł wydajności i Optymalizowanie wydajności aplikacji działających w środowisku platformy Azure. Może monitorować platformę Azure Cloud Services (PaaS), & role procesów roboczych sieci Web, Virtual Machines (IaaS), wykrywanie usług zdalnych (Microsoft Azure Service Bus), kolejkę Microsoft Azure, Microsoft Azure usług zdalnych (Azure BLOB), kolejek platformy Azure (Microsoft Service Bus), magazynu danych i Microsoft Azure Blob Storage. AppDynamics APM jest dostępny w portalu Azure Marketplace.
+Rozwiązanie AppDynamics Application Performance Management (APM) umożliwia właścicielom aplikacji szybkie rozwiązywanie problemów z wąskimi gardłami wydajności i optymalizowanie wydajności aplikacji działających w środowisku platformy Azure. Może monitorować usługi Azure Cloud Services (PaaS), role procesu roboczego usługi Web &, Virtual Machines (IaaS), zdalne wykrywanie usług (Microsoft Azure Service Bus), kolejkę usługi Microsoft Azure, usługi zdalne Microsoft Azure (azure blob), kolejkę platformy Azure (Microsoft Service Bus), magazyn danych i Microsoft Azure Blob Storage. Program AppDynamics APM jest dostępny w Azure Marketplace.
 
-[Dokumentacja AppDynamics](https://www.appdynamics.com/net/azure/) 
+[Dokumentacja oprogramowania AppDynamics](https://www.appdynamics.com/net/azure/) 
 
 ## <a name="atlassian-jira"></a>Atlassian JIRA
 
-![Logo Atlassian](./media/partners/atlassian.png)
+![Atlassian Logo](./media/partners/atlassian.png)
 
-Bilety JIRA można tworzyć na Azure Monitor alertach.
+Bilety JIRA można tworzyć w Azure Monitor alertach.
 
-[Dokumentacja usługi Atlassian dla Azure Monitor](https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/)
+[Dokumentacja atlassian dla Azure Monitor](https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/)
 
-## <a name="bmc-helix"></a>Kontroler BMC Helix
+## <a name="bmc-helix"></a>BMC Helix
 
-![Logo BMC Helix](./media/partners/BMCHelix.png)
+![BMC Helix Logo](./media/partners/BMCHelix.png)
 
-BMC Helix to autonomiczna usługa przedsiębiorstwa i platforma Operations SaaS. Integracja z 360-stopniową inteligencją pozwala firmom na proaktywne i predictively odkrywanie, monitorowanie, obsługę, korygowanie, optymalizowanie i dostarczanie środowisk opartych na kanałach międzyfirmowych.
-Ponadto dzięki bezproblemowej integracji narzędzia ITSM i zarządzania operacjami IT (ITOM) BMC Helix umożliwia klientom IT i firmom wyeliminowanie silosów IT, podejmowanie decyzji dotyczących danych i zapewnienie wiodących w branży środowisk klientów.
-Klienci mogą wdrożyć platformę BMC Helix z wybranym wdrożeniem chmury — publicznym, prywatnym lub hybrydowym. Ponadto klienci mają możliwość wyboru rozwiązań AI/ML do wykorzystania od wiodących dostawców branżowych.
+BMC Helix to autonomiczna platforma SaaS dla przedsiębiorstw i usług operacyjnych. Zintegrowana z analizą na poziomie 360 stopni umożliwia firmom proaktywne i predykcyjne odnajdywanie, monitorowanie, serwisowanie, korygowanie, optymalizowanie i dostarczanie wielokanałowych doświadczeń dla systemów IT i biznesowych.
+Ponadto dzięki bezproblemowej integracji systemów ITSM i ITOM (ITOM) rozwiązanie BMC Helix umożliwia użytkownikom IT i biznesowym eliminowanie silosów IT, podejmowanie decyzji biznesowych opartych na danych i dostarczanie wiodących w branży doświadczeń klientów.
+Klienci mogą wdrożyć platformę BMC Helix przy użyciu wybranego wdrożenia w chmurze — publicznego, prywatnego lub hybrydowego. Ponadto klienci mają do wyboru rozwiązania AI/ML do wykorzystania przez wiodących dostawców w branży.
 
-[Dowiedz się więcej o BMC Helix](https://www.bmc.com/it-solutions/bmc-helix.html?vu=helix)
+[Dowiedz się więcej o kontrolerze BMC Helix](https://www.bmc.com/it-solutions/bmc-helix.html?vu=helix)
 
-## <a name="botmetric"></a>Botmetric
+## <a name="botmetric"></a>Botmetric (Botmetric)
 
-[Botmetric wprowadzenie do platformy Azure](https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/)
+[Wprowadzenie do rozwiązania Botmetric dla platformy Azure](https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/)
 
-## <a name="circonus"></a>Circonus
+## <a name="circonus"></a>Cyklonus
 
-![Logo Circonus](./media/partners/circonus.png)
+![Logo Firmy Windows](./media/partners/circonus.png)
 
-Circonus to ekspert analizy danych maszynowego, zapewniający jedyną platformę do analizy danych na komputerze, która umożliwia obsługę miliardów strumieni metryk w czasie rzeczywistym w celu uzyskania niespotykanągo wglądu w dane biznesowe. Użyj Circonus, aby zbierać, śledzić i wizualizować kluczowe metryki związane z konfiguracją Microsoft Azure. Zyskaj dostęp do zasobów platformy Azure, wydajności aplikacji i kondycji operacyjnej na całym systemie.
+Jest ekspertem ds. analizy danych maszynowych, który zapewnia jedyną platformę do analizy danych maszynowych, która może w czasie rzeczywistym przetwarzać miliardy strumieni metryk w celu zapewnienia niezrównanych analiz i wartości biznesowych. Użyj systemu Windows, aby zbierać, śledzić i wizualizować kluczowe metryki związane z Microsoft Azure konfiguracji. Uzyskaj wgląd w wykorzystanie zasobów, wydajność aplikacji i kondycję operacyjną platformy Azure dla całego systemu.
 
-[Dokumentacja Circonus](https://docs.circonus.com/circonus/agents/cloud-agent/azure/)
+[Dokumentacja firmy Aionus](https://docs.circonus.com/circonus/agents/cloud-agent/azure/)
 
 ## <a name="cloudhealth"></a>CloudHealth
 
-![Logo CloudHealth](./media/partners/cloudhealth.png)
+![CloudHealth Logo](./media/partners/cloudhealth.png)
 
 
-Dopełnij i automatyzuj chmurę, korzystając z platformy zaprojektowanej w celu oszczędzania czasu i pieniędzy. CloudHealth zapewnia widoczność, intuicyjną optymalizację i praktykę ładu o stałym gospodarce do zarządzania chmurą. Platforma CloudHealth umożliwia przedsiębiorstwom i Mspom maksymalizowanie zwrotu z inwestycji w chmurę. Podejmuj świadome decyzje dotyczące kosztów, użycia, wydajności i zabezpieczeń.
+Zjednoczyj i zautomatyzuj swoją chmurę za pomocą platformy, która pozwala zaoszczędzić czas i pieniądze. Kondycja chmury zapewnia widoczność, intuicyjną optymalizację i solidne rozwiązania w zakresie ładu w zakresie zarządzania chmurą. Platforma CloudHealth umożliwia przedsiębiorstwom i msP zmaksymalizowanie zwrotu z inwestycji w chmurę. Podejmowanie pewnych decyzji dotyczących kosztów, użycia, wydajności i zabezpieczeń.
 
-[Dokumentacja usługi Cloud Health](https://www.cloudhealthtech.com/products/azure-management)
+[Dokumenty dotyczące kondycji chmury](https://www.cloudhealthtech.com/products/azure-management)
 
 ## <a name="cloudmonix"></a>CloudMonix
 
-![Logo CloudMonix](./media/partners/cloudmonix.png)
+![CloudMonix Logo](./media/partners/cloudmonix.png)
 
-Usługa CloudMonix oferuje funkcje monitorowania, automatyzacji i samonaprawiania dla Microsoft Azure platformy.
+Rozwiązanie CloudMonix oferuje usługi monitorowania, automatyzacji i samonaprawiania Microsoft Azure platformę.
 
-[Wprowadzenie do CloudMonix](https://cloudmonix.com/features/azure-management/)
+[Wprowadzenie do rozwiązania CloudMonix](https://cloudmonix.com/features/azure-management/)
 
 ## <a name="datadog"></a>Datadog
 
-![Logo usługi Datadog](./media/partners/datadog.png)
+![DataDog Logo](./media/partners/datadog.png)
 
-System Azure umożliwia klientom migrowanie i modernizację aplikacji do działania w chmurze w ramach koordynacji z wieloma rozwiązaniami partnerskimi. Jeden taki Partner to usługi Datadog, który oferuje narzędzia do zapoznania się z bezpieczeństwem i pomaga użytkownikom w zrozumieniu kondycji i wydajności aplikacji w środowiskach hybrydowych i wielochmurowych.  Jednak skonfigurowanie niezbędnych integracji często wymaga przechodzenia między Azure Portal i usługi Datadog.  Ten proces zwiększa złożoność, trwa czas i utrudnia rozwiązywanie problemów, jeśli nie działają.  Aby zmniejszyć obciążenie związane z zarządzaniem w wielu portalach, firma Microsoft pracowała z usługą usługi Datadog w celu utworzenia zintegrowanego rozwiązania usługi Datadog na platformie Azure Cloud Platform.  To rozwiązanie jest dostępne za pośrednictwem portalu Azure Marketplace i zapewnia bezproblemowe środowisko do korzystania z rozwiązania do monitorowania chmurowego usługi Datadog na platformie Azure.  
+Platforma Azure umożliwia klientom migrację i modernizację swoich aplikacji w celu uruchamiania ich w chmurze we współpracy z wieloma rozwiązaniami partnerskimi. Jednym z takich partnerów jest usługa Datadog, która udostępnia użytkownikom zauważalne narzędzia zabezpieczeń, które pozwalają użytkownikom zrozumieć kondycję i wydajność swoich aplikacji w środowiskach hybrydowych i wielochmurowych.  Jednak skonfigurowanie niezbędnych integracji często wymaga nawigowania między Azure Portal i usługą Datadog.  Ten proces zwiększa złożoność, zajmuje czas i utrudnia rozwiązywanie problemów, jeśli coś nie działa.  Aby zmniejszyć obciążenie związane z zarządzaniem w wielu portalach, firma Microsoft współpracowała z usługą Datadog w celu utworzenia zintegrowanego rozwiązania Usługi Datadog na platformie Azure w chmurze.  Dostępne za pośrednictwem Azure Marketplace to rozwiązanie zapewnia bezproblemowe środowisko do korzystania z rozwiązania do monitorowania chmury usługi Datadog na platformie Azure.  
 
-Dzięki nowej integracji Azure-Datadog organizacje mogą teraz w pełni mapować starsze i oparte na chmurze systemy, monitorować dane w czasie rzeczywistym w każdej fazie przejścia do chmury i zapewnić, że zmigrowane aplikacje będą spełniały cele wydajności. Ta integracja łączy globalną obecność, elastyczność, bezpieczeństwo i zgodność platformy Azure z funkcjami rejestrowania i monitorowania usługi Datadog w celu utworzenia najlepszego środowiska dla przedsiębiorstw. Dzięki temu ujednoliconemu środowisku będziesz mieć możliwość: 
+Dzięki nowej integracji Azure-Datadog organizacje mogą teraz w pełni mapować swoje starsze systemy i oparte na chmurze, monitorując dane w czasie rzeczywistym w każdej fazie przejścia do chmury i upewniać się, że zmigrowane aplikacje spełniają cele dotyczące wydajności. Ta integracja łączy globalną obecność, elastyczność, zabezpieczenia i zgodność platformy Azure z możliwościami rejestrowania i monitorowania usługi Datadog w celu utworzenia najlepszego środowiska dla przedsiębiorstw. Dzięki temu ujednoliconemu doświadczeniu będziesz mieć możliwość: 
 
-- Zainicjuj nową organizację usługi Datadog i Skonfiguruj swoje zasoby platformy Azure do wysyłania dzienników i metryk do usługi Datadog — w pełni zarządzana konfiguracja bez infrastruktury dla klientów do skonfigurowania i obsługi.  
-- Bezproblemowo wysyłaj dzienniki i metryki do usługi Datadog. Proces przesyłania dalej dzienników został całkowicie zautomatyzowany; zamiast tworzyć potok przesyłania dalej dzienników przy użyciu ustawień diagnostycznych, Event Hubs i funkcji, można skonfigurować wszystko za pomocą zaledwie kilku kliknięć.
--   Łatwo Instaluj agenta usługi Datadog na hostach maszyn wirtualnych za pomocą jednego kliknięcia.
--   Usprawnij Logowanie jednokrotne (SSO) do usługi Datadog — nie jest już wymagane logowanie oddzielone z portalu usługi Datadog. 
--   Uzyskaj ujednolicone rozliczenia dla usługi usługi Datadog za pomocą fakturowania subskrypcji platformy Azure.
+- Aprowizuj nową organizację usługi Datadog i skonfiguruj jej zasoby platformy Azure w celu wysyłania dzienników i metryk do usługi Datadog — w pełni zarządzanej konfiguracji bez infrastruktury do konfigurowania i działania przez klientów.  
+- Bezproblemowe wysyłanie dzienników i metryk do systemu Datadog. Proces przekazywania dzienników został całkowicie zautomatyzowany. Zamiast budować potok przekazywania dzienników za pomocą ustawień diagnostycznych, Event Hubs i usługi Functions, możesz skonfigurować wszystko za pomocą kilku kliknięć.
+-   Łatwe instalowanie agenta usługi Datadog na hostach maszyn wirtualnych za pomocą jednego kliknięcia.
+-   Usprawnij logowanie jednokrotne (SSO) do usługi Datadog — oddzielne logowanie z portalu usługi Datadog nie jest już wymagane. 
+-   Uzyskaj ujednolicone rozliczenia dla usługi Datadog za pośrednictwem fakturowania subskrypcji platformy Azure.
 
-Zarejestruj się, aby uzyskać [publiczną wersję zapoznawczą](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4z3T2aGXUZPslUNJ3YpcapURFBHSUJIMVJTWDM5VUFPMVkyTVhMVlYzMS4u) nowej integracji usługi Datadog z platformą Azure.  Publiczna wersja zapoznawcza będzie dostępna w witrynie Azure Marketplace, począwszy od października 2020.
+Zarejestruj się w publicznej [wersji zapoznawczej](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4z3T2aGXUZPslUNJ3YpcapURFBHSUJIMVJTWDM5VUFPMVkyTVhMVlYzMS4u) nowej integracji usługi Datadog z platformą Azure.  Publiczna wersja zapoznawcza będzie dostępna Azure Marketplace października 2020 r.
 
-Zasubskrybuj wersję zapoznawczą "integracji usługi Datadog z platformą Azure" dostępną w [portalu Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview)
+Subskrybowanie wersji zapoznawczej usługi "Integracja usługi Datadog z platformą Azure" dostępnej w [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview)
 
-Jeśli nadal korzystasz z poprzedniej ręcznie skonfigurowanej integracji, zapoznaj się z [dokumentacją w witrynie sieci Web usługi Datadog](https://docs.datadoghq.com/integrations/azure/).
+Jeśli nadal używasz poprzedniej ręcznie skonfigurowanej integracji, zapoznaj się z dokumentacją w [witrynie internetowej usługi DataDog.](https://docs.datadoghq.com/integrations/azure/)
 
 ## <a name="dynatrace"></a>Dynatrace
 
-![Logo DynaTrace](./media/partners/dynatrace.png)
+![DynaTrace Logo](./media/partners/dynatrace.png)
 
-DynaTrace OneAgent integruje się z maszynami wirtualnymi platformy Azure i App Services za pośrednictwem mechanizmu rozszerzenia platformy Azure. Dzięki temu dynaTrace OneAgent może zbierać metryki wydajności dotyczące hostów, sieci i usług. Oprócz tylko wyświetlania metryk dynaTrace wizualizuje środowiska. Przedstawia transakcje od strony klienta do warstwy bazy danych. DynaTrace zapewnia korelację problemów i w pełni zintegrowanej z główną przyczynę, aby uzyskać szczegółowe informacje o kodzie i bazie danych. To szczegółowe informacje ułatwiają znacznie łatwiejsze rozwiązywanie problemów i optymalizacje wydajności.
+Usługa Dynatrace OneAgent integruje się z maszynami App Services azure za pośrednictwem mechanizmu rozszerzeń platformy Azure. Dzięki temu dynatrace OneAgent może zbierać metryki wydajności dotyczące hostów, sieci i usług. Oprócz wyświetlania metryk, dynatrace wizualizuje środowiska w sposób end-to-end. Przedstawia on transakcje od strony klienta do warstwy bazy danych. Dynatrace zapewnia opartą na AI korelację problemów i w pełni zintegrowaną analizę głównych przyczyn problemów, aby zapewnić wgląd w kod i bazę danych na poziomie metody. Te szczegółowe informacje znacznie ułatwiają rozwiązywanie problemów i optymalizacje wydajności.
 
-[Dokumentacja Dynatrack](https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/)
+[Dokumentacja rozwiązania Dynatrack](https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/)
 
 
-## <a name="elastic"></a>Kształcenia
+## <a name="elastic"></a>Elastyczne
 
-![Elastyczne logo](./media/partners/elastic.png)
+![Logo elastyczne](./media/partners/elastic.png)
 
-Elastyczna to firma wyszukiwania. Jako twórcy elastycznego stosu (Elasticsearch, Kibana, uderzeń i logstash), elastyczne kompilacje z możliwością samodzielnego zarządzania i SaaS umożliwiają użycie danych w czasie rzeczywistym oraz w odpowiedniej skali na potrzeby wyszukiwania, rejestrowania, zabezpieczeń i analizy.
+Elastic to firma wyszukiwania. Jako twórcy rozwiązań Elastic Stack (Elasticsearch, Kibana, Times i Logstash) program Elastic tworzy samoobsługowe i saaS oferty, które sprawiają, że dane są użyteczne w czasie rzeczywistym i na dużą skalę na użytek przypadków użycia wyszukiwania, rejestrowania, zabezpieczeń i analizy.
 
-[Dokumentacja Elastic](https://www.elastic.co/guide/en/logstash/master/azure-module.html)
+[Elastyczna dokumentacja](https://www.elastic.co/guide/en/logstash/master/azure-module.html)
 
 ## <a name="grafana"></a>Grafana
 
-![Logo Grafana](./media/partners/grafana.png)
+![Grafana Logo](./media/partners/grafana.png)
 
-Grafana to aplikacja Open Source, która umożliwia wizualizację danych metryk szeregów czasowych.
+Grafana to aplikacja typu open source, która umożliwia wizualizowanie danych metryk szeregów czasu.
 
-[Azure Monitor integracja Grafana](visualize/grafana-plugin.md)
+[Azure Monitor integracji z programem Grafana](visualize/grafana-plugin.md)
 
 ## <a name="influxdata"></a>InfluxData
 
-![Logo InfluxData](./media/partners/Influxdata.png)
+![InfluxData Logo](./media/partners/Influxdata.png)
 
-InfluxData jest twórcą InfluxDB, baza danych szeregów czasowych typu open source. Nasze technologie są przeznaczone do obsługi dużych ilości danych z sygnaturami czasowymi generowanych przez urządzenia IoT, aplikacje, sieci, kontenery i komputery. Jesteśmy w organizacji, aby pomóc deweloperom i organizacjom, takim jak IBM, Visa, Siemens, Tesla i NASA, przechowywać i analizować dane w czasie rzeczywistym, umożliwiając im szybsze tworzenie aplikacji monitorowania, analiz i IoT oraz skalowanie. Możliwości zbierania metryk i zdarzeń w monitorze Microsoft Azure można rozszerzyć za pomocą agenta telegraf InfluxData, dzięki czemu użytkownicy firmy Microsoft mogą korzystać z wiodącego rozwiązania bazy danych szeregów czasowych i korzystać z rosnących wkładów typu "open source" do telegraf.
+InfluxData jest twórcą bazy danych InfluxDB, bazy danych szeregów czasowych typu open source. Nasza technologia została zbudowana z myślą o obsłudze ogromnych ilości danych ze znacznikami czasu wytwarzanych przez urządzenia IoT, aplikacje, sieci, kontenery i komputery. Mamy misję, aby pomóc deweloperom i organizacjom, takim jak IBM, Visa,Teras, Tesla i NASA, przechowywać i analizować dane w czasie rzeczywistym, co pozwala im szybciej tworzyć transformacyjne monitorowanie, analizę i aplikacje IoT oraz skalować je. Możliwości zbierania metryk i zdarzeń usługi Microsoft Azure Monitor można rozszerzyć za pomocą agenta telegrafu usługi InfluxData, dzięki czemu użytkownicy firmy Microsoft mogą korzystać z wiodącego rozwiązania bazy danych szeregów czasowych i korzystać z rosnącego wkładu open source w program Telegraf.
 
-[Azure Monitor napływu integracji danych telegraf](essentials/collect-custom-metrics-linux-telegraf.md) 
+[Azure Monitor influx danych z programem Telegraf](essentials/collect-custom-metrics-linux-telegraf.md) 
 
 ## <a name="logic-monitor"></a>Monitor logiki
 
 ![Logo monitora logiki](./media/partners/logicmonitor.png)
 
-LogicMonitor &reg; to wiodąca platforma monitorowania wydajności oparta na SaaS, dla złożonej infrastruktury IT. Z zakresu tysięcy technologii LogicMonitor zapewnia szczegółowy wgląd w wydajność infrastruktury i aplikacji. Kompleksowe monitorowanie platformy Azure w chmurze umożliwia użytkownikom skorelowanie wydajności chmury platformy Azure, zasobów lokalnych i hybrydowych w chmurze — wszystko to — wszystko to z jednej platformy. Automatyczne odnajdowanie zasobów, wbudowane w szablony monitorowania, wstępnie skonfigurowane progi alertów i dostosowywalne pulpity nawigacyjne są łączone w celu zapewnienia pomyślnej szybkości, elastyczności i widoczności.
+LogicMonitor to wiodąca platforma do monitorowania wydajności oparta na &reg; modelu SaaS dla złożonej infrastruktury IT. Dzięki zastosowaniu tysięcy technologii usługa LogicMonitor zapewnia szczegółowy wgląd w infrastrukturę i wydajność aplikacji. Kompleksowe monitorowanie platformy Azure w chmurze LM cloud umożliwia użytkownikom korelowanie wydajności zasobów chmury platformy Azure, zasobów lokalnych i hybrydowych w chmurze — wszystko to z jednej platformy. Zautomatyzowane odnajdywanie zasobów, wbudowane szablony monitorowania, wstępnie skonfigurowane progi alertów i dostosowywalne pulpity nawigacyjne łączą się, aby zapewnić itowi szybkość, elastyczność i widoczność wymagane do powodzenia.
 
-[Dokumentacja monitora logiki](https://www.logicmonitor.com/lp/azure-monitoring/)
+[Dokumentacja usługi Logic Monitor](https://www.logicmonitor.com/lp/azure-monitoring/)
 
 ## <a name="logrhythm"></a>LogRhythm
 
-![Logo LogRhythm](./media/partners/logrhythm.png)
+![LogRhythm Logo](./media/partners/logrhythm.png)
 
-LogRhythm, lider w NextGen firewall SIEM, umożliwia organizacjom z sześciu kontynentów wymierne zmniejszenie ryzyka przez szybkie wykrywanie, reagowanie na i neutralizację dotyczące środowiskach. Przepływ pracy zarządzania LogRhythmami zagrożeń (TLM) jest podstawą dla centrów zabezpieczeń, ułatwiając klientom Zabezpieczanie infrastruktury chmurowej, fizycznej i wirtualnej w środowiskach IT i niezwiązanych. Jeśli jesteś klientem programu LogRhythm i chcesz rozpocząć podróż z platformy Azure, musisz zainstalować i skonfigurować program LogRhythm Open Collector i integrację EventHub. Aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą konfigurowania Azure monitor i otwartego modułu zbierającego](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
+LogRhythm, lider rozwiązania NextGen SIEM, umożliwia organizacjom na sześciu kontynentach zauważalne zmniejszenie ryzyka dzięki szybkiemu wykrywaniu cyberzagrożeń i reagowaniu na nie. Przepływ pracy zarządzania cyklem życia zagrożeń (TLM) firmy LogRhythm stanowi podstawę centrów operacji zabezpieczeń, pomagając klientom w zabezpieczaniu infrastruktury chmurowej, fizycznej i wirtualnej dla środowisk IT i OT. Jeśli jesteś klientem usługi LogRhythm i wszystko jest gotowe do rozpoczęcia podróży po platformie Azure, musisz zainstalować i skonfigurować integrację programu LogRhythm z usługą Open Collector i usługą EventHub. Aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą konfigurowania](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/)Azure Monitor i otwórz moduł zbierający . 
 
-## <a name="microfocus"></a>Z fokusem
+## <a name="microfocus"></a>Mikrokoncentracji danych
 
-![Logo mikrofokusu](./media/partners/microfocus.png)
+![Microfocus Logo](./media/partners/microfocus.png)
 
-**ArcSight** wielofokusu ma inteligentny łącznik dla Azure monitor centrów zdarzeń.
+Usługa Microfocus **ArcSight** ma inteligentny łącznik dla Azure Monitor event hubs.
 
-[Zapoznaj się z dokumentacją ArcSight](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852)
+[Zobacz dokumentację dotyczącą programu ArcSight](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852)
 
-**Mostka operacji** mikrofokusu automatycznie monitoruje wszystkie hybrydowe zasoby IT — dowolne urządzenie, system operacyjny, baza danych, aplikacja lub usługa, niezależnie od tego, gdzie działa, i stosuje AIOps do wszystkich typów danych — zdarzeń, metryk, dzienników i zależności. Zapewnia ona unikatową kombinację monitorowania jakości usług, w połączeniu z kompleksową analizą kondycji aplikacji i oferuje kompleksowe monitorowanie wydajności i dostępności usług Microsoft Azure. Program Operations Bridge umożliwia klientom dostarczanie pojedynczego okienka ze szkła, dostępnego na dowolnym urządzeniu z przeglądarką, zarówno w celu zrozumienia firmy, jak i udziałowców IT.
+Aplikacja Microfocus **Operations Bridge** automatycznie monitoruje wszystkie hybrydowe zasoby IT — dowolne urządzenie, system operacyjny, bazę danych, aplikację lub usługę, niezależnie od tego, gdzie działa i stosuje AIOps do wszystkich typów danych — zdarzeń, metryk, dzienników i zależności. Zapewnia unikatową kombinację monitorowania jakości usług w połączeniu z głęboką analizą kondycji aplikacji i obejmuje kompleksowe monitorowanie wydajności i dostępności Microsoft Azure usług. Operations Bridge umożliwia klientom zapewnienie jednego okienka, dostępnego na dowolnym urządzeniu z przeglądarką, w sposób zrozumiały dla interesariuszy zarówno biznesowych, jak i IT.
 
-Dowiedz się więcej
-- [Przegląd zestawu OB](https://www.microfocus.com/products/operations-bridge-suite/overview)
+Więcej tutaj
+- [Omówienie pakietu OB Suite](https://www.microfocus.com/products/operations-bridge-suite/overview)
 - [Pobieranie](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
-- [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) -SiteScope to składnik pakietu Operations Bridge Suite.
+- [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) — SiteScope jest składnikiem pakietu Operations Bridge Suite.
 
 
 ## <a name="moogsoft"></a>Moogsoft
 
-![Logo Moogsoft](./media/partners/moogsoft.png)
+![Moogsoft Logo](./media/partners/moogsoft.png)
 
-Moogsoft AIOps przyspiesza transformację biznesową Agile.
+Firma Moogsoft AIOps przyspiesza zwinną transformację biznesową.
 
-Narzędzia Automation and Control Microsoft Azure zapewniają przedział czasu rzeczywistego do stanu aplikacji i mikrousług wdrożonych na platformie Azure. Ułatwiają one organizowanie diagnostyki i elementów Runbook w celu szybszego korygowania. Inne narzędzia innych firm udostępniają okno do aplikacji lokalnych i stanu infrastruktury.
+Microsoft Azure Automation and Control zapewniają w czasie rzeczywistym okno stanu aplikacji i mikrousług wdrożonych na platformie Azure. Ułatwiają one organizowanie diagnostyki i runbook w celu szybszego korygowania. Inne narzędzia innych firm zapewniają okno do lokalnego stanu aplikacji i infrastruktury.
 
-Moogsoft AIOps automatyzuje zdarzenie do korygowania przepływu pracy bez zmieniania istniejących procesów i struktury organizacyjnej. 
+Firma Moogsoft AIOps automatyzuje przepływ pracy Zdarzeń do korygowania bez zmiany istniejących procesów i struktury organizacyjnej. 
 
-Moogsoft działa w ramach platformy Azure w rzeczywistości z integracją z narzędziami do monitorowania i automatyzacji w sieci szkieletowej hybrydowej. Moogsoft 
- - aktywnie wykrywa zdarzenia wpływające na aplikacje wcześniej 
- - dynamicznie organizuje odpowiednie zasoby, aby zapewnić im świadomość sytuacji 
- - skraca średni czas korygowania i niekorzystnego wpływu na środowisko klienta. 
+Firma Moogsoft działa na platformie Azure z integracją z narzędziami do monitorowania i automatyzacji w sieci szkieletowej hybrydowej. Moogsoft 
+ - wcześniej aktywnie wykrywa zdarzenia wpływające na aplikację 
+ - dynamicznie aranżuje odpowiednie zasoby, aby zapewnić im świadomość sytuacji 
+ - skraca średni czas korygowania i niekorzystny wpływ na środowisko klienta. 
 
-[Dokumentacja Moogsoft](https://www.moogsoft.com/partners/microsoft-azure)
+[Dokumentacja firmy Moogsoft](https://www.moogsoft.com/partners/microsoft-azure)
 
 ## <a name="newrelic"></a>NewRelic
 
-![Logo NewRelic](./media/partners/newrelic.png)
+![NewRelic Logo](./media/partners/newrelic.png)
 
 [Dokumentacja newrelic](https://newrelic.com/azure)
 
 ## <a name="opsgenie"></a>OpsGenie
 
-![Logo OpsGenie](./media/partners/opsgenie.png)
+![OpsGenie Logo](./media/partners/opsgenie.png)
 
-OpsGenie działa jako Dyspozytor dla alertów generowanych przez platformę Azure. OpsGenie określa odpowiednie osoby do powiadamiania w oparciu o harmonogramy wywołań i eskalacji. Może je powiadamiać za pomocą poczty e-mail, wiadomości SMS, połączeń telefonicznych lub powiadomień wypychanych. Na platformie Azure generowane są alerty dotyczące wykrytych problemów. OpsGenie gwarantuje, że odpowiednie osoby pracują nad problemem.
+OpsGenie działa jako dyspozytor dla alertów generowanych przez platformę Azure. OpsGenie określa odpowiednie osoby do powiadamiania na podstawie harmonogramów i eskalacji na miejscu. Może ich powiadamiać za pomocą poczty e-mail, wiadomości SMS, połączeń telefonicznych lub powiadomień wypychanych. Platforma Azure generuje alerty dotyczące wykrytych problemów. Rozwiązanie OpsGenie zapewnia, że odpowiednie osoby pracują nad problemem.
 
-[Dokumentacja OpsGenie](https://www.opsgenie.com/docs/integrations/azure-integration)
+[Dokumentacja produktu opsgenie](https://www.opsgenie.com/docs/integrations/azure-integration)
 
 ## <a name="pagerduty"></a>PagerDuty
 
-![Logo usługi PagerDuty](./media/partners/pagerduty.png)
+![PagerDuty Logo](./media/partners/pagerduty.png)
 
-Usługi PagerDuty, wiodące rozwiązanie do zarządzania zdarzeniami, zapewniało wsparcie pierwszej klasy dla alertów platformy Azure na metrykach. Usługa usługi PagerDuty obsługuje powiadomienia dotyczące alertów Azure Monitor, powiadomień dotyczących automatycznego skalowania, zdarzeń dziennika aktywności i metryk na poziomie platformy dla usług platformy Azure. Te ulepszenia zapewniają lepszy wgląd w podstawową platformę Azure. W celu uzyskania odpowiedzi w czasie rzeczywistym można w pełni wykorzystać możliwości zarządzania zdarzeniami usługi PagerDuty. Rozszerzona integracja platformy Azure jest możliwa za pomocą elementów webhook. Elementy webhook umożliwiają szybkie i łatwe konfigurowanie i dostosowywanie rozwiązania.
+PagerDuty, wiodące rozwiązanie do zarządzania zdarzeniami, zapewnia najwyższej jakości obsługę alertów platformy Azure dotyczących metryk. Usługa PagerDuty obsługuje powiadomienia dotyczące alertów Azure Monitor, powiadomień autoskalowania, zdarzeń dziennika aktywności i metryk na poziomie platformy dla usług platformy Azure. Te ulepszenia zapewniają większy wgląd w podstawową platformę Azure. Możesz w pełni wykorzystać możliwości zarządzania zdarzeniami w aplikacji PagerDuty w celu reagowania w czasie rzeczywistym. Rozszerzona integracja platformy Azure jest możliwa za pośrednictwem webhook. Webhook umożliwia szybkie i łatwe konfigurowanie i dostosowywanie rozwiązania.
 
-[Dokumentacja usługi PagerDuty](https://www.pagerduty.com/docs/guides/azure-integration-guide/)
+[Dokumentacja dotycząca stronicości](https://www.pagerduty.com/docs/guides/azure-integration-guide/)
 
 ## <a name="promitor"></a>Promitor
 
-![Logo Promitor](./media/partners/promitor.png)
+![Logo promitora](./media/partners/promitor.png)
 
-Promitor to Azure Monitor wycinków, które udostępniają metryki w systemach takich jak Atlassian StatusPage, Prometheus i statystyki.
+Promitor to Azure Monitor, który udostępnia metryki w systemach takich jak Atlassian Statuspage, Prometheus i StatsD.
 
-Wypchnij wszystkie metryki, aby Azure Monitor i korzystać z nich, gdy ich potrzebujesz.
+Wypchniesz wszystkie metryki Azure Monitor i zużyj je tam, gdzie ich potrzebujesz.
 
-[Dokumentacja Promitor](https://promitor.io/)
+[Dokumentacja programu Promitor](https://promitor.io/)
 
 ## <a name="qradar"></a>QRadar
 
-![Logo QRadar](./media/partners/qradar.png)
+![QRadar Logo](./media/partners/qradar.png)
 
-Microsoft Azure DSM i Microsoft Azure centrum zdarzeń jest dostępny do pobrania z [witryny sieci Web pomocy technicznej firmy IBM](https://www.ibm.com/support). Więcej informacji na temat integracji z platformą Azure można znaleźć w [dokumentacji QRadar](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
+Usługa Microsoft Azure DSM i Microsoft Azure Event Hub Protocol są dostępne do pobrania ze strony [pomocy technicznej firmy IBM.](https://www.ibm.com/support) Więcej informacji na temat integracji z platformą Azure można znaleźć w [dokumentacji narzędzia QRadar.](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0)
 
 
 ## <a name="rsa"></a>RSA
 
-![Logo RSA](./media/partners/rsa.png)
+![RSA Logo](./media/partners/rsa.png)
 
-Platforma monitorów RSA jest wiodącą platformą do wykrywania zagrożeń i reagowania, która łączy rozbudowane rozwiązania SIEM i wykrywania. Rozwiązania zapewniają nieprzekraczające widoczność, analizę i automatyczne możliwości odpowiedzi. Te połączone możliwości pomagają zespołom ds. zabezpieczeń wydajniej i wydajnie, zwiększanie poziomu umiejętności związanych z łowiectwem zagrożeń oraz umożliwienie im szybszego badania zagrożeń i reagowania na nie, w całej infrastrukturze organizacji — zarówno w chmurze, lokalnie, jak i w środowisku wirtualnym. 
+Platforma RSA NetWitness to wiodąca platforma wykrywania zagrożeń i reagowania na nie, która łączy w sobie rozbudowane rozwiązania SIEM oraz rozszerzone rozwiązania wykrywania i reagowania. Rozwiązania te zapewniają niezrównaną widoczność, analizę i zautomatyzowane możliwości reagowania. Te połączone możliwości pomagają zespołom ds. zabezpieczeń pracować wydajniej i wydajniej, na wysokim poziomie swoich umiejętności wyszukiwania zagrożeń oraz szybciej badać zagrożenia i reagować na nie w całej infrastrukturze organizacji — w chmurze, lokalnie lub wirtualnie. 
 
-Integracja platformy monitorów RSA z usługą Azure Monitor umożliwia szybkie wprowadzanie danych zdarzeń i dzienników z Azure Monitor natywnie do platformy świadków RSA za pośrednictwem intuicyjnego interfejsu użytkownika i niezawodne natywne możliwości analizy. Uzyskaj szybki wgląd w zdarzenia dotyczące działań, diagnostyki, Active Directory i innych danych centrum zdarzeń, a następnie zapoznaj się z tymi danymi wraz z innymi informacjami o zabezpieczeniach przedsiębiorstwa w ramach kompletnego rozwiązania do wykrywania zagrożeń i reagowania na nie.
+Integracja platformy RSA NetWitness Platform z platformą Azure Monitor zapewnia błyskawiczne możliwości pozyskania danych zdarzeń i dzienników z usługi Azure Monitor natywnie do platformy RSA NetWitness za pośrednictwem intuicyjnego interfejsu użytkownika i niezawodnych natywnych możliwości analizowania. Uzyskaj szybki wgląd w dane dotyczące działań, diagnostyki, zdarzeń usługi Active Directory i innych danych centrum zdarzeń oraz zobacz te dane wraz z innymi informacjami o zabezpieczeniach przedsiębiorstwa w kompletnym rozwiązaniu do wykrywania zagrożeń i reagowania na nie.
 
 [Dowiedz się więcej.](https://community.rsa.com/docs/DOC-101239)
 
 
-## <a name="sciencelogic"></a>ScienceLogic
+## <a name="sciencelogic"></a>Sciencelogic
 
-![Logo ScienceLogic](./media/partners/sciencelogic.png)
+![ScienceLogic Logo](./media/partners/sciencelogic.png)
 
-Usługa ScienceLogic udostępnia platformę usługi nowej generacji IT do zarządzania dowolną technologią w dowolnym miejscu. ScienceLogic zapewnia skalę, zabezpieczenia, automatyzację i odporność, które są niezbędne do uproszczenia zadań związanych z zarządzaniem zasobami, usługami i aplikacjami IT. Platforma ScienceLogic używa interfejsów API platformy Azure do interfejsów z Microsoft Azure. ScienceLogic zapewnia wgląd w czasie rzeczywistym do usług i zasobów platformy Azure. Należy pamiętać, że coś nie działa i można je poprawić szybciej. Możesz również zarządzać platformą Azure wraz z innymi chmurami oraz systemami i usługami centrów danych.
+ScienceLogic to platforma kontroli usług IT następnej generacji do zarządzania dowolną technologią, w dowolnym miejscu. Oprogramowanie ScienceLogic zapewnia skalę, zabezpieczenia, automatyzację i odporność niezbędne do uproszczenia zadań związanych z zarządzaniem zasobami, usługami i aplikacjami IT. Platforma ScienceLogic używa interfejsów API platformy Azure do interfejsów Microsoft Azure. Usługa ScienceLogic zapewnia wgląd w usługi i zasoby platformy Azure w czasie rzeczywistym. Dzięki czemu wiesz, kiedy coś nie działa i możesz naprawić go szybciej. Platformą Azure można również zarządzać wraz z innymi chmurami oraz systemami i usługami centrów danych.
 
-[Dokumentacja ScienceLogic](https://www.sciencelogic.com/product/technologies/microsoft/azure)
+[Dokumentacja oprogramowania ScienceLogic](https://www.sciencelogic.com/product/technologies/microsoft/azure)
 
 
 ## <a name="serverless360"></a>Serverless360
 
-![Logo Serverless360](./media/partners/serverless360.png)
+![Logo Bez serwera360](./media/partners/serverless360.png)
 
-Serverless360 to jedno narzędzie platformy do działania, zarządzania i monitorowania składników bezserwerowych platformy Azure. Łatwość zarządzania to jeden z najważniejszych wyzwań dotyczących implementacji bezserwerowych. Setki małych i dyskretnych usług bezserwerowych są rozproszone w różnych miejscach — zarządzanie tymi rozwiązaniami i ich działanie jest złożone. Serverless360 rozwiązuje te wyzwania przy użyciu bogatego zestawu zaawansowanych narzędzi. Może monitorować usługi bezserwerowe, takie jak Azure Functions, Logic Apps, siatki zdarzeń, kolejki Service Bus, tematy, przekaźniki, Event Hubs, kolejki magazynu, pliki, obiekty blob i tabele. Usługa Serverless360 jest dostępna w portalu Azure Marketplace. Te funkcje są dostępne zarówno w SaaS, jak i w hostingu prywatnym (hostowanym w Twoim środowisku).  
+Serverless360 to jedno platformowe narzędzie do obsługi i monitorowania składników bez serwera platformy Azure oraz zarządzania nimi. Zarządzanie jest jednym z kluczowych wyzwań związanych z implementacjami bez serwera. Setki małych, dyskretnych usług bez serwera są rozproszone w różnych miejscach — zarządzanie takimi rozwiązaniami i ich obsługa jest złożona. Bez serwera360 rozwiązuje te problemy za pomocą zaawansowanego zestawu zaawansowanych narzędzi. Może ona monitorować usługi bez serwera, takie jak Azure Functions, Logic Apps, Event Grids, Service Bus Queues, Topics, Relays, Event Hubs, Kolejki magazynu, pliki, obiekty blob i tabele. Bez serwera360 jest dostępny w Azure Marketplace. Te możliwości są dostępne zarówno w modelu SaaS, jak i w hostingu prywatnym (hostowany we własnym środowisku).  
 
-[Dokumentacja Serverless360](https://docs.serverless360.com/docs/)
+[Dokumentacja bez serwera360](https://docs.serverless360.com/docs/)
 
 ## <a name="servicenow"></a>ServiceNow
 
-![Logo usługi ServiceNow](./media/partners/servicenow.png)
+![ServiceNow Logo](./media/partners/servicenow.png)
 
-Ogranicz zdarzenia i MTTR za pomocą platformy AIOps w celu wyeliminowania szumu, ustalania priorytetów, identyfikowania głównej przyczyny wykrywania i rozwiązywania problemów z przepływami pracy ITX.  Zapoznaj się z bieżącym stanem usług IaaS/PaaS/FaaS z platformy Azure i Utwórz mapy usługi ze znaczników w celu utworzenia kontekstu usługi aplikacji dla analizy wpływu na działalność biznesową.    
+Zmniejsz liczbę zdarzeń i mtTR dzięki platformie AIOps now w celu wyeliminowania szumu, określania priorytetów, identyfikowania głównej przyczyny wykrywania przy użyciu uczenia maszynowego i korygowania przy użyciu przepływów pracy ITX.  Poznaj bieżący stan usług Iaas/PaaS/FaaS na platformie Azure i twórz mapy usług na podstawie tagów, aby tworzyć kontekst usługi aplikacji na potrzeby analizy wpływu na działalność biznesową.    
 
-[Dowiedz się więcej o usłudze teraz](https://www.servicenow.com/solutions/aiops.html)
+[Dowiedz się więcej o usłudze Service Now](https://www.servicenow.com/solutions/aiops.html)
 
 ## <a name="signalfx"></a>SignalFx
 
-![Logo SignalFX](./media/partners/signalfx.png)
+![SignalFX Logo](./media/partners/signalfx.png)
 
-SignalFx jest liderem analizy operacyjnej w czasie rzeczywistym dla DevOps opartego na danych. Usługa odnajduje i zbiera metryki w każdym składniku w chmurze. Zastępuje on tradycyjne narzędzia do punktów i zapewnia wgląd w czasie rzeczywistym w obecnych środowiskach dynamicznych. Wykorzystując wysoce skalowalną platformę SignalFx, platforma SaaS jest zoptymalizowana pod kątem architektur opartych na kontenerach i mikrousługach, a także oferuje zaawansowane wizualizacje, aktywne alerty i funkcje Klasyfikacja współpracy w różnych organizacjach. SignalFx integruje się bezpośrednio z Azure Monitor, a także za pomocą łączników typu "open source", takich jak *telegraf*, z *statystykami* i *zebranych* w celu zapewnienia najlepszej klasy pulpitów nawigacyjnych, analiz i alertów dla systemu Azure.
+SignalFx jest liderem analizy operacyjnej w czasie rzeczywistym dla metodyki DevOps opartej na danych. Usługa odnajduje i zbiera metryki dla każdego składnika w chmurze. Zastępuje ona tradycyjne narzędzia punktowe i zapewnia wgląd w czasie rzeczywistym w dzisiejszym środowisku dynamicznym. Korzystając z wysoce skalowalnej platformy SignalFx, platforma SaaS jest zoptymalizowana pod kątem architektur opartych na kontenerach i mikrousługach oraz zapewnia zaawansowane możliwości wizualizacji, proaktywnych alertów i możliwości wspólnej klasygowania w organizacjach wszystkich rozmiarów. SignalFx integruje się bezpośrednio z usługą Azure Monitor, a także za pośrednictwem łączników typu open source, takich jak *Telegraf,* statsD i *collectd,* aby zapewnić najlepsze rozwiązania w zakresie pulpitów nawigacyjnych, analiz i alertów dla platformy Azure. 
 
 [Dokumentacja signalfx](https://docs.signalfx.com/en/latest/getting-started/send-data.html#connect-to-azure)
 
-## <a name="signl4"></a>APLIKACJI SIGNL4
+## <a name="signl4"></a>SIGNL4
 
-![Logo aplikacji SIGNL4](./media/partners/signl4.png)
+![SIGNL4 Logo](./media/partners/signl4.png)
 
-APLIKACJI SIGNL4 — aplikacja do obsługi alertów mobilnych dla zespołów Operations — jest najszybszym sposobem na kierowanie alertów krytycznych od Azure Monitor do odpowiednich osób w odpowiednim czasie — w dowolnym miejscu przez wywołania wypychania, tekstu i komunikacji głosowej. APLIKACJI SIGNL4 zarządza cłami na rozmowy i zmianami zespołu, śledzi dostarczenie i własność alertów i eskalacji w razie potrzeby. Podano pełną przejrzystość w zespole. Korzystając z funkcji łatwego w obsłudze sieci Web aplikacji SIGNL4, dowolna usługa systemu Azure może być połączona bez wysiłku. Dzięki usłudze aplikacji SIGNL4 zobaczysz do 10X szybszej reakcji przy użyciu powiadomień e-mail i alertów ręcznych.
+SIGNL4 — mobilna aplikacja do alertów dla zespołów operacyjnych — to najszybszy sposób rozsyłania alertów krytycznych z usługi Azure Monitor do odpowiednich osób w odpowiednim czasie — w dowolnym miejscu dzięki wywołaniu wypychanym, tekstowym i głosowym. SignL4 zarządza zadaniami na e-mail i zmianami zespołu, śledzi dostarczanie alertów i ich własność, a w razie potrzeby eskaluje. Zapewniana jest pełna przejrzystość w całym zespole. Za pomocą bardzo łatwego web-hooka REST SIGNL4 można bez wysiłku połączyć dowolną usługę platformy Azure. Dzięki językowi SIGNL4 zobaczysz do 10 razy szybszą odpowiedź za pośrednictwem powiadomień e-mail i ręcznego alertu.
 
-[Dokumentacja aplikacji SIGNL4](https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/)
+[Dokumentacja SIGNL4](https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/)
 
 ## <a name="site24x7"></a>Site24x7
 
-![Logo Site24x7](./media/partners/site24-7.png)
+![Site24x7 Logo](./media/partners/site24-7.png)
 
-Usługa Site24x7 zapewnia zaawansowane i kompletne rozwiązanie do monitorowania platformy Azure, zapewniając widoczność i wgląd w aplikacje, dzięki czemu właściciele aplikacji mogą szybko wykrywać wąskie gardła wydajności, zautomatyzować Rozwiązywanie błędów i zoptymalizować ich wydajność.
-Dzięki usłudze Site24x7 Azure można:
+Witryna Site24x7 zapewnia zaawansowane i pełne rozwiązanie do monitorowania platformy Azure, zapewniając wgląd w aplikacje i wgląd w nie, umożliwiając właścicielom aplikacji szybkie wykrywanie wąskich gardeł wydajności, automatyzowanie rozwiązywania błędów i optymalizowanie ich wydajności.
+Monitorowanie platformy Azure w usłudze Site24x7 umożliwia:
 
 * Monitoruj ponad 100 usług Azure IaaS i PaaS.
-* Uzyskaj szczegółowe monitorowanie maszyn wirtualnych z systemami Windows i Linux z wyłącznymi rozszerzeniami platformy Azure, bezpośrednio z witryny Azure Marketplace.
-* Rozwiązywanie problemów z aplikacjami za pomocą wglądu w dzienniki z platformy Azure. Wysyłanie dzienników do Site24x7, zapisywanie zapytań wyszukiwania, Ustawianie alertów opartych na zapytaniach i zarządzanie dziennikami platformy Azure za pomocą jednego pulpitu nawigacyjnego.
-* Wykrywaj wszelkie problemy z kondycją usługi i zapewnij niezawodne wdrożenia za pośrednictwem kontroli kondycji usługi Azure Deployment Manager (ADM).
-* Automatyzowanie rozwiązywania błędów za pomocą zestawu narzędzi automatyzacji IT.
-* Monitoruj swoje kompletne ecospherey programu Microsoft, w tym SQL, Exchange, Active Directory, Office 365, IIS i funkcji Hyper-V.
-* Bezproblemowo Integruj z usługami innych firm, takimi jak Microsoft Teams, usługi PagerDuty, zapier i inne.
+* Uzyskaj szczegółowe monitorowanie maszyn wirtualnych z systemami Windows i Linux przy użyciu wyłącznych rozszerzeń platformy Azure bezpośrednio z Azure Marketplace.
+* Rozwiązywanie problemów z aplikacjami za pomocą szczegółowych informacji o dziennikach z platformy Azure. Wysyłanie dzienników do witryny Site24x7, zapisywanie zapytań wyszukiwania, ustawianie alertów opartych na zapytaniach i zarządzanie dziennikami platformy Azure z jednego pulpitu nawigacyjnego.
+* Wykrywanie wszelkich problemów z kondycją usługi i zapewnianie niezawodnych wdrożeń za pośrednictwem usługi Azure Deployment Manager (ADM) Health Check.
+* Automatyzowanie rozwiązywania błędów za pomocą zestawu narzędzi do automatyzacji IT.
+* Monitoruj pełną ekonomię firmy Microsoft, w tym aplikacje SQL, Exchange, Active Directory, Office 365, IIS i Hyper-V.
+* Bezproblemowa integracja z usługami innych firm, takich jak Microsoft Teams, PagerDuty, Zapier i inne.
 
-[Dokumentacja Site24X7](https://www.site24x7.com/azure/?utm_source=microsoft-partner-page&utm_medium=webpage&utm_campaign=ms-partner)
+[Dokumentacja witryny Site24X7](https://www.site24x7.com/azure/?utm_source=microsoft-partner-page&utm_medium=webpage&utm_campaign=ms-partner)
 
-## <a name="solarwinds"></a>SolarWinds
+## <a name="solarwinds"></a>Solarwinds
 
-[Dokumentacja SolarWinds](https://www.solarwinds.com/topics/azure-monitoring)
+[Dokumentacja systemu SolarWinds](https://www.solarwinds.com/topics/azure-monitoring)
+
+## <a name="speartip"></a>SpearTip
+
+![Logo SpearTip](./media/partners/speartip.png)
+
+24/7 security operations center firmy SpearTip stale monitoruje środowiska platformy Azure pod adresem zagrożeń cybernetycznych. Korzystając z integracji ShadowSpear z usługą Azure Monitor, zdarzenia zabezpieczeń są zbierane i analizowane pod względu na zaawansowane zagrożenia, podczas gdy inżynierowie SpearTip badają i reagują, aby zatrzymać uczestników zagrożeń na swoich śladach. Integracja jest bezproblemowa i zapewnia natychmiastową wartość po jej wdrożeniu.
+
+[Dokumentacja speartip](https://www.speartip.com/identify/)
 
 ## <a name="splunk"></a>Splunk
 
-![Logo Splunk](./media/partners/splunk.png)
+![Splunk Logo](./media/partners/splunk.png)
 
-Dodatek Azure Monitor dla Splunk jest [dostępny w Splunkbase tutaj](https://splunkbase.splunk.com/app/3534/).
+Dodatek Azure Monitor splunk jest dostępny w [bazie splunkbase tutaj.](https://splunkbase.splunk.com/app/3534/)
 
-[Dokumentacja usługi Splunk dla Azure Monitor dodatków](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk)
+[Dokumentacja splunk dla Azure Monitor dodatku](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk)
 
 ## <a name="squaredup"></a>SquaredUp 
 
-![Logo SquaredUp](./media/partners/squaredup.png)
+![SquaredUp Logo](./media/partners/squaredup.png)
 
-SquaredUp dla platformy Azure upraszcza wizualizację aplikacji platformy Azure będzie doskonale. Zapewnia w czasie rzeczywistym interaktywne pulpity nawigacyjne. Możesz przejść do szczegółów dotyczących subskrypcji, grup zasobów, tagów i poszczególnych zasobów, aby wyświetlić metryki, takie jak procesor CPU, większość połączeń przychodzących, Application Insights czas odpowiedzi, łączny koszt i stan kondycji podsumowania, a także przejść do szczegółów, aby zobaczyć powiązane dane, takie jak alerty, zdarzenia Log Analytics, bardziej szczegółowe metryki lub zobaczyć powiązane dane z innych używanych narzędzi — takich jak usługi ServiceNow , DynaTrace, usługi PagerDuty lub pingdom na przykład.  Możesz dostosować własne pulpity nawigacyjne, opublikować i udostępnić je osobom indywidualnym lub na stronach intranetowych. 
+Aplikacja SquaredUp for Azure sprawia, że wizualizacja aplikacji platformy Azure jest bardzo prosta. Zapewnia ona interaktywne pulpity nawigacyjne w czasie rzeczywistym. Możesz przejść do szczegółów subskrypcji, grup zasobów, tagów i poszczególnych zasobów, aby wyświetlić metryki, takie jak procesor CPU, większość połączeń przychodzących, czas odpowiedzi usługi Application Insights, łączny koszt i stan kondycji podsumowania, a także przejść do szczegółów, aby wyświetlić powiązane dane, takie jak alerty, zdarzenia usługi Log Analytics, bardziej szczegółowe metryki lub wyświetlić powiązane dane z innych narzędzi, których używasz , takich jak usługa ServiceNow na przykład , Dynatrace, PagerDuty lub Pingdom.  Możesz dostosowywać własne pulpity nawigacyjne, publikować je i udostępniać osobom lub na stronach intranetu. 
 
-[Witryna sieci Web SquaredUp](https://squaredup.com/)
+[Witryna internetowa SquaredUp](https://squaredup.com/)
 
 ## <a name="sumo-logic"></a>Logika Sumo
 
-![Sumo — logo logiki](./media/partners/SumoLogic.png)
+![Logo logiki Sumo](./media/partners/SumoLogic.png)
 
-Sumo Logic to bezpieczna, natywna w chmurze usługa analizy danych maszynowych, dostarczająca w czasie rzeczywistym, ciągła analiza danych ze strukturą, częściową strukturą i bez struktury w całym cyklu życia aplikacji i stosie. Ponad 1 000 klientów na całym świecie polega na logice Sumo na potrzeby analiz i wglądu w tworzenie, uruchamianie i Zabezpieczanie aplikacji oraz infrastruktury chmurowej. Dzięki logice Sumo klienci mogą korzystać z zalet wielu dzierżawców i usług, aby zwiększyć konkurencyjność, wartość biznesową i rozwój.
+Sumo Logic to bezpieczna, natywna dla chmury usługa analizy danych maszynowych, zapewniająca ciągłą analizę w czasie rzeczywistym z ustrukturyzowanych, częściowo ustrukturyzowanych i nieustrukturyzowanych danych w całym cyklu życia i stosie aplikacji. Ponad 1000 klientów na całym świecie korzysta z logiki Sumo na potrzeby analizy i szczegółowych informacji w celu tworzenia, uruchamiania i zabezpieczania aplikacji oraz infrastruktury chmury. Dzięki usłudze Sumo Logic klienci zyskują wielodostępną przewagę modelu usług, aby zwiększyć przewagę konkurencyjną, wartość biznesową i wzrost.
 
-[Dokumentacja SumoLogic](https://www.sumologic.com/azure) 
+[Dokumentacja oprogramowania Sumologic](https://www.sumologic.com/azure) 
 
 ## <a name="turbonomic"></a>Turbonomic
 
-![Logo platforma turbonomic](./media/partners/Turbonomic.png)
+![Logo turbomianowe](./media/partners/Turbonomic.png)
 
-Platforma turbonomic zapewnia automatyzację obciążeń dla chmur hybrydowych przez równoczesne Optymalizowanie wydajności, kosztów i zgodności w czasie rzeczywistym. Usługa platforma turbonomic pomaga organizacjom elastycznie korzystać z platformy Azure przez ciągłą optymalizację nieruchomości w celu zapewnienia, że aplikacje będą stale pobierać wymagane zasoby, aby zapewnić ich umowę SLA i nie więcej niż w przypadku obliczeń, magazynu i sieci dla warstwy IaaS i PaaS. Organizacje mogą symulować migracje, poprawnie skalować obciążenia i wycofać zasoby centrum danych do zawodowej migracji na platformę Azure w ramach budżetu przy jednoczesnym zapewnieniu zarówno wydajności, jak i zgodności. Platforma turbonomic jest obsługiwany przez interfejs API i działa jako maszyna wirtualna bez agentów na platformie Azure i lokalnie.
+Funkcja turbomianowa zapewnia automatyzację obciążeń dla chmur hybrydowych, jednocześnie optymalizując wydajność, koszt i zgodność w czasie rzeczywistym. Funkcja turbomianowa pomaga organizacjom w elastycznej pracy na platformie Azure, stale optymalizując majątek, aby zapewnić aplikacjom ciągłe uzyskiwanie zasobów wymaganych do realizacji umowy SLA i nic więcej w ramach zasobów obliczeniowych, magazynu i sieci dla warstwy IaaS i PaaS. Organizacje mogą symulować migracje, prawidłowo skalować obciążenia i wycofywano zasoby centrum danych w celu odpowiedzialnej migracji na platformę Azure na czas, w ramach budżetu, a jednocześnie zapewnić wydajność i zgodność. Turbomian jest oparty na interfejsie API i działa jako maszyna wirtualna bez agenta na platformie Azure i w środowisku lokalnym.
 
-[Wprowadzenie do platforma turbonomic](https://turbonomic.com/)
+[Wprowadzenie do turbomianów](https://turbonomic.com/)
 
-## <a name="partner-tools-with-event-hub-integration"></a>Narzędzia partnerskie z integracją centrum zdarzeń
+## <a name="partner-tools-with-event-hub-integration"></a>Narzędzia partnerskie z integracją usługi Event Hub
 
-Używanie Azure Monitor do kierowania danych monitorowania do centrum zdarzeń platformy Azure pozwala na łatwą integrację z niektórymi zewnętrznymi narzędziami SIEM i monitorowania. Następujący partnerzy muszą mieć integrację za pośrednictwem centrum zdarzeń. 
+Użycie Azure Monitor do przekierowania danych monitorowania do usługi Azure Event Hub umożliwia łatwe integrowanie z niektórymi zewnętrznymi rozwiązaniami SIEM i narzędziami do monitorowania. Następujący partnerzy są znani z integracji za pośrednictwem centrum zdarzeń. 
 
 | Narzędzie | Hostowane na platformie Azure | Opis |
 |:---|:---| :---|
-|  IBM QRadar | Nie | Microsoft Azure DSM i Microsoft Azure centrum zdarzeń jest dostępny do pobrania z [witryny sieci Web pomocy technicznej firmy IBM](https://www.ibm.com/support). Możesz dowiedzieć się więcej o integracji z platformą Azure w [konfiguracji DSM QRadar](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0). |
-| Splunk | Nie | [Microsoft Azure Add-On dla Splunk](https://splunkbase.splunk.com/app/3757/) jest projektem open source dostępnym w Splunkbase. <br><br> Jeśli nie można zainstalować dodatku w wystąpieniu usługi Splunk, jeśli na przykład używasz serwera proxy lub działającego w chmurze Splunk, możesz przesłać te zdarzenia do modułu zbierającego zdarzenia HTTP Splunk za pomocą [funkcji platformy Azure dla Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS), która jest wyzwalana przez nowe komunikaty w centrum zdarzeń. |
-| SumoLogic | Nie | Instrukcje dotyczące konfigurowania SumoLogic do korzystania z danych z centrum zdarzeń są dostępne w [dziennikach zbierania dla aplikacji inspekcji platformy Azure z centrum zdarzeń](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
-| ArcSight | Nie | Łącznik inteligentny ArcSight usługi Azure Event Hub jest dostępny jako część [kolekcji inteligentnych łączników ArcSight](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
-| Serwer Syslog | Nie | Jeśli chcesz przesyłać strumieniowo Azure Monitor dane bezpośrednio do serwera dziennika systemowego, możesz użyć [rozwiązania na podstawie funkcji platformy Azure](https://github.com/miguelangelopereira/azuremonitor2syslog/).
-| LogRhythm | Nie| Instrukcje dotyczące konfigurowania LogRhythm do zbierania dzienników z centrum zdarzeń są dostępne [tutaj](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
-|Logz.io | Tak | Aby uzyskać więcej informacji, zobacz [wprowadzenie do monitorowania i rejestrowania przy użyciu programu Logz.IO for Java Apps uruchomionego na platformie Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio)
+|  IBM QRadar | Nie | Usługa Microsoft Azure DSM i Microsoft Azure Event Hub Protocol są dostępne do pobrania ze strony [pomocy technicznej firmy IBM.](https://www.ibm.com/support) Aby dowiedzieć się więcej na temat integracji z platformą Azure, zobacz [QRadar DSM configuration (Konfiguracja QRadar DSM).](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) |
+| Splunk | Nie | [Microsoft Azure Add-On dla splunk](https://splunkbase.splunk.com/app/3757/) to open source dostępny w programie Splunkbase. <br><br> Jeśli nie możesz zainstalować dodatku w wystąpieniu splunku, jeśli na przykład używasz serwera proxy lub działasz w chmurze Splunk Cloud, możesz przesyłać te zdarzenia do modułu zbierającego zdarzenia HTTP Splunk przy użyciu funkcji platformy Azure dla [splunk,](https://github.com/Microsoft/AzureFunctionforSplunkVS)która jest wyzwalana przez nowe komunikaty w centrum zdarzeń. |
+| SumoLogic | Nie | Instrukcje dotyczące konfigurowania serwera SumoLogic w celu przetwarzania danych z centrum zdarzeń są dostępne na stronie Collect Logs for the Azure Audit App from Event Hub (Zbieranie dzienników dla aplikacji inspekcji platformy [Azure z centrum zdarzeń).](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub) |
+| ArcSight | Nie | Inteligentny łącznik usługi ArcSight Azure Event Hub jest dostępny w ramach kolekcji inteligentnych łączników [usługi ArcSight.](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852) |
+| Serwer Syslog | Nie | Jeśli chcesz strumieniowo przesyłać Azure Monitor bezpośrednio do serwera syslog, możesz użyć rozwiązania opartego [na funkcji platformy Azure.](https://github.com/miguelangelopereira/azuremonitor2syslog/)
+| LogRhythm | Nie| Instrukcje dotyczące skonfigurowania usługi LogRhythm do zbierania dzienników z centrum zdarzeń są [dostępne tutaj.](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/) 
+|Logz.io | Tak | Aby uzyskać więcej informacji, zobacz Getting started with monitoring and logging using Logz.io for Java apps running on Azure (Wprowadzenie do monitorowania i rejestrowania przy użyciu programu [Logz.io dla aplikacji Java działających na platformie Azure)](/azure/developer/java/fundamentals/java-get-started-with-logzio)
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Dowiedz się więcej na temat usługi Azure Monitor](overview.md)
 - [Uzyskiwanie dostępu do metryk przy użyciu interfejsu API REST](essentials/rest-api-walkthrough.md)
-- [Przesyłanie strumieniowe dziennika aktywności do usługi innej niż firmy Microsoft](essentials/activity-log.md#legacy-collection-methods)
-- [Przesyłanie strumieniowe dzienników zasobów do usługi innej niż firmy Microsoft](essentials/resource-logs.md#send-to-azure-event-hubs)
+- [Przesyłanie strumieniowe dziennika aktywności do usługi firmy spoza firmy Microsoft](essentials/activity-log.md#legacy-collection-methods)
+- [Przesyłanie strumieniowe dzienników zasobów do usługi firmy microsoft](essentials/resource-logs.md#send-to-azure-event-hubs)
 
 
 

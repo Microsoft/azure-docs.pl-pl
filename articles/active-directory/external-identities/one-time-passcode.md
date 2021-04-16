@@ -1,6 +1,6 @@
 ---
-title: Jednokrotne uwierzytelnianie kodu dostępu dla użytkowników-Gości B2B — Azure AD
-description: Jak używać jednorazowego kodu dostępu wiadomości E-mail do uwierzytelniania użytkowników Gości B2B bez konieczności konto Microsoft.
+title: Uwierzytelnianie za pomocą kodu dostępu tylko raz dla użytkowników-gości B2B — Azure AD
+description: Jak używać kodu dostępu do wiadomości e-mail z jednym kodem dostępu do uwierzytelniania użytkowników-gości B2B bez konieczności konto Microsoft.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,122 +12,122 @@ manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30f22282b00a7ead2e19805f32d78338126e8087
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 3b4089559b341dd268928b1f150b6fc173869ead
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552754"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529923"
 ---
-# <a name="email-one-time-passcode-authentication"></a>Wyślij wiadomość e-mail do jednorazowego uwierzytelniania kodu dostępu
+# <a name="email-one-time-passcode-authentication"></a>Uwierzytelnianie za pomocą jednego kodu dostępu za pomocą poczty e-mail
 
-W tym artykule opisano, jak włączyć jednokrotne uwierzytelnianie kodu dostępu w wiadomości e-mail dla użytkowników-Gości B2B. Funkcja jednorazowego kodu dostępu wiadomości e-mail uwierzytelnia użytkowników gościa B2B, gdy nie mogą być uwierzytelniane za pośrednictwem innych takich metod jak Azure AD, konto Microsoft (MSA) lub Google Federation. W przypadku uwierzytelniania za pomocą jednorazowego kodu dostępu nie ma potrzeby tworzenia konto Microsoft. Gdy użytkownik-Gość zrealizuje zaproszenie lub uzyskuje dostęp do zasobu udostępnionego, może zażądać kodu tymczasowego, który jest wysyłany na adres e-mail. Następnie wprowadzają ten kod, aby kontynuować logowanie.
+W tym artykule opisano sposób włączania uwierzytelniania za pomocą jednego kodu dostępu w wiadomości e-mail dla użytkowników-gości B2B. Funkcja kodu dostępu w wiadomości e-mail z jednym kodem dostępu uwierzytelnia użytkowników-gości B2B, gdy nie można ich uwierzytelnić za pomocą innych środków, takich jak usługa Azure AD, usługa konto Microsoft (MSA) lub federacja Google. W przypadku uwierzytelniania za pomocą jednego kodu dostępu nie trzeba tworzyć konto Microsoft. Gdy użytkownik-gość zrealizuj zaproszenie lub uzyskuje dostęp do udostępnionego zasobu, może zażądać tymczasowego kodu, który jest wysyłany na jego adres e-mail. Następnie wprowadza ten kod, aby kontynuować logowanie.
 
-![Tworzenie pocztą e-mail jednokrotnego diagramu przeglądu kodu dostępu](media/one-time-passcode/email-otp.png)
+![Diagram przeglądu kodu dostępu w wiadomości e-mail](media/one-time-passcode/email-otp.png)
 
 > [!IMPORTANT]
-> - **Od października 2021** funkcja jednorazowego kodu dostępu wiadomości e-mail zostanie włączona dla wszystkich istniejących dzierżawców i domyślnie włączona dla nowych dzierżawców. Jeśli nie chcesz zezwolić na automatyczne włączenie tej funkcji, możesz ją wyłączyć. Zobacz sekcję [wyłączanie jednorazowego kodu dostępu wiadomości e-mail](#disable-email-one-time-passcode) poniżej.
-> - Przeniesiono wiadomość e-mail jednorazowo ustawienia kodu dostępu w Azure Portal z **zewnętrznych ustawień współpracy** do **wszystkich dostawców tożsamości**.
+> - **Od października 2021** r. funkcja jednego kodu dostępu do poczty e-mail zostanie włączona dla wszystkich istniejących dzierżaw i domyślnie włączona dla nowych dzierżaw. Jeśli nie chcesz zezwalać na automatyczne włączanie tej funkcji, możesz ją wyłączyć. Zobacz [Wyłączanie kodu dostępu do wiadomości e-mail z jednym kodem](#disable-email-one-time-passcode) dostępu poniżej.
+> - Ustawienia kodu dostępu do wiadomości e-mail z kodem dostępu Azure Portal z ustawień współpracy **zewnętrznej** do ustawienia **Wszyscy dostawcy tożsamości.**
 
 > [!NOTE]
-> Jednorazowy kod dostępu użytkownicy muszą logować się przy użyciu linku zawierającego kontekst dzierżawy (na przykład `https://myapps.microsoft.com/?tenantid=<tenant id>` lub `https://portal.azure.com/<tenant id>` w przypadku zweryfikowanej domeny `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com` ). Bezpośrednie linki do aplikacji i zasobów działają również tak długo, jak w przypadku kontekstu dzierżawy. Użytkownicy-Goście nie mogą obecnie zalogować się za pomocą punktów końcowych, które nie mają kontekstu dzierżawy. Na przykład użycie programu `https://myapps.microsoft.com` `https://portal.azure.com` spowoduje wystąpienie błędu.
+> Użytkownicy korzystający z kodu dostępu tylko raz muszą zalogować się przy użyciu linku, który zawiera kontekst dzierżawy (na przykład , lub , w przypadku `https://myapps.microsoft.com/?tenantid=<tenant id>` `https://portal.azure.com/<tenant id>` zweryfikowanego `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com` domeny). Bezpośrednie linki do aplikacji i zasobów działają również tak długo, jak zawierają kontekst dzierżawy. Użytkownicy-goście nie mogą obecnie logować się przy użyciu punktów końcowych, które nie mają kontekstu dzierżawy. Na przykład użycie funkcji `https://myapps.microsoft.com` `https://portal.azure.com` spowoduje błąd.
 
-## <a name="user-experience-for-one-time-passcode-guest-users"></a>Środowisko użytkownika dla użytkowników-Gości jednorazowego kodu dostępu
+## <a name="user-experience-for-one-time-passcode-guest-users"></a>Środowisko użytkownika dla użytkowników-gości z jednym kodem dostępu
 
-Po włączeniu funkcji jednokrotnego kodu dostępu wiadomości e-mail nowo zaproszeni użytkownicy, [którzy spełniają określone warunki](#when-does-a-guest-user-get-a-one-time-passcode) , będą korzystać z uwierzytelniania jednorazowego kodu dostępu. Użytkownicy-Goście, którzy korzystali z zaproszenia przed przekazaniem jednorazowego kodu dostępu do wiadomości e-mail, będą nadal używać tej samej metody uwierzytelniania.
+Po włączeniu funkcji kodu dostępu dla wiadomości e-mail z jednym kodem dostępu nowo zaproszeni użytkownicy spełniający określone warunki będą korzystać z uwierzytelniania za pomocą kodu dostępu tylko raz. [](#when-does-a-guest-user-get-a-one-time-passcode) Użytkownicy-goście, którzy zrealizli zaproszenie przed włączeniu kodu dostępu w wiadomości e-mail, będą nadal korzystać z tej samej metody uwierzytelniania.
 
-W przypadku uwierzytelniania za pomocą jednorazowego kodu dostępu użytkownik-Gość może skorzystać z zaproszenia przez kliknięcie linku bezpośredniego lub wysłanie wiadomości e-mail z zaproszeniem. W obu przypadkach komunikat w przeglądarce wskazuje, że kod zostanie wysłany na adres e-mail użytkownika-gościa. Użytkownik-Gość wybierze opcję **Wyślij kod**:
+W przypadku uwierzytelniania za pomocą kodu dostępu raz użytkownik-gość może zrealizować zaproszenie, klikając link bezpośredni lub korzystając z wiadomości e-mail z zaproszeniem. W obu przypadkach komunikat w przeglądarce wskazuje, że kod zostanie wysłany na adres e-mail użytkownika-gościa. Użytkownik-gość wybiera pozycję **Wyślij kod:**
 
    ![Zrzut ekranu przedstawiający przycisk Wyślij kod](media/one-time-passcode/otp-send-code.png)
 
 Kod dostępu jest wysyłany na adres e-mail użytkownika. Użytkownik pobiera kod dostępu z wiadomości e-mail i wprowadza go w oknie przeglądarki:
 
-   ![Zrzut ekranu przedstawiający stronę wprowadzanie kodu](media/one-time-passcode/otp-enter-code.png)
+   ![Zrzut ekranu przedstawiający stronę wprowadzania kodu](media/one-time-passcode/otp-enter-code.png)
 
-Użytkownik-Gość jest teraz uwierzytelniany i może zobaczyć zasób udostępniony lub kontynuować logowanie.
+Użytkownik-gość jest teraz uwierzytelniony i może zobaczyć udostępniony zasób lub kontynuować logowanie.
 
 > [!NOTE]
-> Jednorazowe kody dostępu są ważne przez 30 minut. Po 30 minutach określony jednorazowy kod dostępu nie jest już ważny, a użytkownik musi zażądać nowego. Sesje użytkowników wygasają po upływie 24 godzin. Po upływie tego czasu użytkownik-gość otrzyma nowy kod dostępu podczas uzyskiwania dostępu do zasobu. Wygaśnięcie sesji zapewnia dodatkowe zabezpieczenia, zwłaszcza gdy użytkownik-Gość opuszcza swoją firmę lub nie potrzebuje już dostępu.
+> Kody dostępu tylko raz są ważne przez 30 minut. Po upływie 30 minut ten jeden kod dostępu nie jest już prawidłowy, a użytkownik musi zażądać nowego. Sesje użytkowników wygasają po 24 godzinach. Po upływie tego czasu użytkownik-gość otrzyma nowy kod dostępu podczas uzyskiwania dostępu do zasobu. Wygaśnięcie sesji zapewnia dodatkowe zabezpieczenia, zwłaszcza gdy użytkownik-gość opuszcza firmę lub nie potrzebuje już dostępu.
 
-## <a name="when-does-a-guest-user-get-a-one-time-passcode"></a>Kiedy użytkownik-Gość otrzymuje jednorazowy kod dostępu?
+## <a name="when-does-a-guest-user-get-a-one-time-passcode"></a>Kiedy użytkownik-gość otrzyma jeden kod dostępu?
 
-Gdy użytkownik-Gość zrealizuje zaproszenie lub używa linku do zasobu, który został Ci udostępniony, otrzyma jednorazowy kod dostępu, jeśli:
+Gdy użytkownik-gość zrealizuj zaproszenie lub użyje linku do zasobu, który został im udostępniony, otrzyma kod dostępu, jeśli:
 
 - Nie mają konta usługi Azure AD
-- Nie mają konto Microsoft
-- Zapraszana dzierżawa nie została skonfigurowana dla użytkowników usługi Google Federation for @gmail.com i @googlemail.com
+- Nie mają one konto Microsoft
+- Dzierżawa zapraszająca nie s skonfigurowania federacji Google dla @gmail.com użytkowników @googlemail.com i
 
-W momencie zaproszenia nie ma wskazania, że użytkownik, którego zapraszasz, będzie używać uwierzytelniania jednorazowego kodu dostępu. Jednak po zalogowaniu się użytkownika-gościa uwierzytelnianie jednorazowego kodu dostępu będzie metodą rezerwową, jeśli nie można użyć innych metod uwierzytelniania.
+W czasie zapraszania nie ma żadnego wskazania, że zapraszany użytkownik będzie używać uwierzytelniania za pomocą kodu dostępu jednego raz. Jednak po dodaniu użytkownika-gościa uwierzytelnianie za pomocą jednego kodu dostępu będzie metodą rezerwową, jeśli nie można użyć żadnych innych metod uwierzytelniania.
 
-Możesz sprawdzić, czy użytkownik-Gość uwierzytelnia się przy użyciu jednorazowych kodów dostępu, wyświetlając Właściwość **Source** w szczegółach użytkownika. W Azure Portal przejdź do pozycji **Azure Active Directory**  >  **Użytkownicy**, a następnie wybierz użytkownika, aby otworzyć stronę szczegóły.
+Aby sprawdzić, czy użytkownik-gość uwierzytelnia się przy użyciu kodów dostępu, wyświetl właściwość **Source** w szczegółach użytkownika. W Azure Portal przejdź **do** Azure Active Directory Użytkownicy, a następnie wybierz użytkownika,  >  aby otworzyć stronę szczegółów.
 
 ![Zrzut ekranu przedstawiający użytkownika jednorazowego kodu dostępu z wartością źródłową OTP](media/one-time-passcode/guest-user-properties.png)
 
 > [!NOTE]
-> Gdy użytkownik zrealizuje jednorazowy kod dostępu, a następnie uzyska konto MSA, konta usługi Azure AD lub inne konto federacyjne, będzie nadal uwierzytelniane przy użyciu jednorazowego kodu dostępu. Jeśli chcesz zaktualizować metodę uwierzytelniania użytkownika, możesz [zresetować swój stan wykupu](reset-redemption-status.md).
+> Gdy użytkownik zrealizuje jedno hasło, a później uzyska konto MSA, konto usługi Azure AD lub inne konto federowane, będzie nadal uwierzytelniany przy użyciu kodu dostępu. Jeśli chcesz zaktualizować metodę uwierzytelniania użytkownika, możesz [zresetować jego stan realizacji](reset-redemption-status.md).
 
 ### <a name="example&quot;></a>Przykład
 
-Użytkownik teri@gmail.com -gość jest zapraszany do firmy Fabrikam, która nie ma skonfigurowanej usługi Google Federation. Teri nie ma konto Microsoft. Otrzymają one jednorazowy kod dostępu do uwierzytelniania.
+teri@gmail.comUżytkownik-gość jest zapraszany do firmy Fabrikam, która nie ma ustawionej federacji Google. Teri nie ma konto Microsoft. Otrzymają one kod dostępu do uwierzytelniania za pomocą jednego kodu dostępu.
 
-## <a name=&quot;disable-email-one-time-passcode&quot;></a>Wyłącz jednorazowy kod dostępu wiadomości e-mail
+## <a name=&quot;disable-email-one-time-passcode&quot;></a>Wyłączanie kodu dostępu do wiadomości e-mail z jednym kodem dostępu
 
-Od października 2021 funkcja jednorazowego kodu dostępu wiadomości e-mail zostanie włączona dla wszystkich istniejących dzierżawców i domyślnie włączona dla nowych dzierżawców. W tym czasie firma Microsoft nie będzie już obsługiwać wykupu zaproszeń przez tworzenie niezarządzanych (&quot;wirusowego&quot; lub &quot;just-in-Time") kont usługi Azure AD i dzierżawców na potrzeby scenariuszy współpracy B2B. Włączamy funkcję jednorazowego kodu dostępu wiadomości e-mail, ponieważ zapewnia ona bezproblemową metodę uwierzytelniania dla użytkowników-Gości. Istnieje jednak możliwość wyłączenia tej funkcji, jeśli nie zostanie ona użyta.
+Od października 2021 r. funkcja jednego kodu dostępu w wiadomości e-mail zostanie włączona dla wszystkich istniejących dzierżaw i domyślnie włączona dla nowych dzierżaw. W tym czasie firma Microsoft nie będzie już obsługiwać realizacji zaproszeń, tworząc niezamażażowane (&quot;wirusowe&quot; lub &quot;just-in-time") konta usługi Azure AD i dzierżawy na potrzeby scenariuszy współpracy B2B. Umożliwiamy funkcję kodu dostępu w wiadomości e-mail z jednym kodem dostępu, ponieważ zapewnia ona bezproblemową metodę uwierzytelniania rezerwowego dla użytkowników-gości. Możesz jednak wyłączyć tę funkcję, jeśli nie chcesz z niego korzystać.
 
 > [!NOTE]
 >
-> Jeśli funkcja jednorazowego kodu dostępu w wiadomości e-mail została włączona w dzierżawie i zostanie wyłączona, wszyscy użytkownicy-Goście, którzy wykonali jednorazowy kod dostępu, nie będą mogli się zalogować. Możesz [zresetować swój stan wykupu](reset-redemption-status.md) , aby można było ponownie zalogować się przy użyciu innej metody uwierzytelniania.
+> Jeśli w dzierżawie została włączona funkcja kodu dostępu w wiadomości e-mail z kodem dostępu, która została wyłączona, zalogowanie się nie będzie możliwe dla wszystkich użytkowników-gości, którzy zrealizli kod dostępu. Możesz [zresetować ich stan realizacji,](reset-redemption-status.md) aby można było ponownie zalogować się przy użyciu innej metody uwierzytelniania.
 
-### <a name="to-disable-the-email-one-time-passcode-feature"></a>Aby wyłączyć funkcję jednorazowego kodu dostępu wiadomości e-mail
+### <a name="to-disable-the-email-one-time-passcode-feature"></a>Aby wyłączyć funkcję kodu dostępu do wiadomości e-mail z jednym kodem dostępu
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/) jako Administrator globalny usługi Azure AD.
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/) jako administrator globalny usługi Azure AD.
 
 2. W okienku nawigacji wybierz pozycję **Azure Active Directory**.
 
-3. Wybierz **tożsamości zewnętrzne**  >  **Wszyscy dostawcy tożsamości**.
+3. Wybierz **External Identities**  >  **Wszyscy dostawcy tożsamości.**
 
-4. Wybierz opcję **jednorazowy kod dostępu wiadomości e-mail**, a następnie wybierz opcję **Wyłącz jednorazowy kod dostępu wiadomości e-mail dla Gości**.
+4. Wybierz **pozycję Wyślij wiadomość e-mail z kodem dostępu** do konta , a następnie wybierz pozycję Wyłącz kod dostępu do wiadomości **e-mail** dla gości.
 
    > [!NOTE]
-   > Przeniesiono wiadomość e-mail jednorazowo ustawienia kodu dostępu w Azure Portal z **zewnętrznych ustawień współpracy** do **wszystkich dostawców tożsamości**.
-   > Jeśli zobaczysz przełącznik zamiast opcji jednorazowego kodu dostępu wiadomości e-mail, oznacza to, że wcześniej włączono, wyłączono lub wybrano w wersji zapoznawczej funkcji. Wybierz pozycję **nie** , aby wyłączyć funkcję.
+   > Ustawienia kodu dostępu do wiadomości e-mail z kodem dostępu Azure Portal z ustawień współpracy **zewnętrznej** do ustawienia **Wszyscy dostawcy tożsamości.**
+   > Jeśli zamiast opcji kodu dostępu w wiadomości e-mail zostanie wyświetlony przełącznik, oznacza to, że wcześniej włączono, wyłączono lub włączono funkcję w wersji zapoznawczej. Wybierz **pozycję Nie,** aby wyłączyć tę funkcję.
    >
-   >![Wyłączono jednorazowy przełącznik dostępu do wiadomości e-mail](media/one-time-passcode/enable-email-otp-disabled.png)
+   >![Wyłączono przełącznik jednokierunkowego kodu dostępu w wiadomości e-mail](media/one-time-passcode/enable-email-otp-disabled.png)
 
 5. Wybierz pozycję **Zapisz**.
 
-## <a name="note-for-public-preview-customers"></a>Uwaga dla klientów z publicznej wersji zapoznawczej
+## <a name="note-for-public-preview-customers"></a>Uwaga dla klientów korzystających z publicznej wersji zapoznawczej
 
-Jeśli wcześniej zaznaczono w publicznej wersji zapoznawczej jednorazowego kodu dostępu do wiadomości e-mail, Data 2021 dla automatycznego włączenia funkcji nie ma zastosowania do użytkownika, więc nie ma to wpływu na powiązane procesy biznesowe. Ponadto w Azure Portal w obszarze **wiadomości e-mail jednorazowy kod dostępu dla Gości** nie zobaczysz opcji **automatycznego włączania jednorazowego kodu dostępu do poczty e-mail dla gości od października 2021**. Zamiast tego zobaczysz następujący przełącznik **tak** lub **nie** :
+Jeśli wcześniej zrezygnowano z otrzymywania wiadomości e-mail z jednym kodem dostępu w publicznej wersji zapoznawczej, data z października 2021 r. na potrzeby automatycznego włączania funkcji nie będzie mieć zastosowania, więc nie będzie to mieć wpływu na powiązane procesy biznesowe. Ponadto w oknie Azure Portal we właściwościach Wyślij wiadomość e-mail na adres e-mail z kodem dostępu tylko raz dla gości nie będzie dostępna opcja Automatycznie włącz kod dostępu do wiadomości **e-mail** dla gości od października **2021 r.**. Zamiast tego zobaczysz następujący przełącznik **Tak** **lub** Nie:
 
-![Wyślij wiadomość e-mail jednorazowo o jeden czas](media/one-time-passcode/enable-email-otp-opted-in.png)
+![Wyślij wiadomość e-mail z kodem dostępu do wiadomości e-mail z rezygnacją](media/one-time-passcode/enable-email-otp-opted-in.png)
 
-Jeśli jednak wolisz zrezygnować z funkcji i zezwolić na jej automatyczne włączenie w październiku 2021, możesz przywrócić ustawienia domyślne za pomocą [typu zasobu konfiguracja Metoda uwierzytelniania poczty e-mail](/graph/api/resources/emailauthenticationmethodconfiguration)Microsoft Graph API. Po przywróceniu ustawień domyślnych dostępne są następujące opcje **dla Gości poczty e-mail jednorazowo**:
+Jeśli jednak wolisz zrezygnować z tej funkcji i zezwolić na jej automatyczne wyłączenie w październiku 2021 r., możesz przywrócić ustawienia domyślne przy użyciu typu zasobu metoda konfiguracji uwierzytelniania poczty e-mail interfejsu [API](/graph/api/resources/emailauthenticationmethodconfiguration)usługi Microsoft Graph . Po przywróceniu ustawień domyślnych następujące opcje będą dostępne w obszarze **Wiadomość e-mail** z kodem dostępu dla gości:
 
-![Włącz jednorazowy kod dostępu wiadomości E-mail w programie](media/one-time-passcode/email-otp-options.png)
+![Włączanie opcji Wyślij wiadomość e-mail z jednym kodem dostępu z rezygnacją](media/one-time-passcode/email-otp-options.png)
 
-- **Automatycznie włączaj jednorazowy kod dostępu wiadomości e-mail dla Gości od października 2021**. Wartooć Jeśli funkcja jednorazowego kodu dostępu wiadomości e-mail nie została już włączona dla Twojej dzierżawy, zostanie ona automatycznie włączona od października 2021. Jeśli funkcja ma być włączona w tym czasie, nie są wymagane żadne dalsze działania. Jeśli funkcja została już włączona lub wyłączona, ta opcja będzie niedostępna.
+- **Od października 2021** r. automatycznie włączaj dla gości kod dostępu do wiadomości e-mail. (Ustawienie domyślne) Jeśli funkcja kodu dostępu do wiadomości e-mail z jednym kodem dostępu nie została jeszcze włączona dla dzierżawy, zostanie ona automatycznie włączona od października 2021 r. Jeśli chcesz, aby funkcja została włączona w tym czasie, nie są wymagane żadne dalsze działania. Jeśli funkcja została już włączona lub wyłączona, ta opcja będzie niedostępna.
 
-- **Włącz jednorazowy kod dostępu do wiadomości e-mail dla Gości**. Włącza funkcję jednorazowego kodu dostępu wiadomości e-mail dla dzierżawy.
+- **Włącz kod dostępu do wiadomości e-mail z jednym kodem dostępu dla gości już teraz.** Włącza funkcję jednego kodu dostępu w wiadomości e-mail dla dzierżawy.
 
-- **Wyłącz jednorazowy kod dostępu wiadomości e-mail dla Gości**. Wyłącza funkcję jednorazowego kodu dostępu wiadomości e-mail dla dzierżawy i uniemożliwia włączenie tej funkcji w październiku 2021.
+- **Wyłącz kod dostępu do wiadomości e-mail dla gości.** Wyłącza funkcję kodu dostępu do wiadomości e-mail z jednym kodem dostępu dla dzierżawy i uniemożliwia włączenie tej funkcji w październiku 2021 r.
 
 ## <a name="note-for-azure-us-government-customers"></a>Uwaga dla klientów platformy Azure dla instytucji rządowych USA
 
-Funkcja jednorazowego kodu dostępu wiadomości e-mail jest domyślnie wyłączona w chmurze platformy Azure dla instytucji rządowych.  
+Funkcja kodu dostępu do poczty e-mail z jednym kodem dostępu jest domyślnie wyłączona w chmurze platformy Azure dla instytucji rządowych USA. Partnerzy nie będą mogli się zalogować, chyba że ta funkcja jest włączona. W przeciwieństwie do chmury publicznej Platformy Azure chmura azure dla instytucji rządowych USA nie obsługuje realizacji zaproszeń przy użyciu samoobsługowych kont Azure Active Directory rządowych.
 
- ![Wyślij wiadomość e-mail jednorazowo, wyłączono kod dostępu](media/one-time-passcode/enable-email-otp-disabled.png)
+ ![Wyłączono kod dostępu do wiadomości e-mail z jednym kodem dostępu](media/one-time-passcode/enable-email-otp-disabled.png)
 
-Aby włączyć funkcję jednorazowego kodu dostępu wiadomości e-mail w chmurze platformy Azure dla instytucji rządowych:
+Aby włączyć funkcję kodu dostępu w wiadomości e-mail z jednym kodem dostępu w chmurze platformy Azure dla instytucji rządowych USA:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako Administrator globalny usługi Azure AD.
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) jako administrator globalny usługi Azure AD.
 2. W okienku nawigacji wybierz pozycję **Azure Active Directory**.
-3. Wybierz pozycję Ustawienia **relacji organizacyjnych**   >  ****.
+3. Wybierz **pozycję Relacje organizacyjne** Wszyscy dostawcy   >  **tożsamości.**
 
    > [!NOTE]
-   > - Jeśli nie widzisz **relacji organizacyjnych**, wyszukaj frazę "tożsamości zewnętrzne" na pasku wyszukiwania u góry.
+   > - Jeśli nie widzisz relacji **organizacyjnych,** wyszukaj "External Identities" na pasku wyszukiwania u góry.
 
-4. Wybierz opcję **jednorazowy kod dostępu wiadomości e-mail**, a następnie wybierz pozycję **tak**.
+4. Wybierz **pozycję Wyślij wiadomość e-mail z kodem dostępu do konta**, a następnie wybierz pozycję **Tak.**
 5. Wybierz pozycję **Zapisz**.
 
-Aby uzyskać więcej informacji o bieżących ograniczeniach, zobacz [chmury dla instytucji rządowych w Stanach Zjednoczonych](current-limitations.md#azure-us-government-clouds).
+Aby uzyskać więcej informacji na temat bieżących ograniczeń, zobacz [Chmury platformy Azure dla instytucji rządowych USA.](current-limitations.md#azure-us-government-clouds)

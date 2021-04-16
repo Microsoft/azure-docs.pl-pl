@@ -1,18 +1,18 @@
 ---
 title: 'Interfejs wiersza polecenia: mapowanie domeny niestandardowej na aplikację'
-description: Dowiedz się, jak zautomatyzować wdrażanie aplikacji App Service i zarządzanie nią za pomocą interfejsu wiersza polecenia platformy Azure. Ten przykład pokazuje, jak mapować domenę niestandardową na aplikację.
+description: Dowiedz się, jak używać interfejsu wiersza polecenia platformy Azure do automatyzowania wdrażania aplikacji App Service zarządzania nimi. W tym przykładzie pokazano, jak zamapować domenę niestandardową na aplikację.
 tags: azure-service-management
 ms.assetid: 5ac4a680-cc73-4578-bcd6-8668c08802c2
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
-ms.custom: mvc, seodec18
-ms.openlocfilehash: b7fa6955de306906de3be75bf465a955e4463ca2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: 90afd95eca557bcf8e3a5d604358853a947c3520
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97006518"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483252"
 ---
 # <a name="map-a-custom-domain-to-an-app-service-app-using-cli"></a>Mapowanie domeny niestandardowej na aplikację usługi App Service przy użyciu interfejsu wiersza polecenia
 

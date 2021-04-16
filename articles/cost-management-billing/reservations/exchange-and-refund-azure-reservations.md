@@ -5,30 +5,28 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 04/14/2021
 ms.author: banders
-ms.openlocfilehash: bd16bbbe33876a3c44b20c5d1756b83814f9b17d
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 3e8f50efd04364483c32ecb8ef5020bdd053e55b
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601954"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515485"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Samoobsługowe wymiany i zwroty kosztów dotyczące rezerwacji na platformie Azure
 
-Rezerwacje platformy Azure zapewniają elastyczność, dzięki której można łatwiej sprostać Twoim zmieniającym się potrzebom. Można wymienić rezerwacje dla innej rezerwacji tego samego typu. Można na przykład zwrócić wiele rezerwacji obliczeniowych, takich jak dedykowany Host platformy Azure, rozwiązanie VMware platformy Azure i usługa Azure Virtual Machines ze wszystkimi innymi jednocześnie. Innymi słowy, produkty rezerwacji są zamienne ze sobą, jeśli są tego samego typu rezerwacji. Innymi przykładami można wymienić wiele typów rezerwacji bazy danych SQL, w tym wystąpienia zarządzane i Pula elastyczna ze sobą.
+Rezerwacje platformy Azure zapewniają elastyczność, dzięki której można łatwiej sprostać Twoim zmieniającym się potrzebom. Rezerwacje można wymienić na inną rezerwację tego samego typu. Na przykład możesz zwrócić wiele rezerwacji zasobów obliczeniowych, w tym Azure Dedicated Host, Azure VMware Solution i Azure Virtual Machines ze sobą jednocześnie. Innymi słowy, produkty rezerwacji są wzajemnie wymienne, jeśli są tego samego typu rezerwacją. W innym przykładzie można wymienić wiele typów rezerwacji bazy danych SQL, w tym wystąpienia zarządzane i Pula elastyczna ze sobą.
 
-Nie można jednak wymieniać niepodobnych rezerwacji. Na przykład nie można wymienić Cosmos DB rezerwacji dla SQL Database.
+Nie można jednak wymieniać niesymilowych rezerwacji. Na przykład nie można wymienić rezerwacji Cosmos DB na SQL Database.
 
-Istnieje również możliwość wymiany rezerwacji w celu zakupu innej rezerwacji podobnego typu w innym regionie. Na przykład możesz wymienić rezerwację w regionie zachodnie stany USA 2, która jest w regionie Europa Zachodnia.
+Możesz również wymienić rezerwację, aby kupić inną rezerwację podobnego typu w innym regionie. Możesz na przykład wymienić rezerwację w zachodnich stanyach USA 2 na rezerwację w Europie Zachodniej.
 
-Podczas wymiany rezerwacji możesz zmienić swój termin w okresie jednego roku na trzy lata.
+Podczas wymiany rezerwacji możesz zmienić okres z jednego roku na trzy lata.
 
 Możesz również zwrócić rezerwacje, ale łączna suma anulowanego zobowiązania z tytułu rezerwacji w zakresie rozliczeniowym (np. umowa EA, Umowa z Klientem Microsoft i umowa Microsoft Partner Agreement) nie może przekroczyć 50 000 USD w 12-miesięcznym kroczącym przedziale czasu.
 
 Pojemność zarezerwowana usługi Azure Databricks, rezerwacja usługi Azure VMware Solution by CloudSimple, rezerwacja usługi Azure Red Hat Open Shift, plany oprogramowania Red Hat i plany oprogramowania SUSE Linux nie podlegają zwrotom.
-
-Możliwości samoobsługowej wymiany i anulowania nie są dostępne dla klientów z umową Enterprise Agreement dla instytucji rządowych USA. Inne typy subskrypcji dla instytucji rządowych USA, w tym Płatność zgodnie z rzeczywistym użyciem i Dostawca CSP (Cloud Solution Provider), są obsługiwane.
 
 > [!NOTE]
 > - **Aby wymienić istniejącą rezerwację lub uzyskać zwrot jej kosztów, musisz mieć dostęp właściciela do zamówienia rezerwacji**. Możesz [dodawać lub zmieniać użytkowników, którzy mogą zarządzać rezerwacją](./manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
@@ -49,20 +47,20 @@ Aby uzyskać zwrot kosztów rezerwacji, przejdź do obszaru **Szczegóły rezerw
 
 ## <a name="exchange-multiple-reservations"></a>Wymiana wielu rezerwacji
 
-Można zwrócić podobne typy rezerwacji w jednej akcji.
+Podobne typy rezerwacji można zwrócić w jednej akcji.
 
-Podczas wymiany zastrzeżeń kwota nowej waluty zakupu musi być większa niż kwota zwrotu. Jeśli nowa kwota zakupu jest mniejsza niż kwota zwrotu, zostanie wyświetlony komunikat o błędzie. Jeśli zobaczysz błąd, Zmniejsz ilość, która ma zostać zwrócona, lub Zwiększ kwotę do zakupu.
+Podczas wymiany rezerwacji nowa kwota waluty zakupu musi być większa niż kwota zwrotu. Jeśli nowa kwota zakupu jest mniejsza niż kwota zwrotu, wystąpi błąd. Jeśli zostanie wyświetlony błąd, zmniejsz ilość, którą chcesz zwrócić, lub zwiększ kwotę do zakupu.
 
 1. Zaloguj się do witryny Azure Portal i przejdź do obszaru **Rezerwacje**.
-1. Na liście rezerwacji zaznacz pole wyboru dla każdej rezerwacji, którą chcesz wymienić.
+1. Na liście rezerwacji zaznacz pole dla każdej rezerwacji, którą chcesz wymienić.
 1. W górnej części strony wybierz pozycję **Exchange**.
-1. W razie potrzeby popraw ilość do zwrócenia dla każdej rezerwacji.
-1. W przypadku wybrania automatycznie wypełnionej ilości zwrotnej można wybrać opcję **zwrotu wszystkiego** , aby wypełnić listę pełną ilością, którą dysponujesz dla każdej rezerwacji, lub **zoptymalizować do użycia (7 dni)** , aby wypełnić listę z ilością, która jest optymalizowana pod kątem użycia na podstawie ostatnich siedmiu dni użytkowania. **Wybierz pozycję Zastosuj**.
+1. W razie potrzeby znowelizuj ilość, która ma zostać zwrócona dla każdej rezerwacji.
+1. Jeśli wybierzesz zwracaną ilość automatycznego wypełnienia,  możesz wybrać opcję Zwrot wszystkich, aby wypełnić listę pełną ilością posiadaną dla każdej rezerwacji, lub pozycję Optymalizuj pod kątem wykorzystania **(7 dni),** aby wypełnić listę ilością zoptymalizowaną pod kątem wykorzystania na podstawie ostatnich siedmiu dni użycia. **Wybierz pozycję Zastosuj.**
 1. W dolnej części strony wybierz pozycję **Dalej: Kup**.
-1. Na karcie zakup wybierz dostępne produkty, dla których chcesz nawiązać wymianę. Można wybrać wiele produktów różnych typów.
-1. W okienku wybierz produkt, który chcesz kupić wybierz odpowiednie produkty, a następnie wybierz pozycję **Dodaj do koszyka** , a następnie wybierz pozycję **Zamknij**.
-1. Po zakończeniu wybierz pozycję **Dalej: przegląd**.
-1. Przejrzyj rezerwacje, aby wrócić i nowe rezerwacje do zakupu, a następnie wybierz pozycję **Potwierdź wymianę**.
+1. Na karcie zakup wybierz dostępne produkty, na które chcesz wymienić. Możesz wybrać wiele produktów różnych typów.
+1. W okienku Wybierz produkt, który chcesz kupić, wybierz odpowiednie produkty, a następnie wybierz pozycję Dodaj do **koszyka,** a następnie wybierz pozycję **Zamknij.**
+1. Gdy wszystko będzie gotowe, wybierz pozycję **Dalej: Przejrzyj**.
+1. Przejrzyj rezerwacje do zwrotu i nowe rezerwacje do zakupienia, a następnie wybierz pozycję **Potwierdź wymianę.**
 
 ## <a name="exchange-non-premium-storage-for-premium-storage"></a>Wymiana magazynu spoza warstwy Premium na magazyn w warstwie Premium
 
@@ -105,7 +103,7 @@ Platforma Azure ma następujące zasady dotyczące anulowania, wymiany i zwrotó
 - Obecnie nie naliczamy opłaty za wcześniejsze zakończenie, ale w przyszłości w przypadku anulowania może być naliczana opłata za wcześniejsze zakończenie w wysokości 12%.
 - Łączne anulowane zobowiązanie nie może przekroczyć 50 000 USD w 12-miesięcznym kroczącym przedziale czasu dla profilu rozliczeniowego lub jednej rejestracji. Na przykład w przypadku 3-letniej rezerwacji ze zobowiązaniem 100 USD miesięcznie zwróconej w 18 miesiącu anulowane zobowiązanie to 1800 USD. Po zwrocie nowy dostępny limit zwrotu będzie wynosił 48 200 USD. Po 365 dniach od tego zwrotu limit 48 200 USD zostanie zwiększony o 1800 USD i nowa pula będzie równa 50 000 USD. Każde inne anulowanie rezerwacji dla profilu rozliczeniowego lub rejestracji w ramach umowy EA spowoduje uszczuplenie tej samej puli i stosowana będzie ta sama logika uzupełniania.
 - Platforma Azure nie przetworzy żadnych zwrotów przekraczających limit 50 000 USD w okresie 12 miesięcy dla profilu rozliczeniowego lub rejestracji w ramach umowy EA.
-    - Zwroty wynikające z wymiany nie są wliczane do limitu refundacji.
+    - Zwroty wynikające z wymiany nie są wliczane do limitu zwrotów.
 - Zwroty są obliczane na podstawie najniższej z dwóch kwoty: ceny zakupu i bieżącej ceny rezerwacji.
 - Tylko właściciele zamówienia rezerwacji mogą przetwarzać zwrot. [Dowiedz się, jak dodawać lub zmieniać użytkowników, którzy mogą zarządzać rezerwacją](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 

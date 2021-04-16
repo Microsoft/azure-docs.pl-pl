@@ -1,6 +1,6 @@
 ---
-title: Samouczek dotyczący rotacji zasobów z dwoma zestawami poświadczeń
-description: Skorzystaj z tego samouczka, aby dowiedzieć się, jak zautomatyzować rotację klucza tajnego dla zasobów, które używają dwóch zestawów poświadczeń uwierzytelniania.
+title: Samouczek rotacji zasobów z dwoma zestawami poświadczeń
+description: Z tego samouczka dowiesz się, jak zautomatyzować rotację tajnego hasła dla zasobów, które używają dwóch zestawów poświadczeń uwierzytelniania.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,51 +10,51 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d75ba091ff634bf613722e3a194407beeeda68fb
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 1f656a41b0f447b90f58ec14173e418a2defb72e
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967238"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484833"
 ---
-# <a name="automate-the-rotation-of-a-secret-for-resources-that-have-two-sets-of-authentication-credentials"></a>Automatyzowanie obrotu wpisu tajnego dla zasobów, które mają dwa zestawy poświadczeń uwierzytelniania
+# <a name="automate-the-rotation-of-a-secret-for-resources-that-have-two-sets-of-authentication-credentials"></a>Automatyzowanie rotacji tajnego dla zasobów, które mają dwa zestawy poświadczeń uwierzytelniania
 
-Najlepszym sposobem na uwierzytelnianie w usługach platformy Azure jest użycie [tożsamości zarządzanej](../general/authentication.md), ale istnieje kilka scenariuszy, w których nie jest to opcja. W tych przypadkach są używane klucze dostępu lub hasła. Często należy obrócić klucze dostępu i hasła.
+Najlepszym sposobem uwierzytelniania w usługach [](../general/authentication.md)platformy Azure jest użycie tożsamości zarządzanej, ale w niektórych scenariuszach nie jest to możliwe. W takich przypadkach są używane klucze dostępu lub hasła. Należy często obracać klucze dostępu i hasła.
 
-W tym samouczku pokazano, jak zautomatyzować okresowe rotacje wpisów tajnych dla baz danych i usług korzystających z dwóch zestawów poświadczeń uwierzytelniania. W tym samouczku pokazano, jak obrócić klucze konta usługi Azure Storage przechowywane w Azure Key Vault jako wpisy tajne. Zostanie użyta funkcja wyzwalana przez Azure Event Grid powiadomienia. 
+W tym samouczku pokazano, jak zautomatyzować okresową rotację wpisów tajnych dla baz danych i usług, które używają dwóch zestawów poświadczeń uwierzytelniania. W szczególności w tym samouczku przedstawiono sposób rotacji kluczy kont usługi Azure Storage przechowywanych w usłudze Azure Key Vault jako wpisy tajne. Użyjesz funkcji wyzwolone przez Azure Event Grid powiadomienia. 
 
 > [!NOTE]
-> Klucze konta magazynu mogą być automatycznie zarządzane w Key Vault w przypadku dostarczania tokenów sygnatury dostępu współdzielonego dla delegowanego dostępu do konta magazynu. Istnieją usługi, które wymagają parametrów połączenia konta magazynu z kluczami dostępu. W tym scenariuszu zalecamy rozwiązanie tego problemu.
+> Klucze konta magazynu mogą być automatycznie zarządzane Key Vault użytą w przypadku zapewnienia tokenów sygnatury dostępu współdzielonych w celu delegowanego dostępu do konta magazynu. Istnieją usługi, które wymagają ciągów połączenia konta magazynu z kluczami dostępu. W tym scenariuszu zalecamy to rozwiązanie.
 
 Oto rozwiązanie rotacji opisane w tym samouczku: 
 
-![Diagram przedstawiający rozwiązanie obrotu.](../media/secrets/rotation-dual/rotation-diagram.png)
+![Diagram przedstawiający rozwiązanie rotacji.](../media/secrets/rotation-dual/rotation-diagram.png)
 
-W tym rozwiązaniu Azure Key Vault magazynuje poszczególne klucze dostępu do konta magazynu jako wersje tego samego klucza tajnego, przemienne między klucz podstawowy i pomocniczy w kolejnych wersjach. Jeśli jeden klucz dostępu jest przechowywany w najnowszej wersji wpisu tajnego, klucz alternatywny zostanie ponownie wygenerowany i dodany do Key Vault jako nowa Najnowsza wersja wpisu tajnego. Rozwiązanie udostępnia cały cykl rotacji aplikacji w celu odświeżenia do najnowszego wygenerowanego klucza. 
+W tym rozwiązaniu Azure Key Vault indywidualne klucze dostępu konta magazynu jako wersje tego samego klucza tajnego, naprzemiennie między kluczem podstawowym i pomocniczym w kolejnych wersjach. Gdy jeden klucz dostępu jest przechowywany w najnowszej wersji klucza tajnego, klucz alternatywny jest ponownie generowany i dodawany do Key Vault jako nowa najnowsza wersja klucza tajnego. Rozwiązanie zapewnia cały cykl rotacji aplikacji w celu odświeżenia najnowszego ponownie wygenerowanego klucza. 
 
-1. 30 dni przed datą wygaśnięcia wpisu tajnego, Key Vault publikuje zdarzenie bliskiego wygaśnięcia, aby Event Grid.
-1. Event Grid sprawdza subskrypcje zdarzeń i używa POST protokołu HTTP w celu wywołania punktu końcowego aplikacji funkcji subskrybowanego dla zdarzenia.
+1. Po upływie 30 dni od daty wygaśnięcia tajnego Key Vault publikuje zdarzenie bliskie wygaśnięcia do Event Grid.
+1. Event Grid sprawdza subskrypcje zdarzeń i używa żądania HTTP POST do wywołania punktu końcowego aplikacji funkcji subskrybowanego do zdarzenia.
 1. Aplikacja funkcji identyfikuje klucz alternatywny (nie najnowszy) i wywołuje konto magazynu w celu jego ponownego wygenerowania.
-1. Aplikacja funkcji dodaje nowy ponownie wygenerowany klucz do Azure Key Vault jako nowa wersja klucza tajnego.
+1. Aplikacja funkcji dodaje nowy ponownie wygenerowany klucz do Azure Key Vault jako nową wersję klucza tajnego.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Subskrypcja platformy Azure. [Utwórz je bezpłatnie.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Cloud Shell](https://shell.azure.com/)platformy Azure. Ten samouczek używa Cloud Shell portalu przy użyciu ENV programu PowerShell
+* Azure [Cloud Shell](https://shell.azure.com/). W tym samouczku jest Cloud Shell portal z programem PowerShell env
 * Azure Key Vault.
 * Dwa konta usługi Azure Storage.
 
-Tego linku wdrażania można użyć, jeśli nie masz istniejącego magazynu kluczy i istniejących kont magazynu:
+Tego linku wdrażania możesz użyć, jeśli nie masz istniejącego magazynu kluczy i istniejących kont magazynu:
 
-[![Link, który jest wdrażany na platformie Azure.](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2FARM-Templates%2FInitial-Setup%2Fazuredeploy.json)
+[![Link oznaczony etykietą Deploy to Azure (Wd wdrażaj na platformie Azure).](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2FARM-Templates%2FInitial-Setup%2Fazuredeploy.json)
 
-1. W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową**. Nazwij grupę **vaultrotation** , a następnie wybierz przycisk **OK**.
+1. W **obszarze Grupa zasobów** wybierz pozycję Utwórz **nową.** Nadaj grupie **nazwę vaultrotation,** a następnie wybierz przycisk **OK.**
 1. Wybierz pozycję **Przejrzyj i utwórz**.
 1. Wybierz pozycję **Utwórz**.
 
-    ![Zrzut ekranu pokazujący sposób tworzenia grupy zasobów.](../media/secrets/rotation-dual/dual-rotation-1.png)
+    ![Zrzut ekranu przedstawiający sposób tworzenia grupy zasobów.](../media/secrets/rotation-dual/dual-rotation-1.png)
 
-Teraz masz Magazyn kluczy i dwa konta magazynu. Możesz sprawdzić tę konfigurację w interfejsie wiersza polecenia platformy Azure lub Azure PowerShell, uruchamiając następujące polecenie:
+Będziesz teraz mieć magazyn kluczy i dwa konta magazynu. Możesz zweryfikować tę konfigurację w interfejsie wiersza polecenia platformy Azure Azure PowerShell uruchamiając to polecenie:
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 ```azurecli
 az resource list -o table -g vaultrotation
@@ -66,7 +66,7 @@ Get-AzResource -Name 'vaultrotation*' | Format-Table
 ```
 ---
 
-Wynik będzie wyglądać następująco:
+Wynik będzie wyglądać podobnie do tych danych wyjściowych:
 
 ```console
 Name                     ResourceGroup         Location    Type                               Status
@@ -78,46 +78,46 @@ vaultrotationstorage2    vaultrotation      westus      Microsoft.Storage/storag
 
 ## <a name="create-and-deploy-the-key-rotation-function"></a>Tworzenie i wdrażanie funkcji rotacji kluczy
 
-Następnie utworzysz aplikację funkcji z tożsamością zarządzaną przez system, a także z innymi wymaganymi składnikami. Wdrożono również funkcję rotacji kluczy konta magazynu.
+Następnie utworzysz aplikację funkcji z tożsamością zarządzaną przez system, oprócz innych wymaganych składników. Wdrożysz również funkcję rotacji dla kluczy konta magazynu.
 
 Funkcja rotacji aplikacji funkcji wymaga następujących składników i konfiguracji:
-- Plan Azure App Service
+- Plan Azure App Service aplikacji
 - Konto magazynu do zarządzania wyzwalaczami aplikacji funkcji
 - Zasady dostępu do uzyskiwania dostępu do wpisów tajnych w Key Vault
-- Rola usługi operatora kluczy konta magazynu przypisana do aplikacji funkcji, aby mogła ona uzyskać dostęp do kluczy dostępu do konta magazynu
-- Funkcja rotacji kluczy z wyzwalaczem zdarzenia i wyzwalaczem HTTP (obrót na żądanie)
-- Subskrypcja zdarzeń Event Grid dla zdarzenia **SecretNearExpiry**
+- Rola operatora klucza konta magazynu przypisana do aplikacji funkcji w celu uzyskania dostępu do kluczy dostępu do konta magazynu
+- Funkcja rotacji kluczy z wyzwalaczem zdarzenia i wyzwalaczem HTTP (rotacja na żądanie)
+- Subskrypcja Event Grid dla zdarzenia **SecretNearExpiry**
 
-1. Wybierz link wdrożenie szablonu platformy Azure: 
+1. Wybierz link wdrażania szablonu platformy Azure: 
 
    [![Link wdrażania szablonu platformy Azure.](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2FARM-Templates%2FFunction%2Fazuredeploy.json)
 
 1. Na liście **Grupa zasobów** wybierz pozycję **vaultrotation**.
-1. W polu **RG konta magazynu** wprowadź nazwę grupy zasobów, w której znajduje się konto magazynu. Jeśli konto magazynu znajduje się już w tej samej grupie zasobów, w której zostanie wdrożona Funkcja rotacji kluczy, Zachowaj wartość domyślną **[resourceName (). Name]** .
-1. W polu **nazwa konta magazynu** wprowadź nazwę konta magazynu, które zawiera klucze dostępu do obrócenia. Jeśli używasz konta magazynu utworzonego w [wymaganiach wstępnych](#prerequisites), Zachowaj wartość domyślną **[concat (Resources (). Name, "Storage")]** .
-1. W **Key Vault RG** wprowadź nazwę grupy zasobów, w której znajduje się Twój Magazyn kluczy. Zachowaj wartość domyślną **[resourceName (). Name]** , Jeśli Twój Magazyn kluczy już istnieje w tej samej grupie zasobów, w której zostanie wdrożona Funkcja rotacji kluczy.
-1. W polu **nazwa Key Vault** wprowadź nazwę magazynu kluczy. Jeśli używasz magazynu kluczy utworzonego w [wymaganiach wstępnych](#prerequisites), Zachowaj wartość domyślną **[concat (Resources (). Name, "-KV")]** .
-1. W polu **Typ planu App Service** wybierz pozycję plan hostingu. **Plan Premium** jest wymagany tylko wtedy, gdy Magazyn kluczy znajduje się za zaporą.
-1. W polu **nazwa aplikacja funkcji** wprowadź nazwę aplikacji funkcji.
-1. W polu **Nazwa wpisu tajnego** wprowadź nazwę wpisu tajnego, w którym będą przechowywane klucze dostępu.
-1. W polu **adres URL repozytorium** wprowadź lokalizację kodu funkcji w witrynie GitHub. W tym samouczku można użyć programu **https://github.com/Azure-Samples/KeyVault-Rotation-StorageAccountKey-PowerShell.git** .
+1. W polu **Grupa zasobów konta magazynu** wprowadź nazwę grupy zasobów, w której znajduje się konto magazynu. Zachowaj wartość domyślną **[resourceGroup().name],** jeśli konto magazynu znajduje się już w tej samej grupie zasobów, w której zostanie wdrożona funkcja rotacji kluczy.
+1. W **polu Nazwa konta** magazynu wprowadź nazwę konta magazynu zawierającego klucze dostępu do rotacji. Zachowaj wartość domyślną **[concat(resourceGroup().name, 'storage')],** jeśli używasz konta magazynu utworzonego w [wymaganiach wstępnych](#prerequisites).
+1. W **polu Key Vault RG** wprowadź nazwę grupy zasobów, w której znajduje się magazyn kluczy. Zachowaj wartość domyślną **[resourceGroup().name],** jeśli magazyn kluczy już istnieje w tej samej grupie zasobów, w której zostanie wdrożona funkcja rotacji kluczy.
+1. W **Key Vault Nazwa** klucza wprowadź nazwę magazynu kluczy. Zachowaj wartość domyślną **[concat(resourceGroup().name, '-kv')],** jeśli używasz magazynu kluczy utworzonego w [teksie Prerequisites](#prerequisites).
+1. W polu **App Service Plan hostingu** wybierz pozycję Plan hostingu. **Plan Premium** jest wymagany tylko wtedy, gdy magazyn kluczy znajduje się za zaporą.
+1. W **polu Nazwa aplikacji** funkcji wprowadź nazwę aplikacji funkcji.
+1. W polu **Nazwa klucza** tajnego wprowadź nazwę klucza tajnego, w którym będą przechowywane klucze dostępu.
+1. W polu **Adres URL** repozytorium wprowadź lokalizację kodu funkcji w usłudze GitHub. W tym samouczku możesz użyć funkcji **https://github.com/Azure-Samples/KeyVault-Rotation-StorageAccountKey-PowerShell.git** .
 1. Wybierz pozycję **Przejrzyj i utwórz**.
 1. Wybierz pozycję **Utwórz**.
 
-   ![Zrzut ekranu pokazujący sposób tworzenia i wdrażania funkcji.](../media/secrets/rotation-dual/dual-rotation-2.png)
+   ![Zrzut ekranu przedstawiający sposób tworzenia i wdrażania funkcji.](../media/secrets/rotation-dual/dual-rotation-2.png)
 
-Po wykonaniu powyższych kroków będziesz mieć konto magazynu, farmę serwerów, aplikację funkcji i Application Insights. Po zakończeniu wdrażania zostanie wyświetlona strona:
+Po ukończeniu powyższych kroków będziesz mieć konto magazynu, farmę serwerów, aplikację funkcji i Application Insights. Po zakończeniu wdrażania zobaczysz tę stronę:
 
-   ![Zrzut ekranu pokazujący kompletną stronę wdrożenia.](../media/secrets/rotation-dual/dual-rotation-3.png)
+   ![Zrzut ekranu przedstawiający stronę Wdrożenie jest ukończone.](../media/secrets/rotation-dual/dual-rotation-3.png)
 > [!NOTE]
-> Jeśli wystąpi błąd, możesz wybrać pozycję **Wdróż** ponownie, aby zakończyć wdrażanie składników.
+> Jeśli wystąpi awaria, możesz wybrać pozycję **Wdeń** ponownie, aby zakończyć wdrażanie składników.
 
 
-Szablony i kod wdrożenia dla funkcji rotacji można znaleźć w [przykładach platformy Azure](https://github.com/Azure-Samples/KeyVault-Rotation-StorageAccountKey-PowerShell).
+Szablony wdrażania i kod funkcji rotacji można znaleźć w [przykładach platformy Azure.](https://github.com/Azure-Samples/KeyVault-Rotation-StorageAccountKey-PowerShell)
 
-## <a name="add-the-storage-account-access-keys-to-key-vault"></a>Dodaj klucze dostępu do konta magazynu do Key Vault
+## <a name="add-the-storage-account-access-keys-to-key-vault"></a>Dodaj klucze dostępu konta magazynu do Key Vault
 
-Najpierw ustaw zasady dostępu, aby udzielić uprawnień do zarządzania wpisami **tajnymi** dla podmiotu zabezpieczeń użytkownika:
+Najpierw ustaw zasady dostępu, aby udzielić uprawnień **do zarządzania wpisami tajnymi** dla podmiotu zabezpieczeń użytkownika:
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 ```azurecli
 az keyvault set-policy --upn <email-address-of-user> --name vaultrotation-kv --secret-permissions set delete get list
@@ -129,9 +129,9 @@ Set-AzKeyVaultAccessPolicy -UserPrincipalName <email-address-of-user> --name vau
 ```
 ---
 
-Jako wartość możesz teraz utworzyć nowy klucz tajny z kluczem dostępu konta magazynu. Do wpisów tajnych należy również dodać identyfikator zasobu konta magazynu, tajny okres ważności i identyfikator klucza, aby funkcja rotacji mogła ponownie wygenerować klucz na koncie magazynu.
+Teraz możesz utworzyć nowy klucz tajny z kluczem dostępu konta magazynu jako jego wartością. Będziesz również potrzebować identyfikatora zasobu konta magazynu, okresu ważności klucza tajnego i identyfikatora klucza do dodania do klucza tajnego, aby funkcja rotacji może ponownie wygenerować klucz na koncie magazynu.
 
-Określ identyfikator zasobu konta magazynu. Tę wartość można znaleźć we `id` właściwości.
+Określ identyfikator zasobu konta magazynu. Tę wartość można znaleźć we właściwości `id` .
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 ```azurecli
@@ -144,7 +144,7 @@ Get-AzStorageAccount -Name vaultrotationstorage -ResourceGroupName vaultrotation
 ```
 ---
 
-Wyświetl listę kluczy dostępu do konta magazynu, aby uzyskać wartości klucza:
+Wymień listę kluczy dostępu do konta magazynu, aby uzyskać wartości kluczy:
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 ```azurecli
 az storage account keys list -n vaultrotationstorage
@@ -156,7 +156,7 @@ Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotat
 ```
 ---
 
-Dodaj klucz tajny do magazynu kluczy z datą wygaśnięcia ustawioną na jutro, okres ważności dla 60 dni i identyfikator zasobu konta magazynu. Uruchom to polecenie, używając pobranych wartości dla `key1Value` i `storageAccountResourceId` :
+Dodaj klucz tajny do magazynu kluczy z datą wygaśnięcia ustawioną na jutrzejszy okres ważności przez 60 dni i identyfikatorem zasobu konta magazynu. Uruchom to polecenie, używając pobranych wartości dla `key1Value` i `storageAccountResourceId` :
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 ```azurecli
@@ -177,9 +177,9 @@ Set-AzKeyVaultSecret -Name storageKey -VaultName vaultrotation-kv -SecretValue $
 ```
 ---
 
-Powyżej wpisu tajnego zostanie wyzwolone `SecretNearExpiry` zdarzenie w ciągu kilku minut. To zdarzenie spowoduje wyzwolenie funkcji, aby obrócić wpis tajny o ważności ustawiony na 60 dni. W tej konfiguracji zdarzenie "SecretNearExpiry" zostanie wyzwolone co 30 dni (30 dni przed wygaśnięciem), a funkcja rotacji przejdzie alternatywny obrót między Klucz1 i klucz2.
+Powyższy klucz tajny wyzwoli `SecretNearExpiry` zdarzenie w ciągu kilku minut. To zdarzenie z kolei wyzwoli funkcję, aby obrócić klucz tajny z datą wygaśnięcia ustawioną na 60 dni. W tej konfiguracji zdarzenie "SecretNearExpiry" będzie wyzwalane co 30 dni (30 dni przed wygaśnięciem), a funkcja rotacji będzie zmieniać rotację między kluczem key1 i key2.
 
-Można sprawdzić, czy klucze dostępu zostały ponownie wygenerowane, pobierając klucz konta magazynu i klucz tajny Key Vault i porównując je.
+Możesz sprawdzić, czy klucze dostępu zostały ponownie wygenerowane, pobierania klucza konta magazynu i klucza Key Vault i porównać je.
 
 Użyj tego polecenia, aby uzyskać informacje o kluczu tajnym:
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
@@ -193,9 +193,9 @@ Get-AzKeyVaultSecret -VaultName vaultrotation-kv -Name storageKey -AsPlainText
 ```
 ---
 
-Zwróć uwagę, że `CredentialId` jest ona aktualizowana do alternatywnego `keyName` i `value` wygenerowanego ponownie:
+Zwróć `CredentialId` uwagę, że zmienna jest aktualizowana do alternatywnej i `keyName` `value` jest ponownie generowana:
 
-![Zrzut ekranu, który pokazuje dane wyjściowe z wpisu tajnego magazynu kluczy z, Pokaż polecenie dla pierwszego konta magazynu.](../media/secrets/rotation-dual/dual-rotation-4.png)
+![Zrzut ekranu przedstawiający dane wyjściowe polecenia z keyvault secret show dla pierwszego konta magazynu.](../media/secrets/rotation-dual/dual-rotation-4.png)
 
 Pobierz klucze dostępu, aby porównać wartości:
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
@@ -209,37 +209,37 @@ Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotat
 ```
 ---
 
-Należy zauważyć, że `value` klucz jest taki sam jak wpis tajny w magazynie kluczy:
+Zwróć `value` uwagę, że klucz jest taki sam jak klucz tajny w magazynie kluczy:
 
-![Zrzut ekranu pokazujący dane wyjściowe polecenia listy kluczy konta magazynu z na pierwszym koncie magazynu.](../media/secrets/rotation-dual/dual-rotation-5.png)
+![Zrzut ekranu przedstawiający dane wyjściowe polecenia z listy kluczy konta magazynu dla pierwszego konta magazynu.](../media/secrets/rotation-dual/dual-rotation-5.png)
 
 ## <a name="add-storage-accounts-for-rotation"></a>Dodawanie kont magazynu do rotacji
 
-Możesz użyć tej samej aplikacji funkcji, aby obrócić klucze dla wielu kont magazynu. 
+Możesz ponownie użyć tej samej aplikacji funkcji, aby obrócić klucze dla wielu kont magazynu. 
 
-Aby dodać klucze konta magazynu do istniejącej funkcji rotacji, potrzebne są:
-- Rola usługi operatora kluczy konta magazynu przypisana do aplikacji funkcji, aby mogła ona uzyskać dostęp do kluczy dostępu do konta magazynu.
-- Subskrypcja zdarzeń Event Grid dla zdarzenia **SecretNearExpiry** .
+Aby dodać klucze konta magazynu do istniejącej funkcji w celu rotacji, potrzebne są:
+- Rola operatora klucza konta magazynu przypisana do aplikacji funkcji w celu uzyskania dostępu do kluczy dostępu do konta magazynu.
+- Subskrypcja Event Grid dla zdarzenia **SecretNearExpiry.**
 
-1. Wybierz link wdrożenie szablonu platformy Azure: 
+1. Wybierz link wdrażania szablonu platformy Azure: 
 
    [![Link wdrażania szablonu platformy Azure.](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2FARM-Templates%2FAdd-Event-Subscriptions%2Fazuredeploy.json)
 
 1. Na liście **Grupa zasobów** wybierz pozycję **vaultrotation**.
-1. W polu **RG konta magazynu** wprowadź nazwę grupy zasobów, w której znajduje się konto magazynu. Jeśli konto magazynu znajduje się już w tej samej grupie zasobów, w której zostanie wdrożona Funkcja rotacji kluczy, Zachowaj wartość domyślną **[resourceName (). Name]** .
-1. W polu **nazwa konta magazynu** wprowadź nazwę konta magazynu, które zawiera klucze dostępu do obrócenia.
-1. W **Key Vault RG** wprowadź nazwę grupy zasobów, w której znajduje się Twój Magazyn kluczy. Zachowaj wartość domyślną **[resourceName (). Name]** , Jeśli Twój Magazyn kluczy już istnieje w tej samej grupie zasobów, w której zostanie wdrożona Funkcja rotacji kluczy.
-1. W polu **nazwa Key Vault** wprowadź nazwę magazynu kluczy.
-1. W polu **nazwa aplikacja funkcji** wprowadź nazwę aplikacji funkcji.
-1. W polu **Nazwa wpisu tajnego** wprowadź nazwę wpisu tajnego, w którym będą przechowywane klucze dostępu.
+1. W polu **Grupa zasobów konta magazynu** wprowadź nazwę grupy zasobów, w której znajduje się konto magazynu. Zachowaj wartość domyślną **[resourceGroup().name],** jeśli konto magazynu znajduje się już w tej samej grupie zasobów, w której zostanie wdrożona funkcja rotacji kluczy.
+1. W **polu Nazwa konta** magazynu wprowadź nazwę konta magazynu zawierającego klucze dostępu do rotacji.
+1. W **polu Key Vault RG** wprowadź nazwę grupy zasobów, w której znajduje się magazyn kluczy. Zachowaj wartość domyślną **[resourceGroup().name],** jeśli magazyn kluczy już istnieje w tej samej grupie zasobów, w której zostanie wdrożona funkcja rotacji kluczy.
+1. W **Key Vault Nazwa** klucza wprowadź nazwę magazynu kluczy.
+1. W **polu Nazwa aplikacji** funkcji wprowadź nazwę aplikacji funkcji.
+1. W polu **Nazwa klucza** tajnego wprowadź nazwę klucza tajnego, w którym będą przechowywane klucze dostępu.
 1. Wybierz pozycję **Przejrzyj i utwórz**.
 1. Wybierz pozycję **Utwórz**.
 
-   ![Zrzut ekranu pokazujący sposób tworzenia dodatkowego konta magazynu.](../media/secrets/rotation-dual/dual-rotation-7.png)
+   ![Zrzut ekranu przedstawiający sposób tworzenia dodatkowego konta magazynu.](../media/secrets/rotation-dual/dual-rotation-7.png)
 
-### <a name="add-another-storage-account-access-key-to-key-vault"></a>Dodaj inny klucz dostępu do konta magazynu do Key Vault
+### <a name="add-another-storage-account-access-key-to-key-vault"></a>Dodaj kolejny klucz dostępu konta magazynu do Key Vault
 
-Określ identyfikator zasobu konta magazynu. Tę wartość można znaleźć we `id` właściwości.
+Określ identyfikator zasobu konta magazynu. Tę wartość można znaleźć we właściwości `id` .
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 ```azurecli
 az storage account show -n vaultrotationstorage2
@@ -251,7 +251,7 @@ Get-AzStorageAccount -Name vaultrotationstorage -ResourceGroupName vaultrotation
 ```
 ---
 
-Wyświetl listę kluczy dostępu do konta magazynu, aby uzyskać wartość klucz2:
+Aby uzyskać wartość key2, należy wyświetlić listę kluczy dostępu konta magazynu:
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 ```azurecli
 az storage account keys list -n vaultrotationstorage2
@@ -263,7 +263,7 @@ Get-AzStorageAccountKey -Name vaultrotationstorage2 -ResourceGroupName vaultrota
 ```
 ---
 
-Dodaj klucz tajny do magazynu kluczy z datą wygaśnięcia ustawioną na jutro, okres ważności dla 60 dni i identyfikator zasobu konta magazynu. Uruchom to polecenie, używając pobranych wartości dla `key2Value` i `storageAccountResourceId` :
+Dodaj klucz tajny do magazynu kluczy z datą wygaśnięcia ustawioną na jutrzejszy okres ważności przez 60 dni i identyfikatorem zasobu konta magazynu. Uruchom to polecenie, używając pobranych wartości dla `key2Value` i `storageAccountResourceId` :
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 ```azurecli
@@ -296,9 +296,9 @@ Get-AzKeyVaultSecret -VaultName vaultrotation-kv -Name storageKey2 -AsPlainText
 ```
 ---
 
-Zwróć uwagę, że `CredentialId` jest ona aktualizowana do alternatywnego `keyName` i `value` wygenerowanego ponownie:
+Zwróć `CredentialId` uwagę, że zmienna jest aktualizowana do alternatywnej `keyName` i `value` jest ponownie generowana:
 
-![Zrzut ekranu, który pokazuje dane wyjściowe z wpisu tajnego magazynu kluczy z, Pokaż polecenie dla drugiego konta magazynu.](../media/secrets/rotation-dual/dual-rotation-8.png)
+![Zrzut ekranu przedstawiający dane wyjściowe polecenia z keyvault secret show dla drugiego konta magazynu.](../media/secrets/rotation-dual/dual-rotation-8.png)
 
 Pobierz klucze dostępu, aby porównać wartości:
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
@@ -312,11 +312,11 @@ Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotat
 ```
 ---
 
-Należy zauważyć, że `value` klucz jest taki sam jak wpis tajny w magazynie kluczy:
+Zwróć `value` uwagę, że klucz jest taki sam jak klucz tajny w magazynie kluczy:
 
-![Zrzut ekranu pokazujący dane wyjściowe polecenia listy kluczy konta magazynu z dla drugiego konta magazynu.](../media/secrets/rotation-dual/dual-rotation-9.png)
+![Zrzut ekranu przedstawiający dane wyjściowe polecenia z storage account keys list dla drugiego konta magazynu.](../media/secrets/rotation-dual/dual-rotation-9.png)
 
-## <a name="key-vault-rotation-functions-for-two-sets-of-credentials"></a>Key Vault funkcje obrotu dla dwóch zestawów poświadczeń
+## <a name="key-vault-rotation-functions-for-two-sets-of-credentials"></a>Key Vault funkcje rotacji dla dwóch zestawów poświadczeń
 
 Szablon funkcji rotacji dla dwóch zestawów poświadczeń i kilku gotowych do użycia funkcji:
 
@@ -326,12 +326,12 @@ Szablon funkcji rotacji dla dwóch zestawów poświadczeń i kilku gotowych do u
 - [Cosmos DB](https://serverlesslibrary.net/sample/bcfaee79-4ced-4a5c-969b-0cc3997f47cc)
 
 > [!NOTE]
-> Powyższe funkcje rotacji są tworzone przez członka społeczności, a nie przez firmę Microsoft. Azure Functions Wspólnoty nie są obsługiwane w ramach jakichkolwiek programów lub usług pomocy technicznej firmy Microsoft i są udostępniane w postaci, w jakiej są dostępne bez żadnej rękojmi.
+> Powyższe funkcje rotacji są tworzone przez członka społeczności, a nie przez firmę Microsoft. Program Community Azure Functions nie są obsługiwane w ramach żadnego programu ani usługi pomocy technicznej firmy Microsoft i są udostępniane w wersji AS IS bez jakiejkolwiek gwarancji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Samouczek: [rotacja kluczy tajnych dla jednego zestawu poświadczeń](./tutorial-rotation.md)
-- Przegląd: [monitorowanie Key Vault z Azure Event Grid](../general/event-grid-overview.md)
-- Instrukcje: [Tworzenie pierwszej funkcji w Azure Portal](../../azure-functions/functions-get-started.md)
-- Instrukcje: [otrzymywanie wiadomości e-mail po zmianie Key Vault tajnego](../general/event-grid-logicapps.md)
-- Odwołanie: [schemat zdarzeń Azure Event Grid dla Azure Key Vault](../../event-grid/event-schema-key-vault.md)
+- Samouczek: [rotacja wpisów tajnych dla jednego zestawu poświadczeń](./tutorial-rotation.md)
+- Omówienie: [Monitorowanie Key Vault za pomocą Azure Event Grid](../general/event-grid-overview.md)
+- Jak utworzyć [pierwszą funkcję w Azure Portal](../../azure-functions/functions-get-started.md)
+- Dzieje się tak: [otrzymywanie wiadomości e-mail po Key Vault tajnych](../general/event-grid-logicapps.md)
+- Odwołanie: [Azure Event Grid schematu zdarzeń dla Azure Key Vault](../../event-grid/event-schema-key-vault.md)

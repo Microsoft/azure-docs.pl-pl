@@ -8,12 +8,12 @@ ms.date: 04/13/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: fd4443e4ef6bcecacc03ce190bbf438288c9ec60
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: b59062395c0b05f36dd0f5bd00fbd1acb3ccb2a9
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364060"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529809"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Usługi platformy Azure obsługujące strefy dostępności
 
@@ -21,7 +21,7 @@ Microsoft Azure globalna jest projektowana i konstruowana w każdej warstwie w c
 
 Strefy dostępności to unikatowe fizyczne lokalizacje w regionie świadczenia usługi Azure. Każda strefa składa się z co najmniej jednego centrum danych z niezależnym zasilaniem, chłodzeniem i siecią. Fizyczne rozdzielenie sieci Strefy dostępności w obrębie regionu ogranicza wpływ na aplikacje i dane z awarii stref, takich jak powódź na dużą skalę, duże burze i burze oraz inne zdarzenia, które mogą zakłócać dostęp do lokacji, bezpieczny fragment, dłuższy czas pracy narzędzi i dostępność zasobów. Strefy dostępności i skojarzone z nimi centra danych są zaprojektowane w taki sposób, że w przypadku naruszenia zabezpieczeń jednej strefy usługi, pojemność i dostępność są obsługiwane przez inne Strefy dostępności w regionie.
 
-Wszystkie usługi zarządzania platformą Azure zostały tak zaprojektowane, aby były odporne na awarie na poziomie regionu. W spektrum awarii co najmniej jedna awaria strefy dostępności w regionie ma mniejszy promień awarii w porównaniu z awarią całego regionu. Platforma Azure może odzyskać dane po awarii usług zarządzania na poziomie strefy w regionie. Platforma Azure przeprowadza krytyczną konserwację jednej strefy na raz w regionie, aby zapobiec awariom wpływających na zasoby klientów Strefy dostępności w obrębie regionu.
+Wszystkie usługi zarządzania platformą Azure zostały tak zaprojektowane, aby były odporne na awarie na poziomie regionu. W spektrum awarii co najmniej jedna awaria strefy dostępności w regionie ma mniejszy promień awarii w porównaniu do awarii całego regionu. Platforma Azure może odzyskać dane po awarii usług zarządzania na poziomie strefy w regionie. Platforma Azure przeprowadza krytyczną konserwację jednej strefy na raz w regionie, aby zapobiec awariom wpływających na zasoby klientów Strefy dostępności w obrębie regionu.
 
 
 ![koncepcyjny widok regionu świadczenia usługi Azure z 3 strefami](./media/az-region/azure-region-availability-zones.png)
@@ -41,7 +41,7 @@ Aby zapewnić kompleksową ciągłość działalności biznesowej na platformie 
 ## <a name="azure-services-supporting-availability-zones"></a>Usługi platformy Azure Strefy dostępności
 
  - Maszyny wirtualne starszej generacji nie są wyświetlane na liście. Aby uzyskać więcej informacji, zobacz [Poprzednie generacje rozmiarów maszyn wirtualnych.](../virtual-machines/sizes-previous-gen.md)
- - Jak wspomniano na stronie [Regiony i Strefy dostępności platformie Azure,](az-overview.md)niektóre usługi nie są regionalne. Te usługi nie są zależne od konkretnego regionu świadczenia usługi Azure, ponieważ są odporne na błędy w całej strefie, a także na błędy w całym regionie.  Listę usług innych niż regionalne można znaleźć na stronie [Dostępne produkty według regionów.](https://azure.microsoft.com/global-infrastructure/services/)
+ - Jak wspomniano na stronie [Regiony i Strefy dostępności platformie Azure,](az-overview.md)niektóre usługi są poza regionami. Te usługi nie są zależne od konkretnego regionu świadczenia usługi Azure, ponieważ są odporne na błędy w całej strefie, a także na błędy w całym regionie.  Listę usług innych niż regionalne można znaleźć na stronie [Produkty dostępne według regionów.](https://azure.microsoft.com/global-infrastructure/services/)
 
 
 ## <a name="azure-regions-with-availability-zones"></a>Regiony platformy Azure z Strefy dostępności
@@ -52,7 +52,7 @@ Aby zapewnić kompleksową ciągłość działalności biznesowej na platformie 
 |                    |                      |                     |                |
 | Brazylia Południowa       | Francja Środkowa       | Północna Republika Południowej Afryki* | Australia Wschodnia |
 | Kanada Środkowa     | Niemcy Zachodnio-środkowe |                     | Indie Środkowe* |
-| Central US         | Europa Północna         |                     | Japan East     |
+| Central US         | Europa Północna         |                     | Japonia Wschodnia     |
 | East US            | Południowe Zjednoczone Królestwo             |                     | Korea Środkowa* |
 | Wschodnie stany USA 2          | West Europe          |                     | Southeast Asia |
 | Południowo-środkowe usa |                      |                     |                |
@@ -60,19 +60,19 @@ Aby zapewnić kompleksową ciągłość działalności biznesowej na platformie 
 | Zachodnie stany USA 2        |                      |                     |                |
 | Zachodnie stany USA 3*       |                      |                     |                |
 
-\* Aby dowiedzieć się więcej o Strefy dostępności i pomocy technicznej dotyczącej dostępnych usług w tych regionach, skontaktuj się z przedstawicielem ds. sprzedaży lub klienta firmy Microsoft. Aby uzyskać informacje o nadchodzących regionach, które będą Strefy dostępności, zobacz [Obszary geograficzne platformy Azure.](https://azure.microsoft.com/en-us/global-infrastructure/geographies/)
+\* Aby dowiedzieć się więcej o Strefy dostępności i pomocy technicznej dotyczącej dostępnych usług w tych regionach, skontaktuj się z przedstawicielem działu sprzedaży lub klienta firmy Microsoft. Aby uzyskać informacje o nadchodzących regionach, które będą Strefy dostępności, zobacz [Obszary geograficzne platformy Azure.](https://azure.microsoft.com/en-us/global-infrastructure/geographies/)
 
 
 ## <a name="azure-services-supporting-availability-zones"></a>Usługi platformy Azure Strefy dostępności
 
 - Maszyny wirtualne starszej generacji nie są wymienione poniżej. Aby uzyskać więcej informacji, zobacz [poprzednie generacje rozmiarów maszyn wirtualnych.](../virtual-machines/sizes-previous-gen.md)
 
-- Niektóre usługi nie są regionalne. Aby uzyskać więcej informacji, zobacz Regiony i Strefy dostępności na platformie [Azure.](az-overview.md) Te usługi nie są zależne od konkretnego regionu świadczenia usługi Azure, dzięki czemu są odporne na błędy w całej strefie i w całym regionie.  Listę usług innych niż regionalne można znaleźć na stronie [Dostępne produkty według regionów.](https://azure.microsoft.com/global-infrastructure/services/)
+- Niektóre usługi nie są regionalne. Aby uzyskać więcej informacji, zobacz Regiony i Strefy dostępności na platformie [Azure.](az-overview.md) Te usługi nie są zależne od konkretnego regionu świadczenia usługi Azure, dzięki czemu są odporne na błędy w całej strefie i w całym regionie.  Listę usług innych niż regionalne można znaleźć na stronie [Produkty dostępne według regionów.](https://azure.microsoft.com/global-infrastructure/services/)
 
 
 ### <a name="zone-resilient-services"></a>Usługi odporne na strefy 
 
-:globe_with_meridians: Usługi inne niż regionalne — usługi są zawsze dostępne w lokalizacjach geograficznych platformy Azure i są odporne na błędy w całej strefie, a także na błędy całego regionu.
+:globe_with_meridians: Usługi inne niż regionalne — usługi są zawsze dostępne w lokalizacjach geograficznych platformy Azure i są odporne na błędy w całej strefie, a także na błędy w całym regionie.
 
 :large_blue_diamond: Odporność na błędy w całej strefie 
 
@@ -86,7 +86,7 @@ Aby zapewnić kompleksową ciągłość działalności biznesowej na platformie 
 |     [Azure Data Lake Storage Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)                             | :large_blue_diamond:  |
 |     [Azure Express Route](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute)                                       | :large_blue_diamond:  |
 |     [Publiczny adres IP platformy Azure](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses)                                           | :large_blue_diamond:  |
-|     Azure SQL Database[(warstwa Ogólnego przeznaczenia)](https://docs.microsoft.com/azure/azure-sql/database/high-availability-sla)                 | :large_blue_diamond:  |
+|     Azure SQL Database ([warstwa Ogólnego przeznaczenia](https://docs.microsoft.com/azure/azure-sql/database/high-availability-sla))                 | :large_blue_diamond:  |
 |     Azure SQL Database([Warstwa & Krytyczne dla działania firmy Premium](https://docs.microsoft.com/azure/azure-sql/database/high-availability-sla))     | :large_blue_diamond:  |
 |     [Disk Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy)                                                | :large_blue_diamond:  |
 |     [Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr#availability-zones)                                                  | :large_blue_diamond:  |
@@ -95,14 +95,14 @@ Aby zapewnić kompleksową ciągłość działalności biznesowej na platformie 
 |     [Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-geo-dr#availability-zones)                                                 | :large_blue_diamond:  |
 |     [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cross-availability-zones#:~:text=An%20Availability%20Zone%20is%20a%20unique%20physical%20location,zones.%20This%20will%20ensure%20high-availability%20of%20your%20applications)                                            | :large_blue_diamond:  |
 |     [Konto magazynu](https://docs.microsoft.com/azure/storage/common/storage-redundancy)                                           | :large_blue_diamond:  |
-|     Magazyn:   [warstwy magazynowania Gorąca Blob Storage Chłodna](https://docs.microsoft.com/azure/storage/common/storage-redundancy)                      | :large_blue_diamond:  |
+|     Magazyn:   [warstwy Blob Storage Gorąca/Chłodna](https://docs.microsoft.com/azure/storage/common/storage-redundancy)                      | :large_blue_diamond:  |
 |     Magazyn:   [Dyski zarządzane](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview)                                    | :large_blue_diamond:  |
 |     [Virtual Machines zestawów skalowania](https://docs.microsoft.com/azure/virtual-machine-scale-sets/scripts/cli-sample-zone-redundant-scale-set)                               | :large_blue_diamond:  |
 |     [Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                                          | :large_blue_diamond:  |
 |     Virtual Machines: Seria [Av2](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                              | :large_blue_diamond:  |
 |     Virtual Machines: Seria [Bs](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                               | :large_blue_diamond:  |
-|     Virtual Machines: Seria [DSv2](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                             | :large_blue_diamond:  |
-|     Virtual Machines: [seria DSv3](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                            | :large_blue_diamond:  |
+|     Virtual Machines: seria [DSv2](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                             | :large_blue_diamond:  |
+|     Virtual Machines: [Seria DSv3](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                            | :large_blue_diamond:  |
 |     Virtual Machines: seria [Dv2](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                             | :large_blue_diamond:  |
 |     Virtual Machines: seria [Dv3](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                              | :large_blue_diamond:  |
 |     Virtual Machines: [Seria ESv3](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                             | :large_blue_diamond:  |
@@ -121,6 +121,7 @@ Aby zapewnić kompleksową ciągłość działalności biznesowej na platformie 
 |-----------------------------------------------------------------|:----------------------------:|
 |     [Środowiska usługi App Service](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy)                                    | :large_blue_diamond:  |
 |     [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/overview)                      | :large_blue_diamond:  |
+|     [Usługa Azure API Management](https://docs.microsoft.com/azure/api-management/zone-redundancy)                      | :large_blue_diamond:  |
 |     [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview)                                               | :large_blue_diamond:  |
 |     [Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-high-availability)                              | :large_blue_diamond:  |
 |     [Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-performance-optimization#availability-zones)               | :large_blue_diamond:  |
@@ -145,20 +146,20 @@ Aby zapewnić kompleksową ciągłość działalności biznesowej na platformie 
 |     [Premium Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-performance-tiers#:~:text=Table%201%20%20%20%20Area%20%20,%20%20Currently%20supports%20only%20locally-redundan%20...%20)                                        | :large_blue_diamond:  |
 |     Magazyn: [Azure Premium Files](https://docs.microsoft.com/azure/storage/files/storage-files-planning)                                | :large_blue_diamond:  |
 |     Virtual Machines: [Azure Dedicated Host](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                     | :large_blue_diamond:  |
-|     Virtual Machines: Seria [Ddsv4](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                              | :large_blue_diamond:  |
+|     Virtual Machines: seria [Ddsv4](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                              | :large_blue_diamond:  |
 |     Virtual Machines: [seria Ddv4](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                               | :large_blue_diamond:  |
 |     Virtual Machines: Seria [Dsv4](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                               | :large_blue_diamond:  |
 |     Virtual Machines: seria [Dv4](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                                | :large_blue_diamond:  |
 |     Virtual Machines: seria [Edsv4](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                              | :large_blue_diamond:  |
 |     Virtual Machines: [seria Edv4](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                               | :large_blue_diamond:  |
-|     Virtual Machines: Seria [Esv4](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                               | :large_blue_diamond:  |
+|     Virtual Machines: seria [Esv4](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                               | :large_blue_diamond:  |
 |     Virtual Machines: [Seria Ev4](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                                | :large_blue_diamond:  |
 |     Virtual Machines: Seria [Fsv2](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                               | :large_blue_diamond:  |
 |     Virtual Machines: seria [M](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                                  | :large_blue_diamond:  |
 |     [Wirtualna sieć WAN](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-about#how-are-availability-zones-and-resiliency-handled-in-virtual-wan)                                                 | :large_blue_diamond:  |
 |     Virtual WAN: [ExpressRoute](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-about#how-are-availability-zones-and-resiliency-handled-in-virtual-wan)                                   | :large_blue_diamond:  |
-|     Virtual WAN: [Punkt-lokacja VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways)                      | :large_blue_diamond:  |
-|     Virtual WAN: [lokacja-lokacja — VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways)                       | :large_blue_diamond:  |
+|     Virtual WAN: [Punkt-lokacja — VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways)                      | :large_blue_diamond:  |
+|     Virtual WAN: [lokacja-lokacja VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways)                       | :large_blue_diamond:  |
 
 
 **Wyspecjalizowane usługi**
@@ -197,7 +198,7 @@ Aby zapewnić kompleksową ciągłość działalności biznesowej na platformie 
 |     Cloud Shell                                                 | :globe_with_meridians: |
 |     Content Delivery Network                                    | :globe_with_meridians: |
 |     Cost Management                                             | :globe_with_meridians: |
-|     Skrytka klienta for Microsoft Azure                      | :globe_with_meridians: |
+|     Skrytka klienta dla Microsoft Azure                      | :globe_with_meridians: |
 |     Intune                                                      | :globe_with_meridians: |
 |     Microsoft Azure Peering Service                           | :globe_with_meridians: |
 |     Microsoft Azure Portal                                    | :globe_with_meridians: |
@@ -209,7 +210,7 @@ Aby zapewnić kompleksową ciągłość działalności biznesowej na platformie 
 
 ## <a name="pricing-for-vms-in-availability-zones"></a>Cennik maszyn wirtualnych w Strefy dostępności
 
-Strefy dostępności platformy Azure są dostępne w ramach subskrypcji platformy Azure. Dowiedz się więcej tutaj — [cennik przepustowości.](https://azure.microsoft.com/pricing/details/bandwidth/)
+Strefy dostępności platformy Azure są dostępne w ramach subskrypcji platformy Azure. Dowiedz się więcej tutaj — [cennik przepustowości](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 
 ## <a name="get-started-with-availability-zones"></a>Wprowadzenie do Strefy dostępności
@@ -220,11 +221,11 @@ Strefy dostępności platformy Azure są dostępne w ramach subskrypcji platform
 - [Równoważenie obciążenia maszyn wirtualnych w różnych strefach przy użyciu usługa Load Balancer w warstwie Standardowa frontonie strefowo nadmiarowego](../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard)
 - [Równoważenie obciążenia maszyn wirtualnych w strefie przy użyciu usługa Load Balancer w warstwie Standardowa z frontonem strefowym](../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard)
 - [Magazyn strefowo nadmiarowy](../storage/common/storage-redundancy.md)
-- [SQL Database ogólnego przeznaczenia](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
+- [SQL Database warstwy ogólnego przeznaczenia](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
 - [Geograficzne odzyskiwanie po awarii w usłudze Event Hubs](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Geograficzne odzyskiwanie po awarii w usłudze Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
 - [Tworzenie strefowo nadmiarowej bramy sieci wirtualnej](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
-- [Dodawanie regionu strefowo nadmiarowego dla Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support)
+- [Dodawanie strefowo nadmiarowego regionu dla Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support)
 - [Wprowadzenie Azure Cache for Redis Strefy dostępności](https://gist.github.com/JonCole/92c669ea482bbb7996f6428fb6c3eb97#file-redisazgettingstarted-md)
 - [Utwórz wystąpienie usługi Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md)
 - [Tworzenie klastra Azure Kubernetes Service (AKS), który używa Strefy dostępności](../aks/availability-zones.md)

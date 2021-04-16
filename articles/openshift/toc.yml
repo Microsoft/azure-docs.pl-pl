@@ -30,7 +30,7 @@
           href: howto-restrict-egress.md
     - name: Storage
       items:
-        - name: Szyfrowanie komputerów PVC przy użyciu klucza zarządzanego przez klienta (wersja zapoznawcza)
+        - name: Szyfrowanie pvc za pomocą klucza zarządzanego przez klienta (wersja zapoznawcza)
           href: howto-encrypt-data-disks.md
         - name: Tworzenie elementu Storageclass usługi Azure Files
           href: howto-create-a-storageclass.md
@@ -62,6 +62,8 @@
               href: ../azure-monitor/containers/container-insights-optout-openshift-v4.md
     - name: Opracowywanie i uruchamianie aplikacji
       items:
+        - name: Wdrażanie aplikacji na serwerze przy użyciu Azure Red Hat OpenShift OpenShift Serverless
+          href: howto-deploy-with-serverless.md
         - name: Wdrażanie aplikacji Open Liberty/WebSphere Liberty
           href: howto-deploy-java-liberty-app.md
     - name: Azure Red Hat OpenShift 3.11

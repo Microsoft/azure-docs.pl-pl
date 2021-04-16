@@ -19,17 +19,21 @@
       href: quickstarts/label-tool.md
 - name: Samples
   items:
-    - name: 'C#/.NET: zestaw SDK biblioteki klienta aparatu rozpoznawania formularzy'
+    - name: 'C#/.NET: zestaw SDK Rozpoznawanie formularzy klienta'
       href: /samples/azure/azure-sdk-for-net/azure-form-recognizer-client-sdk-samples
-    - name: 'Java: zestaw SDK biblioteki klienta aparatu rozpoznawania formularzy'
+    - name: 'Java: zestaw SDK Rozpoznawanie formularzy klienta'
       href: /samples/azure/azure-sdk-for-java/formrecognizer-java-samples
-    - name: 'Python: zestaw SDK biblioteki klienta aparatu rozpoznawania formularzy'
+    - name: 'Python: zestaw SDK Rozpoznawanie formularzy klienta'
       href: /samples/azure/azure-sdk-for-python/formrecognizer-samples
+    - name: Zestaw SDK biblioteki klienta Rozpoznawanie formularzy JavaScript
+      href: /samples/azure/azure-sdk-for-js/ai-form-recognizer-javascript/
+    - name: Interfejs API REST i cURL
+      href: 'https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer'
 - name: Przewodniki z instrukcjami
   items:
     - name: Tworzenie zestawu danych szkoleniowych
       href: build-training-data-set.md
-    - name: Używanie tagów tabeli do uczenia modelu niestandardowego
+    - name: Trenowanie modelu niestandardowego przy użyciu tagów tabeli
       href: supervised-table-tags.md
     - name: Wdrażanie przykładowego narzędzia do oznaczania etykietami
       href: deploy-label-tool.md
@@ -53,7 +57,7 @@
     - name: Interfejs API układu
       expanded: true
       items:
-        - name: Wyodrębnij dane formularza
+        - name: Wyodrębnianie danych formularza
           href: concept-layout.md
     - name: Modele niestandardowe
       href: concept-custom.md
@@ -63,7 +67,7 @@
       href: concept-business-cards.md
     - name: Faktury
       href: concept-invoices.md
-    - name: Karty identyfikacyjne
+    - name: Dokumenty tożsamości
       href: concept-identification-cards.md
 - name: Samouczki
   items:
@@ -73,11 +77,11 @@
       href: ../../search/cognitive-search-custom-skill-form.md
     - name: Korzystanie z usługi Rozpoznawanie formularzy w usłudze AI Builder
       href: tutorial-ai-builder.md
-    - name: Używanie aparatu rozpoznawania formularzy z Azure Functions
+    - name: Używanie Rozpoznawanie formularzy z Azure Functions
       href: tutorial-azure-function.md
 - name: Odwołanie
   items:
-    - name: Interfejs API aparatu rozpoznawania formularzy v 2.1 (wersja zapoznawcza). 3
+    - name: Rozpoznawanie formularzy API w wersji 2.1 (wersja zapoznawcza 3)
       href: 'https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm'
     - name: Interfejs API rozpoznawania formularzy w wersji 2.0
       href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm'

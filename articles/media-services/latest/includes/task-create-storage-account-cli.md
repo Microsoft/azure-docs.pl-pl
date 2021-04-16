@@ -4,13 +4,13 @@ ms.service: media-services
 ms.topic: include
 ms.date: 08/17/2020
 ms.author: inhenkel
-ms.custom: CLI
-ms.openlocfilehash: f0d0322f6f5f14b94a67285fe8688d72c941b3a4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: CLI, devx-track-azurecli
+ms.openlocfilehash: ff8bfbeea8bd22619375e88081da0cf9c0770fc9
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105104166"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107511758"
 ---
 <!-- ### Create a storage account -->
 
@@ -20,7 +20,7 @@ Musisz mieć jedno **główne** konto magazynu i możesz mieć dowolną liczbę 
 
 W tym przykładzie utworzymy konto ogólnego przeznaczenia w wersji 2 magazynu LRS w warstwie Standardowa. Jeśli chcesz poeksperymentować z kontami magazynu, użyj parametru `--sku Standard_LRS`. Jednak podczas wybierania jednostki SKU dla środowiska produkcyjnego weź pod uwagę użycie parametru `--sku Standard_RAGRS`, co zapewnia replikację geograficzną na potrzeby zapewnienia ciągłości działania. Aby uzyskać więcej informacji, zobacz temat [Konta magazynu](/cli/azure/storage/account).
 
-Poniższe polecenie tworzy konto usługi Storage, które ma zostać skojarzone z kontem usługi Media Services. W poniższym skrypcie należy zastąpić `storageaccountforams` własną nazwą unikatowe o długości krótszej niż 24 znaki. `amsResourceGroup` musi być zgodna z wartością podaną dla grupy zasobów w poprzednim kroku.
+Poniższe polecenie tworzy konto usługi Storage, które ma zostać skojarzone z kontem usługi Media Services. W poniższym skrypcie zastąp zmienną własną nazwą o długości mniejszej `storageaccountforams` niż 24 znaki. `amsResourceGroup` musi być zgodne z wartością podaną dla grupy zasobów w poprzednim kroku.
 
 ```azurecli
 az storage account create --name storageaccountforams --kind StorageV2 --sku Standard_LRS -l westus2 -g amsResourceGroup

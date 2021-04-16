@@ -1,19 +1,21 @@
 ---
-title: Szybki Start — Tworzenie tabeli usługi Azure Storage w Azure Portal
-description: W tym przewodniku szybki start Użyj Table service w Azure Portal, aby utworzyć tabelę usługi Azure Storage. Zobacz też, jak utworzyć konto usługi Azure Storage.
+title: Szybki start — tworzenie tabeli usługi Azure Storage w Azure Portal
+description: W tym przewodniku Szybki start użyjemy usługi Table Service w Azure Portal, aby utworzyć tabelę usługi Azure Storage. Zobacz też, jak utworzyć konto usługi Azure Storage.
 services: storage
-ms.service: storage
 author: tamram
 ms.author: tamram
-ms.topic: quickstart
 ms.date: 12/02/2019
+ms.topic: quickstart
+ms.service: storage
 ms.subservice: tables
-ms.openlocfilehash: 93c6cb0f61185457ef0684d2a1ba691a0534aa13
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- mode-portal
+ms.openlocfilehash: fabfd0031ddd8ff58af346274c454b107c00779b
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96326781"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529477"
 ---
 # <a name="quickstart-create-an-azure-storage-table-in-the-azure-portal"></a>Szybki start: tworzenie tabeli usługi Azure Storage w witrynie Azure Portal 
 
@@ -31,15 +33,15 @@ Teraz możesz użyć usługi Table service w witrynie Azure Portal, aby utworzy�
 
 1. Kliknij pozycję Przegląd > Tabele.
 
-   ![W systemie vmamcgestorage konto magazynu jest wyróżnione na karcie Przegląd. W okienku Przegląd w obszarze usługi tabele są wyróżnione.](media/table-storage-quickstart-portal/table-storage-quickstart-01.png)
+   ![Na maszynie wirtualnejmcgestorage na koncie magazynu wyróżniona jest karta Przegląd. W okienku Przegląd w obszarze Usługi wyróżnione są tabele.](media/table-storage-quickstart-portal/table-storage-quickstart-01.png)
 
 2. Kliknij pozycję **+ Tabela**.
 
-   ![W Table service dla vmamcgestorage opcja + tabela jest wyróżniona.](media/table-storage-quickstart-portal/table-storage-quickstart-02.png)
+   ![W usłudze Table Service dla vmamcgestorage opcja + Tabela jest wyróżniona.](media/table-storage-quickstart-portal/table-storage-quickstart-02.png)
 
 3. Wpisz nazwę tabeli w polu **Nazwa tabeli**, a następnie kliknij pozycję **OK**. 
 
-   ![Na karcie Dodawanie tabeli Table service, Moja tabela jest wprowadzana do nazwy tabeli i jest wyróżniona. Przycisk OK jest zaznaczony i wyróżniony.](media/table-storage-quickstart-portal/table-storage-quickstart-03.png)
+   ![Na karcie Dodawanie tabeli w usłudze Tabela moja tabela jest wprowadzana w obszarze Nazwa tabeli i jest wyróżniona. Przycisk OK jest zaznaczony i wyróżniony.](media/table-storage-quickstart-portal/table-storage-quickstart-03.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

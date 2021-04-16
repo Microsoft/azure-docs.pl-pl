@@ -12,9 +12,9 @@ items:
         href: create-catalog-portal.md
       - name: Tworzenie konta usługi Purview — Azure PowerShell
         href: create-catalog-powershell.md
-      - name: Tworzenie konta kontrolą — zestaw SDK dla platformy .NET
+      - name: Tworzenie konta programu Purview — zestaw SDK platformy .NET
         href: create-purview-dotnet.md
-      - name: Tworzenie konta kontrolą — Python
+      - name: Tworzenie konta programu Purview — Python
         href: create-purview-python.md
   - name: Samouczki
     items:
@@ -106,7 +106,7 @@ items:
               - name: Wystąpienie zarządzane usługi Azure SQL Database
                 href: register-scan-azure-sql-database-managed-instance.md
                 displayName: Register and scan Azure SQL DB Managed Instance
-              - name: 'Dedykowana Pula SQL platformy Azure (dawniej: SQL DW)'
+              - name: Dedykowana pula SQL platformy Azure (wcześniej SQL DW)
                 href: register-scan-azure-synapse-analytics.md
               - name: Lokalny serwer SQL
                 href: register-scan-on-premises-sql-server.md
@@ -130,7 +130,7 @@ items:
             href: how-to-manage-term-templates.md
       - name: Edycja zbiorcza
         items:
-          - name: Zbiorcze edytowanie zasobów do adnotacji i kontaktów tagów
+          - name: Zbiorcze edytowanie zasobów w celu tagowanie adnotacji i kontaktów
             href: how-to-bulk-edit-assets.md
       - name: Klasyfikowanie
         items:
@@ -172,7 +172,7 @@ items:
             href: sensitivity-insights.md
           - name: Wyświetlanie analiz rozszerzeń nazw plików
             href: file-extension-insights.md
-      - name: Zabezpieczenia & sieci
+      - name: Sieci & zabezpieczeń
         items:
           - name: Zarządzanie prywatnymi punktami końcowymi
             href: catalog-private-link.md
@@ -182,3 +182,11 @@ items:
         href: supported-classifications.md
       - name: Przewodnik wdrażania funkcji ABAP
         href: abap-functions-deployment-guide.md
+  - name: Zasoby
+    items:
+      - name: Opinie dotyczące funkcji (opinie użytkowników)
+        href: 'https://feedback.azure.com/forums/932437-azure-purview'
+      - name: Kalkulator cen
+        href: 'https://azure.microsoft.com/pricing/details/azure-purview/'
+      - name: Forum usługi Microsoft Q&A
+        href: 'https://docs.microsoft.com/answers/topics/azure-purview.html'
