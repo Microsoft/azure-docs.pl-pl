@@ -10,16 +10,16 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: b22954edf4f3a5a935c470326aa43bd24ee2d708
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 61fcbfa9d40ebb26485ce8160fa3b011935ab4d6
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107366066"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536319"
 ---
 # <a name="creating-a-synapse-workspace"></a>Tworzenie obszaru roboczego synapse
 
-W tym samouczku dowiesz się, jak utworzyć obszar roboczy usługi Synapse, dedykowaną pulę SQL i bez serwera Apache Spark pulę. 
+Z tego samouczka dowiesz się, jak utworzyć obszar roboczy usługi Synapse, dedykowaną pulę SQL i bez serwera Apache Spark pulę. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -43,12 +43,15 @@ Wypełnij następujące pola:
 Wypełnij następujące pola:
 
 1. **Nazwa obszaru roboczego** — wybierz dowolną globalnie unikatową nazwę. W tym samouczku użyjemy przestrzeni **myworkspace.**
-1. **Region** — wybierz dowolny region.
+1. **Region** — wybierz region, w którym umieszczono aplikacje/usługi klienckie (na przykład maszynę wirtualną platformy Azure, usługę Power BI, usługę Azure Analysis Service) i magazyny zawierające dane (na przykład magazyn usługi Azure Data Lake lub magazyn analityczny Azure Cosmos DB Azure).
+
+> [!NOTE]
+> Obszar roboczy, który nie jest kolokowany z aplikacjami klienckimi lub magazynem, może być główną przyczyną wielu problemów z wydajnością. Jeśli dane lub klienci znajdują się w wielu regionach, można utworzyć oddzielne obszary robocze w różnych regionach kolokowanych przy użyciu danych i klientów.
 
 W **obszarze Wybierz Data Lake Storage Gen 2:**
 
 1. Według **nazwy konta** wybierz pozycję **Utwórz** nowe i nadaj nowemu kontu magazynu **nazwę contosolake** lub podobną, ponieważ nazwa musi być unikatowa.
-1. Według **nazwy systemu plików** wybierz pozycję Utwórz **nowy** i nadaj jej **nazwę użytkownikom**. Spowoduje to utworzenie kontenera magazynu o nazwie **users**. Obszar roboczy będzie używać tego konta magazynu jako "podstawowego" konta magazynu w tabelach platformy Spark i dziennikach aplikacji platformy Spark.
+1. Według **nazwy systemu plików** wybierz pozycję Utwórz **nowy** i nadaj jej **nazwę użytkownikom.** Spowoduje to utworzenie kontenera magazynu o nazwie **users**. Obszar roboczy będzie używać tego konta magazynu jako "podstawowego" konta magazynu w tabelach platformy Spark i dziennikach aplikacji platformy Spark.
 1. Zaznacz pole "Przypisz sobie rolę współautora danych obiektu blob usługi Storage na Data Lake Storage Gen2 magazynu". 
 
 ## <a name="completing-the-process"></a>Kończenie procesu
@@ -71,8 +74,8 @@ W tym przewodniku z wprowadzeniem użyjemy przykładowego zestawu danych dotycz�
 * Pobierz ten plik na komputer: https://azuresynapsestorage.blob.core.windows.net/sampledata/NYCTaxiSmall/NYCTripSmall.parquet 
 * W Synapse Studio przejdź do centrum danych. 
 * Wybierz pozycję **Połączone.**
-* W kategorii **Azure Data Lake Storae Gen2** zostanie wyświetlony element o nazwie, na przykład **myworkspace (Podstawowa — contosolake).**
-* Wybierz kontener o nazwie **users (Primary) (Użytkownicy podstawowi).**
+* W kategorii **Azure Data Lake Storage Gen2** zostanie wyświetlony element o nazwie, na przykład **myworkspace ( Primary - contosolake )**.
+* Wybierz kontener o nazwie **użytkownicy (podstawowy).**
 * Wybierz **pozycję** Przekaż i `NYCTripSmall.parquet` wybierz pobrany plik.
 
 ## <a name="next-steps"></a>Następne kroki

@@ -1,5 +1,5 @@
 ---
-title: Tworzenie aplikacji kątowej z interfejsem API Azure Cosmos DB dla MongoDB (part1)
+title: Tworzenie aplikacji Angular przy użyciu Azure Cosmos DB API usługi MongoDB (część 1)
 description: Część 4 z serii samouczków o tworzeniu aplikacji bazy danych MongoDB przy użyciu usługi Angular i języka Node dla usługi Azure Cosmos DB przy użyciu dokładnie tych samych interfejsów API, które były używane dla bazy danych MongoDB
 author: johnpapa
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: jopapa
-ms.custom: seodec18, devx-track-js
+ms.custom: seodec18, devx-track-js, devx-track-azurecli
 ms.reviewer: sngun
-ms.openlocfilehash: 4ca7286676c441b2fa96883e0c187497f59d6222
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0690f7f6d0807af181740a7133ec5400fc64cc12
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93082631"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482283"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-cosmos-account"></a>Tworzenie aplikacji Angular przy użyciu interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB — tworzenie konta usługi Cosmos
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -49,7 +49,7 @@ W tej sekcji samouczka możesz użyć usługi Azure Cloud Shell (w przeglądarce
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Tworzenie konta usługi Azure Cosmos DB
 
-Utwórz konto Azure Cosmos DB za pomocą [`az cosmosdb create`](/cli/azure/cosmosdb#az-cosmosdb-create) polecenia.
+Utwórz konto Azure Cosmos DB za pomocą [`az cosmosdb create`](/cli/azure/cosmosdb#az-cosmosdb-create) polecenia .
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB
@@ -62,14 +62,14 @@ Wykonanie polecenia może potrwać minutę lub dwie. Po zakończeniu w oknie ter
 
 Po utworzeniu konta usługi Azure Cosmos DB:
 1. Otwórz nowe okno przeglądarki i przejdź do [https://portal.azure.com](https://portal.azure.com)
-1. Kliknij logo Azure Cosmos DB :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-icon.png"::: na pasku po lewej stronie, a zobaczysz wszystkie Cosmos baz danych.
+1. Kliknij Azure Cosmos DB na pasku po lewej stronie, aby wyświetlać wszystkie posiadane magazyny danych usługi :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-icon.png"::: Azure Cosmos.
 1. Kliknij właśnie utworzone konto usługi Azure Cosmos DB, wybierz kartę **Omówienie** i przewiń w dół, aby na mapie wyświetlić lokalizację bazy danych. 
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-angular-portal.png" alt-text="Zrzut ekranu przedstawia przegląd konta usługi Azure Cosmos D B.":::
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-angular-portal.png" alt-text="Zrzut ekranu przedstawia omówienie konta usługi Azure Cosmos D B.":::
 
 4. Przewiń w dół w lewym obszarze nawigacji i kliknij kartę **Replikuj dane globalnie**. Spowoduje to wyświetlenie mapy, na której można zobaczyć różne potencjalne docelowe obszary replikacji. Można na przykład kliknąć region Australia Południowo-Wschodnia lub Australia Wschodnia i replikować dane do klientów w Australii. Więcej informacji o replikacji globalnej można znaleźć w temacie [How to distribute data globally with Azure Cosmos DB (Jak dystrybuować dane globalnie przy użyciu usługi Azure Cosmos DB)](distribute-data-globally.md). Na razie zajmijmy się jednym wystąpieniem, które w razie potrzeby możemy zreplikować, ponieważ już znamy sposób.
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-replicate-portal.png" alt-text="Zrzut ekranu przedstawia konto usługi Azure Cosmos D B z wybranym globalnie replikowanymi danymi.":::
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-replicate-portal.png" alt-text="Zrzut ekranu przedstawia konto usługi Azure Cosmos D B z globalnie wybranymi opcjami Replikuj dane.":::
 
 ## <a name="next-steps"></a>Następne kroki
 

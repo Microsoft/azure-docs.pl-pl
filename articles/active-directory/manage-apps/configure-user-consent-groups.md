@@ -1,63 +1,63 @@
 ---
-title: Konfigurowanie zgody właściciela grupy na aplikacje uzyskujące dostęp do danych grupy przy użyciu usługi Azure AD
-description: Dowiedz się, czy właściciele grup i zespołów mogą wyrazić zgodę na aplikacje, które będą miały dostęp do danych grupy lub zespołu.
+title: Konfigurowanie zgody właściciela grupy na dostęp aplikacji do danych grupy przy użyciu usługi Azure AD
+description: Dowiedz się, czy właściciele grupy i zespołu mogą wyrazić zgodę na aplikacje, które będą mieć dostęp do danych grupy lub zespołu.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 8d8604a1dd54ed819bb9e27c46d61a46466bf3da
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be28148aacf270f2f3cfabad4cbd5f03afa05d3b
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102548805"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374424"
 ---
-# <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Konfigurowanie zgody właściciela grupy na aplikacje uzyskujące dostęp do danych grupy
+# <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Konfigurowanie zgody właściciela grupy na dostęp aplikacji do danych grupy
 
-Właściciele grup i zespołów mogą autoryzować aplikacje, takie jak aplikacje opublikowane przez dostawców innych firm, w celu uzyskania dostępu do danych organizacji skojarzonych z grupą. Na przykład właściciel zespołu w usłudze Microsoft Teams może zezwalać aplikacji na odczytywanie wszystkich zespołów komunikatów w zespole lub wyświetlanie listy profilu podstawowego członków grupy. Aby dowiedzieć się więcej, zobacz temat [wyrażanie zgody na zasoby w usłudze Microsoft Teams](/microsoftteams/resource-specific-consent) .
+Właściciele grupy i zespołu mogą autoryzować aplikacje, takie jak aplikacje opublikowane przez innych dostawców, do uzyskiwania dostępu do danych organizacji skojarzonych z grupą. Na przykład właściciel zespołu w aplikacji Microsoft Teams może zezwolić aplikacji na odczytywanie wszystkich komunikatów usługi Teams w zespole lub wyświetlić podstawowy profil członków grupy. Aby dowiedzieć [się więcej, zobacz](/microsoftteams/resource-specific-consent) Zgoda specyficzna dla zasobów w aplikacji Microsoft Teams.
 
 ## <a name="manage-group-owner-consent-to-apps"></a>Zarządzanie zgodą właściciela grupy na aplikacje
 
-Można skonfigurować, którzy użytkownicy mogą wyrazić zgodę na aplikacje uzyskujące dostęp do swoich grup lub zespołów, lub wyłączyć tę opcję dla wszystkich użytkowników.
+Możesz skonfigurować użytkowników, którzy mogą wyrazić zgodę na dostęp aplikacji do danych grup lub zespołów, lub wyłączyć tę opcję dla wszystkich użytkowników.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Wykonaj następujące kroki, aby zarządzać zgodą właściciela grupy na aplikacje uzyskujące dostęp do danych grupy:
+Wykonaj następujące kroki, aby zarządzać zgodą właściciela grupy na dostęp aplikacji do danych grupy:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako [administrator globalny](../roles/permissions-reference.md#global-administrator).
-2. Wybierz pozycję **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**  >  **i uprawnienia do**  >  **ustawień zgody użytkownika**.
-3. W obszarze **właściciel grupy wyrażanie zgody na aplikacje uzyskujące dostęp do danych** wybierz opcję, którą chcesz włączyć.
-4. Wybierz pozycję **Zapisz** , aby zapisać ustawienia.
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) jako [administrator globalny.](../roles/permissions-reference.md#global-administrator)
+2. Wybierz **Azure Active Directory**  >  **przedsiębiorstwa Ustawienia**  >  **wyrażania zgody i** uprawnień przez  >  **użytkownika.**
+3. W **obszarze Zgoda właściciela grupy dla aplikacji,** które mają dostęp do danych, wybierz opcję, która chcesz włączyć.
+4. Wybierz **pozycję Zapisz,** aby zapisać ustawienia.
 
-W tym przykładzie wszyscy właściciele grupy mogą wyrazić zgodę na aplikacje uzyskujące dostęp do danych ich grup:
+W tym przykładzie wszyscy właściciele grup mogą wyrazić zgodę na dostęp aplikacji do danych grup:
 
 :::image type="content" source="media/configure-user-consent-groups/group-owner-consent.png" alt-text="Ustawienia zgody właściciela grupy":::
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-Możesz użyć modułu Azure AD PowerShell w wersji zapoznawczej, [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview), aby włączyć lub wyłączyć możliwość wyrażania zgody na dostęp do danych organizacji przez właścicieli grup.
+Możesz użyć modułu Azure AD PowerShell (wersja zapoznawcza), [AzureADPreview,](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview)aby włączyć lub wyłączyć możliwość wyrażania zgody przez właścicieli grup na dostęp do danych organizacji dla grup, których są właścicielami.
 
-1. Upewnij się, że używasz modułu [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) . Ten krok jest ważny, jeśli zainstalowano moduł [AzureAD](/powershell/module/azuread/) i moduł [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) .
+1. Upewnij się, że używasz modułu [AzureADPreview.](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) Ten krok jest ważny, jeśli zainstalowano zarówno moduł [AzureAD,](/powershell/module/azuread/) jak i [moduł AzureADPreview).](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview)
 
     ```powershell
     Remove-Module AzureAD
     Import-Module AzureADPreview
     ```
 
-1. Nawiązywanie połączenia z usługą Azure AD PowerShell.
+1. Nawiązywanie połączenia z programem PowerShell usługi Azure AD.
 
    ```powershell
    Connect-AzureAD
    ```
 
-1. Pobierz bieżącą wartość ustawień **zasad** dotyczących ustawień katalogu w dzierżawie. Wymaga to sprawdzenia, czy zostały utworzone ustawienia katalogu dla tej funkcji, a jeśli nie, użyj wartości z odpowiedniego szablonu ustawień katalogu.
+1. Pobierz bieżącą wartość ustawień katalogu **Ustawienia zasad zgody** w dzierżawie. Wymaga to sprawdzenia, czy ustawienia katalogu dla tej funkcji zostały utworzone, a jeśli nie, przy użyciu wartości z odpowiedniego szablonu ustawień katalogu.
 
     ```powershell
     $consentSettingsTemplateId = "dffd5d46-495d-40a9-8e21-954ff55e198a" # Consent Policy Settings
@@ -72,12 +72,12 @@ Możesz użyć modułu Azure AD PowerShell w wersji zapoznawczej, [AzureADPrevie
     $limitedToValue = $settings.Values | ? { $_.Name -eq "ConstrainGroupSpecificConsentToMembersOfGroupId" }
     ```
 
-1. Zapoznaj się z wartościami ustawień. Istnieją dwie wartości ustawień, które definiują, którzy użytkownicy będą mogli zezwolić aplikacji na dostęp do danych swojej grupy:
+1. Zrozumienie wartości ustawień. Istnieją dwie wartości ustawień, które definiują, którzy użytkownicy będą mogli zezwolić aplikacji na dostęp do danych grupy:
 
     | Ustawienie       | Typ         | Opis  |
     | ------------- | ------------ | ------------ |
-    | _EnableGroupSpecificConsent_   | Wartość logiczna | Flaga oznaczająca, czy właściciele grup mogą udzielać uprawnień specyficznych dla grupy. |
-    | _ConstrainGroupSpecificConsentToMembersOfGroupId_ | Guid (identyfikator GUID) | Jeśli _EnableGroupSpecificConsent_ jest ustawiona na wartość "true", a ta wartość jest ustawiona na identyfikator obiektu grupy, członkowie wskazanej grupy będą uprawnieni do przyznawania uprawnień specyficznych dla grupy do grup, których są właścicielami. |
+    | _EnableGroupSpecificConsent_   | Wartość logiczna | Flaga wskazująca, czy właściciele grup mogą udzielać uprawnień specyficznych dla grupy. |
+    | _ConstrainGroupSpecificConsentToMembersOfGroupId_ | Guid (identyfikator GUID) | Jeśli _parametr EnableGroupSpecificConsent_ jest ustawiony na wartość "True", a ta wartość jest ustawiona na identyfikator obiektu grupy, członkowie zidentyfikowanej grupy będą autoryzowani do udzielania uprawnień specyficznych dla grupy do posiadanych grup. |
 
 1. Zaktualizuj wartości ustawień dla żądanej konfiguracji:
 
@@ -118,10 +118,10 @@ Możesz użyć modułu Azure AD PowerShell w wersji zapoznawczej, [AzureADPrevie
 Dodatkowe informacje:
 
 * [Konfigurowanie ustawień zgody użytkownika](configure-user-consent.md)
-* [Konfigurowanie przepływu pracy zgody administratora](configure-admin-consent-workflow.md)
-* [Dowiedz się, jak zarządzać zgodą na aplikacje i oszacować wnioski o zgodę](manage-consent-requests.md)
+* [Konfigurowanie przepływu pracy wyrażania zgody przez administratora](configure-admin-consent-workflow.md)
+* [Dowiedz się, jak zarządzać zgodami na aplikacje i oceniać żądania zgody](manage-consent-requests.md)
 * [Udzielanie zgody administratora całej dzierżawy dla aplikacji](grant-admin-consent.md)
 * [Uprawnienia i zgoda na platformie tożsamości firmy Microsoft](../develop/v2-permissions-and-consent.md)
 
-Aby uzyskać pomoc lub znaleźć odpowiedzi na pytania:
-* [Usługa Azure AD w firmie Microsoft Q&A ](/answers/topics/azure-active-directory.html)
+Aby uzyskać pomoc lub znaleźć odpowiedzi na swoje pytania:
+* [Usługa Azure AD w witrynie Microsoft Q&A ](/answers/topics/azure-active-directory.html)

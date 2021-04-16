@@ -114,13 +114,13 @@
           href: speech-synthesis-markup.md
         - name: Syntetyzowanie mowy przy użyciu interfejsu API długich form audio
           href: long-audio-api.md
-        - name: Pobierz zdarzenia ułożenia twarzy dla programu lip-sync
+        - name: Uzyskiwanie zdarzeń pozy twarzy do synchronizacji
           href: how-to-speech-synthesis-viseme.md
         - name: Dostosowywanie
           items:
             - name: Portal głosu niestandardowego
               items:
-                - name: Co to jest niestandardowy neuronowych Voice?
+                - name: Co to jest niestandardowy neuronowy model głosu?
                   href: custom-neural-voice.md
                 - name: Wprowadzenie do usługi Custom Voice
                   displayName: 'custom voice, neural voice'
@@ -137,11 +137,11 @@
                   href: how-to-audio-content-creation.md
     - name: Odpowiedzialne użycie sztucznej inteligencji
       items:
-        - name: Niestandardowy głos neuronowych
+        - name: niestandardowy neuronowy model głosu
           items:
             - name: Uwaga dotycząca przezroczystości
               items:
-                - name: Przypadki użycia dla niestandardowego głosu neuronowych
+                - name: Przypadki użycia dla niestandardowy neuronowy model głosu
                   href: /legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
                 - name: Charakterystyka i ograniczenia
                   href: /legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
@@ -149,7 +149,7 @@
               items:
                 - name: Ograniczony dostęp
                   href: /legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
-                - name: Odpowiedzialne wdrożenie syntetycznej mowy
+                - name: Odpowiedzialne wdrażanie syntetycznej mowy
                   href: concepts-guidelines-responsible-deployment-synthetic.md
                 - name: Ujawnianie dotyczące aktorów głosowych
                   href: /legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context
@@ -159,7 +159,7 @@
                   href: concepts-disclosure-patterns.md
                 - name: Kodeks postępowania
                   href: /legal/cognitive-services/speech-service/tts-code-of-conduct?context=/azure/cognitive-services/speech-service/context/context
-            - name: 'Dane, prywatność i zabezpieczenia'
+            - name: 'Dane, prywatność i bezpieczeństwo'
               href: /legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
     - name: Dokumentacja
       items:
@@ -462,7 +462,7 @@
       href: how-to-track-speech-sdk-memory-usage.md
     - name: Włączanie prywatnego punktu końcowego
       href: speech-services-private-link.md
-    - name: Włącz punkt końcowy usługi sieci wirtualnej
+    - name: Włączanie punktu końcowego usługi sieci wirtualnej
       href: speech-service-vnet-service-endpoint.md
     - name: Konfigurowanie biblioteki OpenSSL dla systemu Linux
       displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
@@ -470,7 +470,7 @@
     - name: Konfigurowanie systemu RHEL/CentOS 7
       href: how-to-configure-rhel-centos-7.md
       displayName: 'RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO'
-    - name: Kontenery
+    - name: Korzystanie z kontenerów
       items:
         - name: Instalowanie i uruchamianie kontenerów usługi Mowa
           displayName: 'containers,install container,run container'
@@ -497,6 +497,12 @@
           href: how-to-migrate-from-bing-speech.md
         - name: Z interfejsu API tłumaczenia mowy w usłudze Translator
           href: how-to-migrate-from-translator-speech-api.md
+    - name: Gotowość przedsiębiorstwa
+      items:
+        - name: Konfigurowanie sieci wirtualnych
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/speech-service/context/context
+        - name: Korzystanie z kluczy zarządzanych przez klienta
+          href: speech-encryption-of-data-at-rest.md
 - name: Urządzenia
   items:
     - name: Dokumentacja urządzeń usługi Mowa
@@ -582,7 +588,13 @@
           href: 'https://speech.microsoft.com'
         - name: Tworzenie aplikacji z poleceniami niestandardowymi przy użyciu usługi Speech Studio
           href: ./quickstart-custom-commands-application.md
-    - name: Opcje pomocy technicznej
+    - name: Gotowość przedsiębiorstwa
+      items:
+        - name: Obsługa regionów
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Zgodność i certyfikacja
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Opcje wsparcia technicznego i pomocy
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
     - name: Dokumentacja platformy Swagger
       href: swagger-documentation.md
@@ -591,10 +603,6 @@
       href: sovereign-clouds.md
     - name: Kalkulator cen
       href: 'https://azure.microsoft.com/pricing/calculator/#cognitive-services'
-    - name: Zgodność
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Szyfrowanie
-      href: speech-encryption-of-data-at-rest.md
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
     - name: Ochrona prywatności i pliki cookie

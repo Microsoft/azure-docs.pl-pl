@@ -1,6 +1,6 @@
 ---
-title: Szybki Start — Zarządzanie numerami telefonów przy użyciu usług Azure Communications Services
-description: Dowiedz się, jak zarządzać numerami telefonów przy użyciu usług Azure Communications Services
+title: Szybki start — zarządzanie numerami telefonów przy użyciu Azure Communication Services
+description: Dowiedz się, jak zarządzać numerami telefonów przy użyciu Azure Communication Services
 author: prakulka
 manager: nmurav
 services: azure-communication-services
@@ -10,16 +10,18 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
 zone_pivot_groups: acs-azp-java-net-python-csharp-js
-ms.openlocfilehash: 0f4a461ac5d459c6e3311400785e34bc22f40a00
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 19bb79f9a4deaebfacc75918c46a5516d2d398be
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728457"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107498201"
 ---
-# <a name="quickstart-manage-phone-numbers"></a>Szybki Start: Zarządzanie numerami telefonów
+# <a name="quickstart-manage-phone-numbers"></a>Szybki start: zarządzanie numerami telefonów
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
+
+[!INCLUDE [Bulk Acquisition Instructions](../../includes/phone-number-special-order.md)]
 
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/phone-numbers-portal.md)]
@@ -43,25 +45,25 @@ ms.locfileid: "105728457"
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Często zadawane pytania i problemy:
+Typowe pytania i problemy:
 
-- Telefon zakupów jest obsługiwany tylko w Stanach Zjednoczonych. Aby kupić numery telefonów, upewnij się, że:
-  - Skojarzony adres rozliczeniowy subskrypcji platformy Azure znajduje się w Stany Zjednoczone. W tej chwili nie można przenieść zasobu do innej subskrypcji.
-  - Zasób usług komunikacyjnych jest inicjowany w lokalizacji danych Stany Zjednoczone. W tej chwili nie można przenieść zasobu do innej lokalizacji danych.
+- Telefon do zakupu jest obsługiwany tylko w Usa. Aby kupić numery telefonów, upewnij się, że:
+  - Skojarzony adres rozliczeniowy subskrypcji platformy Azure znajduje się w Stany Zjednoczone. Obecnie nie można przenieść zasobu do innej subskrypcji.
+  - Zasób Communication Services jest aprowowany w Stany Zjednoczone lokalizacji danych. Obecnie nie można przenieść zasobu do innej lokalizacji danych.
 
-- Po wydaniu numeru telefonu numer telefonu nie zostanie wykupiony lub nie można go wykupić do końca cyklu rozliczeniowego.
+- Po zwolnieniu numeru telefonu numer telefonu nie zostanie zwolniony ani nie będzie można go ponownie wykupić do końca cyklu rozliczeniowego.
 
-- Po usunięciu zasobu usług komunikacyjnych numery telefonów skojarzone z tym zasobem będą automatycznie wydawane w tym samym czasie.
+- Po usunięciu zasobu Communication Services numery telefonów skojarzone z tym zasobem zostaną automatycznie wydane w tym samym czasie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start zawarto informacje na temat wykonywania tych instrukcji:
+W tym przewodniku Szybki start opisano, jak:
 
 > [!div class="checklist"]
-> * Kup numer telefonu
+> * Kupowanie numeru telefonu
 > * Zarządzanie numerem telefonu
 > * Zwolnij numer telefonu
 
 > [!div class="nextstepaction"]
-> [Wyślij wiadomość SMS](../telephony-sms/send.md) 
+> [Wysyłanie wiadomości SMS](../telephony-sms/send.md) 
 >  [Wprowadzenie do wywoływania](../voice-video-calling/getting-started-with-calling.md)

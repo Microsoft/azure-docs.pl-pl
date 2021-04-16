@@ -112,7 +112,7 @@
           href: import-logic-app-as-api.md
         - name: Edytowanie interfejsu API
           href: edit-api.md
-        - name: Konfigurowanie zaplecza Service Fabric
+        - name: Konfigurowanie Service Fabric zaplecza
           href: how-to-configure-service-fabric-backend.md
     - name: Aprowizowanie i skalowanie
       items:
@@ -128,6 +128,9 @@
           href: configure-custom-domain.md
         - name: Wdrażanie w wielu regionach platformy Azure
           href: api-management-howto-deploy-multi-region.md
+        - name: Włączanie nadmiarowości strefowej
+          displayName: Availability zones
+          href: zone-redundancy.md
         - name: Aprowizowanie własnej bramy
           href: api-management-howto-provision-self-hosted-gateway.md
         - name: Wdrażanie własnej bramy w usłudze Azure Kubernetes Service
@@ -245,7 +248,7 @@
           href: api-management-transformation-policies.md
         - name: Zasady integracji środowiska Dapr (Distributed Application Runtime)
           href: api-management-dapr-policies.md
-        - name: Zasady walidacji
+        - name: Zasady weryfikacji
           href: validation-policies.md
     - name: Zarządzanie w produkcji
       items:
@@ -283,7 +286,7 @@
               href: ../service-fabric/service-fabric-api-management-overview.md
             - name: Samouczek
               href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
-        - name: Diagnozuj problemy w środowisku produkcyjnym
+        - name: Diagnozowanie problemów w środowisku produkcyjnym
           href: diagnose-solve-problems.md
 - name: Dokumentacja
   items:

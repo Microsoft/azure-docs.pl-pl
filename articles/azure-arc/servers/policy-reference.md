@@ -1,21 +1,21 @@
 ---
-title: Wbudowane definicje zasad dla serwerów z obsługą usługi Azure Arc
-description: Azure Policy wyświetla listę wbudowanych definicji zasad dla serwerów z obsługą usługi Azure ARC (wersja zapoznawcza). Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 03/31/2021
+title: Wbudowane definicje zasad dla Azure Arc serwerów z obsługą usługi
+description: Wyświetla Azure Policy wbudowanych definicji zasad dla serwerów z Azure Arc (wersja zapoznawcza). Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
+ms.date: 04/14/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 890981e8d1b0d6f8eb09df87b095f60035a1682f
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 58a5d95db27973352db5cba99a3a869cc5b0e972
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106095677"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107499663"
 ---
-# <a name="azure-policy-built-in-definitions-for-azure-arc-enabled-servers"></a>Azure Policy wbudowane definicje dla serwerów z obsługą usługi Azure Arc
+# <a name="azure-policy-built-in-definitions-for-azure-arc-enabled-servers"></a>Azure Policy wbudowane definicje dla Azure Arc serwerów z obsługą usługi
 
-Ta strona jest indeksem [Azure Policy](../../governance/policy/overview.md) wbudowanych definicji zasad dla serwerów z obsługą usługi Azure Arc. Aby uzyskać dodatkowe Azure Policy wbudowane dla innych usług, zobacz [Azure Policy wbudowane definicje](../../governance/policy/samples/built-in-policies.md).
+Ta strona jest indeksem [Azure Policy](../../governance/policy/overview.md) wbudowanych definicji zasad dla Azure Arc serwerów. Aby uzyskać Azure Policy wbudowanych funkcji dla innych usług, [Azure Policy wbudowane definicje](../../governance/policy/samples/built-in-policies.md).
 
-Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **wersja** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
+Nazwa każdej wbudowanej definicji zasad jest linkiem do definicji zasad w Azure Portal. Użyj linku w kolumnie **Wersja,** aby wyświetlić źródło w Azure Policy [GitHub.](https://github.com/Azure/azure-policy)
 
 ## <a name="azure-arc-enabled-servers"></a>Serwery z usługą Azure Arc
 

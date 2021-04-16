@@ -1,7 +1,7 @@
 ---
-title: Sprawdzanie Video Indexer danych wyjściowych produkowanych przez interfejs API V2 na platformie Azure
+title: Badanie danych wyjściowych Video Indexer przez interfejs API w wersji 2 — Azure
 titleSuffix: Azure Media Services
-description: W tym temacie przedstawiono Azure Media Services Video Indexer dane wyjściowe generowane przez interfejs API v2.
+description: W tym temacie przeanalizowano Azure Media Services Video Indexer danych wyjściowych wytwarzanych przez interfejs API w wersji 2.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,65 +10,65 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/16/2020
 ms.author: juliako
-ms.openlocfilehash: 2ac7c3c2149ce43c860c7726381733ef377de8d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84bb4766b3a896823dd0bef023f8042965a85846
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100530743"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532869"
 ---
-# <a name="examine-the-video-indexer-output"></a>Sprawdzanie danych wyjściowych Video Indexer
+# <a name="examine-the-video-indexer-output"></a>Badanie Video Indexer danych wyjściowych
 
-Gdy plik wideo jest indeksowany, Video Indexer generuje zawartość JSON, która zawiera szczegółowe informacje o określonych danych wideo. Szczegółowe informacje obejmują: transkrypcje, OCRs, twarze, tematy, bloki itp. Każdy typ usługi Insights obejmuje wystąpienia zakresów czasu, które są wyświetlane, gdy szczegółowe informacje pojawiają się w filmie wideo. 
+Gdy plik wideo jest indeksowany, Video Indexer tworzy zawartość JSON, która zawiera szczegółowe informacje o określonym wideo. Szczegółowe informacje obejmują transkrypcje, OPR, twarze, tematy, bloki itp. Każdy typ szczegółowych informacji zawiera wystąpienia zakresów czasu, które są wyświetlane, gdy szczegółowe informacje pojawiają się w wideo. 
 
-Możesz wizualnie zapoznać się ze szczegółowymi informacjami na temat wideo, naciskając przycisk **odtwarzania** na filmie wideo w witrynie [Video Indexer](https://www.videoindexer.ai/) . 
+Możesz wizualnie przeanalizować podsumowane szczegółowe informacje o  wideo, naciskając przycisk Odtąd w wideo w [Video Indexer](https://www.videoindexer.ai/) internetowej. 
 
-Możesz również użyć interfejsu API, wywołując interfejs API **pobierania indeksu wideo** , a stan odpowiedzi to OK, uzyskujesz szczegółowe dane wyjściowe JSON jako zawartość odpowiedzi.
+Możesz również użyć interfejsu API, wywołując interfejs **API** pobierz indeks wideo, a stan odpowiedzi to OK. Jako zawartość odpowiedzi otrzymasz szczegółowe dane wyjściowe JSON.
 
 ![Insights](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
 
-Ten artykuł bada dane wyjściowe Video Indexer (zawartość JSON). <br/>Aby uzyskać informacje o dostępnych funkcjach i szczegółowych danych, zobacz [Video Indexer Insights](video-indexer-overview.md#video-insights).
+W tym artykule analizujemy Video Indexer danych wyjściowych (zawartość JSON). <br/>Aby uzyskać informacje o dostępnych funkcjach i szczegółowych informacjach, [zobacz Video Indexer szczegółowe informacje.](video-indexer-overview.md#video-insights)
 
 > [!NOTE]
-> Wygaśnięcie wszystkich tokenów dostępu w Video Indexer wynosi godzinę.
+> Wygaśnięcie wszystkich tokenów dostępu w programie Video Indexer wynosi jedną godzinę.
 
-## <a name="get-the-insights"></a>Uzyskaj wgląd w szczegółowe dane
+## <a name="get-the-insights"></a>Uzyskiwanie szczegółowych informacji
 
-### <a name="insightsoutput-produced-in-the-websiteportal"></a>Szczegółowe informacje/dane wyjściowe utworzone w witrynie sieci Web/portalu
+### <a name="insightsoutput-produced-in-the-websiteportal"></a>Szczegółowe informacje/dane wyjściowe w witrynie internetowej/portalu
 
 1. Przejdź do witryny internetowej [Video Indexer](https://www.videoindexer.ai/) i zaloguj się.
-1. Znajdź wideo, którego dane wyjściowe chcesz sprawdzić.
+1. Znajdź wideo, którego dane wyjściowe chcesz zbadać.
 1. Naciśnij pozycję **Play** (Odtwórz).
-1. Wybierz kartę **szczegółowe** dane (podsumowanie szczegółowych informacji) lub kartę **oś czasu** (umożliwia filtrowanie odpowiednich szczegółowych informacji).
-1. Pobierz artefakty i zapoznaj się z nimi.
+1. Wybierz **kartę Szczegółowe informacje** (podsumowane szczegółowe informacje) lub **kartę Oś** czasu (umożliwia filtrowanie odpowiednich szczegółowych informacji).
+1. Pobierz artefakty i ich co się w nich dzieje.
 
-Aby uzyskać więcej informacji, zobacz [Wyświetlanie i edytowanie wglądu w dane wideo](video-indexer-view-edit.md).
+Aby uzyskać więcej informacji, zobacz [Wyświetlanie i edytowanie szczegółowych informacji o wideo.](video-indexer-view-edit.md)
 
-## <a name="insightsoutput-produced-by-api"></a>Szczegółowe informacje/dane wyjściowe generowane przez interfejs API
+## <a name="insightsoutput-produced-by-api"></a>Szczegółowe informacje/dane wyjściowe produkowane przez interfejs API
 
-1. Aby pobrać plik JSON, wywołaj [interfejs API indeksu pobierania wideo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?)
-1. Jeśli interesuje Cię również określone artefakty, wywołaj [interfejs API pobierania artefaktów wideo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Artifact-Download-Url?)
+1. Aby pobrać plik JSON, wywołaj interfejs [API pobierania indeksu wideo](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index)
+1. Jeśli interesują Cię również określone artefakty, wywołaj interfejs API pobierania [artefaktów wideo](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Artifact-Download-Url)
 
-    W wywołaniu interfejsu API Określ żądany typ artefaktu (OCR, twarzy, ramki kluczowe itp.)
+    W wywołaniu interfejsu API określ żądany typ artefaktu (OCR, twarze, ramki kluczowe itp.)
 
 ## <a name="root-elements-of-the-insights"></a>Główne elementy szczegółowych informacji
 
 |Nazwa|Opis|
 |---|---|
-|accountId|Identyfikator konta w VI listy odtwarzania.|
+|accountId|Identyfikator konta VI listy odtwarzania.|
 |identyfikator|Identyfikator listy odtwarzania.|
 |name|Nazwa listy odtwarzania.|
 |description (opis)|Opis listy odtwarzania.|
 |userName|Nazwa użytkownika, który utworzył listę odtwarzania.|
-|utworzony|Godzina utworzenia listy odtwarzania.|
-|Ustawienia prywatności|Tryb prywatności listy odtwarzania (prywatny/publiczny).|
-|stan|Lista odtwarzania (przekazana, przetwarzanie, przetwarzanie, Niepowodzenie, poddane kwarantannie).|
-|Jestem właścicielem|Wskazuje, czy lista odtwarzania została utworzona przez bieżącego użytkownika.|
-|isedytowalne|Wskazuje, czy bieżący użytkownik ma uprawnienia do edytowania listy odtwarzania.|
-|IsBase|Wskazuje, czy lista odtwarzania jest podstawową listą odtwarzania (wideo) czy listą odtwarzania z innych filmów wideo (pochodnych).|
+|Utworzone|Czas tworzenia listy odtwarzania.|
+|tryb privacyMode|Tryb prywatności listy odtwarzania (prywatna/publiczna).|
+|stan|Listy odtwarzania (przekazane, przetwarzane, przetworzone, nieudane, poddane kwarantannie).|
+|isOwned|Wskazuje, czy lista odtwarzania została utworzona przez bieżącego użytkownika.|
+|Iseditable|Wskazuje, czy bieżący użytkownik ma uprawnienia do edytowania listy odtwarzania.|
+|isBase|Wskazuje, czy lista odtwarzania to podstawowa lista odtwarzania (wideo), czy lista odtwarzania z innych filmów wideo (pochodna).|
 |durationInSeconds|Łączny czas trwania listy odtwarzania.|
 |summarizedInsights|Zawiera jeden [summarizedInsights](#summarizedinsights).
-|wideo|Lista [filmów wideo](#videos) tworzących listę odtwarzania.<br/>Jeśli ta lista odtwarzania skonstruowanych zakresów czasu innych filmów wideo (pochodnych), wideo na tej liście będzie zawierać tylko dane z dołączonych zakresów czasu.|
+|wideo|Lista filmów [wideo konstruowania](#videos) listy odtwarzania.<br/>Jeśli ta lista odtwarzania zawiera zakresy czasu innych filmów wideo (pochodnych), filmy wideo na tej liście będą zawierać tylko dane z uwzględnionych zakresów czasu.|
 
 ```json
 {
@@ -95,48 +95,48 @@ W tej sekcji przedstawiono podsumowanie szczegółowych informacji.
 
 |Atrybut | Opis|
 |---|---|
-|name|Nazwa filmu wideo. Na przykład Azure Monitor.|
-|identyfikator|Identyfikator filmu wideo. Na przykład 63c6d532ff.|
-|Ustawienia prywatności|Podział może mieć jeden z następujących trybów: **prywatny**, **publiczny**. **Public** — wideo jest widoczne dla wszystkich użytkowników na Twoim koncie i dla wszystkich użytkowników, którzy mają link do filmu wideo. **Prywatny** — wideo jest widoczne dla wszystkich użytkowników Twojego konta.|
-|czas trwania|Zawiera jeden okres czasu, który opisuje czas wystąpienia szczegółowych informacji. Czas trwania jest w sekundach.|
-|thumbnailVideoId|Identyfikator filmu wideo, z którego zrobiono miniaturę.
-|thumbnailId|Identyfikator miniatury wideo. Aby uzyskać rzeczywistą miniaturę, wywołaj polecenie [Get-Thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) i przekaż je ThumbnailVideoId i thumbnailId.|
-|twarze/animatedCharacters|Może zawierać zero lub więcej twarzy. Aby uzyskać szczegółowe informacje, zobacz twarzy [/animatedCharacters](#facesanimatedcharacters).|
-|keywords (słowa kluczowe)|Może zawierać zero lub więcej słów kluczowych. Aby uzyskać szczegółowe informacje, zobacz [słowa kluczowe](#keywords).|
-|mową|Może zawierać zero lub więcej mową. Aby uzyskać szczegółowe informacje, zobacz [mową](#sentiments).|
-|audioEffects| Może zawierać zero lub więcej audioEffects. Aby uzyskać szczegółowe informacje, zobacz [audioEffects](#audioeffects-public-preview).|
-|Etykieta| Może zawierać zero lub więcej etykiet. Aby uzyskać szczegółowe informacje, zobacz [etykiety](#labels).|
-|Marek| Może zawierać zero lub więcej marek. Aby uzyskać szczegółowe informacje, zobacz [marki](#brands).|
-|statystyki | Aby uzyskać szczegółowe informacje, zobacz [Statystyka](#statistics).|
-|emocji| Może zawierać zero lub więcej emocji. Aby uzyskać szczegółowe informacje, zobacz [emocji](#emotions).|
-|opisano|Może zawierać zero lub więcej tematów. Szczegółowe informacje dotyczące [tematów](#topics) .|
+|name|Nazwa wideo. Na przykład Azure Monitor.|
+|identyfikator|Identyfikator wideo. Na przykład 63c6d532ff.|
+|tryb privacyMode|Podział może mieć jeden z następujących trybów: **Prywatny**, **Publiczny**. **Publiczne** — film wideo jest widoczny dla wszystkich użytkowników na Twoim koncie i dla wszystkich osób, które mają link do tego filmu wideo. **Prywatne** — film wideo jest widoczny dla wszystkich użytkowników na Twoim koncie.|
+|czas trwania|Zawiera jeden czas trwania, który opisuje czas, w jaki wystąpił wgląd w szczegółowe dane. Czas trwania jest w sekundach.|
+|thumbnailVideoId|Identyfikator wideo, z którego została podjęta miniatura.
+|thumbnailId|Identyfikator miniatury filmu wideo. Aby uzyskać rzeczywistą miniaturę, wywołaj [get-thumbnail](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Thumbnail) i przekaż ją thumbnailVideoId i thumbnailId.|
+|twarze/animowaneznaki|Może zawierać zero lub więcej twarzy. Aby uzyskać bardziej szczegółowe informacje, zobacz [twarze/animowaneznaki.](#facesanimatedcharacters)|
+|keywords (słowa kluczowe)|Może zawierać zero lub więcej słów kluczowych. Aby uzyskać bardziej szczegółowe informacje, zobacz [słowa kluczowe](#keywords).|
+|Uczucia|Może zawierać zero lub więcej tonacji. Aby uzyskać bardziej szczegółowe informacje, zobacz [tonacji](#sentiments).|
+|audioEffects| Może zawierać zero lub więcej audioEffects. Aby uzyskać bardziej szczegółowe informacje, zobacz [audioEffects](#audioeffects-public-preview).|
+|Etykiety| Może zawierać zero lub więcej etykiet. Aby uzyskać szczegółowe informacje, zobacz [etykiety](#labels).|
+|Marek| Może zawierać zero lub więcej marek. Aby uzyskać bardziej szczegółowe informacje, zobacz [marki](#brands).|
+|statystyki | Aby uzyskać bardziej szczegółowe informacje, zobacz [statystyki](#statistics).|
+|Emocje| Może zawierać zero lub więcej emocji. Aby uzyskać bardziej szczegółowe informacje, zobacz [temat Emotions (Emocje).](#emotions)|
+|Tematy|Może zawierać zero lub więcej tematów. Szczegółowe [informacje dotyczące](#topics) tematów.|
 
 ## <a name="videos"></a>wideo
 
 |Nazwa|Opis|
 |---|---|
-|accountId|Identyfikator konta wideo VI.|
-|identyfikator|Identyfikator wideo.|
+|accountId|Identyfikator konta VI filmu wideo.|
+|identyfikator|Identyfikator filmu wideo.|
 |name|Nazwa filmu wideo.
-|stan|Stan filmu wideo (przekazany, przetwarzany, przetworzony, Niepowodzenie, poddane kwarantannie).|
+|stan|Stan filmu wideo (przekazany, przetwarzany, przetworzony, nieudany, poddany kwarantannie).|
 |processingProgress|Postęp przetwarzania podczas przetwarzania (na przykład 20%).|
-|failureCode|Kod błędu w przypadku niepowodzenia przetwarzania (na przykład "UnsupportedFileType").|
-|failureMessage|Komunikat o niepowodzeniu, jeśli przetworzenie nie powiodło się.|
-|externalId|Zewnętrzny identyfikator wideo (jeśli jest określony przez użytkownika).|
-|externalUrl|Zewnętrzny adres URL wideo (jeśli jest określony przez użytkownika).|
-|metadane|Zewnętrzne metadane wideo (Jeśli określone przez użytkownika).|
-|isdorosły|Wskazuje, czy film wideo został ręcznie sprawdzony i zidentyfikowany jako wiadomość wideo dla dorosłych.|
-|Insights|Obiekt Insights. Aby uzyskać więcej informacji, zobacz [szczegółowe](#insights)informacje.|
-|thumbnailId|Identyfikator miniatury wideo. Aby uzyskać rzeczywiste wywołanie miniatury i przekazać je do identyfikatora [wideo i thumbnailId](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) .|
-|publishedUrl|Adres URL do przesyłania strumieniowego wideo.|
-|publishedUrlProxy|Adres URL do przesyłania strumieniowego wideo z programu (dla urządzeń firmy Apple).|
-|viewToken|Krótkoterminowy token widoku do przesyłania strumieniowego wideo.|
-|sourceLanguage|Język źródłowy wideo.|
-|language|Rzeczywisty język wideo (tłumaczenia).|
+|kod błędu|Kod błędu, jeśli przetwarzanie nie powiodło się (na przykład "UnsupportedFileType").|
+|failureMessage|Komunikat o błędzie, jeśli przetwarzanie nie powiodło się.|
+|externalId|Identyfikator zewnętrzny filmu wideo (jeśli jest określony przez użytkownika).|
+|Externalurl|Zewnętrzny adres URL filmu wideo (jeśli jest określony przez użytkownika).|
+|metadane|Metadane zewnętrzne filmu wideo (jeśli zostały określone przez użytkownika).|
+|isAdult|Wskazuje, czy wideo zostało ręcznie przejmowane i zidentyfikowane jako wideo dla dorosłych.|
+|Spostrzeżenia|Obiekt szczegółowych informacji. Aby uzyskać więcej informacji, zobacz [szczegółowe informacje.](#insights)|
+|thumbnailId|Identyfikator miniatury filmu wideo. Aby uzyskać rzeczywiste wywołanie [miniatury Get-Thumbnail](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Thumbnail) i przekazać do niego identyfikator wideo i thumbnailId.|
+|publishedUrl|Adres URL do strumieniowego przesyłania wideo.|
+|publishedUrlProxy|Adres URL do strumieniowego przesyłania wideo (dla urządzeń firmy Apple).|
+|viewToken|Token widoku krótkotrwałego do przesyłania strumieniowego wideo.|
+|sourceLanguage (język źródłowy)|Język źródłowy filmu wideo.|
+|language|Rzeczywisty język (tłumaczenie) filmu wideo.|
 |indexingPreset|Ustawienie wstępne używane do indeksowania wideo.|
-|streamingPreset|Ustawienie wstępne używane do publikowania filmu wideo.|
-|linguisticModelId|Model CRI używany do transkrypcja wideo.|
-|statystyki | Aby uzyskać więcej informacji, zobacz [Statystyka](#statistics).|
+|streamingPreset|Ustawienie wstępne używane do publikowania wideo.|
+|linguisticModelId|Model CRIS używany do transkrypcji wideo.|
+|statystyki | Aby uzyskać więcej informacji, zobacz [statystyki](#statistics).|
 
 ```json
 {
@@ -163,31 +163,31 @@ W tej sekcji przedstawiono podsumowanie szczegółowych informacji.
     }],
 }
 ```
-### <a name="insights"></a>Insights
+### <a name="insights"></a>Spostrzeżenia
 
-Każdy wgląd (na przykład wiersze transkrypcji, twarzy, marki itp.) zawiera listę unikatowych elementów (na przykład face1, face2, face3), a każdy element ma własne metadane i listę jego wystąpień (czyli zakresy czasowe z dodatkowymi opcjonalnymi metadanymi).
+Każdy wgląd (na przykład linie transkrypcji, twarze, marki itp.) zawiera listę unikatowych elementów (na przykład face1, face2, face3), a każdy element ma własne metadane i listę swoich wystąpień (które są zakresami czasu z dodatkowymi opcjonalnymi metadanymi).
 
-Obiekt może mieć identyfikator, nazwę, miniaturę, inne metadane i listę wystąpień czasowych (na przykład: 00:00:05 – 00:00:10, 00:01:00-00:02:30 i 00:41:21 – 00:41:49). Każde wystąpienie czasowe może mieć dodatkowe metadane. Na przykład współrzędne prostokąta powierzchni (20230, 60, 60).
+Twarz może mieć identyfikator, nazwę, miniaturę, inne metadane i listę jej wystąpień czasowych (na przykład: 00:00:05 – 00:00:10, 00:01:00 - 00:02:30 i 00:41:21 – 00:41:49.) Każde wystąpienie czasowe może mieć dodatkowe metadane. Na przykład współrzędne prostokąta twarzy (20 230 60,60).
 
 |Wersja|Wersja kodu|
 |---|---|
-|sourceLanguage|Język źródłowy wideo (przy założeniu, że jeden język główny). W postaci ciągu [BCP-47](https://tools.ietf.org/html/bcp47) .|
-|language|Język informacji szczegółowych (przetłumaczony od języka źródłowego). W postaci ciągu [BCP-47](https://tools.ietf.org/html/bcp47) .|
-|zapisy|Wgląd w dane [transkrypcji](#transcript) .|
-|aparat|Szczegółowe informacje [OCR](#ocr) .|
-|keywords (słowa kluczowe)|Informacje o [słowach kluczowych](#keywords) .|
-|bloki|Może zawierać co najmniej jeden [blok](#blocks)|
-|twarze/animatedCharacters|Informacje o twarzy [/animatedCharacters](#facesanimatedcharacters) .|
-|Etykieta|Szczegółowe informacje o [etykietach](#labels) .|
-|zrzutów|Informacje na temat [zrzutów](#shots) .|
-|Marek|Informacje o [marek](#brands) .|
-|audioEffects|[AudioEffects](#audioeffects-public-preview) wgląd w szczegółowe dane.|
-|mową|[Mową](#sentiments) wgląd w szczegółowe dane.|
-|visualContentModeration|[VisualContentModeration](#visualcontentmoderation) wgląd w szczegółowe dane.|
-|textualContentModeration|[TextualContentModeration](#textualcontentmoderation) wgląd w szczegółowe dane.|
-|emocji| [Emocji](#emotions) wgląd w szczegółowe dane.|
-|opisano|Szczegółowe informacje dotyczące [tematów](#topics) .|
-|głośniki|Informacje na temat [głośników](#speakers) .|
+|sourceLanguage (język źródłowy)|Język źródłowy wideo (przy założeniu, że jest używany jeden język główny). W postaci ciągu [BCP-47.](https://tools.ietf.org/html/bcp47)|
+|language|Język szczegółowych informacji (przetłumaczony na język źródłowy). W postaci ciągu [BCP-47.](https://tools.ietf.org/html/bcp47)|
+|Zapis|Szczegółowe [informacje o transkrypcji.](#transcript)|
+|Ocr|Szczegółowe [informacje o OCR.](#ocr)|
+|keywords (słowa kluczowe)|Szczegółowe [informacje o słowach](#keywords) kluczowych.|
+|bloki|Może zawierać jeden lub więcej [bloków](#blocks)|
+|twarze/animowaneznaki|Szczegółowe [informacje o twarzach/animowanych obrazach.](#facesanimatedcharacters)|
+|Etykiety|Szczegółowe [informacje o etykietach.](#labels)|
+|Zdjęć|Szczegółowe [informacje o zrzutach.](#shots)|
+|Marek|Szczegółowe [informacje o markach.](#brands)|
+|audioEffects|[AudioEffects insights(Wgląd w dane audioEffects).](#audioeffects-public-preview)|
+|Uczucia|Szczegółowe [informacje o tonacji.](#sentiments)|
+|visualContentModeration|Szczegółowe [informacje o visualContentModeration.](#visualcontentmoderation)|
+|textualContentModeration|Szczegółowe [informacje dotyczące textualContentModeration.](#textualcontentmoderation)|
+|Emocje| Szczegółowe [informacje o emocjach.](#emotions)|
+|Tematy|Szczegółowe [informacje dotyczące](#topics) tematów.|
+|głośniki|Szczegółowe [informacje dla osób](#speakers) mówiących.|
 
 Przykład:
 
@@ -215,18 +215,18 @@ Przykład:
 Atrybut | Opis
 ---|---
 identyfikator|Identyfikator bloku.|
-Liczba|Lista zakresów czasu tego bloku.|
+Wystąpień|Lista zakresów czasu tego bloku.|
 
-#### <a name="transcript"></a>zapisy
+#### <a name="transcript"></a>Zapis
 
 |Nazwa|Opis|
 |---|---|
 |identyfikator|Identyfikator wiersza.|
-|tekst|Samego transkrypcji.|
-|ufność|Niezgodność z dokładnością transkrypcji.|
-|speakerId|Identyfikator osoby mówiącej.|
-|language|Język transkrypcji. Przeznaczone do obsługi transkrypcji, w których każdy wiersz może mieć inny język.|
-|Liczba|Lista przedziałów czasu, w których pojawił się ten wiersz. Jeśli wystąpienie jest transkrypcją, będzie miało tylko 1 wystąpienie.|
+|tekst|Sama transkrypcja.|
+|ufność|Pewność dokładności transkrypcji.|
+|speakerId|Identyfikator prelegenta.|
+|language|Język transkrypcji. Przeznaczona do obsługi transkrypcji, w której każdy wiersz może mieć inny język.|
+|Wystąpień|Lista zakresów czasu, w których pojawiła się ta linia. Jeśli wystąpienie jest transkrypcją, będzie mieć tylko 1 wystąpienie.|
 
 Przykład:
 
@@ -264,19 +264,19 @@ Przykład:
 },
 ```
 
-#### <a name="ocr"></a>aparat
+#### <a name="ocr"></a>Ocr
 
 |Nazwa|Opis|
 |---|---|
 |identyfikator|Identyfikator wiersza OCR.|
 |tekst|Tekst OCR.|
-|ufność|Wiarygodność rozpoznawania.|
+|ufność|Zaufanie do rozpoznawania.|
 |language|Język OCR.|
-|Liczba|Lista przedziałów czasu, w których wystąpiło to OCR (ten sam OCR może występować wiele razy).|
-|wysokość|Wysokość prostokąta OCR.|
+|Wystąpień|Lista zakresów czasu, w których pojawił się ten OCR (ten sam OCR może wystąpić wiele razy).|
+|wysokość|Wysokość prostokąta OCR|
 |top (pierwsze)|Górna lokalizacja w px|
-|left| Lewa lokalizacja w px|
-|szerokość|Szerokość prostokąta OCR.|
+|left| Lokalizacja po lewej stronie w px|
+|szerokość|Szerokość prostokąta OCR|
 
 ```json
 "ocr": [
@@ -305,9 +305,9 @@ Przykład:
 |---|---|
 |identyfikator|Identyfikator słowa kluczowego.|
 |tekst|Tekst słowa kluczowego.|
-|ufność|Wiarygodność rozpoznawania słowa kluczowego.|
-|language|Język słowa kluczowego (w przypadku tłumaczenia).|
-|Liczba|Lista przedziałów czasu, w których pojawiło się to słowo kluczowe (słowo kluczowe może występować wiele razy).|
+|ufność|Zaufanie do rozpoznawania słowa kluczowego.|
+|language|Język słów kluczowych (po przetłumaczeniach).|
+|Wystąpień|Lista zakresów czasu, w których pojawiło się to słowo kluczowe (słowo kluczowe może występować wiele razy).|
 
 ```json
 {
@@ -330,25 +330,25 @@ Przykład:
 }
 ```
 
-#### <a name="facesanimatedcharacters"></a>twarze/animatedCharacters
+#### <a name="facesanimatedcharacters"></a>twarze/animowaneznaki
 
-`animatedCharacters` element zastępuje `faces` w przypadku, gdy wideo zostało zindeksowane przy użyciu modelu znaków animowanych. Odbywa się to przy użyciu modelu niestandardowego w Custom Vision, Video Indexer uruchamia go w klatkach kluczowych.
+`animatedCharacters` Element zastępuje element `faces` w przypadku, gdy wideo zostało zindeksowane za pomocą modelu znaków animowanych. Odbywa się to przy użyciu modelu niestandardowego w Custom Vision, Video Indexer uruchamia go w ramki kluczowe.
 
-Jeśli istnieją twarzy (Nieanimowane znaki), Video Indexer używa Face API we wszystkich ramkach wideo, aby wykrywać twarze i osobistości.
+Jeśli są obecne twarze (nie animowane), Video Indexer interfejsu API rozpoznawania twarzy na wszystkich ramkach wideo do wykrywania twarzy i osobistości.
 
 |Nazwa|Opis|
 |---|---|
-|identyfikator|Identyfikator kroju.|
-|name|Nazwa kroju. Może to być "nieznany #0, zidentyfikowanej osobistości lub osoby przeszkolonej przez klienta.|
-|ufność|Niepewność identyfikacji kroju.|
+|identyfikator|The face ID.|
+|name|Nazwa twarzy. Może to być "Nieznany #0, zidentyfikowana osobistość lub wytrenowana osoba klienta.|
+|ufność|Pewność identyfikacji twarzy.|
 |description (opis)|Opis osobistości. |
-|thumbnailId|Identyfikator miniatury tej czołowej.|
-|knownPersonId|Jeśli jest to znana osoba, jej identyfikator wewnętrzny.|
-|referenceId|Jeśli jest to osobistości Bing, jego identyfikator Bing.|
-|referenceType|Obecnie tylko Bing.|
-|tytuł|Jeśli jest to osobistości, jego tytuł (na przykład "dyrektor naczelny firmy Microsoft").|
-|imageUrl|Jeśli jest to osobistości, jego adres URL obrazu.|
-|Liczba|Są to wystąpienia, w których pojawiły się powierzchnie w danym przedziale czasu. Każde wystąpienie ma również thumbnailsId. |
+|thumbnailId|Identyfikator miniatury tej twarzy.|
+|knownPersonId|Jeśli jest to znana osoba, jej wewnętrzny identyfikator.|
+|referenceId|Jeśli jest to osobistość Bing, jej identyfikator Bing.|
+|typ odwołania|Obecnie wystarczy tylko Bing.|
+|tytuł|Jeśli jest osobistą osobistością, jej tytuł (na przykład "Dyrektor naczelny firmy Microsoft").|
+|Imageurl|Jeśli jest to osobistość, jej adres URL obrazu.|
+|Wystąpień|Są to wystąpienia, w których twarz pojawiła się w danym zakresie czasu. Każde wystąpienie ma również thumbnailsId. |
 
 ```json
 "faces": [{
@@ -379,14 +379,14 @@ Jeśli istnieją twarzy (Nieanimowane znaki), Video Indexer używa Face API we w
 }]
 ```
 
-#### <a name="labels"></a>Etykieta
+#### <a name="labels"></a>Etykiety
 
 |Nazwa|Opis|
 |---|---|
 |identyfikator|Identyfikator etykiety.|
-|name|Nazwa etykiety (na przykład "Computer", "TV").|
-|language|Nazwa etykiety językowej (po translacji). BCP-47|
-|Liczba|Lista przedziałów czasu, w których pojawiła się Ta etykieta (etykieta może być wyświetlana wiele razy). Każde wystąpienie ma pole zaufania. |
+|name|Nazwa etykiety (na przykład "Komputer", "TV").|
+|language|Język nazw etykiet (w przypadku tłumaczenia). BCP-47|
+|Wystąpień|Lista zakresów czasu, w których pojawiła się ta etykieta (etykieta może pojawić się wiele razy). Każde wystąpienie ma pole ufności. |
 
 
 ```json
@@ -438,12 +438,12 @@ Jeśli istnieją twarzy (Nieanimowane znaki), Video Indexer używa Face API we w
   ] 
 ```
 
-#### <a name="scenes"></a>ze
+#### <a name="scenes"></a>Sceny
 
 |Nazwa|Opis|
 |---|---|
 |identyfikator|Identyfikator sceny.|
-|Liczba|Lista zakresów czasu tej sceny (scena może mieć tylko 1 wystąpienie).|
+|Wystąpień|Lista zakresów czasu tej sceny (scena może mieć tylko 1 wystąpienie).|
 
 ```json
 "scenes":[  
@@ -471,13 +471,13 @@ Jeśli istnieją twarzy (Nieanimowane znaki), Video Indexer używa Face API we w
 ]
 ```
 
-#### <a name="shots"></a>zrzutów
+#### <a name="shots"></a>Zdjęć
 
 |Nazwa|Opis|
 |---|---|
 |identyfikator|Identyfikator zrzutu.|
-|Ramki kluczowe|Lista klatek kluczowych w zrzucie (każdy ma identyfikator i listę zakresów czasu wystąpienia). Każde wystąpienie z klatką kluczową ma pole thumbnailId, które zawiera identyfikator miniatury klatki kluczowej.|
-|Liczba|Lista zakresów czasu tego zrzutu (zrzut może mieć tylko 1 wystąpienie).|
+|Klatek kluczowych|Lista ramek kluczowych w obrębie zrzutu (każda z nich ma identyfikator i listę zakresów czasu wystąpień). Każde wystąpienie ramki kluczowej ma pole thumbnailId, które zawiera identyfikator miniatury ramki klucza.|
+|Wystąpień|Lista zakresów czasu tego zrzutu (zrzut może mieć tylko 1 wystąpienie).|
 
 ```json
 "shots":[  
@@ -521,18 +521,18 @@ Jeśli istnieją twarzy (Nieanimowane znaki), Video Indexer używa Face API we w
 
 #### <a name="brands"></a>Marek
 
-Nazwy firmowe i towarowe wykryte w zamiany mowy na tekst transkrypcji i/lub OCR wideo. Nie obejmuje to wizualizacji rozpoznawania marki ani logo.
+Nazwy firm i produktów wykryte w transkrypcji mowy na tekst i/lub wideo OCR. Nie obejmuje to wizualnego rozpoznawania marek ani wykrywania logo.
 
 |Nazwa|Opis|
 |---|---|
 |identyfikator|Identyfikator marki.|
-|name|Nazwa marki.|
-|referenceId | Sufiks adresu URL witryny Wikipedia. Na przykład "Target_Corporation" jest sufiksem [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation) .
-|referenceUrl | Adres URL witryny Wikipedia marki, jeśli istnieje. Przykładowy adres URL to [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
+|name|Nazwa marek.|
+|referenceId | Sufiks adresu URL wikipedii marki. Na przykład sufiks "Target_Corporation" to sufiks [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation) .
+|referenceUrl | Adres URL Wikipedii marki, jeśli istnieje. Przykładowy adres URL to [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
 |description (opis)|Opis marek.|
 |tags|Lista wstępnie zdefiniowanych tagów, które zostały skojarzone z tą marką.|
-|ufność|Wartość ufności detektora Video Indexer marką (0-1).|
-|Liczba|Lista zakresów czasu tej marki. Każde wystąpienie ma element marktype, który wskazuje, czy ta marka pojawiła się w transkrypcji, czy w OCR.|
+|ufność|Wartość ufności detektora Video Indexer marki (0–1).|
+|Wystąpień|Lista zakresów czasu tej marki. Każde wystąpienie ma znak brandType, który wskazuje, czy ta marka pojawiła się w transkrypcji, czy w OCR.|
 
 ```json
 "brands": [
@@ -584,11 +584,11 @@ Nazwy firmowe i towarowe wykryte w zamiany mowy na tekst transkrypcji i/lub OCR 
 
 |Nazwa|Opis|
 |---|---|
-|CorrespondenceCount|Liczba zbieżności wideo.|
-|SpeakerWordCount|Liczba wyrazów na prelegenta.|
-|SpeakerNumberOfFragments|Ilość fragmentów, które są w filmie wideo.|
-|SpeakerLongestMonolog|Najdłuższa monologa. Jeśli prelegent znajduje się w monolog, jest on uwzględniony. Wyciszenie na początku i na końcu monolog zostaje usunięte.| 
-|SpeakerTalkToListenRatio|Obliczenia opierają się na czasie poświęcanym na monolog osoby mówiącej (bez wyciszenia między nimi) podzieloną przez łączny czas wideo. Czas jest zaokrąglany do trzeciego punktu dziesiętnego.|
+|CorrespondenceCount|Liczba esejów w filmie wideo.|
+|SpeakerWordCount|Liczba słów na osobę mówiącą.|
+|SpeakerNumberOfFragments|Ilość fragmentów, które ma prelegent w filmie wideo.|
+|SpeakerLongestMonolog|Najdłuższy monolog prelegenta. Jeśli w monologu osoby mówiącej są wyciszenia, jest ona dołączona. Wyciszenie na początku i na końcu monologu jest usuwane.| 
+|SpeakerTalkToListenRatio|Obliczenie jest oparte na czasie spędzonym na monologu prelegenta (bez ciszy między nimi) podzielonym przez łączny czas filmu wideo. Czas jest zaokrąglany do trzeciego separatora dziesiętnego.|
 
 #### <a name="audioeffects-public-preview"></a>audioEffects (publiczna wersja zapoznawcza)
 
@@ -596,7 +596,7 @@ Nazwy firmowe i towarowe wykryte w zamiany mowy na tekst transkrypcji i/lub OCR 
 |---|---|
 |identyfikator|Identyfikator efektu audio|
 |typ|Typ efektu audio|
-|Liczba|Lista przedziałów czasu, w których pojawił się ten efekt audio. Każde wystąpienie ma pole zaufania.|
+|Wystąpień|Lista zakresów czasu, w których pojawił się ten efekt dźwiękowy. Każde wystąpienie ma pole ufności.|
 
 ```json
 "audioEffects": [
@@ -619,16 +619,16 @@ Nazwy firmowe i towarowe wykryte w zamiany mowy na tekst transkrypcji i/lub OCR 
 ]
 ```
 
-#### <a name="sentiments"></a>mową
+#### <a name="sentiments"></a>Uczucia
 
-Mową są agregowane według pola sentimentType (pozytywna/neutralna/ujemna). Na przykład 0-0,1, 0,1-0,2.
+Tonacji są agregowane według pola sentimentType (Pozytywna/Neutralna/Negatywna). Na przykład 0–0,1, 0.1–0.2.
 
 |Nazwa|Opis|
 |---|---|
 |identyfikator|Identyfikator tonacji.|
-|averageScore |Średnia wszystkich ocen wszystkich wystąpień tego typu tonacji — wartość dodatnia/neutralna/ujemna|
-|Liczba|Lista przedziałów czasu, w których wystąpiła ta tonacji.|
-|sentimentType |Typem może być "dodatnia", "neutralna" lub "ujemna".|
+|averageScore |Średnia wszystkich wyników wszystkich wystąpień tego typu tonacji — pozytywna/neutralna/negatywna|
+|Wystąpień|Lista zakresów czasu, w których pojawiła się ta tonacji.|
+|typ tonacji |Typ może mieć wartość "Dodatnia", "Neutralna" lub "Ujemna".|
 
 ```json
 "sentiments": [
@@ -658,16 +658,16 @@ Mową są agregowane według pola sentimentType (pozytywna/neutralna/ujemna). Na
 
 #### <a name="visualcontentmoderation"></a>visualContentModeration
 
-Blok visualContentModeration zawiera zakresy czasu, które Video Indexer mogły mieć zawartość dla dorosłych. Jeśli visualContentModeration jest pusta, nie istnieje żadna zawartość dla dorosłych.
+Blok visualContentModeration zawiera zakresy czasu, które Video Indexer potencjalnie zawierają treści dla dorosłych. Jeśli pole visualContentModeration jest puste, nie zostanie zidentyfikowana żadna zawartość dla dorosłych.
 
-Filmy wideo, które mają zawierać zawartość dla dorosłych lub erotycznej, mogą być dostępne tylko w widoku prywatnym. Użytkownicy mogą przesłać żądanie dotyczące przeglądu zawartości przez człowieka, w takim przypadku atrybut isdorosły będzie zawierał wynik przeglądu przez człowieka.
+Filmy wideo, które zawierają treści dla dorosłych lub treści racją, mogą być dostępne tylko w przypadku wyświetlania prywatnego. Użytkownicy mogą przesłać żądanie przeglądu zawartości przez człowieka. W takim przypadku atrybut IsAdult będzie zawierać wynik przeglądu przez człowieka.
 
 |Nazwa|Opis|
 |---|---|
-|identyfikator|Identyfikator moderowania zawartości wizualnej.|
-|adultScore|Wynik dla dorosłych (z usługi Content moderator).|
-|racyScore|Wynik erotycznej (z moderowaniem zawartości).|
-|Liczba|Lista przedziałów czasu, w których pojawiło się to moderowanie zawartości wizualnej.|
+|identyfikator|Identyfikator moderowania zawartości wizualizacji.|
+|adultScore|Wynik dla dorosłych (od moderatora zawartości).|
+|racyScore|Wynik emisyjny (z moderowania zawartości).|
+|Wystąpień|Lista zakresów czasu, w których pojawiła się ta wizualizacja moderowania zawartości.|
 
 ```json
 "VisualContentModeration": [
@@ -701,18 +701,18 @@ Filmy wideo, które mają zawierać zawartość dla dorosłych lub erotycznej, m
 |Nazwa|Opis|
 |---|---|
 |identyfikator|Identyfikator moderowania zawartości tekstowej.|
-|bannedWordsCount |Liczba zabronionych wyrazów.|
+|bannedWordsCount |Liczba zakazanych słów.|
 |bannedWordsRatio |Stosunek całkowitej liczby wyrazów.|
 
-#### <a name="emotions"></a>emocji
+#### <a name="emotions"></a>Emocje
 
-Video Indexer identyfikuje emocji na podstawie podpowiedzi i sygnałów dźwiękowych. Zidentyfikowanych rozpoznawania emocji może być: radości, smutek, gniew lub obaw.
+Video Indexer rozpoznaje emocje na podstawie sygnału mowy i dźwięku. Zidentyfikowaną emocją może być: smutek, smutek, złości lub obawa.
 
 |Nazwa|Opis|
 |---|---|
-|identyfikator|Identyfikator rozpoznawania emocji.|
-|typ|Rozpoznawania emocji, która została zidentyfikowana na podstawie wskazówek dotyczących mowy i audio. Rozpoznawania emocji może być: radości, smutek, gniew lub obaw.|
-|Liczba|Lista przedziałów czasu, w których wystąpiła ta rozpoznawania emocji.|
+|identyfikator|Identyfikator emocji.|
+|typ|Moment rozpoznawania emocji, który został zidentyfikowany na podstawie sygnału mowy i dźwięku. Emocje mogą być: smutek, smutek, złość lub obawa.|
+|Wystąpień|Lista zakresów czasu, w których pojawiła się ta emocja.|
 
 ```json
 "emotions": [{
@@ -794,19 +794,19 @@ Video Indexer identyfikuje emocji na podstawie podpowiedzi i sygnałów dźwięk
 ],
 ```
 
-#### <a name="topics"></a>opisano
+#### <a name="topics"></a>Tematy
 
-Video Indexer wykonuje wnioskowanie głównych tematów z transkrypcji. Gdy jest to możliwe, dołączana jest Taksonomia [IPTC](https://iptc.org/standards/media-topics/) dla drugiego poziomu. 
+Video Indexer wnioskuje z głównych tematów z transkrypcji. Jeśli to możliwe, uwzględniona jest taksonomia [IPTC](https://iptc.org/standards/media-topics/) drugiego poziomu. 
 
 |Nazwa|Opis|
 |---|---|
 |identyfikator|Identyfikator tematu.|
-|name|Nazwa tematu, na przykład: "środki farmaceutyczne".|
-|referenceId|Struktura nawigacyjna odzwierciedla hierarchię tematów. Na przykład: "kondycja i samopoczucie/medycyna, opieka medyczna/środki farmaceutyczne".|
-|ufność|Wynik pewności z zakresu [0, 1]. Wyższy poziom.|
+|name|Nazwa tematu, na przykład: "Branża prawna".|
+|referenceId|Tematy odzwierciedlają hierarchię tematów. Na przykład: "Opieka zdrowotna i zdrowotna/medycyna i opieka zdrowotna/medycyna".|
+|ufność|Ocena ufności w zakresie [0,1]. Wyższy jest bardziej pewna pewności.|
 |language|Język używany w temacie.|
-|iptcname|Nazwa kodu nośnika IPTC, jeśli wykryto.|
-|Liczba |Obecnie Video Indexer nie indeksuje tematu w przedziałach czasowych, dlatego cały klip wideo jest używany jako interwał.|
+|iptcName|Nazwa kodu nośnika IPTC, jeśli zostanie wykryty.|
+|Wystąpień |Obecnie Video Indexer nie indeksuje tematu do przedziałów czasu, więc cały film wideo jest używany jako interwał.|
 
 ```json
 "topics": [{
@@ -843,9 +843,9 @@ Video Indexer wykonuje wnioskowanie głównych tematów z transkrypcji. Gdy jest
 
 |Nazwa|Opis|
 |---|---|
-|identyfikator|Identyfikator osoby mówiącej.|
-|name|Nazwa głośnika w postaci "głośnik # *<number>* " na przykład: "prelegent #1".|
-|Liczba |Lista przedziałów czasu, w których pojawił się ten głośnik.|
+|identyfikator|Identyfikator prelegenta.|
+|name|Nazwa osoby mówiącej w postaci "Numer osoby *<number>* mówiącej", na przykład: "Nazwa #1".|
+|Wystąpień |Lista zakresów czasu, w których pojawiła się ta prelegentka.|
 
 ```json
 "speakers":[
@@ -877,7 +877,7 @@ Video Indexer wykonuje wnioskowanie głównych tematów z transkrypcji. Gdy jest
 ```
 ## <a name="next-steps"></a>Następne kroki
 
-[Portal dla deweloperów Video Indexer](https://api-portal.videoindexer.ai)
+[Video Indexer Portal deweloperów](https://api-portal.videoindexer.ai)
 
-Aby uzyskać informacje na temat sposobu osadzania widżetów w aplikacji, zobacz [osadzanie Video Indexer elementów widget w aplikacjach](video-indexer-embed-widgets.md). 
+Aby uzyskać informacje na temat osadzania widżetów w aplikacji, zobacz [Osadzanie Video Indexer w aplikacjach.](video-indexer-embed-widgets.md) 
 

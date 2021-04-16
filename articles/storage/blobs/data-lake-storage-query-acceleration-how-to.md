@@ -1,6 +1,6 @@
 ---
-title: Filtrowanie danych za pomocą przyspieszania zapytań Azure Data Lake Storage | Microsoft Docs
-description: Użyj przyspieszenia zapytania, aby pobrać podzestaw danych z konta magazynu.
+title: Filtrowanie danych przy użyciu Azure Data Lake Storage zapytań | Microsoft Docs
+description: Użyj przyspieszania zapytań, aby pobrać podzestaw danych z konta magazynu.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -8,27 +8,27 @@ ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: normesta
 ms.reviewer: jamsbak
-ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: a925d3f55395d094c7f19f65de4b72fd20a11a41
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 58b8cdef604861342a6489ef4e57ff1d057cd3f4
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102213678"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377738"
 ---
-# <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Filtrowanie danych za pomocą przyspieszania zapytań Azure Data Lake Storage
+# <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Filtrowanie danych przy użyciu Azure Data Lake Storage zapytań
 
-W tym artykule pokazano, jak za pomocą przyspieszenia zapytania pobrać podzestaw danych z konta magazynu. 
+W tym artykule pokazano, jak używać przyspieszania zapytań do pobierania podzestawu danych z konta magazynu. 
 
-Przyspieszenie zapytań umożliwia aplikacjom i platformom analitycznym znaczne Optymalizowanie przetwarzania danych przez pobranie tylko tych danych, których potrzebują do wykonania danej operacji. Aby dowiedzieć się więcej, zobacz [Azure Data Lake Storage przyspieszeniem zapytań](data-lake-storage-query-acceleration.md).
+Przyspieszanie zapytań umożliwia aplikacjom i platformom analitycznym znaczącą optymalizację przetwarzania danych przez pobieranie tylko danych wymaganych do wykonania danej operacji. Aby dowiedzieć się więcej, [zobacz Azure Data Lake Storage Query Acceleration (Przyspieszanie zapytań).](data-lake-storage-query-acceleration.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Aby uzyskać dostęp do usługi Azure Storage, potrzebujesz subskrypcji platformy Azure. Jeśli nie masz jeszcze subskrypcji, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+- Aby uzyskać dostęp do usługi Azure Storage, potrzebujesz subskrypcji platformy Azure. Jeśli nie masz jeszcze subskrypcji, przed [](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) rozpoczęciem utwórz bezpłatne konto.
 
-- Konto magazynu **ogólnego przeznaczenia w wersji 2** . Zobacz [Tworzenie konta magazynu](../common/storage-account-create.md).
+- Konto **magazynu ogólnego przeznaczenia w wersji 2.** Zobacz [Tworzenie konta magazynu.](../common/storage-account-create.md)
 
-- Wybierz kartę, aby wyświetlić wszystkie wymagania wstępne dotyczące zestawu SDK.
+- Wybierz kartę, aby wyświetlić wymagania wstępne specyficzne dla zestawu SDK.
 
   ### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -36,38 +36,38 @@ Przyspieszenie zapytań umożliwia aplikacjom i platformom analitycznym znaczne 
 
   ### <a name="net"></a>[.NET](#tab/dotnet)
 
-  [Zestaw SDK platformy .NET](https://dotnet.microsoft.com/download) 
+  Zestaw [SDK platformy .NET](https://dotnet.microsoft.com/download) 
 
   ### <a name="java"></a>[Java](#tab/java)
 
-  - [Zestaw Java Development Kit (JDK)](/java/azure/jdk/) w wersji 8 lub nowszej
+  - [Zestaw Java Development Kit (JDK) w](/java/azure/jdk/) wersji 8 lub nowszej
 
   - [Apache Maven](https://maven.apache.org/download.cgi) 
 
     > [!NOTE] 
-    > W tym artykule przyjęto założenie, że projekt Java został utworzony za pomocą platformy Apache Maven. Przykład sposobu tworzenia projektu przy użyciu platformy Apache Maven można znaleźć w temacie [Konfigurowanie](storage-quickstart-blobs-java.md#setting-up).
+    > W tym artykule przyjęto założenie, że utworzono projekt w języku Java przy użyciu narzędzia Apache Maven. Aby uzyskać przykład sposobu tworzenia projektu przy użyciu narzędzia Apache Maven, zobacz [Konfigurowanie programu](storage-quickstart-blobs-java.md#setting-up).
   
   ### <a name="python"></a>[Python](#tab/python)
 
-  [Python](https://www.python.org/downloads/) 3,8 lub nowszy.
+  [Język Python](https://www.python.org/downloads/) w wersji 3.8 lub większej.
 
   ### <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-  Korzystanie z zestawu SDK Node.js nie wymaga żadnych dodatkowych wymagań wstępnych.
+  Nie ma żadnych dodatkowych wymagań wstępnych wymaganych do korzystania z zestawu Node.js SDK.
 
 ---
 
-## <a name="enable-query-acceleration"></a>Włącz przyspieszenie zapytań
+## <a name="enable-query-acceleration"></a>Włączanie przyspieszania zapytań
 
-Aby używać przyspieszenia zapytań, należy zarejestrować funkcję przyspieszenia zapytań w ramach subskrypcji. Po sprawdzeniu, że funkcja jest zarejestrowana, należy zarejestrować dostawcę zasobów usługi Azure Storage. 
+Aby korzystać z przyspieszania zapytań, należy zarejestrować funkcję przyspieszania zapytań w ramach subskrypcji. Po sprawdzeniu, czy funkcja została zarejestrowana, należy zarejestrować dostawcę zasobów usługi Azure Storage. 
 
-### <a name="step-1-register-the-query-acceleration-feature"></a>Krok 1. rejestrowanie funkcji przyspieszenia zapytań
+### <a name="step-1-register-the-query-acceleration-feature"></a>Krok 1. Rejestrowanie funkcji przyspieszania zapytań
 
-Aby użyć przyspieszenia zapytania, musisz najpierw zarejestrować funkcję przyspieszenia zapytań w ramach subskrypcji. 
+Aby korzystać z przyspieszania zapytań, należy najpierw zarejestrować funkcję przyspieszania zapytań w subskrypcji. 
 
 #### <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
-1. Otwórz okno poleceń programu Windows PowerShell.
+1. Otwórz okno Windows PowerShell polecenia.
 
 1. Zaloguj się do subskrypcji platformy Azure za pomocą polecenia `Connect-AzAccount` i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
 
@@ -82,9 +82,9 @@ Aby użyć przyspieszenia zapytania, musisz najpierw zarejestrować funkcję prz
    Set-AzContext $context
    ```
 
-   Zastąp `<subscription-id>` wartość symbolu zastępczego identyfikatorem subskrypcji.
+   Zastąp wartość `<subscription-id>` symbolu zastępczego identyfikatorem subskrypcji.
 
-3. Zarejestruj funkcję przyspieszenia zapytań za pomocą polecenia [register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) .
+3. Zarejestruj funkcję przyspieszania zapytań przy użyciu [polecenia Register-AzProviderFeature.](/powershell/module/az.resources/register-azproviderfeature)
 
    ```powershell
    Register-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName BlobQuery
@@ -92,7 +92,7 @@ Aby użyć przyspieszenia zapytania, musisz najpierw zarejestrować funkcję prz
 
 #### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-1. Otwórz [Azure Cloud Shell](../../cloud-shell/overview.md)lub jeśli interfejs wiersza polecenia platformy Azure został [zainstalowany](/cli/azure/install-azure-cli) lokalnie, Otwórz aplikację konsoli poleceń, taką jak Windows PowerShell.
+1. Otwórz [Azure Cloud Shell](../../cloud-shell/overview.md), a jeśli interfejs [](/cli/azure/install-azure-cli) wiersza polecenia platformy Azure został zainstalowany lokalnie, otwórz aplikację konsoli poleceń, taką jak Windows PowerShell.
 
 2. Jeśli Twoja tożsamość jest skojarzona z więcej niż jedną subskrypcją, ustaw aktywną subskrypcję na subskrypcję konta magazynu.
 
@@ -100,9 +100,9 @@ Aby użyć przyspieszenia zapytania, musisz najpierw zarejestrować funkcję prz
    az account set --subscription <subscription-id>
    ```
 
-   Zastąp `<subscription-id>` wartość symbolu zastępczego identyfikatorem subskrypcji.
+   Zastąp wartość `<subscription-id>` symbolu zastępczego identyfikatorem subskrypcji.
 
-3. Zarejestruj funkcję przyspieszenia zapytań za pomocą polecenia [AZ Feature Register](/cli/azure/feature#az-feature-register) .
+3. Zarejestruj funkcję przyspieszania zapytań za pomocą [polecenia az feature register.](/cli/azure/feature#az-feature-register)
 
    ```azurecli
    az feature register --namespace Microsoft.Storage --name BlobQuery
@@ -110,11 +110,11 @@ Aby użyć przyspieszenia zapytania, musisz najpierw zarejestrować funkcję prz
 
 ---
 
-### <a name="step-2-verify-that-the-feature-is-registered"></a>Krok 2: sprawdzenie, czy funkcja jest zarejestrowana
+### <a name="step-2-verify-that-the-feature-is-registered"></a>Krok 2. Sprawdzenie, czy funkcja jest zarejestrowana
 
 #### <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
-Aby sprawdzić, czy rejestracja została ukończona, użyj polecenia [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) .
+Aby sprawdzić, czy rejestracja jest ukończona, użyj [polecenia Get-AzProviderFeature.](/powershell/module/az.resources/get-azproviderfeature)
 
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName BlobQuery
@@ -122,7 +122,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName BlobQuer
 
 #### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Aby sprawdzić, czy rejestracja została ukończona, użyj polecenia [AZ Feature](/cli/azure/feature#az-feature-show) .
+Aby sprawdzić, czy rejestracja została ukończona, użyj [polecenia az feature.](/cli/azure/feature#az-feature-show)
 
 ```azurecli
 az feature show --namespace Microsoft.Storage --name BlobQuery
@@ -130,13 +130,13 @@ az feature show --namespace Microsoft.Storage --name BlobQuery
 
 ---
 
-### <a name="step-3-register-the-azure-storage-resource-provider"></a>Krok 3. rejestrowanie dostawcy zasobów usługi Azure Storage
+### <a name="step-3-register-the-azure-storage-resource-provider"></a>Krok 3. Rejestrowanie dostawcy zasobów usługi Azure Storage
 
 Po zatwierdzeniu rejestracji należy ponownie zarejestrować dostawcę zasobów usługi Azure Storage. 
 
 #### <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
-Aby zarejestrować dostawcę zasobów, użyj polecenia [register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) .
+Aby zarejestrować dostawcę zasobów, użyj [polecenia Register-AzResourceProvider.](/powershell/module/az.resources/register-azresourceprovider)
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
@@ -144,7 +144,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
 
 #### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Aby zarejestrować dostawcę zasobów, użyj polecenia [AZ Provider Register](/cli/azure/provider#az-provider-register) .
+Aby zarejestrować dostawcę zasobów, użyj [polecenia az provider register.](/cli/azure/provider#az-provider-register)
 
 ```azurecli
 az provider register --namespace 'Microsoft.Storage'
@@ -158,13 +158,13 @@ az provider register --namespace 'Microsoft.Storage'
 
 #### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-Zainstaluj program AZ module w wersji 4.6.0 lub nowszej.
+Zainstaluj moduł Az w wersji 4.6.0 lub wyższej.
 
 ```powershell
 Install-Module -Name Az -Repository PSGallery -Force
 ```
 
-Aby zaktualizować ze starszej wersji polecenia AZ, uruchom następujące polecenie:
+Aby zaktualizować starszą wersję polecenia Az, uruchom następujące polecenie:
 
 ```powershell
 Update-Module -Name Az
@@ -178,13 +178,13 @@ Update-Module -Name Az
    cd myProject
    ```
 
-2. Zainstaluj `12.5.0-preview.6` wersję lub nowszą bibliotekę klienta usługi Azure Blob Storage dla platformy .NET za pomocą `dotnet add package` polecenia. 
+2. Zainstaluj wersję `12.5.0-preview.6` lub nowszą bibliotekę klienta usługi Azure Blob Storage dla pakietu .NET za pomocą `dotnet add package` polecenia . 
 
    ```console
    dotnet add package Azure.Storage.Blobs -v 12.8.0
    ```
 
-3. Przykłady, które pojawiają się w tym artykule, analizują plik CSV przy użyciu biblioteki [CsvHelper](https://www.nuget.org/packages/CsvHelper/) . Aby użyć tej biblioteki, użyj następującego polecenia.
+3. Przykłady wyświetlane w tym artykule analizują plik CSV przy użyciu [biblioteki CsvHelper.](https://www.nuget.org/packages/CsvHelper/) Aby użyć tej biblioteki, użyj następującego polecenia.
 
    ```console
    dotnet add package CsvHelper
@@ -192,7 +192,7 @@ Update-Module -Name Az
 
 #### <a name="java"></a>[Java](#tab/java)
 
-1. Otwórz plik *pom.xml* projektu w edytorze tekstu. Dodaj następujące elementy zależności do grupy zależności. 
+1. Otwórz *pom.xml* projektu w edytorze tekstów. Dodaj następujące elementy zależności do grupy zależności. 
 
    ```xml
    <!-- Request static dependencies from Maven -->
@@ -215,7 +215,7 @@ Update-Module -Name Az
 
 #### <a name="python"></a>[Python](#tab/python)
 
-Zainstaluj Azure Data Lake Storageą bibliotekę kliencką dla języka Python za pomocą narzędzia [PIP](https://pypi.org/project/pip/).
+Zainstaluj bibliotekę Azure Data Lake Storage klienta dla języka Python przy użyciu narzędzia [pip](https://pypi.org/project/pip/).
 
 ```
 pip install azure-storage-blob==12.4.0
@@ -223,7 +223,7 @@ pip install azure-storage-blob==12.4.0
 
 #### <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Zainstaluj Data Lake bibliotekę kliencką dla języka JavaScript, otwierając okno terminalu, a następnie wpisując następujące polecenie.
+Zainstaluj bibliotekę klienta usługi Data Lake dla języka JavaScript, otwierając okno terminalu, a następnie wpisując następujące polecenie.
 
 ```javascript
     npm install @azure/storage-blob
@@ -240,7 +240,7 @@ Nie dotyczy
 
 #### <a name="net"></a>[.NET](#tab/dotnet)
 
-Dodaj te `using` instrukcje na początku pliku kodu.
+Dodaj `using` te instrukcje na początku pliku kodu.
 
 ```csharp
 using Azure.Storage.Blobs;
@@ -248,14 +248,14 @@ using Azure.Storage.Blobs.Models;
 using Azure.Storage.Blobs.Specialized;
 ```
 
-Przyspieszenie zapytań pobiera dane sformatowane w formacie CSV i JSON. W związku z tym Pamiętaj, aby dodać instrukcje using dla wszystkich bibliotek analizy woluminów CSV lub JSON, które będą używane. Przykłady, które pojawiają się w tym artykule, analizują plik CSV przy użyciu biblioteki [CsvHelper](https://www.nuget.org/packages/CsvHelper/) dostępnej w programie NuGet. W związku z tym dodamy te `using` instrukcje na początku pliku kodu.
+Przyspieszanie zapytań pobiera dane w formacie CSV i Json. W związku z tym pamiętaj o dodaniu instrukcji using dla wszystkich bibliotek csv lub Json do analizowania, które będą przez Ciebie wybierane. Przykłady, które pojawiają się w tym artykule, analizują plik CSV przy użyciu [biblioteki CsvHelper](https://www.nuget.org/packages/CsvHelper/) dostępnej w pniu NuGet. W związku z tym dodamy te `using` instrukcje na początku pliku kodu.
 
 ```csharp
 using CsvHelper;
 using CsvHelper.Configuration;
 ```
 
-Aby skompilować Przykłady przedstawione w tym artykule, należy również dodać te `using` instrukcje.
+Aby skompilować przykłady przedstawione w tym artykule, należy również dodać te `using` instrukcje.
 
 ```csharp
 using System.Threading.Tasks;
@@ -265,7 +265,7 @@ using System.Globalization;
 
 #### <a name="java"></a>[Java](#tab/java)
 
-Dodaj te `import` instrukcje na początku pliku kodu.
+Dodaj `import` te instrukcje na początku pliku kodu.
 
 ```java
 import com.azure.storage.blob.*;
@@ -288,13 +288,13 @@ from azure.storage.blob import BlobServiceClient, ContainerClient, BlobClient, D
 
 ### <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Dołącz `storage-blob` moduł, umieszczając tę instrukcję w górnej części pliku kodu. 
+Dołącz `storage-blob` moduł, umieszczając tę instrukcji w górnej części pliku kodu. 
 
 ```javascript
 const { BlobServiceClient } = require("@azure/storage-blob");
 ```
 
-Przyspieszenie zapytań pobiera dane sformatowane w formacie CSV i JSON. W związku z tym Pamiętaj, aby dodać instrukcje dla wszystkich modułów analizy woluminów CSV lub JSON, których chcesz użyć. Przykłady, które pojawiają się w tym artykule, analizują plik CSV przy użyciu modułu [Fast-CSV](https://www.npmjs.com/package/fast-csv) . W związku z tym należy dodać tę instrukcję na początku pliku kodu.
+Przyspieszanie zapytań pobiera dane w formacie CSV i Json. W związku z tym pamiętaj o dodaniu instrukcji dla wszystkich modułów analizy CSV lub JSON, które będą przez Ciebie dostępne. Przykłady, które są wyświetlane w tym artykule, analizują plik CSV przy użyciu [modułu fast-csv.](https://www.npmjs.com/package/fast-csv) W związku z tym dodamy tę instrukcje na początku pliku kodu.
 
 ```javascript
 const csv = require('@fast-csv/parse');
@@ -304,11 +304,11 @@ const csv = require('@fast-csv/parse');
 
 ## <a name="retrieve-data-by-using-a-filter"></a>Pobieranie danych przy użyciu filtru
 
-Aby określić predykaty filtru wierszy i projekcje kolumn w żądaniu przyspieszenia zapytania, można użyć języka SQL. Poniższy kod wysyła zapytanie do pliku CSV w magazynie i zwraca wszystkie wiersze danych, w których trzecia kolumna jest zgodna z wartością `Hemingway, Ernest` . 
+Za pomocą języka SQL można określić predykaty filtru wierszy i projekcje kolumn w żądaniu przyspieszenia zapytań. Poniższy kod wysyła zapytanie do pliku CSV w magazynie i zwraca wszystkie wiersze danych, w których trzecia kolumna odpowiada wartości `Hemingway, Ernest` . 
 
-- W zapytaniu SQL słowo kluczowe `BlobStorage` jest używane do określenia pliku, który jest wysyłany do zapytania.
+- W zapytaniu SQL słowo `BlobStorage` kluczowe jest używane do oznaczania pliku, który jest odpytytywowany.
 
-- Odwołania do kolumn są określone, `_N` gdy pierwsza kolumna to `_1` . Jeśli plik źródłowy zawiera wiersz nagłówka, można odwoływać się do kolumn według nazwy określonej w wierszu nagłówka. 
+- Odwołania do kolumn są określane jako `_N` , gdzie pierwsza kolumna to `_1` . Jeśli plik źródłowy zawiera wiersz nagłówka, możesz odwoływać się do kolumn według nazwy określonej w wierszu nagłówka. 
 
 ### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -328,7 +328,7 @@ Get-QueryCsv $ctx $container $blob "SELECT * FROM BlobStorage WHERE _3 = 'Heming
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-Metoda async `BlobQuickQueryClient.QueryAsync` wysyła zapytanie do interfejsu API przyspieszenia zapytania, a następnie strumieniuje wyniki z powrotem do aplikacji jako obiekt [strumienia](/dotnet/api/system.io.stream) .
+Metoda async wysyła zapytanie do interfejsu API przyspieszania zapytań, a następnie przesyła strumieniowo wyniki z powrotem do aplikacji `BlobQuickQueryClient.QueryAsync` jako [obiekt usługi Stream.](/dotnet/api/system.io.stream)
 
 ```cs
 static async Task QueryHemingway(BlockBlobClient blob)
@@ -375,7 +375,7 @@ private static async Task DumpQueryCsv(BlockBlobClient blob, string query, bool 
 
 ### <a name="java"></a>[Java](#tab/java)
 
-Metoda `BlobQuickQueryClient.openInputStream()` wysyła zapytanie do interfejsu API przyspieszenia zapytania, a następnie strumieniuje wyniki z powrotem do aplikacji jako `InputStream` obiekt, który można odczytać jak każdy inny obiekt InputStream.
+Metoda wysyła zapytanie do interfejsu API przyspieszania zapytań, a następnie przesyła strumieniowo wyniki z powrotem do aplikacji jako obiekt, który można odczytać jak każdy `BlobQuickQueryClient.openInputStream()` `InputStream` inny obiekt InputStream.
 
 ```java
 static void QueryHemingway(BlobClient blobClient) {
@@ -437,7 +437,7 @@ def dump_query_csv(blob: BlobClient, query: str, headers: bool):
 
 ### <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Ten przykład wysyła zapytanie do interfejsu API przyspieszenia zapytania, a następnie przesyła strumieniowo wyniki. `blob`Obiekt przeszedł do `queryHemingway` funkcji pomocnika jest typu [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient). Aby dowiedzieć się więcej o tym, jak uzyskać obiekt [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) , zobacz [Szybki Start: Zarządzanie obiektami BLOB za pomocą języka JavaScript v12 SDK w Node.js](storage-quickstart-blobs-nodejs.md).
+Ten przykład wysyła zapytanie do interfejsu API przyspieszania zapytań, a następnie przesyła strumieniowo wyniki z powrotem. Obiekt `blob` przekazany do funkcji `queryHemingway` pomocnika jest typu [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient). Aby dowiedzieć się więcej na temat sposobu uzyskania [obiektu BlockBlobClient,](/javascript/api/@azure/storage-blob/blockblobclient) zobacz Szybki start: zarządzanie obiektami blob za pomocą zestawu SDK języka JavaScript w wersji [12 ](storage-quickstart-blobs-nodejs.md)w Node.js.
 
 ```javascript
 async function queryHemingway(blob)
@@ -478,9 +478,9 @@ async function dumpQueryCsv(blob, query, headers)
 
 ## <a name="retrieve-specific-columns"></a>Pobieranie określonych kolumn
 
-Możesz ograniczyć zakres wyników do podzbioru kolumn. W ten sposób można pobrać tylko te kolumny, które są potrzebne do wykonania danego obliczenia. Poprawia to wydajność aplikacji i zmniejsza koszty, ponieważ mniejsze ilości danych są przesyłane przez sieć. 
+Zakres wyników można określić dla podzbioru kolumn. Dzięki temu można pobrać tylko kolumny potrzebne do wykonania danego obliczenia. Zwiększa to wydajność aplikacji i obniża koszty, ponieważ za pośrednictwem sieci jest przesyłanych mniej danych. 
 
-Ten kod pobiera tylko `BibNum` kolumnę dla wszystkich książek w zestawie danych. Używa również informacji z wiersza nagłówka w pliku źródłowym do odwoływania się do kolumn w zapytaniu.
+Ten kod pobiera tylko `BibNum` kolumnę dla wszystkich książek w zestawie danych. Używa również informacji z wiersza nagłówka w pliku źródłowym, aby odwoływać się do kolumn w zapytaniu.
 
 ### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -538,7 +538,7 @@ async function queryBibNum(blob)
 
 ---
 
-Poniższy kod łączy filtrowanie wierszy i projekcje kolumn w tym samym zapytaniu. 
+Poniższy kod łączy filtrowanie wierszy i projekcje kolumn w to samo zapytanie. 
 
 ### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -614,5 +614,5 @@ async function queryDvds(blob)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przyspieszenie kwerendy Azure Data Lake Storage](data-lake-storage-query-acceleration.md)
-- [Dokumentacja języka SQL przyspieszania zapytań](query-acceleration-sql-reference.md)
+- [Azure Data Lake Storage zapytań](data-lake-storage-query-acceleration.md)
+- [Informacje o języku SQL przyspieszania zapytań](query-acceleration-sql-reference.md)

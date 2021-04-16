@@ -1,45 +1,48 @@
 ---
-title: 'Szybki Start: Tworzenie usługi Azure Signal Service — szablon ARM'
-description: W tym przewodniku szybki start dowiesz się, jak utworzyć usługę Azure Signal Service przy użyciu szablonu Azure Resource Manager (szablon ARM).
+title: 'Szybki start: tworzenie aplikacji Azure SignalR Service — szablon usługi ARM'
+description: W tym przewodniku Szybki start dowiesz się, jak utworzyć Azure SignalR Service szablonu Azure Resource Manager (szablonu USŁUGI ARM).
 author: sffamily
-ms.service: signalr
-ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurecli
 ms.author: zhshang
 ms.date: 10/02/2020
-ms.openlocfilehash: 4ab029048b37a4dcb44ef405249dcb9e20de70cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.service: signalr
+ms.custom:
+- subject-armqs
+- devx-track-azurecli
+- mode-arm
+ms.openlocfilehash: 075915f2a06e29eb5b80425913c6e7a2c476ff99
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94841620"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536511"
 ---
-# <a name="quickstart-use-an-arm-template-to-deploy-azure-signalr-service"></a>Szybki Start: korzystanie z szablonu ARM w celu wdrożenia usługi Azure Signal Service
+# <a name="quickstart-use-an-arm-template-to-deploy-azure-signalr-service"></a>Szybki start: wdrażanie aplikacji przy użyciu szablonu usługi ARM Azure SignalR Service
 
-W tym przewodniku szybki start opisano, jak używać szablonu Azure Resource Manager (szablon ARM) do tworzenia usługi Azure Signal Service. Usługę Azure Signal można wdrożyć za pomocą Azure Portal, PowerShell lub interfejsu wiersza polecenia.
+W tym przewodniku Szybki start opisano sposób Azure Resource Manager szablonu usługi Arm w celu utworzenia Azure SignalR Service. Aplikację można wdrożyć Azure SignalR Service za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w Azure Portal po zalogowaniu się.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w Azure Portal po zalogowaniu.
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Przycisk służący do wdrażania usługi Azure Signal platform na platformie Azure przy użyciu szablonu ARM w Azure Portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Przycisk do wdrażania Azure SignalR Service na platformie Azure przy użyciu szablonu usługi ARM w Azure Portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/).
+Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie.](https://azure.microsoft.com/free/)
 
 # <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
 
-* Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/).
-* Jeśli chcesz uruchomić kod lokalnie, [Azure PowerShell](/powershell/azure/install-az-ps).
+* Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie.](https://azure.microsoft.com/free/)
+* Jeśli chcesz uruchomić kod lokalnie, uruchom [Azure PowerShell](/powershell/azure/install-az-ps).
 
 # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
 
-* Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/).
+* Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie.](https://azure.microsoft.com/free/)
 * Jeśli chcesz uruchomić kod lokalnie:
-    * Powłoka bash (na przykład git bash, która jest zawarta w narzędziu [git dla systemu Windows](https://gitforwindows.org)).
+    * Powłoka Bash (na przykład Git Bash, która jest zawarta w [usłudze Git dla systemu Windows).](https://gitforwindows.org)
     * [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 ---
@@ -52,52 +55,52 @@ Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybki
 
 Szablon definiuje jeden zasób platformy Azure:
 
-* [**Microsoft. SignalRService/sygnalizujący**](/azure/templates/microsoft.signalrservice/signalr)
+* [**Microsoft.SignalRService/SignalR**](/azure/templates/microsoft.signalrservice/signalr)
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Wybierz następujący link, aby wdrożyć usługę Azure Signal Service przy użyciu szablonu ARM w Azure Portal:
+Wybierz następujący link, aby wdrożyć aplikację Azure SignalR Service użyciu szablonu usługi ARM w Azure Portal:
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Przycisk służący do wdrażania usługi Azure Signal platform na platformie Azure przy użyciu szablonu ARM w Azure Portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Przycisk wdrażania Azure SignalR Service na platformie Azure przy użyciu szablonu USŁUGI ARM w Azure Portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
 
-Na stronie **wdrażanie usługi Azure Signal Service** :
+Na stronie **Deploy an Azure SignalR Service (Wdrażanie** Azure SignalR Service aplikacji):
 
-1. Jeśli chcesz, Zmień domyślną **subskrypcję** .
+1. Jeśli chcesz, zmień wartość **domyślną subskrypcji.**
 
-2. W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową**, wprowadź nazwę nowej grupy zasobów, a następnie wybierz pozycję **OK**.
+2. W **przypadku grupy zasobów** wybierz pozycję Utwórz **nową,** wprowadź nazwę nowej grupy zasobów, a następnie wybierz przycisk **OK.**
 
 3. Jeśli utworzono nową grupę zasobów, wybierz **region** dla grupy zasobów.
 
-4. Jeśli chcesz, wprowadź nową **nazwę** i **lokalizację** (na przykład **Eastus2**) usługi Azure Signal Service. Jeśli nazwa nie zostanie określona, jest generowana automatycznie. Lokalizacja usługi Azure Signal Service może być taka sama jak lub różna od regionu grupy zasobów. Jeśli lokalizacja nie zostanie określona, zostanie ona ustawiona na ten sam region, w którym znajduje się grupa zasobów.
+4. Jeśli chcesz, wprowadź nową **nazwę i** **lokalizację** (na przykład **eastus2)** Azure SignalR Service. Jeśli nie określisz nazwy, zostanie ona wygenerowana automatycznie. Lokalizacja dla Azure SignalR Service może być taka sama jak lub inna niż region grupy zasobów. Jeśli nie określisz lokalizacji, zostanie ona ustawiona na ten sam region co grupa zasobów.
 
-5. Wybierz **warstwę cenową** (**Free_F1** lub **Standard_S1**), wprowadź **pojemność** (liczbę jednostek sygnalizujących), a następnie wybierz **tryb usługi** **domyślnej** (wymaga serwera Hub), **bezserwerowe** (nie zezwala na żadne połączenie z serwerem) ani **klasyczny** (kierowany do serwera Hub tylko wtedy, gdy koncentrator ma połączenie z serwerem). Następnie zdecyduj, czy **włączyć dzienniki łączności** , czy **włączyć dzienniki obsługi komunikatów**.
+5. Wybierz  warstwę cenową **(Free_F1** lub **Standard_S1), wprowadź** pojemność **(liczbę** jednostek SignalR) i wybierz domyślny tryb usługi **(wymaga** serwera **koncentratora),** bez serwera (nie zezwala na żadne połączenie z serwerem) lub klasyczny **(kierowane** do serwera koncentratora tylko wtedy, gdy centrum ma połączenie z serwerem).  Następnie wybierz, czy włączyć **dzienniki łączności,** czy **włączyć dzienniki obsługi komunikatów.**
 
     > [!NOTE]
-    > W przypadku warstwy cenowej **Free_F1** pojemność jest ograniczona do 1 jednostki.
+    > W przypadku **Free_F1** cenowej pojemność jest ograniczona do 1 jednostki.
 
-    :::image type="content" source="./media/signalr-quickstart-azure-signalr-service-arm-template/deploy-azure-signalr-service-arm-template-portal.png" alt-text="Zrzut ekranu przedstawiający szablon ARM służący do tworzenia usługi Azure Signal w Azure Portal.":::
+    :::image type="content" source="./media/signalr-quickstart-azure-signalr-service-arm-template/deploy-azure-signalr-service-arm-template-portal.png" alt-text="Zrzut ekranu przedstawiający szablon usługi ARM do tworzenia Azure SignalR Service w Azure Portal.":::
 
 6. Wybierz pozycję **Przejrzyj i utwórz**.
 
-7. Przeczytaj warunki i postanowienia, a następnie wybierz pozycję **Utwórz**.
+7. Przeczytaj warunki i postanowienia, a następnie wybierz pozycję **Utwórz.**
 
 # <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
 
 > [!NOTE]
-> Jeśli chcesz uruchomić skrypty programu PowerShell lokalnie, najpierw wprowadź, `Connect-AzAccount` Aby skonfigurować swoje poświadczenia platformy Azure.
+> Jeśli chcesz uruchomić skrypty programu PowerShell lokalnie, najpierw wprowadź , aby `Connect-AzAccount` skonfigurować poświadczenia platformy Azure.
 
-Użyj poniższego kodu, aby wdrożyć usługę Azure Signal przy użyciu szablonu ARM. Kod pyta o następujące elementy:
+Użyj poniższego kodu, aby wdrożyć Azure SignalR Service przy użyciu szablonu usługi ARM. Kod wyświetli monit o następujące elementy:
 
-* Nazwa i region nowej usługi Azure sygnalizującej
+* Nazwa i region nowej Azure SignalR Service
 * Nazwa i region nowej grupy zasobów
-* Warstwa cenowa platformy Azure (**Free_F1** lub **Standard_S1**)
-* Pojemność jednostki sygnalizującej (1, 2, 5, 10, 20, 50 lub 100)
+* Warstwa cenowa platformy Azure **(Free_F1** lub **Standard_S1**)
+* Pojemność jednostki SignalR (1, 2, 5, 10, 20, 50 lub 100)
   > [!NOTE]
-  > W przypadku warstwy cenowej **Free_F1** pojemność jest ograniczona do 1 jednostki.
-* Tryb usługi: **Domyślnie** wymagany jest serwer centralny, **bezserwerowy** , aby nie zezwalać na połączenie z serwerem, lub **klasyczny** do kierowania z serwerem centralnym tylko wtedy, gdy koncentrator ma połączenie z serwerem
-* Czy włączyć dzienniki dla połączeń lub komunikatów (**true** lub **false**)
+  > W przypadku **Free_F1** cenowej pojemność jest ograniczona do 1 jednostki.
+* Tryb **usługi:** domyślnie wymagaj serwera koncentratora, bez serwera, aby  nie zezwalać na żadne połączenie serwera, lub klasyczny do przekierowania do serwera koncentratora tylko wtedy, gdy koncentrator ma połączenie z serwerem 
+* Czy włączyć dzienniki dla łączności lub obsługi komunikatów **(prawda** czy **fałsz)**
 
 ```azurepowershell-interactive
 $serviceName = Read-Host -Prompt "Enter a name for the new Azure SignalR Service"
@@ -133,16 +136,16 @@ Read-Host "Press [ENTER] to continue"
 
 # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
 
-Użyj poniższego kodu, aby wdrożyć usługę Azure Signal przy użyciu szablonu ARM. Kod pyta o następujące elementy:
+Użyj poniższego kodu, aby wdrożyć Azure SignalR Service przy użyciu szablonu usługi ARM. Kod wyświetli monit o następujące elementy:
 
-* Nazwa i region nowej usługi Azure sygnalizującej
+* Nazwa i region nowego Azure SignalR Service
 * Nazwa i region nowej grupy zasobów
-* Warstwa cenowa platformy Azure (**Free_F1** lub **Standard_S1**)
-* Pojemność jednostki sygnalizującej (1, 2, 5, 10, 20, 50 lub 100)
+* Warstwa cenowa platformy Azure **(Free_F1** lub **Standard_S1**)
+* Pojemność jednostki SignalR (1, 2, 5, 10, 20, 50 lub 100)
     > [!NOTE]
-    > W przypadku warstwy cenowej **Free_F1** pojemność jest ograniczona do 1 jednostki.
-* Tryb usługi: **Domyślnie** wymagany jest serwer centralny, **bezserwerowy** , aby nie zezwalać na połączenie z serwerem, lub **klasyczny** do kierowania z serwerem centralnym tylko wtedy, gdy koncentrator ma połączenie z serwerem
-* Czy włączyć dzienniki dla połączeń lub komunikatów (**true** lub **false**)
+    > W przypadku **Free_F1** cenowej pojemność jest ograniczona do 1 jednostki.
+* Tryb **usługi:** domyślnie wymagaj serwera koncentratora, bez serwera, aby  nie zezwalać na żadne połączenie serwera, lub klasyczny do przekierowania do serwera koncentratora tylko wtedy, gdy koncentrator ma połączenie z serwerem 
+* Czy włączyć dzienniki dla łączności lub obsługi komunikatów **(prawda** czy **fałsz)**
 
 ```azurecli-interactive
 read -p "Enter a name for the new Azure SignalR Service: " serviceName &&
@@ -165,21 +168,21 @@ read -p "Press [ENTER] to continue: "
 ---
 
 > [!NOTE]
-> Wdrożenie może potrwać kilka minut. Zwróć uwagę na nazwy usługi Azure sygnalizującej i grupy zasobów, które są używane do późniejszego przeglądania wdrożonych zasobów.
+> Wdrożenie może potrwać kilka minut. Zanotuj nazwy Azure SignalR Service i grupę zasobów, których użyjemy do późniejszego przejrzenia wdrożonych zasobów.
 
-## <a name="review-deployed-resources"></a>Przejrzyj wdrożone zasoby
+## <a name="review-deployed-resources"></a>Przeglądanie wdrożonych zasobów
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Wykonaj następujące kroki, aby zapoznać się z omówieniem nowej usługi Azure Signal:
+Wykonaj następujące kroki, aby wyświetlić omówienie nowych Azure SignalR Service:
 
-1. W [Azure Portal](https://portal.azure.com)Wyszukaj i wybierz pozycję **sygnalizujący**.
+1. W [Azure Portal](https://portal.azure.com)wyszukaj i wybierz pozycję **SignalR.**
 
-2. Na liście sygnalizujący wybierz nową usługę. Zostanie wyświetlona strona **Przegląd** nowej usługi Azure Signal.
+2. Na liście SignalR wybierz nową usługę. Zostanie **wyświetlona** strona Przegląd Azure SignalR Service nowej aplikacji.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
 
-Uruchom Poniższy kod interaktywny, aby wyświetlić szczegółowe informacje o usłudze Azure Signal Service. Musisz wprowadzić nazwę nowej usługi i grupy zasobów.
+Uruchom następujący kod interaktywny, aby wyświetlić szczegółowe informacje o Azure SignalR Service. Musisz wprowadzić nazwę nowej usługi i grupę zasobów.
 
 ```azurepowershell-interactive
 $serviceName = Read-Host -Prompt "Enter the name of your Azure SignalR Service"
@@ -191,7 +194,7 @@ Read-Host "Press [ENTER] to continue"
 
 # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
 
-Uruchom Poniższy kod interaktywny, aby wyświetlić szczegółowe informacje o usłudze Azure Signal Service. Musisz wprowadzić nazwę nowej usługi i grupy zasobów.
+Uruchom następujący kod interaktywny, aby wyświetlić szczegółowe informacje o Azure SignalR Service. Musisz wprowadzić nazwę nowej usługi i grupę zasobów.
 
 ```azurecli-interactive
 read -p "Enter the name of your Azure SignalR Service: " serviceName &&
@@ -205,17 +208,17 @@ read -p "Press [ENTER] to continue: "
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy nie jest już potrzebne, Usuń grupę zasobów, która spowoduje usunięcie zasobów z grupy zasobów.
+Gdy grupa zasobów nie będzie już potrzebna, usuń ją, co spowoduje usunięcie zasobów w grupie zasobów.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. W [Azure Portal](https://portal.azure.com)Wyszukaj i wybierz pozycję **grupy zasobów**.
+1. Na stronie [Azure Portal](https://portal.azure.com)wyszukaj i wybierz **pozycję Grupy zasobów.**
 
-2. Na liście Grupa zasobów wybierz nazwę grupy zasobów.
+2. Na liście grup zasobów wybierz nazwę grupy zasobów.
 
-3. Na stronie **Przegląd** w grupie zasobów wybierz pozycję **Usuń grupę zasobów**.
+3. Na stronie **Przegląd** grupy zasobów wybierz pozycję **Usuń grupę zasobów.**
 
-4. W oknie dialogowym potwierdzenia wpisz nazwę grupy zasobów, a następnie wybierz pozycję **Usuń**.
+4. W oknie dialogowym potwierdzenia wpisz nazwę grupy zasobów, a następnie wybierz pozycję **Usuń.**
 
 # <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
 
@@ -239,7 +242,7 @@ read -p "Press [ENTER] to continue: "
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby zapoznać się z samouczkiem krok po kroku, który przeprowadzi Cię przez proces tworzenia szablonu usługi ARM, zobacz:
+Aby uzyskać samouczek krok po kroku, który przeprowadzi Cię przez proces tworzenia szablonu usługi ARM, zobacz:
 
 > [!div class="nextstepaction"]
-> [ Samouczek: Tworzenie i wdrażanie pierwszego szablonu ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [ Samouczek: tworzenie i wdrażanie pierwszego szablonu usługi ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

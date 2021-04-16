@@ -1,37 +1,40 @@
 ---
-title: Szybki Start — tworzenie i wypychanie obrazów kontenerów Java do Azure Container Registry przy użyciu Maven i wysięgnik
-description: Kompiluj aplikację w języku Java, a następnie Wypchnij ją do Azure Container Registry przy użyciu wtyczki Maven.
+title: Szybki start — kompilowanie i wypychanie obrazów kontenerów języka Java do Azure Container Registry przy użyciu narzędzi Maven i Jib
+description: Skompilowanie konteneryzowanej aplikacji Java i wypchnie ją do Azure Container Registry za pomocą wtyczki Jib narzędzia Maven.
 author: KarlErickson
-ms.custom: devx-track-java, devx-track-azurecli
 ms.author: karler
-ms.topic: quickstart
 ms.date: 02/26/2020
-ms.openlocfilehash: 9e400ee0bae2690a84f9cfd3f6a76359e08eabc2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.custom:
+- devx-track-java
+- devx-track-azurecli
+- mode-api
+ms.openlocfilehash: 4d805458d90c73de879a9b87d5b08c98a8f1a250
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92018342"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537299"
 ---
-# <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>Szybki Start: Tworzenie i wypychanie obrazów kontenera Java do Azure Container Registry
+# <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>Szybki start: kompilowanie i wypychanie obrazów kontenerów języka Java do Azure Container Registry
 
-Ten przewodnik Szybki Start przedstawia sposób tworzenia aplikacji w języku Java i wypychania jej do Azure Container Registry przy użyciu wtyczki Maven. Korzystanie z Maven i wysięgnika to jeden przykład użycia narzędzi deweloperskich do współdziałania z usługą Azure Container Registry.
+W tym przewodniku Szybki start przedstawiono sposób kompilowania konteneryzowanej aplikacji Java i wypychania jej do środowiska Azure Container Registry za pomocą wtyczki Jib narzędzia Maven. Użycie narzędzi Maven i Jib jest jednym z przykładów użycia narzędzi dewelopera do interakcji z rejestrem kontenerów platformy Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure. Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz aktywować [korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) lub utworzyć [bezpłatne konto platformy Azure](https://azure.microsoft.com/pricing/free-trial).
-* [Interfejs Azure Command-Line Interface (CLI)](/cli/azure/overview).
+* Interfejs [wiersza polecenia Command-Line Azure.](/cli/azure/overview)
 * Obsługiwany zestaw Java Development Kit (JDK). Aby uzyskać więcej informacji na temat zestawów JDK dostępnych do użycia podczas tworzenia aplikacji na platformie Azure, zobacz <https://aka.ms/azure-jdks>.
-* Narzędzie kompilacji [Maven](http://maven.apache.org) firmy Apache (wersja 3 lub nowsza).
+* Narzędzie kompilacji [Maven platformy](http://maven.apache.org) Apache (wersja 3 lub nowsza).
 * Klient usługi [Git](https://git-scm.com).
 * Klient platformy [Docker](https://www.docker.com).
-* [Pomocnika poświadczeń platformy Docker ACR](https://github.com/Azure/acr-docker-credential-helper).
+* Pomocnik [poświadczeń platformy Docker usługi ACR](https://github.com/Azure/acr-docker-credential-helper).
 
 ## <a name="create-the-spring-boot-on-docker-getting-started-web-app"></a>Tworzenie aplikacji internetowej Spring Boot on Docker Getting Started
 
 Poniższa procedura przeprowadzi Cię przez proces kompilowania aplikacji internetowej Spring Boot i testowania jej lokalnie.
 
-1. W wierszu polecenia Użyj następującego polecenia, aby sklonować [sprężynę rozruchu na platformie docker wprowadzenie](https://github.com/spring-guides/gs-spring-boot-docker) przykładowym projekcie.
+1. W wierszu polecenia użyj następującego polecenia, aby sklonować Spring Boot [na Wprowadzenie do platformy Docker.](https://github.com/spring-guides/gs-spring-boot-docker)
 
    ```bash
    git clone https://github.com/spring-guides/gs-spring-boot-docker.git
@@ -59,7 +62,7 @@ Powinien zostać wyświetlony następujący komunikat: **Hello Docker World**
 
 ## <a name="create-an-azure-container-registry-using-the-azure-cli"></a>Tworzenie usługi Azure Container Registry za pomocą interfejsu wiersza polecenia platformy Azure
 
-Następnie utworzysz grupę zasobów platformy Azure i ACR, wykonując następujące czynności:
+Następnie utworzysz grupę zasobów platformy Azure i usługę ACR, korzystając z następujących kroków:
 
 1. Zaloguj się do konta platformy Azure przy użyciu następującego polecenia:
 
@@ -73,7 +76,7 @@ Następnie utworzysz grupę zasobów platformy Azure i ACR, wykonując następuj
    az account set -s <subscription ID>
    ```
 
-1. Utwórz grupę zasobów na potrzeby zasobów platformy Azure używanych w tym samouczku. W poniższym poleceniu Pamiętaj, aby zastąpić symbole zastępcze własną nazwą zasobu i lokalizacją, taką jak `eastus` .
+1. Utwórz grupę zasobów na potrzeby zasobów platformy Azure używanych w tym samouczku. W poniższym poleceniu zastąp symbole zastępcze własną nazwą zasobu i lokalizacją, taką jak `eastus` .
 
    ```azurecli
    az group create \
@@ -81,7 +84,7 @@ Następnie utworzysz grupę zasobów platformy Azure i ACR, wykonując następuj
        --location=<location>
    ```
 
-1. Utwórz prywatny rejestr kontenerów platformy Azure w grupie zasobów przy użyciu następującego polecenia. Pamiętaj, aby zastąpić symbole zastępcze wartościami rzeczywistymi. Samouczek wypchnie później przykładową aplikację jako obraz platformy Docker do tego rejestru.
+1. Utwórz prywatny rejestr kontenerów platformy Azure w grupie zasobów przy użyciu następującego polecenia. Pamiętaj, aby zastąpić symbole zastępcze rzeczywistymi wartościami. Samouczek wypchnie później przykładową aplikację jako obraz platformy Docker do tego rejestru.
 
    ```azurecli
    az acr create \
@@ -93,23 +96,23 @@ Następnie utworzysz grupę zasobów platformy Azure i ACR, wykonując następuj
 
 ## <a name="push-your-app-to-the-container-registry-via-jib"></a>Wypychanie aplikacji do rejestru kontenerów za pośrednictwem narzędzia Jib
 
-Na koniec zaktualizujesz konfigurację projektu i użyjesz wiersza polecenia, aby skompilować i wdrożyć obraz.
+Na koniec zaktualizujesz konfigurację projektu i użyjesz wiersza polecenia do skompilowania i wdrożenia obrazu.
 
 > [!NOTE]
-> Aby zalogować się do usługi Azure Container Registry, która została właśnie utworzona, należy uruchomić demona Docker. Aby zainstalować platformę Docker na maszynie, należy [zapoznać się z oficjalną dokumentacją platformy Docker](https://docs.docker.com/install/).
+> Aby zalogować się do utworzonego rejestru kontenerów platformy Azure, musisz mieć uruchomiony demon platformy Docker. Aby zainstalować aplikację Docker na swojej maszynie, [oto oficjalna dokumentacja platformy Docker.](https://docs.docker.com/install/)
 
-1. Zaloguj się do Azure Container Registry w interfejsie wiersza polecenia platformy Azure przy użyciu następującego polecenia. Pamiętaj, aby zastąpić symbol zastępczy własną nazwą rejestru.
+1. Zaloguj się do swojego konta Azure Container Registry interfejsie wiersza polecenia platformy Azure przy użyciu następującego polecenia. Pamiętaj, aby zastąpić symbol zastępczy własną nazwą rejestru.
 
    ```azurecli
    az configure --defaults acr=<your registry name>
    az acr login
    ```
 
-   `az configure`Polecenie ustawia domyślną nazwę rejestru do użycia z `az acr` poleceniami.
+   Polecenie `az configure` ustawia domyślną nazwę rejestru do użycia z `az acr` poleceniami .
 
 1. Przejdź do katalogu ukończonego projektu aplikacji Spring Boot (na przykład „*C:\SpringBoot\gs-spring-boot-docker\complete*” lub „*/users/robert/SpringBoot/gs-spring-boot-docker/complete*”) i otwórz plik *pom.xml* w edytorze tekstu.
 
-1. Zaktualizuj `<properties>` kolekcję w pliku *pom.xml* przy użyciu poniższego kodu XML. Zastąp symbol zastępczy nazwą rejestru, a następnie Dodaj `<jib-maven-plugin.version>` Właściwość z wartością `2.2.0` lub nowszą wersję programu [wysięgnik-Maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin).
+1. Zaktualizuj `<properties>` kolekcję w pliku *pom.xml* następującym kodem XML. Zastąp symbol zastępczy nazwą rejestru i dodaj właściwość z wartością lub nowszą wersją `<jib-maven-plugin.version>` `2.2.0` wtyczki [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin).
 
    ```xml
    <properties>
@@ -119,7 +122,7 @@ Na koniec zaktualizujesz konfigurację projektu i użyjesz wiersza polecenia, ab
    </properties>
    ```
 
-1. Zaktualizuj `<plugins>` kolekcję w pliku *pom.xml* , tak aby `<plugin>` element zawierał i wpis dla `jib-maven-plugin` , jak pokazano w poniższym przykładzie. Należy pamiętać, że korzystamy z obrazu podstawowego z Container Registry firmy Microsoft (MCR): `mcr.microsoft.com/java/jdk:8-zulu-alpine` , który zawiera oficjalnie obsługiwane JDK dla platformy Azure. W przypadku innych obrazów podstawowych MCR z oficjalnie obsługiwanymi zestawy JDK, zobacz [Java SE JDK](https://hub.docker.com/_/microsoft-java-jdk), [Java SE JRE](https://hub.docker.com/_/microsoft-java-jre), [Java SE bezobsługowe środowisko JRE](https://hub.docker.com/_/microsoft-java-jre-headless)i [Java SE JDK i Maven](https://hub.docker.com/_/microsoft-java-maven).
+1. Zaktualizuj kolekcję w plikupom.xmltak, aby element zawierał wpis i `<plugins>` dla elementu , jak  `<plugin>` `jib-maven-plugin` pokazano w poniższym przykładzie. Należy pamiętać, że używamy obrazu podstawowego z zestawu Microsoft Container Registry (MCR): , który zawiera oficjalnie obsługiwany zestaw `mcr.microsoft.com/java/jdk:8-zulu-alpine` JDK dla platformy Azure. Inne obrazy podstawowe MCR z oficjalnie obsługiwanymi kodami JDK można znaleźć w tematach [Java SE JDK,](https://hub.docker.com/_/microsoft-java-jdk) [Java SE JRE,](https://hub.docker.com/_/microsoft-java-jre) [Java SE Headless JRE](https://hub.docker.com/_/microsoft-java-jre-headless)oraz [Java SE JDK i Maven.](https://hub.docker.com/_/microsoft-java-maven)
 
    ```xml
    <plugin>
@@ -145,11 +148,11 @@ Na koniec zaktualizujesz konfigurację projektu i użyjesz wiersza polecenia, ab
 
 > [!NOTE]
 >
-> Ze względów bezpieczeństwa poświadczenie utworzone przez program `az acr login` jest ważne tylko przez 1 godzinę. Jeśli wystąpi błąd *401* , możesz `az acr login -n <your registry name>` ponownie uruchomić polecenie w celu ponownego uwierzytelnienia.
+> Ze względów bezpieczeństwa poświadczenie utworzone przez `az acr login` program jest ważne tylko przez 1 godzinę. Jeśli zostanie wyświetlony błąd *401 Brak* autoryzacji, możesz ponownie uruchomić polecenie w `az acr login -n <your registry name>` celu ponownego uwierzytelnienia.
 
 ## <a name="verify-your-container-image"></a>Weryfikowanie obrazu kontenera
 
-Gratulacje! Teraz masz wbudowaną kompilację aplikacji Java na platformie Azure obsługiwaną przez JDK do ACR. Teraz można testować obraz, wdrażając go do Azure App Service lub pobierając go do lokalnego z poleceniem (zastępując symbol zastępczy):
+Gratulacje! Teraz masz skompilowanie konteneryzowanej aplikacji Java na obsługiwanym przez platformę Azure pliku JDK wypchniętą do usługi ACR. Teraz możesz przetestować obraz, wdrażając go w Azure App Service lub ściągając go do lokalizacji lokalnej za pomocą polecenia (zastępując symbol zastępczy):
 
 ```bash
 docker pull <your registry name>.azurecr.io/gs-spring-boot-docker
@@ -157,11 +160,11 @@ docker pull <your registry name>.azurecr.io/gs-spring-boot-docker
 
 ## <a name="next-steps"></a>Następne kroki
 
-W przypadku innych wersji oficjalnych obrazów podstawowych obsługiwanych przez firmę Microsoft należy zapoznać się z tematem:
+Aby uzyskać inne wersje oficjalnych obrazów podstawowych Java obsługiwanych przez firmę Microsoft, zobacz:
 
 * [Java SE JDK](https://hub.docker.com/_/microsoft-java-jdk)
 * [Java SE JRE](https://hub.docker.com/_/microsoft-java-jre)
-* [Java SE — bezobsługowy JRE](https://hub.docker.com/_/microsoft-java-jre-headless)
+* [Java SE Headless JRE](https://hub.docker.com/_/microsoft-java-jre-headless)
 * [Java SE JDK i Maven](https://hub.docker.com/_/microsoft-java-maven)
 
 Aby dowiedzieć się więcej na temat oprogramowania Spring i platformy Azure, przejdź do centrum dokumentacji dotyczącej oprogramowania Spring na platformie Azure.

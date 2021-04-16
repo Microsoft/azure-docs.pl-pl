@@ -1,6 +1,6 @@
 ---
-title: Samouczek — udowodnić własność certyfikatów urzędu certyfikacji na platformie Azure IoT Hub | Microsoft Docs
-description: Samouczek — udowadniasz, że masz certyfikat urzędu certyfikacji dla usługi Azure IoT Hub
+title: Samouczek — potwierdzanie własności certyfikatów urzędu certyfikacji w Azure IoT Hub | Microsoft Docs
+description: Samouczek — potwierdzanie, że masz certyfikat urzędu certyfikacji dla Azure IoT Hub
 author: v-gpettibone
 manager: philmea
 ms.service: iot-hub
@@ -12,41 +12,40 @@ ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-- devx-track-azurecli
-ms.openlocfilehash: 5e2827a4f87398f0a37ef04f797d2c7276d1a66d
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: b7740fa1f6a54dcfcc1181dddedcdd5fdb50402c
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384174"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378231"
 ---
-# <a name="tutorial-proving-possession-of-a-ca-certificate"></a>Samouczek: dowód posiadania certyfikatu urzędu certyfikacji
+# <a name="tutorial-proving-possession-of-a-ca-certificate"></a>Samouczek: potwierdzanie posiadania certyfikatu urzędu certyfikacji
 
-Po przekazaniu certyfikatu głównego urzędu certyfikacji lub urzędu certyfikacji podrzędnego do centrum IoT należy udowodnić, że posiadasz certyfikat:
+Po przesłaniu certyfikatu głównego urzędu certyfikacji (CA) lub certyfikatu podrzędnego urzędu certyfikacji do centrum IoT Należy udowodnić, że jesteś właścicielem certyfikatu:
 
-1. W Azure Portal przejdź do IoTHub i wybierz pozycję **ustawienia > certyfikaty**.
+1. W witrynie Azure Portal do usługi IoTHub i wybierz pozycję **Ustawienia > certyfikatów.**
 
-2. Wybierz pozycję **Dodaj** , aby dodać nowy certyfikat urzędu certyfikacji.
+2. Wybierz **pozycję Dodaj,** aby dodać nowy certyfikat urzędu certyfikacji.
 
-3. Wprowadź nazwę wyświetlaną w polu **Nazwa certyfikatu** i wybierz certyfikat PEM do dodania.
+3. Wprowadź nazwę wyświetlaną w **polu Nazwa certyfikatu** i wybierz certyfikat PEM do dodania.
 
-4. Wybierz pozycję **Zapisz**. Certyfikat zostanie wyświetlony na liście certyfikatów z **niezweryfikowanym** stanem. Ten proces weryfikacyjny będzie udowodnić, że posiadasz certyfikat.
+4. Wybierz pozycję **Zapisz**. Certyfikat jest wyświetlany na liście certyfikatów ze stanem **Niezweryfikowany.** Ten proces weryfikacji udowodni, że masz certyfikat.
 
-5. Wybierz certyfikat, aby wyświetlić okno dialogowe **Szczegóły certyfikatu** .
+5. Wybierz certyfikat, aby wyświetlić **okno dialogowe Szczegóły** certyfikatu.
 
-6. W oknie dialogowym wybierz pozycję **Generuj kod weryfikacyjny** .
+6. W **oknie dialogowym wybierz** pozycję Generuj kod weryfikacyjny.
 
   :::image type="content" source="media/tutorial-x509-prove-possession/certificate-details.png" alt-text="{Okno dialogowe Szczegóły certyfikatu}":::
 
-7. Skopiuj kod weryfikacyjny do schowka. Kod weryfikacyjny należy ustawić jako podmiot certyfikatu. Na przykład jeśli kod weryfikacyjny to 75B86466DA34D2B04C0C4C9557A119687ADAE7D4732BDDB3, Dodaj go jako podmiot certyfikatu, jak pokazano w następnym kroku.
+7. Skopiuj kod weryfikacyjny do schowka. Należy ustawić kod weryfikacyjny jako podmiot certyfikatu. Jeśli na przykład kod weryfikacyjny to 75B86466DA34D2B04C0C4C4C9557A119687ADAE7D4732BDDB3, dodaj go jako temat certyfikatu, jak pokazano w następnym kroku.
 
 8. Istnieją trzy sposoby generowania certyfikatu weryfikacji:
 
-    * Jeśli używasz skryptu programu PowerShell dostarczonego przez firmę Microsoft, uruchom polecenie, `New-CACertsVerificationCert "75B86466DA34D2B04C0C4C9557A119687ADAE7D4732BDDB3"` Aby utworzyć certyfikat o nazwie `VerifyCert4.cer` . Aby uzyskać więcej informacji, zobacz [Używanie skryptów dostarczonych przez firmę Microsoft](tutorial-x509-scripts.md).
+    * Jeśli używasz skryptu programu PowerShell dostarczonego przez firmę Microsoft, uruchom , aby `New-CACertsVerificationCert "75B86466DA34D2B04C0C4C9557A119687ADAE7D4732BDDB3"` utworzyć certyfikat o nazwie `VerifyCert4.cer` . Aby uzyskać więcej informacji, zobacz [Using Microsoft-supplied Scripts (Używanie skryptów dostarczonych przez firmę Microsoft).](tutorial-x509-scripts.md)
 
-    * Jeśli używasz skryptu bash dostarczonego przez firmę Microsoft, uruchom polecenie, `./certGen.sh create_verification_certificate "75B86466DA34D2B04C0C4C9557A119687ADAE7D4732BDDB3"` Aby utworzyć certyfikat o nazwie `verification-code.cert.pem` . Aby uzyskać więcej informacji, zobacz [Używanie skryptów dostarczonych przez firmę Microsoft](tutorial-x509-scripts.md).
+    * Jeśli używasz skryptu powłoki Bash dostarczonego przez firmę Microsoft, uruchom , aby `./certGen.sh create_verification_certificate "75B86466DA34D2B04C0C4C9557A119687ADAE7D4732BDDB3"` utworzyć certyfikat o nazwie `verification-code.cert.pem` . Aby uzyskać więcej informacji, zobacz [Using Microsoft-supplied Scripts (Używanie skryptów dostarczonych przez firmę Microsoft).](tutorial-x509-scripts.md)
 
-    * Jeśli używasz OpenSSL do wygenerowania certyfikatów, musisz najpierw wygenerować klucz prywatny, a następnie żądanie podpisania certyfikatu (CSR):
+    * Jeśli używasz programu OpenSSL do generowania certyfikatów, musisz najpierw wygenerować klucz prywatny, a następnie żądanie podpisania certyfikatu (CSR):
 
       ```bash
       $ openssl genpkey -out pop.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
@@ -69,15 +68,15 @@ Po przekazaniu certyfikatu głównego urzędu certyfikacji lub urzędu certyfika
  
       ```
 
-      Następnie Utwórz certyfikat przy użyciu pliku konfiguracyjnego głównego urzędu certyfikacji (pokazanego poniżej) lub pliku konfiguracji podrzędnego urzędu certyfikacji i CSR.
+      Następnie utwórz certyfikat przy użyciu pliku konfiguracji głównego urzędu certyfikacji (pokazanego poniżej) lub pliku konfiguracji podrzędnego urzędu certyfikacji i pliku CSR.
 
       ```bash
       openssl ca -config rootca.conf -in pop.csr -out pop.crt -extensions client_ext
 
       ```
 
-    Aby uzyskać więcej informacji, zobacz [using OpenSSL to Create test Certificates](tutorial-x509-openssl.md).
+    Aby uzyskać więcej informacji, zobacz [Using OpenSSL to Create Test Certificates (Tworzenie certyfikatów testowych przy użyciu programu OpenSSL).](tutorial-x509-openssl.md)
 
-10. Wybierz nowy certyfikat w widoku **Szczegóły certyfikatu** .
+10. Wybierz nowy certyfikat w widoku **Szczegóły** certyfikatu.
 
-11. Po przeładowaniu certyfikatu wybierz pozycję **Weryfikuj**. Stan certyfikatu urzędu certyfikacji powinien zostać zmieniony na **zweryfikowane**.
+11. Po przesłaniu certyfikatu wybierz pozycję **Weryfikuj**. Stan certyfikatu urzędu certyfikacji powinien zmienić się na **Zweryfikowano**.

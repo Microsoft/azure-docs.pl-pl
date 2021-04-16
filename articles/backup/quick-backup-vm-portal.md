@@ -1,16 +1,18 @@
 ---
-title: Szybki Start — tworzenie kopii zapasowej maszyny wirtualnej za pomocą Azure Portal
-description: W tym przewodniku szybki start dowiesz się, jak utworzyć magazyn Recovery Services, włączyć ochronę na maszynie wirtualnej platformy Azure, i utworzyć kopię zapasową maszyny wirtualnej przy użyciu Azure Portal.
-ms.devlang: azurecli
-ms.topic: quickstart
+title: Szybki start — tworzenia kopii zapasowej maszyny wirtualnej przy użyciu Azure Portal
+description: W tym przewodniku Szybki start dowiesz się, jak utworzyć magazyn usługi Recovery Services, włączyć ochronę na maszynie wirtualnej platformy Azure i utworzyć kopię zapasową maszyny wirtualnej przy użyciu Azure Portal.
 ms.date: 05/12/2020
-ms.custom: mvc
-ms.openlocfilehash: cd0d4928d5cd0eb15f4f1372a0a3417fc85d13bb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.devlang: azurecli
+ms.custom:
+- mvc
+- mode-portal
+ms.openlocfilehash: 9779f84e6ddf1958ee234a96267171869a33e4e0
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91328783"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535056"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Tworzenie kopii zapasowej maszyny wirtualnej na platformie Azure
 
@@ -24,7 +26,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 ## <a name="select-a-vm-to-back-up"></a>Wybór maszyny wirtualnej, której kopia zapasowa ma być tworzona
 
-Utwórz prostie zaplanowaną codzienne kopie zapasowe w magazynie Recovery Services.
+Tworzenie prostej zaplanowanej codziennej kopii zapasowej w magazynie usługi Recovery Services.
 
 1. W menu po lewej stronie wybierz pozycję **Maszyny wirtualne**.
 2. Z listy wybierz maszynę wirtualną, której kopia zapasowa ma być tworzona. Jeśli użyto poleceń szybkiego startu przykładowej maszyny wirtualnej, maszyna wirtualna ma nazwę *myVM* i znajduje się w grupie zasobów *myResourceGroup*.
@@ -39,7 +41,7 @@ Magazyn usługi Recovery Services jest kontenerem logicznym, który przechowuje 
 
     ![Włączanie tworzenia kopii zapasowej maszyny wirtualnej w witrynie Azure Portal](./media/quick-backup-vm-portal/enable-backup.png)
 
-    Magazyn jest domyślnie ustawiony na magazyn geograficznie nadmiarowy. Aby zapewnić lepszą ochronę danych, ten poziom nadmiarowości magazynu gwarantuje, że dane kopii zapasowej są replikowane do dodatkowego regionu świadczenia usługi Azure, który znajduje się setki kilometrów od regionu podstawowego.
+    Magazyn jest domyślnie ustawiony na magazyn geograficznie nadmiarowy. Aby jeszcze bardziej chronić dane, ten poziom nadmiarowości magazynu gwarantuje, że dane kopii zapasowej są replikowane do dodatkowego regionu świadczenia usługi Azure, który znajduje się setki kilometrów od regionu podstawowego.
 
     Aby określić, kiedy zadanie tworzenia kopii zapasowej ma się uruchomić oraz jak długo mają być przechowywane punkty odzyskiwania, należy utworzyć zasady i korzystać z nich. Domyślne zasady ochrony uruchamiają zadanie tworzenia kopii zapasowej codziennie i przechowują punkty odzyskiwania przez 30 dni. Możesz użyć domyślnych wartości zasad, aby zapewnić szybką ochronę maszyny wirtualnej.
 
@@ -65,17 +67,17 @@ W oknie **Kopia zapasowa** maszyny wirtualnej jest wyświetlany stan kopii zapas
 
 Gdy ochrona maszyny wirtualnej nie jest już potrzebna, można ją wyłączyć i usunąć punkty przywracania oraz magazyn usługi Recovery Services, a następnie usunąć grupę zasobów i skojarzone zasoby maszyny wirtualnej
 
-Jeśli zamierzasz kontynuować pracę z samouczkiem dotyczącym tworzenia kopii zapasowych, w którym wyjaśniono, jak przywrócić dane dla maszyny wirtualnej, Pomiń kroki opisane w tej sekcji i przejdź do [następnej procedury](#next-steps).
+Jeśli zamierzasz przejść do samouczka tworzenia kopii zapasowej, który wyjaśnia, jak przywrócić dane dla maszyny wirtualnej, pomiń kroki opisane w tej sekcji i przejdź do [sekcji Następne kroki.](#next-steps)
 
 1. Wybierz pozycję **Kopia zapasowa** dla maszyny wirtualnej.
 
-2. Wybierz pozycję **Zatrzymaj tworzenie kopii zapasowej**.
+2. Wybierz pozycję **Zatrzymaj tworzenie kopii zapasowej.**
 
     ![Zatrzymywanie tworzenia kopii zapasowej maszyny wirtualnej w witrynie Azure Portal](./media/quick-backup-vm-portal/stop-backup.png)
 
 3. Wybierz polecenie **Usuń dane kopii zapasowej** z menu rozwijanego.
 
-4. W oknie dialogowym **Wpisywanie nazwy elementu kopii zapasowej** wprowadź nazwę maszyny wirtualnej, np. *myVM*. Wybierz pozycję **Zatrzymaj tworzenie kopii zapasowej**.
+4. W oknie dialogowym **Wpisywanie nazwy elementu kopii zapasowej** wprowadź nazwę maszyny wirtualnej, np. *myVM*. Wybierz pozycję **Zatrzymaj tworzenie kopii zapasowej.**
 
     Po zatrzymaniu tworzenia kopii zapasowej maszyny wirtualnej i usunięciu punktów odzyskiwania, możesz usunąć grupę zasobów. Jeśli użyto istniejącej maszyny wirtualnej, możesz pozostawić grupę zasobów i maszynę wirtualną.
 

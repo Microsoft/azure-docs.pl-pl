@@ -1,32 +1,32 @@
 ---
-title: Tworzenie pulpitu nawigacyjnego Azure Portal przy użyciu interfejsu wiersza polecenia platformy Azure
-description: 'Szybki Start: informacje na temat tworzenia pulpitu nawigacyjnego w Azure Portal przy użyciu interfejsu wiersza polecenia platformy Azure. Pulpit nawigacyjny to skoncentrowany i zorganizowany widok zasobów w chmurze.'
+title: Tworzenie pulpitu nawigacyjnego Azure Portal za pomocą interfejsu wiersza polecenia platformy Azure
+description: 'Szybki start: dowiedz się, jak utworzyć pulpit nawigacyjny w witrynie Azure Portal użyciu interfejsu wiersza polecenia platformy Azure. Pulpit nawigacyjny to ukierunkowany i zorganizowany widok zasobów w chmurze.'
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 12/4/2020
-ms.openlocfilehash: ddfee1932c6887c6ca7593ca7a28c03e68e09899
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d951c692c7d3c282ae68c5f9b53e9cda5407df10
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104613215"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481025"
 ---
-# <a name="quickstart-create-an-azure-portal-dashboard-with-azure-cli"></a>Szybki Start: tworzenie pulpitu nawigacyjnego Azure Portal przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="quickstart-create-an-azure-portal-dashboard-with-azure-cli"></a>Szybki start: tworzenie pulpitu nawigacyjnego Azure Portal pomocą interfejsu wiersza polecenia platformy Azure
 
-Pulpit nawigacyjny w Azure Portal to skoncentrowany i zorganizowany widok zasobów w chmurze. Ten artykuł koncentruje się na procesie tworzenia pulpitu nawigacyjnego przy użyciu interfejsu wiersza polecenia platformy Azure.
-Pulpit nawigacyjny pokazuje wydajność maszyny wirtualnej, a także pewne informacje i linki statyczne.
+Pulpit nawigacyjny w Azure Portal to ukierunkowany i zorganizowany widok zasobów w chmurze. Ten artykuł koncentruje się na procesie tworzenia pulpitu nawigacyjnego przy użyciu interfejsu wiersza polecenia platformy Azure.
+Pulpit nawigacyjny przedstawia wydajność maszyny wirtualnej, a także niektóre statyczne informacje i linki.
 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- Jeśli masz wiele subskrypcji platformy Azure, wybierz odpowiednią subskrypcję, w której chcesz rozliczać zasoby.
-Wybierz subskrypcję za pomocą polecenia [AZ Account Set](/cli/azure/account#az_account_set) :
+- Jeśli masz wiele subskrypcji platformy Azure, wybierz odpowiednią subskrypcję, w ramach której będą naliczane opłaty za zasoby.
+Wybierz subskrypcję za pomocą [polecenia az account set:](/cli/azure/account#az_account_set)
 
   ```azurecli
   az account set --subscription 00000000-0000-0000-0000-000000000000
   ```
 
-- Utwórz [grupę zasobów platformy Azure](../azure-resource-manager/management/overview.md) za pomocą polecenia [AZ Group Create](/cli/azure/group#az_group_create) lub Użyj istniejącej grupy zasobów:
+- Utwórz [grupę zasobów platformy Azure za](../azure-resource-manager/management/overview.md) pomocą polecenia az group [create](/cli/azure/group#az_group_create) lub użyj istniejącej grupy zasobów:
 
   ```azurecli
   az group create --name myResourceGroup --location centralus
@@ -36,7 +36,7 @@ Wybierz subskrypcję za pomocą polecenia [AZ Account Set](/cli/azure/account#az
 
 ## <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-Utwórz maszynę wirtualną za pomocą polecenia [AZ VM Create](/cli/azure/vm#az_vm_create) :
+Utwórz maszynę wirtualną za pomocą [polecenia az vm create:](/cli/azure/vm#az_vm_create)
 
 ```azurecli
 az vm create --resource-group myResourceGroup --name SimpleWinVM --image win2016datacenter \
@@ -45,48 +45,48 @@ az vm create --resource-group myResourceGroup --name SimpleWinVM --image win2016
 
 > [!Note]
 > Hasło musi być złożone.
-> To jest nowa nazwa użytkownika i hasło.
-> Nie jest to na przykład konto używane do logowania się na platformie Azure.
-> Aby uzyskać więcej informacji, zobacz Wymagania dotyczące [nazwy użytkownika](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm) i [hasła](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+> Jest to nowa nazwa użytkownika i hasło.
+> Nie jest to na przykład konto, za pomocą których loguje się się do platformy Azure.
+> Aby uzyskać więcej informacji, zobacz [wymagania dotyczące nazwy użytkownika](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm) i [hasła.](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)
 
-Wdrożenie rozpocznie się i zazwyczaj trwa kilka minut.
+Wdrażanie rozpoczyna się i zwykle trwa kilka minut.
 Po zakończeniu wdrażania przejdź do następnej sekcji.
 
-## <a name="download-the-dashboard-template"></a>Pobierz szablon pulpitu nawigacyjnego
+## <a name="download-the-dashboard-template"></a>Pobieranie szablonu pulpitu nawigacyjnego
 
-Ponieważ pulpity nawigacyjne platformy Azure to zasoby, mogą być reprezentowane jako dane JSON.
-Aby uzyskać więcej informacji, zobacz [strukturę pulpitów nawigacyjnych platformy Azure](./azure-portal-dashboards-structure.md).
+Ponieważ pulpity nawigacyjne platformy Azure są zasobami, mogą być reprezentowane jako JSON.
+Aby uzyskać więcej informacji, zobacz [Struktura pulpitów nawigacyjnych platformy Azure.](./azure-portal-dashboards-structure.md)
 
-Pobierz następujący plik: [portal-dashboard-template-testvm.json](https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json).
+Pobierz następujący plik:portal-dashboard-template-testvm.js[na .](https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json)
 
-Dostosuj pobrany szablon, zmieniając następujące wartości na wartości:
+Dostosuj pobrany szablon, zmieniając następujące wartości na swoje wartości:
 
 * `<subscriptionID>`: Twoja subskrypcja
-* `<rgName>`: Grupa zasobów, na przykład `myResourceGroup`
-* `<vmName>`: Nazwa maszyny wirtualnej, na przykład `SimpleWinVM`
-* `<dashboardTitle>`: Tytuł pulpitu nawigacyjnego, na przykład `Simple VM Dashboard`
-* `<location>`: Twój region świadczenia usługi Azure, na przykład `centralus`
+* `<rgName>`: grupa zasobów, na przykład `myResourceGroup`
+* `<vmName>`: nazwa maszyny wirtualnej, na przykład `SimpleWinVM`
+* `<dashboardTitle>`: tytuł pulpitu nawigacyjnego, na przykład `Simple VM Dashboard`
+* `<location>`: Region świadczenia usługi Azure, na przykład `centralus`
 
-Aby uzyskać więcej informacji, zobacz [Dokumentacja szablonu pulpitów nawigacyjnych w portalu Microsoft](/azure/templates/microsoft.portal/dashboards).
+Aby uzyskać więcej informacji, zobacz microsoft portal dashboards template reference (Informacje o szablonie [pulpitów nawigacyjnych w witrynie Microsoft Portal).](/azure/templates/microsoft.portal/dashboards)
 
 ## <a name="deploy-the-dashboard-template"></a>Wdrażanie szablonu pulpitu nawigacyjnego
 
-Teraz można wdrożyć szablon z poziomu interfejsu wiersza polecenia platformy Azure.
+Teraz możesz wdrożyć szablon z poziomu interfejsu wiersza polecenia platformy Azure.
 
-1. Uruchom polecenie [AZ Portal Dashboard Create](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_create) , aby wdrożyć szablon:
+1. Uruchom polecenie [az portal dashboard create,](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_create) aby wdrożyć szablon:
 
    ```azurecli
    az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' \
       --input-path portal-dashboard-template-testvm.json --location centralus
    ```
 
-1. Sprawdź, czy pulpit nawigacyjny został utworzony pomyślnie, uruchamiając polecenie [AZ Portal Dashboard show](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_show) :
+1. Sprawdź, czy pulpit nawigacyjny został pomyślnie utworzony, uruchamiając [polecenie az portal dashboard show:](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_show)
 
    ```azurecli
    az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
    ```
 
-Aby wyświetlić wszystkie pulpity nawigacyjne dla bieżącej subskrypcji, użyj polecenie [AZ Portal Dashboard list](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list):
+Aby wyświetlić wszystkie pulpity nawigacyjne dla bieżącej subskrypcji, użyj [az portal dashboard list](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list):
 
 ```azurecli
 az portal dashboard list
@@ -98,7 +98,7 @@ Możesz również wyświetlić wszystkie pulpity nawigacyjne dla grupy zasobów:
 az portal dashboard list --resource-group myResourceGroup
 ```
 
-Pulpit nawigacyjny można zaktualizować za pomocą polecenia [AZ Portal pulpitu nawigacyjnego Update](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update) :
+Pulpit nawigacyjny można zaktualizować za pomocą [polecenia az portal dashboard update:](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update)
 
 ```azurecli
 az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
@@ -109,17 +109,17 @@ az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Da
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Aby usunąć maszynę wirtualną i skojarzony z nią pulpit nawigacyjny, Usuń grupę zasobów, która ją zawiera.
+Aby usunąć maszynę wirtualną i skojarzony pulpit nawigacyjny, usuń grupę zasobów, która je zawiera.
 
 > [!CAUTION]
-> Poniższy przykład usuwa określoną grupę zasobów i wszystkie znajdujące się w niej zasoby.
-> Jeśli zasoby spoza zakresu tego artykułu istnieją w określonej grupie zasobów, zostaną również usunięte.
+> Poniższy przykład usuwa określoną grupę zasobów i wszystkie zawarte w niej zasoby.
+> Jeśli zasoby spoza zakresu tego artykułu istnieją w określonej grupie zasobów, również zostaną usunięte.
 
 ```azurecli
 az group delete --name myResourceGroup
 ```
 
-Aby usunąć tylko pulpit nawigacyjny, użyj polecenia [AZ Portal Dashboard Delete](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_delete) :
+Aby usunąć tylko pulpit nawigacyjny, użyj [polecenia az portal dashboard delete:](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_delete)
 
 ```azurecli
 az portal dashboard delete --resource-group myResourceGroup --name "Simple VM Dashboard"
@@ -127,4 +127,4 @@ az portal dashboard delete --resource-group myResourceGroup --name "Simple VM Da
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji o obsłudze interfejsu wiersza polecenia platformy Azure dla pulpitów nawigacyjnych, zobacz [AZ Portal Dashboard](/cli/azure/ext/portal/portal/dashboard).
+Aby uzyskać więcej informacji na temat obsługi pulpitów nawigacyjnych za pomocą interfejsu wiersza polecenia platformy Azure, zobacz [az portal dashboard](/cli/azure/ext/portal/portal/dashboard).
