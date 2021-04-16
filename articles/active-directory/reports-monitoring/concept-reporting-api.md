@@ -1,6 +1,6 @@
 ---
 title: Wprowadzenie do interfejsu API raportowania usługi Azure AD | Microsoft Docs
-description: Jak rozpocząć pracę z interfejsem API raportowania Azure Active Directory
+description: Jak rozpocząć pracę z interfejsem API Azure Active Directory raportowania
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -17,55 +17,55 @@ ms.date: 01/21/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6ef122cd36c3d4e9135876647075f22158df0d1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e5a095c87e46839c7c120bdd6d8db1595164e57
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101653239"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532516"
 ---
-# <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Wprowadzenie do interfejsu API raportowania Azure Active Directory
+# <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Wprowadzenie do interfejsu API Azure Active Directory raportowania
 
-Azure Active Directory oferuje różne [raporty](overview-reports.md)zawierające przydatne informacje dotyczące aplikacji, takich jak systemy Siem, Inspekcja i narzędzia analizy biznesowej. 
+Azure Active Directory udostępnia różne raporty [zawierające](overview-reports.md)przydatne informacje dla aplikacji, takich jak systemy SIEM, narzędzia inspekcji i analizy biznesowej. 
 
-Za pomocą interfejsu API Microsoft Graph dla raportów usługi Azure AD można uzyskać programistyczny dostęp do danych za pośrednictwem zestawu interfejsów API opartych na interfejsie REST. Te interfejsy API można wywoływać przy użyciu różnych języków i narzędzi do programowania.
+Korzystając z interfejsu API Microsoft Graph dla raportów usługi Azure AD, można uzyskać dostęp programowy do danych za pośrednictwem zestawu interfejsów API opartych na interfejsie REST. Te interfejsy API można wywoływać przy użyciu różnych języków i narzędzi do programowania.
 
-Ten artykuł zawiera omówienie interfejsu API raportowania, w tym sposoby uzyskiwania do niego dostępu.
+Ten artykuł zawiera omówienie interfejsu API raportowania, w tym sposobów uzyskiwania do niego dostępu.
 
-Jeśli występują problemy, zobacz [jak uzyskać pomoc techniczną dotyczącą Azure Active Directory](../fundamentals/active-directory-troubleshooting-support-howto.md).
+W przypadku problemów zobacz, jak [uzyskać pomoc techniczną Azure Active Directory.](../fundamentals/active-directory-troubleshooting-support-howto.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby uzyskać dostęp do interfejsu API raportowania, z interwencją użytkownika lub bez niego, należy wykonać następujące działania:
+Aby uzyskać dostęp do interfejsu API raportowania z interwencją użytkownika lub bez tej interwencji, należy:
 
-1. Przypisywanie ról (czytelnik zabezpieczeń, administrator zabezpieczeń, Administrator globalny)
+1. Przypisywanie ról (czytelnik zabezpieczeń, administrator zabezpieczeń, administrator globalny)
 2. Rejestrowanie aplikacji
 3. Udzielenie uprawnień
-4. Zbierz ustawienia konfiguracji
+4. Zbieranie ustawień konfiguracji
 
-Aby uzyskać szczegółowe instrukcje, zobacz [wymagania wstępne dotyczące uzyskiwania dostępu do interfejsu API raportowania Azure Active Directory](howto-configure-prerequisites-for-reporting-api.md). 
+Aby uzyskać szczegółowe instrukcje, zobacz [wymagania wstępne dotyczące uzyskiwania dostępu do interfejsu API Azure Active Directory raportowania.](howto-configure-prerequisites-for-reporting-api.md) 
 
 ## <a name="api-endpoints"></a>Punkty końcowe interfejsu API 
 
-Punkt końcowy interfejsu API Microsoft Graph dla dzienników inspekcji jest `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits` i punkt końcowy interfejsu api Microsoft Graph dla logowań `https://graph.microsoft.com/v1.0/auditLogs/signIns` . Aby uzyskać więcej informacji, zobacz Dokumentacja [interfejsu API inspekcji](/graph/api/resources/directoryaudit) i [Dokumentacja interfejsu API logowania](/graph/api/resources/signIn).
+Punkt Microsoft Graph API dla dzienników inspekcji to , a punkt końcowy Microsoft Graph API logowania `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits` to `https://graph.microsoft.com/v1.0/auditLogs/signIns` . Aby uzyskać więcej informacji, zobacz dokumentacja [interfejsu API inspekcji](/graph/api/resources/directoryaudit) i [dokumentacja interfejsu API logowania](/graph/api/resources/signIn).
 
-Za pomocą [interfejsu API wykrywania ryzyka ochrony tożsamości](/graph/api/resources/identityriskevent?view=graph-rest-beta) można uzyskać programistyczny dostęp do wykrywania zabezpieczeń przy użyciu Microsoft Graph. Aby uzyskać więcej informacji, zobacz [wprowadzenie do Azure Active Directory Identity Protection i Microsoft Graph](../identity-protection/howto-identity-protection-graph-api.md). 
+Interfejs API wykrywania [ryzyka usługi Identity Protection](/graph/api/resources/identityriskevent?view=graph-rest-beta&preserve-view=true) umożliwia uzyskanie programowego dostępu do wykrywania zabezpieczeń przy użyciu Microsoft Graph. Aby uzyskać więcej informacji, [zobacz Get started with Azure Active Directory Identity Protection and Microsoft Graph](../identity-protection/howto-identity-protection-graph-api.md)(Wprowadzenie do Azure Active Directory Identity Protection i Microsoft Graph ). 
   
-Za pomocą [interfejsu API dzienników aprowizacji](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) można także uzyskać programistyczny dostęp do zdarzeń aprowizacji w dzierżawie. 
+Możesz również użyć interfejsu [API dzienników aprowizowania,](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta&preserve-view=true) aby uzyskać dostęp programowy do zdarzeń aprowrowi w dzierżawie. 
 
-## <a name="apis-with-microsoft-graph-explorer"></a>Interfejsy API z Eksploratorem Microsoft Graph
+## <a name="apis-with-microsoft-graph-explorer"></a>Interfejsy API w Microsoft Graph Explorer
 
-Za pomocą [eksploratora Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) można sprawdzić dane logowania i inspekcji interfejsu API. Upewnij się, że logujesz się do swojego konta przy użyciu obu przycisków logowania w interfejsie użytkownika programu Graph Explorer, a następnie ustaw wartość **AuditLog. Read. All** i **Directory. Read. All** Permissions dla Twojej dzierżawy, jak pokazano.   
+Możesz użyć eksploratora [Microsoft Graph,](https://developer.microsoft.com/graph/graph-explorer) aby zweryfikować dane interfejsu API logowania i inspekcji. Zaloguj się do swojego konta przy użyciu obu przycisków logowania w interfejsie użytkownika eksploratora programu Graph i ustaw uprawnienia **AuditLog.Read.All** i **Directory.Read.All** dla dzierżawy, jak pokazano poniżej.   
 
 ![Eksplorator programu Graph](./media/concept-reporting-api/graph-explorer.png)
 
-![Modyfikuj interfejs użytkownika uprawnień](./media/concept-reporting-api/modify-permissions.png)
+![Interfejs użytkownika modyfikowania uprawnień](./media/concept-reporting-api/modify-permissions.png)
 
-## <a name="use-certificates-to-access-the-azure-ad-reporting-api"></a>Używanie certyfikatów do uzyskiwania dostępu do interfejsu API raportowania usługi Azure AD 
+## <a name="use-certificates-to-access-the-azure-ad-reporting-api"></a>Uzyskiwanie dostępu do interfejsu API raportowania usługi Azure AD przy użyciu certyfikatów 
 
-Jeśli planujesz pobrać dane raportowania bez interwencji użytkownika, użyj interfejsu API raportowania usługi Azure AD z certyfikatami.
+Użyj interfejsu API raportowania usługi Azure AD z certyfikatami, jeśli planujesz pobrać dane raportowania bez interwencji użytkownika.
 
-Aby uzyskać szczegółowe instrukcje, zobacz [pobieranie danych przy użyciu interfejsu API raportowania usługi Azure AD z certyfikatami](tutorial-access-api-with-certificates.md).
+Aby uzyskać szczegółowe instrukcje, zobacz Get data using the Azure AD Reporting API with certificates (Uzyskiwanie danych [przy użyciu interfejsu API raportowania usługi Azure AD z certyfikatami).](tutorial-access-api-with-certificates.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

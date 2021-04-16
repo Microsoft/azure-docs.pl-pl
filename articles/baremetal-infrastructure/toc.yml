@@ -6,7 +6,7 @@
       href: concepts-baremetal-infrastructure-overview.md
     - name: Poznawanie warunków
       href: know-baremetal-terms.md
-    - name: Łączenie wystąpień BareMetal na platformie Azure
+    - name: Łączenie wystąpień programu BareMetal na platformie Azure
       displayName: 'Azure CLI, az baremetalinstance, az baremetalinstance restart'
       href: connect-baremetal-infrastructure.md
 - name: Pakiety robocze
@@ -85,3 +85,5 @@
               href: /azure/virtual-machines/workloads/sap/hana-large-instance-virtual-machine-migration?context=/azure/baremetal-infrastructure/workloads/sap/context/context
             - name: Kupowanie rezerwacji oprogramowania SAP HANA — duże wystąpienia
               href: /azure/cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity
+    - name: Oracle
+      href: ./workloads/oracle/toc.yml

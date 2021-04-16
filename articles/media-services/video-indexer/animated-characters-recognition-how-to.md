@@ -1,7 +1,7 @@
 ---
-title: Wykrywanie znaków animowanych za pomocą Video Indexer jak
+title: Wykrywanie znaków animowanych Video Indexer z daniem
 titleSuffix: Azure Media Services
-description: W tym artykule przedstawiono sposób korzystania z wykrywania animowanych znaków w Video Indexer.
+description: W ten sposób pokazano, jak używać wykrywania znaków animowanych za pomocą Video Indexer.
 services: media-services
 author: Juliako
 manager: femila
@@ -11,159 +11,159 @@ ms.custom: references_regions
 ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: juliako
-ms.openlocfilehash: 29dbdb896d1a6063fec277afa33327c84cb2f0cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e80699a043d4c18a1bc7ba75ce58c6972fae0fad
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98880931"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531561"
 ---
-# <a name="use-the-animated-character-detection-preview-with-portal-and-api"></a>Używanie wykrywania znaków animowanych (wersja zapoznawcza) z portalem i interfejsem API 
+# <a name="use-the-animated-character-detection-preview-with-portal-and-api"></a>Korzystanie z wykrywania znaków animowanych (wersja zapoznawcza) za pomocą portalu i interfejsu API 
 
-Azure Media Services Video Indexer obsługuje wykrywanie, grupowanie i rozpoznawanie znaków w animowanej zawartości, ta funkcja jest dostępna w Azure Portal i za pomocą interfejsu API. Zapoznaj się z tym tematem [przeglądu](animated-characters-recognition.md) .
+Azure Media Services Video Indexer obsługuje wykrywanie, grupowanie i rozpoznawanie znaków w animowanej zawartości, ta funkcja jest dostępna za pośrednictwem interfejsu Azure Portal api. Zapoznaj się [z tym tematem z omówieniem.](animated-characters-recognition.md)
 
-W tym artykule pokazano, jak używać wykrywania animowanych znaków z Azure Portal i Video Indexer API.
+W tym artykule pokazano, jak używać wykrywania znaków animowanych za pomocą Azure Portal i Video Indexer API.
 
-## <a name="use-the-animated-character-detection-with-portal"></a>Używanie wykrywania animowanych znaków z portalem 
+## <a name="use-the-animated-character-detection-with-portal"></a>Korzystanie z wykrywania znaków animowanych w portalu 
 
-Na kontach wersji próbnej integracja Custom Vision jest zarządzana przez program Video Indexer, można rozpocząć tworzenie i Używanie modelu znaków animowanych. Jeśli używasz konta próbnego, możesz pominąć następujące polecenie ("Połącz konto Custom Vision").
+Na kontach w wersji próbnej Custom Vision zarządzana przez usługę Video Indexer, można rozpocząć tworzenie modelu znaków animowanych i używanie go. Jeśli korzystasz z konta w wersji próbnej, możesz pominąć następującą sekcję ("Łączenie Custom Vision konta").
 
-### <a name="connect-your-custom-vision-account-paid-accounts-only"></a>Połącz konto Custom Vision (tylko płatne konta)
+### <a name="connect-your-custom-vision-account-paid-accounts-only"></a>Łączenie konta Custom Vision (tylko konta płatne)
 
-Jeśli masz konto płatne Video Indexer, musisz najpierw połączyć konto Custom Vision. Jeśli nie masz już konta Custom Vision, utwórz je. Aby uzyskać więcej informacji, zobacz [Custom Vision](../../cognitive-services/custom-vision-service/overview.md).
+Jeśli jesteś właścicielem Video Indexer płatnego konta, musisz najpierw Custom Vision konto. Jeśli nie masz jeszcze konta Custom Vision, utwórz je. Aby uzyskać więcej informacji, [zobacz Custom Vision](../../cognitive-services/custom-vision-service/overview.md).
 
 > [!NOTE]
-> Oba konta muszą znajdować się w tym samym regionie. Integracja Custom Vision nie jest obecnie obsługiwana w regionie Japonii.
+> Oba konta muszą być w tym samym regionie. Integracja Custom Vision nie jest obecnie obsługiwana w regionie Japonia.
 
-Płatne konta, które mają dostęp do konta Custom Vision, mogą zobaczyć modele i obrazy otagowane. Dowiedz się więcej o [ulepszaniu klasyfikatora w Custom Vision](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md). 
+Płatne konta, które mają dostęp do konta Custom Vision, mogą tam zobaczyć modele i otagowane obrazy. Dowiedz się więcej [o ulepszaniu klasyfikatora w Custom Vision](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md). 
 
-Należy pamiętać, że szkolenie modelu powinno odbywać się tylko za pośrednictwem Video Indexer, a nie za pośrednictwem Custom Vision witryny sieci Web. 
+Należy pamiętać, że trenowanie modelu powinno odbywać się tylko za pośrednictwem Video Indexer, a nie za pośrednictwem Custom Vision internetowej. 
 
 #### <a name="connect-a-custom-vision-account-with-api"></a>Łączenie konta Custom Vision z interfejsem API 
 
-Wykonaj następujące kroki, aby nawiązać połączenie z Custom Vision kontem Video Indexer lub zmienić konto Custom Vision, które jest obecnie połączone z Video Indexer:
+Wykonaj następujące kroki, aby połączyć Custom Vision z Video Indexer lub zmienić konto Custom Vision, które jest aktualnie połączone z Video Indexer:
 
-1. Przejdź do [www.customvision.AI](https://www.customvision.ai) i zaloguj się.
-1. Skopiuj klucze dla zasobów szkoleniowych i predykcyjnych:
+1. Przejdź do [strony www.customvision.ai](https://www.customvision.ai) i zaloguj się.
+1. Skopiuj klucze dla zasobów trenowania i przewidywania:
 
     > [!NOTE]
-    > Aby zapewnić wszystkie klucze, musisz mieć dwa oddzielne zasoby w Custom Vision, jeden do szkolenia i jeden do prognozowania.
+    > Aby udostępnić wszystkie klucze, musisz mieć dwa oddzielne zasoby w Custom Vision, jeden do trenowania i jeden do przewidywania.
 1. Podaj inne informacje:
 
     * Punkt końcowy 
-    * Identyfikator zasobu predykcyjnego
-1. Przeglądaj i zaloguj się do [Video Indexer](https://vi.microsoft.com/).
-1. Kliknij znak zapytania w prawym górnym rogu strony i wybierz pozycję **odwołanie do interfejsu API**.
-1. Upewnij się, że masz subskrypcję API Management, klikając pozycję Karta **produkty** . Jeśli masz podłączony interfejs API, możesz przejść do następnego kroku, w przeciwnym razie subskrybować. 
-1. W portalu dla deweloperów kliknij **kompletne odwołanie do interfejsu API** i przejdź do **operacji**.  
-1. Wybierz pozycję **połącz Custom Vision konto (wersja ZApoznawcza)** , a następnie kliknij przycisk **Wypróbuj**.
-1. Wypełnij pola wymagane oraz token dostępu i kliknij przycisk **Wyślij**. 
+    * Identyfikator zasobu przewidywania
+1. Przejdź do witryny i zaloguj się [do Video Indexer](https://vi.microsoft.com/).
+1. Kliknij znak zapytania w prawym górnym rogu strony i wybierz pozycję **Dokumentacja interfejsu API.**
+1. Upewnij się, że subskrybujesz subskrypcję API Management klikając **kartę** Produkty. Jeśli masz połączony interfejs API, możesz przejść do następnego kroku, w przeciwnym razie zasubskrybuj. 
+1. W portalu dla deweloperów kliknij pozycję Complete API Reference (Pełna dokumentacja **interfejsu API)** i przejdź do strony **Operations (Operacje).**  
+1. Wybierz **pozycję Połącz Custom Vision konta (WERSJA ZAPOZNAWCZA)** i kliknij pozycję **Wypróbuj.**
+1. Wypełnij wymagane pola, a także token dostępu, a następnie kliknij pozycję **Wyślij**. 
 
-    Aby uzyskać więcej informacji na temat uzyskiwania Video Indexer tokenu dostępu, przejdź do [portalu dla deweloperów](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token?)i zapoznaj się z [odpowiednią dokumentacją](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api).  
-1. Gdy wywołanie zwróci odpowiedź 200 OK, Twoje konto jest połączone.
-1. Aby zweryfikować połączenie, przejdź do portalu [Video Indexer](https://vi.microsoft.com/)):
-1. Kliknij przycisk **dostosowywania modelu zawartości** w prawym górnym rogu.
-1. Przejdź do karty **animowane znaki** .
-1. Po kliknięciu przycisku Zarządzaj modelami w Custom Vision zostanie przetransferowane konto Custom Vision, które właśnie zostało połączone.
+    Aby uzyskać więcej informacji na temat uzyskiwania tokenu [](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account-Access-Token)Video Indexer, przejdź do portalu dla deweloperów i zapoznaj się z odpowiednią [dokumentacją](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api).  
+1. Gdy wywołanie zwróci odpowiedź 200 OK, Twoje konto zostanie połączone.
+1. Aby sprawdzić połączenie, przejdź do [portalu Video Indexer](https://vi.microsoft.com/)):
+1. Kliknij przycisk **Dostosowywanie modelu zawartości** w prawym górnym rogu.
+1. Przejdź do karty **Animowane** znaki.
+1. Po kliknięciu przycisku Zarządzaj modelami w Custom Vision zostaną przeniesione do Custom Vision właśnie połączonego konta.
 
 > [!NOTE]
-> Obecnie obsługiwane są tylko modele, które zostały utworzone za pośrednictwem Video Indexer. Modele tworzone za poorednictwem Custom Vision nie będą dostępne. Najlepszym rozwiązaniem jest edycja modeli, które zostały utworzone za pomocą Video Indexer tylko za pomocą platformy Video Indexer, ponieważ zmiany wprowadzone przez Custom Vision mogą spowodować niezamierzone wyniki.
+> Obecnie obsługiwane są tylko modele, które Video Indexer za pośrednictwem usługi . Modele tworzone za pomocą Custom Vision nie będą dostępne. Ponadto najlepszym rozwiązaniem jest edytowanie modeli utworzonych za pośrednictwem platformy Video Indexer tylko za pośrednictwem platformy Video Indexer, ponieważ zmiany wprowadzone za pośrednictwem Custom Vision mogą spowodować niezamierzone wyniki.
 
-### <a name="create-an-animated-characters-model"></a>Utwórz model znaków animowanych
+### <a name="create-an-animated-characters-model"></a>Tworzenie modelu znaków animowanych
 
 1. Przejdź do witryny internetowej [Video Indexer](https://vi.microsoft.com/) i zaloguj się.
-1. Aby dostosować model na koncie, wybierz przycisk **Dostosowywanie modelu zawartości** po lewej stronie.
+1. Aby dostosować model na koncie, wybierz przycisk **Dostosowywanie modelu zawartości** w lewej części strony.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/content-model-customization/content-model-customization.png" alt-text="Dostosuj model zawartości w Video Indexer":::
-1. Przejdź do karty **animowane znaki** w sekcji Dostosowywanie modelu.
-1. Kliknij pozycję **Dodaj model**.
-1. Nazwij model i kliknij przycisk ENTER, aby zapisać nazwę.
+    > :::image type="content" source="./media/content-model-customization/content-model-customization.png" alt-text="Dostosowywanie modelu zawartości w Video Indexer":::
+1. Przejdź do karty **Animowane znaki** w sekcji dostosowywania modelu.
+1. Kliknij pozycję **Dodaj model.**
+1. Nadaj modelowi nazwę i kliknij klawisz Enter, aby zapisać nazwę.
 
 > [!NOTE]
-> Najlepszym rozwiązaniem jest posiadanie jednego niestandardowego modelu obsługi dla każdej z nich. 
+> Najlepszym rozwiązaniem jest, aby mieć jeden model custom vision dla każdej animowanej serii. 
 
-### <a name="index-a-video-with-an-animated-model"></a>Indeksowanie wideo przy użyciu modelu animowanego
+### <a name="index-a-video-with-an-animated-model"></a>Indeksowanie wideo za pomocą animowanego modelu
 
-W przypadku wstępnego szkolenia Przekaż co najmniej dwa filmy wideo. Każdy z nich powinien być najlepiej dłuższy niż 15 minut przed oczekiwaniem na dobry model rozpoznawania. Jeśli masz krótsze odcinki, zalecamy przekazanie zawartości wideo co najmniej 30 minut przed rozpoczęciem szkolenia. Dzięki temu można scalać grupy należące do tego samego znaku z różnych scen i teł, a tym samym zwiększyć szansę wykrywania znaku w poniższych odcinkach. Aby przeprowadzić uczenie modelu na wielu filmach wideo (odcinkach), należy zindeksować je wszystkie przy użyciu tego samego modelu animacji. 
+W przypadku początkowego szkolenia przekaż co najmniej dwa filmy wideo. Każdy z nich powinien być dłuższy niż 15 minut, zanim będzie można oczekiwać dobrego modelu rozpoznawania. Jeśli masz krótsze filmy wideo, zalecamy przekazanie co najmniej 30 minut zawartości wideo przed rozpoczęciem szkolenia. Umożliwi to scalanie grup należących do tego samego znaku z różnych scen i tła, a tym samym zwiększy prawdopodobieństwo wykrycia znaku w następujących indeksowanych przez Ciebie filmach. Aby wytszkolić model na wielu filmach wideo (filmach), musisz je wszystkie indeksować przy użyciu tego samego modelu animacji. 
 
-1. Kliknij przycisk **Przekaż** .
+1. Kliknij przycisk **Przekaż.**
 1. Wybierz wideo do przekazania (z pliku lub adresu URL).
-1. Kliknij pozycję **Opcje zaawansowane**.
-1. W obszarze **osoby/animowane znaki** wybierz pozycję **modele animacji**.
-1. Jeśli masz jeden model, zostanie wybrany automatycznie i jeśli masz wiele modeli, możesz wybrać odpowiednią opcję z menu rozwijanego.
-1. Kliknij pozycję Przekaż.
-1. Po indeksowaniu wideo zobaczysz wykryte znaki w sekcji **animowane znaki** w okienku **Insights (szczegółowe informacje** ).
+1. Kliknij pozycję **Opcje zaawansowane.**
+1. W **obszarze People/Animated characters (Osoby/animowane znaki)** **wybierz pozycję Animation models (Modele animacji).**
+1. Jeśli masz jeden model, zostanie on wybrany automatycznie, a jeśli masz wiele modeli, możesz wybrać odpowiedni model z menu rozwijanego.
+1. Kliknij pozycję upload (Przekaż).
+1. Po zindeksacji filmu wideo wykryte znaki zostaną wyświetlony w sekcji Znaki **animowane** w **okienku Szczegółowe** informacje.
 
-Przed znakowaniem i uczeniem modelu wszystkie animowane znaki będą nazwane "nieznany #X". Po przeprowadzeniu szkolenia model zostanie również rozpoznany.
+Przed otagowaniem i wyt szkoleniem modelu wszystkie animowane znaki będą mieć nazwę "Unknown #X". Po wytębniu modelu zostaną one również rozpoznane.
 
-### <a name="customize-the-animated-characters-models"></a>Dostosuj modele znaków animowanych
+### <a name="customize-the-animated-characters-models"></a>Dostosowywanie modeli znaków animowanych
 
 1. Nazwij znaki w Video Indexer.
 
-    1. Po utworzeniu grupy znaków przez model zaleca się zapoznanie się z tymi grupami w Custom Vision. 
-    1. Aby oznaczyć animowany znak w filmie wideo, przejdź do karty **szczegółowe informacje**   i kliknij przycisk **Edytuj**   w prawym górnym rogu okna. 
-    1. W okienku **szczegółowe informacje**   kliknij dowolny z wykrytych animowanych znaków i zmień ich nazwy z "nieznane #X" na nazwę tymczasową (lub nazwę, która została wcześniej przypisana do znaku). 
-    1. Po wpisaniu nowej nazwy kliknij ikonę wyboru obok nowej nazwy. Spowoduje to zapisanie nowej nazwy w modelu w Video Indexer. 
-1. Tylko płatne konta: Przejrzyj grupy w Custom Vision 
+    1. Po utworzeniu modelu grupy znaków zaleca się przejrzenie tych grup w Custom Vision. 
+    1. Aby otagować animowany znak w wideo, przejdź do karty **Szczegółowe** informacje i kliknij przycisk Edytuj w prawym górnym rogu    ****   okna. 
+    1. W **okienku Szczegółowe** informacje kliknij dowolny z wykrytych animowanych znaków i zmień ich nazwy z "Unknown #X" na nazwę tymczasową (lub nazwę, która została wcześniej przypisana do   znaku). 
+    1. Po wpisaniu nowej nazwy kliknij ikonę wyboru obok nowej nazwy. Dzięki temu nowa nazwa w modelu jest zapisywana w Video Indexer. 
+1. Tylko płatne konta: przejrzyj grupy w Custom Vision 
 
     > [!NOTE]
-    > Płatne konta, które mają dostęp do konta Custom Vision, mogą zobaczyć modele i obrazy otagowane. Dowiedz się więcej o [ulepszaniu klasyfikatora w Custom Vision](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md). Należy pamiętać, że szkolenie modelu powinno odbywać się tylko za pośrednictwem Video Indexer (zgodnie z opisem w tym Topid), a nie za pośrednictwem witryny Custom Vision. 
+    > Płatne konta, które mają dostęp do konta Custom Vision, mogą tam zobaczyć modele i otagowane obrazy. Dowiedz się więcej [o ulepszaniu klasyfikatora w Custom Vision](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md). Należy pamiętać, że trenowanie modelu powinno odbywać się tylko za pośrednictwem usługi Video Indexer (zgodnie z opisem w tym identyfikatorze topid), a nie za pośrednictwem Custom Vision internetowej. 
 
-    1. Przejdź do strony **modele niestandardowe** w Video Indexer a następnie wybierz kartę **animowane znaki** . 
-    1. Kliknij przycisk Edytuj dla modelu, nad którym pracujesz, aby zarządzać nim w Custom Vision. 
+    1. Przejdź do strony **Modele niestandardowe** w Video Indexer i wybierz **kartę Animowane** znaki. 
+    1. Kliknij przycisk Edytuj dla modelu, nad który pracujesz, aby zarządzać nim w Custom Vision. 
     1. Przejrzyj każdą grupę znaków: 
 
-        * Jeśli grupa zawiera niepowiązane obrazy, zaleca się ich usunięcie z witryny sieci Web Custom Vision. 
-        * Jeśli istnieją obrazy, które należą do innego znaku, Zmień tag na tych konkretnych obrazach, klikając obraz, dodając prawy tag i usuwając niewłaściwy tag. 
-        * Jeśli grupa jest niepoprawna, oznacza to, że zawiera głównie obrazy niebędące znakami lub obrazy z wielu znaków, można je usunąć w programie w witrynie Custom Vision lub w Video Indexer szczegółowych informacji. 
-        * Algorytm grupowania czasami dzieli znaki na różne grupy. W związku z tym zaleca się nadanie wszystkim grupom należącym do tego samego znaku o tej samej nazwie (w Video Indexer Insights), które natychmiast spowodują, że wszystkie te grupy będą widoczne jako włączone w Custom Vision witrynie sieci Web. 
-    1. Po naprawieniu grupy upewnij się, że nazwa początkowa oznaczona przez siebie zostanie odzwierciedlona w grupie. 
+        * Jeśli grupa zawiera niepowiązane obrazy, zaleca się ich usunięcie w witrynie Custom Vision internetowej. 
+        * Jeśli istnieją obrazy należące do innego znaku, zmień tag na tych konkretnych obrazach, klikając obraz, dodając właściwy tag i usuwając nieprawidłowy tag. 
+        * Jeśli grupa nie jest poprawna, co oznacza, że zawiera głównie obrazy nieokreślowe lub obrazy z wielu znaków, możesz je usunąć w witrynie Custom Vision internetowej lub w Video Indexer szczegółowych informacji. 
+        * Algorytm grupowania czasami dzieli znaki na różne grupy. W związku z tym zaleca się nadaj wszystkim grupom, które należą do tego samego znaku, tę samą nazwę (w uwitrynie Video Indexer Insights), co natychmiast spowoduje, że wszystkie te grupy będą wyświetlane tak jak w Custom Vision internetowej. 
+    1. Gdy grupa zostanie udoskonalona, upewnij się, że nazwa początkowa otagowana za pomocą tagu odzwierciedla znak w grupie. 
 1. Trenowanie modelu 
 
-    1. Po zakończeniu edycji wszystkich żądanych nazw musisz nauczyć się modelu. 
-    1. Gdy znak jest przeszkolony do modelu, zostanie rozpoznany jako następne wideo indeksowane z tym modelem. 
-    1. Otwórz stronę Dostosowywanie i kliknij kartę **animowane znaki**   , a następnie kliknij przycisk **uczenie** , aby nauczyć model. Aby zachować połączenie między wideo 
+    1. Po zakończeniu edytowania wszystkich potrzebnych nazw musisz wytszkolić model. 
+    1. Gdy znak zostanie wytrenowany do modelu, zostanie rozpoznany jako kolejny film wideo poindeksowany przy użyciu tego modelu. 
+    1. Otwórz stronę dostosowywania i kliknij kartę **Animowane znaki,** a następnie kliknij przycisk   Train (Trenuj), aby wytszkolić model. **** Aby zachować połączenie między filmami wideo 
     
-Indeksator i model nie są nauczeniem modelu w witrynie sieci Web Custom Vision (płatne konta mają dostęp do Custom Vision witryny sieci Web) tylko w Video Indexer. Po przeszkoleniu wszystkie filmy wideo, które będą indeksowane lub ponownego indeksowania przy użyciu tego modelu, będą rozpoznawać przeszkolone znaki. 
+Indeksator i model nie trenują modelu w witrynie internetowej Custom Vision (płatne konta mają dostęp do Custom Vision internetowej), tylko w Video Indexer. Po wytrenowanych wideo, które zostaną zindeksowane lub ponownie indeksowane przy użyciu tego modelu, rozpozna wytrenowane znaki. 
 
-## <a name="delete-an-animated-character-and-the-model"></a>Usuń animowany znak i model
+## <a name="delete-an-animated-character-and-the-model"></a>Usuwanie animowanego znaku i modelu
 
-1. Usuń animowany znak.
+1. Usuwanie animowanego znaku.
 
-    1. Aby usunąć animowany znak z wglądu w dane wideo, przejdź do karty **szczegółowe informacje** i kliknij przycisk **Edytuj** w prawym górnym rogu okna.
-    1. Wybierz animowany znak, a następnie kliknij przycisk **Usuń** w obszarze ich nazwy.
+    1. Aby usunąć animowany znak ze szczegółowych informacji o wideo, przejdź  do karty **Szczegółowe** informacje i kliknij przycisk Edytuj w prawym górnym rogu okna.
+    1. Wybierz animowany znak, a następnie kliknij przycisk **Usuń** pod jego nazwą.
 
     > [!NOTE]
     > Spowoduje to usunięcie szczegółowych informacji z tego wideo, ale nie wpłynie na model.
-1. Usuń model.
+1. Usuwanie modelu.
 
-    1. Kliknij przycisk **dostosowania modelu zawartości** w górnym menu i przejdź do karty **animowane znaki** .
-    1. Kliknij ikonę wielokropka po prawej stronie modelu, który chcesz usunąć, a następnie na przycisku Usuń.
+    1. Kliknij przycisk **Dostosowywanie modelu zawartości w** górnym menu i przejdź do karty Znaki **animowane.**
+    1. Kliknij ikonę wielokropka po prawej stronie modelu, który chcesz usunąć, a następnie na przycisku usuwania.
     
     * Płatne konto: model zostanie odłączony od Video Indexer i nie będzie można go ponownie połączyć.
-    * Konto wersji próbnej: model zostanie również usunięty z wizji celnej. 
+    * Konto w wersji próbnej: model zostanie również usunięty z wizji służbowej. 
     
         > [!NOTE]
-        > W ramach konta próbnego masz tylko jeden model, którego można użyć. Po jego usunięciu nie można szkolić innych modeli.
+        > Na koncie wersji próbnej masz tylko jeden model, z których można korzystać. Po jego usunięciu nie można trenować innych modeli.
 
-## <a name="use-the-animated-character-detection-with-api"></a>Używanie wykrywania animowanych znaków z interfejsem API 
+## <a name="use-the-animated-character-detection-with-api"></a>Korzystanie z wykrywania znaków animowanych za pomocą interfejsu API 
 
-1. Połącz konto Custom Vision.
+1. Połącz Custom Vision konto.
 
-    Jeśli masz konto płatne Video Indexer, musisz najpierw połączyć konto Custom Vision. <br/>
-    Jeśli nie masz już konta Custom Vision, utwórz je. Aby uzyskać więcej informacji, zobacz [Custom Vision](../../cognitive-services/custom-vision-service/overview.md).
+    Jeśli jesteś właścicielem Video Indexer płatnego konta, musisz najpierw połączyć Custom Vision konto. <br/>
+    Jeśli nie masz jeszcze konta Custom Vision, utwórz je. Aby uzyskać więcej informacji, [zobacz Custom Vision](../../cognitive-services/custom-vision-service/overview.md).
 
-    [Połącz konto Custom Vision przy użyciu interfejsu API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Connect-Custom-Vision-Account?tags=&pattern=&groupBy=tag).
-1. Utwórz model animowanych znaków.
+    [Połącz swoje konto Custom Vision przy użyciu interfejsu API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Connect-Custom-Vision-Account).
+1. Tworzenie modelu znaków animowanych.
 
-    Użyj interfejsu API [tworzenia modelu animacji](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Animation-Model?&groupBy=tag) .
-1. Indeksuj lub ponownie Indeksuj wideo.
+    Użyj [interfejsu](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Animation-Model) API tworzenia modelu animacji.
+1. Indeksowanie lub ponowne indeksowanie wideo.
 
-    Użyj interfejsu API [ponownego indeksowania](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) . 
-1. Dostosuj modele znaków animowanych.
+    Użyj [interfejsu](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) API ponownego indeksowania. 
+1. Dostosowywanie modeli znaków animowanych.
 
-    Użyj interfejsu API [modelu animacji uczenia](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Train-Animation-Model?&groupBy=tag) .
+    Użyj [interfejsu](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Train-Animation-Model) API trenowania modelu animacji.
 
 ### <a name="view-the-output"></a>Wyświetlanie danych wyjściowych
 
@@ -200,9 +200,9 @@ Zobacz animowane znaki w wygenerowanym pliku JSON.
 
 ## <a name="limitations"></a>Ograniczenia
 
-* Obecnie funkcja "Identyfikacja animacji" nie jest obsługiwana w regionie East-Asia.
-* Znaki, które wydaje się być małe lub daleko w wideo, mogą nie być poprawnie identyfikowane, jeśli jakość wideo jest niska.
-* Zalecenie polega na użyciu modelu na zestaw animowanych znaków (na przykład dla serii animowanej).
+* Obecnie możliwość "identyfikacji animacji" nie jest obsługiwana w East-Asia regionu.
+* Znaki, które wydają się być małe lub bardzo daleko w filmie wideo, mogą nie być prawidłowo identyfikowane, jeśli jakość wideo jest niska.
+* Zaleca się używanie modelu na zestaw znaków animowanych (na przykład na animowaną serię).
 
 ## <a name="next-steps"></a>Następne kroki
 

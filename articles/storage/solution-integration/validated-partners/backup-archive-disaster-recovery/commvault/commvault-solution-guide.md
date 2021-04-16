@@ -1,244 +1,244 @@
 ---
-title: Tworzenie kopii zapasowych danych na platformie Azure za pomocą programu CommVault
+title: Back up your data to Azure with Commvault
 titleSuffix: Azure Storage
-description: Zawiera omówienie czynników, które należy wziąć pod uwagę, i kroków, które należy wykonać, aby użyć platformy Azure jako miejsca docelowego magazynu i lokalizacji odzyskiwania dla programu CommVault kompletnej kopii zapasowej i odzyskiwania
+description: Zawiera omówienie czynników, które należy wziąć pod uwagę, oraz czynności, które należy wykonać, aby użyć platformy Azure jako miejsca docelowego magazynu i lokalizacji odzyskiwania dla kompletnej kopii zapasowej i odzyskiwania aplikacji Commvault
 author: karauten
 ms.author: karauten
 ms.date: 03/15/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: ce321574ce2878f51864f55bf5618df2c96d1068
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fa60b6f002e49babc1e1f014bcb941e7953a43a8
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104589892"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484782"
 ---
-# <a name="backup-to-azure-with-commvault"></a>Tworzenie kopii zapasowych na platformie Azure za pomocą programu CommVault
+# <a name="backup-to-azure-with-commvault"></a>Tworzenie kopii zapasowej na platformie Azure za pomocą programu Commvault
 
-Ten artykuł ułatwia integrację infrastruktury programu CommVault z usługą Azure Blob Storage. Obejmuje to wymagania wstępne, zagadnienia, implementacje i wskazówki operacyjne. Ten artykuł dotyczy korzystania z platformy Azure jako miejsca docelowego kopii zapasowej poza siedzibą firmy oraz lokacji odzyskiwania w przypadku wystąpienia awarii, co uniemożliwia normalne działanie w lokacji głównej.
+Ten artykuł pomaga zintegrować infrastrukturę commvault z usługą Azure Blob Storage. Obejmuje ona wymagania wstępne, zagadnienia, implementację i wskazówki operacyjne. Ten artykuł dotyczy używania platformy Azure jako miejsca docelowego kopii zapasowej poza lokacją oraz lokacji odzyskiwania w przypadku wystąpienia awarii, co uniemożliwia normalne działanie w lokacji głównej.
 
 > [!NOTE]
-> Usługa CommVault oferuje niższą RTO rozwiązanie do zamierzenia czasu odzyskiwania i usługi CommVault Live Sync. To rozwiązanie umożliwia przeprowadzenie awaryjnej maszyny wirtualnej, która może pomóc w przewróceniu sprawności w przypadku awarii w środowisku produkcyjnym platformy Azure. Te możliwości wykraczają poza zakres tego dokumentu.
+> Program Commvault oferuje rozwiązanie z niższym celem czasu odzyskiwania (RTO, Recovery Time Objective), Commvault Live Sync. To rozwiązanie umożliwia korzystanie z rezerwowej maszyny wirtualnej, która może pomóc szybciej odzyskać dane w przypadku awarii w środowisku produkcyjnym platformy Azure. Te możliwości są poza zakresem tego dokumentu.
 
 ## <a name="reference-architecture"></a>Architektura referencyjna
 
-Na poniższym diagramie przedstawiono architekturę referencyjną dla platformy Azure i wdrożenia w ramach platformy Azure.
+Na poniższym diagramie przedstawiono architekturę referencyjną wdrożeń lokalnych i wdrożeń na platformie Azure.
 
-![Architektura programu CommVault w ramach architektury referencyjnej platformy Azure](../media/commvault-diagram.png)
+![Commvault to Azure Reference Architecture](../media/commvault-diagram.png)
 
-Istniejące wdrożenie programu CommVault można łatwo zintegrować z platformą Azure, dodając konto usługi Azure Storage lub wiele kont jako miejsce docelowe magazynu w chmurze. Program CommVault umożliwia również odzyskiwanie kopii zapasowych z lokalizacji lokalnej na platformę Azure, zapewniając na platformie Azure witrynę odzyskiwania na żądanie.
+Istniejące wdrożenie aplikacji Commvault można łatwo zintegrować z platformą Azure, dodając konto usługi Azure Storage lub wiele kont jako miejsce docelowe magazynu w chmurze. Program Commvault umożliwia również odzyskiwanie kopii zapasowych ze środowisk lokalnych na platformie Azure, co zapewnia lokację odzyskiwania na żądanie na platformie Azure.
 
-## <a name="commvault-interoperability-matrix"></a>Macierz zgodności programu CommVault
+## <a name="commvault-interoperability-matrix"></a>Macierz współdziałania commvault
 
-| Obciążenie | GPv2 i BLOB Storage | Obsługa warstwy chłodna | Obsługa warstwy Archiwum | Pomoc techniczna urządzenie Data Box Family |
+| Obciążenie | GPv2 i magazyn obiektów blob | Obsługa warstwy Chłodna | Obsługa warstwy Archiwum | urządzenie Data Box Family |
 |-----------------------|--------------------|--------------------|-------------------------|-------------------------|
-| Lokalne maszyny wirtualne/dane | 11,5 v | 11,5 v | 11.10 v | 11.10 v |
-| Maszyny wirtualne platformy Azure | 11,5 v | 11,5 v | 11,5 v | Nie dotyczy |
-| Obiekt bob Azure | 11.6 v | 11.6 v | 11.6 v | Nie dotyczy |
-| Azure Files | 11.6 v | 11.6 v | 11.6 v | Nie dotyczy |
+| Lokalne maszyny wirtualne/dane | Wersja 11.5 | Wersja 11.5 | Wersja 11.10 | Wersja 11.10 |
+| Maszyny wirtualne platformy Azure | Wersja 11.5 | Wersja 11.5 | Wersja 11.5 | Nie dotyczy |
+| Obiekt bob Azure | Wersja 11.6 | Wersja 11.6 | Wersja 11.6 | Nie dotyczy |
+| Azure Files | Wersja 11.6 | Wersja 11.6 | Wersja 11.6 | Nie dotyczy |
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
-Niewielki plan z góry pomoże Ci wykorzystać platformę Azure jako miejsce docelowe kopii zapasowych poza siedzibą firmy oraz lokację odzyskiwania.
+Nieco z góry planowanie pomoże Ci użyć platformy Azure jako miejsca docelowego kopii zapasowej poza lokacją i lokacji odzyskiwania.
 
 ### <a name="get-started-with-azure"></a>Pierwsze kroki z platformą Azure
 
-Firma Microsoft oferuje platformę do rozpoczęcia pracy z platformą Azure. [Struktura wdrażania w chmurze](/azure/architecture/cloud-adoption/) (CAF) jest szczegółowym podejściem do transformacji cyfrowej przedsiębiorstwa oraz kompleksowego przewodnika po zaplanowaniu wdrożenia w chmurze klasy produkcyjnej. CAF zawiera [Przewodnik konfigurowania platformy Azure](/azure/cloud-adoption-framework/ready/azure-setup-guide/) krok po kroku ułatwiający szybkie i bezpieczne rozpoczęcie pracy. Możesz znaleźć interaktywną wersję w [Azure Portal](https://portal.azure.com/?feature.quickstart=true#blade/Microsoft_Azure_Resources/QuickstartCenterBlade). Znajdziesz przykładowe architektury, konkretne najlepsze rozwiązania dotyczące wdrażania aplikacji i bezpłatne zasoby szkoleniowe, aby uzyskać informacje na temat ścieżki do wiedzy na temat platformy Azure.
+Firma Microsoft oferuje platformę do obserwowania, aby rozpocząć pracę z platformą Azure. Przewodnik [Cloud Adoption Framework](/azure/architecture/cloud-adoption/) (CAF) to szczegółowe podejście do transformacji cyfrowej przedsiębiorstwa i kompleksowy przewodnik planowania wdrożenia chmury klasy produkcyjnej. Przewodnik CAF zawiera przewodnik krok po kroku po konfiguracji platformy [Azure,](/azure/cloud-adoption-framework/ready/azure-setup-guide/) który pomoże Ci szybko i bezpiecznie rozpocząć korzystanie z usługi. Wersję interaktywną można znaleźć w Azure Portal [.](https://portal.azure.com/?feature.quickstart=true#blade/Microsoft_Azure_Resources/QuickstartCenterBlade) Znajdziesz przykładowe architektury, konkretne najlepsze rozwiązania dotyczące wdrażania aplikacji i bezpłatne zasoby szkoleniowe, aby znaleźć cię na ścieżce do wiedzy na temat platformy Azure.
 
-### <a name="consider-the-network-between-your-location-and-azure"></a>Weź pod uwagę sieć między lokalizacją i platformą Azure
+### <a name="consider-the-network-between-your-location-and-azure"></a>Rozważ sieć między lokalizacją i platformą Azure
 
-Bez względu na to, czy zasoby w chmurze mają być uruchamiane w środowisku produkcyjnym, testowym, programistycznym, czy jako lokalizacja docelowa kopii zapasowej i odzyskiwanie, ważne jest, aby zrozumieć zapotrzebowanie na przepustowość na potrzeby wstępnego tworzenia kopii zapasowych i przeprowadzania codziennych transferów
+Niezależnie od tego, czy zasoby w chmurze są uruchamiane w środowisku produkcyjnym, testowym i programowym, czy jako miejsce docelowe kopii zapasowej i lokacja odzyskiwania, ważne jest, aby zrozumieć zapotrzebowanie na przepustowość na potrzeby wstępnego wstępnego inicjowania kopii zapasowych i bieżących transferów z dnia na dzień.
 
-Azure Data Box umożliwia przeniesienie początkowej bazowej kopii zapasowej na platformę Azure bez konieczności zwiększania przepustowości. Jest to przydatne, jeśli szacowane przeniesienie linii bazowej trwa dłużej, niż można tolerować. Możesz użyć Transfer danych szacowania podczas tworzenia konta magazynu, aby oszacować czas wymagany do przetransferowania początkowej kopii zapasowej.
+Azure Data Box umożliwia przeniesienie początkowej linii bazowej kopii zapasowej na platformę Azure bez konieczności większej przepustowości. Jest to przydatne, jeśli szacuje się, że transfer linii bazowej trwa dłużej niż można tolerować. Możesz użyć estymatora transferu danych podczas tworzenia konta magazynu, aby oszacować czas wymagany do przeniesienia początkowej kopii zapasowej.
 
-![Pokazuje szacowania transferu danych usługi Azure Storage w portalu.](../media/az-storage-transfer.png)
+![Wyświetla narzędzie do szacowania transferu danych usługi Azure Storage w portalu.](../media/az-storage-transfer.png)
 
-Pamiętaj, że będziesz potrzebować wystarczającej pojemności sieci do obsługi codziennych transferów danych w wymaganym oknie transferu (okno kopii zapasowej) bez wpływu na aplikacje produkcyjne. Ta sekcja zawiera opis narzędzi i technik, które są dostępne do oceny potrzeb sieci.
+Pamiętaj, że wymagana będzie wystarczająca pojemność sieci do obsługi codziennych transferów danych w wymaganym oknie transferu (oknie kopii zapasowej) bez wpływu na aplikacje produkcyjne. W tej sekcji przedstawiono narzędzia i techniki, które są dostępne do oceny potrzeb sieci.
 
-#### <a name="determine-how-much-bandwidth-youll-need"></a>Określ, ile przepustowości potrzebujesz
+#### <a name="determine-how-much-bandwidth-youll-need"></a>Określanie potrzebnej przepustowości
 
-Aby określić wymaganą przepustowość, użyj następujących zasobów:
+Aby określić, jaka przepustowość będzie potrzebna, użyj następujących zasobów:
 
 - Raporty z oprogramowania do tworzenia kopii zapasowych.
-- Program CommVault udostępnia standardowe raporty pozwalające określić [stopień zmian](https://documentation.commvault.com/commvault/v11_sp19/article?p=39699.htm) i [łączny rozmiar zestawu kopii zapasowych](https://documentation.commvault.com/commvault/v11_sp19/article?p=39621.htm) dla początkowego transferu linii bazowej na platformę Azure.
-- Tworzenie kopii zapasowej niezależnych od oprogramowania narzędzi do oceny i raportowania, takich jak:
+- Program Commvault udostępnia standardowe raporty do [określania](https://documentation.commvault.com/commvault/v11_sp19/article?p=39699.htm) szybkości zmian i całkowitego rozmiaru zestawu kopii zapasowych [dla](https://documentation.commvault.com/commvault/v11_sp19/article?p=39621.htm) początkowego transferu linii bazowej na platformę Azure.
+- Tworzenie kopii zapasowych narzędzi do oceny i raportowania niezależnych od oprogramowania, takich jak:
   - [MiTrend](https://mitrend.com/)
   - [Aptare](https://www.veritas.com/insights/aptare-it-analytics)
   - [Datavoss](https://www.datavoss.com/)
 
-#### <a name="determine-unutilized-internet-bandwidth"></a>Określanie niewykorzystywanej przepustowości Internetu
+#### <a name="determine-unutilized-internet-bandwidth"></a>Określanie nie w pełni większej przepustowości Internetu
 
-Ważne jest, aby wiedzieć, jak często niewykorzystana przepustowość (lub *wysokość*) jest dostępna w codziennym okresie. Dzięki temu można ocenić, czy można spełniać cele:
+Ważne jest, aby wiedzieć, ile zwykle nie w pełni w pełni wykorzystanie przepustowości (lub miejsca *pracy)* jest dostępne na co dzień. Ułatwia to ocenę, czy można osiągnąć cele dotyczące:
 
-- początkowy czas przekazywania, gdy nie używasz Azure Data Box do rozsadzenia w trybie offline
-- wykonywanie codziennych kopii zapasowych na podstawie częstotliwości zmian zidentyfikowanej wcześniej i okna kopii zapasowej
+- początkowy czas przekazywania, gdy nie używasz funkcji Azure Data Box w trybie offline
+- wykonywanie codziennych kopii zapasowych na podstawie szybkości zmian zidentyfikowaną wcześniej i okna tworzenia kopii zapasowej
 
-Użyj następujących metod, aby zidentyfikować przepustowość, z której kopie zapasowe na platformie Azure mają być bezpłatne.
+Użyj następujących metod, aby zidentyfikować przepustowość, z których mogą korzystać kopie zapasowe na platformie Azure.
 
-- Jeśli jesteś istniejącym klientem usługi Azure ExpressRoute, Wyświetl [użycie obwodu](../../../../../expressroute/expressroute-monitoring-metrics-alerts.md#circuits-metrics) w Azure Portal.
-- Skontaktuj się z usługodawcą internetowym. Powinny być w stanie udostępniać raporty, które pokazują Twoje istniejące codzienne i miesięczne użycie.
+- Jeśli jesteś istniejącym klientem Azure ExpressRoute, wyświetl [użycie](../../../../../expressroute/expressroute-monitoring-metrics-alerts.md#circuits-metrics) obwodu w Azure Portal.
+- Skontaktuj się z isp isp. Powinni mieć możliwość udostępniania raportów, które pokazują istniejące dzienne i miesięczne wykorzystanie.
 - Istnieje kilka narzędzi, które mogą mierzyć wykorzystanie przez monitorowanie ruchu sieciowego na poziomie routera/przełącznika. Są one następujące:
-  - [Pakiet analizatora przepustowości SolarWinds](https://www.solarwinds.com/network-bandwidth-analyzer-pack?CMP=ORG-BLG-DNS)
+  - [Pakiet Solarwinds Bandwidth Analyzer](https://www.solarwinds.com/network-bandwidth-analyzer-pack?CMP=ORG-BLG-DNS)
   - [Paessler PRTG](https://www.paessler.com/bandwidth_monitoring)
-  - [Asystent sieci Cisco](https://www.cisco.com/c/en/us/products/cloud-systems-management/network-assistant/index.html)
-  - [WhatsUp złoty](https://www.whatsupgold.com/network-traffic-monitoring)
+  - [Cisco Network Assistant](https://www.cisco.com/c/en/us/products/cloud-systems-management/network-assistant/index.html)
+  - [WhatsUp Gold](https://www.whatsupgold.com/network-traffic-monitoring)
 
-### <a name="choose-the-right-storage-options"></a>Wybierz odpowiednie opcje magazynu
+### <a name="choose-the-right-storage-options"></a>Wybieranie odpowiednich opcji magazynu
 
-Jeśli używasz platformy Azure jako miejsca docelowego kopii zapasowej, będziesz korzystać z usługi [Azure Blob Storage](../../../../blobs/storage-blobs-introduction.md). BLOB Storage to rozwiązanie magazynu obiektów firmy Microsoft. Usługa BLOB Storage jest zoptymalizowana pod kątem przechowywania dużych ilości danych bez struktury, które są danymi, które nie są zgodne z żadnym modelem danych lub definicją. Ponadto usługa Azure Storage ma trwałe, wysoce dostępne, bezpieczne i skalowalne. Można wybrać odpowiedni magazyn dla danego obciążenia, aby zapewnić [poziom odporności](../../../../common/storage-redundancy.md) , który będzie spełniał umowy SLA wewnętrzny. Usługa BLOB Storage jest usługą z opłatami za użycie. Opłata jest [naliczana miesięcznie](../../../../blobs/storage-blob-storage-tiers.md#pricing-and-billing) za ilość przechowywanych danych, uzyskiwanie dostępu do tych danych, a w przypadku warstw chłodnych i archiwum — minimalny wymagany okres przechowywania. Opcje odporności i warstw mające zastosowanie do danych kopii zapasowej są podsumowane w poniższych tabelach.
+Jeśli używasz platformy Azure jako miejsca docelowego kopii zapasowej, użyjesz usługi [Azure Blob Storage.](../../../../blobs/storage-blobs-introduction.md) Blob Storage to rozwiązanie firmy Microsoft do magazynowania obiektów. Usługa Blob Storage jest zoptymalizowana pod kątem przechowywania ogromnych ilości danych bez struktury, czyli danych, które nie są zgodne z żadnym modelem danych ani definicją. Ponadto usługa Azure Storage jest trwała, wysoce dostępna, bezpieczna i skalowalna. Możesz wybrać odpowiedni magazyn dla obciążenia, [](../../../../common/storage-redundancy.md) aby zapewnić poziom odporności na spełnienie wewnętrznych wymagań sla. Blob Storage to usługa opłacana za użycie. Opłata jest [naliczana](../../../../blobs/storage-blob-storage-tiers.md#pricing-and-billing) co miesiąc za ilość przechowywanych danych, uzyskiwanie dostępu do tych danych, a w przypadku warstw Chłodna i Archiwum jest to minimalny wymagany okres przechowywania. Opcje odporności i warstw dotyczące danych kopii zapasowej zostały podsumowane w poniższych tabelach.
 
-**Opcje odporności magazynu obiektów blob:**
+**Opcje odporności usługi Blob Storage:**
 
-|  |Lokalnie nadmiarowy  |Strefa nadmiarowa  |Geograficznie nadmiarowy  |Strefa geograficzna — nadmiarowa  |
+|  |Lokalnie nadmiarowy  |Strefowo nadmiarowy  |Geograficznie nadmiarowy  |Strefowo nadmiarowy  |
 |---------|---------|---------|---------|---------|
-|**Rzeczywista liczba kopii**     | 3         | 3         | 6         | 6 |
+|**Efektywna liczba kopii**     | 3         | 3         | 6         | 6 |
 |**Liczba stref dostępności**     | 1         | 3         | 2         | 4 |
 |**Liczba regionów**     | 1         | 1         | 2         | 2 |
-|**Ręczne przejście w tryb failover do regionu pomocniczego**     | NIE DOTYCZY         | Nie dotyczy         | Tak         | Tak |
+|**Ręcznego trybu failover do regionu pomocniczego**     | NIE DOTYCZY         | Nie dotyczy         | Tak         | Tak |
 
 **Warstwy magazynu obiektów blob:**
 
-|  | Warstwa gorąca   |Warstwa chłodna   | Warstwa Archiwum |
+|  | Warstwa Gorąca   |Warstwa Chłodna   | Warstwa Archiwum |
 | ----------- | ----------- | -----------  | -----------  |
 | **Dostępność** | 99,9%         | 99%         | Tryb offline      |
-| **Opłaty za użycie** | Wyższe koszty magazynowania, niższy dostęp i koszty transakcji | Niższe koszty magazynowania, wyższego poziomu dostępu i kosztów transakcji | Najniższe koszty magazynowania, najwyższy poziom dostępu i koszty transakcji |
-| **Wymagane jest minimalne przechowywanie danych**| Nie dotyczy | 30 dni | 180 dni |
-| **Opóźnienie (czas do pierwszego bajtu)** | ) | ) | Godziny |
+| **Opłaty za użycie** | Wyższe koszty magazynowania, niższy dostęp i koszty transakcji | Niższe koszty magazynowania, wyższy dostęp i koszty transakcji | Najniższe koszty magazynowania, najwyższy dostęp i koszty transakcji |
+| **Minimalne wymagane przechowywanie danych**| Nie dotyczy | 30 dni | 180 dni |
+| **Opóźnienie (czas do pierwszego bajtu)** | Milisekund | Milisekund | Godziny |
 
-#### <a name="sample-backup-to-azure-cost-model"></a>Przykładowa kopia zapasowa do modelu kosztów platformy Azure
+#### <a name="sample-backup-to-azure-cost-model"></a>Przykładowa kopia zapasowa w modelu kosztów platformy Azure
 
-Dzięki opłacie za użycie można zniechęcające klientom, którzy są nowym w chmurze. Chociaż płacisz tylko za użyte miejsce, płacisz za transakcje (odczyt i zapis) oraz wychodzące [dane](https://azure.microsoft.com/pricing/details/bandwidth/) odczytane z powrotem do środowiska lokalnego, gdy plan danych oparty na usłudze Azure [Express Route Direct lub Express Route](https://azure.microsoft.com/pricing/details/expressroute/) jest używany w przypadku, gdy zostanie uwzględniony ruch wychodzący z platformy Azure. Możesz użyć [kalkulatora cen platformy Azure](https://azure.microsoft.com/pricing/calculator/) , aby przeprowadzić analizę "co". Możesz podstawić analizę cennika na liście lub [ceny zarezerwowanej pojemności usługi Azure Storage](../../../../../cost-management-billing/reservations/save-compute-costs-reservations.md), co może zapewnić nawet 38% oszczędności. Poniżej przedstawiono przykładowe ceny, które umożliwiają modelowanie miesięcznych kosztów tworzenia kopii zapasowych na platformie Azure. Jest to tylko przykład. *Ceny mogą się różnić w zależności od tego, co nie zostało przechwycone.*
+Płatność za użycie może być dla klientów, którzy są nowi w chmurze. Płacisz tylko za używaną pojemność, ale płacisz również za transakcje [](https://azure.microsoft.com/pricing/details/bandwidth/) (odczyt i zapis) i ruch wychodzący dla danych odczytanych z powrotem do środowiska lokalnego, gdy jest używany plan danych bezpośrednich usługi Azure Express Route w środowisku lokalnym lub nieograniczony plan danych usługi [Express Route,](https://azure.microsoft.com/pricing/details/expressroute/) w którym uwzględniono dane wychodzące z platformy Azure. Możesz użyć [kalkulatora cen platformy Azure,](https://azure.microsoft.com/pricing/calculator/) aby przeprowadzić analizę "what if". Analizę można utworzyć na podstawie cennika listy lub cennika pojemności zarezerwowanej usługi [Azure Storage,](../../../../../cost-management-billing/reservations/save-compute-costs-reservations.md)co pozwala uzyskać do 38% oszczędności. Oto przykładowe ćwiczenie dotyczące cen w celu modelowania miesięcznego kosztu wykonywania kopii zapasowej na platformie Azure. To tylko przykład. *Ceny mogą się różnić z powodu działań, które nie zostały przechwycone w tym miejscu.*
 
-|Współczynnik kosztu  |Koszt miesięczny  |
+|Współczynnik kosztów  |Koszt miesięczny  |
 |---------|---------|
-|100 TB danych kopii zapasowej w chłodnym magazynie     |$1556,48         |
-|2 TB nowych danych pisanych dziennie x 30 dni     |$39 w transakcjach          |
-|Szacowana suma miesięczna     |$1595,48         |
+|100 TB danych kopii zapasowej w chłodnym magazynie     |1556,48 USD         |
+|2 TB nowych danych zapisywanych dziennie x 30 dni     |39 USD w transakcjach          |
+|Szacowana suma miesięczna     |1595,48 USD         |
 |---------|---------|
-|Jednorazowe przywrócenie 5 TB do lokalizacji lokalnej za pośrednictwem publicznego Internetu   | $491,26         |
+|Przywracanie raz o pojemności 5 TB do środowisk lokalnych za pośrednictwem publicznego Internetu   | 491,26 USD         |
 
 > [!NOTE]
-> To oszacowanie zostało wygenerowane na Kalkulator cen platformy Azure przy użyciu cennika Wschodnie stany USA zgodnie z rzeczywistym użyciem i jest oparta na domyślnym rozmiarze 32 MB podrzędnego rozmiaru fragmentu, który generuje żądania PUT 65 536 (transakcje zapisu) dziennie. Ten przykład może nie mieć zastosowania do Twoich wymagań.
+> To oszacowanie zostało wygenerowane w kalkulatorze cen platformy Azure przy użyciu cennika z płatnością zgodnie z użyciem użycia w regionach Wschodnie usa i jest oparte na domyślnym rozmiarze fragmentu podrzędnego commvault o rozmiarze 32 MB, co generuje 65 536 żądań PUT (transakcji zapisu) dziennie. Ten przykład może nie dotyczyć Twoich wymagań.
 
 ## <a name="implementation-guidance"></a>Wskazówki dotyczące implementacji
 
-Ta sekcja zawiera krótki przewodnik dotyczący dodawania usługi Azure Storage do lokalnego wdrożenia programu CommVault. Aby uzyskać szczegółowe wskazówki i zagadnienia związane z planowaniem, zobacz [Przewodnik po architekturze chmury publicznej dla programu CommVault dla Microsoft Azure](https://documentation.commvault.com/commvault/v11/others/pdf/public-cloud-architecture-guide-for-microsoft-azure11-19.pdf).
+Ta sekcja zawiera krótki przewodnik dotyczący dodawania usługi Azure Storage do lokalnego wdrożenia aplikacji Commvault. Szczegółowe wskazówki i zagadnienia dotyczące planowania można znaleźć w [przewodniku po architekturze chmury](https://documentation.commvault.com/commvault/v11/others/pdf/public-cloud-architecture-guide-for-microsoft-azure11-19.pdf)publicznej firmy Commvault dla Microsoft Azure .
 
-1. Otwórz Azure Portal i Wyszukaj **konta magazynu**. Możesz również kliknąć ikonę domyślne **konta magazynu** .
+1. Otwórz okno Azure Portal i wyszukaj **konta magazynu.** Możesz również kliknąć domyślną **ikonę Konta magazynu.**
 
-    ![Pokazuje Dodawanie kont magazynu w Azure Portal.](../media/azure-portal.png)
+    ![Pokazuje dodawanie kont magazynu w Azure Portal.](../media/azure-portal.png)
   
-    ![Pokazuje, gdzie wpisano magazyn w polu wyszukiwania Azure Portal.](../media/locate-storage-account.png)
+    ![Pokazuje miejsce, w którym wpisano magazyn w polu wyszukiwania Azure Portal.](../media/locate-storage-account.png)
 
-2. Wybierz pozycję **Utwórz** , aby dodać konto. Wybierz lub Utwórz grupę zasobów, podaj unikatową nazwę, wybierz region, wybierz pozycję wydajność **standardowa** , a następnie pozostaw pozycję rodzaj konta jako **Magazyn v2**, wybierz poziom replikacji, który spełnia Twoje umowy SLA, oraz domyślną warstwę, która będzie stosowana przez oprogramowanie do tworzenia kopii zapasowej. Konto usługi Azure Storage udostępnia warstwy gorąca, chłodna i archiwalne dostępne w ramach jednego konta, a zasady CommVault umożliwiają efektywne zarządzanie cyklem życia danych przy użyciu wielu warstw.
+2. Wybierz **pozycję Utwórz,** aby dodać konto. Wybierz lub utwórz grupę zasobów, podaj unikatową nazwę, wybierz region, wybierz pozycję Wydajność w warstwie **Standardowa,** zawsze pozostaw dla konta rodzaj konta Storage **V2,** wybierz poziom replikacji, który spełnia warunki umów SLA, oraz warstwę domyślną, którą będzie stosować oprogramowanie do tworzenia kopii zapasowych. Konto usługi Azure Storage udostępnia warstwy Gorąca, Chłodna i Archiwum w ramach jednego konta, a zasady commvault umożliwiają korzystanie z wielu warstw w celu efektywnego zarządzania cyklem życia danych.
 
-    ![Pokazuje ustawienia konta magazynu w portalu](../media/account-create-1.png)
+    ![Wyświetla ustawienia konta magazynu w portalu](../media/account-create-1.png)
 
-3. Pozostaw teraz domyślne opcje sieciowe i przejdź do **ochrony danych**. W tym miejscu można włączyć opcję usuwania nietrwałego, która pozwala odzyskać przypadkowo usunięty plik kopii zapasowej w określonym okresie przechowywania i zapewnia ochronę przed przypadkowym lub złośliwym usunięciem.
+3. Zachowaj na razie domyślne opcje sieci i przejdź do **opcji Ochrona danych.** W tym miejscu możesz włączyć usuwanie nieumyślne, co umożliwia odzyskanie przypadkowo usuniętego pliku kopii zapasowej w zdefiniowanym okresie przechowywania i zapewnia ochronę przed przypadkowym lub złośliwym usunięciem.
 
-    ![Pokazuje ustawienia ochrony danych w portalu.](../media/account-create-2.png)
+    ![Wyświetla ustawienia ochrony danych w portalu.](../media/account-create-2.png)
 
-4. Następnie zalecamy ustawienia domyślne z ekranu **zaawansowanego** na potrzeby tworzenia kopii zapasowych w przypadku użycia na platformie Azure.
+4. Następnie zalecamy domyślne ustawienia z  ekranu Zaawansowane dotyczące tworzenia kopii zapasowych w przypadkach użycia platformy Azure.
 
-    ![Pokazuje kartę Ustawienia zaawansowane w portalu.](../media/account-create-3.png)
+    ![Wyświetla kartę Ustawienia zaawansowane w portalu.](../media/account-create-3.png)
 
-5. Dodaj Tagi dla organizacji, jeśli używasz tagowania, i utwórz swoje konto.
+5. Dodaj tagi dla organizacji, jeśli używasz tagowania, i utwórz konto.
 
-6. Przed dodaniem konta do środowiska CommVault należy wykonać dwa szybkie kroki. Przejdź do konta utworzonego w Azure Portal i wybierz pozycję **kontenery** w menu **BLOB Service** . Dodaj kontener i wybierz zrozumiałą nazwę. Następnie przejdź do pozycji **klucze dostępu** w obszarze **Ustawienia** i skopiuj **nazwę konta magazynu** i jeden z dwóch kluczy dostępu. W następnych krokach będzie potrzebna nazwa kontenera, nazwa konta i klucz dostępu.
+6. Przed dodaniem konta do środowiska Commvault wymagane są dwa szybkie kroki. Przejdź do konta utworzonego w Azure Portal i wybierz pozycję **Kontenery** w Blob service **menu.** Dodaj kontener i wybierz zrozumiałą nazwę. Następnie przejdź do elementu **Klucze dostępu** w obszarze **Ustawienia** i skopiuj **nazwę** konta magazynu oraz jeden z dwóch kluczy dostępu. Nazwa kontenera, nazwa konta i klucz dostępu będą potrzebne w następnych krokach.
 
-    ![Pokazuje tworzenie kontenerów w portalu.](../media/container.png)
+    ![Pokazuje tworzenie kontenera w portalu.](../media/container.png)
 
     ![Wyświetla ustawienia klucza dostępu w portalu.](../media/access-key.png)
 
-7. (*Opcjonalnie*) Możesz dodać dodatkowe warstwy zabezpieczeń do wdrożenia.
+7. *(Opcjonalnie*) Do wdrożenia można dodać dodatkowe warstwy zabezpieczeń.
 
-    1. Skonfiguruj dostęp oparty na rolach, aby ograniczyć liczbę użytkowników, którzy mogą wprowadzać zmiany na koncie magazynu. Aby uzyskać więcej informacji, zobacz [wbudowane role dla operacji zarządzania](../../../../common/authorization-resource-provider.md#built-in-roles-for-management-operations).
-    1. Ogranicz dostęp do konta do określonych segmentów sieci przy użyciu [ustawień zapory magazynu](../../../../common/storage-network-security.md) , aby zapobiec próbom dostępu spoza sieci firmowej.
+    1. Konfigurowanie dostępu opartego na rolach w celu ograniczenia osób, które mogą wprowadzać zmiany na koncie magazynu. Aby uzyskać więcej informacji, [zobacz Wbudowane role dla operacji zarządzania](../../../../common/authorization-resource-provider.md#built-in-roles-for-management-operations).
+    1. Ogranicz dostęp do konta do określonych segmentów sieci za pomocą [ustawień](../../../../common/storage-network-security.md) zapory magazynu, aby zapobiec próbom dostępu spoza sieci firmowej.
 
-        ![Pokazuje ustawienia zapory magazynu w portalu.](../media/storage-firewall.png)
+        ![Wyświetla ustawienia zapory magazynu w portalu.](../media/storage-firewall.png)
 
     1. Ustaw [blokadę usuwania](../../../../../azure-resource-manager/management/lock-resources.md) na koncie, aby zapobiec przypadkowemu usunięciu konta magazynu.
 
-        ![Pokazuje ustawienie blokady usuwania w portalu.](../media/resource-lock.png)
+        ![Pokazuje ustawianie blokady usuwania w portalu.](../media/resource-lock.png)
 
-    1. Skonfiguruj dodatkowe [najlepsze rozwiązania](../../../../../storage/blobs/security-recommendations.md)w zakresie zabezpieczeń.
+    1. Skonfiguruj dodatkowe [najlepsze rozwiązania w zakresie zabezpieczeń.](../../../../../storage/blobs/security-recommendations.md)
 
-1. W centrum poleceń programu CommVault przejdź do okna **Zarządzanie**  ->    ->  **poświadczeniami** zabezpieczeń. Wybierz **konto w chmurze**, **Typ dostawcy** **Microsoft Azure Storage**, wybierz pozycję **MediaAgent**, która spowoduje przeniesienie danych do i z platformy Azure, a następnie Dodaj nazwę konta magazynu i klucz dostępu.
+1. W Centrum poleceń commvault przejdź do tematu **Zarządzanie**  ->  **zabezpieczeniami**  ->  **Menedżer poświadczeń**. Wybierz konto w  **chmurze,** typ dostawcy **Microsoft Azure Storage**, wybierz usługę **MediaAgent,** która będzie przesyłać dane na platformę Azure i z platformy Azure, a następnie dodaj nazwę konta magazynu i klucz dostępu.
 
-    ![Pokazuje Dodawanie poświadczeń w centrum poleceń programu CommVault.](../media/commvault-credential.png)
+    ![Pokazuje dodawanie poświadczeń w centrum poleceń usługi Commvault.](../media/commvault-credential.png)
 
-9. Następnie przejdź do usługi **Storage**  ->  w **chmurze** w centrum poleceń programu CommVault. Wybierz, aby **dodać**. Wprowadź przyjazną nazwę konta magazynu, a następnie wybierz **Microsoft Azure Storage** z listy **Typ** . Wybierz serwer programu Media Agent, który ma być używany do transferu kopii zapasowych do usługi Azure Storage. Dodaj utworzony kontener, wybierz warstwę magazynowania, która ma być używana w ramach konta usługi Azure Storage, a następnie wybierz poświadczenia utworzone w kroku #8. Na koniec wybierz, czy mają być transferowane deduplikowane kopie zapasowe, czy nie i lokalizacja bazy danych deduplikacji.
+9. Następnie przejdź do **chmury**  ->  **magazynu w** Centrum poleceń usługi Commvault. Wybierz pozycję **Dodaj.** Wprowadź przyjazną nazwę konta magazynu, a następnie **wybierz** Microsoft Azure Storage z **listy** Typ. Wybierz serwer agenta multimediów, który będzie używany do transferu kopii zapasowych do usługi Azure Storage. Dodaj utworzony kontener, wybierz warstwę magazynowania do użycia w ramach konta usługi Azure Storage i wybierz poświadczenia utworzone w kroku #8. Na koniec wybierz, czy mają być transferowane deduplikowane kopie zapasowe, czy nie, oraz lokalizację deduplikacji bazy danych.
 
-     ![Zrzut ekranu przedstawiający Dodawanie interfejsu użytkownika w chmurze programu CommVault. W menu rozwijanym archiwum * jest zaznaczone polecenie * * archiwalne * *.](../media/commvault-add-storage.png)
+     ![Zrzut ekranu przedstawiający interfejs użytkownika dodawania chmury w aplikacji Commvault. Z menu rozwijanego Archiwum wybrano pozycję **Archiwum**.](../media/commvault-add-storage.png)
 
-10. Na koniec Dodaj nowy zasób usługi Azure Storage do istniejącego lub nowego planu w centrum poleceń programu CommVault przez **Zarządzanie**  ->  **planami** jako miejscem docelowym kopii zapasowej.
+10. Na koniec dodaj nowy zasób usługi Azure Storage do istniejącego lub nowego planu w Centrum poleceń commvault za pomocą polecenia Zarządzaj planami  ->   jako miejsce docelowe kopii zapasowej.
 
-    ![Zrzut ekranu przedstawiający interfejs użytkownika centrum poleceń programu CommVault. W lewym okienku nawigacji w obszarze * * jest zaznaczone polecenie * * Zarządzanie * *, * * plany * *.](../media/commvault-plan.png)
+    ![Zrzut ekranu przedstawiający interfejs użytkownika commvault Command Center. W obszarze nawigacji po lewej stronie w obszarze **Zarządzaj** wybrano opcję **Plany**.](../media/commvault-plan.png)
 
-11. *(Opcjonalnie)* Jeśli planujesz używać platformy Azure jako lokacji odzyskiwania lub programu CommVault do migrowania serwerów i aplikacji na platformę Azure, najlepszym rozwiązaniem jest wdrożenie serwera proxy VSA na platformie Azure. Szczegółowe instrukcje można znaleźć [tutaj](https://documentation.commvault.com/commvault/v11/article?p=106208.htm).
+11. *(Opcjonalnie)* Jeśli planujesz używać platformy Azure jako lokacji odzyskiwania lub programu Commvault do migrowania serwerów i aplikacji na platformę Azure, najlepszym rozwiązaniem jest wdrożenie serwera proxy usługi VSA na platformie Azure. Szczegółowe instrukcje można znaleźć [tutaj.](https://documentation.commvault.com/commvault/v11/article?p=106208.htm)
 
-## <a name="operational-guidance"></a>Wskazówki dotyczące działania
+## <a name="operational-guidance"></a>Wskazówki operacyjne
 
-### <a name="azure-alerts-and-performance-monitoring"></a>Alerty i monitorowanie wydajności platformy Azure
+### <a name="azure-alerts-and-performance-monitoring"></a>Alerty platformy Azure i monitorowanie wydajności
 
-Zaleca się monitorowanie zarówno zasobów platformy Azure, jak i zdolności firmy CommVault do używania ich w taki sposób, aby można było korzystać z nich w celu przechowywania kopii zapasowych. Kombinacja Azure Monitor i CommVault centrum poleceń umożliwia zachowanie kondycji środowiska.
+Zaleca się monitorowanie zarówno zasobów platformy Azure, jak i możliwości korzystania z nich przez program Commvault, tak jak w przypadku dowolnego docelowego magazynu, na których polegasz, do przechowywania kopii zapasowych. Połączenie monitorowania Azure Monitor i commvault Command Center pomoże zachować dobrej kondycji środowiska.
 
 #### <a name="azure-portal"></a>Azure Portal
 
-Platforma Azure oferuje niezawodne rozwiązanie do monitorowania w postaci [Azure monitor](../../../../../azure-monitor/essentials/monitor-azure-resource.md). Azure Monitor można [skonfigurować](../../../../blobs/monitor-blob-storage.md) do śledzenia pojemności, transakcji, dostępności, uwierzytelniania i innych możliwości usługi Azure Storage. W [tym miejscu](../../../../blobs/monitor-blob-storage-reference.md)możesz znaleźć pełne odwołanie do zbieranych metryk. Oto kilka przydatnych metryk do śledzenia BlobCapacity — aby upewnić się, że pozostanie poniżej maksymalnego [limitu pojemności konta magazynu](../../../../common/scalability-targets-standard-account.md), ruchu przychodzącego i wychodzącego — w celu śledzenia ilości danych, które są zapisywane i odczytywane z konta usługi Azure Storage, a SuccessE2ELatency — do śledzenia czasu, w którym wysyłane są żądania do i z usługi Azure Storage i MediaAgent.
+Platforma Azure oferuje niezawodne rozwiązanie do monitorowania w postaci [Azure Monitor.](../../../../../azure-monitor/essentials/monitor-azure-resource.md) Możesz skonfigurować [Azure Monitor](../../../../blobs/monitor-blob-storage.md) do śledzenia pojemności usługi Azure Storage, transakcji, dostępności, uwierzytelniania i nie tylko. Pełne odwołanie do metryk, które są zbierane, można znaleźć [tutaj.](../../../../blobs/monitor-blob-storage-reference.md) Kilka przydatnych metryk do śledzenia to BlobCapacity — aby upewnić się, że nie przekraczasz maksymalnego limitu pojemności konta magazynu [,](../../../../common/scalability-targets-standard-account.md)ruch przychodzący i wychodzący — do śledzenia ilości danych zapisywanych i odczytywanych z konta usługi Azure Storage oraz SuccessE2ELatency — aby śledzić czas transmisji w obie strony dla żądań do i z usługi Azure Storage i Twojego obiektu MediaAgent.
 
-Możesz również [utworzyć alerty dzienników](../../../../../service-health/alerts-activity-log-service-notifications-portal.md) , aby śledzić kondycję usługi Azure Storage i w dowolnym momencie wyświetlać [pulpit nawigacyjny stanu platformy Azure](https://status.azure.com/status) .
+Alerty dzienników [można również tworzyć w](../../../../../service-health/alerts-activity-log-service-notifications-portal.md) celu śledzenia kondycji usługi Azure Storage i wyświetlania pulpitu nawigacyjnego stanu platformy [Azure](https://status.azure.com/status) w dowolnym momencie.
 
-#### <a name="commvault-command-center"></a>CommVault centrum poleceń
+#### <a name="commvault-command-center"></a>Commvault Command Center
 
 - [Tworzenie alertu dla pul magazynu w chmurze](https://documentation.commvault.com/commvault/v11/article?p=100514_3.htm)
-- Aby uzyskać informacje o tym, gdzie można wyświetlić raporty dotyczące wydajności, ukończenie zadania i rozpocząć podstawowe Rozwiązywanie problemów, zobacz [pulpity nawigacyjne](https://documentation.commvault.com/commvault/v11/article?p=95306_1.htm).
+- Aby uzyskać informacje o tym, gdzie można wyświetlić raporty wydajności, ukończenie zadania i rozpocząć podstawowe rozwiązywanie problemów, zobacz [Pulpity nawigacyjne](https://documentation.commvault.com/commvault/v11/article?p=95306_1.htm).
 
-### <a name="how-to-open-support-cases"></a>Jak otworzyć przypadki pomocy technicznej
+### <a name="how-to-open-support-cases"></a>Jak otwierać przypadki pomocy technicznej
 
-Jeśli potrzebujesz pomocy dotyczącej tworzenia kopii zapasowej rozwiązania Azure, należy otworzyć sprawę zarówno w programie CommVault, jak i na platformie Azure. Dzięki temu nasze organizacje pomocy technicznej mogą współpracować w razie potrzeby.
+Jeśli potrzebujesz pomocy przy kopii zapasowej w rozwiązaniu platformy Azure, otwórz przypadek zarówno w aplikacji Commvault, jak i na platformie Azure. Ułatwia to naszym organizacjom pomocy technicznej współpracę w razie potrzeby.
 
-#### <a name="to-open-a-case-with-commvault"></a>Aby otworzyć sprawę przy użyciu programu CommVault
+#### <a name="to-open-a-case-with-commvault"></a>Aby otworzyć przypadek za pomocą commvault
 
-W [witrynie wsparcia firmy CommVault](https://www.commvault.com/support)Zaloguj się, a następnie otwórz sprawę.
+W [witrynie pomocy technicznej firmy Commvault](https://www.commvault.com/support)zaloguj się i otwórz przypadek.
 
-Aby poznać dostępne opcje kontraktu pomocy technicznej, zobacz [Opcje pomocy technicznej programu CommVault](https://ma.commvault.com/support)
+Aby poznać dostępne opcje umów pomocy technicznej, zobacz Opcje pomocy technicznej [firmy Commvault](https://ma.commvault.com/support)
 
-Możesz również wywołać, aby otworzyć sprawę lub skontaktować się z pomocą techniczną w ramach programu CommVault:
+Możesz również zadzwoń, aby otworzyć przypadek lub za pośrednictwem poczty e-mail na adres pomocy technicznej aplikacji Commvault:
 
-- Bezpłatny: + 1 877-780-3077
+- Bezpłatny: +1 877-780-3077
 - [Numery pomocy technicznej na całym świecie](https://ma.commvault.com/Support/TelephoneSupport)
-- [Obsługa wiadomości e-mail w programie CommVault](mailto:support@commvault.com)
+- [Wyślij wiadomość e-mail do pomocy technicznej usługi Commvault](mailto:support@commvault.com)
 
-#### <a name="to-open-a-case-with-azure"></a>Aby otworzyć sprawę z platformą Azure
+#### <a name="to-open-a-case-with-azure"></a>Aby otworzyć przypadek przy użyciu platformy Azure
 
-Na pasku wyszukiwania u góry w [Azure Portal](https://portal.azure.com) Wyszukaj **Pomoc techniczną** . Wybierz pozycję **Pomoc i obsługa**  ->  **nowe żądanie obsługi**.
+Na pasku [Azure Portal](https://portal.azure.com) wyszukaj **pomoc techniczną** na pasku wyszukiwania u góry. Wybierz **pozycję Pomoc i obsługa techniczna Nowy**  ->  **wniosek o pomoc techniczną.**
 
 > [!NOTE]
-> W przypadku otwarcia przypadku należy koniecznie uzyskać pomoc dotyczącą usługi Azure Storage lub sieci platformy Azure. Nie określaj Azure Backup. Azure Backup to nazwa usługi platformy Azure, a Twoja sprawa zostanie niepoprawnie przekierowana.
+> Po otwarciu sprawy należy pamiętać, że potrzebujesz pomocy dotyczącej usługi Azure Storage lub Azure Networking. Nie należy określać Azure Backup. Azure Backup to nazwa usługi platformy Azure, a Twój przypadek zostanie nieprawidłowo rozsyłany.
 
-### <a name="links-to-relevant-commvault-documentation"></a>Linki do odpowiedniej dokumentacji programu CommVault
+### <a name="links-to-relevant-commvault-documentation"></a>Linki do odpowiedniej dokumentacji programu Commvault
 
-Więcej informacji można znaleźć w następującej dokumentacji programu CommVault:
+Zobacz następującą dokumentację programu Commvault, aby uzyskać więcej szczegółów:
 
-- [Podręcznik użytkownika firmy CommVault](https://documentation.commvault.com/commvault/v11/article?p=37684_1.htm)
-- [Przewodnik dotyczący architektury platformy Azure firmy CommVault](https://www.commvault.com/resources/public-cloud-architecture-guide-for-microsoft-azure-v11-sp16)
+- [Podręcznik użytkownika aplikacji Commvault](https://documentation.commvault.com/commvault/v11/article?p=37684_1.htm)
+- [Przewodnik po architekturze platformy Azure usługi Commvault](https://documentation.commvault.com/commvault/v11/others/pdf/public-cloud-architecture-guide-for-microsoft-azure11-19.pdf)
 
-### <a name="marketplace-offerings"></a>Oferty portalu Marketplace
+### <a name="marketplace-offerings"></a>Oferty w witrynie Marketplace
 
-Program CommVault ułatwia wdrażanie rozwiązań na platformie Azure w celu ochrony Virtual Machines platformy Azure i wielu innych usług platformy Azure. Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
+Program Commvault ułatwia wdrażanie rozwiązania na platformie Azure w celu ochrony usługi Azure Virtual Machines i wielu innych usług platformy Azure. Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
 
-- [Wdrażanie usług CommVault za pośrednictwem portalu Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/commvault.commvault?tab=Overview)
-- [Oprogramowanie CommVault dla usługi Azure Datasheet](https://www.commvault.com/resources/microsoft-azure-cloud-platform-datasheet)
-- [Lista obsługiwanych funkcji i usług platformy Azure](https://documentation.commvault.com/commvault/v11/article?p=109795_1.htm)
-- [Jak chronić SAP HANA na platformie Azure za pomocą programu CommVault](https://azure.microsoft.com/resources/protecting-sap-hana-in-azure/)
+- [Wdrażanie aplikacji Commvault za pośrednictwem Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/commvault.commvault?tab=Overview)
+- [Program Commvault dla arkusza danych platformy Azure](https://www.commvault.com/resources/microsoft-azure-cloud-platform-datasheet)
+- [Lista obsługiwanych funkcji i usług platformy Azure firmy Commvault](https://documentation.commvault.com/commvault/v11/article?p=109795_1.htm)
+- [Jak chronić dane na platformie Azure przy użyciu SAP HANA Commvault](https://azure.microsoft.com/resources/protecting-sap-hana-in-azure/)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z tymi dodatkowymi zasobami usługi CommVault, aby uzyskać informacje na temat wyspecjalizowanych scenariuszy użycia.
+Aby uzyskać informacje na temat wyspecjalizowanych scenariuszy użycia, zobacz te dodatkowe zasoby aplikacji Commvault.
 
-- [Migrowanie serwerów i aplikacji na platformę Azure za pomocą programu CommVault](https://www.commvault.com/resources/demonstration-vmware-to-azure-migrations-with-commvault)
-- [Ochrona oprogramowania SAP na platformie Azure za pomocą programu CommVault](https://www.youtube.com/watch?v=4ZGGE53mGVI)
-- [Ochrona usługi Office 365 za pomocą programu CommVault](https://www.youtube.com/watch?v=dl3nvAacxZU)
+- [Migrowanie serwerów i aplikacji na platformę Azure za pomocą programu Commvault](https://www.commvault.com/resources/demonstration-vmware-to-azure-migrations-with-commvault)
+- [Ochrona oprogramowania SAP na platformie Azure za pomocą programu Commvault](https://www.youtube.com/watch?v=4ZGGE53mGVI)
+- [Ochrona usługi Office 365 za pomocą aplikacji Commvault](https://www.youtube.com/watch?v=dl3nvAacxZU)

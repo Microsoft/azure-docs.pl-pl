@@ -1,182 +1,182 @@
 ---
-title: Ciągłej integracji/ciągłego dostarczania do kontenerów niestandardowych
-description: Skonfiguruj ciągłe wdrażanie do niestandardowego kontenera systemu Windows lub Linux w Azure App Service.
-keywords: Azure App Service, Linux, Docker, ACR, OSS
+title: Ci/CD to custom containers (Ci/CD to custom containers)
+description: Konfigurowanie ciągłego wdrażania w niestandardowym kontenerze systemu Windows lub Linux w Azure App Service.
+keywords: azure app service, linux, docker, acr,oss
 author: msangapu-msft
 ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
 ms.topic: article
 ms.date: 03/12/2021
 ms.author: msangapu
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 654b0f842a3165926242d1ef03f2dfe4e5bacfdc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f02aa9fc1bd31bdde6214ab906136a2cac8f1772
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643359"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478314"
 ---
-# <a name="continuous-deployment-with-custom-containers-in-azure-app-service"></a>Ciągłe wdrażanie z kontenerami niestandardowymi w Azure App Service
+# <a name="continuous-deployment-with-custom-containers-in-azure-app-service"></a>Ciągłe wdrażanie przy użyciu kontenerów niestandardowych w Azure App Service
 
-W tym samouczku skonfigurujesz ciągłe wdrażanie niestandardowego obrazu kontenera z zarządzanych [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) repozytoriów lub usługi [Docker Hub](https://hub.docker.com).
+W tym samouczku skonfigurujesz ciągłe wdrażanie dla niestandardowego obrazu kontenera z [repozytoriów](https://azure.microsoft.com/services/container-registry/) zarządzanych Azure Container Registry lub [Docker Hub](https://hub.docker.com).
 
-## <a name="1-go-to-deployment-center"></a>1. Przejdź do centrum wdrażania
+## <a name="1-go-to-deployment-center"></a>1. Przejdź do Centrum wdrażania
 
-W [Azure Portal](https://portal.azure.com)przejdź do strony zarządzania aplikacji App Service.
+W [Azure Portal](https://portal.azure.com)przejdź do strony zarządzania dla aplikacji App Service aplikacji.
 
-W menu po lewej stronie kliknij pozycję Ustawienia **centrum wdrażania**  >  . 
+W menu po lewej stronie kliknij pozycję **Ustawienia Centrum**  >  **wdrażania.** 
 
 ::: zone pivot="container-linux"
-## <a name="2-choose-deployment-source"></a>2. Wybierz źródło wdrożenia
+## <a name="2-choose-deployment-source"></a>2. Wybieranie źródła wdrożenia
 
-**Wybierz** Źródło wdrożenia zależy od Twojego scenariusza:
-- **Rejestr kontenerów** konfiguruje Ci/CD między rejestrem kontenerów a App Service.
-- Opcja **działania** w serwisie GitHub jest dla Ciebie, Jeśli przechowujesz kod źródłowy obrazu kontenera w usłudze GitHub. Wyzwalane przez nowe zatwierdzenia w repozytorium GitHub, Akcja wdrożenia może zostać uruchomiona `docker build` i `docker push` bezpośrednio do rejestru kontenerów, a następnie zaktualizowana aplikacja App Service w celu uruchomienia nowego obrazu. Aby uzyskać więcej informacji, zobacz [jak działa usługa Ci/CD z akcjami usługi GitHub](#how-cicd-works-with-github-actions).
-- Aby skonfigurować ciągłe i ciągłe dostarczanie za pomocą **Azure Pipelines**, zobacz [wdrażanie kontenera aplikacji sieci Web platformy Azure z Azure Pipelines](/azure/devops/pipelines/targets/webapp-on-container-linux).
+**Wybór** źródła wdrożenia zależy od scenariusza:
+- **Rejestr kontenerów konfiguruje** ci/cd między rejestrem kontenerów a App Service.
+- Opcja **GitHub Actions** jest dostępna w przypadku obsługi kodu źródłowego obrazu kontenera w usłudze GitHub. Wyzwalane przez nowe zatwierdzenia do repozytorium GitHub, akcję wdrażania można uruchomić i bezpośrednio w rejestrze kontenerów, a następnie zaktualizować aplikację App Service, aby uruchomić `docker build` `docker push` nowy obraz. Aby uzyskać więcej informacji, zobacz [Jak ci/CD współpracuje z GitHub Actions](#how-cicd-works-with-github-actions).
+- Aby skonfigurować usługę CI/CD przy **użyciu Azure Pipelines**, zobacz Deploy an Azure Web App Container from Azure Pipelines (Wdrażanie kontenera aplikacji internetowej platformy Azure [z Azure Pipelines](/azure/devops/pipelines/targets/webapp-on-container-linux)).
 
 > [!NOTE]
 > W przypadku aplikacji Docker Compose wybierz pozycję **Container Registry**.
 
-W przypadku wybrania akcji GitHub **kliknij pozycję** **Autoryzuj** i postępuj zgodnie z monitami o autoryzację. Jeśli wcześniej masz już autoryzację w usłudze GitHub, możesz wdrożyć ją z repozytorium innego użytkownika, klikając pozycję **Zmień konto**.
+Jeśli wybierzesz opcję GitHub Actions **autoryzuj**  i postępuj zgodnie z monitami autoryzacji. Jeśli masz już autoryzację w usłudze GitHub, możesz wdrożyć ją z repozytorium innego użytkownika, klikając pozycję **Zmień konto.**
 
-Po autoryzowaniu konta platformy Azure w usłudze GitHub **Wybierz** **organizację**, **repozytorium** i **gałąź** , z której chcesz wykonać wdrożenie.
+Po autoryzacji konta platformy Azure w usłudze GitHub **wybierz** pozycję **Organizacja,** **Repozytorium** i **Gałąź** do wdrożenia.
 ::: zone-end  
 
 ::: zone pivot="container-windows"
-## <a name="2-configure-registry-settings"></a>2. Skonfiguruj ustawienia rejestru
+## <a name="2-configure-registry-settings"></a>2. Konfigurowanie ustawień rejestru
 ::: zone-end  
 ::: zone pivot="container-linux"
-## <a name="3-configure-registry-settings"></a>3. Skonfiguruj ustawienia rejestru
+## <a name="3-configure-registry-settings"></a>3. Konfigurowanie ustawień rejestru
 
-Aby wdrożyć aplikację wielokontenerową (Docker Compose), **Wybierz pozycję** **Docker Compose** w polu **typ kontenera**.
+Aby wdrożyć aplikację z wieloma kontenerami **(Docker Compose),** wybierz pozycję **Docker Compose** **typ kontenera.**
 
-Jeśli nie widzisz listy rozwijanej **typ kontenera** , przewiń kopię zapasową do **źródła** i **Wybierz** **Container Registry**.
+Jeśli nie widzisz listy rozwijanej **Typ** kontenera, przewiń  z powrotem do źródła i **wybierz** pozycję **Container Registry**.
 ::: zone-end
 
-W polu **Źródło rejestru** **Wybierz** miejsce, w którym znajduje się rejestr kontenerów. Jeśli nie jest on Azure Container Registry ani centrum Docker, **Wybierz pozycję** **Rejestr prywatny**.
+W **źródle rejestru** **wybierz,** gdzie znajduje się rejestr kontenerów. Jeśli nie jest to pole Azure Container Registry ani Docker Hub, **wybierz pozycję** **Rejestr prywatny.**
 
 ::: zone pivot="container-linux"
 > [!NOTE]
-> Jeśli aplikacja z wieloma kontenerami (Docker Compose) korzysta z więcej niż jednego prywatnego obrazu, upewnij się, że obrazy prywatne znajdują się w tym samym rejestrze prywatnym i są dostępne z tymi samymi poświadczeniami użytkownika. Jeśli aplikacja obsługująca wiele kontenerów używa tylko obrazów publicznych, **Wybierz pozycję** **Docker Hub**, nawet jeśli niektóre obrazy nie znajdują się w usłudze Docker Hub.
+> Jeśli aplikacja z wieloma kontenerami (Docker Compose) używa więcej niż jednego obrazu prywatnego, upewnij się, że obrazy prywatne znajdują się w tym samym rejestrze prywatnym i są dostępne przy użyciu tych samych poświadczeń użytkownika. Jeśli aplikacja z wieloma kontenerami  używa tylko obrazów publicznych, wybierz pozycję **Docker Hub**, nawet jeśli niektóre obrazy nie znajdują się Docker Hub.
 ::: zone-end  
 
-Wykonaj kolejne kroki, wybierając kartę odpowiadającą wybranej opcji.
+Wykonaj następne kroki, wybierając kartę, która odpowiada wybranej opcji.
 
 # <a name="azure-container-registry"></a>[Azure Container Registry](#tab/acr)
 
-Lista rozwijana **Rejestr** zawiera rejestry w tej samej subskrypcji, w której znajduje się aplikacja. **Wybierz** odpowiedni rejestr.
+Na **liście rozwijanej** Rejestr są wyświetlane rejestry w tej samej subskrypcji co aplikacja. **Wybierz** rejestr, którego potrzebujesz.
 
 > [!NOTE]
-> W celu wdrożenia z rejestru w innej subskrypcji **Wybierz** w zamian **Rejestr prywatny** w **źródle rejestru** .
+> Aby wdrożyć z rejestru w innej subskrypcji, wybierz **pozycję** **Rejestr prywatny w** **źródle** rejestru.
 
 ::: zone pivot="container-windows"
-**Wybierz** **obraz** i **tag** do wdrożenia. Jeśli chcesz, **wpisz** polecenie uruchamiania w **pliku startowym**. 
+**Wybierz** pozycję **Obraz i** **tag do** wdrożenia. Jeśli chcesz, **wpisz polecenie** uruchamiania w pliku **startowym**. 
 ::: zone-end
 ::: zone pivot="container-linux"
-Postępuj zgodnie z kolejnym krokiem w zależności od **typu kontenera**:
-- W obszarze Docker Compose **Wybierz** rejestr dla prywatnych obrazów. **Kliknij pozycję** **Wybierz plik** , aby przekazać [plik Docker Compose](https://docs.docker.com/compose/compose-file/), lub po prostu **Wklej** zawartość pliku Docker Compose do **konfiguracji**.
-- W przypadku **jednego kontenera** **Wybierz** **obraz** i **tag** do wdrożenia. Jeśli chcesz, **wpisz** polecenie uruchamiania w **pliku startowym**. 
+Wykonaj następny krok w zależności od **typu kontenera:**
+- Aby **Docker Compose**, **wybierz** rejestr obrazów prywatnych. **Kliknij** **pozycję Wybierz plik,** [Docker Compose plik](https://docs.docker.com/compose/compose-file/)lub  po prostu wklej zawartość pliku Docker Compose do pliku **konfiguracji**.
+- W **przypadku pojedynczego kontenera** wybierz **obraz** **i** **tag do** wdrożenia. Jeśli chcesz, **wpisz polecenie** uruchamiania w pliku **startowym**. 
 ::: zone-end
 
-App Service dołącza ciąg w **pliku startowym** do [końca `docker run` polecenia (jako `[COMMAND] [ARG...]` Segment)](https://docs.docker.com/engine/reference/run/) podczas uruchamiania kontenera.
+App Service dołącza ciąg w pliku **startowym** na końcu polecenia [ `docker run` (jako `[COMMAND] [ARG...]` segment)](https://docs.docker.com/engine/reference/run/) podczas uruchamiania kontenera.
 
 # <a name="docker-hub"></a>[Docker Hub](#tab/dockerhub)
 
 ::: zone pivot="container-windows"
-W obszarze **dostęp do repozytorium** **Wybierz** , czy obraz do wdrożenia ma być publiczny, czy prywatny.
+W **dostępie do repozytorium** **wybierz,** czy obraz do wdrożenia jest publiczny, czy prywatny.
 ::: zone-end
 ::: zone pivot="container-linux"
-W obszarze **dostęp do repozytorium** **Wybierz** , czy obraz do wdrożenia ma być publiczny, czy prywatny. W przypadku aplikacji Docker Compose z co najmniej jednym prywatnym obrazem **Wybierz pozycję** **prywatny**.
+W **dostępie do repozytorium** **wybierz,** czy obraz do wdrożenia jest publiczny, czy prywatny. W przypadku aplikacji Docker Compose z co najmniej jednym obrazem prywatnym wybierz **pozycję** **Prywatny.**
 ::: zone-end
 
-W przypadku wybrania obrazu prywatnego należy **określić** nazwę **logowania** (username) i **hasło** konta platformy Docker.
+W przypadku wybrania obrazu prywatnego określ **wartości** Login (username) **(Nazwa** użytkownika) **i Password** (Hasło) konta platformy Docker.
 
 ::: zone pivot="container-windows"
-**Podaj** nazwę obrazu i tagu w polu **pełna nazwa obrazu i tag**, oddzielone znakiem `:` (na przykład `nginx:latest` ). Jeśli chcesz, **wpisz** polecenie uruchamiania w **pliku startowym**. 
+**W** polach Full Image Name (Pełna nazwa obrazu) i **Tag (Tag)** należy podać nazwę obrazu i tagu , oddzielając `:` je znakami (na przykład `nginx:latest` ). Jeśli chcesz, **wpisz polecenie** uruchamiania w pliku **startowym**. 
 ::: zone-end
 ::: zone pivot="container-linux"
-Postępuj zgodnie z kolejnym krokiem w zależności od **typu kontenera**:
-- W obszarze Docker Compose **Wybierz** rejestr dla prywatnych obrazów. **Kliknij pozycję** **Wybierz plik** , aby przekazać [plik Docker Compose](https://docs.docker.com/compose/compose-file/), lub po prostu **Wklej** zawartość pliku Docker Compose do **konfiguracji**.
-- W przypadku **jednego kontenera** **Podaj** nazwę obrazu i tagu w polu **pełna nazwa obrazu i tag**, oddzielone znakiem `:` (na przykład `nginx:latest` ). Jeśli chcesz, **wpisz** polecenie uruchamiania w **pliku startowym**. 
+Wykonaj następny krok w zależności od **typu kontenera:**
+- Aby **Docker Compose**, **wybierz** rejestr obrazów prywatnych. **Kliknij** **pozycję Wybierz plik,** [Docker Compose plik](https://docs.docker.com/compose/compose-file/)lub  wklej zawartość pliku Docker Compose do pliku **konfiguracji**.
+- W **przypadku pojedynczego kontenera** należy **podać** nazwę obrazu i tagu w polach Full Image Name (Pełna nazwa obrazu) i **Tag (tag),** oddzielając je `:` znakami (na przykład `nginx:latest` ). Jeśli chcesz, **wpisz polecenie** uruchamiania w pliku **startowym**. 
 ::: zone-end
 
-App Service dołącza ciąg w **pliku startowym** do [końca `docker run` polecenia (jako `[COMMAND] [ARG...]` Segment)](https://docs.docker.com/engine/reference/run/) podczas uruchamiania kontenera.
+App Service dołącza ciąg w pliku **startowym** na końcu polecenia [ `docker run` (jako `[COMMAND] [ARG...]` segment)](https://docs.docker.com/engine/reference/run/) podczas uruchamiania kontenera.
 
 # <a name="private-registry"></a>[Rejestr prywatny](#tab/private)
 
-W polu **adres URL serwera** **wpisz** adres URL serwera, zaczynając od **https://**.
+W **polu Adres URL** serwera wpisz adres URL serwera, zaczynając od **https://**. 
 
-W polu **Nazwa logowania** i **hasło** **wpisz** poświadczenia logowania do rejestru prywatnego.
+W **ustawieniach** Logowanie i **Hasło**  wpisz swoje poświadczenia logowania dla rejestru prywatnego.
 
 ::: zone pivot="container-windows"
-**Podaj** nazwę obrazu i tagu w polu **pełna nazwa obrazu i tag**, oddzielone znakiem `:` (na przykład `nginx:latest` ). Jeśli chcesz, **wpisz** polecenie uruchamiania w **pliku startowym**. 
+**W** polach Full Image Name (Pełna nazwa obrazu) i **Tag (Tag)** należy podać nazwę obrazu i tagu , oddzielając `:` je znakami (na przykład `nginx:latest` ). Jeśli chcesz, **wpisz polecenie** uruchamiania w pliku **startowym**. 
 ::: zone-end
 ::: zone pivot="container-linux"
-Postępuj zgodnie z kolejnym krokiem w zależności od **typu kontenera**:
-- W obszarze Docker Compose **Wybierz** rejestr dla prywatnych obrazów. **Kliknij pozycję** **Wybierz plik** , aby przekazać [plik Docker Compose](https://docs.docker.com/compose/compose-file/), lub po prostu **Wklej** zawartość pliku Docker Compose do **konfiguracji**.
-- W przypadku **jednego kontenera** **Podaj** nazwę obrazu i tagu w polu **pełna nazwa obrazu i tag**, oddzielone znakiem `:` (na przykład `nginx:latest` ). Jeśli chcesz, **wpisz** polecenie uruchamiania w **pliku startowym**. 
+Wykonaj następny krok w zależności od **typu kontenera:**
+- Aby **Docker Compose**, **wybierz** rejestr obrazów prywatnych. **Kliknij** **pozycję Wybierz plik,** [Docker Compose plik](https://docs.docker.com/compose/compose-file/)lub  wklej zawartość pliku Docker Compose do pliku **konfiguracji**.
+- W **przypadku pojedynczego kontenera** należy podać **nazwę** obrazu i tagu w polach Pełna nazwa obrazu i **Tag**, oddzielając `:` je znakami (na przykład `nginx:latest` ). Jeśli chcesz, **wpisz polecenie** uruchamiania w pliku **startowym**. 
 ::: zone-end
 
-App Service dołącza ciąg w **pliku startowym** do [końca `docker run` polecenia (jako `[COMMAND] [ARG...]` Segment)](https://docs.docker.com/engine/reference/run/) podczas uruchamiania kontenera.
+App Service dołącza ciąg w pliku **startowym** na końcu polecenia [ `docker run` (jako `[COMMAND] [ARG...]` segment)](https://docs.docker.com/engine/reference/run/) podczas uruchamiania kontenera.
 
 -----
 
 ::: zone pivot="container-windows"
-## <a name="3-enable-cicd"></a>3. Włącz CI/CD
+## <a name="3-enable-cicd"></a>3. Włączanie funkcji CI/CD
 ::: zone-end
 ::: zone pivot="container-linux"
-## <a name="4-enable-cicd"></a>4. Włącz CI/CD
+## <a name="4-enable-cicd"></a>4. Włączanie funkcji CI/CD
 ::: zone-end
 
-App Service obsługuje integrację ciągłej integracji/ciągłego wdrażania z usługami Azure Container Registry i Docker Hub. Aby włączyć tę funkcję, **Wybierz pozycję** **włączone** w obszarze **ciągłe wdrażanie**.
-
-::: zone pivot="container-linux"
-> [!NOTE]
-> Jeśli wybierzesz **Akcje usługi GitHub** w obszarze **Źródło**, nie uzyskasz tej opcji, ponieważ usługa Ci/CD jest obsługiwana bezpośrednio przez akcje usługi GitHub. Zamiast tego zostanie wyświetlona sekcja **konfiguracji przepływu pracy** , w której można **kliknąć pozycję** **Podgląd pliku** , aby sprawdzić plik przepływu pracy. Platforma Azure zatwierdzi ten plik w wybranym repozytorium źródłowym usługi GitHub w celu obsługi zadań kompilowania i wdrażania. Aby uzyskać więcej informacji, zobacz [jak działa usługa Ci/CD z akcjami usługi GitHub](#how-cicd-works-with-github-actions).
-::: zone-end
-
-Po włączeniu tej opcji App Service dodaje element webhook do repozytorium w Azure Container Registry lub Docker Hub. Repozytorium zapisuje do tego elementu webhook za każdym razem, gdy wybrany obraz zostanie zaktualizowany przy użyciu programu `docker push` . Element webhook powoduje, że aplikacja App Service będzie ponownie uruchamiana i uruchamiana `docker pull` w celu uzyskania zaktualizowanego obrazu.
-
-W **przypadku innych rejestrów prywatnych** można opublikować element webhook ręcznie lub jako krok w potoku ciągłej integracji/ciągłego wdrażania. W polu **adres URL elementu webhook** **kliknij** przycisk **Kopiuj** , aby uzyskać adres URL elementu webhook.
+App Service integracji ci/CD z Azure Container Registry i Docker Hub. Aby ją włączyć, wybierz pozycję **Wł. w** **opcji Ciągłe wdrażanie.** 
 
 ::: zone pivot="container-linux"
 > [!NOTE]
-> Obsługa aplikacji wielokontenerowych (Docker Compose) jest ograniczona: 
-> - W przypadku Azure Container Registry App Service tworzy element webhook w wybranym rejestrze z rejestrem jako zakres. `docker push`Do dowolnego repozytorium w rejestrze (w tym tych, do których nie odwołuje się plik Docker Compose), wyzwala ponowne uruchomienie aplikacji. Możesz chcieć [zmodyfikować element webhook](../container-registry/container-registry-webhook.md) do węższego zakresu.
-> - Centrum platformy Docker nie obsługuje elementów webhook na poziomie rejestru. Elementy webhook należy **dodać** ręcznie do obrazów określonych w pliku Docker Compose.
+> Jeśli **wybierzesz** GitHub Actions **w** źródle , nie otrzymasz tej opcji, ponieważ ciuchy/cd są obsługiwane GitHub Actions bezpośrednio. Zamiast tego zobaczysz sekcję **Konfiguracja przepływu** pracy, w której możesz kliknąć **pozycję** **Podgląd pliku,** aby sprawdzić plik przepływu pracy. Platforma Azure zatwierdza ten plik w wybranym repozytorium źródłowym GitHub w celu obsługi zadań kompilacji i wdrażania. Aby uzyskać więcej informacji, zobacz [How CI/CD works with GitHub Actions](#how-cicd-works-with-github-actions)(Jak ci/CD współpracuje z GitHub Actions ).
+::: zone-end
+
+Po włączeniu tej opcji program App Service do repozytorium w Azure Container Registry lub Docker Hub. Repozytorium publikuje wpisy w tym elementie webhook za każdym razem, gdy wybrany obraz jest aktualizowany za pomocą . `docker push` Ten webhook powoduje ponowne App Service aplikacji i uruchomienie jej w `docker pull` celu uzyskania zaktualizowanego obrazu.
+
+**W przypadku innych rejestrów** prywatnych możesz opublikować wpis w webhook ręcznie lub jako krok w potoku cicha/cd. W **polu Adres URLhook** **kliknij przycisk** **Kopiuj,** aby pobrać adres URL tego linku.
+
+::: zone pivot="container-linux"
+> [!NOTE]
+> Obsługa aplikacji wielo kontenerów (Docker Compose) jest ograniczona: 
+> - Na Azure Container Registry App Service element webhook w wybranym rejestrze z zakresem rejestru. Element do dowolnego repozytorium w rejestrze (w tym repozytorium, do których nie odwołuje się plik Docker Compose) wyzwala `docker push` ponowne uruchomienie aplikacji. Możesz chcieć [zmodyfikować ten webhook](../container-registry/container-registry-webhook.md) do węższego zakresu.
+> - Docker Hub nie obsługuje webhook na poziomie rejestru. Musisz ręcznie **dodać** webhook do obrazów określonych w pliku Docker Compose webhook.
 ::: zone-end
 
 ::: zone pivot="container-windows"
-## <a name="4-save-your-settings"></a>4. Zapisz ustawienia
+## <a name="4-save-your-settings"></a>4. Zapisywanie ustawień
 ::: zone-end
 ::: zone pivot="container-linux"
-## <a name="5-save-your-settings"></a>5. Zapisz ustawienia
+## <a name="5-save-your-settings"></a>5. Zapisywanie ustawień
 ::: zone-end
 
-**Kliknij przycisk** **Zapisz**.
+**Kliknij pozycję** **Zapisz.**
 
 ::: zone pivot="container-linux"
 
-## <a name="how-cicd-works-with-github-actions"></a>Jak współpracuje CI/CD z akcjami GitHub
+## <a name="how-cicd-works-with-github-actions"></a>Jak ci/cd współpracuje z GitHub Actions
 
-Jeśli wybierzesz **Akcje usługi GitHub** w obszarze **Źródło** (zobacz [wybieranie źródła wdrożenia](#2-choose-deployment-source)), App Service konfiguruje Ci/CD w następujący sposób:
+Jeśli wybierzesz opcję GitHub Actions **w** źródle (zobacz Wybieranie źródła [wdrożenia),](#2-choose-deployment-source)App Service ci/CD konfiguruje się w następujący sposób: 
 
-- Umieszcza w repozytorium GitHub plik przepływu pracy akcji usługi GitHub w celu obsługi kompilowania i wdrażania zadań do App Service.
-- Dodaje poświadczenia dla prywatnego rejestru jako wpisy tajne usługi GitHub. Wygenerowany plik przepływu pracy wykonuje akcję [Azure/Docker-login](https://github.com/Azure/docker-login) , aby zalogować się za pomocą prywatnego rejestru, a następnie zostanie uruchomiony `docker push` do wdrożenia.
-- Dodaje profil publikowania aplikacji jako wpis tajny usługi GitHub. Wygenerowany plik przepływu pracy używa tego klucza tajnego do uwierzytelniania za pomocą App Service, a następnie uruchamia akcję [Azure/webapps-Deploy](https://github.com/Azure/webapps-deploy) w celu skonfigurowania zaktualizowanego obrazu, który wyzwala ponowne uruchomienie aplikacji w celu ściągnięcia zaktualizowanego obrazu.
-- Przechwytuje informacje z [dzienników przebiegów przepływu pracy](https://docs.github.com/actions/managing-workflow-runs/using-workflow-run-logs) i wyświetla je na karcie **dzienniki** w **centrum wdrażania** aplikacji.
+- Deponuje plik GitHub Actions przepływu pracy w repozytorium GitHub w celu obsługi zadań kompilacji i wdrażania w App Service.
+- Dodaje poświadczenia dla rejestru prywatnego jako wpisy tajne usługi GitHub. Wygenerowany plik przepływu pracy uruchamia [akcję Azure/docker-login,](https://github.com/Azure/docker-login) aby zalogować się do rejestru prywatnego, a następnie jest uruchamiany w celu `docker push` wdrożenia w nim.
+- Dodaje profil publikowania dla aplikacji jako klucz tajny usługi GitHub. Wygenerowany plik przepływu pracy używa tego tajnych danych do uwierzytelniania w usłudze App Service, a następnie uruchamia akcję [Azure/webapps-deploy](https://github.com/Azure/webapps-deploy) w celu skonfigurowania zaktualizowanego obrazu, co wyzwala ponowne uruchomienie aplikacji w celu ściągnięcia zaktualizowanego obrazu.
+- Przechwytuje informacje z [dzienników uruchamiania przepływu](https://docs.github.com/actions/managing-workflow-runs/using-workflow-run-logs) pracy i wyświetla je na karcie **Dzienniki** w Centrum **wdrażania aplikacji.**
 
-Dostawcę kompilacji akcji usługi GitHub można dostosować w następujący sposób:
+Dostawcę kompilacji GitHub Actions można dostosować w następujący sposób:
 
-- Dostosuj plik przepływu pracy po jego wygenerowaniu w repozytorium GitHub. Aby uzyskać więcej informacji, zobacz [składnia przepływu pracy dla akcji usługi GitHub](https://docs.github.com/actions/reference/workflow-syntax-for-github-actions). Po prostu upewnij się, że przepływ pracy jest zakończony przez akcję [Azure/webapps-Deploy](https://github.com/Azure/webapps-deploy) , aby wyzwolić ponowne uruchomienie aplikacji.
-- Jeśli wybrana gałąź jest chroniona, nadal można wyświetlić podgląd pliku przepływu pracy bez zapisywania konfiguracji, a następnie dodać go i wymagane wpisy tajne serwisu GitHub do repozytorium ręcznie. Ta metoda nie zapewnia integracji dzienników z Azure Portal.
-- Zamiast profilu publikowania należy wdrożyć przy użyciu [nazwy głównej usługi](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) w Azure Active Directory.
+- Dostosuj plik przepływu pracy po jego wygenerowaniu w repozytorium GitHub. Aby uzyskać więcej informacji, zobacz [Składnia przepływu pracy dla GitHub Actions](https://docs.github.com/actions/reference/workflow-syntax-for-github-actions). Upewnij się, że przepływ pracy kończy się akcją [Azure/webapps-deploy,](https://github.com/Azure/webapps-deploy) aby wyzwolić ponowne uruchomienie aplikacji.
+- Jeśli wybrana gałąź jest chroniona, nadal możesz wyświetlić podgląd pliku przepływu pracy bez zapisywania konfiguracji, a następnie ręcznie dodać go i wymagane wpisy tajne usługi GitHub do repozytorium. Ta metoda nie daje integracji dziennika z Azure Portal.
+- Zamiast profilu publikowania należy wdrożyć program przy użyciu [jednostki usługi](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) w Azure Active Directory.
 
-#### <a name="authenticate-with-a-service-principal"></a>Uwierzytelnianie za pomocą nazwy głównej usługi
+#### <a name="authenticate-with-a-service-principal"></a>Uwierzytelnianie za pomocą jednostki usługi
 
-Ta opcjonalna konfiguracja zastępuje domyślne uwierzytelnianie z profilami publikowania w wygenerowanym pliku przepływu pracy.
+Ta opcjonalna konfiguracja zastępuje domyślne uwierzytelnianie profilami publikowania w wygenerowanym pliku przepływu pracy.
 
-**Wygeneruj** jednostkę usługi za pomocą polecenia [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) w [interfejsie CLI platformy Azure](/cli/azure/). W poniższym przykładzie Zastąp *\<subscription-id>* wartości, *\<group-name>* i *\<app-name>* własnymi wartościami. **Zapisz** wszystkie dane wyjściowe JSON dla następnego kroku, w tym najwyższego poziomu `{}` .
+**Wygeneruj** jednostkę usługi za pomocą polecenia [az ad sp create-for-rbac w](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) interfejsie wiersza polecenia platformy [Azure.](/cli/azure/) W poniższym przykładzie zastąp *\<subscription-id>* wartości *\<group-name>* , i *\<app-name>* własnymi wartościami. **Zapisz** wszystkie dane wyjściowe JSON do następnego kroku, w tym plik najwyższego poziomu `{}` .
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myAppDeployAuth" --role contributor \
@@ -185,11 +185,11 @@ az ad sp create-for-rbac --name "myAppDeployAuth" --role contributor \
 ```
 
 > [!IMPORTANT]
-> W celu zapewnienia bezpieczeństwa należy przyznać minimalny wymagany dostęp do nazwy głównej usługi. Zakres w poprzednim przykładzie jest ograniczony do konkretnej aplikacji App Service, a nie całej grupy zasobów.
+> Ze względów bezpieczeństwa przyznaj minimalny wymagany dostęp do jednostki usługi. Zakres w poprzednim przykładzie jest ograniczony do określonej App Service, a nie całej grupy zasobów.
 
-W [](https://github.com/)witrynie GitHub **Przejdź** do repozytorium, a następnie **Wybierz pozycję** **Ustawienia > wpisy tajne > Dodaj nowe hasło**. **Wklej** wszystkie dane wyjściowe JSON z polecenia platformy Azure w polu wartość klucza tajnego. **Nadaj** wpisowi tajnemu nazwę, taką jak `AZURE_CREDENTIALS` .
+W [usłudze GitHub](https://github.com/) **przejdź** do repozytorium, a następnie **wybierz** pozycję > wpisy tajne > Dodaj nowy wpis **tajny.** **Wklej** całe dane wyjściowe JSON z polecenia interfejsu wiersza polecenia platformy Azure do pola wartości we kluczu tajnym. **Nadaj** kluczowi tajnego nazwę, na przykład `AZURE_CREDENTIALS` .
 
-W pliku przepływu pracy wygenerowanego przez **centrum wdrażania** **Popraw** `azure/webapps-deploy` krok przy użyciu kodu, takiego jak Poniższy przykład:
+W pliku przepływu pracy wygenerowanym  przez **Centrum wdrażania** popraw krok przy użyciu `azure/webapps-deploy` kodu podobnego do poniższego przykładu:
 
 ```yaml
 - name: Sign in to Azure 
@@ -211,9 +211,9 @@ W pliku przepływu pracy wygenerowanego przez **centrum wdrażania** **Popraw** 
 
 ::: zone-end
 
-## <a name="automate-with-cli"></a>Automatyzowanie przy użyciu interfejsu wiersza polecenia
+## <a name="automate-with-cli"></a>Automatyzowanie za pomocą interfejsu wiersza polecenia
 
-Aby skonfigurować rejestr kontenerów i obraz platformy Docker, **Uruchom** polecenie [AZ webapp config Container Set](/cli/azure/webapp/config/container#az-webapp-config-container-set).
+Aby skonfigurować rejestr kontenerów i obraz platformy Docker, **uruchom polecenie** [az webapp config container set](/cli/azure/webapp/config/container#az-webapp-config-container-set).
 
 # <a name="azure-container-registry"></a>[Azure Container Registry](#tab/acr)
 
@@ -240,14 +240,14 @@ az webapp config container set --name <app-name> --resource-group <group-name> -
 -----
 
 ::: zone pivot="container-linux"
-Aby skonfigurować aplikację wielokontenerową (Docker Compose), **Przygotuj** plik Docker Compose lokalnie, a następnie **Uruchom** polecenie [AZ webapp config Container Set](/cli/azure/webapp/config/container#az-webapp-config-container-set) z `--multicontainer-config-file` parametrem. Jeśli plik Docker Compose zawiera prywatne obrazy, **Dodaj** `--docker-registry-server-*` Parametry, jak pokazano w poprzednim przykładzie.
+Aby skonfigurować aplikację z wieloma kontenerami (Docker Compose), przygotuj lokalnie plik  Docker Compose, a następnie uruchom polecenie [az webapp config container set](/cli/azure/webapp/config/container#az-webapp-config-container-set) z  `--multicontainer-config-file` parametrem . Jeśli plik Docker Compose zawiera obrazy prywatne, **dodaj** `--docker-registry-server-*` parametry, jak pokazano w poprzednim przykładzie.
 
 ```azurecli-interactive
 az webapp config container set --resource-group <group-name> --name <app-name> --multicontainer-config-file <docker-compose-file>
 ```
 ::: zone-end
 
-Aby skonfigurować CI/CD z rejestru kontenerów dla aplikacji, **Uruchom** polecenie [AZ webapp Deployment Container config](/cli/azure/webapp/deployment/container#az-webapp-deployment-container-config) z `--enable-cd` parametrem. Polecenie wyświetla adres URL elementu webhook, ale należy ręcznie utworzyć element webhook w rejestrze w osobnym kroku. Poniższy przykład umożliwia włączenie CI/CD w aplikacji, a następnie użycie adresu URL elementu webhook w danych wyjściowych w celu utworzenia elementu webhook w Azure Container Registry.
+Aby skonfigurować konfigurację ci/CD z rejestru kontenerów do **aplikacji,** uruchom [polecenie az webapp deployment container config](/cli/azure/webapp/deployment/container#az-webapp-deployment-container-config) z `--enable-cd` parametrem . Polecenie wyprowadza adres URL webhook, ale należy ręcznie utworzyć ten webhook w rejestrze w osobnym kroku. Poniższy przykład umożliwia włączenie w aplikacji ciasnych/cd, a następnie użycie adresu URL webhook w danych wyjściowych w celu utworzenia tego Azure Container Registry.
 
 ```azurecli-interactive
 ci_cd_url=$(az webapp deployment container config --name <app-name> --resource-group <group-name> --enable-cd true --query CI_CD_URL --output tsv)
@@ -259,7 +259,7 @@ az acr webhook create --name <webhook-name> --registry <registry-name> --resourc
 
 * [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
 * [Tworzenie aplikacji internetowej platformy .NET Core w usłudze App Service w systemie Linux](quickstart-dotnetcore.md)
-* [Szybki Start: uruchamianie niestandardowego kontenera na App Service](quickstart-custom-container.md)
+* [Szybki start: uruchamianie niestandardowego kontenera na platformie App Service](quickstart-custom-container.md)
 * [Często zadawane pytania dotyczące usługi App Service w systemie Linux](faq-app-service-linux.md)
 * [Konfigurowanie kontenerów niestandardowych](configure-custom-container.md)
 * [Przepływy pracy akcji do wdrożenia na platformie Azure](https://github.com/Azure/actions-workflow-samples)

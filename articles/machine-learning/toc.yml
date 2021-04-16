@@ -258,7 +258,7 @@
         - name: Używanie szablonu usługi Resource Manager
           displayName: arm
           href: how-to-create-workspace-template.md
-        - name: Link do obszaru roboczego usługi Azure Synapse Analytics
+        - name: Link do Azure Synapse Analytics roboczego
           href: how-to-link-synapse-ml-workspaces.md
     - name: Tworzenie zasobów obliczeniowych i zarządzanie nimi
       items:
@@ -268,7 +268,7 @@
         - name: Klaster obliczeniowy
           displayName: 'compute target, low priority, managed identity'
           href: how-to-create-attach-compute-cluster.md
-        - name: Uaktualnij system operacyjny hosta
+        - name: Uaktualnianie systemu operacyjnego hosta
           displayName: 'upgrade compute cluster, upgrade compute instance, upgrade ubuntu'
           href: how-to-compute-cluster-instance-os-upgrade.md
         - name: Azure Kubernetes Service
@@ -285,7 +285,7 @@
         - name: Konfigurowanie środowisk deweloperskich
           displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'
           href: how-to-configure-environment.md
-        - name: Konfigurowanie środowiska Studio
+        - name: Konfigurowanie środowiska studio
           items:
             - name: Tworzenie plików i zarządzanie nimi
               href: how-to-manage-files.md
@@ -326,12 +326,12 @@
             - name: Tworzenie zestawów danych z etykietami
               displayName: 'data, labels, torchvision'
               href: how-to-use-labeled-dataset.md
-        - name: Pobierz & przygotowywania danych
+        - name: Przygotowywanie & danych
           items:
             - name: Pozyskiwanie danych przy użyciu usługi Azure Data Factory
               displayName: 'data, ingestion, adf'
               href: how-to-data-ingest-adf.md
-            - name: Przygotowywanie danych za pomocą usługi Azure Synapse
+            - name: Przygotowywanie danych za pomocą Azure Synapse
               displayName: 'data, data prep, spark, spark pool, cluster, spark cluster,dataset, datastore'
               href: how-to-data-prep-synapse-spark-pool.md
             - name: Metodyka DevOps w zakresie pozyskiwania danych
@@ -345,7 +345,7 @@
             - name: Łączenie z usługą Azure Storage (Python)
               displayName: 'blob, get, fileshare, access, mount, download, data lake, datastore'
               href: how-to-access-data.md
-            - name: Dostęp do magazynu opartego na tożsamościach
+            - name: Dostęp do magazynu na podstawie tożsamości
               displayName: 'blob, access, data lake, datastore, managed identity'
               href: how-to-identity-based-data-access.md
             - name: Pobieranie danych z magazynu danych (Python)
@@ -396,7 +396,7 @@
             - name: Włączanie dzienników
               displayName: 'troubleshoot, log, files, tracing'
               href: how-to-track-experiments.md
-            - name: Wyświetlanie dzienników i metryk dla przebiegów
+            - name: Wyświetlanie dzienników i metryk przebiegów
               displayName: 'troubleshoot, log, files, tracing, metrics'
               href: how-to-monitor-view-training-logs.md
             - name: Wizualizacja przebiegów za pomocą narzędzia TensorBoard
@@ -450,7 +450,7 @@
           displayName: 'automl, feature engineering, feature importance'
           href: how-to-configure-cross-validation-data-splits.md
         - name: Cechowanie w zautomatyzowanym uczeniu maszynowym (Python)
-          displayName: 'automl, feature engineering, feature importance'
+          displayName: 'automl, feature engineering, feature importance, BERT'
           href: how-to-configure-auto-features.md
         - name: Używanie zautomatyzowanego uczenia maszynowego w potokach uczenia maszynowego (Python)
           displayName: machine learning automl
@@ -459,7 +459,7 @@
           href: how-to-understand-automated-ml.md
         - name: Korzystanie z modelu ONNX w aplikacji .NET
           href: how-to-use-automl-onnx-model-dotnet.md
-        - name: Rozwiązywanie problemów dotyczących zautomatyzowanej ML
+        - name: Rozwiązywanie problemów z zautomatyzowanym uczenia maszynowego
           href: how-to-troubleshoot-auto-ml.md
     - name: Wdrażanie i obsługa modeli
       items:
@@ -544,7 +544,7 @@
           href: how-to-move-data-in-out-of-pipelines.md
         - name: Wdrażanie potoków uczenia maszynowego (Python)
           href: how-to-deploy-pipelines.md
-        - name: Używanie pul Azure Synapse Apache Spark w potoku ML (Python)
+        - name: Używanie Azure Synapse platformy Apache Spark w potoku uczenia maszynowego (Python)
           href: how-to-use-synapsesparkstep.md
         - name: Wyzwalanie potoku
           href: how-to-trigger-published-pipeline.md
@@ -556,7 +556,7 @@
             - name: Przekształcanie danych
               displayName: pipeline
               href: how-to-designer-transform-data.md
-            - name: Użyj parametrów potoku
+            - name: Używanie parametrów potoku
               displayName: 'designer, pipeline parameters'
               href: how-to-use-pipeline-parameter.md
             - name: Ponowne trenowanie przy użyciu opublikowanych potoków
