@@ -1,34 +1,34 @@
 ---
-title: Samouczek ładowania danych z Azure Data Lake Storage
+title: Samouczek dotyczący ładowania danych z Azure Data Lake Storage
 description: Użyj instrukcji COPY, aby załadować dane z Azure Data Lake Storage dla dedykowanych pul SQL.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 11/20/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: ca57c6200cf7006a89be4b1fd621974559e5b514
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 16f95a86169be04eba202b311fc4437b204ec8b3
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104606127"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566532"
 ---
-# <a name="load-data-from-azure-data-lake-storage-into-dedicated-sql-pools-in-azure-synapse-analytics"></a>Ładowanie danych z Azure Data Lake Storage do dedykowanych pul SQL w usłudze Azure Synapse Analytics
+# <a name="load-data-from-azure-data-lake-storage-into-dedicated-sql-pools-in-azure-synapse-analytics"></a>Ładowanie danych z usługi Azure Data Lake Storage do dedykowanych pul SQL w programie Azure Synapse Analytics
 
-W tym przewodniku opisano sposób używania [instrukcji Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) do ładowania danych z Azure Data Lake Storage. Aby zapoznać się z szybkimi przykładami dotyczącymi używania instrukcji COPY we wszystkich metodach uwierzytelniania, zapoznaj się z następującą dokumentacją: [bezpiecznie Ładuj dane przy użyciu dedykowanych pul SQL](./quickstart-bulk-load-copy-tsql-examples.md).
+W tym przewodniku opisano sposób używania [instrukcji COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) do ładowania danych z Azure Data Lake Storage. Aby uzyskać krótkie przykłady użycia instrukcji COPY we wszystkich metodach uwierzytelniania, odwiedź następującą dokumentację: Bezpieczne ładowanie danych przy [użyciu dedykowanych pul SQL.](./quickstart-bulk-load-copy-tsql-examples.md)
 
 > [!NOTE]  
-> Aby przekazać opinię lub zgłosić problemy dotyczące instrukcji COPY, Wyślij wiadomość e-mail na następującą listę dystrybucyjną: sqldwcopypreview@service.microsoft.com .
+> Aby przekazać opinię lub zgłosić problemy dotyczące instrukcji COPY, wyślij wiadomość e-mail na następującą listę dystrybucyjną: sqldwcopypreview@service.microsoft.com .
 >
 > [!div class="checklist"]
 >
 > * Utwórz tabelę docelową, aby załadować dane z Azure Data Lake Storage.
-> * Utwórz instrukcję COPY, aby załadować dane do magazynu danych.
+> * Utwórz instrukcje COPY, aby załadować dane do magazynu danych.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
@@ -36,14 +36,14 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpł
 
 Zanim rozpoczniesz ten samouczek, pobierz i zainstaluj najnowszą wersję programu [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS).
 
-Aby uruchomić ten samouczek, potrzebne są:
+Do uruchomienia tego samouczka potrzebne są:
 
-* Dedykowana Pula SQL. Zobacz [Tworzenie dedykowanej puli SQL i danych zapytań](create-data-warehouse-portal.md).
-* Konto Data Lake Storage. Zobacz [wprowadzenie do Azure Data Lake Storage](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). W przypadku tego konta magazynu musisz skonfigurować lub określić jedno z następujących poświadczeń do załadowania: klucz konta magazynu, klucz sygnatury dostępu współdzielonego, użytkownika aplikacji usługi Azure Directory lub użytkownika AAD, który ma odpowiednią rolę platformy Azure dla konta magazynu.
+* Dedykowana pula SQL. Zobacz [Tworzenie dedykowanej puli SQL i wykonywanie zapytań dotyczących danych](create-data-warehouse-portal.md).
+* Konto Data Lake Storage użytkownika. Zobacz [Wprowadzenie do Azure Data Lake Storage](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). W przypadku tego konta magazynu należy skonfigurować lub określić jedno z następujących poświadczeń do załadowania: klucz konta magazynu, klucz sygnatury dostępu współdzielonego (SAS), użytkownik aplikacji usługi Azure Directory lub użytkownik usługi AAD, który ma odpowiednią rolę platformy Azure dla konta magazynu.
 
 ## <a name="create-the-target-table"></a>Tworzenie tabeli docelowej
 
-Połącz się z dedykowaną pulą SQL i Utwórz docelową tabelę, do której chcesz załadować. W tym przykładzie tworzymy tabelę wymiarów produktów.
+Połącz się z dedykowaną pulą SQL i utwórz tabelę docelową do załadowania. W tym przykładzie tworzymy tabelę wymiarów produktu.
 
 ```sql
 -- A: Create the target table
@@ -65,7 +65,7 @@ WITH
 
 ## <a name="create-the-copy-statement"></a>Tworzenie instrukcji COPY
 
-Połącz się z dedykowaną pulą SQL i uruchom instrukcję COPY. Aby zapoznać się z pełną listą przykładów, zapoznaj się z następującą dokumentacją: [bezpiecznie Ładuj dane przy użyciu dedykowanych pul SQL](./quickstart-bulk-load-copy-tsql-examples.md).
+Połącz się z dedykowaną pulą SQL i uruchom instrukcję COPY. Pełną listę przykładów można znaleźć w następującej dokumentacji: [Bezpieczne ładowanie danych przy użyciu dedykowanych pul SQL.](./quickstart-bulk-load-copy-tsql-examples.md)
 
 ```sql
 -- B: Create and execute the COPY statement
@@ -104,9 +104,9 @@ WITH
 
 ## <a name="optimize-columnstore-compression"></a>Optymalizowanie kompresji magazynu kolumn
 
-Domyślnie tabele są zdefiniowane jako klastrowany indeks magazynu kolumn. Po zakończeniu ładowania niektóre wiersze danych mogą nie zostać skompresowane do magazynu kolumn.  Istnieje wiele powodów, dla których może się to zdarzyć. Aby dowiedzieć się więcej, zobacz [Zarządzanie indeksami magazynu kolumn](sql-data-warehouse-tables-index.md).
+Domyślnie tabele są definiowane jako indeks klastrowanego magazynu kolumn. Po zakończeniu ładowania niektóre wiersze danych mogą nie zostać skompresowane do magazynu kolumn.  Może się to zdarzyć z różnych powodów. Aby dowiedzieć się więcej, zobacz [Zarządzanie indeksami magazynu kolumn](sql-data-warehouse-tables-index.md).
 
-Aby zoptymalizować wydajność zapytań i kompresję magazynu kolumn po załadowaniu, należy ponownie skompilować tabelę, aby wymusić, że indeks magazynu kolumn będzie kompresowany ze wszystkimi wierszami.
+Aby zoptymalizować wydajność zapytań i kompresję magazynu kolumn po załadowaniu, ponownie skompiluj tabelę, aby wymusić kompresowanie wszystkich wierszy przez indeks magazynu kolumn.
 
 ```sql
 
@@ -116,23 +116,23 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 
 ## <a name="optimize-statistics"></a>Optymalizowanie statystyk
 
-Najlepiej jest utworzyć statystyki pojedynczej kolumny bezpośrednio po załadowaniu. Istnieją pewne możliwości statystyczne. Na przykład w przypadku tworzenia statystyk z jedną kolumną dla każdej kolumny może upłynąć dużo czasu, aby ponownie skompilować wszystkie statystyki. Jeśli wiesz, że niektóre kolumny nie będą znajdować się w predykatach zapytań, możesz pominąć tworzenie statystyk dla tych kolumn.
+Najlepiej jest utworzyć statystyki z jedną kolumną natychmiast po załadowaniu. Istnieją pewne opcje dotyczące statystyk. Jeśli na przykład utworzysz statystyki z jedną kolumną dla każdej kolumny, ponowne skompilowanie wszystkich statystyk może zająć dużo czasu. Jeśli wiesz, że niektóre kolumny nie będą w predykatach zapytań, możesz pominąć tworzenie statystyk dla tych kolumn.
 
-Jeśli zdecydujesz się utworzyć statystykę jednokolumnową dla każdej kolumny każdej tabeli, możesz użyć przykładowego kodu procedury składowanej `prc_sqldw_create_stats` w artykule [Statystyka](sql-data-warehouse-tables-statistics.md) .
+Jeśli zdecydujesz się utworzyć statystyki z jedną kolumną dla każdej kolumny w każdej tabeli, możesz użyć przykładowego kodu procedury składowanej `prc_sqldw_create_stats` w artykule [statystyk.](sql-data-warehouse-tables-statistics.md)
 
-Poniższy przykład jest dobrym punktem wyjścia do tworzenia statystyk. Tworzy statystykę jednokolumnową dla każdej kolumny w tabeli wymiarów i dla każdej kolumny sprzężenia w tabelach faktów. Można zawsze dodawać pojedyncze lub wielokolumnowe statystyki do innych kolumn tabeli faktów w późniejszym czasie.
+Poniższy przykład jest dobrym punktem wyjścia do tworzenia statystyk. Tworzy statystyki z jedną kolumną dla każdej kolumny w tabeli wymiarów i dla każdej kolumny łączącej w tabelach faktów. Statystyki z jedną lub wieloma kolumnami można zawsze dodawać później do innych kolumn tabeli fakt.
 
-## <a name="achievement-unlocked"></a>Nieodblokowane osiągnięcie!
+## <a name="achievement-unlocked"></a>Odblokowane osiągnięcie!
 
-Dane zostały pomyślnie załadowane do magazynu danych. Dobra robota!
+Pomyślnie załadowano dane do magazynu danych. Dobra robota!
 
 ## <a name="next-steps"></a>Następne kroki
-Ładowanie danych to pierwszy krok tworzenia rozwiązania magazynu danych przy użyciu usługi Azure Synapse Analytics. Zapoznaj się z naszymi zasobami programistycznymi.
+Ładowanie danych to pierwszy krok do opracowania rozwiązania magazynu danych przy użyciu Azure Synapse Analytics. Zapoznaj się z naszymi zasobami programistyki.
 
 > [!div class="nextstepaction"]
-> [Dowiedz się, jak opracowywać tabele na potrzeby magazynowania danych](sql-data-warehouse-tables-overview.md)
+> [Dowiedz się, jak opracowywać tabele do magazynowania danych](sql-data-warehouse-tables-overview.md)
 
-Aby uzyskać więcej przykładów i odwołań, zapoznaj się z następującą dokumentacją:
-- [Kopiuj dokumentację referencyjną instrukcji](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax)
-- [Kopiuj przykłady dla każdej metody uwierzytelniania](./quickstart-bulk-load-copy-tsql-examples.md)
-- [Kopiuj Przewodnik Szybki Start dla pojedynczej tabeli](./quickstart-bulk-load-copy-tsql.md)
+Aby uzyskać więcej przykładów i odwołań do ładowania, zobacz następującą dokumentację:
+- [Dokumentacja referencyjna instrukcji COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax)
+- [Przykłady copy dla każdej metody uwierzytelniania](./quickstart-bulk-load-copy-tsql-examples.md)
+- [PRZEWODNIK Szybki start copy dla pojedynczej tabeli](./quickstart-bulk-load-copy-tsql.md)

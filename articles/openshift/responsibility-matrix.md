@@ -7,16 +7,16 @@ ms.date: 4/12/2021
 author: sakthi-vetrivel
 ms.author: suvetriv
 keywords: aro, openshift, az aro, red hat, cli, RACI, support
-ms.openlocfilehash: 364b0a04e3394efcacba00c538218ecee2355f89
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 4bb00cb533d0065a992831f09ed8280c96efcdee
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107495069"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537014"
 ---
 # <a name="overview-of-responsibilities-for-azure-red-hat-openshift"></a>Omówienie obowiązków Azure Red Hat OpenShift
 
-W tym dokumencie przedstawiono obowiązki firmy Microsoft, firmy Red Hat i klientów w zakresie Azure Red Hat OpenShift klastrach. Aby uzyskać więcej informacji na Azure Red Hat OpenShift i jego składników, zobacz definicję Azure Red Hat OpenShift Service.
+Ten dokument zawiera opis obowiązków firmy Microsoft, firmy Red Hat i klientów w zakresie Azure Red Hat OpenShift klastrach. Aby uzyskać więcej informacji na Azure Red Hat OpenShift i jego składników, zobacz definicję Azure Red Hat OpenShift Service.
 
 Firmy Microsoft i Red Hat zarządzają usługą Azure Red Hat OpenShift, ale klient ponosi odpowiedzialność za funkcjonalność swojego klastra. Klastry Azure Red Hat OpenShift są hostowane w zasobach platformy Azure w subskrypcjach platformy Azure klienta, ale dostęp do nich jest uzyskiwany zdalnie. Podstawową platformą i zabezpieczeniami danych są firmy Microsoft i Red Hat.
 
@@ -161,7 +161,7 @@ Klient oraz firma Microsoft i Red Hat współdzielą odpowiedzialność za monit
    <td>
 <ul>
 
-<li>Monitoruj usługi równoważenia obciążenia w chmurze i natywną usługę routera OpenShift oraz odpowiadaj na alerty.
+<li>Monitorowanie usług równoważenia obciążenia w chmurze i natywnej usługi routera OpenShift oraz reagowanie na alerty.
 </li>
 </ul>
    </td>
@@ -170,9 +170,9 @@ Klient oraz firma Microsoft i Red Hat współdzielą odpowiedzialność za monit
 
 <li>Monitorowanie kondycji punktów końcowych usługi równoważenia obciążenia.
 
-<li>Monitoruj kondycję tras aplikacji i punktów końcowych, za nimi.
+<li>Monitorowanie kondycji tras aplikacji i punktów końcowych, za nimi.
 
-<li>Zgłaszanie outages to Microsoft and Red Hat (Zgłaszanie outages do firmy Microsoft i systemu Red Hat).
+<li>Zgłoś outages to Microsoft and Red Hat.Report outages to Microsoft and Red Hat (Zgłaszaj 300 yjść do firmy Microsoft
 </li>
 </ul>
    </td>
@@ -183,14 +183,14 @@ Klient oraz firma Microsoft i Red Hat współdzielą odpowiedzialność za monit
    <td>
 <ul>
 
-<li>Monitorowanie usług równoważenia obciążenia w chmurze, podsieci i składników chmury platformy Azure niezbędnych do obsługi domyślnej sieci platformy oraz reagowanie na alerty.
+<li>Monitoruj usługi równoważenia obciążenia w chmurze, podsieci i składniki chmury platformy Azure niezbędne do obsługi sieci domyślnej platformy i reagowanie na alerty.
 </li>
 </ul>
    </td>
    <td>
 <ul>
 
-<li>Monitoruj ruch sieciowy, który jest opcjonalnie konfigurowany za pośrednictwem połączenia z sieci wirtualnej do sieci wirtualnej, połączenia sieci VPN lub połączenia sieci Private Link pod uwagę potencjalnych problemów lub zagrożeń bezpieczeństwa.
+<li>Monitoruj ruch sieciowy, który jest opcjonalnie konfigurowany za pośrednictwem połączenia między sieciami wirtualnymi, połączenia sieci VPN lub połączenia sieci Private Link pod uwagę potencjalnych problemów lub zagrożeń bezpieczeństwa.
 </li>
 </ul>
    </td>
@@ -203,7 +203,7 @@ Tabela 2. Wspólna odpowiedzialność za zarządzanie zdarzeniami i operacjami
 
 ### <a name="change-management"></a>Zarządzanie zmianami
 
-Firmy Microsoft i Red Hat są odpowiedzialne za włączanie zmian w infrastrukturze klastra i usługach, które klient będzie kontrolować, a także obsługę wersji dostępnych dla węzłów głównych, usług infrastruktury i węzłów procesu roboczego. Klient jest odpowiedzialny za inicjowanie zmian w infrastrukturze oraz instalowanie i konserwowanie opcjonalnych usług i konfiguracji sieciowych w klastrze, a także za wszystkie zmiany danych klientów i aplikacji klientów.
+Firmy Microsoft i Red Hat są odpowiedzialne za włączanie zmian w infrastrukturze klastra i usługach, które klient będzie kontrolować, a także obsługę wersji dostępnych dla węzłów głównych, usług infrastruktury i węzłów procesu roboczego. Klient jest odpowiedzialny za inicjowanie zmian w infrastrukturze oraz instalowanie i utrzymywanie opcjonalnych usług i konfiguracji sieciowych w klastrze, a także za wszystkie zmiany w danych klienta i aplikacjach klientów.
 
 
 <table>
@@ -220,7 +220,7 @@ Firmy Microsoft i Red Hat są odpowiedzialne za włączanie zmian w infrastruktu
    <td>
 <ul>
 
-<li>Centralnie agreguj i monitoruj dzienniki inspekcji platformy.
+<li>Centralne agregowanie i monitorowanie dzienników inspekcji platformy.
 
 <li>Udostępnij dokumentację dla klienta, aby umożliwić rejestrowanie aplikacji przy użyciu usługi Log Analytics za pośrednictwem Azure Monitor dla kontenerów.
 
@@ -233,7 +233,7 @@ Firmy Microsoft i Red Hat są odpowiedzialne za włączanie zmian w infrastruktu
 
 <li>Zainstaluj opcjonalny domyślny operator rejestrowania aplikacji w klastrze.
 
-<li>Instaluj, konfiguruj i konserwuj wszelkie opcjonalne rozwiązania do rejestrowania aplikacji, takie jak rejestrowanie kontenerów sidecar lub aplikacje rejestrowania innych firm.
+<li>Zainstaluj, skonfiguruj i utrzymuj wszelkie opcjonalne rozwiązania do rejestrowania aplikacji, takie jak kontenery rejestrowania sidecar lub aplikacje rejestrowania innych firm.
 
 <li>Dostosuj rozmiar i częstotliwość tworzenia dzienników aplikacji przez aplikacje klienta, jeśli wpływają one na stabilność klastra.
 
@@ -281,7 +281,7 @@ Firmy Microsoft i Red Hat są odpowiedzialne za włączanie zmian w infrastruktu
    <td>
 <ul>
 
-<li>Podaj opcjonalne, inne niż domyślne zakresy adresów IP dla maszyny CIDR, CIDR usługi i zasobnika CIDR, jeśli są potrzebne za pośrednictwem menedżera klastra OpenShift, gdy klaster jest aprowizowany.
+<li>Podaj opcjonalne, inne niż domyślne zakresy adresów IP dla maszyny CIDR, CIDR usługi i zasobnika CIDR, jeśli są potrzebne, za pośrednictwem menedżera klastra OpenShift podczas aprowizowania klastra.
 
 <li>Zażądaj, aby punkt końcowy usługi interfejsu API był publiczny lub prywatny podczas tworzenia klastra lub po utworzeniu klastra za pomocą interfejsu wiersza polecenia platformy Azure.
 </li>
@@ -320,7 +320,7 @@ Firmy Microsoft i Red Hat są odpowiedzialne za włączanie zmian w infrastruktu
 
 <li>Przekaż harmonogram i stan uaktualnień dla wersji pomocniczej i wersji konserwacji
 
-<li>Publikowanie dzienników zmian i informacji o wersji w przypadku drobnych uaktualnień i uaktualnień konserwacji
+<li>Publikowanie dzienników zmian i informacji o wersji w przypadku drobnych uaktualnień i konserwacji
 </li>
 </ul>
    </td>
@@ -351,7 +351,7 @@ Firmy Microsoft i Red Hat są odpowiedzialne za włączanie zmian w infrastruktu
    <td>
 <ul>
 
-<li>Użyj dostarczonych kontrolek OpenShift Cluster Manager, aby dodać lub usunąć dodatkowe węzły procesu roboczego zgodnie z potrzebami.
+<li>Użyj podanych kontrolek OpenShift Cluster Manager, aby dodać lub usunąć dodatkowe węzły procesu roboczego zgodnie z potrzebami.
 
 <li>Odpowiadanie na powiadomienia firmy Microsoft i systemu Red Hat dotyczące wymagań dotyczących zasobów klastra.
 </li>
@@ -405,14 +405,14 @@ Zarządzanie tożsamościami i dostępem obejmuje wszystkie obowiązki w zakresi
    <td>
 <ul>
 
-<li>Zapewnianie natywnych funkcji RBAC usługi OpenShift i dedykowanych administratorów.
+<li>Zapewnianie natywnych możliwości kontroli RBAC natywnej usługi OpenShift.
 </li>
 </ul>
    </td>
    <td>
 <ul>
 
-<li>Skonfiguruj usługę OpenShift dedicated-admins i kontrolę dostępu na potrzeby kontroli dostępu do konfiguracji trasy zgodnie z potrzebami.
+<li>Skonfiguruj kontrolę dostępu RBAC na potrzeby usługi OpenShift, aby kontrolować dostęp do konfiguracji trasy zgodnie z potrzebami.
 </li>
 </ul>
    </td>
@@ -423,7 +423,7 @@ Zarządzanie tożsamościami i dostępem obejmuje wszystkie obowiązki w zakresi
    <td>
 <ul>
 
-<li>Zapewnianie natywnych funkcji RBAC usługi OpenShift i dedykowanych administratorów.
+<li>Zapewnianie natywnych możliwości kontroli RBAC natywnej usługi OpenShift.
 </li>
 </ul>
    </td>
@@ -432,9 +432,9 @@ Zarządzanie tożsamościami i dostępem obejmuje wszystkie obowiązki w zakresi
 
 <li>Zarządzanie członkostwem w organizacji Red Hat kont Red Hat.
 
-<li>Zarządzanie administratorami organizacji w organizacji Red Hat w celu udzielenia dostępu do usługi OpenShift Cluster Manager.
+<li>Manage Org Admins for Red Hat organization to grant access to OpenShift Cluster Manager.
 
-<li>Skonfiguruj usługę OpenShift dedicated-admins i kontrolę dostępu na potrzeby kontroli dostępu do konfiguracji trasy zgodnie z potrzebami.
+<li>Skonfiguruj kontrolę dostępu RBAC na potrzeby usługi OpenShift, aby kontrolować dostęp do konfiguracji trasy zgodnie z potrzebami.
 </li>
 </ul>
    </td>
@@ -482,14 +482,14 @@ Zabezpieczenia i zgodność obejmują wszelkie obowiązki i mechanizmy kontroli,
    <td>
 <ul>
 
-<li>Wysyłanie dzienników inspekcji klastra do rozwiązania Microsoft i Red Hat SIEM w celu analizowania zdarzeń zabezpieczeń. Zachowaj dzienniki inspekcji przez określony czas, aby obsługiwać analizę śledczych.
+<li>Wysyłanie dzienników inspekcji klastra do rozwiązania Microsoft i Red Hat SIEM w celu analizowania zdarzeń zabezpieczeń. Zachowaj dzienniki inspekcji przez zdefiniowany okres, aby obsługiwać analizę śledczych.
 </li>
 </ul>
    </td>
    <td>
 <ul>
 
-<li>Analizowanie dzienników aplikacji pod celu analizy zdarzeń zabezpieczeń. Wysyłaj dzienniki aplikacji do zewnętrznego punktu końcowego za pośrednictwem kontenerów rejestrowania kontenerów bocznej lub aplikacji rejestrowania innych firm, jeśli wymagany jest dłuższy czas przechowywania niż jest oferowany przez domyślny stos rejestrowania.
+<li>Analizowanie dzienników aplikacji pod celu analizy zdarzeń zabezpieczeń. Wysyłanie dzienników aplikacji do zewnętrznego punktu końcowego za pośrednictwem kontenerów sidecar rejestrowania lub aplikacji rejestrowania innych firm, jeśli jest wymagane dłuższe przechowywanie niż jest oferowane przez domyślny stos rejestrowania.
 </li>
 </ul>
    </td>
@@ -500,7 +500,7 @@ Zabezpieczenia i zgodność obejmują wszelkie obowiązki i mechanizmy kontroli,
    <td>
 <ul>
 
-<li>Monitoruj składniki sieci wirtualnej pod celu rozwiązania potencjalnych problemów i zagrożeń bezpieczeństwa.
+<li>Monitoruj składniki sieci wirtualnej pod adresem potencjalnych problemów i zagrożeń bezpieczeństwa.
 
 <li>Użyj dodatkowych publicznych narzędzi microsoft i red hat platformy Azure w celu dodatkowego monitorowania i ochrony.
 </li>
@@ -527,14 +527,14 @@ Tabela 5. Wspólna odpowiedzialność za bezpieczeństwo i zgodność z przepisa
 
 ### <a name="customer-data-and-applications"></a>Dane i aplikacje klienta
 
-Klient jest odpowiedzialny za aplikacje, obciążenia i dane, które wdraża w Azure Red Hat OpenShift. Jednak firmy Microsoft i Red Hat oferują różne narzędzia, które ułatwiają klientom zarządzanie danymi i aplikacjami na platformie.
+Klient jest odpowiedzialny za aplikacje, obciążenia i dane, które wdraża w Azure Red Hat OpenShift. Firmy Microsoft i Red Hat oferują jednak różne narzędzia, które ułatwiają klientom zarządzanie danymi i aplikacjami na platformie.
 
 
 <table>
   <tr>
    <td><strong>Zasobów</strong>
    </td>
-   <td><strong>Jak firmy Microsoft i Red Hat pomagają</strong>
+   <td><strong>Jak pomagają firmy Microsoft i Red Hat</strong>
    </td>
    <td><strong>Obowiązki klienta</strong>
    </td>
@@ -544,7 +544,7 @@ Klient jest odpowiedzialny za aplikacje, obciążenia i dane, które wdraża w A
    <td>
 <ul>
 
-<li>Zachowanie standardów szyfrowania danych na poziomie platformy zgodnie z definicją w branżowych standardach zabezpieczeń i zgodności. 
+<li>Utrzymuj standardy na poziomie platformy dotyczące szyfrowania danych zdefiniowane przez branżowe standardy zabezpieczeń i zgodności. 
 
 <li>Udostępnij składniki openshift, które ułatwiają zarządzanie danymi aplikacji, takimi jak wpisy tajne.
 
@@ -568,7 +568,7 @@ Klient jest odpowiedzialny za aplikacje, obciążenia i dane, które wdraża w A
    <td>
 <ul>
 
-<li>Aprowizowanie klastrów z zainstalowanymi składnikami OpenShift, aby klienci mogą uzyskać dostęp do interfejsów API OpenShift i Kubernetes w celu wdrażania aplikacji konteneryzowanych i zarządzania nimi.
+<li>Aprowizowanie klastrów z zainstalowanymi składnikami OpenShift, dzięki czemu klienci mogą uzyskać dostęp do interfejsów API OpenShift i Kubernetes w celu wdrażania aplikacji konteneryzowanych i zarządzania nimi.
 
 <li>Zapewnianie dostępu do interfejsów API OpenShift, których klient może użyć do skonfigurowania operatorów w celu dodania usług społeczności, innych firm, Microsoft i Red Hat oraz Red Hat do klastra. 
 
@@ -583,7 +583,7 @@ Klient jest odpowiedzialny za aplikacje, obciążenia i dane, które wdraża w A
 
 <li>Jeśli klient dodaje do klastra usług Red Hat, Community, Third Party, własne lub inne usługi za pomocą operatorów lub obrazów zewnętrznych, odpowiada za te usługi i współpracę z odpowiednim dostawcą (w tym Red Hat) w celu rozwiązania wszelkich problemów.
 
-<li>Użyj dostarczonych narzędzi i funkcji do <a href="https://docs.openshift.com/dedicated/4/architecture/understanding-development.html#application-types">konfigurowania i wdrażania programu</a>; <a href="https://docs.openshift.com/dedicated/4/applications/deployments/deployment-strategies.html">bądź na bieżąco;</a> <a href="https://docs.openshift.com/dedicated/4/applications/working-with-quotas.html">skonfiguruj żądania zasobów i limity;</a> <a href="https://docs.openshift.com/dedicated/4/getting_started/scaling-your-cluster.html">rozmiar klastra, aby mieć wystarczającą ilość zasobów do uruchamiania aplikacji;</a> <a href="https://docs.openshift.com/dedicated/4/administering_a_cluster/dedicated-admin-role.html#dedicated-admin-granting-permissions_dedicated-administrator">konfigurowanie uprawnień;</a> integracja z innymi usługami; <a href="https://docs.openshift.com/dedicated/4/openshift_images/images-understand.html">zarządzać strumieniami obrazów lub szablonami wdrażanych przez klienta;</a> <a href="https://docs.openshift.com/dedicated/4/cloud_infrastructure_access/dedicated-aws-private-cluster.html">zewnętrznie obsługiwać ;</a> zapisywanie, kopii zapasowej i przywracanie danych; i w inny sposób zarządzać obciążeniami o wysokiej dostępnej i odpornej na błędy.
+<li>Użyj dostarczonych narzędzi i funkcji do <a href="https://docs.openshift.com/aro/4/architecture/understanding-development.html#application-types">konfigurowania i wdrażania programu</a>; <a href="https://docs.openshift.com/aro/4/applications/deployments/deployment-strategies.html">bądź na bieżąco;</a> <a href="https://docs.openshift.com/aro/4/applications/working-with-quotas.html">skonfiguruj żądania zasobów i limity;</a> <a href="https://docs.openshift.com/aro/4/getting_started/scaling-your-cluster.html">rozmiar klastra, aby mieć wystarczającą ilość zasobów do uruchamiania aplikacji;</a> <a href="https://docs.openshift.com/aro/4/administering_a_cluster/">konfigurowanie uprawnień;</a> integracja z innymi usługami; <a href="https://docs.openshift.com/aro/4/openshift_images/images-understand.html">zarządzać strumieniami obrazów lub szablonami wdrażanych przez klienta;</a> <a href="https://docs.openshift.com/aro/4/cloud_infrastructure_access">zewnętrznie obsługiwać ;</a> zapisywanie, kopii zapasowej i przywracanie danych; i w inny sposób zarządzać obciążeniami o wysokiej dostępnej i odpornej na błędy.
 
 <li>Zachowanie odpowiedzialności za monitorowanie aplikacji uruchamianych na Azure Red Hat OpenShift; w tym instalowania i obsługi oprogramowania w celu zbierania metryk i tworzenia alertów.
 </li>

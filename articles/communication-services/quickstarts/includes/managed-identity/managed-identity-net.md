@@ -1,16 +1,16 @@
 ---
-ms.openlocfilehash: a055cc1b715f93830647c9b13793a59d09db605c
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
-ms.translationtype: HT
+ms.openlocfilehash: fe487aa684e0ec4c68adb9f5224066ac742676be
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107511289"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107564580"
 ---
 ## <a name="setting-up"></a>Konfigurowanie
 
 ### <a name="create-a-new-c-application"></a>Tworzenie nowej aplikacji w języku C#
 
-W oknie konsoli (takim jak cmd, PowerShell lub Bash) użyj polecenia , aby utworzyć nową aplikację `dotnet new` konsolową o nazwie `ManagedIdentitiesQuickstart` . To polecenie tworzy prosty projekt języka C# "Hello world" z pojedynczym plikiem źródłowym: `Program.cs` .
+W oknie konsoli (takim jak cmd, PowerShell lub Bash) użyj polecenia , aby utworzyć nową aplikację `dotnet new` konsolową o nazwie `ManagedIdentitiesQuickstart` . To polecenie tworzy prosty projekt języka C# "Hello world" z jednym plikiem źródłowym: `Program.cs` .
 
 ```console
 dotnet new console -o ManagedIdentitiesQuickstartQuickstart
@@ -33,7 +33,7 @@ dotnet add package Azure.Identity
 
 ### <a name="use-the-sdk-packages"></a>Korzystanie z pakietów zestawu SDK
 
-Dodaj następujące dyrektywy `using` do funkcji , aby używać tożsamości platformy Azure i zestawów SDK usługi Azure `Program.cs` Storage.
+Dodaj następujące dyrektywy `using` do funkcji , aby użyć tożsamości platformy Azure i zestawów SDK usługi Azure `Program.cs` Storage.
 
 ```csharp
 using Azure.Identity;
@@ -45,15 +45,15 @@ using Azure;
 
 ## <a name="create-a-defaultazurecredential"></a>Tworzenie wartości domyślnejAzureCredential
 
-W tym przewodniku Szybki start będziemy używać wartości [DefaultAzureCredential.](/dotnet/api/azure.identity.defaultazurecredential) To poświadczenie jest odpowiednie dla środowisk produkcyjnych i deweloperskich. Ponieważ jest to potrzebne dla każdej operacji, utwórzmy ją w klasie `Program.cs` . Dodaj następujący kod na początku pliku.
+W tym przewodniku Szybki start będziemy używać wartości [DefaultAzureCredential.](/dotnet/api/azure.identity.defaultazurecredential) To poświadczenie jest odpowiednie dla środowisk produkcyjnych i programistycznych. Ponieważ jest to potrzebne dla każdej operacji, utwórzmy ją w `Program.cs` klasie . Dodaj następujący kod na początku pliku.
 
 ```csharp
      private DefaultAzureCredential credential = new DefaultAzureCredential();
 ```
 
-## <a name="issue-a-token-with-managed-identities"></a>Wydawanie tokenu przy użyciu tożsamości zarządzanych
+## <a name="issue-a-token-with-managed-identities"></a>Wydawanie tokenu z tożsamościami zarządzanymi
 
-Teraz dodamy kod, który używa utworzonego poświadczenia, aby wydać token dostępu VoIP. Ten kod wywołamy później.
+Teraz dodamy kod, który używa utworzonego poświadczenia, aby wytworzyć token dostępu VoIP. Ten kod wywołamy później.
 
 ```csharp
      public Response<AccessToken> CreateIdentityAndGetTokenAsync(Uri resourceEndpoint)
@@ -136,7 +136,7 @@ class Program
                Console.WriteLine("Sending SMS using Managed Identities");
 
                // You will need a phone number from your resource to send an SMS.
-               SmsSendResult result = instance.SendSms(endpoint, "+18445504651", "+14256253982", "Hello from Managed Identities");
+               SmsSendResult result = instance.SendSms(endpoint, "<Your ACS Phone Number>", "<The Phone Number you'd like to send the SMS to.>", "Hello from Managed Identities");
                Console.WriteLine($"Sms id: {result.MessageId}");
                Console.WriteLine($"Send Result Successful: {result.Successful}");
           }

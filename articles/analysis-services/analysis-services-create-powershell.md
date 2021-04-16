@@ -1,19 +1,22 @@
 ---
-title: Szybki Start — tworzenie Azure Analysis Services przy użyciu Azure Analysis Services programu PowerShell | Microsoft Docs
-description: W tym przewodniku szybki start opisano sposób tworzenia serwera Azure Analysis Services przy użyciu programu PowerShell
+title: Szybki start — tworzenie aplikacji Azure Analysis Services użyciu programu PowerShell Azure Analysis Services | Microsoft Docs
+description: W tym przewodniku Szybki start opisano sposób tworzenia serwera Azure Analysis Services przy użyciu programu PowerShell
 author: minewiskan
-ms.service: azure-analysis-services
-ms.topic: quickstart
-ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.custom: references_regions , devx-track-azurepowershell
-ms.openlocfilehash: 737649538aaf82352e27aec6220b13ba355a7a82
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/31/2020
+ms.topic: quickstart
+ms.service: azure-analysis-services
+ms.custom:
+- references_regions
+- devx-track-azurepowershell
+- mode-api
+ms.openlocfilehash: eb76925e695f92da973fef9cb86d4e936a766587
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89229348"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531484"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>Szybki start: tworzenie serwera — PowerShell
 
@@ -23,7 +26,7 @@ W tym przewodniku Szybki start opisano, jak utworzyć serwer usługi Azure Analy
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- **Subskrypcja platformy Azure**: Przejdź do [bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) , aby utworzyć konto.
+- **Subskrypcja platformy Azure:** odwiedź stronę [Bezpłatna wersja próbna platformy Azure,](https://azure.microsoft.com/offers/ms-azr-0044p/) aby utworzyć konto.
 - **Azure Active Directory**: subskrypcja musi być skojarzona z dzierżawą usługi Azure Active Directory i musisz mieć konto w tym katalogu. Aby dowiedzieć się więcej, zobacz [Authentication and user permissions (Uwierzytelnianie i uprawnienia użytkownika)](analysis-services-manage-users.md).
 - Zainstalowanie programu **Azure PowerShell**. Aby dowiedzieć się, jaka wersja została zainstalowana, uruchom polecenie `Get-Module -ListAvailable Az`. Aby przeprowadzić instalację lub uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-Az-ps).
 

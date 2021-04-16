@@ -1,29 +1,29 @@
 ---
-title: Szybki Start — Dołącz do spotkania zespołów z poziomu aplikacji systemu Android
-description: W tym samouczku dowiesz się, jak przyłączyć się do spotkania zespołów przy użyciu zestawu SDK wywołań usługi Azure Communications Services dla systemu Android
+title: Szybki start — dołączanie do spotkania usługi Teams z aplikacji dla systemu Android
+description: Z tego samouczka dowiesz się, jak dołączyć do spotkania usługi Teams przy użyciu zestawu SDK Azure Communication Services Calling SDK dla systemu Android
 author: chpalm
 ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: e5361b92c2080c724b872be2ad27bc5bd4554e8d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: af1794a2f9eeaa1b1de2c62d5131c722dfd152a5
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105108201"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107564534"
 ---
-W tym przewodniku szybki start dowiesz się, jak dołączać do spotkania zespołów przy użyciu zestawu SDK wywołania usługi Azure Communication Services dla systemu Android.
+W tym przewodniku Szybki start dowiesz się, jak dołączyć do spotkania usługi Teams przy użyciu zestawu SDK wywoływania Azure Communication Services dla systemu Android.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Działająca [usługa komunikacyjna wywołująca aplikację dla systemu Android](../getting-started-with-calling.md).
-- [Wdrożenie zespołów](/deployoffice/teams-install).
+- Działa aplikacja [wywołująca Communication Services systemu Android.](../getting-started-with-calling.md)
+- Wdrożenie [usługi Teams.](/deployoffice/teams-install)
 
 
-## <a name="add-the-teams-ui-controls"></a>Dodawanie formantów interfejsu użytkownika zespołów
+## <a name="add-the-teams-ui-controls"></a>Dodawanie kontrolek interfejsu użytkownika aplikacji Teams
 
-Zastąp kod w activity_main.xml następującym fragmentem kodu. Pole tekstowe zostanie użyte do wprowadzenia kontekstu spotkania zespołów, a przycisk zostanie użyty w celu dołączenia do określonego spotkania:
+Zastąp kod w activity_main.xml poniższym fragmentem kodu. Pole tekstowe zostanie użyte do wprowadzenia kontekstu spotkania w u użytkownika Teams, a przycisk zostanie użyty do dołączenia do określonego spotkania:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -91,9 +91,9 @@ Zastąp kod w activity_main.xml następującym fragmentem kodu. Pole tekstowe zo
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-## <a name="enable-the-teams-ui-controls"></a>Włączanie formantów interfejsu użytkownika zespołów
+## <a name="enable-the-teams-ui-controls"></a>Włączanie kontrolek interfejsu użytkownika aplikacji Teams
 
-Zastąp zawartość `MainActivity.java` następującym fragmentem kodu:
+Zastąp zawartość fragmentu `MainActivity.java` następującym fragmentem kodu:
 
 ```java
 
@@ -251,15 +251,15 @@ public class MainActivity extends AppCompatActivity {
 
 ```
 
-## <a name="get-the-teams-meeting-link"></a>Pobierz link do spotkania dla zespołów
+## <a name="get-the-teams-meeting-link"></a>Uzyskiwanie linku do spotkania z zespołem
 
-Link do spotkania zespołów można pobrać przy użyciu interfejsów API programu Graph. Jest to szczegółowo opisany w [dokumentacji programu Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta).
-Zestaw SDK wywoływania usług komunikacyjnych akceptuje łącze do spotkania z pełnymi zespołami. Ten link jest zwracany jako część `onlineMeeting` zasobu, który jest dostępny w ramach [ `joinWebUrl` Właściwości](/graph/api/resources/onlinemeeting?view=graph-rest-beta). Wymagane informacje o spotkaniu można również uzyskać od adresu URL **spotkania przyłączenia** do zespołu, który zaprosił się w sobie.
+Link do spotkania usługi Teams można pobrać przy użyciu interfejsów API programu Graph. Jest to szczegółowo opisane w [dokumentacji programu Graph.](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true)
+Wywołanie Communication Services SDK akceptuje pełny link spotkania usługi Teams. Ten link jest zwracany jako część `onlineMeeting` zasobu, dostępny w ramach [ `joinWebUrl` właściwości](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true). Wymagane informacje o spotkaniu można również uzyskać z adresu **URL** dołączenia do spotkania w samym zaproszeniu do spotkania w aplikacji Teams.
 
-## <a name="launch-the-app-and-join-teams-meeting"></a>Uruchom aplikację i Dołącz do spotkania zespołów
+## <a name="launch-the-app-and-join-teams-meeting"></a>Uruchamianie aplikacji i dołączanie do spotkania w aplikacji Teams
 
-Aplikację można teraz uruchomić przy użyciu przycisku "Uruchom aplikację" na pasku narzędzi (Shift + F10). Powinien zostać wyświetlony następujący ekran:
+Aplikację można teraz uruchomić przy użyciu przycisku "Uruchom aplikację" na pasku narzędzi (Shift+F10). Powinien zostać wyświetlony następujący ekran:
 
 :::image type="content" source="../media/android/acs-join-teams-meeting-quickstart.png" alt-text="Zrzut ekranu przedstawiający ukończoną aplikację.":::
 
-Wstaw kontekst zespołów do pola tekstowego i naciśnij pozycję *Dołącz do spotkania* , aby dołączyć do zespołu spotkania z poziomu aplikacji usług komunikacyjnych.
+Wstaw kontekst aplikacji Teams do pola tekstowego i naciśnij pozycję *Dołącz* do spotkania, aby dołączyć do spotkania aplikacji Teams z poziomu Communication Services aplikacji.

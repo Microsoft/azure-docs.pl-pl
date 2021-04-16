@@ -1,306 +1,300 @@
 ### YamlMime:Hub
 title: Dokumentacja usługi Azure Active Directory
-summary: Azure Active Directory (Azure AD) to wielodostępna, oparta na chmurze usługa do zarządzania tożsamościami i dostępem.
+summary: 'Azure Active Directory (Azure AD) to wielodostępna, oparta na chmurze usługa do zarządzania tożsamościami i dostępem.'
 brand: azure
 metadata:
   title: Dokumentacja usługi Azure Active Directory
-  description: Azure Active Directory (Azure AD) to wielodostępna, oparta na chmurze usługa firmy Microsoft do katalogowania tożsamości i zarządzaniami nimi, która w obrębie jednego rozwiązania łączy podstawowe usługi katalogowe, zarządzanie dostępem do aplikacji oraz ochronę tożsamości.
+  description: 'Azure Active Directory (Azure AD) to wielodostępna, oparta na chmurze usługa firmy Microsoft do katalogowania tożsamości i zarządzaniami nimi, która w obrębie jednego rozwiązania łączy podstawowe usługi katalogowe, zarządzanie dostępem do aplikacji oraz ochronę tożsamości.'
   ms.service: active-directory
   ms.topic: hub-page
   ms.collection: M365-identity-device-management
   author: mtillman
   ms.author: mtillman
   manager: daveba
-  ms.date: 12/01/2020
-  ms.openlocfilehash: de96c1ed6828a6933102755d6c020cf01c4c9c7b
-  ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
-  ms.translationtype: MT
-  ms.contentlocale: pl-PL
-  ms.lasthandoff: 01/20/2021
-  ms.locfileid: "98611155"
+  ms.date: 04/14/2021
 highlightedContent:
   items:
-  - title: Co to jest Azure AD?
-    itemType: overview
-    url: ./fundamentals/active-directory-whatis.md
-  - title: Co nowego w usłudze Azure AD?
-    itemType: whats-new
-    url: ./fundamentals/whats-new.md
-  - title: Zabezpieczanie pracowników zdalnych
-    itemType: get-started
-    url: /enterprise-mobility-security/remote-work/
-  - title: Przypisywanie ról do użytkowników
-    itemType: how-to-guide
-    url: ./fundamentals/active-directory-users-assign-role-azure-portal.md
-  - title: Lista kontrolna dotycząca wdrażania usługi Azure AD
-    itemType: concept
-    url: ./fundamentals/active-directory-deployment-checklist-p2.md
-  - title: Tworzenie odporności na zarządzanie tożsamościami i dostępem za pomocą usługi Azure AD
-    itemType: overview
-    url: ./fundamentals/resilience-overview.md
+    - title: Co to jest Azure AD?
+      itemType: overview
+      url: ./fundamentals/active-directory-whatis.md
+    - title: Co nowego w usłudze Azure AD?
+      itemType: whats-new
+      url: ./fundamentals/whats-new.md
+    - title: Zabezpieczanie pracowników zdalnych
+      itemType: get-started
+      url: /enterprise-mobility-security/remote-work/
+    - title: Co to są poświadczenia weryfikowalne (wersja zapoznawcza)?
+      itemType: overview
+      url: ./verifiable-credentials/decentralized-identifier-overview.md
+    - title: Lista kontrolna dotycząca wdrażania usługi Azure AD
+      itemType: concept
+      url: ./fundamentals/active-directory-deployment-checklist-p2.md
+    - title: Tworzenie odporności na zarządzanie tożsamościami i dostępem za pomocą usługi Azure AD
+      itemType: overview
+      url: ./fundamentals/resilience-overview.md
 conceptualContent:
   items:
-  - title: Zarządzanie aplikacjami
-    links:
-    - url: ./manage-apps/what-is-application-management.md
-      itemType: overview
-      text: Co to jest zarządzanie aplikacjami?
-    - url: ./manage-apps/view-applications-portal.md
-      itemType: quickstart
-      text: Wyświetlanie aplikacji korzystających z dzierżawy do zarządzania tożsamościami
-    - url: ./manage-apps/add-application-portal-setup-sso.md
-      itemType: quickstart
-      text: Konfigurowanie logowania jednokrotnego opartego na protokole SAML
-    footerLink:
-      url: ./manage-apps/index.yml
-      text: Zobacz więcej
-  - title: Aprowizowanie aplikacji i usługi HR
-    links:
-    - url: ./app-provisioning/user-provisioning.md
-      itemType: overview
-      text: Co to jest aprowizowanie aplikacji?
-    - url: ./app-provisioning/how-provisioning-works.md
-      itemType: concept
-      text: Jak działa aprowizacja aplikacji
-    - url: ./app-provisioning/plan-cloud-hr-provision.md
-      itemType: how-to-guide
-      text: Planowanie wdrożenia aprowizacji w usłudze Cloud HR
-    footerLink:
-      url: ./app-provisioning/index.yml
-      text: Zobacz więcej
-  - title: Authentication
-    links:
-    - url: ./authentication/overview-authentication.md
-      itemType: concept
-      text: Co to jest uwierzytelnianie usługi Azure AD?
-    - url: ./authentication/tutorial-enable-sspr.md
-      itemType: tutorial
-      text: Włączanie samoobsługowego resetowania hasła
-    - url: ./authentication/tutorial-enable-azure-mfa.md
-      itemType: tutorial
-      text: Włączanie uwierzytelniania wieloskładnikowego w usłudze Azure AD
-    footerLink:
-      url: ./authentication/index.yml
-      text: Zobacz więcej
-  - title: Synchronizacja z chmurą
-    links:
-    - url: ./cloud-sync/what-is-cloud-sync.md
-      itemType: overview
-      text: Co to jest usługa Cloud Sync?
-    - url: ./cloud-sync/tutorial-single-forest.md
-      itemType: tutorial
-      text: Integrowanie pojedynczego lasu z jedną dzierżawą usługi Azure AD
-    - url: ./cloud-sync/how-to-install.md
-      itemType: how-to-guide
-      text: Zainstaluj Azure AD Connect agenta aprowizacji
-    footerLink:
-      url: ./cloud-sync/index.yml
-      text: Zobacz więcej
-  - title: Dostęp warunkowy
-    links:
-    - url: ./conditional-access/overview.md
-      itemType: overview
-      text: Co to jest dostęp warunkowy?
-    - url: ./authentication/tutorial-enable-azure-mfa.md
-      itemType: quickstart
-      text: Wymaganie uwierzytelniania MFA dla określonych aplikacji
-    - url: ./conditional-access/location-condition.md
-      itemType: concept
-      text: Warunki bazujące na lokalizacji
-    footerLink:
-      url: ./conditional-access/index.yml
-      text: Zobacz więcej
-  - title: Zarządzanie urządzeniami
-    links:
-    - url: ./devices/overview.md
-      itemType: overview
-      text: Co to jest zarządzanie urządzeniami?
-    - url: ./devices/hybrid-azuread-join-plan.md
-      itemType: how-to-guide
-      text: Planowanie dołączenia hybrydowego do usługi Azure AD
-    - url: ./devices/azureadjoin-plan.md
-      itemType: how-to-guide
-      text: Planowanie dołączenia do usługi Azure AD
-    footerLink:
-      url: ./devices/index.yml
-      text: Zobacz więcej
-  - title: Usługi domenowe
-    links:
-    - url: ../active-directory-domain-services/overview.md
-      itemType: overview
-      text: Co to są Usługi domenowe Azure AD?
-    - url: ../active-directory-domain-services/tutorial-create-instance.md
-      itemType: quickstart
-      text: Włączanie Usług domenowych Azure AD
-    - url: ../active-directory-domain-services/manage-group-policy.md
-      itemType: how-to-guide
-      text: Administrowanie zasadami grupy
-    footerLink:
-      url: ../active-directory-domain-services/index.yml
-      text: Zobacz więcej
-  - title: Użytkownicy korporacyjni
-    links:
-    - url: ./enterprise-users/groups-create-rule.md
-      itemType: how-to-guide
-      text: Tworzenie grupy dynamicznej
-    - url: ./enterprise-users/groups-settings-v2-cmdlets.md
-      itemType: how-to-guide
-      text: Program PowerShell dla grup usługi Azure AD
-    - url: ./enterprise-users/directory-service-limits-restrictions.md
-      itemType: reference
-      text: Ograniczenia i limity usługi Azure AD
-    footerLink:
-      url: ./enterprise-users/index.yml
-      text: Zobacz więcej
-  - title: Tożsamości zewnętrzne
-    links:
-    - url: ./external-identities/compare-with-b2c.md
-      itemType: overview
-      text: Porównanie rozwiązań dla użytkowników zewnętrznych
-    - url: ../active-directory-b2c/overview.md
-      itemType: overview
-      text: Skalowanie aplikacji dla klientów (B2C)
-    - url: ./external-identities/what-is-b2b.md
-      itemType: overview
-      text: Współpraca z użytkownikami spoza organizacji (B2B)
-    footerLink:
-      url: ./external-identities/index.yml
-      text: Zobacz więcej
-  - title: Tożsamość hybrydowa
-    links:
-    - url: ./hybrid/whatis-hybrid-identity.md
-      itemType: overview
-      text: Co to jest tożsamość hybrydowa?
-    - url: ./hybrid/how-to-connect-sso.md
-      itemType: how-to-guide
-      text: Logowanie jednokrotne za pomocą programu Azure AD Connect
-    - url: ./hybrid/how-to-connect-install-custom.md
-      itemType: how-to-guide
-      text: Niestandardowa instalacja programu Azure AD Connect
-    footerLink:
-      url: ./hybrid/index.yml
-      text: Zobacz więcej
-  - title: Nadzór nad tożsamościami
-    links:
-    - url: ./governance/entitlement-management-access-package-first.md
-      itemType: how-to-guide
-      text: Tworzenie pakietu dostępu
-    - url: ./governance/create-access-review.md
-      itemType: how-to-guide
-      text: Tworzenie przeglądu dostępu grupy lub aplikacji
-    - url: ./conditional-access/terms-of-use.md
-      itemType: how-to-guide
-      text: Wymaganie od użytkowników zaakceptowania warunków użytkowania
-    footerLink:
-      url: ./governance/index.yml
-      text: Zobacz więcej
-  - title: Ochrona tożsamości
-    links:
-    - url: ./identity-protection/overview-identity-protection.md
-      itemType: overview
-      text: Co to jest ochrona tożsamości?
-    - url: ./identity-protection/howto-identity-protection-configure-risk-policies.md
-      itemType: how-to-guide
-      text: Konfigurowanie zasad ryzyka
-    - url: ./identity-protection/howto-identity-protection-remediate-unblock.md
-      itemType: how-to-guide
-      text: Jak odblokowywać użytkowników
-    footerLink:
-      url: ./identity-protection/index.yml
-      text: Zobacz więcej
-  - title: Tożsamości zarządzane dla zasobów platformy Azure
-    links:
-    - url: ./managed-identities-azure-resources/tutorial-windows-vm-access-sql.md
-      itemType: tutorial
-      text: Uzyskiwanie dostępu do usługi Azure SQL przy użyciu maszyny wirtualnej z systemem Windows
-    - url: ./managed-identities-azure-resources/how-to-use-vm-token.md
-      itemType: how-to-guide
-      text: Pozyskiwanie tokenu za pomocą maszyny wirtualnej platformy Azure
-    - url: ./managed-identities-azure-resources/services-support-managed-identities.md
-      itemType: concept
-      text: Usługi obsługujące tożsamość zarządzaną
-    footerLink:
-      url: ./managed-identities-azure-resources/index.yml
-      text: Zobacz więcej
-  - title: Platforma tożsamości firmy Microsoft
-    links:
-    - url: ./develop/v2-overview.md
-      itemType: overview
-      text: Informacje o platformie tożsamości firmy Microsoft
-    - url: ./develop/v2-oauth2-auth-code-flow.md
-      itemType: concept
-      text: Przydział przepływu kodu OAuth 2.0
-    - url: ./develop/quickstart-register-app.md
-      itemType: quickstart
-      text: Rejestrowanie aplikacji za pomocą platformy obsługi tożsamości firmy Microsoft
-    footerLink:
-      url: ./develop/index.yml
-      text: Zobacz więcej
-  - title: Privileged Identity Management (PIM)
-    links:
-    - url: ./privileged-identity-management/pim-getting-started.md
-      itemType: how-to-guide
-      text: Rozpoczynanie korzystania z usługi PIM
-    - url: ./privileged-identity-management/pim-how-to-activate-role.md
-      itemType: how-to-guide
-      text: Aktywowanie własnych ról katalogu
-    - url: ./privileged-identity-management/pim-how-to-add-role-to-user.md
-      itemType: how-to-guide
-      text: Przypisywanie ról katalogu
-    footerLink:
-      url: ./privileged-identity-management/index.yml
-      text: Zobacz więcej
-  - title: Raporty i monitorowanie
-    links:
-    - url: ./reports-monitoring/concept-audit-logs.md
-      itemType: concept
-      text: Dzienniki inspekcji
-    - url: ./reports-monitoring/concept-sign-ins.md
-      itemType: concept
-      text: Dzienniki logowania
-    - url: ./reports-monitoring/reference-sign-ins-error-codes.md
-      itemType: reference
-      text: Dokumentacja z kodami błędów logowania
-    footerLink:
-      url: ./reports-monitoring/index.yml
-      text: Zobacz więcej
-  - title: Role
-    links:
-    - url: ./roles/groups-assign-role.md
-      itemType: concept
-      text: Omówienie ról usługi Azure AD
-    - url: ./roles/concept-understand-roles.md
-      itemType: how-to-guide
-      text: Tworzenie roli niestandardowej
-    - url: ./roles/groups-view-assignments.md
-      itemType: reference
-      text: Wyświetlanie ról przypisanych do grupy
-    footerLink:
-      url: ./roles/index.yml
-      text: Zobacz więcej
-  - title: Aplikacje innych producentów
-    links:
-    - url: ./saas-apps/amazon-web-service-tutorial.md
-      itemType: tutorial
-      text: Integracja logowania jednokrotnego usługi Azure AD z platformą Amazon Web Services
-    - url: ./saas-apps/workday-inbound-tutorial.md
-      itemType: tutorial
-      text: Konfigurowanie produktu Workday na potrzeby automatycznej aprowizacji użytkowników
-    - url: ./develop/v2-howto-app-gallery-listing.md
-      itemType: get-started
-      text: Żądanie dodania aplikacji do galerii
-    footerLink:
-      url: ./saas-apps/tutorial-list.md
-      text: Zobacz więcej aplikacji
+    - title: Zarządzanie aplikacjami
+      links:
+        - url: ./manage-apps/what-is-application-management.md
+          itemType: overview
+          text: Co to jest zarządzanie aplikacjami?
+        - url: ./manage-apps/view-applications-portal.md
+          itemType: quickstart
+          text: Wyświetlanie aplikacji korzystających z dzierżawy do zarządzania tożsamościami
+        - url: ./manage-apps/add-application-portal-setup-sso.md
+          itemType: quickstart
+          text: Konfigurowanie logowania jednokrotnego opartego na protokole SAML
+      footerLink:
+        url: ./manage-apps/index.yml
+        text: Zobacz więcej
+    - title: Aprowizowanie aplikacji i usługi HR
+      links:
+        - url: ./app-provisioning/user-provisioning.md
+          itemType: overview
+          text: Co to jest aprowizowanie aplikacji?
+        - url: ./app-provisioning/how-provisioning-works.md
+          itemType: concept
+          text: Jak działa aprowizacja aplikacji
+        - url: ./app-provisioning/plan-cloud-hr-provision.md
+          itemType: how-to-guide
+          text: Planowanie wdrożenia aprowizacji w usłudze Cloud HR
+      footerLink:
+        url: ./app-provisioning/index.yml
+        text: Zobacz więcej
+    - title: Authentication
+      links:
+        - url: ./authentication/overview-authentication.md
+          itemType: concept
+          text: Co to jest uwierzytelnianie usługi Azure AD?
+        - url: ./authentication/tutorial-enable-sspr.md
+          itemType: tutorial
+          text: Włączanie samoobsługowego resetowania hasła
+        - url: ./authentication/tutorial-enable-azure-mfa.md
+          itemType: tutorial
+          text: Włączanie uwierzytelniania wieloskładnikowego w usłudze Azure AD
+      footerLink:
+        url: ./authentication/index.yml
+        text: Zobacz więcej
+    - title: Synchronizacja z chmurą
+      links:
+        - url: ./cloud-sync/what-is-cloud-sync.md
+          itemType: overview
+          text: Co to jest synchronizacja chmury?
+        - url: ./cloud-sync/tutorial-single-forest.md
+          itemType: tutorial
+          text: Integrowanie pojedynczego lasu z jedną dzierżawą usługi Azure AD
+        - url: ./cloud-sync/how-to-install.md
+          itemType: how-to-guide
+          text: Instalowanie Azure AD Connect aprowizowania
+      footerLink:
+        url: ./cloud-sync/index.yml
+        text: Zobacz więcej
+    - title: Dostęp warunkowy
+      links:
+        - url: ./conditional-access/overview.md
+          itemType: overview
+          text: Co to jest dostęp warunkowy?
+        - url: ./authentication/tutorial-enable-azure-mfa.md
+          itemType: quickstart
+          text: Wymaganie uwierzytelniania MFA dla określonych aplikacji
+        - url: ./conditional-access/location-condition.md
+          itemType: concept
+          text: Warunki bazujące na lokalizacji
+      footerLink:
+        url: ./conditional-access/index.yml
+        text: Zobacz więcej
+    - title: Zarządzanie urządzeniami
+      links:
+        - url: ./devices/overview.md
+          itemType: overview
+          text: Co to jest zarządzanie urządzeniami?
+        - url: ./devices/hybrid-azuread-join-plan.md
+          itemType: how-to-guide
+          text: Planowanie dołączenia hybrydowego do usługi Azure AD
+        - url: ./devices/azureadjoin-plan.md
+          itemType: how-to-guide
+          text: Planowanie dołączenia do usługi Azure AD
+      footerLink:
+        url: ./devices/index.yml
+        text: Zobacz więcej
+    - title: Usługi domenowe
+      links:
+        - url: ../active-directory-domain-services/overview.md
+          itemType: overview
+          text: Co to są Usługi domenowe Azure AD?
+        - url: ../active-directory-domain-services/tutorial-create-instance.md
+          itemType: quickstart
+          text: Włączanie Usług domenowych Azure AD
+        - url: ../active-directory-domain-services/manage-group-policy.md
+          itemType: how-to-guide
+          text: Administrowanie zasadami grupy
+      footerLink:
+        url: ../active-directory-domain-services/index.yml
+        text: Zobacz więcej
+    - title: Użytkownicy korporacyjni
+      links:
+        - url: ./enterprise-users/groups-create-rule.md
+          itemType: how-to-guide
+          text: Tworzenie grupy dynamicznej
+        - url: ./enterprise-users/groups-settings-v2-cmdlets.md
+          itemType: how-to-guide
+          text: Program PowerShell dla grup usługi Azure AD
+        - url: ./enterprise-users/directory-service-limits-restrictions.md
+          itemType: reference
+          text: Ograniczenia i limity usługi Azure AD
+      footerLink:
+        url: ./enterprise-users/index.yml
+        text: Zobacz więcej
+    - title: Tożsamości zewnętrzne
+      links:
+        - url: ./external-identities/compare-with-b2c.md
+          itemType: overview
+          text: Porównanie rozwiązań dla użytkowników zewnętrznych
+        - url: ../active-directory-b2c/overview.md
+          itemType: overview
+          text: Skalowanie aplikacji dla klientów (B2C)
+        - url: ./external-identities/what-is-b2b.md
+          itemType: overview
+          text: Współpraca z użytkownikami spoza organizacji (B2B)
+      footerLink:
+        url: ./external-identities/index.yml
+        text: Zobacz więcej
+    - title: Tożsamość hybrydowa
+      links:
+        - url: ./hybrid/whatis-hybrid-identity.md
+          itemType: overview
+          text: Co to jest tożsamość hybrydowa?
+        - url: ./hybrid/how-to-connect-sso.md
+          itemType: how-to-guide
+          text: Logowanie jednokrotne za pomocą programu Azure AD Connect
+        - url: ./hybrid/how-to-connect-install-custom.md
+          itemType: how-to-guide
+          text: Niestandardowa instalacja programu Azure AD Connect
+      footerLink:
+        url: ./hybrid/index.yml
+        text: Zobacz więcej
+    - title: Nadzór nad tożsamościami
+      links:
+        - url: ./governance/entitlement-management-access-package-first.md
+          itemType: how-to-guide
+          text: Tworzenie pakietu dostępu
+        - url: ./governance/create-access-review.md
+          itemType: how-to-guide
+          text: Tworzenie przeglądu dostępu grupy lub aplikacji
+        - url: ./conditional-access/terms-of-use.md
+          itemType: how-to-guide
+          text: Wymaganie od użytkowników zaakceptowania warunków użytkowania
+      footerLink:
+        url: ./governance/index.yml
+        text: Zobacz więcej
+    - title: Ochrona tożsamości
+      links:
+        - url: ./identity-protection/overview-identity-protection.md
+          itemType: overview
+          text: Co to jest ochrona tożsamości?
+        - url: ./identity-protection/howto-identity-protection-configure-risk-policies.md
+          itemType: how-to-guide
+          text: Konfigurowanie zasad ryzyka
+        - url: ./identity-protection/howto-identity-protection-remediate-unblock.md
+          itemType: how-to-guide
+          text: Jak odblokowywać użytkowników
+      footerLink:
+        url: ./identity-protection/index.yml
+        text: Zobacz więcej
+    - title: Tożsamości zarządzane dla zasobów platformy Azure
+      links:
+        - url: ./managed-identities-azure-resources/tutorial-windows-vm-access-sql.md
+          itemType: tutorial
+          text: Uzyskiwanie dostępu do usługi Azure SQL przy użyciu maszyny wirtualnej z systemem Windows
+        - url: ./managed-identities-azure-resources/how-to-use-vm-token.md
+          itemType: how-to-guide
+          text: Pozyskiwanie tokenu za pomocą maszyny wirtualnej platformy Azure
+        - url: ./managed-identities-azure-resources/services-support-managed-identities.md
+          itemType: concept
+          text: Usługi obsługujące tożsamość zarządzaną
+      footerLink:
+        url: ./managed-identities-azure-resources/index.yml
+        text: Zobacz więcej
+    - title: Platforma tożsamości firmy Microsoft
+      links:
+        - url: ./develop/v2-overview.md
+          itemType: overview
+          text: Informacje o platformie tożsamości firmy Microsoft
+        - url: ./develop/v2-oauth2-auth-code-flow.md
+          itemType: concept
+          text: Przydział przepływu kodu OAuth 2.0
+        - url: ./develop/quickstart-register-app.md
+          itemType: quickstart
+          text: Rejestrowanie aplikacji za pomocą platformy obsługi tożsamości firmy Microsoft
+      footerLink:
+        url: ./develop/index.yml
+        text: Zobacz więcej
+    - title: Privileged Identity Management (PIM)
+      links:
+        - url: ./privileged-identity-management/pim-getting-started.md
+          itemType: how-to-guide
+          text: Rozpoczynanie korzystania z usługi PIM
+        - url: ./privileged-identity-management/pim-how-to-activate-role.md
+          itemType: how-to-guide
+          text: Aktywowanie własnych ról katalogu
+        - url: ./privileged-identity-management/pim-how-to-add-role-to-user.md
+          itemType: how-to-guide
+          text: Przypisywanie ról katalogu
+      footerLink:
+        url: ./privileged-identity-management/index.yml
+        text: Zobacz więcej
+    - title: Raporty i monitorowanie
+      links:
+        - url: ./reports-monitoring/concept-audit-logs.md
+          itemType: concept
+          text: Dzienniki inspekcji
+        - url: ./reports-monitoring/concept-sign-ins.md
+          itemType: concept
+          text: Dzienniki logowania
+        - url: ./reports-monitoring/reference-sign-ins-error-codes.md
+          itemType: reference
+          text: Dokumentacja z kodami błędów logowania
+      footerLink:
+        url: ./reports-monitoring/index.yml
+        text: Zobacz więcej
+    - title: Role
+      links:
+        - url: ./roles/groups-assign-role.md
+          itemType: concept
+          text: Omówienie ról usługi Azure AD
+        - url: ./roles/concept-understand-roles.md
+          itemType: how-to-guide
+          text: Tworzenie roli niestandardowej
+        - url: ./roles/groups-view-assignments.md
+          itemType: reference
+          text: Wyświetlanie ról przypisanych do grupy
+      footerLink:
+        url: ./roles/index.yml
+        text: Zobacz więcej
+    - title: Aplikacje innych producentów
+      links:
+        - url: ./saas-apps/amazon-web-service-tutorial.md
+          itemType: tutorial
+          text: Integracja logowania jednokrotnego usługi Azure AD z platformą Amazon Web Services
+        - url: ./saas-apps/workday-inbound-tutorial.md
+          itemType: tutorial
+          text: Konfigurowanie produktu Workday na potrzeby automatycznej aprowizacji użytkowników
+        - url: ./develop/v2-howto-app-gallery-listing.md
+          itemType: get-started
+          text: Żądanie dodania aplikacji do galerii
+      footerLink:
+        url: ./saas-apps/tutorial-list.md
+        text: Zobacz więcej aplikacji
 additionalContent:
   sections:
-  - items:
-    - title: Microsoft 365
-      summary: Odkryj platformę Microsoft 365 — kompletne rozwiązanie, które obejmuje usługę Azure AD.
-      url: /microsoft-365/
-    - title: Azure AD PowerShell
-      summary: Dowiedz się, jak zainstalować moduł Azure AD PowerShell i korzystać z niego.
-      url: /powershell/module/azuread/
-    - title: Polecenia interfejsu wiersza polecenia platformy Azure dla usługi Azure AD
-      summary: Zobacz polecenia usługi Azure AD w dokumentacji interfejsu wiersza polecenia.
-      url: /cli/azure/ad
+    - items:
+        - title: Microsoft 365
+          summary: 'Odkryj platformę Microsoft 365 — kompletne rozwiązanie, które obejmuje usługę Azure AD.'
+          url: /microsoft-365/
+        - title: Azure AD PowerShell
+          summary: 'Dowiedz się, jak zainstalować moduł Azure AD PowerShell i korzystać z niego.'
+          url: /powershell/module/azuread/
+        - title: Polecenia interfejsu wiersza polecenia platformy Azure dla usługi Azure AD
+          summary: Zobacz polecenia usługi Azure AD w dokumentacji interfejsu wiersza polecenia.
+          url: /cli/azure/ad

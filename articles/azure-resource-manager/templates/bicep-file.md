@@ -1,20 +1,20 @@
 ---
-title: Struktura i składnia pliku Bicep
+title: Struktura i składnia plików Bicep
 description: Opisuje strukturę i właściwości pliku Bicep przy użyciu składni deklaratywnej.
 ms.topic: conceptual
 ms.date: 03/31/2021
-ms.openlocfilehash: 09993ae9c08f53144de8e94e6555ad93bec681f6
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 1b8eddd388878be8f653f963ef967cf2c0af685f
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168692"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537862"
 ---
-# <a name="understand-the-structure-and-syntax-of-bicep-files"></a>Zrozumienie struktury i składni plików Bicep
+# <a name="understand-the-structure-and-syntax-of-bicep-files"></a>Opis struktury i składni plików Bicep
 
 W tym artykule opisano strukturę pliku Bicep. Przedstawia on różne sekcje pliku i właściwości, które są dostępne w tych sekcjach.
 
-Ten artykuł jest przeznaczony dla użytkowników, którzy mają pewną wiedzę z plikami Bicep. Zawiera szczegółowe informacje na temat struktury szablonu. Aby zapoznać się z samouczkiem krok po kroku, który przeprowadzi Cię przez proces tworzenia pliku Bicep, zobacz [Samouczek: Tworzenie i wdrażanie pierwszego pliku Azure Resource Manager Bicep](bicep-tutorial-create-first-bicep.md).
+Ten artykuł jest przeznaczony dla użytkowników, którzy są zaznajomieni z plikami Bicep. Zawiera on szczegółowe informacje o strukturze szablonu. Aby uzyskać samouczek krok po kroku, który przeprowadzi Cię przez proces tworzenia pliku Bicep, zobacz Samouczek: tworzenie i wdrażanie pierwszego pliku [Azure Resource Manager Bicep.](bicep-tutorial-create-first-bicep.md)
 
 ## <a name="template-format"></a>Template format (Format szablonu)
 
@@ -69,7 +69,7 @@ module <module-symbolic-name> '<path-to-file>' = [for <item> in <collection>: {
 output <output-name> <output-data-type> = <output-value>
 ```
 
-W poniższym przykładzie przedstawiono implementację tych elementów.
+Poniższy przykład przedstawia implementację tych elementów.
 
 ```bicep
 @minLength(3)
@@ -106,33 +106,33 @@ output storageEndpoint object = stg.properties.primaryEndpoints
 
 ## <a name="target-scope"></a>Zakres docelowy
 
-Domyślnie zakres docelowy jest ustawiony na `resourceGroup` . W przypadku wdrażania na poziomie grupy zasobów nie trzeba ustawiać zakresu docelowego w pliku Bicep.
+Domyślnie zakres docelowy jest ustawiony na `resourceGroup` wartość . Jeśli wdrażasz na poziomie grupy zasobów, nie musisz ustawiać zakresu docelowego w pliku Bicep.
 
 Dozwolone wartości to:
 
-* Grupa zasobów **— wartość** domyślna używana na potrzeby [wdrożeń grup zasobu](deploy-to-resource-group.md).
-* **subskrypcja** — używana na potrzeby [wdrożeń subskrypcji](deploy-to-subscription.md).
-* Grupa **zarządzania** — służy do [wdrażania grup zarządzania](deploy-to-management-group.md).
-* **dzierżawca** — używany do [wdrożeń dzierżawców](deploy-to-tenant.md).
+* **resourceGroup** — wartość domyślna używana w przypadku [wdrożeń grupy zasobów.](deploy-to-resource-group.md)
+* **subskrypcja** — używana w przypadku [wdrożeń subskrypcji.](deploy-to-subscription.md)
+* **managementGroup** — służy do [wdrożeń grup zarządzania.](deploy-to-management-group.md)
+* **dzierżawa** — używana w przypadku [wdrożeń dzierżawy.](deploy-to-tenant.md)
 
 ## <a name="parameters"></a>Parametry
 
-Użyj parametrów dla wartości, które muszą być różne dla różnych wdrożeń. Można zdefiniować wartość domyślną dla parametru, który jest używany, jeśli podczas wdrażania nie zostanie podana żadna wartość.
+Użyj parametrów dla wartości, które muszą się różnić dla różnych wdrożeń. Można zdefiniować wartość domyślną dla parametru, który jest używany, jeśli podczas wdrażania nie podano żadnej wartości.
 
-Na przykład można dodać parametr SKU, aby określić różne rozmiary zasobu. Można użyć funkcji szablonu do tworzenia wartości domyślnej, na przykład do pobierania lokalizacji grupy zasobów.
+Możesz na przykład dodać parametr SKU, aby określić różne rozmiary zasobu. Za pomocą funkcji szablonu można utworzyć wartość domyślną, na przykład uzyskać lokalizację grupy zasobów.
 
 ```bicep
 param storageSKU string = 'Standard_LRS'
 param location string = resourceGroup().location
 ```
 
-Aby uzyskać dostęp do dostępnych typów danych, zobacz [typy danych w szablonach](data-types.md).
+Aby uzyskać informacje o dostępnych typach danych, zobacz [Typy danych w szablonach](data-types.md).
 
 Aby uzyskać więcej informacji, zobacz [Parametry w szablonach](template-parameters.md).
 
-## <a name="parameter-decorators"></a>Dekoratory parametru
+## <a name="parameter-decorators"></a>Dekoratory parametrów
 
-Dla każdego parametru można dodać jeden lub więcej dekoratory. Te dekoratory definiują wartości, które są dozwolone dla parametru. W poniższym przykładzie określono jednostki SKU, które można wdrożyć za pomocą pliku Bicep.
+Dla każdego parametru można dodać co najmniej jeden dekorator. Te dekoratory definiują wartości dozwolone dla parametru . W poniższym przykładzie określono jednostki SKU, które można wdrożyć za pośrednictwem pliku Bicep.
 
 ```bicep
 @allowed([
@@ -144,36 +144,36 @@ Dla każdego parametru można dodać jeden lub więcej dekoratory. Te dekoratory
 param storageSKU string = 'Standard_LRS'
 ```
 
-W poniższej tabeli opisano dostępne dekoratory oraz sposób ich używania.
+W poniższej tabeli opisano dostępne dekoratory i sposób ich używania.
 
-| Dekoratora | Zastosuj do | Argument | Opis |
+| Dekorator | Zastosuj do | Argument | Opis |
 | --------- | ---- | ----------- | ------- |
-| występować | all | array | Dozwolone wartości parametru. Użyj tego dekoratora, aby upewnić się, że użytkownik poda poprawne wartości. |
-| description (opis) | all | ciąg | Tekst objaśniający sposób użycia parametru. Opis jest wyświetlany użytkownikom w portalu. |
-| maxLength | Tablica, ciąg | int | Maksymalna długość parametrów ciągów i tablic. Wartość jest włącznie. |
-| maxValue | int | int | Maksymalna wartość parametru Integer. Ta wartość jest włącznie. |
-| metadane | all | object | Właściwości niestandardowe do zastosowania do parametru. Może zawierać Właściwość Description, która jest równoważna z opisem dekoratora. |
-| minLength | Tablica, ciąg | int | Minimalna długość parametrów ciągów i tablic. Wartość jest włącznie. |
-| minValue | int | int | Minimalna wartość parametru Integer. Ta wartość jest włącznie. |
-| zapewnienia | ciąg, obiekt | brak | Oznacza parametr jako bezpieczny. Wartość bezpiecznego parametru nie jest zapisywana w historii wdrożenia i nie jest zarejestrowana. Aby uzyskać więcej informacji, zobacz [Zabezpieczanie ciągów i obiektów](data-types.md#secure-strings-and-objects). |
+| Dozwolone | all | array | Dozwolone wartości parametru. Użyj tego dekoratora, aby upewnić się, że użytkownik poda prawidłowe wartości. |
+| description (opis) | all | ciąg | Tekst objaśniacy sposób użycia parametru . Opis jest wyświetlany użytkownikom za pośrednictwem portalu. |
+| Maxlength | tablica, ciąg | int | Maksymalna długość parametrów ciągu i tablicy. Wartość jest włącznie. |
+| Maxvalue | int | int | Maksymalna wartość parametru liczby całkowitej. Ta wartość jest włącznie. |
+| metadane | all | object | Właściwości niestandardowe do zastosowania do parametru. Może zawierać właściwość description, która jest równoważna dekoratorowi opisu. |
+| Minlength | tablica, ciąg | int | Minimalna długość parametrów ciągu i tablicy. Wartość jest włącznie. |
+| Minvalue | int | int | Minimalna wartość parametru liczby całkowitej. Ta wartość jest włącznie. |
+| Bezpieczne | string, object | brak | Oznacza parametr jako bezpieczny. Wartość bezpiecznego parametru nie jest zapisywana w historii wdrażania i nie jest rejestrowana. Aby uzyskać więcej informacji, zobacz [Bezpieczne ciągi i obiekty](data-types.md#secure-strings-and-objects). |
 
 ## <a name="variables"></a>Zmienne
 
-Używaj zmiennych dla złożonych wyrażeń powtarzanych w pliku Bicep. Na przykład można dodać zmienną dla nazwy zasobu, która jest zbudowana przez połączenie kilku wartości jednocześnie.
+Użyj zmiennych dla wyrażeń złożonych, które są powtarzane w pliku Bicep. Można na przykład dodać zmienną dla nazwy zasobu, która jest konstruowana przez grupę wartości.
 
 ```bicep
 var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 ```
 
-Nie określasz [typu danych](data-types.md) dla zmiennej. Zamiast tego typ danych jest wywnioskowany na podstawie wartości.
+Nie określasz typu [danych dla](data-types.md) zmiennej. Zamiast tego typ danych jest wywnioskować na wartości .
 
-Aby uzyskać więcej informacji, zobacz [zmienne w szablonach](template-variables.md).
+Aby uzyskać więcej informacji, zobacz [Zmienne w szablonach](template-variables.md).
 
 ## <a name="resource"></a>Zasób
 
-Użyj `resource` słowa kluczowego, aby zdefiniować zasób do wdrożenia. Deklaracja zasobu zawiera nazwę symboliczną dla zasobu. Ta Nazwa symboliczna zostanie użyta w innych częściach pliku Bicep, jeśli konieczne jest uzyskanie wartości z zasobu.
+Użyj słowa `resource` kluczowego , aby zdefiniować zasób do wdrożenia. Deklaracja zasobu zawiera symboliczną nazwę zasobu. Użyjesz tej nazwy symbolicznej w innych częściach pliku Bicep, jeśli musisz uzyskać wartość z zasobu.
 
-Deklaracja zasobu obejmuje również typ zasobu i wersję interfejsu API.
+Deklaracja zasobu zawiera również typ zasobu i wersję interfejsu API.
 
 ```bicep
 resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
@@ -189,11 +189,11 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 }
 ```
 
-W deklaracji zasobów należy uwzględnić właściwości dla typu zasobu. Te właściwości są unikatowe dla każdego typu zasobu.
+W deklaracji zasobu należy uwzględnić właściwości typu zasobu. Te właściwości są unikatowe dla każdego typu zasobu.
 
-Aby uzyskać więcej informacji, zobacz [Deklaracja zasobów w szablonach](resource-declaration.md).
+Aby uzyskać więcej informacji, zobacz [Resource declaration in templates (Deklaracja zasobu w szablonach).](resource-declaration.md)
 
-Aby [warunkowo wdrożyć zasób](conditional-resource-deployment.md), Dodaj `if` wyrażenie.
+Aby [warunkowo wdrożyć zasób](conditional-resource-deployment.md), dodaj `if` wyrażenie.
 
 ```bicep
 resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting == 'new') {
@@ -209,7 +209,7 @@ resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting =
 }
 ```
 
-Aby [wdrożyć więcej niż jedno wystąpienie](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md) typu zasobu, Dodaj `for` wyrażenie. Wyrażenie może przekroczyć liczbę elementów członkowskich tablicy.
+Aby [wdrożyć więcej niż](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md) jedno wystąpienie typu zasobu, dodaj `for` wyrażenie. Wyrażenie może iterować po elementach członkowskich tablicy.
 
 ```bicep
 resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = [for storageName in storageAccounts: {
@@ -227,7 +227,7 @@ resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = [for storageName in
 
 ## <a name="modules"></a>Moduły
 
-Używaj modułów do łączenia z innymi plikami Bicep, które zawierają kod, którego chcesz użyć ponownie. Moduł zawiera co najmniej jeden zasób do wdrożenia. Te zasoby są wdrażane wraz z innymi zasobami w pliku Bicep.
+Użyj modułów, aby połączyć się z innymi plikami Bicep, które zawierają kod, którego chcesz użyć ponownie. Moduł zawiera co najmniej jeden za zasobów do wdrożenia. Te zasoby są wdrażane razem z innymi zasobami w pliku Bicep.
 
 ```bicep
 module webModule './webApp.bicep' = {
@@ -239,17 +239,17 @@ module webModule './webApp.bicep' = {
 }
 ```
 
-Nazwa symboliczna pozwala na odwoływanie się do modułu z innych lokalizacji w pliku. Na przykład można uzyskać wartość wyjściową z modułu przy użyciu nazwy symbolicznej i nazwy wartości wyjściowej.
+Nazwa symboliczna umożliwia odwołanie się do modułu z innego miejsca w pliku. Na przykład można uzyskać wartość wyjściową z modułu przy użyciu nazwy symbolicznej i nazwy wartości wyjściowej.
 
-Podobnie jak zasoby, można warunkowo lub iteracyjnie wdrożyć moduł. Składnia jest taka sama dla modułów jak zasoby.
+Podobnie jak w przypadku zasobów, można warunkowo lub iteracyjnie wdrożyć moduł. Składnia jest taka sama dla modułów, jak dla zasobów.
 
-Aby uzyskać więcej informacji, zobacz [używanie modułów Bicep](bicep-modules.md).
+Aby uzyskać więcej informacji, zobacz [Use Bicep modules (Korzystanie z modułów Bicep).](bicep-modules.md)
 
 ## <a name="resource-and-module-decorators"></a>Dekoratory zasobów i modułów
 
-Do definicji zasobu lub modułu można dodać dekoratora. Jedyne obsługiwane dekoratora to `batchSize(int)` . Można go zastosować tylko do definicji zasobu lub modułu korzystającej z `for` wyrażenia.
+Do definicji zasobu lub modułu możesz dodać dekorator. Jedynym obsługiwanym dekoratorem jest `batchSize(int)` . Można go zastosować tylko do definicji zasobu lub modułu, która używa `for` wyrażenia.
 
-Domyślnie zasoby są wdrażane równolegle. Nie wiesz, w jakiej kolejności kończy. Po dodaniu `batchSize` dekoratora należy wdrożyć wystąpienia seryjnie. Użyj argumentu Integer, aby określić liczbę wystąpień do wdrożenia równolegle.
+Domyślnie zasoby są wdrażane równolegle. Nie znasz kolejności ich zakończenia. Podczas dodawania `batchSize` dekoratora wystąpienia są wdrażane szeregowo. Użyj argumentu integer, aby określić liczbę wystąpień do równoległego wdrożenia.
 
 ```bicep
 @batchSize(3)
@@ -258,25 +258,25 @@ resource storageAccountResources 'Microsoft.Storage/storageAccounts@2019-06-01' 
 }]
 ```
 
-Aby uzyskać więcej informacji, zobacz [serial lub Parallel](copy-resources.md#serial-or-parallel).
+Aby uzyskać więcej informacji, zobacz [Serial or Parallel](copy-resources.md#serial-or-parallel).
 
 ## <a name="outputs"></a>Dane wyjściowe
 
-Użyj danych wyjściowych do zwrócenia wartości ze wdrożenia. Zwykle zwracasz wartość ze wdrożonego zasobu, gdy musisz ponownie użyć tej wartości dla innej operacji.
+Użyj danych wyjściowych, aby zwrócić wartość z wdrożenia. Zazwyczaj wartość z wdrożonego zasobu jest zwracana, gdy trzeba ponownie użyć tej wartości dla innej operacji.
 
 ```bicep
 output storageEndpoint object = stg.properties.primaryEndpoints
 ```
 
-Określ [Typ danych](data-types.md) dla wartości wyjściowej.
+Określ typ [danych dla](data-types.md) wartości wyjściowej.
 
-Aby uzyskać więcej informacji, zobacz dane [wyjściowe w szablonach](template-outputs.md).
+Aby uzyskać więcej informacji, zobacz [Dane wyjściowe w szablonach](template-outputs.md).
 
 ## <a name="comments"></a>Komentarze
 
-Korzystanie `//` z komentarzy jednowierszowych lub `/* ... */` dla komentarzy wielowierszowych
+Do `//` stosowania w komentarzach jedno wierszowych `/* ... */` lub w komentarzach wielo wierszowych
 
-Poniższy przykład pokazuje Komentarz jednowierszowy.
+W poniższym przykładzie pokazano komentarz jedno wierszowy.
 
 ```bicep
 // This is your primary NIC.
@@ -285,7 +285,7 @@ resource nic1 'Microsoft.Network/networkInterfaces@2020-06-01' = {
 }
 ```
 
-Poniższy przykład pokazuje komentarz wielowierszowy.
+W poniższym przykładzie pokazano komentarz wielo wierszowy.
 
 ```bicep
 /*
@@ -295,15 +295,15 @@ Poniższy przykład pokazuje komentarz wielowierszowy.
 param existingKeyVaultName string
 ```
 
-## <a name="multi-line-strings"></a>Ciągi wielowierszowe
+## <a name="multi-line-strings"></a>Ciągi wielo wierszowe
 
-Możesz przerwać ciąg w wielu wierszach. `'''`Aby rozpocząć i zakończyć ciąg wielowierszowy, użyj trzech znaków pojedynczego cudzysłowu. 
+Ciąg można rozbić na wiele wierszy. Użyj trzech znaków pojedynczego `'''` cudzysłowu, aby rozpocząć i zakończyć ciąg wielo wierszowy.
 
-Znaki w ciągu wielowierszowym są obsługiwane jako-is. Znaki ucieczki są zbędne. Nie można dołączyć `'''` do ciągu wielowierszowego. Interpolacja ciągów nie jest obecnie obsługiwana.
+Znaki w ciągu wielo wierszowym są obsługiwane w postaci, w ile są. Znaki ucieczki nie są konieczne. Nie można uwzględnić w `'''` ciągu wielo wierszowym. Interpolacja ciągów nie jest obecnie obsługiwana.
 
-Możesz uruchomić ciąg bezpośrednio po otwarciu `'''` lub dołączyć nowy wiersz. W obu przypadkach ciąg otrzymany nie zawiera nowego wiersza. W zależności od końców wierszy w pliku Bicep, nowe wiersze są interpretowane jako `\r\n` lub `\n` .
+Możesz uruchomić ciąg bezpośrednio po otwarciu lub `'''` dołączyć nowy wiersz. W obu przypadkach wynikowy ciąg nie zawiera nowego wiersza. W zależności od wierszy kończących się w pliku Bicep nowe wiersze są interpretowane jako `\r\n` lub `\n` .
 
-W poniższym przykładzie pokazano ciąg wielowierszowy.
+W poniższym przykładzie pokazano ciąg wielo wierszowy.
 
 ```bicep
 var stringVar = '''
@@ -313,7 +313,7 @@ this is multi-line
 '''
 ```
 
-Poprzedni przykład jest równoważny do poniższego kodu JSON.
+Poprzedni przykład jest odpowiednikiem następującego danych JSON.
 
 ```json
 "variables": {
@@ -323,4 +323,4 @@ Poprzedni przykład jest równoważny do poniższego kodu JSON.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby zapoznać się z wprowadzeniem do Bicep, zobacz [co to jest Bicep?](bicep-overview.md).
+Aby uzyskać wprowadzenie do aplikacji Bicep, zobacz [Co to jest bicep?](bicep-overview.md).

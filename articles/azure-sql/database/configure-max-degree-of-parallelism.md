@@ -1,8 +1,8 @@
 ---
 title: Konfigurowanie maksymalnego stopnia równoległości (MAXDOP)
 titleSuffix: Azure SQL Database
-description: Dowiedz się więcej na temat maksymalnego stopnia równoległości (MAXDOP).
-ms.date: 03/29/2021
+description: Dowiedz się więcej o maksymalnym stopniu równoległości (MAXDOP).
+ms.date: 04/12/2021
 services: sql-database
 dev_langs:
 - TSQL
@@ -14,88 +14,96 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
-ms.openlocfilehash: 31ddf15975abdce70ea02b5de64ea5611e7e72b3
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: c9b8e916c82a42df7addb3c49b4452c0eb403023
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106111814"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536906"
 ---
-# <a name="configure-the-max-degree-of-parallelism-maxdop-in-azure-sql-database"></a>Skonfiguruj maksymalny stopień równoległości (MAXDOP) w Azure SQL Database
+# <a name="configure-the-max-degree-of-parallelism-maxdop-in-azure-sql-database"></a>Konfigurowanie maksymalnego stopnia równoległości (MAXDOP) w usłudze Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-  W tym artykule opisano **Maksymalny stopień równoległości (MAXDOP)** w Azure SQL Database oraz sposób jego konfiguracji. 
+  W tym artykule opisano ustawienie konfiguracji maksymalnego **stopnia równoległości (MAXDOP)** w Azure SQL Database. 
 
 > [!NOTE]
-> **Ta zawartość koncentruje się na Azure SQL Database.** Azure SQL Database jest oparta na najnowszej stabilnej wersji aparatu bazy danych Microsoft SQL Server Database, dlatego większość zawartości jest podobna, chociaż opcje rozwiązywania problemów i konfiguracji różnią się. Aby uzyskać więcej informacji na temat MAXDOP SQL Server, zobacz [Konfigurowanie maksymalnego stopnia konfiguracji serwera równoległego](/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
+> **Ta zawartość koncentruje się na Azure SQL Database.** Azure SQL Database jest oparta na najnowszej stabilnej wersji aparatu bazy danych Microsoft SQL Server, więc większość zawartości jest podobna, chociaż rozwiązywanie problemów i opcje konfiguracji różnią się. Aby uzyskać więcej informacji na temat opcji MAXDOP SQL Server, zobacz Configure the max degree of parallelism Server Configuration Option (Konfigurowanie maksymalnego stopnia [równoległości opcji konfiguracji serwera).](/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option)
 
 ## <a name="overview"></a>Omówienie
-  W Azure SQL Database domyślne ustawienie MAXDOP dla każdej nowej pojedynczej bazy danych i bazy danych elastycznej puli to 8. Oznacza to, że aparat bazy danych może wykonywać zapytania przy użyciu wielu wątków. W przeciwieństwie do SQL Server, w którym domyślny serwer MAXDOP ma wartość 0 (nieograniczony), domyślnie nowe bazy danych w Azure SQL Database są ustawione na MAXDOP 8. Ta wartość domyślna uniemożliwia niepotrzebne wykorzystanie zasobów i zapewnia spójne środowisko klienta. Nie jest to zwykle konieczne do dalszej konfiguracji MAXDOP w obciążeniach Azure SQL Database, ale może to stanowić zaawansowane ćwiczenie dostrajania wydajności.
+  Funkcja MAXDOP steruje równoległością wewnątrz zapytań w a aparatze bazy danych. Wyższe wartości MAXDOP zwykle mają więcej równoległych wątków na zapytanie i szybsze wykonywanie zapytań. 
+
+  W Azure SQL Database domyślne ustawienie MAXDOP dla każdej nowej pojedynczej bazy danych i bazy danych puli elastycznej wynosi 8. To ustawienie domyślne zapobiega niepotrzebnemu wykorzystaniu zasobów, jednocześnie umożliwiając aparatowi bazy danych szybsze wykonywanie zapytań przy użyciu równoległych wątków. Zazwyczaj nie jest konieczne dalsze konfigurowanie opcji MAXDOP w obciążeniach Azure SQL Database, chociaż może to zapewnić korzyści w zaawansowanym ćwiczeniu dostrajania wydajności.
 
 > [!Note]
->   We wrześniu 2020, na podstawie lat telemetrii w Azure SQL Database Service [MAXDOP 8 została wybrana](https://techcommunity.microsoft.com/t5/azure-sql/changing-default-maxdop-in-azure-sql-database-and-azure-sql/ba-p/1538528) jako wartość domyślna dla nowych baz danych jako optymalna, dla szerokiej gamy obciążeń klientów. Ta wartość domyślna pomaga zapobiec problemom z wydajnością z powodu nadmiernej równoległości. W systemach wcześniejszych niż to ustawienie domyślne dla nowych baz danych zostało MAXDOP 0. Opcja konfiguracji z zakresem bazy danych MAXDOP nie została zmieniona dla istniejących baz danych utworzonych przed 2020 września.
+>   We wrześniu 2020 r., na podstawie danych telemetrycznych z lat w usłudze Azure SQL Database MAXDOP 8, została domyślną wartością dla nowych baz danych [,](https://techcommunity.microsoft.com/t5/azure-sql/changing-default-maxdop-in-azure-sql-database-and-azure-sql/ba-p/1538528)jako optymalną wartość dla najszerszej gamy obciążeń klientów. Ta wartość domyślna pomogła zapobiegać problemom z wydajnością z powodu nadmiernej równoległości. Wcześniej ustawieniem domyślnym dla nowych baz danych była wartość MAXDOP 0. Wartość MAXDOP nie została automatycznie zmieniona dla istniejących baz danych utworzonych przed wrześniem 2020 r.
 
-  Ogólnie rzecz biorąc, jeśli aparat bazy danych wybierze wykonywanie zapytania przy użyciu równoległości, czas wykonywania jest szybszy. Jednak nadmierna równoległość może zużywać nadmierne zasoby procesora bez zwiększania wydajności zapytań. Na dużą skalę nadmierna równoległość może mieć negatywny wpływ na wydajność zapytań dla wszystkich zapytań wykonywanych w ramach tego samego wystąpienia aparatu bazy danych, więc ustawienie górnego obramowania dla równoległości jest typowym ćwiczeniem dostrajania wydajności w SQL Server obciążeniach.
+  Ogólnie rzecz biorąc, jeśli aparat bazy danych zdecyduje się wykonać zapytanie przy użyciu równoległości, czas wykonywania jest krótszy. Jednak nadmiarowa równoległość może zużywać dodatkowe zasoby procesora bez poprawiania wydajności zapytań. Na dużą skalę nadmiarowa równoległość może negatywnie wpłynąć na wydajność zapytań dla wszystkich zapytań wykonywanych w tym samym wystąpieniu aparatu bazy danych. Tradycyjnie ustawianie górnej granicy dla równoległości było częstym ćwiczeniem dostrajania wydajności SQL Server obciążeniami.
 
   W poniższej tabeli opisano zachowanie aparatu bazy danych podczas wykonywania zapytań z różnymi wartościami MAXDOP:
 
-| MAXDOP | Zachowanie | 
+| Maxdop | Zachowanie | 
 |--|--|
-| = 1 | Aparat bazy danych nie wykonuje zapytań przy użyciu wielu współbieżnych wątków. | 
-| > 1 | Aparat bazy danych Ustawia górną granicę dla liczby wątków równoległych. Aparat bazy danych wybiera liczbę dodatkowych wątków roboczych, które mają być używane. Całkowita liczba wątków roboczych użytych do wykonania zapytania może być większa niż określona wartość MAXDOP. |
-| = 0 | Aparat bazy danych może używać wielu równoległych wątków z górną granicą zależną od łącznej liczby procesorów logicznych. Aparat bazy danych wybiera liczbę wątków równoległych, które mają być używane.| 
+| = 1 | Aparat bazy danych używa pojedynczego wątku szeregowego do wykonywania zapytań. Wątki równoległe nie są używane. | 
+| > 1 | Aparat bazy danych ustawia [](https://docs.microsoft.com/sql/relational-databases/thread-and-task-architecture-guide#sql-server-task-scheduling) liczbę dodatkowych harmonogramów, które mają być używane przez wątki równoległe, na wartość MAXDOP lub łączną liczbę procesorów logicznych, w zależności od tego, która wartość jest mniejsza. |
+| = 0 | Aparat bazy danych ustawia [](https://docs.microsoft.com/sql/relational-databases/thread-and-task-architecture-guide#sql-server-task-scheduling) liczbę dodatkowych harmonogramów, które mają być używane przez wątki równoległe, na łączną liczbę procesorów logicznych lub 64, w zależności od tego, która wartość jest mniejsza. | 
 | | |
-  
+
+> [!Note]
+> Każde zapytanie jest wykonywane przy użyciu co najmniej jednego harmonogramu i jednego wątku roboczego w tym harmonogramie.
+>
+> Zapytanie wykonywane z równoległością używa dodatkowych harmonogramów i dodatkowych wątków równoległych. Ponieważ wiele równoległych wątków może być wykonywanych w tym samym harmonogramie, łączna liczba wątków użytych do wykonania zapytania może być większa niż określona wartość MAXDOP lub łączna liczba procesorów logicznych. Aby uzyskać więcej informacji, zobacz [Planowanie zadań równoległych.](/sql/relational-databases/thread-and-task-architecture-guide#scheduling-parallel-tasks)
+
 ##  <a name="considerations"></a><a name="Considerations"></a> Zagadnienia dotyczące  
 
 -   W Azure SQL Database można zmienić domyślną wartość MAXDOP:
-    -   Na poziomie zapytania, korzystając z [wskazówki zapytania](/sql/t-sql/queries/hints-transact-sql-query) **MAXDOP** .     
-    -   Na poziomie bazy danych przy użyciu [konfiguracji z zakresem bazy danych](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) **MAXDOP** Database.
+    -   Na poziomie zapytania, używając wskazówki **zapytania MAXDOP** [.](/sql/t-sql/queries/hints-transact-sql-query)     
+    -   Na poziomie bazy danych przy użyciu konfiguracji o zakresie bazy danych **MAXDOP** [.](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql)
 
--   Długoterminowe SQL Server zagadnienia dotyczące MAXDOP i [zalecenia](/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines) dotyczące Azure SQL Database. 
+-   Długotrwałe zagadnienia SQL Server maxdop i zalecenia [mają](/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines) zastosowanie do Azure SQL Database. 
 
--   MAXDOP jest wymuszane na [zadanie](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-tasks-transact-sql). Nie jest wymuszane na [żądanie](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) lub na zapytanie. Oznacza to, że podczas równoległego wykonywania zapytań pojedyncze żądanie może zduplikować wiele zadań z górną granicą określoną przez MAXDOP. Aby uzyskać więcej informacji, zobacz sekcję *Planowanie zadań równoległych* w [przewodniku po architekturze wątku i zadania](/sql/relational-databases/thread-and-task-architecture-guide). 
+-   Operacje indeksowania, które tworzą lub ponownie tworzą indeks lub porzućą indeks klastrowany, mogą wymagać dużej ilości zasobów. Wartość MAXDOP bazy danych dla operacji indeksu można zastąpić, określając opcję indeksu MAXDOP w instrukcji `CREATE INDEX` `ALTER INDEX` lub . Wartość MAXDOP jest stosowana do instrukcji w czasie wykonywania i nie jest przechowywana w metadanych indeksu. Aby uzyskać więcej informacji, zobacz [Konfigurowanie równoległych operacji indeksu](/sql/relational-databases/indexes/configure-parallel-index-operations).  
   
--   Operacje indeksowania, które tworzą lub kompilują indeks lub usuwają indeks klastrowany, mogą być czasochłonne. Można zastąpić maksymalny stopień równoległości dla operacji indeksowania przez określenie opcji indeksu MAXDOP w `CREATE INDEX` `ALTER INDEX` instrukcji or. Wartość MAXDOP jest stosowana do instrukcji w czasie wykonywania i nie jest przechowywana w metadanych indeksu. Aby uzyskać więcej informacji, zobacz [Konfigurowanie równoległych operacji indeksów](/sql/relational-databases/indexes/configure-parallel-index-operations).  
-  
--   Oprócz zapytań i operacji indeksowania opcja konfiguracji z zakresem bazy danych dla MAXDOP kontroluje również równoległość instrukcji DBCC CHECKTABLE, DBCC CHECKDB i DBCC CHECKFILEGROUP. 
+-   Oprócz zapytań i operacji indeksowania opcja konfiguracji o zakresie bazy danych dla opcji MAXDOP kontroluje również równoległość innych instrukcji, które mogą używać wykonywania równoległego, takich jak DBCC CHECKTABLE, DBCC CHECKDB i DBCC CHECKFILEGROUP. 
 
-##  <a name="recommendations"></a><a name="Security"></a> Mając  
+##  <a name="recommendations"></a><a name="Recommendations"></a> Zalecenia  
 
-  Zmiana MAXDOP bazy danych może mieć istotny wpływ na wydajność zapytań i wykorzystanie zasobów, zarówno dodatnie, jak i ujemne. Nie istnieje jednak jedna wartość MAXDOP, która jest optymalna dla wszystkich obciążeń. Zalecenia dotyczące ustawiania MAXDOP są złożonych i zależą od wielu czynników. 
+  Zmiana wartości MAXDOP dla bazy danych może mieć duży wpływ na wydajność zapytań i wykorzystanie zasobów, zarówno dodatnie, jak i ujemne. Nie ma jednak pojedynczej wartości MAXDOP, która jest optymalna dla wszystkich obciążeń. Zalecenia [dotyczące](/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines) ustawiania opcji MAXDOP są nuancedne i zależą od wielu czynników. 
 
-  Niektóre obciążenia współbieżne mogą działać lepiej przy użyciu innego MAXDOP niż inne. Prawidłowo skonfigurowany MAXDOP powinien zmniejszyć ryzyko związane z wydajnością i dostępnością, a w niektórych przypadkach obniża koszty, dzięki czemu można uniknąć niepotrzebnych zasobów, a tym samym skalować w dół do niższego celu usługi.
+  Niektóre szczytowe obciążenia współbieżne mogą działać lepiej z inną wartością MAXDOP niż inne. Prawidłowo skonfigurowana wartość MAXDOP powinna zmniejszyć ryzyko wystąpienia zdarzeń związanych z wydajnością i dostępnością, a w niektórych przypadkach może obniżyć koszty dzięki możliwości uniknięcia niepotrzebnego wykorzystania zasobów, a tym samym skalowania w dół do niższego celu usługi.
 
-### <a name="excessive-parallelism"></a>Nadmierna równoległość
+### <a name="excessive-parallelism"></a>Nadmierne równoległość
 
-  Wyższa MAXDOP często skraca czas trwania zapytań intensywnie korzystających z procesora CPU. Jednak nadmierna równoległość może pogorszyć inne współbieżne działanie obciążenia, blokują inne zapytania o zasoby procesora CPU i wątków roboczych. W skrajnych przypadkach nadmierna równoległość może zużywać wszystkie zasoby bazy danych lub puli elastycznej, co powoduje przekroczenie limitu czasu zapytania, błędów i awarii aplikacji. 
+  Większa wartość MAXDOP często skraca czas trwania zapytań intensywnie obciążanych procesorem CPU. Jednak nadmierna równoległość może pogorszyć wydajność innych współbieżnych obciążeń przez blokowania innych zapytań dotyczących zasobów procesora CPU i wątku roboczego. W skrajnych przypadkach nadmierna równoległość może zużywać wszystkie zasoby bazy danych lub elastycznej puli, powodując przekleństwa zapytań, błędy i błędy aplikacji. 
 
-  Firma Microsoft zaleca, aby klienci nie mogli uniknąć MAXDOP 0 nawet wtedy, gdy nie wydaje się, że obecnie powodują problemy. Nadmierna równoległość stanie się najbardziej problematyczna, gdy wątki procesora i procesu roboczego otrzymują więcej współbieżnych żądań, niż może być obsługiwane przez cel usługi. Unikaj MAXDOP 0, aby zmniejszyć ryzyko potencjalnych problemów w przyszłości spowodowanych nadmierną równoległością, jeśli baza danych jest skalowana, lub jeśli przyszłe generacje sprzętu w Azure SQL Database zapewniają więcej rdzeni dla tego samego celu usługi bazy danych.
+> [!Tip]
+> Zalecamy, aby klienci unikali ustawiania wartości MAXDOP na 0, nawet jeśli wydaje się, że obecnie nie powoduje to problemów.
 
-### <a name="modifying-maxdop"></a>Modyfikowanie MAXDOP 
+  Nadmierna równoległość staje się najbardziej problematyczna, gdy istnieje więcej równoczesnych żądań niż jest obsługiwanych przez zasoby procesora CPU i wątku roboczego zapewniane przez cel usługi. Unikaj wartości MAXDOP 0, aby zmniejszyć ryzyko potencjalnych przyszłych problemów z powodu nadmiernej równoległości, jeśli baza danych jest skalowana w górę lub jeśli przyszłe generacje sprzętu w programie Azure SQL Database zapewniają więcej rdzeni dla tego samego celu usługi bazy danych.
 
-  Jeśli określisz, że inne ustawienie MAXDOP jest optymalne dla obciążenia Azure SQL Database, możesz użyć `ALTER DATABASE SCOPED CONFIGURATION` instrukcji języka T-SQL. Przykłady można znaleźć w przykładach [przy użyciu języka Transact-SQL](#examples) . Dodaj ten krok do procesu wdrażania, aby zmienić MAXDOP po utworzeniu bazy danych.
+### <a name="modifying-maxdop"></a>Modyfikowanie maxdop 
 
-  Jeśli MAXDOP inne niż domyślne tylko podzbiór zapytań w obciążeniu, można przesłonić MAXDOP na poziomie zapytania przez dodanie wskazówki OPTION (MAXDOP). Przykłady można znaleźć w przykładach [przy użyciu języka Transact-SQL](#examples) . 
+  Jeśli ustalisz, że ustawienie MAXDOP inne niż domyślne jest optymalne dla obciążenia Azure SQL Database, możesz użyć instrukcji `ALTER DATABASE SCOPED CONFIGURATION` języka T-SQL. Przykłady można znaleźć w sekcji [Przykłady korzystające z języka Transact-SQL](#examples) poniżej. Aby zmienić ustawienie MAXDOP na wartość niedomyślną dla każdej nowo tworzyć bazy danych, dodaj ten krok do procesu wdrażania bazy danych.
 
-  Dokładnie Przetestuj zmiany konfiguracji MAXDOP z testowaniem obciążenia, w tym realistycznie współbieżnych obciążeń zapytań. 
+  Jeśli wartość MAXDOP innych niż domyślna przynosi korzyści tylko niewielkiej części zapytań w obciążeniu, można zastąpić ustawienie MAXDOP na poziomie zapytania, dodając wskazówkę OPTION (MAXDOP). Przykłady można znaleźć w sekcji [Przykłady korzystające z języka Transact-SQL](#examples) poniżej. 
 
-  MAXDOP dla replik podstawowych i pomocniczych można skonfigurować niezależnie, aby korzystać z różnych optymalnych ustawień MAXDOP dla obciążeń do odczytu i zapisu. Dotyczy to Azure SQL Database [odczytywania skalowalnego](read-scale-out.md)w poziomie, [replikacji geograficznej](active-geo-replication-overview.md)i [Azure SQL Database replik pomocniczych w ramach skalowania](service-tier-hyperscale.md). Domyślnie wszystkie repliki pomocnicze dziedziczą konfigurację MAXDOP repliki podstawowej.
+  Dokładnie przetestuj zmiany konfiguracji MAXDOP za pomocą testów obciążeniowych obejmujących realistyczne równoczesne obciążenia zapytań. 
 
-## <a name="security"></a><a name="Security"></a> Bezpieczeństw  
+  Wartość MAXDOP dla replik podstawowych i pomocniczych można skonfigurować niezależnie, jeśli różne ustawienia MAXDOP są optymalne dla obciążeń tylko do odczytu i zapisu. Dotyczy to Azure SQL Database [skalowania odczytu,](read-scale-out.md) [replikacji](active-geo-replication-overview.md)geograficznej [i](service-tier-hyperscale.md) replik pomocniczych w hiperskali. Domyślnie wszystkie repliki pomocnicze dziedziczą konfigurację MAXDOP repliki podstawowej.
+
+## <a name="security"></a><a name="Security"></a> Zabezpieczeń  
   
 ###  <a name="permissions"></a><a name="Permissions"></a> Uprawnienia  
-  `ALTER DATABASE SCOPED CONFIGURATION`Instrukcja musi być wykonywana jako administrator serwera jako członek roli bazy danych `db_owner` lub użytkownik, który udzielił `ALTER ANY DATABASE SCOPED CONFIGURATION` uprawnienia.
+  Instrukcja musi być wykonywana jako administrator serwera, jako członek roli bazy danych lub użytkownik, który `ALTER DATABASE SCOPED CONFIGURATION` `db_owner` ma przyznane `ALTER ANY DATABASE SCOPED CONFIGURATION` uprawnienie.
  
 ## <a name="examples"></a>Przykłady   
 
-  Te przykłady używają najnowszej przykładowej bazy danych **AdventureWorksLT** w przypadku `SAMPLE` wybrania opcji dla nowej pojedynczej bazy danych Azure SQL Database.
+  W tych przykładach jest dostępna najnowsza przykładowa baza danych **AdventureWorksLT,** gdy zostanie wybrana opcja dla nowej pojedynczej bazy danych `SAMPLE` Azure SQL Database.
 
 ### <a name="powershell"></a>PowerShell
 
-#### <a name="maxdop-database-scoped-configuration"></a>Konfiguracja zakresu bazy danych MAXDOP   
+#### <a name="maxdop-database-scoped-configuration"></a>Konfiguracja o zakresie bazy danych MAXDOP   
 
-  Ten przykład pokazuje, jak używać instrukcji [ALTER DATABASE scoped Configuration](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) w celu skonfigurowania `max degree of parallelism` opcji `2` . To ustawienie jest stosowane od razu. Polecenie cmdlet programu PowerShell [Invoke-sqlcmd](/powershell/module/sqlserver/invoke-sqlcmd) wykonuje zapytania T-SQL, aby ustawić i zwrócić konfigurację zakresu bazy danych MAXDOP Database. 
+  W tym przykładzie pokazano, jak [za pomocą instrukcji ALTER DATABASE SCOPED CONFIGURATION](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) ustawić `MAXDOP` konfigurację na `2` . To ustawienie jest natychmiastowe w przypadku nowych zapytań. Polecenie cmdlet programu PowerShell [Invoke-SqlCmd](/powershell/module/sqlserver/invoke-sqlcmd) wykonuje zapytania T-SQL do ustawienia i zwraca konfigurację o zakresie bazy danych MAXDOP. 
 
 ```powershell
 $dbName = "sample" 
@@ -116,7 +124,7 @@ $params = @{
   Invoke-SqlCmd @params
 ```
 
-Ten przykład jest przeznaczony do użycia z bazami danych Azure SQL Database z włączonymi replikami [skalowalnymi](read-scale-out.md)w poziomie, [replikacją geograficzną](active-geo-replication-overview.md)i [Azure SQL Databaseami pomocniczymi w ramach skalowania](service-tier-hyperscale.md)w poziomie. Przykładowo replika podstawowa jest ustawiona na inną domyślną MAXDOP jako replikę pomocniczą, co wskazuje na to, że mogą wystąpić różnice między obsługą odczytu i zapisu a obciążeniem tylko do odczytu.
+Ten przykład jest do użytku z bazami Azure SQL z włączonymi replikami skalowania w celu [odczytu,](read-scale-out.md)replikacją geograficzną i Azure SQL Database [replikami pomocniczym w hiperskali.](service-tier-hyperscale.md) [](active-geo-replication-overview.md) Na przykład replika podstawowa jest ustawiana na inną domyślną wartość MAXDOP jako replikę pomocniczą, przewidując, że mogą wystąpić różnice między obciążeniem odczytu i zapisu a obciążeniem tylko do odczytu.
 
 ```powershell
 $dbName = "sample" 
@@ -141,30 +149,29 @@ $params = @{
 
 ### <a name="transact-sql"></a>Transact-SQL
   
-  Aby wykonać zapytania T-SQL dotyczące Azure SQL Database, można użyć [edytora zapytań Azure Portal](connect-query-portal.md), [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms)lub [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) .
+  Możesz użyć edytora [Azure Portal](connect-query-portal.md)zapytań , [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms)lub [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) do wykonywania zapytań T-SQL względem Azure SQL Database.
 
-1.  Połącz się z Azure SQL Database. Nie można zmienić konfiguracji bazy danych w bazie danych Master.
+1.  Otwórz nowe okno zapytania.
+
+2.  Połącz się z bazą danych, w której chcesz zmienić wartość MAXDOP. W bazie danych master nie można zmieniać konfiguracji o zakresie bazy danych.
   
-2.  Na pasku standardowym wybierz pozycję **nowe zapytanie**.   
-  
-3.  Skopiuj i wklej poniższy przykład do okna zapytania i wybierz polecenie **Execute (wykonaj**). 
+3.  Skopiuj i wklej poniższy przykład w oknie zapytania, a następnie wybierz pozycję **Wykonaj**. 
 
+#### <a name="maxdop-database-scoped-configuration"></a>Konfiguracja o zakresie bazy danych MAXDOP
 
-#### <a name="maxdop-database-scoped-configuration"></a>Konfiguracja zakresu bazy danych MAXDOP
-
-  W tym przykładzie pokazano, jak określić bieżącą konfigurację bazy danych MAXDOP baza danych przy użyciu widoku wykazu systemu [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql) .
+  W tym przykładzie pokazano, jak określić bieżącą konfigurację bazy danych MAXDOP o zakresie bazy danych przy [użyciu sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql) wykazu systemu.
 
 ```sql
 SELECT [value] FROM sys.database_scoped_configurations WHERE [name] = 'MAXDOP';
 ```
 
-  Ten przykład pokazuje, jak używać instrukcji [ALTER DATABASE scoped Configuration](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) w celu skonfigurowania `max degree of parallelism` opcji `8` . To ustawienie jest stosowane od razu.  
+  W tym przykładzie pokazano, jak [za pomocą instrukcji ALTER DATABASE SCOPED CONFIGURATION](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) ustawić `MAXDOP` konfigurację na `8` . To ustawienie jest stosowane od razu.  
   
 ```sql  
 ALTER DATABASE SCOPED CONFIGURATION SET MAXDOP = 8;
 ```  
 
-Ten przykład jest przeznaczony do użycia z bazami danych Azure SQL Database z włączonymi replikami [skalowalnymi](read-scale-out.md)w poziomie, [replikacją geograficzną](active-geo-replication-overview.md)i [Azure SQL Databaseami pomocniczymi w ramach skalowania](service-tier-hyperscale.md)w poziomie. Przykładowo replika podstawowa jest ustawiona na inną domyślną MAXDOP jako replikę pomocniczą, co wskazuje na to, że mogą wystąpić różnice między obsługą odczytu i zapisu a obciążeniem tylko do odczytu. `value_for_secondary`Kolumna `sys.database_scoped_configurations` zawierająca ustawienia dla repliki pomocniczej.
+Ten przykład jest do użytku z bazami Azure SQL z włączonymi replikami skalowania w celu [odczytu,](read-scale-out.md)replikacją geograficzną i [replikami](service-tier-hyperscale.md) pomocniczym w hiperskali. [](active-geo-replication-overview.md) Na przykład replika podstawowa jest ustawiona na inną wartość MAXDOP niż replika pomocnicza, przewidując, że mogą wystąpić różnice między obciążeniami tylko do odczytu i zapisu. Wszystkie instrukcje są wykonywane w replice podstawowej. Kolumna `value_for_secondary` zawiera `sys.database_scoped_configurations` ustawienia repliki pomocniczej.
 
 ```sql
 ALTER DATABASE SCOPED CONFIGURATION SET MAXDOP = 8;
@@ -172,9 +179,9 @@ ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET MAXDOP = 1;
 SELECT [value], value_for_secondary FROM sys.database_scoped_configurations WHERE [name] = 'MAXDOP';
 ```
 
-#### <a name="maxdop-query-hint"></a>MAXDOP — Wskazówka zapytania
+#### <a name="maxdop-query-hint"></a>Wskazówka zapytania MAXDOP
 
-  Ten przykład pokazuje, jak wykonać zapytanie za pomocą wskazówki zapytania, aby wymusić `max degree of parallelism` `2` .  
+  W tym przykładzie pokazano, jak wykonać zapytanie przy użyciu wskazówki zapytania, aby wymusić `max degree of parallelism` na `2` .  
 
 ```sql 
 SELECT ProductID, OrderQty, SUM(LineTotal) AS Total  
@@ -185,9 +192,9 @@ ORDER BY ProductID, OrderQty
 OPTION (MAXDOP 2);    
 GO
 ```
-#### <a name="maxdop-index-option"></a>MAXDOP — opcja indeksu
+#### <a name="maxdop-index-option"></a>Opcja indeksu MAXDOP
 
-  Ten przykład pokazuje, jak ponownie skompilować indeks przy użyciu opcji indeks, aby wymusić `max degree of parallelism` `12` .  
+  W tym przykładzie pokazano, jak ponownie skompilować indeks przy użyciu opcji indeksu, aby wymusić `max degree of parallelism` na . `12`  
 
 ```sql 
 ALTER INDEX ALL ON SalesLT.SalesOrderDetail 
@@ -198,13 +205,13 @@ REBUILD WITH
 ```
 
 ## <a name="see-also"></a>Zobacz też  
-* [Konfiguracja ALTER DATABASE SCOPEd &#40;Transact-SQL&#41;](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql)        
+* [ALTER DATABASE SCOPED CONFIGURATION &#40;Transact-SQL&#41;](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql)        
 * [sys.database_scoped_configurations (Transact-SQL)](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql)
-* [Konfigurowanie równoległych operacji indeksów](/sql/relational-databases/indexes/configure-parallel-index-operations)    
-* [Wskazówki dotyczące zapytań &#40;Transact-SQL&#41;](/sql/t-sql/queries/hints-transact-sql-query)     
+* [Konfigurowanie równoległych operacji indeksu](/sql/relational-databases/indexes/configure-parallel-index-operations)    
+* [Wskazówki dotyczące zapytań &#40;języka Transact-SQL&#41;](/sql/t-sql/queries/hints-transact-sql-query)     
 * [Ustawianie opcji indeksu](/sql/relational-databases/indexes/set-index-options)     
-* [Zrozumienie i rozwiązywanie problemów z blokowaniem Azure SQL Database](understand-resolve-blocking.md)
+* [Zrozumienie i rozwiązywanie Azure SQL Database problemów z blokowaniem](understand-resolve-blocking.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Monitorowanie i dostrajanie wydajności](/sql/relational-databases/performance/monitor-and-tune-for-performance)
+* [Monitorowanie i dostrajanie pod celu wydajności](/sql/relational-databases/performance/monitor-and-tune-for-performance)

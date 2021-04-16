@@ -2,7 +2,7 @@
   href: index.yml
 - name: Omówienie
   href: overview.md
-- name: Co nowego w usłudze Azure — Wskaźnikowanie?
+- name: Co nowego w programie Azure Sentinel?
   href: whats-new.md
 - name: Przewodniki Szybki start
   expanded: true
@@ -21,9 +21,9 @@
       href: tutorial-monitor-your-data.md
     - name: Badanie zdarzeń
       href: tutorial-investigate-cases.md
-    - name: Reagowanie na zagrożenia za pomocą usługi Automation
+    - name: Reagowanie na zagrożenia przy użyciu automatyzacji
       href: tutorial-respond-threats-playbook.md
-    - name: Tworzenie zapytań KQL (informacje o module)
+    - name: Tworzenie zapytań KQL (moduł Learn)
       href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
 - name: Pojęcia
   items:
@@ -35,17 +35,17 @@
           href: roles.md
         - name: Zarządzanie dostępem do zasobów
           href: resource-context-rbac.md
-        - name: Ochrona własności intelektualnej MSSP
+        - name: Ochrona własności intelektualnej programu MSSP
           href: mssp-protect-intellectual-property.md
     - name: Zaawansowane wieloetapowe wykrywanie ataków
       href: fusion.md
-    - name: Automatyzacja (o)
+    - name: Automation (SOAR)
       items:
-        - name: O na platformie Azure — wskaźnik
+        - name: SOAR w Azure Sentinel
           href: automation-in-azure-sentinel.md
-        - name: Reguły automatyzacji dla obsługi zdarzeń
+        - name: Reguły automatyzacji obsługi zdarzeń
           href: automate-incident-handling-with-automation-rules.md
-        - name: Zaawansowana Automatyzacja za pomocą elementy PlayBook
+        - name: Zaawansowana automatyzacja za pomocą podręczników
           href: automate-responses-with-playbooks.md
     - name: Identyfikowanie zaawansowanych zagrożeń za pomocą analizy UEBA
       href: identify-threats-with-entity-behavior-analytics.md
@@ -53,7 +53,7 @@
       href: import-threat-intelligence.md
     - name: Korzystanie z własnej platformy uczenia maszynowego
       href: bring-your-own-ml.md
-    - name: Integrowanie usługi Microsoft 365 Defender z platformą Azure — wskaźnikiem
+    - name: Integrowanie Microsoft 365 Defender z Azure Sentinel
       href: microsoft-365-defender-sentinel-integration.md
     - name: Używanie danych zewnętrznych z listami obserwowanych
       href: watchlists.md
@@ -96,7 +96,7 @@
               href: connect-azure-sql-logs.md
             - name: Zapora aplikacji internetowej platformy Azure
               href: connect-azure-waf.md
-            - name: Defender for IoT (dawniej ASC for IoT)
+            - name: Defender dla IoT (wcześniej ASC for IoT)
               href: connect-asc-iot.md
             - name: Serwer nazw domen
               href: connect-dns.md
@@ -120,15 +120,17 @@
               href: connect-windows-firewall.md
             - name: Zdarzenia zabezpieczeń systemu Windows
               href: connect-windows-security-events.md
+            - name: Windows Virtual Desktop
+              href: connect-windows-virtual-desktop.md
         - name: Łączenie z rozwiązaniami zewnętrznymi
           items:
-            - name: Agari phishing i ochrona przed markami
+            - name: Agari Phishing Defense and Brand Protection
               href: connect-agari-phishing-defense.md
             - name: Alcide kAudit
               href: connect-alcide-kaudit.md
-            - name: Alsid Active Directory
+            - name: Alsid dla usługi Active Directory
               href: connect-alsid-active-directory.md
-            - name: Serwer Apache HTTP
+            - name: Apache HTTP Server
               href: connect-apache-http-server.md
             - name: Zapora aplikacji internetowej Barracuda
               href: connect-barracuda.md
@@ -150,13 +152,13 @@
               href: connect-f5-big-ip.md
             - name: Forcepoint DLP
               href: connect-forcepoint-dlp.md
-            - name: Google Workspace (G Suite)
+            - name: Obszar roboczy Google (G Suite)
               href: connect-google-workspace.md
             - name: Infoblox NIOS
               href: connect-infoblox.md
             - name: Juniper SRX
               href: connect-juniper-srx.md
-            - name: NXLog dzienników DNS
+            - name: Dzienniki DNS NXLog
               href: connect-nxlog-dns.md
             - name: NXLog LinuxAudit
               href: connect-nxlog-linuxaudit.md
@@ -176,7 +178,7 @@
               href: connect-qualys-vm.md
             - name: Salesforce Service Cloud
               href: connect-salesforce-service-cloud.md
-            - name: Sophos Cloud OPTIX
+            - name: Sophos Cloud Dox
               href: connect-sophos-cloud-optix.md
             - name: Sophos XG Firewall
               href: connect-sophos-xg-firewall.md
@@ -210,11 +212,11 @@
                   items:
                     - name: AI Vectra Detect
                       href: connect-ai-vectra-detect.md
-                    - name: Zdarzenia zabezpieczeń Akamai
+                    - name: Zdarzenia zabezpieczeń akamai
                       href: connect-akamai-security-events.md
                     - name: Aruba ClearPass
                       href: connect-aruba-clearpass.md
-                    - name: Funkcja DLP firmy Symantec
+                    - name: Broadcom Symantec DLP
                       href: connect-broadcom-symantec-dlp.md
                     - name: Check Point
                       href: connect-checkpoint.md
@@ -260,9 +262,9 @@
           href: connect-azure-stack.md
         - name: Monitorowanie kondycji łącznika danych
           href: monitor-data-connector-health.md
-    - name: Włącz analizę zachowania użytkowników i jednostek
+    - name: Włączanie analizy zachowania użytkowników i jednostek
       href: enable-entity-behavior-analytics.md
-    - name: Mapowanie pól danych do jednostek
+    - name: Mapowanie pól danych na jednostki
       href: map-data-fields-to-entities.md
     - name: Zarządzanie wieloma dzierżawami (MSSP)
       href: multiple-tenants-service-providers.md
@@ -270,13 +272,13 @@
       href: multiple-workspace-view.md
     - name: Konfigurowanie kluczy zarządzanych przez klienta (CMK)
       href: customer-managed-keys.md
-    - name: Szczegóły powierzchni niestandardowej w alertach
+    - name: Surface custom details in alerts (Powierzchnię szczegółów niestandardowych w alertach)
       href: surface-custom-details-in-alerts.md
     - name: Tworzenie zdarzeń na podstawie alertów
       href: create-incidents-from-alerts.md
     - name: Lepsze zarządzanie centrum operacji zabezpieczeń przy użyciu metryk zdarzeń
       href: manage-soc-with-incident-metrics.md
-    - name: Inspekcja zapytań i działań wskaźnikowych platformy Azure
+    - name: Inspekcja Azure Sentinel i działań
       href: audit-sentinel-data.md
     - name: Wyszukiwanie zagrożeń
       href: hunting.md
@@ -291,7 +293,7 @@
       href: offboard.md
 - name: Odwołanie
   items:
-    - name: Najpopularniejsze skoroszyty wskaźnikowe platformy Azure
+    - name: Najważniejsze Azure Sentinel skoroszytów
       href: top-workbooks.md
     - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/ext/sentinel/sentinel
@@ -299,19 +301,19 @@
       items:
         - name: Wszystkie role platformy Azure
           href: ../role-based-access-control/built-in-roles.md#all
-        - name: Role wskaźnikowe platformy Azure
+        - name: Azure Sentinel ról
           href: ../role-based-access-control/built-in-roles.md#security
     - name: Interfejsy API REST
       items:
-        - name: Interfejs API REST platformy Azure
+        - name: Azure Sentinel REST-API
           href: /rest/api/securityinsights/
         - name: Zarządzanie zapytaniami do wyszukiwania zagrożeń za pomocą interfejsu REST-API
           href: hunting-with-rest-api.md
-        - name: Zarządzanie watchlists za pomocą interfejsu REST API
+        - name: Zarządzanie listami do obejrzenia za pomocą interfejsu API REST
           href: watchlist-with-rest-api.md
     - name: Łącznik usługi Logic Apps dla usługi Azure Sentinel
       href: /connectors/azuresentinel/
-    - name: Odwołania do jednostek
+    - name: Informacje o jednostkach
       href: entities-reference.md
     - name: Schemat normalizacji sieci
       href: normalization-schema.md
@@ -319,21 +321,21 @@
       href: data-source-schema-reference.md
     - name: Język zapytań Kusto
       items:
-        - name: Przegląd zapytania Kusto
+        - name: Omówienie zapytań Kusto
           href: /azure/data-explorer/kusto/query/
         - name: Krótki przewodnik po języku zapytań Kusto
           href: /azure/data-explorer/kql-quick-reference
-        - name: Optymalizacje zapytań w dzienniku Azure Monitor
+        - name: Azure Monitor zapytań dziennika
           href: ../azure-monitor/logs/query-optimization.md
     - name: Wzbogacanie z użyciem analizy behawioralnej użytkowników i jednostek
       href: ueba-enrichments.md
-    - name: Mapowanie pola dziennika CEF
+    - name: Mapowanie pól dziennika CEF
       href: cef-name-mapping.md
 - name: Zasoby
   items:
     - name: Przydatne zasoby
       href: resources.md
-    - name: Blog dotyczący systemu Azure wskaźnikowego
+    - name: Azure Sentinel bloga
       href: 'https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog'
     - name: Dostępność regionalna
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel'

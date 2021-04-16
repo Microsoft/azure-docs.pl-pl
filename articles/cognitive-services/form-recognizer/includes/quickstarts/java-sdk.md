@@ -1,52 +1,52 @@
 ---
-title: 'Szybki Start: Biblioteka klienta aparatu rozpoznawania formularzy dla języka Java'
-description: Biblioteka klienta aparatu rozpoznawania formularzy dla języka Java służy do tworzenia aplikacji przetwarzającej formularze, która wyodrębnia pary klucz/wartość i dane tabeli z dokumentów niestandardowych.
+title: 'Szybki start: Rozpoznawanie formularzy klienta dla języka Java'
+description: Użyj biblioteki Rozpoznawanie formularzy dla języka Java, aby utworzyć aplikację do przetwarzania formularzy, która wyodrębnia pary klucz/wartość i dane tabeli z dokumentów niestandardowych.
 services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 03/19/2021
+ms.date: 04/14/2021
 ms.custom: devx-track-java
 ms.author: lajanuar
-ms.openlocfilehash: a709f82b04ed5c1fe70f6927b33605cfff20ed6b
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: cd5e6383e71e3f37a26b866156b64c86302f6990
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104761248"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107516449"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
 > [!IMPORTANT]
-> Kod w tym artykule używa metod synchronicznych i niezabezpieczonych magazynów poświadczeń z przyczyn uproszczenia.
+> Kod w tym artykule używa metod synchronicznych i niezabędnego magazynu poświadczeń dla uproszczenia.
 
-[Dokumentacja](/java/api/overview/azure/ai-formrecognizer-readme)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src)  |  źródłowy biblioteki [Pakiet (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer)  |  [Przykłady](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
+[Dokumentacja referencyjna](/java/api/overview/azure/ai-formrecognizer-readme)  |  [Kod źródłowy biblioteki](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src)  |  [Pakiet (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer)  |  [Przykłady](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
+* Subskrypcja platformy Azure [— tworzenie bezpłatnej subskrypcji](https://azure.microsoft.com/free/cognitive-services)
 * Bieżąca wersja [zestawu Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* [Narzędzie kompilacji Gradle](https://gradle.org/install/)lub inny Menedżer zależności.
-* Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" Utwórz zasób aparatu rozpoznawania formularzy "  target="_blank"> Utwórz zasób aparatu rozpoznawania formularza </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
-  * Będziesz potrzebować klucza i punktu końcowego z zasobu, który utworzysz, aby połączyć aplikację z interfejsem API rozpoznawania formularzy. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
-  * Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
-* Obiekt BLOB usługi Azure Storage zawierający zestaw danych szkoleniowych. Zapoznaj się z tematem [Tworzenie zestawu danych szkoleniowych dla modelu niestandardowego](../../build-training-data-set.md) w celu uzyskania wskazówek i opcji związanych z zestawem danych szkoleniowych. W tym przewodniku szybki start można użyć plików w folderze **uczenie** [zestawu danych przykładowych](https://go.microsoft.com/fwlink/?linkid=2090451) (pobierz i Wyodrębnij *sample_data.zip*).
+* Narzędzie [kompilacji Gradle](https://gradle.org/install/)lub inny menedżer zależności.
+* Po utworzeniu subskrypcji platformy Azure utwórz zasób Rozpoznawanie formularzy utwórz zasób usługi Rozpoznawanie formularzy w witrynie Azure Portal, aby uzyskać <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" "  target="_blank"> klucz i punkt </a> końcowy. Po wdrożeniu kliknij pozycję **Przejdź do zasobu**.
+  * Klucz i punkt końcowy z zasobu, który utworzysz, będą potrzebne do połączenia aplikacji z Rozpoznawanie formularzy API. Klucz i punkt końcowy wkleisz do poniższego kodu w dalszej części tego przewodnika Szybki start.
+  * Możesz użyć bezpłatnej warstwy cenowej ( ), aby wypróbować usługę, a następnie przejść na warstwę płatną w `F0` środowisku produkcyjnym.
+* Obiekt blob usługi Azure Storage zawierający zestaw danych szkoleniowych. Aby uzyskać porady i opcje dotyczące kompilowania zestawu danych treningowych, zobacz Build a training data [set for a custom model](../../build-training-data-set.md) (Tworzenie zestawu danych treningowych dla modelu niestandardowego). W tym przewodniku Szybki start możesz użyć plików w folderze **Train** przykładowego zestawu danych [(pobierz](https://go.microsoft.com/fwlink/?linkid=2090451) i *wyodrębnij* sample_data.zip).
 
 ## <a name="setting-up"></a>Konfigurowanie
 
-### <a name="create-a-new-gradle-project"></a>Utwórz nowy projekt Gradle
+### <a name="create-a-new-gradle-project"></a>Tworzenie nowego projektu gradle
 
-W oknie konsoli (na przykład cmd, PowerShell lub bash) Utwórz nowy katalog dla aplikacji i przejdź do niego. 
+W oknie konsoli (takim jak cmd, PowerShell lub Bash) utwórz nowy katalog dla aplikacji i przejdź do niego.
 
 ```console
 mkdir myapp && cd myapp
 ```
 
-Uruchom `gradle init` polecenie z katalogu roboczego. To polecenie spowoduje utworzenie podstawowych plików kompilacji dla Gradle, w tym *Build. Gradle. KTS* , który jest używany w środowisku uruchomieniowym do tworzenia i konfigurowania aplikacji.
+Uruchom polecenie `gradle init` z katalogu roboczego. To polecenie spowoduje utworzenie podstawowych plików kompilacji dla programu Gradle, w tym *pliku build.gradle.kts,* który jest używany w czasie wykonywania do tworzenia i konfigurowania aplikacji.
 
 ```console
 gradle init --type basic
@@ -54,13 +54,13 @@ gradle init --type basic
 
 Po wyświetleniu monitu wybierz pozycję **Język DSL**, a następnie **Kotlin**.
 
-### <a name="install-the-client-library"></a>Zainstaluj bibliotekę kliencką
+### <a name="install-the-client-library"></a>Instalowanie biblioteki klienta
 
-Ten przewodnik Szybki Start używa Menedżera zależności Gradle. Bibliotekę i informacje o kliencie można znaleźć dla innych menedżerów zależności w [repozytorium centralnym Maven](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer).
+W tym przewodniku Szybki start jest używany menedżer zależności gradle. Bibliotekę klienta i informacje dla innych menedżerów zależności można znaleźć w centralnym [repozytorium maven.](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer)
 
-W pliku *Build. Gradle. KTS* projektu Dołącz bibliotekę klienta jako `implementation` instrukcję wraz z wymaganymi wtyczkami i ustawieniami.
+W pliku *build.gradle.kts* projektu dołącz bibliotekę klienta jako instrukcje wraz z wymaganymi `implementation` wtyczkami i ustawieniami.
 
-#### <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/preview)
+#### <a name="v21-preview"></a>[Wersja zapoznawcza 2.1](#tab/preview)
 
 ```kotlin
 plugins {
@@ -74,12 +74,12 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.1.0-beta.1")
+    implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.1.0-beta.3")
 }
 ```
 
 > [!NOTE]
-> Zestaw SDK 3.1.0 usługi rozpoznawania formularzy odzwierciedla _interfejs API w wersji 2,1 Preview. 2_. Użyj [**interfejsu API REST**](../../quickstarts/client-library.md) dla _interfejsu api w wersji 2,1 Preview. 3_.
+> Zestaw SDK Rozpoznawanie formularzy 3.1.0-beta.3 odzwierciedla interfejs API w wersji _2.1-preview.3._
 
 #### <a name="v20"></a>[Wersja 2.0](#tab/ga)
 
@@ -95,50 +95,50 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.0.0")
+    implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.1.0-beta.3")
 }
 ```
 
 > [!NOTE]
-> Zestaw 3.0.0 SDK aparatu rozpoznawania formularzy odzwierciedla interfejs API v 2.0
+> Zestaw SDK Rozpoznawanie formularzy 3.0.0 odzwierciedla interfejs API w wersji 2.1-preview.3
 
 ---
 
 ### <a name="create-a-java-file"></a>Tworzenie pliku języka Java
 
 
-W katalogu roboczym Uruchom następujące polecenie:
+Z katalogu roboczego uruchom następujące polecenie:
 
 ```console
 mkdir -p src/main/java
 ```
 
-Przejdź do nowego folderu i Utwórz plik o nazwie *FormRecognizer. Java*. Otwórz go w preferowanym edytorze lub środowisku IDE i Dodaj następujące `import` instrukcje:
+Przejdź do nowego folderu i utwórz plik o nazwie *FormRecognizer.java.* Otwórz go w preferowanym edytorze lub w środowiskach IDE i dodaj następujące `import` instrukcje:
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_imports)]
 
 > [!TIP]
-> Chcesz wyświetlić cały plik kodu szybkiego startu jednocześnie? Można je znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/FormRecognizer.java), która zawiera przykłady kodu w tym przewodniku Szybki Start.
+> Chcesz wyświetlić cały plik kodu szybkiego startu jednocześnie? Można go znaleźć w witrynie [GitHub,](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/FormRecognizer.java)która zawiera przykłady kodu w tym przewodniku Szybki start.
 
 
-W klasie **FormRecognizer** aplikacji Utwórz zmienne dla klucza i punktu końcowego zasobu.
+W klasie **FormRecognizer** aplikacji utwórz zmienne dla klucza i punktu końcowego zasobu.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_creds)]
 
 > [!IMPORTANT]
-> Przejdź do witryny Azure Portal. Jeśli zasób aparatu rozpoznawania formularza utworzony w sekcji **wymagania wstępne** został wdrożony pomyślnie, kliknij przycisk **Przejdź do zasobu** w obszarze **następne kroki**. Klucz i punkt końcowy można znaleźć na stronie **klucz zasobu i punkt końcowy** w obszarze **Zarządzanie zasobami**. 
+> Przejdź do witryny Azure Portal. Jeśli zasób Rozpoznawanie formularzy utworzony w sekcji **Wymagania** wstępne został pomyślnie wdrożony, kliknij przycisk Przejdź do **zasobu** w obszarze Następne **kroki.** Klucz i punkt końcowy można znaleźć  na stronie klucza i punktu końcowego zasobu w obszarze **zarządzanie zasobami**.
 >
-> Pamiętaj, aby usunąć klucz z kodu, gdy skończysz, i nigdy nie Publikuj go publicznie. W przypadku produkcji należy rozważyć użycie bezpiecznego sposobu przechowywania poświadczeń i uzyskiwania do nich dostępu. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [zabezpieczeń](../../../cognitive-services-security.md) Cognitive Services.
+> Pamiętaj, aby usunąć klucz z kodu, gdy wszystko będzie gotowe, i nigdy nie publikować go publicznie. W środowisku produkcyjnym rozważ użycie bezpiecznego sposobu przechowywania poświadczeń i uzyskiwania do nich dostępu. Zobacz artykuł Cognitive Services [zabezpieczeń,](../../../cognitive-services-security.md) aby uzyskać więcej informacji.
 
-W metodzie **głównej** aplikacji Dodaj wywołania metod używanych w tym przewodniku Szybki Start. Zdefiniujesz je później. Należy również dodać odwołania do adresów URL dla danych szkoleniowych i testowych.
+W metodzie main **aplikacji** dodaj wywołania metod używanych w tym przewodniku Szybki start. Zdefiniujesz je później. Musisz również dodać odwołania do adresów URL dla danych szkoleniowych i testowych.
 
 * [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
-  
-   :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="Pobieranie adresu URL SAS":::
-* Aby uzyskać adres URL formularza do przetestowania, możesz wykonać powyższe kroki, aby uzyskać adres URL sygnatury dostępu współdzielonego pojedynczego dokumentu w usłudze BLOB Storage. Lub podejmij adres URL dokumentu znajdującego się w innym miejscu.
-* Użyj powyższej metody, aby uzyskać również adres URL obrazu paragonu.
+
+   :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="Pobieranie adresu URL sygnatury dostępu współdzielonego":::
+* Aby uzyskać adres URL formularza do przetestowania, możesz wykonać powyższe kroki, aby uzyskać adres URL sygnatury dostępu współdzielonego pojedynczego dokumentu w magazynie obiektów blob. Możesz też wziąć adres URL dokumentu znajdującego się w innym miejscu.
+* Użyj powyższej metody, aby uzyskać adres URL obrazu potwierdzenia.
 <!-- markdownlint-disable MD024 -->
-#### <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/preview)
+#### <a name="v21-preview"></a>[Wersja zapoznawcza 2.1](#tab/preview)
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_mainvars)]
 
@@ -152,75 +152,75 @@ W metodzie **głównej** aplikacji Dodaj wywołania metod używanych w tym przew
 
 ---
 
-## <a name="object-model"></a>Model obiektów
+## <a name="object-model"></a>Model obiektu
 
-Za pomocą aparatu rozpoznawania formularzy można utworzyć dwa różne typy klientów. Pierwszy `FormRecognizerClient` jest używany do wysyłania zapytań do usługi do rozpoznanych pól formularzy i zawartości. Drugi — `FormTrainingClient` służy do tworzenia modeli niestandardowych i zarządzania nimi, których można użyć w celu usprawnienia rozpoznawania.
+Za Rozpoznawanie formularzy można utworzyć dwa różne typy klientów. Pierwszy z nich `FormRecognizerClient` służy do wykonywania zapytań o usługę w celu rozpoznania pól formularza i zawartości. Drugi to tworzenie modeli niestandardowych, których można używać do ulepszania rozpoznawania, oraz zarządzanie `FormTrainingClient` nimi.
 
 ### <a name="formrecognizerclient"></a>FormRecognizerClient
 
-`FormRecognizerClient` zawiera operacje dla:
+`FormRecognizerClient` Udostępnia operacje dla:
 
-* Rozpoznawanie pól formularzy i zawartości przy użyciu modeli niestandardowych przeszkolonych w celu analizowania formularzy niestandardowych.  Te wartości są zwracane w kolekcji `RecognizedForm` obiektów. Zobacz przykład [Analizowanie formularzy niestandardowych](#analyze-forms-with-a-custom-model).
-* Rozpoznawanie zawartości formularza, w tym tabel, wierszy i słów, bez konieczności uczenia modelu.  Zawartość formularza jest zwracana w kolekcji `FormPage` obiektów. Zobacz przykład [Analizowanie układu](#analyze-layout).
-* Rozpoznawanie typowych pól z paragonów w Stanach Zjednoczonych przy użyciu wstępnie przeszkolonego modelu paragonów w usłudze aparat rozpoznawania formularzy.  Te pola i meta dane są zwracane w kolekcji `RecognizedForm` obiektów. Zobacz przykład [Analizowanie potwierdzeń](#analyze-receipts).
+* Rozpoznawanie pól formularzy i zawartości przy użyciu modeli niestandardowych przeszkolonych do analizowania formularzy niestandardowych.  Te wartości są zwracane w kolekcji `RecognizedForm` obiektów . Zobacz przykład [Analyze custom forms (Analizowanie formularzy niestandardowych).](#analyze-forms-with-a-custom-model)
+* Rozpoznawanie zawartości formularza, w tym tabel, wierszy i słów, bez konieczności trenowania modelu.  Zawartość formularza jest zwracana w kolekcji `FormPage` obiektów. Zobacz [przykładowy układ Analizowanie](#analyze-layout).
+* Rozpoznawanie typowych pól z dokumentów dokumentów tożsamości, wizytówek, wizytówek, dokumentów z USA przy użyciu wstępnie wytrenowany model w Rozpoznawanie formularzy service.
 
 ### <a name="formtrainingclient"></a>FormTrainingClient
 
-`FormTrainingClient` zawiera operacje dla:
+`FormTrainingClient` Udostępnia operacje dla:
 
-* Szkolenie modeli niestandardowych w celu przeanalizowania wszystkich pól i wartości znalezionych w formularzach niestandardowych.  `CustomFormModel`Jest zwracany, wskazując typy formularzy, które będą analizowane przez model, oraz pola, które będą wyodrębniane dla każdego typu formularza.
-* Szkolenie modeli niestandardowych w celu przeanalizowania określonych pól i wartości przez etykietowanie formularzy niestandardowych.  `CustomFormModel`Zwraca wartość wskazującą pola, które będą wyodrębniane przez model, a także szacowaną dokładność dla każdego pola.
-* Zarządzanie modelami utworzonymi na Twoim koncie.
-* Kopiowanie modelu niestandardowego z jednego do drugiego zasobu aparatu rozpoznawania formularza.
+* Trenuj modele niestandardowe w celu analizowania wszystkich pól i wartości znalezionych w formularzach niestandardowych.  Zwracany jest typ formularza, który będzie analizowany przez model, oraz pola `CustomFormModel` wyodrębnione dla każdego typu formularza.
+* Trenowanie modeli niestandardowych w celu analizowania określonych pól i wartości określonych przez etykietowanie formularzy niestandardowych.  Jest `CustomFormModel` zwracana wartość wskazująca pola, które model wyodrębni, a także szacowaną dokładność dla każdego pola.
+* Zarządzanie modelami utworzonymi na koncie.
+* Kopiowanie modelu niestandardowego z jednego zasobu Rozpoznawanie formularzy do innego.
 
 > [!NOTE]
-> Modele mogą być również przeszkolone przy użyciu graficznego interfejsu użytkownika, takiego jak [Narzędzie do etykietowania aparatów rozpoznawania formularzy](../../quickstarts/label-tool.md).
+> Modele można również wytrenować przy użyciu graficznego interfejsu użytkownika, takiego [jak Rozpoznawanie formularzy Labeling Tool.](../../quickstarts/label-tool.md)
 
 ## <a name="code-examples"></a>Przykłady kodu
 
-Te fragmenty kodu przedstawiają sposób wykonywania następujących zadań za pomocą biblioteki klienckiej aparatu rozpoznawania w języku Java:
+Te fragmenty kodu pokazują, jak wykonać następujące zadania za pomocą biblioteki Rozpoznawanie formularzy klienta dla języka Java:
 <!-- markdownlint-disable MD001 -->
-#### <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/preview)
+#### <a name="v21-preview"></a>[Wersja zapoznawcza 2.1](#tab/preview)
 
 * [Uwierzytelnianie klienta](#authenticate-the-client)
 * [Analizowanie układu](#analyze-layout)
-* [Analizuj potwierdzenia](#analyze-receipts)
-* [Analizowanie kart służbowych](#analyze-business-cards)
-* [Analizuj faktury](#analyze-invoices)
+* [Analizowanie paragonów](#analyze-receipts)
+* [Analizowanie wizytówek](#analyze-business-cards)
+* [Analizowanie faktur](#analyze-invoices)
+* [Analizowanie dokumentów tożsamości](#analyze-identity-documents)
 * [Trenowanie modelu niestandardowego](#train-a-custom-model)
-* [Analizowanie formularzy przy użyciu modelu niestandardowego](#analyze-forms-with-a-custom-model)
+* [Analizowanie formularzy za pomocą modelu niestandardowego](#analyze-forms-with-a-custom-model)
 * [Zarządzanie modelami niestandardowymi](#manage-your-custom-models)
 
 #### <a name="v20"></a>[Wersja 2.0](#tab/ga)
 
 * [Uwierzytelnianie klienta](#authenticate-the-client)
 * [Analizowanie układu](#analyze-layout)
-* [Analizuj potwierdzenia](#analyze-receipts)
+* [Analizowanie paragonów](#analyze-receipts)
 * [Trenowanie modelu niestandardowego](#train-a-custom-model)
-* [Analizowanie formularzy przy użyciu modelu niestandardowego](#analyze-forms-with-a-custom-model)
+* [Analizowanie formularzy za pomocą modelu niestandardowego](#analyze-forms-with-a-custom-model)
 * [Zarządzanie modelami niestandardowymi](#manage-your-custom-models)
-
 
 ---
 
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
-W górnej części metody **Main** Dodaj następujący kod. W tym miejscu będziesz uwierzytelniać dwa obiekty klienckie przy użyciu zdefiniowanych powyżej zmiennych. Użyjesz obiektu **AzureKeyCredential** , aby w razie potrzeby można było zaktualizować klucz interfejsu API bez tworzenia nowych obiektów klienta.
+W górnej części **metody main** dodaj następujący kod. W tym miejscu uwierzytelnisz dwa obiekty klienta przy użyciu zdefiniowanych powyżej zmiennych subskrypcji. Użyjesz obiektu **AzureKeyCredential,** aby w razie potrzeby można było zaktualizować klucz interfejsu API bez tworzenia nowych obiektów klienta.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_auth)]
 
 ## <a name="analyze-layout"></a>Analizowanie układu
 
-Aparat rozpoznawania formularzy służy do analizowania tabel, wierszy i słów w dokumentach, bez konieczności uczenia modelu. Więcej informacji o wyodrębnianiu układu znajduje się w [przewodniku koncepcyjnym układu](../../concept-layout.md).
+Za pomocą Rozpoznawanie formularzy można analizować tabele, linie i wyrazy w dokumentach bez konieczności trenowania modelu. Aby uzyskać więcej informacji na temat wyodrębniania układu, zobacz [Przewodnik koncepcyjny układu](../../concept-layout.md).
 
-Aby przeanalizować zawartość pliku pod podanym adresem URL, należy użyć metody **beginRecognizeContentFromUrl** .
+Aby przeanalizować zawartość pliku pod danym adresem URL, użyj **metody beginRecognizeContentFromUrl.**
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_getcontent_call)]
 
 > [!TIP]
-> Możesz również pobrać zawartość z pliku lokalnego. Zobacz metody [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient) , takie jak **beginRecognizeContent**. Lub zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) , aby poznać scenariusze dotyczące obrazów lokalnych.
+> Możesz również pobrać zawartość z pliku lokalnego. Zobacz metody [FormRecognizerClient,](/java/api/com.azure.ai.formrecognizer.formrecognizerclient) takie **jak beginRecognizeContent.** Możesz też zobaczyć przykładowy kod w [usłudze GitHub, aby](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) uzyskać scenariusze obejmujące obrazy lokalne.
 
-Zwracana wartość jest kolekcją obiektów **FormPage** : jeden dla każdej strony w przesłanym dokumencie. Poniższy kod wykonuje iterację tych obiektów i drukuje wyodrębnione pary klucz/wartość i dane tabeli.
+Zwrócona wartość jest kolekcją obiektów **FormPage:** po jednym dla każdej strony w przesłanym dokumencie. Poniższy kod iteruje po tych obiektach i drukuje wyodrębnione pary klucz/wartość i dane tabeli.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_getcontent_print)]
 ### <a name="output"></a>Dane wyjściowe
@@ -241,54 +241,136 @@ Cell has text 4/16/2018.
 Cell has text $89,024.34.
 Cell has text ET.
 ```
+## <a name="analyze-receipts"></a>Analizowanie paragonów
 
-## <a name="analyze-invoices"></a>Analizuj faktury
+W tej sekcji pokazano, jak analizować i wyodrębniać typowe pola z paragonów w USA przy użyciu wstępnie wytrenowanych modeli paragonów. Aby uzyskać więcej informacji na temat analizy paragonów, zobacz Przewodnik koncepcyjny [dotyczący paragonów](../../concept-receipts.md).
 
-#### <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/preview)
+Aby analizować paragony z URI, użyj **metody beginRecognizeReceiptsFromUrl.**
 
-W tej sekcji przedstawiono sposób analizowania i wyodrębniania typowych pól z faktur sprzedaży przy użyciu wstępnie nauczonego modelu. Aby uzyskać więcej informacji na temat analizy faktur, zobacz [Przewodnik dotyczący pojęć dotyczących faktur](../../concept-invoices.md).
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_call)]
 
-Aby analizować faktury z adresu URL, użyj `beginRecognizeInvoicesFromUrl` metody. 
+> [!TIP]
+> Można również analizować lokalne obrazy paragonów. Zobacz metody [FormRecognizerClient,](/java/api/com.azure.ai.formrecognizer.formrecognizerclient) takie **jak beginRecognizeReceipts.** Możesz też zobaczyć przykładowy kod w [usłudze GitHub, aby](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) uzyskać scenariusze obejmujące obrazy lokalne.
+
+Zwrócona wartość jest kolekcją **obiektów RecognizedReceipt:** po jednym dla każdej strony w przesłanym dokumencie. Następny blok kodu iteruje po paragonach i drukuje ich szczegóły w konsoli.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_print)]
+
+Następny blok kodu iteruje po poszczególnych elementach wykrytych na paragonie i drukuje ich szczegóły w konsoli.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_print_items)]
+
+### <a name="output"></a>Dane wyjściowe
+
+```console
+Analyze receipt...
+----------- Recognized Receipt page 0 -----------
+Merchant Name: Contoso Contoso, confidence: 0.62
+Merchant Address: 123 Main Street Redmond, WA 98052, confidence: 0.99
+Transaction Date: 2020-06-10, confidence: 0.90
+Receipt Items:
+Name: Cappuccino, confidence: 0.96s
+Quantity: null, confidence: 0.957s]
+Total Price: 2.200000, confidence: 0.95
+Name: BACON & EGGS, confidence: 0.94s
+Quantity: null, confidence: 0.927s]
+Total Price: null, confidence: 0.93
+```
+
+## <a name="analyze-business-cards"></a>Analizowanie wizytówek
+
+#### <a name="v21-preview"></a>[Wersja zapoznawcza 2.1](#tab/preview)
+
+W tej sekcji pokazano, jak analizować i wyodrębniać typowe pola z angielskich wizytówek przy użyciu wstępnie wytrenowany model. Aby uzyskać więcej informacji na temat analizy wizytówek, zobacz Przewodnik koncepcyjny [dotyczący wizytówek.](../../concept-business-cards.md)
+
+Aby analizować wizytówki z adresu URL, użyj `beginRecognizeBusinessCardsFromUrl` metody .
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_call)]
+
+> [!TIP]
+> Można również analizować lokalne obrazy wizytówki. Zobacz metody [FormRecognizerClient,](/java/api/com.azure.ai.formrecognizer.formrecognizerclient) takie **jak beginRecognizeBusinessCards.** Możesz też zobaczyć przykładowy kod w [usłudze GitHub, aby](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) uzyskać scenariusze obejmujące obrazy lokalne.
+
+Zwrócona wartość jest kolekcją obiektów **RecognizedForm:** po jednym dla każdej karty w dokumencie. Poniższy kod przetwarza wizytówkę pod danym URI i drukuje główne pola i wartości w konsoli.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_print)]
+
+#### <a name="v20"></a>[Wersja 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> Ta funkcja nie jest dostępna w wybranej wersji interfejsu API.
+
+---
+
+## <a name="analyze-invoices"></a>Analizowanie faktur
+
+#### <a name="v21-preview"></a>[Wersja zapoznawcza 2.1](#tab/preview)
+
+W tej sekcji pokazano, jak analizować i wyodrębniać typowe pola z faktur sprzedaży przy użyciu wstępnie wytrenowany model. Aby uzyskać więcej informacji na temat analizy faktur, zobacz [Przewodnik koncepcyjny dotyczący faktur](../../concept-invoices.md).
+
+Aby analizować faktury na podstawie adresu URL, użyj `beginRecognizeInvoicesFromUrl` metody .
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_invoice_call)]
 
 > [!TIP]
-> Możesz również analizować faktury lokalne. Zobacz metody [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient) , takie jak **beginRecognizeInvoices**. Lub zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) , aby poznać scenariusze dotyczące obrazów lokalnych.
+> Możesz również analizować faktury lokalne. Zobacz metody [FormRecognizerClient,](/java/api/com.azure.ai.formrecognizer.formrecognizerclient) takie **jak beginRecognizeInvoices.** Możesz też zobaczyć przykładowy kod w [usłudze GitHub, aby](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) uzyskać scenariusze obejmujące obrazy lokalne.
 
-Zwracana wartość jest kolekcją obiektów **RecognizedForm** : jeden dla każdej faktury w dokumencie. Poniższy kod przetwarza fakturę pod danym identyfikatorem URI i drukuje główne pola i wartości w konsoli.
+Zwrócona wartość jest kolekcją obiektów **RecognizedForm:** po jednym dla każdej faktury w dokumencie. Poniższy kod przetwarza fakturę pod danym URI i drukuje główne pola i wartości w konsoli.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_invoice_print)]
 
 #### <a name="v20"></a>[Wersja 2.0](#tab/ga)
 
 > [!IMPORTANT]
-> Ta funkcja jest niedostępna w wybranej wersji interfejsu API.
+> Ta funkcja nie jest dostępna w wybranej wersji interfejsu API.
+
+---
+
+## <a name="analyze-identity-documents"></a>Analizowanie dokumentów tożsamości
+
+#### <a name="v21-preview"></a>[Wersja zapoznawcza 2.1](#tab/preview)
+
+W tej sekcji pokazano, jak analizować i wyodrębniać kluczowe informacje z dokumentów identyfikacyjnych wystawionych przez rząd — na całym świecie paszportów i licencji kierowcy w Stanach Zjednoczonych — przy użyciu Rozpoznawanie formularzy wstępnie utworzonego modelu identyfikatorów. Aby uzyskać więcej informacji na temat analizy dokumentów tożsamości, zobacz nasz przewodnik koncepcyjny dotyczący [wstępnie utworzonego modelu identyfikacji](../../concept-identification-cards.md).
+
+Aby analizować dokumenty tożsamości z URI, użyj `beginRecognizeIdDocumentsFromUrl` metody .
+
+:::code language="java" source="~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java" id="snippet_id_call":::
+
+> [!TIP]
+> Można również analizować obrazy dokumentów tożsamości lokalnej. Zobacz metody [FormRecognizerClient,](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient) takie **jak beginRecognizeIdDocuments.** Zapoznaj się również z przykładowym kodem w witrynie [GitHub, aby uzyskać](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) scenariusze obejmujące obrazy lokalne.
+
+Poniższy kod przetwarza dokument tożsamości pod danym URI i drukuje główne pola i wartości w konsoli.
+
+:::code language="java" source="~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java" id="snippet_id_print":::
+
+#### <a name="v20"></a>[Wersja 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> Ta funkcja nie jest dostępna w wybranej wersji interfejsu API.
 
 ---
 
 ## <a name="train-a-custom-model"></a>Trenowanie modelu niestandardowego
 
-W tej sekcji pokazano, jak szkolić model przy użyciu własnych danych. Model przeszkolony może wyprowadzać dane strukturalne, które zawierają relacje klucz/wartość w oryginalnym dokumencie formularza. Po przeprowadzeniu szkolenia modelu można testować i przeszkolić go i ostatecznie użyć do niezawodnego wyodrębnienia danych z większej liczby formularzy zgodnie z potrzebami.
+W tej sekcji pokazano, jak trenować model przy użyciu własnych danych. Wytrenowany model może wyprowadzać dane ustrukturyzowane, które obejmują relacje klucz/wartość w oryginalnym dokumencie formularza. Po wytrenowania modelu możesz go przetestować i ponownie wytrenować, a następnie użyć go w celu niezawodnego wyodrębnienia danych z większej liczby formularzy zgodnie z potrzebami.
 
 > [!NOTE]
-> Możesz również nauczyć modele przy użyciu graficznego interfejsu użytkownika, takiego jak [Narzędzie do próbkowania przykładowego aparatu rozpoznawania formularzy](../../quickstarts/label-tool.md).
+> Modele można również szkolić za pomocą graficznego interfejsu użytkownika, takiego [jak Rozpoznawanie formularzy przykładowe narzędzie do etykietowania](../../quickstarts/label-tool.md).
 
-### <a name="train-a-model-without-labels"></a>Uczenie modelu bez etykiet
+### <a name="train-a-model-without-labels"></a>Trenowanie modelu bez etykiet
 
-Uczenie modeli niestandardowych w celu przeanalizowania wszystkich pól i wartości znalezionych w formularzach niestandardowych bez ręcznego etykietowania dokumentów szkoleniowych.
+Trenowanie modeli niestandardowych w celu analizowania wszystkich pól i wartości znalezionych w formularzach niestandardowych bez ręcznego etykietowania dokumentów szkoleniowych.
 
-Poniższa metoda pociąga za model dla danego zestawu dokumentów i drukuje stan modelu w konsoli programu. 
+Następująca metoda szkoli model na podstawie danego zestawu dokumentów i drukuje stan modelu w konsoli.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_train_call)]
 
-Zwrócony obiekt **CustomFormModel** zawiera informacje na temat typów formularzy, które model może analizować, oraz pól, które mogą zostać wyodrębnione z każdego typu formularza. Poniższy blok kodu drukuje te informacje w konsoli programu.
+Zwrócony obiekt **CustomFormModel** zawiera informacje o typach formularzy, które model może analizować, oraz polach, które może wyodrębnić z każdego typu formularza. Poniższy blok kodu drukuje te informacje w konsoli.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_train_print)]
 
 Na koniec ta metoda zwraca unikatowy identyfikator modelu.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_train_return)]
-
 
 ### <a name="output"></a>Dane wyjściowe
 
@@ -310,14 +392,14 @@ The model found field 'field-5' with label: Invoice Number
 The model found field 'field-6' with label: VAT ID
 ```
 
-### <a name="train-a-model-with-labels"></a>Uczenie modelu z etykietami
+### <a name="train-a-model-with-labels"></a>Trenowanie modelu przy użyciu etykiet
 
-Można także uczenie modeli niestandardowych przez ręczne etykietowanie dokumentów szkoleniowych. Szkolenie z etykietami prowadzi do lepszej wydajności w niektórych scenariuszach. Aby szkolić z etykietami, musisz mieć specjalne pliki informacji o etykietach (*\<filename\>.pdf.labels.json*) w kontenerze magazynu obiektów BLOB obok dokumentów szkoleniowych. [Narzędzie do etykietowania próbek aparatu rozpoznawania formularzy](../../quickstarts/label-tool.md) udostępnia interfejs użytkownika ułatwiający Tworzenie tych plików etykiet. Po ich utworzeniu można wywołać metodę **beginTraining** z parametrem *useTrainingLabels* ustawionym na wartość `true` .
+Możesz również szkolić modele niestandardowe, ręcznie oznaczając etykietami dokumenty szkoleniowe. Trenowania za pomocą etykiet prowadzi do lepszej wydajności w niektórych scenariuszach. Aby trenować przy użyciu etykiet, musisz mieć specjalne pliki z informacjami o etykietach *\<filename\> (.pdf.labels.js* w chmurze ) w kontenerze magazynu obiektów blob obok dokumentów szkoleniowych. Przykładowe [Rozpoznawanie formularzy przykładowe narzędzie do etykietowania](../../quickstarts/label-tool.md) udostępnia interfejs użytkownika ułatwiający tworzenie tych plików etykiet. Po ich użyciu możesz wywołać metodę **beginTraining** z parametrem *useTrainingLabels* ustawionym na `true` wartość .
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_trainlabels_call)]
 
 
-Zwrócony **CustomFormModel** wskazuje pola, które mogą zostać wyodrębnione przez model, wraz z szacowaną dokładnością dla każdego pola. Poniższy blok kodu drukuje te informacje w konsoli programu.
+Zwrócony model **CustomFormModel** wskazuje pola, które model może wyodrębnić, wraz z szacowaną dokładnością w każdym polu. Poniższy blok kodu drukuje te informacje w konsoli.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_trainlabels_print)]
 
@@ -342,21 +424,21 @@ The model found field 'field-5' with label: Invoice Number
 The model found field 'field-6' with label: VAT ID
 ```
 
-## <a name="analyze-forms-with-a-custom-model"></a>Analizowanie formularzy przy użyciu modelu niestandardowego
+## <a name="analyze-forms-with-a-custom-model"></a>Analizowanie formularzy za pomocą modelu niestandardowego
 
-W tej sekcji pokazano, jak wyodrębnić informacje o kluczu/wartości i innej zawartości z niestandardowych typów formularzy przy użyciu modeli przeszkolonych za pomocą własnych formularzy.
+W tej sekcji pokazano, jak wyodrębniać informacje o kluczu/wartości i inną zawartość z niestandardowych typów formularzy przy użyciu modeli przeszkolonych przy użyciu własnych formularzy.
 
 > [!IMPORTANT]
-> Aby zaimplementować ten scenariusz, należy wcześniej przeszkolić model, aby można było przekazać jego identyfikator do metody poniżej. Zobacz sekcję [uczenie modelu](#train-a-model-without-labels) .
+> Aby zaimplementować ten scenariusz, musisz już wytrenować model, aby można było przekazać jego identyfikator do poniższej metody. Zobacz [sekcję Train a model (Trenowanie](#train-a-model-without-labels) modelu).
 
-Będziesz używać metody **beginRecognizeCustomFormsFromUrl** . 
+Użyjesz metody **beginRecognizeCustomFormsFromUrl.**
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_analyze_call)]
 
 > [!TIP]
-> Możesz również analizować plik lokalny. Zobacz metody [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient) , takie jak **beginRecognizeCustomForms**. Lub zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) , aby poznać scenariusze dotyczące obrazów lokalnych.
+> Można również przeanalizować plik lokalny. Zobacz metody [FormRecognizerClient,](/java/api/com.azure.ai.formrecognizer.formrecognizerclient) takie **jak beginRecognizeCustomForms.** Możesz też zobaczyć przykładowy kod w [usłudze GitHub, aby](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) uzyskać scenariusze obejmujące obrazy lokalne.
 
-Zwracana wartość jest kolekcją obiektów **RecognizedForm** : jeden dla każdej strony w przesłanym dokumencie. Poniższy kod drukuje wyniki analizy w konsoli programu. Wypisuje wszystkie rozpoznane pola i odpowiadające im wartości, a także ocenę ufności.
+Zwrócona wartość jest kolekcją obiektów **RecognizedForm:** po jednym dla każdej strony w przesłanym dokumencie. Poniższy kod drukuje wyniki analizy w konsoli. Drukuje każde rozpoznane pole i odpowiadającą mu wartość wraz z wynikiem ufności.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_analyze_print)]
 
@@ -376,96 +458,38 @@ Field 'field-5' has label 'Charges' with a confidence score of 1.00.
 Field 'field-6' has label 'VAT ID' with a confidence score of 1.00.
 ```
 
-## <a name="analyze-receipts"></a>Analizuj potwierdzenia
 
-W tej sekcji pokazano, jak analizować i wyodrębniać typowe pola z paragonów w Stanach Zjednoczonych przy użyciu wstępnie przeszkolonego modelu paragonów. Aby uzyskać więcej informacji na temat analizy paragonów, zobacz [Przewodnik po pojęciach dotyczących przyjęć](../../concept-receipts.md).
-
-Aby przeanalizować potwierdzenia z identyfikatora URI, należy użyć metody **beginRecognizeReceiptsFromUrl** . 
-
-[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_call)]
-
-> [!TIP]
-> Możesz również analizować obrazy paragonów lokalnych. Zobacz metody [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient) , takie jak **beginRecognizeReceipts**. Lub zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) , aby poznać scenariusze dotyczące obrazów lokalnych.
-
-Zwracana wartość jest kolekcją obiektów **RecognizedReceipt** : jeden dla każdej strony w przesłanym dokumencie. Następny blok kodu iteruje przez potwierdzenia i drukuje szczegółowe informacje w konsoli programu.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_print)]
-
-Następny blok kodu iteruje poszczególne elementy wykryte na paragonie i drukuje ich szczegóły do konsoli.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_print_items)]
-
-### <a name="output"></a>Dane wyjściowe 
-
-```console
-Analyze receipt...
------------ Recognized Receipt page 0 -----------
-Merchant Name: Contoso Contoso, confidence: 0.62
-Merchant Address: 123 Main Street Redmond, WA 98052, confidence: 0.99
-Transaction Date: 2020-06-10, confidence: 0.90
-Receipt Items:
-Name: Cappuccino, confidence: 0.96s
-Quantity: null, confidence: 0.957s]
-Total Price: 2.200000, confidence: 0.95
-Name: BACON & EGGS, confidence: 0.94s
-Quantity: null, confidence: 0.927s]
-Total Price: null, confidence: 0.93
-```
-
-## <a name="analyze-business-cards"></a>Analizowanie kart służbowych
-
-#### <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/preview)
-
-W tej sekcji pokazano, jak analizować i wyodrębniać typowe pola z angielskiej karty biznesowej przy użyciu wstępnie nauczonego modelu. Aby uzyskać więcej informacji na temat analizy karty biznesowej, zobacz [Przewodnik po pojęciach dotyczących wizytówek](../../concept-business-cards.md).
-
-Aby analizować karty biznesowe na podstawie adresu URL, użyj `beginRecognizeBusinessCardsFromUrl` metody. 
-
-[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_call)]
-
-> [!TIP]
-> Możesz również analizować obrazy lokalnych kart służbowych. Zobacz metody [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient) , takie jak **beginRecognizeBusinessCards**. Lub zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) , aby poznać scenariusze dotyczące obrazów lokalnych.
-
-Zwracana wartość jest kolekcją obiektów **RecognizedForm** : jeden dla każdej karty w dokumencie. Poniższy kod przetwarza kartę biznesową pod podanym identyfikatorem URI i drukuje główne pola i wartości w konsoli.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_print)]
-
-#### <a name="v20"></a>[Wersja 2.0](#tab/ga)
-
-> [!IMPORTANT]
-> Ta funkcja jest niedostępna w wybranej wersji interfejsu API.
-
----
 
 ## <a name="manage-custom-models"></a>Zarządzanie modelami niestandardowymi
 
-W tej sekcji pokazano, jak zarządzać modelami niestandardowymi przechowywanymi na Twoim koncie. Poniższy kod wykonuje wszystkie zadania zarządzania modelami w ramach jednej metody, na przykład. Zacznij od skopiowania poniższego podpisu metody:
+W tej sekcji pokazano, jak zarządzać modelami niestandardowymi przechowywanymi na koncie. Poniższy kod na przykład umożliwia wykonywanie wszystkich zadań zarządzania modelami w ramach jednej metody. Zacznij od skopiowania poniższego podpisu metody:
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage)]
 
 
-### <a name="check-the-number-of-models-in-the-formrecognizer-resource-account"></a>Sprawdź liczbę modeli na koncie zasobów FormRecognizer
+### <a name="check-the-number-of-models-in-the-formrecognizer-resource-account"></a>Sprawdzanie liczby modeli na koncie zasobu FormRecognizer
 
-Poniższy blok kodu sprawdza, ile modeli Zapisano na koncie aparatu rozpoznawania formularzy i porównuje je z limitem konta.
+Poniższy blok kodu sprawdza liczbę modeli zapisanych na koncie Rozpoznawanie formularzy i porównuje go z limitem konta.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage_count)]
 
 
-#### <a name="output"></a>Dane wyjściowe 
+#### <a name="output"></a>Dane wyjściowe
 
 ```console
 The account has 12 custom models, and we can have at most 250 custom models
 ```
 
-### <a name="list-the-models-currently-stored-in-the-resource-account"></a>Wyświetlanie listy modeli przechowywanych obecnie na koncie zasobu
+### <a name="list-the-models-currently-stored-in-the-resource-account"></a>Lista modeli przechowywanych obecnie na koncie zasobu
 
-Poniższy blok kodu zawiera listę bieżących modeli na koncie i drukuje ich szczegóły do konsoli programu.
+Poniższy blok kodu wyświetla listę bieżących modeli na Twoim koncie i wyświetla ich szczegóły w konsoli.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage_list)]
 
 
-#### <a name="output"></a>Dane wyjściowe 
+#### <a name="output"></a>Dane wyjściowe
 
-Ta odpowiedź została obcięta na potrzeby czytelności.
+Ta odpowiedź została obcięta w celu czytelności.
 
 ```console
 We have following models in the account:
@@ -491,13 +515,13 @@ Możesz również usunąć model z konta, odwołując się do jego identyfikator
 
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
 
-Przejdź z powrotem do głównego katalogu projektu. Następnie skompiluj aplikację przy użyciu następującego polecenia:
+Wróć do głównego katalogu projektu. Następnie skompilować aplikację za pomocą następującego polecenia:
 
 ```console
 gradle build
 ```
 
-Uruchom aplikację z `run` celem:
+Uruchom aplikację w `run` celu:
 
 ```console
 gradle run
@@ -505,14 +529,14 @@ gradle run
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów.
+Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services zasobów, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów powoduje również usunięcie wszystkich innych skojarzonych z nią zasobów.
 
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Interfejs wiersza polecenia platformy Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Od klientów aparatu rozpoznawania `ErrorResponseException` wyjątków. Na przykład jeśli spróbujesz podać nieprawidłowy adres URL źródła pliku, `ErrorResponseException` zostanie zgłoszony błąd wskazujący przyczynę niepowodzenia. W poniższym fragmencie kodu błąd jest obsługiwany bezpiecznie przez przechwycenie wyjątku i wyświetlenie dodatkowych informacji o błędzie.
+Klienci usługi Recognizer `ErrorResponseException` zgłaszają wyjątki. Jeśli na przykład spróbujesz podać nieprawidłowy adres URL źródła pliku, zostanie podniesiony komunikat o błędzie wskazujący `ErrorResponseException` przyczynę błędu. W poniższym fragmencie kodu błąd jest obsługiwany bezpiecznie, przechwytując wyjątek i wyświetlając dodatkowe informacje o błędzie.
 
 ```java Snippet:FormRecognizerBadRequest
 try {
@@ -522,16 +546,16 @@ try {
 }
 ```
 
-### <a name="enable-client-logging"></a>Włącz rejestrowanie klienta
+### <a name="enable-client-logging"></a>Włączanie rejestrowania klienta
 
-Zestaw SDK platformy Azure dla języka Java oferuje spójny scenariusz rejestrowania, który pomaga pomóc w rozwiązywaniu problemów z błędami aplikacji i przyspieszeniu ich rozwiązywania. Utworzone dzienniki będą przechwytywać przepływ aplikacji przed osiągnięciem stanu terminalu, aby ułatwić znalezienie problemu głównego. Wyświetl informacje o [rejestrowaniu wiki](https://github.com/Azure/azure-sdk-for-java/wiki/Logging-with-Azure-SDK) , aby uzyskać wskazówki dotyczące włączania rejestrowania.
+Zestawy Azure SDK dla języka Java oferują spójną historię rejestrowania, która pomaga w rozwiązywaniu problemów z błędami aplikacji i przyspieszaniu ich rozwiązywania. Zarejestrowane dzienniki przechwytują przepływ aplikacji przed osiągnięciem stanu końcowego, co pomoże zlokalizować główny problem. Aby uzyskać [wskazówki dotyczące włączania rejestrowania,](https://github.com/Azure/azure-sdk-for-java/wiki/Logging-with-Azure-SDK) zobacz witrynę wiki rejestrowania.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start użyto biblioteki klienckiej aparatu rozpoznawania języka Java do uczenia modeli i analizowania formularzy na różne sposoby. Następnie zapoznaj się z poradami, aby utworzyć lepszy zestaw danych szkoleniowych i uzyskać bardziej dokładne modele.
+W tym przewodniku Szybki start za pomocą biblioteki Rozpoznawanie formularzy Java do trenowania modeli i analizowania formularzy na różne sposoby. Następnie zapoznaj się z poradami dotyczącymi tworzenia lepszego zestawu danych treningowych i tworzenia dokładniej określonych modeli.
 
 > [!div class="nextstepaction"]
 > [Tworzenie zestawu danych szkoleniowych](../../build-training-data-set.md)
 
 * [Co to jest rozpoznawanie formularzy?](../../overview.md)
-* Przykładowy kod z tego przewodnika (i więcej) można znaleźć w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples).
+* Przykładowy kod z tego przewodnika (i innych) można znaleźć w [witrynie GitHub.](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples)

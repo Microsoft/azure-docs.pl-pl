@@ -1,37 +1,37 @@
 ---
-title: Szybki Start — Azure Key Vault biblioteki klienckiej języka Python — zarządzanie wpisami tajnymi
-description: Dowiedz się, jak tworzyć, pobierać i usuwać wpisy tajne z magazynu kluczy platformy Azure przy użyciu biblioteki klienckiej języka Python
+title: Szybki start — Azure Key Vault klienta języka Python — zarządzanie wpisami tajnymi
+description: Dowiedz się, jak tworzyć, pobierać i usuwać wpisy tajne z usługi Azure Key Vault przy użyciu biblioteki klienta języka Python
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 09/03/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b82c86983bc07f39c1adb5aa741497d8cc3246e9
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.custom: devx-track-python, devx-track-azurepowershell
+ms.openlocfilehash: e9e27720c50de8653fa859e051c9cfb3af4509ff
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967131"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377475"
 ---
-# <a name="quickstart-azure-key-vault-secret-client-library-for-python"></a>Szybki Start: Azure Key Vault Secret Client Library for Python
+# <a name="quickstart-azure-key-vault-secret-client-library-for-python"></a>Szybki start: Azure Key Vault klienta dla języka Python
 
-Rozpocznij pracę z biblioteką klienta tajnego Azure Key Vault dla języka Python. Wykonaj poniższe kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań. Korzystając z Key Vault do przechowywania wpisów tajnych, unikaj przechowywania wpisów tajnych w kodzie, co zwiększa bezpieczeństwo aplikacji.
+Rozpoczynanie pracy z Azure Key Vault klienta tajnego dla języka Python. Wykonaj poniższe kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań. Dzięki użyciu Key Vault do przechowywania wpisów tajnych można uniknąć przechowywania wpisów tajnych w kodzie, co zwiększa bezpieczeństwo aplikacji.
 
-[Dokumentacja](/python/api/overview/azure/keyvault-secrets-readme)  |  interfejsu API [Kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-secrets)  |  źródłowy biblioteki [Pakiet (indeks pakietu języka Python)](https://pypi.org/project/azure-keyvault-secrets/)
+[Dokumentacja referencyjna interfejsu API](/python/api/overview/azure/keyvault-secrets-readme)  |  [Kod źródłowy biblioteki](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-secrets)  |  [Pakiet (indeks pakietów języka Python)](https://pypi.org/project/azure-keyvault-secrets/)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python 2.7 + lub 3.6 +](/azure/developer/python/configure-local-development-environment)
+- Subskrypcja platformy Azure — [utwórz subskrypcję bezpłatnie.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- [Python 2.7+ lub 3.6+](/azure/developer/python/configure-local-development-environment)
 - [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)
 
-W tym przewodniku szybki start założono, że uruchomiono [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) w oknie terminalu systemu Linux.
+W tym przewodniku Szybki start założono, że używasz interfejsu wiersza [polecenia platformy Azure](/cli/azure/install-azure-cli) w oknie terminalu systemu Linux.
 
 
 ## <a name="set-up-your-local-environment"></a>Konfigurowanie środowiska lokalnego
-Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z interfejsem wiersza polecenia platformy Azure w celu uwierzytelniania użytkowników w usługach platformy Azure. Deweloperzy mogą również używać programu Visual Studio lub Visual Studio Code do uwierzytelniania wywołań, aby uzyskać więcej informacji, zobacz [uwierzytelnianie klienta przy użyciu biblioteki klienta tożsamości platformy Azure](/python/api/overview/azure/identity-readme).
+Ten przewodnik Szybki start używa biblioteki tożsamości platformy Azure z interfejsem wiersza polecenia platformy Azure do uwierzytelniania użytkowników w usługach platformy Azure. Deweloperzy mogą również Visual Studio lub Visual Studio Code do uwierzytelniania swoich wywołań. Aby uzyskać więcej informacji, zobacz Authenticate the client with Azure Identity client library (Uwierzytelnianie klienta za pomocą [biblioteki klienta tożsamości platformy Azure).](/python/api/overview/azure/identity-readme)
 
 ### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -41,24 +41,24 @@ Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z inter
     az login
     ```
 
-    Jeśli interfejs wiersza polecenia może otworzyć domyślną przeglądarkę, spowoduje to załadowanie strony logowania platformy Azure.
+    Jeśli interfejs wiersza polecenia może otworzyć domyślną przeglądarkę, zrobi to i załaduje stronę logowania platformy Azure.
 
-    W przeciwnym razie Otwórz stronę przeglądarki pod adresem [https://aka.ms/devicelogin](https://aka.ms/devicelogin) i wprowadź kod autoryzacji wyświetlany w terminalu.
+    W przeciwnym razie otwórz stronę przeglądarki pod [https://aka.ms/devicelogin](https://aka.ms/devicelogin) adresem i wprowadź kod autoryzacji wyświetlany w terminalu.
 
 2. Zaloguj się w przeglądarce przy użyciu poświadczeń swojego konta.
 
-### <a name="install-the-packages"></a>Zainstaluj pakiety
+### <a name="install-the-packages"></a>Instalowanie pakietów
 
-1. W oknie terminalu lub wierszu polecenia Utwórz odpowiedni folder projektu, a następnie utwórz i aktywuj środowisko wirtualne języka Python zgodnie z opisem w temacie [Korzystanie z środowisk wirtualnych języka Python](/azure/developer/python/configure-local-development-environment?tabs=cmd#use-python-virtual-environments).
+1. W terminalu lub wierszu polecenia utwórz odpowiedni folder projektu, a następnie utwórz i aktywuj środowisko wirtualne języka Python zgodnie z opisem w tece Use Python virtual environments (Korzystanie ze środowisk [wirtualnych języka Python).](/azure/developer/python/configure-local-development-environment?tabs=cmd#use-python-virtual-environments)
 
-1. Zainstaluj bibliotekę tożsamości Azure Active Directory:
+1. Zainstaluj bibliotekę Azure Active Directory tożsamości:
 
     ```terminal
     pip install azure-identity
     ```
 
 
-1. Zainstaluj bibliotekę Key Vault Secret:
+1. Zainstaluj bibliotekę Key Vault wpisów tajnych:
 
     ```terminal
     pip install azure-keyvault-secrets
@@ -70,7 +70,7 @@ Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z inter
 
 ### <a name="grant-access-to-your-key-vault"></a>Udzielanie dostępu do magazynu kluczy
 
-Utwórz zasady dostępu dla magazynu kluczy, które przyznaje poufne uprawnienia do Twojego konta użytkownika.
+Utwórz zasady dostępu dla magazynu kluczy, które będą udzielać uprawnień do klucza tajnego kontu użytkownika.
 
 ```console
 az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
@@ -86,9 +86,9 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 ## <a name="create-the-sample-code"></a>Tworzenie przykładowego kodu
 
-Biblioteka klienta tajnego Azure Key Vault dla języka Python umożliwia zarządzanie kluczami tajnymi. Poniższy przykład kodu demonstruje sposób tworzenia klienta, ustawiania wpisu tajnego, pobierania klucza tajnego i usuwania klucza tajnego.
+Biblioteka Azure Key Vault klienta dla języka Python umożliwia zarządzanie wpisami tajnymi. Poniższy przykład kodu pokazuje, jak utworzyć klienta, ustawić klucz tajny, pobrać klucz tajny i usunąć klucz tajny.
 
-Utwórz plik o nazwie *kv_secrets. PR* , który zawiera ten kod.
+Utwórz plik o *nazwie kv_secrets.py zawierający* ten kod.
 
 ```python
 import os
@@ -126,72 +126,72 @@ print(" done.")
 
 ## <a name="run-the-code"></a>Uruchamianie kodu
 
-Upewnij się, że kod w poprzedniej sekcji znajduje się w pliku o nazwie *kv_secrets. PR*. Następnie uruchom kod przy użyciu następującego polecenia:
+Upewnij się, że kod w poprzedniej sekcji znajduje się w pliku *o nazwie kv_secrets.py.* Następnie uruchom kod za pomocą następującego polecenia:
 
 ```terminal
 python kv_secrets.py
 ```
 
-- W przypadku wystąpienia błędów uprawnień upewnij się, że uruchomiono [ `az keyvault set-policy` polecenie](#grant-access-to-your-key-vault).
-- Ponowne uruchomienie kodu o tej samej nazwie tajnej może spowodować wystąpienie błędu, "(konflikt) klucz tajny <name> jest obecnie w stanie usunięty, ale jest możliwy do odzyskania". Użyj innej nazwy wpisu tajnego.
+- Jeśli wystąpią błędy uprawnień, upewnij się, że uruchomiono [ `az keyvault set-policy` polecenie](#grant-access-to-your-key-vault).
+- Ponowne uruchomienie kodu z taką samą nazwą tajnego może spowodować błąd "(Konflikt) klucz tajny jest obecnie w stanie usuniętym, ale <name> można go odzyskać". Użyj innej nazwy tajnego.
 
 ## <a name="code-details"></a>Szczegóły kodu
 
 ### <a name="authenticate-and-create-a-client"></a>Uwierzytelnianie i tworzenie klienta
 
-W tym przewodniku szybki start zalogowany użytkownik jest używany do uwierzytelniania w magazynie kluczy, który jest preferowaną metodą tworzenia lokalnego. W przypadku aplikacji wdrożonych na platformie Azure tożsamość zarządzana powinna być przypisana do App Service lub maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Omówienie tożsamości zarządzanej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+W tym przewodniku Szybki start zalogowany użytkownik jest używany do uwierzytelniania w magazynie kluczy, co jest preferowaną metodą tworzenia aplikacji lokalnych. W przypadku aplikacji wdrożonych na platformie Azure tożsamość zarządzana powinna zostać przypisana do usługi App Service lub maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Omówienie tożsamości zarządzanej.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-W poniższym przykładzie nazwa magazynu kluczy jest rozwinięta do identyfikatora URI magazynu kluczy w formacie "https:// \<your-key-vault-name\> . Vault.Azure.NET". W tym przykładzie użyto klasy  ["DefaultAzureCredential ()"](https://docs.microsoft.com/python/api/azure-identity/azure.identity.defaultazurecredential) , która umożliwia użycie tego samego kodu w różnych środowiskach z różnymi opcjami w celu zapewnienia tożsamości. Aby uzyskać więcej informacji, zobacz [domyślne uwierzytelnianie poświadczeń platformy Azure](https://docs.microsoft.com/python/api/overview/azure/identity-readme). 
+W poniższym przykładzie nazwa magazynu kluczy jest rozszerzana do wartości URI magazynu kluczy w formacie "https:// \<your-key-vault-name\> .vault.azure.net". W tym przykładzie jest to klasa  ["DefaultAzureCredential()",](https://docs.microsoft.com/python/api/azure-identity/azure.identity.defaultazurecredential) która umożliwia używanie tego samego kodu w różnych środowiskach z różnymi opcjami w celu zapewnienia tożsamości. Aby uzyskać więcej informacji, zobacz [Domyślne uwierzytelnianie poświadczeń platformy Azure.](https://docs.microsoft.com/python/api/overview/azure/identity-readme) 
 
 ```python
 credential = DefaultAzureCredential()
 client = SecretClient(vault_url=KVUri, credential=credential)
 ```
 
-### <a name="save-a-secret"></a>Zapisz klucz tajny
+### <a name="save-a-secret"></a>Zapisywanie tajnego
 
-Po uzyskaniu obiektu klienta dla magazynu kluczy można przechowywać wpis tajny przy użyciu metody [set_secret](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?#set-secret-name--value----kwargs-) : 
+Po uzyskaniu obiektu klienta dla magazynu kluczy możesz zapisać klucz tajny przy użyciu [set_secret](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?#set-secret-name--value----kwargs-) metody: 
 
 ```python
 client.set_secret(secretName, secretValue)
 ```
 
-Wywołanie `set_secret` powoduje wygenerowanie wywołania interfejsu API REST platformy Azure dla magazynu kluczy.
+Wywołanie `set_secret` generuje wywołanie interfejsu API REST platformy Azure dla magazynu kluczy.
 
-Podczas obsługi żądania platforma Azure uwierzytelnia tożsamość wywołującego (nazwę główną usługi) przy użyciu obiektu Credential dostarczonego do klienta.
+Podczas obsługi żądania platforma Azure uwierzytelnia tożsamość wywołującego (jednostkę usługi) przy użyciu obiektu poświadczeń podanego klientowi.
 
-### <a name="retrieve-a-secret"></a>Pobierz klucz tajny
+### <a name="retrieve-a-secret"></a>Pobieranie tajnego
 
-Aby odczytać wpis tajny z Key Vault, użyj metody [get_secret](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?#get-secret-name--version-none----kwargs-) :
+Aby odczytać klucz tajny z Key Vault, użyj [get_secret](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?#get-secret-name--version-none----kwargs-) metody :
 
 ```python
 retrieved_secret = client.get_secret(secretName)
  ```
 
-Wartość wpisu tajnego jest zawarta w `retrieved_secret.value` .
+Wartość tajna znajduje się w `retrieved_secret.value` .
 
-Możesz również pobrać klucz tajny z poleceniem interfejsu wiersza polecenia platformy Azure [AZ klucz tajny show](/cli/azure/keyvault/secret?#az-keyvault-secret-show).
+Możesz również pobrać klucz tajny za pomocą polecenia interfejsu wiersza polecenia platformy Azure [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show).
 
 ### <a name="delete-a-secret"></a>Usuń klucz tajny
 
-Aby usunąć wpis tajny, użyj metody [begin_delete_secret](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?#begin-delete-secret-name----kwargs-) :
+Aby usunąć klucz tajny, użyj [begin_delete_secret](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?#begin-delete-secret-name----kwargs-) metody :
 
 ```python
 poller = client.begin_delete_secret(secretName)
 deleted_secret = poller.result()
 ```
 
-`begin_delete_secret`Metoda jest asynchroniczna i zwraca obiekt sondowaer. Wywołanie metody sondy `result` oczekuje na jego zakończenie.
+Metoda `begin_delete_secret` jest asynchroniczna i zwraca obiekt Poller. Wywołanie metody `result` pollera czeka na jego ukończenie.
 
-Możesz sprawdzić, czy wpis tajny został usunięty za pomocą polecenia interfejsu CLI platformy Azure [AZ klucz tajny show](/cli/azure/keyvault/secret?#az-keyvault-secret-show).
+Możesz sprawdzić, czy klucz tajny został usunięty, za pomocą polecenia interfejsu wiersza polecenia platformy Azure [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show).
 
-Po usunięciu wpis tajny pozostaje w stanie usunięty, ale można go odzyskać. Jeśli ponownie uruchomisz kod, użyj innej nazwy klucza tajnego.
+Po usunięciu klucz tajny pozostaje w stanie usuniętym, ale można go odzyskać przez jeden czas. Jeśli ponownie uruchamiasz kod, użyj innej nazwy tajnej.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli chcesz również eksperymentować z [certyfikatami](../certificates/quick-create-python.md) i [kluczami](../keys/quick-create-python.md), możesz ponownie użyć Key Vault utworzonych w tym artykule.
+Jeśli chcesz również poeksperymentować z [certyfikatami](../certificates/quick-create-python.md) i [kluczami,](../keys/quick-create-python.md)możesz ponownie użyć Key Vault utworzonych w tym artykule.
 
-W przeciwnym razie po zakończeniu tworzenia zasobów utworzonych w tym artykule Użyj następującego polecenia, aby usunąć grupę zasobów i wszystkie zawarte w niej zasoby:
+W przeciwnym razie po zakończeniu pracy z zasobami utworzonymi w tym artykule użyj następującego polecenia, aby usunąć grupę zasobów i wszystkie zawarte w niej zasoby:
 
 ```azurecli
 az group delete --resource-group KeyVault-PythonQS-rg
@@ -201,6 +201,6 @@ az group delete --resource-group KeyVault-PythonQS-rg
 
 - [Omówienie usługi Azure Key Vault](../general/overview.md)
 - [Bezpieczny dostęp do magazynu kluczy](../general/secure-your-key-vault.md)
-- [Przewodnik dewelopera Azure Key Vault](../general/developers-guide.md)
-- [Omówienie zabezpieczeń Key Vault](../general/security-overview.md)
+- [Azure Key Vault dewelopera](../general/developers-guide.md)
+- [Key Vault omówienie zabezpieczeń](../general/security-overview.md)
 - [Uwierzytelnianie za pomocą Key Vault](../general/authentication.md)

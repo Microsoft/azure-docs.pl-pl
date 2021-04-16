@@ -1,21 +1,21 @@
 ---
 title: Lista wbudowanych inicjatyw zasad
-description: Utwórz listę wbudowanych inicjatyw zasad dla Azure Policy. Kategorie obejmują zgodność z przepisami, konfigurację gościa i inne.
-ms.date: 03/31/2021
+description: Lista wbudowanych inicjatyw zasad dla Azure Policy. Kategorie obejmują zgodność z przepisami, konfigurację gościa i inne.
+ms.date: 04/14/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: ef643e551c2ddab715d67467620fb748fb836eee
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: c43886f19d2128b7e1168810a0ac20577ccded15
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106090123"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107504884"
 ---
 # <a name="azure-policy-built-in-initiative-definitions"></a>Azure Policy wbudowane definicje inicjatyw
 
-Ta strona jest indeksem Azure Policy wbudowanych definicji inicjatywy.
+Ta strona jest indeksem Azure Policy wbudowanych definicji inicjatyw.
 
-Nazwa każdego wbudowanego łącza do źródła definicji inicjatywy w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy). Wbudowane elementy są pogrupowane według właściwości **Category** w **metadanych**. Aby przejść do określonej **kategorii**, użyj menu po prawej stronie. W przeciwnym razie użyj <kbd>klawiszy CTRL</kbd> - <kbd>F</kbd> , aby użyć funkcji wyszukiwania przeglądarki.
+Nazwa każdego wbudowanego linku do źródła definicji inicjatywy w [repozytorium Azure Policy GitHub.](https://github.com/Azure/azure-policy) Wbudowane są pogrupowane według właściwości **kategorii** w **metadanych**. Aby przejść do określonej **kategorii,** użyj menu po prawej stronie. W przeciwnym razie użyj <kbd>klawisza Ctrl</kbd> - <kbd>F,</kbd> aby użyć funkcji wyszukiwania przeglądarki.
 
 ## <a name="cosmos-db"></a>Cosmos DB
 

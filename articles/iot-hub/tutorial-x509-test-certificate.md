@@ -1,6 +1,6 @@
 ---
-title: Samouczek — możliwość testowania certyfikatów X. 509 w celu uwierzytelniania urządzeń na platformie Azure IoT Hub | Microsoft Docs
-description: Samouczek — testowanie certyfikatów X. 509 w celu uwierzytelnienia w usłudze Azure IoT Hub
+title: Samouczek — testowanie możliwości certyfikatów X.509 w celu uwierzytelniania urządzeń w Azure IoT Hub | Microsoft Docs
+description: Samouczek — testowanie certyfikatów X.509 w celu uwierzytelniania w Azure IoT Hub
 author: v-gpettibone
 manager: philmea
 ms.service: iot-hub
@@ -12,41 +12,40 @@ ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-- devx-track-azurecli
-ms.openlocfilehash: 91eea344914120a396ba9465ec504a37f5844d4e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7d1900782fce6b84ed79014e985393f3626d171b
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105630706"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379438"
 ---
 # <a name="tutorial-testing-certificate-authentication"></a>Samouczek: testowanie uwierzytelniania certyfikatu
 
-Możesz użyć następującego przykładu kodu w języku C#, aby sprawdzić, czy certyfikat może uwierzytelniać urządzenie w IoT Hub. Należy pamiętać, że przed uruchomieniem kodu testu należy wykonać następujące czynności:
+Poniższy przykład kodu w języku C# umożliwia przetestowanie, czy certyfikat może uwierzytelnić urządzenie w IoT Hub. Przed uruchomieniem kodu testowego należy wykonać następujące czynności:
 
-* Utwórz certyfikat głównego urzędu certyfikacji lub podrzędnego urzędu certyfikacji.
+* Utwórz certyfikat głównego lub podrzędnego urzędu certyfikacji.
 * Przekaż certyfikat urzędu certyfikacji do IoT Hub.
-* Potwierdzenie posiadania certyfikatu urzędu certyfikacji.
-* Dodaj urządzenie do IoT Hub.
-* Utwórz certyfikat urządzenia z tym samym IDENTYFIKATORem urządzenia, który jest Twoim urządzeniem.
+* Udowodnij, że posiadasz certyfikat urzędu certyfikacji.
+* Dodaj urządzenie do swojego IoT Hub.
+* Utwórz certyfikat urządzenia z tym samym identyfikatorem urządzenia, który jest Twoim urządzeniem.
 
 ## <a name="code-example"></a>Przykład kodu
 
-Poniższy przykład kodu pokazuje, jak utworzyć aplikację w języku C# w celu symulowania urządzenia X. 509 zarejestrowanego dla Centrum IoT. Przykład wysyła wartości temperatury i wilgotności z symulowanego urządzenia do centrum. W tym samouczku utworzymy tylko aplikację urządzenia. Jest to pozostawione jako ćwiczenie dla czytelników, aby utworzyć aplikację usługi IoT Hub, która będzie wysyłać odpowiedzi do zdarzeń wysyłanych przez to symulowane urządzenie.
+Poniższy przykład kodu pokazuje, jak utworzyć aplikację w języku C# w celu symulowania urządzenia X.509 zarejestrowanego dla centrum IoT. Przykład wysyła wartości temperatury i wilgotności z symulowanego urządzenia do centrum. W tym samouczku utworzymy tylko aplikację urządzenia. Dla czytelników pozostało ćwiczenie w celu utworzenia aplikacji usługi IoT Hub, która będzie wysyłać odpowiedzi na zdarzenia wysyłane przez to symulowane urządzenie.
 
-1. Otwórz program Visual Studio, wybierz pozycję **Utwórz nowy projekt**, a następnie wybierz szablon projektu **aplikacja konsoli (.NET Framework)** . Wybierz opcję **Dalej**.
+1. Otwórz Visual Studio, wybierz pozycję Utwórz nowy **projekt, a** następnie wybierz szablon projektu **Aplikacja konsolowa (.NET Framework).** Wybierz opcję **Dalej**.
 
-1. W obszarze **Konfigurowanie nowego projektu** Nazwij projekt *SimulateX509Device*, a następnie wybierz pozycję **Utwórz**.
+1. Na **stronie Konfigurowanie nowego projektu** nadaj projektowi nazwę *SimulateX509Device,* a następnie wybierz pozycję **Utwórz.**
 
-   ![Tworzenie projektu urządzenia X. 509 w programie Visual Studio](./media/iot-hub-security-x509-get-started/create-device-project-vs2019.png)
+   ![Tworzenie projektu urządzenia X.509 w Visual Studio](./media/iot-hub-security-x509-get-started/create-device-project-vs2019.png)
 
-1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt **SimulateX509Device** , a następnie wybierz pozycję **Zarządzaj pakietami NuGet**.
+1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt **SimulateX509Device,** a następnie wybierz pozycję **Zarządzaj pakietami NuGet.**
 
-1. W **Menedżerze pakietów NuGet** wybierz pozycję **Przeglądaj** i Wyszukaj, a następnie wybierz pozycję **Microsoft. Azure. Devices. Client**. Wybierz pozycję **Zainstaluj**.
+1. W **witrynie Menedżer pakietów NuGet** wybierz pozycję **Przeglądaj,** wyszukaj i wybierz **pozycję Microsoft.Azure.Devices.Client.** Wybierz pozycję **Zainstaluj**.
 
-   ![Dodaj pakiet NuGet zestawu SDK urządzenia w programie Visual Studio](./media/iot-hub-security-x509-get-started/device-sdk-nuget.png)
+   ![Dodawanie pakietu NuGet zestawu SDK urządzenia w Visual Studio](./media/iot-hub-security-x509-get-started/device-sdk-nuget.png)
 
-    Ten krok spowoduje pobranie, zainstalowanie i dodanie odwołania do pakietu NuGet zestawu SDK urządzenia usługi Azure IoT oraz jego zależności.
+    Ten krok powoduje pobranie, zainstalowanie i dodanie odwołania do pakietu NuGet zestawu SDK urządzenia Usługi Azure IoT oraz jego zależności.
 
     Wprowadź i uruchom następujący kod:
 
