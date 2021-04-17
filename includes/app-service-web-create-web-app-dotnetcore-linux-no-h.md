@@ -7,17 +7,17 @@ ms.service: app-service
 ms.topic: include
 ms.date: 04/22/2020
 ms.author: cephalin
-ms.custom: include file
-ms.openlocfilehash: efe46c9a4e229c84f38a7643b880e5c498961104
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: 727e49e9086e5800fbbcb4e42a37a8b1a0c1c4b7
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102244874"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107513628"
 ---
-Utwórz [aplikację internetową](../articles/app-service/overview.md#app-service-on-linux) w `myAppServicePlan` planie App Service. 
+Utwórz aplikację [internetową w](../articles/app-service/overview.md#app-service-on-linux) `myAppServicePlan` planie App Service aplikacji. 
 
-W Cloud Shell można użyć [`az webapp create`](/cli/azure/webapp) polecenia. W poniższym przykładzie zastąp ciąg `<app-name>` globalnie unikatową nazwą aplikacji (prawidłowe znaki to `a-z`, `0-9` i `-`). Środowisko uruchomieniowe ma ustawioną wartość `DOTNETCORE|3.1`. Aby wyświetlić wszystkie obsługiwane środowiska uruchomieniowe, uruchom polecenie [`az webapp list-runtimes --linux`](/cli/azure/webapp) . 
+W Cloud Shell możesz użyć polecenia [`az webapp create`](/cli/azure/webapp) . W poniższym przykładzie zastąp ciąg `<app-name>` globalnie unikatową nazwą aplikacji (prawidłowe znaki to `a-z`, `0-9` i `-`). Środowisko uruchomieniowe ma ustawioną wartość `DOTNETCORE|3.1`. Aby wyświetlić wszystkie obsługiwane środowiska uruchomieniowe, [`az webapp list-runtimes --linux`](/cli/azure/webapp) uruchom . 
 
 ```azurecli-interactive
 # Bash
@@ -44,7 +44,7 @@ Local git is configured with url of 'https://<username>@<app-name>.scm.azurewebs
 }
 </pre>
 
-Utworzona została pusta aplikacja internetowa w kontenerze systemu Linux z włączonym wdrażaniem git.
+Youâ€™ utworzono pustą aplikację internetową w kontenerze systemu Linux z włączonym wdrażaniem usługi Git.
 
 > [!NOTE]
 > Adres URL zdalnego repozytorium Git jest wyświetlany we właściwości `deploymentLocalGitUrl` w formacie `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Zapisz ten adres URL, ponieważ będzie on potrzebny później.

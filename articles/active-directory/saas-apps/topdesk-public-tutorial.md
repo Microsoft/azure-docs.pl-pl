@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: integracja Azure Active Directory z usługą TOPdesk — publiczna | Microsoft Docs'
-description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i TOPdesk-Public.
+title: 'Samouczek: Azure Active Directory integracji z usługą TOPdesk — public | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować logowanie single sign-on między Azure Active Directory toPdesk - Public.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,98 +9,74 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/02/2019
+ms.date: 04/08/2021
 ms.author: jeedes
-ms.openlocfilehash: 3688dc2db67c0c1343a74be4652cb52466ef762e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d16fd87b01db69d3f55e22aad573b7847b9048c
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92520442"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518079"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Samouczek: integracja Azure Active Directory z usługą TOPdesk — Public
+# <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Samouczek: Azure Active Directory integracji z usługą TOPdesk - Public
 
-W tym samouczku dowiesz się, jak zintegrować usługę TOPdesk z usługą Azure Active Directory (Azure AD).
-Integracja TOPdesk — publiczna z usługą Azure AD zapewnia następujące korzyści:
+Z tego samouczka dowiesz się, jak zintegrować usługę TOPdesk - Public z usługą Azure Active Directory (Azure AD). Po zintegrowaniu aplikacji TOPdesk - Public z usługą Azure AD można:
 
-* Możesz kontrolować usługę Azure AD, która ma dostęp do usługi TOPdesk — publiczna.
-* Możesz pozwolić użytkownikom na automatyczne logowanie do TOPdesk — publiczną (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
-* Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
-
-Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
+* Kontroluj w usłudze Azure AD, kto ma dostęp do aplikacji TOPdesk - Public.
+* Umożliwianie użytkownikom automatycznego zalogowania się do aplikacji TOPdesk - Public przy użyciu kont usługi Azure AD.
+* Zarządzanie kontami w jednej centralnej lokalizacji — Azure Portal.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z usługą TOPdesk — publiczną, potrzebne są następujące elementy:
+Do rozpoczęcia pracy potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz skorzystać z miesięcznej wersji próbnej [tutaj](https://azure.microsoft.com/pricing/free-trial/)
-* TOPdesk — subskrypcja z włączonym logowaniem jednokrotnym
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać bezpłatne [konto](https://azure.microsoft.com/free/).
+* TOPdesk — publiczna subskrypcja z obsługą logowania jednokrotnego.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* TOPdesk — publiczna usługa **SP** zainicjowała Logowanie jednokrotne
+* ToPdesk - Public obsługuje logowanie **jednokrotne inicjowane** przez sp.
 
-## <a name="adding-topdesk---public-from-the-gallery"></a>Dodawanie TOPdesk — publiczna z galerii
+## <a name="add-topdesk---public-from-the-gallery"></a>Dodawanie aplikacji TOPdesk - Public z galerii
 
-Aby skonfigurować integrację usługi TOPdesk — publiczną w usłudze Azure AD, należy dodać TOPdesk — publiczną z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację aplikacji TOPdesk - Public z usługą Azure AD, musisz dodać aplikację TOPdesk - Public z galerii do swojej listy zarządzanych aplikacji SaaS.
 
-**Aby dodać TOPdesk — publiczną z galerii, wykonaj następujące czynności:**
+1. Zaloguj się do konta Azure Portal przy użyciu konta służbowego lub osobistego konta konto Microsoft.
+1. W okienku nawigacji po lewej stronie wybierz **Azure Active Directory** usługi.
+1. Przejdź do opcji **Aplikacje dla przedsiębiorstw,** a następnie wybierz **pozycję Wszystkie aplikacje.**
+1. Aby dodać nową aplikację, wybierz **pozycję Nowa aplikacja.**
+1. W **sekcji Dodaj z galerii** wpisz **TOPdesk - Public** w polu wyszukiwania.
+1. Wybierz **pozycję TOPdesk - Public z** panelu wyników, a następnie dodaj aplikację. Zaczekaj kilka sekund na dodanie aplikacji do dzierżawy.
 
-1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
+## <a name="configure-and-test-azure-ad-sso-for-topdesk---public"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD dla aplikacji TOPdesk - Public
 
-    ![Przycisk Azure Active Directory](common/select-azuread.png)
+Skonfiguruj i przetestuj logowanie jednokrotne usługi Azure AD z usługą TOPdesk - Public przy użyciu użytkownika testowego **O nazwie B.Simon.** Aby logowanie jednokrotne działało, należy ustanowić relację połączenia między użytkownikiem usługi Azure AD i powiązanym użytkownikiem aplikacji TOPdesk - Public.
 
-2. Przejdź do grupy **Aplikacje dla przedsiębiorstw** i wybierz opcję **Wszystkie aplikacje**.
+Aby skonfigurować i przetestować logowanie jednokrotne usługi Azure AD z usługą TOPdesk - Public, wykonaj następujące kroki:
 
-    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
+1. **[Konfigurowanie logowania jednokrotnego w usłudze Azure AD](#configure-azure-ad-sso)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
+    1. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie pojedyncze usługi Azure AD z użytkownikiem B.Simon.
+    1. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić aplikacji B.Simon korzystanie z logowania pojedynczego usługi Azure AD.
+1. **[Konfigurowanie aplikacji TOPdesk - Public SSO](#configure-topdesk---public-sso)** — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+    1. **[Tworzenie użytkownika testowego aplikacji TOPdesk — Public](#create-topdesk---public-test-user)** — aby mieć w aplikacji TOPdesk - Public odpowiednik użytkownika B.Simon połączony z reprezentacją użytkownika w usłudze Azure AD.
+1. **[Testowanie logowania jednokrotnego](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
-3. Aby dodać nową aplikację, kliknij przycisk **Nowa aplikacja** w górnej części okna dialogowego.
+## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
-    ![Przycisk Nowa aplikacja](common/add-new-app.png)
+Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-4. W polu wyszukiwania wpisz **TOPdesk-Public**, wybierz pozycję **TOPdesk — Public** from panel wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+1. W Azure Portal aplikacji na stronie **integracji aplikacji TOPdesk - Public** znajdź sekcję Zarządzanie i wybierz pozycję Logowanie **pojedyncze.** 
+1. Na stronie **Select a single sign-on method (Wybieranie metody logowania pojedynczego)** wybierz pozycję **SAML**.
+1. Na stronie **Konfigurowanie logowania pojedynczego za pomocą saml** kliknij ikonę ołówka dla opcji **Podstawowa konfiguracja saml,** aby edytować ustawienia.
 
-     ![TOPdesk — publiczna na liście wyników](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
-
-Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą TOPdesk-Public na podstawie użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w TOPdesk-Public.
-
-Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi TOPdesk — Public, należy wykonać następujące bloki konstrukcyjne:
-
-1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj TOPdesk — publiczne logowanie](#configure-topdesk---public-single-sign-on)** jednokrotne — aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
-3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
-4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz użytkownika testowego TOPdesk —](#create-topdesk---public-test-user)** Aby uzyskać odpowiednik Britta Simon w TOPdesk-Public, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
-6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
-
-W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
-
-Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą TOPdesk-Public, wykonaj następujące czynności:
-
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja z aplikacją **TOPdesk-publiczną** wybierz pozycję **Logowanie jednokrotne**.
-
-    ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
-
-2. W oknie dialogowym **Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed**, aby włączyć logowanie jednokrotne.
-
-    ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
-
-3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe **Podstawowa konfiguracja protokołu SAML**.
-
-    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
+   ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
 4.  W sekcji **Podstawowa konfiguracja protokołu SAML**, jeśli masz **plik metadanych dostawcy usługi**, wykonaj następujące kroki:
 
     >[!NOTE]
-    >**Plik metadanych dostawcy usług** zostanie pobrany z sekcji **Konfiguracja TOPdesk — publiczne Logowanie jednokrotne** , która została omówiona w dalszej części tego samouczka.
+    >Plik metadanych **dostawcy usług** można uzyskać z sekcji Konfigurowanie aplikacji **TOPdesk — publiczne** logowanie pojedynczej, co wyjaśniono w dalszej części tego samouczka.
 
     a. Kliknij pozycję **Przekaż plik metadanych**.
     
@@ -110,64 +86,80 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą TOPdesk-Pub
 
     ![wybierz plik metadanych](common/browse-upload-metadata.png)
 
-    c. Po pomyślnym przekazaniu pliku metadanych wartości **identyfikatorów** i **adresów URL odpowiedzi** są automatycznie wypełniane w sekcji Podstawowa konfiguracja SAML.
+    c. Po pomyślnym przesłaniu pliku metadanych wartości **Identyfikator** i Adres **URL** odpowiedzi zostaną automatycznie wypełnione w sekcji Podstawowa konfiguracja języka SAML.
 
-    ![TOPdesk — informacje o rejestracji jednokrotnej w domenie publicznej i adresach URL](common/sp-identifier-reply.png)
+    d. W **polu tekstowym Adres URL** logowania wpisz adres URL, korzystając z następującego wzorca: `https://<companyname>.topdesk.net`
 
-    d. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<companyname>.topdesk.net`
-
-    e. W polu tekstowym **adres URL identyfikatora** wprowadź adres URL metadanych TOPdesk, który można pobrać z konfiguracji TOPdesk. Powinien on używać następującego wzorca: `https://<companyname>.topdesk.net/saml-metadata/<identifier>`
+    e. W polu **tekstowym Identifier URL** (Adres URL identyfikatora) wypełnij adres URL metadanych aplikacji TOPdesk, który można pobrać z konfiguracji aplikacji TOPdesk. Należy użyć następującego wzorca: `https://<companyname>.topdesk.net/saml-metadata/<identifier>`
     
     f. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<companyname>.topdesk.net/tas/public/login/verify`
     
     > [!NOTE] 
-    > Jeśli wartości **identyfikatorów** i **adresów URL odpowiedzi** nie są automatycznie wypełniane, należy wprowadzić je ręcznie. W przypadku identyfikatora należy postępować zgodnie z wzorcem wymienionym powyżej i uzyskać wartość adresu URL odpowiedzi z sekcji **Konfigurowanie TOPdesk — publiczna Rejestracja jednokrotna** , która została omówiona w dalszej części tego samouczka. Wartość **adresu URL logowania** nie jest prawdziwa, dlatego należy zaktualizować wartość przy użyciu rzeczywistego adresu URL Sign-On. Contact [TOPdesk — zespół pomocy technicznej dla klientów publicznych](https://help.topdesk.com/saas/enterprise/user/) w celu uzyskania wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Jeśli wartości **Identyfikator i** **Adres URL** odpowiedzi nie zostaną wypełnione automatycznie, należy wprowadzić je ręcznie. W polu Identyfikator postępuj zgodnie ze wzorcem wymienionym powyżej. Wartość adresu URL odpowiedzi można uzyskać w sekcji Konfigurowanie aplikacji **TOPdesk — publiczne** logowanie pojedynczej, co wyjaśniono w dalszej części tego samouczka. Wartość **adresu URL logowania** nie jest prawdziwa, dlatego musisz zaktualizować tę wartość przy użyciu rzeczywistego Sign-On URL. Skontaktuj się z zespołem pomocy technicznej klienta aplikacji [TOPdesk - Public,](https://help.topdesk.com/saas/enterprise/user/) aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/metadataxml.png)
 
-6. W sekcji **Konfigurowanie TOPdesk-Public** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
+6. W **sekcji Konfigurowanie aplikacji TOPdesk - Public** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
-    a. Adres URL logowania
+### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
-    b. Identyfikator usługi Azure AD
+W tej sekcji utworzysz użytkownika testowego w aplikacji o nazwie Azure Portal B.Simon.
 
-    c. Adres URL wylogowywania
+1. W okienku po lewej stronie Azure Portal pozycję Azure Active Directory **pozycję** **Użytkownicy,** a następnie pozycję **Wszyscy użytkownicy.**
+1. Wybierz **pozycję Nowy** użytkownik w górnej części ekranu.
+1. We **właściwościach** Użytkownik wykonaj następujące kroki:
+   1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
+   1. W **polu Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
+   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
+   1. Kliknij pozycję **Utwórz**.
 
-### <a name="configure-topdesk---public-single-sign-on"></a>Konfigurowanie TOPdesk-Public Single Sign-On
+### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-1. Zaloguj się do witryny firmy **TOPdesk-Public** jako administrator.
+W tej sekcji włączysz dla użytkownika B.Simon możliwość korzystania z logowania pojedynczego platformy Azure, udzielając dostępu do aplikacji TOPdesk - Public.
+
+1. W Azure Portal pozycję **Aplikacje dla przedsiębiorstw,** a następnie pozycję **Wszystkie aplikacje.**
+1. Na liście aplikacji wybierz pozycję **TOPdesk - Public**.
+1. Na stronie przeglądu aplikacji znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy.**
+1. Wybierz **pozycję Dodaj użytkownika,** a następnie **wybierz pozycję Użytkownicy i grupy w** **oknie dialogowym Dodawanie** przypisania.
+1. W **oknie dialogowym** Użytkownicy i grupy wybierz **pozycję B.Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+1. Jeśli oczekujesz przypisania roli do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz** rolę. Jeśli dla tej aplikacji nie została ustawiona żadna rola, zobaczysz wybraną rolę "Dostęp domyślny".
+1. W **oknie dialogowym Dodawanie przypisania** kliknij przycisk **Przypisz.**
+
+## <a name="configure-topdesk---public-sso"></a>Konfigurowanie aplikacji TOPdesk — publiczne logowanie jednokrotne
+
+1. Zaloguj się do **firmowej witryny aplikacji TOPdesk - Public** jako administrator.
 
 2. W menu **TOPdesk** kliknij pozycję **Settings** (Ustawienia).
    
-    ![Ustawienia](./media/topdesk-public-tutorial/ic790598.png "Ustawienia")
+    ![Ustawienia](./media/topdesk-public-tutorial/menu.png "Ustawienia")
 
 3. Kliknij pozycję **Login Settings** (Ustawienia logowania).
    
-    ![Ustawienia logowania](./media/topdesk-public-tutorial/ic790599.png "Ustawienia logowania")
+    ![Ustawienia logowania](./media/topdesk-public-tutorial/login.png "Ustawienia logowania")
 
 4. Rozwiń menu **Login Settings** (Ustawienia logowania), a następnie kliknij pozycję **General** (Ogólne).
    
-    ![Ogólne](./media/topdesk-public-tutorial/ic790600.png "Ogólne")
+    ![Ustawienia ogólne](./media/topdesk-public-tutorial/general.png "Ustawienia ogólne")
 
-5. W sekcji **Public** (Konfiguracja **logowania SAML** ) w sekcji publicznej wykonaj następujące czynności:
+5. W sekcji **Public** (Publiczna) sekcji SAML login configuration (Konfiguracja logowania **SAML)** wykonaj następujące kroki:
    
-    ![Ustawienia techniczne](./media/topdesk-public-tutorial/ic790601.png "Ustawienia techniczne")
+    ![Ustawienia techniczne](./media/topdesk-public-tutorial/public.png "Ustawienia techniczne")
    
     a. Kliknij pozycję **Download** (Pobierz), aby pobrać publiczny plik metadanych, a następnie zapisz go lokalnie na komputerze.
    
-    b. Otwórz pobrany plik metadanych, a następnie zlokalizuj węzeł **AssertionConsumerService** .
+    b. Otwórz pobrany plik metadanych, a następnie znajdź węzeł **AssertionConsumerService.**
 
-    ![AssertionConsumerService](./media/topdesk-public-tutorial/ic790619.png "AssertionConsumerService")
+    ![AssertionConsumerService](./media/topdesk-public-tutorial/service.png "AssertionConsumerService")
    
-    c. Skopiuj wartość **AssertionConsumerService** , wklej tę wartość w polu tekstowym **adres URL odpowiedzi** w sekcji **Podstawowa konfiguracja SAML** .      
+    c. Skopiuj wartość **AssertionConsumerService** i wklej tę wartość w polu tekstowym **Adres URL** odpowiedzi w sekcji **Podstawowa konfiguracja protokołu SAML.**      
    
 6. Aby utworzyć plik certyfikatu, wykonaj następujące kroki:
     
-    ![Certyfikat](./media/topdesk-public-tutorial/ic790606.png "Certyfikat")
+    ![Certyfikat](./media/topdesk-public-tutorial/certificate-file.png "Certyfikat")
     
     a. Otwórz plik metadanych pobrany w witrynie Azure Portal.
     
@@ -179,11 +171,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą TOPdesk-Pub
 
 7. W sekcji **Public** (Publiczne) kliknij przycisk **Add** (Dodaj).
     
-    ![Logowanie SAML](./media/topdesk-public-tutorial/ic790625.png "Logowanie SAML")
+    ![Logowanie SAML](./media/topdesk-public-tutorial/add.png "Logowanie SAML")
 
 8. W oknie dialogowym **SAML configuration assistant** (Asystent konfiguracji SAML) wykonaj następujące kroki:
     
-    ![Asystent konfiguracji SAML](./media/topdesk-public-tutorial/ic790608.png "Asystent konfiguracji SAML")
+    ![Asystent konfiguracji SAML](./media/topdesk-public-tutorial/configuration.png "Asystent konfiguracji SAML")
     
     a. Aby przekazać plik metadanych pobrany w witrynie Azure Portal, w obszarze **Federation Metadata** (Metadane federacji) kliknij przycisk **Browse** (Przeglądaj).
 
@@ -197,93 +189,43 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą TOPdesk-Pub
 
     f. Kliknij pozycję **Zapisz**.
 
-### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
+### <a name="create-topdesk---public-test-user"></a>Tworzenie użytkownika testowego aplikacji TOPdesk — Public
 
-W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie Britta Simon.
-
-1. W witrynie Azure Portal w okienku po lewej stronie wybierz pozycję **Azure Active Directory**, wybierz opcję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
-
-    ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
-
-2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
-
-    ![Przycisk Nowy użytkownik](common/new-user.png)
-
-3. We właściwościach użytkownika wykonaj następujące kroki.
-
-    ![Okno dialogowe Użytkownik](common/user-properties.png)
-
-    a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
-    b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension . Na przykład BrittaSimon@contoso.com
-
-    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
-
-    d. Kliknij pozycję **Utwórz**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
-
-W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi TOPdesk-Public.
-
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **TOPdesk — publiczna**.
-
-    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
-
-2. Na liście Aplikacje wybierz pozycję **TOPdesk — publiczna**.
-
-    ![Link TOPdesk-Public na liście aplikacji](common/all-applications.png)
-
-3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
-
-    ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
-
-4. Kliknij przycisk **Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania**.
-
-    ![Okienko Dodawanie przypisania](common/add-assign-user.png)
-
-5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
-
-6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-
-7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
-
-### <a name="create-topdesk---public-test-user"></a>Utwórz użytkownika testowego TOPdesk — publiczny
-
-Aby umożliwić użytkownikom usługi Azure AD logowanie się do TOPdesk-Public, muszą one być obsługiwane w usłudze TOPdesk — Public. W przypadku TOPdesk — obsługa administracyjna jest zadaniem ręcznym.
+Aby umożliwić użytkownikom usługi Azure AD logowanie się do aplikacji TOPdesk - Public, należy ich aprowizować w aplikacji TOPdesk - Public. W przypadku aplikacji TOPdesk — public aprowizowanie jest zadaniem ręcznym.
 
 ### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Aby skonfigurować aprowizację użytkowników, wykonaj następujące kroki:
 
-1. Zaloguj się do witryny firmy **TOPdesk-Public** jako administrator.
+1. Zaloguj się do **firmowej witryny aplikacji TOPdesk — Public** jako administrator.
 
-2. W menu u góry kliknij pozycję **TOPdesk \> nowe \> pliki obsługi \>**.
+2. W menu u góry kliknij pozycję **TOPdesk New Support Files Person (TOPdesk \> New Support Files \> \> Person).**
    
-    ![Person (Osoba)](./media/topdesk-public-tutorial/ic790628.png "Person (Osoba)")
+    ![Person (Osoba)](./media/topdesk-public-tutorial/files.png "Person (Osoba)")
 
-3. W oknie dialogowym Nowa osoba wykonaj następujące czynności:
+3. W oknie dialogowym Nowa osoba wykonaj następujące kroki:
    
-    ![Nowa osoba](./media/topdesk-public-tutorial/ic790629.png "Nowa osoba")
+    ![Nowa osoba](./media/topdesk-public-tutorial/new.png "Nowa osoba")
    
     a. Kliknij kartę General (Ogólne).
 
-    b. W polu tekstowym **nazwisko** wpisz nazwisko użytkownika, np. Simon
+    b. W polu **tekstowym Surname** (Nazwisko) wpisz nazwisko użytkownika, na przykład Simon
  
-    c. Wybierz **witrynę** dla konta.
+    c. Wybierz **lokację** dla konta.
  
     d. Kliknij pozycję **Zapisz**.
 
 > [!NOTE]
-> Do udostępniania kont użytkowników usługi Azure AD można używać innych narzędzi do tworzenia kont użytkowników TOPdesk i interfejsów API udostępnianych przez usługę TOPdesk — Public.
+> Aby aprowizować konta użytkowników usługi Azure AD, możesz użyć dowolnych innych interfejsów API lub narzędzi TOPdesk - Public do tworzenia kont użytkowników usługi Azure AD.
 
-### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
+## <a name="test-sso"></a>Testowanie logowania jednokrotnego 
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+W tej sekcji przetestujemy konfigurację logowania pojedynczego usługi Azure AD przy użyciu następujących opcji. 
 
-Po kliknięciu kafelka TOPdesk-Public w panelu dostępu należy automatycznie zalogować się do TOPdesk-Public, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+* Kliknij pozycję **Testuj tę aplikację w** Azure Portal. Spowoduje to przekierowanie do adresu URL logowania publicznego TOPdesk , pod którym można zainicjować przepływ logowania. 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+* Przejdź bezpośrednio do strony TOPdesk - Public Sign-on URL (TOPdesk — publiczny adres URL logowania) i z tego adresu zainicjuj przepływ logowania.
 
-- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
+* Możesz użyć usługi Microsoft Moje aplikacje. Po kliknięciu kafelka TOPdesk - Public na stronie Moje aplikacje nastąpi przekierowanie do adresu URL aplikacji TOPdesk - Public Sign-on. Aby uzyskać więcej informacji na temat Moje aplikacje, [zobacz Wprowadzenie do Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Następne kroki
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](../conditional-access/overview.md)
+Po skonfigurowaniu aplikacji TOPdesk - Public można wymusić kontrolę sesji, która chroni eksfiltrację i przefiltrowanie poufnych danych organizacji w czasie rzeczywistym. Kontrola sesji wykracza poza dostęp warunkowy. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

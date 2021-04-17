@@ -1,57 +1,57 @@
 ---
-title: Uaktualnienie konta magazynu ogólnego przeznaczenia do wersji 2
+title: Uaktualnianie do konta magazynu ogólnego przeznaczenia w wersji 2
 titleSuffix: Azure Storage
-description: Uaktualnij do kont magazynu ogólnego przeznaczenia w wersji 2 za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Określ warstwę dostępu dla danych obiektów BLOB.
+description: Uaktualnij konta magazynu ogólnego przeznaczenia w wersji 2 przy użyciu Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Określ warstwę dostępu dla danych obiektów blob.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.author: tamram
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 30c73849d07c1495251c17510ea71f29c674c618
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: d6d94efea52d920b8bfe69be2ee07c8b829792d8
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967493"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484102"
 ---
-# <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Uaktualnienie konta magazynu ogólnego przeznaczenia do wersji 2
+# <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Uaktualnianie do konta magazynu ogólnego przeznaczenia w wersji 2
 
-Konta magazynu ogólnego przeznaczenia w wersji 2 obsługują najnowsze funkcje usługi Azure Storage i obejmują wszystkie funkcje kont w ramach ogólnego przeznaczenia w wersji 1 i usługi BLOB Storage. Konta ogólnego przeznaczenia w wersji 2 są zalecane w przypadku większości scenariuszy magazynu. Konta ogólnego przeznaczenia w wersji 2 zapewniają najniższy poziom wydajności dla usługi Azure Storage, a także konkurencyjne w branży ceny transakcji. Konta ogólnego przeznaczenia w wersji 2 obsługują domyślne warstwy dostępu do zasobów gorąca i chłodna oraz poziomu obiektów BLOB między gorącą, chłodną lub archiwalną.
+Konta magazynu ogólnego przeznaczenia w wersji 2 obsługują najnowsze funkcje usługi Azure Storage i obejmują wszystkie funkcje kont ogólnego przeznaczenia w wersji 1 i kont usługi Blob Storage. Konta ogólnego przeznaczenia w wersji 2 są zalecane w większości scenariuszy magazynu. Konta ogólnego przeznaczenia w wersji 2 zapewniają najniższe ceny pojemności za gigabajt dla usługi Azure Storage, a także konkurencyjne w branży ceny transakcji. Konta ogólnego przeznaczenia w wersji 2 obsługują domyślne warstwy dostępu do kont Gorąca lub Chłodna oraz warstwy na poziomie obiektów blob między warstwami Gorąca, Chłodna lub Archiwum.
 
-Uaktualnianie do konta magazynu ogólnego przeznaczenia w wersji 2 z poziomu kont ogólnego przeznaczenia w wersji 1 lub magazynu obiektów BLOB jest proste. Uaktualnienie można wykonać przy użyciu Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Brak przestojów ani ryzyka utraty danych skojarzonych z uaktualnianiem do konta magazynu ogólnego przeznaczenia w wersji 2. Uaktualnienie konta odbywa się za pośrednictwem prostej operacji Azure Resource Manager, która zmienia typ konta.
+Uaktualnienie do konta magazynu ogólnego przeznaczenia w wersji 2 z kont ogólnego przeznaczenia w wersji 1 lub konta usługi Blob Storage jest proste. Uaktualnienie można uaktualnić przy użyciu interfejsu Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Nie ma żadnych przestojów ani ryzyka utraty danych związanych z uaktualnieniem do konta magazynu ogólnego przeznaczenia w wersji 2. Uaktualnienie konta odbywa się za pośrednictwem prostej Azure Resource Manager, która zmienia typ konta.
 
 > [!IMPORTANT]
-> Uaktualnianie konta ogólnego przeznaczenia v1 lub BLOB Storage do ogólnego przeznaczenia w wersji 2 jest trwałe i nie można go cofnąć.
+> Uaktualnienie konta ogólnego przeznaczenia w wersji 1 lub konta usługi Blob Storage do konta ogólnego przeznaczenia w wersji 2 jest trwałe i nie można go cofnąć.
 
 > [!NOTE]
-> Mimo że firma Microsoft zaleca konta ogólnego przeznaczenia w wersji 2 dla większości scenariuszy, firma Microsoft będzie nadal obsługiwała konta ogólnego przeznaczenia w wersji 1 dla nowych i istniejących klientów. W nowych regionach można tworzyć konta magazynu ogólnego przeznaczenia w wersji 1, gdy usługa Azure Storage jest dostępna w tych regionach. Firma Microsoft nie ma obecnie planu na wycofanie pomocy technicznej dla kont ogólnego przeznaczenia w wersji 1 i udostępnienie co najmniej jednego roku przed wycofaniem jakiejkolwiek funkcji usługi Azure Storage. Firma Microsoft będzie nadal dostarczać aktualizacje zabezpieczeń dla kont ogólnego przeznaczenia w wersji 1, ale dla tego typu konta nie jest oczekiwane tworzenie nowych funkcji.
+> Mimo że firma Microsoft zaleca konta ogólnego przeznaczenia w wersji 2 w przypadku większości scenariuszy, firma Microsoft będzie nadal obsługiwać konta ogólnego przeznaczenia w wersji 1 dla nowych i istniejących klientów. Konta magazynu ogólnego przeznaczenia w wersji 1 można tworzyć w nowych regionach zawsze, gdy usługa Azure Storage jest dostępna w tych regionach. Firma Microsoft nie planuje obecnie wycofać pomocy technicznej dla kont ogólnego przeznaczenia w wersji 1 i udostępni co najmniej jednoroczne powiadomienie z wyprzedzeniem przed wycofaniu jakiejkolwiek funkcji usługi Azure Storage. Firma Microsoft będzie nadal dostarczać aktualizacje zabezpieczeń dla kont ogólnego przeznaczenia w wersji 1, ale nie oczekuje się tworzenia nowych funkcji dla tego typu konta.
 >
-> W przypadku nowych regionów świadczenia usługi Azure, które przechodzą w tryb online po 1 października 2020, ceny dla kont ogólnego przeznaczenia w wersji 1 uległy zmianie i są one równoważne z cenami dla kont ogólnego przeznaczenia w wersji 2 w tych regionach. Cennik kont ogólnego przeznaczenia w wersji 1 w regionach świadczenia usługi Azure, które istniały przed 1 października 2020, nie został zmieniony. Szczegóły cennika kont ogólnego przeznaczenia w wersji 1 w określonym regionie znajdują się na stronie cennika usługi Azure Storage. Wybierz region, a następnie w obszarze **oferty cennika** wybierz pozycję **inne**.
+> W przypadku nowych regionów platformy Azure, które są dostępne online po 1 października 2020 r., ceny kont ogólnego przeznaczenia w wersji 1 uległy zmianie i są równoważne cenom kont ogólnego przeznaczenia w wersji 2 w tych regionach. Ceny kont ogólnego przeznaczenia w wersji 1 w regionach platformy Azure, które istniały przed 1 października 2020 r., nie uległy zmianie. Aby uzyskać szczegółowe informacje o cenach kont ogólnego przeznaczenia w wersji 1 w określonym regionie, zobacz stronę cennika usługi Azure Storage. Wybierz swój region, a następnie obok opcji **Oferty cenowe** wybierz pozycję **Inne.**
 
 ## <a name="upgrade-an-account"></a>Uaktualnianie konta
 
-Aby uaktualnić konto usługi Microsoft w wersji 1 lub BLOB do konta ogólnego przeznaczenia w wersji 2, użyj Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
+Aby uaktualnić konto ogólnego przeznaczenia w wersji 1 lub konto usługi Blob Storage do konta ogólnego przeznaczenia w wersji 2, użyj programu Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Przejdź do konta magazynu.
-3. W sekcji **Ustawienia** kliknij pozycję **Konfiguracja**.
-4. W obszarze **rodzaj konta** kliknij pozycję **Uaktualnij**.
-5. W obszarze **Potwierdź uaktualnianie** wpisz nazwę konta.
-6. Kliknij przycisk **Uaktualnij** w dolnej części bloku.
+3. W sekcji **Ustawienia** kliknij pozycję **Konfiguracja.**
+4. W **obszarze Rodzaj konta** kliknij pozycję **Uaktualnij.**
+5. W **obszarze Potwierdź** uaktualnienie wpisz nazwę konta.
+6. Kliknij **pozycję** Uaktualnij w dolnej części bloku.
 
-    ![Typ konta uaktualnienia](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
+    ![Rodzaj uaktualnienia konta](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Aby uaktualnić konto ogólnego przeznaczenia w wersji 1 do konta ogólnego przeznaczenia w wersji 2 przy użyciu programu PowerShell, najpierw zaktualizuj program PowerShell, aby używał najnowszej wersji modułu **AZ. Storage** . Aby uzyskać więcej informacji na temat instalowania programu PowerShell, zobacz [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/install-Az-ps).
+Aby uaktualnić konto ogólnego przeznaczenia w wersji 1 do konta ogólnego przeznaczenia w wersji 2 przy użyciu programu PowerShell, najpierw zaktualizuj program PowerShell, aby używać najnowszej wersji **modułu Az.Storage.** Aby uzyskać więcej informacji na temat instalowania programu PowerShell, zobacz [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/install-Az-ps).
 
-Następnie Wywołaj następujące polecenie, aby uaktualnić konto, podstawiając nazwę grupy zasobów, nazwę konta magazynu i żądaną warstwę dostępu do konta.
+Następnie wywołaj następujące polecenie, aby uaktualnić konto, zastępując nazwę grupy zasobów, nazwę konta magazynu i żądaną warstwę dostępu do konta.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
@@ -61,7 +61,7 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account>
 
 Aby uaktualnić konto ogólnego przeznaczenia w wersji 1 do konta ogólnego przeznaczenia w wersji 2 przy użyciu interfejsu wiersza polecenia platformy Azure, najpierw zainstaluj najnowszą wersję interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji na temat instalowania interfejsu wiersza polecenia, zobacz [Instalacja interfejsu wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli).
 
-Następnie Wywołaj następujące polecenie, aby uaktualnić konto, podstawiając nazwę grupy zasobów, nazwę konta magazynu i żądaną warstwę dostępu do konta.
+Następnie wywołaj następujące polecenie, aby uaktualnić konto, zastępując nazwę grupy zasobów, nazwę konta magazynu i żądaną warstwę dostępu do konta.
 
 ```azurecli
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2 --access-tier=<Hot/Cool>
@@ -69,28 +69,28 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 ---
 
-## <a name="specify-an-access-tier-for-blob-data"></a>Określanie warstwy dostępu dla danych obiektów BLOB
+## <a name="specify-an-access-tier-for-blob-data"></a>Określanie warstwy dostępu dla danych obiektów blob
 
-Konta ogólnego przeznaczenia w wersji 2 obsługują wszystkie usługi Azure Storage i obiekty danych, ale warstwy dostępu są dostępne tylko w celu blokowania obiektów BLOB w magazynie obiektów BLOB. W przypadku uaktualniania do konta magazynu ogólnego przeznaczenia w wersji 2 można określić domyślną warstwę dostępu do konta gorąca lub chłodna, która wskazuje warstwę domyślną dane obiektów BLOB zostaną przekazane, tak jakby nie określono indywidualnego parametru warstwy dostępu do obiektów BLOB.
+Konta ogólnego przeznaczenia w wersji 2 obsługują wszystkie usługi magazynu platformy Azure i obiekty danych, ale warstwy dostępu są dostępne tylko dla blokowych obiektów blob w usłudze Blob Storage. Podczas uaktualniania do konta magazynu ogólnego przeznaczenia w wersji 2 można określić domyślną warstwę dostępu do konta Gorąca lub Chłodna, która wskazuje domyślną warstwę, w której dane obiektu blob zostaną przekazane, tak jakby nie określono parametru indywidualnej warstwy dostępu do obiektu blob.
 
-Warstwy dostępu do obiektów BLOB umożliwiają wybranie najbardziej ekonomicznego magazynu w oparciu o przewidywane wzorce użycia. Blokowe obiekty blob mogą być przechowywane w warstwach gorąca, chłodna lub archiwalna. Aby uzyskać więcej informacji na temat warstw dostępu, zobacz [Azure Blob Storage: warstwy magazynowania gorąca, chłodna i archiwalna](../blobs/storage-blob-storage-tiers.md).
+Warstwy dostępu do obiektów blob umożliwiają wybranie najbardziej ekonomicznego magazynu na podstawie przewidywanych wzorców użycia. Blokowe obiekty blob mogą być przechowywane w warstwach Gorąca, Chłodna lub Archiwum. Aby uzyskać więcej informacji na temat warstw dostępu, zobacz Azure Blob Storage: warstwy magazynowania Gorąca, Chłodna [i Archiwum.](../blobs/storage-blob-storage-tiers.md)
 
-Domyślnie nowe konto magazynu jest tworzone w warstwie dostępu gorąca, a konto magazynu ogólnego przeznaczenia w wersji 1 można uaktualnić do warstwy konta gorąca lub chłodna. Jeśli podczas uaktualniania nie określono warstwy dostępu do konta, zostanie ona domyślnie uaktualniona do wersji gorąca. Jeśli szukasz warstwy dostępu, która ma być używana na potrzeby uaktualnienia, weź pod uwagę bieżący scenariusz użycia danych. Istnieją dwa typowe scenariusze dotyczące migracji do konta ogólnego przeznaczenia w wersji 2:
+Domyślnie nowe konto magazynu jest tworzone w warstwie dostępu Gorąca, a konto magazynu ogólnego przeznaczenia w wersji 1 można uaktualnić do warstwy konta Gorąca lub Chłodna. Jeśli warstwa dostępu do konta nie zostanie określona podczas uaktualniania, zostanie ona domyślnie uaktualniona do warstwy Gorąca. Jeśli eksplorujesz warstwę dostępu do użycia podczas uaktualniania, rozważ bieżący scenariusz użycia danych. Istnieją dwa typowe scenariusze migracji użytkowników do konta ogólnego przeznaczenia w wersji 2:
 
-* Masz już istniejące konto magazynu ogólnego przeznaczenia w wersji 1 i chcesz oszacować uaktualnienie do konta magazynu ogólnego przeznaczenia w wersji 2, z odpowiednią warstwą dostępu do magazynu dla danych obiektów BLOB.
-* Użytkownik zdecydował się użyć konta magazynu ogólnego przeznaczenia w wersji 2 lub już go i chcieć sprawdzić, czy w przypadku danych obiektów BLOB należy używać warstwy dostępu do magazynu gorąca lub chłodna.
+* Masz istniejące konto magazynu ogólnego przeznaczenia w wersji 1 i chcesz ocenić uaktualnienie do konta magazynu ogólnego przeznaczenia w wersji 2 z odpowiednią warstwą dostępu do magazynu dla danych obiektów blob.
+* Decydujesz się na użycie konta magazynu ogólnego przeznaczenia w wersji 2 lub już je masz i chcesz ocenić, czy dla danych obiektów blob należy używać warstwy dostępu do magazynu gorącego, czy chłodnego.
 
-W obu przypadkach pierwszy priorytet ma na celu oszacowanie kosztów przechowywania, uzyskiwania dostępu do danych przechowywanych w ramach konta magazynu ogólnego przeznaczenia w wersji 2 i porównywania ich z bieżącymi kosztami.
+W obu przypadkach priorytetem jest oszacowanie kosztów przechowywania i uzyskiwania dostępu do danych przechowywanych na koncie magazynu ogólnego przeznaczenia w wersji 2 oraz porównanie ich z bieżącymi kosztami.
 
 ## <a name="pricing-and-billing"></a>Cennik i rozliczenia
 
-Uaktualnianie konta magazynu w wersji 1 do konta ogólnego przeznaczenia w wersji 2 jest bezpłatne. W trakcie procesu uaktualniania można określić żądaną warstwę konta. Jeśli podczas uaktualniania nie zostanie określona warstwa konta, będzie ona domyślną warstwą konta uaktualnionego konta `Hot` . Jednak zmiana warstwy dostępu do magazynu po uaktualnieniu może spowodować wprowadzenie zmian w rachunku, aby podczas uaktualniania zaleca się określenie nowej warstwy konta.
+Uaktualnienie konta magazynu w wersji 1 do konta ogólnego przeznaczenia w wersji 2 jest bezpłatne. Podczas procesu uaktualniania można określić żądaną warstwę konta. Jeśli warstwa konta nie zostanie określona podczas uaktualniania, domyślna warstwa konta uaktualnionego konta będzie mieć wartość `Hot` . Jednak zmiana warstwy dostępu do magazynu po uaktualnieniu może spowodować zmiany rachunku, dlatego zaleca się określenie nowej warstwy konta podczas uaktualniania.
 
 Wszystkie konta magazynu używają modelu cenowego dla magazynu obiektów blob opartego na warstwie każdego obiektu blob. W przypadku korzystania z konta magazynu mają zastosowanie następujące zagadnienia dotyczące rozliczeń:
 
-* **Koszty magazynowania**: oprócz ilości przechowywanych danych koszt przechowywania danych różni się w zależności od warstwy dostępu do magazynu. Koszt za gigabajt zmniejsza się w miarę, jak warstwa staje się chłodniejsza.
+* **Koszty magazynowania:** oprócz ilości przechowywanych danych koszt przechowywania danych różni się w zależności od warstwy dostępu do magazynu. Koszt za gigabajt zmniejsza się w miarę, jak warstwa staje się chłodniejsza.
 
-* **Koszty dostępu do danych**: opłaty za dostęp do danych wzrastają w miarę, jak warstwa staje się chłodniejsza. W przypadku danych w warstwie dostępu do magazynu chłodna i archiwalna naliczana jest opłata za dostęp do danych za każdy gigabajt dla operacji odczytu.
+* **Koszty dostępu do danych**: opłaty za dostęp do danych wzrastają w miarę, jak warstwa staje się chłodniejsza. W przypadku danych w warstwie dostępu do magazynu Chłodna i Archiwum jest naliczana opłata za dostęp do danych za każdy gigabajt dla odczytów.
 
 * **Koszty transakcji**: w przypadku wszystkich warstw naliczana jest opłata za transakcję, która wzrasta w miarę, jak warstwa staje się chłodniejsza.
 
@@ -98,24 +98,24 @@ Wszystkie konta magazynu używają modelu cenowego dla magazynu obiektów blob o
 
 * **Koszty transferu danych wychodzących**: transfery danych wychodzących (dane przesyłane poza region platformy Azure) powodują naliczanie opłat za zużycie przepustowości za każdy gigabajt, co jest spójne z kontami magazynu ogólnego przeznaczenia.
 
-* **Zmiana warstwy dostępu do magazynu**: zmiana warstwy dostępu do magazynu konta z chłodna na gorąca spowoduje naliczenie opłaty równej odczytaniu wszystkich danych istniejących na koncie magazynu. Jednak zmiana warstwy dostępu do konta z gorąca na chłodna spowoduje naliczenie opłaty równej zapisywaniu wszystkich danych w warstwie chłodna (tylko konta GPv2).
+* **Zmiana warstwy dostępu do** magazynu: zmiana warstwy dostępu magazynu konta z Chłodna na Gorąca wiąże się z naliczeniem opłaty równej opłacie za odczytanie wszystkich danych istniejących na koncie magazynu. Jednak zmiana warstwy dostępu konta z Gorąca na Chłodna wiąże się z naliczeniem opłaty równej opłacie za zapis wszystkich danych w warstwie Chłodna (tylko konta GPv2).
 
 > [!NOTE]
 > Więcej informacji dotyczących modelu cenowego dla kont magazynu można znaleźć na stronie [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/). Więcej informacji dotyczących opłat za transfer danych wychodzących można znaleźć na stronie [Szczegóły cennika transferów danych](https://azure.microsoft.com/pricing/details/data-transfers/).
 
-### <a name="estimate-costs-for-your-current-usage-patterns"></a>Oszacuj koszty bieżących wzorców użytkowania
+### <a name="estimate-costs-for-your-current-usage-patterns"></a>Szacowanie kosztów dla bieżących wzorców użycia
 
-Aby oszacować koszt przechowywania i uzyskiwania dostępu do danych obiektów BLOB w ramach konta magazynu ogólnego przeznaczenia w wersji 2 w określonej warstwie, Oceń istniejący wzorzec użycia lub przybliżony oczekiwany wzorzec użycia. Ogólnie potrzebne są odpowiedzi na następujące pytania:
+Aby oszacować koszt przechowywania i uzyskiwania dostępu do danych obiektów blob na koncie magazynu ogólnego przeznaczenia w wersji 2 w określonej warstwie, oceń istniejący wzorzec użycia lub przybliżenie oczekiwanego wzorca użycia. Ogólnie potrzebne są odpowiedzi na następujące pytania:
 
-* Użycie magazynu obiektów BLOB w gigabajtach, w tym:
+* Zużycie magazynu obiektów blob w gigabajtach, w tym:
   * Ile danych jest przechowywanych na koncie magazynu?
   * Jak zmienia się ilość danych w miesiącu? Czy nowe dane nieustannie zastępują stare dane?
 
-* Podstawowy wzorzec dostępu do danych usługi BLOB Storage, w tym:
-  * Jak dużo danych jest odczytywanych i zapisywanych na koncie magazynu?
-  * Ile operacji odczytu i operacji zapisu odbywa się na danych na koncie magazynu?
+* Podstawowy wzorzec dostępu do danych usługi Blob Storage, w tym:
+  * Ile danych jest odczytywanych i zapisywanych na koncie magazynu?
+  * Ile operacji odczytu i zapisu jest wykonywanych na danych na koncie magazynu?
 
-Aby podjąć decyzję dotyczącą najlepszej warstwy dostępu do Twoich potrzeb, można ułatwić ustalenie pojemności danych obiektów blob oraz sposobu używania tych danych. Można to zrobić najlepiej, przeglądając metryki monitorowania dla Twojego konta.
+Aby wybrać najlepszą warstwę dostępu dla twoich potrzeb, pomocne może być określenie pojemności danych obiektów blob i sposobu ich przetwarzania. Najlepiej jest to zrobić, analizując metryki monitorowania konta.
 
 ### <a name="monitoring-existing-storage-accounts"></a>Monitorowanie istniejących kont magazynu
 
@@ -127,7 +127,7 @@ Aby uzyskać więcej informacji, zapoznaj się z artykułami [About Storage Anal
 > Konta usługi Blob Storage ujawniają punkt końcowy usługi tabel tylko w odniesieniu do przechowywania i uzyskiwania dostępu do danych metryk dla tego konta.
 
 Aby monitorować użycie magazynu dla usługi Blob Storage, należy włączyć metryki pojemności.
-Dzięki temu dane pojemności są rejestrowane codziennie dla Blob service konta magazynu i rejestrowane jako wpis tabeli, który jest zapisywany w tabeli *$MetricsCapacityBlob* w ramach tego samego konta magazynu.
+Po włączeniu tej opcji dane pojemności są rejestrowane codziennie dla konta Blob service magazynu i rejestrowane jako wpis tabeli, który jest zapisywany w tabeli *$MetricsCapacityBlob* w ramach tego samego konta magazynu.
 
 Aby monitorować wzorce dostępu do danych dla usługi Blob Storage, należy włączyć godzinowe metryki transakcji z poziomu interfejsu API. Dzięki włączeniu godzinowych metryk transakcji transakcje interfejsu API są agregowane co godzinę i rejestrowane jako wpis tabeli, który jest zapisywany w tabeli *$MetricsHourPrimaryTransactionsBlob* w obrębie tego samego konta magazynu. W przypadku używania kont magazynu RA-GRS tabela *$MetricsHourSecondaryTransactionsBlob* rejestruje transakcje kierowane do pomocniczego punktu końcowego.
 
@@ -136,7 +136,7 @@ Aby monitorować wzorce dostępu do danych dla usługi Blob Storage, należy wł
 
 Aby uzyskać najbardziej zbliżone do prawdziwych informacje o użyciu danych i wzorcu dostępu, zalecamy wybranie takiego okresu przechowywania dla metryk, który odzwierciedla normalne użycie, i ekstrapolację. Jedną z opcji jest przechowywanie danych metryk przez siedem dni i zbieranie danych co tydzień, aby przeprowadzić analizę pod koniec miesiąca. Innym rozwiązaniem jest przechowywanie danych metryk z ostatnich 30 dni i zbieranie oraz analizowanie danych z końcem 30-dniowego okresu.
 
-Aby uzyskać szczegółowe informacje na temat włączania, gromadzenia i wyświetlania danych metryk, zobacz [metryki analizy magazynu](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Aby uzyskać szczegółowe informacje na temat włączania, zbierania i wyświetlania danych metryk, zobacz [Metryki analizy magazynu](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > Za przechowywanie i pobieranie danych analitycznych oraz uzyskiwanie dostępu do nich również są naliczane opłaty, podobnie jak za zwykłe dane użytkowników.
@@ -174,7 +174,7 @@ Aby oszacować koszty dostępu do danych dla kont usługi Blob Storage, konieczn
 Koszt transferu danych replikacji geograficznej dla kont usługi Blob Storage można obliczyć, korzystając z kalkulacji ilości danych zapisanych w przypadku używania konta magazynu GRS lub RA-GRS.
 
 > [!NOTE]
-> Aby zapoznać się z bardziej szczegółowym przykładem obliczania kosztów korzystania z warstwy dostępu do magazynu gorącego lub chłodnego, zapoznaj się z często zadawanymi pytaniami zatytułowanymi *"co to są warstwy dostępu gorąca i chłodna" i jak określić, która z nich ma być używana?* na stronie z [cennikiem usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
+> Aby uzyskać bardziej szczegółowy przykład obliczania kosztów używania warstwy dostępu do magazynu gorącego lub chłodnego, zobacz często zadawane pytania zatytułowane *"What are Hot and Cool access tiers* and how should I determine which one to use?" (Co to są warstwy dostępu Gorąca i Chłodna i jak należy określić, której z nich użyć?) na stronie z [cennikiem usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="next-steps"></a>Następne kroki
 

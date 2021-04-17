@@ -1,7 +1,7 @@
 ---
 title: Używanie Apache Spark w potoku uczenia maszynowego (wersja zapoznawcza)
 titleSuffix: Azure Machine Learning
-description: Połącz obszar roboczy usługi Azure Synapse Analytics z potokiem usługi Azure Machine Learning, aby użyć Apache Spark na potrzeby manipulowania danymi.
+description: Połącz obszar Azure Synapse Analytics z potokiem uczenia maszynowego platformy Azure, aby używać Apache Spark do manipulowania danymi.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,48 +10,48 @@ author: lobrien
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, synapse-azureml
-ms.openlocfilehash: b03915608c6143a9e205ba1a1e08e411b8aa9093
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2c69ec853cdeeed6f9e28fb9f2884053580ce08e
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104868651"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576384"
 ---
-# <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>Jak używać Apache Spark (obsługiwane przez usługę Azure Synapse Analytics) w potoku uczenia maszynowego (wersja zapoznawcza)
+# <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>Jak używać aplikacji Apache Spark (obsługiwanych przez Azure Synapse Analytics) w potoku uczenia maszynowego (wersja zapoznawcza)
 
-W tym artykule dowiesz się, jak używać pul Apache Spark obsługiwanych przez usługę Azure Synapse Analytics jako element docelowy obliczeń dla kroku przygotowywania danych w potoku Azure Machine Learning. Dowiesz się, w jaki sposób pojedynczy potok może korzystać z zasobów obliczeniowych, które są odpowiednie dla określonego kroku, takiego jak przygotowanie danych lub szkolenie. Zobaczysz, jak dane są przygotowywane do kroku Spark i jak jest on przenoszona do następnego kroku. 
+W tym artykule dowiesz się, jak używać pul Apache Spark obsługiwanych przez usługę Azure Synapse Analytics jako docelowego obiektu obliczeniowego dla kroku przygotowywania danych w potoku Azure Machine Learning danych. Dowiesz się, w jaki sposób pojedynczy potok może używać zasobów obliczeniowych odpowiednich dla konkretnego kroku, takiego jak przygotowywanie lub szkolenie danych. Zobaczysz, jak dane są przygotowywane na krok spark i jak są przekazywane do następnego kroku. 
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Utwórz [obszar roboczy Azure Machine Learning](how-to-manage-workspace.md) , aby pomieścić wszystkie zasoby potoku.
+* Utwórz obszar [Azure Machine Learning do](how-to-manage-workspace.md) przechowywania wszystkich zasobów potoku.
 
-* [Skonfiguruj środowisko programistyczne](how-to-configure-environment.md) , aby zainstalować zestaw SDK Azure Machine Learning, lub Użyj [wystąpienia obliczeniowego Azure Machine Learning](concept-compute-instance.md) z już zainstalowanym zestawem SDK.
+* [Skonfiguruj środowisko projektowe,](how-to-configure-environment.md) aby zainstalować Azure Machine Learning SDK lub użyć Azure Machine Learning [obliczeniowego](concept-compute-instance.md) z już zainstalowanym zestawem SDK.
 
-* Utwórz obszar roboczy usługi Azure Synapse Analytics i pulę Apache Spark (zobacz [Szybki Start: Tworzenie puli Apache Spark bezserwerowej przy użyciu programu Synapse Studio](../synapse-analytics/quickstart-create-apache-spark-pool-studio.md)). 
+* Utwórz obszar Azure Synapse Analytics i pulę Apache Spark (zobacz Szybki [start:](../synapse-analytics/quickstart-create-apache-spark-pool-studio.md)tworzenie puli Apache Spark serwera przy użyciu Synapse Studio ). 
 
-## <a name="link-your-azure-machine-learning-workspace-and-azure-synapse-analytics-workspace"></a>Połącz obszar roboczy Azure Machine Learning i obszar roboczy usługi Azure Synapse Analytics 
+## <a name="link-your-azure-machine-learning-workspace-and-azure-synapse-analytics-workspace"></a>Łączenie obszaru Azure Machine Learning i Azure Synapse Analytics roboczego 
 
-Możesz tworzyć pule Apache Spark i zarządzać nimi w obszarze roboczym usługi Azure Synapse Analytics. Aby zintegrować pulę Apache Spark z obszarem roboczym Azure Machine Learning, należy [połączyć się z obszarem roboczym usługi Azure Synapse Analytics](how-to-link-synapse-ml-workspaces.md). 
+Możesz tworzyć pule Apache Spark i administrować tymi pulami w Azure Synapse Analytics roboczym. Aby zintegrować Apache Spark z obszarem roboczym Azure Machine Learning, musisz połączyć się z Azure Synapse Analytics [roboczym.](how-to-link-synapse-ml-workspaces.md) 
 
-Pulę Apache Spark można dołączyć za pośrednictwem interfejsu użytkownika programu Azure Machine Learning Studio, korzystając ze strony **połączone usługi** . Można to zrobić również za pośrednictwem strony **obliczeniowej** z opcją **Attach COMPUTE** .
+Pulę zasobów można Apache Spark za pośrednictwem Azure Machine Learning studio użytkownika przy użyciu **strony Połączone** usługi. Możesz to również zrobić za pośrednictwem **strony Obliczenia** z **opcją Dołącz obliczenia.**
 
-Możesz również dołączyć pulę Apache Spark za pośrednictwem zestawu SDK (jak pokazano poniżej) lub za pośrednictwem szablonu ARM (zobacz ten [przykładowy szablon ARM](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json)). 
+Możesz również dołączyć pulę Apache Spark za pomocą zestawu SDK (zgodnie z poniższymi instrukcjami) lub za pośrednictwem szablonu USŁUGI ARM (zobacz ten [przykładowy szablon arm).](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json) 
 
-Można użyć wiersza polecenia, aby postępować zgodnie z szablonem ARM, dodać połączoną usługę i dołączyć pulę Apache Spark przy użyciu następującego kodu:
+Możesz użyć wiersza polecenia, aby postępować zgodnie z szablonem usługi ARM, dodać powiązaną usługę i dołączyć Apache Spark puli przy użyciu następującego kodu:
 
 ```bash
 az deployment group create --name --resource-group <rg_name> --template-file "azuredeploy.json" --parameters @"azuredeploy.parameters.json"
 ```
 
 > [!Important]
-> Aby pomyślnie połączyć się z obszarem roboczym usługi Azure Synapse Analytics, musisz mieć rolę właściciela w zasobie obszaru roboczego analizy usługi Azure Synapse. Sprawdź swój dostęp w Azure Portal.
-> Połączona Usługa otrzyma tożsamość przypisaną przez system (SAI) podczas jej tworzenia. Należy przypisać tę usługę linku do roli "SAI Apache Spark administrator" z programu Synapse Studio, aby mogła ona przesłać zadanie usługi Spark (zobacz [jak zarządzać przypisaniami ról RBAC w programie Synapse Studio](../synapse-analytics/security/how-to-manage-synapse-rbac-role-assignments.md)). Należy również przyznać użytkownikowi Azure Machine Learning obszar roboczy roli "Współautor" z Azure Portal zarządzania zasobami.
+> Aby pomyślnie utworzyć link do Azure Synapse Analytics roboczego, musisz mieć rolę właściciela w zasobie Azure Synapse Analytics obszaru roboczego. Sprawdź dostęp w Azure Portal.
+> Połączona usługa po utworzeniu otrzyma tożsamość przypisaną przez system (IT). Musisz przypisać tej usłudze linku rolę "Synapse Apache Spark administrator" z usługi Synapse Studio, aby można było przesłać zadanie Spark (zobacz Jak zarządzać przypisaniami ról RBAC usługi Synapse w [programie Synapse Studio](../synapse-analytics/security/how-to-manage-synapse-rbac-role-assignments.md)). Musisz również nadać użytkownikowi obszaru roboczego Azure Machine Learning rolę "Współautor" z Azure Portal zarządzania zasobami.
 
-## <a name="create-or-retrieve-the-link-between-your-azure-synapse-analytics-workspace-and-your-azure-machine-learning-workspace"></a>Utwórz lub Pobierz link między obszarem roboczym usługi Azure Synapse Analytics i obszarem roboczym Azure Machine Learning
+## <a name="create-or-retrieve-the-link-between-your-azure-synapse-analytics-workspace-and-your-azure-machine-learning-workspace"></a>Tworzenie lub pobieranie połączenia między obszarem roboczym Azure Synapse Analytics a obszarem roboczym Azure Machine Learning roboczego
 
-Połączone usługi można pobrać w obszarze roboczym, korzystając z kodu takiego jak:
+Połączone usługi w obszarze roboczym można pobrać za pomocą kodu, takiego jak:
 
 ```python
 from azureml.core import Workspace, LinkedService, SynapseWorkspaceLinkedServiceConfiguration
@@ -65,11 +65,11 @@ for service in LinkedService.list(ws) :
 linked_service = LinkedService.get(ws, 'synapselink1')
 ```
 
-Najpierw `Workspace.from_config()` Uzyskuj dostęp do obszaru roboczego Azure Machine Learning przy użyciu konfiguracji programu `config.json` (zobacz [Samouczek: wprowadzenie do Azure Machine Learning w środowisku programistycznym](tutorial-1st-experiment-sdk-setup-local.md)). Następnie kod drukuje wszystkie połączone usługi dostępne w obszarze roboczym. Na koniec `LinkedService.get()` Pobiera połączoną usługę o nazwie `'synapselink1'` . 
+Najpierw uzyskuje dostęp do swojego Azure Machine Learning roboczego przy użyciu konfiguracji w programie (zobacz Samouczek: rozpoczynanie pracy z Azure Machine Learning `Workspace.from_config()` `config.json` w [środowisku projektowym).](tutorial-1st-experiment-sdk-setup-local.md) Następnie kod drukuje wszystkie połączone usługi dostępne w obszarze roboczym. Na koniec `LinkedService.get()` pobiera połączona usługę o nazwie `'synapselink1'` . 
 
-## <a name="attach-your-apache-spark-pool-as-a-compute-target-for-azure-machine-learning"></a>Dołącz pulę platformy Apache Spark jako obiekt docelowy obliczeń dla Azure Machine Learning
+## <a name="attach-your-apache-spark-pool-as-a-compute-target-for-azure-machine-learning"></a>Dołączanie puli platformy Apache Spark jako docelowego obiektu obliczeniowego dla platformy Azure Machine Learning
 
-Aby skorzystać z puli platformy Apache Spark w celu przełączenia kroku w potoku uczenia maszynowego, należy dołączyć go jako `ComputeTarget` dla kroku potoku, jak pokazano w poniższym kodzie.
+Aby użyć puli apache spark do zasilania kroku w potoku uczenia maszynowego, musisz dołączyć go jako krok potoku, jak pokazano w `ComputeTarget` poniższym kodzie.
 
 ```python
 from azureml.core.compute import SynapseCompute, ComputeTarget
@@ -87,15 +87,15 @@ synapse_compute=ComputeTarget.attach(
 synapse_compute.wait_for_completion()
 ```
 
-Pierwszym krokiem jest skonfigurowanie `SynapseCompute` . `linked_service`Argument jest `LinkedService` obiektem utworzonym lub pobranym w poprzednim kroku. `type`Argument musi być `SynapseSpark` . `pool_name`Argument w `SynapseCompute.attach_configuration()` musi być zgodny z zakresem istniejącej puli w obszarze roboczym usługi Azure Synapse Analytics. Aby uzyskać więcej informacji na temat tworzenia puli platformy Apache Spark w obszarze roboczym usługi Azure Synapse Analytics, zobacz [Szybki Start: Tworzenie puli bezserwerowej Apache Spark przy użyciu programu Synapse Studio](../synapse-analytics/quickstart-create-apache-spark-pool-studio.md). Typ `attach_config` to `ComputeTargetAttachConfiguration` .
+Pierwszym krokiem jest `SynapseCompute` skonfigurowanie . Argument `linked_service` jest `LinkedService` obiektem utworzonym lub pobranym w poprzednim kroku. Argumentem `type` musi być `SynapseSpark` . `pool_name`Argument w pliku musi `SynapseCompute.attach_configuration()` odpowiadać istniejącej puli w twoim Azure Synapse Analytics roboczym. Aby uzyskać więcej informacji na temat tworzenia puli platformy Apache Spark w obszarze roboczym usługi Azure Synapse Analytics, zobacz Szybki [start:](../synapse-analytics/quickstart-create-apache-spark-pool-studio.md)tworzenie bez serwera Apache Spark przy użyciu Synapse Studio . Typ to `attach_config` `ComputeTargetAttachConfiguration` .
 
-Po utworzeniu konfiguracji można utworzyć Uczenie maszynowe, `ComputeTarget` przekazując w `Workspace` , `ComputeTargetAttachConfiguration` i nazwę, za pomocą której chcesz odwołać się do obliczeń w obszarze roboczym Machine Learning. Wywołanie `ComputeTarget.attach()` jest asynchroniczne, więc przykładowe bloki do momentu zakończenia wywołania.
+Po utworzeniu konfiguracji utworzysz uczenie maszynowe, przekazując wartości , i nazwę, za pomocą której chcesz odwoływać się do zasobów obliczeniowych w obszarze roboczym `ComputeTarget` `Workspace` uczenia `ComputeTargetAttachConfiguration` maszynowego. Wywołanie metody jest `ComputeTarget.attach()` asynchroniczne, więc przykładowe bloki są blokami aż do zakończenia wywołania.
 
-## <a name="create-a-synapsesparkstep-that-uses-the-linked-apache-spark-pool"></a>Utwórz `SynapseSparkStep` , który używa połączonej puli Apache Spark
+## <a name="create-a-synapsesparkstep-that-uses-the-linked-apache-spark-pool"></a>Tworzenie `SynapseSparkStep` puli, która używa połączonej Apache Spark puli
 
-Przykładowe [zadanie Spark notesu w puli platformy Apache Spark](https://github.com/azure/machinelearningnotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_job_on_synapse_spark_pool.ipynb) definiuje prosty potok uczenia maszynowego. Najpierw Notes definiuje krok przygotowania danych, który jest obsługiwany przez `synapse_compute` zdefiniowane w poprzednim kroku. Następnie Notes definiuje krok szkoleniowy, który jest obsługiwany przez obiekt docelowy obliczeń lepiej dostosowany do szkoleń. W przykładowym notesie jest stosowana baza danych do przeżycia Titanic w celu zademonstrowania danych wejściowych i wyjściowych. w rzeczywistości nie czyści danych ani nie tworzą modelu predykcyjnego. Ze względu na to, że w tym przykładzie nie ma rzeczywistych szkoleń, krok szkoleniowy używa niedrogiego, opartego na PROCESORAch zasobów obliczeniowych.
+Przykładowe zadanie [spark notesu w puli Apache Spark](https://github.com/azure/machinelearningnotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_job_on_synapse_spark_pool.ipynb) definiuje prosty potok uczenia maszynowego. Najpierw notes definiuje krok przygotowania danych obsługiwany przez krok `synapse_compute` zdefiniowany w poprzednim kroku. Następnie notes definiuje krok trenowania obsługiwany przez docelowy obiekt obliczeniowy lepiej dopasowany do trenowania. Przykładowy notes używa bazy danych titanica do zademonstrowania danych wejściowych i wyjściowych; Nie czyści danych ani nie robi modelu predykcyjnego. Ponieważ w tym przykładzie nie ma rzeczywistego szkolenia, w kroku trenowania jest używany niedrogi zasób obliczeniowy oparty na procesorze CPU.
 
-Dane są przesyłane do potoku uczenia maszynowego za pomocą `DatasetConsumptionConfig` obiektów, które mogą przechowywać dane tabelaryczne lub zestawy plików. Dane często pochodzą z plików w magazynie obiektów BLOB w magazynie danych obszaru roboczego. Poniższy kod przedstawia typowy kod służący do tworzenia danych wejściowych dla potoku uczenia maszynowego:
+Dane przepływają do potoku uczenia maszynowego za pomocą obiektów, które mogą przechowywać dane tabelaryce `DatasetConsumptionConfig` lub zestawy plików. Dane często pochodzą z plików w magazynie obiektów blob w magazynie danych obszaru roboczego. Poniższy kod przedstawia typowy kod tworzenia danych wejściowych dla potoku uczenia maszynowego:
 
 ```python
 from azureml.core import Dataset
@@ -111,10 +111,10 @@ titanic_file_dataset = Dataset.File.from_files(path=[(datastore, file_name)])
 step1_input2 = titanic_file_dataset.as_named_input("file_input").as_hdfs()
 ```
 
-Powyższy kod założono, że plik `Titanic.csv` znajduje się w magazynie obiektów BLOB. Kod pokazuje, jak odczytać plik jako `TabularDataset` i `FileDataset` . Ten kod służy tylko do celów demonstracyjnych, ponieważ może być mylący dla zduplikowanych danych wejściowych lub do interpretowania pojedynczego źródła danych zarówno jako zasobu zawierającego tabelę, jak i jako plik.
+Powyższy kod zakłada, że plik znajduje `Titanic.csv` się w magazynie obiektów blob. Kod pokazuje, jak odczytać plik jako i `TabularDataset` jako `FileDataset` . Ten kod jest tylko dla celów demonstracyjnych, ponieważ duplikowanie danych wejściowych lub interpretowanie pojedynczego źródła danych jako zasobu zawierającego tabelę i po prostu pliku byłoby mylące.
 
 > [!Important]
-> Aby można było użyć `FileDataset` jako danych wejściowych, `azureml-core` wersja musi być co najmniej `1.20.0` . Sposób określenia tej metody przy użyciu `Environment` klasy opisano poniżej.
+> Aby można było użyć jako `FileDataset` danych wejściowych, twoja `azureml-core` wersja musi mieć co najmniej . `1.20.0` Sposób określania tego przy użyciu `Environment` klasy został omówiony poniżej.
 
 Po zakończeniu kroku można przechowywać dane wyjściowe przy użyciu kodu podobnego do:
 
@@ -123,9 +123,9 @@ from azureml.data import HDFSOutputDatasetConfig
 step1_output = HDFSOutputDatasetConfig(destination=(datastore,"test")).register_on_complete(name="registered_dataset")
 ```
 
-W takim przypadku dane byłyby przechowywane w `datastore` pliku o nazwie `test` i będą dostępne w obszarze roboczym uczenie maszynowego jako `Dataset` z nazwą `registered_dataset` .
+W takim przypadku dane będą przechowywane w pliku o nazwie i będą dostępne w obszarze roboczym uczenia maszynowego `datastore` jako dane o nazwie `test` `Dataset` `registered_dataset` .
 
-Oprócz danych, krok potoku może mieć zależności w języku Python dla poszczególnych etapów. Poszczególne `SynapseSparkStep` obiekty mogą również określać precyzyjną konfigurację usługi Azure Synapse Apache Spark. Jest to pokazane w poniższym kodzie, który określa, że `azureml-core` wersja pakietu musi być co najmniej `1.20.0` . (Jak wspomniano wcześniej, to wymaganie `azureml-core` jest wymagane do użycia `FileDataset` jako dane wejściowe.)
+Oprócz danych krok potoku może mieć zależności języka Python dla 1 kroku. Poszczególne `SynapseSparkStep` obiekty mogą również określać Azure Synapse Apache Spark konfiguracji. Jest to pokazane w poniższym kodzie, który określa, że wersja `azureml-core` pakietu musi być co najmniej `1.20.0` . (Jak wspomniano wcześniej, to wymaganie dla funkcji jest wymagane do `azureml-core` użycia jako `FileDataset` danych wejściowych).
 
 ```python
 from azureml.core.environment import Environment
@@ -151,13 +151,13 @@ step_1 = SynapseSparkStep(name = 'synapse-spark',
                           environment = env)
 ```
 
-Powyższy kod określa pojedynczy krok w potoku usługi Azure Machine Learning. Ten krok `environment` określa określoną `azureml-core` wersję i może w razie potrzeby dodać inne zależności Conda lub PIP.
+Powyższy kod określa pojedynczy krok w potoku uczenia maszynowego platformy Azure. Ten krok określa określoną wersję i w razie potrzeby może dodać inne zależności `environment` `azureml-core` conda lub pip.
 
-Plik `SynapseSparkStep` będzie zip i przekazywany z komputera lokalnego do podkatalogu `./code` . Ten katalog zostanie odtworzony na serwerze obliczeniowym, a krok uruchomi plik `dataprep.py` z tego katalogu. `inputs`I tego `outputs` kroku są opisane `step1_input1` `step1_input2` `step1_output` wcześniej obiekty, i. Najprostszym sposobem uzyskania dostępu do tych wartości w `dataprep.py` skrypcie jest skojarzenie ich z nazwami `arguments` .
+Plik `SynapseSparkStep` zip i przekaże z komputera lokalnego podkatalog `./code` . Ten katalog zostanie ponownie utworzony na serwerze obliczeniowym, a krok spowoduje uruchomienie pliku `dataprep.py` z tego katalogu. I `inputs` `outputs` tego kroku to obiekty , i `step1_input1` `step1_input2` `step1_output` omówione wcześniej. Najprostszym sposobem uzyskania dostępu do tych wartości w `dataprep.py` skrypcie jest skojarzenie ich z nazwą `arguments` .
 
-Następny zestaw argumentów dla `SynapseSparkStep` kontrolki konstruktora Apache Spark. `compute_target`Jest to `'link1-spark01'` element, który został wcześniej dołączony jako cel obliczeniowy. Inne parametry określają pamięć i rdzenie, których chcesz użyć.
+Następny zestaw argumentów do `SynapseSparkStep` kontrolki konstruktora Apache Spark. Element `compute_target` jest `'link1-spark01'` elementem, który wcześniej dołączono jako docelowy obiekt obliczeniowy. Inne parametry określają pamięć i rdzenie, których chcemy użyć.
 
-Przykładowy Notes używa następującego kodu dla `dataprep.py` :
+Przykładowy notes używa następującego kodu dla `dataprep.py` :
 
 ```python
 import os
@@ -193,13 +193,13 @@ sdf.coalesce(1).write\
 .csv(args.output_dir)
 ```
 
-Ten skrypt "Przygotowywanie danych" nie wykonuje żadnej rzeczywistej transformacji danych, ale pokazuje, jak pobrać dane, przekonwertować go na ramkę Dataframe i jak wykonać pewne podstawowe operacje Apache Spark. Dane wyjściowe można znaleźć w Azure Machine Learning Studio, otwierając uruchomienie podrzędne, wybierając kartę dane **wyjściowe + dzienniki** i otwierając `logs/azureml/driver/stdout` plik, jak pokazano na poniższej ilustracji.
+Ten skrypt "przygotowywania danych" nie robi żadnych rzeczywistych przekształceń danych, ale ilustruje sposób pobierania danych, konwertowania ich na ramę danych platformy Spark i wykonywania niektórych podstawowych Apache Spark danych. Dane wyjściowe w programie Azure Machine Learning Studio można znaleźć, otwierając przebieg podrzędny, wybierając kartę Dane wyjściowe **i** dzienniki i otwierając plik, jak pokazano na `logs/azureml/driver/stdout` poniższej ilustracji.
 
-:::image type="content" source="media/how-to-use-synapsesparkstep/synapsesparkstep-stdout.png" alt-text="Zrzut ekranu programu Studio przedstawiający kartę stdout przebiegu podrzędnego":::
+:::image type="content" source="media/how-to-use-synapsesparkstep/synapsesparkstep-stdout.png" alt-text="Zrzut ekranu przedstawiający kartę stdout uruchomienia podrzędnego w programie Studio":::
 
-## <a name="use-the-synapsesparkstep-in-a-pipeline"></a>Używanie `SynapseSparkStep` w potoku
+## <a name="use-the-synapsesparkstep-in-a-pipeline"></a>Używanie w `SynapseSparkStep` potoku
 
-Inne kroki potoku mogą mieć własne unikatowe środowiska i uruchamiać je w różnych zasobach obliczeniowych odpowiednich dla danego zadania. Przykładowy Notes uruchamia "krok szkoleniowy" w małym klastrze CPU:
+W poniższym przykładzie użyto danych wyjściowych `SynapseSparkStep` z sekcji utworzonej w [poprzedniej sekcji](#create-a-synapsesparkstep-that-uses-the-linked-apache-spark-pool). Inne kroki w potoku mogą mieć własne unikatowe środowiska i być uruchamiane w różnych zasobach obliczeniowych odpowiednich dla zadania. Przykładowy notes uruchamia "krok trenowania" w małym klastrze procesora CPU:
 
 ```python
 from azureml.core.compute import AmlCompute
@@ -226,9 +226,9 @@ step_2 = PythonScriptStep(script_name="train.py",
                           allow_reuse=False)
 ```
 
-W razie potrzeby w powyższym kodzie zostanie utworzony nowy zasób obliczeniowy. Następnie `step1_output` wynik zostanie przekonwertowany na dane wejściowe dla etapu szkolenia. `as_download()`Opcja oznacza, że dane będą przenoszone na zasób obliczeniowy, co powoduje szybszy dostęp. Jeśli dane były tak duże, że nie mieszczą się na lokalnym dysku twardym, można użyć `as_mount()` opcji przesyłania strumieniowego danych za pośrednictwem systemu plików bezpiecznik. `compute_target`Ten drugi krok to `'cpucluster'` , nie `'link1-spark01'` zasób użyty w kroku przygotowywania danych. W tym kroku jest używany prosty program `train.py` , a nie `dataprep.py` użyty w poprzednim kroku. Szczegóły można znaleźć `train.py` w notesie przykładowym.
+Powyższy kod tworzy nowy zasób obliczeniowy w razie potrzeby. Następnie wynik `step1_output` jest konwertowany na dane wejściowe dla kroku trenowania. Opcja `as_download()` oznacza, że dane zostaną przeniesione do zasobu obliczeniowego, co spowoduje szybszy dostęp. Jeśli dane były tak duże, że nie mieściłyby się na lokalnym obliczeniowym dysku twardym, można użyć opcji przesyłania strumieniowego danych za pośrednictwem `as_mount()` systemu plików FUSE. Drugi krok to , a nie zasób użyty `compute_target` w kroku przygotowywania `'cpucluster'` `'link1-spark01'` danych. W tym kroku jest używany prosty program, a nie program używany `train.py` `dataprep.py` w poprzednim kroku. Szczegółowe informacje można znaleźć w `train.py` przykładowym notesie.
 
-Po zdefiniowaniu wszystkich kroków można utworzyć i uruchomić potok. 
+Po utworzeniu wszystkich kroków możesz utworzyć i uruchomić potok. 
 
 ```python
 from azureml.pipeline.core import Pipeline
@@ -237,12 +237,12 @@ pipeline = Pipeline(workspace=ws, steps=[step_1, step_2])
 pipeline_run = pipeline.submit('synapse-pipeline', regenerate_outputs=True)
 ```
 
-Powyższy kod tworzy potok składający się z kroku przygotowywania danych na Apache Spark pule obsługiwane przez usługę Azure Synapse Analytics ( `step_1` ) i Krok uczenia ( `step_2` ). Platforma Azure oblicza wykres wykonawczy, sprawdzając zależności danych między krokami. W takim przypadku istnieje tylko prosta zależność, która `step2_input` musi być wymagana `step1_output` .
+Powyższy kod tworzy potok składający się z kroku przygotowywania danych w pulach Apache Spark obsługiwanych przez Azure Synapse Analytics ( ) i `step_1` kroku trenowania ( `step_2` ). Platforma Azure oblicza wykres wykonywania, sprawdzając zależności danych między krokami. W tym przypadku istnieje tylko prosta zależność, która `step2_input` zawsze wymaga . `step1_output`
 
-Wywołanie w celu `pipeline.submit` utworzenia, w razie potrzeby, eksperyment o nazwie `synapse-pipeline` i asynchronicznie rozpoczyna przebieg w nim. Poszczególne kroki w potoku są uruchamiane jako podrzędne uruchomienia tego głównego przebiegu i można je monitorować i przeglądać na stronie eksperymenty w programie Studio.
+Wywołanie metody `pipeline.submit` tworzy, w razie potrzeby, eksperyment o nazwie i asynchronicznie rozpoczyna w nim `synapse-pipeline` przebieg. Poszczególne kroki w potoku są uruchamiane jako podrzędne przebiegi tego głównego uruchomienia i można je monitorować i przeglądać na stronie Experiments (Eksperymenty) programu Studio.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Publikowanie i śledzenie potoków uczenia maszynowego](how-to-deploy-pipelines.md) 
 * [Monitorowanie usługi Azure Machine Learning](monitor-azure-machine-learning.md)
-* [Korzystanie z zautomatyzowanej tablicy w potoku Azure Machine Learning w języku Python](how-to-use-automlstep-in-pipelines.md)
+* [Używanie zautomatyzowanego uczenia maszynowego w potoku Azure Machine Learning w języku Python](how-to-use-automlstep-in-pipelines.md)

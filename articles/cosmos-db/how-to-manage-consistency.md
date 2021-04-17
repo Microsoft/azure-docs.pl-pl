@@ -1,19 +1,19 @@
 ---
 title: Zarządzanie spójnością w Azure Cosmos DB
-description: Informacje o konfigurowaniu poziomów spójności i zarządzaniu nimi w Azure Cosmos DB przy użyciu Azure Portal, zestawu .NET SDK, zestawu Java SDK i różnych zestawów SDK
+description: Dowiedz się, jak konfigurować poziomy spójności i zarządzać nimi w programie Azure Cosmos DB przy użyciu Azure Portal, zestawu SDK platformy .NET, zestawu JAVA SDK i różnych innych zestawów SDK
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: anfeldma
-ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: b0c03c2f5313605fbdf288a9262df0852e066efd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: b7cab67b49196a3d50ce5483282971bbb7b9ece1
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93333481"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483269"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Zarządzanie poziomami spójności w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,17 +24,17 @@ W tym artykule wyjaśniono, jak zarządzać poziomami spójności w usłudze Azu
 
 ## <a name="configure-the-default-consistency-level"></a>Konfigurowanie domyślnego poziomu spójności
 
-[Domyślny poziom spójności](consistency-levels.md) jest poziomem spójności używanym domyślnie przez klientów.
+Domyślny [poziom spójności to](consistency-levels.md) poziom spójności, z których domyślnie korzystają klienci.
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
-Aby wyświetlić lub zmodyfikować domyślny poziom spójności, zaloguj się do witryny Azure Portal. Znajdź konto usługi Azure Cosmos i Otwórz domyślne okienko **spójności** . Wybierz odpowiedni poziom spójności jako nowe ustawienie domyślne, a następnie wybierz pozycję **Zapisz**. Azure Portal udostępnia również wizualizację różnych poziomów spójności przy użyciu notatek muzycznych. 
+Aby wyświetlić lub zmodyfikować domyślny poziom spójności, zaloguj się do witryny Azure Portal. Znajdź konto usługi Azure Cosmos i otwórz **okienko Domyślna spójność.** Wybierz odpowiedni poziom spójności jako nowe ustawienie domyślne, a następnie wybierz pozycję **Zapisz**. Ponadto Azure Portal wizualizację różnych poziomów spójności z notatkami do muzyki. 
 
 :::image type="content" source="./media/how-to-manage-consistency/consistency-settings.png" alt-text="Menu spójności w witrynie Azure Portal":::
 
 # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/cli)
 
-Utwórz konto Cosmos z spójnością sesji, a następnie zaktualizuj domyślną spójność.
+Utwórz konto usługi Cosmos ze spójnością sesji, a następnie zaktualizuj spójność domyślną.
 
 ```azurecli
 # Create a new account with Session consistency
@@ -44,9 +44,9 @@ az cosmosdb create --name $accountName --resource-group $resourceGroupName --def
 az cosmosdb update --name $accountName --resource-group $resourceGroupName --default-consistency-level Strong
 ```
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Utwórz konto Cosmos z spójnością sesji, a następnie zaktualizuj domyślną spójność.
+Utwórz konto usługi Cosmos ze spójnością sesji, a następnie zaktualizuj spójność domyślną.
 
 ```azurepowershell-interactive
 # Create a new account with Session consistency
@@ -62,14 +62,14 @@ Update-AzCosmosDBAccount -ResourceGroupName $resourceGroupName `
 
 ## <a name="override-the-default-consistency-level"></a>Zastępowanie domyślnego poziomu spójności
 
-Klienci mogą zastąpić domyślny poziom spójności, który jest ustawiony przez usługę. Poziom spójności można ustawić dla każdego żądania, który zastępuje domyślny poziom spójności ustawiony na poziomie konta.
+Klienci mogą zastąpić domyślny poziom spójności, który jest ustawiony przez usługę. Poziom spójności można ustawić dla każdego żądania, co zastępuje domyślny poziom spójności ustawiony na poziomie konta.
 
 > [!TIP]
-> Spójność **może być możliwa tylko na poziomie żądania** . Aby przejść ze słabszego do silniejszego spójności, zaktualizuj domyślną spójność dla konta Cosmos.
+> Spójność można **złagonić** tylko na poziomie żądania. Aby przejść ze słabszej do silniejszej spójności, zaktualizuj domyślną spójność dla konta usługi Cosmos.
 
-### <a name="net-sdk"></a><a id="override-default-consistency-dotnet"></a>ZESTAW SDK PLATFORMY .NET
+### <a name="net-sdk"></a><a id="override-default-consistency-dotnet"></a>Zestaw SDK platformy .NET
 
-# <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
+# <a name="net-sdk-v2"></a>[Zestaw SDK platformy .NET w wersji 2](#tab/dotnetv2)
 
 ```csharp
 // Override consistency at the client level
@@ -81,7 +81,7 @@ RequestOptions requestOptions = new RequestOptions { ConsistencyLevel = Consiste
 var response = await client.CreateDocumentAsync(collectionUri, document, requestOptions);
 ```
 
-# <a name="net-sdk-v3"></a>[ZESTAW .NET SDK V3](#tab/dotnetv3)
+# <a name="net-sdk-v3"></a>[Zestaw SDK platformy .NET w wersji 3](#tab/dotnetv3)
 
 ```csharp
 // Override consistency at the request level via request options
@@ -95,27 +95,27 @@ var response = await client.GetContainer(databaseName, containerName)
 ```
 ---
 
-### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Zestaw SDK Java v4
+### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Zestaw SDK java w wersji 4
 
-# <a name="async"></a>[Asynchroniczne](#tab/api-async)
+# <a name="async"></a>[Async](#tab/api-async)
 
-   Java SDK v4 (Maven com. Azure:: Azure-Cosmos) Async API
+   Zestaw Java SDK w wersji 4 (Maven com.azure::azure-cosmos) — asynchroniczny interfejs API
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConsistencyAsync)]
 
 # <a name="sync"></a>[Synchronizacja](#tab/api-sync)
 
-   Java SDK v4 (Maven com. Azure:: Azure-Cosmos) — interfejs API synchronizacji
+   Interfejs API synchronizacji zestawu Java SDK w wersji 4 (Maven com.azure::azure-cosmos)
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=ManageConsistencySync)]
 
 --- 
 
-### <a name="java-v2-sdks"></a><a id="override-default-consistency-javav2"></a> Zestawy SDK Java v2
+### <a name="java-v2-sdks"></a><a id="override-default-consistency-javav2"></a> Zestawy SDK języka Java w wersji 2
 
-# <a name="async"></a>[Asynchroniczne](#tab/api-async)
+# <a name="async"></a>[Async](#tab/api-async)
 
-Async Java v2 SDK (Maven com. Microsoft. Azure:: Azure-cosmosdb)
+AsyncÂ JavaÂ V2Â SDKÂ (MavenÂ com.microsoft.azure::azure-cosmosdb)
 
 ```java
 // Override consistency at the client level
@@ -131,7 +131,7 @@ AsyncDocumentClient client =
 
 # <a name="sync"></a>[Synchronizacja](#tab/api-sync)
 
-Synchronizuj zestaw Java v2 SDK (Maven com. Microsoft. Azure:: Azure-DocumentDB)
+SyncÂ JavaÂ V2Â SDKÂ (MavenÂ com.microsoft.azure::azure-documentdb)
 
 ```java
 // Override consistency at the client level
@@ -153,7 +153,7 @@ const client = new CosmosClient({
 const { body } = await item.read({ consistencyLevel: ConsistencyLevel.Eventual });
 ```
 
-### <a name="python-sdk"></a><a id="override-default-consistency-python"></a>Zestaw SDK języka Python
+### <a name="python-sdk"></a><a id="override-default-consistency-python"></a>Python SDK
 
 ```python
 # Override consistency at the client level
@@ -164,13 +164,13 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {
 
 ## <a name="utilize-session-tokens"></a>Korzystanie z tokenów sesji
 
-Jeden z poziomów spójności w Azure Cosmos DB jest spójność *sesji* . Jest to domyślny poziom stosowany domyślnie do kont Cosmos. Podczas pracy ze spójnością *sesji* klient będzie używać tokenu sesji wewnętrznie w przypadku każdego żądania odczytu/zapytania, aby zapewnić zachowanie ustawienia poziomu spójności.
+Jednym z poziomów spójności w Azure Cosmos DB jest *spójność* sesji. Jest to domyślny poziom stosowany domyślnie do kont usługi Cosmos. Podczas pracy *ze spójnością* sesji klient będzie używać tokenu sesji wewnętrznie z każdym żądaniem odczytu/zapytania, aby zapewnić zachowanie ustawionego poziomu spójności.
 
 Aby ręcznie zarządzać tokenami sesji, pobieraj token sesji z odpowiedzi i ustawiaj go dla poszczególnych żądań. Jeśli nie chcesz ręcznie zarządzać tokenami sesji, nie musisz korzystać z tych przykładów. Zestaw SDK automatycznie śledzi tokeny sesji. Jeśli nie ustawisz tokenu sesji ręcznie, zestaw SDK domyślnie użyje najnowszego tokenu sesji.
 
-### <a name="net-sdk"></a><a id="utilize-session-tokens-dotnet"></a>ZESTAW SDK PLATFORMY .NET
+### <a name="net-sdk"></a><a id="utilize-session-tokens-dotnet"></a>Zestaw SDK platformy .NET
 
-# <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
+# <a name="net-sdk-v2"></a>[Zestaw SDK platformy .NET w wersji 2](#tab/dotnetv2)
 
 ```csharp
 var response = await client.ReadDocumentAsync(
@@ -183,7 +183,7 @@ var response = await client.ReadDocumentAsync(
                 UriFactory.CreateDocumentUri(databaseName, collectionName, "SalesOrder1"), options);
 ```
 
-# <a name="net-sdk-v3"></a>[ZESTAW .NET SDK V3](#tab/dotnetv3)
+# <a name="net-sdk-v3"></a>[Zestaw SDK platformy .NET w wersji 3](#tab/dotnetv3)
 
 ```csharp
 Container container = client.GetContainer(databaseName, collectionName);
@@ -196,27 +196,27 @@ ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(sa
 ```
 ---
 
-### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Zestaw SDK Java v4
+### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Zestaw SDK java w wersji 4
 
-# <a name="async"></a>[Asynchroniczne](#tab/api-async)
+# <a name="async"></a>[Async](#tab/api-async)
 
-   Java SDK v4 (Maven com. Azure:: Azure-Cosmos) Async API
+   Java SDK 4 (Maven com.azure::azure-cosmos) Async API
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConsistencySessionAsync)]
 
 # <a name="sync"></a>[Synchronizacja](#tab/api-sync)
 
-   Java SDK v4 (Maven com. Azure:: Azure-Cosmos) — interfejs API synchronizacji
+   Interfejs API synchronizacji zestawu Java SDK 4 (Maven com.azure::azure-cosmos)
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=ManageConsistencySessionSync)]
 
 --- 
 
-### <a name="java-v2-sdks"></a><a id="utilize-session-tokens-javav2"></a>Zestawy SDK Java v2
+### <a name="java-v2-sdks"></a><a id="utilize-session-tokens-javav2"></a>Zestawy SDK języka Java w wersji 2
 
-# <a name="async"></a>[Asynchroniczne](#tab/api-async)
+# <a name="async"></a>[Async](#tab/api-async)
 
-Async Java v2 SDK (Maven com. Microsoft. Azure:: Azure-cosmosdb)
+AsyncÂ JavaÂ V2Â SDKÂ (MavenÂ com.microsoft.azure::azure-cosmosdb)
 
 ```java
 // Get session token from response
@@ -240,7 +240,7 @@ Observable<ResourceResponse<Document>> readObservable = client.readDocument(docu
 
 # <a name="sync"></a>[Synchronizacja](#tab/api-sync)
 
-Synchronizuj zestaw Java v2 SDK (Maven com. Microsoft. Azure:: Azure-DocumentDB)
+SyncÂ JavaÂ V2Â SDKÂ (MavenÂ com.microsoft.azure::azure-documentdb)
 
 ```java
 // Get session token from response
@@ -265,7 +265,7 @@ const sessionToken = headers["x-ms-session-token"];
 const { body } = await item.read({ sessionToken });
 ```
 
-### <a name="python-sdk"></a><a id="utilize-session-tokens-python"></a>Zestaw SDK języka Python
+### <a name="python-sdk"></a><a id="utilize-session-tokens-python"></a>Python SDK
 
 ```python
 // Get the session token from the last response headers
@@ -281,7 +281,7 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Monitorowanie metryki PBS (Probabilistically Bounded Staleness)
 
-Jak ostateczna jest spójność ostateczna? W przypadku średniego przypadku można zaoferować nieaktualność w odniesieniu do historii wersji i czasu. Metryka [**probabilistically ograniczona (PBS)**](https://pbs.cs.berkeley.edu/) próbuje określić prawdopodobieństwo nieodświeżoności i pokazuje ją jako metrykę. Aby wyświetlić metrykę usługi PBS, przejdź do swojego konta usługi Azure Cosmos w Azure Portal. Otwórz okienko **metryki** i wybierz kartę **spójność** . Przyjrzyj się grafowi o nazwie **prawdopodobieństwo silnie spójnych odczytów w oparciu o obciążenie (zobacz PBS)**.
+Jak ostateczna jest spójność ostateczna? W przypadku średniej możemy zaoferować granice nieaktualności w odniesieniu do historii i czasu wersji. Metryka [**PBS (Probabilistically Bounded Staleness)**](https://pbs.cs.berkeley.edu/) próbuje określić prawdopodobieństwo nieaktualności i pokazuje ją jako metrykę. Aby wyświetlić metrykę pbs, przejdź do swojego konta usługi Azure Cosmos w Azure Portal. Otwórz **okienko Metryki** i wybierz **kartę Spójność.** Spójrz na wykres o nazwie Prawdopodobieństwo silnie **spójnych odczytów opartych na obciążeniu (zobacz PBS).**
 
 :::image type="content" source="./media/how-to-manage-consistency/pbs-metric.png" alt-text="Wykres PBS w witrynie Azure Portal":::
 
@@ -293,6 +293,6 @@ Dowiedz się więcej o zarządzaniu konfliktami danych lub przejdź do następne
 * [Partycjonowanie i dystrybucja danych](./partitioning-overview.md)
 * [Zarządzanie konfliktami między regionami](how-to-manage-conflicts.md)
 * [Partycjonowanie i dystrybucja danych](partitioning-overview.md)
-* [Założenia dotyczące spójności w nowoczesnych systemach rozproszonej bazy danych](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
+* [Kompromisy w zakresie spójności w nowoczesnym projekcie rozproszonych systemów baz danych](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 * [Wysoka dostępność](high-availability.md)
-* [Azure Cosmos DB umowy SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
+* [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

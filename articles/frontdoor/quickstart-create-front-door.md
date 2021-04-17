@@ -1,186 +1,188 @@
 ---
-title: 'Szybki Start: Konfigurowanie wysokiej dostępności za pomocą usługi Azure predrzwiczkj — Azure Portal'
-description: W tym przewodniku szybki start pokazano, jak korzystać z usługi Azure predrzwiczkj dla globalnej aplikacji sieci Web o wysokiej dostępności i o dużej wydajności przy użyciu Azure Portal.
+title: 'Szybki start: konfigurowanie wysokiej dostępności za pomocą Azure Front Door Service — Azure Portal'
+description: W tym przewodniku Szybki start pokazano, jak używać Azure Front Door Service dla globalnej aplikacji internetowej o wysokiej Azure Portal.
 services: front-door
 documentationcenter: na
 author: duongau
-manager: KumudD
-ms.service: frontdoor
-ms.devlang: na
-ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/16/2020
 ms.author: duau
-ms.openlocfilehash: 1869098362e37ea18c7ca9a9f827b0e5ec98ea3c
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+manager: KumudD
+ms.date: 09/16/2020
+ms.topic: quickstart
+ms.service: frontdoor
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.custom:
+- mode-portal
+ms.openlocfilehash: 2cf52d30c5658e73c55944bdfb7d424425fa4507
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067575"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538942"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Szybki start: tworzenie usługi Front Door na potrzeby globalnej aplikacji internetowej o wysokiej dostępności
 
-Zacznij korzystać z usług Azure front-drzwi przy użyciu Azure Portal, aby skonfigurować wysoką dostępność dla aplikacji sieci Web.
+Rozpoczynanie pracy z Azure Front Door przy użyciu Azure Portal do skonfigurowania wysokiej dostępności dla aplikacji internetowej.
 
-W tym przewodniku szybki start wszystkie wystąpienia aplikacji sieci Web, które działają w różnych regionach świadczenia usługi Azure, są pule drzwi platformy Azure. Konfiguracja drzwi do przodu jest tworzona na podstawie równości wag i tych samych priorytetów. Ta konfiguracja kieruje ruch do najbliższej lokacji, na której działa aplikacja. Moje drzwi platformy Azure stale monitorują aplikację sieci Web. Usługa umożliwia automatyczne przejście w tryb failover do następnej dostępnej lokacji, gdy Najbliższa lokacja jest niedostępna.
+W tym przewodniku Szybki Azure Front Door pule dwóch wystąpień aplikacji internetowej, które działają w różnych regionach platformy Azure. Tworzysz konfigurację Front Door na podstawie za zaplecza o takim samym priorytecie i takim samym priorytecie. Ta konfiguracja kieruje ruch do najbliższej lokacji, w których działa aplikacja. Azure Front Door stale monitoruje aplikację internetową. Usługa zapewnia automatyczne tryb failover do następnej dostępnej lokacji, gdy najbliższa lokacja jest niedostępna.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-two-instances-of-a-web-app"></a>Tworzenie dwóch wystąpień aplikacji sieci Web
+## <a name="create-two-instances-of-a-web-app"></a>Tworzenie dwóch wystąpień aplikacji internetowej
 
-Ten przewodnik Szybki Start wymaga dwóch wystąpień aplikacji sieci Web, które działają w różnych regionach świadczenia usługi Azure. Oba wystąpienia aplikacji sieci Web działają w trybie *aktywny/aktywny* , więc jeden może przyjmować ruch. Ta konfiguracja różni się od konfiguracji *aktywnej/gotowości* , która działa jako tryb failover.
+Ten przewodnik Szybki start wymaga dwóch wystąpień aplikacji internetowej, które działają w różnych regionach świadczenia usługi Azure. Oba wystąpienia aplikacji internetowej działają w *trybie aktywny/aktywny,* więc jedno z nich może przyjmować ruch. Ta konfiguracja różni się od konfiguracji *aktywnej/autonomicznej,* w której działa jako tryb failover.
 
-Jeśli nie masz jeszcze aplikacji sieci Web, wykonaj następujące kroki, aby skonfigurować przykładowe aplikacje sieci Web.
+Jeśli nie masz jeszcze aplikacji internetowej, użyj następujących kroków, aby skonfigurować przykładowe aplikacje internetowe.
 
 1. Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
-1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób**  >   **webapp**.
+1. W lewej górnej części ekranu wybierz pozycję **Utwórz zasób**  >   **WebApp.**
 
     :::image type="content" source="media/quickstart-create-front-door/front-door-create-web-app.png" alt-text="Tworzenie aplikacji internetowej w witrynie Azure Portal":::
 
-1. Na karcie **podstawy** na stronie **Tworzenie aplikacji sieci Web** wprowadź lub wybierz poniższe informacje.
+1. Na karcie **Podstawowe** na **stronie Tworzenie aplikacji internetowej** wprowadź lub wybierz poniższe informacje.
 
     | Ustawienie                 | Wartość                                              |
     | ---                     | ---                                                |
     | **Subskrypcja**               | Wybierz subskrypcję. |    
-    | **Grupa zasobów**       | Wybierz pozycję **Utwórz nową** i wprowadź *FrontDoorQS_rg1* w polu tekstowym.|
-    | **Nazwa**                   | Wprowadź unikatową **nazwę** aplikacji sieci Web. W tym przykładzie zastosowano *WebAppContoso-1*. |
+    | **Grupa zasobów**       | Wybierz **pozycję Utwórz nowy** i *FrontDoorQS_rg1* w polu tekstowym.|
+    | **Nazwa**                   | Wprowadź **unikatową nazwę** aplikacji internetowej. W tym przykładzie *użyto webAppContoso-1.* |
     | **Publikowanie** | Wybierz pozycję **Kod**. |
-    | **Stos środowiska uruchomieniowego**         | Wybierz pozycję **.NET Core 2,1 (LTS)**. |
-    | **System operacyjny**          | Wybierz pozycję **Windows**. |
-    | **Region**           | Wybierz pozycję **środkowe stany USA**. |
-    | **Plan systemu Windows** | Wybierz pozycję **Utwórz nowy** i wprowadź *myAppServicePlanCentralUS* w polu tekstowym. |
-    | **Jednostka SKU i rozmiar** | Wybierz pozycję **standardowa S1 100 ACU, 1,75 GB pamięci**. |
+    | **Stos środowiska uruchomieniowego**         | Wybierz **pozycję .NET Core 2.1 (LTS)**. |
+    | **System operacyjny**          | Wybierz **pozycję Windows**. |
+    | **Region**           | Wybierz **pozycję Środkowe usa.** |
+    | **Plan systemu Windows** | Wybierz **pozycję Utwórz nową** i *wprowadź myAppServicePlanCentralUS* w polu tekstowym. |
+    | **Jednostka SKU i rozmiar** | Wybierz **pozycję Standard S1 100 total ACU, 1,75 GB pamięci.** |
 
-1. Wybierz pozycję **Przegląd + Utwórz**, przejrzyj **Podsumowanie**, a następnie wybierz pozycję **Utwórz**. Ukończenie wdrożenia może potrwać kilka minut.
+1. Wybierz **pozycję Przejrzyj i utwórz,** przejrzyj **podsumowanie,** a następnie wybierz pozycję **Utwórz.** Ukończenie wdrożenia może potrwać kilka minut.
 
-    :::image type="content" source="media/quickstart-create-front-door/create-web-app.png" alt-text="Przejrzyj podsumowanie dla aplikacji sieci Web":::
+    :::image type="content" source="media/quickstart-create-front-door/create-web-app.png" alt-text="Podsumowanie przeglądu aplikacji internetowej":::
 
-Po zakończeniu wdrażania Utwórz drugą aplikację sieci Web. Użyj tej samej procedury z tymi samymi wartościami, z wyjątkiem następujących wartości:
+Po zakończeniu wdrażania utwórz drugą aplikację internetową. Użyj tej samej procedury z tą samą wartością, z wyjątkiem następujących wartości:
 
 | Ustawienie          | Wartość     |
 | ---              | ---  |
-| **Grupa zasobów**   | Wybierz pozycję **Utwórz nową** i wprowadź *FrontDoorQS_rg2* |
-| **Nazwa**             | Wprowadź unikatową nazwę aplikacji sieci Web, w tym przykładzie *WebAppContoso-2*  |
-| **Region**           | Inny region, w tym przykładzie południowo- *środkowe stany USA* |
-| **Plan App Service**  >  **Plan systemu Windows**         | Wybierz pozycję **Nowy** i wprowadź *myAppServicePlanSouthCentralUS*, a następnie wybierz przycisk **OK** . |
+| **Grupa zasobów**   | Wybierz **pozycję Utwórz nową** i *wprowadź FrontDoorQS_rg2* |
+| **Nazwa**             | Wprowadź unikatową nazwę aplikacji internetowej, w tym przykładzie *WebAppContoso-2*  |
+| **Region**           | Inny region, w tym przykładzie *Południowo-środkowe usa* |
+| **App Service planu**  >  **Plan systemu Windows**         | Wybierz **pozycję Nowy** i wprowadź *myAppServicePlanSouthCentralUS,* a następnie wybierz przycisk **OK** |
 
 ## <a name="create-a-front-door-for-your-application"></a>Tworzenie usługi Front Door dla aplikacji
 
-Skonfiguruj drzwiczki frontonu platformy Azure, aby skierować ruch użytkowników na podstawie najmniejszego opóźnienia między dwoma serwerami usługi Web Apps. Aby rozpocząć, Dodaj hosta frontonu dla drzwi frontonu platformy Azure.
+Skonfiguruj Azure Front Door, aby kierować ruch użytkowników na podstawie najmniejszego opóźnienia między dwoma serwerami aplikacji internetowych. Aby rozpocząć, dodaj hosta frontonia dla Azure Front Door.
 
-1. Na stronie głównej lub w menu platformy Azure wybierz pozycję **Utwórz zasób**. Wybierz pozycję **Sieć**  >  **Zobacz wszystkie**  >  **drzwiczki**.
+1. Na stronie głównej lub w menu platformy Azure wybierz pozycję **Utwórz zasób.** Wybierz **pozycję Sieć** Zobacz  >  **wszystkie**  >  **Front Door**.
 
-1. Na karcie **podstawy** na stronie **Tworzenie drzwi przednich** wprowadź lub wybierz poniższe informacje, a następnie wybierz kolejno pozycje **Dalej: Konfiguracja**.
+1. Na karcie **Podstawowe** na stronie **Tworzenie** Front Door wprowadź lub wybierz następujące informacje, a następnie wybierz pozycję **Dalej: Konfiguracja.**
 
     | Ustawienie | Wartość |
     | --- | --- |
     | **Subskrypcja** | Wybierz subskrypcję. |    
-    | **Grupa zasobów** | Wybierz pozycję **Utwórz nową** i wprowadź *FrontDoorQS_rg0* w polu tekstowym.|
-    | **Lokalizacja grupy zasobów** | Wybierz pozycję **środkowe stany USA**. |
+    | **Grupa zasobów** | Wybierz **pozycję Utwórz nowy** i *FrontDoorQS_rg0* w polu tekstowym.|
+    | **Lokalizacja grupy zasobów** | Wybierz **pozycję Środkowe usa**. |
 
-1. W obszarze **frontony/domeny** wybierz opcję **+** otwarcia **Dodaj hosta frontonu**.
+1. W **menu Frontends/domains (Frontends/domeny)** wybierz pozycję **+** , aby otworzyć pozycję Add a **frontend host (Dodaj hosta frontonia).**
 
-1. W obszarze **Nazwa hosta** wprowadź globalnie unikatową nazwę hosta. W tym przykładzie używamy *contoso-frontonu*. Wybierz pozycję **Dodaj**.
+1. W **polach Nazwa hosta** wprowadź globalnie unikatową nazwę hosta. W tym przykładzie *użyto contoso-frontend*. Wybierz pozycję **Dodaj**.
 
-    :::image type="content" source="media/quickstart-create-front-door/add-frontend-host-azure-front-door.png" alt-text="Dodawanie hosta frontonu dla drzwi platformy Azure":::
+    :::image type="content" source="media/quickstart-create-front-door/add-frontend-host-azure-front-door.png" alt-text="Dodawanie hosta frontonia dla Azure Front Door":::
 
-Następnie Utwórz pulę zaplecza zawierającą dwie aplikacje sieci Web.
+Następnie utwórz pulę zaplecza zawierającą dwie aplikacje internetowe.
 
-1. Nadal w obszarze **Tworzenie czołowych drzwi** w obszarze **Pule zaplecza** wybierz pozycję **+** Otwórz **Dodaj pulę zaplecza**.
+1. Nadal w **daniu Tworzenie Front Door** w **pulach zaplecza** wybierz pozycję Dodaj **+** **pulę zaplecza.**
 
-1. W obszarze **Nazwa** wprowadź wartość *myBackendPool*, a następnie wybierz pozycję **Dodaj wewnętrzną bazę danych**.
+1. W **sekcji Nazwa** wprowadź wartość *myBackendPool,* a następnie wybierz pozycję Dodaj **zaplecza.**
 
     :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool.png" alt-text="Dodawanie puli zaplecza":::
 
-1. W bloku **Dodawanie zaplecza** wybierz poniższe informacje, a następnie wybierz pozycję **Dodaj**.
+1. W bloku **Dodawanie zaplecza wybierz** poniższe informacje i wybierz pozycję **Dodaj**.
 
     | Ustawienie | Wartość |
     | --- | --- |
-    | **Typ hosta zaplecza** | Wybierz pozycję **App Service**. |   
+    | **Typ hosta zaplecza** | Wybierz **pozycję App Service.** |   
     | **Subskrypcja** | Wybierz subskrypcję. |    
-    | **Nazwa hosta zaplecza** | Wybierz utworzoną wcześniej aplikację sieci Web. W tym przykładzie aplikacja sieci Web była *WebAppContoso-1*. |
+    | **Nazwa hosta zaplecza** | Wybierz pierwszą utworzoną aplikację internetową. W tym przykładzie aplikacja internetowa to *WebAppContoso-1.* |
 
     **Pozostaw wszystkie pozostałe pola domyślne.*
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-backend.png" alt-text="Dodawanie hosta zaplecza do drzwi przednich":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-backend.png" alt-text="Dodawanie hosta zaplecza do bazy Front Door":::
 
-1. Ponownie wybierz pozycję **Dodaj wewnętrzną bazę danych** . wybierz poniższe informacje i wybierz pozycję **Dodaj**.
+1. Wybierz **ponownie pozycję Dodaj zaplecza.** Wybierz poniższe informacje i wybierz pozycję **Dodaj**.
 
     | Ustawienie | Wartość |
     | --- | --- |
-    | **Typ hosta zaplecza** | Wybierz pozycję **App Service**. |   
+    | **Typ hosta zaplecza** | Wybierz **pozycję App Service.** |   
     | **Subskrypcja** | Wybierz subskrypcję. |    
-    | **Nazwa hosta zaplecza** | Wybierz drugą utworzoną aplikację sieci Web. W tym przykładzie aplikacja sieci Web była *WebAppContoso-2*. |
+    | **Nazwa hosta zaplecza** | Wybierz drugą utworzoną aplikację internetową. W tym przykładzie aplikacja internetowa to *WebAppContoso-2.* |
 
     **Pozostaw wszystkie pozostałe pola domyślne.*
 
-1. Wybierz pozycję **Dodaj** w bloku **Dodawanie puli zaplecza** , aby ukończyć konfigurację puli zaplecza.
+1. Wybierz **pozycję** Dodaj w **bloku Dodawanie puli zaplecza,** aby ukończyć konfigurację puli zaplecza.
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool-complete.png" alt-text="Dodawanie puli zaplecza dla drzwi platformy Azure":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool-complete.png" alt-text="Dodawanie puli zaplecza dla Azure Front Door":::
 
-Na koniec Dodaj regułę routingu. Reguła routingu mapuje hosta frontonu do puli zaplecza. Reguła przekazuje żądanie do `contoso-frontend.azurefd.net` **myBackendPool**.
+Na koniec dodaj regułę rozsyłania. Reguła rozsyłania mapuje hosta frontonia na pulę zaplecza. Reguła przekazuje żądanie do puli `contoso-frontend.azurefd.net` **myBackendPool.**
 
-1. W obszarze **reguły routingu** można nadal **tworzyć drzwi z przodu**, a następnie wybrać opcję **+** konfigurowania reguły routingu.
+1. Nadal w **Front Door**, w **opcji Reguły routingu** wybierz **+** opcję, aby skonfigurować regułę rozsyłania.
 
-1. W polu **Dodaj regułę**, dla **nazwy** wpisz *LocationRule*. Zaakceptuj wszystkie wartości domyślne, a następnie wybierz pozycję **Dodaj** , aby dodać regułę routingu.
+1. W **pozycji Dodaj regułę** w **pozycji Nazwa** wprowadź *LocationRule*. Zaakceptuj wszystkie wartości domyślne, a następnie wybierz **pozycję Dodaj,** aby dodać regułę rozsyłania.
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-rule.png" alt-text="Dodawanie reguły do czołowych drzwi":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-rule.png" alt-text="Dodawanie reguły do Front Door":::
 
    >[!WARNING]
-   > **Musisz** się upewnić, że każdy host frontonu w swoich drzwiach frontonu ma regułę routingu ze `\*` skojarzoną z nią ścieżką domyślną (). Oznacza to, że we wszystkich regułach routingu musi istnieć co najmniej jedna reguła routingu dla każdego z hostów frontonu zdefiniowanych w ścieżce domyślnej ( `\*` ). Niewykonanie tej czynności może spowodować, że ruch użytkowników końcowych nie zostanie prawidłowo przekierowany.
+   > Należy **upewnić** się, że każdy z hostów frontonu w Front Door ma regułę routingu z skojarzoną domyślną ścieżką ( `\*` ). Oznacza to, że we wszystkich regułach routingu musi być co najmniej jedna reguła rozsyłania dla każdego z hostów frontendu zdefiniowanych w ścieżce domyślnej ( `\*` ). Nie można tego zrobić, może to spowodować, że ruch użytkowników końcowych nie będzie prawidłowo przekierowynyny.
 
-1. Wybierz kolejno pozycje **Przegląd + Utwórz** i **Utwórz**.
+1. Wybierz **pozycję Przejrzyj i utwórz,** a następnie pozycję **Utwórz.**
 
-    :::image type="content" source="media/quickstart-create-front-door/configuration-azure-front-door.png" alt-text="Skonfigurowane drzwi frontonu platformy Azure":::
+    :::image type="content" source="media/quickstart-create-front-door/configuration-azure-front-door.png" alt-text="Skonfigurowane Azure Front Door":::
 
-## <a name="view-azure-front-door-in-action"></a>Wyświetl działania z przodu platformy Azure w działaniu
+## <a name="view-azure-front-door-in-action"></a>Wyświetlanie Azure Front Door w akcji
 
-Po utworzeniu drzwi czołowych konfiguracja zostanie wdrożona globalnie przez kilka minut. Po zakończeniu uzyskaj dostęp do utworzonego hosta frontonu. W przeglądarce przejdź do `contoso-frontend.azurefd.net` . Twoje żądanie zostanie automatycznie przekazane do najbliższego serwera z określonych serwerów w puli zaplecza.
+Po utworzeniu Front Door globalne wdrożenie konfiguracji może potrwać kilka minut. Po zakończeniu uzyskaj dostęp do utworzonego hosta frontonie. W przeglądarce przejdź do strony `contoso-frontend.azurefd.net` . Żądanie zostanie automatycznie kierowane do najbliższego serwera z określonych serwerów w puli zaplecza.
 
-Jeśli te aplikacje zostały utworzone w tym przewodniku Szybki Start, zobaczysz stronę z informacjami.
+Jeśli te aplikacje zostały utworzone w tym przewodniku Szybki start, zobaczysz stronę z informacjami.
 
-Aby przetestować natychmiastową globalną pracę w trybie failover, spróbuj wykonać następujące czynności:
+Aby przetestować natychmiastowe globalne działanie trybu failover, spróbuj wykonać następujące czynności:
 
-1. Otwórz przeglądarkę, zgodnie z powyższym opisem, i przejdź do adresu frontonu: `contoso-frontend.azurefd.net` .
+1. Otwórz przeglądarkę, jak opisano powyżej, i przejdź do adresu frontendu: `contoso-frontend.azurefd.net` .
 
-1. W Azure Portal Wyszukaj i wybierz pozycję *App Services*. Przewiń w dół, aby znaleźć jedną z aplikacji sieci Web, w tym przykładzie **WebAppContoso-1** .
+1. Na stronie Azure Portal wyszukaj i wybierz pozycję *App Services.* Przewiń w dół, aby znaleźć jedną z aplikacji internetowych, **WebAppContoso-1** w tym przykładzie.
 
-1. Wybierz aplikację internetową, a następnie wybierz pozycję **Zatrzymaj** i **przycisk tak** , aby sprawdzić.
+1. Wybierz aplikację internetową, a następnie wybierz pozycję **Zatrzymaj** i **wybierz pozycję Tak, aby** zweryfikować.
 
-1. Odśwież przeglądarkę. Powinna zostać wyświetlona ta sama strona informacji.
+1. Odśwież przeglądarkę. Powinna zostać wyświetlony ta sama strona z informacjami.
 
    >[!TIP]
-   >Istnieje nieco kilka opóźnień dla tych działań. Może być konieczne ponowne odświeżenie.
+   >Istnieje niewielkie opóźnienie dla tych akcji. Może być konieczne odświeżenie ponownie.
 
-1. Znajdź inną aplikację sieci Web i zatrzymaj ją.
+1. Znajdź drugą aplikację internetową i zatrzymaj ją.
 
 1. Odśwież przeglądarkę. Tym razem powinien zostać wyświetlony komunikat o błędzie.
 
-   :::image type="content" source="media/quickstart-create-front-door/web-app-stopped-message.png" alt-text="Oba wystąpienia aplikacji sieci Web zostały zatrzymane":::
+   :::image type="content" source="media/quickstart-create-front-door/web-app-stopped-message.png" alt-text="Oba wystąpienia aplikacji internetowej zatrzymane":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Po zakończeniu możesz usunąć wszystkie utworzone elementy. Usunięcie grupy zasobów spowoduje również usunięcie jej zawartości. Jeśli nie zamierzasz korzystać z tych drzwi, Usuń zasoby, aby uniknąć niepotrzebnych opłat.
+Po zakończeniu możesz usunąć wszystkie utworzone elementy. Usunięcie grupy zasobów powoduje również usunięcie jej zawartości. Jeśli nie zamierzasz używać tego Front Door, usuń zasoby, aby uniknąć niepotrzebnych opłat.
 
-1. W Azure Portal Wyszukaj i wybierz **grupy zasobów** lub wybierz pozycję **grupy zasobów** z menu Azure Portal.
+1. W Azure Portal wyszukaj i wybierz pozycję **Grupy** zasobów lub wybierz pozycję **Grupy** zasobów z Azure Portal zasobów.
 
-1. Odfiltruj lub przewiń w dół, aby znaleźć grupę zasobów, np. **FrontDoorQS_rg0**.
+1. Przefiltruj lub przewiń w dół, aby znaleźć grupę zasobów, na **przykład FrontDoorQS_rg0**.
 
-1. Wybierz grupę zasobów, a następnie wybierz pozycję **Usuń grupę zasobów**.
+1. Wybierz grupę zasobów, a następnie wybierz **pozycję Usuń grupę zasobów.**
 
    >[!WARNING]
-   >Ta akcja to irreversable.
+   >Ta akcja jest nieodwracalna.
 
-1. Wpisz nazwę grupy zasobów do zweryfikowania, a następnie wybierz pozycję **Usuń**.
+1. Wpisz nazwę grupy zasobów do zweryfikowania, a następnie wybierz pozycję **Usuń.**
 
-Powtórz procedurę dla pozostałych dwóch grup.
+Powtórz procedurę dla dwóch pozostałych grup.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przejdź do następnego artykułu, aby dowiedzieć się, jak dodać domenę niestandardową do swoich drzwi.
+W następnym artykule dowiesz się, jak dodać domenę niestandardową do Front Door.
 > [!div class="nextstepaction"]
 > [Dodawanie domeny niestandardowej](front-door-custom-domain.md)

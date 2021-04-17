@@ -1,6 +1,6 @@
 ---
-title: Omówienie łączników usługi Azure serwer proxy aplikacji usługi Azure AD | Microsoft Docs
-description: Dowiedz się więcej na temat łączników serwer proxy aplikacji usługi Azure AD platformy Azure.
+title: Understand Azure AD serwer proxy aplikacji connectors | (Opis łączników usługi Azure AD | Microsoft Docs
+description: Dowiedz się więcej na temat łączników serwer proxy aplikacji Azure AD.
 services: active-directory
 author: kenwith
 manager: daveba
@@ -12,29 +12,29 @@ ms.date: 11/15/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f57d390ed71cb4e0e76972e02170afde7b13e4ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b54e3cb3b4ce7eb8f541755df75e8d6a22eb7c2
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99253463"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575313"
 ---
-# <a name="understand-azure-ad-application-proxy-connectors"></a>Omówienie łączników serwer proxy aplikacji usługi Azure AD platformy Azure
+# <a name="understand-azure-ad-application-proxy-connectors"></a>Informacje o łącznikach serwera proxy aplikacji usługi Azure AD
 
-Łączniki sprawiają, że platforma Azure serwer proxy aplikacji usługi Azure AD to możliwe. Są one proste, łatwe do wdrożenia i konserwacji oraz są bardzo wydajne. W tym artykule omówiono, jakie łączniki, jak działają, oraz sugestie dotyczące sposobu optymalizacji wdrożenia.
+Łączniki są tym, co umożliwia korzystanie serwer proxy aplikacji Azure AD. Są proste, łatwe w wdrażaniu i konserwacji oraz bardzo zaawansowane. W tym artykule omówiono, czym są łączniki, jak działają, i kilka sugestii dotyczących sposobu optymalizacji wdrożenia.
 
-## <a name="what-is-an-application-proxy-connector"></a>Co to jest łącznik serwera proxy aplikacji?
+## <a name="what-is-an-application-proxy-connector"></a>Co to jest serwer proxy aplikacji łącznika?
 
-Łączniki to lekkie agenci, którzy są w środowisku lokalnym i ułatwiają połączenie wychodzące z usługą serwera proxy aplikacji. Łączniki muszą być zainstalowane na serwerze z systemem Windows, który ma dostęp do aplikacji zaplecza. Łączniki można organizować w grupy łączników, a każda grupa obsługuje ruch do określonych aplikacji. Aby uzyskać więcej informacji na temat serwera proxy aplikacji i diagramowyej reprezentacji architektury serwera proxy aplikacji, zobacz [Korzystanie z usługi Azure serwer proxy aplikacji usługi Azure AD do publikowania aplikacji lokalnych dla użytkowników zdalnych](what-is-application-proxy.md#application-proxy-connectors)
+Łączniki są lekkimi agentami, którzy znajdują się w środowisku lokalnym i ułatwiają połączenie wychodzące z serwer proxy aplikacji usługą. Łączniki muszą być zainstalowane w systemie Windows Server, który ma dostęp do aplikacji zaplecza. Łączniki można organizować w grupy łączników, a każda grupa będzie obsługiła ruch do określonych aplikacji. Aby uzyskać więcej informacji na temat serwera proxy aplikacji i diagramowej reprezentacji architektury serwera proxy aplikacji, zobacz [Using Azure AD serwer proxy aplikacji to publish on-premises apps for remote users](what-is-application-proxy.md#application-proxy-connectors) (Używanie usługi Azure AD serwer proxy aplikacji do publikowania aplikacji lokalnych dla użytkowników zdalnych).
 
-## <a name="requirements-and-deployment"></a>Wymagania i wdrażanie
+## <a name="requirements-and-deployment"></a>Wymagania i wdrożenie
 
-Aby pomyślnie wdrożyć serwer proxy aplikacji, musisz mieć co najmniej jeden łącznik, ale zalecamy dwie lub więcej więcej odporności. Zainstaluj łącznik na komputerze z systemem Windows Server 2012 R2 lub nowszym. Łącznik musi komunikować się z usługą serwera proxy aplikacji oraz z opublikowanymi aplikacjami lokalnymi.
+Aby pomyślnie serwer proxy aplikacji, potrzebny jest co najmniej jeden łącznik, ale zalecamy co najmniej dwa łączniki w celu zapewnienia większej odporności. Zainstaluj łącznik na maszynie z systemem Windows Server 2012 R2 lub nowszym. Łącznik musi komunikować się z usługą serwer proxy aplikacji i lokalnymi aplikacjami, które publikujesz.
 
 ### <a name="windows-server"></a>Server systemu Windows
-Potrzebujesz serwera z systemem Windows Server 2012 R2 lub nowszym, na którym można zainstalować łącznik serwera proxy aplikacji. Serwer musi nawiązać połączenie z usługami serwera proxy aplikacji na platformie Azure oraz aplikacjami lokalnymi, które są publikowane.
+Potrzebny jest serwer z systemem Windows Server 2012 R2 lub nowszym, na którym można zainstalować serwer proxy aplikacji łącznika. Serwer musi łączyć się z usługami serwer proxy aplikacji na platformie Azure i lokalnymi aplikacjami, które publikujesz.
 
-Przed zainstalowaniem łącznika serwera proxy aplikacji w systemie Windows Server należy włączyć protokół TLS 1,2. Aby włączyć protokół TLS 1,2 na serwerze:
+Przed zainstalowaniem łącznika usługi serwer proxy aplikacji Windows Server musi mieć włączony serwer proxy aplikacji TLS 1.2. Aby włączyć na serwerze TLS 1.2:
 
 1. Ustaw następujące klucze rejestru:
 
@@ -47,148 +47,148 @@ Przed zainstalowaniem łącznika serwera proxy aplikacji w systemie Windows Serv
 
 1. Uruchom ponownie serwer.
 
-Aby uzyskać więcej informacji o wymaganiach sieci dla serwera łącznika, zobacz Wprowadzenie do [serwera proxy aplikacji i Instalowanie łącznika](application-proxy-add-on-premises-application.md).
+Aby uzyskać więcej informacji o wymaganiach dotyczących sieci dla serwera łącznika, zobacz Get started with serwer proxy aplikacji and install a connector (Rozpoczynanie pracy z serwer proxy aplikacji [i instalowanie łącznika).](application-proxy-add-on-premises-application.md)
 
 ## <a name="maintenance"></a>Konserwacja
 
-Łączniki i usługi zadbają o wszystkie zadania wysokiej dostępności. Mogą być dodawane lub usuwane dynamicznie. Za każdym razem, gdy nowe żądanie jest kierowane do jednego z łączników, które są obecnie dostępne. Jeśli łącznik jest tymczasowo niedostępny, nie odpowiada na ten ruch.
+Łączniki i usługa dbają o wszystkie zadania o wysokiej dostępności. Można je dodawać lub usuwać dynamicznie. Każde nowe żądanie jest kierowane do jednego z obecnie dostępnych łączników. Jeśli łącznik jest tymczasowo niedostępny, nie odpowiada na ten ruch.
 
-Łączniki są bezstanowe i nie mają danych konfiguracyjnych na komputerze. Jedyne przechowywane dane to ustawienia umożliwiające połączenie usługi z certyfikatem uwierzytelniania. Po nawiązaniu połączenia z usługą ściągają wszystkie wymagane dane konfiguracji i odświeżają je co kilka minut.
+Łączniki są bez stanowe i nie mają żadnych danych konfiguracyjnych na maszynie. Jedynymi danymi, które przechowują, są ustawienia łączenia usługi i jej certyfikatu uwierzytelniania. Gdy łączą się z usługą, ściągają wszystkie wymagane dane konfiguracji i odświeżają je co kilka minut.
 
-Łączniki również sonduje serwer, aby dowiedzieć się, czy jest dostępna nowsza wersja łącznika. Jeśli zostanie znaleziony, łączniki zostaną zaktualizowane.
+Łączniki sondają również serwer, aby dowiedzieć się, czy istnieje nowsza wersja łącznika. Jeśli zostanie znaleziony, łączniki aktualizują się.
 
-Łączniki można monitorować na komputerze, na którym są uruchomione, przy użyciu dziennika zdarzeń i liczników wydajności. Można też wyświetlić ich stan na stronie serwer proxy aplikacji Azure Portal:
+Łączniki można monitorować na maszynie, na których są uruchomione, przy użyciu dziennika zdarzeń i liczników wydajności. Możesz też wyświetlić ich stan na serwer proxy aplikacji stronie Azure Portal:
 
-![Przykład: Łączniki serwer proxy aplikacji usługi Azure AD platformy Azure](./media/application-proxy-connectors/app-proxy-connectors.png)
+![Przykład: łączniki serwer proxy aplikacji Azure AD](./media/application-proxy-connectors/app-proxy-connectors.png)
 
-Nie trzeba ręcznie usuwać łączników, które nie są używane. Gdy łącznik jest uruchomiony, pozostaje aktywny, gdy łączy się z usługą. Nieużywane łączniki są oznaczane jako _nieaktywne_ i usuwane po 10 dniach braku aktywności. Jeśli chcesz odinstalować łącznik, odinstaluj usługę łącznika i usługę Aktualizator z serwera. Uruchom ponownie komputer, aby całkowicie usunąć usługę.
+Nie trzeba ręcznie usuwać nieużywanych łączników. Gdy łącznik jest uruchomiony, pozostaje aktywny podczas połączenia z usługą. Nieużywane łączniki są oznaczane _jako_ nieaktywne i są usuwane po upływie 10 dni braku aktywności. Jeśli jednak chcesz odinstalować łącznik, odinstaluj zarówno usługę łącznika, jak i usługę Updater z serwera. Uruchom ponownie komputer, aby całkowicie usunąć usługę.
 
 ## <a name="automatic-updates"></a>Automatyczne aktualizacje
 
-Usługa Azure AD udostępnia aktualizacje automatyczne dla wszystkich wdrożonych łączników. Gdy usługa Aktualizator łączników serwera proxy aplikacji jest uruchomiona, łączniki są automatycznie aktualizowane. Jeśli na serwerze nie widzisz usługi Aktualizator łączników, należy [ponownie zainstalować łącznik](application-proxy-add-on-premises-application.md) , aby pobrać aktualizacje.
+Usługa Azure AD udostępnia aktualizacje automatyczne dla wszystkich wdrażanych łączników. Tak długo, jak serwer proxy aplikacji Aktualizator łączników jest uruchomiona, łączniki są automatycznie aktualizowane [przy użyciu najnowszej wersji łącznika.](application-proxy-faq.yml#why-is-my-connector-still-using-an-older-version-and-not-auto-upgraded-to-latest-version-) Jeśli nie widzisz usługi Aktualizator łączników na serwerze, musisz ponownie [](application-proxy-add-on-premises-application.md) zainstalować łącznik, aby uzyskać aktualizacje.
 
-Jeśli nie chcesz czekać na przełączenie automatycznej aktualizacji do łącznika, możesz przeprowadzić uaktualnienie ręczne. Przejdź do [strony pobierania łącznika](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) na serwerze, na którym znajduje się łącznik, a następnie wybierz pozycję **Pobierz**. Ten proces umożliwia rozpoczęcie uaktualniania lokalnego łącznika.
+Jeśli nie chcesz czekać na automatyczną aktualizację łącznika, możesz wykonać uaktualnienie ręczne. Przejdź do strony [pobierania łącznika](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) na serwerze, na którym znajduje się łącznik, i wybierz pozycję **Pobierz.** Ten proces rozpoczyna uaktualnienie łącznika lokalnego.
 
-W przypadku dzierżaw z wieloma łącznikami aktualizacje automatyczne są przeznaczone dla jednego łącznika na raz w każdej grupie, aby zapobiec przestojom w danym środowisku.
+W przypadku dzierżaw z wieloma łącznikami aktualizacje automatyczne mają na celu po jednym łączniku w każdej grupie, aby zapobiec przestojom w środowisku.
 
-Podczas aktualizowania łącznika może wystąpić przestój, jeśli:
+Może wystąpić przestój podczas aktualizacji łącznika, jeśli:
   
-- Masz tylko jeden łącznik zalecamy zainstalowanie drugiego łącznika i [utworzenie grupy łączników](application-proxy-connector-groups.md). Pozwoli to uniknąć przestojów i zapewnić wyższą dostępność.  
-- Łącznik był w środku transakcji po rozpoczęciu aktualizacji. Mimo że początkowa transakcja zostanie utracona, przeglądarka powinna automatycznie ponowić próbę wykonania operacji lub można odświeżyć stronę. Gdy żądanie zostanie wysłane ponownie, ruch jest kierowany do łącznika kopii zapasowej.
+- Zalecamy zainstalowanie tylko jednego łącznika i utworzenie [grupy łączników.](application-proxy-connector-groups.md) Pozwoli to uniknąć przestojów i zapewnić wyższą dostępność.  
+- Łącznik był w trakcie transakcji, gdy rozpoczynała się aktualizacja. Mimo że początkowa transakcja zostanie utracona, przeglądarka powinna automatycznie ponowić próbę wykonania operacji lub odświeżyć stronę. Gdy żądanie zostanie ponownie wysłane, ruch jest przekierowyny do łącznika kopii zapasowej.
 
-Aby wyświetlić informacje o poprzednio wydanych wersjach i ich zmianach, zobacz [serwer proxy aplikacji — historia wersji](application-proxy-release-version-history.md).
+Aby wyświetlić informacje o wcześniej wydanych wersjach i wprowadzonych w nich zmianach, [zobacz serwer proxy aplikacji — historia wersji.](application-proxy-release-version-history.md)
 
 ## <a name="creating-connector-groups"></a>Tworzenie grup łączników
 
-Grupy łączników umożliwiają przypisanie określonych łączników do obsługi określonych aplikacji. Można zgrupować wiele łączników, a następnie przypisać poszczególne aplikacje do grupy.
+Grupy łączników umożliwiają przypisywanie określonych łączników w celu obsługi określonych aplikacji. Możesz zgrupować wiele łączników, a następnie przypisać poszczególne aplikacje do grupy.
 
-Grupy łączników ułatwiają zarządzanie dużymi wdrożeniami. Zwiększają one również opóźnienia dla dzierżawców, którzy mają aplikacje hostowane w różnych regionach, ponieważ można tworzyć grupy łączników oparte na lokalizacjach, które obsługują tylko aplikacje lokalne.
+Grupy łączników ułatwiają zarządzanie dużymi wdrożeniami. Poprawiają one również opóźnienie dla dzierżaw, które mają aplikacje hostowane w różnych regionach, ponieważ można tworzyć grupy łączników oparte na lokalizacji, które będą obsługiwać tylko aplikacje lokalne.
 
-Aby dowiedzieć się więcej na temat grup łączników, zobacz [publikowanie aplikacji w oddzielnych sieciach i lokalizacjach za pomocą grup łączników](application-proxy-connector-groups.md).
+Aby dowiedzieć się więcej na temat grup łączników, zobacz [Publikowanie aplikacji w oddzielnych sieciach i lokalizacjach przy użyciu grup łączników.](application-proxy-connector-groups.md)
 
 ## <a name="capacity-planning"></a>Planowanie pojemności
 
-Ważne jest, aby upewnić się, że zaplanowano wystarczającą ilość miejsca między łącznikami do obsługi oczekiwanego natężenia ruchu. Zalecamy, aby każda grupa łączników miała co najmniej dwa łączniki zapewniające wysoką dostępność i skalowanie. W przypadku, gdy trzy łączniki są optymalne na wypadek, może być konieczne obsługę komputera w dowolnym momencie.
+Ważne jest, aby upewnić się, że zaplanowano wystarczającą pojemność między łącznikami do obsługi oczekiwanego natężenia ruchu. Zalecamy, aby każda grupa łączników ma co najmniej dwa łączniki w celu zapewnienia wysokiej dostępności i skali. Posiadanie trzech łączników jest optymalne w przypadku, gdy w dowolnym momencie może być konieczne serwisienie maszyny.
 
-Ogólnie rzecz biorąc, im więcej użytkowników, tym większa jest potrzebna maszyna. Poniżej znajduje się tabela przedstawiająca konspekt woluminu i oczekiwane opóźnienie, które mogą obsłużyć różne maszyny. Należy pamiętać, że jest to wszystko w oparciu o oczekiwane transakcje na sekundę (TPS), a nie przez użytkownika, ponieważ wzorce użycia są różne i nie można ich użyć do przewidywania obciążenia. Istnieją również pewne różnice w zależności od rozmiaru odpowiedzi i rozmiarów odpowiedzi aplikacji zaplecza i krótszych czasów odpowiedzi spowoduje obniżenie maksymalnej TPS. Zalecamy także posiadanie dodatkowych maszyn, aby obciążenie rozproszone na maszynach zawsze zapewniać dużą bufor. Dodatkowa pojemność zapewni wysoką dostępność i odporność.
+Ogólnie rzecz biorąc, im więcej użytkowników, tym większa maszyna będzie potrzebna. Poniżej znajduje się tabela z konspektem woluminu i oczekiwanym opóźnieniem, które mogą obsłużyć różne maszyny. Należy pamiętać, że wszystko jest oparte na oczekiwanych transakcjach na sekundę,a nie przez użytkownika, ponieważ wzorce użycia różnią się i nie mogą być używane do przewidywania obciążenia. Istnieją również pewne różnice w zależności od rozmiaru odpowiedzi i czasu odpowiedzi aplikacji zaplecza — większe rozmiary odpowiedzi i wolniejsze czasy odpowiedzi będą powodować niższą maksymalną wartość TPS. Zalecamy również posiadanie dodatkowych maszyn, aby rozproszone obciążenie na maszynach zawsze zapewniało wiele buforów. Dodatkowa pojemność zapewni wysoką dostępność i odporność.
 
-|Rdzenie|Pamięć RAM|Oczekiwane opóźnienie (MS) — poziomie P99|Maksymalna TPS|
+|Rdzenie|Pamięć RAM|Oczekiwane opóźnienie (MS)-P99|Maksymalna liczba tps|
 | ----- | ----- | ----- | ----- |
 |2|8|325|586|
 |4|16|320|1150|
 |8|32|270|1190|
-|16|64|245|1200 *|
+|16|64|245|1200*|
 
-\* Ta maszyna użyła ustawienia niestandardowego w celu podniesienia liczby domyślnych limitów połączeń poza zalecanymi ustawieniami platformy .NET. Przed skontaktowaniem się z pomocą techniczną zalecamy przeprowadzenie testu z ustawieniami domyślnymi, aby uzyskać ten limit dla dzierżawy.
+\* Ta maszyna użyła ustawienia niestandardowego, aby podnieść niektóre domyślne limity połączeń poza ustawieniami zalecanymi przez platformę .NET. Zalecamy uruchomienie testu z ustawieniami domyślnymi przed skontaktowaniem się z pomocą techniczną w celu zmiany tego limitu dla dzierżawy.
 
 > [!NOTE]
-> Nie istnieje wiele różnic w maksymalnej TPS między 4, 8 i 16 rdzeniami. Główna różnica między tymi występuje w oczekiwanym opóźnieniu.
+> Nie ma dużej różnicy w maksymalnej tps między 4, 8 i 16 rdzeni maszyn. Główna różnica między nimi polega na oczekiwanym opóźnieniu.
 >
-> W tej tabeli przedstawiono również oczekiwaną wydajność łącznika w zależności od typu maszyny, na której jest zainstalowany. Jest to niezależne od limitów ograniczania przepustowości usługi serwera proxy aplikacji, zobacz [limity i ograniczenia usługi](../enterprise-users/directory-service-limits-restrictions.md).
+> W tej tabeli skupiono się również na oczekiwanej wydajności łącznika na podstawie typu maszyny, na których jest zainstalowany. Jest to oddzielone od serwer proxy aplikacji limitów ograniczania usługi, zobacz [Limity i ograniczenia usługi](../enterprise-users/directory-service-limits-restrictions.md).
 
-## <a name="security-and-networking"></a>Bezpieczeństwo i obsługa sieci
+## <a name="security-and-networking"></a>Zabezpieczenia i sieć
 
-Łączniki można instalować w dowolnym miejscu w sieci, co umożliwia wysyłanie żądań do usługi serwera proxy aplikacji. Ważne jest, aby komputer z uruchomionym łącznikiem miał również dostęp do Twoich aplikacji. Możesz zainstalować łączniki wewnątrz sieci firmowej lub na maszynie wirtualnej działającej w chmurze. Łączniki mogą być uruchamiane w sieci obwodowej, znanej także jako strefa zdemilitaryzowana (DMZ), ale nie jest to konieczne, ponieważ cały ruch jest wychodzący, dzięki czemu sieć pozostaje zabezpieczona.
+Łączniki można instalować w dowolnym miejscu w sieci, co umożliwia wysyłanie żądań do serwer proxy aplikacji usługi. Ważne jest, aby komputer z uruchomionym łącznikiem również ma dostęp do aplikacji. Łączniki można instalować wewnątrz sieci firmowej lub na maszynie wirtualnej, która działa w chmurze. Łączniki mogą działać w sieci obwodowej, znanej także jako strefa zdemilitaryzowana (DMZ), ale nie jest to konieczne, ponieważ cały ruch jest wychodzący, dzięki czemu sieć pozostaje bezpieczna.
 
-Łączniki wysyłają tylko żądania wychodzące. Ruch wychodzący jest wysyłany do usługi serwera proxy aplikacji i opublikowanych aplikacji. Nie trzeba otwierać portów przychodzących, ponieważ ruch przebiega w obu kierunkach po ustanowieniu sesji. Nie trzeba również konfigurować dostępu przychodzącego za poorednictwem zapór.
+Łączniki wysyłają tylko żądania wychodzące. Ruch wychodzący jest wysyłany do usługi serwer proxy aplikacji i opublikowanych aplikacji. Nie trzeba otwierać portów przychodzących, ponieważ ruch przepływa w obie strony po nawiązanych sesjach. Nie trzeba również konfigurować dostępu przychodzącego za pośrednictwem zapór.
 
-Aby uzyskać więcej informacji na temat konfigurowania reguł zapory dla ruchu wychodzącego, zobacz temat [współpraca z istniejącymi lokalnymi serwerami proxy](application-proxy-configure-connectors-with-proxy-servers.md).
+Aby uzyskać więcej informacji na temat konfigurowania reguł zapory dla ruchu wychodzącego, zobacz [Praca z istniejącymi lokalnymi serwerami proxy.](application-proxy-configure-connectors-with-proxy-servers.md)
 
 ## <a name="performance-and-scalability"></a>Wydajność i skalowalność
 
-Skalowanie dla usługi serwera proxy aplikacji jest przezroczyste, ale skala jest czynnikiem dla łączników. Musisz mieć wystarczającą liczbę łączników, aby obsłużyć szczytowy ruch. Ponieważ łączniki są bezstanowe, nie ma to wpływu na liczbę użytkowników lub sesji. Zamiast tego reagują na liczbę żądań i ich rozmiar ładunku. W przypadku standardowego ruchu w sieci Web, średnia maszyna może obsłużyć kilka tysięcy żądań na sekundę. Konkretna pojemność zależy od dokładnej charakterystyki komputera.
+Skalowanie dla usługi serwer proxy aplikacji jest niewidoczne, ale skalowanie jest czynnikiem dla łączników. Potrzebujesz wystarczającej ilości łączników do obsługi szczytowego ruchu. Ponieważ łączniki są bez stanowe, nie ma na nie wpływu liczba użytkowników ani sesji. Zamiast tego odpowiadają na liczbę żądań i rozmiar ładunku. W przypadku standardowego ruchu internetowego średnia maszyna może obsłużyć kilka tysięcy żądań na sekundę. Konkretną pojemność zależy od dokładnych cech maszyny.
 
-Wydajność łącznika jest ograniczona przez procesor CPU i sieci. W przypadku szyfrowania i odszyfrowywania TLS wymagana jest wydajność procesora, podczas gdy sieć jest ważna, aby uzyskać szybką łączność z aplikacjami i usługą online na platformie Azure.
+Wydajność łącznika jest powiązana z procesorem CPU i siecią. Do szyfrowania i odszyfrowywania protokołu TLS potrzebna jest wydajność procesora, a sieć jest ważna, aby uzyskać szybką łączność z aplikacjami i usługą online na platformie Azure.
 
-W przeciwieństwie do pamięci jest mniej problemu w przypadku łączników. Usługa online zajmuje się dużą ilością przetwarzania i całym nieuwierzytelnionym ruchem. Wszystko, co można zrobić w chmurze, odbywa się w chmurze.
+Z kolei pamięć nie stanowi problemu dla łączników. Usługa online zajmuje się przetwarzaniem i całym nieuwierzytnionym ruchem. Wszystko, co można zrobić w chmurze, odbywa się w chmurze.
 
-Jeśli z jakiegokolwiek powodu łącznik lub maszyna staną się niedostępne, ruch zacznie się przechodzić do innego łącznika w grupie. Ta odporność jest również dlatego, że zalecamy używanie wielu łączników.
+Jeśli z jakiegokolwiek powodu ten łącznik lub maszyna staną się niedostępne, ruch zacznie trafiać do innego łącznika w grupie. Ta odporność jest również tym, dlaczego zalecamy używanie wielu łączników.
 
-Innym czynnikiem wpływającym na wydajność jest jakość sieci między łącznikami, w tym:
+Innym czynnikiem, który wpływa na wydajność, jest jakość sieci między łącznikami, w tym:
 
-- **Usługa online**: połączenia o powolnej lub dużej opóźnieniu z usługą serwera proxy aplikacji na platformie Azure mają wpływ na wydajność łącznika. Aby uzyskać najlepszą wydajność, Połącz swoją organizację z platformą Azure za pomocą usługi Express Route. W przeciwnym razie należy mieć zespół ds. sieci, aby upewnić się, że połączenia z platformą Azure są obsługiwane jak najszybciej.
-- **Aplikacje zaplecza**: w niektórych przypadkach istnieją dodatkowe serwery proxy między łącznikiem i aplikacjami zaplecza, które mogą spowalniać lub zapobiegać połączeniami. Aby rozwiązać problem z tym scenariuszem, Otwórz przeglądarkę z serwera łącznika i spróbuj uzyskać dostęp do aplikacji. Jeśli łączniki są uruchamiane na platformie Azure, ale aplikacje są lokalne, środowisko może nie być oczekiwane przez użytkowników.
-- **Kontrolery domeny**: Jeśli łączniki wykonują Logowanie jednokrotne (SSO) przy użyciu ograniczonego delegowania protokołu Kerberos, kontaktuje się z kontrolerami domeny przed wysłaniem żądania do zaplecza. Łączniki mają pamięć podręczną biletów protokołu Kerberos, ale w środowisku zajętości czas odpowiedzi kontrolerów domeny może wpłynąć na wydajność. Ten problem jest bardziej typowy w przypadku łączników, które działają na platformie Azure, ale komunikują się z lokalnymi kontrolerami domeny.
+- **Usługa online:** Wolne lub o dużym opóźnieniu połączenia z usługą serwer proxy aplikacji na platformie Azure wpływają na wydajność łącznika. Aby uzyskać najlepszą wydajność, połącz swoją organizację z platformą Azure za pomocą usługi Express Route. W przeciwnym razie zespół sieciowy musi upewnić się, że połączenia z platformą Azure są obsługiwane tak efektywnie, jak to możliwe.
+- **Aplikacje zaplecza:** W niektórych przypadkach istnieją dodatkowe proxy między łącznikiem a aplikacjami zaplecza, które mogą spowalniać lub uniemożliwiać połączenia. Aby rozwiązać ten scenariusz, otwórz przeglądarkę z serwera łącznika i spróbuj uzyskać dostęp do aplikacji. Jeśli uruchamiasz łączniki na platformie Azure, ale aplikacje są lokalne, środowisko może nie być tym, czego oczekują użytkownicy.
+- **Kontrolery domeny:** jeśli łączniki wykonują logowanie jednokrotne przy użyciu ograniczonego delegowania protokołu Kerberos, kontaktują się z kontrolerami domeny przed wysłaniem żądania do zaplecza. Łączniki mają pamięć podręczną biletów protokołu Kerberos, ale w środowisku zajętym czas odpowiedzi kontrolerów domeny może mieć wpływ na wydajność. Ten problem występuje częściej w przypadku łączników, które działają na platformie Azure, ale komunikują się z lokalnymi kontrolerami domeny.
 
-Aby uzyskać więcej informacji na temat optymalizowania sieci, zobacz [zagadnienia dotyczące topologii sieci podczas korzystania z serwer proxy aplikacji usługi Azure Active Directory](application-proxy-network-topology.md).
+Aby uzyskać więcej informacji na temat optymalizacji sieci, zobacz [Zagadnienia dotyczące topologii](application-proxy-network-topology.md)sieci podczas korzystania z Azure Active Directory serwer proxy aplikacji .
 
 ## <a name="domain-joining"></a>Przyłączanie do domeny
 
-Łączniki mogą być uruchamiane na komputerze, który nie jest przyłączony do domeny. Jeśli jednak Logowanie jednokrotne (SSO) do aplikacji korzystających ze zintegrowanego uwierzytelniania systemu Windows (IWA), potrzebna jest przyłączony do domeny komputer. W takim przypadku komputery łączników muszą być przyłączone do domeny, która może wykonywać ograniczone delegowanie [protokołu Kerberos](https://web.mit.edu/kerberos) w imieniu użytkowników dla opublikowanych aplikacji.
+Łączniki można uruchamiać na maszynie, która nie jest przyłączona do domeny. Jeśli jednak chcesz korzystać z logowania jednokrotnego (SSO) w aplikacjach, które korzystają Integrated Windows Authentication (IWA), potrzebujesz maszyny przyłączone do domeny. W takim przypadku maszyny łącznika muszą być przyłączone do domeny, która może wykonywać ograniczone delegowanie [protokołu Kerberos](https://web.mit.edu/kerberos) w imieniu użytkowników dla opublikowanych aplikacji.
 
-Łączniki mogą być również przyłączone do domen w lasach, które mają częściowe zaufanie lub do kontrolerów domeny tylko do odczytu.
+Łączniki mogą być również przyłączone do domen w lasach, które mają częściowe zaufanie, lub do kontrolerów domeny tylko do odczytu.
 
-## <a name="connector-deployments-on-hardened-environments"></a>Wdrożenia łączników w środowiskach z zaostrzonymi zabezpieczeniami
+## <a name="connector-deployments-on-hardened-environments"></a>Wdrożenia łączników w środowiskach ze wzmacnianiem zabezpieczeń
 
-Zwykle wdrożenie łącznika jest proste i nie wymaga żadnej specjalnej konfiguracji. Istnieją jednak pewne unikatowe warunki, które należy wziąć pod uwagę:
+Zazwyczaj wdrażanie łącznika jest proste i nie wymaga specjalnej konfiguracji. Istnieją jednak pewne unikatowe warunki, które należy wziąć pod uwagę:
 
-- Organizacje, które ograniczają ruch wychodzący, muszą [otwierać wymagane porty](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
-- Komputery zgodne ze standardem FIPS mogą być wymagane do zmiany ich konfiguracji, aby umożliwić procesom łączników generowanie i przechowywanie certyfikatu.
-- Organizacje, które zablokują swoje środowisko w oparciu o procesy, które wydają żądania sieci, muszą upewnić się, że obie usługi łączników są włączone, aby uzyskać dostęp do wszystkich wymaganych portów i adresów IP.
-- W niektórych przypadkach wychodzące serwery proxy przesyłania dalej mogą przerwać uwierzytelnianie certyfikatów dwukierunkowych i spowodować niepowodzenie komunikacji.
+- Organizacje, które ograniczają ruch wychodzący, [muszą otworzyć wymagane porty.](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment)
+- Maszyny zgodne ze standardem FIPS mogą wymagać zmiany konfiguracji, aby umożliwić procesom łącznika wygenerowanie i przechowywanie certyfikatu.
+- Organizacje, które blokują swoje środowisko na podstawie procesów, które wystawiają żądania sieciowe, muszą upewnić się, że obie usługi łącznika mają dostęp do wszystkich wymaganych portów i ip.
+- W niektórych przypadkach wychodzące usługi proxy mogą przerwać dwukierunkowe uwierzytelnianie certyfikatu i spowodować niepowodzenie komunikacji.
 
 ## <a name="connector-authentication"></a>Uwierzytelnianie łącznika
 
-Aby zapewnić bezpieczną usługę, łączniki muszą uwierzytelniać się w ramach usługi, a usługa musi uwierzytelniać się w kierunku łącznika. Uwierzytelnianie odbywa się przy użyciu certyfikatów klienta i serwera, gdy łączniki inicjują połączenie. W ten sposób nazwa użytkownika i hasło administratora nie są przechowywane na maszynie łącznika.
+Aby zapewnić bezpieczną usługę, łączniki muszą uwierzytelniać się w usłudze, a usługa musi uwierzytelnić się w łączniku. To uwierzytelnianie odbywa się przy użyciu certyfikatów klienta i serwera, gdy łączniki inicjują połączenie. W ten sposób nazwa użytkownika i hasło administratora nie są przechowywane na maszynie łącznika.
 
-Używane certyfikaty są specyficzne dla usługi serwera proxy aplikacji. Są one tworzone podczas wstępnej rejestracji i są automatycznie odnawiane przez łączniki co dwa miesiące.
+Używane certyfikaty są specyficzne dla usługi serwer proxy aplikacji usługi. Są one tworzone podczas początkowej rejestracji i są automatycznie odnawiane przez łączniki co kilka miesięcy.
 
-Po pierwszym pomyślnym odnowieniu certyfikatu usługa łącznika usługi Azure serwer proxy aplikacji usługi Azure AD (usługa sieciowa) nie ma uprawnień do usuwania starego certyfikatu z lokalnego magazynu komputera. Jeśli certyfikat wygasł lub nie będzie już używany przez usługę, możesz go bezpiecznie usunąć.
+Po pierwszym pomyślnym odnowieniu certyfikatu usługa Azure AD serwer proxy aplikacji Connector (usługa sieciowa) nie ma uprawnień do usunięcia starego certyfikatu z magazynu komputera lokalnego. Jeśli certyfikat wygasł lub nie będzie już używany przez usługę, możesz go bezpiecznie usunąć.
 
-Aby uniknąć problemów z odnowieniem certyfikatu, należy się upewnić, że komunikacja sieciowa z łącznika do [udokumentowanych miejsc docelowych](./application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) jest włączona.
+Aby uniknąć problemów z odnawianiem certyfikatu, upewnij się, że włączono komunikację sieciową z łącznika do [udokumentowanych miejsc](./application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) docelowych.
 
-Jeśli łącznik nie jest połączony z usługą przez kilka miesięcy, jego certyfikaty mogą być nieaktualne. W takim przypadku Odinstaluj i ponownie zainstaluj łącznik, aby wyzwolić rejestrację. Można uruchomić następujące polecenia programu PowerShell:
+Jeśli łącznik nie jest połączony z usługą przez kilka miesięcy, jego certyfikaty mogą być nieaktualne. W takim przypadku odinstaluj i ponownie zainstaluj łącznik, aby wyzwolić rejestrację. Możesz uruchomić następujące polecenia programu PowerShell:
 
 ```
 Import-module AppProxyPSModule
 Register-AppProxyConnector -EnvironmentName "AzureCloud"
 ```
 
-W przypadku instytucji rządowych należy użyć `-EnvironmentName "AzureUSGovernment"` . Aby uzyskać więcej informacji, zobacz [Install Agent for the Azure Government Cloud](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud).
+W przypadku instytucji rządowych `-EnvironmentName "AzureUSGovernment"` użyj . Aby uzyskać więcej informacji, zobacz [Install Agent for the Azure Government Cloud (Instalowanie agenta dla Azure Government Cloud).](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud)
 
-Aby dowiedzieć się więcej na temat weryfikowania certyfikatu i rozwiązywania problemów, zobacz [Weryfikowanie obsługi składników komputera i zaplecza dla certyfikatu zaufania serwera proxy aplikacji](application-proxy-connector-installation-problem.md#verify-machine-and-backend-components-support-for-application-proxy-trust-certificate).
+Aby dowiedzieć się więcej na temat sposobu weryfikowania certyfikatu i rozwiązywania problemów, zobacz [Verify Machine and backend components support for serwer proxy aplikacji trust certificate](application-proxy-connector-installation-problem.md#verify-machine-and-backend-components-support-for-application-proxy-trust-certificate)(Weryfikowanie obsługi składników maszyny i zaplecza dla certyfikatu serwer proxy aplikacji zaufania).
 
 ## <a name="under-the-hood"></a>Kulisy
 
-Łączniki są oparte na serwerze proxy aplikacji sieci Web systemu Windows Server, więc mają większość tych samych narzędzi do zarządzania, w tym dzienników zdarzeń systemu Windows
+Łączniki są oparte na programie Windows Server Web serwer proxy aplikacji, więc mają większość tych samych narzędzi do zarządzania, w tym dzienniki zdarzeń systemu Windows
 
 ![Zarządzanie dziennikami zdarzeń za pomocą Podgląd zdarzeń](./media/application-proxy-connectors/event-view-window.png)
 
-i liczników wydajności systemu Windows.
+i liczniki wydajności systemu Windows.
 
-![Dodawanie liczników do łącznika przy użyciu Monitora wydajności](./media/application-proxy-connectors/performance-monitor.png)
+![Dodawanie liczników do łącznika za pomocą monitor wydajności](./media/application-proxy-connectors/performance-monitor.png)
 
-Łączniki mają zarówno dzienniki **administratora** , jak i **sesji** . Dziennik **administratora** zawiera najważniejsze zdarzenia i ich błędy. Dziennik **sesji** zawiera wszystkie transakcje i ich szczegóły przetwarzania.
+Łączniki mają dzienniki **administratora** **i** sesji. Dziennik **administratora** zawiera kluczowe zdarzenia i ich błędy. Dziennik **sesji** zawiera wszystkie transakcje i ich szczegóły przetwarzania.
 
-Aby wyświetlić dzienniki, Otwórz **Podgląd zdarzeń** i przejdź do pozycji **Dzienniki aplikacji i usług**  >  **Microsoft**  >  **AadApplicationProxy**  >  **Connector**. Aby wyświetlić dziennik **sesji** , w menu **Widok** wybierz polecenie **Pokaż dzienniki analityczne i debugowania**. Dziennik **sesji** jest zazwyczaj używany do rozwiązywania problemów i jest domyślnie wyłączony. Włącz, aby rozpocząć zbieranie zdarzeń i wyłączyć je, gdy nie jest już potrzebne.
+Aby wyświetlić dzienniki, otwórz **Podgląd zdarzeń** i przejdź do tematu **Dzienniki** aplikacji i usług  >  **Łącznik Microsoft**  >  **AadApplicationProxy.**  >   Aby wyświetlić **dziennik sesji,** w menu **Widok** wybierz pozycję Pokaż dzienniki analityczne i **debugowania.** Dziennik **sesji** jest zwykle używany do rozwiązywania problemów i jest domyślnie wyłączony. Włącz ją, aby rozpocząć zbieranie zdarzeń i wyłączyć je, gdy nie będą już potrzebne.
 
-Stan usługi można przejrzeć w oknie usługi. Łącznik składa się z dwóch usług systemu Windows: rzeczywisty łącznik i Aktualizator. Oba te elementy muszą być uruchomione przez cały czas.
+Stan usługi można sprawdzić w oknie Usługi. Łącznik składa się z dwóch usług systemu Windows: łącznika rzeczywistego i aktualizującego. Oba muszą działać przez cały czas.
 
- ![Przykład: okno usług pokazujące lokalne usługi Azure AD](./media/application-proxy-connectors/aad-connector-services.png)
+ ![Przykład: okno usług z lokalnymi usługami Azure AD](./media/application-proxy-connectors/aad-connector-services.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Publikowanie aplikacji w oddzielnych sieciach i lokalizacjach za pomocą grup łączników](application-proxy-connector-groups.md)
+- [Publikowanie aplikacji w oddzielnych sieciach i lokalizacjach przy użyciu grup łączników](application-proxy-connector-groups.md)
 - [Praca z istniejącymi lokalnymi serwerami proxy](application-proxy-configure-connectors-with-proxy-servers.md)
-- [Rozwiązywanie problemów z serwerem proxy aplikacji i błędami łącznika](application-proxy-troubleshoot.md)
-- [Jak zainstalować łącznik usługi Azure serwer proxy aplikacji usługi Azure AD w trybie dyskretnym](application-proxy-register-connector-powershell.md)
+- [Rozwiązywanie problemów serwer proxy aplikacji łączników i łączników](application-proxy-troubleshoot.md)
+- [Jak dyskretnie zainstalować łącznik azure AD serwer proxy aplikacji Connector](application-proxy-register-connector-powershell.md)

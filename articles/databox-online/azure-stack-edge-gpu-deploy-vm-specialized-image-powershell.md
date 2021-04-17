@@ -1,62 +1,53 @@
 ---
-title: Tworzenie obrazów maszyn wirtualnych z wyspecjalizowanego obrazu wirtualnego dysku twardego systemu Windows dla urządzenia z systemem Azure Stack EDGE Pro GPU
-description: Opisuje sposób tworzenia obrazów maszyn wirtualnych z wyspecjalizowanych obrazów, zaczynając od wirtualnego dysku twardego systemu Windows lub dysku VHDX. Ten wyspecjalizowany obraz służy do tworzenia obrazów maszyn wirtualnych, które mają być używane z maszynami wirtualnymi wdrożonymi na urządzeniu z systemem Azure Stack Edge.
+title: Tworzenie obrazów maszyn wirtualnych z wyspecjalizowanego obrazu wirtualnego dysku twardego systemu Windows dla Azure Stack Edge Pro GPU
+description: Opisuje sposób tworzenia obrazów maszyn wirtualnych z wyspecjalizowanych obrazów, począwszy od dysku VHD systemu Windows lub dysku VHDX. Ten wyspecjalizowany obraz umożliwia tworzenie obrazów maszyn wirtualnych do użycia z maszynami wirtualnymi wdrożonymi na Azure Stack Edge Pro GPU.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 04/15/2021
 ms.author: alkohli
-ms.openlocfilehash: d03aeb9759fb321b580fa65e06dc09ccde4a44a0
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 6bfa42e99f295b429eba40a27eb59becb8aa80a1
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106556132"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575964"
 ---
-# <a name="deploy-a-vm-from-a-specialized-image-on-your-azure-stack-edge-pro-device-via-azure-powershell"></a>Wdróż maszynę wirtualną na podstawie wyspecjalizowanego obrazu na urządzeniu Azure Stack EDGE Pro za pośrednictwem Azure PowerShell 
+# <a name="deploy-a-vm-from-a-specialized-image-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell"></a>Wdrażanie maszyny wirtualnej na podstawie wyspecjalizowanego obrazu na urządzeniu Azure Stack Edge Pro GPU za pośrednictwem Azure PowerShell 
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-W tym artykule opisano kroki wymagane do wdrożenia maszyny wirtualnej na urządzeniu z systemem Azure Stack Edge z poziomu obrazu specjalistycznego. 
+W tym artykule opisano kroki wymagane do wdrożenia maszyny wirtualnej na urządzeniu Azure Stack Edge Pro GPU z wyspecjalizowanego obrazu. 
 
-## <a name="about-specialized-images"></a>Informacje o wyspecjalizowanych obrazach
+Aby przygotować uogólniony obraz do wdrażania maszyn wirtualnych w procesorze GPU w systemie Azure Stack Edge Pro, zobacz Przygotowanie [uogólnionych](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md) obrazów z dysku VHD systemu Windows lub Przygotowanie uogólnionych obrazów z [obrazu ISO.](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md)
 
-Plik VHD lub VHDX systemu Windows może służyć do tworzenia *wyspecjalizowanego* obrazu lub *uogólnionego* obrazu. Poniższa tabela zawiera podsumowanie najważniejszych różnic między *wyspecjalizowanymi* a *uogólnionymi* obrazami.
+## <a name="about-vm-images"></a>Informacje o obrazach maszyn wirtualnych
 
+Dysk VHD lub VHDX systemu Windows może służyć do tworzenia *wyspecjalizowanego* obrazu lub *uogólniony obraz.* W poniższej tabeli podsumowano kluczowe różnice między *wyspecjalizowanymi* i *uogólniaymi obrazami.*
 
-|Typ obrazu  |Uogólniony  |Wyspecjalizowany  |
-|---------|---------|---------|
-|Cel     |Wdrożone w dowolnym systemie         | Przeznaczony dla określonego systemu        |
-|Instalacja po rozruchu     | Instalacja jest wymagana podczas pierwszego rozruchu maszyny wirtualnej.          | Instalacja nie jest wymagana. <br> Platforma włącza maszynę wirtualną.        |
-|Konfigurowanie     |Nazwa hosta, użytkownik administracyjny i inne wymagane ustawienia specyficzne dla maszyny wirtualnej.         |Wstępnie skonfigurowane.         |
-|Używane do     |Utwórz wiele nowych maszyn wirtualnych na podstawie tego samego obrazu.         |Migruj konkretną maszynę lub przywracaj maszynę wirtualną z poprzedniej kopii zapasowej.         |
+[!INCLUDE [about-vm-images-for-azure-stack-edge](../../includes/azure-stack-edge-about-vm-images.md)]
 
+## <a name="workflow"></a>Przepływ pracy
 
-W tym artykule opisano kroki wymagane do wdrożenia z wyspecjalizowanego obrazu. Aby wdrożyć z uogólnionego obrazu, zobacz [Używanie uogólnionego wirtualnego dysku twardego systemu Windows](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md) dla urządzenia.
+Przepływ pracy wysokiego poziomu do wdrażania maszyny wirtualnej z wyspecjalizowanego obrazu to:
 
-
-## <a name="vm-image-workflow"></a>Przepływ pracy obrazu maszyny wirtualnej
-
-Przepływ pracy wysokiego poziomu służący do wdrożenia maszyny wirtualnej na podstawie wyspecjalizowanego obrazu to:
-
-1. Skopiuj wirtualny dysk twardy na konto magazynu lokalnego na urządzeniu z systemem Azure Stack Edge.
-1. Utwórz nowy dysk zarządzany na podstawie dysku VHD.
-1. Utwórz nową maszynę wirtualną z dysku zarządzanego i Dołącz dysk zarządzany.
-
+1. Skopiuj dysk VHD na konto magazynu lokalnego na urządzeniu Azure Stack Edge Pro GPU.
+1. Utwórz nowy dysk zarządzany z dysku VHD.
+1. Utwórz nową maszynę wirtualną z dysku zarządzanego i dołącz dysk zarządzany.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby można było wdrożyć maszynę wirtualną na urządzeniu za pośrednictwem programu PowerShell, należy się upewnić, że:
+Przed wdrożeniem maszyny wirtualnej na urządzeniu za pomocą programu PowerShell upewnij się, że:
 
-- Masz dostęp do klienta, który będzie używany do nawiązywania połączenia z urządzeniem.
-    - Klient uruchamia [obsługiwany system operacyjny](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device).
-    - Klient jest skonfigurowany do łączenia się z lokalną Azure Resource Manager urządzenia zgodnie z instrukcjami w temacie [Connect to Azure Resource Manager dla urządzenia](azure-stack-edge-gpu-connect-resource-manager.md).
+- Masz dostęp do klienta, który będzie umożliwiał nawiązywanie połączenia z urządzeniem.
+    - Na kliencie działa [obsługiwany system operacyjny.](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device)
+    - Klient jest skonfigurowany do nawiązywania połączenia z lokalną Azure Resource Manager zgodnie z instrukcjami w tece Nawiązywanie połączenia [Azure Resource Manager z urządzeniem.](azure-stack-edge-gpu-connect-resource-manager.md)
 
-## <a name="verify-the-local-azure-resource-manager-connection"></a>Weryfikowanie lokalnego połączenia Azure Resource Manager
+## <a name="verify-the-local-azure-resource-manager-connection"></a>Weryfikowanie połączenia Azure Resource Manager lokalnego
 
-Sprawdź, czy klient może połączyć się z lokalną Azure Resource Manager. 
+Sprawdź, czy klient może nawiązać połączenie z lokalną Azure Resource Manager. 
 
 1. Wywołaj interfejsy API urządzeń lokalnych w celu uwierzytelnienia:
 
@@ -64,26 +55,25 @@ Sprawdź, czy klient może połączyć się z lokalną Azure Resource Manager.
     Login-AzureRMAccount -EnvironmentName <Environment Name>
     ```
 
-2. Podaj nazwę użytkownika `EdgeArmUser` i hasło, aby połączyć się za pośrednictwem Azure Resource Manager. Jeśli nie odwołujesz hasła, [zresetuj hasło dla Azure Resource Manager](azure-stack-edge-gpu-set-azure-resource-manager-password.md) i Użyj tego hasła do logowania.
- 
+2. Podaj nazwę użytkownika `EdgeArmUser` i hasło do nawiązania połączenia za pośrednictwem Azure Resource Manager. Jeśli nie pamiętasz hasła, [zresetuj](azure-stack-edge-gpu-set-azure-resource-manager-password.md) hasło dla Azure Resource Manager i użyj tego hasła do zalogowania.
 
-## <a name="deploy-vm-from-specialized-image"></a>Wdróż maszynę wirtualną z obrazu wyspecjalizowanego
+## <a name="deploy-vm-from-specialized-image"></a>Wdrażanie maszyny wirtualnej z wyspecjalizowanego obrazu
 
-Poniższe sekcje zawierają instrukcje krok po kroku dotyczące wdrażania maszyny wirtualnej na podstawie wyspecjalizowanego obrazu.
+Poniższe sekcje zawierają instrukcje krok po kroku dotyczące wdrażania maszyny wirtualnej z wyspecjalizowanego obrazu.
 
-## <a name="copy-vhd-to-local-storage-account-on-device"></a>Kopiuj dysk VHD do konta magazynu lokalnego na urządzeniu
+## <a name="copy-vhd-to-local-storage-account-on-device"></a>Kopiowanie wirtualnego dysku twardego na konto magazynu lokalnego na urządzeniu
 
-Wykonaj następujące kroki, aby skopiować wirtualny dysk twardy do konta magazynu lokalnego:
+Wykonaj następujące kroki, aby skopiować wirtualny dysk twardy na konto magazynu lokalnego:
 
-1. Skopiuj źródłowy wirtualny dysk twardy na konto lokalnego magazynu obiektów BLOB na Azure Stack Edge. 
+1. Skopiuj źródłowy wirtualny dysk twardy na lokalne konto magazynu obiektów blob na Azure Stack Edge.
 
-1. Zwróć uwagę na otrzymany identyfikator URI. Ten identyfikator URI zostanie użyty w późniejszym kroku.
-    
-    Aby utworzyć konto magazynu lokalnego i uzyskać do niego dostęp, zobacz sekcję [Tworzenie konta magazynu](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#create-a-storage-account) za pośrednictwem [przekazywania wirtualnego dysku twardego](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#upload-a-vhd) w artykule: [wdrażanie maszyn wirtualnych na urządzeniu Azure Stack Edge za pośrednictwem Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md). 
+1. Zanotuj wynikowy URI. Użyjesz tego URI w kolejnym kroku.
 
-## <a name="create-a-managed-disk-from-vhd"></a>Tworzenie dysku zarządzanego na podstawie dysku VHD
+    Aby utworzyć konto magazynu lokalnego i [](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#create-a-storage-account) uzyskać do [](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#upload-a-vhd) niego dostęp, zobacz sekcje Tworzenie konta magazynu za pośrednictwem sekcji Przekazywanie wirtualnego dysku twardego w artykule: Wdrażanie maszyn wirtualnych na urządzeniu [Azure Stack Edge za](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md)pośrednictwem Azure PowerShell . 
 
-Wykonaj następujące kroki, aby utworzyć dysk zarządzany na podstawie wirtualnego dysku twardego, który został wcześniej przekazany do konta magazynu:
+## <a name="create-a-managed-disk-from-vhd"></a>Tworzenie dysku zarządzanego z wirtualnego dysku twardego
+
+Wykonaj następujące kroki, aby utworzyć dysk zarządzany z wirtualnego dysku twardego przekazanego wcześniej do konta magazynu:
 
 1. Ustaw niektóre parametry.
 
@@ -106,16 +96,16 @@ Wykonaj następujące kroki, aby utworzyć dysk zarządzany na podstawie wirtual
     $disk = New-AzureRMDisk -ResourceGroupName $DiskRG -DiskName $DiskName -Disk $DiskConfig
     ```
 
-    Oto przykładowe dane wyjściowe. Lokalizacja w tym miejscu jest ustawiona na lokalizację lokalnego konta magazynu i zawsze dotyczy `DBELocal` wszystkich kont magazynu lokalnego na urządzeniu z systemem Azure Stack Edge. 
+    Oto przykładowe dane wyjściowe. Lokalizacja w tym miejscu jest ustawiona na lokalizację lokalnego konta magazynu i jest zawsze dla wszystkich kont magazynu lokalnego na urządzeniu `DBELocal` Azure Stack Edge Pro GPU. 
 
     ```powershell
     PS C:\WINDOWS\system32> $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import -SourceUri $VHDURI
     PS C:\WINDOWS\system32> $disk = New-AzureRMDisk -ResourceGroupName $DiskRG -DiskName $DiskName -Disk $DiskConfig
     PS C:\WINDOWS\system32>    
     ```
-## <a name="create-a-vm-from-managed-disk"></a>Tworzenie maszyny wirtualnej na podstawie dysku zarządzanego
+## <a name="create-a-vm-from-managed-disk"></a>Tworzenie maszyny wirtualnej na dysku zarządzanym
 
-Wykonaj następujące kroki, aby utworzyć maszynę wirtualną na podstawie dysku zarządzanego:
+Wykonaj następujące kroki, aby utworzyć maszynę wirtualną na dysku zarządzanym:
 
 1. Ustaw niektóre parametry.
 
@@ -131,9 +121,9 @@ Wykonaj następujące kroki, aby utworzyć maszynę wirtualną na podstawie dysk
     ```
 
     >[!NOTE]
-    > `PrivateIP`Parametr jest opcjonalny. Użyj tego parametru, aby przypisać statyczny adres IP, w przeciwnym razie wartość domyślna to dynamiczny adres IP przy użyciu protokołu DHCP.
+    > Parametr `PrivateIP` jest opcjonalny. Użyj tego parametru, aby przypisać statyczny adres IP. W innym przypadku wartością domyślną jest dynamiczny adres IP przy użyciu protokołu DHCP.
 
-    Oto przykładowe dane wyjściowe. W tym przykładzie ta sama Grupa zasobów została określona dla wszystkich zasobów maszyny wirtualnej, ale w razie potrzeby można utworzyć i określić osobne grupy zasobów dla zasobów.
+    Oto przykładowe dane wyjściowe. W tym przykładzie ta sama grupa zasobów jest określona dla wszystkich zasobów maszyny wirtualnej, ale w razie potrzeby można utworzyć i określić oddzielne grupy zasobów dla zasobów.
 
     ```powershell
     PS C:\WINDOWS\system32> $NicRG = "myasevm1rg"
@@ -145,9 +135,9 @@ Wykonaj następujące kroki, aby utworzyć maszynę wirtualną na podstawie dysk
     PS C:\WINDOWS\system32> $VMSize = "Standard_D1_v2"   
     ```
 
-1. Pobierz informacje o sieci wirtualnej i Utwórz nowy interfejs sieciowy.
+1. Uzyskaj informacje o sieci wirtualnej i utwórz nowy interfejs sieciowy.
 
-    W tym przykładzie przyjęto założenie, że tworzysz pojedynczy interfejs sieciowy w domyślnej sieci wirtualnej `ASEVNET` skojarzonej z domyślną grupą zasobów `ASERG` . W razie konieczności można określić alternatywną sieć wirtualną lub utworzyć wiele interfejsów sieciowych. Aby uzyskać więcej informacji, zobacz [Dodawanie interfejsu sieciowego do maszyny wirtualnej za pośrednictwem Azure Portal](azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md).
+    W tym przykładzie przyjęto założenie, że tworzysz pojedynczy interfejs sieciowy w domyślnej sieci wirtualnej, która jest skojarzona `ASEVNET` z domyślną grupą `ASERG` zasobów. W razie potrzeby można określić alternatywną sieć wirtualną lub utworzyć wiele interfejsów sieciowych. Aby uzyskać więcej informacji, zobacz [Dodawanie interfejsu sieciowego do maszyny wirtualnej za pośrednictwem Azure Portal](azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md).
 
     ```powershell
     $armVN = Get-AzureRMVirtualNetwork -Name ASEVNET -ResourceGroupName ASERG
@@ -182,7 +172,7 @@ Wykonaj następujące kroki, aby utworzyć maszynę wirtualną na podstawie dysk
     ```powershell
     $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $disk.Id -StorageAccountType StandardLRS -CreateOption Attach –[Windows/Linux]
     ```
-    Ostatnia flaga w tym poleceniu będzie albo `-Windows` `-Linux` w zależności od systemu operacyjnego używanego przez maszynę wirtualną.
+    Ostatnią flagą w tym poleceniu będzie lub w zależności od tego, którego systemu operacyjnego `-Windows` `-Linux` używasz dla maszyny wirtualnej.
 
 1. Utwórz maszynę wirtualną.
 
@@ -207,9 +197,9 @@ Wykonaj następujące kroki, aby utworzyć maszynę wirtualną na podstawie dysk
 
 ## <a name="delete-vm-and-resources"></a>Usuwanie maszyny wirtualnej i zasobów
 
-W tym artykule użyto tylko jednej grupy zasobów do utworzenia wszystkich zasobów maszyny wirtualnej. Usunięcie tej grupy zasobów spowoduje usunięcie maszyny wirtualnej i wszystkich skojarzonych zasobów. 
+W tym artykule wykorzystano tylko jedną grupę zasobów do utworzenia całego zasobu maszyny wirtualnej. Usunięcie tej grupy zasobów spowoduje usunięcie maszyny wirtualnej i wszystkich skojarzonych zasobów. 
 
-1. Najpierw Wyświetl wszystkie zasoby utworzone w ramach grupy zasobów.
+1. Najpierw wyświetl wszystkie zasoby utworzone w grupie zasobów.
 
     ```powershell
     Get-AzureRmResource -ResourceGroupName <Resource group name>
@@ -251,7 +241,7 @@ W tym artykule użyto tylko jednej grupy zasobów do utworzenia wszystkich zasob
     PS C:\WINDOWS\system32>
     ```
 
-1. Usuń grupę zasobów i wszystkie skojarzone z nią zasoby.
+1. Usuń grupę zasobów i wszystkie skojarzone zasoby.
 
     ```powershell
     Remove-AzureRmResourceGroup -ResourceGroupName <Resource group name>
@@ -301,7 +291,5 @@ W tym artykule użyto tylko jednej grupy zasobów do utworzenia wszystkich zasob
 
 ## <a name="next-steps"></a>Następne kroki
 
-W zależności od rodzaju wdrożenia można wybrać jedną z poniższych procedur.
-
-- [Wdróż maszynę wirtualną na podstawie uogólnionego obrazu za pomocą Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md)  
-- [Wdróż maszynę wirtualną za pomocą Azure Portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)
+- [Przygotowywanie uogólnionych obrazów z wirtualnego dysku twardego systemu Windows do wdrażania maszyn wirtualnych na Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md)
+- [Przygotowywanie uogólnionych obrazów z obrazu ISO do wdrażania maszyn](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md) wirtualnych na Azure Stack Edge Pro GPU d

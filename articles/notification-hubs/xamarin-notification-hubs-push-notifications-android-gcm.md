@@ -1,5 +1,5 @@
 ---
-title: Wysyłanie powiadomień wypychanych do aplikacji platformy Xamarin. Android przy użyciu usługi Azure Notification Hubs | Microsoft Docs
+title: Wysyłanie powiadomień wypychanych do aplikacji platformy Xamarin.Android przy użyciu usługi Azure Notification Hubs | Microsoft Docs
 description: Korzystając z tego samouczka, dowiesz się, jak wysyłać powiadomienia wypychane do aplikacji platformy Xamarin Android przy użyciu usługi Azure Notification Hubs.
 author: sethmanheim
 manager: femila
@@ -17,14 +17,14 @@ ms.date: 01/12/2021
 ms.author: matthewp
 ms.reviewer: jowargo
 ms.lastreviewed: 08/01/2019
-ms.openlocfilehash: e7d4206de1e097c30e9f5e96bbd935e94892ce0e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c97da77619a395a8e2839ea672fe7a78f0501c47
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98221038"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575854"
 ---
-# <a name="tutorial-send-push-notifications-to-xamarinandroid-apps-using-notification-hubs"></a>Samouczek: wysyłanie powiadomień wypychanych do aplikacji platformy Xamarin. Android przy użyciu Notification Hubs
+# <a name="tutorial-send-push-notifications-to-xamarinandroid-apps-using-notification-hubs"></a>Samouczek: wysyłanie powiadomień wypychanych do aplikacji platformy Xamarin.Android przy użyciu Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -42,7 +42,7 @@ W tym samouczku wykonasz następujące kroki:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Subskrypcja platformy Azure**. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* **Subskrypcja platformy Azure.** Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Program Visual Studio z platformą Xamarin] w systemie Windows lub [program Visual Studio dla komputerów Mac] w systemie OS X.
 * Aktywne konto Google
 
@@ -54,13 +54,13 @@ W tym samouczku wykonasz następujące kroki:
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-### <a name="configure-gcmfcm-settings-for-the-notification-hub"></a>Konfigurowanie ustawień GCM/FCM dla centrum powiadomień
+### <a name="configure-gcmfcm-settings-for-the-notification-hub"></a>Konfigurowanie ustawień usługi GCM/FCM dla centrum powiadomień
 
-1. Wybierz pozycję **Google (GCM/FCM)/** w sekcji **ustawień** w menu po lewej stronie.
-2. Wprowadź **klucz serwera** zanotowany w konsoli usługi Google Firebase.
+1. Wybierz **pozycję Google (GCM/FCM)/** w **sekcji Ustawienia** w menu po lewej stronie.
+2. Wprowadź **zanotowyny** klucz serwera z konsoli Google Firebase Console.
 3. Wybierz pozycję **Zapisz** na pasku narzędzi.
 
-    ![Zrzut ekranu przedstawiający centrum powiadomień w witrynie Azure Portal z opcją Google G C M języka C M i wyróżnioną kolorem czerwonym.](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
+    ![Zrzut ekranu przedstawiający centrum powiadomień w witrynie Azure Portal z wyróżnione i wyróżnione na czerwono opcją Google G M F C C M.](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
 
 Centrum powiadomień jest skonfigurowane do pracy z usługą FCM i uzyskano parametry połączenia do rejestrowania aplikacji zarówno w celu odbierania, jak i wysyłania powiadomień wypychanych.
 
@@ -69,30 +69,30 @@ Centrum powiadomień jest skonfigurowane do pracy z usługą FCM i uzyskano para
 ### <a name="create-visual-studio-project-and-add-nuget-packages"></a>Tworzenie projektu programu Visual Studio i dodawanie pakietów NuGet
 
 > [!NOTE]
-> Kroki opisane w tym samouczku dotyczą programu Visual Studio 2017. 
+> Kroki opisane w tym samouczku są dostępne Visual Studio 2017. 
 
-1. W programie Visual Studio otwórz menu **Plik**, wybierz pozycję **Nowy**, a następnie wybierz pozycję **Projekt**. W oknie **Nowy projekt** wykonaj następujące czynności:
-    1. Rozwiń węzeł **zainstalowane**, **Visual C#**, a następnie kliknij pozycję **Android**.
-    2. Z listy wybierz pozycję **aplikacja dla systemu Android (Xamarin)** .
+1. W programie Visual Studio otwórz menu **Plik**, wybierz pozycję **Nowy**, a następnie wybierz pozycję **Projekt**. W **oknie Nowy** projekt wykonaj następujące kroki:
+    1. Rozwiń **pozycję Zainstalowane,** **Visual C#**, a następnie kliknij pozycję **Android.**
+    2. Wybierz **pozycję Aplikacja systemu Android (Xamarin)** z listy.
     3. Wprowadź **nazwę** dla projektu.
-    4. Wybierz **lokalizację** dla projektu.
+    4. Wybierz **lokalizację** projektu.
     5. Wybierz przycisk **OK**.
 
         ![Okno dialogowe Nowy projekt](./media/partner-xamarin-notification-hubs-android-get-started/new-project-dialog-new.png)
-2. W oknie dialogowym **Nowa aplikacja dla systemu Android** wybierz pozycję **pusta aplikacja**, a następnie wybierz **przycisk OK**.
+2. W **oknie dialogowym Nowa** aplikacja systemu Android wybierz pozycję **Pusta aplikacja** i wybierz przycisk **OK.**
 
-    ![Zrzut ekranu, który wyróżnia szablon pustej aplikacji.](./media/partner-xamarin-notification-hubs-android-get-started/new-android-app-dialog.png)
+    ![Zrzut ekranu przedstawiający szablon Pusta aplikacja.](./media/partner-xamarin-notification-hubs-android-get-started/new-android-app-dialog.png)
 3. W oknie **Eksploratora rozwiązań** rozwiń węzeł **Właściwości** i kliknij pozycję **AndroidManifest.xml**. Zaktualizuj nazwę pakietu tak, aby pasowała do nazwy pakietu wprowadzonej podczas dodawania usługi Firebase Cloud Messaging do projektu w konsoli Google Firebase Console.
 
     ![Nazwa pakietu w usłudze GCM](./media/partner-xamarin-notification-hubs-android-get-started/package-name-gcm.png)
-4. Ustaw docelową wersję systemu Android dla projektu na **android 10,0** , wykonując następujące czynności: 
-    1. Kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Właściwości**. 
-    1. W przypadku **kompilacji przy użyciu systemu Android w wersji: (platforma docelowa)** wybierz pozycję **Android 10,0**. 
-    1. Wybierz opcję **tak** w oknie komunikatu, aby kontynuować Zmienianie platformy docelowej.
-1. Dodaj wymagane pakiety NuGet do projektu, wykonując następujące czynności:
-    1. Kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Zarządzaj pakietami NuGet..**..
-    1. Przejdź do **zainstalowanej** karty, wybierz pozycję **Xamarin.Android.support.Design**, a następnie w okienku po prawej stronie kliknij pozycję **Aktualizuj** , aby zaktualizować pakiet do najnowszej wersji.
-    1. Przejdź do karty **przeglądanie** . Wyszukaj aplikację **Xamarin. GooglePlayServices. Base**. Na liście wyników wybierz pozycję **Xamarin.GooglePlayServices.Base**. Następnie wybierz pozycję **Zainstaluj**.
+4. Ustaw docelową wersję systemu Android dla projektu na **Android 10.0,** wykonać następujące kroki: 
+    1. Kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Właściwości.** 
+    1. W polu **Kompiluj przy użyciu systemu Android w wersji: (Docelowa framework)** wybierz **pozycję Android 10.0.** 
+    1. Wybierz **pozycję Tak** w oknie komunikatu, aby kontynuować zmienianie struktury docelowej.
+1. Dodaj wymagane pakiety NuGet do projektu, korzystając z następujących kroków:
+    1. Kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Zarządzaj pakietami NuGet...**.
+    1. Przejdź do karty **Zainstalowane,** wybierz pozycję **Xamarin.Android.Support.Design** i wybierz pozycję **Aktualizuj** w okienku po prawej stronie, aby zaktualizować pakiet do najnowszej wersji.
+    1. Przejdź do **karty Przeglądaj.** Wyszukaj wartość **Xamarin.GooglePlayServices.Base.** Na liście wyników wybierz pozycję **Xamarin.GooglePlayServices.Base**. Następnie wybierz pozycję **Zainstaluj**.
 
         ![Pakiet NuGet usług Google Play](./media/partner-xamarin-notification-hubs-android-get-started/google-play-services-nuget.png)
     6. W oknie **Menedżera pakietów NuGet** wyszukaj pozycję **Xamarin.Firebase.Messaging**. Na liście wyników wybierz pozycję **Xamarin.Firebase.Messaging**. Następnie wybierz pozycję **Zainstaluj**.
@@ -111,7 +111,7 @@ Centrum powiadomień jest skonfigurowane do pracy z usługą FCM i uzyskano para
 
 #### <a name="registering-with-firebase-cloud-messaging"></a>Rejestrowanie w usłudze Firebase Cloud Messaging
 
-1. W przypadku migrowania z Google Cloud Messaging do Firebase `AndroidManifest.xml` plik projektu może zawierać nieaktualną konfigurację GCM, co może spowodować duplikowanie powiadomień. Edytuj plik i Usuń następujące wiersze w `<application>` sekcji, jeśli istnieją:
+1. W przypadku migracji z usługi Google Cloud Messaging do usługi Firebase plik projektu może zawierać nieaktualną konfigurację usługi GCM, co może powodować `AndroidManifest.xml` duplikowanie powiadomień. Edytuj plik i usuń następujące wiersze w `<application>` sekcji , jeśli są obecne:
 
     ```xml
     <receiver
@@ -129,7 +129,7 @@ Centrum powiadomień jest skonfigurowane do pracy z usługą FCM i uzyskano para
     </receiver>
     ```
 
-2. Dodaj następujące instrukcje **przed elementem aplikacji** .
+2. Dodaj następujące instrukcje **przed elementem** aplikacji.
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET" />
@@ -156,10 +156,10 @@ Centrum powiadomień jest skonfigurowane do pracy z usługą FCM i uzyskano para
 6. Dodaj następujące instrukcje using w pliku `MainActivity.cs`:
 
     ```csharp
-    using Azure.Messaging.NotificationHubs;
+    using WindowsAzure.Messaging.NotificationHubs;
     ```
 
-7. Dodaj następujące właściwości do klasy MAINS:
+7. Dodaj następujące właściwości do klasy MainActivity:
 
     ```csharp
     internal static readonly string CHANNEL_ID = "my_notification_channel";
@@ -174,7 +174,7 @@ Centrum powiadomień jest skonfigurowane do pracy z usługą FCM i uzyskano para
     NotificationHub.Start(this.Application, HubName, ConnectionString);
     ```
 
-9. Dodaj klasę o nazwie `AzureListener` do projektu.
+9. Dodaj klasę o `AzureListener` nazwie do projektu.
 10. Dodaj następujące instrukcje using w pliku `AzureListener.cs`.
 
     ```csharp
@@ -182,13 +182,13 @@ Centrum powiadomień jest skonfigurowane do pracy z usługą FCM i uzyskano para
     using WindowsAzure.Messaging.NotificationHubs;
     ```
 
-11. Dodaj następujące elementy powyżej deklaracji klasy i `Java.Lang.Object` Zaimplementuj klasy `INotificationListener` :
+11. Dodaj następujący kod powyżej deklaracji klasy , aby klasa dziedziczyła z klasy `Java.Lang.Object` i implementuje klasę `INotificationListener` :
 
     ```csharp
     public class AzureListener : Java.Lang.Object, INotificationListener
     ```
 
-12. Dodaj następujący kod wewnątrz `MyFirebaseMessagingService` klasy, aby przetworzyć odbierane komunikaty.
+12. Dodaj następujący kod wewnątrz `MyFirebaseMessagingService` klasy , aby przetwarzać odbierane komunikaty.
 
     ```csharp
         public void OnPushNotificationReceived(Context context, INotificationMessage message)
@@ -213,7 +213,7 @@ Centrum powiadomień jest skonfigurowane do pracy z usługą FCM i uzyskano para
     ```
 
 1. **Skompiluj** projekt.
-1. **Uruchom** aplikację na urządzeniu lub załadowanym emulatorze
+1. **Uruchamianie** aplikacji na urządzeniu lub załadowanym emulatorze
 
 ## <a name="send-test-notification-from-the-azure-portal"></a>Wysyłanie powiadomienia testowego z witryny Azure Portal
 
@@ -221,7 +221,7 @@ Odbieranie powiadomień w aplikacji możesz przetestować za pomocą opcji **Wys
 
 ![Witryna Azure Portal — wysyłanie testowe](media/partner-xamarin-notification-hubs-android-get-started/send-test-notification.png)
 
-Powiadomienia wypychane są zwykle wysyłane w usłudze zaplecza, takiej jak Mobile Services czy ASP.NET, za pośrednictwem zgodnej biblioteki. Jeśli biblioteka nie jest dostępna dla zaplecza, można także użyć interfejsu API REST bezpośrednio do wysyłania komunikatów powiadomień.
+Powiadomienia wypychane są zwykle wysyłane w usłudze zaplecza, takiej jak Mobile Services czy ASP.NET, za pośrednictwem zgodnej biblioteki. Jeśli biblioteka nie jest dostępna dla Twojego back-endu, możesz również bezpośrednio używać interfejsu API REST do wysyłania komunikatów powiadomień.
 
 ## <a name="next-steps"></a>Następne kroki
 

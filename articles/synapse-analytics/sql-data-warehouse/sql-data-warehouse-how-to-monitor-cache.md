@@ -2,61 +2,61 @@
 title: Optymalizowanie pamięci podręcznej Gen2
 description: Dowiedz się, jak monitorować pamięć podręczną Gen2 przy użyciu Azure Portal.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.date: 11/20/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fed3ed2c87342d557872e97bfc2a6c4d142b5a3a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9de795c54f55295fa69ed7fcb5dd894e2963385b
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585625"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566634"
 ---
 # <a name="how-to-monitor-the-adaptive-cache"></a>Jak monitorować adaptacyjną pamięć podręczną
 
-W tym artykule opisano sposób monitorowania i rozwiązywania problemów z niską wydajnością zapytań przez określenie, czy obciążenie jest optymalnie używane w ramach adaptacyjnej pamięci podręcznej dla dedykowanych pul SQL.
+W tym artykule opisano sposób monitorowania i rozwiązywania problemów z powolną wydajnością zapytań przez określenie, czy obciążenie optymalnie wykorzystujące adaptacyjną pamięć podręczną dla dedykowanych pul SQL.
 
-Dedykowana architektura magazynu puli SQL automatycznie warstwuje najczęściej badane segmenty magazynu kolumn w pamięci podręcznej na podstawie dysków SSD. Jeśli zapytania pobierają segmenty znajdujące się w pamięci podręcznej, będzie można zwiększyć wydajność.
+Dedykowana architektura magazynu puli SQL automatycznie tworzy warstwy najczęściej wyszukiwanych segmentów magazynu kolumn w pamięci podręcznej przechowywanej na dyskach SSD opartych na technologii NVMe. Będziesz mieć większą wydajność, gdy zapytania pobierają segmenty, które znajdują się w pamięci podręcznej.
  
 ## <a name="troubleshoot-using-the-azure-portal"></a>Rozwiązywanie problemów przy użyciu Azure Portal
 
-Za pomocą Azure Monitor można wyświetlać metryki pamięci podręcznej w celu rozwiązywania problemów z wydajnością zapytań. Najpierw przejdź do Azure Portal i kliknij pozycję **monitor**, **metryki** i **Wybierz zakres**:
+Metryki pamięci podręcznej można Azure Monitor do rozwiązywania problemów z wydajnością zapytań. Najpierw przejdź do menu Azure Portal kliknij pozycję **Monitor,** **Metryki** i **+ Wybierz zakres:**
 
-![Zrzut ekranu przedstawia wybór zakresu wybranego z metryk w Azure Portal.](./media/sql-data-warehouse-how-to-monitor-cache/cache-0.png)
+![Zrzut ekranu przedstawia wybieranie zakresu wybranego z metryk w Azure Portal.](./media/sql-data-warehouse-how-to-monitor-cache/cache-0.png)
 
-Użyj słupków wyszukiwania i listy rozwijanej, aby zlokalizować dedykowaną pulę SQL. Następnie wybierz pozycję Zastosuj.
+Użyj pasków wyszukiwania i listy rozwijanej, aby zlokalizować dedykowaną pulę SQL. Następnie wybierz pozycję Zastosuj.
 
-![Zrzut ekranu przedstawia okienko wybierz zakres, w którym można wybrać magazyn danych.](./media/sql-data-warehouse-how-to-monitor-cache/cache-1.png)
+![Zrzut ekranu przedstawia okienko Wybierz zakres, w którym można wybrać magazyn danych.](./media/sql-data-warehouse-how-to-monitor-cache/cache-1.png)
 
-Kluczowymi metrykami dotyczącymi rozwiązywania problemów z pamięcią podręczną są **Procent trafień pamięci podręcznej** i **procent wykorzystania pamięci** Wybierz pozycję **Procent trafień pamięci podręcznej** , a następnie użyj przycisku **Dodaj metrykę** , aby dodać **procent użycia pamięci podręcznej** 
+Kluczowe metryki rozwiązywania problemów z pamięcią podręczną to Procent **trafień** w pamięci podręcznej i **Procent użycia pamięci podręcznej.** Wybierz pozycję **Procent trafień pamięci podręcznej,** a następnie użyj **przycisku dodawania metryki,** aby dodać **wartość procentową użycia pamięci podręcznej.** 
 
 ![Metryki pamięci podręcznej](./media/sql-data-warehouse-how-to-monitor-cache/cache-2.png)
 
-## <a name="cache-hit-and-used-percentage"></a>Procent trafień i użycia pamięci podręcznej
+## <a name="cache-hit-and-used-percentage"></a>Procent trafień i użytych w pamięci podręcznej
 
 W poniższej macierzy opisano scenariusze oparte na wartościach metryk pamięci podręcznej:
 
-|                                | **Wysoki procent trafień w pamięci podręcznej** | **Procent trafień niskiego poziomu pamięci podręcznej** |
+|                                | **Wysoki procent trafień pamięci podręcznej** | **Procent niskiej pamięci podręcznej** |
 | :----------------------------: | :---------------------------: | :--------------------------: |
-| **Procent użycia dużej pamięci podręcznej** |          Scenariusz 1           |          Scenariusz 2          |
-| **Procent użycia niskiej pamięci podręcznej**  |          Scenariusz 3           |          Scenariusz 4          |
+| **Procent wysokiego procentu używanej pamięci podręcznej** |          Scenariusz 1           |          Scenariusz 2          |
+| **Procent małej wartości używanej pamięci podręcznej**  |          Scenariusz 3           |          Scenariusz 4          |
 
-**Scenariusz 1:** Optymalnie korzystasz z pamięci podręcznej. [Rozwiązywanie problemów z](sql-data-warehouse-manage-monitor.md) innymi obszarami, które mogą spowalniać zapytania.
+**Scenariusz 1:** Optymalnie używasz pamięci podręcznej. [Rozwiązywanie](sql-data-warehouse-manage-monitor.md) problemów z innymi obszarami, które mogą spowalniać zapytania.
 
-**Scenariusz 2:** Bieżący roboczy zestaw danych nie mieści się w pamięci podręcznej, co powoduje niską wartość procentową trafień pamięci podręcznej z powodu fizycznych operacji odczytu. Rozważ skalowanie w górę poziomu wydajności i ponowne uruchomienie obciążenia w celu wypełnienia pamięci podręcznej.
+**Scenariusz 2:** Bieżący roboczy zestaw danych nie mieści się w pamięci podręcznej, co powoduje niską wartość procentową trafień pamięci podręcznej z powodu odczytów fizycznych. Rozważ skalowanie w górę poziomu wydajności i ponowne uruchomić obciążenie, aby wypełnić pamięć podręczną.
 
-**Scenariusz 3:** Prawdopodobnie zapytanie działa wolno ze względu na przyczyny niezwiązane z pamięcią podręczną. [Rozwiązywanie problemów z](sql-data-warehouse-manage-monitor.md) innymi obszarami, które mogą spowalniać zapytania. Możesz również rozważyć [skalowanie wystąpienia](sql-data-warehouse-manage-monitor.md) , aby zmniejszyć rozmiar pamięci podręcznej w celu oszczędności kosztów. 
+**Scenariusz 3.** Prawdopodobnie zapytanie działa wolno z przyczyn niezwiązanych z pamięcią podręczną. [Rozwiązywanie](sql-data-warehouse-manage-monitor.md) problemów z innymi obszarami, które mogą spowalniać zapytania. Możesz również rozważyć [skalowanie wystąpienia](sql-data-warehouse-manage-monitor.md) w dół, aby zmniejszyć rozmiar pamięci podręcznej w celu obniżenia kosztów. 
 
-**Scenariusz 4:** Masz zimną pamięć podręczną, która może być przyczyną powolnego działania zapytania. Rozważ ponowne uruchomienie zapytania, ponieważ roboczy zestaw danych powinien teraz znajdować się w pamięci podręcznej. 
+**Scenariusz 4.** Masz zimną pamięć podręczną, co może być przyczyną powolnego wykonywania zapytania. Rozważ ponowne uruchomić zapytanie, ponieważ roboczy zestaw danych powinien być teraz w pamięci podręcznej. 
 
 > [!IMPORTANT]
-> Jeśli procent trafień pamięci podręcznej lub procent użycia pamięci podręcznej nie jest aktualizowany po rozpoczęciu obciążenia, zestaw roboczy może już znajdować się w pamięci. Tylko klastrowane tabele magazynu kolumn są buforowane.
+> Jeśli wartość procentowa użycia pamięci podręcznej lub pamięci podręcznej nie jest aktualizowana po ponownej aktualizacji obciążenia, zestaw roboczy może już być w pamięci. Buforowane są tylko klastrowane tabele magazynu kolumn.
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji na temat ogólnego dostrajania wydajności zapytań, zobacz [monitorowanie wykonywania zapytań](sql-data-warehouse-manage-monitor.md#monitor-query-execution).
+Aby uzyskać więcej informacji na temat ogólnego dostrajania wydajności zapytań, zobacz [Monitorowanie wykonywania zapytań.](sql-data-warehouse-manage-monitor.md#monitor-query-execution)

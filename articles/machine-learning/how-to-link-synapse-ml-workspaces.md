@@ -1,7 +1,7 @@
 ---
-title: Tworzenie połączonej usługi z Synapse i obszarami roboczymi Azure Machine Learning (wersja zapoznawcza)
+title: Tworzenie połączonej usługi przy użyciu usługi Synapse i Azure Machine Learning roboczych (wersja zapoznawcza)
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak połączyć obszary robocze usługi Azure Synapse i Azure Machine Learning, aby uzyskać ujednolicone środowisko danych przetwarzanie.
+description: Dowiedz się, jak połączyć Azure Synapse i Azure Machine Learning robocze w celu ujednoliconego środowiska przetwarzania danych.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,50 +11,50 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/08/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: 511ee1aa5f5036f5ca5450def0e4481c0608db33
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 23184eee67013e39400446db5f744dd0ddb7bc50
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107227351"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575742"
 ---
-# <a name="link-azure-synapse-analytics-and-azure-machine-learning-workspaces-preview"></a>Łączenie obszarów roboczych usługi Azure Synapse Analytics i Azure Machine Learningych (wersja zapoznawcza)
+# <a name="link-azure-synapse-analytics-and-azure-machine-learning-workspaces-preview"></a>Łączenie Azure Synapse Analytics i Azure Machine Learning roboczych (wersja zapoznawcza)
 
-W tym artykule dowiesz się, jak utworzyć połączoną usługę, która łączy obszar roboczy [usługi Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) i [obszar roboczy Azure Machine Learning](concept-workspace.md).
+Z tego artykułu dowiesz się, jak utworzyć usługę połączona, która łączy obszar roboczy Azure Synapse Analytics [z](/azure/synapse-analytics/overview-what-is) [Azure Machine Learning roboczym.](concept-workspace.md)
 
-Korzystając z Azure Machine Learningego obszaru roboczego połączonego z obszarem roboczym usługi Azure Synapse, możesz dołączyć pulę Apache Spark jako dedykowane obliczenia dla danych przetwarzanie w skali i przeprowadzić szkolenia modeli z tego samego notesu.
+Dzięki obszarowi roboczemu usługi Azure Machine Learning połączonemu z obszarem roboczym usługi Azure Synapse możesz dołączyć pulę usługi Apache Spark jako dedykowaną moc obliczeniową do rozmieszczania danych na dużą skalę lub przeprowadzić trenowanie modelu z tego samego notesu języka Python.
 
-Obszar roboczy ML i obszar roboczy Synapse można połączyć za pomocą [zestawu SDK języka Python](#link-sdk) lub [Azure Machine Learning Studio](#link-studio).
+Obszar roboczy uczenia maszynowego i obszar roboczy usługi Synapse można połączyć za pomocą zestawu SDK języka [Python](#link-sdk) lub [Azure Machine Learning studio](#link-studio).
 
-Możesz również łączyć obszary robocze i dołączać pulę Synapse Spark z jednym [szablonem Azure Resource Manager (ARM)](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json).
+Możesz również połączyć obszary robocze i dołączyć pulę usługi Synapse Spark za pomocą jednego [Azure Resource Manager (ARM).](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json)
 
 >[!IMPORTANT]
-> Integracja Azure Machine Learning i Azure Synapse jest w publicznej wersji zapoznawczej. Funkcje przedstawione w `azureml-synapse` pakiecie to [eksperymentalna](/python/api/overview/azure/ml/#stable-vs-experimental) funkcja w wersji zapoznawczej i może ulec zmianie w dowolnym momencie.
+> Integracja Azure Machine Learning i Azure Synapse jest w publicznej wersji zapoznawczej. Funkcje prezentowane w pakiecie są eksperymentalnymi funkcjami w wersji `azureml-synapse` zapoznawczej i mogą ulec zmianie w dowolnym momencie. [](/python/api/overview/azure/ml/#stable-vs-experimental)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Utwórz obszar roboczy Azure Machine Learning](how-to-manage-workspace.md?tabs=python).
+* [Utwórz obszar Azure Machine Learning roboczego.](how-to-manage-workspace.md?tabs=python)
 
-* [Utwórz obszar roboczy Synapse w Azure Portal](/azure/synapse-analytics/quickstart-create-workspace).
+* [Utwórz obszar roboczy synapse w Azure Portal](/azure/synapse-analytics/quickstart-create-workspace).
 
-* [Tworzenie puli Apache Spark przy użyciu Azure Portal, narzędzi sieci Web lub Synapse Studio](/azure/synapse-analytics/quickstart-create-apache-spark-pool-studio)
+* [Tworzenie Apache Spark przy użyciu Azure Portal, narzędzi internetowych lub Synapse Studio](/azure/synapse-analytics/quickstart-create-apache-spark-pool-studio)
 
-* Zainstaluj [zestaw Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro)
+* Instalowanie [zestawu SDK Azure Machine Learning Python](/python/api/overview/azure/ml/intro)
 
-* Dostęp do [Azure Machine Learning Studio](https://ml.azure.com/).
+* Dostęp do [Azure Machine Learning studio](https://ml.azure.com/).
 
 <a name="link-sdk"></a>
-## <a name="link-workspaces-with-the-python-sdk"></a>Łączenie obszarów roboczych z zestawem SDK języka Python
+## <a name="link-workspaces-with-the-python-sdk"></a>Łączenie obszarów roboczych przy użyciu zestawu SDK języka Python
 
 > [!IMPORTANT]
-> Aby pomyślnie połączyć się z obszarem roboczym Synapse, musisz mieć przyznany rola **właściciela** obszaru roboczego Synapse. Sprawdź swój dostęp w [Azure Portal](https://ms.portal.azure.com/).
+> Aby pomyślnie połączyć się z obszarem roboczym synapse, musisz mieć przyznaną **rolę właściciela** obszaru roboczego synapse. Sprawdź dostęp w [Azure Portal](https://ms.portal.azure.com/).
 >
-> Jeśli nie jesteś **właścicielem** i jesteś tylko **współautorem** obszaru roboczego Synapse, możesz korzystać tylko z istniejących połączonych usług. Zobacz, jak [pobrać i użyć istniejącej połączonej usługi](how-to-data-prep-synapse-spark-pool.md#get-an-existing-linked-service).
+> Jeśli nie jesteś właścicielem **i** jesteś tylko współautorem obszaru roboczego usługi Synapse, możesz używać tylko istniejących połączonych usług.  Zobacz, jak [retrive i użyj istniejącej połączonej usługi](how-to-data-prep-synapse-spark-pool.md#get-an-existing-linked-service).
 
-Poniższy kod wykorzystuje [`LinkedService`](/python/api/azureml-core/azureml.core.linked_service.linkedservice) [`SynapseWorkspaceLinkedServiceConfiguration`](/python/api/azureml-core/azureml.core.linked_service.synapseworkspacelinkedserviceconfiguration) klasy i do,
+Poniższy kod wykorzystuje klasy [`LinkedService`](/python/api/azureml-core/azureml.core.linked_service.linkedservice) i [`SynapseWorkspaceLinkedServiceConfiguration`](/python/api/azureml-core/azureml.core.linked_service.synapseworkspacelinkedserviceconfiguration) do,
 
-* Połącz obszar roboczy usługi Machine Learning `ws` z obszarem roboczym Azure Synapse.
-* Zarejestruj obszar roboczy Synapse, korzystając z Azure Machine Learning jako połączonej usługi.
+* Połącz obszar roboczy uczenia maszynowego `ws` z Azure Synapse roboczym.
+* Zarejestruj obszar roboczy usługi Synapse w Azure Machine Learning jako połączona usługa.
 
 ``` python
 import datetime  
@@ -76,13 +76,13 @@ linked_service = LinkedService.register(workspace = ws,
 ```
 
 > [!IMPORTANT] 
-> Tożsamość zarządzana `system_assigned_identity_principal_id` jest tworzona dla każdej połączonej usługi. Ta tożsamość zarządzana musi mieć przyznaną rolę **administratora Synapse Apache Spark** w obszarze roboczym Synapse przed rozpoczęciem sesji Synapse. [Przypisz rolę administratora Synapse Apache Spark do tożsamości zarządzanej w programie Synapse Studio](../synapse-analytics/security/how-to-manage-synapse-rbac-role-assignments.md).
+> Tożsamość zarządzana `system_assigned_identity_principal_id` jest tworzona dla każdej połączonej usługi. Ta tożsamość zarządzana musi mieć przyznaną rolę **administratora usługi Synapse Apache Spark** obszaru roboczego usługi Synapse przed rozpoczęciem sesji usługi Synapse. [Przypisz rolę administratora usługi Synapse Apache Spark do tożsamości zarządzanej](../synapse-analytics/security/how-to-manage-synapse-rbac-role-assignments.md)w Synapse Studio .
 >
-> Aby znaleźć `system_assigned_identity_principal_id` określoną połączoną usługę, użyj `LinkedService.get('<your-mlworkspace-name>', '<linked-service-name>')` .
+> Aby znaleźć `system_assigned_identity_principal_id` konkretną powiązaną usługę, użyj . `LinkedService.get('<your-mlworkspace-name>', '<linked-service-name>')`
 
 ### <a name="manage-linked-services"></a>Zarządzanie połączonymi usługami
 
-Wyświetl wszystkie połączone usługi powiązane z obszarem roboczym usługi Machine Learning.
+Wyświetl wszystko połączone usługi skojarzone z obszarem roboczym uczenia maszynowego.
 
 ```python
 LinkedService.list(ws)
@@ -97,26 +97,26 @@ linked_service.unregister()
 <a name="link-studio"></a>
 ## <a name="link-workspaces-via-studio"></a>Łączenie obszarów roboczych za pośrednictwem programu Studio
 
-Połącz obszar roboczy uczenia maszynowego i obszar roboczy Synapse za pomocą programu Azure Machine Learning Studio, wykonując następujące czynności: 
+Połącz obszar roboczy usługi Machine Learning i obszar roboczy usługi Synapse za pośrednictwem Azure Machine Learning studio, aby wykonać następujące kroki: 
 
-1. Zaloguj się do [Azure Machine Learning Studio](https://ml.azure.com/).
-1. W sekcji **Zarządzanie** w okienku po lewej stronie wybierz pozycję **połączone usługi** .
-1. Wybierz pozycję **Dodaj integrację**.
-1. W formularzu **Połącz obszar roboczy** Wypełnij pola.
+1. Zaloguj się do [Azure Machine Learning studio](https://ml.azure.com/).
+1. Wybierz **pozycję Połączone usługi** w sekcji **Zarządzanie** w okienku po lewej stronie.
+1. Wybierz **pozycję Dodaj integrację.**
+1. W **formularzu Łączenie obszaru roboczego** wypełnij pola
 
     |Pole| Opis    
     |---|---
-    |Nazwa| Podaj nazwę połączonej usługi. Ta nazwa jest używana do odwoływania się do tej konkretnej połączonej usługi.
-    |Nazwa subskrypcji | Wybierz nazwę subskrypcji, która jest skojarzona z obszarem roboczym usługi Machine Learning. 
-    |Obszar roboczy Synapse | Wybierz obszar roboczy Synapse, do którego chcesz utworzyć łącze.
+    |Nazwa| Podaj nazwę połączonej usługi. Ta nazwa będzie używana do odwołania do tej konkretnej połączonej usługi.
+    |Nazwa subskrypcji | Wybierz nazwę subskrypcji skojarzonej z obszarem roboczym uczenia maszynowego. 
+    |Obszar roboczy synapse | Wybierz obszar roboczy synapse, z którym chcesz utworzyć link.
     
-1. Wybierz pozycję **dalej** , aby otworzyć formularz **Wybieranie pul platformy Spark (opcjonalnie)** . Na tym formularzu wybierz pulę Synapse Spark do dołączenia do obszaru roboczego
+1. Wybierz **przycisk Dalej,** aby otworzyć **formularz Wybierz pule platformy Spark (opcjonalnie).** W tym formularzu możesz wybrać pulę synapse Spark do dołączenia do obszaru roboczego
 
-1. Wybierz pozycję **dalej** , aby otworzyć formularz **Recenzja** i sprawdzić wybrane opcje.
-1. Wybierz pozycję **Utwórz** , aby zakończyć proces tworzenia połączonej usługi.
+1. Wybierz **przycisk** Dalej, aby otworzyć **formularz Przegląd** i sprawdzić wybrane opcje.
+1. Wybierz **pozycję Utwórz,** aby ukończyć proces tworzenia połączonej usługi.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dołącz pule Synapse Spark na potrzeby przygotowywania danych za pomocą usługi Azure Synapse (wersja zapoznawcza)](how-to-data-prep-synapse-spark-pool.md).
-* [Jak używać Apache Spark w potoku uczenia maszynowego przy użyciu usługi Azure Synapse (wersja zapoznawcza)](how-to-use-synapsesparkstep.md)
-* [Uczenie modelu](how-to-set-up-training-targets.md).
+* [Dołączanie pul synapse Spark w celu przygotowania danych za pomocą Azure Synapse (wersja zapoznawcza)](how-to-data-prep-synapse-spark-pool.md).
+* [Jak używać aplikacji Apache Spark potoku uczenia maszynowego za pomocą Azure Synapse (wersja zapoznawcza)](how-to-use-synapsesparkstep.md)
+* [Trenowanie modelu.](how-to-set-up-training-targets.md)

@@ -1,6 +1,6 @@
 ---
 title: Dodawanie użytkownika współpracy B2B do roli — Azure Active Directory
-description: Dodawanie użytkownika-Gości do roli w Azure Active Directory
+description: Dodawanie użytkownika-gościa do roli w Azure Active Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,16 +12,18 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5e9983c265fcc032908424f747066f8f348771f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32a931fe43b6be406f0b2a4b8193c1631261f7e5
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87909827"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575670"
 ---
-# <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Przyznawanie uprawnień użytkownikom z organizacji partnerskich w dzierżawie Azure Active Directory
+# <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Udzielanie uprawnień użytkownikom z organizacji partnerskich w dzierżawie Azure Active Directory dzierżawy
 
-Azure Active Directory (Azure AD) Użytkownicy współpracy B2B są dodawani jako użytkownicy-Goście do katalogu, a uprawnienia gościa w katalogu są domyślnie ograniczone. Firma może potrzebować niektórych użytkowników-Gości, aby wypełniać role wyższego poziomu w organizacji. Aby obsługiwać definiowanie ról wyższego poziomu uprawnień, użytkownicy-Goście mogą zostać dodani do dowolnych ról, które są potrzebne w zależności od potrzeb organizacji.
+Azure Active Directory współpracy B2B (Azure AD) są dodawana jako użytkownicy-goście do katalogu, a uprawnienia gościa w katalogu są domyślnie ograniczone. Firma może wymagać od niektórych użytkowników-gości wypełniania ról o wyższych uprawnieniach w organizacji. Aby obsługiwać definiowanie ról o wyższych uprawnieniach, użytkowników-gości można dodawać do dowolnych ról w zależności od potrzeb organizacji.
+
+Jeśli rola katalogu jest przypisana do użytkownika-gościa, zostanie mu przyznane dodatkowe uprawnienia, które są wraz z rolą, w tym podstawowe uprawnienia do odczytu. Zobacz [Wbudowane role usługi Azure AD.](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference)
 
 ## <a name="default-role"></a>Rola domyślna
 

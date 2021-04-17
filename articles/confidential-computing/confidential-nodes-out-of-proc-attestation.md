@@ -1,74 +1,79 @@
 ---
-title: Obsługa zaświadczania poza procesem przy użyciu funkcji Intel SGX Quote Helper elementu daemonset na platformie Azure (wersja zapoznawcza)
-description: Elementu daemonset do generowania oferty poza procesem aplikacji SGX. W tym artykule wyjaśniono, jak funkcja zaświadczania out-of-proc jest rovided dla poufnych obciążeń uruchomionych wewnątrz kontenera.
+title: Obsługa zaświadczenia za pomocą pomocnika oferty Intel SGX DaemonSet na platformie Azure (wersja zapoznawcza)
+description: DaemonSet do generowania oferty poza procesem aplikacji Intel SGX. W tym artykule wyjaśniono, w jaki sposób zapewniana jest możliwość zaświadczenia poza procesem dla poufnych obciążeń uruchamianych wewnątrz kontenera.
 ms.service: container-service
 ms.subservice: confidential-computing
 author: agowdamsft
 ms.topic: overview
 ms.date: 2/12/2021
 ms.author: amgowda
-ms.openlocfilehash: 0ebeb96557b7e20d123577c0ab9c8fc392abbfba
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 849fd7afa3f9365f31ee8e03d9f9cc2174d64304
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932636"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484408"
 ---
-# <a name="platform-software-management-with-sgx-quote-helper-daemon-set-preview"></a>Zarządzanie oprogramowaniem platformy przy użyciu zestawu demona pomocnika cytatu SGX (wersja zapoznawcza)
+# <a name="platform-software-management-with-intel-sgx-quote-helper-daemonset-preview"></a>Zarządzanie oprogramowaniem platformy za pomocą pomocnika oferty Intel SGX DaemonSet (wersja zapoznawcza)
 
-[Enklawy aplikacje](confidential-computing-enclaves.md) , które wykonują zaświadczanie zdalne, wymagają wygenerowania oferty. Ta oferta zapewnia kryptograficzną weryfikację tożsamości i stanu aplikacji oraz środowisko, w którym enklawy jest uruchomiona. Generowanie oferty wymaga składników oprogramowania zaufanych, które są częścią oprogramowania platformy firmy Intel (PSW).
+[Aplikacje enklawy,](confidential-computing-enclaves.md) które wykonują zdalne zaświadczenia, wymagają wygenerowanego cudzysłowu. Ten cytat zawiera kryptograficzne potwierdzenie tożsamości i stanu aplikacji, a także środowiska, w którym działa enklawa. Generowanie oferty wymaga zaufanych składników oprogramowania, które są częścią oprogramowania Intel Platform Software Components (PSW).
 
 ## <a name="overview"></a>Omówienie
  
-Intel obsługuje dwa tryby zaświadczania, aby uruchomić generowanie cytatu:
-- **w** procesie: hostuje składniki zaufanego oprogramowania w ramach procesu aplikacji enklawy
+Firma Intel obsługuje dwa tryby zaświadczenia, aby uruchomić generowanie oferty:
 
-- **out-of-proc**: udostępnia zaufane składniki oprogramowania spoza aplikacji enklawy.
+- *Proces w procesie* hostuje zaufane składniki oprogramowania w procesie aplikacji enklawy.
+
+- *Poza procesem składniki* zaufanego oprogramowania hostują się poza aplikacją enklawy.
  
-Aplikacje SGX utworzone przy użyciu zestawu SDK open enklawy domyślnie używają trybu zaświadczania w procesie. Aplikacje oparte na SGX umożliwiają korzystanie z usługi i wymagają dodatkowego hostingu i uwidaczniają wymagane składniki, takie jak enklawy architektury Service Manager (AESM), zewnętrzne dla aplikacji.
+Aplikacje Intel Software Guard Extension (Intel SGX) sbudowaną przy użyciu zestawu SDK Open Enclave domyślnie używają trybu zaświadczenia w procesie. Aplikacje oparte na technologii Intel SGX umożliwiają tryb zaświadczenia poza procesem. Jeśli chcesz użyć tego trybu, potrzebujesz dodatkowego hostingu i musisz uwidocznić wymagane składniki, takie jak enklawa architektury Service Manager (AESM), poza aplikacją.
 
-Korzystanie z tej funkcji jest **zdecydowanie zalecane**, ponieważ zwiększa to czas pracy aplikacji enklawy podczas aktualizacji platformy Intel lub aktualizacji sterowników DCAP.
+Ta funkcja zwiększa czas pracy aplikacji enklawy podczas aktualizacji platformy Intel lub aktualizacji sterowników DCAP. Z tego powodu zalecamy używanie go.
 
-Aby włączyć tę funkcję w klastrze AKS, należy zmodyfikować polecenie Add--Enable-sgxquotehelper w interfejsie wiersza polecenia podczas włączania dodatku do obsługi poufnych danych. Szczegółowe instrukcje interfejsu wiersza [polecenia są następujące](confidential-nodes-aks-get-started.md): 
+Aby włączyć tę funkcję w klastrze usług Azure Kubernetes Services (AKS), po włączeniu dodatku poufnego przetwarzania dodaj polecenie do interfejsu wiersza `--enable-sgxquotehelper` polecenia platformy Azure. 
 
 ```azurecli-interactive
 # Create a new AKS cluster with system node pool with Confidential Computing addon enabled and SGX Quote Helper
 az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enable-addon confcom --enable-sgxquotehelper
 ```
 
-## <a name="why-and-what-are-the-benefits-of-out-of-proc"></a>Dlaczego i jakie są korzyści z używania poza procesem?
+Aby uzyskać więcej informacji, zobacz Szybki start: wdrażanie klastra AKS z poufnymi węzłami obliczeniowymi [przy użyciu interfejsu wiersza polecenia platformy Azure.](confidential-nodes-aks-get-started.md)
 
--   Żadne aktualizacje nie są wymagane dla składników generacji oferty PSW dla każdej aplikacji kontenera: w przypadku braku procesu właściciele kontenera nie muszą zarządzać aktualizacjami w ramach ich kontenera. Właściciele kontenera zamiast tego korzystają z interfejsu dostarczonego przez dostawcę, który wywołuje scentralizowaną usługę poza kontenerem, która będzie aktualizowana i zarządzana przez dostawcę.
+## <a name="benefits-of-the-out-of-process-mode"></a>Zalety trybu poza procesem
 
--   Nie trzeba martwić się o błędy zaświadczania ze względu na nieaktualne składniki PSW: generowanie oferty obejmuje zaufane składniki oprogramowania SW — Quote enklawy (zapytań) & certyfikat aprowizacji enklawy (PCE), który jest częścią zaufanej bazy danych (TCB). Te składniki programu SW muszą być aktualne, aby zachować wymagania dotyczące zaświadczania. Ponieważ dostawca zarządza aktualizacjami tych składników, klienci nie będą musieli zajmować się niepowodzeniami zaświadczania ze względu na nieaktualne składniki programu SW w ramach kontenera.
+Na poniższej liście opisano niektóre główne zalety tego trybu zaświadczenia:
 
--   Lepsze wykorzystanie pamięci sygnatury EPC w trybie zaświadczania w procesie, każda aplikacja enklawy musi utworzyć wystąpienie kopii zapytań i PCE dla zdalnego zaświadczania. W przypadku braku procedury nie ma potrzeby, aby kontener obsługiwał te enclaves i w ten sposób nie zużywał pamięci enklawy z przydziału kontenera.
+-   Żadne aktualizacje nie są wymagane dla składników generowania ofert programu PSW dla każdej konteneryzowanej aplikacji. Właściciele kontenerów nie muszą zarządzać aktualizacjami w kontenerze. Właściciele kontenerów zamiast tego polegają na interfejsie dostawcy, który wywołuje scentralizowaną usługę poza kontenerem. Dostawca aktualizuje kontener i zarządza tym kontenerem.
 
--   Zabezpieczenia przed wymuszeniem jądra, gdy sterownik SGX jest przesyłany strumieniowo do jądra systemu Linux, nastąpi wymuszenie dla enklawy o wyższym poziomie uprawnień. To uprawnienie umożliwia enklawy wywoływanie edytora PCE, co spowoduje uszkodzenie aplikacji enklawy działającej w trybie w procesie. Domyślnie enclaves nie pobieraj tego uprawnienia. Przyznanie tego uprawnienia aplikacji enklawy wymaga wprowadzenia zmian w procesie instalacji aplikacji. Jest to obsługiwane w łatwy sposób jako dostawca usługi, który obsługuje żądania out-of-proc, upewnij się, że usługa jest zainstalowana z tym uprawnieniem.
+-   Nie musisz martwić się o błędy zaświadczenia z powodu aktualnych składników psw. Dostawca zarządza aktualizacjami tych składników.
 
--   Nie trzeba sprawdzać zgodności z poprzednimi wersjami z PSW & DCAP. Aktualizacje składników generacji oferty PSW są weryfikowane pod kątem zgodności z poprzednimi wersjami przez dostawcę przed aktualizacją. Pomoże to w obsłudze problemów ze zgodnością przed wdrożeniem aktualizacji dla poufnych obciążeń.
+-   Tryb poza procesem zapewnia lepsze wykorzystanie pamięci EPC niż tryb przetwarzania. W trybie przetwarzania każda aplikacja enklawy musi utworzyć wystąpienia kopii funkcji QE i PCE na potrzeby zdalnego zaświadczenia. W trybie poza procesem kontener nie musi hostować tych enklaw, dlatego nie zużywa pamięci enklawy z limitu przydziału kontenera.
 
-## <a name="how-does-the-out-of-proc-attestation-mode-work-for-confidential-workloads-scenario"></a>Jak działa tryb zaświadczania poza procesem dla scenariusza poufności informacji?
+-   Gdy przekierowywasz sterownik Intel SGX do jądra systemu Linux, istnieje wymuszanie, aby enklawa ma wyższe uprawnienia. To uprawnienie umożliwia enklawę wywoływanie pce, co spowoduje przerwania działania aplikacji enklawy w trybie przetwarzania. Domyślnie enklawy nie mają tego uprawnienia. Przyznanie tego uprawnienia aplikacji enklawy wymaga zmian w procesie instalacji aplikacji. Z kolei w trybie poza procesem dostawca usługi, który obsługuje żądania poza procesem, zapewnia, że usługa jest zainstalowana z tym uprawnieniem.
 
-Projekt wysokiego poziomu jest zgodny z modelem, w którym obiekt żądający oferty i generowanie oferty są wykonywane oddzielnie, ale na tym samym komputerze fizycznym. Generowanie ofert zostanie wykonane w sposób scentralizowany i będzie zawierać żądania dla CUDZYSŁOWów ze wszystkich jednostek. Interfejs musi być odpowiednio zdefiniowany i wykrywalny dla każdej jednostki, aby zażądać cudzysłowu.
+-   Nie musisz sprawdzać zgodności z poprzednimi wersjami z psw i DCAP. Aktualizacje składników generowania oferty programu PSW są weryfikowane pod kątem zgodności z poprzednimi wersjami przez dostawcę przed aktualizacją. Ułatwia to obsługę problemów ze zgodnością przed wdrożeniem aktualizacji dla poufnych obciążeń.
 
-![pomocnik oferty SGX aesm](./media/confidential-nodes-out-of-proc-attestation/aesmmanager.png)
+## <a name="confidential-workloads"></a>Poufne obciążenia
 
-Powyższy model abstrakcyjny ma zastosowanie do scenariusza obciążenia poufnego, przez skorzystanie z już dostępnej usługi AESM. AESM jest kontenerem i wdrożonym jako elementu daemonset w klastrze Kubernetes. Kubernetes gwarantuje pojedyncze wystąpienie kontenera usługi AESM, opakowane w pod, do wdrożenia w każdym węźle agenta. Nowy SGX cytat elementu daemonset będzie zależny od SGX-Device-plugin elementu daemonset, ponieważ kontener usługi AESM żąda pamięci sygnatury EPC od SGX-Device-plugin do uruchamiania zapytań i PCE enclaves.
+Żądanie oferty i generowanie oferty są uruchamiane oddzielnie, ale na tej samej maszynie fizycznej. Generowanie ofert jest scentralizowane i obsługuje żądania ofert ze wszystkich jednostek. Aby każda jednostka żądała cudzysłowów, interfejs musi być prawidłowo zdefiniowany i wykrywalny.
 
-Każdy kontener musi zadecydować, aby użyć generacji cytatu out-of-proc, ustawiając zmienną środowiskową **SGX_AESM_ADDR = 1** podczas tworzenia. Kontener powinien również obejmować pakiet libsgx-Quote-ex, który jest odpowiedzialny za kierowanie żądania do domyślnego gniazda domeny UNIX
+![Diagram przedstawiający relacje między żądacym oferty, generowaniem oferty i interfejsem.](./media/confidential-nodes-out-of-proc-attestation/aesmmanager.png)
 
-Aplikacja może nadal używać zaświadczania w procesie tak jak wcześniej, ale w ramach aplikacji nie można jednocześnie używać zarówno w procesie, jak i poza nią. Infrastruktura out-of-proc jest dostępna domyślnie i zużywa zasoby.
+Ten model abstrakcyjny ma zastosowanie do scenariusza poufnego obciążenia, korzystając z usługi AESM, która jest już dostępna. Usługa AESM jest konteneryzowana i wdrażana jako zestaw DaemonSet w klastrze Kubernetes. Usługa Kubernetes gwarantuje wdrożenie pojedynczego wystąpienia kontenera usługi AESM, opakowanego w zasobnik, w każdym węźle agenta. Nowy zestaw DaemonSet oferty Intel SGX będzie miał zależność od zestawu DaemonSet sgx-device-plugin, ponieważ kontener usługi AESM żąda pamięci EPC z wtyczki sgx-device-plugin w celu uruchamiania enklaw QE i PCE.
+
+Każdy kontener musi wyrazić zgodę na użycie generowania oferty poza procesem przez ustawienie zmiennej środowiskowej `SGX_AESM_ADDR=1` podczas tworzenia. Kontener powinien również zawierać pakiet libsgx-quote-ex, który jest odpowiedzialny za kierowanie żądania do domyślnego gniazda domeny systemu Unix.
+
+Aplikacja może nadal korzystać z zaświadczenia w procesie, tak jak wcześniej, ale nie można używać jednocześnie procesu i poza procesem w aplikacji. Infrastruktura poza procesem jest domyślnie dostępna i zużywa zasoby.
 
 ## <a name="sample-implementation"></a>Przykładowa implementacja
 
-Poniżej znajduje się przykładowy plik platformy Docker dla otwartej aplikacji opartej na enklawy. Ustaw zmienną środowiskową SGX_AESM_ADDR = 1 w pliku Docker lub ustaw ją w pliku wdrożenia. Postępuj zgodnie z poniższym przykładem, aby uzyskać szczegółowe informacje dotyczące pliku Docker i wdrożenia YAML. 
+Poniższy plik platformy Docker jest przykładem aplikacji opartej na otwartej enklawie. Ustaw `SGX_AESM_ADDR=1` zmienną środowiskową w pliku platformy Docker lub ustawiając ją w pliku wdrożenia. Poniższy przykład zawiera szczegółowe informacje dotyczące pliku i wdrożenia platformy Docker. 
 
   > [!Note] 
-  > **Libsgx — oferta —** od firmy Intel musi być spakowana w kontenerze aplikacji w celu zapewnienia prawidłowego działania zaświadczania poza procesem.
+  > Aby zaświadczenia poza procesem działały prawidłowo, biblioteka libsgx-quote-ex firmy Intel musi zostać spakowana w kontenerze aplikacji.
     
 ```yaml
-# Refer to Intel_SGX_Installation_Guide_Linux for detail
+# Refer to Intel_SGX_Installation_Guide_Linux for details
 FROM ubuntu:18.04 as sgx_base
 RUN apt-get update && apt-get install -y \
     wget \
@@ -95,12 +100,12 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /opt/openenclave/share/openenclave/samples/remote_attestation
 RUN . /opt/openenclave/share/openenclave/openenclaverc \
     && make build
-# this sets the flag for out of proc attestation mode. alternatively you can set this flag on the deployment files
+# This sets the flag for out-of-process attestation mode. Alternatively you can set this flag on the deployment files.
 ENV SGX_AESM_ADDR=1 
 
 CMD make run
 ```
-Alternatywnie można ustawić tryb zaświadczania poza procesem w pliku YAML wdrożenia, jak pokazano poniżej
+Alternatywnie można ustawić tryb zaświadczenia poza procesem w pliku yaml wdrożenia. Oto kroki tej procedury:
 
 ```yaml
 apiVersion: batch/v1
@@ -130,15 +135,9 @@ spec:
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-[Inicjowanie obsługi węzłów poufnych (DCsv2-Series) w witrynie AKS](./confidential-nodes-aks-get-started.md)
 
-[Szybkie przykładowe kontenery poufne](https://github.com/Azure-Samples/confidential-container-samples)
+[Szybki start: wdrażanie klastra usługi AKS z poufnymi węzłami obliczeniowymi przy użyciu interfejsu wiersza polecenia platformy Azure](./confidential-nodes-aks-get-started.md)
 
-[Lista jednostek SKU DCsv2](../virtual-machines/dcv2-series.md)
+[Szybkie przykłady początkowe kontenerów poufnych](https://github.com/Azure-Samples/confidential-container-samples)
 
-<!-- LINKS - external -->
-[Azure Attestation]: ../attestation/index.yml
-
-
-<!-- LINKS - internal -->
-[DC Virtual Machine]: /confidential-computing/virtual-machine-solutions
+[Jednostki SKU DCsv2](../virtual-machines/dcv2-series.md)

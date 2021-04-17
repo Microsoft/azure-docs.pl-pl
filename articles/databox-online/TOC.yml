@@ -146,7 +146,7 @@
               href: azure-stack-edge-pro-r-configure-vpn-bcdr.md
         - name: Zarządzanie siecią Wi-Fi
           href: azure-stack-edge-mini-r-manage-wifi.md
-        - name: Używanie profilów Wi-Fi
+        - name: Korzystanie Wi-Fi profilów
           href: azure-stack-edge-mini-r-use-wifi-profiles.md
 - name: 'Współużytkowany procesor GPU Pro, Pro R, Mini R'
   items:
@@ -164,7 +164,7 @@
               href: azure-stack-edge-gpu-kubernetes-rbac.md
             - name: Obciążenia platformy Kubernetes
               href: azure-stack-edge-gpu-kubernetes-workload-management.md
-        - name: Co to jest udostępnianie GPU?
+        - name: Co to jest udostępnianie procesora GPU?
           href: azure-stack-edge-gpu-sharing.md
         - name: Wyświetlanie integracji usługi Key Vault
           href: azure-stack-edge-gpu-activation-key-vault.md
@@ -182,7 +182,7 @@
               href: azure-stack-edge-gpu-deploy-sample-module-marketplace.md
             - name: Moduły z urządzeń FPGA
               href: azure-stack-edge-gpu-modify-fpga-modules-gpu.md
-            - name: Moduł przez Azure Portal
+            - name: Moduł za pośrednictwem Azure Portal
               href: azure-stack-edge-gpu-deploy-compute-module-simple.md
         - name: Wdrażanie obciążeń platformy Kubernetes
           items:
@@ -198,13 +198,13 @@
                   href: azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md
                 - name: Dynamicznie aprowizowana aplikacja stanowa
                   href: azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md
-                - name: Współużytkowane obciążenie procesora GPU
+                - name: Udostępnione obciążenie procesora GPU
                   href: azure-stack-edge-gpu-deploy-kubernetes-gpu-sharing.md
             - name: Za pomocą usługi IoT Edge
               items:
                 - name: Aplikacja bezstanowa
                   href: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md
-                - name: Współużytkowane obciążenie procesora GPU
+                - name: Udostępnione obciążenie procesora GPU
                   href: azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing.md
                 - name: Tworzenie modułu języka C#
                   href: azure-stack-edge-gpu-create-iot-edge-module.md
@@ -214,7 +214,7 @@
                   href: azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md
                 - name: 'Wdrażanie aplikacji bezstanowej, korzystając z metodyki GitOps'
                   href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md
-                - name: Wdróż kontroler danych usługi Azure Arc
+                - name: Wdrażanie Azure Arc danych
                   href: azure-stack-edge-gpu-deploy-arc-data-controller.md
         - name: Konfigurowanie usługi Azure Resource Manager (wersja zapoznawcza)
           items:
@@ -242,15 +242,17 @@
               href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md
             - name: Tworzenie obrazu maszyny wirtualnej
               href: azure-stack-edge-gpu-create-virtual-machine-image.md
-            - name: Użyj uogólnionego obrazu systemu Windows
+            - name: Przygotowywanie uogólnionych obrazów systemu Windows z wirtualnego dysku twardego
               href: azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md
-            - name: Korzystanie z obrazu specjalizowanego systemu Windows
+            - name: Przygotowywanie uogólnionych obrazów przy użyciu standardu ISO
+              href: azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md
+            - name: Korzystanie z wyspecjalizowanego obrazu systemu Windows
               href: azure-stack-edge-gpu-deploy-vm-specialized-image-powershell.md
             - name: Obsługiwane rozmiary i typy maszyn wirtualnych
               href: azure-stack-edge-gpu-virtual-machine-sizes.md
             - name: Łączenie z konsolą maszyny wirtualnej
               href: azure-stack-edge-gpu-connect-virtual-machine-console.md
-            - name: Zarządzanie interfejsami sieciowymi
+            - name: Zarządzanie interfejsami sieciowym
               href: azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md
             - name: Zarządzanie dyskami
               href: azure-stack-edge-gpu-manage-virtual-machine-disks-portal.md
@@ -258,9 +260,9 @@
               href: azure-stack-edge-gpu-manage-virtual-machine-resize-portal.md
             - name: Zarządzanie tagami maszyn wirtualnych
               href: azure-stack-edge-gpu-manage-virtual-machine-tags-powershell.md
-            - name: Utwórz przełącznik wirtualny
+            - name: Tworzenie przełącznika wirtualnego
               href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
-            - name: Tworzenie kopii zapasowych dysków maszyny wirtualnej
+            - name: Tworzenia kopii zapasowej dysków maszyny wirtualnej
               href: azure-stack-edge-gpu-back-up-virtual-machine-disks.md
         - name: Zarządzanie certyfikatami
           items:
@@ -298,7 +300,7 @@
               href: azure-stack-edge-gpu-connect-powershell-interface.md
             - name: Stosowanie aktualizacji
               href: azure-stack-edge-gpu-install-update.md
-            - name: 'Resetowanie, ponowne uaktywnianie urządzenia'
+            - name: 'Resetowanie, ponowne aktywowanie urządzenia'
               href: azure-stack-edge-reset-reactivate-device.md
             - name: Zwrot urządzenia
               href: azure-stack-edge-return-device.md
@@ -312,7 +314,7 @@
           items:
             - name: Korzystanie z wykresów metryk
               href: azure-stack-edge-monitor.md
-            - name: Zarządzanie alertami zdarzeń urządzeń
+            - name: Zarządzanie alertami zdarzeń urządzenia
               href: azure-stack-edge-gpu-manage-device-event-alert-notifications.md
             - name: Używanie pulpitu nawigacyjnego rozwiązania Kubernetes
               href: azure-stack-edge-gpu-monitor-kubernetes-dashboard.md
@@ -330,7 +332,7 @@
               href: azure-stack-edge-contact-microsoft-support.md
     - name: Wspólne informacje o wersji
       items:
-        - name: 2103 — bieżąca
+        - name: 2103 — bieżący
           href: azure-stack-edge-gpu-2103-release-notes.md
         - name: 2101
           href: azure-stack-edge-gpu-2101-release-notes.md
@@ -418,11 +420,11 @@
           href: azure-stack-edge-return-device.md
         - name: Wymiana urządzenia
           href: azure-stack-edge-replace-device.md
-        - name: Migrowanie do urządzenia GPU
+        - name: Migrowanie do urządzenia z procesorem GPU
           href: azure-stack-edge-migrate-fpga-gpu.md
     - name: Informacje o wersji
       items:
-        - name: 2101 — bieżąca
+        - name: 2101 — bieżący
           href: azure-stack-edge-2101-release-notes.md
         - name: 2007
           href: ../databox-gateway/data-box-gateway-2007-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json

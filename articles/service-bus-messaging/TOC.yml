@@ -7,7 +7,7 @@
     - name: Porównanie usług obsługi wiadomości
       href: ../event-grid/compare-messaging-services.md
       maintainContext: true
-    - name: 'Używanie Service Bus z usługą komunikatów języka Java (JMS) 2,0'
+    - name: Używanie Service Bus z usługą Java Message Service (JMS) 2.0
       href: how-to-use-java-message-service-20.md
 - name: Przewodniki Szybki start
   items:
@@ -92,22 +92,34 @@
   items:
     - name: 'Kolejki, tematy i subskrypcje'
       href: service-bus-queues-topics-subscriptions.md
-    - name: Sesje komunikatów
-      href: message-sessions.md
-    - name: Filtry tematów i akcje
-      href: topic-filters.md
     - name: Obsługa komunikatów Premium
       href: service-bus-premium-messaging.md
     - name: Porównanie kolejek platformy Azure i kolejek usługi Service Bus
       href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
-    - name: 'Transferowanie, blokady i uzgadnianie komunikatów'
-      href: message-transfers-locks-settlement.md
-    - name: Kolejki utraconych wiadomości
-      href: service-bus-dead-letter-queues.md
-    - name: Liczniki komunikatów
-      href: message-counters.md
-    - name: Optymalizowanie wydajności
-      href: service-bus-performance-improvements.md
+    - name: Funkcje zaawansowane
+      items:
+        - name: Sesje komunikatów
+          href: message-sessions.md
+        - name: Filtry tematów i akcje
+          href: topic-filters.md
+        - name: Przeglądanie komunikatów
+          href: message-browsing.md
+        - name: 'Transferowanie, blokady i uzgadnianie komunikatów'
+          href: message-transfers-locks-settlement.md
+        - name: Kolejki utraconych wiadomości
+          href: service-bus-dead-letter-queues.md
+        - name: Liczniki komunikatów
+          href: message-counters.md
+        - name: Optymalizowanie wydajności
+          href: service-bus-performance-improvements.md
+        - name: Geograficzne odzyskiwanie po awarii i replikacja geograficzna
+          href: service-bus-geo-dr.md
+        - name: Asynchroniczna obsługa komunikatów i wysoka dostępność
+          href: service-bus-async-messaging.md
+        - name: Obsługa wyłączeń i awarii
+          href: service-bus-outages-disasters.md
+        - name: Ograniczanie przepływności
+          href: service-bus-throttling.md
     - name: Federacja
       items:
         - name: Replikacja komunikatów i federacja między regionami
@@ -124,14 +136,6 @@
           href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub'
         - name: Pozyskiwanie komunikatów z usługi Event Hubs
           href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus'
-    - name: Geograficzne odzyskiwanie po awarii i replikacja geograficzna
-      href: service-bus-geo-dr.md
-    - name: Asynchroniczna obsługa komunikatów i wysoka dostępność
-      href: service-bus-async-messaging.md
-    - name: Obsługa wyłączeń i awarii
-      href: service-bus-outages-disasters.md
-    - name: Ograniczanie przepływności
-      href: service-bus-throttling.md
     - name: Zabezpieczenia
       items:
         - name: Punkt odniesienia zabezpieczeń
@@ -158,7 +162,7 @@
           href: network-security.md
     - name: Integracja z innymi usługami
       items:
-        - name: Integracja Azure Service Bus i Azure Event Grid
+        - name: Azure Service Bus i Azure Event Grid integracji
           href: service-bus-to-event-grid-integration-concept.md
 - name: Przewodniki z instrukcjami
   items:
@@ -166,13 +170,13 @@
       items:
         - name: Tworzenie przestrzeni nazw
           href: service-bus-create-namespace-portal.md
-        - name: Ustaw filtry i akcje subskrypcji
+        - name: Ustawianie filtrów i akcji subskrypcji
           href: service-bus-filter-examples.md
         - name: Obsługa komunikatów
           items:
-            - name: 'Jednostki usługi wiadomości Java (JMS) 2,0'
+            - name: Jednostki java message service (JMS) 2.0
               href: java-message-service-20-entities.md
-            - name: Usługa wiadomości języka Java (JMS) Developer guide.md
+            - name: Java Message Service (JMS) Developer guide.md
               href: jms-developer-guide.md
             - name: 'Komunikaty, ładunki i serializacja'
               href: service-bus-messages-payloads.md
@@ -206,8 +210,6 @@
               href: duplicate-detection.md
             - name: Odraczanie komunikatów
               href: message-deferral.md
-            - name: Przeglądanie komunikatów
-              href: message-browsing.md
             - name: Łączenie jednostek w łańcuchy z automatycznym przekazywaniem
               href: service-bus-auto-forwarding.md
             - name: Przetwarzanie transakcji
@@ -226,7 +228,7 @@
           href: service-bus-end-to-end-tracing.md
         - name: Dzienniki diagnostyczne
           href: service-bus-diagnostic-logs.md
-        - name: Metryki Azure Monitor
+        - name: Azure Monitor metryki
           href: service-bus-metrics-azure-monitor.md
     - name: Integracja
       items:

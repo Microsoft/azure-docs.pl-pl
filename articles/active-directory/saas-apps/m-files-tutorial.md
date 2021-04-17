@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: integracja Azure Active Directory z plikami M | Microsoft Docs'
+title: 'Samouczek: Azure Active Directory integracji z programem M-Files | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją M-Files.
 services: active-directory
 author: jeevansd
@@ -9,97 +9,71 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 03/24/2021
 ms.author: jeedes
-ms.openlocfilehash: 552e5c2411889ee7f07265eb1cc35d98aed4d7c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 680380722746522a0eb3fe6518452472be952075
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99574148"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482845"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-m-files"></a>Samouczek: integracja Azure Active Directory z plikami M
+# <a name="tutorial-azure-active-directory-integration-with-m-files"></a>Samouczek: Azure Active Directory integracji z programem M-Files
 
-Z tego samouczka dowiesz się, jak zintegrować aplikację M-Files z usługą Azure Active Directory (Azure AD).
-Integracja aplikacji M-Files z usługą Azure AD zapewnia następujące korzyści:
+Z tego samouczka dowiesz się, jak zintegrować narzędzie M-Files z usługą Azure Active Directory (Azure AD). Po zintegrowaniu aplikacji M-Files z usługą Azure AD można:
 
-* W usłudze Azure AD możesz kontrolować, kto ma dostęp do aplikacji M-Files.
-* Możesz zezwolić swoim użytkownikom na automatyczne logowanie do aplikacji M-Files (logowanie jednokrotne) przy użyciu kont usługi Azure AD.
-* Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
-
-Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
+* Kontroluj w usłudze Azure AD, kto ma dostęp do aplikacji M-Files.
+* Umożliwianie użytkownikom automatycznego zalogowania się do aplikacji M-Files przy użyciu kont usługi Azure AD.
+* Zarządzanie kontami w jednej centralnej lokalizacji — Azure Portal.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do skonfigurowania integracji usługi Azure AD z aplikacją M-Files potrzebne są następujące elementy:
+Do rozpoczęcia pracy potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz skorzystać z miesięcznej wersji próbnej [tutaj](https://azure.microsoft.com/pricing/free-trial/)
-* Subskrypcja aplikacji M-Files z obsługą logowania jednokrotnego
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać bezpłatne [konto](https://azure.microsoft.com/free/).
+* Subskrypcja aplikacji M-Files z obsługą logowania jednokrotnego.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Aplikacja M-Files obsługuje logowanie jednokrotne inicjowane przez **dostawcę usług**
+* M-Files obsługuje logowanie **jednokrotne inicjowane** przez sp.
 
-## <a name="adding-m-files-from-the-gallery"></a>Dodawanie aplikacji M-Files z galerii
+## <a name="add-m-files-from-the-gallery"></a>Dodawanie aplikacji M-Files z galerii
 
 Aby skonfigurować integrację aplikacji M-Files w usłudze Azure AD, należy dodać aplikację M-Files z galerii do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać aplikację M-Files z galerii, wykonaj następujące czynności:**
+1. Zaloguj się do konta Azure Portal przy użyciu konta służbowego lub osobistego konta konto Microsoft.
+1. W okienku nawigacji po lewej stronie wybierz **Azure Active Directory** usługi.
+1. Przejdź do opcji **Aplikacje dla przedsiębiorstw,** a następnie wybierz **pozycję Wszystkie aplikacje.**
+1. Aby dodać nową aplikację, wybierz **pozycję Nowa aplikacja.**
+1. W **sekcji Dodaj z galerii** wpisz **M-Files** w polu wyszukiwania.
+1. Wybierz **pozycję M-Files** z panelu wyników, a następnie dodaj aplikację. Zaczekaj kilka sekund na dodanie aplikacji do dzierżawy.
 
-1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
+## <a name="configure-and-test-azure-ad-sso-for-m-files"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD dla aplikacji M-Files
 
-    ![Przycisk Azure Active Directory](common/select-azuread.png)
+Skonfiguruj i przetestuj logowanie jednokrotne usługi Azure AD z użyciem aplikacji M-Files, korzystając z użytkownika testowego **O nazwie B.Simon.** Aby logowanie jednokrotne działało, należy ustanowić relację połączenia między użytkownikiem usługi Azure AD i powiązanym użytkownikiem aplikacji M-Files.
 
-2. Przejdź do grupy **Aplikacje dla przedsiębiorstw** i wybierz opcję **Wszystkie aplikacje**.
+Aby skonfigurować i przetestować logowanie jednokrotne usługi Azure AD za pomocą aplikacji M-Files, wykonaj następujące kroki:
 
-    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
+1. **[Konfigurowanie logowania jednokrotnego w usłudze Azure AD](#configure-azure-ad-sso)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
+    1. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie pojedynczej usługi Azure AD z użytkownikiem B.Simon.
+    1. **[Przypisywanie użytkownika testowego usługi Azure AD —](#assign-the-azure-ad-test-user)** aby umożliwić aplikacji B.Simon korzystanie z logowania pojedynczego usługi Azure AD.
+1. **[Konfigurowanie logowania jednokrotnego w aplikacji M-Files](#configure-m-files-sso)** — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+    1. **[Tworzenie użytkownika testowego aplikacji M-Files](#create-m-files-test-user)** — aby mieć w aplikacji M-Files odpowiednik użytkownika B.Simon połączony z reprezentacją użytkownika w usłudze Azure AD.
+1. **[Testowanie logowania jednokrotnego](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
-3. Aby dodać nową aplikację, kliknij przycisk **Nowa aplikacja** w górnej części okna dialogowego.
+## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
-    ![Przycisk Nowa aplikacja](common/add-new-app.png)
+Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-4. W polu wyszukiwania wpisz **M-Files**, wybierz pozycję **M-Files** z panelu wyników i kliknij przycisk **Dodaj**, aby dodać aplikację.
+1. W Azure Portal na **stronie integracji aplikacji M-Files** znajdź sekcję **Zarządzanie** i wybierz **pozycję Logowanie pojedyncze.**
+1. Na stronie **Select a single sign-on method (Wybieranie** metody logowania pojedynczego) wybierz pozycję **SAML**.
+1. Na stronie Konfigurowanie logowania pojedynczego za pomocą **saml** kliknij ikonę ołówka dla opcji **Podstawowa konfiguracja saml,** aby edytować ustawienia.
 
-     ![Aplikacja M-Files na liście wyników](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
-
-W tej sekcji skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD z aplikacją M-Files, korzystając z danych użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację połączenia między użytkownikiem usługi Azure AD i powiązanym użytkownikiem aplikacji M-Files.
-
-Aby skonfigurować i przetestować logowanie jednokrotne usługi Azure AD w aplikacji M-Files, należy wykonać kroki opisane w poniższych blokach konstrukcyjnych:
-
-1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Konfigurowanie logowania jednokrotnego w aplikacji M-Files](#configure-m-files-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
-3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
-4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Tworzenie użytkownika testowego aplikacji M-Files](#create-m-files-test-user)** — aby mieć w aplikacji M-Files odpowiednik użytkownika Britta Simon połączony z reprezentacją użytkownika w usłudze Azure AD.
-6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
-
-W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
-
-Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji M-Files, wykonaj następujące czynności:
-
-1. W witrynie [Azure Portal](https://portal.azure.com/) na stronie integracji aplikacji **M-Files** wybierz pozycję **Logowanie jednokrotne**.
-
-    ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
-
-2. W oknie dialogowym **Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed**, aby włączyć logowanie jednokrotne.
-
-    ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
-
-3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe **Podstawowa konfiguracja protokołu SAML**.
-
-    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
+   ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
 4. W sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące czynności:
-
-    ![Informacje o domenie i adresach URL logowania jednokrotnego aplikacji M-Files](common/sp-identifier.png)
 
     a. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<tenantname>.cloudvault.m-files.com/authentication/MFiles.AuthenticationProviders.Core/sso`
 
@@ -116,13 +90,31 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji M-Files, w
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
-    a. Adres URL logowania
+### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
-    b. Identyfikator usługi Azure AD
+W tej sekcji utworzysz użytkownika testowego w aplikacji o nazwie Azure Portal B.Simon.
 
-    c. Adres URL wylogowywania
+1. W okienku po lewej stronie Azure Portal pozycję Azure Active Directory **pozycję** **Użytkownicy,** a następnie pozycję **Wszyscy użytkownicy.**
+1. Wybierz **pozycję Nowy** użytkownik w górnej części ekranu.
+1. We **właściwościach** Użytkownik wykonaj następujące kroki:
+   1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
+   1. W **polu Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
+   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
+   1. Kliknij pozycję **Utwórz**.
 
-### <a name="configure-m-files-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w aplikacji M-Files
+### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
+
+W tej sekcji włączysz dla użytkownika B.Simon możliwość korzystania z logowania pojedynczego platformy Azure, udzielając dostępu do aplikacji M-Files.
+
+1. W Azure Portal pozycję **Aplikacje dla przedsiębiorstw,** a następnie pozycję **Wszystkie aplikacje.**
+1. Na liście aplikacji wybierz pozycję **M-Files**.
+1. Na stronie przeglądu aplikacji znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy.**
+1. Wybierz **pozycję Dodaj użytkownika,** a następnie wybierz **pozycję Użytkownicy i grupy** w **oknie dialogowym Dodawanie** przypisania.
+1. W **oknie dialogowym** Użytkownicy i grupy wybierz **pozycję B.Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+1. Jeśli oczekujesz przypisania roli do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz** rolę. Jeśli dla tej aplikacji nie ustawiono żadnej roli, zostanie wybrana rola "Dostęp domyślny".
+1. W **oknie dialogowym Dodawanie przypisania** kliknij przycisk **Przypisz.**
+
+## <a name="configure-m-files-sso"></a>Konfigurowanie logowania jednokrotnego w aplikacji M-Files
 
 1. Aby zapewnić skonfigurowanie logowania jednokrotnego dla swojej aplikacji, skontaktuj się z [zespołem pomocy technicznej aplikacji M-Files](mailto:support@m-files.com) i przekaż mu pobrane metadane.
    
@@ -133,11 +125,11 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji M-Files, w
 
 1. Otwórz okno **M-Files Desktop Settings** (Ustawienia pulpitu M-Files). Następnie kliknij przycisk **Add** (Dodaj).
    
-    ![Zrzut ekranu przedstawia ustawienia pulpitu M-Files, w których można wybrać opcję Dodaj.](./media/m-files-tutorial/tutorial_m_files_10.png)
+    ![Zrzut ekranu przedstawiający pozycję Ustawienia pulpitu aplikacji M-Files, w której można wybrać pozycję Dodaj.](./media/m-files-tutorial/settings.png)
 
 1. W oknie **Document Vault Connection Properties** (Właściwości połączenia magazynu dokumentów) wykonaj następujące kroki:
    
-    ![Zrzut ekranu przedstawia właściwości połączenia magazynu dokumentów, w których można wprowadzić podane wartości.](./media/m-files-tutorial/tutorial_m_files_11.png)  
+    ![Zrzut ekranu przedstawia właściwości połączenia usługi Document Vault, w których można wprowadzić opisane wartości.](./media/m-files-tutorial/general.png)  
 
     W obszarze typu sekcji serwera użyj następujących wartości:  
 
@@ -153,71 +145,20 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji M-Files, w
  
     f. Kliknij przycisk **OK**.
 
-### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
-
-W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie Britta Simon.
-
-1. W witrynie Azure Portal w okienku po lewej stronie wybierz pozycję **Azure Active Directory**, wybierz opcję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
-
-    ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
-
-2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
-
-    ![Przycisk Nowy użytkownik](common/new-user.png)
-
-3. We właściwościach użytkownika wykonaj następujące kroki.
-
-    ![Okno dialogowe Użytkownik](common/user-properties.png)
-
-    a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
-    b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
-    Na przykład BrittaSimon@contoso.com
-
-    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
-
-    d. Kliknij pozycję **Utwórz**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
-
-W tej sekcji włączysz dla użytkownika Britta Simon możliwość korzystania z logowania jednokrotnego platformy Azure, udzielając dostępu do aplikacji M-Files.
-
-1. W witrynie Azure Portal wybierz pozycję **Aplikacje dla przedsiębiorstw**, pozycję **Wszystkie aplikacje**, a następnie pozycję **M-Files**.
-
-    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
-
-2. Na liście aplikacji wybierz pozycję **M-Files**.
-
-    ![Link do aplikacji M-Files na liście aplikacji](common/all-applications.png)
-
-3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
-
-    ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
-
-4. Kliknij przycisk **Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania**.
-
-    ![Okienko Dodawanie przypisania](common/add-assign-user.png)
-
-5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
-
-6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-
-7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
-
 ### <a name="create-m-files-test-user"></a>Tworzenie użytkownika testowego aplikacji M-Files
 
 W tej sekcji utworzysz użytkownika o nazwie Britta Simon w aplikacji M-Files. Współpracuj z [zespołem pomocy technicznej aplikacji M-Files](mailto:support@m-files.com), aby dodać użytkowników w aplikacji M-Files.
 
-### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
+## <a name="test-sso"></a>Testowanie logowania jednokrotnego 
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+W tej sekcji przetestujemy konfigurację logowania pojedynczego usługi Azure AD przy użyciu następujących opcji. 
 
-Po kliknięciu kafelka M-Files w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji M-Files, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+* Kliknij pozycję **Testuj tę aplikację w** Azure Portal. Spowoduje to przekierowanie do adresu URL logowania aplikacji M-Files, pod którym można zainicjować przepływ logowania. 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+* Przejdź bezpośrednio do adresu URL logowania aplikacji M-Files i zainicjuj przepływ logowania.
 
-- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
+* Możesz użyć usługi Microsoft Moje aplikacje. Kliknięcie kafelka M-Files w Moje aplikacje spowoduje przekierowanie do adresu URL logowania do aplikacji M-Files. Aby uzyskać więcej informacji na temat Moje aplikacje, [zobacz Wprowadzenie do Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Następne kroki
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](../conditional-access/overview.md)
+Po skonfigurowaniu aplikacji M-Files można wymusić kontrolę sesji, która chroni eksfiltrację i przefiltrowanie poufnych danych organizacji w czasie rzeczywistym. Kontrola sesji wykracza poza dostęp warunkowy. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

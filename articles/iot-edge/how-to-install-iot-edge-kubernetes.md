@@ -1,6 +1,6 @@
 ---
-title: Jak zainstalować IoT Edge na Kubernetes | Microsoft Docs
-description: Informacje na temat instalowania IoT Edge na Kubernetes przy użyciu lokalnego środowiska klastra projektowego
+title: Jak zainstalować aplikację na IoT Edge Kubernetes | Microsoft Docs
+description: Dowiedz się, jak zainstalować środowisko IoT Edge kubernetes przy użyciu lokalnego środowiska klastra projektowego
 author: kgremban
 manager: philmea
 ms.author: veyalla
@@ -8,38 +8,39 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d5fc7b6b480056b56a2776cebd0fa87a5b96f9f0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+monikerRange: iotedge-2018-06
+ms.openlocfilehash: 1c7c221a2fea60f3bbbc4f2cde960dcb8638efe2
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103201670"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576571"
 ---
-# <a name="how-to-install-iot-edge-on-kubernetes-preview"></a>Jak zainstalować IoT Edge w Kubernetes (wersja zapoznawcza)
+# <a name="how-to-install-iot-edge-on-kubernetes-preview"></a>Jak zainstalować aplikację na IoT Edge Kubernetes (wersja zapoznawcza)
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-IoT Edge można zintegrować z usługą Kubernetes przy użyciu jej jako odpornej warstwy infrastruktury o wysokiej dostępności. Oto, gdzie ta obsługa pasuje do IoT Edge rozwiązania wysokiego poziomu:
+IoT Edge można zintegrować z platformą Kubernetes, używając jej jako odpornej, wysoce dostępnej warstwy infrastruktury. Oto, gdzie ta obsługa pasuje do rozwiązania wysokiego IoT Edge poziomie:
 
 ![Wprowadzenie do k8s](./media/how-to-install-iot-edge-kubernetes/kubernetes-model.png)
 
 >[!TIP]
->Dobrym modelem psychicznym dla tej integracji jest Kubernetes, ponieważ inne środowisko operacyjne IoT Edge aplikacji, a nie tylko dla systemów Linux i Windows.
+>Dobrym modelem mentalnym dla tej integracji jest pomyślenie o platformie Kubernetes jako o innym środowisku operacyjnym, IoT Edge w którym oprócz systemów Linux i Windows można uruchamiać aplikacje.
 
 ## <a name="architecture"></a>Architektura 
-W systemie Kubernetes IoT Edge udostępnia *niestandardowe definicje zasobów* (CRD) dla wdrożeń obciążeń brzegowych. Agent IoT Edge przyjmuje rolę  *kontrolera CRD* , który uzgadnia żądany stan zarządzany przez chmurę ze stanem lokalnego klastra.
+Na platformie Kubernetes IoT Edge *niestandardowej* definicji zasobów (CRD) dla wdrożeń obciążeń brzegowych. IoT Edge agent przyjmuje rolę kontrolera  *CRD,* który uzgadnia żądany stan zarządzany przez chmurę ze stanem klastra lokalnego.
 
-Okres istnienia modułu jest zarządzany przez usługę Kubernetes Scheduler, która zachowuje dostępność modułu i wybiera ich rozmieszczenie. IoT Edge zarządza platformą aplikacji brzegowej działającą na górze, nieustannie uzgadniając żądany stan określony w IoT Hub ze stanem w klastrze brzegowym. Model aplikacji nadal jest znanym modelem opartym na IoT Edge modułach i trasach. Kontroler agenta IoT Edge wykonuje *Automatyczne* tłumaczenie IoT Edge modelu aplikacji na natywne konstrukcje Kubernetes, takie jak zasobniki, wdrożenia, usługi itd.
+Okres istnienia modułu jest zarządzany przez harmonogram kubernetes, który zapewnia dostępność modułów i wybiera ich położenie. IoT Edge zarządza platformą aplikacji brzegowej uruchomionej na górze, stale uzgadniając żądany stan określony w IoT Hub ze stanem w klastrze krawędzi. Model aplikacji jest nadal znanym modelem opartym na IoT Edge modułów i tras. Kontroler IoT Edge Agent wykonuje  automatyczne IoT Edge modelu aplikacji usługi Kubernetes na konstrukcje natywne, takie jak zasobniki, wdrożenia, usługi itp.
 
 Oto diagram architektury wysokiego poziomu:
 
-![Kubernetes Arch](./media/how-to-install-iot-edge-kubernetes/publicpreview-refresh-kubernetes.png)
+![arch kubernetes](./media/how-to-install-iot-edge-kubernetes/publicpreview-refresh-kubernetes.png)
 
-Każdy składnik wdrożenia brzegowego jest objęty zakresem przestrzeni nazw Kubernetes specyficzne dla urządzenia, dzięki czemu możliwe jest udostępnianie tych samych zasobów klastra między wieloma urządzeniami brzegowymi i ich wdrożeniami.
+Każdy składnik wdrożenia brzegowego jest ograniczony do przestrzeni nazw kubernetes specyficznej dla urządzenia, co umożliwia współużytkowanie tych samych zasobów klastra między wieloma urządzeniami brzegowym i ich wdrożeniami.
 
 >[!NOTE]
->IoT Edge w Kubernetes jest w [publicznej wersji zapoznawczej](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>IoT Edge na kubernetes jest w publicznej [wersji zapoznawczej.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-## <a name="tutorials-and-references"></a>Samouczki i materiały referencyjne 
+## <a name="tutorials-and-references"></a>Samouczki i odwołania 
 
-Aby uzyskać więcej informacji, w tym szczegółowe samouczki i odwołania, zobacz [IoT Edge w witrynie Kubernetes Preview w wersji zapoznawczej](https://aka.ms/edgek8sdoc) .
+Aby uzyskać więcej informacji, w tym szczegółowe samouczki i odwołania, zobacz witrynę z IoT Edge [kubernetes](https://aka.ms/edgek8sdoc) w wersji zapoznawczej.

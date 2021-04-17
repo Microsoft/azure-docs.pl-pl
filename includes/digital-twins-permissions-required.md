@@ -1,16 +1,16 @@
 ---
 author: baanders
-description: Dołącz plik opisujący podwyższone uprawnienia wymagane do niektórych kroków zarządzania
+description: uwzględnij plik opisujący podniesione uprawnienia wymagane w niektórych krokach zarządzania
 ms.service: digital-twins
 ms.topic: include
 ms.date: 2/23/2021
 ms.author: baanders
-ms.openlocfilehash: f93f52b0e076411f96db38f704a88325ef64f8e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2dff590fbff7822db3ee55a5cc485927f1e4d7e5
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101703108"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480759"
 ---
 >[!NOTE]
-> Ta sekcja musi zostać wykonana przez użytkownika platformy Azure z uprawnieniami do zarządzania dostępem użytkowników do zasobów platformy Azure (w tym przyznawania i delegowania uprawnień). Typowe role spełniające to wymaganie są *właścicielami*, *administratorami kont* lub kombinacją administratorów i *współautorów* *dostępu użytkowników* . Aby uzyskać więcej informacji na temat wymagań dotyczących uprawnień dla ról bliźniaczych reprezentacji cyfrowych platformy Azure, zobacz [*How to: Konfiguracja instance and Authentication*](../articles/digital-twins/how-to-set-up-instance-portal.md#prerequisites-permission-requirements).
+> Tę sekcję musi wykonać użytkownik platformy Azure, który ma uprawnienia do zarządzania dostępem użytkowników do zasobów platformy Azure, w tym do udzielania i delegowania uprawnień. Typowe role, które spełniają to wymaganie, to *Właściciel,* *Administrator konta* lub Kombinacja administratora dostępu *użytkowników* i *współautora.* Aby uzyskać więcej informacji na temat wymagań dotyczących uprawnień Azure Digital Twins ról, zobacz [Konfigurowanie wystąpienia i uwierzytelniania.](../articles/digital-twins/how-to-set-up-instance-portal.md#prerequisites-permission-requirements)

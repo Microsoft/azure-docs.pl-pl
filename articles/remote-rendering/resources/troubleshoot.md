@@ -1,121 +1,121 @@
 ---
 title: Rozwiązywanie problemów
-description: Informacje dotyczące rozwiązywania problemów z renderowaniem zdalnym platformy Azure
+description: Informacje dotyczące rozwiązywania problemów z Azure Remote Rendering
 author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 4990f0d0a10709f2c1c5a17806020cd685f999fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f0fb9ab5c53c3fd1bfb32ac7b112a116301cba7
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99593337"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575347"
 ---
 # <a name="troubleshoot"></a>Rozwiązywanie problemów
 
-Na tej stronie wymieniono typowe problemy zakłócające zdalne renderowanie na platformie Azure i sposoby ich rozwiązywania.
+Ta strona zawiera listę typowych problemów zakłócających Azure Remote Rendering oraz sposoby ich rozwiązywania.
 
 ## <a name="cant-link-storage-account-to-arr-account"></a>Nie można połączyć konta magazynu z kontem usługi ARR
 
-Czasami podczas [łączenia konta magazynu](../how-tos/create-an-account.md#link-storage-accounts) nie ma na liście konta renderowania zdalnego. Aby rozwiązać ten problem, przejdź do konta ARR w Azure Portal i wybierz pozycję **tożsamość** w grupie **Ustawienia** po lewej stronie. Upewnij się, że **stan** jest ustawiony na wartość **włączone**.
-![Debuger ramki aparatu Unity](./media/troubleshoot-portal-identity.png)
+Czasami podczas [łączenia konta magazynu konto](../how-tos/create-an-account.md#link-storage-accounts) Remote Rendering nie jest wyświetlane. Aby rozwiązać ten problem, przejdź do konta ARR w Azure Portal i wybierz pozycję **Tożsamość** w **grupie** Ustawienia po lewej stronie. Upewnij **się, że dla** ustawienia Stan ustawiono **wartość Wł.**.
+![Debuger ramek aparatu Unity](./media/troubleshoot-portal-identity.png)
 
 ## <a name="client-cant-connect-to-server"></a>Klient nie może nawiązać połączenia z serwerem
 
 Upewnij się, że zapory (na urządzeniu, wewnątrz routerów itp.) nie blokują portów wymienionych w [wymaganiach systemowych](../overview/system-requirements.md#network-firewall).
 
-## <a name="error-disconnected-videoformatnotavailable"></a>Błąd " `Disconnected: VideoFormatNotAvailable` "
+## <a name="error-disconnected-videoformatnotavailable"></a>Błąd ' `Disconnected: VideoFormatNotAvailable` '
 
-Sprawdź, czy procesor GPU obsługuje sprzętowe dekodowanie wideo. Zobacz [komputer deweloperski](../overview/system-requirements.md#development-pc).
+Sprawdź, czy procesor GPU obsługuje sprzętowe dekodowanie wideo. Zobacz [Development PC](../overview/system-requirements.md#development-pc).
 
-Jeśli pracujesz na laptopie z dwoma procesorami GPU, istnieje możliwość, że procesor GPU, który jest uruchamiany domyślnie, nie zapewnia funkcji sprzętowego dekodowania wideo. Jeśli tak, spróbuj wymusić, aby aplikacja korzystała z innego procesora GPU. Jest to często możliwe w ustawieniach sterownika procesora GPU.
+Jeśli pracujesz na laptopie z dwoma procesorami GPU, istnieje możliwość, że procesor GPU, na których jest uruchomiony domyślnie, nie zapewnia funkcji dekodowania sprzętowego wideo. Jeśli tak, spróbuj wymusić na aplikacji użycie innego procesora GPU. Jest to często możliwe w ustawieniach sterownika procesora GPU.
 
-## <a name="retrieve-sessionconversion-status-fails"></a>Pobieranie stanu sesji/konwersji nie powiodło się
+## <a name="retrieve-sessionconversion-status-fails"></a>Pobieranie stanu sesji/konwersji kończy się niepowodzeniem
 
-Wysyłanie poleceń interfejsu API REST zbyt często spowoduje, że serwer zostanie ograniczony i ostatecznie nie zwraca błędu. Kod stanu HTTP w przypadku dławienia ma 429 ("zbyt wiele żądań"). Zgodnie z zasadą dla elementu kciuka należy mieć opóźnienie **5-10 sekund między kolejnymi wywołaniami**.
+Zbyt częste wysyłanie poleceń interfejsu API REST spowoduje ograniczenie wydajności serwera i zwrócenie awarii. Kod stanu HTTP w przypadku ograniczania przepustowości to 429 ("zbyt wiele żądań"). Z reguły między kolejnymi wywołaniami powinno być opóźnienie o **wartości 5–10 sekund.**
 
-Należy zauważyć, że ten limit nie ma wpływu na wywołania interfejsu API REST, gdy jest wywoływana bezpośrednio, ale także ich odpowiedników w języku C#/C + +, takich jak `Session.GetPropertiesAsync` , `Session.RenewAsync` , lub `Frontend.GetAssetConversionStatusAsync` .
+Należy pamiętać, że ten limit ma wpływ nie tylko na wywołania interfejsu API REST, gdy są wywoływane bezpośrednio, ale także na ich odpowiedniki w języku C#/C++, takie `Session.GetPropertiesAsync` jak `Session.RenewAsync` , lub `Frontend.GetAssetConversionStatusAsync` .
 
-W przypadku korzystania z funkcji ograniczania przepustowości po stronie serwera należy zmienić kod, tak aby wywołania były rzadziej używane. Serwer zresetuje stan ograniczania co minutę, więc można bezpiecznie ponownie uruchomić kod po minucie.
+Jeśli występuje ograniczanie przepustowości po stronie serwera, zmień kod, aby rzadziej wielokrotnie wykonać wywołania. Serwer będzie resetować stan ograniczania przepustowości co minutę, dzięki czemu można bezpiecznie ponownie uruchomić kod po minucie.
 
-## <a name="h265-codec-not-available"></a>Koder-dekoder H265 niedostępny
+## <a name="h265-codec-not-available"></a>Koder-codec H265 jest niedostępny
 
-Istnieją dwa powody, dla których serwer może odmówić połączenia z `codec not available` błędem.
+Istnieją dwie przyczyny, dla których serwer może odmówić połączenia z powodu `codec not available` błędu.
 
-**Koder-dekoder H265 nie jest zainstalowany:**
+**Koder-codec H265 nie jest zainstalowany:**
 
-Najpierw należy zainstalować **rozszerzenia wideo HEVC** , jak wspomniano w sekcji [oprogramowanie](../overview/system-requirements.md#software) wymagań systemowych.
+Najpierw należy zainstalować pakiet **Rozszerzenia wideo HEVC** jak wspomniano w sekcji [Oprogramowanie](../overview/system-requirements.md#software) wymagań systemowych.
 
-Jeśli nadal występują problemy, upewnij się, że karta graficzna obsługuje H265 i że masz zainstalowany najnowszy sterownik grafiki. Zapoznaj się z sekcją [komputer deweloperski](../overview/system-requirements.md#development-pc) wymagania systemowe dotyczące informacji specyficznych dla dostawcy.
+Jeśli nadal występują problemy, upewnij się, że karta grafiki obsługuje technologię H265 i jest zainstalowany najnowszy sterownik graficzny. Zapoznaj się [z sekcją](../overview/system-requirements.md#development-pc) Development PC w sekcji wymagań systemowych, aby uzyskać informacje specyficzne dla dostawcy.
 
-**Koder-dekoder jest zainstalowany, ale nie można go użyć:**
+**Koder-koder-koder jest zainstalowany, ale nie można go używać:**
 
-Przyczyną tego problemu jest nieprawidłowe ustawienie zabezpieczeń w bibliotekach DLL. Ten problem nie jest manifestem podczas próby oglądania filmów wideo zakodowanych za pomocą H265. Ponowne zainstalowanie dekodera nie rozwiązuje problemu. Zamiast tego wykonaj następujące czynności:
+Przyczyną tego problemu jest nieprawidłowe ustawienie zabezpieczeń bibliotek DLL. Ten problem nie występuje podczas próby obejrzenia filmów wideo zakodowanych za pomocą H265. Ponowna instalacja koderów-koderów nie rozwiąże również problemu. Zamiast tego wykonaj następujące czynności:
 
-1. Otwórz **program PowerShell z uprawnieniami administratora** i uruchom
+1. Otwórz program **PowerShell z uprawnieniami administratora i** uruchom
 
     ```PowerShell
     Get-AppxPackage -Name Microsoft.HEVCVideoExtension
     ```
   
-    To polecenie powinno wyprowadzić `InstallLocation` koder-dekoder, podobnie jak:
+    To polecenie powinno zwrócić `InstallLocation` koder koder-koder, na przykład:
   
     ```cmd
     InstallLocation   : C:\Program Files\WindowsApps\Microsoft.HEVCVideoExtension_1.0.23254.0_x64__5wasdgertewe
     ```
 
-1. Otwórz ten folder w Eksploratorze Windows
-1. Powinien istnieć podfolder **x86** i **x64** . Kliknij prawym przyciskiem myszy jeden z folderów i wybierz polecenie **Właściwości**
-    1. Wybierz kartę **zabezpieczenia** , a następnie kliknij przycisk Ustawienia **Zaawansowane** .
-    1. Kliknij przycisk **Zmień** dla **właściciela**
-    1. Wpisz **administratorów** w polu tekstowym
-    1. Kliknij przycisk **Sprawdź nazwy** i **OK**
-1. Powtórz powyższe kroki dla drugiego folderu
-1. Powtórz powyższe kroki dla każdego pliku DLL w obu folderach. Dostępne są cztery biblioteki DLL.
+1. Otwórz ten folder w Eksplorator Windows
+1. Powinien być **podfolder x86** i **x64.** Kliknij prawym przyciskiem myszy jeden z folderów i wybierz polecenie **Właściwości**
+    1. Wybierz **kartę Zabezpieczenia** i kliknij **przycisk Ustawienia** zaawansowane
+    1. Kliknij **pozycję Zmień** dla **właściciela**
+    1. Wpisz **Administratorzy** w polu tekstowym
+    1. Kliknij **pozycję Sprawdź nazwy i** przycisk **OK.**
+1. Powtórz powyższe kroki dla innego folderu
+1. Powtórz również powyższe kroki dla każdego pliku DLL w obu folderach. Powinny być w całości cztery biblioteki DLL.
 
 Aby sprawdzić, czy ustawienia są teraz poprawne, zrób to dla każdej z czterech bibliotek DLL:
 
-1. Wybierz **właściwości > zabezpieczenia > Edytuj**
-1. Zapoznaj się z listą wszystkich **grup/użytkowników** i upewnij się, że każda z nich ma **& wykonaj** prawo do odczytu (znacznik wyboru w kolumnie **Zezwalaj** musi być ustawiony na osi).
+1. Wybierz **pozycję Właściwości > Security > Edytuj**
+1. Przejdź przez listę wszystkich **grup/użytkowników** i upewnij  się, że każda z nich ma ustawiony  prawy & Odczyt (znacznik wyboru w kolumnie zezwalaj musi być oznaczany)
 
 ## <a name="low-video-quality"></a>Niska jakość wideo
 
-Jakość wideo może zostać naruszona przez jakość sieci lub brak kodera wideo H265.
+Jakość wideo może zostać naruszona przez jakość sieci lub brakujący koder wideo H265.
 
-* Zapoznaj się z instrukcjami, aby [zidentyfikować problemy z siecią](#unstable-holograms).
-* Zapoznaj się z [wymaganiami systemowymi](../overview/system-requirements.md#development-pc) dotyczącymi instalowania najnowszego sterownika grafiki.
+* Zapoznaj się z krokami, aby [zidentyfikować problemy z siecią.](#unstable-holograms)
+* Zobacz wymagania [systemowe dotyczące](../overview/system-requirements.md#development-pc) instalowania najnowszego sterownika grafiki.
 
-## <a name="video-recorded-with-mrc-does-not-reflect-the-quality-of-the-live-experience"></a>Wideo zarejestrowane przy użyciu MRC nie odzwierciedla jakości aktywnego środowiska
+## <a name="video-recorded-with-mrc-does-not-reflect-the-quality-of-the-live-experience"></a>Wideo zarejestrowane za pomocą mrC nie odzwierciedla jakości obsługi na żywo
 
-Film wideo może być zarejestrowany w usłudze HoloLens za pomocą [funkcji przechwytywania rzeczywistości mieszanej (MRC)](/windows/mixed-reality/mixed-reality-capture-for-developers). Jednak wyniki wideo mają gorszą jakość niż środowisko na żywo z dwóch powodów:
-* Szybkość wideo jest ograniczona do 30 Hz, a nie do 60 Hz.
-* Obrazy wideo nie przechodzą przez krok przetwarzania zachodzącego [projektu](../overview/features/late-stage-reprojection.md) , więc film wideo wygląda na choppier.
+Wideo można nagrać na urządzeniach HoloLens za [pośrednictwem Przechwytywanie rzeczywistości mieszanej (MRC).](/windows/mixed-reality/mixed-reality-capture-for-developers) Wynikowy film wideo ma jednak niższą jakość niż środowisko na żywo z dwóch powodów:
+* Szybkość klatek wideo jest ograniczona do 30 Hz, a nie 60 Hz.
+* Obrazy wideo nie przechodziły przez etap przetwarzania ponownego [przetwarzania](../overview/features/late-stage-reprojection.md) na późnym etapie, więc wygląda na to, że wideo jest bardziej ważne.
 
-Oba są nieodłącznymi ograniczeniami techniki nagrywania.
+Oba te ograniczenia są związane z techniką rejestrowania.
 
 ## <a name="black-screen-after-successful-model-loading"></a>Czarny ekran po pomyślnym załadowaniu modelu
 
-Jeśli masz połączenie z środowiskiem uruchomieniowym renderowania i pomyślnie załadowano model, ale zobaczysz tylko czarny ekran, może to mieć kilka różnych przyczyn.
+Jeśli masz połączenie ze środowiskiem uruchomieniowym renderowania i pomyślnie załadowano model, ale później zobaczysz tylko czarny ekran, może to mieć kilka odrębnych przyczyn.
 
-Zalecamy przetestowanie następujących rzeczy przed bardziej szczegółowymi analizami:
+Zalecamy przetestowanie następujących rzeczy przed wykonaniem bardziej szczegółowej analizy:
 
-* Czy jest zainstalowany koder-dekoder H265? Mimo że powinno nastąpić powrót do kodera-dewielokrotna h264ego, występują przypadki, w których ta rezerwa nie działała prawidłowo. Zapoznaj się z [wymaganiami systemowymi](../overview/system-requirements.md#development-pc) dotyczącymi instalowania najnowszego sterownika grafiki.
-* W przypadku korzystania z projektu środowiska Unity Zamknij środowisko Unity, Usuń *bibliotekę* tymczasową i foldery *obj* w katalogu projektu i ponownie załaduj/Skompiluj projekt. W niektórych przypadkach dane w pamięci podręcznej spowodowały, że próbka nie działa prawidłowo, bez oczywistych przyczyn.
+* Czy jest zainstalowany koder-koder-system H265? Mimo że powinien następować rezerwowy koder-koder H264, widzieliśmy przypadki, w których ten rezerwowy koder nie działał prawidłowo. Zobacz wymagania [systemowe dotyczące](../overview/system-requirements.md#development-pc) instalowania najnowszego sterownika grafiki.
+* W przypadku korzystania z projektu aparatu  Unity zamknij unity, usuń tymczasową bibliotekę i *foldery obj* z katalogu projektu, a następnie ponownie załaduj/skompilowaj projekt. W niektórych przypadkach dane buforowane spowodowały, że próbka nie działała prawidłowo bez oczywistej przyczyny.
 
-Jeśli te dwa kroki nie były pomocne, należy sprawdzić, czy ramki wideo są odbierane przez klienta, czy nie. Można to zrobić programowo, jak wyjaśniono w rozdziale [kwerendy wydajności po stronie serwera](../overview/features/performance-queries.md) . `FrameStatistics struct`Zawiera element członkowski, który wskazuje liczbę ramek wideo, które zostały odebrane. Jeśli ta liczba jest większa niż 0 i rośnie wraz z upływem czasu, klient odbiera rzeczywiste ramki wideo z serwera. W związku z tym musi być problemem po stronie klienta.
+Jeśli te dwa kroki nie pomogły, konieczne jest określenie, czy ramki wideo są odbierane przez klienta, czy nie. Można to zbadać programowo, jak wyjaśniono w rozdziale zapytania dotyczące wydajności [po stronie](../overview/features/performance-queries.md) serwera. Ma `FrameStatistics struct` on członka, który wskazuje, ile ramek wideo zostało odebranych. Jeśli ta liczba jest większa niż 0 i zwiększa się wraz z czasem, klient odbiera rzeczywiste ramki wideo z serwera. W związku z tym musi to być problem po stronie klienta.
 
 ### <a name="common-client-side-issues"></a>Typowe problemy po stronie klienta
 
-**Model przekracza limity wybranej maszyny wirtualnej, w tym maksymalną liczbę wielokątów:**
+**Model przekracza limity wybranej maszyny wirtualnej, a w szczególności maksymalną liczbę wielokątów:**
 
-Zobacz określone [limity rozmiaru serwera](../reference/limits.md#overall-number-of-polygons).
+Zobacz [limity rozmiaru określonego serwera.](../reference/limits.md#overall-number-of-polygons)
 
-**Model nie znajduje się w frustumu aparatu:**
+**Model nie znajduje się wewnątrz aparatu frustum:**
 
-W wielu przypadkach model jest wyświetlany poprawnie, ale znajduje się poza kamerą frustum. Typowym powodem jest to, że model został wyeksportowany z daleko wyśrodkowanego przedziału. Pomaga w programistycznym zbadaniu pola powiązanego z modelem i wizualizowania pola z użyciem aparatu Unity jako pola wiersza lub drukowania jego wartości w dzienniku debugowania.
+W wielu przypadkach model jest wyświetlany prawidłowo, ale znajduje się poza frustum aparatu. Częstą przyczyną jest to, że model został wyeksportowany z odsuwem od środka, dzięki czemu jest obcięty przez płaszczyznę przycinania aparatu. Ułatwia ono programowe wykonywanie zapytań o pole granicy modelu i wizualizowanie pola za pomocą aparatu Unity jako pola wiersza lub drukowanie jego wartości w dzienniku debugowania.
 
-Ponadto proces konwersji generuje [wyjściowy plik JSON](../how-tos/conversion/get-information.md) wraz ze przekonwertowanym modelem. Aby debugować problemy dotyczące pozycjonowania modelu, warto zajrzeć do `boundingBox` wpisu w [sekcji outputStatistics](../how-tos/conversion/get-information.md#the-outputstatistics-section):
+Ponadto proces konwersji generuje plik [wyjściowy JSON](../how-tos/conversion/get-information.md) wraz z przekonwertowanym modelem. Aby debugować problemy z pozycjonowaniem modelu, warto zaglądać do wpisu w sekcji `boundingBox` [outputStatistics :](../how-tos/conversion/get-information.md#the-outputstatistics-section)
 
 ```JSON
 {
@@ -138,117 +138,150 @@ Ponadto proces konwersji generuje [wyjściowy plik JSON](../how-tos/conversion/g
 }
 ```
 
-Pole ograniczenia jest opisane jako `min` `max` pozycja i w przestrzeni 3D, w metrach. Dlatego Współrzędna 1000,0 oznacza, że nie jest to 1 Kilometer od początku.
+Pole granicy jest opisane jako pozycja `min` i `max` w przestrzeni 3D, w metrach. Zatem współrzędna 1000,0 oznacza, że znajduje się 1 km od źródła.
 
-W przypadku tego pola ograniczenia mogą występować dwa problemy, które prowadzą do niewidocznej geometrii:
-* **Pole może być daleko od środka**, więc obiekt jest obcinany całkowicie ze względu na przycinanie do odległej płaszczyzny. `boundingBox`Wartości w tym przypadku wyglądać następująco: `min = [-2000, -5,-5], max = [-1990, 5,5]` , przy użyciu dużego przesunięcia na osi x jako przykładu. Aby rozwiązać ten problem, należy włączyć `recenterToOrigin` opcję w [konfiguracji konwersji modelu](../how-tos/conversion/configure-model-conversion.md).
-* **Pole może być wyśrodkowane, ale zamówienia wielkości są zbyt duże**. Oznacza to, że podczas gdy aparat zostanie uruchomiony w środku modelu, jego geometria jest obcinana we wszystkich kierunkach. Typowe `boundingBox` wartości w tym przypadku wyglądać następująco: `min = [-1000,-1000,-1000], max = [1000,1000,1000]` . Przyczyną tego typu problemu jest zwykle niezgodność skali jednostki. Aby skompensować, należy określić [wartość skalowania podczas konwersji](../how-tos/conversion/configure-model-conversion.md#geometry-parameters) lub oznaczyć Model źródłowy odpowiednimi jednostkami. Skalowanie może być również stosowane do węzła głównego podczas ładowania modelu w czasie wykonywania.
+Mogą być dwa problemy z tym polem granicy, które prowadzą do niewidocznej geometrii:
+* **Pole może być daleko od środka,** więc obiekt jest całkowicie obcięty z powodu obcinania płaszczyzny. Wartości w tym przypadku będą wyglądać tak: , przy użyciu dużego przesunięcia na osi `boundingBox` `min = [-2000, -5,-5], max = [-1990, 5,5]` x jako przykładu w tym miejscu. Aby rozwiązać ten typ problemu, włącz `recenterToOrigin` opcję w [konfiguracji konwersji modelu](../how-tos/conversion/configure-model-conversion.md).
+* **Pole może być wyśrodkowane, ale jego rządy wielkości są zbyt duże.** Oznacza to, że chociaż aparat zaczyna się na środku modelu, jego geometria jest obcinana we wszystkich kierunkach. Typowe `boundingBox` wartości w tym przypadku będą wyglądać tak: `min = [-1000,-1000,-1000], max = [1000,1000,1000]` . Przyczyną tego typu problemu jest zazwyczaj niezgodność skali jednostek. Aby skompensować, określ [wartość skalowania podczas konwersji](../how-tos/conversion/configure-model-conversion.md#geometry-parameters) lub oznacz model źródłowy prawidłowymi jednostkami. Skalowanie można również zastosować do węzła głównego podczas ładowania modelu w czasie wykonywania.
 
-**Potok renderowania aparatu Unity nie obejmuje punktów zaczepienia renderowania:**
+**Potok renderowania aparatu Unity nie zawiera zaczepień renderowania:**
 
-Renderowanie zdalne na platformie Azure jest podłączane do potoku renderowania aparatu Unity, aby wykonać transkompozycję ramki z filmem wideo i przeprojektować. Aby sprawdzić, czy te punkty zaczepie istnieją, otwórz menu *:::no-loc text="Window > Analysis > Frame debugger":::* . Włącz ją i upewnij się, że `HolographicRemotingCallbackPass` w potoku istnieją dwa wpisy:
+Azure Remote Rendering się do potoku renderowania aparatu Unity, aby wykonać kompozycję ramek z wideo i wykonać ponowną reprojection. Aby sprawdzić, czy te elementy zaczepienia istnieją, otwórz menu *:::no-loc text="Window > Analysis > Frame debugger":::* . Włącz ją i upewnij się, że w potoku znajdują się `HolographicRemotingCallbackPass` dwa wpisy:
 
 ![Potok renderowania aparatu Unity](./media/troubleshoot-unity-pipeline.png)
 
-## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>Wzór szachownicy jest renderowany po załadowaniu modelu
+## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>Wzorzec tablicy kontrolnej jest renderowany po załadowaniu modelu
 
-Jeśli renderowany obraz wygląda następująco: ![ zrzut ekranu pokazuje siatkę czarno-białych kwadratów z menu Narzędzia.](../reference/media/checkerboard.png)
-następnie moduł renderujący trafi [limity dla rozmiaru standardowej konfiguracji](../reference/vm-sizes.md). Aby wyeliminować ograniczenia, należy przełączyć się do rozmiaru konfiguracji **Premium** lub zmniejszyć liczbę widocznych wielokątów.
+Jeśli renderowany obraz wygląda następująco: Zrzut ekranu przedstawia siatkę czarnych i białych ![ kwadratów z menu Narzędzia.](../reference/media/checkerboard.png)
+następnie program renderuje limity [wielokątów dla standardowego rozmiaru konfiguracji](../reference/vm-sizes.md). Aby temu uniknąć, przełącz się na **rozmiar konfiguracji Premium** lub zmniejsz liczbę widocznych wielokątów.
 
-## <a name="the-rendered-image-in-unity-is-upside-down"></a>Renderowany obraz w aparacie Unity jest odwrócony do góry
+## <a name="the-rendered-image-in-unity-is-upside-down"></a>Renderowany obraz w a unity jest do góry do góry
 
-Upewnij się, że postępuj zgodnie z [samouczkiem aparatu Unity: dokładnie Przeglądaj modele zdalne](../tutorials/unity/view-remote-models/view-remote-models.md) . Obraz z góry nogami wskazuje, że środowisko Unity jest wymagane do utworzenia celu renderowania poza ekranem. To zachowanie nie jest obecnie obsługiwane i tworzy ogromny wpływ na wydajność w przypadku urządzeń HoloLens 2.
+Pamiętaj, aby dokładnie wykonać kroki [samouczka aparatu Unity: wyświetlanie modeli](../tutorials/unity/view-remote-models/view-remote-models.md) zdalnych. Obraz do góry do góry wskazuje, że do utworzenia obiektu docelowego renderowania poza ekranem jest wymagane aparatu Unity. To zachowanie nie jest obecnie obsługiwane i ma ogromny wpływ na wydajność urządzenia HoloLens 2.
 
-Przyczyną tego problemu może być MSAA, HDR lub włączenie procesu post. Upewnij się, że profil niskiej jakości został wybrany i ustawiony jako domyślny w aparacie Unity. Aby to zrobić, przejdź do pozycji *Edytuj ustawienia projektu >... >*.
+Przyczyny tego problemu mogą być następujące: MSAA, DOSTĘP lub włączenie przetwarzania po przetwarzaniu. Upewnij się, że wybrano profil o niskiej jakości i ustawiono go jako domyślny w a aparatu Unity. W tym celu przejdź do > *Ustawienia projektu... > Jakości.*
 
-## <a name="unity-code-using-the-remote-rendering-api-doesnt-compile"></a>Kod Unity korzystający z interfejsu API renderowania zdalnego nie kompiluje
+## <a name="unity-code-using-the-remote-rendering-api-doesnt-compile"></a>Nie można skompilować kodu aparatu Unity przy użyciu interfejsu API Remote Rendering
 
-### <a name="use-debug-when-compiling-for-unity-editor"></a>Użyj debugowania podczas kompilowania dla edytora Unity
+### <a name="use-debug-when-compiling-for-unity-editor"></a>Używanie debugowania podczas kompilowania dla edytora aparatu Unity
 
-Zmień *typ kompilacji* rozwiązania Unity na **Debuguj**. Podczas testowania ARR w edytorze aparatu Unity definicja `UNITY_EDITOR` jest dostępna tylko w kompilacjach "debug". Należy zauważyć, że jest to niepowiązane z typem kompilacji używanym dla [wdrożonych aplikacji](../quickstarts/deploy-to-hololens.md), w którym należy preferować kompilacje "Release".
+Przełącz typ *kompilacji rozwiązania* Unity na **debugowanie**. Podczas testowania ARR w edytorze aparatu Unity definiowanie `UNITY_EDITOR` jest dostępne tylko w kompilacjach "Debuguj". Należy pamiętać, że nie ma to związku z typem kompilacji używanym dla wdrożonych [aplikacji,](../quickstarts/deploy-to-hololens.md)w którym należy preferować kompilacje "Release".
 
-### <a name="compile-failures-when-compiling-unity-samples-for-hololens-2"></a>Błędy kompilacji podczas kompilowania próbek aparatu Unity 2
+### <a name="compile-failures-when-compiling-unity-samples-for-hololens-2"></a>Błędy kompilacji podczas kompilowania przykładów aparatu Unity dla urządzenia HoloLens 2
 
-Wystąpił błąd fałszywe podczas próby skompilowania przykładów aparatu Unity (Szybki Start, ShowCaseApp,..) dla urządzenia HoloLens 2. Program Visual Studio nie może kopiować niektórych plików poza nimi. W przypadku wystąpienia tego problemu:
-* Usuń wszystkie pliki tymczasowe aparatu Unity z projektu i spróbuj ponownie. Oznacza to, że Zamknij Unity, Usuń *bibliotekę* tymczasową i foldery *obj* w katalogu projektu i ponownie załaduj/Skompiluj projekt.
-* Upewnij się, że projekty znajdują się w katalogu na dysku z odpowiednio krótką ścieżką, ponieważ krok kopiowania czasami wydaje się być przyczyną problemów z długimi nazwami plików.
-* Jeśli to nie pomoże, może to być, że usługa MS sens przeszkadza w kroku kopiowania. Aby skonfigurować wyjątek, Uruchom to polecenie rejestru z wiersza polecenia (wymaga uprawnień administratora):
+Podczas próby skompilowania przykładów aparatu Unity (szybki start, ShowCaseApp, ..) dla urządzenia HoloLens 2 widzieliśmy nieużywalne błędy. Visual Studio się, że nie można skopiować niektórych plików, chociaż są dostępne. Jeśli ten problem zostanie rozwiązany:
+* Usuń wszystkie tymczasowe pliki aparatu Unity z projektu i spróbuj ponownie. Oznacza to zamknięcie aparatu Unity, usunięcie biblioteki tymczasowej i *folderów obj* z katalogu projektu i załadowanie/skompilowanie projektu ponownie. 
+* Upewnij się, że projekty znajdują się w katalogu na dysku ze względnie krótką ścieżką, ponieważ krok kopiowania czasami wydaje się mieć problemy z długimi nazwami plików.
+* Jeśli to nie pomoże, może to być, że usługa MS Sense zakłóca krok kopiowania. Aby skonfigurować wyjątek, uruchom to polecenie rejestru z wiersza polecenia (wymaga uprawnień administratora):
     ```cmd
     reg.exe ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection" /v groupIds /t REG_SZ /d "Unity”
     ```
     
-### <a name="arm64-builds-for-unity-projects-fail-because-audiopluginmshrtfdll-is-missing"></a>Kompilacje Arm64 dla projektów Unity nie powiodły się, ponieważ brakuje AudioPluginMsHRTF.dll
+### <a name="arm64-builds-for-unity-projects-fail-because-audiopluginmshrtfdll-is-missing"></a>Kompilacje Arm64 dla projektów Unity nie powiodły się, AudioPluginMsHRTF.dll brakujących kompilacji
 
-Obiekt `AudioPluginMsHRTF.dll` for Arm64 został dodany do pakietu *Windows Mixed Reality* *(com. Unity. XR. windowsmr. Metro)* w wersji 3.0.1. Upewnij się, że masz zainstalowaną wersję 3.0.1 lub nowszą za pośrednictwem Menedżera pakietów aparatu Unity. Na pasku menu aparatu Unity przejdź do *okna > Menedżer pakietów* i Wyszukaj pakiet *rzeczywistości mieszanej systemu Windows* .
+Dla Arm64 został dodany do `AudioPluginMsHRTF.dll` *pakietu Windows Mixed Reality* *(com.unity.xr.windowsmr.beta)* w wersji 3.0.1. Upewnij się, że masz zainstalowaną wersję 3.0.1 lub nowszą za pośrednictwem interfejsu Menedżer pakietów Unity. Na pasku menu aparatu Unity przejdź do pozycji *Window > Menedżer pakietów* i poszukaj *pakietu Windows Mixed Reality* Unity.
 
-## <a name="native-c-based-application-does-not-compile"></a>Natywna aplikacja oparta na języku C++ nie kompiluje
+## <a name="native-c-based-application-does-not-compile"></a>Natywna aplikacja oparta na języku C++ nie kompiluje się
 
-### <a name="library-not-found-error-for-uwp-application-or-dll"></a>Błąd "nie znaleziono biblioteki" dla aplikacji platformy UWP lub biblioteki DLL
+### <a name="library-not-found-error-for-uwp-application-or-dll"></a>Błąd "Nie znaleziono biblioteki" dla aplikacji platformy uniwersalnej systemu Windows lub biblioteki DLL
 
-W pakiecie NuGet języka C++ istnieje `microsoft.azure.remoterendering.Cpp.targets` plik pliku, który definiuje, który z elementów binarnych ma być używany. Aby zidentyfikować `UWP` warunki w pliku, należy sprawdzić `ApplicationType == 'Windows Store'` . Dlatego należy upewnić się, że ten typ jest ustawiony w projekcie. Tak jak w przypadku tworzenia aplikacji platformy UWP lub biblioteki DLL za pomocą Kreatora projektu programu Visual Studio.
+Wewnątrz pakietu NuGet języka C++ znajduje się plik, który definiuje, którego z odmian `microsoft.azure.remoterendering.Cpp.targets` binarnych użyć. Aby zidentyfikować `UWP` , warunki w pliku sprawdzają, czy program ma . `ApplicationType == 'Windows Store'` Dlatego należy upewnić się, że ten typ jest ustawiony w projekcie. Powinno to mieć miejsce podczas tworzenia aplikacji platformy uniwersalnej systemu Windows lub biblioteki Dll Visual Studio kreatora projektu platformy UWP.
 
 ## <a name="unstable-holograms"></a>Niestabilne hologramy
 
-W przypadku gdy renderowane obiekty pozornie są przenoszone wraz z przesunięciami, mogą wystąpić problemy związane z *reprojektem późnego etapu* (LSR). Zapoznaj się z sekcją dotyczącą [przemieszczenia na późnym etapie](../overview/features/late-stage-reprojection.md) w celu uzyskania wskazówek dotyczących sposobu podejścia do takiej sytuacji.
+W przypadku, gdy renderowane obiekty wydają się przenosić wraz z ruchami głowy, mogą wystąpić problemy z *reprojectioną* późnego etapu (LSR). Aby uzyskać wskazówki dotyczące podejścia do takiej sytuacji, zapoznaj się z sekcją ["Reprojection](../overview/features/late-stage-reprojection.md) późnego etapu".
 
-Kolejną przyczyną niestabilnych hologramów (Wobbling, zniekształcenia, zakłócenia lub hologramów przeskoków) może być słaba łączność sieciowa, w szczególności niewystarczająca przepustowość sieci lub zbyt wysokie opóźnienia. Dobrym wskaźnikiem jakości połączenia sieciowego jest wartość [Statystyka wydajności](../overview/features/performance-queries.md) `ServiceStatistics.VideoFramesReused` . Ponownie używane ramki wskazują sytuacje, w których stara ramka wideo jest wymagana ponownie na stronie klienta, ponieważ nie jest dostępna nowa ramka wideo — na przykład ze względu na utratę pakietów lub z powodu różnic w opóźnieniu sieci. Jeśli `ServiceStatistics.VideoFramesReused` jest często większa od zera, oznacza to problem z siecią.
+Innym powodem niestabilnych hologramów (chybienia, warowania, zakłóceń lub skoków) może być słaba łączność sieciowa, w szczególności niewystarczająca przepustowość sieci lub zbyt duże opóźnienie. Dobrym wskaźnikiem jakości połączenia sieciowego jest wartość [statystyk wydajności](../overview/features/performance-queries.md) `ServiceStatistics.VideoFramesReused` . Ponownie użyte ramki wskazują sytuacje, w których stara ramka wideo musi zostać ponownie użyta po stronie klienta, ponieważ nie była dostępna nowa ramka wideo — na przykład ze względu na utratę pakietów lub zmiany opóźnienia sieci. Jeśli `ServiceStatistics.VideoFramesReused` wartość jest często większa niż zero, oznacza to problem z siecią.
 
-Inna wartość, która ma być wyszukiwana `ServiceStatistics.LatencyPoseToReceiveAvg` . Powinien on być spójny poniżej 100 ms. Wyświetlanie wyższych wartości może wskazywać, że połączenie z centrum danych jest zbyt daleko.
+Inną wartością, na które należy zwrócić uwagę, jest `ServiceStatistics.LatencyPoseToReceiveAvg` . Powinna ona być spójnie poniżej 100 ms. Wyświetlanie wyższych wartości może wskazywać, że masz połączenie z centrum danych, które jest za daleko.
 
-Aby zapoznać się z listą potencjalnych środków zaradczych, zobacz [wytyczne dotyczące łączności sieciowej](../reference/network-requirements.md#guidelines-for-network-connectivity).
+Aby uzyskać listę potencjalnych środków zaradczych, zobacz [wytyczne dotyczące łączności sieciowej](../reference/network-requirements.md#guidelines-for-network-connectivity).
 
-## <a name="z-fighting"></a>Walka Z
+## <a name="z-fighting"></a>Z- załagodnianie
 
-Chociaż ARR oferuje [funkcje ograniczania środków zaradczych](../overview/features/z-fighting-mitigation.md), w przypadku, gdy usługa walki może nadal się pojawić na scenie. Ten przewodnik ma na celu rozwiązywanie problemów związanych z pozostałymi problemami.
+Podczas gdy funkcja ARR [oferuje funkcję](../overview/features/z-fighting-mitigation.md)ograniczania ryzyka z-wywalczy, z-jących nadal może być wyświetlane w scenie. Ten przewodnik ma na celu rozwiązywanie pozostałych problemów.
 
 ### <a name="recommended-steps"></a>Zalecane czynności
 
-Użyj poniższego przepływu pracy, aby ograniczyć walkę z:
+Użyj następującego przepływu pracy, aby rozwiązać problemy z ograniczaniem:
 
-1. Przetestuj scenę z domyślnymi ustawieniami ARR (z ograniczeniami do walki z)
+1. Przetestuj scenę przy użyciu domyślnych ustawień ARR (środki zaradcze z włączona)
 
-1. Wyłącz środki zaradcze dla walki za pośrednictwem [interfejsu API](../overview/features/z-fighting-mitigation.md) 
+1. Wyłączanie ograniczania ryzyka z-mitigation za pośrednictwem interfejsu [API](../overview/features/z-fighting-mitigation.md) 
 
-1. Zmień kamerę blisko zakresu
+1. Zmień kamerę w pobliżu i najdalej na bliższy zakres
 
-1. Rozwiązywanie problemów z sceną za pośrednictwem następnej sekcji
+1. Rozwiązywanie problemów ze sceną za pośrednictwem następnej sekcji
 
-### <a name="investigating-remaining-z-fighting"></a>Badanie pozostałej części z-walka
+### <a name="investigating-remaining-z-fighting"></a>Badanie pozostałej części walk z
 
-Jeśli powyższe kroki zostały wyczerpane, a pozostała walka z nią nie zostanie zaakceptowana, należy zbadać podstawową przyczynę z walki z. Jak zostało to określone na [stronie funkcji ograniczenia dotyczącej walki z walką z](../overview/features/z-fighting-mitigation.md), istnieją dwa główne przyczyny dotyczące z-walk: utrata dokładności głębokości na dalekiej końcu zakresu głębokości oraz powierzchnie przecinające się podczas współcinania. Utrata dokładności głębokości jest matematyczną możliwością i można ją ograniczyć tylko w kroku 3. Współrzędne powierzchniowe wskazują na wadliwe źródło zasobów i są lepiej naprawione w danych źródłowych.
+Jeśli powyższe kroki zostały wyczerpane, a pozostałe czynności z są nieakceptowalne, należy zbadać podstawową przyczynę zrównowag. Jak podano na stronie funkcji ograniczania ryzyka [z,](../overview/features/z-fighting-mitigation.md)istnieją dwa główne powody ograniczania głębokości z: utrata dokładności głębokości na końcu zakresu głębokości i powierzchni, które przecinają się podczas współpłaszczyzowania. Utrata dokładności głębokości to matematyczna możliwość ograniczenia ryzyka tylko przez krok 3 powyżej. Powierzchnie współpłaszczyzowane wskazują na wadę zasobu źródłowego i są lepiej naprawione w danych źródłowych.
 
-ARR zawiera funkcję służącą do określenia, czy powierzchnie mogą z-walka: [podświetlanie szachownicy](../overview/features/z-fighting-mitigation.md). Możesz również określić wizualnie, co powoduje przeprowadzenie walki z. Poniższa pierwsza animacja przedstawia przykład utraty dokładności na odległość, a drugi pokazuje przykład niemal widocznych powierzchni:
+Funkcja ARR umożliwia określenie, czy powierzchnie mogą z-wywalczyć: [wyróżnianie tablicy kontrolnej](../overview/features/z-fighting-mitigation.md). Możesz również wizualnie określić, co powoduje zdjęcie z. Następująca pierwsza animacja przedstawia przykład utraty dokładności głębokości w odległości, a druga przedstawia przykład niemal współpłaszczyzowanych powierzchni:
 
-![Animacja pokazuje przykład zmniejszenia dokładności na odległość.](./media/depth-precision-z-fighting.gif)  ![Animacja pokazuje przykład niemal współrzędnych.](./media/coplanar-z-fighting.gif)
+![Animacja pokazuje przykład utraty dokładności głębokości w odległości.](./media/depth-precision-z-fighting.gif)  ![Animacja przedstawia przykład niemal współpłaszczyzowanych powierzchni.](./media/coplanar-z-fighting.gif)
 
-Porównaj te przykłady z walką z, aby określić przyczynę lub opcjonalnie wykonać ten przepływ pracy krok po kroku:
+Porównaj te przykłady z walką z, aby określić przyczynę lub opcjonalnie postępuj zgodnie z tym przepływem pracy krok po kroku:
 
-1. Umieść kamerę powyżej powierzchni do przeszukiwania, aby wyglądała bezpośrednio na powierzchni.
-1. Wolno przesunąć kamerę do tyłu, poza powierzchnie.
-1. Jeśli walka z i jest widoczna przez cały czas, powierzchnie są doskonale współrzędnymi. 
-1. Jeśli walka z jest widoczna w większości czasu, powierzchnie są niemal współrzędnymi.
-1. Jeśli walka z jest widoczna tylko od razu, powód nie ma dokładności głębokości.
+1. Umieść kamerę nad powierzchniami typu z, aby patrzyła bezpośrednio na powierzchnię.
+1. Wolno przesuwaj kamerę do tyłu, z dala od powierzchni.
+1. Jeśli walkę z jest widoczna przez cały czas, powierzchnie są idealnie współpłaszczyzowane. 
+1. Jeśli walkę z jest widoczna przez większość czasu, powierzchnie są niemal współpłaszczyzowane.
+1. Jeśli walkę z jest widoczna tylko z bardzo odejmowania, przyczyną jest brak precyzji głębokości.
 
-Współrzędne powierzchniowe mogą mieć różne przyczyny:
+Powierzchnie współpłaszczyzowane mogą mieć różne przyczyny:
 
-* Obiekt został zduplikowany przez eksportowanie aplikacji ze względu na błąd lub różne podejścia do przepływu pracy.
+* Obiekt został zduplikowany przez aplikację eksportującą z powodu błędu lub różnych podejść do przepływu pracy.
 
-    Sprawdź te problemy, korzystając z obsługi odpowiednich aplikacji i aplikacji.
+    Sprawdź te problemy z odpowiednią obsługą aplikacji i aplikacji.
 
-* Powierzchnie są duplikowane i przerzucane, aby pojawiły się podwójnie w modułach renderowania, które używają przedniej lub usuwania z tyłu.
+* Powierzchnie są duplikowane i przerzucane w taki sposób, aby pojawiały się dwustronnie w programach renderujących, które używają cullinga twarzy frontowej lub tylnej.
 
-    Importowanie przy użyciu [konwersji modelu](../how-tos/conversion/model-conversion.md) określa główną część modelu. Domyślna wartość jest przyjmowana domyślnie. Powierzchnia będzie renderowana jako cienka ściana z fizycznie prawidłowym oświetleniem z obu stron. Pojedyncze wartości mogą być implikowane przez flagi w źródłowym elemencie zawartości lub jawnie wymuszone podczas [konwersji modelu](../how-tos/conversion/model-conversion.md). Dodatkowo, ale opcjonalnie, [tryb](../overview/features/single-sided-rendering.md) jednostronny można ustawić na "normalny".
+    Importowanie za [pośrednictwem konwersji](../how-tos/conversion/model-conversion.md) modelu określa poboczność podmiotu zabezpieczeń modelu. Jako wartość domyślną przyjmuje się dwustronność. Powierzchnia będzie renderowana jako zuchemna ściany z fizycznie poprawnym oświetleniem z obu stron. Pojedynczość może być implikowana przez flagi w zasobie źródłowym lub jawnie wymuszona podczas [konwersji modelu](../how-tos/conversion/model-conversion.md). Ponadto, ale opcjonalnie, [tryb jednosekwowy](../overview/features/single-sided-rendering.md) można ustawić na "normalny".
 
-* Obiekty przecinają się w zasobach źródłowych.
+* Obiekty przecinają się w źródłowych obiektach.
 
-     Obiekty przekształcone w taki sposób, że niektóre z nich nakładają się również na tworzenie z-walka. Ten problem można także utworzyć, przenosząc części drzewa sceny w zaimportowanej scenie.
+     Obiekty przekształcone w sposób, w jaki niektóre ich powierzchnie nakładają się również na siebie, tworzą zrębowe. Przekształcanie części drzewa sceny w zaimportowanej scenie w ARR może również tworzyć ten problem.
 
-* Powierzchnie są celowo całkowicie do dotknięcia, takich jak wyróżnianie licencji lub tekst na ściany.
+* Powierzchnie są celowo dotykowe, takie jak dekalogi lub tekst na ścianie.
 
-## <a name="graphics-artifacts-using-multi-pass-stereo-rendering-in-native-c-apps"></a>Artefakty grafiki wykorzystujące wieloprzebiegowe renderowanie stereo w natywnych aplikacjach C++
+## <a name="graphics-artifacts-using-multi-pass-stereo-rendering-in-native-c-apps"></a>Artefakty graficzne korzystające z renderowania wielo przebiegów stereo w natywnych aplikacjach C++
 
-W niektórych przypadkach niestandardowe natywne aplikacje języka C++, które używają trybu renderowania wieloprzebiegowego dla zawartości lokalnej (renderowanie do lewego i prawego oka w osobnych przebiegach) po wywołaniu [**BlitRemoteFrame**](../concepts/graphics-bindings.md#render-remote-image) może wyzwolić usterkę sterownika. Usterka powoduje niedeterministyczne błędy rasteryzacji, co sprawia, że poszczególne Trójkąty lub części trójkątów zawartości lokalnej są losowo znikane. Ze względu na wydajność zaleca się, aby nie renderować zawartości lokalnej z bardziej nowoczesnym techniką renderowania stereo z wieloma przebiegami, na przykład przy użyciu **SV_RenderTargetArrayIndex**.
+W niektórych przypadkach niestandardowe natywne aplikacje języka C++, które używają trybu renderowania wielodaniowego stereo dla zawartości lokalnej (renderowanie do lewego i prawego oka w osobnych przebiegach) po wywołaniu [**funkcji BlitRemoteFrame,**](../concepts/graphics-bindings.md#render-remote-image) mogą wyzwolić usterkę sterownika. Ta usterka powoduje błędy rasteryzacji nie deterministycznej, co powoduje losowe zniknięcie pojedynczych trójkątów lub części trójkątów zawartości lokalnej. Ze względu na wydajność zaleca się renderowanie zawartości lokalnej z bardziej nowoczesną techniką renderowania stereo z jednym przebiegiem, na przykład przy **użyciu SV_RenderTargetArrayIndex**.
 
+## <a name="conversion-file-download-errors"></a>Błędy pobierania pliku konwersji
+
+Usługa konwersji może napotkać błędy podczas pobierania plików z magazynu obiektów blob z powodu ograniczeń długości ścieżki narzuconych przez system Windows i usługę. Ścieżki plików i nazwy plików w magazynie obiektów blob nie mogą przekraczać 178 znaków. Na przykład, jeśli `blobPrefix` znak `models/Assets` ma 13 znaków:
+
+`models/Assets/<any file or folder path greater than 164 characters will fail the conversion>`
+
+Usługa konwersji pobierze wszystkie pliki określone w pliku , a nie tylko `blobPrefix` pliki używane podczas konwersji. W takich przypadkach pliki/foldery powodujące problemy mogą być mniej oczywiste, dlatego ważne jest, aby sprawdzić wszystkie elementy znajdujące się na koncie magazynu w obszarze `blobPrefix` . Zobacz przykładowe dane wejściowe poniżej, aby zobaczyć, co zostanie pobrane.
+``` json
+{
+  "settings": {
+    "inputLocation": {
+      "storageContainerUri": "https://contosostorage01.blob.core.windows.net/arrInput",
+      "blobPrefix": "models/Assets",
+      "relativeInputAssetPath": "myAsset.fbx"
+    ...
+  }
+}
+```
+
+```
+models
+├───Assets
+│   │   myAsset.fbx                 <- Asset
+│   │
+│   └───Textures
+│   |       myTexture.png           <- Used in conversion
+│   |
+|   └───MyFiles
+|          myOtherFile.txt          <- File also downloaded under blobPrefix      
+|           
+└───OtherFiles
+        myReallyLongFileName.txt    <- Ignores files not under blobPrefix             
+```
 ## <a name="next-steps"></a>Następne kroki
 
 * [Wymagania systemowe](../overview/system-requirements.md)

@@ -1,170 +1,169 @@
 ---
 title: Modele DTDL
 titleSuffix: Azure Digital Twins
-description: Dowiedz się, w jaki sposób usługa Azure Digital bliźniaczych reprezentacji używa modeli niestandardowych do opisywania jednostek w środowisku.
+description: Dowiedz się, Azure Digital Twins używa modeli niestandardowych do opisywania jednostek w twoim środowisku.
 author: baanders
 ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d3570a22fdd935237e673ea3e43ab5e463b66456
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8942262c2e02670d57b1db324eb154dcc38f00f8
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104590538"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575398"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Opis modeli cyfrowej reprezentacji bliźniaczej w usłudze Azure Digital Twins
 
-Kluczową cechą usługi Azure Digital bliźniaczych reprezentacji jest możliwość definiowania własnego słownictwa i tworzenia grafu bliźniaczyego w samodzielnych warunkach firmy. Ta możliwość jest dostępna za poorednictwem **modeli** udostępnianych przez użytkownika. Można traktować modele jako rzeczowniki w opisie świata. 
+Kluczową cechą Azure Digital Twins jest możliwość definiowania własnego słownictwa i tworzenia grafu bliźniaczych reprezentacji w zdefiniowanych samodzielnie terminach firmy. Ta możliwość jest zapewniana za pośrednictwem modeli dostarczanych przez **użytkownika.** Modele można myśleć jak o rzeczownikach w opisie swojego świata. 
 
-Model jest podobny do **klasy** w języku programowania zorientowanym obiektowo, definiując kształt danych dla jednej konkretnej koncepcji w rzeczywistym środowisku pracy. Modele mają nazwy (na przykład *pomieszczenie* lub *czujnik temperatury*) i zawierają takie elementy, jak właściwości, dane telemetryczne/zdarzenia i polecenia opisujące, co może zrobić ten typ jednostki w środowisku. Później te modele są używane do tworzenia [**cyfrowych bliźniaczych reprezentacji**](concepts-twins-graph.md) , które reprezentują konkretne jednostki, które spełniają opis tego typu.
+Model jest podobny do klasy **w** języku programowania zorientowanym obiektowo, definiując kształt danych dla jednej konkretnej koncepcji w rzeczywistym środowisku pracy. Modele mają nazwy (takie jak *Room* lub *TemperatureSensor)* i zawierają elementy, takie jak właściwości, dane telemetryczne/zdarzenia i polecenia, które opisują, co ten typ jednostki może zrobić w środowisku. Później użyjemy tych modeli do utworzenia [**bliźniaczych**](concepts-twins-graph.md) reprezentacji cyfrowych reprezentujących określone jednostki spełniające opis tego typu.
 
-Modele bliźniaczych reprezentacji cyfrowych platformy Azure są reprezentowane w języku JSON-LD-based **Digital (DTDL)**.  
+Azure Digital Twins są reprezentowane w języku **DTDL (Digital Twin Definition Language)** opartym na technologii JSON-LD.  
 
-## <a name="digital-twin-definition-language-dtdl-for-models"></a>Digital bliźniaczy Definition Language (DTDL) for models
+## <a name="digital-twin-definition-language-dtdl-for-models"></a>Digital Twin Definition Language (DTDL) dla modeli
 
-Modele dla usługi Azure Digital bliźniaczych reprezentacji są zdefiniowane przy użyciu języka Digital bliźniaczych reprezentacji Definition Language (DTDL). 
+Modele dla Azure Digital Twins są definiowane przy użyciu języka Digital Twins Definition Language (DTDL). 
 
-Możesz wyświetlić pełne specyfikacje języka dla DTDL w usłudze GitHub: [**Digital bliźniaczych reprezentacji Definition Language (DTDL) — wersja 2**](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+Pełną specyfikację języka DTDL można wyświetlić w witrynie GitHub: [**Digital Twins Definition Language (DTDL) — wersja 2.**](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)
 
-Język DTDL jest oparty na formacie JSON-LD i nie jest zależny od języka programowania. Usługa DTDL nie jest wyłączana wyłącznie do usługi Azure Digital bliźniaczych reprezentacji, ale jest również używana do reprezentowania danych urządzenia w innych usługach IoT, takich jak [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). Usługa Azure Digital bliźniaczych reprezentacji korzysta z usługi DTDL w **wersji 2** (użycie DTDL w wersji 1 z usługą Azure Digital bliźniaczych reprezentacji jest już przestarzałe). 
+Język DTDL jest oparty na formacie JSON-LD i nie jest zależny od języka programowania. DtDL nie jest wyłącznym Azure Digital Twins, ale jest również używany do reprezentowania danych urządzenia w innych usługach IoT, takich [jak IoT Plug and Play.](../iot-pnp/overview-iot-plug-and-play.md) Azure Digital Twins języka DTDL **w wersji 2** (użycie języka DTDL w wersji 1 z Azure Digital Twins jest już przestarzałe). 
 
-Pozostała część tego artykułu zawiera podsumowanie sposobu używania języka w usłudze Azure Digital bliźniaczych reprezentacji.
+W pozostałej części tego artykułu podsumowano sposób, w jaki język jest używany w Azure Digital Twins.
 
-> [!NOTE] 
-> Nie wszystkie usługi korzystające z DTDL implementują dokładnie te same funkcje programu DTDL. Na przykład usługa IoT Plug and Play nie korzysta z funkcji DTDL, które są dostępne w przypadku wykresów, podczas gdy program Azure Digital bliźniaczych reprezentacji nie implementuje obecnie poleceń DTDL.
->
-> Aby uzyskać więcej informacji na temat funkcji DTDL, które są specyficzne dla usługi Azure Digital bliźniaczych reprezentacji, zobacz sekcję w dalszej części tego artykułu dotyczącej [specyfiki implementacji usługi Azure Digital bliźniaczych reprezentacji DTDL](#azure-digital-twins-dtdl-implementation-specifics).
+### <a name="azure-digital-twins-dtdl-implementation-specifics"></a>Azure Digital Twins implementacji DTDL
+
+Nie wszystkie usługi, które używają języka DTDL, implementują dokładnie te same funkcje języka DTDL. Na przykład IoT Plug and Play funkcji DTDL, które są dla grafów, podczas gdy Azure Digital Twins obecnie nie implementuje poleceń DTDL. 
+
+Aby model DTDL był zgodny z Azure Digital Twins, musi spełniać następujące wymagania:
+
+* Wszystkie elementy DTDL najwyższego poziomu w modelu muszą być interfejsem *typu*. Wynika to z Azure Digital Twins API modelu mogą odbierać obiekty JSON reprezentujące interfejs lub tablicę interfejsów. W związku z tym żadne inne typy elementów DTDL nie są dozwolone na najwyższym poziomie.
+* DtDL dla Azure Digital Twins nie może definiować żadnych *poleceń*.
+* Azure Digital Twins tylko jeden poziom zagnieżdżania składników. Oznacza to, że interfejs używany jako składnik nie może mieć żadnych składników. 
+* Interfejsów nie można zdefiniować w tekście w innych interfejsach DTDL; Muszą być zdefiniowane jako oddzielne jednostki najwyższego poziomu z własnymi identyfikatorami. Następnie, gdy inny interfejs chce dołączyć ten interfejs jako składnik lub za pośrednictwem dziedziczenia, może odwoływać się do jego identyfikatora.
+
+Azure Digital Twins również atrybut nie jest `writable` obserwowany we właściwościach lub relacjach. Mimo że można to ustawić zgodnie ze specyfikacjami DTDL, ta wartość nie jest używana przez Azure Digital Twins. Zamiast tego są one zawsze traktowane jako zapisywalne przez klientów zewnętrznych, którzy mają ogólne uprawnienia do zapisu Azure Digital Twins usługi.
 
 ## <a name="elements-of-a-model"></a>Elementy modelu
 
 W ramach definicji modelu element kodu najwyższego poziomu jest **interfejsem**. To hermetyzuje cały model, a reszta modelu jest definiowana w interfejsie. 
 
 Interfejs modelu DTDL może zawierać zero, jeden lub wiele z następujących pól:
-* Właściwości **Właściwości** to pola danych, które reprezentują stan jednostki (na przykład właściwości w wielu językach programowania zorientowanego obiektowo). Właściwości mają magazyn zapasowy i mogą być odczytywane w dowolnym momencie.
-* Pola **telemetrii** danych telemetrycznych reprezentują pomiary lub zdarzenia i są często używane do opisywania odczytów czujników urządzeń. W przeciwieństwie do właściwości, dane telemetryczne nie są przechowywane w postaci cyfrowej przędzy; jest to seria zdarzeń związanych z danymi, które muszą być obsługiwane w miarę ich występowania. Aby uzyskać więcej informacji na temat różnic między właściwością i telemetrią, zobacz sekcję [*Właściwości a Telemetria*](#properties-vs-telemetry) poniżej.
-* Składniki **składnika** umożliwiają tworzenie interfejsu modelu jako zestawu innych interfejsów, jeśli chcesz. Przykładem składnika jest interfejs *frontCamera* (i inny interfejs *składnika),* który jest używany do definiowania modelu dla *telefonu*. Najpierw należy zdefiniować interfejs dla *frontCamera* , jakby był własnym modelem, a następnie można odwoływać się do niego przy definiowaniu *telefonu*.
+* **Właściwość** — właściwości to pola danych reprezentujące stan jednostki (takie jak właściwości w wielu językach programowania obiektowego). Właściwości mają magazyn zapasowy i mogą być odczytywane w dowolnym momencie.
+* **Telemetria** — pola telemetrii reprezentują miary lub zdarzenia i są często używane do opisywania odczytów czujników urządzeń. W przeciwieństwie do właściwości telemetria nie jest przechowywana w bliźniaczej reprezentacji cyfrowej; Jest to szereg zdarzeń danych ograniczonych czasem, które muszą być obsługiwane w czasie ich wystąpienia. Aby uzyskać więcej informacji na temat różnic między właściwościami i telemetrią, zobacz [*sekcję Właściwości a telemetria*](#properties-vs-telemetry) poniżej.
+* **Składnik** — składniki umożliwiają tworzenie interfejsu modelu jako zestawu innych interfejsów, jeśli chcesz. Przykładem składnika jest interfejs *frontCamera* (i inny interfejs składnika *backCamera),* który jest używany do definiowania modelu dla *telefonu*. Najpierw należy zdefiniować interfejs dla *frontCamera,* tak jakby był to własny model, a następnie można się do niego odwoływać podczas definiowania *telefonu*.
 
-    Użyj składnika, aby opisać element, który jest integralną częścią Twojego rozwiązania, ale nie wymaga oddzielnej tożsamości i nie musi być tworzony, usunięty ani ponownie rozmieszczenia w grafie bliźniaczym. Jeśli chcesz, aby jednostki miały niezależne istnienie na grafie bliźniaczym, reprezentują je jako oddzielne cyfrowe bliźniaczych reprezentacji różnych modeli, połączone przez *relacje* (Zobacz następny punktor).
+    Użyj składnika do opisania czegoś, co jest integralną częścią rozwiązania, ale nie wymaga oddzielnej tożsamości i nie musi być niezależnie tworzone, usuwane ani zmieniane w grafie bliźniaczej reprezentacji. Jeśli chcesz, aby jednostki były niezależne w grafie bliźniaczych reprezentacji, reprezentują je jako oddzielne cyfrowe bliźniacze reprezentacje różnych modeli połączone relacjami *(zobacz* następny punktor).
     
     >[!TIP] 
-    >Składników można także używać dla organizacji, aby grupować zestawy powiązanych właściwości w interfejsie modelu. W takiej sytuacji można traktować każdy składnik jako przestrzeń nazw lub "folder" w interfejsie.
-* Relacje między **relacjami** umożliwiają prezentowanie sposobu, w jaki można polegać na cyfrowym przędze za pomocą innych bliźniaczych reprezentacji cyfrowych. Relacje mogą reprezentować różne orednie semantyczne, takie jak *Contains* ("piętro zawiera pomieszczenie"), *chłodnie* ("pomieszczenie chłodzenia HVAC"), *isBilledTo* ("kompresor jest rozliczany na użytkownika") itd. Relacje umożliwiają rozwiązanie udostępnienie grafu powiązanych jednostek.
+    >Składniki mogą być również używane w organizacji do grupowania zestawów powiązanych właściwości w interfejsie modelu. W takiej sytuacji każdy składnik można nazwać przestrzenią nazw lub "folderem" w interfejsie.
+* **Relacja** — relacje umożliwiają reprezentację sposobu, w jaki cyfrowa reprezentacja może być zaangażowana w inne bliźniacze reprezentacje cyfrowe. Relacje mogą reprezentować różne znaczenie semantyczne, takie jak *contains* ("floor contains room"), *cools* ("hvac cools room"), *isBilledTo* ("na rachunku jest rozliczany użytkownik") itp. Relacje umożliwiają rozwiązaniu dostarczenie grafu powiązanych jednostek.
 
 > [!NOTE]
-> [Specyfikacja DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) definiuje także **polecenia**, które są metodami, które mogą być wykonywane na dwucyfrowej sznurze (na przykład polecenie Reset lub polecenie w celu przełączenia lub wyłączenia wentylatora). *Polecenia nie są jednak obecnie obsługiwane w usłudze Azure Digital bliźniaczych reprezentacji.*
+> Specyfikacja [języka DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) definiuje również polecenia **,** czyli metody, które mogą być wykonywane w bliźniaczej reprezentacji cyfrowej (na przykład polecenie resetowania lub polecenie umożliwiające włączanie lub wyłączanie wentylatora). Jednak polecenia *nie są obecnie obsługiwane w Azure Digital Twins.*
 
-### <a name="properties-vs-telemetry"></a>Właściwości a Telemetria
+### <a name="properties-vs-telemetry"></a>Właściwości a telemetria
 
-Poniżej znajdują się dodatkowe wskazówki dotyczące rozróżniania pól **Właściwości** DTDL i **telemetrii** w usłudze Azure Digital bliźniaczych reprezentacji.
+Oto kilka dodatkowych wskazówek dotyczących rozróżniania właściwości **DTDL** i pól **telemetrii** w Azure Digital Twins.
 
-Różnica między właściwościami i telemetrią dla modeli usługi Azure Digital bliźniaczych reprezentacji jest następująca:
-* **Właściwości** powinny mieć magazyn zapasowy. Oznacza to, że można odczytać właściwość w dowolnym momencie i pobrać jej wartość. Jeśli właściwość jest zapisywalna, można również zapisać wartość we właściwości.  
-* Dane **telemetryczne** są bardziej podobne do strumienia zdarzeń; jest to zestaw komunikatów danych, które mają krótki lifespans. Jeśli nie skonfigurowano nasłuchiwania dla zdarzenia i akcji, które mają być podejmowane w momencie wystąpienia, nie ma śledzenia zdarzenia w późniejszym czasie. Nie można wrócić do niego i przeczytać go później. 
-  - W terminologii w języku C# dane telemetryczne przypominają zdarzenie w języku C#. 
-  - W przypadku rzeczy IoT dane telemetryczne są zazwyczaj pojedynczej miary wysyłanej przez urządzenie.
+Różnica między właściwościami i telemetrią dla Azure Digital Twins jest następująca:
+* **Oczekuje** się, że właściwości będą mieć magazyn zapasowy. Oznacza to, że można odczytać właściwość w dowolnym momencie i pobrać jej wartość. Jeśli właściwość jest zapisywalna, możesz również zapisać wartość we właściwości .  
+* **Telemetria** przypomina bardziej strumień zdarzeń. Jest to zestaw komunikatów danych, które mają krótkie cykle życia. Jeśli nie skonfigurujemy nasłuchiwania zdarzenia i akcji do podjęcia w przypadku jego wystąpienia, w późniejszym czasie nie będzie śladu zdarzenia. Nie możesz wrócić do niego i przeczytać go później. 
+  - W języku C# telemetria przypomina zdarzenie języka C#. 
+  - W kontekście IoT telemetria jest zwykle pojedynczym pomiarem wysyłanym przez urządzenie.
 
-Dane **telemetryczne** są często używane w przypadku urządzeń IoT, ponieważ wiele urządzeń nie jest w stanie, ani interesuje, przechowywanie wartości miary, które generują. Po prostu wysyłają je jako strumień zdarzeń "telemetrii". W takim przypadku nie można w dowolnym momencie wykonać zapytania o urządzenie w celu uzyskania najnowszej wartości pola telemetrii. Zamiast tego należy nasłuchiwać komunikatów z urządzenia i podejmować działania w miarę nadejścia komunikatów. 
+**Telemetria** jest często używana z urządzeniami IoT, ponieważ wiele urządzeń nie jest w stanie lub nie jest zainteresowanych przechowywaniem generowanych wartości pomiarów. Wysyłają je jako strumień zdarzeń "telemetrii". W takim przypadku nie można w żadnym momencie na urządzeniu uzyskać najnowszej wartości pola telemetrii. Zamiast tego należy nasłuchiwać komunikatów z urządzenia i podjąć akcje w przypadku ich odsłuchiania. 
 
-W związku z tym podczas projektowania modelu w usłudze Azure Digital bliźniaczych reprezentacji prawdopodobnie będziesz używać **Właściwości** w większości przypadków, aby modelować bliźniaczych reprezentacji. Pozwala to na przechowywanie kopii zapasowych oraz możliwość odczytywania i wykonywania zapytań dotyczących pól danych.
+W związku z tym podczas projektowania modelu w Azure Digital Twins  prawdopodobnie użyjemy właściwości w większości przypadków do modelowania bliźniaczych reprezentacji. Dzięki temu można mieć magazyn zapasowy oraz możliwość odczytywania pól danych i wykonywania dotyczących ich zapytań.
 
-Dane telemetryczne i właściwości często współpracują ze sobą, aby obsługiwać ruch przychodzący z urządzeń. Ponieważ wszystkie dane przychodzące do usługi Azure Digital bliźniaczych reprezentacji są realizowane za pośrednictwem [interfejsów API](how-to-use-apis-sdks.md), zazwyczaj używana jest funkcja transferu danych przychodzących do odczytywania zdarzeń telemetrii lub właściwości z urządzeń oraz ustawiania właściwości w usłudze Azure Digital bliźniaczych reprezentacji w odpowiedzi. 
+Dane telemetryczne i właściwości często współpracują ze sobą w celu obsługi danych przychodzących z urządzeń. Ponieważ cały ruch przychodzący do usługi Azure Digital Twins odbywa się za pośrednictwem interfejsów [API,](how-to-use-apis-sdks.md)zazwyczaj użyjemy funkcji danych przychodzących do odczytywania danych telemetrycznych lub zdarzeń właściwości z urządzeń i ustawisz właściwość w Azure Digital Twins odpowiedzi. 
 
-Możesz również opublikować wydarzenie telemetryczne z interfejsu API Digital bliźniaczych reprezentacji systemu Azure. Podobnie jak w przypadku innych danych telemetrycznych, to jest zdarzenie krótkoterminowe wymagające odbiornika do obsłużenia.
+Możesz również opublikować zdarzenie telemetrii z interfejsu API Azure Digital Twins API. Podobnie jak w przypadku innych telemetrii, jest to krótkotrwałe zdarzenie, które wymaga obsługi odbiornika.
 
-### <a name="azure-digital-twins-dtdl-implementation-specifics"></a>Specyficzne dla implementacji usługi Azure Digital bliźniaczych reprezentacji DTDL
+## <a name="model-inheritance"></a>Dziedziczenie modelu
 
-Aby model DTDL był zgodny z usługą Azure Digital bliźniaczych reprezentacji, musi spełniać te wymagania.
+Czasami może być konieczne dalsze specjalizowanie modelu. Na przykład przydatne może być ogólny model *Room*(Pomieszczenie) oraz wyspecjalizowane warianty *ConferenceRoom (Sal)* i *Jego ().* Aby wyrazić specjalizację, język DTDL obsługuje dziedziczenie: interfejsy mogą dziedziczyć z co najmniej jednego innego interfejsu. 
 
-* Wszystkie elementy DTDL najwyższego poziomu w modelu muszą być typu *Interface*. Wynika to z faktu, że interfejsy API modelu Digital bliźniaczych reprezentacji systemu Azure mogą odbierać obiekty JSON, które reprezentują interfejs lub tablicę interfejsów. W związku z tym żadne inne typy elementów DTDL nie są dozwolone na najwyższym poziomie.
-* DTDL dla usługi Azure Digital bliźniaczych reprezentacji nie może definiować żadnych *poleceń*.
-* Usługa Azure Digital bliźniaczych reprezentacji umożliwia tylko pojedynczy poziom zagnieżdżenia składnika. Oznacza to, że interfejs używany jako składnik nie może mieć samych składników. 
-* Interfejsów nie można definiować w innych interfejsach DTDL; muszą być zdefiniowane jako osobne jednostki najwyższego poziomu z ich własnymi identyfikatorami. Następnie, gdy inny interfejs chce dołączyć ten interfejs jako składnik lub przez dziedziczenie, może odwoływać się do jego identyfikatora.
+W poniższym przykładzie model *Planet* (Planet) z wcześniejszego przykładu DTDL jest ponownie wyobrażany jako podtyp większego modelu *Zbody.* Najpierw definiowany jest model "nadrzędny", a następnie model "podrzędny" jest na nim kompilowany przy użyciu pola `extends` .
 
-Usługa Azure Digital bliźniaczych reprezentacji również nie jest zgodna z `writable` atrybutem właściwości ani relacji. Chociaż można ją ustawić zgodnie ze specyfikacją DTDL, wartość nie jest używana przez usługę Azure Digital bliźniaczych reprezentacji. Zamiast tego są one zawsze traktowane jako zapisywalne przez klientów zewnętrznych, którzy mają ogólne uprawnienia do zapisu w usłudze Azure Digital bliźniaczych reprezentacji.
+:::code language="json" source="~/digital-twins-docs-samples/models/CelestialBody-Planet-Crater.json":::
 
-## <a name="example-model-code"></a>Przykładowy kod modelu
+W tym przykładzie *Dobbody* dodaje nazwę, masę i temperaturę *planecie*. Sekcja jest nazwą interfejsu lub tablicą nazw interfejsów (co umożliwia rozszerzanie interfejsu dziedziczenie z wielu modeli `extends` nadrzędnych w razie potrzeby).
 
-Modele typu sznurka można pisać w dowolnym edytorze tekstu. Język DTDL jest następujący: Składnia JSON, dlatego należy przechowywać modele z rozszerzeniem *JSON*. Użycie rozszerzenia JSON spowoduje włączenie wielu edytorów tekstu programistycznego, aby zapewnić podstawowe sprawdzanie składni i wyróżnianie dokumentów DTDL. Istnieje również [rozszerzenie DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) dostępne dla [Visual Studio Code](https://code.visualstudio.com/).
+Po zastosowaniu dziedziczenia interfejs rozszerzający uwidacznia wszystkie właściwości z całego łańcucha dziedziczenia.
 
-Ta sekcja zawiera przykład typowego modelu, który został zapisany jako interfejs DTDL. Model opisuje **planety**, każdy z nazwą, masą i temperaturą.
- 
-Należy wziąć pod uwagę, że planety może także wchodzić w pracę z **przyzwyczajami** , które są swoimi satelitami i mogą zawierać **kontenery**. W poniższym przykładzie `Planet` model wyraża połączenia z tymi innymi jednostkami, odwołując się do dwóch modeli zewnętrznych — `Moon` i `Crater` . Te modele są również zdefiniowane w przykładowym kodzie poniżej, ale są bardzo proste, aby nie rozciągać się z podstawowego `Planet` przykładu.
+Interfejs rozszerzający nie może zmienić żadnej definicji interfejsów nadrzędnych; Może tylko dodawać do nich. Nie może również ponownie zdefiniować możliwości już zdefiniowanej w żadnym z jej interfejsów nadrzędnych (nawet jeśli możliwości są zdefiniowane jako takie same). Jeśli na przykład interfejs nadrzędny definiuje masę właściwości , interfejs rozszerzający nie może zawierać deklaracji mas, nawet jeśli jest `double` to również   `double` .
 
-:::code language="json" source="~/digital-twins-docs-samples/models/Planet-Crater-Moon.json":::
+## <a name="model-code"></a>Kod modelu
 
-Pola modelu są następujące:
-
-| Pole | Opis |
-| --- | --- |
-| `@id` | Identyfikator dla modelu. Musi być w formacie `dtmi:<domain>:<unique model identifier>;<model version number>` . |
-| `@type` | Określa rodzaj opisywanych informacji. Dla interfejsu typ jest *interfejs*. |
-| `@context` | Ustawia [kontekst](https://niem.github.io/json/reference/json-ld/context/) dla dokumentu JSON. Powinny być używane modele `dtmi:dtdl:context;2` . |
-| `displayName` | obowiązkowe Pozwala nadać modelowi przyjazną nazwę w razie potrzeby. |
-| `contents` | Wszystkie pozostałe dane interfejsu są umieszczane w tym miejscu jako tablica definicji atrybutów. Każdy atrybut musi dostarczyć `@type` (*Właściwość*, dane *telemetryczne*, *polecenie*, *relacja* lub *składnik*), aby zidentyfikować informacje o interfejsie, które opisuje, a następnie zestaw właściwości, które definiują rzeczywisty atrybut (na przykład `name` i `schema` Aby zdefiniować *Właściwość*). |
-
-> [!NOTE]
-> Należy zauważyć, że interfejs składnika (*Crater* w tym przykładzie) jest zdefiniowany w tej samej tablicy co interfejs, który go używa (*globalnej*). Składniki muszą być zdefiniowane w ten sposób w wywołaniach interfejsu API, aby można było znaleźć interfejs.
+Modele typu bliźniaczej reprezentacji można zapisywać w dowolnym edytorze tekstów. Język DTDL jest zgodny ze składnią JSON, dlatego należy przechowywać modele z rozszerzeniem *.json.* Użycie rozszerzenia JSON umożliwi wielu edytorom tekstów programowania zapewnienie podstawowego sprawdzania składni i wyróżniania dokumentów DTDL. Dostępne jest również rozszerzenie [DTDL dla](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) [Visual Studio Code](https://code.visualstudio.com/).
 
 ### <a name="possible-schemas"></a>Możliwe schematy
 
-Zgodnie z DTDL schemat dla atrybutów *Właściwości* i *telemetrii* może być standardowym typem pierwotnym — `integer` ,, `double` `string` , i `Boolean` — i innymi typami, takimi jak `DateTime` i `Duration` . 
+Zgodnie z dtdl,  schemat  właściwości i telemetrii atrybuty mogą być standardowych typów pierwotnych — , , i — i innych typów, takich `integer` jak i `double` `string` `Boolean` `DateTime` `Duration` . 
 
-Oprócz typów pierwotnych pola *Właściwości* i *telemetrii* mogą mieć następujące typy złożone:
+Oprócz typów pierwotnych pola *Właściwości* i *Telemetria* mogą mieć następujące typy złożone:
 * `Object`
 * `Map`
 * `Enum`
 
-Również pola *telemetrii* obsługują `Array` .
+*Pola* telemetrii obsługują `Array` również .
 
-### <a name="model-inheritance"></a>Dziedziczenie modelu
+### <a name="example-model"></a>Przykładowy model
 
-Czasami warto utworzyć bardziej wyspecjalizowany model. Na przykład może być przydatne w przypadku ogólnego *pokoju* modeli oraz wyspecjalizowanych wariantów *ConferenceRoom* i *treningów*. Do wyrażenia specjalizacji DTDL obsługuje dziedziczenie: interfejsy mogą dziedziczyć z jednego lub kilku innych interfejsów. 
+Ta sekcja zawiera przykładowy typowy model napisany jako interfejs DTDL. Model opisuje **planetę**, każdą z nazwą, masą i temperaturą.
+ 
+Należy wziąć pod uwagę, że planeta może również wchodzić w interakcje z **księżycami,** które są ich satelitami i mogą zawierać **księżyce.** W poniższym przykładzie model wyraża połączenia z tymi innymi jednostkami, odwołując się `Planet` do dwóch modeli zewnętrznych — i `Moon` `Crater` . Te modele są również zdefiniowane w poniższym przykładowym kodzie, ale są bardzo proste, aby nie umniejszać tego `Planet` przykładu podstawowego.
 
-Poniższy przykład ponownie Przypuść model *globalnej* z wcześniejszego przykładu DTDL jako podtyp większego modelu *CelestialBody* . Model "nadrzędny" jest definiowany jako pierwszy, a następnie model "podrzędny" kompiluje na nim przy użyciu pola `extends` .
+:::code language="json" source="~/digital-twins-docs-samples/models/Planet-Crater-Moon.json":::
 
-:::code language="json" source="~/digital-twins-docs-samples/models/CelestialBody-Planet-Crater.json":::
+Pola modelu to:
 
-W tym przykładzie *CelestialBody* współtworzy nazwę, masę i temperaturę do *globalnej*. `extends`Sekcja jest nazwą interfejsu lub tablicą nazw interfejsów (umożliwiając rozszerzanie interfejsu w razie potrzeby dziedziczenie z wielu modeli nadrzędnych).
+| Pole | Opis |
+| --- | --- |
+| `@id` | Identyfikator modelu. Musi mieć format `dtmi:<domain>:<unique model identifier>;<model version number>` . |
+| `@type` | Określa rodzaj opisywanych informacji. W przypadku interfejsu typem jest *Interfejs*. |
+| `@context` | Ustawia [kontekst](https://niem.github.io/json/reference/json-ld/context/) dokumentu JSON. Modele powinny `dtmi:dtdl:context;2` używać . |
+| `displayName` | [opcjonalnie] Umożliwia nadaj modelowi przyjazną nazwę w razie potrzeby. |
+| `contents` | Wszystkie pozostałe dane interfejsu są tutaj umieszczane jako tablica definicji atrybutów. Każdy atrybut musi zawierać element ( właściwość , telemetrię, polecenie , relację lub składnik ) w celu zidentyfikowania rodzaju informacji o interfejsie, które opisuje, a następnie zestaw właściwości definiujący rzeczywisty atrybut (na przykład i definiujący właściwość `@type`     `name` `schema` ).  |
 
-Po zastosowaniu dziedziczenia interfejs rozszerzający udostępnia wszystkie właściwości z całego łańcucha dziedziczenia.
-
-Interfejs rozszerzający nie może zmienić żadnej definicji interfejsów nadrzędnych. może tylko dodać do nich. Nie można również przedefiniować możliwości już zdefiniowanej w żadnym z jego interfejsów nadrzędnych (nawet jeśli możliwości są zdefiniowane jako takie same). Na przykład, jeśli interfejs nadrzędny definiuje `double` *masę* właściwości, interfejs rozszerzający nie może zawierać deklaracji *masy* nawet wtedy, gdy jest również `double` .
+> [!NOTE]
+> Należy pamiętać, że interfejs składnika *(Crater* w tym przykładzie) jest zdefiniowany w tej samej tablicy co interfejs, który go używa (*Planet*). Składniki muszą być zdefiniowane w ten sposób w wywołaniach interfejsu API, aby można było znaleźć interfejs.
 
 ## <a name="best-practices-for-designing-models"></a>Najlepsze rozwiązania dotyczące projektowania modeli
 
-Podczas projektowania modeli w celu odzwierciedlenia jednostek w środowisku przydatne może być poszukiwanie i rozpatrywanie implikacji związanych z [zapytaniami](concepts-query-language.md) . Można zaprojektować właściwości w taki sposób, aby uniknąć dużego zestawu wyników z przechodzenia do wykresu. Możesz również chcieć modelować relacje, które będą odpowiadały w pojedynczym zapytaniu jako relacje jednego poziomu.
+Podczas projektowania modeli w celu odzwierciedlenia jednostek w środowisku przydatne [](concepts-query-language.md) może być spojrzenie w przyszłość i rozważenie implikacji zapytania w projekcie. Właściwości można projektować w taki sposób, aby uniknąć dużych zestawów wyników z przechodzenia grafu. Możesz również chcieć modelować relacje, na które będzie można odpowiedzieć w jednym zapytaniu jako relacje jednopoziomowe.
 
-### <a name="validating-models"></a>Sprawdzanie poprawności modeli
+### <a name="validating-models"></a>Sprawdzania poprawności modeli
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
 ## <a name="tools-for-models"></a>Narzędzia dla modeli 
 
-Dostępnych jest kilka przykładów, które ułatwiają korzystanie z modeli i ontologie. Znajdują się one w tym repozytorium: [Narzędzia dla języka Digital bliźniaczych reprezentacji Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-tools).
+Dostępnych jest kilka przykładów, które jeszcze bardziej ułatwiają radzenie sobie z modelami i onlogiami. Znajdują się one w tym repozytorium: [Tools for Digital Twins Definition Language (DTDL).](https://github.com/Azure/opendigitaltwins-tools)
 
-W tej sekcji opisano bieżący zestaw przykładów w bardziej szczegółowy sposób.
+W tej sekcji bardziej szczegółowo opisano bieżący zestaw przykładów.
 
-### <a name="model-uploader"></a>Obiektu przekazującego modelu 
+### <a name="model-uploader"></a>Model uploader 
 
-_**Przekazywanie modeli do usługi Azure Digital bliźniaczych reprezentacji**_
+_**W przypadku przekazywania modeli do Azure Digital Twins**_
 
-Po zakończeniu tworzenia, rozszerzania lub wybierania modeli można przekazać je do wystąpienia usługi Azure Digital bliźniaczych reprezentacji, aby udostępnić je do użycia w rozwiązaniu. Odbywa się to za pomocą [cyfrowych interfejsów API usługi Azure bliźniaczych reprezentacji](how-to-use-apis-sdks.md), zgodnie z opisem w temacie [*How to: Manage DTDL models*](how-to-manage-model.md#upload-models).
+Po zakończeniu tworzenia, rozszerzania lub wybierania modeli można przekazać je do wystąpienia usługi Azure Digital Twins, aby były dostępne do użycia w rozwiązaniu. Odbywa się to przy użyciu [interfejsów API Azure Digital Twins,](how-to-use-apis-sdks.md)zgodnie z opisem w te tematu [*Jak zarządzać modelami DTDL.*](how-to-manage-model.md#upload-models)
 
-Jeśli jednak masz wiele modeli do przekazania — lub jeśli masz wiele współzależności, które spowodują porządkowanie poszczególnych przeciążeń, możesz użyć tego przykładu do przekazania wielu modeli jednocześnie: [**Azure Digital bliźniaczych reprezentacji model obiektu przekazującego**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader). Postępuj zgodnie z instrukcjami podanymi w przykładzie, aby skonfigurować i użyć tego projektu do przekazywania modeli do własnego wystąpienia.
+Jeśli jednak masz wiele modeli do przekazania lub jeśli mają one wiele współzależności, które sprawiają, że kolejność pojedynczych przekazywania jest skomplikowana, możesz użyć tego przykładu do przekazywania wielu modeli jednocześnie: [**Azure Digital Twins Model Uploader**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader). Postępuj zgodnie z instrukcjami podanymi w przykładzie, aby skonfigurować ten projekt i używać go do przekazywania modeli do własnego wystąpienia.
 
 ### <a name="model-visualizer"></a>Wizualizator modelu 
 
-_**Dla modeli wizualizacji**_
+_**Wizualizowanie modeli**_
 
-Po przekazaniu modeli do wystąpienia usługi Azure Digital bliźniaczych reprezentacji można wyświetlić modele w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji, w tym wszelkie dziedziczenie i relacje z modelami, przy użyciu [**wizualizatora modeli cyfrowych bliźniaczych reprezentacji platformy Azure**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer). Ten przykład jest obecnie w stanie wersji roboczej. Zachęcamy społeczność ds. projektowania Digital bliźniaczych reprezentacji do rozwinięcia i współtworzenia przykładu. 
+Po przesłaniu modeli do wystąpienia usługi Azure Digital Twins można wyświetlić modele w wystąpieniu usługi Azure Digital Twins, w tym wszelkie dziedziczenie i relacje modelu przy użyciu wizualizatora modelu [**Azure Digital Twins.**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer) Ten przykład jest obecnie w stanie wersji roboczej. Zachęcamy społeczność programistów usługi Digital Twins do rozszerzania przykładu i współtworzenia go. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o tworzeniu modeli opartych na standardach branżowych ontologie: [ *koncepcje: co to jest Ontology?*](concepts-ontologies.md)
+* Dowiedz się więcej na temat tworzenia modeli opartych na standardowych onlogach branżowych: [ *Pojęcia: Co to jest ontologia?*](concepts-ontologies.md)
 
-* Szczegółowe bardziej szczegółowe Zarządzanie modelami przy użyciu operacji interfejsu API: [ *How to: Manage DTDL models*](how-to-manage-model.md)
+* Więcej informacji na temat zarządzania modelami za pomocą operacji interfejsu API: [ *Instrukcja: zarządzanie modelami DTDL*](how-to-manage-model.md)
 
-* Dowiedz się, jak modele są używane do tworzenia cyfrowych bliźniaczych reprezentacji: [ *pojęcia: Digital bliźniaczych reprezentacji i wykres bliźniaczy*](concepts-twins-graph.md)
+* Dowiedz się, jak modele są używane do tworzenia bliźniaczych reprezentacji [ *cyfrowych: Pojęcia: bliźniacze reprezentacji i graf bliźniaczych reprezentacji*](concepts-twins-graph.md)
 

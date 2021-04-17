@@ -1,7 +1,7 @@
 ---
-title: Oceń wyniki eksperymentu AutoML
+title: Ocena wyników eksperymentu autoML
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak wyświetlać i szacować wykresy oraz metryki dla każdego zautomatyzowanego przebiegu eksperymentu w usłudze Machine Learning.
+description: Dowiedz się, jak wyświetlać i oceniać wykresy i metryki dla każdego z przebiegów eksperymentu zautomatyzowanego uczenia maszynowego.
 services: machine-learning
 author: gregorybchris
 ms.author: chgrego
@@ -11,245 +11,236 @@ ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: b60e5f656b675a1382b8b4776975723a437183bc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 71d8d577bdfd8b359ce872f3489b60dca0b462b2
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104773117"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575636"
 ---
-# <a name="evaluate-automated-machine-learning-experiment-results"></a>Oceń automatyczne wyniki eksperymentu w usłudze Machine Learning
+# <a name="evaluate-automated-machine-learning-experiment-results"></a>Ocena wyników eksperymentu zautomatyzowanego uczenia maszynowego
 
-W tym artykule dowiesz się, jak oszacować i porównać modele przeszkolone przez zautomatyzowany eksperyment uczenia maszynowego (zautomatyzowany ML). W trakcie przebiegu zautomatyzowanego eksperymentu z tablicą tworzone są wiele uruchomień, a każdy przebieg tworzy model. Dla każdego modelu automatyczna ML generuje metryki oceny i wykresy, które ułatwiają pomiar wydajności modelu. 
+W tym artykule dowiesz się, jak oceniać i porównywać modele wytrenowane za pomocą eksperymentu zautomatyzowanego uczenia maszynowego. W trakcie eksperymentu zautomatyzowanego uczenia maszynowego jest tworzona wiele przebiegów, a każdy przebieg tworzy model. Dla każdego modelu zautomatyzowane ml generuje metryki oceny i wykresy, które pomagają zmierzyć wydajność modelu. 
 
-Na przykład, zautomatyzowana ML generuje następujące wykresy na podstawie typu eksperymentu.
+Na przykład zautomatyzowane ml generuje następujące wykresy na podstawie typu eksperymentu.
 
 | Klasyfikacja| Regresja/prognozowanie |
 | ----------------------------------------------------------- | ---------------------------------------- |
 | [Macierz pomyłek](#confusion-matrix)                       | [Histogram reszt](#residuals)        |
-| [Krzywa charakterystyki (ROC) odbiornika](#roc-curve) | [Przewidywany a prawdziwy](#predicted-vs-true) |
-| [Dokładność — krzywa odwołania (PR)](#precision-recall-curve)      |                                          |
-| [Krzywa podnoszenia](#lift-curve)                                   |                                          |
-| [Krzywa zysków skumulowanych](#cumulative-gains-curve)           |                                          |
-| [Krzywa kalibracji](#calibration-curve)                     |                     
+| [Krzywa ROC (Receiver operating Characteristic)](#roc-curve) | [Wartości przewidywane a prawda](#predicted-vs-true) |
+| [Krzywa precyzji i przywołania](#precision-recall-curve)      |                                          |
+| [Lift curve](#lift-curve)                                   |                                          |
+| [Skumulowana krzywa zysków](#cumulative-gains-curve)           |                                          |
+| [Krzywa krzywa](#calibration-curve)                     |                     
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Subskrypcja platformy Azure. (Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://aka.ms/AMLFree) )
-- Eksperyment Azure Machine Learning utworzony przy użyciu:
-  - [Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md) (nie jest wymagany żaden kod)
-  - [Azure Machine Learning Python SDK](how-to-configure-auto-train.md)
+- Subskrypcja platformy Azure. (Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz](https://aka.ms/AMLFree) bezpłatne konto)
+- Eksperyment Azure Machine Learning utworzony za pomocą jednego z tych eksperymentów:
+  - Kod [Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md) (nie jest wymagany żaden kod)
+  - Zestaw [SDK Azure Machine Learning Python](how-to-configure-auto-train.md)
 
-## <a name="view-run-results"></a>Wyświetl wyniki przebiegu
+## <a name="view-run-results"></a>Wyświetlanie wyników uruchamiania
 
-Po zakończeniu zautomatyzowanego eksperymentu ML historia przebiegów będzie można znaleźć za pośrednictwem:
-  - Przeglądarka z [Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md)
-  - Notes Jupyter za pomocą [widżetu Jupyter RunDetails](/python/api/azureml-widgets/azureml.widgets.rundetails)
+Po zakończeniu eksperymentu zautomatyzowanego uczenia maszynowego można znaleźć historię przebiegów za pośrednictwem:
+  - Przeglądarka z [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md)
+  - Notes Jupyter z [widżetem Jupyter RunDetails](/python/api/azureml-widgets/azureml.widgets.rundetails)
 
-Poniższe kroki i wideo pokazują, jak wyświetlić informacje o historii uruchamiania oraz metryki i wykresach oceny modelu w programie Studio:
+Poniższe kroki i klip wideo pokazują, jak wyświetlać historię uruchamiania oraz metryki i wykresy oceny modelu w studio:
 
 1. [Zaloguj się do programu Studio](https://ml.azure.com/) i przejdź do obszaru roboczego.
-1. W menu po lewej stronie wybierz pozycję **eksperymenty**.
-1. Wybierz swój eksperyment z listy eksperymentów.
-1. W tabeli w dolnej części strony wybierz zautomatyzowany przebiegu ML.
-1. Na karcie **modele** wybierz **nazwę algorytmu** dla modelu, który chcesz oszacować.
-1. Na karcie **metryki** Użyj pól wyboru po lewej stronie, aby wyświetlić metryki i wykresy.
+1. W menu po lewej stronie wybierz pozycję **Experiments (Eksperymenty).**
+1. Wybierz eksperyment z listy eksperymentów.
+1. W tabeli w dolnej części strony wybierz zautomatyzowany przebieg uczenia maszynowego.
+1. Na karcie **Modele** wybierz nazwę **algorytmu** dla modelu, który chcesz ocenić.
+1. Na karcie **Metryki** użyj pól wyboru po lewej stronie, aby wyświetlić metryki i wykresy.
 
-![Procedura wyświetlania metryk w programie Studio](./media/how-to-understand-automated-ml/how-to-studio-metrics.gif)
+![Kroki wyświetlania metryk w programie Studio](./media/how-to-understand-automated-ml/how-to-studio-metrics.gif)
 
 ## <a name="classification-metrics"></a>Metryki klasyfikacji
 
-Automatyczna ML oblicza metryki wydajności dla każdego modelu klasyfikacji wygenerowanego dla eksperymentu. Te metryki są oparte na implementacji scikit. 
+Zautomatyzowane ml oblicza metryki wydajności dla każdego modelu klasyfikacji wygenerowanego dla eksperymentu. Te metryki są oparte na implementacji biblioteki scikit learn. 
 
-Wiele metryk klasyfikacji jest zdefiniowanych dla klasyfikacji binarnej w dwóch klasach i wymaga średniej klasy w celu utworzenia jednego wyniku dla klasyfikacji wieloklasowej. Scikit — uczenie zawiera kilka metod uśredniających, z których trzy są automatycznie uwidaczniane: **makro**, **mikro** i **ważone**.
+Wiele metryk klasyfikacji jest definiowanych dla klasyfikacji binarnej w dwóch klasach i wymaga uśredniania w klasach, aby uzyskać jeden wynik dla klasyfikacji wieloklasowej. Bibliotekę scikit-learn udostępnia kilka metod uśredniania, z których trzy zautomatyzowane uczenia maszynowego uwidacznia: **makra,** **mikro** i **ważone**.
 
-- **Makro** — oblicza metrykę dla każdej klasy i przyjmuje nieważoną średnią
--  Oblicz całkowitą metrykę globalnie, obliczając łączną liczbę pozytywnych dodatnich, fałszywych negatywnych i fałszywych wartości dodatnich (niezależnie od klas).
-- **Ważone** — oblicza metrykę dla każdej klasy i pobiera średnią ważoną na podstawie liczby próbek na klasę.
+- **Makro** — obliczanie metryki dla każdej klasy i obliczanie średniej bez wagi
+- **Mikro** — oblicz metrykę globalnie, licząc łączną liczbę wyników prawdziwie dodatnich, fałszywie ujemnych i fałszywie dodatnich (niezależnie od klas).
+- **Ważone** — oblicz metrykę dla każdej klasy i weź średnią ważoną na podstawie liczby próbek na klasę.
 
-Chociaż każda metoda uśredniania ma swoje korzyści, jednym typowym zagadnieniem w przypadku wybrania odpowiedniej metody jest niezrównoważona Klasa. Jeśli klasy mają różne liczby próbek, może być bardziej niesformatowane, aby można było używać średniej makro, gdzie klasy mniejszości są równe wag dla większości klas. Dowiedz się więcej o [metrykach danych binarnych i wieloklasowych w zautomatyzowanej ml](#binary-vs-multiclass-classification-metrics). 
+Chociaż każda metoda uśredniania ma swoje zalety, jedną z typowych kwestii podczas wybierania odpowiedniej metody jest dysproporcja klas. Jeśli klasy mają różne liczby próbek, bardziej informacyjne może być użycie średniej makra, w której klasy wywłaszczające mają równe wagi klasom większości. Dowiedz się więcej o [metrykach binarnych i wieloklasowych w zautomatyzowanym u ml.](#binary-vs-multiclass-classification-metrics) 
 
-Poniższa tabela zawiera podsumowanie metryk wydajności modelu, które są obliczane przez automatyczne ML dla każdego modelu klasyfikacji wygenerowanego dla eksperymentu. Aby uzyskać więcej informacji, zobacz dokumentację scikit-dołączoną do pola **obliczenia** każdej metryki. 
+W poniższej tabeli podsumowano metryki wydajności modelu, które zautomatyzowane uczenia maszynowego oblicza dla każdego modelu klasyfikacji wygenerowanego na podstawie eksperymentu. Aby uzyskać więcej informacji, zobacz dokumentację biblioteki scikit-learn powiązaną w polu **Obliczanie** każdej metryki. 
 
 |Metric|Opis|Obliczenia|
 |--|--|---|
-|AUC | AUC to obszar pod [krzywą charakterystyczną dla odbiornika](#roc-curve).<br><br> **Cel:** Bliżej 1 <br> **Zakres:** [0, 1]<br> <br>Obsługiwane są nazwy metryk, <li>`AUC_macro`, średnia arytmetyczna AUC dla każdej klasy.<li> `AUC_micro`obliczony przez połączenie prawdziwie dodatnich i fałszywych wartości dodatnich z każdej klasy. <li> `AUC_weighted`, średnia arytmetyczna dla każdej klasy, ważona przez liczbę wystąpień prawdziwych w każdej klasie.   |[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | 
-|accuracy| Dokładność jest stosunkiem prognoz, które dokładnie pasują do prawdziwych etykiet klas. <br> <br>**Cel:** Bliżej 1 <br> **Zakres:** [0, 1]|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|
-|average_precision|Średnia precyzja podsumowuje krzywą odwołań dokładności jako średnią ważoną dokładności osiągniętą dla każdego progu, z zwiększeniem odzyskania z poprzedniego progu używanego jako waga. <br><br> **Cel:** Bliżej 1 <br> **Zakres:** [0, 1]<br> <br>Obsługiwane są nazwy metryk,<li>`average_precision_score_macro`, średnia arytmetyczna średniego wyniku dokładności dla każdej klasy.<li> `average_precision_score_micro`, obliczony przez połączenie prawdziwie dodatnich i fałszywych wartości dodatnich dla każdego odcięcia.<li>`average_precision_score_weighted`, średnia arytmetyczna średniego wyniku dokładności dla każdej klasy, ważona przez liczbę wystąpień prawdziwe w każdej klasie.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|
-balanced_accuracy|Równoważna dokładność to arytmetyczna średnia odwołania dla każdej klasy.<br> <br>**Cel:** Bliżej 1 <br> **Zakres:** [0, 1]|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|
-f1_score|Wynik F1 jest średnią harmoniczną precyzji i odwołania. Jest to dobry, zrównoważony pomiar dla obu fałszywych dodatnich i fałszywych wartości ujemnych. Nie przyjmuje jednak prawdziwych negatywów do konta. <br> <br>**Cel:** Bliżej 1 <br> **Zakres:** [0, 1]<br> <br>Obsługiwane są nazwy metryk,<li>  `f1_score_macro`: orednia arytmetyczna wyniku F1 dla każdej klasy. <li> `f1_score_micro`: obliczone przez zliczanie całkowitej liczby pozytywnych dodatnich, fałszywych wartości ujemnych i fałszywych dodatnich. <li> `f1_score_weighted`: ważone średnie według częstotliwości klasy dla każdej klasy.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|
-log_loss|Jest to funkcja strat użyta w (MULTINOMIAL) logistyki i rozszerzenia, takie jak sieci neuronowych, zdefiniowane jako negatywna prawdopodobieństwo rejestrowania dla prawdziwych etykiet z przewidywaniami klasyfikatora probabilistyczne. <br><br> **Cel:** Bliżej 0 <br> **Zakres:** [0, inf)|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|
-norm_macro_recall| Znormalizowana funkcja odwoływania makr to odwołanie do wartości średniej i znormalizowanej, dzięki czemu wydajność Losowa ma wynik równy 0, a doskonałe wydajność ma wynik 1. <br> <br>**Cel:** Bliżej 1 <br> **Zakres:** [0, 1] |`(recall_score_macro - R)`&nbsp;/&nbsp;`(1 - R)` <br><br>gdzie, `R` jest oczekiwaną wartością `recall_score_macro` dla prognoz losowych.<br><br>`R = 0.5`&nbsp;dla &nbsp; klasyfikacji binarnej &nbsp; . <br>`R = (1 / C)` w przypadku problemów klasyfikacji klasy C.|
-matthews_correlation | Współczynnik korelacji Matthews to zrównoważona miara dokładności, która może być używana, nawet jeśli jedna klasa ma wiele więcej próbek niż inne. Współczynnik 1 wskazuje doskonałe prognozowanie, 0 prognozowanie losowe i-1 prognozowanie odwrotne.<br><br> **Cel:** Bliżej 1 <br> **Zakres:** [-1, 1]|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.matthews_corrcoef.html)|
-precision|Precyzja to zdolność modelu, aby uniknąć etykiet próbek negatywnych jako pozytywnych. <br><br> **Cel:** Bliżej 1 <br> **Zakres:** [0, 1]<br> <br>Obsługiwane są nazwy metryk, <li> `precision_score_macro`, arytmetyczne znaczenie dla każdej klasy. <li> `precision_score_micro`obliczone globalnie przez zliczanie łącznej liczby pozytywnych dodatnich i fałszywych wartości dodatnich. <li> `precision_score_weighted`, arytmetyczne znaczenie dla każdej klasy, ważone według liczby prawdziwe wystąpienia w każdej klasie.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|
-recall| Funkcja odwoływania to zdolność modelu do wykrywania wszystkich próbek pozytywnych. <br><br> **Cel:** Bliżej 1 <br> **Zakres:** [0, 1]<br> <br>Obsługiwane są nazwy metryk, <li>`recall_score_macro`: arytmetyczne znaczenie operacji odwoływania dla każdej klasy. <li> `recall_score_micro`: obliczone globalnie przez zliczanie całkowitej liczby pozytywnych dodatnich, fałszywych wartości ujemnych i fałszywych dodatnich.<li> `recall_score_weighted`: arytmetyczne znaczenie operacji odwoływania dla każdej klasy, ważone według liczby prawdziwe wystąpienia w każdej klasie.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|
-weighted_accuracy|Waga ważona jest dokładnością, w której każda próbka jest ważona przez łączną liczbę próbek należących do tej samej klasy. <br><br>**Cel:** Bliżej 1 <br>**Zakres:** [0, 1]|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|
+|AUC | AUC to obszar pod krzywą [cech operacyjnych odbiornika](#roc-curve).<br><br> **Cel:** Im bliżej 1, tym lepiej <br> **Zakres:** [0, 1]<br> <br>Obsługiwane nazwy metryk: <li>`AUC_macro`, średnią arytmetyczną AUC dla każdej klasy.<li> `AUC_micro`obliczany przez połączenie wyników prawdziwie dodatnich i fałszywie dodatnich z każdej klasy. <li> `AUC_weighted`, średnia arytmetyczna wyniku dla każdej klasy, ważona przez liczbę wystąpień true w każdej klasie.   |[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | 
+|accuracy| Dokładność to stosunek przewidywań, które dokładnie pasują do prawdziwych etykiet klas. <br> <br>**Cel:** Im bliżej 1, tym lepiej <br> **Zakres:** [0, 1]|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|
+|average_precision|Średnia precyzja podsumowuje krzywą precyzji i precyzji jako średnią ważoną dokładności osiąganą przy każdym progu, ze wzrostem wartości odwołania z poprzedniego progu użytego jako waga. <br><br> **Cel:** Im bliżej 1, tym lepiej <br> **Zakres:** [0, 1]<br> <br>Obsługiwane nazwy metryk:<li>`average_precision_score_macro`, średnia arytmetyczna średniej oceny dokładności średniej dla każdej klasy.<li> `average_precision_score_micro`obliczany przez połączenie wyników prawdziwie dodatnich i fałszywie dodatnich w każdym cięciu.<li>`average_precision_score_weighted`, średnia arytmetyczna średniej precyzji dla każdej klasy, ważona przez liczbę wystąpień true w każdej klasie.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|
+balanced_accuracy|Zrównoważona dokładność to średnia arytmetyczna przywoływania dla każdej klasy.<br> <br>**Cel:** Im bliżej 1, tym lepiej <br> **Zakres:** [0, 1]|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|
+f1_score|Wynik F1 to średnia czasowa precyzji i przywoływu. Jest to dobra zrównoważona miara zarówno wyników fałszywie dodatnich, jak i fałszywie ujemnych. Nie uwzględnia ono jednak wartości prawdziwie ujemnych. <br> <br>**Cel:** Im bliżej 1, tym lepiej <br> **Zakres:** [0, 1]<br> <br>Obsługiwane nazwy metryk:<li>  `f1_score_macro`: średnia arytmetyczna wyniku F1 dla każdej klasy. <li> `f1_score_micro`: obliczane przez zliczanie wszystkich wyników prawdziwie dodatnich, fałszywie ujemnych i fałszywie dodatnich. <li> `f1_score_weighted`: średnia ważona według częstotliwości klas oceny F1 dla każdej klasy.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|
+log_loss|Jest to funkcja utraty używana w regresji logistycznej (wielomianowej) i jej rozszerzeniach, takich jak sieci neuronowe, zdefiniowana jako ujemne prawdopodobieństwo dziennika dla prawdziwych etykiet przy użyciu przewidywań klasyfikatora probabilistycznego. <br><br> **Cel:** Im bliżej 0, tym lepiej <br> **Zakres:** [0, inf)|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|
+norm_macro_recall| Znormalizowane odwoływanie makra jest znormalizowane i średnia makra, dzięki czemu wydajność losowa ma wynik 0, a wydajność idealna ma wynik 1. <br> <br>**Cel:** Im bliżej 1, tym lepiej <br> **Zakres:** [0, 1] |`(recall_score_macro - R)`&nbsp;/&nbsp;`(1 - R)` <br><br>gdzie, `R` to oczekiwana wartość `recall_score_macro` dla przewidywań losowych.<br><br>`R = 0.5`&nbsp;klasyfikacja &nbsp; &nbsp; binarna. <br>`R = (1 / C)` w przypadku problemów klasyfikacji klasy C.|
+matthews_correlation | Współczynnik korelacji Matthewsa jest zrównoważoną miarą dokładności, której można użyć, nawet jeśli jedna klasa ma o wiele więcej próbek niż druga. Współczynnik 1 oznacza doskonałe przewidywanie, 0 przewidywań losowych i -1 przewidywania odwrotnego.<br><br> **Cel:** Im bliżej 1, tym lepiej <br> **Zakres:** [-1, 1]|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.matthews_corrcoef.html)|
+precision|Precyzja to zdolność modelu do unikania oznaczania próbek negatywnych jako pozytywnych. <br><br> **Cel:** Im bliżej 1, tym lepiej <br> **Zakres:** [0, 1]<br> <br>Obsługiwane nazwy metryk: <li> `precision_score_macro`, średnią arytmetyczną precyzji dla każdej klasy. <li> `precision_score_micro`, obliczane globalnie przez zliczanie wszystkich wyników prawdziwie dodatnich i fałszywie dodatnich. <li> `precision_score_weighted`, średnią arytmetyczną precyzji dla każdej klasy, ważoną przez liczbę wystąpień true w każdej klasie.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|
+recall| Przypomnij sobie, że model może wykrywać wszystkie dodatnie próbki. <br><br> **Cel:** Im bliżej 1, tym lepiej <br> **Zakres:** [0, 1]<br> <br>Obsługiwane nazwy metryk: <li>`recall_score_macro`: średnia arytmetyczna przywoływu dla każdej klasy. <li> `recall_score_micro`: obliczane globalnie przez zliczanie wszystkich wyników prawdziwie dodatnich, fałszywie ujemnych i fałszywie dodatnich.<li> `recall_score_weighted`: średnia arytmetyczna odwołania dla każdej klasy, ważona przez liczbę wystąpień true w każdej klasie.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|
+weighted_accuracy|Dokładność ważona to dokładność, w której każda próbka jest ważona przez łączną liczbę próbek należących do tej samej klasy. <br><br>**Cel:** Im bliżej 1, tym lepiej <br>**Zakres:** [0, 1]|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|
 
-### <a name="binary-vs-multiclass-classification-metrics"></a>Dane binarne a wieloklasowe metryki klasyfikacji
+### <a name="binary-vs-multiclass-classification-metrics"></a>Metryki klasyfikacji binarnej a wieloklasowej
 
-Automatyczna ML nie różni się od metryk danych binarnych i wieloklasowych. Te same metryki walidacji są raportowane niezależnie od tego, czy zestaw danych ma dwie klasy, czy więcej niż dwie klasy. Niektóre metryki są jednak przeznaczone do klasyfikacji wieloklasowej. W przypadku zastosowania do binarnego zestawu danych te metryki nie traktują żadnej klasy jako `true` klasy, ponieważ może się to spodziewać. Metryki, które są wyraźnie przeznaczone dla wieloklasowych są sufiksami z `micro` , `macro` lub `weighted` . Przykłady obejmują `average_precision_score` , `f1_score` , `precision_score` , `recall_score` , i `AUC` .
+Zautomatyzowane uczenia maszynowego nie rozróżnia metryk binarnych i wieloklasowych. Te same metryki walidacji są zgłaszane, czy zestaw danych ma dwie klasy, czy więcej niż dwie klasy. Jednak niektóre metryki są przeznaczone do klasyfikacji wieloklasowej. Po zastosowaniu do binarnego zestawu danych te metryki nie będą traktować żadnej klasy jako `true` klasy, jak można się było spodziewać. Metryki, które są wyraźnie przeznaczone dla wieloklasowych, mają sufiks `micro` , `macro` lub `weighted` . Przykłady `average_precision_score` obejmują , , , i `f1_score` `precision_score` `recall_score` `AUC` .
 
-Na przykład zamiast obliczać odwołanie jako `tp / (tp + fn)` , średniej klasy odwołania ( `micro` , `macro` lub) do `weighted` obu klas binarnego zestawu danych klasyfikacji. Jest to równoważne obliczaniu odwołań dla `true` klasy i `false` klasy oddzielnie, a następnie pobierając średnią z dwóch.
+Na przykład zamiast obliczać przywołanie jako , wieloklasowe średnie odwołania ( , lub ) są uśrednione w obu klasach binarnego zestawu `tp / (tp + fn)` `micro` danych `macro` `weighted` klasyfikacji. Jest to równoważne oddzielne obliczaniu odwołania dla klasy i klasy, a następnie obliczaniu `true` `false` średniej z tych dwóch klas.
 
-Automatyczna ML nie oblicza metryk binarnych, które są metrykami dla binarnych zestawów danych klasyfikacji. Jednak te metryki można obliczyć ręcznie przy użyciu [matrycy](#confusion-matrix) niewidocznej, która jest generowana przez zautomatyzowany ml dla danego przebiegu. Na przykład można obliczyć precyzję, `tp / (tp + fp)` przy czym prawdziwe wartości dodatnie i fałszywie dodatnie są wyświetlane na wykresie macierzy 2x2.
+Zautomatyzowane uczenia maszynowego nie oblicza metryk binarnych, czyli metryk dla binarnych zestawów danych klasyfikacji. Jednak te metryki można ręcznie obliczyć [](#confusion-matrix) przy użyciu macierzy pomyłek wygenerowanej przez zautomatyzowane mleć dla tego konkretnego uruchomienia. Na przykład można obliczyć precyzję , z wartościami prawdziwie dodatnimi i fałszywie dodatnimi pokazanymi na wykresie `tp / (tp + fp)` macierzy pomyłek 2x2.
 
 ## <a name="confusion-matrix"></a>Macierz pomyłek
 
-Niewidoczne macierze umożliwiają wizualizację, w jaki model uczenia maszynowego czyni błędy systematyczne w swoich przewidywaniach dla modeli klasyfikacji. Słowo "mylenie" w nazwie pochodzi z modelu "mylące" lub z nieprawidłowymi etykietami. Komórka w wierszu `i` i kolumnie w niezmienionej `j` macierzy zawiera liczbę próbek w zestawie danych oceny, które należą do klasy `C_i` i zostały sklasyfikowane przez model jako Klasa `C_j` .
+Macierze pomyłek zapewniają wizualizację tego, jak model uczenia maszynowego popełnia systematyczne błędy w przewidywaniach modeli klasyfikacji. Słowo "dezorientacja" w nazwie pochodzi od modelu "mylące" lub błędnie oznaczające próbki. Komórka w wierszu i kolumnie w macierzy pomyłek zawiera liczbę próbek w zestawie danych oceny, które należą do klasy i zostały sklasyfikowane przez `i` `j` model jako klasa `C_i` `C_j` .
 
-W programie Studio, ciemniejszy komórka wskazuje większą liczbę próbek. Wybranie widoku **znormalizowana** na liście rozwijanej spowoduje znormalizowanie nad każdym wierszem macierzy w celu wyświetlenia procentu klasy `C_i` przewidywanej jako `C_j` Klasa. Zaletą domyślnego widoku **nieprzetworzonego** jest możliwość sprawdzenia, czy nierównoważność dystrybucji rzeczywistych klas spowodowała, że model nie klasyfikuje próbek z klasy mniejszości, typowym problemem w niezrównoważonych zestawach danych.
+W studio ciemniejsze komórki wskazują większą liczbę próbek. Wybranie **widoku Znormalizowane** na liście rozwijanej spowoduje normalizację w każdym wierszu macierzy w celu pokazania procentu klasy przewidywanej `C_i` jako klasa `C_j` . Zaletą domyślnego widoku **Raw** (Nieprzetworzone) jest to, że można zobaczyć, czy dysproporcja w rozmieszczeniach rzeczywistych klas spowodowała, że model błędnie sklasyfikował próbki z klasy wytworzonej, co jest powszechnym problemem w niezrównoważonych zestawach danych.
 
-Macierz nieporozumień dobrego modelu będzie miała większość próbek wzdłuż przekątnej.
+Macierz pomyłek dobrego modelu będzie zawierała większość próbek wzdłuż przekątnej.
 
-### <a name="confusion-matrix-for-a-good-model"></a>Zamylenie macierzy dla dobrego modelu 
-![Zamylenie macierzy dla dobrego modelu ](./media/how-to-understand-automated-ml/chart-confusion-matrix-good.png)
+### <a name="confusion-matrix-for-a-good-model"></a>Macierz pomyłek dla dobrego modelu 
+![Macierz pomyłek dla dobrego modelu ](./media/how-to-understand-automated-ml/chart-confusion-matrix-good.png)
 
-### <a name="confusion-matrix-for-a-bad-model"></a>Zamieszanie macierzy dla niewłaściwego modelu
-![Zamieszanie macierzy dla niewłaściwego modelu](./media/how-to-understand-automated-ml/chart-confusion-matrix-bad.png)
+### <a name="confusion-matrix-for-a-bad-model"></a>Macierz pomyłek dla złego modelu
+![Macierz pomyłek dla złego modelu](./media/how-to-understand-automated-ml/chart-confusion-matrix-bad.png)
 
 ## <a name="roc-curve"></a>Krzywa ROC
 
-Krzywa Charakterystyka działania odbiornika (ROC) przedstawia relację między prawdziwą dodatnią stawką (TPR) i fałszywą dodatnią stawką (zarejestrowanego) w miarę zmiany progu decyzji. Krzywa ROC może być mniej informacyjna, gdy szkolenia modeli w zestawach danych o wysokiej klasy nie są zrównoważone, ponieważ większość klasy może Drown udziały z klas mniejszościowych.
+Krzywa ROC (Receiver Operating Characteristic) wykreśla relację między wartościami prawdziwie dodatnimi (TPR) i wskaźnikami fałszywie dodatnimi (FPR, false positive rate) wraz ze zmianami progu decyzyjnego. Krzywa ROC może być mniej wartościowa w przypadku trenowania modeli w zestawach danych z wysoką dysproporcją klas, ponieważ większość klas może zaciemniać składowe z klas wytłaczających.
 
-Obszar pod krzywą (AUC) może być interpretowany jako część poprawnie sklasyfikowanych próbek. Dokładniej, AUC jest prawdopodobieństwem, że klasyfikator porządkuje losowo wybraną dodatnią próbkę wyższą niż losowo wybrana próbka ujemna. Kształt krzywej daje Intuition relacji między TPR i zarejestrowanego jako funkcją progu klasyfikacji lub granicy decyzyjnej.
+Obszar pod krzywą (AUC) może być interpretowany jako proporcja poprawnie sklasyfikowanych próbek. Dokładniej, wartość AUC jest prawdopodobieństwem, że klasyfikator klasyfikuje losowo wybraną próbę dodatnią na wyższym poziomie niż losowo wybrana próbka ujemna. Kształt krzywej daje intuicję dla relacji między TPR i FPR jako funkcja progu klasyfikacji lub granicy decyzyjnej.
 
-Krzywa, która zbliża się do lewego górnego rogu wykresu, zbliża się do 100% TPR i 0% zarejestrowanego, najlepszego możliwego modelu. Model losowy będzie generował krzywą ROC wzdłuż `y = x` linii od lewego dolnego rogu do prawej strony. Niegorszy niż model losowy będzie miał krzywą ROC, która spadnie poniżej `y = x` wiersza.
+Krzywa, która zbliża się do lewego górnego rogu wykresu, zbliża się do 100% czasu TPR i 0% wartości FPR, najlepszego możliwego modelu. Model losowy wyprodukuje krzywą ROC wzdłuż linii od lewego dolnego `y = x` rogu do prawego górnego rogu. Gorszy niż model losowy będzie miał krzywą ROC, która spadkuje poniżej `y = x` linii.
 > [!TIP]
-> W przypadku eksperymentów klasyfikacji każdy z wykresów liniowych produkowanych dla zautomatyzowanych modeli ML może służyć do oszacowania modelu dla klasy lub średniej dla wszystkich klas. Możesz przełączać się między tymi widokami, klikając etykiety klas w legendzie na prawo od wykresu.
+> W przypadku eksperymentów klasyfikacji każdy z wykresów liniowych wytwarzanych dla zautomatyzowanych modeli uczenia maszynowego może służyć do oceny modelu dla każdej klasy lub uśredniać go we wszystkich klasach. Możesz przełączać się między tymi różnymi widokami, klikając etykiety klas w legendzie po prawej stronie wykresu.
 ### <a name="roc-curve-for-a-good-model"></a>Krzywa ROC dla dobrego modelu
 ![Krzywa ROC dla dobrego modelu](./media/how-to-understand-automated-ml/chart-roc-curve-good.png)
 
-### <a name="roc-curve-for-a-bad-model"></a>Krzywa ROC dla niewłaściwego modelu
-![Krzywa ROC dla niewłaściwego modelu](./media/how-to-understand-automated-ml/chart-roc-curve-bad.png)
+### <a name="roc-curve-for-a-bad-model"></a>Krzywa ROC dla złego modelu
+![Krzywa ROC dla złego modelu](./media/how-to-understand-automated-ml/chart-roc-curve-bad.png)
 
-## <a name="precision-recall-curve"></a>Dokładność — krzywa odwołania
+## <a name="precision-recall-curve"></a>Krzywa precyzji i odwołania
 
-Krzywa odwołań dokładności przedstawia relację między dokładnością i odwołaniem w miarę zmiany progu decyzji. Funkcja odwoływania to zdolność modelu do wykrywania wszystkich próbek pozytywnych i precyzji, która umożliwia modelowi uniknięcie etykietowania próbek negatywnych jako pozytywnych. Niektóre problemy biznesowe mogą wymagać większego odzyskania i większej dokładności w zależności od względnej ważności unikania fałszywych wartości ujemnych zamiast fałszywych wartości dodatnich.
+Krzywa precyzji i przywołania wykreśla relację między precyzją a przywoływem w przypadku zmiany progu decyzyjnego. Jak pamiętasz, zdolność modelu do wykrywania wszystkich próbek dodatnich i precyzji to zdolność modelu do unikania oznaczania próbek ujemnych jako pozytywnych. Niektóre problemy biznesowe mogą wymagać większej precyzji i większej precyzji w zależności od względnego znaczenia unikania wyników fałszywie ujemnych i wyników fałszywie dodatnich.
 > [!TIP]
-> W przypadku eksperymentów klasyfikacji każdy z wykresów liniowych produkowanych dla zautomatyzowanych modeli ML może służyć do oszacowania modelu dla klasy lub średniej dla wszystkich klas. Możesz przełączać się między tymi widokami, klikając etykiety klas w legendzie na prawo od wykresu.
-### <a name="precision-recall-curve-for-a-good-model"></a>Krzywa odwołań z dokładnością dla dobrego modelu
-![Krzywa odwołań z dokładnością dla dobrego modelu](./media/how-to-understand-automated-ml/chart-precision-recall-curve-good.png)
+> W przypadku eksperymentów klasyfikacji każdy z wykresów liniowych wytwarzanych dla zautomatyzowanych modeli uczenia maszynowego może służyć do oceny modelu dla każdej klasy lub uśredniać go we wszystkich klasach. Możesz przełączać się między tymi różnymi widokami, klikając etykiety klas w legendzie po prawej stronie wykresu.
+### <a name="precision-recall-curve-for-a-good-model"></a>Krzywa precyzji i przywołania dla dobrego modelu
+![Krzywa precyzji i przywołania dla dobrego modelu](./media/how-to-understand-automated-ml/chart-precision-recall-curve-good.png)
 
-### <a name="precision-recall-curve-for-a-bad-model"></a>Krzywa odwołań dokładności dla niewłaściwego modelu
-![Krzywa odwołań dokładności dla niewłaściwego modelu](./media/how-to-understand-automated-ml/chart-precision-recall-curve-bad.png)
+### <a name="precision-recall-curve-for-a-bad-model"></a>Krzywa precyzji i przywołania dla słabego modelu
+![Krzywa precyzji i przywołania dla słabego modelu](./media/how-to-understand-automated-ml/chart-precision-recall-curve-bad.png)
 
-## <a name="cumulative-gains-curve"></a>Krzywa zysków skumulowanych
+## <a name="cumulative-gains-curve"></a>Krzywa skumulowanych zysków
 
-Krzywa skumulowane zyski przedstawia procent próbek pozytywnych poprawnie sklasyfikowanych jako funkcja procentu przykładowych próbek, gdzie rozważamy przykłady w kolejności przewidywanych prawdopodobieństw.
+Skumulowana krzywa zysków wykreśla procent próbek dodatnich prawidłowo sklasyfikowanych jako funkcja procentu rozważanych próbek, w których rozważamy próbki w kolejności przewidywanego prawdopodobieństwa.
 
-Aby obliczyć zysk, najpierw Sortuj wszystkie próbki od najwyższego do najniższego prawdopodobieństwa przewidywanego przez model. Następnie weź pod `x%` wyższe wartości prognoz zaufania. Podziel liczbę próbek pozytywnych wykrytych w tym `x%` przez łączną liczbę próbek dodatnich, aby uzyskać zysk. Łączny wzrost to procent próbek dodatnich wykrywanych podczas rozważania pewnego procentu ilości danych, które najprawdopodobniej należą do klasy dodatniej.
+Aby obliczyć zysk, najpierw posortuj wszystkie próbki od najwyższego do najniższego prawdopodobieństwa przewidywanego przez model. Następnie skorzystaj `x%` z przewidywań o najwyższym poziomie ufności. Podziel liczbę wykrytych w nich próbek dodatnich przez `x%` łączną liczbę próbek dodatnich, aby uzyskać zysk. Skumulowany zysk to procent próbek dodatnich wykrywanych podczas rozważania pewnego procentu danych, które najprawdopodobniej będą należeć do klasy dodatniej.
 
-Idealnym modelem będzie ranga wszystkich próbek pozytywnych powyżej wszystkich próbek negatywnych, które łączą się z dwoma segmentami prostymi. Pierwszy to linia z nachyleniem `1 / x` `(0, 0)` do `(x, 1)` gdzie `x` jest częścią próbki, która należy do klasy pozytywnej ( `1 / num_classes` Jeśli klasy są zrównoważone). Druga to linia pozioma od `(x, 1)` do `(1, 1)` . W pierwszym segmencie wszystkie próbki pozytywne są klasyfikowane prawidłowo, a zysk skumulowany przechodzi do `100%` pierwszego z nich `x%` .
+Idealny model będzie oceniać wszystkie dodatnie próbki powyżej wszystkich prób negatywnych, dając skumulowaną krzywą wzrostu, która składa się z dwóch prostych segmentów. Pierwszy to linia z nachyleniem od do miejsca , gdzie jest ułamkiem próbek należących do klasy dodatniej `1 / x` ( jeśli klasy są `(0, 0)` `(x, 1)` `x` `1 / num_classes` zrównoważone). Drugi to pozioma linia od `(x, 1)` do `(1, 1)` . W pierwszym segmencie wszystkie próbki dodatnie są klasyfikowane poprawnie, a skumulowany zysk trafia do `100%` pierwszej `x%` z rozważanych próbek.
 
-Model losowy z linią bazową będzie miał skumulowaną krzywą zysków po tym, `y = x` gdzie `x%` wykryte są tylko informacje o całkowitej liczbie `x%` dodatnich próbek. Idealnym modelem będzie bardzo średnia Krzywa, która dotyka lewego górnego rogu i linię średniej z makra, która ma nachylenie `1 / num_classes` do momentu, gdy całkowity wzrost wynosi 100%, a następnie w poziomie do 100 wartości procentowej.
+Podstawowy model losowy będzie miał skumulowaną krzywą wzrostu, po której dla próbek uważanych tylko za łączną liczbę `y = x` `x%` `x%` próbek dodatnich wykryto. Idealny model będzie miał średnią krzywą mikro, która dotyka lewego górnego rogu, oraz linię średniej makra, która ma nachylenie do momentu uzyskania skumulowanego zysku w 100%, a następnie w poziomie do momentu, gdy procent danych wynosi `1 / num_classes` 100.
 > [!TIP]
-> W przypadku eksperymentów klasyfikacji każdy z wykresów liniowych produkowanych dla zautomatyzowanych modeli ML może służyć do oszacowania modelu dla klasy lub średniej dla wszystkich klas. Możesz przełączać się między tymi widokami, klikając etykiety klas w legendzie na prawo od wykresu.
-### <a name="cumulative-gains-curve-for-a-good-model"></a>Krzywa zysków skumulowanych dla dobrego modelu
-![Krzywa zysków skumulowanych dla dobrego modelu](./media/how-to-understand-automated-ml/chart-cumulative-gains-curve-good.png)
+> W przypadku eksperymentów klasyfikacji każdy z wykresów liniowych wytwarzanych dla zautomatyzowanych modeli uczenia maszynowego może służyć do oceny modelu dla poszczególnych klas lub uśredniony dla wszystkich klas. Możesz przełączać się między tymi różnymi widokami, klikając etykiety klas w legendzie po prawej stronie wykresu.
+### <a name="cumulative-gains-curve-for-a-good-model"></a>Skumulowana krzywa zysków dla dobrego modelu
+![Skumulowana krzywa zysków dla dobrego modelu](./media/how-to-understand-automated-ml/chart-cumulative-gains-curve-good.png)
 
-### <a name="cumulative-gains-curve-for-a-bad-model"></a>Krzywa zysków skumulowanych dla niewłaściwego modelu
-![Krzywa zysków skumulowanych dla niewłaściwego modelu](./media/how-to-understand-automated-ml/chart-cumulative-gains-curve-bad.png)
+### <a name="cumulative-gains-curve-for-a-bad-model"></a>Skumulowana krzywa zysków dla złego modelu
+![Skumulowana krzywa zysków dla złego modelu](./media/how-to-understand-automated-ml/chart-cumulative-gains-curve-bad.png)
 
-## <a name="lift-curve"></a>Krzywa podnoszenia
+## <a name="lift-curve"></a>Lift curve
 
-Krzywa Unieś pokazuje, ile razy lepszy model jest porównywany z modelem losowym. Dźwig jest definiowany jako stosunek łącznego zysku do całkowitego wzmocnienia losowego modelu.
+Krzywa lift pokazuje, ile razy lepiej działa model w porównaniu z modelem losowym. "Lift" jest definiowany jako stosunek skumulowanego zysku do skumulowanego zysku modelu losowego.
 
-Ta względna wydajność bierze pod uwagę fakt, że klasyfikacja staje się trudniejsza w miarę zwiększania liczby klas. (Model losowy nieprawidłowo przewidywalna większy ułamek próbek z zestawu danych z 10 klasami w porównaniu z zestawem danych zawierającym dwie klasy)
+Ta względna wydajność uwzględnia fakt, że klasyfikacja staje się trudniejsza w przypadku zwiększania liczby klas. (Model losowy niepoprawnie przewiduje większą część próbek z zestawu danych z 10 klasami w porównaniu z zestawem danych z dwiema klasami)
 
-Krzywa przenośnika linii bazowej to linia, w `y = 1` której model wydajności jest zgodny z modelem losowym. Ogólnie rzecz biorąc, krzywa przyrostu dla dobrego modelu będzie wyższa dla tego wykresu i może się dalej znajdować na osi x, pokazując, że gdy model jest najbardziej pewny w swoich przewidywaniach, wykonuje wiele razy lepszy niż losowe odgadnięcie.
+Podstawowa krzywa lift to linia, w której wydajność modelu jest spójna `y = 1` z wydajnością modelu losowego. Ogólnie rzecz biorąc, krzywa lift dla dobrego modelu będzie wyższa na tym wykresie i dalej od osi X, co pokazuje, że gdy model jest najbędszy w swoich przewidywaniach, działa wielokrotnie lepiej niż losowe zgadywanie.
 
 > [!TIP]
-> W przypadku eksperymentów klasyfikacji każdy z wykresów liniowych produkowanych dla zautomatyzowanych modeli ML może służyć do oszacowania modelu dla klasy lub średniej dla wszystkich klas. Możesz przełączać się między tymi widokami, klikając etykiety klas w legendzie na prawo od wykresu.
-### <a name="lift-curve-for-a-good-model"></a>Krzywa podnoszenia dla dobrego modelu
-![Krzywa podnoszenia dla dobrego modelu](./media/how-to-understand-automated-ml/chart-lift-curve-good.png)
+> W przypadku eksperymentów klasyfikacji każdy z wykresów liniowych wytwarzanych dla zautomatyzowanych modeli uczenia maszynowego może służyć do oceny modelu dla każdej klasy lub uśredniać go we wszystkich klasach. Możesz przełączać się między tymi różnymi widokami, klikając etykiety klas w legendzie po prawej stronie wykresu.
+### <a name="lift-curve-for-a-good-model"></a>Lift curve for a good model (Lift curve for a good model)
+![Lift curve for a good model (Lift curve for a good model)](./media/how-to-understand-automated-ml/chart-lift-curve-good.png)
  
-### <a name="lift-curve-for-a-bad-model"></a>Krzywa podnoszenia dla niewłaściwego modelu
-![Krzywa podnoszenia dla niewłaściwego modelu](./media/how-to-understand-automated-ml/chart-lift-curve-bad.png)
+### <a name="lift-curve-for-a-bad-model"></a>Lift curve for a bad model (Lift curve for a bad model)
+![Lift curve for a bad model (Lift curve for a bad model)](./media/how-to-understand-automated-ml/chart-lift-curve-bad.png)
 
-## <a name="calibration-curve"></a>Krzywa kalibracji
+## <a name="calibration-curve"></a>Krzywa krzywa krzywa
 
-Krzywa kalibracji przedstawia zaufanie modelu w swoich przewidywaniach względem proporcji próbek pozytywnych na każdym poziomie ufności. Dobrze skalibrowane modele poprawnie klasyfikuje 100% prognoz, do których przypisze 100% pewności, 50% przewidywanych przez dział IT 50% pewności, 20% przewidywania przypisuje 20% pewności i tak dalej. Idealnie kalibrowany model będzie miał krzywą kalibracji po `y = x` wierszu, w którym model doskonale przewidywalnuje prawdopodobieństwo, że próbki należą do każdej klasy.
+Krzywa krzywa krzywa wykreśla zaufanie modelu do przewidywań względem proporcji próbek dodatnich na każdym poziomie ufności. Dobrze skalibrowany model prawidłowo sklasyfikuje 100% przewidywań, do których przypisuje 100% ufności, 50% przewidywań przypisuje 50% ufności, 20% przewidywań przypisuje 20% pewności i tak dalej. Idealnie skalibrowany model będzie miał krzywą rozkładu po linii, gdzie model doskonale przewiduje prawdopodobieństwo, że próbki należą `y = x` do każdej klasy.
 
-Model z nadmiernym prawdopodobieństwem będzie przekroczyć przewidywany efekt, zbliżony do zera i jeden, rzadko nieokreślony dla klasy każdej próbki, a krzywa kalibracji będzie wyglądać podobnie do tyłu "S". Niezależny model przypisuje mniejsze prawdopodobieństwo średnio do klasy, w której jest przewidywalna, a skojarzona krzywa kalibracji będzie wyglądać podobnie do "S". Krzywa kalibracji nie przedstawia możliwości poprawnego klasyfikowania modelu, ale zamiast tego ma możliwość prawidłowego przypisania zaufania do jego prognoz. Niewłaściwy model nadal może mieć dobrą krzywą kalibracji, jeśli model prawidłowo przypisuje niski poziom pewności i wysoką niepewność.
+Model o zbyt wielu pewnościach będzie zbyt przewidywać prawdopodobieństwa zbliżone do zera i jedno, rzadko nie mieć pewności co do klasy każdej próbki, a krzywa będzie wyglądać podobnie do odwrotnego "S". Model o mniejszej pewności przypisze średnie mniejsze prawdopodobieństwo do przewidywanej klasy, a skojarzona krzywa będzie wyglądać podobnie do "S". Krzywa krzywa krzywa nie przedstawia możliwości prawidłowego klasyfikowania modelu, ale zamiast tego zdolności do poprawnego przypisywania pewności do przewidywań. Zły model może nadal mieć dobrą krzywą, jeśli model prawidłowo przypisze niską pewność i wysoką niepewność.
 
 > [!NOTE]
-> Krzywa kalibracji jest wrażliwa na liczbę próbek, więc niewielki zestaw walidacji może generować wyniki szumu, które mogą być trudne do zinterpretowania. Nie musi to oznaczać, że model nie jest dobrze skalibrowany.
+> Krzywa krzywa jest wrażliwa na liczbę próbek, więc mały zestaw weryfikacyjny może dawać zaszumione wyniki, które mogą być trudne do interpretacji. Nie musi to oznaczać, że model nie jest dobrze skalibrowany.
 
-### <a name="calibration-curve-for-a-good-model"></a>Krzywa kalibracji dla dobrego modelu
-![Krzywa kalibracji dla dobrego modelu](./media/how-to-understand-automated-ml/chart-calibration-curve-good.png)
+### <a name="calibration-curve-for-a-good-model"></a>Krzywa krzywa krzywa krzywa dla dobrego modelu
+![Krzywa krzywa krzywa krzywa dla dobrego modelu](./media/how-to-understand-automated-ml/chart-calibration-curve-good.png)
 
-### <a name="calibration-curve-for-a-bad-model"></a>Krzywa kalibracji dla niewłaściwego modelu
-![Krzywa kalibracji dla niewłaściwego modelu](./media/how-to-understand-automated-ml/chart-calibration-curve-bad.png)
+### <a name="calibration-curve-for-a-bad-model"></a>Krzywa krzywa krzywa krzywa dla słabego modelu
+![Krzywa krzywa krzywa krzywa dla słabego modelu](./media/how-to-understand-automated-ml/chart-calibration-curve-bad.png)
 
 ## <a name="regressionforecasting-metrics"></a>Metryki regresji/prognozowania
 
-Funkcja zautomatyzowanej sieci oblicza te same metryki wydajności dla każdego generowanego modelu, niezależnie od tego, czy jest to eksperyment regresji lub prognozowania. Te metryki są również poddawane normalizacji w celu umożliwienia porównania między modelami przeszkolonymi na danych z różnymi zakresami. Aby dowiedzieć się więcej, zobacz [normalizacja metryki](#metric-normalization).  
+Zautomatyzowane uczenia maszynowego oblicza te same metryki wydajności dla każdego wygenerowanego modelu, niezależnie od tego, czy jest to eksperyment regresji czy prognozowania. Te metryki są również poddawane normalizacji, aby umożliwić porównywanie modeli przeszkolonych na danych z różnymi zakresami. Aby dowiedzieć się więcej, zobacz [normalizację metryk.](#metric-normalization)  
 
-Poniższa tabela zawiera podsumowanie metryk wydajności modelu wygenerowanych na potrzeby regresji i prognozowania eksperymentów. Podobnie jak w przypadku metryk klasyfikacji, te metryki są również oparte na implementacji scikit. Odpowiednia dokumentacja scikit Dowiedz się odpowiednio w polu **obliczenia** .
+W poniższej tabeli podsumowano metryki wydajności modelu wygenerowane dla eksperymentów regresji i prognozowania. Podobnie jak metryki klasyfikacji, te metryki są również oparte na implementacjach biblioteki scikit learn. Odpowiednia dokumentacja biblioteki scikit learn jest odpowiednio połączona w **polu** Obliczenia.
 
 |Metric|Opis|Obliczenia|
 --|--|--|
-explained_variance|Wyjaśnione odchylenie mierzy zakres, do którego model jest używany dla odmiany w zmiennej docelowej. Jest to procentowy spadek wariancji oryginalnych danych do wariancji błędów. Gdy średnią z błędów jest 0, jest równa współczynnikowi wyznaczania (patrz r2_score poniżej). <br> <br> **Cel:** Bliżej 1 <br> **Zakres:** (-inf, 1]|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|
-mean_absolute_error|Średni błąd bezwzględny jest oczekiwaną wartością bezwzględną różnicy między obiektem docelowym a przewidywaniam.<br><br> **Cel:** Bliżej 0 <br> **Zakres:** [0, inf) <br><br> Typ <br>`mean_absolute_error` <br>  `normalized_mean_absolute_error`, mean_absolute_error podzielona przez zakres danych. | [Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|
-mean_absolute_percentage_error|Średni bezwzględny błąd procentu (MAPE) to miara średniej różnicy między wartością przewidywaną a wartością rzeczywistą.<br><br> **Cel:** Bliżej 0 <br> **Zakres:** [0, inf) ||
-median_absolute_error|Średni błąd bezwzględny to mediana wszystkich bezwzględnych różnic między obiektem docelowym a przewidywaniam. Ta utrata jest niezawodna dla wartości odstających.<br><br> **Cel:** Bliżej 0 <br> **Zakres:** [0, inf)<br><br>Typ <br> `median_absolute_error`<br> `normalized_median_absolute_error`: median_absolute_error podzielona przez zakres danych. |[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|
-r2_score|R<sup>2</sup> (współczynnik wyznaczania) mierzy proporcjonalną redukcję w przypadku błędu kwadratowego (MSE) względem łącznej wariancji obserwowanych danych. <br> <br> **Cel:** Bliżej 1 <br> **Zakres:** [-1, 1]<br><br>Uwaga: R<sup>2</sup> często ma zakres (-inf, 1]. Program MSE może być większy od zaobserwowanej wariancji, więc R<sup>2</sup> może mieć arbitralnie duże wartości ujemne, w zależności od danych i prognoz modeli. Automatyczne klipy ML zgłosiły wyniki R<sup>2</sup> o wartości-1, więc wartość-1 dla r<sup>2</sup> prawdopodobnie oznacza, że wynik true R<sup>2</sup> jest mniejszy niż-1. Należy wziąć pod uwagę inne wartości metryk i właściwości danych przy interpretacji ujemnego wyniku R<sup>2</sup> .|[Obliczenia](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
-root_mean_squared_error |Pierwiastek średniej wartości "RMSE" oznacza pierwiastek kwadratowy oczekiwanej różnicy kwadratowej między obiektem docelowym a przewidywaniam. W przypadku nieobciążonego szacowania wartość RMSE jest równa odchyleniu standardowemu.<br> <br> **Cel:** Bliżej 0 <br> **Zakres:** [0, inf)<br><br>Typ<br> `root_mean_squared_error` <br> `normalized_root_mean_squared_error`: root_mean_squared_error podzielona przez zakres danych. |[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|
-root_mean_squared_log_error|Pierwiastek średnika błędu w postaci logarytmu głównego jest pierwiastek kwadratowy oczekiwanego kwadratowego błędu logarytmu.<br><br>**Cel:** Bliżej 0 <br> **Zakres:** [0, inf) <br> <br>Typ <br>`root_mean_squared_log_error` <br> `normalized_root_mean_squared_log_error`: root_mean_squared_log_error podzielona przez zakres danych.  |[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|
-spearman_correlation| Korelacja Spearman jest miarą nieparametryczną monotonicity relacji między dwoma zestawami danych. W przeciwieństwie do korelacji Pearsona korelacja Spearman nie zakłada, że oba zestawy danych są zwykle dystrybuowane. Podobnie jak inne Współczynniki korelacji, Spearman różni się od-1 do 1 z 0 oznacza brak korelacji. Korelacje-1 lub 1 implikują dokładną relację monotoniczny. <br><br> Spearman jest metryką korelacji porządku rangi, co oznacza, że zmiany wartości przewidywanych lub rzeczywistych nie zmienią wyniku Spearman, jeśli nie zmienią kolejności wartości przewidywanych lub rzeczywistych.<br> <br> **Cel:** Bliżej 1 <br> **Zakres:** [-1, 1]|[Obliczenia](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|
+explained_variance|Wyjaśniona wariancja mierzy zakres, w jakim model odpowiada odmianie zmiennej docelowej. Jest to procent spadku wariancji oryginalnych danych do wariancji błędów. Gdy średnia błędów wynosi 0, jest ona równa współczynnikowi ustalenia (zobacz r2_score poniżej). <br> <br> **Cel:** Im bliżej 1, tym lepiej <br> **Zakres:** (-inf, 1]|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|
+mean_absolute_error|Średni błąd bezwzględny to oczekiwana wartość bezwzględna różnicy między wartością docelową a przewidywaną.<br><br> **Cel:** Im bliżej 0, tym lepiej <br> **Zakres:** [0, inf) <br><br> Typy: <br>`mean_absolute_error` <br>  `normalized_mean_absolute_error`, mean_absolute_error podzielone przez zakres danych. | [Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|
+mean_absolute_percentage_error|Średni bezwzględny błąd procentowy (MAPE) jest miarą średniej różnicy między wartością przewidywaną a wartością rzeczywistą.<br><br> **Cel:** Im bliżej 0, tym lepiej <br> **Zakres:** [0, inf) ||
+median_absolute_error|Mediana bezwzględnego błędu to mediana wszystkich bezwzględnych różnic między wartością docelową i przewidywaną. Ta strata jest niezawodna dla odejścia.<br><br> **Cel:** Im bliżej 0, tym lepiej <br> **Zakres:** [0, inf)<br><br>Typy: <br> `median_absolute_error`<br> `normalized_median_absolute_error`: median_absolute_error podzielone przez zakres danych. |[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|
+r2_score|R<sup>2</sup> (współczynnik oznaczania) mierzy proporcjonalną redukcję błędu średniego kwadratu (MSE) względem całkowitej wariancji obserwowanych danych. <br> <br> **Cel:** Im bliżej 1, tym lepiej <br> **Zakres:** [-1, 1]<br><br>Uwaga: R<sup>2</sup> często ma zakres (-inf, 1]. MsE może być większy niż zaobserwowana wariancja, więc R<sup>2</sup> może mieć dowolnie duże wartości ujemne, w zależności od danych i przewidywań modelu. Automatyczne klipy uczenia maszynowego zgłaszały wyniki R<sup>2</sup> na -1, więc wartość -1 dla R<sup>2 prawdopodobnie</sup> oznacza, że prawdziwy wynik R<sup>2</sup> jest mniejszy niż -1. Podczas interpretowania negatywnego wyniku R<sup>2</sup> należy wziąć pod uwagę inne wartości metryk i właściwości danych.|[Obliczenia](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
+root_mean_squared_error |Główny błąd średniego kwadratu (RMSE, root mean squared error) to kwadrat kwadratowy oczekiwanej kwadratowej różnicy między wartością docelową a przewidywaną. W przypadku nieobsadnego estymatora RMSE jest równe odchyleniu standardowej.<br> <br> **Cel:** Im bliżej 0, tym lepiej <br> **Zakres:** [0, inf)<br><br>Typy:<br> `root_mean_squared_error` <br> `normalized_root_mean_squared_error`: root_mean_squared_error podzielone przez zakres danych. |[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|
+root_mean_squared_log_error|Główny błąd dziennika średniego kwadratu to kwadrat kwadratowy oczekiwanego błędu logarytmii kwadratowej.<br><br>**Cel:** Im bliżej 0, tym lepiej <br> **Zakres:** [0, inf) <br> <br>Typy: <br>`root_mean_squared_log_error` <br> `normalized_root_mean_squared_log_error`: root_mean_squared_log_error podzielone przez zakres danych.  |[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|
+spearman_correlation| Korelacja Spearmana to nieparametryczna miara monotonii relacji między dwoma zestawami danych. W przeciwieństwie do korelacji Pearsona, korelacja Spearmana nie zakłada, że oba zestawy danych są zwykle rozproszone. Podobnie jak w przypadku innych współczynników korelacji, spearman waha się od -1 do 1, a wartość 0 oznacza brak korelacji. Korelacje -1 lub 1 oznaczają dokładną relację monotoniczną. <br><br> Spearman to metryka korelacji kolejności rangi, co oznacza, że zmiany w wartościach przewidywanych lub rzeczywistych nie zmienią wyniku Spearmana, jeśli nie zmienią one kolejności klasyfikacji wartości przewidywanych lub rzeczywistych.<br> <br> **Cel:** Im bliżej 1, tym lepiej <br> **Zakres:** [-1, 1]|[Obliczenia](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|
 
-### <a name="metric-normalization"></a>Normalizacja metryki
+### <a name="metric-normalization"></a>Normalizacja metryk
 
-Zautomatyzowana ML normalizuje metryki regresji i prognozowania, co umożliwia porównanie modeli przeszkolonych na danych z różnymi zakresami. Model przeszkolony na danych z większym zakresem ma wyższy błąd niż ten sam model przeszkolony na danych z mniejszym zakresem, chyba że ten błąd jest znormalizowany.
+Zautomatyzowane ml normalizuje metryki regresji i prognozowania, co umożliwia porównywanie modeli wytrenowych na danych z różnymi zakresami. Model wytrenowany na danych z większym zakresem ma większy błąd niż ten sam model wytrenowany na danych o mniejszym zakresie, chyba że ten błąd jest znormalizowany.
 
-Chociaż nie ma standardowej metody normalizowania metryk błędów, zautomatyzowanej ML wykonuje wspólne podejście dzielenia błędu przez zakres danych: `normalized_error = error / (y_max - y_min)`
+Chociaż nie istnieje standardowa metoda normalizacji metryk błędów, zautomatyzowane mleowanie przyjmuje typową metodę dzielenia błędu przez zakres danych: `normalized_error = error / (y_max - y_min)`
 
-Podczas oceniania modelu prognozowania w danych szeregów czasowych zautomatyzowany ML wykonuje dodatkowe kroki w celu zapewnienia, że normalizacja odbywa się w odniesieniu do szeregów czasowych (ziarno), ponieważ każda seria czasu prawdopodobnie ma inną dystrybucję wartości docelowych.
+Podczas oceny modelu prognozowania na podstawie danych szeregów czasowych zautomatyzowane ml podejmuje dodatkowe kroki, aby zapewnić, że normalizacja będzie odbywać się na identyfikator szeregu czasowego (ziarno), ponieważ każdy szereg czasowy prawdopodobnie ma inny rozkład wartości docelowych.
 ## <a name="residuals"></a>Wartości resztkowe
 
-Wykres reszty to histogram dotyczący błędów przewidywania (reszty) generowanych dla eksperymentów i prognozowania. Pozostałe są obliczane jako `y_predicted - y_true` dla wszystkich próbek, a następnie wyświetlane jako histogram, aby pokazać odchylenia modelu.
+Wykres reszt jest histogramem błędów przewidywania (reszt) wygenerowanych dla eksperymentów regresji i prognozowania. Reszty są obliczane jako `y_predicted - y_true` dla wszystkich próbek, a następnie wyświetlane jako histogram, aby pokazać odchylenie modelu.
 
-W tym przykładzie należy zauważyć, że oba modele są nieco rozchylone do przewidywania mniejszej niż wartość rzeczywista. Jest to nietypowe w przypadku zestawu danych z skośną dystrybucją rzeczywistych elementów docelowych, ale wskazuje na gorszą wydajność modelu. Dobry model będzie miał rozkład reszty, który ma wartość zero w przypadku niewielkich reszt. Gorszy model będzie miał rozkład reszty rozłożonego z mniejszą liczbą próbek wokół zera.
+W tym przykładzie należy zauważyć, że oba modele są nieco odchyleniem do przewidywania wartości niższej niż wartość rzeczywista. Nie jest to niczym niezwykłym w przypadku zestawu danych ze skośną dystrybucją rzeczywistych obiektów docelowych, ale wskazuje na słabszą wydajność modelu. Dobry model będzie miał rozkład reszt, który ma wartość szczytową z zerem i kilkoma resztami na skrajnych wartościach. Gorszy model będzie miał rozkład reszt z mniejszą liczbą próbek około zera.
 
-### <a name="residuals-chart-for-a-good-model"></a>Wykres reszty dla dobrego modelu
-![Wykres reszty dla dobrego modelu](./media/how-to-understand-automated-ml/chart-residuals-good.png)
+### <a name="residuals-chart-for-a-good-model"></a>Wykres reszt dla dobrego modelu
+![Wykres reszt dla dobrego modelu](./media/how-to-understand-automated-ml/chart-residuals-good.png)
 
-### <a name="residuals-chart-for-a-bad-model"></a>Wykres reszty dla nieprawidłowego modelu
-![Wykres reszty dla nieprawidłowego modelu](./media/how-to-understand-automated-ml/chart-residuals-bad.png)
+### <a name="residuals-chart-for-a-bad-model"></a>Wykres reszt dla złego modelu
+![Wykres reszt dla złego modelu](./media/how-to-understand-automated-ml/chart-residuals-bad.png)
 
-## <a name="predicted-vs-true"></a>Przewidywany a prawdziwy
+## <a name="predicted-vs-true"></a>Przewidywana a prawda
 
-Aby przeprowadzić regresję i prognozowanie eksperymentu wykres przewidywany a prawda przedstawia relację między funkcją docelową (wartości prawdziwe/rzeczywiste) i przewidywaniami modelu. Prawdziwe wartości są Binned wzdłuż osi x, a dla każdego pojemnika średnia wartość jest wykreślana z słupkami błędów. Dzięki temu można sprawdzić, czy model jest rozmieszczony w kierunku przewidywania określonych wartości. Wiersz wyświetla średnią prognozę i zacieniony obszar wskazuje wariancję prognoz wokół tego znaczenia.
+W przypadku eksperymentu regresji i prognozowania wykres przewidywany względem wartości true przedstawia relację między cechą docelową (wartościami true/actual) i przewidywaniami modelu. Wartości true są kreślone wzdłuż osi x, a dla każdego pojemnika średnia przewidywana wartość jest kreślona za pomocą pasków błędów. Dzięki temu można zobaczyć, czy model jest stronniczy w przewidywaniu określonych wartości. Linia wyświetla średnie przewidywanie, a zacieniony obszar wskazuje wariancja przewidywań wokół tej średniej.
 
-Często najbardziej typowa wartość true będzie miała najdokładniejsze przewidywania o najmniejszej wariancji. Odległość linii trendu od idealnego wiersza, w `y = x` którym istnieje kilka prawdziwych wartości, jest dobrym wskaźnikiem wydajności modelu w oddziałach. Możesz użyć histogramu u dołu wykresu, aby przyczynić się do faktycznej dystrybucji danych. W tym więcej próbek danych, w których dystrybucja jest rozrzedzona, może poprawić wydajność modelu dla niewidocznych danych.
+Często najbardziej typowa wartość true będzie mieć najdokładniejsze przewidywania o najniższej wariancji. Odległość linii trendu od linii idealnej, gdzie istnieje kilka prawdziwych wartości, jest dobrą miarą wydajności modelu `y = x` na wartościach odsłonych. Możesz użyć histogramu w dolnej części wykresu, aby określić rzeczywistą rozkład danych. Do uwzględnienia większej liczby przykładów danych, w których rozkład jest rozrzedziony, można poprawić wydajność modelu w przypadku niezauznanych danych.
 
-W tym przykładzie należy zauważyć, że lepszym modelem jest wiersz przewidywany w porównaniu do idealnej `y = x` linii.
+W tym przykładzie należy zauważyć, że lepszy model ma przewidywaną i prawdziwą linię, która jest bliżej linii `y = x` idealnej.
 
-### <a name="predicted-vs-true-chart-for-a-good-model"></a>Wykres przewidywany w porównaniu z rzeczywistym modelem
-![Wykres przewidywany w porównaniu z rzeczywistym modelem](./media/how-to-understand-automated-ml/chart-predicted-true-good.png)
+### <a name="predicted-vs-true-chart-for-a-good-model"></a>Wykres przewidywany i prawdziwy dla dobrego modelu
+![Wykres przewidywany w porównaniu z wartościami true dla dobrego modelu](./media/how-to-understand-automated-ml/chart-predicted-true-good.png)
 
-### <a name="predicted-vs-true-chart-for-a-bad-model"></a>Wykres przewidywany dla nieprawidłowego modelu
-![Wykres przewidywany dla nieprawidłowego modelu](./media/how-to-understand-automated-ml/chart-predicted-true-bad.png)
+### <a name="predicted-vs-true-chart-for-a-bad-model"></a>Wykres przewidywany w porównaniu z wartościami true dla słabego modelu
+![Wykres przewidywany w porównaniu z wartościami true dla słabego modelu](./media/how-to-understand-automated-ml/chart-predicted-true-bad.png)
 
-## <a name="model-explanations-and-feature-importances"></a>Objaśnienia modelu i znaczenie funkcji
+## <a name="model-explanations-and-feature-importances"></a>Wyjaśnienia modelu i ważność funkcji
 
-Chociaż metryki i wykresy oceny modelu są dobre do mierzenia ogólnej jakości modelu, sprawdzanie, który zestaw danych zawiera model, który jest używany do zapewnienia, że jego przewidywania jest niezbędne w przypadku praktycznego odpowiedzialnego AI. Dlatego zautomatyzowanej sieci zapewnia pulpit nawigacyjny z możliwością interpretacji modelu, który umożliwia mierzenie i raportowanie względnych wkładów funkcji zestawu danych.
+Mimo że metryki i wykresy oceny modelu są dobre do mierzenia ogólnej jakości modelu, sprawdzanie, które zestawy danych mają cechy modelu używanego do prognozowania, jest niezbędne podczas praktyk odpowiedzialnego korzystania ze AI. Dlatego zautomatyzowane mleowanie udostępnia pulpit nawigacyjny z wyjaśnieniami modelu, który umożliwia pomiar i zgłaszanie względnego wkładu funkcji zestawu danych. Zobacz, jak [wyświetlić pulpit nawigacyjny z wyjaśnieniami w Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#model-explanations-preview).
 
-Aby wyświetlić pulpit nawigacyjny z interpretacją w Studio:
-1. [Zaloguj się do programu Studio](https://ml.azure.com/) i przejdź do obszaru roboczego
-2. W menu po lewej stronie wybierz pozycję **eksperymenty**
-3. Wybierz swój eksperyment z listy eksperymentów
-4. W tabeli w dolnej części strony wybierz uruchomienie AutoML
-5. Na karcie **modele** wybierz **nazwę algorytmu** dla modelu, który chcesz wyjaśnić
-6. Na karcie **wyjaśnienia** można zobaczyć, że wyjaśnienie zostało już utworzone, jeśli model jest najlepszy
-7. Aby utworzyć nowe wyjaśnienie, wybierz pozycję **Wyjaśnij model** i wybierz zdalne obliczenie, za pomocą którego mają zostać obliczone wyjaśnienia
-
-[Dowiedz się więcej na temat wyjaśnień modelu w zautomatyzowanej ml](how-to-machine-learning-interpretability-automl.md).
+Aby uzyskać informacje na temat pierwszego środowiska kodu, zobacz, jak skonfigurować wyjaśnienia modelu dla eksperymentów zautomatyzowanego uczenia maszynowego przy [użyciu zestawu SDK języka Python Azure Machine Learning Python.](how-to-machine-learning-interpretability-automl.md)
 
 > [!NOTE]
-> Model ForecastTCN nie jest obecnie obsługiwany przez automatyczne objaśnienia ML, a inne modele prognozowania mogą mieć ograniczony dostęp do narzędzi do interpretacji.
+> Model ForecastTCN nie jest obecnie obsługiwany przez zautomatyzowane wyjaśnienia uczenia maszynowego, a inne modele prognozowania mogą mieć ograniczony dostęp do narzędzi do interpretacji.
 
 ## <a name="next-steps"></a>Następne kroki
-* Wypróbuj [przykładowy model uczenia maszynowego](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
-* W przypadku zautomatyzowanych pytań określonych w ML należy skontaktować się z askautomatedml@microsoft.com .
+* Wypróbuj [przykładowe notesy z wyjaśnieniem zautomatyzowanego modelu uczenia maszynowego.](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)
+* W przypadku pytań specyficznych dla zautomatyzowanego uczenia maszynowego należy uzyskać dostęp do . askautomatedml@microsoft.com

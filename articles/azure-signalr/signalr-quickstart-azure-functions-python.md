@@ -1,21 +1,23 @@
 ---
-title: Funkcja szybkiego startu usługi Azure Signal Service — Python
-description: Przewodnik Szybki Start dotyczący korzystania z usługi Azure Signal Service i Azure Functions tworzenia pokoju rozmów przy użyciu języka Python.
+title: Azure SignalR Service szybki start — Python
+description: Przewodnik Szybki start, w Azure SignalR Service i Azure Functions do tworzenia pokoju rozmów przy użyciu języka Python.
 author: anthonychu
+ms.author: antchu
+ms.date: 12/14/2019
+ms.topic: quickstart
 ms.service: signalr
 ms.devlang: python
-ms.topic: quickstart
-ms.date: 12/14/2019
-ms.author: antchu
-ms.custom: devx-track-python
-ms.openlocfilehash: 82a2e64d27fcbbb3801e6dab347343e086a0b70f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom:
+- devx-track-python
+- mode-api
+ms.openlocfilehash: a279c1ed16cac69932001146d4108cec19203e22
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048225"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536641"
 ---
-# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>Szybki Start: Tworzenie pokoju rozmów z usługami Azure Functions i sygnalizującymi przy użyciu języka Python
+# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>Szybki start: tworzenie pokoju rozmów z Azure Functions i SignalR Service języka Python
 
 Usługa Azure SignalR Service umożliwia łatwe dodawanie funkcji czasu rzeczywistego do aplikacji. Usługa Azure Functions to bezserwerowa platforma, która pozwala uruchamiać kod bez zarządzania jakąkolwiek infrastrukturą. W tym przewodniku Szybki start dowiesz się, jak utworzyć bezserwerową aplikację czatu w czasie rzeczywistym za pomocą usług SignalR Service i Functions.
 
@@ -25,27 +27,27 @@ Czynności przedstawione w tym przewodniku Szybki start można wykonywać w syst
 
 Upewnij się, że masz zainstalowany edytor kodu, taki jak [Visual Studio Code](https://code.visualstudio.com/).
 
-Zainstaluj [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (w wersji 2.7.1505 lub nowszej), aby lokalnie uruchamiać aplikacje funkcji platformy Azure w języku Python.
+Zainstaluj aplikację [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (wersja 2.7.1505 lub nowsza), aby lokalnie uruchamiać aplikacje funkcji platformy Azure w języku Python.
 
-Azure Functions wymaga języka [Python 3.6 +](https://www.python.org/downloads/). (Zobacz [obsługiwane wersje języka Python](/azure/azure-functions/functions-reference-python#python-version))
+Azure Functions wymaga [języka Python w wersji 3.6 lub wersji .](https://www.python.org/downloads/) (Zobacz [Obsługiwane wersje języka Python)](/azure/azure-functions/functions-reference-python#python-version)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qspython).
+Masz problemy? Wypróbuj przewodnik [rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qspython).
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
 Zaloguj się do witryny Azure Portal pod adresem <https://portal.azure.com/> przy użyciu danych konta Azure.
 
-Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qspython).
+Masz problemy? Wypróbuj przewodnik [rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qspython).
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qspython).
+Masz problemy? Wypróbuj przewodnik [rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qspython).
 
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
 
-Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qspython).
+Masz problemy? Wypróbuj przewodnik [rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qspython).
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Konfigurowanie i uruchamianie aplikacji funkcji platformy Azure
 
@@ -59,18 +61,18 @@ Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-tr
 
     ![Zaznacz i skopiuj podstawowe parametry połączenia.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-1. W edytorze kodu Otwórz folder *src/Chat/Python* w sklonowanym repozytorium.
+1. W edytorze kodu otwórz folder *src/chat/python* w sklonowanym repozytorium.
 
-1. Aby lokalnie opracowywać i testować funkcje języka Python, musisz pracować w środowisku Python 3,6 lub 3,7. Uruchom następujące polecenia, aby utworzyć i aktywować środowisko wirtualne o nazwie `.venv`.
+1. Aby lokalnie tworzyć i testować funkcje języka Python, musisz pracować w środowisku języka Python 3.6 lub 3.7. Uruchom następujące polecenia, aby utworzyć i aktywować środowisko wirtualne o nazwie `.venv`.
 
-    **System Linux lub macOS:**
+    **Linux lub macOS:**
 
     ```bash
     python3.7 -m venv .venv
     source .venv/bin/activate
     ```
 
-    **Systemy**
+    **Windows:**
 
     ```powershell
     py -3.7 -m venv .venv
@@ -81,12 +83,12 @@ Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-tr
 
 1. W pliku **local.settings.json** wklej parametry połączenia jako wartość ustawienia **AzureSignalRConnectionString**. Zapisz plik.
 
-1. Funkcje języka Python są zorganizowane w foldery. W każdym folderze są dwa pliki: *function.json* definiuje powiązania, które są używane w funkcji, a *\_ \_ init \_ \_ . PR* jest treścią funkcji. W tej aplikacji funkcji znajdują się dwie funkcje wyzwalane przez protokół HTTP:
+1. Funkcje języka Python są zorganizowane w foldery. W każdym folderze znajdują się dwa pliki: *function.json* definiuje powiązania, które są używane w funkcji, a *\_ \_ init \_ \_ .py* jest treścią funkcji. W tej aplikacji funkcji znajdują się dwie funkcje wyzwalane przez protokół HTTP:
 
     - **negotiate** — ta funkcja generuje i zwraca ważne informacje o połączeniu przy użyciu danych wejściowych powiązania *SignalRConnectionInfo*.
     - **messages** — ta funkcja otrzymuje wiadomość czatu w treści żądania i używa powiązania danych wyjściowych *SignalR* do rozgłoszenia wiadomości do wszystkich połączonych aplikacji klienckich.
 
-1. Upewnij się, że jesteś w folderze *src/Chat/Python* w terminalu ze aktywowanym środowiskiem wirtualnym. Zainstaluj wymagane pakiety języka Python przy użyciu narzędzia PIP.
+1. W terminalu z aktywowanym środowiskiem wirtualnym upewnij się, że jesteś w folderze *src/chat/python.* Zainstaluj niezbędne pakiety języka Python przy użyciu narzędzia PIP.
 
     ```bash
     python -m pip install -r requirements.txt
@@ -98,22 +100,21 @@ Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-tr
     func start
     ```
 
-    ![Uruchom aplikację funkcji](media/signalr-quickstart-azure-functions-python/signalr-quickstart-run-application.png)
+    ![Uruchamianie aplikacji funkcji](media/signalr-quickstart-azure-functions-python/signalr-quickstart-run-application.png)
     
-Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qspython).
+Masz problemy? Wypróbuj przewodnik [rozwiązywania problemów lub](signalr-howto-troubleshoot-guide.md) [daj nam znać](https://aka.ms/asrs/qspython).
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
-Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qspython).
+Masz problemy? Wypróbuj przewodnik [rozwiązywania problemów lub](signalr-howto-troubleshoot-guide.md) [daj nam znać](https://aka.ms/asrs/qspython).
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
-Masz problemy? Wypróbuj [Przewodnik rozwiązywania problemów](signalr-howto-troubleshoot-guide.md) lub [daj nam znać](https://aka.ms/asrs/qspython).
+Masz problemy? Wypróbuj przewodnik [rozwiązywania problemów lub](signalr-howto-troubleshoot-guide.md) [daj nam znać](https://aka.ms/asrs/qspython).
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono i uruchomiono aplikację bezserwerową w czasie rzeczywistym w VS Code. Teraz dowiedz się więcej o sposobie wdrażania usługi Azure Functions z programu VS Code.
+W tym przewodniku Szybki start sbudowaliśmy i uruchomiliśmy bez serwera w czasie rzeczywistym aplikację w VS Code. Teraz dowiedz się więcej o sposobie wdrażania usługi Azure Functions z programu VS Code.
 
 > [!div class="nextstepaction"]
 > [Wdrażanie usługi Azure Functions za pomocą programu VS Code](/azure/developer/javascript/tutorial-vscode-serverless-node-01)
-

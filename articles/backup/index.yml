@@ -9,12 +9,12 @@ metadata:
   author: v-amallick
   ms.author: v-amallick
   ms.date: 12/01/2019
-  ms.openlocfilehash: 0ad0f1aec1ce4e0718952d82d08672df42924f51
-  ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
+  ms.openlocfilehash: bb23dc8b692bfbbad6d44fb0dc78929da4485b63
+  ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 04/04/2021
-  ms.locfileid: "106293621"
+  ms.lasthandoff: 04/15/2021
+  ms.locfileid: "107518991"
 landingContent:
 - title: Dowiedz się więcej o usłudze Azure Backup
   linkLists:
@@ -84,19 +84,19 @@ landingContent:
       url: backup-azure-vm-backup-faq.yml
     - text: Zarządzanie kopiami zapasowymi maszyn wirtualnych platformy Azure
       url: backup-azure-manage-vms.md
-- title: Tworzenie kopii zapasowej Managed Disks platformy Azure
+- title: Kopii zapasowej usługi Azure Dyski zarządzane
   linkLists:
   - linkListType: concept
     links:
-    - text: Omówienie usługi Kopia zapasowa Azure Disk
+    - text: Omówienie usługi Azure Disk Backup
       url: disk-backup-overview.md
-    - text: Macierz obsługi dla usługi Kopia zapasowa Azure Disk
+    - text: Macierz obsługi dla usługi Azure Disk Backup
       url: disk-backup-support-matrix.md
-    - text: Tworzenie kopii zapasowej Managed Disks platformy Azure
+    - text: Kopii zapasowej usługi Azure Dyski zarządzane
       url: backup-managed-disks.md
-    - text: Często zadawane pytania — Managed Disks platformy Azure
-      url: disk-backup-faq.md
-    - text: Rozwiązywanie problemów z usługą Azure Managed Disks Backup
+    - text: Często zadawane pytania — Azure Dyski zarządzane
+      url: disk-backup-faq.yml
+    - text: Rozwiązywanie problemów z usługą Azure Dyski zarządzane Backup
       url: disk-backup-troubleshoot.md
 - title: Tworzenie kopii zapasowej programu SQL Server na maszynach wirtualnych platformy Azure
   linkLists:
@@ -105,7 +105,7 @@ landingContent:
     - text: Informacje o kopii zapasowej programu SQL Server na maszynach wirtualnych platformy Azure
       url: backup-azure-sql-database.md
     - text: Często zadawane pytania — kopia zapasowa programu SQL Server na maszynach wirtualnych platformy Azure
-      url: faq-backup-sql-server.md
+      url: faq-backup-sql-server.yml
     - text: Tworzenie kopii zapasowych baz danych programu SQL Server na maszynach wirtualnych platformy Azure
       url: backup-sql-server-database-azure-vms.md
     - text: Zarządzanie kopiami zapasowymi baz danych programu SQL Server i ich monitorowanie
@@ -119,7 +119,7 @@ landingContent:
     - text: Zarządzanie kopiami zapasowymi baz danych platformy SAP HANA i ich monitorowanie
       url: sap-hana-db-manage.md
     - text: Często zadawane pytania — tworzenie kopii zapasowych baz danych platformy SAP HANA na maszynach wirtualnych platformy Azure
-      url: sap-hana-faq-backup-azure-vm.md
+      url: sap-hana-faq-backup-azure-vm.yml
     - text: Macierz obsługi dla kopii zapasowych baz danych platformy SAP HANA na maszynach wirtualnych platformy Azure
       url: sap-hana-backup-support-matrix.md
 - title: Tworzenie kopii zapasowej udziałów w usłudze Azure Files
@@ -129,7 +129,7 @@ landingContent:
     - text: Tworzenie kopii zapasowej i przywracanie udziałów plików platformy Azure
       url: backup-afs.md
     - text: Często zadawane pytania — tworzenie kopii zapasowej plików w usłudze Azure Files
-      url: backup-azure-files-faq.md
+      url: backup-azure-files-faq.yml
 - title: Tworzenie kopii zapasowej za pomocą agenta Microsoft Azure Recovery Services (MARS)
   linkLists:
   - linkListType: concept
@@ -141,7 +141,7 @@ landingContent:
     - text: Macierz obsługi agenta usługi MARS
       url: backup-support-matrix-mars-agent.md
     - text: Często zadawane pytania — agent MARS
-      url: backup-azure-file-folder-backup-faq.md
+      url: backup-azure-file-folder-backup-faq.yml
 - title: Tworzenie kopii zapasowej za pomocą serwera Microsoft Azure Backup Server (MABS) i programu DPM
   linkLists:
   - linkListType: concept
@@ -151,7 +151,7 @@ landingContent:
     - text: Tabela obsługi serweraMABS/programu DPM
       url: backup-support-matrix-mabs-dpm.md
     - text: Często zadawane pytania — serwer MABS i program DPM
-      url: backup-azure-dpm-azure-server-faq.md
+      url: backup-azure-dpm-azure-server-faq.yml
     - text: Instalowanie i uaktualnianie serwera MABS
       url: backup-azure-microsoft-azure-backup.md
 - title: Zarządzanie na dużą skalę
