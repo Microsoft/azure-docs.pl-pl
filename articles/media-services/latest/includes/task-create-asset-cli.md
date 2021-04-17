@@ -4,17 +4,17 @@ ms.service: media-services
 ms.topic: include
 ms.date: 08/18/2020
 ms.author: inhenkel
-ms.custom: CLI
-ms.openlocfilehash: 9f079be76d4d75f05b4a8e132ac425255eed8558
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: CLI, devx-track-azurecli
+ms.openlocfilehash: e16e3dc6788fb30a87a78fd6d6077087f461cfa7
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88605972"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107511623"
 ---
 <!--Create a media services asset CLI-->
 
-Następujące polecenie interfejsu wiersza polecenia platformy Azure tworzy nowy element zawartości Media Services. Zastąp wartości `assetName` `amsAccountName` i `resourceGroup` wartościami, dla których obecnie pracujesz.  
+Następujące polecenie interfejsu wiersza polecenia platformy Azure tworzy nowy Media Services zasobów. Zastąp wartości `assetName` `amsAccountName` i `resourceGroup` wartościami, z których obecnie pracujesz.  
 
 ```azurecli
 az ams asset create -n assetName -a amsAccountName -g resourceGroup

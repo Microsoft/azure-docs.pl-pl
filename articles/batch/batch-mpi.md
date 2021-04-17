@@ -1,47 +1,47 @@
 ---
-title: Używanie zadań o wiele wystąpień do uruchamiania aplikacji MPI
-description: Dowiedz się, jak wykonywać aplikacje MPI (Message Passing Interface) za pomocą typu zadania o wiele wystąpień w Azure Batch.
+title: Uruchamianie aplikacji MPI przy użyciu zadań o wielu wystąpieniach
+description: Dowiedz się, jak wykonywać Message Passing Interface (MPI) przy użyciu typu zadania o wielu wystąpieniach w Azure Batch.
 ms.topic: how-to
-ms.date: 03/25/2021
-ms.openlocfilehash: 02764f8dd8a6bb3e4224b8b44fe78ab7e15ba85d
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.date: 04/13/2021
+ms.openlocfilehash: e96cfb89b186d69f6ad969949b8df609956114d2
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106219856"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389404"
 ---
-# <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Używanie zadań o wiele wystąpień do uruchamiania aplikacji interfejsu przekazywania komunikatów (MPI) w usłudze Batch
+# <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Używanie zadań o wielu wystąpieniach do uruchamiania Message Passing Interface (MPI) w umacie Batch
 
-Zadania z wieloma wystąpieniami umożliwiają jednoczesne uruchamianie zadania Azure Batch w wielu węzłach obliczeniowych. Te zadania umożliwiają tworzenie scenariuszy obliczeniowych o wysokiej wydajności, takich jak aplikacje MPI (Message Passing Interface) w usłudze Batch. W tym artykule dowiesz się, jak wykonywać zadania o wiele wystąpień przy użyciu biblioteki usługi [Batch .NET](/dotnet/api/microsoft.azure.batch) .
-
-> [!NOTE]
-> Mimo że przykłady w tym artykule koncentrują się na węzłach obliczeniowych usługi Batch .NET, MS-MPI i Windows, koncepcje zadań o wiele wystąpień omówione tutaj mają zastosowanie do innych platform i technologii (na przykład w językach Python i Intel MPI w systemie Linux).
-
-## <a name="multi-instance-task-overview"></a>Przegląd zadań o wiele wystąpień
-
-W usłudze Batch każde zadanie jest zwykle wykonywane w jednym węźle obliczeniowym — do zadania są przesyłane wiele zadań, a usługa Batch planuje każde zadanie do wykonania w węźle. Jednak konfigurując **Ustawienia wielu wystąpień** zadania, należy powiedzieć usłudze Batch, aby zamiast tego utworzyć jedno zadanie podstawowe i kilka podzadań, które są następnie wykonywane na wielu węzłach.
-
-:::image type="content" source="media/batch-mpi/batch-mpi-01.png" alt-text="Diagram przedstawiający przegląd ustawień o kilku wystąpieniach.":::
-
-Po przesłaniu zadania z ustawieniami z wieloma wystąpieniami do zadania usługi Batch wykonuje kilka czynności unikatowych dla zadań z wieloma wystąpieniami:
-
-1. Usługa Batch tworzy jedno **podstawowe** i kilka **podzadań** w oparciu o ustawienia wielu wystąpień. Całkowita liczba zadań (podstawowa i wszystkie podzadania) odpowiada liczbie **wystąpień** (węzłów obliczeniowych) określonych w ustawieniach wielu wystąpień.
-2. Partia określa jeden z węzłów obliczeniowych jako **wzorzec** i planuje wykonywanie zadania podstawowego na wzorcu. Planuje wykonywanie podzadań w pozostałej części węzłów obliczeniowych przypisywanych do zadania o wielu wystąpieniach, jednego podzadania na węzeł.
-3. Podstawowe i wszystkie podzadania pobierają wszystkie **pliki zasobów** , które są określone w ustawieniach z obsługą wiele wystąpień.
-4. Po pobraniu wspólnych plików zasobów podstawowe i podrzędne zadania wykonują **polecenie koordynacyjne** określone w ustawieniach z obsługą wiele wystąpień. Polecenie koordynacyjne jest zwykle używane do przygotowywania węzłów do wykonania zadania. Może to obejmować uruchamianie usług w tle (takich jak [Microsoft MPI](/message-passing-interface/microsoft-mpi) `smpd.exe` ) i sprawdzanie, czy węzły są gotowe do przetwarzania komunikatów między węzłami.
-5. Zadanie podstawowe wykonuje **polecenie aplikacji** w węźle głównym *po* pomyślnym wykonaniu polecenia koordynacji przez podstawowe i wszystkie podzadania. Polecenie aplikacji jest wierszem polecenia samego zadania o wiele wystąpień i jest wykonywane tylko przez zadanie główne. W rozwiązaniu opartym na [MS-MPI](/message-passing-interface/microsoft-mpi) to miejsce, w którym uruchamiasz aplikację z obsługą MPI przy użyciu programu `mpiexec.exe` .
+Zadania o wielu wystąpieniach umożliwiają uruchamianie zadania podrzędnego Azure Batch w wielu węzłach obliczeniowych jednocześnie. Te zadania umożliwiają scenariusze obliczeń o wysokiej wydajności, takie Message Passing Interface (MPI) w umacie Batch. Z tego artykułu dowiesz się, jak wykonywać zadania o wielu wystąpieniach przy użyciu [biblioteki .NET usługi Batch.](/dotnet/api/microsoft.azure.batch)
 
 > [!NOTE]
-> Chociaż jest to funkcjonalne odrębnie, "zadanie o wiele wystąpień" nie jest unikatowym typem zadania, takim jak [StartTask](/dotnet/api/microsoft.azure.batch.starttask) lub [JobPreparationTask](/dotnet/api/microsoft.azure.batch.jobpreparationtask). Zadanie wielowystąpienie to po prostu standardowe zadanie wsadowe ([CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) w usłudze Batch .NET), dla którego skonfigurowano wiele wystąpień. W tym artykule nazywamy to **zadanie o wiele wystąpień**.
+> Chociaż przykłady w tym artykule koncentrują się na węzłach obliczeniowych usługi Batch .NET, MS-MPI i Windows, omówione tutaj pojęcia dotyczące zadań o wielu wystąpieniach mają zastosowanie do innych platform i technologii (na przykład Python i Intel MPI w węzłach systemu Linux).
 
-## <a name="requirements-for-multi-instance-tasks"></a>Wymagania dotyczące zadań o wiele wystąpień
+## <a name="multi-instance-task-overview"></a>Omówienie zadań o wielu wystąpieniach
 
-Zadania z wielowystąpieniem wymagają puli z **włączoną funkcją komunikacji między węzłami** i **współbieżnego wykonywania zadań**. Aby wyłączyć współbieżne wykonywanie zadań, ustaw właściwość [CloudPool. TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool) na 1.
+W usłudze Batch każde zadanie jest zwykle wykonywane w jednym węźle obliczeniowym — przesyłasz wiele zadań do zadania, a usługa Batch planuje wykonanie każdego zadania w węźle. Jednak konfigurując ustawienia wielu wystąpień zadania podrzędnego, należy poinformować usługę Batch, aby zamiast tego tworzyła jedno zadanie podstawowe i kilka podzadań, które są następnie wykonywane w wielu węzłach.
+
+:::image type="content" source="media/batch-mpi/batch-mpi-01.png" alt-text="Diagram przedstawiający przegląd ustawień z wieloma wystąpieniami.":::
+
+Podczas przesyłania zadania z ustawieniami wielu wystąpień do zadania usługa Batch wykonuje kilka kroków unikatowych dla zadań o wielu wystąpieniach:
+
+1. Usługa Batch tworzy jeden **podstawowy i** kilka **podzadani** na podstawie ustawień wielu wystąpień. Łączna liczba zadań podrzędnych (podstawowych i wszystkich podzadań) odpowiada liczbie wystąpień **(węzłów** obliczeniowych) skojarzynych z ustawieniami wielu wystąpień.
+2. Usługa Batch wyznacza jeden z węzłów obliczeniowych jako **główny** i planuje wykonanie podstawowego zadania nadrzędnego na wzorcu. Planuje wykonywanie podzadań w pozostałej części węzłów obliczeniowych przydzielonych do zadania o wielu wystąpieniach— po jednym podzadaniu na węzeł.
+3. Podstawowe i wszystkie podzadnia pobierają wszystkie typowe pliki **zasobów określone** w ustawieniach wielu wystąpień.
+4. Po pobraniu wspólnych plików zasobów zadania podstawowe i  podzadaży wykonują polecenie koordynacji określone w ustawieniach wielu wystąpień. Polecenie koordynacji jest zwykle używane do przygotowania węzłów do wykonania zadania. Może to obejmować uruchamianie usług w tle (takich jak [microsoft MPI)](/message-passing-interface/microsoft-mpi) i sprawdzanie, czy węzły są gotowe do `smpd.exe` przetwarzania komunikatów między węzłami.
+5. Zadanie podstawowe wykonuje  polecenie aplikacji w  węźle głównym po pomyślnym ukończeniu polecenia koordynacji przez podstawowy i wszystkie podzadnia. Polecenie aplikacji jest wierszem polecenia zadania o wielu wystąpieniach i jest wykonywane tylko przez zadanie podstawowe. W [rozwiązaniu opartym na pliku MS-MPI](/message-passing-interface/microsoft-mpi) jest to miejsce, w którym aplikacja z obsługą mpi jest wykonywana przy użyciu polecenia `mpiexec.exe` .
 
 > [!NOTE]
-> Partia zadań [ogranicza](batch-quota-limit.md#pool-size-limits) rozmiar puli, w której włączono komunikację między węzłami.
+> Chociaż jest funkcjonalnie odrębny, "zadanie o wielu wystąpieniach" nie jest unikatowym typem zadania, takiego jak [StartTask](/dotnet/api/microsoft.azure.batch.starttask) lub [JobPreparationTask.](/dotnet/api/microsoft.azure.batch.jobpreparationtask) Zadanie o wielu wystąpieniach jest po prostu standardowym zadaniem usługi Batch[(CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) na platformie .NET usługi Batch), którego ustawienia wielu wystąpień zostały skonfigurowane. W tym artykule o tym mówimy jako o zadaniu **o wielu wystąpieniach.**
 
-Ten fragment kodu przedstawia sposób tworzenia puli dla zadań z wielowystąpieniami przy użyciu biblioteki usługi Batch platformy .NET.
+## <a name="requirements-for-multi-instance-tasks"></a>Wymagania dotyczące zadań o wielu wystąpieniach
+
+Zadania z wieloma wystąpieniami wymagają puli z włączoną komunikacją między **węzłami** oraz z **wyłączonym współbieżną obsługą zadań.** Aby wyłączyć współbieżne wykonywanie zadań, ustaw [właściwość CloudPool.TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool) na wartość 1.
+
+> [!NOTE]
+> Usługa [](batch-quota-limit.md#pool-size-limits) Batch ogranicza rozmiar puli z włączoną komunikacją między węzłami.
+
+Ten fragment kodu przedstawia sposób tworzenia puli dla zadań o wielu wystąpieniach przy użyciu biblioteki usługi Batch dla programu .NET.
 
 ```csharp
 CloudPool myCloudPool =
@@ -49,7 +49,13 @@ CloudPool myCloudPool =
         poolId: "MultiInstanceSamplePool",
         targetDedicatedComputeNodes: 3
         virtualMachineSize: "standard_d1_v2",
-        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
+        VirtualMachineConfiguration: new VirtualMachineConfiguration(
+        imageReference: new ImageReference(
+                        publisher: "MicrosoftWindowsServer",
+                        offer: "WindowsServer",
+                        sku: "2019-datacenter-core",
+                        version: "latest"),
+        nodeAgentSkuId: "batch.node.windows amd64");
 
 // Multi-instance tasks require inter-node communication, and those nodes
 // must run only one task at a time.
@@ -58,11 +64,11 @@ myCloudPool.TaskSlotsPerNode = 1;
 ```
 
 > [!NOTE]
-> Jeśli spróbujesz uruchomić zadanie o wielu wystąpieniach w puli z wyłączoną łącznością międzywęzłową lub z *taskSlotsPerNode* wartością większą niż 1, zadanie nigdy nie zostanie zaplanowane — pozostaje nieokreślony w stanie "aktywny".
+> Jeśli spróbujesz uruchomić zadanie o wielu wystąpieniach w puli z wyłączoną komunikacją międzywęzową lub z wartością *taskSlotsPerNode* większą niż 1, zadanie nigdy nie zostanie zaplanowane — pozostanie w stanie "aktywny" na czas nieokreślony.
 
-### <a name="use-a-starttask-to-install-mpi"></a>Instalowanie MPI przy użyciu StartTask
+### <a name="use-a-starttask-to-install-mpi"></a>Instalowanie pakietu MPI za pomocą funkcji StartTask
 
-Aby uruchamiać aplikacje MPI przy użyciu zadania o kilku wystąpieniach, należy najpierw zainstalować implementację MPI (na przykład MS-MPI lub Intel MPI) w węzłach obliczeniowych w puli. Jest to dobry moment, aby użyć [StartTask](/dotnet/api/microsoft.azure.batch.starttask), który jest wykonywany za każdym razem, gdy węzeł dołącza do puli lub jest uruchamiany ponownie. Ten fragment kodu tworzy StartTask, który określa pakiet instalacyjny MS-MPI jako [plik zasobów](/dotnet/api/microsoft.azure.batch.resourcefile). Wiersz polecenia zadania podrzędnego uruchamiania jest wykonywany po pobraniu pliku zasobów do węzła. W takim przypadku wiersz polecenia wykonuje instalację nienadzorowaną MS-MPI.
+Aby uruchamiać aplikacje MPI z zadaniem o wielu wystąpieniach, należy najpierw zainstalować implementację MPI (na przykład MS-MPI lub Intel MPI) w węzłach obliczeniowych w puli. Jest to dobry czas na użycie funkcji [StartTask,](/dotnet/api/microsoft.azure.batch.starttask)która jest wykonywana za każdym razem, gdy węzeł dołącza do puli lub jest uruchamiany ponownie. Ten fragment kodu tworzy pakiet StartTask określający pakiet instalacyjny MS-MPI jako [plik zasobów](/dotnet/api/microsoft.azure.batch.resourcefile). Wiersz polecenia zadania uruchamiania jest wykonywany po pobraniu pliku zasobu do węzła. W takim przypadku wiersz polecenia wykonuje nienadzorowane instalowanie pliku MS-MPI.
 
 ```csharp
 // Create a StartTask for the pool which we use for installing MS-MPI on
@@ -83,16 +89,16 @@ await myCloudPool.CommitAsync();
 
 ### <a name="remote-direct-memory-access-rdma"></a>Zdalny bezpośredni dostęp do pamięci (RDMA)
 
-W przypadku wybrania [rozmiaru z obsługą funkcji RDMA](../virtual-machines/sizes-hpc.md?toc=/azure/virtual-machines/windows/toc.json) , takiego jak A9 dla węzłów obliczeniowych w puli usługi Batch, aplikacja MPI może korzystać z wysokiej wydajności sieci zdalnej bezpośredniego dostępu do pamięci (RDMA) na platformie Azure.
+Po wybraniu rozmiaru z [możliwością RDMA,](../virtual-machines/sizes-hpc.md?toc=/azure/virtual-machines/windows/toc.json) takiego jak A9 dla węzłów obliczeniowych w puli usługi Batch, aplikacja MPI może korzystać z wysokiej wydajności i małych opóźnień sieci zdalnego bezpośredniego dostępu do pamięci (RDMA) platformy Azure.
 
-W obszarze [rozmiary maszyn wirtualnych na platformie Azure](../virtual-machines/sizes.md) (dla pul VirtualMachineConfiguration) lub [rozmiary dla Cloud Services](../cloud-services/cloud-services-sizes-specs.md) (dla pul CloudServicesConfiguration) należy szukać rozmiarów określonych jako "RDMA.
+Poszukaj rozmiarów określonych jako "Z możliwością RDMA" w tece Sizes for virtual machines in Azure (for VirtualMachineConfiguration pools) (Rozmiary maszyn wirtualnych na platformie [Azure)](../virtual-machines/sizes.md) lub [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md) (for CloudServicesConfiguration pools) (Rozmiary dla puli Cloud Services CloudServicesConfiguration).
 
 > [!NOTE]
-> Aby skorzystać z funkcji RDMA w [węzłach obliczeniowych systemu Linux](batch-linux-nodes.md), należy użyć klasy **Intel MPI** na węzłach.
+> Aby korzystać z funkcji RDMA w [węzłach obliczeniowych systemu Linux,](batch-linux-nodes.md)należy użyć węzły **Intel MPI.**
 
-## <a name="create-a-multi-instance-task-with-batch-net"></a>Tworzenie zadania o kilku wystąpieniach za pomocą usługi Batch .NET
+## <a name="create-a-multi-instance-task-with-batch-net"></a>Tworzenie zadania o wielu wystąpieniach za pomocą usługi Batch na platformie .NET
 
-Teraz, gdy zostały omówione wymagania dotyczące puli i instalacji pakietu MPI, Utwórzmy zadanie o wiele wystąpień. W tym fragmencie kodu utworzysz standardową [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask), a następnie skonfigurujesz jej właściwość [MultiInstanceSettings](/dotnet/api/microsoft.azure.batch.cloudtask) . Jak wspomniano wcześniej, zadanie wielowystąpienie nie jest odrębnym typem zadania, ale standardowe zadanie wsadowe skonfigurowano z użyciem ustawień o kilku wystąpieniach.
+Teraz, gdy zostały już spełnione wymagania dotyczące puli i instalacja pakietu MPI, utwórzmy zadanie o wielu wystąpieniach. W tym fragmencie kodu utworzymy standardową właściwość [CloudTask,](/dotnet/api/microsoft.azure.batch.cloudtask)a następnie skonfigurujemy jej [właściwość MultiInstanceSettings.](/dotnet/api/microsoft.azure.batch.cloudtask) Jak wspomniano wcześniej, zadanie o wielu wystąpieniach nie jest odrębnym typem zadania, ale standardowym zadaniem usługi Batch skonfigurowanym z ustawieniami wielu wystąpień.
 
 ```csharp
 // Create the multi-instance task. Its command line is the "application command"
@@ -117,11 +123,11 @@ myMultiInstanceTask.MultiInstanceSettings =
 await myBatchClient.JobOperations.AddTaskAsync("mybatchjob", myMultiInstanceTask);
 ```
 
-## <a name="primary-task-and-subtasks"></a>Zadanie podstawowe i podzadania
+## <a name="primary-task-and-subtasks"></a>Zadanie podstawowe i podzadnia
 
-Podczas tworzenia ustawień wielu wystąpień zadania należy określić liczbę węzłów obliczeniowych, które mają wykonać zadanie. Po przesłaniu zadania do zadania usługa Batch tworzy jedno zadanie **podstawowe** i wystarczającą ilość **podzadań** , które razem są zgodne z liczbą określonych węzłów.
+Podczas tworzenia ustawień dla zadania o wielu wystąpieniach określana jest liczba węzłów obliczeniowych, które mają być wykonywane. Po przesłaniu zadania podrzędnego do zadania  usługa Batch  tworzy jedno zadanie podstawowe i wystarczającą liczbę podzadań, które razem pasują do określonej liczby węzłów.
 
-Do tych zadań są przypisywane identyfikatory całkowite z zakresu od 0 do *numberOfInstances* -1. Zadanie o IDENTYFIKATORze 0 to zadanie podstawowe, a wszystkie inne identyfikatory są podzadaniami. Na przykład w przypadku tworzenia następujących ustawień dla zadania podrzędnego, zadanie podstawowe będzie miało identyfikator 0, a podzadania mają identyfikatory od 1 do 9.
+Do tych zadań jest przypisywany identyfikator liczby całkowitej z zakresu od 0 do *numberOfInstances* - 1. Zadanie o identyfikatorze 0 jest zadaniem podstawowym, a wszystkie pozostałe identyfikatory są podzadaniami. Jeśli na przykład utworzysz następujące ustawienia wielu wystąpień dla zadania podrzędnego, zadanie podstawowe będzie miało identyfikator 0, a podzadnia będą miały identyfikatory od 1 do 9.
 
 ```csharp
 int numberOfNodes = 10;
@@ -130,34 +136,34 @@ myMultiInstanceTask.MultiInstanceSettings = new MultiInstanceSettings(numberOfNo
 
 ### <a name="master-node"></a>Węzeł główny
 
-Po przesłaniu zadania z wieloma wystąpieniami usługa Batch wyznacza jeden z węzłów obliczeniowych jako węzeł "główny" i planuje wykonywanie zadania podstawowego w węźle głównym. Zadania podrzędne są zaplanowane do wykonania w pozostałej części węzłów przydzielonych do zadania o wiele wystąpień.
+Podczas przesyłania zadania o wielu wystąpieniach usługa Batch wyznacza jeden z węzłów obliczeniowych jako węzeł "główny" i planuje wykonanie zadania podstawowego w węźle głównym. Podzadnia są zaplanowane do wykonania w pozostałych węzłach przydzielonych do zadania o wielu wystąpieniach.
 
 ## <a name="coordination-command"></a>Polecenie koordynacji
 
-**Polecenie koordynacyjne** jest wykonywane przez podstawowe i podrzędne podzadania.
+Polecenie **koordynacji jest** wykonywane zarówno przez podzadaniom podstawowym, jak i podrzędnym.
 
-Wywołanie polecenia koordynacyjnego jest blokowane — usługa Batch nie wykonuje polecenia aplikacji, dopóki polecenie koordynacji nie zostanie pomyślnie zwrócone dla wszystkich podzadań. W związku z tym polecenie koordynacyjne powinno uruchomić wszystkie wymagane usługi w tle, sprawdzić, czy są gotowe do użycia, a następnie zamknąć. Na przykład to polecenie koordynacji dla rozwiązania korzystającego z MS-MPI w wersji 7 uruchamia usługę SMPD w węźle, a następnie kończy działanie:
+Wywołania polecenia koordynacji jest blokujące — usługa Batch nie wykonuje polecenia aplikacji, dopóki polecenie koordynacji nie zostanie pomyślnie zwrócone dla wszystkich podzadaniów. W związku z tym polecenie koordynacji powinno uruchomić wszystkie wymagane usługi w tle, sprawdzić, czy są gotowe do użycia, a następnie zakończyć działanie. Na przykład to polecenie koordynacji dla rozwiązania korzystającego z ms-MPI w wersji 7 uruchamia usługę SMPD w węźle, a następnie kończy działanie:
 
 `cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" -d`
 
-Zwróć uwagę na użycie `start` w tym poleceniu koordynacyjnym. Jest to wymagane, ponieważ `smpd.exe` aplikacja nie zwraca natychmiast po wykonaniu. Bez użycia polecenia Uruchom to polecenie koordynacyjne nie zwróci i w związku z tym blokuje uruchamianie polecenia aplikacji.
+Zwróć uwagę na `start` użycie w tym poleceniu koordynacji . Jest to wymagane, ponieważ `smpd.exe` aplikacja nie jest zwracana natychmiast po wykonaniu. Bez użycia polecenia start to polecenie koordynacji nie zwróci i w związku z tym zablokowałoby uruchomienie polecenia aplikacji.
 
-## <a name="application-command"></a>Polecenie aplikacji
+## <a name="application-command"></a>Application , polecenie
 
-Gdy zadanie podstawowe i wszystkie podzadania zakończą wykonywanie polecenia koordynacji, wiersz polecenia zadania wielowystąpienia jest wykonywany *tylko* przez zadanie podstawowe. Nazywamy to **polecenie aplikacji** , aby odróżnić je od polecenia koordynacji.
+Po zakończeniu wykonywania polecenia koordynacji zadania podstawowego i wszystkich podzadań wiersz polecenia zadania podrzędnego z wieloma wystąpieniami jest wykonywany tylko przez zadanie *podstawowe*. Nazywamy to **poleceniem aplikacji,** aby odróżnić je od polecenia koordynacji.
 
-W przypadku aplikacji MS-MPI Użyj polecenia aplikacji, aby uruchomić aplikację z obsługą MPIymi w usłudze `mpiexec.exe` . Na przykład poniżej przedstawiono polecenie aplikacji dla rozwiązania korzystającego z MS-MPI w wersji 7:
+W przypadku aplikacji MS-MPI użyj polecenia aplikacji, aby wykonać aplikację z obsługą mpi za pomocą polecenia `mpiexec.exe` . Na przykład poniżej znajduje się polecenie aplikacji dla rozwiązania korzystającego z pliku MS-MPI w wersji 7:
 
 `cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIApplication.exe`
 
 > [!NOTE]
-> Ponieważ usługa MS-MPI `mpiexec.exe` używa `CCP_NODES` Domyślnie zmiennej (zobacz [zmienne środowiskowe](#environment-variables)), przykładowa powyższa część wiersza poleceń aplikacji wyklucza ją.
+> Ponieważ plik MS-MPI domyślnie używa zmiennej (zobacz Zmienne środowiskowe), przykładowy wiersz polecenia aplikacji `mpiexec.exe` `CCP_NODES` powyżej wyklucza ją. [](#environment-variables)
 
 ## <a name="environment-variables"></a>Zmienne środowiskowe
 
-Wsadowe tworzy kilka [zmiennych środowiskowych](batch-compute-node-environment-variables.md) specyficznych dla zadań o wielu wystąpieniach w węzłach obliczeniowych przypisywanych do zadania o wielu wystąpieniach. Linie poleceń koordynacji i aplikacji mogą odwoływać się do tych zmiennych środowiskowych, co może uruchamiać skrypty i programy.
+Usługa Batch tworzy kilka [zmiennych środowiskowych](batch-compute-node-environment-variables.md) specyficznych dla zadań o wielu wystąpieniach w węzłach obliczeniowych przydzielonych do zadania o wielu wystąpieniach. Polecenia koordynacji i aplikacji mogą odwoływać się do tych zmiennych środowiskowych, podobnie jak skrypty i programy, które wykonują.
 
-Następujące zmienne środowiskowe są tworzone przez usługę Batch do użycia przez zadania o wiele wystąpień:
+Usługa Batch tworzy następujące zmienne środowiskowe do użycia przez zadania o wielu wystąpieniach:
 
 - `CCP_NODES`
 - `AZ_BATCH_NODE_LIST`
@@ -166,42 +172,42 @@ Następujące zmienne środowiskowe są tworzone przez usługę Batch do użycia
 - `AZ_BATCH_TASK_SHARED_DIR`
 - `AZ_BATCH_IS_CURRENT_NODE_MASTER`
 
-Aby uzyskać szczegółowe informacje na temat tych i innych zmiennych środowiskowych węzłów obliczeniowych usługi Batch, w tym ich zawartości i widoczności, zobacz [zmienne środowiskowe węzła obliczeniowego](batch-compute-node-environment-variables.md).
+Aby uzyskać szczegółowe informacje na temat tych i innych zmiennych środowiska węzła obliczeniowego usługi Batch, w tym ich zawartość i widoczność, zobacz Zmienne środowiskowe węzła [obliczeniowego](batch-compute-node-environment-variables.md).
 
 > [!TIP]
-> [Przykładowy kod MPI systemu Linux](https://github.com/Azure-Samples/azure-batch-samples/tree/master/Python/Batch/article_samples/mpi) w usłudze Batch zawiera przykład sposobu użycia kilku z tych zmiennych środowiskowych.
+> Przykładowy [kod MPI dla](https://github.com/Azure-Samples/azure-batch-samples/tree/master/Python/Batch/article_samples/mpi) systemu Linux dla usługi Batch zawiera przykład sposobu, w jaki można użyć kilku z tych zmiennych środowiskowych.
 
 ## <a name="resource-files"></a>Pliki zasobów
 
-Istnieją dwa zestawy plików zasobów, które należy wziąć pod uwagę w przypadku zadań obejmujących wiele wystąpień: **wspólne pliki zasobów** pobierane przez *wszystkie* zadania (podstawowe i podrzędne) oraz **pliki zasobów** określone dla zadania wielowystąpienia, które *są pobierane tylko przez podstawowe* zadanie.
+Istnieją dwa zestawy plików zasobów, które należy wziąć pod  uwagę w przypadku zadań o wielu wystąpieniach: typowe pliki zasobów pobierane przez  wszystkie zadania podrzędne (zarówno podstawowe, jak i podrzędne) oraz pliki zasobów określone dla zadania o wielu wystąpieniach, które pobiera tylko zadanie podstawowe.  
 
-W ustawieniach wielu wystąpień zadania można określić co najmniej jeden **typowy plik zasobów** . Te typowe pliki zasobów są pobierane z [usługi Azure Storage](../storage/common/storage-introduction.md) do **udostępnionego katalogu zadań** każdego węzła według podstawowego i wszystkich podzadań. Można uzyskać dostęp do udostępnionego katalogu zadania z poziomu wiersza polecenia aplikacji i koordynacji przy użyciu `AZ_BATCH_TASK_SHARED_DIR` zmiennej środowiskowej. `AZ_BATCH_TASK_SHARED_DIR`Ścieżka jest taka sama w każdym węźle przydzielonym do zadania z wielu wystąpień, dzięki czemu można udostępnić pojedyncze polecenie koordynacji między podstawowym i wszystkimi podzadaniami. Usługa Batch nie "udostępnia" katalogu w sensie dostępu zdalnego, ale można go użyć jako instalacji lub punktu udostępniania, jak wspomniano wcześniej w poradach zmiennych środowiskowych.
+W ustawieniach wielu  wystąpień zadania można określić co najmniej jeden wspólny plik zasobów. Te typowe pliki zasobów są pobierane z  [usługi Azure Storage](../storage/common/storage-introduction.md) do udostępnionego katalogu zadań poszczególnych węzłów przez podstawowy i wszystkie podzadnia. Dostęp do udostępnionego katalogu zadań można uzyskać z aplikacji i wiersza polecenia koordynacji przy użyciu zmiennej `AZ_BATCH_TASK_SHARED_DIR` środowiskowej . Ścieżka jest taka sama w każdym węźle przydzielonym do zadania o wielu wystąpieniach, w związku z tym można współdzielić jedno polecenie koordynacji między podstawowym i `AZ_BATCH_TASK_SHARED_DIR` wszystkimi podzadaniami. Usługa Batch nie "udostępnia" katalogu w sensie dostępu zdalnego, ale można go użyć jako punktu instalacji lub udostępniania, jak wspomniano wcześniej w wierzchołku zmiennych środowiskowych.
 
-Pliki zasobów, które są określone dla samego zadania o wiele wystąpień, są domyślnie pobierane do katalogu roboczego zadania `AZ_BATCH_TASK_WORKING_DIR` . Jak wspomniano, w przeciwieństwie do wspólnych plików zasobów, tylko zadanie podstawowe pobiera pliki zasobów określone dla samego zadania wielowystąpienia.
+Pliki zasobów określone dla zadania o wielu wystąpieniach są domyślnie pobierane do katalogu roboczego `AZ_BATCH_TASK_WORKING_DIR` zadania. Jak wspomniano, w przeciwieństwie do typowych plików zasobów tylko zadanie podstawowe pobiera pliki zasobów określone dla samego zadania o wielu wystąpieniach.
 
 > [!IMPORTANT]
-> Zawsze używaj zmiennych środowiskowych `AZ_BATCH_TASK_SHARED_DIR` i `AZ_BATCH_TASK_WORKING_DIR` odwołują się do tych katalogów w wierszach poleceń. Nie należy próbować tworzyć ścieżek ręcznie.
+> Zawsze używaj zmiennych środowiskowych i , aby odwoływać się do `AZ_BATCH_TASK_SHARED_DIR` tych `AZ_BATCH_TASK_WORKING_DIR` katalogów w wierszach polecenia. Nie należy próbować konstruować ścieżek ręcznie.
 
 ## <a name="task-lifetime"></a>Okres istnienia zadania
 
-Okres istnienia zadania podstawowego określa okres istnienia całego zadania o wiele wystąpień. Po zakończeniu podstawowego działania wszystkie podzadania zostaną zakończone. Kodem zakończenia zadania podstawowego jest kod zakończenia dla zadaniu i jest on używany do ustalenia sukcesu lub niepowodzenia zadania w celu ponowienia próby.
+Okres istnienia zadania podstawowego kontroluje okres istnienia całego zadania o wielu wystąpieniach. Gdy podstawowy kończy działanie, wszystkie podzadań są przerywane. Kod zakończenia podstawowego jest kodem zakończenia zadania i dlatego jest używany do określenia powodzenia lub niepowodzenia zadania do celów ponawiania.
 
-Jeśli którekolwiek z podzadań zakończy się niepowodzeniem, wyjście z niezerowym kodem powrotu nie powiedzie się. Zadanie z wielowystąpieniem jest następnie przerywane i ponawiane, aż do jego limitu ponownych prób.
+Jeśli którykolwiek z podzadań zakończy się niepowodzeniem, zakończenie z kodem zwracanym innym niż zero, na przykład całe zadanie podrzędne o wielu wystąpieniach kończy się niepowodzeniem. Zadanie o wielu wystąpieniach jest następnie przerywane i ponawiane do limitu ponawiania.
 
-Po usunięciu zadania o wiele wystąpień podstawowe i wszystkie podzadania są również usuwane przez usługę Batch. Wszystkie katalogi podzadań i ich pliki są usuwane z węzłów obliczeniowych, podobnie jak w przypadku zadania standardowego.
+Po usunięciu zadania o wielu wystąpieniach podstawowe i wszystkie podzadnia są również usuwane przez usługę Batch. Wszystkie katalogi podzadaniowe i ich pliki są usuwane z węzłów obliczeniowych, tak jak w przypadku zadania standardowego.
 
-[TaskConstraints](/dotnet/api/microsoft.azure.batch.taskconstraints) dla zadania z wielowystąpieniem, takie jak właściwości [MaxTaskRetryCount](/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount), [MaxWallClockTime](/dotnet/api/microsoft.azure.batch.taskconstraints.maxwallclocktime)i [RetentionTime](/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime) , są uznawane za zadanie standardowe i mają zastosowanie do podstawowych i wszystkich podzadań. Jeśli jednak zmienisz Właściwość theRetentionTime po dodaniu zadania o wiele wystąpień do zadania, ta zmiana zostanie zastosowana tylko do zadania podstawowego, a wszystkie podzadania będą nadal używać oryginalnego RetentionTimeu.
+[TaskConstraints](/dotnet/api/microsoft.azure.batch.taskconstraints) dla zadania o wielu wystąpieniach, takich jak [Właściwości MaxTaskRetryCount,](/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount) [MaxWallClockTime](/dotnet/api/microsoft.azure.batch.taskconstraints.maxwallclocktime)i [RetentionTime,](/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime) są honorowane jako zadania standardowe i mają zastosowanie do podzadaniów podstawowych i wszystkich. Jeśli jednak zmienisz właściwośćRetentionTime po dodaniu zadania podrzędnego z wieloma wystąpieniami do zadania, ta zmiana zostanie zastosowana tylko do zadania podstawowego, a wszystkie podzadanie nadal będą używać oryginalnej wartości RetentionTime.
 
-Lista ostatnich zadań w węźle obliczeniowym odzwierciedla identyfikator podzadania, jeśli ostatnie zadanie było częścią zadania o wiele wystąpień.
+Lista ostatnich zadań węzła obliczeniowego odzwierciedla identyfikator podzadaku, jeśli ostatnie zadanie było częścią zadania o wielu wystąpieniach.
 
-## <a name="obtain-information-about-subtasks"></a>Uzyskaj informacje na temat podzadań
+## <a name="obtain-information-about-subtasks"></a>Uzyskiwanie informacji o podzadaniach
 
-Aby uzyskać informacje dotyczące podzadań przy użyciu biblioteki usługi Batch .NET, wywołaj metodę [CloudTask. ListSubtasks](/dotnet/api/microsoft.azure.batch.cloudtask.listsubtasks) . Ta metoda zwraca informacje o wszystkich podzadaniach i informacje o węźle obliczeniowym, który wykonał zadania. Z tych informacji można określić katalog główny każdego podzadania, Identyfikator puli, bieżący stan, kod zakończenia i inne. Tych informacji można użyć w połączeniu z metodą [PoolOperations. GetNodeFile](/dotnet/api/microsoft.azure.batch.pooloperations.getnodefile) w celu uzyskania plików podzadań. Należy zauważyć, że ta metoda nie zwraca informacji dla zadania podstawowego (identyfikator 0).
+Aby uzyskać informacje o podzadaniach przy użyciu biblioteki .NET usługi Batch, wywołaj metodę [CloudTask.ListSubtasks.](/dotnet/api/microsoft.azure.batch.cloudtask.listsubtasks) Ta metoda zwraca informacje o wszystkich podzadaniach oraz informacje o węźle obliczeniowym, który wykonał zadania podrzędne. Na podstawie tych informacji można określić katalog główny każdego podzada, identyfikator puli, jej bieżący stan, kod zakończenia i inne. Tych informacji można użyć w połączeniu z metodą [PoolOperations.GetNodeFile](/dotnet/api/microsoft.azure.batch.pooloperations.getnodefile) w celu uzyskania plików podzadaniowych. Należy pamiętać, że ta metoda nie zwraca informacji o zadaniu podstawowym (identyfikator 0).
 
 > [!NOTE]
-> O ile nie określono inaczej, metody usługi Batch .NET, które działają dla samego [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) o wiele wystąpień, mają zastosowanie *tylko* do zadania podstawowego. Na przykład po wywołaniu metody [CloudTask. ListNodeFiles](/dotnet/api/microsoft.azure.batch.cloudtask.listnodefiles) na zadaniu z wielowystąpieniem zwracane są tylko pliki podstawowego zadania.
+> O ile nie określono inaczej, metody platformy .NET usługi Batch, które działają na wielu wystąpieniach [CloudTask,](/dotnet/api/microsoft.azure.batch.cloudtask) mają *zastosowanie tylko* do zadania podstawowego. Na przykład po wywołaniu metody [CloudTask.ListNodeFiles](/dotnet/api/microsoft.azure.batch.cloudtask.listnodefiles) w zadaniu o wielu wystąpieniach są zwracane tylko pliki zadania podstawowego.
 
-Poniższy fragment kodu pokazuje, jak uzyskać informacje o podzadań, a także zażądać zawartości pliku z węzłów, na których zostały wykonane.
+Poniższy fragment kodu przedstawia sposób uzyskiwania informacji o podzadaniu, a także żądania zawartości pliku z węzłów, na których zostały wykonane.
 
 ```csharp
 // Obtain the job and the multi-instance task from the Batch service
@@ -242,32 +248,32 @@ await subtasks.ForEachAsync(async (subtask) =>
 
 ## <a name="code-sample"></a>Przykład kodu
 
-Przykład kodu [MultiInstanceTasks](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/MultiInstanceTasks) w witrynie GitHub pokazuje, jak używać zadania wieloetapowego do uruchamiania aplikacji [MS-MPI](/message-passing-interface/microsoft-mpi) w węzłach obliczeniowych usługi Batch. Wykonaj poniższe kroki, aby uruchomić przykład.
+Przykładowy [kod MultiInstanceTasks](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/MultiInstanceTasks) w usłudze GitHub przedstawia sposób użycia zadania o wielu wystąpieniach do uruchomienia aplikacji [MS-MPI](/message-passing-interface/microsoft-mpi) w węzłach obliczeniowych usługi Batch. Wykonaj poniższe kroki, aby uruchomić przykład.
 
 ### <a name="preparation"></a>Przygotowanie
 
-1. Pobierz [zestawy SDK MS-MPI i Redist](/message-passing-interface/microsoft-mpi) oraz zainstaluj je. Po zakończeniu instalacji można sprawdzić, czy zostały ustawione zmienne środowiskowe MS-MPI.
-1. Utwórz wersję *wydania* przykładowego programu [MPIHelloWorld](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp/ArticleProjects/MultiInstanceTasks/MPIHelloWorld) Sample MPI. Jest to program, który będzie uruchamiany w węzłach obliczeniowych za pomocą zadania obejmującego wiele wystąpień.
-1. Utwórz plik zip zawierający `MPIHelloWorld.exe` (który został utworzony w kroku 2) i `MSMpiSetup.exe` (który został pobrany w kroku 1). Ten plik zip zostanie przekazany jako pakiet aplikacji w następnym kroku.
-1. Użyj [Azure Portal](https://portal.azure.com) , aby utworzyć [aplikację](batch-application-packages.md) wsadową o nazwie "MPIHelloWorld" i określić plik zip utworzony w poprzednim kroku jako wersję "1,0" pakietu aplikacji. Aby uzyskać więcej informacji [, zobacz Przekazywanie aplikacji i zarządzanie nimi](batch-application-packages.md#upload-and-manage-applications) .
+1. Pobierz zestaw [SDK MS-MPI i instalatory redystora](/message-passing-interface/microsoft-mpi) i zainstaluj je. Po instalacji możesz sprawdzić, czy zmienne środowiskowe MS-MPI zostały ustawione.
+1. *Skompilowanie wersji* wydania przykładowego [programu MPIHelloWorld.](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp/ArticleProjects/MultiInstanceTasks/MPIHelloWorld) Jest to program, który będzie uruchamiany w węzłach obliczeniowych przez zadanie o wielu wystąpieniach.
+1. Utwórz plik zip zawierający `MPIHelloWorld.exe` pliki (które zostały wbudowane w kroku 2) i `MSMpiSetup.exe` (pobrane w kroku 1). W następnym kroku przekażesz ten plik zip jako pakiet aplikacji.
+1. Użyj pliku [Azure Portal,](https://portal.azure.com) aby utworzyć aplikację usługi [Batch](batch-application-packages.md) o nazwie "MPIHelloWorld" i określić plik zip utworzony w poprzednim kroku jako wersję "1.0" pakietu aplikacji. Aby [uzyskać więcej informacji,](batch-application-packages.md#upload-and-manage-applications) zobacz Przekazywanie aplikacji i zarządzanie nimi.
 
 > [!TIP]
-> Utworzenie wersji z *wydaną* wersją programu `MPIHelloWorld.exe` gwarantuje, że nie trzeba uwzględniać żadnych dodatkowych zależności (na przykład `msvcp140d.dll` lub `vcruntime140d.dll` ) w pakiecie aplikacji.
+> Tworzenie *wersji* wydania programu gwarantuje, że nie trzeba uwzględniać żadnych dodatkowych zależności (na przykład `MPIHelloWorld.exe` lub ) w `msvcp140d.dll` `vcruntime140d.dll` pakiecie aplikacji.
 
 ### <a name="execution"></a>Wykonanie
 
-1. Pobierz [plik z usługi Azure-Batch-Samples. zip](https://github.com/Azure/azure-batch-samples/archive/master.zip) z witryny GitHub.
-1. Otwórz **rozwiązanie** MultiInstanceTasks w programie Visual Studio 2019. `MultiInstanceTasks.sln`Plik rozwiązania znajduje się w:
+1. Pobierz plik [zip azure-batch-samples z](https://github.com/Azure/azure-batch-samples/archive/master.zip) usługi GitHub.
+1. Otwórz rozwiązanie MultiInstanceTasks **w** Visual Studio 2019 r. Plik `MultiInstanceTasks.sln` rozwiązania znajduje się w:
 
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
-1. Wprowadź swoje poświadczenia konta partii i magazynu w programie `AccountSettings.settings` w projekcie **Microsoft.Azure.Batch. Samples. Common** Project.
-1. **Kompiluj i uruchamiaj** rozwiązanie MultiInstanceTasks, aby wykonać przykładową aplikację MPI w węzłach obliczeniowych w puli wsadowej.
-1. *Opcjonalne*: Użyj [Azure Portal](https://portal.azure.com) lub [Batch Explorer](https://azure.github.io/BatchExplorer/) , aby przejrzeć przykładową pulę, zadanie i zadanie ("MultiInstanceSamplePool", "MultiInstanceSampleJob", "MultiInstanceSampleTask") przed usunięciem zasobów.
+1. Wprowadź poświadczenia konta usługi Batch i Storage wMicrosoft.Azure.Bat`AccountSettings.settings` **ch.Samples.Common.**
+1. **Skompilowanie i uruchomienie** rozwiązania MultiInstanceTasks w celu wykonania przykładowej aplikacji MPI w węzłach obliczeniowych w puli usługi Batch.
+1. *Opcjonalnie:* [](https://portal.azure.com) użyj Azure Portal lub [Batch Explorer,](https://azure.github.io/BatchExplorer/) aby sprawdzić przykładową pulę, zadanie i zadanie ("MultiInstanceSamplePool", "MultiInstanceSampleJob", "MultiInstanceSampleTask") przed usunięciem zasobów.
 
 > [!TIP]
-> Możesz bezpłatnie pobrać [program Visual Studio Community](https://visualstudio.microsoft.com/vs/community/) , jeśli nie masz jeszcze programu Visual Studio.
+> Możesz pobrać [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/) bezpłatnie, jeśli nie masz jeszcze Visual Studio.
 
-Dane wyjściowe `MultiInstanceTasks.exe` są podobne do następujących:
+Dane wyjściowe `MultiInstanceTasks.exe` z są podobne do następujących:
 
 ```
 Creating pool [MultiInstanceSamplePool]...
@@ -304,5 +310,5 @@ Sample complete, hit ENTER to exit...
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Przeczytaj więcej [na temat obsługi MPI dla systemu Linux na Azure Batch](https://docs.microsoft.com/archive/blogs/windowshpc/introducing-mpi-support-for-linux-on-azure-batch).
-- Dowiedz się, jak [tworzyć pule węzłów obliczeniowych systemu Linux](batch-linux-nodes.md) do użycia w Azure Batch rozwiązaniach MPI.
+- Przeczytaj więcej na [temat obsługi mpi dla systemu Linux na Azure Batch](https://docs.microsoft.com/archive/blogs/windowshpc/introducing-mpi-support-for-linux-on-azure-batch).
+- Dowiedz się, jak [tworzyć pule węzłów obliczeniowych systemu Linux](batch-linux-nodes.md) do użycia w Azure Batch MPI.
