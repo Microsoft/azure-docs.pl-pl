@@ -75,6 +75,8 @@ items:
             href: manage-integration-runtimes.md
           - name: Rozwiązywanie problemów z połączeniem
             href: troubleshoot-connections.md
+          - name: Reguły wzorca zestawu zasobów
+            href: how-to-resource-set-pattern-rules.md
           - name: Źródła
             items:
               - name: Zarządzanie źródłami danych
@@ -130,7 +132,7 @@ items:
             href: how-to-manage-term-templates.md
       - name: Edycja zbiorcza
         items:
-          - name: Zbiorcze edytowanie zasobów w celu tagowanie adnotacji i kontaktów
+          - name: Zbiorcze edytowanie zasobów w celu oznaczania adnotacji i kontaktów
             href: how-to-bulk-edit-assets.md
       - name: Klasyfikowanie
         items:
@@ -184,7 +186,7 @@ items:
         href: abap-functions-deployment-guide.md
   - name: Zasoby
     items:
-      - name: Opinie dotyczące funkcji (opinie użytkowników)
+      - name: Opinie o funkcjach (opinie użytkowników)
         href: 'https://feedback.azure.com/forums/932437-azure-purview'
       - name: Kalkulator cen
         href: 'https://azure.microsoft.com/pricing/details/azure-purview/'

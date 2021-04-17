@@ -1,83 +1,83 @@
 ---
-title: Konfigurowanie Web Apps statycznej platformy Azure
-description: Dowiedz się, jak skonfigurować trasy, wymuszać reguły zabezpieczeń i ustawienia globalne dla Web Apps statycznej platformy Azure.
+title: Konfigurowanie Azure Static Web Apps
+description: Dowiedz się, jak konfigurować trasy, wymuszać reguły zabezpieczeń i ustawienia globalne dla Azure Static Web Apps.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: 3ecd38b725307c7a3d75787795130c5106de85a7
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 9494bcc9941491bbb82c6a948dce720cb9e51424
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107312250"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502287"
 ---
-# <a name="configure-azure-static-web-apps"></a>Konfigurowanie Web Apps statycznej platformy Azure
+# <a name="configure-azure-static-web-apps"></a>Konfigurowanie Azure Static Web Apps
 
-Konfiguracja Web Apps statycznej platformy Azure jest zdefiniowana w _staticwebapp.config.js_ pliku, który kontroluje następujące ustawienia:
+Konfiguracja Azure Static Web Apps jest zdefiniowana w _staticwebapp.config.jspliku,_ który kontroluje następujące ustawienia:
 
 - Routing
 - Authentication
 - Autoryzacja
-- Reguły powrotu
-- Zastąpienia odpowiedzi HTTP
-- Globalne definicje nagłówków HTTP
+- Reguły rezerwowe
+- Przesłonięcia odpowiedzi HTTP
+- Globalne definicje nagłówka HTTP
 - Niestandardowe typy MIME
 
 ## <a name="file-location"></a>Lokalizacja pliku
 
-Zalecana lokalizacja dla _staticwebapp.config.js_ jest w folderze ustawionym jako `app_location` [plik przepływu pracy](./github-actions-workflow.md). Jednak plik może być umieszczony w dowolnej lokalizacji w folderze kodu źródłowego aplikacji.
+Zalecana lokalizacja dlastaticwebapp.config.js _znajduje_ się w folderze ustawionym jako w `app_location` pliku [przepływu pracy](./github-actions-workflow.md). Plik może jednak zostać umieszczony w dowolnej lokalizacji w folderze kodu źródłowego aplikacji.
 
-Zobacz [przykładowy plik konfiguracji](#example-configuration-file) , aby uzyskać szczegółowe informacje.
+Zobacz [przykładowy plik konfiguracji,](#example-configuration-file) aby uzyskać szczegółowe informacje.
 
 > [!IMPORTANT]
-> [ _staticwebapp.config.jsw_ pliku](./routes.md) jest ignorowany, jeśli istnieje _staticwebapp.config.js_ .
+> Jeśli [ _routes.jsw pliku_](./routes.md) istniejestaticwebapp.config.jsjest _ignorowana._
 
 ## <a name="routes"></a>Trasy
 
-Reguły tras umożliwiają zdefiniowanie wzorca adresów URL, które zezwalają na dostęp do aplikacji w sieci Web. Trasy są definiowane jako tablica reguł routingu. Zobacz [przykładowy plik konfiguracji](#example-configuration-file) , aby poznać przykłady użycia.
+Reguły tras umożliwiają zdefiniowanie wzorca adresów URL, które zezwalają na dostęp do aplikacji w Internecie. Trasy są definiowane jako tablica reguł routingu. Przykłady [użycia można znaleźć w przykładowym pliku](#example-configuration-file) konfiguracji.
 
-- Reguły są zdefiniowane w `routes` tablicy, nawet jeśli istnieje tylko jedna trasa.
-- Reguły są wykonywane w kolejności, w jakiej są wyświetlane w `routes` tablicy.
-- Ocena reguły zostaje zatrzymana przy pierwszym dopasowaniu — reguły routingu nie są połączone w łańcuchowo.
-- Masz pełną kontrolę nad nazwami ról niestandardowych.
-  - Istnieje kilka wbudowanych nazw ról, które obejmują [`anonymous`](./authentication-authorization.md) i [`authenticated`](./authentication-authorization.md) .
+- Reguły są definiowane w `routes` tablicy, nawet jeśli masz tylko jedną trasę.
+- Reguły są wykonywane w kolejności, w jak są wyświetlane w `routes` tablicy.
+- Ocena reguły zatrzymuje się przy pierwszym dopasowaniu — reguły routingu nie są ze sobą połączone.
+- Masz pełną kontrolę nad niestandardowymi nazwami ról.
+  - Istnieje kilka wbudowanych nazw ról, takich jak [`anonymous`](./authentication-authorization.md) i [`authenticated`](./authentication-authorization.md) .
 
-Zagadnienia dotyczące routingu znacznie się pokrywają z uwierzytelnianiem (identyfikującym użytkownika) i autoryzacją (przypisując możliwości do użytkownika). Upewnij się, że zapoznaj się z przewodnikiem [uwierzytelnianie i autoryzacja](authentication-authorization.md) wraz z tym artykułem.
+Kwestie związane z routingiem znacząco nakładają się na pojęcia związane z uwierzytelnianiem (identyfikowaniem użytkownika) i autoryzacją (przypisywaniem możliwości do użytkownika). Pamiętaj, aby przeczytać przewodnik [uwierzytelniania i autoryzacji](authentication-authorization.md) wraz z tym artykułem.
 
-Domyślny plik zawartości statycznej to plik _index.html_ .
+Domyślnym plikiem zawartości statycznej _jestindex.html._
 
 ## <a name="defining-routes"></a>Definiowanie tras
 
-Każda reguła składa się ze wzorca trasy wraz z co najmniej jedną opcjonalną właściwością reguły. Reguły tras są zdefiniowane w `routes` tablicy. Zobacz [przykładowy plik konfiguracji](#example-configuration-file) , aby poznać przykłady użycia.
+Każda reguła składa się ze wzorca trasy wraz z co najmniej jedną opcjonalną właściwością reguły. Reguły tras są definiowane w `routes` tablicy. Przykłady [użycia można znaleźć w przykładowym pliku](#example-configuration-file) konfiguracji.
 
 | Właściwość reguły                       | Wymagane | Wartość domyślna                        | Komentarz                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ----------------------------------- | -------- | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `route`                             | Tak      | n/d                                  | Wzorzec trasy żądany przez wywołującego.<ul><li>[Symbole wieloznaczne](#wildcards) są obsługiwane na końcu ścieżek tras.<ul><li>Na przykład _administrator trasy/ \*_ dopasowuje dowolną trasę pod ścieżką _administratora_ .</ul></ul>                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `rewrite`                           | Nie       | n/d                                  | Definiuje plik lub ścieżkę zwracaną z żądania.<ul><li>Wykluczają się wzajemnie z `redirect` reguły<li>Reguły ponownego zapisywania nie zmieniają lokalizacji przeglądarki.<li>Wartości muszą być powiązane z elementem głównym aplikacji</ul>                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `redirect`                          | Nie       | n/d                                  | Określa miejsce docelowe przekierowania pliku lub ścieżki dla żądania.<ul><li>Wykluczają się wzajemnie z `rewrite` reguły.<li>Reguły przekierowania zmieniają lokalizację przeglądarki.<li>Domyślny kod odpowiedzi to [`302`](https://developer.mozilla.org/docs/Web/HTTP/Status/302) (tymczasowe przekierowanie), ale można przesłonić przy użyciu [`301`](https://developer.mozilla.org/docs/Web/HTTP/Status/301) (stałego przekierowania).</ul>                                                                                                                                                                                                              |
-| `allowedRoles`                      | Nie       | anonimowe                            | Definiuje listę nazw ról wymaganych do uzyskania dostępu do trasy. <ul><li>Prawidłowe znaki to `a-z` , `A-Z` , `0-9` , i `_` .<li>Wbudowana rola, [`anonymous`](./authentication-authorization.md) ma zastosowanie do wszystkich nieuwierzytelnionych użytkowników<li>Wbudowana rola, [`authenticated`](./authentication-authorization.md) ma zastosowanie do każdego zalogowanego użytkownika.<li>Użytkownicy muszą należeć do co najmniej jednej roli.<li>Role są dopasowane na zasadzie _lub_ .<ul><li>Jeśli użytkownik znajduje się w dowolnej z wymienionych ról, zostanie udzielony dostęp.</ul><li>Indywidualni użytkownicy są skojarzeni z rolami przy użyciu [zaproszeń](authentication-authorization.md).</ul> |
-| `headers`<a id="route-headers"></a> | Nie       | n/d                                  | Zestaw [nagłówków HTTP](https://developer.mozilla.org/docs/Web/HTTP/Headers) dodawanych do odpowiedzi. <ul><li>Nagłówki specyficzne dla trasy przesłaniają [`globalHeaders`](#global-headers) , gdy nagłówek specyficzny dla trasy jest taki sam, jak nagłówek globalny w odpowiedzi.<li>Aby usunąć nagłówek, ustaw wartość na pusty ciąg.</ul>                                                                                                                                                                                                                                                                                          |
-| `statusCode`                        | Nie       | `200`, `301` lub `302` dla przekierowań | [Kod stanu HTTP](https://developer.mozilla.org/docs/Web/HTTP/Status) odpowiedzi.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `methods`                           | Nie       | Wszystkie metody                          | Lista metod żądania, które pasują do trasy. Dostępne są następujące metody: `GET` ,,,, `HEAD` ,,,, `POST` `PUT` `DELETE` `CONNECT` `OPTIONS` `TRACE` i `PATCH` .                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `route`                             | Tak      | n/d                                  | Wzorzec trasy żądany przez wywołujący.<ul><li>[Symbole wieloznaczne](#wildcards) są obsługiwane na końcu ścieżek tras.<ul><li>Na przykład administrator _trasy/ dopasowuje \*_ dowolną trasę w ramach ścieżki _administratora._</ul></ul>                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `rewrite`                           | Nie       | n/d                                  | Definiuje plik lub ścieżkę zwróconą z żądania.<ul><li>Wzajemnie wyklucza się z `redirect` regułą<li>Reguły ponownego agwania nie zmieniają lokalizacji przeglądarki.<li>Wartości muszą być względne względem katalogu głównego aplikacji</ul>                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `redirect`                          | Nie       | n/d                                  | Definiuje miejsce docelowe przekierowania pliku lub ścieżki dla żądania.<ul><li>Wyklucza się wzajemnie z `rewrite` regułą.<li>Reguły przekierowania zmieniają lokalizację przeglądarki.<li>Domyślny kod odpowiedzi to [`302`](https://developer.mozilla.org/docs/Web/HTTP/Status/302) (przekierowywanie tymczasowe), ale można go przesłonić za pomocą [`301`](https://developer.mozilla.org/docs/Web/HTTP/Status/301) (trwałego przekierowania).</ul>                                                                                                                                                                                                              |
+| `allowedRoles`                      | Nie       | Anonimowy                            | Definiuje listę nazw ról wymaganych do uzyskania dostępu do trasy. <ul><li>Prawidłowe znaki to `a-z` , `A-Z` , i `0-9` `_` .<li>Wbudowana rola, [`anonymous`](./authentication-authorization.md) , ma zastosowanie do wszystkich nieuwierzytanych użytkowników<li>Wbudowana rola ma zastosowanie [`authenticated`](./authentication-authorization.md) do każdego zalogowanego użytkownika.<li>Użytkownicy muszą należeć do co najmniej jednej roli.<li>Role są do siebie dopasowane na podstawie _OR._<ul><li>Jeśli użytkownik należy do dowolnej z wymienionych ról, zostanie udzielony dostęp.</ul><li>Indywidualni użytkownicy są skojarzone z rolami [za pośrednictwem zaproszeń.](authentication-authorization.md)</ul> |
+| `headers`<a id="route-headers"></a> | Nie       | n/d                                  | Zestaw [nagłówków HTTP dodanych](https://developer.mozilla.org/docs/Web/HTTP/Headers) do odpowiedzi. <ul><li>Nagłówki specyficzne dla trasy zastępują, gdy nagłówek specyficzny dla trasy jest taki sam jak [`globalHeaders`](#global-headers) nagłówek globalny w odpowiedzi.<li>Aby usunąć nagłówek, ustaw wartość na pusty ciąg.</ul>                                                                                                                                                                                                                                                                                          |
+| `statusCode`                        | Nie       | `200`, `301` lub `302` dla przekierowań | Kod [stanu HTTP](https://developer.mozilla.org/docs/Web/HTTP/Status) odpowiedzi.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `methods`                           | Nie       | Wszystkie metody                          | Lista metod żądań, które pasują do trasy. Dostępne metody to: `GET` , , , , , , , , `HEAD` i `POST` `PUT` `DELETE` `CONNECT` `OPTIONS` `TRACE` `PATCH` .                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 
 Każda właściwość ma określony cel w potoku żądania/odpowiedzi.
 
 | Przeznaczenie                                        | Właściwości                                                                                   |
 | ---------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| Dopasuj trasy                                   | `route`, `methods`                                                                           |
-| Autoryzuj po dopasowaniu trasy             | `allowedRoles`                                                                               |
-| Proces po dopasowaniu i autoryzacji reguły | `rewrite` (modyfikuje żądanie) <br><br>`redirect`, `headers` , `statusCode` (modyfikuje odpowiedź) |
+| Dopasowanie tras                                   | `route`, `methods`                                                                           |
+| Autoryzacja po dopasowaniu trasy             | `allowedRoles`                                                                               |
+| Przetwarzanie po dopasowaniu i autoryzowaniu reguły | `rewrite` (modyfikuje żądanie) <br><br>`redirect`, `headers` , `statusCode` (modyfikuje odpowiedź) |
 
-## <a name="securing-routes-with-roles"></a>Zabezpieczanie tras przy użyciu ról
+## <a name="securing-routes-with-roles"></a>Zabezpieczanie tras za pomocą ról
 
-Trasy są zabezpieczone przez dodanie co najmniej jednej nazwy roli do `allowedRoles` tablicy reguł, a użytkownicy są skojarzeni z rolami niestandardowymi za pośrednictwem [zaproszeń](./authentication-authorization.md). Zobacz [przykładowy plik konfiguracji](#example-configuration-file) , aby poznać przykłady użycia.
+Trasy są zabezpieczone przez dodanie co najmniej jednej nazwy roli do tablicy reguł, a użytkownicy są skojarzone z rolami niestandardowymi za `allowedRoles` [pośrednictwem zaproszeń.](./authentication-authorization.md) Przykłady [użycia można znaleźć w przykładowym pliku](#example-configuration-file) konfiguracji.
 
-Domyślnie każdy użytkownik należy do roli wbudowanej `anonymous` , a wszyscy zalogowani użytkownicy są członkami `authenticated` roli.
+Domyślnie każdy użytkownik należy do wbudowanej roli, a wszyscy zalogowani użytkownicy są `anonymous` jej `authenticated` członkami.
 
-Na przykład aby ograniczyć trasę tylko do uwierzytelnionych użytkowników, należy dodać wbudowaną `authenticated` rolę do `allowedRoles` tablicy.
+Aby na przykład ograniczyć trasę tylko do uwierzytelnionych użytkowników, dodaj wbudowaną `authenticated` rolę do `allowedRoles` tablicy.
 
 ```json
 {
@@ -86,7 +86,7 @@ Na przykład aby ograniczyć trasę tylko do uwierzytelnionych użytkowników, n
 }
 ```
 
-W razie konieczności można utworzyć nowe role w `allowedRoles` tablicy. Aby ograniczyć trasę tylko do administratorów, można zdefiniować własną rolę o nazwie `administrator` , w `allowedRoles` tablicy.
+W razie potrzeby w tablicy można tworzyć nowe `allowedRoles` role. Aby ograniczyć trasę tylko do administratorów, możesz zdefiniować własną rolę o nazwie `administrator` w `allowedRoles` tablicy .
 
 ```json
 {
@@ -95,14 +95,14 @@ W razie konieczności można utworzyć nowe role w `allowedRoles` tablicy. Aby o
 }
 ```
 
-- Masz pełną kontrolę nad nazwami ról; nie ma listy, do której Twoje role muszą być zgodne.
-- Indywidualni użytkownicy są skojarzeni z rolami przy użyciu [zaproszeń](authentication-authorization.md).
+- Masz pełną kontrolę nad nazwami ról. nie ma listy, do której role muszą być przestrzegane.
+- Poszczegnieni użytkownicy są skojarzone z [rolami za pośrednictwem zaproszeń.](authentication-authorization.md)
 
 ## <a name="wildcards"></a>Symbole wieloznaczne
 
-Reguły symboli wieloznacznych pasują do wszystkich żądań w wzorcu trasy, są obsługiwane tylko na końcu ścieżki i mogą być filtrowane według rozszerzenia pliku. Zobacz [przykładowy plik konfiguracji](#example-configuration-file) , aby poznać przykłady użycia.
+Reguły symboli wieloznacznych pasują do wszystkich żądań we wzorcu trasy, są obsługiwane tylko na końcu ścieżki i mogą być filtrowane według rozszerzenia pliku. Przykłady [użycia można znaleźć w przykładowym pliku](#example-configuration-file) konfiguracji.
 
-Na przykład aby zaimplementować trasy dla aplikacji kalendarza, można ponownie napisać wszystkie adresy URL, które znajdują się w trasie _kalendarza_ do obsłużenia pojedynczego pliku.
+Na przykład aby zaimplementować trasy dla aplikacji kalendarza, można ponownie napisać  wszystkie adresy URL, które należą do trasy kalendarza, aby obsługiwać pojedynczy plik.
 
 ```json
 {
@@ -111,9 +111,9 @@ Na przykład aby zaimplementować trasy dla aplikacji kalendarza, można ponowni
 }
 ```
 
-Plik _calendar.html_ może następnie użyć routingu po stronie klienta, aby zapewnić inny widok dla wariantów adresów URL, takich jak `/calendar/january/1` , `/calendar/2020` i `/calendar/overview` .
+Plik _calendar.html_ może następnie używać routingu po stronie klienta, aby obsługiwać inny widok dla odmian adresów `/calendar/january/1` URL, takich jak , i `/calendar/2020` `/calendar/overview` .
 
-Można filtrować dopasowania symboli wieloznacznych według rozszerzenia pliku. Na przykład jeśli chcesz dodać regułę, która dopasowuje tylko pliki HTML w danej ścieżce, możesz utworzyć następującą regułę:
+Dopasowania symboli wieloznacznych można filtrować według rozszerzenia pliku. Jeśli na przykład chcesz dodać regułę, która pasuje tylko do plików HTML w danej ścieżce, możesz utworzyć następującą regułę:
 
 ```json
 {
@@ -124,7 +124,7 @@ Można filtrować dopasowania symboli wieloznacznych według rozszerzenia pliku.
 }
 ```
 
-Aby filtrować według wielu rozszerzeń plików, należy uwzględnić opcje w nawiasach klamrowych, jak pokazano w poniższym przykładzie:
+Aby filtrować według wielu rozszerzeń plików, należy uwzględnić opcje w nawiasach klamrowych, jak pokazano w tym przykładzie:
 
 ```json
 {
@@ -135,7 +135,7 @@ Aby filtrować według wielu rozszerzeń plików, należy uwzględnić opcje w n
 }
 ```
 
-Typowe przypadki użycia dla wieloznacznych tras obejmują:
+Typowe przypadki użycia tras z symbolami wieloznacznych obejmują:
 
 - Obsługa określonego pliku dla całego wzorca ścieżki
 - Mapowanie różnych metod HTTP na cały wzorzec ścieżki
@@ -144,9 +144,9 @@ Typowe przypadki użycia dla wieloznacznych tras obejmują:
 
 ## <a name="fallback-routes"></a>Trasy powrotu
 
-Aplikacje jednostronicowe często polegają na routingu po stronie klienta. Te reguły routingu po stronie klienta aktualizują lokalizację okna przeglądarki bez przesyłania żądań z powrotem do serwera. Po odświeżeniu strony lub przejściu bezpośrednio do adresów URL wygenerowanych przez reguły routingu po stronie klienta, wymagana jest trasa rezerwowa po stronie serwera do obsłużynia odpowiedniej strony HTML (która zwykle jest _index.html_ dla aplikacji po stronie klienta).
+Aplikacje jednostronicowe często polegają na routingu po stronie klienta. Te reguły routingu po stronie klienta aktualizują lokalizację okna przeglądarki bez zwracania żądań do serwera. W przypadku odświeżenia strony lub bezpośredniego przechodzenia do adresów URL generowanych przez reguły routingu po stronie klienta do obsługi odpowiedniej strony HTML (zazwyczaj jest toindex.htm _l_ dla aplikacji po stronie klienta) wymagana jest trasa rezerwowa po stronie serwera.
 
-Aplikację można skonfigurować tak, aby korzystała z reguł implementujących trasy rezerwowe, jak pokazano w poniższym przykładzie, który używa symboli wieloznacznych Path z filtrem plików:
+Możesz skonfigurować aplikację do używania reguł, które implementują trasę powrotu, jak pokazano w poniższym przykładzie, który używa symbolu wieloznacznego ścieżki z filtrem plików:
 
 ```json
 {
@@ -157,7 +157,7 @@ Aplikację można skonfigurować tak, aby korzystała z reguł implementujących
 }
 ```
 
-Poniżej przedstawiono przykładową strukturę plików, którą można wykonać przy użyciu tej reguły.
+W poniższej przykładowej strukturze plików możliwe są następujące wyniki dla tej reguły.
 
 ```files
 ├── images
@@ -171,44 +171,44 @@ Poniżej przedstawiono przykładową strukturę plików, którą można wykonać
 └── index.html
 ```
 
-| Żądania do...                                         | zwraca...                                                                                                    | ze stanem... |
+| Żądania do...                                         | Zwraca...                                                                                                    | ze stanem... |
 | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- | ------------------ |
-| _o_                                              | Plik _/index.html_                                                                                        | `200`              |
+| _/about/_                                              | Plik _/index.html_                                                                                        | `200`              |
 | _/images/logo.png_                                     | Plik obrazu                                                                                                | `200`              |
-| _/images/icon.svg_                                     | Plik _/index.html_ — ponieważ rozszerzenie pliku _SVG_ nie znajduje się na liście w `/images/*.{png,jpg,gif}` filtrze | `200`              |
-| _/images/unknown.png_                                  | Błąd nieznalezienia pliku                                                                                          | `404`              |
-| _/css/unknown.css_                                     | Błąd nieznalezienia pliku                                                                                          | `404`              |
+| _/images/icon.svg_                                     | Plik _/index.html_ — ponieważ rozszerzenie _pliku svg_ nie jest wymienione w `/images/*.{png,jpg,gif}` filtrze | `200`              |
+| _/images/unknown.png_                                  | Błąd Nie znaleziono pliku                                                                                          | `404`              |
+| _/css/unknown.css_                                     | Błąd Nie znaleziono pliku                                                                                          | `404`              |
 | _/css/global.css_                                      | Plik arkusza stylów                                                                                           | `200`              |
-| Każdy inny plik poza folderem _/images_ lub _/CSS_ | Plik _/index.html_                                                                                        | `200`              |
+| Dowolny inny plik poza _folderami /images_ _lub /css_ | Plik _/index.html_                                                                                        | `200`              |
 
 ## <a name="global-headers"></a>Nagłówki globalne
 
-`globalHeaders`Sekcja zawiera zestaw [nagłówków HTTP](https://developer.mozilla.org/docs/Web/HTTP/Headers) stosowanych do każdej odpowiedzi, chyba że jest zastępowany przez regułę [nagłówka trasy](#route-headers) , w przeciwnym razie zwracana jest Unia obu nagłówków z trasy i nagłówków globalnych.
+Sekcja zawiera zestaw nagłówków HTTP zastosowanych do każdej odpowiedzi, chyba że zostanie zastąpiony przez regułę nagłówka trasy. W przeciwnym razie zostanie zwrócona unii zarówno nagłówków z trasy, jak i nagłówków `globalHeaders` globalnych. [](https://developer.mozilla.org/docs/Web/HTTP/Headers) [](#route-headers)
 
-Zobacz [przykładowy plik konfiguracji](#example-configuration-file) , aby poznać przykłady użycia.
+Przykłady [użycia można znaleźć w przykładowym pliku](#example-configuration-file) konfiguracji.
 
 Aby usunąć nagłówek, ustaw wartość na pusty ciąg ( `""` ).
 
-Niektóre typowe przypadki użycia nagłówków globalnych obejmują:
+Niektóre typowe przypadki użycia nagłówków globalnych to:
 
 - Niestandardowe reguły buforowania
 - Wymuszanie zasad zabezpieczeń
 - Ustawienia kodowania
 
-## <a name="response-overrides"></a>Zastąpienia odpowiedzi
+## <a name="response-overrides"></a>Przesłonięcia odpowiedzi
 
-`responseOverrides`Sekcja zawiera możliwość zdefiniowania niestandardowej odpowiedzi, gdy serwer w przeciwnym razie zwróci kod błędu. Zobacz [przykładowy plik konfiguracji](#example-configuration-file) , aby poznać przykłady użycia.
+Sekcja umożliwia zdefiniowanie odpowiedzi niestandardowej, gdy serwer zwróci `responseOverrides` kod błędu. Przykłady [użycia można znaleźć w przykładowym pliku](#example-configuration-file) konfiguracji.
 
-Następujące kody HTTP są dostępne do przesłonięcia:
+Następujące kody HTTP są dostępne do zastąpienia:
 
 | Kod stanu                                                   | Znaczenie      | Możliwa przyczyna                                                                                                                                                                                                                                                                                     |
 | ------------------------------------------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [400](https://developer.mozilla.org/docs/Web/HTTP/Status/400) | Złe żądanie  | Nieprawidłowy link do zaproszenia                                                                                                                                                                                                                                                                            |
-| [401](https://developer.mozilla.org/docs/Web/HTTP/Status/401) | Brak autoryzacji | Żądanie do stron z ograniczeniami podczas nieuwierzytelnionego                                                                                                                                                                                                                                                  |
-| [403](https://developer.mozilla.org/docs/Web/HTTP/Status/403) | Forbidden    | <ul><li>Użytkownik jest zalogowany, ale nie ma ról wymaganych do wyświetlenia strony.<li>Użytkownik jest zalogowany, ale środowisko uruchomieniowe nie może pobrać szczegółów użytkownika z ich oświadczeń tożsamości.<li>Zbyt wielu użytkowników zalogował się w witrynie przy użyciu ról niestandardowych, dlatego środowisko uruchomieniowe nie może zalogować użytkownika.</ul> |
+| [400](https://developer.mozilla.org/docs/Web/HTTP/Status/400) | Złe żądanie  | Nieprawidłowy link zaproszenia                                                                                                                                                                                                                                                                            |
+| [401](https://developer.mozilla.org/docs/Web/HTTP/Status/401) | Brak autoryzacji | Żądanie do stron z ograniczeniami podczas nieuwierzytania                                                                                                                                                                                                                                                  |
+| [403](https://developer.mozilla.org/docs/Web/HTTP/Status/403) | Forbidden    | <ul><li>Użytkownik jest zalogowany, ale nie ma ról wymaganych do wyświetlenia strony.<li>Użytkownik jest zalogowany, ale środowisko uruchomieniowe nie może pobrać szczegółów użytkownika ze swoich oświadczeń tożsamości.<li>Zbyt wielu użytkowników loguje się do witryny przy użyciu ról niestandardowych, dlatego środowisko uruchomieniowe nie może zalogować użytkownika.</ul> |
 | [404](https://developer.mozilla.org/docs/Web/HTTP/Status/404) | Nie znaleziono    | Nie znaleziono pliku                                                                                                                                                                                                                                                                                     |
 
-W poniższym przykładzie pokazano, jak zastąpić kod błędu.
+W poniższej przykładowej konfiguracji pokazano, jak zastąpić kod błędu.
 
 ```json
 {
@@ -320,34 +320,34 @@ W poniższym przykładzie pokazano, jak zastąpić kod błędu.
 }
 ```
 
-W oparciu o powyższą konfigurację zapoznaj się z następującymi scenariuszami.
+Na podstawie powyższej konfiguracji przejrzyj następujące scenariusze.
 
-| Żądania do...                                                    | wyniki w...                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Żądania do...                                                    | powoduje...                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _/Profile_                                                        | Uwierzytelnieni użytkownicy obsługują plik _/profile/index.html_ . Nieuwierzytelniani użytkownicy są przekierowywani do programu _/login_.                                                                                                                                                                                                                                                                                                                              |
-| _/admin_                                                         | Uwierzytelnieni użytkownicy w roli _administrator_ obsługują plik _/admin/index.html_ . Uwierzytelnieni użytkownicy, którzy nie należą do roli _administratora_ , są z `403` błędem <sup>1</sup>. Nieuwierzytelniani użytkownicy są przekierowywani do programu _/login_.                                                                                                                                                                                                          |
-| _/logo.png_                                                       | Program udostępnia obraz z niestandardową regułą pamięci podręcznej, w której maksymalny wiek jest nieco dłuższy niż 182 dni (15 770 000 s).                                                                                                                                                                                                                                                                                                                                   |
-| _/api/admin_                                                      | `GET` żądania od uwierzytelnionych użytkowników w roli _registeredusers_ są wysyłane do interfejsu API. Uwierzytelnieni użytkownicy, którzy nie znajdują się w roli _registeredusers_ , a nieuwierzytelnieni użytkownicy są obsługiwani `401` błędem.<br/><br/>`POST`, `PUT` , `PATCH` i `DELETE` żądania od użytkowników uwierzytelnionych w roli _administratora_ są wysyłane do interfejsu API. Uwierzytelnieni użytkownicy, którzy nie znajdują się w roli _administratora_ , a nieuwierzytelnieni użytkownicy są obsługiwani `401` błędem. |
-| _/customers/contoso_                                              | Uwierzytelniani użytkownicy, którzy należą do roli _administrator_ lub _customers_contoso_ , są obsługiwani plik _/Customers/contoso/index.html_ . Uwierzytelnieni użytkownicy, którzy nie znajdują się w roli _administratora_ lub _customers_contoso_ role są `403` błędem <sup>1</sup>. Nieuwierzytelniani użytkownicy są przekierowywani do programu _/login_.                                                                                                                            |
-| _/Login_                                                          | Nieuwierzytelnionym użytkownikom wzywa się do uwierzytelnienia w usłudze GitHub.                                                                                                                                                                                                                                                                                                                                                                             |
-| _/.auth/login/twitter_                                            | Ponieważ autoryzacja w usłudze Twitter jest wyłączona przez regułę trasy, `404` zwracany jest błąd, który powraca do obsługi _/index.html_ z `200` kodem stanu.                                                                                                                                                                                                                                                                                     |
-| _/logout_                                                         | Użytkownicy są wyrejestrowani z dowolnego dostawcy uwierzytelniania.                                                                                                                                                                                                                                                                                                                                                                                          |
-| _/calendar/2021/01_                                               | Przeglądarka obsługuje plik _/calendar.html_ .                                                                                                                                                                                                                                                                                                                                                                                              |
-| _/specials_                                                       | Przeglądarka zostanie trwale przekierowana do _/Deals_.                                                                                                                                                                                                                                                                                                                                                                                            |
-| _/data.jsna_                                                      | Plik obsługiwany przy użyciu `text/json` typu MIME.                                                                                                                                                                                                                                                                                                                                                                                               |
-| _/about_ lub dowolna z folderów, które pasują do wzorców routingu po stronie klienta | Plik _/index.html_ jest obsługiwany przy użyciu `200` kodu stanu.                                                                                                                                                                                                                                                                                                                                                                                    |
-| Nieistniejący plik w folderze _/images/_                     | `404`Wystąpił błąd.                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| _/profile_                                                        | Uwierzytelnionym użytkownikom jest obsługiwany _plik /profile/index.html._ Nieuwierzytani użytkownicy są przekierowywani do _/login_.                                                                                                                                                                                                                                                                                                                              |
+| _/admin/_                                                         | Uwierzytelnionym użytkownikom w _roli administratora_ jest obsługiwany _plik /admin/index.html._ Uwierzytelnionym użytkownikom, którzy nie mają _roli administratora,_ jest wyświetlany `403` błąd <sup>1.</sup> Nieuwierzytani użytkownicy są przekierowywani do _/login_.                                                                                                                                                                                                          |
+| _/logo.png_                                                       | Obsługuje obraz przy użyciu niestandardowej reguły pamięci podręcznej, w której maksymalny wiek wynosi nieco ponad 182 dni (15 770 000 sekund).                                                                                                                                                                                                                                                                                                                                   |
+| _/api/admin_                                                      | `GET` Żądania od uwierzytelnionych użytkowników w _roli zarejestrowanychużytkowcy_ są wysyłane do interfejsu API. Uwierzytelnieni użytkownicy, którzy nie _mają roli zarejestrowaniużytkowcy,_ i nieuwierzytowieni użytkownicy są obarczeni `401` błędem.<br/><br/>`POST`Żądania , , i od uwierzytelnionych użytkowników w `PUT` roli `PATCH` administratora są wysyłane do `DELETE` interfejsu  API. Uwierzytelnieni użytkownicy, którzy nie mają _roli administratora,_ i nieuwierzytowieni użytkownicy mają komunikat o `401` błędzie. |
+| _/customers/contoso_                                              | Uwierzytelnieni użytkownicy, którzy  należą do administratora lub customers_contoso _ról,_ są adresani do pliku _/customers/contoso/index.html._ Uwierzytelnieni użytkownicy, którzy nie znajdują się _w roli administratora_ lub _customers_contoso,_ są o `403` <sup>błędzie 1.</sup> Nieuwierzytani użytkownicy są przekierowywani do _/login_.                                                                                                                            |
+| _/login_                                                          | Uwierzytelnienie nieuwierzytowanych użytkowników w usłudze GitHub jest trudne.                                                                                                                                                                                                                                                                                                                                                                             |
+| _/.auth/login/twitter_                                            | Ponieważ autoryzacja za pomocą konta Twitter jest wyłączona przez regułę trasy, jest zwracany błąd, który powraca do obsługi `404` _/index.html_ z `200` kodem stanu.                                                                                                                                                                                                                                                                                     |
+| _/logout (wyloguj się)_                                                         | Użytkownicy są wylogowani z dowolnego dostawcy uwierzytelniania.                                                                                                                                                                                                                                                                                                                                                                                          |
+| _/calendar/2021/01_                                               | Przeglądarka jest obsługiwany _plik /calendar.html._                                                                                                                                                                                                                                                                                                                                                                                              |
+| _/specials_                                                       | Przeglądarka jest trwale przekierowywany do _/deals_.                                                                                                                                                                                                                                                                                                                                                                                            |
+| _/data.jsna_                                                      | Plik obsługiwany za pomocą `text/json` typu MIME.                                                                                                                                                                                                                                                                                                                                                                                               |
+| _/about_ lub dowolny folder, który pasuje do wzorców routingu po stronie klienta | Plik _/index.html_ jest obsługiwany z `200` kodem stanu.                                                                                                                                                                                                                                                                                                                                                                                    |
+| Nieistniejący plik w _folderze /images/_                     | `404`Błąd.                                                                                                                                                                                                                                                                                                                                                                                                                                |
 
-<sup>1</sup> możesz podać niestandardową stronę błędu za pomocą [reguły przesłaniania odpowiedzi](#response-overrides).
+<sup>1</sup> Niestandardową stronę błędu można podać przy użyciu reguły [przesłonięcia odpowiedzi](#response-overrides).
 
 ## <a name="restrictions"></a>Ograniczenia
 
-Istnieją następujące ograniczenia dotyczące _staticwebapps.config.js_ pliku.
+Istnieją następujące ograniczenia dotyczącestaticwebapps.config.js _pliku._
 
 - Maksymalny rozmiar pliku to 100 KB
 - Maksymalnie 50 odrębnych ról
 
-Zapoznaj się z [artykułem](quotas.md) dotyczącym przydziału ogólnych ograniczeń i ograniczeń.
+Zobacz artykuł [Limity przydziału,](quotas.md) aby uzyskać ogólne ograniczenia.
 
 ## <a name="next-steps"></a>Następne kroki
 

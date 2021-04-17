@@ -1,6 +1,6 @@
 ---
-title: Źródło zmian w usłudze Azure Blob Storage | Microsoft Docs
-description: Dowiedz się więcej o dziennikach źródeł zmian na platformie Azure Blob Storage i sposobach ich użycia.
+title: Zestawienia zmian w Azure Blob Storage | Microsoft Docs
+description: Dowiedz się więcej na temat dzienników zestawienia Azure Blob Storage i sposobu ich używania.
 author: normesta
 ms.author: normesta
 ms.date: 02/08/2021
@@ -8,30 +8,30 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 1366f24ec3bd35ec23d5bf0879fced367c9f6a45
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 6da83ceb6d8ee51916d25949309d7ddfba0e4b30
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552443"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503618"
 ---
-# <a name="change-feed-support-in-azure-blob-storage"></a>Obsługa kanału informacyjnego zmiany w usłudze Azure Blob Storage
+# <a name="change-feed-support-in-azure-blob-storage"></a>Obsługa zestawienia zmian w Azure Blob Storage
 
-Celem źródła zmian jest dostarczenie dzienników transakcji wszystkich zmian, które występują w obiektach Blob i metadanych obiektów BLOB na koncie magazynu. Kanał informacyjny zmiany zawiera **uporządkowany**, **gwarantowany**, **trwały**, **niezmienny** **Dziennik tych** zmian. Aplikacje klienckie mogą odczytywać te dzienniki w dowolnym momencie, w ramach przesyłania strumieniowego lub w trybie wsadowym. Kanał informacyjny zmiany umożliwia tworzenie wydajnych i skalowalnych rozwiązań, które przetwarzają zdarzenia zmiany występujące na koncie Blob Storage przy niskich kosztach.
+Celem zestawienia zmian jest dostarczenie dzienników transakcji wszystkich zmian, które zachodzą w obiektach blob, oraz metadanych obiektów blob na koncie magazynu. Źródło zmian zawiera **uporządkowany,** **gwarantowany,** **trwały,** **niezmienny** i tylko **do** odczytu dziennik tych zmian. Aplikacje klienckie mogą odczytywać te dzienniki w dowolnym momencie, w trybie przesyłania strumieniowego lub w trybie wsadowym. Zestawienia zmian umożliwia tworzenie wydajnych i skalowalnych rozwiązań, które przetwarzają zdarzenia zmiany, które występują Blob Storage konta użytkownika przy niskich kosztach.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
-## <a name="how-the-change-feed-works"></a>Jak działa Źródło zmian
+## <a name="how-the-change-feed-works"></a>Jak działa zestawienia zmian
 
-Źródło zmian jest przechowywane jako [obiekty blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) w specjalnym kontenerze na koncie magazynu przy użyciu standardowego kosztu [cennika obiektów BLOB](https://azure.microsoft.com/pricing/details/storage/blobs/) . Możesz kontrolować okres przechowywania tych plików zgodnie z wymaganiami (zobacz [warunki](#conditions) bieżącej wersji). Zdarzenia zmiany są dołączane do źródła zmian jako rekordy w specyfikacji formatu [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) : kompaktowy, szybki i binarny format, który zapewnia rozbudowane struktury danych z wbudowanym schematem. Ten format jest szeroko używany w ekosystemie Hadoop, Stream Analytics i Azure Data Factory.
+Zestawienia zmian są przechowywane jako [obiekty blob w](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) specjalnym kontenerze na koncie magazynu po standardowych cenach obiektów [blob.](https://azure.microsoft.com/pricing/details/storage/blobs/) Okres przechowywania tych plików można kontrolować na podstawie wymagań (zobacz [warunki](#conditions) bieżącej wersji). Zdarzenia zmiany są dołączane do zestawienia zmian jako rekordy w specyfikacji formatu [Apache Avro:](https://avro.apache.org/docs/1.8.2/spec.html) kompaktowy, szybki format binarny, który zapewnia rozbudowane struktury danych ze schematem w tekście. Ten format jest powszechnie używany w ekosystemie hadoop, Stream Analytics i Azure Data Factory.
 
-Można przetwarzać te dzienniki asynchronicznie, przyrostowo lub w całości. Dowolna liczba aplikacji klienckich może niezależnie odczytywać Źródło zmian, równolegle i we własnym tempie. Aplikacje analityczne, takie jak [Apache drążenie](https://drill.apache.org/docs/querying-avro-files/) lub [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) , mogą zużywać dzienniki bezpośrednio jako pliki Avro, dzięki czemu można przetwarzać je przy niskich kosztach, z wysoką przepustowością i bez konieczności pisania niestandardowej aplikacji.
+Dzienniki te można przetwarzać asynchronicznie, przyrostowo lub w całości. Dowolna liczba aplikacji klienckich może niezależnie odczytywać źródło zmian, równolegle i we własnym tempie. Aplikacje analityczne, takie jak [Apache Drill](https://drill.apache.org/docs/querying-avro-files/) lub [Apache Spark,](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) mogą korzystać z dzienników bezpośrednio jako pliki Avro, co pozwala przetwarzać je przy niskich kosztach, z wysoką przepustowością i bez konieczności pisania aplikacji niestandardowej.
 
-Na poniższym diagramie pokazano, jak rekordy są dodawane do źródła zmian:
+Na poniższym diagramie pokazano, jak rekordy są dodawane do zestawienia zmian:
 
-:::image type="content" source="media/storage-blob-change-feed/change-feed-diagram.png" alt-text="Diagram przedstawiający sposób działania kanału informacyjnego zmiany w celu dostarczenia uporządkowanego dziennika zmian obiektów BLOB":::
+:::image type="content" source="media/storage-blob-change-feed/change-feed-diagram.png" alt-text="Diagram przedstawiający sposób działania zestawienia zmian w celu zapewnienia uporządkowanego dziennika zmian w obiektach blob":::
 
-Obsługa kanałów informacyjnych zmian jest odpowiednia dla scenariuszy, które przetwarzają dane na podstawie obiektów, które uległy zmianie. Na przykład aplikacje mogą:
+Obsługa zestawienia zmian jest odpowiednia dla scenariuszy, w których dane są przetwarzane na podstawie zmienionych obiektów. Na przykład aplikacje mogą:
 
   - Aktualizowanie indeksu pomocniczego, synchronizacja z pamięcią podręczną, wyszukiwarką lub innymi scenariuszami zarządzania zawartością.
   
@@ -39,80 +39,80 @@ Obsługa kanałów informacyjnych zmian jest odpowiednia dla scenariuszy, które
   
   - Przechowywanie, inspekcja i analizowanie zmian w obiektach, w dowolnym okresie, pod kątem bezpieczeństwa, zgodności lub analizy dla zarządzania danymi w przedsiębiorstwie.
 
-  - Twórz rozwiązania do tworzenia kopii zapasowych, dublowania lub replikowania stanu obiektów na koncie w celu zarządzania awaryjnego lub zapewnienia zgodności.
+  - Twórz rozwiązania do tworzenia kopii zapasowych, dublowania lub replikowania stanu obiektów na swoim koncie w celu zarządzania awariami lub zapewnienia zgodności.
 
-  - Twórz połączone potoki aplikacji, które reagują na zmiany zdarzeń lub Zaplanuj wykonania na podstawie utworzonego lub zmienionego obiektu.
+  - Twórz połączone potoki aplikacji, które reagują na zmiany zdarzeń lub planują wykonywanie na podstawie utworzonego lub zmienionego obiektu.
   
-Źródło zmian jest funkcją wymaganą wstępnie do [replikacji obiektów](object-replication-overview.md) oraz [przywracania do punktu w czasie dla blokowych obiektów BLOB](point-in-time-restore-overview.md).
+Źródło zmian to funkcja wymagań wstępnych dla replikacji [obiektów](object-replication-overview.md) i [przywracania do punktu w czasie dla blokowych obiektów blob.](point-in-time-restore-overview.md)
 
 > [!NOTE]
-> Źródło zmian zawiera trwały, uporządkowany model dziennika zmian, które występują w obiekcie blob. Zmiany są zapisywane i udostępniane w dzienniku kanału informacyjnego zmiany w kolejności kilku minut od zmiany. Jeśli aplikacja musi reagować na zdarzenia znacznie szybciej niż tutaj, zamiast tego Rozważ użycie [zdarzeń BLOB Storage](storage-blob-event-overview.md) . [Zdarzenia BLOB Storage](storage-blob-event-overview.md) zawierają zdarzenia jednorazowe w czasie rzeczywistym, które umożliwiają Azure Functions lub aplikacjom szybkie reagowanie na zmiany, które wystąpiły w obiekcie blob. 
+> Źródło zmian zapewnia trwały, uporządkowany model dziennika zmian, które występują w obiekcie blob. Zmiany są zapisywane i udostępniane w dzienniku zestawienia zmian w ciągu kilku minut od zmiany. Jeśli twoja aplikacja musi reagować na zdarzenia znacznie szybciej niż to, rozważ użycie Blob Storage [zdarzeń.](storage-blob-event-overview.md) [Blob Storage Events](storage-blob-event-overview.md) udostępnia zdarzenia czasu rzeczywistego, które umożliwiają użytkownikom Azure Functions lub aplikacjom szybkie reagowanie na zmiany zachodzące w obiekcie blob. 
 
-## <a name="enable-and-disable-the-change-feed"></a>Włączanie i wyłączanie kanału informacyjnego zmiany
+## <a name="enable-and-disable-the-change-feed"></a>Włączanie i wyłączanie zestawienia zmian
 
-Aby rozpocząć przechwytywanie i rejestrowanie zmian, należy włączyć kanał informacyjny zmiany na koncie magazynu. Wyłącz kanał informacyjny zmiany, aby zatrzymać przechwytywanie zmian. Zmiany można włączać i wyłączać za pomocą szablonów Azure Resource Manager w portalu lub programie PowerShell.
+Musisz włączyć zestawienia zmian na koncie magazynu, aby rozpocząć przechwytywanie i rejestrowanie zmian. Wyłącz źródło zmian, aby zatrzymać przechwytywanie zmian. Zmiany można włączać i wyłączać przy użyciu szablonów Azure Resource Manager portalu lub programu PowerShell.
 
-Poniżej przedstawiono kilka kwestii, które należy wziąć pod uwagę po włączeniu źródła zmian.
+Oto kilka rzeczy, o których należy pamiętać po włączeniu zestawienia zmian.
 
-- Dla usługi BLOB w ramach każdego konta magazynu istnieje tylko jeden kanał informacyjny zmiany, który jest przechowywany w kontenerze **$blobchangefeed** .
+- Istnieje tylko jeden kanał informacyjny zmian dla usługi blob na każdym koncie magazynu i jest przechowywany w **kontenerze $blobchangefeed** magazynu.
 
-- Tworzenie, aktualizowanie i usuwanie zmian są przechwytywane tylko na poziomie usługi BLOB.
+- Zmiany dotyczące tworzenia, aktualizacji i usuwania są przechwytywane tylko na poziomie usługi obiektów blob.
 
-- Kanał informacyjny zmiany przechwytuje *wszystkie* zmiany dla wszystkich dostępnych zdarzeń występujących na tym koncie. Aplikacje klienckie mogą odfiltrować typy zdarzeń zgodnie z wymaganiami. (Zobacz [warunki](#conditions) bieżącej wersji).
+- Źródło zmian *przechwytuje* wszystkie zmiany dla wszystkich dostępnych zdarzeń, które występują na koncie. Aplikacje klienckie mogą filtrować typy zdarzeń zgodnie z potrzebami. (Zobacz [warunki](#conditions) bieżącej wersji).
 
-- Tylko konta GPv2 i BLOB Storage mogą włączać Źródło zmian. Konta BlockBlobStorage Premium i hierarchiczne konta z obsługą nazw nie są obecnie obsługiwane. Konta magazynu GPv1 nie są obsługiwane, ale można je uaktualnić do GPv2 bez przestojów. Aby uzyskać więcej informacji, zobacz [uaktualnianie do konta magazynu GPv2](../common/storage-account-upgrade.md) .
+- Tylko konta GPv2 i konta usługi Blob Storage mogą włączać zestawienia zmian. Konta BlockBlobStorage w wersji Premium i konta z włączoną hierarchiczną przestrzenią nazw nie są obecnie obsługiwane. Konta magazynu GPv1 nie są obsługiwane, ale można je uaktualnić do wersji GPv2 bez przestojów. Aby uzyskać więcej informacji, zobacz Uaktualnianie do [konta magazynu GPv2.](../common/storage-account-upgrade.md)
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Włącz źródło zmian na koncie magazynu przy użyciu Azure Portal:
+Włącz zestawienia zmian na koncie magazynu przy użyciu Azure Portal:
 
 1. W [Azure Portal](https://portal.azure.com/)wybierz konto magazynu.
-1. Przejdź do opcji **Ochrona danych** w obszarze **BLOB Service**.
-1. W obszarze **śledzenie** wybierz pozycję **Włącz źródło zmian obiektów BLOB**.
-1. Wybierz przycisk **Zapisz** , aby potwierdzić ustawienia ochrony danych.
+1. Przejdź do opcji **Ochrona danych** w obszarze **Zarządzanie danymi**.
+1. W **obszarze Śledzenie** wybierz pozycję Włącz źródło zmian obiektów **blob.**
+1. Wybierz przycisk **Zapisz,** aby potwierdzić ustawienia ochrony danych.
 
-    :::image type="content" source="media/storage-blob-change-feed/change-feed-enable-portal.png" alt-text="Zrzut ekranu przedstawiający sposób włączania źródła zmian w Azure Portal":::
+    :::image type="content" source="media/storage-blob-change-feed/change-feed-enable-portal.png" alt-text="Zrzut ekranu przedstawiający sposób włączania zestawienia zmian w Azure Portal":::
 
-### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Włącz źródło zmian przy użyciu programu PowerShell:
+Włączanie zestawienia zmian przy użyciu programu PowerShell:
 
-1. Zainstaluj najnowszą PowershellGet.
+1. Zainstaluj najnowszą wersję polecenia PowershellGet.
 
    ```powershell
    Install-Module PowerShellGet –Repository PSGallery –Force
    ```
 
-2. Zamknij program, a następnie ponownie otwórz konsolę programu PowerShell.
+2. Zamknij, a następnie otwórz ponownie konsolę programu PowerShell.
 
-3. Zainstaluj wersję 2.5.0 lub nowszą w module **AZ. Storage** .
+3. Zainstaluj wersję 2.5.0 lub nowszą **modułu Az.Storage.**
 
    ```powershell
    Install-Module Az.Storage –Repository PSGallery -RequiredVersion 2.5.0 –AllowClobber –Force
    ```
 
-4. Zaloguj się do subskrypcji platformy Azure za pomocą `Connect-AzAccount` polecenia i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie w celu uwierzytelnienia.
+4. Zaloguj się do subskrypcji platformy Azure za pomocą polecenia i postępuj zgodnie z `Connect-AzAccount` instrukcjami na ekranie, aby się uwierzytelnić.
 
    ```powershell
    Connect-AzAccount
    ```
 
-5. Włącz źródło zmian dla konta magazynu.
+5. Włącz zestawienia zmian dla konta magazynu.
 
    ```powershell
    Update-AzStorageBlobServiceProperty -EnableChangeFeed $true
    ```
 
 ### <a name="template"></a>[Szablon](#tab/template)
-Użyj szablonu Azure Resource Manager, aby włączyć Źródło zmian na istniejącym koncie magazynu za pośrednictwem Azure Portal:
+Użyj szablonu Azure Resource Manager, aby włączyć kanał informacyjny zmian na istniejącym koncie magazynu za pośrednictwem Azure Portal:
 
-1. W Azure Portal wybierz pozycję **Utwórz zasób**.
+1. W Azure Portal wybierz pozycję **Utwórz zasób.**
 
-2. W obszarze **Wyszukaj w portalu Marketplace** wpisz **wdrożenie szablonu**, a następnie naciśnij klawisz **Enter**.
+2. W **polu Wyszukaj w witrynie Marketplace** wpisz wdrożenie **szablonu,** a następnie naciśnij klawisz **ENTER.**
 
-3. Wybierz **[Wdróż szablon niestandardowy](https://portal.azure.com/#create/Microsoft.Template)**, a następnie wybierz opcję **Kompiluj własny szablon w edytorze**.
+3. Wybierz **[pozycję Deploy a custom template (Wd](https://portal.azure.com/#create/Microsoft.Template)** wdrażaj szablon niestandardowy), a następnie wybierz pozycję Build your own template in the editor **(Skompilowanie własnego szablonu w edytorze).**
 
-4. W edytorze szablonów wklej poniższy kod JSON. Zastąp symbol zastępczy `<accountName>` nazwą konta magazynu.
+4. W edytorze szablonów wklej następujący kod JSON. Zastąp symbol zastępczy `<accountName>` nazwą konta magazynu.
 
    ```json
    {
@@ -133,30 +133,30 @@ Użyj szablonu Azure Resource Manager, aby włączyć Źródło zmian na istniej
    }
    ```
     
-5. Wybierz przycisk **Zapisz** , określ grupę zasobów konta, a następnie wybierz przycisk **Kup** , aby wdrożyć szablon i włączyć Źródło zmian.
+5. Wybierz przycisk **Zapisz,** określ grupę zasobów konta, a następnie wybierz przycisk **Kup,** aby wdrożyć szablon i włączyć zestawienia zmian.
 
 ---
 
-## <a name="consume-the-change-feed"></a>Korzystanie ze źródła zmian
+## <a name="consume-the-change-feed"></a>Wykorzystanie zestawienia zmian
 
-Kanał informacyjny zmiany generuje kilka plików metadanych i dzienników. Te pliki znajdują się w kontenerze **$blobchangefeed** konta magazynu. 
+Źródło zmian generuje kilka plików metadanych i dziennika. Te pliki znajdują się w **$blobchangefeed** kontenera konta magazynu. 
 
 > [!NOTE]
-> W bieżącej wersji kontener $blobchangefeed jest widoczny tylko w Azure Portal ale nie jest widoczny w Eksplorator usługi Azure Storage. Nie jest obecnie widoczny kontener $blobchangefeed podczas wywoływania interfejsu API ListContainers, ale można wywołać interfejs API ListBlobs bezpośrednio w kontenerze, aby wyświetlić obiekty blob
+> W bieżącej wersji kontener $blobchangefeed widoczny tylko w Azure Portal, ale nie jest widoczny w Eksplorator usługi Azure Storage. Obecnie kontener kontenera usługi $blobchangefeed nie jest wyświetlony podczas wywołania interfejsu API ListContainers, ale możesz wywołać interfejs API ListBlobs bezpośrednio w kontenerze, aby wyświetlić obiekty blob
 
-Aplikacje klienckie mogą korzystać ze źródła zmian przy użyciu biblioteki procesora kanału informacyjnego zmiany obiektów BLOB dostarczonej z zestawem SDK procesora źródła zmian. 
+Aplikacje klienckie mogą korzystać z zestawienia zmian przy użyciu biblioteki procesora zestawienia zmian obiektów blob dostarczonej z zestawem SDK procesora zestawienia zmian. 
 
-Zobacz [dzienniki źródła zmian procesów na platformie Azure Blob Storage](storage-blob-change-feed-how-to.md).
+Zobacz [Przetwarzanie dzienników zestawienia zmian w Azure Blob Storage](storage-blob-change-feed-how-to.md).
 
-## <a name="understand-change-feed-organization"></a>Zrozumienie organizacji kanału informacyjnego zmiany
+## <a name="understand-change-feed-organization"></a>Opis organizacji zestawienia zmian
 
 <a id="segment-index"></a>
 
 ### <a name="segments"></a>Segmenty
 
-Kanał informacyjny zmiany jest dziennikiem zmian zorganizowanych na *segmenty* **godzinowe** , ale dołączane i aktualizowane co kilka minut. Te segmenty są tworzone tylko wtedy, gdy istnieją zdarzenia zmiany obiektów blob, które wystąpiły w danej godzinie. Dzięki temu aplikacja kliencka może zużywać zmiany, które wystąpiły w określonych zakresach czasu bez konieczności przeszukiwania całego dziennika. Aby dowiedzieć się więcej, zobacz [specyfikacje](#specifications).
+Zestawienia zmian to dziennik zmian, które są zorganizowane w **segmenty**  godzinowe, ale dołączane do i aktualizowane co kilka minut. Te segmenty są tworzone tylko wtedy, gdy w ciągu tej godziny występują zdarzenia zmiany obiektu blob. Umożliwia to aplikacji klienckiej korzystanie ze zmian, które występują w określonych zakresach czasu, bez konieczności przeszukiwania całego dziennika. Aby dowiedzieć się więcej, zobacz [Specifications (Specyfikacje).](#specifications)
 
-Dostępny segment godzinowy kanału informacyjnego zmiany jest opisany w pliku manifestu, który określa ścieżki do plików kanału informacyjnego zmiany dla tego segmentu. Na liście `$blobchangefeed/idx/segments/` katalogu wirtualnego są wyświetlane te segmenty uporządkowane według czasu. Ścieżka segmentu opisuje początek okresu godzinowego, który reprezentuje segment. Za pomocą tej listy można odfiltrować segmenty dzienników, które są interesujące dla użytkownika.
+Dostępny godzinowy segment zestawienia zmian jest opisany w pliku manifestu, który określa ścieżki do plików zestawienia zmian dla tego segmentu. Lista katalogu `$blobchangefeed/idx/segments/` wirtualnego zawiera te segmenty uporządkowane według czasu. Ścieżka segmentu opisuje początek przedziału czasu godzinowego, który reprezentuje segment. Ta lista umożliwia filtrowanie segmentów dzienników, które Cię interesują.
 
 ```text
 Name                                                                    Blob Type    Blob Tier      Length  Content Type    
@@ -168,9 +168,9 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 ```
 
 > [!NOTE]
-> `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json`Jest tworzony automatycznie po włączeniu źródła zmian. Możesz bezpiecznie zignorować ten plik. Jest to zawsze pusty plik inicjujący. 
+> Plik `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json` jest tworzony automatycznie po włączeniu zestawienia zmian. Możesz bezpiecznie zignorować ten plik. Jest to zawsze pusty plik inicjalizacji. 
 
-Plik manifestu segmentu ( `meta.json` ) pokazuje ścieżkę plików kanału informacyjnego zmiany dla tego segmentu we `chunkFilePaths` właściwości. Oto przykład pliku manifestu segmentu.
+Plik manifestu segmentu ( `meta.json` ) pokazuje ścieżkę plików zestawienia zmian dla tego segmentu we właściwości `chunkFilePaths` . Oto przykład pliku manifestu segmentu.
 
 ```json
 {
@@ -201,23 +201,23 @@ Plik manifestu segmentu ( `meta.json` ) pokazuje ścieżkę plików kanału info
 ```
 
 > [!NOTE]
-> `$blobchangefeed`Kontener jest wyświetlany dopiero po włączeniu funkcji kanału informacyjnego zmiany na Twoim koncie. Przed wyświetleniem listy obiektów BLOB w kontenerze należy poczekać kilka minut po włączeniu kanału informacyjnego zmiany. 
+> Kontener zostanie wyświetlony dopiero po włączeniu funkcji zestawienia zmian `$blobchangefeed` na koncie. Zanim będzie można wyświetlić listę obiektów blob w kontenerze, musisz poczekać kilka minut po włączeniu zestawienia zmian. 
 
 <a id="log-files"></a>
 
-### <a name="change-event-records"></a>Zmiana rekordów zdarzeń
+### <a name="change-event-records"></a>Zmienianie rekordów zdarzeń
 
-Pliki kanału informacyjnego zmiany zawierają serię rekordów zdarzeń zmiany. Każdy rekord zdarzenia zmiany odnosi się do jednej zmiany w pojedynczym obiekcie blob. Rekordy są serializowane i zapisywane w pliku przy użyciu specyfikacji formatu [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) . Rekordy można odczytać przy użyciu specyfikacji formatu pliku Avro. Istnieje kilka bibliotek dostępnych do przetwarzania plików w tym formacie.
+Pliki zestawienia zmian zawierają serię rekordów zdarzeń zmiany. Każdy rekord zdarzenia zmiany odpowiada jednej zmianie pojedynczego obiektu blob. Rekordy są serializowane i zapisywane w pliku przy użyciu specyfikacji [formatu Apache Avro.](https://avro.apache.org/docs/1.8.2/spec.html) Rekordy można odczytywać przy użyciu specyfikacji formatu pliku Avro. Dostępnych jest kilka bibliotek do przetwarzania plików w tym formacie.
 
-Pliki kanału informacyjnego zmiany są przechowywane w `$blobchangefeed/log/` katalogu wirtualnym jako [dołączane obiekty blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). Pierwszy plik kanału informacyjnego zmiany w każdej ścieżce będzie miał `00000` nazwę pliku (na przykład `00000.avro` ). Nazwa każdego kolejnego pliku dziennika dodanego do tej ścieżki zostanie zwiększona o 1 (na przykład: `00001.avro` ).
+Pliki zestawienia zmian są przechowywane w katalogu `$blobchangefeed/log/` wirtualnym jako [uzupełnialne obiekty blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). Pierwszy plik zestawienia zmian w każdej ścieżce będzie miał `00000` nazwę pliku (na przykład `00000.avro` ). Nazwa każdego kolejnego pliku dziennika dodanego do tej ścieżki będzie zwiększana o 1 (na przykład: `00001.avro` ).
 
-Następujące typy zdarzeń są przechwytywane w rekordach źródła zmian:
-- BlobCreated
+Następujące typy zdarzeń są przechwytywane w rekordach zestawienia zmian:
+- Obiekt BlobCreated
 - BlobDeleted
 - BlobPropertiesUpdated
 - BlobSnapshotCreated
 
-Oto przykład zmiany rekordu zdarzenia z pliku źródła zmian konwertowanego na format JSON.
+Oto przykład zmiany rekordu zdarzenia z pliku zestawienia zmian przekonwertowanego na format Json.
 
 ```json
 {
@@ -246,32 +246,32 @@ Oto przykład zmiany rekordu zdarzenia z pliku źródła zmian konwertowanego na
 }
 ```
 
-Aby uzyskać opis każdej właściwości, zobacz [Azure Event Grid schemacie zdarzenia dla BLOB Storage](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties). Zdarzenia BlobPropertiesUpdated i BlobSnapshotCreated są obecnie wyłączne, aby można było zmienić źródło danych i nie były jeszcze obsługiwane dla zdarzeń Blob Storage.
+Aby uzyskać opis każdej właściwości, zobacz [Azure Event Grid schematu zdarzeń dla Blob Storage](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties). Zdarzenia BlobPropertiesUpdated i BlobSnapshotCreated są obecnie dostępne wyłącznie w kanale informacyjnym zmian i nie są jeszcze obsługiwane Blob Storage zdarzeń.
 
 > [!NOTE]
-> Pliki źródła zmian dla segmentu nie są natychmiast wyświetlane po utworzeniu segmentu. Długość opóźnienia jest w normalnym interwale opóźnienia publikowania źródła zmian, które jest w ciągu kilku minut od zmiany.
+> Pliki zestawienia zmian dla segmentu nie są natychmiast wyświetlane po utworzeniu segmentu. Długość opóźnienia wynosi w normalnym interwale publikowania opóźnienia zestawienia zmian, który jest w ciągu kilku minut od zmiany.
 
 <a id="specifications"></a>
 
 ## <a name="specifications"></a>Specyfikacje
 
-- Rekordy zdarzeń zmiany są dołączane tylko do źródła zmian. Po dołączeniu tych rekordów są one niezmienne, a pozycja rekordu jest stabilna. Aplikacje klienckie mogą obsługiwać własne punkty kontrolne na pozycji odczytu źródła zmian.
+- Rekordy zdarzeń zmiany są dołączane tylko do zestawienia zmian. Po dołączyć te rekordy są niezmienne i pozycja rekordu jest stabilna. Aplikacje klienckie mogą utrzymywać własny punkt kontrolny na pozycji odczytu zestawienia zmian.
 
-- Zmiany rekordów zdarzeń są dołączane w kolejności kilku minut od zmiany. Aplikacje klienckie mogą korzystać z rekordów, ponieważ są one dołączane do uzyskiwania strumieniowego dostępu lub luzem w dowolnym innym czasie.
+- Rekordy zdarzeń zmiany są dołączane w ciągu kilku minut od zmiany. Aplikacje klienckie mogą korzystać z rekordów, ponieważ są dołączane w celu uzyskania dostępu do przesyłania strumieniowego lub zbiorczo w dowolnym innym czasie.
 
-- Zmiany rekordów zdarzeń są uporządkowane według kolejności modyfikacji **na obiekt BLOB**. Kolejność zmian w obiektach Blob nie jest zdefiniowana w Blob Storage platformy Azure. Wszystkie zmiany w poprzednim segmencie są przed zmianami w kolejnych segmentach.
+- Rekordy zdarzeń zmiany są uporządkowane według kolejności modyfikacji **dla każdego obiektu blob**. Kolejność zmian między obiektami blob jest niezdefiniowana w Azure Blob Storage. Wszystkie zmiany w wcześniejszym segmencie są przed zmianami w kolejnych segmentach.
 
-- Zmiany rekordów zdarzeń są serializowane w pliku dziennika przy użyciu specyfikacji formatu [1.8.2 Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) .
+- Rekordy zdarzeń zmian są serializowane do pliku dziennika przy użyciu specyfikacji formatu [Apache Avro 1.8.2.](https://avro.apache.org/docs/1.8.2/spec.html)
 
-- Zmiany rekordów zdarzeń, gdzie `eventType` ma wartość, `Control` są wewnętrznymi rekordami systemu i nie odzwierciedlają zmiany w obiektach na koncie. Można bezpiecznie zignorować te rekordy.
+- Zmień rekordy zdarzeń, w których wartość ma wartość , są wewnętrznymi rekordami systemu i nie odzwierciedlają `eventType` `Control` zmian w obiektach na Twoim koncie. Te rekordy można bezpiecznie zignorować.
 
-- Wartości w `storageDiagnostics` zbiorze właściwości są przeznaczone wyłącznie do użytku wewnętrznego i nie są przeznaczone do użytku przez aplikację. Twoje aplikacje nie powinny mieć umownej zależności od tych danych. Można bezpiecznie zignorować te właściwości.
+- Wartości w torbie właściwości są przeznaczone tylko do użytku wewnętrznego i nie są przeznaczone `storageDiagnostics` do użytku przez aplikację. Twoje aplikacje nie powinny mieć zależności umownej od tych danych. Możesz bezpiecznie zignorować te właściwości.
 
-- Czas reprezentowany przez segment jest **przybliżony** z granicami wynoszącymi 15 minut. Aby zapewnić użycie wszystkich rekordów w określonym czasie, użyj kolejnego i następnego segmentu godzin.
+- Czas reprezentowany przez segment jest **przybliżony** i wynosi 15 minut. Aby zapewnić zużycie wszystkich rekordów w określonym czasie, należy korzystać z kolejnego segmentu poprzedniej i następnej godziny.
 
-- Każdy segment może mieć inną liczbę z `chunkFilePaths` powodu wewnętrznego partycjonowania strumienia dziennika do zarządzania przepływność publikowania. Pliki dziennika w każdej z nich `chunkFilePath` powinny zawierać wzajemnie wykluczające się obiekty blob i mogą być używane i przetwarzane równolegle bez naruszania kolejności modyfikacji na obiekt BLOB podczas iteracji.
+- Każdy segment może mieć inną liczbę ze względu na wewnętrzne partycjonowanie strumienia `chunkFilePaths` dzienników w celu zarządzania przepływnością publikowania. Pliki dziennika w każdym z nich mają gwarancję, że zawierają wzajemnie wykluczające się obiekty blob, i mogą być używane i przetwarzane równolegle bez naruszania kolejności modyfikacji na obiekt blob podczas `chunkFilePath` iteracji.
 
-- Segmenty zaczynają się w `Publishing` stanie. Po zakończeniu dołączania rekordów do segmentu będzie to możliwe `Finalized` . Pliki dziennika w dowolnym segmencie, który przypada po dacie `LastConsumable` właściwości w `$blobchangefeed/meta/Segments.json` pliku, nie powinny być używane przez aplikację. Oto przykład `LastConsumable` właściwości w `$blobchangefeed/meta/Segments.json` pliku:
+- Stan segmentów zaczyna `Publishing` się od początku. Po zakończeniu dołączania rekordów do segmentu będzie to `Finalized` . Pliki dziennika w dowolnym segmencie, które są datowane po dacie właściwości w pliku, nie powinny być używane `LastConsumable` `$blobchangefeed/meta/Segments.json` przez aplikację. Oto przykład właściwości `LastConsumable` w `$blobchangefeed/meta/Segments.json` pliku:
 
 ```json
 {
@@ -293,27 +293,27 @@ Aby uzyskać opis każdej właściwości, zobacz [Azure Event Grid schemacie zda
 
 ## <a name="conditions-and-known-issues"></a>Warunki i znane problemy
 
-W tej sekcji opisano znane problemy i warunki w bieżącej wersji źródła zmian. 
+W tej sekcji opisano znane problemy i warunki w bieżącej wersji zestawienia zmian. 
 
-- Zmiany rekordów zdarzeń dla jednej zmiany mogą pojawić się więcej niż jeden raz w kanale zmian.
-- Nie można jeszcze zarządzać okresem istnienia plików dziennika kanału informacyjnego zmian przez ustawienie zasad przechowywania opartych na czasie i nie można usunąć obiektów BLOB.
-- `url`Właściwość pliku dziennika jest obecnie zawsze pusta.
-- `LastConsumable`Właściwość segments.jsw pliku nie zawiera pierwszego segmentu, który kończy się podawaniem zmian. Ten problem występuje tylko po sfinalizowaniu pierwszego segmentu. Wszystkie kolejne segmenty po pierwszej godzinie są dokładnie przechwytywane we `LastConsumable` właściwości.
-- Nie widzisz obecnie kontenera **$blobchangefeed** podczas wywoływania interfejsu API ListContainers, a kontener nie jest wyświetlany na Azure Portal lub Eksplorator usługi Storage. Zawartość można wyświetlić, wywołując interfejs API ListBlobs bezpośrednio w kontenerze $blobchangefeed.
-- Konta magazynu, w przypadku których wcześniej zainicjowano [pracę w trybie failover](../common/storage-disaster-recovery-guidance.md) , mogą mieć problemy z plikiem dziennika, które nie są wyświetlane. Wszystkie przyszłe przejścia w tryb failover mogą mieć również wpływ na plik dziennika.
+- Rekordy zdarzeń zmiany dla każdej pojedynczej zmiany mogą pojawiać się więcej niż raz w twoim kanale zmian.
+- Nie można jeszcze zarządzać okresem istnienia plików dziennika zestawienia zmian, ustawiając dla nich zasady przechowywania na podstawie czasu i nie można usunąć obiektów blob.
+- Właściwość `url` pliku dziennika jest obecnie zawsze pusta.
+- Właściwość pliku segments.jsnie zawiera pierwszego segmentu, który finalizuje `LastConsumable` kanał zmian. Ten problem występuje dopiero po sfinalizowaniu pierwszego segmentu. Wszystkie kolejne segmenty po pierwszej godzinie są dokładnie przechwytywane we właściwości `LastConsumable` .
+- Obecnie nie widzisz kontenera **$blobchangefeed** podczas wywołania interfejsu API ListContainers, a kontener nie jest Azure Portal ani Eksplorator usługi Storage. Zawartość można wyświetlić, wywołując interfejs API ListBlobs bezpośrednio $blobchangefeed kontenerze.
+- Konta magazynu, które wcześniej zainicjowały trybu [failover konta,](../common/storage-disaster-recovery-guidance.md) mogą mieć problemy z tym, że plik dziennika nie jest wyświetlany. Wszelkie przyszłe trybu failover konta może również mieć wpływ na plik dziennika.
 
 ## <a name="faq"></a>Często zadawane pytania
 
-### <a name="what-is-the-difference-between-change-feed-and-storage-analytics-logging"></a>Jaka jest różnica między źródłem zmian i rejestrowaniem analityka magazynu?
-Dzienniki analityczne zawierają rekordy wszystkich operacji odczytu, zapisu, listy i usuwania z żądaniami zakończonymi powodzeniem i niepomyślnymi przez wszystkie operacje. Dzienniki analizy są najlepszym nakładem pracy i kolejność nie jest gwarantowana.
+### <a name="what-is-the-difference-between-change-feed-and-storage-analytics-logging"></a>Jaka jest różnica między kanałem informacyjnym zmian analityka magazynu rejestrowaniem zmian?
+Dzienniki analizy mają rekordy wszystkich operacji odczytu, zapisu, listy i usuwania z żądaniami pomyślnych i nieudanych we wszystkich operacjach. Dzienniki analityczne są najbardziej nakładem pracy i nie ma gwarancji kolejności.
 
-Źródło zmian to rozwiązanie, które zapewnia dziennik transakcyjny pomyślnych mutacji lub zmiany na koncie, takie jak tworzenie obiektów blob, modyfikowanie i usuwanie. Funkcja kanału informacyjnego zmiany gwarantuje, że wszystkie zdarzenia mają być rejestrowane i wyświetlane w kolejności pomyślnych zmian na obiekt BLOB, co oznacza, że nie trzeba odfiltrować szumu od dużej ilości operacji odczytu lub nieudanych żądań. Kanał informacyjny zmiany jest w sposób zasadniczy zaprojektowany i zoptymalizowany pod kątem tworzenia aplikacji, które wymagają pewnych gwarancji.
+Źródło zmian to rozwiązanie, które udostępnia dziennik transakcji pomyślnych operacji lub zmian na koncie, takich jak tworzenie, modyfikowanie i usuwanie obiektów blob. Źródło zmian gwarantuje, że wszystkie zdarzenia mają być rejestrowane i wyświetlane w kolejności pomyślnych zmian na obiekt blob, dlatego nie trzeba odfiltrować szumu z ogromnej liczby operacji odczytu lub żądań, które zakończyły się niepowodzeniem. Źródło zmian zostało zaprojektowane i zoptymalizowane pod kątem tworzenia aplikacji, które wymagają pewnych gwarancji.
 
-### <a name="should-i-use-change-feed-or-storage-events"></a>Czy należy używać kanału informacyjnego zmian czy zdarzeń magazynu?
-Można korzystać ze wszystkich funkcji jako źródła danych zmian i [zdarzeń magazynu obiektów BLOB](storage-blob-event-overview.md) , aby zapewnić te same informacje z gwarancją niezawodności dostarczania, z główną różnicą opóźnienia, kolejnością i przechowywaniem rekordów zdarzeń. Kanał informacyjny zmiany publikuje rekordy w dzienniku w ciągu kilku minut od zmiany, a także gwarantuje kolejność operacji zmiany na obiekt BLOB. Zdarzenia magazynu są wypychane w czasie rzeczywistym i mogą nie być uporządkowane. Zdarzenia dotyczące zmiany źródła danych są przechowywane w ramach konta magazynu jako stabilne dzienniki z własnym określonym przechowywaniem, podczas gdy zdarzenia magazynu są przejściowe używane przez program obsługi zdarzeń, chyba że zostaną jawnie zapisane. Dzięki użyciu kanału informacyjnego zmiany dowolna liczba aplikacji może korzystać z dzienników we własnych wygodach przy użyciu interfejsów API lub zestawów SDK obiektów BLOB. 
+### <a name="should-i-use-change-feed-or-storage-events"></a>Czy należy używać zestawienia zmian lub zdarzeń magazynu?
+Można korzystać z obu funkcji, ponieważ kanał zmian i zdarzenia usługi [Blob Storage](storage-blob-event-overview.md) zapewniają te same informacje z taką samą gwarancją niezawodności dostarczania, a główną różnicą jest opóźnienie, kolejność i przechowywanie rekordów zdarzeń. Źródło zmian publikuje rekordy w dzienniku w ciągu kilku minut od zmiany, a także gwarantuje kolejność operacji zmiany na obiekt blob. Zdarzenia magazynu są wypychane w czasie rzeczywistym i mogą nie być uporządkowane. Zdarzenia zestawienia zmian są trwale przechowywane wewnątrz konta magazynu jako stabilne dzienniki tylko do odczytu z własnym zdefiniowanym przechowywaniem, podczas gdy zdarzenia magazynu są przejściowe, które mogą być używane przez program obsługi zdarzeń, chyba że jawnie je przechowujesz. Dzięki zestawienia zmian dowolna liczba aplikacji może samodzielnie korzystać z dzienników przy użyciu interfejsów API obiektów blob lub zestawów SDK. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz przykład sposobu odczytywania źródła zmian za pomocą aplikacji klienckiej platformy .NET. Zobacz [dzienniki źródła zmian procesów na platformie Azure Blob Storage](storage-blob-change-feed-how-to.md).
-- Dowiedz się więcej na temat reagowania na zdarzenia w czasie rzeczywistym. Zobacz [, jak BLOB Storage zdarzenia](storage-blob-event-overview.md)
-- Dowiedz się więcej na temat szczegółowych informacji rejestrowania dla operacji zakończonych powodzeniem i zakończonych niepowodzeniem dla wszystkich żądań. Zobacz [Rejestrowanie analizy usługi Azure Storage](../common/storage-analytics-logging.md)
+- Zobacz przykład sposobu odczytywania zestawienia zmian przy użyciu aplikacji klienckiej .NET. Zobacz [Przetwarzanie dzienników zestawienia zmian w Azure Blob Storage](storage-blob-change-feed-how-to.md).
+- Dowiedz się, jak reagować na zdarzenia w czasie rzeczywistym. Zobacz [Reagowanie na Blob Storage zdarzeń](storage-blob-event-overview.md)
+- Dowiedz się więcej o szczegółowych informacjach dotyczących rejestrowania dla operacji pomyślnych i nieudanych dla wszystkich żądań. Zobacz [Rejestrowanie analityki usługi Azure Storage](../common/storage-analytics-logging.md)

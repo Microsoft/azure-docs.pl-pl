@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą Terraform Enterprise | Microsoft Docs'
-description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Terraform Enterprise.
+title: 'Samouczek: Azure Active Directory integracji logowania jednokrotnego z programem Terraform Enterprise | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować logowanie pojedyncze między platformą Azure Active Directory i programem Terraform Enterprise.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,142 +9,131 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/10/2020
+ms.date: 04/05/2021
 ms.author: jeedes
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 8b6678644008c7c5ba82f643aeafc61c67604713
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 69ce53126a45e74f43514779f391c2df66d8f225
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92518177"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518426"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-terraform-enterprise"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą Terraform Enterprise
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-terraform-enterprise"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego z programem Terraform Enterprise
 
-W tym samouczku dowiesz się, jak zintegrować usługę Terraform Enterprise z usługą Azure Active Directory (Azure AD). W przypadku integracji usługi Terraform Enterprise z usługą Azure AD można:
+Z tego samouczka dowiesz się, jak zintegrować narzędzie Terraform Enterprise z programem Azure Active Directory (Azure AD). Po zintegrowaniu programu Terraform Enterprise z usługą Azure AD można:
 
-* Kontrolka w usłudze Azure AD, która ma dostęp do terraform Enterprise.
-* Zezwól użytkownikom na automatyczne logowanie do terraform przedsiębiorstwa przy użyciu kont usługi Azure AD.
-* Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
-
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+* Kontroluj w usłudze Azure AD, kto ma dostęp do programu Terraform Enterprise.
+* Umożliwianie użytkownikom automatycznego zalogowania się do programu Terraform Enterprise przy użyciu kont usługi Azure AD.
+* Zarządzanie kontami w jednej centralnej lokalizacji — Azure Portal.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby rozpocząć, potrzebne są następujące elementy:
+Do rozpoczęcia pracy potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
-* Subskrypcja z włączonym logowaniem jednokrotnym w przedsiębiorstwie Terraform.
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać bezpłatne [konto](https://azure.microsoft.com/free/).
+* Subskrypcja aplikacji Terraform Enterprise z obsługą logowania jednokrotnego.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
-W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
+W tym samouczku skonfigurujesz i przetestujemy logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Terraform Enterprise obsługuje zainicjowanie rejestracji jednokrotnej w programie **SP**
-* Terraform Enterprise obsługuje funkcję aprowizacji użytkowników **just in Time**
+* Program Terraform Enterprise obsługuje logowanie **jednokrotne inicjowane** przez sp.
+* Program Terraform Enterprise obsługuje **aprowizowanie** użytkowników just in time.
 
-## <a name="adding-terraform-enterprise-from-the-gallery"></a>Dodawanie Terraform przedsiębiorstwa z galerii
+## <a name="add-terraform-enterprise-from-the-gallery"></a>Dodawanie rozwiązania Terraform Enterprise z galerii
 
-Aby skonfigurować integrację usługi Terraform Enterprise w usłudze Azure AD, musisz dodać Terraform Enterprise z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację programu Terraform Enterprise z usługą Azure AD, musisz dodać narzędzie Terraform Enterprise z galerii do swojej listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
-1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
-1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
-1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
+1. Zaloguj się do konta Azure Portal przy użyciu konta służbowego lub osobistego konta konto Microsoft.
+1. W okienku nawigacji po lewej stronie wybierz **Azure Active Directory** usługi.
+1. Przejdź do opcji **Aplikacje dla przedsiębiorstw,** a następnie wybierz **pozycję Wszystkie aplikacje.**
+1. Aby dodać nową aplikację, wybierz **pozycję Nowa aplikacja.**
 1. W sekcji **Dodaj z galerii** wpisz **Terraform Enterprise** w polu wyszukiwania.
-1. Wybierz pozycję **Terraform Enterprise** w panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
+1. Wybierz **pozycję Terraform Enterprise** z panelu wyników, a następnie dodaj aplikację. Zaczekaj kilka sekund na dodanie aplikacji do dzierżawy.
 
+## <a name="configure-and-test-azure-ad-sso-for-terraform-enterprise"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD dla programu Terraform Enterprise
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-terraform-enterprise"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla przedsiębiorstwa Terraform
+Skonfiguruj i przetestuj logowanie jednokrotne usługi Azure AD z programem Terraform Enterprise przy użyciu użytkownika testowego **O nazwie B.Simon.** Aby logowanie jednokrotne działało, należy ustanowić relację połączenia między użytkownikiem usługi Azure AD i powiązanym użytkownikiem programu Terraform Enterprise.
 
-Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą Terraform przedsiębiorstwa przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Terraform Enterprise.
+Aby skonfigurować i przetestować logowanie jednokrotne usługi Azure AD z programem Terraform Enterprise, wykonaj czynności z poniższych bloków konstrukcyjnych:
 
-Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą Terraform Enterprise, wykonaj następujące bloki konstrukcyjne:
-
-1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
-    * **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
-    * **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
-1. **[Skonfiguruj Logowanie jednokrotne w przedsiębiorstwie Terraform](#configure-terraform-enterprise-sso)** — w celu skonfigurowania ustawień logowania jednokrotnego na stronie aplikacji.
-    * **[Utwórz użytkownika testowego Terraform Enterprise](#create-terraform-enterprise-test-user)** , aby dysponować odpowiednikiem B. Simon w Terraform Enterprise, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
-1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
+1. **[Konfigurowanie logowania jednokrotnego w usłudze Azure AD](#configure-azure-ad-sso)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
+    * **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie pojedynczej usługi Azure AD z użytkownikiem B.Simon.
+    * **[Przypisywanie użytkownika testowego usługi Azure AD —](#assign-the-azure-ad-test-user)** aby umożliwić aplikacji B.Simon korzystanie z logowania pojedynczego usługi Azure AD.
+1. **[Konfigurowanie logowania jednokrotnego w](#configure-terraform-enterprise-sso)** programie Terraform Enterprise — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+    * **[Tworzenie użytkownika testowego programu Terraform Enterprise](#create-terraform-enterprise-test-user)** — aby mieć w programie Terraform Enterprise odpowiednik użytkownika B.Simon połączony z reprezentacją użytkownika w usłudze Azure AD.
+1. **[Testowanie logowania jednokrotnego](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja z aplikacją **Terraform Enterprise** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
-1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. W sekcji Azure Portal na **stronie integracji aplikacji Terraform Enterprise** znajdź sekcję **Zarządzanie** i wybierz **pozycję Logowanie pojedyncze.**
+1. Na stronie **Select a single sign-on method (Wybieranie** metody logowania pojedynczego) wybierz pozycję **SAML**.
+1. Na stronie Konfigurowanie logowania pojedynczego za pomocą **saml** kliknij ikonę ołówka dla opcji **Podstawowa konfiguracja saml,** aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-1. W sekcji **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
+1. W sekcji **Podstawowa konfiguracja saml** wprowadź wartości następujących pól:
 
     a. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<TFE HOSTNAME>/session`
 
     b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: `https://<TFE HOSTNAME>/users/saml/metadata`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z [zespołem pomocy technicznej Terraform Enterprise Client](https://support.hashicorp.com) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. W celu uzyskania tych wartości skontaktuj się z zespołem pomocy technicznej klienta programu [Terraform Enterprise.](https://support.hashicorp.com) Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
+1. Na stronie Konfigurowanie logowania pojedynczego za pomocą saml w sekcji Certyfikat podpisywania  **SAML** znajdź pozycję Certyfikat  **(Base64)** i wybierz pozycję Pobierz, aby pobrać certyfikat i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
-1. W sekcji **Konfigurowanie programu Terraform Enterprise** skopiuj odpowiednie adresy URL na podstawie wymagań.
+1. W **sekcji Konfigurowanie rozwiązania Terraform Enterprise** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
+W tej sekcji utworzysz użytkownika testowego w aplikacji Azure Portal B.Simon.
 
-1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
-1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
-1. We właściwościach **użytkownika** wykonaj następujące kroki:
+1. W okienku po lewej stronie w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy,** a następnie wybierz pozycję **Wszyscy użytkownicy.**
+1. Wybierz **pozycję Nowy** użytkownik w górnej części ekranu.
+1. We **właściwościach** Użytkownika wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
+   1. W **polu Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do przedsiębiorstwa Terraform.
+W tej sekcji włączysz dla użytkownika B.Simon możliwość korzystania z logowania pojedynczego platformy Azure, udzielając dostępu do programu Terraform Enterprise.
 
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
-1. Na liście Aplikacje wybierz pozycję **Terraform Enterprise**.
-1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
+1. W Azure Portal pozycję **Aplikacje dla przedsiębiorstw,** a następnie pozycję **Wszystkie aplikacje.**
+1. Na liście aplikacji wybierz pozycję **Terraform Enterprise.**
+1. Na stronie przeglądu aplikacji znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy.**
+1. Wybierz **pozycję Dodaj użytkownika,** a następnie wybierz **pozycję Użytkownicy i grupy** w **oknie dialogowym Dodawanie** przypisania.
+1. W **oknie dialogowym** Użytkownicy i grupy wybierz **pozycję B.Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+1. Jeśli oczekujesz przypisania roli do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz** rolę. Jeśli dla tej aplikacji nie ustawiono żadnej roli, zostanie wybrana rola "Dostęp domyślny".
+1. W **oknie dialogowym Dodawanie przypisania** kliknij przycisk **Przypisz.**
 
-   ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
+## <a name="configure-terraform-enterprise-sso"></a>Konfigurowanie logowania jednokrotnego w programie Terraform Enterprise
 
-1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
+Aby skonfigurować logowanie pojedyncze po stronie aplikacji **Terraform Enterprise,** musisz wysłać pobrany certyfikat **(Base64)** i odpowiednie adresy URL skopiowane z usługi Azure Portal zespołowi pomocy technicznej aplikacji [Terraform Enterprise.](https://support.hashicorp.com) Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
-    ![Link Dodaj użytkownika](common/add-assign-user.png)
+### <a name="create-terraform-enterprise-test-user"></a>Tworzenie użytkownika testowego w programie Terraform Enterprise
 
-1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
+W tej sekcji w programie Terraform Enterprise jest tworzony użytkownik o nazwie B.Simon. Program Terraform Enterprise obsługuje aprowizowanie użytkowników just in time, które jest domyślnie włączone. W tej sekcji nie musisz niczego robić. Jeśli użytkownik jeszcze nie istnieje w programie Terraform Enterprise, zostanie utworzony po uwierzytelnieniu.
 
-## <a name="configure-terraform-enterprise-sso"></a>Konfigurowanie logowania jednokrotnego w przedsiębiorstwie Terraform
+## <a name="test-sso"></a>Testowanie logowania jednokrotnego
 
-Aby skonfigurować Logowanie jednokrotne na **Terraform** po stronie przedsiębiorstwa, musisz wysłać pobrany **certyfikat (base64)** i odpowiednie skopiowane adresy URL z Azure Portal do [zespołu pomocy technicznej Terraform Enterprise](https://support.hashicorp.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+W tej sekcji przetestujemy konfigurację logowania pojedynczego usługi Azure AD przy użyciu następujących opcji. 
 
-### <a name="create-terraform-enterprise-test-user"></a>Utwórz użytkownika testowego Terraform Enterprise
+* Kliknij pozycję **Testuj tę aplikację w** Azure Portal. Spowoduje to przekierowanie do adresu URL logowania przedsiębiorstwa w programie Terraform, gdzie można zainicjować przepływ logowania. 
 
-W tej sekcji użytkownik o nazwie B. Simon został utworzony w Terraform Enterprise. Terraform Enterprise obsługuje funkcję aprowizacji użytkowników just in Time, która jest domyślnie włączona. W tej sekcji nie musisz niczego robić. Jeśli użytkownik nie istnieje jeszcze w Terraform Enterprise, zostanie utworzony nowy po uwierzytelnieniu.
+* Przejdź bezpośrednio do adresu URL logowania przedsiębiorstwa w programie Terraform i zainicjuj przepływ logowania.
 
-## <a name="test-sso"></a>Testuj Logowanie jednokrotne
+* Możesz użyć usługi Microsoft Moje aplikacje. Kliknięcie kafelka Terraform Enterprise w Moje aplikacje spowoduje przekierowanie do adresu URL logowania do rozwiązania Terraform Enterprise. Aby uzyskać więcej informacji na Moje aplikacje, [zobacz Introduction to the Moje aplikacje (Wprowadzenie do Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)).
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+## <a name="next-steps"></a>Następne kroki
 
-Po kliknięciu kafelka Terraform Enterprise w panelu dostępu należy automatycznie zalogować się do terraform przedsiębiorstwa, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
-
-## <a name="additional-resources"></a>Dodatkowe zasoby
-
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
-
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
-
-- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
-
-- [Wypróbuj usługę Terraform Enterprise z usługą Azure AD](https://aad.portal.azure.com/)
+Po skonfigurowaniu rozwiązania Terraform Enterprise można wymusić kontrolę sesji, która chroni eksfiltrację i przefiltrowanie poufnych danych organizacji w czasie rzeczywistym. Kontrola sesji rozszerza zakres dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

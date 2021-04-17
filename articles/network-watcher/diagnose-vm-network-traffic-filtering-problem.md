@@ -1,27 +1,30 @@
 ---
-title: 'Szybki Start: diagnozowanie problemu z filtrem ruchu sieciowego maszyny wirtualnej — Azure Portal'
+title: 'Szybki start: diagnozowanie problemu z filtrowaniem ruchu sieciowego maszyny wirtualnej — Azure Portal'
 titleSuffix: Azure Network Watcher
 description: W tym przewodniku Szybki start zawarto informacje na temat sposobu diagnozowania problemu z filtrowaniem ruchu sieciowego maszyny wirtualnej przy użyciu możliwości weryfikowania przepływu adresów IP w usłudze Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
 author: damendo
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: network-watcher
-ms.devlang: na
-ms.topic: quickstart
-ms.tgt_pltfrm: network-watcher
-ms.workload: infrastructure
-ms.date: 04/20/2018
 ms.author: damendo
-ms.custom: mvc
-ms.openlocfilehash: 320e660c8bec50f50f0e048fff12cf1ab91e4870
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+editor: ''
+ms.date: 04/20/2018
+ms.assetid: ''
+ms.topic: quickstart
+ms.service: network-watcher
+ms.workload: infrastructure
+ms.tgt_pltfrm: network-watcher
+ms.devlang: na
+tags:
+- azure-resource-manager
+ms.custom:
+- mvc
+- mode-portal
+ms.openlocfilehash: e8a9ce38e29f743fd40a6998d8bdc300080b2cee
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065450"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537761"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Szybki start: diagnozowanie problemu z filtrowaniem ruchu sieciowego maszyny wirtualnej przy użyciu witryny Azure Portal
 
@@ -37,16 +40,16 @@ Zaloguj się do witryny Azure Portal na stronie https://portal.azure.com.
 
 1. W lewym górnym rogu witryny Azure Portal wybierz pozycję **+ Utwórz zasób**.
 2. Wybierz pozycję **Compute**, a następnie wybierz pozycję **Windows Server 2016 Datacenter** lub wersję **Ubuntu Server**.
-3. Wprowadź lub wybierz poniższe informacje, zaakceptuj wartości domyślne pozostałych ustawień, a następnie wybierz przycisk **OK**:
+3. Wprowadź lub wybierz poniższe informacje, zaakceptuj wartości domyślne pozostałych ustawień, a następnie wybierz przycisk **OK:**
 
     |Ustawienie|Wartość|
     |---|---|
     |Nazwa|myVm|
     |Nazwa użytkownika| Wprowadź wybraną nazwę użytkownika.|
-    |Hasło| Wprowadź wybrane hasło. Hasło musi mieć długość co najmniej 12 znaków i spełniać zdefiniowane wymagania dotyczące złożoności.|
+    |Hasło| Wprowadź wybrane hasło. Hasło musi mieć co najmniej 12 znaków i spełniać zdefiniowane wymagania dotyczące złożoności.|
     |Subskrypcja| Wybierz subskrypcję.|
     |Grupa zasobów| Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę **myResourceGroup**.|
-    |Lokalizacja| Wybierz **Wschodnie stany USA**|
+    |Lokalizacja| Wybierz **pozycję Wschodnie usa**|
 
 4. Wybierz rozmiar maszyny wirtualnej, a następnie wybierz pozycję **Wybierz**.
 5. W obszarze **Ustawienia** zaakceptuj wszystkie wartości domyślne i wybierz przycisk **OK**.
@@ -58,9 +61,9 @@ Aby przetestować komunikację sieciową za pomocą usługi Network Watcher, naj
 
 ### <a name="enable-network-watcher"></a>Włączanie usługi Network Watcher
 
-Jeśli masz już włączony obserwator sieciowy w co najmniej jednym regionie, przejdź do obszaru [Użyj weryfikacji przepływu IP](#use-ip-flow-verify).
+Jeśli masz już włączoną usługę Network Watcher w co najmniej jednym regionie, przejdź do tematu Korzystanie z [weryfikowania przepływu adresów IP.](#use-ip-flow-verify)
 
-1. W portalu wybierz pozycję **Wszystkie usługi**. W **polu filtru** wprowadź ciąg *Network Watcher*. Gdy **Network Watcher** pojawi się w wynikach, wybierz ją.
+1. W portalu wybierz pozycję **Wszystkie usługi**. W **polu filtru** wprowadź ciąg *Network Watcher*. Gdy **Network Watcher** pojawi się w wynikach, wybierz go.
 2. Włącz usługę Network Watcher w regionie Wschodnie stany USA, ponieważ to tam wdrożono maszynę wirtualną w poprzednim kroku. Wybierz węzeł **Regiony**, aby go rozwinąć, a następnie wybierz symbol **...** z prawej strony pozycji **Wschodnie stany USA**, jak pokazano na poniższej ilustracji:
 
     ![Włączanie usługi Network Watcher](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)
@@ -71,7 +74,7 @@ Jeśli masz już włączony obserwator sieciowy w co najmniej jednym regionie, p
 
 Podczas tworzenia maszyny wirtualnej platforma Azure domyślnie zezwala na i blokuje ruch sieciowy do i z maszyny wirtualnej. Domyślne ustawienia platformy Azure można później zastąpić, aby zezwalać lub nie zezwalać na dodatkowe typy ruchu.
 
-1. W portalu wybierz pozycję **Wszystkie usługi**. W polu *Filtr* **wszystkie usługi** wprowadź *Network Watcher*. Gdy **Network Watcher** pojawi się w wynikach, wybierz ją.
+1. W portalu wybierz pozycję **Wszystkie usługi**. W polu **Filtr wszystkich** *usług* wprowadź wartość *Network Watcher*. Gdy **Network Watcher** pojawi się w wynikach, wybierz go.
 2. W obszarze **Narzędzia do diagnostyki sieci** wybierz pozycję **Weryfikowanie przepływu adresów IP**.
 3. Wybierz subskrypcję, wpisz lub wybierz następujące wartości, a następnie wybierz pozycję **Sprawdź**, jak pokazano na poniższej ilustracji:
 
@@ -119,7 +122,7 @@ Gdy grupa zasobów i wszystkie znajdujące się w niej zasoby nie będą już po
 
 1. Wprowadź ciąg *myResourceGroup* w polu **Szukaj** w górnej części portalu. Gdy pozycja **myResourceGroup** pojawi się w wynikach wyszukiwania, wybierz ją.
 2. Wybierz pozycję **Usuń grupę zasobów**.
-3. Wprowadź dla elementu *Webresourcename* **Typ Nazwa grupy zasobów:** a następnie wybierz pozycję **Usuń**.
+3. Wprowadź *wartość myResourceGroup w* **polach WPISZ NAZWĘ GRUPY ZASOBÓW:** i wybierz pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 

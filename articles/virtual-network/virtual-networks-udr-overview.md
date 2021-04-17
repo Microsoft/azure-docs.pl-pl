@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2021
+ms.date: 04/14/2021
 ms.author: aldomel
-ms.openlocfilehash: 0dd053fa268e88c281c1fe6c00339fe6a6edf27a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 232b83fef2da312828f4f9f332ab2505e3a68100
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732605"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503647"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing ruchu w sieci wirtualnej
 
@@ -46,7 +46,7 @@ Typy następnego przeskoku wymienione w powyższej tabeli określają sposób, w
 * **Internet**: kieruje określonym przez prefiks adresu ruchem do Internetu. Domyślna trasa systemowa określa prefiks adresu 0.0.0.0/0. Jeśli nie zastąpisz domyślnych tras platformy Azure, platforma Azure kieruje ruch dla każdego adresu, który nie został określony przez zakres adresów w ramach sieci wirtualnej, do Internetu z jednym wyjątkiem. Jeśli adres docelowy jest przeznaczony dla jednej z usług platformy Azure, platforma Azure kieruje ruch bezpośrednio do usługi za pośrednictwem sieci szkieletowej platformy Azure zamiast kierować ruch do Internetu. Ruch między usługami Azure nie przechodzi przez Internet niezależnie od tego, w którym regionie platformy Azure istnieje sieć wirtualna lub w którym regionie platformy Azure zostało wdrożone wystąpienie usługi platformy Azure. Można zastąpić domyślną trasę systemową platformy Azure dla prefiksu adresu 0.0.0.0/0 za pomocą [trasy niestandardowej](#custom-routes).<br>
 * **Brak**: ruch kierowany do typu następnego przeskoku **Brak** jest porzucany, a nie kierowany poza podsieć. Platforma Azure automatycznie tworzy trasy domyślne dla następujących prefiksów adresów:<br>
 
-    * **10.0.0.0/8 i 192.168.0.0/16**: zarezerwowane do użytku prywatnego w RFC 1918.<br>
+    * **10.0.0.0/8 i 192.168.0.0/16:** zarezerwowane do użytku prywatnego w dokumencie RFC 1918.<br>
     * **100.64.0.0/10**: zarezerwowane w dokumencie RFC 6598.
 
     Po przypisaniu dowolnego z poprzednich zakresów adresów w przestrzeni adresowej sieci wirtualnej platforma Azure automatycznie zmieni typ następnego przeskoku trasy z **Brak** na **Sieć wirtualna**. Po przypisaniu zakresu adresów do przestrzeni adresowej sieci wirtualnej, która obejmuje, ale nie jest taka sama jak, jeden z czterech zarezerwowanych prefiksów adresów, platforma Azure usuwa trasę dla tego prefiksu i dodaje trasę dla dodanego przez Ciebie prefiksu adresu, przy czym **Sieć wirtualna** jest typem następnego przeskoku.
@@ -62,7 +62,7 @@ Platforma Azure dodaje dodatkowe domyślne trasy systemowe dla różnych funkcji
 |Domyślne                |Wiele                               |VirtualNetworkServiceEndpoint|Tylko podsieć, dla której jest włączony punkt końcowy usługi.|
 
 * **Komunikacja równorzędna sieci wirtualnej (VNet)**: podczas tworzenia komunikacji równorzędnej sieci wirtualnej między dwiema sieciami wirtualnymi dodawana jest trasa dla każdego zakresu adresów w obrębie przestrzeni adresowej w każdej sieci wirtualnej, dla której jest tworzona komunikacja równorzędna. Dowiedz się więcej o [komunikacji równorzędnej sieci wirtualnej](virtual-network-peering-overview.md).<br>
-* **Brama sieci wirtualnej**: co najmniej jedna trasa w ramach *bramy sieci wirtualnej* wymienionej jako typ następnego przeskoku jest dodawana po dodaniu bramy sieci wirtualnej do sieci wirtualnej. Elementem źródłowym jest również *brama sieci wirtualnej*, ponieważ brama dodaje trasy do podsieci. Jeśli Brama sieci lokalnej wymienia trasy protokołu[BGP](#border-gateway-protocol)(Border Gateway Protocol) z bramą sieci wirtualnej platformy Azure, trasa jest dodawana do każdej trasy propagowanej z bramy sieci lokalnej. Zaleca się zsumowanie tras lokalnych do największych możliwych zakresów adresów, aby jak najmniejsza liczba adresów była propagowana do bramy sieci wirtualnej platformy Azure. Istnieją ograniczenia liczby tras, które możesz propagować do bramy sieci wirtualnej platformy Azure. Aby uzyskać więcej informacji, zobacz [Azure limits (Ograniczenia platformy Azure)](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).<br>
+* **Brama sieci wirtualnej**: co najmniej jedna trasa w ramach *bramy sieci wirtualnej* wymienionej jako typ następnego przeskoku jest dodawana po dodaniu bramy sieci wirtualnej do sieci wirtualnej. Elementem źródłowym jest również *brama sieci wirtualnej*, ponieważ brama dodaje trasy do podsieci. Jeśli brama sieci lokalnej wymienia trasy protokołu[BGP](#border-gateway-protocol)(Border Gateway) z bramą sieci wirtualnej platformy Azure, dla każdej trasy propagowane z bramy sieci lokalnej jest dodawana trasa. Zaleca się zsumowanie tras lokalnych do największych możliwych zakresów adresów, aby jak najmniejsza liczba adresów była propagowana do bramy sieci wirtualnej platformy Azure. Istnieją ograniczenia liczby tras, które możesz propagować do bramy sieci wirtualnej platformy Azure. Aby uzyskać więcej informacji, zobacz [Azure limits (Ograniczenia platformy Azure)](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).<br>
 * **VirtualNetworkServiceEndpoint**: publiczne adresy IP dla niektórych usług są dodawane do tabeli tras przez platformę Azure po włączeniu punktu końcowego usługi do usługi. Punkty końcowe usługi są włączane dla poszczególnych podsieci w sieci wirtualnej, więc trasa jest dodawana tylko do tabeli tras podsieci, dla której jest włączony punkt końcowy usługi. Publiczne adresy IP usług platformy Azure są okresowo zmieniane. Platforma Azure zarządza adresami w tabeli tras automatycznie po zmianie adresów. Dowiedz się więcej o [punktach końcowych usługi dla sieci wirtualnej](virtual-network-service-endpoints-overview.md) i usługach, dla których można utworzyć punkty końcowe usługi.<br>
 
     > [!NOTE]
@@ -74,7 +74,7 @@ Tworzenie niestandardowych tras przez tworzenie tras [zdefiniowanych przez użyt
 
 ### <a name="user-defined"></a>Zdefiniowane przez użytkownika
 
-Można utworzyć niestandardowe lub zdefiniowane przez użytkownika (statyczne) trasy na platformie Azure, aby zastąpić domyślne trasy systemu platformy Azure lub dodać dodatkowe trasy do tabeli tras podsieci. Na platformie Azure tworzysz tabelę tras, a następnie kojarzysz ją przynajmniej z zerową liczbą podsieci sieci wirtualnej. Każda podsieć może mieć skojarzoną ze sobą żadną lub jedną tabelę tras. Aby dowiedzieć się więcej o maksymalnej liczbie tras, które możesz dodać do tabeli tras, oraz o maksymalnej liczbie tabel tras zdefiniowanych przez użytkownika, które można utworzyć dla subskrypcji platformy Azure, zobacz [Azure limits (Ograniczenia platformy Azure)](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Jeśli utworzysz tabelę tras i skojarzysz ją z podsiecią, to trasy w niej są łączone z trasami domyślnymi lub zastępują trasy domyślne, które platforma Azure domyślnie dodaje do podsieci.
+Na platformie Azure można tworzyć trasy niestandardowe lub zdefiniowane przez użytkownika (statyczne) w celu zastąpienia domyślnych tras systemowych platformy Azure lub dodania dodatkowych tras do tabeli tras podsieci. Na platformie Azure tworzysz tabelę tras, a następnie kojarzysz ją przynajmniej z zerową liczbą podsieci sieci wirtualnej. Każda podsieć może mieć skojarzoną ze sobą żadną lub jedną tabelę tras. Aby dowiedzieć się więcej o maksymalnej liczbie tras, które możesz dodać do tabeli tras, oraz o maksymalnej liczbie tabel tras zdefiniowanych przez użytkownika, które można utworzyć dla subskrypcji platformy Azure, zobacz [Azure limits (Ograniczenia platformy Azure)](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Jeśli utworzysz tabelę tras i skojarzysz ją z podsiecią, to trasy w niej są łączone z trasami domyślnymi lub zastępują trasy domyślne, które platforma Azure domyślnie dodaje do podsieci.
 
 Podczas tworzenia tras zdefiniowanych przez użytkownika możesz określić poniższe typy następnych przeskoków:
 
@@ -96,22 +96,22 @@ Podczas tworzenia tras zdefiniowanych przez użytkownika możesz określić poni
 
 Typu **Komunikacja równorzędna sieci wirtualnej** lub **VirtualNetworkServiceEndpoint** nie możesz określić jako typu następnego przeskoku w trasach zdefiniowanych przez użytkownika. Trasy z typami następnego przeskoku **Komunikacja równorzędna sieci wirtualnej** lub **VirtualNetworkServiceEndpoint** są tworzone tylko przez platformę Azure podczas konfigurowania komunikacji równorzędnej sieci wirtualnej lub punktu końcowego usługi.
 
-### <a name="service-tags-for-user-defined-routes-preview"></a>Tagi usług dla tras zdefiniowanych przez użytkownika (wersja zapoznawcza)
+### <a name="service-tags-for-user-defined-routes-preview"></a>Tagi usługi dla tras zdefiniowanych przez użytkownika (wersja zapoznawcza)
 
-Teraz można określić [tag usługi](service-tags-overview.md) jako prefiks adresu dla trasy zdefiniowanej przez użytkownika zamiast jawnego zakresu adresów IP. Tag usługi reprezentuje grupę prefiksów adresów IP z danej usługi platformy Azure. Firma Microsoft zarządza prefiksami adresów, które obejmują tag usługi, i automatycznie aktualizuje tag usługi jako adresy, co minimalizuje złożoność częstych aktualizacji tras zdefiniowanych przez użytkownika i zmniejsza liczbę tras, które należy utworzyć. W każdej tabeli tras można obecnie utworzyć 25 lub mniej tras za pomocą tagów usługi. </br>
+Teraz możesz określić tag [usługi jako](service-tags-overview.md) prefiks adresu dla trasy zdefiniowanej przez użytkownika zamiast jawnego zakresu adresów IP. Tag usługi reprezentuje grupę prefiksów adresów IP z danej usługi platformy Azure. Firma Microsoft zarządza prefiksami adresów obejmującymi tag usługi i automatycznie aktualizuje tag usługi w przypadku zmiany adresów, minimalizując złożoność częstych aktualizacji tras zdefiniowanych przez użytkownika i zmniejszając liczbę tras, które należy utworzyć. Obecnie można utworzyć 25 lub mniej tras za pomocą tagów usługi w każdej tabeli tras. </br>
 
 > [!IMPORTANT]
-> Znaczniki usługi dla tras zdefiniowanych przez użytkownika są obecnie dostępne w wersji zapoznawczej. Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Tagi usługi dla tras zdefiniowanych przez użytkownika są obecnie dostępne w wersji zapoznawczej. Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 #### <a name="exact-match"></a>Dokładne dopasowanie
-W przypadku dokładnego dopasowania prefiksu między trasą z jawnym prefiksem IP a trasą z tagiem usługi preferencja jest przyznawana trasie z jawnym prefiksem. Gdy wiele tras z tagami usług ma pasujące prefiksy IP, trasy będą oceniane w następującej kolejności: 
+Jeśli istnieje dokładne dopasowanie prefiksu między trasą z jawnym prefiksem IP i trasą z tagiem usługi, preferowana jest trasa z jawnym prefiksem. Jeśli wiele tras z tagami usługi ma zgodne prefiksy IP, trasy będą oceniane w następującej kolejności: 
 
-   1. Tagi regionalne (np. Storage. wschód, AppService. AustraliaCentral)
-   2. Tagi najwyższego poziomu (np. Magazyn, AppService)
-   3. AzureCloud Tagi regionalne (np. AzureCloud. canadacentral, AzureCloud. eastasia)
+   1. Tagi regionalne (np. Storage.EastUS, AppService.AustraliaCentral)
+   2. Tagi najwyższego poziomu (np. Storage, AppService)
+   3. Tagi regionalne usługi AzureCloud (np. AzureCloud.canadacentral, AzureCloud.eastasia)
    4. Tag AzureCloud </br></br>
 
-Aby użyć tej funkcji, należy określić nazwę tagu usługi dla parametru prefiksu adresu w poleceniach tabeli tras. Na przykład w programie PowerShell można utworzyć nową trasę do kierowania ruchu wysyłanego do prefiksu IP usługi Azure Storage do urządzenia wirtualnego za pomocą: </br>
+Aby użyć tej funkcji, określ nazwę tagu usługi dla parametru prefiksu adresu w poleceniach tabeli tras. Na przykład w programie PowerShell można utworzyć nową trasę, aby kierować ruch wysyłany do prefiksu IP usługi Azure Storage do urządzenia wirtualnego przy użyciu: </br></br>
 
 ```azurepowershell-interactive
 New-AzRouteConfig -Name "StorageRoute" -AddressPrefix "Storage" -NextHopType "VirtualAppliance" -NextHopIpAddress "10.0.100.4"
@@ -124,9 +124,13 @@ az network route-table route create -g MyResourceGroup --route-table-name MyRout
 ```
 </br>
 
+#### <a name="known-issues-april-2021"></a>Znane problemy (kwiecień 2021 r.)
+
+Jeśli trasy protokołu BGP są obecne lub w podsieci skonfigurowano punkt końcowy usługi, trasy mogą nie być oceniane z prawidłowym priorytetem. Poprawka dla tych scenariuszy jest obecnie w toku </br>
+
 
 > [!NOTE] 
-> W publicznej wersji zapoznawczej istnieje kilka ograniczeń. Ta funkcja nie jest obecnie obsługiwana w witrynie Azure Portal i jest dostępna tylko za pomocą programu PowerShell i interfejsu wiersza polecenia. Nie jest obsługiwane używanie z kontenerami. 
+> W publicznej wersji zapoznawczej istnieje kilka ograniczeń. Ta funkcja nie jest obecnie obsługiwana w witrynie Azure Portal i jest dostępna tylko za pośrednictwem programu PowerShell i interfejsu wiersza polecenia. Nie ma obsługi użycia z kontenerami. 
 
 ## <a name="next-hop-types-across-azure-tools"></a>Typy następnego przeskoku dla narzędzi platformy Azure
 
@@ -148,12 +152,12 @@ Nazwa wyświetlana i przywoływana dla typów następnego przeskoku jest różna
 
 Brama sieci lokalnej może wymieniać trasy z bramą sieci wirtualnej platformy Azure przy użyciu protokołu BGP. Korzystanie z protokołu BGP z bramą sieci wirtualnej platformy Azure zależy od typu wybranego podczas tworzenia bramy. Jeśli wybrany typ to:
 
-* **ExpressRoute**: musisz użyć protokołu BGP, aby anonsować trasy lokalne do routera Microsoft Edge. Nie możesz utworzyć tras zdefiniowanych przez użytkownika w celu wymuszania ruchu do bramy sieci wirtualnej usługi ExpressRoute, jeśli wdrożysz bramę sieci wirtualnej wdrożoną jako typ ExpressRoute. Możesz użyć tras zdefiniowanych przez użytkownika w celu wymuszania ruchu z usługi Express Route na przykład do sieciowego urządzenia wirtualnego.<br>
+* **ExpressRoute:** należy użyć protokołu BGP do anonsowania tras lokalnych do Microsoft Edge routerem. Nie możesz utworzyć tras zdefiniowanych przez użytkownika w celu wymuszania ruchu do bramy sieci wirtualnej usługi ExpressRoute, jeśli wdrożysz bramę sieci wirtualnej wdrożoną jako typ ExpressRoute. Możesz użyć tras zdefiniowanych przez użytkownika w celu wymuszania ruchu z usługi Express Route na przykład do sieciowego urządzenia wirtualnego.<br>
 * **VPN**: opcjonalnie możesz użyć protokołu BGP. Aby uzyskać więcej informacji, zobacz [BGP with site-to-site VPN connections (Protokół BGP przy użyciu połączeń sieci VPN lokacja-lokacja)](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 W przypadku, gdy wymieniasz trasy z platformą Azure przy użyciu protokołu BGP, oddzielna trasa jest dodawana do tabeli tras wszystkich podsieci w sieci wirtualnej dla każdego anonsowanego prefiksu. Trasa jest dodawana z *bramą sieci wirtualnej* wymienioną jako element źródłowy i typ następnego przeskoku. 
 
-Propagacja trasy ER i VPN Gateway można wyłączyć w podsieci przy użyciu właściwości w tabeli tras. W przypadku wymiany tras z platformą Azure przy użyciu protokołu BGP trasy nie są dodawane do tabeli tras wszystkich podsieci z wyłączonym propagacją trasy bramy sieci wirtualnej. Łączność z połączeniami sieci VPN jest uzyskiwana przy użyciu [tras niestandardowych](#custom-routes), których typ następnego przeskoku to *brama sieci wirtualnej*. **Propagacja trasy nie powinna być wyłączona w GatewaySubnet. Brama nie będzie działać w przypadku wyłączenia tego ustawienia.** Aby uzyskać szczegółowe informacje, zobacz [Jak wyłączyć propagację trasy bramy sieci wirtualnej](manage-route-table.md#create-a-route-table).
+Propagację VPN Gateway ER i trasę można wyłączyć w podsieci przy użyciu właściwości w tabeli tras. W przypadku wymiany tras z platformą Azure przy użyciu protokołu BGP trasy nie są dodawane do tabeli tras wszystkich podsieci z wyłączoną propagacja trasy bramy sieci wirtualnej. Łączność z połączeniami sieci VPN jest uzyskiwana przy użyciu [tras niestandardowych](#custom-routes), których typ następnego przeskoku to *brama sieci wirtualnej*. **Propagacja tras nie powinna być wyłączona w podsieci GatewaySubnet. Brama nie będzie działać z tym ustawieniem wyłączonym.** Aby uzyskać szczegółowe informacje, zobacz How to disable Virtual network gateway route propagation (Jak wyłączyć [propagację trasy bramy sieci wirtualnej).](manage-route-table.md#create-a-route-table)
 
 ## <a name="how-azure-selects-a-route"></a>Jak platforma Azure wybiera trasę
 
@@ -201,7 +205,7 @@ Gdy zastąpisz prefiks adresu 0.0.0.0/0, oprócz ruchu wychodzącego z podsieci 
 
 Jeśli Twoja sieć wirtualna jest podłączona do bramy sieci VPN platformy Azure, nie należy kojarzyć tabeli tras z [podsiecią bramy](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) zawierającą trasy z adresem docelowym 0.0.0.0/0. Zaniedbanie tego może spowodować nieprawidłowe działanie bramy. Aby poznać więcej szczegółów, zobacz pytanie *Dlaczego niektóre porty są otwarte w mojej bramie sieci VPN?* w temacie [Brama VPN Gateway — często zadawane pytania](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gatewayports).
 
-Zobacz [Strefa DMZ między platformą Azure i lokalnym centrum danych,](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) Aby uzyskać szczegółowe informacje dotyczące implementacji w przypadku używania bram sieci wirtualnych między Internetem a platformą Azure.
+Aby uzyskać szczegółowe informacje o implementacji w przypadku korzystania z bram sieci wirtualnej między Internetem i platformą Azure, zobacz DMZ between Azure and your on-premises datacenter (DmZ between Azure and your on-premises datacenter ) (DmZ between Azure and your [on-premises datacenter (DmZ](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) between Azure and your on-premises datacenter ) (DmZ between Azure and your on-premises data
 
 ## <a name="routing-example"></a>Przykład routingu
 
@@ -261,7 +265,7 @@ Objaśnienia każdego identyfikatora trasy są następujące:
 1. Platforma Azure automatycznie dodała tę trasę dla wszystkich podsieci w sieci *Virtual-network-1*, ponieważ 10.0.0.0/16 jest jedynym zakresem adresów zdefiniowanym w przestrzeni adresowej dla sieci wirtualnej. Jeśli w trasie ID2 nie została utworzona trasa zdefiniowana przez użytkownika, ruch wysyłany do dowolnego adresu od 10.0.0.1 do 10.0.255.254 zostanie przekierowany do sieci wirtualnej, ponieważ prefiks jest dłuższy niż 0.0.0.0/0 i nie mieści się w ramach prefiksów adresów żadnej innej trasy. Platforma Azure automatycznie zmieniła stan z *Aktywny* na *Nieprawidłowy*, gdy została dodana zdefiniowana przez użytkownika trasa ID2, ponieważ ma ona ten sam prefiks co trasa domyślna, a trasy zdefiniowane przez użytkownika zastępują trasy domyślne. Stan tej trasy jest nadal *Aktywny* dla podsieci *Subnet2*, ponieważ tabela tras, w której znajduje się zdefiniowana przez użytkownika trasa ID2, nie jest skojarzona z podsiecią *Subnet2*.
 2. Platforma Azure dodała tę trasę, gdy zdefiniowana przez użytkownika trasa dla prefiksu adresu 10.0.0.0/16 została skojarzona z podsiecią *Subnet1* w sieci wirtualnej *Virtual-network-1*. Zdefiniowana przez użytkownika trasa określa 10.0.100.4 jako adres IP urządzenia wirtualnego, ponieważ adresem jest prywatny adres IP przypisany do urządzenia wirtualnego maszyny wirtualnej. Tabela tras, w której istnieje ta trasa, nie jest skojarzona z podsiecią *Subnet2*, więc nie występuje w tabeli tras dla podsieci *Subnet2*. Ta trasa zastępuje domyślną trasę dla prefiksu 10.0.0.0/16 (ID1), który automatycznie skierował ruch zaadresowany do 10.0.0.1 i 10.0.255.254 w ramach sieci wirtualnej za pośrednictwem typu następnego przeskoku sieci wirtualnej. Ta trasa istnieje, aby spełnić [wymaganie](#requirements) 3 i wymusić skierowanie całego ruchu wychodzącego przez urządzenie wirtualne.
 3. Platforma Azure dodała tę trasę, gdy zdefiniowana przez użytkownika trasa dla prefiksu adresu 10.0.0.0/24 została skojarzona z podsiecią *Subnet1*. Ruch skierowany do adresów od 10.0.0.1 do 10.0.0.254 pozostaje w podsieci, a nie jest kierowany do urządzenia wirtualnego określonego w poprzedniej regule (ID2), ponieważ ma ono dłuższy prefiks niż trasa ID2. Ta trasa nie jest skojarzona z podsiecią *Subnet2*, więc nie występuje ona w tabeli tras dla podsieci *Subnet2*. Ta trasa skutecznie zastępuje trasę ID2 dla ruchu w ramach podsieci *Subnet1*. Ta trasa istnieje, aby spełnić [wymaganie](#requirements) 3.
-4. Platforma Azure automatycznie dodała trasy dla identyfikatorów 4 i 5 dla wszystkich podsieci w sieci *Virtual-network-1*, gdy sieć wirtualna została równorzędnie połączona z siecią *Virtual-network-2.* Sieć *Virtual-network-2* ma dwa zakresy adresów w swojej przestrzeni adresowej: 10.1.0.0/16 i 10.2.0.0/16, więc platforma Azure dodała trasę dla każdego zakresu. Jeśli w trasie z identyfikatorem 6 i 7 nie zostały utworzone trasy zdefiniowane przez użytkownika, ruch wysyłany do dowolnego adresu z zakresu 10.1.0.1–10.1.255.254 i 10.2.0.1–10.2.255.254 zostanie przekierowany do równorzędnie połączonej sieci wirtualnej, ponieważ prefiks jest dłuższy niż 0.0.0.0/0 i nie mieści się w ramach prefiksów adresów żadnej innej trasy. Platforma Azure automatycznie zmieniła stan z *Aktywny* na *Nieprawidłowy*, gdy zostały dodane trasy o identyfikatorach 6 i 7, ponieważ mają one te same prefiksy, jak trasy o identyfikatorach 4 i 5, a trasy zdefiniowane przez użytkownika zastępują domyślne trasy. Stan tras w identyfikatorach 4 i 5 jest nadal *aktywny* dla *podsieci subnet2*, ponieważ tabela tras, że trasy zdefiniowane przez użytkownika w identyfikatorach 6 i 7 znajdują się w, nie są skojarzone z *podsieci subnet2*. Wirtualne sieci równorzędne zostały utworzone w celu spełnienia [wymagania](#requirements) 1.
+4. Platforma Azure automatycznie dodała trasy dla identyfikatorów 4 i 5 dla wszystkich podsieci w sieci *Virtual-network-1*, gdy sieć wirtualna została równorzędnie połączona z siecią *Virtual-network-2.* Sieć *Virtual-network-2* ma dwa zakresy adresów w swojej przestrzeni adresowej: 10.1.0.0/16 i 10.2.0.0/16, więc platforma Azure dodała trasę dla każdego zakresu. Jeśli w trasie z identyfikatorem 6 i 7 nie zostały utworzone trasy zdefiniowane przez użytkownika, ruch wysyłany do dowolnego adresu z zakresu 10.1.0.1–10.1.255.254 i 10.2.0.1–10.2.255.254 zostanie przekierowany do równorzędnie połączonej sieci wirtualnej, ponieważ prefiks jest dłuższy niż 0.0.0.0/0 i nie mieści się w ramach prefiksów adresów żadnej innej trasy. Platforma Azure automatycznie zmieniła stan z *Aktywny* na *Nieprawidłowy*, gdy zostały dodane trasy o identyfikatorach 6 i 7, ponieważ mają one te same prefiksy, jak trasy o identyfikatorach 4 i 5, a trasy zdefiniowane przez użytkownika zastępują domyślne trasy. Stan tras w identyfikatorach 4 i 5 jest nadal aktywny dla podsieci *Subnet2,* ponieważ tabela tras zdefiniowana przez użytkownika w identyfikatorach 6 i 7 nie jest skojarzona z *podsiecią Subnet2.*  Wirtualne sieci równorzędne zostały utworzone w celu spełnienia [wymagania](#requirements) 1.
 5. Takie samo objaśnienie, jak dla ID4.
 6. Platforma Azure dodała tę trasę i trasę w ID7, gdy zdefiniowane przez użytkownika trasy dla prefiksów adresów 10.1.0.0/16 i 10.2.0.0/16 zostały skojarzone z podsiecią *Subnet1*. Ruchu skierowany do adresów z zakresów 10.1.0.1-10.1.255.254 i 10.2.0.1-10.2.255.254 został porzucony przez platformę Azure i nie został skierowany do wirtualnej sieci równorzędnej, ponieważ trasy zdefiniowane przez użytkownika zastępują trasy domyślne. Trasy nie są skojarzone z podsiecią *Subnet2*, więc nie występują one w tabeli tras dla podsieci *Subnet2*. Trasy zastępują trasy ID4 i ID5 dla ruchu opuszczającego podsieć *Subnet1*. Trasy ID6 i ID7 istnieją w celu spełnienia [wymagania](#requirements) 3 mówiącego o porzuceniu ruchu kierowanego do innych sieci wirtualnych.
 7. Takie samo objaśnienie jak dla ID6.
@@ -286,7 +290,7 @@ Tabela tras dla podsieci *Subnet2* na ilustracji zawiera następujące trasy:
 |Domyślne |Aktywna |100.64.0.0/10       |Brak                      |                   |
 |Domyślne |Aktywna |192.168.0.0/16      |Brak                      |                   |
 
-Tabela tras dla podsieci *Subnet2* zawiera wszystkie domyślne trasy utworzone przez platformę Azure oraz opcjonalne równorzędne sieci wirtualne i opcjonalne trasy bramy sieci wirtualnej. Platforma Azure dodała opcjonalne trasy do wszystkich podsieci w sieci wirtualnej, gdy brama i komunikacja równorzędna zostały dodane do sieci wirtualnej. Platforma Azure usunęła trasy dla prefiksów adresu 10.0.0.0/8, 192.168.0.0/16 i 100.64.0.0/10 z tabeli tras *Subnet1* , gdy zdefiniowana przez użytkownika trasa dla prefiksu adresu 0.0.0.0/0 została dodana do *Subnet1*.  
+Tabela tras dla podsieci *Subnet2* zawiera wszystkie domyślne trasy utworzone przez platformę Azure oraz opcjonalne równorzędne sieci wirtualne i opcjonalne trasy bramy sieci wirtualnej. Platforma Azure dodała opcjonalne trasy do wszystkich podsieci w sieci wirtualnej, gdy brama i komunikacja równorzędna zostały dodane do sieci wirtualnej. Platforma Azure usunęła trasy dla prefiksów adresów 10.0.0.0/8, 192.168.0.0/16 i 100.64.0.0/10 z tabeli tras podsieci *Subnet1,* gdy zdefiniowana przez użytkownika trasa dla prefiksu adresu 0.0.0.0/0 została dodana do podsieci *Subnet1*.  
 
 ## <a name="next-steps"></a>Następne kroki
 

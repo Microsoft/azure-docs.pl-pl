@@ -1,4 +1,4 @@
-- name: Aktualizacja urządzenia do dokumentacji IoT Hub
+- name: Dokumentacja aktualizacji urządzenia dla IoT Hub
   href: index.yml
 - name: Omówienie
   items:
@@ -6,19 +6,19 @@
       href: understand-device-update.md
 - name: Samouczki
   items:
-    - name: Aktualizacja obrazu na Raspberry Pi
+    - name: Aktualizacja obrazu urządzenia Raspberry Pi
       href: device-update-raspberry-pi.md
     - name: Korzystanie z aktualizacji urządzenia w symulatorze
       href: device-update-simulator.md
-    - name: 'Aktualizacja pakietu na serwerze Ubuntu 18,04 x64'
+    - name: Aktualizacja pakietu w systemie Ubuntu Server 18.04 x64
       href: device-update-ubuntu-agent.md
-    - name: Aktualizacja urządzenia dla systemu operacyjnego Azure w czasie rzeczywistym
+    - name: Aktualizacja urządzenia dla systemu operacyjnego w czasie rzeczywistym platformy Azure
       href: device-update-azure-real-time-operating-system.md
 - name: Pojęcia
   items:
     - name: Konto i wystąpienie aktualizacji urządzenia
       href: device-update-resources.md
-    - name: Aktualizowanie ról użytkownika i dostępu do urządzeń
+    - name: Role użytkowników aktualizacji urządzeń i dostęp do nich
       href: device-update-control-access.md
     - name: Manifest apt aktualizacji urządzenia
       href: device-update-apt-manifest.md
@@ -26,31 +26,31 @@
       href: device-update-compliance.md
     - name: Grupy aktualizacji urządzeń
       href: device-update-groups.md
-    - name: Sposób używania aktualizacji urządzenia Plug and Play
+    - name: Jak aktualizacja urządzenia używa Plug and Play
       href: device-update-plug-and-play.md
     - name: Wymagania dotyczące sieci aktualizacji urządzeń
       href: device-update-networking.md
-    - name: Agent aktualizacji urządzeń
+    - name: Agent aktualizacji urządzenia
       href: device-update-agent-overview.md
     - name: Plik konfiguracji aktualizacji urządzenia
       href: device-update-configuration-file.md
-    - name: Aktualizuj manifest
+    - name: Aktualizowanie manifestu
       href: update-manifest.md
     - name: Jak jest zabezpieczona aktualizacja urządzenia
       href: device-update-security.md
     - name: Obsługa odłączonych urządzeń
       href: connected-cache-disconnected-device-update.md
-    - name: Konfigurowanie połączonej pamięci podręcznej firmy Microsoft na potrzeby aktualizacji urządzenia dla IoT Hub
+    - name: Konfigurowanie usługi Microsoft Connected Cache aktualizacji urządzenia dla IoT Hub
       href: connected-cache-configure.md
-    - name: Importowanie aktualizacji urządzeń
+    - name: Importowanie aktualizacji urządzenia
       href: import-concepts.md
-    - name: Schemat związany z importem
+    - name: Schemat związany z importowaniem
       href: import-schema.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Utwórz konto aktualizacji urządzenia
+    - name: Tworzenie konta aktualizacji urządzenia
       href: create-device-update-account.md
-    - name: Agent aktualizacji urządzenia do aprowizacji
+    - name: Aprowizowanie agenta aktualizacji urządzenia
       href: device-update-agent-provisioning.md
     - name: Importowanie aktualizacji
       href: import-update.md
@@ -58,23 +58,23 @@
       href: create-update-group.md
     - name: Wdrażanie aktualizacji urządzenia
       href: deploy-update.md
-    - name: Połączona pamięć podręczna firmy Microsoft dla jednego poziomu
+    - name: Usługa Microsoft Connected Cache jednopoziomowa
       href: connected-cache-single-level.md
-    - name: Zagnieżdżona pamięć podręczna firmy Microsoft
+    - name: Zagnieżdżony poziom microsoft Connected Cache
       href: connected-cache-nested-level.md
-    - name: Połączona pamięć podręczna firmy Microsoft dla IoT (IIOT)
+    - name: Microsoft Connected Cache dla przemysłowego IoT (IIOT)
       href: connected-cache-industrial-iot-nested.md
     - name: Rozwiązywanie problemów
       items:
         - name: Rozwiązywanie problemów z aktualizacjami urządzeń
           href: troubleshoot-device-update.md
-        - name: Kody błędów klienta aktualizacji urządzenia
-      href: device-update-error-codes.md
+        - name: Kody błędów klienta aktualizacji urządzeń
+          href: device-update-error-codes.md
 - name: Dokumentacja
   items:
     - name: Interfejs API REST
       href: 'https://docs.microsoft.com/rest/api/deviceupdate/'
-    - name: Zestaw SDK płaszczyzny kontroli
+    - name: Zestaw SDK płaszczyzny sterowania
       items:
         - name: .NET
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/iot/management?view=azure-dotnet'

@@ -5,23 +5,22 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/27/2019
 ms.author: lajanuar
-ms.openlocfilehash: 324fde5198fe3469e3979cf5cd102715118a49aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dfd2b32094aae06675ea8ee9157370f9d2833e91
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467325"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518232"
 ---
-Aparat rozpoznawania formularzy działa na dokumentach wejściowych, które spełniają następujące wymagania:
+Rozpoznawanie formularzy działa na dokumentach wejściowych, które spełniają następujące wymagania:
 
-* Wymagany format to JPG, PNG, PDF (tekst lub zeskanowany) lub TIFF. Pliki PDF z tekstem osadzonym są najlepszym rozwiązaniem, ponieważ nie ma możliwości błędu podczas wyodrębniania znaków i lokalizacji.
+* Format musi mieć format JPG, PNG, PDF (tekst lub zeskanowany) lub TIFF. Pliki PDF osadzone tekstem są najlepsze, ponieważ nie ma możliwości wystąpienia błędu podczas wyodrębniania i lokalizacji znaków.
 * Rozmiar pliku musi być mniejszy niż 50 MB.
-* Wymiary obrazu muszą zawierać się w przedziale od 50 x 50 pikseli i 10000 x 10000 pikseli.
-* Wymiary PDF muszą mieć co najwyżej 17 x 17 cali, odpowiadające rozmiarowi papieru legalnego lub A3 i mniejszemu.
-* W przypadku plików PDF i TIFF tylko pierwsze 200 stron jest przetwarzanych (z subskrypcją warstwy Bezpłatna, są przetwarzane tylko dwie pierwsze strony).
-* Łączny rozmiar zestawu danych szkoleniowych musi być 500 stron lub mniej.
-* Jeśli pliki PDF są zablokowane hasłem, należy usunąć blokadę przed przesłaniem.
-* W przypadku skanowania z dokumentów papierowych formularze powinny być skanów o wysokiej jakości.
-* Tekst musi używać alfabetu łacińskiego (znaki angielskie).
-* W przypadku nienadzorowanej uczenia (bez etykiet danych) dane muszą zawierać klucze i wartości.
-* W przypadku nienadzorowanej uczenia (bez etykiet danych) klucze muszą znajdować się powyżej lub z lewej strony wartości; nie mogą występować poniżej ani w prawo.
+* Wymiary obrazu muszą mieć rozmiar od 50 x 50 pikseli do 10000 x 10000 pikseli.
+* Wymiary pdf muszą mieć co najwyżej 17 x 17 cali, co odpowiada rozmiarom dokumentów prawnych lub A3 i mniejszym.
+* W przypadku plików PDF i TIFF przetwarzane jest tylko 200 pierwszych stron (w przypadku subskrypcji w warstwie Bezpłatna przetwarzane są tylko dwie pierwsze strony).
+* Łączny rozmiar zestawu danych treningowych musi mieć nie więcej niż 500 stron.
+* Jeśli pliki PDF są zablokowane hasłem, przed przesłaniem należy usunąć blokadę.
+* W przypadku skanowania z dokumentów papierowych formularze powinny być skanowaniami wysokiej jakości.
+* W przypadku uczenia bez nadzoru (bez danych oznaczonych etykietami) dane muszą zawierać klucze i wartości.
+* W przypadku uczenia bez nadzoru (bez danych oznaczonych etykietami) klucze muszą znajdować się powyżej lub z lewej strony wartości; Nie mogą być wyświetlane poniżej ani po prawej stronie.

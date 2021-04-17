@@ -1,28 +1,28 @@
 ---
-title: Przypadki testowe dla narzędzia Test Toolkit
-description: Opisuje testy uruchamiane przez zestaw narzędzi do testowania szablonów ARM.
+title: Przypadki testowe dla zestawu narzędzi testowych
+description: Opisuje testy uruchamiane przez zestaw narzędzi testowych szablonu usługi ARM.
 ms.topic: conceptual
-ms.date: 12/03/2020
+ms.date: 04/12/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 31e30b4853da03e28a4a2d15292050805f5bc292
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 7805d6dbdb8b93968a2792ed6dfaf2ac8fea9ae5
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064153"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363397"
 ---
-# <a name="default-test-cases-for-arm-template-test-toolkit"></a>Domyślne przypadki testowe dla zestawu narzędzi testów dla szablonu ARM
+# <a name="default-test-cases-for-arm-template-test-toolkit"></a>Domyślne przypadki testowe dla zestawu narzędzi testowych szablonu usługi ARM
 
-W tym artykule opisano domyślne testy, które są uruchamiane przy użyciu [zestawu narzędzi do testowania](test-toolkit.md) szablonów dla szablonów Azure Resource Manager (szablony ARM). Zawiera przykłady, które przechodzą lub kończą testy. Zawiera nazwę każdego testu. Aby uruchomić określony test, zobacz [parametry testu](test-toolkit.md#test-parameters).
+W tym artykule opisano testy domyślne uruchamiane przy użyciu zestawu narzędzi [testowych](test-toolkit.md) szablonu dla szablonów Azure Resource Manager usługi ARM. Zawiera przykłady, które przechodzą test lub go nie powiodą. Zawiera on nazwę każdego testu. Aby uruchomić określony test, zobacz [Parametry testu](test-toolkit.md#test-parameters).
 
-## <a name="use-correct-schema"></a>Użyj poprawnego schematu
+## <a name="use-correct-schema"></a>Używanie poprawnego schematu
 
-Nazwa testu: **schemat DeploymentTemplate jest prawidłowy**
+Nazwa testu: **DeploymentTemplate Schema Is Correct (Nazwa testu: Schemat DeploymentTemplate jest poprawny)**
 
 W szablonie należy określić prawidłową wartość schematu.
 
-Poniższy przykład **przekazuje** ten test.
+Poniższy przykład pomyślnie **przejdzie** ten test.
 
 ```json
 {
@@ -33,7 +33,7 @@ Poniższy przykład **przekazuje** ten test.
 }
 ```
 
-Właściwość schematu w szablonie musi być ustawiona na jeden z następujących schematów:
+Właściwość schema w szablonie musi być ustawiona na jeden z następujących schematów:
 
 * `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`
 * `https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`
@@ -43,11 +43,11 @@ Właściwość schematu w szablonie musi być ustawiona na jeden z następujący
 
 ## <a name="parameters-must-exist"></a>Parametry muszą istnieć
 
-Nazwa testu: **Właściwość Parameters musi istnieć**
+Nazwa testu: **Musi istnieć właściwość Parameters**
 
-Szablon powinien mieć element parameters. Parametry są niezbędne do wielokrotnego użycia szablonów w różnych środowiskach. Dodaj do szablonu parametry, które zmieniają się w przypadku wdrażania w różnych środowiskach.
+Szablon powinien mieć element parameters. Parametry są niezbędne do tworzenia szablonów wielokrotnego użytku w różnych środowiskach. Dodaj do szablonu parametry dla wartości, które zmieniają się podczas wdrażania w różnych środowiskach.
 
-Poniższy przykład **przekazuje** ten test:
+Poniższy przykład pomyślnie **przejdzie** ten test:
 
 ```json
 {
@@ -67,21 +67,21 @@ Poniższy przykład **przekazuje** ten test:
 
 ## <a name="declared-parameters-must-be-used"></a>Należy użyć zadeklarowanych parametrów
 
-Nazwa testu: **należy odwołać się do parametrów**
+Nazwa testu: **Należy odwoływać się do parametrów**
 
-Aby zmniejszyć pomyłkę w szablonie, Usuń wszystkie parametry, które są zdefiniowane, ale nie są używane. Ten test umożliwia znalezienie wszelkich parametrów, które nie są używane w dowolnym miejscu szablonu. Eliminowanie nieużywanych parametrów ułatwia również wdrożenie szablonu, ponieważ nie trzeba podawać niepotrzebnych wartości.
+Aby zmniejszyć liczbę nieporozumień w szablonie, usuń wszystkie parametry, które są zdefiniowane, ale nie są używane. Ten test umożliwia znalezienie parametrów, które nie są używane w szablonie. Wyeliminowanie nieużywanych parametrów ułatwia również wdrażanie szablonu, ponieważ nie trzeba po prostu podaniem niepotrzebnych wartości.
 
-## <a name="secure-parameters-cant-have-hardcoded-default"></a>Parametry Secure nie mogą mieć stałe domyślnego
+## <a name="secure-parameters-cant-have-hardcoded-default"></a>Bezpieczne parametry nie mogą mieć wartości domyślnej na dysku
 
-Nazwa testu: **Parametry bezpiecznego ciągu nie mogą mieć domyślnego**
+Nazwa testu: **Parametry ciągu bezpiecznego nie mogą mieć wartości domyślnej**
 
-Nie dostarczaj zakodowanej wartości domyślnej dla bezpiecznego parametru w szablonie. Pusty ciąg jest prawidłowy dla wartości domyślnej.
+Nie po podaj w szablonie zakodowanej wartości domyślnej dla bezpiecznego parametru. Pusty ciąg jest w porządku dla wartości domyślnej.
 
-Używasz typów **SecureString** lub **secureobject** dla parametrów, które zawierają wartości poufne, takie jak hasła. Gdy parametr używa typu bezpiecznego, wartość parametru nie jest rejestrowana ani przechowywana w historii wdrożenia. Ta akcja uniemożliwia złośliwemu użytkownikowi odnajdywanie poufnej wartości.
+Typów **SecureString** lub **SecureObject** używa się w przypadku parametrów zawierających wartości poufne, takie jak hasła. Gdy parametr używa typu bezpiecznego, wartość parametru nie jest rejestrowana ani przechowywana w historii wdrażania. Ta akcja uniemożliwia złośliwemu użytkownikowi odnajdowanie wartości poufnej.
 
-Jednak w przypadku podania wartości domyślnej ta wartość jest wykrywalna dla każdego, kto może uzyskać dostęp do szablonu lub historii wdrażania.
+Jednak po poeniu wartości domyślnej ta wartość jest wykrywalna przez każdego, kto może uzyskać dostęp do szablonu lub historii wdrażania.
 
-Następujący przykład **kończy się niepowodzeniem** tego testu:
+Poniższy przykład kończy **się niepowodzeniem** tego testu:
 
 ```json
 "parameters": {
@@ -92,7 +92,7 @@ Następujący przykład **kończy się niepowodzeniem** tego testu:
 }
 ```
 
-Następny przykład **przekazuje** ten test:
+Następny przykład pomyślnie **przejdzie** ten test:
 
 ```json
 "parameters": {
@@ -102,13 +102,13 @@ Następny przykład **przekazuje** ten test:
 }
 ```
 
-## <a name="environment-urls-cant-be-hardcoded"></a>Adresy URL środowiska nie mogą być stałe
+## <a name="environment-urls-cant-be-hardcoded"></a>Adresów URL środowiska nie można kodować na dysku
 
-Nazwa testu: **DeploymentTemplate nie może zawierać identyfikatora URI stałe**
+Nazwa testu: **DeploymentTemplate nie może zawierać hardcoded URI**
 
-Nie umieszczajj adresów URL środowiska w szablonie. Zamiast tego należy użyć [funkcji środowiska](template-functions-deployment.md#environment) , aby dynamicznie pobrać te adresy URL podczas wdrażania. Aby uzyskać listę blokowanych hostów adresów URL, zobacz [przypadek testowy](https://github.com/Azure/arm-ttk/blob/master/arm-ttk/testcases/deploymentTemplate/DeploymentTemplate-Must-Not-Contain-Hardcoded-Uri.test.ps1).
+Nie koduj adresów URL środowiska na dysku w szablonie. Zamiast tego użyj funkcji [environment,](template-functions-deployment.md#environment) aby dynamicznie uzyskać te adresy URL podczas wdrażania. Aby uzyskać listę zablokowanych hostów URL, zobacz [przypadek testowy](https://github.com/Azure/arm-ttk/blob/master/arm-ttk/testcases/deploymentTemplate/DeploymentTemplate-Must-Not-Contain-Hardcoded-Uri.test.ps1).
 
-Poniższy przykład **kończy się niepowodzeniem** tego testu, ponieważ adres URL to stałe.
+Poniższy przykład kończy **się niepowodzeniem** tego testu, ponieważ adres URL jest na dysku twardym.
 
 ```json
 "variables":{
@@ -116,7 +116,7 @@ Poniższy przykład **kończy się niepowodzeniem** tego testu, ponieważ adres 
 }
 ```
 
-Test **kończy się niepowodzeniem** , gdy jest używany z [concat](template-functions-string.md#concat) lub [URI](template-functions-string.md#uri).
+Test kończy się również **niepowodzeniem w** przypadku korzystania z metody [z concat](template-functions-string.md#concat) lub [uri](template-functions-string.md#uri).
 
 ```json
 "variables":{
@@ -125,7 +125,7 @@ Test **kończy się niepowodzeniem** , gdy jest używany z [concat](template-fun
 }
 ```
 
-Poniższy przykład **przekazuje** ten test.
+Poniższy przykład pomyślnie **przejdzie** ten test.
 
 ```json
 "variables": {
@@ -135,15 +135,15 @@ Poniższy przykład **przekazuje** ten test.
 
 ## <a name="location-uses-parameter"></a>Lokalizacja używa parametru
 
-Nazwa testu: **Lokalizacja nie powinna być stałe**
+Nazwa testu: **Lokalizacja nie powinna być na hardcoded**
 
-Szablony powinny mieć parametr o nazwie Location. Użyj tego parametru, aby ustawić lokalizację zasobów w szablonie. W szablonie głównym (o nazwie _azuredeploy.json_ lub _mainTemplate.json_) ten parametr może być domyślnie lokalizacją grupy zasobów. W połączonych lub zagnieżdżonych szablonach parametr Location nie powinien mieć domyślnej lokalizacji.
+Szablony powinny mieć parametr o nazwie location. Użyj tego parametru do ustawienia lokalizacji zasobów w szablonie. W głównym szablonie _(o nazwieazuredeploy.jslub_ mainTemplate.js _na_) ten parametr może domyślnie określać lokalizację grupy zasobów. W połączonych lub zagnieżdżonych szablonach parametr lokalizacji nie powinien mieć lokalizacji domyślnej.
 
-Użytkownicy szablonu mogą mieć ograniczone regiony. Po wprowadzeniu twardej lokalizacji zasobów użytkownicy mogą mieć zablokowaną możliwość tworzenia zasobów w tym regionie. Użytkownicy mogą być blokowani, nawet jeśli ustawisz lokalizację zasobu na `"[resourceGroup().location]"` . Grupa zasobów mogła zostać utworzona w regionie, do którego inni użytkownicy nie mogą uzyskać dostępu. Ci użytkownicy nie mogą korzystać z szablonu.
+Użytkownicy szablonu mogą mieć do dyspozycji ograniczone regiony. W przypadku zakodowania lokalizacji zasobu użytkownicy mogą mieć zablokowaną opcję tworzenia zasobu w tym regionie. Użytkownicy mogą zostać zablokowani, nawet jeśli lokalizacja zasobu zostanie ustawiona na `"[resourceGroup().location]"` wartość . Grupa zasobów może zostać utworzona w regionie, do których inni użytkownicy nie mogą uzyskać dostępu. Ci użytkownicy nie mogą korzystać z szablonu.
 
-Dostarczając parametr lokalizacji, który jest wartością domyślną lokalizacji grupy zasobów, użytkownicy mogą użyć wartości domyślnej, jeśli jest to wygodne, ale także określić inną lokalizację.
+Podając parametr lokalizacji, który domyślnie określa lokalizację grupy zasobów, użytkownicy mogą używać wartości domyślnej, gdy jest to wygodne, ale także określać inną lokalizację.
 
-W poniższym przykładzie ten test **kończy się niepowodzeniem** , ponieważ lokalizacja w zasobie jest ustawiona na `resourceGroup().location` .
+Poniższy przykład kończy **się niepowodzeniem** tego testu, ponieważ lokalizacja w zasobie jest ustawiona na `resourceGroup().location` wartość .
 
 ```json
 {
@@ -167,7 +167,7 @@ W poniższym przykładzie ten test **kończy się niepowodzeniem** , ponieważ l
 }
 ```
 
-W następnym przykładzie jest używany parametr Location, ale ten test **kończy się niepowodzeniem** , ponieważ parametr Location ma wartość domyślną lokalizacji stałe.
+W następnym przykładzie użyto  parametru lokalizacji, ale ten test kończy się niepowodzeniem, ponieważ parametr location domyślnie jest wykodowany na lokalizację.
 
 ```json
 {
@@ -197,7 +197,7 @@ W następnym przykładzie jest używany parametr Location, ale ten test **kończ
 }
 ```
 
-Zamiast tego należy utworzyć parametr, który jest wartością domyślną dla lokalizacji grupy zasobów, ale umożliwia użytkownikom podanie innej wartości. Poniższy przykład **przekazuje** ten test, gdy szablon jest używany jako główny szablon.
+Zamiast tego utwórz parametr, który domyślnie określa lokalizację grupy zasobów, ale umożliwia użytkownikom podanie innej wartości. Poniższy przykład pomyślnie **przejdzie** ten test, gdy szablon jest używany jako główny szablon.
 
 ```json
 {
@@ -230,15 +230,15 @@ Zamiast tego należy utworzyć parametr, który jest wartością domyślną dla 
 }
 ```
 
-Jeśli jednak poprzedni przykład jest używany jako połączony szablon, test **zakończy się niepowodzeniem**. Jeśli jest używany jako połączony szablon, usuń wartość domyślną.
+Jeśli jednak poprzedni przykład jest używany jako połączony szablon, test zakończy się **niepowodzeniem.** W przypadku korzystania z szablonu połączonego usuń wartość domyślną.
 
 ## <a name="resources-should-have-location"></a>Zasoby powinny mieć lokalizację
 
-Nazwa testu: **zasoby powinny mieć lokalizację**
+Nazwa testu: **Zasoby powinny mieć lokalizację**
 
-Lokalizacja zasobu powinna być ustawiona na [wyrażenie szablonu](template-expressions.md) lub `global` . W wyrażeniu szablonu zwykle jest używany parametr Location opisany w poprzednim teście.
+Lokalizacja zasobu powinna być ustawiona na wyrażenie [szablonu lub](template-expressions.md) `global` . Wyrażenie szablonu zwykle używa parametru lokalizacji opisanego w poprzednim teście.
 
-Następujący przykład **kończy się niepowodzeniem** tego testu, ponieważ lokalizacja nie jest wyrażeniem lub `global` .
+Poniższy przykład kończy **się niepowodzeniem** tego testu, ponieważ lokalizacja nie jest wyrażeniem ani `global` .
 
 ```json
 {
@@ -264,7 +264,7 @@ Następujący przykład **kończy się niepowodzeniem** tego testu, ponieważ lo
 }
 ```
 
-Poniższy przykład **przekazuje** ten test.
+Poniższy przykład pomyślnie **przejdzie** ten test.
 
 ```json
 {
@@ -289,7 +289,7 @@ Poniższy przykład **przekazuje** ten test.
 }
 ```
 
-Następny przykład **przekazuje** także ten test.
+Następny przykład również pomyślnie **przejdzie** ten test.
 
 ```json
 {
@@ -324,11 +324,11 @@ Następny przykład **przekazuje** także ten test.
 
 ## <a name="vm-size-uses-parameter"></a>Rozmiar maszyny wirtualnej używa parametru
 
-Nazwa testu: **rozmiar maszyny wirtualnej powinien być parametrem**
+Nazwa testu: **Rozmiar maszyny wirtualnej powinien być parametrem**
 
-Nie umieszczaj rozmiaru maszyny wirtualnej. Podaj parametr, aby użytkownicy szablonu mogli modyfikować rozmiar wdrożonej maszyny wirtualnej.
+Nie należy kodować rozmiaru maszyny wirtualnej na dysku twardym. Podaj parametr , aby użytkownicy szablonu mogą modyfikować rozmiar wdrożonej maszyny wirtualnej.
 
-Poniższy przykład **kończy się niepowodzeniem** tego testu.
+Poniższy przykład kończy **się niepowodzeniem** tego testu.
 
 ```json
 "hardwareProfile": {
@@ -336,7 +336,7 @@ Poniższy przykład **kończy się niepowodzeniem** tego testu.
 }
 ```
 
-Zamiast tego należy podać parametr.
+Zamiast tego podaj parametr .
 
 ```json
 "vmSize": {
@@ -356,13 +356,13 @@ Następnie ustaw rozmiar maszyny wirtualnej na ten parametr.
 },
 ```
 
-## <a name="min-and-max-values-are-numbers"></a>Wartości minimalna i maksymalna są liczbami
+## <a name="min-and-max-values-are-numbers"></a>Wartości minimalne i maksymalne to liczby
 
-Nazwa testu: **wartość minimalna i maksymalna są liczbami**
+Nazwa testu: **minimalna i maksymalna wartość to liczby**
 
-Jeśli określisz minimalną i maksymalną wartość dla parametru, określ je jako liczby.
+W przypadku definiowania wartości minimalnych i maksymalnych dla parametru należy określić je jako liczby.
 
-Następujący przykład **kończy się niepowodzeniem** tego testu:
+Poniższy przykład kończy **się niepowodzeniem** tego testu:
 
 ```json
 "exampleParameter": {
@@ -372,7 +372,7 @@ Następujący przykład **kończy się niepowodzeniem** tego testu:
 },
 ```
 
-Zamiast tego podaj wartości jako liczby. Poniższy przykład **przekazuje** ten test:
+Zamiast tego podaj wartości jako liczby. Poniższy przykład pomyślnie **przejdzie** ten test:
 
 ```json
 "exampleParameter": {
@@ -382,36 +382,36 @@ Zamiast tego podaj wartości jako liczby. Poniższy przykład **przekazuje** ten
 },
 ```
 
-To ostrzeżenie jest również wyświetlane, jeśli podano wartość minimalną lub maksymalną, ale nie inne.
+To ostrzeżenie jest również wyświetlane, jeśli po podaj wartość minimalna lub maksymalna, ale nie inną.
 
-## <a name="artifacts-parameter-defined-correctly"></a>Parametr artefaktów został zdefiniowany prawidłowo
+## <a name="artifacts-parameter-defined-correctly"></a>Poprawnie zdefiniowano parametr Artifacts
 
-Nazwa testu: **parametr artefaktów**
+Nazwa testu: **parametr artifacts**
 
-W przypadku dołączania parametrów dla `_artifactsLocation` i `_artifactsLocationSasToken` należy użyć prawidłowych wartości domyślnych i typów. Aby przekazać ten test, muszą zostać spełnione następujące warunki:
+W przypadku dołączania parametrów `_artifactsLocation` dla i `_artifactsLocationSasToken` użyj poprawnych wartości domyślnych i typów. Aby zdać ten test, muszą zostać spełnione następujące warunki:
 
-* w przypadku podania jednego parametru należy podać drugi
+* W przypadku podania jednego parametru należy podać drugi
 * `_artifactsLocation` musi być **ciągiem**
-* `_artifactsLocation` musi mieć wartość domyślną w szablonie głównym
-* `_artifactsLocation` nie można mieć wartości domyślnej w zagnieżdżonym szablonie
-* `_artifactsLocation``"[deployment().properties.templateLink.uri]"`wartość domyślna musi mieć adres URL lub niesformatowanego repozytorium.
-* `_artifactsLocationSasToken` musi być elementem **secureString**
+* `_artifactsLocation` musi mieć wartość domyślną w głównym szablonie
+* `_artifactsLocation` nie może mieć wartości domyślnej w zagnieżdżonych szablonach
+* `_artifactsLocation` wartość domyślna musi mieć adres `"[deployment().properties.templateLink.uri]"` URL lub nieprzetworzonego repo
+* `_artifactsLocationSasToken` musi być **secureString**
 * `_artifactsLocationSasToken` może mieć tylko pusty ciąg dla jego wartości domyślnej
-* `_artifactsLocationSasToken` nie można mieć wartości domyślnej w zagnieżdżonym szablonie
+* `_artifactsLocationSasToken` nie może mieć wartości domyślnej w zagnieżdżonych szablonach
 
 ## <a name="declared-variables-must-be-used"></a>Zadeklarowane zmienne muszą być używane
 
-Nazwa testu: **należy odwołać się do zmiennych**
+Nazwa testu: **Zmienne muszą być przywołyne**
 
-Aby zmniejszyć pomyłkę w szablonie, Usuń wszelkie zmienne, które są zdefiniowane, ale nie używane. Ten test umożliwia znalezienie wszelkich zmiennych, które nie są używane w dowolnym miejscu w szablonie.
+Aby zmniejszyć liczbę nieporozumień w szablonie, usuń wszystkie zmienne, które są zdefiniowane, ale nie są używane. Ten test wyszukuje wszelkie zmienne, które nie są używane w żadnym miejscu w szablonie.
 
-## <a name="dynamic-variable-should-not-use-concat"></a>Zmienna dynamiczna nie powinna używać Concat
+## <a name="dynamic-variable-should-not-use-concat"></a>Zmienna dynamiczna nie powinna używać funkcji concat
 
-Nazwa testu: **odwołania do zmiennych dynamicznych nie powinny używać concat**
+Nazwa testu: **Odwołania do zmiennych dynamicznych nie powinny używać funkcji Concat**
 
-Czasami konieczne jest dynamiczne konstruowanie zmiennej na podstawie wartości innej zmiennej lub parametru. Nie używaj funkcji [concat](template-functions-string.md#concat) podczas ustawiania wartości. Zamiast tego należy użyć obiektu, który zawiera dostępne opcje i dynamicznie pobrać jedną z właściwości obiektu podczas wdrażania.
+Czasami trzeba dynamicznie skonstruować zmienną na podstawie wartości innej zmiennej lub parametru. Nie używaj funkcji [concat](template-functions-string.md#concat) podczas ustawiania wartości. Zamiast tego należy użyć obiektu, który zawiera dostępne opcje i dynamicznie pobrać jedną z właściwości z obiektu podczas wdrażania.
 
-Poniższy przykład **przekazuje** ten test. Zmienna **currentImage** jest ustawiana dynamicznie podczas wdrażania.
+Poniższy przykład pomyślnie **przejdzie** ten test. Zmienna **currentImage** jest ustawiana dynamicznie podczas wdrażania.
 
 ```json
 {
@@ -447,19 +447,19 @@ Poniższy przykład **przekazuje** ten test. Zmienna **currentImage** jest ustaw
 }
 ```
 
-## <a name="use-recent-api-version"></a>Użyj najnowszej wersji interfejsu API
+## <a name="use-recent-api-version"></a>Korzystanie z najnowszej wersji interfejsu API
 
-Nazwa testu: **ApiVersions powinna być ostatnią**
+Nazwa testu: **apiVersions powinny być ostatnie**
 
-Wersja interfejsu API dla każdego zasobu powinna używać najnowszej wersji. Test szacuje używaną wersję w porównaniu z wersjami dostępnymi dla tego typu zasobu.
+Wersja interfejsu API dla każdego zasobu powinna używać najnowszej wersji. Test ocenia używaną wersję względem wersji dostępnych dla tego typu zasobu.
 
-## <a name="use-hardcoded-api-version"></a>Użyj wersji interfejsu API stałe
+## <a name="use-hardcoded-api-version"></a>Korzystanie z hardcoded wersji interfejsu API
 
-Nazwa testu: **dostawcy ApiVersions jest niedozwolona**
+Nazwa testu: **Interfejs API DostawcówWersje są niedozwolone**
 
 Wersja interfejsu API dla typu zasobu określa, które właściwości są dostępne. Podaj w szablonie zakodowaną wersję interfejsu API. Nie pobieraj wersji interfejsu API, która jest określana podczas wdrażania. Nie wiadomo, które właściwości są dostępne.
 
-Poniższy przykład **kończy się niepowodzeniem** tego testu.
+Poniższy przykład kończy **się niepowodzeniem** tego testu.
 
 ```json
 "resources": [
@@ -471,7 +471,7 @@ Poniższy przykład **kończy się niepowodzeniem** tego testu.
 ]
 ```
 
-Poniższy przykład **przekazuje** ten test.
+Poniższy przykład pomyślnie **przejdzie** ten test.
 
 ```json
 "resources": [
@@ -485,22 +485,22 @@ Poniższy przykład **przekazuje** ten test.
 
 ## <a name="properties-cant-be-empty"></a>Właściwości nie mogą być puste
 
-Nazwa testu: **szablon nie powinien zawierać pustych** wartości
+Nazwa testu: **Szablon nie powinien zawierać wartości pustych**
 
-Nie umieszczaj właściwości do pustej wartości. Puste wartości obejmują ciągi o wartości null i puste, obiekty lub tablice. Jeśli ustawisz właściwość na wartość pustą, Usuń tę właściwość z szablonu. Jednak po wdrożeniu nie można ustawić właściwości na wartość pustą, na przykład za pomocą parametru.
+Nie koduj właściwości na wartość pustą. Puste wartości obejmują ciągi null i puste, obiekty lub tablice. Jeśli ustawisz właściwość na wartość pustą, usuń ją z szablonu. Można jednak ustawić właściwość na pustą wartość podczas wdrażania, na przykład za pomocą parametru .
 
 ## <a name="use-resource-id-functions"></a>Korzystanie z funkcji identyfikatora zasobu
 
-Nazwa testu: **identyfikatory powinny pochodzić od ResourceID**
+Nazwa testu: **Identyfikatory powinny pochodzić od identyfikatorów zasobów**
 
-Podczas określania identyfikatora zasobu należy użyć jednej z funkcji identyfikatora zasobu. Dozwolone są następujące funkcje:
+Podczas określania identyfikatora zasobu użyj jednej z funkcji identyfikatora zasobu. Dozwolone funkcje to:
 
-* [Identyfikator](template-functions-resource.md#resourceid)
+* [Resourceid](template-functions-resource.md#resourceid)
 * [subscriptionResourceId](template-functions-resource.md#subscriptionresourceid)
 * [tenantResourceId](template-functions-resource.md#tenantresourceid)
 * [extensionResourceId](template-functions-resource.md#extensionresourceid)
 
-Nie należy używać funkcji concat do tworzenia identyfikatora zasobu. Poniższy przykład **kończy się niepowodzeniem** tego testu.
+Nie używaj funkcji concat do tworzenia identyfikatora zasobu. Poniższy przykład kończy **się niepowodzeniem** tego testu.
 
 ```json
 "networkSecurityGroup": {
@@ -508,7 +508,7 @@ Nie należy używać funkcji concat do tworzenia identyfikatora zasobu. Poniższ
 }
 ```
 
-Następny przykład **przekazuje** ten test.
+Następny przykład pomyślnie **przejdzie** ten test.
 
 ```json
 "networkSecurityGroup": {
@@ -518,11 +518,11 @@ Następny przykład **przekazuje** ten test.
 
 ## <a name="resourceid-function-has-correct-parameters"></a>Funkcja ResourceId ma poprawne parametry
 
-Nazwa testu: **identyfikatory zasobów nie powinny zawierać**
+Nazwa testu: **ResourceIds nie powinny zawierać**
 
-Podczas generowania identyfikatorów zasobów nie należy używać zbędnych funkcji dla parametrów opcjonalnych. Domyślnie funkcja [ResourceID](template-functions-resource.md#resourceid) używa bieżącej subskrypcji i grupy zasobów. Nie musisz podawać tych wartości.
+Podczas generowania identyfikatorów zasobów nie używaj niepotrzebnych funkcji dla parametrów opcjonalnych. Domyślnie funkcja [resourceId](template-functions-resource.md#resourceid) używa bieżącej subskrypcji i grupy zasobów. Nie musisz podaniem tych wartości.
 
-Poniższy przykład **kończy się niepowodzeniem** tego testu, ponieważ nie trzeba podawać bieżącego identyfikatora subskrypcji i nazwy grupy zasobów.
+Poniższy przykład kończy **się** niepowodzeniem w tym teście, ponieważ nie trzeba po podaniem bieżącego identyfikatora subskrypcji i nazwy grupy zasobów.
 
 ```json
 "networkSecurityGroup": {
@@ -530,7 +530,7 @@ Poniższy przykład **kończy się niepowodzeniem** tego testu, ponieważ nie tr
 }
 ```
 
-Następny przykład **przekazuje** ten test.
+Następny przykład pomyślnie **przejdzie** ten test.
 
 ```json
 "networkSecurityGroup": {
@@ -538,24 +538,24 @@ Następny przykład **przekazuje** ten test.
 }
 ```
 
-Ten test ma zastosowanie do:
+Ten test dotyczy:
 
-* [Identyfikator](template-functions-resource.md#resourceid)
+* [Resourceid](template-functions-resource.md#resourceid)
 * [subscriptionResourceId](template-functions-resource.md#subscriptionresourceid)
 * [tenantResourceId](template-functions-resource.md#tenantresourceid)
 * [extensionResourceId](template-functions-resource.md#extensionresourceid)
-* [odwoła](template-functions-resource.md#reference)
-* [staw](template-functions-resource.md#list)
+* [Odwołanie](template-functions-resource.md#reference)
+* [list*](template-functions-resource.md#list)
 
-W przypadku `reference` i `list*` , test **kończy się niepowodzeniem** , gdy jest używany `concat` do konstruowania identyfikatora zasobu.
+W `reference` przypadku i test kończy się `list*` **niepowodzeniem,** gdy używasz `concat` do konstruowania identyfikatora zasobu.
 
-## <a name="dependson-best-practices"></a>najlepsze rozwiązania dependsOn
+## <a name="dependson-best-practices"></a>dependsOn best practices
 
-Nazwa testu: **najlepsze rozwiązania DependsOn**
+Nazwa testu: **DependsOn Best Practices**
 
-Podczas ustawiania zależności wdrożenia nie należy używać funkcji [if](template-functions-logical.md#if) do testowania warunku. Jeśli jeden z zasobów zależy od zasobu, który jest [wdrażany warunkowo](conditional-resource-deployment.md), należy ustawić zależność tak jak w przypadku dowolnego zasobu. Gdy zasób warunkowy nie zostanie wdrożony, Azure Resource Manager automatycznie usuwa go z wymaganych zależności.
+Podczas ustawiania zależności wdrożenia nie używaj funkcji [if](template-functions-logical.md#if) do testowania warunku. Jeśli jeden zasób zależy od zasobu, który jest [wdrażany warunkowo,](conditional-resource-deployment.md)ustaw zależność tak samo jak w przypadku dowolnego zasobu. Jeśli zasób warunkowy nie zostanie wdrożony, Azure Resource Manager automatycznie usunie go z wymaganych zależności.
 
-Poniższy przykład **kończy się niepowodzeniem** tego testu.
+Poniższy przykład kończy **się niepowodzeniem** tego testu.
 
 ```json
 "dependsOn": [
@@ -563,7 +563,7 @@ Poniższy przykład **kończy się niepowodzeniem** tego testu.
 ]
 ```
 
-Następny przykład **przekazuje** ten test.
+Następny przykład pomyślnie **przejdzie** ten test.
 
 ```json
 "dependsOn": [
@@ -571,19 +571,19 @@ Następny przykład **przekazuje** ten test.
 ]
 ```
 
-## <a name="nested-or-linked-deployments-cant-use-debug"></a>W przypadku wdrożeń zagnieżdżonych lub połączonych nie można używać debugowania
+## <a name="nested-or-linked-deployments-cant-use-debug"></a>Wdrożenia zagnieżdżone lub połączone nie mogą używać debugowania
 
-Nazwa testu: **zasoby wdrożenia nie mogą być debugowane**
+Nazwa testu: **Zasoby wdrożenia nie mogą być debugowane**
 
-Podczas definiowania [szablonu zagnieżdżone lub połączonego](linked-templates.md) z typem zasobu **Microsoft. resources/Deployments** można włączyć debugowanie dla tego szablonu. Debugowanie jest bardzo precyzyjne, gdy konieczne jest przetestowanie tego szablonu, ale należy je włączyć, gdy wszystko jest gotowe do użycia szablonu w środowisku produkcyjnym.
+Podczas definiowania [zagnieżdżonych lub połączonych](linked-templates.md) szablonów z typem zasobu **Microsoft.Resources/deployments** można włączyć debugowanie dla tego szablonu. Debugowanie jest w porządku, gdy musisz przetestować ten szablon, ale powinno być włączone, gdy wszystko będzie gotowe do użycia szablonu w środowisku produkcyjnym.
 
-## <a name="admin-user-names-cant-be-literal-value"></a>Nazwa użytkownika administratora nie może być wartością literału
+## <a name="admin-user-names-cant-be-literal-value"></a>Nazwy użytkowników administratorów nie mogą być wartością literału
 
-Nazwa testu: **AdminUsername nie może być literałem**
+Nazwa testu: **adminUsername nie powinna być literału**
 
-Podczas ustawiania nazwy użytkownika administratora nie należy używać wartości literału.
+Podczas ustawiania nazwy użytkownika administratora nie używaj wartości literału.
 
-Następujący przykład **kończy się niepowodzeniem** tego testu:
+Poniższy przykład kończy **się niepowodzeniem** tego testu:
 
 ```json
 "osProfile":  {
@@ -591,7 +591,7 @@ Następujący przykład **kończy się niepowodzeniem** tego testu:
 },
 ```
 
-Zamiast tego należy użyć parametru. Poniższy przykład **przekazuje** ten test:
+Zamiast tego należy użyć parametru . Poniższy przykład pomyślnie **przejdzie** ten test:
 
 ```json
 "osProfile": {
@@ -599,19 +599,19 @@ Zamiast tego należy użyć parametru. Poniższy przykład **przekazuje** ten te
 }
 ```
 
-## <a name="use-latest-vm-image"></a>Użyj najnowszego obrazu maszyny wirtualnej
+## <a name="use-latest-vm-image"></a>Używanie najnowszego obrazu maszyny wirtualnej
 
-Nazwa testu: **obrazy maszyn wirtualnych powinny używać najnowszej wersji**
+Nazwa testu: **Obrazy maszyn wirtualnych powinny używać najnowszej wersji**
 
-Jeśli szablon zawiera maszynę wirtualną z obrazem, upewnij się, że jest używana najnowsza wersja obrazu.
+Jeśli szablon zawiera maszynę wirtualną z obrazem, upewnij się, że używasz najnowszej wersji obrazu.
 
-## <a name="use-stable-vm-images"></a>Korzystanie z stabilnych obrazów maszyn wirtualnych
+## <a name="use-stable-vm-images"></a>Używanie stabilnych obrazów maszyn wirtualnych
 
-Nazwa testu: **Virtual Machines nie powinna być zapoznawcza**
+Nazwa testu: Virtual Machines **nie powinna być w wersji zapoznawczej**
 
-W przypadku maszyn wirtualnych nie należy używać obrazów w wersji zapoznawczej.
+Maszyny wirtualne nie powinny używać obrazów w wersji zapoznawczej.
 
-Poniższy przykład **kończy się niepowodzeniem** tego testu.
+Poniższy przykład kończy **się niepowodzeniem** tego testu.
 
 ```json
 "imageReference": {
@@ -622,7 +622,7 @@ Poniższy przykład **kończy się niepowodzeniem** tego testu.
 }
 ```
 
-Poniższy przykład **przekazuje** ten test.
+Poniższy przykład pomyślnie **przejdzie** ten test.
 
 ```json
 "imageReference": {
@@ -635,17 +635,17 @@ Poniższy przykład **przekazuje** ten test.
 
 ## <a name="dont-use-managedidentity-extension"></a>Nie używaj rozszerzenia ManagedIdentity
 
-Nazwa testu: **ManagedIdentityExtension nie może być użyta**
+Nazwa testu: Nie można używać nazwy **ManagedIdentityExtension**
 
-Nie stosuj rozszerzenia ManagedIdentity do maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Jak zatrzymać korzystanie z rozszerzenia tożsamości zarządzanej maszyny wirtualnej i rozpocząć korzystanie z usługi Azure instance Metadata Service](../../active-directory/managed-identities-azure-resources/howto-migrate-vm-extension.md).
+Nie należy stosować rozszerzenia ManagedIdentity do maszyny wirtualnej. Rozszerzenie zostało wycofane w 2019 r. i nie powinno być już używane.
 
 ## <a name="outputs-cant-include-secrets"></a>Dane wyjściowe nie mogą zawierać wpisów tajnych
 
-Nazwa testu: dane **wyjściowe nie mogą zawierać wpisów tajnych**
+Nazwa testu: **dane wyjściowe nie mogą zawierać wpisów tajnych**
 
-Nie dołączaj żadnych wartości w sekcji danych wyjściowych, które potencjalnie ujawniają wpisy tajne. Dane wyjściowe szablonu są przechowywane w historii wdrożenia, dlatego złośliwy użytkownik może znaleźć te informacje.
+Nie uwzględniaj żadnych wartości w sekcji danych wyjściowych, które potencjalnie uwidoczniają wpisy tajne. Dane wyjściowe z szablonu są przechowywane w historii wdrażania, więc złośliwy użytkownik może znaleźć te informacje.
 
-W poniższym przykładzie test **nie powiedzie się** , ponieważ zawiera on bezpieczny parametr w wartości wyjściowej.
+Poniższy przykład kończy **się niepowodzeniem** testu, ponieważ zawiera bezpieczny parametr w wartości wyjściowej.
 
 ```json
 {
@@ -668,7 +668,7 @@ W poniższym przykładzie test **nie powiedzie się** , ponieważ zawiera on bez
 }
 ```
 
-Poniższy przykład **nie powiedzie się** , ponieważ używa funkcji [list *](template-functions-resource.md#list) w danych wyjściowych.
+Poniższy przykład kończy **się niepowodzeniem,** ponieważ w danych wyjściowych użyto funkcji [list*.](template-functions-resource.md#list)
 
 ```json
 {
@@ -691,16 +691,16 @@ Poniższy przykład **nie powiedzie się** , ponieważ używa funkcji [list *](t
 }
 ```
 
-## <a name="use-protectedsettings-for-commandtoexecute-secrets"></a>Użyj protectedSettings dla wpisów tajnych sekcji commandtoexecute
+## <a name="use-protectedsettings-for-commandtoexecute-secrets"></a>Używanie protectedSettings dla wpisów tajnych commandToExecute
 
-Nazwa testu: **sekcji commandtoexecute musi używać ProtectedSettings dla wpisów tajnych**
+Nazwa testu: **CommandToExecute musi używać protectedSettings dla wpisów tajnych**
 
-W niestandardowym rozszerzeniu skryptu Użyj właściwości Encrypted, `protectedSettings` gdy program `commandToExecute` zawiera dane tajne, takie jak hasło. Przykładami typów danych tajnych są `secureString` , `secureObject` , `list()` funkcje lub skrypty.
+W rozszerzeniu niestandardowego skryptu użyj zaszyfrowanej właściwości , jeśli zawiera `protectedSettings` `commandToExecute` ona tajne dane, takie jak hasło. Przykłady tajnych typów danych to `secureString` , , funkcje lub `secureObject` `list()` skrypty.
 
-Aby uzyskać więcej informacji o rozszerzeniu niestandardowego skryptu dla maszyn wirtualnych, zobacz [Windows](
-/azure/virtual-machines/extensions/custom-script-windows), [Linux](/azure/virtual-machines/extensions/custom-script-linux)i Schema [Microsoft. COMPUTE virtualMachines/Extensions](/azure/templates/microsoft.compute/virtualmachines/extensions).
+Aby uzyskać więcej informacji na temat rozszerzenia niestandardowego skryptu dla maszyn wirtualnych, zobacz [Windows](
+/azure/virtual-machines/extensions/custom-script-windows), [Linux](/azure/virtual-machines/extensions/custom-script-linux)i schemat [Microsoft.Compute virtualMachines/extensions.](/azure/templates/microsoft.compute/virtualmachines/extensions)
 
-W tym przykładzie szablon z parametrem o nazwie `adminPassword` i Type `secureString` **przekazuje** test, ponieważ właściwość Encrypted `protectedSettings` zawiera `commandToExecute` .
+W tym przykładzie szablon z parametrem o nazwie i typem pomyślnie `adminPassword` `secureString` **przejdzie** test, ponieważ zaszyfrowana właściwość `protectedSettings` zawiera wartość `commandToExecute` .
 
 ```json
 "properties": [
@@ -712,7 +712,7 @@ W tym przykładzie szablon z parametrem o nazwie `adminPassword` i Type `secureS
 ]
 ```
 
-Test **kończy się niepowodzeniem** , jeśli właściwość unencrypted `settings` zawiera `commandToExecute` .
+Test kończy **się niepowodzeniem,** jeśli niezaszyfrowana właściwość `settings` zawiera właściwość `commandToExecute` .
 
 ```json
 "properties": [
@@ -726,5 +726,5 @@ Test **kończy się niepowodzeniem** , jeśli właściwość unencrypted `settin
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej o uruchamianiu zestawu narzędzi testowych, zobacz [Use the ARM Template test Toolkit](test-toolkit.md).
-* W przypadku modułu Microsoft Learn, który obejmuje użycie zestawu narzędzi test Toolkit, zobacz [Podgląd zmian i sprawdzanie poprawności zasobów platformy Azure przy użyciu zestawu narzędzi do działania i szablonu ARM](/learn/modules/arm-template-test/).
+* Aby dowiedzieć się więcej na temat uruchamiania zestawu narzędzi testowych, zobacz [Korzystanie z zestawu narzędzi testowych szablonu usługi ARM.](test-toolkit.md)
+* Aby uzyskać Microsoft Learn, który obejmuje korzystanie z zestawu narzędzi testowych, zobacz Preview [changes and validate Azure resources by using what-if](/learn/modules/arm-template-test/)and the ARM template test toolkit (Podgląd zmian i weryfikowanie zasobów platformy Azure przy użyciu funkcji what-if i zestawu narzędzi testowych szablonu usługi ARM).

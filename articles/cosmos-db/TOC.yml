@@ -152,6 +152,8 @@
               href: create-sql-api-java.md
             - name: Aplikacja rozwiązania Spring Data
               href: create-sql-api-spring-data.md
+            - name: Aplikacja Platformy Spark w wersji 3
+              href: create-sql-api-spark.md
             - name: Aplikacja platformy Node.js
               href: create-sql-api-nodejs.md
             - name: Aplikacja w języku Python
@@ -755,9 +757,9 @@
                   href: troubleshoot-not-found.md
                 - name: Rozwiązywanie problemów z brakiem autoryzacji
                   href: troubleshoot-unauthorized.md
-                - name: Rozwiązywanie problemów zabronionych
+                - name: Rozwiązywanie problemów z dostępem zabronionym
                   href: troubleshoot-forbidden.md
-                - name: Rozwiązywanie nieprawidłowych żądań
+                - name: Rozwiązywanie problemów z złym żądaniem
                   href: troubleshoot-bad-request.md
                 - name: Problemy z dostępnością w środowiskach z wieloma regionami
                   href: troubleshoot-sdk-availability.md
@@ -835,7 +837,7 @@
               href: visualize-qlik-sense.md
         - name: Wbudowana analiza przy użyciu platformy Apache Spark
           items:
-            - name: Łącznik platformy Azure Spark w usłudze Azure Databricks
+            - name: Azure Databricks OLTP platformy Spark 2
               href: spark-connector.md
             - name: Przesyłanie strumieniowe na platformie Apache Kafka i w usłudze Cosmos DB
               href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
@@ -915,7 +917,9 @@
               href: sql-api-sdk-java-spring-v2.md
             - name: Łącznik danych platformy Spring w wersji 3
               href: sql-api-sdk-java-spring-v3.md
-            - name: Łącznik platformy Spark
+            - name: Łącznik OLTP platformy Spark 3 (wersja zapoznawcza)
+              href: sql-api-sdk-java-spark-v3.md
+            - name: Łącznik OLTP platformy Spark 2
               href: sql-api-sdk-java-spark.md
             - name: Biblioteka Java funkcji wykonywania zbiorczego w wersji 2
               href: sql-api-sdk-bulk-executor-java.md
@@ -1101,11 +1105,11 @@
           href: tutorial-global-distribution-mongodb.md
     - name: Pojęcia
       items:
-        - name: 'Interfejs API w wersji 4,0'
+        - name: Interfejs API w wersji 4.0
           href: mongodb-feature-support-40.md
-        - name: 'Interfejs API w wersji 3,6'
+        - name: Interfejs API w wersji 3.6
           href: mongodb-feature-support-36.md
-        - name: 'Interfejs API w wersji 3,2'
+        - name: Interfejs API w wersji 3.2
           href: mongodb-feature-support.md
         - name: Często zadawane pytania
           href: mongodb-api-faq.md
@@ -1117,7 +1121,7 @@
           items:
             - name: Przewodnik przed migracją
               href: mongodb-pre-migration.md
-            - name: Narzędzia natywne MongoDB (offline)
+            - name: Narzędzia natywne bazy danych MongoDB (w trybie offline)
               href: tutorial-mongotools-cosmos-db.md
             - name: Database Migration Service (online)
               href: ../dms/tutorial-mongodb-cosmos-db-online.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
@@ -1125,7 +1129,7 @@
               href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Przewodnik po migracji
               href: mongodb-post-migration.md
-        - name: 'Uaktualnianie do interfejsu API w wersji 4,0 lub 3,6'
+        - name: Uaktualnianie do interfejsu API w wersji 4.0 lub 3.6
           href: mongodb-version-upgrade.md
         - name: Pobieranie parametrów połączenia
           href: connect-mongodb-account.md
@@ -1146,7 +1150,7 @@
           href: mongodb-change-streams.md
         - name: Zarządzanie indeksowaniem danych
           href: mongodb-indexing.md
-        - name: Korzystanie z transakcji wielodokumentowych
+        - name: Korzystanie z transakcji z wieloma dokumentami
           href: use-multi-document-transactions.md
         - name: Tworzenie kontenera — MongoDB API
           href: how-to-create-container-mongodb.md
@@ -1386,19 +1390,19 @@
           href: synapse-link-power-bi.md
     - name: Tworzenie kopii zapasowej i przywracanie
       items:
-        - name: Zarządzanie ciągłymi kopiami zapasowymi
+        - name: Zarządzanie ciągłą kopią zapasową
           items:
             - name: Ciągła kopia zapasowa — uprawnienia i role
               href: continuous-backup-restore-permissions.md
-            - name: Ciągła kopia zapasowa — Portal
+            - name: Ciągła kopia zapasowa — portal
               href: continuous-backup-restore-portal.md
-            - name: Ciągła kopia zapasowa — PowerShell
+            - name: Ciągłe tworzenie kopii zapasowej — PowerShell
               href: continuous-backup-restore-powershell.md
             - name: Ciągła kopia zapasowa — interfejs wiersza polecenia
               href: continuous-backup-restore-command-line.md
-            - name: Ciągła kopia zapasowa — Menedżer zasobów
+            - name: Ciągła kopia zapasowa — Resource Manager
               href: continuous-backup-restore-template.md
-        - name: Zarządzanie okresową kopią zapasową
+        - name: Zarządzanie okresowymi kopiami zapasowymi
           href: configure-periodic-backup-restore.md
     - name: Zabezpieczenia
       items:
@@ -1429,7 +1433,7 @@
           href: monitor-cosmos-db.md
         - name: Korzystanie z metryk usługi Azure Monitor
           items:
-            - name: Azure Monitor Cosmos DB
+            - name: Azure Monitor dla Cosmos DB
               href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Scenariusze do monitorowania
               href: use-metrics.md

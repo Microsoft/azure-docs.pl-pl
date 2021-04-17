@@ -1,24 +1,26 @@
 ---
-title: Szybki Start — wdrażanie kontenera platformy Docker do wystąpienia kontenera — program PowerShell
-description: W tym przewodniku szybki start użyjesz Azure PowerShell, aby szybko wdrożyć aplikację sieci Web, która działa w izolowanym wystąpieniu kontenera platformy Azure
+title: Szybki start — wdrażanie kontenera platformy Docker w wystąpieniu kontenera — PowerShell
+description: W tym przewodniku Szybki start użyjemy usługi Azure PowerShell szybko wdrożyć konteneryzowana aplikację internetową, która działa w izolowanym wystąpieniu kontenera platformy Azure
 services: container-instances
 manager: gwallace
-ms.service: container-instances
-ms.topic: quickstart
 ms.date: 03/21/2019
-ms.custom: seodec18, mvc
-ms.openlocfilehash: c7002d8a83e58a9089ee3c3840b0397d63e2f198
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.service: container-instances
+ms.custom:
+- mvc
+- mode-api
+ms.openlocfilehash: f9c6bac45e2e7fe18895a16831f840c3ae5a9f9d
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89565586"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536169"
 ---
-# <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>Szybki Start: Wdrażanie wystąpienia kontenera na platformie Azure przy użyciu Azure PowerShell
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>Szybki start: wdrażanie wystąpienia kontenera na platformie Azure przy użyciu Azure PowerShell
 
-Używanie Azure Container Instances do uruchamiania kontenerów platformy Docker bez serwera na platformie Azure z prostotą i szybkością. Wdróż aplikację w wystąpieniu kontenera na żądanie, gdy nie potrzebujesz pełnej platformy aranżacji kontenerów, takiej jak usługa Azure Kubernetes.
+Używaj Azure Container Instances do uruchamiania bez serwera kontenerów platformy Docker na platformie Azure z prostotą i szybkością. Wdrażanie aplikacji w wystąpieniu kontenera na żądanie, gdy nie potrzebujesz pełnej platformy orkiestracji kontenerów, na przykład Azure Kubernetes Service.
 
-W tym przewodniku szybki start użyjesz Azure PowerShell do wdrożenia izolowanego kontenera systemu Windows i udostępnienia aplikacji za pomocą w pełni kwalifikowanej nazwy domeny (FQDN). Kilka sekund po wykonaniu jednego polecenia wdrożenia można przejść do aplikacji działającej w kontenerze:
+W tym przewodniku Szybki start użyjesz usługi Azure PowerShell do wdrożenia izolowanego kontenera systemu Windows i udostępnisz jego aplikację przy użyciu w pełni kwalifikowanej nazwy domeny (FQDN). Kilka sekund po wykonaniu pojedynczego polecenia wdrożenia możesz przejść do aplikacji uruchomionej w kontenerze:
 
 ![Aplikacja wdrożona w usłudze Azure Container Instances widziana w przeglądarce][qs-powershell-01]
 
@@ -42,11 +44,11 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>Tworzenie kontenera
 
-Teraz, gdy masz już grupę zasobów, możesz uruchomić kontener na platformie Azure. Aby utworzyć wystąpienie kontenera przy użyciu programu Azure PowerShell, podaj nazwę grupy zasobów, nazwę wystąpienia kontenera i obraz kontenera Docker w poleceniu cmdlet [New-AzContainerGroup][New-AzContainerGroup]. W tym przewodniku szybki start użyjesz `mcr.microsoft.com/windows/servercore/iis:nanoserver` obrazu publicznego. Ten obraz pakiety programu Microsoft Internet Information Services (IIS) do uruchomienia na serwerze nano Server.
+Teraz, gdy masz już grupę zasobów, możesz uruchomić kontener na platformie Azure. Aby utworzyć wystąpienie kontenera przy użyciu programu Azure PowerShell, podaj nazwę grupy zasobów, nazwę wystąpienia kontenera i obraz kontenera Docker w poleceniu cmdlet [New-AzContainerGroup][New-AzContainerGroup]. W tym przewodniku Szybki start użyjemy obrazu `mcr.microsoft.com/windows/servercore/iis:nanoserver` publicznego. Ten obraz pakuje Microsoft Internet Information Services (IIS) do uruchomienia na serwerze Nano Server.
 
 Możesz uwidocznić swoje kontenery w Internecie, określając co najmniej jeden port do otworzenia, etykietę nazwy DNS lub obie te informacje. W tym przewodniku Szybki start wdrożysz kontener z etykietą nazwy DNS, aby skonfigurować te usługi IIS jako publicznie dostępne.
 
-Wykonaj polecenie podobne do poniższego, aby uruchomić wystąpienie kontenera. Ustaw `-DnsNameLabel` wartość unikatową w regionie świadczenia usługi Azure, w którym tworzysz wystąpienie. Jeśli zostanie wyświetlony komunikat o błędzie „Etykieta nazwy DNS nie jest dostępna”, spróbuj użyć innej etykiety nazwy DNS.
+Wykonaj polecenie podobne do poniższego, aby uruchomić wystąpienie kontenera. Ustaw wartość `-DnsNameLabel` unikatową w obrębie regionu świadczenia usługi Azure, w którym tworzysz wystąpienie. Jeśli zostanie wyświetlony komunikat o błędzie „Etykieta nazwy DNS nie jest dostępna”, spróbuj użyć innej etykiety nazwy DNS.
 
  ```azurepowershell-interactive
 New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image mcr.microsoft.com/windows/servercore/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
