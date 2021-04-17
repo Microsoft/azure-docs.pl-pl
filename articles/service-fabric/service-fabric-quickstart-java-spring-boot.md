@@ -1,31 +1,37 @@
 ---
-title: 'Szybki Start: Tworzenie aplikacji z rozruchem wiosny na platformie Azure Service Fabric'
+title: 'Szybki start: tworzenie aplikacji Spring Boot usłudze Azure Service Fabric'
 description: W tym przewodniku Szybki start wdrożysz aplikację Spring Boot dla usługi Azure Service Fabric, korzystając z przykładowej aplikacji Spring Boot.
-ms.topic: quickstart
 ms.date: 01/29/2019
-ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 84ce5920af95113801f468e3149421f3b9bd8901
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.custom:
+- mvc
+- devcenter
+- seo-java-august2019
+- seo-java-september2019
+- devx-track-java
+- mode-api
+ms.openlocfilehash: ad01697349eab20aa55fc6f6b59bc0d317c5a7e2
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91530004"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530856"
 ---
-# <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>Szybki Start: wdrażanie aplikacji do rozruchu ze sprężyną Java na platformie Azure Service Fabric
+# <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>Szybki start: wdrażanie aplikacji Java Spring Boot usłudze Azure Service Fabric
 
-W tym przewodniku szybki start wdrożono aplikację rozruchu ze sprężyną Java do usługi Azure Service Fabric przy użyciu znanych narzędzi wiersza polecenia w systemie Linux lub MacOS. Usługa Azure Service Fabric to platforma systemów rozproszonych umożliwiająca wdrażanie mikrousług i kontenerów, a także zarządzanie nimi. 
+W tym przewodniku Szybki start wdrożysz aplikację Java Spring Boot na platformie Azure Service Fabric przy użyciu znanych narzędzi wiersza polecenia w systemie Linux lub MacOS. Usługa Azure Service Fabric to platforma systemów rozproszonych umożliwiająca wdrażanie mikrousług i kontenerów, a także zarządzanie nimi. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 #### <a name="linux"></a>[Linux](#tab/linux)
 
-- [Środowisko Java](./service-fabric-get-started-linux.md#set-up-java-development) i [Narzędzia Yeoman](./service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables)
+- [Środowisko Java i](./service-fabric-get-started-linux.md#set-up-java-development) [yeoman](./service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables)
 - [Service Fabric SDK & Service Fabric interfejs wiersza polecenia (CLI)](./service-fabric-get-started-linux.md#installation-methods)
 - [Usługa Git](https://git-scm.com/downloads)
 
-#### <a name="macos"></a>[MacOS](#tab/macos)
+#### <a name="macos"></a>[Macos](#tab/macos)
 
-- [Środowisko Java i narzędzia Yeoman](./service-fabric-get-started-mac.md#create-your-application-on-your-mac-by-using-yeoman)
+- [Środowisko Java i yeoman](./service-fabric-get-started-mac.md#create-your-application-on-your-mac-by-using-yeoman)
 - [Service Fabric SDK & Service Fabric interfejs wiersza polecenia (CLI)](./service-fabric-cli.md#cli-mac)
 - [Usługa Git](https://git-scm.com/downloads)
 
@@ -33,27 +39,27 @@ W tym przewodniku szybki start wdrożono aplikację rozruchu ze sprężyną Java
 
 ## <a name="download-the-sample"></a>Pobieranie przykładu
 
-W oknie terminalu uruchom następujące polecenie, aby sklonować przykładową aplikację z rozruchem sprężyny [wprowadzenie](https://github.com/spring-guides/gs-spring-boot) do komputera lokalnego.
+W oknie terminalu uruchom następujące polecenie, aby sklonować Spring Boot [Wprowadzenie](https://github.com/spring-guides/gs-spring-boot) przykładową aplikację na komputer lokalny.
 
 ```bash
 git clone https://github.com/spring-guides/gs-spring-boot.git
 ```
 
 ## <a name="build-the-spring-boot-application"></a>Kompilowanie aplikacji Spring Boot 
-W katalogu *GS-Boot-rozruch/pełny* uruchom poniższe polecenie, aby skompilować aplikację 
+W katalogu *gs-spring-boot/complete* uruchom poniższe polecenie, aby skompilować aplikację 
 
 ```bash
 ./gradlew build
 ``` 
 
 ## <a name="package-the-spring-boot-application"></a>Tworzenie pakietu aplikacji Spring Boot 
-1. W sklonowanym katalogu *rozruchowym GS* w klonie Uruchom `yo azuresfguest` polecenie. 
+1. W katalogu *gs-spring-boot* w klonie uruchom `yo azuresfguest` polecenie . 
 
 1. Wprowadź następujące szczegóły dla każdego monitu.
 
-    ![Wpisy narzędzia Yeoman rozruchu sprężynowego](./media/service-fabric-quickstart-java-spring-boot/yeoman-entries-spring-boot.png)
+    ![Spring Boot wpisów yeoman](./media/service-fabric-quickstart-java-spring-boot/yeoman-entries-spring-boot.png)
 
-1. W folderze *SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/Code* Utwórz plik o nazwie *EntryPoint.sh*. Dodaj następujący kod do pliku *EntryPoint.sh* . 
+1. W *folderze SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code* utwórz plik o *nazwie entryPoint.sh*. Dodaj następujący kod do *entryPoint.sh* pliku. 
 
     ```bash
     #!/bin/bash
@@ -62,7 +68,7 @@ W katalogu *GS-Boot-rozruch/pełny* uruchom poniższe polecenie, aby skompilowa�
     java -jar *spring-boot*.jar
     ```
 
-1. Dodawanie zasobu **punktów końcowych** w pliku *GS-sprężyn-Boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml*
+1. Dodaj **zasób Endpoints** w pliku *gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml* pliku
 
     ```xml 
         <Resources>
@@ -119,15 +125,15 @@ Na tym etapie utworzono aplikację usługi Service Fabric dla przykładu Wprowad
 
     Uruchamianie klastra lokalnego zajmuje nieco czasu. Aby potwierdzić, że klaster jest w pełni uruchomiony, otwórz narzędzie Service Fabric Explorer dostępne pod adresem `http://localhost:19080`. Pięć węzłów w dobrej kondycji oznacza, że klaster lokalny jest uruchomiony. 
     
-    ![Service Fabric Explorer wyświetla węzły w dobrej kondycji](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-healthy-nodes.png)
+    ![Service Fabric Explorer pokazuje węzły w dobrej kondycji](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-healthy-nodes.png)
 
-1. Otwórz folder *GS-sprężyn-Boot/SpringServiceFabric* .
+1. Otwórz *folder gs-spring-boot/SpringServiceFabric.*
 1. Uruchom następujące polecenie, aby połączyć się z klastrem lokalnym.
 
     ```bash
     sfctl cluster select --endpoint http://localhost:19080
     ```
-1. Uruchom skrypt *install.sh* .
+1. Uruchom skrypt *install.sh* skryptu.
 
     ```bash
     ./install.sh
@@ -135,11 +141,11 @@ Na tym etapie utworzono aplikację usługi Service Fabric dla przykładu Wprowad
 
 1. Uruchom przeglądarkę internetową i uzyskaj dostęp do aplikacji, przechodząc do adresu `http://localhost:8080`.
 
-    ![Przykład Service Fabric rozruchu sprężynowego](./media/service-fabric-quickstart-java-spring-boot/spring-boot-service-fabric-sample.png)
+    ![Spring Boot Service Fabric przykład](./media/service-fabric-quickstart-java-spring-boot/spring-boot-service-fabric-sample.png)
 
 Teraz możesz uzyskiwać dostęp do aplikacji Spring Boot, która została wdrożona w klastrze usługi Service Fabric.
 
-Aby uzyskać więcej informacji, zobacz przykładowy [wprowadzenie](https://spring.io/guides/gs/spring-boot/) rozruchu sprężynowego w witrynie sieci Web sprężyny.
+Aby uzyskać więcej informacji, zobacz Spring Boot [Wprowadzenie](https://spring.io/guides/gs/spring-boot/) przykład w witrynie internetowej spring.
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Skalowanie aplikacji i usług w klastrze
 
@@ -150,9 +156,9 @@ Narzędzie Service Fabric Explorer działa we wszystkich klastrach usługi Servi
 Aby skalować usługę internetową frontonu, wykonaj następujące czynności:
 
 1. Otwórz narzędzie Service Fabric Explorer w klastrze — na przykład `http://localhost:19080`.
-1. Wybierz wielokropek (**...**) obok węzła **Sieć szkieletowa:/SpringServiceFabric/SpringGettingStarted** w widoku drzewa i wybierz pozycję **Skaluj usługę**.
+1. Wybierz wielokropek (**...**) obok węzła **fabric:/SpringServiceFabric/SpringGettingStarted** w widoku drzewa i wybierz pozycję **Skaluj usługę**.
 
-    ![Przykład Service Fabric Explorer skalowania usługi](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-scale-sample.png)
+    ![Service Fabric Explorer usługi skalowania](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-scale-sample.png)
 
     Teraz możesz skalować liczbę wystąpień usługi.
 
@@ -168,9 +174,9 @@ Aby skalować usługę internetową frontonu, wykonaj następujące czynności:
     sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted' --instance-count 3 --stateless 
     ``` 
 
-1. Wybierz węzeł **Sieć szkieletowa:/SpringServiceFabric/SpringGettingStarted** w widoku drzewa i rozwiń węzeł partycji (reprezentowany przez identyfikator GUID).
+1. Wybierz węzeł **fabric:/SpringServiceFabric/SpringGettingStarted** w widoku drzewa i rozwiń węzeł partycji (reprezentowany przez identyfikator GUID).
 
-    ![Zakończono Service Fabric Explorer skalowanie usługi](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-partition-node.png)
+    ![Service Fabric Explorer usługi skalowania](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-partition-node.png)
 
     Usługa ma trzy wystąpienia, a widok drzewa pokazuje węzły, na których wystąpienia są uruchomione.
 
@@ -181,12 +187,12 @@ Za pomocą tego prostego zadania zarządzania zostały podwojone zasoby dostępn
 Aby przedstawić przenoszenie usługi w tryb failover, ponowne uruchomienie węzła jest symulowane przy użyciu narzędzia Service Fabric Explorer. Upewnij się, że jest uruchomione tylko jedno wystąpienie usługi.
 
 1. Otwórz narzędzie Service Fabric Explorer w klastrze — na przykład `http://localhost:19080`.
-1. Wybierz wielokropek (**...**) obok węzła, na którym działa wystąpienie usługi, a następnie uruchom ponownie węzeł.
+1. Wybierz wielokropek (**...**) obok węzła z uruchomionym wystąpieniem usługi, a następnie ponownie uruchom węzeł.
 
-    ![Service Fabric Explorer ponownie uruchom węzeł](./media/service-fabric-quickstart-java-spring-boot/service=fabric-explorer-restart=node.png)
+    ![Service Fabric Explorer ponowne uruchomienie węzła](./media/service-fabric-quickstart-java-spring-boot/service=fabric-explorer-restart=node.png)
 1. Wystąpienie usługi zostanie przeniesione do innego węzła bez przestoju w działaniu aplikacji.
 
-    ![Ponowne uruchomienie węzła Service Fabric Explorer powiodło się](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-service-moved.png)
+    ![Service Fabric Explorer ponowne uruchomienie węzła powiodło się](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-service-moved.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

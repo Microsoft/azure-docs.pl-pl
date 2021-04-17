@@ -1,5 +1,5 @@
 ---
-title: Szybki Start — dostęp & Tworzenie nowej dzierżawy — Azure AD
+title: Szybki start — uzyskiwanie dostępu & tworzenia nowej dzierżawy — Azure AD
 description: Instrukcje umożliwiające znalezienie usługi Azure Active Directory oraz utworzenie nowej dzierżawy dla organizacji.
 services: active-directory
 author: ajburnle
@@ -12,14 +12,14 @@ ms.date: 09/10/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeea88d8c21ba754fbeadbb24891126b639616c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 31d82906625bc55cbdba21f2e356ee3f29f9d436
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96437244"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567387"
 ---
-# <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Szybki Start: Tworzenie nowej dzierżawy w Azure Active Directory
+# <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Szybki start: tworzenie nowej dzierżawy w u Azure Active Directory
 Wszystkie zadania administracyjne, w tym tworzenie nowej dzierżawy dla swojej organizacji, możesz wykonywać przy użyciu portalu usługi Azure Active Directory (Azure AD). 
 
 W tym przewodniku Szybki start dowiesz się, jak uzyskać dostęp do witryny Azure Portal i usługi Azure Active Directory oraz jak utworzyć podstawową dzierżawę dla organizacji.
@@ -31,43 +31,49 @@ Po zalogowaniu się do witryny Azure Portal możesz utworzyć nową dzierżawę 
 
 ### <a name="to-create-a-new-tenant"></a>Aby utworzyć nową dzierżawę
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/)organizacji.
+1. Zaloguj się do konta Azure Portal [.](https://portal.azure.com/)
 
 1. Z menu Azure Portal wybierz pozycję **Azure Active Directory**.  
 
-    <kbd>![Azure Active Directory — przegląd — tworzenie dzierżawy](media/active-directory-access-create-new-tenant/azure-ad-portal.png)</kbd>  
+    <kbd>![Azure Active Directory — strona Przegląd — Tworzenie dzierżawy](media/active-directory-access-create-new-tenant/azure-ad-portal.png)</kbd>  
 
-1. Wybierz pozycję **Utwórz dzierżawę**.
+1. Wybierz **pozycję Utwórz dzierżawę.**
 
-1. Na karcie podstawowe wybierz typ dzierżawy, którą chcesz utworzyć, **Azure Active Directory** lub **Azure Active Directory (B2C)**.
+1. Na karcie Podstawowe wybierz typ dzierżawy, którą chcesz utworzyć, albo wybierz **Azure Active Directory** **lub Azure Active Directory (B2C).**
 
-1. Wybierz pozycję **Dalej: Konfiguracja** , która ma zostać przeniesiona na kartę Konfiguracja.
+1. Wybierz **pozycję Dalej: Konfiguracja,** aby przejść do karty Konfiguracja.
 
-    <kbd>![Azure Active Directory — Tworzenie strony dzierżawy — Karta Konfiguracja ](media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)</kbd>
+    <kbd>![Azure Active Directory — tworzenie strony dzierżawy — karta konfiguracji ](media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)</kbd>
 
 1.  Na karcie Konfiguracja wprowadź następujące informacje:
     
-    - Wpisz _organizację contoso_ w polu **Nazwa organizacji** .
+    - Wpisz _Nazwę organizacji Contoso_ w polu **Nazwa** organizacji.
 
-    - Wpisz _Contosoorg_ w polu **nazwa domeny początkowej** .
+    - Wpisz _Contosoorg_ w **polu Początkowa nazwa** domeny.
 
     - Pozostaw opcję _Stany Zjednoczone_ w polu **Kraj lub region**.
 
-1. Wybierz pozycję **Dalej: przegląd + Utwórz**. Przejrzyj wprowadzone informacje i jeśli informacje są poprawne, wybierz pozycję **Utwórz**.
+1. Wybierz **pozycję Dalej: Przeglądanie + tworzenie.** Przejrzyj wprowadzone informacje i jeśli informacje są poprawne, wybierz pozycję **utwórz .**
 
-    <kbd>![Azure Active Directory — przeglądanie i Tworzenie strony dzierżawy](media/active-directory-access-create-new-tenant/azure-ad-review.png)</kbd>
+    <kbd>![Azure Active Directory — przeglądanie i tworzenie strony dzierżawy](media/active-directory-access-create-new-tenant/azure-ad-review.png)</kbd>
 
 Twoja nowa dzierżawa zostanie utworzona i będzie miała domenę contoso.onmicrosoft.com.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
-Jeśli nie chcesz nadal korzystać z tej aplikacji, możesz usunąć dzierżawę, wykonując następujące czynności:
+## <a name="your-user-account-in-the-new-tenant"></a>Twoje konto użytkownika w nowej dzierżawie
 
-- Upewnij się, że logujesz się do katalogu, który chcesz usunąć za pomocą filtru **katalogów i subskrypcji** w Azure Portal, i w razie potrzeby przełączasz się do katalogu docelowego.
+Tworząc nową dzierżawę usługi AAD, stajesz się pierwszym użytkownikiem tej dzierżawy. Jako pierwszy użytkownik masz automatycznie przypisaną rolę [administratora globalnego.](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference#global-administrator) Sprawdź swoje konto użytkownika, przechodząc do [**strony**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers) Użytkownicy.
+
+Domyślnie użytkownik jest również wymieniony jako kontakt techniczny [dla](https://docs.microsoft.com/microsoft-365/admin/manage/change-address-contact-and-more?view=o365-worldwide#what-do-these-fields-mean) dzierżawy. Techniczne informacje kontaktowe to coś, co można zmienić w oknie [**Właściwości**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+Jeśli nie zamierzasz nadal korzystać z tej aplikacji, możesz usunąć dzierżawę, korzystając z następujących kroków:
+
+- Upewnij się, że zalogowano się do katalogu, który chcesz usunąć, za pomocą filtru **Katalog i** subskrypcja w Azure Portal. W razie potrzeby przejdź do katalogu docelowego.
 - Wybierz usługę **Azure Active Directory**, a następnie na stronie **Contoso — przegląd** wybierz pozycję **Usuń katalog**.
 
     Dzierżawa zostanie usunięta wraz ze skojarzonymi informacjami.
 
-    <kbd>![Strona przegląd z wyróżnionym przyciskiem Usuń katalog](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)</kbd>
+    <kbd>![Strona Przeglądu z wyróżnionym przyciskiem Usuń katalog](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)</kbd>
 
 ## <a name="next-steps"></a>Następne kroki
 - Zmiana lub dodawanie kolejnych nazw domen — zobacz [Jak dodać nazwę domeny niestandardowej do usługi Azure Active Directory](add-custom-domain.md)
@@ -76,6 +82,6 @@ Jeśli nie chcesz nadal korzystać z tej aplikacji, możesz usunąć dzierżawę
 
 - Dodawanie grup i członków — zobacz [Tworzenie podstawowej grupy i dodawanie członków](active-directory-groups-create-azure-portal.md)
 
-- Informacje na temat [dostępu opartego na rolach przy użyciu Privileged Identity Management](../../role-based-access-control/best-practices.md) i [dostępu warunkowego](../../role-based-access-control/conditional-access-azure-management.md) w celu ułatwienia zarządzania dostępem do aplikacji i zasobów organizacji.
+- Dowiedz się [więcej o dostępie opartym](../../role-based-access-control/best-practices.md) na rolach przy Privileged Identity Management [dostępu](../../role-based-access-control/conditional-access-azure-management.md) warunkowego, aby ułatwić zarządzanie dostępem do aplikacji i zasobów w organizacji.
 
 - Uzyskaj informacje o usłudze Azure AD, w tym [podstawowe informacje o licencjonowaniu oraz informacje o terminologii i skojarzonych funkcjach](active-directory-whatis.md).

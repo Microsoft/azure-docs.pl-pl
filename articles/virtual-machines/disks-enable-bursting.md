@@ -1,30 +1,30 @@
 ---
-title: Włącz szeregowanie dysków na żądanie
-description: Włącz obsługę obciążeń dysków na żądanie na dysku zarządzanym.
+title: Włączanie serii dysków na żądanie
+description: Włącz na dysku zarządzanym możliwość serii dysków na żądanie.
 author: albecker1
 ms.author: albecker
 ms.date: 03/02/2021
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.custom: references_regions
-ms.openlocfilehash: 733d441705c7c77f0667f88151e96f76975ee0b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 5110e580bada7bb1090b17d6df22a9354622e8e4
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104596403"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483150"
 ---
-# <a name="enable-on-demand-bursting"></a>Włącz nadużyenie na żądanie
+# <a name="enable-on-demand-bursting"></a>Włączanie funkcji bursting na żądanie
 
-Dyski półprzewodnikowe w warstwie Premium (SSD) mają dwa dostępne modele rozłożenia: Korzystanie z rozliczeń opartych na kredycie i na żądanie. W tym artykule opisano, jak przełączyć się na tworzenie serii na żądanie. Dyski korzystające z modelu na żądanie mogą przekroczyć pierwotne zainicjowane obiekty docelowe. Ruch na żądanie odbywa się tak często, jak jest to konieczne w przypadku obciążenia, do maksymalnego miejsca docelowego. Naliczanie na żądanie wiąże się z dodatkowymi opłatami.
+Dyski półprzewodnikowe (SSD) w warstwie Premium mają dwa dostępne modele serii: wzrosty na podstawie środków i wzrosty na żądanie. W tym artykule opisano sposób przełączania się na wzrosty na żądanie. Dyski, które korzystają z modelu na żądanie, mogą przekroczyć swoje pierwotne aprowizowane cele. Wzrosty na żądanie występują tak często, jak jest to wymagane przez obciążenie, aż do maksymalnej wartości docelowej serii. Wzrost na żądanie wiąże się z dodatkowymi opłatami.
 
-Aby uzyskać szczegółowe informacje na temat rozszeregowania dysków, zobacz [Zarządzanie dyskami zarządzanymi](disk-bursting.md).
+Aby uzyskać szczegółowe informacje na temat serii dysków, zobacz Managed disk bursting (Seria [serii dysków zarządzanych).](disk-bursting.md)
 
 > [!IMPORTANT]
-> Nie musisz wykonywać kroków opisanych w tym artykule, aby korzystać z rozliczeń opartych na kredycie. Domyślnie w przypadku wszystkich kwalifikujących się dysków jest włączona funkcja rozliczeń opartych na kredycie.
+> Nie musisz postępować zgodnie z instrukcjami w tym artykule, aby użyć funkcji bursting na podstawie środków. Domyślnie na wszystkich kwalifikujących się dyskach jest włączone bursting oparte na środków.
 
-Przed włączeniem serii na żądanie należy zrozumieć następujące kwestie:
+Przed włączeniem funkcji bursting na żądanie należy zrozumieć następujące kwestie:
 
 [!INCLUDE [managed-disk-bursting-regions-limitations](../../includes/managed-disk-bursting-regions-limitations.md)]
 
@@ -34,14 +34,14 @@ Przed włączeniem serii na żądanie należy zrozumieć następujące kwestie:
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 
-Na żądanie można włączyć funkcję, korzystając z modułu Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub szablonów Azure Resource Manager. W poniższych przykładach opisano sposób tworzenia nowego dysku z włączonym rozruchem na żądanie i włączenia tworzenia na żądanie obciążeń na istniejących dyskach.
+Funkcję bursting na żądanie można włączyć za pomocą modułu Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub Azure Resource Manager szablonów. W poniższych przykładach opisano sposób tworzenia nowego dysku z włączonym trybem bursting na żądanie i włączaniem funkcji bursting na żądanie na istniejących dyskach.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Polecenia cmdlet do obsługi serii na żądanie są dostępne w wersji 5.5.0 i nowszych modułu AZ module. Alternatywnie możesz użyć [Azure Cloud Shell](https://shell.azure.com/).
-### <a name="create-an-empty-data-disk-with-on-demand-bursting"></a>Tworzenie pustego dysku danych z funkcją tworzenia serii na żądanie
+Polecenia cmdlet z serii na żądanie są dostępne w wersji 5.5.0 i nowszej modułu Az. Alternatywnie możesz użyć Azure Cloud Shell [.](https://shell.azure.com/)
+### <a name="create-an-empty-data-disk-with-on-demand-bursting"></a>Tworzenie pustego dysku danych z serii na żądanie
 
-Dysk zarządzany musi być większy niż 512 GiB, aby umożliwić korzystanie z serii na żądanie. Zastąp `<myResourceGroupDisk>` Parametry i, `<myDataDisk>` a następnie uruchom następujący skrypt, aby utworzyć dysk SSD w warstwie Premium przy użyciu serii na żądanie:
+Dysk zarządzany musi być większy niż 512 GiB, aby umożliwić skalowanie na żądanie. Zastąp parametry i , a następnie uruchom następujący skrypt, aby utworzyć dysk SSD w warstwie Premium z serii na `<myResourceGroupDisk>` `<myDataDisk>` żądanie:
 
 ```azurepowershell
 Set-AzContext -SubscriptionName <yourSubscriptionName>
@@ -51,9 +51,9 @@ $diskConfig = New-AzDiskConfig -Location 'WestCentralUS' -CreateOption Empty -Di
 $dataDisk = New-AzDisk -ResourceGroupName <myResourceGroupDisk> -DiskName <myDataDisk> -Disk $diskConfig
 ```
 
-### <a name="enable-on-demand-bursting-on-an-existing-disk"></a>Włączanie obciążeń na żądanie na istniejącym dysku
+### <a name="enable-on-demand-bursting-on-an-existing-disk"></a>Włączanie funkcji bursting na żądanie na istniejącym dysku
 
-Dysk zarządzany musi być większy niż 512 GiB, aby umożliwić korzystanie z serii na żądanie. Zastąp `<myResourceGroupDisk>` `<myDataDisk>` Parametry, i Uruchom to polecenie, aby włączyć obsługę obciążeń na żądanie na istniejącym dysku:
+Dysk zarządzany musi być większy niż 512 GiB, aby umożliwić skalowanie na żądanie. Zastąp parametry , i uruchom to polecenie, aby włączyć na żądanie serii `<myResourceGroupDisk>` `<myDataDisk>` na istniejącym dysku:
 
 ```azurepowershell
 New-AzDiskUpdateConfig -BurstingEnabled $true | Update-AzDisk -ResourceGroupName <myResourceGroupDisk> -DiskName <myDataDisk> //Set the flag to $false to disable on-demand bursting
@@ -61,11 +61,11 @@ New-AzDiskUpdateConfig -BurstingEnabled $true | Update-AzDisk -ResourceGroupName
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Polecenia cmdlet dotyczące szeregowania na żądanie są dostępne w wersji 2.19.0 i nowszej [modułu interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Alternatywnie możesz użyć [Azure Cloud Shell](https://shell.azure.com/).
+Polecenia cmdlet z serii na żądanie są dostępne w wersji 2.19.0 i nowszej modułu interfejsu wiersza [polecenia platformy Azure.](/cli/azure/install-azure-cli) Alternatywnie możesz użyć Azure Cloud Shell [.](https://shell.azure.com/)
 
-### <a name="create-and-attach-a-on-demand-bursting-data-disk"></a>Tworzenie i dołączanie dysku z danymi na żądanie
+### <a name="create-and-attach-a-on-demand-bursting-data-disk"></a>Tworzenie i dołączanie dysku danych z serii na żądanie
 
-Dysk zarządzany musi być większy niż 512 GiB, aby umożliwić korzystanie z serii na żądanie. Zastąp `<yourDiskName>` `<yourResourceGroup>` Parametry,, i `<yourVMName>` , a następnie uruchom następujące polecenia, aby utworzyć dysk SSD w warstwie Premium przy użyciu serii na żądanie:
+Dysk zarządzany musi być większy niż 512 GiB, aby umożliwić skalowanie na żądanie. Zastąp parametry , i , a następnie uruchom następujące polecenia, aby utworzyć dysk SSD w warstwie Premium z serii na `<yourDiskName>` `<yourResourceGroup>` `<yourVMName>` żądanie:
 
 ```azurecli
 az disk create -g <yourResourceGroup> -n <yourDiskName> --size-gb 1024 --sku Premium_LRS -l westcentralus --enable-bursting true
@@ -73,9 +73,9 @@ az disk create -g <yourResourceGroup> -n <yourDiskName> --size-gb 1024 --sku Pre
 az vm disk attach --vm-name <yourVMName> --name <yourDiskName> --resource-group <yourResourceGroup>
 ```
 
-### <a name="enable-on-demand-bursting-on-an-existing-disk---cli"></a>Włączanie obsługi obciążeń na żądanie na istniejącym dysku — interfejs wiersza polecenia
+### <a name="enable-on-demand-bursting-on-an-existing-disk---cli"></a>Włączanie serii na żądanie na istniejącym dysku — interfejs wiersza polecenia
 
-Dysk zarządzany musi być większy niż 512 GiB, aby umożliwić korzystanie z serii na żądanie. Zastąp `<myResourceGroupDisk>` Parametry i i `<yourDiskName>` Uruchom to polecenie, aby włączyć obsługę obciążeń na żądanie na istniejącym dysku:
+Dysk zarządzany musi być większy niż 512 GiB, aby umożliwić skalowanie na żądanie. Zastąp parametry `<myResourceGroupDisk>` i i uruchom to polecenie, aby włączyć na żądanie serii `<yourDiskName>` na istniejącym dysku:
 
 ```azurecli
 az disk update --name <yourDiskName> --resource-group <yourResourceGroup> --enable-bursting true //Set the flag to false to disable on-demand bursting
@@ -83,7 +83,7 @@ az disk update --name <yourDiskName> --resource-group <yourResourceGroup> --enab
 
 # <a name="azure-resource-manager"></a>[Azure Resource Manager](#tab/azure-resource-manager)
 
-Za pomocą `2020-09-30` interfejsu API dysku można włączyć funkcję tworzenia dużych ilości na żądanie na nowo utworzonym lub istniejącym poziomie Premium dysków SSD większym niż 512 GIB. `2020-09-30`Interfejs API wprowadził nową właściwość `burstingEnabled` . Domyślnie ta właściwość ma wartość FAŁSZ. Poniższy przykładowy szablon tworzy dysk SSD 1TiB Premium w regionie Zachodnio-środkowe stany USA z włączonym rozruchem dysku:
+Za pomocą interfejsu API dysku można włączyć skalowanie na żądanie na nowo utworzonych lub istniejących dyskach SSD Premium o rozmiarze większym `2020-09-30` niż 512 GiB. Interfejs `2020-09-30` API wprowadził nową właściwość , `burstingEnabled` . Domyślnie ta właściwość jest ustawiona na wartość false. Poniższy przykładowy szablon tworzy dysk SSD w warstwie Premium 1TiB w zachodnio-środkowych stany USA z włączoną możliwością serii dysków:
 
 ```
 {
@@ -130,4 +130,4 @@ Za pomocą `2020-09-30` interfejsu API dysku można włączyć funkcję tworzeni
  
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się, jak uzyskać wgląd w zasoby dotyczące zasobów, zobacz [metryki](disks-metrics.md)dotyczące tworzenia dysków.
+Aby dowiedzieć się, jak uzyskać wgląd w zasoby, których ilość się rozsyła, zobacz [Metryki dotyczące serii dysków.](disks-metrics.md)

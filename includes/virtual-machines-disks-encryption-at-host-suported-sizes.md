@@ -8,23 +8,21 @@ ms.topic: include
 ms.date: 07/08/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e5a811620de8336abd3e0df6d72db761ce18b2b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e8ec7faf1562381288aeef630bf2076ce413017a
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86230994"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531529"
 ---
-Wszystkie najnowsze generacji rozmiarów maszyn wirtualnych obsługują szyfrowanie na hoście:
+Wszystkie rozmiary maszyn wirtualnych najnowszej generacji obsługują szyfrowanie na hoście:
 
 |Typ  |Nieobsługiwane  |Obsługiwane  |
 |---------|---------|---------|
-|Ogólnego przeznaczenia     | Dv3, Dav4, Dv2, Av2        | B, DSv2, Dsv3, DC, DCv2, Dasv4        |
+|Ogólnego przeznaczenia     | Dv3, Dv2, Av2        | B, DSv2, Dsv3, DC, DCv2, Dav4, Dasv4        |
 |Optymalizacja pod kątem obliczeń     |         | Fsv2        |
-|Optymalizacja pod kątem pamięci     | EV3, Eav4        | DSv2, Esv3, M, Mv2, Easv4        |
-|Optymalizacja pod kątem magazynu     |         | Ls, Lsv2 (dyski interfejsu NVMe nie są szyfrowane)        |
-|Procesory GPU     | NC, NV        | NCv2, Seria NCV3, ND, NVv3, NVv4, NDv2 (wersja zapoznawcza)        |
+|Optymalizacja pod kątem pamięci     | Ev3        | DSv2, Esv3, M, Mv2, Eav4, Easv4        |
+|Optymalizacja pod kątem magazynu     |         | Ls, Lsv2 (dyski NVMe nie są szyfrowane)        |
+|Procesory GPU     | NC, NV        | NCv2, NCv3, ND, NVv3, NVv4, NDv2 (wersja zapoznawcza)        |
 |Obliczenia o wysokiej wydajności     | H        | HB, HC, HBv2        |
-|Poprzednie generacje     | F, A, D, L, G        | DS, GS, FS, NVv2        |
-
-Uaktualnienie rozmiaru maszyny wirtualnej spowoduje sprawdzenie poprawności w celu sprawdzenia, czy nowy rozmiar maszyny wirtualnej obsługuje funkcję EncryptionAtHost.
+|Poprzednie generacje     | F, A, D, L, G        | DS, GS, Fs, NVv2        |

@@ -1,24 +1,27 @@
 ---
-title: Tworzenie i pobieranie atrybutów klucza zarządzanego w Azure Key Vault — Azure PowerShell
-description: Przewodnik Szybki Start przedstawiający sposób ustawiania i pobierania klucza zarządzanego z Azure Key Vault przy użyciu Azure PowerShell
+title: Tworzenie i pobieranie atrybutów klucza zarządzanego w programie Azure Key Vault — Azure PowerShell
+description: Przewodnik Szybki start przedstawiający sposób ustawienia i pobrania klucza zarządzanego z usługi Azure Key Vault użyciu Azure PowerShell
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
+ms.author: mbaldwin
+ms.date: 01/26/2021
+ms.topic: quickstart
 ms.service: key-vault
 ms.subservice: keys
-ms.topic: quickstart
-ms.date: 01/26/2021
-ms.author: mbaldwin
-ms.openlocfilehash: 943555e9f7a26530a075aee27dd310d96974e652
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+tags:
+- azure-resource-manager
+ms.custom:
+- mode-api
+ms.openlocfilehash: ba1cd8d6b1410be30eefe9dca9675daaf6c16256
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99072915"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534657"
 ---
-# <a name="quickstart-set-and-retrieve-a-managed-key-from-azure-key-vault-using-powershell"></a>Szybki Start: Ustawianie i pobieranie klucza zarządzanego z Azure Key Vault przy użyciu programu PowerShell
+# <a name="quickstart-set-and-retrieve-a-managed-key-from-azure-key-vault-using-powershell"></a>Szybki start: konfigurowanie i pobieranie klucza zarządzanego z usługi Azure Key Vault pomocą programu PowerShell
 
-W tym przewodniku szybki start utworzysz Magazyn kluczy w Azure Key Vault z Azure PowerShell. Azure Key Vault to usługa w chmurze, która działa jako bezpieczny magazyn wpisów tajnych. Możesz bezpiecznie przechowywać klucze, hasła, certyfikaty oraz inne wpisy tajne. Aby uzyskać więcej informacji na Key Vault można zapoznać się z [omówieniem](../general/overview.md). Azure PowerShell służy do tworzenia zasobów platformy Azure i zarządzania nimi przy użyciu poleceń lub skryptów. Po zakończeniu tej operacji będziesz przechowywać klucz.
+W tym przewodniku Szybki start utworzysz magazyn kluczy w Azure Key Vault za pomocą Azure PowerShell. Azure Key Vault to usługa w chmurze, która działa jako bezpieczny magazyn wpisów tajnych. Możesz bezpiecznie przechowywać klucze, hasła, certyfikaty oraz inne wpisy tajne. Aby uzyskać więcej informacji na Key Vault, zapoznaj się z tematem [Omówienie.](../general/overview.md) Azure PowerShell służy do tworzenia zasobów platformy Azure i zarządzania nimi za pomocą poleceń lub skryptów. Po zakończeniu tego procesu będziesz przechowywać klucz.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -32,7 +35,7 @@ Login-AzAccount
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Użyj polecenia cmdlet Azure PowerShell [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) , aby utworzyć grupę zasobów o nazwie Moja *zasobów* w lokalizacji *zachodniej* . 
+Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Użyj Azure PowerShell cmdlet [New-AzResourceGroup,](/powershell/module/az.resources/new-azresourcegroup) aby utworzyć grupę zasobów o nazwie *myResourceGroup* w *lokalizacji westus.* 
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name "myResourceGroup" -Location "WestUS"
@@ -49,16 +52,16 @@ Identyfikator podmiotu zabezpieczeń zostanie zwrócony w formacie "xxxxxxxx-xxx
 
 ## <a name="create-a-managed-hsm"></a>Tworzenie zarządzanego modułu HSM
 
-Użyj polecenia cmdlet Azure PowerShell [New-AzKeyVaultManagedHsm](/powershell/module/az.keyvault/new-azkeyvaultmanagedhsm) , aby utworzyć nowy Key Vault ZARZĄDZANY moduł HSM. Konieczne będzie podanie pewnych informacji:
+Użyj Azure PowerShell cmdlet [New-AzKeyVaultManagedHsm,](/powershell/module/az.keyvault/new-azkeyvaultmanagedhsm) aby utworzyć nowy Key Vault HSM. Konieczne będzie podanie pewnych informacji:
 
-- Nazwa zarządzanego modułu HSM: ciąg od 3 do 24 znaków, który może zawierać tylko cyfry (0-9), litery (a-z, A-Z) i łączniki (-)
+- Nazwa zarządzanego modułu HSM: ciąg od 3 do 24 znaków, który może zawierać tylko cyfry (0–9), litery (a–z, A–Z) i łączniki (-)
 
   > [!Important]
-  > Każdy zarządzany moduł HSM musi mieć unikatową nazwę. Zastąp <identyfikatorem modułu HSM, który jest unikatowym identyfikatorem modułu HSM,> nazwą zarządzanego modułu zarządzania w poniższych przykładach.
+  > Każdy zarządzany moduł HSM musi mieć unikatową nazwę. Zastąp <your-unique-managed-hsm-name> nazwą zarządzanego modułu HSM w poniższych przykładach.
 
-- Nazwa grupy **zasobów: Grupa zasobów.**
-- Lokalizacja: **wschód**.
-- Identyfikator podmiotu zabezpieczeń: Przekaż Azure Active Directory Identyfikator podmiotu zabezpieczeń uzyskany w ostatniej sekcji do parametru "Administrator". 
+- Nazwa grupy zasobów: **myResourceGroup.**
+- Lokalizacja: **EastUS**.
+- Identyfikator podmiotu zabezpieczeń: przekaż Azure Active Directory identyfikator podmiotu zabezpieczeń uzyskany w ostatniej sekcji do parametru "Administrator". 
 
 ```azurepowershell-interactive
 New-AzKeyVaultManagedHsm -Name "<your-unique-managed-hsm-name>" -ResourceGroupName "myResourceGroup" -Location "West US" -Administrator "<your-principal-ID>"
@@ -66,22 +69,22 @@ New-AzKeyVaultManagedHsm -Name "<your-unique-managed-hsm-name>" -ResourceGroupNa
 
 Dane wyjściowe tego polecenia cmdlet pokazują właściwości nowo utworzonego zarządzanego modułu HSM. Zanotuj dwie poniższe właściwości:
 
-- **Nazwa zarządzanego modułu HSM**: nazwa podana w powyższym parametrze--Name.
-- **Identyfikator URI magazynu**: w tym przykładzie jest to https:// &lt; -unikatowy-zarządzany-HSM-Name &gt; . Vault.Azure.NET/. Aplikacje korzystające z magazynu za pomocą jego interfejsu API REST muszą używać tego identyfikatora URI.
+- **Nazwa zarządzanego modułu HSM:** nazwa podana parametrowi --name powyżej.
+- **Identyfikator URI magazynu:** w tym przykładzie jest https:// &lt; nazwa &gt; .vault.azure.net/. Aplikacje korzystające z magazynu za pomocą jego interfejsu API REST muszą używać tego identyfikatora URI.
 
 Twoje konto platformy Azure jest teraz jedynym kontem z uprawnieniami do wykonywania jakichkolwiek operacji na tym nowym magazynie.
 
-## <a name="activate-your-managed-hsm"></a>Aktywuj zarządzany moduł HSM
+## <a name="activate-your-managed-hsm"></a>Aktywowanie zarządzanego modułu HSM
 
-Wszystkie polecenia płaszczyzny danych są wyłączone do momentu aktywowania modułu HSM. Nie będzie można tworzyć kluczy ani przypisywać ról. Tylko Wyznaczeni Administratorzy przypisani podczas tworzenia polecenia mogą aktywować moduł HSM. Aby aktywować moduł HSM, należy pobrać [domenę zabezpieczeń](security-domain.md).
+Wszystkie polecenia płaszczyzny danych są wyłączone do momentu aktywowania modułu HSM. Nie będzie można tworzyć kluczy ani przypisywać ról. Tylko wyznaczeni administratorzy, którzy zostali przypisani podczas tworzenia polecenia, mogą aktywować moduł HSM. Aby aktywować moduł HSM, należy pobrać [domenę zabezpieczeń](security-domain.md).
 
-Aby aktywować moduł HSM, potrzebujesz:
-- Minimum 3 pary kluczy RSA (maksymalnie 10)
-- Określ minimalną liczbę kluczy potrzebną do odszyfrowania domeny zabezpieczeń (kworum)
+Aby aktywować moduł HSM, potrzebne są:
+- Co najmniej 3 pary kluczy RSA (maksymalnie 10)
+- Określ minimalną liczbę kluczy wymaganych do odszyfrowania domeny zabezpieczeń (kworum)
 
-Aby aktywować moduł HSM, należy wysłać co najmniej 3 (maksymalnie 10) kluczy publicznych RSA do modułu HSM. Moduł HSM szyfruje domenę zabezpieczeń przy użyciu tych kluczy i wysyła je z powrotem. Po pomyślnym ukończeniu pobierania tej domeny zabezpieczeń moduł HSM jest gotowy do użycia. Należy również określić kworum, czyli minimalną liczbę kluczy prywatnych wymaganych do odszyfrowania domeny zabezpieczeń.
+Aby aktywować moduł HSM, należy wysłać co najmniej 3 (maksymalnie 10) publicznych kluczy RSA do modułu HSM. Moduł HSM szyfruje domenę zabezpieczeń przy użyciu tych kluczy i wysyła ją z powrotem. Po pomyślnym ukończeniu pobierania tej domeny zabezpieczeń moduł HSM jest gotowy do użycia. Należy również określić kworum, czyli minimalną liczbę kluczy prywatnych wymaganych do odszyfrowania domeny zabezpieczeń.
 
-W poniższym przykładzie pokazano, jak używać `openssl` programu (dostępnego dla systemu Windows w [tym miejscu](https://slproweb.com/products/Win32OpenSSL.html)) do generowania certyfikatu z podpisem własnym.
+W poniższym przykładzie pokazano, jak `openssl` używać funkcji (dostępnej dla systemu Windows [tutaj](https://slproweb.com/products/Win32OpenSSL.html)) do wygenerowania 3 certyfikatu z podpisem własnym.
 
 ```console
 openssl req -newkey rsa:2048 -nodes -keyout cert_0.key -x509 -days 365 -out cert_0.cer
@@ -90,17 +93,17 @@ openssl req -newkey rsa:2048 -nodes -keyout cert_2.key -x509 -days 365 -out cert
 ```
 
 > [!IMPORTANT]
-> Utwórz i Zapisz pary kluczy RSA i plik domeny zabezpieczeń, które zostały wygenerowane w tym kroku bezpiecznie.
+> Utwórz i przechowaj bezpiecznie pary kluczy RSA i plik domeny zabezpieczeń wygenerowany w tym kroku.
 
-Użyj Azure PowerShell polecenie cmdlet [Export-AzKeyVaultSecurityDomain](/powershell/module/az.keyvault/export-azkeyvaultsecuritydomain) , aby pobrać domenę zabezpieczeń i aktywować ZARZĄDZANY moduł HSM. W poniższym przykładzie zastosowano 3 pary kluczy RSA (tylko klucze publiczne są konieczne dla tego polecenia) i ustawia kworum na 2.
+Użyj polecenia cmdlet [Export-Azure PowerShell Export-AzKeyVaultSecurityDomain,](/powershell/module/az.keyvault/export-azkeyvaultsecuritydomain) aby pobrać domenę zabezpieczeń i aktywować zarządzany moduł HSM. W poniższym przykładzie użyto 3 par kluczy RSA (dla tego polecenia potrzebne są tylko klucze publiczne) i określono kworum na 2.
 
 ```azurepowershell-interactive
 Export-AzKeyVaultSecurityDomain -Name "<your-unique-managed-hsm-name>" -Certificates "cert_0.cer", "cert_1.cer", "cert_2.cer" -OutputPath "MHSMsd.ps.json" -Quorum 2
 ```
 
-Zapisz plik domeny zabezpieczeń i pary kluczy RSA bezpiecznie. Będą one potrzebne do odzyskiwania po awarii lub tworzenia innego zarządzanego modułu HSM, który ma udział w tej samej domenie zabezpieczeń, dzięki czemu mogą udostępniać klucze.
+Przechowaj bezpiecznie plik domeny zabezpieczeń i pary kluczy RSA. Będą one potrzebne do odzyskiwania po awarii lub tworzenia innego zarządzanego modułu HSM, który współużytkuje tę samą domenę zabezpieczeń, aby można było udostępniać klucze.
 
-Po pomyślnym pobraniu domeny zabezpieczeń moduł HSM będzie w stanie aktywny i będzie gotowy do użycia.
+Po pomyślnym pobraniu domeny zabezpieczeń moduł HSM będzie w stanie aktywnym i będzie gotowy do użycia.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
@@ -108,8 +111,8 @@ Po pomyślnym pobraniu domeny zabezpieczeń moduł HSM będzie w stanie aktywny 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono Key Vault i Zapisano w nim certyfikat. Aby dowiedzieć się więcej na temat Key Vault i sposobu integrowania go z aplikacjami, przejdź do artykułu poniżej.
+W tym przewodniku Szybki start utworzono Key Vault przechowywany w nim certyfikat. Aby dowiedzieć się więcej Key Vault o tym, jak zintegrować ją z aplikacjami, przejdź do poniższych artykułów.
 
-- Zapoznaj się [z omówieniem Azure Key Vault](../general/overview.md)
-- Zobacz informacje dotyczące [Azure PowerShell poleceń cmdlet Key Vault](/powershell/module/az.keyvault/)
-- Zapoznaj się z [omówieniem zabezpieczeń Key Vault](../general/security-overview.md)
+- Przeczytaj omówienie [Azure Key Vault](../general/overview.md)
+- Zapoznaj się z odwołaniem do [Azure PowerShell Key Vault cmdlet](/powershell/module/az.keyvault/)
+- Przejrzyj omówienie [Key Vault zabezpieczeń](../general/security-overview.md)

@@ -1,29 +1,31 @@
 ---
-title: Tworzenie centrum powiadomień platformy Azure przy użyciu szablonu Azure Resource Manager
-description: Dowiedz się, jak utworzyć centrum powiadomień platformy Azure przy użyciu szablonu Azure Resource Manager (szablon ARM).
+title: Tworzenie centrum powiadomień platformy Azure przy użyciu Azure Resource Manager szablonu
+description: Dowiedz się, jak utworzyć centrum powiadomień platformy Azure przy użyciu szablonu Azure Resource Manager (szablonu usługi ARM).
 services: notification-hubs
 author: sethmanheim
-ms.service: notification-hubs
-ms.topic: quickstart
-ms.custom: subject-armqs
 ms.author: sethm
-ms.date: 08/04/2020
 ms.reviewer: thsomasu
+ms.date: 08/04/2020
 ms.lastreviewed: 05/15/2020
-ms.openlocfilehash: 2165351bee4ee260e768c10b23e26bf095779cad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.service: notification-hubs
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: a328d6b8942c3209e13dc91a2fb892e98e3016f6
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88684647"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533475"
 ---
-# <a name="quickstart-create-a-notification-hub-using-an-arm-template"></a>Szybki Start: tworzenie centrum powiadomień przy użyciu szablonu ARM
+# <a name="quickstart-create-a-notification-hub-using-an-arm-template"></a>Szybki start: tworzenie centrum powiadomień przy użyciu szablonu usługi ARM
 
-Usługa Azure Notification Hubs oferuje łatwy w użyciu i skalowany aparat wypychania, który umożliwia wysyłanie powiadomień do dowolnej platformy (iOS, Android, Windows, Kindle itp.) z dowolnego zaplecza (w chmurze lub lokalnie). Aby uzyskać więcej informacji o usłudze, zobacz artykuł [co to jest usługa Azure Notification Hubs](notification-hubs-push-notification-overview.md).
+Usługa Azure Notification Hubs udostępnia łatwy w użyciu i skalowany w zewnątrz aparat wypychania, który umożliwia wysyłanie powiadomień do dowolnej platformy (iOS, Android, Windows, Kindle itp.) z dowolnego zaplecza (w chmurze lub lokalnie). Aby uzyskać więcej informacji na temat usługi, zobacz [Co to jest usługa Azure Notification Hubs](notification-hubs-push-notification-overview.md).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Ten przewodnik Szybki Start używa szablonu Azure Resource Manager (szablon ARM) do utworzenia przestrzeni nazw platformy Azure Notification Hubs, a centrum powiadomień o nazwie **MyHub** w tej przestrzeni nazw.
+W tym przewodniku Szybki start Azure Resource Manager szablonu usługi Azure Notification Hubs oraz centrum powiadomień o nazwie **MyHub** w ramach tej przestrzeni nazw.
 
 Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
@@ -39,18 +41,18 @@ Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybki
 
 :::code language="json" source="~/quickstart-templates/101-notification-hub/azuredeploy.json":::
 
-* [Microsoft. NotificationHubs/przestrzenie nazw](/azure/templates/microsoft.notificationhubs/namespaces)
-* [Microsoft. NotificationHubs/przestrzenie nazw/notificationHubs](/azure/templates/microsoft.notificationhubs/namespaces/notificationhubs)
+* [Microsoft.NotificationHubs/namespaces](/azure/templates/microsoft.notificationhubs/namespaces)
+* [Microsoft.NotificationHubs/namespaces/notificationHubs](/azure/templates/microsoft.notificationhubs/namespaces/notificationhubs)
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
-Wybierz poniższy obraz, aby zalogować się na platformie Azure i otworzyć szablon. Szablon przyjmuje nazwę przestrzeni nazw Notification Hubs jako parametr. Następnie szablon tworzy przestrzeń nazw o tej nazwie i centrum powiadomień o nazwie **MyHub** w tej przestrzeni nazw.
+Wybierz poniższy obraz, aby zalogować się na platformie Azure i otworzyć szablon. Szablon przyjmuje nazwę Notification Hubs nazw jako parametr. Następnie szablon tworzy przestrzeń nazw o tej nazwie i centrum powiadomień o nazwie **MyHub** w ramach tej przestrzeni nazw.
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-notification-hub%2Fazuredeploy.json)
 
-## <a name="review-deployed-resources"></a>Przejrzyj wdrożone zasoby
+## <a name="review-deployed-resources"></a>Przeglądanie wdrożonych zasobów
 
-Możesz użyć Azure Portal do sprawdzenia wdrożonych zasobów lub użyć interfejsu wiersza polecenia platformy Azure lub skryptu Azure PowerShell, aby wyświetlić listę wdrożonych Notification Hubs przestrzeni nazw i centrum:
+Możesz użyć narzędzia Azure Portal, aby sprawdzić wdrożone zasoby, albo użyć interfejsu wiersza polecenia platformy Azure lub skryptu Azure PowerShell, aby wyświetlić listę wdrożonych Notification Hubs przestrzeni nazw i centrum:
 
 # <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
 
@@ -73,7 +75,7 @@ The output looks similar to: null
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy grupa zasobów nie będzie już konieczna, usuń ją, co spowoduje usunięcie zasobów z grupy zasobów.
+Gdy grupa zasobów nie będzie już potrzebna, usuń ją, co spowoduje usunięcie zasobów w grupie zasobów.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -83,7 +85,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby zapoznać się z samouczkiem krok po kroku, który przeprowadzi Cię przez proces tworzenia szablonu, zobacz:
+Aby uzyskać samouczek krok po kroku, który przeprowadzi Cię przez proces tworzenia szablonu, zobacz:
 
 > [!div class="nextstepaction"]
-> [Samouczek: Tworzenie i wdrażanie pierwszego szablonu ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [Samouczek: tworzenie i wdrażanie pierwszego szablonu usługi ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

@@ -1,5 +1,5 @@
 ---
-title: Samouczek — pozoruj odpowiedzi interfejsu API API Management — Azure Portal | Microsoft Docs
+title: Samouczek — pozoruj odpowiedzi interfejsu API w API Management — Azure Portal | Microsoft Docs
 description: W tym samouczku użyjemy API Management do ustawienia zasad dla interfejsu API, aby zwracał on pozorowane odpowiedzi, jeśli zaplecza nie są dostępne do wysyłania rzeczywistych odpowiedzi.
 author: vladvino
 ms.service: api-management
@@ -7,20 +7,20 @@ ms.custom: mvc, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 562ec4cf19d15772b2dec5adf59582f1feb5363a
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: a7617a36ed800f1765ed7723568a4b612fcb6518
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107478468"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587599"
 ---
-# <a name="tutorial-mock-api-responses"></a>Samouczek: pozoruj odpowiedzi interfejsu API
+# <a name="tutorial-mock-api-responses"></a>Samouczek: testowanie odpowiedzi interfejsu API
 
 Interfejsy API zaplecza można importować do interfejsu API API Management (APIM) lub tworzyć i zarządzać nimi ręcznie. Kroki opisane w tym samouczku pokazują, jak za pomocą usługi APIM utworzyć pusty interfejs API i zarządzać nim ręcznie, a następnie ustawić zasady dla interfejsu API, aby zwracał pozorowane odpowiedzi. Ta metoda pozwala deweloperom na kontynuowanie implementowania i testowania wystąpienia usługi APIM nawet wtedy, gdy nie ma dostępnego zaplecza wysyłającego prawdziwe odpowiedzi. 
 
 Możliwość pozorowania odpowiedzi może być przydatna w wielu scenariuszach:
 
-+ Gdy interfejs API faÃã ade jest projektowane jako pierwszy, a implementacja zaplecza pojawia się później. Lub kiedy zaplecze jest opracowywane równolegle.
++ Kiedy najpierw projektowana jest fasada interfejsu API, a implementacja zaplecza powstaje później. Lub kiedy zaplecze jest opracowywane równolegle.
 + Gdy zaplecze tymczasowo nie działa lub nie można go przeskalować.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
@@ -38,7 +38,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 + Poznaj [terminologię dotyczącą usługi Azure API Management](api-management-terminology.md).
 + Zapoznaj się z [koncepcją zasad w usłudze Azure API Management](api-management-howto-policies.md).
-+ Wykonaj czynności z następującego przewodnika Szybki start: [tworzenie wystąpienia API Management Azure.](get-started-create-service-instance.md)
++ Wykonaj czynności z następującego przewodnika Szybki start: [Tworzenie wystąpienia API Management Azure.](get-started-create-service-instance.md)
 
 ## <a name="create-a-test-api"></a>Tworzenie testowego interfejsu API 
 
@@ -46,18 +46,18 @@ Kroki opisane w tej sekcji pokazują, jak utworzyć pusty interfejs API bez zapl
 
 
 1. Zaloguj się do Azure Portal i przejdź do swojego API Management wystąpienia.
-1. Wybierz pozycję **Interfejsy API**  >  **+ Dodaj pusty interfejs**  >  **API.**
-1. W **oknie Tworzenie pustego interfejsu API** wybierz pozycję **Pełny.**
+1. Wybierz pozycję **Interfejsy**  >  **API + Dodaj pusty interfejs**  >  **API.**
+1. W **oknie Create a Blank API (Tworzenie pustego interfejsu API)** wybierz pozycję **Full (Pełny).**
 1. Wprowadź *testowy interfejs API* w **polach Nazwa wyświetlana.**
 1. Wybierz **pozycję Nieograniczone** dla opcji **Produkty.**
-1. Upewnij **się, że w** opcjach Bramy wybrano opcję **Zarządzane.**
+1. Upewnij **się, że** w **opcjach Bramy wybrano opcję Zarządzane.**
 1. Wybierz przycisk **Utwórz**.
 
     :::image type="content" source="media/mock-api-responses/03-mock-api-responses-01-create-test-api.png" alt-text="Tworzenie pustego interfejsu API":::
 
 ## <a name="add-an-operation-to-the-test-api"></a>Dodawanie operacji do testowego interfejsu API
 
-Interfejs API uwidacznia jedną lub więcej operacji. W tej sekcji dodaj operację do utworzonego pustego interfejsu API. Wywołanie operacji po wykonaniu kroków w tej sekcji powoduje błąd. Po ukończeniu kroków w dalszej części sekcji Włączanie pozorowania odpowiedzi nie zostaną [wystąpiły żadne](#enable-response-mocking) błędy.
+Interfejs API uwidacznia jedną lub więcej operacji. W tej sekcji dodaj operację do utworzonego pustego interfejsu API. Wywołanie operacji po wykonaniu kroków w tej sekcji powoduje błąd. Po ukończeniu kroków w dalszej części sekcji Włączanie [pozorowania](#enable-response-mocking) odpowiedzi nie będzie żadnych błędów.
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -67,13 +67,13 @@ Interfejs API uwidacznia jedną lub więcej operacji. W tej sekcji dodaj operacj
 
      | Ustawienie             | Wartość                             | Opis                                                                                                                                                                                   |
     |---------------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | **Nazwa wyświetlana**    | *Wywołanie testowe*                       | Nazwa wyświetlana w portalu [dla deweloperów](api-management-howto-developer-portal.md).                                                                                                                                       |
+    | **Nazwa wyświetlana**    | *Wywołanie testowe*                       | Nazwa wyświetlana w portalu [dla deweloperów.](api-management-howto-developer-portal.md)                                                                                                                                       |
     | **Adres URL** (czasownik HTTP) | GET                               | Wybierz jeden ze wstępnie zdefiniowanych zleceń HTTP.                                                                                                                                         |
     | **Adres URL**             | */test*                           | Ścieżka adresu URL dla interfejsu API.                                                                                                                                                                       |
     | **Opis**     |                                   |  Opcjonalny opis operacji używany do zapewnienia dokumentacji w portalu dla deweloperów deweloperom korzystającym z tego interfejsu API.                                                    |
     
 1. Wybierz **kartę Odpowiedzi** znajdującą się w polach Adres URL, Nazwa wyświetlana i Opis. Wprowadź ustawienia na tej karcie, aby zdefiniować kody stanu odpowiedzi, typy zawartości, przykłady i schematy.
-1. Wybierz **pozycję + Dodaj odpowiedź** i wybierz pozycję **200 OK** z listy.
+1. Wybierz **pozycję + Dodaj odpowiedź** i wybierz z listy pozycję **200 OK.**
 1. Pod nagłówkiem **Reprezentacje** po prawej stronie wybierz pozycję **+ Dodaj reprezentację**.
 1. Wprowadź *wartość application/json* w polu wyszukiwania i wybierz typ zawartości **application/json.**
 1. W polu tekstowym **Przykład** wprowadź tekst `{ "sampleField" : "test" }`.
@@ -124,14 +124,14 @@ Zachowaj tę operację do użycia w pozostałej części tego artykułu.
 
 ## <a name="enable-response-mocking"></a>Włączanie pozorowania odpowiedzi
 
-1. Wybierz interfejs API utworzony w teście [Tworzenie testowego interfejsu API.](#create-a-test-api)
+1. Wybierz interfejs API utworzony w teście [Create a test API (Tworzenie testowego interfejsu API).](#create-a-test-api)
 1. Wybierz dodaną operację testową.
 1. W oknie po prawej stronie upewnij się, że **wybrano kartę** Projekt.
 1. W **oknie Przychodzące przetwarzanie** wybierz pozycję **+ Dodaj zasady.**
 
     :::image type="content" source="media/mock-api-responses/03-mock-api-responses-03-enable-mocking.png" alt-text="Dodawanie zasad przetwarzania" border="false":::
 
-1. Wybierz **pozycję Pozoruj odpowiedzi**  z galerii.
+1. Wybierz pozycję **Pozoruj odpowiedzi**  z galerii.
 
     :::image type="content" source="media/mock-api-responses/mock-responses-policy-tile.png" alt-text="Kafelek zasad pozorowania odpowiedzi" border="false":::
 
@@ -142,11 +142,11 @@ Zachowaj tę operację do użycia w pozostałej części tego artykułu.
 1. Wybierz pozycję **Zapisz**.
 
     > [!TIP]
-    > Żółty pasek z  tekstem Pozorowanie jest włączone dla interfejsu API wskazuje, że odpowiedzi [](api-management-advanced-policies.md#mock-response) zwrócone z usługi API Management są pozorowane przez zasady pozorowania i nie są produkowane przez zaplecza.
+    > Żółty pasek z  włączonym tekstem Pozorowanie dla interfejsu API wskazuje, że odpowiedzi zwrócone z usługi API Management są pozorowane przez zasady pozorowania i nie są one produkowane przez zaplecza. [](api-management-advanced-policies.md#mock-response)
 
 ## <a name="test-the-mocked-api"></a>Testowanie pozorowanego interfejsu API
 
-1. Wybierz interfejs API utworzony w teście [Create a test API (Tworzenie testowego interfejsu API).](#create-a-test-api)
+1. Wybierz interfejs API utworzony w teście [Tworzenie testowego interfejsu API.](#create-a-test-api)
 1. Wybierz kartę **Test**.
 1. Upewnij się, że wybrany jest interfejs API **Wywołanie testowe**. Wybierz pozycję **Wyślij**, aby wykonać wywołanie testowe.
 

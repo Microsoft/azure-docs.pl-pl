@@ -4,12 +4,12 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: e6ae89c8b14cfdcd1ac63863448d143b486be07b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 787eaf3f435869d55e7ba996bfe0021c2f2621e7
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "67183340"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107564944"
 ---
 > [!NOTE]
-> Przed rozpoczęciem tego samouczka Wypełnij samouczek [online Raspberry Pi](../articles/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.md) lub jedno z samouczków dotyczących urządzeń. na przykład [Raspberry Pi z node.js](../articles/iot-hub/iot-hub-raspberry-pi-kit-node-get-started.md). W tych artykułach można skonfigurować urządzenie Azure IoT i centrum IoT oraz wdrożyć przykładową aplikację do uruchamiania na urządzeniu. Aplikacja wysyła zebrane dane czujnika do centrum IoT Hub.
+> Przed rozpoczęciem tego samouczka ukończ samouczek [symulatora online](../articles/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.md) urządzenia Raspberry Pi lub jeden z samouczków urządzenia. Na przykład możesz przejść do urządzenia [Raspberry Pi ](../articles/iot-hub/iot-hub-raspberry-pi-kit-node-get-started.md) z node.jslub do jednego z przewodników Szybki start [Wysyłanie](../articles/iot-hub/quickstart-send-telemetry-dotnet.md) telemetrii. W tych artykułach skonfigurujemy urządzenie usługi Azure IoT i centrum IoT Hub oraz wdrożymy przykładową aplikację do uruchomienia na urządzeniu. Aplikacja wysyła zebrane dane czujników do centrum IoT.

@@ -1,22 +1,22 @@
 ---
 title: Tworzenie pliku parametrów
-description: Utwórz plik parametrów do przekazywania wartości podczas wdrażania szablonu Azure Resource Manager
+description: Tworzenie pliku parametrów do przekazywania wartości podczas wdrażania Azure Resource Manager szablonu
 ms.topic: conceptual
-ms.date: 04/12/2021
-ms.openlocfilehash: d557bcdfe246dc2c9bfccde17b7f9590c2686358
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 04/15/2021
+ms.openlocfilehash: ddeaed94396aa662b795ae5701aa367ba13d869b
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107312046"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531215"
 ---
-# <a name="create-resource-manager-parameter-file"></a>Utwórz plik parametrów Menedżer zasobów
+# <a name="create-resource-manager-parameter-file"></a>Tworzenie Resource Manager parametrów
 
-Zamiast przekazywania parametrów jako wartości śródwierszowych w skrypcie prostszym może się okazać użycie pliku JSON zawierającego wartości parametrów. W tym artykule pokazano, jak utworzyć plik parametrów.
+Zamiast przekazywania parametrów jako wartości w tekście w skrypcie, można użyć pliku JSON zawierającego wartości parametrów. W tym artykule pokazano, jak utworzyć plik parametrów, który będzie używać szablonu JSON lub pliku Bicep.
 
 ## <a name="parameter-file"></a>Plik parametrów
 
-Plik parametrów ma następujący format:
+Plik parametrów używa następującego formatu:
 
 ```json
 {
@@ -33,9 +33,9 @@ Plik parametrów ma następujący format:
 }
 ```
 
-Zwróć uwagę, że wartości parametrów są przechowywane jako zwykły tekst w pliku parametrów. Ta metoda działa w przypadku wartości, które nie są poufne, na przykład określania jednostki SKU dla zasobu. Nie działa w przypadku poufnych wartości, takich jak hasła. Jeśli konieczne jest przekazanie wartości poufnej jako parametru, należy zapisać wartość w magazynie kluczy i odwołać się do magazynu kluczy w pliku parametrów. Wartość poufne jest bezpiecznie pobierana podczas wdrażania.
+Zwróć uwagę, że w pliku parametrów wartości parametrów są przechowywane jako zwykły tekst. To podejście działa w przypadku wartości, które nie są poufne, takich jak sku zasobów. Zwykły tekst nie działa w przypadku wartości poufnych, takich jak hasła. Jeśli musisz przekazać parametr zawierający wartość wrażliwą, przechowaj wartość w magazynie kluczy. Następnie odwołaj się do magazynu kluczy w pliku parametrów. Wartość wrażliwa jest bezpiecznie pobierana podczas wdrażania.
 
-Następujący plik parametrów zawiera wartość zwykłego tekstu i wartość przechowywaną w magazynie kluczy.
+Poniższy plik parametrów zawiera wartość w postaci zwykłego tekstu i wartość wrażliwą przechowywaną w magazynie kluczy.
 
 ```json
 {
@@ -57,11 +57,13 @@ Następujący plik parametrów zawiera wartość zwykłego tekstu i wartość pr
 }
 ```
 
-Aby uzyskać więcej informacji o korzystaniu z wartości z magazynu kluczy, zobacz [używanie Azure Key Vault do przekazywania zabezpieczonej wartości parametrów podczas wdrażania](key-vault-parameter.md).
+Aby uzyskać więcej informacji na temat używania wartości z magazynu kluczy, zobacz Use Azure Key Vault to pass secure parameter value during deployment (Używanie programu Azure Key Vault do przekazania wartości bezpiecznego [parametru podczas wdrażania).](key-vault-parameter.md)
 
 ## <a name="define-parameter-values"></a>Definiowanie wartości parametrów
 
-Aby ustalić sposób definiowania wartości parametrów, Otwórz wdrożony szablon. Zapoznaj się z sekcją parametry szablonu. W poniższym przykładzie przedstawiono parametry szablonu.
+Aby określić sposób definiowania nazw parametrów i wartości, otwórz szablon JSON lub Bicep. Przyjrzyj się sekcji parameters szablonu. W poniższych przykładach przedstawiono parametry z szablonów JSON i Bicep.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "parameters": {
@@ -82,7 +84,24 @@ Aby ustalić sposób definiowania wartości parametrów, Otwórz wdrożony szabl
 }
 ```
 
-Pierwsze szczegóły do powiadomienia to nazwa każdego parametru. Wartości w pliku parametrów muszą być zgodne z nazwami.
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+@maxLength(11)
+param storagePrefix string
+
+@allowed([
+  'Standard_LRS'
+  'Standard_GRS'
+  'Standard_ZRS'
+  'Premium_LRS'
+])
+param storageAccountType string = 'Standard_LRS'
+```
+
+---
+
+W pliku parametrów pierwszymi szczegółami, które należy zauważyć, jest nazwa każdego parametru. Nazwy parametrów w pliku parametrów muszą być zgodne z nazwami parametrów w szablonie.
 
 ```json
 {
@@ -97,7 +116,7 @@ Pierwsze szczegóły do powiadomienia to nazwa każdego parametru. Wartości w p
 }
 ```
 
-Zwróć uwagę na typ parametru. Wartości w pliku parametrów muszą mieć takie same typy. Dla tego szablonu można podać oba parametry jako ciągi.
+Zwróć uwagę na typ parametru . Typy parametrów w pliku parametrów muszą używać tych samych typów co szablon. W tym przykładzie oba typy parametrów są ciągami.
 
 ```json
 {
@@ -114,7 +133,7 @@ Zwróć uwagę na typ parametru. Wartości w pliku parametrów muszą mieć taki
 }
 ```
 
-Następnie poszukaj wartości domyślnej. Jeśli parametr ma wartość domyślną, można podać wartość, ale nie jest to konieczne.
+Sprawdź w szablonie parametry z wartością domyślną. Jeśli parametr ma wartość domyślną, możesz podać wartość w pliku parametrów, ale nie jest to wymagane. Wartość pliku parametrów zastępuje wartość domyślną szablonu.
 
 ```json
 {
@@ -131,7 +150,7 @@ Następnie poszukaj wartości domyślnej. Jeśli parametr ma wartość domyśln�
 }
 ```
 
-Na koniec zapoznaj się z dozwolonymi wartościami i wszelkimi ograniczeniami, takimi jak Maksymalna długość. Informują one zakres wartości, które można podać dla parametru.
+Sprawdź dozwolone wartości szablonu i wszelkie ograniczenia, takie jak maksymalna długość. Te wartości określają zakres wartości, które można podać dla parametru. W tym przykładzie `storagePrefix` może mieć maksymalnie 11 znaków i `storageAccountType` musi określać dozwoloną wartość.
 
 ```json
 {
@@ -148,11 +167,12 @@ Na koniec zapoznaj się z dozwolonymi wartościami i wszelkimi ograniczeniami, t
 }
 ```
 
-Plik parametrów może zawierać tylko wartości parametrów, które są zdefiniowane w szablonie. Jeśli plik parametrów zawiera dodatkowe parametry, które nie pasują do parametrów w szablonie, zostanie wyświetlony komunikat o błędzie.
+> [!NOTE]
+> Plik parametrów może zawierać tylko wartości parametrów zdefiniowanych w szablonie. Jeśli plik parametrów zawiera dodatkowe parametry, które nie pasują do parametrów szablonu, zostanie wyświetlony błąd.
 
 ## <a name="parameter-type-formats"></a>Formaty typów parametrów
 
-W poniższym przykładzie przedstawiono formaty różnych typów parametrów.
+W poniższym przykładzie przedstawiono formaty różnych typów parametrów: ciąg, liczba całkowita, wartość logiczna, tablica i obiekt.
 
 ```json
 {
@@ -180,13 +200,13 @@ W poniższym przykładzie przedstawiono formaty różnych typów parametrów.
         "property2": "value2"
       }
     }
-   }
+  }
 }
 ```
 
-## <a name="deploy-template-with-parameter-file"></a>Wdróż szablon z plikiem parametrów
+## <a name="deploy-template-with-parameter-file"></a>Wdrażanie szablonu za pomocą pliku parametrów
 
-Aby przekazać lokalny plik parametrów za pomocą interfejsu wiersza polecenia platformy Azure, użyj @ i nazwy pliku parametrów.
+Z interfejsu wiersza polecenia platformy Azure przekaż lokalny plik parametrów przy użyciu polecenia `@` i nazwę pliku parametrów. Na przykład `@storage.parameters.json`.
 
 ```azurecli
 az deployment group create \
@@ -196,42 +216,41 @@ az deployment group create \
   --parameters @storage.parameters.json
 ```
 
-Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów przy użyciu szablonów ARM i interfejsu wiersza polecenia platformy Azure](./deploy-cli.md#parameters).
+Aby uzyskać więcej informacji, zobacz [Deploy resources with ARM templates and Azure CLI (Wdrażanie zasobów za pomocą szablonów usługi ARM i interfejsu wiersza polecenia platformy Azure).](./deploy-cli.md#parameters) Do wdrożenia _plików bicep potrzebny_ jest interfejs wiersza polecenia platformy Azure w wersji 2.20 lub wyższej.
 
-Aby przekazać lokalny plik parametrów Azure PowerShell, użyj `TemplateParameterFile` parametru.
+Z Azure PowerShell przekaż lokalny plik parametrów przy użyciu `TemplateParameterFile` parametru .
 
 ```azurepowershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile c:\MyTemplates\azuredeploy.json `
-  -TemplateParameterFile c:\MyTemplates\storage.parameters.json
+  -TemplateFile C:\MyTemplates\storage.json `
+  -TemplateParameterFile C:\MyTemplates\storage.parameters.json
 ```
 
-Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów przy użyciu szablonów ARM i Azure PowerShell](./deploy-powershell.md#pass-parameter-values)
+Aby uzyskać więcej informacji, zobacz [Deploy resources with ARM templates and Azure PowerShell](./deploy-powershell.md#pass-parameter-values)(Wdrażanie zasobów za pomocą szablonów usługi ARM i Azure PowerShell ). Aby _wdrożyć pliki bicep,_ Azure PowerShell w wersji 5.6.0 lub wyższej.
 
 > [!NOTE]
 > Nie można użyć pliku parametrów z blokiem szablonu niestandardowego w portalu.
 
-Jeśli używasz [projektu grupy zasobów platformy Azure w programie Visual Studio](create-visual-studio-deployment-project.md), upewnij się, że plik parametru ma ustawioną **akcję kompilacja** na **zawartość**.
+> [!TIP]
+> Jeśli używasz projektu grupy zasobów [platformy Azure](create-visual-studio-deployment-project.md)w usłudze Visual Studio , upewnij się, że plik parametrów ma akcję kompilacji ustawioną na wartość **Zawartość.** 
 
 ## <a name="file-name"></a>Nazwa pliku
 
-Ogólną konwencją nazewnictwa pliku parametrów jest dodawanie **parametrów** do nazwy szablonu. Na przykład jeśli szablon ma nazwę **azuredeploy.jsna**, plik parametrów ma nazwę **azuredeploy.parameters.jsna**. Ta konwencja nazewnictwa ułatwia wyświetlanie połączenia między szablonem i parametrami.
+Ogólna konwencja nazewnictwa dla pliku parametrów obejmuje _parametry_ w nazwie szablonu. Jeśli na przykład szablon ma nazwęazuredeploy.js _,_ plik parametrów ma nazwęazuredeploy.parameters.js _na_. Ta konwencja nazewnictwa pomaga zobaczyć połączenie między szablonem i parametrami.
 
-Aby wdrożyć w różnych środowiskach, należy utworzyć więcej niż jeden plik parametrów. Podczas nadawania nazwy plikowi parametrów Dodaj sposób, aby zidentyfikować jego użycie. Na przykład użyj **azuredeploy.parameters-dev.jsna** i **azuredeploy.parameters-prod.jsna**
+Aby wdrożyć w różnych środowiskach, należy utworzyć więcej niż jeden plik parametrów. Gdy nadasz plikom parametrów nazwę, zidentyfikuj ich użycie, takie jak tworzenie i produkcja. Na przykład użyjazuredeploy.parameters-dev.js _i_ _azuredeploy.parameters-prod.js,_ aby wdrożyć zasoby.
 
 ## <a name="parameter-precedence"></a>Pierwszeństwo parametrów
 
-W tej samej operacji wdrażania można używać wbudowanych parametrów i pliku parametrów lokalnych. Na przykład można określić niektóre wartości w lokalnym pliku parametrów i dodać inne wartości w tekście podczas wdrażania. Jeśli podano wartości dla parametru zarówno w pliku parametrów lokalnych, jak i wewnętrznie, wartość śródwierszowa ma pierwszeństwo.
+W tej samej operacji wdrażania można użyć parametrów w tekście i pliku parametrów lokalnych. Na przykład można określić niektóre wartości w lokalnym pliku parametrów i dodać inne wartości w tekście podczas wdrażania. W przypadku podania wartości parametru zarówno w lokalnym pliku parametrów, jak i w tekście, pierwszeństwo ma wartość w tekście.
 
-Można użyć zewnętrznego pliku parametrów, dostarczając identyfikator URI do pliku. W przypadku korzystania z zewnętrznego pliku parametrów nie można przekazać innych wartości wbudowanych lub z pliku lokalnego. Wszystkie wbudowane parametry są ignorowane. Podaj wszystkie wartości parametrów w pliku zewnętrznym.
+Można użyć zewnętrznego pliku parametrów, podając w pliku wartość URI. W przypadku użycia zewnętrznego pliku parametrów nie można przekazać innych wartości w tekście ani z pliku lokalnego. Wszystkie parametry wbudowane są ignorowane. Podaj wszystkie wartości parametrów w pliku zewnętrznym.
 
 ## <a name="parameter-name-conflicts"></a>Konflikty nazw parametrów
 
-Jeśli szablon zawiera parametr o takiej samej nazwie jak jeden z parametrów w poleceniu programu PowerShell, program PowerShell przedstawia parametr z szablonu przy użyciu przyrostka **FromTemplate**. Na przykład parametr o nazwie **ResourceGroupName** w szablonie powoduje konflikt z parametrem **ResourceGroupName** w poleceniu cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) . Zostanie wyświetlony monit o podanie wartości dla **ResourceGroupNameFromTemplate**. Można uniknąć tego nieporozumień przy użyciu nazw parametrów, które nie są używane dla poleceń wdrażania.
-
+Jeśli szablon zawiera parametr o takiej samej nazwie jak jeden z parametrów w poleceniu programu PowerShell, program PowerShell przedstawia parametr z szablonu z przyrostką `FromTemplate` . Na przykład parametr o nazwie w szablonie powoduje konflikt z `ResourceGroupName` `ResourceGroupName` parametrem polecenia cmdlet [New-AzResourceGroupDeployment.](/powershell/module/az.resources/new-azresourcegroupdeployment) Zostanie wyświetlony monit o podanie wartości dla `ResourceGroupNameFromTemplate` . Aby uniknąć tego nieporozumień, użyj nazw parametrów, które nie są używane w poleceniach wdrażania.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby zrozumieć, jak definiować parametry w szablonie, zobacz [Parametry w szablonach Azure Resource Manager](template-parameters.md).
-- Aby uzyskać więcej informacji o korzystaniu z wartości z magazynu kluczy, zobacz [używanie Azure Key Vault do przekazywania zabezpieczonej wartości parametrów podczas wdrażania](key-vault-parameter.md).
-- Aby uzyskać więcej informacji na temat parametrów, zobacz [Parametry w szablonach Azure Resource Manager](template-parameters.md).
+- Aby uzyskać więcej informacji na temat definiowania parametrów w szablonie, zobacz [Parametry w szablonach usługi ARM.](template-parameters.md)
+- Aby uzyskać więcej informacji na temat używania wartości z magazynu kluczy, zobacz Use Azure Key Vault to pass secure parameter value during deployment (Używanie usługi Azure Key Vault do przekazania wartości bezpiecznego [parametru podczas wdrażania.](key-vault-parameter.md)

@@ -16,6 +16,8 @@ items:
         href: create-purview-dotnet.md
       - name: Tworzenie konta programu Purview — Python
         href: create-purview-python.md
+      - name: Zarządzanie powiadomieniami platformy Kafka — .NET
+        href: manage-kafka-dotnet.md
   - name: Samouczki
     items:
       - name: Pakiet startowy

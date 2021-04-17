@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 92cfa5b2e399811754b57bda64569753ccfa6be8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b1e37b2de2a3d4be0250d3e900fe48a36e45240e
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101668762"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309564"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Architektura sieci SAP HANA (duże wystąpienia)
 
@@ -186,7 +186,7 @@ Dane przesyłane między dużymi wystąpieniami HANA i maszynami wirtualnymi nie
 
 ## <a name="use-hana-large-instance-units-in-multiple-regions"></a>Korzystanie z jednostek dużych wystąpień platformy HANA w wielu regionach
 
-Aby zrealizować zestaw odzyskiwania po awarii, musisz mieć SHANA duże wystąpienia w wielu regionach świadczenia usługi Azure. Nawet w przypadku korzystania z platformy Azure [globalna komunikacja równorzędna sieci wirtualnych] Routing przechodni domyślnie nie działa między dzierżawcami dużych wystąpień usługi HANA w dwóch różnych regionach. Jednak Global Reach otwiera ścieżkę komunikacji między jednostkami dużej instancji HANA, które zostały zainicjowane w dwóch różnych regionach. Ten scenariusz użycia ExpressRoute Global Reach umożliwia:
+Aby zrealizować zestaw odzyskiwania po awarii, musisz mieć jednostki usługi HANA duże wystąpienia w wielu regionach platformy Azure. Nawet w przypadku korzystania z platformy Azure [globalna komunikacja równorzędna sieci wirtualnych] Routing przechodni domyślnie nie działa między dzierżawcami dużych wystąpień usługi HANA w dwóch różnych regionach. Jednak Global Reach otwiera ścieżkę komunikacji między jednostkami dużej instancji HANA, które zostały zainicjowane w dwóch różnych regionach. Ten scenariusz użycia ExpressRoute Global Reach umożliwia:
 
  - Replikacja systemu HANA bez dodatkowych serwerów proxy lub zapór
  - Kopiowanie kopii zapasowych między jednostkami dużych wystąpień programu HANA w dwóch różnych regionach w celu wykonywania kopii systemu lub odświeżeń systemu

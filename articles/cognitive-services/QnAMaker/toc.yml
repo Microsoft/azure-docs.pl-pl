@@ -8,11 +8,11 @@
       href: whats-new.md
 - name: Przewodniki Szybki start
   items:
-    - name: Utwórz i zbadaj bazy wiedzy
+    - name: Tworzenie bazy wiedzy i wykonywanie zapytań w bazie wiedzy
       items:
         - name: Portal usługi QnA Maker
           href: Quickstarts/create-publish-knowledge-base.md
-        - name: Biblioteki klienckie lub interfejs API REST
+        - name: Biblioteki klienta lub interfejs API REST
           href: Quickstarts/quickstart-sdk.md
 - name: Samouczki
   items:
@@ -47,14 +47,14 @@
       href: choose-natural-language-processing-service.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Zarządzanie zasobami QnA Maker
+    - name: Zarządzanie QnA Maker zasobów
       items:
-        - name: Konfigurowanie zasobów QnA Maker
+        - name: Konfigurowanie QnA Maker zasobów
           href: How-To/set-up-qnamaker-service-azure.md
           displayName: 'azure, resource, key, upgrade, pricing, tier,'
-        - name: Zarządzanie dostępem do zasobów QnA Maker
+        - name: Zarządzanie QnA Maker dostępem do zasobów
           href: How-To/manage-qna-maker-app.md
-        - name: Konfigurowanie zasobów QnA Maker
+        - name: Konfigurowanie QnA Maker zasobów
           href: How-To/configure-qna-maker-resources.md
         - name: Izolacja sieci dla zasobów platformy Azure
           href: How-To/network-isolation.md
@@ -67,7 +67,7 @@
         - name: Migracja do nowej bazy wiedzy
           href: Tutorials/migrate-knowledge-base.md
           displayName: 'metadata, pair'
-        - name: Baza wiedzy testowej
+        - name: Testowanie bazy wiedzy
           href: How-To/test-knowledge-base.md
     - name: Zarządzanie parami pytań i odpowiedzi
       items:
@@ -87,13 +87,21 @@
         - name: Korzystanie z interfejsu API GenerateAnswer
           href: How-To/metadata-generateanswer-usage.md
           displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404'
-        - name: Filtruj bazami według metadanych
+        - name: Filtrowanie pytań i odpowiedzi według metadanych
           href: How-To/query-knowledge-base-with-metadata.md
-    - name: Uzyskaj sugerowane alternatywne pytania za pośrednictwem usługi Active Learning
+    - name: Uzyskiwanie sugerowanych pytań alternatywnych za pośrednictwem uczenia aktywnego
       href: How-to/improve-knowledge-base.md
       displayName: 'active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount'
     - name: Analiza i telemetria
       href: How-To/get-analytics-knowledge-base.md
+    - name: Gotowość przedsiębiorstwa
+      items:
+        - name: Konfigurowanie sieci wirtualnych
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/qnamaker/context/context
+        - name: Korzystanie z kluczy zarządzanych przez klienta
+          href: encrypt-data-at-rest.md
+        - name: Korzystanie z uwierzytelniania usługi Azure AD
+          href: ../authentication.md?context=/azure/cognitive-services/qnamaker/context/context
 - name: Dokumentacja
   items:
     - name: Obsługa języków
@@ -167,12 +175,14 @@
               href: 'https://rubygems.org/gems/azure_cognitiveservices_qnamaker'
 - name: Zasoby
   items:
-    - name: Opcje pomocy technicznej
+    - name: Gotowość przedsiębiorstwa
+      items:
+        - name: Obsługa regionów
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Zgodność i certyfikacja
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Opcje wsparcia technicznego i pomocy
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/qnamaker/context/context
-    - name: Dostępność regionalna
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
-    - name: Zgodność
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Ceny i limity

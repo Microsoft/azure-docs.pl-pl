@@ -1,24 +1,26 @@
 ---
-title: 'Szybki Start: Tworzenie strefy Azure DNS i rekordu Azure Resource Manager szablonu (szablon ARM)'
+title: 'Szybki start: tworzenie strefy Azure DNS rekordu — szablon Azure Resource Manager (szablon usługi ARM)'
 titleSuffix: Azure DNS
-description: Dowiedz się, jak utworzyć strefę i rekord DNS w usłudze Azure DNS. Ten przewodnik Szybki Start umożliwia tworzenie i zarządzanie pierwszą strefą i rekordem DNS przy użyciu szablonu Azure Resource Manager (szablon ARM).
+description: Dowiedz się, jak utworzyć strefę i rekord DNS w usłudze Azure DNS. W tym przewodniku Szybki start krok po kroku po raz pierwszy utworzysz strefę i rekord DNS przy użyciu Azure Resource Manager (szablonu usługi ARM).
 services: dns
 author: duongau
-ms.service: dns
-ms.topic: quickstart
-ms.date: 09/8/2020
 ms.author: duau
-ms.custom: subject-armqs
-ms.openlocfilehash: 24460167e2279e7d3001d0bc16d050beb5b55289
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/8/2020
+ms.topic: quickstart
+ms.service: dns
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: 34e810fa8244cf3ff00e57f193624a2c1fa4d755
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92791005"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107539025"
 ---
-# <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>Szybki Start: Tworzenie strefy Azure DNS i rekordu przy użyciu szablonu ARM
+# <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>Szybki start: tworzenie strefy Azure DNS rekordu przy użyciu szablonu usługi ARM
 
-W tym przewodniku szybki start opisano, jak używać szablonu Azure Resource Manager (szablon ARM) do tworzenia strefy DNS z `A` rekordem.
+W tym przewodniku Szybki start opisano, jak utworzyć strefę DNS z rekordem za pomocą szablonu usługi Azure Resource Manager `A` (arm).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -34,20 +36,20 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-azure-dns-new-zone).
 
-W tym przewodniku szybki start utworzysz unikatową strefę DNS z sufiksem `azurequickstart.org` . `A`Rekord wskazujący na dwa adresy IP również zostanie umieszczony w strefie.
+W tym przewodniku Szybki start utworzysz unikatową strefę DNS z sufiksem `azurequickstart.org` . Rekord, `A` który wskaże dwa adresy IP, również zostanie umieszczony w strefie.
 
 :::code language="json" source="~/quickstart-templates/101-azure-dns-new-zone/azuredeploy.json":::
 
-Dwa zasoby platformy Azure zostały zdefiniowane w szablonie:
+W szablonie zdefiniowano dwa zasoby platformy Azure:
 
-- [**Microsoft. Network/dnsZones**](/azure/templates/microsoft.network/dnsZones)
-- [**Microsoft. Network/dnsZones/A**](/azure/templates/microsoft.network/dnsZones/A): służy do tworzenia `A` rekordu w strefie.
+- [**Microsoft.Network/dnsZones**](/azure/templates/microsoft.network/dnsZones)
+- [**Microsoft.Network/dnsZones/A:**](/azure/templates/microsoft.network/dnsZones/A)służy do tworzenia `A` rekordu w strefie.
 
-Aby znaleźć więcej szablonów związanych z usługą Azure Traffic Manager, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
+Aby znaleźć więcej szablonów powiązanych z Azure Traffic Manager, zobacz [Szablony szybkiego startu platformy Azure.](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular)
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
-1. Wybierz opcję **Wypróbuj** z następującego bloku kodu, aby otworzyć Azure Cloud Shell, a następnie postępuj zgodnie z instrukcjami, aby zalogować się do platformy Azure.
+1. Wybierz **pozycję Wypróbuj w** poniższym bloku kodu, aby otworzyć Azure Cloud Shell, a następnie postępuj zgodnie z instrukcjami, aby zalogować się do platformy Azure.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -62,37 +64,37 @@ Aby znaleźć więcej szablonów związanych z usługą Azure Traffic Manager, z
     Read-Host -Prompt "Press [ENTER] to continue ..."
     ```
 
-    Poczekaj, aż zobaczysz monit z konsoli programu.
+    Zaczekaj, aż zostanie wyświetlony monit z konsoli.
 
-1. Wybierz pozycję **Kopiuj** z poprzedniego bloku kodu, aby skopiować skrypt programu PowerShell.
+1. Wybierz **pozycję Kopiuj** z poprzedniego bloku kodu, aby skopiować skrypt programu PowerShell.
 
-1. Kliknij prawym przyciskiem myszy okienko konsoli powłoki, a następnie wybierz polecenie **Wklej**.
+1. Kliknij prawym przyciskiem myszy okienko konsoli powłoki, a następnie wybierz pozycję **Wklej**.
 
 1. Wprowadź wartości.
 
-    Wdrożenie szablonu tworzy strefę z jednym `A` rekordem wskazującym na dwa adresy IP. Nazwa grupy zasobów jest nazwą projektu z dołączoną **RG** .
+    Wdrożenie szablonu tworzy strefę z jednym `A` rekordem, który wskaże dwa adresy IP. Nazwa grupy zasobów to nazwa projektu z dołączonym **rg.**
 
-    Wdrożenie szablonu trwa kilka sekund. Po zakończeniu dane wyjściowe są podobne do:
+    Wdrożenie szablonu może potrwać kilka sekund. Po zakończeniu dane wyjściowe będą podobne do:
 
-    :::image type="content" source="./media/dns-getstarted-template/create-dns-zone-powershell-output.png" alt-text="Szablon Menedżer zasobów strefy Azure DNS dane wyjściowe wdrożenia programu PowerShell":::
+    :::image type="content" source="./media/dns-getstarted-template/create-dns-zone-powershell-output.png" alt-text="Azure DNS danych wyjściowych Resource Manager wdrożenia szablonu programu PowerShell":::
 
-Azure PowerShell służy do wdrożenia szablonu. Oprócz Azure PowerShell można również użyć Azure Portal, interfejsu wiersza polecenia platformy Azure i API REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../azure-resource-manager/templates/deploy-portal.md).
+Azure PowerShell służy do wdrażania szablonu. Oprócz interfejsu Azure PowerShell można również użyć interfejsu Azure Portal, interfejsu wiersza polecenia platformy Azure i interfejsu API REST. Aby poznać inne metody wdrażania, zobacz [Wdrażanie szablonów](../azure-resource-manager/templates/deploy-portal.md).
 
 ## <a name="validate-the-deployment"></a>Weryfikowanie wdrożenia
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. W okienku po lewej stronie wybierz pozycję **grupy zasobów** .
+1. Wybierz **pozycję Grupy zasobów** w okienku po lewej stronie.
 
-1. Wybierz grupę zasobów utworzoną w poprzedniej sekcji. Domyślną nazwą grupy zasobów jest nazwa projektu z dołączoną **RG** .
+1. Wybierz grupę zasobów utworzoną w poprzedniej sekcji. Domyślna nazwa grupy zasobów to nazwa projektu z dołączonym **rg.**
 
-1. Grupa zasobów powinna zawierać następujące zasoby:
+1. Grupa zasobów powinna zawierać następujące zasoby widoczne tutaj:
 
     :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="Grupa zasobów wdrożenia strefy DNS":::
 
-1. Wybierz strefę DNS z sufiksem, `azurequickstart.org` Aby sprawdzić, czy strefa została prawidłowo utworzona z `A` rekordem odwołującym się do wartości `1.2.3.4` i `1.2.3.5` .
+1. Wybierz strefę DNS z sufiksem , aby sprawdzić, czy strefa została utworzona prawidłowo z rekordem odwołującym `azurequickstart.org` się do wartości i `A` `1.2.3.4` `1.2.3.5` .
 
-    :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="Wdrożenie strefy DNS":::
+    :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="Wdrażanie strefy DNS":::
 
 1. Skopiuj jedną z nazw serwerów nazw z poprzedniego kroku.
 
@@ -108,17 +110,17 @@ Azure PowerShell służy do wdrożenia szablonu. Oprócz Azure PowerShell można
    nslookup www.2lwynbseszpam.azurequickstart.org ns1-09.azure-dns.com.
    ```
 
-   Powinien wyglądać podobnie do poniższego zrzutu ekranu:
+   Powinien zostać wyświetlony ekran podobny do poniższego:
 
-    :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="Polecenie nslookup strefy DNS":::
+    :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="Nslookup strefy DNS":::
 
-Nazwa hosta jest `www.2lwynbseszpam.azurequickstart.org` rozpoznawana `1.2.3.4` `1.2.3.5` jako i, tak jak została skonfigurowana. Taki wynik potwierdza, że rozpoznawanie nazw działa poprawnie.
+Nazwa hosta `www.2lwynbseszpam.azurequickstart.org` jest rozpoznaowana jako `1.2.3.4` i , tak jak ją `1.2.3.5` skonfigurowano. Taki wynik potwierdza, że rozpoznawanie nazw działa poprawnie.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy nie potrzebujesz już zasobów utworzonych przy użyciu strefy DNS, Usuń grupę zasobów. Spowoduje to usunięcie strefy DNS i wszystkich powiązanych zasobów.
+Jeśli nie potrzebujesz już zasobów utworzonych za pomocą strefy DNS, usuń grupę zasobów. Spowoduje to usunięcie strefy DNS i wszystkich powiązanych zasobów.
 
-Aby usunąć grupę zasobów, wywołaj `Remove-AzResourceGroup` polecenie cmdlet:
+Aby usunąć grupę zasobów, wywołaj `Remove-AzResourceGroup` polecenie cmdlet :
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name <your resource group name>
@@ -126,12 +128,12 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono:
+W tym przewodniku Szybki start utworzono:
 
 - Strefa DNS
-- `A` rekord
+- `A` Rekord
 
-Po utworzeniu pierwszej strefy i rekordu DNS przy użyciu szablonu ARM można utworzyć rekordy dla aplikacji sieci Web w domenie niestandardowej.
+Teraz, po utworzeniu pierwszej strefy i rekordu DNS przy użyciu szablonu usługi ARM, możesz utworzyć rekordy dla aplikacji internetowej w domenie niestandardowej.
 
 > [!div class="nextstepaction"]
 > [Create DNS records for a web app in a custom domain (Tworzenie rekordów DNS aplikacji internetowej w domenie niestandardowej)](./dns-web-sites-custom-domain.md)

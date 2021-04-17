@@ -1,18 +1,18 @@
 ---
-title: Tryb debugowania przepływu mapowania danych
+title: Tryb debugowania przepływu danych mapowania
 description: Uruchamianie interaktywnej sesji debugowania podczas budowania przepływów danych
 ms.author: makromer
 author: kromerm
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/14/2021
-ms.openlocfilehash: ac0e088c587132b32f2112d21bce936eac35dc72
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 04/16/2021
+ms.openlocfilehash: 681a3643c04472cc42c1f672f4c9433da30e3955
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515873"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565517"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Tryb debugowania przepływu danych mapowania
 
@@ -22,9 +22,9 @@ ms.locfileid: "107515873"
 
 Azure Data Factory debugowania przepływu mapowania danych umożliwia interaktywne obserwowanie transformacji kształtu danych podczas kompilowania i debugowania przepływów danych. Sesji debugowania można używać zarówno w Przepływ danych projektowych, jak i podczas wykonywania debugowania potoku przepływów danych. Aby włączyć tryb debugowania, użyj Przepływ danych **Debugowanie** na górnym pasku kanwy przepływu danych lub kanwy potoku, jeśli masz działania przepływu danych.
 
-![Suwak debugowania 1](media/data-flow/debugbutton.png "Suwak debugowania")
+![Zrzut ekranu przedstawiający miejsce suwaka Debugowanie 1](media/data-flow/debug-button.png)
 
-![Suwak debugowania 2](media/data-flow/debug-button-4.png "Suwak debugowania")
+![Zrzut ekranu przedstawiający miejsce suwaka Debugowanie 2](media/data-flow/debug-button-4.png)
 
 Po włączeniu suwaka zostanie wyświetlony monit o wybranie konfiguracji środowiska Integration Runtime, której chcesz użyć. Jeśli zostanie wybrana opcja AutoResolveIntegrationRuntime, zostanie automatycznie uruchomić klaster z ośmioma rdzeniami obliczeń ogólnych z domyślnym 60-minutowym czasem działania. Jeśli chcesz zezwolić na więcej bezczynnych reprezentacji zespołu przed przechyłem czasu sesji, możesz wybrać wyższe ustawienie czasu wygaśnięcia. Aby uzyskać więcej informacji na temat środowisk Data Flow Integration Runtime, zobacz [Wydajność przepływu danych](concepts-data-flow-performance.md#ir).
 
@@ -37,7 +37,7 @@ W większości przypadków dobrym rozwiązaniem jest skompilowanie przepływów 
 ![Wyświetlanie sesji debugowania przepływu danych](media/iterative-development-debugging/view-dataflow-debug-sessions.png)
 
 > [!NOTE]
-> Każda sesja debugowania, która rozpoczyna się od interfejsu użytkownika przeglądarki usługi ADF, jest nową sesją z własnym klastrem Spark. Widok monitorowania dla powyższych sesji debugowania umożliwia wyświetlanie sesji debugowania dla 1 fabryki i zarządzanie nimi. Opłaty są naliczane za każdą godzinę wykonywania każdej sesji debugowania, w tym za czas wygaśnięcia.
+> Każda sesja debugowania, która rozpoczyna się od interfejsu użytkownika przeglądarki usługi ADF, jest nową sesją z własnym klastrem Spark. Widok monitorowania dla powyższych sesji debugowania umożliwia wyświetlanie sesji debugowania i zarządzanie nimi w 1 fabryce. Opłaty są naliczane za każdą godzinę wykonywania każdej sesji debugowania, w tym za czas wygaśnięcia.
 
 ## <a name="cluster-status&quot;></a>Stan klastra
 
@@ -66,9 +66,9 @@ Po wł. debugowania na dolnym panelu zostanie wyzjemniana karta Podgląd danych.
 ![Podgląd danych](media/data-flow/datapreview.png "Podgląd danych")
 
 > [!NOTE]
-> Źródła plików ograniczają tylko wiersze, które widzisz, a nie odczytywane wiersze. W przypadku bardzo dużych zestawów danych zaleca się użycie niewielkiej części tego pliku do testowania. Możesz wybrać plik tymczasowy w ustawieniach debugowania dla każdego źródła, które jest typem zestawu danych pliku.
+> Źródła plików ograniczają tylko wiersze, które widzisz, a nie odczytywane wiersze. W przypadku bardzo dużych zestawów danych zaleca się użycie małej części tego pliku do testowania. Możesz wybrać plik tymczasowy w ustawieniach debugowania dla każdego źródła, które jest typem zestawu danych pliku.
 
-W trybie debugowania w Przepływ danych dane nie będą zapisywane do przekształcenia ujścia. Sesja debugowania ma służyć jako wykorzystanie testów do przekształceń. Ujścia nie są wymagane podczas debugowania i są ignorowane w przepływie danych. Jeśli chcesz przetestować zapisywanie danych w ujściu, wykonaj Przepływ danych z potoku Azure Data Factory i użyj wykonywania debugowania z potoku.
+W trybie debugowania w Przepływ danych dane nie będą zapisywane do przekształcenia ujścia. Sesja debugowania ma służyć jako wykorzystanie testów do przekształceń. Ujścia nie są wymagane podczas debugowania i są ignorowane w przepływie danych. Jeśli chcesz przetestować zapisywanie danych w ujściu, wykonaj polecenie Przepływ danych z potoku Azure Data Factory i użyj wykonywania debugowania z potoku.
 
 Wersja zapoznawcza danych to migawka przekształcone danych korzystająca z limitów wierszy i próbkowania danych z ramek danych w pamięci platformy Spark. W związku z tym sterowniki ujścia nie są używane ani testowane w tym scenariuszu.
 

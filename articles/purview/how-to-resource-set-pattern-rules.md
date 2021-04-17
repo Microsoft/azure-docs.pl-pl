@@ -7,18 +7,18 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 04/15/2021
-ms.openlocfilehash: b9d6ca88d5e9d49d3973193059197a1aa171e3e8
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 61de2cf2e3ad9175d97378234d62f72ab3517b51
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107568710"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587837"
 ---
 # <a name="create-resource-set-pattern-rules"></a>Tworzenie reguł wzorca zestawu zasobów
 
 Systemy przetwarzania danych na dużą skalę zwykle przechowują pojedynczą tabelę na dysku jako wiele plików. Ta koncepcja jest reprezentowana w usłudze Azure Purview przy użyciu zestawów zasobów. Zestaw zasobów to pojedynczy obiekt w wykazie danych, który reprezentuje dużą liczbę zasobów w magazynie. Aby dowiedzieć się więcej, zobacz [Understanding resource sets (Opis zestawów zasobów).](concept-resource-sets.md)
 
-Podczas skanowania konta magazynu usługa Azure Purview używa zestawu zdefiniowanych wzorców w celu określenia, czy grupa zasobów jest zestawem zasobów. W niektórych przypadkach grupowanie zestawu zasobów usługi Azure Purview może nie odzwierciedlać dokładnie twoich danych. Reguły wzorca zestawu zasobów umożliwiają dostosowywanie lub zastępowanie sposobu, w jaki usługa Azure Purview wykrywa, które zasoby są grupowane jako zestawy zasobów i jak są wyświetlane w wykazie.
+Podczas skanowania konta magazynu usługa Azure Purview używa zestawu zdefiniowanych wzorców do określenia, czy grupa zasobów jest zestawem zasobów. W niektórych przypadkach grupowanie zestawu zasobów usługi Azure Purview może nie odzwierciedlać dokładnie twojego majątku danych. Reguły wzorca zestawu zasobów umożliwiają dostosowywanie lub zastępowanie sposobu, w jaki usługa Azure Purview wykrywa, które zasoby są grupowane jako zestawy zasobów i jak są wyświetlane w wykazie.
 
 Reguły wzorca są obecnie obsługiwane w następujących typach źródeł:
 - Usługa Azure Data Lake Storage 2. generacji
@@ -30,7 +30,7 @@ Reguły wzorca są obecnie obsługiwane w następujących typach źródeł:
 
 Wykonaj poniższe kroki, aby utworzyć nową regułę wzorca zestawu zasobów:
 
-1. Przejdź do centrum zarządzania. Wybierz **pozycję Reguły wzorca** z menu w obszarze nagłówka Zestawy zasobów. Wybierz **pozycję + Nowy,** aby utworzyć nowy zestaw reguł.
+1. Przejdź do centrum zarządzania. Wybierz **pozycję Reguły wzorców** z menu pod nagłówkiem Zestawy zasobów. Wybierz **pozycję + Nowy,** aby utworzyć nowy zestaw reguł.
 
    :::image type="content" source="media/how-to-resource-set-pattern-rules/create-new-scoped-resource-set-rule.png" alt-text="Tworzenie nowej reguły wzorca zestawu zasobów" border="true":::
 
@@ -38,7 +38,7 @@ Wykonaj poniższe kroki, aby utworzyć nową regułę wzorca zestawu zasobów:
 
    :::image type="content" source="media/how-to-resource-set-pattern-rules/create-new-scoped-resource-set-scope.png" alt-text="Tworzenie konfiguracji reguł wzorca zestawu zasobów" border="true":::
 
-1. Aby wprowadzić regułę dla zakresu konfiguracji, wybierz **pozycję + Nowa reguła.**
+1. Aby wprowadzić regułę dla zakresu konfiguracji, wybierz **pozycję + Nowa reguła**.
 
 1. Wprowadź w następujących polach, aby utworzyć regułę:
 
@@ -46,21 +46,24 @@ Wykonaj poniższe kroki, aby utworzyć nową regułę wzorca zestawu zasobów:
 
    1. **Kwalifikowana nazwa:** Kwalifikowana ścieżka, która używa kombinacji tekstu, dynamicznych zastępować i statycznych elementów zamienianych w celu dopasowania zasobów do reguły konfiguracji. Ta ścieżka jest względna względem zakresu reguły konfiguracji. Zobacz [sekcję składni](#syntax) poniżej, aby uzyskać szczegółowe instrukcje dotyczące sposobu określania kwalifikowanych nazw.
 
-   1. **Nazwa wyświetlana:** Nazwa wyświetlana zasobu. To pole jest opcjonalne. Użyj zwykłego tekstu i statycznych elementów zamienianych, aby dostosować sposób wyświetlania zasobu w katalogu. Aby uzyskać bardziej szczegółowe instrukcje, zobacz [sekcję składni](#syntax) poniżej.
+   1. **Nazwa wyświetlana:** Nazwa wyświetlana zasobu. To pole jest opcjonalne. Użyj zwykłego tekstu i statycznych elementów zamienianych, aby dostosować sposób wyświetlania elementów zawartości w katalogu. Aby uzyskać bardziej szczegółowe instrukcje, zobacz [sekcję składni](#syntax) poniżej.
 
-   1. **Nie grupuj jako zestawu zasobów:** Jeśli ta opcja jest włączona, dopasowane zasoby nie będą grupowane w zestaw zasobów.
+   1. **Nie grupuj jako zestawu zasobów:** Jeśli to ustawienie jest włączone, dopasowane zasoby nie będą grupowane w zestaw zasobów.
 
       :::image type="content" source="media/how-to-resource-set-pattern-rules/scoped-resource-set-rule-example.png" alt-text="Utwórz nową regułę konfiguracji." border="true":::
 
 1. Zapisz regułę, klikając pozycję **Dodaj**.
 
+> [!NOTE]
+> Po utworzeniu reguły wzorca wszystkie nowe skanowania będą stosować regułę podczas pozyskiwania. Istniejące zasoby w wykazie danych zostaną zaktualizowane za pośrednictwem procesu w tle, który może potrwać do kilku godzin. 
+
 ## <a name="pattern-rule-syntax"></a><a name="syntax"></a> Składnia reguły wzorca
 
 Podczas tworzenia reguł wzorca zestawu zasobów użyj następującej składni, aby określić, do których reguł zasobów mają zastosowanie.
 
-### <a name="dynamic-replacers-single-brackets"></a>Dynamiczne zamieniacze (pojedyncze nawiasy)
+### <a name="dynamic-replacers-single-brackets"></a>Dynamiczne zamieniacze (nawiasy pojedyncze)
 
-Pojedyncze nawiasy są używane jako **dynamiczne zamieniacze** w zasadach wzorca. Określ dynamiczny zamieniacz w kwalifikowanej nazwie przy użyciu formatu `{<replacerName:<replacerType>}` . W przypadku dopasowania dynamiczne zamieniacze są używane jako warunek grupowania, który wskazuje, że zasoby powinny być reprezentowane jako zestaw zasobów. Jeśli zasoby są pogrupowane w zestaw zasobów, kwalifikowana ścieżka zestawu zasobów będzie zawierać miejsce, w którym `{replacerName}` określono zastąpienie.
+Pojedyncze nawiasy są używane jako **dynamiczne zamieniacze** w zasadach wzorca. Określ dynamiczny zamieniacz w kwalifikowanej nazwie przy użyciu formatu `{<replacerName:<replacerType>}` . W przypadku dopasowania dynamiczne zamieniające są używane jako warunek grupowania, który wskazuje, że zasoby powinny być reprezentowane jako zestaw zasobów. Jeśli zasoby są pogrupowane w zestaw zasobów, kwalifikowana ścieżka zestawu zasobów będzie zawierać miejsce, w którym `{replacerName}` określono zastąpienie.
 
 Jeśli na przykład dwa zasoby zostaną dopasowane do reguły , zestaw zasobów `folder1/file-1.csv` `folder2/file-2.csv` będzie `{folder:string}/file-{NUM:int}.csv` pojedynczą jednostką `{folder}/file-{NUM}.csv` .
 
@@ -74,7 +77,7 @@ Podwójne nawiasy są używane jako **statyczne elementy zamieniane** w kwalifik
 
 Jeśli na przykład dwa zasoby zostaną dopasowane do reguły , zostaną utworzone `folder1/file-1.csv` `folder2/file-2.csv` dwa `{{folder:string}}/file-{NUM:int}.csv` zestawy zasobów i `folder1/file-{NUM}.csv` `folder2/file-{NUM}.csv` .
 
-Za pomocą statycznych zastępować można określić nazwę wyświetlaną zasobu pasującego do reguły wzorca. Użycie `{{<replacerName>}}` w nazwie wyświetlanej reguły spowoduje użycie dopasowanej wartości w nazwie zasobu.
+Statyczne elementy zamieniane mogą służyć do określania nazwy wyświetlanej zasobu pasującego do reguły wzorca. Użycie `{{<replacerName>}}` w nazwie wyświetlanej reguły spowoduje użycie dopasowanej wartości w nazwie zasobu.
 
 ### <a name="available-replacement-types"></a>Dostępne typy zastępcze
 
@@ -85,11 +88,11 @@ Poniżej przedstawiono dostępne typy, które mogą być używane w statycznych 
 | ciąg | Seria 1 lub więcej znaków Unicode, w tym ograniczniki, takie jak spacje. |
 | int | Seria 1 lub więcej od 0 do 9 znaków ASCII, może mieć prefiks 0 (np. 0001). |
 | guid | Seria 32 lub 8-4-4-4-12 reprezentacja ciągu UUID zgodnie z definicjądefa w [dokumencie RFC 4122.](https://tools.ietf.org/html/rfc4122) |
-| data | Seria 6 lub 8 0–9 znaków ASCII z opcjonalnie separatorami: rrrrmdd, rrrr-mm-dd, rrmmdd, rrrr-mm-dd, określona w [dokumencie RFC 3339](https://tools.ietf.org/html/rfc3339). |
-| time | Seria 4 lub 6 0–9 znaków ASCII z opcjonalnie separatorami: HHmm, HH:mm, HHmmss, HH:mm:ss określona w [dokumencie RFC 3339.](https://tools.ietf.org/html/rfc3339) |
-| sygnatura czasowa | Seria 12 lub 14 0–9 znaków ASCII z opcjonalnymi separatorami: rrrr-mm-ddTHH:mm, rrrrmmddhhmm, rrrr-mm-ddTHH:mm:ss, rrrrmmddHHmmss określona w [dokumencie RFC 3339.](https://tools.ietf.org/html/rfc3339) |
+| data | Seria 6 lub 8 0–9 znaków ASCII z opcjonalnie separatorami: rrrrmmdd, rrrr-mm-dd, rrmmdd, rrrr-mm-dd, określona w [dokumencie RFC 3339.](https://tools.ietf.org/html/rfc3339) |
+| time | Seria 4 lub 6 0–9 znaków ASCII z opcjonalnie separatorami: HHmm, HH:mm, HHmmss, HH:mm:ss określona w dokumencie [RFC 3339.](https://tools.ietf.org/html/rfc3339) |
+| sygnatura czasowa | Seria 12 lub 14 0-9 znaków ASCII z opcjonalnymi separatorami: rrrr-mm-ddTHH:mm, rrrrmmddhhmm, rrrr-mm-ddTHH:mm:ss, rrrrmmddHHmmss określona w [dokumencie RFC 3339.](https://tools.ietf.org/html/rfc3339) |
 | boolean | Może zawierać wartość "true" lub "false", bez uwzględniania liter. |
-| liczba | Seria 0 lub więcej od 0 do 9 znaków ASCII, może mieć prefiks 0 (np. 0001), po którym opcjonalnie może być kropka "." i seria 1 lub więcej 0–9 znaków ASCII, może być 0 przyrostków (np. .100) |
+| liczba | Seria z 0 lub więcej 0–9 znakami ASCII, może mieć prefiks 0 (np. 0001), po którym opcjonalnie następuje kropka "." i seria 1 lub więcej 0–9 znaków ASCII, może być 0 przyrostków (np. .100) |
 | hex | Seria 1 lub więcej znaków ASCII z zestawu 0–1 i A–F, wartość może mieć prefiks 0 |
 | locale | Ciąg, który odpowiada składni określonej w [dokumencie RFC 5646.](https://tools.ietf.org/html/rfc5646) |
 
@@ -168,7 +171,7 @@ Reguła 2
 
 **Kwalifikowana nazwa:**`raw/machinename-90/{date:date}/{time:time}-{id:int}.avro`
 
-#### <a name="resource-set-true"></a>*Zestaw zasobów: true*
+**Zestaw zasobów:** true
 
 #### <a name="outputs"></a>Dane wyjściowe
 
@@ -203,7 +206,7 @@ Pliki:
 
 **Zakres:**`https://myazureblob.blob.core.windows.net/bar/`
 
-**Nazwa wyświetlana:** "Machine-{{machineid}}"
+**Nazwa wyświetlana:** 'Machine-{{machineid}}'
 
 **Kwalifikowana nazwa:**`raw/machinename-{{machineid:int}}/{date:date}/{time:time}-{id:int}.avro`
 
@@ -276,4 +279,4 @@ Zasób 4
 
 ## <a name="next-steps"></a>Następne kroki
 
-Rozpoczynanie pracy [od zarejestrowania i zeskanowania konta magazynu usługi Azure Data Lake Gen2.](register-scan-adls-gen2.md)
+Rozpoczynanie pracy od [zarejestrowania i zeskanowania konta magazynu usługi Azure Data Lake Gen2.](register-scan-adls-gen2.md)

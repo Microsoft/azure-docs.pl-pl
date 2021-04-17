@@ -1,6 +1,6 @@
 ---
-title: Jak dodać domenę niestandardową do konfiguracji jednostki SKU usługi Azure Front-Standard/Premium
-description: W ramach tego samouczka nauczysz się, jak dołączyć domenę niestandardową do platformy Azure (wersja standardowa/Premium) dla warstwy przedniej.
+title: Jak dodać domenę niestandardową do konfiguracji Azure Front Door Standardowa/Premium
+description: Z tego samouczka dowiesz się, jak do dołączać domenę niestandardową do Azure Front Door standardowa/Premium.
 services: frontdoor
 documentationcenter: ''
 author: duongau
@@ -9,101 +9,101 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: amsriva
-ms.openlocfilehash: 36cb5720e409c86fcb4bc1a97863e5d3523cd3bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 69e216c8893f9361a18354e5d165ecc0499601aa
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104588753"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387925"
 ---
-# <a name="create-a-custom-domain-on-azure-front-door-standardpremium-sku-preview-using-the-azure-portal"></a>Utwórz domenę niestandardową w wersji Standard/Premium drzwi platformy Azure (wersja zapoznawcza) przy użyciu Azure Portal
+# <a name="create-a-custom-domain-on-azure-front-door-standardpremium-sku-preview-using-the-azure-portal"></a>Tworzenie domeny niestandardowej w Azure Front Door standardowa/Premium (wersja zapoznawcza) przy użyciu Azure Portal
 
 > [!Note]
-> Ta dokumentacja dotyczy platformy Azure — Standard/Premium (wersja zapoznawcza). Szukasz informacji na temat zewnętrznych drzwi platformy Azure? [Tutaj](../front-door-overview.md)Wyświetl.
+> Ta dokumentacja dotyczy wersji Azure Front Door Standardowa/Premium (wersja zapoznawcza). Szukasz informacji na temat Azure Front Door? Wyświetl [tutaj](../front-door-overview.md).
 
-W przypadku dostarczania aplikacji przy użyciu usługi Azure Front-Standard/Premium domena niestandardowa jest wymagana, jeśli chcesz, aby Twoja nazwa domeny była widoczna w żądaniach użytkowników końcowych. Widoczna nazwa domeny może być wygodna dla klientów i przydatna dla celów związanych ze znakowaniem.
+Jeśli używasz usługi Azure Front Door Standard/Premium do dostarczania aplikacji, domena niestandardowa jest niezbędna, jeśli chcesz, aby twoja nazwa domeny była widoczna w żądaniach użytkowników końcowych. Widoczna nazwa domeny może być wygodna dla klientów i przydatna dla celów związanych ze znakowaniem.
 
-Po utworzeniu profilu warstwy Standardowa/Premium platformy Azure domyślny Host frontonu będzie miał poddomenę azurefd.net. Ta poddomena zostanie uwzględniona w adresie URL, gdy usługa Azure Front-Standard/Premium udostępnia zawartość z zaplecza domyślnie. Na przykład `https://contoso-frontend.azurefd.net/activeusers.htm`. Dla Twojej wygody usługa Azure Front Door udostępnia opcję kojarzenia domeny niestandardowej z hostem domyślnym. W przypadku tej opcji dostarczasz zawartość z domeną niestandardową w adresie URL zamiast nazwy domeny w warstwie Standardowa/Premium platformy Azure. Na przykład https://www.contoso.com/photo.png.
+Po utworzeniu profilu Azure Front Door Standardowa/Premium domyślny host frontendu będzie miał poddomenę azurefd.net. Ta poddomena jest uwzględniana w adresie URL, gdy Azure Front Door Standardowa/Premium domyślnie dostarcza zawartość z zaplecza. Na przykład `https://contoso-frontend.azurefd.net/activeusers.htm`. Dla Twojej wygody usługa Azure Front Door udostępnia opcję kojarzenia domeny niestandardowej z hostem domyślnym. W przypadku tej opcji zawartość jest dostarczana w adresie URL przy użyciu domeny niestandardowej zamiast nazwy domeny należącej Azure Front Door Standardowa/Premium. Na przykład " https://www.contoso.com/photo.png ".
 
 > [!IMPORTANT]
-> Platforma Azure Front-Standard/Premium (wersja zapoznawcza) jest obecnie dostępna w publicznej wersji zapoznawczej.
+> Azure Front Door Standardowa/Premium (wersja zapoznawcza) jest obecnie w publicznej wersji zapoznawczej.
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
-> Aby uzyskać więcej informacji, zobacz [**dodatkowe warunki użytkowania wersji**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
+> Aby uzyskać więcej informacji, zobacz Dodatkowe warunki użytkowania dotyczące wersji [**Microsoft Azure zapoznawczych.**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* Przed wykonaniem kroków opisanych w tym samouczku należy utworzyć usługę Front Door. Aby uzyskać więcej informacji, zobacz [Szybki Start: Tworzenie warstwy przedniej Standard/Premium](create-front-door-portal.md).
+* Przed wykonaniem kroków opisanych w tym samouczku należy utworzyć usługę Front Door. Aby uzyskać więcej informacji, zobacz [Szybki start: tworzenie Front Door Standardowa/Premium.](create-front-door-portal.md)
 
-* Jeśli nie masz jeszcze domeny niestandardowej, musisz najpierw zakupić ją u dostawcy domeny. Zobacz na przykład temat [Buy a custom domain name (Kupowanie nazwy domeny niestandardowej)](../../app-service/manage-custom-dns-buy-domain.md).
+* Jeśli nie masz jeszcze domeny niestandardowej, musisz najpierw kupić domenę u dostawcy domeny. Zobacz na przykład temat [Buy a custom domain name (Kupowanie nazwy domeny niestandardowej)](../../app-service/manage-custom-dns-buy-domain.md).
 
-* Jeśli używasz platformy Azure do hostowania [domen DNS](../../dns/dns-overview.md), musisz delegować system nazw domen (DNS) dostawcy domeny do Azure DNS. Aby uzyskać więcej informacji, zobacz [delegowanie domeny do Azure DNS](../../dns/dns-delegate-domain-azure-dns.md). W przeciwnym razie, jeśli używasz dostawcy domeny do obsługi domeny DNS, musisz ręcznie zweryfikować domenę, wprowadzając monity o rekordy TXT DNS.
+* Jeśli używasz platformy Azure do hostowania domen [DNS,](../../dns/dns-overview.md)musisz delegować system nazw domen (DNS) dostawcy domeny do Azure DNS. Aby uzyskać więcej informacji, [zobacz Delegowanie domeny do Azure DNS](../../dns/dns-delegate-domain-azure-dns.md). W przeciwnym razie, jeśli używasz dostawcy domeny do obsługi domeny DNS, musisz ręcznie zweryfikować domenę, wprowadzając rekordy TXT systemu DNS z monitem.
 
-## <a name="add-a-new-custom-domain"></a>Dodaj nową domenę niestandardową
+## <a name="add-a-new-custom-domain"></a>Dodawanie nowej domeny niestandardowej
 
 > [!NOTE]
-> W publicznej wersji zapoznawczej używanie Azure DNS do tworzenia domen Apex nie jest obsługiwane w standardowym lub Premium platformy Azure. Istnieją inni dostawcy DNS, którzy obsługują spłaszczanie CNAME lub kartach DNS, które umożliwiają korzystanie z domen WIERZCHOŁKów na platformie Azure — warstwa standardowa/Premium.
+> W publicznej wersji zapoznawczej używanie Azure DNS do tworzenia domen Apex nie jest obsługiwane w Azure Front Door Standardowa/Premium. Istnieją inni dostawcy DNS, którzy obsługują spłaszczanie rekordu CNAME lub pogawędki DNS, które umożliwią domenom APEX Azure Front Door Standard/Premium.
 
-Domena niestandardowa jest zarządzana przez sekcje w portalu. Domenę niestandardową można utworzyć i zweryfikować przed skojarzeniem z punktem końcowym. Domena niestandardowa i jej domeny podrzędne można skojarzyć tylko z jednym punktem końcowym w danym momencie. Można jednak używać różnych poddomen z tej samej domeny niestandardowej dla różnych drzwi zewnętrznych. Możesz również mapować domeny niestandardowe z różnymi domenami poddomeny do tego samego punktu końcowego czołowego drzwi.
+Domena niestandardowa jest zarządzana przez sekcję Domeny w portalu. Domenę niestandardową można utworzyć i zweryfikować przed skojarzeniem z punktem końcowym. Domenę niestandardową i jej poddomeny można skojarzyć jednocześnie tylko z jednym punktem końcowym. Można jednak używać różnych domen podrzędnych z tej samej domeny niestandardowej dla różnych usługi Front Doors. Można również mapować domeny niestandardowe z różnymi poddomenami na ten sam Front Door punkt końcowy.
 
-1. W obszarze Ustawienia profilu usługi Azure front-drzwi wybierz pozycję *domeny*  , a następnie przycisk **Dodaj domenę** .
+1. W obszarze Ustawienia Azure Front Door wybierz pozycję *Domeny,* a następnie przycisk **Dodaj domenę.**
 
     :::image type="content" source="../media/how-to-add-custom-domain/add-domain-button.png" alt-text="Zrzut ekranu przedstawiający przycisk Dodaj domenę na stronie docelowej domeny.":::
 
-1. Zostanie wyświetlona strona **Dodawanie domeny** , na której można wprowadzać informacje o domenie niestandardowej. Można wybrać usługę DNS zarządzaną przez platformę Azure, która jest zalecana lub można użyć własnego dostawcy DNS. W przypadku wybrania usługi DNS zarządzanej przez platformę Azure wybierz istniejącą strefę DNS, a następnie wybierz niestandardową poddomenę lub Utwórz nową. Jeśli używasz innego dostawcy DNS, ręcznie wprowadź niestandardową nazwę domeny. Wybierz pozycję **Dodaj** , aby dodać domenę niestandardową.
+1. Zostanie **wyświetlone strona Dodawanie** domeny, na której można wprowadzić informacje o domenie niestandardowej. Możesz wybrać usługę DNS zarządzaną przez platformę Azure, co jest zalecane, lub użyć własnego dostawcy DNS. Jeśli wybierzesz usługę DNS zarządzaną przez platformę Azure, wybierz istniejącą strefę DNS, a następnie wybierz niestandardową poddomenę lub utwórz nową. Jeśli używasz innego dostawcy DNS, ręcznie wprowadź niestandardową nazwę domeny. Wybierz **pozycję Dodaj,** aby dodać domenę niestandardową.
 
-    :::image type="content" source="../media/how-to-add-custom-domain/add-domain-page.png" alt-text="Zrzut ekranu przedstawiający stronę Dodawanie domeny.":::
+    :::image type="content" source="../media/how-to-add-custom-domain/add-domain-page.png" alt-text="Zrzut ekranu przedstawiający stronę dodawania domeny.":::
 
-    Zostanie utworzona nowa domena niestandardowa ze stanem weryfikacji **przesyłania**.
+    Zostanie utworzona nowa domena niestandardowa ze stanem weryfikacji **Przesyłanie**.
 
-    :::image type="content" source="../media/how-to-add-custom-domain/validation-state-submitting.png" alt-text="Zrzut ekranu przedstawiający stan weryfikacji domeny.":::
+    :::image type="content" source="../media/how-to-add-custom-domain/validation-state-submitting.png" alt-text="Zrzut ekranu przedstawiający przesyłanie stanu weryfikacji domeny.":::
 
-    Poczekaj, aż stan walidacji zmieni się na **oczekujące**. Ta operacja może potrwać kilka minut.
+    Poczekaj, aż stan weryfikacji zmieni się na **Oczekujące.** Ta operacja może potrwać kilka minut.
 
-    :::image type="content" source="../media/how-to-add-custom-domain/validation-state-pending.png" alt-text="Zrzut ekranu stanu sprawdzania poprawności domeny.":::
+    :::image type="content" source="../media/how-to-add-custom-domain/validation-state-pending.png" alt-text="Zrzut ekranu przedstawiający oczekujący stan weryfikacji domeny.":::
 
-1. Wybierz stan **oczekiwania na** weryfikację. Zostanie wyświetlona nowa strona z informacjami o rekordzie DNS TXT, które są konieczne do zweryfikowania domeny niestandardowej. Rekord TXT ma postać `_dnsauth.<your_subdomain>` . Jeśli używasz strefy opartej na Azure DNS, wybierz przycisk **Dodaj** , a w strefie Azure DNS zostanie utworzony nowy rekord TXT z wyświetlaną wartością rekordu. Jeśli używasz innego dostawcy DNS, ręcznie Utwórz nowy rekord TXT o nazwie `dnsauth.<your_subdomain>` z wartością rekordu, jak pokazano na stronie.
+1. Wybierz stan **Oczekiwanie** na walidację. Zostanie pojawi się nowa strona z informacjami o rekordzie TXT systemu DNS wymaganymi do zweryfikowania domeny niestandardowej. Rekord TXT ma postać `_dnsauth.<your_subdomain>` . Jeśli używasz strefy Azure DNS, wybierz przycisk Dodaj, a nowy rekord TXT z wyświetloną wartością rekordu zostanie utworzony w Azure DNS strefie.  Jeśli używasz innego dostawcy DNS, ręcznie utwórz nowy rekord TXT nazwy z wartością rekordu, jak `dnsauth.<your_subdomain>` pokazano na stronie.
 
-    :::image type="content" source="../media/how-to-add-custom-domain/validate-custom-domain.png" alt-text="Zrzut ekranu przedstawiający stronę Weryfikowanie domeny niestandardowej.":::
+    :::image type="content" source="../media/how-to-add-custom-domain/validate-custom-domain.png" alt-text="Zrzut ekranu przedstawiający stronę weryfikowania domeny niestandardowej.":::
 
-1. Wybierz stan odświeżania. Po sprawdzeniu poprawności domeny przy użyciu rekordu TXT DNS stan sprawdzania poprawności zmieni się na **zweryfikowane**. Sprawdzenie poprawności tej operacji może potrwać kilka minut.
+1. Wybierz stan odświeżania. Po zweryfikowaniu domeny przy użyciu rekordu TXT systemu DNS stan weryfikacji zmieni się na **zweryfikowany**. Walidacja tej operacji może potrwać kilka minut.
 
-    :::image type="content" source="../media/how-to-add-custom-domain/domain-status-verified.png" alt-text="Zrzut ekranu z zweryfikowaną domeną niestandardową.":::
+    :::image type="content" source="../media/how-to-add-custom-domain/domain-status-verified.png" alt-text="Zrzut ekranu przedstawiający weryfikację domeny niestandardowej.":::
 
-1. Zamknij stronę, aby powrócić do strony docelowej listy domen niestandardowych. Stan aprowizacji domeny niestandardowej powinien zmienić się na **zainicjowany** i stan walidacji powinien zmienić się na **zatwierdzony**.
+1. Zamknij stronę, aby wrócić do strony docelowej listy domen niestandardowych. Stan aprowizowania domeny niestandardowej powinien zmienić się na **Aprowizowana,** a stan walidacji na **Zatwierdzone.**
 
-    :::image type="content" source="../media/how-to-add-custom-domain/provisioned-approved-status.png" alt-text="Zrzut ekranu przedstawiający stan aprowizacji i zatwierdzenia.":::
+    :::image type="content" source="../media/how-to-add-custom-domain/provisioned-approved-status.png" alt-text="Zrzut ekranu przedstawiający stan aprowizowanych i zatwierdzonych.":::
 
-## <a name="associate-the-custom-domain-with-your-front-door-endpoint"></a>Kojarzenie domeny niestandardowej z punktem końcowym przednim Drzwiem
+## <a name="associate-the-custom-domain-with-your-front-door-endpoint"></a>Kojarzenie domeny niestandardowej z punktem Front Door końcowego
 
-Po sprawdzeniu poprawności domeny niestandardowej możesz dodać ją do punktu końcowego Standard/Premium drzwi platformy Azure.
+Po weryfikacji domeny niestandardowej możesz dodać ją do punktu końcowego Azure Front Door Standardowa/Premium.
 
-1. Po sprawdzeniu poprawności domeny niestandardowej możesz skojarzyć ją z istniejącym punktem końcowym Standard/Premium platformy Azure w warstwie Standardowa. Wybierz link **skojarzenia punktu końcowego** , aby otworzyć stronę **Skojarz punkt końcowy i trasy** . Wybierz punkt końcowy i trasy, z którymi chcesz skojarzyć. Następnie wybierz pozycję **Skojarz**. Zamknij stronę po zakończeniu operacji kojarzenia.
+1. Po weryfikacji domeny niestandardowej możesz skojarzyć ją z istniejącym punktem końcowym Azure Front Door Standard/Premium i trasą. Wybierz link **Skojarzenie punktu** końcowego, aby otworzyć stronę **Kojarzenie punktu końcowego i tras.** Wybierz punkt końcowy i trasy, z którym chcesz skojarzyć. Następnie wybierz pozycję **Skojarz**. Zamknij stronę po zakończeniu operacji kojarzenia.
 
-    :::image type="content" source="../media/how-to-add-custom-domain/associate-endpoint-routes.png" alt-text="Zrzut ekranu przedstawiający stronę kojarzenie punktów końcowych i tras.":::
+    :::image type="content" source="../media/how-to-add-custom-domain/associate-endpoint-routes.png" alt-text="Zrzut ekranu przedstawiający stronę kojarzenia punktu końcowego i tras.":::
 
-    Stan skojarzenia punktu końcowego powinien zmienić się, aby odzwierciedlić punkt końcowy, do którego jest obecnie skojarzona domena niestandardowa. 
+    Stan skojarzenia punktu końcowego powinien ulec zmianie w celu odzwierciedlenia punktu końcowego, z którym domena niestandardowa jest obecnie skojarzona. 
 
-    :::image type="content" source="../media/how-to-add-custom-domain/endpoint-association-status.png" alt-text="Zrzut ekranu linku skojarzenia punktu końcowego.":::
+    :::image type="content" source="../media/how-to-add-custom-domain/endpoint-association-status.png" alt-text="Zrzut ekranu przedstawiający link skojarzenia punktu końcowego.":::
 
-1. Wybierz łącze stanu DNS.
+1. Wybierz link Stan DNS.
 
     :::image type="content" source="../media/how-to-add-custom-domain/dns-state-link.png" alt-text="Zrzut ekranu przedstawiający link stanu DNS.":::
 
-1. Zostanie wyświetlona strona **Dodawanie lub aktualizacja rekordu CNAME** i zostanie wyświetlona informacja o rekordzie CNAME, które należy podać przed rozpoczęciem przepływu ruchu. Jeśli używasz Azure DNS strefach hostowanych, rekordy CNAME można utworzyć, wybierając przycisk **Dodaj** na stronie. Jeśli używasz innego dostawcy DNS, musisz ręcznie wprowadzić nazwę i wartość rekordu CNAME, jak pokazano na stronie.
+1. Zostanie **wyświetlone strona Dodawanie lub aktualizowanie rekordu CNAME** z informacjami o rekordzie CNAME, które należy podać, zanim ruch zacznie przepływać. Jeśli używasz stref Azure DNS hostowanych, rekordy CNAME można utworzyć, wybierając przycisk **Dodaj** na stronie. Jeśli używasz innego dostawcy DNS, musisz ręcznie wprowadzić nazwę i wartość rekordu CNAME, jak pokazano na stronie.
 
-    :::image type="content" source="../media/how-to-add-custom-domain/add-update-cname-record.png" alt-text="Zrzut ekranu przedstawiający Dodawanie lub aktualizowanie rekordu CNAME.":::
+    :::image type="content" source="../media/how-to-add-custom-domain/add-update-cname-record.png" alt-text="Zrzut ekranu przedstawiający dodawanie lub aktualizowanie rekordu CNAME.":::
 
-1. Gdy rekord CNAME zostanie utworzony i zostanie skojarzona domena niestandardowa z zakończeniem punktu końcowego drzwi platformy Azure, przepływ ruchu zacznie przepływać.
+1. Gdy rekord CNAME zostanie utworzony i domena niestandardowa zostanie skojarzona z punktem końcowym Azure Front Door, rozpocznie się przepływ ruchu.
 
     > [!NOTE]
-    > Jeśli protokół HTTPS jest włączony, Inicjowanie obsługi certyfikatów i Propagacja może potrwać kilka minut, ponieważ Propagacja jest wykonywana we wszystkich lokalizacjach brzegowych. 
+    > Jeśli protokół HTTPS jest włączony, aprowizowanie i propagacja certyfikatu może potrwać kilka minut, ponieważ propagacja jest wykonywana we wszystkich lokalizacjach brzegowych. 
 
 ## <a name="verify-the-custom-domain"></a>Weryfikowanie domeny niestandardowej
 
-Po sprawdzeniu poprawności i potwierdzeniu domeny niestandardowej upewnij się, że domena niestandardowa jest prawidłowo odwołująca się do punktu końcowego.
+Po zweryfikowaniu i skojarzeniu domeny niestandardowej sprawdź, czy domena niestandardowa jest poprawnie przywołyowana do punktu końcowego.
 
-:::image type="content" source="../media/how-to-add-custom-domain/verify-configuration.png" alt-text="Zrzut ekranu przedstawiający zweryfikowaną i powiązaną domenę niestandardową.":::
+:::image type="content" source="../media/how-to-add-custom-domain/verify-configuration.png" alt-text="Zrzut ekranu przedstawiający zweryfikowaną i skojarzoną domenę niestandardową.":::
 
-Następnie sprawdź, czy zawartość aplikacji jest obsługiwana przy użyciu przeglądarki.
+Następnie zweryfikuj, czy zawartość aplikacji jest podana przy użyciu przeglądarki.
 
 ## <a name="next-steps"></a>Następne kroki
 

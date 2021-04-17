@@ -1,43 +1,46 @@
 ---
-title: 'Szybki Start: Tworzenie potoku ciągłej integracji/ciągłego wdrażania dla języka Python przy użyciu usługi Azure DevOps Starter'
-description: DevOps Starter ułatwia rozpoczęcie pracy z platformą Azure. Umożliwia uruchomienie aplikacji w wybranej usłudze platformy Azure w kilku prostych krokach.
-ms.prod: devops
-ms.technology: devops-cicd
+title: 'Szybki start: tworzenie potoku ci/CD dla języka Python przy użyciu Azure DevOps Starter'
+description: Usługa DevOps Starter ułatwia rozpoczynanie pracy z platformą Azure. Umożliwia uruchomienie aplikacji w wybranej usłudze platformy Azure w kilku prostych krokach.
 services: vsts
 documentationcenter: vs-devops-build
 author: mlearned
+ms.author: mlearned
 manager: gwallace
+ms.date: 03/24/2020
+ms.prod: devops
+ms.technology: devops-cicd
+ms.topic: quickstart
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.topic: quickstart
-ms.date: 03/24/2020
-ms.author: mlearned
-ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 99ca60f2610d34d194c50e92501c0126a7c80323
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- mvc
+- devx-track-python
+- mode-api
+ms.openlocfilehash: d236eadd4c1c3bbda5a781d00de43e4ed3dc88b9
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102566553"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533264"
 ---
-# <a name="create-a-cicd-pipeline-for-python-with-azure-devops-starter"></a>Tworzenie potoku ciągłej integracji/ciągłego wdrażania dla języka Python przy użyciu usługi Azure DevOps Starter
+# <a name="create-a-cicd-pipeline-for-python-with-azure-devops-starter"></a>Tworzenie potoku cicha/cd dla języka Python przy użyciu Azure DevOps Starter
 
-W tym przewodniku szybki start użyjesz uproszczonego środowiska Azure DevOps Starter, aby skonfigurować potok ciągłej integracji (CI) i ciągłe dostarczanie dla aplikacji w języku Python w Azure Pipelines. Możesz użyć platformy Azure DevOps Starter, aby skonfigurować wszystko, czego potrzebujesz do tworzenia, wdrażania i monitorowania aplikacji. 
+W tym przewodniku Szybki start użyjemy uproszczonego środowiska Azure DevOps Starter do skonfigurowania potoku ciągłej integracji/ciągłego dostarczania dla aplikacji w języku Python w Azure Pipelines. Możesz użyć aplikacji Azure DevOps Starter, aby skonfigurować wszystko, czego potrzebujesz do tworzenia, wdrażania i monitorowania aplikacji. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
-- Konto i organizacja [usługi Azure DevOps](https://azure.microsoft.com/services/devops/) .
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
+- Konto [Azure DevOps](https://azure.microsoft.com/services/devops/) organizacji.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-DevOps Starter tworzy potok ciągłej integracji/ciągłego wdrażania w Azure Pipelines. Możesz utworzyć nową organizację usługi Azure DevOps lub użyć istniejącej organizacji. DevOps Starter tworzy również zasoby platformy Azure w wybranej subskrypcji platformy Azure.
+DevOps Starter tworzy potok ci/CD w Azure Pipelines. Możesz utworzyć nową organizację usługi Azure DevOps lub użyć istniejącej organizacji. Usługa DevOps Starter tworzy również zasoby platformy Azure w wybranej subskrypcji platformy Azure.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 
-1. W polu wyszukiwania wpisz **DevOps Starter**, a następnie wybierz opcję. Kliknij przycisk **Dodaj** , aby utworzyć nowy.
+1. W polu wyszukiwania wpisz **DevOps Starter**, a następnie wybierz pozycję. Kliknij pozycję **Dodaj,** aby utworzyć nową.
 
-    ![Pulpit nawigacyjny DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png) 
+    ![Pulpit nawigacyjny usługi DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png) 
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Wybieranie przykładowej aplikacji i usługi platformy Azure
 
@@ -55,7 +58,7 @@ DevOps Starter tworzy potok ciągłej integracji/ciągłego wdrażania w Azure P
 
     1. Wybierz swoją subskrypcję platformy Azure i lokalizację, wprowadź nazwę aplikacji, a następnie wybierz pozycję **Gotowe**.  
     
-     Po kilku minutach początkowy pulpit nawigacyjny zostanie wyświetlony w Azure Portal. Aplikacja przykładowa zostanie skonfigurowana w repozytorium w organizacji usługi Azure DevOps, skompilowana i wdrożona na platformie Azure. Ten pulpit nawigacyjny zapewnia wgląd w repozytorium kodu, potok ciągłej integracji/ciągłego wdrażania i aplikację na platformie Azure.  
+     Po kilku minutach pulpit nawigacyjny startowy zostanie wyświetlony w Azure Portal. Aplikacja przykładowa zostanie skonfigurowana w repozytorium w organizacji usługi Azure DevOps, skompilowana i wdrożona na platformie Azure. Ten pulpit nawigacyjny zapewnia wgląd w repozytorium kodu, potok ciągłej integracji/ciągłego wdrażania i aplikację na platformie Azure.  
     
 2. Wybierz pozycję **Przeglądaj**, aby wyświetlić uruchomioną aplikację.
 
@@ -67,9 +70,9 @@ DevOps Starter tworzy potok ciągłej integracji/ciągłego wdrażania w Azure P
 
 DevOps Starter tworzy repozytorium Git w Azure Repos lub GitHub. Aby wyświetlić repozytorium i wprowadzić zmiany w kodzie aplikacji, wykonaj poniższe kroki: 
 
-1. Po lewej stronie pulpitu nawigacyjnego DevOps Starter wybierz link do gałęzi głównej. Ten link otwiera widok nowo utworzonego repozytorium Git.
+1. Po lewej stronie pulpitu nawigacyjnego usługi DevOps Starter wybierz link dla gałęzi main. Ten link otwiera widok nowo utworzonego repozytorium Git.
 
-1. Aby wyświetlić adres URL klonowania repozytorium, wybierz pozycję **Klonuj** w prawym górnym rogu przeglądarki. Możesz sklonować repozytorium Git w wybranym środowisku IDE. W następnych kilku krokach można użyć przeglądarki sieci Web, aby wprowadzić zmiany w kodzie i zatwierdzić je bezpośrednio w gałęzi głównej.
+1. Aby wyświetlić adres URL klonowania repozytorium, wybierz pozycję **Klonuj** w prawym górnym rogu przeglądarki. Możesz sklonować repozytorium Git w wybranym środowisku IDE. W następnych kilku krokach za pomocą przeglądarki internetowej można wprowadzać i zatwierdzać zmiany kodu bezpośrednio w gałęzi main.
 
 1. Po lewej stronie wybierz plik **app/templates/app/index.html**.
 
@@ -77,15 +80,15 @@ DevOps Starter tworzy repozytorium Git w Azure Repos lub GitHub. Aby wyświetli�
 
 1. Wybierz pozycję **Zatwierdź**, a następnie zapisz zmiany.
 
-1. W przeglądarce przejdź do pulpitu nawigacyjnego DevOps Starter. W tym momencie powinna być widoczna trwająca kompilacja. Wprowadzone zmiany są automatycznie kompilowane i wdrażane za pośrednictwem potoku ciągłej integracji/ciągłego wdrażania.
+1. W przeglądarce przejdź do pulpitu nawigacyjnego usługi DevOps Starter. W tym momencie powinna być widoczna trwająca kompilacja. Wprowadzone zmiany są automatycznie kompilowane i wdrażane za pośrednictwem potoku ciągłej integracji/ciągłego wdrażania.
 
 ## <a name="examine-the-cicd-pipeline"></a>Badanie potoku ciągłej integracji/ciągłego wdrażania
 
-W poprzednim kroku DevOps Starter automatycznie skonfigurował potok ciągłej integracji/ciągłego dostarczania. Możesz przeglądać i dostosowywać potok według potrzeb. Aby zapoznać się z potokami kompilacji i wydania, wykonaj następujące czynności:
+W poprzednim kroku program DevOps Starter automatycznie skonfigurował pełny potok cicha/cd. Możesz przeglądać i dostosowywać potok według potrzeb. Aby zapoznać się z potokami kompilacji i wydania, wykonaj następujące czynności:
 
-1. W górnej części pulpitu nawigacyjnego DevOps początkowy wybierz pozycję **potoki kompilacji**. Zostanie wyświetlona karta przeglądarki z potokiem kompilacji dla nowego projektu.
+1. W górnej części pulpitu nawigacyjnego usługi DevOps Starter wybierz pozycję **Build Pipelines (Potoki kompilacji).** Zostanie wyświetlona karta przeglądarki z potokiem kompilacji dla nowego projektu.
 
-1. Wskaż pole **stan** , a następnie wybierz przycisk **wielokropka** (...). Menu wyświetla kilka opcji, takich jak kolejkowanie nowej kompilacji, wstrzymywanie kompilacji i edytowanie potoku kompilacji.
+1. Wskaż pole **Stan,** a następnie wybierz **wielokropek** (...). W menu zostanie wyświetlonych kilka opcji, takich jak kolejkowanie nowej kompilacji, wstrzymanie kompilacji i edytowanie potoku kompilacji.
 
 1. Wybierz pozycję **Edytuj**.
 
@@ -97,7 +100,7 @@ W poprzednim kroku DevOps Starter automatycznie skonfigurował potok ciągłej i
 
 1. W obszarze nazwy potoku kompilacji wybierz pozycję **Historia**. Zostanie wyświetlony dziennik inspekcji ostatnio wprowadzonych zmian w kompilacji. Usługa Azure DevOps śledzi wszelkie zmiany wprowadzane w potoku kompilacji i pozwala na porównywanie wersji.
 
-1. Wybierz pozycję **Wyzwalacze**. DevOps Starter automatycznie tworzy wyzwalacz CI i każde zatwierdzenie do repozytorium uruchamia nową kompilację. Opcjonalnie możesz zdecydować się dołączyć gałęzie do procesu ciągłej integracji lub je wykluczyć.
+1. Wybierz pozycję **Wyzwalacze**. DevOps Starter automatycznie tworzy wyzwalacz ci, a każde zatwierdzenie w repozytorium uruchamia nową kompilację. Opcjonalnie możesz zdecydować się dołączyć gałęzie do procesu ciągłej integracji lub je wykluczyć.
 
 1. Wybierz pozycję **Przechowywanie**. W zależności od scenariusza możesz określić zasady przechowywania lub usuwania pewnej liczby kompilacji.
 
@@ -118,11 +121,11 @@ W poprzednim kroku DevOps Starter automatycznie skonfigurował potok ciągłej i
 
 1. Wybierz pozycję **Zatwierdzenia**. Ten widok przedstawia zatwierdzenia kodu skojarzone z konkretnym wdrożeniem. 
 
-1. Wybierz pozycję **dzienniki**. Dzienniki zawierają przydatne informacje na temat procesu wdrażania. Możesz je wyświetlać zarówno podczas wdrażania, jak i po jego zakończeniu.
+1. Wybierz pozycję **Dzienniki.** Dzienniki zawierają przydatne informacje na temat procesu wdrażania. Możesz je wyświetlać zarówno podczas wdrażania, jak i po jego zakończeniu.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy usługa Azure App Service i powiązane zasoby nie będą już potrzebne, możesz je usunąć. Użyj funkcji **usuwania** na pulpicie nawigacyjnym DevOps Starter.
+Gdy usługa Azure App Service i powiązane zasoby nie będą już potrzebne, możesz je usunąć. Użyj funkcji **Usuń na** pulpicie nawigacyjnym DevOps Starter.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -4,16 +4,16 @@ description: Dowiedz się więcej o konfiguracji interfejsów Ethernet w wystąp
 ms.topic: reference
 ms.subservice: workloads
 ms.date: 04/14/2021
-ms.openlocfilehash: e98af51075d5193cab14d18f1cdb1f431c8fa892
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: c57cbc86d17090d6960a334c2790d80b43420aca
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107559193"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588891"
 ---
 # <a name="ethernet-configuration-of-baremetal-for-oracle"></a>Konfiguracja sieci Ethernet programu BareMetal dla programu Oracle
 
-W tym artykule przyjrzymy się konfiguracji interfejsów Ethernet w wystąpieniach programu BareMetal dla obciążeń Oracle.
+W tym artykule przyjrzymy się konfiguracji interfejsów Ethernet w wystąpieniach BareMetal dla obciążeń Oracle.
 
 Każde aprowizowane wystąpienie programu BareMetal dla programu Oracle jest wstępnie skonfigurowane z zestawami interfejsów Ethernet. Interfejsy Ethernet są podzielone na cztery typy:
 
@@ -35,16 +35,16 @@ Konfiguracja domyślna jest dostarczany z jednym interfejsem IP klienta (eth1), 
 
 | **Interfejs logiczny karty sieciowej** | **Nazwa systemu operacyjnego RHEL** | **Przypadek użycia** |
 | --- | --- | --- |
-| A | eth1.tenant | Klient do wystąpienia programu BareMetal |
-| C | eth2.tenant | Węzeł-magazyn; obsługuje koordynację i dostęp do kontrolerów magazynu w celu zarządzania środowiskiem magazynu. |
-| B | eth3.tenant | Węzeł-węzeł (prywatne połączenie wzajemne) |
-| C | eth4.tenant | Zarezerwowane/iSCSI |
-| C | eth5.tenant | Kopia zapasowa zarezerwowana/kopia zapasowa dziennika |
-| C | eth6.tenant | Tworzenie kopii zapasowej między węzłami storage_Data (RMAN, migawka) |
-| C | eth7.tenant | Między węzłami storage_dNFS-Pri; zapewnia łączność z macierzą magazynową NetApp. |
-| C | eth8.tenant | Między węzłami storage_dNFS-sek. zapewnia łączność z macierzą magazynową NetApp. |
-| D | eth9.tenant | Łączność dr dla konfiguracji globalnego zasięgu w celu uzyskania dostępu do usługi BMI w innym regionie. |
-| A | \*eth10.tenant | \* Klient do wystąpienia programu BareMetal
+| A | net1.tenant | Klient do wystąpienia programu BareMetal |
+| C | net2.tenant | Węzeł-magazyn; obsługuje koordynację i dostęp do kontrolerów magazynu w celu zarządzania środowiskiem magazynu. |
+| B | net3.tenant | Węzeł-węzeł (prywatne połączenie wzajemne) |
+| C | net4.tenant | Zarezerwowane/iSCSI |
+| C | net5.tenant | Kopia zapasowa zarezerwowana/kopia zapasowa dziennika |
+| C | net6.tenant | Tworzenie kopii zapasowej między węzłami storage_Data (RMAN, migawka) |
+| C | net7.tenant | Między węzłami storage_dNFS-Pri; zapewnia łączność z macierzą magazynową NetApp. |
+| C | net8.tenant | Między węzłami storage_dNFS-sek. zapewnia łączność z macierzą magazynową NetApp. |
+| D | net9.tenant | Łączność dr dla konfiguracji globalnego zasięgu w celu uzyskania dostępu do usługi BMI w innym regionie. |
+| A | \*net10.tenant | \* Klient do wystąpienia programu BareMetal
  |
 
 W razie potrzeby można samodzielnie zdefiniować więcej kart kontrolera interfejsu sieciowego(NIC). Nie można jednak zmienić  konfiguracji istniejących karty sieciowej.
@@ -54,8 +54,8 @@ W razie potrzeby można samodzielnie zdefiniować więcej kart kontrolera interf
 W przypadku wystąpień programu BareMetal wartość domyślna będzie mieć dziewięć przypisanych adresów IP na czterech logicznych karty sieciowe. Obowiązują następujące reguły użycia:
 
 - Sieć Ethernet "A" powinna mieć przypisany adres IP spoza zakresu adresów puli adresów IP serwera przesłanego do firmy Microsoft. Ten adres IP nie powinien być utrzymywany w katalogu etc/hosts systemu operacyjnego.
-- Sieć Ethernet "B" powinna być utrzymywana wyłącznie w katalogu etc/hosts w celu komunikacji między różnymi wystąpieniami. Te adresy IP należy zachować w konfiguracjach skalowania rzeczywistych klastrów aplikacji Oracle Real Application Clusters (RAC) jako adresów IP używanych do konfiguracji między węzłami.
-- Sieć Ethernet "C" powinna mieć przypisany adres IP używany do komunikacji z magazynem NFS. Tego typu adresu nie należy utrzymywać w katalogu etc/hosts.
+- Sieć Ethernet "B" powinna być utrzymywana wyłącznie w katalogu etc/hosts w celu komunikacji między różnymi wystąpieniami. Zachowaj te adresy IP w konfiguracjach skalowania rzeczywistych klastrów aplikacji Oracle (RAC) jako adresów IP używanych do konfiguracji między węzłami.
+- Sieć Ethernet "C" powinna mieć przypisany adres IP używany do komunikacji z magazynem systemu plików NFS. Tego typu adresu nie należy utrzymywać w katalogu etc/hosts.
 - Sieć Ethernet "D" powinna być używana wyłącznie do konfigurowania zasięgu globalnego w celu uzyskiwania dostępu do wystąpień programu BareMetal w regionie dr.
 
 ## <a name="next-step"></a>Następny krok

@@ -1,36 +1,36 @@
 ---
-title: Zarządzanie i monitorowanie — Omówienie
-description: Omówienie monitorowania i zarządzania dotyczące wykorzystania zasobów, działania dzienników i zapytań, zalecenia oraz ochronę danych (Tworzenie i przywracanie kopii zapasowych) z dedykowaną pulą SQL w usłudze Azure Synapse Analytics.
+title: Możliwości zarządzania i monitorowania — omówienie
+description: Omówienie monitorowania i zarządzania wykorzystaniem zasobów, aktywnością dzienników i zapytań, zaleceniami i ochroną danych (tworzeniem i przywracaniem kopii zapasowych) za pomocą dedykowanej puli SQL w Azure Synapse Analytics.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 08/27/2018
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 56ec38140d53788de7cc94f3cb6046177ad2bed4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd9dc5b08de1a81b8da13aee875060fbe242baf5
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585472"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568220"
 ---
-# <a name="manageability-and-monitoring-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Zarządzanie i monitorowanie za pomocą dedykowanej puli SQL w usłudze Azure Synapse Analytics
+# <a name="manageability-and-monitoring-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Możliwości zarządzania i monitorowania za pomocą dedykowanej puli SQL w Azure Synapse Analytics
 
-Synapse SQL umożliwia obsługę administracyjną magazynu danych za pośrednictwem dedykowanej puli SQL. Poniższe artykuły ułatwią Ci Zarządzanie magazynem danych i monitorowanie go. Dowiesz się również, jak zoptymalizować użycie i wydajność magazynu danych.
+Synapse SQL umożliwia aprowizować magazyn danych za pośrednictwem dedykowanej puli SQL. Następujące artykuły pomogą Ci zarządzać magazynem danych i monitorować go. Dowiesz się również, jak zoptymalizować użycie i wydajność magazynu danych.
 
 ## <a name="overview"></a>Omówienie
 
-* [Informacje na temat zarządzania i elastyczności obliczeniowej](sql-data-warehouse-manage-compute-overview.md)
-* [Informacje o metrykach i dziennikach dostępnych w Azure Portal](sql-data-warehouse-concept-resource-utilization-query-activity.md)
-* [Informacje o możliwościach tworzenia kopii zapasowych i przywracania](backup-and-restore.md)
-* [Dowiedz się więcej na temat wbudowanej analizy i rekomendacji](sql-data-warehouse-concept-recommendations.md)
-* [Poznaj okresy konserwacji i dostępność, aby zminimalizować czas przestoju hurtowni danych](maintenance-scheduling.md)
+* [Dowiedz się więcej o zarządzaniu obliczeniami i elastyczności](sql-data-warehouse-manage-compute-overview.md)
+* [Dowiedz się, jakie metryki i dzienniki są dostępne w Azure Portal](sql-data-warehouse-concept-resource-utilization-query-activity.md)
+* [Dowiedz się więcej o możliwościach tworzenia kopii zapasowych i przywracania](backup-and-restore.md)
+* [Dowiedz się więcej o wbudowanej analizie i zaleceniach](sql-data-warehouse-concept-recommendations.md)
+* [Dowiedz się więcej na temat okresów konserwacji i dostępnych w celu zminimalizowania przestojów magazynu danych](maintenance-scheduling.md)
 * [Znajdź typowe wskazówki dotyczące rozwiązywania problemów](sql-data-warehouse-troubleshoot.md)
 
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać instrukcje dotyczące przewodników, zobacz [monitorowanie i dostrajanie dedykowanej puli SQL](sql-data-warehouse-manage-monitor.md).
+Aby uzyskać przewodniki z instrukcje, zobacz [Monitorowanie i dostrajanie dedykowanej puli SQL.](sql-data-warehouse-manage-monitor.md)

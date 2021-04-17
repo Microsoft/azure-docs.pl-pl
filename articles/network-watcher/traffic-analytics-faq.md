@@ -1,6 +1,6 @@
 ---
-title: Analiza ruchu na platformie Azure — często zadawane pytania | Microsoft Docs
-description: Uzyskaj odpowiedzi na kilka często zadawanych pytań dotyczących analizy ruchu.
+title: Często zadawane pytania dotyczące analizy ruchu na platformie Azure | Microsoft Docs
+description: Uzyskaj odpowiedzi na niektóre z najczęściej zadawanych pytań dotyczących analizy ruchu.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -11,178 +11,122 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: f4d97b81bf8f11b8380f04dcbfdb72bd658805ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 98c0a6f88da717256e78a748902317a90a369a9c
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579238"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533622"
 ---
-# <a name="traffic-analytics-frequently-asked-questions"></a>Analiza ruchu często zadawane pytania
+# <a name="traffic-analytics-frequently-asked-questions"></a>Analiza ruchu często zadawanych pytań
 
-W tym artykule zebrano wiele często zadawanych pytań dotyczących analizy ruchu na platformie Azure Network Watcher.
+W tym artykule zebrano w jednym miejscu wiele często zadawanych pytań dotyczących analizy ruchu w usłudze Azure Network Watcher.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-are-the-prerequisites-to-use-traffic-analytics"></a>Jakie są wymagania wstępne dotyczące korzystania z analizy ruchu?
 
-Analiza ruchu wymaga następujących wstępnie wymaganych elementów:
+Analiza ruchu wymaga następujących wymagań wstępnych:
 
-- Network Watcher z włączoną subskrypcją.
-- Włączono obsługę dzienników przepływu sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń) dla sieciowych grup zabezpieczeń, które mają być monitorowane.
-- Konto usługi Azure Storage do przechowywania nieprzetworzonych dzienników przepływów.
-- Obszar roboczy Log Analytics platformy Azure z dostępem do odczytu i zapisu.
+- Subskrypcja Network Watcher włączona.
+- Dzienniki przepływu sieciowej grupy zabezpieczeń są włączone dla sieciowych grup zabezpieczeń, które chcesz monitorować.
+- Konto usługi Azure Storage do przechowywania nieprzetworzonych dzienników przepływu.
+- Obszar roboczy usługi Azure Log Analytics z dostępem do odczytu i zapisu.
 
-Aby możliwe było włączenie analizy ruchu, Twoje konto musi spełniać następujące warunki:
+Aby włączyć analizę ruchu, Twoje konto musi spełniać jedną z następujących wymagań:
 
 - Twoje konto musi mieć jedną z następujących ról platformy Azure w zakresie subskrypcji: właściciel, współautor, czytelnik lub współautor sieci.
-- Jeśli Twoje konto nie jest przypisane do jednej z wcześniej wymienionych ról, musi być przypisane do roli niestandardowej, do której przypisano następujące akcje na poziomie subskrypcji.
+- Jeśli Konto nie jest przypisane do jednej z wcześniej wymienionych ról, musi być przypisane do roli niestandardowej, która ma przypisane następujące akcje na poziomie subskrypcji.
             
-    - Microsoft. Network/applicationGateways/odczyt
-    - Microsoft. Network/Connections/Read
-    - Microsoft. Network/loadBalancers/odczyt 
-    - Microsoft. Network/localNetworkGateways/odczyt 
-    - Microsoft. Network/networkInterfaces/odczyt 
-    - Microsoft. Network/networkSecurityGroups/odczyt 
+    - Microsoft.Network/applicationGateways/read
+    - Microsoft.Network/connections/read
+    - Microsoft.Network/loadBalancers/read 
+    - Microsoft.Network/localNetworkGateways/read 
+    - Microsoft.Network/networkInterfaces/read 
+    - Microsoft.Network/networkSecurityGroups/read 
     - Microsoft.Network/publicIPAddresses/read
-    - Microsoft. Network/routeTables/odczyt
-    - Microsoft. Network/virtualNetworkGateways/odczyt 
-    - Microsoft. Network/virtualNetworks/odczyt
+    - Microsoft.Network/routeTables/read
+    - Microsoft.Network/virtualNetworkGateways/read 
+    - Microsoft.Network/virtualNetworks/read
         
-Aby sprawdzić role przypisane do użytkownika w ramach subskrypcji:
+Aby sprawdzić role przypisane do użytkownika dla subskrypcji:
 
-1. Zaloguj się do platformy Azure przy użyciu polecenia **login-AzAccount**. 
+1. Zaloguj się do platformy Azure przy użyciu **konta Login-AzAccount.** 
 
-2. Wybierz wymaganą subskrypcję za pomocą polecenia **SELECT-AzSubscription**. 
+2. Wybierz wymaganą subskrypcję przy użyciu **opcji Select-AzSubscription.** 
 
-3. Aby wyświetlić listę wszystkich ról przypisanych do określonego użytkownika, użyj polecenie  **Get-AzRoleAssignment-SignInName [User email]-IncludeClassicAdministrators**. 
+3. Aby wyświetlić listę wszystkich ról przypisanych do określonego użytkownika, użyj **get-AzRoleAssignment -SignInName [adres e-mail użytkownika] -IncludeClassicAdministrators.** 
 
-Jeśli nie widzisz żadnych danych wyjściowych, skontaktuj się z administratorem subskrypcji, aby uzyskać dostęp do uruchamiania poleceń. Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+Jeśli nie widzisz żadnych danych wyjściowych, skontaktuj się z odpowiednim administratorem subskrypcji, aby uzyskać dostęp do uruchamiania poleceń. Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 
+## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>Czy dzienniki przepływów mogą być włączane przez sieciowe gs w innych regionach niż mój obszar roboczy?
 
-## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>W jakich regionach świadczenia usługi Azure Analiza ruchu dostępne?
+Tak, te sieciowe sieci mogą być w różnych regionach niż obszar roboczy usługi Log Analytics.
 
-Analizy ruchu można użyć dla sieciowych grup zabezpieczeń w jednym z następujących obsługiwanych regionów:
-- Kanada Środkowa
-- Zachodnio-środkowe stany USA
-- East US
-- Wschodnie stany USA 2
-- Północno-środkowe stany USA
-- South Central US
-- Central US
-- Zachodnie stany USA
-- Zachodnie stany USA 2
-- Francja Środkowa
-- West Europe
-- Europa Północna
-- Brazylia Południowa
-- Zachodnie Zjednoczone Królestwo
-- Południowe Zjednoczone Królestwo
-- Australia Wschodnia
-- Australia Południowo-Wschodnia 
-- Azja Wschodnia
-- Southeast Asia
-- Korea Środkowa
-- Indie Środkowe
-- Indie Południowe
-- Japonia Wschodnia
-- Japonia Zachodnia
-- US Gov Wirginia
-- Chiny Wschodnie 2
-
-Obszar roboczy Log Analytics musi istnieć w następujących regionach:
-- Kanada Środkowa
-- Zachodnio-środkowe stany USA
-- East US
-- Wschodnie stany USA 2
-- Północno-środkowe stany USA
-- South Central US
-- Central US
-- Zachodnie stany USA
-- Zachodnie stany USA 2
-- Francja Środkowa
-- West Europe
-- Europa Północna
-- Zachodnie Zjednoczone Królestwo
-- Południowe Zjednoczone Królestwo
-- Australia Wschodnia
-- Australia Południowo-Wschodnia
-- Azja Wschodnia
-- Southeast Asia 
-- Korea Środkowa
-- Indie Środkowe
-- Japonia Wschodnia
-- US Gov Wirginia
-- Chiny Wschodnie 2
-
-## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>Czy sieciowych grup zabezpieczeń mogę włączyć dzienniki przepływów w różnych regionach niż mój obszar roboczy?
-
-Tak, te sieciowych grup zabezpieczeń mogą znajdować się w różnych regionach niż obszar roboczy Log Analytics.
-
-## <a name="can-multiple-nsgs-be-configured-within-a-single-workspace"></a>Czy można skonfigurować wiele sieciowych grup zabezpieczeń w ramach jednego obszaru roboczego?
+## <a name="can-multiple-nsgs-be-configured-within-a-single-workspace"></a>Czy w jednym obszarze roboczym można skonfigurować wiele sieciowych grupy zasad?
 
 Tak.
 
 ## <a name="can-i-use-an-existing-workspace"></a>Czy mogę użyć istniejącego obszaru roboczego?
 
-Tak. W przypadku wybrania istniejącego obszaru roboczego upewnij się, że został on zmigrowany do nowego języka zapytań. Jeśli nie chcesz uaktualnić obszaru roboczego, musisz utworzyć nowy. Aby uzyskać więcej informacji o nowym języku zapytań, zobacz artykuł [Azure Monitoring Logs Upgrade to New Search log](../azure-monitor/logs/log-query-overview.md).
+Tak. Jeśli wybierzesz istniejący obszar roboczy, upewnij się, że został on zmigrowany do nowego języka zapytań. Jeśli nie chcesz uaktualniać obszaru roboczego, musisz utworzyć nowy. Aby uzyskać więcej informacji na temat nowego języka zapytań, zobacz [Azure Monitor uaktualnianie dzienników do nowego przeszukiwania dzienników.](../azure-monitor/logs/log-query-overview.md)
 
-## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>Czy moje konto usługi Azure Storage znajduje się w jednej subskrypcji, a mój obszar roboczy Log Analytics należy do innej subskrypcji?
+## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>Czy moje konto usługi Azure Storage może być w jednej subskrypcji, a mój obszar roboczy usługi Log Analytics może być w innej subskrypcji?
 
-Tak, Twoje konto usługi Azure Storage może znajdować się w jednej subskrypcji, a obszar roboczy Log Analytics może znajdować się w innej subskrypcji.
+Tak, Twoje konto usługi Azure Storage może być w jednej subskrypcji, a obszar roboczy usługi Log Analytics może być w innej subskrypcji.
 
-## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Czy mogę przechowywać dzienniki RAW w innej subskrypcji?
+## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Czy mogę przechowywać nieprzetworzone dzienniki w innej subskrypcji?
 
-Tak. Dzienniki przepływu sieciowej grupy zabezpieczeń można skonfigurować do wysyłania do konta magazynu znajdującego się w innej subskrypcji, pod warunkiem że masz odpowiednie uprawnienia i że konto magazynu znajduje się w tym samym regionie co sieciowej grupy zabezpieczeń. SIECIOWEJ grupy zabezpieczeń i docelowe konto magazynu muszą również współużytkować tę samą dzierżawę Azure Active Directory.
+Tak. Możesz skonfigurować dzienniki przepływu sieciowej organizacji zabezpieczeń tak, aby były wysyłane do konta magazynu znajdującego się w innej subskrypcji, pod warunkiem, że masz odpowiednie uprawnienia i że konto magazynu znajduje się w tym samym regionie co sieciowa żadna z tych sieci. Sieciowa i docelowa konto magazynu muszą również współużytkowały tę samą Azure Active Directory Dzierżawa.
 
-## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>Co zrobić, jeśli nie można skonfigurować sieciowej grupy zabezpieczeń dla analizy ruchu z powodu błędu "nie znaleziono"?
+## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>Co zrobić, jeśli nie mogę skonfigurować sieciowej organizacji sieciowej do analizy ruchu z powodu błędu "Nie znaleziono"?
 
-Wybierz obsługiwany region. W przypadku wybrania nieobsługiwanego regionu zostanie wyświetlony komunikat o błędzie "nie znaleziono". Obsługiwane regiony są wymienione wcześniej w tym artykule.
+Wybierz obsługiwany region. W przypadku wybrania regionu, który nie jest obsługiwany, zostanie wyświetlony błąd "Nie znaleziono". Obsługiwane regiony są wymienione wcześniej w tym artykule.
 
-## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>Co w przypadku otrzymania stanu "nie można załadować," na stronie dzienników przepływów sieciowej grupy zabezpieczeń?
+## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>Co zrobić, jeśli widzę stan "Nie można załadować" na stronie dzienników przepływu sieciowej organizacji zabezpieczeń?
 
-Aby rejestrowanie przepływu działało prawidłowo, dostawca Microsoft. Insights musi być zarejestrowany. Jeśli nie masz pewności, czy dostawca Microsoft. Insights został zarejestrowany dla Twojej subskrypcji, Zastąp *ciąg XXXXX-XXXXX-XXXXXX-xxxx* w poniższym poleceniu i uruchom następujące polecenia w programie PowerShell:
+Aby rejestrowanie przepływu działało prawidłowo, należy zarejestrować dostawcę Microsoft.Insights. Jeśli nie masz pewności, czy dostawca Microsoft.Insights jest zarejestrowany dla Twojej subskrypcji, zastąp *ciąg xxxxx-xxxxx-xxxxxx-xxxx* w poniższym poleceniu i uruchom następujące polecenia w programie PowerShell:
 
 ```powershell-interactive
 **Select-AzSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
 **Register-AzResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
 
-## <a name="i-have-configured-the-solution-why-am-i-not-seeing-anything-on-the-dashboard"></a>Skonfigurowano rozwiązanie. Dlaczego nie widzę żadnych elementów na pulpicie nawigacyjnym?
+## <a name="i-have-configured-the-solution-why-am-i-not-seeing-anything-on-the-dashboard"></a>Skonfigurowano rozwiązanie. Dlaczego nie widzę niczego na pulpicie nawigacyjnym?
 
-Po raz pierwszy pulpit nawigacyjny może potrwać do 30 minut. Rozwiązanie musi najpierw agregować wystarczającą ilość danych, aby uzyskać istotny wgląd w dane. Spowoduje to wygenerowanie raportów. 
+Pierwszy raz może upłynieć do 30 minut. Rozwiązanie musi najpierw agregować wystarczającą ilość danych, aby uzyskać istotne szczegółowe informacje. Następnie generuje raporty. 
 
-## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>Co zrobić, jeśli otrzymam następujący komunikat: "nie można odnaleźć żadnych danych w tym obszarze roboczym dla wybranego interwału czasu. Spróbuj zmienić przedział czasu lub wybierz inny obszar roboczy. "?
+## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>Co zrobić, jeśli zostanie wyświetlony ten komunikat: "Nie można odnaleźć żadnych danych w tym obszarze roboczym dla wybranego przedziału czasu. Spróbuj zmienić przedział czasu lub wybrać inny obszar roboczy."?
 
 Wypróbuj następujące opcje:
-- Zmień interwał czasu na górnym pasku.
-- Wybierz inny obszar roboczy Log Analytics na górnym pasku.
-- Spróbuj uzyskać dostęp do analizy ruchu po 30 minutach, jeśli była niedawno włączona.
+- Zmień przedział czasu na górnym pasku.
+- Wybierz inny obszar roboczy usługi Log Analytics na górnym pasku.
+- Spróbuj uzyskać dostęp do analizy ruchu po 30 minutach, jeśli została ona ostatnio włączona.
     
-Jeśli problemy będą się powtarzać, zgłoś wątpliwości na forum dotyczącego [głosu użytkownika](https://feedback.azure.com/forums/217313-networking?category_id=195844).
+Jeśli problemy będą się powtarzać, zgłaszaj problemy na [forum user voice](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>Co zrobić, jeśli otrzymam następujący komunikat: "analizowanie dzienników przepływu usługi sieciowej grupy zabezpieczeń po raz pierwszy. Ten proces może potrwać 20-30 minut. Sprawdź ponownie za jakiś czas. 2) Jeśli powyższy krok nie działa, a obszar roboczy jest objęty bezpłatną jednostką SKU, Sprawdź użycie obszaru roboczego tutaj, aby sprawdzić poprawność przydziału. w przeciwnym razie zapoznaj się z często zadawanymi pytaniami "?
+## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>Co zrobić, jeśli zostanie wyświetlony ten komunikat: "Analizowanie dzienników przepływu sieciowej organizacji zabezpieczeń po raz pierwszy. Ten proces może potrwać 20–30 minut. Wróć ponownie po pewnym czasie. 2) Jeśli powyższy krok nie działa i obszar roboczy znajduje się w bezpłatnej wersji SKU, sprawdź użycie obszaru roboczego tutaj, aby zweryfikować limit przydziału. W innym przypadku zapoznaj się z często zadawanych pytaniami, aby uzyskać więcej informacji".
 
-Ten komunikat może zostać wyświetlony, ponieważ:
-- Analiza ruchu był niedawno włączony i może nie mieć jeszcze zagregowanej ilości danych, aby uzyskać istotny wgląd w dane.
-- Korzystasz z bezpłatnej wersji obszaru roboczego Log Analytics i przekroczono limity przydziałów. Może być konieczne użycie obszaru roboczego o większej pojemności.
+Może zostać wyświetlony ten komunikat, ponieważ:
+- Analiza ruchu została niedawno włączona i może jeszcze nie mieć zagregowanej ilości danych wystarczającej do uzyskania istotnych szczegółowych informacji.
+- Używasz bezpłatnej wersji obszaru roboczego usługi Log Analytics i przekroczono limity przydziału. Może być konieczne użycie obszaru roboczego o większej pojemności.
     
-Jeśli problemy będą się powtarzać, zgłoś wątpliwości na forum dotyczącego [głosu użytkownika](https://feedback.azure.com/forums/217313-networking?category_id=195844).
+Jeśli problemy będą się powtarzać, zgłaszaj problemy na [forum user voice](https://feedback.azure.com/forums/217313-networking?category_id=195844).
     
-## <a name="what-if-i-get-this-message-looks-like-we-have-resources-data-topology-and-no-flows-information-meanwhile-click-here-to-see-resources-data-and-refer-to-faqs-for-further-information"></a>Co zrobić, jeśli otrzymam następujący komunikat: "Wygląda na to, że mamy dane zasobów (topologia) i nie ma informacji o przepływie. W tym celu kliknij tutaj, aby wyświetlić dane zasobów i zapoznaj się z często zadawanymi pytaniami, aby uzyskać więcej informacji "?
+## <a name="what-if-i-get-this-message-looks-like-we-have-resources-data-topology-and-no-flows-information-meanwhile-click-here-to-see-resources-data-and-refer-to-faqs-for-further-information"></a>Co zrobić, jeśli zostanie wyświetlony ten komunikat: "Wygląda na to, że mamy dane zasobów (topologię) i nie mamy informacji o przepływach. W międzyczasie kliknij tutaj, aby wyświetlić dane zasobów i zapoznać się z często zadawanych pytaniami, aby uzyskać więcej informacji".
 
-Widzisz informacje o zasobach na pulpicie nawigacyjnym; nie ma jednak żadnych statystyk związanych z przepływem. Dane mogą nie być obecne ze względu na brak przepływów komunikacji między zasobami. Poczekaj 60 minut i ponownie sprawdź stan. Jeśli problem będzie się powtarzał i masz pewność, że przepływy komunikacji między zasobami istnieją, zgłoś problemy na [forum dotyczącego głosu użytkownika](https://feedback.azure.com/forums/217313-networking?category_id=195844).
+Na pulpicie nawigacyjnym są dostępne informacje o zasobach. Nie ma jednak żadnych statystyk związanych z przepływem. Dane mogą nie być obecne z powodu brak przepływu komunikacji między zasobami. Poczekaj 60 minut i sprawdź ponownie stan. Jeśli problem będzie się powtarzać i będziesz mieć pewność, że komunikacja między zasobami istnieje, zgłaszaj obawy na [forum User Voice](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>Czy można skonfigurować analizę ruchu przy użyciu programu PowerShell lub szablonu Azure Resource Manager lub klienta?
+## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>Czy mogę skonfigurować analizę ruchu przy użyciu programu PowerShell, Azure Resource Manager szablonu lub klienta?
 
-Analiza ruchu można skonfigurować przy użyciu programu Windows PowerShell z wersji 6.2.1 lub nowszej. Aby skonfigurować rejestrowanie przepływu i analizę ruchu dla określonego sieciowej grupy zabezpieczeń przy użyciu polecenia cmdlet Set, zobacz [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Aby uzyskać informacje o rejestrowaniu przepływu i stanie analizy ruchu dla określonego sieciowej grupy zabezpieczeń, zobacz [Get-AzNetworkWatcherFlowLogStatus](/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
+Analizę ruchu można skonfigurować przy użyciu Windows PowerShell od wersji 6.2.1. Aby skonfigurować rejestrowanie przepływu i analizę ruchu dla określonej sieciowej sieciowej sieci przy użyciu polecenia cmdlet Set, zobacz [Set-AzNetworkWatcherConfigFlowLog.](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) Aby uzyskać informacje o rejestrowaniu przepływu i stanie analizy ruchu dla określonej sieciowej sieci, zobacz [Get-AzNetworkWatcherFlowLogStatus](/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
 
-Obecnie nie można użyć szablonu Azure Resource Manager w celu skonfigurowania analizy ruchu.
+Obecnie nie można używać szablonu usługi Azure Resource Manager do konfigurowania analizy ruchu.
 
-Aby skonfigurować analizę ruchu przy użyciu klienta Azure Resource Manager, zobacz następujące przykłady.
+Aby skonfigurować analizę ruchu przy użyciu klienta Azure Resource Manager, zobacz poniższe przykłady.
 
-**Ustaw przykład polecenia cmdlet:**
+**Przykładowe ustawianie polecenia cmdlet:**
 ```
 #Requestbody parameters
 $TAtargetUri ="/subscriptions/<NSG subscription id>/resourceGroups/<NSG resource group name>/providers/Microsoft.Network/networkSecurityGroups/<name of NSG>"
@@ -223,7 +167,7 @@ $apiversion = "2016-09-01"
 armclient login
 armclient post "https://management.azure.com/subscriptions/<NSG subscription id>/resourceGroups/<network watcher resource group name>/providers/Microsoft.Network/networkWatchers/<network watcher name>/configureFlowlog?api-version=${apiversion}" $requestBody
 ```
-**Pobierz przykład poleceń cmdlet:**
+**Pobierz przykładowe polecenie cmdlet:**
 ```
 #Requestbody parameters
 $TAtargetUri ="/subscriptions/<NSG subscription id>/resourceGroups/<NSG resource group name>/providers/Microsoft.Network/networkSecurityGroups/<NSG name>"
@@ -242,29 +186,29 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 ```
 
 
-## <a name="how-is-traffic-analytics-priced"></a>W jaki sposób Analiza ruchu cena?
+## <a name="how-is-traffic-analytics-priced"></a>Jak są Analiza ruchu wyceny?
 
-Analiza ruchu jest naliczana. Pomiary opierają się na przetwarzaniu danych dzienników przepływów przez usługę i przechowywaniu powstałych ulepszonych dzienników w obszarze roboczym Log Analytics. 
+Analiza ruchu jest mierzona. Pomiar jest oparty na przetwarzaniu danych dziennika przepływu przez usługę i przechowywaniu wynikowych rozszerzonych dzienników w obszarze roboczym usługi Log Analytics. 
 
-Na przykład zgodnie z [planem cenowym](https://azure.microsoft.com/pricing/details/network-watcher/), uwzględniając Region Zachodni środkowe stany USA, jeśli dane dzienników przepływów przechowywane na koncie magazynu przetworzonym przez Analiza ruchu to 10 GB, a ulepszone dzienniki pozyskane w log Analytics obszarze roboczym to 1 GB, odpowiednie opłaty są następujące: 10 x $2,3 + 1 x $2,76 = $25,76
+Na przykład zgodnie [](https://azure.microsoft.com/pricing/details/network-watcher/)z planem cenowym, biorąc pod uwagę region Zachodnio-środkowe stany USA, jeśli dane dzienników przepływu przechowywane na koncie magazynu przetworzonym przez usługę Analiza ruchu wynosi 10 GB, a rozszerzone dzienniki pozyskane w obszarze roboczym usługi Log Analytics to 1 GB, odpowiednie opłaty to: 10 x 2,3$ + 1 x 2,76$ = 25,76$
 
-## <a name="how-frequently-does-traffic-analytics-process-data"></a>Jak często Analiza ruchu są przetwarzane dane?
+## <a name="how-frequently-does-traffic-analytics-process-data"></a>Jak często Analiza ruchu przetwarzać dane?
 
-Zapoznaj się z [sekcją agregacja danych](./traffic-analytics-schema.md#data-aggregation) w artykule Analiza ruchu schematu i dokumentu agregacji danych
+Zapoznaj się z [sekcją agregacji danych w](./traffic-analytics-schema.md#data-aggregation) Analiza ruchu schemacie i agregacji danych
 
-## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>Jak Analiza ruchu decyduje o tym, że adres IP jest złośliwy? 
+## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>Jak Analiza ruchu, że adres IP jest złośliwy? 
 
-Analiza ruchu opiera się na wewnętrznych systemach analizy zagrożeń firmy Microsoft, aby uznać za złośliwe adresy IP. Te systemy używają różnorodnych źródeł danych telemetrycznych, takich jak produkty i usługi firmy Microsoft, Microsoft Digital Zbrodnis (DCU), Microsoft Security Response Center (MSRC) oraz zewnętrznych źródeł danych i tworzenia dużej ilości informacji na ten temat. Niektóre z tych danych są wewnętrzne firmy Microsoft. Jeśli znany adres IP jest wyświetlany jako złośliwy, zgłoś bilet pomocy technicznej, aby poznać szczegóły.
+Analiza ruchu polega na wewnętrznych systemach analizy zagrożeń firmy Microsoft, aby adres IP został przez firmę Microsoft jako złośliwy. Systemy te wykorzystują różnorodne źródła danych telemetrycznych, takie jak produkty i usługi firmy Microsoft, Jednostka ds. Cyfrowych Działań Firmy Microsoft (DCU), Centrum zabezpieczeń firmy Microsoft (MSRC) i zewnętrzne źródła danych, a na ich podstawie tworzy się wiele inteligencji. Niektóre z tych danych to dane wewnętrzne firmy Microsoft. Jeśli znany adres IP jest oflagowany jako złośliwy, zdaj bilet pomocy technicznej, aby poznać szczegóły.
 
-## <a name="how-can-i-set-alerts-on-traffic-analytics-data"></a>Jak ustawić alerty dla Analiza ruchu danych?
+## <a name="how-can-i-set-alerts-on-traffic-analytics-data"></a>Jak ustawić alerty dotyczące Analiza ruchu danych?
 
-Analiza ruchu nie ma wbudowaną obsługę alertów. Jednak ponieważ Analiza ruchu dane są przechowywane w Log Analytics można napisać zapytania niestandardowe i ustawić dla nich alerty. Czynnooci
-- Można użyć wypchnięty do Log Analytics w Analiza ruchu. 
-- Użyj [schematu udokumentowanego w tym miejscu](traffic-analytics-schema.md) , aby napisać zapytania 
+Analiza ruchu nie ma wbudowanej obsługi alertów. Jednak ponieważ dane Analiza ruchu są przechowywane w u usługi Log Analytics, można pisać zapytania niestandardowe i ustawiać na nich alerty. Kroki:
+- Możesz użyć krótkiego linku dla usługi Log Analytics w Analiza ruchu. 
+- Używanie [udokumentowanego tutaj schematu do](traffic-analytics-schema.md) pisania zapytań 
 - Kliknij pozycję "Nowa reguła alertu", aby utworzyć alert
-- Zapoznaj się z [dokumentacją alertów dziennika](../azure-monitor/alerts/alerts-log.md) , aby utworzyć alert
+- Zapoznaj się z [dokumentacją alertów dzienników,](../azure-monitor/alerts/alerts-log.md) aby utworzyć alert
 
-## <a name="how-do-i-check-which-vms-are-receiving-most-on-premises-traffic"></a>Jak mogę sprawdzić, które maszyny wirtualne odbierają większość ruchu lokalnego?
+## <a name="how-do-i-check-which-vms-are-receiving-most-on-premises-traffic"></a>Jak mogę, które maszyny wirtualne odbierają najwięcej ruchu lokalnego?
 
 ```
 AzureNetworkAnalytics_CL
@@ -277,7 +221,7 @@ AzureNetworkAnalytics_CL
 | render timechart
 ```
 
-  Dla adresów IP:
+  W przypadku ip:
 
 ```
 AzureNetworkAnalytics_CL
@@ -290,9 +234,9 @@ AzureNetworkAnalytics_CL
 | render timechart
 ```
 
-Na czas Użyj formatu: rrrr-mm-dd 00:00:00
+Dla godziny użyj formatu: yyyy-mm-dd 00:00:00
 
-## <a name="how-do-i-check-standard-deviation-in-traffic-received-by-my-vms-from-on-premises-machines"></a>Jak mogę sprawdzić odchylenie standardowe w ruchu odbieranym przez maszyny wirtualne z maszyn lokalnych?
+## <a name="how-do-i-check-standard-deviation-in-traffic-received-by-my-vms-from-on-premises-machines"></a>Jak mogę sprawdzić odchylenie standardowe ruchu odebranego przez moje maszyny wirtualne z maszyn lokalnych?
 
 ```
 AzureNetworkAnalytics_CL
@@ -304,7 +248,7 @@ AzureNetworkAnalytics_CL
 | summarize deviation = stdev(traffic)  by vm
 ```
 
-Dla adresów IP:
+W przypadku ip:
 
 ```
 AzureNetworkAnalytics_CL
@@ -316,7 +260,7 @@ AzureNetworkAnalytics_CL
 | summarize deviation = stdev(traffic)  by IP
 ```
 
-## <a name="how-do-i-check-which-ports-are-reachable-or-blocked-between-ip-pairs-with-nsg-rules"></a>Jak mogę sprawdzić, które porty są osiągalne (lub zablokowane) między parami adresów IP a regułami sieciowej grupy zabezpieczeń?
+## <a name="how-do-i-check-which-ports-are-reachable-or-blocked-between-ip-pairs-with-nsg-rules"></a>Jak mogę, które porty są dostępne (lub zablokowane) między parami adresów IP i regułami sieciowej sieciowej sieci
 
 ```
 AzureNetworkAnalytics_CL
@@ -329,78 +273,78 @@ destIPs = iif(isempty(DestIP_s), split(DestPublicIPs_s," ") , pack_array(DestIP_
 | summarize DestPorts= makeset(DestPort_d) by SourceIp, DestIp, NSGList_s, NSGRule_s, L4Protocol_s, FlowStatus_s
 ```
 
-## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Jak nawigować przy użyciu klawiatury w widoku mapy geograficznej?
+## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Jak nawigować za pomocą klawiatury w widoku mapy geograficznej?
 
 Strona mapy geograficznej zawiera dwie główne sekcje:
     
-- **Transparent**: transparent w górnej części mapy geograficznej zawiera przyciski umożliwiające wybranie filtrów dystrybucji ruchu (na przykład wdrożenie, ruch z krajów/regionów i złośliwe). Po wybraniu przycisku odpowiedni filtr jest stosowany na mapie. Jeśli na przykład wybierzesz aktywny przycisk, Mapa wyróżni aktywne centra danych we wdrożeniu.
-- **Mapa**: poniżej transparentu sekcja mapy przedstawia rozkład ruchu między centrami danych platformy Azure a krajami/regionami.
+- **Transparent:** baner w górnej części mapy geograficznej zawiera przyciski służące do wybierania filtrów dystrybucji ruchu (na przykład Wdrożenie, Ruch z krajów/regionów i Złośliwe). Po wybraniu przycisku odpowiedni filtr zostanie zastosowany na mapie. Jeśli na przykład wybierzesz przycisk Aktywne, mapa wyróżni aktywne centra danych we wdrożeniu.
+- **Mapa:** pod transparentem sekcja mapy pokazuje rozkład ruchu między centrami danych platformy Azure i krajami/regionami.
     
-### <a name="keyboard-navigation-on-the-banner"></a>Nawigacja przy użyciu klawiatury na banerze
+### <a name="keyboard-navigation-on-the-banner"></a>Nawigacja za pomocą klawiatury na banerze
     
-- Domyślnie wybór na stronie mapy geograficznej transparentu to filtr "Kontrolery domeny" platformy Azure.
-- Aby przejść do innego filtru, użyj `Tab` albo `Right arrow` klucza. Aby przenieść do tyłu, użyj `Shift+Tab` albo `Left arrow` klucza. Nawigacja do przodu jest od lewej do prawej, a następnie od góry do dołu.
-- Naciśnij klawisz `Enter` lub `Down` klawisz Strzałka, aby zastosować wybrany filtr. W oparciu o wybór i wdrożenie filtru są wyróżniane co najmniej jeden węzeł w sekcji map.
-- Aby przełączać się między transparentem i mapą, naciśnij klawisz `Ctrl+F6` .
+- Domyślnie na stronie mapy geograficznej dla baneru jest filtr "Azure DCs".
+- Aby przejść do innego filtru, użyj `Tab` klucza lub `Right arrow` . Aby cofnąć się, użyj `Shift+Tab` klawisza lub `Left arrow` . Nawigacja do przodu jest od lewej do prawej, a następnie od góry do dołu.
+- Naciśnij `Enter` lub klawisz `Down` strzałki, aby zastosować wybrany filtr. W oparciu o wybór i wdrożenie filtru wyróżniony jest jeden lub wiele węzłów w sekcji mapy.
+- Aby przełączyć się między transparentem i mapą, naciśnij klawisz `Ctrl+F6` .
         
-### <a name="keyboard-navigation-on-the-map"></a>Nawigacja przy użyciu klawiatury na mapie
+### <a name="keyboard-navigation-on-the-map"></a>Nawigacja za pomocą klawiatury na mapie
     
-- Po wybraniu dowolnego filtru na transparencie i naciśnięciu `Ctrl+F6` fokus zostanie przeniesiony do jednego z wyróżnionych węzłów (**centrum danych platformy Azure** lub **kraju/regionu**) w widoku mapy.
-- Aby przejść do innych wyróżnionych węzłów na mapie, użyj albo `Tab` `Right arrow` klucza do przesunięcia do przodu. Użyj `Shift+Tab` lub `Left arrow` klawisza do przesuwania wstecznego.
-- Aby zaznaczyć dowolny wyróżniony węzeł w mapie, użyj `Enter` `Down arrow` klawisza or.
-- Po wybraniu takich węzłów fokus jest przenoszony do **pola narzędzia informacji** dla węzła. Domyślnie fokus jest przenoszony do przycisku zamknięty w **polu narzędzie informacji**. Aby dalej poruszać się wewnątrz widoku **pola** , użyj `Right arrow` klawiszy i, `Left arrow` Aby przenieść odpowiednio do przodu i do tyłu. Naciśnięcie klawisza `Enter` ma ten sam efekt, co wybranie priorytetowego przycisku w **polu narzędzie informacji**.
-- Po naciśnięciu klawisza `Tab` , gdy fokus znajduje się w **polu narzędzia informacji**, fokus jest przenoszony do punktów końcowych w tym samym kontynentie co wybrany węzeł. Użyj `Right arrow` klawiszy i, `Left arrow` Aby poruszać się za pomocą tych punktów końcowych.
-- Aby przejść do innych punktów końcowych przepływów lub klastrów kontynentu, użyj `Tab` do przenoszenia do przodu i `Shift+Tab` do przenoszenia wstecznego.
-- Gdy fokus jest skierowany do **klastrów kontynentu**, użyj `Enter` `Down` klawiszy strzałek lub, aby wyróżnić punkty końcowe w ramach klastra kontynentu. Aby poruszać się za pomocą punktów końcowych i przycisku Zamknij w oknie informacje w klastrze kontynentu, należy odpowiednio użyć albo `Right arrow` `Left arrow` klawisza lub do przenoszenia do przodu i do tyłu. W dowolnym punkcie końcowym można użyć, `Shift+L` Aby przełączyć się do linii połączenia z wybranego węzła do punktu końcowego. Możesz nacisnąć `Shift+L` ponownie, aby przejść do wybranego punktu końcowego.
+- Po wybraniu dowolnego filtru na banerze i naciśnięciu klawisza fokus zostanie przeniesiony do jednego z wyróżnionych węzłów (centrum danych platformy Azure lub `Ctrl+F6` **kraj/region)** w widoku mapy.
+- Aby przejść do innych wyróżnienia węzłów na mapie, użyj klawisza `Tab` lub `Right arrow` do przenoszenia do przodu. Użyj `Shift+Tab` lub `Left arrow` klawisza do ruchu wstecz.
+- Aby wybrać dowolny wyróżniony węzeł na mapie, użyj `Enter` klawisza lub `Down arrow` .
+- Po zaznaczeniu takich węzłów fokus jest przenoszyny do okna **narzędzi informacji** dla węzła. Domyślnie fokus jest przesuowany na zamknięty przycisk w **przyborowym polu informacji.** Aby przejść dalej wewnątrz widoku **Box,** użyj klawiszy i , aby przejść odpowiednio do przodu `Right arrow` i do `Left arrow` tyłu. Naciśnięcie `Enter` klawisza ma taki sam efekt jak wybranie przycisku ukierunkowanego w **przyborni informacji**.
+- Po naciśnięciu klawisza , gdy fokus znajduje się na polu narzędzi informacji, fokus jest przenoszyny do punktów końcowych na tym samym kontynentze co `Tab` wybrany węzeł.  Użyj kluczy `Right arrow` i , aby przejść przez te punkty `Left arrow` końcowe.
+- Aby przejść do innych punktów końcowych przepływu lub klastrów kontynentów, użyj funkcji do przesuwania do przodu `Tab` i `Shift+Tab` do tyłu.
+- Gdy fokus znajduje się w klastrach **kontynentu**, użyj klawiszy strzałek lub , aby wyróżnić punkty `Enter` końcowe wewnątrz klastra `Down` kontynentu. Aby przechodzić między punktami końcowymi i przyciskiem zamykania w polu informacji klastra kontynentu, użyj odpowiednio klawisza lub dla ruchu do przodu `Right arrow` `Left arrow` i do tyłu. W dowolnym punkcie końcowym możesz użyć polecenia , aby przełączyć się do linii połączenia z `Shift+L` wybranego węzła do punktu końcowego. Możesz ponownie nacisnąć `Shift+L` klawisz , aby przejść do wybranego punktu końcowego.
         
-### <a name="keyboard-navigation-at-any-stage"></a>Nawigacja przy użyciu klawiatury na dowolnym etapie
+### <a name="keyboard-navigation-at-any-stage"></a>Nawigacja za pomocą klawiatury na dowolnym etapie
     
-- `Esc` zwija rozwinięty wybór.
-- `Up-arrow`Klucz wykonuje tę samą akcję co `Esc` . `Down arrow`Klucz wykonuje tę samą akcję co `Enter` .
-- Użyj `Shift+Plus` , aby powiększyć i `Shift+Minus` pomniejszyć.
+- `Esc` Rozwijany wybór.
+- Klucz `Up-arrow` wykonuje tę samą akcję co `Esc` . Klucz `Down arrow` wykonuje tę samą akcję co `Enter` .
+- Użyj `Shift+Plus` funkcji , aby powiększyć i `Shift+Minus` pomniejszyć widok.
 
-## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-virtual-network-topology-view"></a>Jak nawigować przy użyciu klawiatury w widoku topologia sieci wirtualnej?
+## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-virtual-network-topology-view"></a>Jak nawigować przy użyciu klawiatury w widoku topologii sieci wirtualnej?
 
-Na stronie topologia sieci wirtualnych znajdują się dwie główne sekcje:
+Strona topologii sieci wirtualnych zawiera dwie główne sekcje:
     
-- **Transparent**: transparent w górnej części topologii sieci wirtualnych udostępnia przyciski do wybierania filtrów dystrybucji ruchu (na przykład połączonych sieci wirtualnych, odłączonych sieci wirtualnych i publicznych adresów IP). Po wybraniu przycisku odpowiedni filtr jest stosowany w topologii. Jeśli na przykład wybierzesz aktywny przycisk, topologia podświetla aktywne sieci wirtualne w danym wdrożeniu.
-- **Topologia**: poniżej transparentu sekcja topologia przedstawia rozkład ruchu między sieciami wirtualnymi.
+- **Transparent:** transparent w górnej części topologii sieci wirtualnych zawiera przyciski służące do wybierania filtrów dystrybucji ruchu (na przykład Połączone sieci wirtualne, Odłączone sieci wirtualne i Publiczne ip). Po wybraniu przycisku odpowiedni filtr jest stosowany do topologii. Jeśli na przykład wybierzesz przycisk Aktywne, topologia wyróżnia aktywne sieci wirtualne we wdrożeniu.
+- **Topologia:** pod transparentem sekcja topologii pokazuje dystrybucję ruchu między sieciami wirtualnymi.
     
-### <a name="keyboard-navigation-on-the-banner"></a>Nawigacja przy użyciu klawiatury na banerze
+### <a name="keyboard-navigation-on-the-banner"></a>Nawigacja za pomocą klawiatury na banerze
     
-- Domyślnie wybór na stronie topologii sieci wirtualnych dla transparentu to filtr "Connected sieci wirtualnych".
-- Aby przejść do innego filtru, użyj `Tab` klawisza, aby przejść do przodu. Aby przejść do tyłu, użyj `Shift+Tab` klucza. Nawigacja do przodu jest od lewej do prawej, a następnie od góry do dołu.
-- Naciśnij klawisz, `Enter` Aby zastosować wybrany filtr. W zależności od wyboru filtru i wdrożenia w sekcji topologia zostaną wyróżnione jeden lub wiele węzłów (Sieć wirtualna).
-- Aby przełączać się między transparentem a topologią, naciśnij klawisz `Ctrl+F6` .
+- Domyślnie na stronie topologii sieci wirtualnych transparentu jest filtr "Połączone sieci wirtualne".
+- Aby przejść do innego filtru, użyj `Tab` klawisza , aby przejść do przodu. Aby cofnąć się, użyj `Shift+Tab` klawisza . Nawigacja do przodu jest od lewej do prawej, a następnie od góry do dołu.
+- Naciśnij `Enter` klawisz , aby zastosować wybrany filtr. W oparciu o wybór i wdrożenie filtru wyróżniony jest jeden lub wiele węzłów (sieć wirtualna) w sekcji topologii.
+- Aby przełączyć się między transparentem a topologią, naciśnij klawisz `Ctrl+F6` .
         
-### <a name="keyboard-navigation-on-the-topology"></a>Nawigacja przy użyciu klawiatury w topologii
+### <a name="keyboard-navigation-on-the-topology"></a>Nawigacja za pomocą klawiatury w topologii
     
-- Po wybraniu dowolnego filtru na transparencie i naciśnięciu `Ctrl+F6` fokus zostanie przeniesiony do jednego z wyróżnionych węzłów (**VNET**) w widoku topologii.
-- Aby przejść do innych wyróżnionych węzłów w widoku topologii, użyj `Shift+Right arrow` klawisza do przesunięcia do przodu. 
-- W zaznaczonych węzłach fokus jest przenoszony do **pola narzędzia informacji** dla węzła. Domyślnie fokus jest przenoszony do przycisku **więcej szczegółów** w **polu narzędzie informacji**. Aby dalej poruszać się wewnątrz widoku **pola** , użyj `Right arrow` klawiszy i, `Left arrow` Aby przejść odpowiednio do przodu i do tyłu. Naciśnięcie klawisza `Enter` ma ten sam efekt, co wybranie priorytetowego przycisku w **polu narzędzie informacji**.
-- Po wybraniu takich węzłów można odwiedzać wszystkie jego połączenia, po jednym przez naciśnięcie `Shift+Left arrow` klawisza. Fokus jest przenoszony do **pola narzędzia informacji** tego połączenia. W dowolnym momencie fokus można przesunąć z powrotem do węzła, naciskając `Shift+Right arrow` ponownie.
+- Po wybraniu dowolnego filtru na banerze i naciśnięciu klawisza fokus zostanie przeniesiony do jednego z wyróżnionych węzłów `Ctrl+F6` **(sieć** wirtualna) w widoku topologii.
+- Aby przejść do innych wyróżnienia węzłów w widoku topologii, użyj `Shift+Right arrow` klucza do przenoszenia do przodu. 
+- W wyróżnione węzły fokus jest **przenoszony** do okna narzędzi informacji dla węzła. Domyślnie fokus jest zmieniany na przycisk **Więcej szczegółów** na polu **narzędzi informacji.** Aby dalej poruszać się wewnątrz **widoku Box,** użyj klawiszy i , aby przejść odpowiednio do przodu i `Right arrow` do `Left arrow` tyłu. Naciśnięcie `Enter` klawisza ma taki sam efekt jak wybranie przycisku ukierunkowanego w **przyborni informacji**.
+- Po zaznaczeniu dowolnego z takich węzłów możesz odwiedzać wszystkie jego połączenia, jeden po drugiej, naciskając `Shift+Left arrow` klawisz . Fokus jest **przesunyny do pola narzędzia informacyjnego** tego połączenia. W dowolnym momencie fokus można przesunąć z powrotem do węzła, naciskając `Shift+Right arrow` ponownie.
     
 
-## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-subnet-topology-view"></a>Jak nawigować przy użyciu klawiatury w widoku topologia podsieci?
+## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-subnet-topology-view"></a>Jak mogę nawigować przy użyciu klawiatury w widoku topologii podsieci?
 
-Na stronie topologia podsieci wirtualnych znajdują się dwie główne sekcje:
+Strona topologii podsieci wirtualnych zawiera dwie główne sekcje:
     
-- **Transparent**: transparent w górnej części topologii podsieci wirtualnych zawiera przyciski umożliwiające wybranie filtrów dystrybucji ruchu (na przykład aktywnych, średnich i podsieci bramy). Po wybraniu przycisku odpowiedni filtr jest stosowany w topologii. Na przykład, jeśli wybierzesz aktywny przycisk, topologia podświetla aktywną podsieć wirtualną we wdrożeniu.
-- **Topologia**: poniżej transparentu sekcja topologia przedstawia rozkład ruchu między podsieciami wirtualnymi.
+- **Transparent:** transparent w górnej części topologii podsieci wirtualnych zawiera przyciski służące do wybierania filtrów dystrybucji ruchu (na przykład podsieci aktywnych, średnich i bram). Po wybraniu przycisku odpowiedni filtr jest stosowany do topologii. Jeśli na przykład wybierzesz przycisk Aktywne, topologia wyróżnia aktywną podsieć wirtualną we wdrożeniu.
+- **Topologia:** pod transparentem sekcja topologii pokazuje dystrybucję ruchu między podsieciami wirtualnymi.
     
-### <a name="keyboard-navigation-on-the-banner"></a>Nawigacja przy użyciu klawiatury na banerze
+### <a name="keyboard-navigation-on-the-banner"></a>Nawigacja za pomocą klawiatury na banerze
     
-- Domyślnie wybór na stronie topologii sieci wirtualnych dla transparentu to filtr "podsieci".
-- Aby przejść do innego filtru, użyj `Tab` klawisza, aby przejść do przodu. Aby przejść do tyłu, użyj `Shift+Tab` klucza. Nawigacja do przodu jest od lewej do prawej, a następnie od góry do dołu.
-- Naciśnij klawisz, `Enter` Aby zastosować wybrany filtr. W oparciu o wybór i wdrożenie filtru, wyróżniono jeden lub wiele węzłów (podsieć) w sekcji topologia.
-- Aby przełączać się między transparentem a topologią, naciśnij klawisz `Ctrl+F6` .
+- Domyślnie na stronie topologii podsieci wirtualnych dla transparentu jest wybór filtru "Podsieci".
+- Aby przejść do innego filtru, użyj `Tab` klawisza , aby przejść do przodu. Aby cofnąć się, użyj `Shift+Tab` klawisza . Nawigacja do przodu jest od lewej do prawej, a następnie od góry do dołu.
+- Naciśnij `Enter` klawisz , aby zastosować wybrany filtr. W oparciu o wybór i wdrożenie filtru wyróżniony jest jeden lub wiele węzłów (podsieć) w sekcji topologii.
+- Aby przełączyć się między transparentem a topologią, naciśnij klawisz `Ctrl+F6` .
         
-### <a name="keyboard-navigation-on-the-topology"></a>Nawigacja przy użyciu klawiatury w topologii
+### <a name="keyboard-navigation-on-the-topology"></a>Nawigacja za pomocą klawiatury w topologii
     
-- Po wybraniu dowolnego filtru na transparencie i naciśnięciu `Ctrl+F6` fokus zostanie przeniesiony do jednego z wyróżnionych węzłów (**podsieci**) w widoku topologii.
-- Aby przejść do innych wyróżnionych węzłów w widoku topologii, użyj `Shift+Right arrow` klawisza do przesunięcia do przodu. 
-- W zaznaczonych węzłach fokus jest przenoszony do **pola narzędzia informacji** dla węzła. Domyślnie fokus jest przenoszony do przycisku **więcej szczegółów** w **polu narzędzie informacji**. Aby dalej poruszać się wewnątrz widoku **pola** , użyj `Right arrow` klawiszy i, `Left arrow` Aby przenieść odpowiednio do przodu i do tyłu. Naciśnięcie klawisza `Enter` ma ten sam efekt, co wybranie priorytetowego przycisku w **polu narzędzie informacji**.
-- Po wybraniu takich węzłów można odwiedzać wszystkie jego połączenia, po jednym przez naciśnięcie `Shift+Left arrow` klawisza. Fokus jest przenoszony do **pola narzędzia informacji** tego połączenia. W dowolnym momencie fokus można przesunąć z powrotem do węzła, naciskając `Shift+Right arrow` ponownie.
+- Po wybraniu dowolnego filtru na banerze i naciśnięciu klawisza fokus zostanie przeniesiony do jednego z wyróżnionych węzłów `Ctrl+F6` (podsieć) w widoku topologii.
+- Aby przejść do innych wyróżnienia węzłów w widoku topologii, użyj `Shift+Right arrow` klucza do przenoszenia do przodu. 
+- W wyróżnione węzły fokus jest **przenoszony** do okna narzędzi informacji dla węzła. Domyślnie fokus jest zmieniany na przycisk **Więcej szczegółów** na polu **narzędzi informacji.** Aby przejść dalej wewnątrz widoku **Box,** użyj klawiszy i , aby przejść odpowiednio do przodu `Right arrow` i do `Left arrow` tyłu. Naciśnięcie `Enter` klawisza ma taki sam efekt jak wybranie przycisku ukierunkowanego w **przyborni informacji**.
+- Po zaznaczeniu dowolnego z takich węzłów możesz odwiedzać wszystkie jego połączenia, jeden po jednym, naciskając `Shift+Left arrow` klawisz. Fokus jest **przesunyny do pola narzędzia informacyjnego** tego połączenia. W dowolnym momencie fokus można przesunąć z powrotem do węzła, naciskając `Shift+Right arrow` ponownie.
 
-## <a name="are-classic-nsgs-supported"></a>Czy obsługiwane są klasyczne sieciowych grup zabezpieczeń?
-Nie, Analiza ruchu nie obsługuje klasycznej sieciowej grupy zabezpieczeń. Zaleca się migrację zasobów IaaS z klasycznego do Azure Resource Manager, ponieważ zasoby klasyczne będą [przestarzałe](../virtual-machines/classic-vm-deprecation.md). Zapoznaj się z tym artykułem, aby zrozumieć, [Jak przeprowadzić migrację](../virtual-machines/migration-classic-resource-manager-overview.md).
+## <a name="are-classic-nsgs-supported"></a>Czy klasyczne sieciowe sieciowe sieci są obsługiwane?
+Nie, Analiza ruchu nie obsługuje klasycznej sieciowej sieciowej sieciowej sieci. Zaleca się migrację zasobów IaaS z wersji klasycznej do wersji Azure Resource Manager ponieważ zasoby klasyczne będą [przestarzałe.](../virtual-machines/classic-vm-deprecation.md) Zapoznaj się z tym artykułem, aby [dowiedzieć się, jak przeprowadzić migrację](../virtual-machines/migration-classic-resource-manager-overview.md).

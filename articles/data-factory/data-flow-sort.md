@@ -1,6 +1,6 @@
 ---
-title: Sortowanie transformacji w strumieniu danych mapowania
-description: Przekształcenie sortowania Azure Data Factory danych mapowania
+title: Sortowanie przekształcenia w przepływie danych mapowania
+description: Azure Data Factory przekształcania sortowania danych mapowania
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -8,31 +8,31 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/14/2020
-ms.openlocfilehash: 26852ec77194714c8236856b7cb496170bf0d777
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4a6567f8576e2507704956233bc593b203b48239
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "81606334"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588738"
 ---
-# <a name="sort-transformation-in-mapping-data-flow"></a>Sortowanie transformacji w strumieniu danych mapowania
+# <a name="sort-transformation-in-mapping-data-flow"></a>Sortowanie przekształcenia w przepływie danych mapowania
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Transformacja sortowania pozwala sortować wiersze przychodzące w bieżącym strumieniu danych. Można wybrać poszczególne kolumny i posortować je w kolejności rosnącej lub malejącej.
+Przekształcenie sortowania umożliwia sortowanie wierszy przychodzących w bieżącym strumieniu danych. Możesz wybrać poszczególne kolumny i posortować je w kolejności rosnącej lub malejącej.
 
 > [!NOTE]
-> Mapowanie przepływów danych jest wykonywane w klastrach Spark, które dystrybuują dane między wieloma węzłami i partycjami. Jeśli zdecydujesz się na ponowne Partycjonowanie danych w kolejnej transformacji, możesz utracić sortowanie ze względu na reshuffling danych.
+> Przepływy danych mapowania są wykonywane w klastrach Spark, które dystrybuują dane między wieloma węzłami i partycjami. Jeśli zdecydujesz się na ponowne partycjonowanie danych w kolejnym przekształceniu, możesz utracić sortowanie z powodu ponownego dufowania danych. Najlepszym sposobem utrzymania kolejności sortowania w przepływie danych jest ustawienie pojedynczej partycji na karcie Optymalizacja przekształcenia i zachowanie przekształcenia sortowania jak najbardziej zbliżonego do ujścia.
 
 ## <a name="configuration"></a>Konfigurowanie
 
 ![Ustawienia sortowania](media/data-flow/sort.png "Sortowanie")
 
-Bez **uwzględniania wielkości liter:** Określa, czy należy zignorować wielkość liter podczas sortowania ciągów lub pól tekstowych
+**Bez uwzględniania liter:** Określa, czy chcesz zignorować przypadek podczas sortowania pól ciągów lub tekstu
 
-**Sortuj tylko w obrębie partycji:** Ponieważ przepływy danych są uruchamiane na platformie Spark, każdy strumień danych jest podzielony na partycje. To ustawienie sortuje dane tylko w ramach partycji przychodzących, a nie sortuje cały strumień danych. 
+**Sortuj tylko w ramach partycji:** Ponieważ przepływy danych są uruchamiane na spark, każdy strumień danych jest dzielony na partycje. To ustawienie sortuje dane tylko w partycjach przychodzących, zamiast sortować cały strumień danych. 
 
-**Warunki sortowania:** Wybierz kolumny, według których ma być wykonywane sortowanie, i kolejność sortowania. Kolejność określa priorytet sortowania. Określ, czy wartości null będą wyświetlane na początku, czy na końcu strumienia danych.
+**Warunki sortowania:** Wybierz kolumny, według których chcesz sortować i w jakiej kolejności odbywa się sortowanie. Kolejność określa priorytet sortowania. Określ, czy wartości null będą wyświetlane na początku lub na końcu strumienia danych.
 
 ### <a name="computed-columns"></a>Kolumny obliczane
 
@@ -64,4 +64,4 @@ BasketballStats sort(desc(PTS, true),
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po sortowaniu możesz chcieć użyć [przekształcenia agregacji](data-flow-aggregate.md)
+Po posortowaniu możesz użyć przekształcenia [agregacji](data-flow-aggregate.md)
