@@ -1,26 +1,26 @@
 ---
-title: Przykład programu PowerShell — eksportowanie aplikacji z kluczami tajnymi i certyfikatami, które wygasają poza datą wymaganą w dzierżawie Azure Active Directory.
-description: Przykład programu PowerShell eksportujący wszystkie aplikacje z wpisami tajnymi i certyfikatami, które wygasają poza wymaganą datą dla określonych aplikacji w dzierżawie Azure Active Directory.
+title: Przykład programu PowerShell — eksportowanie aplikacji z wpisami tajnymi i certyfikatami, które w dzierżawie Azure Active Directory wymagane.
+description: Przykład programu PowerShell, który eksportuje wszystkie aplikacje z wpisami tajnymi i certyfikatami, które wygasają po upływie wymaganej daty dla określonych aplikacji w Azure Active Directory dzierżawie.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: sample
 ms.date: 03/09/2021
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: mifarca
-ms.openlocfilehash: daeea48758a9f08e7eedbfcaddcde3815f5c1e16
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 692ab2cfd480fd15760c13c63922fe76d23058ea
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105729103"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375393"
 ---
-# <a name="export-apps-with-secrets-and-certificates-expiring-beyond-the-required-date"></a>Eksportowanie aplikacji z użyciem wpisów tajnych i certyfikatów wygasających poza wymaganą datą
+# <a name="export-apps-with-secrets-and-certificates-expiring-beyond-the-required-date"></a>Eksportowanie aplikacji z wpisami tajnymi i certyfikatami, które wygasają po upływie wymaganej daty
 
-Ten przykładowy skrypt programu PowerShell eksportuje wszystkie wpisy tajne rejestracji aplikacji i certyfikaty, które wygasają po upływie wymaganego okresu dla określonych aplikacji z katalogu w pliku CSV, nieinteraktywnie.
+Ten przykładowy skrypt programu PowerShell eksportuje wszystkie wpisy tajne i certyfikaty rejestracji aplikacji wygasające poza wymagany okres dla określonych aplikacji z katalogu w pliku CSV w sposób nieinterakcyjny.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -30,17 +30,17 @@ Ten przykładowy skrypt programu PowerShell eksportuje wszystkie wpisy tajne rej
 
 ## <a name="script-explanation"></a>Objaśnienia dla skryptu
 
-Ten skrypt działa nieinteraktywnie. Administrator korzystający z tego programu będzie musiał zmienić wartości w sekcji "#PARAMETERS do zmiany" z IDENTYFIKATORem aplikacji, wpisem tajnym aplikacji, nazwą dzierżawy, okresem ważności poświadczeń aplikacji oraz ścieżką, w której będzie eksportowany wolumin CSV.
-Ten skrypt używa [przepływu Client_Credential OAuth](../../develop/v2-oauth2-client-creds-grant-flow.md) funkcja "RefreshToken" kompiluje token dostępu na podstawie wartości parametrów zmodyfikowanych przez administratora.
+Ten skrypt działa nieinterakcyjnie. Używający go administrator będzie musiał zmienić wartości w sekcji "#PARAMETERS TO CHANGE" z własnym identyfikatorem aplikacji, kluczem tajnym aplikacji, nazwą dzierżawy, okresem wygaśnięcia poświadczeń aplikacji i ścieżką, w której zostanie wyeksportowany plik CSV.
+Ten skrypt używa [przepływu Client_Credential Oauth.](../../develop/v2-oauth2-client-creds-grant-flow.md) Funkcja "RefreshToken" skompilowała token dostępu na podstawie wartości parametrów zmodyfikowanych przez administratora.
 
-Polecenie "Add-member" jest odpowiedzialne za tworzenie kolumn w pliku CSV.
+Polecenie "Add-Member" jest odpowiedzialne za tworzenie kolumn w pliku CSV.
 
 | Polecenie | Uwagi |
 |---|---|
-| [Invoke-żądanie](/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-7.1&preserve-view=true) | Wysyła żądania HTTP i HTTPS do strony sieci Web lub usługi sieci Web. Analizuje odpowiedź i zwraca kolekcje linków, obrazów i innych istotnych elementów HTML. |
+| [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-7.1&preserve-view=true) | Wysyła żądania HTTP i HTTPS do strony internetowej lub usługi internetowej. Analizuje odpowiedź i zwraca kolekcje linków, obrazów i innych znaczących elementów HTML. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat modułu Azure AD PowerShell, zobacz [Omówienie modułu programu Azure AD PowerShell](/powershell/azure/active-directory/overview).
+Aby uzyskać więcej informacji na temat modułu Azure AD PowerShell, zobacz Omówienie modułu [Azure AD PowerShell](/powershell/azure/active-directory/overview).
 
-Aby poznać inne przykłady dla programu PowerShell dotyczące zarządzania aplikacjami, zobacz [przykłady programu Azure AD PowerShell dotyczące zarządzania aplikacjami](../app-management-powershell-samples.md).
+Aby uzyskać inne przykłady programu PowerShell dotyczące zarządzania aplikacją, zobacz [Azure AD PowerShell examples for Application Management (Przykłady programu Azure AD PowerShell do zarządzania aplikacją).](../app-management-powershell-samples.md)

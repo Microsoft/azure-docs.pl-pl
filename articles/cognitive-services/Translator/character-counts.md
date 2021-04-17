@@ -1,7 +1,7 @@
 ---
-title: Liczba znaków — translator
+title: Liczba znaków — Translator
 titleSuffix: Azure Cognitive Services
-description: W tym artykule wyjaśniono, jak usługa Azure Cognitive Services translator zlicza znaki, aby zrozumieć, jak pozyskuje zawartość.
+description: W tym artykule wyjaśniono, jak Azure Cognitive Services Translator zlicza znaki, aby zrozumieć, jak pozyska zawartość.
 services: cognitive-services
 author: laujan
 manager: nitinme
@@ -10,33 +10,35 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: lajanuar
-ms.openlocfilehash: 6e81736e3151c9e97a8926b1f67c0a7a0d4c2f3d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53fc22e1dbdac3240f72e8d64fbaee690597950f
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98895887"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107373931"
 ---
 # <a name="how-the-translator-counts-characters"></a>Jak translator zlicza znaki
 
-Translator zlicza każdy punkt kodu Unicode tekstu wejściowego jako znak. Każde tłumaczenie tekstu na język jest traktowane jako oddzielne tłumaczenie, nawet jeśli żądanie zostało wykonane w jednym wywołaniu interfejsu API translacji w wielu językach. Długość odpowiedzi nie ma znaczenia.
+Translator zlicza każdy punkt kodu Unicode tekstu wejściowego jako znak. Każde tłumaczenie tekstu na język jest liczone jako osobne tłumaczenie, nawet jeśli żądanie zostało wykonane w jednym wywołaniu interfejsu API tłumacza na wiele języków. Długość odpowiedzi nie ma znaczenia.
 
-Jakie są następujące zliczenia:
+To, co jest ważne:
 
-* Tekst przesłany do usługi Translator w treści żądania
-   * `Text` w przypadku korzystania z metod przeszukiwania, transliteracji i słownika
-   * `Text` i `Translation` w przypadku korzystania z przykładów słownika
-* Wszystkie znaczniki: HTML, tagi XML itp. w polu tekstowym treści żądania. Nie zliczane jest notacja JSON użyta do skompilowania żądania (na przykład "Text:").
+* Tekst przekazywany do usługi Translator w treści żądania
+   * `Text` w przypadku korzystania z metod Translate, Transliterate i Dictionary Lookup
+   * `Text` i `Translation` w przypadku korzystania z metody Dictionary Examples
+* Wszystkie znaczniki: HTML, tagi XML itp. w polu tekstowym treści żądania. Notacja JSON używana do kompilowania żądania (na przykład "Text:") nie jest zliczona.
 * Pojedyncza litera
 * Znaki interpunkcyjne
-* Spacja, tabulator, znacznik i dowolny znak znaku odstępu
-* Każdy punkt kodowy zdefiniowany w kodzie Unicode
-* Wielokrotne tłumaczenie, nawet jeśli wcześniej przetłumaczy ten sam tekst
+* Spacja, tabulator, znacznik i dowolny rodzaj znaku odstępu
+* Każdy punkt kodu zdefiniowany w standardzie Unicode
+* Powtórzone tłumaczenie, nawet jeśli wcześniej przetłumaczono ten sam tekst
 
-W przypadku skryptów opartych na ideograms, takich jak chiński i japoński Kanji, usługa translatora nadal zlicza liczbę punktów kodowych Unicode, jeden znak na ideogram. Wyjątek: Liczba surogatów Unicode jest liczona jako dwa znaki.
+W przypadku skryptów opartych na ideogramach, takich jak chiński i japoński kanji, usługa Translator nadal zlicza punkty kodu Unicode, po jednym znaku na ideogram. Wyjątek: surogaty Unicode są liczone jako dwa znaki.
 
-Liczba żądań, słów, bajtów lub zdań jest nieistotna w liczbie znaków.
+Liczba żądań, słów, bajtów lub zdań nie ma znaczenia w liczbie znaków.
 
-Wywołania metod wykrywania i BreakSentence nie są zliczane w zużyciu znaków. Jednak oczekujemy, że wywołania metod wykrywania i BreakSentence są w rozsądny sposób proporcjonalne do korzystania z innych funkcji, które są zliczane. Jeśli liczba wykonywanych wywołań wykrywania lub BreakSentence przekracza liczbę innych zliczonych metod o 100 razy, firma Microsoft zastrzega sobie prawo do ograniczenia użycia metod wykrywania i BreakSentence.
+Wywołania metod Detect i BreakSentence nie są liczone w zużyciu znaków. Oczekujemy jednak, że wywołania metod Detect i BreakSentence są w rozsądnym stosunku do użycia innych funkcji, które są liczone. Jeśli liczba wywołań Detect lub BreakSentence przekracza liczbę innych metod policzonych 100 razy, firma Microsoft zastrzega sobie prawo do ograniczenia użycia metod Detect i BreakSentence.
 
-Więcej informacji o liczbie znaków znajduje się w [sekcji często zadawane pytania dotyczące translatora](https://www.microsoft.com/en-us/translator/faq.aspx).
+Każdy znak przesłany do funkcji translate jest liczony nawet wtedy, gdy zawartość nie zostanie zmieniona lub gdy język źródłowy i docelowy są takie same.
+
+Więcej informacji na temat liczby znaków znajduje się w artykule [Translator FAQ (Często zadawane pytania dotyczące usługi Translator).](https://www.microsoft.com/en-us/translator/faq.aspx)

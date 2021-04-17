@@ -1,69 +1,69 @@
 ---
-title: 'Szybki Start: przypisywanie użytkowników do aplikacji, która używa Azure Active Directory jako dostawcy tożsamości'
-description: Ten przewodnik Szybki Start przeprowadzi Cię przez proces, dzięki któremu użytkownicy mogą korzystać z aplikacji, która została skonfigurowana do korzystania z usługi Azure AD jako dostawcy tożsamości.
+title: 'Szybki start: przypisywanie użytkowników do aplikacji, która używa Azure Active Directory jako dostawcy tożsamości'
+description: W tym przewodniku Szybki start ominiemy proces zezwalania użytkownikom na używanie aplikacji, która została przez Ciebie tak skonfigurować, aby używać usługi Azure AD jako dostawcy tożsamości.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/01/2020
-ms.author: kenwith
-ms.openlocfilehash: 53dd2d15565149c3a9888ba063a6194ae033d8e0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: iangithinji
+ms.openlocfilehash: eb6797fdfb57a503b6dece9f2dfdc3cb0c67feef
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99258375"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375342"
 ---
-# <a name="quickstart-assign-users-to-an-app-that-is-using-azure-ad-as-an-identity-provider"></a>Szybki Start: przypisywanie użytkowników do aplikacji używającej usługi Azure AD jako dostawcy tożsamości
+# <a name="quickstart-assign-users-to-an-app-that-is-using-azure-ad-as-an-identity-provider"></a>Szybki start: przypisywanie użytkowników do aplikacji, która używa usługi Azure AD jako dostawcy tożsamości
 
-W poprzednim przewodniku szybki start skonfigurowano właściwości aplikacji. Podczas ustawiania właściwości skonfigurowanych dla użytkowników przypisanych i nieprzypisanych. Ten przewodnik Szybki Start przeprowadzi Cię przez proces przypisywania użytkowników do aplikacji.
+W poprzednim przewodniku Szybki start skonfigurowano właściwości aplikacji. Po skonfigurowaniu właściwości środowisko dla przypisanych i nieprzypisanych użytkowników. Ten przewodnik Szybki start zawiera informacje na temat procesu przypisywania użytkowników do aplikacji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby przypisać użytkowników do aplikacji dodanej do dzierżawy usługi Azure AD, potrzebne są:
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Jedna z następujących ról: Administrator globalny, administrator aplikacji w chmurze, administrator aplikacji lub właściciel jednostki usługi.
-- Opcjonalne: kończenie [wyświetlania aplikacji](view-applications-portal.md).
-- Opcjonalne: kończenie [dodawania aplikacji](add-application-portal.md).
-- Opcjonalne: kończenie [konfigurowania aplikacji](add-application-portal-configure.md).
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Jedna z następujących ról: administrator globalny, administrator aplikacji w chmurze, administrator aplikacji lub właściciel jednostki usługi.
+- Opcjonalnie: ukończenie [wyświetlania aplikacji.](view-applications-portal.md)
+- Opcjonalnie: ukończenie [dodawania aplikacji.](add-application-portal.md)
+- Opcjonalnie: ukończenie [konfigurowania aplikacji.](add-application-portal-configure.md)
 
 >[!IMPORTANT]
->Przetestuj kroki opisane w tym przewodniku Szybki Start przy użyciu środowiska nieprodukcyjnego.
+>Użyj środowiska nieprodukcyjną, aby przetestować kroki opisane w tym przewodniku Szybki start.
 
 ## <a name="assign-users-to-an-app"></a>Przypisywanie użytkowników do aplikacji
-1. W portalu usługi Azure AD wybierz pozycję **aplikacje dla przedsiębiorstw**. Następnie Znajdź i wybierz aplikację, którą chcesz skonfigurować.
-2. W menu nawigacji po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
+1. W portalu usługi Azure AD wybierz pozycję **Aplikacje dla przedsiębiorstw.** Następnie znajdź i wybierz aplikację, którą chcesz skonfigurować.
+2. W menu nawigacji po lewej stronie wybierz pozycję **Użytkownicy i grupy.**
    > [!NOTE]
-   > Niektóre aplikacje Microsoft 365 wymagają użycia programu PowerShell. 
-3. Wybierz przycisk **Dodaj użytkownika** .
-4. W okienku **Dodaj przypisanie** wybierz pozycję **Użytkownicy i grupy**.
-5. Wybierz użytkownika lub grupę, która ma zostać przypisana do aplikacji. Możesz również rozpocząć wpisywanie nazwy użytkownika lub grupy w polu wyszukiwania. Możesz wybrać wielu użytkowników i grupy, a wybrane opcje będą widoczne w obszarze **wybrane elementy**.
+   > Niektóre z Microsoft 365 wymagają użycia programu PowerShell. 
+3. Wybierz przycisk **Add user (Dodaj** użytkownika).
+4. W **okienku Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy.**
+5. Wybierz użytkownika lub grupę, którą chcesz przypisać do aplikacji. Możesz również rozpocząć wpisywanie nazwy użytkownika lub grupy w polu wyszukiwania. Możesz wybrać wielu użytkowników i grupy, a wybrane opcje zostaną wyświetlone w obszarze **Wybrane elementy.**
     > [!IMPORTANT]
-    > Po przypisaniu grupy do aplikacji tylko użytkownicy w grupie będą mieli dostęp. Przypisanie nie jest kaskadowe do grup zagnieżdżonych.
+    > Po przypisaniu grupy do aplikacji dostęp będą mieli tylko użytkownicy w tej grupie. Przypisanie nie powoduje kaskady dla grup zagnieżdżonych.
 
     > [!NOTE]
-    > Przypisanie oparte na grupach wymaga Azure Active Directory — wersja Premium wersji P1 lub P2. Przypisanie oparte na grupach jest obsługiwane tylko dla grup zabezpieczeń. Członkostwa w grupach zagnieżdżonych i grup Microsoft 365 nie są obecnie obsługiwane. Aby uzyskać więcej informacji o wymaganiach dotyczących licencjonowania funkcji omówionych w tym artykule, zobacz [stronę z cennikiem Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory). 
-6. Po zakończeniu wybierz **pozycję Wybierz**.
+    > Przypisanie oparte na grupach wymaga Azure Active Directory — wersja Premium wersji P1 lub P2. Przypisanie oparte na grupach jest obsługiwane tylko w przypadku grup zabezpieczeń. Członkostwo w grupach zagnieżdżonych Microsoft 365 grupy nie są obecnie obsługiwane. Aby uzyskać więcej wymagań dotyczących licencjonowania funkcji omówiony w tym artykule, zobacz stronę [Azure Active Directory cennika.](https://azure.microsoft.com/pricing/details/active-directory) 
+6. Po zakończeniu wybierz pozycję **Wybierz**.
    ![Przypisywanie użytkownika lub grupy do aplikacji](./media/assign-user-or-group-access-portal/assign-users.png)
-7. W okienku **Użytkownicy i grupy** wybierz co najmniej jednego użytkownika lub grupę z listy, a następnie wybierz przycisk **Wybierz** w dolnej części okienka.
-8. Jeśli aplikacja obsługuje tę funkcję, można przypisać rolę do użytkownika lub grupy. W okienku **Dodaj przypisanie** wybierz **pozycję Wybierz rolę**. Następnie w okienku **Wybierz rolę** wybierz rolę, która ma zostać zastosowana do wybranych użytkowników lub grup, a następnie wybierz pozycję **OK** w dolnej części okienka. 
+7. W **okienku Użytkownicy i** grupy wybierz z listy co najmniej jednego użytkownika lub większej liczby grup, a następnie wybierz przycisk **Wybierz** w dolnej części okienka.
+8. Jeśli aplikacja go obsługuje, możesz przypisać rolę do użytkownika lub grupy. W **okienku Dodawanie przypisania** wybierz pozycję **Wybierz rolę.** Następnie w **okienku Wybierz** rolę wybierz rolę do zastosowania do wybranych użytkowników lub grup, a następnie wybierz przycisk **OK** w dolnej części okienka. 
     > [!NOTE]
-    > Jeśli aplikacja nie obsługuje wyboru roli, zostanie przypisana domyślna rola dostępu. W takim przypadku aplikacja zarządza poziomem dostępu dostępnym dla użytkowników.
-9. W okienku **Dodaj przypisanie** wybierz przycisk **Przypisz** w dolnej części okienka.
+    > Jeśli aplikacja nie obsługuje wyboru roli, zostanie przypisana domyślna rola dostępu. W takim przypadku aplikacja zarządza poziomem dostępu użytkowników.
+9. W **okienku Dodawanie** przypisania wybierz **przycisk** Przypisz w dolnej części okienka.
 
-Możesz cofnąć przypisanie użytkowników lub grup, korzystając z tej samej procedury. Wybierz użytkownika lub grupę, którą chcesz cofnąć przypisania, a następnie wybierz pozycję **Usuń**. Niektóre aplikacje Microsoft 365 i Office 365 wymagają użycia programu PowerShell. 
+Użytkowników lub grupy można nieprzypisać przy użyciu tej samej procedury. Wybierz użytkownika lub grupę, dla której chcesz usunąć przypisanie, a następnie wybierz pozycję **Usuń**. Niektóre aplikacje Microsoft 365 i Office 365 wymagają użycia programu PowerShell. 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Po zakończeniu korzystania z przewodnika Szybki Start Rozważ usunięcie aplikacji. Dzięki temu możesz zachować czyste dzierżawy testowe. Usuwanie aplikacji jest omówione w ostatnim przewodniku szybki start w tej serii, zobacz [usuwanie aplikacji](delete-application-portal.md).
+Po zakończeniu pracy z tym przewodnikiem Szybki start rozważ usunięcie aplikacji. Dzięki temu dzierżawa testowa będzie czysta. Usuwanie aplikacji jest uwzględnione w ostatnim przewodniku Szybki start z tej serii. [Zobacz Usuwanie aplikacji.](delete-application-portal.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przejdź do następnego artykułu, aby dowiedzieć się, jak skonfigurować Logowanie jednokrotne dla aplikacji.
+Aby dowiedzieć się, jak skonfigurować logowanie pojedyncze dla aplikacji, należy przejść do następnego artykułu.
 > [!div class="nextstepaction"]
 > [Konfigurowanie logowania jednokrotnego opartego na protokole SAML](add-application-portal-setup-sso.md)
 

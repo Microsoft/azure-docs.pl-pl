@@ -1,158 +1,158 @@
 ---
 title: Co nowego w usłudze Azure Backup
-description: Dowiedz się więcej o nowych funkcjach w Azure Backup.
+description: Dowiedz się więcej o nowych funkcjach Azure Backup.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: c5e6734c6a962fa43d79fc90fdfaa85923b6339f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 68e0e5cc0876840c30ab9e428a2b96bd7d667756
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612487"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107516335"
 ---
 # <a name="whats-new-in-azure-backup"></a>Co nowego w usłudze Azure Backup
 
-Azure Backup ciągle ulepsza i zwalnia nowe funkcje, które rozszerzają ochronę danych na platformie Azure. Te nowe funkcje rozszerzają ochronę danych na nowe typy obciążeń, zwiększają bezpieczeństwo i zwiększają dostępność danych kopii zapasowej. Dodaje również nowe możliwości zarządzania, monitorowania i automatyzacji.
+Azure Backup stale ulepsza i udostępnia nowe funkcje, które zwiększają ochronę danych na platformie Azure. Te nowe funkcje rozszerzają ochronę danych o nowe typy obciążeń, zwiększają bezpieczeństwo i zwiększają dostępność danych kopii zapasowych. Dodają również nowe możliwości zarządzania, monitorowania i automatyzacji.
 
-Więcej informacji o nowych wersjach można uzyskać, zaznaczając je na tej stronie lub [subskrybując je tutaj](https://azure.microsoft.com/updates/?query=backup).
+Aby dowiedzieć się więcej na temat nowych wersji, dodaj zakładkę do tej strony lub [subskrybując aktualizacje tutaj.](https://azure.microsoft.com/updates/?query=backup)
 
 ## <a name="updates-summary"></a>Podsumowanie aktualizacji
 
-- Marzec 2021
-  - [Tworzenie kopii zapasowej na dysku na platformie Azure jest teraz ogólnie dostępne](#azure-disk-backup-is-now-generally-available)
+- Marzec 2021 r.
+  - [Usługa Azure Disk Backup jest teraz ogólnie dostępna](#azure-disk-backup-is-now-generally-available)
   - [Centrum kopii zapasowych jest teraz ogólnie dostępne](#backup-center-is-now-generally-available)
   - [Obsługa warstwy Archiwum dla Azure Backup (w wersji zapoznawczej)](#archive-tier-support-for-azure-backup-in-preview)
 - Luty 2021 r.
-  - [Kopia zapasowa dla obiektów blob platformy Azure (w wersji zapoznawczej)](#backup-for-azure-blobs-in-preview)
+  - [Tworzenie kopii zapasowej obiektów blob platformy Azure (w wersji zapoznawczej)](#backup-for-azure-blobs-in-preview)
 - Styczeń 2021 r.
-  - [Kopia zapasowa Azure Disk (wersja zapoznawcza)](#azure-disk-backup-in-preview)
-  - [Szyfrowanie w spoczynku przy użyciu kluczy zarządzanych przez klienta (ogólna dostępność)](#encryption-at-rest-using-customer-managed-keys)
+  - [Azure Disk Backup (w wersji zapoznawczej)](#azure-disk-backup-in-preview)
+  - [Szyfrowanie danych w spoczynku przy użyciu kluczy zarządzanych przez klienta (ogólna dostępność)](#encryption-at-rest-using-customer-managed-keys)
 - Listopad 2020 r.
-  - [Szablon Azure Resource Manager dla kopii zapasowej udziału plików platformy Azure (AFS)](#azure-resource-manager-template-for-afs-backup)
-  - [Przyrostowe kopie zapasowe baz danych SAP HANA na maszynach wirtualnych platformy Azure (w wersji zapoznawczej)](#incremental-backups-for-sap-hana-databases-in-preview)
+  - [Azure Resource Manager szablonu kopii zapasowej udziału plików platformy Azure (AFS)](#azure-resource-manager-template-for-afs-backup)
+  - [Przyrostowe kopie zapasowe dla SAP HANA baz danych na maszyn wirtualnych platformy Azure (w wersji zapoznawczej)](#incremental-backups-for-sap-hana-databases-in-preview)
 - Wrzesień 2020
-  - [Centrum kopii zapasowych (wersja zapoznawcza)](#backup-center-in-preview)
-  - [Azure Database for PostgreSQL kopii zapasowych (wersja zapoznawcza)](#backup-azure-database-for-postgresql-in-preview)
-  - [Selektywne tworzenie kopii zapasowych i przywracanie dysków](#selective-disk-backup-and-restore)
-  - [Przywracanie między regionami dla baz danych SQL Server i SAP HANA na maszynach wirtualnych platformy Azure (w wersji zapoznawczej)](#cross-region-restore-for-sql-server-and-sap-hana-in-preview)
+  - [Centrum kopii zapasowych (w wersji zapoznawczej)](#backup-center-in-preview)
+  - [Tworzenie Azure Database for PostgreSQL kopii zapasowej (w wersji zapoznawczej)](#backup-azure-database-for-postgresql-in-preview)
+  - [Selektywne tworzenie i przywracanie kopii zapasowej dysku](#selective-disk-backup-and-restore)
+  - [Przywracanie między regionami dla SQL Server i SAP HANA baz danych na maszyn wirtualnych platformy Azure (w wersji zapoznawczej)](#cross-region-restore-for-sql-server-and-sap-hana-in-preview)
   - [Obsługa tworzenia kopii zapasowych maszyn wirtualnych z maksymalnie 32 dyskami (ogólna dostępność)](#support-for-backup-of-vms-with-up-to-32-disks)
-  - [Uproszczone środowisko konfiguracji kopii zapasowej dla programu SQL na maszynach wirtualnych platformy Azure](#simpler-backup-configuration-for-sql-in-azure-vms)
-  - [SAP HANA kopii zapasowych w usłudze RHEL Azure Virtual Machines (w wersji zapoznawczej)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
+  - [Uproszczone środowisko konfiguracji kopii zapasowych dla bazy danych SQL na platformie Azure](#simpler-backup-configuration-for-sql-in-azure-vms)
+  - [Tworzenie SAP HANA kopii zapasowych w usłudze Azure Virtual Machines RHEL (w wersji zapoznawczej)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
   - [Magazyn strefowo nadmiarowy (ZRS) dla danych kopii zapasowej (w wersji zapoznawczej)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
-  - [Usuwanie nietrwałe dla obciążeń SQL Server i SAP HANA na maszynach wirtualnych platformy Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
+  - [Usuwanie nie softowe dla SQL Server i SAP HANA obciążeń na platformie Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
 
-## <a name="azure-disk-backup-is-now-generally-available"></a>Tworzenie kopii zapasowej na dysku na platformie Azure jest teraz ogólnie dostępne
+## <a name="azure-disk-backup-is-now-generally-available"></a>Usługa Azure Disk Backup jest teraz ogólnie dostępna
 
-Azure Backup oferuje możliwość zarządzania cyklem życia migawek na platformie Azure Managed Disks przez Automatyzowanie okresowego tworzenia migawek i zachowywanie ich dla skonfigurowanych czasów trwania przy użyciu zasad tworzenia kopii zapasowych.
+Azure Backup zarządzanie cyklem życia migawek w usłudze Azure Dyski zarządzane przez automatyzację okresowego tworzenia migawek i ich zachowywanie przez skonfigurowane czasy trwania przy użyciu zasad kopii zapasowych.
 
-Aby uzyskać więcej informacji, zobacz [Omówienie usługi Kopia zapasowa Azure Disk](disk-backup-overview.md).
+Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Disk Backup.](disk-backup-overview.md)
 
 ## <a name="backup-center-is-now-generally-available"></a>Centrum kopii zapasowych jest teraz ogólnie dostępne
 
-Centrum kopii zapasowych upraszcza zarządzanie ochroną danych w skali, umożliwiając odnajdywanie, monitorowanie, obsługę i optymalizację zarządzania kopiami zapasowymi z jednej pojedynczej konsoli centralnej.
+Centrum kopii zapasowych upraszcza zarządzanie ochroną danych na dużą skalę, umożliwiając odnajdywanie, zarządzanie, monitorowanie, obsługę i optymalizowanie zarządzania kopiami zapasowymi z jednej centralnej konsoli.
 
-Aby uzyskać więcej informacji, zobacz [Omówienie centrum kopii zapasowych](backup-center-overview.md).
+Aby uzyskać więcej informacji, zobacz [Overview of Backup Center](backup-center-overview.md).
 
 ## <a name="archive-tier-support-for-azure-backup-in-preview"></a>Obsługa warstwy Archiwum dla Azure Backup (w wersji zapoznawczej)
 
-Azure Backup teraz umożliwia zredukowanie kosztów długoterminowego przechowywania kopii zapasowych z dostępnością warstwy Archiwum dla maszyn wirtualnych platformy Azure i SQL Server na maszynach wirtualnych platformy Azure.
+Azure Backup umożliwia teraz zmniejszenie kosztów kopii zapasowych przechowywania długoterminowego dzięki dostępności warstwy Archiwum dla maszyn wirtualnych platformy Azure i SQL Server na maszynach wirtualnych platformy Azure.
 
-Aby uzyskać więcej informacji, zobacz [Obsługa warstwy archiwum (wersja zapoznawcza)](archive-tier-support.md).
+Aby uzyskać więcej informacji, zobacz [Obsługa warstwy Archiwum (wersja zapoznawcza).](archive-tier-support.md)
 
-## <a name="backup-for-azure-blobs-in-preview"></a>Kopia zapasowa dla obiektów blob platformy Azure (w wersji zapoznawczej)
+## <a name="backup-for-azure-blobs-in-preview"></a>Tworzenie kopii zapasowej obiektów blob platformy Azure (w wersji zapoznawczej)
 
-Operacyjna kopia zapasowa dla obiektów BLOB to zarządzane, lokalne rozwiązanie do ochrony danych, które umożliwia ochronę blokowych obiektów blob z różnych scenariuszy utraty danych, takich jak uszkodzenia, usuwanie obiektów blob i przypadkowe usuwanie konta magazynu. Dane są przechowywane lokalnie na koncie magazynu źródłowego i mogą być odzyskiwane do wybranego punktu w czasie, gdy będzie to konieczne. Zapewnia to proste, bezpieczne i ekonomiczne środki do ochrony obiektów BLOB.
+Operacyjna kopia zapasowa obiektów blob to zarządzane, lokalne rozwiązanie do ochrony danych, które umożliwia ochronę blokowych obiektów blob przed różnymi scenariuszami utraty danych, takich jak uszkodzenie, usunięcie obiektów blob i przypadkowe usunięcie konta magazynu. Dane są przechowywane lokalnie na źródłowym koncie magazynu i w razie potrzeby można je odzyskać do wybranego punktu w czasie. Dzięki temu zapewnia proste, bezpieczne i ekonomiczne sposoby ochrony obiektów blob.
 
-Operacyjna kopia zapasowa dla obiektów BLOB integruje się z centrum kopii zapasowych, między innymi funkcjami zarządzania kopiami zapasowymi, aby zapewnić pojedyncze okienko szkła, które może pomóc w zarządzaniu, monitorowaniu, obsłudze i analizowaniu kopii zapasowych na dużą skalę.
+Operacyjna kopia zapasowa obiektów blob integruje się z Centrum kopii zapasowych, a także z innymi możliwościami zarządzania kopiami zapasowymi, aby zapewnić pojedyncze okienko, które może ułatwić zarządzanie, monitorowanie, obsługę i analizowanie kopii zapasowych na dużą skalę.
 
-Aby uzyskać więcej informacji, zobacz [Omówienie operacyjnej kopii zapasowej dla obiektów blob platformy Azure (w wersji zapoznawczej)](blob-backup-overview.md).
+Aby uzyskać więcej informacji, zobacz [Overview of operational backup for Azure Blobs (in preview) (Omówienie](blob-backup-overview.md)operacyjnej kopii zapasowej obiektów blob platformy Azure (w wersji zapoznawczej).
 
-## <a name="azure-disk-backup-in-preview"></a>Kopia zapasowa Azure Disk (wersja zapoznawcza)
+## <a name="azure-disk-backup-in-preview"></a>Usługa Azure Disk Backup (w wersji zapoznawczej)
 
-Usługa Kopia zapasowa Azure Disk oferuje rozwiązanie gotowe, które zapewnia możliwość zarządzania cyklem życia migawek dla [systemu Azure Managed disks](../virtual-machines/managed-disks-overview.md) przez Automatyzowanie okresowego tworzenia migawek i przechowywanie ich na skonfigurowany czas trwania przy użyciu zasad tworzenia kopii zapasowych. Można zarządzać migawkami dysków bez ponoszenia kosztów związanych z infrastrukturą oraz niepotrzebami niestandardowych skryptów ani narzutami związanymi z zarządzaniem. Jest to rozwiązanie do tworzenia kopii zapasowej spójnej na poziomie awarii, które pobiera kopie zapasowe z dysku zarządzanego do określonego momentu przy użyciu [migawek przyrostowych](../virtual-machines/disks-incremental-snapshots.md) z obsługą wielu kopii zapasowych dziennie. Jest to również rozwiązanie bez agenta i nie ma wpływu na wydajność aplikacji produkcyjnej. Obsługuje ona tworzenie kopii zapasowych i przywracanie dysków systemu operacyjnego i danych (w tym dysków udostępnionych), niezależnie od tego, czy są one obecnie dołączone do uruchomionej maszyny wirtualnej platformy Azure.
+Usługa Azure Disk Backup oferuje gotowe rozwiązanie, które zapewnia zarządzanie cyklem życia migawek dla usługi Azure Dyski zarządzane przez automatyzowanie [okresowego](../virtual-machines/managed-disks-overview.md) tworzenia migawek i zachowywanie ich przez skonfigurowany czas trwania przy użyciu zasad tworzenia kopii zapasowych. Migawkami dysków można zarządzać bez poniesienie kosztów infrastruktury i bez konieczności wykonywania skryptów niestandardowych ani jakichkolwiek narzutów na zarządzanie. Jest to rozwiązanie do tworzenia kopii zapasowych spójne na awarii, [](../virtual-machines/disks-incremental-snapshots.md) które pobiera kopię zapasową dysku zarządzanego w punkcie w czasie przy użyciu migawek przyrostowych z obsługą wielu kopii zapasowych dziennie. Jest to również rozwiązanie bez agenta i nie ma wpływu na wydajność aplikacji produkcyjnych. Obsługuje tworzenie kopii zapasowych i przywracanie dysków systemu operacyjnego i danych (w tym dysków udostępnionych), niezależnie od tego, czy są one aktualnie dołączone do uruchomionej maszyny wirtualnej platformy Azure.
 
-Aby uzyskać więcej informacji, zobacz [kopia zapasowa Azure Disk (wersja zapoznawcza)](disk-backup-overview.md).
+Aby uzyskać więcej informacji, zobacz [Azure Disk Backup (w wersji zapoznawczej)](disk-backup-overview.md).
 
-## <a name="encryption-at-rest-using-customer-managed-keys"></a>Szyfrowanie w spoczynku przy użyciu kluczy zarządzanych przez klienta
+## <a name="encryption-at-rest-using-customer-managed-keys"></a>Szyfrowanie danych w spoczynku przy użyciu kluczy zarządzanych przez klienta
 
-Obsługa szyfrowania magazynowanego przy użyciu kluczy zarządzanych przez klienta jest teraz ogólnie dostępna. Dzięki temu można szyfrować dane kopii zapasowej w magazynach Recovery Services przy użyciu własnych kluczy przechowywanych w magazynach kluczy platformy Azure. Klucz szyfrowania używany do szyfrowania kopii zapasowych w magazynie Recovery Services może różnić się od tych używanych do szyfrowania źródła. Dane są chronione przy użyciu klucza szyfrowania danych opartego na protokole AES 256 (z szyfrowaniem), który jest z kolei chroniony przy użyciu kluczy przechowywanych w Key Vault. W porównaniu z szyfrowaniem przy użyciu kluczy zarządzanych przez platformę (które są domyślnie dostępne), daje to większą kontrolę nad kluczami i pomaga lepiej spełnić wymagania dotyczące zgodności.
+Obsługa szyfrowania danych w spoczynku przy użyciu kluczy zarządzanych przez klienta jest teraz ogólnie dostępna. Daje to możliwość szyfrowania danych kopii zapasowej w magazynach usługi Recovery Services przy użyciu własnych kluczy przechowywanych w usłudze Azure Key Vault. Klucz szyfrowania używany do szyfrowania kopii zapasowych w magazynie usługi Recovery Services może różnić się od klucza używanego do szyfrowania źródła. Dane są chronione przy użyciu klucza szyfrowania danych (DEK) opartego na standardach AES 256, który z kolei jest chroniony przy użyciu kluczy przechowywanych w Key Vault. W porównaniu z szyfrowaniem przy użyciu kluczy zarządzanych przez platformę (które jest domyślnie dostępne), zapewnia to większą kontrolę nad kluczami i może pomóc lepiej spełnić wymagania dotyczące zgodności.
 
-Aby uzyskać więcej informacji, zobacz [szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez klienta](encryption-at-rest-with-cmk.md).
+Aby uzyskać więcej informacji, zobacz [Szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez klienta.](encryption-at-rest-with-cmk.md)
 
-## <a name="azure-resource-manager-template-for-afs-backup"></a>Szablon Azure Resource Manager dla kopii zapasowej AFS
+## <a name="azure-resource-manager-template-for-afs-backup"></a>Azure Resource Manager szablonu kopii zapasowej usługi AFS
 
-Azure Backup teraz obsługuje Konfigurowanie kopii zapasowej istniejących udziałów plików platformy Azure przy użyciu szablonu Azure Resource Manager (ARM). Szablon konfiguruje ochronę istniejącego udziału plików platformy Azure, określając odpowiednie szczegóły dotyczące magazynu Recovery Services i zasad tworzenia kopii zapasowych. Opcjonalnie tworzy nowy magazyn Recovery Services i zasady tworzenia kopii zapasowych oraz rejestruje konto magazynu zawierające udział plików w magazynie Recovery Services.
+Azure Backup teraz obsługuje konfigurowanie kopii zapasowych dla istniejących udziałów plików platformy Azure przy użyciu szablonu usługi Azure Resource Manager (ARM). Szablon konfiguruje ochronę istniejącego udziału plików platformy Azure, określając odpowiednie szczegóły dla magazynu usługi Recovery Services i zasad tworzenia kopii zapasowych. Opcjonalnie tworzy nowy magazyn usługi Recovery Services i zasady tworzenia kopii zapasowych oraz rejestruje konto magazynu zawierające udział plików w magazynie usługi Recovery Services.
 
-Aby uzyskać więcej informacji, zobacz [Azure Resource Manager szablonów dla Azure Backup](backup-rm-template-samples.md).
+Aby uzyskać więcej informacji, [zobacz Azure Resource Manager szablonów dla Azure Backup](backup-rm-template-samples.md).
 
 ## <a name="incremental-backups-for-sap-hana-databases-in-preview"></a>Przyrostowe kopie zapasowe dla SAP HANA baz danych (w wersji zapoznawczej)
 
-Azure Backup teraz obsługuje przyrostowe kopie zapasowe dla SAP HANA baz danych hostowanych na maszynach wirtualnych platformy Azure. Pozwala to na szybsze i wydajniejsze wykonywanie kopii zapasowych danych SAP HANA.
+Azure Backup teraz obsługuje przyrostowe kopie zapasowe dla SAP HANA baz danych hostowanych na maszynach wirtualnych platformy Azure. Umożliwia to szybsze i bardziej ekonomiczne tworzenie kopii zapasowych danych SAP HANA danych.
 
-Aby uzyskać więcej informacji, zobacz [różne opcje dostępne podczas tworzenia zasad tworzenia kopii zapasowych](sap-hana-faq-backup-azure-vm.md#policy) i [tworzenia zasad tworzenia kopii zapasowych dla SAP HANA baz danych](tutorial-backup-sap-hana-db.md#creating-a-backup-policy).
+Aby uzyskać więcej informacji, [zobacz różne opcje dostępne](/sap-hana-faq-backup-azure-vm.yml#policy) podczas tworzenia zasad kopii zapasowych i sposób tworzenia zasad tworzenia kopii zapasowych dla baz SAP HANA [danych.](tutorial-backup-sap-hana-db.md#creating-a-backup-policy)
 
-## <a name="backup-center-in-preview"></a>Centrum kopii zapasowych (wersja zapoznawcza)
+## <a name="backup-center-in-preview"></a>Centrum kopii zapasowych (w wersji zapoznawczej)
 
-Azure Backup włączyła nową natywną funkcję zarządzania do zarządzania całej kopii zapasowej z poziomu konsoli centralnej. Usługa Backup Center umożliwia monitorowanie, obsługę, zarządzanie i optymalizowanie ochrony danych w odpowiedniej skali w jednolity sposób spójny z natywnymi środowiskami zarządzania platformy Azure.
+Azure Backup włączono nową natywną funkcję zarządzania do zarządzania całą kopią zapasową z konsoli centralnej. Centrum kopii zapasowych zapewnia możliwość monitorowania, obsługi, zarządzania i optymalizowania ochrony danych na dużą skalę w ujednolicony sposób zgodny z natywnymi środowiskami zarządzania platformy Azure.
 
-Usługa Backup Center pozwala uzyskać Zagregowany widok spisu między subskrypcjami, lokalizacjami, grupami zasobów, magazynami, a nawet dzierżawcami przy użyciu usługi Azure Lighthouse. Centrum kopii zapasowych to również centrum akcji, z którego można wyzwolić działania związane z tworzeniem kopii zapasowych, takie jak konfigurowanie kopii zapasowej, przywracanie, tworzenie zasad lub magazynów, a wszystko to w jednym miejscu. Ponadto z bezproblemową integracją Azure Policy można teraz zarządzać środowiskiem i śledzić zgodność z perspektywy tworzenia kopii zapasowych. Wbudowane zasady platformy Azure specyficzne dla Azure Backup umożliwiają również konfigurowanie kopii zapasowych na dużą skalę.
+Za pomocą centrum kopii zapasowych można uzyskać zagregowany widok spisu dla subskrypcji, lokalizacji, grup zasobów, magazynów, a nawet dzierżaw przy użyciu Azure Lighthouse. Centrum kopii zapasowych to centrum akcji, z którego można wyzwolić działania związane z tworzeniem kopii zapasowej, takie jak konfigurowanie kopii zapasowej, przywracanie, tworzenie zasad lub magazynów, a wszystko to z jednego miejsca. Ponadto dzięki bezproblemowej integracji z Azure Policy można teraz zarządzać środowiskiem i śledzić zgodność z perspektywy kopii zapasowej. Wbudowane zasady platformy Azure specyficzne dla Azure Backup umożliwiają również konfigurowanie kopii zapasowych na dużą skalę.
 
-Aby uzyskać więcej informacji, zobacz [Omówienie centrum kopii zapasowych](backup-center-overview.md).
+Aby uzyskać więcej informacji, zobacz [Overview of Backup Center](backup-center-overview.md).
 
-## <a name="backup-azure-database-for-postgresql-in-preview"></a>Azure Database for PostgreSQL kopii zapasowych (wersja zapoznawcza)
+## <a name="backup-azure-database-for-postgresql-in-preview"></a>Tworzenie Azure Database for PostgreSQL kopii zapasowych (w wersji zapoznawczej)
 
-Azure Backup i usługi Azure Database zostały połączone w celu utworzenia rozwiązania do tworzenia kopii zapasowych klasy korporacyjnej dla usługi Azure PostgreSQL (teraz w wersji zapoznawczej). Teraz można spełnić wymagania dotyczące ochrony danych i zgodności z zasadami tworzenia kopii zapasowych kontrolowanymi przez klienta, które umożliwiają przechowywanie kopii zapasowych przez maksymalnie 10 lat. Dzięki temu masz szczegółową kontrolę nad zarządzaniem operacjami tworzenia kopii zapasowych i przywracania na poziomie poszczególnych baz danych. Podobnie można przywrócić wiele wersji PostgreSQL lub do magazynu obiektów BLOB.
+Azure Backup usług Azure Database Services zostały połączone w celu skompilowania rozwiązania klasy korporacyjnej do tworzenia kopii zapasowych dla usługi Azure PostgreSQL (obecnie w wersji zapoznawczej). Teraz możesz spełnić wymagania dotyczące ochrony danych i zgodności za pomocą kontrolowanych przez klienta zasad tworzenia kopii zapasowych, które umożliwiają przechowywanie kopii zapasowych przez maksymalnie 10 lat. Dzięki temu masz szczegółową kontrolę nad zarządzaniem operacjami tworzenia kopii zapasowych i przywracania na poziomie poszczególnych baz danych. Podobnie można łatwo przywrócić dane w różnych wersjach bazy danych PostgreSQL lub w magazynie obiektów blob.
 
-Aby uzyskać więcej informacji, zobacz [Azure Database for PostgreSQL Backup](backup-azure-database-postgresql.md).
+Aby uzyskać więcej informacji, zobacz [Azure Database for PostgreSQL kopii zapasowej](backup-azure-database-postgresql.md).
 
-## <a name="selective-disk-backup-and-restore"></a>Selektywne tworzenie kopii zapasowych i przywracanie dysków
+## <a name="selective-disk-backup-and-restore"></a>Selektywne tworzenie i przywracanie kopii zapasowej dysku
 
-Azure Backup obsługuje tworzenie kopii zapasowych wszystkich dysków (systemu operacyjnego i danych) w maszynie wirtualnej przy użyciu rozwiązania do tworzenia kopii zapasowych maszyn wirtualnych. Teraz korzystając z funkcji tworzenia kopii zapasowych i przywracania dysków selektywnych, można utworzyć kopię zapasową podzbioru dysków danych w maszynie wirtualnej. Zapewnia to wydajne i ekonomiczne rozwiązanie dla potrzeb tworzenia kopii zapasowych i przywracania. Każdy punkt odzyskiwania zawiera tylko te dyski, które są uwzględnione w operacji tworzenia kopii zapasowej.
+Azure Backup obsługuje tworzenie kopii zapasowych wszystkich dysków (systemu operacyjnego i danych) na maszynie wirtualnej przy użyciu rozwiązania do tworzenia kopii zapasowych maszyn wirtualnych. Teraz przy użyciu funkcji tworzenia kopii zapasowej i przywracania dysków selektywnych można utworzyć kopię zapasową podzestawu dysków danych na maszynie wirtualnej. Zapewnia to wydajne i ekonomiczne rozwiązanie na potrzeby tworzenia kopii zapasowych i przywracania. Każdy punkt odzyskiwania zawiera tylko dyski uwzględnione w operacji tworzenia kopii zapasowej.
 
-Aby uzyskać więcej informacji, zobacz [selektywne tworzenie kopii zapasowych i przywracanie dysków dla maszyn wirtualnych platformy Azure](selective-disk-backup-restore.md).
+Aby uzyskać więcej informacji, zobacz [Selektywne tworzenie kopii zapasowych dysków i ich przywracanie dla maszyn wirtualnych platformy Azure.](selective-disk-backup-restore.md)
 
 ## <a name="cross-region-restore-for-sql-server-and-sap-hana-in-preview"></a>Przywracanie między regionami dla SQL Server i SAP HANA (w wersji zapoznawczej)
 
-Po wprowadzeniu operacji przywracania między regionami można teraz zainicjować przywracanie w regionie pomocniczym w systemie, aby ograniczyć rzeczywiste problemy przestoju w regionie podstawowym środowiska. Dzięki temu region pomocniczy jest przywracany całkowicie przez klienta. Azure Backup używa kopii zapasowych replikowanych do regionu pomocniczego na potrzeby takich operacji przywracania.
+Wraz z wprowadzeniem przywracania między regionami można teraz inicjować przywracanie w regionie pomocniczym w celu ograniczenia rzeczywistych problemów z przestojami w regionie podstawowym dla środowiska. Dzięki temu przywracanie w regionie pomocniczym jest całkowicie kontrolowane przez klienta. Azure Backup do takich przywracania używane są dane kopii zapasowej replikowane do regionu pomocniczego.
 
-Teraz oprócz obsługi przywracania między regionami dla usługi Azure Virtual Machines funkcja została rozszerzona o przywracanie baz danych SQL i SAP HANA na maszynach wirtualnych platformy Azure.
+Teraz oprócz obsługi przywracania między regionami dla maszyn wirtualnych platformy Azure funkcja została rozszerzona o przywracanie baz danych SQL i SAP HANA na maszynach wirtualnych platformy Azure.
 
-Aby uzyskać więcej informacji, zobacz [przywracanie między regionami dla baz danych SQL](restore-sql-database-azure-vm.md#cross-region-restore) i [przywracanie między regionami dla baz danych SAP HANA](sap-hana-db-restore.md#cross-region-restore).
+Aby uzyskać więcej informacji, zobacz [Przywracanie między regionami dla baz danych SQL](restore-sql-database-azure-vm.md#cross-region-restore) i Przywracanie między [regionami dla SAP HANA baz danych](sap-hana-db-restore.md#cross-region-restore).
 
 ## <a name="support-for-backup-of-vms-with-up-to-32-disks"></a>Obsługa tworzenia kopii zapasowych maszyn wirtualnych z maksymalnie 32 dyskami
 
-Do tej pory Azure Backup obsługiwał 16 dysków zarządzanych na maszynę wirtualną. Teraz Azure Backup obsługuje tworzenie kopii zapasowych do 32 dysków zarządzanych na maszynę wirtualną.
+Do tej pory Azure Backup 16 dysków zarządzanych na maszynę wirtualną. Teraz Azure Backup kopie zapasowe maksymalnie 32 dysków zarządzanych na maszynę wirtualną.
 
-Aby uzyskać więcej informacji, zobacz [Macierz obsługi magazynu maszyn wirtualnych](backup-support-matrix-iaas.md#vm-storage-support).
+Aby uzyskać więcej informacji, zobacz macierz [obsługi magazynu maszyn wirtualnych](backup-support-matrix-iaas.md#vm-storage-support).
 
-## <a name="simpler-backup-configuration-for-sql-in-azure-vms"></a>Prostsze Konfigurowanie kopii zapasowych dla bazy danych SQL na maszynach wirtualnych platformy Azure
+## <a name="simpler-backup-configuration-for-sql-in-azure-vms"></a>Prostsza konfiguracja kopii zapasowej dla bazy danych SQL na platformie Azure
 
-Konfigurowanie kopii zapasowych SQL Server na maszynach wirtualnych platformy Azure jest teraz jeszcze łatwiejsze dzięki konfiguracji wbudowanej kopii zapasowej zintegrowanej z okienkiem maszyny wirtualnej w Azure Portal. W zaledwie kilku krokach można włączyć tworzenie kopii zapasowej SQL Server w celu ochrony wszystkich istniejących baz danych, a także tych, które zostaną dodane w przyszłości.
+Konfigurowanie kopii zapasowych dla maszyny SQL Server na maszynach wirtualnych platformy Azure jest teraz jeszcze łatwiejsze dzięki wbudowanej konfiguracji kopii zapasowej zintegrowanej z okienkiem maszyny wirtualnej Azure Portal. W zaledwie kilku krokach można włączyć tworzenie kopii zapasowej bazy SQL Server, aby chronić wszystkie istniejące bazy danych, a także te, które zostaną dodane w przyszłości.
 
-Aby uzyskać więcej informacji, zobacz [Tworzenie kopii zapasowej SQL Server z okienka maszyny wirtualnej](backup-sql-server-vm-from-vm-pane.md).
+Aby uzyskać więcej informacji, zobacz Back up a SQL Server from the VM pane (SQL Server back up a vm pane (SQL Server [kopii zapasowej maszyny wirtualnej w okienku maszyny wirtualnej).](backup-sql-server-vm-from-vm-pane.md)
 
-## <a name="backup-sap-hana-in-rhel-azure-virtual-machines-in-preview"></a>SAP HANA kopii zapasowych w usłudze Azure Virtual Machines RHEL (w wersji zapoznawczej)
+## <a name="backup-sap-hana-in-rhel-azure-virtual-machines-in-preview"></a>Tworzenie kopii SAP HANA na maszynach wirtualnych platformy Azure z system RHEL (w wersji zapoznawczej)
 
-Azure Backup to natywne rozwiązanie do tworzenia kopii zapasowych dla systemu Azure i jest BackInt z certyfikatem SAP. Azure Backup dodano teraz obsługę Red Hat Enterprise Linux (RHEL), jednego z najczęściej używanych systemów operacyjnych Linux, na których działa SAP HANA.
+Azure Backup to natywne rozwiązanie do tworzenia kopii zapasowych dla platformy Azure i ma certyfikat BackInt firmy SAP. Azure Backup dodano obsługę systemu Red Hat Enterprise Linux (RHEL), jednego z najczęściej używanych systemów operacyjnych Linux z systemem SAP HANA.
 
-Aby uzyskać więcej informacji, zobacz [Macierz obsługi scenariusza tworzenia kopii zapasowej bazy danych SAP HANA](sap-hana-backup-support-matrix.md#scenario-support).
+Aby uzyskać więcej informacji, zobacz [macierz obsługi SAP HANA kopii zapasowej bazy danych.](sap-hana-backup-support-matrix.md#scenario-support)
 
 ## <a name="zone-redundant-storage-zrs-for-backup-data-in-preview"></a>Magazyn strefowo nadmiarowy (ZRS) dla danych kopii zapasowej (w wersji zapoznawczej)
 
-Usługa Azure Storage zapewnia wysoką wydajność, wysoką dostępność i wysoką odporność na dane przy użyciu różnych opcji nadmiarowości. Azure Backup pozwala na rozciągnięcie tych korzyści na kopie zapasowe danych, a także opcje przechowywania kopii zapasowych w magazynie lokalnie nadmiarowy (LRS) i magazyn Geograficznie nadmiarowy (GRS). Teraz dostępne są dodatkowe opcje trwałości z dodatkową obsługą magazynu Strefowo nadmiarowego (ZRS).
+Usługa Azure Storage zapewnia doskonałą równowagę między wysoką wydajnością, wysoką dostępnością i wysoką odpornością danych dzięki zróżnicowanym opcjam nadmiarowości. Azure Backup umożliwia również rozszerzenie tych korzyści na dane kopii zapasowej z opcjami przechowywania kopii zapasowych w magazynie lokalnie nadmiarowym (LRS) i magazynie geograficznie nadmiarowym (GRS). Teraz dostępne są dodatkowe opcje trwałości z dodaną obsługą magazynu strefowo nadmiarowego (ZRS).
 
-Aby uzyskać więcej informacji, zobacz [Ustawianie nadmiarowości magazynu dla magazynu Recovery Services](backup-create-rs-vault.md#set-storage-redundancy).
+Aby uzyskać więcej informacji, zobacz [Ustawianie nadmiarowości magazynu dla magazynu usługi Recovery Services.](backup-create-rs-vault.md#set-storage-redundancy)
 
-## <a name="soft-delete-for-sql-server-and-sap-hana-workloads"></a>Usuwanie nietrwałe dla obciążeń SQL Server i SAP HANA
+## <a name="soft-delete-for-sql-server-and-sap-hana-workloads"></a>Usuwanie nie softowe SQL Server i SAP HANA obciążeń
 
-Problemy dotyczące zabezpieczeń, takie jak złośliwe oprogramowanie, programy wymuszającego okup i wtargnięcie, zwiększają się. Te problemy z zabezpieczeniami mogą być kosztowne, w odniesieniu do pieniędzy i danych. Aby ochronić przed takimi atakami, Azure Backup zapewnia funkcje zabezpieczeń, które ułatwiają ochronę danych kopii zapasowej nawet po usunięciu.
+Rośnie liczba obaw dotyczących problemów z zabezpieczeniami, takich jak złośliwe oprogramowanie, oprogramowanie wymuszające okup i włamanie. Te problemy z zabezpieczeniami mogą być kosztowne, zarówno pod względem pieniędzy, jak i danych. Aby chronić przed takimi atakami, Azure Backup funkcje zabezpieczeń, które pomagają chronić dane kopii zapasowej nawet po usunięciu.
 
-Jedną z tych funkcji jest usuwanie nietrwałe. W przypadku usuwania nietrwałego, nawet jeśli złośliwy aktor usuwa kopię zapasową (lub przypadkowo usunięto dane kopii zapasowej), dane kopii zapasowej są przechowywane przez 14 dodatkowych dni, umożliwiając odzyskanie tego elementu kopii zapasowej bez utraty danych. Dodatkowe 14 dni przechowywania danych kopii zapasowej w stanie "usuwanie nietrwałe" nie wiążą się z pozostałymi kosztami.
+Jedną z takich funkcji jest usuwanie nie soft. W przypadku usuwania nie programowego, nawet jeśli złośliwy aktor usunie kopię zapasową (lub dane kopii zapasowej zostaną przypadkowo usunięte), dane kopii zapasowej są przechowywane przez 14 dodatkowych dni, co umożliwia odzyskiwanie tego elementu kopii zapasowej bez utraty danych. Dodatkowe 14-dniowe przechowywanie danych kopii zapasowej w stanie "usuwanie nie soft" nie powoduje ponoszenia żadnych kosztów.
 
-Teraz oprócz obsługi usuwania nietrwałego dla maszyn wirtualnych platformy Azure SQL Server i SAP HANA obciążenia na maszynach wirtualnych platformy Azure są również chronione za pomocą usuwania nietrwałego.
+Teraz, oprócz obsługi usuwania nie softowego dla maszyn wirtualnych platformy Azure, obciążenia SQL Server i SAP HANA na platformie Azure są również chronione za pomocą usuwania nie softowego.
 
-Aby uzyskać więcej informacji, zobacz [usuwanie nietrwałe dla programu SQL Server na maszynie wirtualnej platformy Azure i SAP HANA w obciążeniach maszyn wirtualnych platformy Azure](soft-delete-sql-saphana-in-azure-vm.md).
+Aby uzyskać więcej informacji, zobacz Usuwanie nie softowe dla programu SQL Server na maszynie wirtualnej [platformy Azure SAP HANA w obciążeniach maszyn wirtualnych platformy Azure.](soft-delete-sql-saphana-in-azure-vm.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wskazówki i najlepsze rozwiązania Azure Backup](guidance-best-practices.md)
+- [Azure Backup i najlepsze rozwiązania](guidance-best-practices.md)

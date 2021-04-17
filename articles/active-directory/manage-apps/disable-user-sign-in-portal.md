@@ -1,45 +1,42 @@
 ---
-title: Wyłączanie logowania użytkownika dla aplikacji dla przedsiębiorstw w usłudze Azure AD
-description: Jak wyłączyć aplikację dla przedsiębiorstw, dzięki czemu żaden użytkownik nie może zalogować się do niej w Azure Active Directory
+title: Wyłączanie logowania użytkowników dla aplikacji przedsiębiorstwa w usłudze Azure AD
+description: Jak wyłączyć aplikację dla przedsiębiorstw, aby żaden użytkownik nie mógł się do niego zalogować w Azure Active Directory
 services: active-directory
-documentationcenter: ''
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 04/12/2019
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 783de636d4520f48f624f3380f811f1f18366330
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b9af580ef8b3691a5f188ac15069dda00a5f5802
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99259240"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374254"
 ---
-# <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Wyłącz logowania użytkowników dla aplikacji dla przedsiębiorstw w Azure Active Directory
+# <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Wyłączanie logowania użytkowników dla aplikacji przedsiębiorstwa w Azure Active Directory
 
-Można łatwo wyłączyć aplikację przedsiębiorstwa, aby uniemożliwić użytkownikom zalogowanie się do niej w usłudze Azure Active Directory (Azure AD). Potrzebujesz odpowiednich uprawnień do zarządzania aplikacją dla przedsiębiorstw. Ponadto musisz być administratorem globalnym katalogu.
+Aplikację przedsiębiorstwa można łatwo wyłączyć, aby żaden użytkownik nie może się do niego zalogować w usłudze Azure Active Directory (Azure AD). Do zarządzania aplikacją przedsiębiorstwa potrzebne są odpowiednie uprawnienia. Musisz być administratorem globalnym katalogu.
 
 ## <a name="how-do-i-disable-user-sign-ins"></a>Jak mogę wyłączyć logowania użytkowników?
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) przy użyciu konta, które jest administratorem globalnym katalogu.
-1. Wybierz pozycję **wszystkie usługi**, wpisz **Azure Active Directory** w polu tekstowym, a następnie wybierz klawisz **Enter**.
-1. W okienku **Azure Active Directory**  -   **_DirectoryName_*_ (czyli okienku usługi Azure AD dla katalogu, którym zarządzasz) wybierz pozycję _ aplikacje dla* przedsiębiorstw**.
-1. W okienku **aplikacje dla przedsiębiorstw — wszystkie aplikacje** zostanie wyświetlona lista aplikacji, którymi można zarządzać. Wybierz aplikację.
-1. W okienku ***nazwa_aplikacji** _ (czyli okienku z nazwą wybranej aplikacji w tytule) wybierz _ * właściwości * *.
-1. W okienku ***nazwa_aplikacji** _-_ *Właściwości** wybierz pozycję **nie** , aby **włączyć Logowanie użytkowników?**.
-1. Wybierz polecenie **Zapisz** .
+1. Wybierz **pozycję Wszystkie usługi**, **Azure Active Directory** w polu tekstowym, a następnie naciśnij klawisz **.**
+1. W **okienku Azure Active Directory**  -   **_directoryname_*_ (okienko usługi Azure AD*** dla katalogu, którym zarządzasz), wybierz pozycję _ Aplikacje dla przedsiębiorstw.
+1. W **okienku Aplikacje dla przedsiębiorstw** — Wszystkie aplikacje zostanie wyświetlona lista aplikacji, które można zarządzać. Wybierz aplikację.
+1. W okienku ***nazwa_aplikacji**(czyli okienku z nazwą wybranej aplikacji w tytule) wybierz pozycję _*Właściwości**.
+1. W okienku ***nazwa aplikacji** _ - _ *Właściwości** wybierz opcję **Nie** dla opcji Włączone dla użytkowników **do logowania?**.
+1. Wybierz polecenie **Zapisz.**
 
-## <a name="use-azure-ad-powershell-to-disable-an-unlisted-app"></a>Wyłączenie aplikacji nieznajdującej się na liście przy użyciu programu Azure AD PowerShell
+## <a name="use-azure-ad-powershell-to-disable-an-unlisted-app"></a>Wyłączanie aplikacji nieznajdej się na liście przy użyciu programu PowerShell usługi Azure AD
 
-Jeśli znasz identyfikator aplikacji, która nie jest wyświetlana na liście aplikacji dla przedsiębiorstw (na przykład dlatego, że aplikacja została usunięta lub jednostka usługi nie została jeszcze utworzona z powodu wstępnej autoryzacji przez firmę Microsoft), możesz ręcznie utworzyć nazwę główną usługi dla aplikacji, a następnie wyłączyć ją przy użyciu [polecenia cmdlet programu AzureAD PowerShell](/powershell/module/azuread/New-AzureADServicePrincipal).
+Jeśli znasz element AppId aplikacji, która nie jest wyświetlana na liście aplikacji dla przedsiębiorstw (na przykład ponieważ aplikacja została usunięta lub jednostka usługi nie została jeszcze utworzona z powodu wstępnej autoryzacji aplikacji przez firmę Microsoft), możesz ręcznie utworzyć jednostkę usługi dla aplikacji, a następnie wyłączyć ją za pomocą polecenia [cmdlet programu PowerShell usługi AzureAD.](/powershell/module/azuread/New-AzureADServicePrincipal)
 
 ```PowerShell
 # The AppId of the app to be disabled
@@ -58,7 +55,7 @@ if ($servicePrincipal) {
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zobacz wszystkie moje grupy](../fundamentals/active-directory-groups-view-azure-portal.md)
-* [Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw](assign-user-or-group-access-portal.md)
-* [Usuwanie przypisania użytkownika lub grupy z aplikacji dla przedsiębiorstw](./assign-user-or-group-access-portal.md)
-* [Zmiana nazwy lub logo aplikacji dla przedsiębiorstw](./add-application-portal-configure.md)
+* [Wyświetlanie wszystkich moich grup](../fundamentals/active-directory-groups-view-azure-portal.md)
+* [Przypisywanie użytkownika lub grupy do aplikacji przedsiębiorstwa](assign-user-or-group-access-portal.md)
+* [Usuwanie przypisania użytkownika lub grupy z aplikacji przedsiębiorstwa](./assign-user-or-group-access-portal.md)
+* [Zmienianie nazwy lub logo aplikacji przedsiębiorstwa](./add-application-portal-configure.md)
