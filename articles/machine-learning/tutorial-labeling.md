@@ -1,7 +1,7 @@
 ---
-title: 'Samouczek: Tworzenie projektu etykietowania na potrzeby klasyfikacji obrazów'
+title: 'Samouczek: tworzenie projektu etykietowania na celu klasyfikację obrazów'
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak zarządzać procesem etykietowania obrazów, aby można było ich używać w modelach klasyfikacji obrazów wieloklasowych.
+description: Dowiedz się, jak zarządzać procesem etykietowania obrazów, aby można było ich używać w wieloklasowych modelach klasyfikacji obrazów.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,28 +11,28 @@ author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
 ms.custom: data4ml
-ms.openlocfilehash: 3a86f0eb88ba0a56f0887d71f649cf9b9d5ec7a3
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 41e93584937ca10740e9ee0be3353d1edf5efb3e
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107227266"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587684"
 ---
-# <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Samouczek: Tworzenie projektu etykietowania dla wieloklasowej klasyfikacji obrazów 
+# <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Samouczek: tworzenie projektu etykietowania na celu klasyfikację obrazów wieloklasowych 
 
 
-W tym samouczku pokazano, jak zarządzać procesem etykietowania (nazywanymi również znakami oznakowania), które mają być używane jako dane do kompilowania modeli uczenia maszynowego. Etykietowanie danych w Azure Machine Learning jest w publicznej wersji zapoznawczej.
+W tym samouczku pokazano, jak zarządzać procesem etykietowania obrazów (nazywanych również tagami), które będą używane jako dane do tworzenia modeli uczenia maszynowego. Etykietowanie danych w Azure Machine Learning jest w publicznej wersji zapoznawczej.
 
-Jeśli chcesz przeprowadzić uczenie modelu uczenia maszynowego do klasyfikowania obrazów, potrzebne są setki lub nawet tysiące obrazów, które są poprawnie oznaczone etykietami.  Azure Machine Learning ułatwia zarządzanie postępem prywatnych zespołów ekspertów domeny w miarę ich etykietowania.
+Jeśli chcesz trenować model uczenia maszynowego do klasyfikowania obrazów, potrzebujesz setek, a nawet tysięcy obrazów, które są poprawnie oznaczone etykietami.  Azure Machine Learning ułatwia zarządzanie postępem prywatnego zespołu ekspertów z dziedziny, gdy etykietują dane.
  
-W tym samouczku będziesz używać obrazów kotów i psów.  Ponieważ każdy obraz to kot lub pies, jest to *wieloklasowy* projekt etykietowania. Omawiane tematy:
+W tym samouczku użyjesz obrazów kotów i psów.  Ponieważ każdy obraz jest kotem lub psem, jest to *wieloklasowy* projekt etykietowania. Omawiane tematy:
 
 > [!div class="checklist"]
 >
 > * Utwórz konto usługi Azure Storage i przekaż obrazy do konta.
-> * Utwórz obszar roboczy Azure Machine Learning.
-> * Utwórz projekt z wieloklasowym obrazem etykiet.
-> * Oznacz dane.  Ty lub Twoje etykiety mogą wykonać to zadanie.
+> * Tworzenie Azure Machine Learning roboczego.
+> * Utwórz wieloklasowy projekt etykietowania obrazów.
+> * Oznacz etykietami dane.  To zadanie może wykonać Ty lub Twoi etykietowanie.
 > * Ukończ projekt, przeglądając i eksportując dane.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -41,166 +41,166 @@ W tym samouczku będziesz używać obrazów kotów i psów.  Ponieważ każdy ob
 
 ## <a name="create-a-workspace"></a>Tworzenie obszaru roboczego
 
-Obszar roboczy Azure Machine Learning to podstawowe zasoby w chmurze, za pomocą których można eksperymentować, uczeniować i wdrażać modele uczenia maszynowego. Łączy ona Twoją subskrypcję i grupę zasobów platformy Azure z łatwym w użyciu obiektem w usłudze.
+Obszar Azure Machine Learning to zasób w chmurze, który umożliwia eksperymentowanie, trenowanie i wdrażanie modeli uczenia maszynowego. Łączy ona subskrypcję platformy Azure i grupę zasobów z łatwym w użyciu obiektem w usłudze.
 
-Istnieje wiele [sposobów tworzenia obszaru roboczego](how-to-manage-workspace.md). W tym samouczku utworzysz obszar roboczy za pośrednictwem Azure Portalej konsoli internetowej do zarządzania zasobami platformy Azure.
+Istnieje wiele [sposobów tworzenia obszaru roboczego.](how-to-manage-workspace.md) W tym samouczku utworzysz obszar roboczy za pośrednictwem konsoli Azure Portal internetowej do zarządzania zasobami platformy Azure.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
-## <a name="start-a-labeling-project"></a>Uruchom projekt etykietowania
+## <a name="start-a-labeling-project"></a>Uruchamianie projektu etykietowania
 
-Następnie będziesz zarządzać projektem etykietowania danych w programie Azure Machine Learning Studio, skonsolidowanym interfejsem, który obejmuje narzędzia uczenia maszynowego do wykonywania scenariuszy analizy danych dla lekarzy danych o wszystkich poziomach umiejętności. Program Studio nie jest obsługiwany w przeglądarkach programu Internet Explorer.
+Następnie będziesz zarządzać projektem etykietowania danych w Azure Machine Learning studio, skonsolidowanym interfejsie, który zawiera narzędzia uczenia maszynowego do wykonywania scenariuszy nauki o danych dla praktyków nauki o danych o wszystkich poziomach umiejętności. Studio nie jest obsługiwane w Internet Explorer przeglądarkach.
 
-1. Zaloguj się do [Azure Machine Learning Studio](https://ml.azure.com).
+1. Zaloguj się do [Azure Machine Learning studio](https://ml.azure.com).
 
-1. Wybierz swoją subskrypcję i utworzony obszar roboczy.
+1. Wybierz subskrypcję i utworzony obszar roboczy.
 
 ### <a name="create-a-datastore"></a><a name="create-datastore"></a>Tworzenie magazynu danych
 
-Magazyny danych Azure Machine Learning są używane do przechowywania informacji o połączeniu, takich jak identyfikator subskrypcji i autoryzacja tokenu. W tym miejscu jest używany magazyn danych do łączenia się z kontem magazynu zawierającym obrazy dla tego samouczka.
+Azure Machine Learning magazyny danych są używane do przechowywania informacji o połączeniu, takich jak identyfikator subskrypcji i autoryzacja tokenu. W tym miejscu użyjemy magazynu danych do nawiązania połączenia z kontem magazynu zawierającym obrazy z tego samouczka.
 
-1. Z lewej strony obszaru roboczego wybierz pozycję **magazyny** danych.
+1. Po lewej stronie obszaru roboczego wybierz pozycję **Magazyny danych.**
 
-1. Wybierz pozycję **+ nowy magazyn** danych.
+1. Wybierz **pozycję + Nowy magazyn danych.**
 
-1. Wypełnij formularz tymi ustawieniami:
+1. Wypełnij formularz przy użyciu tych ustawień:
 
     Pole|Opis 
     ---|---
-    Nazwa magazynu danych | Nadaj nazwę magazynowi danych.  Tutaj używamy **labeling_tutorial**.
-    Typ magazynu danych | Wybierz typ magazynu.  Tutaj korzystamy z **usługi Azure Blob Storage**, preferowanego magazynu dla obrazów.
-    Metoda wyboru konta | Wybierz pozycję **wprowadź ręcznie**.
+    Nazwa magazynu danych | Nadaj nazwę magazynowi danych.  W tym miejscu **używamy labeling_tutorial**.
+    Typ magazynu danych | Wybierz typ magazynu.  W tym miejscu **używamy Azure Blob Storage**, preferowanego magazynu dla obrazów.
+    Metoda wyboru konta | Wybierz **pozycję Wprowadź ręcznie.**
     Adres URL | `https://azureopendatastorage.blob.core.windows.net/openimagescontainer`
-    Typ uwierzytelniania | Wybierz pozycję **token SAS**.
+    Typ uwierzytelniania | Wybierz pozycję **Token SAS.**
     Klucz konta | `?sv=2019-02-02&ss=bfqt&srt=sco&sp=rl&se=2025-03-25T04:51:17Z&st=2020-03-24T20:51:17Z&spr=https&sig=7D7SdkQidGT6pURQ9R4SUzWGxZ%2BHlNPCstoSRRVg8OY%3D`
 
-1. Wybierz pozycję **Utwórz** , aby utworzyć magazyn danych.
+1. Wybierz **pozycję Utwórz,** aby utworzyć magazyn danych.
 
 ### <a name="create-a-labeling-project"></a>Tworzenie projektu etykietowania
 
-Teraz, gdy masz dostęp do danych, które mają mieć etykietę, Utwórz projekt etykietowania.
+Teraz, gdy masz dostęp do danych, które mają być oznaczone etykietami, utwórz projekt etykietowania.
 
-1. W górnej części strony wybierz pozycję **projekty**.
+1. W górnej części strony wybierz pozycję **Projekty**.
 
-1. Wybierz pozycję **+ Dodaj projekt**.
+1. Wybierz **pozycję + Dodaj projekt.**
 
     :::image type="content" source="media/tutorial-labeling/create-project.png" alt-text="Tworzenie projektu":::
 
 ### <a name="project-details"></a>Szczegóły projektu
 
-1. Użyj następujących danych wejściowych dla formularza **szczegóły projektu** :
+1. Użyj następujących danych wejściowych dla **formularza Szczegóły** projektu:
 
     Pole|Opis 
     ---|---
-    Project name (Nazwa projektu) | Nadaj projektowi nazwę.  W tym miejscu zostanie użyty **samouczek-koty-n-psy**.
-    Typ zadania etykietowania | Wybierz pozycję **Klasyfikacja obrazu wiele klas**.  
+    Project name (Nazwa projektu) | Nadaj projektowi nazwę.  W tym miejscu użyjemy **tutorial-cats-n-dogs.**
+    Etykietowanie typu zadania | Wybierz **pozycję Klasyfikacja obrazów — wiele klas.**  
     
-    Wybierz pozycję **dalej** , aby kontynuować tworzenie projektu.
+    Wybierz **przycisk Dalej,** aby kontynuować tworzenie projektu.
 
-### <a name="select-or-create-a-dataset"></a>Wybierz lub Utwórz zestaw danych
+### <a name="select-or-create-a-dataset"></a>Wybieranie lub tworzenie zestawu danych
 
-1.   W formularzu **Wybierz lub Utwórz zestaw danych** wybierz drugi wybór, **Utwórz zestaw danych**, a następnie wybierz łącze **z magazynu** danych.
+1.   W **formularzu Wybierz lub utwórz zestaw danych** wybierz drugi wybór: Utwórz zestaw danych, **a** następnie wybierz link From datastore (Z **magazynu danych).**
 
-1. Użyj następujących danych wejściowych dla formularza **Create DataSet from datastore** :
+1. Użyj następujących danych wejściowych dla formularza **Tworzenie zestawu danych z magazynu** danych:
 
-    1. W formularzu **podstawowe informacje** Dodaj nazwę. w tym miejscu będziemy używać **obrazów na potrzeby samouczka**.  Dodaj opis, jeśli chcesz.  Następnie wybierz przycisk **Dalej**.
-    1. W formularzu **wyboru magazynu** danych wybierz **wcześniej utworzony magazyn** danych, a następnie kliknij nazwę magazynu danych i wybierz pozycję **Wybierz magazyn** danych.
-    1. Na następnej stronie Sprawdź, czy aktualnie wybrany magazyn danych jest prawidłowy. W przeciwnym razie wybierz **wcześniej utworzony magazyn** danych i Powtórz poprzedni krok.
-    1. Następnie w formularzu **wyboru magazynu** danych wybierz pozycję **Przeglądaj** , a następnie wybierz pozycję **wieloclass-DogsCats**.  Wybierz pozycję **Zapisz** , aby użyć **/MULTICLASS-DogsCats** jako ścieżki.
-    1. Wybierz pozycję **dalej** , aby potwierdzić szczegóły, a następnie **Utwórz** , aby utworzyć zestaw danych.
-    1. Wybierz okrąg obok nazwy zestawu danych na liście, na przykład **obrazy dla samouczka**.
+    1. W **formularzu Informacje podstawowe** dodaj nazwę. W tym miejscu użyjemy nazwy **images-for-tutorial.**  Jeśli chcesz, dodaj opis.  Następnie wybierz przycisk **Dalej**.
+    1. W **formularzu wyboru Magazyn danych** wybierz pozycję Utworzony wcześniej magazyn **danych,** a następnie kliknij nazwę magazynu danych i wybierz **pozycję Wybierz magazyn danych.**
+    1. Na następnej stronie sprawdź, czy aktualnie wybrany magazyn danych jest poprawny. Jeśli nie, wybierz **pozycję Wcześniej utworzony magazyn danych** i powtórz poprzedni krok.
+    1. Następnie nadal w formularzu **wyboru magazynu** danych wybierz pozycję **Przeglądaj,** a następnie wybierz pozycję **MultiClass — DogsCats.**  Wybierz **pozycję Zapisz,** aby **użyć ścieżki /MultiClass — DogsCats.**
+    1. Wybierz **przycisk Dalej,** aby potwierdzić szczegóły, a następnie **pozycję Utwórz,** aby utworzyć zestaw danych.
+    1. Wybierz okrąg obok nazwy zestawu danych na liście, na przykład **images-for-tutorial**.
 
-1. Wybierz pozycję **dalej** , aby kontynuować tworzenie projektu.
+1. Wybierz **przycisk Dalej,** aby kontynuować tworzenie projektu.
 
 ### <a name="incremental-refresh"></a>Odświeżanie przyrostowe
 
-Jeśli planujesz dodać nowe obrazy do zestawu danych, odświeżanie przyrostowe będzie odszukać te nowe obrazy i dodać je do projektu.  Po włączeniu tej funkcji projekt będzie okresowo sprawdzać, czy są nowe obrazy.  Nie dodasz nowych obrazów do magazynu danych dla tego samouczka, więc nie zaznaczaj tej funkcji.
+Jeśli planujesz dodać nowe obrazy do zestawu danych, odświeżanie przyrostowe znajdzie te nowe obrazy i doda je do projektu.  Po włączeniu tej funkcji projekt będzie okresowo sprawdzać, czy są nowe obrazy.  W tym samouczku nie będziesz dodawać nowych obrazów do magazynu danych, więc pozostaw tę funkcję niezaznaczone.
 
 Wybierz przycisk **Dalej**, aby kontynuować.
 
 ### <a name="label-classes"></a>Klasy etykiet
 
-1. W formularzu **klasy etykiet** wpisz nazwę etykiety, a następnie wybierz pozycję **+ Dodaj etykietę** , aby wpisać następną etykietę.  W przypadku tego projektu etykiety to **kot**, **Dog** i **niepewne**.
+1. W **formularzu Klasy etykiet** wpisz nazwę etykiety, a następnie wybierz **pozycję +Dodaj** etykietę, aby wpisać następną etykietę.  W tym projekcie etykiety to **Cat**, **Dog** i **Niewiadome.**
 
-1. Wybierz pozycję **Next (dalej** ), gdy dodano wszystkie etykiety.
+1. Po **dodaniu** wszystkich etykiet wybierz przycisk Dalej.
 
-### <a name="labeling-instructions"></a>Instrukcje etykietowania
+### <a name="labeling-instructions"></a>Instrukcje dotyczące etykietowania
 
-1. Na formularzu **instrukcji etykietowania** można podać link do witryny sieci Web, która zawiera szczegółowe instrukcje dla etykiet.  Ten samouczek zostanie pozostawiony jako pusty.
+1. Na **formularzu Instrukcje dotyczące etykietowania** możesz podać link do witryny internetowej, która zawiera szczegółowe instrukcje dla etykieterów.  W tym samouczku pozostawimy to pole puste.
 
-1. Możesz również dodać Krótki opis zadania bezpośrednio w formularzu.  **Samouczek typu etykieta — koty & psy.**
+1. Możesz również dodać krótki opis zadania bezpośrednio w formularzu.  Samouczek **dotyczący etykietowania typów — Cats & Dogs.**
 
 1. Wybierz opcję **Dalej**.
 
-1. W sekcji **etykieta zatytułowana "ml** " pozostaw niezaznaczone pole wyboru. Etykieta z asystą, wymaga większej ilości danych niż ta, która będzie używana w tym samouczku.
+1. W sekcji **Etykietowanie wspomagane przez ml** pozostaw pole wyboru niezaznaczone. Etykietowanie wspomagane ml wymaga większej liczby danych, niż będziesz używać w tym samouczku.
 
 1. Wybierz pozycję **Create project** (Utwórz projekt).
 
-Ta strona nie jest automatycznie odświeżana. Po wstrzymaniu ręcznie Odśwież stronę do momentu zmiany stanu projektu na wartość **utworzone**.
+Ta strona nie jest automatycznie odświeżana. Po wstrzymaniu odśwież stronę ręcznie, aż stan projektu zmieni się na **Utworzono.**
 
-## <a name="start-labeling"></a>Rozpocznij etykietowanie
+## <a name="start-labeling"></a>Rozpoczynanie etykietowania
 
-Już skonfigurowano zasoby platformy Azure i skonfigurowano projekt etykietowania danych. Czas na dodanie etykiet do danych.
+Masz teraz skonfigurowane zasoby platformy Azure i projekt etykietowania danych. Na teraz należy dodać etykiety do danych.
 
-### <a name="tag-the-images"></a>Oznacz obrazy
+### <a name="tag-the-images"></a>Tagowanie obrazów
 
-W tej części samouczka przełączysz role z *administratorem projektu* na *Labeler*.  Każdy, kto ma dostęp współautora do obszaru roboczego, może zostać Labeler.
+W tej części samouczka przełączysz role z *administratora* projektu na rolę etykietcy *.*  Każda osoba, która ma dostęp współautora do Twojego obszaru roboczego, może zostać etykietą.
 
-1. W programie [Machine Learning Studio](https://ml.azure.com)wybierz pozycję **dane z etykietami** po lewej stronie, aby znaleźć projekt.  
+1. W [Machine Learning Studio](https://ml.azure.com)wybierz pozycję **Etykiety** danych po lewej stronie, aby znaleźć projekt.  
 
-1. Wybierz **łącze etykieta** dla projektu.
+1. Wybierz **link Etykieta** dla projektu.
 
-1. Przeczytaj instrukcje, a następnie wybierz pozycję **zadania**.
+1. Przeczytaj instrukcje, a następnie wybierz **pozycję Zadania.**
 
-1. Wybierz obraz miniatury po prawej stronie, aby wyświetlić liczbę obrazów, które chcesz oznaczyć w jednym. Aby można było przenieść wszystkie te obrazy, należy je oznaczyć. Przełączaj układy tylko wtedy, gdy masz nową stronę bez etykietowania danych. Przełączenie układu czyści działanie tagowania strony w toku.
+1. Wybierz miniaturę po prawej stronie, aby wyświetlić liczbę obrazów, które chcesz za jednym przyciskiem oznaczać etykietami. Wszystkie te obrazy należy oznaczać etykietami, zanim będzie można przejść dalej. Układy można przełączać tylko wtedy, gdy masz nową stronę danych bez etykiet. Przełączanie układów wyczyści pracę tagowania w toku strony.
 
-1. Wybierz co najmniej jeden obraz, a następnie wybierz tag, który ma zostać zastosowany do zaznaczenia. Tag pojawia się poniżej obrazu.  Kontynuuj wybór i Oznacz wszystkie obrazy na stronie.  Aby jednocześnie zaznaczyć wszystkie wyświetlane obrazy, wybierz pozycję **Zaznacz wszystko**. Wybierz co najmniej jeden obraz, aby zastosować tag.
+1. Wybierz co najmniej jeden obraz, a następnie wybierz tag do zastosowania do zaznaczenia. Tag zostanie wyświetlony poniżej obrazu.  Kontynuuj zaznaczanie i tagowanie wszystkich obrazów na stronie.  Aby wybrać wszystkie wyświetlane obrazy jednocześnie, wybierz **pozycję Zaznacz wszystkie.** Wybierz co najmniej jeden obraz, aby zastosować tag.
 
 
     > [!TIP]
-    > Można wybrać pierwsze dziewięć tagów przy użyciu klawiszy liczbowych na klawiaturze.
+    > Pierwsze dziewięć tagów można wybrać przy użyciu klawiszy liczbowych na klawiaturze.
 
-1. Po oznakowaniu wszystkich obrazów na stronie wybierz pozycję **Prześlij** , aby przesłać te etykiety.
+1. Po otagowaniu wszystkich obrazów na stronie wybierz pozycję **Prześlij,** aby przesłać te etykiety.
 
     ![Tagowanie obrazów](media/tutorial-labeling/catsndogs.gif)
 
-1. Po przesłaniu tagów dla danych, platforma Azure Odświeża stronę nowym zestawem obrazów z kolejki roboczej.
+1. Po przesłaniu tagów dla danych platforma Azure odświeża stronę przy użyciu nowego zestawu obrazów z kolejki służbowej.
 
-## <a name="complete-the-project"></a>Ukończ projekt
+## <a name="complete-the-project"></a>Ukończenie projektu
 
-Teraz przełączasz role z powrotem do *administratora projektu* dla projektu etykietowania.
+Teraz przełączysz role z powrotem do *administratora projektu* w projekcie etykietowania.
 
-Jako Menedżer możesz chcieć przejrzeć prace Twojego labeleru.  
+Jako menedżer możesz chcieć przejrzeć pracę etykiety.  
 
-### <a name="review-labeled-data"></a>Przejrzyj dane z etykietami
+### <a name="review-labeled-data"></a>Przeglądanie danych oznaczonych etykietami
 
-1. W programie [Machine Learning Studio](https://ml.azure.com)wybierz pozycję **dane z etykietami** po lewej stronie, aby znaleźć projekt.  
+1. W [Machine Learning studio](https://ml.azure.com)wybierz pozycję **Etykiety** danych po lewej stronie, aby znaleźć projekt.  
 
-1. Wybierz łącze Nazwa projektu.
+1. Wybierz link nazwy projektu.
 
 1. Pulpit nawigacyjny pokazuje postęp projektu.
 
-1. W górnej części strony wybierz pozycję **dane**.
+1. W górnej części strony wybierz pozycję **Dane**.
 
-1. Po lewej stronie wybierz pozycję **dane z etykietami** , aby wyświetlić oznakowane obrazy.  
+1. Po lewej stronie wybierz pozycję **Dane z etykietami,** aby wyświetlić oznakowane obrazy.  
 
-1. Jeśli zgadzasz się z etykietą, wybierz obraz, a następnie wybierz pozycję **Odrzuć** w dolnej części strony.  Tagi zostaną usunięte, a obraz zostanie umieszczony w kolejce z obrazami nieoznaczonymi etykietami.
+1. Jeśli nie zgadzasz się z etykietą, wybierz obraz, a następnie wybierz pozycję **Odrzuć** w dolnej części strony.  Tagi zostaną usunięte, a obraz zostanie ponownie umieścić w kolejce obrazów bez etykiet.
 
-### <a name="export-labeled-data"></a>Eksportuj dane z etykietą
+### <a name="export-labeled-data"></a>Eksportowanie danych z etykietami
 
-W dowolnym momencie możesz wyeksportować dane etykiet dla Machine Learning eksperymentowania. Użytkownicy często eksportują wiele razy i przeszkolią różne modele, zamiast czekać, aż wszystkie obrazy mają etykietę.
+Dane etykiety można wyeksportować do Machine Learning eksperymentowania w dowolnym momencie. Użytkownicy często eksportują dane wielokrotnie i trenują różne modele, zamiast czekać na etykietę wszystkich obrazów.
 
-Etykiety obrazów można eksportować w [formacie Coco](http://cocodataset.org/#format-data) lub jako zestaw danych Azure Machine Learning. Format zestawu danych ułatwia korzystanie z szkoleń w Azure Machine Learning.  
+Etykiety obrazów można eksportować w formacie [COCO](http://cocodataset.org/#format-data) lub jako Azure Machine Learning danych. Format zestawu danych ułatwia trenowania w Azure Machine Learning.  
 
-1. W programie [Machine Learning Studio](https://ml.azure.com)wybierz pozycję **dane z etykietami** po lewej stronie, aby znaleźć projekt.  
+1. W [Machine Learning studio](https://ml.azure.com)wybierz pozycję **Etykiety** danych po lewej stronie, aby znaleźć projekt.  
 
-1. Wybierz łącze Nazwa projektu.
+1. Wybierz link nazwy projektu.
 
-1. Wybierz pozycję **Eksportuj** i wybierz pozycję **Eksportuj jako zestaw danych usługi Azure ml**. 
+1. Wybierz pozycję **Eksportuj** i wybierz **pozycję Eksportuj jako zestaw danych usługi Azure ML.** 
 
-    Stan eksportu pojawia się tuż poniżej przycisku **Eksportuj** . 
+    Stan eksportu jest wyświetlany tuż poniżej **przycisku** Eksportuj. 
 
-1. Po pomyślnym wyeksportowaniu etykiet wybierz pozycję **zestawy danych** po lewej stronie, aby wyświetlić wyniki.
+1. Po pomyślnym wyeksportowania etykiet wybierz pozycję **Zestawy danych** po lewej stronie, aby wyświetlić wyniki.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
@@ -210,4 +210,5 @@ Etykiety obrazów można eksportować w [formacie Coco](http://cocodataset.org/#
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Utwórz projekt etykietowania danych i Eksportuj etykiety](how-to-create-labeling-projects.md).
+> [Trenowanie modelu rozpoznawania obrazów uczenia maszynowego.](/azure/machine-learning/how-to-use-labeled-dataset)
+

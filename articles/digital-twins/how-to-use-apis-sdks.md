@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: efa5061a49978ed5e7766c0e7bf9b56a1e73cf5d
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 21247f6b396cb1f7016c74cbec528149c0583724
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389761"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587208"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Korzystanie z interfejsów API i zestawów SDK usługi Azure Digital Twins
 
@@ -24,7 +24,7 @@ Ten artykuł zawiera omówienie dostępnych interfejsów API i metod interakcji 
 
 ## <a name="overview-control-plane-apis"></a>Omówienie: interfejsy API płaszczyzny sterowania
 
-Interfejsy API płaszczyzny sterowania są interfejsami [API](../azure-resource-manager/management/overview.md) arm używanymi do zarządzania Azure Digital Twins jako całością, dzięki czemu obejmują operacje takie jak tworzenie lub usuwanie całego wystąpienia. Użyjemy ich również do tworzenia i usuwania punktów końcowych.
+Interfejsy API płaszczyzny sterowania są interfejsami [API](../azure-resource-manager/management/overview.md) arm używanymi do zarządzania Azure Digital Twins jako całością, dzięki czemu obejmują operacje takie jak tworzenie lub usuwanie całego wystąpienia. Będą one również służące do tworzenia i usuwania punktów końcowych.
 
 Najnowsza wersja interfejsu API płaszczyzny sterowania to _**2020-12-01.**_
 
@@ -37,13 +37,13 @@ Aby użyć interfejsów API płaszczyzny sterowania:
   - [**Python**](https://pypi.org/project/azure-mgmt-digitaltwins/) [(źródło](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins))
   - [**Go**](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt) [(źródło](https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt))
 
-Interfejsy API płaszczyzny sterowania można również wykonywać przez interakcję z Azure Digital Twins za pośrednictwem [interfejsu Azure Portal](https://portal.azure.com) interfejsu wiersza [polecenia.](how-to-use-cli.md)
+Interfejsy API płaszczyzny sterowania można również wykonywać, korzystając Azure Digital Twins za pośrednictwem [interfejsu Azure Portal](https://portal.azure.com) interfejsu wiersza [polecenia.](how-to-use-cli.md)
 
 ## <a name="overview-data-plane-apis"></a>Przegląd: interfejsy API płaszczyzny danych
 
 Interfejsy API płaszczyzny danych to Azure Digital Twins API używane do zarządzania elementami w ramach Azure Digital Twins danych. Obejmują one operacje takie jak tworzenie tras, przekazywanie modeli, tworzenie relacji i zarządzanie bliźniaczych reprezentacji. Można je ogólnie podzielić na następujące kategorie:
 * **DigitalTwinModels —** kategoria DigitalTwinModels zawiera interfejsy API do zarządzania modelami w Azure Digital Twins wystąpienia. [](concepts-models.md) Działania związane z zarządzaniem obejmują przekazywanie, walidację, pobieranie i usuwanie modeli authored w języku DTDL.
-* **DigitalTwins** — kategoria DigitalTwins zawiera interfejsy API, które [](concepts-twins-graph.md) umożliwiają deweloperom tworzenie, modyfikowanie i usuwanie bliźniaczych reprezentacji cyfrowych i ich relacji w Azure Digital Twins wystąpienia.
+* **DigitalTwins** — kategoria DigitalTwins zawiera interfejsy API, które [](concepts-twins-graph.md) umożliwiają deweloperom tworzenie, modyfikowanie i usuwanie bliźniaczych reprezentacji cyfrowych oraz ich relacji w Azure Digital Twins wystąpienia.
 * **Zapytanie** — kategoria Zapytanie umożliwia deweloperom znajdowanie zestawów bliźniaczych reprezentacji cyfrowych [w grafie bliźniaczych reprezentacji w](how-to-query-graph.md) relacjach.
 * **Trasy zdarzeń** — kategoria Trasy zdarzeń zawiera interfejsy API do rozsyłania danych za pośrednictwem systemu i usług podrzędnego. [](concepts-route-events.md)
 
@@ -51,7 +51,7 @@ Najnowsza wersja interfejsu API płaszczyzny danych to _**2020-10-31.**_
 
 Aby użyć interfejsów API płaszczyzny danych:
 * Interfejsy API można wywołać bezpośrednio, aby...
-   - odwołuje się do najnowszego folderu struktury Swagger w [repocie struktury Swagger płaszczyzny danych](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). Ten folder zawiera również folder z przykładami, które pokazują użycie. 
+   - odwołanie do najnowszego folderu struktury Swagger w [repo programu Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins)płaszczyzny danych . Ten folder zawiera również folder z przykładami, które pokazują użycie. 
    - wyświetlanie dokumentacji [interfejsu API](/rest/api/azure-digitaltwins/).
 * Możesz użyć **zestawu SDK platformy .NET (C#).** Aby użyć zestawu SDK platformy .NET...
    - Możesz wyświetlić i dodać pakiet z pakietu NuGet: [Azure.DigitalTwins.Core.](https://www.nuget.org/packages/Azure.DigitalTwins.Core) 
@@ -63,7 +63,7 @@ Aby użyć interfejsów API płaszczyzny danych:
    - Możesz wyświetlić dokumentację [referencyjną zestawu SDK](/java/api/overview/azure/digitaltwins/client)
    - Źródło zestawu SDK można znaleźć w witrynie GitHub: [Biblioteka klienta usługi Azure IoT Digital Twins dla języka Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
 * Możesz użyć zestawu **SDK języka JavaScript.** Aby użyć zestawu SDK języka JavaScript...
-   - Pakiet można wyświetlić i zainstalować z witryny npm: [Biblioteka klienta azure Azure Digital Twins Core dla języka JavaScript.](https://www.npmjs.com/package/@azure/digital-twins-core)
+   - Pakiet można wyświetlić i zainstalować za pomocą narzędzia npm: [biblioteka klienta azure Azure Digital Twins Core dla języka JavaScript.](https://www.npmjs.com/package/@azure/digital-twins-core)
    - Możesz wyświetlić dokumentację [referencyjną zestawu SDK](/javascript/api/@azure/digital-twins-core/).
    - Źródło zestawu SDK można znaleźć w witrynie GitHub: [Biblioteka klienta Azure Azure Digital Twins Core dla języka JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core)
 * Możesz użyć zestawu **SDK języka Python.** Aby użyć zestawu SDK języka Python...
@@ -113,7 +113,7 @@ Wykonywanie zapytań o bliźniacze reprezentacji i wykonywanie w pętli wyników
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="FullQuerySample":::
 
-Zapoznaj się [*z samouczkiem: kodem*](tutorial-code.md) aplikacji klienckiej, aby uzyskać przewodnik po tym przykładowym kodzie aplikacji. 
+Zobacz [*Samouczek: kod aplikacji klienckiej,*](tutorial-code.md) aby uzyskać przewodnik po tym przykładowym kodzie aplikacji. 
 
 Dodatkowe przykłady można również znaleźć w repozytorium [GitHub dla zestawu SDK platformy .NET (C#).](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core/samples)
 
@@ -177,16 +177,16 @@ Wywołania aktualizacji dla bliźniaczych reprezentacji i relacji używają [str
 
 Na poniższej liście przedstawiono dodatkowe szczegóły i ogólne wskazówki dotyczące korzystania z interfejsów API i zestawów SDK.
 
-* Możesz użyć narzędzia testowania REST protokołu HTTP, takiego jak Postman, aby wykonać bezpośrednie wywołania Azure Digital Twins API. Aby uzyskać więcej informacji na temat tego procesu, zobacz [*How-to: Make requests with Postman (3.0:3.0: 3.03.2.*](how-to-use-postman.md)Aby uzyskać więcej informacji na temat tego procesu, zobacz How-to
+* Możesz użyć narzędzia testowania REST protokołu HTTP, takiego jak Postman, aby wykonać bezpośrednie wywołania do Azure Digital Twins API. Aby uzyskać więcej informacji na temat tego procesu, zobacz [*How-to: Make requests with Postman (3.0:3.0: 3.03.2.*](how-to-use-postman.md)Aby uzyskać więcej informacji na temat tego procesu, zobacz How-to
 * Aby użyć zestawu SDK, należy utworzyć wystąpienia `DigitalTwinsClient` klasy . Konstruktor wymaga poświadczeń, które można uzyskać przy użyciu różnych metod uwierzytelniania w `Azure.Identity` pakiecie. Aby uzyskać więcej informacji `Azure.Identity` na temat usługi , zobacz [dokumentację przestrzeni nazw .](/dotnet/api/azure.identity) 
 * Może się okazać, że jest to przydatne podczas rozpoczynania pracy, ale istnieje kilka innych opcji, w tym poświadczenia tożsamości zarządzanej , które prawdopodobnie będą używane do uwierzytelniania funkcji platformy Azure, które zostały ustawione przy użyciu tożsamości usługi zarządzanej `InteractiveBrowserCredential` Azure Digital Twins. [](/dotnet/api/azure.identity.interactivebrowsercredential) [](../app-service/overview-managed-identity.md?tabs=dotnet) Aby uzyskać więcej informacji `InteractiveBrowserCredential` na temat klasy , zobacz [dokumentację klasy](/dotnet/api/azure.identity.interactivebrowsercredential).
-* Żądania do interfejsów API Azure Digital Twins wymagają użytkownika lub jednostki usługi, która jest częścią tej samej dzierżawy [usługi Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD), w której znajduje się Azure Digital Twins usługi. Aby uniemożliwić złym aktorom skanowanie adresów URL w celu odnajdywania, gdzie znajdują się wystąpienia usługi Azure Digital Twins, żądania z tokenami dostępu spoza dzierżawy pochodzącej zostaną zwrócone komunikat o błędzie "404 Sub-Domain nie znaleziono". Ten błąd zostanie  zwrócony nawet wtedy, gdy użytkownik lub nazwa główna usługi otrzymała rolę Azure Digital Twins Data Owner lub Azure Digital Twins Data Reader za pośrednictwem współpracy [B2B](../active-directory/external-identities/what-is-b2b.md) w usłudze Azure AD.
+* Żądania do interfejsów API Azure Digital Twins wymagają użytkownika lub jednostki usługi, która jest częścią tej samej dzierżawy [usługi Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD), w której znajduje się Azure Digital Twins usługi. Aby zapobiec złośliwemu skanowaniu Azure Digital Twins końcowych, żądania z tokenami dostępu spoza dzierżawy pochodzącej zostaną zwrócone komunikat o błędzie "Nie znaleziono Sub-Domain 404". Ten błąd zostanie  zwrócony nawet wtedy, gdy użytkownik lub nazwa główna usługi otrzymała rolę Azure Digital Twins Data Owner lub Azure Digital Twins Data Reader za pośrednictwem współpracy [B2B](../active-directory/external-identities/what-is-b2b.md) w usłudze Azure AD. Aby uzyskać informacje na temat uzyskiwania dostępu do wielu dzierżaw, zobacz [*Jak napisać kod uwierzytelniania aplikacji.*](how-to-authenticate-client.md#authenticate-across-tenants)
 * Wszystkie wywołania interfejsu API usługi są udostępniane jako funkcje członkowskie w `DigitalTwinsClient` klasie .
 * Wszystkie funkcje usługi istnieją w wersjach synchronicznych i asynchronicznych.
 * Wszystkie funkcje usługi zwracają wyjątek dla dowolnego stanu zwracanego 400 lub więcej. Upewnij się, że opakujesz wywołania `try` w sekcji i przechwyć co najmniej `RequestFailedExceptions` . Aby uzyskać więcej informacji o tym typie wyjątku, [zobacz tutaj](/dotnet/api/azure.requestfailedexception).
 * Większość metod usługi zwraca `Response<T>` lub ( `Task<Response<T>>` dla wywołań asynchronicznych), gdzie `T` jest klasą obiektu zwracanego dla wywołania usługi. Klasa [`Response`](/dotnet/api/azure.response-1) hermetyzuje zwracany przez usługę i przedstawia wartości zwracane w polu `Value` .  
 * Metody usług z wynikami stronicowania zwracają `Pageable<T>` wyniki lub `AsyncPageable<T>` jako wyniki. Aby uzyskać więcej informacji `Pageable<T>` na temat klasy , zobacz [tutaj](/dotnet/api/azure.pageable-1); aby uzyskać więcej informacji na temat klasy , `AsyncPageable<T>` zobacz [tutaj](/dotnet/api/azure.asyncpageable-1).
-* Możesz iterować po stronicowych wynikach przy użyciu `await foreach` pętli. Aby uzyskać więcej informacji na temat tego procesu, [zobacz tutaj](/archive/msdn-magazine/2019/november/csharp-iterating-with-async-enumerables-in-csharp-8).
+* Możesz iterować po stronicowych wynikach za pomocą `await foreach` pętli. Aby uzyskać więcej informacji na temat tego procesu, [zobacz tutaj](/archive/msdn-magazine/2019/november/csharp-iterating-with-async-enumerables-in-csharp-8).
 * Podstawowy zestaw SDK to `Azure.Core` . Zapoznaj się z [dokumentacją przestrzeni nazw platformy Azure,](/dotnet/api/azure) aby uzyskać informacje na temat infrastruktury i typów zestawu SDK.
 
 
@@ -196,7 +196,7 @@ Metody usługi zwracają silnie typowane obiekty wszędzie tam, gdzie to możliw
 
 Metryki interfejsu API, takie jak żądania, opóźnienia i szybkość niepowodzeń, można wyświetlić w [Azure Portal](https://portal.azure.com/). 
 
-Na stronie głównej portalu wyszukaj swoje Azure Digital Twins, aby ściągnąć jego szczegóły. Wybierz opcję **Metryki** z menu Azure Digital Twins wystąpienia, aby wyprowadzić *stronę Metryki.*
+Na stronie głównej portalu wyszukaj wystąpienie Azure Digital Twins, aby uzyskać jego szczegóły. Wybierz opcję **Metryki** z menu Azure Digital Twins wystąpienia, aby wyprowadzić *stronę Metryki.*
 
 :::image type="content" source="media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Zrzut ekranu przedstawiający stronę metryk dla Azure Digital Twins":::
 

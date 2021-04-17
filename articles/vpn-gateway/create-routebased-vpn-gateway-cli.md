@@ -1,30 +1,30 @@
 ---
-title: 'Tworzenie opartej na trasach VPN Gateway platformy Azure: interfejs wiersza polecenia'
-description: Szybkie tworzenie opartej na trasach bramy sieci VPN platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure dla połączenia sieci VPN z siecią lokalną lub do łączenia sieci wirtualnych.
+title: 'Tworzenie opartej na trasach usługi Azure VPN Gateway: interfejs wiersza polecenia'
+description: Szybko utwórz bramę sieci VPN platformy Azure opartą na trasach przy użyciu interfejsu wiersza polecenia platformy Azure, połączenia sieci VPN z siecią lokalną lub w celu połączenia sieci wirtualnych.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2bbd7e39ee65ba304ec62697b6fcc77bea133b41
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 87e3490711990944e017d2d463090f3c8697956c
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94737256"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484230"
 ---
-# <a name="create-a-route-based-vpn-gateway-using-cli"></a>Tworzenie bramy sieci VPN opartej na trasach za pomocą interfejsu wiersza polecenia
+# <a name="create-a-route-based-vpn-gateway-using-cli"></a>Tworzenie bramy sieci VPN opartej na trasach przy użyciu interfejsu wiersza polecenia
 
-Ten artykuł pomaga szybko utworzyć opartą na trasach bramę sieci VPN platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure. Brama sieci VPN jest używana podczas tworzenia połączenia sieci VPN z siecią lokalną. Do łączenia się z usługą sieci wirtualnych można także użyć bramy sieci VPN.
+Ten artykuł pomaga szybko utworzyć bramę sieci VPN platformy Azure opartą na trasach przy użyciu interfejsu wiersza polecenia platformy Azure. Brama sieci VPN jest używana podczas tworzenia połączenia sieci VPN z siecią lokalną. Do łączenia sieci wirtualnych można również użyć bramy sieci VPN.
 
-Kroki opisane w tym artykule spowodują utworzenie sieci wirtualnej, podsieci, podsieci bramy i bramy sieci VPN opartej na trasach (bramy sieci wirtualnej). Aby można było utworzyć bramę sieci wirtualnej, może upłynąć do 45 minut. Po zakończeniu tworzenia bramy można utworzyć połączenia. Te kroki wymagają subskrypcji platformy Azure.
+Kroki opisane w tym artykule spowodują utworzenie sieci wirtualnej, podsieci, podsieci bramy i bramy sieci VPN opartej na trasach (bramy sieci wirtualnej). Tworzenie bramy sieci wirtualnej może potrwać co najmniej 45 minut. Po zakończeniu tworzenia bramy możesz utworzyć połączenia. Te kroki wymagają subskrypcji platformy Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- Ten artykuł wymaga wersji 2.0.4 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
+- Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Jeśli używasz Azure Cloud Shell, najnowsza wersja jest już zainstalowana.
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -37,7 +37,7 @@ az group create --name TestRG1 --location eastus
 
 ## <a name="create-a-virtual-network"></a><a name="vnet"></a>Tworzenie sieci wirtualnej
 
-Utwórz sieć wirtualną za pomocą polecenia [AZ Network VNET Create](/cli/azure/network/vnet) . Poniższy przykład tworzy sieć wirtualną o nazwie **VNet1** w lokalizacji **Wschodnie** :
+Utwórz sieć wirtualną za pomocą [polecenia az network vnet create.](/cli/azure/network/vnet) Poniższy przykład tworzy sieć wirtualną o nazwie **VNet1** w lokalizacji **EastUS:**
 
 ```azurecli-interactive
 az network vnet create \
@@ -51,7 +51,7 @@ az network vnet create \
 
 ## <a name="add-a-gateway-subnet"></a><a name="gwsubnet"></a>Dodawanie podsieci bramy
 
-Podsieć bramy zawiera zastrzeżone adresy IP, z których korzystają usługi bramy sieci wirtualnej. Aby dodać podsieć bramy, użyj następujących przykładów:
+Podsieć bramy zawiera zastrzeżone adresy IP, z których korzystają usługi bramy sieci wirtualnej. Użyj następujących przykładów, aby dodać podsieć bramy:
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -63,7 +63,7 @@ az network vnet subnet create \
 
 ## <a name="request-a-public-ip-address"></a><a name="PublicIP"></a>Przesłanie żądania dotyczącego publicznego adresu IP
 
-Brama sieci VPN musi mieć dynamicznie przydzieloną publiczny adres IP. Publiczny adres IP zostanie przydzielony do bramy sieci VPN utworzonej dla sieci wirtualnej. Użyj poniższego przykładu, aby zażądać publicznego adresu IP:
+Brama sieci VPN musi mieć dynamicznie przydzielany publiczny adres IP. Publiczny adres IP zostanie przydzielony do bramy sieci VPN, która zostanie tworzyć dla sieci wirtualnej. Skorzystaj z następującego przykładu, aby zażądać publicznego adresu IP:
 
 ```azurecli-interactive
 az network public-ip create \
@@ -74,9 +74,9 @@ az network public-ip create \
 
 ## <a name="create-the-vpn-gateway"></a><a name="CreateGateway"></a>Tworzenie bramy sieci VPN
 
-Utwórz bramę sieci VPN za pomocą polecenia [az network vnet-gateway create](/cli/azure/group).
+Utwórz bramę sieci VPN za pomocą polecenia [az network vnet-gateway create](/cli/azure/network/vnet-gateway).
 
-Jeśli uruchomisz to polecenie przy użyciu `--no-wait` parametru, nie zobaczysz żadnych informacji zwrotnych ani danych wyjściowych. `--no-wait`Parametr umożliwia utworzenie bramy w tle. Nie oznacza to, że Brama sieci VPN jest tworzona natychmiast.
+Jeśli to polecenie zostanie uruchomione przy użyciu parametru , nie zobaczysz żadnych informacji zwrotnych `--no-wait` ani danych wyjściowych. Parametr `--no-wait` umożliwia tworzenie bramy w tle. Nie oznacza to, że brama sieci VPN jest tworzona natychmiast.
 
 ```azurecli-interactive
 az network vnet-gateway create \
@@ -101,7 +101,7 @@ az network vnet-gateway show \
   -g TestRG1
 ```
 
-Odpowiedź wygląda podobnie do:
+Odpowiedź wygląda podobnie do tej:
 
 ```output
 {
@@ -149,7 +149,7 @@ Odpowiedź wygląda podobnie do:
 
 ### <a name="view-the-public-ip-address"></a>Wyświetlanie publicznego adresu IP
 
-Aby wyświetlić publiczny adres IP przypisany do bramy, użyj poniższego przykładu:
+Aby wyświetlić publiczny adres IP przypisany do bramy, użyj następującego przykładu:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -157,7 +157,7 @@ az network public-ip show \
   --resource-group TestRG11
 ```
 
-Wartością skojarzoną z polem **AdresIP** jest publiczny adres IP bramy sieci VPN.
+Wartość skojarzona z **polem ipAddress** to publiczny adres IP bramy sieci VPN.
 
 Przykładowa odpowiedź:
 
@@ -175,7 +175,7 @@ Przykładowa odpowiedź:
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy utworzone zasoby nie są już potrzebne, użyj polecenie [AZ Group Delete](/cli/azure/group) , aby usunąć grupę zasobów. Spowoduje to usunięcie grupy zasobów i wszystkich znajdujących się w niej zasobów.
+Jeśli nie potrzebujesz już utworzonych zasobów, użyj [przycisku az group delete,](/cli/azure/group) aby usunąć grupę zasobów. Spowoduje to usunięcie grupy zasobów i wszystkich znajdujących się w niej zasobów.
 
 ```azurecli-interactive 
 az group delete --name TestRG1 --yes
@@ -183,9 +183,9 @@ az group delete --name TestRG1 --yes
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po zakończeniu tworzenia bramy można utworzyć połączenie między Twoją siecią wirtualną a inną. Można też utworzyć połączenie między siecią wirtualną i lokalizacją lokalną.
+Po zakończeniu tworzenia bramy możesz utworzyć połączenie między siecią wirtualną a inną siecią wirtualną. Możesz też utworzyć połączenie między siecią wirtualną a lokalizacją lokalną.
 
 > [!div class="nextstepaction"]
 > [Tworzenie połączenia typu lokacja-lokacja](vpn-gateway-create-site-to-site-rm-powershell.md)<br><br>
 > [Tworzenie połączenia typu punkt-lokacja](vpn-gateway-howto-point-to-site-rm-ps.md)<br><br>
-> [Utwórz połączenie z inną siecią wirtualną](vpn-gateway-vnet-vnet-rm-ps.md)
+> [Tworzenie połączenia z inną siecią wirtualną](vpn-gateway-vnet-vnet-rm-ps.md)

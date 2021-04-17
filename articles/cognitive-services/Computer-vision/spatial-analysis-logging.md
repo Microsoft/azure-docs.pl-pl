@@ -1,7 +1,7 @@
 ---
-title: Dane telemetryczne i rejestrowanie dla kontenerów analizy przestrzennej
+title: Telemetria i rejestrowanie dla kontenerów analizy przestrzennej
 titleSuffix: Azure Cognitive Services
-description: Analiza przestrzenna zapewnia każdy kontener ze wspólną konfiguracją, rejestrowaniem i ustawieniami zabezpieczeń platformy Configuration Framework.
+description: Analiza przestrzenna zapewnia każdemu kontenerowi typowe szczegółowe informacje o platformie konfiguracji, rejestrowanie i ustawienia zabezpieczeń.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,24 +10,24 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 1f03f99e6394c3939855c73548e8fb917f8696bc
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 901e857a346b0955726c5755e23595efefbc2ca1
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106286032"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589503"
 ---
-# <a name="telemetry-and-troubleshooting"></a>Telemetrię i rozwiązywanie problemów
+# <a name="telemetry-and-troubleshooting"></a>Telemetria i rozwiązywanie problemów
 
-Analiza przestrzenna obejmuje zestaw funkcji służących do monitorowania kondycji systemu i rozwiązywania problemów.
+Analiza przestrzenna obejmuje zestaw funkcji do monitorowania kondycji systemu i pomocy w diagnozowaniu problemów.
 
-## <a name="enable-visualizations"></a>Włącz wizualizacje
+## <a name="enable-visualizations"></a>Włączanie wizualizacji
 
-Aby włączyć wizualizację zdarzeń usługi AI Insights w ramce wideo, należy użyć `.debug` wersji [operacji analizy przestrzennej](spatial-analysis-operations.md) na komputerze stacjonarnym. Wizualizacja nie jest możliwa na Azure Stack urządzeniach brzegowych. Dostępne są cztery operacje debugowania.
+Aby włączyć wizualizację AI Insights zdarzeń w ramce wideo, należy użyć wersji operacji analizy przestrzennej `.debug` na komputerze [](spatial-analysis-operations.md) stacjonarnym. Wizualizacja nie jest możliwa na Azure Stack Edge urządzeniach. Dostępne są cztery operacje debugowania.
 
-Jeśli urządzenie nie jest Azure Stack urządzeniem brzegowym, edytuj plik manifestu wdrożenia dla [maszyn stacjonarnych](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) , aby użyć poprawnej wartości `DISPLAY` zmiennej środowiskowej. Musi on pasować do `$DISPLAY` zmiennej na komputerze-hoście. Po zaktualizowaniu manifestu wdrożenia ponownie Wdróż kontener.
+Jeśli urządzenie nie jest urządzeniem Azure Stack Edge, edytuj plik [](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) manifestu wdrożenia dla komputerów stacjonarnych, aby użyć poprawnej wartości zmiennej `DISPLAY` środowiskowej. Musi ona być `$DISPLAY` dopasowana do zmiennej na komputerze hosta. Po zaktualizowaniu manifestu wdrożenia ponownie wdychaj kontener.
 
-Po zakończeniu wdrożenia może być konieczne skopiowanie `.Xauthority` pliku z komputera hosta do kontenera i jego ponowne uruchomienie. W poniższym przykładzie `peopleanalytics` jest nazwą kontenera na komputerze hosta.
+Po zakończeniu wdrażania może być konieczne skopiowanie pliku z komputera-hosta do kontenera `.Xauthority` i ponowne uruchomienie go. W poniższym przykładzie `peopleanalytics` jest nazwą kontenera na komputerze-hoście.
 
 ```bash
 sudo docker cp $XAUTHORITY peopleanalytics:/root/.Xauthority
@@ -37,26 +37,26 @@ xhost +
 ```
 
 
-## <a name="collect-system-health-telemetry"></a>Zbieraj dane telemetryczne dotyczące kondycji systemu
+## <a name="collect-system-health-telemetry"></a>Zbieranie danych telemetrycznych kondycji systemu
 
-Telegraf to obraz Open Source, który współdziała z analizą przestrzenną i jest dostępny w Container Registry firmy Microsoft. Pobiera następujące dane wejściowe i wysyła je do Azure Monitor. Moduł telegraf można skompilować przy użyciu żądanych niestandardowych danych wejściowych i wyjściowych. Konfiguracja modułu telegraf w analizie przestrzennej jest częścią manifestu wdrożenia (połączona powyżej). Ten moduł jest opcjonalny i może zostać usunięty z manifestu, jeśli nie jest potrzebny. 
+Telegraf to obraz open source, który współpracuje z analizą przestrzenną i jest dostępny w Microsoft Container Registry. Pobiera następujące dane wejściowe i wysyła je do Azure Monitor. Moduł telegraf można skontworzyć przy użyciu żądanych niestandardowych danych wejściowych i wyjściowych. Konfiguracja modułu telegrafu w analizie przestrzennej jest częścią manifestu wdrożenia (link powyżej). Ten moduł jest opcjonalny i można go usunąć z manifestu, jeśli nie jest potrzebny. 
 
-Danych wejściowych 
+Wejścia: 
 1. Metryki analizy przestrzennej
 2. Metryki dysku
-3. Metryki procesora
+3. Metryki procesora CPU
 4. Metryki platformy Docker
 5. Metryki procesora GPU
 
-Wydajności
+Wyjść:
 1. Azure Monitor
 
-Dostarczony moduł telegraf analizy przestrzennej opublikuje wszystkie dane telemetryczne emitowane przez kontener analizy przestrzennej do Azure Monitor. Zobacz [Azure monitor](../../azure-monitor/overview.md) , aby uzyskać informacje na temat dodawania Azure monitor do subskrypcji.
+Dostarczony moduł telegrafu analizy przestrzennej opublikuje wszystkie dane telemetryczne emitowane przez kontener analizy przestrzennej do Azure Monitor. Zobacz [Azure Monitor,](../../azure-monitor/overview.md) aby uzyskać informacje na temat Azure Monitor subskrypcji.
 
-Po skonfigurowaniu Azure Monitor należy utworzyć poświadczenia, które umożliwiają modułowi wysyłanie danych telemetrycznych. Możesz użyć Azure Portal, aby utworzyć nową nazwę główną usługi, lub użyj poniższego polecenia platformy Azure, aby go utworzyć.
+Po skonfigurowaniu Azure Monitor należy utworzyć poświadczenia umożliwiające modułowi wysyłanie danych telemetrycznych. Aby utworzyć nową jednostkę Azure Portal, możesz użyć interfejsu wiersza polecenia platformy Azure lub poniższego polecenia interfejsu wiersza polecenia platformy Azure.
 
 > [!NOTE] 
-> To polecenie wymaga posiadania uprawnień właściciela w ramach subskrypcji. 
+> To polecenie wymaga uprawnień właściciela subskrypcji. 
 
 ```bash
 # Find your Azure IoT Hub resource ID by running this command. The resource ID  should start with something like 
@@ -68,7 +68,7 @@ az iot hub list
 az ad sp create-for-rbac --role="Monitoring Metrics Publisher" --name "<principal name>" --scopes="<resource ID of IoT Hub>"
 ```
 
-W manifeście wdrożenia dla [Azure Stack urządzenia brzegowego](https://go.microsoft.com/fwlink/?linkid=2142179), [maszyny STACJONARNEJ](https://go.microsoft.com/fwlink/?linkid=2152270)lub [maszyny wirtualnej platformy Azure z procesorem GPU](https://go.microsoft.com/fwlink/?linkid=2152189)poszukaj modułu *telegraf* i zastąp następujące wartości informacjami o jednostce usługi w poprzednim kroku i Wdróż ponownie.
+W manifeście wdrożenia dla urządzenia [](https://go.microsoft.com/fwlink/?linkid=2152270) [Azure Stack Edge,](https://go.microsoft.com/fwlink/?linkid=2142179)komputera stacjonarnego lub maszyny wirtualnej platformy Azure z procesorem [GPU](https://go.microsoft.com/fwlink/?linkid=2152189)odszukaj moduł *telegrafu,* a następnie zastąp następujące wartości informacjami jednostki usługi z poprzedniego kroku i przewłasz.
 
 ```json
 
@@ -97,41 +97,41 @@ W manifeście wdrożenia dla [Azure Stack urządzenia brzegowego](https://go.mic
 ...
 ```
 
-Po wdrożeniu modułu telegraf do raportowanych metryk można uzyskać dostęp za pomocą usługi Azure Monitor lub wybierając pozycję **monitorowanie** w IoT Hub na Azure Portal.
+Po wdrożeniu modułu telegraf można uzyskać dostęp do zgłoszonych metryk za pośrednictwem usługi  Azure Monitor lub wybierając pozycję Monitorowanie w IoT Hub na Azure Portal.
 
-:::image type="content" source="./media/spatial-analysis/iot-hub-telemetry.png" alt-text="Raport telemetrii Azure Monitor":::
+:::image type="content" source="./media/spatial-analysis/iot-hub-telemetry.png" alt-text="Azure Monitor telemetrii":::
 
-### <a name="system-health-events"></a>Zdarzenia kondycji systemu
+### <a name="system-health-events"></a>Zdarzenia dotyczące kondycji systemu
 
 | Nazwa zdarzenia                  | Opis    |
 |-----------------------------|-------------------------------------------------------------------------------------------|
-| archon_exit                 | Wysyłany, gdy użytkownik zmieni stan modułu analizy przestrzennej z *uruchomiony* na *zatrzymany*.  |
-| archon_error                | Wysyłany, gdy którykolwiek z procesów wewnątrz kontenera ulega awarii. Jest to błąd krytyczny.      |
-| InputRate                   | Szybkość, z jaką Graf przetwarza dane wejściowe wideo. Raportowane co 5 minut.              |
-| OutputRate                  | Szybkość, z jaką Graf wyprowadza informacje o AI. Raportowane co 5 minut.                |
-| archon_allGraphsStarted     | Wysyłany po zakończeniu uruchamiania wszystkich wykresów.                                           |
-| archon_configchange         | Wysyłany po zmianie konfiguracji grafu.                                              |
-| archon_graphCreationFailed  | Wysyłany, gdy nie można uruchomić grafu z zgłoszonym błędem `graphId` .                           |
-| archon_graphCreationSuccess | Wysyłany, gdy wykres z raportowaniem `graphId` zostanie uruchomiony pomyślnie.                      |
-| archon_graphCleanup         | Wysyłany, gdy wykres z zgłoszonym `graphId` czyszczeniem i zakończeniem.                      |
-| archon_graphHeartbeat       | Puls wysyłany co minutę dla każdego grafu umiejętności.                                   |
-| archon_apiKeyAuthFail       | Wysyłany, gdy klucz zasobu przetwarzanie obrazów nie może uwierzytelnić kontenera przez więcej niż 24 godziny, z następujących powodów: poza limitem przydziału, nieprawidłowy, w trybie offline. |
-| VideoIngesterHeartbeat      | Wysyłana co godzinę, aby wskazać, że wideo jest przesyłane strumieniowo ze źródła wideo, wraz z liczbą błędów w tej godzinie. Zgłoszone dla każdego grafu. |
-| VideoIngesterState          | Raporty zostały *zatrzymane* lub *uruchomione* na potrzeby przesyłania strumieniowego wideo. Zgłoszone dla każdego grafu.              |
+| archon_exit                 | Wysyłane, gdy użytkownik zmieni stan modułu Analizy przestrzennej *z uruchomionego na* *zatrzymany.*  |
+| archon_error                | Wysyłane, gdy dowolny z procesów wewnątrz kontenera ulega awarii. Jest to błąd krytyczny.      |
+| InputRate                   | Szybkość, z jaką graf przetwarza dane wejściowe wideo. Raporty co 5 minut.              |
+| OutputRate                  | Szybkość, z jaką graf wyprowadza szczegółowe informacje dotyczące AI. Raporty co 5 minut.                |
+| archon_allGraphsStarted     | Wysyłane po zakończeniu uruchamiania wszystkich grafów.                                           |
+| archon_configchange         | Wysyłane po zmianie konfiguracji grafu.                                              |
+| archon_graphCreationFailed  | Wysyłane, gdy nie można uruchomić `graphId` grafu z raportem.                           |
+| archon_graphCreationSuccess | Wysyłane, gdy graf z raportem `graphId` zostanie uruchomiony pomyślnie.                      |
+| archon_graphCleanup         | Wysyłane, gdy graf z raportem `graphId` czyści i kończy działanie.                      |
+| archon_graphHeartbeat       | Puls jest wysyłany co minutę dla każdego grafu umiejętności.                                   |
+| archon_apiKeyAuthFail       | Wysyłane, gdy przetwarzanie obrazów klucza zasobu nie może uwierzytelnić kontenera przez więcej niż 24 godziny z następujących powodów: Poza limitem przydziału, Nieprawidłowy, Offline. |
+| VideoIngkonkurencyjnAfertbeat      | Wysyłane co godzinę, aby wskazać, że wideo jest przesyłane strumieniowo ze źródła wideo, z liczbą błędów w ciągu tej godziny. Raporty dla każdego grafu. |
+| VideoIngująceState          | Raporty *zatrzymane lub* *uruchomione dla* przesyłania strumieniowego wideo. Raporty dla każdego grafu.              |
 
-##  <a name="troubleshooting-an-iot-edge-device"></a>Rozwiązywanie problemów z urządzeniem IoT Edge
+##  <a name="troubleshooting-an-iot-edge-device"></a>Rozwiązywanie problemów z IoT Edge sieciowym
 
-Za pomocą `iotedge` narzędzia wiersza polecenia można sprawdzić stan i dzienniki uruchomionych modułów. Na przykład:
-* `iotedge list`: Raportuje listę uruchomionych modułów. 
-  Możesz również sprawdzić pod kątem błędów `iotedge logs edgeAgent` . Jeśli `iotedge` jest zablokowany, możesz spróbować ponownie uruchomić go za pomocą `iotedge restart edgeAgent`
+Możesz użyć narzędzia `iotedge` wiersza polecenia, aby sprawdzić stan i dzienniki uruchomionych modułów. Na przykład:
+* `iotedge list`: raportuje listę uruchomionych modułów. 
+  Możesz dodatkowo sprawdzić, czy występują błędy, za pomocą . `iotedge logs edgeAgent` Jeśli `iotedge` problem zostanie zablokowany, możesz spróbować uruchomić go ponownie za pomocą `iotedge restart edgeAgent`
 * `iotedge logs <module-name>`
-* `iotedge restart <module-name>` Aby ponownie uruchomić określony moduł 
+* `iotedge restart <module-name>` aby ponownie uruchomić określony moduł 
 
-## <a name="collect-log-files-with-the-diagnostics-container"></a>Zbierz pliki dzienników przy użyciu kontenera diagnostyki
+## <a name="collect-log-files-with-the-diagnostics-container"></a>Zbieranie plików dziennika za pomocą kontenera diagnostyki
 
-Analiza przestrzenna generuje Dzienniki debugowania platformy Docker, których można użyć do diagnozowania problemów dotyczących środowiska uruchomieniowego lub dołączania do biletów pomocy technicznej. Moduł diagnostyki analizy przestrzennej jest dostępny w Container Registry firmy Microsoft do pobrania. W pliku wdrożenia manifestu dla [Azure Stack urządzenia brzegowego](https://go.microsoft.com/fwlink/?linkid=2142179), [maszyny STACJONARNEJ](https://go.microsoft.com/fwlink/?linkid=2152270)lub [maszyny wirtualnej platformy Azure z procesorem GPU](https://go.microsoft.com/fwlink/?linkid=2152189) Wyszukaj moduł *diagnostyki* .
+Analiza przestrzenna generuje dzienniki debugowania platformy Docker, których można użyć do diagnozowania problemów ze środowiskiem uruchomieniowym lub dołączyć je do biletów pomocy technicznej. Moduł diagnostyki analizy przestrzennej jest dostępny w Microsoft Container Registry do pobrania. W pliku wdrożenia manifestu dla urządzenia [](https://go.microsoft.com/fwlink/?linkid=2152270) [Azure Stack Edge,](https://go.microsoft.com/fwlink/?linkid=2142179)komputera stacjonarnego lub maszyny wirtualnej platformy Azure z [procesorem GPU](https://go.microsoft.com/fwlink/?linkid=2152189) poszukaj *modułu diagnostyki.*
 
-W sekcji "ENV" Dodaj następującą konfigurację:
+W sekcji "env" dodaj następującą konfigurację:
 
 ```json
 "diagnostics": {  
@@ -141,7 +141,7 @@ W sekcji "ENV" Dodaj następującą konfigurację:
   }
 ```    
 
-Aby zoptymalizować dzienniki przekazane do zdalnego punktu końcowego, takiego jak Azure Blob Storage, zalecamy utrzymywanie małego rozmiaru pliku. Zapoznaj się z poniższym przykładem konfiguracji zalecanych dzienników platformy Docker.
+Aby zoptymalizować dzienniki przekazywane do zdalnego punktu końcowego, na przykład Azure Blob Storage, zalecamy utrzymywanie niewielkiego rozmiaru pliku. Zapoznaj się z poniższym przykładem, aby uzyskać zalecaną konfigurację dzienników platformy Docker.
 
 ```json
 {
@@ -158,10 +158,10 @@ Aby zoptymalizować dzienniki przekazane do zdalnego punktu końcowego, takiego 
 
 ### <a name="configure-the-log-level"></a>Konfigurowanie poziomu dziennika
 
-Konfiguracja poziomu dziennika umożliwia kontrolowanie szczegółowości wygenerowanych dzienników. Obsługiwane poziomy dzienników to: `none` , `verbose` , `info` , `warning` i `error` . Domyślny poziom szczegółowości dziennika dla węzłów i platform to `info` . 
+Konfiguracja na poziomie dziennika umożliwia kontrolowanie szczegółowości wygenerowanych dzienników. Obsługiwane poziomy dziennika to: `none` , , , i `verbose` `info` `warning` `error` . Domyślny poziom szczegółowości dziennika dla węzłów i platformy to `info` . 
 
 Poziomy dziennika można modyfikować globalnie, ustawiając `ARCHON_LOG_LEVEL` zmienną środowiskową na jedną z dozwolonych wartości.
-Można to również ustawić za pomocą dokumentu wieloosiowego modułu IoT Edge w całości, dla wszystkich wdrożonych umiejętności lub dla każdej konkretnej umiejętności, ustawiając wartości dla `platformLogLevel` i `nodeLogLevel` , jak pokazano poniżej.
+Można go również ustawić za pomocą dokumentu bliźniaczej reprezentacji modułu IoT Edge globalnie, dla wszystkich wdrożonych umiejętności lub dla każdej konkretnej umiejętności, ustawiając wartości dla i , jak pokazano `platformLogLevel` `nodesLogLevel` poniżej.
 
 ```json
 {
@@ -173,7 +173,7 @@ Można to również ustawić za pomocą dokumentu wieloosiowego modułu IoT Edge
             },
             "graphs": {
                 "samplegraph": {
-                    "nodeLogLevel": "verbose",
+                    "nodesLogLevel": "verbose",
                     "platformLogLevel": "verbose"
                 }
             }
@@ -185,22 +185,22 @@ Można to również ustawić za pomocą dokumentu wieloosiowego modułu IoT Edge
 ### <a name="collecting-logs"></a>Zbieranie dzienników
 
 > [!NOTE]
-> `diagnostics`Moduł nie ma wpływu na zawartość rejestrowania, ale jest pomocny tylko w gromadzeniu, filtrowaniu i przekazywaniu istniejących dzienników.
-> Aby można było korzystać z tego modułu, musisz mieć interfejs API platformy Docker w wersji 1,40 lub nowszej.
+> Moduł nie ma wpływu na zawartość rejestrowania, tylko pomaga w zbieraniu, filtrowaniu i `diagnostics` przekazywaniu istniejących dzienników.
+> Aby korzystać z tego modułu, musisz mieć interfejs API platformy Docker w wersji 1.40 lub wyższej.
 
-Przykładowy plik manifestu wdrożenia dla [urządzenia brzegowego Azure Stack](https://go.microsoft.com/fwlink/?linkid=2142179), [maszyny STACJONARNEJ](https://go.microsoft.com/fwlink/?linkid=2152270)lub [maszyny wirtualnej platformy Azure z procesorem GPU](https://go.microsoft.com/fwlink/?linkid=2152189) zawiera moduł o nazwie `diagnostics` , który zbiera i przekazuje dzienniki. Ten moduł jest domyślnie wyłączony i powinien być włączany za pomocą konfiguracji modułu IoT Edge, gdy trzeba uzyskać dostęp do dzienników. 
+Przykładowy plik manifestu wdrożenia dla urządzenia [](https://go.microsoft.com/fwlink/?linkid=2152270) [Azure Stack Edge,](https://go.microsoft.com/fwlink/?linkid=2142179)komputera stacjonarnego lub maszyny wirtualnej platformy [Azure](https://go.microsoft.com/fwlink/?linkid=2152189) z procesorem GPU zawiera moduł o nazwie , który zbiera i `diagnostics` przesyła dzienniki. Ten moduł jest domyślnie wyłączony i powinien być włączony za pośrednictwem IoT Edge konfiguracji modułu, gdy musisz uzyskać dostęp do dzienników. 
 
-`diagnostics`Kolekcja jest na żądanie i kontrolowana za pomocą metody IoT Edge Direct i może wysyłać dzienniki do BLOB Storage platformy Azure.
+Kolekcja jest na żądanie i kontrolowana za pośrednictwem IoT Edge metody bezpośredniej i może wysyłać dzienniki do `diagnostics` Azure Blob Storage.
 
-### <a name="configure-diagnostics-upload-targets"></a>Skonfiguruj cele przekazywania diagnostyki
+### <a name="configure-diagnostics-upload-targets"></a>Konfigurowanie celów przekazywania diagnostyki
 
-W portalu IoT Edge wybierz urządzenie, a następnie moduł **diagnostyki** . W przykładowym pliku manifestu wdrażania dla [Azure Stack urządzenia brzegowego](https://go.microsoft.com/fwlink/?linkid=2142179), [maszyn stacjonarnych](https://go.microsoft.com/fwlink/?linkid=2152270)lub [maszyny wirtualnej platformy Azure z procesorem GPU](https://go.microsoft.com/fwlink/?linkid=2152189) Znajdź sekcje **zmienne środowiskowe** dla celów diagnostycznych o nazwie `env` i Dodaj następujące informacje:
+W IoT Edge portal wybierz urządzenie, a następnie moduł **diagnostyki.** W przykładowym pliku manifestu wdrożenia dla [](https://go.microsoft.com/fwlink/?linkid=2152270)urządzenia [Azure Stack Edge,](https://go.microsoft.com/fwlink/?linkid=2142179)komputerów stacjonarnych  lub maszyny wirtualnej platformy [Azure](https://go.microsoft.com/fwlink/?linkid=2152189) z procesorem GPU poszukaj sekcji Zmienne środowiskowe dla diagnostyki o nazwie i dodaj `env` następujące informacje:
 
-**Konfigurowanie przekazywania do usługi Azure Blob Storage**
+**Konfigurowanie przekazywania do Azure Blob Storage**
 
-1. Utwórz własne konto usługi Azure Blob Storage, jeśli jeszcze tego nie zrobiono.
-2. Pobierz **Parametry połączenia** dla konta magazynu z Azure Portal. Zostanie ona umieszczona w **kluczach dostępu**.
-3. Dzienniki analizy przestrzennej zostaną automatycznie przekazane do kontenera Blob Storage o nazwie *rtcvlogs* z następującym formatem nazwy pliku: `{CONTAINER_NAME}/{START_TIME}-{END_TIME}-{QUERY_TIME}.log` .
+1. Utwórz własne konto Azure Blob Storage, jeśli jeszcze tego nie zostało.
+2. Pobierz **wartości parametrów połączenia** dla konta magazynu z Azure Portal. Będzie on znajdował się w **kluczu dostępu**.
+3. Dzienniki analizy przestrzennej zostaną automatycznie przekazane do kontenera Blob Storage o nazwie *rtcvlogs* w następującym formacie nazwy pliku: `{CONTAINER_NAME}/{START_TIME}-{END_TIME}-{QUERY_TIME}.log` .
 
 ```json
 "env":{
@@ -212,43 +212,43 @@ W portalu IoT Edge wybierz urządzenie, a następnie moduł **diagnostyki** . W 
 
 ### <a name="uploading-spatial-analysis-logs"></a>Przekazywanie dzienników analizy przestrzennej
 
-Dzienniki są przekazywane na żądanie za pomocą `getRTCVLogs` metody IoT Edge w `diagnostics` module. 
+Dzienniki są przekazywane na żądanie za pomocą `getRTCVLogs` IoT Edge metody w module `diagnostics` . 
 
 
-1. Przejdź do strony portalu IoT Hub, wybierz pozycję **urządzenia brzegowe**, a następnie wybierz urządzenie i moduł diagnostyczny. 
-2. Przejdź do strony szczegółów modułu i kliknij kartę ***Metoda bezpośrednia*** .
-3. Wpisz `getRTCVLogs` nazwę metody i ciąg formatu JSON w ładunku. Możesz wprowadzić `{}` , który jest pustym ładunkiem. 
+1. Przejdź do strony IoT Hub portal, wybierz pozycję **Urządzenia brzegowe,** a następnie wybierz urządzenie i moduł diagnostyki. 
+2. Przejdź do strony szczegółów modułu i kliknij ***kartę metody*** bezpośredniej.
+3. Wpisz `getRTCVLogs` nazwę metody i ciąg formatu JSON w ładunku. Możesz wprowadzić `{}` wartość , która jest pustym ładunkiem. 
 4. Ustaw limity czasu połączenia i metody, a następnie kliknij pozycję **Wywołaj metodę**.
-5. Wybierz kontener docelowy i skompiluj ciąg JSON ładunku przy użyciu parametrów opisanych w sekcji **składnia rejestrowania** . Kliknij pozycję **Wywołaj metodę** , aby wykonać żądanie.
+5. Wybierz kontener docelowy i skompilować ciąg JSON ładunku przy użyciu parametrów opisanych w sekcji **Składnia** rejestrowania. Kliknij **pozycję Wywołaj metodę,** aby wykonać żądanie.
 
 >[!NOTE]
-> Wywołanie `getRTCVLogs` metody z pustym ładunkiem spowoduje zwrócenie listy wszystkich kontenerów wdrożonych na urządzeniu. Nazwa metody uwzględnia wielkość liter. Jeśli podano niepoprawną nazwę metody, zostanie wyświetlony błąd 501.
+> Wywołania metody `getRTCVLogs` z pustym ładunkiem spowoduje zwrócenie listy wszystkich kontenerów wdrożonych na urządzeniu. W nazwie metody jest zróżnicowaana wielkość liter. Jeśli zostanie podana nieprawidłowa nazwa metody, zostanie wyświetlany błąd 501.
 
-:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Wywoływanie metody getRTCVLogs ":::
+:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Wywołania metody getRTCVLogs ":::
 ![Strona metody bezpośredniej getRTCVLogs](./media/spatial-analysis/direct-log-collection.png)
 
  
 ### <a name="logging-syntax"></a>Składnia rejestrowania
 
-Poniższa tabela zawiera listę parametrów, których można użyć podczas wykonywania zapytania dotyczącego dzienników.
+W poniższej tabeli wymieniono parametry, których można używać podczas wykonywania zapytań w dziennikach.
 
 | Słowo kluczowe | Description | Wartość domyślna |
 |--|--|--|
-| StartTime | Czas rozpoczęcia żądanych dzienników (w milisekundach UTC). | `-1`, początek środowiska uruchomieniowego kontenera. Gdy `[-1.-1]` jest używany jako zakres czasu, interfejs API zwraca dzienniki z ostatniej godziny.|
-| EndTime | Czas zakończenia żądanych dzienników (w milisekundach UTC). | `-1`, bieżąca godzina. Gdy `[-1.-1]` jest używany zakres czasu, interfejs API zwraca dzienniki z ostatniej godziny. |
-| ContainerId | Kontener docelowy pobierania dzienników.| `null`, jeśli nie ma identyfikatora kontenera. Interfejs API zwraca wszystkie informacje o dostępnych kontenerach o identyfikatorach.|
-| DoPost | Wykonaj operację przekazywania. Gdy ta wartość jest ustawiona na `false` , wykonuje żądaną operację i zwraca rozmiar przekazywania bez przeładowania. Po ustawieniu na `true` zostanie zainicjowane asynchroniczne przekazywanie wybranych dzienników | `false`, nie przekazuj.|
-| Ograniczenie | Określ liczbę wierszy dzienników do przekazania na partię | `1000`Użyj tego parametru, aby dopasować szybkość post. |
-| Filtry | Filtruje dzienniki do przekazania | `null`można określić filtry jako pary klucz wartość na podstawie struktury dzienników analizy przestrzennej: `[UTC, LocalTime, LOGLEVEL,PID, CLASS, DATA]` . Na przykład: `{"TimeFilter":[-1,1573255761112]}, {"TimeFilter":[-1,1573255761112]}, {"CLASS":["myNode"]`|
+| StartTime | Żądany czas rozpoczęcia dzienników, w milisekundach czasu UTC. | `-1`, początek środowiska uruchomieniowego kontenera. Gdy `[-1.-1]` jest używany jako zakres czasu, interfejs API zwraca dzienniki z ostatniej godziny.|
+| EndTime | Żądana godzina zakończenia dzienników, w milisekundach czasu UTC. | `-1`, bieżąca godzina. Gdy `[-1.-1]` jest używany zakres czasu, interfejs API zwraca dzienniki z ostatniej godziny. |
+| ContainerId | Kontener docelowy do pobierania dzienników.| `null`, jeśli nie ma identyfikatora kontenera. Interfejs API zwraca wszystkie dostępne informacje o kontenerach z identyfikatorami.|
+| DoPost | Wykonaj operację przekazywania. Jeśli ta wartość jest ustawiona na , wykonuje żądaną operację i zwraca rozmiar przekazywania `false` bez przeprowadzania przekazywania. W przypadku ustawienia `true` na wartość spowoduje to zainicjowanie asynchronicznego przekazywania wybranych dzienników | `false`, nie należy przekazywać.|
+| Ograniczenie | Wskazuje, ile wierszy dzienników należy przekazać na partię | `1000`, użyj tego parametru, aby dostosować szybkość post. |
+| Filtry | Filtry dzienników do przesłania | `null`Filtry można określić jako pary klucz-wartość na podstawie struktury dzienników analizy przestrzennej: `[UTC, LocalTime, LOGLEVEL,PID, CLASS, DATA]` . Na przykład: `{"TimeFilter":[-1,1573255761112]}, {"TimeFilter":[-1,1573255761112]}, {"CLASS":["myNode"]`|
 
 W poniższej tabeli wymieniono atrybuty w odpowiedzi na zapytanie.
 
 | Słowo kluczowe | Opis|
 |--|--|
-|DoPost| *Wartość true* lub *false*. Wskazuje, czy dzienniki zostały przekazane, czy nie. W przypadku wybrania opcji nie przekazuj dzienników interfejs API zwraca informacje ***synchronicznie** _. Po wybraniu przekazania dzienników interfejs API zwraca 200, jeśli żądanie jest prawidłowe i rozpocznie przekazywanie dzienników _ *_asynchronicznie_* *.|
+|DoPost| Wartość *true lub* *false*. Wskazuje, czy dzienniki zostały przekazane, czy nie. Jeśli nie chcesz przekazywać dzienników, interfejs API zwraca informacje ***synchronicznie** _. Po wybraniu przekazywania dzienników interfejs API zwraca wartość 200, jeśli żądanie jest prawidłowe, i rozpoczyna przekazywanie dzienników _*_asynchronicznie_**.|
 |TimeFilter| Filtr czasu zastosowany do dzienników.|
-|ValueFilters| Filtry słów kluczowych zastosowane do dzienników. |
-|Znacznik czasu| Godzina rozpoczęcia wykonywania metody. |
+|ValueFilters (Filtrowanie wartości)| Słowa kluczowe są filtrami zastosowanymi do dzienników. |
+|Sygnatury czasowej| Czas rozpoczęcia wykonywania metody. |
 |ContainerId| Identyfikator kontenera docelowego. |
 |FetchCounter| Łączna liczba wierszy dziennika. |
 |FetchSizeInByte| Całkowita ilość danych dziennika w bajtach. |
@@ -258,7 +258,7 @@ W poniższej tabeli wymieniono atrybuty w odpowiedzi na zapytanie.
 |FilterSizeInByte| Całkowita ilość danych dziennika w bajtach po zastosowaniu filtru. |
 |FetchLogsDurationInMiliSec| Czas trwania operacji pobierania. |
 |PaseLogsDurationInMiliSec| Czas trwania operacji filtrowania. |
-|PostLogsDurationInMiliSec| Czas trwania operacji post. |
+|PostLogsDurationInMiliSec| Czas trwania operacji po operacji. |
 
 #### <a name="example-request"></a>Przykładowe żądanie 
 
@@ -298,58 +298,58 @@ W poniższej tabeli wymieniono atrybuty w odpowiedzi na zapytanie.
 }
 ```
 
-Sprawdź wiersze, czasy i rozmiary dziennika pobierania, jeśli te ustawienia wyglądają na ***DoPost*** `true` i które wypychają dzienniki z tymi samymi filtrami do miejsc docelowych. 
+Sprawdź wiersze, godziny i rozmiary dziennika pobierania, jeśli te ustawienia wyglądają dobrze, zastąp pole ***DoPost*** lokalizacją i spowoduje to wypchanie dzienników z tymi samymi filtrami `true` do miejsc docelowych. 
 
-Podczas rozwiązywania problemów można eksportować dzienniki z Blob Storage platformy Azure. 
+Dzienniki można eksportować z Azure Blob Storage podczas rozwiązywania problemów. 
 
 ## <a name="common-issues"></a>Typowe problemy
 
-Jeśli w dziennikach modułów zostanie wyświetlony następujący komunikat, może to oznaczać, że Twoja subskrypcja platformy Azure wymaga zatwierdzenia: 
+Jeśli w dziennikach modułu zostanie wyświetlony następujący komunikat, może to oznaczać, że subskrypcja platformy Azure musi zostać zatwierdzona: 
 
-"Kontener nie jest w prawidłowym stanie. Sprawdzanie poprawności subskrypcji nie powiodło się ze stanem "niezgodność". Klucz interfejsu API nie jest przeznaczony dla danego typu kontenera. "
+"Kontener nie jest w prawidłowym stanie. Weryfikacja subskrypcji nie powiodła się ze stanem "Niezgodność". Klucz interfejsu API nie jest przeznaczony dla danego typu kontenera".
 
-Aby uzyskać więcej informacji, zobacz [żądanie zatwierdzenia w celu uruchomienia kontenera](spatial-analysis-container.md#request-approval-to-run-the-container).
+Aby uzyskać więcej informacji, zobacz [Request approval to run the container (Żądanie zatwierdzenia w celu uruchomienia kontenera).](spatial-analysis-container.md#request-approval-to-run-the-container)
 
-## <a name="troubleshooting-the-azure-stack-edge-device"></a>Rozwiązywanie problemów z urządzeniem Azure Stack Edge
+## <a name="troubleshooting-the-azure-stack-edge-device"></a>Rozwiązywanie problemów z Azure Stack Edge urządzeniem
 
-Poniższa sekcja zawiera pomoc dotyczącą debugowania i weryfikacji stanu urządzenia brzegowego Azure Stack.
+W poniższej sekcji przedstawiono pomoc w debugowaniu i weryfikacji stanu Azure Stack Edge urządzenia.
 
-### <a name="access-the-kubernetes-api-endpoint"></a>Dostęp do punktu końcowego interfejsu API Kubernetes. 
+### <a name="access-the-kubernetes-api-endpoint"></a>Uzyskaj dostęp do punktu końcowego interfejsu API platformy Kubernetes. 
 
-1. W lokalnym interfejsie użytkownika urządzenia przejdź do strony **urządzenia** . 
-2. W obszarze **punkty końcowe urządzenia** Skopiuj punkt końcowy usługi interfejsu API Kubernetes. Ten punkt końcowy jest ciągiem w następującym formacie: `https://compute..[device-IP-address]` .
-3. Zapisz ciąg punktu końcowego. Będzie on używany później podczas konfigurowania programu `kubectl` w celu uzyskania dostępu do klastra Kubernetes.
+1. W lokalnym interfejsie użytkownika urządzenia przejdź do **strony** Urządzenia. 
+2. W **obszarze Punkty końcowe urządzenia** skopiuj punkt końcowy usługi interfejsu API Kubernetes. Ten punkt końcowy jest ciągiem w następującym formacie: `https://compute..[device-IP-address]` .
+3. Zapisz ciąg punktu końcowego. Użyjesz go później podczas konfigurowania dostępu `kubectl` do klastra Kubernetes.
 
-### <a name="connect-to-powershell-interface"></a>Połącz z interfejsem programu PowerShell
+### <a name="connect-to-powershell-interface"></a>Nawiązywanie połączenia z interfejsem programu PowerShell
 
-Zdalnie, Połącz się z klienta systemu Windows. Po utworzeniu klastra Kubernetes można zarządzać aplikacjami za pośrednictwem tego klastra. Należy nawiązać połączenie z interfejsem programu PowerShell urządzenia. W zależności od systemu operacyjnego klienta procedury umożliwiające zdalne łączenie się z urządzeniem mogą się różnić. Poniższe kroki dotyczą klienta systemu Windows z uruchomionym programem PowerShell.
+Połącz się zdalnie z klienta systemu Windows. Po utworzeniu klastra Kubernetes można zarządzać aplikacjami za pośrednictwem tego klastra. Musisz nawiązać połączenie z interfejsem programu PowerShell urządzenia. W zależności od systemu operacyjnego klienta procedury zdalnego nawiązywania połączenia z urządzeniem mogą się różnić. Poniższe kroki są dla klienta z systemem Windows z uruchomionym programem PowerShell.
 
 > [!TIP]
-> * Przed rozpoczęciem upewnij się, że na kliencie systemu Windows jest uruchomiony program Windows PowerShell 5,0 lub nowszy.
-> * Program PowerShell jest również [dostępny w systemie Linux](/powershell/scripting/install/installing-powershell-core-on-linux).
+> * Przed rozpoczęciem upewnij się, że klient systemu Windows jest uruchomiony Windows PowerShell 5.0 lub nowszy.
+> * Program PowerShell jest również [dostępny w systemie Linux.](/powershell/scripting/install/installing-powershell-core-on-linux)
 
-1. Uruchom sesję programu Windows PowerShell jako administrator. 
-    1. Upewnij się, że na kliencie jest uruchomiona usługa Windows Remote Management. W wierszu polecenia wpisz polecenie `winrm quickconfig` .
+1. Uruchom sesję Windows PowerShell jako administrator. 
+    1. Upewnij się, że Windows Remote Management jest uruchomiona na kliencie. W wierszu polecenia wpisz `winrm quickconfig` .
 
 2. Przypisz zmienną dla adresu IP urządzenia. Na przykład `$ip = "<device-ip-address>"`.
 
-3. Użyj poniższego polecenia, aby dodać adres IP urządzenia do listy zaufanych hostów klienta. 
+3. Użyj następującego polecenia, aby dodać adres IP urządzenia do listy zaufanych hostów klienta. 
 
     ```powershell
     Set-Item WSMan:\localhost\Client\TrustedHosts $ip -Concatenate -Force
     ```
  
-4. Uruchom sesję programu Windows PowerShell na urządzeniu. 
+4. Uruchom Windows PowerShell na urządzeniu. 
 
     ```powershell
     Enter-PSSession -ComputerName $ip -Credential $ip\EdgeUser -ConfigurationName Minishell
     ```
 
-5. Podaj hasło po wyświetleniu monitu. Użyj tego samego hasła, które jest używane do logowania się do lokalnego interfejsu sieci Web. Domyślnym hasłem lokalnego interfejsu internetowego jest `Password1` . 
+5. Po wyświetleniu monitu podaj hasło. Użyj tego samego hasła, które jest używane do logowania się do lokalnego interfejsu internetowego. Domyślne hasło lokalnego interfejsu internetowego to `Password1` . 
 
-### <a name="access-the-kubernetes-cluster"></a>Dostęp do klastra Kubernetes
+### <a name="access-the-kubernetes-cluster"></a>Uzyskiwanie dostępu do klastra Kubernetes
 
-Po utworzeniu klastra Kubernetes można użyć `kubectl` narzędzia wiersza polecenia, aby uzyskać dostęp do klastra.
+Po utworzeniu klastra Kubernetes możesz użyć narzędzia wiersza polecenia, aby `kubectl` uzyskać dostęp do klastra.
 
 1. Utwórz nową przestrzeń nazw. 
 
@@ -357,13 +357,13 @@ Po utworzeniu klastra Kubernetes można użyć `kubectl` narzędzia wiersza pole
     New-HcsKubernetesNamespace -Namespace
     ```
 
-2. Utwórz użytkownika i Pobierz plik konfiguracji. To polecenie spowoduje wyjście z informacji o konfiguracji dla klastra Kubernetes. Skopiuj te informacje i Zapisz je w pliku o nazwie *config*. Nie zapisuj pliku jako rozszerzenia pliku.
+2. Utwórz użytkownika i pobierz plik konfiguracji. To polecenie wyprowadza informacje o konfiguracji klastra Kubernetes. Skopiuj te informacje i zapisz je w pliku o nazwie *config*. Nie zapisuj pliku jako rozszerzenia pliku.
     
     ```powershell
     New-HcsKubernetesUser -UserName
     ```
 
-3. Dodaj plik *konfiguracji* do folderu *polecenia* w profilu użytkownika na komputerze lokalnym.    
+3. Dodaj plik *konfiguracji* do folderu *kube* w profilu użytkownika na komputerze lokalnym.    
 
 4. Skojarz przestrzeń nazw z utworzonym użytkownikiem.
 
@@ -371,23 +371,23 @@ Po utworzeniu klastra Kubernetes można użyć `kubectl` narzędzia wiersza pole
     Grant-HcsKubernetesNamespaceAccess -Namespace -UserName
     ```
 
-5. Zainstaluj program `kubectl` na kliencie systemu Windows przy użyciu następującego polecenia:
+5. Zainstaluj `kubectl` na kliencie systemu Windows przy użyciu następującego polecenia:
     
     ```powershell
     curl https://storage.googleapis.com/kubernetesrelease/release/v1.15.2/bin/windows/amd64/kubectl.exe -O kubectl.exe
     ```
 
 6. Dodaj wpis DNS do pliku hosts w systemie. 
-    1. Uruchom program Notepad jako administrator i Otwórz plik *hosts* znajdujący się w lokalizacji `C:\windows\system32\drivers\etc\hosts` . 
-    2. Utwórz wpis w pliku Hosts z adresem IP urządzenia i domeną DNS uzyskaną ze strony **urządzenia** w lokalnym interfejsie użytkownika. Punkt końcowy, który powinien być używany, będzie wyglądać podobnie do: `https://compute.asedevice.microsoftdatabox.com/10.100.10.10` .
+    1. Uruchom Notatnik jako administrator i otwórz plik *hosts* znajdujący się `C:\windows\system32\drivers\etc\hosts` pod . 
+    2. Utwórz wpis w pliku hosts z adresem IP urządzenia i domeną DNS na stronie **Urządzenie** w lokalnym interfejsie użytkownika. Punkt końcowy, który należy użyć, będzie wyglądać podobnie do: `https://compute.asedevice.microsoftdatabox.com/10.100.10.10` .
 
-7. Sprawdź, czy można nawiązać połączenie z Kubernetesmi.
+7. Sprawdź, czy możesz nawiązać połączenie z zasobnikami kubernetes.
 
     ```powershell
     kubectl get pods -n "iotedge"
     ```
 
-Aby uzyskać dzienniki kontenerów, uruchom następujące polecenie:
+Aby pobrać dzienniki kontenerów, uruchom następujące polecenie:
 
 ```powershell
 kubectl logs <pod-name> -n <namespace> --all-containers
@@ -397,41 +397,41 @@ kubectl logs <pod-name> -n <namespace> --all-containers
 
 |Polecenie  |Opis  |
 |---------|---------|
-|`Get-HcsKubernetesUserConfig -AseUser`     | Generuje plik konfiguracji Kubernetes. Korzystając z polecenia, skopiuj informacje do pliku o nazwie *config*. Nie zapisuj pliku z rozszerzeniem pliku.        |
+|`Get-HcsKubernetesUserConfig -AseUser`     | Generuje plik konfiguracji kubernetes. Podczas korzystania z polecenia skopiuj informacje do pliku o nazwie *config*. Nie zapisuj pliku z rozszerzeniem pliku.        |
 | `Get-HcsApplianceInfo` | Zwraca informacje o urządzeniu. |
-| `Enable-HcsSupportAccess` | Generuje poświadczenia dostępu w celu uruchomienia sesji obsługi. |
+| `Enable-HcsSupportAccess` | Generuje poświadczenia dostępu, aby rozpocząć sesję pomocy technicznej. |
 
 
-## <a name="how-to-file-a-support-ticket-for-spatial-analysis"></a>Jak plikować bilet pomocy technicznej na potrzeby analizy przestrzennej 
+## <a name="how-to-file-a-support-ticket-for-spatial-analysis"></a>Jak złożyć bilet pomocy technicznej dla analizy przestrzennej 
 
-Jeśli potrzebujesz więcej pomocy w znalezieniu rozwiązania problemu związanego z kontenerem analizy przestrzennej, wykonaj następujące kroki, aby wypełnić i przesłać bilet pomocy technicznej. Nasz zespół powróci do Ciebie z dodatkowymi wskazówkami. 
+Jeśli potrzebujesz większej pomocy w znalezieniu rozwiązania problemu z kontenerem analizy przestrzennej, wykonaj następujące kroki, aby wypełnić i przesłać bilet pomocy technicznej. Nasz zespół wróci do Ciebie z dodatkowymi wskazówkami. 
 
 ### <a name="fill-out-the-basics"></a>Wypełnij podstawowe informacje 
-Utwórz nowy bilet pomocy technicznej na stronie [nowe żądanie pomocy technicznej](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) . Postępuj zgodnie z monitami, aby wypełnić następujące parametry:
+Utwórz nowy bilet pomocy technicznej na stronie [Nowy wniosek o pomoc](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) techniczną. Postępuj zgodnie z monitami, aby wypełnić następujące parametry:
 
 ![Podstawowe informacje o pomocy technicznej](./media/support-ticket-page-1-final.png)
 
-1. Ustaw **typ problemu** na `Technical` .
-2. Wybierz subskrypcję, której używasz do wdrożenia kontenera analizy przestrzennej.
-3. Wybierz `My services` i wybierz `Cognitive Services` jako usługę.
-4. Wybierz zasób, którego używasz do wdrożenia kontenera analizy przestrzennej.
-5. Napisz krótki opis zawierający szczegółowe informacje o występującym problemie. 
+1. Ustaw **typ problemu na** `Technical` .
+2. Wybierz subskrypcję, z których korzystasz do wdrażania kontenera analizy przestrzennej.
+3. Wybierz `My services` `Cognitive Services` usługę i wybierz ją.
+4. Wybierz zasób, który jest wdrażany w kontenerze analizy przestrzennej.
+5. Napisz krótki opis, szczegółowo opisując problem, który występuje. 
 6. Wybierz `Spatial Analysis` typ problemu.
 7. Wybierz odpowiedni podtyp z listy rozwijanej.
-8. Wybierz pozycję **Dalej: rozwiązania** , które mają zostać przeniesione na następną stronę.
+8. Wybierz **pozycję Dalej: Rozwiązania,** aby przejść do następnej strony.
 
 ### <a name="recommended-solutions"></a>Zalecane rozwiązania
-Następny etap oferuje zalecane rozwiązania dla wybranego typu problemu. Rozwiązania te rozwiązują najczęstsze problemy, ale jeśli nie są przydatne dla danego rozwiązania, wybierz pozycję **Dalej: szczegóły** , aby przejść do następnego kroku.
+Następny etap będzie oferować zalecane rozwiązania dla wybranego typu problemu. Te rozwiązania rozwiążą typowe problemy, ale jeśli nie są przydatne dla Twojego rozwiązania, wybierz pozycję **Dalej:** Szczegóły, aby przejść do następnego kroku.
 
 ### <a name="details"></a>Szczegóły
-Na tej stronie Dodaj kilka dodatkowych informacji o problemie, który został skierowany do Ciebie. Pamiętaj o dodaniu możliwie największej szczegółowości, ponieważ pomoże to inżynierom lepiej zawęzić ten problem. Uwzględnij preferowaną metodę kontaktu i ważność problemu, aby móc odpowiednio skontaktować się z Tobą i wybierz pozycję **Dalej: przegląd + Utwórz** , aby przejść do następnego kroku. 
+Na tej stronie dodaj dodatkowe szczegóły dotyczące problemu, który występuje. Pamiętaj, aby uwzględnić jak najwięcej szczegółów, ponieważ pomoże to naszym inżynierom lepiej zawęzić problem. Uwzględnij preferowaną metodę kontaktu i ważność problemu, abyśmy w odpowiedni sposób się z Tobą skontaktowaliśmy, a następnie wybierz pozycję **Dalej:** Przeglądanie + tworzenie, aby przejść do następnego kroku. 
 
 ### <a name="review-and-create"></a>Przegląd i tworzenie 
-Przejrzyj szczegóły żądania pomocy technicznej, aby upewnić się, że wszystko jest dokładne i reprezentuje problem efektywnie. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz** , aby wysłać bilet do naszego zespołu! Po otrzymaniu biletu otrzymasz wiadomość e-mail z potwierdzeniem, a nasz zespół będzie działał jak najszybciej. Stan biletu można wyświetlić w Azure Portal.
+Przejrzyj szczegóły wniosku o pomoc techniczną, aby upewnić się, że wszystko jest dokładne i efektywnie reprezentuje problem. Gdy wszystko będzie gotowe, wybierz **pozycję Utwórz,** aby wysłać bilet do naszego zespołu. Po otrzymaniu biletu otrzymasz wiadomość e-mail z potwierdzeniem, a nasz zespół pomoże Ci jak najszybciej wrócić do Ciebie. Stan biletu można wyświetlić na stronie Azure Portal.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Wdróż aplikację sieci Web zliczania osób](spatial-analysis-web-app.md)
+* [Wdrażanie aplikacji internetowej zliczanych przez osoby](spatial-analysis-web-app.md)
 * [Konfigurowanie operacji analizy przestrzennej](./spatial-analysis-operations.md)
-* [Przewodnik umieszczania w aparacie](spatial-analysis-camera-placement.md)
+* [Przewodnik umieszczania aparatu](spatial-analysis-camera-placement.md)
 * [Przewodnik umieszczania strefy i linii](spatial-analysis-zone-line-placement.md)

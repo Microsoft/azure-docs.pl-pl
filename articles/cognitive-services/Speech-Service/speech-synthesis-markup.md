@@ -1,7 +1,7 @@
 ---
-title: Speech Markup Language (SSML) — usługa mowy
+title: Język znaczników syntezy mowy (SSML) — usługa rozpoznawania mowy
 titleSuffix: Azure Cognitive Services
-description: Używanie języka znaczników syntezy mowy do kontrolowania wymowy i Prosody w zamiany tekstu na mowę.
+description: Używanie języka znaczników syntezy mowy do kontrolowania wymowy i prosodii w funkcji tekstu na mowę.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -11,45 +11,45 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 2c66a7e3bf9e417b47d08e50e21c08625e9d0549
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: 1d21691af4d52892f507695a56331816b14bf517
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210214"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588381"
 ---
-# <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Ulepszanie syntezy przy użyciu języka znaczników syntezy mowy (SSML)
+# <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Ulepszanie syntezy za pomocą języka znaczników syntezy mowy (SSML)
 
-Język SSML (Speech Syntezing Language) to język znaczników oparty na języku XML, który umożliwia deweloperom określenie sposobu konwersji tekstu wejściowego na funkcję syntezy mowy przy użyciu usługi zamiany tekstu na mowę. W porównaniu do zwykłego tekstu, SSML umożliwia deweloperom precyzyjne dostosowanie wartości, wymowy, natężenia głosu, ilości i większej liczby danych wyjściowych zamiany tekstu na mowę. Normalne znaki interpunkcyjne, takie jak Wstrzymywanie po upływie okresu lub używanie poprawnych intonation po zakończeniu zdania z znakiem zapytania, są automatycznie obsługiwane.
+Język znaczników syntezy mowy (SSML, Speech Synthesis Markup Language) to język znaczników oparty na języku XML, który umożliwia deweloperom określanie sposobu konwertowania tekstu wejściowego na syntetyzowany mowę przy użyciu usługi zamiany tekstu na mowę. W porównaniu do zwykłego tekstu, język SSML umożliwia deweloperom dostrojenie wysokości, wymowy, szybkości mówienia, głośności i innych danych wyjściowych funkcji tekstu na mowę. Normalna interpunkcja, taka jak wstrzymanie po upływie okresu lub użycie poprawnej intonacji, gdy zdanie kończy się znakiem zapytania, jest automatycznie obsługiwane.
 
-Implementacja usługi mowy SSML opiera się organizacja World Wide Web Consortium na [języku znaczników funkcji rozpoznawania mowy w wersji 1,0](https://www.w3.org/TR/speech-synthesis).
+Implementacja usługi rozpoznawania mowy SSML jest oparta na języku organizacja World Wide Web Consortium Speech Synthesis Markup Language w wersji [1.0.](https://www.w3.org/TR/speech-synthesis)
 
 > [!IMPORTANT]
-> Znaki w języku chińskim, japońskim i koreańskim są liczone jako dwa znaki do rozliczania. Aby uzyskać więcej informacji, zobacz [Cennik](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> W przypadku rozliczeń znaki chińskie, japońskie i koreańskie są liczone jako dwa znaki. Aby uzyskać więcej informacji, zobacz [Cennik](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-## <a name="neural-and-custom-voices"></a>Neuronowych i głosy niestandardowe
+## <a name="neural-and-custom-voices"></a>Neuronowe i niestandardowe głosy
 
-Używaj głosu przypominającego neuronowych, lub Utwórz własny niestandardowy głos unikatowy dla danego produktu lub marki. Aby zapoznać się z pełną listą obsługiwanych języków, ustawień regionalnych i głosów, zobacz temat [Obsługa języków](language-support.md). Aby dowiedzieć się więcej na temat neuronowych i niestandardowych głosów, zobacz [Omówienie zamiany tekstu na mowę](text-to-speech.md).
+Używaj neuronowego głosu przypominania ludzkiego lub twórz własny niestandardowy głos unikatowy dla twojego produktu lub marki. Aby uzyskać pełną listę obsługiwanych języków, ustawieniach regionalnych i głosach, zobacz [obsługa języka](language-support.md). Aby dowiedzieć się więcej na temat neuronowych i niestandardowych głosów, zobacz Omówienie funkcji [text-to-speech .](text-to-speech.md)
 
 
 > [!NOTE]
-> Możesz usłyszeć głosy w różnych stylach i postawić do czytania przykładowy tekst przy użyciu [strony Zamiana tekstu na mowę](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+> Głosy w różnych stylach i wysokość można słyszeć, czytając [przykładowy](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features)tekst, zamiana tekstu na mowę stronie .
 
 
 ## <a name="special-characters"></a>Znaki specjalne
 
-Korzystając z SSML, należy pamiętać, że znaki specjalne, takie jak cudzysłowy, apostrofy i nawiasy muszą być zmienione. Aby uzyskać więcej informacji, zobacz [XML (XML) 1,0: Dodatek D](https://www.w3.org/TR/xml/#sec-entexpand).
+Podczas korzystania z programu SSML należy pamiętać, że znaki specjalne, takie jak znaki cudzysłowu, apostrofy i nawiasy, muszą być znakami ucieczki. Aby uzyskać więcej informacji, [zobacz XML (XML) 1.0: Dodatek D](https://www.w3.org/TR/xml/#sec-entexpand).
 
 ## <a name="supported-ssml-elements"></a>Obsługiwane elementy SSML
 
-Każdy dokument SSML jest tworzony z elementami SSML (lub tagami). Te elementy służą do dostosowywania wysokości, Prosody, objętości i innych. W poniższych sekcjach szczegółowo opisano, jak każdy element jest używany oraz kiedy element jest wymagany lub opcjonalny.
+Każdy dokument SSML jest tworzony za pomocą elementów (lub tagów) SSML. Te elementy służą do dopasowywania wysokość, prozaii, woluminu i innych elementów. W poniższych sekcjach opisano sposób korzystania z poszczególnych elementów oraz informacje o tym, kiedy element jest wymagany lub opcjonalny.
 
 > [!IMPORTANT]
-> Nie zapomnij użyć podwójnych cudzysłowów wokół wartości atrybutów. Standardy dla poprawnie sformułowanych, prawidłowy kod XML wymaga, aby wartości atrybutów były ujęte w podwójny cudzysłów. Na przykład, `<prosody volume="90">` jest poprawnie sformułowanym, prawidłowym elementem, ale `<prosody volume=90>` nie jest. SSML nie rozpoznaje wartości atrybutów, które nie znajdują się w cudzysłowie.
+> Pamiętaj o używaniu podwójnych cudzysłowów wokół wartości atrybutów. Standardy dla dobrze utworzonego, prawidłowego kodu XML wymagają, aby wartości atrybutów było ujęte w znaki podwójnego cudzysłowu. Na przykład `<prosody volume="90">` to dobrze uformowany, prawidłowy element, ale `<prosody volume=90>` nie. Program SSML może nie rozpoznawać wartości atrybutów, które nie znajdują się w cudzysłowie.
 
 ## <a name="create-an-ssml-document"></a>Tworzenie dokumentu SSML
 
-`speak` jest elementem głównym i jest **wymagany** dla wszystkich dokumentów SSML. `speak`Element zawiera ważne informacje, takie jak wersja, język i definicja słownictwa znaczników.
+`speak` jest elementem głównym i jest **wymagany dla** wszystkich dokumentów SSML. Element `speak` zawiera ważne informacje, takie jak wersja, język i definicja słownictwa znaczników.
 
 **Składnia**
 
@@ -59,15 +59,15 @@ Każdy dokument SSML jest tworzony z elementami SSML (lub tagami). Te elementy s
 
 **Atrybuty**
 
-| Atrybut | Opis | Wymagane/opcjonalne |
+| Atrybut | Opis | Wymagane/Opcjonalne |
 |-----------|-------------|---------------------|
-| `version` | Wskazuje wersję specyfikacji SSML użytej do interpretacji znacznika dokumentu. Bieżąca wersja to 1,0. | Wymagane |
-| `xml:lang` | Określa język dokumentu głównego. Wartość może zawierać małe litery, dwuliterowy kod języka (na przykład `en` ) lub kod języka oraz wielkie kraje/region (na przykład `en-US` ). | Wymagane |
-| `xmlns` | Określa identyfikator URI dokumentu, który definiuje słownictwo znaczników (typy elementów i nazwy atrybutów) dokumentu SSML. Bieżący identyfikator URI to http://www.w3.org/2001/10/synthesis . | Wymagane |
+| `version` | Wskazuje wersję specyfikacji SSML używaną do interpretowania znaczników dokumentu. Bieżąca wersja to 1.0. | Wymagane |
+| `xml:lang` | Określa język dokumentu głównego. Wartość może zawierać małe litery, dwulitowy kod języka (na przykład ) lub kod języka i wielkie litery `en` kraj/region (na przykład `en-US` ). | Wymagane |
+| `xmlns` | Określa URI dokumentu, który definiuje słownictwo znaczników (typy elementów i nazwy atrybutów) dokumentu SSML. Bieżący numer URI to http://www.w3.org/2001/10/synthesis . | Wymagane |
 
-## <a name="choose-a-voice-for-text-to-speech"></a>Wybieranie głosu dla zamiany tekstu na mowę
+## <a name="choose-a-voice-for-text-to-speech"></a>Wybieranie głosu dla funkcji tekstu na mowę
 
-`voice`Element jest wymagany. Służy do określania głosu używanego do zamiany tekstu na mowę.
+Element `voice` jest wymagany. Służy do określania głosu, który jest używany do mówienia tekstu na mowę.
 
 **Składnia**
 
@@ -81,12 +81,12 @@ Każdy dokument SSML jest tworzony z elementami SSML (lub tagami). Te elementy s
 
 | Atrybut | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
-| `name` | Identyfikuje głos używany do wyprowadzania tekstu na mowę. Aby uzyskać pełną listę obsługiwanych głosów, zobacz temat [Obsługa języków](language-support.md#text-to-speech). | Wymagane |
+| `name` | Określa głos używany w przypadku danych wyjściowych funkcji tekstu na mowę. Aby uzyskać pełną listę obsługiwanych głosów, zobacz [Obsługa języków](language-support.md#text-to-speech). | Wymagane |
 
 **Przykład**
 
 > [!NOTE]
-> Ten przykład używa `en-US-JennyNeural` głosu. Aby uzyskać pełną listę obsługiwanych głosów, zobacz temat [Obsługa języków](language-support.md#text-to-speech).
+> W tym przykładzie użyto `en-US-JennyNeural` głosu. Aby uzyskać pełną listę obsługiwanych głosów, zobacz [Obsługa języka](language-support.md#text-to-speech).
 
 ```XML
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -96,26 +96,26 @@ Każdy dokument SSML jest tworzony z elementami SSML (lub tagami). Te elementy s
 </speak>
 ```
 
-## <a name="use-multiple-voices"></a>Użyj wielu głosów
+## <a name="use-multiple-voices"></a>Używanie wielu głosów
 
-W obrębie `speak` elementu można określić wiele głosów dla danych wyjściowych zamiany tekstu na mowę. Głosy te mogą znajdować się w różnych językach. Dla każdego głosu tekst musi być opakowany w `voice` element.
+W elemencie można określić wiele głosów dla danych wyjściowych funkcji `speak` tekst-mowa. Te głosy mogą być w różnych językach. Dla każdego głosu tekst musi być opakowany w `voice` element.
 
 **Atrybuty**
 
-| Atrybut | Opis | Wymagane/opcjonalne |
+| Atrybut | Opis | Wymagane/Opcjonalne |
 |-----------|-------------|---------------------|
-| `name` | Identyfikuje głos używany do wyprowadzania tekstu na mowę. Aby uzyskać pełną listę obsługiwanych głosów, zobacz temat [Obsługa języków](language-support.md#text-to-speech). | Wymagane |
+| `name` | Określa głos używany w przypadku danych wyjściowych funkcji tekstu na mowę. Aby uzyskać pełną listę obsługiwanych głosów, zobacz [Obsługa języka](language-support.md#text-to-speech). | Wymagane |
 
 > [!IMPORTANT]
-> Wiele głosów jest niezgodnych z funkcją granicy słowa. Funkcja granic wyrazów musi być wyłączona, aby można było używać wielu głosów.
+> Wiele głosów jest niezgodnych z funkcją granic słowa. Aby można było używać wielu głosów, należy wyłączyć funkcję granicy słowa.
 
-### <a name="disable-word-boundary"></a>Wyłącz granicę słowa
+### <a name="disable-word-boundary"></a>Wyłączanie granicy wyrazów
 
-W zależności od języka zestawu Speech SDK ustawisz `"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"` Właściwość na `false` wystąpienie `SpeechConfig` obiektu.
+W zależności od języka zestawu SDK rozpoznawania mowy właściwość zostanie ustawiona `"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"` `false` na wartość w wystąpieniu obiektu `SpeechConfig` .
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Aby uzyskać więcej informacji, <a href="/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty" target="_blank"> `SetProperty` </a>Zobacz.
+Aby uzyskać więcej <a href="/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty" target="_blank"> `SetProperty` </a>informacji, zobacz .
 
 ```csharp
 speechConfig.SetProperty(
@@ -124,7 +124,7 @@ speechConfig.SetProperty(
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-Aby uzyskać więcej informacji, <a href="/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` </a>Zobacz.
+Aby uzyskać więcej <a href="/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` </a>informacji, zobacz .
 
 ```cpp
 speechConfig->SetProperty(
@@ -133,7 +133,7 @@ speechConfig->SetProperty(
 
 # <a name="java"></a>[Java](#tab/java)
 
-Aby uzyskać więcej informacji, <a href="/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` </a>Zobacz.
+Aby uzyskać więcej <a href="/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` </a>informacji, zobacz .
 
 ```java
 speechConfig.setProperty(
@@ -142,7 +142,7 @@ speechConfig.setProperty(
 
 # <a name="python"></a>[Python](#tab/python)
 
-Aby uzyskać więcej informacji, <a href="/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` </a>Zobacz.
+Aby uzyskać więcej <a href="/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` </a>informacji, zobacz .
 
 ```python
 speech_config.set_property_by_name(
@@ -151,7 +151,7 @@ speech_config.set_property_by_name(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Aby uzyskać więcej informacji, <a href="/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#setproperty-string--string-" target="_blank"> `setProperty` </a>Zobacz.
+Aby uzyskać więcej <a href="/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#setproperty-string--string-" target="_blank"> `setProperty` </a>informacji, zobacz .
 
 ```javascript
 speechConfig.setProperty(
@@ -160,7 +160,7 @@ speechConfig.setProperty(
 
 # <a name="objective-c"></a>[Objective-C](#tab/objectivec)
 
-Aby uzyskać więcej informacji, <a href="/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` </a>Zobacz.
+Aby uzyskać więcej <a href="/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` </a>informacji, zobacz .
 
 ```objectivec
 [speechConfig setPropertyTo:@"false" byName:@"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"];
@@ -168,7 +168,7 @@ Aby uzyskać więcej informacji, <a href="/objectivec/cognitive-services/speech/
 
 # <a name="swift"></a>[Swift](#tab/swift)
 
-Aby uzyskać więcej informacji, <a href="/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` </a>Zobacz.
+Aby uzyskać więcej <a href="/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` </a>informacji, zobacz .
 
 ```swift
 speechConfig!.setPropertyTo(
@@ -190,11 +190,11 @@ speechConfig!.setPropertyTo(
 </speak>
 ```
 
-## <a name="adjust-speaking-styles"></a>Dopasuj style mówienia
+## <a name="adjust-speaking-styles"></a>Dostosowywanie stylów mówienia
 
-Domyślnie usługa zamiany tekstu na mowę umożliwia wyszukanie tekstu przy użyciu neutralnego stylu mowy dla głosów neuronowych. Możesz dostosować styl mówiący, aby wyszukiwać różne emocji, takie jak cheerfulness, empatię i Calm, lub optymalizować głos dla różnych scenariuszy, takich jak Customer Service, newscasting i Voice Assistant, przy użyciu `mstts:express-as` elementu. Jest to opcjonalny element unikatowy dla usługi mowy.
+Domyślnie usługa rozpoznawania tekstu na mowę syntetyzuje tekst przy użyciu neutralnego stylu mowy dla głosów neuronowych. Możesz dostosować styl mówienia, aby wyrażać różne emocje, takie jak emocje, empatia i czucie, lub zoptymalizować głos pod kątem różnych scenariuszy, takich jak obsługa klienta, obsługa wiadomości i asystent głosowy, przy użyciu `mstts:express-as` elementu . Jest to opcjonalny element unikatowy dla usługi Mowa.
 
-Obecnie korekty stylu głosu są obsługiwane dla następujących głosów neuronowych:
+Obecnie w przypadku następujących głosów neuronowych obsługiwane są korekty stylu mówienia:
 * `en-US-AriaNeural`
 * `en-US-JennyNeural`
 * `en-US-GuyNeural`
@@ -202,19 +202,19 @@ Obecnie korekty stylu głosu są obsługiwane dla następujących głosów neuro
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
 * `zh-CN-YunyeNeural`
-* `zh-CN-YunxiNeural` Przeglądania
-* `zh-CN-XiaohanNeural` Przeglądania
-* `zh-CN-XiaomoNeural` Przeglądania
-* `zh-CN-XiaoxuanNeural` Przeglądania
-* `zh-CN-XiaoruiNeural` Przeglądania
+* `zh-CN-YunxiNeural` (Wersja zapoznawcza)
+* `zh-CN-XiaohanNeural` (Wersja zapoznawcza)
+* `zh-CN-XiaomoNeural` (Wersja zapoznawcza)
+* `zh-CN-XiaoxuanNeural` (Wersja zapoznawcza)
+* `zh-CN-XiaoruiNeural` (Wersja zapoznawcza)
 
-Intensywność stylu mówienia można zmienić w celu lepszego dopasowania do Twojego przypadku użycia. Możesz określić silniejszy lub miękki styl, `styledegree` Aby zwiększyć mowę lub Subdued. Obecnie korekty stylu głosu są obsługiwane w języku chińskim (mandarynki, uproszczone) głosów neuronowych.
+Można jeszcze bardziej zmienić natężenie stylu mówienia, aby lepiej dopasować go do twojego przypadku użycia. Możesz określić silniejszy lub bardziej miękki styl za pomocą funkcji , aby mowa stanie się bardziej ekspresyjna `styledegree` lub strojona. Obecnie dostosowania stylu mówienia są obsługiwane w przypadku głosów neuronowych w języku chińskim (mandaryńskim, uproszczonym).
 
-Oprócz dostosowywania stylu i stopnia odmowy można również dostosować `role` parametr tak, aby głos był imitacją innego wieku i płci. Na przykład głos męski może zwiększyć gęstość i zmienić intonation na imitację głosu żeńskiego, ale nazwa głosu nie zostanie zmieniona. Obecnie korekty ról są obsługiwane w przypadku następujących neuronowych (mandarynki, uproszczone) głosów:
+Oprócz dostosowywania stylu wypowiedzi i stopnia stylu można również dostosować parametr tak, aby głos wyimał `role` inną płeć i wiek. Na przykład głos mężczyzn może podnieść wysokość i zmienić tonację, aby odimówić głos kobiet, ale nazwa głosu nie zostanie zmieniona. Obecnie obsługiwane są korekty ról dla tych głosów neuronowych w języku chińskim (mandaryńskim, uproszczonym):
 * `zh-CN-XiaomoNeural`
 * `zh-CN-XiaoxuanNeural`
 
-Powyższe zmiany są stosowane na poziomie zdania, a style i role są odtwarzane w zależności od głosu. Jeśli styl lub funkcja odtwarzania roli nie jest obsługiwana, usługa zwróci mowę w sposób domyślny. Możesz zobaczyć, jakie style i role są obsługiwane dla każdego głosu za pomocą [interfejsu API listy głosowej](rest-text-to-speech.md#get-a-list-of-voices) lub za pomocą platformy [tworzenia zawartości audio](https://aka.ms/audiocontentcreation) bez obsługi kodu.
+Powyższe zmiany są stosowane na poziomie zdania, a style i role różnią się w zależności od głosu. Jeśli styl lub rola nie jest obsługiwana, usługa zwróci mowę w domyślny sposób neutralny. Możesz sprawdzić, jakie style i role są obsługiwane dla każdego głosu za pośrednictwem interfejsu API listy [głosów](rest-text-to-speech.md#get-a-list-of-voices) lub za pośrednictwem platformy Tworzenie zawartości dźwiękowej [kodu.](https://aka.ms/audiocontentcreation)
 
 **Składnia**
 
@@ -228,107 +228,107 @@ Powyższe zmiany są stosowane na poziomie zdania, a style i role są odtwarzane
 <mstts:express-as role="string" style="string"></mstts:express-as>
 ```
 > [!NOTE]
-> W tej chwili `styledegree` obsługiwane są tylko chińskie głosy neuronowych. `role` obsługuje tylko zh-CN-XiaomoNeural i zh-CN-XiaoxuanNeural.
+> W tej chwili obsługuje tylko neuronowe głosy w języku chińskim `styledegree` (mandaryńskiego, uproszczonym). `role` Obsługuje tylko zh-CN-XiaomoNeural i zh-CN-XiaoxuanNeural.
 
 **Atrybuty**
 
-| Atrybut | Opis | Wymagane/opcjonalne |
+| Atrybut | Opis | Wymagane/Opcjonalne |
 |-----------|-------------|---------------------|
-| `style` | Określa styl wymawiania. Obecnie style wymawiające są specyficzne dla głosu. | Wymagane, jeśli ustawienie stylu wymawiania dla głosu neuronowych. Jeśli używasz `mstts:express-as` , należy podać styl. Jeśli podano nieprawidłową wartość, ten element zostanie zignorowany. |
-| `styledegree` | Określa intensywność stylu wymawiania. **Akceptowane wartości**: od 0,01 do 2 włącznie. Wartość domyślna to 1, co oznacza intensywność stylu wstępnie zdefiniowanego. Jednostką minimalną jest 0,01, która skutkuje niewielkim tendencją dla stylu docelowego. Wartość 2 powoduje dwustronne zwiększenie intensywności stylu domyślnego.  | Opcjonalna (w tym momencie `styledegree` obsługuje tylko w języku chińskim (mandarynki, uproszczone) głosy neuronowych).|
-| `role` | Określa rolę głosu. Głos będzie działać jako inny wiek i płeć, ale nazwa głosu nie zostanie zmieniona.  | Opcjonalne (w tej chwili `role` obsługuje tylko wartość zh-CN-XiaomoNeural i zh-CN-XiaoxuanNeural).|
+| `style` | Określa styl mówienia. Obecnie style mówienia są specyficzne dla głosu. | Wymagane w przypadku dostosowywania stylu mówienia dla głosu neuronowego. Jeśli używasz `mstts:express-as` , należy podać styl . Jeśli podano nieprawidłową wartość, ten element zostanie zignorowany. |
+| `styledegree` | Określa natężenie stylu mówienia. **Akceptowane wartości:** od 0,01 do 2 włącznie. Wartość domyślna to 1, co oznacza wstępnie zdefiniowaną intensywny styl. Minimalna jednostka to 0,01, co powoduje nieco tendencję do stylu docelowego. Wartość 2 powoduje podwojenie domyślnego natężenia stylu.  | Opcjonalne (w tej chwili obsługuje tylko głosy neuronowe w języku `styledegree` chińskim (mandaryńskim, uproszczonym).|
+| `role` | Określa odtwarzaną mówienia rolę. Głos będzie działać jako inny wiek i płeć, ale nazwa głosu nie zostanie zmieniona.  | Opcjonalne (w tej chwili obsługuje `role` tylko zh-CN-XiaomoNeural i zh-CN-XiaoxuanNeural).|
 
-Użyj tej tabeli, aby określić, które style wymawiające są obsługiwane dla każdego głosu neuronowych.
+Użyj tej tabeli, aby określić, które style mówienia są obsługiwane dla każdego neuronowego głosu.
 
 | Połączenia głosowe                   | Styl                     | Opis                                                 |
 |-------------------------|---------------------------|-------------------------------------------------------------|
-| `en-US-AriaNeural`      | `style="newscast-formal"` | Wyraża formalny, pewny i wiarygodny dźwięk na potrzeby dostarczania wiadomości |
-|                         | `style="newscast-casual"` | Wyraża wszechstronny i swobodny sygnał na potrzeby dostarczania ogólnych wiadomości        |
-|                         | `style="narration-professional"` | Wyrażanie profesjonalnego, obiektywnego tonu do czytania zawartości        |
-|                         | `style="customerservice"` | Wyraża przyjazne i pomocne oddzwonić dla obsługi klienta  |
-|                         | `style="chat"`            | Wyraża swobodny i swobodny sygnał                         |
-|                         | `style="cheerful"`        | Wyraża pozytywne i szczęśliwe Tony                         |
-|                         | `style="empathetic"`      | Wyraża świadomość Caring i zrozumienie               |
-| `en-US-JennyNeural`     | `style="customerservice"` | Wyraża przyjazne i pomocne oddzwonić dla obsługi klienta  |
-|                         | `style="chat"`            | Wyraża swobodny i swobodny sygnał                         |
-|                         | `style="assistant"`       | Wyraża dźwięk ciepły i swobodny dla asystentów cyfrowych    |
-|                         | `style="newscast"`        | Wyraża wszechstronny i swobodny sygnał na potrzeby dostarczania ogólnych wiadomości   |
-| `en-US-GuyNeural`       | `style="newscast"`        | Wyrażanie formalnego i profesjonalnego tonu dla wiadomości z narracją |
-| `pt-BR-FranciscaNeural` | `style="calm"`            | Wyraża położeniu chłodną, zebraną i złożoną. Tony, gęstość, Prosody jest znacznie bardziej jednorodne w porównaniu z innymi rodzajami mowy.                                |
-| `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Wyrażanie formalnego i profesjonalnego tonu dla wiadomości z narracją |
-|                         | `style="customerservice"` | Wyraża przyjazne i pomocne oddzwonić dla obsługi klienta  |
-|                         | `style="assistant"`       | Wyraża dźwięk ciepły i swobodny dla asystentów cyfrowych    |
-|                         | `style="chat"`            | Wyraża swobodny i swobodny sygnał dla Chit-Chat           |
-|                         | `style="calm"`            | Wyraża położeniu chłodną, zebraną i złożoną. Tony, gęstość, Prosody jest znacznie bardziej jednorodne w porównaniu z innymi rodzajami mowy.                                |
-|                         | `style="cheerful"`        | Wyraża puls i r o wyższej skoku i energii Vocal                         |
-|                         | `style="sad"`             | Wyraża ton sorrowful z większą ilością, mniejszą intensywnością i niższą vocalą energię. Typowymi wskaźnikami tego rozpoznawania emocji będzie whimpers lub Crying podczas mowy.            |
-|                         | `style="angry"`           | Wyraża ton Angry i wywołuje taką reakcję, z niższą wysokością, wyższą intensywnością i wyższą energią Vocal. Prelegent jest w stanie Irate, wypełniania i nieprawidłowym.       |
-|                         | `style="fearful"`         | Wyraża dźwięk obawialiśmy i nerwowy z większą opłatą, wyższą vocalą i szybszym tempem. Prelegent jest w stanie tenseness i uneasiness.                          |
-|                         | `style="disgruntled"`     | Wyraża disdainful i oddzwonka. Funkcja mowy tego rozpoznawania emocji wyświetla nieprawdziwa i nietymczasową.              |
-|                         | `style="serious"`         | Wyraża sygnał Strict i Command. Głośnik często wydaje się większym stopniu i mniej swobodny dzięki firmie erze.          |
-|                         | `style="affectionate"`    | Przedstawia gęstość ciepłą i Affectionate z większą ilością i Vocal energią. Prelegent jest w stanie zwrócić uwagę na odbiornik. "Osobowość" prelegenta często jest endearinga.          |
-|                         | `style="gentle"`          | Wyraża łagodne, łagodnego i przyjemne tony, z niższą ilością i Vocal energią         |
-|                         | `style="lyrical"`         | Wyraża emocji w melodic i Sentimental sposób         |
-| `zh-CN-YunyangNeural`   | `style="customerservice"` | Wyraża przyjazne i pomocne oddzwonić dla obsługi klienta  |
-| `zh-CN-YunyeNeural`     | `style="calm"`            | Wyraża położeniu chłodną, zebraną i złożoną. Tony, gęstość, Prosody jest znacznie bardziej jednorodne w porównaniu z innymi rodzajami mowy.    |
-|                         | `style="cheerful"`        | Wyraża puls i r o wyższej skoku i energii Vocal                         |
-|                         | `style="sad"`             | Wyraża ton sorrowful z większą ilością, mniejszą intensywnością i niższą vocalą energię. Typowymi wskaźnikami tego rozpoznawania emocji będzie whimpers lub Crying podczas mowy.            |
-|                         | `style="angry"`           | Wyraża ton Angry i wywołuje taką reakcję, z niższą wysokością, wyższą intensywnością i wyższą energią Vocal. Prelegent jest w stanie Irate, wypełniania i nieprawidłowym.       |
-|                         | `style="fearful"`         | Wyraża dźwięk obawialiśmy i nerwowy z większą opłatą, wyższą vocalą i szybszym tempem. Prelegent jest w stanie tenseness i uneasiness.                          |
-|                         | `style="disgruntled"`     | Wyraża disdainful i oddzwonka. Funkcja mowy tego rozpoznawania emocji wyświetla nieprawdziwa i nietymczasową.              |
-|                         | `style="serious"`         | Wyraża sygnał Strict i Command. Głośnik często wydaje się większym stopniu i mniej swobodny dzięki firmie erze.          |
-| `zh-CN-YunxiNeural`     | `style="cheerful"`        | Wyraża puls i r o wyższej skoku i energii Vocal                         |
-|                         | `style="sad"`             | Wyraża ton sorrowful z większą ilością, mniejszą intensywnością i niższą vocalą energię. Typowymi wskaźnikami tego rozpoznawania emocji będzie whimpers lub Crying podczas mowy.            |
-|                         | `style="angry"`           | Wyraża ton Angry i wywołuje taką reakcję, z niższą wysokością, wyższą intensywnością i wyższą energią Vocal. Prelegent jest w stanie Irate, wypełniania i nieprawidłowym.       |
-|                         | `style="fearful"`         | Wyraża dźwięk obawialiśmy i nerwowy z większą opłatą, wyższą vocalą i szybszym tempem. Prelegent jest w stanie tenseness i uneasiness.                          |
-|                         | `style="disgruntled"`     | Wyraża disdainful i oddzwonka. Funkcja mowy tego rozpoznawania emocji wyświetla nieprawdziwa i nietymczasową.              |
-|                         | `style="serious"`         | Wyraża sygnał Strict i Command. Głośnik często wydaje się większym stopniu i mniej swobodny dzięki firmie erze.    |
-|                         | `style="depressed"`       | Wyraża ton melancholic i despondent z niższą wysokością i energią    |
-|                         | `style="embarrassed"`     | Wyraża niepewne i wątpliwości ton, gdy prelegent jest niewygodny   |
-| `zh-CN-XiaohanNeural`   | `style="cheerful"`        | Wyraża puls i r o wyższej skoku i energii Vocal                         |
-|                         | `style="sad"`             | Wyraża ton sorrowful z większą ilością, mniejszą intensywnością i niższą vocalą energię. Typowymi wskaźnikami tego rozpoznawania emocji będzie whimpers lub Crying podczas mowy.            |
-|                         | `style="angry"`           | Wyraża ton Angry i wywołuje taką reakcję, z niższą wysokością, wyższą intensywnością i wyższą energią Vocal. Prelegent jest w stanie Irate, wypełniania i nieprawidłowym.       |
-|                         | `style="fearful"`         | Wyraża dźwięk obawialiśmy i nerwowy z większą opłatą, wyższą vocalą i szybszym tempem. Prelegent jest w stanie tenseness i uneasiness.                          |
-|                         | `style="disgruntled"`     | Wyraża disdainful i oddzwonka. Funkcja mowy tego rozpoznawania emocji wyświetla nieprawdziwa i nietymczasową.              |
-|                         | `style="serious"`         | Wyraża sygnał Strict i Command. Głośnik często wydaje się większym stopniu i mniej swobodny dzięki firmie erze.    |
-|                         | `style="embarrassed"`     | Wyraża niepewne i wątpliwości ton, gdy prelegent jest niewygodny   |
-|                         | `style="affectionate"`    | Przedstawia gęstość ciepłą i Affectionate z większą ilością i Vocal energią. Prelegent jest w stanie zwrócić uwagę na odbiornik. "Osobowość" prelegenta często jest endearinga.          |
-|                         | `style="gentle"`          | Wyraża łagodne, łagodnego i przyjemne tony, z niższą ilością i Vocal energią         |
-| `zh-CN-XiaomoNeural`    | `style="cheerful"`        | Wyraża puls i r o wyższej skoku i energii Vocal                         |
-|                         | `style="angry"`           | Wyraża ton Angry i wywołuje taką reakcję, z niższą wysokością, wyższą intensywnością i wyższą energią Vocal. Prelegent jest w stanie Irate, wypełniania i nieprawidłowym.       |
-|                         | `style="fearful"`         | Wyraża dźwięk obawialiśmy i nerwowy z większą opłatą, wyższą vocalą i szybszym tempem. Prelegent jest w stanie tenseness i uneasiness.                          |
-|                         | `style="disgruntled"`     | Wyraża disdainful i oddzwonka. Funkcja mowy tego rozpoznawania emocji wyświetla nieprawdziwa i nietymczasową.              |
-|                         | `style="serious"`         | Wyraża sygnał Strict i Command. Głośnik często wydaje się większym stopniu i mniej swobodny dzięki firmie erze.    |
-|                         | `style="depressed"`       | Wyraża ton melancholic i despondent z niższą wysokością i energią    |
-|                         | `style="gentle"`          | Wyraża łagodne, łagodnego i przyjemne tony, z niższą ilością i Vocal energią         |
-| `zh-CN-XiaoxuanNeural`  | `style="cheerful"`        | Wyraża puls i r o wyższej skoku i energii Vocal                         |
-|                         | `style="angry"`           | Wyraża ton Angry i wywołuje taką reakcję, z niższą wysokością, wyższą intensywnością i wyższą energią Vocal. Prelegent jest w stanie Irate, wypełniania i nieprawidłowym.       |
-|                         | `style="fearful"`         | Wyraża dźwięk obawialiśmy i nerwowy z większą opłatą, wyższą vocalą i szybszym tempem. Prelegent jest w stanie tenseness i uneasiness.                          |
-|                         | `style="disgruntled"`     | Wyraża disdainful i oddzwonka. Funkcja mowy tego rozpoznawania emocji wyświetla nieprawdziwa i nietymczasową.              |
-|                         | `style="serious"`         | Wyraża sygnał Strict i Command. Głośnik często wydaje się większym stopniu i mniej swobodny dzięki firmie erze.    |
-|                         | `style="depressed"`       | Wyraża ton melancholic i despondent z niższą wysokością i energią    |
-|                         | `style="gentle"`          | Wyraża łagodne, łagodnego i przyjemne tony, z niższą ilością i Vocal energią         |
-| `zh-CN-XiaoruiNeural`    | `style="sad"`             | Wyraża ton sorrowful z większą ilością, mniejszą intensywnością i niższą vocalą energię. Typowymi wskaźnikami tego rozpoznawania emocji będzie whimpers lub Crying podczas mowy.            |
-|                         | `style="angry"`           | Wyraża ton Angry i wywołuje taką reakcję, z niższą wysokością, wyższą intensywnością i wyższą energią Vocal. Prelegent jest w stanie Irate, wypełniania i nieprawidłowym.       |
-|                         | `style="fearful"`         | Wyraża dźwięk obawialiśmy i nerwowy z większą opłatą, wyższą vocalą i szybszym tempem. Prelegent jest w stanie tenseness i uneasiness.                          |
+| `en-US-AriaNeural`      | `style="newscast-formal"` | Wyraża formalny, ufny i autorytatywny ton dostarczania wiadomości |
+|                         | `style="newscast-casual"` | Wyraża uniwersalny i nieformalny ton dla ogólnego dostarczania wiadomości        |
+|                         | `style="narration-professional"` | Wyrażanie profesjonalnego, obiektywnego tonu podczas czytania zawartości        |
+|                         | `style="customerservice"` | Wyraża przyjazny i pomocny ton dla działu obsługi klienta  |
+|                         | `style="chat"`            | Wyraża zwykły i swobodny ton                         |
+|                         | `style="cheerful"`        | Wyraża pozytywny i pozytywny ton                         |
+|                         | `style="empathetic"`      | Wyraża wiedzę i rozumianie               |
+| `en-US-JennyNeural`     | `style="customerservice"` | Wyraża przyjazny i pomocny ton dla działu obsługi klienta  |
+|                         | `style="chat"`            | Wyraża zwykły i swobodny ton                         |
+|                         | `style="assistant"`       | Wyraża ciepły i luźny ton dla asystentów cyfrowych    |
+|                         | `style="newscast"`        | Wyraża wszechstronne i swobodne tony dla ogólnego dostarczania wiadomości   |
+| `en-US-GuyNeural`       | `style="newscast"`        | Wyraża formalny i profesjonalny ton do narracji wiadomości |
+| `pt-BR-FranciscaNeural` | `style="calm"`            | Wyraża chłodne, zebrane i złożone nastawienie podczas mówienia. Ton, wysokość, prosody są znacznie bardziej jednolite w porównaniu z innymi typami mowy.                                |
+| `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Wyraża formalny i profesjonalny ton na temat narracji wiadomości |
+|                         | `style="customerservice"` | Wyraża przyjazny i pomocny ton dla działu obsługi klienta  |
+|                         | `style="assistant"`       | Wyraża ciepły i luźny ton dla asystentów cyfrowych    |
+|                         | `style="chat"`            | Wyraża zwykły i swobodny ton do pogawędki           |
+|                         | `style="calm"`            | Wyraża chłodne, zebrane i złożone nastawienie podczas mówienia. Ton, wysokość, prosody są znacznie bardziej jednolite w porównaniu z innymi typami mowy.                                |
+|                         | `style="cheerful"`        | Wyraża upbeat i wytrenowy ton o większej energii wywłaszowej i nasyconej                         |
+|                         | `style="sad"`             | Wyraża zasypujące ton, z wyższą wysokość, mniejszą natężeniem i mniejszą energią nasypów. Typowe wskaźniki tej emocji to napychanie lub cykanie podczas mowy.            |
+|                         | `style="angry"`           | Wyraża dźwięk i irytowany ton, z niższą wysokością, większą natężeniem i wyższą energią zębowym. Mówiący jest w stanie irate, displeased, and offended.       |
+|                         | `style="fearful"`         | Wyraża wystraszony i denerwny ton, z wyższą wysokość, wyższą energią wydychaną i szybszym szybkością. Prelegent jest w stanie czasowości i niezręczności.                          |
+|                         | `style="disgruntled"`     | Wyraża rozgorętny i skarżący się ton. Mowa o tej emocji powoduje niezadowolenie i pogardę.              |
+|                         | `style="serious"`         | Wyraża rygorystyczny i poleceń ton. Prelegent często wydaje się bardziej przytłaczający i znacznie mniej zrelaksowany przy użyciu twardego rytmu.          |
+|                         | `style="affectionate"`    | Wyraża ciepły i wpływowy ton z wyższą energią nachylienia i osuwu. Mówiący jest w stanie przyciągania uwagi odbiornika. "Osobowość" prelegenta jest często endearną z natury.          |
+|                         | `style="gentle"`          | Wyraża wytłoki, grzeczności i tonu, z niższą energią na wywęchu i o mniejszej energii głosu         |
+|                         | `style="lyrical"`         | Wyraża emocje w sposób pozytywny i tonacji         |
+| `zh-CN-YunyangNeural`   | `style="customerservice"` | Wyraża przyjazny i pomocny ton dla obsługi klienta  |
+| `zh-CN-YunyeNeural`     | `style="calm"`            | Wyraża chłodne, zebrane i złożone nastawienie podczas mówienia. Ton, wysokość, prosody są znacznie bardziej jednolite w porównaniu z innymi typami mowy.    |
+|                         | `style="cheerful"`        | Wyraża upbeat i wytrenowy ton o większej energii tonu i głosu                         |
+|                         | `style="sad"`             | Wyraża zasypujące ton, z wyższą wysokością, mniejszą natężeniem i mniejszą energią na osłodę. Typowe wskaźniki tej emocji to najgorętszy lub cykający się podczas mowy.            |
+|                         | `style="angry"`           | Wyraża dźwięk i irytowany ton, z niższą wysokością, większą natężeniem i wyższą energią zębowym. Prelegent jest w stanie irate, disped i offended.       |
+|                         | `style="fearful"`         | Wyraża wystraszony i denerwowany ton, z wyższą toną, wyższą energią na wykładzie i szybszym szybkością. Stan prelegenta to czas i nieskomplikowość.                          |
+|                         | `style="disgruntled"`     | Wyraża rozgorętny i skarżący się ton. Mowa o tej emocji powoduje niezadowolenie i pogardę.              |
+|                         | `style="serious"`         | Wyraża rygorystyczny i poleceń tonu. Prelegent często brzmi bardziej złagodniająco i znacznie mniej złagodnia w przypadku twardego rytmu.          |
+| `zh-CN-YunxiNeural`     | `style="cheerful"`        | Wyrażanie upbeatnego i zatęchłego tonu z wyższą energią na wywęchu i o większej energii nasyconej                         |
+|                         | `style="sad"`             | Wyraża zasypujące ton, z wyższą wysokość, mniejszą natężeniem i mniejszą energią nasypów. Typowe wskaźniki tej emocji to napychanie lub płakanie podczas mowy.            |
+|                         | `style="angry"`           | Wyraża wytłoki i rozirytowany ton, z niższą wysokość, większą natężeniem i wyższą energią nasypów. Prelegent jest w stanie irate, disped i offended.       |
+|                         | `style="fearful"`         | Wyraża wystraszony i denerwowany ton, z wyższą wysokość, wyższą energią nasyciową i szybszym szybkością. Stan prelegenta to czas i nieskomplikowość.                          |
+|                         | `style="disgruntled"`     | Wyraża rozgorętny i skarżący się ton. Mowa o tej emocji powoduje niezadowolenie i pogardę.              |
+|                         | `style="serious"`         | Wyraża rygorystyczny i poleceń tonu. Prelegent często brzmi bardziej złagodniająco i znacznie mniej złagodnia w przypadku jędrności.    |
+|                         | `style="depressed"`       | Wyraża ton melancholic i despondent z niższą wysokość i energii    |
+|                         | `style="embarrassed"`     | Wyraża nieistotny i niesłyszący ton, gdy prelegent jest niewygodny   |
+| `zh-CN-XiaohanNeural`   | `style="cheerful"`        | Wyraża upbeat i wytrenowy ton o większej energii nachylennej i nasyconej                         |
+|                         | `style="sad"`             | Wyraża zasypujące ton, z wyższą wysokością, mniejszą natężeniem i mniejszą energią na osłodę. Typowe wskaźniki tej emocji to najgorętszy lub cykający się podczas mowy.            |
+|                         | `style="angry"`           | Wyraża dźwięk i irytowany ton, z niższą wysokością, większą natężeniem i wyższą energią zębowym. Mówiący jest w stanie irate, disped i offended.       |
+|                         | `style="fearful"`         | Wyraża wystraszony i denerwowany ton, z wyższą wysokość, wyższą energią nasypową i szybszym szybkością. Prelegent jest w stanie czasowości i niezręczności.                          |
+|                         | `style="disgruntled"`     | Wyraża rozgorętny i skarżący się ton. Mowa o tej emocji powoduje niezadowolenie i pogardę.              |
+|                         | `style="serious"`         | Wyraża rygorystyczny i poleceń ton. Prelegent często wydaje się bardziej przytłaczający i znacznie mniej zrelaksowany przy użyciu twardego rytmu.    |
+|                         | `style="embarrassed"`     | Wyraża niepewny i niesłyszący ton, gdy prelegent jest niewygodny   |
+|                         | `style="affectionate"`    | Wyraża ciepły i wpływowy ton z wyższą energią nachylienia i osuwu. Mówiący jest w stanie przyciągania uwagi odbiornika. "Osobowość" prelegenta jest często endearing z natury.          |
+|                         | `style="gentle"`          | Wyraża wytłoki, grzeczności i tonu, z niższą energią nachyłu i pochyłu         |
+| `zh-CN-XiaomoNeural`    | `style="cheerful"`        | Wyraża upbeat i wytrenowy ton o większej energii tonu i głosu                         |
+|                         | `style="angry"`           | Wyraża dźwięk i irytowany ton, z niższą wysokością, większą natężeniem i wyższą energią zębowym. Mówiący jest w stanie irate, displeased, and offended.       |
+|                         | `style="fearful"`         | Wyraża wystraszony i denerwny ton, z wyższą wysokość, wyższą energią wydychaną i szybszym szybkością. Prelegent jest w stanie czasowości i niezręczności.                          |
+|                         | `style="disgruntled"`     | Wyraża rozgorętny i skarżący się ton. Mowa o tej emocji powoduje niezadowolenie i pogardę.              |
+|                         | `style="serious"`         | Wyraża rygorystyczny i poleceń tonu. Prelegent często brzmi bardziej złagodniająco i znacznie mniej złagodnia w przypadku jędrności.    |
+|                         | `style="depressed"`       | Wyraża ton melancholic i despondent z niższą wysokość i energii    |
+|                         | `style="gentle"`          | Wyraża wytłoki, grzeczności i tonu, z niższą energią na wywęchu i pochyłu         |
+| `zh-CN-XiaoxuanNeural`  | `style="cheerful"`        | Wyraża upbeat i wytrenowy ton o większej energii wywłaszowej i nasyconej                         |
+|                         | `style="angry"`           | Wyraża wytłony i rozirytowany ton, z niższą wysokość, większą natężeniem i wyższą energią na wytłochu. Prelegent jest w stanie irate, disped i offended.       |
+|                         | `style="fearful"`         | Wyraża wystraszony i denerwowany ton, z wyższą wysokość, wyższą energią nasyciową i szybszym szybkością. Stan prelegenta to czas i nieskomplikowość.                          |
+|                         | `style="disgruntled"`     | Wyraża rozgorętny i skarżący się ton. Mowa o tej emocji powoduje niezadowolenie i pogardę.              |
+|                         | `style="serious"`         | Wyraża rygorystyczny i poleceń tonu. Prelegent często brzmi bardziej złagodniająco i znacznie mniej złagodnia w przypadku jędrności.    |
+|                         | `style="depressed"`       | Wyraża ton melancholic i despondent z niższą wysokość i energię    |
+|                         | `style="gentle"`          | Wyraża wytłoki, grzecz i cycyt, z niższą energią na wywęchu i pochyłu         |
+| `zh-CN-XiaoruiNeural`    | `style="sad"`             | Wyraża zasypujące ton, z wyższą wysokość, mniejszą natężeniem i mniejszą energią nasypów. Typowe wskaźniki tej emocji to napychanie lub płakanie podczas mowy.            |
+|                         | `style="angry"`           | Wyraża dźwięk i irytowany ton, z niższą wysokością, większą natężeniem i wyższą energią zębowym. Mówiący jest w stanie irate, disped i offended.       |
+|                         | `style="fearful"`         | Wyraża wystraszony i denerwny ton, z wyższą wysokość, wyższą energią wydychaną i szybszym szybkością. Prelegent jest w stanie czasowości i niezręczności.                          |
 
 Użyj tej tabeli, aby sprawdzić obsługiwane role i ich definicje.
 
 |Rola                     | Opis                |
 |-------------------------|----------------------------|
-|`role="Girl"`            | Dźwięk naśladuje dziewczynka. |
-|`role="Boy"`             | Głos naśladuje Boy. |
-|`role="YoungAdultFemale"`| Głos naśladuje na młodych dorosłych samic.|
-|`role="YoungAdultMale"`  | Głos naśladuje na młodych dorosłych samców.|
-|`role="OlderAdultFemale"`| Głos naśladuje do starszej osoby dorosłej.|
-|`role="OlderAdultMale"`  | Głos naśladuje do starszej osoby dorosłej.|
-|`role="SeniorFemale"`    | Głos naśladuje się do wyższych samic.|
-|`role="SeniorMale"`      | Głos styka się ze starszymi wtykami.|
+|`role="Girl"`            | Głos odwzorowywuje się do dziewuchy. |
+|`role="Boy"`             | Głos odwzorowywuje chłopca. |
+|`role="YoungAdultFemale"`| Głos jest odimówieńcą dla dorosłych kobiet.|
+|`role="YoungAdultMale"`  | Głos jest odimówieńcą dla dorosłych mężczyzn.|
+|`role="OlderAdultFemale"`| Głos jest odimówieńcą starszej, dla dorosłych kobiet.|
+|`role="OlderAdultMale"`  | Głos jest odimówień dla starszego dorosłych mężczyzn.|
+|`role="SeniorFemale"`    | Głos odwzorowywuje się starszej kobietie.|
+|`role="SeniorMale"`      | Głos odwzorowywuje starszego mężczyznę.|
 
 
 **Przykład**
 
-Ten fragment kodu SSML ilustruje, w jaki sposób `<mstts:express-as>` element jest używany do zmiany stylu wymawiania na `cheerful` .
+Ten fragment kodu SSML ilustruje sposób, w jaki element jest używany do zmiany `<mstts:express-as>` stylu mówienia na `cheerful` .
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
@@ -341,7 +341,7 @@ Ten fragment kodu SSML ilustruje, w jaki sposób `<mstts:express-as>` element je
 </speak>
 ```
 
-Ten fragment kodu SSML ilustruje, jak `styledegree` atrybut jest używany do zmiany intensywności stylu wymawiania dla XiaoxiaoNeural.
+Ten fragment kodu SSML ilustruje sposób, w jaki atrybut jest używany do zmiany natężenia stylu Mówienia dla `styledegree` FragmensjoNeural.
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
        xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="zh-CN">
@@ -353,7 +353,7 @@ Ten fragment kodu SSML ilustruje, jak `styledegree` atrybut jest używany do zmi
 </speak>
 ```
 
-Ten fragment kodu SSML ilustruje, w jaki sposób `role` atrybut jest używany do zmiany roli Play dla XiaomoNeural.
+Ten fragment kodu SSML ilustruje sposób, w jaki atrybut jest używany do zmiany roli `role` w przypadku FragmenomoNeural.
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
        xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="zh-CN">
@@ -370,12 +370,12 @@ Ten fragment kodu SSML ilustruje, w jaki sposób `role` atrybut jest używany do
 </speak>
 ```
 
-## <a name="add-or-remove-a-breakpause"></a>Dodawanie lub usuwanie przerwy/wstrzymania
+## <a name="add-or-remove-a-breakpause"></a>Dodawanie lub usuwanie przerwania/wstrzymania
 
-Użyj `break` elementu, aby wstawić pauzy (lub przerwy) między wyrazami lub zapobiec automatycznemu dodawaniu przez usługę zamiany tekstu na mowę.
+Użyj elementu `break` , aby wstawić pauzy (lub przerwy) między wyrazami lub uniemożliwić wstrzymywanie automatycznie dodawane przez usługę tekst na mowę.
 
 > [!NOTE]
-> Użyj tego elementu, aby przesłonić domyślne zachowanie zamiany tekstu na mowę (TTS) dla wyrazu lub frazy, jeśli wydawane przez nich słowo lub fraza jest odtwarzane jako nienaturalne. Ustaw `strength` `none` , aby nie granicę prozodyczną przerwania, które jest automatycznie wstawiane przez usługę zamiany tekstu na mowę.
+> Użyj tego elementu, aby przesłonić domyślne zachowanie funkcji tekst-mowa (TTS) dla słowa lub frazy, jeśli syntetyzowana mowa dla tego słowa lub frazy brzmi nieskonstrukcyjnie. Ustaw `strength` wartość na , aby `none` zapobiec przerwaniu prosodycznemu, który jest automatycznie wstawiany przez usługę typu tekst na mowę.
 
 **Składnia**
 
@@ -386,19 +386,19 @@ Użyj `break` elementu, aby wstawić pauzy (lub przerwy) między wyrazami lub za
 
 **Atrybuty**
 
-| Atrybut | Opis | Wymagane/opcjonalne |
+| Atrybut | Opis | Wymagane/Opcjonalne |
 |-----------|-------------|---------------------|
-| `strength` | Określa względny czas trwania pauzy przy użyciu jednej z następujących wartości:<ul><li>brak</li><li>x — słabe</li><li>lekko</li><li>Średni (domyślnie)</li><li>najwyższy</li><li>x — Strong</li></ul> | Opcjonalne |
-| `time` | Określa bezwzględny czas przerwy w sekundach lub milisekund, ta wartość powinna być ustawiona poniżej 5000ms. Przykłady prawidłowych wartości to `2s` i `500ms` | Opcjonalne |
+| `strength` | Określa względny czas trwania wstrzymania przy użyciu jednej z następujących wartości:<ul><li>brak</li><li>x-weak</li><li>Słabe</li><li>medium (ustawienie domyślne)</li><li>Silne</li><li>x-strong</li></ul> | Opcjonalne |
+| `time` | Określa bezwzględny czas trwania wstrzymania w sekundach lub milisekundach, ta wartość powinna być mniejsza niż 5000ms. Przykłady prawidłowych wartości to `2s` i `500ms` | Opcjonalne |
 
-| Naprężeni                      | Opis |
+| Siły                      | Opis |
 |-------------------------------|-------------|
-| Brak lub nie podano wartości | 0 MS        |
-| x — słabe                        | 250 MS      |
-| lekko                          | 500 ms      |
+| Brak lub jeśli nie podano żadnej wartości | 0 ms        |
+| x-weak                        | 250 ms      |
+| Słabe                          | 500 ms      |
 | średni                        | 750 ms      |
-| najwyższy                        | 1000 MS     |
-| x — Strong                      | 1250 MS     |
+| Silne                        | 1000 ms     |
+| x-strong                      | 1250 ms     |
 
 **Przykład**
 
@@ -409,12 +409,12 @@ Użyj `break` elementu, aby wstawić pauzy (lub przerwy) między wyrazami lub za
     </voice>
 </speak>
 ```
-## <a name="add-silence"></a>Dodaj wyciszenie
+## <a name="add-silence"></a>Dodawanie wyciszenia
 
-Użyj `mstts:silence` elementu, aby wstawić pauzy przed tekstem lub po nim albo między 2 sąsiednimi zdaniami.
+Użyj elementu `mstts:silence` , aby wstawić wstrzymywanie przed lub po tekście albo między dwoma sąsiednimi zdaniami.
 
 > [!NOTE]
->Różnica między `mstts:silence` i `break` jest, którą `break` można dodać do dowolnego miejsca w tekście, ale ciszenie działa tylko na początku lub na końcu tekstu wejściowego lub na granicy dwóch sąsiadujących zdań.
+>Różnica między i polega na tym, że można dodać do dowolnego miejsca w tekście, ale wyciszenie działa tylko na początku lub na końcu tekstu wejściowego lub na granicy 2 sąsiadujących `mstts:silence` `break` `break` zdań.
 
 
 **Składnia**
@@ -425,12 +425,12 @@ Użyj `mstts:silence` elementu, aby wstawić pauzy przed tekstem lub po nim albo
 
 **Atrybuty**
 
-| Atrybut | Opis | Wymagane/opcjonalne |
+| Atrybut | Opis | Wymagane/Opcjonalne |
 |-----------|-------------|---------------------|
-| `type` | Określa lokalizację, w której ma zostać dodany wyciszenie: <ul><li>`Leading` — na początku tekstu </li><li>`Tailing` — na końcu tekstu </li><li>`Sentenceboundary` – między sąsiednimi zdaniami </li></ul> | Wymagane |
-| `Value` | Określa bezwzględny czas przerwy w sekundach lub milisekund, ta wartość powinna być ustawiona poniżej 5000ms. Przykłady prawidłowych wartości to `2s` i `500ms` | Wymagane |
+| `type` | Określa lokalizację wyciszenia, które mają zostać dodane: <ul><li>`Leading` — na początku tekstu </li><li>`Tailing` — na końcu tekstu </li><li>`Sentenceboundary` — między sąsiednimi zdaniami </li></ul> | Wymagane |
+| `Value` | Określa bezwzględny czas trwania wstrzymania w sekundach lub milisekundach, ta wartość powinna być mniejsza niż 5000ms. Przykłady prawidłowych wartości to `2s` i `500ms` | Wymagane |
 
-**Przykład** W tym przykładzie `mtts:silence` służy do dodawania 200 MS wyciszenia między dwoma zdaniami.
+**Przykład** W tym przykładzie `mtts:silence` jest używany do dodawania 200 ms wyciszenia między dwoma zdaniami.
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
 <voice name="en-US-AriaNeural">
@@ -441,13 +441,13 @@ A good place to start is by trying out the slew of educational apps that are hel
 </speak>
 ```
 
-## <a name="specify-paragraphs-and-sentences"></a>Określ akapity i zdania
+## <a name="specify-paragraphs-and-sentences"></a>Określanie akapitów i zdań
 
-`p``s`elementy i są używane do określenia odpowiednio akapitów i zdań. W przypadku braku tych elementów usługa zamiany tekstu na mowę automatycznie określa strukturę dokumentu SSML.
+`p` Elementy i służą odpowiednio do oznaczania akapitów `s` i zdań. W przypadku braku tych elementów usługa funkcji tekstu na mowę automatycznie określa strukturę dokumentu SSML.
 
-`p`Element może zawierać tekst i następujące elementy:,,,,,, `audio` `break` `phoneme` `prosody` `say-as` `sub` `mstts:express-as` , i `s` .
+Element `p` może zawierać tekst i następujące elementy: , , , , `audio` , , , i `break` `phoneme` `prosody` `say-as` `sub` `mstts:express-as` `s` .
 
-`s`Element może zawierać tekst i następujące elementy:,,,,, `audio` `break` `phoneme` `prosody` `say-as` `mstts:express-as` i `sub` .
+Element `s` może zawierać tekst i następujące elementy: , , , , `audio` , , i `break` `phoneme` `prosody` `say-as` `mstts:express-as` `sub` .
 
 **Składnia**
 
@@ -473,14 +473,14 @@ A good place to start is by trying out the slew of educational apps that are hel
 </speak>
 ```
 
-## <a name="use-phonemes-to-improve-pronunciation"></a>Aby ulepszyć wymowę, użyj fonemów
+## <a name="use-phonemes-to-improve-pronunciation"></a>Poprawianie wymowy za pomocą fonemów
 
-`ph`Element jest używany do wymowy fonetycznej w dokumentach SSML. `ph`Element może zawierać tylko tekst, nie inne elementy. Zawsze dostarczaj mowę do odczytu przez człowieka jako rezerwowe.
+Element `ph` służy do wymowy fejlowej w dokumentach SSML. Element `ph` może zawierać tylko tekst, żadne inne elementy. Zawsze zapewniaj mowę czytelną dla człowieka jako rezerwę.
 
-Alfabety fonetyczne składają się z telefonów, które składają się z liter, cyfr lub znaków, czasami w połączeniu. Każdy telefon opisuje unikatowy dźwięk mowy. Jest to w przeciwieństwie do alfabetu łacińskiego, gdzie jakakolwiek litera może reprezentować wiele dźwięków wypowiadanych. Rozważ różne wymowy literę "c" w słowach "Candy" i "zaprzestanie" albo różne wymowy kombinacji liter "TH" w słowach "rzecz" i "te".
+Alfabety fonetyczne składają się z telefonów, które składają się z liter, cyfr lub znaków, czasami w kombinacji. Każdy telefon opisuje unikatowy dźwięk mowy. Jest to przeciwieńsze alfabetu łacińskiego, w którym każda litera może reprezentować wiele mówionych dźwięków. Rozważ różne wymowy litery "c" w wyrazach "candy" i "przestań" lub różne wymowy kombinacji litery "th" w wyrazach "thing" i "those".
 
 > [!NOTE]
-> Tag fonemów nie jest obsługiwany w przypadku tych 5 głosów (et-EE-AnuNeural, GA-IE-OrlaNeural, lt-LT-OnaNeural, LV-LV-EveritaNeural i MT-MT-GarceNeural).
+> Tag Phonemes nie jest obecnie obsługiwany w przypadku tych 5 głosów (et-EE-AnuNeural, ga-IE-OrlaNeural, lt-LT-OnNeural, lv-LV-EveritaNeural i mt-MT-GarceNeural).
 
 **Składnia**
 
@@ -492,8 +492,8 @@ Alfabety fonetyczne składają się z telefonów, które składają się z liter
 
 | Atrybut | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
-| `alphabet` | Określa alfabet fonetyczny do użycia podczas syntezowania wymowy ciągu w `ph` atrybucie. Ciąg określający alfabet musi być określony małymi literami. Poniżej przedstawiono możliwe litery, które można określić.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Międzynarodowy alfabet fonetyczny</a></li><li>`sapi`&ndash; [Mowa — alfabet fonetyczny](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash; <a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank">Uniwersalny zestaw telefonu</a></li></ul><br>Alfabet ma zastosowanie tylko do `phoneme` elementu w elemencie.. | Opcjonalne |
-| `ph` | Ciąg zawierający telefony, które określają wymowę wyrazu w `phoneme` elemencie. Jeśli określony ciąg zawiera nierozpoznane telefony, usługa zamiany tekstu na mowę (TTS) odrzuci cały dokument SSML i nie wygeneruje żadnych danych wyjściowych mowy określonych w dokumencie. | Wymagany, jeśli jest używany fonemów. |
+| `alphabet` | Określa alfabet fonetyczny do użycia podczas syntezowania wymowy ciągu w `ph` atrybutze. Ciąg określający alfabet musi być określony małymi literami. Poniżej przedstawiono możliwe alfabety, które można określić.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Międzynarodowy alfabet fonetyczny</a></li><li>`sapi`&ndash; [Alfabet fonetyczny usługi rozpoznawania mowy](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash; <a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank">Uniwersalny zestaw telefonów</a></li></ul><br>Alfabet ma zastosowanie tylko do `phoneme` elementu w elemencie . | Opcjonalne |
+| `ph` | Ciąg zawierający telefony, które określają wymowę słowa w `phoneme` elemencie. Jeśli określony ciąg zawiera nierozpoznane telefony, usługa text-to-speech (TTS) odrzuca cały dokument SSML i nie generuje żadnego z danych wyjściowych mowy określonych w dokumencie. | Wymagane w przypadku używania fonemów. |
 
 **Przykłady**
 
@@ -521,15 +521,15 @@ Alfabety fonetyczne składają się z telefonów, które składają się z liter
 </speak>
 ```
 
-## <a name="use-custom-lexicon-to-improve-pronunciation"></a>Korzystanie z leksykonów niestandardowych w celu usprawnienia wymowy
+## <a name="use-custom-lexicon-to-improve-pronunciation"></a>Używanie niestandardowego leksykonu w celu poprawy wymowy
 
-Czasami usługa zamiany tekstu na mowę nie może dokładnie wymówić wyrazu. Na przykład nazwa firmy lub termin medyczny. Deweloperzy mogą definiować, jak pojedyncze jednostki są odczytywane w SSML przy użyciu `phoneme` `sub` tagów i. Jeśli jednak chcesz zdefiniować sposób odczytywania wielu jednostek, możesz utworzyć niestandardową Leksykon przy użyciu `lexicon` znacznika.
-
-> [!NOTE]
-> Leksykon niestandardowy obecnie obsługuje kodowanie UTF-8.
+Czasami usługa rozpoznawania tekstu na mowę nie może dokładnie wymawiać słowa. Na przykład nazwa firmy lub termin medycznych. Deweloperzy mogą definiować sposób odczytywania pojedynczych jednostek w programie SSML przy użyciu `phoneme` `sub` tagów i . Jeśli jednak musisz zdefiniować, jak wiele jednostek jest odczytywanych, możesz utworzyć niestandardowy leksykon przy użyciu `lexicon` tagu .
 
 > [!NOTE]
-> Leksykon niestandardowy nie jest obsługiwany w przypadku tych 5 głosów (et-EE-AnuNeural, GA-IE-OrlaNeural, lt-LT-OnaNeural, LV-LV-EveritaNeural i MT-MT-GarceNeural).
+> Niestandardowy leksykon obsługuje obecnie kodowanie UTF-8.
+
+> [!NOTE]
+> W tej chwili niestandardowe leksykony nie są obsługiwane w przypadku tych 5 głosów (et-EE-AnuNeural, ga-IE-OrlaNeural, lt-LT-OnaNeural, lv-LV-EveritaNeural i mt-MT-GarceNeural).
 
 
 **Składnia**
@@ -540,13 +540,13 @@ Czasami usługa zamiany tekstu na mowę nie może dokładnie wymówić wyrazu. N
 
 **Atrybuty**
 
-| Atrybut | Opis                               | Wymagane/opcjonalne |
+| Atrybut | Opis                               | Wymagane/Opcjonalne |
 |-----------|-------------------------------------------|---------------------|
-| `uri`     | Adres zewnętrznego dokumentu innych obszarów roboczych. | Wymagane.           |
+| `uri`     | Adres zewnętrznego dokumentu PLS. | Wymagane.           |
 
 **Użycie**
 
-Aby zdefiniować sposób odczytywania wielu jednostek, możesz utworzyć niestandardową Leksykon, który jest przechowywany jako plik XML lub innych obszarów roboczych. Poniżej znajduje się przykładowy plik XML.
+Aby zdefiniować sposób odczytywania wielu jednostek, można utworzyć niestandardowy leksykon, który jest przechowywany jako plik XML lub PLS. Poniżej przedstawiono przykładowy plik XML.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -567,9 +567,9 @@ Aby zdefiniować sposób odczytywania wielu jednostek, możesz utworzyć niestan
 </lexicon>
 ```
 
-`lexicon`Element zawiera co najmniej jeden `lexeme` element. Każdy `lexeme` element zawiera co najmniej jeden `grapheme` element i jeden lub więcej `grapheme` `alias` elementów,, i `phoneme` . `grapheme`Element zawiera tekst opisujący <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthography </a>. `alias`Elementy są używane do wskazania wymowy akronimu lub skróconego terminu. `phoneme`Element zawiera tekst opisujący sposób `lexeme` wymawiania.
+Element `lexicon` zawiera co najmniej jeden `lexeme` element. Każdy `lexeme` element zawiera co najmniej jeden element i co najmniej jeden element , i `grapheme` `grapheme` `alias` `phoneme` . Element `grapheme` zawiera tekst opisujący <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">ortografię </a>. Elementy `alias` służą do wskazywania wymowy akronimu lub skróconego terminu. Element `phoneme` zawiera tekst opisujący sposób wymawiania `lexeme` elementu .
 
-Należy pamiętać, że nie można bezpośrednio ustawić wymowy frazy przy użyciu leksykonu niestandardowego. Jeśli musisz ustawić wymowę dla akronimu lub skróconego terminu, najpierw Podaj `alias` wartość, a następnie skojarz ją `phoneme` z `alias` . Na przykład:
+Należy pamiętać, że nie można bezpośrednio ustawić wymowy frazy przy użyciu niestandardowego leksykonu. Jeśli musisz ustawić wymowę skrótu lub skróconego terminu, najpierw podaj , a następnie skojarz element `alias` `phoneme` z tym . `alias` Na przykład:
 
 ```xml
   <lexeme>
@@ -582,7 +582,7 @@ Należy pamiętać, że nie można bezpośrednio ustawić wymowy frazy przy uży
   </lexeme>
 ```
 
-Można również bezpośrednio podać oczekiwany `alias` termin dla akronimu lub skracania. Na przykład:
+Możesz również bezpośrednio podać oczekiwane terminy z akronimem lub `alias` skrótem. Na przykład:
 ```xml
   <lexeme>
     <grapheme>Scotland MV</grapheme>
@@ -591,16 +591,16 @@ Można również bezpośrednio podać oczekiwany `alias` termin dla akronimu lub
 ```
 
 > [!IMPORTANT]
-> W `phoneme` przypadku używania IPA element nie może zawierać białych znaków.
+> Element `phoneme` nie może zawierać białych spacji podczas korzystania z IPA.
 
-Aby uzyskać więcej informacji na temat niestandardowego pliku leksykonu, zobacz [Specyfikacja leksykonu wymowy (innych obszarów roboczych) w wersji 1,0](https://www.w3.org/TR/pronunciation-lexicon/).
+Aby uzyskać więcej informacji na temat niestandardowego pliku leksykonu, zobacz [Pronunciation Lexicon Specification (PLS) Version 1.0 (Specyfikacja leksykonu wymowy w wersji 1.0).](https://www.w3.org/TR/pronunciation-lexicon/)
 
-Następnie opublikuj niestandardowy plik leksykonu. Chociaż nie mamy ograniczeń dotyczących lokalizacji tego pliku, zalecamy korzystanie z [usługi Azure Blob Storage](../../storage/blobs/storage-quickstart-blobs-portal.md).
+Następnie opublikuj niestandardowy plik leksykonu. Chociaż nie ma ograniczeń dotyczących miejsca przechowywania tego pliku, zalecamy używanie Azure Blob Storage [.](../../storage/blobs/storage-quickstart-blobs-portal.md)
 
-Po opublikowaniu słownika niestandardowego można odwołać się do niego z SSML.
+Po opublikowaniu niestandardowego leksykonu możesz odwoływać się do niego z pliku SSML.
 
 > [!NOTE]
-> `lexicon`Element musi znajdować się wewnątrz `voice` elementu.
+> Element `lexicon` musi znajdować się wewnątrz `voice` elementu .
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
@@ -614,19 +614,19 @@ Po opublikowaniu słownika niestandardowego można odwołać się do niego z SSM
 </speak>
 ```
 
-W przypadku korzystania z tego słownika niestandardowego "BTW" zostanie odczytana jako "w sposób". "Benigni" zostanie odczytany przy użyciu podanej IPA "bɛ ˈ ni ː NJI".
+W przypadku korzystania z tego leksykonu niestandardowego "BTW" będzie odczytywany jako "Przy okazji". "Niegroźny" zostanie odczytany z dostarczonym IPA "b odtąd".
 
 **Ograniczenia**
-- Rozmiar pliku: niestandardowy limit rozmiaru pliku leksykonu to 100KB, jeśli ten rozmiar zostanie przekroczony, żądanie syntezy zakończy się niepowodzeniem.
-- Odświeżanie pamięci podręcznej leksykonu: niestandardowy Leksykon zostanie zapisany w pamięci podręcznej przy użyciu identyfikatora URI w usłudze TTS podczas pierwszego ładowania. Leksykon z tym samym identyfikatorem URI nie zostanie ponownie załadowany w ciągu 15 minut, więc zmiana leksykonu niestandardowego musi odczekać od 15 minut, aby zaczęła obowiązywać.
+- Rozmiar pliku: maksymalny limit rozmiaru niestandardowego pliku leksykonu wynosi 100 KB, jeśli rozmiar przekracza ten rozmiar, żądanie syntezy nie powiedzie się.
+- Odświeżanie pamięci podręcznej leksykonu: niestandardowe leksykony zostaną z cachedem z URI jako kluczem w usłudze TTS po jego pierwszym załadowaniu. Leksykon o tym samym URI nie zostanie ponownie załadowany w ciągu 15 minut, więc zmiana niestandardowego leksykonu musi odczekać co najwyżej 15 minut, aby zmiany zaszły.
 
-**Zestawy fonetyczne usługi mowy**
+**Zestawy ffontyczne usługi rozpoznawania mowy**
 
-W powyższym przykładzie używamy międzynarodowego alfabetu fonetycznego, nazywanego również numerem telefonu IPA. Sugerujemy, aby deweloperzy korzystali z IPA, ponieważ jest to standard międzynarodowy. W przypadku niektórych znaków IPA mają one wersję "prekomponowad" i "dekomponowad", gdy jest reprezentowana przy użyciu standardu Unicode. Leksykon niestandardowy obsługuje tylko rozłożone znaki Unicode.
+W powyższym przykładzie używamy międzynarodowych alfabetów fonetycznych, nazywanych również zestawem telefonów IPA. Sugerujemy, aby deweloperzy używali standardu IPA, ponieważ jest to standard międzynarodowy. W przypadku niektórych znaków IPA mają one wersję "prekompilowaną" i "rozłożoną" w przypadku reprezentowania za pomocą formatu Unicode. Leksykon niestandardowy obsługuje tylko rozłożone znaki Unicode.
 
-Biorąc pod uwagę, że IPA nie jest łatwy do zapamiętania, usługa mowy definiuje zestaw fonetyczny dla siedmiu języków (,,,,, `en-US` `fr-FR` `de-DE` `es-ES` `ja-JP` `zh-CN` i `zh-TW` ).
+Biorąc pod uwagę, że IPA nie jest łatwa do zapamiętania, usługa rozpoznawania mowy definiuje zestaw fejstyczny dla siedmiu języków `en-US` (, `fr-FR` , , , , , i `de-DE` `es-ES` `ja-JP` `zh-CN` `zh-TW` ).
 
-Można użyć `sapi` jako wartości `alphabet` atrybutu z niestandardowymi leksykonami, jak pokazano poniżej:
+Możesz użyć jako wartości atrybutu z niestandardowymi `sapi` `alphabet` leksykonami, jak pokazano poniżej:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -647,13 +647,13 @@ Można użyć `sapi` jako wartości `alphabet` atrybutu z niestandardowymi leksy
 </lexicon>
 ```
 
-Aby uzyskać więcej informacji na temat szczegółowej litery fonetycznej usługi rozpoznawania mowy, zobacz [zestawy fonetyczne usługi Speech](speech-ssml-phonetic-sets.md).
+Aby uzyskać więcej informacji na temat szczegółowego alfabetu fonetycznego usługi Mowa, zobacz [zestawy fonetyczne usługi mowa](speech-ssml-phonetic-sets.md).
 
-## <a name="adjust-prosody"></a>Dostosuj Prosody
+## <a name="adjust-prosody"></a>Dostosowywanie prosody
 
-`prosody`Element służy do określania zmian wysokości, rozkładu, zakresu, szybkości, czasu trwania i objętości dla danych wyjściowych zamiany tekstu na mowę. `prosody`Element może zawierać tekst i następujące elementy:,,,,,, `audio` `break` `p` `phoneme` `prosody` `say-as` `sub` , i `s` .
+Element służy do określania zmian w schyłce, nachylieniu, zakresie, częstotliwości, czasie trwania i głośności danych wyjściowych funkcji `prosody` tekstu na mowę. Element `prosody` może zawierać tekst i następujące elementy: , , , , `audio` , , i `break` `p` `phoneme` `prosody` `say-as` `sub` `s` .
 
-Ponieważ wartości atrybutów granicę prozodyczną mogą się różnić w różnych zakresach, aparat rozpoznawania mowy interpretuje przypisane wartości jako sugestię rzeczywistych wartości granicę prozodyczną wybranego głosu. Usługa zamiany tekstu na mowę lub zastępuje wartości, które nie są obsługiwane. Przykłady nieobsługiwanych wartości to wysokość 1 MHz lub objętość 120.
+Ponieważ wartości atrybutów prosodycznych mogą się różnić w szerokim zakresie, aparat rozpoznawania mowy interpretuje przypisane wartości jako sugestię, jakie powinny być rzeczywiste wartości prosodyczne wybranego głosu. Usługa rozpoznawania tekstu na mowę ogranicza lub zastępuje wartości, które nie są obsługiwane. Przykłady nieobsługiwanych wartości to wysokość 1 MHz lub wolumin 120.
 
 **Składnia**
 
@@ -665,16 +665,16 @@ Ponieważ wartości atrybutów granicę prozodyczną mogą się różnić w ró�
 
 | Atrybut | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
-| `pitch` | Wskazuje gęstość linii bazowej dla tekstu. Możesz wyrazić gęstość jako:<ul><li>Wartość bezwzględna wyrażona jako liczba, po której następuje "Hz" (Hz). Na przykład `<prosody pitch="600Hz">some text</prosody>`.</li><li>Wartość względna, wyrażona jako liczba poprzedzona znakiem "+" lub "-", po której następuje "Hz" lub "St", która określa ilość, aby zmienić gęstość. Na przykład: `<prosody pitch="+80Hz">some text</prosody>` lub `<prosody pitch="-2st">some text</prosody>` . "St" wskazuje, że jednostka zmiany to semitone, czyli połowę tonu (pół kroku) w standardowej skali Diatonic.</li><li>Stała wartość:<ul><li>x — niska</li><li>małą</li><li>średni</li><li>wysoka</li><li>x — wysoka</li><li>default</li></ul></li></ul> | Opcjonalne |
-| `contour` |Rozkład obsługuje teraz zarówno neuronowych, jak i standardowe głosy. Rozkład reprezentuje zmiany w wysokości. Te zmiany są reprezentowane jako tablica obiektów docelowych w określonych miejscach w danych wyjściowych mowy. Każdy element docelowy jest definiowany przez zestawy par parametrów. Na przykład: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Pierwsza wartość w każdym zestawie parametrów określa lokalizację zmiany w postaci procentu czasu trwania tekstu. Druga wartość określa wielkość, aby podnieść lub obniżyć gęstość, przy użyciu wartości względnej lub wartości wyliczenia dla skoku (zobacz `pitch` ). | Opcjonalne |
-| `range` | Wartość, która reprezentuje zakres skoku dla tekstu. Można wyrazić `range` przy użyciu tych samych wartości bezwzględnych, wartości względnych lub wartości wyliczenia, które są używane do opisywania `pitch` . | Opcjonalne |
-| `rate` | Wskazuje stawkę głosu tekstu. Można wyrazić `rate` jako:<ul><li>Wartość względna wyrażona jako liczba, która działa jako mnożnik wartości domyślnej. Na przykład wartość *1* powoduje brak zmian w szybkości. Wartość *0,5* skutkuje halving szybkością. Wartość *3* powoduje przekroczenie stawki.</li><li>Stała wartość:<ul><li>x — powolne</li><li>opóźnienie</li><li>średni</li><li>szybki</li><li>x — Fast</li><li>default</li></ul></li></ul> | Opcjonalne |
-| `duration` | Okres, który powinien upłynąć, gdy usługa synteza mowy (TTS) odczytuje tekst w sekundach lub milisekundach. Na przykład *2S* lub *1800ms*. Czas trwania obsługuje tylko głosy standardowe.| Opcjonalne |
-| `volume` | Wskazuje poziom głośności głosu. Wolumin można wyrazić jako:<ul><li>Wartość bezwzględna wyrażona jako liczba z zakresu od 0,0 do 100,0, od *najcisza* do *głośnie*. Na przykład 75. Wartość domyślna to 100,0.</li><li>Wartość względna wyrażona jako liczba poprzedzona znakiem "+" lub "-", która określa wielkość zmiany woluminu. Na przykład + 10 lub-5,5.</li><li>Stała wartość:<ul><li>automatycznie</li><li>x — niewygładzone</li><li>rezerwacje</li><li>średni</li><li>głośn</li><li>x-głośne</li><li>default</li></ul></li></ul> | Opcjonalne |
+| `pitch` | Wskazuje linię bazową tekstu. Możesz wyrazić swoją opinię w następujący sposób:<ul><li>Wartość bezwzględna wyrażona jako liczba, po której następuje "Hz" (Hertz). Na przykład `<prosody pitch="600Hz">some text</prosody>`.</li><li>Wartość względna wyrażona jako liczba poprzedzona "+" lub "-" i po niej "Hz" lub "st", która określa ilość, która ma zmienić wysokość. Na przykład: `<prosody pitch="+80Hz">some text</prosody>` lub `<prosody pitch="-2st">some text</prosody>` . "st" wskazuje, że jednostka zmiany jest półtonem, czyli połową tonu (pół kroku) w standardowej skali diatonicznej.</li><li>Wartość stała:<ul><li>x-low</li><li>Niskie</li><li>średni</li><li>wysoka</li><li>x-high</li><li>default</li></ul></li></ul> | Opcjonalne |
+| `contour` |Teraz System obsługuje zarówno neuronowe, jak i standardowe głosy. Kształt reprezentuje zmiany w schyłce. Te zmiany są reprezentowane jako tablica elementów docelowych w określonych pozycjach czasu w danych wyjściowych mowy. Każdy element docelowy jest definiowany przez zestawy par parametrów. Na przykład: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Pierwsza wartość w każdym zestawie parametrów określa lokalizację zmiany rzutu jako wartość procentową czasu trwania tekstu. Druga wartość określa ilość, która ma być podniesiena lub niższa, przy użyciu wartości względnej lub wartości wyliczenia dla wysokość (zobacz `pitch` ). | Opcjonalne |
+| `range` | Wartość reprezentująca zakres nachylinia tekstu. Wyrażenia można wyrazić `range` przy użyciu tych samych wartości bezwzględnych, wartości względnych lub wartości wyliczenia, które są używane do opisywania wartości `pitch` . | Opcjonalne |
+| `rate` | Wskazuje szybkość wypowiadania tekstu. Możesz wyrazić `rate` jako:<ul><li>Wartość względna wyrażona jako liczba, która działa jako mnożnik wartości domyślnej. Na przykład wartość *1* powoduje, że stawka nie zmienia się. Wartość *0,5 powoduje* zmniejszenie o połowę stawki. Wartość *3* powoduje tripling stawki.</li><li>Wartość stała:<ul><li>wolne x</li><li>Powolny</li><li>średni</li><li>szybki</li><li>x-fast</li><li>default</li></ul></li></ul> | Opcjonalne |
+| `duration` | Okres, który powinien upłynąć, gdy usługa syntezy mowy (TTS) odczytuje tekst w sekundach lub milisekundach. Na przykład *2s* lub *1800ms*. Czas trwania obsługuje tylko standardowe głosy.| Opcjonalne |
+| `volume` | Wskazuje poziom głośności wypowiadania głosu. Wolumin można wyrazić w następujący sposób:<ul><li>Wartość bezwzględna wyrażona jako liczba z zakresu od 0,0 do 100,0, od najspokojniejszego do *najgłębszego*.  Na przykład 75. Wartość domyślna to 100.0.</li><li>Wartość względna wyrażona jako liczba poprzedzona przez "+" lub "-", która określa ilość do zmiany woluminu. Na przykład +10 lub -5,5.</li><li>Wartość stała:<ul><li>Cichy</li><li>x-soft</li><li>Miękkie</li><li>średni</li><li>Głośno</li><li>x-loud</li><li>default</li></ul></li></ul> | Opcjonalne |
 
-### <a name="change-speaking-rate"></a>Zmień częstotliwość mówienia
+### <a name="change-speaking-rate"></a>Zmiana szybkości mówienia
 
-Stawkę głosu można zastosować do neuronowych głosów i głosów standardowych na poziomie wyrazu lub zdania.
+Szybkość mówienia można zastosować do neuronowych i standardowych głosów na poziomie słowa lub zdania.
 
 **Przykład**
 
@@ -688,9 +688,9 @@ Stawkę głosu można zastosować do neuronowych głosów i głosów standardowy
 </speak>
 ```
 
-### <a name="change-volume"></a>Zmień wolumin
+### <a name="change-volume"></a>Zmienianie woluminu
 
-Zmiany woluminów mogą być stosowane do głosów standardowych na poziomie wyrazu lub zdania. Zmiany woluminów mogą być stosowane tylko do głosów neuronowych na poziomie zdania.
+Zmiany głośności można zastosować do standardowych głosów na poziomie słowa lub zdania. Zmiany głośności można stosować tylko do neuronowych głosów na poziomie zdania.
 
 **Przykład**
 
@@ -704,9 +704,9 @@ Zmiany woluminów mogą być stosowane do głosów standardowych na poziomie wyr
 </speak>
 ```
 
-### <a name="change-pitch"></a>Zmień wysokość
+### <a name="change-pitch"></a>Zmiana wysokość
 
-Zmiany wysokości mogą być stosowane do głosów standardowych na poziomie wyrazu lub zdania. Zmiany szerokości mogą być stosowane tylko do głosów neuronowych na poziomie zdania.
+Zmiany wysokość można zastosować do standardowych głosów na poziomie słowa lub zdania. Natomiast zmiany wysokości mogą być stosowane tylko do neuronowych głosów na poziomie zdania.
 
 **Przykład**
 
@@ -718,10 +718,10 @@ Zmiany wysokości mogą być stosowane do głosów standardowych na poziomie wyr
 </speak>
 ```
 
-### <a name="change-pitch-contour"></a>Zmień rozkład wysokości
+### <a name="change-pitch-contour"></a>Zmiana zachwyt
 
 > [!IMPORTANT]
-> Zmiany rozkładu pochylenia są teraz obsługiwane z głosymi neuronowych.
+> Zmiany w pochylić są teraz obsługiwane przy użyciu głosów neuronowych.
 
 **Przykład**
 
@@ -734,9 +734,9 @@ Zmiany wysokości mogą być stosowane do głosów standardowych na poziomie wyr
     </voice>
 </speak>
 ```
-## <a name="say-as-element"></a>"Powiedz" jako element
+## <a name="say-as-element"></a>say-as, element
 
-`say-as` jest elementem opcjonalnym, który wskazuje typ zawartości (na przykład liczbę lub datę) tekstu elementu. Zapewnia to wskazówkę dotyczącą aparatu syntezy mowy dotyczącą sposobu wymawiania tekstu.
+`say-as` jest opcjonalnym elementem, który wskazuje typ zawartości (taki jak liczba lub data) tekstu elementu. Zapewnia to wskazówki dla aparatu syntezy mowy dotyczące sposobu wymawiania tekstu.
 
 **Składnia**
 
@@ -746,35 +746,35 @@ Zmiany wysokości mogą być stosowane do głosów standardowych na poziomie wyr
 
 **Atrybuty**
 
-| Atrybut | Opis | Wymagane/opcjonalne |
+| Atrybut | Opis | Wymagane/Opcjonalne |
 |-----------|-------------|---------------------|
-| `interpret-as` | Wskazuje typ zawartości tekstu elementu. Aby zapoznać się z listą typów, zobacz poniższą tabelę. | Wymagane |
-| `format` | Zawiera dodatkowe informacje na temat precyzyjnego formatowania tekstu elementu dla typów zawartości, które mogą mieć niejednoznaczne formaty. SSML definiuje formaty dla typów zawartości, które ich używają (patrz tabela poniżej). | Opcjonalne |
-| `detail` | Wskazuje poziom szczegółowości, który ma być wypowiadany. Na przykład ten atrybut może zażądać, aby aparat syntezy mowy wymawiał znaki interpunkcyjne. Nie zdefiniowano standardowych wartości dla `detail` . | Opcjonalne |
+| `interpret-as` | Wskazuje typ zawartości tekstu elementu. Aby uzyskać listę typów, zobacz tabelę poniżej. | Wymagane |
+| `format` | Zawiera dodatkowe informacje o dokładnym formatowaniu tekstu elementu dla typów zawartości, które mogą mieć niejednoznaczne formaty. SSML definiuje formaty dla typów zawartości, które ich używają (zobacz tabelę poniżej). | Opcjonalne |
+| `detail` | Wskazuje poziom szczegółowości, które mają być wypowiadane. Na przykład ten atrybut może zażądać, aby aparat syntezy mowy wymawiał znaki interpunkcje. Nie ma żadnych standardowych wartości zdefiniowanych dla `detail` . | Opcjonalne |
 
 <!-- I don't understand the last sentence. Don't we know which one Cortana uses? -->
 
-Poniżej przedstawiono obsługiwane typy zawartości dla `interpret-as` `format` atrybutów i. Uwzględnij `format` atrybut tylko wtedy, gdy `interpret-as` jest ustawiony na datę i godzinę.
+Poniżej przedstawiono obsługiwane typy zawartości dla `interpret-as` atrybutów `format` i . Uwzględnij `format` atrybut tylko `interpret-as` wtedy, gdy ustawiono wartość data i godzina.
 
-| Interpretuj jako | format | Interpretacja |
+| interpret-as | format | Interpretacja |
 |--------------|--------|----------------|
-| `address` | | Tekst jest wymawiany jako adres. Aparat syntezy mowy mówi:<br /><br />`I'm at <say-as interpret-as="address">150th CT NE, Redmond, WA</say-as>`<br /><br />Podobnie jak w przypadku 150th sąd północno-wschodnia (Waszyngton). |
-| `cardinal`, `number` | | Tekst jest wymawiany jako numer kardynalny. Aparat syntezy mowy mówi:<br /><br />`There are <say-as interpret-as="cardinal">3</say-as> alternatives`<br /><br />Jak "Istnieją trzy alternatywy". |
-| `characters`, `spell-out` | | Tekst jest wymawiany jako pojedyncze litery (wypisane). Aparat syntezy mowy mówi:<br /><br />`<say-as interpret-as="characters">test</say-as>`<br /><br />Jako "T E S T". |
-| `date` | DMY, MDR, YMD, YDM, ym, my, MD, DM, d, m, y | Tekst jest wymawiany jako Data. Ten `format` atrybut określa format daty (*d = Day, m = month i y = Year*). Aparat syntezy mowy mówi:<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />Jako "dzisiaj jest Nineteenth październik 2016." |
-| `digits`, `number_digit` | | Tekst jest wymawiany jako sekwencja pojedynczych cyfr. Aparat syntezy mowy mówi:<br /><br />`<say-as interpret-as="number_digit">123456789</say-as>`<br /><br />Jako "1 2 3 4 5 6 7 8 9". |
-| `fraction` | | Tekst jest wymawiany jako liczba ułamkowa. Aparat syntezy mowy mówi:<br /><br /> `<say-as interpret-as="fraction">3/8</say-as> of an inch`<br /><br />Jako "trzy osiem cala". |
-| `ordinal` | | Tekst jest wymawiany jako numer porządkowy. Aparat syntezy mowy mówi:<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />Jako "Wybierz trzecią opcję". |
-| `telephone` | | Tekst jest wymawiany jako numer telefonu. Ten `format` atrybut może zawierać cyfry, które reprezentują kod kraju. Na przykład "1" dla Stany Zjednoczone lub "39" dla Włoch. Aparat syntezy mowy może korzystać z tych informacji w celu podzielenia wymowy numeru telefonu. Numer telefonu może zawierać również kod kraju, a jeśli tak, ma pierwszeństwo przed kodem kraju w `format` . Aparat syntezy mowy mówi:<br /><br />`The number is <say-as interpret-as="telephone" format="1">(888) 555-1212</say-as>`<br /><br />Jako "mój numer jest kodem obszaru 8 8 8 5 5 5 1 2 1 2." |
-| `time` | hms12, hms24 | Tekst jest wymawiany jako czas. Ten `format` atrybut określa, czy czas jest określony przy użyciu zegara 12-godzinnego (hms12), czy 24-godzinnego zegara (hms24). Użyj dwukropka do oddzielenia liczb reprezentujących godziny, minuty i sekundy. Poniżej przedstawiono prawidłowe przykłady czasu: 12:35, 1:14:32, 08:15 i 02:50:45. Aparat syntezy mowy mówi:<br /><br />`The train departs at <say-as interpret-as="time" format="hms12">4:00am</say-as>`<br /><br />Jako "pozostała część" uczenia w czterech A M ". |
+| `address` | | Tekst jest wypowiadany jako adres. Aparat syntezy mowy wymawia:<br /><br />`I'm at <say-as interpret-as="address">150th CT NE, Redmond, WA</say-as>`<br /><br />Jako "Jestem w 150. sądzie północno-wschodnim Redmond w stanie Waszyngton". |
+| `cardinal`, `number` | | Tekst jest wypowiadany jako liczba kardynacyjna. Aparat syntezy mowy wymawia:<br /><br />`There are <say-as interpret-as="cardinal">3</say-as> alternatives`<br /><br />Jako "Istnieją trzy alternatywy". |
+| `characters`, `spell-out` | | Tekst jest wypowiadany jako pojedyncze litery (pisownia). Aparat syntezy mowy wymawia:<br /><br />`<say-as interpret-as="characters">test</say-as>`<br /><br />Jako "T E S T." |
+| `date` | dmy, mdy, ymd, ydm, ym, my, md, dm, d, m, y | Tekst jest wypowiadany jako data. Atrybut `format` określa format daty *(d=dzień, m=miesiąc i y=rok).* Aparat syntezy mowy mówi:<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />Jako "Today is October 2019th two thousand sixteen" (Dzisiaj jest październikiem 2016 r.) |
+| `digits`, `number_digit` | | Tekst jest wypowiadany jako sekwencja poszczególnych cyfr. Aparat syntezy mowy mówi:<br /><br />`<say-as interpret-as="number_digit">123456789</say-as>`<br /><br />Jako "1 2 3 4 5 6 7 8 9". |
+| `fraction` | | Tekst jest wypowiadany jako liczba ułamkowa. Aparat syntezy mowy mówi:<br /><br /> `<say-as interpret-as="fraction">3/8</say-as> of an inch`<br /><br />Jako "trzy ósemki cala". |
+| `ordinal` | | Tekst jest wypowiadany jako liczba porządkowa. Aparat syntezy mowy mówi:<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />Jako "Wybierz trzecią opcję". |
+| `telephone` | | Tekst jest wypowiadany jako numer telefonu. Atrybut `format` może zawierać cyfry reprezentujące kod kraju. Na przykład "1" dla Stany Zjednoczone lub "39" dla Włoch. Aparat syntezy mowy może używać tych informacji do nakierowania wymowy numeru telefonu. Numer telefonu może również zawierać kod kraju, a jeśli tak, ma pierwszeństwo przed kodem kraju w `format` . Aparat syntezy mowy mówi:<br /><br />`The number is <say-as interpret-as="telephone" format="1">(888) 555-1212</say-as>`<br /><br />Jako "My number is area code eight eight eight five five one two one two". |
+| `time` | hms12, hms24 | Tekst jest wypowiadany jako czas. Atrybut określa, czy godzina jest określona przy użyciu `format` zegara 12-godzinnego (hms12) lub zegara 24-godzinnego (hms24). Użyj dwukropka, aby oddzielić liczby reprezentujące godziny, minuty i sekundy. Poniżej przedstawiono przykłady prawidłowego czasu: 12:35, 1:14:32, 08:15 i 02:50:45. Aparat syntezy mowy wymawia:<br /><br />`The train departs at <say-as interpret-as="time" format="hms12">4:00am</say-as>`<br /><br />Jako "Pociąg odjeżdża o 4:00" |
 
 **Użycie**
 
-`say-as`Element może zawierać tylko tekst.
+Element `say-as` może zawierać tylko tekst.
 
 **Przykład**
 
-Aparat syntezy mowy mówi Poniższy przykład jako "pierwsze żądanie było w jednym pokoju od Nineteenth października 20 10 z wczesnym nadejściem o godzinie 12 35 PM".
+Aparat syntezy mowy mówi następujący przykład: "Twoje pierwsze żądanie było dla jednego pokoju w dniu 200 października z wczesnych przylotów o 1205 pm".
 
 ```XML
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -787,18 +787,18 @@ Aparat syntezy mowy mówi Poniższy przykład jako "pierwsze żądanie było w j
 </speak>
 ```
 
-## <a name="add-recorded-audio"></a>Dodaj zarejestrowane audio
+## <a name="add-recorded-audio"></a>Dodawanie zarejestrowanego dźwięku
 
-`audio` to opcjonalny element, który umożliwia wstawianie audio MP3 do dokumentu SSML. Treść elementu audio może zawierać zwykły tekst lub SSML znaczników, które są wymawiane, jeśli plik dźwiękowy jest niedostępny lub nieosiągalny. Ponadto `audio` element może zawierać tekst i następujące elementy:,,,,,, `audio` `break` `p` `s` `phoneme` `prosody` `say-as` , i `sub` .
+`audio` jest opcjonalnym elementem, który umożliwia wstawianie dźwięku MP3 do dokumentu SSML. Treść elementu audio może zawierać zwykły tekst lub znacznik SSML, który jest wypowiadany, jeśli plik dźwiękowy jest niedostępny lub nie można go odtwarzać. Ponadto element może `audio` zawierać tekst i następujące elementy: , , , , , `audio` , , i `break` `p` `s` `phoneme` `prosody` `say-as` `sub` .
 
-Wszystkie audio zawarte w dokumencie SSML muszą spełniać następujące wymagania:
+Każdy dźwięk zawarty w dokumencie SSML musi spełniać następujące wymagania:
 
-* MP3 musi być hostowany w punkcie końcowym HTTPS dostępnym z Internetu. Wymagany jest protokół HTTPS, a domena hostującym plik MP3 musi mieć prawidłowy zaufany certyfikat TLS/SSL.
-* Plik MP3 musi być prawidłowym plikiem MP3 (MPEG v2).
-* Szybkość transmisji bitów musi wynosić 48 KB/s.
-* Częstotliwość próbkowania musi wynosić 16 000 Hz.
-* Łączny całkowity czas dla wszystkich plików tekstowych i dźwiękowych w pojedynczej odpowiedzi nie może przekroczyć 90 (90) sekund.
-* MP3 nie może zawierać żadnych informacji poufnych ani innych.
+* Plik MP3 musi być hostowany w punkcie końcowym HTTPS dostępnym z Internetu. Wymagany jest protokół HTTPS, a domena hostowania pliku MP3 musi przedstawiać prawidłowy, zaufany certyfikat protokołu TLS/SSL.
+* Mp3 musi być prawidłowym plikiem MP3 (MPEG v2).
+* Szybkość transmisji bitów musi być 48 KB/s.
+* Częstotliwość próbkowania musi być 16 000 Hz.
+* Łączny łączny czas dla wszystkich plików tekstowych i dźwiękowych w jednej odpowiedzi nie może przekraczać dziewięćdziesiąt (90) sekund.
+* Plik MP3 nie może zawierać żadnych informacji poufnych lub specyficznych dla klienta.
 
 **Składnia**
 
@@ -810,7 +810,7 @@ Wszystkie audio zawarte w dokumencie SSML muszą spełniać następujące wymaga
 
 | Atrybut | Opis                                   | Wymagane/opcjonalne                                        |
 |-----------|-----------------------------------------------|------------------------------------------------------------|
-| `src`     | Określa lokalizację/adres URL pliku audio. | Wymagany w przypadku używania elementu audio w dokumencie SSML. |
+| `src`     | Określa lokalizację/adres URL pliku dźwiękowego. | Wymagane w przypadku korzystania z elementu audio w dokumencie SSML. |
 
 **Przykład**
 
@@ -828,13 +828,13 @@ Wszystkie audio zawarte w dokumencie SSML muszą spełniać następujące wymaga
 </speak>
 ```
 
-## <a name="add-background-audio"></a>Dodaj dźwięk w tle
+## <a name="add-background-audio"></a>Dodawanie dźwięku w tle
 
-`mstts:backgroundaudio`Element umożliwia dodanie dźwięku w tle do dokumentów SSML (lub mieszanie pliku dźwiękowego z funkcją zamiany tekstu na mowę). Za pomocą programu możesz `mstts:backgroundaudio` zapętlać plik audio w tle, stopniowo zanikać na początku tekstu na mowę i stopniowo przechodzić na koniec zamiany tekstu na mowę.
+Element umożliwia dodawanie dźwięku w tle do dokumentów SSML (lub mieszanie pliku dźwiękowego z tekstem `mstts:backgroundaudio` na mowę). Za pomocą funkcji można zapętlić plik dźwiękowy w tle, zanikać na początku tekstu na mowę i zanikać na końcu tekstu `mstts:backgroundaudio` na mowę.
 
-Jeśli podany dźwięk w tle jest krótszy niż tekst-do-mowę lub zanikanie, spowoduje to zapętlenie. Jeśli jest dłuższa niż Zamiana tekstu na mowę, zostanie zatrzymana po zakończeniu zanikania.
+Jeśli podany dźwięk w tle jest krótszy niż tekst na mowę lub zanikanie, zostanie zapętleny. Jeśli jest on dłuższy niż tekst na mowę, zostanie zatrzymany po zakończeniu zanikanie.
 
-Dozwolony jest tylko jeden plik audio w tle dla dokumentu SSML. Można jednak przeplatać `audio` Tagi w obrębie `voice` elementu, aby dodać dodatkowe audio do dokumentu SSML.
+Na dokument SSML dozwolony jest tylko jeden plik dźwiękowy w tle. Można jednak przeplatać tagi w elemencie , aby `audio` dodać dodatkowy dźwięk do dokumentu `voice` SSML.
 
 **Składnia**
 
@@ -844,12 +844,12 @@ Dozwolony jest tylko jeden plik audio w tle dla dokumentu SSML. Można jednak pr
 
 **Atrybuty**
 
-| Atrybut | Opis | Wymagane/opcjonalne |
+| Atrybut | Opis | Wymagane/Opcjonalne |
 |-----------|-------------|---------------------|
-| `src` | Określa lokalizację/adres URL pliku dźwiękowego w tle. | Wymagany w przypadku używania dźwięku w tle w dokumencie SSML. |
-| `volume` | Określa wolumin pliku dźwiękowego w tle. **Akceptowane wartości**: `0` do `100` włącznie. Wartość domyślna to `1`. | Opcjonalne |
-| `fadein` | Określa czas trwania "zanikania" dźwięku w tle (w milisekundach). Wartość domyślna to `0` , która jest równoważna brak zanikania w. **Akceptowane wartości**: `0` do `10000` włącznie.  | Opcjonalne |
-| `fadeout` | Określa czas zanikania dźwięku w tle w milisekundach. Wartość domyślna to `0` , która jest równoważna brak zanikania. **Akceptowane wartości**: `0` do `10000` włącznie.  | Opcjonalne |
+| `src` | Określa lokalizację/adres URL pliku dźwiękowego w tle. | Wymagane w przypadku korzystania z dźwięku w tle w dokumencie SSML. |
+| `volume` | Określa wolumin pliku audio w tle. **Akceptowane wartości:** `0` na wartość `100` włącznie. Wartość domyślna to `1`. | Opcjonalne |
+| `fadein` | Określa czas trwania "zanikanie" dźwięku w tle jako milisekund. Wartość domyślna to `0` , która jest odpowiednikiem nie zanikanie. **Akceptowane wartości:** `0` na wartość `10000` włącznie.  | Opcjonalne |
+| `fadeout` | Określa czas trwania dźwięku w tle zanika w milisekundach. Wartość domyślna to `0` , która jest odpowiednikiem nie zanikanie. **Akceptowane wartości:** `0` na wartość `10000` włącznie.  | Opcjonalne |
 
 **Przykład**
 
@@ -862,14 +862,14 @@ Dozwolony jest tylko jeden plik audio w tle dla dokumentu SSML. Można jednak pr
 </speak>
 ```
 
-## <a name="bookmark-element"></a>Element zakładki
+## <a name="bookmark-element"></a>Bookmark, element
 
-Element zakładka umożliwia wstawianie niestandardowych znaczników w SSML, aby uzyskać przesunięcie każdego znacznika w strumieniu audio.
-Nie odczytujmy elementów zakładki.
-Element zakładki może służyć do odwoływania się do określonej lokalizacji w sekwencji tekstu lub tagu.
+Element bookmark umożliwia wstawianie niestandardowych znaczników w programie SSML w celu uzyskania przesunięcia każdego znacznika w strumieniu audio.
+Nie będziemy odczytywać elementów zakładki.
+Element bookmark może służyć do odwołania się do określonej lokalizacji w sekwencji tekstu lub tagu.
 
 > [!NOTE]
-> `bookmark` element działa tylko w przypadku `en-US-AriaNeural` głosu.
+> `bookmark` Element na razie działa `en-US-AriaNeural` tylko dla głosu.
 
 **Składnia**
 
@@ -885,7 +885,7 @@ Element zakładki może służyć do odwoływania się do określonej lokalizacj
 
 **Przykład**
 
-Na przykład możesz chcieć wiedzieć, jak przesunięty czas każdego kwitnienia wyrazu w następujący sposób
+Na przykład warto znać przesunięcie czasu każdego wyrazu kwiatu w następujący sposób:
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -895,21 +895,21 @@ Na przykład możesz chcieć wiedzieć, jak przesunięty czas każdego kwitnieni
 </speak>
 ```
 
-### <a name="get-bookmark-using-speech-sdk"></a>Pobieranie zakładki przy użyciu zestawu mowy SDK
+### <a name="get-bookmark-using-speech-sdk"></a>Uzyskiwanie zakładki przy użyciu zestawu SDK usługi Mowa
 
-Możesz subskrybować `BookmarkReached` zdarzenie w zestawie mowy SDK, aby uzyskać przesunięcia zakładki.
+Możesz zasubskrybować `BookmarkReached` zdarzenie w zestawie SDK usługi Mowa, aby uzyskać przesunięcia zakładek.
 
 > [!NOTE]
-> `BookmarkReached` zdarzenie jest dostępne tylko w wersji 1.16.0 SDK.
+> `BookmarkReached` Zdarzenie jest dostępne tylko od wersji 1.16.0 zestawu Speech SDK.
 
-`BookmarkReached` zdarzenia są wywoływane, gdy dane wyjściowe audio staną się dostępne, co będzie szybsze niż odtwarzanie na urządzeniu wyjściowym.
+`BookmarkReached` Zdarzenia są wywoływane, gdy dane wyjściowe audio stają się dostępne, co będzie szybsze niż odtwarzanie na urządzeniu wyjściowym.
 
-* `AudioOffset` raportuje wyjściowy czas, który upłynął między początkiem syntezy a elementem zakładki. Ta wartość jest mierzona w jednostkach setki (SNS) z 10 000 SNS równych 1 milisekund.
-* `Text` jest tekstem odniesienia elementu zakładki, który jest ciągiem ustawionym w `mark` atrybucie.
+* `AudioOffset` raportuje czas, który upłynął w wyjściowym dźwięku między początkiem syntezy a elementem zakładki. Jest to mierzone w jednostkach stu nanosekundowych (HNS) z 10 000 HNS odpowiednikiem 1 milisekundy.
+* `Text` to tekst odwołania elementu zakładki, który jest ciągiem ustawionym w `mark` atrybutze .
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Aby uzyskać więcej informacji, <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer.bookmarkreached" target="_blank"> `BookmarkReached` </a>Zobacz.
+Aby uzyskać więcej <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer.bookmarkreached" target="_blank"> `BookmarkReached` </a>informacji, zobacz .
 
 ```csharp
 synthesizer.BookmarkReached += (s, e) =>
@@ -920,7 +920,7 @@ synthesizer.BookmarkReached += (s, e) =>
 };
 ```
 
-Dla przykładu SSML powyżej `BookmarkReached` zdarzenie zostanie wyzwolone dwa razy, a dane wyjściowe konsoli będą
+W powyższym przykładzie SSML zdarzenie `BookmarkReached` zostanie wyzwolone dwa razy, a dane wyjściowe konsoli będą
 ```text
 Bookmark reached. Audio offset: 825ms, bookmark text: flower_1.
 Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
@@ -928,7 +928,7 @@ Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-Aby uzyskać więcej informacji, <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#bookmarkreached" target="_blank"> `BookmarkReached` </a>Zobacz.
+Aby uzyskać więcej <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#bookmarkreached" target="_blank"> `BookmarkReached` </a>informacji, zobacz .
 
 ```cpp
 synthesizer->BookmarkReached += [](const SpeechSynthesisBookmarkEventArgs& e)
@@ -940,7 +940,7 @@ synthesizer->BookmarkReached += [](const SpeechSynthesisBookmarkEventArgs& e)
 };
 ```
 
-Dla przykładu SSML powyżej `BookmarkReached` zdarzenie zostanie wyzwolone dwa razy, a dane wyjściowe konsoli będą
+W powyższym przykładzie SSML zdarzenie `BookmarkReached` zostanie wyzwolone dwa razy, a dane wyjściowe konsoli będą
 ```text
 Bookmark reached. Audio offset: 825ms, bookmark text: flower_1.
 Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
@@ -948,7 +948,7 @@ Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Aby uzyskać więcej informacji, <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer.bookmarkReached#com_microsoft_cognitiveservices_speech_SpeechSynthesizer_BookmarkReached" target="_blank"> `BookmarkReached` </a>Zobacz.
+Aby uzyskać więcej <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer.bookmarkReached#com_microsoft_cognitiveservices_speech_SpeechSynthesizer_BookmarkReached" target="_blank"> `BookmarkReached` </a>informacji, zobacz .
 
 ```java
 synthesizer.BookmarkReached.addEventListener((o, e) -> {
@@ -958,7 +958,7 @@ synthesizer.BookmarkReached.addEventListener((o, e) -> {
 });
 ```
 
-Dla przykładu SSML powyżej `BookmarkReached` zdarzenie zostanie wyzwolone dwa razy, a dane wyjściowe konsoli będą
+W powyższym przykładzie SSML zdarzenie `BookmarkReached` zostanie wyzwolone dwa razy, a dane wyjściowe konsoli będą
 ```text
 Bookmark reached. Audio offset: 825ms, bookmark text: flower_1.
 Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
@@ -966,7 +966,7 @@ Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Aby uzyskać więcej informacji, <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer#bookmark-reached" target="_blank"> `bookmark_reached` </a>Zobacz.
+Aby uzyskać więcej <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer#bookmark-reached" target="_blank"> `bookmark_reached` </a>informacji, zobacz .
 
 ```python
 # The unit of evt.audio_offset is tick (1 tick = 100 nanoseconds), divide it by 10,000 to convert to milliseconds.
@@ -974,7 +974,7 @@ speech_synthesizer.bookmark_reached.connect(lambda evt: print(
     "Bookmark reached: {}, audio offset: {}ms, bookmark text: {}.".format(evt, evt.audio_offset / 10000, evt.text)))
 ```
 
-Dla przykładu SSML powyżej `bookmark_reached` zdarzenie zostanie wyzwolone dwa razy, a dane wyjściowe konsoli będą
+W powyższym przykładzie SSML zdarzenie `bookmark_reached` zostanie wyzwolone dwa razy, a dane wyjściowe konsoli będą
 ```text
 Bookmark reached, audio offset: 825ms, bookmark text: flower_1.
 Bookmark reached, audio offset: 1462.5ms, bookmark text: flower_2.
@@ -982,7 +982,7 @@ Bookmark reached, audio offset: 1462.5ms, bookmark text: flower_2.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Aby uzyskać więcej informacji, <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer#bookmarkReached" target="_blank"> `bookmarkReached` </a>Zobacz.
+Aby uzyskać więcej <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer#bookmarkReached" target="_blank"> `bookmarkReached` </a>informacji, zobacz .
 
 ```javascript
 synthesizer.bookmarkReached = function (s, e) {
@@ -990,7 +990,7 @@ synthesizer.bookmarkReached = function (s, e) {
 }
 ```
 
-Dla przykładu SSML powyżej `bookmarkReached` zdarzenie zostanie wyzwolone dwa razy, a dane wyjściowe konsoli będą
+W powyższym przykładzie SSML zdarzenie `bookmarkReached` zostanie wyzwolone dwa razy, a dane wyjściowe konsoli będą
 ```text
 (Bookmark reached), Audio offset: 825ms, bookmark text: flower_1.
 (Bookmark reached), Audio offset: 1462.5ms, bookmark text: flower_2.
@@ -998,7 +998,7 @@ Dla przykładu SSML powyżej `bookmarkReached` zdarzenie zostanie wyzwolone dwa 
 
 # <a name="objective-c"></a>[Objective-C](#tab/objectivec)
 
-Aby uzyskać więcej informacji, <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechsynthesizer#addbookmarkreachedeventhandler" target="_blank"> `addBookmarkReachedEventHandler` </a>Zobacz.
+Aby uzyskać więcej <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechsynthesizer#addbookmarkreachedeventhandler" target="_blank"> `addBookmarkReachedEventHandler` </a>informacji, zobacz .
 
 ```objectivec
 [synthesizer addBookmarkReachedEventHandler: ^ (SPXSpeechSynthesizer *synthesizer, SPXSpeechSynthesisBookmarkEventArgs *eventArgs) {
@@ -1007,7 +1007,7 @@ Aby uzyskać więcej informacji, <a href="https://docs.microsoft.com/objectivec/
 }];
 ```
 
-Dla przykładu SSML powyżej `BookmarkReached` zdarzenie zostanie wyzwolone dwa razy, a dane wyjściowe konsoli będą
+W powyższym przykładzie SSML zdarzenie `BookmarkReached` zostanie wyzwolone dwa razy, a dane wyjściowe konsoli będą
 ```text
 Bookmark reached. Audio offset: 825ms, bookmark text: flower_1.
 Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
@@ -1015,10 +1015,10 @@ Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
 
 # <a name="swift"></a>[Swift](#tab/swift)
 
-Aby uzyskać więcej informacji, <a href="https://docs.microsoft.com/swift/cognitive-services/speech/spxspeechsynthesizer#addbookmarkreachedeventhandler" target="_blank"> `addBookmarkReachedEventHandler` </a>Zobacz.
+Aby uzyskać więcej <a href="/objectivec/cognitive-services/speech/spxspeechsynthesizer" target="_blank"> `addBookmarkReachedEventHandler` </a>informacji, zobacz .
 
 ---
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Obsługa języków: głosy, zmienne lokalne, Języki](language-support.md)
+* [Obsługa języków: głosy, ustawienia lokalne, języki](language-support.md)

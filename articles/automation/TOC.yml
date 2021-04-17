@@ -66,13 +66,19 @@
           href: automation-create-standalone-account.md
         - name: Tworzenie konta usługi Automation za pomocą szablonu usługi Resource Manager
           href: quickstart-create-automation-account-template.md
+        - name: Tożsamość zarządzana
+          items:
+            - name: Włączanie tożsamości zarządzanej
+              href: enable-managed-identity-for-automation.md
+            - name: Wyłączanie tożsamości zarządzanej
+              href: disable-managed-identity-for-automation.md
         - name: Konto Uruchom jako
           items:
-            - name: Utwórz konto Uruchom jako
+            - name: Tworzenie konta Uruchom jako
               href: create-run-as-account.md
             - name: Usuwanie konta Uruchom jako
               href: delete-run-as-account.md
-            - name: Zarządzaj kontem Uruchom jako
+            - name: Zarządzanie kontem Uruchom jako
               href: manage-runas-account.md
         - name: Konfigurowanie uwierzytelniania przy użyciu usługi Amazon Web Services
           href: automation-config-aws-account.md
@@ -116,7 +122,7 @@
           href: troubleshoot/shared-resources.md
     - name: Automatyzacja procesów
       items:
-        - name: Korzystanie z istniejących elementów Runbook i modułów
+        - name: Korzystanie z istniejących modułów i podręczników Runbook
           href: automation-runbook-gallery.md
         - name: Poznawanie przepływu pracy programu PowerShell
           href: automation-powershell-workflow.md

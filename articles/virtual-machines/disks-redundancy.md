@@ -1,6 +1,6 @@
 ---
-title: Opcje nadmiarowości dla usługi Azure Managed disks
-description: Informacje na temat magazynu Strefowo nadmiarowego i lokalnie nadmiarowego magazynu dla usługi Azure Managed Disks.
+title: Opcje nadmiarowości dla dysków zarządzanych platformy Azure
+description: Dowiedz się więcej na temat magazynu strefowo nadmiarowego i magazynu lokalnie nadmiarowego dla dysków zarządzanych platformy Azure.
 author: roygara
 ms.author: rogarana
 ms.date: 03/02/2021
@@ -8,57 +8,57 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: f0f3baf1bf56f958408f789961812c0555f289f1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0882efeccfc8dc83686d75ab39b8364219c3b5f1
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102043647"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588092"
 ---
 # <a name="redundancy-options-for-managed-disks"></a>Opcje nadmiarowości dla dysków zarządzanych
 
-Usługa Azure Managed disks oferuje dwie opcje nadmiarowości magazynu, magazyn strefowo nadmiarowy (ZRS) jako wersja zapoznawcza i Magazyn lokalnie nadmiarowy. Usługa ZRS zapewnia wyższą dostępność dla dysków zarządzanych niż magazyn lokalnie nadmiarowy (LRS). Jednak opóźnienie zapisu dla dysków LRS jest lepsze niż dyski ZRS, ponieważ dyski LRS synchronicznie zapisują dane do trzech kopii w jednym centrum danych.
+Dyski zarządzane platformy Azure oferują dwie opcje nadmiarowości magazynu: magazyn strefowo nadmiarowy (ZRS) jako wersja zapoznawcza i magazyn lokalnie nadmiarowy. Magazyn ZRS zapewnia wyższą dostępność dysków zarządzanych niż magazyn lokalnie nadmiarowy (LRS). Jednak opóźnienie zapisu dla dysków LRS jest lepsze niż dyski ZRS, ponieważ dyski LRS synchronicznie zapisują dane do trzech kopii w jednym centrum danych.
 
 ## <a name="locally-redundant-storage-for-managed-disks"></a>Magazyn lokalnie nadmiarowy dla dysków zarządzanych
 
-Magazyn lokalnie nadmiarowy (LRS) replikuje dane trzy razy w jednym centrum danych w wybranym regionie. LRS chroni dane przed awarią serwera i uszkodzeniem dysku. 
+Magazyn lokalnie nadmiarowy (LRS) replikuje dane trzy razy w jednym centrum danych w wybranym regionie. Magazyn LRS chroni dane przed awariami stojaków i dysków serwera. 
 
-Istnieje kilka sposobów na ochronę aplikacji przy użyciu dysków LRS z całego błędu strefy, który może wystąpić z powodu klęski żywiołowej lub problemów ze sprzętem:
-- Użyj aplikacji, takiej jak SQL Server AlwaysOn, która może synchronicznie zapisywać dane w dwóch strefach i automatycznie przełączeć w tryb failover do innej strefy podczas awarii.
-- Twórz często wykonywane kopie zapasowe dysków LRS za pomocą migawek ZRS.
-- Włącz odzyskiwanie po awarii między strefami dla dysków LRS za pośrednictwem [Azure Site Recovery](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md). Jednak odzyskiwanie awaryjne między strefami nie zapewnia zerowego celu punktu odzyskiwania.
+Istnieje kilka sposobów ochrony aplikacji przy użyciu dysków LRS przed awarią całej strefy, która może wystąpić z powodu klęski żywiołowej lub problemów ze sprzętem:
+- Użyj aplikacji, SQL Server AlwaysOn, która może synchronicznie zapisywać dane w dwóch strefach i automatycznie przejść w tryb failover do innej strefy podczas awarii.
+- Częste tworzenie kopii zapasowych dysków LRS za pomocą migawek magazynu ZRS.
+- Włącz odzyskiwanie po awarii między strefami dla dysków LRS za [pośrednictwem Azure Site Recovery](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md). Jednak odzyskiwanie po awarii między strefami nie zapewnia zerowego celu punktu odzyskiwania (RPO, Recovery Point Objective).
 
-Jeśli przepływ pracy nie obsługuje synchronicznych zapisów na poziomie aplikacji w różnych strefach lub aplikacja musi spełniać zerowy cel punktu odzyskiwania, dyski ZRS są idealnym rozwiązaniem.
+Jeśli przepływ pracy nie obsługuje synchronicznych operacji zapisu na poziomie aplikacji w strefach lub aplikacja musi spełniać zerowy celu punktu odzyskiwania, dyski ZRS będą idealne.
 
 ## <a name="zone-redundant-storage-for-managed-disks-preview"></a>Magazyn strefowo nadmiarowy dla dysków zarządzanych (wersja zapoznawcza)
 
 Magazyn strefowo nadmiarowy (ZRS) replikuje dysk zarządzany platformy Azure synchronicznie w trzech strefach dostępności platformy Azure w wybranym regionie. Każda strefa dostępności jest oddzielną lokalizacją fizyczną z niezależnym zasilaniem, chłodzeniem i siecią. 
 
-Dyski ZRS umożliwiają odzyskiwanie z błędów w strefach dostępności. W przypadku przełączenia całej strefy dysk ZRS może zostać dołączony do maszyny wirtualnej w innej strefie. Dysków ZRS można także używać jako dysku udostępnionego, aby zapewnić lepszą dostępność aplikacji klastrowanych lub rozproszonych, takich jak SQL FCI, SAP ASCS/SCS lub GFS2. Udostępniony dysk ZRS można dołączyć do podstawowych i dodatkowych maszyn wirtualnych w różnych strefach, aby korzystać z obu ZRS i [strefy dostępności](../availability-zones/az-overview.md). Jeśli Twoja strefa podstawowa ulegnie awarii, możesz szybko przejść w tryb failover na pomocniczą maszynę wirtualną, używając [trwałej rezerwacji interfejsu SCSI](disks-shared-enable.md#supported-scsi-pr-commands).
+Dyski ZRS umożliwiają odzyskiwanie po awarii w strefach dostępności. W przypadku awarii całej strefy dysk ZRS można dołączyć do maszyny wirtualnej w innej strefie. Możesz również użyć dysków ZRS jako dysku udostępnionego, aby zapewnić lepszą dostępność dla aplikacji klastrowanych lub rozproszonych, takich jak SQL FCI, SAP ASCS/SCS lub GFS2. Udostępniony dysk ZRS można dołączyć do podstawowej i pomocniczej maszyny wirtualnej w różnych strefach, aby korzystać z zalet zarówno ZRS, [jak i Strefy dostępności.](../availability-zones/az-overview.md) Jeśli strefa podstawowa ulegnie awarii, możesz szybko przejść do trybu fail over dodatkowej maszyny wirtualnej przy użyciu [trwałej rezerwacji SCSI.](disks-shared-enable.md#supported-scsi-pr-commands)
 
 ### <a name="limitations"></a>Ograniczenia
 
-W wersji zapoznawczej ZRS dla dysków zarządzanych mają następujące ograniczenia:
+W wersji zapoznawczej usługi ZRS dla dysków zarządzanych mają następujące ograniczenia:
 
-- Obsługiwane tylko w przypadku dysków SSD w warstwie Premium (SSD) i Standardowa dysków SSD.
+- Obsługiwane tylko w przypadku dysków półprzewodnikowych (SSD) i dysków SSD w warstwie Standardowa w warstwie Premium.
 - Obecnie dostępne tylko w regionie EastUS2EUAP.
-- Dyski ZRS można tworzyć tylko za pomocą szablonów Azure Resource Manager przy użyciu `2020-12-01` interfejsu API.
+- Dyski ZRS można tworzyć tylko za pomocą Azure Resource Manager szablonów przy użyciu interfejsu `2020-12-01` API.
 
-Utwórz konto w wersji zapoznawczej [tutaj](https://aka.ms/ZRSDisksPreviewSignUp).
+Zarejestruj się, aby uzyskać podgląd [tutaj.](https://aka.ms/ZRSDisksPreviewSignUp)
 
-### <a name="billing-implications"></a>Implikacje rozliczeń
+### <a name="billing-implications"></a>Implikacje dotyczące rozliczeń
 
-Aby uzyskać szczegółowe informacje, zobacz [stronę z cennikiem platformy Azure](https://azure.microsoft.com/pricing/details/managed-disks/).
+Aby uzyskać szczegółowe informacje, zobacz [stronę cennika platformy Azure.](https://azure.microsoft.com/pricing/details/managed-disks/)
 
 ### <a name="comparison-with-other-disk-types"></a>Porównanie z innymi typami dysków
 
-Z wyjątkiem opóźnień zapisu dyski używające ZRS są identyczne z dyskami przy użyciu LRS. Mają one te same cele wydajności.
+Z wyjątkiem większej opóźnienia zapisu dyski korzystające z magazynu ZRS są identyczne z dyskami korzystającymi z magazynu LRS. Mają one te same cele wydajności. Zalecamy przeprowadzenie testów [porównawczych](disks-benchmarks.md) dysków w celu symulowania obciążenia aplikacji w celu porównania opóźnienia między dyskami LRS i ZRS. 
 
-### <a name="create-zrs-managed-disks"></a>Tworzenie dysków zarządzanych ZRS
+### <a name="create-zrs-managed-disks"></a>Tworzenie dysków zarządzanych magazynu ZRS
 
 Użyj `2020-12-01` interfejsu API z szablonem Azure Resource Manager, aby utworzyć dysk ZRS.
 
-#### <a name="create-a-vm-with-zrs-disks"></a>Tworzenie maszyny wirtualnej przy użyciu dysków ZRS
+#### <a name="create-a-vm-with-zrs-disks"></a>Tworzenie maszyny wirtualnej z dyskami ZRS
 
 ```
 $vmName = "yourVMName" 
@@ -80,7 +80,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 -dataDiskType $dataDiskType
 ```
 
-#### <a name="create-vms-with-a-shared-zrs-disk-attached-to-the-vms-in-different-zones"></a>Tworzenie maszyn wirtualnych z udostępnionym dyskiem ZRS podłączonym do maszyn wirtualnych w różnych strefach
+#### <a name="create-vms-with-a-shared-zrs-disk-attached-to-the-vms-in-different-zones"></a>Tworzenie maszyn wirtualnych z udostępnionym dyskiem ZRS dołączonym do maszyn wirtualnych w różnych strefach
 
 ```
 $vmNamePrefix = "yourVMNamePrefix"
@@ -123,4 +123,4 @@ New-AzResourceGroupDeployment -ResourceGroupName zrstesting `
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Użyj tych przykładowych [szablonów Azure Resource Manager, aby utworzyć maszynę wirtualną z dyskami ZRS](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/ZRSDisks).
+- Użyj tych przykładowych [szablonów Azure Resource Manager, aby utworzyć maszynę wirtualną z dyskami ZRS.](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/ZRSDisks)

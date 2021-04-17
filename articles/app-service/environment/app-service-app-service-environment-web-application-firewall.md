@@ -1,18 +1,18 @@
 ---
-title: Konfigurowanie WAF
-description: Dowiedz się, jak skonfigurować zaporę aplikacji sieci Web (WAF) przed App Service Environment przy użyciu usługi Azure Application Gateway lub WAF innej firmy.
+title: Konfigurowanie aplikacji sieci Szkieletowej aplikacji sieciOwej
+description: Dowiedz się, jak skonfigurować zaporę aplikacji internetowej (WAF) przed zaporą App Service Environment, za pomocą Azure Application Gateway lub zapory aplikacji internetowej innej firmy.
 author: ccompy
 ms.assetid: a2101291-83ba-4169-98a2-2c0ed9a65e8d
 ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: stefsch
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 354568fa3ab3816b643a8f08305ab55868a9b0b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 56d931f2346e5a0b615d3f11dce3b06396e586b4
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90973698"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588721"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Konfigurowanie zapory aplikacji internetowych za pomocą środowiska App Service Environment
 ## <a name="overview"></a>Omówienie
@@ -26,7 +26,7 @@ Oprócz usługi Azure Application Gateway istnieje wiele innych opcji, takich ja
 ## <a name="setup"></a>Konfiguracja
 W przypadku tego dokumentu konfigurujemy środowisko App Service Environment za wieloma wystąpieniami zapory aplikacji internetowych Barracuda ze zrównoważonym obciążeniem tak, aby tylko ruch z zapory aplikacji internetowych mógł docierać do środowiska App Service Environment i był niedostępny od sieci obwodowej. Mamy również usługę Azure Traffic Manager przed wystąpieniami zapory aplikacji internetowych Barracuda w celu zrównoważenia obciążenia w centrach danych i regionach platformy Azure. Diagram konfiguracji wysokiego poziomu będzie wyglądać podobnie jak na poniższej ilustracji:
 
-![Diagram przedstawia opcjonalne Traffic Manager platformy Azure łączące się z wystąpieniami zapory aplikacji sieci Web, łącząc się z siecią A C L, aby zezwalać tylko na ruch z zapory w App Service Environment, który zawiera aplikacje sieci Web, P I i mobilne dla dwóch regionów.][Architecture] 
+![Diagram przedstawia opcjonalny Azure Traffic Manager z wystąpieniami usługi Web Application Firewall, łączący się z siecią A C L, aby zezwolić tylko na ruch z zapory w sieci App Service Environment zawierającej sieć Web, interfejs P I i aplikację mobilną dla dwóch regionów.][Architecture] 
 
 > [!NOTE]
 > Dzięki wprowadzeniu [obsługi wewnętrznego modułu równoważenia obciążenia dla środowiska App Service Environment](app-service-environment-with-internal-load-balancer.md) można skonfigurować ASE niedostępny od sieci obwodowej i udostępniane wyłącznie do sieci prywatnej. 
@@ -66,12 +66,12 @@ Gdy się zalogujesz, powinien zostać wyświetlony pulpit nawigacyjny, taki jak 
 
 ![Zarządzanie — pulpit nawigacyjny][ManagementDashboard]
 
-Kliknięcie karty **Usługi** umożliwia skonfigurowanie zapory aplikacji internetowych dla chronionych usług. Więcej informacji na temat konfigurowania zapory aplikacji internetowych Barracuda można znaleźć w odpowiedniej [dokumentacji](https://techlib.barracuda.com/waf/getstarted1). W poniższym przykładzie skonfigurowano aplikację usługi App Service, która obsługuje ruch w obrębie protokołów HTTP i HTTPS.
+Kliknięcie karty **Usługi** umożliwia skonfigurowanie zapory aplikacji internetowych dla chronionych usług. Więcej informacji na temat konfigurowania zapory aplikacji internetowych Barracuda można znaleźć w odpowiedniej [dokumentacji](https://campus.barracuda.com/product/webapplicationfirewall/doc/4259884/configure-the-barracuda-web-application-firewall-from-the-web-interface/). W poniższym przykładzie skonfigurowano aplikację usługi App Service, która obsługuje ruch w obrębie protokołów HTTP i HTTPS.
 
 ![Zarządzanie — dodawanie usług][ManagementAddServices]
 
 > [!NOTE]
-> W zależności od sposobu skonfigurowania aplikacji i używania funkcji w App Service Environment należy przekazywać ruch dla portów TCP innych niż 80 i 443, na przykład jeśli masz konfigurację protokołu IP TLS dla aplikacji App Service. Listę portów używanych w środowiskach App Service Environment można znaleźć w sekcji dotyczącej portów sieciowych w [dokumentacji funkcji sterowania ruchem przychodzącym](app-service-app-service-environment-control-inbound-traffic.md).
+> W zależności od sposobu konfigurowania aplikacji i funkcji używanych w programie App Service Environment należy przesyłać dalej ruch dla portów TCP innych niż 80 i 443, na przykład jeśli masz skonfigurowany protokół TLS ip dla aplikacji App Service. Listę portów używanych w środowiskach App Service Environment można znaleźć w sekcji dotyczącej portów sieciowych w [dokumentacji funkcji sterowania ruchem przychodzącym](app-service-app-service-environment-control-inbound-traffic.md).
 > 
 > 
 
@@ -89,7 +89,7 @@ Aby przekazywać dalej polecenia ping usługi Traffic Manager z zapory aplikacji
 ![Tłumaczenia witryn internetowych][WebsiteTranslations]
 
 ## <a name="securing-traffic-to-app-service-environment-using-network-security-groups-nsg"></a>Zabezpieczanie ruchu do środowiska App Service Environment przy użyciu sieciowych grup zabezpieczeń
-Szczegółowe informacje na temat ograniczania ruchu do środowiska App Service Environment tylko z zapory aplikacji internetowych przy użyciu adresu VIP usługi w chmurze można znaleźć w [dokumentacji dotyczącej sterowania ruchem przychodzącym](app-service-app-service-environment-control-inbound-traffic.md). Oto przykładowe polecenie programu PowerShell służące do wykonywania tego zadania dla portu TCP 80.
+Szczegółowe informacje na temat ograniczania ruchu do środowiska App Service Environment tylko z zapory aplikacji internetowych przy użyciu adresu VIP usługi w chmurze można znaleźć w [dokumentacji dotyczącej sterowania ruchem przychodzącym](app-service-app-service-environment-control-inbound-traffic.md). Oto przykładowe polecenie programu PowerShell służące do wykonywania tego zadania na porcie TCP 80.
 
 ```azurepowershell-interactive
 Get-AzureNetworkSecurityGroup -Name "RestrictWestUSAppAccess" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP Barracuda" -Type Inbound -Priority 201 -Action Allow -SourceAddressPrefix '191.0.0.1'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP

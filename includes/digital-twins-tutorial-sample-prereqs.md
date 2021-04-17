@@ -1,36 +1,36 @@
 ---
 author: baanders
-description: Dołączanie pliku dla samouczków Digital bliźniaczych reprezentacji systemu Azure — wymagania wstępne dla przykładowego projektu
+description: plik dołączania Azure Digital Twins samouczków — wymagania wstępne dotyczące przykładowego projektu
 ms.service: digital-twins
 ms.topic: include
 ms.date: 1/20/2021
 ms.author: baanders
-ms.openlocfilehash: 43cc3dfc5b425df6d9dd5e2c2f35a792907ccdea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 00d584690d37f1dcc47b785ef533abe888befec3
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103622357"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107512567"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać kroki opisane w tym samouczku, należy najpierw wykonać poniższe wymagania wstępne. 
+Aby wykonać kroki opisane w tym samouczku, należy najpierw spełnić następujące wymagania wstępne. 
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem **Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** .
+Jeśli nie masz subskrypcji platformy **Azure, [](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** przed rozpoczęciem utwórz bezpłatne konto.
 
-### <a name="get-required-resources"></a>Pobierz wymagane zasoby
+### <a name="get-required-resources"></a>Uzyskiwanie wymaganych zasobów
 
-Aby ukończyć ten samouczek, **Zainstaluj [program Visual Studio 2019](https://visualstudio.microsoft.com/downloads/), wersję 16,5 lub nowszą** na komputerze deweloperskim. Jeśli masz już zainstalowaną starszą wersję, możesz otworzyć aplikację *Instalator programu Visual Studio* na maszynie i postępować zgodnie z monitami, aby zaktualizować instalację.
+Aby ukończyć ten samouczek, **[Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)r. w wersji 16.5** lub nowszej na komputerze dewelopera. Jeśli masz już zainstalowaną starszą wersję, możesz otworzyć aplikację *Instalator programu Visual Studio* na maszynie i postępować zgodnie z monitami, aby zaktualizować instalację.
 
 >[!NOTE]
-> Upewnij się, że instalacja programu Visual Studio 2019 obejmuje **[obciążenie Programowanie na platformie Azure](/dotnet/azure/configure-visual-studio)**. To obciążenie umożliwia aplikacji publikowanie usługi Azure Functions i wykonywanie innych zadań programistycznych platformy Azure.
+> Upewnij się, że instalacja programu Visual Studio 2019 obejmuje obciążenie **[Tworzenie aplikacji na platformie Azure.](/dotnet/azure/configure-visual-studio)** To obciążenie umożliwia aplikacji publikowanie funkcji platformy Azure i wykonywanie innych zadań programistyki na platformie Azure.
 
-Samouczek jest oparty na przykładowym projekcie pisanym w języku C#. Przykład znajduje się w tym miejscu: [przykłady kompleksowej usługi Azure Digital bliźniaczych reprezentacji](/samples/azure-samples/digital-twins-samples/digital-twins-samples). **Pobierz przykładowy projekt** na swoją maszynę, przechodząc do linku przykładowego i wybierając przycisk *Przeglądaj kod* pod tytułem. Spowoduje to przejście do repozytorium GitHub dla przykładów, które można pobrać jako *. Plik ZIP* , wybierając przycisk *Code (kod* ) i Pobierz plik *zip*.
+Samouczek jest oparty na przykładowym projekcie napisanym w języku C#. Przykład znajduje się tutaj: [Azure Digital Twins przykłady typu end-to-end.](/samples/azure-samples/digital-twins-samples/digital-twins-samples) **Pobierz przykładowy projekt** na swojej maszynie, przechodząc do linku przykładowego i wybierając przycisk *Przeglądaj* kod pod tytułem. Spowoduje to pobranie przykładów do repozytorium GitHub, które można pobrać jako *plik . Zip* (Plik ZIP), wybierając *przycisk Code (Kod)* i Download *ZIP (Pobierz plik ZIP).*
 
-:::image type="content" source="../articles/digital-twins/media/includes/download-repo-zip.png" alt-text="Widok repozytorium Digital-bliźniaczych reprezentacji-Samples w witrynie GitHub. Wybrano przycisk kod, tworząc małe okno dialogowe, w którym jest wyróżniony przycisk Pobierz plik ZIP." lightbox="../articles/digital-twins/media/includes/download-repo-zip.png":::
+:::image type="content" source="../articles/digital-twins/media/includes/download-repo-zip.png" alt-text="Zrzut ekranu przedstawiający repozytorium digital-twins-samples w witrynie GitHub. Po wybraniu przycisku Kod zostanie wyświetlone małe okno dialogowe, w którym wyróżniony jest przycisk Pobierz plik ZIP." lightbox="../articles/digital-twins/media/includes/download-repo-zip.png":::
 
-Spowoduje to pobranie *. Folder ZIP* na maszynę jako **digital-twins-samples-master.zip**. Rozpakuj folder i Wyodrębnij pliki.
+Spowoduje to pobranie pliku *. Zip* folder to your machine as **digital-twins-samples-master.zip**. Rozpakować folder i wyodrębnić pliki.
 
-### <a name="prepare-an-azure-digital-twins-instance"></a>Przygotowanie wystąpienia usługi Azure Digital bliźniaczych reprezentacji
+### <a name="prepare-an-azure-digital-twins-instance"></a>Przygotowywanie Azure Digital Twins danych
 
 [!INCLUDE [Azure Digital Twins: instance prereq](digital-twins-prereq-instance.md)]

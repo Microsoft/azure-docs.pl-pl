@@ -1,6 +1,6 @@
 ---
-title: Szybki Start — Dodawanie symulowanego urządzenia do usługi Azure IoT Central
-description: Ten przewodnik Szybki Start przedstawia sposób tworzenia szablonu urządzenia i dodawania symulowanego urządzenia do aplikacji IoT Central.
+title: Szybki start — dodawanie symulowanego urządzenia do Azure IoT Central
+description: W tym przewodniku Szybki start pokazano, jak utworzyć szablon urządzenia i dodać symulowane urządzenie do IoT Central aplikacji.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/16/2020
@@ -8,35 +8,31 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 4c7925c1bc397e15d8b6e0f2f21d5e9147109b83
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 142d78cf8b787e04704d26bca0c650944052fd7f
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064855"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588976"
 ---
-# <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Szybki Start: Dodawanie symulowanego urządzenia do aplikacji IoT Central
+# <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Szybki start: dodawanie symulowanego urządzenia do IoT Central aplikacji
 
-*Ten artykuł dotyczy operatorów, konstruktorów i administratorów.*
+Szablon urządzenia definiuje możliwości urządzenia, które łączy się z twoją IoT Central aplikacji. Możliwości obejmują dane telemetryczne wysyłane przez urządzenie, właściwości urządzenia i polecenia, na które odpowiada urządzenie. Za pomocą szablonu urządzenia można dodać do aplikacji zarówno rzeczywiste, jak i symulowane urządzenia. Symulowane urządzenia są przydatne do testowania zachowania aplikacji IoT Central przed podłączeniem rzeczywistych urządzeń.
 
-Szablon urządzenia definiuje możliwości urządzenia, które nawiązują połączenie z aplikacją IoT Central. Możliwości obejmują dane telemetryczne wysyłane przez urządzenie, właściwości urządzenia i polecenia, na które urządzenie reaguje. Z szablonu urządzenia Konstruktor lub operator mogą dodawać do aplikacji zarówno rzeczywiste, jak i symulowane urządzenia. Symulowane urządzenia są przydatne do testowania zachowania aplikacji IoT Central przed połączeniem rzeczywistych urządzeń.
-
-W tym przewodniku szybki start dodasz szablon urządzenia dla programu ESP32-Azure IoT Development i utworzysz symulowane urządzenie. Aby ukończyć ten przewodnik Szybki Start, nie jest potrzebne rzeczywiste urządzenie, pracujesz z symulacją urządzenia. Urządzenie ESP32:
+W tym przewodniku Szybki start dodasz szablon urządzenia dla tablicy dewelopera ESP32-Azure zestawu IoT Kit i utworzysz urządzenie symulowane. Aby ukończyć ten przewodnik Szybki start, nie potrzebujesz rzeczywistego urządzenia, pracujesz z symulacją urządzenia. Urządzenie ESP32:
 
 * Wysyła dane telemetryczne, takie jak temperatura.
-* Raportuje właściwości specyficzne dla urządzenia, takie jak Maksymalna temperatura od momentu ponownego uruchomienia urządzenia.
-* Reaguje na polecenia, takie jak ponowny rozruch.
-* Raporty ogólne właściwości urządzenia, takie jak wersja oprogramowania układowego i numer seryjny.
+* Raportuje właściwości specyficzne dla urządzenia, takie jak maksymalna temperatura od momentu ponownego uruchomienia urządzenia.
+* Odpowiada na polecenia, takie jak ponowne uruchomienie.
+* Raportuje ogólne właściwości urządzenia, takie jak wersja oprogramowania układowego i numer seryjny.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Ukończ Przewodnik Szybki Start dotyczący [tworzenia aplikacji IoT Central platformy Azure](./quick-deploy-iot-central.md) , aby utworzyć aplikację IoT Central przy użyciu niestandardowego szablonu **aplikacji > aplikacji niestandardowej** .
+Wykonaj czynności [z przewodnika Szybki start Tworzenie Azure IoT Central](./quick-deploy-iot-central.md) aplikacji, aby utworzyć aplikację IoT Central przy użyciu szablonu aplikacji **niestandardowej > aplikacji niestandardowej.**
 
 ## <a name="create-a-device-template"></a>Tworzenie szablonu urządzenia
 
-Jako Konstruktor można tworzyć i edytować szablony urządzeń w aplikacji IoT Central. Po opublikowaniu szablonu urządzenia można wygenerować symulowane urządzenie lub połączyć rzeczywiste urządzenia z szablonu urządzenia. Symulowane urządzenia umożliwiają testowanie zachowania aplikacji przed połączeniem rzeczywistego urządzenia.
-
-Aby dodać nowy szablon urządzenia do aplikacji, wybierz kartę **Szablony urządzeń** w lewym okienku.
+Aby dodać nowy szablon urządzenia do aplikacji, wybierz kartę **Szablony urządzeń** w okienku po lewej stronie.
 
 :::image type="content" source="media/quick-create-simulated-device/device-definitions.png" alt-text="Zrzut ekranu przedstawiający pustą listę szablonów urządzeń":::
 
@@ -44,137 +40,119 @@ Szablon urządzenia zawiera model urządzenia, który definiuje:
 
 * Dane telemetryczne wysyłane przez urządzenie.
 * Właściwości urządzenia.
-* Polecenia, na które urządzenie reaguje.
+* Polecenia, na które reaguje urządzenie.
 
 ### <a name="add-a-device-template"></a>Dodawanie szablonu urządzenia
 
-Istnieje kilka opcji dodawania modelu urządzenia do aplikacji IoT Central. Można utworzyć model od podstaw, zaimportować model z pliku lub wybrać urządzenie z katalogu urządzeń. IoT Central obsługuje również *urządzenia* , w których aplikacja automatycznie importuje model z repozytorium, gdy rzeczywiste urządzenie nawiązuje połączenie po raz pierwszy.
+Istnieje kilka opcji dodawania modelu urządzenia do aplikacji IoT Central aplikacji. Możesz utworzyć model od podstaw, zaimportować model z pliku lub wybrać urządzenie z katalogu urządzeń. IoT Central obsługuje również *podejście* "najpierw urządzenie", w którym aplikacja automatycznie importuje model z repozytorium, gdy rzeczywiste urządzenie łączy się po raz pierwszy.
 
-W tym przewodniku Szybki Start wybierz urządzenie z katalogu urządzeń, aby utworzyć szablon urządzenia.
+W tym przewodniku Szybki start wybierzesz urządzenie z katalogu urządzeń, aby utworzyć szablon urządzenia.
 
-Poniższe kroki pokazują, jak używać katalogu urządzeń do importowania modelu dla urządzenia **ESP32** . Te urządzenia wysyłają dane telemetryczne, takie jak temperatura, do aplikacji:
+Poniższe kroki pokazują, jak zaimportować model dla urządzenia **ESP32** za pomocą wykazu urządzeń. Te urządzenia wysyłają do aplikacji dane telemetryczne, takie jak temperatura:
 
-1. Aby dodać nowy szablon urządzenia, wybierz pozycję **+ Nowy** na stronie **Szablony urządzeń** .
+1. Aby dodać nowy szablon urządzenia, wybierz **pozycję + Nowy** na stronie **Szablony** urządzeń.
 
-1. Na stronie **Wybieranie typu** przewiń w dół do momentu znalezienia kafelka **ESP32-Azure IoT Kit** w sekcji **Korzystanie ze wstępnie skonfigurowanego szablonu urządzenia** .
+1. Na stronie **Wybieranie typu** przewiń w dół do kafelka **ESP32-Azure IoT Kit** w sekcji Korzystanie ze wstępnie skonfigurowanego **szablonu** urządzenia.
 
-1. Wybierz kafelek **ESP32-Azure IoT Kit** , a następnie wybierz pozycję **Next (dalej): przegląd**.
+1. Wybierz **kafelek ESP32-Azure IoT Kit,** a następnie wybierz pozycję **Dalej: Przegląd**.
 
-1. Na stronie **Przegląd** wybierz pozycję **Utwórz**.
+1. Na stronie **Review (Przegląd)** wybierz pozycję **Create (Utwórz).**
 
 1. Po kilku sekundach zobaczysz nowy szablon urządzenia:
 
     :::image type="content" source="media/quick-create-simulated-device/devkit-template.png" alt-text="Zrzut ekranu przedstawiający szablon urządzenia dla urządzenia ESP32":::
 
-    Nazwa szablonu to **kontroler czujnika**. Model zawiera składniki, takie jak **kontroler czujnika**, **SensorTemp** i **interfejs informacji o urządzeniu**. Składniki definiują możliwości urządzenia ESP32. Możliwości obejmują dane telemetryczne, właściwości i polecenia.
+    Nazwa szablonu to **Sensor Controller**. Model zawiera składniki, takie jak **Sensor Controller,** **SensorTemp** i **interfejs informacji o urządzeniu**. Składniki definiują możliwości urządzenia ESP32. Możliwości obejmują telemetrię, właściwości i polecenia.
 
 ### <a name="add-cloud-properties"></a>Dodawanie właściwości chmury
 
-Szablon urządzenia może zawierać właściwości chmury. Właściwości chmury istnieją tylko w aplikacji IoT Central i nigdy nie są wysyłane do ani odbierane z urządzenia. Aby dodać dwie właściwości chmury:
+Szablon urządzenia może zawierać właściwości chmury. Właściwości chmury istnieją tylko w IoT Central i nigdy nie są wysyłane do urządzenia ani odbierane z urządzenia. Aby dodać dwie właściwości chmury:
 
-1. Wybierz pozycję **właściwości chmury** , a następnie **+ Dodaj właściwość chmury**. Skorzystaj z informacji podanych w poniższej tabeli, aby dodać dwie właściwości chmury do szablonu urządzenia:
+1. Wybierz **pozycję Właściwości chmury,** a następnie **pozycję + Dodaj właściwość chmury.** Skorzystaj z informacji w poniższej tabeli, aby dodać dwie właściwości chmury do szablonu urządzenia:
 
     | Nazwa wyświetlana      | Typ semantyczny | Schemat |
     | ----------------- | ------------- | ------ |
     | Data ostatniego serwisowania | Brak          | Date (Data)   |
     | Nazwa klienta     | Brak          | Ciąg |
 
-1. Wybierz pozycję **Zapisz** , aby zapisać zmiany:
+1. Wybierz **pozycję Zapisz,** aby zapisać zmiany:
 
     :::image type="content" source="media/quick-create-simulated-device/cloud-properties.png" alt-text="Zrzut ekranu przedstawiający dwie właściwości chmury":::
 
 ## <a name="views"></a>Widoki
 
-Jako Konstruktor można dostosować aplikację w taki sposób, aby wyświetlała odpowiednie informacje o urządzeniu do operatora. Twoje dostosowania umożliwiają operatorowi zarządzanie urządzeniami podłączonymi do aplikacji. Można utworzyć dwa typy widoków dla operatora, który ma być używany do współpracy z urządzeniami:
+Możesz dostosować aplikację, aby wyświetlała odpowiednie informacje o urządzeniu. Dostosowania umożliwiają innym użytkownikom zarządzanie urządzeniami połączonymi z aplikacją. Możesz utworzyć dwa typy widoków do interakcji z urządzeniami:
 
 * Formularze do wyświetlania i edytowania właściwości urządzenia i chmury.
-* Pulpity nawigacyjne do wizualizacji urządzeń, w tym dane telemetryczne, które wysyłają.
+* Pulpity nawigacyjne do wizualizacji urządzeń, w tym danych telemetrycznych, które wysyłają.
 
 ### <a name="default-views"></a>Widoki domyślne
 
-Widoki domyślne są szybkim sposobem na rozpoczęcie wizualizacji ważnych informacji o urządzeniu. Dla szablonu urządzenia można zdefiniować maksymalnie trzy widoki domyślne:
+Widoki domyślne to szybki sposób na wprowadzenie do wizualizacji ważnych informacji o urządzeniu. Szablon urządzenia może mieć maksymalnie trzy widoki domyślne:
 
-* Widok **poleceń** umożliwia operatorowi Wysyłanie poleceń do urządzenia.
+* Widok **Polecenia** umożliwia wysyłanie poleceń do urządzenia.
 * Widok **Przegląd** używa wykresów i metryk do wyświetlania danych telemetrycznych urządzenia.
-* W widoku **informacje** są wyświetlane właściwości urządzenia.
+* Widok **Informacje** zawiera właściwości urządzenia.
 
-Wybierz węzeł **widoki** w szablonie urządzenia. Możesz zobaczyć, że IoT Central wygenerował **Przegląd** i widok **informacje** dla Ciebie po dodaniu szablonu.
+Wybierz węzeł **Widoki** w szablonie urządzenia. Po dodaniu IoT Central można zobaczyć,  że  użytkownik wygenerował widok Omówienie i Informacje.
 
-Aby dodać nowy formularz **zarządzania urządzeniem** , którego operator może używać do zarządzania urządzeniem:
+Aby dodać nowy formularz do zarządzania urządzeniem:
 
-1. Wybierz węzeł **widoki** , a następnie wybierz kafelek **Edytowanie urządzenia i danych w chmurze** , aby dodać nowy widok.
+1. Wybierz węzeł **Widoki,** a następnie wybierz kafelek **Edytowanie** danych urządzenia i chmury, aby dodać nowy widok.
 
-1. Zmień nazwę formularza na, aby **zarządzać urządzeniem**.
+1. Zmień nazwę formularza na **Zarządzaj urządzeniem.**
 
-1. Wybierz **nazwę klienta** i właściwości chmury **Data ostatniej usługi** oraz Właściwość **temperatury docelowej** . Następnie wybierz pozycję **Dodaj sekcję**:
+1. Wybierz właściwości **chmury** Customer Name (Nazwa **klienta) i Last Service Date (Data** ostatniej usługi) oraz **Target Temperature (Temperatura docelowa).** Następnie wybierz **pozycję Dodaj sekcję**:
 
     :::image type="content" source="media/quick-create-simulated-device/new-form.png" alt-text="Zrzut ekranu przedstawiający nowy formularz dodany do szablonu urządzenia":::
 
-1. Wybierz pozycję **Zapisz** , aby zapisać nowy formularz.
+1. Wybierz **pozycję Zapisz,** aby zapisać nowy formularz.
 
 ## <a name="publish-device-template"></a>Publikowanie szablonu urządzenia
 
-Aby można było utworzyć symulowane urządzenie lub połączyć rzeczywiste urządzenie, należy opublikować szablon urządzenia. Mimo że IoT Central opublikowanie szablonu podczas jego pierwszego tworzenia, należy opublikować zaktualizowaną wersję.
+Aby można było utworzyć urządzenie symulowane lub połączyć je z rzeczywistym urządzeniem, należy opublikować szablon urządzenia. Chociaż IoT Central szablon został opublikowany podczas jego pierwszego tworzenia, należy opublikować zaktualizowaną wersję.
 
 Aby opublikować szablon urządzenia:
 
-1. Przejdź do szablonu urządzenia **kontrolera czujnika** ze strony **Szablony urządzeń** .
+1. Przejdź do szablonu **urządzenia Kontroler** czujnika na **stronie Szablony** urządzeń.
 
-1. Wybierz pozycję **Publikuj**:
+1. Wybierz **pozycję** Publikuj na pasku poleceń w górnej części strony.
 
-    :::image type="content" source="media/quick-create-simulated-device/published-model.png" alt-text="Zrzut ekranu przedstawiający lokalizację ikony publikowania":::
+1. W wyświetlonym oknie dialogowym wybierz pozycję **Opublikuj**.
 
-1. W oknie dialogowym **publikowanie tego szablonu urządzenia w aplikacji** wybierz pozycję **Publikuj**.
-
-Po opublikowaniu szablonu urządzenia jest on widoczny na stronie **urządzenia** . W opublikowanym szablonie urządzenia nie można edytować modelu urządzenia bez tworzenia nowej wersji. Można jednak zmodyfikować właściwości, dostosowania i widoki chmury w opublikowanym szablonie urządzenia bez obsługi wersji. Po wprowadzeniu zmian wybierz pozycję **Publikuj**  , aby wypchnąć te zmiany do operatora.
+Po opublikowaniu szablonu urządzenia będzie on widoczny na **stronie** Urządzenia. W opublikowanym szablonie urządzenia nie można edytować modelu urządzenia bez utworzenia nowej wersji. Można jednak modyfikować właściwości, dostosowania i widoki chmury w opublikowanym szablonie urządzenia bez konieczności zarządzania wersjami. Po w związku z wprowadzeniem jakichkolwiek zmian wybierz **pozycję Publikuj,**  aby wypchnąć te zmiany do użycia na rzeczywistych i symulowanych urządzeniach.
 
 ## <a name="add-a-simulated-device"></a>Dodawanie symulowanego urządzenia
 
-Aby dodać symulowane urządzenie do aplikacji, należy użyć utworzonego szablonu urządzenia **ESP32** .
+Aby dodać symulowane urządzenie do aplikacji, należy użyć utworzonego szablonu urządzenia **ESP32.**
 
-1. Aby dodać nowe urządzenie jako operator, wybierz pozycję **urządzenia** w lewym okienku. Na karcie **urządzenia** są wyświetlane **wszystkie urządzenia** i szablon urządzenia **kontrolera czujnika** dla urządzenia ESP32. Wybierz pozycję **kontroler czujnika**.
+1. Aby dodać nowe urządzenie, wybierz **pozycję Urządzenia** w okienku po lewej stronie. Karta **Urządzenia** zawiera **wszystkie urządzenia** i szablon urządzenia **Kontroler** czujnika dla urządzenia ESP32. Wybierz **pozycję Kontroler czujnika.**
 
-1. Aby dodać symulowane urządzenie DevKit, wybierz pozycję **+ Nowy**. Użyj sugerowanego **identyfikatora urządzenia** lub wprowadź własny. Identyfikator urządzenia może zawierać litery, cyfry i `-` znaki. Możesz również wprowadzić nazwę nowego urządzenia. Upewnij się, że **to urządzenie** ma ustawioną wartość **tak** , a następnie wybierz pozycję **Utwórz**.
+1. Aby dodać symulowane urządzenie DevKit, wybierz **pozycję + Nowe.** Użyj sugerowanego identyfikatora **urządzenia** lub wprowadź własny. Identyfikator urządzenia może zawierać litery, cyfry i `-` znak. Możesz również wprowadzić nazwę nowego urządzenia. Upewnij się, **że dla opcji Symulowanie tego urządzenia** ustawiono wartość **Tak,** a następnie wybierz pozycję **Utwórz.**
 
-    :::image type="content" source="media/quick-create-simulated-device/simulated-device.png" alt-text="Zrzut ekranu przedstawiający urządzenie kontrolera czujnika symulowanego":::
+    :::image type="content" source="media/quick-create-simulated-device/simulated-device.png" alt-text="Zrzut ekranu przedstawiający symulowane urządzenie Sensor Controller":::
 
-Teraz można korzystać z widoków, które zostały utworzone przez konstruktora dla szablonu urządzenia przy użyciu symulowanych danych:
+Teraz możesz wchodzić w interakcje z widokami utworzonymi wcześniej przy użyciu symulowanych danych:
 
-1. Wybierz urządzenie symulowane na stronie **urządzenia**
+1. Wybieranie symulowanego urządzenia na **stronie** Urządzenia
 
-    * Widok **przeglądu** przedstawia wykres symulowanych danych telemetrycznych:
+    * Widok **Przegląd** przedstawia wykres symulowanych danych telemetrycznych:
 
-        :::image type="content" source="media/quick-create-simulated-device/simulated-telemetry.png" alt-text="Zrzut ekranu przedstawiający stronę przeglądu symulowanego urządzenia":::
+        :::image type="content" source="media/quick-create-simulated-device/simulated-telemetry.png" alt-text="Zrzut ekranu przedstawiający stronę przeglądu dla urządzenia symulowanego":::
 
-    * W widoku **informacje** są wyświetlane wartości właściwości.
+    * Widok **Informacje** zawiera wartości właściwości.
 
-    * Widok **poleceń** umożliwia uruchamianie poleceń, takich jak **Ponowne uruchamianie** na urządzeniu.
+    * Widok **Polecenia** umożliwia uruchamianie poleceń, takich jak **ponowne** uruchomienie na urządzeniu.
 
-    * Widok **Zarządzanie urządzeniami** jest formularzem utworzonym dla operatora, który ma zarządzać urządzeniem.
+    * Widok **Zarządzaj urządzeniami** to formularz utworzony w celu zarządzania urządzeniem.
 
-    * Widok **nieprzetworzonych danych** umożliwia wyświetlanie nieprzetworzonych wartości danych telemetrycznych i właściwości wysyłanych przez urządzenie. Ten widok jest przydatny w przypadku debugowania urządzeń.
-
-## <a name="use-a-simulated-device-to-improve-views"></a>Ulepszanie widoków przy użyciu symulowanego urządzenia
-
-Po utworzeniu nowego symulowanego urządzenia, Konstruktor może używać tego urządzenia do dalszego ulepszania i kompilowania widoków dla szablonu urządzenia.
-
-1. W lewym okienku wybierz pozycję **Szablony urządzeń** , a następnie wybierz szablon **kontroler czujnika** .
-
-1. Wybierz dowolne z widoków, które chcesz edytować, takie jak **Przegląd**, lub Utwórz nowy widok. Wybierz pozycję **Konfiguruj urządzenie w wersji zapoznawczej**, a następnie **Wybierz pozycję z uruchomionego urządzenia**. W tym miejscu możesz wybrać opcję braku urządzenia do wyświetlania podglądu, rzeczywistego urządzenia skonfigurowanego do testowania lub istniejącego urządzenia, które zostało dodane do IoT Central.
-
-1. Na liście Wybierz swoje symulowane urządzenie. Następnie wybierz przycisk **Zastosuj**. Teraz można zobaczyć to samo symulowane urządzenie w widokach szablonów urządzeń. Ten widok jest przydatny w przypadku wykresów i innych wizualizacji.
-
-    :::image type="content" source="media/quick-create-simulated-device/configure-preview.png" alt-text="Zrzut ekranu przedstawiający skonfigurowane urządzenie podglądu":::
-
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
-
-[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+    * Widok **Nieprzetworzone** dane umożliwia wyświetlanie nieprzetworzonych danych telemetrycznych i wartości właściwości wysyłanych przez urządzenie. Ten widok jest przydatny w przypadku debugowania urządzeń.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start przedstawiono sposób tworzenia szablonu urządzenia **kontrolera czujnika** dla urządzenia ESP32 i dodawania symulowanego urządzenia do aplikacji.
+W tym przewodniku Szybki start opisano sposób tworzenia szablonu urządzenia kontrolera czujnika dla urządzenia ESP32 i dodawania symulowanego urządzenia do aplikacji. 
 
-Aby dowiedzieć się więcej o monitorowaniu urządzeń połączonych z aplikacją, przejdź do przewodnika Szybki Start:
+Aby dowiedzieć się więcej na temat monitorowania urządzeń połączonych z aplikacją, przejdź do przewodnika Szybki start:
 
 > [!div class="nextstepaction"]
 > [Konfigurowanie reguł i akcji](./quick-configure-rules.md)

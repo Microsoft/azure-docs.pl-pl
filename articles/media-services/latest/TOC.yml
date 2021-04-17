@@ -14,7 +14,7 @@
   items:
     - name: Konfigurowanie środowiska
       items:
-        - name: Znajdź swój identyfikator dzierżawy
+        - name: Znajdowanie identyfikatora dzierżawy
           href: setup-azure-tenant-how-to.md
         - name: Znajdowanie subskrypcji platformy Azure
           href: setup-azure-subscription-how-to.md
@@ -26,7 +26,7 @@
           href: ../../cloud-shell/overview.md
         - name: Łączenie się z usługą Media Services
           items:
-            - name: Nawiązywanie połączenia z usługą REST i programem Poster
+            - name: Nawiązywanie połączenia przy użyciu rest i postman
               href: setup-postman-rest-how-to.md
             - name: Nawiązywanie połączeń przy użyciu języka Java
               href: configure-connect-java-howto.md
@@ -71,7 +71,7 @@
           displayName: 'AAD, Active Directory'
     - name: REST
       items:
-        - name: Włącz magazyn zaufany
+        - name: Włączanie zaufanego magazynu
           href: security-trusted-storage-rest-tutorial.md
         - name: Kodowanie i przesyłanie strumieniowe pliku zdalnego — REST
           href: stream-files-tutorial-with-rest.md
@@ -120,7 +120,7 @@
         - name: Tożsamości zarządzane i usługi multimedialne
           displayName: content protection
           href: concept-managed-identities.md
-        - name: Magazyn zaufany
+        - name: Zaufany magazyn
           href: concept-trusted-storage.md
         - name: Klucze zarządzane przez klienta
           href: concept-use-customer-managed-keys-byok.md
@@ -147,12 +147,12 @@
           href: encode-content-aware-concept.md
         - name: Jednostki zarezerwowane multimediów
           href: concept-media-reserved-units.md
-    - name: Analizowanie i Redakcja
+    - name: Analizowanie i redaction
       items:
         - name: Omówienie
           href: analyze-video-audio-files-concept.md
           displayName: 'analyze, analyzing, presets, jobs'
-        - name: Wykrywaj i Zredaguj (rozmycie)
+        - name: Wykrywanie i redaguje (rozmycie) twarzy
           href: analyze-face-redaction-concept.md
           displayName: 'analyze, redact, face, detect, presets, jobs, blur, faces, redaction'
     - name: Transformacje i zadania
@@ -222,11 +222,11 @@
       items:
         - name: Monitorowanie za pomocą usługi Azure Monitor
           items:
-            - name: Monitoruj Media Services
+            - name: Monitorowanie Media Services
               href: monitoring/monitor-media-services.md
-            - name: Informacje o monitorowaniu Media Services danych
+            - name: Informacje Media Services monitorowania
               href: monitoring/monitor-media-services-data-reference.md
-        - name: Monitoruj przy użyciu Event Grid
+        - name: Monitorowanie za pomocą Event Grid
           items:
             - name: Zdarzenia z usługą Event Grid
               href: monitoring/reacting-to-media-services-events.md
@@ -243,8 +243,6 @@
           displayName: 'accessing, long-running, sdk, invalid character, name, naming, file name'
         - name: 'Stronicowanie, filtrowanie i określanie kolejności jednostek'
           href: filter-order-page-entitites-how-to.md
-        - name: Kontrola dostępu na podstawie ról platformy Azure
-          href: security-rbac-concept.md
         - name: Kody błędów
           items:
             - name: Kody błędów punktu końcowego przesyłania strumieniowego
@@ -278,13 +276,13 @@
     - name: Przewodnik migracji
       displayName: migration
       items:
-        - name: Wprowadzenie do przewodnika migracji
+        - name: Wprowadzenie do przewodnika po migracji
           href: migrate-v-2-v-3-migration-introduction.md
           displayName: migration
-        - name: Krok 1 — korzyści
+        - name: Krok 1. Korzyści
           href: migrate-v-2-v-3-migration-benefits.md
           displayName: 'migration, benefits'
-        - name: Krok 2 — różnice
+        - name: Krok 2. Różnice
           items:
             - name: Dostęp za pomocą interfejsu API
               href: migrate-v-2-v-3-differences-api-access.md
@@ -295,10 +293,10 @@
             - name: Terminologia i zmiany jednostek
               href: migrate-v-2-v-3-differences-terminology.md
               displayName: 'migration, entity, api'
-        - name: Krok 3 — Instalacja zestawu SDK
+        - name: Krok 3 . Konfiguracja zestawu SDK
           href: migrate-v-2-v-3-migration-setup.md
           displayName: 'migration, SDK`'
-        - name: Krok 4 — wskazówki dotyczące migracji opartej na scenariuszu
+        - name: Krok 4. Wskazówki dotyczące migracji opartej na scenariuszu
           items:
             - name: Encoding
               href: migrate-v-2-v-3-migration-scenario-based-encoding.md
@@ -320,9 +318,9 @@
           displayName: 'migration, samples'
 - name: Przewodniki z instrukcjami
   items:
-    - name: Znajdź dzierżawcę i subskrypcję
+    - name: Znajdowanie dzierżawy i subskrypcji
       items:
-        - name: Znajdź swój identyfikator dzierżawy
+        - name: Znajdowanie identyfikatora dzierżawy
           href: setup-azure-tenant-how-to.md
         - name: Znajdowanie identyfikatora subskrypcji
           href: setup-azure-subscription-how-to.md
@@ -340,27 +338,27 @@
           href: transform-create-transform-how-to.md
         - name: Tworzenie podstawowego przekształcenia audio przy użyciu interfejsu REST
           href: transform-create-basic-audio-how-to.md
-        - name: Utwórz miniatury ikon
+        - name: Tworzenie sprites miniatur
           href: transform-create-thumbnail-sprites-how-to.md
-        - name: Łączenie dwóch lub więcej plików wideo przy użyciu platformy .NET
+        - name: Łączenie co najmniej dwóch plików wideo za pomocą programu .NET
           href: transform-stitch-how-to.md
-        - name: Podcinanie środowiska wideo .NET
+        - name: Podkropek wideo na platformie .NET
           href: transform-subclip-video-dotnet-how-to.md
           displayName: 'subclipping, clip, edit, trim, clipping'
-        - name: Podcinanie obrazu wideo
+        - name: Podkropek wideo REST
           href: transform-subclip-video-rest-how-to.md
           displayName: 'subclipping, clip, edit, trim, clipping'
-        - name: Dostosowywanie ustawień wstępnych kodera platformy .NET
+        - name: Dostosowywanie ustawień wstępnych kodera .NET
           href: transform-custom-presets-how-to.md
-        - name: Tworzenie przekształcenia nakładki platformy .NET
+        - name: Tworzenie przekształcenia nakładki na .NET
           href: transform-create-overlay-how-to.md
-        - name: Generuj miniatury .NET
+        - name: Generowanie miniatur .NET
           href: transform-generate-thumbnails-dotnet-how-to.md
-        - name: Przycinanie filmów wideo przy użyciu platformy .NET
+        - name: Przycinanie wideo za pomocą .NET
           href: crop-howto.md
-        - name: Dostosuj interfejs wiersza polecenia ustawień predefiniowanych dla kodera
+        - name: Dostosowywanie wstępnie ustawionych ustawień kodera w interfejsie wiersza polecenia
           href: transform-custom-preset-cli-how-to.md
-        - name: Dostosuj ustawienia wstępne dla koderów
+        - name: Dostosowywanie ustawień wstępnych kodera REST
           displayName: 'encode, encoding, custom, transform'
           href: transform-custom-preset-rest-how-to.md
         - name: Generuj miniatury REST
@@ -380,7 +378,7 @@
           href: job-multiple-transform-outputs-how-to.md
         - name: Adres HTTPS jako dane wejściowe zadania
           href: job-input-from-http-how-to.md
-    - name: Interfejs wiersza polecenia do skalowania jednostek zarezerwowanych multimediów
+    - name: Interfejs wiersza polecenia skalowania jednostek zarezerwowanych multimediów
       href: media-reserved-units-cli-how-to.md
     - name: Przesyłanie strumieniowe na żywo
       items:
@@ -416,7 +414,7 @@
       items:
         - name: Przy użyciu platformy .NET
           items:
-            - name: Użyj Azure Functions .NET
+            - name: Używanie Azure Functions .NET
               href: integrate-azure-functions-dotnet-how-to.md
     - name: Tworzenie filtrów
       items:
@@ -441,10 +439,20 @@
           href: signal-descriptive-audio-howto.md
         - name: Publikowanie
           href: asset-publish-cli-how-to.md
-    - name: Bezpieczeństwo
+    - name: Zabezpieczenia
       items:
-        - name: Przetaczaj klucze dostępu do magazynu
+        - name: Kontrola dostępu na podstawie ról platformy Azure
+          href: security-rbac-concept.md
+        - name: Roll storage access keys (Rzutowanie kluczy dostępu do magazynu)
           href: security-storage-roll-access-keys-how-to.md
+        - name: Włączanie zaufanego magazynu
+          href: security-trusted-storage-rest-tutorial.md
+        - name: Tokeny uwierzytelniania aplikacji Azure Media PlayerPass
+          href: security-pass-authentication-tokens-how-to.md
+        - name: Włączanie zaufanego magazynu
+          href: security-trusted-storage-rest-tutorial.md
+        - name: Klucze zarządzane przez klienta w interfejsie API REST
+          href: security-customer-managed-keys-rest-postman-tutorial.md
     - name: Korzystanie z odtwarzaczy multimediów
       items:
         - name: Pełna konfiguracja usługi Azure Media Player

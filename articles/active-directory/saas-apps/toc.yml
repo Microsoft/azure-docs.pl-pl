@@ -491,7 +491,7 @@
           href: degreed-tutorial.md
         - name: Deputy
           href: deputy-tutorial.md
-        - name: DESKNET'S NEO
+        - name: Desknet's IT
           href: desknets-neo-tutorial.md
         - name: Deskradar
           href: deskradar-tutorial.md
@@ -735,7 +735,7 @@
           href: github-ae-tutorial.md
         - name: Chmura GitHub Enterprise — konto przedsiębiorstwa
           href: github-enterprise-cloud-enterprise-account-tutorial.md
-        - name: GitHub Enterprise zarządzany użytkownik
+        - name: GitHub Enterprise użytkownika zarządzanego
           href: github-enterprise-managed-user-tutorial.md
         - name: GlassFrog
           href: glassfrog-tutorial.md
@@ -1015,7 +1015,7 @@
           href: kantegassoforjira-tutorial.md
         - name: Keeper Password Manager & Digital Vault
           href: keeperpasswordmanager-tutorial.md
-        - name: Integracja usługi LoadMaster z usługą Azure AD
+        - name: Integracja usługi Azure AD z usługą LoadMaster
           href: kemp-tutorial.md
         - name: Kendis — integracja z usługą Azure AD
           href: kendis-scaling-agile-platform-tutorial.md
@@ -1031,7 +1031,7 @@
           href: kisi-physical-security-tutorial.md
         - name: Kiteworks
           href: kiteworks-tutorial.md
-        - name: Dolxoon SAML
+        - name: Dolxoon
           href: klaxoon-saml-tutorial.md
         - name: Klue
           href: klue-tutorial.md
@@ -1197,7 +1197,7 @@
           href: mongodb-cloud-tutorial.md
         - name: Montage Online
           href: montageonline-tutorial.md
-        - name: Kupsy
+        - name: Moqups
           href: moqups-tutorial.md
         - name: Motus
           href: motus-tutorial.md
@@ -1605,7 +1605,7 @@
           href: sap-fiori-tutorial.md
         - name: SAP HANA
           href: saphana-tutorial.md
-        - name: Sapient
+        - name: Oprogramowanie Sapient
           href: sapient-tutorial.md
         - name: SAP NetWeaver
           href: sap-netweaver-tutorial.md
@@ -1629,7 +1629,7 @@
           href: screensteps-tutorial.md
         - name: SD Elements
           href: sd-elements-tutorial.md
-        - name: SDS & informacje chemiczne zarządzanie
+        - name: SDS & informacji chemicznych
           href: sds-chemical-information-management-tutorial.md
         - name: Secret Server (On-Premises)
           href: secretserver-on-premises-tutorial.md
@@ -1669,7 +1669,7 @@
           href: sharepoint-on-premises-tutorial.md
         - name: ShareVault
           href: sharevault-tutorial.md
-        - name: Udostępnianie w chmurze
+        - name: SharingCloud
           href: sharingcloud-tutorial.md
         - name: Shibumi
           href: shibumi-tutorial.md
@@ -2057,7 +2057,7 @@
           href: workteam-tutorial.md
         - name: Wrike
           href: wrike-tutorial.md
-        - name: Aplikacja Wrru
+        - name: Aplikacja W dosyć
           href: wuru-app-tutorial.md
         - name: XaitPorter
           href: xaitporter-tutorial.md
@@ -2150,6 +2150,8 @@
           href: /azure/databricks/administration-guide/users-groups/scim/aad?bc=%2fazure%2factive-directory%2fsaas-apps%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fsaas-apps%2ftoc.json
         - name: AWS Single Sign-On
           href: aws-single-sign-on-provisioning-tutorial.md
+        - name: Przejmij — automatyczna aprownia użytkowników
+          href: bentley-automatic-user-provisioning-tutorial.md
         - name: BitaBIZ
           href: bitabiz-provisioning-tutorial.md
         - name: Bizagi Studio for Digital Process Automation
@@ -2224,7 +2226,7 @@
           href: github-provisioning-tutorial.md
         - name: GitHub AE
           href: github-ae-provisioning-tutorial.md
-        - name: GitHub Enterprise zarządzany użytkownik
+        - name: GitHub Enterprise użytkownika zarządzanego
           href: github-enterprise-managed-user-provisioning-tutorial.md
         - name: GoToMeeting
           href: citrixgotomeeting-provisioning-tutorial.md
@@ -2314,7 +2316,7 @@
           href: pingboard-provisioning-tutorial.md
         - name: Playvox
           href: playvox-provisioning-tutorial.md
-        - name: Opady
+        - name: Preciate (Opady)
           href: preciate-provisioning-tutorial.md
         - name: PrinterLogic SaaS
           href: printer-logic-saas-provisioning-tutorial.md

@@ -8,7 +8,7 @@
   expanded: true
   items:
     - name: Zapoznawanie się z przykładowym scenariuszem
-      href: quickstart-adt-explorer.md
+      href: quickstart-azure-digital-twins-explorer.md
 - name: Samouczki
   items:
     - name: Kodowanie aplikacji klienckiej
@@ -25,15 +25,15 @@
   items:
     - name: Modele DTDL
       href: concepts-models.md
-    - name: Ontologie
+    - name: Ontologii
       items:
-        - name: Co to jest Ontology?
+        - name: Co to jest ontologia?
           href: concepts-ontologies.md
-        - name: Przyjmowanie standardowych ontologieów branżowych
+        - name: Adoptowanie standardowych nalogi branżowych
           href: concepts-ontologies-adopt.md
-        - name: Konwertowanie ontologie
+        - name: Konwertowanie nalogi
           href: concepts-ontologies-convert.md
-        - name: Rozszerzanie ontologie
+        - name: Rozszerzanie nalogi
           href: concepts-ontologies-extend.md
     - name: Bliźniacze reprezentacje cyfrowe i graf bliźniaczych reprezentacji
       href: concepts-twins-graph.md
@@ -101,7 +101,7 @@
       items:
         - name: Korzystanie z interfejsów API i zestawów SDK
           href: how-to-use-apis-sdks.md
-        - name: Tworzenie zestawów SDK języka niestandardowego za pomocą AutoRest
+        - name: Tworzenie niestandardowych zestawów SDK języka za pomocą funkcji AutoRest
           href: how-to-create-custom-sdks.md
         - name: Wykonywanie żądań za pomocą narzędzia Postman
           href: how-to-use-postman.md
@@ -123,7 +123,7 @@
               href: how-to-manage-routes-portal.md
             - name: Wersja interfejsu wiersza polecenia i interfejsów API
               href: how-to-manage-routes-apis-cli.md
-        - name: Włącz zarządzaną tożsamość dla zdarzeń routingu
+        - name: Włączanie tożsamości zarządzanej dla zdarzeń routingu
           items:
             - name: Wersja dla portalu
               href: how-to-enable-managed-identities-portal.md
@@ -149,6 +149,10 @@
           items:
             - name: 403 (Zabronione)
               href: troubleshoot-error-403.md
+            - name: 404 Sub-Domain nie znaleziono
+              href: troubleshoot-error-404.md
+            - name: Azure Digital Twins Explorer uwierzytelniania
+              href: troubleshoot-error-azure-digital-twins-explorer-authentication.md
 - name: Dokumentacja
   items:
     - name: Dokumentacja interfejsu API REST
@@ -189,7 +193,7 @@
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins'
     - name: Żądania danych klienta
       href: resources-customer-data-requests.md
-    - name: Różnice od wersji oryginalnej
+    - name: Różnice w względem oryginalnej wersji
       href: resources-compare-original-release.md
     - name: Interfejsy API i zestawy SDK
       items:
@@ -255,15 +259,15 @@
           href: 'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_servicebus'
     - name: Narzędzia i przykładowe projekty
       items:
-        - name: Kolekcja kolekcji bliźniaczych reprezentacji Digital
+        - name: Azure Digital Twins Postman Collection
           href: 'https://github.com/microsoft/azure-digital-twins-postman-samples'
         - name: Kompleksowe przykłady usługi Azure Digital Twins
           href: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
         - name: Eksplorator usługi Azure Digital Twins (przykład)
           href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
-        - name: Moduł sprawdzania poprawności DTDL (przykład)
+        - name: DtDL Validator (przykład)
           href: /samples/azure-samples/dtdl-validator/dtdl-validator/
-        - name: Model obiektu przekazującego (przykład)
+        - name: Przekazywanie modelu (przykład)
           href: 'https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader'
         - name: Wizualizator modelu (przykład)
           href: 'https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer'
@@ -287,7 +291,7 @@
           href: /samples/azure-samples/dtdl-validator/dtdl-validator/
         - name: Specyfikacja DTMI
           href: 'https://github.com/Azure/digital-twin-model-identifier'
-    - name: 'Uczenie się: Programowanie za pomocą usługi Azure Digital bliźniaczych reprezentacji'
+    - name: 'Dowiedz się: Opracowywanie za pomocą Azure Digital Twins'
       href: /learn/paths/develop-azure-digital-twins/
     - name: Filmy w witrynie Channel 9
       href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22'

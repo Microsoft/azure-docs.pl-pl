@@ -8,14 +8,14 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 3da4f8f946b11985d93be35fa2748e7f25015a71
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 98866a4f06df0380d52d1aee3eede8aa2f70aaed
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107564665"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588137"
 ---
-Usługa Azure Instance Metadata Service (IMDS) zawiera informacje o aktualnie uruchomionych wystąpieniach maszyn wirtualnych. Za jego pomocą można zarządzać maszynami wirtualnymi i konfigurować je.
+Usługa Azure Instance Metadata Service (IMDS) zawiera informacje o aktualnie uruchomionych wystąpieniach maszyn wirtualnych. Umożliwia zarządzanie maszynami wirtualnymi i ich konfigurowanie.
 Te informacje obejmują sku, magazyn, konfiguracje sieci i nadchodzące zdarzenia konserwacji. Aby uzyskać pełną listę dostępnych danych, zobacz [Podsumowanie kategorii punktów końcowych](#endpoint-categories).
 
 Usługi IMDS są dostępne dla uruchomionych wystąpień maszyn wirtualnych i wystąpień zestawu skalowania maszyn wirtualnych. Wszystkie punkty końcowe obsługują maszyny wirtualne utworzone i zarządzane przy [użyciu](/rest/api/resources/)Azure Resource Manager . Tylko kategoria Attested i część Sieć kategorii Wystąpienie obsługują maszyny wirtualne utworzone przy użyciu klasycznego modelu wdrażania. Attestowany punkt końcowy robi to tylko w ograniczonym zakresie.
@@ -28,7 +28,7 @@ Klienci HTTP mogą pomijać internetowe proxy na maszynie wirtualnej podczas wyk
 ### <a name="access-azure-instance-metadata-service"></a>Uzyskiwanie dostępu do usługi Azure Instance Metadata Service
 
 Aby uzyskać dostęp do usługi [](/rest/api/resources/) IMDS, utwórz maszynę wirtualną z Azure Resource Manager lub Azure Portal [i](https://portal.azure.com)skorzystaj z poniższych przykładów.
-Aby uzyskać więcej przykładów, [zobacz Przykłady metadanych wystąpienia platformy Azure](https://github.com/microsoft/azureimds).
+Aby uzyskać więcej przykładów, [zobacz Przykłady metadanych wystąpienia platformy Azure.](https://github.com/microsoft/azureimds)
 
 Oto przykładowy kod, który pobiera wszystkie metadane dla wystąpienia. Aby uzyskać dostęp do określonego źródła danych, zobacz [Kategorie punktów końcowych,](#endpoint-categories) aby uzyskać przegląd wszystkich dostępnych funkcji.
 
@@ -92,7 +92,7 @@ Obecnie obsługiwane są następujące czasowniki HTTP:
 
 ## <a name="parameters"></a>Parametry
 
-Punkty końcowe mogą obsługiwać wymagane i/lub opcjonalne parametry. Aby [uzyskać szczegółowe](#schema) informacje, zobacz Schema (Schemat) i dokumentację konkretnego punktu końcowego.
+Punkty końcowe mogą obsługiwać wymagane i/lub opcjonalne parametry. Aby [uzyskać szczegółowe](#schema) informacje, zobacz schemat i dokumentację konkretnego punktu końcowego.
 
 ### <a name="query-parameters"></a>Parametry zapytania
 
@@ -333,7 +333,7 @@ Podział schematu:
 | Dane | Opis | Wprowadzona wersja |
 |------|-------------|--------------------|
 | `azEnvironment` | Środowisko platformy Azure, w którym działa maszyna wirtualna | 2018-10-01
-| `customData` | Ta funkcja jest przestarzała i wyłączona. Został on wsadowany przez `userData` | 2019-02-01
+| `customData` | Ta funkcja jest przestarzała i wyłączona w [uowie IMDS.](#frequently-asked-questions) Został on nadsyłany przez `userData` | 2019-02-01
 | `evictionPolicy` | Określa sposób [eksmisji](../articles/virtual-machines/spot-vms.md) maszyny wirtualnej usługi Spot. | 2020-12-01
 | `isHostCompatibilityLayerVm` | Określa, czy maszyna wirtualna działa w warstwie zgodności hosta | 2020-06-01
 | `licenseType` | Typ licencji dla [Korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit). Ta funkcja jest dostępna tylko dla maszyn wirtualnych z obsługą usługi AHB | 2020-09-01
@@ -345,8 +345,8 @@ Podział schematu:
 | `osProfile.disablePasswordAuthentication` | Określa, czy uwierzytelnianie hasłem jest wyłączone. Dotyczy to tylko maszyn wirtualnych z systemem Linux | 2020-10-01
 | `osType` | Linux lub Windows | 2017-04-02
 | `placementGroupId` | [Grupa umieszczania](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) zestawu skalowania maszyn wirtualnych | 2017-08-01
-| `plan` | [Planowanie](/rest/api/compute/virtualmachines/createorupdate#plan) zawierającej nazwę, produkt i wydawcę dla maszyny wirtualnej, jeśli jest to Azure Marketplace obraz | 2018-04-02
-| `platformUpdateDomain` |  [Aktualizowanie domeny, w](../articles/virtual-machines/availability.md) która jest uruchomiona maszyna wirtualna | 2017-04-02
+| `plan` | [Planowanie](/rest/api/compute/virtualmachines/createorupdate#plan) zawierające nazwę, produkt i wydawcę dla maszyny wirtualnej, jeśli jest to Azure Marketplace obrazu | 2018-04-02
+| `platformUpdateDomain` |  [Aktualizowanie domeny,](../articles/virtual-machines/availability.md) w która jest uruchomiona maszyna wirtualna | 2017-04-02
 | `platformFaultDomain` | [Domena błędów, w](../articles/virtual-machines/availability.md) których jest uruchomiona maszyna wirtualna | 2017-04-02
 | `priority` | Priorytet maszyny wirtualnej. Aby [uzyskać](../articles/virtual-machines/spot-vms.md) więcej informacji, zapoznaj się z tematem Maszyny wirtualne spot | 2020-12-01
 | `provider` | Dostawca maszyny wirtualnej | 2018-10-01
@@ -354,7 +354,7 @@ Podział schematu:
 | `publisher` | Wydawca obrazu maszyny wirtualnej | 2017-04-02
 | `resourceGroupName` | [Grupa zasobów](../articles/azure-resource-manager/management/overview.md) dla maszyny wirtualnej | 2017-08-01
 | `resourceId` | W [pełni kwalifikowany](/rest/api/resources/resources/getbyid) identyfikator zasobu | 2019-03-11
-| `sku` | Konkowa sku dla obrazu maszyny wirtualnej | 2017-04-02
+| `sku` | Konk o określonej sku dla obrazu maszyny wirtualnej | 2017-04-02
 | `securityProfile.secureBootEnabled` | Określa, czy na maszynie wirtualnej jest włączony bezpieczny rozruch UEFI | 2020-06-01
 | `securityProfile.virtualTpmEnabled` | Określa, czy maszyna wirtualna Trusted Platform Module wirtualnej (TPM) jest włączona | 2020-06-01
 | `storageProfile` | Zobacz profil magazynu poniżej | 2019-06-01
@@ -377,7 +377,7 @@ Obiekt odwołania do obrazu zawiera następujące informacje o obrazie systemu o
 | Dane | Opis |
 |------|-------------|
 | `id` | Identyfikator zasobu
-| `offer` | Oferta obrazu platformy lub platformy handlowej
+| `offer` | Oferta obrazu platformy lub witryny Marketplace
 | `publisher` | Wydawca obrazów
 | `sku` | Obraz sku
 | `version` | Wersja obrazu platformy lub witryny Marketplace
@@ -388,7 +388,7 @@ Obiekt dysku systemu operacyjnego zawiera następujące informacje o dysku syste
 |------|-------------|
 | `caching` | Wymagania dotyczące buforowania
 | `createOption` | Informacje na temat sposobu tworzenia maszyny wirtualnej
-| `diffDiskSettings` | Ustawienia dysków efemeralnych
+| `diffDiskSettings` | Ustawienia dysku efemery
 | `diskSizeGB` | Rozmiar dysku w GB
 | `image`   | Wirtualny dysk twardy obrazu użytkownika źródłowego
 | `lun`     | Numer jednostki logicznej dysku
@@ -450,7 +450,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 ---
 
 
-#### <a name="sample-1-tracking-vm-running-on-azure"></a>Przykład 1: Śledzenie maszyny wirtualnej uruchomionej na platformie Azure
+#### <a name="sample-1-tracking-vm-running-on-azure"></a>Przykład 1: Śledzenie maszyny wirtualnej działającej na platformie Azure
 
 Jako dostawca usług możesz wymagać śledzenia liczby maszyn wirtualnych z uruchomionym oprogramowaniem lub agentów, którzy muszą śledzić unikatowość maszyny wirtualnej. Aby uzyskać unikatowy identyfikator maszyny wirtualnej, użyj `vmId` pola z Instance Metadata Service.
 
@@ -480,7 +480,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 
 W niektórych scenariuszach umieszczanie różnych replik danych ma kluczowe znaczenie. Na przykład [umieszczanie replik systemu plików HDFS](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps) lub umieszczanie kontenerów za pośrednictwem [orkiestratora](https://kubernetes.io/docs/user-guide/node-selection/) może wymagać informacji o tym, że maszyna wirtualna `platformFaultDomain` jest `platformUpdateDomain` uruchomiona.
 Możesz również użyć [Strefy dostępności](../articles/availability-zones/az-overview.md) dla wystąpień, aby podejmować te decyzje.
-Możesz odpytować te dane bezpośrednio za pośrednictwem usługi IMDS.
+Zapytania o te dane można zapytania bezpośrednio za pośrednictwem usługi IMDS.
 
 **Żądanie**
 
@@ -504,9 +504,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 0
 ```
 
-#### <a name="sample-3-get-vm-tags"></a>Przykład 3: Uzyskiwanie tagów maszyny wirtualnej
+#### <a name="sample-3-get-vm-tags"></a>Przykład 3: uzyskiwanie tagów maszyn wirtualnych
 
-Tagi maszyn wirtualnych są uwzględniane w interfejsie API wystąpienia w punkcie końcowym wystąpienia/zasobów obliczeniowych/tagów.
+Tagi maszyn wirtualnych są uwzględniane w interfejsie API wystąpienia w punkcie końcowym wystąpienia/obliczeń/tagów.
 Tagi mogą zostać zastosowane do maszyny wirtualnej platformy Azure w celu logicznego zorganizowania ich w taksonomię. Tagi przypisane do maszyny wirtualnej można pobrać przy użyciu poniższego żądania.
 
 **Żądanie**
@@ -597,7 +597,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 
 #### <a name="sample-4-get-more-information-about-the-vm-during-support-case"></a>Przykład 4: uzyskiwanie dodatkowych informacji na temat maszyny wirtualnej podczas obsługi
 
-Jako dostawca usług możesz otrzymać połączenie z pomocą techniczną, w którym chcesz uzyskać więcej informacji na temat maszyny wirtualnej. Poproszę klienta o udostępnienie metadanych obliczeniowych może dostarczyć podstawowych informacji dla specjalistów pomocy technicznej, którzy będą wiedzieć o rodzaju maszyny wirtualnej na platformie Azure.
+Jako dostawca usług możesz otrzymać połączenie z pomocą techniczną, w którym chcesz uzyskać więcej informacji na temat maszyny wirtualnej. Poproszę klienta o udostępnienie metadanych obliczeń, aby uzyskać podstawowe informacje dla specjalistów pomocy technicznej na temat rodzaju maszyny wirtualnej na platformie Azure.
 
 **Żądanie**
 
@@ -824,7 +824,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 
 ---
 
-#### <a name="sample-5-get-the-azure-environment-where-the-vm-is-running"></a>Przykład 5: uzyskiwanie środowiska platformy Azure, w którym działa maszyna wirtualna
+#### <a name="sample-5-get-the-azure-environment-where-the-vm-is-running"></a>Przykład 5. Uzyskiwanie środowiska platformy Azure, w którym działa maszyna wirtualna
 
 Platforma Azure ma różne suwerenne [chmury, takie Azure Government](https://azure.microsoft.com/overview/clouds/government/). Czasami środowisko platformy Azure jest potrzebne, aby podjąć pewne decyzje dotyczące środowiska uruchomieniowego. W poniższym przykładzie pokazano, jak można osiągnąć to zachowanie.
 
@@ -938,7 +938,7 @@ GET /metadata/attested/document
 | Nazwa | Wymagane/Opcjonalne | Opis |
 |------|-------------------|-------------|
 | `api-version` | Wymagane | Wersja używana do obsługi żądania.
-| `nonce` | Opcjonalne | Ciąg 10-cyfrowy, który służy jako kryptograficzny ciąg. Jeśli nie podano żadnej wartości, program IMDS używa bieżącego znacznika czasu UTC.
+| `nonce` | Opcjonalne | Ciąg 10-cyfrowy, który służy jako kryptograficzny ciąg. Jeśli żadna wartość nie zostanie podany, IMDS używa bieżącego znacznika czasu UTC.
 
 #### <a name="response"></a>Reakcja
 
@@ -956,7 +956,7 @@ Obiekt blob podpisu jest wersją dokumentu z podpisem [pkcs7.](https://aka.ms/pk
 
 W przypadku maszyn wirtualnych utworzonych przy użyciu Azure Resource Manager dokument zawiera elementy , , , służące do tworzenia i wygasania dokumentu oraz informacje o `vmId` `sku` `nonce` `subscriptionId` `timeStamp` planie obrazu. Informacje o planie są wypełniane tylko dla Azure Marketplace obrazów.
 
-W przypadku maszyn wirtualnych utworzonych przy użyciu klasycznego modelu wdrażania wypełnianie musi `vmId` być zagwarantowane tylko dla pola . Możesz wyodrębnić certyfikat z odpowiedzi i użyć go do potwierdzenia, że odpowiedź jest prawidłowa i pochodzi z platformy Azure.
+W przypadku maszyn wirtualnych utworzonych przy użyciu klasycznego modelu wdrażania wypełnianie jest `vmId` gwarantowane tylko dla typu . Możesz wyodrębnić certyfikat z odpowiedzi i użyć go do potwierdzenia, że odpowiedź jest prawidłowa i pochodzi z platformy Azure.
 
 Zdekodowany dokument zawiera następujące pola:
 
@@ -1094,7 +1094,7 @@ openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -un
 ---
 
 > [!NOTE]
-> Ze względu na mechanizm buforowania USŁUGI IMDS może zostać zwrócona wcześniej `nonce` buforowana wartość.
+> Ze względu na mechanizm buforowania IMDS może zostać zwrócona wcześniej `nonce` buforowana wartość.
 
 Wartość `nonce` w podpisanym dokumencie można porównać, jeśli w początkowym żądaniu podano `nonce` parametr .
 
@@ -1111,12 +1111,12 @@ Wartość `nonce` w podpisanym dokumencie można porównać, jeśli w początkow
 > [!NOTE]
 > Certyfikaty mogą nie mieć dokładnego dopasowania do `metadata.azure.com` chmury publicznej. Z tego powodu walidacja certyfikacji powinna zezwalać na nazwę pospolitą z dowolnej `.metadata.azure.com` poddomeny.
 
-W przypadkach, gdy nie można pobrać certyfikatu pośredniego z powodu ograniczeń sieci podczas walidacji, można przypiąć certyfikat pośredni. Platforma Azure przejmuje certyfikaty, co jest standardową praktyką PKI. Przypiętych certyfikatów należy zaktualizować w przypadku przechowania. Za każdym razem, gdy jest planowana zmiana w celu zaktualizowania certyfikatu pośredniego, blog platformy Azure jest aktualizowany, a klienci platformy Azure są powiadamiani. 
+W przypadkach, gdy nie można pobrać certyfikatu pośredniego z powodu ograniczeń sieci podczas walidacji, można przypiąć certyfikat pośredni. Platforma Azure przejmuje certyfikaty, co jest standardową praktyką PKI. Należy zaktualizować przypięte certyfikaty w przypadku przerolowania. Za każdym razem, gdy jest planowana zmiana w celu zaktualizowania certyfikatu pośredniego, blog platformy Azure jest aktualizowany, a klienci platformy Azure są powiadamiani. 
 
 Certyfikaty pośrednie można znaleźć w [repozytorium PKI.](https://www.microsoft.com/pki/mscorp/cps/default.htm) Certyfikaty pośrednie dla każdego z regionów mogą być różne.
 
 > [!NOTE]
-> Certyfikat pośredni dla Azure (Chiny) — 21Vianet będzie pochodzić z globalnego głównego urzędu certyfikacji firmy DigiCert, a nie z Baltimore.
+> Certyfikat pośredni dla usługi Azure (Chiny) — 21Vianet będzie pochodzić z globalnego głównego urzędu certyfikacji firmy DigiCert, a nie z baltimore.
 W przypadku przypiętych certyfikatów pośrednich dla platformy Azure (Chiny) w ramach zmiany urzędu łańcucha głównego należy zaktualizować certyfikaty pośrednie.
 
 
@@ -1188,7 +1188,7 @@ Jeśli nie znaleziono elementu danych lub źle sformułowane żądanie, Instance
 - Czy będzie to działać w przypadku wystąpień zestawu skalowania maszyn wirtualnych?
   - Tak, usługi IMDS są dostępne dla wystąpień zestawu skalowania maszyn wirtualnych.
 
-- Zaktualizowano tagi w zestawach skalowania maszyn wirtualnych, ale nie są one wyświetlane w wystąpieniach (w przeciwieństwie do maszyn wirtualnych z jednym wystąpieniem). Czy coś jest nie tak?
+- Zaktualizowano tagi w zestawach skalowania maszyn wirtualnych, ale nie są one wyświetlane w wystąpieniach (w przeciwieństwie do maszyn wirtualnych pojedynczego wystąpienia). Czy coś jest nie tak?
   - Obecnie tagi dla zestawów skalowania maszyn wirtualnych są wyświetlane dla maszyny wirtualnej tylko podczas ponownego uruchamiania, ponownego uruchamiania lub zmiany dysku w wystąpieniu.
 
 - Dlaczego nie widzę szczegółowych informacji o sku dla mojej maszyny `instance/compute` wirtualnej?
@@ -1274,7 +1274,7 @@ Jeśli nie znaleziono elementu danych lub źle sformułowane żądanie, Instance
         version: 2
         ```
     1. Jeśli używasz dynamicznego adresu IP, zanotuj adres MAC. Jeśli używasz statycznego adresu IP, możesz zanotuj wymienione adresy IP i/lub adresy MAC.
-    1. Upewnij się, że interfejs odpowiada podstawowej karty sieciowej i podstawowemu adresowi IP maszyny wirtualnej. Podstawową kartę sieciową i adres IP można znaleźć, patrząc na konfigurację sieci w witrynie Azure Portal lub za pomocą interfejsu wiersza polecenia platformy Azure. Zanotuj prywatne adres IP (i adres MAC, jeśli używasz interfejsu wiersza polecenia). Oto przykład interfejsu wiersza polecenia programu PowerShell:
+    1. Upewnij się, że interfejs odpowiada podstawowej karty sieciowej i podstawowemu adresowi IP maszyny wirtualnej. Podstawową kartę sieciową i adres IP można znaleźć, patrząc na konfigurację sieci w witrynie Azure Portal lub korzystając z interfejsu wiersza polecenia platformy Azure. Zanotuj prywatne adres IP (i adres MAC, jeśli używasz interfejsu wiersza polecenia). Oto przykład interfejsu wiersza polecenia programu PowerShell:
         ```powershell
         $ResourceGroup = '<Resource_Group>'
         $VmName = '<VM_Name>'

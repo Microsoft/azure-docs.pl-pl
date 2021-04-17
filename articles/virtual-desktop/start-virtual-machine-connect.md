@@ -1,85 +1,85 @@
 ---
 title: Uruchamianie połączenia z maszyną wirtualną — Azure
-description: Jak skonfigurować funkcję Uruchom maszynę wirtualną w programie Connect.
+description: Jak skonfigurować uruchamianie maszyny wirtualnej w funkcji połączenia.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/10/2021
+ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: d3ef8e3656051c4a99ab52a7b52a0d623fdf9ce2
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: af95cf5d3e4112c717d653062f186797d48fb515
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303966"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389812"
 ---
-# <a name="start-virtual-machine-on-connect-preview"></a>Uruchom maszynę wirtualną w programie Connect (wersja zapoznawcza)
+# <a name="start-virtual-machine-on-connect-preview"></a>Uruchamianie maszyny wirtualnej podczas nawiązywania połączenia (wersja zapoznawcza)
 
 > [!IMPORTANT]
-> Funkcja Uruchom maszynę wirtualną w programie Connect jest obecnie w publicznej wersji zapoznawczej.
+> Funkcja Uruchamiania maszyny wirtualnej w oknie Łączenie jest obecnie dostępna w publicznej wersji zapoznawczej.
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Funkcja Uruchom maszynę wirtualną (VM) w programie Connect (wersja zapoznawcza) umożliwia oszczędzanie kosztów, umożliwiając cofanie alokacji maszyn wirtualnych, gdy nie są one używane. Gdy musisz ponownie użyć maszyny wirtualnej, wszystkie czynności, które należy wykonać, umożliwiają ponowne włączenie maszyn wirtualnych.
+Funkcja Uruchom maszynę wirtualną w oknie Łączenie (wersja zapoznawcza) umożliwia oszczędzanie kosztów, umożliwiając cofniesz alokację maszyn wirtualnych, gdy nie są one używania. Gdy musisz ponownie użyć maszyny wirtualnej, wystarczy ponownie włączyć maszyny wirtualne.
 
 >[!NOTE]
->Pulpit wirtualny systemu Windows (klasyczny) nie obsługuje tej funkcji.
+>Windows Virtual Desktop (wersja klasyczna) nie obsługuje tej funkcji.
 
 ## <a name="requirements-and-limitations"></a>Wymagania i ograniczenia
 
-Funkcję Uruchom maszynę wirtualną można włączyć tylko dla puli hostów osobistych. Aby dowiedzieć się więcej na temat osobistych pul hostów, zobacz [Środowisko pulpitu wirtualnego systemu Windows](environment-setup.md#host-pools).
+Funkcję Uruchamiania maszyny wirtualnej w programie Connect można włączyć tylko dla pul hostów osobistych. Aby dowiedzieć się więcej na temat pul hostów osobistych, [zobacz Windows Virtual Desktop środowiska](environment-setup.md#host-pools).
 
-Następujący klienci usług pulpitu zdalnego obsługują funkcję Uruchom maszynę wirtualną w programie Connect:
+Następujący klienci usług pulpitu zdalnego obsługują funkcję Uruchamiania maszyny wirtualnej w programie Connect:
 
-- [Klient sieci Web](connect-web.md)
-- [Klient systemu Windows (wersja 1,2748 lub nowsza)](connect-windows-7-10.md)
+- [Klient internetowy](connect-web.md)
+- [Klient systemu Windows (wersja 1.2748 lub nowsza)](connect-windows-7-10.md)
 
-Możesz sprawdzić powiadomienia o aktualizacjach i obsłudze klienta na [forum społeczności Tech](https://aka.ms/wvdtc).
+Aby uzyskać informacje o aktualizacjach i pomocy technicznej klienta, możesz sprawdzić na [forum Społeczności technicznej](https://aka.ms/wvdtc).
 
-Chmura Azure Government nie obsługuje obecnie uruchamiania maszyny wirtualnej w programie Connect.
+Chmura Azure Government obecnie nie obsługuje uruchamiania maszyny wirtualnej w chmurze connect.
 
-## <a name="create-a-custom-role-for-start-vm-on-connect"></a>Utwórz rolę niestandardową dla uruchomienia maszyny wirtualnej w programie Connect
+## <a name="create-a-custom-role-for-start-vm-on-connect"></a>Tworzenie roli niestandardowej dla uruchamiania maszyny wirtualnej na stronie Połącz
 
-Aby można było skonfigurować funkcję Uruchom maszynę wirtualną w programie Connect, należy przypisać maszynę wirtualną do roli kontroli dostępu opartej na rolach. Ta rola umożliwi pulpitowi wirtualnemu systemu Windows zarządzanie maszynami wirtualnymi w ramach subskrypcji. Za pomocą tej roli można również włączyć maszyny wirtualne, sprawdzić ich stan i zgłosić informacje diagnostyczne. Jeśli chcesz dowiedzieć się więcej na temat działania poszczególnych ról, zapoznaj się z tematem [role niestandardowe platformy Azure](../role-based-access-control/custom-roles.md).
+Przed skonfigurowaniem funkcji Uruchom maszynę wirtualną w programie Connect należy przypisać maszynie wirtualnej niestandardową rolę RBAC (kontroli dostępu opartej na rolach). Ta rola umożliwia Windows Virtual Desktop maszynami wirtualnych w ramach subskrypcji. Ta rola umożliwia również włączanie maszyn wirtualnych, sprawdzanie ich stanu i zgłaszanie informacji diagnostycznych. Jeśli chcesz dowiedzieć się więcej o tym, co robi każda rola, zobacz [Role niestandardowe platformy Azure.](../role-based-access-control/custom-roles.md)
 
 ### <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
-Aby użyć Azure Portal do przypisania roli niestandardowej do uruchamiania maszyny wirtualnej w programie Connect:
+Aby użyć tej Azure Portal, aby przypisać rolę niestandardową dla uruchamiania maszyny wirtualnej na stronie Połącz:
 
-1. Otwórz Azure Portal i przejdź do pozycji **subskrypcje**.
+1. Otwórz Azure Portal i przejdź do **subskrypcji**.
 
-2. Przejdź do obszaru **Kontrola dostępu (IAM)** i wybierz pozycję **Dodaj rolę niestandardową**.
+2. Przejdź do **opcji Kontrola dostępu (IAM)** i wybierz **pozycję Dodaj rolę niestandardową.**
 
     > [!div class="mx-imgBorder"]
-    > ![Zrzut ekranu przedstawiający menu rozwijane z przycisku Dodaj w kontroli dostępu (IAM). "Dodaj rolę niestandardową" jest wyróżniony kolorem czerwonym.](media/add-custom-role.png)
+    > ![Zrzut ekranu przedstawiający menu rozwijane z przycisku Dodaj w kontrolce dostępu (IAM). Przycisk "Dodaj rolę niestandardową" został wyróżniony na czerwono.](media/add-custom-role.png)
 
-3. Następnie nadaj nazwę roli niestandardowej i Dodaj opis. Zalecamy nazwę "Uruchom maszynę wirtualną w programie Connect".
+3. Następnie nadaj roli niestandardowej nazwę i dodaj opis. Zalecamy nadaj jej nazwę "Uruchom maszynę wirtualną po nawiązać połączenie".
 
-4. Na karcie **uprawnienia** Dodaj następujące uprawnienia do subskrypcji, do której przypiszesz rolę: 
+4. Na **karcie** Uprawnienia dodaj następujące uprawnienia do subskrypcji, do których przypisujesz rolę: 
  
-   - Microsoft. COMPUTE/virtualMachines/Start/akcja
-   - Microsoft. COMPUTE/virtualMachines/Read
+   - Microsoft.Compute/virtualMachines/start/action
+   - Microsoft.Compute/virtualMachines/read
 
-5. Gdy skończysz, wybierz **przycisk OK**.
+5. Po zakończeniu wybierz przycisk **OK.**
 
-Po tym celu należy przypisać rolę, aby udzielić dostępu do pulpitu wirtualnego systemu Windows.
+Następnie należy przypisać rolę, aby udzielić dostępu do Windows Virtual Desktop.
 
 Aby przypisać rolę niestandardową:
 
-1. Na **karcie Kontrola dostępu (IAM)** wybierz pozycję **Dodaj przypisania ról**.
+1. Na karcie **Kontrola dostępu (IAM)** wybierz pozycję **Dodaj przypisania ról.**
 
 2. Wybierz właśnie utworzoną rolę.
 
-3. Na pasku wyszukiwania wprowadź i wybierz pozycję **pulpit wirtualny systemu Windows**.
+3. Na pasku wyszukiwania wprowadź i wybierz **pozycję Windows Virtual Desktop**.
 
       >[!NOTE]
-      >Jeśli wdrożono pulpit wirtualny systemu Windows (klasyczny), mogą zostać wyświetlone dwie aplikacje. Przypisz rolę do obu aplikacji, które widzisz.
+      >Jeśli wdrożono aplikację w wersji Windows Virtual Desktop klasycznej, mogą być Windows Virtual Desktop aplikacje. Przypisz rolę do obu wyświetlonych aplikacji.
       >
       > [!div class="mx-imgBorder"]
-      > ![Zrzut ekranu przedstawiający kartę kontrola dostępu (IAM). Na pasku wyszukiwania zarówno pulpit wirtualny systemu Windows, jak i pulpit wirtualny systemu Windows (klasyczny) są wyróżnione kolorem czerwonym.](media/add-role-assignment.png)
+      > ![Zrzut ekranu przedstawiający kartę Kontrola dostępu (IAM). Na pasku wyszukiwania obie Windows Virtual Desktop i Windows Virtual Desktop (klasyczne) są wyróżnione na czerwono.](media/add-role-assignment.png)
 
-### <a name="create-a-custom-role-with-a-json-file-template"></a>Tworzenie roli niestandardowej z szablonem pliku JSON
+### <a name="create-a-custom-role-with-a-json-file-template"></a>Tworzenie roli niestandardowej przy użyciu szablonu pliku JSON
 
-Jeśli używasz pliku JSON do utworzenia roli niestandardowej, Poniższy przykład pokazuje podstawowy szablon, którego można użyć. Upewnij się, że wartość identyfikatora subskrypcji jest zastępowana IDENTYFIKATORem subskrypcji, do której ma zostać przypisana rola.
+Jeśli używasz pliku JSON do utworzenia roli niestandardowej, w poniższym przykładzie pokazano podstawowy szablon, który możesz użyć. Pamiętaj, aby zastąpić wartość identyfikatora subskrypcji identyfikatorem subskrypcji, do którego chcesz przypisać rolę.
 
 ```json
 {
@@ -104,50 +104,50 @@ Jeśli używasz pliku JSON do utworzenia roli niestandardowej, Poniższy przykł
 }
 ```
 
-## <a name="configure-the-start-vm-on-connect-feature"></a>Skonfiguruj funkcję Uruchom maszynę wirtualną w programie Connect
+## <a name="configure-the-start-vm-on-connect-feature"></a>Konfigurowanie funkcji uruchamiania maszyny wirtualnej w programie Connect
 
-Teraz, po przypisaniu roli, można skonfigurować funkcję Uruchom maszynę wirtualną za pomocą funkcji Connect.
+Teraz, po przypisaniu subskrypcji roli, nasłaniasz czas na skonfigurowanie funkcji Uruchamiania maszyny wirtualnej w skrypcie Połącz.
 
 ### <a name="deployment-considerations"></a>Zagadnienia dotyczące wdrażania 
 
-Opcja Uruchom maszynę wirtualną w programie Connect jest ustawieniem puli hostów. Jeśli chcesz, aby ta funkcja była używana tylko przez wybraną grupę użytkowników, upewnij się, że tylko wymagana rola jest przypisana do użytkowników, których chcesz dodać.
+Ustawienie Uruchom maszynę wirtualną na stronie Połącz to ustawienie puli hostów. Jeśli chcesz, aby ta funkcja była dostępna tylko dla wybranej grupy użytkowników, upewnij się, że przypisano wymaganą rolę tylko do użytkowników, których chcesz dodać.
 
 >[!IMPORTANT]
-> Tę funkcję można skonfigurować tylko w istniejących pulach hosta. Ta funkcja jest niedostępna podczas tworzenia nowej puli hostów.
+> Tę funkcję można skonfigurować tylko w istniejących pulach hostów. Ta funkcja nie jest dostępna podczas tworzenia nowej puli hostów.
 
 ### <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
-Aby użyć Azure Portal, aby skonfigurować uruchamianie maszyny wirtualnej w programie Connect:
+Aby użyć tej Azure Portal, aby skonfigurować uruchamianie maszyny wirtualnej w programie Connect:
 
-1. Otwórz przeglądarkę i przejdź do [Azure Portal](https://portal.azure.com/?feature.startVMonConnect=true#home). Zalecamy otworzenie Azure Portal w oknie InPrivate.
+1. Otwórz przeglądarkę i przejdź do [strony Azure Portal](https://portal.azure.com).
 
-2. W Azure Portal przejdź do **pulpitu wirtualnego systemu Windows**.
+2. W Azure Portal przejdź **do** Windows Virtual Desktop .
 
-3. Wybierz pozycję **Pule hostów**, a następnie Znajdź pulę hostów zawierającą osobiste pulpity, do których przypisano rolę.
+3. Wybierz **pozycję Pule** hostów, a następnie znajdź pulę hostów zawierającą osobiste komputery stacjonarne, do których przypisano rolę.
 
    >[!NOTE]
-   > Pula hostów konfigurowana przez tę funkcję w programie musi mieć osobiste komputery stacjonarne z bezpośrednimi przypisaniami ról. Jeśli pulpity w puli hostów nie są prawidłowo skonfigurowane, proces konfiguracji nie będzie działał.
+   > Pula hostów skonfigurowana w programie musi mieć osobiste komputery stacjonarne z bezpośrednimi przypisaniami ról. Jeśli komputery stacjonarne w puli hostów nie są prawidłowo skonfigurowane, proces konfiguracji nie będzie działać.
 
-4. W puli hostów wybierz pozycję **Właściwości**. W obszarze **Rozpocznij maszynę wirtualną w programie Connect** wybierz pozycję **tak**, a następnie wybierz pozycję **Zapisz** , aby natychmiast zastosować to ustawienie.
+4. W puli hostów wybierz pozycję **Właściwości.** W **obszarze Uruchom maszynę wirtualną przy** nawiązywaniu połączenia wybierz pozycję **Tak,** a następnie **wybierz pozycję Zapisz,** aby natychmiast zastosować ustawienie.
 
     > [!div class="mx-imgBorder"]
-    > ![Zrzut ekranu przedstawiający okno Właściwości. Opcja Uruchom maszynę wirtualną przy nawiązywaniu połączenia jest wyróżniona kolorem czerwonym.](media/properties-start-vm-on-connect.png)
+    > ![Zrzut ekranu przedstawiający okno Właściwości. Opcja Uruchom maszynę wirtualną podczas nawiązywania połączenia jest wyróżniona na czerwono.](media/properties-start-vm-on-connect.png)
 
 ### <a name="use-powershell"></a>Korzystanie z programu PowerShell
 
-Aby skonfigurować to ustawienie przy użyciu programu PowerShell, należy upewnić się, że masz nazwy grup zasobów i pul hostów, które chcesz skonfigurować. Należy również zainstalować [moduł Azure PowerShell (w wersji 2.1.0 lub nowszej)](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/2.1.0).
+Aby skonfigurować to ustawienie przy użyciu programu PowerShell, upewnij się, że masz nazwy grupy zasobów i pul hostów, które chcesz skonfigurować. Musisz również zainstalować moduł Azure PowerShell (w wersji [2.1.0 lub nowszej).](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/2.1.0)
 
-Aby skonfigurować uruchamianie maszyny wirtualnej przy użyciu programu PowerShell:
+Aby skonfigurować uruchamianie maszyny wirtualnej w programie Connect przy użyciu programu PowerShell:
 
 1. Otwórz okno polecenia programu PowerShell.
 
-2. Uruchom następujące polecenie cmdlet, aby włączyć Uruchamianie maszyny wirtualnej w programie Connect:
+2. Uruchom następujące polecenie cmdlet, aby włączyć uruchamianie maszyny wirtualnej na stronie Połącz:
 
     ```powershell
     Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -StartVMOnConnect:$true
     ```
 
-3. Uruchom następujące polecenie cmdlet, aby wyłączyć uruchamianie maszyny wirtualnej w programie Connect:
+3. Uruchom następujące polecenie cmdlet, aby wyłączyć uruchamianie maszyny wirtualnej przy locie Nawiąż połączenie:
 
     ```powershell
     Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -StartVMOnConnect:$false
@@ -155,14 +155,14 @@ Aby skonfigurować uruchamianie maszyny wirtualnej przy użyciu programu PowerSh
 
 ## <a name="user-experience"></a>Środowisko użytkownika
 
-W typowych sesjach czas potrzebny użytkownikowi na nawiązanie połączenia z cofniętą alokacją maszyny wirtualnej rośnie, ponieważ maszyna wirtualna wymaga czasu ponownego włączenia, podobnie jak włączenie komputera fizycznego. Klient Pulpit zdalny ma wskaźnik umożliwiający użytkownikowi określenie, że komputer jest włączony podczas nawiązywania połączenia.
+W typowych sesjach czas nawiązywania połączenia z maszyną wirtualną, dla których cofnie się alokacja, wydłuża się, ponieważ maszyna wirtualna potrzebuje czasu na jej włączenie, podobnie jak włączenie komputera fizycznego. Klient Pulpit zdalny ma wskaźnik, który informuje użytkownika o tym, że komputer jest włączony podczas nawiązywania połączenia.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Jeśli funkcja jest uruchamiana w ramach jakichkolwiek problemów, zalecamy użycie [funkcji diagnostyki](diagnostics-log-analytics.md) pulpitu wirtualnego systemu Windows w celu wyszukania problemów. Jeśli zostanie wyświetlony komunikat o błędzie, pamiętaj, aby zwrócić uwagę na treść wiadomości, a następnie skopiuj nazwę błędu w miejscu dla odwołania.
+Jeśli w funkcji występują jakiekolwiek problemy, zalecamy użycie funkcji diagnostyki Windows Virtual Desktop [w](diagnostics-log-analytics.md) celu sprawdzenia ich problemów. Jeśli zostanie wyświetlony komunikat o błędzie, pamiętaj, aby zwrócić szczególną uwagę na jego zawartość i skopiować nazwę błędu w inne miejsce.
 
-Możesz również użyć [Azure monitor dla pulpitu wirtualnego systemu Windows](azure-monitor.md) , aby uzyskać sugestie dotyczące sposobu rozwiązywania problemów.
+Możesz również użyć funkcji [Azure Monitor Windows Virtual Desktop,](azure-monitor.md) aby uzyskać sugestie dotyczące sposobu rozwiązywania problemów.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli wystąpią problemy z zapytaniem, że nie można rozwiązać problemu z dokumentacją lub funkcją diagnostyki, zapoznaj [się z tematem Rozpoczynanie pracy z maszyną wirtualną przy nawiązywaniu połączenia](start-virtual-machine-connect-faq.md)
+Jeśli wystąpią problemy, których nie można rozwiązać w dokumentacji rozwiązywania problemów lub funkcji diagnostyki, zapoznaj się z tematem Uruchamianie maszyny wirtualnej na stronie Łączenie — często [zadawane pytania.](start-virtual-machine-connect-faq.md)

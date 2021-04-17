@@ -1,63 +1,63 @@
 ---
-title: Monitoruj kondycję aplikacji IoT Central platformy Azure | Microsoft Docs
-description: Jako operator lub administrator Monitoruj ogólną kondycję urządzeń podłączonych do aplikacji IoT Central.
+title: Monitorowanie kondycji aplikacji Azure IoT Central aplikacji | Microsoft Docs
+description: Jako operator lub administrator monitoruj ogólną kondycję urządzeń podłączonych do IoT Central aplikacji.
 author: dominicbetts
 ms.author: dobett
 ms.date: 01/27/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 5e462397196d2fd0fd716801d9106929a8cb6a6b
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: a9abd00035ccd779fcbe5dcf29b90f47758ff403
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106061455"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588653"
 ---
-# <a name="monitor-the-overall-health-of-an-iot-central-application"></a>Monitorowanie ogólnej kondycji aplikacji IoT Central
+# <a name="monitor-the-overall-health-of-an-iot-central-application"></a>Monitorowanie ogólnej kondycji aplikacji IoT Central aplikacji
 
 > [!NOTE]
-> Metryki są dostępne tylko dla aplikacji IoT Central w wersji 3. Aby dowiedzieć się, jak sprawdzić wersję aplikacji, zobacz [Informacje o aplikacji](./howto-get-app-info.md).
+> Metryki są dostępne tylko dla aplikacji IoT Central wersji 3. Aby dowiedzieć się, jak sprawdzić wersję aplikacji, zobacz [Informacje o aplikacji.](./howto-get-app-info.md)
 
-*Ten artykuł ma zastosowanie do operatorów i administratorów.*
+*Ten artykuł dotyczy operatorów i administratorów.*
 
-W tym artykule dowiesz się, jak używać zestawu metryk dostarczanych przez IoT Central do oceny kondycji urządzeń podłączonych do aplikacji IoT Central i kondycji wykonywanych eksportów danych.
+W tym artykule dowiesz się, jak używać zestawu metryk dostarczonych przez usługę IoT Central do oceny kondycji urządzeń połączonych z aplikacją IoT Central oraz kondycji uruchomionych eksportów danych.
 
-Metryki są domyślnie włączone dla aplikacji IoT Central i uzyskują do nich dostęp z [Azure Portal](https://portal.azure.com/). [Platforma danych Azure monitor udostępnia te metryki](../../azure-monitor/essentials/data-platform-metrics.md) i oferuje kilka sposobów na korzystanie z nich. Na przykład można użyć wykresów w Azure Portal, interfejsie API REST lub kwerendach w programie PowerShell lub interfejsie wiersza polecenia platformy Azure.
+Metryki są domyślnie włączone dla aplikacji IoT Central i uzyskujesz do nich dostęp z Azure Portal [.](https://portal.azure.com/) Platforma [Azure Monitor danych uwidacznia te](../../azure-monitor/essentials/data-platform-metrics.md) metryki i udostępnia kilka sposobów interakcji z nimi. Na przykład możesz użyć wykresów w interfejsie Azure Portal, interfejsie API REST lub zapytaniach w programie PowerShell lub interfejsie wiersza polecenia platformy Azure.
 
-### <a name="trial-applications"></a>Wersje próbne aplikacji
+### <a name="trial-applications"></a>Aplikacje w wersji próbnej
 
-Aplikacje korzystające z planu bezpłatnej wersji próbnej nie mają skojarzonej subskrypcji platformy Azure i nie obsługują metryk Azure Monitor. Możesz [przekonwertować aplikację na standardowy plan cen](./howto-view-bill.md#move-from-free-to-standard-pricing-plan) i uzyskać dostęp do tych metryk.
+Aplikacje, które korzystają z planu bezpłatnej wersji próbnej, nie mają skojarzonej subskrypcji platformy Azure, dlatego nie obsługują metryk Azure Monitor próbnej. Możesz [przekonwertować aplikację na](./howto-view-bill.md#move-from-free-to-standard-pricing-plan) standardowy plan cenowy i uzyskać dostęp do tych metryk.
 
-## <a name="view-metrics-in-the-azure-portal"></a>Wyświetl metryki w Azure Portal
+## <a name="view-metrics-in-the-azure-portal"></a>Wyświetlanie metryk w Azure Portal
 
-W poniższych krokach przyjęto założenie, że masz [aplikację IoT Central](./quick-deploy-iot-central.md) z niektórymi [połączonymi urządzeniami](./tutorial-connect-device.md) lub z uruchomionym [eksportem danych](howto-export-data.md).
+W poniższych krokach założono, że [](./tutorial-connect-device.md) masz [IoT Central z](./quick-deploy-iot-central.md) niektórymi połączonymi urządzeniami lub uruchomiony [eksport danych.](howto-export-data.md)
 
-Aby wyświetlić metryki IoT Central w portalu:
+Aby wyświetlić IoT Central metryki w portalu:
 
-1. Przejdź do zasobu aplikacji IoT Central w portalu. Domyślnie zasoby IoT Central znajdują się w grupie zasobów o nazwie **IOTC**.
-1. Aby utworzyć wykres na podstawie metryk aplikacji, wybierz pozycję **metryki** w sekcji **monitorowanie** .
+1. Przejdź do IoT Central aplikacji w portalu. Domyślnie zasoby IoT Central znajdują się w grupie zasobów o nazwie **IOTC.**
+1. Aby utworzyć wykres na podstawie metryk aplikacji, wybierz pozycję **Metryki** w **sekcji** Monitorowanie.
 
 ![Metryki platformy Azure](media/howto-monitor-application-health/metrics.png)
 
-### <a name="azure-portal-permissions"></a>Uprawnienia Azure Portal
+### <a name="azure-portal-permissions"></a>Azure Portal uprawnień
 
-Dostęp do metryk w Azure Portal jest zarządzany przez [kontrolę dostępu opartą na rolach platformy Azure](../../role-based-access-control/overview.md). Użyj Azure Portal, aby dodać użytkowników do IoT Central aplikacji/grupy zasobów/subskrypcji w celu udzielenia im dostępu. Musisz dodać użytkownika w portalu, nawet jeśli został on już dodany do aplikacji IoT Central. Użyj [wbudowanych ról platformy Azure](../../role-based-access-control/built-in-roles.md) , aby uzyskać dokładniejszą kontrolę dostępu.
+Dostęp do metryk w usłudze Azure Portal jest zarządzany przez kontrolę dostępu opartą na [rolach platformy Azure.](../../role-based-access-control/overview.md) Użyj Azure Portal, aby dodać użytkowników do IoT Central aplikacji/grupy zasobów/subskrypcji, aby udzielić im dostępu. Musisz dodać użytkownika w portalu, nawet jeśli został on już dodany do IoT Central aplikacji. Użyj [wbudowanych ról platformy Azure w](../../role-based-access-control/built-in-roles.md) celu uzyskania precyzyjnej kontroli dostępu.
 
-## <a name="iot-central-metrics"></a>Metryki IoT Central
+## <a name="iot-central-metrics"></a>IoT Central metryki
 
-Listę metryk, które są obecnie dostępne dla IoT Central, można znaleźć w temacie [obsługiwane metryki z Azure monitor](../../azure-monitor/essentials/metrics-supported.md#microsoftiotcentraliotapps).
+Aby uzyskać listę metryk, które są obecnie dostępne dla IoT Central, zobacz [Obsługiwane metryki](../../azure-monitor/essentials/metrics-supported.md#microsoftiotcentraliotapps)z Azure Monitor .
 
 ### <a name="metrics-and-invoices"></a>Metryki i faktury
 
-Metryki mogą różnić się od liczb widocznych na fakturze usługi Azure IoT Central. Ta sytuacja występuje z kilku powodów, takich jak:
+Metryki mogą różnić się od liczb wyświetlanych na Azure IoT Central faktury. Taka sytuacja występuje z kilku powodów, takich jak:
 
-- IoT Central [standardowe plany cenowe](https://azure.microsoft.com/pricing/details/iot-central/) obejmują dwa urządzenia i różne limity przydziału komunikatów za darmo. Gdy bezpłatne elementy są wykluczone z rozliczeń, są one nadal liczone w metrykach.
+- IoT Central standardowe [plany cenowe](https://azure.microsoft.com/pricing/details/iot-central/) obejmują bezpłatnie dwa urządzenia i różne przydziały komunikatów. Chociaż bezpłatne elementy są wykluczone z rozliczeń, nadal są one uwzględniane w metrykach.
 
-- IoT Central automatycznie generuje jeden identyfikator urządzenia testowego dla każdego szablonu urządzenia w aplikacji. Ten identyfikator urządzenia jest widoczny na stronie **Zarządzanie urządzeniem testowym** dla szablonu urządzenia. Konstruktorzy rozwiązań mogą zdecydować się na [zweryfikowanie swoich szablonów urządzeń](./overview-iot-central.md#create-device-templates) przed ich opublikowaniem, generując kod, który używa tych identyfikatorów urządzeń testowych. Mimo że te urządzenia są wykluczone z rozliczeń, są one nadal liczone w metrykach.
+- IoT Central automatycznie wygenerowanie jednego identyfikatora urządzenia testowego dla każdego szablonu urządzenia w aplikacji. Ten identyfikator urządzenia jest widoczny na **stronie Zarządzanie urządzeniem testowym** szablonu urządzenia. Konstruktorzy rozwiązań mogą zdecydować się na [zweryfikowanie](./overview-iot-central.md#connect-devices) szablonów urządzeń przed ich opublikowaniem, generując kod, który używa tych identyfikatorów urządzeń testowych. Chociaż te urządzenia są wykluczone z rozliczeń, nadal są uwzględniane w metrykach.
 
-- Chociaż metryki mogą wyświetlać podzestaw komunikacji między urządzeniem i chmurą, cała komunikacja między urządzeniem a chmurą [jest traktowana jako komunikat do rozliczania](https://azure.microsoft.com/pricing/details/iot-central/).
+- Metryki mogą pokazywać podzbiór komunikacji między urządzeniem a chmurą, jednak cała komunikacja między urządzeniem i chmurą jest liczony jako komunikat [dla rozliczeń.](https://azure.microsoft.com/pricing/details/iot-central/)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy wiesz już, jak korzystać z szablonów aplikacji, sugerowanym następnym krokiem jest zapoznanie się z tematem jak [zarządzać IoT Central z Azure Portal](howto-manage-iot-central-from-portal.md).
+Teraz, gdy już wiesz, jak używać szablonów aplikacji, sugerowanym następnym krokiem jest nauczenia się, jak zarządzać IoT Central [z Azure Portal](howto-manage-iot-central-from-portal.md).

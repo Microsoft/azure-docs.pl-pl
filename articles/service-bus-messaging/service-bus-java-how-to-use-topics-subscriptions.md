@@ -1,39 +1,41 @@
 ---
-title: Korzystanie z Azure Service Bus tematów i subskrypcji w języku Java (Azure-Messaging-ServiceBus)
-description: W tym przewodniku szybki start napiszesz kod Java za pomocą pakietu Azure-Messaging-ServiceBus, aby wysyłać komunikaty do tematu Azure Service Bus a następnie odbierać komunikaty z subskrypcji do tego tematu.
-ms.devlang: Java
-ms.topic: quickstart
+title: Używanie Azure Service Bus i subskrypcji w języku Java (azure-messaging-servicebus)
+description: W tym przewodniku Szybki start napiszesz kod Java przy użyciu pakietu azure-messaging-servicebus, aby wysyłać komunikaty do tematu Azure Service Bus, a następnie odbierać komunikaty z subskrypcji do tego tematu.
 ms.date: 02/13/2021
-ms.openlocfilehash: c5b930fb2c87a09a1f4801365936c62a7cf79f1d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.devlang: Java
+ms.custom:
+- mode-api
+ms.openlocfilehash: 6fe0a3a91ebbd5b6daced95494b8eaa5b7db0c46
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100516179"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536375"
 ---
-# <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-java"></a>Wysyłanie komunikatów do tematu Azure Service Bus i odbieranie komunikatów z subskrypcji do tematu (Java)
-W tym przewodniku szybki start napiszesz kod Java za pomocą pakietu Azure-Messaging-ServiceBus, aby wysyłać komunikaty do tematu Azure Service Bus a następnie odbierać komunikaty z subskrypcji do tego tematu.
+# <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-java"></a>Wysyłanie komunikatów do Azure Service Bus tematu i odbieranie komunikatów z subskrypcji do tematu (Java)
+W tym przewodniku Szybki start napiszesz kod Java przy użyciu pakietu azure-messaging-servicebus, aby wysyłać komunikaty do tematu Azure Service Bus, a następnie odbierać komunikaty z subskrypcji do tego tematu.
 
 > [!IMPORTANT]
-> Ten przewodnik Szybki Start używa nowego pakietu Azure-Messaging-ServiceBus. Aby zapoznać się z przewodnikiem Szybki Start korzystającym z starego pakietu Azure-ServiceBus, zobacz [wysyłanie i odbieranie komunikatów przy użyciu platformy Azure-ServiceBus](service-bus-java-how-to-use-topics-subscriptions-legacy.md).
+> W tym przewodniku Szybki start jest używany nowy pakiet azure-messaging-servicebus. Aby uzyskać przewodnik Szybki start korzystający ze starego pakietu azure-servicebus, zobacz Wysyłanie i odbieranie komunikatów [przy użyciu usługi azure-servicebus.](service-bus-java-how-to-use-topics-subscriptions-legacy.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Subskrypcja platformy Azure. Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Możesz aktywować korzyści dla [subskrybentów programu Visual Studio lub MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Wykonaj kroki opisane w [przewodniku szybki start: użyj Azure Portal, aby utworzyć temat Service Bus i subskrypcje w temacie](service-bus-quickstart-topics-subscriptions-portal.md). Zanotuj parametry połączenia, nazwę tematu i nazwę subskrypcji. W tym przewodniku szybki start będziesz używać tylko jednej subskrypcji. 
-- Zainstaluj [zestaw Azure SDK dla języka Java][Azure SDK for Java]. W przypadku korzystania z programu Zastąp, można zainstalować [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] zawierający zestaw Azure SDK dla języka Java. Następnie można dodać **biblioteki Microsoft Azure dla języka Java** do projektu. Jeśli używasz programu IntelliJ, zobacz [Install the Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/installation). 
+- Subskrypcja platformy Azure. Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Możesz aktywować korzyści [dla subskrybentów Visual Studio MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) lub zarejestrować się w celu korzystania z [bezpłatnego konta.](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)
+- Wykonaj kroki opisane w [przewodniku Szybki start: tworzenie](service-bus-quickstart-topics-subscriptions-portal.md)Azure Portal tematu i subskrypcji Service Bus tematu . Zanotuj ciąg połączenia, nazwę tematu i nazwę subskrypcji. W tym przewodniku Szybki start użyjesz tylko jednej subskrypcji. 
+- Zainstaluj [zestaw Azure SDK dla języka Java.][Azure SDK for Java] Jeśli używasz środowiska Eclipse, możesz zainstalować pakiet Azure Toolkit for Eclipse [który][Azure Toolkit for Eclipse] zawiera zestaw Azure SDK dla języka Java. Następnie możesz dodać **biblioteki Microsoft Azure dla języka Java** do projektu. Jeśli używasz programu IntelliJ, zobacz Instalowanie programu [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/installation). 
 
 
 ## <a name="send-messages-to-a-topic"></a>Wysyłanie komunikatów do tematu
-W tej sekcji utworzysz projekt konsoli Java, a następnie dodasz kod do wysyłania komunikatów do utworzonego tematu. 
+W tej sekcji utworzysz projekt konsoli Java i dodasz kod w celu wysyłania komunikatów do utworzonego tematu. 
 
-### <a name="create-a-java-console-project"></a>Tworzenie projektu konsoli języka Java
-Utwórz projekt Java przy użyciu narzędzia do zaszeregowania lub wybranego przez siebie narzędzi. 
+### <a name="create-a-java-console-project"></a>Tworzenie projektu konsoli Java
+Utwórz projekt w języku Java przy użyciu środowiska Eclipse lub wybranego narzędzia. 
 
-### <a name="configure-your-application-to-use-service-bus"></a>Skonfiguruj aplikację do używania Service Bus
-Dodaj odwołania do bibliotek podstawowych i Azure Service Bus platformy Azure. 
+### <a name="configure-your-application-to-use-service-bus"></a>Konfigurowanie aplikacji do używania Service Bus
+Dodawanie odwołań do platformy Azure Core Azure Service Bus bibliotek. 
 
-Jeśli używasz funkcji Zastąp i utworzono aplikację konsolową Java, przekonwertuj swój projekt Java na Maven: kliknij prawym przyciskiem myszy projekt w oknie **Eksplorator pakietów** , a następnie wybierz polecenie **Konfiguruj**  ->  **konwersję do Maven Project**. Następnie Dodaj zależności do tych dwóch bibliotek, jak pokazano w poniższym przykładzie.
+Jeśli używasz środowiska Eclipse i utworzono aplikację konsolową Java, przekonwertuj projekt Java na projekt Maven: kliknij prawym przyciskiem myszy projekt w oknie **Eksplorator pakietów,** wybierz pozycję Konfiguruj konwertowanie na projekt  ->  **Maven.** Następnie dodaj zależności do tych dwóch bibliotek, jak pokazano w poniższym przykładzie.
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -79,7 +81,7 @@ Jeśli używasz funkcji Zastąp i utworzono aplikację konsolową Java, przekonw
     import java.util.Arrays;
     import java.util.List;
     ```    
-5. W klasie Zdefiniuj zmienne do przechowywania parametrów połączenia i nazwy tematu, jak pokazano poniżej: 
+5. W klasie zdefiniuj zmienne do przechowywania parametrów połączenia i nazwy tematu, jak pokazano poniżej: 
 
     ```java
     static String connectionString = "<NAMESPACE CONNECTION STRING>";
@@ -87,8 +89,8 @@ Jeśli używasz funkcji Zastąp i utworzono aplikację konsolową Java, przekonw
     static String subName = "<SUBSCRIPTION NAME>";
     ```
 
-    Zamień na `<NAMESPACE CONNECTION STRING>` Parametry połączenia z przestrzenią nazw Service Bus. I Zamień na `<TOPIC NAME>` nazwę tematu.
-3. Dodaj metodę o nazwie `sendMessage` w klasie w celu wysłania jednej wiadomości do tematu. 
+    Zastąp `<NAMESPACE CONNECTION STRING>` ciągi połączenia z twoją Service Bus nazw. `<TOPIC NAME>`Zamień na nazwę tematu.
+3. Dodaj metodę o nazwie `sendMessage` w klasie , aby wysłać jeden komunikat do tematu. 
 
     ```java
     static void sendMessage()
@@ -105,7 +107,7 @@ Jeśli używasz funkcji Zastąp i utworzono aplikację konsolową Java, przekonw
         System.out.println("Sent a single message to the topic: " + topicName);        
     }
     ```
-1. Dodaj metodę o nazwie `createMessages` w klasie, aby utworzyć listę komunikatów. Zwykle te komunikaty są uzyskiwane z różnych części aplikacji. Tutaj tworzymy listę przykładowych wiadomości.
+1. Dodaj metodę o `createMessages` nazwie w klasie , aby utworzyć listę komunikatów. Zazwyczaj te komunikaty są odbierane z różnych części aplikacji. W tym miejscu utworzymy listę przykładowych komunikatów.
 
     ```java
     static List<ServiceBusMessage> createMessages()
@@ -119,7 +121,7 @@ Jeśli używasz funkcji Zastąp i utworzono aplikację konsolową Java, przekonw
         return Arrays.asList(messages);
     }
     ```
-1. Dodaj metodę o nazwie `sendMessageBatch` Method, aby wysyłać komunikaty do utworzonego tematu. Ta metoda tworzy `ServiceBusSenderClient` dla tematu, wywołuje `createMessages` metodę w celu pobrania listy komunikatów, przygotowuje co najmniej jedną partię i wysyła partie do tematu. 
+1. Dodaj metodę o nazwie `sendMessageBatch` , aby wysyłać komunikaty do utworzonego tematu. Ta metoda tworzy dla tematu, wywołuje metodę w celu uzyskania listy komunikatów, przygotowuje co najmniej jedną partię i wysyła partie `ServiceBusSenderClient` `createMessages` do tematu. 
 
     ```java
     static void sendMessageBatch()
@@ -169,12 +171,12 @@ Jeśli używasz funkcji Zastąp i utworzono aplikację konsolową Java, przekonw
     ```
 
 ## <a name="receive-messages-from-a-subscription"></a>Odbieranie komunikatów z subskrypcji
-W tej sekcji dodasz kod umożliwiający pobranie komunikatów z subskrypcji do tematu. 
+W tej sekcji dodasz kod do pobierania komunikatów z subskrypcji do tematu. 
 
-1. Dodaj metodę o nazwie `receiveMessages` do odbierania wiadomości z subskrypcji. Ta metoda tworzy `ServiceBusProcessorClient` dla subskrypcji przez określenie programu obsługi do przetwarzania komunikatów i innego do obsługi błędów. Następnie uruchamia procesor, czeka kilka sekund, drukuje odebrane komunikaty, a następnie kończy i zamyka procesor.
+1. Dodaj metodę o nazwie `receiveMessages` w celu odbierania komunikatów z subskrypcji. Ta metoda tworzy dla subskrypcji, określając program obsługi do przetwarzania komunikatów, a drugi do `ServiceBusProcessorClient` obsługi błędów. Następnie uruchamia procesor, czeka kilka sekund, drukuje odebrane komunikaty, a następnie zatrzymuje i zamyka procesor.
 
     > [!IMPORTANT]
-    > Zamień `ServiceBusTopicTest` w `ServiceBusTopicTest::processMessage` kodzie na nazwę klasy. 
+    > Zastąp `ServiceBusTopicTest` w kodzie nazwą swojej `ServiceBusTopicTest::processMessage` klasy. 
 
     ```java
     // handles received messages
@@ -200,7 +202,7 @@ W tej sekcji dodasz kod umożliwiający pobranie komunikatów z subskrypcji do t
         processorClient.close();        
     }  
     ```
-2. Dodaj `processMessage` metodę, aby przetworzyć komunikat otrzymany z subskrypcji Service Bus. 
+2. Dodaj metodę `processMessage` w celu przetwarzania komunikatu otrzymanego z Service Bus subskrypcji. 
 
     ```java
     private static void processMessage(ServiceBusReceivedMessageContext context) {
@@ -209,7 +211,7 @@ W tej sekcji dodasz kod umożliwiający pobranie komunikatów z subskrypcji do t
             message.getSequenceNumber(), message.getBody());
     }    
     ```
-3. Dodaj `processError` metodę, aby obsłużyć komunikaty o błędach.
+3. Dodaj metodę `processError` do obsługi komunikatów o błędach.
 
     ```java
     private static void processError(ServiceBusErrorContext context, CountDownLatch countdownLatch) {
@@ -246,7 +248,7 @@ W tej sekcji dodasz kod umożliwiający pobranie komunikatów z subskrypcji do t
         }
     }  
     ```
-1. Zaktualizuj `main` metodę, aby wywołać `sendMessage` metody Invoke, `sendMessageBatch` , i, `receiveMessages` Aby zgłosić `InterruptedException` .     
+1. Zaktualizuj metodę `main` , aby wywoływać metody , i i , aby `sendMessage` `sendMessageBatch` `receiveMessages` zgłaszały wyjątek `InterruptedException` .     
 
     ```java
     public static void main(String[] args) throws InterruptedException {        
@@ -257,7 +259,7 @@ W tej sekcji dodasz kod umożliwiający pobranie komunikatów z subskrypcji do t
     ```
 
 ## <a name="run-the-app"></a>Uruchamianie aplikacji
-Uruchom program, aby zobaczyć dane wyjściowe podobne do następujących:
+Uruchom program, aby wyświetlić dane wyjściowe podobne do następujących:
 
 ```console
 Sent a single message to the topic: mytopic
@@ -269,26 +271,26 @@ Processing message. Session: 56d3a9ea7df446f8a2944ee72cca4ea0, Sequence #: 3. Co
 Processing message. Session: 7bd3bd3e966a40ebbc9b29b082da14bb, Sequence #: 4. Contents: Third message
 ```
 
-Na stronie **Omówienie** przestrzeni nazw Service Bus w Azure Portal można zobaczyć liczbę wiadomości **przychodzących** i **wychodzących** . Może być konieczne poczekanie na minutę lub, a następnie odświeżenie strony, aby zobaczyć najnowsze wartości. 
+Na stronie **Przegląd** dla Service Bus nazw w Azure Portal można zobaczyć **liczbę** komunikatów przychodzących **i wychodzących.** Może być konieczne odczekenie około minuty, a następnie odświeżenie strony w celu zobaczenia najnowszych wartości. 
 
-:::image type="content" source="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png" alt-text="Liczba wiadomości przychodzących i wychodzących" lightbox="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png":::
+:::image type="content" source="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png" alt-text="Liczba komunikatów przychodzących i wychodzących" lightbox="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png":::
 
-Przejdź do karty **Tematy** w środkowym dolnym okienku i wybierz temat, aby wyświetlić stronę **tematu Service Bus** tematu. Na tej stronie powinny być widoczne cztery przychodzące i cztery komunikaty wychodzące na wykresie **komunikatów** . 
+Przejdź do karty **Tematy** w środkowym dolnym okienku, a następnie wybierz temat, aby wyświetlić Service Bus **tematu.** Na tej stronie powinny być wyświetlane cztery komunikaty przychodzące i cztery wychodzące na **wykresie Komunikaty.** 
 
 :::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/topic-page-portal.png" alt-text="Komunikaty przychodzące i wychodzące" lightbox="./media/service-bus-java-how-to-use-topics-subscriptions/topic-page-portal.png":::
 
-Jeśli komentarz jest `receiveMessages` wywoływany w `main` metodzie i ponownie uruchamiasz aplikację, na stronie **tematu Service Bus** zobaczysz 8 komunikatów przychodzących (4 nowe), ale cztery komunikaty wychodzące. 
+Jeśli przekłosz wywołanie metody w komentarz i ponownie uruchom aplikację, na stronie tematu usługi Service Bus zostanie wyświetlonych 8 komunikatów przychodzących (4 nowe), ale cztery komunikaty `receiveMessages` `main` wychodzące.  
 
-:::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/updated-topic-page.png" alt-text="Zaktualizowana Strona tematu" lightbox="./media/service-bus-java-how-to-use-topics-subscriptions/updated-topic-page.png":::
+:::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/updated-topic-page.png" alt-text="Zaktualizowana strona tematu" lightbox="./media/service-bus-java-how-to-use-topics-subscriptions/updated-topic-page.png":::
 
-Na tej stronie, jeśli wybierzesz subskrypcję, uzyskasz dostęp do strony **subskrypcji Service Bus** . Na tej stronie można zobaczyć liczbę aktywnych komunikatów, liczbę wiadomości utraconych i więcej. W tym przykładzie istnieją cztery aktywne komunikaty, które nie zostały jeszcze odebrane przez odbiornik. 
+Na tej stronie, jeśli wybierzesz subskrypcję, zostanie Service Bus **Subskrypcja.** Na tej stronie można zobaczyć liczbę aktywnych komunikatów, liczbę utraconych komunikatów i inne. W tym przykładzie istnieją cztery aktywne komunikaty, które nie zostały jeszcze odebrane przez odbiornik. 
 
 :::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/active-message-count.png" alt-text="Liczba aktywnych komunikatów" lightbox="./media/service-bus-java-how-to-use-topics-subscriptions/active-message-count.png":::
 
 ## <a name="next-steps"></a>Następne kroki
-Zapoznaj się z poniższą dokumentacją i przykładami:
+Zapoznaj się z następującą dokumentacją i przykładami:
 
-- [Azure Service Busa Biblioteka kliencka dla języka Java — plik Readme](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/README.md)
+- [Azure Service Bus klienta dla języka Java — Readme](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/README.md)
 - [Przykłady w witrynie GitHub](/samples/azure/azure-sdk-for-java/servicebus-samples/)
 - [Dokumentacja interfejsów API języka Java](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-messaging-servicebus/7.0.0/index.html)
 
