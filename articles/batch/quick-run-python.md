@@ -1,34 +1,35 @@
 ---
-title: Szybki Start — używanie interfejsu API języka Python do uruchamiania zadania Azure Batch
-description: W tym przewodniku szybki start uruchomiono Azure Batch przykładowe zadanie i zadania przy użyciu biblioteki klienta usługi Batch Python. Poznaj kluczowe pojęcia związane z usługą Batch.
-ms.topic: quickstart
+title: Szybki start — używanie interfejsu API języka Python do uruchamiania Azure Batch zadań
+description: W tym przewodniku Szybki start uruchamiasz przykładowe Azure Batch i zadania przy użyciu biblioteki klienta języka Python dla usługi Batch. Poznaj kluczowe pojęcia dotyczące usługi Batch.
 ms.date: 08/17/2020
+ms.topic: quickstart
 ms.custom:
 - seo-python-october2019
 - mvc
 - devx-track-python
-ms.openlocfilehash: e213ec7aee7172bb5ebb49097ad9fd09f9106255
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+- mode-api
+ms.openlocfilehash: 75f83e0ea4823796ace348084bab0915babc8979
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046814"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535563"
 ---
-# <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Szybki Start: korzystanie z interfejsu API języka Python w celu uruchomienia zadania Azure Batch
+# <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Szybki start: uruchamianie zadania aplikacji przy użyciu interfejsu API Azure Batch Python
 
-Wprowadzenie do Azure Batch przy użyciu interfejsu API języka Python w celu uruchomienia zadania Azure Batch z poziomu aplikacji. Aplikacja przekazuje pliki danych wejściowych do usługi Azure Storage i tworzy pulę węzłów obliczeniowych wsadowych (maszyn wirtualnych). Następnie tworzy zadanie, które uruchamia zadania, aby przetwarzać każdy plik wejściowy w puli przy użyciu polecenia Basic.
+Rozpoczynanie pracy z Azure Batch przy użyciu interfejsu API języka Python do uruchamiania Azure Batch zadań z aplikacji. Aplikacja przekaże pliki danych wejściowych do usługi Azure Storage i utworzy pulę węzłów obliczeniowych usługi Batch (maszyn wirtualnych). Następnie tworzy zadanie, które uruchamia zadania w celu przetwarzania każdego pliku wejściowego w puli przy użyciu podstawowego polecenia.
 
-Po ukończeniu tego przewodnika Szybki Start zrozumiesz kluczowe pojęcia związane z usługą Batch i wszystko jest gotowe do wypróbowania partii z bardziej realistycznymi obciążeniami w większej skali.
+Po ukończeniu tego przewodnika Szybki start będziesz rozumieć kluczowe pojęcia dotyczące usługi Batch i wszystko będzie gotowe do wypróbowania usługi Batch z bardziej realistycznymi obciążeniami na większą skalę.
 
-![Przegląd przepływu pracy Azure Batch](./media/quick-run-python/overview-of-the-azure-batch-workflow.png)
+![Omówienie przepływu pracy Azure Batch przepływu pracy](./media/quick-run-python/overview-of-the-azure-batch-workflow.png)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - Konto usługi Batch i połączone konto usługi Azure Storage. Aby utworzyć te konta, skorzystaj z przewodników Szybki start dla usługi Batch i [witryny Azure Portal](quick-create-portal.md) lub [interfejsu wiersza polecenia platformy Azure](quick-create-cli.md).
 
-- [Python](https://python.org/downloads) w wersji 2,7 lub 3,6, włącznie z menedżerem pakietów [PIP](https://pip.pypa.io/en/stable/installing/)
+- [Python](https://python.org/downloads) w wersji 2.7 lub 3.6, w tym [menedżer pakietów pip](https://pip.pypa.io/en/stable/installing/)
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -44,7 +45,7 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 git clone https://github.com/Azure-Samples/batch-python-quickstart.git
 ```
 
-Przejdź do katalogu, który zawiera skrypt języka Python `python_quickstart_client.py` .
+Przejdź do katalogu zawierającego skrypt języka Python `python_quickstart_client.py` .
 
 W środowisku projektowym Python zainstaluj wymagane pakiety przy użyciu menedżera `pip`.
 
@@ -171,7 +172,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-batch-job"></a>Utworzenie zadania usługi Batch
 
-Zadanie usługi Batch to logiczna grupa zawierająca co najmniej jedno zadanie podrzędne. Zadanie uwzględnia wspólne ustawienia zadań podrzędnych, takie jak priorytet i pula, w której zadania podrzędne mają być uruchamiane. Aplikacja tworzy zadanie w puli za pomocą klasy [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter). Metoda [Job. Add](/python/api/azure-batch/azure.batch.operations.joboperations) dodaje zadanie do określonego konta wsadowego. Początkowo zadanie nie zawiera zadań podrzędnych.
+Zadanie usługi Batch to logiczna grupa zawierająca co najmniej jedno zadanie podrzędne. Zadanie uwzględnia wspólne ustawienia zadań podrzędnych, takie jak priorytet i pula, w której zadania podrzędne mają być uruchamiane. Aplikacja tworzy zadanie w puli za pomocą klasy [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter). Metoda [job.add](/python/api/azure-batch/azure.batch.operations.joboperations) dodaje zadanie do określonego konta usługi Batch. Początkowo zadanie nie zawiera zadań podrzędnych.
 
 ```python
 job = batch.models.JobAddParameter(
@@ -227,7 +228,7 @@ for task in tasks:
 
 Aplikacja automatycznie usuwa utworzony kontener magazynu, a także udostępnia opcję usunięcia puli i zadania usługi Batch. Opłaty za pulę są naliczane, dopóki węzły działają, nawet jeśli nie zostały zaplanowane żadne zadania. Gdy pula nie jest już potrzebna, usuń ją. W przypadku usunięcia puli usuwane są również wszystkie dane wyjściowe zadań podrzędnych w węzłach. 
 
-Gdy grupa zasobów, konto usługi Batch i konto magazynu nie będą już potrzebne, usuń je. Aby to zrobić, w Azure Portal wybierz grupę zasobów dla konta usługi Batch i wybierz pozycję **Usuń grupę zasobów**.
+Gdy grupa zasobów, konto usługi Batch i konto magazynu nie będą już potrzebne, usuń je. Aby to zrobić w Azure Portal, wybierz grupę zasobów dla konta usługi Batch i wybierz **pozycję Usuń grupę zasobów.**
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,57 +1,52 @@
 ---
 title: Tworzenie puli z włączonym szyfrowaniem dysku
-description: Dowiedz się, jak za pomocą konfiguracji szyfrowania dysków szyfrować węzły z kluczem zarządzanym przez platformę.
+description: Dowiedz się, jak za pomocą konfiguracji szyfrowania dysków szyfrować węzły przy użyciu klucza zarządzanego przez platformę.
 author: pkshultz
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 04/16/2021
 ms.author: peshultz
-ms.custom: references_regions
-ms.openlocfilehash: 41fc827459b454e2bcb120a925cdab8fcd46e310
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 40281211e5eb70089f4168dcb02720c912120a35
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99055318"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576112"
 ---
 # <a name="create-a-pool-with-disk-encryption-enabled"></a>Tworzenie puli z włączonym szyfrowaniem dysku
 
-Podczas tworzenia puli Azure Batch przy użyciu [konfiguracji maszyny wirtualnej](nodes-and-pools.md#virtual-machine-configuration)można szyfrować węzły obliczeniowe w puli za pomocą klucza zarządzanego przez platformę, określając konfigurację szyfrowania dysku.
+Podczas tworzenia puli Azure Batch przy [](nodes-and-pools.md#virtual-machine-configuration)użyciu konfiguracji maszyny wirtualnej można szyfrować węzły obliczeniowe w puli przy użyciu klucza zarządzanego przez platformę, określając konfigurację szyfrowania dysków.
 
-W tym artykule opisano sposób tworzenia puli wsadowej z włączonym szyfrowaniem dysków.
-
-> [!IMPORTANT]
-> Obsługa szyfrowania na hoście przy użyciu klucza zarządzanego przez platformę w Azure Batch jest obecnie dostępna w publicznej wersji zapoznawczej dla regionu Wschodnie stany USA, zachodnie stany USA 2, Południowo-środkowe stany USA, US Gov Wirginia i US Gov Arizona.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+W tym artykule wyjaśniono, jak utworzyć pulę usługi Batch z włączonym szyfrowaniem dysków.
 
 ## <a name="why-use-a-pool-with-disk-encryption-configuration"></a>Dlaczego warto używać puli z konfiguracją szyfrowania dysków?
 
-Za pomocą puli wsadowej można uzyskać dostęp do danych i przechowywać je w systemie operacyjnym oraz na dyskach tymczasowych w węźle obliczeniowym. Szyfrowanie dysku po stronie serwera za pomocą klucza zarządzanego przez platformę zapewnia ochronę tych danych przy niskim obciążeniu i wygodie.
+Pula usługi Batch umożliwia uzyskiwanie dostępu do danych i przechowywanie ich na dyskach systemu operacyjnego i dyskach tymczasowych węzła obliczeniowego. Szyfrowanie dysku po stronie serwera za pomocą klucza zarządzanego przez platformę chroni te dane przy niskim narzucie i wygodzie.
 
-Program Batch zastosuje jedną z tych technologii szyfrowania dysków w węzłach obliczeniowych na podstawie konfiguracji puli i regionalnej obsługi.
+Usługa Batch zastosuje jedną z tych technologii szyfrowania dysków w węzłach obliczeniowych w oparciu o konfigurację puli i regionalną obsługę.
 
-- [Zarządzane szyfrowanie dysków przy użyciu kluczy zarządzanych przez platformę](../virtual-machines/disk-encryption.md#platform-managed-keys)
+- [Szyfrowanie dysków zarządzanych w spoczynku przy użyciu kluczy zarządzanych przez platformę](../virtual-machines/disk-encryption.md#platform-managed-keys)
 - [Szyfrowanie na hoście przy użyciu klucza zarządzanego przez platformę](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
 - [Usługa Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)
 
-Nie będzie można określić, która metoda szyfrowania ma być stosowana do węzłów w puli. Zamiast tego należy podać dyski docelowe, które mają zostać zaszyfrowane w swoich węzłach, a w usłudze Batch można wybrać odpowiednią metodę szyfrowania, co zapewni zaszyfrowanie określonych dysków w węźle obliczeniowym.
+Nie będzie można określić, która metoda szyfrowania zostanie zastosowana do węzłów w puli. Zamiast tego należy podać dyski docelowe, które chcesz zaszyfrować w węzłach, a usługa Batch może wybrać odpowiednią metodę szyfrowania, zapewniając szyfrowanie określonych dysków w węźle obliczeniowym.
 
 > [!IMPORTANT]
-> W przypadku tworzenia puli za pomocą [obrazu niestandardowego](batch-sig-images.md)można włączyć szyfrowanie dysków tylko w przypadku korzystania z maszyn wirtualnych z systemem Windows.
+> Jeśli tworzysz pulę przy użyciu obrazu [niestandardowego,](batch-sig-images.md)szyfrowanie dysków można włączyć tylko w przypadku korzystania z maszyn wirtualnych z systemem Windows.
 
 ## <a name="azure-portal"></a>Azure Portal
 
-Podczas tworzenia puli zadań wsadowych w Azure Portal wybierz opcję **TemporaryDisk** lub **OsAndTemporaryDisk** w obszarze **Konfiguracja szyfrowania dysku**.
+Podczas tworzenia puli usługi Batch w Azure Portal wybierz pozycję **TemporaryDisk** lub **OsAndTemporaryDisk** w obszarze **Konfiguracja szyfrowania dysków.**
 
-:::image type="content" source="media/disk-encryption/portal-view.png" alt-text="Zrzut ekranu opcji Konfiguracja szyfrowania dysku w Azure Portal.":::
+:::image type="content" source="media/disk-encryption/portal-view.png" alt-text="Zrzut ekranu przedstawiający opcję Konfiguracja szyfrowania dysków w Azure Portal.":::
 
-Po utworzeniu puli w sekcji **Właściwości** puli można zobaczyć cele konfiguracji szyfrowania dysków.
+Po utworzeniu puli obiekty docelowe konfiguracji szyfrowania dysków można zobaczyć w sekcji **Właściwości** puli.
 
-:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Zrzut ekranu przedstawiający elementy docelowe konfiguracji szyfrowania dysków w Azure Portal.":::
+:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Zrzut ekranu przedstawiający obiekty docelowe konfiguracji szyfrowania dysków w Azure Portal.":::
 
 ## <a name="examples"></a>Przykłady
 
-W poniższych przykładach pokazano, jak szyfrować system operacyjny i dyski tymczasowe w puli usługi Batch przy użyciu zestawu SDK usługi Batch .NET, interfejsu API REST w usłudze Batch i wiersza polecenia platformy Azure.
+Poniższe przykłady pokazują, jak zaszyfrować system operacyjny i dyski tymczasowe w puli usługi Batch przy użyciu zestawu .NET SDK usługi Batch, interfejsu API REST usługi Batch i interfejsu wiersza polecenia platformy Azure.
 
 ### <a name="batch-net-sdk"></a>Zestaw SDK platformy .NET usługi Batch
 
@@ -61,9 +56,9 @@ pool.VirtualMachineConfiguration.DiskEncryptionConfiguration = new DiskEncryptio
     );
 ```
 
-### <a name="batch-rest-api"></a>Interfejs API REST usługi Batch
+### <a name="batch-rest-api"></a>Batch REST API
 
-ADRES URL INTERFEJSU API REST:
+Adres URL interfejsu API REST:
 
 ```
 POST {batchURL}/pools?api-version=2020-03-01.11.0
@@ -113,5 +108,5 @@ az batch pool create \
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [szyfrowaniu Azure Disk Storage po stronie serwera](../virtual-machines/disk-encryption.md).
-- Aby zapoznać się z szczegółowym omówieniem usługi Batch, zobacz temat [przepływ pracy i zasoby usług Batch](batch-service-workflow-features.md).
+- Dowiedz się więcej [o szyfrowaniu po stronie serwera Azure Disk Storage](../virtual-machines/disk-encryption.md).
+- Aby uzyskać szczegółowe omówienie usługi Batch, zobacz Batch [service workflow and resources (Przepływ](batch-service-workflow-features.md)pracy i zasoby usługi Batch).

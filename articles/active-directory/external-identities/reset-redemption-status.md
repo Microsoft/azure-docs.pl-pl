@@ -1,6 +1,6 @@
 ---
-title: Resetowanie stanu wykupu użytkownika-gościa — Azure AD
-description: Informacje na temat resetowania stanu wykupu zaproszeń dla Azure Active Directory użytkowników systemu B2B w usłudze Azure AD.
+title: Resetowanie stanu realizacji użytkownika-gościa — Azure AD
+description: Dowiedz się, jak zresetować stan realizacji zaproszenia dla użytkowników Azure Active Directory B2B w Azure AD External Identities.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -10,38 +10,40 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0396698fe63cb62fc1cfaf5d930b8a97a7b1bbc
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: f5bfce7ef2621cbe3bbbfdd95bf9a75e427c8cbd
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552261"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531885"
 ---
-# <a name="reset-redemption-status-for-a-guest-user-preview"></a>Resetowanie stanu wykupu dla użytkownika-gościa (wersja zapoznawcza)
+# <a name="reset-redemption-status-for-a-guest-user-preview"></a>Resetowanie stanu realizacji dla użytkownika-gościa (wersja zapoznawcza)
 
-Po wykorzystaniu przez użytkownika-gościa zaproszenia do współpracy B2B mogą wystąpić sytuacje, w których należy zaktualizować informacje logowania, na przykład:
+Gdy użytkownik-gość zrealizuj zaproszenie na potrzeby współpracy B2B, może być konieczne zaktualizowanie informacji logowania, na przykład gdy:
 
 - Użytkownik chce zalogować się przy użyciu innego dostawcy poczty e-mail i tożsamości
-- Konto użytkownika w swojej dzierżawie domowej zostało usunięte i utworzone na nowo
-- Użytkownik został przeniesiony do innej firmy, ale nadal musi mieć ten sam dostęp do zasobów
-- Obowiązki użytkownika zostały przekazano do innego użytkownika
+- Konto użytkownika w jego dzierżawie głównej zostało usunięte i ponownie utworzone
+- Użytkownik został przeniesiony do innej firmy, ale nadal potrzebuje tego samego dostępu do Twoich zasobów
+- Obowiązki użytkownika zostały przekazane do innego użytkownika
 
-Aby zarządzać tymi scenariuszami wcześniej, trzeba ręcznie usunąć konto użytkownika-gościa z katalogu i zaprosić użytkownika. Teraz można użyć programu PowerShell lub interfejsu API zaproszenia Microsoft Graph do resetowania stanu wykupu użytkownika i ponownego zaproszenia użytkownika przy zachowaniu identyfikatora obiektu użytkownika, członkostwa w grupach i przypisań aplikacji. Gdy użytkownik zrealizuje nowe zaproszenie, nazwa UPN użytkownika nie ulegnie zmianie, ale nazwy logowania użytkownika zmienią się na nową wiadomość e-mail. Użytkownik może następnie zalogować się przy użyciu nowego adresu e-mail lub wiadomości e-mail dodanej do `otherMails` właściwości obiektu użytkownika.
+Aby wcześniej zarządzać tymi scenariuszami, trzeba było ręcznie usunąć konto użytkownika-gościa z katalogu i ponownie go zaimprocować. Teraz możesz użyć programu PowerShell lub interfejsu API zaproszenia do programu Microsoft Graph, aby zresetować stan realizacji użytkownika i ponownie go zaaprocować przy zachowaniu identyfikatora obiektu użytkownika, członkosstwa w grupach i przypisań aplikacji. Gdy użytkownik zrealizuj nowe zaproszenie, nazwa UPN użytkownika nie zmieni się, ale nazwa logowania użytkownika zmieni się na nową wiadomość e-mail. Użytkownik może następnie zalogować się przy użyciu nowej wiadomości e-mail lub wiadomości e-mail dodanej do właściwości `otherMails` obiektu użytkownika.
 
-## <a name="reset-the-email-address-used-for-sign-in"></a>Zresetuj adres e-mail używany do logowania
+## <a name="reset-the-email-address-used-for-sign-in"></a>Resetowanie adresu e-mail używanego do logowania
 
-Jeśli użytkownik chce zalogować się przy użyciu innego adresu e-mail:
+Jeśli użytkownik chce zalogować się przy użyciu innej poczty e-mail:
 
-1. Upewnij się, że nowy adres e-mail jest dodany do `mail` `otherMails` właściwości lub obiektu użytkownika. 
-2.  Zastąp adres e-mail we `InvitedUserEmailAddress` Właściwości nowym adresem e-mail.
-3. Użyj jednej z poniższych metod, aby zresetować stan wykupu użytkownika.
+1. Upewnij się, że nowy adres e-mail został dodany do `mail` właściwości lub `otherMails` obiektu użytkownika. 
+2.  Zastąp adres e-mail we `InvitedUserEmailAddress` właściwości nowym adresem e-mail.
+3. Użyj jednej z poniższych metod, aby zresetować stan realizacji użytkownika.
 
 > [!NOTE]
->W trakcie korzystania z publicznej wersji zapoznawczej podczas resetowania adresu e-mail użytkownika zalecamy ustawienie `mail` właściwości na nowy adres e-mail. W ten sposób użytkownik może zrealizować zaproszenie, logując się do katalogu, oprócz korzystania z linku wykupu w ramach zaproszenia.
+>W publicznej wersji zapoznawczej dostępne są dwa zalecenia:
+>- W przypadku resetowania adresu e-mail użytkownika do nowego adresu zalecamy ustawienie `mail` właściwości . W ten sposób użytkownik może zrealizować zaproszenie, logując się do katalogu oraz korzystając z linku do realizacji w zaproszeniu.
+>- W przypadku resetowania stanu użytkownika-gościa B2B należy to zrobić w kontekście użytkownika. Wywołania tylko aplikacji nie są obecnie obsługiwane.
 >
-## <a name="use-powershell-to-reset-redemption-status"></a>Resetowanie stanu wykupu przy użyciu programu PowerShell
+## <a name="use-powershell-to-reset-redemption-status"></a>Resetowanie stanu realizacji przy użyciu programu PowerShell
 
-Zainstaluj najnowszy moduł AzureADPreview PowerShell i Utwórz nowe zaproszenie z `InvitedUserEmailAddress` ustawionym nowym adresem e-mail, a następnie `ResetRedemption` Ustaw wartość `true` .
+Zainstaluj najnowszy moduł AzureADPreview programu PowerShell i utwórz nowe zaproszenie z ustawieniem na nowy adres `InvitedUserEmailAddress` e-mail i ustaw `ResetRedemption` wartość `true` .
 
 ```powershell  
 Uninstall-Module AzureADPreview 
@@ -52,9 +54,9 @@ $msGraphUser = New-Object Microsoft.Open.MSGraph.Model.User -ArgumentList $ADGra
 New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitationMessage $True -InviteRedirectUrl "http://myapps.microsoft.com" -InvitedUser $msGraphUser -ResetRedemption $True 
 ```
 
-## <a name="use-microsoft-graph-api-to-reset-redemption-status"></a>Resetowanie stanu wykupu przy użyciu interfejsu API Microsoft Graph
+## <a name="use-microsoft-graph-api-to-reset-redemption-status"></a>Resetowanie stanu realizacji przy użyciu Microsoft Graph API
 
-Używając [interfejsu API zaproszenia Microsoft Graph](/graph/api/resources/invitation?view=graph-rest-1.0), ustaw `resetRedemption` Właściwość na `true` i określ nowy adres e-mail we `invitedUserEmailAddress` właściwości.
+Używając [interfejsu API Microsoft Graph z zaproszeniem,](/graph/api/resources/invitation?view=graph-rest-beta&preserve-view=true)ustaw właściwość na i określ nowy adres `resetRedemption` `true` e-mail we właściwości `invitedUserEmailAddress` .
 
 ```json
 POST https://graph.microsoft.com/beta/invitations  
@@ -85,5 +87,5 @@ ContentType: application/json
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dodawanie Azure Active Directory użytkowników współpracy B2B przy użyciu programu PowerShell](customize-invitation-api.md#powershell)
-- [Właściwości użytkownika Gość usługi Azure AD B2B](user-properties.md)
+- [Dodawanie Azure Active Directory współpracy B2B przy użyciu programu PowerShell](customize-invitation-api.md#powershell)
+- [Właściwości użytkownika-gościa usługi Azure AD B2B](user-properties.md)

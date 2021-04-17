@@ -1,27 +1,29 @@
 ---
-title: 'Szybki Start: Konfigurowanie dzienników przepływu sieciowych grup zabezpieczeń przy użyciu szablonu Azure Resource Manager (szablon ARM)'
-description: Dowiedz się, jak włączyć obsługę dzienników usługi Network Security Group (sieciowej grupy zabezpieczeń) przy użyciu szablonu Azure Resource Manager (szablonu ARM) i Azure PowerShell.
+title: 'Szybki start: konfigurowanie dzienników przepływu sieciowej grupy zabezpieczeń przy użyciu szablonu Azure Resource Manager (szablonu usługi ARM)'
+description: Dowiedz się, jak programowo włączyć dzienniki przepływu sieciowej grupy zabezpieczeń przy użyciu szablonu Azure Resource Manager (szablonu USŁUGI ARM) i Azure PowerShell.
 services: network-watcher
 author: damendo
-ms.service: network-watcher
-ms.topic: quickstart
-ms.date: 01/07/2021
 ms.author: damendo
-ms.custom: subject-armqs
-ms.openlocfilehash: df7f33d9aed307bdf85a571c8169d1b0dbe863e5
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.date: 01/07/2021
+ms.topic: quickstart
+ms.service: network-watcher
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: df0ccb5bf5ecd60d80526085983e35abf58e9966
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063801"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532438"
 ---
-# <a name="quickstart-configure-network-security-group-flow-logs-by-using-an-arm-template"></a>Szybki Start: Konfigurowanie dzienników przepływu sieciowych grup zabezpieczeń przy użyciu szablonu ARM
+# <a name="quickstart-configure-network-security-group-flow-logs-by-using-an-arm-template"></a>Szybki start: konfigurowanie dzienników przepływu sieciowej grupy zabezpieczeń przy użyciu szablonu usługi ARM
 
-W tym przewodniku szybki start dowiesz się, jak włączyć [dzienniki przepływu sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń)](network-watcher-nsg-flow-logging-overview.md) przy użyciu szablonu [Azure Resource Manager](../azure-resource-manager/management/overview.md) (szablon ARM) i Azure PowerShell.
+Z tego przewodnika Szybki start dowiesz się, jak włączyć dzienniki [](../azure-resource-manager/management/overview.md) przepływu sieciowej grupy zabezpieczeń [przy](network-watcher-nsg-flow-logging-overview.md) użyciu szablonu Azure Resource Manager (szablonu USŁUGI ARM) i Azure PowerShell.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Zaczynamy od przeglądu właściwości obiektu dziennika przepływu sieciowej grupy zabezpieczeń. Udostępniamy przykładowe szablony. Następnie użyjemy lokalnego Azure PowerShell wystąpienia do wdrożenia szablonu.
+Zaczniemy od przeglądu właściwości obiektu dziennika przepływu sieciowej grupy zabezpieczeń. Dostarczamy przykładowe szablony. Następnie użyjemy lokalnego Azure PowerShell do wdrożenia szablonu.
 
 Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w Azure Portal.
 
@@ -33,18 +35,18 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="review-the-template"></a>Przegląd szablonu
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-networkwatcher-flowlogs-create).
+Szablon, który używamy w tym przewodniku Szybki start, pochodzi z szablonów [szybkiego startu platformy Azure.](https://azure.microsoft.com/resources/templates/101-networkwatcher-flowlogs-create)
 
 :::code language="json" source="~/quickstart-templates/101-networkwatcher-flowlogs-create/azuredeploy.json":::
 
 Te zasoby są zdefiniowane w szablonie:
 
-- [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
-- [Microsoft. resources/Deployments](/azure/templates/microsoft.resources/deployments)
+- [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
+- [Microsoft.Resources/deployments](/azure/templates/microsoft.resources/deployments)
 
 ## <a name="nsg-flow-logs-object"></a>Obiekt dzienników przepływu sieciowej grupy zabezpieczeń
 
-Poniższy kod przedstawia obiekt dziennika przepływu sieciowej grupy zabezpieczeń i jego parametry. Aby utworzyć `Microsoft.Network/networkWatchers/flowLogs` zasób, Dodaj ten kod do sekcji Resources szablonu:
+Poniższy kod przedstawia obiekt dzienników przepływu sieciowej grupy zabezpieczeń i jego parametry. Aby utworzyć `Microsoft.Network/networkWatchers/flowLogs` zasób, dodaj ten kod do sekcji resources szablonu:
 
 ```json
 {
@@ -75,20 +77,20 @@ Poniższy kod przedstawia obiekt dziennika przepływu sieciowej grupy zabezpiecz
 }
 ```
 
-Aby uzyskać pełny przegląd właściwości obiektów dzienników przepływu sieciowej grupy zabezpieczeń, zobacz [Microsoft. Network networkWatchers/flowLogs](/azure/templates/microsoft.network/networkwatchers/flowlogs).
+Aby uzyskać pełne omówienie właściwości obiektu dzienników przepływu sieciowej grupy zabezpieczeń, zobacz [Microsoft.Network networkWatchers/flowLogs](/azure/templates/microsoft.network/networkwatchers/flowlogs).
 
-## <a name="create-your-template"></a>Utwórz szablon
+## <a name="create-your-template"></a>Tworzenie szablonu
 
-Jeśli używasz szablonów ARM po raz pierwszy, zapoznaj się z następującymi artykułami, aby dowiedzieć się więcej o szablonach usługi ARM:
+Jeśli używasz szablonów usługi ARM po raz pierwszy, zapoznaj się z następującymi artykułami, aby dowiedzieć się więcej o szablonach usługi ARM:
 
-- [Wdrażanie zasobów za pomocą szablonów ARM i Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template-or-bicep-file)
-- [Samouczek: Tworzenie i wdrażanie pierwszego szablonu ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+- [Wdrażanie zasobów przy użyciu szablonów usługi ARM i Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template-or-bicep-file)
+- [Samouczek: tworzenie i wdrażanie pierwszego szablonu usługi ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
-Poniższy przykład jest kompletnym szablonem. Jest to również najprostsza wersja szablonu. Przykład zawiera minimalne parametry, które są przesyłane w celu skonfigurowania dzienników przepływu sieciowej grupy zabezpieczeń. Aby uzyskać więcej przykładów, zobacz artykuł Omówienie [Konfigurowanie dzienników przepływu sieciowej grupy zabezpieczeń na podstawie szablonu Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md).
+Poniższy przykład to kompletny szablon. Jest to również najprostsza wersja szablonu. Przykład zawiera minimalne parametry, które są przekazywane do skonfigurowania dzienników przepływu sieciowej organizacji zabezpieczeń. Aby uzyskać więcej przykładów, zobacz artykuł z omówieniem [Configure NSG flow logs from an Azure Resource Manager template](network-watcher-nsg-flow-logging-azure-resource-manager.md)(Konfigurowanie dzienników przepływu sieciowej Azure Resource Manager sieciowej).
 
 ### <a name="example"></a>Przykład
 
-Poniższy szablon umożliwia wykonywanie dzienników przepływu dla programu sieciowej grupy zabezpieczeń, a następnie przechowywanie dzienników na określonym koncie magazynu:
+Poniższy szablon umożliwia włączenie dzienników przepływu dla sieciowej organizacji zabezpieczeń, a następnie przechowywanie dzienników na określonym koncie magazynu:
 
 ```json
 {
@@ -115,17 +117,17 @@ Poniższy szablon umożliwia wykonywanie dzienników przepływu dla programu sie
 ```
 
 > [!NOTE]
-> - Nazwa zasobu używa formatu _ParentResource_ChildResource_. W naszym przykładzie zasób nadrzędny jest regionalnym wystąpieniem usługi Azure Network Watcher:
->    - **Format**: NetworkWatcher_RegionName
->    - **Przykład**: NetworkWatcher_centraluseuap
-> - `targetResourceId` jest IDENTYFIKATORem zasobu docelowej sieciowej grupy zabezpieczeń.
-> - `storageId` jest IDENTYFIKATORem zasobu docelowego konta magazynu.
+> - Nazwa zasobu używa formatu _ParentResource_ChildResource_. W naszym przykładzie zasób nadrzędny to regionalne wystąpienie Network Watcher Azure:
+>    - **Format:** NetworkWatcher_RegionName
+>    - **Przykład:** NetworkWatcher_centraluseuap
+> - `targetResourceId` to identyfikator zasobu docelowej sieciowej grupy zasobów.
+> - `storageId` to identyfikator zasobu docelowego konta magazynu.
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
-W tym samouczku przyjęto założenie, że masz istniejącą grupę zasobów i sieciowej grupy zabezpieczeń, w której można włączyć logowanie do przepływu.
+W tym samouczku przyjęto założenie, że masz istniejącą grupę zasobów i sieciową grupę zasobów, dla których możesz włączyć rejestrowanie przepływu.
 
-Wszystkie przykładowe szablony, które są wyświetlane w tym artykule, można zapisać lokalnie jako *azuredeploy.js*. Zaktualizuj wartości właściwości, aby wskazywały na prawidłowe zasoby w ramach subskrypcji.
+Możesz zapisać dowolne przykładowe szablony, które są wyświetlane w tym artykule lokalnie, *azuredeploy.jsna stronie*. Zaktualizuj wartości właściwości, aby wskazać prawidłowe zasoby w subskrypcji.
 
 Aby wdrożyć szablon, uruchom następujące polecenie w Azure PowerShell:
 
@@ -137,34 +139,34 @@ New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatc
 ```
 
 > [!NOTE]
-> Te polecenia służą do wdrażania zasobu w przykładowej grupie zasobów NetworkWatcherRG, a nie do grupy zasobów zawierającej sieciowej grupy zabezpieczeń.
+> Te polecenia wdrażają zasób w przykładowej grupie zasobów NetworkWatcherRG, a nie w grupie zasobów zawierającej sieciową grupę zasobów.
 
 ## <a name="validate-the-deployment"></a>Weryfikowanie wdrożenia
 
 Dostępne są dwie opcje, aby sprawdzić, czy wdrożenie zakończyło się pomyślnie:
 
-- Konsola programu PowerShell pokazuje `ProvisioningState` jako `Succeeded` .
-- Przejdź do [strony portalu sieciowej grupy zabezpieczeń Flow Logs](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) , aby potwierdzić zmiany.
+- Konsola programu PowerShell będzie `ProvisioningState` wyświetlać się jako `Succeeded` .
+- Przejdź do strony [portalu dzienników przepływu sieciowej organizacji zabezpieczeń,](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) aby potwierdzić zmiany.
 
-Jeśli wystąpiły problemy ze wdrożeniem, zobacz [Rozwiązywanie typowych błędów wdrażania platformy Azure przy użyciu Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md).
+Jeśli wystąpiły problemy z wdrożeniem, zobacz [Troubleshoot common Azure deployment errors with Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md)(Rozwiązywanie typowych błędów wdrażania platformy Azure za pomocą Azure Resource Manager ).
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Zasoby platformy Azure można usunąć, korzystając z trybu wdrożenia. Aby usunąć zasób dzienniki przepływów, określ wdrożenie w trybie kompletnym bez uwzględniania zasobu, który chcesz usunąć. Przeczytaj więcej na temat [kończenia trybu wdrożenia](../azure-resource-manager/templates/deployment-modes.md#complete-mode).
+Zasoby platformy Azure można usunąć przy użyciu pełnego trybu wdrażania. Aby usunąć zasób dzienników przepływu, określ wdrożenie w trybie kompletnym bez uwzględnienia zasobu, który chcesz usunąć. Przeczytaj więcej na [temat pełnego trybu wdrażania.](../azure-resource-manager/templates/deployment-modes.md#complete-mode)
 
-Dziennik przepływu sieciowej grupy zabezpieczeń można także wyłączyć w Azure Portal:
+Możesz również wyłączyć dziennik przepływu sieciowej Azure Portal:
 
 1. Zaloguj się w witrynie Azure Portal.
-1. Wybierz pozycję **Wszystkie usługi**. W polu **Filtr** wprowadź **obserwator sieciowy**. W wynikach wyszukiwania wybierz pozycję **Network Watcher**.
-1. W obszarze **dzienniki** wybierz pozycję **dzienniki przepływu sieciowej grupy zabezpieczeń**.
-1. Na liście sieciowych grup zabezpieczeń wybierz sieciowej grupy zabezpieczeń, dla którego chcesz wyłączyć dzienniki przepływów.
-1. W obszarze **Ustawienia dzienników przepływu** wybierz pozycję **wyłączone**.
+1. Wybierz pozycję **Wszystkie usługi**. W polu **Filtr** wprowadź wartość **network watcher**. W wynikach wyszukiwania wybierz pozycję **Network Watcher**.
+1. W **obszarze Dzienniki** wybierz pozycję Dzienniki **przepływu sieciowej organizacji zabezpieczeń.**
+1. Na liście sieciowych sieciowych sieciowych sieci wybierz sieciową listę zabezpieczeń, dla której chcesz wyłączyć dzienniki przepływu.
+1. W **obszarze Ustawienia dzienników przepływu** wybierz pozycję **Wył.**.
 1. Wybierz pozycję **Zapisz**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start przedstawiono sposób włączania dzienników usługi sieciowej grupy zabezpieczeń Flow przy użyciu szablonu usługi ARM. Następnie Dowiedz się, jak wizualizować dane przepływu usługi sieciowej grupy zabezpieczeń przy użyciu jednej z następujących opcji:
+W tym przewodniku Szybki start opisano sposób włączania dzienników przepływu sieciowej grupy zabezpieczeń przy użyciu szablonu usługi ARM. Następnie dowiedz się, jak wizualizować dane przepływu sieciowej sieci przy użyciu jednej z tych opcji:
 
 - [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
-- [Narzędzia Open Source](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
-- [Analiza ruchu platformy Azure](traffic-analytics.md)
+- [Narzędzia typu open source](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+- [Azure Analiza ruchu](traffic-analytics.md)

@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a343c1729b47d88ec414f17fcef7f9323d99161d
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 628bb9886264574bf33ac927cf5480f91144c39c
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515264"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533996"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>Szybki start: konfigurowanie Azure Attestation za pomocą Azure PowerShell
 
@@ -61,7 +61,7 @@ Aby zaktualizować dla "bieżącego użytkownika", uruchom okno programu PowerSh
 Update-Module -Name Az.Attestation
 ```
 
-Aby zaktualizować dla "wszystkich użytkowników", uruchom okno programu PowerShell z podwyższonym poziomem uprawnień i uruchom:
+Aby zaktualizować program dla "wszystkich użytkowników", uruchom okno programu PowerShell z podwyższonym poziomem uprawnień i uruchom:
 
 ```powershell
 Update-Module -Name Az.Attestation
@@ -76,7 +76,7 @@ Minimalna wersja modułów Az wymagana do obsługi operacji zaświadczenia:
 - Az.Accounts 1.9.2
 - Az.Attestation 0.1.8
 
-Uruchom poniższe polecenie, aby sprawdzić zainstalowaną wersję wszystkich modułów Az 
+Uruchom poniższe polecenie, aby zweryfikować zainstalowaną wersję wszystkich modułów Az 
 
 ```powershell
 Get-InstalledModule
@@ -85,13 +85,13 @@ Jeśli wersje nie są zgodne z minimalnym wymaganiem, uruchom Update-Module pole
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Zaloguj się do platformy Azure w konsoli programu PowerShell (bez podwyższonego poziomu uprawnień dostępu).
+Zaloguj się do platformy Azure w konsoli programu PowerShell (bez podniesionych uprawnień dostępu).
 
 ```powershell
 Connect-AzAccount
 ```
 
-W razie potrzeby przejdź do subskrypcji, która ma być używana Azure Attestation.
+W razie potrzeby przejdź do subskrypcji, która ma być używana na potrzeby Azure Attestation.
 
 ```powershell
 Set-AzContext -Subscription <subscription id>  
@@ -99,7 +99,7 @@ Set-AzContext -Subscription <subscription id>
 
 ## <a name="register-microsoftattestation-resource-provider"></a>Rejestrowanie dostawcy zasobów Microsoft.Attestation
 
-Zarejestruj dostawcę zasobów Microsoft.Attestation w subskrypcji. Aby uzyskać więcej informacji na temat dostawców zasobów platformy Azure oraz sposobu konfigurowania dostawców zasobów i zarządzania nimi, zobacz [Azure resource providers and types (Dostawcy zasobów i typy zasobów platformy Azure).](../azure-resource-manager/management/resource-providers-and-types.md) Pamiętaj, że zarejestrowanie dostawcy zasobów jest wymagane tylko raz dla subskrypcji.
+Zarejestruj dostawcę zasobów Microsoft.Attestation w subskrypcji. Aby uzyskać więcej informacji na temat dostawców zasobów platformy Azure oraz sposobu konfigurowania dostawców zasobów i zarządzania nimi, zobacz Azure resource providers and types (Dostawcy [zasobów i typy zasobów platformy Azure).](../azure-resource-manager/management/resource-providers-and-types.md) Pamiętaj, że zarejestrowanie dostawcy zasobów jest wymagane tylko raz dla subskrypcji.
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.Attestation
@@ -121,7 +121,7 @@ New-AzResourceGroup -Name $attestationResourceGroup -Location $location
 ```
 
  > [!NOTE]
-   > Po utworzeniu dostawcy zaświadczeń w tej grupie zasobów użytkownik usługi Azure AD musi mieć rolę "Współautor zaświadczenia" na dostawcy, aby wykonywać operacje, takie jak konfiguracja zasad/zarządzanie certyfikatami podpisatora zasad. Te uprawnienia mogą być również dziedziczone z rolami, takimi jak "Właściciel" (uprawnienia z symbolami wieloznacznymi), "Współautor" (uprawnienia z symbolami wieloznaczny) w subskrypcji/grupie zasobów.  
+   > Po utworzeniu dostawcy zaświadczeń w tej grupie zasobów użytkownik  usługi Azure AD musi mieć rolę współautora zaświadczeń na dostawcy, aby wykonywać operacje takie jak konfiguracja zasad/zarządzanie certyfikatami osoby podpisują zasady. Te uprawnienia mogą być również dziedziczone z rolami, takimi jak **Właściciel** (uprawnienia z symbolami wieloznacznymi)/ **Współautor** (uprawnienia z symbolami wieloznacznymi) w subskrypcji/grupie zasobów.  
 
 
 ## <a name="create-and-manage-an-attestation-provider"></a>Tworzenie dostawcy zaświadczenia i zarządzanie tym dostawcą
@@ -133,13 +133,13 @@ $attestationProvider = "<attestation provider name>"
 New-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Location $location
 ```
 
-PolicySignerCertificateFile to plik określający zestaw zaufanych kluczy podpisywania. Jeśli dla parametru PolicySignerCertificateFile zostanie określona nazwa pliku, dostawcę zasyłania można skonfigurować tylko przy użyciu zasad w formacie JWT ze podpisem. W innym przypadku zasady można skonfigurować w formacie tekstowym lub niepodpisanym JWT.
+PolicySignerCertificateFile to plik określający zestaw zaufanych kluczy podpisywania. Jeśli dla parametru PolicySignerCertificateFile określono nazwę pliku, można skonfigurować dostawcę zaświadczenia tylko przy użyciu zasad w formacie JWT ze podpisem. W innym przypadku zasady można skonfigurować w formacie tekstowym lub niepodpisanym JWT.
 
 ```powershell
 New-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Location $location -PolicySignersCertificateFile "C:\test\policySignersCertificates.pem"
 ```
 
-Przykład PolicySignersCertificateFile można znaleźć w [przykładach certyfikatu podpisywania zasad.](policy-signer-examples.md)
+Przykład PolicySignersCertificateFile można znaleźć w [przykładach certyfikatu podpisujący zasady.](policy-signer-examples.md)
 
 Get-AzAttestation pobiera właściwości dostawcy zaświadczenia, takie jak stan i attestURI. Zanotuj attestURI, ponieważ będzie on potrzebny później.
 
@@ -174,12 +174,12 @@ Aby zarządzać zasadami, użytkownik usługi Azure AD wymaga następujących up
 - Microsoft.Attestation/attestationProviders/attestation/write
 - Microsoft.Attestation/attestationProviders/attestation/delete
 
- Aby wykonać te akcje, użytkownik usługi Azure AD musi mieć rolę "Współautor zaświadczenia" u dostawcy zaświadczenia. Te uprawnienia mogą być również dziedziczone z rolami, takimi jak "Właściciel" (uprawnienia z symbolami wieloznacznymi), "Współautor" (uprawnienia z symbolami wieloznaczny) w subskrypcji/grupie zasobów.  
+ Aby wykonać te działania, użytkownik usługi Azure AD musi **mieć** rolę Współautor zaświadczenia w dostawcy za pomocą zaświadczenia. Te uprawnienia mogą być również dziedziczone z rolami, takimi jak **Właściciel** (uprawnienia z symbolami wieloznacznymi)/ **Współautor** (uprawnienia z symbolami wieloznacznymi) w subskrypcji/grupie zasobów.  
 
 Aby można było odczytać zasady, użytkownik usługi Azure AD wymaga następującego uprawnienia dla akcji:
 - Microsoft.Attestation/attestationProviders/attestation/read
 
- Aby wykonać tę akcję, użytkownik usługi Azure AD musi mieć rolę "Czytelnik zaświadczenia" u dostawcy zaświadczenia. Uprawnienie do odczytu może być również dziedziczone z rolami, takimi jak "Czytelnik" (uprawnienia z symbolami wieloznacznymi) w subskrypcji/grupie zasobów.  
+ Aby wykonać tę akcję, użytkownik usługi Azure AD musi mieć rolę **czytelnika** zaświadczenia u dostawcy za pomocą zaświadczenia. Uprawnienie do odczytu może być również dziedziczone z rolami, takimi jak **Czytelnik** (uprawnienia z symbolami wieloznacznymi) w subskrypcji/grupie zasobów.  
 
 Poniższe polecenia cmdlet programu PowerShell zapewniają zarządzanie zasadami dla dostawcy zaświadczenia (po jednej tee jednocześnie).
 
@@ -224,15 +224,15 @@ Add-AzAttestationPolicySigner -Name $attestationProvider -ResourceGroupName $att
 Remove-AzAttestationPolicySigner -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Signer <signer>
 ```
 
-Certyfikat osoby podpisywanej zasad to podpisany JWT z oświadczeniem o nazwie "maa-policyCertificate". Wartość oświadczenia to zestaw JWK zawierający zaufany klucz podpisywania do dodania. JWT musi być podpisany za pomocą klucza prywatnego odpowiadającego dowolny z istniejących certyfikatów podpisy zasad.
+Certyfikat osoby podpisywanej zasad to podpisany JWT z oświadczeniem o nazwie "maa-policyCertificate". Wartość oświadczenia to zestaw JWK zawierający zaufany klucz podpisywania do dodania. JWT musi być podpisany za pomocą klucza prywatnego odpowiadającego dowolne istniejące certyfikaty podpisywania zasad.
 
 Należy pamiętać, że wszystkie manipulacje semantyczne certyfikatu podpisywania zasad muszą być wykonywane poza programem PowerShell. Jeśli chodzi o program PowerShell, jest to prosty ciąg.
 
 Przykład certyfikatu podpisywania zasad można znaleźć w [przykładach certyfikatu podpisywania zasad.](policy-signer-examples.md)
 
-Aby uzyskać więcej informacji na temat poleceń cmdlet i ich parametrów, zobacz [Azure Attestation poleceń cmdlet programu PowerShell](/powershell/module/az.attestation/#attestation) 
+Aby uzyskać więcej informacji na temat poleceń cmdlet i ich parametrów, [zobacz Azure Attestation cmdlet programu PowerShell](/powershell/module/az.attestation/#attestation) 
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Tworzenie i podpisywanie zasad zaświadczenia](author-sign-policy.md)
-- [Attest enklawy SGX przy użyciu przykładów kodu](/samples/browse/?expanded=azure&terms=attestation)
+- [Atest enklawy SGX przy użyciu przykładów kodu](/samples/browse/?expanded=azure&terms=attestation)

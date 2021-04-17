@@ -1,6 +1,6 @@
 ---
 title: Samouczek dotyczący interfejsu API raportowania usługi AD z certyfikatami | Microsoft Docs
-description: W tym samouczku wyjaśniono, jak używać interfejsu API raportowania usługi Azure AD przy użyciu poświadczeń certyfikatu w celu pobrania danych z katalogów bez interwencji użytkownika.
+description: W tym samouczku wyjaśniono, jak używać interfejsu API raportowania usługi Azure AD z poświadczeniami certyfikatu w celu uzyskania danych z katalogów bez interwencji użytkownika.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -17,43 +17,43 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: c3443cb73e85fc69349e7293597a5f4a723959d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4f4ac6ab3825c82ac0cb8ef5c31f9396ef7b41f
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93130055"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533727"
 ---
-# <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Samouczek: pobieranie danych przy użyciu interfejsu API raportowania Azure Active Directory z certyfikatami
+# <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Samouczek: uzyskiwanie danych przy użyciu interfejsu API raportowania Azure Active Directory z certyfikatami
 
-[Interfejsy API raportowania usługi Azure Active Directory (Azure AD)](concept-reporting-api.md) umożliwiają dostęp programowy do danych za pomocą zestawu interfejsów API opartych na architekturze REST. Te interfejsy API można wywoływać przy użyciu różnych języków i narzędzi do programowania. Jeśli chcesz uzyskać dostęp do interfejsu API raportowania usługi Azure AD bez interwencji użytkownika, musisz skonfigurować dostęp do korzystania z certyfikatów.
+[Interfejsy API raportowania usługi Azure Active Directory (Azure AD)](concept-reporting-api.md) umożliwiają dostęp programowy do danych za pomocą zestawu interfejsów API opartych na architekturze REST. Te interfejsy API można wywoływać przy użyciu różnych języków i narzędzi do programowania. Jeśli chcesz uzyskać dostęp do interfejsu API raportowania usługi Azure AD bez interwencji użytkownika, musisz skonfigurować dostęp do używania certyfikatów.
 
-W ramach tego samouczka nauczysz się używać certyfikatu testowego w celu uzyskania dostępu do usługi MS interfejs API programu Graph for Reporting. Nie zalecamy używania certyfikatów testowych w środowisku produkcyjnym. 
+Z tego samouczka dowiesz się, jak używać certyfikatu testowego w celu uzyskania dostępu do konta interfejs Graph API na użytek raportowania. Nie zalecamy używania certyfikatów testowych w środowisku produkcyjnym. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-1. Aby uzyskać dostęp do danych logowania, upewnij się, że masz dzierżawę Azure Active Directory z licencją premium (P1/P2). Aby uaktualnić swoją wersję usługi Azure Active Directory, zobacz [Wprowadzenie do usługi Azure Active Directory w wersji Premium](../fundamentals/active-directory-get-started-premium.md). Pamiętaj, że jeśli przed uaktualnieniem nie istniały żadne dane działań, po przejściu na licencję premium może minąć kilka dni, zanim te dane pojawią się w raportach. 
+1. Aby uzyskać dostęp do danych logowania, upewnij się, że Azure Active Directory dzierżawy z licencją Premium (P1/P2). Aby uaktualnić swoją wersję usługi Azure Active Directory, zobacz [Wprowadzenie do usługi Azure Active Directory w wersji Premium](../fundamentals/active-directory-get-started-premium.md). Pamiętaj, że jeśli przed uaktualnieniem nie istniały żadne dane działań, po przejściu na licencję premium może minąć kilka dni, zanim te dane pojawią się w raportach. 
 
-2. Utwórz lub przejdź do konta użytkownika w roli **administrator globalny**, **administrator zabezpieczeń**, **czytelnik zabezpieczeń** lub **czytelnik raportu** dla dzierżawy. 
+2. Utwórz lub przełącz się na konto użytkownika w roli **administratora** globalnego, **administratora zabezpieczeń,** **czytelnika** **zabezpieczeń** lub czytelnika raportów dla dzierżawy. 
 
-3. Wykonaj [wymagania wstępne, aby uzyskać dostęp do interfejsu API raportowania Azure Active Directory](howto-configure-prerequisites-for-reporting-api.md). 
+3. Wykonaj wymagania [wstępne dotyczące uzyskiwania dostępu do interfejsu API Azure Active Directory raportowania.](howto-configure-prerequisites-for-reporting-api.md) 
 
-4. Pobierz i zainstaluj program [Azure AD PowerShell V2](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/docs-conceptual/azureadps-2.0/install-adv2.md).
+4. Pobierz i zainstaluj [program Azure AD PowerShell w wersji 2.](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/docs-conceptual/azureadps-2.0/install-adv2.md)
 
-5. Zainstaluj [MSCloudIdUtils](https://www.powershellgallery.com/packages/MSCloudIdUtils/). Ten moduł zapewnia kilka poleceń cmdlet narzędzi, w tym:
-    - Biblioteki ADAL wymagające uwierzytelniania
+5. Zainstaluj [pakiet MSCloudIdUtils.](https://www.powershellgallery.com/packages/MSCloudIdUtils/) Ten moduł zapewnia kilka poleceń cmdlet narzędzi, w tym:
+    - Biblioteki ADAL potrzebne do uwierzytelniania
     - Tokeny dostępu użytkownika, kluczy aplikacji i certyfikatów korzystających z bibliotek ADAL
     - Stronicowane wyniki obsługi interfejsu API programu Graph
 
-6. Jeśli po raz pierwszy używasz modułu **Install-MSCloudIdUtilsModule**, w przeciwnym razie zaimportuj go za pomocą polecenia **Import-Module** programu PowerShell. Twoja sesja powinna wyglądać podobnie do tego ekranu: ![ Windows PowerShell](./media/tutorial-access-api-with-certificates/module-install.png)
+6. Jeśli używasz modułu po raz pierwszy, uruchom polecenie **Install-MSCloudIdUtilsModule,** a w przeciwnym razie zaimportuj go przy użyciu polecenia **Import-Module** programu PowerShell. Sesja powinna wyglądać podobnie do tego ekranu: ![ Windows PowerShell](./media/tutorial-access-api-with-certificates/module-install.png)
   
-7. Użyj polecenia **New-SelfSignedCertificate** programu PowerShell polecenia cmdlet, aby utworzyć certyfikat testowy.
+7. Użyj polecenia **polecenia polecenia New-SelfSignedCertificate** programu PowerShell, aby utworzyć certyfikat testowy.
 
    ```
    $cert = New-SelfSignedCertificate -Subject "CN=MSGraph_ReportingAPI" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
    ```
 
-8. Aby wyeksportować certyfikat do pliku certyfikatu, użyj polecenia cmdlet **Export-Certificate** .
+8. Aby **wyeksportować certyfikat do** pliku certyfikatu, użyj polecenia polecenia Eksportuj certyfikat.
 
    ```
    Export-Certificate -Cert $cert -FilePath "C:\Reporting\MSGraph_ReportingAPI.cer"
@@ -62,15 +62,15 @@ W ramach tego samouczka nauczysz się używać certyfikatu testowego w celu uzys
 
 ## <a name="get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Pobieranie danych przy użyciu interfejsu API raportowania usługi Azure Active Directory z certyfikatami
 
-1. Przejdź do [Azure Portal](https://portal.azure.com), wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **rejestracje aplikacji** i wybierz aplikację z listy. 
+1. Przejdź do [Azure Portal](https://portal.azure.com), wybierz pozycję **Azure Active Directory**, Rejestracje aplikacji **wybierz** pozycję i wybierz aplikację z listy. 
 
-2. Wybierz pozycję **certyfikaty & wpisy tajne** w sekcji **Zarządzanie** w bloku Rejestracja aplikacji i wybierz pozycję **Przekaż certyfikat**.
+2. Wybierz **pozycję Certyfikaty & wpisów tajnych** w sekcji **Zarządzanie** w bloku Rejestracja aplikacji i wybierz pozycję **Przekaż certyfikat.**
 
 3. Wybierz plik certyfikatu z poprzedniego kroku, a następnie wybierz pozycję **Dodaj**. 
 
-4. Zanotuj identyfikator aplikacji i odcisk palca certyfikatu, który właśnie został zarejestrowany w aplikacji. Aby znaleźć odcisk palca, na stronie aplikacji w portalu przejdź do pozycji **certyfikaty & wpisy tajne** w sekcji **Zarządzanie** . Odcisk palca zostanie objęty listą **certyfikatów** .
+4. Zanotuj identyfikator aplikacji i odcisk palca certyfikatu, który został właśnie zarejestrowany w aplikacji. Aby znaleźć odcisk palca, na stronie aplikacji w portalu przejdź do sekcji Certyfikaty i & **wpisów tajnych** w **sekcji** Zarządzanie. Odcisk palca będzie dostępny na **liście** Certyfikaty.
 
-5. Otwórz manifest aplikacji w edytorze manifestu wbudowane i sprawdź, czy właściwość *poświadczenia* są aktualizowane przy użyciu nowych informacji o certyfikacie, jak pokazano poniżej — 
+5. Otwórz manifest aplikacji w edytorze manifestu wbudowanego i sprawdź, czy właściwość *keyCredentials* została zaktualizowana przy użyciu nowych informacji o certyfikacie, jak pokazano poniżej — 
 
    ```
    "keyCredentials": [
@@ -83,24 +83,24 @@ W ramach tego samouczka nauczysz się używać certyfikatu testowego w celu uzys
         }
     ]
    ``` 
-6. Teraz możesz uzyskać token dostępu dla usługi MS interfejs API programu Graph przy użyciu tego certyfikatu. Użyj polecenia cmdlet **Get-MSCloudIdMSGraphAccessTokenFromCert** w module MSCloudIdUtils PowerShell, przekazując identyfikator aplikacji i odcisk palca uzyskany w poprzednim kroku. 
+6. Teraz możesz uzyskać token dostępu dla konta usługi interfejs Graph API użyciu tego certyfikatu. Użyj polecenia cmdlet **Get-MSCloudIdMSGraphAccessTokenFromCert** z modułu MSCloudIdUtils programu PowerShell, przekazując identyfikator aplikacji i odcisk palca uzyskany w poprzednim kroku. 
 
    ![Zrzut ekranu przedstawia okno programu PowerShell z poleceniem, które tworzy token dostępu.](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
-7. Użyj tokenu dostępu w skrypcie programu PowerShell, aby wykonać zapytanie dotyczące interfejs API programu Graph. Użyj polecenia cmdlet **Invoke-MSCloudIdMSGraphQuery** z MSCloudIDUtils, aby wyliczyć punkt końcowy Signins i directoryAudits. To polecenie cmdlet obsługuje wyniki wielostronicowe i wysyła te wyniki do potoku programu PowerShell.
+7. Użyj tokenu dostępu w skrypcie programu PowerShell, aby interfejs Graph API. Użyj polecenia cmdlet **Invoke-MSCloudIdMSGraphQuery** z modułu MSCloudIDUtils, aby wyliczyć punkty końcowe logowania i katalogAudits. To polecenie cmdlet obsługuje wyniki wielostronicowe i wysyła je do potoku programu PowerShell.
 
-8. Wykonaj zapytanie do punktu końcowego directoryAudits, aby pobrać dzienniki inspekcji. 
+8. Odpytuj punkt końcowy directoryAudits, aby pobrać dzienniki inspekcji. 
 
-   ![Zrzut ekranu przedstawia okno programu PowerShell z poleceniem, aby wykonać zapytanie o punkt końcowy directoryAudits przy użyciu tokenu dostępu z wcześniejszej części tej procedury.](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
+   ![Zrzut ekranu przedstawiający okno programu PowerShell z poleceniem do wykonywania zapytań w punkcie końcowym directoryAudits przy użyciu tokenu dostępu z wcześniejszej wersji tej procedury.](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
-9. Wykonaj zapytanie do punktu końcowego signins, aby pobrać dzienniki logowania.
+9. Odpytują punkt końcowy logowania, aby pobrać dzienniki logowania.
 
-    ![Zrzut ekranu przedstawia okno programu PowerShell z poleceniem, aby wykonać zapytanie o punkt końcowy signins przy użyciu tokenu dostępu z wcześniejszej części tej procedury.](./media/tutorial-access-api-with-certificates/query-signins.png)
+    ![Zrzut ekranu przedstawiający okno programu PowerShell z poleceniem do wykonywania zapytań do punktu końcowego logowania przy użyciu tokenu dostępu z wcześniejszej wersji tej procedury.](./media/tutorial-access-api-with-certificates/query-signins.png)
 
 10. Teraz możesz wyeksportować te dane do pliku CSV i zapisać je w systemie SIEM. Skrypt można również opakować w zaplanowane zadanie, aby okresowo uzyskiwać dane usługi Azure AD od dzierżawcy bez konieczności przechowywania kluczy aplikacji w kodzie źródłowym. 
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Pierwsze wrażenie dotyczące interfejsów API raportowania](concept-reporting-api.md)
-* [Dokumentacja interfejsu API inspekcji](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
-* [Dokumentacja interfejsu API raportów działań związanych z logowaniem](/graph/api/resources/signin?view=graph-rest-beta)
+* [Dokumentacja interfejsu API inspekcji](/graph/api/resources/directoryaudit) 
+* [Dokumentacja interfejsu API raportu aktywności logowania](/graph/api/resources/signin)

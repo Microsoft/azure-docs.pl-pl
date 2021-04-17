@@ -2,13 +2,13 @@
 title: Utwórz & Wdróż projekty grupy zasobów programu Visual Studio
 description: Tworzenie projektu grupy zasobów platformy Azure przy użyciu programu Visual Studio i wdrażanie zasobów na platformie Azure.
 ms.topic: conceptual
-ms.date: 10/16/2019
-ms.openlocfilehash: f1a06a3e89c5fd2ea8906ff9a438c170f135d6ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: 4c0e19042506e0cf1772398b0a02b81f0245b1c7
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98704418"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306980"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Tworzenie i wdrażanie grup zasobów platformy Azure za pomocą programu Visual Studio
 
@@ -45,9 +45,9 @@ W tej sekcji utworzysz projekt grupy zasobów platformy Azure z szablonem **apli
    | --- | --- |
    | Deploy-AzureResourceGroup.ps1 |Skrypt programu PowerShell, który uruchamia polecenia w celu wdrożenia do usługi Azure Resource Manager. Program Visual Studio używa tego skryptu programu PowerShell do wdrożenia szablonu. |
    | WebSite.jsna |Szablon usługi Resource Manager określający infrastrukturę, którą chcesz wdrożyć na platformie Azure, oraz parametry, które można podać podczas wdrażania. Umożliwia on również definiowanie zależności między zasobami, tak aby usługa Resource Manager wdrożyła je w odpowiedniej kolejności. |
-   | WebSite.parameters.jsna |Plik parametrów zawierający wartości wymagane przez szablon. Poszczególne wdrożenia są dostosowywane za pomocą przekazywanych wartości parametrów. |
+   | WebSite.parameters.jsna |Plik parametrów zawierający wartości wymagane przez szablon. Poszczególne wdrożenia są dostosowywane za pomocą przekazywanych wartości parametrów. Zwróć uwagę, że **Akcja kompilacji** jest ustawiona na **zawartość**. Jeśli dodasz więcej plików parametrów, upewnij się, że akcja kompilacja jest ustawiona na **zawartość**. |
 
-    Wszystkie projekty wdrażania grup zasobów zawierają te podstawowe pliki. Inne projekty mogą zawierać dodatkowe pliki do obsługi innych funkcji.
+    Wszystkie projekty wdrażania grup zasobów zawierają te podstawowe pliki. Inne projekty mogą zawierać więcej plików do obsługi innych funkcji.
 
 ## <a name="customize-resource-manager-template"></a>Dostosowywanie szablonu Menedżer zasobów
 

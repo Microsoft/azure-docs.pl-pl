@@ -1,6 +1,6 @@
 ---
-title: Włącz dostępność regionu funkcji obszaru roboczego Synapse
-description: Ten dokument zawiera szczegóły regionów, w których funkcja obszaru roboczego Synapse jest niedostępna.
+title: Włączanie dostępności funkcji obszaru roboczego usługi Synapse w regionie
+description: Ten dokument zawiera szczegółowe informacje o regionach, w których funkcja obszaru roboczego synapse nie jest dostępna.
 services: synapse-analytics
 author: antvgski
 manager: igorstan
@@ -11,35 +11,35 @@ ms.date: 11/11/2020
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: references_regions
-ms.openlocfilehash: 4ecf8a578343a10e7c1ddb0ac5e9345a652bc9af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f788675d84f7714d4da5f30cf50875e5d006c6c7
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97511709"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534748"
 ---
-# <a name="enabling-synapse-workspace-features-on-a-dedicated-sql-pool-formerly-sql-dw-in-your-region"></a>Włączanie funkcji obszaru roboczego Synapse w dedykowanej puli SQL (dawniej SQL DW) w Twoim regionie.
+# <a name="enabling-synapse-workspace-features-on-a-dedicated-sql-pool-formerly-sql-dw-in-your-region"></a>Włączanie funkcji obszaru roboczego usługi Synapse w dedykowanej puli SQL (dawniej SQL DW) w Twoim regionie.
 
 ## <a name="regions-not-supported"></a>Regiony nie są obsługiwane 
-Poniższa tabela zawiera podsumowanie według regionów, w których możliwość włączania funkcji obszaru roboczego Synapse w istniejącej dedykowanej puli SQL (dawniej SQL DW) nie jest obsługiwana. Sprawdź ponownie, aby zobaczyć, kiedy region będzie dostępny.
+W poniższej tabeli przedstawiono podsumowanie według regionów, w których nie jest obsługiwana możliwość włączania funkcji obszaru roboczego usługi Synapse w istniejącej dedykowanej puli SQL (dawniej SQL DW). Sprawdź ponownie, kiedy region stanie się dostępny.
 
 \* wskazuje, że określony harmonogram dla regionu jest obecnie niedostępny.
 
-| Region (Region) | Dostępność obszaru roboczego Synapse |
+| Region (Region) | Dostępność obszaru roboczego usługi Synapse |
 |:--- |:--- |:--- |
 | Australia Środkowa 1 |\* |
 | Australia Środkowa 2 |\* |
-| Chiny Wschodnie 2 |31 marca 2021 |
-| Chiny Północne 2 |31 marca 2021 |
-| Indie Południowe |31 marca 2021 |
-| Indie Zachodnie |31 marca 2021 |
-| Korea Południowa |31 marca 2021 |
-| Szwajcaria Zachodnia |31 marca 2021 |
-| Północne Zjednoczone Emiraty Arabskie |31 marca 2021 |
+| Chiny Wschodnie 2 |\* |
+| Chiny Północne 2 |\* |
+| Indie Południowe |\*|
+| Indie Zachodnie |\*|
+| Korea Południowa |\* |
+| Europa Zachodnia |\* |
+| Północne Zjednoczone Emiraty Zjednoczone |\*|
  
  
 > [!NOTE]
-> Powyższa lista regionów odnosi się tylko do regionów, w których włączenie funkcji obszaru roboczego Synapse nie jest obecnie dostępne. 
+> Powyższe listy regionów odnoszą się tylko do regionów, w których włączanie funkcji obszaru roboczego synapse nie jest obecnie dostępne. 
 
 ## <a name="next-steps"></a>Następne kroki
-Wprowadzenie do [obszaru roboczego Synapse i Studio](../get-started.md).
+Wprowadzenie do obszaru [roboczego synapse i programu Studio.](../get-started.md)

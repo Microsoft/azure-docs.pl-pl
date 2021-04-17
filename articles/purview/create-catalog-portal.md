@@ -1,41 +1,43 @@
 ---
-title: 'Szybki Start: Tworzenie konta usługi Azure kontrolą w Azure Portal (wersja zapoznawcza)'
-description: W tym przewodniku szybki start opisano, jak utworzyć konto usługi Azure kontrolą i skonfigurować uprawnienia, aby rozpocząć korzystanie z niego.
+title: 'Szybki start: tworzenie konta usługi Azure Purview w Azure Portal (wersja zapoznawcza)'
+description: W tym przewodniku Szybki start opisano sposób tworzenia konta usługi Azure Purview i konfigurowania uprawnień w celu rozpoczęcia korzystania z niego.
 author: nayenama
 ms.author: nayenama
+ms.date: 10/23/2020
+ms.topic: quickstart
 ms.service: purview
 ms.subservice: purview-data-catalog
-ms.topic: quickstart
-ms.date: 10/23/2020
-ms.openlocfilehash: 0346b467bc299b4eb6125df04a4449e94c035e47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- mode-portal
+ms.openlocfilehash: 72f4ac8df39b9511fd98a1dd5a3eca76e11e34bf
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101666471"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535166"
 ---
-# <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Szybki Start: Tworzenie konta usługi Azure kontrolą w Azure Portal
+# <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Szybki start: tworzenie konta usługi Azure Purview w Azure Portal
 
 > [!IMPORTANT]
-> Usługa Azure kontrolą jest obecnie dostępna w wersji zapoznawczej. Dodatkowe [warunki użytkowania](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych programu Microsoft Azure to m.in. Postanowienia prawne dotyczące funkcji systemu Azure, które są dostępne w wersjach beta, Preview lub w inny sposób nie są jeszcze ogólnie udostępniane.
+> Usługa Azure Purview jest obecnie dostępna w wersji zapoznawczej. Dodatkowe warunki użytkowania wersji [zapoznawczych](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) programu Microsoft Azure obejmują dodatkowe postanowienia prawne dotyczące funkcji platformy Azure, które są w wersji beta, wersji zapoznawczej lub w inny sposób nie zostały jeszcze wydane jako ogólnie dostępne.
 
-W tym przewodniku szybki start utworzysz konto usługi Azure kontrolą.
+W tym przewodniku Szybki start utworzysz konto usługi Azure Purview.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * Własna [dzierżawa usługi Azure Active Directory](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
-* Twoje konto musi mieć uprawnienia do tworzenia zasobów w ramach subskrypcji
+* Twoje konto musi mieć uprawnienia do tworzenia zasobów w subskrypcji
 
-* Jeśli masz **Azure Policy** blokujące wszystkie aplikacje z tworzenia **konta magazynu** i **przestrzeni nazw EventHub**, musisz utworzyć wyjątek zasad przy użyciu tagu, który można wprowadzić podczas procesu tworzenia konta kontrolą. Głównym powodem jest to, że dla każdego utworzonego konta kontrolą należy utworzyć zarządzaną grupę zasobów i w ramach tej grupy zasobów, konto magazynu i przestrzeń nazw EventHub.
+* Jeśli nie **Azure Policy** tworzenia konta usługi **Storage** i przestrzeni nazw **usługi EventHub,** należy wprowadzić wyjątek zasad przy użyciu tagu , który można wprowadzić podczas tworzenia konta usługi Purview. Główną przyczyną jest to, że dla każdego utworzonego konta programu Purview musi ona utworzyć zarządzaną grupę zasobów w ramach tej grupy zasobów, konta magazynu i przestrzeni nazw usługi EventHub.
 
     > [!important]
-    > Nie trzeba wykonywać tego kroku, jeśli nie masz Azure Policy lub istniejący Azure Policy nie blokuje tworzenia **konta magazynu** i **przestrzeni nazw EventHub**.
+    > Nie musisz wykonać tego kroku, jeśli nie masz konta usługi Azure Policy lub istniejący Azure Policy nie  blokuje tworzenia konta magazynu i przestrzeni nazw **usługi EventHub.**
 
-    1. Przejdź do Azure Portal i Wyszukaj **zasady**
-    1. Wykonaj instrukcje [tworzenia niestandardowej definicji zasad](../governance/policy/tutorials/create-custom-policy-definition.md) lub zmodyfikuj istniejące zasady, aby dodać dwa wyjątki z `not` operatorem i `resourceBypass` tagiem:
+    1. Przejdź do Azure Portal i wyszukaj **zasady**
+    1. Postępuj [zgodnie z zasadami Utwórz niestandardową definicję zasad](../governance/policy/tutorials/create-custom-policy-definition.md) lub zmodyfikuj istniejące zasady, aby dodać dwa wyjątki za pomocą operatora i `not` `resourceBypass` tagu:
 
         ```json
         {
@@ -79,11 +81,11 @@ W tym przewodniku szybki start utworzysz konto usługi Azure kontrolą.
         ```
         
         > [!Note]
-        > Tag może znajdować się w dowolnym `resourceBypass` momencie i może definiować wartość podczas tworzenia kontrolą w innych krokach, o ile zasady mogą wykryć tag.
+        > Tag może być innym tagiem i to ty musisz zdefiniować wartość podczas tworzenia aplikacji Purview w ostatnich krokach, o ile zasady `resourceBypass` mogą wykryć tag.
 
         :::image type="content" source="./media/create-catalog-portal/policy-definition.png" alt-text="Zrzut ekranu przedstawiający sposób tworzenia definicji zasad.":::
 
-    1. [Utwórz przypisanie zasad](../governance/policy/assign-policy-portal.md) przy użyciu utworzonych zasad niestandardowych.
+    1. [Utwórz przypisanie zasad przy](../governance/policy/assign-policy-portal.md) użyciu utworzonych zasad niestandardowych.
 
         [![Zrzut ekranu przedstawiający sposób tworzenia przypisania zasad](./media/create-catalog-portal/policy-assignment.png)](./media/create-catalog-portal/policy-assignment.png#lightbox)
 
@@ -93,92 +95,92 @@ Zaloguj się w [witrynie Azure Portal](https://portal.azure.com) przy użyciu da
 
 ## <a name="configure-your-subscription"></a>Konfigurowanie subskrypcji
 
-W razie potrzeby wykonaj następujące kroki, aby skonfigurować swoją subskrypcję, aby umożliwić uruchamianie usługi Azure kontrolą w ramach subskrypcji:
+W razie potrzeby wykonaj następujące kroki, aby skonfigurować subskrypcję, aby umożliwić uruchamianie usługi Azure Purview w ramach subskrypcji:
 
-   1. W Azure Portal Wyszukaj i wybierz pozycję **subskrypcje**.
+   1. W skrypcie Azure Portal i wybierz **pozycję Subskrypcje.**
 
    1. Z listy subskrypcji wybierz subskrypcję, której chcesz użyć. Wymagane jest uprawnienie dostępu administracyjnego dla subskrypcji.
 
       :::image type="content" source="./media/create-catalog-portal/select-subscription.png" alt-text="Zrzut ekranu przedstawiający sposób wybierania subskrypcji w Azure Portal.":::
 
-   1. W przypadku subskrypcji wybierz pozycję **dostawcy zasobów**. W okienku **dostawcy zasobów** Wyszukaj i zarejestruj wszystkich trzech dostawców zasobów: 
-       1. **Microsoft. kontrolą**
+   1. W przypadku subskrypcji wybierz pozycję **Dostawcy zasobów.** W **okienku Dostawcy zasobów** wyszukaj i zarejestruj wszystkich trzech dostawców zasobów: 
+       1. **Microsoft.Purview**
        1. **Microsoft.Storage**
-       1. **Microsoft. EventHub** 
+       1. **Microsoft.EventHub** 
       
-      Jeśli nie są zarejestrowane, zarejestruj je, wybierając pozycję **zarejestruj**.
+      Jeśli nie są zarejestrowane, zarejestruj je, wybierając pozycję **Zarejestruj**.
 
-      :::image type="content" source="./media/create-catalog-portal/register-purview-resource-provider.png" alt-text="Zrzut ekranu przedstawiający sposób rejestrowania dostawcy zasobów usługi Azure kontrolą firmy Microsoft w Azure Portal.":::
+      :::image type="content" source="./media/create-catalog-portal/register-purview-resource-provider.png" alt-text="Zrzut ekranu przedstawiający sposób rejestrowania dostawcy zasobów Microsoft dot Azure Purview w Azure Portal.":::
 
-## <a name="create-an-azure-purview-account-instance"></a>Tworzenie wystąpienia konta usługi Azure kontrolą
+## <a name="create-an-azure-purview-account-instance"></a>Tworzenie wystąpienia konta usługi Azure Purview
 
-1. Przejdź do strony **konta kontrolą** w Azure Portal a następnie wybierz pozycję **Dodaj** , aby utworzyć nowe konto usługi Azure kontrolą. Alternatywnie możesz przejść do witryny Marketplace Search dla **kont kontrolą** i wybrać pozycję **Utwórz**. Należy pamiętać, że w danym momencie można dodać tylko jedno konto usługi Azure kontrolą.
+1. Przejdź do **strony Konta programu Purview** w Azure Portal, a następnie wybierz pozycję **Dodaj,** aby utworzyć nowe konto usługi Azure Purview. Alternatywnie możesz przejść do witryny Marketplace i wyszukać **pozycję Konta programu Purview i** wybrać pozycję **Utwórz.** Pamiętaj, że jednocześnie możesz dodać tylko jedno konto usługi Azure Purview.
 
-   :::image type="content" source="./media/create-catalog-portal/add-purview-instance.png" alt-text="Zrzut ekranu przedstawiający sposób tworzenia wystąpienia konta usługi Azure kontrolą w Azure Portal.":::
+   :::image type="content" source="./media/create-catalog-portal/add-purview-instance.png" alt-text="Zrzut ekranu przedstawiający sposób tworzenia wystąpienia konta usługi Azure Purview w Azure Portal.":::
 
     > [!Note] 
-    > Usługa Azure kontrolą nie obsługuje przeniesienia swojego konta między regionami. Więcej informacji na ten temat można znaleźć na [stronie usługi obsługiwane przez platformę Azure](../azure-resource-manager/management/region-move-support.md).
+    > Usługa Azure Purview nie obsługuje przenoszenia swojego konta między regionami. Więcej informacji na ten temat można znaleźć na stronie [obsługiwanych usług platformy Azure.](../azure-resource-manager/management/region-move-support.md)
 
-1. Na karcie **podstawowe** wykonaj następujące czynności:
+1. Na **karcie Podstawowe** wykonaj następujące czynności:
     1. Wybierz **grupę zasobów**.
-    1. Wprowadź **nazwę konta usługi kontrolą** dla katalogu. Spacje i symbole są niedozwolone.
-    1. Wybierz  **lokalizację**, a następnie wybierz kolejno pozycje **Dalej: Konfiguracja**.
-1. Na karcie **Konfiguracja** wybierz żądany **rozmiar platformy** — dozwolone wartości to 4 jednostki pojemności (CU) i 16 cu. Wybierz pozycję **Dalej: Tagi**.
-1. Na karcie **Tagi** możesz opcjonalnie dodać jeden lub więcej tagów. Tagi te są używane tylko w Azure Portal, a nie na platformie Azure kontrolą. 
+    1. Wprowadź nazwę **konta programu Purview** dla katalogu. Spacje i symbole są niedozwolone.
+    1. Wybierz **lokalizację**, a następnie wybierz pozycję **Dalej: Konfiguracja.**
+1. Na karcie **Konfiguracja** wybierz żądany rozmiar **platformy** — dozwolone wartości to 4 jednostki wydajności (CU) i 16 CU. Wybierz **pozycję Dalej: Tagi**.
+1. Na karcie **Tagi** możesz opcjonalnie dodać jeden lub więcej tagów. Te tagi są używane tylko w usłudze Azure Portal, a nie w usłudze Azure Purview. 
 
     > [!Note] 
-    > Jeśli masz **Azure Policy** i musisz dodać wyjątek jako **warunek wstępny**, musisz dodać poprawny tag. Na przykład możesz dodać `resourceBypass` tag: :::image type="content" source="./media/create-catalog-portal/add-purview-tag.png" alt-text="Dodaj tag do konta kontrolą.":::
+    > Jeśli masz już **Azure Policy** i musisz dodać wyjątek, tak jak w wymaganiach **wstępnych,** musisz dodać poprawny tag. Możesz na przykład dodać `resourceBypass` tag: :::image type="content" source="./media/create-catalog-portal/add-purview-tag.png" alt-text="Dodaj tag do konta purview.":::
 
-1. Wybierz pozycję **przegląd & Utwórz**, a następnie wybierz pozycję **Utwórz**. Ukończenie tworzenia może potrwać kilka minut. Nowo utworzone wystąpienie konta usługi Azure kontrolą pojawia się na liście na stronie **konta kontrolą** .
-1. Po zakończeniu aprowizacji nowego konta wybierz pozycję **Przejdź do zasobu**.
+1. Wybierz **pozycję Przejrzyj & Utwórz,** a następnie wybierz pozycję **Utwórz.** Tworzenie zajmuje kilka minut. Nowo utworzone wystąpienie konta usługi Azure Purview zostanie wyświetlone na liście na **stronie kont usługi Purview.**
+1. Po zakończeniu aprowowania nowego konta wybierz pozycję **Przejdź do zasobu.**
 
     > [!Note]
-    > Jeśli Inicjowanie obsługi nie powiodło się ze `Conflict` stanem, oznacza to, że istnieje możliwość blokowania zasad platformy Azure kontrolą, aby utworzyć **konto magazynu** i **przestrzeń nazw EventHub**. Aby dodać wyjątki, należy zapoznać się z instrukcjami dotyczącymi **wymagań wstępnych** .
-    > :::image type="content" source="./media/create-catalog-portal/purview-conflict-error.png" alt-text="Komunikat o błędzie konfliktu kontrolą":::
+    > Jeśli aprowizowanie nie powiodło się ze stanem, oznacza to, że istnieją zasady platformy Azure blokujące aplikacji Purview tworzenie konta magazynu i przestrzeni `Conflict` **nazw usługi EventHub.**  Aby dodać wyjątki, należy wykonać **kroki opisane** w tece Wymagania wstępne.
+    > :::image type="content" source="./media/create-catalog-portal/purview-conflict-error.png" alt-text="Komunikat o błędzie konfliktów programu Purview":::
 
-1. Wybierz pozycję **Uruchom konto kontrolą**.
+1. Wybierz **pozycję Uruchom konto programu Purview.**
 
-   :::image type="content" source="./media/use-purview-studio/launch-from-portal.png" alt-text="Zrzut ekranu przedstawiający wybór w celu uruchomienia wykazu kont usługi Azure kontrolą.":::
+   :::image type="content" source="./media/use-purview-studio/launch-from-portal.png" alt-text="Zrzut ekranu przedstawiający wybór w celu uruchomienia katalogu kont usługi Azure Purview.":::
 
 ## <a name="add-a-security-principal-to-a-data-plane-role"></a>Dodawanie podmiotu zabezpieczeń do roli płaszczyzny danych
 
-Zanim Ty lub Twój zespół będzie mógł zacząć korzystać z usługi Azure kontrolą, należy dodać co najmniej jeden podmiot zabezpieczeń do jednej ze wstępnie zdefiniowanych ról płaszczyzny danych: **kontrolą Data Reader**, **kontrolą Data Curator** lub **kontrolą źródła danych**. Aby uzyskać więcej informacji na temat uprawnień do usługi Azure kontrolą Data Catalog, zobacz [uprawnienia katalogu](catalog-permissions.md).
+Zanim Ty lub Twój zespół będziecie w stanie rozpocząć korzystanie z usługi Azure Purview, należy dodać co najmniej jeden podmiot zabezpieczeń do jednej ze wstępnie zdefiniowanych ról płaszczyzny danych: **Purview Data Reader**, **Purview Data Curator** lub **Purview Data Source Administrator**. Aby uzyskać więcej informacji na temat uprawnień usługi Azure Purview Data Catalog, zobacz [Uprawnienia katalogu](catalog-permissions.md).
 
-Aby dodać podmiot zabezpieczeń do roli płaszczyzny danych **kontrolą Data Curator** na koncie usługi Azure kontrolą:
+Aby dodać podmiot zabezpieczeń do roli płaszczyzny danych **programu Purview Data Curator** na koncie usługi Azure Purview:
 
-1. Przejdź do strony [**konta kontrolą**](https://aka.ms/purviewportal) w Azure Portal.
+1. Przejdź do [**strony Konta programu Purview**](https://aka.ms/purviewportal) w Azure Portal.
 
-1. Wybierz konto usługi Azure kontrolą, które chcesz zmodyfikować.
+1. Wybierz konto usługi Azure Purview, które chcesz zmodyfikować.
 
-1. Na stronie **konto kontrolą** wybierz pozycję **Kontrola dostępu do karty (IAM).**
+1. Na stronie **Konto programu Purview** wybierz kartę **Kontrola dostępu (IAM)**
 
-1. Kliknij pozycję **+ Dodaj**
+1. Kliknij **pozycję + Dodaj**
 
-Jeśli po kliknięciu pozycji Dodaj zobaczysz dwie opcje pokazujące (wyłączone), oznacza to, że nie masz odpowiednich uprawnień, aby dodać każdego do roli płaszczyzny danych na koncie usługi Azure kontrolą. Na koncie usługi Azure kontrolą należy znaleźć właściciela, administratora dostępu użytkowników lub kogoś innego. Aby wyszukać odpowiednie osoby, wybierz pozycję **przypisanie roli** kartę, a następnie przewiń w dół, aby wyszukać administratora dostępu właściciela lub użytkownika i skontaktować się z tymi osobami.
+Jeśli po kliknięciu przycisku Dodaj są wyświetlane dwie opcje z oznaczeniem (wyłączone), oznacza to, że nie masz odpowiednich uprawnień, aby dodać kogoś do roli płaszczyzny danych na koncie usługi Azure Purview. Na twoim koncie usługi Azure Purview musisz znaleźć właściciela, administratora dostępu użytkowników lub inną osobę z uprawnieniami do przypisywania ról. Możesz poszukać odpowiednich osób,  wybierając kartę Przypisania ról, a następnie przewijając w dół, aby znaleźć administratora dostępu właściciela lub użytkownika i skontaktować się z tymi osobami.
 
 1. Wybierz pozycję **Dodaj przypisanie roli**.
 
-1. W przypadku typu roli w roli **kontrolą Data Curator** lub **administratora źródła danych kontrolą** w zależności od tego, co podmiot zabezpieczeń ma być używany (Aby uzyskać szczegółowe informacje, zobacz [uprawnienia katalogu](catalog-permissions.md) i [obiekty główne aplikacji i usługi w Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md) ).
+1. W przypadku roli Typ roli w roli **curatora** danych programu Purview lub Roli administratora źródła [](catalog-permissions.md) danych **Programu Purview** w zależności od tego, do czego będzie używany podmiot zabezpieczeń (aby uzyskać szczegółowe informacje, zobacz Uprawnienia katalogu oraz Obiekty aplikacji i jednostki usługi w usłudze [Azure Active Directory).](../active-directory/develop/app-objects-and-service-principals.md)
 
-1. W przypadku **uprawnienia do przypisywania** pozostaw wartość domyślną, **użytkownika, grupy lub nazwy głównej usługi**.
+1. W **przypadku ustawienia Przypisz dostęp** pozostaw wartość domyślną **Użytkownik, grupa lub nazwa główna usługi.**
 
-1. W polu **Wybierz** wprowadź nazwę użytkownika, grupę Azure Active Directory lub jednostkę usługi, którą chcesz przypisać, a następnie kliknij jej nazwę w okienku wyników.
+1. W **menu** Wybierz wprowadź nazwę użytkownika, Azure Active Directory grupę lub jednostkę usługi, którą chcesz przypisać, a następnie kliknij jego nazwę w okienku wyników.
 
-1. Kliknij pozycję **Zapisz**.
+1. Kliknij pozycję **Zapisz.**
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli to konto usługi Azure kontrolą nie jest już potrzebne, usuń je, wykonując następujące czynności:
+Jeśli to konto usługi Azure Purview nie jest już potrzebne, usuń je, aby wykonać następujące czynności:
 
-1. Przejdź do strony **konta kontrolą** w Azure Portal.
+1. Przejdź do **strony Konta programu Purview** w Azure Portal.
 
-2. Wybierz konto usługi Azure kontrolą utworzone na początku tego przewodnika Szybki Start. Wybierz pozycję **Usuń**, wprowadź nazwę konta, a następnie wybierz pozycję **Usuń**.
+2. Wybierz konto usługi Azure Purview utworzone na początku tego przewodnika Szybki start. Wybierz **pozycję** Usuń, wprowadź nazwę konta, a następnie wybierz pozycję **Usuń.**
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start przedstawiono sposób tworzenia konta usługi Azure kontrolą.
+W tym przewodniku Szybki start opisano sposób tworzenia konta usługi Azure Purview.
 
-Przejdź do następnego artykułu, aby dowiedzieć się, jak umożliwić użytkownikom dostęp do konta usługi Azure kontrolą. 
+W następnym artykule dowiesz się, jak zezwolić użytkownikom na dostęp do konta usługi Azure Purview. 
 
 > [!div class="nextstepaction"]
-> [Dodawanie użytkowników do konta usługi Azure kontrolą](catalog-permissions.md)
+> [Dodawanie użytkowników do konta usługi Azure Purview](catalog-permissions.md)

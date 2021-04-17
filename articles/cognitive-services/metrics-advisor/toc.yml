@@ -1,4 +1,4 @@
-- name: Metrics Advisor
+- name: Doradca w zakresie metryk dokumentacji
   href: index.yml
 - name: Omówienie
   expanded: true
@@ -7,13 +7,13 @@
       href: overview.md
     - name: Ceny
       href: 'http://go.microsoft.com/fwlink/?LinkID=761229'
-    - name: Co nowego
+    - name: Co nowego?
       href: whats-new.md
-- name: Przewodniki Szybki Start doradcy metryk
+- name: Przewodniki Szybki start
   items:
     - name: Portal internetowy
       href: quickstarts/web-portal.md
-    - name: Interfejsy API REST i interfejsy klienta
+    - name: Interfejs API REST i biblioteki klienckie
       href: quickstarts/rest-api-and-client-library.md
 - name: Samples
   href: 'https://docs.microsoft.com/en-us/samples/browse/?products=azure&terms=metrics-advisor'
@@ -35,13 +35,17 @@
       href: how-tos/anomaly-feedback.md
     - name: Tworzenie grafu metryk
       href: how-tos/metrics-graph.md
+    - name: Gotowość przedsiębiorstwa
+      items:
+        - name: Korzystanie z kluczy zarządzanych przez klienta
+          href: encryption.md
 - name: Pojęcia
   items:
-    - name: Najważniejsze warunki doradcy metryk
+    - name: Doradca w zakresie metryk kluczowe terminy
       href: glossary.md
 - name: Odwołanie
   items:
-    - name: Interfejs API REST usługi Advisor
+    - name: Doradca w zakresie metryk API REST
       href: 'https://go.microsoft.com/fwlink/?linkid=2141634'
     - name: Dokumentacja interfejsu wiersza polecenia platformy Azure
       href: /cli/azure/cognitiveservices#az_cognitiveservices_list
@@ -49,11 +53,11 @@
       href: /powershell/module/azurerm.cognitiveservices/
 - name: Zasoby
   items:
-    - name: Obsługa regionów
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
-    - name: Opcje pomocy technicznej
+    - name: Gotowość przedsiębiorstwa
+      items:
+        - name: Obsługa regionów
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Zgodność i certyfikacja
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Opcje wsparcia technicznego i pomocy
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/metrics-advisor/context/context
-    - name: Zgodność
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Szyfrowanie
-      href: encryption.md
