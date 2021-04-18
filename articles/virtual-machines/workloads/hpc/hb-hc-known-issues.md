@@ -1,68 +1,71 @@
 ---
-title: Rozwiązywanie znanych problemów z maszynami wirtualnymi HPC i GPU — Azure Virtual Machines | Microsoft Docs
-description: Informacje o rozwiązywaniu znanych problemów z rozmiarami maszyn wirtualnych HPC i procesora GPU na platformie Azure.
+title: Rozwiązywanie znanych problemów z maszynami wirtualnych HPC i GPU — Azure Virtual Machines | Microsoft Docs
+description: Dowiedz się więcej na temat rozwiązywania znanych problemów z rozmiarami maszyn wirtualnych HPC i GPU na platformie Azure.
 author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/25/2021
+ms.date: 04/16/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: d8c3a2d961cc5b6fd719b77dae07b6e46c3d8b65
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f5bdae17126048da153f70bf27609bcc4b92fe21
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604842"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599591"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Znane problemy z maszynami wirtualnymi z serii H i N
 
-W tym artykule podjęto próbę wyświetlenia listy najnowszych typowych [problemów i ich](../../sizes-gpu.md) rozwiązań w przypadku korzystania z [serii H](../../sizes-hpc.md) i maszyn wirtualnych GPU.
+W tym artykule próbujemy wyświetlić listę najnowszych typowych problemów [](../../sizes-gpu.md) i ich rozwiązań podczas korzystania z maszyn wirtualnych HPC i GPU serii [H](../../sizes-hpc.md) i N.
 
-## <a name="mofed-installation-on-ubuntu"></a>Instalacja MOFED na Ubuntu
-W systemie Ubuntu-18,04, Mellanox OFED wykazał niezgodność z wersjami jądra `5.4.0-1039-azure #42` i nowszą, co powoduje zwiększenie czasu rozruchu maszyny wirtualnej o około 30 minut. Zostało to zgłoszone dla obu wersji programu Mellanox OFED 5.2-1.0.4.0 i 5.2-2.2.0.0.
-Rozwiązaniem tymczasowym jest użycie **kanoniczny: UbuntuServer: 18_04-LTS-Gen2:18.04.202101290** Marketplace Image lub starszej wersji, a nie aktualizacji jądra.
-Ten problem powinien zostać rozwiązany przy użyciu nowszej MOFED (do opracowania później).
+## <a name="qp0-access-restriction"></a>Ograniczenie dostępu qp0
 
-## <a name="mpi-qp-creation-errors"></a>Błędy tworzenia MPI
-Jeśli w pośrodku uruchomionych dowolnych obciążeń MPI są generowane błędy tworzenia programu InfiniBand, takie jak pokazano poniżej, zalecamy ponowne uruchomienie maszyny wirtualnej i ponowną próbę wykonania obciążenia. Ten problem zostanie rozwiązany w przyszłości.
+Aby zapobiec dostępowi sprzętowemu niskiego poziomu, który może spowodować luki w zabezpieczeniach, para kolejek 0 nie jest dostępna dla maszyn wirtualnych gościa. Powinno to mieć wpływ tylko na akcje zwykle skojarzone z administrowaniem kartą sieciową ConnectX InfiniBand i uruchamianiem niektórych diagnostyki InfiniBand, takich jak ibdiagnet, ale nie aplikacji użytkownika końcowego.
+
+## <a name="mofed-installation-on-ubuntu"></a>Instalacja mofed w systemie Ubuntu
+W przypadku obrazów maszyn wirtualnych z witryny Marketplace opartych na systemie Ubuntu-18.04 z wersją jądra i nowszą niektóre starsze pliki Mellanox OFED są niezgodne, co w niektórych przypadkach powoduje wzrost czasu rozruchu maszyny wirtualnej do `5.4.0-1039-azure #42` 30 minut. Zgłoszono to zarówno dla wersji Mellanox OFED 5.2-1.0.4.0, jak i 5.2-2.2.0.0. Problem został rozwiązany za pomocą mellanox OFED 5.3-1.0.0.1.
+Jeśli konieczne jest użycie niezgodnej wersji OFED, rozwiązaniem jest użycie obrazu maszyny wirtualnej **Canonical:UbuntuServer:18_04-lts-gen2:18.04.202101290** z witryny Marketplace lub starszego i nie zaktualizowanie jądra.
+
+## <a name="mpi-qp-creation-errors"></a>Błędy tworzenia mpi QP
+Jeśli podczas uruchamiania obciążeń MPI są zgłaszane błędy tworzenia infiniBand QP, jak pokazano poniżej, sugerujemy ponowne uruchomienie maszyny wirtualnej i ponowną próbę uruchomienia obciążenia. Ten problem zostanie rozwiązany w przyszłości.
 
 ```bash
 ib_mlx5_dv.c:150  UCX  ERROR mlx5dv_devx_obj_create(QP) failed, syndrome 0: Invalid argument
 ```
 
-Można zweryfikować wartości maksymalnej liczby par kolejki, gdy problem jest obserwowany w następujący sposób.
+Możesz sprawdzić wartości maksymalnej liczby par kolejek, gdy problem zostanie zaobserwowany w następujący sposób.
 ```bash
 [user@azurehpc-vm ~]$ ibv_devinfo -vv | grep qp
 max_qp: 4096
 ```
 
-## <a name="accelerated-networking-on-hb-hc-hbv2-and-ndv2"></a>Przyspieszona sieć w przypadku HB, HC, HBv2 i NDv2
+## <a name="accelerated-networking-on-hb-hc-hbv2-and-ndv2"></a>Przyspieszona sieć na hb, HC, HBv2 i NDv2
 
-[Przyspieszona sieć platformy Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) jest teraz dostępna w przypadku maszyn wirtualnych z obsługą funkcji RDMA i InfiniBand oraz rozmiary maszyny wirtualnej z interfejsem SR-IOV, które są [HB](../../hb-series.md), [HC](../../hc-series.md), [HBv2](../../hbv2-series.md)i [NDv2](../../ndv2-series.md). Ta funkcja umożliwia teraz rozszerzone (do 30 GB/s) i opóźnień w sieci Ethernet platformy Azure. Chociaż jest to niezależne od funkcji RDMA w sieci InfiniBand, niektóre zmiany platformy dla tej możliwości mogą mieć wpływ na zachowanie niektórych implementacji MPI podczas wykonywania zadań przez InfiniBand. W szczególności interfejs InfiniBand na niektórych maszynach wirtualnych może mieć nieco inną nazwę (mlx5_1, a nie wcześniejszy mlx5_0) i może wymagać dostosowywania wierszy poleceń MPI, zwłaszcza w przypadku używania interfejsu UCX (zazwyczaj z OpenMPI i HPC-X). Najprostszym rozwiązaniem może być obecnie użycie najnowszego HPC-X w obrazach maszyn wirtualnych CentOS-HPC lub wyłączenie sieci przyspieszonej, jeśli nie jest to wymagane.
-Więcej informacji na ten temat znajduje się w tym [artykule TechCommunity](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-and-hbv2/ba-p/2067965) z instrukcjami dotyczącymi sposobu rozwiązywania wszelkich obserwowanych problemów.
+[Usługa Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) jest teraz dostępna w przypadku maszyn wirtualnych z obsługą rdMA i InfiniBand oraz rozmiarów maszyn wirtualnych z obsługą funkcji SR-IOV [HB,](../../hb-series.md) [HC,](../../hc-series.md) [HBv2](../../hbv2-series.md) [i NDv2.](../../ndv2-series.md) Ta funkcja umożliwia teraz rozbudowę (do 30 Gb/s) i opóźnienia w sieci Azure Ethernet. Chociaż jest to niezależne od funkcji RDMA za pośrednictwem sieci InfiniBand, niektóre zmiany platformy dla tej funkcji mogą mieć wpływ na zachowanie niektórych implementacji MPI podczas uruchamiania zadań za pośrednictwem infiniBand. W szczególności interfejs InfiniBand na niektórych maszynach wirtualnych może mieć nieco inną nazwę (mlx5_1 w przeciwieństwie do wcześniejszego interfejsu mlx5_0), co może wymagać dostrojenia wierszy poleceń MPI, szczególnie w przypadku korzystania z interfejsu UCX (często z openMPI i HPC-X). Najprostszym rozwiązaniem obecnie może być użycie najnowszego zestawu HPC-X na obrazach maszyn wirtualnych CentOS-HPC lub wyłączenie przyspieszonej sieci, jeśli nie jest to wymagane.
+Więcej szczegółowych informacji na ten temat można znaleźć w tym [artykule TechCo w artykule Dotyczącym skojarzeń](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-and-hbv2/ba-p/2067965) z instrukcjami dotyczącymi sposobu rozwiązania wszelkich zaobserwowanych problemów.
 
 ## <a name="infiniband-driver-installation-on-non-sr-iov-vms"></a>Instalacja sterownika InfiniBand na maszynach wirtualnych innych niż SR-IOV
 
-Obecnie H16r, H16mr i NC24r nie są włączone dla funkcji SR-IOV. Niektóre szczegóły dotyczące bifurcation stosu InfiniBand znajdują się [tutaj](../../sizes-hpc.md#rdma-capable-instances).
-Funkcję InfiniBand można skonfigurować na rozmiarach maszyn wirtualnych z włączoną funkcją SR-IOV przy użyciu sterowników OFED, natomiast rozmiary maszyn wirtualnych bez wirtualizacji SR-IOV wymagają sterowników ND. Ta pomoc techniczna jest dostępna odpowiednio dla [CentOS, RHEL i Ubuntu](configure.md).
+Obecnie H16r, H16mr i NC24r nie są włączone SR-IOV. Szczegółowe informacje na temat ujednoznania stosu InfiniBand można [znaleźć tutaj.](../../sizes-hpc.md#rdma-capable-instances)
+InfiniBand można skonfigurować dla rozmiarów maszyn wirtualnych z włączoną obsługą funkcji SR-IOV za pomocą sterowników OFED, natomiast rozmiary maszyn wirtualnych inne niż SR-IOV wymagają sterowników ND. Ta obsługa IB jest dostępna odpowiednio dla [centOS, RHEL i Ubuntu.](configure.md)
 
-## <a name="duplicate-mac-with-cloud-init-with-ubuntu-on-h-series-and-n-series-vms"></a>Duplikowanie komputerów MAC z usługą Cloud-init z Ubuntu na maszynach wirtualnych serii H i N
+## <a name="duplicate-mac-with-cloud-init-with-ubuntu-on-h-series-and-n-series-vms"></a>Duplikowanie adresów MAC za pomocą cloud-init z systemem Ubuntu na maszynach wirtualnych serii H i N
 
-Istnieje znany problem z obsługą funkcji Cloud-init w obrazach maszyn wirtualnych Ubuntu, ponieważ próbuje on wywołać interfejs IB. Może to być spowodowane ponownym uruchomieniem maszyny wirtualnej lub przy próbie utworzenia obrazu maszyny wirtualnej po uogólnieniu. W dziennikach rozruchowych maszyny wirtualnej może zostać wyświetlony błąd podobny do tego:
+Istnieje znany problem z plikiem cloud-init na obrazach maszyn wirtualnych z systemem Ubuntu, gdy próbuje on uruchomić interfejs IB. Może się to zdarzyć podczas ponownego uruchamiania maszyny wirtualnej lub próby utworzenia obrazu maszyny wirtualnej po uogólnieniu. Dzienniki rozruchu maszyny wirtualnej mogą zawierać błąd podobny do tego:
 ```console
 “Starting Network Service...RuntimeError: duplicate mac found! both 'eth1' and 'ib0' have mac”.
 ```
 
-Jest to znany problem z tym "zduplikowanym komputerem MAC z chmurą Ubuntu". Ten problem zostanie rozwiązany w nowszych jądrach. Jeśli wystąpi problem, obejście tego problemu jest następujące:
-1) Wdrażanie obrazu maszyny wirtualnej z maszyną wirtualną (Ubuntu 18,04)
-2) Zainstaluj wymagane pakiety oprogramowania, aby włączyć system IB ([instrukcje tutaj](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351))
-3) Edytuj waagent. conf, aby zmienić EnableRDMA = y
-4) Wyłączanie sieci w chmurze — init
+Ten "zduplikowany komputer MAC z cloud-init w systemie Ubuntu" jest znanym problemem. Zostanie to rozwiązane w przypadku nowszego jądra. Jeśli problem zostanie napotkany, obejście jest następujące:
+1) Wdrażanie obrazu maszyny wirtualnej z witryny Marketplace (Ubuntu 18.04)
+2) Zainstaluj niezbędne pakiety oprogramowania, aby włączyć funkcję IB[(instrukcja tutaj)](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351)
+3) Edytuj waagent.conf, aby zmienić wartość EnableRDMA=y
+4) Wyłączanie sieci w chmurze init
     ```console
     echo network: {config: disabled} | sudo tee /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg
     ```
-5) Edytuj plik konfiguracji sieciowej planu sieciowego wygenerowany przez funkcję Cloud-init, aby usunąć komputer MAC
+5) Edytuj plik konfiguracji sieci netplan wygenerowany przez cloud-init, aby usunąć komputer MAC
     ```console
     sudo bash -c "cat > /etc/netplan/50-cloud-init.yaml" <<'EOF'
     network:
@@ -73,17 +76,13 @@ Jest to znany problem z tym "zduplikowanym komputerem MAC z chmurą Ubuntu". Ten
     EOF
     ```
 
-## <a name="qp0-access-restriction"></a>qp0 ograniczenia dostępu
+## <a name="dram-on-hb-series-vms"></a>Pamięć DRAM na maszyn wirtualnych z serii HB
 
-Aby zapobiec dostępowi do sprzętu niskiego poziomu, który może spowodować powstanie luk w zabezpieczeniach, para kolejki 0 nie jest dostępna dla maszyn wirtualnych gościa. Powinno to mieć wpływ tylko na akcje zwykle skojarzone z administracją karty sieciowej ConnectX-5 i uruchamianie niektórych diagnostyki InfiniBand, takich jak ibdiagnet, ale nie samych aplikacji użytkowników końcowych.
+Obecnie maszyny wirtualne z serii HB mogą uwidocznić tylko 228 GB pamięci RAM dla maszyn wirtualnych gościa. Podobnie 458 GB na HBv2 i 448 GB na maszyny wirtualne HBv3. Jest to spowodowane znanym ograniczeniem funkcji hypervisor platformy Azure, które uniemożliwia przypisywanie stron do lokalnego pamięci DRAM (domen NUMA) firmy AMD (domen NUMA) zarezerwowanych dla maszyny wirtualnej gościa.
 
-## <a name="dram-on-hb-series-vms"></a>DRAM na maszynach wirtualnych z serii HB
+## <a name="gss-proxy"></a>GSS Proxy
 
-Maszyny wirtualne z serii HB mogą teraz uwidocznić 228 GB pamięci RAM na maszynach wirtualnych gościa. Podobnie 458 GB w HBv2 i 448 GB na maszynach wirtualnych HBv3. Jest to spowodowane znanym ograniczeniem funkcji hypervisor platformy Azure, aby zapobiec przypisaniu stron do lokalnej pamięci DRAM w systemie AMD CCX (domeny NUMA) zarezerwowanych dla maszyny wirtualnej gościa.
-
-## <a name="gss-proxy"></a>Serwer proxy GSS
-
-Serwer proxy GSS ma znaną usterkę w CentOS/RHEL 7,5, która może zależeć od znacznej wydajności i szybkości reakcji w przypadku korzystania z systemu plików NFS. Można to ograniczyć przy użyciu:
+Serwer proxy GSS ma znaną usterkę w systemie CentOS/RHEL 7.5, która w przypadku korzystania z systemu plików NFS może oznaczać znaczącą wydajność i szybkość reakcji. Można temu pomóc:
 
 ```console
 sed -i 's/GSS_USE_PROXY="yes"/GSS_USE_PROXY="no"/g' /etc/sysconfig/nfs
@@ -91,11 +90,11 @@ sed -i 's/GSS_USE_PROXY="yes"/GSS_USE_PROXY="no"/g' /etc/sysconfig/nfs
 
 ## <a name="cache-cleaning"></a>Czyszczenie pamięci podręcznej
 
-W systemach HPC często warto oczyścić pamięć po zakończeniu zadania przed przypisaniem kolejnego użytkownika do tego samego węzła. Po uruchomieniu aplikacji w systemie Linux może się okazać, że dostępna pamięć zmniejszy się, gdy pamięć buforu rośnie, mimo że nie są uruchomione żadne aplikacje.
+W systemach HPC często warto wyczyścić pamięć po zakończeniu zadania, zanim następny użytkownik zostanie przypisany do tego samego węzła. Po uruchomieniu aplikacji w systemie Linux może się okazać, że ilość dostępnej pamięci zmniejsza się w czasie, gdy pamięć buforu zwiększa się, mimo że nie są uruchomione żadne aplikacje.
 
 ![Zrzut ekranu przedstawiający wiersz polecenia przed czyszczeniem](./media/known-issues/cache-cleaning-1.png)
 
-Przy użyciu programu `numactl -H` zostaną wyświetlone, które NUMAnode pamięci są buforowane (ewentualnie wszystkie). W systemie Linux użytkownicy mogą czyścić pamięć podręczną w trzech sposobach, aby przywrócić pamięć buforowaną lub buforowaną w pamięci podręcznej. Musisz być elementem głównym lub mieć uprawnienia sudo.
+Użycie funkcji spowoduje pokazanie, za pomocą których `numactl -H` NUMAnode (prawdopodobnie wszystkich) pamięć jest buforowana. W systemie Linux użytkownicy mogą czyścić pamięci podręczne na trzy sposoby, aby przywrócić buforowane lub buforowane pamięci do "wolnej". Musisz mieć uprawnienia root lub sudo.
 
 ```console
 echo 1 > /proc/sys/vm/drop_caches [frees page-cache]
@@ -103,11 +102,11 @@ echo 2 > /proc/sys/vm/drop_caches [frees slab objects e.g. dentries, inodes]
 echo 3 > /proc/sys/vm/drop_caches [cleans page-cache and slab objects]
 ```
 
-![Zrzut ekranu przedstawiający wiersz polecenia po czyszczeniu](./media/known-issues/cache-cleaning-2.png)
+![Zrzut ekranu przedstawiający wiersz polecenia po wyczyszczeniu](./media/known-issues/cache-cleaning-2.png)
 
 ## <a name="kernel-warnings"></a>Ostrzeżenia jądra
 
-Podczas uruchamiania maszyny wirtualnej z serii HB w systemie Linux można zignorować następujące komunikaty ostrzegawcze jądra. Jest to spowodowane znanym ograniczeniem funkcji hypervisor platformy Azure, które będzie dotyczyło w miarę upływu czasu.
+Podczas rozruchu maszyny wirtualnej z serii HB w systemie Linux można zignorować następujące komunikaty ostrzegawcze jądra. Jest to spowodowane znanym ograniczeniem funkcji hypervisor platformy Azure, które zostanie rozwiązane w czasie.
 
 ```console
 [  0.004000] WARNING: CPU: 4 PID: 0 at arch/x86/kernel/smpboot.c:376 topology_sane.isra.3+0x80/0x90
@@ -130,6 +129,6 @@ Podczas uruchamiania maszyny wirtualnej z serii HB w systemie Linux można zigno
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zapoznaj się z [omówieniem HB-Series](hb-series-overview.md) i [omówieniem z serii HC](hc-series-overview.md) , aby dowiedzieć się więcej o optymalnym konfigurowaniu obciążeń dotyczących wydajności i skalowalności.
-- Przeczytaj o najnowszych anonsach, przykładach obciążeń HPC i wynikach wydajności na [blogach społecznościowych usługi Azure COMPUTE Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
-- Aby zapoznać się z ogólnym widokiem architektury uruchamiania obciążeń HPC, zobacz [wysoka wydajność obliczeń (HPC) na platformie Azure](/azure/architecture/topics/high-performance-computing/).
+- Zapoznaj się [z omówieniem serii HB](hb-series-overview.md) i [omówieniem serii HC,](hc-series-overview.md) aby dowiedzieć się więcej na temat optymalnego konfigurowania obciążeń pod kątem wydajności i skalowalności.
+- Zapoznaj się z najnowszymi ogłoszeniami, przykładami obciążeń HPC i wynikami wydajności na Azure Compute [Tech Community Blogi](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Aby uzyskać wyższego poziomu widok architektury uruchamiania obciążeń HPC, zobacz Obliczenia o wysokiej wydajności [(HPC) na platformie Azure.](/azure/architecture/topics/high-performance-computing/)

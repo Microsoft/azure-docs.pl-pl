@@ -1,6 +1,6 @@
 ---
-title: Przenoszenie zaszyfrowanych maszyn wirtualnych platformy Azure między regionami przy użyciu usługi Azure Resource przenoszącej
-description: Dowiedz się, jak przenosić zaszyfrowane maszyny wirtualne platformy Azure do innego regionu za pomocą usługi Azure Resource przenoszącej
+title: Przenoszenie zaszyfrowanych maszyn wirtualnych platformy Azure między regionami przy użyciu Azure Resource Mover
+description: Dowiedz się, jak przenieść zaszyfrowane maszyny wirtualne platformy Azure do innego regionu przy użyciu Azure Resource Mover.
 manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
@@ -8,398 +8,405 @@ ms.topic: tutorial
 ms.date: 02/10/2021
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 014b4d09a991ae4d0bb31ec0b9adee0c9e3b3553
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 457c4c4752b4d78434b1fb90710472b1998f1c4e
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100361013"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600696"
 ---
 # <a name="tutorial-move-encrypted-azure-vms-across-regions"></a>Samouczek: przenoszenie zaszyfrowanych maszyn wirtualnych platformy Azure między regionami
 
-W tym artykule dowiesz się, jak przenosić zaszyfrowane maszyny wirtualne platformy Azure do innego regionu platformy Azure przy użyciu [usługi Azure Resource](overview.md)przenoszącej. Oto co oznacza szyfrowanie:
+W tym artykule omówiono sposób przenoszenia zaszyfrowanych maszyn wirtualnych platformy Azure do innego regionu świadczenia usługi Azure przy użyciu [Azure Resource Mover](overview.md). 
 
-- Maszyny wirtualne z włączonym szyfrowaniem dysków Azure. [Dowiedz się więcej](../virtual-machines/windows/disk-encryption-portal-quickstart.md)
-- Lub maszyny wirtualne korzystające z kluczy zarządzanych przez klienta (CMKs) do szyfrowania w czasie spoczynku (szyfrowanie po stronie serwera). [Dowiedz się więcej](../virtual-machines/disks-enable-customer-managed-keys-portal.md)
+Zaszyfrowane maszyny wirtualne można opisać jako:
+
+- Maszyny wirtualne, które mają dyski z Azure Disk Encryption włączone. Aby uzyskać więcej informacji, zobacz [Tworzenie i szyfrowanie maszyny wirtualnej z](../virtual-machines/windows/disk-encryption-portal-quickstart.md)systemem Windows przy użyciu Azure Portal .
+- Maszyny wirtualne, które używają kluczy zarządzanych przez klienta na potrzeby szyfrowania danych w spoczynku lub szyfrowania po stronie serwera. Aby uzyskać więcej informacji, zobacz [Use the Azure Portal to enable server-side encryption with customer-managed keys for managed disks (Włączanie](../virtual-machines/disks-enable-customer-managed-keys-portal.md)szyfrowania po stronie serwera przy użyciu kluczy zarządzanych przez klienta dla dysków zarządzanych).
 
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Sprawdź wymagania wstępne. 
-> * W przypadku maszyn wirtualnych z włączonym szyfrowaniem dysków Azure Skopiuj klucze i wpisy tajne z magazynu kluczy regionu źródłowego do magazynu kluczy regionu docelowego.
-> * Przygotuj maszyny wirtualne, aby je przenieść, a następnie wybierz zasoby w regionie źródłowym, które chcesz przenieść.
+> * W przypadku maszyn wirtualnych z włączoną Azure Disk Encryption skopiuj klucze i wpisy tajne z magazynu kluczy regionu źródłowego do magazynu kluczy regionu docelowego.
+> * Przygotuj się do przeniesienia maszyn wirtualnych i wybierz zasoby w regionie źródłowym, z którego chcesz je przenieść.
 > * Rozwiąż zależności zasobów.
-> * W przypadku maszyn wirtualnych z włączonym szyfrowaniem dysków Azure ręcznie Przypisz docelowy Magazyn kluczy. W przypadku maszyn wirtualnych korzystających z szyfrowania po stronie serwera z kluczami zarządzanymi przez klienta ręcznie Przypisz zestaw szyfrowanie dysków w regionie docelowym.
-> * Przenieś magazyn kluczy i/lub zestaw szyfrowania dysków.
-> * Przygotuj i Przenieś źródłową grupę zasobów. 
-> * Przygotuj i Przenieś inne zasoby.
-> * Zdecyduj, czy chcesz odrzucić lub zatwierdzić przeniesienie. 
-> * Opcjonalnie można usunąć zasoby w regionie źródłowym po przeniesieniu.
+> * W przypadku maszyn wirtualnych z włączoną Azure Disk Encryption ręcznie przypisz docelowy magazyn kluczy. W przypadku maszyn wirtualnych, które używają szyfrowania po stronie serwera z kluczami zarządzanymi przez klienta, ręcznie przypisz szyfrowanie dysków ustawione w regionie docelowym.
+> * Przenieś magazyn kluczy lub zestaw szyfrowania dysków.
+> * Przygotuj i przenieś źródłową grupę zasobów. 
+> * Przygotuj i przenieś inne zasoby.
+> * Zdecyduj, czy odrzucić, czy zatwierdzić przeniesienie. 
+> * Opcjonalnie usuń zasoby w regionie źródłowym po zakończeniu przenoszenia.
 
 > [!NOTE]
-> Samouczki pokazują najszybszą ścieżkę w celu wypróbowania scenariusza i używają opcji domyślnych. 
+> W tym samouczku przedstawiono najszybszą ścieżkę do wypróbowania scenariusza. Używa tylko opcji domyślnych. 
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/). Następnie zaloguj się do [Azure Portal](https://portal.azure.com).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-**Wymaganie** |**Szczegóły**
+Wymaganie |Szczegóły
 --- | ---
-**Uprawnienia subskrypcji** | Sprawdź, czy masz dostęp *właściciela* do subskrypcji zawierającej zasoby, które chcesz przenieść.<br/><br/> **Dlaczego mam dostęp do właściciela?** Przy pierwszym dodawaniu zasobu dla określonej pary źródłowej i docelowej w ramach subskrypcji platformy Azure usługa zarządzania zasobami tworzy [tożsamość zarządzaną przypisaną przez system](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (znaną wcześniej jako identyfikator usługi zarządzanej (msi), która jest zaufana przez subskrypcję. Aby utworzyć tożsamość i przypisać do niej wymaganą rolę (współautor i administrator dostępu użytkowników w subskrypcji źródłowej), konto używane do dodawania zasobów wymaga uprawnień *właściciela* do subskrypcji. [Dowiedz się więcej](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) na temat ról platformy Azure.
-**Obsługa maszyn wirtualnych** | Sprawdź, czy maszyny wirtualne, które chcesz przenieść, są obsługiwane.<br/><br/> - [Sprawdź](support-matrix-move-region-azure-vm.md#windows-vm-support) obsługiwane maszyny wirtualne z systemem Windows.<br/><br/> - [Sprawdź](support-matrix-move-region-azure-vm.md#linux-vm-support) obsługiwane maszyny wirtualne i wersje jądra systemu Linux.<br/><br/> -Sprawdź obsługiwane ustawienia [obliczeń](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [magazynu](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings)i [sieci](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) .
-**Wymagania dotyczące magazynu kluczy (usługa Azure Disk Encryption)** | Jeśli masz włączone szyfrowanie dysków Azure dla maszyn wirtualnych, oprócz magazynu kluczy w regionie źródłowym potrzebujesz magazynu kluczy w regionie docelowym. [Utwórz magazyn kluczy](../key-vault/general/quick-create-portal.md).<br/><br/> W przypadku magazynów kluczy w regionie źródłowym i docelowym wymagane są następujące uprawnienia:<br/><br/> -Kluczowe uprawnienia: operacje zarządzania kluczami (Get, list); Operacje kryptograficzne (odszyfrowywanie i szyfrowanie).<br/><br/> -Tajne uprawnienia: operacje zarządzania kluczami tajnymi (Get, list i Set)<br/><br/> -Certificate (lista i Get).
-**Zestaw szyfrowania dysków (szyfrowanie po stronie serwera z CMK)** | W przypadku korzystania z maszyn wirtualnych z szyfrowaniem po stronie serwera przy użyciu CMK, oprócz szyfrowania dysków w regionie źródłowym, należy ustawić szyfrowanie dysków w regionie docelowym. [Utwórz zestaw szyfrowania dysków](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set).<br/><br/> Przechodzenie między regionami nie jest obsługiwane, jeśli są używane klucze HSM dla kluczy zarządzanych przez klienta.
-**Przydział regionu docelowego** | Subskrypcja wymaga wystarczającego limitu przydziału, aby utworzyć zasoby, które są przenoszone w regionie docelowym. Jeśli nie ma limitu przydziału, [Zażądaj dodatkowych limitów](../azure-resource-manager/management/azure-subscription-service-limits.md).
-**Opłaty w regionie docelowym** | Sprawdź ceny i opłaty związane z regionem docelowym, do którego przenosisz maszyny wirtualne. Skorzystaj z [kalkulatora cen](https://azure.microsoft.com/pricing/calculator/) , aby uzyskać pomoc.
+**Uprawnienia subskrypcji** | Upewnij się, że masz *dostęp właściciela* do subskrypcji zawierającej zasoby, które chcesz przenieść.<br/><br/> *Dlaczego potrzebuję dostępu właściciela?* Podczas pierwszego dodawania zasobu dla określonej pary źródłowej i docelowej w subskrypcji platformy Azure usługa Resource Mover tworzy tożsamość zarządzaną przypisaną przez system [,](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)znaną wcześniej jako tożsamość usługi zarządzanej (MSI). Ta tożsamość jest zaufana przez subskrypcję. Aby można było utworzyć tożsamość i przypisać do niego wymagane role *(współautor* i *administrator* dostępu  użytkowników w subskrypcji źródłowej), konto, za pomocą których dodajesz zasoby, musi mieć uprawnienia właściciela w subskrypcji. Aby uzyskać więcej informacji, zobacz [Role klasycznego administratora subskrypcji, role platformy Azure i role usługi Azure AD.](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles)
+**Obsługa maszyn wirtualnych** | Upewnij się, że maszyny wirtualne, które chcesz przenieść, są obsługiwane, wykonując następujące czynności:<li>[Sprawdź obsługiwane](support-matrix-move-region-azure-vm.md#windows-vm-support) maszyny wirtualne z systemem Windows.<li>[Sprawdź obsługiwane](support-matrix-move-region-azure-vm.md#linux-vm-support) maszyny wirtualne z systemem Linux i wersje jądra.<li>Sprawdź obsługiwane [ustawienia obliczeniowe,](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings) [magazynowe](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings) [i sieciowe.](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings)
+**Wymagania dotyczące magazynu kluczy (Azure Disk Encryption)** | Jeśli masz włączoną Azure Disk Encryption maszyn wirtualnych, potrzebujesz magazynu kluczy zarówno w regionach źródłowym, jak i docelowym. Aby uzyskać więcej informacji, [zobacz Tworzenie magazynu kluczy](../key-vault/general/quick-create-portal.md).<br/><br/> W przypadku magazynów kluczy w regionach źródłowym i docelowym potrzebne są następujące uprawnienia:<li>Uprawnienia klucza: operacje zarządzania kluczami (get, list) i operacje kryptograficzne (odszyfrowywanie i szyfrowanie)<li>Uprawnienia dotyczące tajnych: operacje zarządzania kluczami tajnymi (Get, List i Set)<li>Certyfikat (lista i pobierz)
+**Zestaw szyfrowania dysków (szyfrowanie po stronie serwera za pomocą klucza cmk)** | Jeśli używasz maszyn wirtualnych z szyfrowaniem po stronie serwera, które używa klucza cmk, musisz ustawić szyfrowanie dysków zarówno w regionach źródłowym, jak i docelowym. Aby uzyskać więcej informacji, [zobacz Tworzenie zestawu szyfrowania dysków.](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set)<br/><br/> Przenoszenie między regionami nie jest obsługiwane, jeśli używasz sprzętowego modułu zabezpieczeń (kluczy HSM) dla kluczy zarządzanych przez klienta.
+**Limit przydziału regionu docelowego** | Subskrypcja wymaga wystarczającego limitu przydziału, aby utworzyć zasoby, które przenosisz w regionie docelowym. Jeśli nie ma limitu przydziału, [zażądaj dodatkowych limitów](../azure-resource-manager/management/azure-subscription-service-limits.md).
+**Opłaty za region docelowy** | Sprawdź ceny i opłaty skojarzone z regionem docelowym, do którego przenosisz maszyny wirtualne. Skorzystaj z [kalkulatora cen](https://azure.microsoft.com/pricing/calculator/).
 
 
-## <a name="verify-user-permissions-on-key-vault-for-vms-using-azure-disk-encryption-ade"></a>Weryfikowanie uprawnień użytkowników w magazynie kluczy dla maszyn wirtualnych przy użyciu Azure Disk Encryption (ADE)
+## <a name="verify-permissions-in-the-key-vault"></a>Weryfikowanie uprawnień w magazynie kluczy
 
-Jeśli przenosisz maszyny wirtualne z włączonym szyfrowaniem dysków Azure, musisz uruchomić skrypt opisany [poniżej](#copy-the-keys-to-the-destination-key-vault) , dla którego użytkownik wykonujący skrypt powinien mieć odpowiednie uprawnienia. Zapoznaj się z poniższą tabelą, aby dowiedzieć się o wymaganych uprawnieniach. Opcje zmiany uprawnień można znaleźć, przechodząc do magazynu kluczy w Azure Portal, w obszarze **Ustawienia**, wybierz pozycję **zasady dostępu**.
+Jeśli przenosisz maszyny wirtualne, które mają włączoną Azure Disk Encryption, musisz uruchomić skrypt, jak wspomniano w sekcji Kopiowanie kluczy do [docelowego magazynu](#copy-the-keys-to-the-destination-key-vault) kluczy. Użytkownicy, którzy wykonują skrypt, powinni mieć do tego odpowiednie uprawnienia. Aby zrozumieć, które uprawnienia są potrzebne, zapoznaj się z następującą tabelą. Opcje zmiany uprawnień można znaleźć, przechodząc do magazynu kluczy w Azure Portal. W **obszarze Ustawienia** wybierz pozycję Zasady **dostępu.**
 
-:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png" alt-text="Przycisk umożliwiający otwarcie zasad dostępu magazynu kluczy." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png":::
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png" alt-text="Zrzut ekranu przedstawiający link &quot;Zasady dostępu&quot; w okienku Ustawienia magazynu kluczy." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png":::
 
-Jeśli nie ma żadnych uprawnień użytkownika, wybierz pozycję **Dodaj zasady dostępu** i określ uprawnienia. Jeśli konto użytkownika ma już zasady, w obszarze **użytkownik** Ustaw uprawnienia zgodnie z poniższą tabelą.
+Jeśli uprawnienia użytkownika nie są na miejscu, wybierz pozycję Dodaj zasady **dostępu,** a następnie określ uprawnienia. Jeśli konto użytkownika ma już zasady, w obszarze **Użytkownik** ustaw uprawnienia zgodnie z instrukcjami w poniższej tabeli.
 
-Maszyny wirtualne platformy Azure korzystające z programu ADE mogą mieć następujące odmiany i należy odpowiednio ustawić uprawnienia dla odpowiednich składników.
-- Opcja domyślna, w której dysk jest szyfrowany tylko przy użyciu kluczy tajnych
-- Dodano zabezpieczenia przy użyciu [klucza szyfrowania klucza](../virtual-machines/windows/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek)
+Maszyny wirtualne platformy Azure, które używają Azure Disk Encryption, mogą mieć następujące odmiany i musisz ustawić uprawnienia zgodnie z ich odpowiednimi składnikami. Maszyny wirtualne mogą mieć:
+- Domyślna opcja, w której dysk jest szyfrowany tylko przy użyciu wpisów tajnych.
+- Dodano zabezpieczenia, które używa klucza szyfrowania [klucza (KEK).](../virtual-machines/windows/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek)
 
-### <a name="source-region-keyvault"></a>Magazyn kluczy w regionie źródłowym
+### <a name="source-region-key-vault"></a>Magazyn kluczy w regionie źródłowym
 
-Należy ustawić poniższe uprawnienia dla użytkownika wykonującego skrypt 
+W przypadku użytkowników, którzy wykonują skrypt, ustaw uprawnienia dla następujących składników: 
 
-**Składnik** | **Wymagana uprawnienia**
+Składnik | Wymagane uprawnienia
 --- | ---
-Wpisy tajne|  Pobierz uprawnienie <br> </br> W obszarze tajne uprawnienia do zarządzania wpisami **tajnymi** >   wybierz pozycję **Pobierz** . 
-Klucze <br> </br> Jeśli używasz klucza szyfrowania klucza (KEK), musisz mieć to uprawnienie oprócz wpisów tajnych| Uprawnienie pobieranie i odszyfrowywanie <br> </br> W obszarze **uprawnienia klucza**  >  **operacje zarządzania kluczami** wybierz pozycję **Pobierz**. W obszarze **operacje kryptograficzne** wybierz opcję **Odszyfruj**.
+Wpisy tajne |  *Get* <br></br> Wybierz **pozycję Uprawnienia tajne** Operacje zarządzania  >  **kluczami tajnymi,** a następnie wybierz pozycję **Pobierz**. 
+Klucze <br></br> Jeśli używasz kluczy KEK, potrzebujesz tych uprawnień oprócz uprawnień do wpisów tajnych. | *Pobierz i* odszyfruj  <br></br> Wybierz **pozycję Operacje zarządzania**  >  **kluczami uprawnień klucza,** a następnie wybierz pozycję **Pobierz**. Na **stronie Operacje kryptograficzne** wybierz pozycję **Odszyfruj**.
 
-### <a name="destination-region-keyvault"></a>Magazyn kluczy regionu docelowego
+### <a name="destination-region-key-vault"></a>Magazyn kluczy regionu docelowego
 
-W obszarze **zasady dostępu** upewnij się, że **Azure Disk Encryption szyfrowania woluminów** jest włączona. 
+W **zasadach dostępu** upewnij się, że Azure Disk Encryption szyfrowania **woluminów.** 
 
-Należy ustawić poniższe uprawnienia dla użytkownika wykonującego skrypt 
+W przypadku użytkowników, którzy wykonują skrypt, ustaw uprawnienia dla następujących składników: 
 
-**Składnik** | **Wymagana uprawnienia**
+Składnik | Wymagane uprawnienia
 --- | ---
-Wpisy tajne|  Ustaw uprawnienie <br> </br> W obszarze tajne uprawnienia do zarządzania wpisami **tajnymi** >   wybierz pozycję **Ustaw** . 
-Klucze <br> </br> Jeśli używasz klucza szyfrowania klucza (KEK), musisz mieć to uprawnienie oprócz wpisów tajnych| Uprawnienie pobieranie, tworzenie i szyfrowanie <br> </br> W obszarze **uprawnienia klucza**  >  **operacje zarządzania kluczami** wybierz pozycję **Pobierz** i **Utwórz** . W obszarze **operacje kryptograficzne** wybierz pozycję **Szyfruj**.
+Wpisy tajne |  *Set* <br></br> Wybierz **pozycję Uprawnienia tajne** Operacje zarządzania  >  **kluczami tajnymi,** a następnie wybierz pozycję **Ustaw**. 
+Klucze <br></br> Jeśli używasz kluczy KEK, potrzebujesz tych uprawnień oprócz uprawnień do wpisów tajnych. | *Pobierz,* *utwórz* i *zaszyfruj* <br></br> Wybierz **pozycję Operacje zarządzania**  >  **kluczami uprawnień klucza,** a następnie wybierz pozycję Pobierz **i** **utwórz.** W **opcji Operacje kryptograficzne** wybierz pozycję **Szyfruj.**
 
-Oprócz powyższych uprawnień w magazynie kluczy docelowych należy dodać uprawnienia do [tożsamości systemu zarządzanego](./common-questions.md#how-is-managed-identity-used-in-resource-mover) używanego przez urządzenia do zarządzania zasobami platformy Azure w Twoim imieniu. 
+<br>
 
-1. W obszarze **Ustawienia** wybierz pozycję **Dodaj zasady dostępu**. 
-2. W obszarze **Wybierz podmiot zabezpieczeń** Wyszukaj plik msi. Nazwa MSI to ```movecollection-<sourceregion>-<target-region>-<metadata-region>``` . 
-3. Dodaj poniższe uprawnienia dla pliku MSI
+Oprócz powyższych uprawnień w docelowym magazynie kluczy należy dodać uprawnienia [](./common-questions.md#how-is-managed-identity-used-in-resource-mover) do tożsamości systemu zarządzanego, która jest używana przez usługę Resource Mover do uzyskiwania dostępu do zasobów platformy Azure w Twoim imieniu. 
 
-**Składnik** | **Wymagana uprawnienia**
---- | ---
-Wpisy tajne|  Uprawnienie pobieranie i wyświetlanie <br> </br> W  >   **operacjach tajnych zarządzania** uprawnieniami tajnymi, wybierz pozycję **Pobierz** i **Wyświetl** 
-Klucze <br> </br> Jeśli używasz klucza szyfrowania klucza (KEK), musisz mieć to uprawnienie oprócz wpisów tajnych| Pobieranie, uprawnienie do listy <br> </br> W obszarze **uprawnienia klucza**  >  **operacje zarządzania kluczami** wybierz pozycję **Pobierz** i **Wyświetl**
+1. W **obszarze Ustawienia** wybierz pozycję Dodaj zasady **dostępu.** 
+1. W **polu Wybierz podmiot** zabezpieczeń wyszukaj pozycję MSI. Nazwa MSI to ```movecollection-<sourceregion>-<target-region>-<metadata-region>``` . 
+1. W przypadku pliku MSI dodaj następujące uprawnienia:
 
+    Składnik | Wymagane uprawnienia
+    --- | ---
+    Wpisy tajne|  *Uzyskiwanie* i *uzyskiwanie listy* <br></br> Wybierz **pozycję Secret permissions** Secret Management Operations  >  **(Operacje zarządzania kluczami tajnymi),** a następnie wybierz pozycję Get and List **(Pobierz** i **wymień).** 
+    Klucze <br></br> Jeśli używasz kluczy KEK, potrzebujesz tych uprawnień oprócz uprawnień do wpisów tajnych. | *Uzyskiwanie* i *uzyskiwanie listy* <br></br> Wybierz **pozycję Key Permissions** Key Management Operations (Operacje zarządzania kluczami uprawnień  >  klucza), a następnie wybierz pozycję Get and List **(Pobierz** i **wymień).**
 
+<br>
 
-### <a name="copy-the-keys-to-the-destination-key-vault"></a>Kopiuj klucze do docelowego magazynu kluczy
+### <a name="copy-the-keys-to-the-destination-key-vault"></a>Kopiowanie kluczy do docelowego magazynu kluczy
 
-Należy skopiować wpisy tajne i klucze szyfrowania z magazynu kluczy źródłowych do docelowego magazynu kluczy przy użyciu udostępnianego przez nas skryptu.
+Skopiuj wpisy tajne i klucze szyfrowania z magazynu kluczy źródłowych do docelowego magazynu kluczy przy użyciu [skryptu,](https://raw.githubusercontent.com/AsrOneSdk/published-scripts/master/CopyKeys/CopyKeys.ps1) który udostępniliśmy.
 
-- Skrypt jest uruchamiany w programie PowerShell. Zalecamy uruchomienie najnowszej wersji programu PowerShell.
-- Skrypt wymaga następujących modułów:
+- Uruchom skrypt w programie PowerShell. Zalecamy używanie najnowszej wersji programu PowerShell.
+- W szczególności skrypt wymaga tych modułów:
     - Az.Compute
-    - AZ. 3.0.0
-    - AZ. accounts (wersja 2.2.3)
+    - Az.KeyVault (wersja 3.0.0)
+    - Az.Accounts (wersja 2.2.3)
 
-Postępuj w następujący sposób:
+Aby uruchomić skrypt, wykonaj następujące czynności:
 
-1. Przejdź do [skryptu](https://raw.githubusercontent.com/AsrOneSdk/published-scripts/master/CopyKeys/CopyKeys.ps1) w serwisie GitHub.
-2. Skopiuj zawartość skryptu do pliku lokalnego i nadaj jej nazwę *Copy-keys.ps1*.
-3. Uruchom skrypt.
-4. Zaloguj się do platformy Azure.
-5. W oknie podręcznym **dane wejściowe użytkownika** wybierz subskrypcję źródłową, grupę zasobów i ŹRÓDŁową maszynę wirtualną. Następnie wybierz lokalizację docelową i docelowe magazyny na potrzeby szyfrowania dysku i klucza.
+1. Otwórz skrypt [w](https://raw.githubusercontent.com/AsrOneSdk/published-scripts/master/CopyKeys/CopyKeys.ps1) usłudze GitHub.
+1. Skopiuj zawartość skryptu do pliku lokalnego i nadaj jej *nazwęCopy-keys.ps1*.
+1. Uruchom skrypt.
+1. Zaloguj się w witrynie Azure Portal.
+1. Na listach rozwijanych w oknie **Dane** wejściowe użytkownika wybierz subskrypcję źródłową, grupę zasobów i źródłową maszynę wirtualną, a następnie wybierz lokalizację docelową oraz docelowe magazyny szyfrowania dysków i kluczy.
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/script-input.png" alt-text="Wyskakujące okienko wprowadzania wartości skryptu." :::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/script-input.png" alt-text="Zrzut ekranu przedstawiający okno &quot;User Inputs&quot; (Dane wejściowe użytkownika) służące do wprowadzania wartości skryptu." :::
 
-
-6. Po zakończeniu działania skryptu ekran danych wyjściowych wskazuje, że CopyKeys powiodło się.
+1. Wybierz przycisk **Wybierz**. 
+   
+   Po zakończeniu działania skryptu zostanie wyświetlony komunikat z powiadomieniem, że klucz CopyKeys zakończył się pomyślnie.
 
 ## <a name="prepare-vms"></a>Przygotowywanie maszyn wirtualnych
 
-1. Po [sprawdzeniu, czy maszyny wirtualne spełniają wymagania](#prerequisites), upewnij się, że maszyny wirtualne, które chcesz przenieść, są włączone. Wszystkie dyski maszyn wirtualnych, które mają być dostępne w regionie docelowym, muszą być dołączane i inicjowane na maszynie wirtualnej.
-3. Sprawdź, czy maszyny wirtualne mają najnowsze zaufane certyfikaty główne oraz zaktualizowaną listę odwołania certyfikatów (CRL). W tym celu:
-    - Na maszynach wirtualnych z systemem Windows zainstaluj najnowsze aktualizacje systemu Windows.
-    - Na maszynach wirtualnych z systemem Linux postępuj zgodnie ze wskazówkami dystrybutora, aby komputery miały najnowsze certyfikaty i listę CRL. 
-4. Zezwalaj na połączenia wychodzące z maszyn wirtualnych w następujący sposób:
-    - Jeśli używasz serwera proxy zapory opartego na adresie URL w celu kontrolowania łączności wychodzącej, Zezwól na dostęp do tych [adresów URL](support-matrix-move-region-azure-vm.md#url-access)
-    - Jeśli używasz reguł sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) w celu kontrolowania łączności wychodzącej, Utwórz te [reguły tagów usług](support-matrix-move-region-azure-vm.md#nsg-rules).
+1. Po sprawdzeniu, czy maszyny wirtualne spełniają wymagania [wstępne,](#prerequisites)upewnij się, że maszyny wirtualne, które chcesz przenieść, są włączone. Wszystkie dyski maszyny wirtualnej, które mają być dostępne w regionie docelowym, muszą być dołączone i zainicjowane na maszynie wirtualnej.
+1. Aby upewnić się, że maszyny wirtualne mają najnowsze zaufane certyfikaty główne i zaktualizowaną listę odwołania certyfikatów (CRL), wykonaj następujące czynności:
+    - Na komputerach wirtualnych z systemem Windows zainstaluj najnowsze aktualizacje systemu Windows.
+    - Na maszynach wirtualnych z systemem Linux postępuj zgodnie ze wskazówkami dystrybutora, aby maszyny były zgodne z najnowszymi certyfikatami i listą CRL. 
+1. Aby zezwolić na łączność wychodzącą z maszyn wirtualnych, wykonaj jedną z następujących czynności:
+    - Jeśli używasz serwera proxy zapory opartego na adresach URL do kontrolowania łączności wychodzącej, zezwładuj na dostęp [do adresów URL.](support-matrix-move-region-azure-vm.md#url-access)
+    - Jeśli używasz reguł sieciowej grupy zabezpieczeń (NSG) do kontrolowania łączności wychodzącej, utwórz te [reguły tagów usługi](support-matrix-move-region-azure-vm.md#nsg-rules).
 
-## <a name="select-resources-to-move"></a>Wybierz zasoby do przeniesienia
+## <a name="select-the-resources-to-move"></a>Wybieranie zasobów do przeniesienia
 
+- Możesz wybrać dowolny obsługiwany typ zasobu w dowolnej grupie zasobów w regionie źródłowym, który wybierzesz.  
+- Zasoby można przenieść do regionu docelowego, który jest w tej samej subskrypcji co region źródłowy. Jeśli chcesz zmienić subskrypcję, możesz to zrobić po zmianie zasobów.
 
-- Możesz wybrać dowolny obsługiwany typ zasobu w dowolnej grupie zasobów w wybranym regionie źródłowym.  
-- Przenoszenie zasobów do regionu docelowego, który znajduje się w tej samej subskrypcji co region źródłowy. Jeśli chcesz zmienić subskrypcję, możesz to zrobić po przeniesieniu zasobów.
+Aby wybrać zasoby, wykonaj następujące czynności:
 
-Wybierz zasoby w następujący sposób:
+1. W Azure Portal wyszukaj w **polu resource mover .** Następnie w obszarze **Usługi** wybierz pozycję **Azure Resource Mover**.
 
-1. W Azure Portal Wyszukaj pozycję *przeniesienie zasobów*. Następnie w obszarze **usługi** wybierz pozycję **Azure Resource** przenosząca.
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/search.png" alt-text="Zrzut ekranu przedstawiający wyniki wyszukiwania Azure Resource Mover w Azure Portal." :::
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/search.png" alt-text="Wyniki wyszukiwania dla przenoszenia zasobów w Azure Portal." :::
+1. W okienku Azure Resource Mover **Przegląd** wybierz pozycję **Przenieś między regionami.**
 
-2. W obszarze **Przegląd** kliknij pozycję **Przenieś między regionami**.
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/move-across-regions.png" alt-text="Zrzut ekranu przedstawiający przycisk &quot;Przenieś między regionami&quot; dodawania zasobów w celu przeniesienia ich do innego regionu." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/move-across-regions.png":::
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/move-across-regions.png" alt-text="Przycisk, aby dodać zasoby do przeniesienia do innego regionu." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/move-across-regions.png":::
+1. W **okienku Przenoszenie zasobów** wybierz **kartę Źródło i miejsce** docelowe. Następnie z list rozwijanych wybierz subskrypcję źródłową i region.
 
-3. W obszarze **Przenieś zasoby**  >  **Źródło + miejsce docelowe** wybierz źródłową subskrypcję i region.
-4. W obszarze **Lokalizacja docelowa** wybierz region, do którego chcesz przenieść maszyny wirtualne. Następnie kliknij przycisk **Dalej**.
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/source-target.png" alt-text="Strona wybierania regionu źródłowego i docelowego." :::
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/source-target.png" alt-text="Strona umożliwiająca wybranie regionu źródłowego i docelowego." :::
+1. W **obszarze** Miejsce docelowe wybierz region, do którego chcesz przenieść maszyny wirtualne, a następnie wybierz pozycję **Dalej.**
 
-5. W obszarze **zasoby do przeniesienia** kliknij pozycję **Wybierz zasoby**.
+1. Wybierz **kartę Zasoby do przeniesienia,** a następnie wybierz **pozycję Wybierz zasoby.**
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-resources.png" alt-text="Kliknij przycisk, aby wybrać zasób do przeniesienia.]." :::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-resources.png" alt-text="Zrzut ekranu przedstawiający okienko &quot;Przenoszenie zasobów&quot; i przycisk &quot;Wybierz zasoby&quot;." :::
 
-6. W obszarze **Wybierz zasoby** Wybierz Maszyny wirtualne. Można dodawać tylko zasoby, które są [obsługiwane do przenoszenia](#prepare-vms). Następnie kliknij przycisk **gotowe**.
+1. W **okienku Wybierz** zasoby wybierz maszyny wirtualne, które chcesz przenieść. Jak wspomniano w sekcji Wybieranie zasobów do [przeniesienia,](#select-the-resources-to-move) można dodać tylko te zasoby, które są obsługiwane w przypadku przenoszenia.
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-vm.png" alt-text="Strona umożliwiająca wybranie maszyn wirtualnych do przeniesienia." :::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-vm.png" alt-text="Zrzut ekranu przedstawiający okienko &quot;Wybieranie zasobów&quot; służące do wybierania maszyn wirtualnych do przeniesienia." :::
 
     > [!NOTE]
-    >  W tym samouczku wybieramy maszynę wirtualną korzystającą z szyfrowania po stronie serwera (Rayne-VM) z kluczem zarządzanym przez klienta, a maszyna wirtualna z włączonym szyfrowaniem dysków (Rayne-VM-ADE).
+    >  W tym samouczku wybierasz maszynę wirtualną, która korzysta z szyfrowania po stronie serwera (rayne-vm) z kluczem zarządzanym przez klienta, oraz maszynę wirtualną z włączonym szyfrowaniem dysków (rayne-vm-ade).
 
-7.  W obszarze **zasoby do przeniesienia** kliknij przycisk **dalej**.
-8. W obszarze **Przegląd** Sprawdź ustawienia źródłowe i docelowe. 
+1. Kliknij **Gotowe**.
+1. Wybierz **kartę Zasoby do przeniesienia,** a następnie wybierz pozycję **Dalej.**
+1. Wybierz **kartę Przegląd,** a następnie sprawdź ustawienia źródła i miejsca docelowego. 
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/review.png" alt-text="Strona umożliwiająca przejrzenie ustawień i Kontynuuj przenoszenie." :::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/review.png" alt-text="Zrzut ekranu przedstawiający okienko służące do przeglądania ustawień źródła i miejsca docelowego." :::
 
-9. Kliknij przycisk " **Zastosuj**", aby rozpocząć dodawanie zasobów.
-10. Wybierz ikonę powiadomienia, aby śledzić postęp. Po pomyślnym zakończeniu dodawania wybierz pozycję **dodane zasoby do przeniesienia** w powiadomieniach.
+1. Wybierz **pozycję Kontynuuj,** aby rozpocząć dodawanie zasobów.
+1. Wybierz ikonę powiadomień, aby śledzić postęp. Po pomyślnym zakończeniu procesu w **okienku Powiadomienia** wybierz pozycję **Dodano zasoby do przeniesienia.**
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/added-resources-notification.png" alt-text="Powiadomienie o potwierdzeniu zasobów zostało pomyślnie dodane." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/added-resources-notification.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/added-resources-notification.png" alt-text="Zrzut ekranu przedstawiający okienko &quot;Powiadomienia&quot; służące do potwierdzenia, że zasoby zostały pomyślnie dodane." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/added-resources-notification.png":::
     
-    
-11. Po kliknięciu powiadomienia Przejrzyj zasoby na stronie **między regionami** .
+1. Po wybraniu powiadomienia przejrzyj zasoby na stronie **Wiele regionów.**
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-prepare-pending.png" alt-text="Strony pokazujące dodane zasoby z oczekującą przygotowaniem." :::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-prepare-pending.png" alt-text="Zrzut ekranu przedstawiający dodane zasoby ze stanem &quot;Przygotowanie oczekuje&quot;." :::
 
 > [!NOTE]
-> - Dodawane zasoby są umieszczane w stanie *oczekiwania na przygotowanie* .
+> - Zasoby, które dodajesz, są umieszczane w stanie *Oczekiwanie na przygotowanie.*
 > - Grupa zasobów dla maszyn wirtualnych jest dodawana automatycznie.
-> - W przypadku zmodyfikowania wpisów **konfiguracji docelowej** w celu użycia zasobu, który już istnieje w regionie docelowym, stan zasobu jest ustawiony na *oczekujące*, ponieważ nie trzeba inicjować przenoszenia dla niego.
-> - Jeśli chcesz usunąć zasób, który został dodany, metoda, która zależy od tego, gdzie jesteś w procesie przenoszenia. [Dowiedz się więcej](remove-move-resources.md).
+> - W przypadku  zmodyfikowania wpisów konfiguracji Miejsce docelowe w celu użycia zasobu, który już istnieje w regionie docelowym, stan zasobu zostanie ustawiony na Oczekujące *zatwierdzenie,* ponieważ nie trzeba inicjować dla niego przeniesienia.
+> - Jeśli chcesz usunąć dodany zasób, metoda, której użyjesz, zależy od tego, gdzie jesteś w procesie przenoszenia. Aby uzyskać więcej informacji, zobacz [Zarządzanie kolekcjami przenoszenia i grupami zasobów.](remove-move-resources.md)
 
 
 ## <a name="resolve-dependencies"></a>Rozwiązywanie zależności
 
-1. Jeśli w kolumnie **problemy** zostanie wyświetlony komunikat *Weryfikuj zależności* , wybierz przycisk **Weryfikuj zależności** .
+1. Jeśli jakiekolwiek zasoby pokazują komunikat *Weryfikuj zależności* w kolumnie **Problemy,** wybierz przycisk **Weryfikuj zależności.**
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/check-dependencies.png" alt-text="Nprzycisk do sprawdzenia zależności." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/check-dependencies.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/check-dependencies.png" alt-text="Zrzut ekranu przedstawiający przycisk &quot;Weryfikuj zależności&quot;." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/check-dependencies.png":::
 
     Rozpocznie się proces walidacji.
-2. Jeśli znajdują się zależności, kliknij przycisk **Dodaj zależności** .  
+1. Jeśli zależności zostaną znalezione, wybierz **pozycję Dodaj zależności.**  
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/add-dependencies.png" alt-text="Przycisk, aby dodać zależności." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/add-dependencies.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/add-dependencies.png" alt-text="Zrzut ekranu przedstawiający przycisk &quot;Dodaj zależności&quot;." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/add-dependencies.png":::
 
 
-3. W obszarze **Dodawanie zależności** Pozostaw domyślną opcję **Pokaż wszystkie zależności** .
+1. W **okienku Dodawanie zależności** pozostaw domyślną **opcję Pokaż wszystkie** zależności.
 
-    - **Pokaż wszystkie zależności** iteracji przez wszystkie zależności bezpośrednie i pośrednie dla zasobu. Na przykład dla maszyny wirtualnej jest wyświetlana karta sieciowa, Sieć wirtualna, sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) itp.
-    - **Pokaż zależności pierwszego poziomu wyświetla tylko** zależności bezpośrednie. Na przykład dla maszyny wirtualnej jest wyświetlana karta sieciowa, ale nie Sieć wirtualna.
+    - **Pokaż wszystkie zależności** iteruje po wszystkich zależnościach bezpośrednich i pośrednich dla zasobu. Na przykład w przypadku maszyny wirtualnej przedstawia ona kartę sieciową, sieć wirtualną, sieciowe grupy zabezpieczeń i tak dalej.
+    - **Pokazywanie zależności pierwszego poziomu pokazuje tylko** zależności bezpośrednie. Na przykład w przypadku maszyny wirtualnej pokazuje ona kartę sieciową, ale nie sieć wirtualną.
  
-4. Wybierz zasoby zależne, które chcesz dodać > **Dodaj zależności**.
+1. Wybierz zasoby zależne, które chcesz dodać, a następnie wybierz **pozycję Dodaj zależności.**
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-dependencies.png" alt-text="Wybierz pozycję zależności z listy zależności." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/select-dependencies.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-dependencies.png" alt-text="Zrzut ekranu przedstawiający listę zależności i przycisk &quot;Dodaj zależności&quot;." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/select-dependencies.png":::
 
-5. Ponownie Zweryfikuj zależności. 
+1. Ponownie zweryfikuj zależności. 
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/validate-again.png" alt-text="Ponownie sprawdź poprawność strony." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/validate-again.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/validate-again.png" alt-text="Zrzut ekranu przedstawiający okienko służące do ponownego szacowania zależności." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/validate-again.png":::
 
 ## <a name="assign-destination-resources"></a>Przypisywanie zasobów docelowych
 
-Zasoby docelowe skojarzone z szyfrowaniem wymagają przypisania ręcznego.
+Należy ręcznie przypisać zasoby docelowe skojarzone z szyfrowaniem.
 
-- Jeśli przenosisz maszynę wirtualną, która ma usługę Azure Disk Encryption (ADE), Magazyn kluczy w regionie docelowym będzie widoczny jako zależność.
-- Jeśli przenosisz maszynę wirtualną, która ma szyfrowanie po stronie serwera, która używa niestandardowych kluczy (CMKs), wówczas szyfrowanie dysków ustawione w regionie docelowym jest wyświetlane jako zależność. 
-- Ponieważ ten samouczek przeniesie maszynę wirtualną z włączonym programem ADE oraz maszynę wirtualną z systemem CMK, zarówno docelowy Magazyn kluczy, jak i zestaw szyfrowania dysków są wyświetlane jako zależności.
+- Jeśli przenosisz maszynę wirtualną, która ma włączoną Azure Disk Encryption, magazyn kluczy w regionie docelowym jest wyświetlany jako zależność.
+- Jeśli przenosisz maszynę wirtualną z szyfrowaniem po stronie serwera, która używa kluczy CMK, szyfrowanie dysków ustawione w regionie docelowym będzie wyświetlane jako zależność. 
+- Ponieważ w tym samouczku pokazano przenoszenie maszyny wirtualnej, Azure Disk Encryption została włączona i która używa klucza cmk, zarówno docelowy magazyn kluczy, jak i konfiguracja szyfrowania dysków są wyświetlane jako zależności.
 
-Przypisz ręcznie w następujący sposób:
+Aby ręcznie przypisać zasoby docelowe, wykonaj następujące czynności:
 
-1. W pozycji wpis ustawienia szyfrowania dysku wybierz pozycję **zasób nieprzypisany** w kolumnie **Konfiguracja docelowa** .
-2. W obszarze **Ustawienia konfiguracji** wybierz zestaw szyfrowanie dysku docelowego. Następnie wybierz pozycję **Zapisz zmiany**.
-3. Można wybrać opcję zapisywania i weryfikowania zależności zasobu, który jest modyfikowany, lub po prostu zapisać zmiany i sprawdzić poprawność wszystkich modyfikacji w jednym.
+1. We wpisie zestawu szyfrowania dysków wybierz **pozycję Zasób nie przypisano** w **kolumnie Konfiguracja lokalizacji** docelowej.
+1. W **ustawieniach konfiguracji** wybierz docelowy zestaw szyfrowania dysków, a następnie wybierz **pozycję Zapisz zmiany.**
+1. Możesz zapisać i zweryfikować zależności dla modyfikowanego zasobu lub zapisać tylko zmiany, a następnie zweryfikować wszystkie zmiany w tym samym czasie.
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-destination-set.png" alt-text="Strona wybierania zestawu szyfrowanie dysków w regionie docelowym." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/select-destination-set.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-destination-set.png" alt-text="Zrzut ekranu przedstawiający okienko &quot;Konfiguracja miejsca docelowego&quot; służące do zapisywania zmian w regionie docelowym." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/select-destination-set.png":::
 
-    Po dodaniu zasobu docelowego stan zestawu szyfrowania dysku zmieni się na *Zatwierdź oczekujące przeniesienie*.
-3. W wpis magazynu kluczy wybierz pozycję **zasób nieprzypisany** w kolumnie **Konfiguracja docelowa** . **Ustawienia konfiguracji** Wybierz docelowy Magazyn kluczy. Zapisz zmiany. 
+    Po dodaniu zasobu docelowego stan zestawu szyfrowania dysków zmieni się na *Oczekiwanie na zatwierdzenie przeniesienia.*
 
-Na tym etapie zestaw szyfrowanie dysków i stan magazynu kluczy są zmieniane na *Zatwierdź oczekujące przeniesienia*.
+1. We wpisie magazynu kluczy wybierz **pozycję Zasób nie przypisano w** kolumnie **Konfiguracja docelowa.** W **obszarze Ustawienia** konfiguracji wybierz docelowy magazyn kluczy, a następnie zapisz zmiany. 
 
-:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/prepare-other-resources.png" alt-text="Strony, aby wybrać przygotowanie do innych zasobów." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/prepare-other-resources.png":::
+Na tym etapie stan zestawu szyfrowania dysków i magazynu kluczy jest zmieniany na *Oczekiwanie na zatwierdzenie przeniesienia.*
 
-Aby zatwierdzić i zakończyć proces przenoszenia dla zasobów szyfrowania.
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/prepare-other-resources.png" alt-text="Zrzut ekranu przedstawiający okienko do przygotowywania innych zasobów." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/prepare-other-resources.png":::
 
-1. W **różnych regionach** wybierz zasób (zestaw szyfrowania dysku lub Magazyn kluczy) > **przeniesieniu**.
-2. w obszarze **Przenieś zasoby** kliknij pozycję **Zatwierdź**.
+Aby zatwierdzić i zakończyć proces przenoszenia zasobów szyfrowania, wykonaj następujące czynności:
+
+1. W **poszczególnych regionach** wybierz zasób (zestaw szyfrowania dysków lub magazyn kluczy), a następnie wybierz **pozycję Zat zatwierdzanie przeniesienia**.
+1. W **elektorze Przenoszenie zasobów** wybierz pozycję **Zat zatwierdzanie**.
 
 > [!NOTE]
-> Po zatwierdzeniu przeniesienia zasób jest w stanie *oczekiwania na usunięcie źródła* .
+> Po zakończeniu przenoszenia stan zasobu zmieni się na *Usuń oczekujące źródło.*
 
 
 ## <a name="move-the-source-resource-group"></a>Przenoszenie źródłowej grupy zasobów 
 
-Aby można było przygotować i przenieść maszyny wirtualne, Grupa zasobów maszyny wirtualnej musi znajdować się w regionie docelowym. 
+Aby można było przygotować i przenieść maszyny wirtualne, grupa zasobów maszyny wirtualnej musi znajdować się w regionie docelowym. 
 
 ### <a name="prepare-to-move-the-source-resource-group"></a>Przygotowanie do przeniesienia źródłowej grupy zasobów
 
-Podczas przygotowania proces przenoszenia zasobów generuje szablony Azure Resource Manager (ARM) przy użyciu ustawień grupy zasobów. Nie ma to wpływu na zasoby znajdujące się w grupie zasobów.
+Podczas procesu przygotowywania zasób mover generuje Azure Resource Manager (ARM) na podstawie ustawień grupy zasobów. Nie ma to wpływu na zasoby w grupie zasobów.
 
-Przygotuj się w następujący sposób:
+Aby przygotować się do przeniesienia źródłowej grupy zasobów, wykonaj następujące czynności:
 
-1. W **różnych regionach** wybierz źródłową grupę zasobów > **Przygotuj**.
+1. W **poszczególnych regionach** wybierz źródłową grupę zasobów, a następnie wybierz pozycję **Przygotuj**.
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/prepare-resource-group.png" alt-text="Przygotuj grupę zasobów." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/prepare-resource-group.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/prepare-resource-group.png" alt-text="Zrzut ekranu przedstawiający przycisk &quot;Przygotuj&quot; w okienku &quot;Przygotowywanie zasobów&quot;." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/prepare-resource-group.png":::
 
-2. W obszarze **Przygotowywanie zasobów** kliknij pozycję **Przygotuj**.
+1. W **elektorze Przygotowywanie zasobów** wybierz pozycję **Przygotuj**.
 
 > [!NOTE]
-> Po przygotowaniu grupy zasobów znajduje się ona w stanie " *Inicjowanie przenoszenia oczekujące* ". 
+> Po przygotowaniu przeniesienia stan grupy zasobów zmieni się na Zainicjuj *oczekiwanie na przeniesienie.* 
 
  
 ### <a name="move-the-source-resource-group"></a>Przenoszenie źródłowej grupy zasobów
 
-Zainicjuj przechodzenie w następujący sposób:
+Rozpocznij przenoszenie źródłowej grupy zasobów, wykonując następujące czynności:
 
-1. W **różnych regionach** wybierz grupę zasobów > **zainicjować przenoszenie**
+1. W **okienku Między regionami** wybierz grupę zasobów, a następnie wybierz pozycję **Zainicjuj przenoszenie**.
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/initiate-move-resource-group.png" alt-text="Przycisk umożliwiający zainicjowanie przenoszenia." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/initiate-move-resource-group.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/initiate-move-resource-group.png" alt-text="Zrzut ekranu przedstawiający przycisk &quot;Zainicjuj przenoszenie&quot; w okienku &quot;Między regionami&quot;." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/initiate-move-resource-group.png":::
 
-2. LN **przenoszenie zasobów**, kliknij przycisk **Inicjuj przenoszenie**. Grupa zasobów przechodzi do stanu *inicjowania przenoszenia w toku* .   
-3. Po zainicjowaniu przenoszenia docelowa Grupa zasobów zostanie utworzona na podstawie wygenerowanego szablonu ARM. Źródłowa Grupa zasobów przechodzi w stan *oczekiwania na przeniesienie zatwierdzenia* .
+1. W **okienku Przenoszenie zasobów** wybierz pozycję **Zainicjuj przenoszenie.** Stan grupy zasobów zmieni się na *Inicjowanie przenoszenia w toku.*   
+1. Po zainicjowaniu przenoszenia zostanie utworzona docelowa grupa zasobów na podstawie wygenerowanego szablonu usługi ARM. Stan źródłowej grupy zasobów zmieni się na *Oczekujące na zatwierdzenie przeniesienia.*
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-commit-move-pending.png" alt-text="Przejrzyj stan oczekiwania przeniesienia zatwierdzenia." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-commit-move-pending.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-commit-move-pending.png" alt-text="Zrzut ekranu przedstawiający okienko &quot;Przenoszenie zasobów&quot; pokazujące, że stan grupy zasobów został zmieniony na &quot;Oczekiwanie na zatwierdzenie przeniesienia&quot;." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-commit-move-pending.png":::
 
-Aby zatwierdzić i zakończyć proces przenoszenia:
+Aby zatwierdzić przeniesienie i zakończyć proces, wykonaj następujące czynności:
 
-1. W **różnych regionach** wybierz grupę zasobów > **Zatwierdź przeniesienie**.
-2. w obszarze **Przenieś zasoby** kliknij pozycję **Zatwierdź**.
+1. W **okienku Między regionami** wybierz grupę zasobów, a następnie wybierz pozycję **Zat zatwierdzeniu przeniesienia**.
+1. W **okienku Przenoszenie zasobów** wybierz pozycję **Zat zatwierdzanie.**
 
 > [!NOTE]
-> Po zatwierdzeniu przeniesienia źródłowa Grupa zasobów jest w stanie oczekiwania na *usunięcie źródła* .
+> Po zakończeniu przenoszenia stan źródłowej grupy zasobów zmieni się na *Usuń oczekujące źródło.*
 
-:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-delete-move-pending.png" alt-text="Przejrzyj stan oczekiwania na usunięcie przeniesienia." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-delete-move-pending.png":::
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-delete-move-pending.png" alt-text="Zrzut ekranu przedstawiający źródłową grupę zasobów ze zmienionym stanem na &quot;Oczekiwanie na usunięcie źródła&quot;." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-delete-move-pending.png":::
 
-## <a name="prepare-resources-to-move"></a>Przygotowanie zasobów do przeniesienia
+## <a name="prepare-resources-to-move"></a>Przygotowywanie zasobów do przeniesienia
 
-Po przeniesieniu zasobów szyfrowania i źródłowej grupy zasobów można przystąpić do przenoszenia innych zasobów w stanie *oczekiwania na przygotowanie* .
+Teraz, gdy zasoby szyfrowania i źródłową grupę zasobów zostały przeniesione, możesz przygotować się do przeniesienia innych zasobów, których bieżący stan to *Oczekiwanie na przygotowanie.*
 
 
-1. W **różnych regionach** Sprawdź ponownie i rozwiąż wszelkie problemy.
-2. Jeśli chcesz edytować ustawienia docelowe przed rozpoczęciem przenoszenia, wybierz link w kolumnie **Konfiguracja docelowa** dla zasobu i Edytuj ustawienia. Jeśli edytujesz ustawienia docelowej maszyny wirtualnej, docelowy rozmiar maszyny wirtualnej nie powinien być mniejszy niż rozmiar źródłowej maszyny wirtualnej.
-3. Wybierz pozycję **Przygotuj** dla zasobów w stanie *oczekiwania na przygotowanie* , który chcesz przenieść.
-3. W obszarze **Przygotowywanie zasobów** wybierz pozycję **Przygotuj** .
+1. W **okienku Między regionami** ponownie zweryfikuj przeniesienie i rozwiąż wszelkie problemy.
+1. Jeśli chcesz edytować ustawienia docelowe przed rozpoczęciem przenoszenia,  wybierz link w kolumnie Konfiguracja lokalizacji docelowej dla zasobu, a następnie edytuj ustawienia. W przypadku edytowania ustawień docelowej maszyny wirtualnej rozmiar docelowej maszyny wirtualnej nie powinien być mniejszy niż rozmiar źródłowej maszyny wirtualnej.
+1. W przypadku zasobów ze *stanem Oczekiwanie na przygotowanie,* które chcesz przenieść, wybierz pozycję **Przygotuj.**
+1. W **okienku Przygotowywanie zasobów** wybierz pozycję **Przygotuj**.
 
-    - W trakcie procesu przygotowywania Agent Azure Site Recovery Mobility jest instalowany na maszynach wirtualnych w celu replikowania ich.
-    - Dane maszyn wirtualnych są okresowo replikowane do regionu docelowego. Nie ma to wpływu na źródłową maszynę wirtualną.
-    - Przeniesienie zasobu powoduje wygenerowanie szablonów ARM dla innych zasobów źródłowych.
+    - Podczas przygotowywania agent mobilności Azure Site Recovery jest instalowany na maszynach wirtualnych w celu ich replikacji.
+    - Dane maszyny wirtualnej są okresowo replikowane do regionu docelowego. Nie ma to wpływu na źródłową maszynę wirtualną.
+    - Przenoszenie zasobów generuje szablony arm dla innych zasobów źródłowych.
 
-Po przygotowaniu zasobów znajdują się one w stanie " *Inicjowanie przenoszenia oczekujące* ".
+> [!NOTE]
+> Po przygotowaniu zasobów ich stan zmieni się na *Oczekiwanie na zainicjowanie przeniesienia.*
 
-:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-initiate-move-pending.png" alt-text="Strona wyświetlająca zasoby w stanie inicjowania przenoszenia oczekujących." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-initiate-move-pending.png":::
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-initiate-move-pending.png" alt-text="Zrzut ekranu przedstawiający okienko &quot;Przygotowywanie zasobów&quot; z zasobami w stanie &quot;Zainicjuj oczekujące przeniesienie&quot;." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-initiate-move-pending.png":::
 
 
 
 ## <a name="initiate-the-move"></a>Inicjowanie przenoszenia
 
-Po przygotowaniu zasobów można teraz zainicjować przenoszenie. 
+Teraz, po przygotowaniu zasobów, możesz zainicjować przeniesienie. 
 
-1. W **różnych regionach** wybierz pozycję zasoby z stanem *Inicjuj przenoszenie oczekujące*. Następnie kliknij pozycję **zainicjuj przenoszenie**.
-2. W obszarze **Przenieś zasoby** kliknij pozycję **Inicjuj przenoszenie**.
-3. Śledź postęp przenoszenia na pasku powiadomień.
+1. W **okienku Między regionami** wybierz zasoby, których stan to *Oczekiwanie* na przeniesienie Inicjowanie, a następnie wybierz pozycję **Zainicjuj przenoszenie.**
+1. W **okienku Przenoszenie zasobów** wybierz pozycję **Zainicjuj przenoszenie.**
+1. Śledź postęp przenoszenia na pasku powiadomień.
 
-    - W przypadku maszyn wirtualnych repliki maszyn wirtualnych są tworzone w regionie docelowym. Źródłowa maszyna wirtualna jest wyłączona i występuje trochę przestoju (zwykle w minutach).
-    - Przeniesienie zasobów umożliwia odtworzenie innych zasobów przy użyciu szablonów ARM, które zostały przygotowane. Zwykle nie ma przestojów.
-    - Po przeniesieniu zasobów są one w stanie *oczekiwania na przeniesienie zatwierdzenia* .
+    - W przypadku maszyn wirtualnych repliki maszyn wirtualnych są tworzone w regionie docelowym. Źródłowa maszyna wirtualna jest zamykana i występuje pewien przestój (zazwyczaj minuty).
+    - Zasób Mover ponownie tworzy inne zasoby przy użyciu przygotowanych szablonów usługi ARM. Zwykle nie występuje przestój.
+    - Po przenoszeniu zasobów ich stan zmieni się na Zatwierdzenie *przeniesienia oczekujące.*
 
-:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png" alt-text="Strona wyświetlająca zasoby w stanie oczekiwania na przeniesienie zatwierdzenia." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png" :::
-
-
-## <a name="discard-or-commit"></a>Odrzucić lub zatwierdzić?
-
-Po początkowym przeniesieniu możesz zdecydować, czy chcesz zatwierdzić przeniesienie, czy go odrzucić. 
-
-- **Odrzuć**: możesz odrzucić przeniesienie, jeśli testujesz, i nie chcesz faktycznie przenosić zasobu źródłowego. Odrzucanie przesunięcia spowoduje zwrócenie zasobu do stanu *inicjacja oczekującego przeniesienia*.
-- **Zatwierdzenie**: zatwierdzenie powoduje zakończenie przejścia do regionu docelowego. Po zatwierdzeniu zasób źródłowy będzie w stanie *oczekiwania na usunięcie źródła* i można zdecydować, czy ma zostać usunięty.
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png" alt-text="Zrzut ekranu przedstawiający listę zasobów ze stanem &quot;Oczekiwanie na przeniesienie zatwierdzenia&quot;." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png" :::
 
 
-## <a name="discard-the-move"></a>Odrzuć przeniesienie 
+## <a name="discard-or-commit"></a>Odrzucasz lub zatwierdzasz?
 
-Możesz odrzucić przeniesienie w następujący sposób:
+Po początkowym przenoszeniu możesz zdecydować, czy zatwierdzić przeniesienie, czy odrzucić je. 
 
-1. W obszarze **między regionami** wybierz pozycję zasoby z *oczekującym przeniesieniem* stanu, a następnie kliknij pozycję **odrzuć przeniesienie**.
-2. W polu **Odrzuć przenoszenie** kliknij pozycję **Odrzuć**.
-3. Śledź postęp przenoszenia na pasku powiadomień.
+- **Odrzuć:** możesz odrzucić przeniesienie, jeśli go testujesz i nie chcesz w rzeczywistości przenosić zasobu źródłowego. Odrzucenie przeniesienia powoduje, że zasób ma stan *Inicjuj oczekiwanie na* przeniesienie.
+- **Zatwierdzenie:** zatwierdzenie kończy przenoszenie do regionu docelowego. Po zatwierdzona zasobu źródłowego jego stan zmieni się na Usuń źródło oczekujące *i* możesz zdecydować, czy chcesz go usunąć.
+
+
+## <a name="discard-the-move"></a>Odrzucanie przeniesienia 
+
+Aby odrzucić przeniesienie, wykonaj następujące czynności:
+
+1. W **okienku Między regionami** wybierz zasoby, których stan to *Oczekujące* na przeniesienie zatwierdzenia, a następnie wybierz pozycję **Odrzuć przeniesienie**.
+1. W **okienku Odrzuć przeniesienie** wybierz pozycję **Odrzuć**.
+1. Śledź postęp przenoszenia na pasku powiadomień.
 
 
 > [!NOTE]
-> Po odrzuceniu zasobów maszyny wirtualne znajdują się w stanie " *Inicjowanie przenoszenia oczekujące* ".
+> Po odrzuceniu zasobów stan maszyny wirtualnej zmieni się na *Inicjuj oczekujące przeniesienie.*
 
-## <a name="commit-the-move"></a>Zatwierdź przeniesienie
+## <a name="commit-the-move"></a>Zatwierdzanie przeniesienia
 
-Jeśli chcesz zakończyć proces przenoszenia, Zatwierdź przeniesienie. 
+Aby ukończyć proces przenoszenia, należy zatwierdzić przeniesienie, wykonując następujące czynności: 
 
-1. W obszarze **między regionami** wybierz pozycję zasoby z *oczekującym przeniesieniem* stanu, a następnie kliknij pozycję **Zatwierdź przeniesienie**.
-2. W obszarze **Zatwierdź zasoby** kliknij pozycję **Zatwierdź**.
+1. W **okienku Między regionami** wybierz zasoby, których stan to *Oczekiwanie* na przeniesienie zatwierdzenia, a następnie wybierz **pozycję Zat zatwierdzanie przeniesienia.**
+1. W **okienku Commit resources (Zatwierdzanie zasobów)** wybierz **pozycję Commit (Zat zatwierdzanie).**
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move.png" alt-text="Strona do zatwierdzania zasobów w celu sfinalizowania przenoszenia." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move.png" :::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move.png" alt-text="Zrzut ekranu przedstawiający listę zasobów do zatwierdzenia zasobów w celu sfinalizowania przeniesienia." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move.png" :::
 
-3. Śledź postęp zatwierdzania na pasku powiadomień.
-
-> [!NOTE]
-> - Po zatwierdzeniu przenoszenia maszyny wirtualne zatrzymają replikację. Zatwierdzenie nie ma wpływu na źródłową maszynę wirtualną.
-> - Zatwierdzenie nie ma wpływu na zasoby sieci źródłowej.
-> - Po zatwierdzeniu przenoszenia zasoby są w stanie oczekiwania na *usunięcie źródła* .
-
-
-
-## <a name="configure-settings-after-the-move"></a>Skonfiguruj ustawienia po przeniesieniu
-
-- Usługa mobilności nie została automatycznie odinstalowana z maszyn wirtualnych. Odinstaluj je ręcznie lub pozostaw to pole, jeśli planujesz ponownie przenieść serwer.
-- Modyfikuj reguły kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure po przeniesieniu.
-
-## <a name="delete-source-resources-after-commit"></a>Usuń zasoby źródłowe po zatwierdzeniu
-
-Po przeniesieniu można opcjonalnie usunąć zasoby w regionie źródłowym. 
-
-1. W **różnych regionach** zaznacz każdy zasób źródłowy, który chcesz usunąć. następnie wybierz pozycję **Usuń źródło**.
-2. W obszarze **Usuwanie źródła** Przejrzyj elementy, które zamierzasz usunąć, a następnie w obszarze **Potwierdź usunięcie** wpisz **wartość tak**. Akcja jest nieodwracalna, dlatego sprawdź uważnie!
-3. Po wpisaniu **opcji tak** wybierz pozycję **Usuń źródło**.
+1. Śledź postęp zatwierdzania na pasku powiadomień.
 
 > [!NOTE]
->  W portalu przenoszenia zasobów nie można usunąć grup zasobów, magazynów kluczy ani serwerów SQL Server. Należy usunąć je pojedynczo ze strony właściwości dla każdego zasobu.
+> - Po zakończeniu przenoszenia maszyny wirtualne przestają być replikować. Zatwierdzenie nie ma wpływu na źródłową maszynę wirtualną.
+> - Proces zatwierdzania nie ma wpływu na źródłowe zasoby sieciowe.
+> - Po zakończeniu przenoszenia stan zasobów zmieni się na *Usuń oczekujące źródło.*
 
 
-## <a name="delete-additional-resources-created-for-move"></a>Usuń dodatkowe zasoby utworzone do przeniesienia
 
-Po przeniesieniu można ręcznie usunąć kolekcję Move i Site Recovery utworzone zasoby.
+## <a name="configure-settings-after-the-move"></a>Konfigurowanie ustawień po przenoszeniu
 
-- Kolekcja Move jest domyślnie ukryta. Aby zobaczyć, należy włączyć ukryte zasoby.
-- Magazyn pamięci podręcznej ma blokadę, która musi zostać usunięta, zanim będzie można jej usunąć.
+- Usługa mobilności nie jest automatycznie odinstalowywać z maszyn wirtualnych. Odinstaluj go ręcznie lub pozostaw je, jeśli planujesz ponownie przenieść serwer.
+- Po zakończeniu przenoszenia zmodyfikuj reguły kontroli dostępu opartej na rolach (RBAC) platformy Azure.
 
-Usuń w następujący sposób: 
+## <a name="delete-source-resources-after-commit"></a>Usuwanie zasobów źródłowych po zatwierdzeniu
+
+Po zakończeniu przenoszenia możesz opcjonalnie usunąć zasoby w regionie źródłowym. 
+
+1. W **okienku Wiele regionów** wybierz każdy zasób źródłowy, który chcesz usunąć, a następnie wybierz pozycję **Usuń źródło.**
+1. W **jęz.** Usuń źródło sprawdź, co zamierzasz usunąć, a następnie w **potwierdź** usunięcie, wpisz **tak.** Akcja jest nieodwracalna, więc sprawdź dokładnie!
+1. Po wpisaniu **tak** wybierz pozycję **Usuń źródło.**
+
+> [!NOTE]
+>  W portalu przenoszenia zasobów nie można usuwać grup zasobów, magazynów kluczy ani SQL Server zasobów. Musisz usunąć każdą z nich indywidualnie ze strony właściwości dla każdego zasobu.
+
+
+## <a name="delete-resources-that-you-created-for-the-move"></a>Usuwanie zasobów utworzonych na czas przenoszenia
+
+Po zakończeniu przenoszenia możesz ręcznie usunąć kolekcję przenoszenia i Site Recovery zasobów utworzonych podczas tego procesu.
+
+- Kolekcja przenoszenia jest domyślnie ukryta. Aby to zobaczyć, należy włączyć ukryte zasoby.
+- Magazyn pamięci podręcznej ma blokadę, która musi zostać usunięta, zanim będzie można ją usunąć.
+
+Aby usunąć zasoby, wykonaj następujące czynności: 
 1. Znajdź zasoby w grupie zasobów ```RegionMoveRG-<sourceregion>-<target-region>``` .
-2. Sprawdź, czy wszystkie maszyny wirtualne i inne zasoby źródłowe w regionie źródłowym zostały przeniesione lub usunięte. Dzięki temu nie ma żadnych oczekujących zasobów, których używają.
-2. Usuń zasoby:
+1. Upewnij się, że wszystkie maszyny wirtualne i inne zasoby źródłowe w regionie źródłowym zostały przeniesione lub usunięte. Ten krok zapewnia, że nie ma żadnych oczekujących zasobów korzystających z nich.
+1. Usuń zasoby:
 
-    - Nazwa kolekcji przenoszenia to ```movecollection-<sourceregion>-<target-region>``` .
-    - Nazwa konta magazynu pamięci podręcznej to ```resmovecache<guid>```
-    - Nazwa magazynu to ```ResourceMove-<sourceregion>-<target-region>-GUID``` .
+    - Przenieś nazwę kolekcji: ```movecollection-<sourceregion>-<target-region>```
+    - Nazwa konta magazynu pamięci podręcznej: ```resmovecache<guid>```
+    - Nazwa magazynu: ```ResourceMove-<sourceregion>-<target-region>-GUID```
 ## <a name="next-steps"></a>Następne kroki
 
 W tym samouczku zostały wykonane następujące czynności:
 
 > [!div class="checklist"]
-> * Przeniesiono zaszyfrowane maszyny wirtualne platformy Azure i ich zasoby zależne do innego regionu platformy Azure.
+> * Przeniesiono zaszyfrowane maszyny wirtualne platformy Azure i ich zasoby zależne do innego regionu świadczenia usługi Azure.
 
 
-Teraz trwa próba przeniesienia baz danych i pul elastycznych usługi Azure SQL Server do innego regionu.
+Następnym krokiem jest przeniesienie baz danych i pul elastycznych Azure SQL do innego regionu.
 
 > [!div class="nextstepaction"]
-> [Przenoszenie zasobów usługi Azure SQL](./tutorial-move-region-sql.md)
+> [Przenoszenie Azure SQL zasobów](./tutorial-move-region-sql.md)

@@ -1,56 +1,56 @@
 ---
-title: Tworzenie i usuwanie zadań w klastrze Azure Stream Analytics
-description: Dowiedz się, jak zarządzać zadaniami Stream Analytics w klastrze Azure Stream Analytics
+title: Tworzenie i usuwanie zadań w klastrze Azure Stream Analytics klastra
+description: Dowiedz się, jak zarządzać zadaniami Stream Analytics w klastrze Azure Stream Analytics klastra
 author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
-ms.date: 09/22/2020
-ms.openlocfilehash: 09a67d11ac4daf3e87a50ee2171f1ca49060c5bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/16/2021
+ms.openlocfilehash: 4a6334d33dea959bdd3704f848e7bc8250b6e7c6
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98018126"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600727"
 ---
-# <a name="add-and-remove-jobs-in-an-azure-stream-analytics-cluster"></a>Dodawanie i usuwanie zadań w klastrze Azure Stream Analytics
+# <a name="add-and-remove-jobs-in-an-azure-stream-analytics-cluster"></a>Dodawanie i usuwanie zadań w klastrze Azure Stream Analytics klastra
 
-W klastrze Stream Analytics można uruchamiać wiele zadań Azure Stream Analytics. Uruchomione zadania w klastrze to prosty proces 2-etapowy: Dodaj zadanie do klastra i uruchom zadanie. W tym artykule opisano sposób dodawania i usuwania zadań z istniejącego klastra. Postępuj zgodnie z przewodnikiem Szybki Start, aby [utworzyć klaster Stream Analytics](create-cluster.md) , jeśli go jeszcze nie masz.
+Można uruchomić wiele zadań Azure Stream Analytics w klastrze Stream Analytics klastra. Uruchamianie zadań w klastrze to prosty, dwuetapowy proces: dodanie zadania do klastra i uruchomienie zadania. W tym artykule pokazano, jak dodawać i usuwać zadania z istniejącego klastra. Postępuj zgodnie z przewodnika Szybki [start, Stream Analytics klastra,](create-cluster.md) jeśli jeszcze go nie masz.
 
 ## <a name="add-a-stream-analytics-job-to-a-cluster"></a>Dodawanie zadania Stream Analytics do klastra
 
-Do klastrów można dodawać tylko istniejące zadania Stream Analytics. Postępuj zgodnie z przewodnikiem Szybki Start, aby [dowiedzieć się, jak utworzyć zadanie](stream-analytics-quick-create-portal.md) przy użyciu Azure Portal. Gdy masz zadanie, które chcesz dodać do klastra, wykonaj następujące kroki, aby dodać zadanie do klastra.
+Do klastrów można dodawać tylko istniejące zadania Stream Analytics zadań. Postępuj zgodnie z przewodnika Szybki [start, aby dowiedzieć się, jak utworzyć zadanie przy](stream-analytics-quick-create-portal.md) użyciu Azure Portal. Po dodaniu zadania do klastra użyj następujących kroków, aby dodać zadanie do klastra.
 
-1. W Azure Portal zlokalizuj i wybierz klaster Stream Analytics.
+1. W Azure Portal znajdź i wybierz swój Stream Analytics klastra.
 
-1. W obszarze **Ustawienia** wybierz pozycję **zadania Stream Analytics**. Następnie wybierz pozycję **Dodaj istniejące zadanie**.
+1. W **obszarze Ustawienia** wybierz pozycję Stream Analytics **zadania.** Następnie wybierz pozycję **Dodaj istniejące zadanie.**
 
-1. Wybierz subskrypcję i zadanie Stream Analytics, które chcesz dodać do klastra. Tylko zadania Stream Analytics, które znajdują się w tym samym regionie, co klaster, można dodać do klastra.
+1. Wybierz subskrypcję i Stream Analytics, które chcesz dodać do klastra. Do Stream Analytics można dodawać tylko te zadania, które znajdują się w tym samym regionie co klaster.
 
    ![Dodawanie zadania do klastra](./media/manage-jobs-cluster/add-job.png)
 
-1. Po dodaniu zadania do klastra przejdź do zasobu zadania i [Uruchom zadanie](start-job.md#azure-portal). Następnie zadanie zostanie uruchomione w klastrze.
+1. Po dodaniu zadania do klastra przejdź do zasobu zadania i [uruchom zadanie](start-job.md#azure-portal). Zadanie zostanie uruchomione w klastrze.
 
-Wszystkie inne operacje, takie jak monitorowanie, alerty i dzienniki diagnostyczne, można wykonać na stronie zasobów zadania Stream Analytics.
+Wszystkie inne operacje, takie jak monitorowanie, alerty i dzienniki diagnostyczne, można wykonać na Stream Analytics zasobu zadania.
 
 ## <a name="remove-a-stream-analytics-job-from-a-cluster"></a>Usuwanie zadania Stream Analytics z klastra
 
-Zadania Stream Analytics muszą być w stanie zatrzymania, aby można było je usunąć z klastra. Jeśli zadanie jest nadal uruchomione, Zatrzymaj zadanie przed przejściem do poniższych kroków.
+Stream Analytics zadania muszą być zatrzymane, zanim będzie można je usunąć z klastra. Jeśli zadanie jest nadal uruchomione, zatrzymaj je przed przejściem do poniższych kroków.
 
-1. Znajdź i wybierz klaster Stream Analytics.
+1. Znajdź i wybierz swój Stream Analytics klastra.
 
-1. W obszarze **Ustawienia** wybierz pozycję **zadania Stream Analytics**.
+1. W **obszarze Ustawienia** wybierz pozycję Stream Analytics **zadania.**
 
 1. Wybierz zadania, które chcesz usunąć z klastra, a następnie wybierz pozycję **Usuń**.
 
-   ![Usuń zadanie z klastra](./media/manage-jobs-cluster/remove-job.png)
+   ![usuwanie zadania z klastra](./media/manage-jobs-cluster/remove-job.png)
 
-   Gdy zadanie zostanie usunięte z klastra Stream Analytics, powróci do standardowego środowiska wielu dzierżawców.
+   Po usunięciu zadania z klastra Stream Analytics jest ono przywracane do standardowego środowiska wielodostępu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz wiesz, jak dodawać i usuwać zadania w klastrze Azure Stream Analytics. Następnie możesz dowiedzieć się, jak zarządzać prywatnymi punktami końcowymi i skalować swoje klastry:
+Teraz wiesz, jak dodawać i usuwać zadania w klastrze Azure Stream Analytics klastra. Następnie dowiesz się, jak zarządzać prywatnymi punktami końcowymi i skalować klastry:
 
-* [Skalowanie klastra Azure Stream Analytics](scale-cluster.md)
-* [Zarządzanie prywatnymi punktami końcowymi w klastrze Azure Stream Analytics](private-endpoints.md)
+* [Skalowanie klastra Azure Stream Analytics klastra](scale-cluster.md)
+* [Zarządzanie prywatnymi punktami końcowymi w klastrze Azure Stream Analytics klastra](private-endpoints.md)

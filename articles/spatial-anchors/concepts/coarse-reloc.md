@@ -1,6 +1,6 @@
 ---
 title: Zgrubna ponowna lokalizacja
-description: Dowiedz się, jak i kiedy używać bardzo dużej lokalizacji. Funkcja bardzo gruba umożliwia znalezienie zakotwiczenia, które znajdują się blisko siebie.
+description: Dowiedz się, jak i kiedy używać zgrubnego ponownego lokalizowania. Zgrubna ponowna lokalizacja pomaga znaleźć kotwice, które znajdują się w pobliżu.
 author: msftradford
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
@@ -9,151 +9,151 @@ ms.date: 01/28/2021
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3f0b04183c4df469d4f723486103790c4f97671b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d2737f58fa95d1aa45d9952e8b501c1b9be4d1b0
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104656179"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600356"
 ---
 # <a name="coarse-relocalization"></a>Zgrubna ponowna lokalizacja
 
-Funkcja, która umożliwia szybkie lokalizowanie w dużej skali, zapewniając przybliżoną, ale szybką odpowiedź na te pytania: 
+Zgrubna ponowna lokalizacja to funkcja umożliwiająca lokalizację na dużą skalę, zapewniając przybliżoną, ale szybką odpowiedź na następujące pytania: 
 - *Gdzie jest teraz moje urządzenie?* 
-- *Jaką zawartość należy zaobserwować?* 
+- *Jaką zawartość należy obserwować?* 
  
-Odpowiedź nie jest precyzyjna. W tej postaci: Jesteś *blisko tych kotwic. Spróbuj zlokalizować jeden z nich*.
+Odpowiedź nie jest precyzyjna. Jest w tej postaci: *jesteś blisko tych kotwic. Spróbuj zlokalizować jeden z nich.*
 
-Niestandardowa relokalizacja działa przez tagowanie kotwic z różnymi odczytami czujników na urządzeniu, które są później używane do szybkiego wykonywania zapytań. W przypadku scenariuszy z zewnątrz dane czujnika są zwykle pozycjami GPS (GPS) urządzenia. Gdy GPS jest niedostępna lub niezawodna, jak w przypadku braku drzwi, dane czujnika składają się z Wi-Fi punktów dostępu i sygnałów Bluetooth w zakresie. Zebrane dane czujnika przyczyniają się do utrzymania indeksu przestrzennego używanego przez kotwice przestrzenne platformy Azure, aby szybko określić, które kotwice znajdują się blisko Twojego urządzenia.
+Zgrubna ponowna lokalizacja działa przez tagowanie kotwic za pomocą różnych odczytów czujników na urządzeniu, które są później używane do szybkiego wykonywania zapytań. W scenariuszach na zewnątrz dane czujnika są zwykle położeniem GPS (GPS) urządzenia. Gdy GPS jest niedostępny lub zawodny, na przykład w pomieszczeniu, dane czujników składają się z punktów Wi-Fi dostępu i sygnałów nawigacyjnych Bluetooth w zasięgu. Zebrane dane czujników przyczyniają się do utrzymania indeksu przestrzennego używanego przez usługę Azure Spatial Anchors do szybkiego określenia, które kotwice znajdują się blisko urządzenia.
 
-## <a name="when-to-use-coarse-relocalization"></a>Kiedy używać grubej relokalizacji
+## <a name="when-to-use-coarse-relocalization"></a>Kiedy należy używać zgrubnego ponownego lokalizowania
 
-Jeśli planujesz obsługę więcej niż 35 kotwic przestrzennych w obszarze większym niż sąd odtenisa, prawdopodobnie skorzystasz z niedużych indeksowań przestrzennych relokalizacji.
+Jeśli planujesz obsługę więcej niż 35 kotwic przestrzennych w przestrzeni większej niż na dworze okręgowym, prawdopodobnie skorzystasz z indeksowania przestrzennego zgrubnego ponownego lokalizowania.
 
-Szybkie wyszukiwanie kotwic włączonych przy użyciu ogromnej relokalizacji jest zaprojektowane w celu uproszczenia opracowywania aplikacji, które są obsługiwane przez światowe kolekcje, na przykład, miliony kotwic rozproszonych geograficznie. Złożoność indeksowania przestrzennego jest ukryta, dzięki czemu można skupić się na logice aplikacji. Wszystkie trudne zadania są wykonywane w tle przez kotwice przestrzenne platformy Azure.
+Szybkie wyszukiwania kotwic włączane przez zgrubną ponowną lokalizację zaprojektowano w celu uproszczenia tworzenia aplikacji wsadowych przez kolekcje o skali światowej, na przykład milionów rozproszonych geograficznie kotwic. Złożoność indeksowania przestrzennego jest ukryta, więc możesz skupić się na logice aplikacji. Wszystkie trudne prace są wykonywane w tle przez usługę Azure Spatial Anchors.
 
-## <a name="using-coarse-relocalization"></a>Używanie bardzo dużej lokalizacji
+## <a name="using-coarse-relocalization"></a>Używanie zgrubnego ponownego lokalizowania
 
-Poniżej przedstawiono typowy przepływ pracy służący do tworzenia i wykonywania zapytań o kotwice przestrzenne platformy Azure z bardzo niespotykaną lokalizacją:
-1.  Utwórz i Skonfiguruj dostawcę odcisków palca czujnika w celu zebrania żądanych danych czujników.
-2.  Rozpocznij sesję zakotwiczeń przestrzennych platformy Azure i Utwórz kotwice. Ponieważ włączono odciski palców czujnika, kotwice są indeksowane w sposób przestrzenny przez niegrubą relokalizację.
-3.  Zapytanie otaczające kotwice przy użyciu bardzo dużej lokalizacji w ramach dedykowanych kryteriów wyszukiwania w sesji kotwic przestrzennych.
+Oto typowy przepływ pracy tworzenia i wykonywania zapytań na platformie Azure Spatial Anchors zgrubną ponowną alokacją:
+1.  Utwórz i skonfiguruj dostawcę odcisków palców czujników w celu zbierania danych z czujników, których potrzebujesz.
+2.  Uruchom sesję usługi Azure Spatial Anchors i utwórz kotwice. Ponieważ odciski palców czujników są włączone, kotwice są indeksowane przestrzennie przez zgrubną ponowną alokację.
+3.  Wykonywanie zapytań dotyczących otaczających kotwic przy użyciu zgrubnej ponownej lokalizacji za pośrednictwem dedykowanych kryteriów wyszukiwania w Spatial Anchors sesji.
 
-Możesz odwołać się do jednego z tych samouczków, aby skonfigurować niegrubą relokalizację w aplikacji:
-* [Duże przelokalizowanie w środowisku Unity](../how-tos/set-up-coarse-reloc-unity.md)
-* [Niestandardowa relokalizacja w zamierzeniu C](../how-tos/set-up-coarse-reloc-objc.md)
-* [Gruba relokalizacja w SWIFT](../how-tos/set-up-coarse-reloc-swift.md)
-* [Duże przelokalizowanie w języku Java](../how-tos/set-up-coarse-reloc-java.md)
-* [Duże relokalizacja w języku C++/NDK](../how-tos/set-up-coarse-reloc-cpp-ndk.md)
-* [Duże relokalizacja w języku C++/WinRT](../how-tos/set-up-coarse-reloc-cpp-winrt.md)
+Możesz zapoznać się z jednym z tych samouczków, aby skonfigurować zgrubną ponowną alokację w aplikacji:
+* [Zgrubna ponowna lokalizacja w a unity](../how-tos/set-up-coarse-reloc-unity.md)
+* [Zgrubna ponowna lokalizacja w języku Objective-C](../how-tos/set-up-coarse-reloc-objc.md)
+* [Zgrubna ponowna lokalizacja w języku Swift](../how-tos/set-up-coarse-reloc-swift.md)
+* [Zgrubna ponowna lokalizacja w języku Java](../how-tos/set-up-coarse-reloc-java.md)
+* [Zgrubna ponowna lokalizacja w C++/NDK](../how-tos/set-up-coarse-reloc-cpp-ndk.md)
+* [Zgrubna ponowna lokalizacja w języku C++/WinRT](../how-tos/set-up-coarse-reloc-cpp-winrt.md)
 
 ## <a name="sensors-and-platforms"></a>Czujniki i platformy
 
 ### <a name="platform-availability"></a>Dostępność platformy
 
-Te typy danych czujników można wysłać do usługi zakotwiczenia:
+Do usługi zakotwiczenia można wysyłać następujące typy danych z czujników:
 
-* Pozycja GPS: Szerokość geograficzna, Długość geograficzna, Wysokość
-* Siła sygnału punktów dostępu Wi-Fi w zakresie
-* Siła sygnału sygnałów nawigacyjnych Bluetooth w zakresie
+* Położenie GPS: szerokość geograficzna, długość geograficzna, wysokość nad poziomem morza
+* Siła sygnału Wi-Fi dostępu w zakresie
+* Siła sygnału sygnałów nawigacyjnych Bluetooth w zasięgu
 
-Ta tabela zawiera podsumowanie dostępności danych czujników na obsługiwanych platformach i zawiera informacje, o których należy pamiętać:
+Ta tabela zawiera podsumowanie dostępności danych czujników na obsługiwanych platformach i informacje, o których należy wiedzieć:
 
 |                 | HoloLens | Android | iOS |
 |-----------------|----------|---------|-----|
-| **GPS**         | Nie<sup>1</sup>  | Tak<sup>2</sup> | Tak<sup>3</sup> |
+| **Gps**         | Nr<sup>1</sup>  | Tak<sup>2</sup> | Tak<sup>3</sup> |
 | **Wi-Fi**        | Tak<sup>4</sup> | Tak<sup>5</sup> | Nie  |
-| **Sygnały nawigacyjne dotyczące beli** | Tak<sup>6</sup> | Tak<sup>6</sup> | Tak<sup>6</sup>|
+| **Sygnały nawigacyjne LAMP** | Tak<sup>6</sup> | Tak<sup>6</sup> | Tak<sup>6</sup>|
 
 
-<sup>1</sup> zewnętrzne urządzenie GPS może być skojarzone z urządzeniem HoloLens. Skontaktuj się z [naszą pomocą techniczną](../spatial-anchor-support.md) , jeśli wolisz korzystać z urządzenia HoloLens z systemem śledzącym GPS.<br/>
-<sup>2</sup> obsługiwane za poorednictwem interfejsów API [lokalizacji][3] (GPS i Network).<br/>
-<sup>3</sup> obsługiwane przez interfejsy API [CLLocationManager][4] .<br/>
-<sup>4</sup> są obsługiwane z szybkością około jednego skanowania co 3 sekundy. <br/>
-<sup>5</sup> począwszy od poziomu interfejsu API 28, Wi-Fi skanowania są ograniczone do czterech wywołań co 2 minuty. Począwszy od systemu Android 10, można wyłączyć to ograniczenie z poziomu menu **Ustawienia dewelopera** . Aby uzyskać więcej informacji, zobacz [dokumentację systemu Android][5].<br/>
-<sup>6</sup> — ograniczone do [Eddystone][1] i [iBeacon][2].
+<sup>1</sup> Z urządzeniem HoloLens można skojarzyć zewnętrzne urządzenie GPS. Jeśli [chcesz używać](../spatial-anchor-support.md) urządzenia HoloLens z trackerem GPS, skontaktuj się z naszą pomocą techniczną.<br/>
+<sup>2 Obsługiwane</sup> za [pośrednictwem interfejsów][3] API LocationManager (GPS i SIECI).<br/>
+<sup>3 Obsługiwane</sup> za [pośrednictwem interfejsów API CLLocationManager.][4]<br/>
+<sup>4</sup> Obsługiwane z szybkością około jednego skanowania co 3 sekundy. <br/>
+<sup>5</sup> Począwszy od poziomu 28 interfejsu API, Wi-Fi skanowania są ograniczane do czterech wywołań co 2 minuty. Począwszy od systemu Android 10, możesz wyłączyć to ograniczanie w menu **Ustawienia dewelopera.** Aby uzyskać więcej informacji, zobacz [dokumentację systemu Android.][5]<br/>
+<sup>6</sup> Ograniczone do [Eddystone][1] [i iBeacon.][2]
 
-### <a name="which-sensor-to-enable"></a>Który czujnik do włączenia
+### <a name="which-sensor-to-enable"></a>Który czujnik należy włączyć
 
-Wybór czujnika zależy od opracowywanej aplikacji i platformy.
-Ten diagram przedstawia punkt wyjścia do określania, którą kombinację czujników można włączyć, w zależności od scenariusza lokalizacji:
+Wybór czujnika zależy od projektowej aplikacji i platformy.
+Ten diagram stanowi punkt wyjścia do określenia, którą kombinację czujników można włączyć, w zależności od scenariusza lokalizacji:
 
-![Diagram przedstawiający obsługiwane czujniki dla różnych scenariuszy.](media/coarse-relocalization-enabling-sensors.png)
+![Diagram przedstawiający włączone czujniki dla różnych scenariuszy.](media/coarse-relocalization-enabling-sensors.png)
 
-Poniższe sekcje zawierają więcej szczegółowych informacji na temat zalet i ograniczeń poszczególnych typów czujników.
+Poniższe sekcje zawierają więcej informacji na temat zalet i ograniczeń poszczególnych typów czujników.
 
-### <a name="gps"></a>GPS
+### <a name="gps"></a>Gps
 
-GPS to opcja do użycia w scenariuszach z zewnątrz.
-W przypadku korzystania z GPS w aplikacji należy pamiętać, że odczyty udostępniane przez sprzęt są zwykle następujące:
+GPS to opcja przejdź do scenariuszy na zewnątrz.
+W przypadku korzystania z gps w aplikacji należy pamiętać, że odczyty dostarczone przez sprzęt są zwykle:
 
-* Częstotliwość asynchroniczna i niska (mniej niż 1 Hz).
-* Niezawodne/zakłócenia (średnio, 7-m odchylenie standardowe).
+* Częstotliwość asynchroniczna i niska (mniejsza niż 1 Hz).
+* Zawodne/hałaśliwe (średnio odchylenie standardowe 7 m).
 
-Ogólnie rzecz biorąc, zarówno system operacyjny, jak i kotwice przestrzenne będą wykonywać pewne filtrowanie i ekstrapolację pierwotnego sygnału GPS, próbując wyeliminować te problemy. To dodatkowe przetwarzanie wymaga czasu na zbieżność, dlatego w celu uzyskania najlepszych wyników należy spróbować:
+Ogólnie rzecz biorąc, zarówno system operacyjny urządzenia, jak i Spatial Anchors będą filtrować i ekstrapolować nieprzetworzonym sygnałem GPS w celu ograniczenia tych problemów. To dodatkowe przetwarzanie wymaga czasu na zbieżność, dlatego aby uzyskać najlepsze wyniki, należy spróbować:
 
-* Utwórz dostawcę odcisku palca czujnika jako wczesny, jak to możliwe w aplikacji.
-* Utrzymywanie dostawcy odcisków palca czujnika między wieloma sesjami.
-* Udostępnij dostawcę odcisku palca czujnika między wieloma sesjami.
+* Utwórz jak najszybciej jednego dostawcę odcisku palca czujnika w aplikacji.
+* Utrzymuj aktywności dostawcy odcisków palców czujników między wieloma sesjami.
+* Udostępnianie dostawcy odcisków palców czujników między wieloma sesjami.
 
-Urządzenia GPS klasy konsumenckiej są zwykle nieprecyzyjne. Badania przez [Zandenbergen i Barbeau (2011)][6] raportują, że mediana dokładność telefonów komórkowych z obsługą GPS (a-GPS) ma około 7 metrów. Jest to dość duża wartość do zignorowania. Aby uwzględnić te błędy pomiarów, usługa traktuje kotwice jako rozkład prawdopodobieństwa w przestrzeni GPS. Dlatego zakotwiczenie jest regionem obszaru, który najprawdopodobniej (z więcej niż 95% pewnością) zawiera jego prawdziwe, nieznane położenie GPS.
+Urządzenia GPS klasy konsumenta są zwykle niedokładne. Badania [Zandenbergen i Barbeau (2011)][6] raporty, że mediana dokładności telefonów komórkowych, które mają GPS (A-GPS) jest około 7 metrów. To dość duża wartość do zignorowania. Aby uwzględnić te błędy pomiaru, usługa traktuje kotwice jako rozkłady prawdopodobieństwa w przestrzeni GPS. Dlatego kotwica jest regionem miejsca, które najprawdopodobniej (z ponad 95% ufnością) zawiera swoją prawdziwą, nieznaną pozycję GPS.
 
-Takie samo działanie ma zastosowanie podczas wykonywania zapytania przy użyciu aplikacji GPS. Urządzenie jest reprezentowane jako inny region zaufania przestrzennego wokół jego prawdziwej, nieznanej pozycji GPS. Odnajdowanie kotwic w pobliżu tłumaczy się, aby znaleźć kotwice z regionami zaufania *wystarczająco blisko* obszaru pewności urządzenia, jak pokazano tutaj:
+To samo uzasadnienie ma zastosowanie podczas wykonywania zapytania przy użyciu GPS. Urządzenie jest reprezentowane jako inny obszar ufności przestrzennej wokół jego prawdziwej, nieznanej pozycji GPS. Odnajdywanie kotwic w pobliżu przekłada się na  znalezienie kotwic z regionami ufności wystarczająco zbliżonymi do regionu ufności urządzenia, jak pokazano tutaj:
 
-![Diagram przedstawiający Znajdowanie kandydatów zakotwiczonych przy użyciu GPS.](media/coarse-reloc-gps-separation-distance.png)
+![Diagram, który ilustruje znajdowanie kandydatów kotwicy przy użyciu GPS.](media/coarse-reloc-gps-separation-distance.png)
 
 ### <a name="wi-fi"></a>Wi-Fi
 
-W przypadku urządzeń HoloLens i Android siła sygnału Wi-Fi może być dobrym sposobem na włączenie niewielkiej lokalizacji.
-Zaletą jest potencjalna Natychmiastowa dostępność punktów dostępu Wi-Fi (na przykład często używanych w programie Office Spaces i zakupów) bez konieczności dodatkowej instalacji.
+Na urządzeniach HoloLens i Wi-Fi siły sygnału może być dobrym sposobem na włączenie zgrubnego ponownego lokalizowania pomieszczeń.
+Zaletą jest potencjalna natychmiastowa dostępność punktów Wi-Fi (na przykład typowych w biurach i sklepach) bez dodatkowej konfiguracji.
 
 > [!NOTE]
-> System iOS nie udostępnia interfejsu API do odczytywania siły sygnału Wi-Fi, dlatego nie można go używać w przypadku niedużej lokalizacji włączonej za pośrednictwem sieci Wi-Fi.
+> System iOS nie zapewnia interfejsu API do odczytywania Wi-Fi siły sygnału, dlatego nie może być używany do zgrubnego ponownego lokalizowania włączonego za pośrednictwem sieci Wi-Fi.
 
-W przypadku korzystania z Wi-Fi w aplikacji należy pamiętać, że odczyty udostępniane przez sprzęt są zwykle następujące:
+W przypadku Wi-Fi w aplikacji należy pamiętać, że odczyty udostępniane przez sprzęt są zwykle:
 
-* Częstotliwość asynchroniczna i niska (mniej niż 0,1 Hz).
-* Możliwe ograniczenie na poziomie systemu operacyjnego.
-* Niezawodne/zakłócenia (średnio, 3-dBm odchylenie standardowe).
+* Asynchroniczna i niska częstotliwość (mniej niż 0,1 Hz).
+* Potencjalnie ograniczone na poziomie systemu operacyjnego.
+* Zawodne/hałaśliwe (średnio odchylenie standardowe 3 dBm).
 
-Kotwice przestrzenne spróbują utworzyć przefiltrowaną mapę Wi-Fi siły sygnału podczas sesji, próbując wyeliminować te problemy. Aby uzyskać najlepsze wyniki, spróbuj wykonać następujące polecenie:
+Spatial Anchors spróbuje utworzyć filtrowaną mapę Wi-Fi siły sygnału podczas sesji w celu ograniczenia tych problemów. Aby uzyskać najlepsze wyniki, spróbuj:
 
-* Przed wprowadzeniem pierwszej kotwicy utwórz sesję.
-* Utrzymywanie aktywności sesji przez tak długo, jak to możliwe. (Oznacza to, że wszystkie kotwice i zapytania są tworzone w jednej sesji).
+* Utwórz sesję przed umieścić pierwszą kotwicę.
+* Utrzymuj żywą sesję tak długo, jak to możliwe. (Oznacza to, że utwórz wszystkie kotwice i zapytania w jednej sesji).
 
-### <a name="bluetooth-beacons"></a>Sygnały nawigacyjne Bluetooth
+### <a name="bluetooth-beacons"></a>Sygnały nawigacyjne bluetooth
 <a name="beaconsDetails"></a>
 
-Dokładne wdrożenie sygnałów nawigacyjnych Bluetooth to dobre rozwiązanie w przypadku dużych scenariuszy relokalizacyjnych w dużej skali, w których GPS nie są obecne lub niedokładne. Jest ona również jedyną metodą pozostała, która jest obsługiwana przez wszystkie trzy platformy.
+Dokładne wdrożenie sygnałów nawigacyjnych Bluetooth jest dobrym rozwiązaniem w przypadku scenariuszy zgrubnej lokalizacji na dużą skalę, w których GPS jest niedokładny lub niedokładny. Jest to również jedyna metoda w pomieszczeniu obsługiwana na wszystkich trzech platformach.
 
-Sygnały nawigacyjne to zazwyczaj uniwersalne urządzenia, na których można skonfigurować wszystko, w tym Identyfikatory UUID i adresy MAC. Kotwice przestrzenne platformy Azure oczekują, że sygnały są jednoznacznie identyfikowane przez ich identyfikatory UUID. Jeśli nie zagwarantujesz tej unikalności, prawdopodobnie otrzymasz nieprawidłowe wyniki. Aby uzyskać najlepsze wyniki:
+Sygnały nawigacyjne to zwykle uniwersalne urządzenia, na których można skonfigurować wszystko, w tym identyfikatory UUID i adresy MAC. Usługa Azure Spatial Anchors oczekuje, że sygnały nawigacyjne będą jednoznacznie identyfikowane przez ich identyfikatory UUID. Jeśli nie zapewnisz tej unikatowości, prawdopodobnie otrzymasz niepoprawne wyniki. Aby uzyskać najlepsze wyniki:
 
-* Przypisywanie unikatowych identyfikatorów UUID do sygnałów nawigacyjnych.
-* Wdrażaj sygnały nawigacyjne w taki sposób, aby w sposób jednorodny pokrywał się ze swoim miejscem, co pozwala uzyskać dostęp do co najmniej trzech sygnałów nawigacyjnych z dowolnego miejsca.
-* Przekaż listę unikatowych identyfikatorów UUID sygnałów do dostawcy odcisków palca czujnika.
+* Przypisz unikatowe identyfikatory UUID do sygnałów nawigacyjnych.
+* Wdrażanie sygnałów nawigacyjnych w sposób, który równomiernie obejmuje przestrzeń i tak, aby co najmniej trzy sygnały nawigacyjne są dostępne z dowolnego punktu w przestrzeni.
+* Przekaż listę unikatowych identyfikatorów UUID sygnałów nawigacyjnych do dostawcy odcisków palców czujnika.
 
-Sygnały radiowe, takie jak te, mają wpływ na przeszkody i mogą zakłócać inne sygnały radiowe. Dlatego może być trudne do odgadnięcia, czy Twoje miejsce jest jednolicie pokryte. Aby zapewnić lepszą obsługę klienta, zalecamy ręczne testowanie zakresu sygnałów nawigacyjnych. Możesz przeprowadzić test, przechodzenia przez idącą ilość miejsca na urządzenia kandydujące i aplikację, która pokazuje Bluetooth w zakresie. Podczas testowania pokrycia upewnij się, że możesz dotrzeć do co najmniej trzech sygnałów nawigacyjnych z dowolnej pozycji strategicznej w miejscu. Zbyt wiele sygnałów nawigacyjnych może powodować zwiększenie zakłóceń między nimi i niekoniecznie poprawić dokładność nieścisłej lokalizacji.
+Na sygnały radiowe, takie jak te z połączenia Bluetooth, wpływają przeszkody i mogą zakłócać inne sygnały radiowe. Dlatego trudno jest odgadnąć, czy przestrzeń jest równomiernie zasłonięte. Aby zagwarantować lepsze środowisko obsługi klienta, zalecamy ręczne przetestowanie pokrycia sygnałów nawigacyjnych. Test można przeprowadzić, przechodząc przez obszar z urządzeniami kandydacyjnie i aplikacją, która pokazuje łączność Bluetooth w zasięgu. Podczas testowania pokrycia upewnij się, że możesz uzyskać co najmniej trzy sygnały nawigacyjne z dowolnego strategicznego położenia w Twojej przestrzeni. Zbyt wiele sygnałów nawigacyjnych może spowodować większą interferenację między nimi i niekoniecznie poprawi dokładność zgrubnego ponownego lokalizowania.
 
-Sygnały nawigacyjne Bluetooth zazwyczaj obejmują 80 liczników, jeśli nie występują żadne przeszkody w tym miejscu.
-Tak więc w przypadku miejsca, które nie ma dużych przeszkód, można wdrożyć sygnały nawigacyjne w deseniu siatki co 40 metrów.
+Sygnały nawigacyjne Bluetooth zwykle obejmują 80 metrów, jeśli w przestrzeni nie ma żadnych przeszkód.
+Dlatego w przypadku przestrzeni, która nie ma dużych przeszkód, można wdrażać sygnały nawigacyjne we wzorcu siatki co 40 metrów.
 
-Sygnał, który jest zasilany z baterii, będzie miał wpływ na wyniki, dlatego należy koniecznie monitorować wdrożenie w przypadku niskich lub nieobciążona baterii.
+Sygnał nawigacyjny, na który jest wyczyszczana bateria, będzie miał wpływ na wyniki, dlatego należy okresowo monitorować wdrożenie pod względu na niskie lub nieładowe baterii.
 
-Kotwice przestrzenne platformy Azure będą śledzić tylko sygnały Bluetooth, które znajdują się na liście identyfikatorów UUID bliskych sygnałów nawigacyjnych. Jednak złośliwe sygnały są zaprogramowane w taki sposób, aby allowlisted UUID mogły mieć negatywny wpływ na jakość usługi. Dzięki temu uzyskasz najlepsze wyniki w nadzorowanych miejscach, w których można kontrolować wdrażanie sygnałów.
+Usługa Azure Spatial Anchors będzie śledzić tylko sygnały nawigacyjne Bluetooth, które znajdują się na znanej liście identyfikatorów UUID zbliżeniowych sygnałów nawigacyjnych. Jednak złośliwe sygnały nawigacyjne, które zostały zaprogramowane jako identyfikatory UUID z listy do zezwalania, mogą negatywnie wpłynąć na jakość usługi. Dlatego najlepsze wyniki można uzyskać w miejscach, w których można kontrolować wdrażanie sygnałów nawigacyjnych.
 
 ### <a name="sensor-accuracy"></a>Dokładność czujnika
 
-Dokładność sygnału GPS, zarówno podczas tworzenia kotwicy, jak i podczas wykonywania zapytań, ma znaczny wpływ na zestaw zwracanych kotwic. W przeciwieństwie do zapytań opartych na sieci Wi-Fi/nadajniki będą brane pod uwagę wszystkie kotwice, które mają co najmniej jeden punkt dostępu/sygnalizator wspólny dla zapytania. W tym sensie wynik zapytania, które jest oparte na sieci Wi-Fi/sygnały nawigacyjny, jest określany głównie przez fizyczny zakres punktów dostępu/sygnałów nawigacyjnych i przeszkód w środowisku.
-W tej tabeli szacuje oczekiwany obszar wyszukiwania dla każdego typu czujnika:
+Dokładność sygnału GPS, zarówno podczas tworzenia kotwicy, jak i podczas zapytań, ma znaczący wpływ na zestaw zwróconych kotwic. Z kolei zapytania oparte na sieci Wi-Fi/sygnałach nawigacyjnych będą uwzględniać wszystkie kotwice, które mają co najmniej jeden punkt dostępu/sygnał nawigacyjny wspólny dla zapytania. W tym sensie wynik zapytania opartego na sieci Wi-Fi/sygnałach nawigacyjnych zależy głównie od fizycznego zakresu punktów dostępu/sygnałów nawigacyjnych i środowisk.
+Ta tabela szacuje oczekiwaną przestrzeń wyszukiwania dla każdego typu czujnika:
 
-| Czujnik      | Promień miejsca wyszukiwania (w przybliżeniu) | Szczegóły |
+| Czujnik      | Promień obszaru wyszukiwania (przybliżony) | Szczegóły |
 |-------------|:-------:|---------|
-| **GPS**         | od 20 do 30 m | Określana na podstawie niepewności GPS, między innymi czynnikami. Raportowane liczby są szacowane dla średniego dokładności GPS telefonów komórkowych z-GPS: 7 metrów. |
-| **Wi-Fi**        | 50 m do 100 m | Określany przez zakres punktów dostępu bezprzewodowego. Zależy od częstotliwości, siły nadajnika, przeszkód fizycznych, zakłóceń i tak dalej. |
-| **Sygnały nawigacyjne dotyczące beli** |  70 m | Określany przez zakres sygnałów nawigacyjnych. Zależy od częstotliwości, siły transmisji, przeszkód fizycznych, zakłóceń i tak dalej. |
+| **Gps**         | od 20 m do 30 m | Jest to określane między innymi przez niepewność GPS. Zgłaszane liczby są szacowane dla mediany dokładności GPS telefonów komórkowych z A-GPS: 7 metrów. |
+| **Wi-Fi**        | 50 m do 100 m | Zależy od zakresu punktów dostępu bezprzewodowego. Zależy od częstotliwości, siły powietrza, fizycznych przeszkód, interferencji i tak dalej. |
+| **Sygnały nawigacyjne LAMP** |  70 m | Zależy od zakresu sygnału nawigacyjnego. Zależy od częstotliwości, siły transmisji, fizycznych czynników, interferencji i tak dalej. |
 
 <!-- Reference links in article -->
-[1]: https://developers.google.com/beacons/eddystone
+[1]: https://developer.estimote.com/eddystone/
 [2]: https://developer.apple.com/ibeacon/
 [3]: https://developer.android.com/reference/android/location/LocationManager
 [4]: https://developer.apple.com/documentation/corelocation/cllocationmanager?language=objc

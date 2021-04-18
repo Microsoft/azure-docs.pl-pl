@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 6646f131488a5ae4aa9b20fe614d7ebb46133444
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 8fb4c797df7961726ca785a56a6ab25807999842
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538862"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600866"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Rejestrowanie i skanowanie dzierżawy Power BI (wersja zapoznawcza)
 
@@ -41,7 +41,7 @@ Aby skonfigurować uwierzytelnianie, utwórz grupę zabezpieczeń i dodaj do nie
 
 1. Wyszukaj tożsamość zarządzaną aplikacji Purview i wybierz ją.
 
-    :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-catalog-to-group-by-search.png" alt-text="Dodawanie wykazu przez jego wyszukanie":::
+    :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-catalog-to-group-by-search.png" alt-text="Dodawanie wykazu przez wyszukanie go":::
 
     Powinno zostać wyświetlony komunikat o sukcesie z informacjami o jego dodaniu.
 
@@ -53,7 +53,7 @@ Aby skonfigurować uwierzytelnianie, utwórz grupę zabezpieczeń i dodaj do nie
 1. Wybierz stronę **Ustawienia dzierżawy.**
 
     > [!Important]
-    > Musisz być administratorem Power BI, aby wyświetlić stronę ustawień dzierżawy.
+    > Aby wyświetlić stronę ustawień dzierżawy, Power BI administratorem.
 
 1. Wybierz **pozycję Ustawienia interfejsu API** administratora Zezwalaj jednostkom usługi na używanie interfejsów API Power BI administratora  >  **(wersja zapoznawcza).**
 1. Wybierz **pozycję Określone grupy zabezpieczeń.**
@@ -61,26 +61,22 @@ Aby skonfigurować uwierzytelnianie, utwórz grupę zabezpieczeń i dodaj do nie
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="Obraz przedstawiający sposób zezwalania jednostkom usługi na uzyskiwanie uprawnień interfejsu API Power BI tylko do odczytu":::
 
     > [!Caution]
-    > Jeśli zezwolisz utworzonej grupie zabezpieczeń (która ma tożsamość zarządzaną usługi Purview jako członek) na używanie interfejsów API administratora usługi Power BI tylko do odczytu, możesz również zezwolić jej na dostęp do metadanych (np. nazw pulpitów nawigacyjnych i raportów, właścicieli, opisów itp.) dla wszystkich artefaktów usługi Power BI w tej dzierżawie. Po ściągniętiu metadanych do widoku usługi Azure Purview, uprawnienia aplikacji Purview, a nie uprawnienia Power BI, określają, kto może zobaczyć te metadane.
+    > Jeśli zezwolisz utworzonej grupie zabezpieczeń (która ma tożsamość zarządzaną usługi Purview jako członek) na używanie interfejsów API administratora usługi Power BI tylko do odczytu, możesz również zezwolić jej na dostęp do metadanych (np. nazw pulpitów nawigacyjnych i raportów, właścicieli, opisów itp.) dla wszystkich artefaktów usługi Power BI w tej dzierżawie. Po ściągnięcia metadanych do usługi Azure Purview, uprawnienia aplikacji Purview, a nie uprawnienia Power BI, określają, kto może zobaczyć te metadane.
 
     > [!Note]
     > Grupę zabezpieczeń można usunąć z ustawień dewelopera, ale wcześniej wyodrębnione metadane nie zostaną usunięte z konta programu Purview. Jeśli chcesz, możesz usunąć go oddzielnie.
 
 ## <a name="register-your-power-bi-and-set-up-a-scan"></a>Rejestrowanie Power BI i konfigurowanie skanowania
 
-Teraz, gdy masz uprawnienia tożsamości zarządzanej programu Purview do nawiązywania połączenia z interfejsem API administratora dzierżawy usługi Power BI, możesz skonfigurować skanowanie z poziomu programu Azure Purview Studio.
+Teraz, po nadawać tożsamości zarządzanej programu Purview uprawnienia do nawiązywania połączenia z interfejsem API administratora dzierżawy usługi Power BI, możesz skonfigurować skanowanie z poziomu programu Azure Purview Studio.
 
-1. Wybierz **ikonę Centrum zarządzania.**
+1. Wybierz pozycję **Źródła na** lewym pasku nawigacyjnym.
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/management-center.png" alt-text="Ikona centrum zarządzania.":::
-
-1. Następnie wybierz **pozycję + Nowy w** **źródłach danych.**
-
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/data-sources.png" alt-text="Obraz przycisku nowego źródła danych":::
+1. Następnie wybierz pozycję **Zarejestruj**.
 
     Wybierz **Power BI** jako źródło danych.
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/select-power-bi-data-source.png" alt-text="Obraz przedstawiający listę źródeł danych dostępnych do wyboru":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/select-power-bi-data-source.png" alt-text="Obraz przedstawiający listę dostępnych źródeł danych do wyboru":::
 
 3. Nadaj wystąpieniu Power BI przyjazną nazwę.
 
@@ -96,7 +92,7 @@ Teraz, gdy masz uprawnienia tożsamości zarządzanej programu Purview do nawią
     > W Power BI rejestracji i skanowania źródła danych jest dozwolone tylko dla jednego wystąpienia.
 
 
-4. Nadaj nazwę skanowaniu. Następnie wybierz opcję dołączania lub wykluczania osobistych obszarów roboczych. Zwróć uwagę, że jedyną obsługiwaną metodą uwierzytelniania jest **tożsamość zarządzana**.
+4. Nadaj nazwę skanowaniu. Następnie wybierz opcję dołączania lub wykluczania osobistych obszarów roboczych. Zwróć uwagę, że jedyną obsługiwaną metodą uwierzytelniania jest **tożsamość zarządzana.**
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-setup.png" alt-text="Obraz przedstawiający Power BI skanowania":::
 
@@ -108,11 +104,11 @@ Teraz, gdy masz uprawnienia tożsamości zarządzanej programu Purview do nawią
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/scan-trigger.png" alt-text="Obraz wyzwalacza skanowania":::
 
-6. Na **stronie Przeglądanie nowego skanowania** wybierz pozycję Zapisz i **uruchom,** aby uruchomić skanowanie.
+6. Na **stronie Przejrzyj nowe skanowanie** wybierz pozycję Zapisz i **uruchom,** aby uruchomić skanowanie.
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Zapisywanie i uruchamianie Power BI ekranu":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Obraz zapisywania i uruchamiania Power BI ekranu":::
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Przeglądanie katalogu danych usługi Azure Purview](how-to-browse-catalog.md)
-- [Wyszukiwanie w usłudze Azure Purview Data Catalog](how-to-search-catalog.md)
+- [Wyszukaj w witrynie Azure Purview Data Catalog](how-to-search-catalog.md)

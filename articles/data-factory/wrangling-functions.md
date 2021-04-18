@@ -1,105 +1,122 @@
 ---
-title: Funkcje przetwarzanie danych w Azure Data Factory
-description: Omówienie dostępnych funkcji przetwarzanie danych w Azure Data Factory
+title: Funkcje rozmieszczania danych w Azure Data Factory
+description: Omówienie dostępnych funkcji przetwarzania danych w Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 01/19/2021
-ms.openlocfilehash: 659f6527d43e1b45a11fddf774050ca6d42bfe12
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/16/2021
+ms.openlocfilehash: f7a4041d87e00fa01ae5ae4dff0cade3b9755d31
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98896667"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600944"
 ---
-# <a name="transformation-functions-in-power-query-for-data-wrangling"></a>Funkcje transformacji w Power Query danych przetwarzanie
+# <a name="transformation-functions-in-power-query-for-data-wrangling"></a>Funkcje przekształcania w Power Query do przetwarzania danych
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Usługa Data przetwarzanie w Azure Data Factory umożliwia wykonywanie bezobsługowego przetwarzania danych Agile i przetwarzanie w skali chmury przez przetłumaczenie ```M``` skryptów Power Query do skryptu przepływu danych. Moduł ADF integruje się z usługą [Power Query online](/powerquery-m/power-query-m-reference) i udostępnia ```M``` funkcje Power Query dla przetwarzanie danych za pośrednictwem wykonywania platformy Spark przy użyciu infrastruktury Spark przepływu danych. 
+Przetwarzanie danych w usłudze Azure Data Factory umożliwia elastyczne przygotowywanie i porządkowanie danych bez kodu w skali chmury przez tłumaczenie skryptów Power Query na skrypty Przepływ danych ```M``` kodu. Funkcja ADF integruje się z [usługą Power Query Online](/powerquery-m/power-query-m-reference) i udostępnia funkcje Power Query do przetwarzania danych za pośrednictwem wykonywania na platformie Spark przy użyciu ```M``` infrastruktury platformy Spark przepływu danych. 
 
 > [!NOTE]
-> Power Query w usłudze ADF jest obecnie dostępnych w publicznej wersji zapoznawczej
+> Power Query adf jest obecnie dostępny w publicznej wersji zapoznawczej
 
-Obecnie nie wszystkie Power Query funkcje M są obsługiwane dla przetwarzanie danych, mimo że są dostępne podczas tworzenia. Podczas kompilowania swoich różny zostanie wyświetlony monit z następującym komunikatem o błędzie, jeśli funkcja nie jest obsługiwana:
+Obecnie nie wszystkie funkcje Power Query M są obsługiwane w przypadku przetwarzania danych, mimo że są dostępne podczas tworzenia. Podczas tworzenia mash-upów zostanie wyświetlony następujący komunikat o błędzie, jeśli funkcja nie jest obsługiwana:
 
 `UserQuery : Expression.Error: The transformation logic is not supported as it requires dynamic access to rows of data, which cannot be scaled out.`
 
-Poniżej znajduje się lista obsługiwanych Power Query funkcji M.
+Poniżej znajduje się lista obsługiwanych funkcji Power Query M.
 
 ## <a name="column-management"></a>Zarządzanie kolumnami
 
-* Wybór: [Table. SelectColumns](/powerquery-m/table-selectcolumns)
-* Usuwanie: [Table. RemoveColumns](/powerquery-m/table-removecolumns)
-* Zmiana nazwy: [Table. RenameColumns](/powerquery-m/table-renamecolumns), [Table. PrefixColumns](/powerquery-m/table-prefixcolumns), [Table. TransformColumnNames](/powerquery-m/table-transformcolumnnames)
-* Zmiana kolejności: [Table. ReorderColumns](/powerquery-m/table-reordercolumns)
+* Selection: [Table.SelectColumns](/powerquery-m/table-selectcolumns)
+* Usuwanie: [Table.RemoveColumns](/powerquery-m/table-removecolumns)
+* Zmiana nazwy: [Table.RenameColumns,](/powerquery-m/table-renamecolumns) [Table.PrefixColumns,](/powerquery-m/table-prefixcolumns) [Table.TransformColumnNames](/powerquery-m/table-transformcolumnnames)
+* Zmiana kolejności: [Table.ReorderColumns](/powerquery-m/table-reordercolumns)
 
 ## <a name="row-filtering"></a>Filtrowanie wierszy
 
-Użyj funkcji M [. SelectRows](/powerquery-m/table-selectrows) , aby odfiltrować następujące warunki:
+Użyj funkcji M [Table.SelectRows,](/powerquery-m/table-selectrows) aby filtrować według następujących warunków:
 
-* Równość i nierówność
-* Porównania liczbowe, tekstowe i daty (ale nie daty i godziny)
-* Informacje liczbowe, takie jak [Number.](/powerquery-m/number-iseven) / [](/powerquery-m/number-iseven) isparzyste
-* Zawieranie tekstu przy użyciu [Text. Contains](/powerquery-m/text-contains), [Text. StartsWith](/powerquery-m/text-startswith)lub [Text. EndsWith](/powerquery-m/text-endswith)
-* Zakresy dat, w tym wszystkie funkcje "IsIn' [Dates](/powerquery-m/date-functions)" 
-* Kombinacje tych elementów za pomocą i, lub, lub nie warunki
+* Równość i nierówności
+* Porównania liczbowe, tekstowe i daty (ale nie dateTime)
+* Informacje liczbowe, takie [jak Number.IsEven](/powerquery-m/number-iseven) / [Odd](/powerquery-m/number-iseven)
+* Zawieranie tekstu przy użyciu [funkcji Text.Contains,](/powerquery-m/text-contains) [Text.StartsWith](/powerquery-m/text-startswith)lub [Text.EndsWith](/powerquery-m/text-endswith)
+* Zakresy dat, w tym wszystkie funkcje daty ["IsIn")](/powerquery-m/date-functions) 
+* Kombinacje tych elementów przy użyciu warunków i, lub lub nie
 
 ## <a name="adding-and-transforming-columns"></a>Dodawanie i przekształcanie kolumn
 
-Następujące funkcje M dodają lub przekształcają kolumny: [Table. addColumn](/powerquery-m/table-addcolumn), [Table. TransformColumns](/powerquery-m/table-transformcolumns), [Table. ReplaceValue](/powerquery-m/table-replacevalue), [Table. DuplicateColumn](/powerquery-m/table-duplicatecolumn). Poniżej przedstawiono obsługiwane funkcje transformacji.
+Następujące funkcje M dodają lub przekształcają kolumny: [Table.AddColumn,](/powerquery-m/table-addcolumn) [Table.TransformColumns,](/powerquery-m/table-transformcolumns) [Table.ReplaceValue,](/powerquery-m/table-replacevalue) [Table.DuplicateColumn](/powerquery-m/table-duplicatecolumn). Poniżej przedstawiono obsługiwane funkcje przekształcania.
 
 * Arytmetyka liczbowa
-* Łączenie tekstu
-* Date andTime arytmetyczne (operatory arytmetyczne, [Date. AddDays](/powerquery-m/date-adddays), [Date. addmiesiącach](/powerquery-m/date-addmonths), [Date. addćwiartks](/powerquery-m/date-addquarters), [Date. Addtygs](/powerquery-m/date-addweeks), [Date. AddYears](/powerquery-m/date-addyears))
-* Czas trwania może być używany w przypadku operacji arytmetycznych daty i czasu, ale musi być przekształcony na inny typ przed zapisaniem w zlewie (operatory arytmetyczne, [#duration](/powerquery-m/sharpduration), [czas trwania. dni](/powerquery-m/duration-days), [czas trwania. godz](/powerquery-m/duration-hours)., czas trwania: [minuty](/powerquery-m/duration-minutes), czas trwania. [s](/powerquery-m/duration-seconds), czas trwania. [TotalDays](/powerquery-m/duration-totaldays), [czas trwania. TotalHours](/powerquery-m/duration-totalhours), [czas trwania. TotalMinutes](/powerquery-m/duration-totalminutes), [czas trwania. TotalSeconds](/powerquery-m/duration-totalseconds))    
-* Większość standardowych, naukowych i trygonometrycznych funkcji liczbowych (wszystkie funkcje w ramach [operacji](/powerquery-m/number-functions#operations), [zaokrąglania](/powerquery-m/number-functions#rounding)i [trygonometryczne](/powerquery-m/number-functions#trigonometry) , *z wyjątkiem* Number. silnia, Number. permutacje i Number).
-* Zastąpienie (preplacement[. ReplaceText](/powerquery-m/replacer-replacetext), [replace. ReplaceValue](/powerquery-m/replacer-replacevalue), [Text. Replace](/powerquery-m/text-replace), [Text. Remove](/powerquery-m/text-remove))
-* Wyodrębnianie tekstu pozycyjnego ([Text. PositionOf](/powerquery-m/text-positionof), [Text. length](/powerquery-m/text-length), [Text. Start](/powerquery-m/text-start), [Text. end](/powerquery-m/text-end), [Text. Middle](/powerquery-m/text-middle), [Text. ReplaceRange](/powerquery-m/text-replacerange), [Text. RemoveRange](/powerquery-m/text-removerange))
-* Podstawowe formatowanie tekstu ([Text. Lower](/powerquery-m/text-lower), [Text. Upper](/powerquery-m/text-upper), [Text. Trim](/powerquery-m/text-trim) / [Start](/powerquery-m/text-trimstart) / [](/powerquery-m/text-trimend), [Text. PadStart](/powerquery-m/text-padstart) / [End](/powerquery-m/text-padend), [Text. Reverse](/powerquery-m/text-reverse))
-* Funkcje daty i godziny ([Date. Day](/powerquery-m/date-day), [Date. month](/powerquery-m/date-month), [Date. Year](/powerquery-m/date-year) [Time. Hour](/powerquery-m/time-hour), [Time. minute](/powerquery-m/time-minute), [Time. Second](/powerquery-m/time-second), [Date. DayOfWeek](/powerquery-m/date-dayofweek), [Date. dzieńroku](/powerquery-m/date-dayofyear), [Date. DaysInMonth](/powerquery-m/date-daysinmonth))
-* Wyrażenie if (ale gałęzie muszą mieć zgodne typy)
+* Konkasowanie tekstu
+* Arytmetyka daty i czasu (operatory arytmetyczne, [Date.AddDays,](/powerquery-m/date-adddays) [Date.AddMonths,](/powerquery-m/date-addmonths) [Date.AddQuarters,](/powerquery-m/date-addquarters) [Date.AddWeeks,](/powerquery-m/date-addweeks) [Date.AddYears](/powerquery-m/date-addyears))
+* Czasy trwania mogą być używane do arytmetyki daty i godziny, ale muszą zostać przekształcone w inny typ przed ich zapisano w ujściu (operatory arytmetyczne, [#duration](/powerquery-m/sharpduration), [Duration.Days,](/powerquery-m/duration-days) [Duration.Hours,](/powerquery-m/duration-hours) [Duration.Minutes,](/powerquery-m/duration-minutes) [Duration.Seconds](/powerquery-m/duration-seconds), [Duration.TotalDays,](/powerquery-m/duration-totaldays) [Duration.TotalHours](/powerquery-m/duration-totalhours), [Duration.TotalMinutes](/powerquery-m/duration-totalminutes), [Duration.TotalSeconds](/powerquery-m/duration-totalseconds))    
+* Większość standardowych, naukowych i trygonometrycznych funkcji liczbowych (wszystkie funkcje w obszarze [Operacje,](/powerquery-m/number-functions#operations) [Zaokrąglanie](/powerquery-m/number-functions#rounding)i [Trygonometry](/powerquery-m/number-functions#trigonometry) z wyjątkiem  Number.Factorial, Number.Permutations i Number.Combinations)
+* Replacement ([Replacer.ReplaceText](/powerquery-m/replacer-replacetext), [Replacer.ReplaceValue](/powerquery-m/replacer-replacevalue), [Text.Replace](/powerquery-m/text-replace), [Text.Remove](/powerquery-m/text-remove))
+* Wyodrębnianie tekstu pozykcyjnego ([Text.PositionOf](/powerquery-m/text-positionof), [Text.Length,](/powerquery-m/text-length) [Text.Start](/powerquery-m/text-start), [Text.End,](/powerquery-m/text-end) [Text.Middle,](/powerquery-m/text-middle) [Text.ReplaceRange,](/powerquery-m/text-replacerange) [Text.RemoveRange](/powerquery-m/text-removerange))
+* Podstawowe formatowanie tekstu[(Text.Lower,](/powerquery-m/text-lower) [Text.Upper,](/powerquery-m/text-upper) [Text.Trim](/powerquery-m/text-trim) / [Początek,](/powerquery-m/text-trimstart) / [](/powerquery-m/text-trimend) [Text.PadStart](/powerquery-m/text-padstart) / [End,](/powerquery-m/text-padend) [Text.Reverse](/powerquery-m/text-reverse))
+* Funkcje daty/godziny ([Date.Day,](/powerquery-m/date-day) [Date.Month](/powerquery-m/date-month), [Date.Year](/powerquery-m/date-year) [Time.Hour,](/powerquery-m/time-hour) [Time.Minute](/powerquery-m/time-minute), [Time.Second](/powerquery-m/time-second), [Date.DayOfWeek](/powerquery-m/date-dayofweek), [Date.DayOfYear](/powerquery-m/date-dayofyear), [Date.DaysInMonth](/powerquery-m/date-daysinmonth))
+* Jeśli wyrażenia (ale gałęzie muszą mieć pasujące typy)
 * Filtry wierszy jako kolumna logiczna
-* Stałe Number, text, Logical, date i DateTime
+* Liczby, tekst, stałe logiczne, daty i daty/godziny
 
-<a name="mergingjoining-tables"></a>Scalanie/Łączenie tabel
+<a name="mergingjoining-tables"></a>Scalanie/łączenie tabel
 ----------------------
-* Power Query generuje zagnieżdżone sprzężenie (Table. NestedJoin; użytkownicy mogą również ręcznie napisać [tabelę. AddJoinColumn](/powerquery-m/table-addjoincolumn)).
-    Użytkownicy muszą następnie rozwinąć zagnieżdżoną kolumnę sprzężenia do niezagnieżdżonego sprzężenia (Table. ExpandTableColumn, nieobsługiwane w żadnym innym kontekście).
-* Tabela funkcji M   [. Join](/powerquery-m/table-join) można pisać bezpośrednio, aby uniknąć potrzeby dodatkowego kroku rozszerzania, ale użytkownik musi upewnić się, że nie ma żadnych zduplikowanych nazw kolumn wśród sprzężonych tabel
-* Obsługiwane rodzaje sprzężeń:   [wewnętrzne](/powerquery-m/joinkind-inner),   [LeftOuter](/powerquery-m/joinkind-leftouter),   [RightOuter](/powerquery-m/joinkind-rightouter),   [FullOuter](/powerquery-m/joinkind-fullouter)
-* Obie   [wartości. Equals](/powerquery-m/value-equals) i   [Value. NullableEquals](/powerquery-m/value-nullableequals) są obsługiwane jako porównania klucza równości
+* Power Query wygeneruje zagnieżdżone sprzężenia (Table.NestedJoin; użytkownicy mogą również ręcznie zapisywać [Table.AddJoinColumn](/powerquery-m/table-addjoincolumn)).
+    Użytkownicy muszą następnie rozwinąć zagnieżdżoną kolumnę sprzężenia do nie zagnieżdżonych sprzężenia (Table.ExpandTableColumn, która nie jest obsługiwana w żadnym innym kontekście).
+* Funkcja M   [Table.Join](/powerquery-m/table-join) może zostać napisana bezpośrednio, aby uniknąć konieczności dodatkowego kroku rozszerzania, ale użytkownik musi upewnić się, że nie ma żadnych zduplikowanych nazw kolumn między tabelami sprzężenia
+* Obsługiwane rodzaje sprzężenia:   [Wewnętrzny,](/powerquery-m/joinkind-inner)   [LeftOuter,](/powerquery-m/joinkind-leftouter)   [RightOuter,](/powerquery-m/joinkind-rightouter)   [FullOuter](/powerquery-m/joinkind-fullouter)
+* Zarówno   [Value.Equals,](/powerquery-m/value-equals)   [jak i Value.NullableEquals](/powerquery-m/value-nullableequals) są obsługiwane jako porównujące równość kluczy
 
 ## <a name="group-by"></a>Grupuj według
 
-Użyj [tabeli Table. Group](/powerquery-m/table-group) do agregowania wartości.
+Użyj [funkcji Table.Group,](/powerquery-m/table-group) aby agregować wartości.
 * Musi być używana z funkcją agregacji
-* Obsługiwane funkcje agregacji:   [list. sum](/powerquery-m/list-sum),   [list. Count](/powerquery-m/list-count),   [list. Average](/powerquery-m/list-average),   [list. min](/powerquery-m/list-min),   [list. Max](/powerquery-m/list-max),   [list. StandardDeviation](/powerquery-m/list-standarddeviation),   [list. First](/powerquery-m/list-first),   [list. Last](/powerquery-m/list-last)
+* Obsługiwane funkcje agregacji:   [List.Sum,](/powerquery-m/list-sum)   [List.Count,](/powerquery-m/list-count)   [List.Average,](/powerquery-m/list-average)   [List.Min,](/powerquery-m/list-min)   [List.Max,](/powerquery-m/list-max)   [List.StandardDeviation,](/powerquery-m/list-standarddeviation)   [List.First,](/powerquery-m/list-first)   [List.Last](/powerquery-m/list-last)
 
 ## <a name="sorting"></a>Sortowanie
 
-Użyj [tabeli. Sort](/powerquery-m/table-sort) , aby sortować wartości.
+Użyj [funkcji Table.Sort,](/powerquery-m/table-sort) aby posortować wartości.
 
 ## <a name="reducing-rows"></a>Zmniejszanie liczby wierszy
 
-Zachowuj i usuwaj najważniejsze, zachowuj zakres (odpowiadające funkcje M, tylko obsługiwane liczby, a nie warunki: [Table. FirstN](/powerquery-m/table-firstn), [Table. Skip](/powerquery-m/table-skip), [Table. RemoveFirstN](/powerquery-m/table-removefirstn), [Table. Range](/powerquery-m/table-range), [Table. MinN](/powerquery-m/table-minn), [Table. MaxN](/powerquery-m/table-maxn))
+Zachowaj i usuń górę, Zachowaj zakres (odpowiadające funkcje M, tylko liczniki obsługi, nie warunki: [Table.FirstN,](/powerquery-m/table-firstn) [Table.Skip,](/powerquery-m/table-skip) [Table.RemoveFirstN,](/powerquery-m/table-removefirstn) [Table.Range,](/powerquery-m/table-range) [Table.MinN,](/powerquery-m/table-minn) [Table.MaxN](/powerquery-m/table-maxn))
 
-## <a name="known-unsupported-functions"></a>Znane Nieobsługiwane funkcje
+## <a name="known-unsupported-functions"></a>Znane nieobsługiwane funkcje
 
 | Funkcja | Stan |
 | -- | -- |
-| Table.PromoteHeaders | Nieobsługiwane. Ten sam wynik można osiągnąć przez ustawienie "pierwszy wiersz jako nagłówek" w zestawie danych. |
-| Table.CombineColumns | Jest to typowy scenariusz, który nie jest bezpośrednio obsługiwany, ale można go osiągnąć przez dodanie nowej kolumny, która łączy dwie podaną kolumnę.  Na przykład: Table. addColumn (RemoveEmailColumn, "name", each [FirstName] & "" & [LastName]) |
-| Table.TransformColumnTypes | Jest to obsługiwane w większości przypadków. Następujące scenariusze nie są obsługiwane: transformowanie ciągu do typu waluty, transformowanie ciągu do typu czasu, transformowanie ciągu do typu procentowego. |
-| Table.NestedJoin | Wykonanie sprzężenia spowoduje błąd walidacji. Aby można było obejść te kolumny, muszą być rozwinięte. |
+| Table.PromoteHeaders | Nieobsługiwane. Ten sam wynik można osiągnąć, ustawiając w zestawie danych ustawienie "Pierwszy wiersz jako nagłówek". |
+| Table.CombineColumns | Jest to powszechny scenariusz, który nie jest obsługiwany bezpośrednio, ale można to osiągnąć, dodając nową kolumnę, która łączy dwie podane kolumny.  Na przykład Table.AddColumn(RemoveEmailColumn, "Name", each [FirstName] & " " & [LastName]) |
+| Table.TransformColumnTypes | Jest to obsługiwane w większości przypadków. Następujące scenariusze nie są obsługiwane: przekształcanie ciągu na typ waluty, przekształcanie ciągu na typ czasu, przekształcanie ciągu na typ procentu. |
+| Table.NestedJoin | Samo wykonanie sprzężenia spowoduje błąd walidacji. Kolumny muszą być rozwinięte, aby działały. |
 | Table.Distinct | Usuwanie zduplikowanych wierszy nie jest obsługiwane. |
 | Table.RemoveLastN | Usuwanie dolnych wierszy nie jest obsługiwane. |
-| Table.RowCount | Nieobsługiwane, ale można je osiągnąć przez dodanie kolumny niestandardowej zawierającej wartość 1, a następnie agregowanie tej kolumny z listą. sum. Tabela. Grupa jest obsługiwana. | 
-| Obsługa błędów na poziomie wiersza | Obsługa błędów na poziomie wiersza nie jest obecnie obsługiwana. Na przykład, aby odfiltrować wartości inne niż liczbowe z kolumny, jednym z metod jest przekształcenie kolumny tekstowej na liczbę. Każda komórka, której nie można przekształcić, będzie w stanie błędu i musi zostać przefiltrowana. Ten scenariusz nie jest możliwy w skalowaniu w poziomie M. |
+| Table.RowCount | Ta wartość nie jest obsługiwana, ale można ją osiągnąć, dodając kolumnę niestandardową zawierającą wartość 1, a następnie agregując ją za pomocą funkcji List.Sum. Table.Group jest obsługiwana. | 
+| Obsługa błędów na poziomie wiersza | Obsługa błędów na poziomie wiersza nie jest obecnie obsługiwana. Na przykład aby odfiltrować wartości nieliczbowe z kolumny, jednym z podejść jest przekształcenie kolumny tekstowej w liczbę. Każda komórka, której nie można przekształcić, będzie w stanie błędu i musi być filtrowana. Ten scenariusz nie jest możliwy w przypadku skalowania w poziomie M. |
 | Table.Transpose | Nieobsługiwane |
 | Table.Pivot | Nieobsługiwane |
+| Table.SplitColumn | Częściowo obsługiwane |
+
+## <a name="m-script-workarounds"></a>Obejścia skryptów w języku M
+
+### <a name="for-splitcolumn-there-is-an-alternate-for-split-by-length-and-by-position"></a>Istnieje ```SplitColumn``` alternatywa dla podziału według długości i położenia
+
+* Table.AddColumn(Source, "First characters", each Text.Start([Email], 7), type text)
+* Table.AddColumn(#"Wstawione pierwsze znaki", "Zakres tekstu", każdy Text.Middle([Email], 4, 9), typ text)
+
+Ta opcja jest dostępna z opcji Wyodrębnij na wstążce
+
+![Power Query Dodaj kolumnę](media/wrangling-data-flow/pq-split.png)
+
+### <a name="for-tablecombinecolumns"></a>For ```Table.CombineColumns```
+
+* Table.AddColumn(RemoveEmailColumn, "Name", each [FirstName] & " " & [LastName])
+
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak [utworzyć Power Query danych przetwarzanie w usłudze ADF](wrangling-tutorial.md).
+Dowiedz się, [jak utworzyć układ danych w Power Query UDF.](wrangling-tutorial.md)

@@ -1,6 +1,6 @@
 ---
-title: Obciążenia mainframe obsługiwane na platformie Azure | Microsoft Docs
-description: Użyj emulatora mainframe i innych usług firmy Microsoft Partners, aby rehostować obciążenia oprogramowania mainframe, takie jak systemy oparte na systemie IBM Z, przy użyciu Microsoft Azure.
+title: Obciążenia komputerów mainframe obsługiwane w usłudze Azure | Microsoft Docs
+description: Użyj emulatora komputera mainframe i innych usług od partnerów firmy Microsoft, aby ponownie hostować obciążenia komputerów mainframe, takie jak systemy oparte na ibm Z, przy użyciu Microsoft Azure.
 services: virtual-machines
 ms.service: virtual-machines
 ms.subservice: mainframe-rehosting
@@ -11,55 +11,55 @@ editor: edprice
 ms.author: larryme
 ms.date: 05/09/2020
 ms.topic: article
-ms.openlocfilehash: 467cae97f9b4efe4782ac802cccd84271d475ea7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0b3dd754e226436cb26cbb808bf37e4262efa344
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104955435"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599557"
 ---
-# <a name="mainframe-workloads-supported-on-azure"></a>Obciążenia mainframe obsługiwane na platformie Azure
+# <a name="mainframe-workloads-supported-on-azure"></a>Obciążenia komputerów mainframe obsługiwane na platformie Azure
 
-Rozwiązania wymienione w tym artykule ułatwiają migrowanie obciążenia komputera mainframe do Microsoft Azure. Niektóre obciążenia można migrować ze względu na łatwość. Inne obciążenia, które są zależne od starszego oprogramowania systemowego, mogą być przeobsługiwane. 
+Wymienione tutaj rozwiązania mogą ułatwić migrację obciążenia komputera mainframe do Microsoft Azure. Niektóre obciążenia można migrować ze względną łatwością. Inne obciążenia, które zależą od starszego oprogramowania systemowego, mogą być ponownie hostowane. 
 
-Aby uzyskać pomoc dotyczącą emulacji i usług mainframe, zapoznaj się z [centrum migracji systemu Azure mainframe](https://azure.microsoft.com/migration/mainframe/).
+Aby uzyskać więcej pomocy dotyczącej emulacji komputerów mainframe i usług, zapoznaj się z centrum [migracji mainframe platformy Azure.](https://azure.microsoft.com/migration/mainframe/)
 
-## <a name="migrate-mainframe-closer-to-azure"></a>Migrowanie komputerów mainframe bliżej platformy Azure
+## <a name="migrate-mainframe-closer-to-azure"></a>Migrowanie mainframe bliżej platformy Azure
 
-- [Asna Visual RPG for .NET](https://asna.com/us/products/visual-rpg) compiler dla .NET Framework za pośrednictwem wtyczki programu Visual Studio.
-- [ASYSCO AMT COBOL](https://www.asysco.com/cobol/) Development Environment (Unisys, mainframe firmy IBM i inne DIALEKTy COBOL, takie jak mikro Focus COBOL).
-- Oparta na chmurze architektura wdrażania [ASYSCO AMT](https://www.asysco.com/amt-go/) dla obciążeń o wysokiej wartości.
-- [ASYSCO AMT transformację](https://www.asysco.com/amt-transform/) na potrzeby konwertowania danych, kodu, skryptów, zabezpieczeń, interfejsów i innych artefaktów mainframe.
-- Narzędzia do programowania i integracji [Fujitsu NetCOBOL](https://www.fujitsu.com/global/products/software/developer-tool/netcobol/) .
-- Narzędzia do tworzenia i integracji [wizualizacji w programie Visual COBOL](https://www.microfocus.com/products/visual-cobol/) .
-- [Wielofokusowy KOMPILATOR pl/i](https://www.microfocus.com/campaign/download/pli-modernization/) starszy dla platformy .NET, obsługujący składnię pl/i, typy danych oraz zachowanie.
-- Platforma integracji z programem [Enterprise Server z programem Micro Focus](https://www.microfocus.com/products/enterprise-suite/enterprise-server/) .
-- [Nowoczesne systemy CTU (COBOL-to-Universal)](https://modernsystems.com/automatic-cobol-to-java-conversion/) narzędzia do projektowania i integracji.
-- [NTT Data COBOL](https://us.nttdata.com/en/digital/application-development-and-modernization) Development i Integration Tools przedsiębiorstwa.
-- [NTT otwarty KOMPILATOR pl/i](https://us.nttdata.com/en/digital/application-development-and-modernization) ze starszymi wersjami dla platformy .NET, obsługujący składnię pl/i, typy danych oraz zachowanie.
-- Narzędzia do programowania i integracji [kompilatora RAINCODE COBOL](https://www.raincode.com/products/cobol/) .
-- [Kompilator RAINCODE pl/i](https://www.raincode.com/products/pli/) dla platformy .NET obsługuje składnię, typy danych i zachowanie komputera mainframe.
-- [Kompilator RAINCODE ASM370](https://www.raincode.com/technical-landscape/asm370/) dla składni asemblera mainframe 370 i HLASM.
+- [AsNA VisualOWA DLA kompilatora .NET](https://asna.com/us/products/visual-rpg) dla .NET Framework za Visual Studio wtyczki.
+- [Środowisko deweloperskie COBOL firmy Asysco AMT](https://www.asysco.com/cobol/) (komputery mainframe Unisys, ibm i inne dialekty COBOL, takie jak Micro Focus COBOL).
+- [Oparta na chmurze architektura wdrożenia Asysco AMT GO](https://www.asysco.com/amt-go/) dla obciążeń wysokiej klasy.
+- [Asysco AMT Transform](https://www.asysco.com/amt-transform/) — umożliwia konwertowanie danych, kodu, skryptów, zabezpieczeń, interfejsów i innych artefaktów komputerów mainframe.
+- Narzędzia do tworzenia i integracji w technologii [NetCOBOL.](https://www.fujitsu.com/global/products/software/developer-tool/netcobol/)
+- [Narzędzia do tworzenia i integracji aplikacji Micro Focus Visual COBOL.](https://www.microfocus.com/products/visual-cobol/)
+- [Starsza wersja kompilatora Micro Focus PL/I](https://www.microfocus.com/campaign/download/pli-modernization/) dla platformy .NET, obsługująca składnię mainframe PL/I, typy danych i zachowanie.
+- [Platforma integracji komputerów](https://www.microfocus.com/products/enterprise-suite/enterprise-server/) mainframe z programem Micro Focus Enterprise Server.
+- [Nowoczesne systemy CTU (COBOL-To-Universal) —](https://modernsystems.com/automatic-cobol-to-java-conversion/) narzędzia do tworzenia i integracji.
+- [Narzędzia do tworzenia i integracji NTT Data Enterprise COBOL.](https://us.nttdata.com/en/digital/application-development-and-modernization)
+- [NTT Open PL/I](https://us.nttdata.com/en/digital/application-development-and-modernization) starszego kompilatora dla platformy .NET, obsługujący składnię PL/I mainframe, typy danych i zachowanie.
+- [Narzędzia do tworzenia i integracji kompilatora COBOL oprogramowania Raincode.](https://www.raincode.com/products/cobol/)
+- [Kompilator JĘZYKA PL/I raincode](https://www.raincode.com/products/pli/) dla platformy .NET obsługuje składnię PL/I mainframe, typy danych i zachowanie.
+- [Kompilator ASM370](https://www.raincode.com/technical-landscape/asm370/) kodu przeciwdeszczowego dla składni mainframe Assembler 370 i HLASM.
 
-## <a name="deploy-an-emulation-environment-for-online-and-batch-processing"></a>Wdrażanie środowiska emulacji w trybie online i przetwarzanie wsadowe
+## <a name="deploy-an-emulation-environment-for-online-and-batch-processing"></a>Wdrażanie środowiska emulacji do przetwarzania online i przetwarzania wsadowego
 
-- Architektura wdrożenia [ASYSCO AMT](https://www.asysco.com/amt-go/) , obsługująca CICS, IMS, TIP, HVTIP i inne typowe środowiska mainframe.
-- Platforma integracji z programem [Enterprise Server z programem Micro Focus](https://www.microfocus.com/products/enterprise-suite/enterprise-server/) .
-- [NTT danych typu mainframe rehostowanie środowiska programistycznego](https://us.nttdata.com/en/-/media/assets/white-paper/apps-mainframe-re-hosting-development-environment-whitepaper.pdf) — natywne środowisko przetwarzania transakcji.
-- [NTT Data Batch Processing Environment](https://us.nttdata.com/en/-/media/assets/white-paper/apps-mainframe-re-hosting-development-environment-whitepaper.pdf) (BPE), w tym możliwości transakcji JCL.
-- Emulator [RAINCODE CICS](https://www.raincode.com/technical-landscape/cics/) dla platformy .NET i platformy Azure.
-- [RAINCODE JCL](https://www.raincode.com/products/jcl/) interpreter JCL zgodny z wtyczką.
+- [Architektura wdrażania asysco AMT GO](https://www.asysco.com/amt-go/) obsługująca rozwiązania CICS, IMS, TIP, HVTIP i inne typowe środowiska komputerów mainframe.
+- [Platforma integracji mainframe micro Focus Enterprise Server.](https://www.microfocus.com/products/enterprise-suite/enterprise-server/)
+- [NtT DATA Mainframe Rehosting Development Environment native](https://us.nttdata.com/en/-/media/assets/white-paper/apps-mainframe-re-hosting-development-environment-whitepaper.pdf) transaction processing environment (Środowisko przetwarzania transakcji natywnych NTT DATA Mainframe).
+- [NTT DATA Batch Processing Environment](https://us.nttdata.com/en/-/media/assets/white-paper/apps-mainframe-re-hosting-development-environment-whitepaper.pdf) (BPE), w tym możliwości transakcji JCL.
+- [Emulator cics programu Raincode](https://www.raincode.com/technical-landscape/cics/) dla platform .NET i Azure.
+- [Interpreter JCL](https://www.raincode.com/products/jcl/) zgodny z wtyczką Raincode JCL.
 
 ## <a name="code-conversion"></a>Konwersja kodu
 
-- Technologia konwersji systemu [Asysco](https://www.asysco.com/azure-cloud/) obejmująca kod źródłowy, dane, partie, planowanie, monitory TP, interfejsy, zabezpieczenia, zarządzanie i inne.
-- Kompleksowe usługi [ASYSCO AMT](https://www.asysco.com/migration-services/) na potrzeby projektów migracji, w tym spisu i analizy, szkolenia projektowe, próby zaskarżenia, przechodzenia do usługi Live i po migracji.
-- Narzędzia [wieku Blu](https://www.bluage.com/) dla urządzeń cyfrowych ze starszymi aplikacjami biznesowymi i bazami danych.
-- [Heirloom usługi obliczeniowe](https://www.heirloomcomputing.com/tag/convert-cobol-to-java/) , aby skonwertować Komputery mainframe COBOL, CICS i VSAM do języka Java.
-- [LzLabs programowy, zdefiniowany](https://www.lzlabs.com/) dla programu mainframe, kontener oprogramowania zarządzanego do migrowania aplikacji mainframe do komputerów z systemem Linux lub prywatnych, publicznych i hybrydowych środowisk chmurowych.
+- [Technologia konwersji systemu Asysco](https://asysco.com/) obejmująca kod źródłowy, dane, partie, planowanie, monitory TP, interfejsy, zabezpieczenia, zarządzanie i inne.
+- [Asysco AMT Services](https://www.asysco.com/migration-services/) end-to-end services for migration projects, including inventory and analysis, design training, re wytchniaki, go-live, and post-migration support.
+- [Narzędzia do tworzenia](https://www.bluage.com/) cyfrowych starszych aplikacji biznesowych i baz danych.
+- [Heirloom Computing services](https://www.heirloomcomputing.com/tag/convert-cobol-to-java/) to convert mainframe COBOL, CICS, and VSAM to Java (Usługi przetwarzania heirloom do konwersji mainframe COBOL, CICS i VSAM na język Java).
+- Kontener oprogramowania mainframe zdefiniowanego programowo [LzLabs](https://www.lzlabs.com/) do migrowania aplikacji mainframe do komputerów z systemem Linux lub prywatnych, publicznych i hybrydowych środowisk chmurowych.
 
 ## <a name="modernization-services"></a>Usługi modernizacji
 
-Partnerzy firmy Microsoft korzystający z globalnych integratorów systemów (GSIs), którzy mogą pomóc w dużych organizacjach w projektowaniu i tworzeniu rozwiązań oraz zarządzaniu nimi. 
+Firma Microsoft współpracuje z globalnymi integratorami systemów(GSI), którzy mogą pomóc dużym organizacjom w projektowaniu i kompilowania rozwiązań oraz zarządzaniu nimi. 
 
-- [Centrum migracji typu mainframe platformy Azure](https://azure.microsoft.com/migration/mainframe/)
+- [Centrum migracji komputerów mainframe platformy Azure](https://azure.microsoft.com/migration/mainframe/)

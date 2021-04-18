@@ -1,6 +1,6 @@
 ---
-title: Przenieś swój własny ML do usługi Azure wskaźnikowej | Microsoft Docs
-description: W tym artykule wyjaśniono, jak tworzyć własne algorytmy uczenia maszynowego i korzystać z nich na potrzeby analizy danych na platformie Azure.
+title: Przyniesienie własnego uczenia maszynowego do Azure Sentinel | Microsoft Docs
+description: W tym artykule wyjaśniono, jak tworzyć własne algorytmy uczenia maszynowego i używać ich do analizy danych w Azure Sentinel.
 services: sentinel
 cloud: na
 documentationcenter: na
@@ -15,99 +15,99 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: yelevin
-ms.openlocfilehash: f8d795dcf64230140e1dd07e3f30ca3aa6825ab4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2164b8ac6e62b8826d5879da07384769c503bfb5
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99807007"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107598605"
 ---
-# <a name="bring-your-own-machine-learning-ml-into-azure-sentinel"></a>Przenieś własne Machine Learning (ML) na platformę Azure — wskaźnik
+# <a name="bring-your-own-machine-learning-ml-into-azure-sentinel"></a>Bring your own Machine Learning (ML) w Azure Sentinel
 
-Machine Learning (ML) to jeden z głównych podnoszenia wartości wskaźnikowej platformy Azure, a jeden z głównych atrybutów, które je ustawi. Usługa Azure Learning oferuje ML w kilku środowiskach: wbudowaną w aparat korelacji [Fusion](fusion.md) i notesy Jupyter oraz nowo dostępną platformę do tworzenia ml (BYOD ml). 
+Machine Learning (ML) jest jedną z głównych podstaw Azure Sentinel i jednym z głównych atrybutów, które ją odróżniają. Azure Sentinel oferuje uczenia maszynowego w kilku doświadczeniach: [](fusion.md) wbudowany aparat korelacji fusion i notesy Jupyter oraz nowo dostępną platformę Build-Your-Own ML (BYO ML). 
 
-Modele wykrywania ML można dostosowywać do poszczególnych środowisk i zmieniać zachowanie użytkowników, aby ograniczyć fałszywe pozytywne i identyfikować zagrożenia, które nie były dostępne w tradycyjnych podejściach. Wiele organizacji zabezpieczeń rozumie wartość ML w celu zapewnienia bezpieczeństwa, chociaż nie wiele z nich ma możliwość zaprojektowania profesjonalistów, którzy wiedzą zarówno w zakresie bezpieczeństwa, jak i w ML. Platforma została zaprojektowana w tym miejscu dla organizacji i specjalistów ds. zabezpieczeń w swojej podróży. Organizacje nowe do ML lub bez wiedzy z niezbędną wiedzą mogą uzyskać znaczącą wartość ochrony z wbudowanych możliwości platformy Azure wskaźnikowej.
+Modele wykrywania uczenia maszynowego mogą dostosowywać się do poszczególnych środowisk i zmian w zachowaniu użytkowników, aby ograniczyć liczbę wyników fałszywie dodatnich i zidentyfikować zagrożenia, które nie zostaną znalezione przy użyciu tradycyjnego podejścia. Wiele organizacji ds. zabezpieczeń rozumie wartość uczenia maszynowego w zakresie bezpieczeństwa, chociaż nie wiele z nich ma wytłoki profesjonalistów, którzy mają wiedzę z zakresu zabezpieczeń i uczenia maszynowego. Zaprojektowaliśmy przedstawioną tutaj platformę dla organizacji ds. zabezpieczeń i specjalistów ds. zabezpieczeń, aby rozwijały się wraz z nami w ich drodze do uczenia maszynowego. Organizacje, które nie mają doświadczenia w zakresie uczenia maszynowego lub nie mają niezbędnej wiedzy, mogą uzyskać znaczącą wartość ochrony Azure Sentinel wbudowanych funkcji uczenia maszynowego firmy Microsoft.
 
-:::image type="content" source="./media/bring-your-own-ml/machine-learning-framework.png" alt-text="Platforma uczenia maszynowego":::
+:::image type="content" source="./media/bring-your-own-ml/machine-learning-framework.png" alt-text="machine learning framework":::
 
-## <a name="what-is-the-bring-your-own-machine-learning-byo-ml-platform"></a>Co to jest platforma przenoszenia własnych Machine Learning (BYOD-ML)?
+## <a name="what-is-the-bring-your-own-machine-learning-byo-ml-platform"></a>Co to jest platforma Bring Your Own Machine Learning (BYO-ML)?
 
-W przypadku organizacji, które mają zasoby usługi ML i chcesz utworzyć dostosowane modele ML do ich unikatowych potrzeb firmy, oferujemy **platformę BYOD-ml**. Platforma wykorzystuje [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) / środowiska[Apache Spark](http://spark.apache.org/) i notesów Jupyter do tworzenia środowiska ml. Dostępne są następujące składniki:
+Dla organizacji, które mają zasoby uczenia maszynowego i chciały tworzyć dostosowane modele uczenia maszynowego do swoich unikatowych potrzeb biznesowych, oferujemy **platformę BYO-ML.** Platforma korzysta ze środowiska [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) / [Apache Spark](http://spark.apache.org/) i notesów Jupyter w celu tworzenia środowiska uczenia maszynowego. Udostępnia on następujące składniki:
 
-- Pakiet BYOD-ML, który obejmuje biblioteki ułatwiające dostęp do danych i wypychanie wyników z powrotem do Log Analytics (LA), dzięki czemu można zintegrować wyniki z wykrywaniem, badaniem i łowiectwem. 
+- Pakiet BYO-ML, który zawiera biblioteki, które ułatwiają dostęp do danych i wypychanie wyników z powrotem do usługi Log Analytics (LA), dzięki czemu można zintegrować wyniki z wykrywaniem, badaniem i wyszukiwaniami zagrożeń. 
 
-- Szablony algorytmów ML umożliwiające dostosowanie się do określonych problemów z zabezpieczeniami w organizacji. 
+- Szablony algorytmów uczenia maszynowego, które można dostosować, aby dopasować je do określonych problemów z zabezpieczeniami w organizacji. 
 
-- Przykładowe notesy umożliwiające uczenie modelu i planowanie oceniania modeli. 
+- przykładowe notesy do trenowania modelu i planowania oceny modelu. 
 
-Oprócz tego można przenieść własne modele ML i/lub własne środowisko Spark, aby zintegrować z platformą Azure — wskaźnikiem.
+Oprócz tego można korzystać z własnych modeli uczenia maszynowego i/lub własnego środowiska Spark w celu integracji z Azure Sentinel.
 
-Dzięki platformie BYOD-ML możesz uzyskać szybkie rozpoczęcie tworzenia własnych modeli ML: 
+Platforma BYO-ML pozwala szybko rozpocząć tworzenie własnych modeli uczenia maszynowego: 
 
-- Notes z przykładowymi danymi ułatwia uzyskanie praktycznego doświadczenia, bez obaw o obsługę danych produkcyjnych.
+- Notes z przykładami danych pomaga uzyskać praktyczne doświadczenie bez konieczności martwienia się o obsługę danych produkcyjnych.
 
 - Pakiet zintegrowany ze środowiskiem Spark zmniejsza wyzwania i problemy związane z zarządzaniem infrastrukturą.
 
-- Biblioteki obsługują ruchy danych. Notesy szkoleniowe i oceniające pokazują kompleksowe środowisko i stanowią szablon, który można dostosować do środowiska.
+- Biblioteki obsługują ruchy danych. Notesy do trenowania i oceniania pokazują środowisko end-to-end i służą jako szablon do dostosowywania się do środowiska.
 
 ### <a name="use-cases"></a>Przypadki zastosowań
  
-Platforma BYOD i pakiet w znacznym stopniu skracają czas i nakłady pracy potrzebne do stworzenia własnych wykryć i umożliwiają rozwiązywanie określonych problemów z zabezpieczeniami na platformie Azure. Platforma obsługuje następujące przypadki użycia:
+Platforma i pakiet BYO-ML znacznie skracają czas i nakład pracy potrzebny do tworzenia własnych funkcji wykrywania uczenia maszynowego, a także wyzwalają możliwość rozwiązania określonych problemów z zabezpieczeniami w Azure Sentinel. Platforma obsługuje następujące przypadki użycia:
 
-**Przeszkol algorytm ml, aby uzyskać dostosowany model:** Możesz utworzyć istniejący algorytm ML (udostępniony przez firmę Microsoft lub przez społeczność użytkowników) i łatwo wyszkolić go na własnych danych, aby uzyskać dostosowany model ML, który lepiej pasuje do danych i środowiska.
+**Trenowanie algorytmu uczenia maszynowego w celu uzyskania dostosowanego modelu:** Możesz użyć istniejącego algorytmu uczenia maszynowego (udostępnionego przez firmę Microsoft lub przez społeczność użytkowników) i łatwo wytszkolić go na własnych danych, aby uzyskać dostosowany model uczenia maszynowego, który lepiej pasuje do Twoich danych i środowiska.
 
-**Zmodyfikuj szablon algorytmu ml, aby uzyskać dostosowany model:** Możesz zmodyfikować szablon algorytmu ML (udostępniony przez firmę Microsoft lub przez społeczność użytkowników) i szkolić zmodyfikowany algorytm na własnych danych, aby utworzyć dostosowany model, który będzie pasował do określonego problemu.
+**Zmodyfikuj szablon algorytmu uczenia maszynowego, aby uzyskać dostosowany model:** Możesz zmodyfikować szablon algorytmu uczenia maszynowego (udostępniony przez firmę Microsoft lub przez społeczność użytkowników) i wytszkolić zmodyfikowany algorytm na podstawie własnych danych, aby utworzyć dostosowany model dopasowany do konkretnego problemu.
 
-**Utwórz własny model:** Utwórz własny model od podstaw, korzystając z platformy BYOD i narzędzi platformy Azure.
+**Utwórz własny model:** Utwórz własny model od podstaw przy użyciu platformy Azure Sentinel BYO-ML firmy.
 
-**Zintegruj swoje kostki danych/środowisko Spark:** Zintegruj istniejące kostki danych/środowisko Spark z platformą Azure, a następnie użyj bibliotek i szablonów BYOD-ML do tworzenia modeli ML do ich unikatowych sytuacji.
+**Zintegruj środowisko databricks/spark:** Zintegruj istniejące środowisko databricks/Spark Azure Sentinel i użyj bibliotek i szablonów BYO-ML do tworzenia modeli uczenia maszynowego w ich unikatowych sytuacjach.
 
-**Zaimportuj własny model ml:** Możesz zaimportować własne modele ML i użyć platformy BYOD i narzędzi, aby zintegrować je ze wskaźnikiem na platformie Azure.
+**Zaimportuj własny model uczenia maszynowego:** Możesz zaimportować własne modele uczenia maszynowego i zintegrować je z platformą BYO-ML oraz narzędziami Azure Sentinel.
 
-**Udostępnianie algorytmu ml:** Udostępnij algorytm ML dla społeczności, aby przyjąć i dostosować.
+**Udostępnianie algorytmu uczenia maszynowego:** Udostępnij algorytm uczenia maszynowego, który będzie używany przez społeczność do przyjęcia i dostosowania.
 
-**Użyj ml do upoważnienia SecOP:** Użyj własnego NIESTANDARDOWEGO modelu ml i wyników dla polowania, wykryć, badania i odpowiedzi.
+**Użyj uczenia maszynowego, aby umożliwić secopsom:** użyj własnego niestandardowego modelu uczenia maszynowego i wyników do wyszukiwania zagrożeń, wykrywania, badania i reagowania.
 
-W tym artykule przedstawiono składniki platformy BYOD-ML oraz sposób korzystania z platformy i algorytmu nietypowego dostępu do zasobów w celu zapewnienia dostosowanego wykrywania ML przy użyciu platformy Azure.
+W tym artykule przedstawiono składniki platformy BYO-ML oraz sposób wykorzystania platformy i algorytmu dostępu do zasobów anomalii w celu zapewnienia dostosowanego wykrywania uczenia maszynowego za pomocą Azure Sentinel.
 
-## <a name="azure-databricksspark-environment"></a>Środowisko Azure Databricks/Spark
+## <a name="azure-databricksspark-environment"></a>Azure Databricks/Spark Environment
 
-[Apache Spark™](http://spark.apache.org/) przejściu w przód w uproszczeniu danych Big Data, zapewniając ujednoliconą platformę do tworzenia potoków danych. Azure Databricks zajmie to więcej, dostarczając platformę w chmurze o zerowym zarządzaniu, która jest oparta na platformie Spark. Zalecamy używanie kostek danych dla platformy BYOD-ML, dzięki czemu możesz skupić się na znajdowaniu odpowiedzi, które natychmiast wpływają na Twoją firmę, zamiast wykorzystywać potoki i problemy z platformą.
-Jeśli masz już kostki lub inne środowisko Spark i wolisz korzystać z istniejącej instalacji, pakiet BYOD-ML będzie również działał prawidłowo. 
+[Apache Spark™](http://spark.apache.org/) naprzód w upraszczaniu danych big data, zapewniając ujednoliconą platformę do tworzenia potoków danych. Azure Databricks to jeszcze bardziej, zapewniając platformę w chmurze bez zarządzania zbudowaną na platformie Spark. Zalecamy korzystanie z usługi Databricks na potrzeby platformy BYO-ML, dzięki czemu można skoncentrować się na znalezieniu odpowiedzi, które mają natychmiastowy wpływ na twoją firmę, a nie rozwiązywaniu problemów z potokami danych i platformą.
+Jeśli masz już usługę Databricks lub inne środowisko Spark i wolisz korzystać z istniejącej konfiguracji, pakiet BYO-ML również będzie działać w ich przypadku. 
 
-## <a name="byo-ml-package"></a>Pakiet BYOD-ML
+## <a name="byo-ml-package"></a>Pakiet BYO-ML
 
-Pakiet BYOD ML zawiera najlepsze rozwiązania i badania firmy Microsoft na frontonie ML pod kątem bezpieczeństwa. W tym pakiecie udostępniamy następującą listę narzędzi, notesów i szablonów algorytmów związanych z zabezpieczeniami.
+Pakiet BYO ML zawiera najlepsze rozwiązania i badania firmy Microsoft na frontonie uczenia maszynowego w zakresie zabezpieczeń. Ten pakiet zawiera listę narzędzi, notesów i szablonów algorytmów dla problemów z zabezpieczeniami.
 
 | Nazwa pliku | Opis |
 | --------- | ----------- |
-| azure_sentinel_utilities. WHL | Zawiera narzędzia do odczytywania obiektów blob z platformy Azure i zapisywania do Log Analytics. |
-| AnomalousRASampleData | W notesie przedstawiono użycie modelu nietypowego dostępu do zasobów w wskaźniku platformy Azure z wygenerowanym szkoleniem i testowaniem przykładowych danych. |
-| AnomalousRATraining. ipynb | Notes do uczenia algorytmu, tworzenia i zapisywania modeli. |
-| AnomalousRAScoring. ipynb | Notes, aby zaplanować uruchomienie modelu, wizualizować wynik i pisać wynik z powrotem do platformy Azure. |
+| azure_sentinel_utilities.whl | Zawiera narzędzia do odczytywania obiektów blob z platformy Azure i zapisywania ich w usłudze Log Analytics. |
+| AnomalieRASampleData | Notes przedstawia użycie modelu dostępu do zasobów anomalii na Azure Sentinel przy użyciu wygenerowanych przykładowych danych treningowych i testowych. |
+| AnomalousRATraining.ipynb | Notes do trenowania algorytmu, kompilowania i zapisywania modeli. |
+| AnomalousRAScoring.ipynb | Notes do planowania uruchomienia modelu, wizualizacji wyniku i zapisu wyniku z powrotem do Azure Sentinel. |
 |
 
-Pierwszy zaoferowany przez nas szablon algorytmu ML jest przeznaczony do [wykrywania anomalii dostępu do zasobów](https://github.com/Azure/Azure-Sentinel/tree/master/BYOML). Jest on oparty na algorytmie filtrowania do współpracy i jest szkolony z dziennikami dostępu do udziału plików systemu Windows (zdarzenia zabezpieczeń z IDENTYFIKATORem zdarzenia 5140). Kluczowe informacje potrzebne dla tego modelu w dzienniku to parowanie użytkowników i zasobów, do których uzyskuje się dostęp. 
+Pierwszym szablonem algorytmu uczenia maszynowego, który oferujemy, jest wykrywanie dostępu [do zasobów anomalii.](https://github.com/Azure/Azure-Sentinel/tree/master/BYOML) Jest on oparty na algorytmie filtrowania współpracy i jest trenowany za pomocą dzienników dostępu udziałów plików systemu Windows (zdarzenia zabezpieczeń o identyfikatorze zdarzenia 5140). Kluczowymi informacjami potrzebnymi dla tego modelu w dzienniku jest parowanie użytkowników i zasobów, do których uzyskano dostęp. 
 
-## <a name="example-walkthrough-anomalous-file-share-access-detection"></a>Przykładowe wskazówki: wykrywanie nietypowego dostępu do udziału plików 
+## <a name="example-walkthrough-anomalous-file-share-access-detection"></a>Przykładowy przewodnik: wykrywanie dostępu do udziału plików anomalii 
 
-Teraz, gdy znasz już najważniejsze składniki platformy BYOD-ML, Oto przykład przedstawiający sposób użycia platformy i składników do zapewnienia dostosowanego wykrywania ML.
+Teraz, gdy zapoznasz się z kluczowymi składnikami platformy BYO-ML, oto przykład, aby pokazać, jak używać platformy i składników do dostarczania dostosowanego wykrywania uczenia maszynowego.
 
-### <a name="setup-the-databricksspark-environment"></a>Konfigurowanie środowiska datakostki/platformy Spark
+### <a name="setup-the-databricksspark-environment"></a>Konfigurowanie środowiska Databricks/Spark
 
-Jeśli jeszcze tego nie zrobiono, należy skonfigurować własne środowisko danych. Aby uzyskać instrukcje, zapoznaj się z dokumentem [szybkiego startu](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) .
+Jeśli jeszcze go nie masz, musisz skonfigurować własne środowisko databricks. Aby uzyskać instrukcje, zapoznaj się z dokumentem Szybki start dotyczącym aplikacji [Databricks.](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal)
 
-### <a name="auto-export-instruction"></a>Instrukcja Autoexport
+### <a name="auto-export-instruction"></a>Instrukcja autoeksportu
 
-Aby utworzyć niestandardowe modele ML na podstawie własnych danych na platformie Azure, musisz wyeksportować dane z Log Analytics do magazynu obiektów blob lub zasobu centrum zdarzeń, aby model ML mógł uzyskać do niego dostęp z poziomu kostek. Dowiedz się, jak pozyskiwanie [danych do usługi Azure wskaźnikowej](connect-data-sources.md).
+Aby tworzyć niestandardowe modele uczenia maszynowego na podstawie własnych danych w uciece Azure Sentinel, musisz wyeksportować dane z usługi Log Analytics do magazynu obiektów blob lub zasobu centrum zdarzeń, aby model uczenia maszynowego miał do nich dostęp z usługi Databricks. Dowiedz się, [jak pozysować dane do Azure Sentinel](connect-data-sources.md).
 
-Na potrzeby tego przykładu należy mieć dane szkoleniowe dotyczące dziennika dostępu do udziału plików w usłudze Azure Blob Storage. Format danych jest udokumentowany w notesie i w bibliotekach.
+W tym przykładzie musisz mieć dane szkoleniowe dotyczące dziennika dostępu do udziału plików w usłudze Azure Blob Storage. Format danych jest udokumentowany w notesie i bibliotekach.
 
-Możesz automatycznie wyeksportować dane z Log Analytics przy użyciu [interfejsu wiersza polecenia platformy Azure (CLI)](/cli/azure/monitor/log-analytics). 
+Dane z usługi Log Analytics można wyeksportować automatycznie przy użyciu interfejsu wiersza polecenia [platformy Azure.](/cli/azure/monitor/log-analytics) 
 
-Aby uruchamiać polecenia, musisz mieć przypisaną rolę **współautor** w obszarze roboczym log Analytics, Twoim koncie magazynu i zasobem EventHub. 
+Aby uruchamiać polecenia, musisz mieć przypisaną rolę Współautor w obszarze roboczym usługi Log Analytics, koncie magazynu i zasobie usługi EventHub.  
 
-Oto przykładowy zestaw poleceń do skonfigurowania automatycznego eksportowania:
+Oto przykładowy zestaw poleceń służących do konfigurowania automatycznego eksportowania:
 
 ```azurecli
 
@@ -135,43 +135,43 @@ az monitor log-analytics workspace data-export list --resource-group "RG_NAME" -
  az monitor log-analytics workspace data-export delete --resource-group "RG_NAME" --workspace-name "WS_NAME" --name "NAME"
 ```
 
-### <a name="export-custom-data"></a>Eksportuj dane niestandardowe
+### <a name="export-custom-data"></a>Eksportowanie danych niestandardowych
 
-W przypadku danych niestandardowych, które nie są obsługiwane przez Log Analytics autoeksport, można użyć aplikacji logiki lub innych rozwiązań do przenoszenia danych. Możesz odwołać się do blogu " [eksportowanie log Analytics danych do magazynu obiektów BLOB](https://www.borninthecloud.com/exporting-log-analytics-data-to-blob-store/?preview=true) i skryptu.
+W przypadku danych niestandardowych, które nie są obsługiwane przez automatyczne eksportowanie usługi Log Analytics, możesz użyć aplikacji logiki lub innych rozwiązań do przenoszenia danych. Możesz zapoznać się z blogiem [i skryptem Eksportowanie danych usługi Log Analytics do magazynu](https://techcommunity.microsoft.com/t5/azure-monitor/log-analytics-data-export-preview/ba-p/1783530) obiektów blob.
 
-### <a name="correlate-with-data-outside-of-azure-sentinel"></a>Skorelowanie z danymi poza wskaźnikiem kontrolnym platformy Azure
+### <a name="correlate-with-data-outside-of-azure-sentinel"></a>Korelowanie z danymi spoza Azure Sentinel
 
-Dane spoza centrów danych platformy Azure można również przenieść do magazynu obiektów blob lub centrum zdarzeń, a następnie skorelować z danymi wskaźnikowymi platformy Azure w celu utworzenia modeli sieci. 
+Możesz również wprowadzić dane spoza Azure Sentinel do magazynu obiektów blob lub centrum zdarzeń i skorelować je z danymi Azure Sentinel w celu kompilowania modeli uczenia maszynowego. 
  
-### <a name="copy-and-install-the-related-packages"></a>Skopiuj i zainstaluj powiązane pakiety
+### <a name="copy-and-install-the-related-packages"></a>Kopiowanie i instalowanie powiązanych pakietów
 
-Skopiuj pakiet BYOD-ML z repozytorium GitHub usługi Azure Learning, którego wspomniano powyżej, do środowiska danych. Następnie otwórz Notesy i postępuj zgodnie z instrukcjami w notesie, aby zainstalować wymagane biblioteki w klastrach.
+Skopiuj pakiet BYO-ML z repozytorium Azure Sentinel GitHub wymienionego powyżej do środowiska usługi Databricks. Następnie otwórz notesy i postępuj zgodnie z instrukcjami w notesie, aby zainstalować wymagane biblioteki w klastrach.
 
-### <a name="model-training-and-scoring"></a>Model szkoleń i oceniania
+### <a name="model-training-and-scoring"></a>Trenowanie i ocenianie modelu
 
-Postępuj zgodnie z instrukcjami w dwóch notesach, aby zmienić konfiguracje zgodnie z własnym środowiskiem i zasobami, wykonaj kroki, aby przeprowadzić uczenie i kompilowanie modelu, a następnie Zaplanuj model do oceny przychodzących dzienników dostępu do udziału plików.
+Postępuj zgodnie z instrukcjami w dwóch notesach, aby zmienić konfiguracje zgodnie z własnym środowiskiem i zasobami, wykonaj kroki trenowania i tworzenia modelu, a następnie zaplanuj model oceny dzienników dostępu do przychodzących udziałów plików.
 
-### <a name="write-results-to-log-analytics"></a>Wyniki zapisu do Log Analytics
+### <a name="write-results-to-log-analytics"></a>Zapis wyników do usługi Log Analytics
 
-Po zaplanowaniu planowanej oceny możesz użyć modułu w notesie oceniania, aby napisać wyniki oceny do obszaru roboczego Log Analytics skojarzonego z wystąpieniem usługi Azure.
+Po zaplanowaniu oceniania możesz użyć modułu w notesie oceniania, aby zapisać wyniki oceny w obszarze roboczym usługi Log Analytics skojarzonym z Azure Sentinel wystąpieniem.
 
-### <a name="check-results-in-azure-sentinel"></a>Sprawdź wyniki na platformie Azure — wskaźnik
+### <a name="check-results-in-azure-sentinel"></a>Sprawdź wyniki w Azure Sentinel
 
-Aby zobaczyć wyniki oceny wraz ze szczegółowymi informacjami dotyczącymi dziennika, Wróć do portalu Azure wskaźnikowego. W **dziennikach** > dziennikach niestandardowych wyniki zostaną wyświetlone w tabeli **AnomalousResourceAccessResult_CL** (lub własnej nazwie tabeli niestandardowej). Możesz użyć tych wyników, aby wzmocnić badanie i doświadczenia z łowiectwa.
+Aby wyświetlić wyniki z wynikami wraz z powiązanymi szczegółami dziennika, wróć do Azure Sentinel portal. W **>** dziennikach niestandardowych zobaczysz wyniki w tabeli **AnomalousResourceAccessResult_CL** (lub własnej niestandardowej nazwie tabeli). Możesz użyć tych wyników, aby ulepszyć środowisko badania i wyszukiwania.
 
-:::image type="content" source="./media/bring-your-own-ml/anomalous-resource-access-logs.png" alt-text="nietypowe dzienniki dostępu do zasobów":::
+:::image type="content" source="./media/bring-your-own-ml/anomalous-resource-access-logs.png" alt-text="anomalie dzienniki dostępu do zasobów":::
 
-### <a name="build-custom-analytics-rule-with-ml-results"></a>Utwórz niestandardową regułę analizy z wynikami ML
+### <a name="build-custom-analytics-rule-with-ml-results"></a>Tworzenie niestandardowej reguły analizy z wynikami uczenia maszynowego
 
-Po potwierdzeniu, że wyniki z tablicy są w niestandardowym spisie i są zadowalające, można utworzyć wykrywanie na podstawie wyników. Przejdź do pozycji **Analiza** z portalu Azure wskaźnikowego i [Utwórz nową regułę wykrywania](tutorial-detect-threats-custom.md). Poniżej przedstawiono przykład wyświetlania zapytania używanego do tworzenia wykrywania.
+Po potwierdzeniu, że wyniki uczenia maszynowego znajdują się w tabeli dzienników niestandardowych i dokładność wyników jest zadowala, można utworzyć wykrywanie na podstawie wyników. Przejdź do **strony Analiza** w Azure Sentinel portal i [utwórz nową regułę wykrywania.](tutorial-detect-threats-custom.md) Poniżej znajduje się przykład przedstawiający zapytanie użyte do utworzenia wykrywania.
 
-:::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="Utwórz niestandardową regułę analizy dla wykryć B Y O M L":::
+:::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="tworzenie niestandardowej reguły analizy dla wykrywania B Y O M L":::
 
 ### <a name="view-and-respond-to-incidents"></a>Wyświetlanie zdarzeń i reagowanie na nie
-Po skonfigurowaniu reguły analizy na podstawie wyników z tablicy, jeśli wyniki przekraczają wartość progową ustawioną w zapytaniu, zdarzenie zostanie wygenerowane i naliczane na stronie **incydenty** na platformie Azure. 
+Po skonfigurowaniu reguły analizy na podstawie wyników uczenia maszynowego, jeśli istnieją wyniki powyżej wartości progowej ustawionej w  zapytaniu, zdarzenie zostanie wygenerowane i na stronie Zdarzenia w Azure Sentinel. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym dokumencie przedstawiono sposób korzystania z platformy BYOD-ML na platformie Azure na potrzeby tworzenia i importowania własnych algorytmów uczenia maszynowego w celu analizowania danych i wykrywania zagrożeń.
+W tym dokumencie opisano, jak używać platformy BYO-ML firmy Azure Sentinel do tworzenia lub importowania własnych algorytmów uczenia maszynowego w celu analizowania danych i wykrywania zagrożeń.
 
-- Zobacz wpisy dotyczące uczenia maszynowego i wielu innych tematów dostępnych w [blogu dotyczącym platformy Azure](https://aka.ms/azuresentinelblog).
+- Zobacz wpisy dotyczące uczenia maszynowego i wiele innych istotnych tematów na blogu Azure Sentinel [bloga.](https://aka.ms/azuresentinelblog)

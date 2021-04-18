@@ -3,12 +3,12 @@ title: Application Insights omówienie dostępności
 description: Konfigurowanie cyklicznych testów sieci Web w celu monitorowania dostępności i czasu odpowiedzi aplikacji lub witryny internetowej.
 ms.topic: conceptual
 ms.date: 04/15/2021
-ms.openlocfilehash: c3b7a1d0bf8c50c77e5062a702bcdd7600d98d7a
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 3c2d248df98fcb9f75f5de9c05b9f600955cbac7
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107520738"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600798"
 ---
 # <a name="availability-tests-overview"></a>Omówienie testów dostępności
 
@@ -18,16 +18,14 @@ Testy dostępności możesz skonfigurować dla dowolnego punktu końcowego proto
 
 ## <a name="types-of-availability-tests"></a>Typy testów dostępności
 
-Istnieją cztery typy testów dostępności:
+Istnieją trzy typy testów dostępności:
 
-* [Test ping adresu URL:](monitor-web-app-availability.md)ta kategoria ma dwa proste testy, które można utworzyć za pośrednictwem portalu.
-    - Podstawowy test ping: prosty test, który można utworzyć w Azure Portal.
-    - Standardowy test ping: bardziej zaawansowany standardowy test ping z funkcjami, takich jak używanie dowolnych metod żądania HTTP (na przykład `GET` , , itp.) lub dodawanie `HEAD` `POST` nagłówków niestandardowych.
+* [Test ping adresu URL:](monitor-web-app-availability.md)ta kategoria zawiera dwa proste testy, które można utworzyć za pośrednictwem portalu.
 * [Wieloetapowy test sieci](availability-multistep.md)Web: rejestrowanie sekwencji żądań internetowych, które można odtworzyć w celu przetestowania bardziej złożonych scenariuszy. Wieloetapowe testy sieci Web są tworzone Visual Studio Enterprise i przekazywane do portalu w celu wykonania.
-* [Niestandardowe testy dostępności śledzenia:](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability)jeśli zdecydujesz się utworzyć niestandardową aplikację do uruchamiania testów dostępności, możesz użyć metody do wysłania wyników `TrackAvailability()` do Application Insights.
+* [Niestandardowe śledzenie testów](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability)dostępności: jeśli zdecydujesz się utworzyć niestandardową aplikację do uruchamiania testów dostępności, metoda może służyć do wysyłania wyników do `TrackAvailability()` Application Insights.
 
 > [!IMPORTANT]
-> Zarówno test [ping adresu URL,](monitor-web-app-availability.md) jak i wieloetapowy [test](availability-multistep.md) sieci Web polegają na publicznej internetowej infrastrukturze DNS w celu rozpoznania nazw domen przetestowanych punktów końcowych. Oznacza to, że w przypadku korzystania z usługi Prywatna strefa DNS należy upewnić się, że każda nazwa domeny testu jest również rozpoznawana przez [](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) serwery nazw domen publicznych lub, jeśli nie jest to możliwe, można zamiast tego użyć niestandardowych testów dostępności śledzenia.
+> Zarówno test [ping adresu URL,](monitor-web-app-availability.md) jak i wieloetapowy [test](availability-multistep.md) sieci Web polegają na infrastrukturze publicznej internetowej usługi DNS w celu rozpoznania nazw domen przetestowanych punktów końcowych. Oznacza to, że w przypadku korzystania z usługi Prywatna strefa DNS należy upewnić się, że każda nazwa domeny testu jest również rozpoznawana przez [](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) serwery nazw domen publicznych lub, jeśli nie jest to możliwe, można zamiast tego użyć niestandardowych testów dostępności śledzenia.
 
 **Można utworzyć maksymalnie 100 testów dostępności na Application Insights zasobów.**
 

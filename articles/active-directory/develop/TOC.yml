@@ -24,13 +24,13 @@
       items:
         - name: Angular
           href: quickstart-v2-angular.md
-        - name: Przepływ kodu uwierzytelniania kątowego
+        - name: Angular — przepływ kodu uwierzytelniania
           href: quickstart-v2-javascript-auth-code-angular.md
         - name: JavaScript — przepływ kodu uwierzytelniania
           href: quickstart-v2-javascript-auth-code.md
         - name: JavaScript — niejawny przepływ
           href: quickstart-v2-javascript.md
-        - name: Reagowanie — przepływ kodu uwierzytelniania
+        - name: React — przepływ kodu uwierzytelniania
           href: quickstart-v2-javascript-auth-code-react.md
     - name: Aplikacja internetowa
       items:
@@ -66,7 +66,7 @@
           href: quickstart-v2-uwp.md
         - name: Aplikacje klasyczne Windows — .NET
           href: quickstart-v2-windows-desktop.md
-        - name: Node.js elektron
+        - name: Node.js Electron
           href: quickstart-v2-nodejs-desktop.md
     - name: Demon lub usługa zaplecza
       items:
@@ -74,9 +74,9 @@
           href: quickstart-v2-netcore-daemon.md
         - name: Demon konsoli języka Python
           href: quickstart-v2-python-daemon.md
-        - name: Demon Node.js Console
+        - name: Node.js demona konsoli
           href: quickstart-v2-nodejs-console.md
-        - name: Demon konsoli języka Java
+        - name: Demon konsoli Java
           href: quickstart-v2-java-daemon.md
 - name: Samouczki
   items:
@@ -96,7 +96,7 @@
           href: tutorial-v2-asp-webapp.md
         - name: Serwer Blazor
           href: tutorial-blazor-server.md
-        - name: Samouczek aplikacji sieci Web Node.js
+        - name: Node.js aplikacji internetowej
           href: tutorial-v2-nodejs-webapp-msal.md
     - name: Aplikacje mobilne i klasyczne
       items:
@@ -111,13 +111,13 @@
           href: tutorial-v2-windows-desktop.md
         - name: Korzystanie z trybu udostępnionego urządzenia w aplikacji dla systemu Android
           href: tutorial-v2-shared-device-mode.md
-        - name: Aplikacja klasyczna elektron
+        - name: Aplikacja desktop dla programu Electron
           href: tutorial-v2-nodejs-desktop.md
     - name: Demon lub usługa zaplecza
       items:
         - name: Aplikacja internetowa demona platformy ASP.NET
           href: tutorial-v2-aspnet-daemon-web-app.md
-        - name: Demon Node.js Console
+        - name: Node.js demona konsoli
           href: tutorial-v2-nodejs-console.md
 - name: Samples
   href: sample-v2-code.md
@@ -489,7 +489,7 @@
           href: reference-third-party-cookies-spas.md
         - name: Obsługa zmian plików cookie SameSite w przeglądarce Chrome
           href: howto-handle-samesite-cookie-changes-chrome-browser.md
-    - name: Obsługa uwierzytelniania bezhaseł
+    - name: Obsługa uwierzytelniania bez hasła
       items:
         - name: Obsługa uwierzytelniania FIDO2
           href: support-fido2-authentication.md
@@ -633,6 +633,8 @@
       href: reference-v2-libraries.md
     - name: Interfejsy API tożsamości i dostępu w programie Microsoft Graph
       href: /graph/api/resources/azure-ad-overview
+    - name: Typ zasad mapowania oświadczeń
+      href: reference-claims-mapping-policy-type.md
     - name: Kody błędów uwierzytelniania i autoryzacji
       displayName: AADSTS
       href: reference-aadsts-error-codes.md

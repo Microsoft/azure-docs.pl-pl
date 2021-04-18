@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: integracja Azure Active Directory z usługą Wingspan eTMF | Microsoft Docs'
-description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Wingspan eTMF.
+title: 'Samouczek: Azure Active Directory integracji z programem Tutorialpan eTMF | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować logowanie pojedynczej między programem Azure Active Directory i programem ToTMF.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,20 +11,20 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 3ad9d7963da3719773afb4a39fc882ba0dddbf85
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f0744b98b0264a79072e60ddb7627a4b527bdf1e
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92520255"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600611"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Samouczek: integracja Azure Active Directory z usługą Wingspan eTMF
+# <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Samouczek: Azure Active Directory integracji z programem Tutorialpan eTMF
 
-W tym samouczku dowiesz się, jak zintegrować usługę Wingspan eTMF z usługą Azure Active Directory (Azure AD).
-Integracja usługi Wingspan eTMF z usługą Azure AD zapewnia następujące korzyści:
+Z tego samouczka dowiesz się, jak zintegrować program Integrpan eTMF z Azure Active Directory (Azure AD).
+Zintegrowanie aplikacji Systempan eTMF z usługą Azure AD zapewnia następujące korzyści:
 
-* Możesz kontrolować w usłudze Azure AD, kto ma dostęp do Wingspan eTMF.
-* Możesz umożliwić użytkownikom automatyczne logowanie do Wingspan eTMF (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
+* W usłudze Azure AD możesz kontrolować, kto ma dostęp do aplikacji OTMF.
+* Możesz umożliwić swoim użytkownikom automatyczne logowanie do aplikacji Chceszpan eTMF (logowanie pojedyncze) przy użyciu kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
@@ -32,22 +32,22 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpł
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z usługą Wingspan eTMF, potrzebne są następujące elementy:
+Do skonfigurowania integracji usługi Azure AD z programem Rozwiązaniapan eTMF potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/)
-* Subskrypcja z włączonym logowaniem jednokrotnym w usłudze Wingspan eTMF
+* Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz uzyskać bezpłatne [konto](https://azure.microsoft.com/free/)
+* Subskrypcja aplikacji Dospan eTMF z obsługą logowania pojedynczego
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Wingspan eTMF obsługuje logowanie jednokrotne w usłudze **SP**
+* Program Bydgoszcz eTMF obsługuje logowanie **jednokrotne inicjowane** przez sp
 
-## <a name="adding-wingspan-etmf-from-the-gallery"></a>Dodawanie Wingspan eTMF z galerii
+## <a name="adding-wingspan-etmf-from-the-gallery"></a>Dodawanie aplikacji Sumpan eTMF z galerii
 
-Aby skonfigurować integrację usługi Wingspan eTMF w usłudze Azure AD, musisz dodać eTMF Wingspan z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację aplikacji Rozwiązaniapan eTMF z usługą Azure AD, musisz dodać aplikację Dopan eTMF z galerii do swojej listy zarządzanych aplikacji SaaS.
 
-**Aby dodać Wingspan eTMF z galerii, wykonaj następujące czynności:**
+**Aby dodać program Dompan eTMF z galerii, wykonaj następujące kroki:**
 
 1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
 
@@ -61,31 +61,31 @@ Aby skonfigurować integrację usługi Wingspan eTMF w usłudze Azure AD, musisz
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **Wingspan eTMF**, wybierz pozycję **Wingspan eTMF** from a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+4. W polu wyszukiwania wpisz **Ekranpan eTMF,** wybierz pozycję **Boxpan eTMF** z panelu wyników, a następnie kliknij przycisk **Dodaj,** aby dodać aplikację.
 
-     ![Wingspan eTMF na liście wyników](common/search-new-app.png)
+     ![Na liście wyników jest dostępny program Dosyć eTMF](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą Wingspan eTMF na podstawie użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w programie Wingspan eTMF.
+W tej sekcji skonfigurujesz i przetestujesz logowanie pojedynczej usługi Azure AD z platformą Rozwiązaniapan eTMF, bazując na danych użytkownika testowego **Britta Simon.**
+Aby logowanie pojedyncze działało, należy ustalić relację połączenia między użytkownikiem usługi Azure AD i powiązanym użytkownikiem aplikacji Rozwiązaniapan eTMF.
 
-Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi Wingspan eTMF, należy wykonać następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować logowanie pojedynczej usługi Azure AD z platformą Rozwiązaniapan eTMF, należy wykonać czynności z poniższych bloków konstrukcyjnych:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie](#configure-wingspan-etmf-single-sign-on)** jednokrotne w usłudze Wingspan eTMF — aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
+2. **[Konfigurowanie logowania pojedynczego w aplikacji Chcesz skonfigurować](#configure-wingspan-etmf-single-sign-on)** aplikację Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz użytkownika testowego Wingspan eTMF](#create-wingspan-etmf-test-user)** , aby uzyskać odpowiednik Simon Britta w Wingspan eTMF, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
+5. **[Tworzenie użytkownika testowego aplikacji Simon eTMF](#create-wingspan-etmf-test-user)** — aby mieć w aplikacji Simon eTMF odpowiednik użytkownika Britta Simon połączony z reprezentacją użytkownika w usłudze Azure AD.
 6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
 
 W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
 
-Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Wingspan eTMF, wykonaj następujące czynności:
+Aby skonfigurować logowanie pojedynczej usługi Azure AD w aplikacji Dopan eTMF, wykonaj następujące kroki:
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Wingspan eTMF** wybierz pozycję **Logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)aplikacji na **stronie integracji aplikacji Dopan eTMF** wybierz **pozycję Logowanie pojedyncze.**
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
@@ -99,22 +99,22 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Wingspan eT
 
 4. W sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące czynności:
 
-    ![Wingspan eTMF domeny i adresy URL Logowanie jednokrotne](common/sp-identifier-reply.png)
+    ![Informacje o domenie i adresach URL logowania pojedynczego programu ETMF](common/sp-identifier-reply.png)
 
-    a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<customer name>.<instance name>.mywingspan.com/saml`
+    a. W **polu tekstowym Adres URL** logowania wpisz adres URL, korzystając z następującego wzorca: `https://<customer name>.<instance name>.mywingspan.com/saml`
 
-    b. W polu **Identyfikator** wpisz adres URL, używając następującego wzorca: `http://saml.<instance name>.wingspan.com/shibboleth`
+    b. W polu **Identyfikator** wpisz adres URL, korzystając z następującego wzorca: `http://saml.<instance name>.wingspan.com/shibboleth`
 
     c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<customer name>.<instance name>.mywingspan.com/`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zastąp je rzeczywistymi wartościami adresu URL logowania, identyfikatora i adresu URL odpowiedzi. Skontaktuj się z [zespołem obsługi klienta Wingspan eTMF](https://www.wingspan.com/contact-us/) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Zastąp je rzeczywistymi wartościami adresu URL logowania, identyfikatora i adresu URL odpowiedzi. W celu uzyskania tych wartości skontaktuj się z zespołem pomocy technicznej klienta aplikacji Doipan eTMF. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/metadataxml.png)
 
-6. W sekcji **Konfigurowanie Wingspan eTMF** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
+6. W **sekcji Konfigurowanie aplikacji Litpan eTMF** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
@@ -124,9 +124,9 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Wingspan eT
 
     c. Adres URL wylogowywania
 
-### <a name="configure-wingspan-etmf-single-sign-on"></a>Konfigurowanie Wingspan eTMF pojedynczego Sign-On
+### <a name="configure-wingspan-etmf-single-sign-on"></a>Konfigurowanie aplikacji Dompan eTMF Single Sign-On
 
-Aby skonfigurować Logowanie jednokrotne na stronie **Wingspan eTMF** , musisz wysłać pobrany **kod XML metadanych Federacji** i odpowiednie skopiowane adresy URL z Azure Portal do [zespołu pomocy technicznej Wingspan eTMF](https://www.wingspan.com/contact-us/). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować logowanie pojedyncze po stronie **aplikacji Dopan eTMF,** musisz wysłać pobrany plik XML metadanych federacji i odpowiednie adresy **URL** skopiowane z aplikacji Azure Portal do zespołu pomocy technicznej aplikacji Dopan eTMF. Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -136,7 +136,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
+2. Wybierz **pozycję Nowy** użytkownik w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -146,7 +146,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension . Na przykład BrittaSimon@contoso.com
+    b. W **polu Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension . Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -154,15 +154,15 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do Wingspan eTMF.
+W tej sekcji włączysz dla użytkownika Britta Simon możliwość korzystania z logowania pojedynczego platformy Azure, udzielając dostępu do aplikacji Britpan eTMF.
 
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **Wingspan eTMF**.
+1. W Azure Portal wybierz pozycję Aplikacje dla **przedsiębiorstw,** wybierz pozycję **Wszystkie aplikacje,** a następnie wybierz **pozycję Panel eTMF.**
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście Aplikacje wybierz pozycję **Wingspan eTMF**.
+2. Na liście aplikacji wybierz pozycję **Rowpan eTMF.**
 
-    ![Link Wingspan eTMF na liście aplikacji](common/all-applications.png)
+    ![Link do aplikacji Dompan eTMF na liście aplikacji](common/all-applications.png)
 
 3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
@@ -174,19 +174,19 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+6. Jeśli oczekujesz wartości roli w asercji SAML, w oknie dialogowym Wybieranie roli wybierz z  listy odpowiednią rolę dla użytkownika, a następnie kliknij przycisk Wybierz w dolnej części ekranu. 
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
-### <a name="create-wingspan-etmf-test-user"></a>Utwórz użytkownika testowego Wingspan eTMF
+### <a name="create-wingspan-etmf-test-user"></a>Tworzenie użytkownika testowego aplikacji Dopan eTMF
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w Wingspan eTMF. Współpracuj z [zespołem pomocy technicznej Wingspan eTMF](https://www.wingspan.com/contact-us/) , aby dodać użytkowników na platformie Wingspan eTMF. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika Britta Simon w aplikacji Simon eTMF. We współpracy z zespołem pomocy technicznej aplikacji Dompan eTMF dodaj użytkowników na platformie eTMF. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Wingspan eTMF w panelu dostępu należy automatycznie zalogować się do eTMF Wingspan, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+Po kliknięciu kafelka Centrumpan eTMF na platformie Panel dostępu powinno na celu automatyczne zalogowanie się do aplikacji Nieuzyskany eTMF, dla której jest ustawione logowanie jednokrotne. Aby uzyskać więcej informacji na Panel dostępu, [zobacz Introduction to the Panel dostępu (Wprowadzenie do Panel dostępu](../user-help/my-apps-portal-end-user-access.md)).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

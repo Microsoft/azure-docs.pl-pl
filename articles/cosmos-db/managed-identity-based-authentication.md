@@ -9,19 +9,19 @@ ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e4a41d508d15c3d8f41cc727776f233cc56c0817
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: b85e1fc74688f2883531bd3a6e724a2ce326a9db
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107480940"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600254"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Używanie tożsamości zarządzanych przypisanych przez system do uzyskiwania dostępu Azure Cosmos DB danych
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 W tym artykule skonfigurujesz *niezawodne,* niezależne od rotacji kluczy rozwiązanie do uzyskiwania dostępu do kluczy Azure Cosmos DB przy użyciu [tożsamości zarządzanych.](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) W przykładzie w tym artykule użyto Azure Functions, ale możesz użyć dowolnej usługi, która obsługuje tożsamości zarządzane. 
 
-Dowiesz się, jak utworzyć aplikację funkcji, która może uzyskać dostęp do Azure Cosmos DB danych bez konieczności kopiowania jakichkolwiek kluczy Azure Cosmos DB aplikacji. Aplikacja funkcji będzie wznawiać się co minutę i będzie rejestrować bieżącą temperaturę zbiorniku z bulwarem. Aby dowiedzieć się, jak skonfigurować aplikację funkcji wyzwalaną przez czasomierz, zobacz artykuł Create a function in Azure that [is triggered by a timer](../azure-functions/functions-create-scheduled-function.md) (Tworzenie funkcji na platformie Azure wyzwalane przez czasomierz).
+Dowiesz się, jak utworzyć aplikację funkcji, która może uzyskać dostęp do Azure Cosmos DB danych bez konieczności kopiowania jakichkolwiek kluczy Azure Cosmos DB aplikacji. Aplikacja funkcji będzie wznawiać się co minutę i będzie rejestrować bieżącą temperaturę chłoniaka bulwarowego. Aby dowiedzieć się, jak skonfigurować aplikację funkcji wyzwalaną przez czasomierz, zobacz artykuł Create a function in Azure that [is triggered by a timer](../azure-functions/functions-create-scheduled-function.md) (Tworzenie funkcji na platformie Azure wyzwalane przez czasomierz).
 
 Aby uprościć ten scenariusz, ustawienie [Czas do transmisji](./time-to-live.md) na żywo jest już skonfigurowane do czyszczenia starszych dokumentów dotyczących temperatury. 
 
@@ -29,7 +29,7 @@ Aby uprościć ten scenariusz, ustawienie [Czas do transmisji](./time-to-live.md
 
 W tym kroku przypiszesz przypisaną przez system tożsamość zarządzaną do aplikacji funkcji.
 
-1. W [witrynie Azure Portal](https://portal.azure.com/)otwórz okienko **Funkcji platformy Azure** i przejdź do aplikacji funkcji. 
+1. W [witrynie Azure Portal](https://portal.azure.com/) **okienku Funkcji platformy Azure** i przejdź do aplikacji funkcji. 
 
 1. Otwórz **kartę Tożsamość funkcji**  >   platformy: 
 
@@ -54,7 +54,7 @@ W tym kroku przypiszesz rolę do przypisanej przez system tożsamości zarządza
 > [!TIP] 
 > Podczas przypisywania ról przypisz tylko wymagany dostęp. Jeśli usługa wymaga tylko odczytu danych, przypisz rolę **czytelnika konta Cosmos DB do** tożsamości zarządzanej. Aby uzyskać więcej informacji na temat znaczenia dostępu z najmniejszymi uprawnieniami, zobacz artykuł Lower exposure of privileged accounts (Mniejsze [narażenie uprzywilejowanych kont).](../security/fundamentals/identity-management-best-practices.md#lower-exposure-of-privileged-accounts)
 
-W tym scenariuszu aplikacja funkcji będzie odczytywać temperaturę urządzenia a następnie zapisywać te dane z powrotem w kontenerze w Azure Cosmos DB. Ponieważ aplikacja funkcji musi zapisywać dane, musisz przypisać rolę **Współautor konta usługi DocumentDB.** 
+W tym scenariuszu aplikacja funkcji odczyta temperaturę urządzenia, a następnie zapisze te dane z powrotem w kontenerze w Azure Cosmos DB. Ponieważ aplikacja funkcji musi zapisywać dane, musisz przypisać rolę **Współautor konta usługi DocumentDB.** 
 
 ### <a name="assign-the-role-using-azure-portal"></a>Przypisywanie roli przy użyciu Azure Portal
 
@@ -69,8 +69,8 @@ W tym scenariuszu aplikacja funkcji będzie odczytywać temperaturę urządzenia
    :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="Zrzut ekranu przedstawiający okienko Dodawanie przypisania roli.":::
 
    * **Rola:** wybierz **pozycję Współautor konta bazy danych DocumentDB**
-   * **Przypisz dostęp do**: w podsekcji Wybierz tożsamość zarządzaną **przypisaną** przez system wybierz pozycję **Aplikacja funkcji.**
-   * **Wybierz** pozycję : Okienko zostanie wypełnione wszystkimi aplikacjami funkcji w subskrypcji, które mają zarządzaną **tożsamość systemu.** W takim przypadku wybierz aplikację **funkcji DotankTemperatureService:** 
+   * **Przypisz dostęp do**: w podsekcji Wybierz tożsamość zarządzaną **przypisaną** przez system wybierz **pozycję Aplikacja funkcji.**
+   * **Wybierz** pozycję : Okienko zostanie wypełnione wszystkimi aplikacjami funkcji w subskrypcji, które mają zarządzaną **tożsamość systemu.** W takim przypadku wybierz aplikację **funkcji TotankTemperatureService:** 
 
       :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Zrzut ekranu przedstawiający okienko Dodawanie przypisania roli wypełnione przykładami.":::
 
@@ -91,12 +91,12 @@ az role assignment create --assignee $principalId --role "DocumentDB Account Con
 
 ## <a name="programmatically-access-the-azure-cosmos-db-keys"></a>Programowe uzyskiwanie dostępu do Azure Cosmos DB kluczy
 
-Teraz mamy aplikację funkcji, która ma przypisaną przez system tożsamość zarządzaną z rolą Współautor konta usługi **DocumentDB** w uprawnieniach Azure Cosmos DB usługi. Poniższy kod aplikacji funkcji pobierze klucze Azure Cosmos DB, utworzy obiekt CosmosClient, pobierze temperaturę owody, a następnie zapisze go w Azure Cosmos DB.
+Teraz mamy aplikację funkcji, która ma przypisaną przez system tożsamość zarządzaną z rolą Współautor konta usługi **DocumentDB** w uprawnieniach Azure Cosmos DB usługi. Poniższy kod aplikacji funkcji pobierze klucze Azure Cosmos DB, utworzy obiekt CosmosClient, pobierze temperaturę owocu, a następnie zapisze go w Azure Cosmos DB.
 
-W tym przykładzie użyto [interfejsu API kluczy listy,](/rest/api/cosmos-db-resource-provider/2020-04-01/databaseaccounts/listkeys) aby uzyskać dostęp do Azure Cosmos DB kont.
+W tym przykładzie użyto [interfejsu API kluczy listy,](/rest/api/cosmos-db-resource-provider/2021-03-15/databaseaccounts/listkeys) aby uzyskać dostęp do Azure Cosmos DB kont.
 
 > [!IMPORTANT] 
-> Jeśli chcesz przypisać [rolę czytelnika konta Cosmos DB,](#grant-access-to-your-azure-cosmos-account) musisz użyć interfejsu API list [kluczy tylko do odczytu.](/rest/api/cosmos-db-resource-provider/2020-04-01/databaseaccounts/listreadonlykeys) Spowoduje to wypełnienie tylko kluczy tylko do odczytu.
+> Jeśli chcesz przypisać rolę [czytelnika konta Cosmos DB,](#grant-access-to-your-azure-cosmos-account) musisz użyć interfejsu API list [kluczy tylko do odczytu.](/rest/api/cosmos-db-resource-provider/2021-03-15/databaseaccounts/listreadonlykeys) Spowoduje to wypełnienie tylko kluczy tylko do odczytu.
 
 Interfejs API kluczy listy zwraca `DatabaseAccountListKeysResult` obiekt . Ten typ nie jest zdefiniowany w bibliotekach języka C#. Poniższy kod przedstawia implementację tej klasy:  
 
@@ -130,7 +130,7 @@ namespace Monitor
 }
 ```
 
-Do uzyskania przypisanego przez system tokenu tożsamości zarządzanej użyjesz biblioteki [Microsoft.Azure.Services.AppAuthentication.](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) Aby poznać inne sposoby uzyskania tokenu i uzyskać więcej informacji na temat biblioteki, zobacz artykuł `Microsoft.Azure.Service.AppAuthentication` [Service-to-service authentication](/dotnet/api/overview/azure/service-to-service-authentication) (Uwierzytelnianie między usługami).
+Użyjesz biblioteki [Microsoft.Azure.Services.AppAuthentication,](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) aby uzyskać przypisany przez system token tożsamości zarządzanej. Aby poznać inne sposoby uzyskania tokenu i uzyskać więcej informacji na temat biblioteki, zobacz artykuł `Microsoft.Azure.Service.AppAuthentication` [Service-to-service authentication](/dotnet/api/overview/azure/service-to-service-authentication) (Uwierzytelnianie między usługami).
 
 
 ```csharp

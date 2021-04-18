@@ -9,25 +9,25 @@
       items:
         - name: Tworzenie nowego konta w Centrum partnerskim
           href: create-account.md
-        - name: Dodaj nowych wydawców
+        - name: Dodawanie nowych wydawców
           href: add-publishers.md
         - name: Zarządzanie kontem
           href: manage-account.md
-        - name: Przełącz konta
+        - name: Przełączanie kont
           href: switch-accounts.md
-        - name: Zarządzanie dzierżawcami
+        - name: Zarządzanie dzierżawami
           href: manage-tenants.md
         - name: Znajdowanie lub tworzenie firmowego konta służbowego
           href: company-work-accounts.md
         - name: Migracja kont z witryny CPP do portalu Partner Center
           href: account-migration-from-cpp-to-pc.md
-        - name: Powiadomienie firmy Microsoft
+        - name: Powiadamianie firmy Microsoft
           href: submit-legal-notice.md
     - name: Zarządzanie użytkownikami
       items:
         - name: Dodawanie użytkowników i zarządzanie nimi
           href: add-manage-users.md
-        - name: Przypisywanie ról użytkownika
+        - name: Przypisywanie ról użytkowników
           href: user-roles.md
         - name: Zarządzanie grupami
           href: manage-groups.md
@@ -37,7 +37,7 @@
   items:
     - name: Opcje ofert
       href: determine-your-listing-type.md
-    - name: Funkcje Transact
+    - name: Możliwości transakcji
       href: marketplace-commercial-transaction-capabilities-and-considerations.md
     - name: Oferty prywatne
       href: private-offers.md
@@ -61,7 +61,7 @@
           href: test-drive-hosted-detailed-config.md
         - name: Konfigurowanie subskrypcji platformy Azure dla hostowanych wersji testowych
           href: test-drive-azure-subscription-setup.md
-    - name: Przypisanie użycia klienta platformy Azure
+    - name: Przypisywanie użycia przez klienta na platformie Azure
       href: azure-partner-customer-usage-attribution.md
     - name: Opcje wejścia na rynek
       items:
@@ -70,13 +70,13 @@
           items: null
         - name: Wspólna sprzedaż z firmą Microsoft
           items:
-            - name: Przegląd współpracujących
+            - name: Omówienie współpracy sprzedaży
               href: co-sell-overview.md
-            - name: Wymagania dotyczące wspólnych transakcji
+            - name: Wymagania dotyczące współpracy sprzedaży
               href: co-sell-requirements.md
-            - name: Konfiguruj wspólną sprzedaż
+            - name: Konfigurowanie współs sprzedaży
               href: co-sell-configure.md
-            - name: Sprawdź stan współsprzedawanej
+            - name: Weryfikowanie stanu współs sprzedaży
               href: co-sell-status.md
             - name: Migrowanie rozwiązań do wspólnej sprzedaży z rozwiązania OCP GTM
               href: co-sell-solution-migration.md
@@ -228,7 +228,7 @@
           href: partner-center-portal/azure-iot-edge-module-creation.md
         - name: Przygotowywanie zasobów technicznych dla modułu usługi IoT Edge
           href: partner-center-portal/create-iot-edge-module-asset.md
-        - name: Lista kontrolna certyfikacji wstępnej
+        - name: Lista kontrolna przed certyfikacją
           href: iot-edge-checklist.md
     - name: Oferty usługi zarządzanej
       items:
@@ -280,7 +280,7 @@
               href: create-saas-dev-test-offer.md
             - name: Testowanie i publikowanie oferty SaaS
               href: test-publish-saas-offer.md
-        - name: Sprzedaj ofertę SaaS
+        - name: Sprzedaż oferty SaaS
           href: create-new-saas-offer-marketing.md
     - name: Przeglądanie i publikowanie ofert
       href: review-publish-offer.md
@@ -328,15 +328,15 @@
       href: partner-center-portal/downloads-dashboard.md
     - name: Pulpit nawigacyjny Oceny i recenzje
       href: partner-center-portal/ratings-reviews.md
-    - name: Dostęp programistyczny do analizy
+    - name: Dostęp programowy do analizy
       items:
         - name: Rozpoczęcie pracy
           href: analytics-get-started.md
-        - name: Wymagania wstępne dostępu programistycznego
+        - name: Wymagania wstępne dotyczące dostępu programowego
           href: analytics-prerequisites.md
-        - name: Model dostępu programistycznego
+        - name: Paradygmat dostępu programowego
           href: analytics-programmatic-access.md
-        - name: Tworzenie pierwszego wywołania interfejsu API
+        - name: Pierwsze wywołanie interfejsu API
           href: analytics-make-your-first-api-call.md
         - name: Lista zapytań systemowych
           href: analytics-system-queries.md
@@ -346,7 +346,7 @@
           href: analytics-sample-application.md
         - name: Specyfikacja zapytania niestandardowego
           href: analytics-custom-query-specification.md
-        - name: Analiza programistyczna — często zadawane pytania
+        - name: Analiza programowa — często zadawane pytania
           href: analytics-programmatic-faq.md
         - name: Dokumentacja interfejsu API analizy
           items:
@@ -354,23 +354,23 @@
               href: analytics-available-apis.md
             - name: Pobierz wszystkie zestawy danych
               href: analytics-api-get-all-datasets.md
-            - name: Pobierz interfejs API kwerend raportów
+            - name: Interfejs API pobierz zapytania dotyczące raportów
               href: analytics-api-get-report-queries.md
-            - name: Usuwanie interfejsu API kwerend raportów
+            - name: Interfejs API usuwania zapytań dotyczących raportów
               href: analytics-api-delete-report-queries.md
-            - name: Wypróbuj interfejs API zapytań raportów
+            - name: Wypróbuj interfejs API zapytań dotyczących raportów
               href: analytics-api-try-report-queries.md
-            - name: Pobierz interfejs API raportów
+            - name: Uzyskiwanie interfejsu API raportu
               href: analytics-api-get-report.md
-            - name: Zaktualizuj interfejs API raportów
+            - name: Aktualizowanie interfejsu API raportu
               href: analytics-api-update-report.md
-            - name: Usuwanie interfejsu API raportów
+            - name: Usuwanie interfejsu API raportu
               href: analytics-api-delete-report.md
-            - name: Wstrzymywanie interfejsu API wykonywania raportów
+            - name: Interfejs API wstrzymywania wykonywania raportów
               href: analytics-api-pause-report-executions.md
-            - name: Wznów interfejs API wykonywania raportów
+            - name: Wznawianie interfejsu API wykonywania raportów
               href: analytics-api-resume-report-executions.md
-    - name: Zarządzanie anomaliami rozliczeń naliczanych
+    - name: Zarządzanie anomaliami w rozliczeniach mierzonych
       href: anomaly-detection.md
     - name: Często zadawane pytania dotyczące analizy
       href: analytics-faq.md
@@ -384,6 +384,10 @@
       href: /legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context
     - name: Warunki witryny Azure Marketplace
       href: /legal/marketplace/terms?context=/azure/marketplace/context/context
+    - name: Umowa wydawcy z firmą Microsoft
+      href: /legal/marketplace/msft-publisher-agreement
+    - name: Historia zmian dla umowy wydawcy firmy Microsoft
+      href: /legal/marketplace/mpa-change-history
 - name: Dokumentacja
   items:
     - name: Dokumentacja interfejsu CPP API

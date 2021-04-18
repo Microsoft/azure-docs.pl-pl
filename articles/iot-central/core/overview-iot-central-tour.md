@@ -1,30 +1,30 @@
 ---
 title: Przewodnik po interfejsie użytkownika usługi Azure IoT Central | Microsoft Docs
-description: Zapoznaj się z kluczowymi obszarami interfejsu użytkownika Azure IoT Central, który umożliwia tworzenie i używanie rozwiązania IoT oraz zarządzanie nim.
-author: TheJasonAndrew
-ms.author: v-anjaso
+description: Zapoznaj się z kluczowymi obszarami interfejsu użytkownika Azure IoT Central, których używasz do tworzenia i używania rozwiązania IoT oraz zarządzania nim.
+author: ankitscribbles
+ms.author: ankitgup
 ms.date: 02/09/2021
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: ff795281b3471d5c6f57397edf5a52e0df9bbd32
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 564e7d3d2353661d0a69cbd15ad8b281defacf87
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589128"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600585"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Przewodnik po interfejsie użytkownika usługi Azure IoT Central
 
-W tym artykule przedstawiono wprowadzenie do interfejsu użytkownika usługi Microsoft Azure IoT Central. Interfejs użytkownika umożliwia tworzenie i używanie rozwiązania usługi Azure IoT Central oraz jego połączonych urządzeń, a także zarządzanie nimi.
+Ten artykuł zawiera wprowadzenie do interfejsu Azure IoT Central użytkownika. Za pomocą interfejsu użytkownika można tworzyć i wykorzystywać aplikację IoT Central i jej połączone urządzenia oraz zarządzać nimi.
 
-## <a name="iot-central-homepage"></a>IoT Central główna
+## <a name="iot-central-homepage"></a>IoT Central strony głównej
 
 Strona [główna IoT Central](https://aka.ms/iotcentral-get-started) to miejsce, na którym można dowiedzieć się więcej o najnowszych wiadomościach i funkcjach dostępnych na stronie IoT Central, tworzyć nowe aplikacje oraz zobaczyć i uruchomić istniejące aplikacje.
 
-:::image type="content" source="media/overview-iot-central-tour/iot-central-homepage.png" alt-text="IoT Central główna":::
+:::image type="content" source="media/overview-iot-central-tour/iot-central-homepage.png" alt-text="IoT Central strony głównej":::
 
 ### <a name="create-an-application"></a>Tworzenie aplikacji
 
@@ -42,7 +42,7 @@ Aby uruchomić aplikację IoT Central, przejdź do adresu URL wybranego podczas 
 
 ## <a name="navigate-your-application"></a>Nawigowanie po aplikacji
 
-Gdy znajdziesz się w aplikacji IoT, użyj okienka po lewej stronie, aby uzyskać dostęp do różnych obszarów. Lewe okienko można rozwinąć lub zwinąć, wybierając ikonę z trzema wierszami w górnej części okienka:
+Gdy znajdziesz się w aplikacji IoT, użyj okienka po lewej stronie, aby uzyskać dostęp do różnych funkcji. Lewe okienko można rozwinąć lub zwinąć, wybierając ikonę z trzema wierszami w górnej części okienka:
 
 > [!NOTE]
 > Elementy, które widzisz w okienku po lewej stronie, zależą od Twojej roli użytkownika. Dowiedz się więcej o [zarządzaniu użytkownikami i rolami.](howto-manage-users-roles.md) 
@@ -55,21 +55,23 @@ Gdy znajdziesz się w aplikacji IoT, użyj okienka po lewej stronie, aby uzyska�
   :::column span="2":::
      **Na pulpitach** nawigacyjnych są wyświetlane wszystkie aplikacje i osobiste pulpity nawigacyjne. 
      
-     **Urządzenia** umożliwiają zarządzanie połączonymi urządzeniami — rzeczywistymi i symulowanymi.
+     **Urządzenia** umożliwiają zarządzanie wszystkimi urządzeniami.
 
      **Grupy urządzeń** umożliwiają wyświetlanie i tworzenie kolekcji urządzeń określonych przez zapytanie. Grupy urządzeń są używane za pośrednictwem aplikacji do wykonywania operacji zbiorczych.
 
-     **Reguły** umożliwiają tworzenie i edytowanie reguł w celu monitorowania urządzeń. Reguły są oceniane na podstawie danych telemetrycznych urządzenia i wyzwalają dostosowywalne akcje.
+     **Reguły** umożliwiają tworzenie i edytowanie reguł w celu monitorowania urządzeń. Reguły są oceniane na podstawie danych urządzenia i wyzwalają dostosowywalne akcje.
 
-     **Analiza** umożliwia graficzne wyświetlanie danych telemetrycznych z urządzeń.
+     **Analiza** udostępnia zaawansowane możliwości analizowania trendów historycznych i korelowania różnych telemetrii z urządzeń.
 
      **Zadania** umożliwiają zarządzanie urządzeniami na dużą skalę przez uruchamianie operacji zbiorczych.
 
-     **Szablony urządzeń** to miejsce, w którym można tworzyć cechy urządzeń, które łączą się z aplikacją, i zarządzać nimi.
+     **Szablony urządzeń** umożliwiają tworzenie cech urządzeń, które łączą się z aplikacją, i zarządzanie nimi.
 
      **Eksportowanie** danych umożliwia skonfigurowanie ciągłego eksportu do usług zewnętrznych, takich jak magazyn i kolejki.
 
-     **Administracja** to miejsce, w którym można zarządzać ustawieniami, dostosowywaniem, rozliczeniami, użytkownikami i rolami aplikacji.
+     **Administracja** umożliwia zarządzanie ustawieniami aplikacji, dostosowywaniem, rozliczeniami, użytkownikami i rolami.
+
+     **Moje aplikacje** umożliwia powrót do menedżera IoT Central aplikacji.
      
    :::column-end:::
 :::row-end:::
@@ -96,7 +98,7 @@ Możesz wybrać jasny lub ciemny motyw interfejsu użytkownika:
 
 :::image type="content" source="Media/overview-iot-central-tour/dashboard.png" alt-text="Zrzut ekranu przedstawiający pulpit IoT Central nawigacyjnym.":::
 
-* Pulpit nawigacyjny jest pierwszą stroną, która jest widzina po zalogowaniu się do Azure IoT Central aplikacji. Możesz tworzyć i dostosowywać wiele pulpitów nawigacyjnych aplikacji. Dowiedz się więcej o [dodawaniu kafelków do pulpitu nawigacyjnego](howto-add-tiles-to-your-dashboard.md)
+* Pulpit nawigacyjny to pierwsza strona, która jest widzina po zalogowaniu się do IoT Central aplikacji. Możesz tworzyć i dostosowywać wiele pulpitów nawigacyjnych aplikacji. Dowiedz się więcej o [dodawaniu kafelków do pulpitu nawigacyjnego](howto-add-tiles-to-your-dashboard.md)
 
 * Osobiste pulpity nawigacyjne można również tworzyć, aby monitorować to, co Cię zależy. Aby dowiedzieć się więcej, zobacz artykuł [Azure IoT Central tworzenie osobistych pulpitów](howto-create-personal-dashboards.md) nawigacyjnych.
 
@@ -104,7 +106,7 @@ Możesz wybrać jasny lub ciemny motyw interfejsu użytkownika:
 
 :::image type="content" source="Media/overview-iot-central-tour/devices.png" alt-text="Zrzut ekranu przedstawiający stronę Urządzenia.":::
 
-Na stronie eksploratora są wyświetlane _urządzenia_ w aplikacji usługi Azure IoT Central pogrupowane według _szablonu urządzeń_. 
+Na tej stronie przedstawiono urządzenia w aplikacji IoT Central pogrupowane według _szablonu urządzenia._ 
 
 * Szablon urządzenia definiuje typ urządzenia, który może łączyć się z aplikacją.
 * Urządzenie reprezentuje rzeczywiste lub symulowane urządzenie w aplikacji.
@@ -115,37 +117,30 @@ Aby dowiedzieć się więcej, zobacz [przewodnik Szybki start Monitorowanie](./q
 
 :::image type="content" source="Media/overview-iot-central-tour/device-groups.png" alt-text="Strona Grupy urządzeń":::
 
-Grupa urządzeń to kolekcja powiązanych urządzeń. Grupy urządzeń są służące do wykonywania operacji zbiorczych w aplikacji. Aby dowiedzieć się więcej, zobacz artykuł Korzystanie z [grup urządzeń w Azure IoT Central aplikacji.](tutorial-use-device-groups.md)
+Ta strona umożliwia tworzenie i wyświetlanie grup urządzeń w IoT Central aplikacji. Za pomocą grup urządzeń można wykonać operacje zbiorcze w aplikacji lub analizować dane. Aby dowiedzieć się więcej, zobacz artykuł Korzystanie z [grup urządzeń w Azure IoT Central aplikacji.](tutorial-use-device-groups.md)
 
 ### <a name="rules"></a>Reguły
 :::image type="content" source="Media/overview-iot-central-tour/rules.png" alt-text="Zrzut ekranu przedstawiający stronę Reguły.":::
 
-Strona reguł umożliwia definiowanie reguł na podstawie danych telemetrycznych, stanu lub zdarzeń urządzeń. Po aktywowaniu reguły może ona wyzwolić jedną lub więcej akcji — takich jak wysyłanie wiadomości e-mail, powiadamianie systemu zewnętrznego za pośrednictwem alertów dotyczących element webhook itp. Aby dowiedzieć się więcej, zobacz [samouczek Konfigurowanie](tutorial-create-telemetry-rules.md) reguł. 
+Ta strona umożliwia wyświetlanie i tworzenie reguł na podstawie danych urządzenia. Po aktywowaniu reguły może ona wyzwolić jedną lub więcej akcji, takich jak wysłanie wiadomości e-mail lub wywołanie element webhook. Aby dowiedzieć się więcej, zobacz [samouczek Konfigurowanie](tutorial-create-telemetry-rules.md) reguł. 
 
 ### <a name="analytics"></a>Analiza
 
 :::image type="content" source="Media/overview-iot-central-tour/analytics.png" alt-text="Zrzut ekranu przedstawiający stronę Analiza.":::
 
-Strona analizy umożliwia graficzne wyświetlanie danych telemetrycznych z urządzeń w szeregach czasu. Aby dowiedzieć się więcej, zobacz [artykuł Tworzenie analizy dla Azure IoT Central aplikacji.](howto-create-analytics.md)
+Analiza udostępnia zaawansowane możliwości analizowania trendów historycznych i korelowania różnych telemetrii z urządzeń. Aby dowiedzieć się więcej, zobacz [artykuł Tworzenie analizy dla Azure IoT Central aplikacji.](howto-create-analytics.md)
 
 ### <a name="jobs"></a>Stanowiska
 
 :::image type="content" source="Media/overview-iot-central-tour/jobs.png" alt-text="Strona zadań":::
 
-Strona zadań umożliwia uruchamianie operacji zbiorczych na urządzeniach. Można aktualizować właściwości i ustawienia urządzeń oraz wykonywać polecenia względem grup urządzeń. Aby dowiedzieć się więcej, zobacz artykuł [Uruchamianie zadania](howto-run-a-job.md).
+Ta strona umożliwia wyświetlanie i tworzenie zadań, które mogą być używane do zbiorczych operacji zarządzania urządzeniami na urządzeniach. Można aktualizować właściwości i ustawienia urządzeń oraz wykonywać polecenia względem grup urządzeń. Aby dowiedzieć się więcej, zobacz artykuł [Uruchamianie zadania](howto-run-a-job.md).
 
 ### <a name="device-templates"></a>Szablony urządzeń
 
 :::image type="content" source="Media/overview-iot-central-tour/templates.png" alt-text="Zrzut ekranu przedstawiający szablony urządzeń.":::
 
-Na stronie szablonów urządzeń można tworzyć szablony urządzeń w aplikacji i zarządzać nimi. Szablon urządzenia określa charakterystyki urządzeń, takie jak:
-
-* Dane telemetryczne, stan i miary zdarzeń
-* Właściwości
-* Polecenia
-* Widoki
-
-Aby dowiedzieć się więcej, zobacz samouczek [Define a new device type in your Azure IoT Central application (Definiowanie nowego typu urządzenia w aplikacji usługi Azure IoT Central)](howto-set-up-template.md). 
+Strona szablonów urządzeń umożliwia wyświetlanie i tworzenie szablonów urządzeń w aplikacji. Aby dowiedzieć się więcej, zobacz samouczek [Define a new device type in your Azure IoT Central application (Definiowanie nowego typu urządzenia w aplikacji usługi Azure IoT Central)](howto-set-up-template.md). 
 
 ### <a name="data-export"></a>Eksport danych
 

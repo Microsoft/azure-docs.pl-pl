@@ -1,6 +1,6 @@
 ---
-title: Konfiguracja i optymalizacja dla serii H z obsługą sekwencji i serii N Virtual Machines platformy Azure
-description: Dowiedz się więcej o konfigurowaniu i optymalizowaniu maszyn wirtualnych z obsługą serii H i serii N dla HPC.
+title: Konfiguracja i optymalizacja urządzeń z serii H i N z włączoną obsługą technologii InfiniBand na platformie Azure Virtual Machines
+description: Dowiedz się więcej na temat konfigurowania i optymalizowania maszyn wirtualnych serii H i N z włączoną obsługą technologii InfiniBand dla hpc.
 author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
@@ -8,68 +8,68 @@ ms.topic: article
 ms.date: 03/18/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 0c6f5dc55f7406aba7d6e3dc1a278b57fe4ec9ba
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 470d5efae68366b5cc96243bab4ebb8552771650
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104721276"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600883"
 ---
 # <a name="configure-and-optimize-vms"></a>Konfigurowanie i optymalizowanie maszyn wirtualnych
 
-W tym artykule udostępniono pewne wskazówki dotyczące konfigurowania i optymalizowania [maszyn wirtualnych z serii](../../sizes-gpu.md) [H](../../sizes-hpc.md) z obsługą InfiniBand dla HPC.
+Ten artykuł zawiera wskazówki dotyczące konfigurowania i optymalizowania maszyn wirtualnych serii [H](../../sizes-hpc.md) i [N](../../sizes-gpu.md) z włączoną obsługą technologii InfiniBand do pracy z rozwiązaniami HPC.
 
 ## <a name="vm-images"></a>Obrazy maszyn wirtualnych
-Na maszynach wirtualnych z włączoną funkcją InfiniBand odpowiednie sterowniki są wymagane do włączenia funkcji RDMA.
-- [Obrazy maszyn wirtualnych CentOS-HPC](#centos-hpc-vm-images) w portalu Marketplace są wstępnie skonfigurowane przy użyciu odpowiednich sterowników IB i są najprostszym sposobem na rozpoczęcie pracy.
-- [Obrazy maszyn wirtualnych Ubuntu](#ubuntu-vm-images) można skonfigurować przy użyciu odpowiednich sterowników IB. Zaleca się utworzenie [niestandardowych obrazów maszyn wirtualnych](../../linux/tutorial-custom-images.md) z odpowiednimi sterownikami i konfiguracją oraz wielokrotne użycie.
+W przypadku maszyn wirtualnych z włączoną obsługą technologii InfiniBand do włączenia funkcji RDMA są wymagane odpowiednie sterowniki.
+- Obrazy [maszyn wirtualnych CentOS-HPC](#centos-hpc-vm-images) w witrynie Marketplace są wstępnie skonfigurowane przy użyciu odpowiednich sterowników IB i są najprostszym sposobem rozpoczęcia pracy.
+- Obrazy [maszyn wirtualnych z systemem Ubuntu](#ubuntu-vm-images) można skonfigurować przy użyciu odpowiednich sterowników IB. Zaleca się tworzenie niestandardowych [obrazów maszyn wirtualnych z](../../linux/tutorial-custom-images.md) odpowiednimi sterownikami i konfiguracją oraz ponowne używanie tych obrazów cyklicznie.
 
-Na maszynach wirtualnych z [serii N](../../sizes-gpu.md) z obsługą procesora GPU odpowiednie sterowniki procesora GPU są dodatkowo wymagane, które mogą być dodawane za pośrednictwem [rozszerzeń maszyn wirtualnych](../../extensions/hpccompute-gpu-linux.md) lub [ręcznie](../../linux/n-series-driver-setup.md). Niektóre obrazy maszyn wirtualnych w portalu Marketplace są również wstępnie zainstalowane przy użyciu sterowników NVIDIA GPU, w tym niektórych obrazów maszyn wirtualnych z firmy NVIDIA.
+Na maszynach [wirtualnych serii N](../../sizes-gpu.md) z włączoną obsługą procesora GPU [](../../extensions/hpccompute-gpu-linux.md) wymagane są dodatkowo odpowiednie sterowniki procesora GPU, które można dodać za pośrednictwem rozszerzeń maszyny wirtualnej lub [ręcznie.](../../linux/n-series-driver-setup.md) Niektóre obrazy maszyn wirtualnych w witrynie Marketplace są również wstępnie zainstalowane ze sterownikami procesorów GPU firmy Nvidia, w tym niektóre obrazy maszyn wirtualnych firmy Nvidia.
 
 ### <a name="centos-hpc-vm-images"></a>Obrazy maszyn wirtualnych CentOS-HPC
 
 #### <a name="sr-iov-enabled-vms"></a>Maszyny wirtualne z obsługą funkcji SR-IOV
-W przypadku funkcji SR-IOV z obsługą funkcji [RDMA](../../sizes-hpc.md#rdma-capable-instances), [obrazy maszyn wirtualnych CentOS-HPC w witrynie Marketplace w](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview) wersji 7,6 i nowszych są odpowiednie. Te obrazy maszyn wirtualnych są zoptymalizowane i wstępnie załadowane za pomocą sterowników OFED dla funkcji RDMA oraz różnych powszechnie używanych bibliotek MPI i naukowych pakietów obliczeniowych. najłatwiej rozpocząć pracę.
-- Szczegółowe informacje o tym, co zawiera CentOS-HPC w wersji 7,6 i nowszych, znajdują się w [artykule TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557).
-- Skrypty używane podczas tworzenia obrazów maszyn wirtualnych CentOS-HPC w wersji 7,6 i nowszych z podstawowego obrazu portalu CentOS Marketplace znajdują się w [repozytorium azhpc-images](https://github.com/Azure/azhpc-images/tree/master/centos).
+W przypadku maszyn wirtualnych z obsługą funkcji [RDMA](../../sizes-hpc.md#rdma-capable-instances)z obsługą funkcji SR-IOV odpowiednie są obrazy maszyn wirtualnych [CentOS-HPC](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview) w witrynie Marketplace w wersji 7.6 lub nowszej. Te obrazy maszyn wirtualnych są zoptymalizowane i wstępnie załadowane ze sterownikami OFED dla RDMA i różnymi powszechnie używanymi bibliotekami MPI oraz pakietami obliczeniowymi naukowymi i są najprostszym sposobem rozpoczęcia pracy.
+- Szczegółowe informacje na temat obrazów maszyn wirtualnych centOS-HPC w wersji 7.6 lub nowszej znajdują się w artykule [TechCo w witrynie TechCo w witrynie](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557).
+- Skrypty używane podczas tworzenia obrazów maszyn wirtualnych CentOS-HPC w wersji 7.6 lub nowszej z podstawowego obrazu z witryny CentOS Marketplace znajdują się w [repocie apc-images.](https://github.com/Azure/azhpc-images/tree/master/centos)
   
 > [!NOTE] 
-> Najnowsze obrazy z witryny Azure HPC Marketplace mają Mellanox OFED 5,1 i nowsze, które nie obsługują ConnectX3-Pro kart InfiniBand. Maszyny wirtualne z serii N obsługujące wirtualizację SR-IOV z systemem FDR InfiniBand (np. seria NCV3 i starsze) będą mogły korzystać z następujących obrazów maszyn wirtualnych CentOS-HPC lub starszych wersji z portalu Marketplace:
->- OpenLogic: CentOS-HPC: 7.6:7.6.2020062900
->- OpenLogic: CentOS-HPC: 7_6gen2:7.6.2020062901
->- OpenLogic: CentOS-HPC: 7.7:7.7.2020062600
->- OpenLogic: CentOS-HPC: 7_7-Gen2:7.7.2020062601
->- OpenLogic: CentOS-HPC: 8_1:8.1.2020062400
->- OpenLogic: CentOS-HPC: 8_1-Gen2:8.1.2020062401
+> Najnowsze obrazy z witryny Azure HPC Marketplace mają wersję Mellanox OFED 5.1 i więcej, która nie obsługuje ConnectX3-Pro InfiniBand. Rozmiary maszyn wirtualnych serii N z włączoną obsługą funkcji SR-IOV z siecią FDR InfiniBand (np. NCv3 i starsze) będą mogły korzystać z następującego obrazu maszyny wirtualnej CentOS-HPC lub starszych wersji z witryny Marketplace:
+>- OpenLogic:CentOS-HPC:7.6:7.6.2020062900
+>- OpenLogic:CentOS-HPC:7_6gen2:7.6.2020062901
+>- OpenLogic:CentOS-HPC:7.7:7.7.2020062600
+>- OpenLogic:CentOS-HPC:7_7-gen2:7.7.2020062601
+>- OpenLogic:CentOS-HPC:8_1:8.1.2020062400
+>- OpenLogic:CentOS-HPC:8_1-gen2:8.1.2020062401
 
-#### <a name="non-sr-iov-enabled-vms"></a>Maszyny wirtualne z obsługą funkcji SR-IOV
-W przypadku [maszyn wirtualnych obsługujących funkcję RDMA](../../sizes-hpc.md#rdma-capable-instances), które nie obsługują funkcji SR-IOV, CentOS-HPC w wersji 6,5 lub nowszej, do 7,4 w portalu Marketplace są odpowiednie. Na przykład w przypadku [maszyn wirtualnych z serii H16](../../h-series.md)zaleca się używanie wersji 7,1 do 7,4. Te obrazy maszyn wirtualnych są wstępnie załadowane za pomocą sterowników sieci bezpośrednio dla funkcji RDMA i Intel MPI w wersji 5,1.
+#### <a name="non-sr-iov-enabled-vms"></a>Maszyny wirtualne bez obsługi funkcji SR-IOV
+W przypadku maszyn wirtualnych bez obsługi funkcji [RDMA](../../sizes-hpc.md#rdma-capable-instances)z obsługą funkcji SR-IOV odpowiedni jest system CentOS-HPC w wersji 6.5 lub nowszej, a w witrynie Marketplace jest dostępna wersja do 7.4. Na przykład w przypadku maszyn wirtualnych z serii [H16](../../h-series.md)zalecane są wersje od 7.1 do 7.4. Te obrazy maszyn wirtualnych są wstępnie załadowane ze sterownikami sieci direct dla RDMA i Intel MPI w wersji 5.1.
 
 > [!NOTE]
-> W tych obrazach HPC opartych na CentOS dla maszyn wirtualnych z obsługą wirtualizacji SR-IOV aktualizacje jądra są wyłączone w pliku konfiguracyjnym **yum** . Wynika to z faktu, że sterowniki RDMA NetworkDirect systemu Linux są dystrybuowane jako pakiet KCO, a aktualizacje sterowników mogą nie zadziałać, jeśli jądro zostało zaktualizowane.
+> Na tych obrazach HPC opartych na systemie CentOS dla maszyn wirtualnych bez obsługi funkcji SR-IOV aktualizacje jądra są wyłączone w pliku **konfiguracji yum.** Wynika to z tego, że sterowniki RDMA systemu Linux NetworkDirect są dystrybuowane jako pakiet RPM, a aktualizacje sterowników mogą nie działać, jeśli jądro zostanie zaktualizowane.
 
-### <a name="rhelcentos-vm-images"></a>RHEL/CentOS obrazy maszyn wirtualnych
-Maszyny wirtualne z obsługą funkcji SR-IOV obsługujące funkcję [RDMA](../../sizes-hpc.md#rdma-capable-instances)można skonfigurować pod kątem RHEL lub opartych na CentOS obrazów maszyn wirtualnych innych niż HPC w portalu Marketplace. Dowiedz się więcej na temat [włączania funkcji InfiniBand](enable-infiniband.md) i [konfigurowania MPI](setup-mpi.md) na maszynach wirtualnych.
-- Można również użyć skryptów używanych podczas tworzenia CentOS-HPC w wersji 7,6 i nowszych obrazów maszyn wirtualnych z podstawowego obrazu portalu CentOS Marketplace z poziomu [repozytorium azhpc-images](https://github.com/Azure/azhpc-images/tree/master/centos) .
+### <a name="rhelcentos-vm-images"></a>Obrazy maszyn wirtualnych z systemem RHEL/CentOS
+Obrazy maszyn wirtualnych innych niż HPC oparte na systemie RHEL lub CentOS w witrynie Marketplace można skonfigurować do użycia na maszynach wirtualnych z obsługą funkcji [RDMA](../../sizes-hpc.md#rdma-capable-instances)z obsługą funkcji SR-IOV. Dowiedz się więcej [na temat włączania infiniBand](enable-infiniband.md) [i konfigurowania mpi](setup-mpi.md) na maszyn wirtualnych.
+- Można również użyć skryptów używanych podczas tworzenia obrazów maszyn wirtualnych CentOS-HPC w wersji 7.6 lub nowszej z podstawowego obrazu z witryny CentOS Marketplace z [repo azhpc-images.](https://github.com/Azure/azhpc-images/tree/master/centos)
   
 > [!NOTE]
-> Karta Mellanox OFED 5,1 i nowsze nie obsługują ConnectX3-Pro kart InfiniBand na maszynach wirtualnych z serii N z obsługą wirtualizacji przy użyciu programu FDR InfiniBand (np. seria NCV3). Użyj LTS Mellanox OFED w wersji 4.9-0.1.7.0 lub starszej na maszynach wirtualnych serii N z kartami ConnectX3-Pro. Więcej szczegółów można znaleźć [tutaj](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed).
+> Mellanox OFED 5.1 i więcej nie obsługują kart InfiniBand ConnectX3-Pro na maszynach wirtualnych serii N z włączoną obsługą funkcji SR-IOV z FDR InfiniBand (np. NCv3). Użyj wersji LTS Mellanox OFED w wersji 4.9-0.1.7.0 lub starszej na maszynach wirtualnych serii N z ConnectX3-Pro wirtualną. Więcej szczegółów można znaleźć [tutaj.](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed)
 
-### <a name="ubuntu-vm-images"></a>Ubuntu obrazy maszyn wirtualnych
-Ubuntu Server 16,04 LTS, 18,04 LTS i 20,04 LTS maszyn wirtualnych w portalu Marketplace są obsługiwane dla [maszyn wirtualnych z obsługą](../../sizes-hpc.md#rdma-capable-instances)wirtualizacji SR-IOV i innych niż SR-IOV RDMA. Dowiedz się więcej na temat [włączania funkcji InfiniBand](enable-infiniband.md) i [konfigurowania MPI](setup-mpi.md) na maszynach wirtualnych.
-- Instrukcje dotyczące włączania usługi InfiniBand w obrazach maszyn wirtualnych Ubuntu znajdują się w [artykule TechCommunity](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351).
-- Skrypty używane podczas tworzenia obrazów maszyn wirtualnych z systemem Ubuntu 18,04 i 20,04 LTS oparte na podstawowym Ubuntu Marketplace znajdują się w [repozytorium azhpc-images](https://github.com/Azure/azhpc-images/tree/master/ubuntu).
+### <a name="ubuntu-vm-images"></a>Obrazy maszyn wirtualnych z systemem Ubuntu
+Obrazy maszyn wirtualnych z systemami Ubuntu Server 16.04 LTS, 18.04 LTS i 20.04 LTS w witrynie Marketplace są obsługiwane zarówno dla maszyn wirtualnych z możliwością sr-IOV, jak i innych niż SR-IOV [RDMA.](../../sizes-hpc.md#rdma-capable-instances) Dowiedz się więcej [o włączaniu infiniBand](enable-infiniband.md) [i konfigurowaniu mpi](setup-mpi.md) na maszyn wirtualnych.
+- Instrukcje dotyczące włączania technologii InfiniBand na obrazach maszyn wirtualnych z systemem Ubuntu znajdują się w artykule [TechCo w artykule](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351).
+- Skrypty używane podczas tworzenia obrazów maszyn wirtualnych HPC opartych na systemie Ubuntu 18.04 i 20.04 LTS z podstawowego obrazu z witryny Ubuntu Marketplace znajdują się w [repozytorium apcpc-images.](https://github.com/Azure/azhpc-images/tree/master/ubuntu)
 
 ### <a name="suse-linux-enterprise-server-vm-images"></a>SUSE Linux Enterprise Server obrazów maszyn wirtualnych
-SLES 12 SP3 dla HPC, SLES 12 SP3 dla HPC (Premium), SLES 12 SP1 dla HPC, SLES 12 SP1 dla HPC (Premium), SLES 12 SP4 i SLES 15 maszyn wirtualnych w portalu Marketplace są obsługiwane. Te obrazy maszyn wirtualnych są wstępnie załadowane za pomocą sterowników sieci bezpośrednio dla funkcji RDMA i Intel MPI w wersji 5,1. Dowiedz się więcej o [konfigurowaniu MPI](setup-mpi.md) na maszynach wirtualnych.
+Obsługiwane są systemy SLES 12 SP3 dla HPC, SLES 12 SP3 dla HPC (Premium), SLES 12 SP1 dla HPC, SLES 12 SP1 dla HPC (Premium), SLES 12 SP4 i SLES 15 VM w witrynie Marketplace. Te obrazy maszyn wirtualnych są wstępnie załadowane ze sterownikami sieci direct dla RDMA i Intel MPI w wersji 5.1. Dowiedz się więcej [o konfigurowaniu mpi](setup-mpi.md) na tych maszyn wirtualnych.
 
 ## <a name="optimize-vms"></a>Optymalizowanie maszyn wirtualnych
 
-Poniżej przedstawiono niektóre opcjonalne ustawienia optymalizacji zapewniające lepszą wydajność na maszynie wirtualnej.
+Poniżej przedstawiono niektóre opcjonalne ustawienia optymalizacji w celu poprawy wydajności maszyny wirtualnej.
 
-### <a name="update-lis"></a>Aktualizacja LIS
+### <a name="update-lis"></a>Aktualizowanie lis
 
-W razie potrzeby związanych z funkcjonalnością lub wydajnością [sterowniki systemu Linux Integration Services (LIS)](../../linux/endorsed-distros.md) można zainstalować lub zaktualizować w obsługiwanych dystrybucje OS, szczególnie w przypadku wdrażania przy użyciu niestandardowego obrazu lub starszej wersji systemu operacyjnego, takiej jak CentOS/RHEL 6. x lub wcześniejsza wersja 7. x.
+Jeśli jest to konieczne ze względu na funkcjonalność lub wydajność, sterowniki usług [Linux Integration Services (LIS)](../../linux/endorsed-distros.md) można instalować lub aktualizować w obsługiwanych dystrybucjach systemu operacyjnego, zwłaszcza w przypadku wdrażania przy użyciu obrazu niestandardowego lub starszej wersji systemu operacyjnego, takiej jak CentOS/RHEL 6.x lub starszej wersji 7.x.
 
 ```bash
 wget https://aka.ms/lis
@@ -80,19 +80,19 @@ pushd LISISO
 
 ### <a name="reclaim-memory"></a>Odzyskiwanie pamięci
 
-Zwiększenie wydajności przez automatyczne ododzyskiwanie pamięci w celu uniknięcia dostępu do pamięci zdalnej.
+Zwiększ wydajność, automatycznie odzyskując pamięć, aby uniknąć zdalnego dostępu do pamięci.
 
 ```bash
 echo 1 >/proc/sys/vm/zone_reclaim_mode
 ```
 
-Aby to zrobić, po ponownym uruchomieniu maszyny wirtualnej:
+Aby ten stan utrwalić po ponownym uruchomieniu maszyny wirtualnej:
 
 ```bash
 echo "vm.zone_reclaim_mode = 1" >> /etc/sysctl.conf sysctl -p
 ```
 
-### <a name="disable-firewall-and-selinux"></a>Wyłącz zaporę i SELinux
+### <a name="disable-firewall-and-selinux"></a>Wyłączanie zapory i środowiska SELinux
 
 ```bash
 systemctl stop iptables.service
@@ -113,18 +113,18 @@ service cpupower stop
 sudo systemctl disable cpupower
 ```
 
-### <a name="configure-walinuxagent"></a>Konfigurowanie WALinuxAgent
+### <a name="configure-walinuxagent"></a>Konfigurowanie usługi WALinuxAgent
 
 ```bash
 sed -i -e 's/# OS.EnableRDMA=y/OS.EnableRDMA=y/g' /etc/waagent.conf
 ```
-Opcjonalnie WALinuxAgent można wyłączyć jako krok przedzadania i włączyć wykonywanie zadania końcowego dla maksymalnej dostępności zasobów maszyny wirtualnej dla obciążenia HPC.
+Opcjonalnie można wyłączyć usługę WALinuxAgent w kroku przed zadaniem i włączyć obsługę po zadaniu w celu maksymalnej dostępności zasobów maszyny wirtualnej dla obciążenia HPC.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej na temat [włączania funkcji InfiniBand](enable-infiniband.md) na maszynach wirtualnych z obsługą urządzeń z serii [H](../../sizes-hpc.md) i [serii N](../../sizes-gpu.md) .
-- Dowiedz się więcej o instalowaniu różnych [obsługiwanych BIBLIOTEK MPI](setup-mpi.md) i ich optymalną konfigurację na maszynach wirtualnych.
-- Zapoznaj się z [omówieniem HBv3](hbv3-series-overview.md) i [omówieniem z serii HC](hc-series-overview.md).
-- Przeczytaj o najnowszych anonsach, przykładach obciążeń HPC i wynikach wydajności na [blogach społecznościowych usługi Azure COMPUTE Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
-- Aby zapoznać się z widokiem architektury w przypadku uruchamiania obciążeń HPC, zobacz [wysoka wydajność obliczeń (HPC) na platformie Azure](/azure/architecture/topics/high-performance-computing/).
+- Dowiedz się więcej [na temat włączania infiniBand](enable-infiniband.md) na maszyny wirtualne serii [H](../../sizes-hpc.md) i [N](../../sizes-gpu.md) z włączoną obsługą infiniBand.
+- Dowiedz się więcej na temat instalowania i uruchamiania różnych obsługiwanych bibliotek [MPI](setup-mpi.md) na tych maszyn wirtualnych.
+- Zapoznaj się [z omówieniem serii HBv3](hbv3-series-overview.md) i [omówieniem serii HC.](hc-series-overview.md)
+- Zapoznaj się z najnowszymi ogłoszeniami, przykładami obciążeń HPC i wynikami wydajności na Azure Compute [Tech Community Blogi](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Aby uzyskać wyższego poziomu widok architektury uruchamiania obciążeń HPC, zobacz Obliczenia o wysokiej wydajności [(HPC) na platformie Azure.](/azure/architecture/topics/high-performance-computing/)

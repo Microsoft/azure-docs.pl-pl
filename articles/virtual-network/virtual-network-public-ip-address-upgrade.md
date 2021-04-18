@@ -1,7 +1,7 @@
 ---
 title: Uaktualnianie publicznych adresów IP
 titleSuffix: Azure Virtual Network
-description: Uaktualnij publiczne adresy IP z warstwy Podstawowa do standardowa.
+description: Uaktualnij publiczne adresy IP z podstawowego do standardowego.
 services: virtual-network
 documentationcenter: na
 author: blehr
@@ -16,34 +16,34 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2020
 ms.author: blehr
 ms.custom: references_regions
-ms.openlocfilehash: 33c767d847d9e70e95b3ee1648be7852aa5cec98
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 74df338fd888bd7f654ddfc2fc5f9dddf10e84ab
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100522890"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107598418"
 ---
 # <a name="upgrade-public-ip-addresses"></a>Uaktualnianie publicznych adresów IP
 
-Publiczne adresy IP platformy Azure są tworzone przy użyciu jednostki SKU — podstawowa lub standardowa — która określa aspekty ich funkcjonalności (w tym metody alokacji, obsługę funkcji i zasoby, z którymi można kojarzyć). 
+Publiczne adresy IP platformy Azure są tworzone przy użyciu podstawowej lub standardowej wersji SKU, która określa aspekty ich funkcjonalności (w tym metodę alokacji, obsługę funkcji i zasoby, z którymi można je skojarzyć). 
 
-W tym artykule opisano następujące scenariusze:
-* Jak uaktualnić publiczny adres IP podstawowej jednostki SKU do publicznego adresu IP jednostki SKU w warstwie Standardowa (przy użyciu programu PowerShell lub interfejsu wiersza polecenia)
-* Jak przeprowadzić migrację klasycznego Zastrzeżony adres IP platformy Azure do Azure Resource Manager publicznego adresu IP podstawowej jednostki SKU
+W tym artykule o przejrzenie następujących scenariuszy:
+* Jak uaktualnić publiczny adres IP podstawowej wersji SKU do publicznego adresu IP standardowej wersji SKU (przy użyciu programu PowerShell lub interfejsu wiersza polecenia)
+* Jak przeprowadzić migrację klasycznej usługi Azure Zastrzeżony adres IP do publicznego adresu IP Azure Resource Manager podstawowej wersji SKU
 
-## <a name="upgrade-public-ip-address-from-basic-to-standard-sku"></a>Uaktualnij publiczny adres IP z podstawowej do standardowej jednostki SKU
+## <a name="upgrade-public-ip-address-from-basic-to-standard-sku"></a>Uaktualnianie publicznego adresu IP z podstawowej do standardowej wersji SKU
 
-Aby można było uaktualnić publiczny adres IP, nie może być skojarzony z żadnym zasobem (zobacz [Tę stronę](./virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address) , aby uzyskać więcej informacji na temat usuwania skojarzenia publicznych adresów IP).
+Aby uaktualnić publiczny adres IP, nie może być [](./virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address) skojarzony z żadnym zasobem (zobacz tę stronę, aby uzyskać więcej informacji na temat sposobu skojarzenia publicznych adresów IP).
 
 >[!IMPORTANT]
->Publiczne adresy IP uaktualnione z podstawowej do standardowej jednostki SKU nadal nie mają gwarantowanych [stref dostępności](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).  Przed wybraniem zasobów, z którymi należy skojarzyć adres IP, należy się upewnić, że jest to konieczne.
+>Publiczne ip uaktualnione z podstawowej do standardowej wersji SKU nadal nie mają gwarantowanych [stref dostępności.](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)  Upewnij się, że o tym pamiętać podczas wybierania zasobów, z którymi chcesz skojarzyć adres IP.
 
 ---
-# <a name="basic-to-standard---powershell"></a>[**Basic do Standard — PowerShell**](#tab/option-upgrade-powershell)
+# <a name="basic-to-standard---powershell"></a>[**Podstawowa–Standardowa — PowerShell**](#tab/option-upgrade-powershell)
 
-W poniższym przykładzie przyjęto założenie, że poprzedni publiczny adres IP podstawowej jednostki SKU zostanie utworzony przy użyciu przykładu podanym na [tej stronie](./create-public-ip-powershell.md?tabs=option-create-public-ip-basic) z podstawowym publicznym adresem IP **MyBasicPublicIP** w liście **zasobów**.
+W poniższym przykładzie założono poprzednie utworzenie publicznego adresu IP [](./create-public-ip-powershell.md?tabs=option-create-public-ip-basic) podstawowej wersji SKU, korzystając z przykładu podanego na tej stronie z publicznym podstawowym adresem IP **myBasicPublicIP** w grupie **myResourceGroup.**
 
-Aby uaktualnić adres IP, po prostu wykonaj poniższe polecenia przy użyciu programu PowerShell.  Należy pamiętać, że adres IP jest już przydzielony statycznie, ta sekcja może zostać pominięta.
+Aby uaktualnić adres IP, po prostu wykonaj poniższe polecenia przy użyciu programu PowerShell.  Zwróć uwagę, że jeśli adres IP jest już przydzielony statycznie, można pominąć sekcję.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -61,11 +61,11 @@ $pubIP.Sku.Name = $newsku
 Set-AzPublicIpAddress -PublicIpAddress $pubIP
 ```
 
-# <a name="basic-to-standard---cli"></a>[**Basic do Standard — interfejs wiersza polecenia**](#tab/option-upgrade-cli)
+# <a name="basic-to-standard---cli"></a>[**Podstawowa–Standardowa — interfejs wiersza polecenia**](#tab/option-upgrade-cli)
 
-W poniższym przykładzie przyjęto założenie, że poprzedni publiczny adres IP podstawowej jednostki SKU zostanie utworzony przy użyciu przykładu podanym na [tej stronie](./create-public-ip-cli.md?tabs=option-create-public-ip-basic) z podstawowym publicznym adresem IP **MyBasicPublicIP** w liście **zasobów**.
+W poniższym przykładzie założono poprzednie utworzenie publicznego adresu IP [](./create-public-ip-cli.md?tabs=option-create-public-ip-basic) podstawowej wersji SKU, korzystając z przykładu podanego na tej stronie z publicznym podstawowym adresem IP **myBasicPublicIP** w **grupie myResourceGroup.**
 
-Aby uaktualnić adres IP, po prostu wykonaj poniższe polecenia przy użyciu interfejsu wiersza polecenia platformy Azure.  Należy pamiętać, że adres IP jest już przydzielony statycznie, ta sekcja może zostać pominięta.
+Aby uaktualnić adres IP, po prostu wykonaj poniższe polecenia przy użyciu interfejsu wiersza polecenia platformy Azure.  Zwróć uwagę, że jeśli adres IP jest już przydzielony statycznie, można pominąć sekcję.
 
 ```azurecli-interactive
 ## Variables for the command ##
@@ -86,18 +86,18 @@ az network public-ip update \
 ```
 ---
 
-## <a name="upgrade-migrate-a-classic-reserved-ip-to-a-static-public-ip"></a>Uaktualnij (Migruj) klasyczny Zastrzeżony adres IP do statycznego publicznego adresu IP
+## <a name="upgrade-migrate-a-classic-reserved-ip-to-a-static-public-ip"></a>Uaktualnianie (migrowanie) klasycznej Zastrzeżony adres IP statycznego publicznego adresu IP
 
-Aby skorzystać z nowych możliwości w Azure Resource Manager, można migrować istniejący publiczny statyczny adres IP — nazywane zarezerwowanymi IP — z modelu klasycznego do nowoczesnego modelu Azure Resource Manager.  Migrowany publiczny adres IP będzie podstawowym typem jednostki SKU.
+Aby skorzystać z nowych możliwości usługi Azure Resource Manager, można przeprowadzić migrację istniejącego publicznego statycznego adresu IP — nazywanego zastrzeżonym adresem IP — z modelu klasycznego do nowoczesnego Azure Resource Manager ip.  Zmigrowany publiczny adres IP będzie typem podstawowej wersji SKU.
 
 
 ---
 
-# <a name="reserved-to-basic---powershell"></a>[**Zarezerwowane dla języka Basic — PowerShell**](#tab/option-migrate-powershell)
+# <a name="reserved-to-basic---powershell"></a>[**Zarezerwowane dla wersji Podstawowa — PowerShell**](#tab/option-migrate-powershell)
 
-W poniższym przykładzie założono poprzednie utworzenie klasycznej usługi Azure Zastrzeżony adres IP **myReservedIP** w ramach **zasobu**. Innym wymaganiem wstępnym migracji jest upewnienie się, że subskrypcja Azure Resource Manager została zarejestrowana na potrzeby migracji. Opisano to szczegółowo w krokach 3 i 4 [tej strony](../virtual-machines/migration-classic-resource-manager-ps.md).
+W poniższym przykładzie przyjęto założenie, że poprzednie utworzenie klasycznej usługi Azure Zastrzeżony adres IP **myReservedIP** w **grupie myResourceGroup.** Innym wymaganiem wstępnym migracji jest upewninie się, Azure Resource Manager została zarejestrowana do migracji. Opisano to szczegółowo w krokach 3 i 4 [tej strony.](../virtual-machines/migration-classic-resource-manager-ps.md)
 
-Aby przeprowadzić migrację Zastrzeżony adres IP, wykonaj poniższe polecenia przy użyciu programu PowerShell.  Uwaga: Jeśli adres IP nie jest skojarzony z żadną usługą (poniżej znajduje się usługa o nazwie Moje **usługi**), ten krok można pominąć.
+Aby zmigrować Zastrzeżony adres IP, wykonaj poniższe polecenia przy użyciu programu PowerShell.  Jeśli adres IP nie jest skojarzony z żadnej usługi (poniżej znajduje się usługa o nazwie **myService),** ten krok można pominąć.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -110,18 +110,18 @@ Remove-AzureReservedIPAssociation -ReservedIPName $name -ServiceName $service
 $validate = Move-AzureReservedIP -ReservedIPName $name -Validate
 $validate.ValidationMessages
 ```
-Poprzednie polecenie wyświetla wszystkie ostrzeżenia i błędy, które blokują migrację. Jeśli sprawdzanie poprawności zakończy się pomyślnie, możesz wykonać następujące kroki, aby przygotować i zatwierdzić migrację:
+Poprzednie polecenie wyświetla ostrzeżenia i błędy, które blokują migrację. Jeśli walidacja powiedzie się, możesz wykonać następujące kroki, aby przygotować i zatwierdzić migrację:
 ```azurepowershell-interactive
 Move-AzureReservedIP -ReservedIPName $name -Prepare
 Move-AzureReservedIP -ReservedIPName $name -Commit
 ```
-Nowa grupa zasobów w Azure Resource Manager jest tworzona przy użyciu nazwy zmigrowanego Zastrzeżony adres IP (w powyższym przykładzie będzie to grupa zasobów **myReservedIP-migrowana**).
+Nowa grupa zasobów w programie Azure Resource Manager jest tworzona przy użyciu nazwy zmigrowanych zasobów Zastrzeżony adres IP (w powyższym przykładzie byłaby to grupa zasobów **myReservedIP-Migrated).**
 
-# <a name="reserved-to-basic---cli"></a>[**Zarezerwowane dla języka Basic — interfejs wiersza polecenia**](#tab/option-migrate-cli)
+# <a name="reserved-to-basic---cli"></a>[**Zarezerwowane dla wersji Podstawowa — interfejs wiersza polecenia**](#tab/option-migrate-cli)
 
-W poniższym przykładzie założono poprzednie utworzenie klasycznej usługi Azure Zastrzeżony adres IP **myReservedIP** w ramach **zasobu**. Innym wymaganiem wstępnym migracji jest upewnienie się, że subskrypcja Azure Resource Manager została zarejestrowana na potrzeby migracji. Opisano to szczegółowo w krokach 3 i 4 [tej strony](../virtual-machines/migration-classic-resource-manager-cli.md).
+W poniższym przykładzie przyjęto założenie, że poprzednie utworzenie klasycznej usługi Azure Zastrzeżony adres IP **myReservedIP** w **grupie myResourceGroup.** Innym wymaganiem wstępnym migracji jest upewninie się, Azure Resource Manager została zarejestrowana do migracji. Opisano to szczegółowo w krokach 3 i 4 [tej strony.](../virtual-machines/migration-classic-resource-manager-cli.md)
 
-Aby przeprowadzić migrację Zastrzeżony adres IP, wykonaj poniższe polecenia przy użyciu interfejsu wiersza polecenia platformy Azure.  Zwróć uwagę, że adres IP nie jest skojarzony z żadną usługą (poniżej znajduje się usługa  o nazwie Moja usługa **i wdrażanie i wdrożenie).** ten krok można pominąć.
+Aby zmigrować Zastrzeżony adres IP, wykonaj poniższe polecenia przy użyciu interfejsu wiersza polecenia platformy Azure.  Jeśli adres IP nie jest skojarzony z żadnej usługi (poniżej znajduje się usługa o nazwie **myService** i wdrożenie **myDeployment),** ten krok można pominąć.
 
 ```azurecli-interactive
 ## Variables for the command ##
@@ -134,23 +134,23 @@ azure network reserved-ip disassociate $name $service $deployment
 
 azure network reserved-ip validate-migration $name
 ```
-Poprzednie polecenie wyświetla wszystkie ostrzeżenia i błędy, które blokują migrację. Jeśli sprawdzanie poprawności zakończy się pomyślnie, możesz wykonać następujące kroki, aby przygotować i zatwierdzić migrację:
+Poprzednie polecenie wyświetla ostrzeżenia i błędy, które blokują migrację. Jeśli walidacja powiedzie się, możesz wykonać następujące kroki, aby przygotować i zatwierdzić migrację:
 ```azurecli-interactive
 azure network reserved-ip prepare-migration $name
 azure network reserved-ip commit-migration $name
 ```
-Nowa grupa zasobów w Azure Resource Manager jest tworzona przy użyciu nazwy zmigrowanego Zastrzeżony adres IP (w powyższym przykładzie będzie to grupa zasobów **myReservedIP-migrowana**).
+Nowa grupa zasobów w programie Azure Resource Manager jest tworzona przy użyciu nazwy zmigrowanych zasobów Zastrzeżony adres IP (w powyższym przykładzie byłaby to grupa zasobów **myReservedIP-Migrated).**
 
 ---
 
 ## <a name="limitations"></a>Ograniczenia
 
-* W celu uaktualnienia podstawowego publicznego adresu IP nie można go skojarzyć z żadnym zasobem platformy Azure.  Przejrzyj [Tę stronę](./virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address) , aby uzyskać więcej informacji na temat usuwania skojarzenia publicznych adresów IP.  Podobnie w celu migrowania Zastrzeżony adres IP nie można jej skojarzyć z żadną usługą w chmurze.  Przejrzyj [Tę stronę](./remove-public-ip-address-vm.md) , aby uzyskać więcej informacji na temat usuwania skojarzenia zarezerwowanych adresów IP.  
-* Publiczne adresy IP uaktualnione z podstawowej do standardowej jednostki SKU nadal nie będą miały [stref dostępności](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones) i dlatego nie można ich skojarzyć z zasobem platformy Azure, który jest strefowo nadmiarowy lub zona.  Należy pamiętać, że dotyczy to tylko regionów, które oferują strefy dostępności.
-* Nie można zmienić wersji z warstwy Standardowa na podstawowa.
+* W celu uaktualnienia podstawowego publicznego adresu IP nie można go skojarzyć z żadnym zasobem platformy Azure.  Zapoznaj się [z tą stroną,](./virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address) aby uzyskać więcej informacji na temat sposobu skojarzenia publicznych ip.  Podobnie, aby przeprowadzić migrację Zastrzeżony adres IP, nie można jej skojarzyć z żadnymi usługami w chmurze.  Zapoznaj się [z tą stroną,](./remove-public-ip-address-vm.md) aby uzyskać więcej informacji na temat sposobu skojarzenia zastrzeżonych ip.  
+* Publiczne ip uaktualnione z podstawowej do standardowej wersji SKU nadal nie mają gwarantowanych [stref dostępności.](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)  Upewnij się, że o tym pamiętać podczas wybierania zasobów, z którymi chcesz skojarzyć adres IP.
+* Nie można zmienić wersji standardowej na podstawową.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [publicznych adresach IP](./public-ip-addresses.md#public-ip-addresses) na platformie Azure, w tym o różnicach między typami jednostek SKU, a także [ustawieniami publicznego adresu IP](virtual-network-public-ip-address.md#create-a-public-ip-address).
-- Dowiedz się, jak [uaktualniać publiczne usługi równoważenia obciążenia platformy Azure z warstwy Podstawowa do standardowa](../load-balancer/upgrade-basic-standard.md).
-- Zapoznaj się z [klasycznymi adresami IP zarezerwowanych platformy Azure](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) i [migracją zasobów klasycznych do Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md).
+- Dowiedz się więcej o [publicznych adresach IP na](./public-ip-addresses.md#public-ip-addresses) platformie Azure, w tym o różnicach między typami SKU, a także o [ustawieniach publicznych adresów IP.](virtual-network-public-ip-address.md#create-a-public-ip-address)
+- Dowiedz się, jak [uaktualnić publiczne usługi Równoważenie obciążenia Azure z poziomu podstawowego do standardowego.](../load-balancer/upgrade-basic-standard.md)
+- Understand [Classic Azure Reserved IPPs](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) and Migration of Classic resources to Azure Resource Manager (Opis klasycznych zastrzeżonych ip platformy Azure i migracji zasobów klasycznych [do Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md)).

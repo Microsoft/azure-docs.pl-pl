@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: integracja Azure Active Directory z usługą Tidemark | Microsoft Docs'
-description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Tidemark.
+title: 'Samouczek: Azure Active Directory integracji z Tidemark | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować logowanie pojedyncze między Azure Active Directory i Tidemark.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,20 +11,20 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: c9e1de7b5dee8e351cd8744287c07b0bbb174512
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8cbccc3fb4cc513d7c86253ae07fbced4626a15e
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92516464"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599659"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-tidemark"></a>Samouczek: integracja Azure Active Directory z usługą Tidemark
+# <a name="tutorial-azure-active-directory-integration-with-tidemark"></a>Samouczek: Azure Active Directory integracji z Tidemark
 
-W tym samouczku dowiesz się, jak zintegrować usługę Tidemark z usługą Azure Active Directory (Azure AD).
-Integracja Tidemark z usługą Azure AD zapewnia następujące korzyści:
+Z tego samouczka dowiesz się, jak zintegrować narzędzie Tidemark z Azure Active Directory (Azure AD).
+Integracja aplikacji Tidemark z usługą Azure AD zapewnia następujące korzyści:
 
-* Możesz kontrolować usługę Azure AD, która ma dostęp do usługi Tidemark.
-* Możesz pozwolić użytkownikom na automatyczne logowanie do Tidemark (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
+* W usłudze Azure AD możesz kontrolować, kto ma dostęp do aplikacji Tidemark.
+* Możesz umożliwić swoim użytkownikom automatyczne logowanie do aplikacji Tidemark (logowanie pojedyncze) przy użyciu kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
@@ -32,22 +32,22 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpł
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z usługą Tidemark, potrzebne są następujące elementy:
+Do skonfigurowania integracji usługi Azure AD z usługą Tidemark potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz skorzystać z miesięcznej wersji próbnej [tutaj](https://azure.microsoft.com/pricing/free-trial/)
-* Subskrypcja z włączonym logowaniem jednokrotnym w Tidemark
+* Subskrypcja aplikacji Tidemark z obsługą logowania pojedynczego
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Tidemark obsługuje logowanie jednokrotne w usłudze **SP**
+* Znacznik Tidemark obsługuje logowanie **jednokrotne inicjowane** przez sp
 
-## <a name="adding-tidemark-from-the-gallery"></a>Dodawanie Tidemark z galerii
+## <a name="adding-tidemark-from-the-gallery"></a>Dodawanie aplikacji Tidemark z galerii
 
-Aby skonfigurować integrację programu Tidemark z usługą Azure AD, musisz dodać Tidemark z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację aplikacji Tidemark z usługą Azure AD, musisz dodać aplikację Tidemark z galerii do swojej listy zarządzanych aplikacji SaaS.
 
-**Aby dodać Tidemark z galerii, wykonaj następujące czynności:**
+**Aby dodać znacznik Tidemark z galerii, wykonaj następujące kroki:**
 
 1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
 
@@ -61,31 +61,31 @@ Aby skonfigurować integrację programu Tidemark z usługą Azure AD, musisz dod
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **Tidemark**, wybierz pozycję **Tidemark** from panel wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+4. W polu wyszukiwania wpisz **Tidemark,** wybierz pozycję **Tidemark** z panelu wyników, a następnie kliknij przycisk **Dodaj,** aby dodać aplikację.
 
-     ![Tidemark na liście wyników](common/search-new-app.png)
+     ![Znacznik idemark na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą Tidemark na podstawie użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Tidemark.
+W tej sekcji skonfigurujesz i przetestujemy logowanie pojedynczej usługi Azure AD w aplikacji Tidemark, bazując na danych użytkownika testowego **Britta Simon.**
+Aby logowanie pojedyncze działało, należy utworzyć relację połączenia między użytkownikiem usługi Azure AD i powiązanym użytkownikiem aplikacji Tidemark.
 
-Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi Tidemark, należy wykonać następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować logowanie pojedynczej usługi Azure AD w aplikacji Tidemark, należy wykonać czynności z poniższych bloków konstrukcyjnych:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie](#configure-tidemark-single-sign-on)** jednokrotne w usłudze Tidemark, aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
+2. **[Konfigurowanie logowania pojedynczego w aplikacji Tidemark](#configure-tidemark-single-sign-on)** — aby skonfigurować ustawienia logowania Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz użytkownika testowego Tidemark](#create-tidemark-test-user)** , aby uzyskać odpowiednik Britta Simon w Tidemark, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
+5. **[Tworzenie użytkownika testowego aplikacji Tidemark](#create-tidemark-test-user)** — aby mieć w aplikacji Tidemark odpowiednik użytkownika Britta Simon połączony z reprezentacją użytkownika w usłudze Azure AD.
 6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
 
 W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
 
-Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Tidemark, wykonaj następujące czynności:
+Aby skonfigurować logowanie jednorazowe usługi Azure AD w aplikacji Tidemark, wykonaj następujące kroki:
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Tidemark** wybierz pozycję **Logowanie jednokrotne**.
+1. Na stronie [Azure Portal](https://portal.azure.com/) **aplikacji Tidemark** wybierz **pozycję Logowanie pojedyncze.**
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
@@ -99,7 +99,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Tidemark, w
 
 4. W sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące czynności:
 
-    ![Tidemark domenę i adresy URL Logowanie jednokrotne](common/sp-identifier.png)
+    ![Informacje o domenie i adresach URL logowania pojedynczego aplikacji Tidemark](common/sp-identifier.png)
 
     a. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: 
 
@@ -113,13 +113,13 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Tidemark, w
     - `https://<subdomain>.tidemark.net/saml`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta Tidemark](http://www.tidemark.com/contact-us) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z zespołem pomocy technicznej klienta aplikacji Tidemark, aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
-6. W sekcji **Konfigurowanie Tidemark** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
+6. W **sekcji Konfigurowanie znacznika Tidemark** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
@@ -129,9 +129,9 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Tidemark, w
 
     c. Adres URL wylogowywania
 
-### <a name="configure-tidemark-single-sign-on"></a>Konfigurowanie pojedynczego Sign-On Tidemark
+### <a name="configure-tidemark-single-sign-on"></a>Konfigurowanie pojedynczego znacznika Tidemark Sign-On
 
-Aby skonfigurować Logowanie jednokrotne na stronie **Tidemark** , musisz wysłać pobrany **certyfikat (base64)** i odpowiednie skopiowane adresy URL z Azure Portal do [zespołu pomocy technicznej Tidemark](http://www.tidemark.com/contact-us). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować logowanie pojedyncze po stronie aplikacji **Tidemark,** musisz wysłać pobrany certyfikat **(Base64)** i odpowiednie adresy URL skopiowane z aplikacji Azure Portal do zespołu pomocy technicznej aplikacji Tidemark. Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -141,7 +141,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
+2. Wybierz **pozycję Nowy** użytkownik w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -151,7 +151,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension . Na przykład BrittaSimon@contoso.com
+    b. W **polu Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension . Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -159,15 +159,15 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi Tidemark.
+W tej sekcji włączysz dla użytkownika Britta Simon możliwość korzystania z logowania pojedynczego platformy Azure, udzielając dostępu do aplikacji Tidemark.
 
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **Tidemark**.
+1. W Azure Portal wybierz pozycję Aplikacje dla **przedsiębiorstw,** wybierz pozycję **Wszystkie aplikacje,** a następnie wybierz pozycję **Tidemark.**
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście Aplikacje wybierz pozycję **Tidemark**.
+2. Na liście aplikacji wybierz pozycję **Tidemark.**
 
-    ![Link Tidemark na liście aplikacji](common/all-applications.png)
+    ![Link do znacznika Tidemark na liście aplikacji](common/all-applications.png)
 
 3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
@@ -179,19 +179,19 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+6. Jeśli oczekujesz wartości roli w asercji SAML, w oknie dialogowym Wybieranie roli wybierz z  listy odpowiednią rolę dla użytkownika, a następnie kliknij przycisk Wybierz w dolnej części ekranu. 
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
-### <a name="create-tidemark-test-user"></a>Utwórz użytkownika testowego Tidemark
+### <a name="create-tidemark-test-user"></a>Tworzenie użytkownika testowego aplikacji Tidemark
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w Tidemark. Aby dodać użytkowników na platformie Tidemark, Pracuj z [zespołem pomocy technicznej Tidemark](http://www.tidemark.com/contact-us) . Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika Britta Simon w aplikacji Tidemark. We współpracy z zespołem pomocy technicznej aplikacji Tidemark dodaj użytkowników na platformie Tidemark. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Tidemark w panelu dostępu należy automatycznie zalogować się do Tidemark, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+Po kliknięciu kafelka Tidemark w aplikacji Panel dostępu powinno na celu to automatyczne zalogowanie się do znacznika Tidemark, dla którego ustawiono logowanie jednokrotne. Aby uzyskać więcej informacji na temat Panel dostępu, [zobacz Wprowadzenie do Panel dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
