@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: wprowadzenie do analizowania danych przy użyciu bez serwera puli SQL'
-description: Z tego samouczka dowiesz się, jak analizować dane za pomocą bez serwera puli SQL przy użyciu danych znajdujących się w bazach danych platformy Spark.
+description: Z tego samouczka dowiesz się, jak analizować dane za pomocą bez serwera w puli SQL przy użyciu danych znajdujących się w bazach danych platformy Spark.
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -23,9 +23,9 @@ Z tego samouczka dowiesz się, jak analizować dane przy użyciu bez serwera pul
 
 ## <a name="the-built-in-serverless-sql-pool"></a>Wbudowana bez serwera pula SQL
 
-Bez serwerowe pule SQL umożliwiają korzystanie z bazy danych SQL bez konieczności rezerwy pojemności. Rozliczenia dla bez serwera puli SQL są oparte na ilości danych przetworzonych w celu uruchomienia zapytania, a nie na liczbie węzłów używanych do uruchomienia zapytania.
+Bez serwerowe pule SQL umożliwiają korzystanie z bazy danych SQL bez konieczności rezerwy pojemności. Rozliczanie bez serwera puli SQL jest oparte na ilości danych przetworzonych w celu uruchomienia zapytania, a nie na liczbie węzłów użytych do uruchomienia zapytania.
 
-Każdy obszar roboczy zawiera wstępnie skonfigurowaną bez serwera pulę SQL o nazwie **Wbudowana.** 
+Każdy obszar roboczy zawiera wstępnie skonfigurowaną bez serwera pulę SQL o nazwie **Wbudowana**. 
 
 ## <a name="analyze-nyc-taxi-data-with-a-serverless-sql-pool"></a>Analizowanie danych dotyczących taksówek w NYC przy użyciu bez serwera puli SQL
 
@@ -47,4 +47,4 @@ Każdy obszar roboczy zawiera wstępnie skonfigurowaną bez serwera pulę SQL o 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Analizowanie danych za pomocą bez serwera puli spark](get-started-analyze-spark.md)
+> [Analizowanie danych za pomocą bez serwera puli platformy Spark](get-started-analyze-spark.md)
