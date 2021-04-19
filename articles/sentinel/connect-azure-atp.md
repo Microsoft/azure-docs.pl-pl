@@ -1,6 +1,6 @@
 ---
-title: Połącz dane programu Microsoft Defender for Identity (dawniej Azure ATP) z platformą Azure. Microsoft Docs
-description: Dowiedz się, jak przesyłać strumieniowo dzienniki z usługi Microsoft Defender pod kątem tożsamości (dawniej usługa Azure Advanced Threat Protection) (ATP) w przypadku jednego kliknięcia.
+title: Łączenie Microsoft Defender for Identity (dawniej Azure ATP) z usługą Azure Sentinel| Microsoft Docs
+description: Dowiedz się, jak przesyłać strumieniowo dzienniki Microsoft Defender for Identity (dawniej Azure Advanced Threat Protection) (ATP) do usługi Azure Sentinel jednym kliknięciem.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,48 +14,48 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 1fe36dc7b3c04f033c1b693b657e07bcf42e3223
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a26091d4985b6fdb17120c6fd70476a750c94a9
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101715007"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714125"
 ---
-# <a name="connect-data-from-microsoft-defender-for-identity-formerly-azure-advanced-threat-protection"></a>Łączenie danych z usługi Microsoft Defender dla tożsamości (dawniej ochrona przed zagrożeniami na platformie Azure)
+# <a name="connect-data-from-microsoft-defender-for-identity-formerly-azure-advanced-threat-protection"></a>Łączenie danych z usługi Microsoft Defender for Identity (dawniej Azure Advanced Threat Protection)
 
 > [!IMPORTANT]
-> Łącznik usługi Microsoft Defender dla danych tożsamości na platformie Azure jest obecnie w publicznej wersji zapoznawczej.
+> Łącznik Microsoft Defender for Identity danych w Azure Sentinel jest obecnie w publicznej wersji zapoznawczej.
 > Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-W tym artykule opisano sposób przesyłania strumieniowego alertów zabezpieczeń z usługi [Microsoft Defender na potrzeby tożsamości](/azure-advanced-threat-protection/what-is-atp) na platformie Azure. 
+W tym artykule opisano sposób przesyłania strumieniowego alertów zabezpieczeń [z Microsoft Defender for Identity](/azure-advanced-threat-protection/what-is-atp) do Azure Sentinel. 
 
-Aby przesłać dalej alerty kondycji oprócz alertów zabezpieczeń, należy zintegrować usługę Microsoft Defender pod kątem tożsamości z serwerem dziennika systemowego. Aby uzyskać więcej informacji, zobacz [dokumentację usługi Microsoft Defender dla tożsamości](/defender-for-identity/setting-syslog). 
+Aby przesyłać dalej alerty dotyczące kondycji oprócz alertów zabezpieczeń, zintegruj Microsoft Defender for Identity z serwerem Syslog. Aby uzyskać więcej informacji, zobacz [dokumentację Microsoft Defender for Identity .](/defender-for-identity/setting-syslog) 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Użytkownik z uprawnieniami administratora globalnego lub administratora zabezpieczeń
-- Musisz być klientem wersji zapoznawczej usługi Microsoft Defender, aby zapewnić tożsamość i włączyć integrację usługi Microsoft Defender pod kątem tożsamości i Microsoft Cloud App Security. Aby uzyskać więcej informacji, zobacz [Microsoft Defender for Identity Integration](https://www.microsoft.com/microsoft-365/identity/advance-threat-protection).
+- Musisz być klientem wersji zapoznawczej aplikacji i Microsoft Defender for Identity włączyć integrację między Microsoft Defender for Identity i Microsoft Cloud App Security. Aby uzyskać więcej informacji, zobacz [Microsoft Defender for Identity Integration](/cloud-app-security/mdi-integration).
 
-## <a name="connect-to-microsoft-defender-for-identity"></a>Łączenie z usługą Microsoft Defender dla tożsamości
+## <a name="connect-to-microsoft-defender-for-identity"></a>Nawiązywanie połączenia z Microsoft Defender for Identity
 
-Upewnij się, że [w sieci jest włączona](/azure-advanced-threat-protection/install-atp-step1)wersja zapoznawcza usługi Microsoft Defender for Identity.
-Jeśli usługa Microsoft Defender dla tożsamości została wdrożona i pozyskuje dane, podejrzane alerty mogą być łatwo przesyłane strumieniowo do usługi Azure wskaźnikowej. Rozpoczęcie przesyłania strumieniowego na platformę Azure jest możliwe dopiero po 24 godzinach.
+Upewnij się, Microsoft Defender for Identity w wersji zapoznawczej [jest włączona w sieci.](/azure-advanced-threat-protection/install-atp-step1)
+Jeśli Microsoft Defender for Identity i pozyszsz dane, podejrzane alerty można łatwo przesyłać strumieniowo do Azure Sentinel. Rozpoczęcie przesyłania strumieniowego alertów do usługi Azure Sentinel może potrwać do 24 godzin.
 
 
-1. Aby nawiązać połączenie z usługą Microsoft Defender w celu uzyskania tożsamości na platformie Azure, musisz najpierw włączyć integrację usługi Microsoft Defender dla tożsamości i Microsoft Cloud App Security. Aby uzyskać informacje o tym, jak to zrobić, zobacz [Microsoft Defender for Identity Integration](https://www.microsoft.com/microsoft-365/identity/advance-threat-protection).
+1. Aby nawiązać Microsoft Defender for Identity z Azure Sentinel, należy najpierw włączyć integrację między Microsoft Defender for Identity i Microsoft Cloud App Security. Aby uzyskać informacje na temat tego, jak to zrobić, [zobacz Microsoft Defender for Identity integracji](/cloud-app-security/mdi-integration).
 
-1. W obszarze wskaźnik platformy Azure wybierz pozycję **Łączniki danych** , a następnie kliknij kafelek **Microsoft Defender for Identity (wersja zapoznawcza)** .
+1. W Azure Sentinel pozycję **Łączniki danych,** a następnie kliknij **kafelek Microsoft Defender for Identity (wersja zapoznawcza).**
 
-1. Możesz wybrać, czy alerty z usługi Microsoft Defender mają być automatycznie generowane na podstawie zdarzeń na platformie Azure. W obszarze **Tworzenie zdarzeń** wybierz pozycję **Włącz** , aby włączyć domyślną regułę analityczną, która automatycznie tworzy zdarzenia z alertów generowanych w połączonej usłudze zabezpieczeń. Następnie można edytować tę regułę w obszarze **Analiza** , a następnie **aktywne reguły**.
+1. Możesz wybrać, czy chcesz, aby alerty z Microsoft Defender for Identity automatycznie generować zdarzenia w Azure Sentinel automatycznie. W **obszarze Tworzenie zdarzeń wybierz** pozycję **Włącz,** aby włączyć domyślną regułę analityczna, która automatycznie tworzy zdarzenia na podstawie alertów generowanych w połączonej usłudze zabezpieczeń. Następnie możesz edytować tę regułę w obszarze **Analiza,** a następnie **aktywne reguły.**
 
 1. Kliknij przycisk **Połącz**.
 
-1. Aby użyć odpowiedniego schematu w Log Analytics dla alertów dotyczących tożsamości usługi Microsoft Defender, Wyszukaj pozycję **SecurityAlert**.
+1. Aby użyć odpowiedniego schematu usługi Log Analytics dla alertów Microsoft Defender for Identity, wyszukaj **securityalert**.
 
 > [!NOTE]
-> Jeśli alerty są większe niż 30 KB, wskaźnik na platformie Azure zatrzyma wyświetlanie pola jednostki w alertach.
+> Jeśli alerty są większe niż 30 KB, Azure Sentinel przestanie wyświetlać pole Jednostki w alertach.
 
 ## <a name="next-steps"></a>Następne kroki
-W tym dokumencie przedstawiono sposób nawiązywania połączenia z usługą Microsoft Defender pod kątem tożsamości na platformie Azure wskaźnikowej. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
-- Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
-- Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats-built-in.md).
+W tym dokumencie opisano sposób nawiązywania połączenia Microsoft Defender for Identity z Azure Sentinel. Aby dowiedzieć się więcej o Azure Sentinel, zobacz następujące artykuły:
+- Dowiedz się, [jak uzyskać wgląd w dane i potencjalne zagrożenia.](quickstart-get-visibility.md)
+- Wprowadzenie do [wykrywania zagrożeń za pomocą Azure Sentinel](tutorial-detect-threats-built-in.md).

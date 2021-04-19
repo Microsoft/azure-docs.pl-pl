@@ -1,245 +1,282 @@
 ---
 title: Urządzenie usługi Azure Migrate
-description: Zawiera podsumowanie obsługi urządzenia Azure Migrate.
+description: Zawiera podsumowanie obsługi urządzenia Azure Migrate wirtualnego.
 author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: b10d2e10f95470cadf67af762a0d7320bc09b7e0
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: d7fc04e65e2b79d43c48acd5a8c621f28d5c0403
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075699"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714672"
 ---
 # <a name="azure-migrate-appliance"></a>Urządzenie usługi Azure Migrate
 
-W tym artykule przedstawiono podsumowanie wymagań wstępnych i wymagania dotyczące obsługi urządzenia Azure Migrate.
+Ten artykuł zawiera podsumowanie wymagań wstępnych i wymagań dotyczących pomocy technicznej Azure Migrate urządzenia.
 
 ## <a name="deployment-scenarios"></a>Scenariusze wdrażania
 
 Urządzenie Azure Migrate jest używane w następujących scenariuszach.
 
-**Scenariusz** | **Narzędzie** | **Używane do**
+**Scenariusz** | **Narzędzie** | **Służy do**
 --- | --- | ---
-**Odnajdywanie i ocenianie serwerów działających w środowisku VMware** | Azure Migrate: odnajdywanie i Ocena | Odnajdź serwery działające w środowisku programu VMware<br/><br/> Należy przeprowadzić odnajdywanie zainstalowanych spisów oprogramowania, analizy zależności bez agentów oraz odnajdywania wystąpień SQL Server i baz danych.<br/><br/> Zbieranie informacji o konfiguracji serwera i metadanych wydajności dla ocen.
-**Migracja serwerów z systemem w środowisku VMware bez wykorzystania agentów** | Azure Migrate: Migracja serwera | Odnajdź serwery działające w środowisku programu VMware. <br/><br/> Replikowanie serwerów bez instalowania na nich agentów.
-**Odnajdywanie i ocenianie serwerów działających w środowisku funkcji Hyper-V** | Azure Migrate: odnajdywanie i Ocena | Odnajdź serwery działające w środowisku funkcji Hyper-V.<br/><br/> Zbieranie informacji o konfiguracji serwera i metadanych wydajności dla ocen.
-**Odnajdywanie i ocenianie serwerów fizycznych lub zwirtualizowanych lokalnie** |  Azure Migrate: odnajdywanie i Ocena |  Odnajdywanie serwerów fizycznych lub zwirtualizowanych lokalnie.<br/><br/> Zbieranie informacji o konfiguracji serwera i metadanych wydajności dla ocen.
+**Odnajdywanie i ocena serwerów uruchomionych w środowisku VMware** | Azure Migrate: Odnajdywanie i ocena | Odnajdywanie serwerów uruchomionych w środowisku VMware<br/><br/> Odnajdywanie spisu zainstalowanego oprogramowania, analiza zależności bez agenta i odnajdywanie SQL Server i baz danych.<br/><br/> Zbierz metadane konfiguracji i wydajności serwera dla ocen.
+**Migracja bez agenta serwerów działających w środowisku VMware** | Azure Migrate: Migracja serwera | Odnajdowanie serwerów uruchomionych w środowisku VMware. <br/><br/> Replikowanie serwerów bez instalowania na nich agentów.
+**Odnajdywanie i ocena serwerów uruchomionych w środowisku funkcji Hyper-V** | Azure Migrate: Odnajdywanie i ocena | Odnajdowanie serwerów uruchomionych w środowisku funkcji Hyper-V.<br/><br/> Zbierz metadane konfiguracji i wydajności serwera dla ocen.
+**Odnajdywanie i ocena serwerów fizycznych lub zwirtualizowanych w środowisku lokalnym** |  Azure Migrate: Odnajdywanie i ocena |  Odnajdywanie serwerów fizycznych lub zwirtualizowanych w środowisku lokalnym.<br/><br/> Zbierz metadane dotyczące konfiguracji i wydajności serwera dla ocen.
 
 ## <a name="deployment-methods"></a>Metody wdrażania
 
 Urządzenie można wdrożyć przy użyciu kilku metod:
 
-- Urządzenie można wdrożyć przy użyciu szablonu dla serwerów działających w środowisku VMware lub funkcji Hyper-V ([szablon komórki jajowe dla oprogramowania VMware](how-to-set-up-appliance-vmware.md) lub [wirtualnego dysku twardego dla funkcji Hyper-v](how-to-set-up-appliance-hyper-v.md)).
-- Jeśli nie chcesz używać szablonu, możesz wdrożyć urządzenie dla środowiska VMware lub funkcji Hyper-V przy użyciu [skryptu Instalatora programu PowerShell](deploy-appliance-script.md).
-- W Azure Government należy wdrożyć urządzenie przy użyciu skryptu Instalatora programu PowerShell. W [tym miejscu](deploy-appliance-script-government.md)zapoznaj się z krokami wdrożenia.
-- W przypadku serwerów fizycznych lub zwirtualizowanych lokalnie lub w innych chmurach urządzenie jest zawsze wdrażane przy użyciu skryptu Instalatora programu PowerShell. W [tym miejscu](how-to-set-up-appliance-physical.md)zapoznaj się z krokami wdrożenia.
-- Linki do pobrania są dostępne w poniższych tabelach.
+- Urządzenie można wdrożyć przy użyciu szablonu dla serwerów działających w środowisku VMware lub Funkcji Hyper-V (szablon OVA dla[oprogramowania VMware](how-to-set-up-appliance-vmware.md) lub wirtualnego dysku twardego dla [funkcji Hyper-V).](how-to-set-up-appliance-hyper-v.md)
+- Jeśli nie chcesz używać szablonu, możesz wdrożyć urządzenie dla środowiska VMware lub Hyper-V za pomocą skryptu [instalatora programu PowerShell.](deploy-appliance-script.md)
+- W Azure Government należy wdrożyć urządzenie przy użyciu skryptu instalatora programu PowerShell. Kroki wdrażania można znaleźć [tutaj.](deploy-appliance-script-government.md)
+- W przypadku serwerów fizycznych lub zwirtualizowanych w środowisku lokalnym lub dowolnej innej chmurze urządzenie zawsze jest wdrażane przy użyciu skryptu instalatora programu PowerShell. Kroki wdrażania można znaleźć [tutaj.](how-to-set-up-appliance-physical.md)
+- Linki pobierania są dostępne w poniższych tabelach.
 
 ## <a name="appliance---vmware"></a>Urządzenie — VMware
 
-Poniższa tabela zawiera podsumowanie wymagań dotyczących urządzeń Azure Migrate dla programu VMware.
+W poniższej tabeli przedstawiono podsumowanie Azure Migrate urządzenia dla oprogramowania VMware.
 
 > [!Note]
-> Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. Aby wypróbować tę funkcję, użyj [**tego linku**](https://aka.ms/AzureMigrate/SQL) w celu utworzenia projektu w regionie **Australia Wschodnia**. Jeśli masz już projekt w regionie Australia Wschodnia i chcesz wypróbować tę funkcję, upewnij się, że zostały spełnione te [**wymagania wstępne**](how-to-discover-sql-existing-project.md) w portalu.
+> Odnajdywanie i ocena SQL Server i baz danych uruchomionych w środowisku VMware jest teraz w wersji zapoznawczej. Aby wypróbować tę funkcję, użyj [**tego linku**](https://aka.ms/AzureMigrate/SQL) w celu utworzenia projektu w regionie **Australia Wschodnia**. Jeśli masz już projekt w regionie Australia Wschodnia i chcesz wypróbować tę funkcję, upewnij się, że zostały spełnione te [**wymagania wstępne**](how-to-discover-sql-existing-project.md) w portalu.
 
 **Wymaganie** | **VMware**
 --- | ---
-**Uprawnienia** | Aby uzyskać dostęp do programu Configuration Manager lokalnie lub zdalnie, musisz mieć konto użytkownika lokalnego lub domeny z uprawnieniami administracyjnymi na serwerze urządzeń.
-**Usługi urządzeń** | Urządzenie ma następujące usługi:<br/><br/> - **Menedżer konfiguracji urządzenia**: jest to aplikacja sieci Web, która może być skonfigurowana ze szczegółowymi informacjami na temat uruchamiania odnajdywania i oceny serwerów.<br/> - **Agent odnajdywania VMware**: Agent zbiera metadane konfiguracji serwera, których można użyć do utworzenia jako oceny lokalne.<br/>- **Agent oceny VMware**: Agent zbiera metadane wydajności serwera, których można użyć do tworzenia ocen opartych na wydajności.<br/>- **Usługa autoaktualizacji**: usługa utrzymuje wszystkie agenci uruchomione na urządzeniu. Jest ona automatycznie uruchamiana co 24 godziny.<br/>- **Agent dra**: organizuje replikację serwera i koordynuje komunikację między replikowanymi serwerami i platformą Azure. Używane tylko w przypadku replikowania serwerów na platformę Azure przy użyciu migracji bez wykorzystania agentów.<br/>- **Brama**: wysyła zreplikowane dane na platformę Azure. Używane tylko w przypadku replikowania serwerów na platformę Azure przy użyciu migracji bez wykorzystania agentów.<br/>- **Agent odnajdywania i oceny SQL**: wysyła metadane konfiguracji i wydajności SQL Server wystąpień i baz danych na platformę Azure.
-**Limity projektu** |  Urządzenie może być zarejestrowane tylko w jednym projekcie.<br/> Pojedynczy projekt może mieć wiele zarejestrowanych urządzeń.
-**Limity odnajdywania** | Urządzenie może wykryć do 10 000 serwerów uruchomionych na vCenter Server.<br/> Urządzenie może połączyć się z pojedynczym vCenter Server.
-**Obsługiwane wdrożenie** | Wdróż jako nowy serwer działający na vCenter Server przy użyciu szablonu komórki jajowe.<br/><br/> Wdróż program na istniejącym serwerze z systemem Windows Server 2016 przy użyciu skryptu Instalatora programu PowerShell.
-**Szablon komórki jajowe** | Pobierz z projektu lub z tego [miejsca](https://go.microsoft.com/fwlink/?linkid=2140333)<br/><br/> Rozmiar pobieranych plików to 11,9 GB.<br/><br/> Pobrany szablon urządzenia zawiera licencję ewaluacyjną systemu Windows Server 2016, która jest ważna przez 180 dni.<br/>Jeśli okres próbny zbliża się do wygaśnięcia, zalecamy pobranie i wdrożenie nowego urządzenia przy użyciu szablonu komórki jajowe lub Aktywowanie licencji systemu operacyjnego serwera urządzeń.
-**Weryfikacja komórek jajowych** | [Sprawdź, czy](tutorial-discover-vmware.md#verify-security) szablon komórki jajowe został pobrany z projektu, sprawdzając wartości skrótu.
-**Skrypt programu PowerShell** | Zapoznaj się z tym [artykułem](./deploy-appliance-script.md#set-up-the-appliance-for-vmware) dotyczącym sposobu wdrażania urządzenia za pomocą skryptu Instalatora programu PowerShell.<br/><br/> 
-**Wymagania dotyczące sprzętu i sieci** |  Urządzenie powinno działać na serwerze z systemem Windows Server 2016, 32 GB pamięci RAM, 8 procesorów wirtualnych vCPU, około 80 GB miejsca na dysku i zewnętrznym przełączniku wirtualnym.<br/> Urządzenie wymaga dostępu do Internetu, bezpośrednio lub za pomocą serwera proxy.<br/><br/> W przypadku wdrożenia urządzenia przy użyciu szablonu komórki jajowe należy uzyskać wystarczającą ilość zasobów na vCenter Server, aby utworzyć serwer, który spełnia wymagania sprzętowe.<br/><br/> Jeśli urządzenie jest uruchamiane na istniejącym serwerze, upewnij się, że jest uruchomiony system Windows Server 2016 i spełnia wymagania sprzętowe.<br/>_(Obecnie wdrożenie urządzenia jest obsługiwane tylko w systemie Windows Server 2016)._
-**Wymagania dotyczące oprogramowania VMware** | Jeśli urządzenie zostanie wdrożone jako serwer na vCenter Server, musi zostać wdrożone na vCenter Server z systemem 5,5, 6,0, 6,5 lub 6,7 oraz hostem ESXi z systemem w wersji 5,5 lub nowszej.<br/><br/> 
-**VDDK (migracja bez wykorzystania agentów)** | Aby można było korzystać z urządzenia w celu migracji serwerów bez wykorzystania agentów, na serwerze urządzenia musi być zainstalowany VMware vSphere VDDK.
+**Uprawnienia** | Aby uzyskać dostęp do menedżera konfiguracji urządzenia lokalnie lub zdalnie, musisz mieć konto użytkownika lokalnego lub domeny z uprawnieniami administracyjnymi na serwerze urządzenia.
+**Usługi urządzeń** | Urządzenie ma następujące usługi:<br/><br/> - **Menedżer konfiguracji urządzenia:** jest to aplikacja internetowa, którą można skonfigurować przy użyciu szczegółów źródła, aby rozpocząć odnajdywanie i ocenę serwerów.<br/> - **Agent odnajdywania programu VMware:** agent zbiera metadane konfiguracji serwera, których można użyć do tworzenia ocen lokalnych.<br/>- **Agent oceny programu VMware:** agent zbiera metadane wydajności serwera, których można użyć do tworzenia ocen opartych na wydajności.<br/>- **Usługa automatycznej aktualizacji:** usługa zapewnia, że wszyscy agenci na urządzeniu są aktualne. Jest ona uruchamiana automatycznie co 24 godziny.<br/>- **Agent dra:** orkiestruje replikację serwera i koordynuje komunikację między serwerami replikowanym a platformą Azure. Używany tylko podczas replikowania serwerów na platformę Azure przy użyciu migracji bez agenta.<br/>- **Brama:** wysyła replikowane dane na platformę Azure. Używany tylko podczas replikowania serwerów na platformę Azure przy użyciu migracji bez agenta.<br/>- **Agent odnajdywania i oceny SQL:** wysyła metadane konfiguracji i wydajności SQL Server i baz danych na platformę Azure.
+**Limity projektu** |  Urządzenie można zarejestrować tylko w jednym projekcie.<br/> Pojedynczy projekt może mieć wiele zarejestrowanych urządzeń.
+**Limity odnajdywania** | Urządzenie może odnaleźć do 10 000 serwerów uruchomionych na vCenter Server.<br/> Urządzenie może łączyć się z jednym vCenter Server.
+**Obsługiwane wdrożenie** | Wdrażanie jako nowego serwera działającego na vCenter Server przy użyciu szablonu OVA.<br/><br/> Wdrażanie na istniejącym serwerze z systemem Windows Server 2016 przy użyciu skryptu instalatora programu PowerShell.
+**Szablon OVA** | Pobierz z projektu lub [tutaj](https://go.microsoft.com/fwlink/?linkid=2140333)<br/><br/> Rozmiar pobierania to 11,9 GB.<br/><br/> Pobrany szablon urządzenia jest dostarczany z licencją ewaluacyjną systemu Windows Server 2016, która jest ważna przez 180 dni.<br/>Jeśli okres ewaluowania jest bliski wygaśnięcia, zalecamy pobranie i wdrożenie nowego urządzenia przy użyciu szablonu OVA lub aktywowanie licencji systemu operacyjnego serwera urządzenia.
+**Weryfikacja OVA** | [Sprawdź](tutorial-discover-vmware.md#verify-security) szablon OVA pobrany z projektu, sprawdzając wartości skrótu.
+**Skrypt programu PowerShell** | Zapoznaj się z tym [artykułem,](./deploy-appliance-script.md#set-up-the-appliance-for-vmware) aby dowiedzieć się, jak wdrożyć urządzenie za pomocą skryptu instalatora programu PowerShell.<br/><br/> 
+**Wymagania dotyczące sprzętu i sieci** |  Urządzenie powinno działać na serwerze z systemem Windows Server 2016, 32 GB pamięci RAM, 8 procesorów wirtualnych, około 80 GB miejsca na dysku i zewnętrznym przełącznikiem wirtualnym.<br/> Urządzenie wymaga dostępu do Internetu, bezpośrednio lub za pośrednictwem serwera proxy.<br/><br/> Jeśli urządzenie jest wdrażane przy użyciu szablonu OVA, potrzebujesz wystarczającej ilości zasobów na vCenter Server, aby utworzyć serwer spełniający wymagania sprzętowe.<br/><br/> Jeśli urządzenie jest uruchamiane na istniejącym serwerze, upewnij się, że działa ono w systemie Windows Server 2016 i spełnia wymagania sprzętowe.<br/>_(Obecnie wdrożenie urządzenia jest obsługiwane tylko w systemie Windows Server 2016)._
+**Wymagania dotyczące oprogramowania VMware** | W przypadku wdrożenia urządzenia jako serwera na platformie vCenter Server należy je wdrożyć na serwerze z systemem vCenter Server w wersji 5.5, 6.0, 6.5 lub 6.7 oraz na hoście ESXi w wersji 5.5 lub nowszej.<br/><br/> 
+**VDDK (migracja bez agenta)** | Aby można było korzystać z urządzenia do migracji serwerów bez agenta, VMware vSphere VDDK musi być zainstalowany na serwerze urządzenia.
 
-## <a name="appliance---hyper-v"></a>Urządzenie-Hyper-V
+## <a name="appliance---hyper-v"></a>Urządzenie — funkcja Hyper-V
 
 **Wymaganie** | **Hyper-V**
 --- | ---
-**Uprawnienia** | Aby uzyskać dostęp do programu Configuration Manager lokalnie lub zdalnie, musisz mieć konto użytkownika lokalnego lub domeny z uprawnieniami administracyjnymi na serwerze urządzeń.
-**Usługi urządzeń** | Urządzenie ma następujące usługi:<br/><br/> - **Menedżer konfiguracji urządzenia**: jest to aplikacja sieci Web, która może być skonfigurowana ze szczegółowymi informacjami na temat uruchamiania odnajdywania i oceny serwerów.<br/> - **Agent odnajdywania**: Agent zbiera metadane konfiguracji serwera, których można użyć do utworzenia jako oceny lokalne.<br/>- **Agent oceny**: Agent zbiera metadane wydajności serwera, których można użyć do tworzenia ocen opartych na wydajności.<br/>- **Usługa autoaktualizacji**: usługa utrzymuje wszystkie agenci uruchomione na urządzeniu. Jest ona automatycznie uruchamiana co 24 godziny.
-**Limity projektu** |  Urządzenie może być zarejestrowane tylko w jednym projekcie.<br/> Pojedynczy projekt może mieć wiele zarejestrowanych urządzeń.
-**Limity odnajdywania** | Urządzenie może wykryć do 5000 serwerów działających w środowisku funkcji Hyper-V.<br/> Urządzenie może połączyć się z maksymalnie 300 hostami funkcji Hyper-V.
-**Obsługiwane wdrożenie** | Wdróż program jako serwer uruchomiony na hoście funkcji Hyper-V przy użyciu szablonu wirtualnego dysku twardego.<br/><br/> Wdróż program na istniejącym serwerze z systemem Windows Server 2016 przy użyciu skryptu Instalatora programu PowerShell.
-**Szablon wirtualnego dysku twardego** | Plik zip zawierający dysk VHD. Pobierz z projektu lub z tego [miejsca](https://go.microsoft.com/fwlink/?linkid=2140422).<br/><br/> Rozmiar pobieranych plików to 8,91 GB.<br/><br/> Pobrany szablon urządzenia zawiera licencję ewaluacyjną systemu Windows Server 2016, która jest ważna przez 180 dni.<br/> Jeśli okres próbny zbliża się do wygaśnięcia, zalecamy pobranie i wdrożenie nowego urządzenia albo Aktywowanie licencji systemu operacyjnego serwera urządzeń.
-**Weryfikacja wirtualnego dysku twardego** | [Sprawdź, czy](tutorial-discover-hyper-v.md#verify-security) szablon wirtualnego dysku twardego został pobrany z projektu, sprawdzając wartości skrótu.
-**Skrypt programu PowerShell** | Zapoznaj się z tym [artykułem](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v) dotyczącym sposobu wdrażania urządzenia za pomocą skryptu Instalatora programu PowerShell.<br/>
-**Wymagania dotyczące sprzętu i sieci**  |  Urządzenie powinno działać na serwerze z systemem Windows Server 2016, 16 GB pamięci RAM, 8 procesorów wirtualnych vCPU, około 80 GB miejsca na dysku i zewnętrznym przełączniku wirtualnym.<br/> Urządzenie musi mieć statyczny lub dynamiczny adres IP i wymaga dostępu do Internetu, bezpośrednio lub za pomocą serwera proxy.<br/><br/> Jeśli urządzenie zostanie uruchomione jako serwer działający na hoście funkcji Hyper-V, do utworzenia serwera, który spełnia wymagania sprzętowe, potrzeba wystarczającej ilości zasobów na hoście.<br/><br/> Jeśli urządzenie jest uruchamiane na istniejącym serwerze, upewnij się, że jest uruchomiony system Windows Server 2016 i spełnia wymagania sprzętowe.<br/>_(Obecnie wdrożenie urządzenia jest obsługiwane tylko w systemie Windows Server 2016)._
-**Wymagania dotyczące funkcji Hyper-V** | W przypadku wdrożenia urządzenia z szablonem dysku VHD urządzenie udostępnione przez Azure Migrate jest maszyną wirtualną funkcji Hyper-V w wersji 5,0.<br/><br/> Na hoście funkcji Hyper-V musi być uruchomiony system Windows Server 2012 R2 lub nowszy.
+**Uprawnienia** | Aby uzyskać dostęp do menedżera konfiguracji urządzenia lokalnie lub zdalnie, musisz mieć konto użytkownika lokalnego lub domeny z uprawnieniami administracyjnymi na serwerze urządzenia.
+**Usługi urządzeń** | Urządzenie ma następujące usługi:<br/><br/> - **Menedżer konfiguracji urządzenia:** jest to aplikacja internetowa, którą można skonfigurować przy użyciu szczegółów źródła, aby rozpocząć odnajdywanie i ocenę serwerów.<br/> - **Agent odnajdywania:** agent zbiera metadane konfiguracji serwera, których można użyć do tworzenia ocen lokalnych.<br/>- **Agent oceny:** agent zbiera metadane wydajności serwera, których można użyć do tworzenia ocen opartych na wydajności.<br/>- **Usługa automatycznej aktualizacji:** usługa zapewnia, że wszyscy agenci na urządzeniu są aktualne. Jest ona uruchamiana automatycznie co 24 godziny.
+**Limity projektu** |  Urządzenie można zarejestrować tylko w jednym projekcie.<br/> Pojedynczy projekt może mieć wiele zarejestrowanych urządzeń.
+**Limity odnajdywania** | Urządzenie może odnajdywać maksymalnie 5000 serwerów działających w środowisku funkcji Hyper-V.<br/> Urządzenie może łączyć się z maksymalnie 300 hostami funkcji Hyper-V.
+**Obsługiwane wdrożenie** | Wdrażanie jako serwer uruchomiony na hoście funkcji Hyper-V przy użyciu szablonu wirtualnego dysku twardego.<br/><br/> Wdrażanie na istniejącym serwerze z systemem Windows Server 2016 przy użyciu skryptu instalatora programu PowerShell.
+**Szablon wirtualnego dysku twardego** | Plik zip, który zawiera wirtualny dysk twardy. Pobierz z projektu lub [tutaj.](https://go.microsoft.com/fwlink/?linkid=2140422)<br/><br/> Rozmiar pobierania to 8,91 GB.<br/><br/> Pobrany szablon urządzenia jest dostarczany z licencją ewaluacyjną systemu Windows Server 2016, która jest ważna przez 180 dni.<br/> Jeśli okres ewaluowania jest bliski wygaśnięcia, zalecamy pobranie i wdrożenie nowego urządzenia lub aktywowanie licencji systemu operacyjnego serwera urządzenia.
+**Weryfikacja wirtualnego dysku twardego** | [Sprawdź](tutorial-discover-hyper-v.md#verify-security) szablon wirtualnego dysku twardego pobrany z projektu, sprawdzając wartości skrótu.
+**Skrypt programu PowerShell** | Zapoznaj się z tym [artykułem,](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v) aby dowiedzieć się, jak wdrożyć urządzenie za pomocą skryptu instalatora programu PowerShell.<br/>
+**Wymagania dotyczące sprzętu i sieci**  |  Urządzenie powinno działać na serwerze z systemem Windows Server 2016, 16 GB pamięci RAM, 8 procesorów wirtualnych, około 80 GB miejsca na dysku i zewnętrznym przełącznikiem wirtualnym.<br/> Urządzenie wymaga statycznego lub dynamicznego adresu IP i wymaga dostępu do Internetu, bezpośrednio lub za pośrednictwem serwera proxy.<br/><br/> Jeśli urządzenie jest uruchamiane jako serwer uruchomiony na hoście funkcji Hyper-V, potrzebujesz na hoście wystarczającej ilości zasobów, aby utworzyć serwer spełniający wymagania sprzętowe.<br/><br/> Jeśli urządzenie jest uruchamiane na istniejącym serwerze, upewnij się, że działa ono w systemie Windows Server 2016 i spełnia wymagania sprzętowe.<br/>_(Obecnie wdrożenie urządzenia jest obsługiwane tylko w systemie Windows Server 2016)._
+**Wymagania funkcji Hyper-V** | W przypadku wdrożenia urządzenia za pomocą szablonu wirtualnego dysku twardego urządzeniem dostarczanym przez program Azure Migrate jest maszyna wirtualna funkcji Hyper-V w wersji 5.0.<br/><br/> Na hoście funkcji Hyper-V musi działać system Windows Server 2012 R2 lub nowszy.
 
 ## <a name="appliance---physical"></a>Urządzenie — fizyczne
 
 **Wymaganie** | **Fizyczny**
 --- | ---
-**Uprawnienia** | Aby uzyskać dostęp do programu Configuration Manager lokalnie lub zdalnie, musisz mieć konto użytkownika lokalnego lub domeny z uprawnieniami administracyjnymi na serwerze urządzeń.
-**Usługi urządzeń** | Urządzenie ma następujące usługi:<br/><br/> - **Menedżer konfiguracji urządzenia**: jest to aplikacja sieci Web, która może być skonfigurowana ze szczegółowymi informacjami na temat uruchamiania odnajdywania i oceny serwerów.<br/> - **Agent odnajdywania**: Agent zbiera metadane konfiguracji serwera, których można użyć do utworzenia jako oceny lokalne.<br/>- **Agent oceny**: Agent zbiera metadane wydajności serwera, których można użyć do tworzenia ocen opartych na wydajności.<br/>- **Usługa autoaktualizacji**: usługa utrzymuje wszystkie agenci uruchomione na urządzeniu. Jest ona automatycznie uruchamiana co 24 godziny.
-**Limity projektu** |  Urządzenie może być zarejestrowane tylko w jednym projekcie.<br/> Pojedynczy projekt może mieć wiele zarejestrowanych urządzeń.<br/>
-**Limity odnajdywania** | Urządzenie może wykryć do 1000 serwerów fizycznych.
-**Obsługiwane wdrożenie** | Wdróż program na istniejącym serwerze z systemem Windows Server 2016 przy użyciu skryptu Instalatora programu PowerShell.
-**Skrypt programu PowerShell** | Pobierz skrypt (AzureMigrateInstaller.ps1) w pliku zip z projektu lub z tego [miejsca](https://go.microsoft.com/fwlink/?linkid=2140334). [Dowiedz się więcej](tutorial-discover-physical.md).<br/><br/> Rozmiar pobieranych plików to 85,8 MB.
-**Weryfikacja skryptu** | [Sprawdź, czy](tutorial-discover-physical.md#verify-security) skrypt Instalatora programu PowerShell został pobrany z projektu, sprawdzając wartości skrótu.
-**Wymagania dotyczące sprzętu i sieci** |  Urządzenie powinno działać na serwerze z systemem Windows Server 2016, 16 GB pamięci RAM, 8 procesorów wirtualnych vCPU, około 80 GB miejsca na dysku.<br/> Urządzenie musi mieć statyczny lub dynamiczny adres IP i wymaga dostępu do Internetu, bezpośrednio lub za pomocą serwera proxy.<br/><br/> Jeśli urządzenie jest uruchamiane na istniejącym serwerze, upewnij się, że jest uruchomiony system Windows Server 2016 i spełnia wymagania sprzętowe.<br/>_(Obecnie wdrożenie urządzenia jest obsługiwane tylko w systemie Windows Server 2016)._
+**Uprawnienia** | Aby uzyskać dostęp do menedżera konfiguracji urządzenia lokalnie lub zdalnie, musisz mieć konto użytkownika lokalnego lub domeny z uprawnieniami administracyjnymi na serwerze urządzenia.
+**Usługi urządzeń** | Urządzenie ma następujące usługi:<br/><br/> - **Menedżer konfiguracji urządzenia:** jest to aplikacja internetowa, którą można skonfigurować przy użyciu szczegółów źródła, aby rozpocząć odnajdywanie i ocenę serwerów.<br/> - **Agent odnajdywania:** agent zbiera metadane konfiguracji serwera, których można użyć do tworzenia ocen lokalnych.<br/>- **Agent oceny:** agent zbiera metadane wydajności serwera, których można użyć do tworzenia ocen opartych na wydajności.<br/>- **Usługa automatycznej aktualizacji:** usługa zapewnia, że wszyscy agenci na urządzeniu są aktualne. Jest ona uruchamiana automatycznie co 24 godziny.
+**Limity projektu** |  Urządzenie można zarejestrować tylko w jednym projekcie.<br/> Pojedynczy projekt może mieć wiele zarejestrowanych urządzeń.<br/>
+**Limity odnajdywania** | Urządzenie może odnajdywać maksymalnie 1000 serwerów fizycznych.
+**Obsługiwane wdrożenie** | Wdrażanie na istniejącym serwerze z systemem Windows Server 2016 przy użyciu skryptu instalatora programu PowerShell.
+**Skrypt programu PowerShell** | Pobierz skrypt (AzureMigrateInstaller.ps1) w pliku zip z projektu lub [tutaj.](https://go.microsoft.com/fwlink/?linkid=2140334) [Dowiedz się więcej](tutorial-discover-physical.md).<br/><br/> Rozmiar pobierania to 85,8 MB.
+**Weryfikacja skryptu** | [Sprawdź](tutorial-discover-physical.md#verify-security) skrypt instalatora programu PowerShell pobrany z projektu, sprawdzając wartości skrótu.
+**Wymagania dotyczące sprzętu i sieci** |  Urządzenie powinno działać na serwerze z systemem Windows Server 2016, 16 GB pamięci RAM, 8 procesorów wirtualnych, około 80 GB miejsca na dysku.<br/> Urządzenie wymaga statycznego lub dynamicznego adresu IP i wymaga dostępu do Internetu, bezpośrednio lub za pośrednictwem serwera proxy.<br/><br/> Jeśli urządzenie jest uruchamiane na istniejącym serwerze, upewnij się, że działa ono w systemie Windows Server 2016 i spełnia wymagania sprzętowe.<br/>_(Obecnie wdrożenie urządzenia jest obsługiwane tylko w systemie Windows Server 2016)._
 
 ## <a name="url-access"></a>Dostęp do adresu URL
 
-Urządzenie Azure Migrate wymaga połączenia z Internetem.
+Urządzenie Azure Migrate wymaga łączności z Internetem.
 
-- Po wdrożeniu urządzenia Azure Migrate sprawdza łączność z wymaganymi adresami URL.
-- Musisz zezwolić na dostęp do wszystkich adresów URL na liście. Jeśli wykonujesz tylko ocenę, możesz pominąć adresy URL, które są oznaczone jako wymagane dla migracji bez agenta programu VMware.
-- Jeśli używasz serwera proxy opartego na adresie URL do łączenia się z Internetem, upewnij się, że serwer proxy rozpoznaje wszystkie rekordy CNAME otrzymane podczas wyszukiwania adresów URL.
+- Podczas wdrażania urządzenia program Azure Migrate sprawdzanie łączności z wymaganymi adresami URL.
+- Musisz zezwolić na dostęp do wszystkich adresów URL na liście. Jeśli oceniasz tylko tę ocenę, możesz pominąć adresy URL oznaczone jako wymagane w przypadku migracji bez agenta VMware.
+- Jeśli używasz serwera proxy opartego na adresach URL do łączenia się z Internetem, upewnij się, że serwer proxy rozpozna wszystkie rekordy CNAME odebrane podczas szukania adresów URL.
 
 ### <a name="public-cloud-urls"></a>Adresy URL chmury publicznej
 
 **Adres URL** | **Szczegóły**  
 --- | --- |
 *.portal.azure.com  | Przejdź do witryny Azure Portal.
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *. office.com | Zaloguj się do subskrypcji platformy Azure.
-*.microsoftonline.com <br/> *.microsoftonline-p.com | Utwórz aplikacje Azure Active Directory (AD) dla urządzenia, aby komunikować się z Azure Migrate.
-management.azure.com | Utwórz aplikacje usługi Azure AD dla urządzenia, aby komunikować się z Azure Migrate.
-*.services.visualstudio.com | Przekazywanie dzienników urządzeń używanych do wewnętrznego monitorowania.
-*.vault.azure.net | Zarządzanie wpisami tajnymi w Azure Key Vault.<br/> Uwaga: Upewnij się, że serwery do replikacji mają dostęp do tego obiektu.
-aka.ms/* | Zezwalanie na dostęp do aliasów linków; służy do pobierania i instalowania najnowszych aktualizacji dla usług urządzenia.
-download.microsoft.com/download | Zezwalaj na pobieranie z centrum pobierania firmy Microsoft.
-*.servicebus.windows.net | Komunikacja między urządzeniem a usługą Azure Migrate.
-*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com | Połącz się z adresami URL usługi Azure Migrate.
-*.hypervrecoverymanager.windowsazure.com | **Używane do migracji bez agentów programu VMware**<br/><br/> Połącz się z adresami URL usługi Azure Migrate.
-*.blob.core.windows.net |  **Używane do migracji bez agentów programu VMware**<br/><br/>Przekaż dane do magazynu na potrzeby migracji.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com | Zaloguj się do subskrypcji platformy Azure.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Utwórz Azure Active Directory (AD) dla urządzenia w celu komunikowania się z Azure Migrate.
+management.azure.com | Tworzenie aplikacji usługi Azure AD dla urządzenia w celu komunikowania się z Azure Migrate.
+*.services.visualstudio.com | Przekazywanie dzienników urządzenia używanych do monitorowania wewnętrznego.
+*.vault.azure.net | Zarządzanie wpisami tajnymi w Azure Key Vault.<br/> Uwaga: Upewnij się, że serwery replikowane mają do tego dostęp.
+aka.ms/* | Zezwalaj na dostęp do linków Służy do pobierania i instalowania najnowszych aktualizacji dla usług urządzeń.
+download.microsoft.com/download | Zezwalaj na pobieranie z Centrum pobierania Microsoft.
+*.servicebus.windows.net | Komunikacja między urządzeniem a Azure Migrate usługi.
+*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com | Połącz się z Azure Migrate URL usługi.
+*.hypervrecoverymanager.windowsazure.com | **Używany do migracji bez agenta VMware**<br/><br/> Połącz się z Azure Migrate URL usługi.
+*.blob.core.windows.net |  **Używany do migracji bez agenta VMware**<br/><br/>Przekazywanie danych do magazynu w celu migracji.
 
-### <a name="government-cloud-urls"></a>Adresy URL w chmurze dla instytucji rządowych
+### <a name="government-cloud-urls"></a>Adresy URL chmury dla instytucji rządowych
 
 **Adres URL** | **Szczegóły**  
 --- | --- |
-*. portal.azure.us  | Przejdź do witryny Azure Portal.
+*.portal.azure.us  | Przejdź do witryny Azure Portal.
 graph.windows.net | Zaloguj się do subskrypcji platformy Azure.
-login.microsoftonline.us  | Utwórz aplikacje Azure Active Directory (AD) dla urządzenia, aby komunikować się z Azure Migrate.
-management.usgovcloudapi.net | Utwórz aplikacje usługi Azure AD dla urządzenia, aby komunikować się z usługą Azure Migrate.
-*.services.visualstudio.com | Przekazywanie dzienników urządzeń używanych do wewnętrznego monitorowania.
-*. vault.usgovcloudapi.net | Zarządzanie wpisami tajnymi w Azure Key Vault.
-aka.ms/* | Zezwalanie na dostęp do aliasów linków; służy do pobierania i instalowania najnowszych aktualizacji dla usług urządzenia.
-download.microsoft.com/download | Zezwalaj na pobieranie z centrum pobierania firmy Microsoft.
-*. servicebus.usgovcloudapi.net  | Komunikacja między urządzeniem a usługą Azure Migrate.
-*. discoverysrv.windowsazure.us <br/> *. migration.windowsazure.us | Połącz się z adresami URL usługi Azure Migrate.
-*. hypervrecoverymanager.windowsazure.us | **Używane do migracji bez agentów programu VMware**<br/><br/> Połącz się z adresami URL usługi Azure Migrate.
-*. blob.core.usgovcloudapi.net  |  **Używane do migracji bez agentów programu VMware**<br/><br/>Przekaż dane do magazynu na potrzeby migracji.
-*. applicationinsights.us | Przekazywanie dzienników urządzeń używanych do wewnętrznego monitorowania.
+login.microsoftonline.us  | Utwórz Azure Active Directory (AD), aby urządzenie komunikło się z Azure Migrate.
+management.usgovcloudapi.net | Tworzenie aplikacji usługi Azure AD dla urządzenia w celu komunikowania się z Azure Migrate usługą.
+*.services.visualstudio.com | Przekazywanie dzienników urządzeń używanych do monitorowania wewnętrznego.
+*.vault.usgovcloudapi.net | Zarządzanie wpisami tajnymi w Azure Key Vault.
+aka.ms/* | Zezwalaj na dostęp do linków; służy do pobierania i instalowania najnowszych aktualizacji usług urządzenia.
+download.microsoft.com/download | Zezwalaj na pobieranie z Centrum pobierania Microsoft.
+*.servicebus.usgovcloudapi.net  | Komunikacja między urządzeniem a Azure Migrate usługi.
+*.discoverysrv.windowsazure.us <br/> *.migration.windowsazure.us | Połącz się z Azure Migrate URL usługi.
+*.hypervrecoverymanager.windowsazure.us | **Używany do migracji bez agenta VMware**<br/><br/> Połącz się z Azure Migrate URL usługi.
+*.blob.core.usgovcloudapi.net  |  **Używany do migracji bez agenta VMware**<br/><br/>Przekazywanie danych do magazynu w celu migracji.
+*.applicationinsights.us | Przekazywanie dzienników urządzenia używanych do monitorowania wewnętrznego.  
+
+### <a name="public-cloud-urls-for-private-link-connectivity"></a>Adresy URL chmury publicznej dla łączności z linkami prywatnymi
+
+Urządzenie musi mieć dostęp do następujących adresów URL (bezpośrednio lub za pośrednictwem serwera proxy) za pośrednictwem lub powyżej dostępu do linku prywatnego. 
+
+**Adres URL** | **Szczegóły**  
+--- | --- | 
+*.portal.azure.com  | Przejdź do witryny Azure Portal.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com | Zaloguj się do subskrypcji platformy Azure.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Tworzenie Azure Active Directory (AD) dla urządzenia w celu komunikowania się z Azure Migrate.
+management.azure.com | Tworzenie aplikacji usługi Azure AD dla urządzenia w celu komunikowania się z Azure Migrate.
+*.services.visualstudio.com (opcjonalnie) | Przekazywanie dzienników urządzenia używanych do monitorowania wewnętrznego.
+aka.ms/* (opcjonalnie) | Zezwalaj na dostęp do linków aka; Służy do pobierania i instalowania najnowszych aktualizacji dla usług urządzeń.
+download.microsoft.com/download | Zezwalaj na pobieranie z Centrum pobierania Microsoft.
+*.servicebus.windows.net | **Używany do migracji bez agenta VMware**<br/><br/> Komunikacja między urządzeniem a Azure Migrate usługi.
+*.vault.azure.net | **Używany do migracji bez agenta VMware**<br/><br/>  Upewnij się, że serwery do replikacji mają do tego dostęp.
+*.hypervrecoverymanager.windowsazure.com | **Używany do migracji bez agenta VMware**<br/><br/> Połącz się z Azure Migrate URL usługi.
+*.blob.core.windows.net |  **Używany do migracji bez agenta VMware**<br/><br/>Przekazywanie danych do magazynu w celu migracji.
+
+### <a name="government-cloud-urls-for-private-link-connectivity"></a>Adresy URL chmury dla instytucji rządowych dla łączności z linkami prywatnymi   
+
+Urządzenie musi mieć dostęp do następujących adresów URL (bezpośrednio lub za pośrednictwem serwera proxy) za pośrednictwem lub powyżej dostępu do łącza prywatnego. 
+
+**Adres URL** | **Szczegóły**  
+--- | --- |
+*.portal.azure.us  | Przejdź do witryny Azure Portal.
+graph.windows.net | Zaloguj się do subskrypcji platformy Azure.
+login.microsoftonline.us  | Utwórz Azure Active Directory (AD), aby urządzenie komunikło się z Azure Migrate.
+management.usgovcloudapi.net | Tworzenie aplikacji usługi Azure AD dla urządzenia w celu komunikowania się z Azure Migrate usługą.
+*.services.visualstudio.com (opcjonalnie) | Przekazywanie dzienników urządzeń używanych do monitorowania wewnętrznego.
+aka.ms/* (opcjonalnie) | Zezwalaj na dostęp do linków; Służy do pobierania i instalowania najnowszych aktualizacji usług urządzenia.
+download.microsoft.com/download | Zezwalaj na pobieranie z Centrum pobierania Microsoft.
+*.servicebus.usgovcloudapi.net  | **Używany do migracji bez agenta VMware**<br/><br/> Komunikacja między urządzeniem a Azure Migrate usługi. 
+*.vault.usgovcloudapi.net | **Używany do migracji bez agenta VMware**<br/><br/> Zarządzanie wpisami tajnymi w Azure Key Vault.
+*.hypervrecoverymanager.windowsazure.us | **Używany do migracji bez agenta VMware**<br/><br/> Połącz się z Azure Migrate URL usługi.
+*.blob.core.usgovcloudapi.net  |  **Używany do migracji bez agenta VMware**<br/><br/>Przekazywanie danych do magazynu w celu migracji.
+*.applicationinsights.us (opcjonalnie) | Przekazywanie dzienników urządzenia używanych do monitorowania wewnętrznego.  
 
 ## <a name="collected-data---vmware"></a>Zebrane dane — VMware
 
-Urządzenie zbiera dane dotyczące metadanych konfiguracji, metadanych wydajności i zależności serwera (jeśli jest używana [analiza zależności](concepts-dependency-visualization.md) bez wykorzystania agentów).
+Urządzenie zbiera metadane konfiguracji, metadane wydajności i dane zależności serwera (jeśli jest używana analiza zależności [bez](concepts-dependency-visualization.md) agenta).
 
 ### <a name="metadata"></a>Metadane
 
-Metadane wykryte przez urządzenie Azure Migrate ułatwiają ustalenie, czy serwery są gotowe do migracji na platformę Azure, serwery o odpowiednim rozmiarze, plany kosztów i analizować zależności aplikacji. Firma Microsoft nie używa tych danych w żadnej inspekcji zgodności licencji.
+Metadane wykryte przez urządzenie Azure Migrate pomagają ustalić, czy serwery są gotowe do migracji na platformę Azure, serwery o odpowiednim rozmiarze, planują koszty i analizują zależności aplikacji. Firma Microsoft nie używa tych danych w żadnej inspekcji zgodności licencji.
 
-Poniżej znajduje się pełna lista metadanych serwera zbieranych i wysyłanych przez urządzenie do platformy Azure.
+Oto pełna lista metadanych serwera, które urządzenie zbiera i wysyła na platformę Azure.
 
-**DATA** | **PRZECIW**
+**Danych** | **Licznik**
 --- | ---
 **Szczegóły serwera** |
 Identyfikator serwera | vm.Config. InstanceUuid
-Nazwa serwera | vm.Config. Nazwij
-Identyfikator vCenter Server | VMwareClient. Instance. UUID
-Opis serwera | vm.Summary.Config. Wskazani
-Nazwa produktu licencji | VM. Client. servicecontent. informacje. LicenseProductName
-Typ systemu operacyjnego | VM. SummaryConfig. GuestFullName
-Typ rozruchu | vm.Config. Wbudowane
-Liczba rdzeni | vm.Config. Sprzęt. NumCPU
-Pamięć (MB) | vm.Config. Sprzęt. MemoryMB
-Liczba dysków | vm.Config. Sprzęt. Device. ToList — (). FindAll (x => to VirtualDisk). Count
-Lista rozmiarów dysku | vm.Config. Sprzęt. Device. ToList — (). FindAll (x => jest VirtualDisk)
-Lista kart sieciowych | vm.Config. Sprzęt. Device. ToList — (). FindAll (x => to VirtualEthernet). Count
-Wykorzystanie procesora | CPU. Usage. Average
-Użycie pamięci |MEM. Usage. Average
-**Szczegóły dysku** |
-Wartość klucza dysku | 3,5. Głównych
-Numer Dikunit | 3,5. UnitNumber
-Wartość klucza kontrolera dysku | 3,5. ControllerKey. Value
-Gigabajty inicjowane | virtualDisk. DeviceInfo. Summary
-Nazwa dysku | Wartość wygenerowana przy użyciu dysku. UnitNumber, dysk. Klucz, dysk. ControllerKey. VAlue
-Operacje odczytu na sekundę | virtualDisk. numberReadAveraged. Average
-Operacje zapisu na sekundę | virtualDisk. numberWriteAveraged. Average
-Przepływność odczytu (MB na sekundę) | virtualDisk. Read. Average
-Przepływność zapisu (MB na sekundę) | virtualDisk. Write. Average
-**Na szczegóły karty sieciowej** |
-Nazwa karty sieciowej | 10/100/1000. Głównych
-Adres MAC | (Karta sieciowa (VirtualEthernetCard)). MacAddress
+Nazwa serwera | vm.Config. Nazwa
+vCenter Server identyfikator | VMwareClient.Instance.Uuid
+Opis serwera | vm.Summary.Config. Adnotacji
+Nazwa produktu licencji | vm.Client.ServiceContent.About.LicenseProductName
+Typ systemu operacyjnego | vm.SummaryConfig.GuestFullName
+Typ rozruchu | vm.Config. Firmware
+Liczba rdzeni | vm.Config. Hardware.NumCPU
+Pamięć (MB) | vm.Config. Hardware.MemoryMB
+Liczba dysków | vm.Config. Hardware.Device.ToList(). FindAll(x => to VirtualDisk).count
+Lista rozmiarów dysków | vm.Config. Hardware.Device.ToList(). FindAll(x => to VirtualDisk)
+Lista kart sieciowych | vm.Config. Hardware.Device.ToList(). FindAll(x => to VirtualEthernet).count
+Wykorzystanie procesora | cpu.usage.average
+Wykorzystanie pamięci |mem.usage.average
+**Szczegóły 1 dysku** |
+Wartość klucza dysku | Dysku. Klucz
+Numer dikunitu | Dysku. UnitNumber (Numer jednostki)
+Wartość klucza kontrolera dysku | Dysku. ControllerKey.Value
+Aprowizowane gigabajty | virtualDisk.DeviceInfo.Summary
+Nazwa dysku | Wartość wygenerowana przy użyciu dysku. UnitNumber, disk. Klucz, dysk. ControllerKey.VAlue
+Operacje odczytu na sekundę | virtualDisk.numberReadAveraged.average
+Operacje zapisu na sekundę | virtualDisk.numberWriteAveraged.average
+Przepływność odczytu (MB na sekundę) | virtualDisk.read.average
+Przepływność zapisu (MB na sekundę) | virtualDisk.write.average
+**Szczegóły 1 karty sieciowej** |
+Nazwa karty sieciowej | karta sieciowa. Klucz
+Adres MAC | ((VirtualEthernetCard)nic). Adres MacAddress
 Adresy IPv4 | vm.Guest.Net
 Adresy IPv6 | vm.Guest.Net
-Przepływność odczytu (MB na sekundę) | NET. Receive. Average
-Przepływność zapisu (MB na sekundę) | NET. reprzesłane. średnia
+Przepływność odczytu (MB na sekundę) | net.received.average
+Przepływność zapisu (MB na sekundę) | net.transmitted.average
 **Szczegóły ścieżki spisu** |
-Nazwa | wbudowane. GetType (). Nazwij
-Typ obiektu podrzędnego | wbudowane. Typ podrzędny
-Szczegóły odwołania | wbudowane. MoRef
-Szczegóły nadrzędne | Kontener. Parent
-Szczegóły folderu na serwer | (Folder). ChildEntity. Type
-Szczegóły centrum danych na serwer | ((Centrum danych) kontener). VmFolder
-Szczegóły centrum danych na folder hosta | ((Centrum danych) kontener). HostFolder
-Szczegóły klastra na hosta | ((ClusterComputeResource) kontener). Host
-Szczegóły hosta na serwer | ((HostSystem) kontener). MASZYN
+Nazwa | Kontenera. GetType(). Nazwa
+Typ obiektu podrzędnego | Kontenera. Typ podrzędny
+Szczegóły odwołania | Kontenera. MoRef
+Szczegóły elementu nadrzędnego | Container.Parent
+Szczegóły folderu na serwer | ((Folder)kontener). ChildEntity.Type
+Szczegóły centrum danych na serwer | ((Datacenter)container). VmFolder
+Szczegóły centrum danych na folder hosta | ((Datacenter)container). HostFolder
+Szczegóły klastra na hosta | ((ClusterComputeResource)container). Hosta
+Szczegóły hosta na serwer | ((HostSystem)container). Vm
 
 ### <a name="performance-data"></a>Dane wydajności
 
-Poniżej przedstawiono dane wydajności, które urządzenie zbiera dla serwera działającego w oprogramowaniu VMware i wysyła do platformy Azure.
+Oto dane wydajności, które urządzenie zbiera dla serwera działającego w programie VMware i wysyła na platformę Azure.
 
 **Dane** | **Licznik** | **Wpływ oceny**
 --- | --- | ---
-Wykorzystanie procesora | CPU. Usage. Average | Zalecany rozmiar serwera/koszt
-Użycie pamięci | MEM. Usage. Average | Zalecany rozmiar serwera/koszt
-Przepływność odczytu dysku (MB na sekundę) | virtualDisk. Read. Average | Obliczanie rozmiaru dysku, kosztu magazynu, rozmiaru serwera
-Przepływność zapisu na dysku (MB na sekundę) | virtualDisk. Write. Average | Obliczanie rozmiaru dysku, kosztu magazynu, rozmiaru serwera
-Operacje odczytu z dysku na sekundę | virtualDisk. numberReadAveraged. Average | Obliczanie rozmiaru dysku, kosztu magazynu, rozmiaru serwera
-Operacje zapisu na dysku na sekundę | virtualDisk. numberWriteAveraged. Average  | Obliczanie rozmiaru dysku, kosztu magazynu, rozmiaru serwera
-Przepływność odczytu karty sieciowej (MB na sekundę) | NET. Receive. Average | Obliczanie rozmiaru serwera
-Przepływność zapisu kart sieciowych (MB na sekundę) | NET. reprzesłane. średnia  |Obliczanie rozmiaru serwera
+Wykorzystanie procesora | cpu.usage.average | Zalecany rozmiar/koszt serwera
+Wykorzystanie pamięci | mem.usage.average | Zalecany rozmiar/koszt serwera
+Przepływność odczytu dysku (MB na sekundę) | virtualDisk.read.average | Obliczanie rozmiaru dysku, kosztu magazynu, rozmiaru serwera
+Przepływność zapisu na dysku (MB na sekundę) | virtualDisk.write.average | Obliczanie rozmiaru dysku, kosztu magazynu, rozmiaru serwera
+Operacje odczytu dysku na sekundę | virtualDisk.numberReadAveraged.average | Obliczanie rozmiaru dysku, kosztu magazynu, rozmiaru serwera
+Operacje zapisu na dysku na sekundę | virtualDisk.numberWriteAveraged.average  | Obliczanie rozmiaru dysku, kosztu magazynu, rozmiaru serwera
+Przepływność odczytu karty sieciowej (MB na sekundę) | net.received.average | Obliczanie rozmiaru serwera
+Przepływność zapisu karty sieciowej (MB na sekundę) | net.transmitted.average  |Obliczanie rozmiaru serwera
 
-### <a name="installed-software-inventory"></a>Zainstalowano Spis oprogramowania
+### <a name="installed-software-inventory"></a>Zainstalowany spis oprogramowania
 
-Urządzenie zbiera dane dotyczące zainstalowanego spisu oprogramowania na serwerach.
+Urządzenie zbiera dane dotyczące spisu zainstalowanego oprogramowania na serwerach.
 
 #### <a name="windows-server-software-inventory-data"></a>Dane spisu oprogramowania systemu Windows Server
 
-Oto dane spisu oprogramowania zbierane przez urządzenie z każdego serwera z systemem Windows odnalezionego w środowisku programu VMware.
+Oto dane spisu oprogramowania, które urządzenie zbiera z każdego serwera z systemem Windows wykrytego w środowisku VMware.
 
 **Dane** | **Lokalizacja rejestru** | **Klucz**
 --- | --- | ---
-Nazwa aplikacji  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Nazwa wyświetlana
-Wersja  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion
-Dostawca  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Publisher
+Nazwa aplikacji  | HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Nazwa wyświetlana
+Wersja  | HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion
+Dostawca  | HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Publisher
 
 #### <a name="windows-server-features-data"></a>Dane funkcji systemu Windows Server
 
-Poniżej przedstawiono informacje o funkcjach zbieranych przez urządzenie z każdego serwera z systemem Windows, który został odnaleziony w środowisku programu VMware.
+Oto dane funkcji, które urządzenie zbiera z każdego serwera z systemem Windows wykrytego w środowisku VMware.
 
 **Dane**  | **Polecenie cmdlet programu PowerShell** | **Właściwość**
 --- | --- | ---
 Nazwa  | Get-WindowsFeature  | Nazwa
-Typ funkcji | Get-WindowsFeature  | Element featuretype
+Typ funkcji | Get-WindowsFeature  | Typ funkcji
 Nadrzędny  | Get-WindowsFeature  | Nadrzędny
 
-#### <a name="sql-server-metadata"></a>Metadane SQL Server
+#### <a name="sql-server-metadata"></a>SQL Server metadanych
 
-Poniżej przedstawiono SQL Server dane zbierane przez urządzenie z każdego serwera z systemem Windows odnalezionego w środowisku programu VMware.
+Oto dane SQL Server, które urządzenie zbiera z każdego serwera z systemem Windows wykrytego w środowisku VMware.
 
 **Dane**  | **Lokalizacja rejestru**  | **Klucz**
 --- | --- | ---
-Nazwa  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL  | installedInstance
-Wersja  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Wersja
-Dodatek Service Pack  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | REQUIREMENT
-Wersja  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Wersja
+Nazwa  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL  | installedInstance
+Wersja  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | Wersja
+Dodatek Service Pack  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | Sp
+Wersja  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | Wersja
 
 #### <a name="windows-server-operating-system-data"></a>Dane systemu operacyjnego Windows Server
 
-Oto dane systemu operacyjnego zbierane przez urządzenie z każdego serwera z systemem Windows odnalezionego w środowisku programu VMware.
+Oto dane systemu operacyjnego, które urządzenie zbiera z każdego serwera z systemem Windows wykrytego w środowisku VMware.
 
-**Dane**  | **Klasa WMI**  | **Właściwość klasy usługi WMI**
+**Dane**  | **WMI, klasa**  | **Właściwość klasy WMI**
 --- | --- | ---
 Nazwa  | Win32_operatingsystem  | Caption
 Wersja  | Win32_operatingsystem  | Wersja
@@ -247,29 +284,29 @@ Architektura  | Win32_operatingsystem  | OSArchitecture
 
 #### <a name="linux-server-software-inventory-data"></a>Dane spisu oprogramowania serwera z systemem Linux
 
-Oto dane spisu oprogramowania zbierane przez urządzenie z każdego serwera z systemem Linux wykrytego w środowisku programu VMware. W oparciu o system operacyjny serwera, uruchamiane jest jedno lub więcej poleceń.
+Oto dane spisu oprogramowania, które urządzenie zbiera z każdego serwera z systemem Linux wykrytego w środowisku VMware. W zależności od systemu operacyjnego serwera uruchamiane jest co najmniej jedno polecenie.
 
 **Dane**  | **Polecenia**
 --- | ---
-Nazwa | rpm, serwerach dpkg-Query, Snap
-Wersja | rpm, serwerach dpkg-Query, Snap
-Dostawca | rpm, serwerach dpkg-Query, Snap
+Nazwa | rpm, dpkg-query, snap
+Wersja | rpm, dpkg-query, snap
+Dostawca | rpm, dpkg-query, snap
 
 #### <a name="linux-server-operating-system-data"></a>Dane systemu operacyjnego serwera z systemem Linux
 
-Oto dane systemu operacyjnego zbierane przez urządzenie z każdego serwera z systemem Linux wykrytego w środowisku programu VMware.
+Oto dane systemu operacyjnego, które urządzenie zbiera z każdego serwera z systemem Linux wykrytego w środowisku VMware.
 
 **Dane**  | **Polecenia**
 --- | ---
 Nazwa <br/> Wersja | Zebrane z co najmniej jednego z następujących plików:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version
-Architektura | uname
+Architektura | Uname
 
-### <a name="sql-server-instances-and-databases-data"></a>SQL Server dane wystąpień i baz danych
+### <a name="sql-server-instances-and-databases-data"></a>SQL Server danych wystąpień i baz danych
 
-Urządzenie zbiera dane na SQL Server wystąpieniach i bazach danych.
+Urządzenie zbiera dane w SQL Server i baz danych.
 
 > [!Note]
-> Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. Aby wypróbować tę funkcję, użyj [**tego linku**](https://aka.ms/AzureMigrate/SQL) w celu utworzenia projektu w regionie **Australia Wschodnia**. Jeśli masz już projekt w regionie Australia Wschodnia i chcesz wypróbować tę funkcję, upewnij się, że zostały spełnione te [**wymagania wstępne**](how-to-discover-sql-existing-project.md) w portalu.
+> Odnajdywanie i ocena SQL Server i baz danych uruchomionych w środowisku VMware jest teraz w wersji zapoznawczej. Aby wypróbować tę funkcję, użyj [**tego linku**](https://aka.ms/AzureMigrate/SQL) w celu utworzenia projektu w regionie **Australia Wschodnia**. Jeśli masz już projekt w regionie Australia Wschodnia i chcesz wypróbować tę funkcję, upewnij się, że zostały spełnione te [**wymagania wstępne**](how-to-discover-sql-existing-project.md) w portalu.
 
 #### <a name="sql-database-metadata"></a>Metadane bazy danych SQL
 
@@ -281,116 +318,116 @@ Nazwa bazy danych | sys.databases
 Poziom zgodności bazy danych | sys.databases
 Nazwa sortowania bazy danych | sys.databases
 Stan bazy danych | sys.databases
-Rozmiar bazy danych (w MB) | sys.master_files
-Litera dysku zawierającego pliki danych | SERVERPROPERTY i Software\Microsoft\MSSQLServer\MSSQLServer
-Lista plików bazy danych | sys. databases, sys.master_files
-Broker usług jest włączony lub nie | sys.databases
-W bazie danych włączono obsługę funkcji przechwytywania zmian danych. | sys.databases
+Rozmiar bazy danych (w KB/s) | Sys.master_files
+Litera dysku lokalizacji zawierającej pliki danych | SERVERPROPERTY i Software\Microsoft\MSSQLServer\MSSQLServer
+Lista plików bazy danych | sys.databases, sys.master_files
+Usługa Service Broker jest włączona lub nie | sys.databases
+Baza danych jest włączona do przechwytywania zmian danych lub nie | sys.databases
 
-#### <a name="sql-server-metadata"></a>Metadane SQL Server
+#### <a name="sql-server-metadata"></a>SQL Server metadanych
 
 **Metadane serwera** | **Widoki/właściwości serwera SQL**
 --- | ---
-Nazwa serwera |SERVERPROPERTY
-Nazwa FQDN | Parametry połączenia pochodzące z odnajdywania zainstalowanych aplikacji
+Nazwa serwera |Serverproperty
+Nazwa FQDN | Parametrów połączenia pochodzących z odnajdywania zainstalowanych aplikacji
 Identyfikator instalacji | sys.dm_server_registry
-Wersja serwera | SERVERPROPERTY
-Wersja serwera | SERVERPROPERTY
-Platforma hosta serwera (Windows/Linux) | SERVERPROPERTY
-Poziom produktu serwera (RTM SP CTP) | SERVERPROPERTY
-Domyślna ścieżka kopii zapasowej | SERVERPROPERTY
-Ścieżka domyślna plików danych | SERVERPROPERTY i Software\Microsoft\MSSQLServer\MSSQLServer
+Wersja serwera | Serverproperty
+Wersja serwera | Serverproperty
+Platforma hosta serwera (Windows/Linux) | Serverproperty
+Poziom produktu serwera (RTM SP CTP) | Serverproperty
+Domyślna ścieżka kopii zapasowej | Serverproperty
+Domyślna ścieżka plików danych | SERVERPROPERTY i Software\Microsoft\MSSQLServer\MSSQLServer
 Domyślna ścieżka plików dziennika | SERVERPROPERTY i Software\Microsoft\MSSQLServer\MSSQLServer
 Nie. rdzeni na serwerze | sys.dm_os_schedulers, sys.dm_os_sys_info
-Nazwa sortowania serwera | SERVERPROPERTY
-Nie. rdzeni na serwerze z WIDOCZNYm stanem ONLINE | sys.dm_os_schedulers
+Nazwa sortowania serwera | Serverproperty
+Nie. rdzeni na serwerze ze stanem VISIBLE ONLINE | sys.dm_os_schedulers
 Unikatowy identyfikator serwera | sys.dm_server_registry
-HA włączona lub nie | SERVERPROPERTY
-Rozszerzenie puli buforów jest włączone lub nie | sys.dm_os_buffer_pool_extension_configuration
-Klaster trybu failover został skonfigurowany | SERVERPROPERTY
-Tylko serwer z trybem uwierzytelniania systemu Windows | SERVERPROPERTY
-Serwer jest instalowany z bazą | SERVERPROPERTY
-Nie. logicznych procesorów CPU w systemie | sys.dm_server_registry, sys.dm_os_sys_info
-Stosunek liczby rdzeni logicznych lub fizycznych, które są udostępniane przez jeden fizyczny pakiet procesora | sys.dm_os_schedulers, sys.dm_os_sys_info
+Włączona lub nie włączona ha | Serverproperty
+Włączono lub nie włączono rozszerzenia puli buforów | sys.dm_os_buffer_pool_extension_configuration
+Klaster trybu failover skonfigurowany lub nie | Serverproperty
+Serwer korzystający tylko z trybu uwierzytelniania systemu Windows | Serverproperty
+Serwer instaluje program PolyBase | Serverproperty
+Nie. procesorów logicznych w systemie | sys.dm_server_registry, sys.dm_os_sys_info
+Stosunek liczby rdzeni logicznych lub fizycznych, które są udostępniane przez jeden pakiet procesora fizycznego | sys.dm_os_schedulers, sys.dm_os_sys_info
 Brak fizycznych procesorów CPU w systemie | sys.dm_os_schedulers, sys.dm_os_sys_info
-Data i godzina ostatniego uruchomienia serwera | sys.dm_server_registry
-Maksymalne użycie pamięci serwera (w MB) | sys.dm_os_process_memory
-Suma nr użytkowników we wszystkich bazach danych | sys. databases, sys. Logins
-Łączny rozmiar wszystkich baz danych użytkownika | sys.databases
-Rozmiar tymczasowej bazy danych | sys.master_files, sys.configurations, sys.dm_os_sys_info
-Nie. logowań | sys. Logins
-Lista połączonych serwerów | sys. serwery
-Lista zadań agenta | [msdb]. [dbo]. [tabela sysjobs], [sys]. [syslogins], [msdb]. [dbo]. [syscategories]
+Data i godzina ostatniego rozpoczęcia serwera | sys.dm_server_registry
+Maksymalne użycie pamięci serwera (w GB) | sys.dm_os_process_memory
+Łączna liczba nie. użytkowników we wszystkich bazach danych | sys.databases, sys.logins
+Całkowity rozmiar wszystkich baz danych użytkowników | sys.databases
+Rozmiar tymczasowej bazy danych | sys.master_files, sys.config, sys.dm_os_sys_info
+Nie. identyfikatorów logowania | sys.logins
+Lista serwerów połączonych | Sys.servers
+Lista zadań agenta | [msdb]. [dbo]. [sysjobs], [sys]. [syslogins], [msdb]. [dbo]. [syscategories]
 
 ### <a name="performance-metadata"></a>Metadane wydajności
 
 **Wydajność** | **Widoki/właściwości serwera SQL** | **Wpływ oceny**
 --- | --- | ---
-Użycie procesora SQL Server| sys.dm_os_ring_buffers| Zalecany rozmiar jednostki SKU (wymiar procesora)
-Liczba logicznych procesorów CPU SQL| sys.dm_os_sys_info| Zalecany rozmiar jednostki SKU (wymiar procesora)
-Używana pamięć fizyczna SQL| sys.dm_os_process_memory| Nieużywane
+SQL Server wykorzystania procesora CPU| sys.dm_os_ring_buffers| Zalecany rozmiar SKU (wymiar procesora CPU)
+Liczba procesorów logicznych SQL| Sys.dm_os_sys_info| Zalecany rozmiar SKU (wymiar procesora CPU)
+Pamięć fizyczna SQL w użyciu| sys.dm_os_process_memory| Nieużywane
 Procent użycia pamięci SQL| sys.dm_os_process_memory | Nieużywane
-Użycie procesora CPU bazy danych| sys.dm_exec_query_stats, sys.dm_exec_plan_attributes| Zalecany rozmiar jednostki SKU (wymiar procesora)
-Używana pamięć bazy danych (pula buforów)| sys.dm_os_buffer_descriptors| Zalecany rozmiar jednostki SKU (wymiar pamięci)
-Operacje we/wy odczytu/zapisu pliku| sys.dm_io_virtual_file_stats, sys.master_files| Zalecany rozmiar jednostki SKU (wymiar we/wy)
-Liczba plików odczytu/zapisu| sys.dm_io_virtual_file_stats, sys.master_files| Zalecany rozmiar jednostki SKU (wymiar przepływności)
-Operacje we/wy pliku w trybie odczytu/zapisu (MS)| sys.dm_io_virtual_file_stats, sys.master_files| Zalecany rozmiar jednostki SKU (wymiar opóźnienia we/wy)
-Rozmiar pliku| sys.master_files| Zalecany rozmiar jednostki SKU (wymiar magazynu)
+Wykorzystanie procesora CPU bazy danych| sys.dm_exec_query_stats, sys.dm_exec_plan_attributes| Zalecany rozmiar SKU (wymiar procesora CPU)
+Pamięć bazy danych w użyciu (pula buforów)| sys.dm_os_buffer_descriptors| Zalecany rozmiar SKU (wymiar pamięci)
+We/Wy odczytu/zapisu plików| sys.dm_io_virtual_file_stats, sys.master_files| Zalecany rozmiar SKU (wymiar we/wy)
+Liczba odczytów/zapisu w pliku| sys.dm_io_virtual_file_stats, sys.master_files| Zalecany rozmiar jednostki SKU (wymiar przepływności)
+Wstrzymanie odczytu/zapisu we/wy pliku (ms)| sys.dm_io_virtual_file_stats, sys.master_files| Zalecany rozmiar SKU (wymiar opóźnienia operacji we/wy)
+Rozmiar pliku| Sys.master_files| Zalecany rozmiar SKU (wymiar magazynu)
 
 
 ### <a name="application-dependency-data"></a>Dane zależności aplikacji
 
-Analiza zależności bez agenta zbiera dane dotyczące połączenia i przetwarzania.
+Analiza zależności bez agenta zbiera dane połączenia i przetwarzania.
 
 #### <a name="windows-server-dependencies-data"></a>Dane zależności systemu Windows Server
 
-Poniżej przedstawiono dane połączenia zbierane przez urządzenie z każdego systemu Windows Server, które obsługują analizę zależności bez agentów.
+Oto dane połączenia, które urządzenie zbiera z każdego serwera z systemem Windows, włączone do analizy zależności bez agenta.
 
 **Dane** | **Polecenia**
 --- | ---
-Port lokalny | netstat
-Lokalny adres IP | netstat
-Port zdalny | netstat
-Zdalny adres IP | netstat
-Stan połączenia TCP | netstat
-Identyfikator procesu | netstat
-Liczba aktywnych połączeń | netstat
+Port lokalny | Netstat
+Lokalny adres IP | Netstat
+Port zdalny | Netstat
+Zdalny adres IP | Netstat
+Stan połączenia TCP | Netstat
+Identyfikator procesu | Netstat
+Liczba aktywnych połączeń | Netstat
 
-Poniżej przedstawiono dane połączenia zbierane przez urządzenie z każdego systemu Windows Server, które obsługują analizę zależności bez agentów.
+Oto dane połączenia, które urządzenie zbiera z każdego serwera z systemem Windows, włączone do analizy zależności bez agenta.
 
-**Dane** | **Klasa WMI** | **Właściwość klasy usługi WMI**
+**Dane** | **WMI, klasa** | **Właściwość klasy WMI**
 --- | --- | ---
-Nazwa procesu | Win32_Process | Ścieżka pliku wykonywalnego
+Nazwa procesu | Win32_Process | ExecutablePath
 Argumenty procesu | Win32_Process | CommandLine
-Nazwa aplikacji | Win32_Process | VersionInfo. ProductName — parametr właściwości ścieżka pliku wykonywalnego
+Nazwa aplikacji | Win32_Process | Parametr VersionInfo.ProductName właściwości ExecutablePath
 
 #### <a name="linux-server-dependencies-data"></a>Dane zależności serwera z systemem Linux
 
-Oto dane połączenia, które urządzenie zbiera z każdego serwera z systemem Linux, z włączoną obsługą analizy zależności bez agenta.
+Oto dane połączenia, które urządzenie zbiera z każdego serwera z systemem Linux, włączone do analizy zależności bez agenta.
 
 **Dane** | **Polecenia**
 --- | ---
-Port lokalny | netstat
-Lokalny adres IP | netstat
-Port zdalny | netstat
-Zdalny adres IP | netstat
-Stan połączenia TCP | netstat
-Liczba aktywnych połączeń | netstat
-Identyfikator procesu  | netstat
-Nazwa procesu | iloczyn
-Argumenty procesu | iloczyn
-Nazwa aplikacji | serwerach dpkg lub RPM
+Port lokalny | Netstat
+Lokalny adres IP | Netstat
+Port zdalny | Netstat
+Zdalny adres IP | Netstat
+Stan połączenia TCP | Netstat
+Liczba aktywnych połączeń | Netstat
+Identyfikator procesu  | Netstat
+Nazwa procesu | Ps
+Argumenty procesu | Ps
+Nazwa aplikacji | dpkg lub rpm
 
 ## <a name="collected-data---hyper-v"></a>Zebrane dane — funkcja Hyper-V
 
-Urządzenie zbiera metadane dotyczące konfiguracji i wydajności z serwerów z systemem w środowisku funkcji Hyper-V.
+Urządzenie zbiera metadane konfiguracji i wydajności z serwerów działających w środowisku funkcji Hyper-V.
 
 ### <a name="metadata"></a>Metadane
-Metadane wykryte przez urządzenie Azure Migrate pomagają ustalić, czy serwery są gotowe do migracji na platformę Azure, serwery o odpowiednim rozmiarze i plany kosztów. Firma Microsoft nie używa tych danych w żadnej inspekcji zgodności licencji.
+Metadane odnalezione przez urządzenie Azure Migrate pomagają ustalić, czy serwery są gotowe do migracji na platformę Azure, serwery o właściwym rozmiarze i koszty planów. Firma Microsoft nie używa tych danych w żadnej inspekcji zgodności licencji.
 
-Poniżej znajduje się pełna lista metadanych serwera zbieranych i wysyłanych przez urządzenie do platformy Azure.
+Oto pełna lista metadanych serwera, które urządzenie zbiera i wysyła na platformę Azure.
 
-**Dane** | **Klasa WMI** | **Właściwość klasy usługi WMI**
+**Dane** | **WMI, klasa** | **Właściwość klasy WMI**
 --- | --- | ---
 **Szczegóły serwera** | 
 Numer seryjny systemu BIOS | Msvm_BIOSElement | BIOSSerialNumber
@@ -398,193 +435,193 @@ Typ serwera (Gen 1 lub 2) | Msvm_VirtualSystemSettingData | VirtualSystemSubType
 Nazwa wyświetlana serwera | Msvm_VirtualSystemSettingData | ElementName
 Wersja serwera | Msvm_ProcessorSettingData | VirtualQuantity
 Pamięć (w bajtach) | Msvm_MemorySettingData | VirtualQuantity
-Maksymalna ilość pamięci, która może być używana przez serwer | Msvm_MemorySettingData | Limit
-Włączono pamięć dynamiczną | Msvm_MemorySettingData | DynamicMemoryEnabled
-Nazwa/wersja systemu operacyjnego/nazwa FQDN | Msvm_KvpExchangeComponent | Dane nazwy GuestIntrinsicExchangeItems
-Stan mocy serwera | Msvm_ComputerSystem | EnabledState
-**Szczegóły dysku** |
+Maksymalna ilość pamięci, która może być zużywana przez serwer | Msvm_MemorySettingData | Limit
+Włączona pamięć dynamiczna | Msvm_MemorySettingData | DynamicMemoryEnabled
+Nazwa/wersja systemu operacyjnego/nazwa FQDN | Msvm_KvpExchangeComponent | GuestIntrinsicExchangeItems Name Data
+Stan zasilania serwera | Msvm_ComputerSystem | EnabledState
+**Szczegóły 1 dysku** |
 Identyfikator dysku | Msvm_VirtualHardDiskSettingData | VirtualDiskId
 Typ wirtualnego dysku twardego | Msvm_VirtualHardDiskSettingData | Typ
 Rozmiar wirtualnego dysku twardego | Msvm_VirtualHardDiskSettingData | MaxInternalSize
-Element nadrzędny wirtualnego dysku twardego | Msvm_VirtualHardDiskSettingData | ParentPath
-**Na szczegóły karty sieciowej** |
+Nadrzędny wirtualny dysk twardy | Msvm_VirtualHardDiskSettingData | ParentPath
+**Szczegóły 1 karty sieciowej** |
 Adresy IP (syntetyczne karty sieciowe) | Msvm_GuestNetworkAdapterConfiguration | Adres IP IPAddresses
-Protokół DHCP włączony (syntetyczne karty sieciowe) | Msvm_GuestNetworkAdapterConfiguration | DHCPEnabled
+Włączony protokół DHCP (syntetyczne karty sieciowe) | Msvm_GuestNetworkAdapterConfiguration | DHCPEnabled
 Identyfikator karty sieciowej (syntetyczne karty sieciowe) | Msvm_SyntheticEthernetPortSettingData | InstanceID
 Adres MAC karty sieciowej (syntetyczne karty sieciowe) | Msvm_SyntheticEthernetPortSettingData | Adres
-Identyfikator karty sieciowej (starsze karty sieciowe) | MsvmEmulatedEthernetPortSetting dane | InstanceID
-Identyfikator MAC karty sieciowej (starsze karty sieciowe) | MsvmEmulatedEthernetPortSetting dane | Adres
+Identyfikator karty sieciowej (starsze karty sieciowe) | MsvmEmulatedEthernetPortSetting Data | InstanceID
+Identyfikator MAC karty sieciowej (starsze karty sieciowe) | MsvmEmulatedEthernetPortSetting Data | Adres
 
 ### <a name="performance-data"></a>Dane wydajności
 
-Poniżej przedstawiono dane wydajności serwera zbierane i wysyłane przez urządzenie do platformy Azure.
+Oto dane wydajności serwera, które urządzenie zbiera i wysyła na platformę Azure.
 
 **Klasa licznika wydajności** | **Licznik** | **Wpływ oceny**
 --- | --- | ---
-Procesor wirtualny funkcji hypervisor funkcji Hyper-V | Czas działania gościa (%) | Zalecany rozmiar serwera/koszt
-Serwer pamięć dynamiczna funkcji Hyper-V | Bieżące ciśnienie (%)<br/> Ilość pamięci fizycznej widocznej dla gościa (MB) | Zalecany rozmiar serwera/koszt
-Wirtualne urządzenie magazynujące funkcji Hyper-V | Bajty odczytu/s | Obliczanie rozmiaru dysku, kosztu magazynu, rozmiaru serwera
-Wirtualne urządzenie magazynujące funkcji Hyper-V | Bajty zapisu/s | Obliczanie rozmiaru dysku, kosztu magazynu, rozmiaru serwera
-Karta Virtual Network funkcji Hyper-V | Bajty odebrane/s | Obliczanie rozmiaru serwera
-Karta Virtual Network funkcji Hyper-V | Bajty wysłane/s | Obliczanie rozmiaru serwera
+Procesor wirtualny funkcji Hypervisor funkcji Hyper-V | % czasu uruchomienia gościa | Zalecany rozmiar/koszt serwera
+Serwer pamięć dynamiczna Hyper-V | Bieżące ciśnienie (%)<br/> Pamięć fizyczna widoczna przez gościa (MB) | Zalecany rozmiar/koszt serwera
+Wirtualne urządzenie magazynujące funkcji Hyper-V | Bajty odczytu/sekundę | Obliczanie rozmiaru dysku, kosztu magazynu, rozmiaru serwera
+Wirtualne urządzenie magazynujące funkcji Hyper-V | Liczba bajtów zapisu na sekundę | Obliczanie rozmiaru dysku, kosztu magazynu, rozmiaru serwera
+Karta sieciowa Virtual Network Hyper-V | Bajty odebrane/sekundę | Obliczanie rozmiaru serwera
+Karta sieciowa Virtual Network Hyper-V | Bajty wysłane/sekundę | Obliczanie rozmiaru serwera
 
-- Użycie procesora CPU jest sumą wszystkich zastosowań dla wszystkich procesorów wirtualnych podłączonych do serwera programu.
-- Użycie pamięci to (bieżące ciśnienie * widoczna pamięć fizyczna gościa)/100.
+- Użycie procesora CPU to suma całego użycia dla wszystkich procesorów wirtualnych dołączonych do serwera.
+- Wykorzystanie pamięci wynosi (bieżące wykorzystanie * widoczna pamięć fizyczna gościa) / 100.
 - Wartości wykorzystania dysku i sieci są zbierane z wymienionych liczników wydajności funkcji Hyper-V.
 
 ## <a name="collected-data---physical"></a>Zebrane dane — fizyczne
 
-Urządzenie zbiera metadane dotyczące konfiguracji i wydajności z serwerów fizycznych lub wirtualnych działających lokalnie.
+Urządzenie zbiera metadane konfiguracji i wydajności z serwerów fizycznych lub wirtualnych działających lokalnie.
 
 ### <a name="metadata"></a>Metadane
 
-Metadane wykryte przez urządzenie Azure Migrate pomagają ustalić, czy serwery są gotowe do migracji na platformę Azure, serwery o odpowiednim rozmiarze i plany kosztów. Firma Microsoft nie używa tych danych w żadnej inspekcji zgodności licencji.
+Metadane odnalezione przez urządzenie Azure Migrate pomagają ustalić, czy serwery są gotowe do migracji na platformę Azure, serwery o właściwym rozmiarze i koszty planów. Firma Microsoft nie używa tych danych w żadnej inspekcji zgodności licencji.
 
-### <a name="windows-server-metadata"></a>Metadane systemu Windows Server
+### <a name="windows-server-metadata"></a>Metadane serwera z systemem Windows
 
-Poniżej znajduje się pełna lista metadanych systemu Windows Server, które urządzenie zbiera i wysyła do platformy Azure.
+Oto pełna lista metadanych serwera z systemem Windows, które urządzenie zbiera i wysyła na platformę Azure.
 
-**Dane** | **Klasa WMI** | **Właściwość klasy usługi WMI**
+**Dane** | **WMI, klasa** | **Właściwość klasy WMI**
 --- | --- | ---
-Nazwa FQDN | Win32_ComputerSystem | Domena, nazwa, PartOfDomain
-Liczba rdzeni procesora | Win32_PRocessor | NumberOfCores
-Przydzielono pamięć | Win32_ComputerSystem | TotalPhysicalMemory
-Numer seryjny systemu BIOS | Win32_ComputerSystemProduct | Identyfikacyjnemu
-IDENTYFIKATOR GUID SYSTEMU BIOS | Win32_ComputerSystemProduct | INTERFEJSU
-Typ rozruchu | Win32_DiskPartition | Wyszukaj partycję z typem = **GPT: system** dla interfejsu EFI/BIOS
+Nazwa FQDN | Win32_ComputerSystem | Domena, Nazwa, PartOfDomain
+Liczba rdzeni procesora | Win32_PRocessor | Liczba rdzeni
+Przydzielona pamięć | Win32_ComputerSystem | TotalPhysicalMemory
+Numer seryjny systemu BIOS | Win32_ComputerSystemProduct | Numer identyfikujący
+BIOS GUID | Win32_ComputerSystemProduct | Uuid
+Typ rozruchu | Win32_DiskPartition | Sprawdzanie partycji z typem = **GPT:System** dla interfejsu EFI/BIOS
 Nazwa systemu operacyjnego | Win32_OperatingSystem | Caption
 Wersja systemu operacyjnego |Win32_OperatingSystem | Wersja
 Architektura systemu operacyjnego | Win32_OperatingSystem | OSArchitecture
-Liczba dysków | Win32_DiskDrive | Model, rozmiar, DeviceID, MediaType, nazwa
+Liczba dysków | Win32_DiskDrive | Model, Rozmiar, DeviceID, MediaType, Nazwa
 Rozmiar dysku | Win32_DiskDrive | Rozmiar
 Lista kart sieciowych | Win32_NetworkAdapterConfiguration | Opis, indeks
 Adres IP karty sieciowej | Win32_NetworkAdapterConfiguration | IPAddress
-Adres MAC karty sieciowej | Win32_NetworkAdapterConfiguration | MACAddress
+Adres MAC karty sieciowej | Win32_NetworkAdapterConfiguration | Adres MACAddress
 
 ### <a name="linux-server-metadata"></a>Metadane serwera z systemem Linux
 
-Oto pełna lista metadanych serwera z systemem Linux, które urządzenie zbiera i wysyła do platformy Azure.
+Oto pełna lista metadanych serwera z systemem Linux, które urządzenie zbiera i wysyła na platformę Azure.
 
 **Dane** | **Polecenia**
 --- | ---
-Nazwa FQDN | Kot/proc/sys/kernel/hostname, hostname-f
-Liczba rdzeni procesora |  /proc/cpuinfo \| AWK '/^ Procesor/{print $3} ' \|
-Przydzielono pamięć | Kot/proc/meminfo \| grep MemTotal \| AWK "{printf"%. 0f ", $2/1024}"
-Numer seryjny systemu BIOS | lshw \| grep "serial:" \| szef-N1 \| AWK "{Print $2}" <br/> /usr/sbin/dmidecode-t 1 \| grep "serial" \| AWK "{$1 =" "; $2 =" "; Print}"
-IDENTYFIKATOR GUID SYSTEMU BIOS | /sys/Class/DMI/ID/Cat product_uuid
-Typ rozruchu | [-d/sys/Firmware/EFI]  && echo EFI \| \| echo BIOS
+Nazwa FQDN | cat /proc/sys/kernel/hostname, nazwa hosta -f
+Liczba rdzeni procesora |  /proc/cpuinfo \| awk '/^processor/{print $3}' \| wc -l
+Przydzielono pamięć | cat /proc/meminfo \| grep MemTotal \| awk '{printf "%.0f", $2/1024}'
+Numer seryjny systemu BIOS | lshw \| grep "serial:" \| head -n1 \| awk '{print $2}' <br/> /usr/sbin/dmidecode -t 1 \| grep 'Serial' \| awk '{ $1="" ; $2=""; print}'
+BIOS GUID | cat /sys/class/dmi/id/product_uuid
+Typ rozruchu | [ -d /sys/firmware/efi ] && echo EFI \| \| echo BIOS
 Nazwa/wersja systemu operacyjnego | Uzyskujemy dostęp do tych plików dla wersji i nazwy systemu operacyjnego:<br/><br/> /etc/os-release<br/> /usr/lib/os-release <br/> /etc/enterprise-release <br/> /etc/redhat-release<br/> /etc/oracle-release<br/>  /etc/SuSE-release<br/>  /etc/lsb-release  <br/> /etc/debian_version
-Architektura systemu operacyjnego | Uname — m
-Liczba dysków | Dysk fdisk-l \| egrep '. * b ' \| AWK ' {Print $2} ' \| Wytnij-F1-d ': '
-Dysk rozruchowy | DF/Boot \| SED-n \| AWK "{Print $1}"
-Rozmiar dysku | Dysk fdisk-l \| egrep '. * b ' \| egrep $Disk: \| AWK ' {Print $5} '
-Lista kart sieciowych | IP-o-4 addr show \| AWK "{print $2}"
-Adres IP karty sieciowej | IP addr show $nic \| grep inet \| AWK "{Print $2}" \| ciętych-F1-d "/" 
-Adres MAC karty sieciowej | adres IP Pokaż $nic \| eteru grep  \| AWK "{Print $2}"
+Architektura systemu operacyjnego | Uname -m
+Liczba dysków | fdisk -l \| egrep 'Disk.*bytes' \| awk '{print $2}' \| cut -f1 -d ':'
+Dysk rozruchowy | df /boot \| sed -n 2p \| awk '{print $1}'
+Rozmiar dysku | fdisk -l \| egrep 'Disk.*bytes' \| egrep $disk: \| awk '{print $5}'
+Lista kart sieciowych | ip -o -4 addr show \| awk '{print $2}'
+Adres IP karty sieciowej | ip addr show $nic \| grep inet \| awk '{print $2}' \| cut -f1 -d "/" 
+Adres MAC karty sieciowej | ip addr show $nic \| grep ether  \| awk '{print $2}'
 
-### <a name="windows-performance-data"></a>Dane wydajności systemu Windows
+### <a name="windows-performance-data"></a>Dane dotyczące wydajności systemu Windows
 
-Oto dane wydajności systemu Windows Server, które urządzenie zbiera i wysyła na platformę Azure.
+Oto dane dotyczące wydajności systemu Windows Server, które urządzenie zbiera i wysyła na platformę Azure.
 
-**Dane** | **Klasa WMI** | **Właściwość klasy usługi WMI**
+**Dane** | **WMI, klasa** | **Właściwość klasy WMI**
 --- | --- | ---
 Użycie procesora | Win32_PerfFormattedData_PerfOS_Processor | PercentIdleTime
 Użycie pamięci | Win32_PerfFormattedData_PerfOS_Memory | AvailableMBytes
 Liczba kart sieciowych | Win32_PerfFormattedData_Tcpip_NetworkInterface | Pobierz liczbę urządzeń sieciowych.
-Odebrane dane na kartę sieciową | Win32_PerfFormattedData_Tcpip_NetworkInterface  | BytesReceivedPerSec
+Dane odebrane na kartę sieciową | Win32_PerfFormattedData_Tcpip_NetworkInterface  | BytesReceivedPerSec
 Dane przesyłane na kartę sieciową | BWin32_PerfFormattedData_Tcpip_NetworkInterface | BytesSentPersec
 Liczba dysków | BWin32_PerfFormattedData_PerfDisk_PhysicalDisk | Liczba dysków
 Szczegóły dysku | Win32_PerfFormattedData_PerfDisk_PhysicalDisk | DiskWritesPerSec, DiskWriteBytesPerSec, DiskReadsPerSec, DiskReadBytesPerSec.
 
-### <a name="linux-performance-data"></a>Dane wydajności systemu Linux
+### <a name="linux-performance-data"></a>Dane dotyczące wydajności systemu Linux
 
-Poniżej przedstawiono dane wydajności serwera z systemem Linux, które urządzenie zbiera i wysyła do platformy Azure.
+Oto dane wydajności serwera z systemem Linux, które urządzenie zbiera i wysyła na platformę Azure.
 
 | **Dane** | **Polecenia** |
 | --- | --- |
-| Użycie procesora | /proc/stat/ \| /proc/stat grep "procesora" |
-| Użycie pamięci | bezpłatny \| grep MEM \| AWK "{Print $3/$ 2 * 100,0}" |
-| Liczba kart sieciowych | lshw — Klasa \| ETH grep [0-60], Sieć \| 1 |
-| Odebrane dane na kartę sieciową | Kot/sys/Class/NET/ETH $ nic/Statystyka/rx_bytes |
-| Dane przesyłane na kartę sieciową | Kot/sys/Class/NET/ETH $ nic/Statystyka/tx_bytes |
-| Liczba dysków | \|dysk egrep '. \* bajty " \| AWK" {print $2} " \| Wytnij-F1-d": " |
-| Szczegóły dysku | /proc/diskstats Cat |
+| Użycie procesora | cat /proc/stat/ \| grep 'cpu' /proc/stat |
+| Użycie pamięci | free \| grep Mem \| awk '{print $3/$2 * 100.0}' |
+| Liczba kart sieciowych | lshw -class network \| grep eth[0-60] \| wc -l |
+| Dane odebrane na kartę sieciową | cat /sys/class/net/eth$nic/statistics/rx_bytes |
+| Dane przesyłane na kartę sieciową | cat /sys/class/net/eth$nic/statistics/tx_bytes |
+| Liczba dysków | fdisk -l \| egrep 'Dysk. \* bytes' \| awk '{print $2}' \| cut -f1 -d ':' |
+| Szczegóły dysku | cat /proc/diskstats |
 
-## <a name="appliance-upgrades"></a>Uaktualnienia urządzeń
+## <a name="appliance-upgrades"></a>Uaktualnienia urządzenia
 
-Urządzenie zostanie uaktualnione, ponieważ usługi Azure Migrate uruchomione na urządzeniu zostaną zaktualizowane. Dzieje się tak automatycznie, ponieważ automatyczna aktualizacja jest domyślnie włączona na urządzeniu. Można zmienić to ustawienie domyślne, aby ręcznie zaktualizować usługi urządzeń.
+Urządzenie jest uaktualniane w Azure Migrate usługi uruchomione na urządzeniu. Dzieje się to automatycznie, ponieważ automatyczna aktualizacja jest domyślnie włączona na urządzeniu. To ustawienie domyślne można zmienić, aby ręcznie zaktualizować usługi urządzenia.
 
-### <a name="turn-off-auto-update"></a>Wyłącz funkcję autoaktualizacji
+### <a name="turn-off-auto-update"></a>Wyłączanie automatycznej aktualizacji
 
-1. Na serwerze, na którym działa urządzenie, Otwórz Edytor rejestru.
+1. Na serwerze z uruchomionym urządzeniem otwórz Edytor rejestru.
 2. Przejdź do **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
-3. Aby wyłączyć automatyczne aktualizowanie, **Utwórz klucz rejestru Autoaktualizacja klucza z** wartością DWORD równą 0.
+3. Aby wyłączyć automatyczną aktualizację, utwórz klucz rejestru **AutoUpdate** o wartości DWORD 0.
 
     ![Ustawianie klucza rejestru](./media/migrate-appliance/registry-key.png)
 
 
-### <a name="turn-on-auto-update"></a>Włącz funkcję autoaktualizacji
+### <a name="turn-on-auto-update"></a>Włączanie automatycznej aktualizacji
 
-Można włączyć funkcję autoaktualizacji przy użyciu jednej z następujących metod:
+Automatyczną aktualizację można włączyć przy użyciu jednej z tych metod:
 
-- Przez usunięcie klucza rejestru Autoaktualizacja z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
-- Kliknij pozycję **Wyświetl usługi urządzenia** , aby sprawdzić najnowsze aktualizacje w panelu **Konfiguracja wymagań wstępnych** , aby włączyć funkcję autoaktualizowania.
+- Usuwając klucz rejestru AutoUpdate z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
+- Kliknij pozycję **Wyświetl usługi urządzeń z** najnowszych testów aktualizacji na panelu Konfigurowanie wymagań **wstępnych,** aby włączyć automatyczną aktualizację.
 
 Aby usunąć klucz rejestru:
 
-1. Na serwerze, na którym działa urządzenie, Otwórz Edytor rejestru.
+1. Na serwerze z uruchomionym urządzeniem otwórz Edytor rejestru.
 2. Przejdź do **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
-3. Usuń funkcję autouzupełniania **klucza rejestru**, która została wcześniej utworzona w celu wyłączenia automatycznej aktualizacji.
+3. Usuń utworzony wcześniej klucz rejestru **AutoUpdate,** aby wyłączyć automatyczną aktualizację.
 
-Aby włączyć Configuration Manager urządzeń, po zakończeniu odnajdywania:
+Aby włączyć z urządzenia Menedżer konfiguracji, po zakończeniu odnajdywania:
 
-1. W Menedżerze konfiguracji urządzenia przejdź do pozycji Konfiguracja — panel **wymagania wstępne**
-2. W oknie Sprawdź najnowsze aktualizacje kliknij pozycję **Wyświetl usługi urządzeń** , a następnie kliknij link, aby włączyć funkcję autoaktualizowania.
+1. W menedżerze konfiguracji urządzenia przejdź do **panelu Konfigurowanie wymagań wstępnych**
+2. W najnowszej aktualizacji sprawdź, kliknij pozycję **Wyświetl usługi urządzenia** i kliknij link, aby włączyć automatyczną aktualizację.
 
-    ![Włącz aktualizacje AutoUpdate](./media/migrate-appliance/autoupdate-off.png)
+    ![Włączanie aktualizacji automatycznych](./media/migrate-appliance/autoupdate-off.png)
 
-### <a name="check-the-appliance-services-version"></a>Sprawdź wersję usług urządzenia
+### <a name="check-the-appliance-services-version"></a>Sprawdzanie wersji usług urządzenia
 
-Możesz sprawdzić wersję usługi urządzenia przy użyciu jednej z następujących metod:
+Wersję usług urządzenia można sprawdzić przy użyciu jednej z tych metod:
 
-- W Menedżerze konfiguracji urządzeń przejdź do pozycji **Konfigurowanie panelu wymagania wstępne** .
-- Na urządzeniu w **Panelu sterowania**  >  **programy i funkcje**.
+- W menedżerze konfiguracji urządzenia przejdź do **panelu Konfigurowanie wymagań wstępnych.**
+- Na urządzeniu w chmurze **Panel sterowania**  >  **programy i funkcje.**
 
-Aby zaewidencjonować Menedżera konfiguracji urządzeń:
+Aby zaewidencjonować menedżera konfiguracji urządzenia:
 
-1. W Menedżerze konfiguracji urządzenia przejdź do pozycji Konfiguracja — panel **wymagania wstępne**
-2. W oknie Sprawdzanie najnowszych aktualizacji kliknij pozycję **Wyświetl usługi urządzeń**.
+1. W menedżerze konfiguracji urządzenia przejdź do **panelu Konfigurowanie wymagań wstępnych**
+2. Podczas sprawdzania najnowszych aktualizacji kliknij pozycję **Wyświetl usługi urządzenia.**
 
-    ![Sprawdź wersję](./media/migrate-appliance/versions.png)
+    ![Sprawdzanie wersji](./media/migrate-appliance/versions.png)
 
-Aby zaewidencjonować Panel sterowania:
+Aby zaewidencjnić Panel sterowania:
 
-1. Na urządzeniu kliknij kolejno pozycje **Start**  >  **Panelu sterowania**  >  **programy i funkcje** .
+1. Na urządzeniu kliknij pozycję **Uruchom**  >  **Panel sterowania**  >  **i funkcje**
 2. Sprawdź wersje usług urządzenia na liście.
 
-    ![Sprawdź wersję w panelu sterowania](./media/migrate-appliance/programs-features.png)
+    ![Sprawdzanie wersji w Panel sterowania](./media/migrate-appliance/programs-features.png)
 
-### <a name="manually-update-an-older-version"></a>Ręczna aktualizacja starszej wersji
+### <a name="manually-update-an-older-version"></a>Ręczne aktualizowanie starszej wersji
 
-Jeśli używasz starszej wersji dla którejkolwiek z tych usług, musisz odinstalować usługę i ręcznie ją zaktualizować do najnowszej wersji.
+Jeśli używasz starszej wersji dowolnej z usług, musisz odinstalować usługę i ręcznie zaktualizować ją do najnowszej wersji.
 
-1. Aby sprawdzić dostępność najnowszych wersji usługi dla urządzeń, [pobierz](https://aka.ms/latestapplianceservices) LatestComponents.jspliku.
-2. Po pobraniu otwórz LatestComponents.jsplik w Notatniku.
-3. Znajdź najnowszą wersję usługi w pliku i link do pobierania. Na przykład:
+1. Aby sprawdzić, czy są dostępne najnowsze wersje usługi urządzenia, [pobierz](https://aka.ms/latestapplianceservices) LatestComponents.jspliku .
+2. Po pobraniu otwórz plik LatestComponents.jsw Notatniku.
+3. Znajdź najnowszą wersję usługi w pliku i link pobierania dla niego. Na przykład:
 
-    "Name": "ASRMigrationWebApp", "DownloadLink": " https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi ", "Version": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
+    "Name": "ASRMigrationWebApp", "DownloadLink": " https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi ", "Version": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a6a81e75469b84"
 
-4. Pobierz najnowszą wersję nieaktualnej usługi przy użyciu linku pobierania w pliku.
-5. Po pobraniu programu uruchom następujące polecenie w oknie polecenia administratora, aby sprawdzić integralność pobranego pliku MSI.
+4. Pobierz najnowszą wersję nieaktualnej usługi, korzystając z linku pobierania w pliku .
+5. Po pobraniu uruchom następujące polecenie w oknie polecenia administratora, aby sprawdzić integralność pobranego pliku MSI.
 
-    ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ``` Na przykład: C: \> certutil-HashFile C:\Users\public\downloads\MicrosoftAzureApplianceConfigurationManager.MSI MD5
+    ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ``` Na przykład: C: \> CertUtil -HashFile C:\Users\public\downloads\MicrosoftAzureApplianceConfigurationManager.MSI MD5
 
-5. Sprawdź, czy dane wyjściowe polecenia są zgodne z wpisem wartości skrótu dla usługi w pliku (na przykład wartość skrótu MD5 powyżej).
-6. Teraz uruchom plik MSI, aby zainstalować usługę. Jest to instalacja dyskretna, a okno instalacji zostaje zamknięte po zakończeniu.
-7. Po zakończeniu instalacji sprawdź wersję usługi w **Panelu sterowania**  >  **programy i funkcje**. Wersję usługi należy teraz uaktualnić do najnowszej podanej w pliku JSON.
+5. Sprawdź, czy dane wyjściowe polecenia są takie, jak wpis wartości skrótu dla usługi w pliku (na przykład wartość skrótu MD5 powyżej).
+6. Teraz uruchom pakiet MSI, aby zainstalować usługę. Jest to instalacja dyskretna, a po jej zakończeniu okno instalacji zostanie zamknięte.
+7. Po zakończeniu instalacji sprawdź wersję usługi w Panelu sterowania  >  **Programy i funkcje.** Wersja usługi powinna zostać uaktualniona do najnowszej wersji pokazanej w pliku JSON.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dowiedz się, jak](how-to-set-up-appliance-vmware.md) skonfigurować urządzenie dla programu VMware.
-- [Dowiedz się, jak](how-to-set-up-appliance-hyper-v.md) skonfigurować urządzenie dla funkcji Hyper-V.
-- [Dowiedz się, jak](how-to-set-up-appliance-physical.md) skonfigurować urządzenie dla serwerów fizycznych.
+- [Dowiedz się,](how-to-set-up-appliance-vmware.md) jak skonfigurować urządzenie dla oprogramowania VMware.
+- [Dowiedz się,](how-to-set-up-appliance-hyper-v.md) jak skonfigurować urządzenie dla funkcji Hyper-V.
+- [Dowiedz się,](how-to-set-up-appliance-physical.md) jak skonfigurować urządzenie dla serwerów fizycznych.

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
-ms.openlocfilehash: 22920e6535a19b1ab0ce970c1195cee676d9363f
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: ed83fdde4e005b0db76b9edf30faef5e8c732998
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057732"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714042"
 ---
 # <a name="tutorial-create-a-custom-simulated-device"></a>Samouczek: tworzenie niestandardowego urządzenia symulowanego
 
@@ -34,7 +34,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Do wykonania kroków tego samouczka będzie potrzebne wdrożone wystąpienie symulacji urządzenia w subskrypcji platformy Azure.
 
-Jeśli nie wdrożono jeszcze symulacji urządzenia, zobacz [wdrażanie symulacji urządzenia](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) w serwisie GitHub.
+Jeśli symulacja urządzenia nie została jeszcze wdrożona, zobacz [Wdrażanie symulacji urządzenia w](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md) witrynie GitHub.
 
 ## <a name="view-your-device-models"></a>Wyświetlanie modeli urządzeń
 
@@ -80,7 +80,7 @@ Klonowanie modelu urządzenia umożliwia utworzenie kopii istniejącego modelu u
 
 Aby sklonować model urządzenia, zaznacz pole wyboru obok modelu, a następnie kliknij pozycję **Klonuj** na pasku akcji:
 
-![Zrzut ekranu, który podświetla wybrany model i przycisk klonowania.](media/iot-accelerators-device-simulation-create-custom-device/clonedevice.png)
+![Zrzut ekranu przedstawiający wybrany model i przycisk Klonuj.](media/iot-accelerators-device-simulation-create-custom-device/clonedevice.png)
 
 ## <a name="delete-a-device-model"></a>Usuwanie modelu urządzenia
 

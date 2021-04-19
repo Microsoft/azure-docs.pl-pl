@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: troyhop
-ms.openlocfilehash: 3376b3714dc41c7d5ce33756671050d19471a757
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: df658a95069f39026daab7afb14c5f1d0f47c5a5
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057715"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713898"
 ---
 # <a name="tutorial-create-and-run-an-iot-device-simulation"></a>Samouczek: tworzenie i uruchamianie symulacji urządzenia usługi IoT
 
@@ -34,7 +34,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Do wykonania kroków tego samouczka będzie potrzebne wdrożone wystąpienie symulacji urządzenia w subskrypcji platformy Azure.
 
-Jeśli nie wdrożono jeszcze symulacji urządzenia, zobacz [wdrażanie symulacji urządzenia](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) w serwisie GitHub.
+Jeśli symulacja urządzenia nie została jeszcze wdrożona, zobacz [Wdrażanie symulacji urządzenia w witrynie](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md) GitHub.
 
 ## <a name="view-simulations"></a>Wyświetlanie symulacji
 

@@ -266,11 +266,9 @@
       items:
         - name: Tworzenie kont magazynu i zarządzanie nimi
           items:
-            - name: Tworzenie konta magazynu ogólnego przeznaczenia
+            - name: Tworzenie konta magazynu
               displayName: 'Resource Manager, Resource Manager template, template, ARM'
               href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Tworzenie konta magazynu blokowych obiektów blob
-              href: storage-blob-create-account-block-blob.md
             - name: Podnoszenie poziomu konta magazynu
               href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Odzyskiwanie usuniętego konta magazynu
@@ -669,7 +667,7 @@
           href: data-lake-storage-introduction.md
     - name: Samouczki
       items:
-        - name: Używanie z databricks i spark
+        - name: Używanie z użyciem platformy Databricks i Spark
           href: data-lake-storage-use-databricks-spark.md
         - name: Używanie z Apache Hive i HDInsight
           href: data-lake-storage-tutorial-extract-transform-load-hive.md

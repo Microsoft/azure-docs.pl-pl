@@ -107,15 +107,15 @@
       items:
         - name: Przekształcanie danych przy użyciu przepływów danych mapowania
           items:
-            - name: Najlepsze rozwiązania dotyczące danych wyładunkowych w jeziorach dzięki ADLS Gen2
+            - name: Najlepsze rozwiązania dotyczące danych docelowych w uowaniu "lake" przy użyciu ADLS Gen2
               href: tutorial-data-flow-write-to-lake.md
-            - name: Przekształcanie danych w Lake przy użyciu różnicowej Lake
+            - name: Przekształcanie danych w ujechu do lake za pomocą rozwiązania Delta Lake
               href: tutorial-data-flow-delta-lake.md
             - name: Przekształcanie danych przy użyciu przepływów danych mapowania
               href: tutorial-data-flow.md
             - name: Samouczki wideo dotyczące przepływów mapowania danych
               href: data-flow-tutorials.md
-        - name: Przygotowywanie danych za pomocą przetwarzanie
+        - name: Przygotowywanie danych za pomocą przetwarzania wsadowego
           href: wrangling-tutorial.md
         - name: Korzystanie z usług zewnętrznych
           items:
@@ -199,9 +199,9 @@
               href: concepts-data-flow-expression-builder.md
             - name: Język wyrażeń
               href: data-flow-expression-functions.md
-        - name: Przygotowywanie danych za pomocą Power Query danych przetwarzanie
+        - name: Przygotowywanie danych przy Power Query danych
           items:
-            - name: Przetwarzanie danych — omówienie
+            - name: Omówienie przetwarzania danych
               href: wrangling-overview.md
             - name: Obsługiwane funkcje
               href: wrangling-functions.md
@@ -225,7 +225,7 @@
           href: source-control.md
         - name: Ciągła integracja i ciągłe dostarczanie
           href: continuous-integration-deployment.md
-        - name: Automatyczne publikowanie
+        - name: Publikowanie automatyczne
           href: continuous-integration-deployment-improvements.md
     - name: Łączniki
       items:
@@ -433,11 +433,11 @@
           href: connector-zoho.md
     - name: Przenoszenie danych
       items:
-        - name: Kopiowanie danych za pomocą działania kopiowania
+        - name: Kopiowanie danych przy użyciu działania kopiowania
           href: copy-activity-overview.md
         - name: Monitorowanie działania kopiowania
           href: copy-activity-monitoring.md
-        - name: Usuwanie plików przy użyciu działania usuwania
+        - name: Usuwanie plików za pomocą działania Usuń
           href: delete-activity.md
         - name: Narzędzie do kopiowania danych
           href: copy-data-tool.md
@@ -466,73 +466,73 @@
     - name: Przekształcanie danych
       href: transform-data.md
       items:
-        - name: Działanie wykonywania przepływu danych
+        - name: Wykonywanie Przepływ danych danych
           href: control-flow-execute-data-flow-activity.md
-        - name: Działanie wykonywania Power Query
+        - name: Wykonywanie Power Query danych
           href: control-flow-power-query-activity.md
         - name: Działanie funkcji platformy Azure
           href: control-flow-azure-function-activity.md
         - name: Działanie niestandardowe
           href: transform-data-using-dotnet-custom-activity.md
-        - name: Aktywność jar
+        - name: Działanie Databricks Jar
           href: transform-data-databricks-jar.md
-        - name: Aktywność notesu datakostki
+        - name: Działanie notesu databricks
           href: transform-data-databricks-notebook.md
-        - name: Aktywność języka Python dla elementów datakostek
+        - name: Działanie języka Python w ucieku Databricks
           href: transform-data-databricks-python.md
-        - name: Działanie polecenia Eksplorator danych
+        - name: Eksplorator danych Działania polecenia
           href: /azure/data-explorer/data-factory-command-activity?toc=/azure/data-factory/toc.json
-        - name: Data Lake działanie U-SQL
+        - name: Działanie języka U-SQL usługi Data Lake
           href: transform-data-using-data-lake-analytics.md
-        - name: Działanie programu Hive w usłudze HDInsight
+        - name: Działanie technologii Hive w umacie HDInsight
           href: transform-data-using-hadoop-hive.md
-        - name: Działanie MapReduce usługi HDInsight
+        - name: Działanie mapReduce w umacie HDInsight
           href: transform-data-using-hadoop-map-reduce.md
-        - name: Działanie dotyczące usługi HDInsight świni
+        - name: Działanie technologii Pig w umacie HDInsight
           href: transform-data-using-hadoop-pig.md
-        - name: Działanie usługi HDInsight Spark
+        - name: Działanie platformy Spark w umacie HDInsight
           href: transform-data-using-spark.md
-        - name: Działanie przesyłania strumieniowego HDInsight
+        - name: Działanie przesyłania strumieniowego w umacie HDInsight
           href: transform-data-using-hadoop-streaming.md
-        - name: Działanie wykonywania potoku Machine Learning
+        - name: Machine Learning działanie Wykonaj potok
           href: transform-data-machine-learning-service.md
-        - name: Działanie wykonywania wsadowego w Machine Learning Studio (klasycznej)
+        - name: Machine Learning Studio (wersja klasyczna) działanie Wykonanie wsadowe
           href: transform-data-using-machine-learning.md
-        - name: Działanie aktualizacji zasobów Machine Learning Studio (klasycznej)
+        - name: Machine Learning Studio (klasyczne) Aktualizowanie zasobu
           href: update-machine-learning-models.md
-        - name: Działanie procedury składowanej
+        - name: Działanie Stored Procedure (Procedura składowana)
           href: transform-data-using-stored-procedure.md
         - name: Usługi połączone usługi Compute
           href: compute-linked-services.md
     - name: Przepływ sterowania
       items:
-        - name: Dołącz działanie zmiennej
+        - name: Działanie Dołączanie zmiennej
           href: control-flow-append-variable-activity.md
-        - name: Działanie wykonywania potoku
+        - name: działanie Wykonaj potok
           href: control-flow-execute-pipeline-activity.md
         - name: Działanie filtrowania
           href: control-flow-filter-activity.md
         - name: Dla każdego działania
           href: control-flow-for-each-activity.md
-        - name: Działanie pobierania metadanych
+        - name: Działanie Get Metadata (Pobierz metadane)
           href: control-flow-get-metadata-activity.md
-        - name: Działanie if Condition
+        - name: działanie Warunek „jeśli”
           href: control-flow-if-condition-activity.md
         - name: Działanie Lookup
           href: control-flow-lookup-activity.md
-        - name: Działanie ustawiania zmiennej
+        - name: Działanie Ustaw zmienną
           href: control-flow-set-variable-activity.md
-        - name: Przełącz działanie
+        - name: Działanie przełączania
           href: control-flow-switch-activity.md
-        - name: Do działania do
+        - name: działanie Dopóki
           href: control-flow-until-activity.md
         - name: Działanie walidacji
           href: control-flow-validation-activity.md
-        - name: Działanie oczekiwania
+        - name: Działanie Wait
           href: control-flow-wait-activity.md
-        - name: Aktywność sieci Web
+        - name: Działanie internetowe
           href: control-flow-web-activity.md
-        - name: Działanie elementu webhook
+        - name: Działanie webhook
           href: control-flow-webhook-activity.md
     - name: Przekształcenia przepływu danych
       items:
@@ -592,7 +592,7 @@
           href: control-flow-system-variables.md
         - name: Parametryzacja przepływów mapowania danych
           href: parameters-data-flow.md
-        - name: Jak Sparametryzuj
+        - name: Jak sparametryzować
           href: how-to-expression-language-functions.md
     - name: Zabezpieczenia
       items:
@@ -612,9 +612,9 @@
           href: data-factory-service-identity.md
         - name: Szyfrowanie fabryki danych przy użyciu klucza zarządzanego przez klienta
           href: enable-customer-managed-key.md
-        - name: Zarządzana Sieć wirtualna
+        - name: Zarządzana sieć wirtualna
           href: managed-virtual-network-private-endpoint.md
-        - name: Prywatny link do usługi Azure Data Factory
+        - name: Link prywatny platformy Azure dla Data Factory
           href: data-factory-private-link.md
         - name: Punkt odniesienia zabezpieczeń platformy Azure
           href: security-baseline.md
@@ -706,17 +706,17 @@
           href: how-to-create-tumbling-window-trigger.md
         - name: Tworzenie zależności wyzwalacza okna wirowania
           href: tumbling-window-trigger-dependency.md
-        - name: Tworzenie wyzwalacza zdarzeń magazynu
+        - name: Tworzenie wyzwalacza zdarzenia magazynu
           href: how-to-create-event-trigger.md
         - name: Tworzenie niestandardowego wyzwalacza zdarzeń
           href: how-to-create-custom-event-trigger.md
-        - name: Odwołuje się do metadanych wyzwalacza w potoku
+        - name: Odwołania do metadanych wyzwalacza w potoku
           href: how-to-use-trigger-parameterization.md
     - name: Wykaz danych i ład
       items:
         - name: Łączenie usługi Data Factory z usługą Azure Purview
           href: connect-data-factory-to-azure-purview.md
-        - name: Odkrywanie i Eksplorowanie danych w usłudze ADF przy użyciu kontrolą
+        - name: Odnajdywanie i eksplorowanie danych w u usługach ADF przy użyciu programu Purview
           href: how-to-discover-explore-purview-data.md
     - name: Scenariusze
       items:
@@ -774,9 +774,9 @@
           href: solution-template-databricks-notebook.md
     - name: Omówienie cennika
       items:
-        - name: Informacje o zarezerwowanej pojemności przepływu danych
+        - name: Omówienie pojemności zarezerwowanej przepływu danych
           href: data-flow-reserved-capacity-overview.md
-        - name: Przepływ danych — informacje o opłatach rezerwacji
+        - name: Informacje o opłatach za rezerwację w przepływie danych
           href: data-flow-understand-reservation-charges.md
         - name: Planowanie kosztów i zarządzanie nimi
           href: plan-manage-costs.md
@@ -793,7 +793,11 @@
         - name: Wyzwalacze potoku
           href: pipeline-trigger-troubleshoot-guide.md
         - name: Przepływy danych
-          href: data-flow-troubleshoot-guide.md
+          items:
+            - name: Omówienie przepływów danych
+              href: data-flow-troubleshoot-guide.md
+            - name: Łącznik i format
+              href: data-flow-troubleshoot-connector-format.md
         - name: Ciągła integracja i wdrażanie
           href: ci-cd-github-troubleshoot-guide.md
         - name: Zabezpieczenia i kontrola dostępu

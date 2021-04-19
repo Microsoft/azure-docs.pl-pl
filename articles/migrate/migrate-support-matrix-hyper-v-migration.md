@@ -1,36 +1,36 @@
 ---
-title: Obsługa migracji funkcji Hyper-V w Azure Migrate
-description: Dowiedz się więcej o obsłudze migracji funkcji Hyper-V za pomocą Azure Migrate.
+title: Obsługa migracji funkcji Hyper-V w programie Azure Migrate
+description: Dowiedz się więcej na temat obsługi migracji funkcji Hyper-V za pomocą Azure Migrate.
 author: bsiva
 ms.author: bsiva
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 90da16789344754c02d46022160db71ee261a056
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 33e34e777a78e1c609d2eacdcb501c0bce1f5c9d
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96754066"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714924"
 ---
-# <a name="support-matrix-for-hyper-v-migration"></a>Macierz obsługi dla migracji funkcji Hyper-V
+# <a name="support-matrix-for-hyper-v-migration"></a>Macierz obsługi migracji funkcji Hyper-V
 
-Ten artykuł zawiera podsumowanie ustawień i ograniczeń dotyczących migracji maszyn wirtualnych funkcji Hyper-V z [Azure Migrate: Migracja serwera](migrate-services-overview.md#azure-migrate-server-migration-tool) . Jeśli szukasz informacji na temat oceny maszyn wirtualnych funkcji Hyper-V na potrzeby migracji na platformę Azure, zapoznaj się z [matrycą pomocy technicznej](migrate-support-matrix-hyper-v.md)dotyczącej oceny.
+Ten artykuł zawiera podsumowanie ustawień pomocy technicznej i ograniczeń dotyczących migrowania maszyn wirtualnych funkcji Hyper-V za [pomocą Azure Migrate: Migracja serwera.](migrate-services-overview.md#azure-migrate-server-migration-tool) Jeśli szukasz informacji na temat oceny maszyn wirtualnych funkcji Hyper-V do migracji na platformę Azure, zapoznaj się z [macierzą obsługi oceny.](migrate-support-matrix-hyper-v.md)
 
 ## <a name="migration-limitations"></a>Ograniczenia migracji
 
-Można wybrać maksymalnie 10 maszyn wirtualnych na potrzeby replikacji. Jeśli chcesz migrować więcej maszyn, Replikuj w grupach o wartości 10.
+Do replikacji można wybrać maksymalnie 10 maszyn wirtualnych jednocześnie. Jeśli chcesz migrować więcej maszyn, zreplikuj je w grupach po 10.
 
 
 ## <a name="hyper-v-host-requirements"></a>Wymagania dotyczące hosta funkcji Hyper-V
 
 | **Pomoc techniczna**                | **Szczegóły**               
 | :-------------------       | :------------------- |
-| **Wdrożenie**       | Host funkcji Hyper-V może być autonomiczny lub wdrożony w klastrze. <br/>Na hostach funkcji Hyper-V jest zainstalowane oprogramowanie do replikacji Azure Migrate (dostawca replikacji funkcji Hyper-V).|
+| **Wdrożenie**       | Host funkcji Hyper-V może być autonomiczny lub wdrożony w klastrze. <br/>Azure Migrate replikacji (dostawca replikacji funkcji Hyper-V) jest zainstalowane na hostach funkcji Hyper-V.|
 | **Uprawnienia**           | Wymagane są uprawnienia administratora na hoście funkcji Hyper-V. |
-| **System operacyjny hosta** | Windows Server 2019, Windows Server 2016 lub Windows Server 2012 R2 z najnowszymi aktualizacjami. Należy zauważyć, że jest również obsługiwana instalacja Server Core tych systemów operacyjnych. |
-| **Inne wymagania programowe** | .NET Framework 4,7 lub nowszy |
-| **Dostęp do portu** |  Połączenia wychodzące na porcie HTTPS 443 do wysyłania danych replikacji maszyny wirtualnej.
+| **System operacyjny hosta** | Windows Server 2019, Windows Server 2016 lub Windows Server 2012 R2 z najnowszymi aktualizacjami. Należy pamiętać, że obsługiwana jest również instalacja Server Core tych systemów operacyjnych. |
+| **Inne wymagania dotyczące oprogramowania** | .NET Framework 4.7 lub nowszy |
+| **Dostęp do portów** |  Połączenia wychodzące na porcie HTTPS 443 do wysyłania danych replikacji maszyny wirtualnej.
 | **Wolne miejsce na dysku (pamięć podręczna)** |  600 GB |
 | **Wolne miejsce na dysku (dysk przechowywania)** |  600 GB |
 
@@ -39,38 +39,38 @@ Można wybrać maksymalnie 10 maszyn wirtualnych na potrzeby replikacji. Jeśli 
 
 | **Pomoc techniczna**                  | **Szczegóły**               
 | :----------------------------- | :------------------- |
-| **System operacyjny** | Wszystkie systemy operacyjne [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) i [Linux](../virtual-machines/linux/endorsed-distros.md) , które są obsługiwane przez platformę Azure. |
-**Windows Server 2003** | W przypadku maszyn wirtualnych z systemem Windows Server 2003 przed migracją należy [zainstalować usługi integracji funkcji Hyper-V](prepare-windows-server-2003-migration.md) . | 
-**Maszyny wirtualne z systemem Linux na platformie Azure** | Niektóre maszyny wirtualne mogą wymagać zmian, aby mogły być uruchamiane na platformie Azure.<br/><br/> W przypadku systemu Linux Azure Migrate automatycznie wprowadza zmiany w następujących systemach operacyjnych:<br/> -Red Hat Enterprise Linux 7,8, 7,7, 7,6, 7,5, 7,4, 7,0, 6. x<br/> -Cent OS 7,7, 7,6, 7,5, 7,4, 6. x</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -SUSE Linux Enterprise Server 15 SP1 <br/>-Ubuntu 19,04, 19,10, 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8 <br/> Oracle Linux 7,7, 7,7-CI<br/> W przypadku innych systemów operacyjnych należy ręcznie wprowadzić [wymagane zmiany](prepare-for-migration.md#verify-required-changes-before-migrating) .
-| **Wymagane zmiany dotyczące platformy Azure** | Niektóre maszyny wirtualne mogą wymagać zmian, aby mogły być uruchamiane na platformie Azure. Ręcznie wprowadź korekty przed migracją. Odpowiednie artykuły zawierają instrukcje, jak to zrobić. |
-| **Rozruch systemu Linux**                 | Jeśli/Boot znajduje się na dedykowanej partycji, powinien znajdować się na dysku systemu operacyjnego i nie można go rozłożyć na wiele dysków.<br/> Jeśli/boot jest częścią partycji głównej (/), partycja "/" powinna znajdować się na dysku systemu operacyjnego i nie może obejmować innych dysków. |
-| **Rozruch z interfejsem UEFI**                  | Obsługiwane. Maszyny wirtualne oparte na interfejsie UEFI zostaną zmigrowane do maszyn wirtualnych generacji 2 platformy Azure.  |
-| **Interfejs UEFI — bezpieczny rozruch**         | Migracja nie jest obsługiwana.|
-| **Rozmiar dysku**                  | 2 TB dla dysku systemu operacyjnego (rozruch systemu BIOS), 4 TB dla dysku systemu operacyjnego (rozruch UEFI), 4 TB dla dysków danych.|
+| **System operacyjny** | Wszystkie [systemy operacyjne Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) i [Linux](../virtual-machines/linux/endorsed-distros.md) obsługiwane przez platformę Azure. |
+**Windows Server 2003** | W przypadku maszyn wirtualnych z systemem Windows Server 2003 należy zainstalować usługi integracji funkcji [Hyper-V](prepare-windows-server-2003-migration.md) przed migracją. | 
+**Maszyny wirtualne z systemem Linux na platformie Azure** | Niektóre maszyny wirtualne mogą wymagać zmian, aby można je było uruchamiać na platformie Azure.<br/><br/> W przypadku systemu Linux Azure Migrate automatycznie wprowadza zmiany dla tych systemów operacyjnych:<br/> - Red Hat Enterprise Linux 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br/> - Cent OS 7.7, 7.6, 7.5, 7.4, 6.x</br> — SUSE Linux Enterprise Server 12 z dodatkiem SP1+<br/> - SUSE Linux Enterprise Server 15 SP1 <br/>- Ubuntu 19.04, 19.10, 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8 <br/> Oracle Linux 7.7, 7.7-CI<br/> W przypadku innych systemów operacyjnych wymagane [zmiany są wprowadzane](prepare-for-migration.md#verify-required-changes-before-migrating) ręcznie.
+| **Wymagane zmiany dla platformy Azure** | Niektóre maszyny wirtualne mogą wymagać zmian, aby można je było uruchamiać na platformie Azure. Przed migracją należy ręcznie wprowadzić zmiany. Odpowiednie artykuły zawierają instrukcje dotyczące tego, jak to zrobić. |
+| **Rozruch w systemie Linux**                 | Jeśli /boot znajduje się na partycji dedykowanej, powinien znajdować się na dysku systemu operacyjnego i nie powinny być rozłożone na wiele dysków.<br/> Jeśli /boot jest częścią partycji głównej (/), partycja "/" powinna być na dysku systemu operacyjnego i nie obejmować innych dysków. |
+| **Rozruch UEFI**                  | Obsługiwane. Maszyny wirtualne oparte na interfejsie UEFI zostaną zmigrowane do maszyn wirtualnych 2. generacji na platformie Azure.  |
+| **UEFI — bezpieczny rozruch**         | Nie jest obsługiwana w przypadku migracji.|
+| **Rozmiar dysku**                  | 2 TB dla dysku systemu operacyjnego (rozruch z systemu BIOS), 4 TB dla dysku systemu operacyjnego (rozruch UEFI), 4 TB dla dysków danych.|
 | **Numer dysku** | Maksymalnie 16 dysków na maszynę wirtualną.|
-| **Zaszyfrowane dyski/woluminy**    | Migracja nie jest obsługiwana.|
-| **RDM/przekazywanie dysków**      | Migracja nie jest obsługiwana.|
-| **Dysk udostępniony** | Maszyny wirtualne korzystające z dysków udostępnionych nie są obsługiwane na potrzeby migracji.|
-| **NFS**                        | Woluminy NFS zainstalowane jako woluminy na maszynach wirtualnych nie zostaną zreplikowane.|
-| **MAGAZYNU**                      | Maszyny wirtualne z obiektami docelowymi iSCSI nie są obsługiwane na potrzeby migracji.
-| **Dysk docelowy**                | Można przeprowadzić migrację do maszyn wirtualnych platformy Azure tylko z dyskami zarządzanymi. |
+| **Zaszyfrowane dyski/woluminy**    | Nie jest obsługiwana w przypadku migracji.|
+| **Dyski RDM/passthrough**      | Nie jest obsługiwana w przypadku migracji.|
+| **Dysk udostępniony** | Maszyny wirtualne korzystające z dysków udostępnionych nie są obsługiwane w przypadku migracji.|
+| **NFS**                        | Woluminy NFS zainstalowane jako woluminy na maszyn wirtualnych nie będą replikowane.|
+| **Iscsi**                      | Maszyny wirtualne z obiektami docelowymi iSCSI nie są obsługiwane w przypadku migracji.
+| **Dysk docelowy**                | Migrację na maszyny wirtualne platformy Azure można przeprowadzić tylko przy użyciu dysków zarządzanych. |
 | **Protokół IPv6** | Nieobsługiwane.|
-| **Tworzenie zespołu kart interfejsu sieciowego** | Nieobsługiwane.|
-| **Azure Site Recovery** | Nie można przeprowadzić replikacji przy użyciu migracji serwera Azure Migrate, jeśli maszyna wirtualna ma włączoną replikację z Azure Site Recovery.|
+| **Kart sieciowych** | Nieobsługiwane.|
+| **Azure Site Recovery** | Nie można replikować przy użyciu migracji Azure Migrate Server, jeśli maszyna wirtualna jest włączona do replikacji z Azure Site Recovery.|
 | **Porty** | Połączenia wychodzące na porcie HTTPS 443 do wysyłania danych replikacji maszyny wirtualnej.|
 
-### <a name="url-access-public-cloud"></a>Dostęp do adresów URL (chmura publiczna)
+### <a name="url-access-public-cloud"></a>Dostęp do adresu URL (chmura publiczna)
 
 Oprogramowanie dostawcy replikacji na hostach funkcji Hyper-V będzie potrzebować dostępu do tych adresów URL.
 
 **Adres URL** | **Szczegóły**
 --- | ---
-login.microsoftonline.com | Kontrola dostępu i zarządzanie tożsamościami przy użyciu Active Directory.
+login.microsoftonline.com | Kontrola dostępu i zarządzanie tożsamościami przy użyciu usługi Active Directory.
 backup.windowsazure.com | Transfer i koordynacja danych replikacji.
-*.hypervrecoverymanager.windowsazure.com | Używany do zarządzania replikacją.
-*.blob.core.windows.net | Przekazywanie danych do kont magazynu. 
-dc.services.visualstudio.com | Przekaż Dzienniki aplikacji używane do wewnętrznego monitorowania.
-time.windows.com | Weryfikuje synchronizację czasu między systemem i czasem globalnym.
+*.hypervrecoverymanager.windowsazure.com | Służy do zarządzania replikacją.
+*.blob.core.windows.net | Przekazywanie danych na konta magazynu. 
+dc.services.visualstudio.com | Przekazywanie dzienników aplikacji używanych do monitorowania wewnętrznego.
+time.windows.com | Weryfikuje synchronizację czasu między czasem systemowym i globalnym.
 
 ### <a name="url-access-azure-government"></a>Dostęp do adresu URL (Azure Government)
 
@@ -78,31 +78,37 @@ Oprogramowanie dostawcy replikacji na hostach funkcji Hyper-V będzie potrzebowa
 
 **Adres URL** | **Szczegóły**
 --- | ---
-login.microsoftonline.us | Kontrola dostępu i zarządzanie tożsamościami przy użyciu Active Directory.
+login.microsoftonline.us | Kontrola dostępu i zarządzanie tożsamościami przy użyciu usługi Active Directory.
 backup.windowsazure.us | Transfer i koordynacja danych replikacji.
-*. hypervrecoverymanager.windowsazure.us | Używany do zarządzania replikacją.
-*. blob.core.usgovcloudapi.net | Przekazywanie danych do kont magazynu.
-dc.services.visualstudio.com | Przekaż Dzienniki aplikacji używane do wewnętrznego monitorowania.
-time.nist.gov | Weryfikuje synchronizację czasu między systemem i czasem globalnym.
+*.hypervrecoverymanager.windowsazure.us | Służy do zarządzania replikacją.
+*.blob.core.usgovcloudapi.net | Przekazywanie danych na konta magazynu.
+dc.services.visualstudio.com | Przekazywanie dzienników aplikacji używanych do monitorowania wewnętrznego.
+time.nist.gov | Weryfikuje synchronizację czasu między czasem systemowym i globalnym.   
+
+>[!Note]
+>
+> Jeśli projekt migracji ma łączność **z** prywatnym punktem końcowym, oprogramowanie dostawcy replikacji na hostach funkcji Hyper-V będzie potrzebować dostępu do tych adresów URL w celu obsługi linków prywatnych. 
+> - *.blob.core.windows.com — aby uzyskać dostęp do konta magazynu, które przechowuje replikowane dane. Jest to opcjonalne i nie jest wymagane, jeśli konto magazynu ma dołączony prywatny punkt końcowy. 
+> - login.windows.net kontroli dostępu i zarządzania tożsamościami przy użyciu usługi Active Directory.
 
 ## <a name="azure-vm-requirements"></a>Wymagania dotyczące maszyny wirtualnej platformy Azure
 
-Wszystkie lokalne maszyny wirtualne replikowane na platformę Azure muszą spełniać wymagania dotyczące maszyny wirtualnej platformy Azure podsumowane w tej tabeli.
+Wszystkie lokalne maszyny wirtualne replikowane do platformy Azure muszą spełniać wymagania dotyczące maszyn wirtualnych platformy Azure podsumowane w tej tabeli.
 
 **Składnik** | **Wymagania** | **Szczegóły**
 --- | --- | ---
-Rozmiar dysku systemu operacyjnego | Do 2 048 GB. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
-Liczba dysków systemu operacyjnego | 1 | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
-Liczba dysków danych | 16 lub mniej. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
-Rozmiar dysku danych | Do 4 095 GB | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
-Karty sieciowe | Obsługiwane są wiele kart. |
+Rozmiar dysku systemu operacyjnego | Do 2048 GB. | Sprawdzanie kończy się niepowodzeniem, jeśli jest nieobsługiwane.
+Liczba dysków systemu operacyjnego | 1 | Sprawdzanie kończy się niepowodzeniem, jeśli jest nieobsługiwane.
+Liczba dysków danych | 16 lub mniej. | Sprawdzanie kończy się niepowodzeniem, jeśli jest nieobsługiwane.
+Rozmiar dysku danych | Do 4095 GB | Sprawdzanie kończy się niepowodzeniem, jeśli jest nieobsługiwane.
+Karty sieciowe | Obsługiwanych jest wiele kart. |
 Udostępniony wirtualny dysk twardy | Nieobsługiwane. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
 Dysk FC | Nieobsługiwane. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
-BitLocker | Nieobsługiwane. | Aby włączyć replikację dla maszyny, należy wyłączyć funkcję BitLocker.
-Nazwa maszyny wirtualnej | Od 1 do 63 znaków.<br/> Ograniczone do liter, cyfr i łączników.<br/><br/> Nazwa maszyny musi rozpoczynać się i kończyć literą lub cyfrą. |  Zaktualizuj wartość we właściwościach komputera w Site Recovery.
-Połącz po migracji — Windows | Aby nawiązać połączenie z maszynami wirtualnymi platformy Azure z systemem Windows po migracji:<br/><br/> — Przed migracją Włącz protokół RDP na lokalnej maszynie wirtualnej. Upewnij się, że reguły TCP i UDP zostały dodane do profilu **publicznego** oraz że w pozycji **Zapora systemu Windows** > **Dozwolone aplikacje** zezwolono na użycie protokołu RDP we wszystkich profilach.<br/><br/> — Aby uzyskać dostęp do sieci VPN typu lokacja-lokacja, Włącz protokół RDP i Zezwalaj na używanie protokołu RDP w **zaporze systemu Windows**  ->  **dozwolone aplikacje i funkcje** w sieci **i sieciach prywatnych** . Ponadto sprawdź, czy zasady sieci SAN systemu operacyjnego są ustawione na **OnlineAll**. [Dowiedz się więcej](prepare-for-migration.md). |
-Połącz po migracji — system Linux | Aby nawiązać połączenie z maszynami wirtualnymi platformy Azure po migracji przy użyciu protokołu SSH:<br/><br/> -Przed migracją na maszynie lokalnej Sprawdź, czy usługa Secure Shell jest ustawiona do uruchamiania, oraz czy reguły zapory zezwalają na połączenie SSH.<br/><br/> — Po migracji na maszynie wirtualnej platformy Azure Zezwól na połączenia przychodzące do portu SSH dla reguł sieciowej grupy zabezpieczeń na maszynie wirtualnej w trybie failover oraz dla podsieci platformy Azure, z którą jest połączona. Dodatkowo Dodaj publiczny adres IP dla maszyny wirtualnej. |  
+BitLocker | Nieobsługiwane. | Przed włączeniem replikacji dla maszyny należy wyłączyć funkcję BitLocker.
+Nazwa maszyny wirtualnej | Od 1 do 63 znaków.<br/> Ograniczone do liter, cyfr i łączników.<br/><br/> Nazwa komputera musi zaczynać się i kończyć literą lub numerem. |  Zaktualizuj wartość we właściwościach maszyny w Site Recovery.
+Nawiązywanie połączenia po migracji z systemem Windows | Aby nawiązać połączenie z maszynami wirtualnych platformy Azure z systemem Windows po migracji:<br/><br/> — Przed migracją włącz obsługę protokołu RDP na lokalnej maszynie wirtualnej. Upewnij się, że reguły TCP i UDP zostały dodane do profilu **publicznego** oraz że w pozycji **Zapora systemu Windows** > **Dozwolone aplikacje** zezwolono na użycie protokołu RDP we wszystkich profilach.<br/><br/> — Aby uzyskać dostęp do sieci VPN typu lokacja-lokacja, włącz protokoły RDP i zezwalaj na RDP w aplikacjach i funkcjach Zapory systemu **Windows** dozwolonych dla sieci  ->   **domenowych i** prywatnych. Ponadto sprawdź, czy zasady sieci SAN systemu operacyjnego mają ustawioną wartość **OnlineAll.** [Dowiedz się więcej](prepare-for-migration.md). |
+Nawiązywanie połączenia po migracji z systemem Linux | Aby nawiązać połączenie z maszynami wirtualnych platformy Azure po migracji przy użyciu połączenia SSH:<br/><br/> — Przed migracją na maszynie lokalnej sprawdź, czy usługa Secure Shell jest ustawiona na start i czy reguły zapory zezwalają na połączenie SSH.<br/><br/> — Po migracji na maszynie wirtualnej platformy Azure zezwalaj na połączenia przychodzące do portu SSH dla reguł sieciowej grupy zabezpieczeń na maszynie wirtualnej w stanie fail over i dla podsieci platformy Azure, z którą jest połączona. Ponadto dodaj publiczny adres IP dla maszyny wirtualnej. |  
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Migrowanie maszyn wirtualnych funkcji Hyper-V](tutorial-migrate-hyper-v.md) do migracji.
+[Migrowanie maszyn wirtualnych funkcji Hyper-V do](tutorial-migrate-hyper-v.md) migracji.

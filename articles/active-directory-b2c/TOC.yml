@@ -26,7 +26,7 @@
       href: tutorial-register-applications.md
     - name: 3 — Tworzenie przepływów użytkownika
       href: tutorial-create-user-flows.md
-    - name: 4 — uwierzytelnianie użytkowników
+    - name: 4 — Uwierzytelnianie użytkowników
       items:
         - name: ASP.NET
           href: tutorial-web-app-dotnet.md
@@ -37,7 +37,7 @@
         - name: Python
           href: tutorial-web-app-python.md
           displayName: flask
-    - name: 5 — udzielanie dostępu do interfejsu API
+    - name: 5 — Udzielanie dostępu do interfejsu API
       items:
         - name: ASP.NET
           href: tutorial-web-api-dotnet.md
@@ -96,6 +96,8 @@
       href: policy-keys-overview.md
 - name: Przewodniki z instrukcjami
   items:
+    - name: Zarządzanie dzierżawą
+      href: tenant-management.md
     - name: Integracja aplikacji
       items:
         - name: Rejestrowanie aplikacji internetowej
@@ -136,7 +138,7 @@
               href: add-password-reset-policy.md
             - name: Samoobsługowa zmiana hasła
               href: add-password-change-policy.md
-            - name: Wymuś Resetowanie hasła
+            - name: Wymuszanie resetowania hasła
               href: force-password-reset.md
         - name: Zasady edytowania profilu
           href: add-profile-editing-policy.md
@@ -169,7 +171,7 @@
           href: identity-provider-azure-ad-b2c.md
         - name: Facebook
           href: identity-provider-facebook.md
-        - name: Ogólne połączenie OpenID Connect
+        - name: Ogólne OpenId Connect
           href: identity-provider-generic-openid-connect.md
         - name: Ogólny dostawca tożsamości SAML
           items:
@@ -215,7 +217,7 @@
           href: customize-ui-with-html.md
         - name: Układy stron i kod JavaScript
           href: javascript-and-page-layout.md
-        - name: Wbudowane logowanie za pomocą elementu IFRAME
+        - name: Logowanie osadzone przy użyciu obiektu iframe
           displayName: iframe
           href: embedded-login.md
         - name: Dostosowywanie języka
@@ -242,7 +244,7 @@
               items:
                 - name: HYPR
                   href: partner-hypr.md
-                - name: Bez kluczy
+                - name: Keyless
                   href: partner-keyless.md
                 - name: Nevis
                   href: partner-nevis.md
@@ -267,7 +269,7 @@
       href: user-flow-custom-attributes.md
     - name: Uwierzytelnianie oparte na ryzyku
       items:
-        - name: Zbadaj ryzyko związane z usługą Identity Protection
+        - name: Badanie ryzyka za pomocą ochrony tożsamości
           href: identity-protection-investigate-risk.md
         - name: Konfigurowanie dostępu warunkowego
           href: conditional-access-user-flow.md
@@ -306,9 +308,9 @@
       items:
         - name: Galeria partnera usługi Azure AD B2C
           href: partner-gallery.md
-    - name: Weryfikacja tożsamości i sprawdzanie poprawności
+    - name: Weryfikacja i weryfikacja tożsamości
       items:
-        - name: Weryfikacja tożsamości i partnerzy sprawdzający
+        - name: Partnerzy weryfikacji i weryfikacji tożsamości
           href: identity-verification-proofing.md
           displayName: 'id verify, id verification, azure ad b2c proofing, id proofing'
         - name: Experian
@@ -321,17 +323,17 @@
           href: partner-lexisnexis.md
         - name: Onfido
           href: partner-onfido.md
-    - name: Ochrona oszustw
+    - name: Ochrona przed oszustwem
       items:
-        - name: Ochrona oszustw w systemie Microsoft Dynamics 365
+        - name: Microsoft Dynamics 365 Fraud Protection
           href: partner-dynamics-365-fraud-protection.md
           displayName: 'm365 dynamics, dynamics fraud protection, fraud, 365 protection'
         - name: Arkose Labs
           href: partner-arkose-labs.md
           displayName: 'fraud protection, fraud, Azure AD b2c, protection, B2Cprotection'
-    - name: Bezpieczne aplikacje starsze i lokalne
+    - name: Zabezpieczanie starszych i lokalnych aplikacji
       items:
-        - name: Wyślij polecenie ping do tożsamości
+        - name: Tożsamość ping
           href: partner-ping-identity.md
         - name: Strata
           href: partner-strata.md
@@ -345,7 +347,7 @@
           href: b2clogin.md
         - name: Konfigurowanie domeny niestandardowej
           href: custom-domain.md
-        - name: Konfigurowanie domen interfejsu API sieci Web
+        - name: Konfigurowanie domen internetowego interfejsu API
           href: multiple-token-endpoints.md
           displayName: 'migrate, b2clogin, owin'
     - name: Automation
@@ -384,7 +386,7 @@
         - name: Analiza użycia
           href: analytics-with-application-insights.md
           displayName: 'application insights, app insights, reports, reporting'
-        - name: Bezpieczna oparta na telefonie MFA
+        - name: Bezpieczne uwierzytelniania wieloskładnikowego opartego na telefonie
           href: phone-based-mfa.md
           displayName: 'multi-factor authentication, Azure Monitor, Log Analytics, reports, reporting, dashboard'
     - name: Zgodność
@@ -397,7 +399,7 @@
           displayName: GDPR
 - name: Odwołanie
   items:
-    - name: Niestandardowy schemat zasad
+    - name: Schemat zasad niestandardowych
       items:
         - name: TrustFrameworkPolicy
           href: trustframeworkpolicy.md
@@ -492,7 +494,7 @@
           href: relyingparty.md
         - name: Programy rozpoznawania oświadczeń
           href: claim-resolver-overview.md
-    - name: Informacje o wersji niestandardowych zasad
+    - name: Informacje o wersji zasad niestandardowych
       href: custom-policy-developer-notes.md
     - name: Ograniczenia i limity usługi
       href: service-limits.md

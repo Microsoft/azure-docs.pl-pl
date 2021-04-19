@@ -1,62 +1,63 @@
 ---
-title: Wybierz opcję migracji VMware z migracją na serwer Azure Migrate
-description: Zawiera omówienie opcji migrowania maszyn wirtualnych VMware na platformę Azure przy użyciu migracji Azure Migrate serwera
+title: Wybierz opcję migracji programu VMware z opcją Azure Migrate Server Migration
+description: Omówienie opcji migrowania maszyn wirtualnych VMware na platformę Azure za pomocą Azure Migrate Server Migration
 author: anvar-ms
 ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 7446b2050fdd7bbc7704953c053da0629231191c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 22a0629d50ee8181ffcbfe7dad32ab76fb3e68fd
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101715126"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714168"
 ---
-# <a name="select-a-vmware-migration-option"></a>Wybierz opcję migracji VMware
+# <a name="select-a-vmware-migration-option"></a>Wybieranie opcji migracji oprogramowania VMware
 
-Maszyny wirtualne programu VMware można migrować do platformy Azure za pomocą narzędzia migracji Azure Migrate Server. To narzędzie oferuje kilka opcji migracji maszyn wirtualnych VMware:
+Maszyny wirtualne VMware można migrować na platformę Azure przy użyciu Azure Migrate Server Migration. To narzędzie oferuje kilka opcji migracji maszyn wirtualnych VMware:
 
-- Migracja przy użyciu replikacji bez wykorzystania agentów. Migrowanie maszyn wirtualnych bez konieczności instalowania na nich jakichkolwiek elementów.
-- Migracja z agentem na potrzeby replikacji. Zainstaluj agenta na maszynie wirtualnej na potrzeby replikacji.
+- Migracja przy użyciu replikacji bez agenta. Migrowanie maszyn wirtualnych bez konieczności instalowania na nich czegokolwiek.
+- Migracja z agentem w celu replikacji. Zainstaluj agenta na maszynie wirtualnej w celu replikacji.
 
 
 ## <a name="compare-migration-methods"></a>Porównanie metod migracji
 
-Użyj tych wybranych porównań, aby określić metodę, która ma zostać użyta. Można także zapoznać się z pełnymi wymaganiami dotyczącymi obsługi dla migracji [opartej](migrate-support-matrix-vmware-migration.md#agent-based-migration) [na agentach](migrate-support-matrix-vmware-migration.md#agentless-migration) .
+Użyj tych wybranych porównań, aby ułatwić podjęcie decyzji, której metody użyć. Można również zapoznać się z pełnymi wymaganiami w zakresie obsługi [migracji](migrate-support-matrix-vmware-migration.md#agentless-migration) bez agenta i migracji opartej [na agentach.](migrate-support-matrix-vmware-migration.md#agent-based-migration)
 
-**Ustawienie** | **Bez agenta** | **Na podstawie agenta**
+**Ustawienie** | **Bez agenta** | **Oparte na agentach**
 --- | --- | ---
-**Uprawnienia platformy Azure** | Musisz mieć uprawnienia do tworzenia projektu Azure Migrate i rejestrowania aplikacji usługi Azure AD utworzonych podczas wdrażania urządzenia Azure Migrate. | Musisz mieć uprawnienia współautora w ramach subskrypcji platformy Azure. 
-**Replikacja** | Maksymalnie 500 maszyn wirtualnych może być replikowanych z vCenter Server. W portalu można wybrać maksymalnie 10 maszyn na potrzeby replikacji. Aby replikować więcej maszyn, Dodaj w partiach 10.| Wydajność replikacji wzrasta przez skalowanie urządzenia replikacji.
-**Wdrażanie urządzenia** | [Urządzenie Azure Migrate](migrate-appliance.md) jest wdrażane lokalnie. | [Urządzenie replikacji Azure Migrate](migrate-replication-appliance.md) jest wdrażane lokalnie.
-**Zgodność Site Recovery** | Zgodność. | Nie można przeprowadzić replikacji z migracją serwera Azure Migrate, jeśli skonfigurowano replikację dla maszyny przy użyciu Site Recovery.
+**Uprawnienia platformy Azure** | Potrzebne są uprawnienia do tworzenia Azure Migrate projektu i rejestrowania aplikacji usługi Azure AD utworzonych podczas wdrażania Azure Migrate wirtualnego. | Potrzebujesz uprawnień współautora w subskrypcji platformy Azure. 
+**Replikacja** | Jednocześnie można replikować maksymalnie 500 maszyn wirtualnych z vCenter Server. W portalu można wybrać maksymalnie 10 maszyn jednocześnie do replikacji. Aby replikować więcej maszyn, dodaj w partiach po 10.| Pojemność replikacji zwiększa się przez skalowanie urządzenia replikacji.
+**Wdrażanie urządzenia** | Urządzenie [Azure Migrate jest](migrate-appliance.md) wdrażane lokalnie. | Urządzenie [Azure Migrate replikacji](migrate-replication-appliance.md) jest wdrażane lokalnie.
+**Site Recovery zgodności** | Zgodny. | Nie można replikować za pomocą Azure Migrate Server Migration, jeśli replikacja dla maszyny została ustawiona przy użyciu Site Recovery.
 **Dysk docelowy** | Dyski zarządzane | Dyski zarządzane
-**Limity dysku** | Dysk systemu operacyjnego: 2 TB<br/><br/> Dysk z danymi: 32 TB<br/><br/> Maksymalna liczba dysków: 60 | Dysk systemu operacyjnego: 2 TB<br/><br/> Dysk z danymi: 32 TB<br/><br/> Maksymalna liczba dysków: 63
-**Przekazywanie dysków** | Nieobsługiwane | Obsługiwane
-**Rozruch z interfejsem UEFI** | Obsługiwane. | Obsługiwane.
+**Limity dysków** | Dysk systemu operacyjnego: 2 TB<br/><br/> Dysk danych: 32 TB<br/><br/> Maksymalna liczba dysków: 60 | Dysk systemu operacyjnego: 2 TB<br/><br/> Dysk danych: 32 TB<br/><br/> Maksymalna liczba dysków: 63
+**Dyski z danymi passthrough** | Nieobsługiwane | Obsługiwane
+**Rozruch UEFI** | Obsługiwane. | Obsługiwane. 
+**Połączenia** | Publiczny Internet <br/> Usługa ExpressRoute z komunikacja równorzędna firmy Microsoft <br/> <br/> [Dowiedz się,](./replicate-using-expressroute.md) jak używać prywatnych punktów końcowych do replikacji za pośrednictwem prywatnej komunikacji równorzędnej usługi ExpressRoute lub połączenia sieci VPN typu lokacja-lokacja. |Publiczny Internet <br/> ExpressRoute z prywatną komunikacji równorzędnej <br/> Usługa ExpressRoute z komunikacja równorzędna firmy Microsoft <br/> Sieć VPN typu lokacja-lokacja
 
-## <a name="compare-deployment-steps"></a>Porównanie kroków wdrożenia
+## <a name="compare-deployment-steps"></a>Porównanie kroków wdrażania
 
-Po przejrzeniu ograniczeń można zrozumieć kroki związane z wdrażaniem poszczególnych rozwiązań, które mogą pomóc zdecydować, którą opcję wybrać.
+Po przejrzeniu ograniczeń zrozumienie kroków związanych z wdrażaniem poszczególnych rozwiązań może pomóc w podjęciu decyzji o tym, którą opcję wybrać.
 
-**Zadanie** | **Szczegóły** |**Bez agenta** | **Na podstawie agenta**
+**Zadanie** | **Szczegóły** |**Bez agenta** | **Oparte na agentach**
 --- | --- | --- | ---
-**Wdrażanie urządzenia usługi Azure Migrate** | Lekkie urządzenie działające na maszynie wirtualnej VMware.<br/><br/> Urządzenie służy do odnajdywania i oceniania maszyn oraz do migrowania maszyn przy użyciu migracji bez agentów. | Wymagane.<br/><br/> Jeśli urządzenie zostało już skonfigurowane do oceny, można użyć tego samego urządzenia do migracji bez wykorzystania agentów. | Niewymagane.<br/><br/> Jeśli skonfigurowano urządzenie do oceny, można je pozostawić na miejscu lub usunąć, jeśli skończysz ocenianie.
-**Korzystanie z narzędzia do oceny serwera** | Oceń maszyny za pomocą narzędzia do oceny serwera Azure Migrate:. | Ocena jest opcjonalna. | Ocena jest opcjonalna.
-**Korzystanie z narzędzia do migracji serwera** | Dodaj narzędzie do migracji Azure Migrate Server w projekcie Azure Migrate. | Wymagane | Wymagane
-**Przygotuj oprogramowanie VMware do migracji** | Skonfiguruj ustawienia na serwerach i maszynach wirtualnych VMware. | Wymagane | Wymagane
-**Instalowanie usługi mobilności na maszynach wirtualnych** | Usługa mobilności jest uruchamiana na każdej maszynie wirtualnej, która ma zostać zreplikowana | Niewymagane | Wymagane
-**Wdrażanie urządzenia replikacji** | [Urządzenie do replikacji](migrate-replication-appliance.md) jest używane na potrzeby migracji opartej na agentach. Łączy między usługą mobilności działającą na maszynach wirtualnych i migracją serwera. | Niewymagane | Wymagane
-**Replikowanie maszyn wirtualnych**. Włącz replikację maszyny wirtualnej. | Skonfiguruj ustawienia replikacji i wybierz maszyny wirtualne do replikacji | Wymagane | Wymagane
-**Uruchamianie migracji testowej** | Uruchom migrację testową, aby upewnić się, że wszystko działa zgodnie z oczekiwaniami. | Wymagane | Wymagane
+**Wdrażanie urządzenia usługi Azure Migrate** | Lekkie urządzenie, które działa na maszynie wirtualnej VMware.<br/><br/> Urządzenie służy do odnajdywania i oceniania maszyn oraz migrowania maszyn przy użyciu migracji bez agenta. | Wymagane.<br/><br/> Jeśli urządzenie zostało już ustawione do oceny, możesz użyć tego samego urządzenia do migracji bez agenta. | Niewymagane.<br/><br/> Jeśli urządzenie zostało już ustawione do oceny, możesz pozostawić je na miejscu lub usunąć, jeśli ocena zostanie już wykonana.
+**Korzystanie z narzędzia do oceny serwera** | Ocenianie maszyn za pomocą Azure Migrate:Server Assessment. | Ocena jest opcjonalna. | Ocena jest opcjonalna.
+**Korzystanie z narzędzia do migracji serwera** | Dodaj narzędzie Azure Migrate Server Migration w Azure Migrate projektu. | Wymagane | Wymagane
+**Przygotowywanie oprogramowania VMware do migracji** | Konfigurowanie ustawień na serwerach VMware i na komputerach wirtualnych. | Wymagane | Wymagane
+**Instalowanie usługa mobilności maszyn wirtualnych** | usługa mobilności na każdej maszynie wirtualnej, którą chcesz replikować | Niewymagane | Wymagane
+**Wdrażanie urządzenia replikacji** | Urządzenie [replikacji](migrate-replication-appliance.md) jest używane do migracji opartej na agentach. Nawiązuje ona połączenie między usługa mobilności uruchomionymi na maszynach wirtualnych i migracją serwera. | Niewymagane | Wymagane
+**Replikowanie maszyn wirtualnych.** Włącz replikację maszyny wirtualnej. | Konfigurowanie ustawień replikacji i wybieranie maszyn wirtualnych do replikacji | Wymagane | Wymagane
+**Uruchamianie migracji testowej** | Uruchom migrację testów, aby upewnić się, że wszystko działa zgodnie z oczekiwaniami. | Wymagane | Wymagane
 **Uruchamianie pełnej migracji** | Migrowanie maszyn wirtualnych. | Wymagane | Wymagane
 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Migrowanie maszyn wirtualnych VMware](tutorial-migrate-vmware.md) z migracją bez agenta.
+[Migrowanie maszyn wirtualnych VMware przy użyciu](tutorial-migrate-vmware.md) migracji bez agenta.
 
 
 

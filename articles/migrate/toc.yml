@@ -36,7 +36,7 @@
           items:
             - name: Ocena maszyn wirtualnych VMware pod kątem migracji do maszyn wirtualnych platformy Azure
               href: tutorial-assess-vmware-azure-vm.md
-            - name: Ocenianie wystąpień SQL na potrzeby migracji do usługi Azure SQL
+            - name: Ocena wystąpień SQL do migracji do Azure SQL
               href: tutorial-assess-sql.md
             - name: Ocena maszyn wirtualnych VMware pod kątem migracji do usługi AVS
               href: tutorial-assess-vmware-azure-vmware-solution.md
@@ -72,9 +72,9 @@
           href: tutorial-migrate-gcp-virtual-machines.md
     - name: Konteneryzowanie
       items:
-        - name: Konteneryzowanie ASP.NET aplikacje i Migruj do AKS
+        - name: Konteneryzowanie ASP.NET i migrowanie do usługi AKS
           href: tutorial-app-containerization-aspnet-kubernetes.md
-        - name: Konteneryzowanie aplikacje sieci Web Java i Migruj do AKS
+        - name: Konteneryzowanie aplikacji internetowych Java i migrowanie do usługi AKS
           href: tutorial-containerize-java-kubernetes.md
 - name: Pojęcia
   items:
@@ -104,7 +104,7 @@
       items:
         - name: Przegląd oceny (migrowanie do maszyn wirtualnych platformy Azure)
           href: concepts-assessment-calculation.md
-        - name: Przegląd ocen (Migrowanie do usługi Azure SQL)
+        - name: Omówienie ocen (migracja do Azure SQL)
           href: concepts-azure-sql-assessment-calculation.md
         - name: Przegląd oceny (migrowanie do usługi AVS)
           href: concepts-azure-vmware-solution-assessment-calculation.md
@@ -130,6 +130,8 @@
   items:
     - name: Tworzenie projektów usługi Azure Migrate i zarządzanie nimi
       href: create-manage-projects.md
+    - name: Używanie Azure Migrate z linkiem prywatnym
+      href: how-to-use-azure-migrate-with-private-endpoints.md
     - name: Przygotowywanie do pracy z narzędziami niezależnych dostawców oprogramowania / platformą Movere
       href: prepare-isv-movere.md
     - name: Odnajdywanie
@@ -166,7 +168,7 @@
           href: how-to-create-a-group.md
         - name: Tworzenie oceny maszyny wirtualnej platformy Azure
           href: how-to-create-assessment.md
-        - name: Tworzenie oceny usługi Azure SQL
+        - name: Tworzenie oceny Azure SQL aplikacji
           href: how-to-create-azure-sql-assessment.md
         - name: Tworzenie oceny w usłudze AVS
           href: how-to-create-azure-vmware-solution-assessment.md
@@ -186,7 +188,7 @@
       items:
         - name: Dodawanie narzędzi migracji
           href: how-to-migrate.md
-        - name: Replikacja przy użyciu ExpressRoute
+        - name: Replikowanie przy użyciu usługi ExpressRoute
           href: replicate-using-expressroute.md
         - name: Przygotowanie maszyn do migracji
           href: prepare-for-migration.md
@@ -198,7 +200,7 @@
               href: how-to-migrate-vmware-vms-with-cmk-disks.md
         - name: Skalowanie migracji
           items:
-            - name: Jak przeprowadzić migrację maszyn wirtualnych VMware na dużą skalę przy użyciu metody replikacji bez wykorzystania agentów
+            - name: Jak przeprowadzić migrację maszyn wirtualnych VMware na dużą skalę przy użyciu metody replikacji bez agenta
               href: how-to-scale-out-for-migration.md
             - name: Automatyzowanie migracji dużej liczby maszyn wirtualnych
               href: how-to-migrate-at-scale.md
@@ -210,7 +212,7 @@
           href: how-to-delete-project.md
         - name: Praca z poprzednią wersją usługi Azure Migrate
           href: migrate-v1.md
-        - name: Zarządzanie projektami migracji za pomocą usługi Azure Lighthouse
+        - name: Zarządzanie projektami migracji przy użyciu Azure Lighthouse
           href: ../lighthouse/how-to/migration-at-scale.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
 - name: Rozwiązywanie problemów
   items:

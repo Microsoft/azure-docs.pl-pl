@@ -1,6 +1,6 @@
 ---
-title: Jak przygotować aplikację do wdrożenia w chmurze Azure wiosennej
-description: Dowiedz się, jak przygotować aplikację do wdrożenia w chmurze Azure wiosennej.
+title: Jak przygotować aplikację do wdrożenia w programie Azure Spring Cloud
+description: Dowiedz się, jak przygotować aplikację do wdrożenia w Azure Spring Cloud.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: how-to
@@ -8,33 +8,33 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a90d4c2a8649e270365af9b11fa408b865945f92
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cabc4784dfb19f569212f4d0cb93e6838473e559
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878470"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714492"
 ---
-# <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Przygotowywanie aplikacji do wdrożenia w chmurze Azure wiosennej
+# <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Przygotowywanie aplikacji do wdrożenia w Azure Spring Cloud
 
 ::: zone pivot="programming-language-csharp"
-Chmura sprężynowa platformy Azure oferuje niezawodne usługi do hostowania, monitorowania, skalowania i aktualizowania aplikacji steeltoe. W tym artykule przedstawiono sposób przygotowania istniejącej aplikacji steeltoe do wdrożenia w chmurze z usługą Azure wiosną. 
+Azure Spring Cloud zapewnia niezawodne usługi hostowania, monitorowania, skalowania i aktualizowania aplikacji Firmy Steeltoe. W tym artykule pokazano, jak przygotować istniejącą aplikację Zew do wdrożenia w Azure Spring Cloud. 
 
-W tym artykule opisano zależności, konfigurację i kod, które są wymagane do uruchomienia aplikacji platformy .NET Core steeltoe w chmurze sieci szkieletowej platformy Azure. Aby uzyskać informacje na temat sposobu wdrażania aplikacji w chmurze Azure wiosennej, zobacz [wdrażanie pierwszej aplikacji w chmurze Azure wiosennej](spring-cloud-quickstart.md).
+W tym artykule wyjaśniono zależności, konfigurację i kod, które są wymagane do uruchomienia aplikacji .NET Core Steeltoe w Azure Spring Cloud. Aby uzyskać informacje na temat sposobu wdrażania aplikacji w Azure Spring Cloud, zobacz Deploy your first Azure Spring Cloud application (Wdrażanie pierwszej [Azure Spring Cloud aplikacji).](spring-cloud-quickstart.md)
 
 >[!Note]
-> Obsługa steeltoe w chmurze z systemem Azure jest obecnie oferowana jako publiczna wersja zapoznawcza. Oferty publicznej wersji zapoznawczej umożliwiają klientom eksperymentowanie z nowymi funkcjami przed ich oficjalną wersją.  Funkcje i usługi publicznej wersji zapoznawczej nie są przeznaczone do użytku produkcyjnego.  Aby uzyskać więcej informacji o obsłudze wersji zapoznawczych, zapoznaj się z tematem [często zadawanych pytań](https://azure.microsoft.com/support/faq/) lub pliku [support Request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+> Obsługa techniczna dla Azure Spring Cloud jest obecnie oferowana jako publiczna wersja zapoznawcza. Oferty w publicznej wersji zapoznawczej umożliwiają klientom eksperymentowanie z nowymi funkcjami przed ich oficjalnym wydaniem.  Funkcje i usługi w publicznej wersji zapoznawczej nie są przeznaczone do użytku produkcyjnego.  Aby uzyskać więcej informacji na temat obsługi w wersjach zapoznawczych, zobacz często zadawane pytania [lub](https://azure.microsoft.com/support/faq/) Support request [.](../azure-portal/supportability/how-to-create-azure-support-request.md)
 
 ##  <a name="supported-versions"></a>Obsługiwane wersje
 
-Chmura sprężynowa platformy Azure obsługuje:
+Azure Spring Cloud obsługuje:
 
 * .NET Core 3.1
-* Steeltoe 2,4 i 3,0
+* Steeltoe 2.4 i 3.0
 
 ## <a name="dependencies"></a>Zależności
 
-W przypadku steeltoe 2,4 Dodaj najnowszy pakiet [Microsoft. Azure. SpringCloud. Client 1. x. x](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) do pliku projektu:
+W przypadku rozwiązania Steeltoe 2.4 dodaj najnowszy pakiet [Microsoft.Azure.SpringCloud.Client 1.x.x](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) do pliku projektu:
 
 ```xml
 <ItemGroup>
@@ -46,7 +46,7 @@ W przypadku steeltoe 2,4 Dodaj najnowszy pakiet [Microsoft. Azure. SpringCloud. 
 </ItemGroup>
 ```
 
-W przypadku steeltoe 3,0 Dodaj najnowszy pakiet [Microsoft. Azure. SpringCloud. Client 2. x. x](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) do pliku projektu:
+W przypadku rozwiązania Steeltoe 3.0 dodaj najnowszy pakiet [Microsoft.Azure.SpringCloud.Client 2.x.x](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) do pliku projektu:
 
 ```xml
 <ItemGroup>
@@ -57,11 +57,11 @@ W przypadku steeltoe 3,0 Dodaj najnowszy pakiet [Microsoft. Azure. SpringCloud. 
 </ItemGroup>
 ```
 
-## <a name="update-programcs"></a>Aktualizuj program. cs
+## <a name="update-programcs"></a>Aktualizowanie programu Program.cs
 
-W `Program.Main` metodzie Wywołaj `UseAzureSpringCloudService` metodę.
+W `Program.Main` metodzie wywołaj `UseAzureSpringCloudService` metodę .
 
-Dla steeltoe 2.4.4, wywołaj `UseAzureSpringCloudService` po `ConfigureWebHostDefaults` i po `AddConfigServer` wywołaniu:
+W przypadku steeltoe 2.4.4 wywołaj wywołanie po i `UseAzureSpringCloudService` `ConfigureWebHostDefaults` po, `AddConfigServer` jeśli zostanie wywołana:
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -74,7 +74,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
         .UseAzureSpringCloudService();
 ```
 
-Dla steeltoe 3.0.0, wywołaj `UseAzureSpringCloudService` przed `ConfigureWebHostDefaults` i przed dowolnym kodem konfiguracji steeltoe:
+W przypadku oprogramowania Steeltoe 3.0.0 wywołaj przed i przed dowolnym kodem konfiguracji `UseAzureSpringCloudService` `ConfigureWebHostDefaults` Steeltoe:
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -87,11 +87,11 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
         .AddConfigServer();
 ```
 
-## <a name="enable-eureka-server-service-discovery"></a>Włącz odnajdowanie usługi serwera Eureka
+## <a name="enable-eureka-server-service-discovery"></a>Włączanie odnajdywania usług serwera Eureka
 
-W źródle konfiguracji, który będzie używany, gdy aplikacja jest uruchamiana w chmurze Azure wiosennej, ustaw `spring.application.name` taką samą nazwę, jak aplikacja w chmurze Azure wiosny, do której zostanie wdrożony projekt.
+W źródle konfiguracji, które będzie używane, gdy aplikacja będzie uruchamiana w programie Azure Spring Cloud, ustaw na taką samą nazwę jak Azure Spring Cloud aplikacji, w której zostanie `spring.application.name` wdrożony projekt.
 
-Jeśli na przykład projekt .NET został wdrożony o nazwie `EurekaDataProvider` do aplikacji w chmurze Azure wiosennej o nazwie `planet-weather-provider` *appSettings.jsw* pliku powinien zawierać następujący kod JSON:
+Na przykład w przypadku wdrożenia projektu .NET o nazwie w aplikacji Azure Spring Cloud o nazwieappSettings.jspliku powinien `EurekaDataProvider` `planet-weather-provider` zawierać następujący kod JSON: 
 
 ```json
 "spring": {
@@ -101,9 +101,9 @@ Jeśli na przykład projekt .NET został wdrożony o nazwie `EurekaDataProvider`
 }
 ```
 
-## <a name="use-service-discovery"></a>Korzystanie z odnajdowania usług
+## <a name="use-service-discovery"></a>Korzystanie z odnajdywania usług
 
-Aby wywołać usługę przy użyciu odnajdywania usługi serwera Eureka, należy wykonać żądania HTTP, `http://<app_name>` gdzie `app_name` jest wartością `spring.application.name` aplikacji docelowej. Na przykład poniższy kod wywołuje `planet-weather-provider` usługę:
+Aby wywołać usługę przy użyciu odnajdywania usługi Serwera Eureka, wyślij żądania HTTP do miejsca, w którym jest `http://<app_name>` `app_name` `spring.application.name` wartością aplikacji docelowej. Na przykład następujący kod wywołuje `planet-weather-provider` usługę:
 
 ```csharp
 using (var client = new HttpClient(discoveryHandler, false))
@@ -122,40 +122,40 @@ using (var client = new HttpClient(discoveryHandler, false))
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-W tym temacie przedstawiono sposób przygotowania istniejącej aplikacji ze sprężyną Java do wdrożenia w chmurze Azure wiosennej. W przypadku poprawnego skonfigurowania chmurowa usługa Azure wiosenna zapewnia niezawodne usługi do monitorowania, skalowania i aktualizowania aplikacji w chmurze ze sprężyną Java.
+W tym temacie pokazano, jak przygotować istniejącą aplikację Java Spring do wdrożenia w Azure Spring Cloud. Jeśli konfiguracja jest prawidłowo skonfigurowana, Azure Spring Cloud niezawodne usługi do monitorowania, skalowania i aktualizowania aplikacji Java Spring Cloud aplikacji.
 
-Przed uruchomieniem tego przykładu możesz skorzystać z [podstawowego przewodnika Szybki Start](spring-cloud-quickstart.md).
+Przed uruchomieniem tego przykładu możesz wypróbować podstawowy [przewodnik Szybki start.](spring-cloud-quickstart.md)
 
-Inne przykłady wyjaśniają sposób wdrażania aplikacji w chmurze Azure sprężynowej po skonfigurowaniu pliku pliku pom. 
+Inne przykłady wyjaśniają sposób wdrażania aplikacji w Azure Spring Cloud podczas konfigurowania pliku POM. 
 * [Uruchamianie pierwszej aplikacji](spring-cloud-quickstart.md)
 * [Kompilowanie i uruchamianie mikrousług](spring-cloud-quickstart-sample-app-introduction.md)
 
-W tym artykule opisano wymagane zależności oraz sposób ich dodawania do pliku pliku pom.
+W tym artykule opisano wymagane zależności i sposób ich dodawania do pliku POM.
 
-## <a name="java-runtime-version"></a>Wersja środowiska uruchomieniowego języka Java
+## <a name="java-runtime-version"></a>Wersja środowiska uruchomieniowego Java
 
-Tylko aplikacje sprężynowe/Java mogą działać w chmurze Azure wiosennej.
+Tylko aplikacje Spring/Java mogą być uruchamiane w Azure Spring Cloud.
 
-Chmura sprężynowa platformy Azure obsługuje języki Java 8 i Java 11. Środowisko hostingu zawiera najnowszą wersję programu Azul Zulu OpenJDK for Azure. Aby uzyskać więcej informacji na temat Azul Zulu OpenJDK for Azure, zobacz [Instalowanie programu JDK](/azure/developer/java/fundamentals/java-jdk-install).
+Azure Spring Cloud obsługuje zarówno środowisko Java 8, jak i Java 11. Środowisko hostingu zawiera najnowszą wersję zestawu OpenJDK Azul Zulu dla platformy Azure. Aby uzyskać więcej informacji na temat narzędzia Azul Zulu OpenJDK for Azure, zobacz [Install the JDK (Instalowanie pakietu JDK).](/azure/developer/java/fundamentals/java-jdk-install)
 
-## <a name="spring-boot-and-spring-cloud-versions"></a>Sprężynowe wersje chmurowe i sprężynowe
+## <a name="spring-boot-and-spring-cloud-versions"></a>Spring Boot i Spring Cloud wersji
 
-Aby przygotować istniejącą aplikację do rozruchu ze sprężyną w celu wdrożenia w chmurze Azure wiosennej, Dołącz zależności chmurowego rozruchowego i sprężynowego w pliku pliku pom aplikacji, jak pokazano w poniższych sekcjach.
+Aby przygotować istniejącą aplikację Spring Boot do wdrożenia w programie Azure Spring Cloud, uwzględnij zależności Spring Boot i Spring Cloud w pliku POM aplikacji, jak pokazano w poniższych sekcjach.
 
-Chmura sprężynowa platformy Azure obsługuje tylko aplikacje do rozruchu sprężynowego w wersji 2,1 lub 2,2. W poniższej tabeli wymieniono obsługiwane kombinacje chmurowych rozruchowych i sprężynowych:
+Azure Spring Cloud obsługuje Spring Boot wersji 2.2, 2.3, 2.4. W poniższej tabeli wymieniono obsługiwane Spring Boot i Spring Cloud kombinacji:
 
-Wersja sprężyny rozruchowej | Wersja chmury wiosennej
+Spring Boot wersji | Spring Cloud wersji
 ---|---
 2,2 | Hoxton.SR8
 2.3 | Hoxton.SR8
-2.4.1 + | 2020.0.0
+2.4.1+ | 2020.0.0
 
 > [!NOTE]
-> Zidentyfikowano problem związany z rozruchem wiosny 2.4.0 na uwierzytelniania TLS między aplikacjami i Eureka, należy użyć 2.4.1 lub nowszej. Zapoznaj się z naszymi [często zadawanymi pytaniami](./spring-cloud-faq.md?pivots=programming-language-java#development) , jeśli nie jesteś w korzystaniu z usługi 2.4.0.
+> Zidentyfikowaliśmy problem z protokołem Spring Boot 2.4.0 podczas uwierzytelniania TLS między aplikacjami i aplikacją Eureka. Użyj co najmniej 2.4.1. Zapoznaj się z naszymi często [zadawanymi](./spring-cloud-faq.md?pivots=programming-language-java#development) pytaniami, aby zapoznać się z obejściem problemu, jeśli nie chcesz używać programu 2.4.0.
 
-### <a name="dependencies-for-spring-boot-version-2223"></a>Zależności dotyczące rozruchu sprężynowego 2.2/2.3
+### <a name="dependencies-for-spring-boot-version-2223"></a>Zależności dla Spring Boot wersji 2.2/2.3
 
-W przypadku rozruchu sprężynowego w wersji 2,2 Dodaj następujące zależności do pliku pliku pom aplikacji.
+Na Spring Boot wersji 2.2 dodaj następujące zależności do pliku POM aplikacji.
 
 ```xml
     <!-- Spring Boot dependencies -->
@@ -179,9 +179,9 @@ W przypadku rozruchu sprężynowego w wersji 2,2 Dodaj następujące zależnośc
     </dependencyManagement>
 ```
 
-### <a name="dependencies-for-spring-boot-version-24"></a>Zależności w przypadku rozruchu sprężynowego w wersji 2,4
+### <a name="dependencies-for-spring-boot-version-24"></a>Zależności dla Spring Boot wersji 2.4
 
-W przypadku rozruchu sprężynowego w wersji 2,2 Dodaj następujące zależności do pliku pliku pom aplikacji.
+Na Spring Boot wersji 2.2 dodaj następujące zależności do pliku POM aplikacji.
 
 ```xml
     <!-- Spring Boot dependencies -->
@@ -206,15 +206,15 @@ W przypadku rozruchu sprężynowego w wersji 2,2 Dodaj następujące zależnośc
 ```
 
 > [!WARNING]
-> Nie określaj `server.port` w konfiguracji. Chmura sprężynowa platformy Azure będzie overide to ustawienie na stały numer portu. Należy również przestrzegać tego ustawienia i nie określać portu serwera w kodzie.
+> Nie określaj `server.port` w konfiguracji. Azure Spring Cloud przesłoni to ustawienie do stałego numeru portu. Należy również przestrzegać tego ustawienia i nie określać portu serwera w kodzie.
 
-## <a name="other-recommended-dependencies-to-enable-azure-spring-cloud-features"></a>Inne Zalecane zależności dotyczące włączania funkcji chmury wiosennej platformy Azure
+## <a name="other-recommended-dependencies-to-enable-azure-spring-cloud-features"></a>Inne zalecane zależności umożliwiające włączenie Azure Spring Cloud funkcji
 
-Aby włączyć funkcje wbudowane w chmurze Azure wiosennej z rejestru usługi do rozproszonego śledzenia, należy również uwzględnić następujące zależności w aplikacji. Niektóre z tych zależności można usunąć, jeśli nie są potrzebne odpowiednie funkcje dla określonych aplikacji.
+Aby włączyć wbudowane funkcje usługi Azure Spring Cloud z rejestru usług do śledzenia rozproszonego, należy również uwzględnić w aplikacji następujące zależności. Niektóre z tych zależności można usunąć, jeśli nie potrzebujesz odpowiednich funkcji dla określonych aplikacji.
 
-### <a name="service-registry"></a>Rejestr usługi
+### <a name="service-registry"></a>Rejestr usług
 
-Aby użyć zarządzanej usługi rejestru usługi platformy Azure, należy uwzględnić `spring-cloud-starter-netflix-eureka-client` zależność w pliku pom.xml, jak pokazano poniżej:
+Aby użyć zarządzanej usługi Azure Service Registry, uwzględnij zależność w `spring-cloud-starter-netflix-eureka-client` pom.xml, jak pokazano poniżej:
 
 ```xml
     <dependency>
@@ -223,7 +223,7 @@ Aby użyć zarządzanej usługi rejestru usługi platformy Azure, należy uwzgl�
     </dependency>
 ```
 
-Punkt końcowy serwera rejestru usługi jest automatycznie wprowadzany jako zmienne środowiskowe w aplikacji. Aplikacje mogą zarejestrować się na serwerze rejestru usługi i odnajdywać inne zależne mikrousługi.
+Punkt końcowy serwera usługi Service Registry jest automatycznie wstrzykiwany jako zmienne środowiskowe w aplikacji. Aplikacje mogą rejestrować się za pomocą serwera usługi Service Registry i odnajdywać inne zależne mikrousługi.
 
 
 #### <a name="enablediscoveryclient-annotation"></a>Adnotacja EnableDiscoveryClient
@@ -232,7 +232,7 @@ Dodaj następującą adnotację do kodu źródłowego aplikacji.
 ```java
 @EnableDiscoveryClient
 ```
-Na przykład zapoznaj się z aplikacją piggymetrics z wcześniejszych przykładów:
+Zobacz na przykład aplikację piggymetrics z wcześniejszych przykładów:
 ```java
 package com.piggymetrics.gateway;
 
@@ -254,7 +254,7 @@ public class GatewayApplication {
 
 ### <a name="distributed-configuration"></a>Konfiguracja rozproszona
 
-Aby włączyć konfigurację rozproszoną, `spring-cloud-config-client` w sekcji zależności pliku pom.xml Uwzględnij następującą zależność:
+Aby włączyć konfigurację rozproszoną, uwzględnij następującą zależność w sekcji `spring-cloud-config-client` zależności pom.xml pliku:
 
 ```xml
 <dependency>
@@ -264,11 +264,11 @@ Aby włączyć konfigurację rozproszoną, `spring-cloud-config-client` w sekcji
 ```
 
 > [!WARNING]
-> Nie określaj `spring.cloud.config.enabled=false` w konfiguracji ładowania początkowego. W przeciwnym razie aplikacja przestanie działać z serwerem konfiguracji.
+> Nie należy określać `spring.cloud.config.enabled=false` w konfiguracji ładowania początkowego. W przeciwnym razie aplikacja przestanie działać z Config Server.
 
 ### <a name="metrics"></a>Metryki
 
-Uwzględnij `spring-boot-starter-actuator` zależność w sekcji zależności pliku pom.xml, jak pokazano poniżej:
+Uwzględnij zależność w sekcji `spring-boot-starter-actuator` zależności pliku pom.xml, jak pokazano poniżej:
 
 ```xml
 <dependency>
@@ -277,17 +277,17 @@ Uwzględnij `spring-boot-starter-actuator` zależność w sekcji zależności pl
 </dependency>
 ```
 
- Metryki są okresowo ściągane z punktów końcowych JMX. Możesz wizualizować metryki przy użyciu Azure Portal.
+ Metryki są okresowo ściągane z punktów końcowych JMX. Metryki można wizualizować przy użyciu Azure Portal.
 
  > [!WARNING]
- > Określ `spring.jmx.enabled=true` we właściwości konfiguracji. W przeciwnym razie metryki nie można wizualizować w Azure Portal.
+ > Określ wartość `spring.jmx.enabled=true` we właściwości konfiguracji. W przeciwnym razie metryk nie można wizualizować w Azure Portal.
 
 ### <a name="distributed-tracing"></a>Śledzenie rozproszone
 
-Musisz również włączyć wystąpienie usługi Azure Application Insights, aby współpracowało z wystąpieniem usług w chmurze sieci Azure ze sprężyną. Aby uzyskać informacje o sposobach używania Application Insights z chmurą Azure wiosennej, zapoznaj się z [dokumentacją śledzenia rozproszonego](spring-cloud-tutorial-distributed-tracing.md).
+Należy również włączyć usługę Azure Application Insights do pracy z wystąpieniem Azure Spring Cloud usługi. Aby uzyskać informacje na temat używania Application Insights z Azure Spring Cloud, zobacz dokumentację [dotyczącą śledzenia rozproszonego.](spring-cloud-tutorial-distributed-tracing.md)
 
-#### <a name="spring-boot-2223"></a>Rozruch z sprężyną 2.2/2.3
-Uwzględnij poniższe `spring-cloud-starter-sleuth` i `spring-cloud-starter-zipkin` zależności w sekcji zależności pliku pom.xml:
+#### <a name="spring-boot-2223"></a>Spring Boot 2.2/2.3
+Uwzględnij następujące zależności i w sekcji `spring-cloud-starter-sleuth` `spring-cloud-starter-zipkin` zależności pom.xml pliku:
 
 ```xml
 <dependency>
@@ -300,8 +300,8 @@ Uwzględnij poniższe `spring-cloud-starter-sleuth` i `spring-cloud-starter-zipk
 </dependency>
 ```
 
-#### <a name="spring-boot-24"></a>Rozruch z sprężyną 2,4
-`spring-cloud-sleuth-zipkin`W sekcji zależności pliku pom.xml Uwzględnij następującą zależność:
+#### <a name="spring-boot-24"></a>Spring Boot 2.4
+Uwzględnij `spring-cloud-sleuth-zipkin` następującą zależność w sekcji zależności pom.xml pliku:
 
 ```xml
 <dependency>
@@ -313,13 +313,13 @@ Uwzględnij poniższe `spring-cloud-starter-sleuth` i `spring-cloud-starter-zipk
 ## <a name="see-also"></a>Zobacz też
 * [Analizowanie dzienników i metryk aplikacji](./diagnostic-services.md)
 * [Konfigurowanie serwera konfiguracji](spring-cloud-tutorial-config-server.md)
-* [Korzystanie z rozproszonego śledzenia w chmurze Azure wiosennej](spring-cloud-tutorial-distributed-tracing.md)
-* [Przewodnik szybkiego startu](https://spring.io/quickstart)
-* [Dokumentacja dotycząca rozruchu sprężynowego](https://spring.io/projects/spring-boot)
+* [Używanie śledzenia rozproszonego z Azure Spring Cloud](spring-cloud-tutorial-distributed-tracing.md)
+* [Przewodnik Szybki start dotyczący programu Spring](https://spring.io/quickstart)
+* [Spring Boot dokumentacji](https://spring.io/projects/spring-boot)
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym temacie opisano sposób konfigurowania aplikacji ze sprężyną Java na potrzeby wdrożenia w chmurze sieci platformy Azure. Aby dowiedzieć się, jak skonfigurować wystąpienie serwera konfiguracji, zobacz [Konfigurowanie wystąpienia serwera konfiguracji](spring-cloud-tutorial-config-server.md).
+W tym temacie opisano sposób konfigurowania aplikacji Java Spring do wdrażania w Azure Spring Cloud. Aby dowiedzieć się, jak skonfigurować Config Server, zobacz [Konfigurowanie Config Server wystąpienia](spring-cloud-tutorial-config-server.md).
 
-Więcej przykładów można znaleźć w witrynie GitHub: [przykłady chmur usługi Azure wiosennej](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
+Więcej przykładów można uzyskać w witrynie GitHub: [Azure Spring Cloud Przykłady](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
 ::: zone-end

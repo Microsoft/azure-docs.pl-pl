@@ -1,6 +1,6 @@
 ---
-title: Tworzenie zaawansowanego symulowanego modelu urządzenia — Azure | Microsoft Docs
-description: W tym przewodniku krok po kroku dowiesz się, jak utworzyć zaawansowany model urządzenia do użycia z akceleratorem rozwiązania do symulacji urządzeń.
+title: Tworzenie zaawansowanego modelu symulowanego urządzenia — Azure| Microsoft Docs
+description: Z tego przewodnika dowiesz się, jak utworzyć zaawansowany model urządzenia do użycia z akceleratorem rozwiązania do symulacji urządzeń.
 author: troyhopwood
 manager: timlt
 ms.service: iot-accelerators
@@ -13,60 +13,60 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 9b8c1bb5669f058aba00f44ce62e48c7fab233f9
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: dc2eac4e784d4224581078348f12b231befe1f35
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057749"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714114"
 ---
 # <a name="create-an-advanced-device-model"></a>Utwórz zaawansowany model urządzenia
 
-Ten przewodnik zawiera opis plików JSON i JavaScript, które definiują niestandardowy model urządzeń. Artykuł zawiera kilka przykładowych plików definicji modelu urządzeń i pokazuje, jak przekazać je do wystąpienia symulacji urządzenia. Można tworzyć zaawansowane modele urządzeń w celu symulowania bardziej realistycznych zachowań urządzeń dla testowania.
+W tym przewodniku opisano pliki JSON i JavaScript definiujące niestandardowy model urządzenia. Ten artykuł zawiera przykładowe pliki definicji modelu urządzenia i pokazuje, jak przekazać je do wystąpienia symulacji urządzenia. Możesz tworzyć zaawansowane modele urządzeń, aby symulować bardziej realistyczne zachowania urządzeń podczas testowania.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać kroki opisane w tym przewodniku, musisz mieć wdrożone wystąpienie symulacji urządzenia w ramach subskrypcji platformy Azure.
+Aby wykonać kroki opisane w tym przewodniku, potrzebujesz wdrożonego wystąpienia symulacji urządzenia w ramach subskrypcji platformy Azure.
 
-Jeśli nie wdrożono jeszcze symulacji urządzenia, zobacz [wdrażanie symulacji urządzenia](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) w serwisie GitHub.
+Jeśli symulacja urządzenia nie została jeszcze wdrożona, zobacz [Wdrażanie symulacji urządzenia w](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md) witrynie GitHub.
 
 ### <a name="open-device-simulation"></a>Otwieranie symulacji urządzenia
 
-Jeśli nie wdrożono jeszcze symulacji urządzenia, zobacz [wdrażanie symulacji urządzenia](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) w serwisie GitHub.
+Jeśli symulacja urządzenia nie została jeszcze wdrożona, zobacz [Wdrażanie symulacji urządzenia w](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md) witrynie GitHub.
 
 ## <a name="device-models"></a>Modele urządzeń
 
-Każde symulowane urządzenie należy do określonego modelu urządzenia, który definiuje zachowanie symulacji. To zachowanie obejmuje częstotliwość wysyłania telemetrii, rodzaju komunikatów do wysłania oraz obsługiwanych metod.
+Każde symulowane urządzenie należy do określonego modelu urządzenia, który definiuje zachowanie symulacji. To zachowanie obejmuje częstotliwości wysyłania danych telemetrycznych, rodzaj komunikatów do wysłania i obsługiwane metody.
 
-Model urządzenia można zdefiniować przy użyciu pliku definicji urządzenia JSON oraz zestawu plików JavaScript. Te pliki języka JavaScript definiują zachowanie symulacji, takie jak losowe dane telemetryczne i logikę metody.
+Model urządzenia definiuje się przy użyciu pliku definicji urządzenia JSON i zestawu plików JavaScript. Te pliki JavaScript definiują zachowanie symulacji, takie jak losowa telemetria i logika metody.
 
-Typowy model urządzenia:
+Typowy model urządzenia ma:
 
-* Jeden plik JSON dla każdego modelu urządzenia (na przykład elevator.json).
-* Jeden plik skryptu zachowań JavaScript dla każdego modelu urządzenia (na przykład elevator-state.js)
+* Jeden plik JSON dla każdego modelu urządzenia (na przykład elevator.jssię).
+* Jeden plik skryptu zachowania języka JavaScript dla każdego modelu urządzenia (na przykład elevator-state.js)
 * Jeden plik skryptu metody JavaScript dla każdej metody urządzenia (na przykład elevator-go-down.js)
 
 > [!NOTE]
-> Nie wszystkie modele urządzeń definiują metody. W związku z tym model urządzenia może być lub nie mieć skryptów metod. Jednak wszystkie modele urządzeń muszą mieć skrypt zachowania.
+> Nie wszystkie modele urządzeń definiują metody. W związku z tym model urządzenia może mieć skrypty metod lub nie. Jednak wszystkie modele urządzeń muszą mieć skrypt zachowania.
 
 ## <a name="device-definition-file"></a>Plik definicji urządzenia
 
-Każdy plik definicji urządzenia zawiera szczegółowe informacje o modelu symulowanego urządzenia, w tym następujące informacje:
+Każdy plik definicji urządzenia zawiera szczegóły symulowanego modelu urządzenia, w tym następujące informacje:
 
 * Nazwa modelu urządzenia: ciąg.
-* Protokół: AMQP | MQTT | Protokoły.
+* Protokół: Protokół AMQP | MQTT | PROTOKÓŁ HTTP.
 * Początkowy stan urządzenia.
-* Częstotliwość odświeżania stanu urządzenia.
-* Plik języka JavaScript, który ma zostać użyty do odświeżenia stanu urządzenia.
-* Lista komunikatów telemetrycznych do wysłania, z których każdy ma określoną częstotliwość.
-* Schemat komunikatów telemetrycznych używany przez aplikację zaplecza do analizowania odebranych danych telemetrycznych.
-* Lista obsługiwanych metod i plik języka JavaScript, który ma być używany do symulowania każdej metody.
+* Jak często odświeżać stan urządzenia.
+* Którego pliku JavaScript użyć do odświeżenia stanu urządzenia.
+* Lista komunikatów telemetrii do wysłania, z których każdy ma określoną częstotliwość.
+* Schemat komunikatów telemetrii używany przez aplikację serwera końcowego do analizowania odebranych danych telemetrycznych.
+* Lista obsługiwanych metod i plik JavaScript do użycia w celu symulowania każdej metody.
 
 ### <a name="file-schema"></a>Schemat pliku
 
-Wersja schematu jest zawsze "1.0.0" i jest specyficzna dla formatu tego pliku:
+Wersja schematu to zawsze "1.0.0" i jest specyficzna dla formatu tego pliku:
 
 ```json
 "SchemaVersion": "1.0.0"
@@ -74,7 +74,7 @@ Wersja schematu jest zawsze "1.0.0" i jest specyficzna dla formatu tego pliku:
 
 ### <a name="device-model-description"></a>Opis modelu urządzenia
 
-Poniższe właściwości opisują model urządzenia. Każdy typ ma unikatowy identyfikator, wersję semantyczną, nazwę i opis:
+Następujące właściwości opisują model urządzenia. Każdy typ ma unikatowy identyfikator, wersję semantyczną, nazwę i opis:
 
 ```json
 "Id": "chiller-01",
@@ -85,7 +85,7 @@ Poniższe właściwości opisują model urządzenia. Każdy typ ma unikatowy ide
 
 ### <a name="iot-protocol"></a>Protokół IoT
 
-Urządzenia IoT mogą łączyć się przy użyciu różnych protokołów. Symulacja pozwala korzystać z **AMQP**, **MQTT** lub **http**:
+Urządzenia IoT mogą łączyć się przy użyciu różnych protokołów. Symulacja umożliwia użycie protokołu **AMQP,** **MQTT** lub **HTTP:**
 
 ```json
 "Protocol": "AMQP"
@@ -93,7 +93,7 @@ Urządzenia IoT mogą łączyć się przy użyciu różnych protokołów. Symula
 
 ### <a name="simulated-device-state"></a>Stan symulowanego urządzenia
 
-Każde symulowane urządzenie ma stan wewnętrzny, który musi być zdefiniowany. Stan definiuje również właściwości, które mogą być zgłaszane w telemetrii. Na przykład, chłodner może mieć stan początkowy, taki jak:
+Każde symulowane urządzenie ma stan wewnętrzny, który należy zdefiniować. Stan definiuje również właściwości, które mogą być zgłaszane w telemetrii. Na przykład chłodziarz może mieć stan początkowy, taki jak:
 
 ```json
 "InitialState": {
@@ -102,7 +102,7 @@ Każde symulowane urządzenie ma stan wewnętrzny, który musi być zdefiniowany
 },
 ```
 
-Przeniesienie urządzenia z kilkoma czujnikami może mieć więcej właściwości, na przykład:
+Urządzenie przenośne z kilkoma czujnikami może mieć więcej właściwości, na przykład:
 
 ```json
 "InitialState": {
@@ -115,20 +115,20 @@ Przeniesienie urządzenia z kilkoma czujnikami może mieć więcej właściwośc
 }
 ```
 
-Stan urządzenia jest przechowywany w pamięci przez usługę symulacji i zapewniany jako dane wejściowe funkcji JavaScript. Funkcja języka JavaScript może zdecydować:
+Stan urządzenia jest przechowywany w pamięci przez usługę symulacji i dostarczany jako dane wejściowe dla funkcji języka JavaScript. Funkcja języka JavaScript może zdecydować:
 
-* Aby zignorować stan i wygenerować pewne dane losowe.
-* Aby zaktualizować stan urządzenia w sposób niedrogi w danym scenariuszu.
+* Zignorowanie stanu i wygenerowanie danych losowych.
+* Zaktualizowanie stanu urządzenia w realistyczny sposób dla danego scenariusza.
 
 Funkcja, która generuje stan, również otrzymuje jako dane wejściowe:
 
 * Identyfikator urządzenia.
 * Model urządzenia.
-* Bieżący czas. Ta wartość umożliwia generowanie różnych danych według urządzenia i czasu.
+* Bieżąca godzina. Ta wartość umożliwia generowanie różnych danych według urządzenia i czasu.
 
-### <a name="generating-telemetry-messages"></a>Generowanie komunikatów telemetrycznych
+### <a name="generating-telemetry-messages"></a>Generowanie komunikatów telemetrii
 
-Usługa symulacji może wysyłać kilka typów telemetrii dla każdego urządzenia. Zazwyczaj Telemetria zawiera dane ze stanu urządzenia. Na przykład symulowane pomieszczenie może wysyłać informacje o temperatury i wilgotności co 10 sekund. Zanotuj symbole zastępcze w poniższym fragmencie kodu, które są automatycznie zastępowane wartościami ze stanu urządzenia:
+Usługa symulacji może wysyłać kilka typów danych telemetrycznych dla każdego urządzenia. Zazwyczaj dane telemetryczne obejmują dane ze stanu urządzenia. Na przykład symulowane pomieszczenie może wysyłać informacje o temperaturze i wilgotności co 10 sekund. Zwróć uwagę na symbole zastępcze w poniższym fragmencie kodu, które są automatycznie zastępowane wartościami ze stanu urządzenia:
 
 ```json
 "Telemetry": [
@@ -149,18 +149,18 @@ Usługa symulacji może wysyłać kilka typów telemetrii dla każdego urządzen
 ],
 ```
 
-Symbole zastępcze używają specjalnej składni **$ {name}** , gdzie **name** jest kluczem z obiektu stanu urządzenia zwróconego przez funkcję **Main** języka JavaScript. Ciągi powinny być ujęte w cudzysłów, a liczby nie powinny.
+Symbole zastępcze używają specjalnej składni **${NAME},** gdzie **NAME** jest kluczem z obiektu stanu urządzenia zwróconego przez funkcję **główną języka** JavaScript. Ciągi powinny być w cudzysłowy, a liczby nie powinny.
 
-#### <a name="message-schema"></a>Schemat wiadomości
+#### <a name="message-schema"></a>Schemat komunikatów
 
-Każdy typ komunikatu musi mieć dobrze zdefiniowany schemat. Schemat komunikatów jest również publikowany w IoT Hub, dzięki czemu aplikacje zaplecza mogą ponownie wykorzystać te informacje do interpretacji przychodzącej telemetrii.
+Każdy typ komunikatu musi mieć dobrze zdefiniowany schemat. Schemat komunikatów jest również publikowany w IoT Hub, dzięki czemu aplikacje back-end mogą ponownie używać informacji do interpretowania przychodzących danych telemetrycznych.
 
 Schemat obsługuje format JSON, który umożliwia łatwe analizowanie, przekształcanie i analizowanie w kilku systemach i usługach.
 
-Pola wymienione w schemacie mogą być następujące:
+Pola wymienione w schemacie mogą być następującego typu:
 
-* Serializacja obiektu za pomocą kodu JSON
-* Serializacja binarna przy użyciu algorytmu Base64
+* Obiekt — serializowany przy użyciu danych JSON
+* Dane binarne — serializowane przy użyciu base64
 * Tekst
 * Wartość logiczna
 * Liczba całkowita
@@ -169,7 +169,7 @@ Pola wymienione w schemacie mogą być następujące:
 
 ### <a name="supported-methods"></a>Obsługiwane metody
 
-Symulowane urządzenia mogą również reagować na wywołania metod, w tym przypadku wykonują pewne logike i dostarczają odpowiedzi. Podobnie jak w przypadku symulacji, logika metody jest przechowywana w pliku JavaScript i może współdziałać ze stanem urządzenia. Na przykład:
+Symulowane urządzenia mogą również reagować na wywołania metod, w takim przypadku wykonują logikę i zapewniają pewne odpowiedzi. Podobnie jak symulacja, logika metody jest przechowywana w pliku JavaScript i może wchodzić w interakcje ze stanem urządzenia. Na przykład:
 
 ```json
 "CloudToDeviceMethods": {
@@ -180,13 +180,13 @@ Symulowane urządzenia mogą również reagować na wywołania metod, w tym przy
 }
 ```
 
-## <a name="create-a-device-definition-file"></a>Utwórz plik definicji urządzenia
+## <a name="create-a-device-definition-file"></a>Tworzenie pliku definicji urządzenia
 
-W tym przewodniku opisano sposób tworzenia modelu urządzenia dla drona. Drona będzie losowo przepływać wokół początkowego zestawu współrzędnych zmiany lokalizacji i wysokości.
+W tym przewodniku zobaczysz, jak utworzyć model urządzenia dla drona. Dron losowo lecą wokół początkowego zestawu współrzędnych, zmieniając lokalizację i wysokość nad poziomem morza.
 
-Skopiuj poniższy kod JSON do edytora tekstu i Zapisz go jako **drone.js**.
+Skopiuj następujący kod JSON do edytora tekstów i zapisz go jakodrone.js **pliku**.
 
-### <a name="device-definition-json-example"></a>Przykład JSON definicji urządzenia
+### <a name="device-definition-json-example"></a>Przykładowe dane JSON definicji urządzenia
 
 ```json
 {
@@ -247,19 +247,19 @@ Skopiuj poniższy kod JSON do edytora tekstu i Zapisz go jako **drone.js**.
 }
 ```
 
-## <a name="behavior-script-files"></a>Pliki skryptów zachowań
+## <a name="behavior-script-files"></a>Pliki skryptów zachowania
 
-Kod w pliku skryptu zachowania przenosi drona. Skrypt zmienia podnoszenie i lokalizację drona przez manipulowanie stanem pamięci urządzenia.
+Kod w pliku skryptu zachowania przenosi drona. Skrypt zmienia wysokość i lokalizację drona, manipulując stanem pamięci urządzenia.
 
-Pliki JavaScript muszą mieć **główną** funkcję, która akceptuje dwa parametry:
+Pliki JavaScript muszą mieć **funkcję main,** która akceptuje dwa parametry:
 
-* Obiekt **kontekstu** , który zawiera trzy właściwości:
-    * **currentTime** jako ciąg o formacie **rrrr-mm-dd'T'HH: mm: sszzz**.
-    * Identyfikator **urządzenia.** Na przykład **symulowane. wind. 123**.
-    * **deviceModel**. Na przykład **Wind**.
-* Obiekt **stanu** , który jest wartością zwracaną przez funkcję w poprzednim wywołaniu. Ten stan urządzenia jest obsługiwany przez usługę symulacji i służy do generowania komunikatów telemetrycznych.
+* Obiekt **kontekstu,** który zawiera trzy właściwości:
+    * **currentTime** jako ciąg w formacie **yyyy-MM-dd'T'HH:mm:sszzz**.
+    * **deviceId**. Na przykład **Simulated.Elevator.123.**
+    * **deviceModel**. Na przykład **Winda**.
+* Obiekt **stanu,** który jest wartością zwróconą przez funkcję w poprzednim wywołaniu. Ten stan urządzenia jest utrzymywany przez usługę symulacji i używany do generowania komunikatów telemetrycznych.
 
-Funkcja **Main** zwraca nowy stan urządzenia. Na przykład:
+Funkcja **main** zwraca nowy stan urządzenia. Na przykład:
 
 ```JavaScript
 function main(context, state) {
@@ -272,11 +272,11 @@ function main(context, state) {
 }
 ```
 
-## <a name="create-a-behavior-script-file"></a>Utwórz plik skryptu zachowania
+## <a name="create-a-behavior-script-file"></a>Tworzenie pliku skryptu zachowania
 
-Skopiuj poniższy kod JavaScript do edytora tekstów i Zapisz go jako **drone-state.js**.
+Skopiuj następujący kod JavaScript do edytora tekstów i zapisz go jako **drone-state.js**.
 
-### <a name="device-model-javascript-simulation-example"></a>Przykład symulacji kodu JavaScript w modelu urządzenia
+### <a name="device-model-javascript-simulation-example"></a>Przykład symulacji języka JavaScript modelu urządzenia
 
 ```JavaScript
 "use strict";
@@ -397,15 +397,15 @@ function varylocation(latitude, longitude, distance) {
 }
 ```
 
-## <a name="create-a-method-script-file"></a>Utwórz plik skryptu metody
+## <a name="create-a-method-script-file"></a>Tworzenie pliku skryptu metody
 
-Skrypty metod są podobne do skryptów zachowań. Określają one zachowanie urządzenia w przypadku wywołania określonej metody chmury do urządzenia.
+Skrypty metod są podobne do skryptów zachowania. Definiują one zachowanie urządzenia w przypadku wywoływania określonej metody chmura-urządzenie.
 
-Skrypt odwoływania drona ustawia współrzędne drona na stały punkt, aby symulować drona zwracające stronę główną.
+Skrypt przywołania drona ustawia współrzędne drona na stały punkt, aby zasymulować powrót drona do domu.
 
-Skopiuj poniższy kod JavaScript do edytora tekstów i Zapisz go jako **droneRecall-method.js**.
+Skopiuj następujący kod JavaScript do edytora tekstów i zapisz go jako **droneRecall-method.js**.
 
-### <a name="device-model-javascript-simulation-example"></a>Przykład symulacji kodu JavaScript w modelu urządzenia
+### <a name="device-model-javascript-simulation-example"></a>Przykład symulacji języka JavaScript modelu urządzenia
 
 ```JavaScript
 "use strict";
@@ -467,9 +467,9 @@ function main(context, previousState, previousProperties) {
 }
 ```
 
-## <a name="debugging-script-files"></a>Debugowanie plików skryptów
+## <a name="debugging-script-files"></a>Debugowanie plików skryptu
 
-Chociaż nie można dołączyć debugera do działającego pliku zachowań, istnieje możliwość zapisu informacji w dzienniku usługi za pomocą funkcji **log** . W przypadku błędów składni interpreter nie powiedzie się i zapisuje informacje o wyjątku w dzienniku.
+Nie można dołączyć debugera do uruchomionego pliku zachowania, ale można zapisywać informacje w dzienniku usługi przy użyciu **funkcji log.** W przypadku błędów składni interpreter kończy się niepowodzeniem i zapisuje informacje o wyjątku w dzienniku.
 
 Przykład rejestrowania:
 
@@ -492,9 +492,9 @@ function main(context, state) {
 
 ## <a name="deploy-an-advanced-device-model"></a>Wdrażanie zaawansowanego modelu urządzenia
 
-Aby wdrożyć zaawansowany model urządzenia, Przekaż pliki do wystąpienia symulacji urządzenia:
+Aby wdrożyć zaawansowany model urządzenia, przekaż pliki wystąpienia symulacji urządzenia:
 
-Na pasku narzędzi wybierz pozycję **Modele urządzeń**. Na stronie **modele urządzeń** są wyświetlane modele urządzeń dostępne w tym wystąpieniu symulacji urządzenia:
+Na pasku narzędzi wybierz pozycję **Modele urządzeń**. Na **stronie Modele** urządzeń jest dostępna lista modeli urządzeń dostępnych w tym wystąpieniu symulacji urządzenia:
 
 ![Modele urządzeń](media/iot-accelerators-device-simulation-advanced-device/devicemodelnav.png)
 
@@ -502,18 +502,18 @@ Kliknij pozycję **+ Dodaj modele urządzeń** w prawym górnym rogu strony:
 
 ![Dodawanie modelu urządzenia](media/iot-accelerators-device-simulation-advanced-device/devicemodels.png)
 
-Kliknij przycisk **Zaawansowane** , aby otworzyć kartę Zaawansowane modele urządzeń:
+Kliknij **pozycję Zaawansowane,** aby otworzyć kartę zaawansowanego modelu urządzenia:
 
 ![Karta Zaawansowane](media/iot-accelerators-device-simulation-advanced-device/advancedtab.png)
 
-Kliknij przycisk **Przeglądaj** i wybierz utworzone pliki JSON i JavaScript. Upewnij się, że wybrano wszystkie trzy pliki. Jeśli brakuje jednego pliku, weryfikacja nie powiedzie się:
+Kliknij **przycisk Przeglądaj** i wybierz utworzone pliki JSON i JavaScript. Pamiętaj, aby wybrać wszystkie trzy pliki. Jeśli brakuje jakieśgo pliku, walidacja nie powiedzie się:
 
 ![Przeglądaj pliki](media/iot-accelerators-device-simulation-advanced-device/browse.png)
 
-Jeśli pliki przechodzą walidację, kliknij przycisk **Zapisz** , a model urządzenia jest gotowy do użycia w symulacji. W przeciwnym razie Popraw błędy i przekazanie plików:
+Jeśli twoje pliki przejdą walidację, kliknij przycisk **Zapisz,** aby model urządzenia był gotowy do użycia w symulacji. W przeciwnym razie napraw wszelkie błędy i ponownie załaduj pliki:
 
 ![Zapisz](media/iot-accelerators-device-simulation-advanced-device/validated.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku poznasz informacje o plikach modelu urządzenia używane w symulacji urządzenia i sposobach tworzenia zaawansowanego modelu urządzeń. Następnie warto dowiedzieć się, jak [za pomocą Time Series Insights wizualizować dane telemetryczne wysyłane z akceleratora rozwiązania do symulacji urządzeń](./iot-accelerators-device-simulation-time-series-insights.md).
+W tym przewodniku z how-to-to-guide opisano pliki modelu urządzenia używane w symulacji urządzenia i sposób tworzenia zaawansowanego modelu urządzenia. Następnie możesz dowiedzieć się, jak za pomocą usługi Time Series Insights wizualizować dane telemetryczne wysyłane z [akceleratora rozwiązania do symulacji urządzeń.](./iot-accelerators-device-simulation-time-series-insights.md)

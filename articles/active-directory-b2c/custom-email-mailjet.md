@@ -1,29 +1,29 @@
 ---
-title: Niestandardowa Weryfikacja poczty e-mail za pomocą Mailjet
+title: Niestandardowa weryfikacja poczty e-mail przy użyciu usługi Mail po
 titleSuffix: Azure AD B2C
-description: Dowiedz się, jak zintegrować się z usługą Mailjet w celu dostosowania wiadomości e-mail do weryfikacji wysyłanej do klientów po zarejestrowaniu się w celu korzystania z aplikacji obsługujących Azure AD B2C.
+description: Dowiedz się, jak zintegrować usługę z aplikacją Mailłączona w celu dostosowania weryfikacyjnej wiadomości e-mail wysyłanej do klientów podczas rejestracji w celu korzystania Azure AD B2C z obsługą aplikacji.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/09/2021
+ms.date: 04/16/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a40f3286b4e832f5c73e650859fa9a1d4fe4b6cb
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: f48135523238711eb9058b35348895c851a95403
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256960"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713826"
 ---
-# <a name="custom-email-verification-with-mailjet"></a>Niestandardowa Weryfikacja poczty e-mail za pomocą Mailjet
+# <a name="custom-email-verification-with-mailjet"></a>Niestandardowa weryfikacja poczty e-mail przy użyciu usługi Mail po
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-Użyj niestandardowych wiadomości e-mail w programie Azure Active Directory B2C (Azure AD B2C), aby wysyłać niestandardowe wiadomości e-mail do użytkowników, którzy logują się w celu korzystania z aplikacji. Korzystając z Mailjet dostawcy poczty e-mail innej firmy, można użyć własnego szablonu wiadomości e-mail oraz adresu *:* adres i temat, a także do obsługi lokalizacji i niestandardowych ustawień hasła jednorazowego (OTP).
+Użyj niestandardowej poczty e-Azure Active Directory B2C aplikacji (Azure AD B2C), aby wysyłać dostosowane wiadomości e-mail do użytkowników, którzy zarejestrują się w celu korzystania z aplikacji. Korzystając z dostawcy poczty e-mail innej firmy, możesz  użyć własnego szablonu wiadomości e-mail oraz opcji Adres i temat z adresu, a także obsługiwać ustawienia lokalizacji i niestandardowe hasła jednorazowego (OTP).
 
 ::: zone pivot="b2c-user-flow"
 
@@ -33,47 +33,51 @@ Użyj niestandardowych wiadomości e-mail w programie Azure Active Directory B2C
 
 ::: zone pivot="b2c-custom-policy"
 
-Niestandardowa Weryfikacja poczty e-mail wymaga użycia dostawcy poczty e-mail innej firmy, takiego jak [Mailjet](https://Mailjet.com), [SendGrid](./custom-email-sendgrid.md)lub [SPARKPOST](https://sparkpost.com), niestandardowy interfejs API REST lub dowolny dostawca poczty e-mail oparty na protokole HTTP (w tym własny). W tym artykule opisano konfigurowanie rozwiązania korzystającego z Mailjet.
+Niestandardowa weryfikacja poczty e-mail wymaga użycia dostawcy poczty e-mail innej firmy, takiego jak Mail między innymi [Mailgrid,](https://Mailjet.com) [SendGrid](./custom-email-sendgrid.md)lub [SparkPost,](https://sparkpost.com)niestandardowego interfejsu API REST lub dowolnego dostawcy poczty e-mail opartego na http (w tym Własnego). W tym artykule opisano konfigurowanie rozwiązania, które korzysta z usługi Mail przeszkło.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-## <a name="create-a-mailjet-account"></a>Utwórz konto Mailjet
+## <a name="create-a-mailjet-account"></a>Tworzenie konta Mail nie
 
-Jeśli jeszcze tego nie masz, Zacznij od skonfigurowania konta Mailjet (klienci platformy Azure mogą odblokować 6 000 wiadomości e-mail z limitem 200 wiadomości e-mail dziennie). 
+Jeśli jeszcze jej nie masz, zacznij od skonfigurowania konta Mail z konta (klienci platformy Azure mogą odblokować 6000 wiadomości e-mail z limitem 200 wiadomości e-mail na dzień). 
 
-1. Postępuj zgodnie z instrukcjami instalacji na stronie [Tworzenie konta Mailjet](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/).
-1. Aby można było wysyłać wiadomości e-mail, [rejestrować i sprawdzać poprawność](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/#how-to-configure-mailjet-for-use) adresu e-mail lub domeny nadawcy.
-2. Przejdź do [strony Zarządzanie kluczami interfejsu API](https://app.mailjet.com/account/api_keys). Zapisz **klucz interfejsu API** i **klucz tajny** do użycia w późniejszym kroku. Oba klucze są generowane automatycznie podczas tworzenia konta.  
+1. Postępuj zgodnie z instrukcjami konfiguracji [podanymi w te tematu Create a Mailśledzenia Account (Tworzenie konta Mail śledzenia).](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/)
+1. Aby móc wysyłać wiadomości e-mail, [zarejestruj i zweryfikuj](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/#how-to-configure-mailjet-for-use) adres e-mail nadawcy lub domenę.
+2. Przejdź do strony [API Key Management](https://app.mailjet.com/account/api_keys). Zanotuj **klucz interfejsu API** i klucz **tajny** do użycia w późniejszym kroku. Oba klucze są generowane automatycznie podczas tworzenia konta.  
 
-## <a name="create-azure-ad-b2c-policy-key"></a>Utwórz klucz zasad Azure AD B2C
+> [!IMPORTANT]
+> Poczta oferuje klientom możliwość wysyłania wiadomości e-mail z udostępnionego adresu IP i [dedykowanych adresów IP.](https://documentation.mailjet.com/hc/articles/360043101973-What-is-a-dedicated-IP) W przypadku korzystania z dedykowanych adresów IP należy odpowiednio budować własną reputację dzięki rozgrzewce adresów IP. Aby uzyskać więcej informacji, [zobacz Jak mogę rozgrzewki adresu IP ?](https://documentation.mailjet.com/hc/articles/1260803352789-How-do-I-warm-up-my-IP-).
 
-Następnie Zapisz klucz interfejsu API Mailjet w kluczu zasad Azure AD B2C, aby uzyskać informacje dotyczące zasad.
+
+## <a name="create-azure-ad-b2c-policy-key"></a>Tworzenie Azure AD B2C zasad zabezpieczeń
+
+Następnie przechowuj klucz interfejsu API Mail w kluczu zasad Azure AD B2C, do których mają się odwoływać zasady.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-1. Upewnij się, że używasz katalogu zawierającego dzierżawcę Azure AD B2C. W górnym menu wybierz pozycję **katalog i subskrypcja** , a następnie wybierz katalog Azure AD B2C.
+1. Upewnij się, że używasz katalogu zawierającego dzierżawę Azure AD B2C dzierżawy. Wybierz filtr **Katalog i subskrypcja** w górnym menu, a następnie wybierz Azure AD B2C katalog.
 1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
-1. Na stronie **Przegląd** wybierz pozycję **Struktura środowiska tożsamości**.
-1. Wybierz pozycję **klucze zasad**, a następnie wybierz pozycję **Dodaj**.
-1. W obszarze **Opcje** wybierz pozycję **Ręczne**.
-1. Wprowadź **nazwę** klucza zasad. Na przykład `MailjetApiKey`. Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza.
-1. W **kluczu tajnym** wprowadź wcześniej zarejestrowany **klucz interfejsu API** Mailjet.
-1. W obszarze **użycie klucza** wybierz pozycję **podpis**.
+1. Na stronie **Przegląd** wybierz pozycję **Identity Experience Framework**.
+1. Wybierz **pozycję Klucze zasad,** a następnie wybierz **pozycję Dodaj.**
+1. W **przypadku opcji** wybierz opcję **Ręcznie.**
+1. Wprowadź **nazwę** klucza zasad. Na przykład `MailjetApiKey`. Prefiks `B2C_1A_` jest dodawany automatycznie do nazwy klucza.
+1. W **kluczu** tajnym wprowadź wcześniej zarejestrowany klucz **interfejsu API** Mail po wpisie.
+1. W **przypadku opcji Użycie klucza** wybierz pozycję **Podpis**.
 1. Wybierz przycisk **Utwórz**.
-1. Wybierz pozycję **klucze zasad** , a następnie wybierz pozycję **Dodaj**.
-1. W obszarze **Opcje** wybierz pozycję **Ręczne**.
-1. Wprowadź **nazwę** klucza zasad. Na przykład `MailjetSecretKey`. Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza.
-1. W **kluczu tajnym** wprowadź wcześniej zarejestrowany **klucz tajny** Mailjet.
-1. W obszarze **użycie klucza** wybierz pozycję **podpis**.
+1. Wybierz **pozycję Klucze zasad,** a następnie wybierz **pozycję Dodaj.**
+1. W **przypadku opcji** wybierz opcję **Ręcznie.**
+1. Wprowadź **nazwę** klucza zasad. Na przykład `MailjetSecretKey`. Prefiks `B2C_1A_` jest dodawany automatycznie do nazwy klucza.
+1. W **kluczu** tajnym wprowadź wcześniej zarejestrowany klucz tajny Mail **po** wpisie.
+1. W **przypadku opcji Użycie klucza** wybierz pozycję **Podpis**.
 1. Wybierz przycisk **Utwórz**.
 
-## <a name="create-a-mailjet-template"></a>Tworzenie szablonu Mailjet
+## <a name="create-a-mailjet-template"></a>Tworzenie szablonu Mail poszukaj
 
-Po utworzeniu konta Mailjet i kluczu interfejsu API Mailjet przechowywanego w kluczu zasad Azure AD B2C Utwórz [dynamiczny szablon transakcyjny](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/)Mailjet.
+Po utworzeniu konta Mail Azure AD B2C klucza interfejsu API Mail po utworzeniu klucza zasad poczty utwórz dynamiczny szablon [transakcyjny](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/)Mailala.
 
-1. W witrynie Mailjet Otwórz stronę [Szablony transakcyjne](https://app.mailjet.com/templates/transactional) i wybierz pozycję **Utwórz nowy szablon**.
-1. Wybierz **przez kodowanie w formacie HTML**, a następnie wybierz pozycję **kod od podstaw**.
-1. Wprowadź unikatową nazwę szablonu `Verification email` , na przykład, a następnie wybierz pozycję **Utwórz**.
-1. W edytorze HTML wklej następujący szablon HTML lub użyj własnych. `{{var:otp:""}}`Parametry i `{{var:email:""}}` zostaną zamienione dynamicznie z wartością hasła jednorazowego i adresem e-mail użytkownika.
+1. W witrynie Mail przeszukaj stronę [szablonów transakcyjnych](https://app.mailjet.com/templates/transactional) i wybierz **pozycję Utwórz nowy szablon.**
+1. Wybierz **pozycję Kodowanie w formacie HTML,** a następnie wybierz **pozycję Kod od podstaw.**
+1. Wprowadź unikatową nazwę szablonu, na przykład `Verification email` , a następnie wybierz pozycję **Utwórz.**
+1. W edytorze HTML wklej następujący szablon HTML lub użyj własnego. Parametry i zostaną zastąpione dynamicznie wartością hasła czasowego i `{{var:otp:""}}` `{{var:email:""}}` adresem e-mail użytkownika.
 
     ```HTML
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -169,18 +173,18 @@ Po utworzeniu konta Mailjet i kluczu interfejsu API Mailjet przechowywanego w kl
     </html>
     ```
 
-1. Rozwiń pozycję **Edytuj temat** w lewym górnym rogu
-    1. W polu **temat** wprowadź wartość domyślną podmiotu. Mailjet używa tej wartości, gdy interfejs API nie zawiera parametru podmiotu.
-    1. W polu **Nazwa** wpisz nazwę firmy.
-    1. W polu **adres** wybierz swój adres e-mail
+1. Rozwiń **pozycję Edytuj temat** w lewym górnym rogu
+    1. W **przypadku** tematu wprowadź wartość domyślną dla tematu. Mail nie używa tej wartości, gdy interfejs API nie zawiera parametru tematu.
+    1. W **nazwie** wpisz nazwę swojej firmy.
+    1. W opcji **Adres** wybierz swój adres e-mail
     1. Wybierz pozycję **Zapisz**.
-1. W prawym górnym rogu wybierz pozycję **zapisz & Opublikuj**, a następnie pozycję **tak, Publikuj zmiany**
-1. Zapisz **Identyfikator szablonu** utworzonego do użycia w późniejszym kroku. Ten identyfikator należy określić podczas [dodawania transformacji oświadczeń](#add-the-claims-transformation).
+1. W prawym górnym rogu wybierz pozycję **Zapisz & Publikuj,** a następnie pozycję **Tak, opublikuj zmiany**
+1. **Zanotuj identyfikator** szablonu utworzonego do użycia w późniejszym kroku. Ten identyfikator należy określić podczas [dodawania przekształcenia oświadczeń](#add-the-claims-transformation).
 
 
-## <a name="add-azure-ad-b2c-claim-types"></a>Dodawanie Azure AD B2C typów roszczeń
+## <a name="add-azure-ad-b2c-claim-types"></a>Dodawanie Azure AD B2C typów oświadczenia
 
-W zasadach Dodaj następujące typy roszczeń do `<ClaimsSchema>` elementu w elemencie `<BuildingBlocks>` .
+W zasadach dodaj następujące typy oświadczenia do `<ClaimsSchema>` elementu w elemencie `<BuildingBlocks>` .
 
 Te typy oświadczeń są niezbędne do generowania i weryfikowania adresu e-mail przy użyciu kodu hasła jednorazowego (OTP).
 
@@ -207,17 +211,17 @@ Te typy oświadczeń są niezbędne do generowania i weryfikowania adresu e-mail
 </BuildingBlocks> -->
 ```
 
-## <a name="add-the-claims-transformation"></a>Dodawanie transformacji oświadczeń
+## <a name="add-the-claims-transformation"></a>Dodawanie przekształcenia oświadczeń
 
-Następnie konieczne jest przekształcenie oświadczeń, aby uzyskać dane wyjściowe oświadczenia ciągu JSON, które będzie treścią żądania wysłanego do Mailjet.
+Następnie należy przekształcć oświadczenia w celu wyprowadzenia oświadczenia ciągu JSON, które będzie treścią żądania wysyłanego do firmy Maildż.
 
-Struktura obiektu JSON jest definiowana przez identyfikatory w notacji kropkowej obiektu InputParameters i TransformationClaimTypes InputClaims. Liczby w zapisie kropkowym oznaczają tablice. Wartości pochodzą z wartości InputClaims i właściwości InputParameters "". Aby uzyskać więcej informacji na temat transformacji oświadczeń JSON, zobacz [przekształcenia oświadczeń JSON](json-transformations.md).
+Struktura obiektu JSON jest definiowana przez identyfikatory w notacji kropki dla właściwości InputParameters i TransformationClaimTypes obiektu InputClaims. Liczby w notacji kropki oznaczają tablice. Wartości pochodzą z wartości właściwości InputClaims i "Value" właściwości InputParameters. Aby uzyskać więcej informacji na temat przekształceń oświadczeń JSON, zobacz [Przekształcenia oświadczeń JSON](json-transformations.md).
 
-Dodaj następującą transformację oświadczeń do `<ClaimsTransformations>` elementu w `<BuildingBlocks>` . Wprowadź następujące aktualizacje do przekształcenia XML oświadczeń:
+Dodaj następujące przekształcenie oświadczeń do `<ClaimsTransformations>` elementu w elemencie `<BuildingBlocks>` . W pliku XML przekształcania oświadczeń należy wprowadzić następujące aktualizacje:
 
-* Zaktualizuj `Messages.0.TemplateID` wartość InputParameter z identyfikatorem szablonu transakcyjnego Mailjet utworzonego wcześniej w temacie [Tworzenie szablonu Mailjet](#create-a-mailjet-template).
-* Zaktualizuj `Messages.0.From.Email` wartość adresu. Użyj prawidłowego adresu e-mail, aby pomóc w zapobieganiu oznaczania wiadomości e-mail weryfikacyjnej jako spamu.
-* Zaktualizuj wartość `Messages.0.Subject` parametru wejściowego wiersza tematu z wierszem tematu odpowiednim dla Twojej organizacji.
+* Zaktualizuj wartość InputParameter przy użyciu identyfikatora szablonu transakcyjnego Mailowo utworzonego wcześniej w części `Messages.0.TemplateID` Tworzenie szablonu Mail między [adresami e-mail i](#create-a-mailjet-template).
+* Zaktualizuj `Messages.0.From.Email` wartość adresu. Użyj prawidłowego adresu e-mail, aby zapobiec oznaczyniu weryfikacyjnej wiadomości e-mail jako spamu.
+* Zaktualizuj wartość parametru wejściowego `Messages.0.Subject` wiersza tematu przy użyciu wiersza tematu odpowiedniego dla Twojej organizacji.
 
 ```XML
 <!-- 
@@ -249,9 +253,9 @@ Dodaj następującą transformację oświadczeń do `<ClaimsTransformations>` el
 </BuildingBlocks> -->
 ```
 
-## <a name="add-datauri-content-definition"></a>Dodaj definicję zawartości DataUri
+## <a name="add-datauri-content-definition"></a>Dodawanie definicji zawartości DataUri
 
-Poniżej przekształceń oświadczeń w programie `<BuildingBlocks>` Dodaj następujący [ContentDefinition](contentdefinitions.md) , aby odwołać się do identyfikatora URI danych w wersji 2.1.2:
+Poniżej przekształceń oświadczeń w programie dodaj następujący kod ContentDefinition, aby odwołać się do danych URI w wersji `<BuildingBlocks>` 2.1.2: [](contentdefinitions.md)
 
 ```XML
 <!--
@@ -268,20 +272,20 @@ Poniżej przekształceń oświadczeń w programie `<BuildingBlocks>` Dodaj nast�
 </BuildingBlocks> -->
 ```
 
-## <a name="create-a-displaycontrol"></a>Tworzenie elementu DisplayControl
+## <a name="create-a-displaycontrol"></a>Tworzenie displaycontrol
 
-Kontrolka wyświetlania weryfikacji służy do weryfikowania adresu e-mail z kodem weryfikacyjnym, który jest wysyłany do użytkownika.
+Kontrolka wyświetlania weryfikacji służy do weryfikowania adresu e-mail przy użyciu kodu weryfikacyjnego wysłanego do użytkownika.
 
-Ten przykładowy formant wyświetlania jest skonfigurowany do:
+Ta przykładowa kontrolka wyświetlania jest skonfigurowana w taki sposób, aby:
 
-1. Zbierz `email` Typ zgłoszenia adresu od użytkownika.
-1. Poczekaj, aż użytkownik poda `verificationCode` Typ zgłoszenia przy użyciu kodu wysłanego do użytkownika.
-1. Zwróć `email` do samodzielnego profilu technicznego, który ma odwołanie do tej kontrolki wyświetlania.
-1. Za pomocą `SendCode` akcji Wygeneruj kod OTP i Wyślij wiadomość e-mail z kodem OTP do użytkownika.
+1. Zbierz `email` typ oświadczenia adresu od użytkownika.
+1. Poczekaj, aż użytkownik poda `verificationCode` typ oświadczenia wraz z kodem wysłanym do użytkownika.
+1. Zwróć samodzielnie potwierdzany profil techniczny, który ma `email` odwołanie do tej kontrolki wyświetlania.
+1. Za pomocą `SendCode` akcji wygeneruj kod OTP i wyślij wiadomość e-mail z kodem OTP do użytkownika.
 
-   ![Wyślij wiadomość e-mail z kodem weryfikacyjnym](media/custom-email-mailjet/display-control-verification-email-action-01.png)
+   ![Akcja wyślij wiadomość e-mail z kodem weryfikacyjnym](media/custom-email-mailjet/display-control-verification-email-action-01.png)
 
-W obszarze definicje zawartości nadal w ramach programu `<BuildingBlocks>` Dodaj do zasad następujący [formant DisplayControl](display-controls.md) typu [VerificationControl](display-control-verification.md) .
+W obszarze definicji zawartości, nadal w `<BuildingBlocks>` programie , dodaj następujący kontroler [DisplayControl](display-controls.md) typu [VerificationControl](display-control-verification.md) do zasad.
 
 ```XML
 <!--
@@ -314,11 +318,11 @@ W obszarze definicje zawartości nadal w ramach programu `<BuildingBlocks>` Doda
 </BuildingBlocks> -->
 ```
 
-## <a name="add-otp-technical-profiles"></a>Dodaj profile techniczne OTP
+## <a name="add-otp-technical-profiles"></a>Dodawanie profilów technicznych OTP
 
-`GenerateOtp`Profil techniczny generuje kod dla adresu e-mail. `VerifyOtp`Profil techniczny weryfikuje kod skojarzony z adresem e-mail. Można zmienić konfigurację formatu i czas wygaśnięcia hasła jednorazowego. Więcej informacji o profilach technicznych OTP znajduje się w temacie [Definiowanie profilu technicznego hasła jednorazowego](one-time-password-technical-profile.md).
+Profil `GenerateOtp` techniczny generuje kod dla adresu e-mail. Profil `VerifyOtp` techniczny weryfikuje kod skojarzony z adresem e-mail. Konfigurację formatu i wygaśnięcie hasła można zmienić. Aby uzyskać więcej informacji na temat profilów technicznych OTP, zobacz Define a one-time password technical profile (Definiowanie [profilu technicznego haseł jednorazowych).](one-time-password-technical-profile.md)
 
-Dodaj następujące profile techniczne do `<ClaimsProviders>` elementu.
+Dodaj następujące profile techniczne do `<ClaimsProviders>` elementu .
 
 ```XML
 <!--
@@ -364,9 +368,9 @@ Dodaj następujące profile techniczne do `<ClaimsProviders>` elementu.
 
 ## <a name="add-a-rest-api-technical-profile"></a>Dodawanie profilu technicznego interfejsu API REST
 
-Profil techniczny interfejsu API REST generuje zawartość wiadomości e-mail (przy użyciu formatu Mailjet). Więcej informacji o profilach technicznych RESTful znajduje się w temacie [Definiowanie profilu technicznego RESTful](restful-technical-profile.md).
+Ten profil techniczny interfejsu API REST generuje zawartość wiadomości e-mail (przy użyciu formatu Mail easy). Aby uzyskać więcej informacji na temat profilów technicznych RESTful, zobacz Define a RESTful technical profile (Definiowanie [profilu technicznego RESTful).](restful-technical-profile.md)
 
-Podobnie jak w przypadku profilów technicznych OTP, do elementu należy dodać następujące profile techniczne `<ClaimsProviders>` .
+Podobnie jak w przypadku profilów technicznych OTP, dodaj następujące profile techniczne do `<ClaimsProviders>` elementu .
 
 ```XML
 <ClaimsProvider>
@@ -396,11 +400,11 @@ Podobnie jak w przypadku profilów technicznych OTP, do elementu należy dodać 
 </ClaimsProvider>
 ```
 
-## <a name="make-a-reference-to-the-displaycontrol"></a>Utwórz odwołanie do elementu DisplayControl
+## <a name="make-a-reference-to-the-displaycontrol"></a>Odwołanie do DisplayControl
 
-W ostatnim kroku Dodaj odwołanie do utworzonego elementu DisplayControl. Zastąp istniejące `LocalAccountSignUpWithLogonEmail` i `LocalAccountDiscoveryUsingEmailAddress` samodzielne profile techniczne z następującymi tematami. Jeśli użyto wcześniejszej wersji zasad Azure AD B2C. Te profile techniczne są używane `DisplayClaims` wraz z odwołaniem do elementu DisplayControl..
+W ostatnim kroku dodaj odwołanie do utworzonego kontrolera DisplayControl. Zastąp istniejące `LocalAccountSignUpWithLogonEmail` i `LocalAccountDiscoveryUsingEmailAddress` samodzielnie potwierdzane profile techniczne następującymi. Jeśli używasz starszej wersji zasad Azure AD B2C zasad. Te profile techniczne używają `DisplayClaims` z odwołaniem do DisplayControl..
 
-Aby uzyskać więcej informacji, Zobacz Profil techniczny i [formant DisplayControl](display-controls.md)z [własnym potwierdzeniem](restful-technical-profile.md) .
+Aby uzyskać więcej informacji, zobacz [Samodzielnie potwierdzany profil techniczny i](restful-technical-profile.md) [DisplayControl](display-controls.md).
 
 ```XML
 <ClaimsProvider>
@@ -439,14 +443,14 @@ Aby uzyskać więcej informacji, Zobacz Profil techniczny i [formant DisplayCont
 </ClaimsProvider>
 ```
 
-## <a name="optional-localize-your-email"></a>Obowiązkowe Lokalizowanie poczty e-mail
+## <a name="optional-localize-your-email"></a>[Opcjonalnie] Lokalizacja wiadomości e-mail
 
-Aby zlokalizować tę wiadomość e-mail, musisz wysłać zlokalizowane ciągi do Mailjet lub dostawcę poczty e-mail. Można na przykład zlokalizować temat wiadomości e-mail, treść, swój kod lub podpis wiadomości e-mail. W tym celu można użyć transformacji oświadczeń [GetLocalizedStringsTransformation](string-transformations.md) do kopiowania zlokalizowanych ciągów do typów oświadczeń. `GenerateEmailRequestBody`Transformacja oświadczeń, która generuje ładunek JSON, używa oświadczeń wejściowych, które zawierają zlokalizowane ciągi.
+Aby zlokalizowane wiadomości e-mail, należy wysłać zlokalizowane ciągi do poczty e-mail lub dostawcy poczty e-mail. Na przykład możesz zlokalizowane tematu, treści wiadomości e-mail, wiadomości kodowej lub podpisu wiadomości e-mail. W tym celu można użyć przekształcenia oświadczeń [GetLocalizedStringsTransformation,](string-transformations.md) aby skopiować zlokalizowane ciągi do typów oświadczeń. Przekształcenie `GenerateEmailRequestBody` oświadczeń, które generuje ładunek JSON, używa oświadczeń wejściowych, które zawierają zlokalizowane ciągi.
 
-1. W zasadach Zdefiniuj następujące oświadczenia ciągu: subject, Message, codeIntro i Signature.
-1. Zdefiniuj transformację oświadczeń [GetLocalizedStringsTransformation](string-transformations.md) , aby zastąpić zlokalizowane wartości ciągu do oświadczeń z kroku 1.
-1. Zmień `GenerateEmailRequestBody` transformację oświadczeń, tak aby korzystała z oświadczeń wejściowych z poniższym fragmentem kodu XML.
-1. Zaktualizuj szablon Mailjet, tak aby korzystał z parametrów dynamicznych zamiast wszystkich ciągów, które będą zlokalizowane przez Azure AD B2C.
+1. W zasadach zdefiniuj następujące oświadczenia ciągu: temat, komunikat, codeIntro i podpis.
+1. [Zdefiniuj przekształcenie oświadczeń GetLocalizedStringsTransformation,](string-transformations.md) aby zastąpić zlokalizowane wartości ciągów oświadczeniami z kroku 1.
+1. Zmień przekształcenie `GenerateEmailRequestBody` oświadczeń, aby użyć oświadczeń wejściowych z następującym fragmentem kodu XML.
+1. Zaktualizuj szablon Mail za pomocą parametrów dynamicznych w miejsce wszystkich ciągów, które będą zlokalizowane przez Azure AD B2C.
 
     ```XML
     <ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
@@ -481,7 +485,7 @@ Aby zlokalizować tę wiadomość e-mail, musisz wysłać zlokalizowane ciągi d
     </ClaimsTransformation>
     ```
 
-1. Dodaj następujący element [lokalizacji](localization.md) .
+1. Dodaj następujący [element Lokalizacji.](localization.md)
 
     ```xml
     <!--
@@ -513,7 +517,7 @@ Aby zlokalizować tę wiadomość e-mail, musisz wysłać zlokalizowane ciągi d
     </BuildingBlocks> -->
     ```
 
-1. Dodaj odwołania do elementów LocalizedResources przez zaktualizowanie elementu [ContentDefinitions](contentdefinitions.md) .
+1. Dodaj odwołania do elementów LocalizedResources, aktualizując element [ContentDefinitions.](contentdefinitions.md)
 
     ```xml
     <!--
@@ -538,7 +542,7 @@ Aby zlokalizować tę wiadomość e-mail, musisz wysłać zlokalizowane ciągi d
     </BuildingBlocks> -->
     ```
 
-1. Na koniec Dodaj następujące przekształcenia oświadczeń wejściowych do `LocalAccountSignUpWithLogonEmail` `LocalAccountDiscoveryUsingEmailAddress` profilów technicznych i.
+1. Na koniec dodaj następujące przekształcenia oświadczeń wejściowych do `LocalAccountSignUpWithLogonEmail` profilów technicznych `LocalAccountDiscoveryUsingEmailAddress` i .
 
     ```xml
     <InputClaimsTransformations>
@@ -546,9 +550,9 @@ Aby zlokalizować tę wiadomość e-mail, musisz wysłać zlokalizowane ciągi d
     </InputClaimsTransformations>
     ```
     
-## <a name="optional-localize-the-ui"></a>Obowiązkowe Lokalizowanie interfejsu użytkownika
+## <a name="optional-localize-the-ui"></a>[Opcjonalnie] Lokalizacja interfejsu użytkownika
 
-Element lokalizacja umożliwia obsługę wielu ustawień regionalnych lub języków w zasadach dla podróży użytkownika. Obsługa lokalizacji w ramach zasad umożliwia dostarczenie ciągów specyficznych dla języka dla obu [elementów interfejsu użytkownika kontrolki wyświetlania weryfikacyjnych](localization-string-ids.md#verification-display-control-user-interface-elements)i [komunikatów o błędach o jednym czasie](localization-string-ids.md#one-time-password-error-messages). Dodaj następujący LocalizedString do LocalizedResources. 
+Element Lokalizacja umożliwia obsługę wielu lokalizacji regionalnych lub języków w zasadach dla podróży użytkownika. Obsługa lokalizacji w zasadach umożliwia zapewnienie ciągów specyficznych [](localization-string-ids.md#verification-display-control-user-interface-elements)dla języka dla elementów interfejsu użytkownika kontroli wyświetlania weryfikacji i komunikatów o błędach hasła [(jeden raz).](localization-string-ids.md#one-time-password-error-messages) Dodaj następujący kod LocalizedString do lokalizacji LocalizedResources. 
 
 ```XML
 <LocalizedResources Id="api.custom-email.en">
@@ -585,7 +589,7 @@ Po dodaniu zlokalizowanych ciągów usuń metadane komunikatów o błędach wery
 
 Przykład niestandardowych zasad weryfikacji poczty e-mail można znaleźć w witrynie GitHub:
 
-- [Niestandardowa Weryfikacja poczty e-mail — DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol)
-- Aby uzyskać informacje o korzystaniu z niestandardowego interfejsu API REST lub dowolnego dostawcy poczty e-mail opartego na protokole HTTP, zobacz [Definiowanie profilu technicznego RESTful w zasadach niestandardowych Azure AD B2C](restful-technical-profile.md).
+- [Niestandardowa weryfikacja wiadomości e-mail — DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol)
+- Aby uzyskać informacje dotyczące korzystania z niestandardowego interfejsu API REST lub dowolnego dostawcy poczty e-mail SMTP opartego na Azure AD B2C HTTP, zobacz Define a RESTful technical profile in an Azure AD B2C custom policy (Definiowanie profilu technicznego [RESTful w Azure AD B2C zasad niestandardowych).](restful-technical-profile.md)
 
 ::: zone-end

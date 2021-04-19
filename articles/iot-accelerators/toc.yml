@@ -22,7 +22,7 @@
 - name: Przewodniki Szybki start
   items:
     - name: Wdrażanie akceleratora rozwiązań do symulacji urządzeń
-      href: 'https://github.com/Azure/device-simulation-dotnet/blob/master/README.md'
+      href: 'https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md'
     - name: Testowanie rozwiązania połączonej fabryki
       href: quickstart-connected-factory-deploy.md
   expanded: true
@@ -38,7 +38,7 @@
   items:
     - name: Przemysłowy Internet rzeczy
       items:
-        - name: Architektura OPC bliźniaczy
+        - name: Architektura bliźniaczej reprezentacji OPC
           href: overview-opc-twin-architecture.md
         - name: Architektura magazynu OPC
           href: overview-opc-vault-architecture.md
@@ -127,7 +127,7 @@
         - name: Przewodnik informacyjny dla deweloperów
           href: 'https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide'
         - name: Repozytorium GitHub
-          href: 'https://github.com/Azure/device-simulation-dotnet'
+          href: 'https://github.com/Azure/azure-iot-pcs-device-simulation'
     - name: Architektura referencyjna
       href: /azure/architecture/reference-architectures/iot
       items:

@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: c972211a48816409ff626396fb5ddc7c939c021b
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: c966051ed5699d408fe83f1e9c862ca78b3282c4
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057885"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714546"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Co to są akceleratory rozwiązań Azure IoT?
 
@@ -29,11 +29,11 @@ Akceleratory rozwiązań mogą również służyć do nauki przed utworzeniem w�
 Kod aplikacji każdego akceleratora rozwiązania obejmuje aplikację internetową, która umożliwia zarządzanie akceleratorem rozwiązania.
 
 > [!NOTE]
-> Rozwiązania do zdalnego monitorowania i konserwacji predykcyjnej zostały usunięte z witryny [Akceleratory rozwiązań Azure IoT](https://www.azureiotsolutions.com/Accelerators) . Aby dowiedzieć się więcej, zobacz [co to są Akceleratory rozwiązań usługi Azure IoT? (poprzednia wersja)](/previous-versions/azure/iot-accelerators/about-iot-accelerators).
+> Zdalne rozwiązania do monitorowania i konserwacji predykcyjnej zostały usunięte z [Azure IoT Solution Accelerators](https://www.azureiotsolutions.com/Accelerators) lokacji. Aby dowiedzieć się więcej, [zobacz Co to są Azure IoT Solution Accelerators? (poprzednia wersja)](/previous-versions/azure/iot-accelerators/about-iot-accelerators).
 
 ## <a name="supported-iot-scenarios"></a>Obsługiwane scenariusze IoT
 
-Obecnie dostępne są dwa Akceleratory rozwiązań do wdrożenia:
+Obecnie dostępne są dwa akceleratory rozwiązań do wdrożenia:
 
 ### <a name="connected-factory"></a>Połączona fabryka
 
@@ -49,7 +49,7 @@ Pulpit nawigacyjny połączonej fabryki umożliwia monitorowanie urządzeń prze
 
 Za pomocą aplikacji internetowej symulacji urządzenia można konfigurować i uruchamiać symulacje:
 
-:::image type="content" source="./media/about-iot-accelerators/ds-dashboard-inline.png" alt-text="Zrzut ekranu przedstawiający pulpit nawigacyjny rozwiązania dotyczącego symulacji urządzeń." lightbox="./media/about-iot-accelerators/ds-dashboard-expanded.png":::
+:::image type="content" source="./media/about-iot-accelerators/ds-dashboard-inline.png" alt-text="Zrzut ekranu przedstawiający pulpit nawigacyjny rozwiązania symulacji urządzeń." lightbox="./media/about-iot-accelerators/ds-dashboard-expanded.png":::
 
 ## <a name="design-principles"></a>Zasady projektowania
 
@@ -68,7 +68,7 @@ Pierwotne akceleratory rozwiązań zostały napisane przy użyciu platformy .NET
 | Akcelerator rozwiązania   | Architektura  | Języki     |
 | ---------------------- | ------------- | ------------- |
 | Połączona fabryka      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
-| Symulacja urządzenia      | Mikrousługi | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
+| Symulacja urządzenia      | Mikrousługi | [.NET](https://github.com/Azure/azure-iot-pcs-device-simulation)          |
 
 Aby dowiedzieć się więcej na temat architektury mikrousług, zobacz [Wprowadzenie do architektury referencyjnej usługi Azure IoT](/azure/architecture/reference-architectures/iot/).
 
@@ -80,4 +80,4 @@ Kosztem działania akceleratora rozwiązań jest łączny [koszt działania uży
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby wypróbować jeden z akceleratorów rozwiązań IoT, zapoznaj się z [przewodnikiem](quickstart-connected-factory-deploy.md)Szybki Start.
+Aby wypróbować jeden z akceleratorów rozwiązań IoT, zapoznaj się z przewodnikem Szybki start [Wypróbuj rozwiązanie połączonej fabryki.](quickstart-connected-factory-deploy.md)
