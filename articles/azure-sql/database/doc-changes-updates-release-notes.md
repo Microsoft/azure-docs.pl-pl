@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/17/2021
 ms.author: sstein
-ms.openlocfilehash: 81c306ac2a8a5c00c5d06877974db7e04964c76b
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: d0522fe2c8b6d6b623903a720e6c8e760bd6aa92
+ms.sourcegitcommit: 089c2bd1ac4861f43c4b89396d3d056a6eef4913
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600917"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107602086"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Co nowego w programie Azure SQL Database & SQL Managed Instance?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -27,7 +27,7 @@ W tym artykule wymieniono Azure SQL Database i Azure SQL Managed Instance, któr
 
 Dokumentacja dotycząca Azure SQL Database i Azure SQL Managed Instance została podzielona na oddzielne sekcje. Zaktualizowaliśmy również sposób, w jaki odwołaliśmy się do wystąpienia zarządzanego z Azure SQL Database *do* *Azure SQL Managed Instance*.
 
-Zrobiliśmy to, ponieważ niektóre funkcje różnią się znacznie między pojedynczą bazą danych i wystąpieniem zarządzanym. W poszczególnych udostępnionych artykułach coraz trudniej jest wyjaśnić złożone Azure SQL Database i Azure SQL Managed Instance.
+Zrobiliśmy to, ponieważ niektóre funkcje i funkcje różnią się znacznie między pojedynczą bazą danych i wystąpieniem zarządzanym, a w poszczególnych udostępnionych artykułach coraz trudniej jest wyjaśnić złożone różnice między Azure SQL Database i Azure SQL Managed Instance.
 
 To wyjaśnienie między różnymi produktami Azure SQL powinno uprościć i usprawnić proces pracy z aparatem bazy danych SQL Server na platformie Azure, niezależnie od tego, czy jest to pojedyncza zarządzana baza danych na platformie Azure SQL Database, w pełni zarządzane wystąpienie hostowane w wielu bazach danych na platformie Azure SQL Managed Instance, czy znany produkt lokalnie SQL Server hostowany na maszynie wirtualnej na platformie Azure.
 
@@ -38,7 +38,7 @@ Ta tabela zawiera krótkie porównanie zmian w terminologii:
 
 |**Nowy termin**  | **Poprzedni termin**  |**Wyjaśnienie** |
 |---------|---------|---------|
-|**Wystąpienie zarządzane Azure SQL** | Azure SQL Database *zarządzane*| Azure SQL Managed Instance to własny produkt z rodziny Azure SQL, a nie tylko opcja wdrażania w Azure SQL Database. | 
+|**Wystąpienie zarządzane Azure SQL** | Azure SQL Database wystąpienia *zarządzanego*| Azure SQL Managed Instance to własny produkt z rodziny Azure SQL, a nie tylko opcja wdrażania w Azure SQL Database. | 
 |**Azure SQL Database**|Azure SQL Database pojedynczej *bazy danych*| O ile nie określono inaczej, nazwa produktu Azure SQL Database obejmuje zarówno pojedyncze bazy danych, jak i bazy danych wdrożone w elastycznej puli. |
 |**Azure SQL Database**|Azure SQL Database *elastyczna pula*| O ile nie określono inaczej, nazwa produktu Azure SQL Database obejmuje zarówno pojedyncze bazy danych, jak i bazy danych wdrożone w elastycznej puli.  |
 |**Azure SQL Database** |Azure SQL Database | Mimo że termin pozostaje taki sam, obecnie ma zastosowanie tylko do wdrożeń pojedynczej bazy danych i elastycznej puli i nie obejmuje wystąpienia zarządzanego. |
@@ -64,7 +64,7 @@ Ta tabela zawiera krótkie porównanie zmian w terminologii:
 | [Transakcje rozproszone](/azure/azure-sql/database/elastic-transactions-overview) | Transakcje rozproszone w wystąpieniach zarządzanych. |
 | [Pule wystąpień](/azure/sql-database/sql-database-instance-pools) | Wygodny i opłacany sposób migrowania mniejszych wystąpień SQL do chmury. |
 | [Jednostki usługi (identyfikatory logowania) serwera Azure AD na poziomie wystąpienia](/sql/t-sql/statements/create-login-transact-sql) | Utwórz identyfikatory logowania na poziomie wystąpienia przy użyciu [instrukcji CREATE LOGIN FROM EXTERNAL PROVIDER.](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) |
-| [Replikacja transakcyjna](../managed-instance/replication-transactional-overview.md) | Replikuj zmiany z tabel do innych baz danych w SQL Managed Instance, SQL Database lub SQL Server. Lub zaktualizuj tabele, gdy niektóre wiersze zostaną zmienione w innych wystąpieniach SQL Managed Instance lub SQL Server. Aby uzyskać więcej informacji, [zobacz Konfigurowanie replikacji w Azure SQL Managed Instance](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
+| [Replikacja transakcyjna](../managed-instance/replication-transactional-overview.md) | Replikuj zmiany z tabel do innych baz danych w SQL Managed Instance, SQL Database lub SQL Server. Można też zaktualizować tabele, gdy niektóre wiersze zostaną zmienione w innych wystąpieniach SQL Managed Instance lub SQL Server. Aby uzyskać więcej informacji, [zobacz Konfigurowanie replikacji w Azure SQL Managed Instance](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
 | Wykrywanie zagrożeń |Aby uzyskać więcej informacji, [zobacz Konfigurowanie wykrywania zagrożeń w Azure SQL Managed Instance](../managed-instance/threat-detection-configure.md).|
 | Długoterminowe przechowywanie kopii zapasowych | Aby uzyskać więcej informacji, [zobacz Konfigurowanie długoterminowego](../managed-instance/long-term-backup-retention-configure.md)przechowywania kopii zapasowej w Azure SQL Managed Instance , która jest obecnie dostępna w ograniczonej publicznej wersji zapoznawczej. |
 
@@ -132,13 +132,13 @@ Następujące funkcje są włączone w SQL Managed Instance wdrażania w H1 2019
 
 Jeśli wystąpienie uczestniczy w grupie automatycznego trybu failover, [](https://docs.microsoft.com/azure/azure-sql/managed-instance/connection-types-overview) zmiana typu połączenia wystąpienia nie ma wpływu na połączenia nawiązane za pośrednictwem punktu końcowego odbiornika grupy trybu [failover.](https://docs.microsoft.com/azure/azure-sql/database/auto-failover-group-overview)
 
-**Obejście** problemu: Porzuć i ponownie wytworz grupę automatycznego trybu failover, zmieniając typ połączenia.
+**Obejście:** Porzuć i utwórz ponownie grupę automatycznego trybu failover, zmieniając typ połączenia.
 
 ### <a name="procedure-sp_send_dbmail-may-transiently-fail-when-query-parameter-is-used"></a>Procedura sp_send_dbmail przejściowym niepowodzeniem, gdy @query używany jest parametr
 
 Procedura sp_send_dbmail może przejściowo nie powieść się, `@query` gdy jest używany parametr. W przypadku wystąpienia tego problemu co drugie wykonanie procedury sp_send_dbmail kończy się niepowodzeniem z `Msg 22050, Level 16, State 1` błędem i komunikatem `Failed to initialize sqlcmd library with error number -2147467259` . Aby można było prawidłowo zobaczyć ten błąd, procedura powinna być wywoływana z domyślną wartością 0 dla parametru . W przeciwnym razie błąd nie `@exclude_query_output` zostanie rozpropagowany.
 Ten problem jest spowodowany przez znaną usterkę związaną z tym, sp_send_dbmail korzysta z personifikacji i puli połączeń.
-Aby ominąć ten problem, opakuj kod wysyłania wiadomości e-mail do logiki ponawiania, która opiera się na parametrze wyjściowym `@mailitem_id` . Jeśli wykonanie nie powiedzie się, wartość parametru będzie mieć wartość NULL, co sp_send_dbmail powinno zostać jeszcze raz wywołane w celu pomyślnego wysłania wiadomości e-mail. Oto przykład tej logiki ponawiania prób.
+Aby ominąć ten problem, opakuj kod wysyłania wiadomości e-mail do logiki ponawiania, która opiera się na parametrze wyjściowym `@mailitem_id` . Jeśli wykonanie zakończy się niepowodzeniem, wartość parametru będzie mieć wartość NULL, co sp_send_dbmail powinno zostać jeszcze raz wywołane w celu pomyślnego wysłania wiadomości e-mail. Oto przykład tej logiki ponawiania prób.
 ```sql
 CREATE PROCEDURE send_dbmail_with_retry AS
 BEGIN
@@ -167,7 +167,7 @@ Operacje skalowania wystąpienia zarządzanego, które obejmują zmianę warstwy
 
 ### <a name="bulk-insert-and-backuprestore-statements-cannot-use-managed-identity-to-access-azure-storage"></a>BULK INSERT i instrukcje BACKUP/RESTORE nie mogą używać tożsamości zarządzanej do uzyskiwania dostępu do usługi Azure Storage
 
-Instrukcje wstawiania zbiorczego, tworzenia kopii zapasowej i przywracania oraz funkcja OPENROWSET nie mogą używać funkcji z tożsamością zarządzaną `DATABASE SCOPED CREDENTIAL` do uwierzytelniania w usłudze Azure Storage. Aby obejść ten problem, przełącz się na uwierzytelnianie ZA POMOCĄ SYGNATURY DOSTĘPU WSPÓŁDZIELOWEGO. Poniższy przykład nie będzie działać w przypadku Azure SQL (zarówno bazy danych, jak i wystąpienia zarządzanego):
+Instrukcje wstawiania zbiorczego, tworzenia kopii zapasowej i przywracania oraz funkcja OPENROWSET nie mogą używać funkcji z tożsamością zarządzaną `DATABASE SCOPED CREDENTIAL` do uwierzytelniania w usłudze Azure Storage. Aby obejść ten problem, przełącz się na uwierzytelnianie ZA POMOCĄ SYGNATURY DOSTĘPU WSPÓŁDZIELOWEGO. Poniższy przykład nie będzie działać na Azure SQL (zarówno w przypadku bazy danych, jak i wystąpienia zarządzanego):
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Identity';
@@ -190,7 +190,7 @@ W niektórych sytuacjach może wystąpić problem z jednostką usługi używaną
 
 W pewnych okolicznościach ręczne tworzenie kopii zapasowych baz danych, które zostały wykonane w wystąpieniu zarządzanym bez sumy kontrolnej, może nie zostać przywrócone. W takich przypadkach spróbuj ponownie przywrócić kopię zapasową do momentu pomyślnego wykonania.
 
-**Obejście:** Ręcznie tworzyć kopie zapasowe baz danych w wystąpieniach zarządzanych z włączoną łączona funkcja CHECKSUM.
+**Obejście:** Ręczne tworzenie kopii zapasowych baz danych w wystąpieniach zarządzanych z włączoną łączona funkcja CHECKSUM.
 
 ### <a name="agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs"></a>Agent przestaje odpowiadać podczas modyfikowania, wyłączania lub włączania istniejących zadań
 
@@ -198,7 +198,7 @@ W pewnych okolicznościach modyfikowanie, wyłączanie lub włączanie istnieją
 
 ### <a name="permissions-on-resource-group-not-applied-to-sql-managed-instance"></a>Uprawnienia do grupy zasobów, które nie zostały zastosowane do SQL Managed Instance
 
-Gdy rola SQL Managed Instance platformy Azure jest stosowana do grupy zasobów, nie jest stosowana do grupy zasobów SQL Managed Instance i nie ma żadnego efektu.
+Gdy rola SQL Managed Instance platformy Azure jest stosowana do grupy zasobów, nie jest stosowana do grupy zasobów SQL Managed Instance nie ma żadnego efektu.
 
 **Obejście:** Skonfiguruj rolę SQL Managed Instance współautora dla użytkowników na poziomie subskrypcji.
 
@@ -230,7 +230,7 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
 
 ### <a name="in-memory-oltp-memory-limits-are-not-applied"></a>Limity pamięci OLTP w pamięci nie są stosowane
 
-Warstwa Krytyczne dla działania firmy usługi nie będzie w [](../managed-instance/resource-limits.md#in-memory-oltp-available-space) niektórych przypadkach poprawnie stosować maksymalnych limitów pamięci dla obiektów zoptymalizowanych pod kątem pamięci. SQL Managed Instance obciążenie może umożliwić użycie większej ilości pamięci na potrzeby operacji OLTP w pamięci, co może mieć wpływ na dostępność i stabilność wystąpienia. Zapytania OLTP w pamięci, które osiągają limity, mogą natychmiast nie powieść się. Ten problem zostanie wkrótce rozwiązany. Zapytania, które używają większej ilości pamięci OLTP w pamięci, nie powiodą się wcześniej, jeśli osiągną [limity](../managed-instance/resource-limits.md#in-memory-oltp-available-space).
+Warstwa Krytyczne dla działania firmy usługi w niektórych przypadkach [](../managed-instance/resource-limits.md#in-memory-oltp-available-space) nie zastosuje poprawnie maksymalnych limitów pamięci dla obiektów zoptymalizowanych pod kątem pamięci. SQL Managed Instance obciążenie może umożliwić użycie większej ilości pamięci na potrzeby operacji OLTP w pamięci, co może mieć wpływ na dostępność i stabilność wystąpienia. Zapytania OLTP w pamięci, które osiągają limity, mogą natychmiast nie powieść się. Ten problem zostanie wkrótce rozwiązany. Zapytania, które korzystają z większej ilości pamięci OLTP w pamięci, nie powiodą się wcześniej, jeśli osiągną [limity](../managed-instance/resource-limits.md#in-memory-oltp-available-space).
 
 **Obejście:** [Monitoruj użycie](../in-memory-oltp-monitor-space.md) magazynu [](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) OLTP w pamięci przy użyciu SQL Server Management Studio, aby upewnić się, że obciążenie nie używa więcej niż dostępna pamięć. Zwiększ limity pamięci, które zależą od liczby rdzeni wirtualnych, lub zoptymalizuj obciążenie, aby użyć mniejszej ilości pamięci.
  
@@ -244,7 +244,7 @@ SQL Server i SQL Managed Instance nie [zezwalają](/sql/relational-databases/dat
 
 Bieżące instrukcje, proces migracji usługi Data Migration Service i wbudowane przywracanie do punktu w czasie blokują aktualizowanie warstwy usługi lub zmienianie rozmiaru istniejącego wystąpienia oraz tworzenie nowych wystąpień do momentu zakończenia procesu `RESTORE` przywracania. 
 
-Proces przywracania zablokuje te operacje w wystąpieniach zarządzanych i pulach wystąpień w tej samej podsieci, w której jest uruchomiony proces przywracania. Nie ma to wpływu na wystąpienia w pulach wystąpień. Operacje tworzenia lub zmieniania warstwy usługi nie będą wykonywane w sposób nieudany ani nie przejdą w czasie. Będą one kontynuowane po zakończeniu lub anulowaniu procesu przywracania.
+Proces przywracania zablokuje te operacje w wystąpieniach zarządzanych i pulach wystąpień w tej samej podsieci, w której jest uruchomiony proces przywracania. Nie ma to wpływu na wystąpienia w pulach wystąpień. Tworzenie lub zmienianie warstwy usługi nie powiedzie się ani nie przejdą w czasie. Będą one kontynuowane po zakończeniu lub anulowaniu procesu przywracania.
 
 **Obejście:** Zaczekaj na zakończenie procesu przywracania lub anuluj proces przywracania, jeśli operacja tworzenia lub aktualizowania warstwy usługi ma wyższy priorytet.
 
@@ -252,7 +252,7 @@ Proces przywracania zablokuje te operacje w wystąpieniach zarządzanych i pulac
 
 Funkcja [](/sql/relational-databases/resource-governor/resource-governor) zarządcy zasobów, która umożliwia ograniczenie zasobów przypisanych do obciążenia użytkownika, może niepoprawnie sklasyfikować niektóre obciążenia użytkowników po pracy w trybu failover lub zmianie warstwy usługi zainicjowanej przez użytkownika (na przykład zmiana maksymalnego rozmiaru magazynu rdzeni wirtualnych lub maksymalnego rozmiaru magazynu wystąpienia).
 
-**Obejście:** Uruchom okresowo lub w ramach zadania agenta SQL, które wykonuje zadanie SQL podczas uruchamiania wystąpienia, jeśli `ALTER RESOURCE GOVERNOR RECONFIGURE` używasz [zarządcy zasobów](/sql/relational-databases/resource-governor/resource-governor).
+**Obejście:** Uruchom okresowo lub w ramach zadania agenta SQL, które wykonuje zadanie SQL podczas uruchamiania wystąpienia, jeśli `ALTER RESOURCE GOVERNOR RECONFIGURE` używasz [zarządcy zasobów.](/sql/relational-databases/resource-governor/resource-governor)
 
 ### <a name="cross-database-service-broker-dialogs-must-be-reinitialized-after-service-tier-upgrade"></a>Okna dialogowe Service Broker między bazami danych muszą zostać ponownie zaim iniekcjowane po uaktualnieniu warstwy usługi
 
@@ -264,7 +264,7 @@ Okna dialogowe Service Broker między bazami danych przestaną dostarczać komun
 
 Personifikacja `EXECUTE AS USER` przy użyciu lub następujących Azure Active Directory `EXECUTE AS LOGIN` (Azure AD) nie jest obsługiwana:
 -   Aliasy użytkowników usługi Azure AD. W tym przypadku jest zwracany następujący błąd: `15517` .
-- Identyfikatory logowania i użytkownicy usługi Azure AD oparte na aplikacjach usługi Azure AD lub nazwach głównych usług. W tym przypadku są zwracane następujące błędy: `15517` i `15406` .
+- Identyfikatory logowania i użytkownicy usługi Azure AD oparte na aplikacjach usługi Azure AD lub nazwach głównych usługi. W tym przypadku są zwracane następujące błędy: `15517` i `15406` .
 
 ### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@query parametr nie jest obsługiwany w sp_send_db_mail
 
@@ -313,7 +313,7 @@ Liczbę [pozostałych plików można zidentyfikować przy użyciu](https://mediu
 
 Kilka widoków systemowych, liczników wydajności, komunikatów o błędach, zdarzeń XEvent i wpisów dziennika błędów wyświetla identyfikatory bazy danych GUID zamiast rzeczywistych nazw baz danych. Nie należy polegać na tych identyfikatorach GUID, ponieważ w przyszłości zostaną one zastąpione rzeczywistymi nazwami baz danych.
 
-**Obejście:** Użyj widoku sys.databases, aby rozpoznać rzeczywistą nazwę bazy danych na podstawie nazwy fizycznej bazy danych określonej w postaci identyfikatorów baz danych GUID:
+**Obejście:** Użyj widoku sys.databases, aby rozpoznać rzeczywistą nazwę bazy danych na podstawie nazwy fizycznej bazy danych określonej w postaci identyfikatorów bazy danych GUID:
 
 ```tsql
 SELECT name as ActualDatabaseName, physical_database_name as GUIDDatabaseIdentifier 
@@ -323,7 +323,7 @@ WHERE database_id > 4
 
 ### <a name="error-logs-arent-persisted"></a>Dzienniki błędów nie są utrwalane
 
-Dzienniki błędów dostępne w SQL Managed Instance nie są utrwalane, a ich rozmiar nie jest uwzględniony w maksymalnym limitie magazynu. Dzienniki błędów mogą zostać automatycznie wymazane w przypadku wystąpienia trybu failover. W historii dziennika błędów mogą wystąpić luki, ponieważ SQL Managed Instance kilka razy zostały przeniesione na kilka maszyn wirtualnych.
+Dzienniki błędów, które są SQL Managed Instance utrwalone, nie są utrwalane, a ich rozmiar nie jest uwzględniony w maksymalnym limitie magazynu. Dzienniki błędów mogą zostać automatycznie wymazane w przypadku wystąpienia trybu failover. W historii dziennika błędów mogą wystąpić luki, ponieważ SQL Managed Instance kilka razy zostały przeniesione na kilka maszyn wirtualnych.
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>Zakres transakcji w dwóch bazach danych w tym samym wystąpieniu nie jest obsługiwany
 
@@ -356,7 +356,7 @@ Obejście (nie jest wymagane od marca **2020 r.):** Użyj funkcji [SqlConnection
 
 ### <a name="clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address"></a>Moduły CLR i serwery połączone czasami nie mogą odwoływać się do lokalnego adresu IP
 
-Moduły CLR w SQL Managed Instance i połączonych serwerach lub zapytania rozproszone odwołujące się do bieżącego wystąpienia czasami nie mogą rozpoznać adresu IP wystąpienia lokalnego. Ten błąd jest problemem przejściowym.
+Moduły CLR w SQL Managed Instance i serwerach połączonych lub zapytania rozproszone odwołujące się do bieżącego wystąpienia czasami nie mogą rozpoznać adresu IP wystąpienia lokalnego. Ten błąd jest przejściowym problemem.
 
 **Obejście:** Jeśli to możliwe, używaj połączeń kontekstowych w module CLR.
 

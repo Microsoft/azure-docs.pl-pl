@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 04/14/2021
 ms.author: lajanuar
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 7098cfbc2fbe2236687eb7d621a0e587497fcebc
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: feff8b003428fd61fba826d05f8212fa8d9788f9
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107516450"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107601933"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -29,12 +29,12 @@ ms.locfileid: "107516450"
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure [— tworzenie bezpłatnej subskrypcji](https://azure.microsoft.com/free/cognitive-services)
+* Subskrypcja platformy Azure [— utwórz subskrypcję bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
 * Bieżąca wersja [Node.js](https://nodejs.org/)
-* Obiekt blob usługi Azure Storage zawierający zestaw danych szkoleniowych. Aby uzyskać porady i opcje dotyczące kompilowania zestawu danych treningowych, zobacz Build a training data [set for a custom model](../../build-training-data-set.md) (Tworzenie zestawu danych treningowych dla modelu niestandardowego). W tym przewodniku Szybki start możesz użyć plików w folderze **Train** przykładowego zestawu danych [(pobierz](https://go.microsoft.com/fwlink/?linkid=2090451) i *wyodrębnij* sample_data.zip).
-* Po utworzeniu subskrypcji platformy Azure utwórz zasób Rozpoznawanie formularzy utwórz zasób usługi Rozpoznawanie formularzy w witrynie Azure Portal, aby uzyskać <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" "  target="_blank"> klucz i punkt </a> końcowy. Po wdrożeniu wybierz pozycję **Przejdź do zasobu**.
+* Obiekt blob usługi Azure Storage zawierający zestaw danych szkoleniowych. Aby uzyskać porady i opcje dotyczące budowania zestawu danych treningowych, zobacz Build a training data [set for a custom model](../../build-training-data-set.md) (Tworzenie zestawu danych treningowych dla modelu niestandardowego). W tym przewodniku Szybki start możesz użyć plików w folderze **Train** przykładowego zestawu danych [(pobierz](https://go.microsoft.com/fwlink/?linkid=2090451) i *wyodrębnij* sample_data.zip).
+* Po utworzeniu subskrypcji platformy Azure utwórz zasób Rozpoznawanie formularzy zasobów Rozpoznawanie formularzy witrynie Azure Portal, aby uzyskać <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" "  target="_blank"> klucz i punkt </a> końcowy. Po wdrożeniu wybierz pozycję **Przejdź do zasobu**.
   * Klucz i punkt końcowy z zasobu, który utworzysz, będą potrzebne do połączenia aplikacji z Rozpoznawanie formularzy API. Klucz i punkt końcowy wkleisz do poniższego kodu w dalszej części tego przewodnika Szybki start.
-  * Możesz użyć bezpłatnej warstwy cenowej ( ), aby wypróbować usługę, a następnie przejść na warstwę płatną w `F0` środowisku produkcyjnym.
+  * Możesz użyć warstwy cenowej Bezpłatna ( ), aby wypróbować usługę, i przejść później na warstwę płatną `F0` na użytek produkcji.
 
 ## <a name="setting-up"></a>Konfigurowanie
 
@@ -46,7 +46,7 @@ W oknie konsoli (takim jak cmd, PowerShell lub Bash) utwórz nowy katalog dla ap
 mkdir myapp && cd myapp
 ```
 
-Uruchom polecenie `npm init` , aby utworzyć aplikację node z `package.json` plikiem.
+Uruchom polecenie `npm init` , aby utworzyć aplikację node z `package.json` plikiem .
 
 ```console
 npm init
@@ -69,18 +69,18 @@ Utwórz plik o nazwie `index.js` , otwórz go i zaimportuj następujące bibliot
 > [!TIP]
 > Chcesz wyświetlić cały plik kodu szybkiego startu jednocześnie? Można go znaleźć w witrynie [GitHub,](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/FormRecognizerQuickstart.js)która zawiera przykłady kodu w tym przewodniku Szybki start.
 
-Utwórz zmienne dla klucza i punktu końcowego platformy Azure zasobu.
+Utwórz zmienne dla punktu końcowego i klucza platformy Azure zasobu.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_creds)]
 
 > [!IMPORTANT]
-> Przejdź do witryny Azure Portal. Jeśli zasób Rozpoznawanie formularzy utworzony w sekcji **Wymagania** wstępne został pomyślnie wdrożony, kliknij przycisk Przejdź do **zasobu** w obszarze Następne **kroki.** Klucz i punkt końcowy można znaleźć  na stronie klucza i punktu końcowego zasobu w obszarze **zarządzanie zasobami**.
+> Przejdź do witryny Azure Portal. Jeśli zasób Rozpoznawanie formularzy utworzony w sekcji **Wymagania wstępne** został pomyślnie wdrożony, kliknij przycisk **Przejdź** do zasobu w obszarze **Następne kroki.** Klucz i punkt końcowy można znaleźć  na stronie klucza i punktu końcowego zasobu w obszarze **zarządzanie zasobami**.
 >
 > Pamiętaj, aby usunąć klucz z kodu, gdy wszystko będzie gotowe, i nigdy nie publikować go publicznie. W środowisku produkcyjnym rozważ użycie bezpiecznego sposobu przechowywania poświadczeń i uzyskiwania do nich dostępu. Zobacz artykuł Cognitive Services [zabezpieczeń,](../../../cognitive-services-security.md) aby uzyskać więcej informacji.
 
-## <a name="object-model"></a>Model obiektów
+## <a name="object-model"></a>Model obiektu
 
-Za Rozpoznawanie formularzy można utworzyć dwa różne typy klientów. Pierwszy z nich `FormRecognizerClient` służy do wykonywania zapytań w usłudze w celu rozpoznanych pól formularza i zawartości. Druga służy do tworzenia modeli niestandardowych, których można używać do ulepszania rozpoznawania, i zarządzania `FormTrainingClient` nimi.
+Za Rozpoznawanie formularzy można utworzyć dwa różne typy klientów. Pierwszy z nich `FormRecognizerClient` służy do wykonywania zapytań o usługę w celu rozpoznawanego pola formularza i zawartości. Druga służy do tworzenia modeli niestandardowych, których można używać do ulepszania rozpoznawania, i zarządzania `FormTrainingClient` nimi.
 
 ### <a name="formrecognizerclient"></a>FormRecognizerClient
 
@@ -94,8 +94,8 @@ Za Rozpoznawanie formularzy można utworzyć dwa różne typy klientów. Pierwsz
 
 `FormTrainingClient` Udostępnia operacje dla:
 
-* Trenuj modele niestandardowe w celu analizowania wszystkich pól i wartości znalezionych w formularzach niestandardowych. Zwracany jest typ formularza, który będzie analizowany przez model, oraz pola `CustomFormModel` wyodrębnione dla każdego typu formularza. _Aby_ uzyskać więcej informacji, zobacz dokumentację usługi [dotyczącą trenowania modelu](#train-a-model-without-labels) bez etykiet.
-* Trenowanie modeli niestandardowych w celu analizowania określonych pól i wartości określonych przez etykietowanie formularzy niestandardowych. Jest `CustomFormModel` zwracana wartość wskazująca pola, które model wyodrębni, a także szacowaną dokładność dla każdego pola. Zapoznaj się z [dokumentacją usługi dotyczącą](#train-a-model-with-labels) trenowania modelu z etykietami, aby uzyskać bardziej szczegółowe wyjaśnienie stosowania etykiet do zestawu danych treningowych.
+* Trenuj modele niestandardowe w celu analizowania wszystkich pól i wartości znalezionych w formularzach niestandardowych. Zwracany jest typ formularza, który będzie analizowany przez model, oraz pola `CustomFormModel` wyodrębnione dla każdego typu formularza. _Aby uzyskać_ więcej informacji, zobacz dokumentację usługi dotyczącą [trenowania modelu](#train-a-model-without-labels) bez etykiet.
+* Trenowanie modeli niestandardowych w celu analizowania określonych pól i wartości określonych przez etykietowanie formularzy niestandardowych. Jest `CustomFormModel` zwracana wartość wskazująca pola, które model wyodrębni, a także szacowaną dokładność dla każdego pola. Zapoznaj się z dokumentacją usługi [dotyczącą trenowania](#train-a-model-with-labels) modelu z etykietami, aby uzyskać bardziej szczegółowe wyjaśnienie stosowania etykiet do zestawu danych treningowych.
 * Zarządzanie modelami utworzonymi na koncie.
 * Kopiowanie modelu niestandardowego z jednego zasobu Rozpoznawanie formularzy do innego.
 
@@ -104,7 +104,7 @@ Za Rozpoznawanie formularzy można utworzyć dwa różne typy klientów. Pierwsz
 
 ## <a name="code-examples"></a>Przykłady kodu
 
-Te fragmenty kodu pokazują, jak wykonać następujące zadania za pomocą Rozpoznawanie formularzy klienta dla języka JavaScript:
+Te fragmenty kodu pokazują, jak wykonać następujące zadania przy użyciu Rozpoznawanie formularzy klienta dla języka JavaScript:
 
 * [Uwierzytelnianie klienta](#authenticate-the-client)
 * [Analizowanie układu](#analyze-layout)
@@ -118,22 +118,22 @@ Te fragmenty kodu pokazują, jak wykonać następujące zadania za pomocą Rozpo
 
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
-Uwierzytelnij obiekt klienta przy użyciu zdefiniowanych zmiennych subskrypcji. Użyjesz obiektu , aby w razie potrzeby można było zaktualizować klucz `AzureKeyCredential` interfejsu API bez tworzenia nowych obiektów klienta. Utworzysz również obiekt klienta trenowania.
+Uwierzytelnianie obiektu klienta przy użyciu zdefiniowanych zmiennych subskrypcji. Użyjesz obiektu , aby w razie potrzeby można było zaktualizować klucz `AzureKeyCredential` interfejsu API bez tworzenia nowych obiektów klienta. Utworzysz również obiekt klienta trenowania.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_auth)]
 
 ## <a name="get-assets-for-testing"></a>Pobierz zasoby do testowania
 
-Musisz również dodać odwołania do adresów URL dla danych szkoleniowych i testowych.
+Musisz również dodać odwołania do adresów URL dla danych treningowych i testowych.
 
 * [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
 
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="Pobieranie adresu URL sygnatury dostępu współdzielonego":::
-* Użyj przykładowych obrazów z przykładów i paragonów zawartych w poniższych przykładach (dostępnych również w witrynie [GitHub)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/test-assets)lub skorzystaj z powyższych kroków, aby uzyskać adres URL sygnatury dostępu współdzielonego pojedynczego dokumentu w magazynie obiektów blob.
+* Użyj przykładowych obrazów z i paragonów zawartych w poniższych przykładach (dostępnych również w witrynie [GitHub)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/assets)lub użyj powyższych kroków, aby uzyskać adres URL sygnatury dostępu współdzielonego pojedynczego dokumentu w magazynie obiektów blob.
 
 ## <a name="analyze-layout"></a>Analizowanie układu
 
-Za pomocą Rozpoznawanie formularzy można analizować tabele, wiersze i słowa w dokumentach bez konieczności trenowania modelu. Aby uzyskać więcej informacji na temat wyodrębniania układu, zobacz [Layout conceptual guide (Przewodnik koncepcyjny dotyczący układu).](../../concept-layout.md) Aby przeanalizować zawartość pliku o danym URI, użyj `beginRecognizeContentFromUrl` metody .
+Za pomocą Rozpoznawanie formularzy można analizować tabele, linie i wyrazy w dokumentach bez konieczności trenowania modelu. Aby uzyskać więcej informacji na temat wyodrębniania układu, zobacz [Przewodnik koncepcyjny układu](../../concept-layout.md). Aby przeanalizować zawartość pliku pod danym URI, użyj `beginRecognizeContentFromUrl` metody .
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_getcontent)]
 
@@ -158,7 +158,7 @@ cell [1,5] has text PT
 
 ## <a name="analyze-receipts"></a>Analizowanie paragonów
 
-W tej sekcji pokazano, jak analizować i wyodrębniać typowe pola z paragonów w USA przy użyciu wstępnie wytrenowany model paragonu. Aby uzyskać więcej informacji na temat analizy paragonów, zobacz [Przewodnik koncepcyjny dotyczący paragonów](../../concept-receipts.md).
+W tej sekcji pokazano, jak analizować i wyodrębniać typowe pola z paragonów w USA przy użyciu wstępnie wytrenowanych modeli paragonów. Aby uzyskać więcej informacji na temat analizy paragonów, zobacz Przewodnik koncepcyjny [dotyczący paragonów](../../concept-receipts.md).
 
 Aby analizować paragony z URI, użyj `beginRecognizeReceiptsFromUrl` metody . Poniższy kod przetwarza potwierdzenie przy danym URI i drukuje główne pola i wartości w konsoli.
 
@@ -184,14 +184,14 @@ First receipt:
 
 ## <a name="analyze-business-cards"></a>Analizowanie wizytówek
 
-W tej sekcji pokazano, jak analizować i wyodrębniać typowe pola z wizytówek w języku angielskim przy użyciu wstępnie wytrenowany model. Aby uzyskać więcej informacji na temat analizy wizytówek, zobacz przewodnik koncepcyjny [Dotyczący wizytówek.](../../concept-business-cards.md)
+W tej sekcji pokazano, jak analizować i wyodrębniać typowe pola z wizytówek w języku angielskim przy użyciu wstępnie wytrenowany model. Aby uzyskać więcej informacji na temat analizy wizytówek, zobacz Przewodnik koncepcyjny [dotyczący wizytówek.](../../concept-business-cards.md)
 
 Aby analizować wizytówki z adresu URL, użyj `beginRecognizeBusinessCardsFromURL` metody .
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js" id="snippet_bc":::
 
 > [!TIP]
-> Można również analizować lokalne obrazy wizytówków. Zobacz metody [FormRecognizerClient,](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) takie **jak beginRecognizeBusinessCards.** Możesz też zobaczyć przykładowy kod w [usłudze GitHub, aby](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) uzyskać scenariusze obejmujące obrazy lokalne.
+> Można również analizować lokalne obrazy wizytówki. Zobacz metody [FormRecognizerClient,](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) takie **jak beginRecognizeBusinessCards.** Możesz też zobaczyć przykładowy kod w [usłudze GitHub, aby](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) uzyskać scenariusze obejmujące obrazy lokalne.
 
 ## <a name="analyze-invoices"></a>Analizowanie faktur
 
@@ -202,11 +202,11 @@ Aby analizować faktury na podstawie adresu URL, użyj `beginRecognizeInvoicesFr
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js" id="snippet_invoice":::
 
 > [!TIP]
-> Można również analizować lokalne obrazy wizytówków. Zobacz metody [FormRecognizerClient,](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) takie **jak beginRecognizeInvoices.** Możesz też zobaczyć przykładowy kod w [usłudze GitHub, aby](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) uzyskać scenariusze obejmujące obrazy lokalne.
+> Można również analizować lokalne obrazy wizytówki. Zobacz metody [FormRecognizerClient,](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) takie **jak beginRecognizeInvoices.** Możesz też zobaczyć przykładowy kod w [usłudze GitHub, aby](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) uzyskać scenariusze obejmujące obrazy lokalne.
 
 ## <a name="analyze-identity-documents"></a>Analizowanie dokumentów tożsamości
 
-W tej sekcji pokazano, jak analizować i wyodrębniać kluczowe informacje z dokumentów identyfikacyjnych wystawionych przez rząd — na całym świecie paszportów i licencji kierowcy w Stanach Zjednoczonych — przy użyciu Rozpoznawanie formularzy wstępnie utworzonego modelu identyfikatorów. Aby uzyskać więcej informacji na temat analizy faktur, zobacz nasz przewodnik koncepcyjny dotyczący [wstępnie utworzonego modelu identyfikacji](../../concept-identification-cards.md).
+W tej sekcji pokazano, jak analizować i wyodrębniać kluczowe informacje z dokumentów identyfikacyjnych wystawionych przez rząd — na całym świecie paszportów i prawa jazdy w Stanach Zjednoczonych — przy użyciu Rozpoznawanie formularzy wstępnie utworzonego modelu identyfikatorów. Aby uzyskać więcej informacji na temat analizy faktur, zobacz nasz przewodnik koncepcyjny dotyczący wstępnie [utworzonego modelu identyfikacji](../../concept-identification-cards.md).
 
 Aby analizować dokumenty tożsamości z adresu URL, użyj `beginRecognizeIdDocumentsFromUrl` metody .
 
@@ -214,14 +214,14 @@ Aby analizować dokumenty tożsamości z adresu URL, użyj `beginRecognizeIdDocu
 
 ## <a name="train-a-custom-model"></a>Trenowanie modelu niestandardowego
 
-W tej sekcji pokazano, jak trenować model przy użyciu własnych danych. Wytrenowany model może wyprowadzać dane ustrukturyzowane, które obejmują relacje klucz/wartość w oryginalnym dokumencie formularza. Po wytrenowania modelu można go przetestować i ponownie wytrenować, a następnie użyć go do niezawodnego wyodrębniania danych z większej liczby formularzy zgodnie z potrzebami.
+W tej sekcji pokazano, jak trenować model przy użyciu własnych danych. Wytrenowany model może wyprowadzać dane ustrukturyzowane, które obejmują relacje klucz/wartość w oryginalnym dokumencie formularza. Po wytrenowania modelu można go przetestować i ponownie wytrenować, a następnie użyć go w celu niezawodnego wyodrębnienia danych z większej liczby formularzy zgodnie z potrzebami.
 
 > [!NOTE]
-> Modele można również szkolić za pomocą graficznego interfejsu użytkownika, takiego [jak Rozpoznawanie formularzy przykładowe narzędzie do etykietowania](../../quickstarts/label-tool.md).
+> Modele można również trenować za pomocą graficznego interfejsu użytkownika, takiego [Rozpoznawanie formularzy przykładowego narzędzia do etykietowania](../../quickstarts/label-tool.md).
 
 ### <a name="train-a-model-without-labels"></a>Trenowanie modelu bez etykiet
 
-Trenowanie modeli niestandardowych w celu analizowania wszystkich pól i wartości znalezionych w formularzach niestandardowych bez ręcznego etykietowania dokumentów szkoleniowych.
+Trenowanie modeli niestandardowych w celu analizowania wszystkich pól i wartości znalezionych w formularzach niestandardowych bez ręcznego oznaczania etykietami dokumentów szkoleniowych.
 
 Następująca funkcja szkoli model na podstawie danego zestawu dokumentów i drukuje stan modelu w konsoli.
 
@@ -229,7 +229,7 @@ Następująca funkcja szkoli model na podstawie danego zestawu dokumentów i dru
 
 ### <a name="output"></a>Dane wyjściowe
 
-Są to dane wyjściowe dla modelu przeszkolonego przy użyciu danych szkoleniowych dostępnych z zestawu [SDK języka JavaScript.](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer) Te przykładowe dane wyjściowe zostały obcięte w celu ich czytelności.
+Są to dane wyjściowe dla modelu wytrenowane przy użyciu danych szkoleniowych dostępnych z [zestawu SDK języka JavaScript.](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer) Te przykładowe dane wyjściowe zostały obcięte w celu czytelności.
 
 ```console
 training status: creating
@@ -265,13 +265,13 @@ Document errors:
 
 ### <a name="train-a-model-with-labels"></a>Trenowanie modelu przy użyciu etykiet
 
-Możesz również szkolić modele niestandardowe, ręcznie oznaczając etykietami dokumenty szkoleniowe. Trenowania za pomocą etykiet prowadzi do lepszej wydajności w niektórych scenariuszach. Aby trenować przy użyciu etykiet, musisz mieć specjalne pliki z informacjami o etykietach ( ) w kontenerze `\<filename\>.pdf.labels.json` magazynu obiektów blob obok dokumentów szkoleniowych. Przykładowe [Rozpoznawanie formularzy przykładowe narzędzie do etykietowania](../../quickstarts/label-tool.md) udostępnia interfejs użytkownika ułatwiający tworzenie tych plików etykiet. Gdy już je masz, możesz wywołać metodę `beginTraining` z `uselabels` parametrem ustawionym na `true` .
+Możesz również szkolić modele niestandardowe, ręcznie oznaczając etykietami dokumenty szkoleniowe. Trenowania za pomocą etykiet prowadzi do lepszej wydajności w niektórych scenariuszach. Aby trenować za pomocą etykiet, musisz mieć specjalne pliki z informacjami o etykietach ( ) w kontenerze `\<filename\>.pdf.labels.json` magazynu obiektów blob obok dokumentów szkoleniowych. Przykładowe [Rozpoznawanie formularzy etykietowania](../../quickstarts/label-tool.md) udostępnia interfejs użytkownika ułatwiający tworzenie tych plików etykiet. Gdy już je masz, możesz wywołać metodę `beginTraining` z `uselabels` parametrem ustawionym na `true` .
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_trainlabels)]
 
 ### <a name="output"></a>Dane wyjściowe
 
-Są to dane wyjściowe dla modelu przeszkolonego przy użyciu danych szkoleniowych dostępnych z zestawu [SDK języka JavaScript.](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) Te przykładowe dane wyjściowe zostały obcięte w celu ich czytelności.
+Są to dane wyjściowe dla modelu wytrenowane przy użyciu danych szkoleniowych dostępnych z [zestawu SDK języka JavaScript.](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) Te przykładowe dane wyjściowe zostały obcięte w celu czytelności.
 
 ```console
 training status: creating
@@ -418,7 +418,7 @@ model 3: 789b1b37-4cc3-4e36-8665-9dde68618072
 
 ### <a name="get-model-by-id"></a>Uzyskiwanie modelu według identyfikatora
 
-Następująca funkcja pobiera zgodny obiekt modelu z identyfikatorem modelu. Ta funkcja nie jest domyślnie wywoływana.
+Następująca funkcja pobiera identyfikator modelu i zgodny obiekt modelu. Ta funkcja nie jest domyślnie wywoływana.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_manage_getmodel)]
 
