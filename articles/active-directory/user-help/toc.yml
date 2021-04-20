@@ -1,4 +1,4 @@
-- name: Dokumentacja pomocy użytkownika
+- name: Dokumentacja pomocy dla użytkowników
   href: index.yml
 - name: Pomoc dotycząca weryfikacji dwuetapowej
   items:
@@ -16,6 +16,8 @@
       href: multi-factor-authentication-end-user-app-passwords.md
     - name: Jak się zalogować
       href: user-help-sign-in.md?toc=./toc.json
+    - name: Logowanie do konta służbowego
+      href: multi-factor-authentication-end-user-signin.md
     - name: Uzyskiwanie pomocy
       href: multi-factor-authentication-end-user-troubleshoot.md
 - name: Pomoc dotycząca resetowania hasła
@@ -50,7 +52,7 @@
       href: auth-app-android-china.md
     - name: Tworzenie kopii zapasowych kont i ich odzyskiwanie
       href: user-help-auth-app-backup-recovery.md
-    - name: Importowanie haseł do aplikacji uwierzytelniającej
+    - name: Importowanie haseł do aplikacji Authenticator
       href: user-help-authenticator-app-import-passwords.md
     - name: Często zadawane pytania
       href: user-help-auth-app-faq.md

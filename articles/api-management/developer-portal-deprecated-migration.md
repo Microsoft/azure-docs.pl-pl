@@ -5,82 +5,78 @@ description: Dowiedz się, jak przeprowadzić migrację ze starszego portalu dla
 services: api-management
 documentationcenter: API Management
 author: mikebudzynski
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/15/2020
+ms.date: 04/15/2021
 ms.author: apimpm
-ms.openlocfilehash: f5105c685de4b3ccdffe69eec8ee8eeb32976c1f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e4f9f3822b58886f7d453d52402b078d8401133f
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92326025"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107738886"
 ---
 # <a name="migrate-to-the-new-developer-portal"></a>Migrowanie do nowego portalu dla deweloperów
 
-W tym artykule opisano kroki, które należy wykonać w celu przeprowadzenia migracji z przestarzałego starszego portalu do nowego portalu dla deweloperów w API Management.
+W tym artykule opisano kroki, które należy wykonać, aby przeprowadzić migrację ze starszego portalu przestarzałego do nowego portalu deweloperów w API Management.
 
 > [!IMPORTANT]
-> Starsza wersja portalu dla deweloperów jest teraz przestarzała i będzie otrzymywać tylko aktualizacje zabezpieczeń. Można nadal z nich korzystać, tak jak na zwykłych okresach, aż do wycofania z października 2023, gdy zostanie on usunięty z wszystkich usług API Management.
+> Portal dla deweloperów w starszej wersji jest teraz przestarzały i będzie otrzymywać tylko aktualizacje zabezpieczeń. Możesz nadal z niego korzystać, jak zwykle, do momentu wycofania jej w październiku 2023 r., gdy zostanie ona usunięta ze wszystkich API Management usług.
 
-![Portal dla deweloperów API Management](media/api-management-howto-developer-portal/cover.png)
+![API Management portal dla deweloperów](media/api-management-howto-developer-portal/cover.png)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="improvements-in-new-developer-portal"></a>Ulepszenia w nowym portalu dla deweloperów
 
-Nowy portal dla deweloperów dotyczy wielu ograniczeń dla przestarzałego portalu. Jest to [Edytor przeciągania i upuszczania wizualizacji umożliwiający Edytowanie zawartości](api-management-howto-developer-portal-customize.md) oraz dedykowany panel przeznaczony dla projektantów do stylu witryny sieci Web. Strony, dostosowania i konfiguracja są zapisywane jako zasoby Azure Resource Manager w usłudze API Management, co pozwala [zautomatyzować wdrożenia portalu](api-management-howto-developer-portal.md#automate). Na koniec baza kodu portalu jest w stanie Open Source, więc [można ją rozłożyć z funkcjonalnością niestandardową](api-management-howto-developer-portal.md#managed-vs-self-hosted).
+Nowy portal dla deweloperów rozwiązuje wiele ograniczeń przestarzałego portalu. Zawiera ona edytor [wizualizacji typu "przeciągnij i upuść"](api-management-howto-developer-portal-customize.md) do edytowania zawartości oraz dedykowany panel dla projektantów, który umożliwia styl witryny internetowej. Strony, dostosowania i konfiguracja są zapisywane jako Azure Resource Manager zasobów w usłudze API Management, która umożliwia [automatyzację wdrożeń portalu.](automate-portal-deployments.md) Na koniec baza kodu portalu to baza kodu typu open source, więc można ją rozszerzyć [za pomocą funkcji niestandardowych.](api-management-howto-developer-portal.md#managed-vs-self-hosted)
 
 ## <a name="how-to-migrate-to-new-developer-portal"></a>Jak przeprowadzić migrację do nowego portalu dla deweloperów
 
-Nowy portal dla deweloperów jest niezgodny z przestarzałym portalem, a zautomatyzowana migracja nie jest możliwa. Musisz ręcznie odtworzyć zawartość (strony, tekst, pliki multimedialne) i dostosować wygląd nowego portalu. Dokładne kroki będą się różnić w zależności od dostosowań i złożoności portalu. Aby uzyskać wskazówki, zapoznaj się z [samouczkiem](api-management-howto-developer-portal-customize.md) dotyczącym portalu dla deweloperów. Pozostała konfiguracja, taka jak lista interfejsów API, produktów, użytkowników i dostawców tożsamości, jest automatycznie udostępniana w obu portalach.
+Nowy portal dla deweloperów jest niezgodny z przestarzałym portalem i automatyczna migracja nie jest możliwa. Musisz ręcznie ponownie utworzyć zawartość (strony, tekst, pliki multimedialne) i dostosować wygląd nowego portalu. Dokładne kroki różnią się w zależności od dostosowań i złożoności portalu. Aby uzyskać wskazówki, zapoznaj się [z samouczkiem](api-management-howto-developer-portal-customize.md) portalu dla deweloperów. Pozostała konfiguracja, na przykład lista interfejsów API, produktów, użytkowników i dostawców tożsamości, jest automatycznie udostępniana w obu portalach.
 
 > [!IMPORTANT]
-> Jeśli nowy portal dla deweloperów został uruchomiony przed, ale nie wprowadzono żadnych zmian, [Zresetuj domyślną zawartość](api-management-howto-developer-portal.md#preview-to-ga) , aby zaktualizować ją do najnowszej wersji.
+> Jeśli nowy portal dla deweloperów był już wcześniej uruchomiony, ale nie zostały wprowadzone żadne zmiany, zresetuj zawartość domyślną, aby zaktualizować go do najnowszej wersji.
 
 Podczas migracji z przestarzałego portalu należy pamiętać o następujących zmianach:
 
-- W przypadku uwidocznienia portalu dla deweloperów za pośrednictwem domeny niestandardowej [Przypisz domenę](configure-custom-domain.md) do nowego portalu dla deweloperów. Użyj opcji **Portal dla deweloperów** z listy rozwijanej w Azure Portal.
-- [Zastosuj zasady CORS](api-management-howto-developer-portal.md#cors) w interfejsach API, aby włączyć interaktywną konsolę testową.
-- W przypadku dodania niestandardowego CSS do stylu portalu należy [replikować style przy użyciu wbudowanego panelu projektowania](api-management-howto-developer-portal-customize.md). Iniekcja CSS nie jest dozwolona w nowym portalu.
-- Możesz wstrzyknąć niestandardowy kod JavaScript tylko w [autonomicznej wersji nowego portalu](api-management-howto-developer-portal.md#managed-vs-self-hosted).
-- Jeśli API Management znajduje się w sieci wirtualnej i jest dostępna w Internecie za pośrednictwem Application Gateway, [zapoznaj się z tym artykułem dotyczącym tej dokumentacji](api-management-howto-integrate-internal-vnet-appgateway.md) , aby zapoznać się z szczegółowymi krokami konfiguracji. Należy:
+- Jeśli uwidocznisz portal deweloperów za pośrednictwem domeny niestandardowej, [przypisz domenę](configure-custom-domain.md) do nowego portalu dla deweloperów. Użyj opcji **Portal deweloperów** z listy rozwijanej w Azure Portal.
+- [Zastosuj zasady CORS do interfejsów](developer-portal-faq.md#cors) API, aby włączyć interaktywną konsolę testową.
+- W przypadku wstrzykowania niestandardowego kodu CSS w celu zmiany stylu portalu należy zreplikować style przy użyciu [wbudowanego panelu projektowego](api-management-howto-developer-portal-customize.md). Wstrzykiwanie kodu CSS nie jest dozwolone w nowym portalu.
+- Niestandardowy kod JavaScript można wstrzyknąć tylko w własnej [wersji nowego portalu.](api-management-howto-developer-portal.md#managed-vs-self-hosted)
+- Jeśli urządzenie API Management w sieci wirtualnej i jest dostępne w Internecie za pośrednictwem usługi [Application Gateway,](api-management-howto-integrate-internal-vnet-appgateway.md) zapoznaj się z tym artykułem dokumentacji, aby uzyskać szczegółowe instrukcje konfiguracji. Musisz:
 
-    - Włącz łączność z punktem końcowym zarządzania API Management.
+    - Włącz łączność z API Management punktu końcowego zarządzania usługi.
     - Włącz łączność z nowym punktem końcowym portalu.
-    - Wyłącz wybrane reguły zapory aplikacji sieci Web.
+    - Wyłącz wybrane Web Application Firewall reguł.
 
-- Jeśli domyślne szablony powiadomień e-mail zostały zmienione w taki sposób, aby zawierały jawnie zdefiniowany przestarzały adres URL portalu, należy zmienić je na adres URL portalu lub wskazać nowy adres URL portalu. Jeśli zamiast tego szablony używają wbudowanego parametru adresu URL portalu, nie są wymagane żadne zmiany.
+- Jeśli domyślne szablony powiadomień e-mail zostały zmienione tak, aby zawierały jawnie zdefiniowany przestarzały adres URL portalu, zmień je tak, aby używać parametru adresu URL portalu lub wskazać nowy adres URL portalu. Jeśli szablony zamiast tego używają wbudowanego parametru adresu URL portalu, nie są wymagane żadne zmiany.
 - *Problemy* i *aplikacje* nie są obsługiwane w nowym portalu dla deweloperów.
-- Bezpośrednia integracja z dostawcami tożsamości w serwisach Facebook, Microsoft, Twitter i Google AS nie jest obsługiwana w nowym portalu dla deweloperów. Można zintegrować z tymi dostawcami za pośrednictwem Azure AD B2C.
-- Jeśli używasz delegowania, Zmień zwrotny adres URL w aplikacjach i Użyj [punktu końcowego interfejsu API *uzyskiwania tokenu dostępu współdzielonego*](/rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken) zamiast punktu końcowego *Generuj adres URL logowania jednokrotnego* .
+- Bezpośrednia integracja z firmami Facebook, Microsoft, Twitter i Google jako dostawcami tożsamości nie jest obsługiwana w nowym portalu dla deweloperów. Integrację z tymi dostawcami można zintegrować za pośrednictwem Azure AD B2C.
+- Jeśli używasz delegowania, zmień zwracany adres URL w aplikacjach i użyj punktu końcowego interfejsu [  API](/rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken) uzyskiwania dostępu współdzielonych zamiast punktu końcowego *Generuj adres URL logowania jednokrotnego.*
 - Jeśli używasz usługi Azure AD jako dostawcy tożsamości:
 
-    - Zmień zwrotny adres URL w aplikacji, aby wskazywał nową domenę portalu deweloperów.
-    - Zmodyfikuj sufiks adresu URL zwrotnego w aplikacji z `/signin-aad` do `/signin` .
+    - Zmień zwracany adres URL w aplikacji, aby wskazać nową domenę portalu deweloperów.
+    - Zmodyfikuj sufiks zwracanych adresów URL w aplikacji z wartości `/signin-aad` na `/signin` .
 
-- Jeśli używasz Azure AD B2C jako dostawcy tożsamości:
+- Jeśli używasz usługi Azure AD B2C jako dostawcy tożsamości:
 
-    - Zmień zwrotny adres URL w aplikacji, aby wskazywał nową domenę portalu deweloperów.
-    - Zmodyfikuj sufiks adresu URL zwrotnego w aplikacji z `/signin-aad` do `/signin` .
-    - Podaj *imię* i nazwisko, *nazwisko* i *Identyfikator obiektu użytkownika* w oświadczeniach aplikacji.
+    - Zmień zwracany adres URL w aplikacji, aby wskazać nową domenę portalu deweloperów.
+    - Zmodyfikuj sufiks zwracanych adresów URL w aplikacji z `/signin-aad` na `/signin` .
+    - Uwzględnij *dane imię,* *nazwisko* i *identyfikator obiektu użytkownika* w oświadczeniach aplikacji.
 
-- Jeśli używasz protokołu OAuth 2,0 w interaktywnej konsoli testowej, Zmień adres URL powrotu w aplikacji, aby wskazywał nową domenę portalu dla deweloperów i zmodyfikować sufiks:
+- Jeśli używasz protokołu OAuth 2.0 w konsoli testów interakcyjnych, zmień zwracany adres URL w aplikacji, aby wskazać nową domenę portalu deweloperów i zmodyfikować sufiks:
 
-    - Od `/docs/services/[serverName]/console/oauth2/authorizationcode/callback` do `/signin-oauth/code/callback/[serverName]` dla przepływu przydzielenia kodu autoryzacji.
-    - Od `/docs/services/[serverName]/console/oauth2/implicit/callback` do `/signin-oauth/implicit/callback` dla niejawnego przepływu dotacji.
-- Jeśli używasz OpenID Connect Connect w interaktywnej konsoli testowej, Zmień adres URL powrotu w aplikacji, aby wskazywał nową domenę portalu dla deweloperów i zmodyfikować sufiks:
+    - Od `/docs/services/[serverName]/console/oauth2/authorizationcode/callback` do `/signin-oauth/code/callback/[serverName]` przepływu udzielania kodu autoryzacji.
+    - Od `/docs/services/[serverName]/console/oauth2/implicit/callback` do `/signin-oauth/implicit/callback` przepływu niejawnego udzielania.
+- Jeśli używasz OpenID Connect konsoli testów interaktywnych, zmień zwracany adres URL w aplikacji, aby wskazać nową domenę portalu deweloperów i zmodyfikować sufiks:
 
-    - Od `/docs/services/[serverName]/console/openidconnect/authorizationcode/callback` do `/signin-oauth/code/callback/[serverName]` dla przepływu przydzielenia kodu autoryzacji.
-    - Od `/docs/services/[serverName]/console/openidconnect/implicit/callback` do `/signin-oauth/implicit/callback` dla niejawnego przepływu dotacji.
+    - Od `/docs/services/[serverName]/console/openidconnect/authorizationcode/callback` do `/signin-oauth/code/callback/[serverName]` przepływu udzielania kodu autoryzacji.
+    - Od `/docs/services/[serverName]/console/openidconnect/implicit/callback` do `/signin-oauth/implicit/callback` przepływu niejawnego udzielania.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się więcej o portalu dla deweloperów:
 
 - [Portal deweloperów usługi Azure API Management — omówienie](api-management-howto-developer-portal.md)
-- [Dostęp do portalu dla deweloperów i dostosowywanie go](api-management-howto-developer-portal-customize.md)
+- [Uzyskiwanie dostępu do portalu dla deweloperów i dostosowywanie go](api-management-howto-developer-portal-customize.md)

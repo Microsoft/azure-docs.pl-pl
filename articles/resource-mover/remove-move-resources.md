@@ -1,49 +1,49 @@
 ---
-title: Usuwanie zasobów z kolekcji przenoszenia w obszarze przenoszenia zasobów platformy Azure
-description: Dowiedz się, jak usunąć zasoby z kolekcji Move w obszarze przenoszenia zasobów platformy Azure.
+title: Usuwanie zasobów z kolekcji przenoszenia w Azure Resource Mover
+description: Dowiedz się, jak usunąć zasoby z kolekcji przenoszenia w Azure Resource Mover.
 manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: how-to
 ms.date: 02/22/2020
 ms.author: raynew
-ms.openlocfilehash: 25311e93e1081b3c7638c275c39153b2c357048d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 067aa245223bce0e8fa009b88af760a26f7ce3dc
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102559130"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739030"
 ---
 # <a name="manage-move-collections-and-resource-groups"></a>Zarządzanie kolekcjami przenoszenia i grupami zasobów
 
-W tym artykule opisano sposób usuwania zasobów z kolekcji przenoszenia lub usuwania kolekcji przenoszenia/grupy zasobów w obszarze [przenoszenia zasobów platformy Azure](overview.md). Kolekcje przenoszenia są używane podczas przenoszenia zasobów platformy Azure między regionami platformy Azure.
+W tym artykule opisano sposób usuwania zasobów z kolekcji przenoszenia lub przenoszenia kolekcji/grupy zasobów w Azure Resource Mover [.](overview.md) Kolekcje przenoszenia są używane podczas przenoszenia zasobów platformy Azure między regionami świadczenia usługi Azure.
 
-## <a name="remove-a-resource-portal"></a>Usuwanie zasobu (Portal)
+## <a name="remove-a-resource-portal"></a>Usuwanie zasobu (portal)
 
-Zasoby można usunąć w kolekcji przenoszenia w portalu przenoszenia zasobów w następujący sposób:
+Zasoby w kolekcji przenoszenia można usunąć w portalu resource Mover w następujący sposób:
 
-1. W **różnych regionach** zaznacz wszystkie zasoby, które chcesz usunąć z kolekcji, a następnie wybierz pozycję **Usuń**. 
+1. W **poszczególnych regionach** wybierz wszystkie zasoby, które chcesz usunąć z kolekcji, a następnie wybierz pozycję **Usuń**. 
 
     ![Przycisk do wybrania do usunięcia](./media/remove-move-resources/portal-select-resources.png)
 
-2. W obszarze **usuwanie zasobów** kliknij pozycję **Usuń**.
+2. Na **stronie Usuwanie zasobów** kliknij pozycję **Usuń**.
 
-    ![Przycisk służący do usuwania zasobów z kolekcji przenoszenia](./media/remove-move-resources/remove-portal.png)
+    ![Przycisk do wybierania usuwania zasobów z kolekcji przenoszenia](./media/remove-move-resources/remove-portal.png)
 
-## <a name="remove-a-move-collectionresource-group-portal"></a>Usuwanie kolekcji przenoszenia/grupy zasobów (Portal)
+## <a name="remove-a-move-collectionresource-group-portal"></a>Usuwanie kolekcji/grupy zasobów przenoszenia (portal)
 
-W portalu można usunąć kolekcję przenoszenia/grupę zasobów.
+Możesz usunąć kolekcję przenoszenia/grupę zasobów w portalu.
 
-1. Postępuj zgodnie z instrukcjami podanymi w powyższej procedurze, aby usunąć zasoby z kolekcji. W przypadku usuwania grupy zasobów upewnij się, że nie zawiera ona żadnych zasobów.
+1. Postępuj zgodnie z instrukcjami w powyższej procedurze, aby usunąć zasoby z kolekcji. Jeśli usuwasz grupę zasobów, upewnij się, że nie zawiera ona żadnych zasobów.
 2. Usuń kolekcję przenoszenia lub grupę zasobów.  
 
 ## <a name="remove-a-resource-powershell"></a>Usuwanie zasobu (PowerShell)
 
-Za pomocą poleceń cmdlet programu PowerShell można usunąć pojedynczy zasób z elementu Movecollection lub usunąć wiele zasobów.
+Za pomocą poleceń cmdlet programu PowerShell można usunąć pojedynczy zasób z funkcji MoveCollection lub usunąć wiele zasobów.
 
-### <a name="remove-a-single-resource"></a>Usuń pojedynczy zasób
+### <a name="remove-a-single-resource"></a>Usuwanie pojedynczego zasobu
 
-Usuń zasób (w naszym przykładzie sieci wirtualnej *psdemorm-VNET*) w następujący sposób:
+Usuń zasób (w naszym przykładzie jest to *sieć wirtualna psdemorm-vnet)* w następujący sposób:
 
 ```azurepowershell-interactive
 # Remove a resource using the resource ID
@@ -57,7 +57,7 @@ Remove-AzResourceMoverMoveResource -ResourceGroupName "RG-MoveCollection-demoRMS
 
 Usuń wiele zasobów w następujący sposób:
 
-1. Weryfikuj zależności:
+1. Zweryfikuj zależności:
 
     ````azurepowershell-interactive
     $resp = Invoke-AzResourceMoverBulkRemove -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS"  -MoveResource $('psdemorm-vnet') -ValidateOnly
@@ -124,6 +124,7 @@ What happens when you remove a VM resource from a move collection depends on the
 **Discard failed** | We recommend that you discard the moves so that the target resources are deleted first.<br/><br/> After that, the resource goes back to the **Initiate move pending** state, and you can continue from there. | We recommend that you discard the moves so that the target resources are deleted first.<br/><br/> After that, the resource goes back to the **Initiate move pending** state, and you can continue from there.
 **Delete source pending** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region.  | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region.
 **Delete source failed** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region. | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region.
+**Move completed** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target or source region. |  Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target or source region.
 
 ## SQL resource state after removing
 
@@ -143,6 +144,7 @@ What happens when you remove an Azure SQL resource from a move collection depend
 **Discard failed** | We recommend that you discard the moves so that the target resources are deleted first.<br/><br/> After that, the resource goes back to the **Initiate move pending** state, and you can continue from there. 
 **Delete source pending** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region. 
 **Delete source failed** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region. 
+**Move completed** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target or source region.
 
 ## Next steps
 

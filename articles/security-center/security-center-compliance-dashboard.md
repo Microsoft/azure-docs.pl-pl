@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: sprawdzanie zgodności z przepisami — Azure Security Center'
-description: 'Samouczek: informacje na temat ulepszania zgodności z przepisami przy użyciu Azure Security Center.'
+description: 'Samouczek: dowiedz się, jak poprawić zgodność z przepisami przy użyciu Azure Security Center.'
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,112 +13,112 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: memildin
-ms.openlocfilehash: fb8dc22c923b7b53a6263baa43046862af4d2f04
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 284a7f532ed918397fe1cfcf3458bbc6fb0bdd32
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100370272"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739012"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Samouczek: poprawa zgodności z przepisami
 
-Azure Security Center pomaga usprawnić proces spełnienia wymagań dotyczących zgodności z przepisami przy użyciu **pulpitu nawigacyjnego zgodności z przepisami**. 
+Azure Security Center usprawnia proces spełniania wymagań dotyczących zgodności z przepisami przy użyciu pulpitu **nawigacyjnego zgodności z przepisami.** 
 
-Security Center stale ocenia środowisko chmury hybrydowej, aby analizować czynniki ryzyka zgodnie z kontrolkami i najlepszymi rozwiązaniami dotyczącymi standardów zastosowanych do subskrypcji. Pulpit nawigacyjny odzwierciedla stan zgodności z tymi standardami. 
+Security Center stale ocenia środowisko chmury hybrydowej w celu analizowania czynników ryzyka zgodnie z kontrolami i najlepszymi rozwiązaniami w standardach stosowanych do subskrypcji. Pulpit nawigacyjny odzwierciedla stan zgodności z tymi standardami. 
 
-Włączenie Security Center w ramach subskrypcji platformy Azure powoduje automatyczne przypisanie [testu wydajności platformy Azure](../security/benchmarks/introduction.md) do tej subskrypcji. Ten powszechnie przestrzegany test porównawczy jest oparty na kontrolkach z [centrum na potrzeby zabezpieczeń internetowych (CIS)](https://www.cisecurity.org/benchmark/azure/) i [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) , które koncentrują się na zabezpieczeniach skoncentrowanych na chmurze.
+Po włączeniu usługi Security Center subskrypcji platformy Azure test porównawczy zabezpieczeń platformy [Azure](https://docs.microsoft.com/security/benchmark/azure/introduction) jest automatycznie przypisywany do tej subskrypcji. Ten szeroko stosowany test porównawczy opiera się na mechanizmach kontroli nist [(Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) i [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) z naciskiem na zabezpieczenia skoncentrowane na chmurze.
 
-Pulpit nawigacyjny zgodności z przepisami przedstawia stan wszystkich ocen w danym środowisku zgodnie z wybranymi standardami i regulacjami. Zgodnie z zaleceniami i zmniejszeniem czynników ryzyka w Twoim środowisku stan zgodności.
+Pulpit nawigacyjny zgodności z przepisami pokazuje stan wszystkich ocen w środowisku dla wybranych standardów i przepisów. W związku z stosowaniem się do zaleceń i zmniejszeniem czynników ryzyka w środowisku zwiększa się poziom zgodności.
 
 Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Oceń zgodność z przepisami przy użyciu pulpitu nawigacyjnego zgodności z przepisami
+> * Ocena zgodności z przepisami przy użyciu pulpitu nawigacyjnego zgodności z przepisami
 > * Zwiększanie poziomu zgodności przez podejmowanie działań zgodnych z rekomendacjami
-> * Skonfiguruj alerty dotyczące zmian w stan zgodności
-> * Eksportowanie danych zgodności jako ciągłego strumienia i w postaci migawek tygodniowych
+> * Konfigurowanie alertów dotyczących zmian w stanie zgodności
+> * Eksportowanie danych zgodności jako strumienia ciągłego i migawek tygodniowych
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, [](https://azure.microsoft.com/free/) przed rozpoczęciem utwórz bezpłatne konto.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby przekroczyć funkcje omówione w tym samouczku:
+Aby przejść przez funkcje uwzględnione w tym samouczku:
 
-- [Usługa Azure Defender](azure-defender.md) musi być włączona. Usługę Azure Defender można wypróbować bezpłatnie przez 30 dni.
-- Użytkownik musi być zalogowany przy użyciu konta, które ma dostęp do czytnika do danych zgodności zasad (**czytnik zabezpieczeń** jest niewystarczający). Rola **globalnego czytnika** dla subskrypcji będzie działała. Należy mieć co najmniej przypisane role **współautor zasad zasobów** i **administratora zabezpieczeń** .
+- [Azure Defender](azure-defender.md) musi być włączona. Możesz wypróbować Azure Defender bezpłatnie przez 30 dni.
+- Musisz zalogować się przy użyciu konta, które ma dostęp czytelnika do danych zgodności zasad **(Czytelnik zabezpieczeń** jest niewystarczający). Rola **czytelnika globalnego** dla subskrypcji będzie działać. Musisz mieć przypisane role Współautor  zasad zasobów i **Administrator** zabezpieczeń.
 
 ##  <a name="assess-your-regulatory-compliance"></a>Przeprowadzanie oceny zgodności z przepisami
 
-Pulpit nawigacyjny zgodności z przepisami zawiera wybrane standardy zgodności wraz ze wszystkimi wymaganiami, w których obsługiwane wymagania są mapowane na odpowiednie oceny zabezpieczeń. Stan tych ocen odzwierciedla zgodność ze standardem.
+Pulpit nawigacyjny zgodności z przepisami przedstawia wybrane standardy zgodności wraz ze wszystkimi ich wymaganiami, w których obsługiwane wymagania są mapowane na odpowiednie oceny zabezpieczeń. Stan tych ocen odzwierciedla zgodność ze standardem.
 
-Korzystając z pulpitu nawigacyjnego zgodność z przepisami, można skoncentrować się na lukach w zabezpieczeniach zgodnie z wybranymi standardami i regulacjami. Ten skoncentrowany widok umożliwia również ciągłe monitorowanie zgodności w środowiskach w chmurze dynamicznej i hybrydowej.
+Pulpit nawigacyjny zgodności z przepisami pomaga skupić uwagę na lukach w zgodności z wybranymi standardami i przepisami. Ten skoncentrowany widok umożliwia również ciągłe monitorowanie zgodności w czasie w chmurze dynamicznej i środowiskach hybrydowych.
 
-1. Z menu Security Center wybierz pozycję **zgodność z przepisami**.
+1. Z Security Center wybierz pozycję Zgodność **z przepisami.**
 
-    W górnej części ekranu znajduje się pulpit nawigacyjny z omówieniem stanu zgodności z zestawem obsługiwanych regulacji zgodności. Zobaczysz ogólny wynik zgodności oraz liczbę ocen zakończonych niepowodzeniem w porównaniu z poszczególnymi standardami.
+    W górnej części ekranu znajduje się pulpit nawigacyjny z przeglądem stanu zgodności z zestawem obsługiwanych przepisów dotyczących zgodności. Zobaczysz ogólny wynik zgodności oraz liczbę ocen z wynikiem przekazywania i ocen niepowodzeniem skojarzonych z każdym standardem.
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Pulpit nawigacyjny zgodności z przepisami" lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
 
-1. Wybierz kartę dla normy zgodności, która jest odpowiednia dla Ciebie (1). Zobaczysz, które subskrypcje są stosowane w warstwie Standardowa (2) i listę wszystkich kontrolek dla tego standardu (3). W przypadku odpowiednich kontrolek można wyświetlić szczegóły dotyczące przekazywania i niepowodzenia ocen skojarzonych z tą kontrolką (4) oraz liczbę zasobów, których to dotyczy (5). Niektóre kontrolki są wyszarzone. Te kontrolki nie mają skojarzonych z nimi ocen Security Center. Sprawdź ich wymagania i Oceń je w Twoim środowisku. Niektóre z nich mogą być zależne od procesu, a nie techniczne.
+1. Wybierz kartę standardu zgodności odpowiedniego dla Ciebie (1). Zobaczysz, do których subskrypcji zastosowano standard (2) i listę wszystkich kontrolek dla tego standardu (3). W przypadku odpowiednich kontrolek można wyświetlić szczegóły ocen z przekazywaniem i niepowodzeniem skojarzonych z tą kontrolką (4) oraz liczbę zasobów, których to dotyczy (5). Niektóre kontrolki są wyszarowane. Te kontrolki nie mają żadnych Security Center skojarzonych z nimi ocen. Sprawdź ich wymagania i oceń je w Twoim środowisku. Niektóre z nich mogą być związane z procesem, a nie techniczne.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Szczegółowe informacje o zgodności z określonym standardem":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Eksplorowanie szczegółów zgodności z określonym standardem":::
 
-1. Aby wygenerować raport PDF z podsumowaniem bieżącego stanu zgodności dla konkretnego standardu, wybierz pozycję **Pobierz raport**.
+1. Aby wygenerować raport PDF z podsumowaniem bieżącego stanu zgodności dla określonego standardu, wybierz **pozycję Pobierz raport**.
 
-    Raport zawiera podsumowanie stanu zgodności dla wybranego standardu na podstawie danych oceny Security Center. Raport jest zorganizowany zgodnie z kontrolkami tego konkretnego standardu. Raport może być współużytkowany z odpowiednimi uczestnikami projektu i może dostarczyć dowód do wewnętrznych i zewnętrznych audytorów.
+    Raport zawiera podsumowanie wysokiego poziomu stanu zgodności dla wybranego standardu na podstawie Security Center oceny. Raport jest zorganizowany zgodnie z kontrolkami danego standardu. Raport można udostępnić odpowiednim uczestnikom projektu i przedstawić dowód audytorom wewnętrznym i zewnętrznym.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Pobierz raport zgodności":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Pobieranie raportu zgodności":::
 
 ## <a name="improve-your-compliance-posture"></a>Zwiększanie poziomu zgodności
 
-Korzystając z informacji na pulpicie nawigacyjnym zgodności z przepisami, Popraw stan zgodności, rozwiązując zalecenia bezpośrednio na pulpicie nawigacyjnym.
+Korzystając z informacji na pulpicie nawigacyjnym zgodności z przepisami, zwiększ swój wskaźnik zgodności, rozwiązując zalecenia bezpośrednio na pulpicie nawigacyjnym.
 
-1.  Wybierz dowolne z niezakończonych ocen, które są wyświetlane na pulpicie nawigacyjnym, aby wyświetlić szczegóły tego zalecenia. Każde zalecenie zawiera zestaw kroków zaradczych, aby rozwiązać problem.
+1.  Wybierz dowolną ocenę, która nie jest wyświetlana na pulpicie nawigacyjnym, aby wyświetlić szczegóły zalecenia. Każde zalecenie zawiera zestaw czynności zaradczych w celu rozwiązania problemu.
 
-1.  Wybierz konkretny zasób, aby wyświetlić więcej szczegółów i rozwiązać zalecenia dotyczące tego zasobu. <br>Na przykład w standardzie **Azure CIS 1.1.0** wybierz opcję **szyfrowanie dysku zalecenia należy zastosować na maszynach wirtualnych**.
+1.  Wybierz konkretny zasób, aby wyświetlić więcej szczegółów i rozwiązać problem z zaleceniem dla tego zasobu. <br>Na przykład w **standardzie Azure CIS 1.1.0** wybierz zalecenie Szyfrowanie dysków **powinno być stosowane na maszynach wirtualnych.**
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/sample-recommendation.png" alt-text="Wybór zalecenia z standardowego potencjalni klienci bezpośrednio do strony szczegółów rekomendacji":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/sample-recommendation.png" alt-text="Wybieranie rekomendacji ze standardowego potencjalnych klientów bezpośrednio do strony szczegółów zalecenia":::
 
-1. W tym przykładzie po wybraniu opcji **Wykonaj akcję** z poziomu strony Szczegóły rekomendacji przytrzesz do stron maszyny wirtualnej platformy Azure w Azure Portal, w którym można włączyć szyfrowanie z poziomu karty **zabezpieczenia** :
+1. W tym przykładzie  po wybraniu opcji Przejmij akcję na stronie szczegółów rekomendacji na stronach maszyny wirtualnej platformy Azure w witrynie Azure Portal, gdzie można włączyć szyfrowanie na **karcie** Zabezpieczenia:
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/encrypting-vm-disks.png" alt-text="Przycisk podejmowania akcji na stronie Szczegóły rekomendacji prowadzi do opcji korygowania":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/encrypting-vm-disks.png" alt-text="Przycisk Podejmowania akcji na stronie szczegółów zalecenia prowadzi do opcji korygowania":::
 
     Więcej informacji dotyczących stosowania rekomendacji można znaleźć w temacie [Wdrażanie zaleceń dotyczących zabezpieczeń w usłudze Azure Security Center](security-center-recommendations.md).
 
-1.  Po podjęcie działań w celu rozwiązania zaleceń zobaczysz wynik w raporcie pulpitu nawigacyjnego zgodność, ponieważ wynik oceny zgodności zostanie ulepszony.
+1.  Po podjęciu akcji w celu rozwiązania zaleceń zobaczysz wynik w raporcie pulpitu nawigacyjnego zgodności, ponieważ wynik zgodności się poprawi.
 
     > [!NOTE]
-    > Oceny są wykonywane co około 12 godzin, dzięki czemu zobaczysz wpływ na dane zgodności dopiero po następnym uruchomieniu odpowiedniej oceny.
+    > Oceny są uruchamiane mniej więcej co 12 godzin, więc wpływ na dane zgodności będzie można zobaczyć dopiero po następnym uruchomieniu odpowiedniej oceny.
 
 
 ## <a name="export-your-compliance-status-data"></a>Eksportowanie danych stanu zgodności
 
-Jeśli chcesz śledzić swój stan zgodności z innymi narzędziami do monitorowania w środowisku, Security Center obejmuje mechanizm eksportu, aby uczynić ten prosty. Skonfiguruj **eksport ciągły** , aby wysyłać wybrane dane do centrum zdarzeń platformy Azure lub do obszaru roboczego log Analytics.
+Jeśli chcesz śledzić stan zgodności za pomocą innych narzędzi do monitorowania w swoim środowisku, Security Center mechanizm eksportu, aby było to proste. Konfigurowanie **eksportu ciągłego** w celu wysyłania wybranych danych do usługi Azure Event Hub lub obszaru roboczego usługi Log Analytics.
 
-Użyj danych eksportu ciągłego w centrum zdarzeń platformy Azure lub w obszarze roboczym Log Analytics:
+Użyj danych eksportu ciągłego do usługi Azure Event Hub lub obszaru roboczego usługi Log Analytics:
 
-- Eksportuj wszystkie dane zgodności z przepisami w **strumieniu ciągłym**:
+- Eksportuj wszystkie dane zgodności z przepisami w **strumieniu ciągłym:**
 
     :::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-stream.png" alt-text="Ciągłe eksportowanie strumienia danych zgodności z przepisami" lightbox="media/security-center-compliance-dashboard/export-compliance-data-stream.png":::
 
-- Eksportuj **cotygodniowe migawki** danych zgodności z przepisami:
+- **Wyeksportuj** cotygodniowe migawki danych zgodności z przepisami:
 
-    :::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-snapshot.png" alt-text="Ciągle Eksportuj cotygodniową migawkę danych zgodności z przepisami" lightbox="media/security-center-compliance-dashboard/export-compliance-data-snapshot.png":::
+    :::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-snapshot.png" alt-text="Ciągłe eksportowanie cotygodniowej migawki danych zgodności z przepisami" lightbox="media/security-center-compliance-dashboard/export-compliance-data-snapshot.png":::
 
-Możesz również wyeksportować **raport PDF/CSV dotyczący** danych zgodności bezpośrednio z pulpitu nawigacyjnego zgodności z przepisami:
+Możesz również wyeksportować raport **PDF/CSV zawierający** dane zgodności bezpośrednio z pulpitu nawigacyjnego zgodności z przepisami:
 
-:::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-report.png" alt-text="Eksportuj dane zgodności z przepisami jako raport PDF lub CSV" lightbox="media/security-center-compliance-dashboard/export-compliance-data-report.png":::
+:::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-report.png" alt-text="Eksportowanie danych dotyczących zgodności z przepisami w formacie PDF lub CSV" lightbox="media/security-center-compliance-dashboard/export-compliance-data-report.png":::
 
-Dowiedz się więcej na temat [ciągłego eksportowania danych Security Center](continuous-export.md).
+Aby dowiedzieć się [więcej, zobacz ciągłe eksportowanie Security Center danych.](continuous-export.md)
 
 
-## <a name="run-workflow-automations-when-there-are-changes-to-your-compliance"></a>Uruchamianie automatyzacji przepływu pracy w przypadku zmiany zgodności
+## <a name="run-workflow-automations-when-there-are-changes-to-your-compliance"></a>Uruchamianie automatyzacji przepływu pracy w przypadku zmian zgodności
 
-Funkcja automatyzacji przepływu pracy w Security Center może być wyzwalana Logic Apps każdej zmianie stanu oceny zgodności z przepisami.
+Security Center automatyzacji przepływu pracy może wyzwalać Logic Apps każdej zmianie stanu jednej z ocen zgodności z przepisami.
 
-Na przykład możesz chcieć, aby Security Center e-mail określonego użytkownika w przypadku niepowodzenia oceny zgodności. Najpierw należy utworzyć aplikację logiki (przy użyciu [Azure Logic Apps](../logic-apps/logic-apps-overview.md)), a następnie skonfigurować wyzwalacz w nowej automatyzacji przepływu pracy, jak wyjaśniono w [automatyzowaniu odpowiedzi na wyzwalacze Security Center](workflow-automation.md).
+Na przykład możesz chcieć wysłać wiadomość Security Center e-mail do określonego użytkownika w przypadku niepowodzenia oceny zgodności. Najpierw należy utworzyć aplikację logiki (przy użyciu usługi [Azure Logic Apps), a następnie](../logic-apps/logic-apps-overview.md)skonfigurować wyzwalacz w nowej automatyzacji przepływu pracy, jak wyjaśniono w tece Automatyzowanie odpowiedzi na Security Center [wyzwalaczy](workflow-automation.md).
 
-:::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Używanie zmian do oceny zgodności z przepisami w celu wyzwalania automatyzacji przepływu pracy" lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
+:::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Używanie zmian do ocen zgodności z przepisami w celu wyzwolenia automatyzacji przepływu pracy" lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 
 
 
@@ -126,73 +126,73 @@ Na przykład możesz chcieć, aby Security Center e-mail określonego użytkowni
 ## <a name="faq---regulatory-compliance-dashboard"></a>Często zadawane pytania — pulpit nawigacyjny zgodności z przepisami
 
 - [Jakie standardy są obsługiwane na pulpicie nawigacyjnym zgodności?](#what-standards-are-supported-in-the-compliance-dashboard)
-- [Dlaczego niektóre kontrolki są wyszarzone?](#why-do-some-controls-appear-grayed-out)
-- [Jak usunąć wbudowaną Standard, na przykład PCI-DSS, ISO 27001 lub SOC2 TSP z pulpitu nawigacyjnego?](#how-can-i-remove-a-built-in-standard-like-pci-dss-iso-27001-or-soc2-tsp-from-the-dashboard)
-- [Zostały wykonane sugerowane zmiany na podstawie zalecenia, ale nie są one odzwierciedlone na pulpicie nawigacyjnym](#i-made-the-suggested-changed-based-on-the-recommendation-yet-it-isnt-being-reflected-in-the-dashboard)
-- [Jakie uprawnienia muszę uzyskać dostęp do pulpitu nawigacyjnego zgodności?](#what-permissions-do-i-need-to-access-the-compliance-dashboard)
-- [Pulpit nawigacyjny zgodności z przepisami nie jest ładowany dla mnie](#the-regulatory-compliance-dashboard-isnt-loading-for-me)
-- [Jak mogę wyświetlić raport o przekazywaniu i nieprawidłowych kontrolkach na Standard na pulpicie nawigacyjnym?](#how-can-i-view-a-report-of-passing-and-failing-controls-per-standard-in-my-dashboard)
-- [Jak mogę pobrać raport z danymi zgodności w formacie innym niż PDF?](#how-can-i-download-a-report-with-compliance-data-in-a-format-other-than-pdf)
-- [Jak można utworzyć wyjątki dla niektórych zasad na pulpicie nawigacyjnym zgodności z przepisami](#how-can-i-create-exceptions-for-some-of-the-policies-in-the-regulatory-compliance-dashboard)
-- [Jakie plany lub licencje usługi Azure Defender muszę używać pulpitu nawigacyjnego zgodności z przepisami?](#what-azure-defender-plans-or-licenses-do-i-need-to-use-the-regulatory-compliance-dashboard)
+- [Dlaczego niektóre kontrolki są wyszarowane?](#why-do-some-controls-appear-grayed-out)
+- [Jak usunąć z pulpitu nawigacyjnego wbudowany standard, taki jak PCI-DSS, ISO 27001 lub SOC2 TSP?](#how-can-i-remove-a-built-in-standard-like-pci-dss-iso-27001-or-soc2-tsp-from-the-dashboard)
+- [Sugerowane zmiany zostały wprowadzone na podstawie rekomendacji, ale nie są one odzwierciedlane na pulpicie nawigacyjnym](#i-made-the-suggested-changed-based-on-the-recommendation-yet-it-isnt-being-reflected-in-the-dashboard)
+- [Jakich uprawnień potrzebuję, aby uzyskać dostęp do pulpitu nawigacyjnego zgodności?](#what-permissions-do-i-need-to-access-the-compliance-dashboard)
+- [Pulpit nawigacyjny zgodności z przepisami nie jest ładowany](#the-regulatory-compliance-dashboard-isnt-loading-for-me)
+- [Jak wyświetlić raport z przekazywaniem i niepowodzeniem kontrolek według standardu na pulpicie nawigacyjnym?](#how-can-i-view-a-report-of-passing-and-failing-controls-per-standard-in-my-dashboard)
+- [Jak pobrać raport z danymi zgodności w formacie innym niż PDF?](#how-can-i-download-a-report-with-compliance-data-in-a-format-other-than-pdf)
+- [Jak utworzyć wyjątki dla niektórych zasad na pulpicie nawigacyjnym zgodności z przepisami?](#how-can-i-create-exceptions-for-some-of-the-policies-in-the-regulatory-compliance-dashboard)
+- [Jakie Azure Defender lub licencje są potrzebne do korzystania z pulpitu nawigacyjnego zgodności z przepisami?](#what-azure-defender-plans-or-licenses-do-i-need-to-use-the-regulatory-compliance-dashboard)
 
 ### <a name="what-standards-are-supported-in-the-compliance-dashboard"></a>Jakie standardy są obsługiwane na pulpicie nawigacyjnym zgodności?
-Domyślnie pulpit nawigacyjny zgodności z przepisami zawiera wskaźnik wydajności usługi Azure Security. Test porównawczy zabezpieczeń platformy Azure to opracowane przez firmę Microsoft, specyficzne dla platformy Azure wskazówki dotyczące zabezpieczeń i najlepsze rozwiązania w zakresie zgodności w oparciu o typowe struktury zgodności. Dowiedz się więcej na temat [wprowadzenia do usługi Azure Security test](../security/benchmarks/introduction.md).
+Domyślnie pulpit nawigacyjny zgodności z przepisami pokazuje test porównawczy zabezpieczeń platformy Azure. Test porównawczy zabezpieczeń platformy Azure to wytyczne firmy Microsoft dotyczące najlepszych rozwiązań dotyczących zabezpieczeń i zgodności, które są specyficzne dla platformy Azure, oparte na wspólnych platformach zgodności. Dowiedz się więcej z wprowadzenia [do testu porównawczego zabezpieczeń platformy Azure.](../security/benchmarks/introduction.md)
 
 Aby śledzić zgodność z innymi standardami, musisz jawnie dodać je do pulpitu nawigacyjnego.
  
-Możesz dodawać standardy, takie jak Azure CIS 1.1.0 (NOWOŚĆ), NIST SP 800-53 R4, NIST SP 800-171 R2, SWIFT CSP CSCF-V2020, Zjednoczone Królestwo brytyjskie i Zjednoczone Królestwo NHS, HIPAA HITRUST, Kanada Federal PBMM, ISO 27001, SOC2-TSP i PCI-DSS 3.2.1.  
+Możesz dodać standardy, takie jak Azure CIS 1.1.0 (nowe), NIST SP 800-53 R4, NIST SP 800-171 R2, SWIFT CSP CSCF-v2020, UK Official i UK NHS, HIPAA HITRUST, Canada Federal PBMM, ISO 27001, SOC2-TSP i PCI-DSS 3.2.1.  
  
-Do pulpitu nawigacyjnego zostaną dodane więcej standardów i uwzględniono je na stronie [Dostosowywanie zestawu standardów na pulpicie nawigacyjnym zgodności z przepisami](update-regulatory-compliance-packages.md).
+Więcej standardów zostanie dodanych do pulpitu nawigacyjnego i uwzględnionych w informacjach dotyczących dostosowywania zestawu standardów na pulpicie [nawigacyjnym zgodności z przepisami.](update-regulatory-compliance-packages.md)
 
-### <a name="why-do-some-controls-appear-grayed-out"></a>Dlaczego niektóre kontrolki są wyszarzone?
-Dla każdej normy zgodności na pulpicie nawigacyjnym znajduje się lista kontrolek standardowych. W przypadku odpowiednich kontrolek można wyświetlić szczegóły dotyczące przekazywania i niepowodzenia ocen.
+### <a name="why-do-some-controls-appear-grayed-out"></a>Dlaczego niektóre kontrolki są wyszarowane?
+Dla każdego standardu zgodności na pulpicie nawigacyjnym znajduje się lista kontrolek standardu. W przypadku odpowiednich kontrolek można wyświetlić szczegóły ocen z przekazywaniem i niepowodzeniem.
 
-Niektóre kontrolki są wyszarzone. Te kontrolki nie mają skojarzonych z nimi ocen Security Center. Niektóre mogą być procedurami lub procesami i w związku z tym nie można ich zweryfikować przez Security Center. Niektóre nie mają jeszcze wdrożonych automatycznych zasad ani ocen, ale będą obowiązywać w przyszłości. Niektóre formanty mogą być odpowiedzialne za platformę, zgodnie z opisem we [wspólnej odpowiedzialności w chmurze](../security/fundamentals/shared-responsibility.md). 
+Niektóre kontrolki są wyszarowane. Te kontrolki nie mają żadnych Security Center skojarzonych z nimi ocen. Niektóre mogą być związane z procedurą lub procesem, dlatego nie mogą być weryfikowane przez Security Center. Niektóre nie mają jeszcze zaimplementowanych żadnych zautomatyzowanych zasad ani ocen, ale będą mieć w przyszłości. Niektóre kontrolki mogą być odpowiedzialne za platformę, jak wyjaśniono w tesłudze [Shared responsibility in the cloud (Wspólna odpowiedzialność w chmurze).](../security/fundamentals/shared-responsibility.md) 
 
-### <a name="how-can-i-remove-a-built-in-standard-like-pci-dss-iso-27001-or-soc2-tsp-from-the-dashboard"></a>Jak usunąć wbudowaną Standard, na przykład PCI-DSS, ISO 27001 lub SOC2 TSP z pulpitu nawigacyjnego? 
-Aby dostosować pulpit nawigacyjny zgodności z przepisami i skoncentrować się tylko na standardach, które mają zastosowanie do Ciebie, możesz usunąć dowolne z wyświetlanych standardów, które nie są odpowiednie dla Twojej organizacji. Aby usunąć Standard, postępuj zgodnie z instrukcjami w temacie [usuwanie standardu z pulpitu nawigacyjnego](update-regulatory-compliance-packages.md#remove-a-standard-from-your-dashboard).
+### <a name="how-can-i-remove-a-built-in-standard-like-pci-dss-iso-27001-or-soc2-tsp-from-the-dashboard"></a>Jak usunąć z pulpitu nawigacyjnego wbudowany standard, taki jak PCI-DSS, ISO 27001 lub SOC2 TSP? 
+Aby dostosować pulpit nawigacyjny zgodności z przepisami i skoncentrować się tylko na odpowiednich dla Ciebie standardach, możesz usunąć wszystkie wyświetlane standardy prawne, które nie są istotne dla Twojej organizacji. Aby usunąć standard, wykonaj instrukcje z [tematu Usuwanie standardu z pulpitu nawigacyjnego.](update-regulatory-compliance-packages.md#remove-a-standard-from-your-dashboard)
 
-### <a name="i-made-the-suggested-changed-based-on-the-recommendation-yet-it-isnt-being-reflected-in-the-dashboard"></a>Zostały wykonane sugerowane zmiany na podstawie zalecenia, ale nie są one odzwierciedlone na pulpicie nawigacyjnym
-Po podjęcie działań w celu rozwiązania zaleceń należy zaczekać 12 godzin, aby zobaczyć zmiany w danych zgodności. Oceny są uruchamiane co około 12 godzin, więc efekt dotyczący danych zgodności będzie widoczny dopiero po uruchomieniu ocen.
+### <a name="i-made-the-suggested-changed-based-on-the-recommendation-yet-it-isnt-being-reflected-in-the-dashboard"></a>Sugerowane zmiany zostały wprowadzone na podstawie rekomendacji, ale nie są one odzwierciedlane na pulpicie nawigacyjnym
+Po podjęciu akcji w celu rozwiązania zaleceń poczekaj 12 godzin, aby zobaczyć zmiany w danych dotyczących zgodności. Oceny są uruchamiane co około 12 godzin, więc wpływ na dane zgodności będzie można zobaczyć dopiero po uruchomieniu ocen.
  
-### <a name="what-permissions-do-i-need-to-access-the-compliance-dashboard"></a>Jakie uprawnienia muszę uzyskać dostęp do pulpitu nawigacyjnego zgodności?
-Aby wyświetlić dane zgodności, musisz mieć co najmniej dostęp **czytelnika** do danych dotyczących zgodności zasad; dlatego czytnik zabezpieczeń nie wystarcza. Jeśli jesteś czytnikiem globalnym w ramach subskrypcji, który będzie zbyt mały.
+### <a name="what-permissions-do-i-need-to-access-the-compliance-dashboard"></a>Jakich uprawnień potrzebuję, aby uzyskać dostęp do pulpitu nawigacyjnego zgodności?
+Aby wyświetlić dane zgodności, musisz mieć co **najmniej** dostęp czytelnika do danych zgodności zasad; Dlatego sam czytelnik zabezpieczeń nie wystarczy. Jeśli jesteś czytelnikiem globalnym subskrypcji, to też wystarczy.
 
-Minimalny zestaw ról do uzyskiwania dostępu do pulpitu nawigacyjnego i zarządzania standardami to **współautor zasad zasobów** i **administrator zabezpieczeń**.
+Minimalny zestaw ról do uzyskiwania dostępu do pulpitu nawigacyjnego i zarządzania standardami to Współautor **zasad zasobów** i **Administrator zabezpieczeń.**
 
 
-### <a name="the-regulatory-compliance-dashboard-isnt-loading-for-me"></a>Pulpit nawigacyjny zgodności z przepisami nie jest ładowany dla mnie
-Aby korzystać z pulpitu nawigacyjnego zgodność z przepisami, Azure Security Center musi mieć włączoną usługę Azure Defender na poziomie subskrypcji. Jeśli pulpit nawigacyjny nie zostanie poprawnie załadowany, spróbuj wykonać następujące czynności:
+### <a name="the-regulatory-compliance-dashboard-isnt-loading-for-me"></a>Pulpit nawigacyjny zgodności z przepisami nie jest ładowany
+Aby można było korzystać z pulpitu nawigacyjnego zgodności z przepisami, Azure Security Center musi Azure Defender na poziomie subskrypcji. Jeśli pulpit nawigacyjny nie jest ładowany poprawnie, spróbuj wykonać następujące czynności:
 
 1. Wyczyść pamięć podręczną przeglądarki.
 1. Wypróbuj inną przeglądarkę.
-1. Spróbuj otworzyć pulpit nawigacyjny z poziomu innej lokalizacji sieciowej.
+1. Spróbuj otworzyć pulpit nawigacyjny z innej lokalizacji sieciowej.
 
 
-### <a name="how-can-i-view-a-report-of-passing-and-failing-controls-per-standard-in-my-dashboard"></a>Jak mogę wyświetlić raport o przekazywaniu i nieprawidłowych kontrolkach na Standard na pulpicie nawigacyjnym?
-Na głównym pulpicie nawigacyjnym zobaczysz raport z przekazaniem i niepowodzeniem kontroli dla (1) najniższych standardów zgodności na pulpicie nawigacyjnym. Aby wyświetlić wszystkie Stany kontroli przechodzenia/niepowodzeniem, wybierz pozycję (2) **Pokaż wszystkie *x*** (gdzie x to liczba śledzonych standardów). Płaszczyzna kontekstowa wyświetla stan zgodności dla każdego z monitorowanych standardów.
+### <a name="how-can-i-view-a-report-of-passing-and-failing-controls-per-standard-in-my-dashboard"></a>Jak wyświetlić raport z przekazywaniem i niepowodzeniem kontrolek według standardu na pulpicie nawigacyjnym?
+Na głównym pulpicie nawigacyjnym można zobaczyć raport z przekazywaniem i niepowodzeniem kontrolek dla (1) "4 najniższych" standardów zgodności na pulpicie nawigacyjnym. Aby wyświetlić stan wszystkich kontrolek z przekazywaniem/niepowodzeniem, wybierz pozycję (2) Pokaż wszystkie x (gdzie ***x*** to liczba śledznych standardów). Płaszczyzna kontekstu wyświetla stan zgodności dla każdego śledzone standardy.
 
 :::image type="content" source="media/security-center-compliance-dashboard/summaries-of-compliance-standards.png" alt-text="Sekcja podsumowania pulpitu nawigacyjnego zgodności z przepisami":::
 
 
-### <a name="how-can-i-download-a-report-with-compliance-data-in-a-format-other-than-pdf"></a>Jak mogę pobrać raport z danymi zgodności w formacie innym niż PDF?
-Po wybraniu opcji **Pobierz raport** wybierz opcję standardowy i format (PDF lub CSV). Raport wynikający z tego raportu będzie odzwierciedlał bieżący zestaw subskrypcji, który został wybrany w filtrze portalu.
+### <a name="how-can-i-download-a-report-with-compliance-data-in-a-format-other-than-pdf"></a>Jak pobrać raport z danymi zgodności w formacie innym niż PDF?
+Po wybraniu **opcji Pobierz raport** wybierz standard i format (PDF lub CSV). Wynikowy raport będzie odzwierciedlać bieżący zestaw subskrypcji wybranych w filtrze portalu.
 
-- Raport PDF zawiera podsumowanie stanu dla wybranego standardu
-- Raport CSV zawiera szczegółowe wyniki dla każdego zasobu, który odnosi się do zasad skojarzonych z każdą kontrolką
+- Raport PDF zawiera podsumowanie stanu wybranego standardu
+- Raport CSV zawiera szczegółowe wyniki dla każdego zasobu, ponieważ odnosi się do zasad skojarzonych z każdą kontrolką
 
-Obecnie nie jest obsługiwane pobieranie raportu dla zasad niestandardowych; tylko dla dostarczonych standardów regulacyjnych.
-
-
-### <a name="how-can-i-create-exceptions-for-some-of-the-policies-in-the-regulatory-compliance-dashboard"></a>Jak można utworzyć wyjątki dla niektórych zasad na pulpicie nawigacyjnym zgodności z przepisami
-W przypadku zasad wbudowanych w Security Center i uwzględnionych w bezpiecznym wyniku można utworzyć wykluczenia dla jednego lub większej liczby zasobów bezpośrednio w portalu, jak wyjaśniono w temacie [zwalnianie zasobów i zaleceń z bezpiecznego wyniku](exempt-resource.md).
-
-W przypadku innych zasad można utworzyć wykluczenie bezpośrednio w samej zasadzie, wykonując instrukcje zawarte w [Azure Policy strukturze wykluczeń](../governance/policy/concepts/exemption-structure.md).
+Obecnie nie jest dostępna obsługa pobierania raportu dla zasad niestandardowych. tylko dla dostarczonych standardów prawnych.
 
 
-### <a name="what-azure-defender-plans-or-licenses-do-i-need-to-use-the-regulatory-compliance-dashboard"></a>Jakie plany lub licencje usługi Azure Defender muszę używać pulpitu nawigacyjnego zgodności z przepisami?
-Jeśli masz jakiekolwiek pakiety usługi Azure Defender włączone dla dowolnego z typów zasobów platformy Azure, masz dostęp do pulpitu nawigacyjnego zgodności z przepisami, ze wszystkimi danymi w Security Center.
+### <a name="how-can-i-create-exceptions-for-some-of-the-policies-in-the-regulatory-compliance-dashboard"></a>Jak utworzyć wyjątki dla niektórych zasad na pulpicie nawigacyjnym zgodności z przepisami?
+W przypadku zasad wbudowanych w Security Center i uwzględnionych w bezpiecznym wyniku można utworzyć wyjątki dla jednego lub większej liczby zasobów bezpośrednio w portalu, jak wyjaśniono w tece Wykluczanie zasobów i zaleceń z bezpiecznego [wyniku.](exempt-resource.md)
+
+W przypadku innych zasad można utworzyć wyłączenie bezpośrednio w zasadach, zgodnie z instrukcjami w Azure Policy [struktury wyieńcj.](../governance/policy/concepts/exemption-structure.md)
+
+
+### <a name="what-azure-defender-plans-or-licenses-do-i-need-to-use-the-regulatory-compliance-dashboard"></a>Jakie Azure Defender lub licencje są potrzebne do korzystania z pulpitu nawigacyjnego zgodności z przepisami?
+Jeśli dowolny z pakietów usługi Azure Defender jest włączony dla dowolnego typu zasobów platformy Azure, masz dostęp do pulpitu nawigacyjnego zgodności z przepisami wraz ze wszystkimi jego danymi w Security Center.
 
 
 
@@ -200,15 +200,15 @@ Jeśli masz jakiekolwiek pakiety usługi Azure Defender włączone dla dowolnego
 
 ## <a name="next-steps"></a>Następne kroki
 
-W ramach tego samouczka nauczysz się korzystać z pulpitu nawigacyjnego zgodności z przepisami Security Center, aby:
+W tym samouczku za pomocą pulpitu nawigacyjnego Security Center zgodności z przepisami w celu:
 
 > [!div class="checklist"]
-> * Wyświetl i monitoruj stan zgodności dotyczące standardów i przepisów, które są dla Ciebie ważne.
+> * Wyświetlanie i monitorowanie stanu zgodności w odniesieniu do ważnych dla Ciebie standardów i przepisów.
 > * Zwiększanie stanu zgodności przez wprowadzanie w życie odpowiednich rekomendacji i obserwowanie poprawy oceny zgodności.
 
-Pulpit nawigacyjny zgodności z przepisami może znacznie uprościć proces zgodności i znacząco skrócić czas wymagany do zbierania dowodów zgodności dla środowiska Azure, hybrydowego i wielochmurowego.
+Pulpit nawigacyjny zgodności z przepisami może znacznie uprościć proces zgodności i znacznie zmniejszyć czas wymagany na zebranie dowodów zgodności dla środowiska platformy Azure, środowiska hybrydowego i wielochmurowego.
 
 Aby dowiedzieć się więcej, zobacz następujące powiązane strony:
 
-- [Dostosuj zestaw standardów na pulpicie nawigacyjnym zgodności z przepisami](update-regulatory-compliance-packages.md) , aby dowiedzieć się, jak wybrać standardy, które są wyświetlane na pulpicie nawigacyjnym zgodności z przepisami. 
-- [Zarządzanie zaleceniami dotyczącymi zabezpieczeń w Azure Security Center](security-center-recommendations.md) — Dowiedz się, jak używać zaleceń w programie Security Center, aby pomóc w ochronie zasobów platformy Azure.
+- [Dostosowywanie zestawu standardów na pulpicie nawigacyjnym](update-regulatory-compliance-packages.md) zgodności z przepisami — dowiedz się, jak wybrać standardy wyświetlane na pulpicie nawigacyjnym zgodności z przepisami. 
+- [Zarządzanie zaleceniami Azure Security Center](security-center-recommendations.md) — dowiedz się, jak używać zaleceń w usłudze Security Center, aby chronić zasoby platformy Azure.

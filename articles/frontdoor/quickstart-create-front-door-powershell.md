@@ -1,12 +1,12 @@
 ---
 title: 'Szybki start: konfigurowanie wysokiej dostępności za pomocą Azure Front Door — Azure PowerShell'
-description: Ten przewodnik Szybki start pokazuje, jak za pomocą usługi Azure Front Door utworzyć globalną aplikację internetową o wysokiej dostępności i wysokiej wydajności przy użyciu Azure PowerShell.
+description: Ten przewodnik Szybki start pokazuje, jak używać usługi Azure Front Door do tworzenia globalnej aplikacji internetowej o wysokiej dostępności i wysokiej wydajności przy użyciu Azure PowerShell.
 services: front-door
 documentationcenter: na
 author: duongau
 ms.author: duau
 manager: KumudD
-ms.date: 09/21/2020
+ms.date: 04/19/2021
 ms.topic: quickstart
 ms.service: frontdoor
 ms.workload: infrastructure-services
@@ -14,22 +14,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom:
 - mode-api
-ms.openlocfilehash: cd439a5931340f56401e5f6ba7a4e09f35ab7c7d
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 17fa18e1f29622b941c281b9cdce27f6e72eb13a
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107539059"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739984"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application-using-azure-powershell"></a>Szybki start: tworzenie aplikacji Front Door dla globalnej aplikacji internetowej o wysokiej Azure PowerShell
 
-Rozpoczynanie pracy z Azure Front Door przy użyciu Azure PowerShell tworzenia globalnej aplikacji internetowej o wysokiej Azure PowerShell o wysokiej wydajności.
+Rozpoczynanie pracy z Azure Front Door przy użyciu Azure PowerShell tworzenia globalnej aplikacji internetowej o wysokiej dostępnej wydajności.
 
-Interfejs Front Door kieruje ruch internetowy do określonych zasobów w puli zaplecza. Zdefiniowano domenę frontonia, dodasz zasoby do puli zaplecza i utworzysz regułę rozsyłania. W tym artykule użyto prostej konfiguracji jednej puli zaplecza z dwoma zasobami aplikacji internetowej i jednej reguły rozsyłania przy użyciu domyślnego dopasowania ścieżki "/*".
+Interfejs Front Door kieruje ruch internetowy do określonych zasobów w puli zaplecza. Zdefiniowano domenę frontoni, dodasz zasoby do puli zaplecza i utworzysz regułę rozsyłania. W tym artykule użyto prostej konfiguracji jednej puli zaplecza z dwoma zasobami aplikacji internetowej i pojedynczej reguły routingu przy użyciu domyślnego dopasowania ścieżki "/*".
+
+:::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Diagram przedstawiający Front Door środowiska przy użyciu programu PowerShell." border="false":::
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Azure PowerShell zainstalowane lokalnie lub Azure Cloud Shell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -40,7 +42,7 @@ Interfejs Front Door kieruje ruch internetowy do określonych zasobów w puli za
 
 Na platformie Azure możesz przydzielić powiązane zasoby do grupy zasobów. Możesz użyć istniejącej grupy zasobów lub utworzyć nową.
 
-Utwórz grupę zasobów za pomocą [new-AzResourceGroup:](/powershell/module/az.resources/new-azresourcegroup)
+Utwórz grupę zasobów za [pomocą new-AzResourceGroup:](/powershell/module/az.resources/new-azresourcegroup)
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroupFD -Location centralus
@@ -50,22 +52,22 @@ New-AzResourceGroup -Name myResourceGroupFD -Location centralus
 
 Ten przewodnik Szybki start wymaga dwóch wystąpień aplikacji internetowej, które działają w różnych regionach świadczenia usługi Azure. Oba wystąpienia aplikacji internetowej działają w trybie aktywny/aktywny, więc jedno z nich może przyjmować ruch. Ta konfiguracja różni się od konfiguracji aktywnej/autonomicznej, w której działa jako tryb failover.
 
-Jeśli nie masz jeszcze aplikacji internetowej, użyj poniższego skryptu, aby skonfigurować dwie przykładowe aplikacje internetowe.
+Jeśli nie masz jeszcze aplikacji internetowej, użyj następującego skryptu, aby skonfigurować dwie przykładowe aplikacje internetowe.
 
 ```azurepowershell-interactive
 # Create first web app in Central US region.
 $webapp1 = New-AzWebApp `
--Name "WebAppContoso-$(Get-Random)" `
+-Name "WebAppContoso-1" `
 -Location centralus `
 -ResourceGroupName myResourceGroupFD `
 -AppServicePlan myAppServicePlanCentralUS
 
 # Create second web app in South Central US region.
 $webapp2 = New-AzWebApp `
--Name "WebAppContoso-$(Get-Random)" `
+-Name "WebAppContoso-2" `
 -Location southcentralus `
 -ResourceGroupName myResourceGroupFD `
--AppServicePlan myAppServicePlanSouthCentralUS
+-AppServicePlan myAppServicePlanEastUS
 ```
 
 ## <a name="create-a-front-door"></a>Tworzenie usługi Front Door

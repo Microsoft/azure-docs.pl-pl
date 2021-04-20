@@ -1,17 +1,17 @@
 ---
 title: Wyświetlanie zdalnie renderowanego modelu
-description: "\"Hello world\" renderowania zdalnego na platformie Azure — samouczek pokazuje, jak wyświetlić model renderowany zdalnie przez platformę Azure"
+description: Samouczek "Hello world" Azure Remote Rendering, w jaki sposób wyświetlić model renderowany zdalnie przez platformę Azure
 author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d8784bc4744e2d4beb6a72fdc0df0fd0b32346f9
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: f43e5b77580b7071ce48b39190c26a53f99f8cf5
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105605012"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740164"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Samouczek: wyświetlanie zdalnie renderowanego modelu
 
@@ -19,129 +19,129 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 > [!div class="checklist"]
 >
-> * Inicjowanie obsługi zdalnego renderowania (ARR) na platformie Azure
+> * Aprowizuj Azure Remote Rendering (ARR)
 > * Tworzenie i zatrzymywanie sesji renderowania
-> * Ponowne użycie istniejącej sesji renderowania
-> * Łączenie i rozłączanie z sesjami
+> * Ponowne używanie istniejącej sesji renderowania
+> * Nawiązywanie połączenia i rozłączanie z sesjami
 > * Ładowanie modeli do sesji renderowania
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym samouczku są potrzebne:
+Do pracy z tym samouczkiem potrzebne są:
 
-* Aktywną subskrypcję platformy Azure z opcją płatność zgodnie z rzeczywistym użyciem [Tworzenie konta](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/)
-* Windows SDK 10.0.18362.0 [(pobieranie)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-* Najnowsza wersja programu Visual Studio 2019 [(pobieranie)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* GIT [(pobieranie)](https://git-scm.com/downloads)
-* Unity (zobacz [wymagania systemowe](../../../overview/system-requirements.md#unity) dla obsługiwanych wersji)
-* Pośrednia znajomość aparatu Unity i języka C# (na przykład: Tworzenie skryptów i obiektów przy użyciu prefabs, Konfigurowanie zdarzeń aparatu Unity itp.)
+* Aktywna subskrypcja platformy Azure z płatnością zgodnie z platformą Azure [Tworzenie konta](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/)
+* Windows SDK 10.0.18362.0 [(pobierz)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
+* Najnowsza wersja programu Visual Studio 2019 [(pobierz)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* GIT [(pobierz)](https://git-scm.com/downloads)
+* Unity (zobacz [wymagania systemowe dla](../../../overview/system-requirements.md#unity) obsługiwanych wersji)
+* Pośrednia znajomość aparatu Unity i języka C# (na przykład: tworzenie skryptów i obiektów, używanie prefabryków, konfigurowanie zdarzeń aparatu Unity itp.)
 
-## <a name="provision-an-azure-remote-rendering-arr-instance"></a>Inicjowanie obsługi zdalnego renderowania (ARR) na platformie Azure
+## <a name="provision-an-azure-remote-rendering-arr-instance"></a>Aprowizuj Azure Remote Rendering (ARR)
 
-Aby uzyskać dostęp do usługi zdalnego renderowania na platformie Azure, musisz najpierw [utworzyć konto](../../../how-tos/create-an-account.md#create-an-account).
+Aby uzyskać dostęp do usługi Azure Remote Rendering, najpierw musisz [utworzyć konto](../../../how-tos/create-an-account.md#create-an-account).
 
 ## <a name="create-a-new-unity-project"></a>Tworzenie nowego projektu aparatu Unity
 
 > [!TIP]
-> [Repozytorium przykładów ARR](https://github.com/Azure/azure-remote-rendering) zawiera projekt ze wszystkimi wykonanymi samouczkami, może służyć jako odwołanie. Poszukaj w *Unity\Tutorial-Complete* całego projektu środowiska Unity.
+> Repozytorium [przykładów ARR](https://github.com/Azure/azure-remote-rendering) zawiera projekt z ukończonym wszystkimi samouczkami. Można go użyć jako odwołania. Poszukaj kompletnego projektu aparatu Unity w folderze *Unity\Tutorial-Complete.*
 
-W centrum Unity Utwórz nowy projekt.
-W tym przykładzie przyjęto założenie, że projekt zostanie utworzony w folderze o nazwie **RemoteRendering**.
+W centrum unity utwórz nowy projekt.
+W tym przykładzie przyjęto założenie, że projekt jest tworzony w folderze o nazwie **RemoteRendering**.
 
-:::image type="content" source="./media/unity-new-project.PNG" alt-text="Nowy projekt Unity":::
+:::image type="content" source="./media/unity-new-project.PNG" alt-text="Nowy projekt aparatu Unity":::
 
-## <a name="include-the-azure-remote-rendering-package"></a>Uwzględnij pakiet renderowania zdalnego platformy Azure
+## <a name="include-the-azure-remote-rendering-package"></a>Dołącz pakiet Azure Remote Rendering aplikacji
 
-[Postępuj zgodnie z instrukcjami](../../../how-tos/unity/install-remote-rendering-unity-package.md) dotyczącymi dodawania pakietu zdalnego renderowania platformy Azure do projektu środowiska Unity.
+[Postępuj zgodnie z instrukcjami](../../../how-tos/unity/install-remote-rendering-unity-package.md) dotyczącymi dodawania pakietu Azure Remote Rendering do projektu aparatu Unity.
 
 
-## <a name="configure-the-camera"></a>Konfigurowanie aparatu
+## <a name="configure-the-camera"></a>Konfigurowanie aparatu fotograficznego
 
-1. Wybierz węzeł **główny aparat** .
+1. Wybierz węzeł **Kamera główna.**
 
-1. Otwórz menu kontekstowe, klikając prawym przyciskiem myszy składnik *przekształcenia* i wybierając opcję **Resetuj** :
+1. Otwórz menu kontekstowe, klikając  prawym przyciskiem myszy składnik Przekształć i wybierz **opcję Resetuj:**
 
-    ![Zresetuj transformację aparatu](./media/camera-reset-transform.png)
+    ![resetowanie przekształcenia aparatu](./media/camera-reset-transform.png)
 
-1. Ustaw **Wyczyść flagi** na *Kolor kryjący*
+1. Ustaw **flagi Clear na** solid color *(Pełny kolor)*
 
-1. Ustaw **tło** na *czerń* (#000000), używając w pełni przezroczystego (0) alfa (A)
+1. Ustaw **tło na** *czarny* (#000000) z w pełni przezroczystym (0) alfa (A)
 
     ![Koło kolorów](./media/color-wheel-black.png)
 
-1. Ustaw **płaszczyzny przycinające** na wartość *Near = 0,3* i *daleko = 20*. Oznacza to, że renderowanie będzie odcięta geometrii, która jest mniejsza niż 30 cm lub większa niż 20 metrów.
+1. Ustaw **płaszczyzny przycinania na** *wartość Near = 0,3* i *Far = 20*. Oznacza to, że renderowanie spowoduje obcięcie geometrii, która jest bliżej niż 30 cm lub dalej niż 20 metrów.
 
     ![Właściwości aparatu Unity](./media/camera-properties.png)
 
-## <a name="adjust-the-project-settings"></a>Dostosuj ustawienia projektu
+## <a name="adjust-the-project-settings"></a>Dostosowywanie ustawień projektu
 
-1. Otwórz *Edytowanie ustawień projektu >...*
-1. Wybierz pozycję **jakość** z menu listy po lewej stronie
-1. Zmień **domyślny poziom jakości** wszystkich platform na *niski*. To ustawienie umożliwi wydajniejsze renderowanie zawartości lokalnej i nie ma wpływu na jakość zdalnie renderowanej zawartości.
+1. Otwórz *pozycję Edytuj > ustawienia projektu...*
+1. Wybierz **pozycję Jakość** z menu listy po lewej stronie
+1. Zmień domyślny **poziom jakości dla** wszystkich platform na *Niski.* To ustawienie umożliwia bardziej wydajne renderowanie zawartości lokalnej i nie wpływa na jakość zdalnie renderowanych zawartości.
 
-    ![Zmień ustawienia jakości projektu](./media/settings-quality.png)
+    ![zmienianie ustawień jakości projektu](./media/settings-quality.png)
 
-1. Wybierz pozycję **grafika** z menu listy po lewej stronie
-1. Zmień ustawienie **potoku renderowania skryptowego** na *HybridRenderingPipeline*. \
-    ![Zrzut ekranu, który wskazuje, gdzie można zmienić ustawienie potoku renderowania skryptowego na HybridRenderingPipeline.](./media/settings-graphics-render-pipeline.png)\
-    Czasami interfejs użytkownika nie wypełnia listy dostępnych typów potoków z pakietów. W takim przypadku należy ręcznie przeciągnąć element zawartości *HybridRenderingPipeline* na pole: \
-    ![Zmienianie ustawień grafiki projektu](./media/hybrid-rendering-pipeline.png)
+1. Wybieranie **pozycji Grafika** z menu listy po lewej stronie
+1. Zmień ustawienie **Potok renderowania skryptowego** na *HybridRenderingPipeline*.\
+    ![Zrzut ekranu przedstawiający miejsce zmiany ustawienia Potok renderowania skryptowego na HybridRenderingPipeline.](./media/settings-graphics-render-pipeline.png)\
+    Czasami interfejs użytkownika nie wypełnia listy dostępnych typów potoków z pakietów. W takim przypadku należy ręcznie przeciągnąć zasób *HybridRenderingPipeline* do pola:\
+    ![zmienianie ustawień grafiki projektu](./media/hybrid-rendering-pipeline.png)
 
     > [!NOTE]
-    > Jeśli nie możesz przeciągnąć i upuścić elementu zawartości *HybridRenderingPipeline* do pola zasobu potoku renderowania (prawdopodobnie dlatego, że pole nie istnieje!), upewnij się, że konfiguracja pakietu zawiera `com.unity.render-pipelines.universal` pakiet.
+    > Jeśli nie możesz przeciągnąć i upuścić zasobu *HybridRenderingPipeline* w polu Zasób potoku renderowania (prawdopodobnie dlatego, że pole nie istnieje!), upewnij się, że konfiguracja pakietu zawiera `com.unity.render-pipelines.universal` pakiet.
 
-1. Wybierz **odtwarzacz** z menu listy po lewej stronie
-1. Wybierz kartę **ustawienia platforma uniwersalna systemu Windows** , reprezentowane jako ikona systemu Windows.
-1. Zmień **Ustawienia XR** , aby obsługiwać rzeczywistość mieszana systemu Windows, jak pokazano poniżej:
-    1. Włącz obsługę **wirtualnej rzeczywistości**
-    1. Naciśnij przycisk "+" i Dodaj **rzeczywistość systemu Windows**
-    1. Ustaw **Format głębokości** na *16-bitową głębię*
-    1. Upewnij się, że włączono **udostępnianie buforu głębokości**
-    1. Ustaw **tryb renderowania stereo** na *pojedynczy przebieg*
+1. Wybierz **pozycję Player** (Odtwarzacz) z menu listy po lewej stronie
+1. Wybierz **kartę platforma uniwersalna systemu Windows ustawień** systemu Windows reprezentowaną jako ikona systemu Windows.
+1. Zmień ustawienia **XR, aby** obsługiwać Windows Mixed Reality, jak pokazano poniżej:
+    1. Włączanie **obsługi rzeczywistości wirtualnej**
+    1. Naciśnij przycisk "+" i **dodaj** Windows Mixed Reality
+    1. Ustaw **format głębokości** na głębokość *16-bitową*
+    1. Upewnij **się, że włączono udostępnianie buforu** głębokości
+    1. Ustaw **tryb renderowania stereo na** wystąpienie pojedynczego *przebiegu*
 
     ![ustawienia odtwarzacza](./media/xr-player-settings.png)
 
-1. W tym samym oknie, powyżej **ustawień XR**, rozwiń pozycję **Ustawienia publikowania**
-1. Przewiń w dół do opcji **możliwości** i wybierz:
+1. W tym samym oknie powyżej okna **Ustawienia XR** rozwiń pozycję **Ustawienia publikowania**
+1. Przewiń w dół **do opcji Możliwości** i wybierz:
     * **InternetClient**
     * **InternetClientServer**
     * **SpatialPerception**
-    * **PrivateNetworkClientServer** (*Opcjonalnie*). Wybierz tę opcję, jeśli chcesz połączyć zdalny debuger aparatu Unity z urządzeniem.
+    * **PrivateNetworkClientServer** *(opcjonalnie*). Wybierz tę opcję, jeśli chcesz połączyć debuger zdalny aparatu Unity z urządzeniem.
 
-1. W obszarze **obsługiwane rodziny urządzeń** Włącz **Holographic** i **pulpit**
-1. Zamknij lub Zadokuj panel **ustawień projektu**
-1. Otwórz *plik — ustawienia kompilacji >*
+1. W **obszarze Obsługiwane rodziny urządzeń** włącz urządzenia **Holographic** i **Desktop**
+1. Zamykanie lub **dokowanie panelu Project Settings (Ustawienia** projektu)
+1. Otwieranie *ustawień kompilacji >plików*
 1. Wybierz **platforma uniwersalna systemu Windows**
-1. Skonfiguruj ustawienia tak, aby były zgodne z tymi, które znajdują się poniżej
-1. Naciśnij przycisk **przełącznika platformy** . \
-![Ustawienia kompilacji](./media/build-settings.png)
-1. Po zmianie platform przez środowisko Unity Zamknij Panel kompilacji.
+1. Skonfiguruj ustawienia tak, aby były zgodne z poniższymi ustawieniami
+1. Naciśnij przycisk **Switch Platform(Przełącz** platformę).\
+![ustawienia kompilacji](./media/build-settings.png)
+1. Gdy unity zmieni platformy, zamknij panel kompilacji.
 
 ## <a name="validate-project-setup"></a>Weryfikowanie konfiguracji projektu
 
-Wykonaj następujące kroki, aby sprawdzić, czy ustawienia projektu są poprawne.
+Wykonaj poniższe kroki, aby sprawdzić, czy ustawienia projektu są poprawne.
 
-1. Wybierz wpis **ValidateProject** z menu **RemoteRendering** na pasku narzędzi edytora aparatu Unity.
-1. Przejrzyj okno **ValidateProject** pod kątem błędów i napraw ustawienia projektu, w razie potrzeby.
+1. Wybierz wpis **ValidateProject z** menu **RemoteRendering** na pasku narzędzi edytora aparatu Unity.
+1. Sprawdź, **czy w oknie ValidateProject występują** błędy, i w razie potrzeby napraw ustawienia projektu.
 
-    ![Sprawdzanie poprawności projektu edytora Unity](./media/remote-render-unity-validation.png)
+    ![Walidacja projektu edytora aparatu Unity](./media/remote-render-unity-validation.png)
 
-## <a name="create-a-script-to-coordinate-azure-remote-rendering-connection-and-state"></a>Utwórz skrypt do koordynowania połączenia i stanu renderowania zdalnego platformy Azure
+## <a name="create-a-script-to-coordinate-azure-remote-rendering-connection-and-state"></a>Tworzenie skryptu w celu koordynowania Azure Remote Rendering i stanu
 
-Istnieją cztery podstawowe etapy pokazujące zdalnie renderowane modele, opisane w poniższym schemacie blokowym. Każdy etap należy wykonać w pożądanej kolejności. Następnym krokiem jest utworzenie skryptu, który będzie zarządzać stanem aplikacji i przebiegać przez poszczególne wymagane etapy.
+Istnieją cztery podstawowe etapy, które pokazują zdalnie renderowane modele, opisane na poniższym schematze blokowego. Każdy etap musi być wykonywany w kolejności. Następnym krokiem jest utworzenie skryptu, który będzie zarządzać stanem aplikacji i przechodzić przez każdy wymagany etap.
 
 ![Stos ARR 0](./media/remote-render-stack-0.png)
 
-1. W okienku *projekt* w obszarze **zasoby** Utwórz nowy folder o nazwie *RemoteRenderingCore*. Następnie wewnątrz *RemoteRenderingCore* Utwórz inny folder o nazwie *skrypty*.
+1. W *okienku Projekt* w obszarze **Zasoby** utwórz nowy folder o nazwie *RemoteRenderingCore.* Następnie wewnątrz *funkcji RemoteRenderingCore* utwórz kolejny folder o nazwie Scripts ( *Skrypty).*
 
-1. Utwórz [Nowy skrypt języka C#](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) o nazwie **RemoteRenderingCoordinator**.
-Projekt powinien wyglądać następująco:
+1. Utwórz nowy [skrypt języka C#](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) **o nazwie RemoteRenderingCoordinator.**
+Projekt powinien wyglądać tak:
 
     ![Hierarchia projektu](./media/project-structure.png)
 
-    Ten skrypt koordynatora będzie śledził i zarządzać stanem renderowania zdalnego. Zwróć uwagę, że niektóre z tych kodów są używane do konserwacji stanu, ujawniania funkcjonalności innym składnikom, wyzwalania zdarzeń i przechowywania danych specyficznych dla aplikacji, które nie są *bezpośrednio* związane z renderowaniem zdalnym platformy Azure. Użyj poniższego kodu jako punktu wyjścia, a w dalszej części tego samouczka podasz i zaimplementujmy określony kod zdalnego renderowania platformy Azure.
+    Ten skrypt koordynatora będzie śledzić stan renderowania zdalnego i zarządzać tym stanem. Należy pamiętać, że niektóre z tych kodów służą do utrzymywania stanu, uwsłaniania funkcjonalności innym  składnikom, wyzwalania zdarzeń i przechowywania danych specyficznych dla aplikacji, które nie są bezpośrednio związane z Azure Remote Rendering. Użyj poniższego kodu jako punktu wyjścia, a w dalszej części tego samouczka zaim <7>mujemy i zaim implementujemy Azure Remote Rendering kodu.
 
-1. Otwórz **RemoteRenderingCoordinator** w edytorze kodu i Zastąp całą zawartość następującym kodem:
+1. Otwórz **remoteRenderingCoordinator** w edytorze kodu i zastąp całą jego zawartość poniższym kodem:
 
 ```cs
 // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -182,14 +182,15 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 
     public static RemoteRenderingCoordinator instance;
 
-    // AccountDomain must be '<region>.mixedreality.azure.com' - if no '<region>' is specified, connections will fail
-    // The list of regions is available at https://docs.microsoft.com/azure/remote-rendering/reference/regions
+    // Account
+    // RemoteRenderingDomain must be '<region>.mixedreality.azure.com' - if no '<region>' is specified, connections will fail
+    // For most people '<region>' is either 'westus2' or 'westeurope'
     [SerializeField]
-    private string accountDomain = "westus2.mixedreality.azure.com";
-    public string AccountDomain
+    private string remoteRenderingDomain = "westus2.mixedreality.azure.com";
+    public string RemoteRenderingDomain
     {
-        get => accountDomain.Trim();
-        set => accountDomain = value;
+        get => remoteRenderingDomain.Trim();
+        set => remoteRenderingDomain = value;
     }
 
     [Header("Development Account Credentials")]
@@ -201,12 +202,12 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     }
 
     [SerializeField]
-    private string accountAuthenticationDomain = "<enter your account authentication domain here>";
-    public string AccountAuthenticationDomain
+    private string accountDomain = "<enter your account domain here>";
+    public string AccountDomain
     {
-        get => accountAuthenticationDomain.Trim();
-        set => accountAuthenticationDomain = value;
-    }   
+        get => accountDomain.Trim();
+        set => accountDomain = value;
+    }    
 
     [SerializeField]
     private string accountKey = "<enter your account key here>";
@@ -272,7 +273,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
             if (currentCoordinatorState != value)
             {
                 currentCoordinatorState = value;
-                Debug.Log($"State changed to: {currentCoordinatorState}");
+                Debug.LogFormat(LogType.Log, LogOption.NoStacktrace, null, "{0}", $"State changed to: {currentCoordinatorState}");
                 CoordinatorStateChange?.Invoke(currentCoordinatorState);
             }
         }
@@ -297,7 +298,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     private async Task<SessionConfiguration> GetDevelopmentCredentials()
     {
         Debug.LogWarning("Using development credentials! Not recommended for production.");
-        return await Task.FromResult(new SessionConfiguration(AccountAuthenticationDomain, AccountDomain, AccountId, AccountKey));
+        return await Task.FromResult(new SessionConfiguration(AccountDomain, RemoteRenderingDomain, AccountId, AccountKey));
     }
 
     /// <summary>
@@ -523,31 +524,31 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 }
 ```
 
-## <a name="create-the-azure-remote-rendering-gameobject"></a>Tworzenie zdalnego renderowania platformy Azure — Graobject
+## <a name="create-the-azure-remote-rendering-gameobject"></a>Tworzenie Azure Remote Rendering GameObject
 
-Koordynator renderowania zdalnego i jego wymagany skrypt (*ARRServiceUnity*) są zarówno niektórymi zachowaniami, które muszą być dołączone do gry w scenie. Skrypt *ARRServiceUnity* jest dostarczany przez ARR w celu udostępnienia wielu funkcji ARR do łączenia się z sesjami zdalnymi i zarządzania nimi.
+Koordynator zdalnego renderowania i jego wymagany skrypt *(ARRServiceUnity)* są zarówno koordynatorem MonoBehaviour, które muszą być dołączone do projektu GameObject w scenie. Skrypt *ARRServiceUnity* jest dostarczany przez usługę ARR, aby uwidocznić większość funkcji ARR do łączenia się z sesjami zdalnymi i zarządzania nimi.
 
-1. Utwórz nową Gręobject w scenie (Ctrl + Shift + N lub *gameobject — >utworzyć puste*) i nadaj jej nazwę **RemoteRenderingCoordinator**.
-1. Dodaj skrypt *RemoteRenderingCoordinator* do **RemoteRenderingCoordinator** gameobject. \
-![Dodaj składnik RemoteRenderingCoordinator](./media/add-coordinator-script.png)
-1. Potwierdź, że skrypt *ARRServiceUnity* , wyświetlany jako *Usługa* w Inspektorze, jest automatycznie dodawany do gry. Jeśli zastanawiasz się, jest to wynik w `[RequireComponent(typeof(ARRServiceUnity))]` górnej części skryptu **RemoteRenderingCoordinator** .
-1. Dodaj poświadczenia renderowania zdalnego platformy Azure, domenę uwierzytelniania konta i domenę konta do skryptu koordynatora: \
+1. Utwórz nowy projekt GameObject w scenie (Ctrl+Shift+N lub *GameObject->Create Empty*) i nadaj jej nazwę **RemoteRenderingCoordinator.**
+1. Dodaj skrypt *RemoteRenderingCoordinator* do **skryptu RemoteRenderingCoordinator** GameObject.\
+![Dodawanie składnika RemoteRenderingCoordinator](./media/add-coordinator-script.png)
+1. Upewnij *się, że skrypt ARRServiceUnity* wyświetlany jako *Usługa* w inspektorze jest automatycznie dodawany do gameObject. Jeśli się zastanawiasz, jest to wynik w górnej części skryptu `[RequireComponent(typeof(ARRServiceUnity))]` **RemoteRenderingCoordinator.**
+1. Dodaj poświadczenia Azure Remote Rendering, domenę konta i domenę Remote Rendering do skryptu koordynatora:\
 ![Dodawanie poświadczeń](./media/configure-coordinator-script.png)
 
-## <a name="initialize-azure-remote-rendering"></a>Inicjowanie renderowania zdalnego platformy Azure
+## <a name="initialize-azure-remote-rendering"></a>Inicjowanie Azure Remote Rendering
 
-Teraz, gdy mamy już strukturę naszego koordynatora, zaimplementujmy każdy z czterech etapów, rozpoczynając od **inicjowania zdalnego renderowania**.
+Teraz, gdy mamy już platformę dla naszego koordynatora, wdrożymy każdy z czterech etapów, rozpoczynając od Remote Rendering **.**
 
 ![Stos ARR 1](./media/remote-render-stack-1.png)
 
-**Zainicjuj** oznacza, że usługa Azure Remote renderuje, który obiekt kamery ma być używany do renderowania i postępu maszyny stanu w **NotAuthorized**. Oznacza to, że jest zainicjowany, ale nie jest jeszcze autoryzowany do łączenia się z sesją. Od momentu rozpoczęcia sesji ARR jest koszt, dlatego musimy potwierdzić, że użytkownik chce przeprowadzić operację.
+**Inicjuj** informuje Azure Remote Rendering obiekt aparatu do renderowania i przekieruje maszynę stanu do stanu **NotAuthorized.** Oznacza to, że został zainicjowany, ale nie ma jeszcze autoryzacji do nawiązywania połączenia z sesją. Ponieważ uruchomienie sesji ARR wiąże się z kosztami, musimy potwierdzić, że użytkownik chce kontynuować.
 
-Podczas wprowadzania stanu **NotAuthorized** jest wywoływana **CheckAuthorization** , która wywołuje zdarzenie **RequestingAuthorization** i określa, które poświadczenia konta do użycia (**AccountInfo** jest zdefiniowany w górnej części klasy i używa poświadczeń zdefiniowanych za pośrednictwem inspektora Unity w powyższym kroku).
+Podczas wprowadzania stanu **NotAuthorized** jest wywoływana funkcja **CheckAuthorization,** która wywołuje zdarzenie **RequestingAuthorization** i określa poświadczenia konta do użycia **(AccountInfo** jest definiowana w górnej części klasy i używa poświadczeń zdefiniowanych za pośrednictwem inspektora aparatu Unity w powyższym kroku).
 
    > [!NOTE]
-   > Ponowna kompilacja środowiska uruchomieniowego nie jest obsługiwana przez ARR. Modyfikacja skryptu i zapisanie go w czasie aktywności trybu odtwarzania może spowodować zamarzanie aparatu Unity i konieczność wymuszenia wyłączenia za pomocą Menedżera zadań. Zawsze upewnij się, że zatrzymano tryb odtwarzania przed edytowaniem skryptów.
+   > Ponowne kompilowanie środowiska uruchomieniowego nie jest obsługiwane przez ARR. Zmodyfikowanie skryptu i zapisanie go, gdy tryb odtwarzania jest aktywny, może spowodować zamarzanie aparatu Unity i konieczność wymusnięcia zamknięcia za pośrednictwem menedżera zadań. Przed rozpoczęciem edytowania skryptów zawsze upewnij się, że tryb odtwarzania został zatrzymany.
 
-1. Zastąp zawartość **InitializeARR** i **InitializeSessionService** następującym kodem:
+1. Zastąp zawartość plików **InitializeARR** i **InitializeSessionService** poniższym ukończonym kodem:
 
  ```cs
 /// <summary>
@@ -580,32 +581,32 @@ public async void InitializeSessionService()
 }
 ```
 
-Aby postępować od **NotAuthorized** do **nosession**, zwykle przedstawiamy użytkownikowi modalne okno dialogowe, aby można było wybrać (i zrobićmy tylko w innym rozdziale). Teraz automatycznie pomijamy sprawdzanie autoryzacji przez wywołanie **ByPassAuthentication** zaraz po wyzwoleniu zdarzenia **RequestingAuthorization** .
+Aby przejść z **notauthorized** do **NoSession,** zwykle prezentowaliśmy modalne okno dialogowe użytkownikowi, aby mógł wybrać (i zrobimy to w innym rozdziale). Na razie będziemy automatycznie pomijać sprawdzanie autoryzacji przez wywołanie funkcji **ByPassAuthentication** zaraz po wyzwoleniu zdarzenia **RequestingAuthorization.**
 
-1. Wybierz **RemoteRenderingCoordinator** gameobject i Znajdź zdarzenie Unity **OnRequestingAuthorization** uwidocznione w Inspektorze składnika **RemoteRenderingCoordinator** .
+1. Wybierz **element GameObject RemoteRenderingCoordinator** i znajdź zdarzenie **OnRequestingAuthorization aparatu** Unity ujawnione w inspektorze składnika **RemoteRenderingCoordinator.**
 
-1. Dodaj nowe zdarzenie, naciskając znak "+" w prawym dolnym rogu.
-1. Przeciągnij składnik do własnego zdarzenia, aby odwołać się do samego siebie. \
-![Obejdź uwierzytelnianie](./media/bypass-authorization-add-event.png)\
-1. Z listy rozwijanej wybierz pozycję **RemoteRenderingCoordinator-> BypassAuthorization**. \
-![Zrzut ekranu przedstawiający wybraną opcję RemoteRenderingCoordinator. BypassAuthorization.](./media/bypass-authorization-event.png)
+1. Dodaj nowe zdarzenie, naciskając klawisz "+" w prawym dolnym rogu.
+1. Przeciągnij składnik na element do własnego zdarzenia, aby odwołać się do samego siebie.\
+![Pomijanie uwierzytelniania](./media/bypass-authorization-add-event.png)\
+1. Z listy rozwijanej wybierz **pozycję RemoteRenderingCoordinator -> BypassAuthorization**.\
+![Zrzut ekranu przedstawiający wybraną opcję RemoteRenderingCoordinator.BypassAuthorization.](./media/bypass-authorization-event.png)
 
-## <a name="create-or-join-a-remote-session"></a>Tworzenie sesji zdalnej lub dołączanie do niej
+## <a name="create-or-join-a-remote-session"></a>Tworzenie lub dołączanie sesji zdalnej
 
-Drugim etapem jest utworzenie lub dołączenie zdalnej sesji renderowania (zobacz [zdalne renderowanie sesji](../../../concepts/sessions.md) , aby uzyskać więcej informacji).
+Drugim etapem jest utworzenie lub dołączenie do sesji Remote Rendering (zobacz [Remote Rendering,](../../../concepts/sessions.md) aby uzyskać więcej informacji).
 
 ![Stos ARR 2](./media/remote-render-stack-2.png)
 
-Sesja zdalna to miejsce, w którym będą renderowane modele. Metoda **JoinRemoteSession ()** podejmie próbę dołączenia do istniejącej sesji, która jest śledzona przy użyciu właściwości **LastUsedSessionID** lub ma przypisany identyfikator aktywnej sesji na **SessionIDOverride**. **SessionIDOverride** jest przeznaczona tylko do celów debugowania, dlatego powinna być używana tylko wtedy, gdy wiadomo, że sesja istnieje i chcesz w sposób jawny nawiązać z nią połączenie.
+Sesja zdalna to miejsce, w którym będą renderowane modele. Metoda **JoinRemoteSession( )** podejmie próbę dołączenia do istniejącej sesji śledzone przy użyciu właściwości **LastUsedSessionID** lub jeśli istnieje przypisany identyfikator aktywnej sesji w metodzie **SessionIDOverride.** **SessionIDOverride** jest przeznaczony tylko do celów debugowania. Powinien być używany tylko wtedy, gdy wiadomo, że sesja istnieje i chcesz jawnie nawiązać z nim połączenie.
 
-Jeśli żadna sesja nie jest dostępna, zostanie utworzona nowa sesja. Tworzenie nowej sesji jest jednak czasochłonną operacją. W związku z tym należy spróbować utworzyć sesje tylko wtedy, gdy jest to wymagane, i użyć ich ponownie, jeśli to możliwe (zobacz [komercyjne gotowe: pule sesji, planowanie i najlepsze rozwiązania,](../commercial-ready/commercial-ready.md#fast-startup-time-strategies) Aby uzyskać więcej informacji na temat zarządzania sesjami).
+Jeśli sesje nie są dostępne, zostanie utworzona nowa sesja. Tworzenie nowej sesji jest jednak czasochłonne. W związku z tym należy próbować tworzyć sesje tylko wtedy, gdy jest to wymagane, i używać ich ponownie zawsze, gdy jest to możliwe (zobacz [Commercial Ready: Session pooling, scheduling, and best practices](../commercial-ready/commercial-ready.md#fast-startup-time-strategies) (Komercyjne gotowe: pule sesji, planowanie i najlepsze rozwiązania), aby uzyskać więcej informacji na temat zarządzania sesjami).
 
 > [!TIP]
-> **StopRemoteSession ()** zakończy aktywną sesję. Aby uniknąć niepotrzebnych opłat, należy zawsze zatrzymywać sesje, gdy nie są już potrzebne.
+> **StopRemoteSession()** spowoduje zakończenie aktywnej sesji. Aby uniknąć niepotrzebnych opłat, zawsze należy zatrzymać sesje, gdy nie są już potrzebne.
 
-Komputer stanu będzie teraz postępować z **ConnectingToNewRemoteSession** lub **ConnectingToExistingRemoteSession**, w zależności od dostępnych sesji. Zarówno otwarcie istniejącej sesji, jak i utworzenie nowej sesji spowoduje wyzwolenie zdarzenia **ARRSessionService. OnSessionStatusChanged** , wykonując naszą metodę **OnRemoteSessionStatusChanged** . W idealnym przypadku spowoduje to przechodzenie komputera stanu do **RemoteSessionReady**.
+Maszyna stanu będzie teraz przejść do **connectingToNewRemoteSession** lub **ConnectingToExistingRemoteSession,** w zależności od dostępnych sesji. Zarówno otwarcie istniejącej sesji, jak i utworzenie nowej sesji spowoduje wyzwolenie zdarzenia **ARRSessionService.OnSessionStatusChanged,** wykonując naszą metodę **OnRemoteSessionStatusChanged.** W idealnym przypadku spowoduje to przejście maszyny stanu do **RemoteSessionReady.**
 
-1. Aby dołączyć do nowej sesji, należy zmodyfikować kod w celu zastąpienia metod **JoinRemoteSession ()** i **StopRemoteSession ()** z przedstawionymi przykładami poniżej:
+1. Aby dołączyć do nowej sesji, zmodyfikuj kod, aby zastąpić metody **JoinRemoteSession( )** i **StopRemoteSession( ) poniższymi** ukończonymi przykładami:
 
 ```cs
 /// <summary>
@@ -649,21 +650,21 @@ public void StopRemoteSession()
 }
 ```
 
-Aby zaoszczędzić czas przez ponowne użycie sesji, należy wyłączyć opcję **automatycznie Zatrzymaj sesję** w składniku *ARRServiceUnity* . Należy pamiętać, że spowoduje to pozostawienie uruchomionych sesji, nawet wtedy, gdy żaden z nich nie jest podłączony do nich. Sesja może działać tak długo, jak *MaxLeaseTime* przed zamknięciem serwera (wartość dla *MaxLeaseTime* można zmodyfikować w koordynatorze renderowania zdalnego, w obszarze *nowe wartości domyślne sesji*). Z drugiej strony, jeśli podczas odłączania automatycznie zostanie wyłączona każda sesja, należy poczekać na rozpoczęcie nowej sesji, co może być czasochłonne.
+Jeśli chcesz zaoszczędzić czas, ponownie korzystając z sesji, pamiętaj, aby dezaktywować opcję **Automatycznie** zatrzymaj sesję w *składniku ARRServiceUnity.* Należy pamiętać, że spowoduje to pozostawienie uruchomionych sesji, nawet jeśli nikt nie jest z nimi połączony. Sesja może być uruchamiana przez okres *MaxLeaseTime* przed jej zamknięciem przez serwer (wartość *MaxLeaseTime* można zmodyfikować w aplikacji Remote Rendering Coordinator w obszarze Nowe wartości *domyślne sesji).* Z drugiej strony, jeśli automatycznie zamkniesz każdą sesję podczas rozłączania, musisz zaczekać na za każdym razem, aż nowa sesja zostanie uruchomiona, co może być dość długotrwałym procesem.
 
 > [!NOTE]
-> Zatrzymywanie sesji zajmie natychmiastowy skutek i nie można jej cofnąć. Po zatrzymaniu należy utworzyć nową sesję z tym samym obciążeniem podczas uruchamiania.
+> Zatrzymanie sesji będzie obowiązywać natychmiast i nie można jej cofnąć. Po zatrzymaniu należy utworzyć nową sesję z tym samym obciążeniem uruchomienia.
 
-## <a name="connect-the-local-runtime-to-the-remote-session"></a>Połącz lokalne środowisko uruchomieniowe z sesją zdalną
+## <a name="connect-the-local-runtime-to-the-remote-session"></a>Łączenie lokalnego środowiska uruchomieniowego z sesją zdalną
 
 Następnie aplikacja musi połączyć swoje lokalne środowisko uruchomieniowe z sesją zdalną.
 
 ![Stos ARR 3](./media/remote-render-stack-3.png)
 
-Aplikacja musi również nasłuchiwać zdarzeń dotyczących połączenia między środowiskiem uruchomieniowym a bieżącą sesją; te zmiany stanu są obsługiwane w **OnLocalRuntimeStatusChanged**. Ten kod będzie postępować według naszego stanu **ConnectingToRuntime**. Po nawiązaniu połączenia w **OnLocalRuntimeStatusChanged** stan zmieni się na **RuntimeConnected**. Nawiązywanie połączenia ze środowiskiem uruchomieniowym jest ostatnim stanem, co oznacza, że aplikacja jest wykonywana ze wspólną konfiguracją i jest gotowa do rozpoczęcia pracy specyficznej dla sesji w celu załadowania i renderowania modeli.
+Aplikacja musi również nasłuchiwać zdarzeń dotyczących połączenia między środowiskiem uruchomieniowym a bieżącą sesją; Te zmiany stanu są obsługiwane w **onLocalRuntimeStatusChanged**. Ten kod spowoduje postęp naszego stanu do **connectingToRuntime**. Po na połączeniu w **lokalizacji OnLocalRuntimeStatusChanged** stan zmieni się na **RuntimeConnected**. Nawiązywanie połączenia ze środowiskiem uruchomieniowym jest ostatnim stanem, którego dotyczy problem koordynatora, co oznacza, że aplikacja jest wykonywana przy użyciu całej typowej konfiguracji i jest gotowa do rozpoczęcia pracy związanej z sesją ładowania i renderowania modeli.
 
- 1. Zastąp metody **ConnectRuntimeToRemoteSession ()** i **DisconnectRuntimeFromRemoteSession ()** z zakończonymi wersjami poniżej.
- 1. Ważne jest, aby zanotować metodę Unity **Funkcja lateupdate** i że aktualizuje ona bieżącą aktywną sesję. Dzięki temu bieżąca sesja może wysyłać/odbierać komunikaty i aktualizować bufor ramki przy użyciu ramek odebranych z sesji zdalnej. Ma krytyczne znaczenie dla poprawnego działania.
+ 1. Zastąp metody **ConnectRuntimeToRemoteSession( )** i **DisconnectRuntimeFromRemoteSession( ) ukończonymi** wersjami poniżej.
+ 1. Ważne jest, aby zanotować metodę aparatu Unity **LateUpdate** i zaktualizować bieżącą aktywną sesję. Dzięki temu bieżąca sesja może wysyłać/odbierać komunikaty i aktualizować bufor ramek przy użyciu ramek odebranych z sesji zdalnej. Ma to kluczowe znaczenie dla prawidłowego działania ARR.
 
 ```cs
 /// <summary>
@@ -709,17 +710,17 @@ private void LateUpdate()
 ```
 
 > [!NOTE]
-> Połączenie lokalnego środowiska uruchomieniowego z sesją zdalną jest zależne od **aktualizacji** wywoływanej w aktualnie aktywnej sesji. Jeśli okaże się, że aplikacja nigdy nie postępuje w stanie **ConnectingToRuntime** , upewnij się, że jest **ona** regularnie wywoływana w aktywnej sesji.
+> Łączenie lokalnego środowiska uruchomieniowego z sesją zdalną zależy od **wywoływania** aktualizacji w aktualnie aktywnej sesji. Jeśli znajdziesz, że twoja aplikacja nigdy nie przekroczy stanu **ConnectingToRuntime,** upewnij się, że regularnie wywołując usługę **Update** w aktywnej sesji.
 
-## <a name="load-a-model"></a>Załaduj model
+## <a name="load-a-model"></a>Ładowanie modelu
 
-Z wymaganą podstawą jest gotowy do załadowania modelu do sesji zdalnej i rozpoczęcia otrzymywania ramek.
+Mając już wymagane podstawy, możesz załadować model do sesji zdalnej i rozpocząć odbieranie ramek.
 
-![Diagram pokazujący przepływ procesu przygotowywania do załadowania i wyświetlania modelu.](./media/remote-render-stack-4.png)
+![Diagram przedstawiający przepływ procesu przygotowania do załadowania i wyświetlenia modelu.](./media/remote-render-stack-4.png)
 
-Metoda **LoadModel** została zaprojektowana w celu zaakceptowania ścieżki modelu, procedury obsługi postępu i transformacji nadrzędnej. Te argumenty zostaną użyte do załadowania modelu do sesji zdalnej, zaktualizowania użytkownika na postęp ładowania i zorientowania się zdalnie renderowanego modelu na podstawie transformacji nadrzędnej.
+Metoda **LoadModel** jest przeznaczona do akceptowania ścieżki modelu, procedury obsługi postępu i przekształcenia nadrzędnego. Te argumenty będą używane do ładowania modelu do sesji zdalnej, aktualizowania użytkownika na postęp ładowania i orientacji zdalnie renderowanego modelu na podstawie transformacji nadrzędnej.
 
-1. Zastąp metodę **LoadModel** całkowicie następującym kodem:
+1. Zastąp metodę **LoadModel** całkowicie poniższym kodem:
 
     ```cs
     /// <summary>
@@ -771,19 +772,19 @@ Metoda **LoadModel** została zaprojektowana w celu zaakceptowania ścieżki mod
 Powyższy kod wykonuje następujące czynności:
 
 1. Utwórz [jednostkę zdalną](../../../concepts/entities.md).
-1. Utwórz lokalną Gręobject, która będzie reprezentować jednostkę zdalną.
-1. Skonfiguruj lokalną Gręobject, aby synchronizować jej stan (tj. Transform) z jednostką zdalną każdej ramki.
-1. Ustaw nazwę i Dodaj [**WorldAnchor**](https://docs.unity3d.com/550/Documentation/ScriptReference/VR.WSA.WorldAnchor.html) , aby pomóc w ustabilizowaniu.
-1. Załaduj dane modelu z Blob Storage do jednostki zdalnej.
-1. Zwróć jednostkę nadrzędną, aby uzyskać dalsze informacje.
+1. Utwórz lokalny obiekt GameObject reprezentujący jednostkę zdalną.
+1. Skonfiguruj lokalny obiekt GameObject, aby zsynchronizować jego stan (tj. Przekształć) z jednostką zdalną w każdej ramce.
+1. Ustaw nazwę i dodaj wartość [**WorldAnchor,**](https://docs.unity3d.com/550/Documentation/ScriptReference/VR.WSA.WorldAnchor.html) aby pomóc w ustabilizowaniu.
+1. Ładowanie danych modelu z Blob Storage do jednostki zdalnej.
+1. Zwróć jednostkę nadrzędną do późniejszego odwołania.
 
 ## <a name="view-the-test-model"></a>Wyświetlanie modelu testowego
 
-Mamy teraz cały kod wymagany do wyświetlenia zdalnie renderowanego modelu, wszystkie cztery z wymaganych etapów renderowania zdalnego są kompletne. Teraz musimy dodać mały kod, aby rozpocząć proces ładowania modelu.
+Mamy teraz cały kod wymagany do wyświetlenia zdalnie renderowanego modelu. Wszystkie cztery z wymaganych etapów renderowania zdalnego zostały ukończone. Teraz musimy dodać nieco kodu, aby rozpocząć proces ładowania modelu.
 
 ![Stos ARR 4](./media/remote-render-stack-5.png)
 
-1. Dodaj następujący kod do klasy **RemoteRenderingCoordinator** , tuż poniżej metody **LoadModel** :
+1. Dodaj następujący kod do klasy **RemoteRenderingCoordinator,** tuż poniżej **metody LoadModel:**
 
     ```cs
     private bool loadingTestModel = false;
@@ -811,28 +812,28 @@ Mamy teraz cały kod wymagany do wyświetlenia zdalnie renderowanego modelu, wsz
     }
     ```
     
-    Ten kod tworzy obiekt gameobject do działania jako element nadrzędny w modelu testowym. Następnie wywołuje metodę **LoadModel** w celu załadowania modelu "BUILTIN://Engine", który jest zasobem wbudowanym do zdalnego renderowania na platformie Azure na potrzeby testowania renderowania.
+    Ten kod tworzy obiekt GameObject, który będzie działać jako element nadrzędny modelu testowego. Następnie wywołuje metodę **LoadModel,** aby załadować model "builtin://Engine", który jest elementem zawartości wbudowanym w Azure Remote Rendering na potrzeby testowania renderowania.
 
-1. Zapisz swój kod.
-1. Naciśnij przycisk Odtwórz w edytorze aparatu Unity, aby rozpocząć proces nawiązywania połączenia ze zdalnym renderowaniem na platformie Azure i tworzenia nowej sesji.
-1. Nie zobaczysz dużo w widoku gry, ale w konsoli zostanie wyświetlony stan zmiany aplikacji. Najprawdopodobniej będzie to potrwać `ConnectingToNewRemoteSession` , a nawet przez maksymalnie pięć minut.
-1. Wybierz **RemoteRenderingCoordinator** gameobject, aby wyświetlić dołączone skrypty w Inspektorze. Obejrzyj aktualizację składnika **usługi** w miarę postępu przez kroki inicjowania i łączenia.
+1. Zapisz kod.
+1. Naciśnij przycisk Odtegoń w edytorze aparatu Unity, aby rozpocząć proces nawiązywania połączenia Azure Remote Rendering i tworzenia nowej sesji.
+1. W widoku Game (Gra) nie będzie zbyt wiele, jednak w konsoli będzie pokazywany stan aplikacji, który się zmienia. Prawdopodobnie będzie to postęp do `ConnectingToNewRemoteSession` , i pozostanie tam, prawdopodobnie przez maksymalnie pięć minut.
+1. Wybierz pozycję **RemoteRenderingCoordinator** GameObject, aby wyświetlić dołączone skrypty w inspektorze. Obserwuj **aktualizację** składnika usługi w trakcie procesu inicjowania i kroków połączenia.
 1. Monitoruj dane wyjściowe konsoli — oczekiwanie na zmianę stanu na **RuntimeConnected**.
-1. Po powiązaniu środowiska uruchomieniowego kliknij prawym przyciskiem myszy **RemoteRenderingCoordinator** w Inspektorze, aby uwidocznić menu kontekstowe. Następnie kliknij opcję **model testu obciążenia** w menu kontekstowym, dodane przez `[ContextMenu("Load Test Model")]` część naszego kodu powyżej.
+1. Po na połączeniu środowiska uruchomieniowego kliknij prawym przyciskiem myszy element **RemoteRenderingCoordinator** w inspektorze, aby uwidocznić menu kontekstowe. Następnie kliknij opcję **Load Test Model (Model testu** obciążeniowego) w menu kontekstowym dodanym przez część powyższego `[ContextMenu("Load Test Model")]` kodu.
 
-    ![Załaduj z menu kontekstowego](./media/load-test-model.png)
+    ![Ładowanie z menu kontekstowego](./media/load-test-model.png)
 
-1. Obejrzyj konsolę dla danych wyjściowych **ProgressHandler** , które zostały przesłane do metody **LoadModel** .
-1. Zobacz zdalnie renderowany model.
+1. Obserwuj konsolę, aby uzyskać dane wyjściowe z metody **ProgressHandler** przekazanej do **metody LoadModel.**
+1. Zobacz model renderowany zdalnie.
 
 > [!NOTE]
-> Model zdalny nigdy nie będzie widoczny w widoku sceny, tylko w widoku gry. Wynika to z faktu, że ARR renderuje ramki zdalnie, w odniesieniu do perspektywy aparatu wyświetlania gier i nie ma informacji o aparacie edytora (używanym do renderowania widoku sceny).
+> Model zdalny nigdy nie będzie widoczny w widoku Scene (Scena), tylko w widoku gry. Wynika to z tego, że funkcja ARR zdalnie renderuje ramki specjalnie dla perspektywy kamery widoku gry i nie jest świadoma aparatu edytora (używanego do renderowania widoku sceny).
 
 ## <a name="next-steps"></a>Następne kroki
 
-![Załadowano model](./media/test-model-rendered.png)
+![Załadowany model](./media/test-model-rendered.png)
 
-Gratulacje! Utworzono podstawową aplikację, która umożliwia wyświetlanie zdalnie renderowanych modeli przy użyciu funkcji renderowania zdalnego na platformie Azure. W następnym samouczku będziemy zintegrować MRTK i zaimportować własne modele.
+Gratulacje! Utworzono podstawową aplikację, która umożliwia wyświetlanie zdalnie renderowanych modeli przy użyciu Azure Remote Rendering. W następnym samouczku zintegrujemy usługę MRTK i zaimportujemy własne modele.
 
 > [!div class="nextstepaction"]
-> [Dalej: interfejsy i modele niestandardowe](../custom-models/custom-models.md)
+> [Dalej: Interfejsy i modele niestandardowe](../custom-models/custom-models.md)

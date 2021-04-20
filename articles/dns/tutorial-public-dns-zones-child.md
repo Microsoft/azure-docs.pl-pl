@@ -1,40 +1,38 @@
 ---
-title: 'Samouczek: Tworzenie podrzędnych stref DNS platformy Azure'
+title: 'Samouczek: tworzenie stref podrzędnego DNS platformy Azure'
 titleSuffix: Azure DNS
-description: Samouczek dotyczący sposobu tworzenia podrzędnych stref DNS w Azure Portal.
+description: Samouczek dotyczący tworzenia stref podrzędnego SYSTEMU DNS w Azure Portal.
 author: jonbeck
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
 ms.service: dns
 ms.topic: tutorial
 ms.custom: ''
 ms.workload: infrastructure-services
-ms.date: 7/16/2020
+ms.date: 04/19/2021
 ms.author: jonbeck
-ms.openlocfilehash: 1e2eddd821bb7a9d2050913efef3d73b406e32f7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 283ff2786a0b63c6263c62a13e27cce92c2368dd
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101733214"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107737392"
 ---
-# <a name="tutorial-creating-a-new-child-dns-zone"></a>Samouczek: Tworzenie nowej podrzędnej strefy DNS
+# <a name="tutorial-creating-a-new-child-dns-zone"></a>Samouczek: tworzenie nowej podrzędnej strefy DNS
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności: 
 
 > [!div class="checklist"]
-> * Logowanie do witryny Azure Portal.
+> * Logowanie się w witrynie Azure Portal.
 > * Tworzenie podrzędnej strefy DNS za pośrednictwem nowej strefy DNS.
 > * Tworzenie podrzędnej strefy DNS za pośrednictwem nadrzędnej strefy DNS.
 > * Weryfikowanie delegowania NS dla nowej podrzędnej strefy DNS.
 
-
-
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Konto platformy Azure z aktywną subskrypcją.  Jeśli nie masz konta, możesz [utworzyć konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Istniejąca strefa nadrzędna Azure DNS.  
+* Konto platformy Azure z aktywną subskrypcją.  Jeśli nie masz konta, możesz utworzyć je [bezpłatnie.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Istniejąca strefa Azure DNS nadrzędnej.  
 
-Na potrzeby tego samouczka będziemy używać contoso.com jako strefy nadrzędnej i subdomain.contoso.com jako nazwy domeny podrzędnej.  Zastąp *contoso.com* nazwą domeny nadrzędnej i *poddomeną* domeną podrzędną.  Jeśli nadrzędna strefa DNS nie została utworzona, zapoznaj się z instrukcjami [tworzenia strefy DNS przy użyciu Azure Portal](./dns-getstarted-portal.md#create-a-dns-zone). 
+W tym samouczku użyjemy contoso.com jako strefy nadrzędnej, a subdomain.contoso.com jako nazwy domeny podrzędnej.  Zastąp *contoso.com* swoją nazwą domeny nadrzędnej i *domeną podrzędną* domeną podrzędną.  Jeśli nie utworzono nadrzędnej strefy DNS, zobacz kroki tworzenia strefy [DNS](./dns-getstarted-portal.md#create-a-dns-zone)przy użyciu Azure Portal . 
 
 
 ## <a name="sign-in-to-azure-portal"></a>Logowanie do witryny Azure Portal
@@ -43,68 +41,64 @@ Zaloguj się w [witrynie Azure Portal](https://portal.azure.com/) przy użyciu d
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpłatne konto.
 
 Istnieją dwa sposoby tworzenia podrzędnej strefy DNS.
-1.  Za pomocą strony portalu "Tworzenie strefy DNS".
-1.  Za pomocą strony konfiguracji nadrzędnej strefy DNS.
-
+1.  Za pośrednictwem strony portalu "Tworzenie strefy DNS".
+1.  Za pośrednictwem strony konfiguracji nadrzędnej strefy DNS.
 
 ## <a name="create-child-dns-zone-via-create-dns-zone"></a>Tworzenie podrzędnej strefy DNS za pośrednictwem tworzenia strefy DNS
 
-W tym kroku utworzymy nową podrzędną strefę DNS o nazwie **subdomain.contoso.com** i delegujesz ją do istniejącej nadrzędnej strefy DNS **contoso.com**. Strefa DNS zostanie utworzona przy użyciu kart na stronie **Tworzenie strefy DNS** .
+W tym kroku utworzymy nową podrzędną strefę DNS o nazwie **i subdomain.contoso.com** delegować ją do istniejącej nadrzędnej strefy DNS contoso.com **.** Strefę DNS utworzysz przy użyciu kart na **stronie Tworzenie strefy DNS.**
 1.  W menu witryny Azure Portal lub na **stronie głównej** wybierz pozycję **Utwórz zasób**. Zostanie wyświetlone okno **Nowe**.
-1.  Wybierz pozycję **Sieć**, a następnie wybierz pozycję **strefa DNS** , a następnie wybierz przycisk **Dodaj** .
+1.  Wybierz **pozycję Sieć,** wybierz pozycję **Strefa DNS,** a następnie wybierz **przycisk** Dodaj.
 
-1.  Na karcie **podstawowe** wpisz lub wybierz następujące wartości:
-    * **Subskrypcja**: wybierz subskrypcję, w której ma zostać utworzona strefa.
-    * **Grupa zasobów**: wprowadź istniejącą grupę zasobów lub Utwórz nową, wybierając pozycję **Utwórz nową** *, wprowadź wartość Grupa, a* następnie wybierz pozycję **OK**. Nazwa grupy zasobów musi być unikatowa w ramach subskrypcji platformy Azure.
+1.  Na karcie **Podstawowe** wpisz lub wybierz następujące wartości:
+    * **Subskrypcja:** wybierz subskrypcję, w ramach których chcesz utworzyć strefę.
+    * **Grupa zasobów:** wprowadź istniejącą grupę zasobów lub utwórz nową, wybierając **pozycję Utwórz nową.** Wprowadź *nazwę MyResourceGroup* i wybierz przycisk **OK.** Nazwa grupy zasobów musi być unikatowa w ramach subskrypcji platformy Azure.
     * Zaznacz to pole wyboru: **Ta strefa jest elementem podrzędnym istniejącej strefy już hostowanej w Azure DNS**
-    * **Subskrypcja strefy nadrzędnej**: z tego menu rozwijanego Wyszukaj i/lub wybierz nazwę subskrypcji, w ramach której utworzono nadrzędną strefę DNS *contoso.com* .
-    * **Strefa nadrzędna**: na pasku wyszukiwania wpisz *contoso.com* , aby załadować ją na liście rozwijanej. Po załadowaniu wybierz pozycję *contoso.com* z listy rozwijanej.
-    * **Nazwa:** Dla tego przykładu wpisz *poddomenę* . Zwróć uwagę, że nazwa nadrzędnej strefy DNS *contoso.com* jest automatycznie dodawana jako sufiks do nazwy, gdy wybieramy strefę nadrzędną w powyższym kroku.
+    * **Subskrypcja strefy nadrzędnej:** z tej listy rozwijanej wyszukaj lub wybierz nazwę subskrypcji, w ramach której contoso.com *strefy* DNS.
+    * **Strefa nadrzędna:** na pasku wyszukiwania wpisz *contoso.com,* aby załadować ją na liście rozwijanej. Po załadowaniu *wybierz contoso.com* z listy rozwijanej.
+    * **Nazwa:** W *tym przykładzie samouczka* wpisz poddomenę. Zwróć uwagę, że nazwa nadrzędnej strefy DNS *contoso.com* jest automatycznie dodawana jako sufiks do nazwy po wybraniu strefy nadrzędnej w powyższym kroku.
 
 1. Wybierz pozycję **Dalej: Przeglądanie i tworzenie**.
-1. Na karcie **Recenzja + tworzenie** Przejrzyj podsumowanie, popraw błędy walidacji, a następnie wybierz pozycję **Utwórz**.
+1. Na karcie **Przeglądanie + tworzenie** przejrzyj podsumowanie, popraw wszelkie błędy weryfikacji, a następnie wybierz pozycję **Utwórz**.
 Tworzenie strefy może potrwać kilka minut.
 
- 
-    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-inline.png" alt-text="Zrzut ekranu przedstawiający stronę tworzenie strefy DNS." lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-expanded.png":::
+    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-inline.png" alt-text="Zrzut ekranu przedstawiający stronę tworzenia strefy DNS." lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-expanded.png":::
 
-## <a name="create-child-dns-zone-via-parent-dns-zone-overview-page"></a>Tworzenie podrzędnej strefy DNS za pośrednictwem strony Przegląd nadrzędnej strefy DNS
-Możesz również utworzyć nową podrzędną strefę DNS i delegować ją do nadrzędnej strefy DNS przy użyciu przycisku **strefy podrzędnej** ze strony Przegląd strefy nadrzędnej. Przy użyciu tego przycisku automatycznie wstępnie wypełniane są parametry nadrzędne dla strefy podrzędnej. 
+## <a name="create-child-dns-zone-via-parent-dns-zone-overview-page"></a>Tworzenie podrzędnej strefy DNS za pośrednictwem strony przeglądu nadrzędnej strefy DNS
+Można również utworzyć nową podrzędną strefę DNS i delegować ją do nadrzędnej strefy DNS przy użyciu przycisku Strefa podrzędna na stronie przeglądu strefy nadrzędnej.  Użycie tego przycisku powoduje automatyczne wstępne wypełnienie parametrów nadrzędnych dla strefy podrzędnej. 
 
-1.  W Azure Portal w obszarze **wszystkie zasoby** Otwórz strefę DNS *contoso.com* w **grupie zasobów zasobu** . Możesz wprowadzić *contoso.com* w polu **Filtruj według nazwy** , aby łatwiej je znaleźć.
-1.  Na stronie Przegląd strefy DNS wybierz przycisk **+ strefa podrzędna** .
+1.  W Azure Portal w obszarze **Wszystkie zasoby** otwórz *strefę contoso.com* DNS w grupie zasobów **MyResourceGroup.** Możesz wprowadzić *contoso.com* w **polu Filtruj według** nazwy, aby łatwiej go znaleźć.
+1.  Na stronie Przeglądu strefy DNS wybierz przycisk **+Strefa podrzędna.**
 
-      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-inline.png" alt-text="Przycisk podrzędnej strefy zrzutu ekranu." border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-expanded.png":::
+      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-inline.png" alt-text="Zrzut ekranu przedstawiający przycisk strefy podrzędnej." border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-expanded.png":::
 
-1.  Następnie zostanie otwarta strona tworzenie strefy DNS. Opcja strefy podrzędnej jest już zaznaczona, a subskrypcja strefy nadrzędnej i strefa nadrzędna zostały już wypełnione na tej stronie.
-1.  Wpisz nazwę jako *element podrzędny* dla tego przykładu samouczka. Zwróć uwagę, że nazwa strefy nadrzędnej DNS contoso.com jest automatycznie dodawana jako prefiks do nazwy.
-1.  Wybierz pozycję **Dalej: Tagi** , a następnie kliknij przycisk **Dalej: przegląd + Utwórz**.
-1.  Na karcie **Recenzja + tworzenie** Przejrzyj podsumowanie, popraw błędy walidacji, a następnie wybierz pozycję **Utwórz**.
+1.  Zostanie otwarta strona tworzenia strefy DNS. Opcja strefy podrzędnej jest już zaznaczona, a subskrypcja strefy nadrzędnej i strefa nadrzędna są wypełniane na tej stronie.
+1.  W tym przykładzie *samouczka wpisz* nazwę jako podrzędną. Zauważ, że nazwa nadrzędnej strefy DNS jest contoso.com automatycznie dodawana jako prefiks do nazwy.
+1.  Wybierz **pozycję Dalej: Tagi,** a następnie **pozycję Dalej: Przeglądanie + tworzenie.**
+1.  Na karcie **Przeglądanie + tworzenie** przejrzyj podsumowanie, popraw wszelkie błędy weryfikacji, a następnie wybierz pozycję **Utwórz**.
 
-    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="Zrzut ekranu przedstawiający strefę podrzędną" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
+    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="Zrzut ekranu przedstawiający wybraną strefę podrzędną" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
 
-## <a name="verify-child-dns-zone"></a>Weryfikuj podrzędną strefę DNS
-Teraz masz utworzoną nową podrzędną strefę DNS *subdomain.contoso.com* . Aby sprawdzić, czy delegowanie poszło prawidłowo, sprawdź, czy rekordy serwer nazw (NS) dla strefy podrzędnej są w strefie nadrzędnej, zgodnie z poniższym opisem.  
+## <a name="verify-child-dns-zone"></a>Weryfikowanie podrzędnej strefy DNS
+Teraz, gdy masz utworzoną nową podrzędną *strefę DNS subdomain.contoso.com* DNS. Aby sprawdzić, czy delegowanie zostało wykonane prawidłowo, należy sprawdzić rekordy nameserver(NS) dla strefy podrzędnej w strefie nadrzędnej, jak opisano poniżej.  
 
 **Pobieranie serwerów nazw podrzędnej strefy DNS:**
 
-1.  W Azure Portal w obszarze **wszystkie zasoby** Otwórz strefę DNS *subdomain.contoso.com* w **grupie zasobów zasobu** . Możesz wprowadzić *subdomain.contoso.com* w polu **Filtruj według nazwy** , aby łatwiej je znaleźć.
-1.  Pobierz serwery nazw ze strony Przegląd strefy DNS. W tym przykładzie do contoso.com strefy zostały przypisane serwery nazw *ns1-08.Azure-DNS.com, ns2-08.Azure-DNS.NET, NS3-08.Azure-DNS.org* i *NS4-08.Azure-DNS.info*:
+1.  W witrynie Azure Portal obszarze **Wszystkie zasoby** otwórz subdomain.contoso.com *DNS* w grupie zasobów **MyResourceGroup.** Możesz wprowadzić *subdomain.contoso.com* w **polu Filtruj** według nazwy, aby łatwiej go znaleźć.
+1.  Pobierz serwery nazw ze strony przeglądu strefy DNS. W tym przykładzie do strefy contoso.com serwery nazw *ns1-08.azure-dns.com, ns2-08.azure-dns.net, ns3-08.azure-dns.org* i *ns4-08.azure-dns.info:*
 
-      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-inline.png" alt-text="Zrzut ekranu przedstawiający strefę podrzędną serwery nazw" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-expanded.png":::
-**Sprawdź rekord NS w strefie nadrzędnej DNS:**
+      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-inline.png" alt-text="Zrzut ekranu przedstawiający serwery nazw strefy podrzędnej" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-expanded.png":::
+**Sprawdź rekord NS w nadrzędnej strefie DNS:**
 
-Teraz w tym kroku przejdziemy do *contoso.com* nadrzędnej strefy DNS i sprawdź, czy został utworzony wpis zestawu rekordów NS dla stref podrzędnych serwery nazw.
+Teraz w tym kroku przejdźmy  do nadrzędnej strefy DNS contoso.com i sprawdzimy, czy utworzono wpis zestawu rekordów NS dla serwerów nazw stref nadrzędnych.
 
-1. W Azure Portal w obszarze **wszystkie zasoby** Otwórz strefę DNS contoso.com w **grupie zasobów zasobu** . Możesz wprowadzić contoso.com w polu **Filtruj według nazwy** , aby łatwiej je znaleźć.
-1.  Na stronie Przegląd stref DNS *contoso.com* Sprawdź zestaw rekordów.
-1.  Ten zestaw rekordów typu NS i nazwa poddomeny jest już utworzony w nadrzędnej strefie DNS. Sprawdź wartości dla tego zestawu rekordów, podobnie jak lista serwer nazw, która została pobrana z podrzędnej strefy DNS w powyższym kroku.
+1. W witrynie Azure Portal obszarze **Wszystkie** zasoby otwórz contoso.com DNS w grupie zasobów **MyResourceGroup.** Możesz wprowadzić contoso.com w **polu Filtruj według** nazwy, aby łatwiej go znaleźć.
+1.  Na stronie *contoso.com* strefy DNS sprawdź zestawy rekordów.
+1.  Zestaw rekordów typu NS i poddomeny nazw został już utworzony w nadrzędnej strefie DNS. Sprawdź wartości tego zestawu rekordów, które są podobne do listy nameserver pobranej z podrzędnej strefy DNS w powyższym kroku.
 
-     :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-inline.png" alt-text="Zrzut ekranu przedstawiający serwery nazw weryfikacji strefy podrzędnej" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-expanded.png":::
+     :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-inline.png" alt-text="Zrzut ekranu przedstawiający walidację serwerów nazw strefy podrzędnej" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-expanded.png":::
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
-Jeśli zasoby utworzone w tym samouczku nie są już potrzebne, usuń je, usuwając **grupę zasobów.** Otwórz grupę **zasobów zasobu** i wybierz pozycję **Usuń grupę zasobów**.
-
-
+Jeśli nie potrzebujesz już zasobów utworzonych w tym samouczku, usuń je, usuwając grupę zasobów **MyResourceGroup.** Otwórz **grupę zasobów MyResourceGroup** i wybierz pozycję **Usuń grupę zasobów.**
 
 ## <a name="next-steps"></a>Następne kroki
 

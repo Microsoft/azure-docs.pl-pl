@@ -1,19 +1,19 @@
 ---
-title: 'Samouczek: Tworzenie rekordu aliasu w celu odwoływania się do rekordu zasobu w strefie'
+title: 'Samouczek: tworzenie rekordu aliasu w celu odwołania się do rekordu zasobu w strefie'
 titleSuffix: Azure DNS
 description: W tym samouczku przedstawiono, jak skonfigurować rekord aliasu usługi Azure DNS do odwoływania do rekordu zasobów w strefie DNS.
 services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
-ms.date: 9/25/2018
+ms.date: 04/19/2021
 ms.author: rohink
-ms.openlocfilehash: 2b122a34cfd382a58f7680743d3a1cb1ae598fd1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c20f079fdbccdf003d96a1b2683060c2cd6d0e5a
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "76939248"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107737374"
 ---
 # <a name="tutorial-create-an-alias-record-to-refer-to-a-zone-resource-record"></a>Samouczek: tworzenie rekordu aliasu do odwoływania do rekordu zasobów w strefie DNS
 
@@ -26,7 +26,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Testowanie rekordu aliasu.
 
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, [](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem utwórz bezpłatne konto.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Do testowania niezbędna jest nazwa domeny, którą można hostować w usłudze Azure DNS. Musisz mieć pełną kontrolę nad tą domeną. Pełna kontrola obejmuje możliwość ustawiania dla domeny rekordów serwera nazw (NS).
@@ -57,8 +57,8 @@ Utwórz rekord aliasu, który wskazuje na rekord zasobów w strefie DNS.
 
 ## <a name="test-the-alias-record"></a>Testowanie rekordu aliasu
 
-1. Uruchom ulubione narzędzie nslookup. Jedną z opcji jest przechodzenie do [https://network-tools.com/nslook](https://network-tools.com/nslook) .
-2. Ustaw typ zapytania dla rekordów i Wyszukaj **test. \<your domain name\>**. W odpowiedzi otrzymasz **10.10.10.10**.
+1. Uruchom ulubione narzędzie nslookup. Jedną z opcji jest przejrzenie witryny [https://network-tools.com/nslook](https://network-tools.com/nslook) .
+2. Ustaw typ zapytania dla rekordów A i poszukaj **testu. \<your domain name\>**. W odpowiedzi otrzymasz **10.10.10.10**.
 3. W witrynie Azure Portal zmień rekord A **serwer** na **10.11.11.11**.
 4. Poczekaj kilka minut, a następnie użyj ponownie narzędzia nslookup dla rekordu **test**. W odpowiedzi otrzymasz **10.11.11.11**.
 

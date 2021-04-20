@@ -3,12 +3,12 @@ title: Obsługa operacji przenoszenia według typu zasobu
 description: Wyświetla listę typów zasobów platformy Azure, które można przenieść do nowej grupy zasobów, subskrypcji lub regionu.
 ms.topic: conceptual
 ms.date: 04/16/2021
-ms.openlocfilehash: c159b6e5f64f3052a6584034aa58b058b1426b16
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: a56a9e6f04aa800e16bbab0190ce7b41d87da590
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107725570"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740092"
 ---
 # <a name="move-operation-support-for-resources"></a>Obsługa operacji przenoszenia dla zasobów
 
@@ -861,7 +861,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- | ---------- | ----------- |
 > | flexibleServers | Nie | Nie | Nie |
 > | Servergroups | Nie | Nie | Nie |
-> | Serwerów | Tak | Tak | Repliki odczytu między regionami można użyć do przeniesienia istniejącego serwera. [Dowiedz się więcej.](../../postgresql/howto-move-regions-portal.md)
+> | Serwerów | Tak | Tak | Repliki odczytu między regionami można użyć do przeniesienia istniejącego serwera. [Dowiedz się więcej](../../postgresql/howto-move-regions-portal.md).
 > | serversv2 | Tak | Tak | Nie |
 > | singleservers | Tak | Tak | Nie |
 
@@ -962,7 +962,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Grupa zasobów | Subskrypcja | Przenoszenie regionów |
 > | ------------- | ----------- | ---------- | ----------- |
 > | Domen | Tak | Tak | Nie |
-> | eventsubscriptions (opisy zdarzeń) | Nie — nie można go przenosić niezależnie, ale jest automatycznie przenoszone z subskrybowany zasób. | Nie — nie można go przenosić niezależnie, ale jest automatycznie przenoszone z subskrybowany zasób. | Nie |
+> | eventsubscriptions | Nie — nie można go przenosić niezależnie, ale jest automatycznie przenoszone z subskrybowany zasób. | Nie — nie można go przenosić niezależnie, ale jest automatycznie przenoszone z subskrybowany zasób. | Nie |
 > | extensiontopics | Nie | Nie | Nie |
 > | partnernamespaces | Tak | Tak | Nie |
 > | partnerregistrations | Nie | Nie | Nie |

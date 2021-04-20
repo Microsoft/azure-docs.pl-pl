@@ -173,48 +173,74 @@
           href: api-management-howto-manage-protocols-ciphers.md
     - name: Dostosowywanie środowiska deweloperów
       items:
-        - name: Omówienie portalu deweloperów
-          href: api-management-howto-developer-portal.md
-        - name: Migrowanie z przestarzałego do nowego portalu deweloperów
-          href: developer-portal-deprecated-migration.md
-        - name: Uwierzytelnianie za pomocą usługi Azure AD
-          href: api-management-howto-aad.md
-        - name: Uwierzytelnianie za pomocą usługi Azure AD B2C
-          href: api-management-howto-aad-b2c.md
-        - name: Uwierzytelnianie delegowane
-          href: api-management-howto-setup-delegation.md
-        - name: Powiadomienia e-mail i szablony wiadomości e-mail
-          href: api-management-howto-configure-notifications.md
-        - name: Włączanie obsługi uwierzytelniania OAuth konsoli
-          href: api-management-howto-oauth2.md
-        - name: Przestarzały portal — dostosowywanie portalu
-          href: api-management-customize-styles.md
-        - name: Przestarzały portal — modyfikowanie stron i układów
-          href: api-management-modify-content-layout.md
-        - name: Przestarzały portal — dostosowywanie za pomocą szablonów
-          href: api-management-developer-portal-templates.md
-    - name: Szablony przestarzałego portalu
-      items:
-        - name: Dokumentacja dotycząca modeli obiektów
-          href: api-management-template-data-model-reference.md
-        - name: Kontrolki strony
-          href: api-management-page-controls.md
-        - name: Szablony
-          href: api-management-developer-portal-templates-reference.md
-        - name: Interfejsy API
-          href: api-management-api-templates.md
-        - name: Produkty
-          href: api-management-product-templates.md
-        - name: Aplikacje
-          href: api-management-application-templates.md
-        - name: Problemy
-          href: api-management-issue-templates.md
-        - name: Profil użytkownika
-          href: api-management-user-profile-templates.md
-        - name: Strony
-          href: api-management-page-templates.md
-        - name: Zasoby szablonu
-          href: api-management-template-resources.md
+        - name: Korzystanie z portalu dla deweloperów
+          items:
+            - name: Omówienie portalu deweloperów
+              href: api-management-howto-developer-portal.md
+            - name: Często zadawane pytania
+              href: developer-portal-faq.md
+            - name: Automatyzowanie wdrożeń portalu
+              href: automate-portal-deployments.md
+            - name: Migrowanie z przestarzałego do nowego portalu deweloperów
+              href: developer-portal-deprecated-migration.md
+            - name: Uwierzytelnianie za pomocą usługi Azure AD
+              href: api-management-howto-aad.md
+            - name: Uwierzytelnianie za pomocą usługi Azure AD B2C
+              href: api-management-howto-aad-b2c.md
+            - name: Delegowanie uwierzytelniania
+              href: api-management-howto-setup-delegation.md
+            - name: Włączanie obsługi uwierzytelniania OAuth konsoli
+              href: api-management-howto-oauth2.md
+            - name: Powiadomienia e-mail i szablony wiadomości e-mail
+              href: api-management-howto-configure-notifications.md
+            - name: Integracja Application Insights
+              href: developer-portal-integrate-application-insights.md
+            - name: Integracja Menedżer tagów Google
+              href: developer-portal-integrate-google-tag-manager.md
+        - name: Portal dla deweloperów z własnym hostem
+          items:
+            - name: Tworzenie własnego portalu
+              href: developer-portal-self-host.md
+            - name: Alternatywne podejścia do samodzielnego hostingu
+              href: developer-portal-alternative-processes-self-host.md
+            - name: Implementowanie widżetów
+              href: developer-portal-implement-widgets.md
+            - name: Współtwomentuj widżety
+              href: developer-portal-widget-contribution-guidelines.md
+            - name: Korzystanie z widżetów społeczności
+              href: developer-portal-use-community-widgets.md
+            - name: Testowanie własnego portalu
+              href: developer-portal-testing.md
+        - name: Przestarzały portal
+          items:
+            - name: Przestarzały portal — dostosowywanie portalu
+              href: api-management-customize-styles.md
+            - name: Przestarzały portal — modyfikowanie stron i układów
+              href: api-management-modify-content-layout.md
+            - name: Przestarzały portal — dostosowywanie za pomocą szablonów
+              href: api-management-developer-portal-templates.md
+        - name: Szablony przestarzałego portalu
+          items:
+            - name: Dokumentacja dotycząca modeli obiektów
+              href: api-management-template-data-model-reference.md
+            - name: Kontrolki strony
+              href: api-management-page-controls.md
+            - name: Szablony
+              href: api-management-developer-portal-templates-reference.md
+            - name: Interfejsy API
+              href: api-management-api-templates.md
+            - name: Produkty
+              href: api-management-product-templates.md
+            - name: Aplikacje
+              href: api-management-application-templates.md
+            - name: Problemy
+              href: api-management-issue-templates.md
+            - name: Profil użytkownika
+              href: api-management-user-profile-templates.md
+            - name: Strony
+              href: api-management-page-templates.md
+            - name: Zasoby szablonu
+              href: api-management-template-resources.md
     - name: Definiowanie zasad
       items:
         - name: Ustawianie lub edytowanie zasad

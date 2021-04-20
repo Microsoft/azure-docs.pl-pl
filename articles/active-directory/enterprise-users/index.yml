@@ -1,22 +1,23 @@
 ### YamlMime:Landing
 title: Dokumentacja dotycząca zarządzania użytkownikami przedsiębiorstwa — Azure AD
-summary: Usługa Azure AD obejmuje usługi do zarządzania użytkownikami, takie jak grupy i licencje, które pomagają szybciej wykonywać najważniejsze zadania związane z zarządzaniem użytkownikami. Przypisuj licencje, przypisuj dostęp aplikacji do grup lub użytkowników oraz dodawaj nazwy domen lub zarządzaj nimi.
+summary: Usługa Azure AD zapewnia usługi zarządzania użytkownikami, dzięki czemu można przypisywać licencje, zarządzać grupami i użytkownikami oraz dodawać nazwy domen lub zarządzać nimi.
 metadata:
-  title: Dokumentacja dotycząca użytkowników, grup, licencji i domen usługi Azure Active Directory
+  title: Azure Active Directory dokumentacji dotyczącej użytkowników, grup, licencji i domen
   description: Dowiedz się, jak zarządzać uwierzytelnianiem użytkowników w organizacji usługi Azure AD przy użyciu grup, nazw domen i licencji.
   services: active-directory
   ms.service: active-directory
-  manager: daveba
+  ms.subservice: enterprise-users
+  manager: mtillman
   ms.topic: landing-page
-  ms.date: 10/19/2020
+  ms.date: 04/18/2021
   author: curtand
   ms.author: curtand
-  ms.openlocfilehash: a919a9785163776cfbcfb52a378405c0ac870035
-  ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
-  ms.translationtype: HT
+  ms.openlocfilehash: 8a129cf6e000a2e644f2fc7168d9e3105de0f957
+  ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+  ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 11/23/2020
-  ms.locfileid: "95503046"
+  ms.lasthandoff: 04/20/2021
+  ms.locfileid: "107739300"
 landingContent:
 - title: Informacje o zarządzaniu użytkownikami w przedsiębiorstwie
   linkLists:

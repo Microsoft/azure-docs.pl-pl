@@ -1,47 +1,47 @@
 ---
-title: Rozwiązywanie typowych problemów dotyczących indeksatora wyszukiwania
+title: Rozwiązywanie typowych problemów z indeksatorem wyszukiwania
 titleSuffix: Azure Cognitive Search
-description: Rozwiązywanie błędów i typowych problemów dotyczących indeksatorów na platformie Azure Wyszukiwanie poznawcze, w tym połączenia ze źródłem danych, zapory i brakujących dokumentów.
+description: Napraw błędy i typowe problemy z indeksatorami w Azure Cognitive Search, w tym połączenie ze źródłem danych, zaporę i brakujące dokumenty.
 manager: nitinme
 author: mgottein
 ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7eadc9121c54b636fa8b42579284d4018043e1c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: efdd9666c8876ddaf12b9555fa66beb62c56e93e
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91355129"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740075"
 ---
-# <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Rozwiązywanie typowych problemów indeksatora na platformie Azure Wyszukiwanie poznawcze
+# <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Rozwiązywanie typowych problemów z indeksatorem w Azure Cognitive Search
 
-Indeksatory mogą być uruchamiane w ramach wielu problemów podczas indeksowania danych na platformie Azure Wyszukiwanie poznawcze. Główne kategorie niepowodzeń obejmują:
+Indeksatorzy mogą mieć wiele problemów podczas indeksowania danych do Azure Cognitive Search. Główne kategorie błędów to:
 
 * [Nawiązywanie połączenia ze źródłem danych lub innymi zasobami](#connection-errors)
-* [Przetwarzanie dokumentu](#document-processing-errors)
+* [Przetwarzanie dokumentów](#document-processing-errors)
 * [Pozyskiwanie dokumentów do indeksu](#index-errors)
 
 ## <a name="connection-errors"></a>Błędy połączenia
 
 > [!NOTE]
-> Indeksatory mają ograniczoną obsługę dostępu do źródeł danych i innych zasobów zabezpieczonych przez mechanizmy zabezpieczeń sieci platformy Azure. Obecnie indeksatory mogą uzyskiwać dostęp tylko do źródeł danych za pomocą odpowiednich mechanizmów ograniczeń zakresu adresów IP lub reguł sieciowej grupy zabezpieczeń, gdy ma to zastosowanie. Szczegóły dotyczące uzyskiwania dostępu do każdego obsługiwanego źródła danych można znaleźć poniżej.
+> Indeksatorzy mają ograniczoną obsługę uzyskiwania dostępu do źródeł danych i innych zasobów, które są zabezpieczone przez mechanizmy zabezpieczeń sieci platformy Azure. Obecnie indeksatorzy mogą uzyskać dostęp do źródeł danych tylko za pośrednictwem odpowiednich mechanizmów ograniczeń zakresu adresów IP lub reguł sieciowej organizacji zabezpieczeń, jeśli ma to zastosowanie. Szczegóły dotyczące uzyskiwania dostępu do poszczególnych obsługiwanych źródeł danych można znaleźć poniżej.
 >
-> Adres IP usługi wyszukiwania można sprawdzić, wysyłając polecenie ping do jego w pełni kwalifikowanej nazwy domeny (np. `<your-search-service-name>.search.windows.net` ).
+> Adres IP usługi wyszukiwania można znaleźć, wysyłając polecenie ping do jej w pełni kwalifikowanej nazwy domeny (np. `<your-search-service-name>.search.windows.net` ).
 >
-> Zakres adresów IP można sprawdzić `AzureCognitiveSearch` [](../virtual-network/service-tags-overview.md#available-service-tags) za pomocą [plików JSON do pobrania](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) lub za pośrednictwem [interfejsu API odnajdywania tagów usługi](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview). Zakres adresów IP jest aktualizowany co tydzień.
+> Zakres adresów IP tagu usługi można znaleźć przy użyciu plików `AzureCognitiveSearch` [](../virtual-network/service-tags-overview.md#available-service-tags) [JSON](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) do pobrania lub za pośrednictwem interfejsu API odnajdywania [tagów usługi](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview). Zakres adresów IP jest aktualizowany co tydzień.
 
 ### <a name="configure-firewall-rules"></a>Konfigurowanie reguł zapory
 
-Usługi Azure Storage, CosmosDB i Azure SQL oferują konfigurowalną zaporę. Jeśli Zapora jest włączona, nie ma określonego komunikatu o błędzie. Zwykle błędy zapory są ogólne i wyglądają jak `The remote server returned an error: (403) Forbidden` lub `Credentials provided in the connection string are invalid or have expired` .
+Usługi Azure Storage, CosmosDB i Azure SQL zapewniają konfigurowalna zaporę. Gdy zapora jest włączona, nie ma konkretnego komunikatu o błędzie. Zazwyczaj błędy zapory są ogólne i wyglądają jak `The remote server returned an error: (403) Forbidden` lub `Credentials provided in the connection string are invalid or have expired` .
 
-Dostępne są dwie opcje zezwalające indeksatorom na dostęp do tych zasobów w takich wystąpieniach:
+Dostępne są 2 opcje zezwalania indeksatorom na dostęp do tych zasobów w takim wystąpieniu:
 
-* Wyłącz zaporę, zezwalając na dostęp ze **wszystkich sieci** (jeśli to możliwe).
-* Alternatywnie możesz zezwolić na dostęp dla adresu IP usługi wyszukiwania oraz zakresu adresów IP `AzureCognitiveSearch` [znacznika usługi](../virtual-network/service-tags-overview.md#available-service-tags) w regułach zapory dla zasobu (ograniczenie zakresu adresów IP).
+* Wyłącz zaporę, zezwalając na dostęp z **opcji Wszystkie sieci** (jeśli jest to możliwe).
+* Alternatywnie możesz zezwolić na dostęp do adresu IP usługi wyszukiwania i zakresu adresów IP tagu usługi w regułach zapory zasobu `AzureCognitiveSearch` [](../virtual-network/service-tags-overview.md#available-service-tags) (ograniczenie zakresu adresów IP).
 
-Szczegóły dotyczące konfigurowania ograniczeń zakresu adresów IP dla każdego typu źródła danych można znaleźć w następujących linkach:
+Szczegółowe informacje dotyczące konfigurowania ograniczeń zakresu adresów IP dla każdego typu źródła danych można znaleźć pod następującymi linkami:
 
 * [Azure Storage](../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range)
 
@@ -49,31 +49,111 @@ Szczegóły dotyczące konfigurowania ograniczeń zakresu adresów IP dla każde
 
 * [Azure SQL](../azure-sql/database/firewall-configure.md#create-and-manage-ip-firewall-rules)
 
-**Ograniczenie**: zgodnie z powyższym opisem w dokumentacji dotyczącej usługi Azure Storage ograniczenia zakresu adresów IP będą działały tylko wtedy, gdy usługa wyszukiwania i konto magazynu znajdują się w różnych regionach.
+**Ograniczenie:** Jak określono w powyższej dokumentacji dotyczącej usługi Azure Storage, ograniczenia zakresu adresów IP będą działać tylko wtedy, gdy usługa wyszukiwania i konto magazynu znajdują się w różnych regionach.
 
-Usługa Azure Functions (, która może być używana jako [niestandardowa umiejętność interfejsu API sieci Web](cognitive-search-custom-skill-web-api.md)), również obsługuje [Ograniczenia adresów IP](../azure-functions/ip-addresses.md#ip-address-restrictions). Lista adresów IP do skonfigurowania to adres IP usługi wyszukiwania i zakres adresów IP w `AzureCognitiveSearch` tagu usługi.
+Funkcje platformy Azure (które mogą być używane jako umiejętność [niestandardowego internetowego interfejsu API)](cognitive-search-custom-skill-web-api.md)obsługują [również ograniczenia adresów IP.](../azure-functions/ip-addresses.md#ip-address-restrictions) Lista adresów IP do skonfigurowania będzie adresem IP usługi wyszukiwania i zakresem adresów IP `AzureCognitiveSearch` tagu usługi.
 
-Szczegóły dotyczące uzyskiwania dostępu do danych w programie SQL Server na maszynie wirtualnej platformy Azure zostały opisane [tutaj](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+Szczegółowe informacje dotyczące uzyskiwania dostępu do danych w programie SQL Server na maszynie wirtualnej platformy Azure zostały opisane [tutaj](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 
-### <a name="configure-network-security-group-nsg-rules"></a>Skonfiguruj reguły sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń)
+### <a name="configure-network-security-group-nsg-rules"></a>Konfigurowanie reguł sieciowej grupy zabezpieczeń
 
-Podczas uzyskiwania dostępu do danych w wystąpieniu zarządzanym SQL lub gdy maszyna wirtualna platformy Azure jest używana jako identyfikator URI usługi sieci Web dla [niestandardowej umiejętności interfejsu API sieci Web](cognitive-search-custom-skill-web-api.md), klienci nie muszą mieć określonych adresów IP.
+W przypadku uzyskiwania dostępu do danych w wystąpieniu zarządzanym SQL lub gdy maszyna wirtualna platformy Azure jest używana jako identyfikator URI usługi internetowej dla umiejętności niestandardowego internetowego interfejsu [API,](cognitive-search-custom-skill-web-api.md)klienci nie muszą być zaniepokojeni określonymi adresami IP.
 
-W takich przypadkach maszyna wirtualna platformy Azure lub wystąpienie zarządzane SQL można skonfigurować tak, aby znajdowały się w sieci wirtualnej. Następnie można skonfigurować sieciową grupę zabezpieczeń w celu filtrowania typu ruchu sieciowego, który może przepływać do i z podsieci sieci wirtualnej i interfejsów sieciowych.
+W takich przypadkach maszynę wirtualną platformy Azure lub wystąpienie zarządzane SQL można skonfigurować tak, aby znajdowało się w sieci wirtualnej. Następnie można skonfigurować sieciową grupę zabezpieczeń do filtrowania typu ruchu sieciowego, który może przepływać do i z podsieci sieci wirtualnej oraz interfejsów sieciowych.
 
-`AzureCognitiveSearch`Tag usługi może być bezpośrednio używany w [regułach sieciowej grupy zabezpieczeń](../virtual-network/manage-network-security-group.md#work-with-security-rules) dla ruchu przychodzącego bez konieczności wyszukiwania jego zakresu adresów IP.
+Tagu usługi można używać bezpośrednio w regułach sieciowej organizacji ruchu przychodzącego bez konieczności wyszukiwania `AzureCognitiveSearch` zakresu adresów IP. [](../virtual-network/manage-network-security-group.md#work-with-security-rules)
 
-Więcej szczegółów dotyczących uzyskiwania dostępu do danych w wystąpieniu zarządzanym SQL przedstawiono [tutaj](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
+Więcej szczegółów dotyczących uzyskiwania dostępu do danych w wystąpieniu zarządzanym SQL można znaleźć [tutaj](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 
-### <a name="cosmosdb-indexing-isnt-enabled"></a>CosmosDB "Indexing" nie jest włączona
+### <a name="cosmosdb-indexing-isnt-enabled"></a>"Indeksowanie" usługi CosmosDB nie jest włączone
 
-Usługa Azure Wyszukiwanie poznawcze ma niejawną zależność od indeksowania Cosmos DB. Jeśli wyłączysz automatyczne indeksowanie w Cosmos DB, usługa Azure Wyszukiwanie poznawcze zwróci stan pomyślne, ale nie będzie można indeksować zawartości kontenera. Aby uzyskać instrukcje dotyczące sprawdzania ustawień i włączania indeksowania, zobacz [Zarządzanie indeksowanie w Azure Cosmos DB](../cosmos-db/how-to-manage-indexing-policy.md#use-the-azure-portal).
+Azure Cognitive Search ma niejawną zależność od Cosmos DB indeksowania. Jeśli wyłączysz automatyczne indeksowanie w Cosmos DB, Azure Cognitive Search zwraca stan powodzenia, ale nie można indeksować zawartości kontenera. Aby uzyskać instrukcje dotyczące sprawdzania ustawień i włączanie indeksowania, zobacz [Zarządzanie indeksowaniem w programie Azure Cosmos DB](../cosmos-db/how-to-manage-indexing-policy.md#use-the-azure-portal).
 
-## <a name="document-processing-errors"></a>Błędy przetwarzania dokumentu
+### <a name="sharepoint-online-conditional-access-policies"></a>Zasady dostępu warunkowego usługi SharePoint Online
 
-### <a name="unprocessable-or-unsupported-documents"></a>Nieprzetworzone lub nieobsługiwane dokumenty
+Podczas tworzenia indeksatora usługi SharePoint Online należy przejść przez krok, który wymaga zalogowania się do aplikacji usługi AAD po podaniem kodu urządzenia. Jeśli zostanie wyświetlony komunikat "Logowanie się powiodło, ale administrator wymaga zarządzania urządzeniem żądający dostępu", indeksator prawdopodobnie będzie mieć zablokowany dostęp do biblioteki dokumentów usługi SharePoint Online z powodu zasad dostępu [warunkowego.](https://review.docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-Indeksator obiektów BLOB umożliwia dokumentowanie [formatów dokumentów, które są jawnie obsługiwane.](search-howto-indexing-azure-blob-storage.md#SupportedFormats) Czasami kontener magazynu obiektów BLOB zawiera nieobsługiwane dokumenty. Inne przypadki mogą wystąpić problemy z dokumentami. Możesz uniknąć zatrzymywania indeksatora w tych dokumentach, [zmieniając opcje konfiguracji](search-howto-indexing-azure-blob-storage.md#DealingWithErrors):
+Aby zaktualizować zasady w celu umożliwienia indeksatorowi dostępu do biblioteki dokumentów, wykonaj następujące kroki:
+
+1. Otwórz okno Azure Portal wyszukaj pozycję **Dostęp warunkowy** usługi Azure AD, a następnie wybierz **pozycję Zasady w** menu po lewej stronie. Jeśli nie masz dostępu do wyświetlania tej strony, musisz znaleźć kogoś, kto ma dostęp, lub uzyskać dostęp.
+
+1. Ustal, które zasady blokują indeksator usługi SharePoint Online dostęp do biblioteki dokumentów. Zasady, które mogą blokować indeksator, będą obejmować konto użytkownika, które było używane do uwierzytelniania podczas kroku tworzenia indeksatora w **sekcji Użytkownicy i** grupy. Zasady mogą również zawierać **warunki,** które:
+    * Ograniczanie **platform systemu Windows.**
+    * Ogranicz **aplikacje mobilne i klientów klasycznych.**
+    * Dla **ustawienia Stan urządzenia** skonfiguruj opcję **Tak.**
+
+1. Po potwierdzeniu, że istnieją zasady, które blokują indeksator, należy wprowadzić zwolnienie dla indeksatora. Pobierz adres IP usługi wyszukiwania.
+
+    1. Uzyskaj w pełni kwalifikowaną nazwę domeny (FQDN) usługi wyszukiwania. Będzie to wyglądać jak `<search-service-name>.search.windows.net` . Możesz dowiedzieć się więcej o witrynie FQDN, wyszukując usługę wyszukiwania w Azure Portal.
+
+   ![Uzyskiwanie sieci FQDN usługi](media\search-indexer-howto-secure-access\search-service-portal.png "Uzyskiwanie domeny FQDN usługi")
+
+    Adres IP usługi wyszukiwania można uzyskać, wykonując `nslookup` (lub `ping` ) adres FQDN. W poniższym przykładzie należy dodać "150.0.0.1" do reguły ruchu przychodzącego w zaporze usługi Azure Storage. Może upłynieć do 15 minut po zaktualizowaniu ustawień zapory, aby indeksator usługi wyszukiwania mógł uzyskać dostęp do konta usługi Azure Storage.
+
+    ```azurepowershell
+
+    nslookup contoso.search.windows.net
+    Server:  server.example.org
+    Address:  10.50.10.50
+    
+    Non-authoritative answer:
+    Name:    <name>
+    Address:  150.0.0.1
+    Aliases:  contoso.search.windows.net
+    ```
+
+1. Pobierz zakresy adresów IP dla środowiska wykonywania indeksatora dla swojego regionu.
+
+    Dodatkowe adresy IP są używane dla żądań pochodzących ze środowiska wykonywania wielodostępu [indeksatora](search-indexer-securing-resources.md#indexer-execution-environment). Ten zakres adresów IP można uzyskać z tagu usługi.
+
+    Zakresy adresów IP dla tagu usługi można uzyskać za pośrednictwem interfejsu API odnajdywania (wersja zapoznawcza) lub pliku `AzureCognitiveSearch` [JSON](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)do [](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) pobrania.
+
+    W tym przewodniku, zakładając, że usługa wyszukiwania jest chmurą publiczną platformy Azure, należy pobrać publiczny plik [JSON](https://www.microsoft.com/download/details.aspx?id=56519) platformy Azure.
+
+   ![Pobieranie pliku JSON](media\search-indexer-troubleshooting\service-tag.png "Pobieranie pliku JSON")
+
+    W pliku JSON, zakładając, że usługa wyszukiwania znajduje się w zachodnio-środkowych usa, poniżej przedstawiono listę adresów IP dla środowiska wykonawczego indeksatora z wieloma dzierżawami.
+
+    ```json
+        {
+          "name": "AzureCognitiveSearch.WestCentralUS",
+          "id": "AzureCognitiveSearch.WestCentralUS",
+          "properties": {
+            "changeNumber": 1,
+            "region": "westcentralus",
+            "platform": "Azure",
+            "systemService": "AzureCognitiveSearch",
+            "addressPrefixes": [
+              "52.150.139.0/26",
+              "52.253.133.74/32"
+            ]
+          }
+        }
+    ```
+
+1. Po powrocie na stronę Dostęp warunkowy w Azure Portal **wybierz** pozycję Nazwane lokalizacje z menu po lewej stronie, a następnie wybierz pozycję + **Lokalizacja zakresów adresów IP**. Nadaj nowej nazwanej lokalizacji nazwę i dodaj zakresy adresów IP dla środowisk wykonywania usługi wyszukiwania i indeksatora zebranych w dwóch ostatnich krokach.
+    * Dla adresu IP usługi wyszukiwania może być konieczne dodanie ciągu "/32" na końcu adresu IP, ponieważ akceptuje on tylko prawidłowe zakresy adresów IP.
+    * Należy pamiętać, że w przypadku zakresów adresów IP środowiska wykonywania indeksatora wystarczy dodać zakresy adresów IP dla regionu, w którym znajduje się usługa wyszukiwania.
+
+1. Wyklucz nową nazwaną lokalizację z zasad. 
+    1. Wybierz **pozycję Zasady** w menu po lewej stronie. 
+    1. Wybierz zasady, które blokują indeksator.
+    1. Wybierz **pozycję Warunki.**
+    1. Wybierz **pozycję Lokalizacje.**
+    1. Wybierz **pozycję Wyklucz,** a następnie dodaj nową nazwaną lokalizację.
+    1. **Zapisz** zmiany.
+
+1. Poczekaj kilka minut na zaktualizowanie i wymuszenia nowych reguł zasad przez zasady.
+
+1. Spróbuj ponownie utworzyć indeksator
+    1. Wyślij żądanie aktualizacji dla utworzonego obiektu źródła danych.
+    1. Wyślij ponownie żądanie utworzenia indeksatora. Użyj nowego kodu, aby się zalogować, a następnie wyślij kolejne żądanie utworzenia indeksatora po pomyślnym zalogowaniu.
+
+## <a name="document-processing-errors"></a>Błędy przetwarzania dokumentów
+
+### <a name="unprocessable-or-unsupported-documents"></a>Dokumenty nieprzetworzone lub nieobsługiwane
+
+Indeksator obiektów blob [dokumentuje, które formaty dokumentów są jawnie obsługiwane.](search-howto-indexing-azure-blob-storage.md#SupportedFormats). Czasami kontener magazynu obiektów blob zawiera nieobsługiwane dokumenty. W innych momentach mogą wystąpić problemy z dokumentami. Możesz uniknąć zatrzymywania indeksatora w tych dokumentach, [zmieniając opcje konfiguracji:](search-howto-indexing-azure-blob-storage.md#DealingWithErrors)
 
 ```
 PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
@@ -88,10 +168,10 @@ api-key: [admin key]
 
 ### <a name="missing-document-content"></a>Brak zawartości dokumentu
 
-Indeksator obiektów BLOB [odnajduje i wyodrębnia tekst z obiektów BLOB w kontenerze](search-howto-indexing-azure-blob-storage.md#how-azure-search-indexes-blobs). Niektóre problemy z wyodrębnianiem tekstu obejmują:
+Indeksator obiektów blob [znajduje i wyodrębnia tekst z obiektów blob w kontenerze](search-howto-indexing-azure-blob-storage.md#how-azure-search-indexes-blobs). Niektóre problemy z wyodrębnianiem tekstu:
 
-* Dokument zawiera tylko zeskanowane obrazy. Obiekty blob PDF, które zawierają zawartość nietekstową, na przykład zeskanowane obrazy (JPGs), nie generują wyników w standardowym potoku indeksowania obiektów BLOB. Jeśli masz zawartość obrazu z elementami tekstowymi, możesz użyć [wyszukiwania poznawczego](cognitive-search-concept-image-scenarios.md) do znajdowania i wyodrębniania tekstu.
-* Indeksator obiektu BLOB jest skonfigurowany tylko do indeksowania metadanych. Aby wyodrębnić zawartość, indeksator obiektu BLOB musi być skonfigurowany do [wyodrębniania zawartości i metadanych](search-howto-indexing-azure-blob-storage.md#PartsOfBlobToIndex):
+* Dokument zawiera tylko zeskanowane obrazy. Obiekty blob PDF, które mają zawartość nie text, takie jak zeskanowane obrazy (JPG), nie dają wyników w standardowym potoku indeksowania obiektów blob. Jeśli masz zawartość obrazu z elementami tekstowymi, możesz użyć wyszukiwania [poznawczego,](cognitive-search-concept-image-scenarios.md) aby znaleźć i wyodrębnić tekst.
+* Indeksator obiektów blob jest skonfigurowany do indeksowania tylko metadanych. Aby wyodrębnić zawartość, indeksator obiektów blob musi być skonfigurowany do wyodrębniania [zawartości i metadanych:](search-howto-indexing-azure-blob-storage.md#PartsOfBlobToIndex)
 
 ```
 PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
@@ -104,15 +184,15 @@ api-key: [admin key]
 }
 ```
 
-## <a name="index-errors"></a>Błędy indeksowania
+## <a name="index-errors"></a>Błędy indeksu
 
 ### <a name="missing-documents"></a>Brakujące dokumenty
 
-Indeksatory Znajdź dokumenty ze [źródła danych](/rest/api/searchservice/create-data-source). Czasami dokument ze źródła danych, który powinien być indeksowany, prawdopodobnie nie znajduje się w indeksie. Istnieje kilka typowych powodów, dla których mogą wystąpić te błędy:
+Indeksatorzy znajdują dokumenty ze [źródła danych](/rest/api/searchservice/create-data-source). Czasami dokument ze źródła danych, który powinien zostać zindeksowany, wydaje się brakować w indeksie. Istnieje kilka typowych przyczyn, dla których te błędy mogą wystąpić:
 
-* Dokument nie został zindeksowany. Sprawdź, czy Portal zakończył działanie indeksatora.
-* Sprawdź wartość [śledzenia zmian](/rest/api/searchservice/create-data-source#data-change-detection-policies) . Jeśli wartość górnego limitu jest datą ustawioną w przyszłości, wszystkie dokumenty, które mają datę mniejszą niż ta, zostaną pominięte przez indeksator. Można zrozumieć stan śledzenia zmian indeksatora przy użyciu pól "initialTrackingState" i "finalTrackingState" w [stanie indeksatora](/rest/api/searchservice/get-indexer-status#indexer-execution-result).
-* Dokument został zaktualizowany po uruchomieniu indeksatora. Jeśli indeksator jest zgodnie z [harmonogramem](/rest/api/searchservice/create-indexer#indexer-schedule), zostanie on ostatecznie uruchomiony i zostanie pobrany do dokumentu.
-* [Zapytanie](/rest/api/searchservice/create-data-source) określone w źródle danych wyklucza dokument. Indeksatory nie mogą indeksować dokumentów, które nie są częścią źródła danych.
-* [Mapowania pól](/rest/api/searchservice/create-indexer#fieldmappings) lub [wzbogacania AI](./cognitive-search-concept-intro.md) zmieniły dokument i wyglądają inaczej niż oczekiwano.
-* Użyj [interfejsu API dokumentu wyszukiwania](/rest/api/searchservice/lookup-document) , aby znaleźć dokument.
+* Dokument nie został zindeksowany. Sprawdź w portalu, czy indeksator został pomyślnie uruchomiony.
+* Sprawdź wartość [śledzenia](/rest/api/searchservice/create-data-source#data-change-detection-policies) zmian. Jeśli wartość limitu wysokiego jest datą ustawioną na czas przyszły, wszystkie dokumenty, których data jest mniejsza niż ta, zostaną pominięte przez indeksator. Stan śledzenia zmian indeksatora można zrozumieć przy użyciu pól "initialTrackingState" i "finalTrackingState" w [stanie indeksatora](/rest/api/searchservice/get-indexer-status#indexer-execution-result).
+* Dokument został zaktualizowany po uruchomieniu indeksatora. Jeśli indeksator jest zgodnie z [harmonogramem,](/rest/api/searchservice/create-indexer#indexer-schedule)po pewnym czasie zostanie on ponownie uruchomić i odbierze dokument.
+* Zapytanie [określone](/rest/api/searchservice/create-data-source) w źródle danych wyklucza dokument. Indeksatorzy nie mogą indeksować dokumentów, które nie są częścią źródła danych.
+* [Mapowania pól lub](/rest/api/searchservice/create-indexer#fieldmappings) [wzbogacanie AI](./cognitive-search-concept-intro.md) zmieniły dokument i wygląda on inaczej niż oczekiwano.
+* Użyj [interfejsu API dokumentu odnośnika,](/rest/api/searchservice/lookup-document) aby znaleźć dokument.

@@ -356,6 +356,8 @@
               href: service-fabric-cluster-resource-manager-movement-cost.md
             - name: Skalowanie automatyczne usług
               href: service-fabric-cluster-resource-manager-autoscaling.md
+            - name: Tagowanie węzłów
+              href: service-fabric-cluster-resource-manager-node-tagging.md
     - name: Monitorowanie i diagnostyka
       items:
         - name: Omówienie monitorowania
@@ -440,19 +442,19 @@
                   href: service-fabric-develop-csharp-applications-with-vs-code.md
                 - name: Opracowywanie aplikacji usługi Service Fabric w języku Java za pomocą programu VS Code
                   href: service-fabric-develop-java-applications-with-vs-code.md
-    - name: Używanie Service Fabric zarządzanych klastrów
+    - name: Używanie Service Fabric zarządzanych
       items:
         - name: Dodawanie rozszerzenia zestawu skalowania maszyn wirtualnych do typu węzła klastra zarządzanego
           href: how-to-managed-cluster-vmss-extension.md
-        - name: Konfigurowanie zarządzanego klastra
+        - name: Konfigurowanie klastra zarządzanego
           href: how-to-managed-cluster-configuration.md
-        - name: Dodaj reguły sieciowej grupy zabezpieczeń i inne opcje sieci zarządzanych klastrów
+        - name: Dodawanie reguł sieciowej grupy sieciowej i innych opcji sieciowych klastra zarządzanego
           href: how-to-managed-cluster-networking.md
-        - name: Wdróż zarządzane aplikacje klastra przy użyciu szablonu ARM
+        - name: Wdrażanie aplikacji klastra zarządzanego przy użyciu szablonu usługi ARM
           href: how-to-managed-cluster-app-deployment-template.md
-        - name: Włącz szyfrowanie dysków dla zarządzanych węzłów klastra
+        - name: Włączanie szyfrowania dysków dla węzłów klastra zarządzanego
           href: how-to-enable-managed-cluster-disk-encryption.md
-        - name: Używanie tożsamości zarządzanej dla zarządzanych węzłów klastra
+        - name: Używanie tożsamości zarządzanej dla węzłów klastra zarządzanego
           href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
     - name: Planowanie i przygotowanie
       items:
@@ -502,7 +504,7 @@
                   href: service-fabric-how-to-remove-node-type.md
             - name: Uaktualnienie
               items:
-                - name: Zarządzanie uaktualnieniami klastra Service Fabric
+                - name: Zarządzanie uaktualnieniami Service Fabric klastra
                   href: service-fabric-cluster-upgrade-version-azure.md
                 - name: Uaktualnianie konfiguracji klastra
                   href: service-fabric-cluster-config-upgrade-azure.md

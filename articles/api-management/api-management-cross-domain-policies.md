@@ -1,6 +1,6 @@
 ---
-title: Zasady międzydomenowe platformy Azure API Management | Microsoft Docs
-description: Dowiedz się więcej o zasadach międzydomenowych dostępnych do użycia w usłudze Azure API Management.
+title: Zasady API Management azure | Microsoft Docs
+description: Dowiedz się więcej na temat zasad między domenami dostępnych do użycia w usłudze Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/01/2021
 ms.author: apimpm
-ms.openlocfilehash: 85abf30d792b24b92685e191f5b460a42dc29142
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f074ff389971fa56da7838a9a46ec5c4d42dc5a
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101688420"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739102"
 ---
 # <a name="api-management-cross-domain-policies"></a>API Management cross domain policies (Zasady usługi API Management obejmujące różne domeny)
-Ten temat zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](./api-management-policies.md).
+Ten temat zawiera informacje dotyczące następujących zasad API Management tematu. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [Zasady w API Management](./api-management-policies.md).
 
-## <a name="cross-domain-policies"></a><a name="CrossDomainPolicies"></a> Zasady międzydomenowe
+## <a name="cross-domain-policies"></a><a name="CrossDomainPolicies"></a> Zasady między domenami
 
-- [Zezwalaj na wywołania międzydomenowe](api-management-cross-domain-policies.md#AllowCrossDomainCalls) — umożliwia dostęp do interfejsu API z poziomu klientów opartych na przeglądarce Adobe Flash i Microsoft Silverlight.
-- [CORS](api-management-cross-domain-policies.md#CORS) — dodaje obsługę funkcji udostępniania zasobów między źródłami (CORS) do operacji lub interfejsu API w celu zezwalania na wywołania międzydomenowe z klientów opartych na przeglądarce.
-- [JSONP](api-management-cross-domain-policies.md#JSONP) — dodaje kod JSON z obsługą dopełnienia (JSONP) do operacji lub interfejsu API w celu zezwalania na wywołania międzydomenowe z klientów opartych na przeglądarce JavaScript.
+- [Zezwalaj na wywołania między domenami](api-management-cross-domain-policies.md#AllowCrossDomainCalls) — udostępnia interfejs API z poziomu programu Adobe Flash i klientów programu Microsoft Silverlight opartych na przeglądarce.
+- [CORS](api-management-cross-domain-policies.md#CORS) — dodaje obsługę współużytkowania zasobów między źródłami (CORS) do operacji lub interfejsu API w celu zezwalania na wywołania między domenami z klientów opartych na przeglądarce.
+- [JSONP](api-management-cross-domain-policies.md#JSONP) — dodaje kod JSON z obsługą dopełnienia (JSONP) do operacji lub interfejsu API w celu zezwalania na wywołania między domenami z klientów opartych na przeglądarce języka JavaScript.
 
 ## <a name="allow-cross-domain-calls"></a><a name="AllowCrossDomainCalls"></a> Zezwalaj na wywołania między domenami
-Użyj `cross-domain` zasad, aby udostępnić interfejs API z klientów Adobe Flash i Microsoft Silverlight opartych na przeglądarce.
+Użyj zasad, aby udostępnić interfejs API z klientów opartych na przeglądarce Adobe Flash i `cross-domain` Microsoft Silverlight.
 
 ### <a name="policy-statement"></a>Instrukcja zasad
 
@@ -53,23 +53,23 @@ Użyj `cross-domain` zasad, aby udostępnić interfejs API z klientów Adobe Fla
 
 |Nazwa|Opis|Wymagane|
 |----------|-----------------|--------------|
-|między domenami|Element główny. Elementy podrzędne muszą być zgodne ze [specyfikacją pliku zasad między domenami Adobe](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Tak|
+|między domenami|Element główny. Elementy podrzędne muszą być zgodne ze specyfikacją pliku zasad między [domenami firmy Adobe.](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)|Tak|
 
 ### <a name="usage"></a>Użycie
-Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
+Tych zasad można używać w następujących sekcjach [zasad](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes).
 
-- **Sekcje zasad:** przychodzące
+- **Sekcje zasad:** ruch przychodzący
 - **Zakresy zasad:** wszystkie zakresy
 
-## <a name="cors"></a><a name="CORS"></a> SPECYFIKACJI
-`cors`Zasada dodaje obsługę funkcji udostępniania zasobów między źródłami (CORS) do operacji lub interfejsu API w celu zezwalania na wywołania międzydomenowe z klientów opartych na przeglądarce. 
+## <a name="cors"></a><a name="CORS"></a> Cors
+Zasady dodają obsługę współużytkowania zasobów między źródłami (CORS) do operacji lub interfejsu API w celu zezwalania na wywołania między domenami `cors` z klientów opartych na przeglądarce. 
 
 > [!NOTE]
-> Jeśli żądanie pasuje do operacji przy użyciu metody OPTIONS zdefiniowanej w interfejsie API, logika przetwarzania żądań przed inspekcją, skojarzona z zasadami CORS, nie zostanie uruchomiona. W związku z tym operacje te mogą służyć do implementowania niestandardowej logiki przetwarzania przed lotem.
+> Jeśli żądanie pasuje do operacji z metodą OPTIONS zdefiniowaną w interfejsie API, logika przetwarzania żądań wstępnych skojarzona z zasadami CORS nie zostanie wykonana. W związku z tym takie operacje mogą służyć do implementowania niestandardowej logiki przetwarzania przed lotem.
 
-Mechanizm CORS pozwala przeglądarce i serwerowi na współpracujące i określać, czy zezwolić na określone żądania między źródłami (tj. wywołania XMLHttpRequest wykonane ze skryptu JavaScript na stronie sieci Web do innych domen). Zapewnia to większą elastyczność niż Zezwalanie na żądania tego samego źródła, ale jest bezpieczniejsze niż Zezwalanie na wszystkie żądania między źródłami.
+Dzięki funkcji CORS przeglądarka i serwer mogą wchodzić w interakcje i określać, czy zezwalać na określone żądania między źródłami (tj. WYWOŁANIA XMLHttpRequests wykonane z języka JavaScript na stronie internetowej do innych domen). Zapewnia to większą elastyczność niż zezwalanie tylko na żądania tego samego źródła, ale jest bezpieczniejsze niż zezwalanie na wszystkie żądania między źródłami.
 
-Należy zastosować zasady CORS, aby włączyć konsolę interaktywną w portalu dla deweloperów. Szczegółowe informacje znajdują się w [dokumentacji portalu deweloperów](./api-management-howto-developer-portal.md#cors) .
+Aby włączyć interaktywną konsolę w portalu dla deweloperów, należy zastosować zasady CORS. Aby uzyskać szczegółowe informacje, [zapoznaj się z dokumentacją](./developer-portal-faq.md#cors) portalu dla deweloperów.
 
 ### <a name="policy-statement"></a>Instrukcja zasad
 
@@ -91,7 +91,7 @@ Należy zastosować zasady CORS, aby włączyć konsolę interaktywną w portalu
 ```
 
 ### <a name="example"></a>Przykład
-W tym przykładzie pokazano, jak obsługiwać żądania przed inspekcją, takie jak te z niestandardowymi nagłówkami lub metodami innymi niż GET i POST. Aby obsługiwać niestandardowe nagłówki i dodatkowe zlecenia HTTP, użyj `allowed-methods` sekcji i, `allowed-headers` jak pokazano w poniższym przykładzie.
+W tym przykładzie pokazano, jak obsługiwać żądania przed lotem, takie jak żądania z niestandardowymi nagłówkami lub metodami innymi niż GET i POST. Aby obsługiwać nagłówki niestandardowe i dodatkowe czasowniki HTTP, użyj sekcji i , `allowed-methods` `allowed-headers` jak pokazano w poniższym przykładzie.
 
 ```xml
 <cors allow-credentials="true">
@@ -127,31 +127,31 @@ W tym przykładzie pokazano, jak obsługiwać żądania przed inspekcją, takie 
 
 |Nazwa|Opis|Wymagane|Domyślne|
 |----------|-----------------|--------------|-------------|
-|specyfikacji|Element główny.|Tak|Nie dotyczy|
-|dozwolone źródła|Zawiera `origin` elementy, które opisują dozwolone źródła dla żądań międzydomenowych. `allowed-origins` może zawierać pojedynczy element, `origin` który określa `*` , aby zezwolić na dowolne Źródło lub jeden lub więcej `origin` elementów, które zawierają identyfikator URI.|Tak|Nie dotyczy|
-|połączenie pierwotne|Wartość może być `*` równa, aby zezwolić na wszystkie źródła lub identyfikator URI, który określa pojedyncze źródło. Identyfikator URI musi zawierać schemat, hosta i port.|Tak|Jeśli port zostanie pominięty w identyfikatorze URI, port 80 jest używany dla protokołu HTTP, a port 443 jest używany w przypadku protokołu HTTPS.|
-|dozwolone — metody|Ten element jest wymagany, jeśli dozwolone są metody inne niż GET lub POST. Zawiera `method` elementy, które określają obsługiwane zlecenia http. Wartość `*` wskazuje wszystkie metody.|Nie|Jeśli ta sekcja nie jest obecna, obsługiwane są pozycje GET i POST.|
-|method|Określa czasownik HTTP.|`method`Jeśli `allowed-methods` sekcja jest obecna, wymagany jest co najmniej jeden element.|Nie dotyczy|
-|dozwolone — nagłówki|Ten element zawiera `header` elementy określające nazwy nagłówków, które mogą zostać uwzględnione w żądaniu.|Nie|Nie dotyczy|
-|Uwidacznianie — nagłówki|Ten element zawiera `header` elementy określające nazwy nagłówków, które będą dostępne dla klienta.|Nie|Nie dotyczy|
-|header|Określa nazwę nagłówka.|Co najmniej jeden `header` element jest wymagany w `allowed-headers` lub `expose-headers` Jeśli sekcja jest obecna.|Nie dotyczy|
+|Cors|Element główny.|Tak|Nie dotyczy|
+|dozwolone źródła|Zawiera `origin` elementy, które opisują dozwolone źródła dla żądań między domenami. `allowed-origins` może zawierać pojedynczy element określający zezwalanie na dowolne źródło lub co najmniej jeden `origin` `*` `origin` element, który zawiera wartość URI.|Tak|Nie dotyczy|
+|połączenie pierwotne|Wartością może być `*` zezwalanie na wszystkie źródła lub URI określający pojedyncze źródło. Ten numer URI musi zawierać schemat, hosta i port.|Tak|Jeśli port zostanie pominięty w adresie URI, port 80 będzie używany dla protokołu HTTP, a port 443 dla protokołu HTTPS.|
+|allowed-methods|Ten element jest wymagany, jeśli dozwolone są metody inne niż GET lub POST. Zawiera `method` elementy, które określają obsługiwane czasowniki HTTP. Wartość wskazuje `*` wszystkie metody.|Nie|Jeśli ta sekcja nie jest obecna, obsługiwane są get i POST.|
+|method|Określa czasownik HTTP.|Jeśli sekcja `method` jest obecna, wymagany jest co najmniej jeden `allowed-methods` element.|Nie dotyczy|
+|dozwolone nagłówki|Ten element `header` zawiera elementy określające nazwy nagłówków, które mogą zostać uwzględnione w żądaniu.|Nie|Nie dotyczy|
+|expose-headers|Ten element `header` zawiera elementy określające nazwy nagłówków, które będą dostępne dla klienta.|Nie|Nie dotyczy|
+|header|Określa nazwę nagłówka.|Co najmniej jeden `header` element jest wymagany w `allowed-headers` elemencie lub , jeśli sekcja jest `expose-headers` obecna.|Nie dotyczy|
 
 ### <a name="attributes"></a>Atrybuty
 
 |Nazwa|Opis|Wymagane|Domyślne|
 |----------|-----------------|--------------|-------------|
-|Zezwalaj — poświadczenia|W `Access-Control-Allow-Credentials` nagłówku odpowiedzi na inspekcję wstępną zostanie ustawiona wartość tego atrybutu i będzie ona mieć wpływ na zdolność klienta do przesyłania poświadczeń w żądaniach międzydomenowych.|Nie|fałsz|
-|Przerwij — niedopasowane-żądanie|Ten atrybut steruje przetwarzaniem żądań między źródłami, które nie są zgodne z ustawieniami zasad CORS. Gdy żądanie OPTIONS jest przetwarzane jako żądanie przed inspekcją i nie jest zgodne z ustawieniami zasad CORS: Jeśli atrybut jest ustawiony na `true` , natychmiast Przerwij żądanie z pustą odpowiedzią 200 OK; Jeśli atrybut jest ustawiony na `false` , sprawdź ruch przychodzący dla innych zasad CORS w zakresie, które są bezpośrednimi elementami podrzędnymi elementu przychodzącego i zastosuj je.  Jeśli nie zostaną znalezione żadne zasady CORS, Zakończ żądanie z pustą odpowiedzią 200 OK. Gdy żądanie GET lub główny zawiera nagłówek źródła (i dlatego jest przetwarzane jako żądanie między źródłami) i nie jest zgodne z ustawieniami zasad CORS: Jeśli atrybut jest ustawiony na `true` , natychmiast Przerwij żądanie z pustą odpowiedzią 200 OK; Jeśli atrybut jest ustawiony na `false` , Zezwól na normalne wykonanie żądania i nie dodawaj nagłówków CORS do odpowiedzi.|Nie|true|
-|Inspekcja wstępna — wynik — maks. wiek|`Access-Control-Max-Age`Nagłówek w odpowiedzi na inspekcję wstępną zostanie ustawiony na wartość tego atrybutu i będzie miał wpływ na zdolność agenta użytkownika do buforowania przed lotem odpowiedzi.|Nie|0|
+|allow-credentials|Nagłówek w odpowiedzi wstępnej zostanie ustawiony na wartość tego atrybutu i będzie miał wpływ na możliwość przesyłania poświadczeń przez klienta w żądaniach `Access-Control-Allow-Credentials` między domenami.|Nie|fałsz|
+|terminate-unmatched-request|Ten atrybut kontroluje przetwarzanie żądań między źródłami, które nie są zgodne z ustawieniami zasad CORS. Gdy żądanie OPTIONS jest przetwarzane jako żądanie wstępne i nie jest zgodne z ustawieniami zasad CORS: jeśli atrybut jest ustawiony na wartość , natychmiast zakończ żądanie z pustą odpowiedzią `true` 200 OK. Jeśli atrybut jest ustawiony na wartość , sprawdź ruch przychodzący dla innych zasad CORS w zakresie, które są bezpośrednimi elementami kluczowymi elementu `false` przychodzącego, i zastosuj je.  Jeśli żadne zasady CORS nie zostaną znalezione, zakończ żądanie pustą odpowiedzią 200 OK. Gdy żądanie GET lub HEAD zawiera nagłówek Origin (i dlatego jest przetwarzane jako żądanie między źródłami) i nie jest zgodne z ustawieniami zasad CORS: jeśli atrybut jest ustawiony na wartość , natychmiast zakończ żądanie z pustą odpowiedzią `true` 200 OK; Jeśli atrybut jest ustawiony na wartość , zezwoń na normalne kontynuowanie żądania i nie dodawaj nagłówków `false` CORS do odpowiedzi.|Nie|true|
+|preflight-result-max-age|Nagłówek w odpowiedzi wstępnej zostanie ustawiony na wartość tego atrybutu i będzie miał wpływ na możliwość buforowania odpowiedzi przed `Access-Control-Max-Age` lotem przez agenta użytkownika.|Nie|0|
 
 ### <a name="usage"></a>Użycie
-Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
+Tych zasad można używać w następujących sekcjach [zasad](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes).
 
-- **Sekcje zasad:** przychodzące
+- **Sekcje zasad:** ruch przychodzący
 - **Zakresy zasad:** wszystkie zakresy
 
-## <a name="jsonp"></a><a name="JSONP"></a> JSONP
-`jsonp`Zasada dodaje kod JSON z obsługą dopełnienia (JSONP) do operacji lub interfejsu API w celu zezwalania na wywołania międzydomenowe z klientów opartych na przeglądarce JavaScript. JSONP to metoda używana w programach JavaScript do żądania danych z serwera w innej domenie. JSONP pomija ograniczenia wymuszane przez większość przeglądarek sieci Web, w których dostęp do stron sieci Web musi znajdować się w tej samej domenie.
+## <a name="jsonp"></a><a name="JSONP"></a> Jsonp
+Zasady dodają kod JSON z obsługą dopełnienia (JSONP) do operacji lub interfejsu API w celu zezwalania na wywołania między domenami z klientów opartych na przeglądarce `jsonp` języka JavaScript. JSONP to metoda używana w programach JavaScript do żądania danych z serwera w innej domenie. JSONP pomija ograniczenie wymuszane przez większość przeglądarek internetowych, w których dostęp do stron internetowych musi znajdować się w tej samej domenie.
 
 ### <a name="policy-statement"></a>Instrukcja zasad
 
@@ -165,26 +165,26 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 <jsonp callback-parameter-name="cb" />
 ```
 
-Jeśli wywołasz metodę bez parametru wywołania zwrotnego? CB = XXX, zwróci on zwykły kod JSON (bez otoki wywołania funkcji).
+Wywołanie metody bez parametru wywołania zwrotnego ?cb=XXX spowoduje zwrócenie zwykłego danych JSON (bez otoki wywołania funkcji).
 
-Dodanie parametru wywołania zwrotnego `?cb=XXX` spowoduje zwrócenie wyniku JSONP, zawijanie oryginalnych wyników JSON wokół funkcji wywołania zwrotnego, takiej jak `XYZ('<json result goes here>');`
+Jeśli dodasz parametr wywołania zwrotnego, zwróci on wynik JSONP, opakowując oryginalne wyniki `?cb=XXX` JSON wokół funkcji wywołania zwrotnego, na przykład `XYZ('<json result goes here>');`
 
 ### <a name="elements"></a>Elementy
 
 |Nazwa|Opis|Wymagane|
 |----------|-----------------|--------------|
-|JSONP|Element główny.|Tak|
+|Jsonp|Element główny.|Tak|
 
 ### <a name="attributes"></a>Atrybuty
 
 |Nazwa|Opis|Wymagane|Domyślne|
 |----------|-----------------|--------------|-------------|
-|wywołanie zwrotne-Nazwa parametru|Międzydomenowe wywołanie funkcji JavaScript poprzedzone prefiksem w pełni kwalifikowanej nazwy domeny, w której znajduje się funkcja.|Tak|Nie dotyczy|
+|nazwa parametru wywołania zwrotnego|Wywołanie funkcji Języka JavaScript między domenami poprzedzone w pełni kwalifikowaną nazwą domeny, w której znajduje się funkcja.|Tak|Nie dotyczy|
 
 ### <a name="usage"></a>Użycie
-Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
+Tych zasad można używać w następujących sekcjach [zasad](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes).
 
-- **Sekcje zasad:** wychodzące
+- **Sekcje zasad:** ruch wychodzący
 - **Zakresy zasad:** wszystkie zakresy
 
 ## <a name="next-steps"></a>Następne kroki
@@ -192,6 +192,6 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 Aby uzyskać więcej informacji na temat pracy z zasadami, zobacz:
 
 + [Zasady w API Management](api-management-howto-policies.md)
-+ [Przekształć interfejsy API](transform-api.md)
-+ [Dokumentacja zasad](./api-management-policies.md) pełna lista instrukcji zasad i ich ustawień
++ [Przekształcanie interfejsów API](transform-api.md)
++ [Informacje o](./api-management-policies.md) zasadach dotyczące pełnej listy instrukcji zasad i ich ustawień
 + [Przykłady zasad](./policy-reference.md)

@@ -1,6 +1,6 @@
 ---
-title: Przesłoń informacje o jednostce SKU za pośrednictwem CSCFG/CSDEF dla platformy Azure Cloud Services (obsługa rozszerzona)
-description: Przesłoń informacje o jednostce SKU za pośrednictwem CSCFG/CSDEF dla platformy Azure Cloud Services (obsługa rozszerzona)
+title: Przesłanianie informacji o sku za pośrednictwem zasad CSCFG/CSDEF Azure Cloud Services (rozszerzona obsługa)
+description: Przesłanianie informacji o sku za pośrednictwem zasad CSCFG/CSDEF Azure Cloud Services (rozszerzona obsługa)
 ms.topic: how-to
 ms.service: cloud-services-extended-support
 author: surbhijain
@@ -8,36 +8,36 @@ ms.author: surbhijain
 ms.reviewer: gachandw
 ms.date: 04/05/2021
 ms.custom: ''
-ms.openlocfilehash: 17e47b562c52ffce631a01cf03004d77053ea647
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: d5dfae4b5cfee8f61e11e418a05e86017d119410
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106387334"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739264"
 ---
-# <a name="override-sku-information-over-cscfgcsdef-in-cloud-services-extended-support"></a>Przesłoń informacje o jednostkach SKU za pośrednictwem CSCFG/CSDEF w Cloud Services (obsługa rozszerzona) 
+# <a name="override-sku-information-over-cscfgcsdef-in-cloud-services-extended-support"></a>Przesłanianie informacji o sku za pośrednictwem zasad CSCFG/CSDEF w Cloud Services (rozszerzona obsługa) 
 
-Ta funkcja umożliwi użytkownikowi zaktualizowanie rozmiaru roli i liczby wystąpień w usłudze w chmurze przy użyciu właściwości **allowModelOverride** bez konieczności aktualizacji plików definicji usługi i usług, dzięki czemu usługa w chmurze może skalować w górę/w dół/w dół bez konieczności ponownego pakowania i wdrażania.
+Ta funkcja umożliwi użytkownikowi aktualizowanie rozmiaru roli i liczby wystąpień w usłudze w chmurze przy użyciu właściwości **allowModelOverride** bez konieczności aktualizowania plików konfiguracji usługi i definicji usługi, dzięki czemu usługa w chmurze może skalować w górę/w dół/w dół/w poziomie bez konieczności ponownego pakowania i ponownego pakowania.
 
-## <a name="set-allowmodeloverride-property"></a>Ustaw właściwość allowModelOverride
+## <a name="set-allowmodeloverride-property"></a>Ustawianie właściwości allowModelOverride
 Właściwość allowModelOverride można ustawić w następujący sposób:
-* Gdy allowModelOverride = true, wywołanie interfejsu API spowoduje zaktualizowanie rozmiaru roli i liczby wystąpień dla usługi w chmurze bez weryfikowania wartości przy użyciu plików csdef i cscfg. 
+* Gdy allowModelOverride = true, wywołanie interfejsu API zaktualizuje rozmiar roli i liczbę wystąpień dla usługi w chmurze bez sprawdzania poprawności wartości za pomocą plików csdef i cscfg. 
 > [!Note]
-> Cscfg zostanie zaktualizowany w celu odzwierciedlenia liczby wystąpień roli, ale csdef (w ramach cspkg) spowoduje zachowanie starych wartości
-* Gdy allowModelOverride = false, wywołanie interfejsu API mógłby zgłosić błąd, jeśli rozmiar roli i wartości liczby wystąpień nie są zgodne z plikami csdef i cscfg odpowiednio
+> Cscfg zostanie zaktualizowany w celu odzwierciedlenia liczby wystąpień roli, ale csdef (w ramach cspkg) zachowa stare wartości
+* Gdy allowModelOverride = false, wywołanie interfejsu API zgłasza błąd, gdy wartości rozmiaru roli i liczby wystąpień nie są zgodne odpowiednio z plikami csdef i cscfg
 
-Wartość domyślna to false. Jeśli właściwość zostanie zresetowana do wartości FAŁSZ z wartości true, pliki csdef i cscfg byłyby ponownie sprawdzone pod kątem walidacji.
+Wartość domyślna to false. Jeśli właściwość zostanie zresetowana do wartości false z wartości true, pliki csdef i cscfg zostaną ponownie sprawdzone pod kątem walidacji.
 
-Zapoznaj się z poniższymi przykładami, aby zastosować właściwość w programie PowerShell, szablonie i zestawie SDK.
+Zapoznaj się z poniższymi przykładami, aby zastosować właściwość w programie PowerShell, szablonie i zestawie SDK
 
 ### <a name="azure-resource-manager-template"></a>Szablon usługi Azure Resource Manager
-Ustawienie właściwości "allowModelOverride" = true w tym miejscu spowoduje zaktualizowanie usługi w chmurze przy użyciu właściwości roli zdefiniowanych w sekcji roleProfile
+Ustawienie właściwości "allowModelOverride" = true spowoduje zaktualizowanie usługi w chmurze przy użyciu właściwości roli zdefiniowanych w sekcji roleProfile
 ```json
 "properties": {
         "packageUrl": "[parameters('packageSasUri')]",
         "configurationUrl": "[parameters('configurationSasUri')]",
         "upgradeMode": "[parameters('upgradeMode')]",
-        “**allowModelOverride**” : true,
+        “allowModelOverride” : true,
         "roleProfile": {
           "roles": [
             {
@@ -59,7 +59,7 @@ Ustawienie właściwości "allowModelOverride" = true w tym miejscu spowoduje za
 
 ```
 ### <a name="powershell"></a>PowerShell
-Ustawienie przełącznika "AllowModelOverride" w nowym poleceniu cmdlet New-AzCloudService spowoduje zaktualizowanie usługi w chmurze za pomocą właściwości jednostki SKU zdefiniowanej w RoleProfile
+Ustawienie przełącznika "AllowModelOverride" w nowym New-AzCloudService cmdlet spowoduje zaktualizowanie usługi w chmurze przy użyciu właściwości SKU zdefiniowanych w pliku RoleProfile
 ```powershell
 New-AzCloudService ` 
 -Name “ContosoCS” ` 
@@ -76,7 +76,7 @@ New-AzCloudService `
 -Tag $tag
 ```
 ### <a name="sdk"></a>SDK
-Ustawienie zmiennej AllowModelOverride = true spowoduje zaktualizowanie usługi w chmurze za pomocą właściwości jednostki SKU zdefiniowanej w RoleProfile
+Ustawienie zmiennej AllowModelOverride= true spowoduje zaktualizowanie usługi w chmurze przy użyciu właściwości SKU zdefiniowanych w pliku RoleProfile
 
 ```csharp
 CloudService cloudService = new CloudService
@@ -97,9 +97,9 @@ CloudService cloudService = new CloudService
 CloudService createOrUpdateResponse = m_CrpClient.CloudServices.CreateOrUpdate(“ContosOrg”, “ContosoCS”, cloudService);
 ```
 ### <a name="azure-portal"></a>Azure Portal
-Portal nie zezwala na powyższą właściwość w celu zastąpienia rozmiaru roli i liczby wystąpień w csdef i cscfg. 
+Portal nie zezwala powyższej właściwości na zastępowanie rozmiaru roli i liczby wystąpień w csdef i cscfg. 
 
 
 ## <a name="next-steps"></a>Następne kroki 
-- Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wdrażania Cloud Services (obsługa rozszerzona).
-- Zapoznaj się z [często zadawanymi pytaniami](faq.md) dotyczącymi Cloud Services (obsługa rozszerzona).
+- Zapoznaj się z [warunkami wstępnymi wdrażania](deploy-prerequisite.md) Cloud Services (rozszerzona pomoc techniczna).
+- Przejrzyj [często zadawane pytania dotyczące](faq.md) Cloud Services (rozszerzona pomoc techniczna).

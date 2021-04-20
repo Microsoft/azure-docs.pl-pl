@@ -1,32 +1,32 @@
 ---
-title: Jak zarządzać usługą IoT Plug and Play Digital bliźniaczych reprezentacji
-description: Jak zarządzać urządzeniem Plug and Play IoT za pomocą interfejsów API cyfrowych przędzy
+title: Jak zarządzać usługą IoT Plug and Play digital twins
+description: Jak zarządzać urządzeniem IoT Plug and Play przy użyciu interfejsów API bliźniaczych reprezentacji cyfrowych
 author: prashmo
 ms.author: prashmo
-ms.date: 07/20/2020
+ms.date: 12/17/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: ddb8027c145f6a38bfcd953be66dae2943a20c3a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e68003878dc0e9275461100a59e0f45486c2978f
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97654612"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739876"
 ---
-# <a name="manage-iot-plug-and-play-digital-twins"></a>Zarządzanie usługą IoT Plug and Play Digital bliźniaczych reprezentacji
+# <a name="manage-iot-plug-and-play-digital-twins"></a>Zarządzanie IoT Plug and Play bliźniaczych reprezentacji
 
-Plug and Play IoT obsługuje **szybkie** i **Aktualizowanie** wieloosiowych operacji na potrzeby zarządzania cyfrowymi bliźniaczych reprezentacji. Można użyć [interfejsów API REST](/rest/api/iothub/service/digitaltwin) lub jednego z [zestawów SDK usługi](libraries-sdks.md).
+IoT Plug and Play obsługuje operacje **Get digital twin i** Update digital **twins** w celu zarządzania cyfrowymi bliźniaczych reprezentacji. Możesz użyć interfejsów [API REST](/rest/api/iothub/service/digitaltwin) lub jednego z [zestawów SDK usługi](libraries-sdks.md).
 
-W momencie pisania wersja interfejsu API Digital przędzy to `2020-09-30` .
+W momencie pisania tego tekstu wersja cyfrowego interfejsu API bliźniaczej reprezentacji to `2020-09-30` .
 
-## <a name="update-a-digital-twin"></a>Aktualizowanie wieloosiowej cyfrowej
+## <a name="update-a-digital-twin"></a>Aktualizowanie bliźniaczej reprezentacji
 
-Urządzenie Plug and Play IoT implementuje model opisany przez [Digital bliźniaczych reprezentacji Definition Language v2 (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl). Deweloperzy rozwiązań mogą korzystać z **interfejsu API Digital przędzy** , aby zaktualizować stan składnika i właściwości wielocyfrowej sznurka.
+Urządzenie IoT Plug and Play implementuje model opisany przez język [Digital Twins Definition Language v2 (DTDL).](https://github.com/Azure/opendigitaltwins-dtdl) Deweloperzy rozwiązań mogą używać **interfejsu API aktualizacji bliźniaczej** reprezentacji usługi Digital Twin, aby zaktualizować stan składnika i właściwości bliźniaczej reprezentacji cyfrowej.
 
-Urządzenie Plug and Play IoT używane jako przykład w tym artykule implementuje [model kontrolera temperatury](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) ze składnikami [termostatu](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) .
+Urządzenie IoT Plug and Play używane jako przykład w tym artykule implementuje [model kontrolera](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) temperatury ze [składnikami termostatu.](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json)
 
-Poniższy fragment kodu przedstawia odpowiedź na żądanie **uzyskania cyfrowej sieci dwuosiowej** sformatowaną jako obiekt JSON. Aby dowiedzieć się więcej o formacie cyfrowej przędzy, zobacz [Opis IoT Plug and Play Digital bliźniaczych reprezentacji](./concepts-digital-twin.md#digital-twin-example):
+Poniższy fragment kodu przedstawia odpowiedź na żądanie Get **digital twins** sformatowane jako obiekt JSON. Aby dowiedzieć się więcej na temat formatu bliźniaczych reprezentacji cyfrowych, zobacz [Understand IoT Plug and Play digital twins](./concepts-digital-twin.md#digital-twin-example):
 
 ```json
 {
@@ -58,9 +58,9 @@ Poniższy fragment kodu przedstawia odpowiedź na żądanie **uzyskania cyfrowej
 }
 ```
 
-Digital bliźniaczych reprezentacji umożliwia zaktualizowanie całego składnika lub właściwości przy użyciu [poprawki JSON](http://jsonpatch.com/).
+Usługi Digital Twins umożliwiają aktualizowanie całego składnika lub właściwości przy użyciu poprawki [JSON](http://jsonpatch.com/).
 
-Na przykład można zaktualizować `targetTemperature` Właściwość w następujący sposób:
+Na przykład możesz zaktualizować właściwość `targetTemperature` w następujący sposób:
 
 ```json
 [
@@ -72,7 +72,7 @@ Na przykład można zaktualizować `targetTemperature` Właściwość w następu
 ]
 ```
 
-Poprzednia aktualizacja ustawia żądaną wartość właściwości na poziomie odpowiedniego składnika `$metadata` , jak pokazano w poniższym fragmencie kodu. IoT Hub aktualizuje żądaną wersję właściwości:
+Poprzednia aktualizacja ustawia żądaną wartość właściwości na odpowiednim poziomie składnika, `$metadata` jak pokazano w poniższym fragmencie kodu. IoT Hub aktualizuje żądaną wersję właściwości:
 
 ```json
 "thermostat1": {
@@ -92,13 +92,13 @@ Poprzednia aktualizacja ustawia żądaną wartość właściwości na poziomie o
 
 ### <a name="add-replace-or-remove-a-component"></a>Dodawanie, zastępowanie lub usuwanie składnika
 
-Operacje na poziomie składnika wymagają pustego `$metadata` znacznika obiektu w wartości.
+Operacje na poziomie składnika wymagają pustego `$metadata` znacznika obiektu w ramach wartości.
 
-Operacja Dodaj lub Zamień składnik ustawia wymagane wartości wszystkich podanych właściwości. Czyści również żądane wartości dla wszystkich zapisywalnych właściwości, które nie są dostarczane z aktualizacją.
+Operacja dodawania lub zamieniania składnika ustawia żądane wartości wszystkich podanych właściwości. Ponadto czyszczy żądane wartości dla wszystkich właściwości zapisywalnych, które nie zostały dostarczone wraz z aktualizacją.
 
-Usunięcie składnika czyści wymagane wartości wszystkich właściwości, które mają możliwość zapisu. Urządzenie ostatecznie zsynchronizuje to usunięcie i zakończy raportowanie poszczególnych właściwości. Składnik jest następnie usuwany z dwuosiowej.
+Usunięcie składnika usuwa żądane wartości wszystkich obecnych właściwości zapisywalnych. Urządzenie ostatecznie synchronizuje to usunięcie i przestaje zgłaszać poszczególne właściwości. Składnik jest następnie usuwany z bliźniaczej reprezentacji cyfrowej.
 
-Poniższy przykład poprawek JSON pokazuje, jak dodać, zastąpić lub usunąć składnik:
+Poniższy przykład poprawki JSON pokazuje, jak dodać, zastąpić lub usunąć składnik:
 
 ```json
 [
@@ -130,9 +130,9 @@ Poniższy przykład poprawek JSON pokazuje, jak dodać, zastąpić lub usunąć 
 
 Operacja dodawania lub zamieniania ustawia żądaną wartość właściwości. Urządzenie może synchronizować stan i zgłaszać aktualizację wartości wraz z `ack` kodem, wersją i opisem.
 
-Usunięcie właściwości czyści żądaną wartość właściwości, jeśli jest ustawiona. Następnie urządzenie może zatrzymać raportowanie tej właściwości i zostanie usunięte ze składnika. Jeśli ta właściwość jest ostatnią z nich w składniku, składnik zostanie również usunięty.
+Usunięcie właściwości usuwa żądaną wartość właściwości, jeśli jest ustawiona. Następnie urządzenie może zatrzymać raportowanie tej właściwości i zostanie usunięte ze składnika. Jeśli ta właściwość jest ostatnią właściwością w składniku, składnik również jest usuwany.
 
-Poniższy przykład poprawek JSON pokazuje, jak dodać, zastąpić lub usunąć właściwość w składniku:
+Poniższy przykład poprawki JSON pokazuje, jak dodać, zastąpić lub usunąć właściwość w składniku:
 
 ```json
 [
@@ -153,46 +153,46 @@ Poniższy przykład poprawek JSON pokazuje, jak dodać, zastąpić lub usunąć 
 ]
 ```
 
-### <a name="rules-for-setting-the-desired-value-of-a-digital-twin-property"></a>Reguły dotyczące ustawiania żądanej wartości właściwości dwuosiowej
+### <a name="rules-for-setting-the-desired-value-of-a-digital-twin-property"></a>Reguły ustawiania żądanej wartości właściwości bliźniaczej reprezentacji cyfrowej
 
 **Nazwa**
 
 Nazwa składnika lub właściwości musi być prawidłową nazwą DTDL v2.
 
-Dozwolone znaki to a-z, A-Z, 0-9 (nie jako pierwszy znak) i podkreślenia (nie jako pierwszy lub ostatni znak).
+Dozwolone znaki to a–z, A–Z, 0–9 (nie jako pierwszy znak) i podkreślenie (nie jako pierwszy ani ostatni znak).
 
-Nazwa może składać się z od 1-64 znaków.
+Nazwa może mieć od 1 do 64 znaków.
 
 **Wartość właściwości**
 
 Wartość musi być prawidłową [właściwością DTDL v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#property).
 
-Obsługiwane są wszystkie typy pierwotne. W przypadku typów złożonych, typy wyliczeniowe, mapy i obiekty są obsługiwane. Aby dowiedzieć się więcej, zobacz [schematy DTDL v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#schemas).
+Obsługiwane są wszystkie typy pierwotne. W ramach typów złożonych obsługiwane są wylinia, mapy i obiekty. Aby dowiedzieć się więcej, zobacz [DTDL v2 Schemas (Schematy języka DTDL w wersji 2).](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#schemas)
 
 Właściwości nie obsługują tablicy ani żadnego złożonego schematu z tablicą.
 
-Dla obiektu złożonego jest obsługiwana Maksymalna głębokość pięciu poziomów.
+Maksymalna głębokość pięciu poziomów jest obsługiwana dla obiektu złożonego.
 
-Wszystkie nazwy pól w ramach obiektu złożonego powinny być Prawidłowymi nazwami DTDL v2.
+Wszystkie nazwy pól w obiekcie złożonym powinny być prawidłowymi nazwami DTDL w wersji 2.
 
-Wszystkie klucze mapowania powinny być Prawidłowymi nazwami DTDL v2.
+Wszystkie klucze mapy powinny być prawidłowymi nazwami DTDL v2.
 
-## <a name="troubleshoot-update-digital-twin-api-errors"></a>Rozwiązywanie problemów z aktualizacją interfejsów API cyfrowych przędzy
+## <a name="troubleshoot-update-digital-twin-api-errors"></a>Rozwiązywanie problemów z błędami aktualizowania interfejsu API bliźniaczej reprezentacji bliźniaczej
 
-Interfejs API Digital bliźniaczy zgłasza następujący ogólny komunikat o błędzie:
+Interfejs API bliźniaczej reprezentacji cyfrowej zgłasza następujący ogólny komunikat o błędzie:
 
 `ErrorCode:ArgumentInvalid;'{propertyName}' exists within the device twin and is not digital twin conformant property. Please refer to aka.ms/dtpatch to update this to be conformant.`
 
-Jeśli widzisz ten błąd, upewnij się, że poprawka aktualizacji jest zgodna z [regułami dotyczącymi ustawiania żądanej wartości właściwości dwuosiowej](#rules-for-setting-the-desired-value-of-a-digital-twin-property)
+Jeśli widzisz ten błąd, upewnij się, że poprawka aktualizacji jest zgodna z regułami ustawiania żądanej wartości [właściwości bliźniaczej reprezentacji cyfrowej](#rules-for-setting-the-desired-value-of-a-digital-twin-property)
 
-Podczas aktualizowania składnika upewnij się, że jest ustawiony [znacznik $Metadata pustego obiektu](#add-replace-or-remove-a-component) .
+Podczas aktualizowania składnika upewnij się, że ustawiono [pusty $metadata znacznika.](#add-replace-or-remove-a-component)
 
-Aktualizacje mogą zakończyć się niepowodzeniem, jeśli raportowane wartości urządzenia nie są zgodne z [konwencjami Plug and Play IoT](./concepts-convention.md#writable-properties).
+Aktualizacje mogą się nie powieść, jeśli zgłoszone wartości urządzenia nie są zgodne z konwencjami [IoT Plug and Play.](./concepts-convention.md#writable-properties)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, kiedy już wiesz o programie Digital bliźniaczych reprezentacji, Oto kilka dodatkowych zasobów:
+Teraz, gdy już wiesz o bliźniaczych reprezentacjiach cyfrowych, oto kilka dodatkowych zasobów:
 
 - [Interakcja z urządzeniem z rozwiązania](quickstart-service.md)
-- [Interfejs API REST cyfrowego przędzy IoT](/rest/api/iothub/service/digitaltwin)
-- [Eksplorator IoT Azure](howto-use-iot-explorer.md)
+- [IoT Digital Twin REST API](/rest/api/iothub/service/digitaltwin)
+- [Eksplorator usługi Azure IoT](howto-use-iot-explorer.md)

@@ -42,15 +42,15 @@
       items:
         - name: Przechowywanie wersji
           items:
-            - name: Wprowadzenie do obsługi wersji
+            - name: Wprowadzenie do wersji
               href: ./hdinsight-overview-versioning.md
-            - name: Wersje usługi HDInsight
+            - name: Wersje hdInsight
               href: ./hdinsight-component-versioning.md
-            - name: 'HDInsight w wersji 4,0'
+            - name: HDInsight w wersji 4.0
               href: ./hdinsight-40-component-versioning.md
             - name: HDInsight w wersji 3.6
               href: ./hdinsight-36-component-versioning.md
-            - name: Wycofane wersje usługi HDInsight
+            - name: Wycofane wersje hdinsight
               href: ./hdinsight-retired-versions.md
         - name: Pakiet Enterprise Security
           href: ./enterprise-security-package.md
@@ -260,6 +260,8 @@
               href: ./hdinsight-cluster-availability.md
             - name: Dostępność klastra — dzienniki usługi Azure Monitor
               href: ./cluster-availability-monitor-logs.md
+            - name: Azure Monitor aktualizacji tabeli
+              href: ./log-analytics-migration.md
         - name: Rozwiązywanie problemów
           items:
             - name: Żądanie zwiększenia limitu przydziału rdzeni procesora
@@ -835,9 +837,9 @@
               href: ./interactive-query/apache-hive-query-odbc-driver-powershell.md
         - name: Zarządzanie
           items:
-            - name: Kopiowanie tabel programu Hive między kontami magazynu
+            - name: Kopiowanie tabel hive między kontami magazynu
               href: ./interactive-query/hive-migration-across-storage-accounts.md
-            - name: Migrowanie domyślnych magazyn metadanych Hive do zewnętrznego magazynu metadanych w usłudze Azure HDInsight
+            - name: Migrowanie domyślnego magazynu metadanych Hive do zewnętrznego magazynu metadanych na Azure HDInsight
               href: ./interactive-query/hive-default-metastore-export-import.md
             - name: Migrowanie obciążeń technologii Hive do usługi HDInsight 4.0
               href: ./interactive-query/apache-hive-migrate-workloads.md

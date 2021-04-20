@@ -1,18 +1,18 @@
 ---
-title: 'Samouczek: Tworzenie rekordu Azure DNS aliasu w celu odwoływania się do publicznego adresu IP platformy Azure'
+title: 'Samouczek: tworzenie rekordu Azure DNS, aby odwoływać się do publicznego adresu IP platformy Azure'
 description: W tym samouczku pokazano, jak skonfigurować rekord aliasu usługi Azure DNS w celu odwoływania się do publicznego adresu IP platformy Azure.
 services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
-ms.date: 9/25/2018
+ms.date: 04/19/2021
 ms.author: rohink
-ms.openlocfilehash: d3017d09e94040d16950598dad360fe32930c16b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28e37ad0b404b5275a224c8debab5c11c07948b4
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "80985443"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107738814"
 ---
 # <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>Samouczek: konfigurowanie rekordu aliasu w celu odwoływania się do publicznego adresu IP platformy Azure 
 
@@ -21,11 +21,11 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > [!div class="checklist"]
 > * Tworzenie infrastruktury sieci.
 > * Utwórz maszynę wirtualną serwera sieci Web z publicznym adresem IP.
-> * Utwórz rekord aliasu, który wskazuje na publiczny adres IP.
+> * Utwórz rekord aliasu, który wskazuje publiczny adres IP.
 > * Testowanie rekordu aliasu.
 
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, [](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem utwórz bezpłatne konto.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Do testowania niezbędna jest nazwa domeny, którą można hostować w usłudze Azure DNS. Musisz mieć pełną kontrolę nad tą domeną. Pełna kontrola obejmuje możliwość ustawiania dla domeny rekordów serwera nazw (NS).
@@ -36,25 +36,25 @@ Przykładowa domena używana w tym samouczku to contoso.com, ale skorzystaj z w�
 
 ## <a name="create-the-network-infrastructure"></a>Tworzenie infrastruktury sieci
 Najpierw utwórz sieć wirtualną i podsieć, aby umieścić w nich serwery internetowe.
-1. Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
-2. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób**. W polu wyszukiwania wprowadź *grupę zasobów*, a następnie utwórz grupę zasobów o nazwie **RG-DNS-Alias-pip**.
-3. Wybierz pozycję **Utwórz zasób**  >  **Sieć**  >  **sieci wirtualnej**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+2. Wybierz **pozycję Utwórz zasób** w lewym panelu Azure Portal. W polu wyszukiwania wprowadź *grupę zasobów*, a następnie utwórz grupę zasobów o nazwie **RG-DNS-Alias-pip**.
+3. Wybierz **pozycję Utwórz zasób**  >  **Sieć**  >  **wirtualna sieci**.
 4. Utwórz sieć wirtualną o nazwie **VNet-Servers**. Umieść ją w grupie zasobów **RG-DNS-Alias-pip**, a następnie nadaj podsieci nazwę **SN-Web**.
 
 ## <a name="create-a-web-server-virtual-machine"></a>Tworzenie maszyny wirtualnej serwera sieci Web
-1. Wybierz pozycję **Utwórz zasób**  >  **Windows Server 2016 VM**.
+1. Wybierz **pozycję Utwórz zasób maszyny**  >  **wirtualnej z systemem Windows Server 2016.**
 2. Wprowadź nazwę **Web-01** i umieść maszynę wirtualną w grupie zasobów **RG-DNS-Alias-TM**. Wprowadź nazwę użytkownika i hasło, a następnie wybierz pozycję **OK**.
 3. W obszarze **Rozmiar** wybierz jednostkę magazynową zawierającą 8 GB pamięci RAM.
-4. W obszarze **Ustawienia** wybierz sieć wirtualną **VNet-Servers** i podsieć **SN-Web**. W przypadku publicznych portów przychodzących wybierz pozycję **http**  >  **https**  >  **RDP (3389)**, a następnie wybierz przycisk **OK**.
+4. W obszarze **Ustawienia** wybierz sieć wirtualną **VNet-Servers** i podsieć **SN-Web**. W przypadku publicznych portów przychodzących wybierz pozycję **HTTP (80)**  >  **HTTPS (443)**  >  **RDP (3389),** a następnie wybierz przycisk **OK.**
 5. Na stronie **Podsumowanie** wybierz pozycję **Utwórz**.
 
-Wykonanie tej procedury trwa kilka minut. Maszyna wirtualna będzie miała dołączoną kartę sieciową, która będzie miała podstawowy dynamiczny adres IP o nazwie Web-01-IP. Publiczny adres IP zmieni się za każdym razem, gdy maszyna wirtualna zostanie ponownie uruchomiona.
+Ukończenie tego wdrożenia może potrwać kilka minut. Maszyna wirtualna będzie mieć dołączona kartę sieciową z podstawowym dynamicznym publicznym adresem IP o nazwie Web-01-ip. Publiczny adres IP zmienia się przy każdym ponownym uruchomieniu maszyny wirtualnej.
 
 ### <a name="install-iis"></a>Instalowanie usług IIS
 
 Zainstaluj usługi IIS na maszynie wirtualnej **Web-01**.
 
-1. Połącz się z **siecią Web-01** i zaloguj się.
+1. Połącz się **z siecią Web-01** i zaloguj się.
 2. Na pulpicie nawigacyjnym **Menedżer serwera** wybierz pozycję **Dodaj role i funkcje**.
 3. Trzykrotnie wybierz pozycję **Dalej**. Na stronie **Role serwera** wybierz pozycję **Serwer sieci Web (IIS)**.
 4. Wybierz pozycję **Dodaj funkcje**, a następnie wybierz pozycję **Dalej**.

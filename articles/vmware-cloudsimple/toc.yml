@@ -152,6 +152,8 @@
               href: configure-server-vrealize-automation-endpoint.md
             - name: Migrowanie maszyn wirtualnych obciążeń do chmury prywatnej
               href: migrate-workloads.md
+            - name: Migracja przy użyciu usługi Azure Data Box
+              href: migration-using-azure-data-box.md
             - name: Zapewnianie wysokiej dostępności aplikacji w oprogramowaniu VMware na platformie Azure
               href: ensuring-high-availability.md
             - name: Wybieranie rozwiązania do równoważenia obciążenia

@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: korzystanie z usługi Azure cache for Redis w .NET Framework'
+title: 'Szybki start: używanie Azure Cache for Redis w .NET Framework'
 description: Z tego przewodnika Szybki start dowiesz się, jak uzyskiwać dostęp do pamięci podręcznej Azure Cache for Redis z poziomu aplikacji platformy .NET.
 author: yegu-ms
 ms.author: yegu
@@ -8,26 +8,26 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
 ms.date: 06/18/2020
-ms.openlocfilehash: 1834f21a3e25308f6be86eba2961cc983b14a5db
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 71e973e359c21c9ec6a77de93b8b56dfa16da342
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104721549"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739174"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-in-net-framework"></a>Szybki Start: korzystanie z usługi Azure cache for Redis w .NET Framework
+# <a name="quickstart-use-azure-cache-for-redis-in-net-framework"></a>Szybki start: używanie Azure Cache for Redis w .NET Framework
 
-W tym przewodniku szybki start dodaliśmy usługę Azure cache for Redis do aplikacji .NET Framework, aby uzyskać dostęp do bezpiecznej, dedykowanej pamięci podręcznej dostępnej z dowolnej aplikacji na platformie Azure. Użytkownik korzystający z programu [stackexchange. Redis](https://github.com/StackExchange/StackExchange.Redis) z kodem C# w aplikacji konsolowej platformy .NET.
+W tym przewodniku Szybki start dołączasz Azure Cache for Redis do aplikacji .NET Framework, aby mieć dostęp do bezpiecznej, dedykowanej pamięci podręcznej, która jest dostępna z dowolnej aplikacji na platformie Azure. Klienta [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) należy używać z kodem C# w aplikacji konsolowej .NET.
 
-## <a name="skip-to-the-code-on-github"></a>Przejdź do kodu w usłudze GitHub
+## <a name="skip-to-the-code-on-github"></a>Przejdź do kodu w witrynie GitHub
 
-Jeśli chcesz pominąć prosty kod, zapoznaj się z [przewodnikiem Szybki Start](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/dotnet) dotyczącym .NET Framework w witrynie GitHub.
+Jeśli chcesz przejść bezpośrednio do kodu, zobacz .NET Framework [Szybki](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/dotnet) start w witrynie GitHub.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+- Subskrypcja platformy Azure [— utwórz subskrypcję bezpłatnie](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/)
-- [.NET Framework 4 lub więcej](https://www.microsoft.com/net/download/dotnet-framework-runtime), co jest wymagane przez klienta stackexchange. Redis.
+- [.NET Framework 4 lub wyższą](https://www.microsoft.com/net/download/dotnet-framework-runtime), co jest wymagane przez klienta StackExchange.Redis.
 
 ## <a name="create-a-cache"></a>Tworzenie pamięci podręcznej
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -40,20 +40,20 @@ Edytuj plik *CacheSecrets.config* i dodaj następującą zawartość:
 
 ```xml
 <appSettings>
-    <add key="CacheConnection" value="<cache-name>.redis.cache.windows.net,abortConnect=false,ssl=true,allowAdmin=true,password=<access-key>"/>
+    <add key="CacheConnection" value="<host-name>,abortConnect=false,ssl=true,allowAdmin=true,password=<access-key>"/>
 </appSettings>
 ```
 
-Zastąp element `<cache-name>` nazwą hosta pamięci podręcznej.
+Zastąp element `<host-name>` nazwą hosta pamięci podręcznej.
 
 Zastąp element `<access-key>` kluczem podstawowym pamięci podręcznej.
 
 
 ## <a name="create-a-console-app"></a>tworzenie aplikacji konsoli
 
-W programie Visual Studio kliknij pozycję **plik**  >  **Nowy**  >  **projekt**.
+W Visual Studio kliknij pozycję **File** New Project  >  **(Plik nowego**  >  **projektu).**
 
-Wybierz pozycję **aplikacja konsoli (.NET Framework)**, a **następnie** Skonfiguruj aplikację. Wpisz **nazwę projektu**, upewnij się, że jest zaznaczona wartość **.NET Framework 4.6.1** lub nowsza, a następnie kliknij przycisk **Utwórz** , aby utworzyć nową aplikację konsolową.
+Wybierz **pozycję Aplikacja konsoli (.NET Framework)** i **Dalej,** aby skonfigurować aplikację. Wpisz nazwę **projektu**, sprawdź, .NET Framework jest wybrana wersja **4.6.1** lub nowsza, a następnie kliknij przycisk Utwórz, aby utworzyć nową aplikację konsolowa. 
 
 <a name="configure-the-cache-clients"></a>
 
@@ -61,7 +61,7 @@ Wybierz pozycję **aplikacja konsoli (.NET Framework)**, a **następnie** Skonfi
 
 W tej sekcji skonfigurujesz aplikację konsolową umożliwiającą korzystanie z klienta [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) na platformie .NET.
 
-W programie Visual Studio kliknij kolejno pozycje **Narzędzia** Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera** pakietów, a następnie uruchom następujące polecenie w oknie Konsola Menedżera pakietów.
+W Visual Studio narzędzia NuGet Menedżer pakietów Menedżer pakietów i uruchom następujące polecenie w  >    >  oknie Menedżer pakietów konsoli.
 
 ```powershell
 Install-Package StackExchange.Redis
@@ -126,9 +126,9 @@ W tym podejściu do udostępniania wystąpienia klasy `ConnectionMultiplexer` w 
 
 Wartość ustawienia appSetting *CacheConnection* jest używana do odwoływania się do parametrów połączenia pamięci podręcznej z witryny Azure Portal jako parametru hasła.
 
-## <a name="handle-redisconnectionexception-and-socketexception-by-reconnecting"></a>Obsługa RedisConnectionException i SocketException przez ponowne połączenie
+## <a name="handle-redisconnectionexception-and-socketexception-by-reconnecting"></a>Obsługa typu RedisConnectionException i SocketException przez ponowne nawiązanie połączenia
 
-Zalecanym najlepszym rozwiązaniem w przypadku wywoływania metod w programie `ConnectionMultiplexer` jest próba automatycznego rozpoznania `RedisConnectionException` i `SocketException` wyjątków przez zamknięcie i ponowne ustanowienie połączenia.
+Zalecanym najlepszym rozwiązaniem podczas wywoływania metod na jest próba automatycznego rozwiązania wyjątków i przez zamknięcie i ponowne nawiązaniu `ConnectionMultiplexer` `RedisConnectionException` `SocketException` połączenia.
 
 Dodaj następujące instrukcje `using` do pliku *Program.cs*:
 
@@ -137,7 +137,7 @@ using System.Net.Sockets;
 using System.Threading;
 ```
 
-W programie *program. cs* Dodaj następujące elementy członkowskie do `Program` klasy:
+W *programie Program.cs* dodaj następujące składowe do `Program` klasy :
 
 ```csharp
 private static long lastReconnectTicks = DateTimeOffset.MinValue.UtcTicks;
@@ -344,7 +344,7 @@ Usługa Azure Cache for Redis może buforować obiekty platformy .NET oraz pierw
 
 Prostym sposobem na wykonanie serializacji obiektów jest użycie metod serializacji `JsonConvert` w środowisku [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) oraz serializacja do i z formatu JSON. W tej sekcji dodasz obiekt platformy .NET do pamięci podręcznej.
 
-W programie Visual Studio kliknij kolejno pozycje **Narzędzia** Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera** pakietów, a następnie uruchom następujące polecenie w oknie Konsola Menedżera pakietów.
+W Visual Studio narzędzia NuGet Menedżer pakietów Menedżer pakietów i uruchom następujące polecenie w  >    >  oknie Menedżer pakietów konsoli.
 
 ```powershell
 Install-Package Newtonsoft.Json
@@ -426,7 +426,7 @@ W tym przewodniku Szybki start przedstawiono sposób użycia usługi Azure Cache
 > [!div class="nextstepaction"]
 > [Tworzenie na platformie ASP.NET aplikacji internetowej, która korzysta z usługi Microsoft Azure Cache for Redis.](./cache-web-app-howto.md)
 
-Chcesz zoptymalizować i zapisać wydatki na chmurę?
+Chcesz zoptymalizować i zaoszczędzić na wydatkach na chmurę?
 
 > [!div class="nextstepaction"]
 > [Rozpocznij analizowanie kosztów za pomocą Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

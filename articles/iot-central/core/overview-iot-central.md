@@ -1,6 +1,6 @@
 ---
 title: Co to jest usługa Azure IoT Central | Microsoft Docs
-description: Azure IoT Central to platforma aplikacji IoT, która upraszcza tworzenie rozwiązań IoT i pomaga zmniejszyć obciążenie i koszty związane z operacjami zarządzania IoT i ich opracowywaniem. Ten artykuł zawiera omówienie funkcji usługi Azure IoT Central.
+description: Azure IoT Central to platforma aplikacji IoT, która upraszcza tworzenie rozwiązań IoT i pomaga zmniejszyć obciążenie i koszty związane z operacjami i opracowywaniem rozwiązań IoT. Ten artykuł zawiera omówienie funkcji usługi Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
 ms.date: 04/19/2021
@@ -8,18 +8,18 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc, contperf-fy21q2
-ms.openlocfilehash: 03b9c7d5231745f77d40abed16273514cac2692c
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: 88f59c1b3fc1014cef5035845f1f2e8616bea908
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107715086"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739912"
 ---
 # <a name="what-is-azure-iot-central"></a>Co to jest usługa Azure IoT Central?
 
-IoT Central to platforma aplikacji IoT, która zmniejsza obciążenie i koszty tworzenia i utrzymywania rozwiązań IoT klasy korporacyjnej oraz zarządzania nimi. Wybranie tworzenia za pomocą usługi IoT Central daje możliwość skoncentrowania czasu, pieniędzy i energii na transformacji firmy przy użyciu danych IoT, a nie tylko na konserwacji i aktualizowaniu złożonej i stale zmieniającej się infrastruktury IoT.
+IoT Central to platforma aplikacji IoT, która zmniejsza obciążenie i koszty tworzenia i utrzymywania rozwiązań IoT klasy korporacyjnej oraz zarządzania nimi. Wybranie opcji tworzenia za pomocą usługi IoT Central daje możliwość skoncentrowania czasu, pieniędzy i energii na przekształcaniu firmy przy użyciu danych IoT, a nie tylko na konserwacji i aktualizowaniu złożonej i stale zmieniającej się infrastruktury IoT.
 
-Internetowy interfejs użytkownika umożliwia szybkie łączenie urządzeń, monitorowanie warunków urządzeń, tworzenie reguł oraz zarządzanie milionami urządzeń i ich danymi w całym cyklu życia. Ponadto umożliwia ona korzystanie ze szczegółowych informacji o urządzeniach przez rozszerzanie analizy IoT na aplikacje biznesowe.
+Internetowy interfejs użytkownika umożliwia szybkie łączenie urządzeń, monitorowanie warunków urządzeń, tworzenie reguł oraz zarządzanie milionami urządzeń i ich danych w całym cyklu życia. Ponadto umożliwia ona korzystanie ze szczegółowych informacji o urządzeniach przez rozszerzanie analizy IoT na aplikacje biznesowe.
 
 Ten artykuł zawiera opis IoT Central:
 
@@ -28,31 +28,31 @@ Ten artykuł zawiera opis IoT Central:
 - Łączenie urządzeń z aplikacją
 - Zarządzanie aplikacją
 - Azure IoT Edge możliwości w IoT Central.
-- Jak połączyć urządzenia Azure IoT Edge środowisku uruchomieniowym z aplikacją.
+- Jak połączyć urządzenia Azure IoT Edge środowiska uruchomieniowego z aplikacją.
 
 ## <a name="user-roles"></a>Role użytkownika
 
-Dokumentacja IoT Central dotyczy czterech ról użytkownika, które wchodzą w interakcję z IoT Central aplikacji:
+Dokumentacja IoT Central odnosi się do czterech ról użytkownika, które wchodzą w interakcję z IoT Central aplikacji:
 
-- Konstruktor _rozwiązania jest_ odpowiedzialny za tworzenie aplikacji, konfigurowanie reguł i akcji, definiowanie integracji z innymi usługami oraz dalsze dostosowywanie aplikacji dla operatorów i deweloperów urządzeń. [](quick-deploy-iot-central.md) [](quick-configure-rules.md) [](howto-export-data.md)
+- Konstruktor _rozwiązań jest_ odpowiedzialny za tworzenie aplikacji, konfigurowanie reguł i akcji, definiowanie integracji z innymi usługami oraz dalsze dostosowywanie aplikacji dla operatorów i deweloperów urządzeń. [](quick-deploy-iot-central.md) [](quick-configure-rules.md) [](howto-export-data.md)
 - Operator _zarządza_ [urządzeniami połączonymi](howto-manage-devices.md) z aplikacją.
 - Administrator _jest_ odpowiedzialny za zadania administracyjne, takie jak zarządzanie [rolami użytkowników i uprawnieniami](howto-administer.md) w aplikacji.
 - Deweloper _urządzenia tworzy_ [kod uruchamiany na](concepts-telemetry-properties-commands.md) urządzeniu lub w module [IoT Edge połączonym](concepts-iot-edge.md) z aplikacją.
 
 ## <a name="create-your-iot-central-application"></a>Tworzenie aplikacji IoT Central aplikacji
 
-Możesz szybko wdrożyć nową aplikację IoT Central, a następnie dostosować ją do określonych wymagań. Zacznij od ogólnego _szablonu aplikacji lub_ jednego z szablonów aplikacji ukierunkowanych na branżę:
+Możesz szybko wdrożyć nową aplikację IoT Central, a następnie dostosować ją do określonych wymagań. Rozpocznij od ogólnego _szablonu aplikacji lub_ jednego z szablonów aplikacji ukierunkowanych na branżę:
 
 - [Sprzedaż detaliczna](../retail/overview-iot-central-retail.md)
 - [Energii](../energy/overview-iot-central-energy.md)
 - [Instytucje rządowe](../government/overview-iot-central-government.md)
-- [Opieka zdrowotna.](../healthcare/overview-iot-central-healthcare.md)
+- [Opieka zdrowotna](../healthcare/overview-iot-central-healthcare.md).
 
-Zobacz przewodnik Szybki start Tworzenie [nowej aplikacji,](quick-deploy-iot-central.md) aby uzyskać szczegółowe informacje na temat tworzenia pierwszej aplikacji.
+Zapoznaj się [z przewodnikem Szybki](quick-deploy-iot-central.md) start Tworzenie nowej aplikacji, aby dowiedzieć się, jak utworzyć pierwszą aplikację.
 
 ## <a name="connect-devices"></a>Łączenie urządzeń
 
-Po utworzeniu aplikacji pierwszym krokiem jest utworzenie i połączenie urządzeń. Każde urządzenie połączone z IoT Central korzysta z _szablonu urządzenia_. Szablon urządzenia to strategia definiująca charakterystykę i zachowanie typu urządzenia, takiego jak:
+Po utworzeniu aplikacji pierwszym krokiem jest utworzenie i połączenie urządzeń. Każde urządzenie połączone z IoT Central korzysta z _szablonu urządzenia_. Szablon urządzenia to strategia, która definiuje charakterystykę i zachowanie typu urządzenia, takiego jak:
 
 - Dane telemetryczne, które wysyła. Przykłady obejmują temperaturę i wilgotność. Telemetria to dane przesyłane strumieniowo.
 - Właściwości biznesowe, które może modyfikować operator. Przykłady obejmują adres klienta i datę ostatniego serwisowania.
@@ -66,7 +66,7 @@ Każdy [szablon urządzenia zawiera:](howto-set-up-template.md)
 
   - Dane telemetryczne są przesyłane strumieniowo do IoT Central.
   - Właściwości tylko do odczytu używane do zgłaszania stanu do IoT Central.
-  - Właściwości z zapisywalnym dostępem, które otrzymuje od IoT Central, aby ustawić stan urządzenia.
+  - Właściwości zapisywalne, które otrzymuje od IoT Central w celu ustawienia stanu urządzenia.
   - Polecenia wywoływane z IoT Central.
 
 - Właściwości chmury, które nie są przechowywane na urządzeniu.
@@ -74,15 +74,15 @@ Każdy [szablon urządzenia zawiera:](howto-set-up-template.md)
 
 Dostępnych jest kilka opcji tworzenia szablonów urządzeń:
 
-- Zaprojektuj szablon urządzenia w IoT Central, a następnie zaim implementuj jego model w kodzie urządzenia.
-- Utwórz model urządzenia przy użyciu Visual Studio i opublikuj model w repozytorium. Zaim implementuj kod urządzenia z modelu i podłącz urządzenie do IoT Central aplikacji. IoT Central model urządzenia z repozytorium i utworzy prosty szablon urządzenia.
-- Utwórz model urządzenia przy użyciu Visual Studio kodu. Zaim implementuj kod urządzenia z modelu. Ręcznie zaimportuj model urządzenia do aplikacji IoT Central, a następnie dodaj wszelkie właściwości, dostosowania i pulpity nawigacyjne w chmurze IoT Central potrzeb aplikacji.
+- Zaprojektuj szablon urządzenia w IoT Central a następnie zaim implementuj jego model urządzenia w kodzie urządzenia.
+- Utwórz model urządzenia przy użyciu Visual Studio i opublikuj model w repozytorium. Zaimplikuj kod urządzenia z modelu i połącz urządzenie z IoT Central aplikacją. IoT Central model urządzenia z repozytorium i tworzy dla Ciebie prosty szablon urządzenia.
+- Utwórz model urządzenia przy użyciu Visual Studio kodu. Zaim implementuj kod urządzenia z modelu. Ręcznie zaimportuj model urządzenia do aplikacji IoT Central, a następnie dodaj wszelkie właściwości chmury, dostosowania i pulpity nawigacyjne, IoT Central potrzeb aplikacji.
 
-Zapoznaj się [z przewodnikem](quick-create-simulated-device.md) Szybki start Dodawanie urządzenia symulowanego, aby dowiedzieć się, jak utworzyć i połączyć pierwsze urządzenie.
+Zobacz przewodnik Szybki start Dodawanie [symulowanego urządzenia,](quick-create-simulated-device.md) aby uzyskać szczegółowe informacje na temat tworzenia i łączenia pierwszego urządzenia.
 
 ### <a name="customize-the-ui"></a>Dostosowywanie interfejsu użytkownika
 
-Możesz również dostosować interfejs IoT Central użytkownika aplikacji dla operatorów, którzy są odpowiedzialni za dzienne korzystanie z aplikacji. Dostosowania, które można wprowadzić, obejmują:
+Możesz również dostosować interfejs IoT Central użytkownika aplikacji dla operatorów, którzy są odpowiedzialni za korzystanie z aplikacji na co dzień. Dostosowania, które można wprowadzić, obejmują:
 
 - Konfigurowanie niestandardowych pulpitów nawigacyjnych ułatwiających operatorom odnajdywanie szczegółowych informacji i szybsze rozwiązywanie problemów.
 - Konfigurowanie niestandardowych analiz w celu eksplorowania danych serii czasu na połączonych urządzeniach.
@@ -98,7 +98,7 @@ Operator używa aplikacji IoT Central do zarządzania urządzeniami [w](howto-ma
 
 Można zdefiniować [niestandardowe reguły i akcje, które działają na](howto-configure-rules.md) strumieniu danych z połączonych urządzeń. Operator może włączyć lub wyłączyć te reguły na poziomie urządzenia, aby kontrolować i automatyzować zadania w aplikacji.
 
-W przypadku każdego rozwiązania IoT zaprojektowanego do działania na dużą skalę ważne jest ustrukturyzowane podejście do zarządzania urządzeniami. Nie wystarczy tylko połączyć urządzenia z chmurą, ale też zachować ich związek i łączyć je w dobrej kondycji. Aby zarządzać urządzeniami w całym cyklu życia aplikacji, skorzystaj z następujących IoT Central zarządzania nimi:
+Podobnie jak w przypadku każdego rozwiązania IoT zaprojektowanego do działania na dużą skalę, ważne jest ustrukturyzowane podejście do zarządzania urządzeniami. Nie wystarczy tylko połączyć urządzenia z chmurą, ale też zachować ich połączenie i łączyć je w dobrej kondycji. Użyj następujących IoT Central, aby zarządzać urządzeniami w całym cyklu życia aplikacji:
 
 ### <a name="dashboards"></a>Pulpity nawigacyjne
 
@@ -106,7 +106,7 @@ Wbudowane pulpity [nawigacyjne zapewniają](./howto-set-up-template.md#generate-
 
 ### <a name="rules-and-actions"></a>Reguły i akcje
 
-Twórz [niestandardowe reguły oparte](tutorial-create-telemetry-rules.md) na stanie urządzenia i telemetrii, aby identyfikować urządzenia, które wymagają uwagi. Konfigurowanie akcji w celu powiadamiania odpowiednich osób i zapewnienia terminowego działania naprawczego.
+Twórz [niestandardowe reguły oparte](tutorial-create-telemetry-rules.md) na stanie urządzenia i telemetrii, aby identyfikować urządzenia, które wymagają uwagi. Skonfiguruj akcje w celu powiadamiania odpowiednich osób i zapewnienia terminowego działania naprawczego.
 
 ### <a name="jobs"></a>Stanowiska
 
@@ -114,7 +114,7 @@ Twórz [niestandardowe reguły oparte](tutorial-create-telemetry-rules.md) na st
 
 ## <a name="integrate-with-other-services"></a>Integracja z innymi usługami
 
-Platforma aplikacji umożliwia IoT Central danych IoT na szczegółowe informacje biznesowe, które wpływają na wyniki z możliwością działania. [Reguły,](./tutorial-create-telemetry-rules.md) [eksport danych](./howto-export-data.md)i publiczny [interfejs API REST](/learn/modules/manage-iot-central-apps-with-rest-api/) to przykłady integracji IoT Central z aplikacjami biznesowymi:
+Jako platforma aplikacji IoT Central przekształcanie danych IoT w szczegółowe informacje biznesowe, które wpływają na wyniki z możliwością działania. [Reguły,](./tutorial-create-telemetry-rules.md) [eksport danych](./howto-export-data.md)i publiczny [interfejs API REST](/learn/modules/manage-iot-central-apps-with-rest-api/) to przykłady integracji IoT Central z aplikacjami biznesowymi:
 
 ![Jak IoT Central przekształcić dane IoT](media/overview-iot-central/transform.png)
 
@@ -134,14 +134,14 @@ IoT Central są w pełni hostowane przez firmę Microsoft, co zmniejsza obciąż
 
 ## <a name="pricing"></a>Ceny
 
-Możesz utworzyć aplikację IoT Central korzystającą z 7-dniowej bezpłatnej wersji próbnej lub skorzystać ze standardowego planu cenowego.
+Możesz utworzyć aplikację IoT Central korzystającą z 7-dniowej bezpłatnej wersji próbnej lub użyć standardowego planu cenowego.
 
-- Aplikacje, które tworzysz za pomocą *planu bezpłatnego,* są bezpłatne przez siedem dni i obsługują maksymalnie pięć urządzeń. Można je przekonwertować w celu korzystania ze standardowego planu cenowego w dowolnym momencie, zanim wygasną.
-- Aplikacje, które  tworzysz przy użyciu planu standardowego, są rozliczane według urządzeń. Możesz wybrać plan cenowy **Standard 0,** **Standard 1** lub **Standard 2** z dwoma pierwszymi urządzeniami, które są bezpłatne. Dowiedz się więcej o [IoT Central usługi .](https://aka.ms/iotcentral-pricing)
+- Aplikacje, które tworzysz przy użyciu *planu bezpłatnego,* są bezpłatne przez siedem dni i obsługują maksymalnie pięć urządzeń. Można je przekonwertować w celu korzystania ze standardowego planu cenowego w dowolnym momencie, zanim wygasną.
+- Aplikacje, które  tworzysz przy użyciu planu standardowego, są rozliczane według urządzeń. Możesz wybrać plan cenowy **Standard 0,** **Standard 1** lub **Standard 2** z dwoma pierwszymi urządzeniami, które są bezpłatne. Dowiedz się więcej o [IoT Central cen.](https://aka.ms/iotcentral-pricing)
 
 ## <a name="quotas"></a>Przydziały
 
-Każda subskrypcja platformy Azure ma domyślne limity przydziału, które mogą mieć wpływ na zakres rozwiązania IoT. Obecnie IoT Central liczbę aplikacji, które można wdrożyć w ramach subskrypcji, do 10. Jeśli chcesz zwiększyć ten limit, skontaktuj się z pomocą [techniczną firmy Microsoft.](https://azure.microsoft.com/support/options/)
+Każda subskrypcja platformy Azure ma domyślne limity przydziału, które mogą mieć wpływ na zakres rozwiązania IoT. Obecnie IoT Central ogranicza liczbę aplikacji, które można wdrożyć w ramach subskrypcji, do 10. Jeśli chcesz zwiększyć ten limit, skontaktuj się z pomocą [techniczną firmy Microsoft.](https://azure.microsoft.com/support/options/)
 
 ## <a name="known-issues"></a>Znane problemy
 
@@ -149,13 +149,13 @@ Każda subskrypcja platformy Azure ma domyślne limity przydziału, które mogą
 - Dane GeoJSON nie są obecnie obsługiwane.
 - Kafelek mapy nie jest obecnie obsługiwany.
 - Typy schematów tablic nie są obsługiwane.
-- Obsługiwane są tylko zestaw SDK urządzenia Node.js C i zestawy SDK usługi.
-- IoT Central jest obecnie dostępna w lokalizacjach Stany Zjednoczone, Europie, Azja i Pacyfik, Australii, Wielkiej Brytanii i Japonii.
+- Obsługiwane są tylko zestawy SDK urządzenia Node.js C i zestawy SDK usługi.
+- IoT Central jest obecnie dostępna w lokalizacjach w Stany Zjednoczone, Europie, Azja i Pacyfik, Australii, Zjednoczonym Królestwie i Japonii.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Teraz, gdy masz już przegląd IoT Central, poniżej przedstawiono kilka sugerowanych następnych kroków:
 
-- Jeśli jesteś deweloperem urządzeń i chcesz zagłębić się w kod, sugerowanym następnym krokiem jest utworzenie aplikacji klienckiej i połączenie jej z Azure IoT Central [aplikacją.](./tutorial-connect-device.md)
+- Jeśli jesteś deweloperem urządzeń i chcesz zagłębić się w kod, sugerowanym następnym krokiem jest utworzenie aplikacji klienckiej i połączenie jej z aplikacją Azure IoT Central [aplikacji.](./tutorial-connect-device.md)
 - Zapoznanie się z [interfejsem użytkownika usługi Azure IoT Central](overview-iot-central-tour.md).
 - Rozpoczęcie pracy przez [utworzenie aplikacji usługi Azure IoT Central](quick-deploy-iot-central.md).

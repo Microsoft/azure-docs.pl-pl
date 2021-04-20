@@ -1,42 +1,42 @@
 ---
-title: Obsługa interfejsu API w usłudze Azure static Web Apps z Azure Functions
-description: Dowiedz się, jakie funkcje interfejsu API Azure static Web Apps obsługuje
+title: Obsługa interfejsów API w Azure Static Web Apps z Azure Functions
+description: Dowiedz się, jakie funkcje interfejsu API Azure Static Web Apps obsługuje
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 6724d8eb8df29ccfb033f5951ec56b7770e3c413
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1fc5e1e6982686e7042e5b8ad55d72a4560b6aee
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90903567"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107737482"
 ---
-# <a name="api-support-in-azure-static-web-apps-preview-with-azure-functions"></a>Obsługa interfejsu API w usłudze Azure static Web Apps Preview przy użyciu Azure Functions
+# <a name="api-support-in-azure-static-web-apps-preview-with-azure-functions"></a>Obsługa interfejsu API w Azure Static Web Apps zapoznawczej z Azure Functions
 
-Statyczne Web Apps platformy Azure udostępnia bezserwerowe punkty końcowe interfejsu API za pośrednictwem [Azure Functions](../azure-functions/functions-overview.md). Wykorzystując Azure Functions, interfejsy API dynamicznie skalowane na żądanie i obejmują następujące funkcje:
+Azure Static Web Apps punkty końcowe interfejsu API bez serwera za pośrednictwem [Azure Functions](../azure-functions/functions-overview.md). Dzięki wykorzystaniu Azure Functions API dynamicznie skalują się na żądanie i zawierają następujące funkcje:
 
-- **Zintegrowane zabezpieczenia** dzięki bezpośredniemu dostępowi do [uwierzytelniania użytkowników i danych autoryzacji opartych na rolach](user-information.md) .
-- **Bezproblemowy Routing** , który sprawia, że trasa _interfejsu API_ jest bezpiecznie dostępna dla aplikacji sieci Web bez konieczności stosowania niestandardowych reguł CORS.
-- **Azure Functions** v3 zgodne z Node.js 12, .net Core 3,1 i Python 3,8.
-- **Wyzwalacze protokołu HTTP** i powiązania wejścia/wyjścia.
+- **Zintegrowane zabezpieczenia z** bezpośrednim dostępem do uwierzytelniania [użytkowników i danych autoryzacji opartej na rolach.](user-information.md)
+- **Bezproblemowy routing,** który sprawia, że trasa interfejsu _API_ jest bezpiecznie dostępna dla aplikacji internetowej bez konieczności użycia niestandardowych reguł CORS.
+- **Wyzwalacze HTTP i** powiązania danych wejściowych/wyjściowych.
 
 ## <a name="configuration"></a>Konfigurowanie
 
-Punkty końcowe interfejsu API są dostępne dla aplikacji sieci Web za pomocą trasy _interfejsu API_ . Po naprawieniu trasy masz kontrolę nad folderem i projektem, w którym znajduje się skojarzona aplikacja Azure Functions. Tę lokalizację można zmienić, [edytując plik YAML przepływu pracy](github-actions-workflow.md#build-and-deploy) znajdujący się w folderze _. GitHub/_ Workflows repozytorium.
+Punkty końcowe interfejsu API są dostępne dla aplikacji internetowej za pośrednictwem _trasy interfejsu API._ Chociaż ta trasa jest stała, masz kontrolę nad folderem i projektem, w którym znajdujesz skojarzoną Azure Functions aplikację. Tę lokalizację można zmienić, edytując plik [YAML przepływu](github-actions-workflow.md#build-and-deploy) pracy znajdujący się w _folderze github/workflows repozytorium._
 
 ## <a name="constraints"></a>Ograniczenia
 
-Usługa Azure static Web Apps udostępnia interfejs API za pomocą Azure Functions. Możliwości Azure Functions są skoncentrowane na określonym zestawie funkcji, które umożliwiają tworzenie interfejsu API dla aplikacji sieci Web i Zezwalanie aplikacji sieci Web na bezpieczne łączenie się z interfejsem API. Te funkcje są dostępne z pewnymi ograniczeniami, w tym:
+Azure Static Web Apps udostępnia interfejs API za pośrednictwem Azure Functions. Możliwości usługi Azure Functions są skoncentrowane na określonym zestawie funkcji, które umożliwiają tworzenie interfejsu API dla aplikacji internetowej i bezpieczne łączenie się z interfejsem API przez aplikację internetową. Te funkcje mają pewne ograniczenia, takie jak:
 
 - Prefiks trasy interfejsu API musi być _interfejsem API_.
-- Interfejs API musi być aplikacją JavaScript, C# lub Python Azure Functions.
-- Reguły tras dla funkcji API obsługują tylko [przekierowywanie](routes.md#redirects) i [Zabezpieczanie tras z rolami](routes.md#securing-routes-with-roles).
+- Interfejs API musi być aplikacją Node.js 12, .NET Core 3.1 lub Python 3.8 Azure Functions aplikacji.
+- Reguły tras dla funkcji interfejsu API obsługują [tylko przekierowywanie](routes.md#redirects) i [zabezpieczanie tras za pomocą ról](routes.md#securing-routes-with-roles).
 - Wyzwalacze są ograniczone do [protokołu HTTP](../azure-functions/functions-bindings-http-webhook.md).
-  - Obsługiwane są [powiązania](../azure-functions/functions-triggers-bindings.md#supported-bindings) wejściowe i wyjściowe.
-- Dzienniki są dostępne tylko wtedy, gdy dodasz [Application Insights](../azure-functions/functions-monitoring.md) do aplikacji funkcji.
+  - Powiązania wejściowe i [wyjściowe](../azure-functions/functions-triggers-bindings.md#supported-bindings) są obsługiwane.
+- Dzienniki są dostępne tylko po dodaniu [Application Insights](../azure-functions/functions-monitoring.md) do aplikacji usługi Functions.
+- Niektóre ustawienia aplikacji są zarządzane przez usługę. Nie można skonfigurować ustawień aplikacji, które zaczynają się od następujących prefiksów: `APPSETTING_` , , , , , , , , `AZUREBLOBSTORAGE_` , , , `AZUREFILESSTORAGE_` , , `AZURE_FUNCTION_` , , , , `CONTAINER_` , `DIAGNOSTICS_` `DOCKER_` , `FUNCTIONS_` `IDENTITY_` `MACHINEKEY_` `MAINSITE_` `MSDEPLOY_` `SCMSITE_` `SCM_` `WEBSITES_` `WEBSITE_` `WEBSOCKET_` `AzureWeb` .
 
 ## <a name="next-steps"></a>Następne kroki
 

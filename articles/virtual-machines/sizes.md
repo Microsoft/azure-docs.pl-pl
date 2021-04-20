@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 07/21/2020
 ms.author: jushiman
-ms.openlocfilehash: c3eecb0b9628ae889ac22bfe6d621266f06abc83
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: f2a4083e8cbbdbfbf971c441d8942b48e712c472
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107598928"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740032"
 ---
 # <a name="sizes-for-virtual-machines-in-azure"></a>Rozmiary maszyn wirtualnych na platformie Azure
 
 W tym artykule opisano dostępne rozmiary i opcje dla maszyn wirtualnych platformy Azure, których można użyć do uruchamiania aplikacji i obciążeń. Przedstawiono w nim również zagadnienia dotyczące wdrażania, które należy wziąć pod uwagę podczas planowania korzystania z tych zasobów. 
+
+:::image type="content" source="media/sizes/azurevmsthumb.jpg" alt-text="Wideo w serwisie YouTube dotyczące wybierania odpowiedniego rozmiaru maszyny wirtualnej." link="https://youtu.be/zOSvnJFd3ZM":::
 
 | Typ | Rozmiary | Opis |
 |------|-------|-------------|
@@ -30,7 +32,7 @@ W tym artykule opisano dostępne rozmiary i opcje dla maszyn wirtualnych platfor
 
 - Aby uzyskać informacje o cenach różnych rozmiarów, zobacz strony cennika dla systemu [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux) lub [Windows.](https://azure.microsoft.com/pricing/details/virtual-machines/Windows/#Windows)
 - Aby uzyskać informacje o dostępności rozmiarów maszyn wirtualnych w regionach świadczenia usługi Azure, [zobacz Dostępność produktów według regionów.](https://azure.microsoft.com/regions/services/)
-- Aby wyświetlić ogólne limity dotyczące maszyn wirtualnych platformy Azure, zobacz [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md)(Limity, przydziały i ograniczenia usługi i subskrypcji platformy Azure).
+- Aby wyświetlić ogólne limity dotyczące maszyn wirtualnych platformy Azure, zobacz [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md)(Limity, przydziały i ograniczenia usług i subskrypcji platformy Azure).
 - Aby uzyskać więcej informacji na temat sposobu, w jaki platforma Azure nazywa swoje maszyny wirtualne, zobacz Konwencje nazewnictwa rozmiarów maszyn [wirtualnych platformy Azure.](./vm-naming-conventions.md)
 
 ## <a name="rest-api"></a>Interfejs API REST
