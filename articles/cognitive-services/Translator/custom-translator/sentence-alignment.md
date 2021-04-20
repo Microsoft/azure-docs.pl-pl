@@ -1,51 +1,53 @@
 ---
-title: Parowanie i wyrównywanie zdań — translator niestandardowy
+title: Parowanie i wyrównywanie zdań — Custom Translator
 titleSuffix: Azure Cognitive Services
-description: W trakcie wykonywania szkolenia zdania obecne w dokumentach równoległych są sparowane lub wyrównane. Translator niestandardowy uzyskuje tłumaczenie jednego zdania jednocześnie, odczytując zdanie, tłumaczenie tego zdania. Następnie wyrównuje słowa i frazy w tych dwóch zdaniach.
+description: Podczas wykonywania szkolenia zdania obecne w dokumentach równoległych są sparowane lub wyrównane. Custom Translator uczy się tłumaczeń po jednym zdaniu na raz, czytając zdanie, tłumacząc to zdanie. Następnie wyrównuje wyrazy i frazy w tych dwóch zdaniach do siebie nawzajem.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 08/17/2020
+ms.date: 04/19/2021
 ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: 0c33d766bfd3dff47ddb151e8ce4ea7b25c37548
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 43268afccbe66a21d2ce78709ba372a8a6682444
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98897955"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727154"
 ---
-# <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Parowanie i wyrównanie zdań w dokumentach równoległych
+# <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Parowanie i wyrównywanie zdań w dokumentach równoległych
 
-Po przekazaniu dokumentów zdania obecne w dokumentach równoległych są sparowane lub wyrównane. Translator niestandardowy zgłasza liczbę zdań, które było w stanie sparować jako wyrównane zdania w każdym z zestawów danych.
+Po przesłaniu dokumentów zdania obecne w dokumentach równoległych są sparowane lub wyrównane. Custom Translator raportuje liczbę zdań, które można było sparować jako wyrównane zdania w każdym z zestawów danych.
 
 ## <a name="pairing-and-alignment-process"></a>Proces parowania i wyrównywania
 
-Translator niestandardowy uzyskuje translację zdań z jednego zdania w danym momencie. Odczytuje zdanie z tekstu źródłowego, a następnie tłumaczenie tego zdania z tekstu docelowego. Następnie wyrównuje słowa i frazy w tych dwóch zdaniach. Ten proces umożliwia działowi IT utworzenie mapy słów i fraz w jednym zdaniu do odpowiedników słów i fraz w tłumaczeniu. Wyrównania próbuje upewnić się, że system pociąga za sobą tłumaczenie.
+Custom Translator uczy się tłumaczeń zdań po jednym zdaniu na raz. Odczytuje zdanie z tekstu źródłowego, a następnie tłumaczenie tego zdania z tekstu docelowego. Następnie wyrównuje wyrazy i frazy w tych dwóch zdaniach do siebie nawzajem. Ten proces umożliwia utworzenie mapy słów i fraz w jednym zdaniu na równoważne wyrazy i frazy w tłumaczeniu zdania. Wyrównanie stara się zapewnić, że system trenuje zdania, które są tłumaczeniami siebie nawzajem.
 
 ## <a name="pre-aligned-documents"></a>Wstępnie wyrównane dokumenty
 
-Jeśli wiesz, że masz dokumenty równoległe, możesz zastąpić wyrównanie zdania, dostarczając wstępnie wyrównane pliki tekstowe. Można wyodrębnić wszystkie zdania z dokumentów do pliku tekstowego, zorganizować jedno zdanie na wiersz i przekazać je z `.align` rozszerzeniem. `.align`Rozszerzenie sygnalizuje translatorowi niestandardowemu, że powinien pominąć wyrównanie zdania.
+Jeśli wiesz, że masz równoległe dokumenty, możesz przesłonić wyrównanie zdań, dostarczając wstępnie wyrównane pliki tekstowe. Możesz wyodrębnić wszystkie zdania z obu dokumentów do pliku tekstowego, uporządkować jedno zdanie w każdym wierszu i przekazać je za pomocą `.align` rozszerzenia. Rozszerzenie `.align` sygnalizuje Custom Translator, że powinno pominąć wyrównanie zdań.
 
-Aby uzyskać najlepsze wyniki, należy się upewnić, że w plikach znajduje się jedno zdanie na wiersz. Nie mają znaków nowego wiersza w obrębie zdania, ponieważ spowoduje to słabą wyrównania.
+Aby uzyskać najlepsze wyniki, upewnij się, że w plikach masz jedno zdanie na wiersz. Nie należy mieć znaków nowego linii w zdaniu, ponieważ spowoduje to słabe wyrównanie.
 
 ## <a name="suggested-minimum-number-of-sentences"></a>Sugerowana minimalna liczba zdań
 
-Aby szkolenie powiodło się, w poniższej tabeli przedstawiono minimalną liczbę zdań wymaganych w każdym typie dokumentu.To ograniczenie jest środkiem bezpieczeństwa, aby upewnić się, że zdania równoległe zawierają wystarczającą liczbę unikatowych słownictwa, aby pomyślnie szkolić model tłumaczenia. Ogólne wytyczne mają więcej niż równoległe zdania z jakością tłumaczenia ludzkiego powinny generować wyższe modele jakości.
+Aby szkolenie zakończyło się pomyślnie, w poniższej tabeli przedstawiono minimalną liczbę zdań wymaganą w każdym typie dokumentu.To ograniczenie stanowi zabezpieczenia zapewniające, że zdania równoległe zawierają wystarczająco dużo unikatowego słownictwa, aby pomyślnie wytszkolić model tłumaczenia. W ogólnych wytycznych znajduje się więcej równoległych zdań w domenie jakości tłumaczenia ludzkich, które powinny tworzyć modele wyższej jakości.
 
 | Typ dokumentu   | Sugerowana minimalna liczba zdań | Maksymalna liczba zdań |
 |------------|--------------------------------------------|--------------------------------|
 | Szkolenie   | 10 000                                     | Brak górnego limitu                 |
 | Dostrajanie     | 500                                      | 2500       |
 | Testowanie    | 500                                      | 2500  |
-| Słownik | 0                                          | Brak górnego limitu                 |
+| Słownik | 0                                          | 250,000                 |
 
 > [!NOTE]
-> - Szkolenie nie zostanie uruchomione i zakończy się niepowodzeniem, jeśli nie spełniono minimalnej liczby zdań w 10 000 dla szkolenia. 
-> - Dostrajanie i testowanie są opcjonalne. Jeśli ich nie podasz, system usunie odpowiedni odsetek z szkolenia do użycia w celu weryfikacji i testowania. 
-> - Możesz nauczyć model przy użyciu tylko danych słownika. Zapoznaj się z informacjami o [słowniku](./what-is-dictionary.md).
+>
+> - Trenowania nie rozpocznie się i nie powiedzie się, jeśli minimalna liczba zdań w przypadku trenowania nie zostanie spełniony.
+> - Dostrajanie i testowanie jest opcjonalne. Jeśli ich nie poimkniesz, system usunie odpowiednią wartość procentową z pola Trenuj, aby użyć jej do walidacji i testowania.
+> - Model można trenować tylko przy użyciu danych słownika. Zapoznaj się z [tematem Co to jest słownik](./what-is-dictionary.md).
+> - Jeśli słownik zawiera więcej niż 250 000 **[](https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/overview)** zdań, prawdopodobnie lepszym wyborem będzie translator dokumentów.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak używać [słownika](what-is-dictionary.md) w translatoru niestandardowym.
+- Dowiedz się, jak używać [słownika w](what-is-dictionary.md) Custom Translator.

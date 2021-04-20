@@ -9,12 +9,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.custom:
 - mode-portal
-ms.openlocfilehash: 72f4ac8df39b9511fd98a1dd5a3eca76e11e34bf
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 158eed6d287fa384023defbb20a7a1c39ea3d838
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107535166"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728594"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Szybki start: tworzenie konta usługi Azure Purview w Azure Portal
 
@@ -103,23 +103,23 @@ W razie potrzeby wykonaj następujące kroki, aby skonfigurować subskrypcję, a
 
       :::image type="content" source="./media/create-catalog-portal/select-subscription.png" alt-text="Zrzut ekranu przedstawiający sposób wybierania subskrypcji w Azure Portal.":::
 
-   1. W przypadku subskrypcji wybierz pozycję **Dostawcy zasobów.** W **okienku Dostawcy zasobów** wyszukaj i zarejestruj wszystkich trzech dostawców zasobów: 
+   1. W przypadku subskrypcji wybierz pozycję **Dostawcy zasobów.** W **okienku Dostawcy** zasobów wyszukaj i zarejestruj wszystkich trzech dostawców zasobów: 
        1. **Microsoft.Purview**
        1. **Microsoft.Storage**
        1. **Microsoft.EventHub** 
       
-      Jeśli nie są zarejestrowane, zarejestruj je, wybierając pozycję **Zarejestruj**.
+      Jeśli nie są one zarejestrowane, zarejestruj je, wybierając pozycję **Zarejestruj**.
 
       :::image type="content" source="./media/create-catalog-portal/register-purview-resource-provider.png" alt-text="Zrzut ekranu przedstawiający sposób rejestrowania dostawcy zasobów Microsoft dot Azure Purview w Azure Portal.":::
 
 ## <a name="create-an-azure-purview-account-instance"></a>Tworzenie wystąpienia konta usługi Azure Purview
 
-1. Przejdź do **strony Konta programu Purview** w Azure Portal, a następnie wybierz pozycję **Dodaj,** aby utworzyć nowe konto usługi Azure Purview. Alternatywnie możesz przejść do witryny Marketplace i wyszukać **pozycję Konta programu Purview i** wybrać pozycję **Utwórz.** Pamiętaj, że jednocześnie możesz dodać tylko jedno konto usługi Azure Purview.
+1. Przejdź do **strony Konta programu Purview** w Azure Portal, a następnie wybierz pozycję **Dodaj,** aby utworzyć nowe konto usługi Azure Purview. Alternatywnie możesz przejść do witryny Marketplace i wyszukać pozycję **Konta purview i** wybrać pozycję **Utwórz.** Pamiętaj, że jednocześnie możesz dodać tylko jedno konto usługi Azure Purview.
 
    :::image type="content" source="./media/create-catalog-portal/add-purview-instance.png" alt-text="Zrzut ekranu przedstawiający sposób tworzenia wystąpienia konta usługi Azure Purview w Azure Portal.":::
 
     > [!Note] 
-    > Usługa Azure Purview nie obsługuje przenoszenia swojego konta między regionami. Więcej informacji na ten temat można znaleźć na stronie [obsługiwanych usług platformy Azure.](../azure-resource-manager/management/region-move-support.md)
+    > Usługa Azure Purview nie obsługuje przenoszenia swojego konta między regionami. Aby uzyskać więcej informacji na ten temat, zobacz [Obsługa operacji przenoszenia dla zasobów](../azure-resource-manager/management/move-support-resources.md).
 
 1. Na **karcie Podstawowe** wykonaj następujące czynności:
     1. Wybierz **grupę zasobów**.
@@ -156,13 +156,13 @@ Aby dodać podmiot zabezpieczeń do roli płaszczyzny danych **programu Purview 
 
 1. Kliknij **pozycję + Dodaj**
 
-Jeśli po kliknięciu przycisku Dodaj są wyświetlane dwie opcje z oznaczeniem (wyłączone), oznacza to, że nie masz odpowiednich uprawnień, aby dodać kogoś do roli płaszczyzny danych na koncie usługi Azure Purview. Na twoim koncie usługi Azure Purview musisz znaleźć właściciela, administratora dostępu użytkowników lub inną osobę z uprawnieniami do przypisywania ról. Możesz poszukać odpowiednich osób,  wybierając kartę Przypisania ról, a następnie przewijając w dół, aby znaleźć administratora dostępu właściciela lub użytkownika i skontaktować się z tymi osobami.
+Jeśli po kliknięciu przycisku Dodaj są wyświetlane dwie opcje, które są oznaczone (wyłączone), oznacza to, że nie masz odpowiednich uprawnień do dodawania kogokolwiek do roli płaszczyzny danych na koncie usługi Azure Purview. Na twoim koncie usługi Azure Purview musisz znaleźć właściciela, administratora dostępu użytkowników lub inną osobę z uprawnieniami do przypisywania ról. Możesz poszukać odpowiednich osób,  wybierając kartę Przypisania ról, a następnie przewijając w dół, aby znaleźć administratora dostępu właściciela lub użytkownika i skontaktować się z tymi osobami.
 
 1. Wybierz pozycję **Dodaj przypisanie roli**.
 
-1. W przypadku roli Typ roli w roli **curatora** danych programu Purview lub Roli administratora źródła [](catalog-permissions.md) danych **Programu Purview** w zależności od tego, do czego będzie używany podmiot zabezpieczeń (aby uzyskać szczegółowe informacje, zobacz Uprawnienia katalogu oraz Obiekty aplikacji i jednostki usługi w usłudze [Azure Active Directory).](../active-directory/develop/app-objects-and-service-principals.md)
+1. W przypadku roli Typ roli w roli **curatora** danych programu Purview lub Roli administratora źródła [](catalog-permissions.md) danych **Purview** w zależności od tego, do czego będzie używany podmiot zabezpieczeń (aby uzyskać szczegółowe informacje, zobacz Uprawnienia katalogu i obiekty aplikacji i jednostki usługi w usłudze [Azure Active Directory).](../active-directory/develop/app-objects-and-service-principals.md)
 
-1. W **przypadku ustawienia Przypisz dostęp** pozostaw wartość domyślną **Użytkownik, grupa lub nazwa główna usługi.**
+1. W **przypadku ustawienia Przypisz dostęp** pozostaw wartość domyślną **Użytkownik, grupa lub nazwa główna usługi**.
 
 1. W **menu** Wybierz wprowadź nazwę użytkownika, Azure Active Directory grupę lub jednostkę usługi, którą chcesz przypisać, a następnie kliknij jego nazwę w okienku wyników.
 
@@ -174,7 +174,7 @@ Jeśli to konto usługi Azure Purview nie jest już potrzebne, usuń je, aby wyk
 
 1. Przejdź do **strony Konta programu Purview** w Azure Portal.
 
-2. Wybierz konto usługi Azure Purview utworzone na początku tego przewodnika Szybki start. Wybierz **pozycję** Usuń, wprowadź nazwę konta, a następnie wybierz pozycję **Usuń.**
+2. Wybierz konto usługi Azure Purview utworzone na początku tego przewodnika Szybki start. Wybierz **pozycję** Usuń, wprowadź nazwę konta, a następnie wybierz pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 

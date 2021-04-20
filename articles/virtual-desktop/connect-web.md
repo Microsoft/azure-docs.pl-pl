@@ -1,31 +1,31 @@
 ---
-title: Nawiązywanie połączenia z pulpitem wirtualnym systemu Windows przy użyciu klienta sieci Web — Azure
-description: Jak nawiązać połączenie z pulpitem wirtualnym systemu Windows przy użyciu klienta sieci Web.
+title: Nawiązywanie połączenia Windows Virtual Desktop za pomocą klienta internetowego — Azure
+description: Jak nawiązać połączenie z Windows Virtual Desktop przy użyciu klienta internetowego.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: b17ec374f2e8b6e268d993fc9a7b14ebeebd40df
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 80a090abee45f9cb3ec6ee5406aad6abf1d73a59
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447900"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725012"
 ---
-# <a name="connect-to-windows-virtual-desktop-with-the-web-client"></a>Nawiązywanie połączenia z pulpitem wirtualnym systemu Windows przy użyciu klienta sieci Web
+# <a name="connect-to-windows-virtual-desktop-with-the-web-client"></a>Nawiązywanie połączenia Windows Virtual Desktop z klientem internetowym
 
 >[!IMPORTANT]
->Ta zawartość dotyczy pulpitu wirtualnego systemu Windows z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows (klasycznego) bez Azure Resource Manager obiektów, zobacz [ten artykuł](./virtual-desktop-fall-2019/connect-web-2019.md).
+>Ta zawartość dotyczy Windows Virtual Desktop z Azure Resource Manager Windows Virtual Desktop obiektów. Jeśli używasz klasy Windows Virtual Desktop (klasycznej) bez obiektów Azure Resource Manager, zobacz [ten artykuł.](./virtual-desktop-fall-2019/connect-web-2019.md)
 
-Klient sieci Web umożliwia dostęp do zasobów pulpitu wirtualnego systemu Windows z przeglądarki sieci Web bez długotrwałego procesu instalacji.
+Klient internetowy umożliwia dostęp do zasobów Windows Virtual Desktop z przeglądarki internetowej bez długiego procesu instalacji.
 
 >[!NOTE]
->Klient sieci Web nie ma obecnie obsługi systemu operacyjnego dla urządzeń przenośnych.
+>Klient internetowy nie ma obecnie obsługi systemu operacyjnego dla urządzeń przenośnych.
 
 ## <a name="supported-operating-systems-and-browsers"></a>Obsługiwane systemy operacyjne i przeglądarki
 
-Chociaż każda przeglądarka z obsługą języka HTML5 powinna działać, oficjalnie obsługujemy następujące systemy operacyjne i przeglądarki.
+Chociaż każda przeglądarka obsługująca język HTML5 powinna działać, oficjalnie obsługujemy następujące systemy operacyjne i przeglądarki.
 
 | Przeglądarka           | Obsługiwany system operacyjny                     | Uwagi               |
 |-------------------|----------------------------------|---------------------|
@@ -33,41 +33,22 @@ Chociaż każda przeglądarka z obsługą języka HTML5 powinna działać, oficj
 | Internet Explorer | Windows                          | Wersja 11 lub nowsza |
 | Apple Safari      | macOS                            |                     |
 | Mozilla Firefox   | Windows, macOS, Linux            | Wersja 55 lub nowsza |
-| Google Chrome     | Windows, macOS, Linux, system operacyjny Chrome |                     |
+| Google Chrome     | Windows, macOS, Linux, Chrome OS |                     |
 
-## <a name="access-remote-resources-feed"></a>Uzyskiwanie dostępu do źródeł danych zdalnych
+## <a name="access-remote-resources-feed"></a>Uzyskiwanie dostępu do źródła danych zasobów zdalnych
 
-W przeglądarce przejdź do Azure Resource Manager zintegrowanej wersji klienta sieci Web systemu Windows na komputerze <https://rdweb.wvd.microsoft.com/arm/webclient> i zaloguj się przy użyciu konta użytkownika.
+W przeglądarce przejdź do zintegrowanej Azure Resource Manager klienta internetowego usługi Windows Virtual Desktop na stronie i zaloguj się <https://rdweb.wvd.microsoft.com/arm/webclient> przy użyciu konta użytkownika.
 
 >[!NOTE]
->Jeśli używasz pulpitu wirtualnego systemu Windows (klasycznego) bez integracji Azure Resource Manager, w zamian Połącz się z zasobami <https://rdweb.wvd.microsoft.com/webclient> .
+>Jeśli korzystasz z usługi Windows Virtual Desktop (klasycznej) bez integracji Azure Resource Manager, zamiast tego połącz się ze swoimi zasobami na <https://rdweb.wvd.microsoft.com/webclient> stronie .
 >
-> Jeśli używasz portalu US Gov, użyj polecenia <https://rdweb.wvd.azure.us/arm/webclient/index.html> .
+> Jeśli używasz portalu US Gov, użyj . <https://rdweb.wvd.azure.us/arm/webclient/index.html>
 
 >[!NOTE]
->Jeśli zalogowano się już przy użyciu innego konta Azure Active Directory niż ten, który ma być używany dla pulpitu wirtualnego systemu Windows, należy się wylogować lub użyć prywatnego okna przeglądarki.
+>Jeśli już zalogowano się przy użyciu innego konta Azure Active Directory niż konto, którego chcesz użyć na Windows Virtual Desktop, wyloguj się lub użyj prywatnego okna przeglądarki.
 
-Po zalogowaniu powinna zostać wyświetlona lista zasobów. Zasoby można uruchamiać, wybierając takie jak normalna aplikacja na karcie **wszystkie zasoby** .
-
-## <a name="using-an-input-method-editor"></a>Korzystanie z edytora metody wejściowej
-
-Klient sieci Web obsługuje używanie edytora IME (Input Method Editor) w sesji zdalnej w wersji **1.0.21.16 lub nowszej**. Pakiet językowy dla klawiatury, który ma być używany w sesji zdalnej, musi być zainstalowany na maszynie wirtualnej hosta. Aby dowiedzieć się więcej o konfigurowaniu pakietów językowych w sesji zdalnej, zapoznaj [się z tematem dodawanie pakietów językowych do obrazu z wieloma sesjami systemu Windows 10](language-packs.md).
-
-Aby włączyć dane wejściowe edytora IME przy użyciu klienta sieci Web:
-
-1. Przed nawiązaniem połączenia z sesją zdalną przejdź do panelu **ustawień** klienta sieci Web.
-
-2. Przełącz ustawienie **Włącz Edytor metody wejściowej** na wartość **włączone**.
-
-3. Z menu rozwijanego wybierz klawiaturę, która będzie używana w sesji zdalnej.
-
-4. Nawiąż połączenie z sesją zdalną.
-
-Klient sieci Web pomija lokalne okno edytora IME, gdy użytkownik nawiąże się z sesją zdalną. Zmiana ustawień edytora IME po nawiązaniu połączenia z sesją zdalną nie będzie miała żadnego efektu.
-
->[!NOTE]
->Jeśli pakiet językowy nie jest zainstalowany na maszynie wirtualnej hosta, Sesja zdalna będzie domyślnie w języku angielskim (Stany Zjednoczone).
+Po zalogowaniu powinna zostać wyświetlona lista zasobów. Zasoby można uruchamiać, wybierając je w taki sposób, jak w przypadku zwykłej aplikacji na **karcie Wszystkie** zasoby.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o używaniu klienta sieci Web, zapoznaj się z tematem Rozpoczynanie [pracy z klientem sieci Web](/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client).
+Aby dowiedzieć się więcej na temat korzystania z klienta internetowego, zapoznaj się [z tematem Rozpoczynanie pracy z klientem internetowym.](/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client)

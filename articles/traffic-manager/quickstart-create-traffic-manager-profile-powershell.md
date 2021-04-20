@@ -4,8 +4,8 @@ description: W tym artykule Szybki start opisano sposób tworzenia profilu Traff
 services: traffic-manager
 author: duongau
 ms.author: duau
-manager: twooley
-ms.date: 10/01/2020
+manager: kumud
+ms.date: 04/19/2021
 ms.topic: quickstart
 ms.service: traffic-manager
 ms.workload: infrastructure-services
@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom:
 - mode-api
-ms.openlocfilehash: 0fd2ae59f62850da75eecd5423ad225e208dca80
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 96580a56abaffcc11180a406e00aaabb1cb1e2e7
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537651"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727884"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-powershell"></a>Szybki start: tworzenie profilu Traffic Manager aplikacji internetowej o wysokiej Azure PowerShell
 
 W tym przewodniku Szybki start opisano tworzenie profilu usługi Traffic Manager, który zapewni wysoką dostępność aplikacji internetowej.
 
 W tym przewodniku Szybki start utworzysz dwa wystąpienia aplikacji internetowej. Każde z nich jest uruchamiane w innym regionie świadczenia usługi Azure. Utworzysz profil usługi Traffic Manager na podstawie [priorytetu punktu końcowego](traffic-manager-routing-methods.md#priority-traffic-routing-method). Profil kieruje ruch użytkowników do lokacji głównej, w której działa aplikacja internetowa. Usługa Traffic Manager stale monitoruje aplikację internetową. Jeśli lokacja główna jest niedostępna, usługa zapewnia automatyczne przejście w tryb failover w lokacji zapasowej.
+
+:::image type="content" source="./media/quickstart-create-traffic-manager-profile/environment-diagram.png" alt-text="Diagram przedstawiający Traffic Manager wdrożenia przy użyciu Azure PowerShell." border="false":::
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -40,7 +42,7 @@ Utwórz grupę zasobów przy użyciu [narzędzia New-AzResourceGroup.](/powershe
 ```azurepowershell-interactive
 
 # Variables
-$Location1="WestUS"
+$Location1="EastUS"
 
 # Create a Resource Group
 New-AzResourceGroup -Name MyResourceGroup -Location $Location1
@@ -77,39 +79,37 @@ Utwórz plany usługi Aplikacji internetowej przy użyciu narzędzia [New-AzAppS
 ```azurepowershell-interactive
 
 # Variables
-$App1Name="AppServiceTM1$Random"
-$App2Name="AppServiceTM2$Random"
-$Location1="WestUS"
-$Location2="EastUS"
+$Location1="EastUS"
+$Location2="WestEurope"
 
 # Create an App service plan
-New-AzAppservicePlan -Name "$App1Name-Plan" -ResourceGroupName MyResourceGroup -Location $Location1 -Tier Standard
-New-AzAppservicePlan -Name "$App2Name-Plan" -ResourceGroupName MyResourceGroup -Location $Location2 -Tier Standard
+New-AzAppservicePlan -Name "myAppServicePlanEastUS" -ResourceGroupName MyResourceGroup -Location $Location1 -Tier Standard
+New-AzAppservicePlan -Name "myAppServicePlanEastUS" -ResourceGroupName MyResourceGroup -Location $Location2 -Tier Standard
 
 ```
 ### <a name="create-a-web-app-in-the-app-service-plan"></a>Tworzenie aplikacji internetowej w planie App Service aplikacji
-Utwórz dwa wystąpienia aplikacji internetowej przy użyciu [narzędzia New-AzWebApp](/powershell/module/az.websites/new-azwebapp) w planach usługi App Service w regionach świadczenia usługi Azure *Zachodnie* stany USA i *Wschodnie stany* USA.
+Utwórz dwa wystąpienia aplikacji internetowej przy użyciu [narzędzia New-AzWebApp](/powershell/module/az.websites/new-azwebapp)  w planach usługi App Service regionach świadczenia usługi Azure Wschodnie stany USA i *Europa* Zachodnia.
 
 ```azurepowershell-interactive
-$App1ResourceId=(New-AzWebApp -Name $App1Name -ResourceGroupName MyResourceGroup -Location $Location1 -AppServicePlan "$App1Name-Plan").Id
-$App2ResourceId=(New-AzWebApp -Name $App2Name -ResourceGroupName MyResourceGroup -Location $Location2 -AppServicePlan "$App2Name-Plan").Id
+$App1ResourceId=(New-AzWebApp -Name myWebAppEastUS -ResourceGroupName MyResourceGroup -Location $Location1 -AppServicePlan "myAppServicePlanEastUS").Id
+$App2ResourceId=(New-AzWebApp -Name myWebAppWestEurope -ResourceGroupName MyResourceGroup -Location $Location2 -AppServicePlan "myAppServicePlanWestEurope").Id
 
 ```
 
 ## <a name="add-traffic-manager-endpoints"></a>Dodawanie punktów końcowych usługi Traffic Manager
 Dodaj te dwa Web Apps jako Traffic Manager końcowe przy użyciu [new-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) do profilu Traffic Manager w następujący sposób:
-- Dodaj aplikację internetową znajdującą się w regionie platformy Azure *Zachodnie* stany USA jako podstawowy punkt końcowy do rozsyłania całego ruchu użytkowników. 
-- Dodaj aplikację internetową znajdującą się w regionie świadczenia usługi Azure *Wschodnie* usa jako punkt końcowy trybu failover. Gdy podstawowy punkt końcowy będzie niedostępny, ruch będzie automatycznie kierowany do punktu końcowego trybu failover.
+- Dodaj aplikację internetową znajdującą się w regionie świadczenia usługi Azure *Wschodnie* usa jako podstawowy punkt końcowy do rozsyłania całego ruchu użytkowników. 
+- Dodaj aplikację internetową znajdującą się w regionie platformy Azure *Europa* Zachodnia jako punkt końcowy trybu failover. Gdy podstawowy punkt końcowy będzie niedostępny, ruch będzie automatycznie kierowany do punktu końcowego trybu failover.
 
 ```azurepowershell-interactive
-New-AzTrafficManagerEndpoint -Name "$App1Name-$Location1" `
+New-AzTrafficManagerEndpoint -Name "myPrimaryEndpoint" `
 -ResourceGroupName MyResourceGroup `
 -ProfileName "$mytrafficmanagerprofile" `
 -Type AzureEndpoints `
 -TargetResourceId $App1ResourceId `
 -EndpointStatus "Enabled"
 
-New-AzTrafficManagerEndpoint -Name "$App2Name-$Location2" `
+New-AzTrafficManagerEndpoint -Name "myFailoverEndpoint" `
 -ResourceGroupName MyResourceGroup `
 -ProfileName "$mytrafficmanagerprofile" `
 -Type AzureEndpoints `
@@ -140,7 +140,7 @@ Skopiuj **wartość RelativeDnsName.** Nazwa DNS profilu Traffic Manager to *htt
 2. Aby wyświetlić Traffic Manager trybu failover, wyłącz lokację główną przy użyciu [opcji Disable-AzTrafficManagerEndpoint.](/powershell/module/az.trafficmanager/disable-aztrafficmanagerendpoint)
 
    ```azurepowershell-interactive
-    Disable-AzTrafficManagerEndpoint -Name $App1Name-$Location1 `
+    Disable-AzTrafficManagerEndpoint -Name "myPrimaryEndpoint" `
     -Type AzureEndpoints `
     -ProfileName $mytrafficmanagerprofile `
     -ResourceGroupName MyResourceGroup `

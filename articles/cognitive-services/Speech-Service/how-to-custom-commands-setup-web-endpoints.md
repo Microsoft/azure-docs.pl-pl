@@ -1,7 +1,7 @@
 ---
-title: Konfigurowanie internetowych punktów końcowych (wersja zapoznawcza)
+title: Konfigurowanie internetowych punktów końcowych
 titleSuffix: Azure Cognitive Services
-description: konfigurowanie internetowych punktów końcowych dla aplikacji polecenia niestandardowe
+description: Konfigurowanie internetowych punktów końcowych dla Polecenia niestandardowe
 services: cognitive-services
 author: xiaojul
 manager: yetian
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 95f27827950c5ed38caa1f83ede266afb57a1697
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 5f1d5318140dd14c5024e8dd3ad0def0afc7f378
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515638"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725912"
 ---
 # <a name="set-up-web-endpoints"></a>Konfigurowanie internetowych punktów końcowych
 
@@ -31,66 +31,66 @@ W tym artykule dowiesz się, jak skonfigurować internetowe punkty końcowe w ap
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 > * Klucz subskrypcji platformy Azure dla usługi Mowa: [Pobierz bezpłatnie](overview.md#try-the-speech-service-for-free) lub utwórz go w witrynie [Azure Portal](https://portal.azure.com)
-> * [Utworzona wcześniej aplikacja Polecenia niestandardowe](quickstart-custom-commands-application.md)
-> * Aplikacja kliencka z włączonym zestawem SDK usługi Mowa: [Instrukcje: wysyłanie działania do aplikacji klienckiej](./how-to-custom-commands-setup-speech-sdk.md)
+> * Aplikacja Polecenia niestandardowe (zobacz [Tworzenie asystenta głosowego przy użyciu Polecenia niestandardowe](quickstart-custom-commands-application.md))
+> * Aplikacja kliency z obsługą zestawu SPEECH SDK (zobacz [Integracja z aplikacją kliencyjną przy użyciu zestawu SPEECH SDK)](how-to-custom-commands-setup-speech-sdk.md)
 
 ## <a name="deploy-an-external-web-endpoint-using-azure-function-app"></a>Wdrażanie zewnętrznego internetowego punktu końcowego przy użyciu aplikacji funkcji platformy Azure
 
-* Na potrzeby tego samouczka potrzebny jest punkt końcowy HTTP, który przechowuje stany dla wszystkich urządzeń, które są ustawione w poleceniu **TurnOnOff** aplikacji poleceń niestandardowych.
+Na potrzeby tego samouczka potrzebujesz punktu końcowego HTTP, który przechowuje stany dla wszystkich urządzeń, które są ustawione w poleceniu **TurnOnOff** Polecenia niestandardowe aplikacji.
 
-* Jeśli masz już internetowy punkt końcowy, który chcesz wywołać, przejdź do [następnej sekcji](#setup-web-endpoints-in-custom-commands). Alternatywnie w następnej sekcji podano domyślny hostowany internetowy punkt końcowy, którego można użyć, jeśli chcesz pominąć tę sekcję.
+Jeśli masz już internetowy punkt końcowy, który chcesz wywołać, przejdź do [następnej sekcji](#setup-web-endpoints-in-custom-commands). Alternatywnie następna sekcja zawiera szczegółowe informacje o domyślnym hostowanych punktach końcowych sieci Web, których można użyć, jeśli chcesz pominąć tę sekcję.
 
 ### <a name="input-format-of-azure-function"></a>Format danych wejściowych funkcji platformy Azure
-* Następnie wdrożysz punkt końcowy przy [użyciu](../../azure-functions/index.yml)Azure Functions .
-Poniżej przedstawiono ogólny format zdarzenia Polecenia niestandardowe przekazywanego do funkcji platformy Azure. Użyj tych informacji podczas pisania aplikacji funkcji.
 
-    ```json
-    {
-      "conversationId": "string",
-      "currentCommand": {
-        "name": "string",
-        "parameters": {
-          "SomeParameterName": "string",
-          "SomeOtherParameterName": "string"
-        }
-      },
-      "currentGlobalParameters": {
-          "SomeGlobalParameterName": "string",
-          "SomeOtherGlobalParameterName": "string"
-      }
+Następnie wdrożysz punkt końcowy przy [użyciu](../../azure-functions/index.yml)Azure Functions .
+Poniżej przedstawiono format zdarzenia Polecenia niestandardowe przekazywanego do funkcji platformy Azure. Użyj tych informacji podczas pisania aplikacji funkcji platformy Azure.
+
+```json
+{
+  "conversationId": "string",
+  "currentCommand": {
+    "name": "string",
+    "parameters": {
+      "SomeParameterName": "string",
+      "SomeOtherParameterName": "string"
     }
-    ```
+  },
+  "currentGlobalParameters": {
+      "SomeGlobalParameterName": "string",
+      "SomeOtherGlobalParameterName": "string"
+  }
+}
+```
 
     
-* Przejrzyjmy kluczowe atrybuty tych danych wejściowych:
+W poniższej tabeli opisano kluczowe atrybuty tych danych wejściowych:
         
-    | Atrybut | Wyjaśnienie |
-    | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
-    | **conversationId** | Unikatowy identyfikator konwersacji. Należy pamiętać, że ten identyfikator można wygenerować z aplikacji klienckiej. |
-    | **currentCommand** | Polecenie, które jest obecnie aktywne w konwersacji. |
-    | **Nazwa** | Nazwa polecenia. Atrybut `parameters` jest mapą z bieżącymi wartościami parametrów. |
-    | **currentGlobalParameters** | Mapa, na przykład `parameters` , ale używana dla parametrów globalnych. |
+| Atrybut | Wyjaśnienie |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| **conversationId** | Unikatowy identyfikator konwersacji. Należy pamiętać, że ten identyfikator może zostać wygenerowany przez aplikację kliencyjną. |
+| **currentCommand** | Polecenie, które jest obecnie aktywne w konwersacji. |
+| **Nazwa** | Nazwa polecenia. Atrybut `parameters` jest mapą z bieżącymi wartościami parametrów. |
+| **currentGlobalParameters** | Mapa, na przykład `parameters` , ale używana dla parametrów globalnych. |
 
 
-* W przypadku funkcji platformy Azure **DeviceState** przykładowe zdarzenie Polecenia niestandardowe będzie wyglądać następująco. Będzie ona działać jako **dane wejściowe** dla aplikacji funkcji.
+W przypadku funkcji platformy Azure **DeviceState** przykładowe Polecenia niestandardowe będzie wyglądać następująco. Będzie ona działać jako **dane wejściowe** dla aplikacji funkcji.
     
-    ```json
-    {
-      "conversationId": "someConversationId",
-      "currentCommand": {
-        "name": "TurnOnOff",
-        "parameters": {
-          "item": "tv",
-          "value": "on"
-        }
-      }
+```json
+{
+  "conversationId": "someConversationId",
+  "currentCommand": {
+    "name": "TurnOnOff",
+    "parameters": {
+      "item": "tv",
+      "value": "on"
     }
-    ```
+  }
+}
+```
 
-### <a name="output-format-of-azure-function"></a>Format danych wyjściowych funkcji platformy Azure
+### <a name="azure-function-output-for-a-custom-command-app"></a>Dane wyjściowe funkcji platformy Azure dla aplikacji polecenia niestandardowego
 
-#### <a name="output-consumed-by-a-custom-commands--application"></a>Dane wyjściowe używane przez Polecenia niestandardowe aplikacji
-W takim przypadku można ustawić format danych wyjściowych musi być zgodny z następującym formatem. Aby uzyskać więcej informacji, postępuj zgodnie z [śledzeniami](./how-to-custom-commands-update-command-from-web-endpoint.md) aktualizacji polecenia z internetowego punktu końcowego.
+Jeśli dane wyjściowe funkcji platformy Azure są używane przez aplikację Polecenia niestandardowe, powinny pojawić się w następującym formacie. Aby [uzyskać szczegółowe informacje, zobacz Aktualizowanie](./how-to-custom-commands-update-command-from-web-endpoint.md) polecenia z internetowego punktu końcowego.
 
 ```json
 {
@@ -107,41 +107,46 @@ W takim przypadku można ustawić format danych wyjściowych musi być zgodny z 
 }
 ```
 
-#### <a name="output-consumed-by-a-client-application"></a>Dane wyjściowe używane przez aplikację kliencyjną
-W takim przypadku można ustawić format danych wyjściowych zgodnie z potrzebami klienta.
-* W przypadku naszego punktu końcowego **DeviceState** dane wyjściowe funkcji platformy Azure są używane przez aplikację kliencową, a Polecenia niestandardowe aplikację. **Przykładowe** dane wyjściowe funkcji platformy Azure powinny wyglądać następująco:
+### <a name="azure-function-output-for-a-client-application"></a>Dane wyjściowe funkcji platformy Azure dla aplikacji klienckiej
+
+Jeśli dane wyjściowe funkcji platformy Azure są używane przez aplikację kliencyjną, dane wyjściowe mogą mieć postać wymaganą przez aplikację kliencową.
+
+W przypadku naszego punktu końcowego **DeviceState** dane wyjściowe funkcji platformy Azure są używane przez aplikację kliencową, a Polecenia niestandardowe aplikację. Przykładowe dane wyjściowe funkcji platformy Azure powinny wyglądać następująco:
     
-    ```json
-    {
-      "TV": "on",
-      "Fan": "off"
-    }
-    ``` 
+```json
+{
+  "TV": "on",
+  "Fan": "off"
+}
+``` 
 
-*  Ponadto te dane wyjściowe powinny być zapisywane w magazynie zewnętrznym, aby można było odpowiednio zachować stan urządzeń. Stan magazynu zewnętrznego będzie używany w sekcji [Integracja z aplikacją kliencową](#integrate-with-client-application).
+Te dane wyjściowe powinny być zapisywane w magazynie zewnętrznym, aby można było zachować stan urządzeń. Stan magazynu zewnętrznego będzie używany w poniższej sekcji Integracja z [aplikacją kliencową.](#integrate-with-client-application)
 
 
-### <a name="host-azure-function"></a>Hostuj funkcję platformy Azure
+### <a name="deploy-azure-function"></a>Wdróż funkcję platformy Azure
 
-1. Utwórz konto magazynu tabel, aby zapisać stan urządzenia.
-    1. Przejdź do Azure Portal i utwórz nowy zasób typu **Konto magazynu według** nazwy **devicestate**.
-        1. Skopiuj wartość **Parametrów połączenia** z **wartości devicestate -> access keys**.
-        1. Musisz dodać ten ciąg do pobranego przykładowego kodu aplikacji funkcji.
-    1. Pobierz [przykładowy kod aplikacji funkcji.](https://aka.ms/speech/cc-function-app-sample)
-    1. Otwórz pobrane rozwiązanie w programie VS 2019. W pliku **Connections.jspliku** zastąp **STORAGE_ACCOUNT_SECRET_CONNECTION_STRING** skopiowanym kluczem tajnym z *kroku*.
+Udostępniliśmy przykład, który można skonfigurować i wdrożyć jako Azure Functions aplikację. Aby utworzyć konto magazynu dla naszego przykładu, wykonaj następujące kroki.
+ 
+1. Utwórz magazyn tabel, aby zapisać stan urządzenia. W Azure Portal utwórz nowy zasób typu **Konto magazynu według** nazwy **devicestate**.
+1. Skopiuj wartość **Parametrów połączenia** z **wartości devicestate -> access keys**. Musisz dodać ten ciąg tajny do pobranego przykładowego kodu aplikacji funkcji.
+1. Pobierz [przykładowy kod aplikacji funkcji.](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/tree/main/custom-commands/quick-start)
+1. Otwórz pobrane rozwiązanie w Visual Studio 2019 r. W **Connections.jsw programie** **zastąp STORAGE_ACCOUNT_SECRET_CONNECTION_STRING** kluczem tajnym z kroku 2.
 1.  Pobierz kod **DeviceStateAzureFunction.**
-1. [Wdrażanie](../../azure-functions/index.yml) aplikacji usługi Functions na platformie Azure.
-    
-    1.  Poczekaj na powodzenie wdrożenia i przejdź do wdrożonego zasobu na Azure Portal. 
-    1. Wybierz **pozycję Funkcje** w okienku po lewej stronie, a następnie wybierz pozycję **DeviceState.**
-    1.  W nowym oknie wybierz pozycję **Kod + test,** a następnie wybierz **pozycję Pobierz adres URL funkcji.**
+
+Aby wdrożyć przykładową aplikację w Azure Functions, wykonaj następujące kroki.
+
+1. [Wdrażanie](../../azure-functions/index.yml) aplikacji Azure Functions aplikacji.
+1. Poczekaj na powodzenie wdrożenia i przejdź do wdrożonego zasobu na Azure Portal. 
+1. Wybierz **pozycję Funkcje** w okienku po lewej stronie, a następnie wybierz pozycję **DeviceState.**
+1.  W nowym oknie wybierz pozycję **Kod i testowanie,** a następnie wybierz **pozycję Pobierz adres URL funkcji.**
  
 ## <a name="setup-web-endpoints-in-custom-commands"></a>Konfigurowanie internetowych punktów końcowych w Polecenia niestandardowe
+
 Podłączmy funkcję platformy Azure do istniejącej Polecenia niestandardowe aplikacji.
-W tej sekcji użyjemy istniejącego domyślnego punktu końcowego **DeviceState.** Jeśli utworzono własny internetowy punkt końcowy przy użyciu funkcji platformy Azure lub w inny sposób, użyj go zamiast domyślnego https://webendpointexample.azurewebsites.net/api/DeviceState .
+W tej sekcji użyjemy istniejącego domyślnego punktu końcowego **DeviceState.** Jeśli utworzono własny internetowy punkt końcowy przy użyciu funkcji platformy Azure lub w inny sposób, użyj go zamiast domyślnego `https://webendpointexample.azurewebsites.net/api/DeviceState` .
 
 1. Otwórz utworzoną wcześniej aplikację Polecenia niestandardowe.
-1. Przejdź do pozycji „Internetowe punkty końcowe”, a następnie kliknij pozycję „Nowy internetowy punkt końcowy”.
+1. Przejdź do internetowego **punktu końcowego** i kliknij pozycję **Nowy internetowy punkt końcowy.**
 
    > [!div class="mx-imgBorder"]
    > ![Nowy internetowy punkt końcowy](media/custom-commands/setup-web-endpoint-new-endpoint.png)
@@ -154,10 +159,10 @@ W tej sekcji użyjemy istniejącego domyślnego punktu końcowego **DeviceState.
    | Nagłówki | Klucz: aplikacja, Wartość: 8 pierwszych cyfr identyfikatora aplikacji | Parametry nagłówka do uwzględnienia w nagłówku żądania.|
 
     > [!NOTE]
-    > - Przykładowy internetowy punkt końcowy utworzony przy użyciu funkcji platformy [Azure](../../azure-functions/index.yml), która podłącza się do bazy danych, która zapisuje stan urządzenia odbiornika i odbiornika
-    > - Sugerowany nagłówek jest wymagany tylko w przypadku przykładowego punktu końcowego
-    > - Aby upewnić się, że wartość nagłówka w naszym przykładowym punkcie końcowym jest unikatowa, użyj 8 pierwszych cyfr identyfikatora aplikacji
-    > - W rzeczywistym świecie internetowym punktem końcowym może być punkt końcowy [centrum IOT](../../iot-hub/about-iot-hub.md), który zarządza Twoimi urządzeniami
+    > - Przykładowy internetowy punkt końcowy utworzony przy [użyciu Azure Functions](../../azure-functions/index.yml), który podłącza się do bazy danych, która zapisuje stan urządzenia odbiornika i odbiornika.
+    > - Sugerowany nagłówek jest wymagany tylko dla przykładowego punktu końcowego.
+    > - Aby upewnić się, że wartość nagłówka jest unikatowa w naszym przykładowym punkcie końcowym, weź 8 pierwszych cyfr **swojego parametru applicationId.**
+    > - W świecie rzeczywistym internetowy punkt końcowy może być punktem końcowym centrum [IOT,](../../iot-hub/about-iot-hub.md) które zarządza urządzeniami.
 
 1. Kliknij pozycję **Zapisz**.
 
@@ -209,19 +214,17 @@ W tej sekcji użyjemy istniejącego domyślnego punktu końcowego **DeviceState.
    > - W naszym przykładowym punkcie końcowym wysyłamy odpowiedź HTTP ze szczegółowymi komunikatami o błędach dotyczącymi typowych błędów, takich jak brakujące parametry nagłówka.
 
 ### <a name="try-it-out-in-test-portal"></a>Wypróbowywanie działania w portalu testowym
-- Odpowiedź w przypadku powodzenia\
-Zapisz, przeprowadź szkolenie i przetestuj
+- W odpowiedzi Powodzenie zapisz, wytrenuj i przetestuj.
    > [!div class="mx-imgBorder"]
-   > ![Zrzut ekranu przedstawiający odpowiedź W przypadku powodzenia.](media/custom-commands/setup-web-endpoint-on-success-response.png)
-- Odpowiedź w przypadku niepowodzenia\
-Usuń jeden z parametrów zapytania, zapisz, przeprowadź ponowne szkolenie i przetestuj
+   > ![Zrzut ekranu przedstawiający odpowiedź w przypadku powodzenia.](media/custom-commands/setup-web-endpoint-on-success-response.png)
+- Na stronie Odpowiedź na niepowodzenie usuń jeden z parametrów zapytania, zapisz, przetrenuj i przetestuj.
    > [!div class="mx-imgBorder"]
    > ![Akcja wywoływania internetowych punktów końcowych w przypadku powodzenia](media/custom-commands/setup-web-endpoint-on-fail-response.png)
 
 ## <a name="integrate-with-client-application"></a>Integracja z aplikacją kliencką
 
-W [akcję How-to: Send activity to client application](./how-to-custom-commands-send-activity-to-client.md)(Akcję Wyślij do klienta) dodano działanie Send to client (Wyślij działanie do aplikacji **klienckiej).** Aktywność jest wysyłana do aplikacji klienckiej, niezależnie od tego, czy akcja **Wywołaj internetowy punkt końcowy** zakończyła się pomyślnie.
-Jednak w większości przypadków chcesz, aby aktywność była wysyłana do aplikacji klienckiej wyłącznie w przypadku, gdy wywołanie internetowego punktu końcowego zakończyło się powodzeniem. W tym przykładzie ma to miejsce po pomyślnym zaktualizowaniu stanu urządzenia.
+W [akcję Polecenia niestandardowe wyślij do aplikacji klienckiej](./how-to-custom-commands-send-activity-to-client.md)dodano **akcję Wyślij działanie do** klienta. Aktywność jest wysyłana do aplikacji klienckiej, niezależnie od tego, czy akcja **Wywołaj internetowy punkt końcowy** zakończyła się pomyślnie.
+Zazwyczaj jednak działanie jest wysyłane do aplikacji klienckiej tylko wtedy, gdy wywołanie internetowego punktu końcowego powiedzie się. W tym przykładzie ma to miejsce po pomyślnym zaktualizowaniu stanu urządzenia.
 
 1. Usuń dodaną wcześniej akcję **Wyślij aktywność do klienta**.
 1. Przeprowadź edycję wywołania internetowego punktu końcowego:
@@ -238,10 +241,11 @@ Jednak w większości przypadków chcesz, aby aktywność była wysyłana do apl
       }
     }
    ```
-Teraz aktywność zostanie wysłana do klienta tylko w przypadku, gdy żądanie do internetowego punktu końcowego zakończy się powodzeniem.
+Teraz aktywność jest wysyłana do klienta tylko wtedy, gdy żądanie do internetowego punktu końcowego powiedzie się.
 
 ### <a name="create-visuals-for-syncing-device-state"></a>Tworzenie wizualizacji w celu synchronizowania stanu urządzenia
-W pliku `MainPage.xaml` dodaj poniższy kod XML nad blokiem `"EnableMicrophoneButton"`.
+
+Dodaj następujący kod XML `MainPage.xaml` do pliku powyżej bloku **EnableMicrophoneButton.**
 
 ```xml
 <Button x:Name="SyncDeviceStateButton" Content="Sync Device State"
@@ -253,7 +257,7 @@ W pliku `MainPage.xaml` dodaj poniższy kod XML nad blokiem `"EnableMicrophoneBu
 
 ### <a name="sync-device-state"></a>Synchronizowanie stanu urządzeń
 
-W pliku `MainPage.xaml.cs` dodaj odwołanie `using Windows.Web.Http;`. Dodaj poniższy kod do klasy `MainPage`. Ta metoda spowoduje wysłanie żądania GET do przykładowego punktu końcowego i wyodrębnienie bieżącego stanu urządzenia dla aplikacji. Nie zapomnij zmienić parametru `<your_app_name>` na wartość użytą w **nagłówku** w internetowym punkcie końcowym aplikacji Polecenia niestandardowe
+W pliku `MainPage.xaml.cs` dodaj odwołanie `using Windows.Web.Http;`. Dodaj poniższy kod do klasy `MainPage`. Ta metoda spowoduje wysłanie żądania GET do przykładowego punktu końcowego i wyodrębnienie bieżącego stanu urządzenia dla aplikacji. Pamiętaj, aby zmienić nagłówek na używany w nagłówku w `<your_app_name>` **internetowym** punkcie końcowym polecenia niestandardowego.
 
 ```C#
 private async void SyncDeviceState_ButtonClicked(object sender, RoutedEventArgs e)
@@ -293,17 +297,16 @@ private async void SyncDeviceState_ButtonClicked(object sender, RoutedEventArgs 
 }
 ```
 
-## <a name="try-it-out"></a>Wypróbowywanie działania
+## <a name="try-it-out"></a>Czas to wypróbować
 
-1. Uruchamianie aplikacji
+1. Uruchom aplikację.
 1. Kliknij pozycję Synchronizuj stan urządzenia.\
-Jeśli w poprzedniej sekcji aplikacja została przetestowana z parametrem `turn on tv`, stan telewizora powinien zostać wyświetlony jako „włączony”.
+Jeśli aplikacja została przetestowana przy użyciu programu `turn on tv` w poprzedniej sekcji, ekran tv będzie wyświetlony tak jak w **sekcji**.
     > [!div class="mx-imgBorder"]
     > ![Synchronizowanie stanu urządzeń](media/custom-commands/setup-web-endpoint-sync-device-state.png)
-1. Wybierz pozycję Włącz mikrofon
-1. Wybierz przycisk Mów
-1. Powiedz `turn on the fan`
-1. Stan wizualny wentylatora powinien zmienić się na „włączony”
+1. Wybierz pozycję **Włącz mikrofon.**
+1. Wybierz przycisk **Mów.**
+1. Powiedzmy `turn on the fan` . Stan wizualny wentylatora powinien zmienić się na **na .**
     > [!div class="mx-imgBorder"]
     > ![Włączanie wentylatora](media/custom-commands/setup-web-endpoint-turn-on-fan.png)
 
@@ -311,4 +314,3 @@ Jeśli w poprzedniej sekcji aplikacja została przetestowana z parametrem `turn 
 
 > [!div class="nextstepaction"]
 > [Eksportowanie Polecenia niestandardowe jako umiejętności zdalnej](./how-to-custom-commands-integrate-remote-skills.md)
-

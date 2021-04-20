@@ -1,5 +1,5 @@
 ---
-title: Wieloczynnikowa wykrywania anomalii — Biblioteka klienta JavaScript — Szybki Start
+title: 'Narzędzie do wykrywania anomalii kowariantną bibliotekę klienta JavaScript : Szybki start'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mrbullwinkle
@@ -8,46 +8,48 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/06/2021
 ms.author: mbullwin
-ms.openlocfilehash: 4e0f2d1bae07f0814b4f096d8be315bd92cd42fe
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 03fbd5e641c72a03a4a3cb19219678bc3d3fff51
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107316049"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107732298"
 ---
-Rozpocznij pracę z biblioteką klienta wieloczynnikowa wykrywania anomalii dla języka JavaScript. Wykonaj następujące kroki, aby zainstalować pakiet i rozpocząć korzystanie z algorytmów udostępnianych przez usługę. Nowe interfejsy API wykrywania anomalii w usłudze wieloczynnikowa umożliwiają deweloperom łatwe integrowanie zaawansowanej pamięci AI do wykrywania anomalii z grup metryk, bez konieczności znajomości wiedzy uczenia maszynowego ani etykietowania danych. Zależności i wzajemnych korelacji między różnymi sygnałami są automatycznie liczone jako kluczowe czynniki. Pomaga to aktywnie chronić złożone systemy przed awariami.
+Rozpoczynanie pracy z Narzędzie do wykrywania anomalii kowariantną biblioteką klienta dla języka JavaScript. Wykonaj następujące kroki, aby zainstalować pakiet i rozpocząć korzystanie z algorytmów dostarczonych przez usługę. Nowe, wielowariacyjne interfejsy API wykrywania anomalii umożliwiają deweloperom łatwe integrowanie zaawansowanych rozwiązań AI do wykrywania anomalii z grup metryk bez konieczności znajomości uczenia maszynowego ani danych oznaczonych etykietami. Zależności i korelacje między różnymi sygnałami są automatycznie liczone jako kluczowe czynniki. Pomaga to aktywnie chronić złożone systemy przed awariami.
 
-Użycie biblioteki wieloczynnikowa Client wykrywania anomalii dla języka JavaScript do:
+Użyj wielo Narzędzie do wykrywania anomalii biblioteki klienta dla języka JavaScript, aby:
 
-* Wykrywaj anomalie na poziomie systemu z grupy szeregów czasowych.
-* Gdy każda z poszczególnych szeregów czasowych nie powiedzie się, należy sprawdzić wszystkie sygnały w celu wykrycia problemu.
-* Predicative konserwację kosztownych zasobów fizycznych z dziesiątki do setek różnych typów czujników mierzących różne aspekty kondycji systemu.
+* Wykrywanie anomalii na poziomie systemu z grupy szeregów czasu.
+* Gdy dowolny szereg czasowy nie będzie ci za dużo mówić i musisz przyjrzeć się wszystkim sygnałom, aby wykryć problem.
+* Predykatywna konserwacja drogich zasobów fizycznych z dziesiątkami do setek różnych typów czujników mierząca różne aspekty kondycji systemu.
+
+[Kod źródłowy biblioteki](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/anomalydetector/ai-anomaly-detector)  |  [Pakiet (npm)](https://www.npmjs.com/package/@azure/ai-anomaly-detector)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
+* Subskrypcja platformy Azure [— utwórz subskrypcję bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
 * Bieżąca wersja [Node.js](https://nodejs.org/)
-* Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title=" Utwórz zasób wykrywania anomalii "  target="_blank"> Utwórz zasób wykrywania anomalii </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Zaczekaj na jego wdrożenie i kliknij przycisk **Przejdź do zasobu** .
-    * Potrzebny będzie klucz i punkt końcowy z zasobu utworzonego w celu połączenia aplikacji z interfejsem API wykrywania anomalii. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
-    Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
+* Po utworzeniu subskrypcji platformy Azure utwórz zasób Narzędzie do wykrywania anomalii utwórz zasób Narzędzie do wykrywania anomalii w witrynie Azure Portal, aby <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title=" uzyskać klucz i punkt "  target="_blank"> </a> końcowy. Poczekaj na wdrożenie, a następnie kliknij **przycisk Przejdź do** zasobu.
+    * Klucz i punkt końcowy z zasobu, który utworzysz, będą potrzebne do połączenia aplikacji z Narzędzie do wykrywania anomalii API. Klucz i punkt końcowy wkleisz do poniższego kodu w dalszej części tego przewodnika Szybki start.
+    Możesz użyć warstwy cenowej Bezpłatna ( ), aby wypróbować usługę, i przejść później na warstwę płatną `F0` na użytek produkcji.
 
 ## <a name="setting-up"></a>Konfigurowanie
 
 ### <a name="create-a-new-nodejs-application"></a>Tworzenie nowej aplikacji Node.js
 
-W oknie konsoli (na przykład cmd, PowerShell lub bash) Utwórz nowy katalog dla aplikacji i przejdź do niego. 
+W oknie konsoli (takim jak cmd, PowerShell lub Bash) utwórz nowy katalog dla aplikacji i przejdź do niego. 
 
 ```console
 mkdir myapp && cd myapp
 ```
 
-Uruchom `npm init` polecenie, aby utworzyć aplikację Node z `package.json` plikiem. 
+Uruchom polecenie `npm init` , aby utworzyć aplikację node z `package.json` plikiem. 
 
 ```console
 npm init
 ```
 
-Utwórz plik o nazwie `index.js` i zaimportuj następujące biblioteki:
+Utwórz plik o nazwie `index.js` i zaimportuj następujące biblioteki: "
 ```javascript
 'use strict'
 
@@ -57,7 +59,7 @@ const { AnomalyDetectorClient } = require('@azure/ai-anomaly-detector');
 const { AzureKeyCredential } = require('@azure/core-auth');
 ```
 
-Utwórz zmienne i klucz punktu końcowego platformy Azure dla zasobu. Utwórz kolejną zmienną dla przykładowego pliku danych.
+Utwórz zmienne punktu końcowego i klucza platformy Azure zasobu. Utwórz kolejną zmienną dla przykładowego pliku danych.
 
 ```javascript
 const apiKey = "YOUR_API_KEY";
@@ -65,31 +67,31 @@ const endpoint = "YOUR_ENDPOINT";
 const data_source = "YOUR_SAMPLE_ZIP_FILE_LOCATED_IN_AZURE_BLOB_STORAGE_WITH_SAS";
 ```
 
- Aby korzystać z interfejsów API wieloczynnikowa wykrywania anomalii, musimy nauczyć nasz model przed użyciem wykrywania. Dane używane do szkoleń to partia szeregów czasowych, każda seria czasu powinna być w formacie CSV z dwiema kolumnami, sygnaturą czasową i wartością. Wszystkie szeregi czasowe powinny być spakowane w jednym pliku zip i przekazywane do [usługi Azure Blob Storage](../../../../storage/blobs/storage-blobs-introduction.md). Domyślnie nazwa pliku zostanie użyta do reprezentowania zmiennej dla szeregów czasowych. Alternatywnie, dodatkowe meta.jsw pliku można umieścić w pliku zip, jeśli chcesz, aby nazwa zmiennej była inna niż nazwa pliku zip. Po wygenerowaniu [adresu URL SAS (sygnatury dostępu współdzielonego)](../../../../storage/common/storage-sas-overview.md)można użyć adresu URL do szkolenia.
+ Aby użyć Narzędzie do wykrywania anomalii wielozmianowych interfejsów API, musimy wytterować własny model przed użyciem wykrywania. Dane używane do trenowania to partia szeregów czasu. Każdy szereg czasowy powinien być w formacie CSV z dwiema kolumnami, sygnaturą czasową i wartością. Wszystkie serie czasu powinny być spakowane w jednym pliku zip i przekazane do [usługi Azure Blob Storage.](../../../../storage/blobs/storage-blobs-introduction.md) Domyślnie nazwa pliku będzie służyć do reprezentowania zmiennej dla szeregów czasu. Alternatywnie można meta.jspliku zip, jeśli chcesz, aby nazwa zmiennej różniła się od nazwy pliku zip. Po [wygenerowaniu adresu URL sygnatury](../../../../storage/common/storage-sas-overview.md)dostępu współdzielonego obiektu blob możemy użyć adresu URL do pliku zip w celu szkolenia.
 
-### <a name="install-the-client-library"></a>Zainstaluj bibliotekę kliencką
+### <a name="install-the-client-library"></a>Instalowanie biblioteki klienta
 
-Zainstaluj `ms-rest-azure` pakiety i `azure-ai-anomalydetector` npm. Biblioteka analizy woluminów CSV jest również używana w tym przewodniku szybki start:
+Zainstaluj pakiety `ms-rest-azure` `azure-ai-anomalydetector` NPM i . Biblioteka csv-parse jest również używana w tym przewodniku Szybki start:
 
 ```console
 npm install @azure/ai-anomaly-detector @azure/ms-rest-js csv-parse
 ```
 
-`package.json`Plik aplikacji zostanie zaktualizowany z zależnościami.
+Plik aplikacji `package.json` zostanie zaktualizowany o zależności.
 
 ## <a name="code-examples"></a>Przykłady kodu
 
-Te fragmenty kodu pokazują, jak wykonać następujące czynności z użyciem biblioteki klienta wykrywania anomalii dla Node.js:
+Te fragmenty kodu pokazują, jak wykonać następujące czynności przy użyciu Narzędzie do wykrywania anomalii klienta programu Node.js:
 
 * [Uwierzytelnianie klienta](#authenticate-the-client)
 * [Szkolenie modelu](#train-a-model)
-* [Wykrywaj anomalie](#detect-anomalies)
-* [Eksportuj model](#export-model)
-* [Usuń model](#delete-model)
+* [Wykrywanie anomalii](#detect-anomalies)
+* [Eksportowanie modelu](#export-model)
+* [Usuwanie modelu](#delete-model)
 
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
-Tworzenie wystąpienia `AnomalyDetectorClient` obiektu za pomocą punktu końcowego i poświadczeń.
+Należy utworzyć wystąpienia `AnomalyDetectorClient` obiektu z punktem końcowym i poświadczeniami.
 
 ```javascript
 const client = new AnomalyDetectorClient(endpoint, new AzureKeyCredential(apiKey)).client;
@@ -99,7 +101,7 @@ const client = new AnomalyDetectorClient(endpoint, new AzureKeyCredential(apiKey
 
 ### <a name="construct-a-model-result"></a>Konstruowanie wyniku modelu
 
-Najpierw musimy utworzyć żądanie modelu. Upewnij się, że godzina początkowa i końcowa są wyrównane ze źródłem danych.
+Najpierw musimy skonstruować żądanie modelu. Upewnij się, że godzina rozpoczęcia i zakończenia jest dopasowana do źródła danych.
 
 ```javascript
 const Modelrequest = {
@@ -110,9 +112,9 @@ const Modelrequest = {
     };    
 ```
 
-### <a name="train-a-new-model"></a>Uczenie nowego modelu
+### <a name="train-a-new-model"></a>Trenowanie nowego modelu
 
-Musisz przekazać żądanie modelu do metody klienta wykrywania anomalii `trainMultivariateModel` .
+Należy przekazać żądanie modelu do metody Narzędzie do wykrywania anomalii `trainMultivariateModel` klienta.
 
 ```javascript
 console.log("Training a new model...")
@@ -121,7 +123,7 @@ var model_id = train_response.location.split("/").pop()
 console.log("New model ID: " + model_id)
 ```
 
-Aby sprawdzić, czy jest to możliwe, możesz śledzić stan modelu:
+Aby sprawdzić, czy trenowanie modelu jest ukończone, możesz śledzić jego stan:
 
 ```javascript
 var model_response = await client.getMultivariateModel(model_id)
@@ -136,9 +138,9 @@ while (model_status != 'READY'){
 console.log("TRAINING FINISHED.")
 ```
 
-## <a name="detect-anomalies"></a>Wykrywaj anomalie
+## <a name="detect-anomalies"></a>Wykrywanie anomalii
 
-Użyj `detectAnomaly` funkcji i, `getDectectionResult` Aby określić czy istnieją jakieś anomalie w źródle danych.
+Użyj funkcji i , aby określić, czy istnieją `detectAnomaly` `getDectectionResult` jakieś anomalie w źródle danych.
 
 ```javascript
 console.log("Start detecting...")
@@ -159,9 +161,9 @@ while (result_status != 'READY'){
 }
 ```
 
-## <a name="export-model"></a>Eksportuj model
+## <a name="export-model"></a>Eksportowanie modelu
 
-Aby wyeksportować przeszkolony model, użyj `exportModel` funkcji.
+Aby wyeksportować wytrenowany model, użyj `exportModel` funkcji .
 
 ```javascript
 const export_result = await client.exportModel(model_id)
@@ -171,9 +173,9 @@ export_result.readableStreamBody.pipe(destination)
 console.log("New model has been exported to "+model_path+".")
 ```
 
-## <a name="delete-model"></a>Usuń model
+## <a name="delete-model"></a>Usuwanie modelu
 
-Aby usunąć istniejący model, który jest dostępny dla bieżącego zasobu, użyj `deleteMultivariateModel` funkcji.
+Aby usunąć istniejący model, który jest dostępny dla bieżącego zasobu, użyj `deleteMultivariateModel` funkcji .
 
 ```javascript
 client.deleteMultivariateModel(model_id)
@@ -190,4 +192,4 @@ node index.js
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Najlepsze rozwiązania dotyczące wykrywania anomalii wieloczynnikowa](../../concepts/best-practices-multivariate.md)
+* [Narzędzie do wykrywania anomalii kowariantnych najlepszych rozwiązań](../../concepts/best-practices-multivariate.md)

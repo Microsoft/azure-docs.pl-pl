@@ -5,7 +5,7 @@ services: traffic-manager
 author: duongau
 ms.author: duau
 manager: twooley
-ms.date: 10/15/2020
+ms.date: 04/19/2021
 ms.topic: quickstart
 ms.service: traffic-manager
 ms.workload: infrastructure-services
@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom:
 - mode-portal
-ms.openlocfilehash: 60facae195abd2808195f776ac6eef54ab63752f
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 13b5925310c615461424f78d90ba9849c9bf58c5
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534939"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727982"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Szybki start: tworzenie profilu Traffic Manager przy użyciu Azure Portal
 
 W tym przewodniku Szybki start opisano tworzenie profilu usługi Traffic Manager, który zapewni wysoką dostępność aplikacji internetowej.
 
 W tym przewodniku Szybki start przeczytasz o dwóch wystąpieniach aplikacji internetowej. Każde z nich jest uruchamiane w innym regionie świadczenia usługi Azure. Utworzysz profil usługi Traffic Manager na podstawie [priorytetu punktu końcowego](traffic-manager-routing-methods.md#priority-traffic-routing-method). Profil kieruje ruch użytkowników do lokacji głównej, w której działa aplikacja internetowa. Usługa Traffic Manager stale monitoruje aplikację internetową. Jeśli lokacja główna jest niedostępna, usługa zapewnia automatyczne przejście w tryb failover w lokacji zapasowej.
+
+:::image type="content" source="./media/quickstart-create-traffic-manager-profile/environment-diagram.png" alt-text="Diagram przedstawiający Traffic Manager wdrożenia." border="false":::
 
 Jeśli nie masz subskrypcji platformy Azure, utwórz teraz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -36,7 +38,7 @@ W tym przewodniku Szybki start będą potrzebne dwa wystąpienia aplikacji inter
 
 1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób.** Wyszukaj pozycję **Aplikacja internetowa i** wybierz pozycję **Utwórz.**
 
-1. W **obszarze Tworzenie aplikacji internetowej** wpisz lub wybierz następujące wartości na karcie **Podstawy:**
+1. W **obszarze Tworzenie aplikacji internetowej** wpisz lub wybierz następujące wartości na **karcie** Podstawy:
 
     | Ustawienie                 | Wartość |
     | ---                     | --- |
@@ -44,19 +46,19 @@ W tym przewodniku Szybki start będą potrzebne dwa wystąpienia aplikacji inter
     | Grupa zasobów          | Wybierz **pozycję Utwórz nową** i *wprowadź myResourceGroupTM1* w polu tekstowym.|
     | Nazwa                    | Wprowadź **unikatową nazwę** aplikacji internetowej. W tym przykładzie *użyto myWebAppEastUS*. |
     | Publikowanie                 | Wybierz pozycję **Kod**. |
-    | Stos środowiska uruchomieniowego           | Wybierz **ASP.NET 4.7.** |
+    | Stos środowiska uruchomieniowego           | Wybierz **ASP.NET wersji 4.7.** |
     | System operacyjny        | Wybierz **pozycję Windows**. |
     | Region (Region)                  | Wybierz pozycję **Wschodnie stany USA**. |
     | Plan systemu Windows            | Wybierz **pozycję Utwórz nową** i *wprowadź myAppServicePlanEastUS* w polu tekstowym. |
     | Jednostka SKU i rozmiar            | Wybierz **pozycję Standard S1 100 total ACU, 1,75 GB pamięci.** |
    
-1. Wybierz **kartę Monitorowanie** lub wybierz pozycję **Dalej: Monitorowanie.**  W **obszarze Monitorowanie** ustaw wartość **Application Insights**  >  **Włącz Application Insights** na **nie.**
+1. Wybierz **kartę Monitorowanie** lub wybierz pozycję **Dalej: Monitorowanie.**  W **obszarze Monitorowanie** ustaw **Application Insights** włącz  >  **Application Insights** na wartość **Nie.**
 
 1. Wybierz **pozycję Przejrzyj i utwórz .**
 
 1. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.  Po pomyślnym wdrożeniu aplikacji internetowej zostanie utworzona domyślna witryna internetowa.
 
-1. Wykonaj kroki 1–6, aby utworzyć drugą aplikację internetową o nazwie *myWebAppWestEurope.* Nazwa **grupy zasobów** to *myResourceGroupTM2,* z  regionem Europa Zachodnia i App Service **planem** **myAppServicePlanWestEurope.**  Wszystkie inne ustawienia są takie same jak *myWebAppEastUS.*
+1. Wykonaj kroki 1–6, aby utworzyć drugą aplikację internetową o *nazwie myWebAppWestEurope.* Nazwa **grupy zasobów** to *myResourceGroupTM2* z regionem Europa Zachodnia *i* App Service **nazwa** planu **myAppServicePlanWestEurope.**  Wszystkie inne ustawienia są takie same jak *myWebAppEastUS.*
 
 ## <a name="create-a-traffic-manager-profile"></a>Tworzenie profilu usługi Traffic Manager
 
@@ -83,7 +85,7 @@ Dodaj witrynę internetową w regionie *Wschodnie stany USA* jako podstawowy pun
 1. Wybierz profil w wynikach wyszukiwania.
 1. W bloku **Profil usługi Traffic Manager** w sekcji **Ustawienia** wybierz pozycję **Punkty końcowe**, a następnie wybierz pozycję **Dodaj**.
 
-    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-endpoint-menu.png" alt-text="Ustawienia punktu końcowego w Traffic Manager profilu":::
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-endpoint-menu.png" alt-text="Zrzut ekranu przedstawiający ustawienia punktu końcowego Traffic Manager profilu.":::
 
 1. Wprowadź lub wybierz następujące ustawienia:
 
@@ -95,7 +97,7 @@ Dodaj witrynę internetową w regionie *Wschodnie stany USA* jako podstawowy pun
     | Zasób docelowy | Wybierz **pozycję Wybierz usługę App Service** Wschodnie  >  **usa.** |
     | Priorytet | Wybierz pozycję **1**. Cały ruch jest kierowany do tego punktu końcowego, gdy jest on w dobrej kondycji. |
 
-    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint.png" alt-text="Zrzut ekranu przedstawiający dodawanie punktu końcowego do profilu Traffic Manager aplikacji":::
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint.png" alt-text="Zrzut ekranu pokazujący, gdzie należy dodać punkt końcowy do profilu usługi Traffic Manager.":::
     
 1. Wybierz przycisk **OK**.
 1. Aby utworzyć punkt końcowy trybu failover dla drugiego regionu świadczenia usługi Azure, powtórz kroki 3 i 4 przy użyciu tych ustawień:
@@ -105,7 +107,7 @@ Dodaj witrynę internetową w regionie *Wschodnie stany USA* jako podstawowy pun
     | Typ | Wybierz pozycję **Punkt końcowy platformy Azure**. |
     | Nazwa | Wprowadź nazwę *myFailoverEndpoint*. |
     | Typ zasobu docelowego | Wybierz **App Service**. |
-    | Zasób docelowy | Wybierz **pozycję Wybierz usługę App Service** Europa  >  **Zachodnia.** |
+    | Zasób docelowy | Wybierz **pozycję Wybierz usługę aplikacji Europa**  >  **Zachodnia.** |
     | Priorytet | Wybierz wartość **2**. Cały ruch jest kierowany do tego punktu końcowego trybu failover, jeśli podstawowy punkt końcowy jest w złej kondycji. |
 
 1. Wybierz przycisk **OK**.
@@ -122,7 +124,7 @@ W tej sekcji sprawdzisz nazwę domeny profilu usługi Traffic Manager. Skonfigur
 1. Wybierz profil usługi Traffic Manager. Zostanie wyświetlona strona **Przegląd**.
 1. W obszarze **Profil usługi Traffic Manager** zostanie wyświetlona nazwa DNS nowo utworzonego profilu usługi Traffic Manager.
   
-    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-dns-name.png" alt-text="Zrzut ekranu przedstawiający lokalizację nazwy DNS usługi Traffic Manager":::
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-dns-name.png" alt-text="Zrzut ekranu przedstawiający lokalizację Traffic Manager DNS.":::
 
 ### <a name="view-traffic-manager-in-action"></a>Wyświetlanie informacji o działaniu usługi Traffic Manager
 
@@ -131,7 +133,7 @@ W tej sekcji sprawdzisz nazwę domeny profilu usługi Traffic Manager. Skonfigur
     > [!NOTE]
     > W tym scenariuszu Szybki start wszystkie żądania są kierowane do podstawowego punktu końcowego. Jest on ustawiony na wartość **Priorytet 1**.
 
-    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-test.png" alt-text="Zrzut ekranu strony internetowej potwierdzającej dostępność profilu usługi Traffic Manager":::
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-test.png" alt-text="Zrzut ekranu przedstawiający stronę internetową w celu potwierdzenia Traffic Manager profilu.":::
 
 1. Aby zobaczyć, jak działa przełączanie do trybu failover w usłudze Traffic Manager, wyłącz lokację główną:
     1. Na stronie profilu usługi Traffic Manager w sekcji **Przegląd** wybierz pozycję **myPrimaryEndpoint**.

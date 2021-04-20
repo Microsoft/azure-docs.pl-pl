@@ -1,27 +1,27 @@
 ---
-title: Poznaj warunki korzystania z infrastruktury Azure BareMetal
+title: Poznasz warunki korzystania z infrastruktury Azure BareMetal
 description: Poznaj warunki korzystania z infrastruktury Azure BareMetal.
 ms.topic: conceptual
 ms.subservice: workloads
 ms.date: 04/06/2021
-ms.openlocfilehash: aa7d9693b3417ff0bb6c6a61800aee72cd416c48
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 61ff958e75952f73efb222df3f0c4d5437668cd3
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107536780"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725462"
 ---
 # <a name="know-the-terms-for-baremetal-infrastructure"></a>Poznaj warunki dla infrastruktury BareMetal
 
-W tym artykule ominiemy niektóre ważne terminy związane z infrastrukturą BareMetal.
+W tym artykule ominiemy ważne terminy związane z infrastrukturą BareMetal.
 
-- **Poprawka:** Istnieje oryginalna poprawka sygnatury znana jako Poprawka 3 (Rev 3) i dwie dodatkowe wersje sygnatur dla sygnatur wystąpienia BareMetal. Każda sygnatura różni się architekturą i bliskości hostów maszyn wirtualnych platformy Azure:
-    - **Poprawka 4** (Rev 4): nowsza konstrukcja, która zapewnia bliższą odległość od hostów maszyn wirtualnych platformy Azure i mniejsze opóźnienie między maszynami wirtualnymi platformy Azure a SAP HANA maszynami wirtualnymi. 
-    - **Poprawka 4.2** (Rev 4.2): najnowsza rebranded BareMetal Infrastructure korzystająca z istniejącej architektury Rev 4. Wersja 4 zapewnia bliższą odległość od hostów maszyn wirtualnych platformy Azure. Ma znaczne ulepszenia opóźnienia sieci między maszynami wirtualnych platformy Azure i wystąpieniami systemu BareMetal wdrożonych w sygnaturach lub wierszach rev 4. Możesz uzyskać dostęp do wystąpień programu BareMetal i zarządzać nimi za pośrednictwem Azure Portal.    
+- **Poprawka:** istnieją dwie różne wersje sygnatur dla sygnatur infrastruktury bareMetal (HANA Large Instance). Różnią się one architekturą i bliskości hostów maszyn wirtualnych platformy Azure:
+    - "Poprawka 3" (Rev 3): oryginalny projekt wdrożony w połowie 2016 r.
+    - "Poprawka 4.2" (Rev 4.2): nowy projekt, który zapewnia bliższą bliskość hostów maszyn wirtualnych platformy Azure, z bardzo niskim opóźnieniem sieci między maszynami wirtualnymi platformy Azure i dużymi wystąpieniami HANA. Zasoby w Azure Portal są nazywane "infrastrukturą BareMetal", a klienci mogą uzyskać dostęp do swoich zasobów jako wystąpienia BareMetal z Azure Portal.
 
-- **Sygnatura:** definiuje wewnętrzny rozmiar wdrożenia firmy Microsoft wystąpień programu BareMetal. Przed wdrożeniem wystąpień należy wdrożyć w lokalizacji centrum danych sygnaturę wystąpienia systemu BareMetal składającą się z regałów obliczeniowych, sieciowych i magazynowych. Takie wdrożenie jest nazywane sygnaturą wystąpienia programu BareMetal.
+- **Sygnatura:** definiuje wewnętrzny rozmiar wdrożenia firmy Microsoft wystąpień programu BareMetal. Przed wdrożeniem wystąpień należy wdrożyć w lokalizacji centrum danych sygnaturę wystąpienia BareMetal składającą się z regałów obliczeniowych, sieciowych i magazynowych. Takie wdrożenie jest nazywane sygnaturą wystąpienia systemu BareMetal.
 
-- **Dzierżawa:** klient wdrażający sygnaturę wystąpienia systemu BareMetal jest izolowany jako *dzierżawca.* Dzierżawa jest izolowana w warstwie sieci, magazynu i obliczeń od innych dzierżaw. Jednostki magazynowe i obliczeniowe przypisane do różnych dzierżaw nie widzą siebie nawzajem ani nie komunikują się ze sobą na poziomie sygnatury wystąpienia BareMetal. Klient może zdecydować się na wdrożenie w różnych dzierżawach. Nawet wtedy nie ma komunikacji między dzierżawami na poziomie sygnatury wystąpienia bareMetal.
+- **Dzierżawa:** klient wdrażający sygnaturę wystąpienia systemu BareMetal jest izolowany jako *dzierżawca.* Dzierżawa jest izolowana w warstwie sieci, magazynu i zasobów obliczeniowych od innych dzierżaw. Jednostki magazynowe i obliczeniowe przypisane do różnych dzierżaw nie widzą siebie nawzajem ani nie komunikują się ze sobą na poziomie sygnatur wystąpienia BareMetal. Klient może zdecydować się na wdrożenie w różnych dzierżawach. Nawet wtedy nie ma komunikacji między dzierżawami na poziomie sygnatury wystąpienia bareMetal.
 
 ## <a name="next-steps"></a>Następne kroki
 

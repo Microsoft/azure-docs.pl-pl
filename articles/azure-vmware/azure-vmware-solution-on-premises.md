@@ -1,43 +1,41 @@
 ---
-title: Łączenie rozwiązania VMware z platformą Azure z środowiskiem lokalnym
-description: Dowiedz się, jak połączyć rozwiązanie VMware firmy Azure ze środowiskiem lokalnym.
+title: Łączenie Azure VMware Solution ze środowiskiem lokalnym
+description: Dowiedz się, jak połączyć Azure VMware Solution ze środowiskiem lokalnym.
 ms.topic: tutorial
-ms.date: 03/13/2021
-ms.openlocfilehash: 0b26dc4756cb37544c2b2f8c5a75df0ac1a9d629
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/19/2021
+ms.openlocfilehash: 392d82a9aca9b60b394a5d5f4a7e6b0111438e59
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103491796"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725623"
 ---
-# <a name="connect-azure-vmware-solution-to-your-on-premises-environment"></a>Łączenie rozwiązania VMware z platformą Azure z środowiskiem lokalnym
+# <a name="connect-azure-vmware-solution-to-your-on-premises-environment"></a>Łączenie Azure VMware Solution ze środowiskiem lokalnym
 
-W tym artykule będziesz nadal korzystać z [informacji zebranych podczas planowania](production-ready-deployment-steps.md) w celu połączenia rozwiązań VMware platformy Azure z środowiskiem lokalnym.
+W tym artykule będziesz nadal [](production-ready-deployment-steps.md) korzystać z informacji zebranych podczas planowania połączenia Azure VMware Solution ze środowiskiem lokalnym.
 
-Przed rozpoczęciem należy wykonać dwa wymagania wstępne dotyczące łączenia rozwiązania Azure VMware z lokalnym środowiskiem:
+Przed rozpoczęciem musisz mieć obwód usługi ExpressRoute ze środowiska lokalnego do platformy Azure.
 
-- Obwód usługi ExpressRoute z środowiska lokalnego na platformę Azure.
-- /29 nienakładający się blok adresów sieciowych CIDR dla ExpressRoute Global Reach komunikacji równorzędnej, który został zdefiniowany jako część [fazy planowania](production-ready-deployment-steps.md).
 
 >[!NOTE]
-> Możesz nawiązać połączenie za pośrednictwem sieci VPN, ale jest to poza zakresem tego dokumentu szybkiego startu.
+> Możesz nawiązać połączenie za pośrednictwem sieci VPN, ale jest to poza zakresem tego dokumentu Szybkiego startu.
 
-## <a name="establish-an-expressroute-global-reach-connection"></a>Nawiązywanie połączenia z usługą ExpressRoute Global Reach
+## <a name="establish-an-expressroute-global-reach-connection"></a>Nawiązywanie połączenia Global Reach ExpressRoute
 
-Aby nawiązać połączenie lokalne z chmurą prywatną rozwiązania Azure VMware za pomocą ExpressRoute Global Reach, postępuj zgodnie ze [środowiskami lokalnymi, aby](tutorial-expressroute-global-reach-private-cloud.md) skorzystać z samouczka chmury prywatnej.
+Aby ustanowić łączność lokalną z chmurą prywatną Azure VMware Solution przy użyciu usługi ExpressRoute Global Reach, postępuj zgodnie z samouczkiem Peer [on-premises environments to a private cloud](tutorial-expressroute-global-reach-private-cloud.md) (Komunikacja równorzędna środowisk lokalnych z chmurą prywatną).
 
-Ten samouczek skutkuje połączeniem, jak pokazano na diagramie.
+Ten samouczek powoduje połączenie, jak pokazano na diagramie.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" alt-text="ExpressRoute Global Reach diagram lokalnej łączności sieciowej." lightbox="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" border="false":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" alt-text="Diagram Global Reach sieci lokalnej usługi ExpressRoute." lightbox="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" border="false":::
 
 ## <a name="verify-on-premises-network-connectivity"></a>Weryfikowanie łączności z siecią lokalną
 
-Należy teraz zobaczyć **na lokalnym routerze brzegowym** , gdzie ExpressRoute łączy segmenty sieci NSX-T i segmenty zarządzania rozwiązaniami VMware platformy Azure.
+Na lokalnym routerze  brzegowym powinno być teraz widać, gdzie expressRoute łączy segmenty sieci NSX-T i segmenty Azure VMware Solution zarządzania.
 
 >[!IMPORTANT]
->Każdy ma inne środowisko, a niektóre muszą zezwalać na propagację tych tras z powrotem do sieci lokalnej.  
+>Wszyscy mają inne środowisko, a niektóre muszą zezwolić na propagację tych tras z powrotem do sieci lokalnej.  
 
-Niektóre środowiska mają zapory chroniące obwód ExpressRoute.  W przypadku braku zapór i braku oczyszczania trasy należy wysłać polecenie ping do serwera vCenter rozwiązania Azure VMware lub [maszyny wirtualnej w segmencie NSX-T](deploy-azure-vmware-solution.md#add-a-vm-on-the-nsx-t-network-segment) ze środowiska lokalnego. Ponadto z poziomu maszyny wirtualnej w segmencie NSX-T można uzyskać dostęp do zasobów w środowisku lokalnym.
+Niektóre środowiska mają zapory chroniące obwód usługi ExpressRoute.  Jeśli nie ma żadnych zapór i nie występuje żadne przycinanie tras, wyślij polecenie ping do serwera Azure VMware Solution vCenter lub maszyny wirtualnej w [segmencie NSX-T](deploy-azure-vmware-solution.md#add-a-vm-on-the-nsx-t-network-segment) ze środowiska lokalnego. Ponadto z maszyny wirtualnej w segmencie NSX-T można uzyskać zasoby w środowisku lokalnym.
 
 ## <a name="next-steps"></a>Następne kroki
 

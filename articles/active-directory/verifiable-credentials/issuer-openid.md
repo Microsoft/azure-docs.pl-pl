@@ -1,6 +1,6 @@
 ---
-title: Przykłady komunikacji usługi wystawcy (wersja zapoznawcza) — Azure Active Directory poświadczenia do zweryfikowania
-description: Szczegóły komunikacji między dostawcą tożsamości a usługą wystawcy
+title: Przykłady komunikacji z usługami wystawców (wersja zapoznawcza) — Azure Active Directory poświadczenia weryfikowalne
+description: Szczegóły komunikacji między dostawcą tożsamości i usługą wystawcy
 author: barclayn
 manager: davba
 ms.service: identity
@@ -9,40 +9,40 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: 8771c61f96b244e0cc0bca1c61ceb8042b4a5b4c
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 942b77f8338636f9dda5dcf6cd4262dad57b4b0a
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220202"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726272"
 ---
-# <a name="issuer-service-communication-examples-preview"></a>Przykłady komunikacji z usługą wystawcy (wersja zapoznawcza)
+# <a name="issuer-service-communication-examples-preview"></a>Przykłady komunikacji usługi wystawcy (wersja zapoznawcza)
 
-Zweryfikowana usługa wystawcy poświadczeń może wydać zweryfikowane poświadczenia przez pobranie oświadczeń z tokenu identyfikatora wygenerowanego przez dostawcę tożsamości zgodnego z OpenID connectą w organizacji. W tym artykule zawarto instrukcje dotyczące konfigurowania dostawcy tożsamości, aby umożliwić mu komunikowanie się z nim i pobrać prawidłowy token IDENTYFIKACYJNy do przekazania do usługi wystawiania. 
+Usługa Azure AD Weryfikowalne poświadczenia może wystawiać weryfikowalne poświadczenia przez pobieranie oświadczeń z tokenu identyfikatora wygenerowanego przez dostawcę tożsamości zgodnego z identyfikatorem OpenID organizacji. W tym artykule poinstruujemy Cię, jak skonfigurować dostawcę tożsamości, aby program Authenticator może komunikować się z nim i pobierać prawidłowy token identyfikatora do przekazania do usługi wystawiającego. 
 
 > [!IMPORTANT]
-> Azure Active Directory poświadczenia do zweryfikowania są obecnie dostępne w publicznej wersji zapoznawczej.
+> Azure Active Directory Poświadczenia weryfikowalne są obecnie dostępne w publicznej wersji zapoznawczej.
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-Aby możliwe było zweryfikowanie poświadczenia, wystawca uwierzytelnienia jest podawany przez pobranie kontraktu w celu zebrania danych wejściowych od użytkownika i wysłania tych informacji do usługi wystawiania. Jeśli musisz użyć tokenu identyfikatora, musisz skonfigurować dostawcę tożsamości, aby umożliwić uwierzytelniającego Logowanie użytkownika przy użyciu protokołu Connect OpenID Connect. Oświadczenia w tokenie będącym wynikiem ID są używane do wypełniania zawartości do zweryfikowanego poświadczenia. Wystawca uwierzytelnienia użytkownika przy użyciu przepływu kodu autoryzacji OpenID Connect Connect. Dostawca OpenID Connect musi obsługiwać następujące funkcje połączenia OpenID Connect: 
+Aby wydać weryfikowalne poświadczenie, wystawca uwierzytelnienia jest poinstruowany przez pobranie kontraktu w celu zebrania danych wejściowych od użytkownika i wysłania tych informacji do usługi wystawiającego. Jeśli musisz użyć tokenu identyfikatora, musisz skonfigurować dostawcę tożsamości, aby umożliwić aplikacji Authenticator logowanie użytkownika przy użyciu protokołu OpenID Connect tożsamości. Oświadczenia w wynikowy token identyfikatora są używane do wypełniania zawartości weryfikowalnych poświadczeń. Program Authenticator uwierzytelnia użytkownika przy użyciu przepływu OpenID Connect autoryzacji. Dostawca OpenID musi obsługiwać następujące OpenID Connect funkcji: 
 
 | Cecha | Opis |
 | ------- | ----------- |
-| Typ udzielania | Musi obsługiwać typ udzielania kodu autoryzacji. |
-| Format tokenu | Musi generować nieszyfrowane kompakty JWTs. |
-| Algorytm podpisu | Musi generować JWTs podpisane przy użyciu RSA 256. |
-| Dokument konfiguracyjny | Musi obsługiwać dokument konfiguracji OpenID Connect Connect i `jwks_uri` . | 
-| Rejestracja klienta | Musi obsługiwać publiczną rejestrację klienta przy użyciu `redirect_uri` wartości `vclient://openid/` . | 
-| PKCE | Zalecane ze względów bezpieczeństwa, ale nie są wymagane. |
+| Typ udzielenia | Musi obsługiwać typ udzielenia kodu autoryzacji. |
+| Format tokenu | Musi tworzyć niezaszyfrowane compact JWTs. |
+| Algorytm podpisu | Muszą tworzyć JWT podpisane przy użyciu RSA 256. |
+| Dokument konfiguracji | Musi obsługiwać OpenID Connect konfiguracji systemu i `jwks_uri` . | 
+| Rejestracja klienta | Musi obsługiwać publiczną rejestrację klienta przy `redirect_uri` użyciu wartości `vclient://openid/` . | 
+| PKCE | Zalecane ze względów bezpieczeństwa, ale nie wymagane. |
 
-Poniżej znajdują się przykłady żądań HTTP wysyłanych do dostawcy tożsamości. Dostawca tożsamości musi akceptować te żądania i odpowiadać na nie zgodnie ze standardem uwierzytelniania OpenID Connect Connect.
+Poniżej przedstawiono przykłady żądań HTTP wysyłanych do dostawcy tożsamości. Dostawca tożsamości musi akceptować te żądania i odpowiadać na nie zgodnie z OpenID Connect standardem uwierzytelniania.
 
 ## <a name="client-registration"></a>Rejestracja klienta
 
-Aby otrzymywać zweryfikowane poświadczenia, użytkownicy muszą się zalogować do dostawcy tożsamości z aplikacji Microsoft Authenticator. 
+Aby uzyskać poświadczenia weryfikowalne, użytkownicy muszą zalogować się do Twojego dostawcy tożsamości z Microsoft Authenticator aplikacji. 
 
-Aby włączyć tę wymianę, zarejestruj aplikację u dostawcy tożsamości. Jeśli używasz usługi Azure AD, możesz znaleźć instrukcje w [tym miejscu](../develop/quickstart-register-app.md). Podczas rejestrowania należy użyć następujących wartości.
+Aby włączyć tę wymianę, zarejestruj aplikację u dostawcy tożsamości. Jeśli używasz usługi Azure AD, instrukcje można znaleźć [tutaj.](../develop/quickstart-register-app.md) Podczas rejestrowania użyj następujących wartości.
 
 | Ustawienie | Wartość |
 | ------- | ----- |
@@ -50,13 +50,13 @@ Aby włączyć tę wymianę, zarejestruj aplikację u dostawcy tożsamości. Je�
 | Identyfikator URI przekierowania | `vcclient://openid/ ` |
 
 
-Po zarejestrowaniu aplikacji u dostawcy tożsamości Zapisz jej identyfikator klienta. Zostanie ona użyta w poniższej sekcji. Należy również napisać adres URL do dobrze znanego punktu końcowego dla dostawcy tożsamości zgodnego z OIDC. Usługa wystawiania używa tego punktu końcowego do pobierania kluczy publicznych wymaganych do zweryfikowania tokenu identyfikatora, gdy zostanie on wysłany przez wystawcę uwierzytelnienia.
+Po zarejestrowaniu aplikacji u dostawcy tożsamości zarejestruj jej identyfikator klienta. Użyjemy go w sekcji poniżej. Należy również zapisać adres URL do dobrze znanego punktu końcowego dla dostawcy tożsamości zgodnego z OIDC. Usługa wystawiania używa tego punktu końcowego do pobrania kluczy publicznych potrzebnych do zweryfikowania tokenu identyfikatora po wysłaniu go przez aplikację Authenticator.
 
-Skonfigurowany identyfikator URI przekierowania jest używany przez wystawcę uwierzytelnienia, więc wie, że logowanie zostało zakończone i może pobrać token identyfikatora. 
+Skonfigurowany identyfikator URI przekierowania jest używany przez aplikację Authenticator, aby wie, kiedy logowanie zostanie zakończone, i może pobrać token identyfikatora. 
 
 ## <a name="authorization-request"></a>Żądanie autoryzacji
 
-Żądanie autoryzacji wysłane do dostawcy tożsamości ma następujący format.
+Żądanie autoryzacji wysyłane do dostawcy tożsamości używa następującego formatu.
 
 ```HTTP
 GET /authorize?client_id=<client-id>&redirect_uri=portableidentity%3A%2F%2Fverify&response_mode=query&response_type=code&scope=openid&state=12345&nonce=12345 HTTP/1.1
@@ -67,16 +67,16 @@ Connection: Keep-Alive
 | Parametr | Wartość |
 | ------- | ----------- |
 | `client_id` | Identyfikator klienta uzyskany podczas procesu rejestracji aplikacji. |
-| `redirect_uri` | Musi używać `vcclient://openid/` . |
+| `redirect_uri` | Musi `vcclient://openid/` używać . |
 | `response_mode` | Musi obsługiwać `query` . |
-| `response_type` | Musi obsługiwać `code` . |
-| `scope` | Musi obsługiwać `openid` . |
-| `state` | Musi być zwracany do klienta zgodnie ze standardem OpenID Connect Connect. |
-| `nonce` | Musi być zwracany jako element Claim w tokenie ID zgodnie ze standardem OpenID Connect Connect. |
+| `response_type` | Musi `code` obsługiwać . |
+| `scope` | Musi `openid` obsługiwać . |
+| `state` | Musi zostać zwrócony do klienta zgodnie z OpenID Connect standardem. |
+| `nonce` | Musi być zwracana jako oświadczenie w tokenie identyfikatora zgodnie z OpenID Connect standardem. |
 
-Gdy odbierze żądanie autoryzacji, dostawca tożsamości powinien uwierzytelnić użytkownika i wykonać wszelkie kroki niezbędne do ukończenia logowania, takie jak uwierzytelnianie wieloskładnikowe.
+Po otrzymaniu żądania autoryzacji dostawca tożsamości powinien uwierzytelnić użytkownika i wykonać wszelkie czynności niezbędne do ukończenia logowania, takie jak uwierzytelnianie wieloskładnikowe.
 
-Proces logowania można dostosować do własnych potrzeb. Można zażądać od użytkowników podania dodatkowych informacji, zaakceptowania warunków użytkowania, zaliczania za poświadczenia i nie tylko. Po zakończeniu wszystkich kroków należy odpowiedzieć na żądanie autoryzacji, przekierowując do identyfikatora URI przekierowania, jak pokazano poniżej. 
+Proces logowania można dostosować do swoich potrzeb. Możesz poprosić użytkowników o podanie dodatkowych informacji, zaakceptowanie warunków użytkowania usługi, płacenie za ich poświadczenia i nie tylko. Po zakończeniu wszystkich kroków odpowiedz na żądanie autoryzacji, przekierując do przekierowania URI, jak pokazano poniżej. 
 
 ```HTTP
 vcclient://openid/?code=nbafhjbh1ub1yhbj1h4jr1&state=12345
@@ -85,11 +85,11 @@ vcclient://openid/?code=nbafhjbh1ub1yhbj1h4jr1&state=12345
 | Parametr | Wartość |
 | ------- | ----------- |
 | `code` |  Kod autoryzacji zwrócony przez dostawcę tożsamości. |
-| `state` | Musi być zwracany do klienta zgodnie ze standardem OpenID Connect Connect. |
+| `state` | Musi zostać zwrócony do klienta zgodnie z OpenID Connect standardem. |
 
 ## <a name="token-request"></a>Żądanie tokenu
 
-Żądanie tokenu wysłane do dostawcy tożsamości będzie miało następującą formę:.
+Żądanie tokenu wysyłane do dostawcy tożsamości będzie mieć następujący formularz.
 
 ```HTTP
 POST /token HTTP/1.1
@@ -103,12 +103,12 @@ client_id=<client-id>&redirect_uri=vcclient%3A%2F%2Fopenid%2F&grant_type=authori
 | Parametr | Wartość |
 | ------- | ----------- |
 | `client_id` | Identyfikator klienta uzyskany podczas procesu rejestracji aplikacji. |
-| `redirect_uri` | Musi używać `vcclient://openid/` . |
-| `scope` | Musi obsługiwać `openid` . |
-| `grant_type` | Musi obsługiwać `authorization_code` . |
+| `redirect_uri` | Musi `vcclient://openid/` używać . |
+| `scope` | Musi `openid` obsługiwać . |
+| `grant_type` | Musi `authorization_code` obsługiwać . |
 | `code` | Kod autoryzacji zwrócony przez dostawcę tożsamości. |
 
-Po otrzymaniu żądania tokenu dostawca tożsamości powinien odpowiedzieć z tokenem ID.
+Po odebraniu żądania tokenu dostawca tożsamości powinien odpowiedzieć przy użyciu tokenu identyfikatora.
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -130,18 +130,18 @@ Pragma: no-cache
 }
 ```
 
-Token identyfikatora musi używać formatu serializacji kompaktowej JWT i nie może być zaszyfrowany. Token identyfikatora powinien zawierać następujące oświadczenia.
+Token identyfikatora musi używać formatu kompaktowania serializacji JWT i nie może być szyfrowany. Token identyfikatora powinien zawierać następujące oświadczenia.
 
 | Claim | Wartość |
 | ------- | ----------- |
-| `kid` | Identyfikator klucza służący do podpisywania tokenu identyfikatora, odpowiadający wpisowi w dostawcy OpenID Connect `jwks_uri` . |
+| `kid` | Identyfikator klucza używanego do podpisywania tokenu identyfikatora odpowiadający wpisowi w dostawcy OpenID `jwks_uri` . |
 | `aud` | Identyfikator klienta uzyskany podczas procesu rejestracji aplikacji. |
-| `iss` | Musi być `issuer` wartością w dokumencie konfiguracji OpenID Connect Connect. |
+| `iss` | Musi to być `issuer` wartość w dokumencie OpenID Connect konfiguracji. |
 | `exp` | Musi zawierać czas wygaśnięcia tokenu identyfikatora. |
-| `iat` | Musi zawierać czas, w którym został wystawiony token ID. |
+| `iat` | Musi zawierać czas, o którym token identyfikatora został wystawiony. |
 | `nonce` | Wartość uwzględniona w żądaniu autoryzacji. |
-| Dodatkowe oświadczenia | Token identyfikatora powinien zawierać dodatkowe oświadczenia, których wartości zostaną uwzględnione w poświadczeniach, które zostaną wystawione. W tej sekcji należy uwzględnić wszelkie atrybuty dotyczące użytkownika, takie jak ich nazwy. |
+| Dodatkowe oświadczenia | Token identyfikatora powinien zawierać dodatkowe oświadczenia, których wartości zostaną uwzględnione w wystawionym poświadczeniu weryfikowalnym. W tej sekcji należy uwzględnić wszelkie atrybuty dotyczące użytkownika, takie jak jego imię i nazwisko. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Jak dostosować Azure Active Directory poświadczenia do zweryfikowania](credential-design.md)
+- [Jak dostosować poświadczenia Azure Active Directory weryfikowalne](credential-design.md)

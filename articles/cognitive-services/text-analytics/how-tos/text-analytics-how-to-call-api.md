@@ -1,7 +1,7 @@
 ---
 title: Wywoływanie interfejsu API usługi Text Analytics
 titleSuffix: Azure Cognitive Services
-description: W tym artykule wyjaśniono, jak można wywołać usługę Azure Cognitive Services analiza tekstu interfejsu API REST i programu Poster.
+description: W tym artykule wyjaśniono, jak wywołać interfejs API REST Azure Cognitive Services analiza tekstu postman.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,61 +11,63 @@ ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 00f9c6510a87770367472c0da6774b94034c6d72
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 5790c7c62b9d97df9683773170301b6e09a47667
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107029781"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728486"
 ---
-# <a name="how-to-call-the-text-analytics-rest-api"></a>Jak wywołać interfejs API REST analiza tekstu
+# <a name="how-to-call-the-text-analytics-rest-api"></a>Jak wywołać interfejs API REST analiza tekstu interfejsu API
 
-W tym artykule używamy interfejsu API REST analiza tekstu i programu [Poster](https://www.postman.com/downloads/) w celu zademonstrowania kluczowych pojęć. Interfejs API udostępnia kilka synchronicznych i asynchronicznych punktów końcowych do korzystania z funkcji usługi. 
+W tym artykule używamy interfejsu API REST analiza tekstu [Postman,](https://www.postman.com/downloads/) aby zademonstrować kluczowe pojęcia. Interfejs API udostępnia kilka synchronicznych i asynchronicznych punktów końcowych do korzystania z funkcji usługi. 
 
-## <a name="create-a-text-analytics-resource"></a>Tworzenie zasobu analiza tekstu
+## <a name="create-a-text-analytics-resource"></a>Tworzenie zasobu analiza tekstu zasobów
 
 > [!NOTE]
-> * Jeśli chcesz użyć punktów końcowych lub, będziesz potrzebować zasobu analiza tekstu przy użyciu [warstwy cenowej](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) standardowa `/analyze` `/health` . `/analyze`Punkt końcowy jest uwzględniony w [warstwie cenowej](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+> * Jeśli chcesz używać punktów końcowych lub , analiza tekstu [](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) zasobów sieciowych przy użyciu warstwy cenowej Standardowa `/analyze` `/health` (S). Punkt `/analyze` końcowy jest uwzględniony w [warstwie cenowej](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
 
-Przed użyciem interfejs API analizy tekstu należy utworzyć zasób platformy Azure z kluczem i punktem końcowym aplikacji. 
+Przed użyciem interfejsu API analiza tekstu należy utworzyć zasób platformy Azure z kluczem i punktem końcowym dla aplikacji. 
 
-1.  Najpierw przejdź do [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) i Utwórz nowy zasób analiza tekstu, jeśli jeszcze go nie masz. Wybierz [warstwę cenową](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+1.  Najpierw przejdź do strony [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) i utwórz nowy zasób analiza tekstu, jeśli jeszcze go nie masz. Wybierz warstwę [cenową](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
 
-2.  Wybierz region, który ma być używany dla punktu końcowego.  Należy zwrócić uwagę, że `/analyze` `/health` punkty końcowe i są dostępne tylko w następujących regionach: zachodnie stany USA 2, Wschodnie stany USA 2, środkowe stany USA, Europa Północna i Europa Zachodnia.
+2.  Wybierz region, którego chcesz użyć dla punktu końcowego.  Należy pamiętać, że punkty końcowe i są dostępne tylko w następujących regionach: Zachodnie stany USA 2, Wschodnie stany `/analyze` `/health` USA 2, Środkowe stany USA, Europa Północna i Europa Zachodnia.
 
-3.  Utwórz zasób analiza tekstu i przejdź do bloku "klucze i punkt końcowy" w lewej części strony. Skopiuj klucz, który będzie używany później podczas wywoływania interfejsów API. Ten element zostanie później dodany jako wartość `Ocp-Apim-Subscription-Key` nagłówka.
+3.  Utwórz zasób analiza tekstu i przejdź do bloku "klucze i punkt końcowy" po lewej stronie. Skopiuj klucz, który będzie używany później podczas wywołania interfejsów API. Później dodasz go jako wartość `Ocp-Apim-Subscription-Key` nagłówka.
 
-4. Aby sprawdzić liczbę rekordów tekstowych, które zostały wysłane za pomocą zasobu analiza tekstu:
+4. Aby sprawdzić liczbę rekordów tekstowych, które zostały wysłane przy użyciu zasobu analiza tekstu zasobów:
 
     1. Przejdź do zasobu analiza tekstu w Azure Portal. 
-    2. Kliknij pozycję **metryki** znajdujące się w obszarze **monitorowanie** w menu nawigacji po lewej stronie. 
-    3. W polu listy rozwijanej wybierz pozycję *przetworzone rekordy tekstowe* dla **metryki**.
+    2. Kliknij **pozycję Metryki** znajdującą się w **obszarze Monitorowanie** w menu nawigacji po lewej stronie. 
+    3. Wybierz *pozycję Przetworzone rekordy tekstowe* w polu listy rozwijanej dla opcji **Metryka**.
     
 Rekord tekstowy ma 1000 znaków.
 
-## <a name="change-your-pricing-tier"></a>Zmień warstwę cenową 
+## <a name="change-your-pricing-tier"></a>Zmienianie warstwy cenowej 
 
-Jeśli masz istniejący zasób analiza tekstu za pomocą warstwy cenowej S0 za pośrednictwem S4, należy ją zaktualizować do korzystania z [warstwy cenowej](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)standardowa. Warstwy cenowe S0 za pomocą S4 zostaną wycofane. Aby zaktualizować Cennik zasobu:
+Jeśli masz istniejący zasób analiza tekstu korzystający z warstwy cenowej S0–S4, zaktualizuj go, aby używać warstwy cenowej Standardowa [(S).](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) Warstwy cenowe S0–S4 zostaną wycofane. Aby zaktualizować ceny zasobu:
 
-1. Przejdź do zasobu analiza tekstu w [Azure Portal](https://portal.azure.com/).
-2. Wybierz pozycję **warstwa cenowa** w menu nawigacji po lewej stronie. Będzie on niższy niż **Zarządzanie zasobami**. 
-3. Wybierz warstwę cenową Standard (S). Następnie kliknij pozycję **Wybierz**.
+1. Przejdź do zasobu analiza tekstu w Azure Portal [.](https://portal.azure.com/)
+2. Wybierz **pozycję Warstwa cenowa** w menu nawigacji po lewej stronie. Będzie on miał grupę poniżej **wartości ZARZĄDZANIE ZASOBAMI.** 
+3. Wybierz warstwę cenową Standardowa (S). Następnie kliknij pozycję **Wybierz**.
 
-Nowy zasób analiza tekstu można również utworzyć za pomocą warstwy cenowej Standard (S) i przeprowadzić migrację aplikacji w celu użycia poświadczeń dla nowego zasobu. 
+Możesz również utworzyć nowy zasób usługi analiza tekstu w warstwie cenowej Standardowa (S) i przeprowadzić migrację aplikacji w celu użycia poświadczeń dla nowego zasobu. 
 
 ## <a name="using-the-api-synchronously"></a>Korzystanie z interfejsu API synchronicznie
 
-Możesz wywoływać analiza tekstu synchronicznie (dla scenariuszy o małych opóźnieniach). Każdy interfejs API (funkcję) należy wywoływać osobno podczas korzystania z synchronicznego interfejsu API. Jeśli musisz wywołać wiele funkcji, zapoznaj się z sekcją poniżej, jak wywoływać analiza tekstu asynchronicznie. 
+Możesz wywołać analiza tekstu synchronicznie (w przypadku scenariuszy o małych opóźnieniach). W przypadku korzystania z synchronicznego interfejsu API należy wywołać każdy interfejs API (funkcję) oddzielnie. Jeśli musisz wywołać wiele funkcji, zapoznaj się z sekcją poniżej, aby dowiedzieć się, jak wywołać analiza tekstu asynchronicznie. 
 
-## <a name="using-the-api-asynchronously"></a>Korzystanie z interfejsu API asynchronicznie
+## <a name="using-the-api-asynchronously"></a>Asynchroniczne używanie interfejsu API
 
-Począwszy od wersji v 3.1 — wersja zapoznawcza. 3, interfejs API analizy tekstu zawiera dwa asynchroniczne punkty końcowe: 
+Począwszy od wersji 3.1(wersja zapoznawcza 3.3), interfejs API analiza tekstu udostępnia dwa asynchroniczne punkty końcowe: 
 
-* `/analyze`Punkt końcowy dla analiza tekstu umożliwia analizowanie tego samego zestawu dokumentów tekstowych z wieloma funkcjami analizy tekstu w jednym wywołaniu interfejsu API. Wcześniej, aby korzystać z wielu funkcji, należy wykonać oddzielne wywołania interfejsu API dla każdej operacji. Tę funkcję należy wziąć pod uwagę, gdy trzeba analizować duże zestawy dokumentów za pomocą więcej niż jednej funkcji analiza tekstu.
+* Punkt końcowy dla analiza tekstu umożliwia analizowanie tego samego zestawu dokumentów tekstowych z wieloma funkcjami analizy tekstu `/analyze` w jednym wywołaniu interfejsu API. Wcześniej, aby korzystać z wielu funkcji, należy wykonać oddzielne wywołania interfejsu API dla każdej operacji. Rozważ tę możliwość, gdy musisz analizować duże zestawy dokumentów z więcej niż jedną analiza tekstu funkcją.
 
-* `/health`Punkt końcowy dla analiza tekstu kondycji, który może wyodrębnić i oznaczyć odpowiednie informacje medyczne z dokumentów klinicznych.  
+* Punkt końcowy dla analiza tekstu dla zdrowia, który może wyodrębniać i oznaczać odpowiednie informacje `/health` medyczne z dokumentów klinicznych.  
 
-Zapoznaj się z poniższą tabelą, aby zobaczyć, które funkcje mogą być używane asynchronicznie. Należy zauważyć, że tylko kilka funkcji można wywołać z `/analyze` punktu końcowego. 
+Należy pamiętać, że punkty końcowe /analyze i /health są dostępne tylko w następujących regionach: Zachodnie stany USA 2, Wschodnie stany USA 2, Środkowe stany USA, Europa Północna i Europa Zachodnia.
+
+Zobacz tabelę poniżej, aby zobaczyć, które funkcje mogą być używane asynchronicznie. Należy pamiętać, że z punktu końcowego można wywołać tylko kilka `/analyze` funkcji. 
 
 | Cecha | Synchronous | Asynchroniczny |
 |--|--|--|
@@ -73,12 +75,12 @@ Zapoznaj się z poniższą tabelą, aby zobaczyć, które funkcje mogą być uż
 | Analiza tonacji | ✔ |  |
 | Wyszukiwanie opinii | ✔ |  |
 | Wyodrębnianie kluczowych fraz | ✔ | ✔* |
-| Rozpoznawanie jednostek nazwanych (w tym dane OSOBowe i PHI) | ✔ | ✔* |
+| rozpoznawanie jednostek nazwanych (w tym PII i PHI) | ✔ | ✔* |
 | Łączenie jednostek | ✔ | ✔* |
-| Analiza tekstu dla kondycji (kontener) | ✔ |  |
-| Analiza tekstu dla kondycji (API) |  | ✔  |
+| analiza tekstu dla kondycji (kontener) | ✔ |  |
+| analiza tekstu kondycji (API) |  | ✔  |
 
-`*` -Wywoływana asynchronicznie za pomocą `/analyze` punktu końcowego.
+`*` — Wywoływane asynchronicznie za pośrednictwem punktu `/analyze` końcowego.
 
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
@@ -87,21 +89,21 @@ Zapoznaj się z poniższą tabelą, aby zobaczyć, które funkcje mogą być uż
 
 ## <a name="api-request-formats"></a>Formaty żądań interfejsu API
 
-Można wysyłać synchroniczne i asynchroniczne wywołania do interfejs API analizy tekstu.
+Do interfejsu API można wysyłać zarówno wywołania synchroniczne, jak analiza tekstu i asynchroniczne.
 
 #### <a name="synchronous"></a>[Synchronous](#tab/synchronous)
 
 ### <a name="synchronous-requests"></a>Żądania synchroniczne
 
-Format żądań interfejsu API jest taki sam dla wszystkich operacji synchronicznych. Dokumenty są przesyłane w obiekcie JSON jako nieprzetworzony tekst bez struktury. KOD XML nie jest obsługiwany. Schemat JSON składa się z elementów opisanych poniżej.
+Format żądań interfejsu API jest taki sam dla wszystkich operacji synchronicznych. Dokumenty są przesyłane w obiekcie JSON jako nieprzetworzony tekst bez struktury. Kod XML nie jest obsługiwany. Schemat JSON składa się z elementów opisanych poniżej.
 
 | Element | Prawidłowe wartości | Wymagane? | Użycie |
 |---------|--------------|-----------|-------|
-|`id` |Typ danych to ciąg, ale w temacie identyfikatory dokumentów w programie mają być liczbami całkowitymi. | Wymagane | System używa identyfikatorów dostarczanych do struktury danych wyjściowych. Kody języka, kluczowe frazy i oceny tonacji są generowane dla każdego identyfikatora w żądaniu.|
-|`text` | Nieprzetworzony tekst nieprzebudowany, do 5 120 znaków. | Wymagane | W przypadku wykrywania języka tekst może być wyrażony w dowolnym języku. W przypadku analizy tonacji, wyodrębniania kluczowych fraz i identyfikacji jednostek tekst musi być w [obsługiwanym języku](../language-support.md). |
-|`language` | 2-znakowy kod [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) dla [obsługiwanego języka](../language-support.md) | Różnie | Wymagane do analizy tonacji, wyodrębniania kluczowych fraz i konsolidacji jednostek; opcjonalne do wykrywania języka. Jeśli wyłączysz go, nie ma żadnego błędu, ale analiza zostanie nieprzerwana. Kod języka powinien odpowiadać podanemu podaniu `text` . |
+|`id` |Typ danych to ciąg, ale w praktyce identyfikatory dokumentów są zwykle liczbami całkowitymi. | Wymagane | System używa identyfikatorów, które podaniem, do struktury danych wyjściowych. Kody języków, frazy kluczowe i wyniki tonacji są generowane dla każdego identyfikatora w żądaniu.|
+|`text` | Nieprzetworzony tekst bez struktury, maksymalnie 5120 znaków. | Wymagane | W przypadku wykrywania języka tekst może być wyrażony w dowolnym języku. W przypadku analizy tonacji, wyodrębniania kluczowych fraz i identyfikacji jednostek tekst musi być w [obsługiwanym języku](../language-support.md). |
+|`language` | 2-znakowy [kod ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) dla [obsługiwanego języka](../language-support.md) | Różnie | Wymagane do analizy tonacji, wyodrębniania kluczowych fraz i łączenia jednostek; jest opcjonalny w przypadku wykrywania języka. Jeśli wykluczysz ten błąd, nie wystąpi błąd, ale analiza zostanie bez niego wykluczona. Kod języka powinien odpowiadać `text` podaniem. |
 
-Poniżej znajduje się przykład żądania interfejsu API dla synchronicznych punktów końcowych analiza tekstu. 
+Poniżej przedstawiono przykład żądania interfejsu API dla synchronicznych punktów analiza tekstu końcowych. 
 
 ```json
 {
@@ -117,32 +119,32 @@ Poniżej znajduje się przykład żądania interfejsu API dla synchronicznych pu
 
 #### <a name="asynchronous"></a>[Asynchroniczny](#tab/asynchronous)
 
-### <a name="asynchronous-requests-to-the-analyze-endpoint"></a>Żądania asynchroniczne do `/analyze` punktu końcowego
+### <a name="asynchronous-requests-to-the-analyze-endpoint"></a>Żądania asynchroniczne do punktu `/analyze` końcowego
 
 > [!NOTE]
-> Najnowsza wersja wstępna biblioteki klienta analiza tekstu umożliwia wywoływanie asynchronicznych operacji analizowania przy użyciu obiektu klienta. Przykłady można znaleźć w witrynie GitHub:
+> Najnowsza wersja wstępna biblioteki analiza tekstu umożliwia wywołanie asynchronicznych operacji analizy przy użyciu obiektu klienta. Przykłady można znaleźć w witrynie GitHub:
 * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
 * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
 * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
 
-`/analyze`Punkt końcowy umożliwia wybranie spośród obsługiwanych analiza tekstu funkcji, które mają być używane w jednym wywołaniu interfejsu API. Ten punkt końcowy obsługuje obecnie:
+Punkt `/analyze` końcowy pozwala wybrać, które z obsługiwanych analiza tekstu, których chcesz użyć w pojedynczym wywołaniu interfejsu API. Ten punkt końcowy obsługuje obecnie:
 
 * Wyodrębnianie kluczowych fraz 
-* Rozpoznawanie jednostek nazwanych (w tym dane OSOBowe i PHI)
+* rozpoznawanie jednostek nazwanych (w tym piI i PHI)
 * Łączenie jednostek
 
 | Element | Prawidłowe wartości | Wymagane? | Użycie |
 |---------|--------------|-----------|-------|
-|`displayName` | Ciąg | Opcjonalne | Używany jako nazwa wyświetlana dla unikatowego identyfikatora zadania.|
-|`analysisInput` | Zawiera `documents` pole poniżej | Wymagane | Zawiera informacje o dokumentach, które chcesz wysłać. |
-|`documents` | Zawiera `id` pola i `text` poniżej | Wymagane | Zawiera informacje dotyczące każdego wysyłanego dokumentu oraz nieprzetworzony tekst dokumentu. |
-|`id` | Ciąg | Wymagane | Wprowadzone identyfikatory są używane do struktury danych wyjściowych. |
-|`text` | Nieprzetworzony tekst nieprzebudowany, do 125 000 znaków. | Wymagane | Musi być w języku angielskim, który jest obecnie obsługiwanym językiem. |
-|`tasks` | Program zawiera następujące funkcje analiza tekstu: `entityRecognitionTasks` , `entityLinkingTasks` , `keyPhraseExtractionTasks` lub `entityRecognitionPiiTasks` . | Wymagane | Co najmniej jedna z funkcji analiza tekstu, które mają być używane. Należy pamiętać, że `entityRecognitionPiiTasks` ma opcjonalny `domain` parametr, który może być ustawiony na `pii` lub `phi` i na `pii-categories` potrzeby wykrywania wybranych typów jednostek. Jeśli `domain` parametr jest nieokreślony, system ma wartość domyślną `pii` . |
-|`parameters` | Zawiera `model-version` pola i `stringIndexType` poniżej | Wymagane | To pole jest zawarte w wybranych zadaniach funkcji. Zawierają one informacje o wersji modelu, która ma być używana, oraz typu indeksu. |
-|`model-version` | Ciąg | Wymagane | Określ, która wersja modelu jest wywoływana, która ma być używana.  |
-|`stringIndexType` | Ciąg | Wymagane | Określ dekoder tekstu, który jest zgodny ze środowiskiem programowania.  Obsługiwane typy to `textElement_v8` (domyślnie), `unicodeCodePoint` , `utf16CodeUnit` . Więcej informacji można znaleźć w [artykule przesunięcia tekstu](../concepts/text-offsets.md#offsets-in-api-version-31-preview) .  |
-|`domain` | Ciąg | Opcjonalne | Stosuje się tylko jako parametr do `entityRecognitionPiiTasks` zadania i może być ustawiony na `pii` lub `phi` . Wartość domyślna to `pii` Jeśli nie została określona.  |
+|`displayName` | Ciąg | Opcjonalne | Używana jako nazwa wyświetlana unikatowego identyfikatora zadania.|
+|`analysisInput` | Zawiera `documents` poniższe pole | Wymagane | Zawiera informacje dotyczące dokumentów, które chcesz wysłać. |
+|`documents` | Zawiera poniższe `id` `text` pola i | Wymagane | Zawiera informacje o każdym wysyłanym dokumencie i nieprzetworzonego tekście dokumentu. |
+|`id` | Ciąg | Wymagane | Identyfikatory, które należy podać, są używane do struktury danych wyjściowych. |
+|`text` | Nieprzetworzony tekst bez struktury, maksymalnie 125 000 znaków. | Wymagane | Musi być w języku angielskim, który jest jedynym obecnie obsługiwanym językiem. |
+|`tasks` | Zawiera następujące funkcje analiza tekstu funkcji: `entityRecognitionTasks` `entityLinkingTasks` , lub `keyPhraseExtractionTasks` `entityRecognitionPiiTasks` . | Wymagane | Co najmniej jedna z analiza tekstu, których chcesz użyć. Należy `entityRecognitionPiiTasks` pamiętać, że ma opcjonalny parametr, który można ustawić na lub i dla `domain` `pii` `phi` `pii-categories` wykrywania wybranych typów jednostek. Jeśli parametr `domain` jest nieokreślony, system domyślnie ma wartość `pii` . |
+|`parameters` | Zawiera poniższe `model-version` `stringIndexType` pola i | Wymagane | To pole znajduje się w ramach powyższych zadań funkcji, które wybierzesz. Zawierają one informacje o wersji modelu, której chcesz użyć, i typie indeksu. |
+|`model-version` | Ciąg | Wymagane | Określ wersję wywoływanego modelu, którego chcesz użyć.  |
+|`stringIndexType` | Ciąg | Wymagane | Określ dekoder tekstu, który odpowiada Twojemu środowisku programowania.  Obsługiwane typy to `textElement_v8` (domyślne), `unicodeCodePoint` , `utf16CodeUnit` . Aby uzyskać więcej [informacji,](../concepts/text-offsets.md#offsets-in-api-version-31-preview) zobacz artykuł Przesunięcie tekstu.  |
+|`domain` | Ciąg | Opcjonalne | Ma zastosowanie tylko jako parametr do `entityRecognitionPiiTasks` zadania i można go ustawić na wartość lub `pii` `phi` . Wartość domyślna to `pii` , jeśli nie zostanie określone.  |
 
 ```json
 {
@@ -194,17 +196,17 @@ Poniżej znajduje się przykład żądania interfejsu API dla synchronicznych pu
 
 ```
 
-### <a name="asynchronous-requests-to-the-health-endpoint"></a>Żądania asynchroniczne do `/health` punktu końcowego
+### <a name="asynchronous-requests-to-the-health-endpoint"></a>Żądania asynchroniczne do punktu `/health` końcowego
 
-Format żądań interfejsu API do analiza tekstu dla obsługiwanego interfejsu API usługi kondycji jest taki sam jak w przypadku jego kontenera. Dokumenty są przesyłane w obiekcie JSON jako nieprzetworzony tekst bez struktury. KOD XML nie jest obsługiwany. Schemat JSON składa się z elementów opisanych poniżej.  Wypełnij i prześlij [formularz żądania Cognitive Services](https://aka.ms/csgate) , aby zażądać dostępu do analiza tekstu dla publicznej wersji zapoznawczej kondycji. Za użycie kondycji nie będą naliczane opłaty za analiza tekstu. 
+Format żądań interfejsu API do interfejsu API analiza tekstu dla interfejsu API hostowanej kondycji jest taki sam jak dla jego kontenera. Dokumenty są przesyłane w obiekcie JSON jako nieprzetworzony tekst bez struktury. Kod XML nie jest obsługiwany. Schemat JSON składa się z elementów opisanych poniżej.  Wypełnij i prześlij formularz żądania [Cognitive Services,](https://aka.ms/csgate) aby zażądać dostępu do aplikacji analiza tekstu publicznej wersji zapoznawczej kondycji. Nie będą naliczane opłaty za analiza tekstu za użycie kondycji. 
 
 | Element | Prawidłowe wartości | Wymagane? | Użycie |
 |---------|--------------|-----------|-------|
-|`id` |Typ danych to ciąg, ale w temacie identyfikatory dokumentów w programie mają być liczbami całkowitymi. | Wymagane | System używa identyfikatorów dostarczanych do struktury danych wyjściowych. |
-|`text` | Nieprzetworzony tekst nieprzebudowany, do 5 120 znaków. | Wymagane | Należy pamiętać, że obecnie jest obsługiwany tylko tekst w języku angielskim. |
-|`language` | 2-znakowy kod [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) dla [obsługiwanego języka](../language-support.md) | Wymagane | Tylko `en` obecnie obsługiwane. |
+|`id` |Typ danych to ciąg, ale w praktyce identyfikatory dokumentów są zwykle liczbami całkowitymi. | Wymagane | System używa identyfikatorów, które należy podać, do struktury danych wyjściowych. |
+|`text` | Nieprzetworzony tekst bez struktury, maksymalnie 5120 znaków. | Wymagane | Należy pamiętać, że obecnie jest obsługiwany tylko tekst w języku angielskim. |
+|`language` | 2-znakowy [kod ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) dla [obsługiwanego języka](../language-support.md) | Wymagane | Obecnie `en` obsługiwane są tylko te urządzenia. |
 
-Poniżej znajduje się przykład żądania interfejsu API dla analiza tekstu dla punktów końcowych kondycji. 
+Poniżej przedstawiono przykład żądania interfejsu API dla punktu końcowego analiza tekstu kondycji. 
 
 ```json
 example.json
@@ -223,12 +225,12 @@ example.json
 ---
 
 >[!TIP]
-> Zapoznaj się z artykułem [ograniczenia dotyczące danych i szybkości](../concepts/data-limits.md) , aby uzyskać informacje na temat stawek i limitów rozmiaru na potrzeby wysyłania danych do interfejs API analizy tekstu.
+> Zobacz artykuł [Data and rate limits (Limity danych](../concepts/data-limits.md) i szybkości), aby uzyskać informacje na temat stawek i limitów rozmiaru dla wysyłania danych do interfejsu API analiza tekstu API.
 
 
-## <a name="set-up-a-request"></a>Skonfiguruj żądanie 
+## <a name="set-up-a-request"></a>Konfigurowanie żądania 
 
-W programie Poster (lub innym narzędziu testowym interfejsu API sieci Web) Dodaj punkt końcowy dla funkcji, której chcesz użyć. Skorzystaj z poniższej tabeli, aby znaleźć odpowiedni format punktu końcowego, i Zastąp `<your-text-analytics-resource>` go punktem końcowym zasobu. Na przykład:
+W narzędziu Postman (lub innym narzędziu do testowania internetowego interfejsu API) dodaj punkt końcowy dla funkcji, której chcesz użyć. Skorzystaj z poniższej tabeli, aby znaleźć odpowiedni format punktu końcowego i zastąpić `<your-text-analytics-resource>` parametr punktem końcowym zasobu. Na przykład:
 
 `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.0/languages`
 
@@ -243,47 +245,47 @@ W programie Poster (lub innym narzędziu testowym interfejsu API sieci Web) Doda
 | Wyszukiwanie opinii | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment?opinionMining=true` |
 | Wyodrębnianie kluczowych fraz | POST | `<your-text-analytics-resource>/text/analytics/v3.0/keyPhrases` |
 | Rozpoznawanie jednostek nazwanych — ogólne | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/general` |
-| Rozpoznawanie jednostek nazwanych — dane OSOBowe | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii` |
-| Rozpoznawanie jednostek nazwanych — Fi | POST |  `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii?domain=phi` |
+| Rozpoznawanie jednostek nazwanych — piI | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii` |
+| Rozpoznawanie jednostek nazwanych — PHI | POST |  `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii?domain=phi` |
 
 #### <a name="asynchronous"></a>[Asynchroniczny](#tab/asynchronous)
 
-### <a name="endpoints-for-sending-asynchronous-requests-to-the-analyze-endpoint"></a>Punkty końcowe do wysyłania żądań asynchronicznych do `/analyze` punktu końcowego
+### <a name="endpoints-for-sending-asynchronous-requests-to-the-analyze-endpoint"></a>Punkty końcowe do wysyłania żądań asynchronicznych do punktu `/analyze` końcowego
 
 | Cecha | Typ żądania | Punkty końcowe zasobów |
 |--|--|--|
-| Prześlij zadanie analizy | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/analyze` |
-| Pobieranie stanu i wyników analizy | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/analyze/jobs/<Operation-Location>` |
+| Przesyłanie zadania analizy | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/analyze` |
+| Uzyskiwanie stanu analizy i wyników | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/analyze/jobs/<Operation-Location>` |
 
-### <a name="endpoints-for-sending-asynchronous-requests-to-the-health-endpoint"></a>Punkty końcowe do wysyłania żądań asynchronicznych do `/health` punktu końcowego
+### <a name="endpoints-for-sending-asynchronous-requests-to-the-health-endpoint"></a>Punkty końcowe do wysyłania żądań asynchronicznych do punktu `/health` końcowego
 
 | Cecha | Typ żądania | Punkty końcowe zasobów |
 |--|--|--|
-| Prześlij analiza tekstu do zadania kondycji  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs` |
-| Pobieranie stanu i wyników zadania | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs/<Operation-Location>` |
-| Anuluj zadanie | DELETE | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs/<Operation-Location>` |
+| Przesyłanie analiza tekstu zadania kondycji  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs` |
+| Uzyskiwanie stanu zadania i wyników | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs/<Operation-Location>` |
+| Anulowanie zadania | DELETE | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs/<Operation-Location>` |
 
 --- 
 
-Po utworzeniu punktu końcowego w programie Poster (lub innym narzędziu do testowania internetowego interfejsu API):
+Po użyciu punktu końcowego w narzędziu Postman (lub innym narzędziu do testowania internetowego interfejsu API):
 
 1. Wybierz typ żądania dla funkcji, której chcesz użyć.
-2. Wklej w punkcie końcowym odpowiedniej operacji z powyższej tabeli.
-3. Ustaw trzy nagłówki żądania:
+2. Wklej punkt końcowy odpowiedniej operacji z powyższej tabeli.
+3. Ustaw trzy nagłówki żądań:
 
-   + `Ocp-Apim-Subscription-Key`: Twój klucz dostępu uzyskany z Azure Portal
-   + `Content-Type`: Application/JSON
-   + `Accept`: Application/JSON
+   + `Ocp-Apim-Subscription-Key`: klucz dostępu uzyskany z Azure Portal
+   + `Content-Type`: application/json
+   + `Accept`: application/json
 
-    Jeśli używasz programu Poster, żądanie powinno wyglądać podobnie do poniższego zrzutu ekranu, przy założeniu `/keyPhrases` punktu końcowego.
+    Jeśli używasz narzędzia Postman, żądanie powinno wyglądać podobnie do poniższego zrzutu ekranu, przy założeniu punktu `/keyPhrases` końcowego.
     
-    ![Zażądaj zrzutu ekranu z punktem końcowym i nagłówkami](../media/postman-request-keyphrase-1.png)
+    ![Zrzut ekranu żądania z punktem końcowym i nagłówkami](../media/postman-request-keyphrase-1.png)
     
-4. Wybierz **nieprzetworzony** format **treści**
+4. Wybierz **nieprzetworzone** dla formatu **treści**
     
-    ![Żądaj zrzutu ekranu z ustawieniami treści](../media/postman-request-body-raw.png)
+    ![Zrzut ekranu żądania z ustawieniami treści](../media/postman-request-body-raw.png)
 
-5. Wklej w prawidłowym formacie w niektórych dokumentach JSON. Skorzystaj z przykładów w sekcji **format żądania interfejsu API** powyżej, a aby uzyskać więcej informacji i przykładów, zobacz poniższe tematy:
+5. Wklej niektóre dokumenty JSON w prawidłowym formacie. Skorzystaj z przykładów w **powyższej sekcji** dotyczącej formatu żądania interfejsu API, a aby uzyskać więcej informacji i przykładów, zobacz poniższe tematy:
 
       + [Wykrywanie języka](text-analytics-how-to-language-detection.md)
       + [Wyodrębnianie kluczowych fraz](text-analytics-how-to-keyword-extraction.md)
@@ -292,28 +294,28 @@ Po utworzeniu punktu końcowego w programie Poster (lub innym narzędziu do test
 
 ## <a name="send-the-request"></a>Wysyłanie żądania
 
-Prześlij żądanie interfejsu API. Jeśli wykonano wywołanie synchronicznego punktu końcowego, odpowiedź zostanie wyświetlona natychmiast, jako pojedynczy dokument JSON, z elementem dla każdego identyfikatora dokumentu dostarczonego w żądaniu.
+Prześlij żądanie interfejsu API. Jeśli wywołasz synchroniczny punkt końcowy, odpowiedź zostanie natychmiast wyświetlona jako pojedynczy dokument JSON z elementem dla każdego identyfikatora dokumentu podanego w żądaniu.
 
-Jeśli wywołanie asynchroniczne `/analyze` lub końcowe zostało wykonane `/health` , sprawdź, czy został otrzymany kod odpowiedzi 202. musisz uzyskać odpowiedź, aby wyświetlić wyniki:
+Jeśli wywołanie do asynchronicznych lub punktów końcowych jest wykonywane, sprawdź, czy odebrano kod odpowiedzi `/analyze` `/health` 202. Aby wyświetlić wyniki, musisz uzyskać odpowiedź:
 
-1. W odpowiedzi interfejsu API Znajdź `Operation-Location` z nagłówka, który identyfikuje zadanie wysłane do interfejsu API. 
-2. Utwórz żądanie GET dla używanego punktu końcowego. Zapoznaj się z [powyższą tabelą](#set-up-a-request) w polu Format punktu końcowego i zapoznaj się z [dokumentacją interfejsu API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/AnalyzeStatus). Na przykład:
+1. W odpowiedzi interfejsu API znajdź w nagłówku , który identyfikuje zadanie `Operation-Location` wysłane do interfejsu API. 
+2. Utwórz żądanie GET dla używanego punktu końcowego. Zapoznaj się z [tabelą powyżej,](#set-up-a-request) aby uzyskać informacje o formacie punktu końcowego, i zapoznaj się z [dokumentacją interfejsu API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/AnalyzeStatus). Na przykład:
 
     `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/analyze/jobs/<Operation-Location>`
 
-3. Dodaj `Operation-Location` do żądania.
+3. Dodaj `Operation-Location` do żądania .
 
-4. Odpowiedź będzie jednym dokumentem JSON z elementem dla każdego identyfikatora dokumentu dostarczonego w żądaniu.
+4. Odpowiedź będzie pojedynczym dokumentem JSON z elementem dla każdego identyfikatora dokumentu podanego w żądaniu.
 
-Należy pamiętać, że w przypadku asynchronicznych `/analyze` lub `/health` operacji wyniki żądania GET w kroku 2 powyżej są dostępne przez 24 godziny od momentu utworzenia zadania.  Ten czas jest wskazywany przez `expirationDateTime` wartość w odpowiedzi get.  Po upływie tego czasu wyniki zostaną usunięte i nie będą już dostępne do pobrania.    
+Należy pamiętać, że w przypadku operacji asynchronicznych lub operacji wyniki żądania GET w kroku 2 powyżej są dostępne przez 24 godziny od `/analyze` `/health` czasu utworzenia zadania.  Ten czas jest wskazywany `expirationDateTime` przez wartość w odpowiedzi GET.  Po tym okresie wyniki są przeczyszczane i nie są już dostępne do pobrania.    
 
 ## <a name="example-api-responses"></a>Przykładowe odpowiedzi interfejsu API
  
 # <a name="synchronous"></a>[Synchronous](#tab/synchronous)
 
-### <a name="example-responses-for-synchronous-operation"></a>Przykładowe odpowiedzi dla operacji synchronicznych
+### <a name="example-responses-for-synchronous-operation"></a>Przykładowe odpowiedzi dla operacji synchronicznej
 
-Synchroniczne odpowiedzi punktów końcowych różnią się w zależności od używanego punktu końcowego. Zobacz następujące artykuły, aby uzyskać odpowiedzi na przykład.
+Odpowiedzi synchronicznego punktu końcowego będą się różnić w zależności od punktu końcowego, z których korzystasz. Zobacz następujące artykuły, aby uzyskać przykładowe odpowiedzi.
 
 + [Wykrywanie języka](text-analytics-how-to-language-detection.md#step-3-view-the-results)
 + [Wyodrębnianie kluczowych fraz](text-analytics-how-to-keyword-extraction.md#step-3-view-results)
@@ -324,7 +326,7 @@ Synchroniczne odpowiedzi punktów końcowych różnią się w zależności od u�
 
 ### <a name="example-responses-for-asynchronous-operations"></a>Przykładowe odpowiedzi dla operacji asynchronicznych
 
-Jeśli to się powiedzie, żądanie GET do `/analyze` punktu końcowego zwróci obiekt zawierający przypisane zadania. Na przykład: `keyPhraseExtractionTasks`. Te zadania zawierają obiekt Response z odpowiedniej funkcji analiza tekstu. Zobacz następujące artykuły, aby uzyskać więcej informacji.
+W przypadku powodzenia żądanie GET do punktu końcowego `/analyze` zwróci obiekt zawierający przypisane zadania. Na przykład: `keyPhraseExtractionTasks`. Te zadania zawierają obiekt odpowiedzi z odpowiedniej analiza tekstu funkcji. Aby uzyskać więcej informacji, zobacz następujące artykuły.
 
 + [Wyodrębnianie kluczowych fraz](text-analytics-how-to-keyword-extraction.md#step-3-view-results)
 + [Rozpoznawanie jednostek](text-analytics-how-to-entity-linking.md#view-results)
@@ -337,5 +339,5 @@ Jeśli to się powiedzie, żądanie GET do `/analyze` punktu końcowego zwróci 
 * [Przegląd analizy tekstu](../overview.md)
 * [Często zadawane pytania](../text-analytics-resource-faq.md)</br>
 * [Strona produktu analizy tekstu](//go.microsoft.com/fwlink/?LinkID=759712)
-* [Korzystanie z biblioteki klienta analiza tekstu](../quickstarts/client-libraries-rest-api.md)
+* [Korzystanie z biblioteki analiza tekstu klienta](../quickstarts/client-libraries-rest-api.md)
 * [Co nowego](../whats-new.md)

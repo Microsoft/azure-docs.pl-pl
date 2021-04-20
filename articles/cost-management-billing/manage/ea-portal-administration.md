@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 8f643336d50f5ade145454d408599215ed6fd31e
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 787f902311437e6ca8a679299ef7a28b34cee4ab
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259442"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728414"
 ---
 # <a name="azure-ea-portal-administration"></a>Administracja przy użyciu witryny Azure EA Portal
 
@@ -36,7 +36,7 @@ Tylko istniejący administratorzy przedsiębiorstwa platformy Azure mogą tworzy
 
 ### <a name="create-another-enterprise-administrator"></a>Tworzenie innego administratora przedsiębiorstwa
 
-Użyj jednej z następujących opcji, w zależności od sytuacji.
+W zależności od sytuacji użyj jednej z następujących opcji.
 
 #### <a name="if-youre-already-an-enterprise-administrator"></a>Jeśli jesteś już administratorem przedsiębiorstwa
 
@@ -48,7 +48,7 @@ Upewnij się, że znasz adres e-mail użytkownika i preferowaną metodę uwierzy
 
 #### <a name="if-youre-not-an-enterprise-administrator"></a>Jeśli nie jesteś administratorem przedsiębiorstwa
 
-Jeśli nie jesteś administratorem przedsiębiorstwa, skontaktuj się z administratorem przedsiębiorstwa, aby zażądać dodania do rejestracji. Administrator przedsiębiorstwa korzysta z powyższych kroków, aby dodać Cię jako administratora przedsiębiorstwa. Po dodaniu do rejestracji otrzymasz wiadomość e-mail dotyczącą aktywacji.
+Jeśli nie jesteś administratorem przedsiębiorstwa, skontaktuj się z administratorem przedsiębiorstwa, aby poprosić o dodanie Cię do rejestracji. Administrator przedsiębiorstwa używa powyższych kroków, aby dodać Cię jako administratora przedsiębiorstwa. Po dodaniu do rejestracji otrzymasz wiadomość e-mail dotyczącą aktywacji.
 
 #### <a name="if-your-enterprise-administrator-cant-help-you"></a>Jeśli administrator przedsiębiorstwa nie może Ci pomóc
 
@@ -424,51 +424,6 @@ Aby rozpocząć:
 1. Teraz konto Microsoft powinno być wolne od aktywnych subskrypcji i można je usunąć.
 1. Wszystkie usunięte konta pozostaną widoczne w portalu w stanie nieaktywnym z powodów związanych z rozliczeniami historycznymi.  Możesz odfiltrować je z widoku, zaznaczając pole wyboru, aby wyświetlić tylko aktywne konta.
 
-## <a name="account-subscription-ownership-faq"></a>Własność subskrypcji konta — często zadawane pytania
-
-Ten dokument zawiera odpowiedzi na często zadawane pytania dotyczące własności subskrypcji konta.
-
-### <a name="can-i-associate-my-existing-azure-account-to-azure-ea-enrollment"></a>Czy można skojarzyć istniejące konto platformy Azure z rejestracją EA platformy Azure?
-
-Tak. Wszystkie subskrypcje platformy Azure, w których jesteś właścicielem konta, zostaną przekonwertowane na umowę Enterprise Agreement. Dotyczy to subskrypcji, w których są używane środki miesięczne, takich jak na przykład Visual Studio, AzurePass, MPN i BizSpark. Konwersja takich subskrypcji powoduje utratę środków miesięcznych.
-
-### <a name="how-many-azure-account-owners-can-you-have-per-subscription"></a>Ilu właścicieli konta platformy Azure można mieć na subskrypcję?
-
-Dozwolony jest tylko jeden właściciel konta na subskrypcję.  Dodatkowe role można dodawać przy użyciu funkcji dostępu opartego na rolach lub kontroli dostępu (zarządzanie dostępem i tożsamościami) na karcie subskrypcji w lewym górnym rogu strony witryny [Azure Portal](https://portal.azure.com).
-
-### <a name="is-it-possible-to-transfer-subscription-ownership-to-another-account"></a>Czy można przenieść własność subskrypcji na inne konto?
-
-Tak, można przenieść własność subskrypcji na inne konto. Jeśli na przykład konto A ma trzy subskrypcje, administrator przedsiębiorstwa może przenieść jedną subskrypcję na konto B, jedną na konto C i jedną na konto D. Administrator może również przenieść wszystkie subskrypcje na konto E.
-
-Aby przenieść subskrypcje:
-
-1. W witrynie Azure Enterprise Portal wybierz pozycję **Zarządzaj** > **Konto**.
-1. Umieść wskaźnik myszy na skrajnej prawej pozycji **Konto**, aby wyświetlić opcje **Przenieś własność** (ikona osoby) i **Przenieś subskrypcję** (ikona listy). Te opcje są widoczne tylko w przypadku aktywnych kont.
-
-### <a name="can-an-azure-account-owner-be-listed-under-more-than-one-department"></a>Czy właściciel konta platformy Azure może być wymieniony w więcej niż jednym dziale?
-
-Nie, właściciel konta może być skojarzony tylko z jednym działem. Te zasady ułatwiają dokładne monitorowanie i rozdzielanie kosztów oraz wydatków związanych z działem, do którego jest dopasowany w ramach rejestracji EA w witrynie Azure EA Portal.
-
-### <a name="can-an-azure-account-owner-be-listed-as-a-security-group"></a>Czy właściciel konta platformy Azure może być wymieniony jako grupa zabezpieczeń?
-
-Nie, właściciel subskrypcji musi być unikatowym kontem Microsoft (MSA) lub uwierzytelnieniem usługi Azure Active Directory (Azure AD). Aby uwzględnić dziedziczenie w organizacji, możesz rozważyć utworzenie kont ogólnych i użycie usługi Azure AD w celu zarządzania dostępem do subskrypcji.
-
-### <a name="can-an-individual-user-own-multiple-subscriptions"></a>Czy użytkownicy indywidualni mogą mieć wiele subskrypcji?
-
-Właściciel konta platformy Azure może utworzyć nieograniczoną liczbę subskrypcji i zarządzać nimi.
-
-### <a name="how-can-i-accessview-all-my-organizations-subscriptions"></a>Jak mogę wyświetlić wszystkie subskrypcje mojej organizacji lub uzyskać do nich dostęp?
-
-Obecnie robi się to za pomocą zasad. Oznacza to, że należy wymagać tego dla każdej utworzonej subskrypcji i że Twoje konto jest dodawane do roli subskrypcji przy użyciu dostępu opartego na rolach.
-
-### <a name="where-do-i-go-to-create-a-subscription"></a>Gdzie mogę utworzyć subskrypcję?
-
-Aby można było utworzyć subskrypcję oferty w ramach umowy Enterprise Azure (EA), Twoje konto musi zostać dodane do roli właściciela konta przez administratora rejestracji EA w witrynie Azure EA Portal. Następnie należy zalogować się w witrynie Azure EA Portal w celu uzyskania uprawnień do tworzenia subskrypcji typu oferta EA. Zalecamy, aby pierwszą subskrypcję EA utworzyć przy użyciu linku „+ Dodaj subskrypcję” na karcie subskrypcji w witrynie EA Portal.  Jednak po uzyskaniu uprawnień przez konto łatwiejsze może być tworzenie subskrypcji na stronie portal.azure.com na karcie subskrypcji w lewym górnym rogu strony, gdzie można utworzyć subskrypcję i zmienić jej nazwę w jednym kroku.
-
-### <a name="who-can-create-a-subscription"></a>Kto może utworzyć subskrypcję?
-
-Aby utworzyć subskrypcję oferty typu Enterprise Azure, musisz mieć uprawnienia w roli właściciela konta w witrynie [EA Portal](https://ea.azure.com).
-
 ## <a name="azure-ea-term-glossary"></a>Słownik terminów umowy EA platformy Azure
 
 - **Konto**: Jednostka organizacyjna w witrynie Azure Enterprise Portal. Służy ona do administrowania subskrypcjami i tworzenia raportów.
@@ -510,3 +465,4 @@ Aby utworzyć subskrypcję oferty typu Enterprise Azure, musisz mieć uprawnieni
 
 - Przeczytaj więcej o tym, jak [rezerwacje maszyn wirtualnych](ea-portal-vm-reservations.md) mogą pomóc Ci zaoszczędzić pieniądze.
 - Jeśli potrzebujesz pomocy w rozwiązywaniu problemów z witryną Azure EA Portal, zobacz [Rozwiązywanie problemów z dostępem do witryny Azure EA Portal](ea-portal-troubleshoot.md).
+- Przeczytaj często [zadawane Cost Management + Billing odpowiedzi](../cost-management-billing-faq.yml) na pytania dotyczące własności subskrypcji EA.

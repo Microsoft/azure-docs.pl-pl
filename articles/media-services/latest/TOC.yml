@@ -85,6 +85,8 @@
       items:
         - name: Kodowanie i przesyłanie strumieniowe pliku zdalnego — Node.js
           href: stream-files-nodejs-quickstart.md
+        - name: Przesyłanie strumieniowe na żywo za pomocą Node.js
+          href: stream-live-tutorial-with-nodejs.md
     - name: Python
       items:
         - name: Podstawowe kodowanie języka Python
@@ -296,7 +298,7 @@
         - name: Krok 3 . Konfiguracja zestawu SDK
           href: migrate-v-2-v-3-migration-setup.md
           displayName: 'migration, SDK`'
-        - name: Krok 4. Wskazówki dotyczące migracji opartej na scenariuszu
+        - name: Krok 4. Wskazówki dotyczące migracji opartej na scenariuszach
           items:
             - name: Encoding
               href: migrate-v-2-v-3-migration-scenario-based-encoding.md
@@ -356,12 +358,12 @@
           href: transform-generate-thumbnails-dotnet-how-to.md
         - name: Przycinanie wideo za pomocą .NET
           href: crop-howto.md
-        - name: Dostosowywanie wstępnie ustawionych ustawień kodera w interfejsie wiersza polecenia
+        - name: Dostosowywanie ustawień wstępnych kodera w interfejsie wiersza polecenia
           href: transform-custom-preset-cli-how-to.md
         - name: Dostosowywanie ustawień wstępnych kodera REST
           displayName: 'encode, encoding, custom, transform'
           href: transform-custom-preset-rest-how-to.md
-        - name: Generuj miniatury REST
+        - name: Generowanie miniatur REST
           href: transform-generate-thumbnails-rest-how-to.md
         - name: Tworzenie transformacji copyAllBitrateNonInterleaved przy użyciu interfejsu REST
           href: transform-create-copyallbitratenoninterleaved-how-to.md
@@ -414,7 +416,7 @@
       items:
         - name: Przy użyciu platformy .NET
           items:
-            - name: Używanie Azure Functions .NET
+            - name: Korzystanie z Azure Functions .NET
               href: integrate-azure-functions-dotnet-how-to.md
     - name: Tworzenie filtrów
       items:
@@ -443,11 +445,11 @@
       items:
         - name: Kontrola dostępu na podstawie ról platformy Azure
           href: security-rbac-concept.md
-        - name: Roll storage access keys (Rzutowanie kluczy dostępu do magazynu)
+        - name: Rzutowanie kluczy dostępu do magazynu
           href: security-storage-roll-access-keys-how-to.md
         - name: Włączanie zaufanego magazynu
           href: security-trusted-storage-rest-tutorial.md
-        - name: Tokeny uwierzytelniania aplikacji Azure Media PlayerPass
+        - name: Tokeny uwierzytelniania usługi Azure Media PlayerPass
           href: security-pass-authentication-tokens-how-to.md
         - name: Włączanie zaufanego magazynu
           href: security-trusted-storage-rest-tutorial.md

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 88bb4c24489b973aa4230ba6f2b34756f83c7dda
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
-ms.translationtype: HT
+ms.openlocfilehash: f2443af472900363babf9e2381536df7538b5291
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030692"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726488"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Wprowadzenie do witryny Azure Enterprise Portal
 
@@ -72,113 +72,8 @@ W artykule [Azure Marketplace](./ea-azure-marketplace.md) wyjaśniono, jak klien
 
 Aby zapoznać się z wyjaśnieniami typowych zadań wykonywanych przez administratora umowy EA partnera w witrynie Azure EA Portal, zobacz [Administracja dla partnerów przy użyciu witryny Azure EA Portal](./ea-partner-portal-administration.md).
 
-## <a name="get-started-on-azure-ea---faq"></a>Wprowadzenie do umowy EA platformy Azure — często zadawane pytania
-
-Ta sekcja zawiera szczegółowe informacje dotyczące typowych pytań, które zadawali klienci podczas procesu dołączania.  
-
-### <a name="i-accidentally-associated-my-existing-azure-account-with-azure-ea-enrollment-as-a-result-i-lost-my-monthly-credit-can-i-get-my-monthly-credit-back"></a>Przypadkowo skojarzono moje istniejące konto platformy Azure z rejestracją EA platformy Azure. W wyniku środki miesięczne zostały utracone. Czy jest możliwe odzyskanie tych środków miesięcznych?
-
-Jeśli zalogowano się jako właściciel konta EA platformy Azure przy użyciu tych samych poświadczeń, które są używane w subskrypcji programu Visual Studio, można odzyskać korzyść platformy Azure dla indywidualnej subskrypcji programu Visual Studio, wykonując jedną z następujących akcji:
-
-- Usuń lub przenieś wszystkie skojarzone subskrypcje platformy Azure, a następnie usuń właściciela konta w witrynie Azure Enterprise Portal. Następnie zarejestruj się ponownie w celu uzyskania indywidualnych korzyści platformy Azure związanych z programem Visual Studio.
-- Usuń subskrybenta programu Visual Studio z lokacji administracyjnej w programie VLSC i ponownie przypisz subskrypcję do konta z innymi poświadczeniami. Następnie zarejestruj się ponownie w celu uzyskania indywidualnych korzyści platformy Azure związanych z programem Visual Studio.
-
-### <a name="what-type-of-subscription-should-i-create"></a>Jakiego typu subskrypcję należy utworzyć?
-
-Witryna Azure Enterprise Portal oferuje dwa typy subskrypcji dla klientów korporacyjnych:
-
-- Microsoft Azure Enterprise — idealne pod kątem:
-  - wszelkich zastosowań produkcyjnych
-  - najlepszych cen na podstawie wydatków na infrastrukturę
-
-  Aby uzyskać więcej informacji, [skontaktuj się z działem sprzedaży platformy Azure](https://azure.microsoft.com/pricing/enterprise-agreement/).
-
-- Enterprise — tworzenie i testowanie. Idealne pod kątem:
-  - wszelkich zespołowych obciążeń tworzenia/testowania
-  - średnich i dużych indywidualnych obciążeń tworzenia/testowania
-  - dostępu do specjalnych obrazów MSDN i preferencyjnych stawek za usługi
-
-  Aby uzyskać więcej informacji, zapoznaj się z ofertą [Enterprise — tworzenie i testowanie](https://azure.microsoft.com/offers/ms-azr-0148p/).
-
-### <a name="my-subscription-name-is-the-same-as-the-offer-name-should-i-change-the-subscription-name-to-something-meaningful-to-my-organization"></a>Nazwa mojej subskrypcji jest taka sama jak nazwa oferty. Czy należy zmienić nazwę subskrypcji, tak aby była bardziej zrozumiała w mojej organizacji?
-
-Domyślna nazwa utworzonej subskrypcji odpowiada typowi wybranej oferty. Zalecamy zmianę nazwy subskrypcji na coś, co ułatwi śledzenie subskrypcji.
-
-Aby zmienić nazwę:
-
-1. Zaloguj się do witryny [https://account.windowsazure.com](https://account.windowsazure.com).
-1. Wybierz listę subskrypcji.
-1. Wybierz subskrypcję, którą chcesz edytować.
-1. Wybierz ikonę **Zarządzaj subskrypcją**.
-1. Edytuj szczegóły subskrypcji.
-
-### <a name="how-can-i-track-costs-incurred-by-a-cost-center"></a>Jak mogę śledzić koszty naliczane w centrum kosztu?
-
-Aby śledzić koszty według centrum kosztu, należy zdefiniować centrum kosztu na dowolnym z następujących poziomów:
-
-- Dział
-- Konto
-- Subskrypcja
-
-W zależności od potrzeb można użyć tego samego centrum kosztu, aby śledzić użycie i koszty związane z określonym centrum kosztu.
-
-Aby na przykład śledzić koszty dla określonego projektu, w którym uczestniczy wiele działów, można zdefiniować centrum kosztu na poziomie subskrypcji w celu śledzenia użycia i kosztów.
-
-Nie można zdefiniować centrum kosztu na poziomie usługi. Jeśli chcesz śledzić użycie na poziomie usługi, możesz użyć funkcji _tagowania_ dostępnej na poziomie usługi.
-
-### <a name="how-do-i-track-usage-and-spend-by-different-departments-in-my-organization"></a>Jak mogę śledzić użycie i wydatki dla różnych działów w mojej organizacji?
-
-W ramach rejestracji EA platformy Azure możesz utworzyć tyle działów, ile potrzebujesz. Aby prawidłowo śledzić użycie, należy się upewnić, że subskrypcje nie są współużytkowane przez działy.
-
-Po utworzeniu działów i subskrypcji można wyświetlić dane w raporcie użycia. Te informacje ułatwiają śledzenie użycia oraz zarządzanie kosztami i wydatkami na poziomie działu.
-
-Dane użycia są również dostępne za pośrednictwem interfejsu API raportowania. Aby uzyskać szczegółowe informacje i przykładowy kod, zobacz artykuł [Interfejsy API REST usługi Azure Enterprise](./ea-portal-rest-apis.md).
-
-### <a name="can-i-set-a-spending-quota-and-get-alerts-as-i-approach-my-limit"></a>Czy mogę ustawić limit przydziału wydatków i otrzymywać alerty w miarę zbliżania się do tego limitu?
-
-Limit przydziału wydatków można ustawić na poziomie działu, a system automatycznie powiadomi Cię, gdy limit przydziału wydatków osiągnie 50%, 75%, 90% i 100% zdefiniowanej wartości.
-
-Aby zdefiniować limit przydziału wydatków, wybierz dział, a następnie wybierz ikonę edycji. Gdy zakończysz edytowanie limitu wydatków, wybierz pozycję **Zapisz**.
-
-### <a name="i-used-resource-groups-to-implement-rbac-and-track-usage-how-can-i-view-the-associated-usage-details"></a>Grupy zasobów były używane do implementowania kontroli dostępu na podstawie ról i śledzenia użycia. Jak wyświetlić skojarzone szczegóły użycia?
-
-W przypadku używania _grup zasobów_ i _tagów_ informacje te są śledzone na poziomie usługi. Dostęp do nich można uzyskać, pobierając plik CSV ze szczegółowym użyciem. Zobacz [Pobieranie raportu użycia](https://ea.azure.com/report/downloadusage) w witrynie Azure Enterprise Portal.
-
-Dane o użyciu są również dostępne za pośrednictwem interfejsu API. Aby uzyskać szczegółowe informacje i przykładowy kod, zobacz artykuł [Interfejsy API REST usługi Azure Enterprise](./ea-portal-rest-apis.md).
-
-> [!NOTE]
-> Tagi można stosować tylko do zasobów, które obsługują operacje usługi Azure Resource Manager. W przypadku utworzenia maszyny wirtualnej, sieci wirtualnej lub magazynu za pomocą klasycznego modelu wdrażania (na przykład za pośrednictwem portalu klasycznego) nie można zastosować znacznika do takiego zasobu. Aby umożliwić obsługę tagowania, należy ponownie wdrożyć te zasoby za pomocą Menedżera zasobów. Wszystkie inne zasoby obsługują tagowanie.
-
-### <a name="can-i-perform-analyses-using-power-bi"></a>Czy mogę wykonywać analizy przy użyciu usługi Power BI?
-
-Tak. Pakiet zawartości Microsoft Azure Enterprise dla usługi Power BI umożliwia wykonywanie następujących działań:
-
-- Szybkie importowanie i analizowanie danych dotyczących wykorzystania platformy Azure na potrzeby rejestracji w przedsiębiorstwie.
-- Sprawdzanie, który dział, konto lub subskrypcja odnotowały największe użycie.
-- Sprawdzanie, z której usługi organizacja korzystała najczęściej.
-- Śledzenie trendów dotyczących wydatków i użycia.
-
-Aby użyć usługi Power BI:
-
-1. Przejdź do witryny internetowej usługi Power BI.
-1. Zaloguj się za pomocą ważnego konta służbowego.
-
-   Konto służbowe może być takie samo jak konto używane do uzyskiwania dostępu do rejestracji za pomocą witryny Azure Enterprise Portal. Można również użyć innego konta.
-1. Na pulpicie nawigacyjnym usług wybierz kafelek Microsoft Azure Enterprise, a następnie wybierz pozycję **Połącz**.
-1. Na ekranie **Nawiązywanie połączenia z platformą Azure Enterprise** wprowadź następujące informacje:
-    - Adres URL środowiska platformy Azure: [https://ea.azure.com](https://ea.azure.com)
-    - Liczba miesięcy: od 1 do 36
-    - Numer rejestracji: numer Twojej rejestracji
-1. Wybierz opcję **Dalej**.
-1. W polu **Klucz konta** podaj klucz interfejsu API.
-
-   Klucz interfejsu API można znaleźć w witrynie Azure Enterprise Portal. Otwórz kartę **Pobieranie danych użycia**, a następnie wybierz pozycję **Klucz dostępu interfejsu API**. Skopiuj klucz, a następnie go wklej w polu **Klucz konta** w usłudze Power BI.
-
-W zależności od rozmiaru zestawu danych ładowanie danych w usłudze Power BI może potrwać od 5 do 30 minut.
-
-Funkcja raportowania usługi Power BI jest dostępna dla bezpośrednich klientów z umową EA platformy Azure, partnerów i klientów pośrednich, którzy mogą wyświetlać informacje dotyczące rozliczeń.
-
 ## <a name="next-steps"></a>Następne kroki
 
+- Przeczytaj często [zadawane Cost Management + Billing odpowiedzi](../cost-management-billing-faq.yml) na pytania i odpowiedzi dotyczące rozpoczynania pracy z portalem EA.
 - Administratorzy witryny Azure Enterprise Portal powinni przeczytać artykuł [Administracja w witrynie Azure Enterprise Portal](ea-portal-administration.md), aby poznać typowe zadania administracyjne.
 - Jeśli potrzebujesz pomocy w rozwiązywaniu problemów z witryną Azure Enterprise Portal, zobacz [Rozwiązywanie problemów z dostępem do witryny Azure Enterprise Portal](ea-portal-troubleshoot.md).

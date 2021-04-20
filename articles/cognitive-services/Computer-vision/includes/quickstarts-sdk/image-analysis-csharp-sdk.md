@@ -9,26 +9,26 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 03/29/2021
 ms.author: pafarley
-ms.openlocfilehash: 407ef167ca05f08d349a017c60164e2fe67977a6
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 0af6c97d6179a645b078f2335ff38f48890c42a3
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107327087"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728198"
 ---
 <a name="HOLTop"></a>
 
-Za pomocą biblioteki klienta Analizy obrazów można analizować obrazy pod względu na tagi, opisy tekstowe, twarze, zawartość dla dorosłych i nie tylko.
+Za pomocą biblioteki klienta analizy obrazów można analizować obraz pod względu na tagi, opis tekstu, twarze, zawartość dla dorosłych i nie tylko.
 
 [Dokumentacja referencyjna](/dotnet/api/overview/azure/cognitiveservices/client/computervision)  |  [Kod źródłowy biblioteki](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ComputerVision)  |  [Pakiet (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/)  |  [Przykłady](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [tworzenie bezpłatnej subskrypcji](https://azure.microsoft.com/free/cognitive-services/)
+* Subskrypcja platformy Azure — [bezpłatne tworzenie subskrypcji](https://azure.microsoft.com/free/cognitive-services/)
 * Program [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) lub bieżącą wersję programu [.NET Core.](https://dotnet.microsoft.com/download/dotnet-core)
 * Po utworzeniu subskrypcji platformy Azure utwórz zasób przetwarzanie obrazów zasobów przetwarzanie obrazów w witrynie Azure Portal, aby uzyskać <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" "  target="_blank"> klucz i punkt </a> końcowy. Po wdrożeniu kliknij pozycję **Przejdź do zasobu**.
-    * Klucz i punkt końcowy z zasobu, który utworzysz, będą potrzebne do połączenia aplikacji z przetwarzanie obrazów usługą. Klucz i punkt końcowy wkleisz do poniższego kodu w dalszej części tego przewodnika Szybki start.
-    * Możesz użyć bezpłatnej warstwy cenowej ( ), aby wypróbować usługę, a następnie przejść na warstwę płatną w `F0` środowisku produkcyjnym.
+    * Klucz i punkt końcowy będą potrzebne z zasobu, który utworzysz, aby połączyć aplikację z przetwarzanie obrazów usługą. Klucz i punkt końcowy wkleisz do poniższego kodu w dalszej części tego przewodnika Szybki start.
+    * Możesz użyć bezpłatnej warstwy cenowej ( ), aby wypróbować usługę, a następnie uaktualnić ją do warstwy `F0` płatnej w środowisku produkcyjnym.
 
 ## <a name="setting-up"></a>Konfigurowanie
 
@@ -40,7 +40,7 @@ Za Visual Studio utwórz nową aplikację .NET Core.
 
 ### <a name="install-the-client-library"></a>Instalowanie biblioteki klienta 
 
-Po utworzeniu nowego projektu zainstaluj bibliotekę klienta, klikając prawym przyciskiem  myszy rozwiązanie projektu w Eksplorator rozwiązań i wybierając pozycję Zarządzaj pakietami **NuGet.** W menedżerze pakietów, który zostanie otwarty, wybierz **pozycję Przeglądaj,** zaznacz pole **wyboru Uwzględnij wstępną publikację** i `Microsoft.Azure.CognitiveServices.Vision.ComputerVision` wyszukaj . Wybierz wersję `7.0.0` , a następnie pozycję **Zainstaluj.** 
+Po utworzeniu nowego projektu zainstaluj bibliotekę klienta, klikając prawym przyciskiem myszy rozwiązanie projektu w Eksplorator rozwiązań **i** wybierając pozycję Zarządzaj pakietami **NuGet.** W menedżerze pakietów, który zostanie otwarty, wybierz **pozycję Przeglądaj,** zaznacz pole **wyboru Uwzględnij wstępną publikację** i `Microsoft.Azure.CognitiveServices.Vision.ComputerVision` wyszukaj . Wybierz wersję `7.0.0` , a następnie pozycję **Zainstaluj.** 
 
 #### <a name="cli"></a>[Interfejs wiersza polecenia](#tab/cli)
 
@@ -79,7 +79,7 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --ver
 > [!TIP]
 > Chcesz wyświetlić cały plik kodu szybkiego startu jednocześnie? Znajdziesz go w witrynie [GitHub,](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs)która zawiera przykłady kodu z tego przewodnika Szybki start.
 
-W katalogu projektu otwórz plik *ComputerVisionQuickstart.cs* w preferowanym edytorze lub w środowiskach IDE. Dodaj następujące `using` dyrektywy:
+W katalogu projektu otwórz plik *Program.cs* w preferowanym edytorze lub w środowiskach IDE. Dodaj następujące `using` dyrektywy:
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_using)]
 
@@ -124,7 +124,7 @@ Te fragmenty kodu pokazują, jak wykonać następujące zadania za pomocą bibli
 > [!NOTE]
 > W tym przewodniku Szybki [](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) start założono, że utworzono zmienne środowiskowe dla klucza przetwarzanie obrazów punktu końcowego o nazwach `COMPUTER_VISION_SUBSCRIPTION_KEY` i `COMPUTER_VISION_ENDPOINT` .
 
-W nowej metodzie w klasie **Program** należy utworzyć wystąpienia klienta z punktem końcowym i kluczem. Utwórz obiekt **[ApiKeyServiceClientCredentials](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.apikeyserviceclientcredentials)** przy użyciu klucza i użyj go z punktem końcowym, aby utworzyć obiekt **[ComputerVisionClient.](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient)**
+W nowej metodzie w klasie **Program** należy utworzyć wystąpienia klienta z punktem końcowym i kluczem. Utwórz obiekt **[ApiKeyServiceClientCredentials](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.apikeyserviceclientcredentials)** za pomocą klucza i użyj go z punktem końcowym, aby utworzyć obiekt **[ComputerVisionClient.](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient)**
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_auth)]
 
@@ -150,13 +150,7 @@ Zdefiniuj nową metodę analizy obrazów. Dodaj poniższy kod, który określa c
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_visualfeatures)]
 
-Wstaw dowolny z poniższych bloków kodu do metody **AnalyzeImageUrl,** aby zaimplementować ich funkcje. Pamiętaj, aby dodać nawias zamykający na końcu.
-
-```csharp
-}
-```
-
-### <a name="analyze"></a>Analiza
+### <a name="call-the-analyze-api"></a>Wywołanie interfejsu API analizy
 
 Metoda **AnalyzeImageAsync** zwraca obiekt **ImageAnalysis,** który zawiera wszystkie wyodrębnione informacje.
 
@@ -164,9 +158,15 @@ Metoda **AnalyzeImageAsync** zwraca obiekt **ImageAnalysis,** który zawiera wsz
 
 W poniższych sekcjach przedstawiono sposób szczegółowej analizy tych informacji.
 
+Wstaw dowolny z poniższych bloków kodu do metody **AnalyzeImageUrl,** aby przeanalizować dane z żądanych powyżej funkcji wizualnych. Pamiętaj, aby dodać nawias zamykający na końcu.
+
+```csharp
+}
+```
+
 ### <a name="get-image-description"></a>Uzyskiwanie opisu obrazu
 
-Poniższy kod pobiera listę wygenerowanych napisów dla obrazu. Aby [uzyskać więcej informacji,](../../concept-describing-images.md) zobacz Opisywanie obrazów.
+Poniższy kod pobiera listę wygenerowanych podpisów dla obrazu. Aby [uzyskać więcej informacji,](../../concept-describing-images.md) zobacz Opisywanie obrazów.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_describe)]
 
@@ -190,13 +190,13 @@ Poniższy kod wykrywa typowe obiekty na obrazie i drukuje je w konsoli. Aby [uzy
 
 ### <a name="detect-brands"></a>Wykrywanie marek
 
-Poniższy kod wykrywa marki firmowe i logo na obrazie i drukuje je w konsoli. Aby [uzyskać więcej informacji,](../../concept-brand-detection.md) zobacz Wykrywanie marki.
+Poniższy kod wykrywa firmowe marki i logo na obrazie i drukuje je w konsoli. Aby [uzyskać więcej informacji,](../../concept-brand-detection.md) zobacz Wykrywanie marki.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_brands)]
 
 ### <a name="detect-faces"></a>Wykrywanie twarzy
 
-Poniższy kod zwraca wykryte twarze na obrazie z ich współrzędnymi prostokąta i wybiera atrybuty twarzy. Aby [uzyskać więcej informacji,](../../concept-detecting-faces.md) zobacz Wykrywanie twarzy.
+Poniższy kod zwraca wykryte twarze na obrazie z ich współrzędnymi prostokąta i wybiera atrybuty twarzy. Aby uzyskać [więcej informacji,](../../concept-detecting-faces.md) zobacz Wykrywanie twarzy.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_faces)]
 
@@ -226,7 +226,7 @@ Poniższy kod analizuje dane dotyczące wykrytych punktów orientacyjnych na obr
 
 ### <a name="get-the-image-type"></a>Uzyskiwanie typu obrazu
 
-Poniższy kod drukuje informacje o typie obrazu, niezależnie od tego, czy jest to &mdash; obiekt clipart, czy rysunek liniowy.
+Poniższy kod drukuje informacje o typie obrazu, niezależnie od tego, czy jest &mdash; to obiekt clipart, czy rysunek liniowy.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_type)]
 

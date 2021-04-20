@@ -98,7 +98,7 @@
           href: reservations/reserved-instance-windows-software-costs.md?toc=/azure/cost-management-billing/toc.json
         - name: Dane użycia poszczególnych subskrypcji
           href: reservations/understand-reserved-instance-usage.md?toc=/azure/cost-management-billing/toc.json
-        - name: Dane użycia Umowa z Klientem Microsoft przedsiębiorstwa i firmy
+        - name: Dane użycia przedsiębiorstwa Umowa z Klientem Microsoft przedsiębiorstwa
           href: reservations/understand-reserved-instance-usage-ea.md?toc=/azure/cost-management-billing/toc.json
     - name: Rozliczenia
       items:
@@ -428,6 +428,8 @@
           href: /rest/api/consumption/reservationsdetails
 - name: Zasoby
   items:
+    - name: Często zadawane pytania
+      href: cost-management-billing-faq.yml
     - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn
       href: /learn/browse/?products=azure-cost-management
     - name: Forum opinii na temat usługi Cost Management

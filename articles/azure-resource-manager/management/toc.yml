@@ -31,86 +31,84 @@
           href: ./security-baseline.md
 - name: Instrukcje
   items:
-    - name: Przenoszenie — grupy zasobów/subskrypcje
-      items:
-        - name: Przenoszenie zasobów
-          href: move-resource-group-and-subscription.md
-        - name: Obsługiwane zasoby
-          href: move-support-resources.md
-        - name: Rozwiązywanie problemów z przenoszeniem
-          href: troubleshoot-move.md
-        - name: Usługi
-          items:
-            - name: App Service
-              href: ./move-limitations/app-service-move-limitations.md
-            - name: Azure DevOps
-              href: /azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/management/toc.json
-            - name: Azure Automation
-              href: ../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/management/toc.json
-            - name: Wdrożenie klasyczne
-              href: ./move-limitations/classic-model-move-limitations.md
-            - name: Networking
-              href: ./move-limitations/networking-move-limitations.md
-            - name: Recovery Services
-              href: ../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/management/toc.json
-            - name: Maszyny wirtualne
-              href: ./move-limitations/virtual-machines-move-limitations.md
-    - name: Przenoszenie — regiony
+    - name: Przenoszenie zasobów
       items:
         - name: Omówienie
-          href: move-region.md
-        - name: Przechodzenie między regionami (z grupy zasobów)
+          href: move-resources-overview.md
+        - name: Przenoszenie między grupami zasobów/subskrypcjami
+          href: move-resource-group-and-subscription.md
+        - name: Przechodzenie między regionami
           href: ../../resource-mover/move-region-within-resource-group.md?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Obsługiwane usługi
-          href: region-move-support.md
+        - name: Obsługiwane zasoby
+          href: move-support-resources.md
         - name: Usługi
           items:
-            - name: Usługa Azure API Management
-              href: ../../api-management/api-management-howto-migrate.md?toc=/azure/azure-resource-manager/management/toc.json
-            - name: Azure App Service
-              href: ../../app-service/manage-move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
-            - name: Azure Automation
-              href: ../../automation/automation-managing-data.md?toc=/azure/azure-resource-manager/management/toc.json#geo-replication-in-azure-automation
-            - name: Azure Batch
-              href: ../../batch/best-practices.md?toc=/azure/azure-resource-manager/management/toc.json#moving-batch-accounts-across-regions
-            - name: Azure Cognitive Search
-              href: ../../search/search-howto-move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
-            - name: Azure Cosmos DB
-              href: ../../cosmos-db/how-to-move-regions.md?toc=/azure/azure-resource-manager/management/toc.json
-            - name: Azure Dev Spaces
-              href: ../../dev-spaces/faq.md?toc=/azure/azure-resource-manager/management/toc.json#can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region
-            - name: Azure Event Hubs
-              href: ../../event-hubs/move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
-            - name: Azure IoT Hub
-              href: ../../iot-hub/iot-hub-how-to-clone.md?toc=/azure/azure-resource-manager/management/toc.json
-            - name: Azure Resource Manager
-              href: microsoft-resources-move-regions.md
-            - name: Azure Storage
-              href: ../../storage/common/storage-account-move.md?toc=/azure/azure-resource-manager/management/toc.json
-            - name: Azure SQL
-              href: ../../azure-sql/database/move-resources-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
-            - name: Maszyny wirtualne platformy Azure
-              href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
-            - name: Aplikacje logiki
-              href: ../../logic-apps/move-logic-app-resources.md?toc=/azure/azure-resource-manager/management/toc.json
-            - name: Konfiguracja sterowania konserwacją
-              href: ../../virtual-machines/move-region-maintenance-configuration.md?toc=/azure/azure-resource-manager/management/toc.json
-            - name: Sieciowa grupa zabezpieczeń
-              href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
-            - name: Publiczne adresy IP
-              href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
-            - name: Site Recovery (magazyny usługi Recovery Services)
-              href: ../../site-recovery/move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
-            - name: Sieć wirtualna
-              href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
-            - name: Interfejs sieciowy (karta sieciowa)
-              href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
-            - name: Serwer usługi Azure Database for PostgreSQL
-              href: ../../postgresql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
-            - name: Serwer usługi Azure Database for MariaDB
-              href: ../../mariadb/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
-            - name: Serwer usługi Azure Database for MySQL
-              href: ../../mysql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+            - name: Grupy zasobów/subskrypcje
+              items:
+                - name: App Service
+                  href: ./move-limitations/app-service-move-limitations.md
+                - name: Azure DevOps
+                  href: /azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/management/toc.json
+                - name: Azure Automation
+                  href: ../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/management/toc.json
+                - name: Wdrożenie klasyczne
+                  href: ./move-limitations/classic-model-move-limitations.md
+                - name: Networking
+                  href: ./move-limitations/networking-move-limitations.md
+                - name: Recovery Services
+                  href: ../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/management/toc.json
+                - name: Maszyny wirtualne
+                  href: ./move-limitations/virtual-machines-move-limitations.md
+            - name: Regiony
+              items:
+                - name: Usługa Azure API Management
+                  href: ../../api-management/api-management-howto-migrate.md?toc=/azure/azure-resource-manager/management/toc.json
+                - name: Azure App Service
+                  href: ../../app-service/manage-move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+                - name: Azure Automation
+                  href: ../../automation/automation-managing-data.md?toc=/azure/azure-resource-manager/management/toc.json#geo-replication-in-azure-automation
+                - name: Azure Batch
+                  href: ../../batch/best-practices.md?toc=/azure/azure-resource-manager/management/toc.json#moving-batch-accounts-across-regions
+                - name: Azure Cognitive Search
+                  href: ../../search/search-howto-move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+                - name: Azure Cosmos DB
+                  href: ../../cosmos-db/how-to-move-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+                - name: Azure Dev Spaces
+                  href: ../../dev-spaces/faq.md?toc=/azure/azure-resource-manager/management/toc.json#can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region
+                - name: Azure Event Hubs
+                  href: ../../event-hubs/move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+                - name: Azure IoT Hub
+                  href: ../../iot-hub/iot-hub-how-to-clone.md?toc=/azure/azure-resource-manager/management/toc.json
+                - name: Azure Resource Manager
+                  href: microsoft-resources-move-regions.md
+                - name: Azure Storage
+                  href: ../../storage/common/storage-account-move.md?toc=/azure/azure-resource-manager/management/toc.json
+                - name: Azure SQL
+                  href: ../../azure-sql/database/move-resources-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+                - name: Maszyny wirtualne platformy Azure
+                  href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
+                - name: Aplikacje logiki
+                  href: ../../logic-apps/move-logic-app-resources.md?toc=/azure/azure-resource-manager/management/toc.json
+                - name: Konfiguracja sterowania konserwacją
+                  href: ../../virtual-machines/move-region-maintenance-configuration.md?toc=/azure/azure-resource-manager/management/toc.json
+                - name: Sieć
+                  items:
+                    - name: Sieć wirtualna
+                      href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
+                    - name: Interfejs sieciowy (karta sieciowa)
+                      href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
+                    - name: Sieciowa grupa zabezpieczeń
+                      href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
+                    - name: Publiczne adresy IP
+                      href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
+                - name: Site Recovery (magazyny usługi Recovery Services)
+                  href: ../../site-recovery/move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+                - name: Serwer usługi Azure Database for PostgreSQL
+                  href: ../../postgresql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+                - name: Serwer usługi Azure Database for MariaDB
+                  href: ../../mariadb/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+                - name: Serwer usługi Azure Database for MySQL
+                  href: ../../mysql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
     - name: Tagi
       items:
         - name: Przewodnik po decyzjach

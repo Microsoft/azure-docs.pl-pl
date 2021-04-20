@@ -87,6 +87,8 @@
               href: app/resource-manager-web-app.md
             - name: Azure Functions
               href: app/resource-manager-function-app.md
+        - name: Szczegółowe informacje o kontenerze
+          href: containers/resource-manager-container-insights.md
         - name: Reguły zbierania danych
           href: agents/resource-manager-data-collection-rules.md
         - name: Ustawienia diagnostyczne
@@ -95,10 +97,10 @@
           href: logs/resource-manager-workspace.md
         - name: Rejestrowanie zapytań
           href: logs/resource-manager-log-queries.md
+        - name: Szczegółowe informacje SQL
+          href: insights/resource-manager-sql-insights.md
         - name: Skoroszyty
           href: visualize/resource-manager-workbooks.md
-        - name: Szczegółowe informacje o kontenerze
-          href: containers/resource-manager-container-insights.md
         - name: Szczegółowe informacje o maszynach wirtualnych
           href: vm/resource-manager-vminsights.md
     - name: Interfejs wiersza polecenia platformy Azure

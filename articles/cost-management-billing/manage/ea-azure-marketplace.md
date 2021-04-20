@@ -8,12 +8,12 @@ ms.subservice: enterprise
 ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: banders
-ms.openlocfilehash: 0f2d3c830f27eec9f521e6f79ac8dce3bce818e9
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
-ms.translationtype: HT
+ms.openlocfilehash: ce9dff017a796e420586ad191a59c149bed07190
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442568"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726830"
 ---
 # <a name="azure-marketplace"></a>Azure Marketplace
 
@@ -74,45 +74,7 @@ Następujące usługi są rozliczane godzinowo w ramach umowy Enterprise Agreeme
 
 Jeśli masz umowę Enterprise Agreement, płacisz za usługę Azure RemoteApp na podstawie poziomu cen umowy Enterprise Agreement. Nie są naliczane dodatkowe opłaty. Cena w wersji standardowej obejmuje początkowe 40 godzin. Cena w wersji nieograniczonej obejmuje początkowe 80 godzin. Usługa RemoteApp nie generuje użycia przez 80 godzin.
 
-## <a name="azure-marketplace-faq"></a>Witryna Azure Marketplace — często zadawane pytania
-
-W tej sekcji wyjaśniono, jak przedpłata za platformę Azure może mieć zastosowanie do niektórych usług odsprzedawców zewnętrznych w witrynie Azure Marketplace.
-
-### <a name="what-changed-with-azure-marketplace-services-and-azure-ea-prepayment"></a>Co się zmieniło w związku z usługami witryny Azure Marketplace i przedpłatą za platformę Azure w ramach umowy EA?
-
-Od 1 marca 2018 niektóre usługi odsprzedawców zewnętrznych wykorzystują przedpłatę za platformę Azure w ramach umowy EA. Z wyjątkiem wystąpień zarezerwowanych maszyn wirtualnych platformy Azure (RI, Reserved Instance), wcześniej te usługi były rozliczane poza przedpłatą za platformę Azure w ramach umowy EA i na oddzielnej fakturze.
-
-Rozszerzyliśmy korzystanie z przedpłaty za platformę Azure pod kątem niektórych często kupowanych usług w witrynie Azure Marketplace publikowanych przez dostawców zewnętrznych. Przedpłata za platformę Azure w ramach umowy EA dla tych usług w witrynie Azure Marketplace upraszcza klientom zarządzanie zakupami i płatnościami.
-
-### <a name="why-did-we-make-this-change"></a>Dlaczego wprowadziliśmy tę zmianę?
-
-Klienci nieustannie szukają dodatkowych sposobów korzystania z płatności z góry wniesionych w postaci przedpłaty za platformę Azure. Klienci często prosili o wprowadzenie tej zmiany i ma ona wpływ na znaczną część klientów witryny Azure Marketplace.
-
-### <a name="how-do-you-benefit"></a>Jak na tym zyskasz?
-
-Ta zmiana zapewnia klientom prostsze rozliczenia i możliwość lepszego wykorzystywania przedpłaty za platformę Azure w ramach umowy EA. Dzięki temu, że te usługi są objęte przedpłatą za platformę Azure, przedpłata za platformę Azure w ramach umowy EA zyskuje na wartości.
-
-### <a name="what-azure-marketplace-services-use-azure-ea-prepayment-and-how-do-i-know"></a>Jakie usługi witryny Azure Marketplace zużywają przedpłatę za platformę Azure w ramach umowy EA i jak to ustalić?
-
-Gdy kupujesz usługę, w przypadku której można wykorzystać przedpłatę za platformę Azure, w witrynie Azure Marketplace jest prezentowane oświadczenie o zrzeczeniu się odpowiedzialności. Obsługiwane są niektóre usługi publikowane przez firmy Red Hat, SUSE, Autodesk i Oracle. Obecnie za usługi o podobnych nazwach publikowane przez innych dostawców nie można zapłacić, wykorzystując przedpłatę za platformę Azure. Pełna lista jest dostępna na końcu sekcji często zadawanych pytań.
-
-### <a name="what-if-my-azure-ea-prepayment-runs-out"></a>Co zrobić, jeśli przedpłata za platformę Azure w ramach umowy EA wyczerpie się?
-
-Jeśli wykorzystasz całą swoją przedpłatę za platformę Azure i pojawi się u Ciebie nadwyżka, opłaty związane z tymi usługami pojawią się na następnej fakturze nadwyżkowej wraz z pozostałym użyciem usług. Przed zmianą wprowadzoną 1 marca 2018 r. opłaty te były fakturowane z innymi usługami witryny Azure Marketplace.
-
-### <a name="why-dont-all-azure-marketplaces-consume-azure-ea-prepayment"></a>Dlaczego nie wszystkie usługi witryny Azure Marketplace zużywają przedpłatę za platformę Azure w ramach umowy EA?
-
-Często pracujemy nad zapewnieniem dla klientów najlepszego środowiska związanego z przedpłatą za platformę Azure w ramach umowy EA. Ta zmiana dotyczy dużej liczby klientów i znaczącej części sum wydawanych w witrynie Azure Marketplace. Inne usługi mogą zostać dodane w przyszłości.
-
-### <a name="how-does-this-impact-indirect-enrollment-and-partners"></a>Jak wpływa to na rejestracje pośrednie i partnerów?
-
-Nie ma to wpływu na klientów rejestracji pośredniej ani partnerów. Te usługi są objęte tymi samymi możliwościami zastosowania narzutu przez partnera co inne usługi oparte na użyciu. Jedyną zmianą jest to, że opłaty są uwzględniane w innej fakturze, a opłaty są odejmowane od przedpłaty za platformę Azure w ramach umowy EA klienta.
-
-### <a name="is-there-a-list-of-azure-marketplace-services-that-consume-azure-ea-prepayment"></a>Czy istnieje lista usług witryny Azure Marketplace, które zużywają przedpłatę za platformę Azure w ramach umowy EA?
-
-Określone oferty z witryny Azure Marketplace mogą zużywać środki przedpłaty za platformę Azure. Sprawdź [usługi dostawców zewnętrznych zużywające przedpłatę za platformę Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment), aby uzyskać pełną listę produktów biorących udział w tym programie.
-
-
 ## <a name="next-steps"></a>Następne kroki
 
 - Uzyskaj więcej informacji na temat [cen](ea-pricing-overview.md).
+- Przeczytaj często [zadawane Cost Management + Billing,](../cost-management-billing-faq.yml) aby wyświetlić listę pytań i odpowiedzi dotyczących usług Azure Marketplace i przedpłaty za platformę Azure w ramach programu EA.

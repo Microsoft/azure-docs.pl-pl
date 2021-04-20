@@ -1,26 +1,26 @@
 ---
-title: Przenoszenie regionów dla zasobów w firmie Microsoft. resources
-description: Pokaż, jak przenieść zasoby znajdujące się w przestrzeni nazw Microsoft. resources do nowych regionów.
+title: Przenoszenie regionów dla zasobów w witrynie Microsoft.Resources
+description: Pokazuje, jak przenieść zasoby, które znajdują się w przestrzeni nazw Microsoft.Resources, do nowych regionów.
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 098e5c36969da12966d793b6e1eddd4f79701ead
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 898e5efef22f76dc07395fcfcad413ef4582dafd
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88951056"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725876"
 ---
-# <a name="move-microsoftresources-resources-to-new-region"></a>Przenoszenie zasobów Microsoft. resources do nowego regionu
+# <a name="move-microsoftresources-resources-to-new-region"></a>Przenoszenie zasobów Microsoft.Resources do nowego regionu
 
-Może być konieczne przeniesienie istniejącego zasobu do nowego regionu. W tym artykule pokazano, jak przenieść dwa typy zasobów — templateSpecs i deploymentScripts — które znajdują się w przestrzeni nazw Microsoft. resources.
+Może być konieczne przeniesienie istniejącego zasobu do nowego regionu. W tym artykule pokazano, jak przenieść dwa typy zasobów — templateSpecs i deploymentScripts — które znajdują się w przestrzeni nazw Microsoft.Resources.
 
-## <a name="move-template-specs-to-new-region"></a>Przenieś specyfikacje szablonu do nowego regionu
+## <a name="move-template-specs-to-new-region"></a>Przenoszenie specyfikacji szablonu do nowego regionu
 
-Jeśli masz [specyfikację szablonu](../templates/template-specs.md) w jednym regionie i chcesz przenieść ją do nowego regionu, możesz wyeksportować specyfikację szablonu i wdrożyć ją ponownie.
+Jeśli masz specyfikację [szablonu w](../templates/template-specs.md) jednym regionie i chcesz przenieść ją do nowego regionu, możesz wyeksportować specyfikację szablonu i ponownie ją wduszyć.
 
-1. Użyj polecenia, aby wyeksportować istniejącą specyfikację szablonu. Dla wartości parametrów podaj wartości pasujące do specyfikacji szablonu, która ma zostać wyeksportowana.
+1. Użyj polecenia , aby wyeksportować istniejącą specyfikację szablonu. W przypadku wartości parametrów podaj wartości zgodne ze specyfikacją szablonu, którą chcesz wyeksportować.
 
-   Aby uzyskać Azure PowerShell, użyj:
+   Na Azure PowerShell użyj:
 
    ```azurepowershell
    Export-AzTemplateSpec `
@@ -40,9 +40,9 @@ Jeśli masz [specyfikację szablonu](../templates/template-specs.md) w jednym re
      --output-folder c:\export
    ```
 
-1. Użyj wyeksportowanej specyfikacji szablonu, aby utworzyć nową specyfikację szablonu. W poniższych przykładach pokazano `westus` dla nowego regionu, ale można podać żądany region.
+1. Użyj specyfikacji wyeksportowanego szablonu, aby utworzyć nową specyfikację szablonu. W poniższych przykładach `westus` przedstawiono nowy region, ale możesz podać region, którego potrzebujesz.
 
-   Aby uzyskać Azure PowerShell, użyj:
+   Na Azure PowerShell użyj:
 
    ```azurepowershell
    New-AzTemplateSpec `
@@ -64,33 +64,33 @@ Jeśli masz [specyfikację szablonu](../templates/template-specs.md) w jednym re
      --template-file "c:\export\demoTemplateSpec.json"
    ```
 
-## <a name="move-deployment-scripts-to-new-region"></a>Przenoszenie skryptów wdrożenia do nowego regionu
+## <a name="move-deployment-scripts-to-new-region"></a>Przenoszenie skryptów wdrażania do nowego regionu
 
-1. Wybierz grupę zasobów zawierającą skrypt wdrożenia, który chcesz przenieść do nowego regionu.
+1. Wybierz grupę zasobów zawierającą skrypt wdrażania, który chcesz przenieść do nowego regionu.
 
 1. [Wyeksportuj szablon](../templates/export-template-portal.md). Podczas eksportowania wybierz skrypt wdrażania i inne wymagane zasoby.
 
-1. W wyeksportowanym szablonie Usuń następujące właściwości:
+1. W wyeksportowanych szablonach usuń następujące właściwości:
 
    * tenantId
    * principalId
    * clientId
 
-1. Wyeksportowany szablon ma wartość stałe dla regionu skryptu wdrażania.
+1. Wyeksportowany szablon ma wykodowany na stałą wartość regionu skryptu wdrożenia.
 
    ```json
    "location": "westus2",
    ```
 
-   Zmień szablon w taki sposób, aby zezwalał na parametr w celu ustawienia lokalizacji. Aby uzyskać więcej informacji, zobacz [Ustawianie lokalizacji zasobów w szablonie ARM](../templates/resource-location.md)
+   Zmień szablon, aby zezwolić na parametr ustawiania lokalizacji. Aby uzyskać więcej informacji, zobacz [Ustawianie lokalizacji zasobów w szablonie usługi ARM](../templates/resource-location.md)
 
    ```json
    "location": "[parameters('location')]",
    ```
 
-1. [Wdróż wyeksportowany szablon](../templates/deploy-powershell.md) i określ nowy region dla skryptu wdrażania.
+1. [Wd wdrażaj wyeksportowany szablon](../templates/deploy-powershell.md) i określ nowy region dla skryptu wdrażania.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej o przenoszeniu zasobów do nowej grupy zasobów lub subskrypcji, zobacz [przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](move-resource-group-and-subscription.md).
-* Aby dowiedzieć się więcej o przenoszeniu zasobów do nowego regionu, zobacz [przemieszczanie zasobów platformy Azure między regionami](move-region.md).
+* Aby dowiedzieć się więcej o przenoszeniu zasobów do nowej grupy zasobów lub subskrypcji, zobacz Przenoszenie zasobów do nowej grupy [zasobów lub subskrypcji.](move-resource-group-and-subscription.md)
+* Aby dowiedzieć się więcej o przenoszeniu zasobów do nowego regionu, zobacz [Przenoszenie zasobów między regionami.](move-resources-overview.md#move-resources-across-regions)

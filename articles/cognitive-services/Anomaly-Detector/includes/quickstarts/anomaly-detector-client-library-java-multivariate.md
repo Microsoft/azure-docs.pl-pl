@@ -1,5 +1,5 @@
 ---
-title: Wykrywanie anomalii wieloczynnikowa Java Client Library — Szybki Start
+title: Narzędzie do wykrywania anomalii kowariantnej biblioteki klienta Java szybki start
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mrbullwinkle
@@ -8,43 +8,45 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/06/2021
 ms.author: mbullwin
-ms.openlocfilehash: eae4d00cd7b1a0ff90648086320135505a0d900a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: f2e227b2a589955191a2e602495cf0ffbb3f6d8b
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107316042"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107732277"
 ---
-Rozpocznij pracę z biblioteką klienta wykrywania anomalii wieloczynnikowa dla języka Java. Wykonaj następujące kroki, aby zainstalować pakiet startowy przy użyciu algorytmów udostępnianych przez usługę. Nowe interfejsy API wykrywania anomalii w usłudze wieloczynnikowa umożliwiają deweloperom łatwe integrowanie zaawansowanej pamięci AI do wykrywania anomalii z grup metryk, bez konieczności znajomości wiedzy uczenia maszynowego ani etykietowania danych. Zależności i wzajemnych korelacji między różnymi sygnałami są automatycznie liczone jako kluczowe czynniki. Pomaga to aktywnie chronić złożone systemy przed awariami.
+Wprowadzenie do wielowariiowej Narzędzie do wykrywania anomalii klienta dla języka Java. Wykonaj następujące kroki, aby rozpocząć instalację pakietu przy użyciu algorytmów dostarczonych przez usługę. Nowe, wielowariacyjne interfejsy API wykrywania anomalii umożliwiają deweloperom łatwe integrowanie zaawansowanych rozwiązań AI do wykrywania anomalii z grup metryk bez konieczności znajomości uczenia maszynowego ani danych oznaczonych etykietami. Zależności i korelacje między różnymi sygnałami są automatycznie liczone jako kluczowe czynniki. Pomaga to aktywnie chronić złożone systemy przed awariami.
 
-Użyj biblioteki wieloczynnikowa Client dla środowiska Java, aby:
+Użyj wielo Narzędzie do wykrywania anomalii biblioteki klienta dla języka Java, aby:
 
-* Wykrywaj anomalie na poziomie systemu z grupy szeregów czasowych.
-* Gdy każda z poszczególnych szeregów czasowych nie powiedzie się, należy sprawdzić wszystkie sygnały w celu wykrycia problemu.
-* Predicative konserwację kosztownych zasobów fizycznych z dziesiątki do setek różnych typów czujników mierzących różne aspekty kondycji systemu.
+* Wykrywanie anomalii na poziomie systemu z grupy szeregów czasu.
+* Gdy dowolny szereg czasowy nie będzie ci za dużo mówić i musisz przyjrzeć się wszystkim sygnałom, aby wykryć problem.
+* Predykatywna konserwacja drogich zasobów fizycznych z dziesiątkami do setek różnych typów czujników mierząca różne aspekty kondycji systemu.
+
+[Kod źródłowy biblioteki](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/anomalydetector/azure-ai-anomalydetector)  |  [Pakiet (Maven)](https://repo1.maven.org/maven2/com/azure/azure-ai-anomalydetector/3.0.0-beta.2/)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
+* Subskrypcja platformy Azure [— utwórz subskrypcję bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
 * Bieżąca wersja [zestawu Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* [Narzędzie kompilacji Gradle](https://gradle.org/install/)lub inny Menedżer zależności.
-* Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title=" Utwórz zasób wykrywania anomalii "  target="_blank"> Utwórz zasób wykrywania anomalii </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Zaczekaj na jego wdrożenie i kliknij przycisk **Przejdź do zasobu** .
-    * Potrzebny będzie klucz i punkt końcowy z zasobu utworzonego w celu połączenia aplikacji z interfejsem API wykrywania anomalii. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
-    Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
+* Narzędzie [kompilacji Gradle](https://gradle.org/install/)lub inny menedżer zależności.
+* Po utworzeniu subskrypcji platformy Azure utwórz zasób Narzędzie do wykrywania anomalii utwórz zasób Narzędzie do wykrywania anomalii w witrynie Azure Portal, aby <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title=" uzyskać klucz i punkt "  target="_blank"> </a> końcowy. Poczekaj na wdrożenie, a następnie kliknij **przycisk Przejdź do** zasobu.
+    * Klucz i punkt końcowy z zasobu, który utworzysz, będą potrzebne do połączenia aplikacji z Narzędzie do wykrywania anomalii API. Klucz i punkt końcowy wkleisz do poniższego kodu w dalszej części tego przewodnika Szybki start.
+    Możesz użyć warstwy cenowej Bezpłatna ( ), aby wypróbować usługę, i przejść później na warstwę płatną `F0` na użytek produkcji.
 
 ## <a name="setting-up"></a>Konfigurowanie
 
-### <a name="create-a-new-gradle-project"></a>Utwórz nowy projekt Gradle
+### <a name="create-a-new-gradle-project"></a>Tworzenie nowego projektu gradle
 
-Ten przewodnik Szybki Start używa Menedżera zależności Gradle. Więcej informacji o bibliotece klienta można znaleźć w [Maven centralnym repozytorium](https://search.maven.org/artifact/com.azure/azure-ai-metricsadvisor).
+W tym przewodniku Szybki start jest używany menedżer zależności gradle. Więcej informacji o bibliotece klienta można znaleźć w centralnym [repozytorium maven.](https://search.maven.org/artifact/com.azure/azure-ai-metricsadvisor)
 
-W oknie konsoli (na przykład cmd, PowerShell lub bash) Utwórz nowy katalog dla aplikacji i przejdź do niego. 
+W oknie konsoli (takim jak cmd, PowerShell lub Bash) utwórz nowy katalog dla aplikacji i przejdź do niego. 
 
 ```console
 mkdir myapp && cd myapp
 ```
 
-Uruchom `gradle init` polecenie z katalogu roboczego. To polecenie spowoduje utworzenie podstawowych plików kompilacji dla Gradle, w tym *Build. Gradle. KTS* , który jest używany w środowisku uruchomieniowym do tworzenia i konfigurowania aplikacji.
+Uruchom polecenie `gradle init` z katalogu roboczego. To polecenie spowoduje utworzenie podstawowych plików kompilacji dla programu Gradle, w tym *pliku build.gradle.kts,* który jest używany w czasie wykonywania do tworzenia i konfigurowania aplikacji.
 
 ```console
 gradle init --type basic
@@ -52,9 +54,9 @@ gradle init --type basic
 
 Po wyświetleniu monitu wybierz pozycję **Język DSL**, a następnie **Kotlin**.
 
-### <a name="install-the-client-library"></a>Zainstaluj bibliotekę kliencką
+### <a name="install-the-client-library"></a>Instalowanie biblioteki klienta
 
-Znajdź element *Build. Gradle. KTS* i otwórz go za pomocą PREFEROWANEGO środowiska IDE lub edytora tekstu. Następnie skopiuj w tej konfiguracji kompilacji. Pamiętaj, aby uwzględnić zależności projektu.
+Znajdź *plik build.gradle.kts* i otwórz go za pomocą preferowanego środowiska IDE lub edytora tekstów. Następnie skopiuj w tej konfiguracji kompilacji. Pamiętaj, aby uwzględnić zależności projektu.
 
 ```kotlin
 dependencies {
@@ -64,13 +66,13 @@ dependencies {
 
 ### <a name="create-a-java-file"></a>Tworzenie pliku języka Java
 
-Utwórz folder dla przykładowej aplikacji. W katalogu roboczym Uruchom następujące polecenie:
+Utwórz folder dla przykładowej aplikacji. Z katalogu roboczego uruchom następujące polecenie:
 
 ```console
 mkdir -p src/main/java
 ```
 
-Przejdź do nowego folderu i Utwórz plik o nazwie *MetricsAdvisorQuickstarts. Java*. Otwórz go w preferowanym edytorze lub środowisku IDE i Dodaj następujące `import` instrukcje:
+Przejdź do nowego folderu i utwórz plik o nazwie *MetricsQuickstarts.java.* Otwórz go w preferowanym edytorze lub w języku IDE i dodaj następujące `import` instrukcje:
 
 ```java
 package com.azure.ai.anomalydetector;
@@ -101,28 +103,28 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 ```
 
-Utwórz zmienne i klucz punktu końcowego platformy Azure dla zasobu. Utwórz kolejną zmienną dla przykładowego pliku danych.
+Utwórz zmienne punktu końcowego i klucza platformy Azure zasobu. Utwórz kolejną zmienną dla przykładowego pliku danych.
 
 ```java
 String key = "YOUR_API_KEY";
 String endpoint = "YOUR_ENDPOINT";
 ```
 
- Aby korzystać z interfejsów API wieloczynnikowa wykrywania anomalii, musimy nauczyć nasz model przed użyciem wykrywania. Dane używane do szkoleń to partia szeregów czasowych, każda seria czasu powinna być w formacie CSV z dwiema kolumnami, sygnaturą czasową i wartością. Wszystkie szeregi czasowe powinny być spakowane w jednym pliku zip i przekazywane do [usługi Azure Blob Storage](../../../../storage/blobs/storage-blobs-introduction.md). Domyślnie nazwa pliku zostanie użyta do reprezentowania zmiennej dla szeregów czasowych. Alternatywnie, dodatkowe meta.jsw pliku można umieścić w pliku zip, jeśli chcesz, aby nazwa zmiennej była inna niż nazwa pliku zip. Po wygenerowaniu [adresu URL SAS (sygnatury dostępu współdzielonego)](../../../../storage/common/storage-sas-overview.md)można użyć adresu URL do szkolenia.
+ Aby użyć Narzędzie do wykrywania anomalii wielozmianowych interfejsów API, musimy wytterować własny model przed użyciem wykrywania. Dane używane do trenowania to partia szeregów czasu. Każdy szereg czasowy powinien być w formacie CSV z dwiema kolumnami, sygnaturą czasową i wartością. Wszystkie serie czasu powinny być spakowane w jednym pliku zip i przekazane do [usługi Azure Blob Storage.](../../../../storage/blobs/storage-blobs-introduction.md) Domyślnie nazwa pliku będzie służyć do reprezentowania zmiennej dla szeregów czasu. Alternatywnie można meta.jspliku zip, jeśli chcesz, aby nazwa zmiennej różniła się od nazwy pliku zip. Po [wygenerowaniu adresu URL sygnatury](../../../../storage/common/storage-sas-overview.md)dostępu współdzielonego obiektu blob możemy użyć adresu URL do pliku zip na użytek szkolenia.
 
 ## <a name="code-examples"></a>Przykłady kodu
 
-Te fragmenty kodu pokazują, jak wykonać następujące czynności z użyciem biblioteki klienta wykrywania anomalii dla Node.js:
+Te fragmenty kodu pokazują, jak wykonać następujące czynności przy użyciu Narzędzie do wykrywania anomalii klienta dla Node.js:
 
 * [Uwierzytelnianie klienta](#authenticate-the-client)
 * [Szkolenie modelu](#train-a-model)
-* [Wykrywaj anomalie](#detect-anomalies)
-* [Eksportuj model](#export-model)
-* [Usuń model](#delete-model)
+* [Wykrywanie anomalii](#detect-anomalies)
+* [Eksportowanie modelu](#export-model)
+* [Usuwanie modelu](#delete-model)
 
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
-Tworzenie wystąpienia `anomalyDetectorClient` obiektu za pomocą punktu końcowego i poświadczeń.
+Za pomocą punktu `anomalyDetectorClient` końcowego i poświadczeń należy utworzyć wystąpienia obiektu.
 
 ```java
 HttpHeaders headers = new HttpHeaders()
@@ -147,11 +149,11 @@ AnomalyDetectorClient anomalyDetectorClient = new AnomalyDetectorClientBuilder()
 
 ## <a name="train-a-model"></a>Szkolenie modelu
 
-### <a name="construct-a-model-result-and-train-model"></a>Konstruowanie modelu wyników i modelu szkolenia
+### <a name="construct-a-model-result-and-train-model"></a>Konstruowanie wyniku modelu i trenowanie modelu
 
-Najpierw musimy utworzyć żądanie modelu. Upewnij się, że godzina początkowa i końcowa są wyrównane ze źródłem danych.
+Najpierw musimy skonstruować żądanie modelu. Upewnij się, że godzina rozpoczęcia i zakończenia jest dopasowana do źródła danych.
 
- Aby korzystać z interfejsów API wieloczynnikowa wykrywania anomalii, musimy nauczyć nasz model przed użyciem wykrywania. Dane używane do szkoleń to partia szeregów czasowych, każda seria czasu powinna być w formacie CSV z dwiema kolumnami, sygnaturą czasową i wartością. Wszystkie szeregi czasowe powinny być spakowane w jednym pliku zip i przekazywane do [usługi Azure Blob Storage](../../../../storage/blobs/storage-blobs-introduction.md#blobs). Domyślnie nazwa pliku zostanie użyta do reprezentowania zmiennej dla szeregów czasowych. Alternatywnie, dodatkowe meta.jsw pliku można umieścić w pliku zip, jeśli chcesz, aby nazwa zmiennej była inna niż nazwa pliku zip. Po wygenerowaniu [adresu URL SAS (sygnatury dostępu współdzielonego)](../../../../storage/common/storage-sas-overview.md)można użyć adresu URL do szkolenia.
+ Aby użyć Narzędzie do wykrywania anomalii wielozmianowych interfejsów API, musimy wytszkolić własny model przed użyciem wykrywania. Dane używane do trenowania to partia szeregów czasu. Każdy szereg czasowy powinien być w formacie CSV z dwiema kolumnami, sygnaturą czasową i wartością. Wszystkie serie czasu powinny być spakowane w jednym pliku zip i przekazane do [usługi Azure Blob Storage.](../../../../storage/blobs/storage-blobs-introduction.md#blobs) Domyślnie nazwa pliku będzie służyć do reprezentowania zmiennej szeregów czasu. Alternatywnie można meta.jspliku zip, jeśli chcesz, aby nazwa zmiennej różniła się od nazwy pliku zip. Po [wygenerowaniu adresu URL sygnatury](../../../../storage/common/storage-sas-overview.md)dostępu współdzielonego obiektu blob możemy użyć adresu URL do pliku zip na użytek szkolenia.
 
 ```java
 Path path = Paths.get("test-data.csv");
@@ -205,7 +207,7 @@ while (true) {
 }
 ```
 
-## <a name="detect-anomalies"></a>Wykrywaj anomalie
+## <a name="detect-anomalies"></a>Wykrywanie anomalii
 
 ```java
 DetectionRequest detectionRequest = new DetectionRequest().setSource(source).setStartTime(startTime).setEndTime(endTime);
@@ -226,9 +228,9 @@ while (true) {
 }
 ```
 
-## <a name="export-model"></a>Eksportuj model
+## <a name="export-model"></a>Eksportowanie modelu
 
-Aby wyeksportować przeszkolony model, użyj `exportModelWithResponse` .
+Aby wyeksportować wytrenowany model, `exportModelWithResponse` użyj .
 
 ```java
 StreamResponse response_export = anomalyDetectorClient.exportModelWithResponse(model_id, Context.NONE);
@@ -237,9 +239,9 @@ FileOutputStream bw = new FileOutputStream("result.zip");
 value.subscribe(s -> write(bw, s), (e) -> close(bw), () -> close(bw));
 ```
 
-## <a name="delete-model"></a>Usuń model
+## <a name="delete-model"></a>Usuwanie modelu
 
-Aby usunąć istniejący model, który jest dostępny dla bieżącego zasobu, użyj `deleteMultivariateModelWithResponse` funkcji.
+Aby usunąć istniejący model dostępny dla bieżącego zasobu, użyj `deleteMultivariateModelWithResponse` funkcji .
 
 ```java
 Response<Void> deleteMultivariateModelWithResponse = anomalyDetectorClient.deleteMultivariateModelWithResponse(model_id, Context.NONE);
@@ -247,14 +249,14 @@ Response<Void> deleteMultivariateModelWithResponse = anomalyDetectorClient.delet
 
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
 
-Aplikację można skompilować przy użyciu:
+Aplikację można skompilować za pomocą:
 
 ```console
 gradle build
 ```
 ### <a name="run-the-application"></a>Uruchamianie aplikacji
 
-Uruchom aplikację z `run` celem:
+Uruchom aplikację w `run` celu:
 
 ```console
 gradle run
@@ -262,4 +264,4 @@ gradle run
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Najlepsze rozwiązania dotyczące wykrywania anomalii wieloczynnikowa](../../concepts/best-practices-multivariate.md)
+* [Narzędzie do wykrywania anomalii najlepsze rozwiązania dotyczące wielu kowariant](../../concepts/best-practices-multivariate.md)

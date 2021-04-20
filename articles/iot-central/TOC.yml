@@ -235,6 +235,8 @@
           href: core/howto-export-data.md
         - name: Eksportowanie danych do lokalizacji docelowych w chmurze (starsza wersja)
           href: core/howto-export-data-legacy.md
+        - name: Przekształcanie danych na Azure IoT Central
+          href: core/howto-transform-data.md
         - name: Używanie przepływów pracy do integracji z innymi usługami
           href: core/howto-configure-rules-advanced.md
         - name: Tworzenie reguł niestandardowych

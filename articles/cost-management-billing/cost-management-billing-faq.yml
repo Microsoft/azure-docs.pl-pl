@@ -1,0 +1,469 @@
+### YamlMime:FAQ
+metadata:
+  title: Cost Management + Billing często zadawanych pytań
+  titleSuffix: Azure Cost Management + Billing
+  description: Często zadawane pytania i odpowiedzi.
+  author: bandersmsft
+  ms.reviewer: adwise
+  ms.service: cost-management-billing
+  ms.topic: conceptual
+  ms.date: 04/15/2021
+  ms.author: banders
+  ms.openlocfilehash: e96ba3c42ddce1ed12ad560b2d73b99a35c61f8b
+  ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+  ms.translationtype: MT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 04/19/2021
+  ms.locfileid: "107728626"
+title: Azure Cost Management + Billing często zadawanych pytań
+summary: ''
+sections:
+- name: Ogólne pytania dotyczące rozliczeń
+  questions:
+  - question: Jak mogę skontaktować się z pomocą techniczną rozliczeń platformy Azure?
+    answer: >
+      Utwórz wniosek o pomoc techniczną w [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+  - question: Jak mogę zapłać rachunek?
+    answer: >
+      Zobacz [Rozwiązywanie problemu z zaszłym saldem za subskrypcję platformy Azure.](manage/resolve-past-due-balance.md)
+  - question: Jak mogę znaleźć fakturę?
+    answer: >
+      Zobacz [Wyświetlanie i pobieranie faktury Microsoft Azure faktury.](understand/download-azure-invoice.md)
+  - question: Dlaczego są naliczane opłaty? Mam bezpłatne konto platformy Azure.
+    answer: >
+      Bezpłatne usługi mają limity. Najprawdopodobniej przekroczono limity bezpłatnych. Zobacz [Unikanie opłat przy użyciu bezpłatnego konta platformy Azure.](manage/avoid-charges-free-account.md)
+  - question: Jak mogę zrozumieć mój rachunek?
+    answer: >
+      Jeśli subskrypcja platformy Azure została zakupiona za pośrednictwem witryny internetowej platformy Azure, zobacz [Przeglądanie indywidualnego rachunku za subskrypcję platformy Azure.](understand/review-individual-bill.md)
+  - question: Jak mogę szybko zobaczyć moje opłaty?
+    answer: >
+      Zobacz [Explore and analyze costs with cost analysis (Eksplorowanie i analizowanie kosztów za pomocą analizy kosztów).](costs/quick-acm-cost-analysis.md)
+  - question: Mam nieoczekiwane opłaty. Jak mogę je zrozumieć?
+    answer: >
+      Zobacz [Analizowanie nieoczekiwanych opłat.](understand/analyze-unexpected-charges.md)
+  - question: Jak mogę anulować subskrypcję platformy Azure?
+    answer: >
+      Zobacz [Anulowanie subskrypcji platformy Azure.](manage/cancel-azure-subscription.md)
+- name: Cost Management pytania
+  questions:
+  - question: Jak mogę włączyć dostęp do wyświetlania kosztów?
+    answer: >
+      Zobacz [Przypisywanie dostępu do Cost Management danych.](costs/assign-access-acm-data.md)
+  - question: Jakie oferty partnerów są obsługiwane przez Cost Management?
+    answer: >
+      Cost Management jest dostępna dla partnerów, których klienci mają plan platformy Azure. Włączając ustawienie zasad, partnerzy mogą zezwalać swoim klientom na wyświetlanie informacji o kosztach. Aby uzyskać więcej informacji, zobacz [Wprowadzenie do usługi Azure Cost Management dla partnerów](costs/get-started-partners.md). Klasyczny model CSP nie jest Cost Management.
+  - question: Jak mogę zobaczyć prognozowane koszty?
+    answer: >
+      W witrynie Azure Portal przejdź do obszaru **Zarządzanie kosztami i rozliczenia** > **Zarządzanie kosztami** > **Analiza kosztów**. W widoku domyślnym górny wykres zawiera sekcje kosztu rzeczywistego/zamortyzowanego i prognozowanego. Jednolity kolor wykresu przedstawia koszt rzeczywisty/zamortyzowany. Kolor zacieniowany przedstawia koszt prognozowany.
+  - question: Jak mogę wyświetlić podział kosztów według usługi platformy Azure?
+    answer: >
+      W Azure Portal przejdź do **Cost Management + Billing**  >  **Cost Management**  >  **Analiza kosztów.** Wybierz pozycję **Koszt według usługi**, a następnie grupuj według **warstwy usług**. Zmień widok na **Tabela**.
+  - question: Jak mogę wyświetlić moje koszty faktury?
+    answer: >
+      W Azure Portal przejdź do analizy kosztów dla zakresu skojarzonego z analizą faktury. Wybierz widok **Szczegóły faktury**. Szczegóły faktury pokazują opłaty, jak pokazano na fakturze.
+  - question: Jak mogę wyświetlić koszty dla tagu?
+    answer: >
+      W witrynie Azure Portal przejdź do obszaru **Zarządzanie kosztami i rozliczenia** > **Zarządzanie kosztami** > **Analiza kosztów**. Wybierz pozycję **Grupuj według** dla tagu. Tagi są niedostępne w przypadku zakupów, zasobów dzierżawy nieskojarzonych z subskrypcjami, zasobów subskrypcji niewdrożonych w grupie zasobów lub zasobów klasycznych. Niektóre usługi nie zawierają tagów w danych użycia. Aby uzyskać więcej informacji, zobacz [Obsługa tagów dla zasobów platformy Azure.](../azure-resource-manager/management/tag-support.md)
+  - question: Jak mogę zobaczyć koszty dla mojej rejestracji UMOWY EA?
+    answer: >
+      W Azure Portal przejdź do **Cost Management + Billing** > Przegląd. Wybierz link **Podział.**
+  - question: Jak wyświetlić koszt usług AWS w u Cost Management?
+    answer: >
+      Zobacz Set up and configure AWS Cost and Usage report integration (Konfigurowanie i [konfigurowanie integracji raportów o kosztach i użyciu usług AWS).](costs/aws-integration-set-up-configure.md)
+  - question: Jak mogę utworzyć budżet?
+    answer: >
+      Zobacz [samouczek Tworzenie budżetów platformy Azure i zarządzanie nimi.](costs/tutorial-acm-create-budgets.md)
+  - question: Jak mogę utworzyć budżet dla określonego filtru lub tagu?
+    answer: >
+      W oknie Tworzenie budżetu wybierz zakres budżetu, który chcesz utworzyć. Wybierz **pozycję Dodaj filtr,** aby wybrać wszystkie filtry lub tag, które chcesz dodać dla tego budżetu. Aby uzyskać więcej informacji, zobacz [samouczek Tworzenie budżetów platformy Azure i zarządzanie](costs/tutorial-acm-create-budgets.md#create-a-budget-in-the-azure-portal) nimi.
+  - question: Jak mogę eksportowanie danych zarządzania kosztami?
+    answer: >
+      Zobacz [samouczek Tworzenie wyeksportowanych](costs/tutorial-export-acm-data.md) danych i zarządzanie nimi.
+  - question: Jak mogę eksportowanie danych zarządzania kosztami jako partner, jeśli nie mam subskrypcji platformy Azure w dzierżawie?
+    answer: >
+      Zobacz artykuł [Eksportowanie danych kosztów przy użyciu klucza sygnatury dostępu współdzielonego konta usługi Azure](costs/export-cost-data-storage-account-sas-key.md) Storage.
+  - question: Czy jako partner programu CSP usługa Cost Management w klasycznej ofercie CSP w planie platformy Azure?
+    answer: "Biorąc pod uwagę plany przejścia klientów korzystających [](https://www.microsoft.com/licensing/news/new-azure-experience-in-csp)z klasycznego programu CSP do planu platformy Azure w ramach nowego rozwiązania handlowego, usługa Azure Cost Management będzie dostępna tylko dla bezpośrednich partnerów i dostawców pośrednich klientów korzystających z planu platformy Azure. \n"
+  - question: Jak włączyć zasady widoczności kosztów w zakresie subskrypcji dla klientów końcowych i odsprzedawców w planie platformy Azure jako partner programu CSP (administrator globalny)?
+    answer: >
+      Zobacz [Enable Cost Management for Customer Tenant Subscriptions](costs/get-started-partners.md#enable-cost-management-for-customer-tenant-subscriptions) (Włączanie obsługi subskrypcji dzierżawy klienta), aby włączyć zasady widoczności kosztów dla usług zużywanych przez platformę Azure po stawkach detalicznych dla użytkowników subskrypcji korzystających z kontroli RBAC platformy Azure. Jako administrator globalny partnera bezpośredniego lub dostawcy pośredniego możesz wyświetlać koszty w dzierżawie klienta niezależnie od zasad.
+  - question: Jak mogę naliczać koszty wstecz?
+    answer: >
+      Możesz przydzielić koszty w Cost Management, aby zobaczyć koszty dystrybuowane do subskrypcji, grup zasobów lub tagów w analizie kosztów. Aby uzyskać więcej informacji, zobacz [artykuł Tworzenie reguł alokacji kosztów platformy Azure i zarządzanie nimi.](costs/allocate-costs.md)
+  - question: Czy mogę używać Power BI do wyświetlania kosztów?
+    answer: >
+      Tak, możesz użyć [Power BI Desktop,](/power-bi/connect-data/desktop-connect-azure-cost-management) aby nawiązać Cost Management danych, lub aplikacji [Cost Management Power BI app for EAs.](costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md)
+  - question: Jakie są obsługiwane typy ofert w Cost Management?
+    answer: >
+      Zobacz [Obsługiwane Microsoft Azure ofert.](/costs/understand-cost-mgt-data.md#supported-microsoft-azure-offers)
+  - question: Jak szybko mogę zobaczyć moje dane dotyczące kosztów i użycia w Azure Cost Management?
+    answer: >
+      Zobacz [Aktualizacje i przechowywanie danych dotyczących kosztów i użycia.](/costs/understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention)
+  - question: Czy mogę znaleźć wszystkie informacje związane z kosztami w Azure Cost Management?
+    answer: >
+      Zobacz [Koszty uwzględnione w Cost Management](costs/understand-cost-mgt-data.md#costs-included-in-cost-management).
+  - question: Czy przydzielone koszty są uwzględniane w widokach budżetów i prognoz?
+    answer: >
+      <a name="budgets-forecast"></a>Tak. Przydzielone koszty są uwzględniane i obsługiwane przez budżety i prognozy. Widoki budżetu i prognozy przedstawiają przydzielone do nich koszty zgodnie z konfiguracją reguł alokacji kosztów.
+  - question: Co się stanie, jeśli reguła alokacji kosztów zostanie usunięta?
+    answer: >
+      <a name="delete-rule"></a>Usunięcie reguły alokacji kosztów powoduje usunięcie wszystkich otwartych i bieżących opłat za dany miesiąc rozliczeniowy przydzielonych do elementów docelowych. Jeśli reguła alokacji kosztów istniała przez kilka miesięcy, historyczne dane alokacji dotyczące wcześniejszych miesięcy pozostaną takie same, jak pierwotnie wskazała reguła alokacji.
+  - question: Dlaczego do utworzenia reguł alokacji kosztów potrzebny jest administrator rejestracji lub administrator konta rozliczeniowego?
+    answer: >
+      <a name="why-admin"></a>Reguły alokacji kosztów są tworzone w zakresie rejestracji (Umowa Enterprise Agreement) lub w zakresie konta rozliczeniowego (Umowa z Klientem firmy Microsoft). Aby wprowadzanie zmian w tych zakresach było możliwe, konieczne są uprawnienia administratora rozliczeń.
+  - question: Dlaczego źródła alokacji kosztów i obiekty docelowe są ograniczone do 25 na regułę?
+    answer: >
+      <a name="source-target-rule-limit"></a>Wyznaczony limit jest ograniczeniem obowiązującym w wersji zapoznawczej, które zapewnia dobrą wydajność i skalowalność alokacji kosztów. Limity będą prawdopodobnie zwiększane lub usuwane, gdy alokacja kosztów stanie się ogólnie dostępna.
+  - question: Co może się stać, jeśli reguły alokacji kosztów (źródła/elementy docelowe) będą się pokrywać?
+    answer: >
+      <a name="rule-overlap"></a>Nie zaleca się stosowania reguł, których źródła lub elementy docelowe pokrywają się. Reguły alokacji kosztów są stosowane według ich daty utworzenia, więc jeśli jakiekolwiek reguły alokacji kosztów nakładają się na siebie pierwszeństwo przysługuje najwcześniejszej dacie utworzenia.
+- name: Cost Management + Billing interfejsu API
+  questions:
+  - question: Kiedy interfejsy API raportowania EA będą przestarzałe?
+    answer: >
+      Zespół Cost Management + Billing nie ogłosił harmonogramu cofaniaprecyjn dla interfejsów API. Interfejsy API nie są już w aktywnym programie. Zalecamy zaplanowanie wszelkich wymaganych prac, które należy zmigrować.
+  - question: Jak mogę z interfejsów API raportowania EA i jakie nowe interfejsy API należy wywołać?
+    answer: >
+      Zobacz [Migrowanie z raportów EA do Azure Resource Manager API.](costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md)
+  - question: Dlaczego otrzymuję limity czasu interfejsu API szczegółów użycia?
+    answer: >
+      Zestaw danych Szczegóły użycia może być często bardzo duży (wiele lub więcej kb/s). Im większy rozmiar zestawu danych, który żądasz, tym dłużej usługa będzie kompilować dane przed wysłaniem ich do Ciebie. Z powodu opóźnienia synchroniczne rozwiązania interfejsu API, takie jak interfejs API szczegółów użycia [JSON](/rest/api/consumption/usagedetails/list) z podziałem na strony, mogą przewyższyć limit czasu przed podano dane. Jeśli wystąpią prze bądź procesy, które często muszą ściągać dużą ilość szczegółów użycia, zobacz Cykliczne pobieranie dużych zestawów danych użycia za pomocą [eksportów](costs/ingest-azure-usage-at-scale.md).
+  - question: Jak mogę migrować z interfejsów API raportowania EA do Umowa z Klientem Microsoft API?
+    answer: >
+      Zobacz Migrate from Enterprise Agreement to Umowa z Klientem Microsoft APIs (Migrowanie z [interfejsów API Enterprise Agreement do Umowa z Klientem Microsoft API).](costs/migrate-cost-management-api.md)
+- name: Pytania dotyczące rezerwacji platformy Azure
+  questions:
+  - question: Jak mogę wyświetlanie opłat za rezerwację?
+    answer: >
+      W witrynie Azure Portal przejdź do obszaru **Zarządzanie kosztami i rozliczenia** > **Zarządzanie kosztami** > **Analiza kosztów**. Dodaj filtr **Model cen: Rezerwacja**. W obszarze Zakres i obok wyświetlonego kosztu wybierz symbol  strzałki w dół, a następnie wybierz metrykę Koszt rzeczywisty lub **Koszt zamortyzowany.**
+  - question: Jak mogę oszczędności rezerwacji?
+    answer: >
+      Istnieje kilka sposobów wyświetlania oszczędności.
+
+      -  Jeśli jesteś klientem z ea, możesz użyć aplikacji Azure Cost Management Power BI dla ea, aby wyświetlić [raport oszczędności na RI.](/costs/analyze-cost-data-azure-cost-management-power-bi-template-app#reports-available-with-the-app.md)
+
+      -  Użyj pliku danych Użycie i opłaty, aby ręcznie [określić oszczędności rezerwacji.](reservations/understand-reserved-instance-usage-ea.md#determine-reservation-savings)
+  - question: Jak mogę wyświetlanie niedostatecznego w pełnieniu rezerwacji?
+    answer: >
+      Zaloguj się w witrynie Azure Portal. Następnie wybierz pozycję Wszystkie usługi > **rezerwacje i** zwróć uwagę na użycie **(%)** dla rezerwacji. Wybierz rezerwację. Przejrzyj trend użycia rezerwacji w czasie. Aby uzyskać więcej informacji, zobacz [Wyświetlanie użycia rezerwacji w Azure Portal](reservations/manage-reserved-vm-instance.md?toc=/azure/cost-management-billing/reservations/toc.json#view-reservation-use-in-the-azure-portal). Możesz również wyświetlić [koszty nieużywanych rezerwacji w analizie kosztów.](costs/cost-analysis-common-uses.md#view-unused-ri-costs-in-cost-analysis)
+  - question: Jak mogę znaleźć koszty rezerwacji do obciążenia?
+    answer: >
+      Aby uzyskać szczegółowe informacje, zobacz [Charge back Azure Reservation costs (Obciążenie](reservations/charge-back-usage.md?toc=/azure/cost-management-billing/reservations/toc.json) kosztów rezerwacji platformy Azure).
+  - question: Jak wyświetlić opłaty naliczane za maszyny wirtualne usługi Spot?
+    answer: >
+      Zobacz [Wyświetlanie opłat za maszynę wirtualną usługi Spot.](/costs/cost-analysis-common-uses.md#view-your-spot-vm-charges)
+  - question: Jak mogę uzyskać raport szczegółów rezerwacji?
+    answer: >
+      Przeczytaj dokumentację interfejsu API, [aby wygenerować raport szczegółów rezerwacji.](/rest/api/cost-management/generatereservationdetailsreport)
+- name: Pytania dotyczące witryny Azure Enterprise Agreement (EA) i witryny EA Portal
+  questions:
+  - question: Jak mogę przypisać uprawnienia spn do mojej rejestracji?
+    answer: >
+      Zobacz [Przypisywanie ról do spN ea](manage/assign-roles-azure-service-principals.md).
+  - question: Dlaczego nie otrzymuję wiadomości e-mail dotyczącej aktywacji?
+    answer: >
+      Wiadomość e-mail dotycząca aktywacji z portalu EA platformy Azure jest wysyłana z adresu *waep@microsoft.com* . Jeśli nie otrzymasz takiej wiadomości, sprawdź folder spamu lub wiadomości-śmieci. Temat wiadomości to _Zaproszenie do wyświetlenia usługi Microsoft Azure i zarządzania nią_. Wiadomość jest wysyłana do każdego nowo dodanego administratora EA.
+
+
+      Jeśli masz pewność, że skonfigurowano Cię jako administratora EA, nie musisz czekać na otrzymanie wiadomości e-mail dotyczącej aktywacji w celu zalogowania się do portalu EA platformy Azure. Zamiast tego możesz przejść do strony https://ea.azure.com i zalogować się przy użyciu adresu e-mail (służbowego, szkolnego lub konta Microsoft) i hasła.
+  - question: Jak mogę dodać nowego administratora EA do mojej rejestracji?
+    answer: >
+      Nowego administratora przedsiębiorstwa mogą dodać istniejący administratorzy przedsiębiorstwa. Jeśli jesteś administratorem EA, zaloguj się do witryny EA Portal > kliknij pozycję **Zarządzanie** > **+ Dodaj administratora** w prawym górnym rogu, aby dodać nowego administratora EA. Aby dodawać użytkowników, upewnij się, że masz ich adres e-mail i preferowaną metodę logowania, na przykład za pośrednictwem uwierzytelniania za pomocą konta służbowego bądź identyfikatora Microsoft Live ID.
+
+
+      Jeśli nie jesteś administratorem EA, skontaktuj się z administratorami EA w firmie, aby poprosić o dodanie Cię do rejestracji. Po dodaniu Cię do rejestracji otrzymasz wiadomość e-mail umożliwiającą aktywację.
+
+
+      Jeśli jednak administratorzy EA nie mogą Ci pomóc, możemy dodać Twoje konto w ich imieniu, jeśli podasz nam następujące informacje:
+
+      - numer rejestracji,
+
+      - adres e-mail do dodania oraz typ uwierzytelniania (konto służbowe/konto Microsoft),
+
+      - zatwierdzenie w wiadomości e-mail od administratora EA.
+
+
+      Po uzyskaniu wszystkich wymaganych informacji prześlij żądanie na adres [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport).
+  - question: Jak mogę zaktualizować pierwszego administratora EA w rejestracji?
+    answer: >
+      Pierwszego administratora EA można zaktualizować w centrum usługi licencjonowania zbiorowego, aktualizując informacje kontaktowe oraz administratora online w portalu. Aktualizacja portalu EA zajmie około 24 godzin. Po jego zaktualizowaniu nowy administrator EA otrzyma wiadomość e-mail dotyczącą aktywacji.
+
+
+      Jeśli nie masz dostępu do portalu VLSC lub jeśli początkowy administrator EA nie może już zarządzać rejestracją i nie ma dostępu do portalu EA, prześlij żądanie na adres [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport), aby poprosić o aktualizację. Podaj następujące informacje:
+
+      - Numer rejestracji
+
+      - Adres e-mail do dodania oraz typ uwierzytelniania (konto służbowe/konto Microsoft)
+
+      - Przyczyna zmiany początkowego administratora EA
+
+      - Zatwierdzenie w wiadomości e-mail od początkowego administratora EA
+  - question: Mój bieżący administrator EA nie jest już w firmie. Co mam zrobić?
+    answer: >
+      Rejestracja EA może mieć wielu administratorów EA. Można skontaktować się z innym administratorem EA w celu dodania nowego administratora EA/właściciela konta/administratora działu. Jeśli jednak nie masz pewności, kto jest administratorem EA w Twojej firmie, lub dla danej rejestracji nie ma innego dostępnego administratora EA, skontaktuj się z nami, podając następujące informacje:
+
+      - Numer rejestracji
+
+      - Adres e-mail do dodania oraz typ uwierzytelniania (konto służbowe/konto Microsoft)
+
+      - Informacja o tym, że obecny administrator EA nie pracuje już w naszej firmie
+
+
+      Pamiętaj, że jeśli dana rejestracja obejmuje innych administratorów EA, skontaktujemy się z nimi i poprosimy o zatwierdzenie zmian administracyjnych w rejestracji.
+  - question: Moja rejestracja jest wyświetlana jako oczekująca. Jak mogę aktywować moją rejestrację?
+    answer: >
+      Rejestracje będą oczekujące, jeśli początkowy administrator EA nie zalogował się jeszcze do rejestracji. Jeśli jesteś administratorem EA, zaloguj się do witryny Azure EA Portal. Oczekująca rejestracja może być niewidoczna na stronie docelowej ze wszystkimi numerami rejestracji. Usuń zaznaczenie pola „aktywne” w prawym górnym rogu witryny EA Portal. Ta akcja spowoduje wyświetlenie oczekującej rejestracji. Kliknij rejestrację, aby uzyskać dostęp do informacji, a po przejściu do strony Zarządzanie w rejestracji jej stan zostanie zaktualizowany z „oczekująca” na „aktywna”.
+  - question: Dlaczego moje konto jest zablokowane w stanie „oczekujące”?
+    answer: >
+      Gdy nowi właściciele konta są po raz pierwszy dodawani do rejestracji, ich stan jest wyświetlany jako „oczekujące”. Po otrzymaniu powitalnej wiadomości e-mail z informacjami o aktywacji właściciel konta może się zalogować, aby aktywować swoje konto. Zalogowanie spowoduje zaktualizowanie stanu konta z „oczekujące” na „aktywne”.
+  - question: Dlaczego podczas logowania się do witryny Azure EA Portal jest wyświetlany błąd?
+    answer: "Istnieje kilka możliwych przyczyn występowania błędów po zalogowaniu się w witrynie Azure EA Portal. Wykonaj następujące kroki rozwiązywania problemów:\n\n 1. Upewnij się, że używasz poprawnego adresu URL witryny EA Portal: [https://ea.azure.com](https://ea.azure.com).\n 1. Ustal, czy dostęp do witryny Azure EA Portal był dodany jako konto służbowe, czy jako identyfikator Microsoft Live ID: Jeśli używasz konta służbowego, wprowadź służbowy adres e-mail i hasło. Jeśli używasz identyfikatora Microsoft Live ID, wprowadź adres e-mail i hasło usługi Microsoft Live ID. Jeśli nie pamiętasz hasła usługi Microsoft Live ID, zresetuj je pod adresem [https://account.live.com/password/reset](https://account.live.com/password/reset).\n 1. Zaleca się logowanie za pomocą prywatnej przeglądarki, aby nie były zachowywane żadne pliki cookie ani pamięć podręczna z poprzednich/istniejących sesji. Wyczyść pamięć podręczną i użyj trybu przeglądania prywatnego/okna incognito, aby otworzyć witrynę [https://ea.azure.com](https://ea.azure.com).\n 1. Jeśli podczas korzystania z konta Microsoft wystąpi błąd nieprawidłowego użytkownika, może to być spowodowane tym, że masz wiele kont Microsoft, a konto, za pomocą którego próbujesz się zalogować, nie jest aliasem podstawowym. Aby sprawdzić alias podstawowy, przejdź do strony account.live.com:\n     - Przejdź do pozycji „Twoje informacje” > „Zarządzanie adresem e-mail lub numerem telefonu”.\n     - Postępuj zgodnie z monitami na ekranie, aby zweryfikować alternatywny adres e-mail i uzyskać kod umożliwiający dostęp do poufnych informacji.\n     - Wprowadź kod zabezpieczeń.\n     - Jeśli wolisz skonfigurować uwierzytelnianie dwuetapowe później, wybierz pozycję „Konfiguruj później”.\n     - Zostanie wyświetlona strona „Zarządzanie aliasami konta”, na której będą widoczne Twoje aliasy konta. Sprawdź dokładnie, czy do logowania się do witryny Azure EA Portal jest używany alias podstawowy. Jeśli tak nie jest, możesz go ustawić jako swój alias podstawowy lub użyć zamiast niego aliasu podstawowego dla witryny EA Portal.\n \n Jeśli powyższe kroki rozwiązywania problemów nie powiodły się, prześlij żądanie na adres [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport), podając następujące informacje:\n   - Używana przeglądarka i jej wersja.\n   - Zrzut ekranu przedstawiający komunikat o błędzie.\n   - Adres URL strony wyświetlającej błąd.  \n   - Data, godzina i strefa czasowa wystąpienia błędu.\n\n- Ponadto pomocne będzie uzyskanie pliku dziennika. Poniżej przedstawiono procedurę przechwytywania śledzenia sieci:\n\n1. Otwórz program Internet Explorer.\n1. Naciśnij klawisz F12, który spowoduje otwarcie pola w dolnej części ekranu programu IE.\n1. Wybierz kartę **Sieć**.\n1. Kliknij pozycję **Rozpocznij przechwytywanie**.\n1. Wykonaj akcję, która powoduje błąd.\n1. Po wystąpieniu błędu kliknij pozycję **Zatrzymaj przechwytywanie**.\n1. Zapisz plik i dołącz informacje we wniosku o pomoc techniczną.\n1. Pamiętaj, aby we wniosku o pomoc techniczną podać numer rejestracji oraz adres e-mail.\n"
+  - question: Jaka jest różnica między kontem służbowym a kontem Microsoft?
+    answer: >
+      **Konto Microsoft:** Konta, które zostały skojarzone z identyfikatorem Live ID na stronie [https://signup.live.com](https://signup.live.com).
+
+
+      **Konto służbowe:** Dostępne tylko dla firm, które skonfigurowały usługę Active Directory z federacją z chmurą i mają wszystkie konta w jednej dzierżawie. Użytkowników można dodawać przy użyciu autoryzacji za pomocą konta służbowego, jeśli wewnętrzna usługa Active Directory firmy jest sfederowana z chmurą.
+
+
+      Od września 2016 r. firma Microsoft nie zezwala już na rejestrację służbowego adresu e-mail jako konta Microsoft. Aby uzyskać więcej informacji, zapoznaj się z następującymi materiałami: [https://blogs.technet.microsoft.com/enterprisemobility/2016/09/15/cleaning-up-the-azure-ad-and-microsoft-account-overlap/](https://blogs.technet.microsoft.com/enterprisemobility/2016/09/15/cleaning-up-the-azure-ad-and-microsoft-account-overlap/).
+
+
+      Jeśli Twoja organizacja nie jest sfederowana z chmurą, nie będziesz w stanie używać służbowego adresu e-mail. Zamiast tego zarejestruj się lub utwórz nowy adres e-mail i zarejestruj go jako konto Microsoft.
+  - question: Nie pamiętam hasła do witryny Azure EA Portal. Co mam zrobić?
+    answer: >
+      Jeśli nie pamiętasz hasła usługi Microsoft Live ID, zresetuj je pod adresem [https://account.live.com/password/reset](https://account.live.com/password/reset).
+
+
+      Jeśli nie pamiętasz hasła służbowego, skontaktuj się z administratorem IT w Twojej firmie.
+  - question: Mam prawidłowe konto służbowe. Dlaczego nie mogę dodać jej do witryny EA Portal?
+    answer: >
+      Jeśli masz konto służbowe w innej dzierżawie, zmień poziom autoryzacji na stronie szczegółów rejestracji na „Konto służbowe między dzierżawami”, aby umożliwić dodanie tego konta.
+  - question: Przypadkowo skojarzono moje istniejące konto platformy Azure z rejestracją EA platformy Azure. W wyniku środki miesięczne zostały utracone. Czy jest możliwe odzyskanie tych środków miesięcznych?
+    answer: >
+      Jeśli zalogowano się jako właściciel konta EA platformy Azure przy użyciu tych samych poświadczeń, które są używane w subskrypcji programu Visual Studio, można odzyskać korzyść platformy Azure dla indywidualnej subskrypcji programu Visual Studio, wykonując jedną z następujących akcji:
+
+
+      - Usuń lub przenieś wszystkie skojarzone subskrypcje platformy Azure, a następnie usuń właściciela konta w witrynie Azure Enterprise Portal. Następnie zarejestruj się ponownie w celu uzyskania indywidualnych korzyści platformy Azure związanych z programem Visual Studio.
+
+      - Usuń subskrybenta programu Visual Studio z lokacji administracyjnej w programie VLSC i ponownie przypisz subskrypcję do konta z innymi poświadczeniami. Następnie zarejestruj się ponownie w celu uzyskania indywidualnych korzyści platformy Azure związanych z programem Visual Studio.
+  - question: Jakiego typu subskrypcję należy utworzyć?
+    answer: >
+      Witryna Azure Enterprise Portal oferuje dwa typy subskrypcji dla klientów korporacyjnych:
+
+
+      - Microsoft Azure Enterprise — idealne pod kątem:
+
+      - wszelkich zastosowań produkcyjnych
+
+      - najlepszych cen na podstawie wydatków na infrastrukturę
+
+
+      Aby uzyskać więcej informacji, [skontaktuj się z działem sprzedaży platformy Azure](https://azure.microsoft.com/pricing/enterprise-agreement/).
+
+
+      - Enterprise — tworzenie i testowanie. Idealne pod kątem:
+
+      - wszelkich zespołowych obciążeń tworzenia/testowania
+
+      - średnich i dużych indywidualnych obciążeń tworzenia/testowania
+
+      - dostępu do specjalnych obrazów MSDN i preferencyjnych stawek za usługi
+
+
+      Aby uzyskać więcej informacji, zapoznaj się z ofertą [Enterprise — tworzenie i testowanie](https://azure.microsoft.com/offers/ms-azr-0148p/).
+  - question: Nazwa mojej subskrypcji jest taka sama jak nazwa oferty. Czy należy zmienić nazwę subskrypcji, tak aby była bardziej zrozumiała w mojej organizacji?
+    answer: >
+      Domyślna nazwa utworzonej subskrypcji odpowiada typowi wybranej oferty. Zalecamy zmianę nazwy subskrypcji na coś, co ułatwi śledzenie subskrypcji.
+
+
+      Aby zmienić nazwę:
+
+
+      1. Zaloguj się do witryny [https://account.windowsazure.com](https://account.windowsazure.com).
+
+      1. Wybierz listę subskrypcji.
+
+      1. Wybierz subskrypcję, którą chcesz edytować.
+
+      1. Wybierz ikonę **Zarządzaj subskrypcją**.
+
+      1. Edytuj szczegóły subskrypcji.
+  - question: Jak mogę śledzić koszty naliczane w centrum kosztu?
+    answer: >
+      Aby śledzić koszty według centrum kosztu, należy zdefiniować centrum kosztu na dowolnym z następujących poziomów:
+
+
+      - Dział
+
+      - Konto
+
+      - Subskrypcja
+
+
+      W zależności od potrzeb można użyć tego samego centrum kosztu, aby śledzić użycie i koszty związane z określonym centrum kosztu.
+
+
+      Aby na przykład śledzić koszty dla określonego projektu, w którym uczestniczy wiele działów, można zdefiniować centrum kosztu na poziomie subskrypcji w celu śledzenia użycia i kosztów.
+
+
+      Nie można zdefiniować centrum kosztu na poziomie usługi. Jeśli chcesz śledzić użycie na poziomie usługi, możesz użyć funkcji _tagowania_ dostępnej na poziomie usługi.
+  - question: Jak mogę śledzić użycie i wydatki dla różnych działów w mojej organizacji?
+    answer: >
+      W ramach rejestracji EA platformy Azure możesz utworzyć tyle działów, ile potrzebujesz. Aby prawidłowo śledzić użycie, należy się upewnić, że subskrypcje nie są współużytkowane przez działy.
+
+
+      Po utworzeniu działów i subskrypcji można wyświetlić dane w raporcie użycia. Te informacje ułatwiają śledzenie użycia oraz zarządzanie kosztami i wydatkami na poziomie działu.
+
+
+      Dane użycia są również dostępne za pośrednictwem interfejsu API raportowania. Aby uzyskać szczegółowe informacje i przykładowy kod, zobacz artykuł [Interfejsy API REST usługi Azure Enterprise](manage/ea-portal-rest-apis.md).
+  - question: Czy mogę ustawić limit przydziału wydatków i otrzymywać alerty w miarę zbliżania się do tego limitu?
+    answer: >
+      Limit przydziału wydatków można ustawić na poziomie działu, a system automatycznie powiadomi Cię, gdy limit przydziału wydatków osiągnie 50%, 75%, 90% i 100% zdefiniowanej wartości.
+
+
+      Aby zdefiniować limit przydziału wydatków, wybierz dział, a następnie wybierz ikonę edycji. Gdy zakończysz edytowanie limitu wydatków, wybierz pozycję **Zapisz**.
+  - question: Grupy zasobów były używane do implementowania kontroli RBAC platformy Azure i śledzenia użycia. Jak wyświetlić skojarzone szczegóły użycia?
+    answer: >
+      W przypadku używania _grup zasobów_ i _tagów_ informacje te są śledzone na poziomie usługi. Dostęp do nich można uzyskać, pobierając plik CSV ze szczegółowym użyciem. Zobacz [Pobieranie raportu użycia](https://ea.azure.com/report/downloadusage) w witrynie Azure Enterprise Portal.
+
+
+      Dane o użyciu są również dostępne za pośrednictwem interfejsu API. Aby uzyskać szczegółowe informacje i przykładowy kod, zobacz artykuł [Interfejsy API REST usługi Azure Enterprise](manage/ea-portal-rest-apis.md).
+
+
+      > [!NOTE]
+
+      > Tagi można stosować tylko do zasobów, które obsługują operacje usługi Azure Resource Manager. W przypadku utworzenia maszyny wirtualnej, sieci wirtualnej lub magazynu za pomocą klasycznego modelu wdrażania (na przykład za pośrednictwem portalu klasycznego) nie można zastosować znacznika do takiego zasobu. Aby umożliwić obsługę tagowania, należy ponownie wdrożyć te zasoby za pomocą Menedżera zasobów. Wszystkie inne zasoby obsługują tagowanie.
+  - question: Czy mogę wykonywać analizy przy użyciu usługi Power BI?
+    answer: >
+      Tak, łącznika usługi Azure Cost Management dla usługi Power BI Desktop można używać do tworzenia zaawansowanych, [niestandardowych](/power-bi/connect-data/desktop-connect-azure-cost-management) wizualizacji i raportów, które pomagają lepiej zrozumieć wydatki na platformę Azure. Jeśli korzystasz z usługi Enterprise Agreement (EA), możesz również użyć Azure Cost Management [szablonu](costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md). Aplikacja Azure Cost Management szablonów zawiera wstępnie dostępne raporty, które pomagają monitorować koszty, trendy użycia usług i identyfikować opcje optymalizacji kosztów w celu zmniejszenia wydatków.               Funkcja raportowania usługi Power BI jest dostępna dla bezpośrednich klientów z umową EA platformy Azure, partnerów i klientów pośrednich, którzy mogą wyświetlać informacje dotyczące rozliczeń.
+  - question: Czy można skojarzyć istniejące konto platformy Azure z rejestracją EA platformy Azure?
+    answer: >
+      Tak. Wszystkie subskrypcje platformy Azure, w których jesteś właścicielem konta, zostaną przekonwertowane na umowę Enterprise Agreement. Dotyczy to subskrypcji, w których są używane środki miesięczne, takich jak na przykład Visual Studio, AzurePass, MPN i BizSpark. Konwersja takich subskrypcji powoduje utratę środków miesięcznych.
+  - question: Ilu właścicieli konta platformy Azure można mieć na subskrypcję?
+    answer: >
+      Dozwolony jest tylko jeden właściciel konta na subskrypcję.  Dodatkowe role można dodawać przy użyciu funkcji dostępu opartego na rolach lub kontroli dostępu (zarządzanie dostępem i tożsamościami) na karcie subskrypcji w lewym górnym rogu strony witryny [Azure Portal](https://portal.azure.com).
+  - question: Czy można przenieść własność subskrypcji na inne konto?
+    answer: >
+      Tak, można przenieść własność subskrypcji na inne konto. Jeśli na przykład konto A ma trzy subskrypcje, administrator przedsiębiorstwa może przenieść jedną subskrypcję na konto B, jedną na konto C i jedną na konto D. Administrator może również przenieść wszystkie subskrypcje na konto E.
+
+
+      Aby przenieść subskrypcje:
+
+
+      1. W witrynie Azure Enterprise Portal wybierz pozycję **Zarządzaj** > **Konto**.
+
+      1. Umieść wskaźnik myszy na skrajnej prawej pozycji **Konto**, aby wyświetlić opcje **Przenieś własność** (ikona osoby) i **Przenieś subskrypcję** (ikona listy). Te opcje są widoczne tylko w przypadku aktywnych kont.
+  - question: Czy właściciel konta platformy Azure może być wymieniony w więcej niż jednym dziale?
+    answer: >
+      Nie, właściciel konta może być skojarzony tylko z jednym działem. Te zasady ułatwiają dokładne monitorowanie i rozdzielanie kosztów oraz wydatków związanych z działem, do którego jest dopasowany w ramach rejestracji EA w witrynie Azure EA Portal.
+  - question: Czy właściciel konta platformy Azure może być wymieniony jako grupa zabezpieczeń?
+    answer: >
+      Nie, właściciel subskrypcji musi być unikatowym kontem Microsoft (MSA) lub uwierzytelnieniem usługi Azure Active Directory (Azure AD). Aby uwzględnić dziedziczenie w organizacji, możesz rozważyć utworzenie kont ogólnych i użycie usługi Azure AD w celu zarządzania dostępem do subskrypcji.
+  - question: Czy użytkownicy indywidualni mogą mieć wiele subskrypcji?
+    answer: >
+      Właściciel konta platformy Azure może utworzyć nieograniczoną liczbę subskrypcji i zarządzać nimi.
+  - question: Jak mogę wyświetlić wszystkie subskrypcje mojej organizacji lub uzyskać do nich dostęp?
+    answer: >
+      Obecnie robi się to za pomocą zasad. Oznacza to, że należy wymagać tego dla każdej utworzonej subskrypcji i że Twoje konto jest dodawane do roli subskrypcji przy użyciu dostępu opartego na rolach.
+  - question: Gdzie mogę utworzyć subskrypcję?
+    answer: >
+      Aby można było utworzyć subskrypcję oferty w ramach umowy Enterprise Azure (EA), Twoje konto musi zostać dodane do roli właściciela konta przez administratora rejestracji EA w witrynie Azure EA Portal. Następnie należy zalogować się w witrynie Azure EA Portal w celu uzyskania uprawnień do tworzenia subskrypcji typu oferta EA. Zalecamy, aby pierwszą subskrypcję EA utworzyć przy użyciu linku „+ Dodaj subskrypcję” na karcie subskrypcji w witrynie EA Portal.  Jednak po uzyskaniu uprawnień przez konto łatwiejsze może być tworzenie subskrypcji na stronie portal.azure.com na karcie subskrypcji w lewym górnym rogu strony, gdzie można utworzyć subskrypcję i zmienić jej nazwę w jednym kroku.
+  - question: Kto może utworzyć subskrypcję?
+    answer: >
+      Aby utworzyć subskrypcję oferty typu Enterprise Azure, musisz mieć uprawnienia w roli właściciela konta w witrynie [EA Portal](https://ea.azure.com).
+  - question: Dlaczego mój koszt jest pokazywany jako 0 USD?
+    answer: >
+      W przypadku klientów z **rejestracjami bezpośrednimi** administratorzy przedsiębiorstwa mogą zapewnić właścicielom i kont i administratorom działu dostęp do informacji o kosztach/cenach w raportach użycia. Wykonaj następujące kroki:
+
+
+      1. W witrynie Azure Enterprise Portal wybierz pozycję **Zarządzanie** w obszarze nawigacji po lewej stronie.
+
+      1. Wybierz symbol niebieskiego ołówka obok opłat w widoku administratora działu.
+
+      1. Wybierz pozycję **Włączono** i zapisz.
+
+      1. Wybierz symbol niebieskiego ołówka obok opłat w widoku właściciela konta.
+
+      1. Wybierz pozycję **Włączono** i zapisz.
+
+
+      > [!NOTE]
+
+      > Jeśli jesteś właścicielem konta lub administratorem działu, skontaktuj się z administratorem przedsiębiorstwa, aby włączyć funkcję cennika.
+
+
+      W przypadku klientów z **rejestracjami pośrednimi** należy sprawdzić u partnera, czy włączył on dla klienta funkcję cennika. Może to zrobić tylko partner. Po włączeniu tej funkcji można wyświetlać koszt i ceny w rejestracji za pomocą konta administratora przedsiębiorstwa.
+
+
+      Partnerzy chcący włączyć funkcję wyświetlania opłat dla właściciela konta lub administratora działu powinni wykonać kroki wymienione w **części dotyczącej rejestracji bezpośredniej**.
+  - question: Dlaczego w raporcie Szczegóły użycia nie ma informacji o jednostkach SKU?
+    answer: >
+      Raport Szczegóły użycia nie zawiera informacji o jednostkach SKU. Raport ten zawiera jednak informacje o użyciu, dzięki czemu można pobrać raport z arkuszem cen, aby uzyskać informacje o jednostkach SKU.
+  - question: Dlaczego łączna kwota dla witryny Azure Marketplace jest niezgodna z raportami z podsumowaniem i szczegółami użycia?
+    answer: >
+      Raport opłat związanych z witryną Azure Marketplace zawiera tylko opłaty naliczone na podstawie użycia. Opłaty jednorazowe nie są podawane. Aby uzyskać najaktualniejsze informacje o opłatach na podstawie użycia i jednorazowych, zapoznaj się ze stroną Podsumowanie użycia.
+  - question: Dlaczego raport interfejsu API nie zawiera informacji?
+    answer: >
+      Klucze interfejsu API wygasają co sześć miesięcy. Jeśli wystąpi problem, administrator przedsiębiorstwa powinien wygenerować nowy klucz interfejsu API. Pamiętaj, aby postępować zgodnie z instrukcjami podanymi w często zadawanych pytaniach dotyczących raportów interfejsu API.
+  - question: Dlaczego raport usługi Power BI nie działa?
+    answer: >
+      W przypadku problemów dotyczących usługi Power BI zarejestruj bilet skierowany do [zespołu pomocy technicznej usługi Power BI](https://support.powerbi.com).
+  - question: Dlaczego moje tagi zasobów nie są wyświetlane w raportach?
+    answer: >
+      Tagami zasobów zarządza się w witrynie Azure Portal. Możesz skontaktować się z zespołem subskrypcji platformy Azure w witrynie [Azure Portal](https://portal.azure.com). Wykonaj kroki opisane w artykule [Jak utworzyć żądanie pomocy technicznej dla platformy Azure](../azure-portal/supportability/how-to-create-azure-support-request.md).
+  - question: Dlaczego moja stawka zasobu zmienia się codziennie?
+    answer: >
+      Stawka zasobu podana w szczegółowym raporcie użycia jest wartością obliczaną. Reprezentuje średnią miesięczną stawkę naliczaną dla usługi. Ta stawka zasobu jest obliczana za pomocą średniej miesięcznego zobowiązania i miesięcznych opłat nadwyżkowych za jednostkę usługi. Część użycia naliczona dla zobowiązania i stawki nadwyżkowe zmieniają się do dnia zamknięcia miesiąca. W związku z tym podana stawka zasobu także zmienia się w ciągu miesiąca. Stawka zasobu jest blokowana piątego dnia po końcu miesiąca.
+  - question: Co się zmieniło w związku z usługami witryny Azure Marketplace i przedpłatą za platformę Azure w ramach umowy EA?
+    answer: >
+      Od 1 marca 2018 r. niektóre usługi odsprzedawców zewnętrznych zużywają przedpłatę za platformę Azure w ramach ea. Z wyjątkiem wystąpień zarezerwowanych maszyn wirtualnych platformy Azure (RI, Reserved Instance), wcześniej te usługi były rozliczane poza przedpłatą za platformę Azure w ramach umowy EA i na oddzielnej fakturze.
+
+
+      Rozszerzyliśmy korzystanie z przedpłaty za platformę Azure pod kątem niektórych często kupowanych usług w witrynie Azure Marketplace publikowanych przez dostawców zewnętrznych. Przedpłata za platformę Azure w ramach umowy EA dla tych usług w witrynie Azure Marketplace upraszcza klientom zarządzanie zakupami i płatnościami.
+
+
+      Ta zmiana została w związku z tym, że klienci chcieli skorzystać z innych sposobów przedpłaty za platformę Azure z góry. Klienci często prosili o wprowadzenie tej zmiany i ma ona wpływ na znaczną część klientów witryny Azure Marketplace.
+  - question: Jak mogę korzyści z przedpłaty za platformę Azure Azure Marketplace zakupu w ramach mojej umowy EA?
+    answer: >
+      Ta zmiana zapewnia klientom prostsze rozliczenia i możliwość lepszego wykorzystywania przedpłaty za platformę Azure w ramach umowy EA. Ponieważ usługi są uwzględnione w przedpłaty za platformę Azure, przedpłata za platformę Azure w ramach ea staje się bardziej cenna.
+  - question: Jakie usługi witryny Azure Marketplace zużywają przedpłatę za platformę Azure w ramach umowy EA i jak to ustalić?
+    answer: >
+      Gdy kupujesz usługę, w przypadku której można wykorzystać przedpłatę za platformę Azure, w witrynie Azure Marketplace jest prezentowane oświadczenie o zrzeczeniu się odpowiedzialności. Niektóre obsługiwane usługi są publikowane przez firmy Red Hat, SUSE, Autodesk i Oracle. Obecnie za usługi o podobnych nazwach publikowane przez innych dostawców nie można zapłacić, wykorzystując przedpłatę za platformę Azure. Zobacz [usługi innych firm, które korzystają z przedpłaty](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment) za platformę Azure, aby uzyskać pełną listę produktów uczestniczących w programie.
+  - question: Co zrobić, jeśli moja przedpłata za platformę Azure w ramach umowy EA Azure Marketplace zakupów?
+    answer: >
+      Jeśli wykorzystasz całą swoją przedpłatę za platformę Azure i pojawi się u Ciebie nadwyżka, opłaty związane z tymi usługami pojawią się na następnej fakturze nadwyżkowej wraz z pozostałym użyciem usług. Przed zmianą wprowadzoną 1 marca 2018 r. opłaty te były fakturowane z innymi usługami witryny Azure Marketplace.
+  - question: Dlaczego nie wszystkie usługi witryny Azure Marketplace zużywają przedpłatę za platformę Azure w ramach umowy EA?
+    answer: >
+      Często pracujemy nad zapewnieniem dla klientów najlepszego środowiska związanego z przedpłatą za platformę Azure w ramach umowy EA. Najnowsze zmiany w przedpłaty za platformę Azure w ramach ea dotyczyły dużej liczby klientów i znacznej części całkowitych wydatków w Azure Marketplace. Inne usługi mogą zostać dodane w przyszłości.
+  - question: Jak usługi Azure Marketplace i przedpłata za platformę Azure wpływają na rejestrację pośrednią i partnerów?
+    answer: >
+      Nie ma to wpływu na klientów rejestracji pośredniej ani partnerów. Te usługi są objęte tymi samymi możliwościami zastosowania narzutu przez partnera co inne usługi oparte na użyciu. Jedyną zmianą jest to, że opłaty są uwzględniane w innej fakturze, a opłaty są odejmowane od przedpłaty za platformę Azure w ramach umowy EA klienta.
+  - question: Gdzie mogę zobaczyć usługi Azure Marketplace, które zużywają przedpłatę za platformę Azure w ramach programu EA?
+    answer: >
+      Określone oferty z witryny Azure Marketplace mogą zużywać środki przedpłaty za platformę Azure. Zobacz [usługi innych firm, które korzystają z przedpłaty](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment) za platformę Azure, aby uzyskać pełną listę produktów uczestniczących w programie.
+- name: Pytania partnerów
+  questions:
+  - question: Kto powinien połączyć identyfikator partnera?
+    answer: >
+      Każdy użytkownik z organizacji partnerskiej, który pracuje nad zasobami Power Apps klienta, może połączyć identyfikator partnera z kontem. Najlepiej, aby skojarzenie w palu było wykonywane na początku projektu. Można to jednak zrobić za każdym razem, gdy masz dostęp do katalogu klienta.
+  - question: Czy identyfikator partnera można zmienić po jego połączeniu?
+    answer: >
+      Tak. Połączony identyfikator partnera można zmienić, dodać lub usunąć. Przykładem takiej sytuacji może być odejech z organizacji pracownik firmy. Innym przykładem może być zakończenie projektu lub kontraktu z klientem.
+  - question: Co należy zrobić, jeśli użytkownik ma konto w więcej niż jednej dzierżawie klienta?
+    answer: >
+      Połączenie między identyfikatorem partnera i kontem jest wykonywane dla każdej dzierżawy klienta. Połącz identyfikator partnera w każdej dzierżawie klienta.
+  - question: Czy inni partnerzy lub klienci mogą edytować lub usunąć hiperlink do identyfikatora partnera?
+    answer: >
+      Hiperlink jest skojarzony na poziomie konta użytkownika. Tylko Ty możesz edytować lub usunąć hiperlink do identyfikatora partnera. Klient i inni partnerzy nie mogą zmienić hiperlinku do identyfikatora partnera.
+  - question: Którego identyfikatora MPN należy użyć, jeśli moja firma ma ich wiele?
+    answer: >
+      Pamiętaj, aby użyć wartości **Skojarzony identyfikator MPN** wyświetlanej w profilu partnera. Zazwyczaj jest to skojarzenie identyfikatora konta lokalnego z Twoją organizacją.
+  - question: Jak mogę wyjaśnić klientowi swój numer PAL?
+    answer: >
+      Firma Microsoft może identyfikować i rozpoznawać partnerów, którzy pomagają klientom osiągać cele biznesowe i realizować wartość w chmurze. Klienci muszą najpierw zapewnić partnerowi dostęp do Power Apps zasobów. Po przyznaniu dostępu jest skojarzony identyfikator Microsoft Partner Network partnera (IDENTYFIKATOR MPN). To skojarzenie pomaga firmie Microsoft zrozumieć dostawców usług oraz udoskonalić narzędzia i programy potrzebne do jak najlepszego wspierania klientów.
+  - question: Jakie dane są zbierane przez link administratora partnera?
+    answer: >
+      Skojarzenie linku administratora partnera z istniejącymi poświadczeniami nie udostępnia żadnych nowych danych klienta firmie Microsoft. Udostępnia ona firmie Microsoft informacje, w których partner aktywnie uczestniczy w projektach Power Apps klienta. Firma Microsoft może przypisywać użycie i wpływ ze środowiska klienta do organizacji partnerskiej na podstawie uprawnień konta (rola Power Apps) i zakresu (dzierżawa, grupa zasobów, zasób) dostarczonych partnerowi przez klienta.
+  - question: Czy skojarzenie z działem pomocy klienta ma wpływ na bezpieczeństwo Power Apps klienta?
+    answer: Skojarzenie partnera dodaje tylko identyfikator MPN partnera do już zaaprowizowanych poświadczeń. Nie zmienia żadnych uprawnień (roli Power Apps) ani nie dostarcza Power Apps danych usługi partnerowi lub firmie Microsoft.

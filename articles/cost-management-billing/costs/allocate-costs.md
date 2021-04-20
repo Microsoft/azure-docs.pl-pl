@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 414ce626d76c9b7a7d073d6cbfa5a5f4446c3073
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: e7afef7e0a10bb4be3c30112fc207467167e4a17
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105025530"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726524"
 ---
 # <a name="create-and-manage-azure-cost-allocation-rules-preview"></a>Tworzenie reguł alokacji kosztów platformy Azure i zarządzanie nimi (wersja zapoznawcza)
 
@@ -96,7 +96,7 @@ W witrynie Azure Portal przejdź do obszaru **Zarządzanie kosztami i rozliczeni
 
 :::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="Przykład przedstawiający koszty dla elementów otagowanych" lightbox="./media/allocate-costs/tagged-costs.png" :::
 
-Oto film wideo, który pokazuje, jak utworzyć regułę alokacji kosztów.
+Oto wideo, w których pokazano, jak utworzyć regułę alokacji kosztów.
 
 >[!VIDEO https://www.youtube.com/embed/nYzIIs2mx9Q]
 
@@ -105,12 +105,7 @@ Oto film wideo, który pokazuje, jak utworzyć regułę alokacji kosztów.
 
 Regułę alokacji kosztów można edytować w celu zmiany źródła lub elementu docelowego, a także zaktualizowania wstępnie wypełnionej wartości procentowej dotyczącej zasobów obliczeniowych, magazynu lub sieci. Edycja reguł przebiega w podobny sposób, co ich tworzenie. Ponowna modyfikacja istniejących reguł może potrwać do dwóch godzin.
 
-## <a name="frequently-asked-questions-faq"></a>Często zadawane pytania
-
-Poniższe sekcje zawierają często zadawane pytania dotyczące alokacji kosztów.
-
-### <a name="what-are-the-current-limitations-with-cost-allocation-in-public-preview"></a>Jakie są bieżące ograniczenia dotyczące alokacji kosztów w publicznej wersji zapoznawczej?
-<a name="limitations"></a>
+## <a name="current-limitations"></a>Bieżące ograniczenia
 
 Alokacja kosztów w usłudze Cost Management jest obecnie obsługiwana w widokach analizy kosztów, budżetów i prognoz. Przydzielone koszty są również wyświetlane na liście subskrypcji i na stronie Omówienie subskrypcji.
 
@@ -122,32 +117,9 @@ Publiczna wersja zapoznawcza alokacji kosztów nie obsługuje obecnie następuj�
 - [Aplikacja Cost Management w usłudze Power BI](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)
 - [Łącznik w programie Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management)
 
-### <a name="are-costs-factored-into-budgets-and-forecast-views"></a>Czy koszty są uwzględniane w widokach budżetów i prognoz?
-<a name="budgets-forecast"></a>
-
-Tak. Przydzielone koszty są uwzględniane i obsługiwane przez budżety i prognozy. Widoki budżetu i prognozy przedstawiają przydzielone do nich koszty zgodnie z konfiguracją reguł alokacji kosztów.
-
-### <a name="if-a-cost-allocation-rule-is-deleted-what-happens"></a>Co się stanie, jeśli reguła alokacji kosztów zostanie usunięta?
-<a name="delete-rule"></a>
-
-Usunięcie reguły alokacji kosztów powoduje usunięcie wszystkich otwartych i bieżących opłat za dany miesiąc rozliczeniowy przydzielonych do elementów docelowych. Jeśli reguła alokacji kosztów istniała przez kilka miesięcy, historyczne dane alokacji dotyczące wcześniejszych miesięcy pozostaną takie same, jak pierwotnie wskazała reguła alokacji.
-
-### <a name="why-is-an-enrollment-admin-or-a-billing-account-admin-needed-to-create-cost-allocation-rules"></a>Dlaczego do utworzenia reguł alokacji kosztów potrzebny jest administrator rejestracji lub administrator konta rozliczeniowego?
-<a name="why-admin"></a>
-
-Reguły alokacji kosztów są tworzone w zakresie rejestracji (Umowa Enterprise Agreement) lub w zakresie konta rozliczeniowego (Umowa z Klientem firmy Microsoft). Aby wprowadzanie zmian w tych zakresach było możliwe, konieczne są uprawnienia administratora rozliczeń.
-
-### <a name="why-are-sources-and-targets-limited-to-25-per-rule"></a>Dlaczego liczba źródeł i elementów docelowych jest ograniczona do 25 na regułę?
-<a name="source-target-rule-limit"></a>
-
-Wyznaczony limit jest ograniczeniem obowiązującym w wersji zapoznawczej, które zapewnia dobrą wydajność i skalowalność alokacji kosztów. Limity będą prawdopodobnie zwiększane lub usuwane, gdy alokacja kosztów stanie się ogólnie dostępna.
-
-### <a name="what-can-happen-if-cost-allocation-rules-sourcestargets-overlap"></a>Co może się stać, jeśli reguły alokacji kosztów (źródła/elementy docelowe) będą się pokrywać?
-<a name="rule-overlap"></a>
-
-Nie zaleca się stosowania reguł, których źródła lub elementy docelowe pokrywają się. Reguły alokacji kosztów są stosowane według ich daty utworzenia, więc jeśli jakiekolwiek reguły alokacji kosztów nakładają się na siebie pierwszeństwo przysługuje najwcześniejszej dacie utworzenia.
 
 ## <a name="next-steps"></a>Następne kroki
 
+- Przeczytaj często [zadawane Cost Management + Billing odpowiedzi](../cost-management-billing-faq.yml) na pytania i odpowiedzi dotyczące alokacji kosztów.
 - Utwórz lub zaktualizuj reguły alokacji za pomocą [Interfejsu API Rest alokacji kosztów](/rest/api/cost-management/costallocationrules)
 - Dowiedz się więcej na temat [sposobu optymalizowania inwestycji w chmurę za pomocą usługi Azure Cost Management](cost-mgt-best-practices.md)

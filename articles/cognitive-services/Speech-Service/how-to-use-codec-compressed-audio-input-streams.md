@@ -1,7 +1,7 @@
 ---
-title: Koder-dekoder audio skompresowany dźwięk przy użyciu zestawu mowy SDK-Speech Service
+title: Przesyłanie strumieniowe skompresowanego dźwięku koderów-koderów za pomocą zestawu SPEECH SDK — usługa rozpoznawania mowy
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak przesyłać strumieniowo skompresowane audio do usługi mowy przy użyciu zestawu Speech SDK. Dostępne dla języków C++, C# i Java dla systemu Linux i języka Java w systemie Android i w systemie iOS.
+description: Dowiedz się, jak przesyłać strumieniowo skompresowany dźwięk do usługi Mowa przy użyciu zestawu SPEECH SDK. Dostępne dla języków C++, C# i Java dla systemu Linux, języka Java w systemie Android i języka Objective-C w systemie iOS.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -12,31 +12,31 @@ ms.date: 03/30/2020
 ms.author: amishu
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-two
-ms.openlocfilehash: 1e08203076de2073e39c5b5f5eb40b66c88490d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f02a9a3b493ed0f3068e6e0ccd2daa40850a4fb6
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103417710"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726182"
 ---
-# <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Korzystanie z kodera-dekoder skompresowanego audio przy użyciu zestawu Speech SDK
+# <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Używanie skompresowanych danych wejściowych audio koderów-koderów z zestawem Speech SDK
 
-Interfejs API **strumienia danych wejściowych audio** usługi Speech Service SDK umożliwia przesyłanie strumieniowe skompresowanego dźwięku do usługi mowy przy użyciu `PullStream` lub `PushStream` .
+Zestaw SDK usługi Mowa umożliwia bezpośrednie wysyłanie skompresowanych formatów audio do usługi rozpoznawania mowy przy użyciu metody ani (strumienie podejścia bezpośrednio do usługi są wysyłane do usługi, a nieprzetworzone formaty PCM są nadal wysyłane do `PullStream` `PushStream` usługi).
 
 Platforma | Języki | Obsługiwana wersja GStreamer
 | :--- | ---: | :---:
-Windows (z wyłączeniem platformy UWP)  | C++, C#, Java, Python | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/windows/1.18.3/)
+Windows (z wyjątkiem platformy UWP)  | C++, C#, Java, Python | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/windows/1.18.3/)
 Linux  | C++, C#, Java, Python | [obsługiwane dystrybucje systemu Linux i architektury docelowe](~/articles/cognitive-services/speech-service/speech-sdk.md)
 Android  | Java | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/android/1.18.3/)
 
-## <a name="speech-sdk-version-required-for-compressed-audio-input"></a>Wersja zestawu Speech SDK wymagana przez dane wejściowe skompresowanego dźwięku
-* Zestaw Speech SDK w wersji 1.10.0 lub nowszej jest wymagany dla RHEL 8 i CentOS 8
-* Dla systemu Windows wymagany jest pakiet Speech SDK w wersji 1.11.0 lub nowszej.
-* Zestaw Speech SDK w wersji 1.16.0 lub nowszej dla najnowszej GStreamer w systemach Windows i Android.
+## <a name="speech-sdk-version-required-for-compressed-audio-input"></a>Wersja zestawu SPEECH SDK wymagana dla skompresowanych danych wejściowych audio
+* Zestaw Speech SDK w wersji 1.10.0 lub nowszej jest wymagany w systemach RHEL 8 i CentOS 8
+* Zestaw SPEECH SDK w wersji 1.11.0 lub nowszej jest wymagany dla systemu Windows.
+* Zestaw SPEECH SDK w wersji 1.16.0 lub nowszej dla najnowszego narzędzia gstreamer w systemach Windows i Android.
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
-## <a name="gstreamer-required-to-handle-compressed-audio"></a>GStreamer wymagane do obsłużenia skompresowanego dźwięku
+## <a name="gstreamer-required-to-handle-compressed-audio"></a>GStreamer wymagany do obsługi skompresowanego dźwięku
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/csharp/prerequisites.md)]
@@ -54,7 +54,7 @@ Android  | Java | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/android/1.
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/python/prerequisites.md)]
 ::: zone-end
 
-## <a name="example-code-using-codec-compressed-audio-input"></a>Przykładowy kod przy użyciu kodera skompresowanego sygnału audio
+## <a name="example-code-using-codec-compressed-audio-input"></a>Przykładowy kod korzystający ze skompresowanych danych wejściowych audio koderów-koderów
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/csharp/examples.md)]
@@ -75,4 +75,4 @@ Android  | Java | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/android/1.
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Dowiedz się, jak rozpoznać mowę](./get-started-speech-to-text.md)
+> [Dowiedz się, jak rozpoznawać mowę](./get-started-speech-to-text.md)

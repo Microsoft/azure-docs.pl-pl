@@ -3,17 +3,17 @@ title: Rozwiązywanie problemów z dostępem do portalu Umowy Enterprise platfor
 description: W tym artykule opisano najczęstsze problemy z Umową Enterprise (EA) w portalu EA platformy Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/20/2020
+ms.date: 03/26/2021
 ms.topic: troubleshooting
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 5402ee3283e5ae11f43884b4002486e8bdefae2c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
-ms.translationtype: HT
+ms.openlocfilehash: 852fb85607318772870a8b6826c934997b84ff6d
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294411"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726470"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Rozwiązywanie problemów z dostępem do portalu Umowy Enterprise platformy Azure
 
@@ -65,105 +65,7 @@ Komunikat _Nieprawidłowy użytkownik_ może być też spowodowany użyciem bł�
   - Jeśli musisz sprawdzić alias podstawowy, przejdź do strony [https://account.live.com](https://account.live.com). Następnie kliknij **swoje informacje**, a potem pozycję **Zarządzaj logowaniem do firmy Microsoft**. Postępuj zgodnie z monitami, aby zweryfikować alternatywny adres e-mail i uzyskać kod umożliwiający dostęp do poufnych informacji. Wprowadź kod zabezpieczeń. Jeśli nie chcesz konfigurować uwierzytelniania dwuskładnikowego, wybierz opcję **Skonfiguruj je później**.
   - Zostanie wyświetlona strona **Zarządzanie logowaniem do firmy Microsoft**, na której możesz zobaczyć swoje aliasy kont. Sprawdź, czy do logowania się do portalu EA platformy Azure jest używany alias podstawowy. Jeśli nie, możesz go ustawić jako alias podstawowy. Możesz też użyć zamiast niego podstawowego aliasu dla portalu EA platformy Azure.
 
-## <a name="azure-ea-activation-faq"></a>Aktywacja rejestracji Azure EA — często zadawane pytania
-
-W tej sekcji artykułu przedstawiono rozwiązania typowych problemów związanych z aktywacją rejestracji Azure EA.
-
-### <a name="i-didnt-receive-an-activation-email"></a>Nie otrzymano wiadomości e-mail dotyczącej aktywacji
-
-Wiadomość e-mail dotycząca aktywacji z portalu EA platformy Azure jest wysyłana z adresu *waep@microsoft.com* . Jeśli nie otrzymasz takiej wiadomości, sprawdź folder spamu lub wiadomości-śmieci. Temat wiadomości to _Zaproszenie do wyświetlenia usługi Microsoft Azure i zarządzania nią_. Wiadomość jest wysyłana do każdego nowo dodanego administratora EA.
-
-Jeśli masz pewność, że skonfigurowano Cię jako administratora EA, nie musisz czekać na otrzymanie wiadomości e-mail dotyczącej aktywacji w celu zalogowania się do portalu EA platformy Azure. Zamiast tego możesz przejść do strony https://ea.azure.com i zalogować się przy użyciu adresu e-mail (służbowego, szkolnego lub konta Microsoft) i hasła.
-
-### <a name="i-would-like-to-add-a-new-ea-administrator-to-my-enrollment"></a>Chcę dodać nowego administratora EA do mojej rejestracji
-
-Nowego administratora przedsiębiorstwa mogą dodać istniejący administratorzy przedsiębiorstwa. Jeśli jesteś administratorem EA, zaloguj się do witryny EA Portal > kliknij pozycję **Zarządzanie** > **+ Dodaj administratora** w prawym górnym rogu, aby dodać nowego administratora EA. Aby dodawać użytkowników, upewnij się, że masz ich adres e-mail i preferowaną metodę logowania, na przykład za pośrednictwem uwierzytelniania za pomocą konta służbowego bądź identyfikatora Microsoft Live ID.
-
-Jeśli nie jesteś administratorem EA, skontaktuj się z administratorami EA w firmie, aby poprosić o dodanie Cię do rejestracji. Po dodaniu Cię do rejestracji otrzymasz wiadomość e-mail umożliwiającą aktywację.
-
-Jeśli jednak administratorzy EA nie mogą Ci pomóc, możemy dodać Twoje konto w ich imieniu, jeśli podasz nam następujące informacje:
-- numer rejestracji,
-- adres e-mail do dodania oraz typ uwierzytelniania (konto służbowe/konto Microsoft),
-- zatwierdzenie w wiadomości e-mail od administratora EA.
-
-Po uzyskaniu wszystkich wymaganych informacji prześlij żądanie na adres [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport).
-
-### <a name="i-would-like-to-update-the-first-ea-admin-on-the-enrollment"></a>Chcę zaktualizować pierwszego administratora EA w rejestracji
-
-Pierwszego administratora EA można zaktualizować w centrum usługi licencjonowania zbiorowego, aktualizując informacje kontaktowe oraz administratora online w portalu. Aktualizacja portalu EA zajmie około 24 godzin. Po jego zaktualizowaniu nowy administrator EA otrzyma wiadomość e-mail dotyczącą aktywacji.
-
-Jeśli nie masz dostępu do portalu VLSC lub jeśli początkowy administrator EA nie może już zarządzać rejestracją i nie ma dostępu do portalu EA, prześlij żądanie na adres [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport), aby poprosić o aktualizację. Podaj następujące informacje:
-- Numer rejestracji
-- Adres e-mail do dodania oraz typ uwierzytelniania (konto służbowe/konto Microsoft)
-- Przyczyna zmiany początkowego administratora EA
-- Zatwierdzenie w wiadomości e-mail od początkowego administratora EA
-
-### <a name="my-current-ea-admin-is-no-longer-with-the-company"></a>Obecny administrator EA nie pracuje już w naszej firmie
-
-Rejestracja EA może mieć wielu administratorów EA. Można skontaktować się z innym administratorem EA w celu dodania nowego administratora EA/właściciela konta/administratora działu. Jeśli jednak nie masz pewności, kto jest administratorem EA w Twojej firmie, lub dla danej rejestracji nie ma innego dostępnego administratora EA, skontaktuj się z nami, podając następujące informacje:
-- Numer rejestracji
-- Adres e-mail do dodania oraz typ uwierzytelniania (konto służbowe/konto Microsoft)
-- Informacja o tym, że obecny administrator EA nie pracuje już w naszej firmie
-
-Pamiętaj, że jeśli dana rejestracja obejmuje innych administratorów EA, skontaktujemy się z nimi i poprosimy o zatwierdzenie zmian administracyjnych w rejestracji.
-
-### <a name="my-enrollment-is-showing-in-pending-status-how-do-i-activate-my-enrollment"></a>Moja rejestracja jest wyświetlana jako oczekująca. Jak mogę aktywować moją rejestrację?
-
-Rejestracje będą oczekujące, jeśli początkowy administrator EA nie zalogował się jeszcze do rejestracji. Jeśli jesteś administratorem EA, zaloguj się do witryny Azure EA Portal. Oczekująca rejestracja może być niewidoczna na stronie docelowej ze wszystkimi numerami rejestracji. Usuń zaznaczenie pola „aktywne” w prawym górnym rogu witryny EA Portal. Ta akcja spowoduje wyświetlenie oczekującej rejestracji. Kliknij rejestrację, aby uzyskać dostęp do informacji, a po przejściu do strony Zarządzanie w rejestracji jej stan zostanie zaktualizowany z „oczekująca” na „aktywna”.
-
-### <a name="why-is-my-account-stuck-in-pending-status"></a>Dlaczego moje konto jest zablokowane w stanie „oczekujące”?
-
-Gdy nowi właściciele konta są po raz pierwszy dodawani do rejestracji, ich stan jest wyświetlany jako „oczekujące”. Po otrzymaniu powitalnej wiadomości e-mail z informacjami o aktywacji właściciel konta może się zalogować, aby aktywować swoje konto. Zalogowanie spowoduje zaktualizowanie stanu konta z „oczekujące” na „aktywne”.
-
-### <a name="i-received-an-error-when-signing-in-to-azure-ea-portal"></a>Wystąpił błąd podczas logowania się do witryny Azure EA Portal
-
-Istnieje kilka możliwych przyczyn występowania błędów po zalogowaniu się w witrynie Azure EA Portal. Wykonaj następujące kroki rozwiązywania problemów:
-
- 1. Upewnij się, że używasz poprawnego adresu URL witryny EA Portal: [https://ea.azure.com](https://ea.azure.com).
- 1. Ustal, czy dostęp do witryny Azure EA Portal był dodany jako konto służbowe, czy jako identyfikator Microsoft Live ID: Jeśli używasz konta służbowego, wprowadź służbowy adres e-mail i hasło. Jeśli używasz identyfikatora Microsoft Live ID, wprowadź adres e-mail i hasło usługi Microsoft Live ID. Jeśli nie pamiętasz hasła usługi Microsoft Live ID, zresetuj je pod adresem [https://account.live.com/password/reset](https://account.live.com/password/reset).
- 1. Zaleca się logowanie za pomocą prywatnej przeglądarki, aby nie były zachowywane żadne pliki cookie ani pamięć podręczna z poprzednich/istniejących sesji. Wyczyść pamięć podręczną i użyj trybu przeglądania prywatnego/okna incognito, aby otworzyć witrynę [https://ea.azure.com](https://ea.azure.com).
- 1. Jeśli podczas korzystania z konta Microsoft wystąpi błąd nieprawidłowego użytkownika, może to być spowodowane tym, że masz wiele kont Microsoft, a konto, za pomocą którego próbujesz się zalogować, nie jest aliasem podstawowym. Aby sprawdzić alias podstawowy, przejdź do strony account.live.com:
-    - Przejdź do pozycji „Twoje informacje” > „Zarządzanie adresem e-mail lub numerem telefonu”.
-    - Postępuj zgodnie z monitami na ekranie, aby zweryfikować alternatywny adres e-mail i uzyskać kod umożliwiający dostęp do poufnych informacji.
-    - Wprowadź kod zabezpieczeń.
-    - Jeśli wolisz skonfigurować uwierzytelnianie dwuetapowe później, wybierz pozycję „Konfiguruj później”.
-    - Zostanie wyświetlona strona „Zarządzanie aliasami konta”, na której będą widoczne Twoje aliasy konta. Sprawdź dokładnie, czy do logowania się do witryny Azure EA Portal jest używany alias podstawowy. Jeśli tak nie jest, możesz go ustawić jako swój alias podstawowy lub użyć zamiast niego aliasu podstawowego dla witryny EA Portal.
-
-Jeśli powyższe kroki rozwiązywania problemów nie powiodły się, prześlij żądanie na adres [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport), podając następujące informacje:
-- Używana przeglądarka i jej wersja.
-- Zrzut ekranu przedstawiający komunikat o błędzie.
-- Adres URL strony wyświetlającej błąd.  
-- Data, godzina i strefa czasowa wystąpienia błędu.
-- Ponadto pomocne będzie uzyskanie pliku dziennika. Poniżej przedstawiono procedurę przechwytywania śledzenia sieci:
-  1. Otwórz program Internet Explorer.
-  1. Naciśnij klawisz F12, który spowoduje otwarcie pola w dolnej części ekranu programu IE.
-  1. Wybierz kartę **Sieć**.
-  1. Kliknij pozycję **Rozpocznij przechwytywanie**.
-  1. Wykonaj akcję, która powoduje błąd.
-  1. Po wystąpieniu błędu kliknij pozycję **Zatrzymaj przechwytywanie**.
-  1. Zapisz plik i dołącz informacje we wniosku o pomoc techniczną.
-  1. Pamiętaj, aby we wniosku o pomoc techniczną podać numer rejestracji oraz adres e-mail.
-
-### <a name="what-is-the-difference-between-a-workschool-account-and-microsoft-account"></a>Jaka jest różnica między kontem służbowym a kontem Microsoft?
-
-**Konto Microsoft:** Konta, które zostały skojarzone z identyfikatorem Live ID na stronie [https://signup.live.com](https://signup.live.com).
-
-**Konto służbowe:** Dostępne tylko dla firm, które skonfigurowały usługę Active Directory z federacją z chmurą i mają wszystkie konta w jednej dzierżawie. Użytkowników można dodawać przy użyciu autoryzacji za pomocą konta służbowego, jeśli wewnętrzna usługa Active Directory firmy jest sfederowana z chmurą.
-
-  Od września 2016 r. firma Microsoft nie zezwala już na rejestrację służbowego adresu e-mail jako konta Microsoft. Aby uzyskać więcej informacji, zapoznaj się z następującymi materiałami: [https://blogs.technet.microsoft.com/enterprisemobility/2016/09/15/cleaning-up-the-azure-ad-and-microsoft-account-overlap/](https://blogs.technet.microsoft.com/enterprisemobility/2016/09/15/cleaning-up-the-azure-ad-and-microsoft-account-overlap/).
-
-  Jeśli Twoja organizacja nie jest sfederowana z chmurą, nie będziesz w stanie używać służbowego adresu e-mail. Zamiast tego zarejestruj się lub utwórz nowy adres e-mail i zarejestruj go jako konto Microsoft.
-
-### <a name="i-forgot-my-password-to-azure-ea-portal"></a>Nie pamiętam hasła do witryny Azure EA Portal
-
-Jeśli nie pamiętasz hasła usługi Microsoft Live ID, zresetuj je pod adresem [https://account.live.com/password/reset](https://account.live.com/password/reset).
-
-Jeśli nie pamiętasz hasła służbowego, skontaktuj się z administratorem IT w Twojej firmie.
-
-### <a name="i-have-a-valid-work-or-school-account-but-i-cant-add-it-to-the-ea-portal"></a>Mam prawidłowe konto służbowe, ale nie mogę go dodać do witryny EA Portal
-
-Jeśli masz konto służbowe w innej dzierżawie, zmień poziom autoryzacji na stronie szczegółów rejestracji na „Konto służbowe między dzierżawami”, aby umożliwić dodanie tego konta.
-
 ## <a name="next-steps"></a>Następne kroki
 
 - Administratorzy portalu EA platformy Azure powinni przeczytać artykuł [Administracja portalu Azure EA](ea-portal-administration.md), aby poznać typowe zadania administracyjne.
+- Przeczytaj często [zadawane Cost Management + Billing odpowiedzi](../cost-management-billing-faq.yml) na pytania i odpowiedzi dotyczące typowych problemów z aktywacją ea platformy Azure.

@@ -1,14 +1,14 @@
 ---
-title: 'Szybki Start: Biblioteka klienta analizy obrazów lub interfejs API REST'
+title: 'Szybki start: biblioteka klienta analizy obrazów lub interfejs API REST'
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak używać analizy obrazów w aplikacji za pomocą natywnej biblioteki klienta w wybranym języku.
+description: Dowiedz się, jak używać analizy obrazów w aplikacji za pośrednictwem natywnej biblioteki klienta w wybranego języka.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/21/2020
+ms.date: 03/29/2021
 ms.author: pafarley
 ms.custom:
 - devx-track-python
@@ -16,17 +16,17 @@ ms.custom:
 - devx-track-csharp
 - cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-computer-vision
-keywords: Obsługa komputera, usługa komputera
-ms.openlocfilehash: 6fa8bb9bda7cdaf5d7db4b4758d5bb9cd63e75da
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+keywords: computer vision, computer vision service
+ms.openlocfilehash: 0ed8116ec1f40ab6ef5fcc4bef426c3b65f38c45
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106287216"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728176"
 ---
-# <a name="quickstart-use-the-image-analysis-client-library-or-rest-api"></a>Szybki Start: korzystanie z biblioteki klienta analizy obrazów lub interfejsu API REST
+# <a name="quickstart-use-the-image-analysis-client-library-or-rest-api"></a>Szybki start: korzystanie z biblioteki klienta analizy obrazów lub interfejsu API REST
 
-Rozpocznij pracę z interfejsem API REST analizy obrazów lub bibliotekami klienckimi. Usługa analizowanie obrazów zapewnia algorytmy AI do przetwarzania obrazów i zwracania informacji o ich funkcjach wizualnych. Wykonaj następujące kroki, aby zainstalować pakiet w aplikacji, a następnie Wypróbuj przykładowy kod dla podstawowych zadań.
+Wprowadzenie do interfejsu API REST analizy obrazów lub bibliotek klienckich. Usługa analizowanie obrazów udostępnia algorytmy sztucznej inteligencji do przetwarzania obrazów i zwracania informacji o ich funkcjach wizualnych. Wykonaj następujące kroki, aby zainstalować pakiet w aplikacji i wypróbować przykładowy kod dla podstawowych zadań.
 
 
 

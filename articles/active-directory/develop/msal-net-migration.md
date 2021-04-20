@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 49b5da2da72e78226db19f5d8881073577aee5b0
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: 2ec4ca8b24f1e8534e7f8434bc86a2eb2745e946
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107575527"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727046"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrowanie aplikacji do MSAL.NET
 
@@ -47,7 +47,7 @@ W większości przypadków chcesz użyć usługi MSAL.NET platformy tożsamości
 
 Jeśli znasz już punkt końcowy usługi Azure AD dla deweloperów (w wersji 1.0) (i program ADAL.NET), warto przeczytać temat Co różni się od platformy tożsamości [firmy Microsoft?](../azuread-dev/azure-ad-endpoint-comparison.md).
 
-Jednak nadal musisz używać usługi ADAL.NET, jeśli aplikacja wymaga logowania użytkowników przy użyciu wcześniejszych wersji usługi [Active Directory Federation Services (ADFS).](/windows-server/identity/active-directory-federation-services) Aby uzyskać więcej informacji, zobacz [Obsługa usług AD FS.](https://aka.ms/msal-net-adfs-support)
+Jednak nadal musisz używać usługi ADAL.NET, jeśli aplikacja musi zalogować użytkowników przy użyciu wcześniejszych wersji [usługi Active Directory Federation Services (ADFS).](/windows-server/identity/active-directory-federation-services) Aby uzyskać więcej informacji, zobacz [Obsługa usług AD FS.](https://aka.ms/msal-net-adfs-support)
 
 Na poniższej ilustracji przedstawiono podsumowanie niektórych różnic między ADAL.NET i MSAL.NET ![ kodu side-by-side](./media/msal-compare-msaldotnet-and-adaldotnet/differences.png)
 
@@ -59,9 +59,9 @@ Aby użyć MSAL.NET należy dodać pakiet NuGet [Microsoft.Identity.Client](http
 
 ### <a name="scopes-not-resources"></a>Zakresy nie zasobów
 
-ADAL.NET uzyskuje tokeny dla *zasobów,* ale MSAL.NET uzyskuje tokeny dla *zakresów*. Wiele przesło MSAL.NET AcquireToken wymaga parametru o nazwie scopes( `IEnumerable<string> scopes` ). Ten parametr to prosta lista ciągów, które deklarują żądane uprawnienia i zasoby. Dobrze znane zakresy to [Microsoft Graph zakresu.](https://docs.microsoft.com/graph/permissions-reference)
+ADAL.NET uzyskuje tokeny dla *zasobów,* ale MSAL.NET uzyskuje tokeny dla *zakresów*. Wiele przesło MSAL.NET AcquireToken wymaga parametru o nazwie scopes( `IEnumerable<string> scopes` ). Ten parametr to prosta lista ciągów, które deklarują żądane uprawnienia i zasoby. Dobrze znane zakresy to [Microsoft Graph zakresu.](/graph/permissions-reference)
 
-Dostęp do zasobów w MSAL.NET w wersji 1.0 jest również możliwy w MSAL.NET 1.0. Aby uzyskać szczegółowe [informacje, zobacz Zakresy dla aplikacji w wersji 1.0.](#scopes-for-a-web-api-accepting-v10-tokens)
+Dostęp do zasobów w MSAL.NET w wersji 1.0 jest również możliwy w programie . Szczegółowe informacje można [znaleźć w tece Zakresy dla aplikacji w wersji 1.0.](#scopes-for-a-web-api-accepting-v10-tokens)
 
 ### <a name="core-classes"></a>Klasy podstawowe
 
@@ -110,7 +110,7 @@ catch(MsalUiRequiredException exception)
 W ADAL.NET żądania wyjątków są obsługiwane w następujący sposób:
 
 - `AdalClaimChallengeException` to wyjątek (pochodzący od klasy ) zgłaszany przez usługę w przypadku, gdy zasób wymaga większej liczby oświadczeń od użytkownika (na przykład `AdalServiceException` uwierzytelniania dwuskładnikowego). Członek `Claims` zawiera fragment JSON z oczekiwanymi oświadczeniami.
-- Nadal w ADAL.NET aplikacja klienca publiczna odbierający ten wyjątek musi wywołać `AcquireTokenInteractive` przesłonięcie mające parametr oświadczeń. To przesłonięcie `AcquireTokenInteractive` nie próbuje nawet trafić do pamięci podręcznej, ponieważ nie jest to konieczne. Przyczyną jest to, że token w pamięci podręcznej nie ma odpowiednich oświadczeń (w przeciwnym razie `AdalClaimChallengeException` nie zostałby zgłoszony). W związku z tym nie ma potrzeby przyjrzenia się pamięci podręcznej. Należy pamiętać, że obiekt może zostać odebrany w internetowym interfejsie API wykonującym obiekt OBO, natomiast obiekt musi być wywoływany w publicznej aplikacji klienckiej wywołującej `ClaimChallengeException` `AcquireTokenInteractive` ten internetowy interfejs API.
+- Nadal w ADAL.NET aplikacja klienca publiczna odbierający ten wyjątek musi wywołać `AcquireTokenInteractive` przesłonięcie mające parametr oświadczeń. To przesłonięcie `AcquireTokenInteractive` nie próbuje nawet trafić do pamięci podręcznej, ponieważ nie jest to konieczne. Przyczyną jest to, że token w pamięci podręcznej nie ma odpowiednich oświadczeń (w przeciwnym razie `AdalClaimChallengeException` nie zostałby zgłoszony). W związku z tym nie ma potrzeby przyjrzenia się pamięci podręcznej. Należy pamiętać, że obiekt może zostać odebrany w interfejsie WebAPI wykonującym obiekt OBO, natomiast obiekt musi być wywoływany w publicznej aplikacji klienckiej wywołującej `ClaimChallengeException` `AcquireTokenInteractive` ten internetowy interfejs API.
 - Aby uzyskać szczegółowe informacje, w tym przykłady, zobacz Handling [AdalClaimChageException (Obsługa wyjątku AdalClaimChageException)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Exceptions-in-ADAL.NET#handling-adalclaimchallengeexception)
 
 W MSAL.NET żądania wyjątki dotyczące wyzwania są obsługiwane w następujący sposób:
@@ -163,7 +163,7 @@ Istnieją dwie wersje tokenów:
 
 Punkt końcowy w wersji 1.0 (używany przez ADAL) emituje tylko tokeny w wersji 1.0.
 
-Jednak punkt końcowy w wersji 2.0 (używany przez usługę MSAL) emituje wersję tokenu akceptowaną przez internetowy interfejs API. Właściwość manifestu aplikacji internetowego interfejsu API umożliwia deweloperom wybranie akceptowanej wersji tokenu. Zobacz `accessTokenAcceptedVersion` dokumentację [referencyjną manifestu](reference-app-manifest.md) aplikacji.
+Jednak punkt końcowy w wersji 2.0 (używany przez usługę MSAL) emituje wersję tokenu akceptowaną przez internetowy interfejs API. Właściwość manifestu aplikacji internetowego interfejsu API umożliwia deweloperom wybranie, która wersja tokenu jest akceptowana. Zobacz `accessTokenAcceptedVersion` dokumentację [referencyjną manifestu](reference-app-manifest.md) aplikacji.
 
 Aby uzyskać więcej informacji na temat tokenów w wersji 1.0 i 2.0, [zobacz Azure Active Directory tokeny dostępu](access-tokens.md)
 
@@ -218,7 +218,7 @@ var scopes = new [] { ResourceId+"/.default" };
 
 ### <a name="scopes-to-request-in-the-case-of-client-credential-flow--daemon-app"></a>Zakresy do żądania w przypadku przepływu poświadczeń klienta/aplikacji demona
 
-W przypadku przepływu poświadczeń klienta zakres do przekazania to również `/.default` . Ten zakres informuje usługę Azure AD: "wszystkie uprawnienia na poziomie aplikacji, na które administrator wyraził zgodę podczas rejestracji aplikacji.
+W przypadku przepływu poświadczeń klienta zakresem do przekazania będzie również `/.default` . Ten zakres informuje usługę Azure AD: "wszystkie uprawnienia na poziomie aplikacji, na które administrator wyraził zgodę podczas rejestracji aplikacji.
 
 ## <a name="adal-to-msal-migration"></a>Migracja z ADAL do MSAL
 
@@ -249,7 +249,7 @@ Za pomocą tej metody możesz podać wcześniej używany token odświeżania wra
 
 Ponieważ ta metoda jest przeznaczona dla scenariuszy, które nie są typowe, nie jest łatwo dostępna dla metody bez `IConfidentialClientApplication` uprzedniego rzutowania jej do `IByRefreshToken` metody .
 
-Ten fragment kodu przedstawia kod migracji w poufnej aplikacji klienckiej. `GetCachedRefreshTokenForSignedInUser` pobieranie tokenu odświeżania, który był przechowywany w magazynie przez poprzednią wersję aplikacji, która korzysta z ADAL 2.x. `GetTokenCacheForSignedInUser` deerializuje pamięć podręczną zalogowanego użytkownika (poufne aplikacje klienckie powinny mieć jedną pamięć podręczną na użytkownika).
+Ten fragment kodu przedstawia kod migracji w poufnej aplikacji klienckiej. `GetCachedRefreshTokenForSignedInUser` pobiera token odświeżania, który był przechowywany w magazynie przez poprzednią wersję aplikacji, która korzysta z ADAL 2.x. `GetTokenCacheForSignedInUser` deerializuje pamięć podręczną zalogowanego użytkownika (poufne aplikacje klienckie powinny mieć jedną pamięć podręczną na użytkownika).
 
 ```csharp
 TokenCache userCache = GetTokenCacheForSignedInUser();

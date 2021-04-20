@@ -7,28 +7,28 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: quickstart
-ms.date: 12/02/2020
+ms.topic: include
+ms.date: 04/19/2021
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 01149eed5cc4195ca501507e7fe1d66fffecb84d
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 2f01b1d222470c49505638be64180948b6f7e046
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107327096"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728262"
 ---
 Interfejs API REST optycznego rozpoznawania znaków umożliwia odczytywanie tekstu drukowanego i odręcznego.
 
 > [!NOTE]
-> W tym przewodniku Szybki start do wywołania interfejsu API REST są używane polecenia cURL. Interfejs API REST można również wywołać przy użyciu języka programowania. Zobacz przykłady w serwisie GitHub, aby uzyskać przykłady w [językach C#,](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/ComputerVision/REST) [Python,](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/ComputerVision/REST) [Java,](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/java/ComputerVision/REST) [JavaScript](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/ComputerVision/REST)i [Go.](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/go/ComputerVision/REST)
+> W tym przewodniku Szybki start do wywołania interfejsu API REST są używane polecenia cURL. Interfejs API REST można również wywołać przy użyciu języka programowania. Przykłady można znaleźć w przykładach w języku [C#,](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/ComputerVision/REST) [Python,](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/ComputerVision/REST) [Java,](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/java/ComputerVision/REST) [JavaScript](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/ComputerVision/REST)i [Go.](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/go/ComputerVision/REST)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [utwórz subskrypcję bezpłatnie](https://azure.microsoft.com/free/cognitive-services/) 
-* Po utworzeniu subskrypcji platformy Azure utwórz zasób przetwarzanie obrazów zasobów przetwarzanie obrazów witrynie Azure Portal, aby uzyskać <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" "  target="_blank"> klucz i punkt </a> końcowy. Po wdrożeniu kliknij pozycję **Przejdź do zasobu**.
-  * Klucz i punkt końcowy z zasobu, który utworzysz, będą potrzebne do połączenia aplikacji z przetwarzanie obrazów usługą. Klucz i punkt końcowy wkleisz do poniższego kodu w dalszej części tego przewodnika Szybki start.
-  * Możesz użyć warstwy cenowej Bezpłatna ( ), aby wypróbować usługę, i przejść później na warstwę płatną `F0` na użytek produkcji.
+* Subskrypcja platformy Azure — [bezpłatne tworzenie subskrypcji](https://azure.microsoft.com/free/cognitive-services/) 
+* Po utworzeniu subskrypcji platformy Azure utwórz zasób przetwarzanie obrazów zasobów przetwarzanie obrazów w witrynie Azure Portal, aby uzyskać <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" "  target="_blank"> klucz i punkt </a> końcowy. Po wdrożeniu kliknij pozycję **Przejdź do zasobu**.
+  * Klucz i punkt końcowy będą potrzebne z zasobu, który utworzysz, aby połączyć aplikację z przetwarzanie obrazów usługą. Klucz i punkt końcowy wkleisz do poniższego kodu w dalszej części tego przewodnika Szybki start.
+  * Możesz użyć bezpłatnej warstwy cenowej ( ), aby wypróbować usługę, a następnie uaktualnić ją do warstwy `F0` płatnej w środowisku produkcyjnym.
 * [Zainstalowany program cURL](https://curl.haxx.se/)
 
 
@@ -36,6 +36,8 @@ Interfejs API REST optycznego rozpoznawania znaków umożliwia odczytywanie teks
 ## <a name="read-printed-and-handwritten-text"></a>Odczytywanie tekstu drukowanego i odręcznego
 
 Usługa OCR może odczytywać widoczny tekst na obrazie i konwertować go na strumień znaków. Aby uzyskać więcej informacji na temat rozpoznawania tekstu, zobacz [Omówienie optycznego rozpoznawania znaków (OCR).](../overview-ocr.md)
+
+### <a name="call-the-read-api"></a>Wywołanie interfejsu API odczytu
 
 Aby utworzyć i uruchomić przykład, wykonaj następujące kroki:
 
@@ -53,6 +55,8 @@ curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/r
 ```
 
 Odpowiedź będzie zawierać `Operation-Location` nagłówek, którego wartość jest unikatowym adresem URL. Ten adres URL umożliwia wykonywanie zapytań o wyniki operacji Odczytu. Adres URL wygasa po 48 godzinach.
+
+### <a name="get-read-results"></a>Uzyskiwanie wyników odczytu
 
 1. Skopiuj następujące polecenie do edytora tekstów.
 1. Zastąp adres URL `Operation-Location` wartością skopiowaną w poprzednim kroku.
@@ -131,7 +135,9 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z interfejsem API OCR bardziej szczegółowo. Aby szybko poeksperymentować z interfejsem API, wypróbuj [konsolę testowania interfejsu Open API.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005/console)
+W tym przewodniku Szybki start opisano sposób wywołania interfejsu API REST odczytywania. Następnie dowiedz się więcej o funkcjach interfejsu API odczytywania.
 
 > [!div class="nextstepaction"]
-> [Eksplorowanie interfejsu API OCR](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)
+>[Wywołanie interfejsu API odczytu](../Vision-API-How-to-Topics/call-read-api.md)
+
+* [Omówienie OCR](../overview-ocr.md)

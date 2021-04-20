@@ -8,22 +8,22 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/16/2021
+ms.date: 04/19/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 2c4dcaaa1deaa50d620e7c24dacbe56fa91c217f
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: d63e7916423038e53c375b2be4114582cf4d6152
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/19/2021
-ms.locfileid: "107713448"
+ms.locfileid: "107725768"
 ---
 # <a name="custom-email-verification-with-sendgrid"></a>Niestandardowa weryfikacja wiadomości e-mail przy użyciu usługi SendGrid
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-Użyj niestandardowej poczty e-Azure Active Directory B2C aplikacji (Azure AD B2C), aby wysyłać dostosowane wiadomości e-mail do użytkowników, którzy zarejestrują się w celu korzystania z aplikacji. Korzystając z usługi SendGrid dostawcy poczty e-mail innej  firmy, możesz użyć własnego szablonu wiadomości e-mail i adresu i tematu z adresu i tematu, a także obsługiwać ustawienia lokalizacji i niestandardowe hasła jednorazowego (OTP).
+Użyj niestandardowej poczty e-Azure Active Directory B2C aplikacji (Azure AD B2C), aby wysyłać dostosowane wiadomości e-mail do użytkowników, którzy zarejestrują się w celu korzystania z aplikacji. Za pomocą usługi SendGrid dostawcy poczty e-mail innej  firmy możesz użyć własnego szablonu wiadomości e-mail i adresu i tematu z adresu i tematu, a także obsługiwać ustawienia lokalizacji i niestandardowe hasła jednorazowego (OTP).
 
 ::: zone pivot="b2c-user-flow"
 
@@ -35,16 +35,14 @@ Użyj niestandardowej poczty e-Azure Active Directory B2C aplikacji (Azure AD B2
 
 Niestandardowa weryfikacja poczty e-mail wymaga użycia zewnętrznego dostawcy poczty e-mail, takiego jak [SendGrid,](https://sendgrid.com) [Mail email lub](https://Mailjet.com) [SparkPost,](https://sparkpost.com)niestandardowego interfejsu API REST lub dowolnego dostawcy poczty e-mail opartego na http (w tym Twojego własnego). W tym artykule opisano konfigurowanie rozwiązania, które używa usługi SendGrid.
 
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
-
 ## <a name="create-a-sendgrid-account"></a>Tworzenie konta sendGrid
 
 Jeśli jeszcze jej nie masz, zacznij od skonfigurowania konta usługi SendGrid (klienci platformy Azure mogą odblokować 25 000 bezpłatnych wiadomości e-mail każdego miesiąca). Aby uzyskać instrukcje dotyczące konfiguracji, zobacz [sekcję Tworzenie konta SendGrid](../sendgrid-dotnet-how-to-send-email.md#create-a-sendgrid-account) w tesłudze jak wysyłać wiadomości e-mail [przy użyciu usługi SendGrid na platformie Azure.](../sendgrid-dotnet-how-to-send-email.md)
 
-Pamiętaj, aby ukończyć sekcję, w której [tworzysz klucz interfejsu API usługi SendGrid.](../sendgrid-dotnet-how-to-send-email.md#to-find-your-sendgrid-api-key) Zanotuj klucz interfejsu API do użycia w późniejszym kroku.
+Pamiętaj, aby ukończyć sekcję, w której [jest tworzymy klucz interfejsu API usługi SendGrid.](../sendgrid-dotnet-how-to-send-email.md#to-find-your-sendgrid-api-key) Zanotuj klucz interfejsu API do użycia w późniejszym kroku.
 
 > [!IMPORTANT]
-> SendGrid oferuje klientom możliwość wysyłania wiadomości e-mail z udostępnionego adresu IP i [dedykowanych adresów IP.](https://sendgrid.com/docs/ui/account-and-settings/dedicated-ip-addresses/) W przypadku korzystania z dedykowanych adresów IP należy odpowiednio budować własną reputację dzięki rozgrzewce adresów IP. Aby uzyskać więcej informacji, zobacz [Warming Up An IP Address (Rozgrzewanie adresu IP).](https://sendgrid.com/docs/ui/sending-email/warming-up-an-ip-address/)
+> SendGrid oferuje klientom możliwość wysyłania wiadomości e-mail z udostępnionego adresu IP i [dedykowanych adresów IP.](https://sendgrid.com/docs/ui/account-and-settings/dedicated-ip-addresses/) W przypadku korzystania z dedykowanych adresów IP należy odpowiednio zbudować własną reputację dzięki rozgrzewce adresów IP. Aby uzyskać więcej informacji, zobacz [Warming Up An IP Address (Rozgrzewanie adresu IP).](https://sendgrid.com/docs/ui/sending-email/warming-up-an-ip-address/)
 
 ## <a name="create-azure-ad-b2c-policy-key"></a>Tworzenie Azure AD B2C zasad grupy
 
@@ -66,7 +64,7 @@ Następnie przechowuj klucz interfejsu API usługi SendGrid w kluczu zasad Azure
 Po utworzeniu konta usługi SendGrid i kluczu interfejsu API usługi SendGrid przechowywanego w kluczu zasad Azure AD B2C utwórz dynamiczny szablon [transakcyjny](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/)SendGrid.
 
 1. W witrynie SendGrid otwórz stronę [szablonów transakcyjnych](https://sendgrid.com/dynamic_templates) i wybierz **pozycję Utwórz szablon**.
-1. Wprowadź unikatową nazwę szablonu, na przykład `Verification email` , a następnie wybierz pozycję **Zapisz.**
+1. Wprowadź unikatową nazwę szablonu, na przykład `Verification email` , a następnie wybierz pozycję **Zapisz**.
 1. Aby rozpocząć edytowanie nowego szablonu, wybierz **pozycję Dodaj wersję.**
 1. Wybierz **pozycję Edytor kodu,** a następnie **pozycję Kontynuuj.**
 1. W edytorze HTML wklej następujący szablon HTML lub użyj własnego. Parametry i zostaną zastąpione dynamicznie wartością hasła i adresem `{{otp}}` `{{email}}` e-mail użytkownika.
@@ -305,6 +303,9 @@ W obszarze definicji zawartości, nadal w `<BuildingBlocks>` programie , dodaj n
 
 Profil `GenerateOtp` techniczny generuje kod dla adresu e-mail. Profil `VerifyOtp` techniczny weryfikuje kod skojarzony z adresem e-mail. Konfigurację formatu i wygaśnięcie hasła można zmienić. Aby uzyskać więcej informacji na temat profilów technicznych OTP, zobacz Define a one-time password technical profile (Definiowanie [profilu technicznego haseł jednorazowych).](one-time-password-technical-profile.md)
 
+> [!NOTE]
+> Kody OTP generowane przez protokół Web.TPEngine.Providers.OneTimePasswordProtocolProvider są powiązane z sesją przeglądarki. Oznacza to, że użytkownik może generować unikatowe kody OTP w różnych sesjach przeglądarki, które są prawidłowe dla odpowiednich sesji. Z kolei kod OTP generowany przez wbudowany przepływ użytkownika jest niezależny od sesji przeglądarki, więc jeśli użytkownik wygeneruje nowy kod OTP w nowej sesji przeglądarki, zastąpi poprzedni kod OTP.
+
 Dodaj następujące profile techniczne do `<ClaimsProviders>` elementu .
 
 ```xml
@@ -382,9 +383,9 @@ Podobnie jak w przypadku profilów technicznych OTP, dodaj następujące profile
 </ClaimsProvider>
 ```
 
-## <a name="make-a-reference-to-the-displaycontrol"></a>Odwołanie do DisplayControl
+## <a name="make-a-reference-to-the-displaycontrol"></a>Odwołanie do kontrolera DisplayControl
 
-W ostatnim kroku dodaj odwołanie do utworzonego kontrolera DisplayControl. Zastąp istniejące `LocalAccountSignUpWithLogonEmail` i `LocalAccountDiscoveryUsingEmailAddress` samodzielnie potwierdzane profile techniczne następującymi. Jeśli używasz starszej wersji zasad Azure AD B2C zasad. Te profile techniczne używają `DisplayClaims` z odwołaniem do displaycontrol.
+W ostatnim kroku dodaj odwołanie do utworzonego kontrolera DisplayControl. Zastąp istniejące `LocalAccountSignUpWithLogonEmail` i `LocalAccountDiscoveryUsingEmailAddress` samodzielnie potwierdzane profile techniczne następującymi. Jeśli używasz starszej wersji zasad Azure AD B2C zasad. Te profile techniczne używają `DisplayClaims` z odwołaniem do DisplayControl.
 
 Aby uzyskać więcej informacji, zobacz [Samodzielnie potwierdzany profil techniczny i](restful-technical-profile.md) [DisplayControl](display-controls.md).
 
@@ -569,6 +570,6 @@ Po dodaniu zlokalizowanych ciągów usuń metadane komunikatów o błędach wery
 Przykład niestandardowych zasad weryfikacji poczty e-mail można znaleźć w witrynie GitHub:
 
 - [Niestandardowa weryfikacja wiadomości e-mail — DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol)
-- Aby uzyskać informacje na temat korzystania z niestandardowego interfejsu API REST lub dowolnego dostawcy poczty e-mail SMTP opartego na Azure AD B2C HTTP, zobacz Define a RESTful technical profile in an Azure AD B2C custom policy (Definiowanie profilu technicznego [RESTful w Azure AD B2C zasad niestandardowych).](restful-technical-profile.md)
+- Aby uzyskać informacje dotyczące korzystania z niestandardowego interfejsu API REST lub dowolnego dostawcy poczty e-mail SMTP opartego na Azure AD B2C HTTP, zobacz Define a RESTful technical profile in an Azure AD B2C custom policy (Definiowanie profilu technicznego [RESTful w Azure AD B2C zasad niestandardowych).](restful-technical-profile.md)
 
 ::: zone-end

@@ -9,12 +9,12 @@ ms.subservice: enterprise
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 643aac7927cc7b14693387fbb5765bdcd0214dc2
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
-ms.translationtype: HT
+ms.openlocfilehash: 5d945c421dc0a4abed17b3a355339c131dd922df
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598253"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728054"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Omówienie rachunku za umowę Enterprise platformy Azure
 
@@ -396,51 +396,6 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 
     Klucz interfejsu API możesz uzyskać w witrynie Azure Enterprise Portal na karcie **Pobierz zestawienie użycia**. Wybierz pozycję **Klucz dostępu interfejsu API**, a następnie wklej ten klucz w polu **Klucz konta**.
 1. Załadowanie danych do usługi Power BI trwa około 5-30 minut w zależności od rozmiaru zestawów danych.
-
-## <a name="reports-faq"></a>Raporty — często zadawane pytania
-
-Ta sekcja zawiera typowe pytania dotyczące raportów.
-
-### <a name="why-is-my-cost-showing-as-0"></a>Dlaczego mój koszt jest wyświetlany jako 0 USD?
-
-W przypadku klientów z **rejestracjami bezpośrednimi** administratorzy przedsiębiorstwa mogą zapewnić właścicielom i kont i administratorom działu dostęp do informacji o kosztach/cenach w raportach użycia. Wykonaj następujące kroki:
-
-1. W witrynie Azure Enterprise Portal wybierz pozycję **Zarządzanie** w obszarze nawigacji po lewej stronie.
-1. Wybierz symbol niebieskiego ołówka obok opłat w widoku administratora działu.
-1. Wybierz pozycję **Włączono** i zapisz.
-1. Wybierz symbol niebieskiego ołówka obok opłat w widoku właściciela konta.
-1. Wybierz pozycję **Włączono** i zapisz.
-
-> [!NOTE]
-> Jeśli jesteś właścicielem konta lub administratorem działu, skontaktuj się z administratorem przedsiębiorstwa, aby włączyć funkcję cennika.
-
-W przypadku klientów z **rejestracjami pośrednimi** należy sprawdzić u partnera, czy włączył on dla klienta funkcję cennika. Może to zrobić tylko partner. Po włączeniu tej funkcji można wyświetlać koszt i ceny w rejestracji za pomocą konta administratora przedsiębiorstwa.
-
-Partnerzy chcący włączyć funkcję wyświetlania opłat dla właściciela konta lub administratora działu powinni wykonać kroki wymienione w **części dotyczącej rejestracji bezpośredniej**.
-
-### <a name="why-is-there-no-sku-information-on-my-usage-detail-report"></a>Dlaczego w raporcie Szczegóły użycia nie ma informacji o jednostkach SKU?
-
-Raport Szczegóły użycia nie zawiera informacji o jednostkach SKU. Raport ten zawiera jednak informacje o użyciu, dzięki czemu można pobrać raport z arkuszem cen, aby uzyskać informacje o jednostkach SKU.
-
-### <a name="why-doesnt-the-total-amount-on-azure-marketplace-match-the-reports-for-usage-summary-and-detail"></a>Dlaczego łączna kwota dla witryny Azure Marketplace jest niezgodna z raportami z podsumowaniem i szczegółami użycia?
-
-Raport opłat związanych z witryną Azure Marketplace zawiera tylko opłaty naliczone na podstawie użycia. Opłaty jednorazowe nie są podawane. Aby uzyskać najaktualniejsze informacje o opłatach na podstawie użycia i jednorazowych, zapoznaj się ze stroną Podsumowanie użycia.
-
-### <a name="why-is-there-no-information-on-my-api-report"></a>Dlaczego raport interfejsu API nie zawiera informacji?
-
-Klucze interfejsu API wygasają co sześć miesięcy. Jeśli wystąpi problem, administrator przedsiębiorstwa powinien wygenerować nowy klucz interfejsu API. Pamiętaj, aby postępować zgodnie z instrukcjami podanymi w często zadawanych pytaniach dotyczących raportów interfejsu API.
-
-### <a name="why-isnt-my-power-bi-report-working"></a>Dlaczego raport usługi Power BI nie działa?
-
-W przypadku problemów dotyczących usługi Power BI zarejestruj bilet skierowany do [zespołu pomocy technicznej usługi Power BI](https://support.powerbi.com).
-
-### <a name="why-dont-my-resource-tags-show-on-my-reports"></a>Dlaczego w raportach nie ma tagów zasobów?
-
-Tagami zasobów zarządza się w witrynie Azure Portal. Możesz skontaktować się z zespołem subskrypcji platformy Azure w witrynie [Azure Portal](https://portal.azure.com). Wykonaj kroki opisane w artykule [Jak utworzyć żądanie pomocy technicznej dla platformy Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md).
-
-### <a name="why-does-my-resource-rate-change-every-day"></a>Dlaczego moja stawka zasobu zmienia się codziennie?
-
-Stawka zasobu podana w szczegółowym raporcie użycia jest wartością obliczaną. Reprezentuje średnią miesięczną stawkę naliczaną dla usługi. Ta stawka zasobu jest obliczana za pomocą średniej miesięcznego zobowiązania i miesięcznych opłat nadwyżkowych za jednostkę usługi. Część użycia naliczona dla zobowiązania i stawki nadwyżkowe zmieniają się do dnia zamknięcia miesiąca. W związku z tym podana stawka zasobu także zmienia się w ciągu miesiąca. Stawka zasobu jest blokowana piątego dnia po końcu miesiąca.
 
 ### <a name="glossary-of-processes-for-calculating-the-resource-rate"></a>Słownik procesów obliczania stawki zasobu
 

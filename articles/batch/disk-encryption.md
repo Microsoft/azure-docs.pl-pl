@@ -5,13 +5,13 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 04/16/2021
 ms.author: peshultz
-ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 40281211e5eb70089f4168dcb02720c912120a35
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 01d2ea03768a09c1ad4e019b9e8ed43a26443637
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107576112"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728522"
 ---
 # <a name="create-a-pool-with-disk-encryption-enabled"></a>Tworzenie puli z włączonym szyfrowaniem dysku
 
@@ -23,7 +23,7 @@ W tym artykule wyjaśniono, jak utworzyć pulę usługi Batch z włączonym szyf
 
 Pula usługi Batch umożliwia uzyskiwanie dostępu do danych i przechowywanie ich na dyskach systemu operacyjnego i dyskach tymczasowych węzła obliczeniowego. Szyfrowanie dysku po stronie serwera za pomocą klucza zarządzanego przez platformę chroni te dane przy niskim narzucie i wygodzie.
 
-Usługa Batch zastosuje jedną z tych technologii szyfrowania dysków w węzłach obliczeniowych w oparciu o konfigurację puli i regionalną obsługę.
+Usługa Batch zastosuje jedną z tych technologii szyfrowania dysków w węzłach obliczeniowych na podstawie konfiguracji puli i regionalnych możliwości obsługi.
 
 - [Szyfrowanie dysków zarządzanych w spoczynku przy użyciu kluczy zarządzanych przez platformę](../virtual-machines/disk-encryption.md#platform-managed-keys)
 - [Szyfrowanie na hoście przy użyciu klucza zarządzanego przez platformę](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
@@ -36,7 +36,7 @@ Nie będzie można określić, która metoda szyfrowania zostanie zastosowana do
 
 ## <a name="azure-portal"></a>Azure Portal
 
-Podczas tworzenia puli usługi Batch w Azure Portal wybierz pozycję **TemporaryDisk** lub **OsAndTemporaryDisk** w obszarze **Konfiguracja szyfrowania dysków.**
+Podczas tworzenia puli usługi Batch w Azure Portal wybierz pozycję **TemporaryDisk** lub **OsAndTemporaryDisk w** obszarze **Konfiguracja szyfrowania dysków.**
 
 :::image type="content" source="media/disk-encryption/portal-view.png" alt-text="Zrzut ekranu przedstawiający opcję Konfiguracja szyfrowania dysków w Azure Portal.":::
 

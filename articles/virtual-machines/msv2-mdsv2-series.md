@@ -1,52 +1,48 @@
 ---
-title: Msv2 — seria (wersja zapoznawcza) — Virtual Machines platformy Azure
-description: Specyfikacje dotyczące maszyn wirtualnych z serii Msv2.
+title: Średnia seria pamięci Msv2/Mdsv2 — Azure Virtual Machines
+description: Specyfikacje maszyn wirtualnych z serii Msv2.
 author: ayshakeen
 ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: a7f4757467523837423d52998eb6b8204090e627
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d85623184ad52fb0d4acd4c49d08badfaf886b30
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102562575"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728234"
 ---
-# <a name="msv2-and-mdsv2-series-medium-memory-preview"></a>Pamięć średniej z serii Msv2 i Mdsv2 (wersja zapoznawcza)
+# <a name="msv2-and-mdsv2-series-medium-memory"></a>Średnia pamięć z serii Msv2 i Mdsv2
+
+Maszyny wirtualne Msv2 i Mdsv2 z średnią pamięcią mają procesor Intel® Xeon® Turbo 8280 (Cascade Lake) z podstawową częstotliwością 2,7 GHz i 4,0 GHz z częstotliwością turbo z jednym rdzeniem. Dzięki tym maszynom wirtualnych klienci osiągają większą elastyczność dzięki dyskom lokalnym i bezdyskowym. Klienci mają również dostęp do zestawu nowych izolowanych rozmiarów maszyn wirtualnych o większej mocy procesora i pamięci, które mogą sięgają 192 procesorów wirtualnych z 4 TiB pamięci. 
 
 
-> [!IMPORTANT]
-> Dołącz do wersji zapoznawczej, wypełniając formularz pod adresem **https://aka.ms/Mv2MedMemoryPreview** .  
+Maszyny wirtualne z serii Msv2 i Mdsv2 są tylko 2. generacji i obsługują podzestaw obrazów obsługiwanych przez generację 2. Poniżej znajduje się pełna lista obsługiwanych obrazów dla serii Msv2 i Mdsv2.  
 
-Seria maszyn wirtualnych Msv2 i Mdsv2 średniej ilości pamięci oferuje procesor Intel® Xeon® Platinum 8280 (Kaskada Lake) z podstawową częstotliwością bazową 2,7 GHz i 4,0 pojedynczej częstotliwości Turbo. Dzięki tym maszynom wirtualnym klienci uzyskują większą elastyczność dzięki możliwościom dysków lokalnych i bezdyskowych. Klienci mają również dostęp do zestawu nowych izolowanych rozmiarów maszyn wirtualnych o większej liczbie procesorów i pamięci, które wychodzą do 192 vCPU z 4 TiB pamięci. 
+- Windows Server 2019 lub nowszy
+- SUSE Linux Enterprise Server 12 z dodatkiem SP4 lub nowszym SUSE Linux Enterprise Server 15 z dodatkiem SP1 lub nowszym
+- Red Hat Enterprise Linux 7.6, 7.7, 8.1 lub nowszy 
+- Oracle Enterprise Linux 7.7 lub nowszy
 
-
-Maszyny wirtualne z serii Msv2 i Mdsv2 są tylko 2 generacji i obsługują podzbiór obrazów obsługiwanych przez generację 2. Zapoznaj się z pełną listą obsługiwanych obrazów dla serii Msv2 i Mdsv2.  
-
-- System Windows Server 2019 lub nowszy
-- SUSE Linux Enterprise Server 12 z dodatkiem SP4 lub nowszym lub SUSE Linux Enterprise Server 15 SP1 i nowsze
-- Red Hat Enterprise Linux 7,6, 7,7, 8,1 lub nowszy 
-- Oracle Enterprise Linux 7,7 lub nowszy
-
-Aby uzyskać więcej informacji na temat maszyn wirtualnych 2. generacji, zobacz [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](./generation-2.md).
+Aby uzyskać więcej informacji na temat maszyn wirtualnych generacji 2, zobacz Support for generation 2 VMs on Azure (Obsługa maszyn wirtualnych [2. generacji na platformie Azure).](./generation-2.md)
 
 
 
-[Premium Storage](premium-storage-performance.md): obsługiwane<br>
-[Buforowanie Premium Storage](premium-storage-performance.md): obsługiwane<br>
-[Migracja na żywo](maintenance-and-updates.md): nieobsługiwane<br>
-[Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): nieobsługiwane<br>
-[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 2<br>
-[Akcelerator zapisu](./how-to-enable-write-accelerator.md): obsługiwane<br>
-[Przyspieszone sieci](../virtual-network/create-vm-accelerated-networking-cli.md): obsługiwane<br>
-[Dyski tymczasowe systemu operacyjnego](ephemeral-os-disks.md): nieobsługiwane <br>
+[Premium Storage:](premium-storage-performance.md)obsługiwane<br>
+[Premium Storage buforowania:](premium-storage-performance.md)obsługiwane<br>
+[migracja na żywo:](maintenance-and-updates.md)nie są obsługiwane<br>
+[Aktualizacje zachowujące pamięć:](maintenance-and-updates.md)nie są obsługiwane<br>
+[Obsługa generacji maszyny wirtualnej:](generation-2.md)generacja 2<br>
+[akcelerator zapisu:](./how-to-enable-write-accelerator.md)obsługiwane<br>
+[Przyspieszona sieć:](../virtual-network/create-vm-accelerated-networking-cli.md)obsługiwane<br>
+[Efemeracyjne dyski systemu operacyjnego:](ephemeral-os-disks.md)nie są obsługiwane <br>
 <br>
  
-## <a name="msv2-medium-memory-diskless"></a>Msv2 pamięci średniej 
+## <a name="msv2-medium-memory-diskless"></a>Bezdyskowy dysk w średnich pamięciach MSV2 
 
-| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność dysku w pamięci podręcznej: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych | Oczekiwana przepustowość sieci (MB/s) | 
+| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność dysku bez pamięci: liczba IOPS/MB/s | Maksymalna liczba kart sieciowych | Oczekiwana przepustowość sieci (Mb/s) | 
 |---|---|---|---|---|---|---|---|
 | Standard_M32ms_v2 | 32 | 875 | 0 | 32 |  20000/500 | 8 | 8000 | 
 | Standard_M64s_v2 | 64 | 1024 | 0 | 64 | 40000/1000 | 8 | 16000 | 
@@ -56,9 +52,9 @@ Aby uzyskać więcej informacji na temat maszyn wirtualnych 2. generacji, zobacz
 | Standard_M192is_v2 | 192 | 2048 | 0 | 64 | 80000/2000 | 8 | 30000 | 
 | Standard_M192ims_v2 | 192 | 4096 | 0 | 64 | 80000/2000 | 8 | 30000 | 
 
-## <a name="mdsv2-medium-memory-with-disk"></a>Mdsv2 średniej pamięci z dyskiem  
+## <a name="mdsv2-medium-memory-with-disk"></a>Średnia pamięć mdsv2 z dyskiem  
 
-| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maksymalny dysk danych | Maksymalna przepływność magazynu w pamięci podręcznej i tymczasowej: IOPS/MB/s | Maksymalna przepływność dysku w pamięci podręcznej: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych | Oczekiwana przepustowość sieci (MB/s) | 
+| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maksymalny dysk danych | Maksymalna przepływność pamięci podręcznej i magazynu tymczasowego: liczba IOPS/MB/s | Maksymalna przepływność dysku bez pamięci: liczba IOPS/MB/s | Maksymalna liczba kart sieciowych | Oczekiwana przepustowość sieci (Mb/s) | 
 |---|---|---|---|---|---|---|---|---|
 | Standard_M32dms_v2 | 32 | 875 | 1024 | 32 | 40000/400 | 20000/500 | 8 | 8000 | 
 | Standard_M64ds_v2 | 64 | 1024 | 2048 | 64 | 80000/800 | 40000/1000 | 8 | 16000 | 
@@ -84,4 +80,4 @@ Kalkulator cen: [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o tym, jak [usługa Azure COMPUTE units (ACU)](acu.md) może pomóc w porównaniu wydajności obliczeniowej w ramach jednostek SKU platformy Azure.
+Dowiedz się więcej o tym, [jak jednostki obliczeniowe platformy Azure (ACU)](acu.md) mogą pomóc w porównaniu wydajności obliczeniowej między jednostkami SKU platformy Azure.

@@ -5,48 +5,52 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2021
-ms.openlocfilehash: 5fe853ee0f7a113bfb8b0511744d9087f67927c4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bb42f74f6ac8487a93479bdf980c66ef87e8e742
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104609904"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726866"
 ---
 # <a name="create-alerts-with-sql-insights-preview"></a>Tworzenie alertów za pomocą usługi SQL Insights (wersja zapoznawcza)
-Usługa SQL Insights zawiera zestaw szablonów reguł alertów, których można użyć do tworzenia [reguł alertów w Azure monitor w](../alert/../alerts/alerts-overview.md) przypadku typowych problemów z programem SQL. Reguły alertów w usłudze SQL Insights są regułami alertów dziennika opartymi na danych wydajności przechowywanych w tabeli *InsightsMetrics* w dziennikach Azure monitor.  
+Usługa SQL Insights zawiera zestaw szablonów reguł alertów, których można użyć do tworzenia reguł [alertów](../alert/../alerts/alerts-overview.md) w Azure Monitor w przypadku typowych problemów z bazą danych SQL. Reguły alertów usługi SQL Insights to reguły alertów dzienników oparte na danych wydajności przechowywanych w tabeli *InsightsMetrics* w Azure Monitor dzienników.  
 
 > [!NOTE]
-> Jeśli masz prośby o więcej szablonów reguł alertów usługi SQL Insights, Prześlij opinię przy użyciu linku w dolnej części tej strony lub korzystając z linku opinia usługi SQL Insights w Azure Portal.
+> Aby utworzyć alert dla usługi SQL Insights przy użyciu szablonu usługi Resource Manager, zobacz Resource Manager przykłady szablonów [dla usługi SQL Insights.](resource-manager-sql-insights.md#create-an-alert-rule-for-sql-insights)
 
-## <a name="enable-alert-rules"></a>Włącz reguły alertów 
-Wykonaj następujące kroki, aby włączyć alerty w Azure Monitor z Azure Portal.Utworzone reguły alertów zostaną ograniczone do wszystkich zasobów SQL monitorowanych w ramach wybranego profilu monitorowania.  Gdy wyzwalana jest reguła alertu, będzie ona wyzwalana dla określonego wystąpienia lub bazy danych SQL.
 
 > [!NOTE]
-> Możesz również utworzyć niestandardowe [reguły alertów dziennika](../alerts/alerts-log.md) , uruchamiając zapytania dotyczące zestawów danych w tabeli *InsightsMetrics* , a następnie zapisując te zapytania jako regułę alertu. 
+> Jeśli masz żądania dotyczące większej liczby szablonów reguł alertów usługi SQL Insights, wyślij opinię za pomocą linku w dolnej części tej strony lub za pomocą linku opinii usługi SQL Insights w Azure Portal.
 
-Wybierz pozycję **SQL (wersja zapoznawcza)** z sekcji **Insights** w menu Azure monitor w Azure Portal. Kliknij pozycję **alerty**
+## <a name="enable-alert-rules"></a>Włączanie reguł alertów 
+Aby włączyć alerty w programie Azure Monitor z Azure Portal, należy wykonać następujące Azure Portal.Tworzone reguły alertów będą mieć zakres ograniczony do wszystkich zasobów SQL monitorowanych w ramach wybranego profilu monitorowania.  Po wyzwoleniu reguły alertu zostanie ona wyzwolona dla określonego wystąpienia SQL lub bazy danych.
 
-:::image type="content" source="media/sql-insights-alerts/alerts-button.png" alt-text="Przycisk alerty":::
+> [!NOTE]
+> Możesz również utworzyć niestandardowe reguły [alertów dzienników,](../alerts/alerts-log.md) uruchamiając zapytania dotyczące zestawów danych w tabeli *InsightsMetrics,* a następnie zapisując te zapytania jako regułę alertu. 
 
-Po prawej stronie strony zostanie otwarte okienko **alerty** . Domyślnie zostanie wyświetlone wyzwolone alerty dla zasobów SQL w wybranym profilu monitorowania na podstawie reguł alertów, które zostały już utworzone. Wybierz pozycję **Szablony alertów**, co spowoduje wyświetlenie listy dostępnych szablonów, których można użyć do utworzenia reguły alertu.
+Wybierz **pozycję SQL (wersja zapoznawcza)** w sekcji **Szczegółowe** informacje w menu Azure Monitor w Azure Portal. Kliknij pozycję **Alerty**
+
+:::image type="content" source="media/sql-insights-alerts/alerts-button.png" alt-text="Przycisk Alerty":::
+
+W **prawej** części strony zostanie otwarte okienko Alerty. Domyślnie będą wyświetlane wyzgnione alerty dla zasobów SQL w wybranym profilu monitorowania na podstawie już utworzonych reguł alertów. Wybierz **pozycję Szablony** alertów, aby wyświetlić listę dostępnych szablonów, których można użyć do utworzenia reguły alertu.
 
 :::image type="content" source="media/sql-insights-alerts/alert-templates.png" alt-text="Szablony alertów":::
 
-Na stronie **Tworzenie reguły alertu** zapoznaj się z ustawieniami domyślnymi reguły i zmodyfikuj je w razie potrzeby. Możesz również wybrać [grupę akcji](../alerts/action-groups.md) , aby utworzyć powiadomienia i akcje w momencie wyzwolenia reguły alertu. Kliknij pozycję **Włącz regułę alertu** , aby utworzyć regułę alertu po zweryfikowaniu wszystkich jego właściwości.
+Na stronie **Tworzenie reguły alertu** przejrzyj ustawienia domyślne reguły i edytuj je zgodnie z potrzebami. Możesz również wybrać grupę [akcji, aby](../alerts/action-groups.md) utworzyć powiadomienia i akcje po wyzwoleniu reguły alertu. Kliknij **pozycję Włącz regułę** alertu, aby utworzyć regułę alertu po zweryfikowaniu wszystkich jej właściwości.
 
 
-:::image type="content" source="media/sql-insights-alerts/alert-rule.png" alt-text="Strona reguł alertów":::
+:::image type="content" source="media/sql-insights-alerts/alert-rule.png" alt-text="Strona reguły alertów":::
 
-Aby natychmiast wdrożyć regułę alertu, kliknij przycisk **Wdróż regułę alertu**. Kliknij przycisk **Wyświetl szablon** , jeśli chcesz wyświetlić szablon reguły przed jego faktycznym wdrożeniem.
+Aby natychmiast wdrożyć regułę alertu, kliknij pozycję **Wd wdrażaj regułę alertu.** Kliknij **pozycję Wyświetl szablon,** jeśli chcesz wyświetlić szablon reguły przed jego wdrożeniem.
 
-:::image type="content" source="media/sql-insights-alerts/alert-rule-deploy.png" alt-text="Wdróż regułę alertów":::
+:::image type="content" source="media/sql-insights-alerts/alert-rule-deploy.png" alt-text="Wdrażanie reguły alertu":::
 
-W przypadku wybrania opcji wyświetlania szablonów wybierz pozycję **Wdróż** na stronie szablon, aby utworzyć regułę alertu.
+Jeśli zdecydujesz się wyświetlić szablony, wybierz **pozycję** Wd wdrażaj na stronie szablonu, aby utworzyć regułę alertu.
 
-:::image type="content" source="media/sql-insights-alerts/view-template-deploy.png" alt-text="Wdróż z szablonu widoku":::
+:::image type="content" source="media/sql-insights-alerts/view-template-deploy.png" alt-text="Wdrażanie z szablonu widoku":::
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [alertach w Azure monitor](../alerts/alerts-overview.md).
+Dowiedz się więcej o [alertach w Azure Monitor](../alerts/alerts-overview.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Koncepcje architektury na platformie Azure IoT Central | Microsoft Docs
-description: W tym artykule przedstawiono kluczowe pojęcia związane z architekturą IoT Central platformy Azure
+title: Pojęcia dotyczące architektury w Azure IoT Central | Microsoft Docs
+description: Ten artykuł zawiera wprowadzenie do kluczowych pojęć związanych z architekturą Azure IoT Central
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/19/2020
@@ -8,166 +8,134 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: c2d5310d1a664aa2e22d4241d8066e41d9c82bd1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bcda4ca252101ed1505f71a1b5f9fe9a0d8d16b9
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97796724"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728396"
 ---
 # <a name="azure-iot-central-architecture"></a>Architektura usługi Azure IoT Central
 
-Ten artykuł zawiera omówienie architektury IoT Central Microsoft Azure.
-
-![Architektura najwyższego poziomu](media/concepts-architecture/architecture.png)
+Ten artykuł zawiera omówienie kluczowych pojęć dotyczących Azure IoT Central architektury.
 
 ## <a name="devices"></a>Urządzenia
 
-Urządzenia wymieniają dane z aplikacją IoT Central platformy Azure. Urządzenie może:
+Urządzenia wymieniają dane z Azure IoT Central aplikacji. Urządzenie może:
 
-- Wysyłaj pomiary, takie jak Telemetria.
+- Wysyłaj pomiary, takie jak dane telemetryczne.
 - Zsynchronizuj ustawienia z aplikacją.
 
-W usłudze Azure IoT Central dane, które urządzenie może wymieniać z aplikacją, są określone w szablonie urządzenia. Aby uzyskać więcej informacji na temat szablonów urządzeń, zobacz [Zarządzanie metadanymi](#metadata-management).
+W usłudze Azure IoT Central dane, które urządzenie może wymieniać z aplikacją, są określone w szablonie urządzenia. Aby uzyskać więcej informacji na temat szablonów urządzeń, zobacz [Szablony urządzeń](concepts-device-templates.md).
 
-Aby dowiedzieć się więcej o tym, jak urządzenia nawiązują połączenie z aplikacją IoT Central platformy Azure, zobacz [łączność urządzeń](concepts-get-connected.md).
+Aby dowiedzieć się więcej o tym, jak urządzenia łączą się z Azure IoT Central, zobacz [Łączność urządzenia](concepts-get-connected.md).
 
 ## <a name="azure-iot-edge-devices"></a>Urządzenia usługi Azure IoT Edge
 
-A także urządzeń utworzonych przy użyciu [zestawów SDK usługi Azure IoT](https://github.com/Azure/azure-iot-sdks), można również łączyć [Azure IoT Edge urządzeń](../../iot-edge/about-iot-edge.md) z aplikacją IoT Central. IoT Edge umożliwia uruchamianie analizy chmurowej i logiki niestandardowej bezpośrednio na urządzeniach IoT zarządzanych przez IoT Central. Środowisko uruchomieniowe IoT Edge umożliwia:
+Podobnie jak w przypadku urządzeń utworzonych przy użyciu zestawów SDK usługi [Azure IoT,](https://github.com/Azure/azure-iot-sdks)można również połączyć Azure IoT Edge [z](../../iot-edge/about-iot-edge.md) aplikacją IoT Central azure. IoT Edge umożliwia uruchamianie analizy w chmurze i niestandardowej logiki bezpośrednio na urządzeniach IoT zarządzanych przez usługę IoT Central. Środowisko IoT Edge uruchomieniowe umożliwia:
 
 - Instaluje i aktualizuje pakiety robocze na urządzeniu.
-- Zachowaj IoT Edge standardy zabezpieczeń na urządzeniu.
+- Zachowaj IoT Edge zabezpieczeń na urządzeniu.
 - Zapewnia nieprzerwane działanie modułów usługi IoT Edge.
 - Przesyła raporty o kondycji modułów do chmury na potrzeby zdalnego monitorowania.
 - Zarządza komunikacją między podrzędnymi urządzeniami liścia usługi IoT Edge, między modułami na urządzeniu usługi IoT Edge oraz między urządzeniem usługi IoT Edge a chmurą.
 
-![IoT Central platformy Azure z usługą Azure IoT Edge](./media/concepts-architecture/iotedge.png)
+![Azure IoT Central z Azure IoT Edge](./media/concepts-architecture/iotedge.png)
 
-IoT Central zapewnia następujące możliwości dla urządzeń IoT Edge:
+IoT Central zapewnia następujące możliwości dla IoT Edge urządzeń:
 
-- Szablony urządzeń opisujące możliwości urządzenia IoT Edge, takie jak:
-  - Funkcja przekazywania manifestu wdrożenia, która ułatwia zarządzanie manifestem dla floty urządzeń.
-  - Moduły uruchomione na urządzeniu IoT Edge.
+- Szablony urządzeń do opisywania możliwości urządzenia IoT Edge, takie jak:
+  - Możliwość przekazywania manifestu wdrożenia, która ułatwia zarządzanie manifestem dla floty urządzeń.
+  - Moduły uruchamiane na IoT Edge urządzeniu.
   - Dane telemetryczne wysyłane przez każdy moduł.
-  - Właściwości każdego modułu raportów.
-  - Polecenia, na które odpowiada każdy moduł.
-  - Relacje między urządzeniem bramy IoT Edge a urządzeniem podrzędnym.
-  - Właściwości chmury, które nie są przechowywane na urządzeniu IoT Edge.
-  - Dostosowania, pulpity nawigacyjne i formularze, które są częścią aplikacji IoT Central.
+  - Właściwości poszczególnych modułów są raportami.
+  - Polecenia, na które reaguje każdy moduł.
+  - Relacje między urządzeniem IoT Edge a urządzeniem nadrzędnym.
+  - Właściwości chmury, które nie są przechowywane na IoT Edge urządzeniu.
+  - Dostosowania, pulpity nawigacyjne i formularze, które są częścią IoT Central aplikacji.
 
-  Aby uzyskać więcej informacji, zobacz artykuł [łączenie Azure IoT Edge urządzeniami z aplikacją IoT Central platformy Azure](./concepts-iot-edge.md) .
+  Aby uzyskać więcej informacji, zobacz artykuł [Connect Azure IoT Edge devices to an Azure IoT Central application (Łączenie](./concepts-iot-edge.md) urządzeń Azure IoT Central z aplikacją).
 
-- Możliwość aprowizacji IoT Edge urządzeń na dużą skalę przy użyciu usługi Azure IoT Device Provisioning
+- Możliwość aprowizowania urządzeń IoT Edge na dużą skalę przy użyciu usługi Azure IoT Device Provisioning
 - Reguły i akcje.
-- Niestandardowe pulpity nawigacyjne i analizy.
-- Ciągły eksport danych telemetrycznych z urządzeń IoT Edge.
+- Niestandardowe pulpity nawigacyjne i analiza.
+- Ciągły eksport danych telemetrycznych z IoT Edge danych.
 
 ### <a name="iot-edge-device-types"></a>IoT Edge typów urządzeń
 
 IoT Central klasyfikuje IoT Edge typów urządzeń w następujący sposób:
 
-- Urządzenia liścia. Urządzenie IoT Edge może mieć podrzędne urządzenia liścia, ale nie są one obsługiwane w programie IoT Central.
-- Urządzenia bramy z urządzeniami podrzędnymi. Obsługiwane są zarówno urządzenia bramy, jak i urządzenia podrzędne w IoT Central
+- Urządzenia liścia. Urządzenie IoT Edge może mieć podrzędne urządzenia liścia, ale te urządzenia nie są aprowowane w IoT Central.
+- Urządzenia bramy z urządzeniami nadrzędnymi. Zarówno urządzenie bramy, jak i urządzenia podrzędne są aprowowane w IoT Central
 
-![IoT Central z IoT Edge przegląd](./media/concepts-architecture/gatewayedge.png)
+![IoT Central with IoT Edge Overview](./media/concepts-architecture/gatewayedge.png)
 
-### <a name="iot-edge-patterns"></a>Wzorce IoT Edge
+### <a name="iot-edge-patterns"></a>IoT Edge wzorców
 
-IoT Central obsługuje następujące wzorce urządzeń IoT Edge:
+IoT Central obsługuje następujące wzorce IoT Edge urządzeń:
 
 #### <a name="iot-edge-as-leaf-device"></a>IoT Edge jako urządzenie liścia
 
 ![IoT Edge jako urządzenie liścia](./media/concepts-architecture/edgeasleafdevice.png)
 
-Urządzenie IoT Edge jest inicjowane w IoT Central, a wszystkie urządzenia podrzędne i ich dane telemetryczne są reprezentowane jako pochodzące z urządzenia IoT Edge. Urządzenia podrzędne połączone z urządzeniem IoT Edge nie są obsługiwane w programie IoT Central.
+Urządzenie IoT Edge jest aprowowane w IoT Central, a wszystkie urządzenia podrzędne i ich dane telemetryczne są reprezentowane jako pochodzące z IoT Edge danych. Urządzenia podrzędne podłączone do IoT Edge nie są aprowowane w IoT Central.
 
-#### <a name="iot-edge-gateway-device-connected-to-downstream-devices-with-identity"></a>IoT Edge urządzenie bramy połączone z urządzeniami podrzędnymi przy użyciu tożsamości
+#### <a name="iot-edge-gateway-device-connected-to-downstream-devices-with-identity"></a>IoT Edge bramy połączone z urządzeniami nadrzędnymi przy użyciu tożsamości
 
 ![IoT Edge z tożsamością urządzenia podrzędnego](./media/concepts-architecture/edgewithdownstreamdeviceidentity.png)
 
-Urządzenie IoT Edge jest inicjowane w IoT Central wraz z urządzeniami podrzędnymi podłączonymi do urządzenia IoT Edge. Obsługa środowiska uruchomieniowego na potrzeby aprowizacji urządzeń podrzędnych za pomocą bramy nie jest obecnie obsługiwana.
+Urządzenie IoT Edge jest aprowowane w IoT Central razem z urządzeniami nadrzędnymi podłączonymi do IoT Edge urządzenia. Obsługa środowiska uruchomieniowego do aprowizowania urządzeń nadrzędnych za pośrednictwem bramy nie jest obecnie obsługiwana.
 
-#### <a name="iot-edge-gateway-device-connected-to-downstream-devices-with-identity-provided-by-the-iot-edge-gateway"></a>IoT Edge urządzenie bramy połączone z urządzeniami podrzędnymi przy użyciu tożsamości udostępnionej przez bramę IoT Edge
+#### <a name="iot-edge-gateway-device-connected-to-downstream-devices-with-identity-provided-by-the-iot-edge-gateway"></a>IoT Edge połączone z urządzeniami nadrzędnymi przy użyciu tożsamości dostarczonej przez bramę IoT Edge wirtualnej
 
-![IoT Edge z urządzeniem podrzędnym bez tożsamości](./media/concepts-architecture/edgewithoutdownstreamdeviceidentity.png)
+![IoT Edge z urządzeniem nadrzędnym bez tożsamości](./media/concepts-architecture/edgewithoutdownstreamdeviceidentity.png)
 
-Urządzenie IoT Edge jest inicjowane w IoT Central wraz z urządzeniami podrzędnymi podłączonymi do urządzenia IoT Edge. Obsługa przez środowisko uruchomieniowe bramy dostarczającej tożsamość do urządzeń podrzędnych i aprowizacji urządzeń podrzędnych nie jest obecnie obsługiwana. Jeśli utworzysz własny moduł tłumaczenia tożsamości, IoT Central może obsługiwać ten wzorzec.
+Urządzenie IoT Edge jest aprowowane w IoT Central razem z urządzeniami nadrzędnymi podłączonymi do IoT Edge urządzenia. Obsługa środowiska uruchomieniowego bramy zapewniającej tożsamość dla urządzeń dalszych i aprowizowanie urządzeń dalszych nie jest obecnie obsługiwana. Jeśli używasz własnego modułu tłumaczenia tożsamości, IoT Central może obsługiwać ten wzorzec.
 
-## <a name="cloud-gateway"></a>Brama chmury
+## <a name="cloud-gateway"></a>Brama w chmurze
 
-Usługa Azure IoT Central korzysta z usługi Azure IoT Hub jako bramy w chmurze, która umożliwia łączność z urządzeniem. IoT Hub umożliwia:
+Azure IoT Central używa Azure IoT Hub jako bramy w chmurze, która umożliwia łączność urządzeń. IoT Hub włącza:
 
 - Pozyskiwanie danych na dużą skalę w chmurze.
 - Zarządzanie urządzeniami.
-- Zabezpieczanie łączności urządzeń.
+- Bezpieczna łączność urządzenia.
 
 Aby dowiedzieć się więcej na temat IoT Hub, zobacz [Azure IoT Hub](../../iot-hub/index.yml).
 
-Aby dowiedzieć się więcej o łączności urządzeń w usłudze Azure IoT Central, zobacz [łączność urządzeń](concepts-get-connected.md).
+Aby dowiedzieć się więcej na temat łączności urządzeń w Azure IoT Central, zobacz [Łączność urządzeń](concepts-get-connected.md).
 
 ## <a name="data-stores"></a>Magazyny danych
 
-Usługa Azure IoT Central przechowuje dane aplikacji w chmurze. Przechowywane dane aplikacji obejmują:
+Azure IoT Central przechowuje dane aplikacji w chmurze. Przechowywane dane aplikacji obejmują:
 
 - Szablony urządzeń.
 - Tożsamości urządzeń.
 - Metadane urządzenia.
-- Dane użytkowników i ról.
+- Dane użytkownika i roli.
 
-Usługa Azure IoT Central używa magazynu szeregów czasowych dla danych pomiarów wysyłanych z urządzeń. Dane szeregów czasowych z urządzeń używanych przez usługę analiz.
-
-## <a name="analytics"></a>Analiza
-
-Usługa analizy jest odpowiedzialna za generowanie niestandardowych danych raportowania wyświetlanych przez aplikację. Operator może [dostosować analizę](howto-create-analytics.md) wyświetlaną w aplikacji. Usługa Analytics została utworzona na podstawie [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) i przetwarza dane pomiarów wysyłane z urządzeń.
-
-## <a name="rules-and-actions"></a>Reguły i akcje
-
-[Reguły i akcje](tutorial-create-telemetry-rules.md) ściśle współpracują ze sobą w celu zautomatyzowania zadań w aplikacji. Konstruktor może definiować reguły na podstawie danych telemetrycznych urządzenia, takich jak temperatura przekraczająca określony próg. Usługa Azure IoT Central używa procesora strumienia, aby określić, kiedy są spełnione warunki reguły. Gdy warunek reguły jest spełniony, wyzwala akcję zdefiniowaną przez konstruktora. Na przykład akcja może wysłać wiadomość e-mail, aby poinformować inżyniera, że temperatura urządzenia jest zbyt wysoka.
-
-## <a name="metadata-management"></a>Zarządzanie metadanymi
-
-W aplikacji IoT Central platformy Azure szablony urządzeń określają zachowanie i możliwość typów urządzeń. Na przykład szablon urządzenia chłodziarkd określa dane telemetryczne wysyłane przez chłodziarkę do aplikacji.
-
-![Architektura szablonu](media/concepts-architecture/template-architecture.png)
-
-W IoT Central [szablonu urządzenia](concepts-device-templates.md) znajdują się następujące:
-
-- **Model urządzenia** służący do określania możliwości urządzenia, takich jak dane telemetryczne, które wysyła, właściwości definiujące stan urządzenia oraz poleceń, na które odpowiada urządzenie. Możliwości urządzenia są zorganizowane w jeden lub więcej interfejsów.
-- **Właściwości chmury** określają właściwości IoT Central magazynów dla urządzenia. Te właściwości są przechowywane tylko w IoT Central i nigdy nie są wysyłane do urządzenia.
-- **Widoki** umożliwiają określanie pulpitów nawigacyjnych i formularzy tworzonych przez konstruktora, aby umożliwić operatorowi monitorowanie urządzeń i zarządzanie nimi.
-- **Dostosowania** pozwalają konstruktorowi zastąpić niektóre definicje w modelu urządzenia, aby zwiększyć ich znaczenie do aplikacji IoT Central.
-
-Aplikacja może mieć co najmniej jedno symulowane i rzeczywiste urządzenie w oparciu o każdy szablon urządzenia.
+Azure IoT Central korzysta z magazynu szeregów czasowych na dane pomiarów wysyłane z urządzeń. Dane szeregów czasu z urządzeń używanych przez usługę analizy.
 
 ## <a name="data-export"></a>Eksport danych
 
-W aplikacji IoT Central platformy Azure możesz [ciągle eksportować dane](howto-export-data.md) do własnych wystąpień platformy Azure Event Hubs i Azure Service Bus. Możesz również okresowo eksportować dane do konta usługi Azure Blob Storage. IoT Central mogą eksportować pomiary, urządzenia i szablony urządzeń.
+W aplikacji Azure IoT Central można [stale](howto-export-data.md) eksportować dane do własnych Azure Event Hubs i Azure Service Bus wystąpień. Możesz również okresowo eksportować dane na konto usługi Azure Blob Storage. IoT Central eksportować miary, urządzenia i szablony urządzeń.
 
-## <a name="batch-device-updates"></a>Aktualizacje urządzeń wsadowych
+## <a name="batch-device-updates"></a>Aktualizacje urządzenia usługi Batch
 
-W aplikacji IoT Central platformy Azure można [tworzyć i uruchamiać zadania](howto-run-a-job.md) w celu zarządzania podłączonymi urządzeniami. Te zadania umożliwiają wykonywanie aktualizacji zbiorczych do właściwości lub ustawień urządzenia albo uruchamianie poleceń. Na przykład można utworzyć zadanie, aby zwiększyć szybkość wentylatorów dla wielu maszyn z systemem automatu.
+W aplikacji Azure IoT Central można tworzyć i uruchamiać zadania [w](howto-run-a-job.md) celu zarządzania połączonymi urządzeniami. Te zadania umożliwiają zbiorcze aktualizacje właściwości lub ustawień urządzenia albo uruchamianie poleceń. Można na przykład utworzyć zadanie zwiększenia szybkości wentylatora dla wielu chłodniczych automatów do sprzedaży.
 
 ## <a name="role-based-access-control-rbac"></a>Kontrola dostępu oparta na rolach (RBAC)
 
-Każda aplikacja IoT Central ma własny wbudowany system RBAC. [Administrator może zdefiniować reguły dostępu](howto-manage-users-roles.md) dla aplikacji IoT Central platformy Azure przy użyciu jednej ze wstępnie zdefiniowanych ról lub tworząc rolę niestandardową. Role określają obszary aplikacji, do których użytkownik ma dostęp i jakie akcje mogą wykonywać.
+Każda IoT Central ma własny wbudowany system RBAC. Administrator [może zdefiniować reguły dostępu dla](howto-manage-users-roles.md) aplikacji Azure IoT Central przy użyciu jednej ze wstępnie zdefiniowanych ról lub tworząc rolę niestandardową. Role określają, do jakich obszarów aplikacji użytkownik ma dostęp i jakie akcje może wykonywać.
 
 ## <a name="security"></a>Zabezpieczenia
 
-Funkcje zabezpieczeń w ramach usługi Azure IoT Central obejmują:
+Funkcje zabezpieczeń w Azure IoT Central obejmują:
 
 - Dane są szyfrowane podczas przesyłania i przechowywania.
-- Uwierzytelnianie jest zapewnione przez Azure Active Directory lub konto Microsoft. Obsługiwane jest uwierzytelnianie dwuskładnikowe.
+- Uwierzytelnianie jest zapewniane przez Azure Active Directory lub konto Microsoft. Obsługiwane jest uwierzytelnianie dwuskładnikowe.
 - Pełna izolacja dzierżawy.
 - Zabezpieczenia na poziomie urządzenia.
 
-## <a name="ui-shell"></a>Powłoka interfejsu użytkownika
-
-Powłoka interfejsu użytkownika to nowoczesny, dynamiczny, oparty na przeglądarce HTML5 aplikację.
-Administrator może dostosować interfejs użytkownika aplikacji, stosując niestandardowe motywy i modyfikując linki pomocy, aby wskazywały własne niestandardowe zasoby pomocy. Aby dowiedzieć się więcej o dostosowywaniu interfejsu użytkownika, zobacz Dostosowywanie artykułu dotyczącego [interfejsu użytkownika usługi Azure IoT Central](howto-customize-ui.md) .
-
-Operator może tworzyć spersonalizowane pulpity nawigacyjne aplikacji. Można mieć kilka pulpitów nawigacyjnych, które wyświetlają różne dane i przełączają się między nimi.
-
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy wiesz już o architekturze platformy Azure IoT Central, sugerowanym następnym krokiem jest zapoznanie się z informacjami na temat [łączności urządzeń](concepts-get-connected.md) w usłudze Azure IoT Central.
+Teraz, gdy już wiesz, jaka jest architektura Azure IoT Central, następnym sugerowanym [](concepts-get-connected.md) krokiem jest nauczenia się łączności urządzeń w Azure IoT Central.

@@ -3,7 +3,7 @@
 - name: Omówienie
   expanded: true
   items:
-    - name: Co to Narzędzie do wykrywania anomalii (wielowariowa)?
+    - name: Co to jest Narzędzie do wykrywania anomalii (wielowątkowa)?
       href: overview-multivariate.md
     - name: Co to Narzędzie do wykrywania anomalii (niezmienny)?
       href: overview.md
@@ -11,7 +11,7 @@
       href: 'https://aka.ms/adpricing'
 - name: Przewodniki Szybki start
   items:
-    - name: Wielowariowe biblioteki klienckie
+    - name: Wielozmianowe biblioteki klienckie
       href: ./quickstarts/client-libraries-multivariate.md
     - name: Niezmienne biblioteki klienckie
       href: ./quickstarts/client-libraries.md
@@ -55,13 +55,13 @@
       href: concepts/best-practices-multivariate.md
     - name: Narzędzie do wykrywania anomalii api best practices (univariate)
       href: concepts/anomaly-detection-best-practices.md
-    - name: Architektura konserwacji predykcyjnej (kowariantna)
+    - name: Architektura konserwacji predykcyjnej (wielowątkowa)
       href: concepts/multivariate-architecture.md
     - name: Rozwiązywanie problemów z wieloma kowariantami
       href: concepts/troubleshoot.md
     - name: Wykrywanie anomalii reszt spektralnych (SR) i spowodcyjnych sieci neuronowych (CNN)
       href: 'https://arxiv.org/abs/1906.03821'
-    - name: Wielowariowe wykrywanie anomalii szeregów czasu za pośrednictwem sieci uwagi grafu
+    - name: Wielozmianowe wykrywanie anomalii szeregów czasu za pośrednictwem sieci uwagi grafu
       href: 'https://arxiv.org/abs/2009.02040'
 - name: Samouczki
   items:
@@ -71,14 +71,16 @@
   items:
     - name: Narzędzie do wykrywania anomalii API REST
       href: 'https://aka.ms/anomaly-detector-rest-api-ref'
+    - name: Narzędzie do wykrywania anomalii interfejsu API REST w wersji zapoznawczej (wielowariowa)
+      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/DetectAnomaly'
     - name: .NET
-      href: 'https://aka.ms/anomaly-detector-dotnet-ref'
-    - name: Przejdź
-      href: 'https://go.microsoft.com/fwlink/?linkid=2089915'
+      href: 'https://www.nuget.org/packages/Azure.AI.AnomalyDetector/3.0.0-preview.3'
+    - name: Java
+      href: 'https://repo1.maven.org/maven2/com/azure/azure-ai-anomalydetector/3.0.0-beta.2/'
     - name: Python
-      href: 'https://go.microsoft.com/fwlink/?linkid=2090370'
+      href: 'https://pypi.org/project/azure-ai-anomalydetector/3.0.0b3/'
     - name: Node.js
-      href: 'https://go.microsoft.com/fwlink/?linkid=2090788'
+      href: 'https://www.npmjs.com/package/@azure/ai-anomaly-detector/v/3.0.0-beta.3'
 - name: Zasoby
   items:
     - name: Gotowość przedsiębiorstwa
