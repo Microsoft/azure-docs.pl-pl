@@ -1,7 +1,7 @@
 ---
-title: Wyślij działanie poleceń niestandardowych do aplikacji klienckiej
+title: Wysyłanie Polecenia niestandardowe do aplikacji klienckiej
 titleSuffix: Azure Cognitive Services
-description: W tym artykule dowiesz się, jak wysyłać działania z aplikacji poleceń niestandardowych do aplikacji klienckiej z uruchomionym zestawem Speech SDK.
+description: Z tego artykułu dowiesz się, jak wysyłać działania z aplikacji Polecenia niestandardowe do aplikacji klienckiej z uruchomionym zestawem SPEECH SDK.
 services: cognitive-services
 author: xiaojul
 manager: yetian
@@ -10,34 +10,34 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 52a4dbc4ff01515af8cd7d2503877184a09f7e64
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 52e0b750f02044afafe233a76e4f43755d9ed303
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94566099"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725102"
 ---
-# <a name="send-custom-commands-activity-to-client-application"></a>Wyślij działanie poleceń niestandardowych do aplikacji klienckiej
+# <a name="send-custom-commands-activity-to-client-application"></a>Wysyłanie Polecenia niestandardowe do aplikacji klienckiej
 
-W tym artykule dowiesz się, jak wysyłać działania z aplikacji poleceń niestandardowych do aplikacji klienckiej z uruchomionym zestawem Speech SDK.
+Z tego artykułu dowiesz się, jak wysyłać działania z aplikacji Polecenia niestandardowe do aplikacji klienckiej z uruchomionym zestawem SPEECH SDK.
 
-Wykonaj następujące zadania:
+Należy wykonać następujące zadania:
 
-- Definiowanie i wysyłanie niestandardowego ładunku JSON z aplikacji poleceń niestandardowych
-- Odbieranie i wizualizacja zawartości niestandardowego ładunku JSON z aplikacji klienckiej zestawu SDK języka C# platformy UWP
+- Definiowanie i wysyłanie niestandardowego ładunku JSON z Polecenia niestandardowe aplikacji
+- Odbieranie i wizualizowanie niestandardowej zawartości ładunku JSON z aplikacji klienckiej zestawu SDK rozpoznawania mowy platformy UWP w języku C#
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 > [!div class = "checklist"]
-> * [Program Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) lub nowszy. Ten przewodnik używa programu Visual Studio 2019
+> * [Visual Studio 2019 r.](https://visualstudio.microsoft.com/downloads/) lub wyższym. W tym przewodniku Visual Studio 2019 r.
 > * Klucz subskrypcji platformy Azure dla usługi Mowa: [Pobierz bezpłatnie](overview.md#try-the-speech-service-for-free) lub utwórz go w witrynie [Azure Portal](https://portal.azure.com)
 > * [Utworzona wcześniej aplikacja Polecenia niestandardowe](quickstart-custom-commands-application.md)
-> * Aplikacja kliencka z włączonym zestawem SDK: Porada [: integracja z aplikacją kliencką przy użyciu zestawu Speech SDK](./how-to-custom-commands-setup-speech-sdk.md)
+> * Aplikacja kliency z włączonym zestawem SDK rozpoznawania mowy: [How-to: Integrate with a client application using Speech SDK (Jak zintegrować z aplikacją kliencową przy użyciu zestawu Speech SDK)](./how-to-custom-commands-setup-speech-sdk.md)
 
-## <a name="setup-send-activity-to-client"></a>Skonfiguruj działanie wysyłania do klienta 
-1. Otwórz wcześniej utworzoną aplikację poleceń niestandardowych
-1. Wybierz polecenie **TurnOnOff** , wybierz pozycję **ConfirmationResponse** w obszarze reguła ukończenia, a następnie wybierz pozycję **Dodaj akcję** .
-1. W obszarze **Nowa akcja — typ** wybierz pozycję **Wyślij działanie do klienta**
-1. Skopiuj poniższy kod JSON do **zawartości działania**
+## <a name="setup-send-activity-to-client"></a>Setup Send activity to client (Konfigurowanie wysyłania działania do klienta) 
+1. Otwórz Polecenia niestandardowe wcześniej utworzoną aplikację
+1. Wybierz **polecenie TurnOnOff,** wybierz pozycję **ConfirmationResponse w** obszarze reguły ukończenia, a następnie wybierz pozycję Dodaj **akcję**
+1. W **obszarze Nowy typ akcji** wybierz pozycję Wyślij działanie do **klienta**
+1. Skopiuj poniższy tekst JSON do strony **Zawartość działania**
    ```json
    {
       "type": "event",
@@ -48,16 +48,16 @@ Wykonaj następujące zadania:
       }
     }
    ```
-1. Kliknij przycisk **Zapisz** , aby utworzyć nową regułę z akcją wysyłania, **nauczenie** i **opublikowanie** zmiany
+1. Kliknij **przycisk** Zapisz, aby utworzyć nową regułę z akcją Wyślij działanie, **przeszukaj** **i opublikuj** zmianę
 
    > [!div class="mx-imgBorder"]
-   > ![Wyślij regułę ukończenia działania](media/custom-commands/send-activity-to-client-completion-rules.png)
+   > ![Reguła ukończenia działania Wysyłania](media/custom-commands/send-activity-to-client-completion-rules.png)
 
 ## <a name="integrate-with-client-application"></a>Integracja z aplikacją kliencką
 
-W temacie [How to: Setup Application Client with Speech SDK (wersja zapoznawcza)](./how-to-custom-commands-setup-speech-sdk.md)utworzono aplikację kliencką platformy UWP z użyciem zestawu Speech SDK, który obsłużył polecenia takie jak `turn on the tv` , `turn off the fan` . Po dodaniu niektórych wizualizacji można zobaczyć wynik tych poleceń.
+W oknie [How-to: Setup client application with Speech SDK (Preview) (Jak](./how-to-custom-commands-setup-speech-sdk.md)skonfigurować aplikację kliencyjną przy użyciu zestawu SPEECH SDK (wersja zapoznawcza) ) utworzono aplikację kliencową platformy uniwersalnej systemu Windows z zestawem SDK rozpoznawania mowy obsługą poleceń, takich jak `turn on the tv` , `turn off the fan` . Po dodaniu niektórych wizualizacji można zobaczyć wynik tych poleceń.
 
-Aby dodać **pola z etykietą z tekstem wskazującym** lub **wyłączać**, Dodaj następujący blok XML StackPanel do `MainPage.xaml` .
+Aby dodać pola z etykietami z tekstem **wskazującym** na lub **wyłączyć,** dodaj następujący blok XML StackPanel do elementu `MainPage.xaml` .
 
 ```xml
 <StackPanel Orientation="Vertical" H......>
@@ -82,18 +82,18 @@ Aby dodać **pola z etykietą z tekstem wskazującym** lub **wyłączać**, Doda
 
 ### <a name="add-reference-libraries"></a>Dodawanie bibliotek referencyjnych
 
-Ze względu na to, że utworzono ładunek JSON, musisz dodać odwołanie do biblioteki [JSON.NET](https://www.newtonsoft.com/json) w celu obsługi deserializacji.
+Ponieważ ładunek JSON został utworzony, musisz dodać odwołanie do biblioteki [JSON.NET,](https://www.newtonsoft.com/json) aby obsłużyć deserializację.
 
-1. Klient z odpowiednim rozwiązaniem.
-1. Wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania**, a następnie wybierz pozycję **Przeglądaj** . 
-1. Jeśli masz już zainstalowaną **Newtonsoft.jsna**, upewnij się, że jej wersja to co najmniej 12.0.3. Jeśli nie, przejdź do pozycji **Zarządzaj pakietami NuGet dla rozwiązania — aktualizacje**, Wyszukaj **Newtonsoft.jsna** , aby je zaktualizować. W tym przewodniku jest używana wersja 12.0.3.
+1. Przekieruj odpowiednie rozwiązanie do klienta.
+1. Wybierz **pozycję Zarządzaj pakietami NuGet dla rozwiązania**, wybierz pozycję **Przeglądaj** 
+1. Jeśli program został już **Newtonsoft.jsna komputerze**, upewnij się, że jego wersja to co najmniej 12.0.3. Jeśli nie, przejdź do **tematu Zarządzanie** pakietami NuGet dla rozwiązania — aktualizacje , wyszukaj **Newtonsoft.js,** aby je zaktualizować. Ten przewodnik korzysta z wersji 12.0.3.
 
     > [!div class="mx-imgBorder"]
-    > ![Wyślij ładunek aktywności](media/custom-commands/send-activity-to-client-json-nuget.png)
+    > ![Ładunek działania wysyłania](media/custom-commands/send-activity-to-client-json-nuget.png)
 
-1. Upewnij się również, że pakiet NuGet **Microsoft. servicecore. UniversalWindowsPlatform** ma co najmniej 6.2.10. W tym przewodniku jest używana wersja 6.2.10.
+1. Upewnij się również, że pakiet NuGet **Microsoft.NETCore.UniversalWindowsPlatform** ma co najmniej 6.2.10. Ten przewodnik korzysta z wersji 6.2.10.
 
-W pliku "MainPage. XAML. cs" Dodaj
+W pliku "MainPage.xaml.cs" dodaj
 
 ```C#
 using Newtonsoft.Json; 
@@ -101,9 +101,9 @@ using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 ```
 
-### <a name="handle-the-received-payload"></a>Obsługuj otrzymany ładunek
+### <a name="handle-the-received-payload"></a>Obsługa odebranego ładunku
 
-W programie `InitializeDialogServiceConnector` Zastąp `ActivityReceived` procedurę obsługi zdarzeń poniższym kodem. Zmodyfikowana `ActivityReceived` procedura obsługi zdarzeń wyodrębni ładunek z działania i odpowiednio zmieni stan wizualizacji telewizora lub wentylatora.
+W `InitializeDialogServiceConnector` programie zastąp `ActivityReceived` program obsługi zdarzeń następującym kodem. Zmodyfikowana procedura obsługi zdarzeń wyodrębni ładunek z działania i odpowiednio zmieni stan wizualny odbiornika `ActivityReceived` lub odbiornika.
 
 ```C#
 connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
@@ -154,11 +154,11 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 1. Wybierz pozycję Włącz mikrofon
 1. Wybierz przycisk Mów
 1. Powiedz `turn on the tv`
-1. Wizualny stan telewizora powinien zmienić na "on"
+1. Stan wizualny tv powinien zmienić się na "on"
    > [!div class="mx-imgBorder"]
-   > ![Zrzut ekranu pokazujący, że stan wizualizacji T V jest teraz włączony.](media/custom-commands/send-activity-to-client-turn-on-tv.png)
+   > ![Zrzut ekranu przedstawiający, że stan wizualizacji języka T V jest teraz wł.](media/custom-commands/send-activity-to-client-turn-on-tv.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Instrukcje: Konfigurowanie punktów końcowych sieci Web (wersja zapoznawcza)](./how-to-custom-commands-setup-web-endpoints.md)
+> [How to: set up web endpoints ( Jak skonfigurować internetowe punkty końcowe)](./how-to-custom-commands-setup-web-endpoints.md)
