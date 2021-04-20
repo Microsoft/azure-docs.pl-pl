@@ -4,7 +4,7 @@ description: Wprowadzenie do raportów aktywności logowania w portalu Azure Act
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -13,35 +13,37 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/16/2021
+ms.date: 04/19/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 781cafd9b382868d0aa4f6b77ff7338c4ee15ed2
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: dc9aa77b3fdc3cda94670545f847bb9de31e1160
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589663"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718957"
 ---
 # <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Azure Active Directory aktywności logowania — wersja zapoznawcza
 
-Portal Azure Active Directory zapewnia dostęp do trzech dzienników aktywności:
+Jako administrator IT chcesz wiedzieć, jak działa Twoje środowisko IT. Informacje o kondycji systemu umożliwiają ocenę, czy i jak należy reagować na potencjalne problemy. 
+
+Aby obsługiwać ten cel, portal Azure Active Directory zapewnia dostęp do trzech dzienników aktywności:
 
 - **Logowania — informacje** na temat logowania i sposobu, w jaki zasoby są używane przez użytkowników.
 - **[Inspekcja](concept-audit-logs.md)** — informacje o zmianach zastosowanych do dzierżawy, takich jak zarządzanie użytkownikami i grupą lub aktualizacje zastosowane do zasobów dzierżawy.
-- **[Aprowizowanie](concept-provisioning-logs.md)** — działania wykonywane przez usługę aprowowania, takie jak tworzenie grupy w usłudze ServiceNow lub użytkownik zaimportowany z usługi Workday.
+- **[Provisioning](concept-provisioning-logs.md)** — działania wykonywane przez usługę aprowizowania, takie jak tworzenie grupy w usłudze ServiceNow lub użytkownik zaimportowany z usługi Workday.
 
 
-Klasyczny raport logowania w aplikacji Azure Active Directory zawiera omówienie logowania interakcyjnego użytkownika. Ponadto masz teraz dostęp do trzech dodatkowych raportów logowania, które są teraz dostępne w wersji zapoznawczej:
+Klasyczny raport logowania w aplikacji Azure Active Directory zawiera omówienie interakcyjnych logować użytkowników. Ponadto masz teraz dostęp do trzech dodatkowych raportów logowania, które są teraz dostępne w wersji zapoznawczej:
 
 - Logowania użytkowników nieinterakcyjnych
 
 - Logowania jednostki usługi
 
-- Tożsamości zarządzane na platformie Azure — logowania do zasobów
+- Tożsamości zarządzane do logowania się do zasobów platformy Azure
 
-Ten artykuł zawiera omówienie raportu działań logowania z podglądem nieinterakcyjnych tożsamości nieinterakcyjnych, aplikacji i tożsamości zarządzanych dla logowania zasobów platformy Azure. Aby uzyskać informacje o raporcie logowania bez funkcji w wersji zapoznawczej, zobacz Raporty aktywności logowania w [portalu Azure Active Directory.](concept-sign-ins.md)
+Ten artykuł zawiera omówienie raportu aktywności logowania z podglądem nieinterakcyjnych tożsamości aplikacji i tożsamości zarządzanych dla logowania zasobów platformy Azure. Aby uzyskać informacje o raporcie logowania bez funkcji w wersji zapoznawczej, zobacz Raporty aktywności logowania w [portalu Azure Active Directory portal.](concept-sign-ins.md)
 
 
 
@@ -55,7 +57,7 @@ Przed rozpoczęciem korzystania z tej funkcji należy znać odpowiedzi na:
 
 ### <a name="who-can-access-the-data"></a>Kto może uzyskać dostęp do danych?
 
-- Użytkownicy z rolami administratora zabezpieczeń, czytelnika zabezpieczeń i czytelnika raportów
+- Użytkownicy z rolami Administrator zabezpieczeń, Czytelnik zabezpieczeń i Czytelnik raportów
 
 - Administratorzy globalni
 
@@ -78,13 +80,13 @@ Raport logowania zawiera odpowiedzi na następujące pytania:
 
 W bloku raportu logowania można przełączać się między:
 
-- **Interakcyjne** logowania użytkowników — logowania, w których użytkownik udostępnia współczynnik uwierzytelniania, taki jak hasło, odpowiedź za pośrednictwem aplikacji MFA, czynnik biometryczny lub kod QR.
+- **Logowanie interakcyjne** użytkownika — logowania, w których użytkownik udostępnia współczynnik uwierzytelniania, taki jak hasło, odpowiedź za pośrednictwem aplikacji MFA, współczynnik biometryczny lub kod QR.
 
 - **Logowania użytkowników nieinterakcyjnych** — logowania wykonywane przez klienta w imieniu użytkownika. Te logowania nie wymagają interakcji ani żadnego czynnika uwierzytelniania ze strony użytkownika. Na przykład uwierzytelnianie i autoryzacja przy użyciu tokenów odświeżania i dostępu, które nie wymagają od użytkownika wprowadzania poświadczeń.
 
-- **Logowania jednostki usługi** — logowania według aplikacji i jednostki usługi, które nie obejmują żadnego użytkownika. W tych logowaniach aplikacja lub usługa udostępnia poświadczenia we własnym imieniu w celu uwierzytelnienia lub uzyskania dostępu do zasobów.
+- **Logowania jednostki usługi** — logowania według aplikacji i jednostki usługi, które nie obejmują żadnego użytkownika. W tych logowaniach aplikacja lub usługa udostępnia poświadczenia we własnym imieniu, aby uwierzytelnić zasoby lub uzyskać do nich dostęp.
 
-- **Tożsamości zarządzane dla logowania zasobów platformy Azure** — logowania według zasobów platformy Azure, które mają wpisy tajne zarządzane przez platformę Azure. Aby uzyskać więcej informacji, [zobacz Co to są tożsamości zarządzane dla zasobów platformy Azure?](../managed-identities-azure-resources/overview.md) 
+- **Tożsamości zarządzane dla logowania zasobów platformy Azure** — logowania według zasobów platformy Azure, które mają wpisy tajne zarządzane przez platformę Azure. Aby uzyskać więcej informacji, [zobacz Czym są tożsamości zarządzane dla zasobów platformy Azure?](../managed-identities-azure-resources/overview.md) 
 
 
 ![Typy raportów logowania](./media/concept-all-sign-ins/sign-ins-report-types.png)
@@ -102,7 +104,7 @@ W bloku raportu logowania można przełączać się między:
 
 ## <a name="user-sign-ins&quot;></a>Logowania użytkowników
 
-Każda karta w bloku logowania zawiera poniższe kolumny domyślne. Niektóre karty mają dodatkowe kolumny:
+Każda karta w bloku logowania zawiera kolumny domyślne poniżej. Niektóre karty mają dodatkowe kolumny:
 
 - Data logowania
 
@@ -129,7 +131,7 @@ Interakcyjne logowania użytkowników to logowania, w których użytkownik zapew
 
 
 > [!NOTE] 
-> Raport logowania użytkownika interakcyjnego zawierał niektóre nieinterakcyjne logowania z klientów programu Microsoft Exchange. Chociaż te logowania były nieinterakcyjne, zostały uwzględnione w raporcie logowania użytkownika interakcyjnego w celu dodatkowego wglądu. Gdy raport logowania użytkownika nieinterakcyjnego zostanie wprowadzony w publicznej wersji zapoznawczej w listopadzie 2020 r., te nieinterakcyjne dzienniki zdarzeń logowania zostały przeniesione do raportu logowania użytkownika nieinterakcyjnego w celu zwiększenia dokładności. 
+> Interakcyjny raport logowania użytkownika zawierał niektóre logowania nieinterakcyjne z klientów programu Microsoft Exchange. Chociaż te logowania były nieinterakcyjne, zostały uwzględnione w raporcie logowania użytkownika interakcyjnego w celu dodatkowego wglądu. Gdy raport logowania użytkowników nieinterakcyjnych zostanie wprowadzony w publicznej wersji zapoznawczej w listopadzie 2020 r., dzienniki zdarzeń logowania nieinterakcyjnego zostały przeniesione do raportu logowania użytkownika nieinterakcyjnego w celu zwiększenia dokładności. 
 
 
 **Rozmiar raportu:** mały <br> 
@@ -137,11 +139,11 @@ Interakcyjne logowania użytkowników to logowania, w których użytkownik zapew
 
 - Użytkownik podaje nazwę użytkownika i hasło na ekranie logowania usługi Azure AD.
 
-- Użytkownik przechodzi wyzwanie uwierzytelniania wieloskładnikowego SMS.
+- Użytkownik przechodzi wyzwanie uwierzytelniania WIELOSKŁADNIKowego SMS.
 
-- Użytkownik udostępnia gest biometryczny w celu odblokowania komputera z systemem Windows przy użyciu Windows Hello dla firm.
+- Użytkownik udostępnia gest biometryczny do odblokowywania komputera z systemem Windows za pomocą Windows Hello dla firm.
 
-- Użytkownik jest federowany z usługą Azure AD za pomocą AD FS asercji SAML.
+- Użytkownik jest federowany z usługą Azure AD przy użyciu AD FS SAML.
 
 
 Oprócz pól domyślnych raport logowania interakcyjnego zawiera również: 
@@ -173,7 +175,7 @@ Wybierz element w widoku listy, aby uzyskać bardziej szczegółowe informacje n
 
 ### <a name="non-interactive-user-sign-ins"></a>Logowania użytkowników nieinterakcyjnych
 
-Logowania użytkowników nieinterakcyjnych to logowania, które zostały wykonane przez aplikację kliencyjną lub składniki systemu operacyjnego w imieniu użytkownika. Podobnie jak logowania użytkowników interakcyjnych, te logowania są wykonywane w imieniu użytkownika. W przeciwieństwie do logowania użytkowników interakcyjnych te logowania nie wymagają od użytkownika podania współczynnika uwierzytelniania. Zamiast tego urządzenie lub aplikacja kliency używa tokenu lub kodu do uwierzytelniania lub uzyskiwania dostępu do zasobu w imieniu użytkownika. Ogólnie rzecz biorąc, użytkownik będzie postrzegać te logowania jako takie, które mają miejsce w tle działania użytkownika.
+Logowania użytkowników nieinterakcyjnych to logowania, które zostały wykonane przez aplikację kliencyjną lub składniki systemu operacyjnego w imieniu użytkownika. Podobnie jak logowania użytkowników interakcyjnych, te logowania są wykonywane w imieniu użytkownika. W przeciwieństwie do logowania interakcyjnego użytkownika te logowania nie wymagają od użytkownika podania współczynnika uwierzytelniania. Zamiast tego urządzenie lub aplikacja kliency używa tokenu lub kodu do uwierzytelniania lub uzyskiwania dostępu do zasobu w imieniu użytkownika. Ogólnie rzecz biorąc, użytkownik będzie postrzegać te logowania jako takie, które mają miejsce w tle działania użytkownika.
 
 
 **Rozmiar raportu:** Dużych <br>
@@ -183,9 +185,9 @@ Logowania użytkowników nieinterakcyjnych to logowania, które zostały wykonan
 
 - Klient używa kodu autoryzacji OAuth 2.0 w celu uzyskania tokenu dostępu i tokenu odświeżania.
 
-- Użytkownik wykonuje logowanie jednokrotne do aplikacji internetowej lub aplikacji systemu Windows na komputerze przyłączony do usługi Azure AD.
+- Użytkownik wykonuje logowanie jednokrotne do aplikacji internetowej lub aplikacji systemu Windows na komputerze przyłączonym do usługi Azure AD.
 
-- Użytkownik korzysta z drugiej aplikacji Microsoft Office, gdy ma sesję na urządzeniu przenośnym przy użyciu interfejsu FOCI (Family of Client IDD).
+- Użytkownik korzysta z drugiej aplikacji Microsoft Office podczas sesji na urządzeniu przenośnym przy użyciu interfejsu FOCI (Family of Client ID).
 
 
 
@@ -194,7 +196,7 @@ Oprócz pól domyślnych raport logowania nieinterakcyjnego zawiera również:
 
 - Identyfikator zasobu
 
-- Liczba zgrupowanych logie
+- Liczba pogrupowanych logie
 
 
 
@@ -204,7 +206,7 @@ Nie można dostosować pól wyświetlanych w tym raporcie.
 
 ![Wyłączone kolumny](./media/concept-all-sign-ins/disabled-columns.png "Wyłączone kolumny")
 
-Aby ułatwić podsumowanie danych, zdarzenia logowania nieinterakcyjnego są grupowane. Klienci często tworzą wiele nieinterakcyjnych logów w imieniu tego samego użytkownika w krótkim czasie, które mają te same cechy z wyjątkiem czasu próby logowania. Na przykład klient może uzyskać token dostępu raz na godzinę w imieniu użytkownika. Jeśli użytkownik lub klient nie zmieni stanu, adres IP, zasób i wszystkie inne informacje są takie same dla każdego żądania tokenu dostępu. Gdy usługa Azure AD rejestruje wiele logów, które są identyczne poza godziną i datą, te logowania będą pochodzić z tej samej jednostki, są agregowane w jeden wiersz. Wiersz z wieloma identycznymi logowaniami (z wyjątkiem daty i godziny wydania) będzie miał wartość większą niż 1 w kolumnie # logowania. Możesz rozwinąć wiersz, aby wyświetlić wszystkie różne logowania i ich różne sygnatury czasowe. Logowania są agregowane w użytkownikach nieinterakcyjnych po dopasowaniach następujących danych:
+Aby ułatwić podsumowanie danych, zdarzenia logowania nieinterakcyjnego są grupowane. Klienci często tworzą wiele nieinterakcyjnych logów w imieniu tego samego użytkownika w krótkim czasie, które mają te same właściwości z wyjątkiem czasu próby logowania. Na przykład klient może uzyskać token dostępu raz na godzinę w imieniu użytkownika. Jeśli użytkownik lub klient nie zmieni stanu, adres IP, zasób i wszystkie inne informacje są takie same dla każdego żądania tokenu dostępu. Gdy usługa Azure AD rejestruje wiele logów, które są identyczne poza godziną i datą, te logowania będą pochodzić z tej samej jednostki, są agregowane w jeden wiersz. Wiersz z wieloma identycznymi logowaniami (z wyjątkiem daty i godziny wydania) będzie miał wartość większą niż 1 w kolumnie # logowania. Możesz rozwinąć wiersz, aby wyświetlić wszystkie różne logowania i ich różne sygnatury czasowe. Logowania są agregowane w użytkownikach nieinterakcyjnych, gdy są takie jak następujące dane:
 
 
 - Aplikacja
@@ -232,7 +234,7 @@ Oto co możesz zrobić:
 
 ## <a name="service-principal-sign-ins"></a>Logowania jednostki usługi
 
-W przeciwieństwie do logowania użytkownika interakcyjnego i nieinterakcyjnego, logowania jednostki usługi nie obejmują użytkownika. Zamiast tego są to logowania według dowolnego konta użytkownika innego niż konto użytkownika, takiego jak aplikacje lub jednostki usługi (z wyjątkiem logowania tożsamości zarządzanej, które są uwzględniane tylko w raporcie logowania tożsamości zarządzanej). W tych logowaniach aplikacja lub usługa udostępnia własne poświadczenia, takie jak certyfikat lub klucz tajny aplikacji do uwierzytelniania zasobów lub uzyskiwania do nich dostępu.
+W przeciwieństwie do logowania użytkownika interakcyjnego i nieinterakcyjnego, logowania jednostki usługi nie obejmują użytkownika. Zamiast tego są to logowania za pomocą dowolnego konta użytkownika innego niż konto użytkownika, takiego jak aplikacje lub jednostki usługi (z wyjątkiem logowania tożsamości zarządzanej, które są uwzględnione tylko w raporcie logowania tożsamości zarządzanej). W tych logowaniach aplikacja lub usługa udostępnia własne poświadczenia, takie jak certyfikat lub klucz tajny aplikacji w celu uwierzytelnienia lub uzyskania dostępu do zasobów.
 
 
 **Rozmiar raportu:** Dużych <br>
@@ -240,7 +242,7 @@ W przeciwieństwie do logowania użytkownika interakcyjnego i nieinterakcyjnego,
 
 - Jednostki usługi używa certyfikatu do uwierzytelniania i uzyskiwania dostępu do Microsoft Graph. 
 
-- Aplikacja używa tajnego kluczem klienta do uwierzytelniania w przepływie poświadczeń klienta OAuth. 
+- Aplikacja używa tajnego klienta do uwierzytelniania w przepływie poświadczeń klienta OAuth. 
 
 
 Ten raport ma domyślny widok listy, który pokazuje:
@@ -259,13 +261,13 @@ Ten raport ma domyślny widok listy, który pokazuje:
 
 - Identyfikator zasobu
 
-- Liczba logie
+- Liczba logów
 
 Nie można dostosować pól wyświetlanych w tym raporcie.
 
 ![Wyłączone kolumny](./media/concept-all-sign-ins/disabled-columns.png "Wyłączone kolumny")
 
-Aby ułatwić podsumowanie danych w dziennikach logowania jednostki usługi, są grupowane zdarzenia logowania jednostki usługi. Logowania z tej samej jednostki w tych samych warunkach są agregowane w jednym wierszu. Możesz rozwinąć wiersz, aby wyświetlić wszystkie różne logowania i ich różne sygnatury czasowe. Logowania są agregowane w raporcie jednostki usługi w przypadku dopasowania następujących danych:
+Aby ułatwić podsumowanie danych w dziennikach logowania jednostki usługi, zdarzenia logowania jednostki usługi są grupowane. Logowania z tej samej jednostki w tych samych warunkach są agregowane w jednym wierszu. Możesz rozwinąć wiersz, aby wyświetlić wszystkie różne logowania i ich różne sygnatury czasowe. Logowania są agregowane w raporcie jednostki usługi w przypadku dopasowania następujących danych:
 
 - Główna nazwa lub identyfikator usługi
 
@@ -312,7 +314,7 @@ Ten raport ma domyślny widok listy, który pokazuje:
 
 Nie można dostosować pól wyświetlanych w tym raporcie.
 
-Aby ułatwić podsumowanie danych, pogrupowane są tożsamości zarządzane dla dzienników logowania zasobów platformy Azure. Logowania z tej samej jednostki są agregowane w jednym wierszu. Możesz rozwinąć wiersz, aby wyświetlić wszystkie różne logowania i ich różne sygnatury czasowe. Logowania są agregowane w raporcie tożsamości zarządzanych, gdy wszystkie następujące dane są takiene:
+Aby ułatwić podsumowanie danych, w dziennikach logowania tożsamości zarządzanych dla zasobów platformy Azure są grupowane zdarzenia logowania nieinterakcyjnego. Logowania z tej samej jednostki są agregowane w jeden wiersz. Możesz rozwinąć wiersz, aby wyświetlić wszystkie różne logowania i ich różne sygnatury czasowe. Logowania są agregowane w raporcie tożsamości zarządzanych, gdy wszystkie następujące dane są takie jak:
 
 - Nazwa lub identyfikator tożsamości zarządzanej
 
@@ -331,9 +333,9 @@ Wybierz pogrupowany element, aby wyświetlić wszystkie szczegóły logowania.
 
 Jeśli logowanie nie powiodło się, możesz uzyskać więcej informacji na temat przyczyny w sekcji Podstawowe **informacje** powiązanego elementu dziennika. 
 
-![Zrzut ekranu przedstawia szczegółowy widok informacji.](./media/concept-all-sign-ins/error-code.png)
+![Zrzut ekranu przedstawia widok szczegółowych informacji.](./media/concept-all-sign-ins/error-code.png)
  
-Chociaż element dziennika zawiera przyczynę niepowodzenia, istnieją przypadki, w których można uzyskać więcej informacji za pomocą narzędzia wyszukiwania błędów [logowania](https://login.microsoftonline.com/error). Na przykład jeśli jest dostępne, to narzędzie udostępnia kroki korygowania.  
+Chociaż element dziennika zawiera przyczynę niepowodzenia, istnieją przypadki, w których można uzyskać więcej informacji za pomocą narzędzia wyszukiwania błędów [logowania](https://login.microsoftonline.com/error). Na przykład to narzędzie zawiera kroki korygowania, jeśli jest dostępne.  
 
 ![Narzędzie wyszukiwania kodu błędu](./media/concept-all-sign-ins/error-code-lookup-tool.png)
 
@@ -341,7 +343,7 @@ Chociaż element dziennika zawiera przyczynę niepowodzenia, istnieją przypadki
 
 ## <a name="filter-sign-in-activities"></a>Filtrowanie działań związanych z logowaniem
 
-Ustawiając filtr, można zawęzić zakres zwracanych danych logowania. Usługa Azure AD udostępnia szeroką gamę dodatkowych filtrów, które można ustawić. Podczas ustawiania filtru należy zawsze zwrócić szczególną uwagę na skonfigurowany filtr **zakresów** dat. Odpowiedni filtr zakresu dat gwarantuje, że usługa Azure AD zwraca tylko te dane, które są dla Ciebie ważne.     
+Ustawiając filtr, można zawęzić zakres zwracanych danych logowania. Usługa Azure AD udostępnia szeroką gamę dodatkowych filtrów, które można ustawić. Podczas ustawiania filtru należy zawsze zwrócić szczególną uwagę na skonfigurowany **filtr** Zakres dat. Odpowiedni filtr zakresu dat gwarantuje, że usługa Azure AD zwraca tylko te dane, które naprawdę Cię umkną.     
 
 Filtr **Zakres** dat umożliwia zdefiniowanie przedziału czasu dla zwracanych danych.
 Możliwe wartości:
@@ -369,9 +371,9 @@ Filtr logowania interakcyjnego i nieinterakcyjnego jest taki sam. W związku z t
 
 
 
-## <a name="access-the-new-sign-in-activity-reports"></a>Uzyskiwanie dostępu do nowych raportów dotyczących działań logowania 
+## <a name="access-the-new-sign-in-activity-reports"></a>Uzyskiwanie dostępu do nowych raportów aktywności logowania 
 
-Raport aktywności logowania w oknie Azure Portal udostępnia prostą metodę przełączania i wyłączanie raportu podglądu. Jeśli masz włączone raporty w wersji zapoznawczej, otrzymasz nowe menu, które zapewnia dostęp do wszystkich typów raportów dotyczących działań logowania.     
+Raport działań logowania w oknie Azure Portal udostępnia prostą metodę przełączania i wyłączanie raportu podglądu. Jeśli masz włączone raporty w wersji zapoznawczej, otrzymasz nowe menu, które zapewnia dostęp do wszystkich typów raportów działań logowania.     
 
 
 Aby uzyskać dostęp do nowych raportów logowania za pomocą logowania nieinterakcyjnego i logowania aplikacji: 
@@ -398,9 +400,9 @@ Aby uzyskać dostęp do nowych raportów logowania za pomocą logowania nieinter
 
 
 
-## <a name="download-sign-in-activity-reports"></a>Pobieranie raportów aktywności logowania
+## <a name="download-sign-in-activity-reports"></a>Pobieranie raportów dotyczących działań logowania
 
-Po pobraniu raportu aktywności logowania są spełnione następujące kwestie:
+Po pobraniu raportu aktywności logowania spełnione są następujące kwestie:
 
 - Raport logowania można pobrać w formacie CSV lub JSON.
 
@@ -445,6 +447,6 @@ Każdy plik JSON do pobrania składa się z czterech różnych plików:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Kody błędów raportu działań logowania](reference-sign-ins-error-codes.md)
+* [Kody błędów raportu aktywności logowania](reference-sign-ins-error-codes.md)
 * [Zasady przechowywania danych usługi Azure AD](reference-reports-data-retention.md)
 * [Opóźnienia raportów usługi Azure AD](reference-reports-latencies.md)

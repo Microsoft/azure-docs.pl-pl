@@ -1,78 +1,78 @@
 ---
-title: Zabezpiecz usługę RESTful w Azure AD B2C
+title: Zabezpieczanie usługi Restful w Azure AD B2C
 titleSuffix: Azure AD B2C
-description: Zabezpiecz swoją niestandardową wymianę oświadczeń interfejsu API REST w Azure AD B2C.
+description: Zabezpieczanie niestandardowych wymian oświadczeń interfejsu API REST w Azure AD B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 04/19/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f6907db7f6e53247a8f2fc0042e8c8e6b081dbd3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 462d69a8bde0dec2689ac30620276b5bcd335410
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97516377"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717697"
 ---
-# <a name="secure-your-restful-services"></a>Zabezpieczanie usług RESTful Services 
+# <a name="secure-your-restful-services"></a>Zabezpieczanie usług RESTful 
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-W przypadku integrowania interfejsu API REST w ramach podróży użytkownika Azure AD B2C należy chronić punkt końcowy interfejsu API REST z uwierzytelnianiem. Dzięki temu tylko usługi, które mają odpowiednie poświadczenia, takie jak Azure AD B2C, mogą wykonywać wywołania punktu końcowego interfejsu API REST.
+Podczas integrowania interfejsu API REST w Azure AD B2C podróży użytkownika należy chronić punkt końcowy interfejsu API REST za pomocą uwierzytelniania. Zapewnia to, że tylko usługi, które mają odpowiednie poświadczenia, takie jak Azure AD B2C, mogą do punktu końcowego interfejsu API REST wykonać wywołania.
 
-Dowiedz się, jak zintegrować interfejs API REST w trakcie podróży użytkownika Azure AD B2C w ramach funkcji [Weryfikuj dane wejściowe użytkownika](custom-policy-rest-api-claims-validation.md) i [Dodaj wymianę oświadczeń interfejsu API REST do artykułów zasad niestandardowych](custom-policy-rest-api-claims-exchange.md) .
+Dowiedz się, jak zintegrować interfejs API REST w [](custom-policy-rest-api-claims-validation.md) podróży Azure AD B2C w ramach weryfikacji danych wejściowych użytkownika i artykułów Add REST API claims exchanges to custom policies (Dodawanie wymiany oświadczeń interfejsu [API REST do artykułów dotyczących zasad niestandardowych).](custom-policy-rest-api-claims-exchange.md)
 
-W tym artykule opisano sposób zabezpieczania interfejsu API REST przy użyciu protokołu HTTP Basic, certyfikatu klienta lub uwierzytelniania OAuth2. 
+W tym artykule opisano sposób zabezpieczania interfejsu API REST przy użyciu podstawowego protokołu HTTP, certyfikatu klienta lub uwierzytelniania OAuth2. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Wykonaj czynności opisane w jednej z następujących przewodników:
+Wykonaj kroki opisane w jednym z następujących przewodników "Instrukcje":
 
-- [Zintegruj wymianę oświadczeń interfejsu API REST w ramach kursu Azure AD B2C użytkownika, aby sprawdzić poprawność danych wejściowych użytkownika](custom-policy-rest-api-claims-validation.md).
+- [Zintegruj wymiany](custom-policy-rest-api-claims-validation.md)oświadczeń interfejsu API REST w Azure AD B2C podróży użytkownika w celu zweryfikowania danych wejściowych użytkownika.
 - [Dodawanie wymiany oświadczeń interfejsu API REST do zasad niestandardowych](custom-policy-rest-api-claims-exchange.md)
 
-## <a name="http-basic-authentication"></a>Uwierzytelnianie podstawowe HTTP
+## <a name="http-basic-authentication"></a>Podstawowe uwierzytelnianie HTTP
 
-Uwierzytelnianie podstawowe protokołu HTTP jest zdefiniowane w [dokumencie RFC 2617](https://tools.ietf.org/html/rfc2617). Uwierzytelnianie podstawowe działa w następujący sposób: Azure AD B2C wysyła żądanie HTTP przy użyciu poświadczeń klienta w nagłówku autoryzacji. Poświadczenia są sformatowane jako ciąg szyfrowany algorytmem Base64 "Name: Password".  
+Podstawowe uwierzytelnianie HTTP jest zdefiniowane w [dokumencie RFC 2617.](https://tools.ietf.org/html/rfc2617) Uwierzytelnianie podstawowe działa w następujący sposób: Azure AD B2C wysyła żądanie HTTP z poświadczeniami klienta w nagłówku autoryzacji. Poświadczenia są sformatowane jako ciąg zakodowany w formacie base64 "name:password".  
 
-### <a name="add-rest-api-username-and-password-policy-keys"></a>Dodaj nazwę użytkownika interfejsu API REST i klucze zasad haseł
+### <a name="add-rest-api-username-and-password-policy-keys"></a>Dodawanie kluczy zasad nazwy użytkownika i hasła interfejsu API REST
 
-Aby skonfigurować profil techniczny interfejsu API REST z uwierzytelnianiem Basic protokołu HTTP, Utwórz następujące klucze kryptograficzne do przechowywania nazwy użytkownika i hasła:
+Aby skonfigurować profil techniczny interfejsu API REST z podstawowym uwierzytelnianiem HTTP, utwórz następujące klucze kryptograficzne do przechowywania nazwy użytkownika i hasła:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-1. Upewnij się, że używasz katalogu zawierającego dzierżawcę Azure AD B2C. W górnym menu wybierz pozycję **katalog i subskrypcja** , a następnie wybierz katalog Azure AD B2C.
+1. Upewnij się, że używasz katalogu zawierającego dzierżawę Azure AD B2C dzierżawy. Wybierz filtr **Katalog i subskrypcja** w górnym menu, a następnie wybierz Azure AD B2C katalog.
 1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
-1. Na stronie Przegląd wybierz pozycję **Struktura środowiska tożsamości**.
-1. Wybierz pozycję **klucze zasad**, a następnie wybierz pozycję **Dodaj**.
-1. W obszarze **Opcje** wybierz pozycję **Ręczne**.
-1. W obszarze **Nazwa** wpisz **RestApiUsername**.
+1. Na stronie Przegląd wybierz pozycję **Identity Experience Framework**.
+1. Wybierz **pozycję Klucze zasad,** a następnie wybierz **pozycję Dodaj.**
+1. W **przypadku opcji** wybierz opcję **Ręcznie.**
+1. W **obszarze Nazwa** wpisz **RestApiUsername**.
     Prefiks *B2C_1A_* może zostać dodany automatycznie.
-1. W polu **wpis tajny** wprowadź nazwę użytkownika interfejsu API REST.
-1. W obszarze **użycie klucza** wybierz pozycję **szyfrowanie**.
+1. W polu **Wpis tajny** wprowadź nazwę użytkownika interfejsu API REST.
+1. W **przypadku opcji Użycie klucza** wybierz pozycję **Szyfrowanie.**
 1. Wybierz przycisk **Utwórz**.
-1. Wybierz ponownie **klucze zasad** .
+1. Ponownie **wybierz pozycję Klucze** zasad.
 1. Wybierz pozycję **Dodaj**.
-1. W obszarze **Opcje** wybierz pozycję **Ręczne**.
-1. W obszarze **Nazwa** wpisz **RestApiPassword**.
+1. W **przypadku opcji** wybierz opcję **Ręcznie.**
+1. W **obszarze Nazwa** wpisz **RestApiPassword.**
     Prefiks *B2C_1A_* może zostać dodany automatycznie.
-1. W polu **wpis tajny** wprowadź hasło interfejsu API REST.
-1. W obszarze **użycie klucza** wybierz pozycję **szyfrowanie**.
+1. W polu **Wpis tajny** wprowadź hasło interfejsu API REST.
+1. W **przypadku opcji Użycie klucza** wybierz pozycję **Szyfrowanie.**
 1. Wybierz przycisk **Utwórz**.
 
 ### <a name="configure-your-rest-api-technical-profile-to-use-http-basic-authentication"></a>Konfigurowanie profilu technicznego interfejsu API REST do korzystania z uwierzytelniania podstawowego protokołu HTTP
 
-Po utworzeniu niezbędnych kluczy Skonfiguruj metadane profilu technicznego interfejsu API REST, aby odwołać się do poświadczeń.
+Po utworzeniu niezbędnych kluczy skonfiguruj metadane profilu technicznego interfejsu API REST, aby odwoływać się do poświadczeń.
 
-1. W katalogu roboczym Otwórz plik zasad rozszerzenia (TrustFrameworkExtensions.xml).
-1. Wyszukaj profil techniczny interfejsu API REST. Na przykład `REST-ValidateProfile` lub `REST-GetProfile` .
-1. Znajdź `<Metadata>` element.
-1. Zmień wartość *AuthenticationType* na `Basic` .
-1. Zmień *AllowInsecureAuthInProduction* na `false` .
-1. Bezpośrednio po elemencie zamykającym `</Metadata>` Dodaj następujący fragment kodu XML:
+1. W katalogu pracy otwórz plik zasad rozszerzenia (TrustFrameworkExtensions.xml).
+1. Wyszukaj profil techniczny interfejsu API REST. Na przykład `REST-ValidateProfile` , lub `REST-GetProfile` .
+1. Znajdź `<Metadata>` element .
+1. Zmień typ *AuthenticationType na* `Basic` .
+1. Zmień ciąg *AllowInsecureAuthInProduction na* `false` .
+1. Bezpośrednio po elemencie `</Metadata>` zamykającym dodaj następujący fragment kodu XML:
     ```xml
     <CryptographicKeys>
         <Key Id="BasicAuthenticationUsername" StorageReferenceId="B2C_1A_RestApiUsername" />
@@ -80,7 +80,7 @@ Po utworzeniu niezbędnych kluczy Skonfiguruj metadane profilu technicznego inte
     </CryptographicKeys>
     ```
 
-Poniżej znajduje się przykładowy profil techniczny RESTful skonfigurowany przy użyciu uwierzytelniania podstawowego HTTP:
+Poniżej przedstawiono przykład profilu technicznego RESTful skonfigurowanego z podstawowym uwierzytelnianiem HTTP:
 
 ```xml
 <ClaimsProvider>
@@ -107,13 +107,13 @@ Poniżej znajduje się przykładowy profil techniczny RESTful skonfigurowany prz
 
 ## <a name="https-client-certificate-authentication"></a>Uwierzytelnianie certyfikatu klienta HTTPS
 
-Uwierzytelnianie za pomocą certyfikatu klienta jest wzajemnym uwierzytelnianiem opartym na certyfikatach, w którym klient Azure AD B2C udostępnia certyfikat klienta serwerowi, aby potwierdzić jego tożsamość. Dzieje się tak w ramach uzgadniania protokołu SSL. Do usługi interfejsu API REST można uzyskać dostęp tylko do usług, które mają odpowiednie certyfikaty, takie jak Azure AD B2C. Certyfikat klienta jest certyfikatem cyfrowym X. 509. W środowiskach produkcyjnych musi być podpisane przez urząd certyfikacji.
+Uwierzytelnianie certyfikatu klienta to wzajemne uwierzytelnianie oparte na certyfikatach, w którym klient, Azure AD B2C, dostarcza serwerowi certyfikat klienta, aby potwierdzić swoją tożsamość. Dzieje się to w ramach uściśliwego protokołu SSL. Tylko usługi, które mają odpowiednie certyfikaty, takie jak Azure AD B2C, mogą uzyskać dostęp do usługi interfejsu API REST. Certyfikat klienta jest certyfikatem cyfrowym X.509. W środowiskach produkcyjnych musi być podpisany przez urząd certyfikacji.
 
-### <a name="prepare-a-self-signed-certificate-optional"></a>Przygotuj certyfikat z podpisem własnym (opcjonalnie)
+### <a name="prepare-a-self-signed-certificate-optional"></a>Przygotowywanie certyfikatu z podpisem własnym (opcjonalnie)
 
-Jeśli w środowiskach nieprodukcyjnych nie masz jeszcze certyfikatu, możesz użyć certyfikatu z podpisem własnym. W systemie Windows można użyć polecenia cmdlet [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) programu PowerShell do wygenerowania certyfikatu.
+W środowiskach nieprodukcji, jeśli nie masz jeszcze certyfikatu, możesz użyć certyfikatu z podpisem własnym. W systemie Windows do wygenerowania certyfikatu można użyć polecenia cmdlet [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) programu PowerShell.
 
-1. Wykonaj to polecenie programu PowerShell, aby wygenerować certyfikat z podpisem własnym. Zmodyfikuj `-Subject` argument jako odpowiedni dla aplikacji i Azure AD B2C nazwę dzierżawcy. Możesz również dostosować datę, `-NotAfter` Aby określić inne wygaśnięcie certyfikatu.
+1. Wykonaj to polecenie programu PowerShell, aby wygenerować certyfikat z podpisem własnym. `-Subject`Zmodyfikuj argument zgodnie z potrzebami aplikacji i Azure AD B2C dzierżawy. Można również dostosować `-NotAfter` datę, aby określić inne wygaśnięcie certyfikatu.
     ```powershell
     New-SelfSignedCertificate `
         -KeyExportPolicy Exportable `
@@ -124,43 +124,43 @@ Jeśli w środowiskach nieprodukcyjnych nie masz jeszcze certyfikatu, możesz u�
         -NotAfter (Get-Date).AddMonths(12) `
         -CertStoreLocation "Cert:\CurrentUser\My"
     ```    
-1. Otwórz przystawkę **Zarządzaj certyfikatami użytkowników**  >  **bieżące**  >    >  **Certyfikaty** osobiste  >  *yourappname.yourtenant.onmicrosoft.com*.
-1. Wybierz certyfikat, > **Akcja**  >  **wszystkie zadania**  >  **Eksportuj**.
-1. Wybierz pozycję **tak**  >  **dalej**  >  **tak, eksportuj klucz prywatny**  >  **dalej**.
-1. Zaakceptuj wartości domyślne w **formacie pliku eksportu**.
-1. Podaj hasło do certyfikatu.
+1. Otwórz **okno Zarządzanie certyfikatami użytkowników**  >  **Certyfikaty** osobiste  >    >  **bieżącego użytkownika**  >  *yourappname.yourtenant.onmicrosoft.com*.
+1. Wybierz certyfikat, >   >  **eksportuj wszystkie**  >  **zadania.**
+1. Wybierz **pozycję Tak**  >  **Dalej**  >  **Tak, wyeksportuj klucz prywatny**  >  **Dalej.**
+1. Zaakceptuj wartości domyślne dla **formatu eksportu pliku.**
+1. Podaj hasło certyfikatu.
 
-### <a name="add-a-client-certificate-policy-key"></a>Dodawanie klucza zasad certyfikatów klienta
+### <a name="add-a-client-certificate-policy-key"></a>Dodawanie klucza zasad certyfikatu klienta
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-1. Upewnij się, że używasz katalogu zawierającego dzierżawcę Azure AD B2C. W górnym menu wybierz pozycję **katalog i subskrypcja** , a następnie wybierz katalog Azure AD B2C.
+1. Upewnij się, że używasz katalogu zawierającego dzierżawę Azure AD B2C dzierżawy. Wybierz filtr **Katalog i subskrypcja** w górnym menu, a następnie wybierz Azure AD B2C katalog.
 1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
-1. Na stronie Przegląd wybierz pozycję **Struktura środowiska tożsamości**.
-1. Wybierz pozycję **klucze zasad**, a następnie wybierz pozycję **Dodaj**.
+1. Na stronie Przegląd wybierz pozycję **Identity Experience Framework**.
+1. Wybierz **pozycję Klucze zasad,** a następnie wybierz **pozycję Dodaj**.
 1. W polu **Opcje** wybierz pozycję **Przekaż**.
 1. W polu **Nazwa** wpisz **RestApiClientCertificate**.
     Prefiks *B2C_1A_* jest dodawany automatycznie.
-1. W polu **przekazywanie pliku** wybierz plik PFX certyfikatu z kluczem prywatnym.
-1. W polu **hasło** wpisz hasło certyfikatu.
+1. W **polu Przekazywanie pliku** wybierz plik pfx certyfikatu z kluczem prywatnym.
+1. W **polu** Hasło wpisz hasło certyfikatu.
 1. Wybierz przycisk **Utwórz**.
 
-### <a name="configure-your-rest-api-technical-profile-to-use-client-certificate-authentication"></a>Konfigurowanie profilu technicznego interfejsu API REST w celu korzystania z uwierzytelniania przy użyciu certyfikatu klienta
+### <a name="configure-your-rest-api-technical-profile-to-use-client-certificate-authentication"></a>Konfigurowanie profilu technicznego interfejsu API REST do korzystania z uwierzytelniania certyfikatu klienta
 
-Po utworzeniu niezbędnego klucza Skonfiguruj metadane profilu technicznego interfejsu API REST, aby odwołać się do certyfikatu klienta.
+Po utworzeniu niezbędnego klucza skonfiguruj metadane profilu technicznego interfejsu API REST, aby odwoływać się do certyfikatu klienta.
 
-1. W katalogu roboczym Otwórz plik zasad rozszerzenia (TrustFrameworkExtensions.xml).
-1. Wyszukaj profil techniczny interfejsu API REST. Na przykład `REST-ValidateProfile` lub `REST-GetProfile` .
-1. Znajdź `<Metadata>` element.
-1. Zmień wartość *AuthenticationType* na `ClientCertificate` .
-1. Zmień *AllowInsecureAuthInProduction* na `false` .
-1. Bezpośrednio po elemencie zamykającym `</Metadata>` Dodaj następujący fragment kodu XML:
+1. W katalogu pracy otwórz plik zasad rozszerzenia (TrustFrameworkExtensions.xml).
+1. Wyszukaj profil techniczny interfejsu API REST. Na przykład `REST-ValidateProfile` , lub `REST-GetProfile` .
+1. Znajdź `<Metadata>` element .
+1. Zmień typ *AuthenticationType na* `ClientCertificate` .
+1. Zmień ciąg *AllowInsecureAuthInProduction na* `false` .
+1. Bezpośrednio po elemencie `</Metadata>` zamykającym dodaj następujący fragment kodu XML:
     ```xml
     <CryptographicKeys>
        <Key Id="ClientCertificate" StorageReferenceId="B2C_1A_RestApiClientCertificate" />
     </CryptographicKeys>
     ```
 
-Poniżej znajduje się przykładowy profil techniczny RESTful skonfigurowany przy użyciu certyfikatu klienta HTTP:
+Poniżej przedstawiono przykład profilu technicznego RESTful skonfigurowanego przy użyciu certyfikatu klienta HTTP:
 
 ```xml
 <ClaimsProvider>
@@ -184,34 +184,34 @@ Poniżej znajduje się przykładowy profil techniczny RESTful skonfigurowany prz
 </ClaimsProvider>
 ```
 
-## <a name="oauth2-bearer-authentication"></a>Uwierzytelnianie okaziciela OAuth2 
+## <a name="oauth2-bearer-authentication"></a>Uwierzytelnianie użytkownika OAuth2 
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-Uwierzytelnianie tokenu okaziciela jest zdefiniowane w [strukturze autoryzacji OAuth 2.0: użycie tokenu okaziciela (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). W przypadku uwierzytelniania tokenu nośnego Azure AD B2C wysyła żądanie HTTP z tokenem w nagłówku autoryzacji.
+Uwierzytelnianie tokenu bearer jest zdefiniowane w [dokumencie OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750) .](https://www.rfc-editor.org/rfc/rfc6750.txt) W przypadku uwierzytelniania tokenu Azure AD B2C wysyła żądanie HTTP z tokenem w nagłówku autoryzacji.
 
 ```http
 Authorization: Bearer <token>
 ```
 
-Token okaziciela jest nieprzezroczystym ciągiem. Może to być token dostępu JWT lub dowolny ciąg, który interfejs API REST oczekuje Azure AD B2C do wysłania w nagłówku autoryzacji. Azure AD B2C obsługuje następujące typy:
+Token bearer jest nieprzezroczystym ciągiem. Może to być token dostępu JWT lub dowolny ciąg, który interfejs API REST oczekuje Azure AD B2C do wysłania w nagłówku autoryzacji. Azure AD B2C obsługuje następujące typy:
 
-- **Token elementu nośnego**. Aby można było wysłać token okaziciela w profilu technicznym RESTful, zasady muszą najpierw uzyskać token okaziciela, a następnie użyć go w profilu technicznym RESTful.  
-- **Statyczny token elementu nośnego**. Użyj tej metody, gdy interfejs API REST wystawia token dostępu długoterminowego. Aby użyć statycznego tokenu okaziciela, Utwórz klucz zasad i wprowadź odwołanie z profilu technicznego RESTful do klucza zasad. 
+- **Token bearer**. Aby można było wysłać token okaziciela w profilu technicznym Restful, zasady muszą najpierw uzyskać token okaziciela, a następnie użyć go w profilu technicznym RESTful.  
+- **Token statycznego okaziciela**. Użyj tej metody, gdy interfejs API REST wydaje token dostępu długoterminowego. Aby użyć statycznego tokenu bearer, utwórz klucz zasad i utwórz odwołanie z profilu technicznego RESTful do klucza zasad. 
 
 
-## <a name="using-oauth2-bearer"></a>Używanie okaziciela OAuth2  
+## <a name="using-oauth2-bearer"></a>Korzystanie z bearer OAuth2  
 
-W poniższych krokach pokazano, jak za pomocą poświadczeń klienta uzyskać token okaziciela i przekazać go do nagłówka autoryzacji wywołań interfejsu API REST.  
+W poniższych krokach pokazano, jak używać poświadczeń klienta w celu uzyskania tokenu okaziciela i przekazania go do nagłówka Autoryzacja wywołań interfejsu API REST.  
 
-### <a name="define-a-claim-to-store-the-bearer-token"></a>Zdefiniuj zastrzeżenie do przechowywania tokenu okaziciela
+### <a name="define-a-claim-to-store-the-bearer-token"></a>Definiowanie oświadczenia do przechowywania tokenu okaziciela
 
-W trakcie wykonywania zasad Azure AD B2C, zgłoszenie zapewnia tymczasowy magazyn danych. [Schemat oświadczeń](claimsschema.md) jest miejscem, w którym deklarujesz oświadczenia. Token dostępu musi być przechowywany w ramach żądania do późniejszego użycia. 
+Oświadczenie zapewnia tymczasowe przechowywanie danych podczas Azure AD B2C wykonywania zasad. Schemat [oświadczeń to](claimsschema.md) miejsce, w którym deklaruje się oświadczenia. Token dostępu musi być przechowywany w oświadczenie, aby można było go użyć później. 
 
 1. Otwórz plik rozszerzeń zasad. Na przykład <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> .
-1. Wyszukaj element [BuildingBlocks](buildingblocks.md) . Jeśli element nie istnieje, Dodaj go.
-1. Znajdź element [ClaimsSchema](claimsschema.md) . Jeśli element nie istnieje, Dodaj go.
-1. Dodaj następujące oświadczenia do elementu **ClaimsSchema** .  
+1. Wyszukaj element [BuildingBlocks.](buildingblocks.md) Jeśli element nie istnieje, dodaj go.
+1. Znajdź [element ClaimsSchema.](claimsschema.md) Jeśli element nie istnieje, dodaj go.
+1. Dodaj następujące oświadczenia do **claimsSchema** elementu.  
 
 ```xml
 <ClaimType Id="bearerToken">
@@ -230,11 +230,52 @@ W trakcie wykonywania zasad Azure AD B2C, zgłoszenie zapewnia tymczasowy magazy
 
 ### <a name="acquiring-an-access-token"></a>Uzyskiwanie tokenu dostępu 
 
-Token dostępu można uzyskać na jeden z kilku sposobów: uzyskując go [od dostawcy tożsamości federacyjnych](idp-pass-through-user-flow.md), wywołując interfejs API REST, który zwraca token dostępu, za pomocą [przepływu ROPC](../active-directory/develop/v2-oauth-ropc.md)lub za pomocą [przepływu poświadczeń klienta](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).  
+Token dostępu można uzyskać na jeden z kilku sposobów: przez uzyskanie go od dostawcy tożsamości [federacji](idp-pass-through-user-flow.md), przez wywołanie interfejsu API REST, który zwraca token dostępu, przy użyciu przepływu [PRZEPŁYWC](../active-directory/develop/v2-oauth-ropc.md)lub przy użyciu przepływu poświadczeń [klienta](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). Przepływ poświadczeń klienta jest często używany w przypadku interakcji między serwerami, które muszą działać w tle, bez natychmiastowej interakcji z użytkownikiem.
 
-W poniższym przykładzie użyto profilu technicznego interfejsu API REST, aby wysłać żądanie do punktu końcowego tokenu usługi Azure AD przy użyciu poświadczeń klienta przewidzianych jako podstawowe uwierzytelnianie HTTP. Aby skonfigurować ten program w usłudze Azure AD, zobacz temat [Microsoft Identity platform i klient OAuth 2,0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). Może być konieczne zmodyfikowanie tego interfejsu z dostawcą tożsamości. 
+#### <a name="acquiring-an-azure-ad-access-token"></a>Uzyskiwanie tokenu dostępu usługi Azure AD 
 
-W przypadku ServiceUrl Zastąp nazwę dzierżawy nazwą swojej dzierżawy usługi Azure AD. Aby uzyskać dostęp do wszystkich dostępnych opcji, zobacz Dokumentacja [profilu technicznego RESTful](restful-technical-profile.md) .
+W poniższym przykładzie profil techniczny interfejsu API REST jest używany do przesyłania żądania do punktu końcowego tokenu usługi Azure AD przy użyciu poświadczeń klienta przekazanych jako uwierzytelnianie podstawowe protokołu HTTP. Aby uzyskać więcej informacji, zobacz Platforma tożsamości firmy Microsoft i przepływ poświadczeń klienta [OAuth 2.0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). 
+
+Aby uzyskać token dostępu usługi Azure AD, utwórz aplikację w dzierżawie usługi Azure AD:
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Wybierz filtr **Katalog i subskrypcja** w górnym menu, a następnie wybierz katalog zawierający dzierżawę usługi Azure AD.
+1. W menu po lewej stronie wybierz **pozycję Azure Active Directory**. Możesz też wybrać **pozycję Wszystkie usługi,** wyszukać i wybrać **pozycję Azure Active Directory**.
+1. Wybierz **Rejestracje aplikacji**, a następnie wybierz pozycję **Nowa rejestracja.**
+1. Wprowadź **nazwę** aplikacji. Na przykład *Client_Credentials_Auth_app*.
+1. W **obszarze Obsługiwane typy kont** wybierz pozycję Konta tylko w tym katalogu **organizacyjnym.**
+1. Wybierz pozycję **Zarejestruj**.
+2. **Zanotuj identyfikator aplikacji (klienta).** 
+
+
+W przypadku przepływu poświadczeń klienta należy utworzyć klucz tajny aplikacji. Klucz tajny klienta jest również nazywany hasłem aplikacji. Klucz tajny będzie używany przez aplikację do uzyskania tokenu dostępu.
+
+1. Na **Azure AD B2C — Rejestracje aplikacji** wybierz utworzoną aplikację, na przykład *Client_Credentials_Auth_app*.
+1. W menu po lewej stronie w **obszarze Zarządzanie** wybierz pozycję Certyfikaty i **& tajne.**
+1. Wybierz pozycję **Nowy wpis tajny klienta**.
+1. Wprowadź opis wpisów tajnych klienta w **polu** Opis. Na przykład *clientsecret1*.
+1. W **obszarze Wygasa** wybierz czas trwania, dla którego klucz tajny jest prawidłowy, a następnie wybierz pozycję **Dodaj**.
+1. Zanotuj wartość **tajnego do** użycia w kodzie aplikacji klienckiej. Ta wartość tajnego nigdy nie jest wyświetlana ponownie po opuszczeniu tej strony. Ta wartość jest kluczem tajnym aplikacji w kodzie aplikacji.
+
+#### <a name="create-azure-ad-b2c-policy-keys"></a>Tworzenie Azure AD B2C zasad grupy
+
+Należy przechowywać identyfikator klienta i klucz tajny klienta, które zostały wcześniej zarejestrowane w dzierżawie Azure AD B2C dzierżawy.
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+2. Upewnij się, że używasz katalogu zawierającego dzierżawę Azure AD B2C dzierżawy. Wybierz filtr **Katalog i subskrypcja** w górnym menu, a następnie wybierz katalog zawierający Twoją dzierżawę.
+3. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
+4. Na stronie Przegląd wybierz pozycję **Identity Experience Framework**.
+5. Wybierz **pozycję Klucze zasad,** a następnie wybierz **pozycję Dodaj.**
+6. W **przypadku opcji** wybierz pozycję `Manual` .
+7. Wprowadź **nazwę** klucza `SecureRESTClientId` zasad. Prefiks `B2C_1A_` jest dodawany automatycznie do nazwy klucza.
+8. W **kluczu** tajnym wprowadź wcześniej zarejestrowany identyfikator klienta.
+9. W **przypadku opcji Użycie klucza** wybierz pozycję `Signature` .
+10. Kliknij pozycję **Utwórz**.
+11. Utwórz inny klucz zasad z następującymi ustawieniami:
+    -   **Nazwa:** `SecureRESTClientSecret` .
+    -   **Wpis** tajny: wprowadź wcześniej zarejestrowany klucz tajny klienta
+
+W przypadku nazwy ServiceUrl zastąp your-tenant-name nazwą swojej dzierżawy usługi Azure AD. Zobacz [dokumentację profilu technicznego RESTful,](restful-technical-profile.md) aby uzyskać wszystkie dostępne opcje.
 
 ```xml
 <TechnicalProfile Id="SecureREST-AccessToken">
@@ -251,7 +292,7 @@ W przypadku ServiceUrl Zastąp nazwę dzierżawy nazwą swojej dzierżawy usług
   </CryptographicKeys>
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="grant_type" DefaultValue="client_credentials" />
-    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="https://secureb2cfunction.azurewebsites.net/.default" />
+    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="https://graph.microsoft.com/.default" />
   </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="bearerToken" PartnerClaimType="access_token" />
@@ -260,30 +301,30 @@ W przypadku ServiceUrl Zastąp nazwę dzierżawy nazwą swojej dzierżawy usług
 </TechnicalProfile>
 ```
 
-### <a name="change-the-rest-technical-profile-to-use-bearer-token-authentication"></a>Zmień profil techniczny REST, aby korzystać z uwierzytelniania tokenu okaziciela
+### <a name="change-the-rest-technical-profile-to-use-bearer-token-authentication"></a>Zmienianie profilu technicznego REST w celu używania uwierzytelniania tokenu bearer
 
-Aby zapewnić obsługę uwierzytelniania tokenów okaziciela w zasadach niestandardowych, należy zmodyfikować profil techniczny interfejsu API REST, wykonując następujące czynności:
+Aby obsługiwać uwierzytelnianie tokenu bearer w zasadach niestandardowych, zmodyfikuj profil techniczny interfejsu API REST przy użyciu następujących wartości:
 
-1. W katalogu roboczym Otwórz plik zasad rozszerzenia *TrustFrameworkExtensions.xml* .
-1. Wyszukaj `<TechnicalProfile>` węzeł, który zawiera `Id="REST-API-SignUp"` .
-1. Znajdź `<Metadata>` element.
-1. Zmień wartość *AuthenticationType* na *Bearer* w następujący sposób:
+1. W katalogu pracy otwórz plik *zasadTrustFrameworkExtensions.xml* rozszerzenia.
+1. Wyszukaj `<TechnicalProfile>` węzeł, który zawiera . `Id="REST-API-SignUp"`
+1. Znajdź `<Metadata>` element .
+1. Zmień typ *AuthenticationType na* *Bearer* w następujący sposób:
     ```xml
     <Item Key="AuthenticationType">Bearer</Item>
     ```
-1. Zmień lub Dodaj *UseClaimAsBearerToken* do *bearerToken* w następujący sposób. *BearerToken* to nazwa żądania, z którego zostanie pobrany token okaziciela (wynikowy wniosek `SecureREST-AccessToken` ).
+1. Zmień lub dodaj pozycję *UseClaimAsBearerToken do* *bearerToken* w następujący sposób. *BearerToken* to nazwa oświadczenia, z których zostanie pobrany token bearer (oświadczenie wyjściowe z `SecureREST-AccessToken` ).
 
     ```xml
     <Item Key="UseClaimAsBearerToken">bearerToken</Item>
     ```
     
-1. Upewnij się, że zostało dodane powyższy element w ramach roszczeń wejściowych:
+1. Upewnij się, że dodano oświadczenie użyte powyżej jako oświadczenie wejściowe:
 
     ```xml
     <InputClaim ClaimTypeReferenceId="bearerToken"/>
     ```    
 
-Po dodaniu powyższych fragmentów Twój profil techniczny powinien wyglądać podobnie do następującego kodu XML:
+Po dodaniu powyższych fragmentów kodu Twój profil techniczny powinien wyglądać podobnie do następującego kodu XML:
 
 ```xml
 <ClaimsProvider>
@@ -308,40 +349,40 @@ Po dodaniu powyższych fragmentów Twój profil techniczny powinien wyglądać p
 </ClaimsProvider>
 ```
 
-## <a name="using-a-static-oauth2-bearer"></a>Używanie statycznego elementu OAuth2 
+## <a name="using-a-static-oauth2-bearer"></a>Korzystanie ze statycznego elementy niosące OAuth2 
 
-### <a name="add-the-oauth2-bearer-token-policy-key"></a>Dodaj klucz zasad tokenu okaziciela OAuth2
+### <a name="add-the-oauth2-bearer-token-policy-key"></a>Dodawanie klucza zasad tokenu okazcy OAuth2
 
-Aby skonfigurować profil techniczny interfejsu API REST z tokenem okaziciela OAuth2, uzyskaj token dostępu od właściciela interfejsu API REST. Następnie utwórz następujący klucz kryptograficzny do przechowywania tokenu okaziciela.
+Aby skonfigurować profil techniczny interfejsu API REST przy użyciu tokenu okaziciela OAuth2, uzyskaj token dostępu od właściciela interfejsu API REST. Następnie utwórz następujący klucz kryptograficzny do przechowywania tokenu bearer.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-1. Upewnij się, że używasz katalogu zawierającego dzierżawcę Azure AD B2C. W górnym menu wybierz pozycję **katalog i subskrypcja** , a następnie wybierz katalog Azure AD B2C.
+1. Upewnij się, że używasz katalogu zawierającego dzierżawę Azure AD B2C dzierżawy. Wybierz filtr **Katalog i subskrypcja** w górnym menu, a następnie wybierz Azure AD B2C katalog.
 1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
-1. Na stronie Przegląd wybierz pozycję **Struktura środowiska tożsamości**.
-1. Wybierz pozycję **klucze zasad**, a następnie wybierz pozycję **Dodaj**.
-1. W obszarze **Opcje** wybierz opcję `Manual` .
-1. Wprowadź **nazwę** klucza zasad. Na przykład `RestApiBearerToken`. Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza.
-1. W **kluczu tajnym** wprowadź wcześniej zarejestrowany klucz tajny klienta.
-1. W obszarze **użycie klucza** wybierz opcję `Encryption` .
+1. Na stronie Przegląd wybierz pozycję **Identity Experience Framework**.
+1. Wybierz **pozycję Klucze zasad,** a następnie wybierz **pozycję Dodaj.**
+1. W **przypadku opcji** wybierz pozycję `Manual` .
+1. Wprowadź **nazwę** klucza zasad. Na przykład `RestApiBearerToken`. Prefiks `B2C_1A_` jest dodawany automatycznie do nazwy klucza.
+1. W **kluczu** tajnym wprowadź wcześniej zarejestrowany klucz tajny klienta.
+1. W **przypadku opcji Użycie klucza** wybierz pozycję `Encryption` .
 1. Wybierz przycisk **Utwórz**.
 
-### <a name="configure-your-rest-api-technical-profile-to-use-the-bearer-token-policy-key"></a>Skonfiguruj profil techniczny interfejsu API REST, aby użyć klucza zasad tokenu okaziciela
+### <a name="configure-your-rest-api-technical-profile-to-use-the-bearer-token-policy-key"></a>Konfigurowanie profilu technicznego interfejsu API REST do używania klucza zasad tokenu okaziciela
 
-Po utworzeniu niezbędnego klucza Skonfiguruj metadane profilu technicznego interfejsu API REST, aby odwołać się do tokenu okaziciela.
+Po utworzeniu niezbędnego klucza skonfiguruj metadane profilu technicznego interfejsu API REST, aby odwoływać się do tokenu elementu bearer.
 
-1. W katalogu roboczym Otwórz plik zasad rozszerzenia (TrustFrameworkExtensions.xml).
-1. Wyszukaj profil techniczny interfejsu API REST. Na przykład `REST-ValidateProfile` lub `REST-GetProfile` .
-1. Znajdź `<Metadata>` element.
-1. Zmień wartość *AuthenticationType* na `Bearer` .
-1. Zmień *AllowInsecureAuthInProduction* na `false` .
-1. Bezpośrednio po elemencie zamykającym `</Metadata>` Dodaj następujący fragment kodu XML:
+1. W katalogu roboczy otwórz plik zasad rozszerzenia (TrustFrameworkExtensions.xml).
+1. Wyszukaj profil techniczny interfejsu API REST. Na przykład `REST-ValidateProfile` , lub `REST-GetProfile` .
+1. Znajdź `<Metadata>` element .
+1. Zmień typ *AuthenticationType na* `Bearer` .
+1. Zmień ciąg *AllowInsecureAuthInProduction na* `false` .
+1. Bezpośrednio po elemencie `</Metadata>` zamykającym dodaj następujący fragment kodu XML:
     ```xml
     <CryptographicKeys>
        <Key Id="BearerAuthenticationToken" StorageReferenceId="B2C_1A_RestApiBearerToken" />
     </CryptographicKeys>
     ```
 
-Poniżej znajduje się przykładowy profil techniczny RESTful skonfigurowany z uwierzytelnianiem tokenu okaziciela:
+Poniżej przedstawiono przykład profilu technicznego RESTful skonfigurowanego z uwierzytelnianiem tokenu okaziciela:
 
 ```xml
 <ClaimsProvider>
@@ -367,44 +408,44 @@ Poniżej znajduje się przykładowy profil techniczny RESTful skonfigurowany z u
 
 ## <a name="api-key-authentication"></a>Uwierzytelnianie klucza interfejsu API
 
-Klucz interfejsu API jest unikatowym identyfikatorem używanym do uwierzytelniania użytkownika w celu uzyskania dostępu do punktu końcowego interfejsu API REST. Klucz jest wysyłany w niestandardowym nagłówku HTTP. Na przykład, [wyzwalacz protokołu http Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) używa `x-functions-key` nagłówka HTTP do identyfikowania obiektu żądającego.  
+Klucz interfejsu API to unikatowy identyfikator używany do uwierzytelniania użytkownika w celu uzyskania dostępu do punktu końcowego interfejsu API REST. Klucz jest wysyłany w niestandardowym nagłówku HTTP. Na przykład wyzwalacz [Azure Functions HTTP](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) używa nagłówka HTTP `x-functions-key` do zidentyfikowania osoby żądacej.  
 
-### <a name="add-api-key-policy-keys"></a>Dodaj klucze zasad kluczy interfejsu API
+### <a name="add-api-key-policy-keys"></a>Dodawanie kluczy zasad kluczy interfejsu API
 
-Aby skonfigurować profil techniczny interfejsu API REST z uwierzytelnianiem za pomocą klucza interfejsu API, Utwórz następujący klucz kryptograficzny do przechowywania klucza interfejsu API:
+Aby skonfigurować profil techniczny interfejsu API REST z uwierzytelnianiem klucza interfejsu API, utwórz następujący klucz kryptograficzny do przechowywania klucza interfejsu API:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-1. Upewnij się, że używasz katalogu zawierającego dzierżawcę Azure AD B2C. W górnym menu wybierz pozycję **katalog i subskrypcja** , a następnie wybierz katalog Azure AD B2C.
+1. Upewnij się, że używasz katalogu zawierającego dzierżawę Azure AD B2C dzierżawy. Wybierz filtr **Katalog i subskrypcja** w górnym menu, a następnie wybierz Azure AD B2C katalog.
 1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
-1. Na stronie Przegląd wybierz pozycję **Struktura środowiska tożsamości**.
-1. Wybierz pozycję **klucze zasad**, a następnie wybierz pozycję **Dodaj**.
-1. W obszarze **Opcje** wybierz pozycję **Ręczne**.
-1. W obszarze **Nazwa** wpisz **RestApiKey**.
+1. Na stronie Przegląd wybierz pozycję **Identity Experience Framework**.
+1. Wybierz **pozycję Klucze zasad,** a następnie wybierz **pozycję Dodaj**.
+1. W **przypadku opcji** wybierz opcję **Ręcznie.**
+1. W **obszarze Nazwa** wpisz **RestApiKey.**
     Prefiks *B2C_1A_* może zostać dodany automatycznie.
-1. W polu **wpis tajny** wprowadź klucz interfejsu API REST.
-1. W obszarze **użycie klucza** wybierz pozycję **szyfrowanie**.
+1. W polu **Wpis tajny** wprowadź klucz interfejsu API REST.
+1. W **przypadku opcji Użycie klucza** wybierz pozycję **Szyfrowanie.**
 1. Wybierz przycisk **Utwórz**.
 
 
-### <a name="configure-your-rest-api-technical-profile-to-use-api-key-authentication"></a>Konfigurowanie profilu technicznego interfejsu API REST w celu korzystania z uwierzytelniania przy użyciu klucza interfejsu API
+### <a name="configure-your-rest-api-technical-profile-to-use-api-key-authentication"></a>Konfigurowanie profilu technicznego interfejsu API REST do korzystania z uwierzytelniania za pomocą klucza interfejsu API
 
-Po utworzeniu niezbędnego klucza Skonfiguruj metadane profilu technicznego interfejsu API REST, aby odwołać się do poświadczeń.
+Po utworzeniu niezbędnego klucza skonfiguruj metadane profilu technicznego interfejsu API REST, aby odwoływać się do poświadczeń.
 
-1. W katalogu roboczym Otwórz plik zasad rozszerzenia (TrustFrameworkExtensions.xml).
-1. Wyszukaj profil techniczny interfejsu API REST. Na przykład `REST-ValidateProfile` lub `REST-GetProfile` .
-1. Znajdź `<Metadata>` element.
-1. Zmień wartość *AuthenticationType* na `ApiKeyHeader` .
-1. Zmień *AllowInsecureAuthInProduction* na `false` .
-1. Bezpośrednio po elemencie zamykającym `</Metadata>` Dodaj następujący fragment kodu XML:
+1. W katalogu pracy otwórz plik zasad rozszerzenia (TrustFrameworkExtensions.xml).
+1. Wyszukaj profil techniczny interfejsu API REST. Na przykład `REST-ValidateProfile` , lub `REST-GetProfile` .
+1. Znajdź `<Metadata>` element .
+1. Zmień typ *AuthenticationType na* `ApiKeyHeader` .
+1. Zmień ciąg *AllowInsecureAuthInProduction na* `false` .
+1. Bezpośrednio po elemencie `</Metadata>` zamykającym dodaj następujący fragment kodu XML:
     ```xml
     <CryptographicKeys>
         <Key Id="x-functions-key" StorageReferenceId="B2C_1A_RestApiKey" />
     </CryptographicKeys>
     ```
 
-**Identyfikator** klucza kryptograficznego definiuje nagłówek HTTP. W tym przykładzie klucz interfejsu API jest wysyłany jako **klucz x-Functions-Key**.
+Identyfikator **klucza** kryptograficznego definiuje nagłówek HTTP. W tym przykładzie klucz interfejsu API jest wysyłany jako **x-functions-key**.
 
-Poniżej przedstawiono przykładowy profil techniczny RESTful skonfigurowany do wywoływania funkcji platformy Azure z uwierzytelnianiem za pomocą klucza interfejsu API:
+Poniżej przedstawiono przykład profilu technicznego RESTful skonfigurowanego do wywołania funkcji platformy Azure z uwierzytelnianiem klucza interfejsu API:
 
 ```xml
 <ClaimsProvider>
@@ -430,4 +471,4 @@ Poniżej przedstawiono przykładowy profil techniczny RESTful skonfigurowany do 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Więcej informacji na temat elementu [RESTful Technical profile](restful-technical-profile.md) znajduje się w dokumentacji IEF.
+- Dowiedz się więcej o [elemencie profilu technicznego Restful](restful-technical-profile.md) w dokumentacji dotyczącej IEF.

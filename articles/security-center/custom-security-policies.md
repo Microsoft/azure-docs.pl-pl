@@ -1,6 +1,6 @@
 ---
 title: Tworzenie niestandardowych zasad zabezpieczeń w Azure Security Center | Microsoft Docs
-description: Definicje zasad niestandardowych platformy Azure monitorowane przez Azure Security Center.
+description: Niestandardowe definicje zasad platformy Azure monitorowane przez Azure Security Center.
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -8,69 +8,69 @@ ms.topic: how-to
 ms.date: 02/25/2021
 ms.author: memildin
 zone_pivot_groups: manage-asc-initiatives
-ms.openlocfilehash: a901e71da640f8413e5714ad59073324f582c1b9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a41696ba92757550f9cbaa08ccf78d9a5da528d2
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102441061"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718903"
 ---
 # <a name="create-custom-security-initiatives-and-policies"></a>Tworzenie niestandardowych inicjatyw i zasad zabezpieczeń
 
-Aby pomóc w zabezpieczeniu systemów i środowiska, Azure Security Center generuje zalecenia dotyczące zabezpieczeń. Zalecenia te są oparte na najlepszych rozwiązaniach branżowych, które są włączone do ogólnych, domyślnych zasad zabezpieczeń dostarczonych wszystkim klientom. Mogą również pochodzić z Security Center znajomości standardów branżowych i prawnych.
+Aby ułatwić zabezpieczanie systemów i środowiska, Azure Security Center generuje zalecenia dotyczące zabezpieczeń. Te zalecenia są oparte na najlepszych rozwiązaniach branżowych, które są włączone do ogólnych, domyślnych zasad zabezpieczeń dostarczanych wszystkim klientom. Mogą również pochodzić z Security Center na temat standardów branżowych i prawnych.
 
-Korzystając z tej funkcji, możesz dodać własne inicjatywy *niestandardowe* . Następnie otrzymasz zalecenia, jeśli środowisko nie będzie zgodne z tworzonymi zasadami. Wszelkie utworzone inicjatywy niestandardowe będą wyświetlane wraz z wbudowanymi inicjatywami na pulpicie nawigacyjnym zgodności z przepisami, zgodnie z opisem w samouczku [poprawa zgodności z przepisami](security-center-compliance-dashboard.md).
+Ta funkcja umożliwia dodawanie własnych inicjatyw *niestandardowych.* Następnie otrzymasz rekomendacje, jeśli środowisko nie jest zgodne z zasadami, które utworzysz. Wszystkie niestandardowe inicjatywy, które utworzysz, będą wyświetlane obok wbudowanych inicjatyw na pulpicie nawigacyjnym zgodności z przepisami, zgodnie z opisem w samouczku Improve your regulatory compliance (Ulepszanie [zgodności z przepisami).](security-center-compliance-dashboard.md)
 
-Zgodnie z opisem w [dokumentacji Azure Policy](../governance/policy/concepts/definition-structure.md#definition-location), gdy określisz lokalizację dla inicjatywy niestandardowej, musi to być grupa zarządzania lub subskrypcja. 
+Jak omówiono w [Azure Policy dokumentacji](../governance/policy/concepts/definition-structure.md#definition-location)programu , określenie lokalizacji dla inicjatywy niestandardowej musi być grupą zarządzania lub subskrypcją. 
 
 > [!TIP]
-> Aby zapoznać się z omówieniem najważniejszych pojęć na tej stronie, zobacz [co to są zasady zabezpieczeń, inicjatywy i rekomendacje?](security-policy-concept.md).
+> Aby uzyskać omówienie kluczowych pojęć na tej stronie, zobacz [What are security policies, initiatives, and recommendations?](security-policy-concept.md)(Co to są zasady zabezpieczeń, inicjatywy i zalecenia?).
 
 ::: zone pivot="azure-portal"
 
-## <a name="to-add-a-custom-initiative-to-your-subscription"></a>Aby dodać inicjatywę niestandardową do subskrypcji 
+## <a name="to-add-a-custom-initiative-to-your-subscription"></a>Aby dodać niestandardową inicjatywę do subskrypcji 
 
-1. Na pasku bocznym Security Center Otwórz stronę **zasady zabezpieczeń** .
+1. Na Security Center bocznym aplikacji otwórz stronę **Zasady** zabezpieczeń.
 
 1. Wybierz subskrypcję lub grupę zarządzania, do której chcesz dodać inicjatywę niestandardową.
 
-    [![Wybieranie subskrypcji, dla której zostaną utworzone zasady niestandardowe](media/custom-security-policies/custom-policy-selecting-a-subscription.png)](media/custom-security-policies/custom-policy-selecting-a-subscription.png#lightbox)
+    [![Wybieranie subskrypcji, dla której utworzysz zasady niestandardowe](media/custom-security-policies/custom-policy-selecting-a-subscription.png)](media/custom-security-policies/custom-policy-selecting-a-subscription.png#lightbox)
 
     > [!NOTE]
-    > Należy dodać niestandardowe standardy na poziomie subskrypcji (lub nowszym), aby były oceniane i wyświetlane w Security Center. 
+    > Musisz dodać niestandardowe standardy na poziomie subskrypcji (lub wyższym), aby były one oceniane i wyświetlane w Security Center. 
     >
-    > Dodanie niestandardowego standardu powoduje przypisanie *inicjatywy* do tego zakresu. Dlatego zalecamy wybranie najszerszego zakresu wymaganego dla tego przydziału.
+    > Dodanie niestandardowego standardu przypisuje *inicjatywę do* tego zakresu. Dlatego zalecamy wybranie najszerszego zakresu wymaganego dla tego przypisania.
 
-1. Na stronie zasady zabezpieczeń w obszarze inicjatywy niestandardowe kliknij pozycję **Dodaj inicjatywę niestandardową**.
+1. Na stronie Zasady zabezpieczeń w obszarze Twoje niestandardowe inicjatywy kliknij pozycję **Dodaj inicjatywę niestandardową.**
 
     [![Kliknij pozycję Dodaj inicjatywę niestandardową](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
 
     Zostanie wyświetlona następująca strona:
 
-    ![Tworzenie lub Dodawanie zasad](media/custom-security-policies/create-or-add-custom-policy.png)
+    ![Tworzenie lub dodawanie zasad](media/custom-security-policies/create-or-add-custom-policy.png)
 
-1. Na stronie Dodawanie niestandardowych inicjatyw Przejrzyj listę zasad niestandardowych już utworzonych w organizacji. Jeśli zobaczysz, że chcesz ją przypisać do swojej subskrypcji, kliknij przycisk **Dodaj**. Jeśli na liście nie ma inicjatywy, która spełnia Twoje wymagania, Pomiń ten krok.
+1. Na stronie Dodawanie inicjatyw niestandardowych przejrzyj listę zasad niestandardowych utworzonych już w organizacji. Jeśli zostanie wyświetlony jeden z nich, który chcesz przypisać do subskrypcji, kliknij pozycję **Dodaj.** Jeśli na liście nie ma inicjatywy, która spełnia Twoje potrzeby, pomiń ten krok.
 
 1. Aby utworzyć nową inicjatywę niestandardową:
 
-    1. Kliknij przycisk **Utwórz nowy**.
+    1. Kliknij **pozycję Utwórz nowy.**
     1. Wprowadź lokalizację i nazwę definicji.
-    1. Wybierz zasady do uwzględnienia i kliknij przycisk **Dodaj**.
-    1. Wprowadź wszelkie wymagane parametry.
+    1. Wybierz zasady, które mają być dołączane, a następnie kliknij **pozycję Dodaj.**
+    1. Wprowadź wszelkie żądane parametry.
     1. Kliknij pozycję **Zapisz**.
-    1. Na stronie Dodaj niestandardowe inicjatywy kliknij przycisk Odśwież. Twoja nowa inicjatywa będzie wyświetlana jako dostępna.
-    1. Kliknij pozycję **Dodaj** i przypisz ją do subskrypcji.
+    1. Na stronie Dodawanie inicjatyw niestandardowych kliknij przycisk Odśwież. Nowa inicjatywa będzie wyświetlana jako dostępna.
+    1. Kliknij **pozycję Dodaj** i przypisz ją do subskrypcji.
 
     > [!NOTE]
-    > Tworzenie nowych inicjatyw wymaga poświadczeń właściciela subskrypcji. Aby uzyskać więcej informacji na temat ról platformy Azure, zobacz [uprawnienia w Azure Security Center](security-center-permissions.md).
+    > Tworzenie nowych inicjatyw wymaga poświadczeń właściciela subskrypcji. Aby uzyskać więcej informacji na temat ról platformy Azure, zobacz [Uprawnienia w Azure Security Center](security-center-permissions.md).
 
-    Twoja nowa inicjatywa zacznie obowiązywać i zobaczysz wpływ na dwa sposoby:
+    Twoja nowa inicjatywa zostanie w efekcie wywłaszczy i zobaczysz jej wpływ na następujące dwa sposoby:
 
-    * Na pasku bocznym Security Center w obszarze zasady & zgodność wybierz pozycję **zgodność z przepisami**. Zostanie otwarty pulpit nawigacyjny zgodności pokazujący nową inicjatywę niestandardową wraz z wbudowaną inicjatywą.
+    * Na pasku bocznym Security Center w obszarze Zgodność & zasadami wybierz pozycję **Zgodność z przepisami.** Zostanie otwarty pulpit nawigacyjny zgodności z nową inicjatywą niestandardową obok wbudowanych inicjatyw.
     
-    * Jeśli środowisko nie będzie zgodne ze zdefiniowanymi zasadami, zaczniesz otrzymywać zalecenia.
+    * Zaczniesz otrzymywać rekomendacje, jeśli twoje środowisko nie jest zgodne ze zdefiniowanymi zasadami.
 
-1. Aby zobaczyć, jakie są zalecenia dotyczące zasad, kliknij przycisk **zalecenia** na pasku bocznym, aby otworzyć stronę zalecenia. Zalecenia będą wyświetlane z etykietą "niestandardowy" i będą dostępne w ciągu około godziny.
+1. Aby wyświetlić wynikowe zalecenia dotyczące zasad, kliknij pozycję **Zalecenia** na pasku bocznym, aby otworzyć stronę zaleceń. Zalecenia zostaną wyświetlone z etykietą "Niestandardowa" i będą dostępne w ciągu około godziny.
 
     [![Zalecenia niestandardowe](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
 
@@ -78,31 +78,31 @@ Zgodnie z opisem w [dokumentacji Azure Policy](../governance/policy/concepts/def
 
 ::: zone pivot="rest-api"
 
-## <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Konfigurowanie zasad zabezpieczeń w Azure Policy przy użyciu interfejsu API REST
+## <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Konfigurowanie zasad zabezpieczeń w programie Azure Policy użyciu interfejsu API REST
 
-W ramach integracji natywnej z Azure Policy Azure Security Center umożliwia korzystanie z interfejsu API REST Azure Policy do tworzenia przypisań zasad. Poniższe instrukcje przeprowadzą Cię przez proces tworzenia przypisań zasad, a także dostosowywania istniejących przypisań. 
+W ramach natywnej integracji z usługą Azure Policy usługa Azure Security Center umożliwia korzystanie z interfejsu API REST usługi Azure Policy do tworzenia przypisań zasad. Poniższe instrukcje zawiera instrukcje tworzenia przypisań zasad, a także dostosowywania istniejących przypisań. 
 
-Ważne pojęcia dotyczące Azure Policy: 
+Ważne pojęcia w Azure Policy: 
 
-- **Definicja zasad** jest regułą 
+- Definicja **zasad jest** regułą 
 
-- **Inicjatywa** jest kolekcją definicji zasad (reguł) 
+- Inicjatywa **jest** kolekcją definicji zasad (reguł) 
 
-- **Przypisanie** jest aplikacją inicjatywy lub zasadami do określonego zakresu (grupy zarządzania, subskrypcji itp.) 
+- **Przypisanie** to zastosowanie inicjatywy lub zasad do określonego zakresu (grupy zarządzania, subskrypcji itp.) 
 
-Security Center ma wbudowaną inicjatywę Azure Security test, która obejmuje wszystkie jej zasady zabezpieczeń. Aby ocenić zasady Security Center dla zasobów platformy Azure, należy utworzyć przypisanie do grupy zarządzania lub subskrypcję, którą chcesz ocenić.
+Security Center ma wbudowaną inicjatywę, [Test porównawczy zabezpieczeń](https://docs.microsoft.com/security/benchmark/azure/introduction)platformy Azure, która obejmuje wszystkie jego zasady zabezpieczeń. Aby ocenić Security Center zasobów platformy Azure, należy utworzyć przypisanie dla grupy zarządzania lub subskrypcji, którą chcesz ocenić.
 
-Z wbudowaną inicjatywą są domyślnie włączone wszystkie zasady Security Center. Niektóre zasady można wyłączyć z poziomu wbudowanej inicjatywy. Na przykład, aby zastosować wszystkie zasady Security Center z wyjątkiem **zapory aplikacji sieci Web**, należy zmienić wartość parametru efektu zasad na **wyłączone**.
+Wbudowana inicjatywa ma domyślnie Security Center wszystkich zasad usługi. Niektóre zasady można wyłączyć z wbudowanej inicjatywy. Aby na przykład zastosować wszystkie zasady Security Center z wyjątkiem zapory aplikacji **internetowej,** zmień wartość parametru efektu zasad na **Wyłączone.**
 
 ## <a name="api-examples"></a>Przykłady dotyczące interfejsu API
 
-W poniższych przykładach Zamień te zmienne:
+W poniższych przykładach zastąp te zmienne:
 
-- **{SCOPE}** wprowadź nazwę grupy zarządzania lub subskrypcji, do której są stosowane zasady
+- **{scope}** wprowadź nazwę grupy zarządzania lub subskrypcji, do której są stosowanie zasad
 - **{policyAssignmentName}** wprowadź nazwę odpowiedniego przypisania zasad
-- **{name}** wprowadź swoją nazwę lub nazwę administratora, który zatwierdził zmianę zasad
+- **{name}** wprowadź swoje imię i nazwisko lub nazwę administratora, który zatwierdził zmianę zasad
 
-W tym przykładzie przedstawiono sposób przypisywania wbudowanej inicjatywy Security Center w ramach subskrypcji lub grupy zarządzania
+W tym przykładzie pokazano, jak przypisać wbudowaną inicjatywę Security Center subskrypcji lub grupy zarządzania
  
  ```
     PUT  
@@ -131,13 +131,13 @@ W tym przykładzie przedstawiono sposób przypisywania wbudowanej inicjatywy Sec
     } 
  ```
 
-W tym przykładzie przedstawiono sposób przypisywania wbudowanej inicjatywy Security Center w ramach subskrypcji, z wyłączeniem następujących zasad: 
+W tym przykładzie pokazano, jak przypisać wbudowaną inicjatywę Security Center subskrypcji z wyłączonymi następującymi zasadami: 
 
 - Aktualizacje systemu ("systemUpdatesMonitoringEffect") 
 
 - Konfiguracje zabezpieczeń ("systemConfigurationsMonitoringEffect") 
 
-- Endpoint Protection ("endpointProtectionMonitoringEffect") 
+- Ochrona punktu końcowego ("endpointProtectionMonitoringEffect") 
 
  ```
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
@@ -172,7 +172,7 @@ W tym przykładzie przedstawiono sposób przypisywania wbudowanej inicjatywy Sec
     
     } 
  ```
-Ten przykład pokazuje, jak usunąć przypisanie:
+W tym przykładzie pokazano, jak usunąć przypisanie:
  ```
     DELETE   
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
@@ -181,16 +181,16 @@ Ten przykład pokazuje, jak usunąć przypisanie:
 ::: zone-end
 
 
-## <a name="enhance-your-custom-recommendations-with-detailed-information"></a>Ulepszanie niestandardowych zaleceń ze szczegółowymi informacjami
+## <a name="enhance-your-custom-recommendations-with-detailed-information"></a>Ulepszanie rekomendacji niestandardowych dzięki szczegółowym informacjom
 
-Wbudowane zalecenia dotyczące Azure Security Center zawierają szczegóły, takie jak poziomy ważności i instrukcje korygowania. Jeśli chcesz dodać ten typ informacji do niestandardowych zaleceń, tak aby pojawił się w Azure Portal lub wszędzie tam, gdzie będziesz uzyskiwać dostęp do zaleceń, musisz użyć interfejsu API REST. 
+Wbudowane zalecenia dostarczane z usługą Azure Security Center zawierają szczegółowe informacje, takie jak poziomy ważności i instrukcje korygowania. Jeśli chcesz dodać ten typ informacji do rekomendacji niestandardowych, aby pojawiały się w obszarze Azure Portal lub wszędzie tam, gdzie uzyskujesz dostęp do zaleceń, musisz użyć interfejsu API REST. 
 
-Dwa typy informacji, które można dodać, to:
+Istnieją dwa typy informacji, które można dodać:
 
 - **RemediationDescription** — ciąg
-- **Ważność** — Wyliczenie [niski, średni, wysoki]
+- **Ważność** — wyli wcześniejsza [niska, średnia, wysoka]
 
-Metadane należy dodać do definicji zasad dla zasad będących częścią inicjatywy niestandardowej. Powinien być we właściwości "securityCenter", jak pokazano poniżej:
+Metadane należy dodać do definicji zasad dla zasad, które są częścią niestandardowej inicjatywy. Powinien on być we właściwości "securityCenter", jak pokazano poniżej:
 
 ```json
  "metadata": {
@@ -200,7 +200,7 @@ Metadane należy dodać do definicji zasad dla zasad będących częścią inicj
     },
 ```
 
-Poniżej znajduje się przykład zasad niestandardowych obejmujących Właściwość Metadata/securityCenter:
+Poniżej przedstawiono przykład zasad niestandardowych, w tym właściwość metadata/securityCenter:
 
   ```json
   {
@@ -253,7 +253,7 @@ Inny przykład użycia właściwości securityCenter można znaleźć w [tej sek
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule przedstawiono sposób tworzenia niestandardowych zasad zabezpieczeń. 
+W tym artykule opisano sposób tworzenia niestandardowych zasad zabezpieczeń. 
 
 Inne powiązane materiały można znaleźć w następujących artykułach: 
 

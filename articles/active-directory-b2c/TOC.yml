@@ -371,7 +371,7 @@
           displayName: bulk import
         - name: Integracja z partnerami
           items:
-            - name: N8identity
+            - name: Identyfikator N8
               href: partner-n8identity.md
             - name: Saviynt
               href: partner-saviynt.md
@@ -460,6 +460,8 @@
                   href: aad-sspr-technical-profile.md
                 - name: Przekształcanie oświadczeń
                   href: claims-transformation-technical-profile.md
+                - name: Dostęp warunkowy
+                  href: conditional-access-technical-profile.md
                 - name: Wskazówka tokenu identyfikatora
                   href: id-token-hint.md
                 - name: Wystawca tokenu JWT

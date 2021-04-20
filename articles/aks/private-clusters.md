@@ -1,40 +1,40 @@
 ---
-title: Tworzenie prywatnego klastra usługi Azure Kubernetes Service
-description: Dowiedz się, jak utworzyć prywatny klaster usługi Azure Kubernetes Service (AKS)
+title: Tworzenie prywatnego Azure Kubernetes Service klastra
+description: Dowiedz się, jak utworzyć klaster Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 3/31/2021
-ms.openlocfilehash: 474c9a5d58627cec59904ccbcc5b3597de314612
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 339bb41aed5ead3d7ee7d1217bfbc771cf068832
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106120371"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107719119"
 ---
-# <a name="create-a-private-azure-kubernetes-service-cluster"></a>Tworzenie prywatnego klastra usługi Azure Kubernetes Service
+# <a name="create-a-private-azure-kubernetes-service-cluster"></a>Tworzenie prywatnego Azure Kubernetes Service klastra
 
-W klastrze prywatnym płaszczyzna kontroli lub serwer interfejsu API ma wewnętrzne adresy IP, które są zdefiniowane w [alokacji RFC1918-Address dla prywatnego dokumentu internetowego](https://tools.ietf.org/html/rfc1918) . Za pomocą klastra prywatnego można zapewnić, że ruch sieciowy między serwerem interfejsu API a pulami węzłów pozostanie tylko w sieci prywatnej.
+W klastrze prywatnym płaszczyzna sterowania lub serwer interfejsu API ma wewnętrzne adresy IP zdefiniowane w dokumencie [RFC1918 — Alokacja](https://tools.ietf.org/html/rfc1918) adresów dla prywatnego Internetu. Korzystając z klastra prywatnego, można zapewnić, że ruch sieciowy między serwerem interfejsu API i pulami węzłów pozostanie tylko w sieci prywatnej.
 
-Płaszczyzna kontroli lub serwer interfejsu API znajduje się w subskrypcji platformy Azure zarządzanej przez usługę Azure Kubernetes Service (AKS). Klaster klienta lub Pula węzłów znajduje się w subskrypcji klienta. Serwer i Pula węzłów mogą komunikować się ze sobą za pomocą [usługi Azure Private link][private-link-service] w sieci wirtualnej serwera interfejsu API i prywatnego punktu końcowego, który jest udostępniany w podsieci klastra AKS klienta.
+Płaszczyzna sterowania lub serwer interfejsu API znajduje się w subskrypcji platformy Azure zarządzanej Azure Kubernetes Service (AKS). Klaster lub pula węzłów klienta znajduje się w subskrypcji klienta. Serwer i klaster lub pula węzłów mogą komunikować się ze sobą za pośrednictwem usługi [Azure Private Link][private-link-service] w sieci wirtualnej serwera interfejsu API i prywatnego punktu końcowego, który jest ujawniony w podsieci klastra AKS klienta.
 
 ## <a name="region-availability"></a>Dostępność w danym regionie
 
-Klaster prywatny jest dostępny w regionach publicznych, Azure Government i w Chinach, w których [są obsługiwane AKS](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+Klaster prywatny jest dostępny w regionach publicznych, Azure Government i Azure (Chiny) — 21Vianet, w których usługa [AKS jest obsługiwana.](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)
 
 > [!NOTE]
-> Obsługiwane są Azure Government witryny, ale US Gov Teksas nie są obecnie obsługiwane z powodu braku obsługi linku prywatnego.
+> Azure Government lokacje są obsługiwane, US Gov Teksas nie są obecnie obsługiwane z powodu Private Link technicznej.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Interfejs wiersza polecenia platformy Azure w wersji 2.2.0 lub nowszej
-* Usługa link prywatny jest obsługiwana tylko w przypadku standardowej Azure Load Balancer. Podstawowa Azure Load Balancer nie jest obsługiwana.  
-* Aby użyć niestandardowego serwera DNS, należy dodać Azure DNS 168.63.129.16 IP jako nadrzędny Serwer DNS na niestandardowym serwerze DNS.
+* Usługa Private Link jest obsługiwana tylko w Azure Load Balancer Standardowa. Podstawowe Azure Load Balancer nie są obsługiwane.  
+* Aby użyć niestandardowego serwera DNS, dodaj adres IP Azure DNS 168.63.129.16 jako nadrzędny serwer DNS na niestandardowym serwerze DNS.
 
-## <a name="create-a-private-aks-cluster"></a>Tworzenie prywatnego klastra AKS
+## <a name="create-a-private-aks-cluster"></a>Tworzenie prywatnego klastra usługi AKS
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz grupę zasobów lub Użyj istniejącej grupy zasobów dla klastra AKS.
+Utwórz grupę zasobów lub użyj istniejącej grupy zasobów dla klastra usługi AKS.
 
 ```azurecli-interactive
 az group create -l westus -n MyResourceGroup
@@ -45,9 +45,9 @@ az group create -l westus -n MyResourceGroup
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster  
 ```
-Gdzie `--enable-private-cluster` jest obowiązkową flagą dla klastra prywatnego. 
+Gdzie `--enable-private-cluster` jest flagą obowiązkową dla klastra prywatnego. 
 
-### <a name="advanced-networking"></a>Zaawansowane sieci  
+### <a name="advanced-networking"></a>Sieć zaawansowana  
 
 ```azurecli-interactive
 az aks create \
@@ -61,75 +61,75 @@ az aks create \
     --dns-service-ip 10.2.0.10 \
     --service-cidr 10.2.0.0/24 
 ```
-Gdzie `--enable-private-cluster` jest obowiązkową flagą dla klastra prywatnego. 
+Gdzie `--enable-private-cluster` jest flagą obowiązkową dla klastra prywatnego. 
 
 > [!NOTE]
-> Jeśli adres CIDR (172.17.0.1/16) mostka platformy Docker koliduje z maską CIDR podsieci, należy odpowiednio zmienić adres mostka platformy Docker.
+> Jeśli adres mostka platformy Docker CIDR (172.17.0.1/16) koliduje z podsiecią CIDR, zmień odpowiednio adres mostka platformy Docker.
 
-## <a name="configure-private-dns-zone"></a>Konfigurowanie strefy Prywatna strefa DNS 
+## <a name="configure-private-dns-zone"></a>Konfigurowanie Prywatna strefa DNS strefie 
 
-Aby skonfigurować strefę Prywatna strefa DNS, można użyć następujących parametrów.
+Następujące parametry można wykorzystać do skonfigurowania Prywatna strefa DNS strefie.
 
-- Wartość domyślna to "system". W przypadku pominięcia argumentu--Private-DNS-strefy AKS utworzy strefę Prywatna strefa DNS w grupie zasobów węzła.
-- "Brak" oznacza, że AKS nie utworzy strefy Prywatna strefa DNS.  Wymaga to przeniesienia własnego serwera DNS i skonfigurowania rozpoznawania nazw DNS dla prywatnej nazwy FQDN.  Jeśli nie skonfigurujesz rozpoznawania nazw DNS, usługa DNS jest rozpoznawana tylko w węzłach agenta i spowoduje problemy z klastrem po wdrożeniu. 
-- "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" wymaga utworzenia strefy Prywatna strefa DNS w tym formacie dla chmury globalnej platformy Azure: `privatelink.<region>.azmk8s.io` . Do przechodzenia do przodu będzie potrzebny identyfikator zasobu tego Prywatna strefa DNS.  Ponadto potrzebna jest tożsamość lub jednostka usługi przypisana przez użytkownika z co najmniej `private dns zone contributor` `vnet contributor` rolą i.
-- "FQDN-subdomene" można użyć z "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" tylko w celu zapewnienia możliwości poddomeny `privatelink.<region>.azmk8s.io`
+- Wartość domyślna to "System". Jeśli argument --private-dns-zone zostanie pominięty, usługa AKS utworzy strefę Prywatna strefa DNS w grupie zasobów węzła.
+- "Brak" oznacza, że nie utworzy ona strefy Prywatna strefa DNS AKS.  Wymaga to użycia własnego serwera DNS i skonfigurowania rozpoznawania nazw DNS dla prywatnej nazwy FQDN.  Jeśli nie skonfigurujesz rozpoznawania nazw DNS, usługa DNS będzie rozpoznawana tylko w węzłach agenta i spowoduje problemy z klastrem po wdrożeniu. 
+- "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" wymaga utworzenia strefy Prywatna strefa DNS w tym formacie dla globalnej chmury platformy Azure: `privatelink.<region>.azmk8s.io` . Będziesz potrzebować identyfikatora zasobu tej strefy Prywatna strefa DNS przyszłości.  Ponadto będziesz potrzebować tożsamości przypisanej przez użytkownika lub jednostki usługi z co najmniej rolami `private dns zone contributor` `vnet contributor` i .
+- "fqdn-subdomain" może być używane z "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" tylko w celu zapewnienia możliwości poddomeny `privatelink.<region>.azmk8s.io`
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-* AKS wersja zapoznawcza 0.5.7 pakietu lub nowsza
+* AKS (wersja zapoznawcza) w wersji 0.5.7 lub nowszej
 * Interfejs API w wersji 2020-11-01 lub nowszej
 
-### <a name="create-a-private-aks-cluster-with-private-dns-zone-preview"></a>Tworzenie prywatnego klastra AKS z strefą Prywatna strefa DNS (wersja zapoznawcza)
+### <a name="create-a-private-aks-cluster-with-private-dns-zone"></a>Tworzenie prywatnego klastra AKS z Prywatna strefa DNS strefą
 
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone [system|none]
 ```
 
-### <a name="create-a-private-aks-cluster-with-a-custom-private-dns-zone-preview"></a>Tworzenie prywatnego klastra AKS za pomocą niestandardowej strefy Prywatna strefa DNS (wersja zapoznawcza)
+### <a name="create-a-private-aks-cluster-with-a-custom-private-dns-zone"></a>Tworzenie prywatnego klastra AKS z niestandardową strefą Prywatna strefa DNS strefie
 
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone ResourceId> --fqdn-subdomain <subdomain-name>
 ```
 
-## <a name="options-for-connecting-to-the-private-cluster"></a>Opcje łączenia się z klastrem prywatnym
+## <a name="options-for-connecting-to-the-private-cluster"></a>Opcje nawiązywania połączenia z klastrem prywatnym
 
-Punkt końcowy serwera interfejsu API nie ma publicznego adresu IP. Aby zarządzać serwerem interfejsu API, należy użyć maszyny wirtualnej, która ma dostęp do Virtual Network platformy Azure klastra AKS. Istnieje kilka opcji ustanawiania łączności sieciowej z klastrem prywatnym.
+Punkt końcowy serwera interfejsu API nie ma publicznego adresu IP. Aby zarządzać serwerem interfejsu API, musisz użyć maszyny wirtualnej, która ma dostęp do usługi Azure Virtual Network (VNet) klastra AKS. Istnieje kilka opcji ustanawiania łączności sieciowej z klastrem prywatnym.
 
-* Utwórz maszynę wirtualną w tej samej usłudze Azure Virtual Network (VNet) jako klaster AKS.
-* Użyj maszyny wirtualnej w oddzielnym sieci i skonfiguruj [komunikację równorzędną sieci wirtualnej][virtual-network-peering].  Zapoznaj się z sekcją poniżej, aby uzyskać więcej informacji na temat tej opcji.
-* Użyj usługi [Express Route lub połączenia sieci VPN][express-route-or-VPN] .
-* Użyj [funkcji AKS Run](#aks-run-command-preview).
+* Utwórz maszynę wirtualną w tej samej sieci Virtual Network Azure jako klaster usługi AKS.
+* Użyj maszyny wirtualnej w oddzielnej sieci i skonfiguruj wirtualne [sieci równorzędne][virtual-network-peering].  Więcej informacji na temat tej opcji znajduje się w poniższej sekcji.
+* Użyj połączenia [usługi Express Route lub sieci VPN.][express-route-or-VPN]
+* Użyj funkcji [Uruchamianie polecenia AKS.](#aks-run-command-preview)
 
-Najłatwiej jest utworzyć maszynę wirtualną w tej samej sieci wirtualnej, co klaster AKS.  Funkcja Express Route i sieci VPN zwiększa koszty i wymaga dodatkowej złożoności sieci.  Komunikacja równorzędna sieci wirtualnych wymaga zaplanowania zakresów CIDR sieci, aby upewnić się, że nie ma nakładających się zakresów.
+Najłatwiejszą opcją jest utworzenie maszyny wirtualnej w tej samej sieci wirtualnej co klaster usługi AKS.  Express Route i sieci VPN dodają koszty i wymagają dodatkowej złożoności sieci.  Komunikacja równorzędna sieci wirtualnych wymaga zaplanowania zakresów CIDR sieci w celu zapewnienia, że nie ma nakładających się zakresów.
 
-### <a name="aks-run-command-preview"></a>AKS Run — polecenie (wersja zapoznawcza)
+### <a name="aks-run-command-preview"></a>AKS Uruchamianie polecenia (wersja zapoznawcza)
 
-Dzisiaj, gdy trzeba uzyskać dostęp do klastra prywatnego, należy to zrobić w sieci wirtualnej klastra lub w sieci równorzędnej lub na komputerze klienckim. Zwykle wymaga to podłączenia komputera za pośrednictwem sieci VPN lub Express Route do sieci wirtualnej klastra lub serwera przesiadkowego do utworzenia w sieci wirtualnej klastra. AKS Run polecenie umożliwia zdalne wywoływanie poleceń w klastrze AKS za pomocą interfejsu API AKS. Ta funkcja udostępnia interfejs API, który umożliwia na przykład wykonywanie poleceń just in Time z zdalnego laptopa dla klastra prywatnego. Może to znacznie pomóc w szybkim dostępie do prywatnego klastra, gdy komputer kliencki nie znajduje się w sieci prywatnej klastra, zachowując i wymuszając te same kontrolki RBAC i prywatny serwer interfejsu API.
+Obecnie, gdy musisz uzyskać dostęp do klastra prywatnego, musisz to zrobić w sieci wirtualnej klastra, sieci równorzędnej lub maszynie klienckiej. Zwykle wymaga to połączenia maszyny za pośrednictwem sieci VPN lub usługi Express Route z siecią wirtualną klastra lub serwera przeskoku w sieci wirtualnej klastra. Polecenie uruchomienia usługi AKS umożliwia zdalne wywoływanie poleceń w klastrze usługi AKS za pośrednictwem interfejsu API usługi AKS. Ta funkcja udostępnia interfejs API, który umożliwia na przykład wykonywanie poleceń just in time ze zdalnego komputera przenośnego dla klastra prywatnego. Może to znacznie pomóc w szybkim dostępie just in time do klastra prywatnego, gdy komputer kliencki nie znajduje się w sieci prywatnej klastra, zachowując i wymuszając te same kontrolki RBAC i prywatny serwer interfejsu API.
 
-### <a name="register-the-runcommandpreview-preview-feature"></a>Rejestrowanie `RunCommandPreview` funkcji w wersji zapoznawczej
+### <a name="register-the-runcommandpreview-preview-feature"></a>Rejestrowanie funkcji w `RunCommandPreview` wersji zapoznawczej
 
-Aby użyć nowego interfejsu API polecenia uruchamiania, należy włączyć `RunCommandPreview` flagę funkcji w subskrypcji.
+Aby korzystać z nowego Uruchamianie polecenia API, należy włączyć `RunCommandPreview` flagę funkcji w subskrypcji.
 
-Zarejestruj `RunCommandPreview` flagę funkcji za pomocą polecenia [AZ Feature Register] [AZ-Feature-Register], jak pokazano w następującym przykładzie:
+Zarejestruj `RunCommandPreview` flagę funkcji za pomocą polecenia [az feature register][az-feature-register], jak pokazano w poniższym przykładzie:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "RunCommandPreview"
 ```
 
-Wyświetlenie stanu *rejestracji* może potrwać kilka minut. Sprawdź stan rejestracji za pomocą polecenia [AZ Feature list][az-feature-list] :
+Wyświetlanie zarejestrowanego stanu może potrwać *kilka minut.* Sprawdź stan rejestracji za pomocą [polecenia az feature list:][az-feature-list]
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/RunCommandPreview')].{Name:name,State:properties.state}"
 ```
 
-Gdy wszystko będzie gotowe, Odśwież rejestrację dostawcy zasobów *Microsoft. ContainerService* za pomocą polecenia [AZ Provider Register][az-provider-register] :
+Gdy wszystko będzie gotowe, odśwież rejestrację dostawcy *zasobów Microsoft.ContainerService* za pomocą [polecenia az provider register:][az-provider-register]
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
 
-### <a name="use-aks-run-command"></a>Użyj polecenia AKS Run
+### <a name="use-aks-run-command"></a>Korzystanie z Uruchamianie polecenia AKS
 
 Proste polecenie
 
@@ -137,19 +137,19 @@ Proste polecenie
 az aks command invoke -g <resourceGroup> -n <clusterName> -c "kubectl get pods -n kube-system"
 ```
 
-Wdróż manifest przez dołączenie określonego pliku
+Wdrażanie manifestu przez dołączenie określonego pliku
 
 ```azurecli-interactive
 az aks command invoke -g <resourceGroup> -n <clusterName> -c "kubectl apply -f deployment.yaml -n default" -f deployment.yaml
 ```
 
-Wdróż manifest przez dołączenie całego folderu
+Wdrażanie manifestu przez dołączenie całego folderu
 
 ```azurecli-interactive
 az aks command invoke -g <resourceGroup> -n <clusterName> -c "kubectl apply -f deployment.yaml -n default" -f .
 ```
 
-Wykonywanie Helm instalacji i przekazywanie określonych wartości manifestu
+Przeprowadzanie instalacji programu Helm i przekaż manifest określonych wartości
 
 ```azurecli-interactive
 az aks command invoke -g <resourceGroup> -n <clusterName> -c "helm repo add bitnami https://charts.bitnami.com/bitnami && helm repo update && helm install my-release -f values.yaml bitnami/nginx" -f values.yaml
@@ -157,42 +157,42 @@ az aks command invoke -g <resourceGroup> -n <clusterName> -c "helm repo add bitn
 
 ## <a name="virtual-network-peering"></a>Komunikacja równorzędna sieci wirtualnej
 
-Jak wspomniano, Komunikacja równorzędna sieci wirtualnej jest jednym ze sposobów uzyskiwania dostępu do klastra prywatnego. Aby użyć komunikacji równorzędnej sieci wirtualnej, należy skonfigurować połączenie między siecią wirtualną i prywatną strefą DNS.
+Jak wspomniano, komunikacja równorzędna sieci wirtualnych jest jednym ze sposobów uzyskiwania dostępu do klastra prywatnego. Aby korzystać z komunikacji równorzędnej sieci wirtualnych, należy skonfigurować połączenie między siecią wirtualną a prywatną strefą DNS.
     
 1. Przejdź do grupy zasobów węzła w Azure Portal.  
 2. Wybierz prywatną strefę DNS.   
-3. W lewym okienku wybierz łącze **Sieć wirtualna** .  
-4. Utwórz nowy link, aby dodać sieć wirtualną maszyny wirtualnej do prywatnej strefy DNS. Udostępnienie linku strefy DNS może potrwać kilka minut.  
+3. W okienku po lewej stronie wybierz link **Sieć wirtualna.**  
+4. Utwórz nowy link, aby dodać sieć wirtualną maszyny wirtualnej do prywatnej strefy DNS. Po kilku minutach łącze strefy DNS stanie się dostępne.  
 5. W Azure Portal przejdź do grupy zasobów zawierającej sieć wirtualną klastra.  
-6. W prawym okienku wybierz sieć wirtualną. Nazwa sieci wirtualnej ma postać *AKS-VNET- \**.  
-7. W lewym okienku wybierz pozycję **Komunikacja równorzędna**.  
-8. Wybierz pozycję **Dodaj**, Dodaj sieć wirtualną maszyny wirtualnej, a następnie utwórz komunikację równorzędną.  
-9. Przejdź do sieci wirtualnej, w której znajduje się maszyna wirtualna, wybierz pozycję **Komunikacja równorzędna**, wybierz sieć wirtualną AKS, a następnie utwórz komunikację równorzędną. Jeśli zakresy adresów w sieci wirtualnej AKS i konflikty sieci wirtualnej maszyn wirtualnych są niepowodzeniem, Komunikacja równorzędna nie powiedzie się. Aby uzyskać więcej informacji, zobacz  [wirtualne sieci równorzędne][virtual-network-peering].
+6. W okienku po prawej stronie wybierz sieć wirtualną. Nazwa sieci wirtualnej ma postać *aks-vnet-. \**  
+7. W okienku po lewej stronie wybierz pozycję **Komunikacja równorzędna.**  
+8. Wybierz **pozycję** Dodaj , dodaj sieć wirtualną maszyny wirtualnej, a następnie utwórz połączenie komunikacji równorzędnej.  
+9. Przejdź do sieci wirtualnej, w której masz maszynę wirtualną, wybierz pozycję **Komunikacja** równorzędna, wybierz sieć wirtualną usługi AKS, a następnie utwórz połączenie komunikacji równorzędnej. Jeśli zakresy adresów w sieci wirtualnej usługi AKS i konflikty sieci wirtualnej maszyny wirtualnej, komunikacja równorzędna zakończy się niepowodzeniem. Aby uzyskać więcej informacji, zobacz [Virtual network peering (Komunikacja równorzędna sieci wirtualnych).][virtual-network-peering]
 
-## <a name="hub-and-spoke-with-custom-dns"></a>Koncentrator i szprycha z niestandardowym systemem DNS
+## <a name="hub-and-spoke-with-custom-dns"></a>Piasta i szprychy z niestandardowym systemem DNS
 
-[Architektury](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) gwiazdy są często używane do wdrażania sieci na platformie Azure. W wielu z tych wdrożeń ustawienia DNS w szprychie sieci wirtualnych są skonfigurowane tak, aby odwoływać się do centralnej usługi przesyłania dalej w systemie DNS w celu umożliwienia lokalnego rozpoznawania nazw DNS opartych na platformie Azure. W przypadku wdrażania klastra AKS do takiego środowiska sieciowego należy wziąć pod uwagę pewne szczególne kwestie.
+[Architektury piasty i szprych](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) są często używane do wdrażania sieci na platformie Azure. W wielu z tych wdrożeń ustawienia DNS w sieciach wirtualnych szprych są konfigurowane tak, aby odwoływały się do centralnej usługi przesyłania dalej DNS w celu umożliwienia lokalnego rozpoznawania nazw DNS na platformie Azure. Podczas wdrażania klastra usługi AKS w takim środowisku sieciowym należy wziąć pod uwagę pewne specjalne zagadnienia.
 
-![Prywatny koncentrator klastra i szprycha](media/private-clusters/aks-private-hub-spoke.png)
+![Koncentrator i szprycha klastra prywatnego](media/private-clusters/aks-private-hub-spoke.png)
 
-1. Domyślnie po zainicjowaniu obsługi klastra prywatnego w grupie zasobów zarządzanej przez klaster jest tworzony prywatny punkt końcowy (1) i prywatna strefa DNS (2). Klaster używa rekordu A w strefie prywatnej w celu rozpoznania adresu IP prywatnego punktu końcowego na potrzeby komunikacji z serwerem interfejsu API.
+1. Domyślnie podczas aprowizowania klastra prywatnego prywatny punkt końcowy (1) i prywatna strefa DNS (2) są tworzone w grupie zasobów zarządzanej przez klaster. Klaster używa rekordu A w strefie prywatnej, aby rozpoznać adres IP prywatnego punktu końcowego do komunikacji z serwerem interfejsu API.
 
-2. Prywatna strefa DNS jest połączona tylko z siecią wirtualną, do której są dołączone węzły klastra (3). Oznacza to, że prywatny punkt końcowy może być rozpoznany tylko przez hosty w połączonej sieci wirtualnej. W scenariuszach, w których w sieci wirtualnej nie skonfigurowano żadnych niestandardowych nazw DNS (domyślnie), to działa bez problemu jako hosty w 168.63.129.16 dla systemu DNS, który może rozpoznawać rekordy w prywatnej strefie DNS ze względu na link.
+2. Prywatna strefa DNS jest połączona tylko z siecią wirtualną, do których są dołączone węzły klastra (3). Oznacza to, że prywatny punkt końcowy może zostać rozpoznany tylko przez hosty w tej połączonej sieci wirtualnej. W scenariuszach, w których w sieci wirtualnej nie skonfigurowano niestandardowego systemu DNS (ustawienie domyślne), działa to bez problemu jako punkt hostów 168.63.129.16 dla systemu DNS, który może rozpoznać rekordy w prywatnej strefie DNS z powodu łącza.
 
-3. W scenariuszach, w których sieć wirtualna zawierająca klaster ma niestandardowe ustawienia DNS (4), wdrożenie klastra kończy się niepowodzeniem, chyba że prywatna strefa DNS jest połączona z siecią wirtualną, która zawiera niestandardowe resolvery DNS (5). Ten link można utworzyć ręcznie po utworzeniu strefy prywatnej podczas aprowizacji klastra lub za pośrednictwem automatyzacji podczas wykrywania tworzenia strefy przy użyciu mechanizmów wdrażania opartych na zdarzeniach (na przykład Azure Event Grid i Azure Functions).
+3. W scenariuszach, w których sieć wirtualna zawierająca klaster ma niestandardowe ustawienia DNS (4), wdrażanie klastra kończy się niepowodzeniem, chyba że prywatna strefa DNS jest połączona z siecią wirtualną zawierającą niestandardowe program rozpoznawania nazw DNS (5). Ten link można utworzyć ręcznie po utworzeniu strefy prywatnej podczas aprowizowania klastra lub za pośrednictwem automatyzacji po wykryciu utworzenia strefy przy użyciu mechanizmów wdrażania opartych na zdarzeniach (na przykład Azure Event Grid i Azure Functions).
 
 > [!NOTE]
-> Jeśli używasz funkcji [Przenieś własną tabelę tras z korzystającą wtyczki kubenet](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) i przeniesiesz swój własny klaster DNS z prywatnym klastrem, tworzenie klastra zakończy się niepowodzeniem. W celu pomyślnego utworzenia klastra konieczne będzie skojarzenie [w grupie](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) zasobów węzła z podsiecią.
+> Jeśli używasz funkcji Bring Your Own Route Table z usługą [kubenet](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) i usługi Bring Your Own DNS z klastrem prywatnym, tworzenie klastra nie powiedzie się. Aby tworzenie zakończyło się pomyślnie, należy skojarzyć tabelę [RouteTable](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) w grupie zasobów węzła z podsiecią po awarii klastra.
 
 ## <a name="limitations"></a>Ograniczenia 
-* Nie można zastosować dozwolonych zakresów adresów IP do punktu końcowego serwera prywatnego interfejsu API, są one stosowane tylko do publicznego serwera interfejsu API
-* [Ograniczenia usługi Azure Private link][private-link-service] są stosowane do klastrów prywatnych.
-* Brak obsługi dla agentów hostowanych przez firmę Microsoft dla platformy Azure DevOps z klastrami prywatnymi. Rozważ użycie [agentów samoobsługowych](/azure/devops/pipelines/agents/agents?tabs=browser). 
-* W przypadku klientów, którzy muszą umożliwić Azure Container Registry pracy z prywatnym AKS, Container Registry sieci wirtualnej musi być połączona z siecią wirtualną klastra agentów.
-* Brak obsługi konwertowania istniejących klastrów AKS do klastrów prywatnych
+* Autoryzowanych zakresów adresów IP nie można stosować do prywatnego punktu końcowego serwera interfejsów API. Dotyczą one tylko publicznego serwera interfejsu API
+* [Azure Private Link usługi mają][private-link-service] zastosowanie do klastrów prywatnych.
+* Brak obsługi Azure DevOps hostowanych przez firmę Microsoft z klastrami prywatnymi. Rozważ użycie [agentów hostowanych samodzielnie.](/azure/devops/pipelines/agents/agents?tabs=browser) 
+* W przypadku klientów, którzy muszą Azure Container Registry pracy z prywatną usługą AKS, sieć wirtualna Container Registry musi być równorzędna z siecią wirtualną klastra agentów.
+* Brak obsługi konwertowania istniejących klastrów usługi AKS na klastry prywatne
 * Usunięcie lub zmodyfikowanie prywatnego punktu końcowego w podsieci klienta spowoduje, że klaster przestanie działać. 
-* Po zaktualizowaniu rekordu A klienta na własnych serwerach DNS te zasobniki nadal rozwiązują apiserverą nazwę FQDN do starszego adresu IP po migracji do momentu ponownego uruchomienia. Po migracji płaszczyzny kontroli klienci muszą ponownie uruchomić hostNetworky i DNSPolicye.
-* W przypadku konserwacji na płaszczyźnie kontroli [AKS IP](./limit-egress-traffic.md) może ulec zmianie. W takim przypadku należy zaktualizować rekord A wskazujący prywatny adres IP serwera interfejsu API na niestandardowym serwerze DNS i ponownie uruchomić wszystkie niestandardowe zasobniki lub wdrożenia przy użyciu hostNetwork.
+* Po zaktualizowaniu rekordu A na własnych serwerach DNS klienci nadal rozpoznają nazwę FQDN apiserver jako starszy adres IP po migracji, dopóki nie zostaną ponownie uruchomione. Po migracji płaszczyzny sterowania klienci muszą ponownie uruchomić zasobniki hostNetwork i zasobniki default-DNSPolicy.
+* W przypadku konserwacji na płaszczyźnie sterowania adres [IP usługi AKS](./limit-egress-traffic.md) może ulec zmianie. W takim przypadku należy zaktualizować rekord A, który wskaże prywatny adres IP serwera interfejsu API na niestandardowym serwerze DNS, i ponownie uruchomić wszystkie niestandardowe zasobniki lub wdrożenia przy użyciu hostNetwork.
 
 <!-- LINKS - internal -->
 [az-provider-register]: /cli/azure/provider#az-provider-register

@@ -1,135 +1,135 @@
 ---
-title: Zwolnij zalecenie dotyczące Azure Security Center z zasobu, subskrypcji, grupy zarządzania i bezpiecznego wyniku
-description: Dowiedz się, jak utworzyć reguły wykluczające zalecenia dotyczące zabezpieczeń z subskrypcji lub grup zarządzania i uniemożliwić im wpływ na bezpieczny wynik
+title: Wyklucz Azure Security Center z zasobu, subskrypcji, grupy zarządzania i oceny bezpieczeństwa
+description: Dowiedz się, jak tworzyć reguły wykluczające zalecenia dotyczące zabezpieczeń z subskrypcji lub grup zarządzania i zapobiegające wpływowi na ocenę bezpieczeństwa
 author: memildin
 ms.author: memildin
 ms.date: 03/11/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d545610b8fa13d0c0f8b91bf92107d53b81454c3
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 13abb35d0fa9ad3ee949b6edf5205de601a02956
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107313848"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718561"
 ---
-# <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>Zwalnianie zasobów i zaleceń z bezpiecznego wyniku 
+# <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>Zwalnianie zasobów i zaleceń z oceny bezpieczeństwa 
 
-Głównym priorytetem każdego zespołu ds. zabezpieczeń jest zapewnienie analityków, którzy będą mogli skupić się na zadaniach i zdarzeniach, które mają znaczenie dla organizacji. Security Center ma wiele funkcji służących do dostosowywania środowiska i zapewnienia, że Twój bezpieczny wynik odzwierciedla priorytety zabezpieczeń organizacji. Opcja **wykluczania** to jedna z tych funkcji.
+Podstawowym priorytetem każdego zespołu ds. zabezpieczeń jest zapewnienie analitykom skoncentrowania się na zadaniach i zdarzeniach, które mają znaczenie dla organizacji. Security Center wiele funkcji dostosowywania obsługi i upewnienia się, że twój poziom bezpieczeństwa odzwierciedla priorytety zabezpieczeń organizacji. Jedną **z takich** funkcji jest opcja wykluczona.
 
-Po zbadaniu zaleceń dotyczących zabezpieczeń w Azure Security Center jedną z pierwszych informacji, którą przeglądasz, jest lista zasobów, których to dotyczy.
+Podczas badania zaleceń dotyczących zabezpieczeń w Azure Security Center, jedną z pierwszych przeglądanych informacji jest lista zasobów, których dotyczy problem.
 
-Czasami zasób zostanie wyświetlony na liście, który nie powinien być uwzględniony. Lub zalecenie będzie widoczne w zakresie, w którym uważasz, że nie należy. Zasób mógł zostać skorygowany przez proces, który nie jest śledzony przez Security Center. Zalecenie może być nieodpowiednie dla określonej subskrypcji. Lub być może Twoja organizacja zdecydowała się na zaakceptowanie ryzyka związanego z konkretnym zasobem lub zaleceniem.
+Od czasu do czasu zostanie wyświetlone źródło informacji o zasobie, który nie powinien zostać uwzględniony. Lub zalecenie będzie wyświetlane w zakresie, w którym uważasz, że nie należy. Zasób mógł zostać skorygowany przez proces, który nie jest śledzony przez Security Center. Zalecenie może być nieodpowiednie dla określonej subskrypcji. Być może Twoja organizacja po prostu zdecydowała się zaakceptować ryzyko związane z określonym zasobem lub zaleceniem.
 
-W takich przypadkach można utworzyć wykluczenie dla zalecenia:
+W takich przypadkach można utworzyć wyjątek dla zalecenia, aby:
 
-- **Zwolnij zasób** , aby upewnić się, że nie znajduje się na liście zasobów w złej kondycji w przyszłości i nie ma wpływu na bezpieczny wynik. Zasób będzie wyświetlany jako nie dotyczy, a powód zostanie wyświetlony jako "zwolniony" z określonym uzasadnieniem.
+- **Wyklucz zasób,** aby upewnić się, że w przyszłości nie będzie on wymieniony z zasobami w złej kondycji, i nie będzie mieć wpływu na ocenę bezpieczeństwa. Zasób zostanie wymieniony jako nie dotyczy, a przyczyna zostanie pokazana jako "wykluczona" z określonym uzasadnieniem, które wybierzesz.
 
-- **Zwolnij subskrypcję lub grupę zarządzania** , aby upewnić się, że zalecenie nie ma wpływu na Twój bezpieczny wynik i nie będzie wyświetlane dla subskrypcji lub grupy zarządzania w przyszłości. Odnosi się to do istniejących zasobów i wszystkich utworzonych w przyszłości. Zalecenie zostanie oznaczone określonym uzasadnieniem wybranym dla wybranego zakresu.
+- **Wyklucz subskrypcję** lub grupę zarządzania, aby upewnić się, że zalecenie nie ma wpływu na ocenę bezpieczeństwa i nie będzie wyświetlane dla subskrypcji lub grupy zarządzania w przyszłości. Jest to związane z istniejącymi i dowolnymi zasobami, które utworzysz w przyszłości. Zalecenie zostanie oznaczone konkretnym uzasadnieniem wybranym dla wybranego zakresu.
 
 ## <a name="availability"></a>Dostępność
 
 | Aspekt                          | Szczegóły                                                                                                                                                                                                                                                                                                                            |
 |---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Stan wydania:                  | Wersja zapoznawcza<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]                                                                                                                                                                                                                                             |
-| Wpisaną                        | Jest to funkcja Premium Azure Policy oferowana dla klientów usługi Azure Defender bez dodatkowych kosztów. W przypadku innych użytkowników opłaty mogą być stosowane w przyszłości.                                                                                                                                                                 |
-| Wymagane role i uprawnienia: | Współautor lub **współautor zasad zasobów** **, aby** utworzyć wykluczenie<br>Aby utworzyć regułę, musisz mieć uprawnienia do edytowania zasad w Azure Policy.<br>Dowiedz się więcej na temat [uprawnień kontroli RBAC platformy Azure w Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).                                            |
-| Ograniczenia:                    | Zwolnienia mogą być tworzone tylko dla zaleceń uwzględnionych w ramach inicjatywy domyślnej Security Center, testu porównawczego zabezpieczeń platformy Azure lub dowolnych z dostarczonych, standardowych inicjatyw prawnych. Nie można wykluczać zaleceń, które są generowane na podstawie inicjatyw niestandardowych. Dowiedz się więcej na temat relacji między [zasadami, inicjatywami i zaleceniami](security-policy-concept.md). |
-| Połączeń                         | ![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)                                                                                                                                                                                         |
+| Ceny:                        | Jest to funkcja premium Azure Policy oferowana dla klientów Azure Defender bez dodatkowych kosztów. W przypadku innych użytkowników opłaty mogą być naliczane w przyszłości.                                                                                                                                                                 |
+| Wymagane role i uprawnienia: | **Właściciel** lub **współautor zasad zasobów w** celu utworzenia zwolnienia<br>Aby utworzyć regułę, musisz mieć uprawnienia do edytowania zasad w Azure Policy.<br>Dowiedz się więcej na [temat uprawnień RBAC platformy Azure w Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).                                            |
+| Ograniczenia:                    | Wyjątki można tworzyć tylko w przypadku zaleceń zawartych Security Center domyślnej inicjatywy firmy Security Center, testu porównawczego zabezpieczeń platformy [Azure](https://docs.microsoft.com/security/benchmark/azure/introduction)lub dowolnej z dostarczonych inicjatyw dotyczących standardów prawnych. Rekomendacji generowanych na podstawie inicjatyw niestandardowych nie można wykluczyć. Dowiedz się więcej o relacjach między [zasadami, inicjatywami i zaleceniami.](security-policy-concept.md) |
+| Chmury:                         | ![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)                                                                                                                                                                                         |
 |                                 |                                                                                                                                                                                                                                                                                                                                    |
 
-## <a name="define-an-exemption"></a>Definiowanie wykluczenia
+## <a name="define-an-exemption"></a>Definiowanie zwolnienia
 
-Aby dostosować zalecenia dotyczące zabezpieczeń, które Security Center dla subskrypcji, grupy zarządzania lub zasobów, można utworzyć regułę wykluczania w celu:
+Aby dostosować zalecenia dotyczące zabezpieczeń Security Center subskrypcji, grupy zarządzania lub zasobów, możesz utworzyć regułę wykluczania, aby:
 
-- Oznacz określone **zalecenie** lub jako "skorygowane" lub "zaakceptowane ryzyko". Można utworzyć wykluczenia rekomendacji dla subskrypcji, wielu subskrypcji lub całej grupy zarządzania.
-- Oznacz **co najmniej jeden zasób** jako "skorygowany" lub "ryzyko zaakceptowania" dla konkretnego zalecenia.
+- Oznacz określone zalecenie **lub** jako "skorygowane" lub "zaakceptowane ryzyko". Możesz utworzyć wyjątki zaleceń dla subskrypcji, wielu subskrypcji lub całej grupy zarządzania.
+- Oznacz **co najmniej jeden za zasoby** jako "skorygowane" lub "zaakceptowane ryzyko" dla określonego zalecenia.
 
 > [!NOTE]
-> Zwolnienia mogą być tworzone tylko dla zaleceń uwzględnionych w ramach inicjatywy domyślnej Security Center, testu porównawczego zabezpieczeń platformy Azure lub któregokolwiek z dostarczonych standardowych inicjatyw prawnych. Zalecenia, które są generowane na podstawie dowolnych niestandardowych inicjatyw przypisanych do subskrypcji, nie mogą być wykluczone. Dowiedz się więcej na temat relacji między [zasadami, inicjatywami i zaleceniami](security-policy-concept.md).
+> Wyjątki można tworzyć tylko w przypadku zaleceń zawartych w domyślnej inicjatywie firmy Security Center, testie porównawczym zabezpieczeń platformy Azure lub dowolnej z dostarczonych inicjatyw dotyczących standardów prawnych. Rekomendacji generowanych z dowolnych inicjatyw niestandardowych przypisanych do Subskrypcji nie można wykluczyć. Dowiedz się więcej o relacjach między [zasadami, inicjatywami i zaleceniami.](security-policy-concept.md)
 
 > [!TIP]
-> Możesz również utworzyć wykluczenia przy użyciu interfejsu API. Przykładowy kod JSON i objaśnienie odpowiednich struktur znajdują się w temacie [Azure Policy Structure](../governance/policy/concepts/exemption-structure.md).
+> Możesz również utworzyć wyjątki przy użyciu interfejsu API. Aby uzyskać przykładowy dane JSON i wyjaśnienie odpowiednich struktur, zobacz [Azure Policy struktury wyieńcowej](../governance/policy/concepts/exemption-structure.md).
 
 Aby utworzyć regułę wykluczania:
 
-1. Aby zapoznać się z konkretnym zaleceniem, Otwórz stronę szczegóły rekomendacji.
+1. Otwórz stronę szczegółów zaleceń dla określonej rekomendacji.
 
-1. Na pasku narzędzi u góry strony wybierz pozycję **wykluczone**.
+1. Na pasku narzędzi w górnej części strony wybierz pozycję **Wyklucz**.
 
-    :::image type="content" source="media/exempt-resource/exempting-recommendation.png" alt-text="Utwórz regułę wykluczania dla rekomendacji, która ma zostać wykluczona z subskrypcji lub grupy zarządzania.":::
+    :::image type="content" source="media/exempt-resource/exempting-recommendation.png" alt-text="Utwórz regułę wykluczania, aby rekomendacja została wykluczona z subskrypcji lub grupy zarządzania.":::
 
-1. W okienku **zwolniony** :
+1. W **okienku Wyklucz:**
     1. Wybierz zakres dla tej reguły wykluczania:
-        - W przypadku wybrania grupy zarządzania zalecenie zostanie wykluczone ze wszystkich subskrypcji w ramach tej grupy
-        - Jeśli tworzysz tę regułę, aby wykluczyć co najmniej jeden zasób z rekomendacji, wybierz pozycję "Wybrane zasoby" i wybierz z listy odpowiednie pozycje.
+        - Jeśli wybierzesz grupę zarządzania, zalecenie zostanie wykluczone ze wszystkich subskrypcji w tej grupie
+        - Jeśli tworzysz tę regułę w celu wyłączenia co najmniej jednego zasobów z zalecenia, wybierz pozycję "Wybrane zasoby" i wybierz odpowiednie z listy
 
-    1. Wprowadź nazwę dla tej reguły wykluczania.
-    1. Opcjonalnie Ustaw datę wygaśnięcia.
-    1. Wybierz kategorię wykluczenia:
-        - **Rozwiązane przez inną firmę (skorygowany)** — w przypadku korzystania z usługi innej firmy, która nie została zidentyfikowana Security Center. 
+    1. Wprowadź nazwę reguły wykluczania.
+    1. Opcjonalnie ustaw datę wygaśnięcia.
+    1. Wybierz kategorię zwolnienia:
+        - **Rozwiązane za pośrednictwem innych firm (skorygowane)** — jeśli używasz usługi innej firmy, która Security Center nie została zidentyfikowana. 
 
             > [!NOTE]
-            > Jeśli wykluczasz zalecenie jako skorygowane, nie otrzymujesz punktów na swój Bezpieczny wynik. Jednak ponieważ punkty nie są *usuwane* dla zasobów w złej kondycji, wynikiem będzie wzrost wyniku.
+            > Gdy wyklucz zalecenie w wyniku ograniczenia, nie masz punktów do oceny bezpieczeństwa. Jednak ze względu na to, że punkty nie są *usuwane* w przypadku zasobów w złej kondycji, wynik jest taki, że twój wynik zwiększy się.
 
-        - **Ryzyko zaakceptowane (odstąpienie)** — Jeśli zdecydujesz się zaakceptować ryzyko nieograniczenia tego zalecenia
+        - **Ryzyko zaakceptowane (zniechęceń)** — jeśli zdecydujesz się zaakceptować ryzyko nienadmiania tego zalecenia
     1. Opcjonalnie wprowadź opis.
     1. Wybierz przycisk **Utwórz**.
 
-    :::image type="content" source="media/exempt-resource/defining-recommendation-exemption.png" alt-text="Procedura tworzenia reguły wykluczania w celu zwolnienia zalecenia z subskrypcji lub grupy zarządzania":::
+    :::image type="content" source="media/exempt-resource/defining-recommendation-exemption.png" alt-text="Kroki tworzenia reguły wykluczania w celu zwolnienia zalecenia z subskrypcji lub grupy zarządzania":::
 
-    Gdy wykluczenie zacznie obowiązywać (może to potrwać do 30 minut):
-    - Zalecenie lub zasoby nie wpłyną na Twój bezpieczny wynik.
-    - Jeśli wykluczono określone zasoby, zostaną one wyświetlone na karcie **nie dotyczy** strony Szczegóły rekomendacji.
-    - Jeśli wyłączono rekomendację, będzie ona domyślnie ukryta na stronie zalecenia dotyczące Security Center. Wynika to z faktu, że domyślne opcje filtru **stanu zalecenia** na tej stronie mają zostać **wykluczone** . Ta sama wartość obowiązuje w przypadku wyłączenia wszystkich zaleceń w kontroli zabezpieczeń.
+    Gdy zwolnienie dzieje się tak (może to potrwać do 30 minut):
+    - Zalecenie lub zasoby nie będą miały wpływu na ocenę bezpieczeństwa.
+    - Jeśli określone zasoby zostały wykluczone, zostaną one wyświetlone na karcie **Nie** dotyczy na stronie szczegółów zalecenia.
+    - Jeśli zalecenie zostało wykluczone, będzie ono domyślnie ukryte na Security Center rekomendacji. Wynika to z tego, że domyślne opcje filtru **Stan** rekomendacji na tej stronie mają wykluczać **zalecenia Nie dotyczy.** To samo dotyczy sytuacji, w których wszystkie zalecenia są wykluczone z kontroli zabezpieczeń.
 
-        :::image type="content" source="media/exempt-resource/recommendations-filters-hiding-not-applicable.png" alt-text="Domyślne filtry na stronie zalecenia dotyczące Azure Security Center Ukryj nieodpowiednie rekomendacje i kontrolki zabezpieczeń":::
+        :::image type="content" source="media/exempt-resource/recommendations-filters-hiding-not-applicable.png" alt-text="Domyślne filtry na Azure Security Center zaleceń firmy ukrywają nie dotyczy zaleceń i mechanizmy kontroli zabezpieczeń":::
 
-    - Pasek informacji w górnej części strony Szczegóły zalecenia aktualizuje liczbę wykluczonych zasobów:
+    - Pasek informacji w górnej części strony szczegółów zalecenia aktualizuje liczbę wykluczeń zasobów:
         
         :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Liczba wykluczonych zasobów":::
 
-1. Aby przejrzeć wykluczone zasoby, Otwórz kartę **nie dotyczy** :
+1. Aby przejrzeć wykluczone zasoby, otwórz **kartę Nie dotyczy:**
 
-    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Modyfikowanie wykluczenia":::
+    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Modyfikowanie zwolnienia":::
 
-    Przyczyną każdego wykluczenia jest dołączenie do tabeli (1).
+    Przyczyna każdego zwolnienia znajduje się w tabeli (1).
 
-    Aby zmodyfikować lub usunąć wykluczenie, wybierz menu wielokropka ("..."), jak pokazano (2).
+    Aby zmodyfikować lub usunąć zwolnienie, wybierz menu wielokropka ("..."), jak pokazano (2).
 
-1. Aby przejrzeć wszystkie reguły wykluczania w subskrypcji, wybierz pozycję **Wyświetl wykluczenia** z paska informacji:
+1. Aby przejrzeć wszystkie reguły wydpowiedzialności w ramach subskrypcji, wybierz pozycję **Wyświetl** wyjątki na pasku informacji:
 
     > [!IMPORTANT]
-    > Aby wyświetlić określone zwolnienia dotyczące jednego zalecenia, należy odfiltrować listę zgodnie z odpowiednim zakresem i nazwą zalecenia.
+    > Aby wyświetlić konkretne wyjątki dotyczące jednego zalecenia, przefiltruj listę zgodnie z odpowiednim zakresem i nazwą zalecenia.
 
-    :::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="Strona wykluczenia Azure Policy":::
+    :::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="Azure Policy strony wyzłania":::
 
     > [!TIP]
-    > Możesz również [użyć grafu zasobów platformy Azure, aby znaleźć zalecenia dotyczące wykluczeń](#find-recommendations-with-exemptions-using-azure-resource-graph).
+    > Alternatywnie możesz [użyć Azure Resource Graph, aby znaleźć rekomendacje z wyjątkami](#find-recommendations-with-exemptions-using-azure-resource-graph).
 
-## <a name="monitor-exemptions-created-in-your-subscriptions"></a>Monitoruj wykluczenia utworzone w Twoich subskrypcjach
+## <a name="monitor-exemptions-created-in-your-subscriptions"></a>Monitorowanie wyjątków utworzonych w subskrypcjach
 
-Jak wyjaśniono wcześniej na tej stronie, reguły wykluczania to zaawansowane narzędzie zapewniające szczegółową kontrolę nad zaleceń, które mają wpływ na zasoby w ramach subskrypcji i grup zarządzania. 
+Jak wyjaśniono wcześniej na tej stronie, reguły wywłaszania są wydajnym narzędziem zapewniającym szczegółową kontrolę nad zaleceniami wpływania na zasoby w subskrypcjach i grupach zarządzania. 
 
-Aby śledzić, jak użytkownicy korzystają z tej możliwości, utworzyliśmy szablon Azure Resource Manager (ARM), który wdraża aplikację logiki element playbook i wszystkie wymagane połączenia interfejsu API w celu powiadomienia użytkownika o utworzeniu wykluczenia.
+Aby śledzić sposób korzystania z tej możliwości przez użytkowników, utworzono szablon usługi Azure Resource Manager (ARM), który wdraża podręcznik aplikacji logiki i wszystkie niezbędne połączenia interfejsu API w celu powiadamiania o utworzeniu zwolnienia.
 
-- Aby dowiedzieć się więcej na temat element PlayBook, zobacz wpis w blogu społeczność Tech. [jak śledzić wykluczenia zasobów w Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-keep-track-of-resource-exemptions-in-azure-security/ba-p/1770580)
-- Szablon ARM znajdziesz w [repozytorium Azure Security Center GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation/Notify-ResourceExemption)
-- Aby wdrożyć wszystkie niezbędne składniki, [Użyj tego zautomatyzowanego procesu](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Security-Center%2Fmaster%2FWorkflow%2520automation%2FNotify-ResourceExemption%2Fazuredeploy.json)
+- Aby dowiedzieć się więcej na temat podręcznika, zobacz wpis w blogu społeczności technicznej [How to keep track of Resource Exemptions in Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-keep-track-of-resource-exemptions-in-azure-security/ba-p/1770580)
+- Szablon ARM znajduje się w [repozytorium Azure Security Center GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation/Notify-ResourceExemption)
+- Aby wdrożyć wszystkie niezbędne składniki, [użyj tego zautomatyzowanego procesu](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Security-Center%2Fmaster%2FWorkflow%2520automation%2FNotify-ResourceExemption%2Fazuredeploy.json)
 
 
-## <a name="find-recommendations-with-exemptions-using-azure-resource-graph"></a>Znajdź zalecenia z wykluczeniami przy użyciu grafu zasobów platformy Azure
+## <a name="find-recommendations-with-exemptions-using-azure-resource-graph"></a>Znajdowanie rekomendacji z wyjątkami przy użyciu Azure Resource Graph
 
-Usługa Azure Resource Graph (ARG) zapewnia błyskawiczny dostęp do informacji o zasobach w środowiskach chmury z niezawodnymi możliwościami filtrowania, grupowania i sortowania. Jest to szybki i wydajny sposób wykonywania zapytań dotyczących informacji w ramach subskrypcji platformy Azure programowo lub z poziomu Azure Portal.
+Azure Resource Graph (ARG) zapewnia natychmiastowy dostęp do informacji o zasobach w środowiskach chmury dzięki niezawodnym możliwościom filtrowania, grupowania i sortowania. Jest to szybki i wydajny sposób wykonywania zapytań o informacje w subskrypcjach platformy Azure programowo lub z poziomu Azure Portal.
 
-Aby wyświetlić wszystkie zalecenia, które mają reguły wykluczania:
+Aby wyświetlić wszystkie zalecenia, które mają reguły wydpowiedzialności:
 
-1. Otwórz **Eksploratora Azure Resource Graph**.
+1. Otwórz **Azure Resource Graph Explorer .**
 
-    :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Uruchamianie Eksploratora Azure Resource Graph * * zalecenie" :::
+    :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Uruchamianie Azure Resource Graph rekomendacji eksploratora**" :::
 
-1. Wprowadź następujące zapytanie i wybierz polecenie **Uruchom zapytanie**.
+1. Wprowadź następujące zapytanie i wybierz pozycję **Uruchom zapytanie.**
 
     ```kusto
     securityresources
@@ -157,7 +157,7 @@ Aby wyświetlić wszystkie zalecenia, które mają reguły wykluczania:
 
 
 Dowiedz się więcej na następujących stronach:
-- [Dowiedz się więcej o usłudze Azure Resource Graph](../governance/resource-graph/index.yml).
+- [Dowiedz się więcej o Azure Resource Graph](../governance/resource-graph/index.yml).
 - [Jak tworzyć zapytania za pomocą eksploratora usługi Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 - [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/)
 
@@ -165,27 +165,27 @@ Dowiedz się więcej na następujących stronach:
 
 
 
-## <a name="faq---exemption-rules"></a>Często zadawane pytania — reguły wykluczania
+## <a name="faq---exemption-rules"></a>Często zadawane pytania — reguły wywłaszcze
 
-### <a name="what-happens-when-one-recommendation-is-in-multiple-policy-initiatives"></a>Co się stanie, gdy jedno zalecenie dotyczy wielu inicjatyw dotyczących zasad?
+### <a name="what-happens-when-one-recommendation-is-in-multiple-policy-initiatives"></a>Co się stanie, gdy jedno zalecenie znajduje się w wielu inicjatywach zasad?
 
-Czasami zalecenie dotyczące zabezpieczeń występuje w więcej niż jednej inicjatywy zasad. Jeśli masz wiele wystąpień tego samego zalecenia przypisanego do tej samej subskrypcji i utworzysz wykluczenie dla tego zalecenia, wpłynie to na wszystkie inicjatywy, do których masz uprawnienia do edycji. 
+Czasami zalecenie dotyczące zabezpieczeń pojawia się w więcej niż jednej inicjatywie zasad. Jeśli masz wiele wystąpień tego samego zalecenia przypisanych do tej samej subskrypcji i utworzysz wyjątek dla rekomendacji, będzie to miało wpływ na wszystkie inicjatywy, do których masz uprawnienia do edycji. 
 
-Na przykład zalecenie * * * * jest częścią domyślnej inicjatywy zasad przypisanej do wszystkich subskrypcji platformy Azure przez Azure Security Center. Również w XXXXX.
+Na przykład zalecenie *" jest częścią domyślnej inicjatywy zasad przypisanej do wszystkich subskrypcji platformy Azure przez Azure Security Center. Jest również w XXXXX.
 
-Jeśli spróbujesz utworzyć wykluczenie dla tego zalecenia, zobaczysz jeden z dwóch następujących komunikatów:
+Jeśli spróbujesz utworzyć wyjątek dla tego zalecenia, zobaczysz jeden z dwóch następujących komunikatów:
 
-- Jeśli masz odpowiednie uprawnienia do edytowania obu inicjatyw, zobaczysz:
+- Jeśli masz uprawnienia niezbędne do edytowania obu inicjatyw, zobaczysz:
 
-    *To zalecenie jest zawarte w kilku inicjatywach zasad: [nazwy inicjatyw oddzielone przecinkami]. Na wszystkich z nich zostaną utworzone zwolnienia.*  
+    *To zalecenie znajduje się w kilku inicjatywach zasad: [nazwy inicjatyw rozdzielone przecinkami]. Wyjątki zostaną utworzone dla wszystkich z nich.*  
 
-- Jeśli nie masz wystarczających uprawnień do obu inicjatyw, zobaczysz następujący komunikat:
+- Jeśli nie masz wystarczających uprawnień do obu inicjatyw, zamiast tego zobaczysz ten komunikat:
 
-    *Masz ograniczone uprawnienia do zastosowania wykluczenia we wszystkich inicjatywach zasad, a zwolnienia zostaną utworzone tylko w inicjatywach mających wystarczające uprawnienia.*
+    *Masz ograniczone uprawnienia do stosowania zwolnienia do wszystkich inicjatyw zasad. Wyjątki zostaną utworzone tylko dla inicjatyw z wystarczającymi uprawnieniami.*
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule przedstawiono sposób wykluczenia zasobu z rekomendacji, dzięki czemu nie ma to wpływu na swój Bezpieczny wynik. Aby uzyskać więcej informacji na temat bezpiecznego oceny, zobacz:
+W tym artykule opisano sposób wykluczania zasobu z zalecenia, aby nie wpływał on na ocenę bezpieczeństwa. Aby uzyskać więcej informacji na temat oceny bezpieczeństwa, zobacz:
 
 - [Wskaźnik bezpieczeństwa w usłudze Azure Security Center](secure-score-security-controls.md)

@@ -1,34 +1,34 @@
 ---
-title: Korzystanie z licencji usługi Microsoft Defender dla punktu końcowego zawartej w programie Azure Security Center
-description: Dowiedz się więcej o usłudze Microsoft Defender dla punktów końcowych i wdrażaj ją z poziomu Azure Security Center.
+title: Używanie licencji usługi Microsoft Defender dla punktu końcowego dołączonej do usługi Azure Security Center
+description: Dowiedz się więcej na temat usługi Microsoft Defender dla punktu końcowego i wdrażania jej z Azure Security Center.
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 04/19/2021
 ms.author: memildin
-ms.openlocfilehash: 88d0a3dcd89ea678d77bc558fc680630bc0f2309
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: e12578fa6da679587d41fb25b17b00eb1645299a
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168182"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718417"
 ---
-# <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Ochrona punktów końcowych za pomocą zintegrowanego rozwiązania EDR Security Center: Microsoft Defender for Endpoint
+# <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Ochrona punktów końcowych za Security Center rozwiązania EDR firmy Microsoft: Microsoft Defender dla punktu końcowego
 
-Microsoft Defender for Endpoint to całościowe, dostarczone w chmurze rozwiązanie zabezpieczeń punktu końcowego. Główne funkcje są następujące:
+Usługa Microsoft Defender dla punktu końcowego to całościowe rozwiązanie zabezpieczeń punktu końcowego dostarczane przez chmurę. Jego główne funkcje to:
 
-- Zarządzanie lukami w zabezpieczeniach i Ocena 
+- Oparte na ryzyku zarządzanie lukami w zabezpieczeniach i ocena ich 
 - Zmniejszanie obszaru ataków
-- Ochrona oparta na zasadach i w chmurze
-- Wykrywanie i reagowanie punktów końcowych (EDR)
+- Ochrona oparta na zachowaniu i oparta na chmurze
+- Wykrywanie punktów końcowych i reagowanie na nie (EDR)
 - Automatyczne badanie i korygowanie
-- Zarządzane usługi polowania
+- Zarządzane usługi łowieckie
 
 > [!TIP]
-> Pierwotnie uruchomiono usługę **Windows Defender ATP**, nazwa produktu wykrywania i reagowania punktu końcowego (EDR) została zmieniona w 2019 jako usługa **Microsoft Defender ATP**.
+> Ten produkt, który pierwotnie był Windows Defender **ATP,** został nazwany w 2019 r. jako **Microsoft Defender ATP.**
 >
-> W przypadku zapłonu 2020 został uruchomiony [pakiet Microsoft Defender XDR](https://www.microsoft.com/security/business/threat-protection) i zmieniono nazwę usługi **Microsoft Defender dla punktu końcowego**.
+> Na konferencji Ignite 2020 uruchomiliśmy pakiet XDR usługi [Microsoft Defender,](https://www.microsoft.com/security/business/threat-protection) a nazwa tego składnika EDR została zmieniona na **Microsoft Defender for Endpoint**.
 
 
 ## <a name="availability"></a>Dostępność
@@ -36,110 +36,112 @@ Microsoft Defender for Endpoint to całościowe, dostarczone w chmurze rozwiąza
 | Aspekt                          | Szczegóły                                                                                                                                                                                                                                                                                                       |
 |---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Stan wydania:                  | Ogólnie dostępna (GA)                                                                                                                                                                                                                                                                                      |
-| Wpisaną                        | Wymaga [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md)                                                                                                                                                                                                                                             |
-| Obsługiwane platformy:            |  • Maszyny platformy Azure z systemem Windows<br> • Komputery z systemem Windows w usłudze Azure Arc|
-| Obsługiwane wersje systemu Windows:  |  • **Ogólna dostępność (ga) —** wykrywanie w systemach Windows Server 2016, 2012 R2 i 2008 R2 SP1<br> • Wykrywanie **wersji zapoznawczej** w systemie windows Server 2019, [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md)i [Windows 10 Enterprise — wiele sesji](../virtual-desktop/windows-10-multisession-faq.yml) (dawniej Enterprise for Virtual Desktops (EVD)|
-| Nieobsługiwane systemy operacyjne:  |  • System Windows 10 (inny niż EVD lub WVD)<br> • System Linux|
-| Wymagane role i uprawnienia: | Aby włączyć/wyłączyć integrację: **administrator zabezpieczeń** lub **właściciel**<br>Aby wyświetlić alerty MDATP w Security Center: **czytelnik zabezpieczeń**, **czytelnik**, **współautor grupy zasobów**, **właściciel grupy zasobów**, **administrator zabezpieczeń**, **właściciel subskrypcji** lub **współautor subskrypcji**|
-| Połączeń                         | ![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Nie](./media/icons/no-icon.png) Chiny gov, inne gov                                                        |
+| Ceny:                        | Wymaga [Azure Defender dla serwerów](defender-for-servers-introduction.md)                                                                                                                                                                                                                                             |
+| Obsługiwane platformy:            |  • Maszyny platformy Azure z systemem Windows<br> • Azure Arc z systemem Windows|
+| Obsługiwane wersje systemu Windows do wykrywania:  |  • Windows Server 2019, 2016, 2012 R2 i 2008 R2 z dodatkiem SP1<br> • [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md)<br> • [Windows 10 Enterprise wielu sesji](../virtual-desktop/windows-10-multisession-faq.yml) (dawniej Enterprise for Virtual Desktops (EVD)|
+| Nieobsługiwane systemy operacyjne:  |  • Windows 10 (inne niż EVD lub WVD)<br> • Linux|
+| Wymagane role i uprawnienia: | Aby włączyć/wyłączyć integrację: **Administrator zabezpieczeń lub** **Właściciel**<br>Aby wyświetlić alerty MDATP w Security Center: **czytelnik zabezpieczeń,** **Czytelnik,** Współautor grupy **zasobów,** Właściciel grupy **zasobów,** Administrator **zabezpieczeń,** Właściciel subskrypcji **lub** **Współautor subskrypcji**|
+| Chmury:                         | ![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Nie](./media/icons/no-icon.png) China Gov, Other Gov                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
 
-## <a name="microsoft-defender-for-endpoint-features-in-security-center"></a>Funkcje usługi Microsoft Defender dla punktów końcowych w Security Center
+## <a name="microsoft-defender-for-endpoint-features-in-security-center"></a>Funkcje usługi Microsoft Defender dla punktu końcowego w Security Center
 
-Usługa Microsoft Defender dla punktu końcowego oferuje następujące informacje:
+Usługa Microsoft Defender dla punktu końcowego zapewnia:
 
-- **Zaawansowane czujniki wykrywania po naruszeniu naruszeń**. Usługa Defender dla czujników punktu końcowego dla maszyn z systemem Windows zbiera ogromną gamę sygnałów z zachowaniem.
+- **Zaawansowane czujniki wykrywania po naruszeniu zabezpieczeń.** Usługa Defender dla czujników punktu końcowego dla maszyn z systemem Windows zbiera ogromną tablicę sygnałów behawioralnych.
 
-- Wykrywanie z obsługą **analiz, oparte na chmurze, wykrycie po naruszeniu**. Usługa Defender dla punktów końcowych szybko dostosowuje się do zmieniających się zagrożeń. Używa zaawansowanej analizy i danych Big Data. Jest to wzmacniane przez możliwości Intelligent Security Graph z sygnałami w systemach Windows, Azure i Office w celu wykrywania nieznanych zagrożeń. Zapewnia alerty funkcjonalne i umożliwia szybkie reagowanie na nie.
+- **Oparte na analizie, oparte na chmurze wykrywanie po naruszeniu zabezpieczeń.** Program Defender for Endpoint szybko dostosowuje się do zmieniających się zagrożeń. Używa ona zaawansowanej analizy i danych big data. Jest on wzmacniany przez możliwości usługi Intelligent Security Graph sygnałów w systemie Windows, na platformie Azure i w psłudze Office w celu wykrywania nieznanych zagrożeń. Udostępnia alerty z akcjami i umożliwia szybkie reagowanie.
 
-- **Analiza zagrożeń**. Usługa Defender dla punktu końcowego generuje alerty w przypadku identyfikacji narzędzi, technik i procedur osoby atakującej. Używa on danych wygenerowanych przez program Microsoft Threat myśliwych i zespoły ds. zabezpieczeń, uzupełnione o analizy udostępniane przez partnerów.
+- **Analiza zagrożeń**. Program Defender for Endpoint generuje alerty po zidentyfikowaniu narzędzi, technik i procedur osoby atakującej. Korzysta ona z danych generowanych przez zespoły ds. zagrożeń i zabezpieczeń firmy Microsoft, rozszerzane przez analizę dostarczaną przez partnerów.
 
-Dzięki integracji usługi Defender dla punktów końcowych z Security Center można korzystać z następujących dodatkowych możliwości:
+Dzięki integracji usługi Defender for Endpoint z Security Center, będziesz korzystać z następujących dodatkowych możliwości:
 
-- **Automatyczne** dołączanie. Security Center automatycznie włącza czujnik usługi Microsoft Defender for Endpoint dla wszystkich serwerów z systemem Windows monitorowanych przez Security Center.
+- **Zautomatyzowane dołączanie.** Security Center automatycznie włącza czujnik usługi Microsoft Defender dla punktu końcowego dla wszystkich serwerów z systemem Windows monitorowanych przez Security Center.
 
-- **Pojedyncze okienko szkła**. W konsoli Security Center są wyświetlane alerty usługi Microsoft Defender dla punktów końcowych. Aby dowiedzieć się więcej, Użyj usługi Microsoft Defender dla własnych stron portalu punktu końcowego, na których zobaczysz dodatkowe informacje, takie jak drzewo procesu alertu i wykres incydentu. Możesz również wyświetlić szczegółową oś czasu komputera, która pokazuje każde zachowanie w okresie historycznym przez maksymalnie sześć miesięcy.
+- **Pojedyncze okienko .** W Security Center zostanie wyświetlona usługa Microsoft Defender dla alertów punktu końcowego. Aby dokładniej zbadać ten temat, użyj usługi Microsoft Defender dla własnych stron portalu punktu końcowego, na których zobaczysz dodatkowe informacje, takie jak drzewo procesu alertów i wykres zdarzenia. Można również wyświetlić szczegółową oś czasu maszyny, która pokazuje każde zachowanie w okresie historycznym nie dłuższym niż sześć miesięcy.
 
-    :::image type="content" source="./media/security-center-wdatp/microsoft-defender-security-center.png" alt-text="Security Center własne usługi Microsoft Defender dla punktu końcowego" lightbox="./media/security-center-wdatp/microsoft-defender-security-center.png":::
+    :::image type="content" source="./media/security-center-wdatp/microsoft-defender-security-center.png" alt-text="Usługa Microsoft Defender dla własnych Security Center" lightbox="./media/security-center-wdatp/microsoft-defender-security-center.png":::
 
 ## <a name="microsoft-defender-for-endpoint-tenant-location"></a>Lokalizacja dzierżawy usługi Microsoft Defender dla punktu końcowego
 
-W przypadku używania Azure Security Center do monitorowania serwerów usługa Microsoft Defender dla dzierżawy punktu końcowego jest tworzona automatycznie. Dane zbierane przez usługę Defender for Endpoint są przechowywane w lokalizacji geograficznej dzierżawy, która została zidentyfikowana podczas aprowizacji. Dane klienta w formie pseudonimowej — mogą być również przechowywane w centralnych systemach magazynowania i przetwarzania w Stany Zjednoczone. 
+Gdy używasz usługi Azure Security Center do monitorowania serwerów, automatycznie tworzona jest dzierżawa usługi Microsoft Defender dla punktu końcowego. Dane zbierane przez usługę Defender dla punktu końcowego są przechowywane w lokalizacji geograficznej dzierżawy zidentyfikowana podczas aprowizacji. Dane klienta — w postaci pseudonimizowanej — mogą być również przechowywane w centralnych systemach magazynowania i przetwarzania w Stany Zjednoczone. 
 
-Po skonfigurowaniu lokalizacji nie można jej zmienić. Jeśli masz własną licencję usługi Microsoft Defender for Endpoint i chcesz przenieść dane do innej lokalizacji, skontaktuj się z firmą pomoc techniczna firmy Microsoft w celu zresetowania dzierżawy.
-
-
-## <a name="enabling-the-microsoft-defender-for-endpoint-integration"></a>Włączanie integracji usługi Microsoft Defender for Endpoint
-
-1. Upewnij się, że maszyna spełnia wymagania wymagane przez usługę Defender for Endpoint:
-
-    - Dla **wszystkich wersji systemu Windows**:
-        - Konfigurowanie ustawień sieci opisanych w temacie [Konfigurowanie serwera proxy urządzenia i ustawień łączności z Internetem](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet)
-        - Jeśli program Defender jest wdrażany na maszynach lokalnych, połącz go z usługą Azure Arc zgodnie z opisem w temacie [łączenie maszyn hybrydowych z serwerami z obsługą usługi Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)
-    - Ponadto w przypadku **maszyn z systemem Windows Server 2019** upewnij się, że są uruchomione prawidłowy Agent i mają rozszerzenie MicrosoftMonitoringAgent
-
-1. Włącz **usługę Azure Defender dla serwerów**. Zobacz [Szybki Start: Włączanie usługi Azure Defender](enable-azure-defender.md).
-
-1. Jeśli masz już licencjonowane i wdrożone usługi Microsoft Defender dla punktów końcowych na serwerach, usuń je, korzystając z procedury opisanej w artykule [odłączania Windows Servers](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).
-1. W menu Security Center wybierz pozycję **cennik & ustawienia**.
-1. Wybierz subskrypcję, którą chcesz zmienić.
-1. Wybierz pozycję **wykrywanie zagrożeń**.
-1. Wybierz pozycję **Zezwalaj usłudze Microsoft Defender for Endpoint na dostęp do moich danych** i wybierz pozycję **Zapisz**.
-
-    :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Włącz integrację między Azure Security Center i rozwiązaniem EDR firmy Microsoft, Microsoft Defender for Endpoint":::
-
-    Azure Security Center automatycznie dołączać serwery do usługi Microsoft Defender dla punktu końcowego. Dołączanie może potrwać do 24 godzin.
+Po skonfigurowaniu lokalizacji nie można jej zmienić. Jeśli masz własną licencję usługi Microsoft Defender dla punktu końcowego i musisz przenieść dane do innej lokalizacji, skontaktuj się z Pomoc techniczna Microsoft w celu zresetowania dzierżawy.
 
 
-## <a name="access-the-microsoft-defender-for-endpoint-portal"></a>Dostęp do portalu usługi Microsoft Defender dla punktów końcowych
+## <a name="enable-the-microsoft-defender-for-endpoint-integration"></a>Włączanie integracji usługi Microsoft Defender dla punktu końcowego
 
-1. Upewnij się, że konto użytkownika ma wymagane uprawnienia. Dowiedz się więcej w temacie [Przypisywanie dostępu użytkowników do programu Microsoft Defender Security Center](/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
+### <a name="prerequisites"></a>Wymagania wstępne
 
-1. Sprawdź, czy masz serwer proxy lub zaporę blokującą ruch anonimowy. Usługa Defender dla czujnika punktu końcowego nawiązuje połączenie z kontekstem systemowym, więc należy zezwolić na ruch anonimowy. Aby zapewnić niezakłócony dostęp do programu Defender for Endpoint Portal, postępuj zgodnie z instrukcjami w temacie [Włączanie dostępu do adresów URL usługi na serwerze proxy](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
+Upewnij się, że maszyna spełnia wymagania dotyczące usługi Defender dla punktu końcowego:
 
-1. Otwórz [portal Security Center Microsoft Defender](https://securitycenter.windows.com/). Więcej informacji na temat funkcji i ikon portalu można znaleźć w temacie [Omówienie usługi Microsoft Defender Security Center Portal](/windows/security/threat-protection/microsoft-defender-atp/portal-overview). 
+1. Konfigurowanie ustawień sieciowych opisanych w te [tematach Konfigurowanie serwera proxy urządzenia i ustawień łączności z Internetem](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet)
+1. Jeśli wdrażasz usługę Defender w punkcie końcowym na maszynach lokalnych, połącz ją z usługą Azure Arc, jak wyjaśniono w te tematu Connect hybrid machines with Azure Arc enabled servers (Łączenie maszyn hybrydowych z Azure Arc serwerami z [włączoną obsługą usługi)](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)
+1. Tylko w przypadku maszyn z systemem Windows Server 2019 upewnij się, że na maszynach działa prawidłowy agent i że masz rozszerzenie MicrosoftMonitoringAgent
+1. Włącz **Azure Defender dla serwerów**. Zobacz [Szybki start: włączanie Azure Defender](enable-azure-defender.md).
+1. Jeśli masz już licencję i wdrożono usługę Microsoft Defender dla punktów końcowych na serwerach, usuń ją przy użyciu procedury opisanej w te tematze Odłącz serwery [z systemem Windows.](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers)
+1. Jeśli subskrypcja została przeniesiona między dzierżawami platformy Azure, wymagane są również kroki ręcznego przygotowania. Aby uzyskać szczegółowe informacje, skontaktuj [się z pomocą techniczną firmy Microsoft.](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+
+
+### <a name="enable-the-integration"></a>Włączanie integracji
+1. W Security Center menu wybierz pozycję **Cennik & i** wybierz subskrypcję, którą chcesz zmienić.
+1. Wybierz **pozycję Wykrywanie zagrożeń.**
+1. Wybierz **pozycję Zezwalaj u programowi Microsoft Defender dla punktu końcowego na** dostęp do moich danych, a następnie wybierz pozycję **Zapisz**.
+
+    :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Włączanie integracji między Azure Security Center rozwiązaniami EDR firmy Microsoft i usługą Microsoft Defender dla punktu końcowego":::
+
+    Azure Security Center automatycznie dołącza serwery do usługi Microsoft Defender dla punktu końcowego. Dołączanie może potrwać do 24 godzin.
+
+
+## <a name="access-the-microsoft-defender-for-endpoint-portal"></a>Uzyskiwanie dostępu do portalu usługi Microsoft Defender dla punktu końcowego
+
+1. Upewnij się, że konto użytkownika ma niezbędne uprawnienia. Aby dowiedzieć się [więcej, zobacz Przypisywanie dostępu użytkownika do Centrum zabezpieczeń usługi Microsoft Defender](/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
+
+1. Sprawdź, czy masz serwer proxy lub zaporę, która blokuje ruch anonimowy. Czujnik usługi Defender for Endpoint łączy się z kontekstu systemu, dlatego ruch anonimowy musi być dozwolony. Aby zapewnić nieskonkantowany dostęp do portalu usługi Defender dla punktu końcowego, wykonaj instrukcje z tematu Zapewnianie dostępu do adresów URL usługi [na serwerze proxy.](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server)
+
+1. Otwórz Centrum zabezpieczeń usługi Microsoft Defender [portalu.](https://securitycenter.windows.com/) Dowiedz się więcej o funkcjach i ikonach portalu w [Centrum zabezpieczeń usługi Microsoft Defender portalu.](/windows/security/threat-protection/microsoft-defender-atp/portal-overview) 
 
 ## <a name="send-a-test-alert"></a>Wysyłanie alertu testowego
 
-Aby wygenerować niegroźny alert dotyczący programu Microsoft Defender for Endpoint test:
+Aby wygenerować niegroźny alert testu usługi Microsoft Defender dla punktu końcowego:
 
 1. Utwórz folder "C:\test-MDATP-test".
-1. Użyj Pulpit zdalny, aby uzyskać dostęp do komputera.
+1. Użyj Pulpit zdalny, aby uzyskać dostęp do maszyny.
 1. Otwórz okno wiersza polecenia.
-1. W wierszu polecenia skopiuj i uruchom następujące polecenie. Okno wiersza polecenia zostanie zamknięte automatycznie.
+1. Po wyświetleniu monitu skopiuj i uruchom następujące polecenie. Okno wiersza polecenia zostanie zamknięte automatycznie.
 
     ```powershell
     powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-MDATP-test\\invoice.exe'); Start-Process 'C:\\test-MDATP-test\\invoice.exe'
     ```
-    :::image type="content" source="./media/security-center-wdatp/generate-edr-alert.png" alt-text="Okno wiersza polecenia z poleceniem do wygenerowania alertu testowego.":::
+    :::image type="content" source="./media/security-center-wdatp/generate-edr-alert.png" alt-text="Okno wiersza polecenia z poleceniem w celu wygenerowania alertu testowego.":::
 
-1. Jeśli polecenie zakończy się pomyślnie, zobaczysz nowy Alert na pulpicie nawigacyjnym Azure Security Center oraz w portalu usługi Microsoft Defender dla punktów końcowych. Ten alert może potrwać kilka minut.
-1. Aby sprawdzić alert w Security Center, przejdź do **alertów zabezpieczeń**  >  **podejrzany wiersz polecenia programu PowerShell**.
-1. W oknie badanie wybierz link, aby przejść do portalu usługi Microsoft Defender dla punktu końcowego.
+1. Jeśli polecenie powiedzie się, zobaczysz nowy alert na pulpicie nawigacyjnym usługi Azure Security Center i portalu usługi Microsoft Defender dla punktu końcowego. Ten alert może potrwać kilka minut.
+1. Aby przejrzeć alert w Security Center, przejdź do tematu Alerty zabezpieczeń  >  **Podejrzane polecenie programu PowerShell Wiersz**.
+1. W oknie badania wybierz link, aby przejść do portalu usługi Microsoft Defender dla punktu końcowego.
 
     > [!TIP]
-    > Alert jest wyzwalany z ważnością **informacyjną** .
+    > Alert jest wyzwalany z **ważnością informacyjną.**
 
-## <a name="faq-for-security-centers-integrated-microsoft-defender-for-endpoint"></a>Często zadawane pytania dotyczące zintegrowanego Security Center usługi Microsoft Defender for Endpoint
+## <a name="faq-for-security-centers-integrated-microsoft-defender-for-endpoint"></a>Często zadawane pytania dotyczące Security Center zintegrowanej usługi Microsoft Defender dla punktu końcowego
 
-- [Jakie są wymagania dotyczące licencjonowania usługi Microsoft Defender for Endpoint?](#what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint)
-- [Jeśli mam już licencję usługi Microsoft Defender for Endpoint dla punktu końcowego, możesz uzyskać rabat za usługę Azure Defender?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
-- [Jak mogę przełączać się z narzędzia EDR innej firmy?](#how-do-i-switch-from-a-third-party-edr-tool)
+- [Jakie są wymagania licencyjne dotyczące usługi Microsoft Defender dla punktu końcowego?](#what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint)
+- [Jeśli mam już licencję usługi Microsoft Defender dla punktu końcowego, czy mogę uzyskać rabat na Azure Defender?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
+- [Jak mogę z narzędzia do EDR innej firmy?](#how-do-i-switch-from-a-third-party-edr-tool)
 
-### <a name="what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint"></a>Jakie są wymagania dotyczące licencjonowania usługi Microsoft Defender for Endpoint?
-Usługa Defender dla punktów końcowych jest uwzględniana bez dodatkowych kosztów w **usłudze Azure Defender dla serwerów**. Alternatywnie można ją zakupić osobno dla maszyn 50 lub więcej.
+### <a name="what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint"></a>Jakie są wymagania licencyjne dotyczące usługi Microsoft Defender dla punktu końcowego?
+Program Defender dla punktu końcowego jest dołączony bez dodatkowych kosztów Azure Defender **dla serwerów**. Alternatywnie można kupić osobno dla 50 maszyn lub więcej.
 
-### <a name="if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender"></a>Jeśli mam już licencję usługi Microsoft Defender for Endpoint dla punktu końcowego, możesz uzyskać rabat za usługę Azure Defender?
-Jeśli masz już licencję na usługę Microsoft Defender for Endpoint, nie musisz uiszczać tej części licencji usługi Azure Defender.
+### <a name="if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender"></a>Jeśli mam już licencję usługi Microsoft Defender dla punktu końcowego, czy mogę uzyskać rabat na Azure Defender?
+Jeśli masz już licencję usługi Microsoft Defender dla punktu końcowego, nie musisz płacić za część licencji Azure Defender końcowej.
 
-Aby potwierdzić swój rabat, skontaktuj się z zespołem pomocy technicznej Security Center i podaj odpowiedni identyfikator obszaru roboczego, region i informacje o licencji dla każdej odpowiedniej licencji.
+Aby potwierdzić rabat, skontaktuj Security Center pomocy technicznej firmy i podaj odpowiedni identyfikator obszaru roboczego, region i informacje o licencji dla każdej odpowiedniej licencji.
 
-### <a name="how-do-i-switch-from-a-third-party-edr-tool"></a>Jak mogę przełączać się z narzędzia EDR innej firmy?
-Pełne instrukcje dotyczące przełączania z rozwiązania punktu końcowego innego niż Microsoft są dostępne w dokumentacji usługi Microsoft Defender dla punktów końcowych: [Omówienie migracji](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).
+### <a name="how-do-i-switch-from-a-third-party-edr-tool"></a>Jak mogę z narzędzia do EDR innej firmy?
+Pełne instrukcje dotyczące przełączania z rozwiązania punktu końcowego firmy innych niż Microsoft są dostępne w dokumentacji usługi Microsoft Defender dla punktu [końcowego: Omówienie migracji.](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration)
   
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Platformy i funkcje obsługiwane przez usługę Azure Security Center](security-center-os-coverage.md)
-- [Zarządzanie zaleceniami dotyczącymi zabezpieczeń w Azure Security Center](security-center-recommendations.md): informacje na temat sposobu, w jaki zalecenia ułatwiają ochronę zasobów platformy Azure.
+- [Zarządzanie zaleceniami Azure Security Center:](security-center-recommendations.md)dowiedz się, jak zalecenia pomagają chronić zasoby platformy Azure.

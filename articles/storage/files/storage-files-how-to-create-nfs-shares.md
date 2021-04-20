@@ -1,22 +1,22 @@
 ---
 title: Tworzenie udziału NFS — Azure Files (wersja zapoznawcza)
-description: Dowiedz się, jak utworzyć udział plików platformy Azure, który można zainstalować przy użyciu protokołu sieciowego systemu plików.
+description: Dowiedz się, jak utworzyć udział plików platformy Azure, który można tworzyć przy użyciu protokołu sieciowego systemu plików.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 04/05/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: b085b9991175d8cd43e2dac0db80c5af4e703c34
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b549c625f0a6ff0480eafc38f84d292e66350950
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102521241"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717135"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Jak utworzyć udział NFS
-Udziały plików platformy Azure to w pełni zarządzane udziały plików w chmurze. W tym artykule opisano tworzenie udziału plików, który używa protokołu NFS. Aby uzyskać więcej informacji na temat obu protokołów, zobacz [Protokoły udziałów plików platformy Azure](storage-files-compare-protocols.md).
+Udziały plików platformy Azure to w pełni zarządzane udziały plików, które znajdują się w chmurze. W tym artykule o mowa o tworzeniu udziału plików, który używa protokołu NFS. Aby uzyskać więcej informacji na temat obu protokołów, zobacz [Azure file share protocols (Protokoły udziałów plików platformy Azure).](storage-files-compare-protocols.md)
 
 ## <a name="limitations"></a>Ograniczenia
 [!INCLUDE [files-nfs-limitations](../../../includes/files-nfs-limitations.md)]
@@ -25,19 +25,19 @@ Udziały plików platformy Azure to w pełni zarządzane udziały plików w chmu
 [!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-- Dostęp do udziałów NFS można uzyskać tylko z zaufanych sieci. Połączenia z udziałem NFS muszą pochodzić z jednego z następujących źródeł:
-    - [Utwórz prywatny punkt końcowy](storage-files-networking-endpoints.md#create-a-private-endpoint) (zalecane) lub [Ogranicz dostęp do publicznego punktu końcowego](storage-files-networking-endpoints.md#restrict-public-endpoint-access).
-    - [Skonfiguruj sieć VPN typu punkt-lokacja (P2S) w systemie Linux do użycia z Azure Files](storage-files-configure-p2s-vpn-linux.md).
-    - [Skonfiguruj sieć VPN typu lokacja-lokacja do użycia z Azure Files](storage-files-configure-s2s-vpn.md).
-    - Skonfiguruj [ExpressRoute](../../expressroute/expressroute-introduction.md).
+- Dostęp do udziałów NFS można uzyskać tylko z zaufanych sieci. Połączenia z udziałami NFS muszą pochodzić z jednego z następujących źródeł:
+    - Utwórz [prywatny punkt końcowy](storage-files-networking-endpoints.md#create-a-private-endpoint) (zalecane) lub ogranicz dostęp do publicznego punktu [końcowego.](storage-files-networking-endpoints.md#restrict-public-endpoint-access)
+    - [Skonfiguruj sieć VPN typu punkt-lokacja (P2S)](storage-files-configure-p2s-vpn-linux.md)w systemie Linux do użycia z systemem Azure Files .
+    - [Skonfiguruj sieć VPN typu lokacja-lokacja do użycia z usługą Azure Files](storage-files-configure-s2s-vpn.md).
+    - Skonfiguruj [usługę ExpressRoute.](../../expressroute/expressroute-introduction.md)
 
-- Jeśli zamierzasz korzystać z interfejsu wiersza polecenia platformy Azure, [Zainstaluj najnowszą wersję](/cli/azure/install-azure-cli).
+- Jeśli zamierzasz używać interfejsu wiersza polecenia platformy Azure, [zainstaluj najnowszą wersję .](/cli/azure/install-azure-cli)
 
-## <a name="register-the-nfs-41-protocol"></a>Rejestrowanie protokołu NFS 4,1
+## <a name="register-the-nfs-41-protocol"></a>Rejestrowanie protokołu NFS 4.1
 Jeśli używasz modułu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, zarejestruj swoją funkcję przy użyciu następujących poleceń:
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-Użyj Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, aby zarejestrować funkcję systemu plików NFS 4,1 dla Azure Files.
+Użyj interfejsu Azure PowerShell wiersza polecenia platformy Azure, aby zarejestrować funkcję systemu plików NFS 4.1 na Azure Files.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 ```azurepowershell
@@ -77,10 +77,10 @@ az provider register \
 
 ---
 
-Zatwierdzenie rejestracji może potrwać do godziny. Aby sprawdzić, czy rejestracja została zakończona, użyj następujących poleceń:
+Zatwierdzenie rejestracji może potrwać do godziny. Aby sprawdzić, czy rejestracja jest ukończona, użyj następujących poleceń:
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-Użyj Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, aby sprawdzić rejestrację funkcji systemu plików NFS 4,1 dla Azure Files. 
+Użyj interfejsu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, aby sprawdzić rejestrację funkcji systemu plików NFS 4.1 dla systemu Azure Files. 
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 ```azurepowershell
@@ -99,38 +99,37 @@ az feature show \
 
 ---
 
-## <a name="create-a-filestorage-storage-account"></a>Utwórz konto magazynu FileStorage
-Obecnie udziały plików w systemie plików NFS 4,1 są dostępne tylko w przypadku udziałów pliku w warstwie Premium. Aby wdrożyć udział plików w warstwie Premium z obsługą protokołu NFS 4,1, należy najpierw utworzyć konto magazynu FileStorage. Konto magazynu jest obiektem najwyższego poziomu na platformie Azure, który reprezentuje udostępnioną pulę magazynów, której można użyć do wdrożenia wielu udziałów plików platformy Azure.
+## <a name="create-a-filestorage-storage-account"></a>Tworzenie konta magazynu FileStorage
+Obecnie udziały NFS 4.1 są dostępne tylko jako udziały plików Premium. Aby wdrożyć udział plików w chmurze w chmurze z obsługą protokołu NFS 4.1, należy najpierw utworzyć konto magazynu FileStorage. Konto magazynu to obiekt najwyższego poziomu na platformie Azure, który reprezentuje udostępnioną pulę magazynu, która może służyć do wdrażania wielu udziałów plików platformy Azure.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Aby utworzyć konto magazynu FileStorage, przejdź do Azure Portal.
 
-1. W Azure Portal wybierz pozycję **konta magazynu** w menu po lewej stronie.
+1. W okienku Azure Portal pozycję **Konta magazynu** w menu po lewej stronie.
 
-    ![Strona główna Azure Portal Wybieranie konta magazynu](media/storage-how-to-create-premium-fileshare/azure-portal-storage-accounts.png)
+    ![Azure Portal stronie głównej wybierz konto magazynu.](media/storage-how-to-create-premium-fileshare/azure-portal-storage-accounts.png)
 
-2. W oknie **Konta magazynu**, które zostanie wyświetlone, wybierz pozycję **Dodaj**.
-3. Wybierz subskrypcję, w ramach której chcesz utworzyć konto magazynu.
-4. Wybierz grupę zasobów, w której chcesz utworzyć konto magazynu
+1. W oknie **Konta magazynu**, które zostanie wyświetlone, wybierz pozycję **Dodaj**.
+1. Wybierz subskrypcję, w ramach której chcesz utworzyć konto magazynu.
+1. Wybierz grupę zasobów, w której chcesz utworzyć konto magazynu
+1. Następnie wprowadź nazwę konta magazynu. Wybrana nazwa musi być unikatowa w obrębie całej platformy Azure. Ponadto nazwa musi mieć długość od 3 do 24 znaków i może zawierać tylko cyfry i małe litery.
+1. Wybierz lokalizację konta magazynu lub użyj lokalizacji domyślnej.
+1. W **przypadku opcji Wydajność** wybierz pozycję **Premium.**
 
-5. Następnie wprowadź nazwę konta magazynu. Wybrana nazwa musi być unikatowa w obrębie całej platformy Azure. Ponadto nazwa musi mieć długość od 3 do 24 znaków i może zawierać tylko cyfry i małe litery.
-6. Wybierz lokalizację konta magazynu lub użyj lokalizacji domyślnej.
-7. W obszarze **wydajność** wybierz opcję **Premium**.
+    Aby udostępnić **opcję Udziały** **plików** na liście rozwijanej **Rodzaj** konta, musisz wybrać opcję Premium.
 
-    Musisz wybrać opcję **Premium** for **FileStorage** , aby była dostępna opcja na liście rozwijanej **rodzaj konta** .
+1. W **przypadku konta Premium wybierz** pozycję **Udziały plików.**
 
-8. Wybierz pozycję **rodzaj konta** i wybierz pozycję **FileStorage**.
-9. Dla opcji **replikacja** ustaw wartość domyślną **Magazyn lokalnie nadmiarowy (LRS)**.
+    :::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-performance-premium.png" alt-text="Zrzut ekranu przedstawiający wybraną wydajność Premium.":::
 
-    ![Jak utworzyć konto magazynu dla udziału plików w warstwie Premium](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
-
-10. Wybierz pozycję **Przejrzyj i utwórz**, aby przejrzeć ustawienia konta magazynu i utworzyć konto.
-11. Wybierz przycisk **Utwórz**.
+1. Pozostaw **wartość** domyślną Replikacja magazynu **lokalnie nadmiarowego (LRS).**
+1. Wybierz pozycję **Przejrzyj i utwórz**, aby przejrzeć ustawienia konta magazynu i utworzyć konto.
+1. Wybierz przycisk **Utwórz**.
 
 Po utworzeniu zasobu konta magazynu przejdź do niego.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
-Aby utworzyć konto magazynu FileStorage, Otwórz wiersz programu PowerShell i wykonaj następujące polecenia, zastępując je zastępując `<resource-group>` i `<storage-account>` z odpowiednimi wartościami dla danego środowiska.
+Aby utworzyć konto magazynu FileStorage, otwórz wiersz polecenia programu PowerShell i wykonaj następujące polecenia, pamiętając o zastąpieniu wartości i odpowiednimi wartościami `<resource-group>` `<storage-account>` dla środowiska.
 
 ```powershell
 $resourceGroupName = "<resource-group>"
@@ -146,7 +145,7 @@ $storageAccount = New-AzStorageAccount `
 ```
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
-Aby utworzyć konto magazynu FileStorage, Otwórz Terminal i wykonaj następujące polecenia, zastępując je zastępując `<resource-group>` i `<storage-account>` z odpowiednimi wartościami dla danego środowiska.
+Aby utworzyć konto magazynu FileStorage, otwórz terminal i wykonaj następujące polecenia, pamiętając o zastąpień i odpowiednimi wartościami `<resource-group>` `<storage-account>` dla środowiska.
 
 ```azurecli-interactive
 resourceGroup="<resource-group>"
@@ -166,33 +165,33 @@ az storage account create \
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Po utworzeniu konta FileStorage i skonfigurowaniu sieci można utworzyć udział plików NFS. Ten proces jest podobny do tworzenia udziału SMB, podczas tworzenia udziału wybiera się system **plików NFS** zamiast **SMB** .
+Po utworzeniu konta FileStorage i skonfigurowaniu sieci można utworzyć udział plików NFS. Proces jest podobny do tworzenia udziału SMB. Podczas tworzenia udziału należy wybrać opcję **NFS** zamiast **SMB.**
 
-1. Przejdź do konta magazynu i wybierz pozycję **udziały plików**.
-1. Wybierz pozycję **+ udział plików** , aby utworzyć nowy udział plików.
-1. Nazwij udział plików, wybierz pojemność zainicjowaną.
-1. Dla opcji wybór **protokołu** **NFS (wersja zapoznawcza)**.
-1. Dla **elementu głównego squash** wybierz opcję.
+1. Przejdź do konta magazynu i wybierz **pozycję Udziały plików.**
+1. Wybierz **pozycję + Udział plików,** aby utworzyć nowy udział plików.
+1. Nadaj nazwę udziałowi plików i wybierz aprowizowana pojemność.
+1. W **przypadku opcji Protokół** wybierz pozycję **NFS (wersja zapoznawcza).**
+1. W **przypadku opcji Root Squash** (Squash główny) zaznacz opcje.
 
-    - Root squash (domyślnie) — dostęp do zdalnej administratora (root) jest mapowany na UID (65534) i GID (65534).
-    - Brak elementu głównego squash-Remote administratora (root) odbiera dostęp jako główny.
-    - Wszystkie squash — dostęp wszystkich użytkowników jest mapowany na UID (65534) i GID (65534).
+    - Główny squash (ustawienie domyślne) — dostęp do zdalnego superużytkownika (głównego) jest mapowany na wartości UID (65534) i GID (65534).
+    - Brak głównego typu "squash" — zdalny superużytkownik (główny) otrzymuje dostęp jako użytkownik główny.
+    - Wszystkie squash — cały dostęp użytkownika jest mapowany na identyfikator UID (65534) i GID (65534).
     
 1. Wybierz przycisk **Utwórz**.
 
-    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/create-nfs-file-share.png" alt-text="Zrzut ekranu bloku tworzenia udziału plików":::
+    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/files-nfs-create-share.png" alt-text="Zrzut ekranu przedstawiający blok tworzenia udziału plików.":::
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-1. Upewnij się, że program .NET Framework jest zainstalowany. Zobacz [pobieranie .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
+1. Upewnij się, że program .NET Framework jest zainstalowany. Zobacz [Pobieranie .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
  
-1. Sprawdź, czy zainstalowana wersja programu PowerShell jest `5.1` lub nowsza przy użyciu następującego polecenia.    
+1. Sprawdź, czy zainstalowana wersja programu PowerShell jest lub `5.1` nowsza, używając następującego polecenia.    
 
    ```powershell
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   Aby uaktualnić wersję programu PowerShell, zobacz [uaktualnianie istniejącego środowiska Windows PowerShell](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)
+   Aby uaktualnić wersję programu PowerShell, zobacz [Uaktualnianie istniejących Windows PowerShell](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)
     
 1. Zainstaluj najnowszą wersję modułu PowershellGet.
 
@@ -200,20 +199,20 @@ Po utworzeniu konta FileStorage i skonfigurowaniu sieci można utworzyć udział
    install-Module PowerShellGet –Repository PSGallery –Force  
    ```
 
-1. Zamknij program, a następnie ponownie otwórz konsolę programu PowerShell.
+1. Zamknij, a następnie otwórz ponownie konsolę programu PowerShell.
 
-1. Zainstaluj moduł **AZ. Storage** Preview w wersji **2.5.2-Preview**.
+1. Zainstaluj moduł **Az.Storage** w wersji zapoznawczej **w wersji 2.5.2-preview.**
 
    ```powershell
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
    ```
 
-   Aby uzyskać więcej informacji na temat sposobu instalowania modułów programu PowerShell, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps)
+   Aby uzyskać więcej informacji na temat sposobu instalowania modułów programu PowerShell, zobacz [Instalowanie Azure PowerShell modułu](/powershell/azure/install-az-ps)
    
-1. Aby utworzyć udział plików w warstwie Premium przy użyciu modułu Azure PowerShell, należy użyć polecenia cmdlet [New-AzRmStorageShare](/powershell/module/az.storage/new-azrmstorageshare) .
+1. Aby utworzyć udział plików Premium przy użyciu modułu Azure PowerShell, użyj polecenia cmdlet [New-AzRmStorageShare.](/powershell/module/az.storage/new-azrmstorageshare)
 
     > [!NOTE]
-    > Udziały plików w warstwie Premium są rozliczane przy użyciu modelu aprowizacji. Udostępniony rozmiar udziału jest określony `QuotaGiB` poniżej. Aby uzyskać więcej informacji, zobacz [Omówienie modelu aprowizacji](understanding-billing.md#provisioned-model) i [cennika Azure Files](https://azure.microsoft.com/pricing/details/storage/files/).
+    > Udziały plików w wersji Premium są rozliczane przy użyciu aprowizowanych modeli. Aprowizowany rozmiar udziału jest określony przez `QuotaGiB` poniżej. Aby uzyskać więcej informacji, zobacz [Understanding the provisioned model (Omówienie](understanding-billing.md#provisioned-model) aprowizowanych modeli) [i Azure Files cennika](https://azure.microsoft.com/pricing/details/storage/files/)usługi .
 
     ```powershell
     New-AzRmStorageShare `
@@ -225,10 +224,10 @@ Po utworzeniu konta FileStorage i skonfigurowaniu sieci można utworzyć udział
     ```
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
-Aby utworzyć udział plików w warstwie Premium za pomocą interfejsu wiersza polecenia platformy Azure, użyj polecenie [AZ Storage Share Create](/cli/azure/storage/share-rm) .
+Aby utworzyć udział plików w witrynie Premium przy użyciu interfejsu wiersza polecenia platformy Azure, użyj [polecenia az storage share create.](/cli/azure/storage/share-rm)
 
 > [!NOTE]
-> Udziały plików w warstwie Premium są rozliczane przy użyciu modelu aprowizacji. Udostępniony rozmiar udziału jest określony `quota` poniżej. Aby uzyskać więcej informacji, zobacz [Omówienie modelu aprowizacji](understanding-billing.md#provisioned-model) i [cennika Azure Files](https://azure.microsoft.com/pricing/details/storage/files/).
+> Udziały plików w wersji Premium są rozliczane przy użyciu aprowizowanych modeli. Aprowizowany rozmiar udziału jest określony przez `quota` poniżej. Aby uzyskać więcej informacji, zobacz [Understanding the provisioned model (Omówienie](understanding-billing.md#provisioned-model) aprowizowanych modeli) [i Azure Files cennika.](https://azure.microsoft.com/pricing/details/storage/files/)
 
 ```azurecli-interactive
 az storage share-rm create \
@@ -242,6 +241,6 @@ az storage share-rm create \
 ---
 
 ## <a name="next-steps"></a>Następne kroki
-Po utworzeniu udziału NFS należy go zainstalować na komputerze klienckim z systemem Linux. Aby uzyskać szczegółowe informacje, zobacz [jak zainstalować udział NFS](storage-files-how-to-mount-nfs-shares.md).
+Teraz, po utworzeniu udziału NFS, aby go użyć, musisz zainstalować go na kliencie systemu Linux. Aby uzyskać szczegółowe informacje, [zobacz How to mount an NFS share (Jak zainstalować udział NFS).](storage-files-how-to-mount-nfs-shares.md)
 
-Jeśli występują jakieś problemy, zobacz [Rozwiązywanie problemów z udziałami plików NFS systemu Azure](storage-troubleshooting-files-nfs.md).
+Jeśli wystąpią jakiekolwiek problemy, zobacz [Troubleshoot Azure NFS file shares (Rozwiązywanie problemów z udziałami plików NFS platformy Azure).](storage-troubleshooting-files-nfs.md)

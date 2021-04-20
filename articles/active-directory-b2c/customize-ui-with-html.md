@@ -1,45 +1,45 @@
 ---
-title: Dostosowywanie interfejsu użytkownika przy użyciu szablonów HTML
+title: Dostosowywanie interfejsu użytkownika za pomocą szablonów HTML
 titleSuffix: Azure AD B2C
-description: Dowiedz się, jak dostosować interfejs użytkownika przy użyciu szablonów HTML dla aplikacji korzystających z Azure Active Directory B2C.
+description: Dowiedz się, jak dostosować interfejs użytkownika za pomocą szablonów HTML dla aplikacji, które używają Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 04/19/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e694a5f6144cee65be074d05ce0015d31bfdf65e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f9f6dc1abd08c5e53f3d44a8f6ec1b3e20786ed
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104675829"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717445"
 ---
-# <a name="customize-the-user-interface-with-html-templates-in-azure-active-directory-b2c"></a>Dostosuj interfejs użytkownika przy użyciu szablonów HTML w Azure Active Directory B2C
+# <a name="customize-the-user-interface-with-html-templates-in-azure-active-directory-b2c"></a>Dostosowywanie interfejsu użytkownika za pomocą szablonów HTML w Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-Oznakowanie i dostosowanie interfejsu użytkownika, który jest wyświetlany Azure Active Directory B2C (Azure AD B2C) dla klientów, zapewnia bezproblemowe środowisko użytkownika w aplikacji. Do tych środowisk należą: rejestrowanie, logowanie, edytowanie profilów i resetowanie hasła. W tym artykule przedstawiono metody dostosowywania interfejsu użytkownika. 
+Znakowanie i dostosowywanie interfejsu użytkownika, który Azure Active Directory B2C (Azure AD B2C) klientom, pomaga zapewnić bezproblemowe środowisko użytkownika w aplikacji. Te doświadczenia obejmują rejestrację, logowanie, edytowanie profilu i resetowanie haseł. W tym artykule oprowadzono metody dostosowywania interfejsu użytkownika. 
 
 > [!TIP]
-> Jeśli chcesz zmodyfikować tylko logo transparentu, obraz tła i kolor tła stron przepływu użytkownika, możesz wypróbować funkcję [znakowania firmowego](customize-ui.md) .
+> Jeśli chcesz zmodyfikować tylko baner logo, obraz tła i kolor tła stron przepływu użytkownika, możesz wypróbować funkcję znakowania [firmowego.](customize-ui.md)
 
-## <a name="custom-html-and-css-overview"></a>Niestandardowy kod HTML i CSS — Omówienie
+## <a name="custom-html-and-css-overview"></a>Omówienie niestandardowego kodu HTML i CSS
 
-Azure AD B2C uruchamia kod w przeglądarce klienta przy użyciu [udostępniania zasobów między źródłami (CORS)](https://www.w3.org/TR/cors/). W czasie wykonywania zawartość jest ładowana z adresu URL określonego w przepływie użytkownika lub w zasadach niestandardowych. Każda Strona w środowisku użytkownika ładuje swoją zawartość z adresu URL określonego dla tej strony. Po załadowaniu zawartości z adresu URL zostanie on scalony z fragmentem kodu HTML wstawionym przez Azure AD B2C, a następnie zostanie wyświetlona strona klienta.
+Azure AD B2C uruchamia kod w przeglądarce klienta przy użyciu współużytku zasobów między źródłami [(CORS).](https://www.w3.org/TR/cors/) W czasie wykonywania zawartość jest ładowana z adresu URL, który został określony w przepływie użytkownika lub w zasadach niestandardowych. Każda strona w interfejsie użytkownika ładuje swoją zawartość z adresu URL, który został określony dla tej strony. Po załadowaniu zawartości z adresu URL zostanie ona scalona z fragmentem KODU HTML wstawionego przez Azure AD B2C, a następnie strona zostanie wyświetlona klientowi.
 
-![Margines zawartości strony niestandardowej](./media/customize-ui-with-html/html-content-merging.png)
+![Niestandardowy margines zawartości strony](./media/customize-ui-with-html/html-content-merging.png)
 
-### <a name="custom-html-page-content"></a>Zawartość niestandardowej strony HTML
+### <a name="custom-html-page-content"></a>Niestandardowa zawartość strony HTML
 
-Utwórz stronę HTML z własną marką, aby zapewnić swoją niestandardową zawartość strony. Ta strona może być stroną statyczną `*.html` lub stroną dynamiczną, taką jak .NET, Node.js lub php.
+Utwórz stronę HTML z własnym znakowaniem, aby obsługiwać niestandardową zawartość strony. Ta strona może być stroną statyczną lub dynamiczną, taką jak `*.html` .NET, Node.js lub PHP.
 
-Zawartość strony niestandardowej może zawierać dowolne elementy HTML, w tym CSS i JavaScript, ale nie może zawierać niezabezpieczonych elementów, takich jak iframes. Jedynym wymaganym elementem jest element DIV z `id` ustawionym na `api` , taki jak ten, na `<div id="api"></div>` stronie HTML.
+Niestandardowa zawartość strony może zawierać dowolne elementy HTML, w tym CSS i JavaScript, ale nie może zawierać niezabezpieczonych elementów, takich jak elementy iframe. Jedynym wymaganym elementem jest element div z ustawionym na wartość , takim jak ten `id` `api` na stronie `<div id="api"></div>` HTML.
 
 ```html
 <!DOCTYPE html>
@@ -53,54 +53,54 @@ Zawartość strony niestandardowej może zawierać dowolne elementy HTML, w tym 
 </html>
 ```
 
-#### <a name="customize-the-default-azure-ad-b2c-pages"></a>Dostosowywanie domyślnych stron Azure AD B2C
+#### <a name="customize-the-default-azure-ad-b2c-pages"></a>Dostosowywanie domyślnych stron Azure AD B2C danych
 
-Zamiast tworzyć zawartość strony niestandardowej od podstaw, można dostosować domyślną zawartość strony usługi Azure AD B2C's.
+Zamiast tworzyć niestandardową zawartość strony od podstaw, można Azure AD B2C domyślną zawartość strony.
 
-W poniższej tabeli wymieniono domyślną zawartość strony dostarczoną przez Azure AD B2C. Pobierz pliki i użyj ich jako punktu wyjścia do tworzenia własnych stron niestandardowych.
+W poniższej tabeli wymieniono domyślną zawartość strony dostarczaną przez Azure AD B2C. Pobierz pliki i użyj ich jako punktu wyjścia do tworzenia własnych stron niestandardowych.
 
 | Strona domyślna | Opis | Identyfikator definicji zawartości<br/>(tylko zasady niestandardowe) |
 |:-----------------------|:--------|-------------|
-| [exception.html](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Strona błędu**. Ta strona jest wyświetlana po napotkaniu wyjątku lub błędu. | *Interfejs API. błąd* |
-| [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) |  **Strona z własnym potwierdzeniem**. Użyj tego pliku jako niestandardowej zawartości strony dla strony rejestracji konta społecznościowego, strony rejestracji konta lokalnego, strony logowania do konta lokalnego, resetowania hasła i nie tylko. Formularz może zawierać różne kontrolki danych wejściowych, na przykład: pole wprowadzania tekstu, pole wprowadzania hasła, przycisk radiowy, pola rozwijane z pojedynczym wybieraniem i pola wyboru z wieloma zaznaczeniami. | *API. localaccountsignin*, *API. localaccountsignup*, *API. localaccountpasswordreset*, *API. selfasserted* |
-| [multifactor-1.0.0.html](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Strona uwierzytelniania wieloskładnikowego**. Na tej stronie użytkownicy mogą weryfikować numery telefonów (za pomocą tekstu lub głosu) podczas rejestracji lub logowania. | *API. PhoneFactor* |
-| [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Strona aktualizacji profilu**. Ta strona zawiera formularz, do którego użytkownicy mogą uzyskać dostęp w celu zaktualizowania swojego profilu. Ta strona jest podobna do strony rejestracji konta społecznościowego, z wyjątkiem pól wprowadzania hasła. | *API. selfasserted. profileupdate* |
-| [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Ujednolicona Strona rejestracji lub logowania**. Ta strona obsługuje proces tworzenia konta i logowania użytkownika. Użytkownicy mogą korzystać z dostawców tożsamości przedsiębiorstwa, dostawców tożsamości społecznościowych, takich jak Facebook, Google + lub konta lokalnego. | *API. signuporsignin* |
+| [exception.html](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Strona błędu**. Ta strona jest wyświetlana po napotkaniu wyjątku lub błędu. | *api.error* |
+| [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) |  **Strona z samodzielnie potwierdzeniami**. Użyj tego pliku jako niestandardowej zawartości strony dla strony rejestracji konta społecznościowego, strony rejestracji konta lokalnego, strony logowania do konta lokalnego, resetowania hasła i nie tylko. Formularz może zawierać różne kontrolki wejściowe, takie jak pole wprowadzania tekstu, pole wprowadzania hasła, przycisk radiowy, pola rozwijane z jednym zaznaczeniem i pola wyboru wielokrotnego. | *api.localaccountsignin*, *api.localaccountsignup,* *api.localaccountpasswordreset*, *api.selfasserted* |
+| [multifactor-1.0.0.html](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Strona uwierzytelniania wieloskładnikowego**. Na tej stronie użytkownicy mogą weryfikować numery telefonów (przy użyciu tekstu lub głosu) podczas rejestracji lub logowania. | *api.phonefactor* |
+| [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Strona aktualizacji profilu**. Ta strona zawiera formularz, do który użytkownicy mogą uzyskać dostęp w celu zaktualizowania swojego profilu. Ta strona jest podobna do strony rejestracji konta społecznościowego, z wyjątkiem pól wprowadzania hasła. | *api.selfasserted.profileupdate* |
+| [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Ujednolicona strona rejestracji lub logowania.** Ta strona obsługuje proces rejestracji i logowania użytkownika. Użytkownicy mogą używać dostawców tożsamości przedsiębiorstwa, dostawców tożsamości społecznościowych, takich jak Facebook, Google+, lub kont lokalnych. | *api.signuporsignin* |
 
-## <a name="hosting-the-page-content"></a>Hosting zawartości strony
+## <a name="hosting-the-page-content"></a>Hostowanie zawartości strony
 
-Korzystając z własnych plików HTML i CSS, aby dostosować interfejs użytkownika, hostować zawartość interfejsu użytkownika w dowolnym publicznie dostępnym punkcie końcowym HTTPS, który obsługuje mechanizm CORS. Na przykład [usługa Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), [Azure App Services](../app-service/index.yml), serwery sieci Web, sieci CDN, AWS S3 lub systemy udostępniania plików.
+W przypadku korzystania z własnych plików HTML i CSS w celu dostosowania interfejsu użytkownika należy hostować zawartość interfejsu użytkownika w dowolnym publicznie dostępnym punkcie końcowym HTTPS, który obsługuje protokół CORS. Na przykład [usługi Azure Blob Storage,](../storage/blobs/storage-blobs-introduction.md)Azure [App Services,](../app-service/index.yml)serwery internetowe, sieci CDN, systemy AWS S3 lub systemy udostępniania plików.
 
 ## <a name="guidelines-for-using-custom-page-content"></a>Wskazówki dotyczące korzystania z niestandardowej zawartości strony
 
-- Użyj bezwzględnego adresu URL, jeśli w pliku HTML są uwzględniane zasoby zewnętrzne, takie jak pliki multimedialne, CSS i JavaScript.
-- Korzystając z [wersji układu strony](page-layout.md) 1.2.0 i nowszych, można dodać `data-preload="true"` ATRYBUT do tagów HTML w celu kontrolowania kolejności ładowania dla CSS i JavaScript. W programie `data-preload="true"` Strona jest zbudowana przed wyświetleniem użytkownika. Ten atrybut pomaga zapobiec "migotaniu" na stronie przez wstępne załadowanie pliku CSS bez wyświetlania kodu HTML, który nie ma stylu. Poniższy fragment kodu HTML pokazuje użycie `data-preload` znacznika.
+- Użyj bezwzględnego adresu URL w przypadku dołączania do pliku HTML zasobów zewnętrznych, takich jak pliki multimedialne, CSS i JavaScript.
+- Korzystając [z układu](page-layout.md) strony w wersji 1.2.0 lub nowszej, możesz dodać atrybut w tagach HTML, aby kontrolować kolejność ładowania dla `data-preload="true"` arkuszy CSS i Języka JavaScript. Za `data-preload="true"` pomocą instrukcji strona jest konstruowana przed ich pokazywanie użytkownikowi. Ten atrybut zapobiega "migotaniu" strony dzięki wstępnemu ładowaniu pliku CSS bez pokazywania użytkownikowi kodu HTML bez stylu. Poniższy fragment kodu HTML przedstawia użycie `data-preload` tagu .
   ```HTML
   <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
   ```
-- Zalecamy rozpoczęcie od domyślnej zawartości strony i jej skompilowanie na jej podstawie.
-- Możesz [dołączyć kod JavaScript](javascript-and-page-layout.md) do zawartości niestandardowej.
-- Obsługiwane wersje przeglądarek:
+- Zalecamy, aby rozpocząć od domyślnej zawartości strony i utworzyć ją na jej podstawie.
+- Do zawartości niestandardowej można dołączyć język [JavaScript.](javascript-and-page-layout.md)
+- Obsługiwane wersje przeglądarek to:
   - Internet Explorer 11, 10 i Microsoft Edge
-  - Ograniczona obsługa programu Internet Explorer 9 i 8
-  - Google Chrome 42,0 i nowsze
-  - Mozilla Firefox 38,0 i nowsze
-  - Safari dla systemów iOS i macOS, wersja 12 i nowsze
-- Ze względu na ograniczenia zabezpieczeń Azure AD B2C nie `frame` obsługuje `iframe` elementów, ani `form` HTML.
+  - Ograniczona obsługa Internet Explorer 9 i 8
+  - Google Chrome 42.0 i więcej
+  - Mozilla Firefox 38.0 i więcej
+  - Safari dla systemów iOS i macOS, wersja 12 lub nowsza
+- Ze względu na ograniczenia zabezpieczeń Azure AD B2C nie obsługują `frame` elementów `iframe` , ani `form` HTML.
 
-## <a name="localize-content"></a>Lokalizowanie zawartości
+## <a name="localize-content"></a>Lokalizacja zawartości
 
-Zawartość HTML można zlokalizować, włączając [Dostosowywanie języka](language-customization.md) w dzierżawie Azure AD B2C. Włączenie tej funkcji umożliwia Azure AD B2C przekazanie parametru OpenID Connect Connect `ui_locales` do punktu końcowego. Twój serwer zawartości może użyć tego parametru, aby udostępnić strony HTML specyficzne dla języka.
+Zawartość HTML można zlokalizowane przez włączenie [dostosowywania](language-customization.md) języka w dzierżawie Azure AD B2C dzierżawie. Włączenie tej funkcji Azure AD B2C przekazywanie OpenID Connect do punktu `ui_locales` końcowego. Serwer zawartości może użyć tego parametru, aby udostępnić strony HTML specyficzne dla języka.
 
-Zawartość można ściągnąć z różnych miejsc w oparciu o używane ustawienia regionalne. W punkcie końcowym z obsługą mechanizmu CORS można skonfigurować strukturę folderów, aby hostować zawartość dla określonych języków. Jeśli używasz wartości wieloznacznej, nastąpi wywołanie odpowiedniej metody `{Culture:RFC5646}` .
+Zawartość można ściągać z różnych miejsc w zależności od użytych danych regionalnych. W punkcie końcowym z obsługą cors należy skonfigurować strukturę folderów do hostów zawartości dla określonych języków. W przypadku użycia wartości z symbolami wieloznacznymi należy wywołać `{Culture:RFC5646}` właściwą.
 
-Na przykład identyfikator URI strony niestandardowej może wyglądać następująco:
+Na przykład niestandardowy adres URI strony może wyglądać tak:
 
 ```http
 https://contoso.blob.core.windows.net/{Culture:RFC5646}/myHTML/unified.html
 ```
 
-Możesz załadować stronę w języku francuskim, pobierając zawartość z:
+Możesz załadować stronę w języku francuskim, ściągając zawartość z:
 
 ```http
 https://contoso.blob.core.windows.net/fr/myHTML/unified.html
@@ -108,23 +108,23 @@ https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 
 ## <a name="custom-page-content-walkthrough"></a>Przewodnik po zawartości strony niestandardowej
 
-Poniżej przedstawiono omówienie procesu:
+Oto omówienie tego procesu:
 
-1. Przygotuj lokalizację do hostowania niestandardowej zawartości strony (dostępny publicznie punkt końcowy HTTPS z obsługą mechanizmu CORS).
-1. Pobierz i Dostosuj domyślny plik zawartości strony, na przykład `unified.html` .
-1. Opublikuj zawartość strony niestandardowej w publicznie dostępnym punkcie końcowym HTTPS.
-1. Ustaw współużytkowanie zasobów między źródłami (CORS) dla aplikacji sieci Web.
-1. Wskaż zasady dla niestandardowego identyfikatora URI zawartości zasad.
+1. Przygotuj lokalizację do hostów niestandardowej zawartości strony (publicznie dostępnego punktu końcowego HTTPS z obsługą cors).
+1. Pobierz i dostosuj domyślny plik zawartości strony, na przykład `unified.html` .
+1. Publikowanie niestandardowej zawartości strony jako publicznie dostępnego punktu końcowego HTTPS.
+1. Ustaw udostępnianie zasobów między źródłami (CORS) dla aplikacji internetowej.
+1. Wskaż zasadom niestandardowy adres URI zawartości zasad.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
-### <a name="1-create-your-html-content"></a>1. Utwórz zawartość HTML
+### <a name="1-create-your-html-content"></a>1. Tworzenie zawartości HTML
 
 Utwórz niestandardową zawartość strony z nazwą marki produktu w tytule.
 
-1. Skopiuj poniższy fragment kodu HTML. Jest to dobrze sformułowany plik HTML5 z pustym elementem o nazwie *\<div id="api"\>\</div\>* znajdującym się w *\<body\>* tagach. Ten element wskazuje, gdzie Azure AD B2C zawartość ma zostać wstawiona.
+1. Skopiuj poniższy fragment kodu HTML. Jest to dobrze uformowany kod HTML5 z pustym elementem o *\<div id="api"\>\</div\>* nazwie umieszczonym w *\<body\>* tagach. Ten element wskazuje, Azure AD B2C zawartość ma zostać wstawiona.
 
    ```html
    <!DOCTYPE html>
@@ -138,8 +138,8 @@ Utwórz niestandardową zawartość strony z nazwą marki produktu w tytule.
    </html>
    ```
 
-1. Wklej skopiowany fragment w edytorze tekstu
-1. Użyj CSS do stylu elementów interfejsu użytkownika, które Azure AD B2C wstawia do strony. Poniższy przykład pokazuje prosty plik CSS, który zawiera również ustawienia dla elementów z wprowadzonym kodem HTML:
+1. Wklej skopiowany fragment kodu w edytorze tekstów
+1. Użyj arkuszy CSS, aby styliować elementy interfejsu użytkownika Azure AD B2C wstawień na stronie. W poniższym przykładzie pokazano prosty plik CSS, który zawiera również ustawienia dla elementów HTML wprowadzanych podczas rejestracji:
 
     ```css
     h1 {
@@ -167,108 +167,108 @@ Utwórz niestandardową zawartość strony z nazwą marki produktu w tytule.
 1.  Zapisz plik jako *customize-ui.html*.
 
 > [!NOTE]
-> Elementy formularza HTML zostaną usunięte ze względu na ograniczenia zabezpieczeń, jeśli używasz login.microsoftonline.com. Jeśli chcesz użyć elementów formularza HTML w niestandardowej zawartości HTML, [użyj b2clogin.com](b2clogin.md).
+> Elementy formularza HTML zostaną usunięte z powodu ograniczeń zabezpieczeń, jeśli używasz login.microsoftonline.com. Jeśli chcesz używać elementów formularza HTML w niestandardowej zawartości HTML, użyj [b2clogin.com](b2clogin.md).
 
 ### <a name="2-create-an-azure-blob-storage-account"></a>2. Tworzenie konta usługi Azure Blob Storage
 
-W tym artykule korzystamy z usługi Azure Blob Storage do obsługi naszej zawartości. Możesz wybrać hostowanie zawartości na serwerze sieci Web, ale należy [włączyć funkcję CORS na serwerze sieci Web](https://enable-cors.org/server.html).
+W tym artykule używamy usługi Azure Blob Storage do hostowanie naszej zawartości. Możesz hostować zawartość na serwerze internetowym, ale musisz włączyć na nim funkcję [CORS.](https://enable-cors.org/server.html)
 
-Aby hostować zawartość HTML w usłudze BLOB Storage, wykonaj następujące czynności:
+Aby hostować zawartość HTML w magazynie obiektów blob, wykonaj następujące kroki:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. W menu **centrum** wybierz kolejno pozycje **Nowy**  >  **Magazyn**  >  **konto magazynu**.
+1. W menu **Centrum** wybierz pozycję **Nowe**  >  **konto**  >  **magazynu magazynu.**
 1. Wybierz **subskrypcję** dla konta magazynu.
 1. Utwórz **grupę zasobów** lub wybierz istniejącą.
-1. Wprowadź unikatową **nazwę** konta magazynu.
-1. Wybierz **lokalizację geograficzną** dla swojego konta magazynu.
-1. **Model wdrażania** może pozostawać **Menedżer zasobów**.
-1. **Wydajność** może być **standardowa**.
-1. Zmień **rodzaj konta** na **Magazyn obiektów BLOB**.
-1. **Replikacja** może pozostawać **RA-GRS**.
-1. **Warstwa dostępu** może pozostać **gorąca**.
-1. Wybierz pozycję **Przegląd + Utwórz** , aby utworzyć konto magazynu.
-    Po zakończeniu wdrażania zostanie automatycznie otwarta strona **konto magazynu** .
+1. Wprowadź **unikatową nazwę** konta magazynu.
+1. Wybierz **lokalizację geograficzną** dla konta magazynu.
+1. **Model wdrażania** może pozostać **Resource Manager**.
+1. **Wydajność** może pozostać w **standardowych .**
+1. Zmień **typ konta na** Blob **Storage.**
+1. **Replikacja** może pozostać **w ra-GRS.**
+1. **Warstwa dostępu może** pozostać **gorąca.**
+1. Wybierz **pozycję Przeglądanie + tworzenie,** aby utworzyć konto magazynu.
+    Po zakończeniu wdrażania zostanie automatycznie otwarta **strona Konto** magazynu.
 
-#### <a name="21-create-a-container"></a>2,1 Tworzenie kontenera
+#### <a name="21-create-a-container"></a>2.1. Tworzenie kontenera
 
-Aby utworzyć kontener publiczny w usłudze BLOB Storage, wykonaj następujące czynności:
+Aby utworzyć kontener publiczny w magazynie obiektów blob, wykonaj następujące kroki:
 
-1. W obszarze **BLOB Service** w menu po lewej stronie wybierz pozycję **obiekty blob**.
-1. Wybierz pozycję **+ kontener**.
-1. W obszarze **Nazwa wprowadź nazwę** *root*. Nazwa może być nazwą wybraną, na przykład *contoso*, ale w tym przykładzie używamy *elementu głównego* w celu uproszczenia.
-1. W obszarze **poziom dostępu publicznego** wybierz pozycję **obiekt BLOB**, a następnie kliknij **przycisk OK**.
-1. Wybierz pozycję **root** , aby otworzyć nowy kontener.
+1. W **Blob service** menu po lewej stronie wybierz pozycję **Obiekty blob**.
+1. Wybierz **pozycję +Kontener.**
+1. W **nazwie** wprowadź *wartość root*. Nazwa może być nazwą, która zostanie przez użytkownika,  na przykład *contoso*, ale dla uproszczenia użyjemy katalogu głównego w tym przykładzie.
+1. W **przypadku poziomu dostępu publicznego** wybierz pozycję **Blob**, a następnie **przycisk OK.**
+1. Wybierz **pozycję root,** aby otworzyć nowy kontener.
 
-#### <a name="22-upload-your-custom-page-content-files"></a>2,2 przekazywanie niestandardowych plików zawartości strony
+#### <a name="22-upload-your-custom-page-content-files"></a>2.2 Przekazywanie plików zawartości strony niestandardowej
 
 1. Wybierz pozycję **Przekaż**.
-1. Wybierz ikonę folderu obok pozycji **Wybierz plik**.
-1. Przejdź do i wybierz **customize-ui.html**, który został utworzony wcześniej w sekcji Dostosowywanie interfejsu użytkownika strony.
-1. Jeśli chcesz przekazać do podfolderu, rozwiń pozycję **Zaawansowane** i wprowadź nazwę folderu w polu **Przekaż do folderu**.
+1. Wybierz ikonę folderu obok **opcji Wybierz plik**.
+1. Przejdź do strony **customize-ui.html**, która została utworzona wcześniej w sekcji Dostosowywanie interfejsu użytkownika strony.
+1. Jeśli chcesz przekazać plik do podfolderu, rozwiń opcje **Zaawansowane** i wprowadź nazwę folderu w **folderze Przekaż do**.
 1. Wybierz pozycję **Przekaż**.
-1. Wybierz przekazany obiekt BLOB **customize-ui.html** .
-1. Z prawej strony pola tekstowego **adres URL** wybierz ikonę **Kopiuj do schowka** , aby skopiować adres URL do Schowka.
-1. W przeglądarce internetowej przejdź do adresu URL skopiowanego w celu zweryfikowania dostępności przekazanego obiektu BLOB. Jeśli jest niedostępny, na przykład jeśli wystąpi `ResourceNotFound` błąd, upewnij się, że typ dostępu do kontenera jest ustawiony na **obiekt BLOB**.
+1. Wybierz przekazany **customize-ui.html** obiektu blob.
+1. Po prawej stronie pola **tekstowego adresu URL** wybierz ikonę Kopiuj do **schowka,** aby skopiować adres URL do schowka.
+1. W przeglądarce internetowej przejdź do skopiowanego adresu URL, aby sprawdzić, czy przekazany obiekt blob jest dostępny. Jeśli jest on niedostępny, na przykład jeśli wystąpi błąd, upewnij się, że typ dostępu do kontenera `ResourceNotFound` jest ustawiony na obiekt **blob**.
 
-### <a name="3-configure-cors"></a>3. Konfigurowanie mechanizmu CORS
+### <a name="3-configure-cors"></a>3. Konfigurowanie cors
 
-Skonfiguruj magazyn obiektów BLOB dla udostępniania zasobów między źródłami, wykonując następujące czynności:
+Skonfiguruj usługę Blob Storage na celu współużytkowanie zasobów między źródłami, wykonując następujące kroki:
 
-1. Z menu wybierz pozycję **CORS**.
-1. Dla **dozwolonych źródeł** wprowadź `https://your-tenant-name.b2clogin.com` . Zamień `your-tenant-name` na nazwę dzierżawy Azure AD B2C. Na przykład `https://fabrikam.b2clogin.com`. W przypadku wprowadzania nazwy dzierżawy używaj wszystkich małych liter.
-1. W przypadku **dozwolonych metod** zaznacz opcję oba `GET` i `OPTIONS` .
-1. Dla **dozwolonych nagłówków** Wprowadź gwiazdkę (*).
-1. W przypadku **widocznych nagłówków** Wprowadź gwiazdkę (*).
-1. W obszarze **Maksymalny wiek** wprowadź 200.
+1. W menu wybierz pozycję **CORS.**
+1. W **przypadku dozwolonych źródeł** wprowadź wartość `https://your-tenant-name.b2clogin.com` . Zastąp `your-tenant-name` nazwą swojej dzierżawy Azure AD B2C dzierżawy. Na przykład `https://fabrikam.b2clogin.com`. Podczas wprowadzania nazwy dzierżawy używaj tylko małych liter.
+1. W **przypadku opcji Dozwolone metody** wybierz zarówno pozycję , jak i `GET` `OPTIONS` .
+1. W **obszarze Dozwolone nagłówki** wprowadź gwiazdkę (*).
+1. W **obszarze Widoczne nagłówki** wprowadź gwiazdkę (*).
+1. W **wartość Max age**(Maksymalny wiek) wprowadź wartość 200.
 1. Wybierz pozycję **Zapisz**.
 
-#### <a name="31-test-cors"></a>3,1 testów CORS
+#### <a name="31-test-cors"></a>3.1 Testowanie cors
 
 Sprawdź, czy wszystko jest gotowe, wykonując następujące czynności:
 
-1. Powtórz krok konfigurowania mechanizmu CORS. Dla **dozwolonych źródeł** wpisz `https://www.test-cors.org`
-1. Przejdź do [www.test-CORS.org](https://www.test-cors.org/) 
-1. W polu **zdalny adres URL** Wklej adres URL pliku HTML. Na przykład `https://your-account.blob.core.windows.net/root/azure-ad-b2c/unified.html`
-1. Wybierz pozycję **Wyślij żądanie**.
-    Powinien być wynikiem `XHR status: 200` . 
-    Jeśli wystąpi błąd, upewnij się, że ustawienia mechanizmu CORS są poprawne. Może być również konieczne wyczyszczenie pamięci podręcznej przeglądarki lub otwarcie sesji przeglądania w trybie prywatnym przez naciśnięcie klawiszy Ctrl + Shift + P.
+1. Powtórz krok konfigurowania corsu. W **przypadku dozwolonych źródeł wprowadź** wartość `https://www.test-cors.org`
+1. Przejdź do [www.test-cors.org](https://www.test-cors.org/) 
+1. W polu **Zdalny adres URL** wklej adres URL pliku HTML. Na przykład `https://your-account.blob.core.windows.net/root/azure-ad-b2c/unified.html`
+1. Wybierz **pozycję Wyślij żądanie.**
+    Wynikiem powinno być `XHR status: 200` . 
+    Jeśli wystąpi błąd, upewnij się, że ustawienia cors są poprawne. Może być również konieczne wyczyszczenie pamięci podręcznej przeglądarki lub otwarcie sesji przeglądania w trybie prywatnym przez naciśnięcie klawiszy Ctrl+Shift+P.
 
 ::: zone pivot="b2c-user-flow"
 
-### <a name="4-update-the-user-flow"></a>4. Zaktualizuj przepływ użytkownika
+### <a name="4-update-the-user-flow"></a>4. Aktualizowanie przepływu użytkownika
 
 1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
-1. Wybierz pozycję **przepływy użytkownika**, a następnie wybierz pozycję *B2C_1_signupsignin1* przepływ użytkownika.
-1. Wybierz pozycję **układy stron**, a następnie w obszarze **ujednolicone rejestrowanie lub logowanie** kliknij pozycję **tak** , aby **użyć niestandardowej zawartości strony**.
-1. W polu **Identyfikator URI strony niestandardowej** wprowadź identyfikator URI zarejestrowanego wcześniej pliku *custom-ui.html* .
+1. Wybierz **pozycję Przepływy** użytkownika, a następnie wybierz *B2C_1_signupsignin1* przepływu użytkownika.
+1. Wybierz **pozycję Układy stron,** a następnie w obszarze **Unified sign-up or sign-in page**(Ujednolicona strona rejestracji lub logowania) kliknij przycisk **Yes** (Tak) w obszarze Use custom page **content (Użyj zawartości strony niestandardowej).**
+1. W **niestandardowym uri** strony wprowadź URI dlacustom-ui.htm *l* pliku, który został zarejestrowany wcześniej.
 1. W górnej części strony wybierz pozycję **Zapisz**.
 
 ### <a name="5-test-the-user-flow"></a>5. Testowanie przepływu użytkownika
 
-1. W dzierżawie Azure AD B2C wybierz pozycję **przepływy użytkownika** i wybierz *B2C_1_signupsignin1* przepływ użytkownika.
-1. W górnej części strony kliknij pozycję **Uruchom przepływ użytkownika**.
-1. Kliknij przycisk **Uruchom przepływ użytkownika** .
+1. W dzierżawie Azure AD B2C wybierz pozycję **Przepływy użytkownika** i wybierz przepływ *B2C_1_signupsignin1* użytkownika.
+1. W górnej części strony kliknij pozycję **Uruchom przepływ użytkownika.**
+1. Kliknij przycisk **Run user flow (Uruchom przepływ** użytkownika).
 
-Powinna zostać wyświetlona strona podobna do poniższego przykładu z elementami wyśrodkowanymi na podstawie utworzonego pliku CSS:
+Powinna zostać wyświetlony strona podobna do poniższego przykładu z elementami wyśrodkowanymi na podstawie utworzonego pliku CSS:
 
-![Przeglądarka sieci Web przedstawiająca rejestrowanie lub logowanie na stronie z niestandardowymi elementami interfejsu użytkownika](./media/customize-ui-with-html/run-now.png)
+![Przeglądarka internetowa z wyświetloną stroną rejestracji lub logowania z niestandardowymi elementami interfejsu użytkownika](./media/customize-ui-with-html/run-now.png)
 
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
 
-### <a name="4-modify-the-extensions-file"></a>4. Zmodyfikuj plik rozszerzeń.
+### <a name="4-modify-the-extensions-file"></a>4. Modyfikowanie pliku rozszerzeń
 
-Aby skonfigurować dostosowanie interfejsu użytkownika, skopiuj **ContentDefinition** i jego elementy podrzędne z pliku podstawowego do pliku rozszerzeń.
+Aby skonfigurować dostosowywanie interfejsu użytkownika, skopiuj **element ContentDefinition** i jego elementy podrzędne z pliku podstawowego do pliku extensions.
 
-1. Otwórz podstawowy plik zasad. Na przykład <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em> . Ten plik podstawowy jest jednym z plików zasad zawartych w pakiecie startowym zasad niestandardowych, który powinien zostać uzyskany w wymaganiu wstępnym, [Rozpocznij od zasad niestandardowych](./custom-policy-get-started.md).
-1. Wyszukaj i Skopiuj całą zawartość elementu **ContentDefinitions** .
-1. Otwórz plik rozszerzenia. Na przykład *TrustFrameworkExtensions.xml*. Wyszukaj element **BuildingBlocks** . Jeśli element nie istnieje, Dodaj go.
-1. Wklej całą zawartość elementu **ContentDefinitions** , który został skopiowany jako element podrzędny elementu **BuildingBlocks** .
-1. Wyszukaj element **ContentDefinition** , który zawiera `Id="api.signuporsignin"` kod XML, który został skopiowany.
-1. Zmień wartość **LoadUri** na adres URL pliku HTML, który został przekazany do magazynu. Na przykład `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
+1. Otwórz plik podstawowy zasad. Na przykład <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em> . Ten plik podstawowy jest jednym z plików zasad zawartych w pakiecie startowym zasad niestandardowych, który należy uzyskać w wymaganiach wstępnych Rozpoczynanie pracy [z zasadami niestandardowymi.](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
+1. Wyszukaj i skopiuj całą zawartość **elementu ContentDefinitions.**
+1. Otwórz plik rozszerzenia. Na przykład *TrustFrameworkExtensions.xml*. Wyszukaj element **BuildingBlocks.** Jeśli element nie istnieje, dodaj go.
+1. Wklej całą zawartość elementu **ContentDefinitions** skopiowaną jako element podrzędny **elementu BuildingBlocks.**
+1. Wyszukaj element **ContentDefinition,** który zawiera `Id="api.signuporsignin"` skopiowany kod XML.
+1. Zmień wartość **loaduri** na adres URL pliku HTML przekazanego do magazynu. Na przykład `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
 
-    Zasady niestandardowe powinny wyglądać podobnie do następującego fragmentu kodu:
+    Zasady niestandardowe powinny wyglądać podobnie do poniższego fragmentu kodu:
 
     ```xml
     <BuildingBlocks>
@@ -287,28 +287,28 @@ Aby skonfigurować dostosowanie interfejsu użytkownika, skopiuj **ContentDefini
 
 1. Zapisz plik rozszerzeń.
 
-### <a name="5-upload-and-test-your-updated-custom-policy"></a>5. przekazanie i przetestowanie zaktualizowanych zasad niestandardowych
+### <a name="5-upload-and-test-your-updated-custom-policy"></a>5. Przekazywanie i testowanie zaktualizowanych zasad niestandardowych
 
-#### <a name="51-upload-the-custom-policy"></a>5,1 przekazywanie zasad niestandardowych
+#### <a name="51-upload-the-custom-policy"></a>5.1 Przekazywanie zasad niestandardowych
 
-1. Upewnij się, że używasz katalogu, który zawiera dzierżawę Azure AD B2C, wybierając pozycję **katalog i subskrypcja** w górnym menu i wybierając katalog zawierający dzierżawcę.
-1. Wyszukaj i wybierz **Azure AD B2C**.
-1. W obszarze **zasady** wybierz pozycję **platforma obsługi tożsamości**.
-1. Wybierz pozycję **Przekaż zasady niestandardowe**.
+1. Upewnij się, że używasz katalogu zawierającego dzierżawę usługi Azure AD B2C, wybierając filtr Katalog **i** subskrypcja w górnym menu i wybierając katalog zawierający dzierżawę.
+1. Wyszukaj i wybierz **pozycję Azure AD B2C**.
+1. W **obszarze Zasady** wybierz pozycję **Identity Experience Framework**.
+1. Wybierz **pozycję Przekaż zasady niestandardowe.**
 1. Przekaż wcześniej zmieniony plik rozszerzeń.
 
-#### <a name="52-test-the-custom-policy-by-using-run-now"></a>5,2 testowanie zasad niestandardowych za pomocą polecenia **Uruchom teraz**
+#### <a name="52-test-the-custom-policy-by-using-run-now"></a>5.2 Testowanie zasad niestandardowych przy użyciu opcji **Uruchom teraz**
 
-1. Wybierz przekazane zasady, a następnie wybierz pozycję **Uruchom teraz**.
-1. Należy mieć możliwość rejestrowania się przy użyciu adresu e-mail.
+1. Wybierz przekazane zasady, a następnie wybierz pozycję **Uruchom teraz.**
+1. Rejestracja powinna być możliwe przy użyciu adresu e-mail.
 
-## <a name="configure-dynamic-custom-page-content-uri"></a>Skonfiguruj dynamiczny Identyfikator URI zawartości strony niestandardowej
+## <a name="configure-dynamic-custom-page-content-uri"></a>Konfigurowanie dynamicznego niestandardowego interfejsu URI zawartości strony
 
-Za pomocą Azure AD B2C zasad niestandardowych można wysłać parametr w ścieżce URL lub ciągu zapytania. Przekazanie parametru do punktu końcowego HTML pozwala na dynamiczną zmianę zawartość strony. Na podstawie parametru przekazywanego z aplikacji internetowej lub aplikacji mobilnej można na przykład zmienić obraz tła na stronie rejestracji lub logowania usługi Azure AD B2C. Parametr może być dowolnymi [mechanizmami rozwiązywania konfliktów](claim-resolver-overview.md), takimi jak identyfikator aplikacji, identyfikator języka lub niestandardowy parametr ciągu zapytania, taki jak `campaignId` .
+Używając Azure AD B2C zasad niestandardowych, możesz wysłać parametr w ścieżce adresu URL lub ciągu zapytania. Przekazanie parametru do punktu końcowego HTML pozwala na dynamiczną zmianę zawartość strony. Na podstawie parametru przekazywanego z aplikacji internetowej lub aplikacji mobilnej można na przykład zmienić obraz tła na stronie rejestracji lub logowania usługi Azure AD B2C. Parametrem może być dowolny [program rozpoznawania](claim-resolver-overview.md)oświadczenia, taki jak identyfikator aplikacji, identyfikator języka lub niestandardowy parametr ciągu zapytania, taki jak `campaignId` .
 
 ### <a name="sending-query-string-parameters"></a>Wysyłanie parametrów ciągu zapytania
 
-Aby wysłać parametry ciągu zapytania, w [zasadach jednostki uzależnionej](relyingparty.md)Dodaj `ContentDefinitionParameters` element, jak pokazano poniżej.
+Aby wysłać parametry ciągu zapytania, w zasadach [jednostki zależnej](relyingparty.md)dodaj `ContentDefinitionParameters` element , jak pokazano poniżej.
 
 ```xml
 <RelyingParty>
@@ -324,7 +324,7 @@ Aby wysłać parametry ciągu zapytania, w [zasadach jednostki uzależnionej](re
 </RelyingParty>
 ```
 
-W definicji zawartości Zmień wartość `LoadUri` na `https://<app_name>.azurewebsites.net/home/unified` . Zasady niestandardowe `ContentDefinition` powinny wyglądać podobnie do następującego fragmentu kodu:
+W definicji zawartości zmień wartość na `LoadUri` `https://<app_name>.azurewebsites.net/home/unified` . Zasady niestandardowe powinny `ContentDefinition` wyglądać podobnie do poniższego fragmentu kodu:
 
 ```xml
 <ContentDefinition Id="api.signuporsignin">
@@ -333,15 +333,15 @@ W definicji zawartości Zmień wartość `LoadUri` na `https://<app_name>.azurew
 </ContentDefinition>
 ```
 
-Gdy Azure AD B2C ładuje stronę, wywołuje punkt końcowy serwera sieci Web:
+Po Azure AD B2C strony powoduje wywołanie punktu końcowego serwera internetowego:
 
 ```http
 https://<app_name>.azurewebsites.net/home/unified?campaignId=123&lang=fr&appId=f893d6d3-3b6d-480d-a330-1707bf80ebea
 ```
 
-### <a name="dynamic-page-content-uri"></a>Identyfikator URI zawartości strony dynamicznej
+### <a name="dynamic-page-content-uri"></a>Dynamiczna zawartość strony URI
 
-Zawartość można ściągnąć z różnych miejsc na podstawie używanych parametrów. W punkcie końcowym z obsługą mechanizmu CORS Skonfiguruj strukturę folderów, aby hostować zawartość. Można na przykład zorganizować zawartość w następującej strukturze. *Folder główny/folder na język/pliki HTML*. Na przykład identyfikator URI strony niestandardowej może wyglądać następująco:
+Zawartość można ściągać z różnych miejsc na podstawie użytych parametrów. W punkcie końcowym z obsługą cors skonfiguruj strukturę folderów do hostów zawartości. Na przykład możesz uporządkować zawartość w następującej strukturze. Folder *główny/folder na język/pliki HTML.* Na przykład niestandardowy adres URI strony może wyglądać tak:
 
 ```xml
 <ContentDefinition Id="api.signuporsignin">
@@ -350,7 +350,7 @@ Zawartość można ściągnąć z różnych miejsc na podstawie używanych param
 </ContentDefinition>
 ```
 
-Azure AD B2C wysyła dwuliterowy kod ISO dla języka w `fr` języku francuskim:
+Azure AD B2C wysyła dwuliterowy kod ISO dla języka , dla `fr` języka francuskiego:
 
 ```http
 https://contoso.blob.core.windows.net/fr/myHTML/unified.html
@@ -360,23 +360,23 @@ https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 
 ## <a name="sample-templates"></a>Przykładowe szablony
 
-Przykładowe szablony do dostosowywania interfejsu użytkownika można znaleźć tutaj:
+Przykładowe szablony dostosowywania interfejsu użytkownika można znaleźć tutaj:
 
 ```bash
 git clone https://github.com/azure-ad-b2c/html-templates
 ```
 
 Ten projekt zawiera następujące szablony:
-- [Ocean niebieski](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/AzureBlue)
-- [Szare](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/MSA)
-- [Motyw](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/classic)
+- [Ocean Blue](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/AzureBlue)
+- [Slate Gray](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/MSA)
+- [Klasyczny](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/classic)
 - [Zasoby szablonu](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/src)
 
 Aby użyć przykładu:
 
-1. Sklonuj repozytorium na komputerze lokalnym. Wybierz folder szablonu, `/AzureBlue` `/MSA` lub `/classic` .
-1. Przekaż wszystkie pliki z folderu Template i `/src` folder do magazynu obiektów BLOB zgodnie z opisem w poprzednich sekcjach.
-1. Następnie otwórz każdy `\*.html` plik w folderze Template. Następnie Zastąp wszystkie wystąpienia `https://login.microsoftonline.com` adresów URL adresem URL, który został przekazany w kroku 2. Na przykład:
+1. Sklonuj repo na komputerze lokalnym. Wybierz folder szablonu `/AzureBlue` `/MSA` , lub `/classic` .
+1. Przekaż wszystkie pliki w folderze szablonu i `/src` folderze do usługi Blob Storage zgodnie z opisem w poprzednich sekcjach.
+1. Następnie otwórz każdy `\*.html` plik w folderze szablonu. Następnie zastąp wszystkie wystąpienia adresów `https://login.microsoftonline.com` URL adresem URL przekazanym w kroku 2. Na przykład:
     
     Od:
     ```html
@@ -388,13 +388,13 @@ Aby użyć przykładu:
     https://your-storage-account.blob.core.windows.net/your-container/templates/src/fonts/segoeui.WOFF
     ```
     
-1. Zapisz `\*.html` pliki i przekaż je do magazynu obiektów BLOB.
-1. Teraz zmodyfikuj zasady, wskazując na plik HTML, jak wspomniano wcześniej.
-1. Jeśli widzisz brakujące czcionki, obrazy lub CSS, Sprawdź odwołania w zasadach rozszerzeń i \* plikach. html.
+1. Zapisz pliki `\*.html` i przekaż je do magazynu obiektów blob.
+1. Teraz zmodyfikuj zasady, wskaż plik HTML, jak wspomniano wcześniej.
+1. Jeśli brakuje czcionek, obrazów lub arkuszy CSS, sprawdź odwołania w zasadach rozszerzeń i `\*.html` plikach.
 
-## <a name="use-company-branding-assets-in-custom-html"></a>Używanie zasobów znakowania firmowego w niestandardowym kodzie HTML
+## <a name="use-company-branding-assets-in-custom-html"></a>Używanie zasobów brandingu firmy w niestandardowym kodzie HTML
 
-Aby użyć zasobów [znakowania firmowego](customize-ui.md#configure-company-branding) w niestandardowym kodzie HTML, Dodaj następujące znaczniki poza `<div id="api">` tagiem. Źródło obrazu jest zastępowane obrazem tła i logo transparentu.
+Aby używać [zasobów brandowania](customize-ui.md#configure-company-branding) firmy w niestandardowym kodzie HTML, dodaj następujące tagi poza `<div id="api">` tagiem. Źródło obrazu jest zastępowane obrazem tła i logo baneru.
 
 ```HTML
 <img data-tenant-branding-background="true" />
@@ -403,4 +403,4 @@ Aby użyć zasobów [znakowania firmowego](customize-ui.md#configure-company-bra
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak włączyć [kod JavaScript po stronie klienta](javascript-and-page-layout.md).
+Dowiedz się, jak [włączyć kod JavaScript po stronie klienta.](javascript-and-page-layout.md)

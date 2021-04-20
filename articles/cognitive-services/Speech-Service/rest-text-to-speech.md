@@ -1,7 +1,7 @@
 ---
-title: Dokumentacja interfejsu API zamiany tekstu na mowę (REST) — usługa mowy
+title: Dokumentacja interfejsu API funkcji tekstu na mowę (REST) — usługa rozpoznawania mowy
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak używać interfejsu API REST zamiany tekstu na mowę. Ten artykuł zawiera informacje o opcjach autoryzacji, opcjach zapytań, sposobach tworzenia struktury żądania i otrzymywaniu odpowiedzi.
+description: Dowiedz się, jak używać interfejsu API REST funkcji tekstu na mowę. W tym artykule dowiesz się więcej na temat opcji autoryzacji, opcji zapytań, sposobu struktury żądania i odbierania odpowiedzi.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -11,37 +11,37 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 9da83746cdaf693922b88841cd9c0fac432611c9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0065b6f4a7039e2883bca6acd5cf659be7b71069
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104870844"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717679"
 ---
 # <a name="text-to-speech-rest-api"></a>Interfejs API REST zamiany tekstu na mowę
 
-Usługa mowy umożliwia [Konwertowanie tekstu na mowę](#convert-text-to-speech) i [Pobieranie listy obsługiwanych głosów](#get-a-list-of-voices) dla regionu przy użyciu zestawu interfejsów API REST. Każdy dostępny punkt końcowy jest skojarzony z regionem. Wymagany jest klucz subskrypcji dla punktu końcowego/regionu, który ma być używany.
+Usługa rozpoznawania mowy umożliwia [konwertowanie](#convert-text-to-speech) tekstu [](#get-a-list-of-voices) na mowę syntetyzowana i uzyskiwanie listy obsługiwanych głosów dla regionu przy użyciu zestawu interfejsów API REST. Każdy dostępny punkt końcowy jest skojarzony z regionem. Wymagany jest klucz subskrypcji dla punktu końcowego/regionu, który ma być potrzebny.
 
-Interfejs API REST zamiany tekstu na mowę obsługuje neuronowych i standardowe głosy zamiany tekstu na mowę, z których każdy obsługuje określony język i dialekt identyfikowany przez ustawienia regionalne.
+Interfejs API REST funkcji "tekst na mowę" obsługuje neuronowe i standardowe głosy funkcji tekstu na mowę, z których każdy obsługuje określony język i dialekt identyfikowany przez ustawienia lokalne.
 
-* Aby uzyskać pełną listę głosów, zobacz temat [Obsługa języków](language-support.md#text-to-speech).
+* Aby uzyskać pełną listę głosów, zobacz [obsługa języka](language-support.md#text-to-speech).
 * Aby uzyskać informacje o dostępności regionalnej, zobacz [regiony](regions.md#text-to-speech).
 
 > [!IMPORTANT]
-> Koszty różnią się w zależności od standardowych, niestandardowych i neuronowych głosów. Aby uzyskać więcej informacji, zobacz [Cennik](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> Koszty różnią się w przypadku standardowych, niestandardowych i neuronowych głosów. Aby uzyskać więcej informacji, zobacz [Cennik](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-Przed użyciem tego interfejsu API należy zrozumieć następujące informacje:
+Przed rozpoczęciem korzystania z tego interfejsu API należy zrozumieć:
 
-* Interfejs API REST zamiany tekstu na mowę wymaga nagłówka autoryzacji. Oznacza to, że należy zakończyć wymianę tokenów, aby uzyskać dostęp do usługi. Aby uzyskać więcej informacji, zobacz [Authentication](#authentication) (Uwierzytelnianie).
+* Interfejs API REST funkcji tekstu na mowę wymaga nagłówka autoryzacji. Oznacza to, że należy ukończyć wymianę tokenu, aby uzyskać dostęp do usługi. Aby uzyskać więcej informacji, zobacz [Authentication](#authentication) (Uwierzytelnianie).
 
 > [!TIP]
-> Zobacz [ten artykuł](sovereign-clouds.md) , aby uzyskać Azure Government i punkty końcowe platformy Azure w Chinach.
+> Zapoznaj [się z tym artykułem,](sovereign-clouds.md) aby Azure Government punkty końcowe platformy Azure w Chinach.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
-## <a name="get-a-list-of-voices"></a>Pobieranie listy głosów
+## <a name="get-a-list-of-voices"></a>Uzyskiwanie listy głosów
 
-`voices/list`Punkt końcowy umożliwia uzyskanie pełnej listy głosów dla określonego regionu/punktu końcowego.
+Punkt końcowy umożliwia uzyskiwanie pełnej listy głosów `voices/list` dla określonego regionu/punktu końcowego.
 
 ### <a name="regions-and-endpoints"></a>Regiony i punkty końcowe
 
@@ -74,18 +74,18 @@ Przed użyciem tego interfejsu API należy zrozumieć następujące informacje:
 
 ### <a name="request-headers"></a>Nagłówki żądań
 
-Ta tabela zawiera listę wymaganych i opcjonalnych nagłówków dla żądań zamiany tekstu na mowę.
+W tej tabeli wymieniono wymagane i opcjonalne nagłówki dla żądań tekstowych na mowę.
 
 | Nagłówek | Opis | Wymagane/opcjonalne |
 |--------|-------------|---------------------|
-| `Ocp-Apim-Subscription-Key` | Klucz subskrypcji usługi rozpoznawania mowy. | Ten nagłówek lub `Authorization` jest wymagany. |
+| `Ocp-Apim-Subscription-Key` | Klucz subskrypcji usługi Mowa. | Ten nagłówek lub `Authorization` jest wymagany. |
 | `Authorization` | Token autoryzacji poprzedzony słowem `Bearer` . Aby uzyskać więcej informacji, zobacz [Authentication](#authentication) (Uwierzytelnianie). | Ten nagłówek lub `Ocp-Apim-Subscription-Key` jest wymagany. |
 
 
 
 ### <a name="request-body"></a>Treść żądania
 
-Treść `GET` żądania do tego punktu końcowego nie jest wymagana.
+Treść nie jest wymagana dla `GET` żądań do tego punktu końcowego.
 
 ### <a name="sample-request"></a>Przykładowe żądanie
 
@@ -100,10 +100,10 @@ Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 
 ### <a name="sample-response"></a>Przykładowa odpowiedź
 
-Ta odpowiedź została obcięta w celu zilustrowania struktury odpowiedzi.
+Ta odpowiedź została obcięta, aby zilustrować strukturę odpowiedzi.
 
 > [!NOTE]
-> Dostępność głosu jest różna w zależności od regionu/punktu końcowego.
+> Dostępność głosu zależy od regionu/punktu końcowego.
 
 ```json
 [
@@ -188,69 +188,72 @@ Ta odpowiedź została obcięta w celu zilustrowania struktury odpowiedzi.
 
 ### <a name="http-status-codes"></a>Kody stanu HTTP
 
-Kod stanu HTTP dla każdej odpowiedzi oznacza powodzenie lub typowe błędy.
+Kod stanu HTTP dla każdej odpowiedzi wskazuje powodzenie lub typowe błędy.
 
 | Kod stanu HTTP | Opis | Możliwe przyczyny |
 |------------------|-------------|-----------------|
-| 200 | OK | Żądanie zakończyło się pomyślnie. |
-| 400 | Nieprawidłowe żądanie | Brak wymaganego parametru, jest on pusty lub ma wartość null. Lub wartość przeniesiona do wymaganego lub opcjonalnego parametru jest nieprawidłowa. Typowy problem to nagłówek, który jest zbyt długi. |
-| 401 | Brak autoryzacji | Żądanie nie ma autoryzacji. Upewnij się, że klucz subskrypcji lub token jest prawidłowy i znajduje się w prawidłowym regionie. |
-| 429 | Zbyt wiele żądań | Przekroczono limit przydziału lub częstotliwość żądań dozwolonych dla Twojej subskrypcji. |
-| 502 | Zła brama    | Problem z siecią lub po stronie serwera. Może także wskazywać nieprawidłowe nagłówki. |
+| 200 | OK | Żądanie powiodło się. |
+| 400 | Nieprawidłowe żądanie | Brakuje wymaganego parametru, jest on pusty lub ma wartość null. Lub wartość przekazana do wymaganego lub opcjonalnego parametru jest nieprawidłowa. Powszechnym problemem jest zbyt długi nagłówek. |
+| 401 | Brak autoryzacji | Żądanie nie jest autoryzowane. Upewnij się, że klucz subskrypcji lub token jest prawidłowy i znajduje się w poprawnym regionie. |
+| 429 | Zbyt wiele żądań | Przekroczono limit przydziału lub odsetek żądań dozwolonych dla Twojej subskrypcji. |
+| 502 | Zła brama    | Problem z siecią lub serwerem. Może również wskazywać nieprawidłowe nagłówki. |
 
 
 ## <a name="convert-text-to-speech"></a>Zamiana tekstu na mowę
 
-`v1`Punkt końcowy umożliwia konwertowanie tekstu na mowę przy użyciu [języka SSML (Speech syntezing Language)](speech-synthesis-markup.md).
+Punkt końcowy umożliwia konwertowanie tekstu na mowę `v1` przy użyciu języka speech synthesis [markup Language (SSML).](speech-synthesis-markup.md)
 
 ### <a name="regions-and-endpoints"></a>Regiony i punkty końcowe
 
-Te regiony są obsługiwane dla zamiany tekstu na mowę przy użyciu interfejsu API REST. Upewnij się, że wybrano punkt końcowy zgodny z Twoim regionem subskrypcji.
+Te regiony są obsługiwane w przypadku używania funkcji tekstu na mowę przy użyciu interfejsu API REST. Upewnij się, że wybierasz punkt końcowy, który odpowiada Twojeowi regionowi subskrypcji.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 ### <a name="request-headers"></a>Nagłówki żądań
 
-Ta tabela zawiera listę wymaganych i opcjonalnych nagłówków dla żądań zamiany tekstu na mowę.
+W tej tabeli wymieniono wymagane i opcjonalne nagłówki dla żądań tekstowych na mowę.
 
-| Nagłówek | Opis | Wymagane/opcjonalne |
+| Nagłówek | Opis | Wymagane/Opcjonalne |
 |--------|-------------|---------------------|
 | `Authorization` | Token autoryzacji poprzedzony słowem `Bearer` . Aby uzyskać więcej informacji, zobacz [Authentication](#authentication) (Uwierzytelnianie). | Wymagane |
 | `Content-Type` | Określa typ zawartości dla podanego tekstu. Zaakceptowana wartość: `application/ssml+xml` . | Wymagane |
-| `X-Microsoft-OutputFormat` | Określa format danych wyjściowych audio. Aby uzyskać pełną listę zaakceptowanych wartości, zobacz [wyjście audio](#audio-outputs). | Wymagane |
-| `User-Agent` | Nazwa aplikacji. Podana wartość musi być krótsza niż 255 znaków. | Wymagane |
+| `X-Microsoft-OutputFormat` | Określa format danych wyjściowych audio. Aby uzyskać pełną listę akceptowanych wartości, zobacz [audio outputs (Dane wyjściowe audio).](#audio-outputs) | Wymagane |
+| `User-Agent` | Nazwa aplikacji. Wartość musi być mniejsza niż 255 znaków. | Wymagane |
 
-### <a name="audio-outputs"></a>Wyjście audio
+### <a name="audio-outputs"></a>Dane wyjściowe audio
 
-Jest to lista obsługiwanych formatów audio, które są wysyłane w każdym żądaniu jako `X-Microsoft-OutputFormat` nagłówek. Każda z nich obejmuje szybkość transmisji bitów i typ kodowania. Usługa mowy obsługuje 24 kHz, 16 kHz i 8 kHz danych wyjściowych audio.
+Jest to lista obsługiwanych formatów audio, które są wysyłane w każdym żądaniu jako `X-Microsoft-OutputFormat` nagłówek. Każdy z nich zawiera typ kodowania i transmisji bitów. Usługa rozpoznawania mowy obsługuje wyjścia audio 24 kHz, 16 kHz i 8 kHz.
 
 ```output
-raw-16khz-16bit-mono-pcm            raw-8khz-8bit-mono-mulaw
-riff-8khz-8bit-mono-alaw            riff-8khz-8bit-mono-mulaw
-riff-16khz-16bit-mono-pcm           audio-16khz-128kbitrate-mono-mp3
-audio-16khz-64kbitrate-mono-mp3     audio-16khz-32kbitrate-mono-mp3
+raw-16khz-16bit-mono-pcm            riff-16khz-16bit-mono-pcm
 raw-24khz-16bit-mono-pcm            riff-24khz-16bit-mono-pcm
-audio-24khz-160kbitrate-mono-mp3    audio-24khz-96kbitrate-mono-mp3
-audio-24khz-48kbitrate-mono-mp3     ogg-24khz-16bit-mono-opus
 raw-48khz-16bit-mono-pcm            riff-48khz-16bit-mono-pcm
+raw-8khz-8bit-mono-mulaw            riff-8khz-8bit-mono-mulaw
+raw-8khz-8bit-mono-alaw             riff-8khz-8bit-mono-alaw
+audio-16khz-32kbitrate-mono-mp3     audio-16khz-64kbitrate-mono-mp3
+audio-16khz-128kbitrate-mono-mp3    audio-24khz-48kbitrate-mono-mp3
+audio-24khz-96kbitrate-mono-mp3     audio-24khz-160kbitrate-mono-mp3
 audio-48khz-96kbitrate-mono-mp3     audio-48khz-192kbitrate-mono-mp3
+raw-16khz-16bit-mono-truesilk       raw-24khz-16bit-mono-truesilk
 webm-16khz-16bit-mono-opus          webm-24khz-16bit-mono-opus
+ogg-16khz-16bit-mono-opus           ogg-24khz-16bit-mono-opus
+ogg-48khz-16bit-mono-opus
 ```
 
 > [!NOTE]
-> Jeśli wybrany format dźwięku i danych wyjściowych ma różne szybkości transmisji bitów, w razie potrzeby dźwięk zostanie ponownie próbkowany.
-> OGG-24khz-16bit-mono-Opus można zdekodować przy użyciu [kodera-dekoder Opus](https://opus-codec.org/downloads/)
+> Jeśli wybrany format głosu i danych wyjściowych ma różne stawki bitów, dźwięk jest ponownie próbkowany zgodnie z potrzebami.
+> Ogg-24khz-16bit-mono-opus może być zdekodowany za pomocą [koder-dekodera opus](https://opus-codec.org/downloads/)
 
 ### <a name="request-body"></a>Treść żądania
 
-Treść każdego `POST` żądania jest wysyłana jako [Język oznaczeń syntezy mowy (SSML)](speech-synthesis-markup.md). SSML umożliwia wybranie głosu i języka przez funkcję syntezy mowy zwracaną przez usługę zamiany tekstu na mowę. Aby uzyskać pełną listę obsługiwanych głosów, zobacz temat [Obsługa języków](language-support.md#text-to-speech).
+Treść każdego żądania `POST` jest wysyłana jako język [znaczników syntezy mowy (SSML).](speech-synthesis-markup.md) SSML umożliwia wybranie głosu i języka zsyntetyzowanych mowy zwracanych przez usługę zamiany tekstu na mowę. Aby uzyskać pełną listę obsługiwanych głosów, zobacz [obsługa języków](language-support.md#text-to-speech).
 
 > [!NOTE]
-> W przypadku użycia niestandardowego głosu treść żądania może być wysyłana jako zwykły tekst (ASCII lub UTF-8).
+> W przypadku korzystania z głosu niestandardowego treść żądania może być wysyłana w postaci zwykłego tekstu (ASCII lub UTF-8).
 
 ### <a name="sample-request"></a>Przykładowe żądanie
 
-To żądanie HTTP używa SSML do określenia głosu i języka. Jeśli długość treści jest długa, a wyjściowy dźwięk przekroczy 10 minut — zostanie obcięty do 10 minut. Innymi słowy, Długość dźwięku nie może przekroczyć 10 minut.
+To żądanie HTTP używa protokołu SSML do określenia głosu i języka. Jeśli długość treści jest długa, a wynikowy dźwięk przekracza 10 minut — jest obcinany do 10 minut. Innymi słowy, długość dźwięku nie może przekraczać 10 minut.
 
 ```http
 POST /cognitiveservices/v1 HTTP/1.1
@@ -269,21 +272,21 @@ Authorization: Bearer [Base64 access_token]
 
 ### <a name="http-status-codes"></a>Kody stanu HTTP
 
-Kod stanu HTTP dla każdej odpowiedzi oznacza powodzenie lub typowe błędy.
+Kod stanu HTTP dla każdej odpowiedzi wskazuje powodzenie lub typowe błędy.
 
 | Kod stanu HTTP | Opis | Możliwe przyczyny |
 |------------------|-------------|-----------------|
-| 200 | OK | Żądanie zakończyło się pomyślnie. treść odpowiedzi to plik audio. |
-| 400 | Nieprawidłowe żądanie | Brak wymaganego parametru, jest on pusty lub ma wartość null. Lub wartość przeniesiona do wymaganego lub opcjonalnego parametru jest nieprawidłowa. Typowy problem to nagłówek, który jest zbyt długi. |
-| 401 | Brak autoryzacji | Żądanie nie ma autoryzacji. Upewnij się, że klucz subskrypcji lub token jest prawidłowy i znajduje się w prawidłowym regionie. |
-| 415 | Nieobsługiwany typ nośnika | Możliwe, że `Content-Type` podano nieprawidłowy. `Content-Type` powinien być ustawiony na `application/ssml+xml` . |
-| 429 | Zbyt wiele żądań | Przekroczono limit przydziału lub częstotliwość żądań dozwolonych dla Twojej subskrypcji. |
-| 502 | Zła brama    | Problem z siecią lub po stronie serwera. Może także wskazywać nieprawidłowe nagłówki. |
+| 200 | OK | Żądanie powiodło się. treść odpowiedzi jest plikiem dźwiękowym. |
+| 400 | Nieprawidłowe żądanie | Brakuje wymaganego parametru, jest on pusty lub ma wartość null. Lub wartość przekazana do wymaganego lub opcjonalnego parametru jest nieprawidłowa. Powszechnym problemem jest zbyt długi nagłówek. |
+| 401 | Brak autoryzacji | Żądanie nie jest autoryzowane. Upewnij się, że klucz subskrypcji lub token jest prawidłowy i znajduje się w poprawnym regionie. |
+| 415 | Nieobsługiwany typ nośnika | Możliwe, że podano `Content-Type` błąd. `Content-Type` powinna być ustawiona na `application/ssml+xml` wartość . |
+| 429 | Zbyt wiele żądań | Przekroczono limit przydziału lub odsetek żądań dozwolonych dla twojej subskrypcji. |
+| 502 | Zła brama    | Problem z siecią lub serwerem. Może również wskazywać nieprawidłowe nagłówki. |
 
-Jeśli stan HTTP to `200 OK` , treść odpowiedzi zawiera plik audio w żądanym formacie. Ten plik może być odtwarzany w trakcie jego przesyłania, zapisywania w buforze lub zapisywania w pliku.
+Jeśli stan HTTP to , treść odpowiedzi `200 OK` zawiera plik dźwiękowy w żądanym formacie. Ten plik może być odtwarzany, ponieważ jest przesyłany, zapisywany w buforze lub zapisywany w pliku.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Tworzenie bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/cognitive-services/)
-- [Synteza asynchroniczna dla długich postaci audio](./long-audio-api.md)
+- [Synteza asynchroniczna dla dźwięku o długiej postaci](./long-audio-api.md)
 - [Wprowadzenie do usługi Custom Voice](how-to-custom-voice.md)

@@ -1,23 +1,23 @@
 ---
-title: Windows Virtual Desktop konfigurowanie dołączania aplikacji MSIX udziału plików — Azure
+title: Windows Virtual Desktop skonfigurować dołączanie aplikacji MSIX udziału plików — Azure
 description: Jak skonfigurować dołączanie udziału plików dla aplikacji MSIX na Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: d8aaa8d5013c426ac1ab6b367309c51be4929cee
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: a2d4ebee02d85d10d5db8ec2de0bb1be334770dc
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107366406"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717661"
 ---
 # <a name="set-up-a-file-share-for-msix-app-attach"></a>Konfigurowanie udziału plików do dołączania aplikacji MSIX
 
 Wszystkie obrazy MSIX muszą być przechowywane w udziałach sieciowych, do których mogą uzyskiwać dostęp użytkownicy w puli hostów z uprawnieniami tylko do odczytu.
 
-Dołączanie aplikacji MSIX nie ma żadnych zależności od typu sieci szkieletowej magazynu używanej przez udział plików. Zagadnienia dotyczące udziału dołączania aplikacji MSIX są takie same jak w przypadku udziału FSLogix. Aby dowiedzieć się więcej o wymaganiach dotyczących magazynu, zobacz Opcje magazynu dla [kontenerów profilów FSLogix w Windows Virtual Desktop](store-fslogix-profile.md).
+Dołączanie aplikacji MSIX nie ma żadnych zależności od typu sieci szkieletowej magazynu używanej przez udział plików. Zagadnienia dotyczące udziału dołączania aplikacji MSIX są takie same jak w przypadku udziału FSLogix. Aby dowiedzieć się więcej na temat wymagań dotyczących magazynu, zobacz Opcje magazynu dla [kontenerów profilów FSLogix w Windows Virtual Desktop](store-fslogix-profile.md).
 
 ## <a name="performance-requirements"></a>Wymagania dotyczące wydajności
 
@@ -42,7 +42,7 @@ Platforma Azure oferuje wiele opcji magazynu, których można użyć do dołącz
 Oto kilka innych czynności, które zalecamy, aby zoptymalizować wydajność dołączania aplikacji MSIX:
 
 - Rozwiązanie magazynu, które jest wykorzystywane do dołączania aplikacji MSIX, powinno być w tej samej lokalizacji centrum danych co hosty sesji.
-- Aby uniknąć wąskich gardeł wydajności, wyklucz następujące pliki VHD, VHDX i CIM ze skanowania antywirusowego:
+- Aby uniknąć wąskich gardeł wydajności, wyklucz następujące pliki VHD, VHDX i CIM ze skanów antywirusowych:
    
     - <MSIXAppAttachFileShare \> \* . Vhd
     - <MSIXAppAttachFileShare \> \* . Vhdx
@@ -53,7 +53,7 @@ Oto kilka innych czynności, które zalecamy, aby zoptymalizować wydajność do
 
 - Oddziel sieć szkieletową magazynu dla dołączania aplikacji MSIX od kontenerów profilu FSLogix.
 - Wszystkie konta systemowe maszyn wirtualnych i konta użytkowników muszą mieć uprawnienia tylko do odczytu, aby uzyskać dostęp do udziału plików.
-- Wszystkie plany odzyskiwania po awarii Windows Virtual Desktop muszą obejmować replikowanie udziału plików dołączania aplikacji MSIX w dodatkowej lokalizacji trybu failover. Aby dowiedzieć się więcej na temat odzyskiwania po awarii, zobacz Konfigurowanie planu [ciągłości działania i odzyskiwania po awarii.](disaster-recovery.md)
+- Wszystkie plany odzyskiwania po awarii Windows Virtual Desktop muszą obejmować replikowanie udziału plików dołączania aplikacji MSIX w dodatkowej lokalizacji trybu failover. Aby dowiedzieć się więcej na temat odzyskiwania po awarii, zobacz Konfigurowanie ciągłości działania i [planu odzyskiwania po awarii.](disaster-recovery.md)
 
 ## <a name="how-to-set-up-the-file-share"></a>Jak skonfigurować udział plików
 
@@ -67,17 +67,17 @@ Jeśli przechowujesz aplikacje MSIX w systemie Azure Files, w przypadku hostów 
 | Administratorzy udziału plików              | Współautor udziału SMB danych w pliku magazynu z podwyższonym poziomem uprawnień | Pełna kontrola                                  |
 | Użytkownicy w udziałach plików               | Współautor udziału SMB danych w pliku magazynu          | Odczytywanie i wykonywanie, odczyt, lista zawartości folderu  |
 
-Aby przypisać uprawnienia maszyn wirtualnych hosta sesji do konta magazynu i udziału plików:
+Aby przypisać uprawnienia do konta magazynu i udziału plików hosta sesji:
 
 1. Utwórz Active Directory Domain Services zabezpieczeń (AD DS).
 
 2. Dodaj konta komputerów dla wszystkich maszyn wirtualnych hosta sesji jako członków grupy.
 
-3. Zsynchronizuj AD DS z Azure Active Directory (Azure AD).
+3. Zsynchronizuj grupę AD DS z Azure Active Directory (Azure AD).
 
 4. Tworzenie konta magazynu
 
-5. Utwórz udział plików w ramach konta magazynu, zgodnie z instrukcjami w tece Create an Azure file share (Tworzenie [udziału plików platformy Azure).](../storage/files/storage-how-to-create-file-share.md#create-file-share)
+5. Utwórz udział plików w ramach konta magazynu, zgodnie z instrukcjami w tece Create an Azure file share (Tworzenie [udziału plików platformy Azure).](../storage/files/storage-how-to-create-file-share.md#create-a-file-share)
 
 6. Dołącz do konta magazynu, aby AD DS zgodnie z instrukcjami w części pierwszej: włączanie uwierzytelniania AD DS [dla udziałów plików platformy Azure.](../storage/files/storage-files-identity-ad-ds-enable.md#option-one-recommended-use-azfileshybrid-powershell-module)
 
@@ -85,7 +85,7 @@ Aby przypisać uprawnienia maszyn wirtualnych hosta sesji do konta magazynu i ud
 
 8. Zainstaluj udział plików na dowolnym hoście sesji, zgodnie z instrukcjami w części [drugiej:](../storage/files/storage-files-identity-ad-ds-assign-permissions.md)przypisywanie uprawnień na poziomie udziału do tożsamości .
 
-9. Przyznaj uprawnienia NTFS do udziału plików AD DS grupy.
+9. Przyznaj uprawnienia systemu plików NTFS do udziału plików AD DS grupy.
 
 10. Skonfiguruj uprawnienia systemu plików NTFS dla kont użytkowników. Musisz mieć jednostkę operacyjną pochodzącą z jednostki AD DS, do której należą konta na maszynie wirtualnej.
 

@@ -1,106 +1,106 @@
 ---
-title: Modele użycia pamięci podręcznej platformy Azure HPC
-description: W tym artykule opisano różne modele użycia pamięci podręcznej i sposoby ich wyboru, aby ustawić buforowanie w trybie tylko do odczytu lub odczyt/zapis i kontrolować inne ustawienia buforowania.
+title: Azure HPC Cache modeli użycia
+description: Opisuje różne modele użycia pamięci podręcznej i sposób wyboru spośród nich, aby ustawić buforowanie tylko do odczytu lub odczytu/zapisu i kontrolować inne ustawienia buforowania
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 04/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: a22f4b257476e96c51ae491b8570e3798f7b3ab7
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 7e1b11fd15cca9b11fc627222318f08d31743336
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259731"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107719191"
 ---
-# <a name="understand-cache-usage-models"></a>Omówienie modeli użycia pamięci podręcznej
+# <a name="understand-cache-usage-models"></a>Informacje o modelach użycia pamięci podręcznej
 
-Modele użycia pamięci podręcznej umożliwiają dostosowanie sposobu przechowywania plików w pamięci podręcznej Azure HPC w celu przyspieszenia przepływu pracy.
+Modele użycia pamięci podręcznej umożliwiają dostosowanie sposobu Azure HPC Cache plików w celu przyspieszenia przepływu pracy.
 
-## <a name="basic-file-caching-concepts"></a>Podstawowe pojęcia związane z buforowaniem plików
+## <a name="basic-file-caching-concepts"></a>Podstawowe pojęcia dotyczące buforowania plików
 
-Buforowanie plików to sposób, w jaki usługa Azure HPC cache przyspiesza żądania klientów. Używa tych podstawowych rozwiązań:
+Buforowanie plików to sposób, Azure HPC Cache przyspiesza żądania klientów. Używa ona tych podstawowych rozwiązań:
 
-* **Buforowanie odczytu** — pamięć podręczna Azure HPC przechowuje kopię plików, z których klienci żądają z systemu magazynu. Następnym razem, gdy klient zażąda tego samego pliku, pamięć podręczna HPC może udostępnić wersję w swojej pamięci podręcznej, zamiast pobierać ją z systemu magazynu zaplecza ponownie.
+* **Buforowanie odczytu** — Azure HPC Cache przechowuje kopię plików, których klienci żądają z systemu magazynu. Następnym razem, gdy klient zażąda tego samego pliku, HPC Cache udostępnić wersję w swojej pamięci podręcznej, zamiast ponownie pobierać ją z systemu magazynowania na zakładzie.
 
-* **Buforowanie zapisu** — opcjonalnie pamięć podręczna Azure HPC może przechowywać kopię wszystkich zmienionych plików wysyłanych z komputerów klienckich. Jeśli wielu klientów wprowadzi zmiany w tym samym pliku w krótkim czasie, pamięć podręczna może zbierać wszystkie zmiany w pamięci podręcznej, zamiast zapisywać każdą zmianę indywidualnie dla systemu magazynu zaplecza.
+* **Buforowanie zapisu** — opcjonalnie Azure HPC Cache przechowywać kopię wszelkich zmienionych plików wysyłanych z maszyn klienckich. Jeśli wielu klientów wprowadza w krótkim czasie zmiany w tym samym pliku, pamięć podręczna może zebrać wszystkie zmiany w pamięci podręcznej, zamiast zapisywać każdą zmianę osobno w systemie magazynu na zakładzie.
 
-  Po upływie określonego czasu bez zmian pamięć podręczna przenosi plik do magazynu długoterminowego.
+  Po upływie określonego czasu bez zmian pamięć podręczna przenosi plik do systemu magazynu długoterminowego.
 
-  Jeśli buforowanie zapisu jest wyłączone, pamięć podręczna nie przechowuje zmienionego pliku i natychmiast zapisuje je w systemie magazynu zaplecza.
+  Jeśli buforowanie zapisu jest wyłączone, pamięć podręczna nie przechowuje zmienionego pliku i natychmiast zapisuje go w systemie magazynu na zakładzie.
 
-* **Opóźnienie zapisu** — w przypadku pamięci podręcznej z włączonym buforowaniem zapisu opóźnienie zapisu to czas, przez jaki pamięć podręczna czeka na dodatkowe zmiany plików przed skopiowaniem pliku do systemu magazynu zaplecza.
+* Opóźnienie zapisu **—** w przypadku pamięci podręcznej z włączonym buforowaniem zapisu opóźnienie zapisu to czas oczekiwania pamięci podręcznej na dodatkowe zmiany plików przed skopiowaniem pliku do systemu magazynu na zakładzie.
 
-* **Weryfikacja zaplecza** — ustawienie weryfikacji zaplecza określa, jak często pamięć podręczna porównuje lokalną kopię pliku ze zdalną wersją w systemie magazynu zaplecza. Jeśli kopia zaplecza jest nowsza niż buforowana kopia, pamięć podręczna pobiera kopię zdalną i zapisuje ją na potrzeby przyszłych żądań.
+* Weryfikacja za pomocą serwera **końcowego** — ustawienie weryfikacji serwera końcowego określa, jak często pamięć podręczna porównuje jego lokalną kopię pliku z wersją zdalną w systemie magazynu na zakładzie. Jeśli kopia zapasowa jest nowsza niż kopia w pamięci podręcznej, pamięć podręczna pobiera kopię zdalną i zapisuje ją do przyszłych żądań.
 
-  Ustawienie weryfikacji zaplecza pokazuje, *kiedy pamięć* podręczna porównuje pliki z plikami źródłowymi w magazynie zdalnym. W pamięci podręcznej platformy Azure HPC można jednak wymusić Porównanie plików przez wykonanie operacji katalogu zawierającej żądanie READDIRPLUS. READDIRPLUS to standardowy interfejs API systemu plików NFS (nazywany także rozszerzonym odczytem), który zwraca metadane katalogu, co powoduje, że pamięć podręczna będzie porównywać i aktualizować pliki.
+  Ustawienie weryfikacji serwera końcowego pokazuje, kiedy pamięć podręczna *automatycznie* porównuje swoje pliki z plikami źródłowymi w magazynie zdalnym. Można jednak wymusić porównywanie Azure HPC Cache, wykonując operację katalogu, która zawiera żądanie readdirplus. Readdirplus to standardowy interfejs API systemu plików NFS (nazywany również rozszerzonym odczytem), który zwraca metadane katalogu, co powoduje, że pamięć podręczna porównuje i aktualizuje pliki.
 
-Modele użycia wbudowane w pamięć podręczną platformy Azure HPC mają różne wartości dla tych ustawień, dzięki czemu można wybrać najlepszą kombinację dla danej sytuacji.
+Modele użycia wbudowane w Azure HPC Cache mają różne wartości dla tych ustawień, dzięki czemu można wybrać najlepszą kombinację dla swojej sytuacji.
 
-## <a name="choose-the-right-usage-model-for-your-workflow"></a>Wybierz odpowiedni model użycia dla przepływu pracy
+## <a name="choose-the-right-usage-model-for-your-workflow"></a>Wybieranie odpowiedniego modelu użycia dla przepływu pracy
 
-Należy wybrać model użycia dla każdego używanego docelowego magazynu systemu plików NFS. Cele magazynu obiektów blob platformy Azure mają wbudowany model użycia, którego nie można dostosować.
+Należy wybrać model użycia dla każdego obiektu docelowego magazynu protokołu NFS, który jest używany. Obiekty docelowe usługi Azure Blob Storage mają wbudowany model użycia, których nie można dostosować.
 
-Modele użycia pamięci podręcznej HPC umożliwiają wybranie sposobu zrównoważenia szybkiej reakcji z ryzykiem pobierania starych danych. Jeśli chcesz zoptymalizować szybkość odczytywania plików, możesz nie zadbać o to, czy pliki w pamięci podręcznej są sprawdzane względem plików zaplecza. Z drugiej strony, jeśli chcesz upewnić się, że pliki są zawsze aktualne z magazynem zdalnym, wybierz model, który sprawdza się często.
+HPC Cache modeli użycia pozwalają wybrać sposób równoważenia szybkiej reakcji z ryzykiem uzyskania nieaktualnych danych. Jeśli chcesz zoptymalizować szybkość odczytywania plików, może nie być konieczne, czy pliki w pamięci podręcznej są sprawdzane względem plików serwera końcowego. Z drugiej strony, jeśli chcesz upewnić się, że pliki są zawsze aktualne w magazynie zdalnym, wybierz model, który często sprawdza.
 
-Są to opcje modelu użycia:
+Oto opcje modelu użycia:
 
-* **Czytaj duże, rzadko** występujące zapisy — Użyj tej opcji, jeśli chcesz przyspieszyć dostęp do odczytu do plików, które są statyczne lub rzadko zmieniane.
+* **Odczyt dużych, rzadkich** zapisu — użyj tej opcji, jeśli chcesz przyspieszyć dostęp do odczytu do plików, które są statyczne lub rzadko zmieniane.
 
-  Ta opcja powoduje buforowanie odczytów klienta, ale nie buforuje operacji zapisu. Natychmiast przejdzie zapis do magazynu zaplecza.
+  Ta opcja buforuje odczyty klienta, ale nie buforuje zapisu. Natychmiast przekazuje on zapis do magazynu na zadomowie.
   
-  Pliki przechowywane w pamięci podręcznej nie są automatycznie porównywane z plikami znajdującymi się na woluminie magazynu NFS. (Przeczytaj opis weryfikacji zaplecza powyżej, aby dowiedzieć się, jak porównać je ręcznie).
+  Pliki przechowywane w pamięci podręcznej nie są automatycznie porównywane z plikami na woluminie magazynu NFS. (Przeczytaj powyższy opis weryfikacji za pomocą usługi Back-End, aby dowiedzieć się, jak porównać je ręcznie).
 
-  Nie należy używać tej opcji, jeśli istnieje ryzyko, że plik może być modyfikowany bezpośrednio w systemie magazynu bez wcześniejszego zapisania go w pamięci podręcznej. W takim przypadku buforowana wersja pliku nie jest zsynchronizowana z plikiem zaplecza.
+  Nie używaj tej opcji, jeśli istnieje ryzyko, że plik może zostać zmodyfikowany bezpośrednio w systemie magazynu bez wcześniejszego zapisywania go w pamięci podręcznej. W takim przypadku buforowana wersja pliku nie będzie zsynchronizowana z plikiem back-end.
 
-* **Więcej niż 15% zapisów** — ta opcja przyspiesza zarówno wydajność odczytu, jak i zapisu. W przypadku korzystania z tej opcji Wszyscy klienci muszą uzyskać dostęp do plików za pośrednictwem pamięci podręcznej platformy Azure HPC zamiast bezpośrednio zainstalować magazyn zaplecza. Pliki w pamięci podręcznej będą miały ostatnio wprowadzone zmiany, które nie zostały jeszcze skopiowane do zaplecza.
+* **Więcej niż 15%** zapisu — ta opcja przyspiesza zarówno wydajność odczytu, jak i zapisu. W przypadku korzystania z tej opcji wszyscy klienci muszą uzyskać dostęp do plików za pośrednictwem Azure HPC Cache zamiast bezpośrednio instalowanie magazynu na zadomowie. Buforowane pliki będą mieć ostatnio wprowadzone zmiany, które nie zostały jeszcze skopiowane do serwera back end.
 
-  W tym modelu użycia pliki w pamięci podręcznej są sprawdzane tylko względem plików w magazynie zaplecza co osiem godzin. Założono, że w pamięci podręcznej znajduje się nowsza wersja pliku. Zmodyfikowany plik w pamięci podręcznej jest zapisywana w systemie magazynu zaplecza, gdy był w pamięci podręcznej przez 20 minut<!-- an hour --> bez dodatkowych zmian.
+  W tym modelu użycia pliki w pamięci podręcznej są sprawdzane tylko pod kątem plików w magazynie back-end co osiem godzin. Zakłada się, że buforowana wersja pliku jest bardziej aktualna. Zmodyfikowany plik w pamięci podręcznej jest zapisywany w systemie magazynu na zakładzie przez 20 minut<!-- an hour --> bez żadnych dodatkowych zmian.
 
-* **Klienci zapisują w miejscu DOCELOWYM NFS, pomijając pamięć podręczną** — wybierz tę opcję, jeśli dowolni klienci w przepływie pracy zapisują dane bezpośrednio w systemie magazynu bez wcześniejszego zapisu w pamięci podręcznej lub jeśli chcesz zoptymalizować spójność danych. Pliki, które żądania klientów są buforowane (odczyt), ale wszelkie zmiany plików z klienta (zapis) nie są buforowane. Są one przenoszone bezpośrednio do systemu magazynu zaplecza.
+* Klienci zapis do obiektu docelowego **systemu plików NFS z** pominięciem pamięci podręcznej — wybierz tę opcję, jeśli dowolny klient w przepływie pracy zapisuje dane bezpośrednio w systemie magazynu bez wcześniejszego zapisu w pamięci podręcznej lub jeśli chcesz zoptymalizować spójność danych. Pliki, których żądają klienci, są buforowane (odczyty), ale wszelkie zmiany tych plików z klienta (zapisu) nie są buforowane. Są one przekazywane bezpośrednio do systemu magazynowania na zakładzie.
 
-  W tym modelu użycia pliki w pamięci podręcznej są często sprawdzane względem wersji zaplecza aktualizacji — co 30 sekund. Ta weryfikacja pozwala na zmianę plików poza pamięcią podręczną przy zachowaniu spójności danych.
+  W przypadku tego modelu użycia pliki w pamięci podręcznej są często sprawdzane pod kątem aktualizacji w wersjach serwera końcowego — co 30 sekund. Ta weryfikacja umożliwia zmiany plików poza pamięcią podręczną przy zachowaniu spójności danych.
 
   > [!TIP]
-  > Pierwsze trzy podstawowe modele użycia mogą służyć do obsługi większości przepływów pracy pamięci podręcznej platformy Azure HPC. Kolejne opcje dotyczą mniej typowych scenariuszy.
+  > Pierwsze trzy podstawowe modele użycia mogą być używane do obsługi większości Azure HPC Cache przepływów pracy. Następne opcje są dostępne dla mniej typowych scenariuszy.
 
-* Ponad **15% zapisów, sprawdzanie serwera zapasowego pod kątem zmian co 30 sekund** i ponad **15% zapisów, sprawdzanie serwera zapasowego pod kątem zmian co 60 sekund** — te opcje są przeznaczone dla przepływów pracy, w których chcesz przyspieszyć operacje odczytu i zapisu, ale istnieje szansa, że inny użytkownik będzie zapisywać bezpośrednio w systemie magazynu zaplecza. Na przykład jeśli wiele zestawów klientów pracuje nad tymi samymi plikami z różnych lokalizacji, te modele użycia mogą mieć sens, aby zrównoważyć potrzebę szybkiego dostępu do plików z niską tolerancją dla starej zawartości ze źródła.
+* Więcej niż **15% zapisu,** sprawdzanie serwera zapasowego pod kątem zmian co 30 sekund i więcej niż **15% zapisu,** sprawdzanie serwera zapasowego pod kątem zmian co 60 sekund — te opcje są przeznaczone dla przepływów pracy, w których chcesz przyspieszyć zarówno odczyt, jak i zapis, ale istnieje możliwość, że inny użytkownik będzie zapisywać bezpośrednio w systemie magazynu na zakładzie. Jeśli na przykład wiele zestawów klientów pracuje nad tymi samymi plikami z różnych lokalizacji, te modele użycia mogą mieć sens, aby zrównoważyć potrzebę szybkiego dostępu do plików z niską tolerancją nieaktualnej zawartości ze źródła.
 
-* **Więcej niż 15% zapisów, zapisuj z powrotem na serwerze co 30 sekund** — ta opcja jest przeznaczona dla scenariusza, w którym wielu klientów aktywnie modyfikuje te same pliki lub jeśli niektórzy klienci uzyskują dostęp do magazynu zaplecza bezpośrednio zamiast przy instalowaniu pamięci podręcznej.
+* Więcej niż **15% zapisu,** zapisuj z powrotem na serwerze co 30 sekund — ta opcja jest przeznaczona dla scenariusza, w którym wielu klientów aktywnie modyfikuje te same pliki lub jeśli niektórzy klienci bezpośrednio uzyskają dostęp do magazynu zadomowienia zamiast instalowanie pamięci podręcznej.
 
-  Częste zapisy zaplecza mają wpływ na wydajność pamięci podręcznej, dlatego należy rozważyć użycie **więcej niż 15% zapisów** w przypadku, gdy istnieje niewielkie ryzyko konfliktu plików — na przykład, Jeśli wiesz, że różni klienci pracują w różnych obszarach tego samego zestawu plików.
+  Częste zapis w zapotrzebowanej pamięci podręcznej ma wpływ na wydajność pamięci podręcznej, dlatego należy rozważyć użycie modelu użycia większe niż **15%** zapisu w przypadku niskiego ryzyka konfliktu plików — na przykład jeśli wiesz, że różni klienci pracują w różnych obszarach tego samego zestawu plików.
 
-* **Odczytaj duże, sprawdzaj serwer zapasowy co 3 godziny** — ta opcja określa priorytety szybkiego odczytu po stronie klienta, ale również odświeża buforowane pliki z systemu magazynu zaplecza regularnie, w przeciwieństwie do **odczytu dużego, rzadko** występujące zapisy.
+* Odczyt intensywne, sprawdzanie serwera zapasowego co **3** godziny — ta opcja określa priorytet szybkich odczytów po stronie klienta, a także regularnie odświeża pliki buforowane z systemu magazynowania na zakładzie, w przeciwieństwie do modelu użycia Odczyt z dużym obciążeniem, rzadkimi zapisami. 
 
 Ta tabela zawiera podsumowanie różnic między modelami użycia:
 
 [!INCLUDE [usage-models-table.md](includes/usage-models-table.md)]
 
-Jeśli masz pytania dotyczące najlepszego modelu użycia dla przepływu pracy pamięci podręcznej platformy Azure HPC, skontaktuj się z przedstawicielem platformy Azure lub Otwórz żądanie pomocy technicznej, aby uzyskać pomoc.
+Jeśli masz pytania dotyczące najlepszego modelu użycia dla przepływu pracy usługi Azure HPC Cache, porozmawiaj z przedstawicielem platformy Azure lub otwórz wniosek o pomoc techniczną, aby uzyskać pomoc.
 
-## <a name="know-when-to-remount-clients-for-nlm"></a>Informacje o tym, kiedy należy ponownie zainstalować klientów dla usługi NLM
+## <a name="know-when-to-remount-clients-for-nlm"></a>Wiedzieć, kiedy ponownie instalować klientów dla nlm
 
-W niektórych sytuacjach może być konieczne ponowne zainstalowanie klientów w przypadku zmiany modelu użycia miejsca docelowego magazynu. Jest to niezbędny sposób, ponieważ różne modele użycia obsługują żądania programu Network Lock Manager (NLM).
+W niektórych sytuacjach może być konieczne ponowne odinstalowanie klientów w przypadku zmiany modelu użycia obiektu docelowego magazynu. Jest to wymagane ze względu na sposób, w jaki różne modele użycia obsługują żądania menedżera blokady sieci (NLM).
 
-Pamięć podręczna HPC znajduje się między klientami a systemem magazynu zaplecza. Zwykle pamięć podręczna przekazuje żądania NLM do systemu magazynu zaplecza, ale w niektórych sytuacjach sama pamięć podręczna potwierdza żądanie NLM i zwraca wartość do klienta. W pamięci podręcznej platformy Azure HPC dzieje się to tylko wtedy, gdy używasz modelu użycia **Odczytaj duże, rzadko** występujące zapisy (lub w standardowym miejscu docelowym magazynu obiektów blob, które nie mają konfigurowalnych modeli użycia).
+Klient HPC Cache między klientami a systemem magazynu na zakładzie. Zazwyczaj pamięć podręczna przekazuje żądania NLM do systemu magazynu na zadomowie, ale w niektórych sytuacjach sama pamięć podręczna potwierdza żądanie NLM i zwraca wartość do klienta. W Azure HPC Cache dzieje się tak tylko w przypadku używania modelu użycia Odczyt **duży,** rzadki zapis (lub w przypadku standardowego obiektu docelowego magazynu obiektów blob, który nie ma konfigurowalnych modeli użycia).
 
-Istnieje niewielkie ryzyko konfliktu plików w przypadku zmiany między **odczytanym i nierzadko zapisywanym** modelem użycia i innym modelem użycia. Nie ma sposobu na przeniesienie bieżącego stanu NLM z pamięci podręcznej do systemu magazynu ani na odwrót. Stan blokady klienta jest niedokładny.
+Istnieje niewielkie ryzyko konfliktu plików w przypadku zmiany między modelem użycia odczytu o dużym **lub** rzadkim użyciu zapisu a innym modelem użycia. Nie ma możliwości przeniesienia bieżącego stanu NLM z pamięci podręcznej do systemu magazynu lub na odwrót. W związku z tym stan blokady klienta jest niedokładny.
 
-Zainstaluj ponownie klientów, aby upewnić się, że mają prawidłowy stan NLM z nowym menedżerem blokad.
+Ponownie odinstaluj klientów, aby upewnić się, że nowy menedżer blokady ma dokładny stan NLM.
 
-Jeśli klient wysyła żądanie NLM, gdy model użycia lub magazyn zaplecza nie obsługuje tego żądania, spowoduje to wyświetlenie błędu.
+Jeśli klienci wysyłają żądanie NLM, gdy model użycia lub magazyn wewnętrzny go nie obsługuje, zostanie wyświetlony błąd.
 
-### <a name="disable-nlm-at-client-mount-time"></a>Wyłącz funkcję NLM na czas instalacji klienta
+### <a name="disable-nlm-at-client-mount-time"></a>Wyłączanie funkcji NLM podczas instalacji klienta
 
-Nie zawsze jest łatwo wiadomo, czy systemy klienckie będą wysyłać żądania NLM.
+Nie zawsze jest łatwo ustalić, czy systemy klienckie będą wysyłać żądania NLM.
 
-Można wyłączyć NLM, gdy klienci instalują klaster przy użyciu opcji ``-o nolock`` w ``mount`` poleceniu.
+Funkcję NLM można wyłączyć, gdy klienci zainstalują klaster przy użyciu opcji ``-o nolock`` w ``mount`` poleceniu .
 
-Dokładne zachowanie ``nolock`` opcji zależy od systemu operacyjnego klienta, dlatego należy zapoznać się z dokumentacją instalacji (Man 5 NFS) dla systemu operacyjnego klienta. W większości przypadków blokada jest przenoszona lokalnie na klienta. Należy zachować ostrożność, jeśli aplikacja blokuje pliki na wielu klientach.
+Dokładne zachowanie opcji zależy od systemu operacyjnego klienta, dlatego sprawdź dokumentację instalacji ``nolock`` (man 5 nfs) dla systemu operacyjnego klienta. W większości przypadków blokada jest przenosina lokalnie do klienta. Należy zachować ostrożność, jeśli aplikacja blokuje pliki na wielu klientach.
 
 > [!NOTE]
-> ADLS — system plików NFS nie obsługuje NLM. W przypadku korzystania z miejsca docelowego magazynu ADLS-NFS należy wyłączyć funkcję NLM z powyższej opcji instalacji.
+> AdLS-NFS nie obsługuje nlm. W przypadku korzystania z obiektu docelowego magazynu ADLS-NFS należy wyłączyć funkcję NLM z opcją instalacji powyżej.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dodawanie obiektów docelowych magazynu](hpc-cache-add-storage.md) do pamięci podręcznej platformy Azure HPC
+* [Dodawanie obiektów docelowych](hpc-cache-add-storage.md) magazynu do Azure HPC Cache

@@ -1,36 +1,36 @@
 ---
-title: Omówienie usługi Azure Defender i dostępnych planów
-description: Dowiedz się więcej na temat planów, ochrony i alertów usługi Azure Defender. Następnie Włącz usługę Azure Defender w ramach subskrypcji, aby uzyskać zaawansowane zabezpieczenia.
+title: Omówienie Azure Defender i dostępnych planów
+description: Dowiedz się Azure Defender o planach, zabezpieczeniach i alertach firmy. Następnie włącz Azure Defender subskrypcji w celu zabezpieczenia zaawansowanego.
 author: memildin
 ms.author: memildin
 ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: aafd4c6695101042cb30a44e1d2bd30611256779
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0bd0d9c2230b8400aa3197044f944daceb93c715
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102096160"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718525"
 ---
 # <a name="introduction-to-azure-defender"></a>Wprowadzenie do usługi Azure Defender
 
-Funkcje Azure Security Center obejmują dwa szerokie filary zabezpieczeń w chmurze:
+Azure Security Center te funkcje obejmują dwa szerokie filary zabezpieczeń w chmurze:
 
-- **Cloud Security stan Management (CSPM)** — Security Center jest dostępna **bezpłatnie** dla wszystkich użytkowników platformy Azure. Bezpłatne środowisko obejmuje funkcje CSPM, takie jak bezpieczny wynik, wykrywanie błędnej konfiguracji zabezpieczeń na maszynach platformy Azure, spis zasobów i wiele innych. Korzystaj z tych funkcji CSPM, aby wzmocnić stan chmury hybrydowej i śledzić zgodność z wbudowanymi zasadami.
+- **Zarządzanie poziomem zabezpieczeń w chmurze (CSPM)** — Security Center jest dostępna **bezpłatnie dla** wszystkich użytkowników platformy Azure. Bezpłatne środowisko obejmuje funkcje CSPM, takie jak ocena bezpieczeństwa, wykrywanie błędów konfiguracji zabezpieczeń na maszynach platformy Azure, spis zasobów i inne. Użyj tych funkcji CSPM, aby zwiększyć swoje możliwości chmury hybrydowej i śledzić zgodność z wbudowanymi zasadami.
 
-- **Ochrona obciążenia w chmurze (CWP)** — Security Center Zintegrowana platforma ochrony obciążeń w chmurze (CWPP), **Azure Defender**, zapewnia zaawansowane, inteligentne, ochronę zasobów platformy Azure i hybrydowych oraz obciążeń. Włączenie usługi Azure Defender umożliwia korzystanie z szeregu dodatkowych funkcji zabezpieczeń, zgodnie z opisem na tej stronie. Oprócz wbudowanych zasad, po włączeniu dowolnego planu usługi Azure Defender można dodać zasady niestandardowe i inicjatywy. Możesz dodać standardy prawne, takie jak NIST i Azure CIS, jak również test porównawczy zabezpieczeń platformy Azure, aby uzyskać naprawdę dostosowany widok zgodności.
+- Ochrona obciążeń w chmurze **(CWP)** — zintegrowana platforma ochrony obciążeń w chmurze (CWPP) firmy **Security Center, Azure Defender , zapewnia** zaawansowaną, inteligentną ochronę platformy Azure oraz hybrydowych zasobów i obciążeń. Włączenie Azure Defender zapewnia szereg dodatkowych funkcji zabezpieczeń zgodnie z opisem na tej stronie. Oprócz wbudowanych zasad po włączeniu dowolnego planu Azure Defender można dodawać niestandardowe zasady i inicjatywy. Możesz dodać standardy prawne — takie jak NIST i Azure CIS — a także test porównawczy zabezpieczeń platformy [Azure,](https://docs.microsoft.com/security/benchmark/azure/introduction) aby uzyskać prawdziwie dostosowany widok zgodności.
 
-Pulpit nawigacyjny usługi Azure Defender w Security Center zapewnia widoczność i kontrolę funkcji CWP w środowisku:
+Pulpit Azure Defender nawigacyjny w Security Center zapewnia widoczność i kontrolę nad funkcjami platformy CWP w twoim środowisku:
 
-:::image type="content" source="./media/azure-defender/sample-defender-dashboard.png" alt-text="Przykład pulpitu nawigacyjnego usługi Azure Defender" lightbox="./media/azure-defender/sample-defender-dashboard.png":::
+:::image type="content" source="./media/azure-defender/sample-defender-dashboard.png" alt-text="Przykład pulpitu nawigacyjnego Azure Defender nawigacyjnym" lightbox="./media/azure-defender/sample-defender-dashboard.png":::
 
-## <a name="what-resource-types-can-azure-defender-secure"></a>Jakie typy zasobów można zabezpieczyć za pomocą usługi Azure Defender?
+## <a name="what-resource-types-can-azure-defender-secure"></a>Jakie typy zasobów można Azure Defender zabezpieczać?
 
-Usługa Azure Defender udostępnia alerty zabezpieczeń i zaawansowaną ochronę przed zagrożeniami dla maszyn wirtualnych, baz danych SQL, kontenerów, aplikacji sieci Web, sieci i innych.
+Azure Defender alerty zabezpieczeń i zaawansowaną ochronę przed zagrożeniami dla maszyn wirtualnych, baz danych SQL, kontenerów, aplikacji internetowych, sieci i innych.
 
-Po włączeniu usługi Azure Defender w obszarze **cennika i ustawienia** Azure Security Center następujące plany usługi Defender są dostępne jednocześnie i zapewniają kompleksowe zabezpieczenia dla warstw obliczeniowych, danych i usług w środowisku:
+Po włączeniu usługi Azure Defender  z obszaru Ceny i ustawienia usługi Azure Security Center wszystkie następujące plany usługi Defender są włączane jednocześnie i zapewniają kompleksową ochronę warstw obliczeniowych, danych i usług środowiska:
 
 - [Usługa Azure Defender dla serwerów](defender-for-servers-introduction.md)
 - [Usługa Azure Defender dla usługi App Service](defender-for-app-service-introduction.md)
@@ -42,61 +42,61 @@ Po włączeniu usługi Azure Defender w obszarze **cennika i ustawienia** Azure 
 - [Usługa Azure Defender dla usługi Resource Manager](defender-for-resource-manager-introduction.md)
 - [Usługa Azure Defender dla usługi DNS](defender-for-dns-introduction.md)
 
-Każdy z tych planów został opisany osobno w dokumentacji Security Center.
+Każdy z tych planów został szczegółowo wyjaśniony w Security Center dokumentacji.
 
 > [!TIP]
-> Usługa Azure Defender for IoT (wersja zapoznawcza) to odrębny produkt. Wszystkie szczegóły znajdują się w temacie [wprowadzenie do usługi Azure Defender for IoT (wersja zapoznawcza)](../defender-for-iot/overview.md). 
+> Azure Defender dla IoT (wersja zapoznawcza) to oddzielny produkt. Wszystkie szczegóły znajdziesz w te tematze Wprowadzenie do Azure Defender dla IoT [(wersja zapoznawcza).](../defender-for-iot/overview.md) 
 
 ## <a name="hybrid-cloud-protection"></a>Ochrona chmury hybrydowej
 
-Oprócz obrony środowiska platformy Azure można dodać możliwości usługi Azure Defender do środowiska chmury hybrydowej:
+Możesz nie tylko chronić środowisko platformy Azure, ale także dodawać Azure Defender do środowiska chmury hybrydowej:
 
 - Ochrona serwerów spoza platformy Azure
 - Ochrona maszyn wirtualnych w innych chmurach (takich jak AWS i GCP)
 
-Będziesz otrzymywać dostosowane analizy zagrożeń i alerty z priorytetami zgodnie z określonym środowiskiem, dzięki czemu możesz skupić się na tym, co najważniejsze.
+Otrzymasz niestandardową analizę zagrożeń i alerty z określonymi priorytetami w zależności od środowiska, dzięki czemu możesz skupić się na tym, co ma największe znaczenie.
 
-Aby zwiększyć ochronę do maszyn wirtualnych i baz danych SQL, które znajdują się w innych chmurach lub lokalnie, wdróż [usługę Azure Arc](https://azure.microsoft.com/services/azure-arc/) i Włącz usługę Azure Defender. Usługa Azure ARC dla serwerów jest bezpłatną usługą, ale usługi, które są używane na serwerach z obsługą łuku, na przykład Azure Defender, będą obciążane opłatami za ceny za usługę. Dowiedz się więcej na temat [dodawania maszyn spoza platformy Azure przy użyciu usługi Azure Arc](quickstart-onboard-machines.md#add-non-azure-machines-with-azure-arc).
+Aby rozszerzyć ochronę na maszyny wirtualne i bazy danych SQL, które znajdują się w innych chmurach lub lokalnie, należy [wdrożyć](https://azure.microsoft.com/services/azure-arc/) Azure Arc i włączyć Azure Defender. Azure Arc dla serwerów jest bezpłatną usługą, ale usługi używane na serwerach z usługą Arc, na przykład Azure Defender, będą naliczane zgodnie z cennikiem tej usługi. Aby dowiedzieć się [więcej, zobacz Dodawanie maszyn spoza platformy Azure za pomocą Azure Arc](quickstart-onboard-machines.md#add-non-azure-machines-with-azure-arc).
 
 > [!TIP]
-> Łącznik natywny dla AWS w sposób przezroczysty obsługuje wdrożenie usługi Azure Arc. Dowiedz się więcej w temacie [Łączenie kont AWS z Azure Security Center](quickstart-onboard-aws.md).
+> Łącznik natywny dla usług AWS w sposób przezroczysty obsługuje Azure Arc wdrożenia. Aby dowiedzieć się [więcej, zobacz Łączenie kont usług AWS z Azure Security Center](quickstart-onboard-aws.md).
 
 
 
-## <a name="azure-defender-security-alerts"></a>Alerty zabezpieczeń usługi Azure Defender 
+## <a name="azure-defender-security-alerts"></a>Azure Defender alerty zabezpieczeń 
 
-Gdy usługa Azure Defender wykryje zagrożenie w dowolnym obszarze środowiska, generuje alert zabezpieczeń. Te alerty opisują szczegóły zasobów, których to dotyczy, sugerowane kroki zaradcze, a w niektórych przypadkach opcja wyzwalająca aplikację logiki w odpowiedzi.
+Gdy Azure Defender wykryje zagrożenie w dowolnym obszarze środowiska, generuje alert zabezpieczeń. Te alerty opisują szczegóły zasobów, których dotyczy problem, sugerowane kroki korygowania, a w niektórych przypadkach opcję wyzwalania aplikacji logiki w odpowiedzi.
 
-Czy alert jest generowany przez Security Center, czy odbierany przez Security Center z zintegrowanego produktu zabezpieczeń, można go wyeksportować. Aby wyeksportować alerty do platformy Azure, wszelkich SIEM innych firm lub innych zewnętrznych narzędzi, postępuj zgodnie z instrukcjami zawartymi w [alertach przesyłania strumieniowego do Siem, o lub rozwiązania do zarządzania usługami IT](export-to-siem.md).
+Niezależnie od tego, czy alert jest generowany przez Security Center, czy odbierany przez Security Center od zintegrowanego produktu zabezpieczającego, można go wyeksportować. Aby wyeksportować alerty do rozwiązania Azure Sentinel, dowolnego rozwiązania SIEM innej firmy lub dowolnego innego narzędzia zewnętrznego, postępuj zgodnie z instrukcjami w tesłudze Stream [alerts to a SIEM, SOAR,](export-to-siem.md)or IT Service Management solution (Alerty usługi Stream do rozwiązania SIEM, SOAR lub zarządzania usługami IT).
 
 > [!NOTE]
-> Alerty z różnych źródeł mogą mieć różne ilości czasu. Na przykład alerty wymagające analizy ruchu sieciowego mogą trwać dłużej niż alerty związane z podejrzanymi procesami uruchomionymi na maszynach wirtualnych.
+> Alerty z różnych źródeł mogą pojawiać się w różnych ilościach czasu. Na przykład alerty wymagające analizy ruchu sieciowego mogą być wyświetlane dłużej niż alerty związane z podejrzanymi procesami uruchomionymi na maszynach wirtualnych.
 
 
-## <a name="azure-defender-advanced-protection-capabilities"></a>Zaawansowane możliwości ochrony usługi Azure Defender
+## <a name="azure-defender-advanced-protection-capabilities"></a>Azure Defender zaawansowane funkcje ochrony
 
-Usługa Azure Defender używa zaawansowanej analizy na potrzeby dostosowanych zaleceń dotyczących Twoich zasobów. 
+Azure Defender korzysta z zaawansowanej analizy w celu przygotowania dostosowanych zaleceń związanych z zasobami. 
 
-Ochrona obejmuje Zabezpieczanie portów zarządzania na maszynach wirtualnych za pomocą dostępu just in Time i adaptacyjnych kontrolek aplikacji w celu tworzenia list dozwolonych aplikacji, które nie powinny być uruchamiane na maszynach. 
+Zabezpieczenia obejmują zabezpieczanie portów zarządzania maszyn wirtualnych za pomocą dostępu just in time i adaptacyjnych kontrolek aplikacji w celu tworzenia list zezwalania dla aplikacji, które powinny i nie powinny być uruchamiane na maszynach. 
 
-Użyj kafelków ochrony zaawansowanej na pulpicie nawigacyjnym usługi Azure Defender, aby monitorować i konfigurować każdą z tych ochrony. 
+Kafelki zaawansowanej ochrony na pulpicie nawigacyjnym Azure Defender do monitorowania i konfigurowania każdej z tych ochrony. 
 
 ## <a name="vulnerability-assessment-and-management"></a>Ocena luk w zabezpieczeniach i zarządzanie nimi
 
-Usługa Azure Defender obejmuje skanowanie w poszukiwaniu luk w zabezpieczeniach maszyn wirtualnych i rejestrów kontenerów bez dodatkowych kosztów. Skanery są obsługiwane przez Qualys, ale nie jest potrzebna licencja Qualys, a nawet konto Qualys — wszystko, co jest obsługiwane bezproblemowo w Security Center. 
+Azure Defender obejmuje skanowanie luk w zabezpieczeniach maszyn wirtualnych i rejestrów kontenerów bez dodatkowych kosztów. Skanery są obsługiwane przez firmę Qualys, ale nie potrzebujesz licencji firmy Qualys ani nawet konta Qualys — wszystko jest bezproblemowo obsługiwane w Security Center. 
 
-Zapoznaj się z wynikami tych skanerów luk w zabezpieczeniach i zareaguj na nie w Security Center. Pozwala to Security Center bliżej jednego z okien szklanych dla wszystkich wysiłków związanych z bezpieczeństwem w chmurze.
+Przejrzyj wyniki tych skanerów luk w zabezpieczeniach i odpowiedz na nie z poziomu Security Center. To przybliża Security Center do tego, że jest to pojedyncze okienko dla wszystkich wysiłków w zakresie zabezpieczeń w chmurze.
 
 Dowiedz się więcej na następujących stronach:
 
-- [Security Center rozwiązanie do oceny luk w zabezpieczeniach dla usługi Azure Virtual Machines](deploy-vulnerability-assessment-vm.md)
+- [Security Center zintegrowane rozwiązanie do oceny luk w zabezpieczeniach dla maszyn wirtualnych platformy Azure](deploy-vulnerability-assessment-vm.md)
 - [Identyfikowanie luk w zabezpieczeniach obrazów w rejestrach kontenerów platformy Azure](defender-for-container-registries-usage.md#identify-vulnerabilities-in-images-in-other-container-registries)
 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Ten artykuł zawiera informacje o korzyściach płynących z usługi Azure Defender. 
+W tym artykule o wiesz już, jakie są zalety Azure Defender. 
 
 > [!div class="nextstepaction"]
 > [Włączanie usługi Azure Defender](enable-azure-defender.md)

@@ -107,8 +107,6 @@
       href: reference-reports-data-retention.md
     - name: Opóźnienia raportowania
       href: reference-reports-latencies.md
-    - name: Kody błędów logowania
-      href: reference-sign-ins-error-codes.md
     - name: Często zadawane pytania
       href: reports-faq.md
     - name: Schemat dziennika inspekcji

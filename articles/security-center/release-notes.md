@@ -1,5 +1,5 @@
 ---
-title: Informacje o wersji Azure Security Center
+title: Informacje o wersji dla Azure Security Center
 description: Opis nowości i zmian w programie Azure Security Center
 author: memildin
 manager: rkarlin
@@ -7,544 +7,544 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 04/11/2021
 ms.author: memildin
-ms.openlocfilehash: 3e4dddf61656ea38bac406366bf993788fd34943
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: bb79bbe918bb1a68b982ae4d44739c2c77a11434
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303155"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107719155"
 ---
-# <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
+# <a name="whats-new-in-azure-security-center"></a>Co nowego w programie Azure Security Center?
 
-Security Center jest aktywnym programowaniem i od bieżąco otrzymuje ulepszenia. Ta strona zawiera informacje o nowych funkcjach, poprawkach błędów i przestarzałych funkcjach, aby zachować aktualność.
+Security Center jest aktywnie projektowy i na bieżąco otrzymuje ulepszenia. Aby być na bieżąco z najnowszymi zmianami, ta strona zawiera informacje o nowych funkcjach, poprawkach błędów i przestarzałych funkcjach.
 
-Ta strona jest często aktualizowana, więc często należy ją ponownie odwiedzać. 
+Ta strona jest często aktualizowana, więc często się z niej ponownie wybieraj. 
 
-Aby dowiedzieć się o *planowanych* zmianach, które wkrótce zostaną udostępnione Security Center, zobacz [Ważne zmiany nadchodzące Azure Security Center](upcoming-changes.md). 
+Aby dowiedzieć się więcej *na temat* planowanych zmian, które zostaną wprowadzone Security Center, zobacz Ważne nadchodzące zmiany w [Azure Security Center](upcoming-changes.md). 
 
 > [!TIP]
-> Jeśli szukasz elementów starszych niż sześć miesięcy, znajdziesz je w [archiwum, co nowego w programie Azure Security Center](release-notes-archive.md).
+> Jeśli szukasz elementów starszych niż sześć miesięcy, znajdziesz je w archiwum Co nowego w Azure Security Center [.](release-notes-archive.md)
 
-## <a name="april-2021"></a>Kwiecień 2021
+## <a name="april-2021"></a>Kwiecień 2021 r.
 
 Aktualizacje w kwietniu obejmują:
-- [Ostatnio pobierane obrazy rejestru kontenerów są teraz ponownie skanowane co tydzień (ogólna dostępność)](#recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability)
-- [Użyj usługi Azure Defender for Kubernetes, aby chronić hybrydowe i wielochmurowe wdrożenia Kubernetes (wersja zapoznawcza)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview)
-- [Cztery nowe rekomendacje związane z konfiguracją gościa (wersja zapoznawcza)](#four-new-recommendations-related-to-guest-configuration-preview)
-- [Zalecenia CMK przenoszone do kontroli zabezpieczeń najlepszych rozwiązań](#cmk-recommendations-moved-to-best-practices-security-control)
-- [11 alertów usługi Azure Defender jest przestarzałych](#11-azure-defender-alerts-deprecated)
-- [Dwie zalecenia dotyczące kontroli zabezpieczeń "Zastosuj aktualizacje systemu" były przestarzałe](#two-recommendations-from-apply-system-updates-security-control-were-deprecated)
+- [Ostatnio ściągane obrazy rejestru kontenerów są teraz ponownie skanowane co tydzień (ogólna dostępność)](#recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability)
+- [Używanie Azure Defender dla Kubernetes do ochrony hybrydowych i wielochmurowych wdrożeń platformy Kubernetes (wersja zapoznawcza)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview)
+- [Cztery nowe zalecenia dotyczące konfiguracji gościa (wersja zapoznawcza)](#four-new-recommendations-related-to-guest-configuration-preview)
+- [Zalecenia dotyczące cmk zostały przeniesione do kontroli zabezpieczeń najlepszych rozwiązań](#cmk-recommendations-moved-to-best-practices-security-control)
+- [11 Azure Defender są przestarzałe](#11-azure-defender-alerts-deprecated)
+- [Dwa zalecenia z kontroli zabezpieczeń "Zastosuj aktualizacje systemu" zostały wycofane](#two-recommendations-from-apply-system-updates-security-control-were-deprecated)
 
-### <a name="recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability"></a>Ostatnio pobierane obrazy rejestru kontenerów są teraz ponownie skanowane co tydzień (ogólna dostępność)
+### <a name="recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability"></a>Ostatnio ściągane obrazy rejestru kontenerów są teraz ponownie skanowane co tydzień (ogólna dostępność)
 
-Usługa Azure Defender dla rejestrów kontenerów zawiera wbudowany skaner luk w zabezpieczeniach. Ten skaner natychmiast skanuje wszystkie obrazy wypychane do rejestru i wszystkie obrazy pobrane w ciągu ostatnich 30 dni.
+Azure Defender rejestrów kontenerów zawiera wbudowany skaner luk w zabezpieczeniach. Ten skaner natychmiast skanuje dowolny obraz wypchnięcie do rejestru i dowolny obraz ściągnięty w ciągu ostatnich 30 dni.
 
-Nowe luki są wykrywane codziennie. W przypadku tej aktualizacji obrazy kontenerów, które zostały pobrane z rejestrów w ciągu ostatnich 30 dni, będą **skanowane** co tydzień. Gwarantuje to, że nowo odnalezione luki zostaną zidentyfikowane w obrazach.
+Nowe luki w zabezpieczeniach są codziennie odkrywane. Dzięki tej aktualizacji obrazy kontenerów, które zostały ściągnięte z rejestrów w ciągu ostatnich 30 dni, będą ponownie **skanowane** co tydzień. Dzięki temu na obrazach zostaną zidentyfikowane nowo wykryte luki w zabezpieczeniach.
 
-W przypadku skanowania jest naliczana opłata za obraz, więc nie ma dodatkowej opłaty za te ponowne skanowania.
+Za skanowanie jest naliczana opłata za każdy obraz, więc za te skany nie są naliczane dodatkowe opłaty.
 
-Dowiedz się więcej na temat tego skanera w temacie [Korzystanie z usługi Azure Defender dla rejestrów kontenerów do skanowania obrazów pod kątem luk w zabezpieczeniach](defender-for-container-registries-usage.md)
-
-
-### <a name="use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview"></a>Użyj usługi Azure Defender for Kubernetes, aby chronić hybrydowe i wielochmurowe wdrożenia Kubernetes (wersja zapoznawcza)
-
-Usługa Azure Defender for Kubernetes rozszerza swoje funkcje ochrony przed zagrożeniami, aby chronić klastry wszędzie tam, gdzie są one wdrożone. Ta funkcja została włączona przez integrację z usługą [Azure ARC z włączonym Kubernetes](../azure-arc/kubernetes/overview.md) i jej nowymi [funkcjami](../azure-arc/kubernetes/extensions.md). 
-
-Po włączeniu usługi Azure Arc w klastrach Kubernetes nie korzystających z platformy Azure nowe zalecenie Azure Security Center oferuje kilka kliknięć.
-
-Użyj zalecenia (w przypadku **klastrów Kubernetes z obsługą usługi Azure Arc powinna być zainstalowana usługa Azure Defender**) i rozszerzenie do ochrony klastrów Kubernetes wdrożonych w innych dostawcach chmury, chociaż nie są one zarządzane przez usługi Kubernetes.
-
-Ta integracja między usługami Azure Security Center, Azure Defender i Azure Arc Kubernetes zapewnia następujące możliwości:
-
-- Łatwa obsługa administracyjna rozszerzenia usługi Azure Defender do niechronionych klastrów Kubernetes z obsługą usługi Azure ARC (ręcznie i w skali)
-- Monitorowanie rozszerzenia usługi Azure Defender i jego stanu aprowizacji za pomocą portalu Azure Arc
-- Zalecenia dotyczące zabezpieczeń z Security Center są zgłaszane na stronie nowe zabezpieczenia w portalu Azure Arc
-- Zidentyfikowane zagrożenia bezpieczeństwa z usługi Azure Defender są zgłaszane na stronie nowe zabezpieczenia w portalu Azure Arc
-- Klastry Kubernetes z obsługą usługi Azure Arc są zintegrowane z platformą Azure Security Center i doświadczeniem
-
-Dowiedz się więcej w temacie [Korzystanie z usługi Azure Defender for Kubernetes z lokalnymi i wielochmurowymi klastrami Kubernetes](defender-for-kubernetes-azure-arc.md).
-
-:::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Security Center zalecenia dotyczące wdrażania rozszerzenia usługi Azure Defender dla klastrów Kubernetes z włączoną funkcją Azure Arc." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
-
-### <a name="four-new-recommendations-related-to-guest-configuration-preview"></a>Cztery nowe rekomendacje związane z konfiguracją gościa (wersja zapoznawcza)
-
-[Rozszerzenie konfiguracji gościa](../governance/policy/concepts/guest-configuration.md) platformy Azure umożliwia zgłaszanie Security Center w celu zapewnienia, że ustawienia w ustawieniach gościa maszyn wirtualnych są zaostrzone. Rozszerzenie nie jest wymagane dla serwerów z włączonym łukiem, ponieważ znajduje się w agencie połączonej maszyny. Rozszerzenie wymaga tożsamości zarządzanej przez system na maszynie.
-
-Dodaliśmy cztery nowe zalecenia do Security Center, aby zapewnić największą część tego rozszerzenia.
-
-- Dwa zalecenia monitują o zainstalowanie rozszerzenia i wymaganą tożsamość zarządzaną przez system:
-    - **Na maszynach należy zainstalować rozszerzenie konfiguracji gościa**
-    - **Rozszerzenie konfiguracji gościa maszyn wirtualnych powinno zostać wdrożone przy użyciu tożsamości zarządzanej przypisanej przez system**
-
-- Gdy rozszerzenie jest zainstalowane i uruchomione, rozpocznie inspekcję maszyn i zostanie wyświetlony monit o ustawienia zabezpieczeń, takie jak konfiguracja systemu operacyjnego i ustawień środowiska. Te dwa zalecenia zamonitują użytkownika o ochronę maszyn z systemami Windows i Linux zgodnie z opisem:
-    - **Funkcja Windows Defender Exploit Guard powinna być włączona na maszynach**
-    - **Uwierzytelnianie na komputerach z systemem Linux powinno wymagać użycia kluczy SSH**
-
-Dowiedz się więcej w temacie [Omówienie konfiguracji gościa Azure Policy](../governance/policy/concepts/guest-configuration.md).
-
-### <a name="cmk-recommendations-moved-to-best-practices-security-control"></a>Zalecenia CMK przenoszone do kontroli zabezpieczeń najlepszych rozwiązań
-
-Program zabezpieczeń każdej organizacji zawiera wymagania dotyczące szyfrowania danych. Domyślnie dane klientów platformy Azure są szyfrowane w stanie spoczynku z kluczami zarządzanymi przez usługę. Jednak klucze zarządzane przez klienta (CMK) są często wymagane do spełnienia standardów zgodności z przepisami. CMKs umożliwiają szyfrowanie danych za pomocą klucza [Azure Key Vault](../key-vault/general/overview.md) utworzonego i należącego do użytkownika. Zapewnia to pełną kontrolę i odpowiedzialność za kluczowy cykl życia, w tym rotację i zarządzanie.
-
-Formanty zabezpieczeń Azure Security Center są logicznymi grupami powiązanych zaleceń dotyczących zabezpieczeń i odzwierciedlają podatne na ataki. Każda kontrolka ma maksymalną liczbę punktów, które można dodać do swojego bezpiecznego wyniku, jeśli korygujesz wszystkie zalecenia wymienione w formancie dla wszystkich zasobów. Kontrola zabezpieczeń **implementacji najlepszych** rozwiązań w zakresie zabezpieczeń to zero punktów. Zalecenia w tym formancie nie wpływają na swój Bezpieczny wynik.
-
-Zalecenia wymienione poniżej są przenoszone do kontroli bezpieczeństwa **implementacji najlepszych** rozwiązań w zakresie zabezpieczeń w celu lepszego odzwierciedlenia ich opcjonalnego charakteru. Ten ruch gwarantuje, że te zalecenia znajdują się w najbardziej odpowiednim formancie w celu spełnienia ich celu.
-
-- Konta Azure Cosmos DB powinny używać kluczy zarządzanych przez klienta do szyfrowania danych magazynowanych
-- Obszary robocze Azure Machine Learning powinny być szyfrowane za pomocą klucza zarządzanego przez klienta (CMK)
-- Konta Cognitive Services powinny włączać szyfrowanie danych za pomocą klucza zarządzanego przez klienta (CMK)
-- Rejestry kontenerów powinny być szyfrowane za pomocą klucza zarządzanego przez klienta (CMK)
-- Wystąpienia zarządzane SQL powinny używać kluczy zarządzanych przez klienta do szyfrowania danych magazynowanych
-- Serwery SQL powinny używać kluczy zarządzanych przez klienta do szyfrowania danych magazynowanych
-- Konta magazynu powinny używać klucza zarządzanego przez klienta (CMK) do szyfrowania
-
-Dowiedz się, które zalecenia znajdują się w każdej kontroli zabezpieczeń w obszarze kontrola [zabezpieczeń i ich zalecenia](secure-score-security-controls.md#security-controls-and-their-recommendations).
+Dowiedz się więcej na temat tego skanera w te Azure Defender do skanowania obrazów w poszukiwaniu luk w zabezpieczeniach za pomocą rejestru [kontenerów.](defender-for-container-registries-usage.md)
 
 
-### <a name="11-azure-defender-alerts-deprecated"></a>11 alertów usługi Azure Defender jest przestarzałych
+### <a name="use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview"></a>Używanie Azure Defender dla Kubernetes do ochrony hybrydowych i wielochmurowych wdrożeń platformy Kubernetes (wersja zapoznawcza)
 
-Jedenaście alertów usługi Azure Defender wymienionych poniżej zostało wycofane.
+Azure Defender dla Kubernetes rozszerza możliwości ochrony przed zagrożeniami, aby chronić klastry wszędzie tam, gdzie są wdrażane. Zostało to włączone dzięki integracji z [Azure Arc kubernetes](../azure-arc/kubernetes/overview.md) i jego [nowymi możliwościami rozszerzeń.](../azure-arc/kubernetes/extensions.md) 
 
-- Nowe alerty zastępują te dwa alerty i zapewniają lepsze pokrycie:
+Po włączeniu usługi Azure Arc w klastrach spoza usługi Azure Kubernetes nowa rekomendacja od usługi Azure Security Center oferuje wdrożenie rozszerzenia Azure Defender za pomocą zaledwie kilku kliknięć.
+
+Skorzystaj z zalecenia (**Azure Arc kubernetes** z włączoną obsługą powinny mieć zainstalowane rozszerzenie usługi Azure Defender ) i rozszerzenie do ochrony klastrów Kubernetes wdrożonych u innych dostawców chmury, chociaż nie w ich zarządzanych usługach Kubernetes.
+
+Ta integracja między Azure Security Center, Azure Defender i Azure Arc kubernetes zapewnia:
+
+- Łatwe aprowizowanie rozszerzenia Azure Defender w niechronionych Azure Arc klastrach Kubernetes (ręcznie i na dużą skalę)
+- Monitorowanie rozszerzenia Azure Defender aprowizowania z witryny Azure Arc Portal
+- Zalecenia dotyczące zabezpieczeń Security Center są zgłaszane na nowej stronie Zabezpieczenia w Azure Arc Portal
+- Zidentyfikowane zagrożenia bezpieczeństwa Azure Defender są zgłaszane na nowej stronie Zabezpieczenia w Azure Arc Portal
+- Azure Arc kubernetes są zintegrowane z platformą Azure Security Center platformą i doświadczeniem
+
+Więcej informacji można [Azure Defender dla Kubernetes Use Azure Defender dla Kubernetes with your on-premises and multi-cloud Kubernetes clusters](defender-for-kubernetes-azure-arc.md)(Używanie usługi Azure Defender dla Kubernetes z lokalnymi i wielochmurowym klastrami Kubernetes).
+
+:::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Security Center wdrażania rozszerzenia Azure Defender dla Azure Arc Kubernetes z włączoną obsługą." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
+
+### <a name="four-new-recommendations-related-to-guest-configuration-preview"></a>Cztery nowe zalecenia dotyczące konfiguracji gościa (wersja zapoznawcza)
+
+Rozszerzenie Konfiguracja [gościa platformy](../governance/policy/concepts/guest-configuration.md) Azure zgłasza Security Center, aby zapewnić, że ustawienia maszyn wirtualnych w gościu są wzmocnione. Rozszerzenie nie jest wymagane dla serwerów z usługą Arc, ponieważ jest zawarte w agencie połączonej maszyny z usługą Arc. Rozszerzenie wymaga tożsamości zarządzanej przez system na maszynie.
+
+Dodaliśmy cztery nowe rekomendacje, aby Security Center jak najlepiej z tego rozszerzenia.
+
+- Dwa zalecenia zawierają monit o zainstalowanie rozszerzenia i jego wymaganej tożsamości zarządzanej przez system:
+    - **Rozszerzenie konfiguracji gościa powinno być zainstalowane na maszynach**
+    - **Rozszerzenie konfiguracji gościa maszyn wirtualnych powinno zostać wdrożone z tożsamością zarządzaną przypisaną przez system**
+
+- Po zainstalowaniu i uruchomieniu rozszerzenia rozpocznie się inspekcja maszyn. Zostanie wyświetlony monit o wzmacnianie ustawień, takich jak konfiguracja ustawień systemu operacyjnego i środowiska. Te dwa zalecenia będą monitować o wzmacnianie zabezpieczeń maszyn z systemami Windows i Linux zgodnie z opisem:
+    - **Windows Defender na maszynach należy włączyć funkcję Exploit Guard**
+    - **Uwierzytelnianie na maszynach z systemem Linux powinno wymagać kluczy SSH**
+
+Dowiedz się więcej [w te Azure Policy konfiguracji gościa programu](../governance/policy/concepts/guest-configuration.md).
+
+### <a name="cmk-recommendations-moved-to-best-practices-security-control"></a>Zalecenia dotyczące cmk zostały przeniesione do kontroli zabezpieczeń najlepszych rozwiązań
+
+Każdy program zabezpieczeń w organizacji obejmuje wymagania dotyczące szyfrowania danych. Domyślnie dane klientów platformy Azure są szyfrowane w spoczynku przy użyciu kluczy zarządzanych przez usługę. Jednak klucze zarządzane przez klienta (CMK) są często wymagane do spełnienia standardów zgodności z przepisami. Cmk umożliwia szyfrowanie danych przy użyciu klucza [Azure Key Vault](../key-vault/general/overview.md) utworzonego i należącego do Ciebie. Zapewnia to pełną kontrolę i odpowiedzialność za cykl życia klucza, w tym rotację i zarządzanie.
+
+Azure Security Center zabezpieczeń są logicznymi grupami powiązanych zaleceń dotyczących zabezpieczeń i odzwierciedlają narażone na ataki. Każda kontrolka ma maksymalną liczbę punktów, które można dodać do oceny bezpieczeństwa w przypadku skorygowania wszystkich zaleceń wymienionych w kontrolce dla wszystkich zasobów. Kontrolka **zabezpieczeń Implementuj najlepsze** rozwiązania w zakresie zabezpieczeń nie ma żadnych punktów. Dlatego rekomendacje w tej kontrolce nie wpływają na ocenę bezpieczeństwa.
+
+Zalecenia wymienione poniżej są przenoszone do kontroli zabezpieczeń **Implementowanie najlepszych** rozwiązań w zakresie zabezpieczeń, aby lepiej odzwierciedlały ich opcjonalny charakter. Dzięki temu można zagwarantować, że te zalecenia będą mieć najwłasniejszy sposób kontroli, aby osiągnąć cel.
+
+- Azure Cosmos DB powinny używać kluczy zarządzanych przez klienta do szyfrowania danych w spoczynku
+- Azure Machine Learning powinny być szyfrowane przy użyciu klucza zarządzanego przez klienta
+- Cognitive Services powinny włączyć szyfrowanie danych przy użyciu klucza zarządzanego przez klienta
+- Rejestry kontenerów powinny być szyfrowane przy użyciu klucza zarządzanego przez klienta (CMK)
+- Wystąpienia zarządzane SQL powinny używać kluczy zarządzanych przez klienta do szyfrowania danych w spoczynku
+- Serwery SQL powinny używać kluczy zarządzanych przez klienta do szyfrowania danych w spoczynku
+- Konta magazynu powinny używać klucza zarządzanego przez klienta do szyfrowania
+
+Dowiedz się, które zalecenia znajdują się w poszczególnych mechanizmach kontroli zabezpieczeń, [i zapoznaj się z ich zaleceniami.](secure-score-security-controls.md#security-controls-and-their-recommendations)
+
+
+### <a name="11-azure-defender-alerts-deprecated"></a>11 Azure Defender są przestarzałe
+
+Alerty Azure Defender wymienione poniżej zostały wycofane.
+
+- Nowe alerty zastąpią te dwa alerty i zapewniają lepsze pokrycie:
 
     | AlertType                | AlertDisplayName                                                         |
     |--------------------------|--------------------------------------------------------------------------|
-    | ARM_MicroBurstDomainInfo | WERSJA zapoznawcza — wykryto uruchomienie funkcji "Get-AzureDomainInfo" zestawu narzędzi mikroserii |
-    | ARM_MicroBurstRunbook    | WERSJA zapoznawcza — wykryto uruchomienie funkcji "Get-AzurePasswords" zestawu narzędzi mikroserii  |
+    | ARM_MicroBurstDomainInfo | WERSJA ZAPOZNAWCZA — wykryto uruchomienie funkcji "Get-AzureDomainInfo" zestawu narzędzi MicroBurst |
+    | ARM_MicroBurstRunbook    | WERSJA ZAPOZNAWCZA — wykryto uruchomienie funkcji "Get-AzurePasswords" zestawu narzędzi MicroBurst  |
     |                          |                                                                          |
 
-- Te dziewięć alertów odnoszą się do łącznika Azure Active Directory Identity Protection (IPC), który jest już przestarzały:
+- Te dziewięć alertów odnosi się do Azure Active Directory Identity Protection (IPC), który został już przestarzały:
 
     | AlertType           | AlertDisplayName              |
     |---------------------|-------------------------------|
     | UnfamiliarLocation  | Nieznane właściwości logowania |
     | AnonymousLogin      | Anonimowy adres IP          |
-    | InfectedDeviceLogin | Połączony adres IP złośliwego oprogramowania     |
+    | InfectedDeviceLogin | Adres IP połączony ze złośliwym oprogramowaniem     |
     | ImpossibleTravel    | Nietypowa podróż               |
     | MaliciousIP         | Złośliwy adres IP          |
     | LeakedCredentials   | Ujawnione poświadczenia            |
-    | PasswordSpray       | Rozpylanie hasła                |
-    | LeakedCredentials   | Analiza zagrożeń usługi Azure AD  |
-    | AADAI               | Usługa Azure AD AI                   |
+    | PasswordSnięciay       | Rozsyłanie haseł                |
+    | LeakedCredentials   | Analiza zagrożeń w usłudze Azure AD  |
+    | AADAI               | Azure AD AI                   |
     |                     |                               |
  
     > [!TIP]
-    > Te dziewięć alertów IPC nigdy nie były Security Center alertów. Są one częścią łącznika ochrony tożsamości (IPC) usługi Azure Active Directory (AAD), który wysłał je do Security Center. W ciągu ostatnich dwóch lat jedyną liczbę klientów, którzy widzili te alerty, są organizacje, które skonfigurowali eksport (od łącznika do ASC) w 2019 lub wcześniejszych. Usługa AAD IPC kontynuowała wyświetlanie ich w własnych systemach alarmów i nadal była dostępna w usłudze Azure wskaźnikowej. Jedyną zmianą jest to, że nie są one już wyświetlane w Security Center.
+    > Te dziewięć alertów IPC nigdy nie Security Center alertów. Są one częścią łącznika usługi Azure Active Directory (AAD) Identity Protection (IPC), który wysyłał je do Security Center. W ciągu ostatnich dwóch lat jedynymi klientami, którzy widzieli te alerty, są organizacje, które skonfigurowała eksport (z łącznika do usługi ASC) w 2019 r. lub wcześniej. IPC usługi AAD nadal pokazywał je we własnych systemach alertów i nadal były dostępne w Azure Sentinel. Jedyną zmianą jest to, że nie są już wyświetlane w Security Center.
 
-### <a name="two-recommendations-from-apply-system-updates-security-control-were-deprecated"></a>Dwie zalecenia dotyczące kontroli zabezpieczeń "Zastosuj aktualizacje systemu" były przestarzałe 
+### <a name="two-recommendations-from-apply-system-updates-security-control-were-deprecated"></a>Dwa zalecenia z kontroli zabezpieczeń "Zastosuj aktualizacje systemu" zostały wycofane 
 
-Następujące dwa zalecenia były przestarzałe, a zmiany mogą skutkować niewielkim wpływem na bezpieczny wynik:
+Następujące dwa zalecenia zostały wycofane, a zmiany mogą spowodować niewielki wpływ na ocenę bezpieczeństwa:
 
-- **Aby zastosować aktualizacje systemu, należy ponownie uruchomić maszyny.**
-- **Na maszynach należy zainstalować agenta monitorowania**. To zalecenie odnosi się tylko do maszyn lokalnych, a część jej logiki zostanie przetransferowana do innego zalecenia, **log Analytics na maszynach należy rozwiązać problemy z kondycją agenta**
+- **Aby zastosować aktualizacje systemu, należy ponownie uruchomić maszyny**
+- **Na maszynach powinien być zainstalowany agent monitorowania.** To zalecenie dotyczy tylko maszyn lokalnych, a część jego logiki zostanie przeniesiona do innego zalecenia. Problemy z kondycją agenta usługi Log Analytics powinny zostać rozwiązane **na maszynach**
 
-Zalecamy sprawdzenie konfiguracji eksportu ciągłego i automatyzacji przepływu pracy, aby sprawdzić, czy te zalecenia są zawarte w nich. Ponadto należy odpowiednio zaktualizować wszystkie pulpity nawigacyjne lub inne narzędzia do monitorowania, które mogą z nich korzystać.
+Zalecamy sprawdzenie konfiguracji eksportu ciągłego i automatyzacji przepływu pracy, aby sprawdzić, czy te zalecenia są w nich zawarte. Ponadto wszelkie pulpity nawigacyjne lub inne narzędzia do monitorowania, które mogą z nich korzystać, powinny być odpowiednio aktualizowane.
 
-Więcej informacji na temat tych zaleceń znajduje się na [stronie informacje o zaleceniach dotyczących zabezpieczeń](recommendations-reference.md).
+Dowiedz się więcej o tych zaleceniach na [stronie z informacjami o zaleceniach dotyczących zabezpieczeń.](recommendations-reference.md)
 
 
-## <a name="march-2021"></a>Marzec 2021
+## <a name="march-2021"></a>Marzec 2021 r.
 
 Aktualizacje w marcu obejmują:
 
-- [Zarządzanie zaporą platformy Azure zintegrowane z usługą Security Center](#azure-firewall-management-integrated-into-security-center)
-- [Ocena luk w zabezpieczeniach programu SQL obejmuje teraz środowisko "Wyłącz regułę" (wersja zapoznawcza)](#sql-vulnerability-assessment-now-includes-the-disable-rule-experience-preview)
-- [Azure Monitor skoroszyty zintegrowane z Security Center i trzema udostępnionymi szablonami](#azure-monitor-workbooks-integrated-into-security-center-and-three-templates-provided)
+- [Azure Firewall zintegrowane z Security Center](#azure-firewall-management-integrated-into-security-center)
+- [Ocena luk w zabezpieczeniach SQL obejmuje teraz środowisko "Wyłącz regułę" (wersja zapoznawcza)](#sql-vulnerability-assessment-now-includes-the-disable-rule-experience-preview)
+- [Azure Monitor workbooks integrated into Security Center and three templates provided (Security Center skoroszyty zintegrowane z Security Center udostępnionym szablonem)](#azure-monitor-workbooks-integrated-into-security-center-and-three-templates-provided)
 - [Pulpit nawigacyjny zgodności z przepisami zawiera teraz raporty inspekcji platformy Azure (wersja zapoznawcza)](#regulatory-compliance-dashboard-now-includes-azure-audit-reports-preview)
-- [Dane rekomendacji można wyświetlić na wykresie zasobów platformy Azure za pomocą "Eksploruj w ARG"](#recommendation-data-can-be-viewed-in-azure-resource-graph-with-explore-in-arg)
+- [Dane rekomendacji można wyświetlać w Azure Resource Graph za pomocą polecenia "Eksploruj w ARG"](#recommendation-data-can-be-viewed-in-azure-resource-graph-with-explore-in-arg)
 - [Aktualizacje zasad wdrażania automatyzacji przepływu pracy](#updates-to-the-policies-for-deploying-workflow-automation)
 - [Dwa starsze zalecenia nie zapisują już danych bezpośrednio w dzienniku aktywności platformy Azure](#two-legacy-recommendations-no-longer-write-data-directly-to-azure-activity-log)
-- [Ulepszenia strony rekomendacji](#recommendations-page-enhancements)
+- [Ulepszenia strony zaleceń](#recommendations-page-enhancements)
 
 
-### <a name="azure-firewall-management-integrated-into-security-center"></a>Zarządzanie zaporą platformy Azure zintegrowane z usługą Security Center
+### <a name="azure-firewall-management-integrated-into-security-center"></a>Azure Firewall zintegrowane z Security Center
 
-Po otwarciu Azure Security Center pierwsza strona do wyświetlenia jest stroną przegląd. 
+Po otwarciu Azure Security Center pierwszą wyświetlaną stroną jest strona przeglądu. 
 
-Ten interaktywny pulpit nawigacyjny zapewnia ujednolicony wgląd w zabezpieczenia stan obciążeń chmury hybrydowej. Ponadto są wyświetlane alerty zabezpieczeń, informacje o zapotrzebowaniu i inne.
+Ten interaktywny pulpit nawigacyjny zapewnia ujednolicony widok zabezpieczeń obciążeń chmury hybrydowej. Ponadto przedstawiono w nim alerty zabezpieczeń, informacje dotyczące pokrycia i nie tylko.
 
-W ramach pomocy przy przeglądaniu stanu zabezpieczeń z poziomu centralnego środowiska firma Microsoft integruje Menedżera zapory platformy Azure z tym pulpitem nawigacyjnym. Teraz można sprawdzić stan pokrycia zapory we wszystkich sieciach i centralnie zarządzać zasadami zapory platformy Azure, rozpoczynając od Security Center.
+W ramach ułatwiania wyświetlania stanu zabezpieczeń z centralnej obsługi zintegrowaliśmy interfejs Azure Firewall Manager tym pulpitem nawigacyjnym. Teraz możesz sprawdzić stan pokrycia zapory we wszystkich sieciach i centralnie zarządzać Azure Firewall od Security Center.
 
-Dowiedz się więcej o tym pulpicie nawigacyjnym na [stronie przegląd Azure Security Center](overview-page.md).
+Dowiedz się więcej o tym [pulpicie nawigacyjnym Azure Security Center stronie przeglądu.](overview-page.md)
 
-:::image type="content" source="media/release-notes/overview-dashboard-firewall-manager.png" alt-text="Pulpit nawigacyjny omówienia Security Center z kafelkiem dla zapory platformy Azure":::
-
-
-### <a name="sql-vulnerability-assessment-now-includes-the-disable-rule-experience-preview"></a>Ocena luk w zabezpieczeniach programu SQL obejmuje teraz środowisko "Wyłącz regułę" (wersja zapoznawcza)
-
-Security Center zawiera wbudowany skaner luk w zabezpieczeniach, który ułatwia odnajdywanie, śledzenie i korygowanie potencjalnych luk w zabezpieczeniach baz danych. Wyniki skanów oceny zawierają omówienie stanu zabezpieczeń maszyn SQL i szczegółowe informacje dotyczące wszelkich ustaleń dotyczących zabezpieczeń.
-
-Jeśli istnieje organizacja, która ma być ignorowana, zamiast skorygować ją, możesz ją wyłączyć. Wyłączone wyniki nie wpływają na swój Bezpieczny wynik ani nie generują niechcianych szumów.
-
-Dowiedz się więcej w temacie [wyłączanie określonych ustaleń](defender-for-sql-on-machines-vulnerability-assessment.md#disable-specific-findings-preview).
+:::image type="content" source="media/release-notes/overview-dashboard-firewall-manager.png" alt-text="Security Center nawigacyjny z omówieniem pulpitu nawigacyjnego z kafelkiem Azure Firewall":::
 
 
+### <a name="sql-vulnerability-assessment-now-includes-the-disable-rule-experience-preview"></a>Ocena luk w zabezpieczeniach SQL obejmuje teraz środowisko "Wyłącz regułę" (wersja zapoznawcza)
 
-### <a name="azure-monitor-workbooks-integrated-into-security-center-and-three-templates-provided"></a>Azure Monitor skoroszyty zintegrowane z Security Center i trzema udostępnionymi szablonami
+Security Center zawiera wbudowany skaner luk w zabezpieczeniach, który pomaga wykrywać, śledzić i korygować potencjalne luki w zabezpieczeniach bazy danych. Wyniki skanowania oceny zawierają przegląd stanu zabezpieczeń maszyn SQL i szczegółowe informacje o wszelkich ustaleniach dotyczących zabezpieczeń.
 
-W ramach zapłonu ze sprężyną 2021 zapowiedziano zintegrowane Azure Monitor skoroszyty w Security Center.
+Jeśli organizacja musi ignorować znajdowanie, a nie korygować je, możesz je opcjonalnie wyłączyć. Wyłączone wyniki nie wpływają na ocenę bezpieczeństwa ani nie generują niepożądanego szumu.
 
-Możesz użyć nowej integracji, aby zacząć korzystać z wbudowanych szablonów z galerii Security Center. Korzystając z szablonów skoroszytów, można uzyskać dostęp do dynamicznych i wizualnych raportów, aby śledzić stan zabezpieczeń organizacji. Ponadto można tworzyć nowe skoroszyty oparte na danych Security Center lub innych obsługiwanych typach danych oraz szybko wdrażać skoroszyty społeczności ze społeczności usługi GitHub Security Center.
+Dowiedz się więcej [z tematu Wyłączanie określonych wyników](defender-for-sql-on-machines-vulnerability-assessment.md#disable-specific-findings-preview).
+
+
+
+### <a name="azure-monitor-workbooks-integrated-into-security-center-and-three-templates-provided"></a>Azure Monitor skoroszyty zintegrowane z Security Center i trzema udostępnionym szablonami
+
+W ramach konferencji Ignite Spring 2021 ogłosiliśmy zintegrowane środowisko Azure Monitor Workbooks w Security Center.
+
+Możesz skorzystać z nowej integracji, aby rozpocząć korzystanie z szablonów w Security Center galerii. Za pomocą szablonów skoroszytów można uzyskać dostęp do dynamicznych i wizualnych raportów oraz tworzyć je, aby śledzić poziom zabezpieczeń organizacji. Ponadto możesz tworzyć nowe skoroszyty na podstawie danych usługi Security Center lub innych obsługiwanych typów danych i szybko wdrażać skoroszyty społeczności Security Center społeczności usługi GitHub firmy Security Center.
 
 Dostępne są trzy raporty szablonów:
 
-- **Zabezpiecz ocenę w czasie w** celu śledzenia wyników subskrypcji i zmian w zaleceniach dotyczących zasobów
+- **Bezpieczny wynik w czasie** — śledzenie ocen subskrypcji i zmian zaleceń dotyczących zasobów
 - **Aktualizacje systemu** — wyświetlanie brakujących aktualizacji systemu według zasobów, systemu operacyjnego, ważności i innych
-- **Wyniki oceny luk w zabezpieczeniach** — wyświetlanie wyników skanowania zasobów platformy Azure w ramach luk w zabezpieczeniach
+- **Wyniki oceny luk w zabezpieczeniach** — wyświetl wyniki skanowania pod poszukiwaniu luk w zabezpieczeniach zasobów platformy Azure
 
-Dowiedz się więcej na temat korzystania z tych raportów lub tworzenia własnych [, interaktywnych raportów danych Security Center](custom-dashboards-azure-workbooks.md).
+Dowiedz się więcej na temat korzystania z tych raportów lub tworzenia własnych tworzyć rozbudowane, interaktywne [raporty Security Center danych.](custom-dashboards-azure-workbooks.md)
 
-:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-snip.png" alt-text="Raport dotyczący oceny wyników w czasie":::
+:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-snip.png" alt-text="Raport Ocena bezpieczeństwa w czasie":::
 
 
 ### <a name="regulatory-compliance-dashboard-now-includes-azure-audit-reports-preview"></a>Pulpit nawigacyjny zgodności z przepisami zawiera teraz raporty inspekcji platformy Azure (wersja zapoznawcza)
 
-Na pasku narzędzi pulpitu nawigacyjnego zgodność z przepisami można teraz pobierać raporty dotyczące platformy Azure i usługi Dynamics. 
+Z paska narzędzi pulpitu nawigacyjnego zgodności z przepisami można teraz pobierać raporty dotyczące certyfikacji platformy Azure i usługi Dynamics. 
 
 :::image type="content" source="media/release-notes/audit-reports-regulatory-compliance-dashboard.png" alt-text="Pasek narzędzi pulpitu nawigacyjnego zgodności z przepisami":::
 
-Możesz wybrać kartę dla odpowiednich typów raportów (PCI, SOC, ISO i inne), a następnie użyć filtrów, aby znaleźć wymagane raporty.
+Możesz wybrać kartę dla odpowiednich typów raportów (PCI, SOC, ISO i innych) i użyć filtrów, aby znaleźć określone raporty, których potrzebujesz.
 
-Dowiedz się więcej o [zarządzaniu standardami na pulpicie nawigacyjnym zgodności z przepisami](update-regulatory-compliance-packages.md).
+Dowiedz się więcej na [temat zarządzania standardami na pulpicie nawigacyjnym zgodności z przepisami.](update-regulatory-compliance-packages.md)
 
 :::image type="content" source="media/release-notes/audit-reports-list-regulatory-compliance-dashboard.png" alt-text="Filtrowanie listy dostępnych raportów inspekcji platformy Azure":::
 
 
 
-### <a name="recommendation-data-can-be-viewed-in-azure-resource-graph-with-explore-in-arg"></a>Dane rekomendacji można wyświetlić na wykresie zasobów platformy Azure za pomocą "Eksploruj w ARG"
+### <a name="recommendation-data-can-be-viewed-in-azure-resource-graph-with-explore-in-arg"></a>Dane rekomendacji można wyświetlać w Azure Resource Graph za pomocą polecenia "Eksploruj w ARG"
 
-Na stronach szczegółów rekomendacji są teraz dostępne przyciski paska narzędzi "Eksploruj na ARG". Ten przycisk służy do otwierania zapytania grafu zasobów platformy Azure oraz eksplorowania, eksportowania i udostępniania danych rekomendacji.
+Strony szczegółów rekomendacji zawierają teraz przycisk paska narzędzi "Eksploruj w ARG". Użyj tego przycisku, aby otworzyć Azure Resource Graph i eksplorować, eksportować i udostępniać dane zalecenia.
 
-Usługa Azure Resource Graph (ARG) zapewnia błyskawiczny dostęp do informacji o zasobach w środowiskach chmury z niezawodnymi możliwościami filtrowania, grupowania i sortowania. Jest to szybki i wydajny sposób wykonywania zapytań dotyczących informacji w ramach subskrypcji platformy Azure programowo lub z poziomu Azure Portal.
+Azure Resource Graph (ARG) zapewnia natychmiastowy dostęp do informacji o zasobach w środowiskach chmury dzięki niezawodnym możliwościom filtrowania, grupowania i sortowania. Jest to szybki i wydajny sposób wykonywania zapytań o informacje w subskrypcjach platformy Azure programowo lub z poziomu Azure Portal.
 
-Dowiedz się więcej o [usłudze Azure Resource Graph (arg)](../governance/resource-graph/index.yml).
+Dowiedz się więcej [o Azure Resource Graph (ARG).](../governance/resource-graph/index.yml)
 
-:::image type="content" source="media/release-notes/explore-in-resource-graph.png" alt-text="Eksploruj dane rekomendacji na wykresie zasobów platformy Azure.":::
+:::image type="content" source="media/release-notes/explore-in-resource-graph.png" alt-text="Eksploruj dane rekomendacji w Azure Resource Graph.":::
 
 
 ### <a name="updates-to-the-policies-for-deploying-workflow-automation"></a>Aktualizacje zasad wdrażania automatyzacji przepływu pracy
 
-Automatyzacja procesów monitorowania i reagowania na zdarzenia w organizacji może znacznie poprawić czas potrzebny do zbadania i ograniczenia zdarzeń związanych z bezpieczeństwem.
+Automatyzacja procesów monitorowania i reagowania na zdarzenia w organizacji może znacznie poprawić czas badania i ograniczania zdarzeń zabezpieczeń.
 
-Firma Microsoft udostępnia trzy Azure Policy zasady "DeployIfNotExist", które tworzą i konfigurują procedury automatyzacji przepływu pracy, dzięki czemu można wdrożyć usługi Automation w całej organizacji:
+Zapewniamy trzy Azure Policy "DeployIfNotExist", które tworzą i konfigurują procedury automatyzacji przepływu pracy, aby można było wdrażać automatyzacje w całej organizacji:
 
 |Cel  |Zasady  |Identyfikator zasad  |
 |---------|---------|---------|
 |Automatyzacja przepływu pracy dla alertów zabezpieczeń|[Wdróż automatyzację przepływu pracy dla alertów usługi Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
 |Automatyzacja przepływu pracy dla zaleceń dotyczących zabezpieczeń|[Wdróż automatyzację przepływów pracy dla zaleceń usługi Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
-|Automatyzacja przepływu pracy dla zmian zgodności z przepisami|[Wdróż automatyzację przepływu pracy pod kątem zgodności z przepisami Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-509122b9-ddd9-47ba-a5f1-d0dac20be63c)|509122b9-ddd9-47ba-a5f1-d0dac20be63c|
+|Automatyzacja przepływu pracy w przypadku zmian zgodności z przepisami|[Wdrażanie automatyzacji przepływu pracy w Azure Security Center zgodności z przepisami](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-509122b9-ddd9-47ba-a5f1-d0dac20be63c)|509122b9-ddd9-47ba-a5f1-d0dac20be63c|
 ||||
 
 Istnieją dwie aktualizacje funkcji tych zasad:
 
-- Po przypisaniu te pozycje pozostaną włączone przez wymuszanie.
-- Teraz można dostosować te zasady i zaktualizować dowolne parametry nawet po ich wdrożeniu. Na przykład jeśli użytkownik chce dodać inny klucz oceny lub edytować istniejący klucz oceny, może to zrobić.
+- Po przypisaniu pozostaną one włączone przez wymuszanie.
+- Teraz możesz dostosować te zasady i zaktualizować dowolny z parametrów nawet po ich wdrożeniu. Jeśli na przykład użytkownik chce dodać inny klucz oceny lub edytować istniejący klucz oceny, może to zrobić.
 
-Wprowadzenie do [szablonów automatyzacji przepływu pracy](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation).
+Wprowadzenie do szablonów [automatyzacji przepływu pracy.](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation)
 
-Dowiedz się więcej o [automatyzowaniu odpowiedzi na wyzwalacze Security Center](workflow-automation.md).
+Dowiedz się więcej na temat [automatyzowania odpowiedzi na Security Center wyzwalaczy.](workflow-automation.md)
 
 
 ### <a name="two-legacy-recommendations-no-longer-write-data-directly-to-azure-activity-log"></a>Dwa starsze zalecenia nie zapisują już danych bezpośrednio w dzienniku aktywności platformy Azure 
 
-Security Center przekazuje dane dla niemal wszystkich zaleceń dotyczących zabezpieczeń, aby Azure Advisor, które z kolei zapisują je do [dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md).
+Security Center przekazuje dane dla prawie wszystkich zaleceń dotyczących zabezpieczeń do usługi Azure Advisor, która z kolei zapisuje je w dzienniku [aktywności platformy Azure.](../azure-monitor/essentials/activity-log.md)
 
-W przypadku dwóch zaleceń dane są zapisywane równocześnie bezpośrednio w dzienniku aktywności platformy Azure. W przypadku tej zmiany Security Center przestaje zapisywać dane dla tych starszych zaleceń dotyczących zabezpieczeń bezpośrednio do dziennika aktywności. Zamiast tego eksportujemy dane do Azure Advisor tak jak w przypadku wszystkich innych zaleceń.
+W przypadku dwóch zaleceń dane są jednocześnie zapisywane bezpośrednio w dzienniku aktywności platformy Azure. Dzięki tej zmianie Security Center zapisywanie danych dla tych starszych zaleceń dotyczących zabezpieczeń bezpośrednio w dzienniku aktywności. Zamiast tego eksportujemy dane do Azure Advisor jak w przypadku wszystkich innych zaleceń.
 
-Istnieją dwa starsze zalecenia:
-- Na maszynach należy rozwiązać problemy dotyczące kondycji programu Endpoint Protection
-- Luki w zabezpieczeniach konfiguracji zabezpieczeń na maszynach należy skorygować
+Dwa starsze zalecenia to:
+- Problemy z kondycją programu Endpoint Protection powinny zostać rozwiązane na maszynach
+- Należy skorygować luki w zabezpieczeniach konfiguracji zabezpieczeń na maszynach
 
-Jeśli uzyskano dostęp do informacji na temat tych dwóch zaleceń w kategorii "zalecenia dotyczące typu TaskDiscovery", to nie jest już dostępne.
+Jeśli masz dostęp do informacji dotyczących tych dwóch zaleceń w kategorii "Zalecenie typu TaskDiscovery" dziennika aktywności, ta informacja nie jest już dostępna.
 
 
-### <a name="recommendations-page-enhancements"></a>Ulepszenia strony rekomendacji 
+### <a name="recommendations-page-enhancements"></a>Ulepszenia strony zaleceń 
 
-Udostępnimy ulepszoną wersję listy zaleceń, która umożliwia błyskawiczne przedstawienie dodatkowych informacji.
+Wydaliśmy ulepszoną wersję listy zaleceń, aby przedstawić więcej informacji na pierwszy rzut oka.
 
-Teraz na wyświetlonej stronie:
+Teraz na stronie zobaczysz:
 
-1. Maksymalny wynik i bieżący wynik dla każdej kontroli zabezpieczeń.
-1. Ikony zamieniające znaczniki takie jak **szybka poprawka** i **wersja zapoznawcza**.
-1. Nowa kolumna przedstawiająca [inicjatywę zasad](security-policy-concept.md) powiązaną z każdym zaleceń — widoczna w przypadku wyłączenia opcji "Grupuj według kontrolek".
+1. Maksymalna ocena i bieżący wynik dla każdej kontroli zabezpieczeń.
+1. Ikony zastępujące tagi, takie jak **Szybka poprawka** **i** Podgląd .
+1. Nowa kolumna przedstawiająca [inicjatywę Zasady powiązaną](security-policy-concept.md) z każdym zaleceniem — widoczną, gdy ustawienie "Grupuj według kontrolek" jest wyłączone.
 
-:::image type="content" source="media/release-notes/recommendations-grid-enhancements.png" alt-text="Ulepszenia strony zalecenia dotyczące Azure Security Center — marzec 2021" lightbox="media/release-notes/recommendations-grid-enhancements.png":::
+:::image type="content" source="media/release-notes/recommendations-grid-enhancements.png" alt-text="Ulepszenia strony Azure Security Center zalecenia firmy — marzec 2021 r." lightbox="media/release-notes/recommendations-grid-enhancements.png":::
 
-:::image type="content" source="media/release-notes/recommendations-grid-enhancements-initiatives.png" alt-text="Udoskonalenia listy &quot;Flat&quot; rekomendacji Azure Security Center — marzec 2021" lightbox="media/release-notes/recommendations-grid-enhancements-initiatives.png":::
+:::image type="content" source="media/release-notes/recommendations-grid-enhancements-initiatives.png" alt-text="Ulepszenia Azure Security Center &quot;płaskiej&quot; listy zaleceń firmy — marzec 2021 r." lightbox="media/release-notes/recommendations-grid-enhancements-initiatives.png":::
 
-Więcej informacji zawiera temat [zalecenia dotyczące zabezpieczeń w Azure Security Center](security-center-recommendations.md).
+Aby dowiedzieć się [więcej, zobacz Zalecenia dotyczące zabezpieczeń Azure Security Center](security-center-recommendations.md).
 
 
 ## <a name="february-2021"></a>Luty 2021 r.
 
 Aktualizacje w lutym obejmują:
 
-- [Nowa strona alerty zabezpieczeń w Azure Portal wydawana na potrzeby ogólnej dostępności](#new-security-alerts-page-in-the-azure-portal-released-for-general-availability-ga)
-- [Zalecenia dotyczące ochrony obciążeń Kubernetes, które są udostępniane na potrzeby ogólnej dostępności (GA)](#kubernetes-workload-protection-recommendations-released-for-general-availability-ga)
-- [Integracja programu Microsoft Defender dla punktów końcowych z usługą Azure Defender obsługuje teraz systemy Windows Server 2019 i Windows 10 Virtual Desktop (WVD) (w wersji zapoznawczej)](#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-in-preview)
-- [Bezpośrednie łącze do zasad z poziomu strony Szczegóły rekomendacji](#direct-link-to-policy-from-recommendation-details-page)
-- [Zalecenie klasyfikacji danych SQL nie ma już wpływu na swój Bezpieczny wynik](#sql-data-classification-recommendation-no-longer-affects-your-secure-score)
-- [Automatyzacje przepływu pracy mogą być wyzwalane przez zmiany w ocenie zgodności z przepisami (wersja zapoznawcza)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-in-preview)
+- [Nowa strona alertów zabezpieczeń w wersji Azure Portal ogólnie dostępnej](#new-security-alerts-page-in-the-azure-portal-released-for-general-availability-ga)
+- [Zalecenia dotyczące ochrony obciążeń na platformie Kubernetes zostały wydane w wersji ogólnie dostępnej](#kubernetes-workload-protection-recommendations-released-for-general-availability-ga)
+- [Usługa Microsoft Defender for Endpoint integration with Azure Defender now supports Windows Server 2019 and Windows 10 Virtual Desktop (WVD) (in preview) (Usługa Microsoft Defender for Endpoint integration with Azure Defender now supports Windows Server 2019 and Windows 10 Virtual Desktop (WVD) (in preview) (w wersji zapoznawczej)](#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-in-preview)
+- [Bezpośredni link do zasad ze strony szczegółów rekomendacji](#direct-link-to-policy-from-recommendation-details-page)
+- [Zalecenie dotyczące klasyfikacji danych SQL nie ma już wpływu na ocenę bezpieczeństwa](#sql-data-classification-recommendation-no-longer-affects-your-secure-score)
+- [Automatyzacje przepływu pracy mogą być wyzwalane przez zmiany w ocenach zgodności z przepisami (w wersji zapoznawczej)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-in-preview)
 - [Ulepszenia strony spisu zasobów](#asset-inventory-page-enhancements)
 
 
-### <a name="new-security-alerts-page-in-the-azure-portal-released-for-general-availability-ga"></a>Nowa strona alerty zabezpieczeń w Azure Portal wydawana na potrzeby ogólnej dostępności
+### <a name="new-security-alerts-page-in-the-azure-portal-released-for-general-availability-ga"></a>Nowa strona alertów zabezpieczeń w wersji Azure Portal ogólnie dostępnej
 
-Strona alertów zabezpieczeń Azure Security Center została przeprojektowana w celu zapewnienia:
+Azure Security Center alertów zabezpieczeń została przeprojektowana w celu zapewnienia:
 
-- **Udoskonalone środowisko Klasyfikacja dla alertów** — pomaga zmniejszyć zmęczenie alertów i skupić się na najważniejszych zagrożeniach, a lista zawiera dostosowywalne filtry i opcje grupowania.
-- **Więcej informacji na liście alertów** — takich jak MITRE ATT&ACK taktykę.
-- **Przycisk umożliwiający tworzenie przykładowych alertów** — w celu ocenienia możliwości usługi Azure Defender i testowania alertów. Konfiguracja (na potrzeby integracji SIEM, powiadomień e-mail i automatyzacji przepływu pracy) można tworzyć przykładowe alerty ze wszystkich planów usługi Azure Defender.
-- **Wyrównywanie za pomocą doświadczenia ze zdarzeniami platformy Azure** — w przypadku klientów, którzy korzystają z obu tych produktów, przełączają się między nimi
-- **Lepsza wydajność** dla list dużych alertów.
-- **Nawigacja** przy użyciu klawiatury przez listę alertów.
-- **Alerty z grafu zasobów platformy Azure** — możesz wysyłać zapytania dotyczące alertów na wykresie zasobów platformy Azure, interfejsu API przypominającego Kusto dla wszystkich zasobów. Jest to przydatne również w przypadku tworzenia własnych pulpitów nawigacyjnych alertów. [Dowiedz się więcej o usłudze Azure Resource Graph](../governance/resource-graph/index.yml).
-- **Funkcja tworzenia przykładowych alertów** — aby utworzyć przykładowe alerty z nowego środowiska alertów, zobacz [generowanie przykładowych alertów usługi Azure Defender](security-center-alert-validation.md#generate-sample-azure-defender-alerts).
+- **Ulepszone środowisko triage dla** alertów — ułatwianie redukowania alertów i skoncentrowanie się na najbardziej odpowiednich zagrożeniach. Lista zawiera dostosowywalne filtry i opcje grupowania.
+- **Więcej informacji na liście alertów —** takich jak MITRE ATT&taktyki ACK.
+- **Przycisk tworzenia przykładowych alertów** — aby ocenić Azure Defender i przetestować alerty. (w przypadku integracji rozwiązania SIEM, powiadomień e-mail i automatyzacji przepływu pracy) można tworzyć przykładowe alerty ze wszystkich Azure Defender biznesowych.
+- **Dopasowanie do Azure Sentinel** zdarzeń firmy — w przypadku klientów, którzy korzystają z obu produktów, przełączanie się między nimi jest teraz prostsze i można łatwo nauczyć się od siebie nawzajem.
+- **Lepsza wydajność** w przypadku dużych list alertów.
+- **Nawigacja za** pomocą klawiatury na liście alertów.
+- **Alerty z Azure Resource Graph** — alerty można Azure Resource Graph, czyli interfejsie API przypominacym Kusto, dla wszystkich zasobów. Jest to również przydatne w przypadku tworzenia własnych pulpitów nawigacyjnych alertów. [Dowiedz się więcej o Azure Resource Graph](../governance/resource-graph/index.yml).
+- **Tworzenie funkcji przykładowych alertów** — aby utworzyć przykładowe alerty na podstawie nowego typu alertów, zobacz [Generowanie przykładowych alertów Azure Defender alertów.](security-center-alert-validation.md#generate-sample-azure-defender-alerts)
 
-:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Lista alertów zabezpieczeń Azure Security Center":::
-
-
-### <a name="kubernetes-workload-protection-recommendations-released-for-general-availability-ga"></a>Zalecenia dotyczące ochrony obciążeń Kubernetes, które są udostępniane na potrzeby ogólnej dostępności (GA)
-
-Mamy przyjemność poinformować o ogólnej dostępności zestawu zaleceń dotyczących ochrony obciążeń Kubernetes.
-
-Aby zapewnić, że obciążenia Kubernetes są zabezpieczone domyślnie, Security Center dodaliśmy zalecenia dotyczące poziomu Kubernetes, w tym opcje wymuszania z Kubernetes Admission Control.
-
-Gdy w klastrze usługi Azure Kubernetes Service (AKS) jest zainstalowany dodatek Azure Policy dla programu Kubernetes, każde żądanie do serwera interfejsu API Kubernetes zostanie monitorowane względem wstępnie zdefiniowanego zestawu najlepszych rozwiązań — od 13 zaleceń dotyczących zabezpieczeń — przed utrwaleniem w klastrze. Następnie można skonfigurować w celu wymuszenia najlepszych rozwiązań i ich upoważnienia do przyszłych obciążeń.
-
-Na przykład można przystąpić do tego, że kontenery uprzywilejowane nie powinny być tworzone, a wszystkie przyszłe żądania, które należy wykonać, zostaną zablokowane.
-
-Dowiedz się więcej o [najlepszych rozwiązaniach dotyczących ochrony obciążeń przy użyciu funkcji Kubernetes Admission Control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control).
-
-> [!NOTE]
-> Mimo że zalecenia były w wersji zapoznawczej, nie spowodowało to złej kondycji zasobów klastra AKS i nie zostały uwzględnione w obliczeniach bezpiecznego wyniku. w tym ogłoszeniu na ten temat zostanie uwzględniony wynik obliczeń. Jeśli jeszcze ich nie skorygowano, może to spowodować niewielki wpływ na bezpieczny wynik. Skoryguj je wszędzie tam, gdzie to możliwe, zgodnie z opisem zawartym w temacie [Koryguj zalecenia w Azure Security Center](security-center-remediate-recommendations.md).
+:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Azure Security Center alertów zabezpieczeń":::
 
 
-### <a name="microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-in-preview"></a>Integracja programu Microsoft Defender dla punktów końcowych z usługą Azure Defender obsługuje teraz systemy Windows Server 2019 i Windows 10 Virtual Desktop (WVD) (w wersji zapoznawczej)
+### <a name="kubernetes-workload-protection-recommendations-released-for-general-availability-ga"></a>Zalecenia dotyczące ochrony obciążeń kubernetes wydane w wersji ogólnie dostępnej
 
-Microsoft Defender for Endpoint to całościowe, dostarczone w chmurze rozwiązanie zabezpieczeń punktu końcowego. Zapewnia oparte na ryzyku zarządzanie i ocenę luk w zabezpieczeniach, a także wykrywanie punktów końcowych i reagowanie na nie (EDR). Aby zapoznać się z pełną listą korzyści wynikających z używania usługi Defender dla punktów końcowych z Azure Security Center, zobacz [Ochrona punktów końcowych za pomocą zintegrowanego rozwiązania Security Center EDR: Microsoft Defender dla punktu końcowego](security-center-wdatp.md).
+Z przyjemnością ogłaszamy ogólną dostępność zestawu zaleceń dotyczących ochrony obciążeń kubernetes.
 
-Po włączeniu usługi Azure Defender dla serwerów w systemie Windows Server licencja na usługę Defender for Endpoint jest dołączona do planu. Jeśli usługa Azure Defender została już włączona dla serwerów i masz serwery z systemem Windows 2019 w ramach subskrypcji, otrzymają oni automatycznie usługę Defender dla punktu końcowego z tą aktualizacją. Nie jest wymagane wykonanie akcji ręcznej. 
+Aby mieć pewność, że obciążenia Kubernetes są domyślnie bezpieczne, Security Center dodano rekomendacje dotyczące wzmacniania poziomu rozwiązania Kubernetes, w tym opcje wymuszania za pomocą kontroli dostępu na potrzeby rozwiązania Kubernetes.
 
-Obsługa została teraz rozszerzona o systemy Windows Server 2019 i [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md).
+Po zainstalowaniu dodatku usługi Azure Policy dla platformy Kubernetes w klastrze usługi Azure Kubernetes Service (AKS) każde żądanie do serwera interfejsu API Kubernetes będzie monitorowane pod kątem wstępnie zdefiniowanego zestawu najlepszych rozwiązań — wyświetlanego jako 13 zaleceń dotyczących zabezpieczeń — przed utrwalenia w klastrze. Następnie można skonfigurować usługę w taki sposób, aby wymuszać najlepsze rozwiązania i na przykład na przykład w przypadku przyszłych obciążeń.
+
+Można na przykład na przykład nakłonić, aby nie można było tworzyć kontenerów uprzywilejowanych, a wszystkie przyszłe żądania w tym celu będą blokowane.
+
+Dowiedz się więcej z [tematu Workload protection best-practices using Kubernetes admission control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)(Najlepsze rozwiązania dotyczące ochrony obciążeń przy użyciu kontroli danych na potrzeby rozwiązania Kubernetes).
 
 > [!NOTE]
-> Jeśli włączysz usługę Defender for Endpoint na komputerze z systemem Windows Server 2019, upewnij się, że spełnia on wymagania wstępne opisane w temacie [Włączanie integracji usługi Microsoft Defender for Endpoint](security-center-wdatp.md#enabling-the-microsoft-defender-for-endpoint-integration).
+> Rekomendacje były w wersji zapoznawczej, ale nie wyrenderowały zasobu klastra usługi AKS w złej kondycji i nie zostały uwzględnione w obliczeniach wskaźnika bezpieczeństwa. z tym ogłoszeniem gałędy zostaną one uwzględnione w obliczeniu oceny. Jeśli nie zostały one jeszcze skorygowane, może to mieć niewielki wpływ na ocenę bezpieczeństwa. Koryguj je wszędzie tam, gdzie to możliwe, zgodnie z opisem [w tece Korygowanie zaleceń w Azure Security Center](security-center-remediate-recommendations.md).
 
-### <a name="direct-link-to-policy-from-recommendation-details-page"></a>Bezpośrednie łącze do zasad z poziomu strony Szczegóły rekomendacji
 
-Gdy przeglądasz szczegóły zalecenia, często warto mieć możliwość wyświetlenia podstawowych zasad. Dla każdego zalecenia obsługiwanego przez zasady istnieje nowe łącze na stronie Szczegóły zalecenia:
+### <a name="microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-in-preview"></a>Usługa Microsoft Defender for Endpoint integration with Azure Defender now supports Windows Server 2019 and Windows 10 Virtual Desktop (WVD) (in preview) (Usługa Microsoft Defender for Endpoint integration with Azure Defender now supports Windows Server 2019 and Windows 10 Virtual Desktop (WVD) (in preview) (w wersji zapoznawczej)
 
-:::image type="content" source="media/release-notes/view-policy-definition.png" alt-text="Link do Azure Policy stronie dla określonych zasad wspierających zalecenie":::
+Usługa Microsoft Defender dla punktu końcowego to całościowe rozwiązanie zabezpieczeń punktu końcowego dostarczane przez chmurę. Zapewnia oparte na ryzyku zarządzanie lukami w zabezpieczeniach i ocenę ich, a także wykrywanie punktów końcowych i reagowanie na nie (EDR). Aby uzyskać pełną listę korzyści wynikających z używania usługi Defender for Endpoint razem z usługą Azure Security Center, zobacz Protect [your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](security-center-wdatp.md)(Ochrona punktów końcowych za pomocą zintegrowanego rozwiązania EDR usługi Security Center: Usługa Microsoft Defender dla punktu końcowego).
+
+Po włączeniu usługi Azure Defender dla serwerów na serwerze z systemem Windows licencja usługi Defender dla punktu końcowego jest uwzględniana w planie. Jeśli włączono już usługę Azure Defender dla serwerów i masz serwery z systemem Windows 2019 w subskrypcji, po tej aktualizacji automatycznie otrzymają one usługę Defender for Endpoint. Nie jest wymagana żadna akcja ręczna. 
+
+Obsługa została rozszerzona o system Windows Server 2019 [i Windows Virtual Desktop (WVD).](../virtual-desktop/overview.md)
+
+> [!NOTE]
+> Jeśli włączasz usługę Defender dla punktu końcowego na maszynie z systemem Windows Server 2019, upewnij się, że spełnia ona wymagania wstępne opisane w temacie Włączanie integracji usługi [Microsoft Defender dla punktu końcowego.](security-center-wdatp.md#enable-the-microsoft-defender-for-endpoint-integration)
+
+### <a name="direct-link-to-policy-from-recommendation-details-page"></a>Bezpośredni link do zasad ze strony szczegółów zalecenia
+
+Podczas przeglądania szczegółów zalecenia często pomocne jest sprawdzenie podstawowych zasad. Dla każdego zalecenia obsługiwanego przez zasady na stronie szczegółów zalecenia znajduje się nowy link:
+
+:::image type="content" source="media/release-notes/view-policy-definition.png" alt-text="Link do Azure Policy dla określonych zasad wspierających zalecenie":::
 
 Użyj tego linku, aby wyświetlić definicję zasad i przejrzeć logikę oceny. 
 
-Jeśli przeglądasz listę zaleceń w [przewodniku dotyczącym zaleceń dotyczących zabezpieczeń](recommendations-reference.md), zobaczysz także linki do stron definicji zasad:
+Jeśli przeglądasz listę zaleceń w naszym przewodniku po zaleceniach dotyczących [zabezpieczeń,](recommendations-reference.md)zobaczysz również linki do stron definicji zasad:
 
-:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Uzyskiwanie dostępu do strony Azure Policy dla określonych zasad bezpośrednio z poziomu strony informacje o zaleceniach Azure Security Center" lightbox="media/release-notes/view-policy-definition-from-documentation.png":::
+:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Uzyskiwanie dostępu do Azure Policy dla określonych zasad bezpośrednio ze strony z zaleceniami Azure Security Center strony referencyjnej" lightbox="media/release-notes/view-policy-definition-from-documentation.png":::
 
 
-### <a name="sql-data-classification-recommendation-no-longer-affects-your-secure-score"></a>Zalecenie klasyfikacji danych SQL nie ma już wpływu na swój Bezpieczny wynik
-Nie ma już wpływu na **ważne dane w bazach danych SQL** . Jest to jedyne zalecenie w kontroli zabezpieczeń **Zastosuj klasyfikację danych** , dzięki czemu kontrolka ma teraz bezpieczną wartość oceny równą 0.
+### <a name="sql-data-classification-recommendation-no-longer-affects-your-secure-score"></a>Zalecenie dotyczące klasyfikacji danych SQL nie ma już wpływu na ocenę bezpieczeństwa
+Rekomendacja **Poufne dane w bazach danych SQL nie** powinny już mieć wpływu na ocenę bezpieczeństwa. Jest to jedyne zalecenie w kontrolce zabezpieczeń Zastosuj **klasyfikację** danych, dzięki czemu kontrola ma teraz bezpieczną wartość oceny 0.
 
-Aby zapoznać się z pełną listą wszystkich kontroli zabezpieczeń w Security Center wraz z ich wynikami oraz listą zaleceń w każdym z nich, zobacz [mechanizmy kontroli zabezpieczeń i ich zalecenia](secure-score-security-controls.md#security-controls-and-their-recommendations).
+Aby uzyskać pełną listę wszystkich kontroli zabezpieczeń w programie Security Center, wraz z ich wynikami i listą zaleceń w każdej z nich, zobacz Mechanizmy kontroli zabezpieczeń i [ich zalecenia.](secure-score-security-controls.md#security-controls-and-their-recommendations)
 
-### <a name="workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-in-preview"></a>Automatyzacje przepływu pracy mogą być wyzwalane przez zmiany w ocenie zgodności z przepisami (wersja zapoznawcza)
-Dodaliśmy trzeci typ danych do opcji wyzwalacza dla automatyzacji przepływu pracy: zmiany dotyczące oceny zgodności z przepisami.
+### <a name="workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-in-preview"></a>Automatyzacje przepływu pracy mogą być wyzwalane przez zmiany w ocenach zgodności z przepisami (w wersji zapoznawczej)
+Dodaliśmy trzeci typ danych do opcji wyzwalacza dla automatyzacji przepływu pracy: zmiany w ocenach zgodności z przepisami.
 
-Dowiedz się, jak używać narzędzi automatyzacji przepływu pracy w [automatyzowaniu odpowiedzi na Security Center wyzwalacze](workflow-automation.md).
+Dowiedz się, jak używać narzędzi automatyzacji przepływu pracy, [zobacz Automatyzowanie odpowiedzi Security Center wyzwalaczy.](workflow-automation.md)
 
-:::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Używanie zmian do oceny zgodności z przepisami w celu wyzwalania automatyzacji przepływu pracy" lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
+:::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Używanie zmian do ocen zgodności z przepisami w celu wyzwolenia automatyzacji przepływu pracy" lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 
 
 ### <a name="asset-inventory-page-enhancements"></a>Ulepszenia strony spisu zasobów
-Strona spisu zasobów Security Center została ulepszona w następujący sposób:
+Security Center spisu zasobów została ulepszona w następujący sposób:
 
-- Podsumowania w górnej części strony zawierają teraz **niezarejestrowane subskrypcje**, pokazując liczbę subskrypcji bez włączonej Security Center.
+- Podsumowania w górnej części strony zawierają teraz niezarejestrowane subskrypcje, pokazujące liczbę subskrypcji bez Security Center włączone.
 
-    :::image type="content" source="media/release-notes/unregistered-subscriptions.png" alt-text="Liczba niezarejestrowanej subskrypcji w podsumowaniu w górnej części strony spisu zasobów":::
+    :::image type="content" source="media/release-notes/unregistered-subscriptions.png" alt-text="Liczba niezarejestrowanych subskrypcji w podsumowaniach w górnej części strony spisu zasobów":::
 
-- Filtry zostały rozszerzone i udoskonalone w celu uwzględnienia:
-    - **Liczba** — każdy filtr przedstawia liczbę zasobów, które spełniają kryteria każdej kategorii.
+- Filtry zostały rozwinięte i ulepszone, aby uwzględnić następujące funkcje:
+    - **Liczniki** — każdy filtr przedstawia liczbę zasobów spełniających kryteria każdej kategorii
 
-        :::image type="content" source="media/release-notes/counts-in-inventory-filters.png" alt-text="Liczba w filtrach na stronie spisu zasobów Azure Security Center":::
+        :::image type="content" source="media/release-notes/counts-in-inventory-filters.png" alt-text="Liczniki w filtrach na stronie spisu zasobów Azure Security Center":::
 
-    - **Zawiera filtr wykluczeń** (opcjonalnie) — Zawęź wyniki do zasobów, których nie zostały wykluczone. Ten filtr nie jest domyślnie pokazywany, ale jest dostępny z poziomu przycisku **Dodaj filtr** .
+    - **Filtr Zawiera wyjątki** (opcjonalnie) — zawężenie wyników do zasobów, które mają/nie zostały wyzmień. Ten filtr nie jest wyświetlany domyślnie, ale jest dostępny za pośrednictwem **przycisku Dodaj** filtr.
 
-        :::image type="content" source="media/release-notes/adding-contains-exemption-filter.gif" alt-text="Dodawanie filtru &quot;zawiera zwolnienie&quot; na stronie spisu zasobów Azure Security Center":::
+        :::image type="content" source="media/release-notes/adding-contains-exemption-filter.gif" alt-text="Dodanie filtru &quot;contains exemption&quot; (zawiera Azure Security Center) na stronie spisu zasobów firmy":::
 
-Dowiedz się więcej na temat sposobu [eksplorowania zasobów i zarządzania nimi za pomocą spisu](asset-inventory.md)zasobów.
+Dowiedz się więcej o tym, jak [eksplorować zasoby i zarządzać nimi za pomocą spisu zasobów.](asset-inventory.md)
 
 ## <a name="january-2021"></a>Styczeń 2021 r.
 
 Aktualizacje w styczniu obejmują:
 
-- [Usługa Azure Security test jest teraz domyślną inicjatywy zasad dla Azure Security Center](#azure-security-benchmark-is-now-the-default-policy-initiative-for-azure-security-center)
-- [Ocena luk w zabezpieczeniach dla maszyn lokalnych i wielochmurowych jest dostępna na potrzeby ogólnie dostępnej wersji](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga)
-- [W wersji zapoznawczej jest teraz dostępna stawka zabezpieczeń dla grup zarządzania](#secure-score-for-management-groups-is-now-available-in-preview)
-- [Interfejs API oceny zabezpieczeń jest publikowany na potrzeby ogólnej dostępności](#secure-score-api-is-released-for-general-availability-ga)
-- [Zawieszonego ochronę DNS dodaną do usługi Azure Defender dla App Service](#dangling-dns-protections-added-to-azure-defender-for-app-service)
-- [Łączniki z obsługą kilku chmur są udostępniane na potrzeby ogólnej dostępności](#multi-cloud-connectors-are-released-for-general-availability-ga)
-- [Wyłącz wszystkie zalecenia z bezpiecznego wyniku dla subskrypcji i grup zarządzania](#exempt-entire-recommendations-from-your-secure-score-for-subscriptions-and-management-groups)
-- [Użytkownicy mogą teraz zażądać widoczności dla całej dzierżawy od administratora globalnego](#users-can-now-request-tenant-wide-visibility-from-their-global-administrator)
-- [35 zaleceń dotyczących wersji zapoznawczej dodano w celu zwiększenia zakresu testów zabezpieczeń platformy Azure](#35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
-- [Eksport CSV przefiltrowanej listy zaleceń](#csv-export-of-filtered-list-of-recommendations)
-- [Zasoby "nie dotyczy" są teraz zgłaszane jako "zgodne" w Azure Policy oceny](#not-applicable-resources-now-reported-as-compliant-in-azure-policy-assessments)
-- [Eksportuj cotygodniowe migawki bezpiecznego oceny i danych zgodności z przepisami przy użyciu eksportu ciągłego (wersja zapoznawcza)](#export-weekly-snapshots-of-secure-score-and-regulatory-compliance-data-with-continuous-export-preview)
+- [Test porównawczy zabezpieczeń platformy Azure jest teraz domyślną inicjatywą zasad dla Azure Security Center](#azure-security-benchmark-is-now-the-default-policy-initiative-for-azure-security-center)
+- [Ocena luk w zabezpieczeniach dla maszyn wirtualnych w środowisku lokalnym i w wielu chmurach została wydana w wersji ogólnie dostępnej](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga)
+- [Ocena bezpieczeństwa dla grup zarządzania jest teraz dostępna w wersji zapoznawczej](#secure-score-for-management-groups-is-now-available-in-preview)
+- [Interfejs API oceny bezpieczeństwa jest ogólnie dostępny](#secure-score-api-is-released-for-general-availability-ga)
+- [Dangling DNS protections added to Azure Defender for App Service](#dangling-dns-protections-added-to-azure-defender-for-app-service)
+- [Łączniki wielochmurowe są ogólnie dostępne](#multi-cloud-connectors-are-released-for-general-availability-ga)
+- [Zwalnianie całych zaleceń z oceny bezpieczeństwa dla subskrypcji i grup zarządzania](#exempt-entire-recommendations-from-your-secure-score-for-subscriptions-and-management-groups)
+- [Użytkownicy mogą teraz zażądać wglądu w dzierżawę od administratora globalnego](#users-can-now-request-tenant-wide-visibility-from-their-global-administrator)
+- [Dodano 35 zaleceń w wersji zapoznawczej w celu zwiększenia pokrycia testu porównawczego zabezpieczeń platformy Azure](#35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
+- [Eksportowanie csv filtrowanych list zaleceń](#csv-export-of-filtered-list-of-recommendations)
+- [Zasoby "Nie dotyczy" są teraz zgłaszane jako "Zgodne" w Azure Policy oceny](#not-applicable-resources-now-reported-as-compliant-in-azure-policy-assessments)
+- [Eksportowanie cotygodniowych migawek bezpiecznego wyniku i danych zgodności z przepisami przy użyciu eksportu ciągłego (wersja zapoznawcza)](#export-weekly-snapshots-of-secure-score-and-regulatory-compliance-data-with-continuous-export-preview)
 
 
-### <a name="azure-security-benchmark-is-now-the-default-policy-initiative-for-azure-security-center"></a>Usługa Azure Security test jest teraz domyślną inicjatywy zasad dla Azure Security Center
+### <a name="azure-security-benchmark-is-now-the-default-policy-initiative-for-azure-security-center"></a>Test porównawczy zabezpieczeń platformy Azure jest teraz domyślną inicjatywą zasad dla Azure Security Center
 
-Usługa Azure Security test to zestaw wytycznych dotyczących zabezpieczeń i zgodności opartych na platformie Azure, które są stosowane do najlepszych rozwiązań w zakresie bezpieczeństwa i zapewniających zgodność. Ten powszechnie przestrzegany test porównawczy jest oparty na kontrolkach z [centrum na potrzeby zabezpieczeń internetowych (CIS)](https://www.cisecurity.org/benchmark/azure/) i [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) , które koncentrują się na zabezpieczeniach skoncentrowanych na chmurze.
+Test porównawczy zabezpieczeń platformy Azure to zestaw wytycznych dotyczących najlepszych rozwiązań dotyczących zabezpieczeń i zgodności dla platformy Microsoft, który został przez firmę Microsoft określony w oparciu o typowe struktury zgodności. Ten szeroko stosowany test porównawczy opiera się na mechanizmach kontroli nist [(Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) i [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) z naciskiem na zabezpieczenia skoncentrowane na chmurze.
 
-W ostatnich miesiącach Security Center Lista wbudowanych zaleceń dotyczących zabezpieczeń znacznie się zwiększyła, aby zwiększyć nasze pokrycie tego testu porównawczego.
+W ostatnich miesiącach Security Center wbudowanych zaleceń dotyczących zabezpieczeń znacznie wzrosła, aby rozszerzyć zakres tego testu porównawczego.
 
-W tej wersji test porównawczy jest podstawą dla zaleceń Security Center i w pełni zintegrowanych jako inicjatywa zasad domyślnych. 
+Od tej wersji test porównawczy stanowi podstawę rekomendacji Security Center i jest w pełni zintegrowany jako domyślna inicjatywa zasad. 
 
-Wszystkie usługi platformy Azure mają stronę odniesienia zabezpieczeń w swojej dokumentacji. Na przykład [jest to Security Center linia bazowa](security-baseline.md). Te linie bazowe są oparte na teście zabezpieczeń platformy Azure.
+Wszystkie usługi platformy Azure mają stronę punktów odniesienia zabezpieczeń w dokumentacji. Na przykład [jest to Security Center linii bazowej .](security-baseline.md) Te punkty odniesienia są zbudowane na podstawie testu porównawczego zabezpieczeń platformy Azure.
 
-Jeśli używasz pulpitu nawigacyjnego zgodności z przepisami Security Center, zobaczysz dwa wystąpienia testu porównawczego w okresie przejściowym:
+Jeśli używasz pulpitu nawigacyjnego Security Center zgodności z przepisami, zobaczysz dwa wystąpienia testu porównawczego w okresie przejściowym:
 
-:::image type="content" source="media/release-notes/regulatory-compliance-with-azure-security-benchmark.png" alt-text="Pulpit nawigacyjny zgodności z przepisami Azure Security Center przedstawiający test wydajności usługi Azure Security":::
+:::image type="content" source="media/release-notes/regulatory-compliance-with-azure-security-benchmark.png" alt-text="Azure Security Center zgodności z przepisami przedstawiający test porównawczy zabezpieczeń platformy Azure":::
 
-Istniejące rekomendacje nie wpływają na siebie i w miarę wzrostu wydajności, zmiany zostaną automatycznie odzwierciedlone w Security Center. 
+Nie ma to wpływu na istniejące zalecenia i w miarę rozwoju testu porównawczego zmiany będą automatycznie odzwierciedlane w Security Center. 
 
 Aby dowiedzieć się więcej, zobacz następujące strony:
 
-- [Dowiedz się więcej o teście zabezpieczeń Azure](../security/benchmarks/introduction.md)
+- [Dowiedz się więcej na temat testu porównawczego zabezpieczeń platformy Azure](https://docs.microsoft.com/security/benchmark/azure/introduction)
 - [Dostosowywanie zestawu standardów na pulpicie nawigacyjnym zgodności z przepisami](update-regulatory-compliance-packages.md)
 
-### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga"></a>Ocena luk w zabezpieczeniach dla maszyn lokalnych i wielochmurowych jest dostępna na potrzeby ogólnie dostępnej wersji
+### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga"></a>Ocena luk w zabezpieczeniach dla maszyn wirtualnych w środowisku lokalnym i w wielu chmurach została wydana w wersji ogólnie dostępnej
 
-W październiku ogłoszono w wersji zapoznawczej skanowanie serwerów z obsługą usługi Azure ARC przy użyciu [usługi Azure Defender na potrzeby](defender-for-servers-introduction.md)zintegrowanego skanera oceny luk w zabezpieczeniach serwerów (obsługiwanego przez Qualys).
+W październiku ogłosiliśmy podgląd skanowania serwerów z obsługą Azure Arc za pomocą usługi [Azure Defender](defender-for-servers-introduction.md)dla skanera zintegrowanego oceny luk w zabezpieczeniach serwerów (obsługiwanego przez firmę Qualys).
 
-Ten element jest teraz udostępniany do ogólnej dostępności (GA).
+Jest on teraz ogólnie dostępny.
 
-Gdy usługa Azure Arc została włączona na maszynach spoza platformy Azure, Security Center będzie oferować ręczne wdrażanie skanera zintegrowanej luki w zabezpieczeniach.
+Po włączeniu funkcji Azure Arc na maszynach spoza platformy Azure usługa Security Center zaoferuje wdrożenie na nich zintegrowanego skanera luk w zabezpieczeniach — ręcznie i na dużą skalę.
 
-Dzięki tej aktualizacji można wyłączyć **usługę Azure Defender dla serwerów** , aby skonsolidować program do zarządzania lukami w zabezpieczeniach dla wszystkich zasobów platformy Azure i spoza platformy Azure.
+Dzięki tej aktualizacji możesz uwolnić możliwości usługi **Azure Defender** serwerów w celu skonsolidowania programu zarządzania lukami w zabezpieczeniach we wszystkich twoich zasobów platformy Azure i poza platformą Azure.
 
 Główne możliwości:
 
-- Monitorowanie stanu aprowizacji skanera (ocena luk w zabezpieczeniach) na maszynach usługi Azure Arc
-- Inicjowanie obsługi zintegrowanego agenta VA do niechronionych maszyn z systemem Windows i Linux na platformie Azure (ręcznie i w skali)
-- Otrzymywanie i analizowanie wykrytych luk w zabezpieczeniach wdrożonych agentów (ręcznie i w skali)
-- Ujednolicone środowisko dla maszyn wirtualnych platformy Azure i usługi Azure Arc
+- Monitorowanie stanu aprowizowania skanera oceny luk w zabezpieczeniach na Azure Arc luk w zabezpieczeniach
+- Aprowizowanie zintegrowanego agenta va dla niechronionych maszyn wirtualnych z systemami Windows i Linux Azure Arc (ręcznie i na dużą skalę)
+- Odbieranie i analizowanie wykrytych luk w zabezpieczeniach z wdrożonych agentów (ręcznie i na dużą skalę)
+- Ujednolicone środowisko dla maszyn wirtualnych platformy Azure i maszyn Azure Arc wirtualnych
 
-[Dowiedz się więcej o wdrażaniu zintegrowanego skanera luk w zabezpieczeniach na maszynach hybrydowych](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
+[Dowiedz się więcej o wdrażaniu zintegrowanego skanera luk w zabezpieczeniach na maszynach hybrydowych.](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines)
 
-[Dowiedz się więcej o serwerach z obsługą usługi Azure Arc](../azure-arc/servers/index.yml).
-
-
-### <a name="secure-score-for-management-groups-is-now-available-in-preview"></a>W wersji zapoznawczej jest teraz dostępna stawka zabezpieczeń dla grup zarządzania
-
-Na stronie bezpieczny wynik są teraz wyświetlane zagregowane wyniki zabezpieczeń dla grup zarządzania, a także poziom subskrypcji. Teraz można zobaczyć listę grup zarządzania w organizacji i ocenę dla każdej grupy zarządzania.
-
-:::image type="content" source="media/secure-score-security-controls/secure-score-management-groups.png" alt-text="Wyświetlanie zabezpieczonych ocen dla grup zarządzania.":::
-
-Dowiedz się więcej o [bezpiecznych kontrolach oceny i zabezpieczeń w Azure Security Center](secure-score-security-controls.md).
-
-### <a name="secure-score-api-is-released-for-general-availability-ga"></a>Interfejs API oceny zabezpieczeń jest publikowany na potrzeby ogólnej dostępności
-
-Teraz możesz uzyskać dostęp do oceny za pośrednictwem [interfejsu API protokołu Secure Score](/rest/api/securitycenter/securescores/). Metody interfejsu API zapewniają elastyczność umożliwiającą wykonywanie zapytań dotyczących danych i Tworzenie własnego mechanizmu raportowania z bezpiecznymi wynikami w czasie. Na przykład:
-
-- Korzystanie z interfejsu API funkcji **Secure Scores** w celu uzyskania wyników dla określonej subskrypcji
-- Użyj interfejsu API **kontroli wyników bezpiecznego** , aby wyświetlić listę kontrolek zabezpieczeń i bieżący wynik subskrypcji
-
-Dowiedz się więcej na temat zewnętrznych narzędzi, które są dostępne z interfejsem API oceny zabezpieczeń w [obszarze bezpiecznych punktów społeczności usługi GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score).
-
-Dowiedz się więcej o [bezpiecznych kontrolach oceny i zabezpieczeń w Azure Security Center](secure-score-security-controls.md).
+[Dowiedz się więcej Azure Arc serwerach z obsługą usługi](../azure-arc/servers/index.yml).
 
 
-### <a name="dangling-dns-protections-added-to-azure-defender-for-app-service"></a>Zawieszonego ochronę DNS dodaną do usługi Azure Defender dla App Service
+### <a name="secure-score-for-management-groups-is-now-available-in-preview"></a>Ocena bezpieczeństwa dla grup zarządzania jest teraz dostępna w wersji zapoznawczej
 
-Przejęcia poddomen są typowymi zagrożeniami o wysokiej ważności dla organizacji. Przejęcie poddomeny może wystąpić, gdy istnieje rekord DNS wskazujący na niezainicjowaną witrynę sieci Web. Takie rekordy DNS są również znane jako wpisy "zawieszonego DNS". Rekordy CNAME są szczególnie zagrożone tym zagrożeniem. 
+Strona oceny bezpieczeństwa zawiera teraz zagregowane wyniki bezpieczeństwa dla grup zarządzania oprócz poziomu subskrypcji. Teraz możesz wyświetlić listę grup zarządzania w organizacji i wynik dla każdej grupy zarządzania.
 
-Przejęcia poddomeny umożliwiają uczestnikom zagrożeń przekierowywanie ruchu przeznaczonego dla domeny organizacji do lokacji wykonującej złośliwe działanie.
+:::image type="content" source="media/secure-score-security-controls/secure-score-management-groups.png" alt-text="Wyświetlanie wyników bezpieczeństwa dla grup zarządzania.":::
 
-Usługa Azure Defender dla App Service teraz wykrywa wpisy DNS zawieszonego podczas likwidowania witryny sieci App Service. Jest to moment, w którym wpis DNS wskazuje na nieistniejący zasób, a witryna sieci Web jest narażona na przejęcie poddomeny. Te zabezpieczenia są dostępne niezależnie od tego, czy domeny są zarządzane za pomocą Azure DNS, czy rejestratora domeny zewnętrznej i ma zastosowanie do obu App Service w systemie Windows i App Service na komputerze z systemem Linux.
+Dowiedz się więcej na [temat oceny bezpieczeństwa i kontroli zabezpieczeń w Azure Security Center](secure-score-security-controls.md).
+
+### <a name="secure-score-api-is-released-for-general-availability-ga"></a>Interfejs API oceny bezpieczeństwa jest ogólnie dostępny
+
+Teraz możesz uzyskać dostęp do swojego wyniku za pośrednictwem interfejsu [API oceny bezpieczeństwa](/rest/api/securitycenter/securescores/). Metody interfejsu API zapewniają elastyczność wykonywania zapytań o dane i tworzenia własnego mechanizmu raportowania bezpiecznych wyników w czasie. Na przykład:
+
+- uzyskiwanie **oceny dla określonej** subskrypcji za pomocą interfejsu API wyników bezpieczeństwa
+- Użyj **interfejsu API bezpiecznych kontrolek oceny,** aby wyświetlić listę kontroli zabezpieczeń i bieżącego wyniku subskrypcji
+
+Dowiedz się więcej o narzędziach zewnętrznych, które są możliwe za pomocą interfejsu API bezpiecznego wyniku w obszarze bezpiecznego wyniku [naszej społeczności usługi GitHub.](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)
+
+Dowiedz się więcej o [zabezpieczonych ocenach i mechanizmach kontroli zabezpieczeń w Azure Security Center](secure-score-security-controls.md).
+
+
+### <a name="dangling-dns-protections-added-to-azure-defender-for-app-service"></a>Dangling DNS protections added to Azure Defender for App Service
+
+Przejęcie poddomeny jest powszechnym zagrożeniem o wysokiej ważności dla organizacji. Przejęcie poddomeny może nastąpić, gdy masz rekord DNS, który wskazuje na coprowizowana witrynę internetową. Takie rekordy DNS są również nazywane wpisami "dangling DNS". Rekordy CNAME są szczególnie narażone na to zagrożenie. 
+
+Przejęcie poddomeny umożliwia podmiotom złośliwym przekierowywanie ruchu przeznaczonego dla domeny organizacji do witryny wykonującej złośliwe działania.
+
+Azure Defender dla App Service wykrywa teraz nieaktualne wpisy DNS po zlikwidowaniu App Service sieci Web. Jest to moment, w którym wpis DNS wskaże nieistniejący zasób, a witryna internetowa jest narażona na przejęcie poddomeny. Te zabezpieczenia są dostępne niezależnie od tego, czy domeny są zarządzane za pomocą usługi Azure DNS, czy też zewnętrznego rejestratora domen i mają zastosowanie zarówno do App Service w systemie Windows, jak i App Service dla systemu Linux.
 
 Więcej informacji:
 
-- [Tabela referencyjna alertów App Service](alerts-reference.md#alerts-azureappserv) — zawiera dwa nowe alerty usługi Azure Defender wyzwalane po wykryciu wpisu DNS zawieszonego
-- [Zapobiegaj zawieszonego wpisów DNS i unikaj przejęcia domen podrzędnych](../security/fundamentals/subdomain-takeover.md) — Poznaj zagrożenie związane z przejęciem poddomeny i aspektem DNS zawieszonego
-- [Wprowadzenie do usługi Azure Defender dla App Service](defender-for-app-service-introduction.md)
+- [App Service tabeli referencyjnej alertów](alerts-reference.md#alerts-azureappserv) — zawiera dwa nowe alerty Azure Defender, które są wyzwalane po wykryciu nieaktualnego wpisu DNS
+- [Zapobieganie danglingowi wpisów DNS](../security/fundamentals/subdomain-takeover.md) i unikanie przejęcia poddomeny — informacje na temat zagrożenia związanego z przejęciem poddomeny i aspektem systemu DNS
+- [Wprowadzenie do Azure Defender dla App Service](defender-for-app-service-introduction.md)
 
 
-### <a name="multi-cloud-connectors-are-released-for-general-availability-ga"></a>Łączniki z obsługą kilku chmur są udostępniane na potrzeby ogólnej dostępności
+### <a name="multi-cloud-connectors-are-released-for-general-availability-ga"></a>Łączniki wielochmurowe są ogólnie dostępne
 
-W przypadku obciążeń w chmurze zwykle obejmujących wiele platform w chmurze usługi zabezpieczeń w chmurze muszą być takie same.
+W przypadku obciążeń w chmurze często obejmujących wiele platform w chmurze usługi zabezpieczeń w chmurze muszą robić to samo.
 
 Azure Security Center chroni obciążenia na platformie Azure, Amazon Web Services (AWS) i Google Cloud Platform (GCP).
 
-Połączenie konta AWS lub GCP integruje swoje natywne narzędzia zabezpieczeń, takie jak AWS Security Hub i GCP Security Command Center w Azure Security Center.
+Połączenie kont usług AWS lub GCP integruje ich natywne narzędzia zabezpieczeń, takie jak AWS Security Hub i GCP Security Command Center, z Azure Security Center.
 
-Ta możliwość oznacza, że Security Center zapewnia widoczność i ochronę we wszystkich głównych środowiskach chmurowych. Niektóre zalety tej integracji:
+Ta funkcja oznacza, że Security Center widoczność i ochronę we wszystkich najważniejszych środowiskach chmury. Niektóre korzyści wynikające z tej integracji:
 
-- Automatyczne Inicjowanie obsługi agentów — Security Center używa usługi Azure Arc do wdrożenia agenta Log Analytics do wystąpień AWS
+- Automatyczne aprowizowanie agentów — Security Center używa Azure Arc do wdrażania agenta usługi Log Analytics w wystąpieniach usług AWS
 - Zarządzanie zasadami
 - Zarządzanie lukami w zabezpieczeniach
-- Wykrywanie i odpowiedź osadzonych punktów końcowych (EDR)
-- Wykrywanie niepożądanych konfiguracji zabezpieczeń
-- Pojedynczy widok przedstawiający zalecenia dotyczące zabezpieczeń od wszystkich dostawców chmury
-- Uwzględnianie wszystkich zasobów w ramach obliczeń bezpiecznego wyniku Security Center
-- Oceny zgodności z przepisami dla zasobów AWS i GCP
+- Wykrywanie i reagowanie osadzonego punktu końcowego (EDR)
+- Wykrywanie błędów konfiguracji zabezpieczeń
+- Pojedynczy widok przedstawiający zalecenia dotyczące zabezpieczeń od wszystkich dostawców usług w chmurze
+- Uwzględnianie wszystkich zasobów w obliczeniach wskaźnika Security Center bezpiecznej oceny
+- Oceny zgodności z przepisami zasobów usług AWS i GCP
 
-Z menu Security Center wybierz pozycję **wiele łączników w chmurze** , a zobaczysz opcje tworzenia nowych łączników:
+Z Security Center wybierz pozycję Łączniki z wieloma chmurami. Zobaczysz opcje tworzenia nowych łączników: 
 
-:::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Przycisk dodawania konta AWS na stronie łączników wielochmurowych Security Center":::
+:::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Przycisk Dodawania konta platformy AWS Security Center stronie łączników w wielu chmurach":::
 
 Dowiedz się więcej w:
-- [Połącz konta AWS z Azure Security Center](quickstart-onboard-aws.md)
-- [Połącz konta GCP z Azure Security Center](quickstart-onboard-gcp.md)
+- [Łączenie kont usług AWS z usługą Azure Security Center](quickstart-onboard-aws.md)
+- [Łączenie kont GCP z Azure Security Center](quickstart-onboard-gcp.md)
 
 
-### <a name="exempt-entire-recommendations-from-your-secure-score-for-subscriptions-and-management-groups"></a>Wyłącz wszystkie zalecenia z bezpiecznego wyniku dla subskrypcji i grup zarządzania
+### <a name="exempt-entire-recommendations-from-your-secure-score-for-subscriptions-and-management-groups"></a>Zwalnianie całych zaleceń z oceny bezpieczeństwa dla subskrypcji i grup zarządzania
 
-Rozszerzamy możliwości wykluczenia, aby uwzględnić wszystkie zalecenia. Udostępnienie dalszych opcji dostosowania zaleceń dotyczących zabezpieczeń, które Security Center dla subskrypcji, grupy zarządzania lub zasobów.
+Rozszerzamy możliwość wywłaszania, aby uwzględnić całe rekomendacje. Udostępnianie dodatkowych opcji dostrajania zaleceń dotyczących zabezpieczeń, które Security Center dla subskrypcji, grupy zarządzania lub zasobów.
 
-Czasami zasób zostanie wyświetlony jako nieprawidłowy, gdy wiadomo, że problem został rozwiązany przez narzędzie innej firmy, które nie wykryto Security Center. Lub zalecenie będzie widoczne w zakresie, w którym uważasz, że nie należy. Zalecenie może być nieodpowiednie dla określonej subskrypcji. Lub być może Twoja organizacja zdecydowała się zaakceptować ryzyko związane z konkretnym zasobem lub zaleceniem.
+Czasami zasób będzie wymieniony jako w złej kondycji, gdy wiadomo, że problem został rozwiązany przez narzędzie innej firmy, które Security Center nie wykryło problemu. Lub zalecenie będzie wyświetlane w zakresie, w którym uważasz, że nie należy. Zalecenie może być nieodpowiednie dla określonej subskrypcji. Być może Twoja organizacja zdecydowała się zaakceptować ryzyko związane z określonym zasobem lub zaleceniem.
 
-Za pomocą tej funkcji w wersji zapoznawczej można teraz utworzyć wykluczenie dla zalecenia:
+Dzięki tej funkcji w wersji zapoznawczej możesz teraz utworzyć wyjątek dla zalecenia, aby:
 
-- **Zwolnij zasób** , aby upewnić się, że nie znajduje się na liście zasobów w złej kondycji w przyszłości i nie ma wpływu na bezpieczny wynik. Zasób będzie wyświetlany jako nie dotyczy, a powód zostanie wyświetlony jako "zwolniony" z określonym uzasadnieniem.
+- **Wyklucz zasób,** aby upewnić się, że w przyszłości nie będzie on wymieniony z zasobami w złej kondycji, i nie będzie mieć wpływu na ocenę bezpieczeństwa. Zasób zostanie wymieniony jako nie dotyczy, a przyczyna zostanie pokazana jako "wykluczona" z określonym uzasadnieniem.
 
-- **Zwolnij subskrypcję lub grupę zarządzania** , aby upewnić się, że zalecenie nie ma wpływu na Twój bezpieczny wynik i nie będzie wyświetlane dla subskrypcji lub grupy zarządzania w przyszłości. Odnosi się to do istniejących zasobów i wszystkich utworzonych w przyszłości. Zalecenie zostanie oznaczone określonym uzasadnieniem wybranym dla wybranego zakresu.
+- **Wyklucz subskrypcję** lub grupę zarządzania, aby upewnić się, że zalecenie nie ma wpływu na ocenę bezpieczeństwa i nie będzie wyświetlane dla subskrypcji lub grupy zarządzania w przyszłości. Jest to związane z istniejącymi zasobami i dowolnymi zasobami, które utworzysz w przyszłości. Zalecenie zostanie oznaczone określonym uzasadnieniem wybranym dla wybranego zakresu.
 
-Dowiedz się więcej na temat [zwalniania zasobów i rekomendacji z poziomu bezpiecznego](exempt-resource.md).
-
-
-
-### <a name="users-can-now-request-tenant-wide-visibility-from-their-global-administrator"></a>Użytkownicy mogą teraz zażądać widoczności dla całej dzierżawy od administratora globalnego
-
-Jeśli użytkownik nie ma uprawnień do wyświetlania Security Center danych, zobaczy teraz link umożliwiający zażądanie uprawnień od administratora globalnego swojej organizacji. Żądanie zawiera rolę, której lubisz, oraz uzasadnienie, dlaczego jest to konieczne.
-
-:::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Transparent informujący użytkownika, że może zażądać uprawnień na poziomie dzierżawy.":::
-
-Zapoznaj się z dodatkowymi [żądaniami w przypadku braku wystarczających uprawnień](tenant-wide-permissions-management.md#request-tenant-wide-permissions-when-yours-are-insufficient).
+Dowiedz się więcej [z tematu Exempting resources and recommendations from your secure score (Wykluczanie zasobów i zaleceń z bezpiecznego wyniku).](exempt-resource.md)
 
 
-### <a name="35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>35 zaleceń dotyczących wersji zapoznawczej dodano w celu zwiększenia zakresu testów zabezpieczeń platformy Azure
 
-Usługa Azure Security test jest domyślną inicjatywą zasad w Azure Security Center. 
+### <a name="users-can-now-request-tenant-wide-visibility-from-their-global-administrator"></a>Użytkownicy mogą teraz żądać wglądu w całej dzierżawie od administratora globalnego
 
-Aby zwiększyć pokrycie tego testu porównawczego, do Security Center dodano następujące zalecenia dotyczące wersji zapoznawczej 35.
+Jeśli użytkownik nie ma uprawnień do Security Center danych, teraz zobaczy link do żądania uprawnień od administratora globalnego organizacji. Żądanie zawiera rolę, która ma być potrzebna, oraz uzasadnienie, dlaczego jest to konieczne.
+
+:::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Baner z prośbą o uprawnienia dla całej dzierżawy.":::
+
+Aby dowiedzieć się [więcej, zobacz Request tenant-wide permissions when yours are insufficient (Żądanie uprawnień dla całej dzierżawy, gdy twoje uprawnienia są niewystarczające).](tenant-wide-permissions-management.md#request-tenant-wide-permissions-when-yours-are-insufficient)
+
+
+### <a name="35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>Dodano 35 zaleceń w wersji zapoznawczej w celu zwiększenia pokrycia testu porównawczego zabezpieczeń platformy Azure
+
+[Test porównawczy zabezpieczeń](https://docs.microsoft.com/security/benchmark/azure/introduction) platformy Azure to domyślna inicjatywa zasad w Azure Security Center. 
+
+Aby zwiększyć zasięg tego testu porównawczego, dodano następujące 35 zaleceń w wersji zapoznawczej do Security Center.
 
 > [!TIP]
-> Zalecenia dotyczące wersji zapoznawczej nie powodują złej kondycji zasobu i nie są uwzględniane w obliczeniach bezpiecznego wyniku. Skoryguj je wszędzie tam, gdzie to możliwe, aby po zakończeniu okresu korzystania z wersji zapoznawczej doczyniły się do oceny. Dowiedz się więcej o tym, jak odpowiedzieć na te zalecenia w temacie [Koryguj zalecenia w Azure Security Center](security-center-remediate-recommendations.md).
+> Rekomendacje w wersji zapoznawczej nie renderują zasobu w złej kondycji i nie są uwzględniane w obliczeniach wskaźnika bezpieczeństwa. Koryguj je wszędzie tam, gdzie to możliwe, tak aby po zakończeniu okresu zapoznawczego przyczyniły się do oceny. Dowiedz się więcej o tym, jak reagować na te zalecenia, zobacz [Korygowanie zaleceń](security-center-remediate-recommendations.md)w Azure Security Center .
 
-| Kontrola zabezpieczeń                     | Nowe rekomendacje                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Kontrola zabezpieczeń                     | Nowe zalecenia                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 |--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Włącz szyfrowanie w spoczynku            | — Konta Azure Cosmos DB powinny używać kluczy zarządzanych przez klienta do szyfrowania danych przechowywanych w czasie spoczynku<br>-Azure Machine Learning obszary robocze powinny być szyfrowane za pomocą klucza zarządzanego przez klienta (CMK)<br>— Należy włączyć ochronę danych klucza dla serwerów MySQL<br>— Należy włączyć ochronę danych klucza dla serwerów PostgreSQL<br>-Cognitive Services konta powinny włączać szyfrowanie danych za pomocą klucza zarządzanego przez klienta (CMK)<br>-Rejestry kontenerów powinny być szyfrowane za pomocą klucza zarządzanego przez klienta (CMK)<br>-Wystąpienia zarządzane przez program SQL powinny używać kluczy zarządzanych przez klienta do szyfrowania danych przechowywanych w spoczynku<br>— Serwery SQL powinny używać kluczy zarządzanych przez klienta do szyfrowania danych magazynowanych<br>— Konta magazynu powinny używać klucza zarządzanego przez klienta (CMK) do szyfrowania                                                                                                                                                              |
-| Implementowanie najlepszych rozwiązań w zakresie zabezpieczeń    | -Subskrypcje powinny mieć adres e-mail kontaktu pod kątem problemów z zabezpieczeniami<br> — Funkcja autoaprowizacji agenta Log Analytics powinna być włączona w ramach subskrypcji<br> -Należy włączyć powiadomienia e-mail o alertach o wysokiej ważności<br> -Wyślij powiadomienie e-mail do właściciela subskrypcji w celu uzyskania alertów o wysokiej ważności.<br> -Magazyny kluczy powinny mieć włączoną ochronę przed przeczyszczeniem<br> -Magazyny kluczy powinny mieć włączone usuwanie nietrwałe |
-| Zarządzanie dostępem i uprawnieniami        | -Aplikacje funkcji powinny mieć włączone "certyfikaty klienta (przychodzące certyfikaty klienta)" |
-| Ochrona aplikacji przed atakami DDoS | — Zapora aplikacji sieci Web (WAF) powinna być włączona dla Application Gateway<br> -Zapora aplikacji sieci Web (WAF) powinna być włączona dla usługi Azure Front drzwiczk Service |
-| Ogranicz nieautoryzowany dostęp do sieci | -Zapora powinna być włączona na Key Vault<br> -Prywatny punkt końcowy powinien być skonfigurowany dla Key Vault<br> -Konfiguracja aplikacji powinna używać prywatnego linku<br> -Pamięć podręczna platformy Azure dla Redis powinna znajdować się w sieci wirtualnej<br> -Azure Event Grid domeny powinny używać prywatnego linku<br> -Azure Event Grid tematy powinny używać prywatnego linku<br> -Azure Machine Learning obszary robocze powinny używać prywatnego linku<br> — Usługa Azure sygnalizująca powinna używać prywatnego linku<br> — Chmura Wiosenna platformy Azure powinna używać iniekcji sieci<br> -Rejestr kontenerów nie powinien zezwalać na nieograniczony dostęp do sieci<br> -Rejestry kontenerów powinny używać prywatnego linku<br> -Publiczny dostęp do sieci powinien być wyłączony dla serwerów MariaDB<br> -Publiczny dostęp do sieci powinien być wyłączony dla serwerów MySQL<br> -Publiczny dostęp do sieci powinien być wyłączony dla serwerów PostgreSQL<br> — Konto magazynu powinno korzystać z prywatnego połączenia z linkiem<br> — Konta magazynu powinny ograniczać dostęp do sieci przy użyciu reguł sieci wirtualnej<br> — Szablony konstruktora obrazów maszyn wirtualnych powinny używać prywatnego linku|
+| Włączanie szyfrowania danych spoczynku            | — Azure Cosmos DB powinny używać kluczy zarządzanych przez klienta do szyfrowania danych w spoczynku<br>— Azure Machine Learning powinny być szyfrowane przy użyciu klucza zarządzanego przez klienta (CMK)<br>— Ochrona danych przy własnych kluczach powinna być włączona dla serwerów MySQL<br>— Ochrona danych przy własnych kluczach powinna być włączona dla serwerów PostgreSQL<br>— Cognitive Services powinny włączyć szyfrowanie danych przy użyciu klucza zarządzanego przez klienta<br>— Rejestry kontenerów powinny być szyfrowane przy użyciu klucza zarządzanego przez klienta (CMK)<br>— Wystąpienia zarządzane SQL powinny używać kluczy zarządzanych przez klienta do szyfrowania danych w spoczynku<br>— Serwery SQL powinny używać kluczy zarządzanych przez klienta do szyfrowania danych w spoczynku<br>— Konta magazynu powinny używać klucza zarządzanego przez klienta (CMK) do szyfrowania                                                                                                                                                              |
+| Implementowanie najlepszych rozwiązań w zakresie zabezpieczeń    | — Subskrypcje powinny mieć kontaktowy adres e-mail w przypadku problemów z zabezpieczeniami<br> — W twojej subskrypcji należy włączyć automatyczną aprowizowanie agenta usługi Log Analytics<br> — Powiadomienia e-mail dotyczące alertów o wysokiej ważności powinny być włączone<br> — Należy włączyć powiadomienie e-mail do właściciela subskrypcji dotyczące alertów o wysokiej ważności<br> — Magazyny kluczy powinny mieć włączoną ochronę przed przeczyszczaniem<br> — Magazyny kluczy powinny mieć włączoną funkcję usuwania nie soft |
+| Zarządzanie dostępem i uprawnieniami        | — Aplikacje funkcji powinny mieć włączoną funkcję "Certyfikaty klienta (przychodzące certyfikaty klienta)" |
+| Ochrona aplikacji przed atakami DDoS | — Web Application Firewall (WAF) powinna być włączona dla Application Gateway<br> — Web Application Firewall (WAF) powinna być włączona dla Azure Front Door Service usługi |
+| Ograniczanie nieautoryzowanego dostępu do sieci | — Zapora powinna być włączona na Key Vault<br> — Prywatny punkt końcowy powinien być skonfigurowany dla Key Vault<br> — App Configuration używać linku prywatnego<br> — Azure Cache for Redis znajdować się w sieci wirtualnej<br> — Azure Event Grid powinny używać linku prywatnego<br> — Azure Event Grid tematy powinny używać linku prywatnego<br> — Azure Machine Learning obszary robocze powinny używać linku prywatnego<br> — Azure SignalR Service używać linku prywatnego<br> — Azure Spring Cloud należy używać wstrzykiwania sieci<br> - Rejestry kontenerów nie powinny zezwalać na nieograniczony dostęp sieciowy<br> — Rejestry kontenerów powinny używać linku prywatnego<br> — Dla serwerów MariaDB należy wyłączyć dostęp do sieci publicznej<br> — Dostęp do sieci publicznej powinien być wyłączony dla serwerów MySQL<br> — W przypadku serwerów PostgreSQL należy wyłączyć dostęp do sieci publicznej<br> — Konto magazynu powinno korzystać z połączenia z łączem prywatnym<br> - Konta magazynu powinny ograniczać dostęp sieciowy przy użyciu reguł sieci wirtualnej<br> — Szablony Image Builder maszyn wirtualnych powinny używać linku prywatnego|
 |                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
 Powiązane linki:
 
-- [Dowiedz się więcej o teście zabezpieczeń Azure](../security/benchmarks/introduction.md)
+- [Dowiedz się więcej na temat testu porównawczego zabezpieczeń platformy Azure](https://docs.microsoft.com/security/benchmark/azure/introduction)
 - [Dowiedz się więcej o Azure Database for MariaDB](../mariadb/overview.md)
 - [Dowiedz się więcej o Azure Database for MySQL](../mysql/overview.md)
 - [Dowiedz się więcej o Azure Database for PostgreSQL](../postgresql/overview.md)
@@ -552,139 +552,139 @@ Powiązane linki:
 
 
 
-### <a name="csv-export-of-filtered-list-of-recommendations"></a>Eksport CSV przefiltrowanej listy zaleceń 
+### <a name="csv-export-of-filtered-list-of-recommendations"></a>Eksportowanie pliku CSV z przefiltrowanych list zaleceń 
 
-W listopadzie 2020 dodaliśmy filtry do strony rekomendacje ([Lista zaleceń zawiera teraz filtry](#recommendations-list-now-includes-filters)). W grudniu rozwinięto te filtry ([Strona zalecenia ma nowe filtry dotyczące środowiska, ważności i dostępnych odpowiedzi](#recommendations-page-has-new-filters-for-environment-severity-and-available-responses)). 
+W listopadzie 2020 r. dodaliśmy filtry do strony zaleceń[(lista rekomendacji zawiera teraz filtry](#recommendations-list-now-includes-filters)). W grudniu rozszerzyliśmy te filtry (strona Zalecenia zawiera nowe filtry dotyczące[środowiska, ważności i dostępnych odpowiedzi).](#recommendations-page-has-new-filters-for-environment-severity-and-available-responses) 
 
-W tym ogłoszeniu zmienimy zachowanie przycisku **Pobierz do formatu CSV** , tak aby eksport CSV zawierał tylko zalecenia aktualnie wyświetlane na liście filtrowanej. 
+W tym anonsie zmieniamy zachowanie przycisku Pobierz na **CSV,** tak aby eksport CSV zawierał tylko zalecenia aktualnie wyświetlane na filtrowanych listach. 
 
-Na przykład na poniższej ilustracji widać, że lista została przefiltrowana do dwóch zaleceń. Wygenerowany plik CSV zawiera szczegóły stanu każdego zasobu, którego dotyczą te dwa zalecenia.   
+Na przykład na poniższej ilustracji widać, że lista została odfiltrowana do dwóch zaleceń. Wygenerowany plik CSV zawiera szczegóły stanu dla każdego zasobu objętego tymi dwoma zaleceniami.   
 
-:::image type="content" source="media/security-center-managing-and-responding-alerts/export-to-csv-with-filters.png" alt-text="Eksportowanie zaleceń filtrowanych do pliku CSV":::
+:::image type="content" source="media/security-center-managing-and-responding-alerts/export-to-csv-with-filters.png" alt-text="Eksportowanie odfiltrowanych zaleceń do pliku CSV":::
 
-Więcej informacji zawiera temat [zalecenia dotyczące zabezpieczeń w Azure Security Center](security-center-recommendations.md).
-
-
-### <a name="not-applicable-resources-now-reported-as-compliant-in-azure-policy-assessments"></a>Zasoby "nie dotyczy" są teraz zgłaszane jako "zgodne" w Azure Policy oceny
-
-Wcześniej zasoby, które zostały ocenione pod kątem rekomendacji i nie są **stosowane** , pojawiły się w Azure Policy jako "niezgodne". Żadna akcja użytkownika nie może zmienić stanu na "zgodny". W przypadku tej zmiany są one zgłaszane jako "zgodne" w celu zwiększenia przejrzystości.
-
-Jedyny wpływ będzie widoczny w Azure Policy, w którym zostanie zwiększona liczba zgodnych zasobów. Nie będzie to miało wpływu na Twój bezpieczny wynik w Azure Security Center.
+Aby dowiedzieć się [więcej, zobacz Zalecenia dotyczące zabezpieczeń Azure Security Center](security-center-recommendations.md).
 
 
-### <a name="export-weekly-snapshots-of-secure-score-and-regulatory-compliance-data-with-continuous-export-preview"></a>Eksportuj cotygodniowe migawki bezpiecznego oceny i danych zgodności z przepisami przy użyciu eksportu ciągłego (wersja zapoznawcza)
+### <a name="not-applicable-resources-now-reported-as-compliant-in-azure-policy-assessments"></a>Zasoby "Nie dotyczy" są teraz zgłaszane jako "Zgodne" w Azure Policy oceny
 
-Dodaliśmy nową funkcję w wersji zapoznawczej do narzędzi [eksportu ciągłego](continuous-export.md) do eksportowania cotygodniowych migawek bezpiecznego oceny i danych zgodności z przepisami.
+Wcześniej zasoby, które zostały ocenione pod  celu rekomendacji i które nie mają zastosowania, pojawiały się w Azure Policy jako "Niezgodne". Żadna akcja użytkownika nie może zmienić stanu na "Zgodne". Dzięki tej zmianie są one zgłaszane jako "Zgodne" w celu zwiększenia przejrzystości.
 
-Podczas definiowania eksportu ciągłego należy ustawić częstotliwość eksportowania:
+Jedyny wpływ będzie widoczny w przypadku Azure Policy, w których liczba zgodnych zasobów zwiększy się. Nie będzie to miało wpływu na ocenę bezpieczeństwa w Azure Security Center.
+
+
+### <a name="export-weekly-snapshots-of-secure-score-and-regulatory-compliance-data-with-continuous-export-preview"></a>Eksportowanie cotygodniowych migawek bezpiecznego wyniku i danych zgodności z przepisami przy użyciu eksportu ciągłego (wersja zapoznawcza)
+
+Dodaliśmy nową funkcję w [](continuous-export.md) wersji zapoznawczej do narzędzi eksportu ciągłego w celu eksportowania cotygodniowych migawek bezpiecznego wyniku i danych zgodności z przepisami.
+
+Podczas definiowania eksportu ciągłego ustaw częstotliwość eksportowania:
 
 :::image type="content" source="media/release-notes/export-frequency.png" alt-text="Wybieranie częstotliwości eksportu ciągłego":::
 
-- **Przesyłanie strumieniowe** — oceny zostaną przesłane w czasie rzeczywistym, gdy stan kondycji zasobu zostanie zaktualizowany (jeśli nie wystąpią żadne aktualizacje, żadne dane nie zostaną wysłane).
+- **Przesyłanie** strumieniowe — oceny będą wysyłane w czasie rzeczywistym, gdy kondycja zasobu zostanie zaktualizowana (jeśli aktualizacje nie zostaną wysłane, żadne dane nie będą wysyłane).
 - **Migawki** — migawka bieżącego stanu wszystkich ocen zgodności z przepisami będzie wysyłana co tydzień (jest to funkcja w wersji zapoznawczej dla cotygodniowych migawek bezpiecznych ocen i danych zgodności z przepisami).
 
-Dowiedz się więcej na temat pełnych możliwości tej funkcji w [sposób ciągły eksport danych Security Center](continuous-export.md).
+Aby dowiedzieć się więcej o pełnych możliwościach tej funkcji, zobacz [Ciągłe eksportowanie Security Center danych.](continuous-export.md)
 
 ## <a name="december-2020"></a>Grudzień 2020 r.
 
 Aktualizacje w grudniu obejmują:
 
-- [Usługa Azure Defender dla serwerów SQL na maszynach jest ogólnie dostępna](#azure-defender-for-sql-servers-on-machines-is-generally-available)
-- [Usługa Azure Defender for SQL dla dedykowanej puli SQL usługi Azure Synapse Analytics jest ogólnie dostępna](#azure-defender-for-sql-support-for-azure-synapse-analytics-dedicated-sql-pool-is-generally-available)
-- [Administratorzy globalni mogą teraz udzielić sobie uprawnień na poziomie dzierżawy](#global-administrators-can-now-grant-themselves-tenant-level-permissions)
-- [Dwa nowe plany usługi Azure Defender: usługa Azure Defender dla systemu DNS i usługi Azure Defender dla Menedżer zasobów (w wersji zapoznawczej)](#two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview)
+- [Azure Defender dla serwerów SQL na maszynach jest ogólnie dostępna](#azure-defender-for-sql-servers-on-machines-is-generally-available)
+- [Azure Defender obsługi języka SQL dla Azure Synapse Analytics dedykowanej puli SQL jest ogólnie dostępna](#azure-defender-for-sql-support-for-azure-synapse-analytics-dedicated-sql-pool-is-generally-available)
+- [Administratorzy globalni mogą teraz udzielać sobie uprawnień na poziomie dzierżawy](#global-administrators-can-now-grant-themselves-tenant-level-permissions)
+- [Dwa nowe Azure Defender usługi: Azure Defender dns i Azure Defender dla Resource Manager (w wersji zapoznawczej)](#two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview)
 - [Nowa strona alertów zabezpieczeń w Azure Portal (wersja zapoznawcza)](#new-security-alerts-page-in-the-azure-portal-preview)
-- [Security Center środowisko w Azure SQL Database & wystąpieniu zarządzanym SQL](#revitalized-security-center-experience-in-azure-sql-database--sql-managed-instance)
+- [Ponownie Security Center środowisko Azure SQL Database & SQL Managed Instance](#revitalized-security-center-experience-in-azure-sql-database--sql-managed-instance)
 - [Zaktualizowano narzędzia i filtry spisu zasobów](#asset-inventory-tools-and-filters-updated)
-- [Zalecenie dotyczące aplikacji sieci Web żądających certyfikatów SSL, które nie są już częścią bezpiecznego wyniku](#recommendation-about-web-apps-requesting-ssl-certificates-no-longer-part-of-secure-score)
-- [Strona zalecenia zawiera nowe filtry dotyczące środowiska, ważności i dostępnych odpowiedzi](#recommendations-page-has-new-filters-for-environment-severity-and-available-responses)
-- [Eksport ciągły pobiera nowe typy danych i udoskonalone zasady deployifnotexist](#continuous-export-gets-new-data-types-and-improved-deployifnotexist-policies)
+- [Zalecenie dotyczące aplikacji internetowych żądających certyfikatów SSL, które nie są już częścią bezpiecznego wyniku](#recommendation-about-web-apps-requesting-ssl-certificates-no-longer-part-of-secure-score)
+- [Strona Rekomendacje zawiera nowe filtry dotyczące środowiska, ważności i dostępnych odpowiedzi](#recommendations-page-has-new-filters-for-environment-severity-and-available-responses)
+- [Eksport ciągły pobiera nowe typy danych i ulepszone zasady deployifnotexist](#continuous-export-gets-new-data-types-and-improved-deployifnotexist-policies)
 
 
-### <a name="azure-defender-for-sql-servers-on-machines-is-generally-available"></a>Usługa Azure Defender dla serwerów SQL na maszynach jest ogólnie dostępna
+### <a name="azure-defender-for-sql-servers-on-machines-is-generally-available"></a>Azure Defender dla serwerów SQL na maszynach jest ogólnie dostępna
 
-Azure Security Center oferuje dwa plany usługi Azure Defender dla serwerów SQL:
+Azure Security Center oferuje dwa plany Azure Defender programu SQL Server:
 
-- **Usługa Azure Defender dla serwerów usługi Azure SQL Database** — obrona natywnych serwerów SQL platformy Azure 
-- **Usługa Azure Defender dla serwerów SQL na maszynach** — rozszerza te same zabezpieczenia na serwery SQL w środowiskach hybrydowych, wielochmurowych i lokalnych
+- **Azure Defender dla Azure SQL baz danych** — chroni serwery SQL Server natywne dla platformy Azure 
+- **Azure Defender dla serwerów SQL na** maszynach — rozszerza te same zabezpieczenia na serwery SQL w środowiskach hybrydowych, wielochmurowych i lokalnych
 
-Za pomocą tego anonsu **usługa Azure Defender dla programu SQL zapewnia** teraz ochronę baz danych i ich danych, wszędzie tam, gdzie się znajdują.
+Dzięki temu **anonsowi usługa Azure Defender SQL** chroni teraz bazy danych i ich dane niezależnie od tego, gdzie się znajdują.
 
-Usługa Azure Defender dla programu SQL zawiera funkcje oceny luk w zabezpieczeniach. Narzędzie do oceny luk w zabezpieczeniach obejmuje następujące funkcje zaawansowane:
+Azure Defender sql obejmuje możliwości oceny luk w zabezpieczeniach. Narzędzie do oceny luk w zabezpieczeniach obejmuje następujące funkcje zaawansowane:
 
-- **Konfiguracja linii bazowej** (New!), aby inteligentnie udoskonalać wyniki skanowania luk w zabezpieczeniach, które mogą reprezentować rzeczywiste problemy z zabezpieczeniami. Po ustaleniu stanu zabezpieczeń linii bazowej narzędzie do oceny luk w zabezpieczeniach zgłasza odchylenia od tego stanu linii bazowej. Wyniki, które pasują do linii bazowej, są uznawane za przekazanie kolejnych skanów. Dzięki temu możesz i analitykom skupić uwagę na miejscu.
-- **Szczegółowe informacje na temat testów porównawczych** ułatwiające *zrozumienie* odnalezionych wyników i przyczyn związanych z zasobami.
-- **Skrypty korygowania** pomagające ograniczyć określone zagrożenia.
+- **Konfiguracja linii** bazowej (Nowość!) umożliwiająca inteligentne uściślinie wyników skanowania pod względem luk w zabezpieczeniach do tych, które mogą reprezentować rzeczywiste problemy z zabezpieczeniami. Po ujednaniu bazowego stanu zabezpieczeń narzędzie do oceny luk w zabezpieczeniach zgłasza tylko odchylenia od tego stanu. Wyniki zgodne z punktem odniesienia są traktowane jako przekazywanie kolejnych skanowań. Dzięki temu Ty i Twoi analitycy skoncentrujecie twoją uwagę na tym, gdzie ma to znaczenie.
+- **Szczegółowe informacje dotyczące testów** porównawczych, które *ułatwiają* zrozumienie odnalezionych wyników i ich związku z zasobami.
+- **Skrypty korygowania** w celu ograniczenia zidentyfikowanych zagrożeń.
 
-Dowiedz się więcej o [usłudze Azure Defender dla języka SQL](defender-for-sql-introduction.md).
-
-
-### <a name="azure-defender-for-sql-support-for-azure-synapse-analytics-dedicated-sql-pool-is-generally-available"></a>Usługa Azure Defender for SQL dla dedykowanej puli SQL usługi Azure Synapse Analytics jest ogólnie dostępna
-
-Azure Synapse Analytics (dawniej SQL DW) to Usługa analityczna, która łączy magazyn danych w przedsiębiorstwie i analizy danych Big Data. Dedykowane pule SQL to funkcje magazynowania danych przedsiębiorstwa w usłudze Azure Synapse. Dowiedz się więcej w temacie [co to jest usługa Azure Synapse Analytics (wcześniej SQL DW)?](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
-
-Usługa Azure Defender dla programu SQL chroni dedykowane pule SQL przy użyciu:
-
-- **Zaawansowana ochrona przed zagrożeniami** w celu wykrywania zagrożeń i ataków 
-- **Możliwości oceny luk** w zabezpieczeniach w celu identyfikowania i rozwiązywania problemów z konfiguracją zabezpieczeń
-
-Usługa Azure Defender for SQL dla usług Azure Synapse Analytics jest automatycznie dodawana do pakietu baz danych SQL Azure w Azure Security Center. Nowa karta "Azure Defender for SQL" znajduje się na stronie obszaru roboczego Synapse w Azure Portal.
-
-Dowiedz się więcej o [usłudze Azure Defender dla języka SQL](defender-for-sql-introduction.md).
+Dowiedz się więcej o [Azure Defender dla języka SQL.](defender-for-sql-introduction.md)
 
 
-### <a name="global-administrators-can-now-grant-themselves-tenant-level-permissions"></a>Administratorzy globalni mogą teraz udzielić sobie uprawnień na poziomie dzierżawy
+### <a name="azure-defender-for-sql-support-for-azure-synapse-analytics-dedicated-sql-pool-is-generally-available"></a>Azure Defender obsługi języka SQL dla Azure Synapse Analytics dedykowana pula SQL jest ogólnie dostępna
 
-Użytkownik z rolą Azure Active Directory **administrator globalny** może korzystać z obowiązków obejmujących dzierżawę, ale nie ma uprawnień platformy Azure do wyświetlania informacji o całej organizacji w Azure Security Center. 
+Azure Synapse Analytics (dawniej SQL DW) to usługa analizy, która łączy magazynowanie danych przedsiębiorstwa i analizę danych big data. Dedykowane pule SQL to funkcje magazynowania danych przedsiębiorstwa Azure Synapse. Dowiedz się więcej [w temacie Co Azure Synapse Analytics (dawniej SQL DW)?](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
 
-Aby przypisać własne uprawnienia na poziomie dzierżawy, postępuj zgodnie z instrukcjami podanymi w temacie [Przyznawanie uprawnień dla całej dzierżawy](tenant-wide-permissions-management.md#grant-tenant-wide-permissions-to-yourself).
+Azure Defender sql chroni dedykowane pule SQL za pomocą:
+
+- **Zaawansowana ochrona przed** zagrożeniami w celu wykrywania zagrożeń i ataków 
+- **Możliwości oceny luk w zabezpieczeniach do** identyfikowania i korygowania problemów z błędami konfiguracji zabezpieczeń
+
+Azure Defender do pakietu baz danych Azure Synapse Analytics SQL jest automatycznie dodawana do pakietu baz danych Azure SQL sql w Azure Security Center. Na stronie obszaru roboczego usługi Syn Azure Portal apse w Azure Defender znajdziesz nową kartę "Azure Defender for SQL".
+
+Dowiedz się więcej o [Azure Defender dla języka SQL.](defender-for-sql-introduction.md)
 
 
-### <a name="two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview"></a>Dwa nowe plany usługi Azure Defender: usługa Azure Defender dla systemu DNS i usługi Azure Defender dla Menedżer zasobów (w wersji zapoznawczej)
+### <a name="global-administrators-can-now-grant-themselves-tenant-level-permissions"></a>Administratorzy globalni mogą teraz udzielać sobie uprawnień na poziomie dzierżawy
 
-Dodaliśmy dwie nowe funkcje natywnej ochrony przed zagrożeniami w chmurze dla środowiska platformy Azure.
+Użytkownik z rolą Azure Active Directory administratora  globalnego może mieć obowiązki dotyczące całej dzierżawy, ale nie ma uprawnień platformy Azure do wyświetlania tych informacji w całej organizacji w Azure Security Center. 
 
-Te nowe zabezpieczenia znacznie rozszerzają odporność na ataki od aktorów zagrożeń i znacząco zwiększają liczbę zasobów platformy Azure chronionych przez usługę Azure Defender.
+Aby przypisać sobie uprawnienia na poziomie dzierżawy, postępuj zgodnie z instrukcjami w tece Udzielanie sobie uprawnień dla [całej dzierżawy.](tenant-wide-permissions-management.md#grant-tenant-wide-permissions-to-yourself)
 
-- **Usługa Azure Defender dla Menedżer zasobów** — automatycznie monitoruje wszystkie operacje zarządzania zasobami wykonywane w organizacji. Aby uzyskać więcej informacji, zobacz:
-    - [Wprowadzenie do usługi Azure Defender dla Menedżer zasobów](defender-for-resource-manager-introduction.md)
+
+### <a name="two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview"></a>Dwa nowe Azure Defender usługi: Azure Defender dns i Azure Defender dla Resource Manager (w wersji zapoznawczej)
+
+Dodaliśmy dwie nowe możliwości ochrony przed zagrożeniami natywne dla chmury dla środowiska platformy Azure.
+
+Te nowe zabezpieczenia znacznie zwiększają odporność na ataki ze strony osób atakujących i znacznie zwiększają liczbę zasobów platformy Azure chronionych przez Azure Defender.
+
+- **Azure Defender dla Resource Manager** — automatycznie monitoruje wszystkie operacje zarządzania zasobami wykonywane w organizacji. Aby uzyskać więcej informacji, zobacz:
+    - [Wprowadzenie do Azure Defender dla Resource Manager](defender-for-resource-manager-introduction.md)
     - [Reagowanie na alerty usługi Azure Defender dla usługi Resource Manager](defender-for-resource-manager-usage.md)
-    - [Lista alertów dostarczonych przez usługę Azure Defender dla Menedżer zasobów](alerts-reference.md#alerts-resourcemanager)
+    - [Lista alertów dostarczonych przez Azure Defender dla Resource Manager](alerts-reference.md#alerts-resourcemanager)
 
-- **Usługa Azure Defender dla systemu DNS** — stale monitoruje wszystkie zapytania DNS z zasobów platformy Azure. Aby uzyskać więcej informacji, zobacz:
-    - [Wprowadzenie do usługi Azure Defender dla systemu DNS](defender-for-dns-introduction.md)
+- **Azure Defender dns — stale** monitoruje wszystkie zapytania DNS z zasobów platformy Azure. Aby uzyskać więcej informacji, zobacz:
+    - [Wprowadzenie do Azure Defender dns](defender-for-dns-introduction.md)
     - [Reagowanie na alerty usługi Azure Defender dla usługi DNS](defender-for-dns-usage.md)
-    - [Lista alertów udostępnianych przez usługę Azure Defender dla systemu DNS](alerts-reference.md#alerts-dns)
+    - [Lista alertów dostarczonych przez Azure Defender dla systemu DNS](alerts-reference.md#alerts-dns)
 
 
 ### <a name="new-security-alerts-page-in-the-azure-portal-preview"></a>Nowa strona alertów zabezpieczeń w Azure Portal (wersja zapoznawcza)
 
-Strona alertów zabezpieczeń Azure Security Center została przeprojektowana w celu zapewnienia:
+Azure Security Center alertów zabezpieczeń została przeprojektowana w celu zapewnienia:
 
-- **Udoskonalone środowisko Klasyfikacja dla alertów** — pomaga zmniejszyć zmęczenie alertów i skupić się na najważniejszych zagrożeniach, a lista zawiera dostosowywalne filtry i opcje grupowania
-- **Więcej informacji na liście alertów** — takich jak MITRE ATT&ACK taktykę
-- **Przycisk umożliwiający tworzenie przykładowych alertów** — aby oszacować możliwości usługi Azure Defender i przetestować konfigurację alertów (na potrzeby integracji Siem, powiadomień e-mail i automatyzacji przepływu pracy), możesz utworzyć przykładowe alerty ze wszystkich planów usługi Azure Defender
-- **Wyrównywanie za pomocą doświadczenia ze zdarzeniami platformy Azure** — w przypadku klientów, którzy korzystają z obu tych produktów, przełączenie między nimi jest teraz bardziej prostym doświadczeniem i można łatwo poznać jeden z nich.
-- **Lepsza wydajność** dla list z dużymi alertami
-- **Nawigacja** przy użyciu klawiatury przez listę alertów
-- **Alerty z grafu zasobów platformy Azure** — możesz wysyłać zapytania dotyczące alertów na wykresie zasobów platformy Azure, interfejsu API przypominającego Kusto dla wszystkich zasobów. Jest to przydatne również w przypadku tworzenia własnych pulpitów nawigacyjnych alertów. [Dowiedz się więcej o usłudze Azure Resource Graph](../governance/resource-graph/index.yml).
+- **Ulepszone środowisko triage dla** alertów — ułatwianie redukowania alertów i skoncentrowanie się na najbardziej odpowiednich zagrożeniach. Lista zawiera dostosowywalne filtry i opcje grupowania
+- **Więcej informacji na liście alertów** — na przykład MITRE ATT&taktyki ACK
+- **Przycisk** tworzenia przykładowych alertów — aby ocenić możliwości rozwiązania Azure Defender i przetestować konfigurację alertów (w przypadku integracji rozwiązania SIEM, powiadomień e-mail i automatyzacji przepływu pracy), możesz utworzyć przykładowe alerty ze wszystkich planów Azure Defender biznesowych
+- **Dopasowanie do Azure Sentinel** zdarzeń firmy — w przypadku klientów, którzy korzystają z obu produktów, przełączanie się między nimi jest teraz bardziej proste i można łatwo nauczyć się jednego od drugiego
+- **Lepsza wydajność w** przypadku dużych list alertów
+- **Nawigacja za pomocą** klawiatury na liście alertów
+- **Alerty z Azure Resource Graph** — możesz odpytować alerty w Azure Resource Graph, interfejsie API przypominacym Kusto, dla wszystkich zasobów. Jest to również przydatne w przypadku tworzenia własnych pulpitów nawigacyjnych alertów. [Dowiedz się więcej o Azure Resource Graph](../governance/resource-graph/index.yml).
 
-Aby uzyskać dostęp do nowego środowiska, Użyj linku "Wypróbuj teraz" na transparencie w górnej części strony alertów zabezpieczeń.
+Aby uzyskać dostęp do nowego środowisko, użyj linku "Wypróbuj teraz" na banerze w górnej części strony alertów zabezpieczeń.
 
-:::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Transparent z linkiem do nowego środowiska obsługi alertów w wersji zapoznawczej":::
+:::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Baner z linkiem do nowego środowisko alertów w wersji zapoznawczej":::
 
-Aby utworzyć przykładowe alerty z nowego środowiska alertów, zobacz [generowanie przykładowych alertów usługi Azure Defender](security-center-alert-validation.md#generate-sample-azure-defender-alerts).
+Aby utworzyć przykładowe alerty na podstawie nowego środowisko alertów, zobacz [Generowanie przykładowych alertów Azure Defender alertów.](security-center-alert-validation.md#generate-sample-azure-defender-alerts)
 
 
-### <a name="revitalized-security-center-experience-in-azure-sql-database--sql-managed-instance"></a>Security Center środowisko w Azure SQL Database & wystąpieniu zarządzanym SQL 
+### <a name="revitalized-security-center-experience-in-azure-sql-database--sql-managed-instance"></a>Ponownie Security Center w Azure SQL Database & SQL Managed Instance 
 
-Security Center środowisko w programie SQL zapewnia dostęp do następujących Security Center i usługi Azure Defender dla funkcji SQL:
+Środowisko Security Center SQL zapewnia dostęp do następujących funkcji Security Center i Azure Defender SQL:
 
-- **Zalecenia dotyczące zabezpieczeń** — Security Center okresowo analizuje stan zabezpieczeń wszystkich połączonych zasobów platformy Azure w celu zidentyfikowania potencjalnych problemów z konfiguracją zabezpieczeń. Następnie zawiera zalecenia dotyczące sposobu korygowania tych luk w zabezpieczeniach i ulepszania stan zabezpieczeń organizacji.
-- **Alerty zabezpieczeń** — usługa wykrywania, która stale monitoruje działania usługi Azure SQL pod kątem zagrożeń, takich jak iniekcja kodu SQL, ataki z wymuszeniem i nadużycie uprawnień. Ta usługa wyzwala szczegółowe i zorientowane na działania alerty zabezpieczeń w Security Center i oferuje opcje dla kontynuowania badań za pomocą platformy Azure — natywnego rozwiązania SIEM firmy Microsoft.
-- **Ustalenia** — usługa oceny luk w zabezpieczeniach, która stale monitoruje konfiguracje SQL platformy Azure i pomaga skorygować luki w zabezpieczeniach. Przeglądy oceny zawierają omówienie stanów zabezpieczeń usługi Azure SQL wraz ze szczegółowymi ustaleniami w zakresie zabezpieczeń.     
+- **Zalecenia dotyczące** zabezpieczeń — Security Center okresowo analizuje stan zabezpieczeń wszystkich połączonych zasobów platformy Azure, aby zidentyfikować potencjalne błędy konfiguracji zabezpieczeń. Następnie udostępnia zalecenia dotyczące sposobu korygowania tych luk w zabezpieczeniach i poprawiania bezpieczeństwa organizacji.
+- **Alerty zabezpieczeń** — usługa wykrywania, która stale monitoruje Azure SQL zagrożeń, takich jak iniekcja SQL, ataki siłowe i nadużycie uprawnień. Ta usługa wyzwala szczegółowe i zorientowane na działania alerty zabezpieczeń w usłudze Security Center i udostępnia opcje kontynuowania badań za pomocą rozwiązania Azure Sentinel, rozwiązania SIEM firmy Microsoft natywnego dla platformy Azure.
+- **Wyniki —** usługa do oceny luk w zabezpieczeniach, która stale monitoruje konfiguracje Azure SQL i pomaga w korygowaniu luk w zabezpieczeniach. Skanowania oceny zawierają przegląd Azure SQL zabezpieczeń wraz ze szczegółowymi ustaleniami bezpieczeństwa.     
 
-:::image type="content" source="media/release-notes/azure-security-center-experience-in-sql.png" alt-text="Funkcje zabezpieczeń Azure Security Center dla programu SQL są dostępne w ramach usługi Azure SQL":::
+:::image type="content" source="media/release-notes/azure-security-center-experience-in-sql.png" alt-text="Azure Security Center zabezpieczeń języka SQL są dostępne z poziomu Azure SQL":::
 
 
 ### <a name="asset-inventory-tools-and-filters-updated"></a>Zaktualizowano narzędzia i filtry spisu zasobów
@@ -692,171 +692,171 @@ Security Center środowisko w programie SQL zapewnia dostęp do następujących 
 Strona spisu w Azure Security Center została odświeżona z następującymi zmianami:
 
 - **Przewodniki i opinie** dodane do paska narzędzi. Spowoduje to otwarcie okienka z linkami do powiązanych informacji i narzędzi. 
-- **Filtr subskrypcje** został dodany do domyślnych filtrów dostępnych dla Twoich zasobów.
-- **Otwórz link zapytania** , aby otworzyć bieżące opcje filtru jako zapytanie wykresu zasobów platformy Azure (dawniej "widok w Eksploratorze grafu zasobów").
-- **Opcje operatora** dla każdego filtru. Teraz można wybrać spośród większej liczby operatorów logicznych niż "=". Na przykład możesz chcieć znaleźć wszystkie zasoby z aktywnymi zaleceniami, których tytuły zawierają ciąg "Szyfruj". 
+- **Filtr Subskrypcje** został dodany do domyślnych filtrów dostępnych dla zasobów.
+- **Otwórz link zapytania,** aby otworzyć bieżące opcje filtru jako Azure Resource Graph zapytania (wcześniej nazywanego "Wyświetl w eksploratorze grafu zasobów").
+- **Opcje operatora** dla każdego filtru. Teraz możesz wybrać spośród większej liczby operatorów logicznych innych niż "=". Możesz na przykład znaleźć wszystkie zasoby z aktywnymi rekomendacjami, których tytuły zawierają ciąg "encrypt". 
 
-    :::image type="content" source="media/release-notes/inventory-filter-operators.png" alt-text="Kontrolki dla opcji operatora w filtrach spisu zasobów":::
+    :::image type="content" source="media/release-notes/inventory-filter-operators.png" alt-text="Kontrolki opcji operatora w filtrach spisu zasobów":::
 
-Dowiedz się więcej na temat spisu w temacie [Eksplorowanie zasobów i zarządzanie nimi za pomocą spisu](asset-inventory.md)zasobów.
-
-
-### <a name="recommendation-about-web-apps-requesting-ssl-certificates-no-longer-part-of-secure-score"></a>Zalecenie dotyczące aplikacji sieci Web żądających certyfikatów SSL, które nie są już częścią bezpiecznego wyniku
-
-Zalecenie "aplikacje sieci Web powinno zażądać certyfikatu SSL dla wszystkich żądań przychodzących" zostało przeniesione z kontroli zabezpieczeń **Zarządzanie dostępem i uprawnieniami** (wartość maksymalna wynosząca 4) do **implementacji najlepszych** rozwiązań w zakresie zabezpieczeń (które nie uwzględnia żadnych punktów). 
-
-Upewnienie się, że aplikacja internetowa żąda certyfikatu, co sprawia, że jest bezpieczniejsze. Jednak dla publicznych aplikacji sieci Web jest to nieistotne. Jeśli uzyskujesz dostęp do witryny za pośrednictwem protokołu HTTP, a nie HTTPS, nie otrzymasz żadnych certyfikatów klienta. Dlatego jeśli aplikacja wymaga certyfikatów klienta, nie należy zezwalać na żądania do aplikacji za pośrednictwem protokołu HTTP. Dowiedz się więcej w temacie [Konfigurowanie wzajemnego uwierzytelniania TLS dla Azure App Service](../app-service/app-service-web-configure-tls-mutual-auth.md).
-
-W przypadku tej zmiany zalecenie jest teraz zalecanym najlepszym rozwiązaniem, które nie ma wpływu na ocenę. 
-
-Dowiedz się, które zalecenia znajdują się w każdej kontroli zabezpieczeń w obszarze kontrola [zabezpieczeń i ich zalecenia](secure-score-security-controls.md#security-controls-and-their-recommendations).
+Aby dowiedzieć się więcej na temat [spisu, zobacz Explore and manage your resources with asset inventory (Eksplorowanie zasobów i zarządzanie nimi za pomocą spisu zasobów).](asset-inventory.md)
 
 
-### <a name="recommendations-page-has-new-filters-for-environment-severity-and-available-responses"></a>Strona zalecenia zawiera nowe filtry dotyczące środowiska, ważności i dostępnych odpowiedzi
+### <a name="recommendation-about-web-apps-requesting-ssl-certificates-no-longer-part-of-secure-score"></a>Zalecenie dotyczące aplikacji internetowych żądających certyfikatów SSL, które nie są już częścią bezpiecznego wyniku
 
-Azure Security Center monitoruje wszystkie połączone zasoby i generuje zalecenia dotyczące zabezpieczeń. Skorzystaj z tych zaleceń, aby wzmocnić chmurę hybrydową stan i śledzić zgodność z zasadami i normami istotnymi dla Twojej organizacji, branży i kraju.
+Zalecenie "Aplikacje internetowe powinny żądać certyfikatu SSL dla wszystkich żądań przychodzących" zostało przeniesione z kontroli zabezpieczeń Zarządzanie dostępem i uprawnieniami **(o** wartości maksymalnie 4 punktów) do folderu **Implementowanie** najlepszych rozwiązań w zakresie zabezpieczeń (co nie jest warte żadnych punktów). 
 
-Ponieważ Security Center w dalszym ciągu rozszerza swój zakres i funkcje, lista zaleceń dotyczących zabezpieczeń rośnie co miesiąc. Na przykład zapoznaj [się z artykułem 29 zaleceń dotyczących wersji zapoznawczych, aby zwiększyć zakres testów zabezpieczeń platformy Azure](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark).
+Zapewnienie, że aplikacja internetowa żąda certyfikatu, z pewnością sprawia, że jest ona bezpieczniejsza. Jednak w przypadku publicznych aplikacji internetowych nie ma znaczenia. Jeśli uzyskujesz dostęp do lokacji za pośrednictwem protokołu HTTP, a nie HTTPS, nie otrzymasz certyfikatu klienta. Dlatego jeśli aplikacja wymaga certyfikatów klienta, nie należy zezwalać na żądania do aplikacji za pośrednictwem protokołu HTTP. Aby dowiedzieć się [więcej, zobacz Konfigurowanie wzajemnego uwierzytelniania protokołu TLS dla Azure App Service](../app-service/app-service-web-configure-tls-mutual-auth.md).
 
-Mając listę rozwijaną, istnieje konieczność filtrowania zaleceń w celu znalezienia najważniejszych korzyści. W listopadzie dodaliśmy filtry do strony zalecenia (zobacz [Lista zaleceń zawiera teraz filtry](#recommendations-list-now-includes-filters)).
+Dzięki tej zmianie zalecenie jest teraz zalecanym najlepszym rozwiązaniem, które nie ma wpływu na Ocenę. 
 
-Filtry dodane w tym miesiącu zapewniają opcje, aby uściślić listę zaleceń zgodnie z:
+Dowiedz się, które zalecenia znajdują się w poszczególnych mechanizmach kontroli zabezpieczeń, [i zapoznaj się z ich zaleceniami.](secure-score-security-controls.md#security-controls-and-their-recommendations)
 
-- **Środowisko** — zapoznaj się z zaleceniami dotyczącymi zasobów AWS, GCP lub Azure (lub dowolnej kombinacji)
-- **Ważność** — Wyświetl zalecenia zgodnie z klasyfikacją ważności ustawioną przez Security Center
-- **Akcje odpowiedzi** — wyświetlanie zaleceń zgodnie z dostępnością Security Center opcje odpowiedzi: szybka naprawa, odmowa i wymuszanie
+
+### <a name="recommendations-page-has-new-filters-for-environment-severity-and-available-responses"></a>Strona Rekomendacje zawiera nowe filtry dotyczące środowiska, ważności i dostępnych odpowiedzi
+
+Azure Security Center monitoruje wszystkie połączone zasoby i generuje zalecenia dotyczące zabezpieczeń. Skorzystaj z tych zaleceń, aby zwiększyć swój czas działania chmury hybrydowej i śledzić zgodność z zasadami i standardami odpowiednimi dla Twojej organizacji, branży i kraju.
+
+Ponieważ Security Center nadal rozszerza swoją zasięg i funkcje, lista zaleceń dotyczących zabezpieczeń rośnie z każdym miesiącem. Aby zwiększyć pokrycie testu porównawczego zabezpieczeń platformy Azure, zobacz [29 zaleceń](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)dotyczących wersji zapoznawczej.
+
+Wraz z rosnącą listą należy odfiltrować rekomendacje, aby znaleźć te, które cię interesują. W listopadzie dodaliśmy filtry do strony zaleceń (zobacz Lista zaleceń [zawiera teraz filtry](#recommendations-list-now-includes-filters)).
+
+Filtry dodane w tym miesiącu oferują opcje uściślić listę zaleceń zgodnie z:
+
+- **Środowisko** — wyświetlanie rekomendacji dotyczących usług AWS, GCP lub zasobów platformy Azure (lub dowolnej kombinacji)
+- **Ważność** — wyświetl zalecenia zgodnie z klasyfikacją ważności ustawioną przez Security Center
+- **Akcje odpowiedzi** — wyświetl zalecenia zgodnie z dostępnością opcji Security Center odpowiedzi: Szybka poprawka, Odmów i Wymusz
 
     > [!TIP]
-    > Filtr akcje odpowiedzi zastępuje filtr **dostępne szybkie poprawki (tak/nie)** . 
+    > Filtr akcji odpowiedzi zastępuje filtr **Szybka poprawka dostępna (Tak/Nie).** 
     > 
-    > Dowiedz się więcej na temat każdej z tych opcji odpowiedzi:
-    > - [Szybkie rozwiązywanie problemów](security-center-remediate-recommendations.md#quick-fix-remediation)
+    > Dowiedz się więcej o każdej z tych opcji odpowiedzi:
+    > - [Korygowanie szybkich poprawek](security-center-remediate-recommendations.md#quick-fix-remediation)
     > - [Zapobieganie błędom konfiguracji za pomocą wymuszania/odmawiania — zalecenia](prevent-misconfigurations.md)
 
 :::image type="content" source="./media/release-notes/added-recommendations-filters.png" alt-text="Zalecenia pogrupowane według kontroli zabezpieczeń" lightbox="./media/release-notes/added-recommendations-filters.png":::
 
-### <a name="continuous-export-gets-new-data-types-and-improved-deployifnotexist-policies"></a>Eksport ciągły pobiera nowe typy danych i udoskonalone zasady deployifnotexist
+### <a name="continuous-export-gets-new-data-types-and-improved-deployifnotexist-policies"></a>Eksport ciągły pobiera nowe typy danych i ulepszone zasady deployifnotexist
 
-Narzędzia eksportu ciągłego Azure Security Center umożliwiają eksportowanie zaleceń i alertów Security Center do użycia z innymi narzędziami do monitorowania w środowisku.
+Azure Security Center narzędzia eksportu ciągłego umożliwiają eksportowanie Security Center i alertów firmy Security Center do użycia z innymi narzędziami do monitorowania w środowisku.
 
-Eksport ciągły pozwala w pełni dostosować zawartość, która zostanie wyeksportowana, oraz miejsce, w której zostanie ono przeszukane. Aby uzyskać szczegółowe informacje, zobacz  [ciągły eksport danych Security Center](continuous-export.md).
+Eksport ciągły pozwala w pełni dostosować to, co zostanie wyeksportowane i gdzie zostanie. Aby uzyskać szczegółowe informacje, zobacz [Ciągłe eksportowanie Security Center danych.](continuous-export.md)
 
-Te narzędzia zostały ulepszone i rozszerzane w następujący sposób:
+Te narzędzia zostały udoskonalone i rozwinięte w następujący sposób:
 
-- **Ulepszone zaawansowane zasady deployifnotexistymi eksportu**. Zasady teraz:
+- **Rozszerzone zasady eksportu ciągłego deployifnotexist**. Zasady są teraz:
 
-    - **Sprawdź, czy konfiguracja jest włączona.** Jeśli tak nie jest, zasady będą widoczne jako niezgodne i tworzą zgodne zasoby. Dowiedz się więcej o dostarczonych szablonach Azure Policy na karcie "wdrażanie w skali przy użyciu Azure Policy" w temacie [Konfigurowanie ciągłego eksportowania](continuous-export.md#set-up-a-continuous-export).
+    - **Sprawdź, czy konfiguracja jest włączona.** Jeśli tak nie jest, zasady będą wyświetlane jako niezgodne i będą tworzyć zgodny zasób. Dowiedz się więcej na temat dostarczonych szablonów Azure Policy na karcie "Wdrażanie na dużą skalę za pomocą Azure Policy" w tece Konfigurowanie [eksportu ciągłego.](continuous-export.md#set-up-a-continuous-export)
 
-    - **Obsługa eksportowania wyników dotyczących zabezpieczeń.** Korzystając z szablonów Azure Policy, można skonfigurować eksport ciągły w taki sposób, aby zawierał wyniki. Jest to istotne w przypadku eksportowania zaleceń, które mają zalecenia "Sub", takie jak wyniki z skanerów oceny luk w zabezpieczeniach lub aktualizacje systemu dla zaleceń "nadrzędnej", należy zainstalować na swoich maszynach.
+    - **Obsługa eksportowania ustaleń zabezpieczeń.** W przypadku Azure Policy szablonów można skonfigurować eksport ciągły w taki sposób, aby uwzględniał wyniki. Jest to istotne w przypadku eksportowania zaleceń, które mają zalecenia "podrzędne", takich jak wyniki skanerów oceny luk w zabezpieczeniach lub konkretne aktualizacje systemu dla zalecenia "Nadrzędne" "Aktualizacje systemu powinny być instalowane na maszynach".
     
-    - **Obsługa eksportowania zabezpieczonych danych oceny.**
+    - **Obsługa eksportowania danych bezpiecznego wyniku.**
 
-- **Dodano dane oceny zgodności z przepisami (w wersji zapoznawczej).** Teraz możesz ciągle eksportować aktualizacje do oceny zgodności z przepisami, w tym dla dowolnych inicjatyw niestandardowych, do Log Analytics obszaru roboczego lub centrum zdarzeń. Ta funkcja jest niedostępna w chmurach narodowych/suwerennych.
+- **Dodane dane oceny zgodności z przepisami (w wersji zapoznawczej).** Teraz możesz stale eksportować aktualizacje do ocen zgodności z przepisami, w tym dla dowolnych inicjatyw niestandardowych, do obszaru roboczego usługi Log Analytics lub centrum zdarzeń. Ta funkcja jest niedostępna w chmurach krajowych/suwerennych.
 
-    :::image type="content" source="media/release-notes/continuous-export-regulatory-compliance-option.png" alt-text="Opcje w celu uwzględnienia informacji o ocenie zgodności z przepisami w przypadku danych eksportu ciągłego.":::
+    :::image type="content" source="media/release-notes/continuous-export-regulatory-compliance-option.png" alt-text="Opcje do uwzględnienia informacji o ocenie zgodnej z przepisami z danymi eksportu ciągłego.":::
 
 
 ## <a name="november-2020"></a>Listopad 2020 r.
 
 Aktualizacje w listopadzie obejmują:
 
-- [29 zaleceń dotyczących wersji zapoznawczej dodanych w celu zwiększenia zakresu testów zabezpieczeń platformy Azure](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
-- [NIST SP 800 171 R2 dodano do Security Center pulpitu nawigacyjnego zgodności z przepisami](#nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard)
-- [Lista rekomendacji zawiera teraz filtry](#recommendations-list-now-includes-filters)
-- [Ulepszone i rozszerzone środowisko aprowizacji](#auto-provisioning-experience-improved-and-expanded)
-- [Ocena zabezpieczeń jest teraz dostępna w przypadku eksportu ciągłego (wersja zapoznawcza)](#secure-score-is-now-available-in-continuous-export-preview)
-- [Zalecenie "aktualizacje systemu powinny być zainstalowane na Twoich komputerach" obejmuje teraz podzalecenia](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-subrecommendations)
-- [Na stronie Zarządzanie zasadami w Azure Portal teraz jest wyświetlany stan domyślnych przypisań zasad](#policy-management-page-in-the-azure-portal-now-shows-status-of-default-policy-assignments)
+- [Dodano 29 zaleceń w wersji zapoznawczej w celu zwiększenia pokrycia testu porównawczego zabezpieczeń platformy Azure](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
+- [Dodano do pulpitu nawigacyjnego zgodności z przepisami Security Center NIST SP 800 171 R2](#nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard)
+- [Lista zaleceń zawiera teraz filtry](#recommendations-list-now-includes-filters)
+- [Ulepszona i rozszerzona funkcja automatycznego aprowizowania](#auto-provisioning-experience-improved-and-expanded)
+- [Ocena bezpieczeństwa jest teraz dostępna w eksportie ciągłym (wersja zapoznawcza)](#secure-score-is-now-available-in-continuous-export-preview)
+- [Zalecenie "Aktualizacje systemu powinny być zainstalowane na maszynach" zawiera teraz podpodziały](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-subrecommendations)
+- [Strona zarządzania zasadami w Azure Portal teraz wyświetla stan domyślnych przypisań zasad](#policy-management-page-in-the-azure-portal-now-shows-status-of-default-policy-assignments)
 
-### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>29 zaleceń dotyczących wersji zapoznawczej dodanych w celu zwiększenia zakresu testów zabezpieczeń platformy Azure
+### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>Dodano 29 zaleceń w wersji zapoznawczej w celu zwiększenia pokrycia testu porównawczego zabezpieczeń platformy Azure
 
-Usługa Azure Security test to zestaw wytycznych dotyczących zabezpieczeń i zgodności opartych na platformie Azure, które są stosowane w oparciu o typowe struktury zgodności. [Dowiedz się więcej o teście porównawczym zabezpieczeń platformy Azure](../security/benchmarks/introduction.md).
+Test porównawczy zabezpieczeń platformy Azure to zestaw wytycznych dotyczących najlepszych rozwiązań dotyczących zabezpieczeń i zgodności firmy Microsoft, specyficzny dla platformy Azure, oparty na typowych platformach zgodności. [Dowiedz się więcej o teście porównawczym zabezpieczeń platformy Azure](../security/benchmarks/introduction.md).
 
-Do Security Center dodano następujące zalecenia dotyczące wersji zapoznawczej w celu zwiększenia zakresu tego testu porównawczego.
+Dodano następujące 29 zaleceń dotyczących wersji zapoznawczej Security Center celu zwiększenia pokrycia tego testu porównawczego.
 
-Zalecenia dotyczące wersji zapoznawczej nie powodują złej kondycji zasobu i nie są uwzględniane w obliczeniach bezpiecznego wyniku. Skoryguj je wszędzie tam, gdzie to możliwe, aby po zakończeniu okresu korzystania z wersji zapoznawczej doczyniły się do oceny. Dowiedz się więcej o tym, jak odpowiedzieć na te zalecenia w temacie [Koryguj zalecenia w Azure Security Center](security-center-remediate-recommendations.md).
+Rekomendacje dotyczące wersji zapoznawczej nie renderują zasobu w złej kondycji i nie są uwzględniane w obliczeniach wskaźnika bezpieczeństwa. Koryguj je wszędzie tam, gdzie to możliwe, tak aby po zakończeniu okresu zapoznawczego przyczyniły się do oceny. Dowiedz się więcej o tym, jak reagować na te zalecenia, zobacz [Korygowanie zaleceń](security-center-remediate-recommendations.md)w Azure Security Center .
 
-| Kontrola zabezpieczeń                     | Nowe rekomendacje                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Kontrola zabezpieczeń                     | Nowe zalecenia                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 |--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Szyfruj dane podczas przesyłania              | -Wymuszaj połączenie SSL powinno być włączone dla serwerów bazy danych PostgreSQL<br>-Wymuś połączenie SSL dla serwerów baz danych MySQL<br>-TLS należy zaktualizować do najnowszej wersji dla aplikacji interfejsu API<br>-TLS należy zaktualizować do najnowszej wersji aplikacji funkcji<br>-TLS należy zaktualizować do najnowszej wersji aplikacji sieci Web<br>-FTPS powinna być wymagana w aplikacji interfejsu API<br>-FTPS powinna być wymagana w aplikacji funkcji<br>-FTPS powinna być wymagana w aplikacji sieci Web                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Zarządzanie dostępem i uprawnieniami        | -Aplikacje sieci Web powinny zażądać certyfikatu SSL dla wszystkich żądań przychodzących<br>— Tożsamość zarządzana powinna być używana w aplikacji interfejsu API<br>— Tożsamość zarządzana powinna być używana w aplikacji funkcji<br>— Tożsamość zarządzana powinna być używana w aplikacji sieci Web                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Ogranicz nieautoryzowany dostęp do sieci | -Prywatny punkt końcowy powinien być włączony dla serwerów PostgreSQL<br>-Prywatny punkt końcowy powinien być włączony dla serwerów MariaDB<br>-Prywatny punkt końcowy powinien być włączony dla serwerów MySQL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| Włącz inspekcję i rejestrowanie          | -Należy włączyć dzienniki diagnostyczne w App Services                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Implementowanie najlepszych rozwiązań w zakresie zabezpieczeń    | -Azure Backup powinna być włączona dla maszyn wirtualnych<br>-Geograficznie nadmiarowe kopie zapasowe powinny być włączone dla Azure Database for MariaDB<br>-Geograficznie nadmiarowe kopie zapasowe powinny być włączone dla Azure Database for MySQL<br>-Geograficznie nadmiarowe kopie zapasowe powinny być włączone dla Azure Database for PostgreSQL<br>-PHP należy zaktualizować do najnowszej wersji dla aplikacji interfejsu API<br>-PHP należy zaktualizować do najnowszej wersji aplikacji sieci Web<br>-Java należy zaktualizować do najnowszej wersji dla aplikacji interfejsu API<br>— Środowisko Java należy zaktualizować do najnowszej wersji aplikacji funkcji<br>-Java należy zaktualizować do najnowszej wersji aplikacji sieci Web<br>-Python należy zaktualizować do najnowszej wersji dla aplikacji interfejsu API<br>-Python należy zaktualizować do najnowszej wersji aplikacji funkcji<br>-Python należy zaktualizować do najnowszej wersji aplikacji sieci Web<br>-Inspekcja przechowywania dla serwerów SQL powinna wynosić co najmniej 90 dni |
+| Szyfrowanie danych podczas przesyłania              | — Należy włączyć wymuszanie połączenia SSL dla serwerów baz danych PostgreSQL<br>— Należy włączyć wymuszanie połączenia SSL dla serwerów baz danych MySQL<br>— Należy zaktualizować język TLS do najnowszej wersji dla aplikacji interfejsu API<br>— Należy zaktualizować język TLS do najnowszej wersji dla aplikacji funkcji<br>— Należy zaktualizować język TLS do najnowszej wersji aplikacji internetowej<br>— W aplikacji interfejsu API powinien być wymagany protokół FTPS<br>— Usługa FTPS powinna być wymagana w aplikacji funkcji<br>— W aplikacji internetowej powinien być wymagany protokół FTPS                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Zarządzanie dostępem i uprawnieniami        | — Aplikacje internetowe powinny żądać certyfikatu SSL dla wszystkich żądań przychodzących<br>— Tożsamość zarządzana powinna być używana w aplikacji interfejsu API<br>— Tożsamość zarządzana powinna być używana w aplikacji funkcji<br>— Tożsamość zarządzana powinna być używana w aplikacji internetowej                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Ograniczanie nieautoryzowanego dostępu do sieci | — Dla serwerów PostgreSQL należy włączyć prywatny punkt końcowy<br>— Prywatny punkt końcowy powinien być włączony dla serwerów MariaDB<br>— Prywatny punkt końcowy powinien być włączony dla serwerów MySQL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Włączanie inspekcji i rejestrowania          | — Dzienniki diagnostyczne w App Services powinny być włączone                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Implementowanie najlepszych rozwiązań w zakresie zabezpieczeń    | — Azure Backup dla maszyn wirtualnych<br>— Geograficznie nadmiarowa kopia zapasowa powinna być włączona dla Azure Database for MariaDB<br>— Geograficznie nadmiarowa kopia zapasowa powinna być włączona dla Azure Database for MySQL<br>— Geograficznie nadmiarowa kopia zapasowa powinna być włączona dla Azure Database for PostgreSQL<br>— Język PHP powinien zostać zaktualizowany do najnowszej wersji dla aplikacji interfejsu API<br>— Język PHP powinien zostać zaktualizowany do najnowszej wersji aplikacji internetowej<br>— Język Java powinien zostać zaktualizowany do najnowszej wersji dla aplikacji interfejsu API<br>— Język Java powinien zostać zaktualizowany do najnowszej wersji dla aplikacji funkcji<br>— Język Java powinien zostać zaktualizowany do najnowszej wersji aplikacji internetowej<br>— Język Python powinien zostać zaktualizowany do najnowszej wersji dla aplikacji interfejsu API<br>— Język Python powinien zostać zaktualizowany do najnowszej wersji dla aplikacji funkcji<br>— Język Python powinien zostać zaktualizowany do najnowszej wersji aplikacji internetowej<br>— Okres przechowywania inspekcji dla serwerów SQL powinien być ustawiony na co najmniej 90 dni |
 |                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
 Powiązane linki:
 
-- [Dowiedz się więcej o teście zabezpieczeń Azure](../security/benchmarks/introduction.md)
-- [Dowiedz się więcej o usłudze Azure API Apps](../app-service/app-service-web-tutorial-rest-api.md)
-- [Dowiedz się więcej na temat aplikacji funkcji platformy Azure](../azure-functions/functions-overview.md)
-- [Dowiedz się więcej o usłudze Azure Web Apps](../app-service/overview.md)
+- [Dowiedz się więcej na temat testu porównawczego zabezpieczeń platformy Azure](https://docs.microsoft.com/security/benchmark/azure/introduction)
+- [Dowiedz się więcej o aplikacjach interfejsu API platformy Azure](../app-service/app-service-web-tutorial-rest-api.md)
+- [Dowiedz się więcej o aplikacjach funkcji platformy Azure](../azure-functions/functions-overview.md)
+- [Dowiedz się więcej o aplikacjach internetowych platformy Azure](../app-service/overview.md)
 - [Dowiedz się więcej o Azure Database for MariaDB](../mariadb/overview.md)
 - [Dowiedz się więcej o Azure Database for MySQL](../mysql/overview.md)
 - [Dowiedz się więcej o Azure Database for PostgreSQL](../postgresql/overview.md)
 
 
-### <a name="nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard"></a>NIST SP 800 171 R2 dodano do Security Center pulpitu nawigacyjnego zgodności z przepisami
+### <a name="nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard"></a>Dodano NIST SP 800 171 R2 Security Center pulpitu nawigacyjnego zgodności z przepisami firmy Security Center firmy
 
-Standard NIST SP 800-171 R2 jest teraz dostępny jako wbudowana inicjatywa do używania z pulpitem nawigacyjnym zgodności z przepisami Azure Security Center. Mapowania dla formantów są opisane [szczegółowo w artykule NIST SP 800-171 R2 zgodność z przepisami](../governance/policy/samples/nist-sp-800-171-r2.md). 
+Standard NIST SP 800-171 R2 jest teraz dostępny jako wbudowana inicjatywa do użycia z pulpitem nawigacyjnym zgodności z przepisami Azure Security Center firmy Azure Security Center. Mapowania kontrolek opisano w teksie Szczegóły wbudowanej inicjatywy [NIST SP 800-171 R2 Regulatory Compliance](../governance/policy/samples/nist-sp-800-171-r2.md). 
 
-Aby zastosować Standard do subskrypcji i stale monitorować stan zgodności, Skorzystaj z instrukcji w temacie [Dostosowywanie zestawu standardów na pulpicie nawigacyjnym zgodności z przepisami](update-regulatory-compliance-packages.md).
+Aby zastosować standard do subskrypcji i stale monitorować stan zgodności, skorzystaj z instrukcji w tece Dostosowywanie zestawu standardów na pulpicie nawigacyjnym [zgodności z przepisami.](update-regulatory-compliance-packages.md)
 
-:::image type="content" source="media/release-notes/nist-sp-800-171-r2-standard.png" alt-text="Standard NIST SP 800 171 R2 na pulpicie nawigacyjnym zgodności z przepisami Security Center":::
+:::image type="content" source="media/release-notes/nist-sp-800-171-r2-standard.png" alt-text="Standard NIST SP 800 171 R2 Security Center pulpicie nawigacyjnym zgodności z przepisami firmy Security Center":::
 
 Aby uzyskać więcej informacji na temat tego standardu zgodności, zobacz [NIST SP 800-171 R2](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final).
 
 
-### <a name="recommendations-list-now-includes-filters"></a>Lista rekomendacji zawiera teraz filtry
+### <a name="recommendations-list-now-includes-filters"></a>Lista zaleceń zawiera teraz filtry
 
-Teraz można filtrować listę zaleceń dotyczących zabezpieczeń zgodnie z zakresem kryteriów. W poniższym przykładzie lista zaleceń została przefiltrowana w celu wyświetlenia zaleceń, które:
+Teraz można filtrować listę zaleceń dotyczących zabezpieczeń zgodnie z zakresem kryteriów. W poniższym przykładzie lista zaleceń została przefiltrowana w celu pokazania zaleceń, które:
 
-- są **ogólnie dostępne** (to nie jest wersja zapoznawcza)
-- dotyczy **kont magazynu**
-- Pomoc techniczna dotycząca **szybkiego rozwiązywania problemów**
+- są **ogólnie dostępne** (czyli nie w wersji zapoznawczej)
+- są dla **kont magazynu**
+- obsługa **szybkiego korygowania** poprawek
 
-:::image type="content" source="media/release-notes/recommendations-filters.png" alt-text="Filtry listy rekomendacji":::
+:::image type="content" source="media/release-notes/recommendations-filters.png" alt-text="Filtry listy zaleceń":::
 
 
-### <a name="auto-provisioning-experience-improved-and-expanded"></a>Ulepszone i rozszerzone środowisko aprowizacji
+### <a name="auto-provisioning-experience-improved-and-expanded"></a>Ulepszona i rozszerzona funkcja automatycznego aprowizowania
 
-Funkcja autoaprowizacji pozwala zmniejszyć obciążenie związane z zarządzaniem przez zainstalowanie wymaganych rozszerzeń na nowych maszynach wirtualnych platformy Azure, które mogą korzystać z ochrony Security Center. 
+Funkcja automatycznego aprowizowania pomaga zmniejszyć obciążenie związane z zarządzaniem, instalując wymagane rozszerzenia na nowych i istniejących — maszynach wirtualnych platformy Azure, dzięki czemu mogą oni korzystać Security Center z ochrony maszyny wirtualnej. 
 
-W miarę zwiększania Azure Security Center, opracowano więcej rozszerzeń i Security Center może monitorować większą listę typów zasobów. Narzędzia do samoobsługowego udostępniania zostały teraz rozwinięte w celu obsługi innych rozszerzeń i typów zasobów, wykorzystując możliwości Azure Policy.
+W Azure Security Center coraz więcej rozszerzeń zostało opracowanych i Security Center monitorować większą listę typów zasobów. Narzędzia do automatycznego aprowizowania zostały teraz rozszerzone o obsługę innych rozszerzeń i typów zasobów dzięki wykorzystaniu możliwości Azure Policy.
 
-Teraz można skonfigurować funkcję samoobsługowego udostępniania:
+Teraz możesz skonfigurować automatyczną aprowizowanie:
 
 - Agent usługi Log Analytics
-- Nowy Dodatek Azure Policy dla Kubernetes
-- Nowy Agent zależności firmy Microsoft
+- (Nowy) Azure Policy dodatek dla kubernetes
+- (Nowy) Microsoft Dependency Agent
 
-Dowiedz się więcej w temacie [Inicjowanie obsługi administracyjnej agentów i rozszerzeń z Azure Security Center](security-center-enable-data-collection.md).
-
-
-### <a name="secure-score-is-now-available-in-continuous-export-preview"></a>Ocena zabezpieczeń jest teraz dostępna w przypadku eksportu ciągłego (wersja zapoznawcza)
-
-Za pomocą ciągłego eksportowania zabezpieczeń można przesyłać strumieniowo zmiany do oceny w czasie rzeczywistym do usługi Azure Event Hubs lub do Log Analytics obszaru roboczego. Użyj tej funkcji, aby:
-
-- Śledź swój Bezpieczny wynik w czasie dzięki dynamicznym raportom
-- Eksportuj dane dotyczące danych oceny do platformy Azure (lub innych SIEM)
-- Integruj te dane z dowolnymi procesami, które mogą już być używane do monitorowania bezpiecznego wyniku w organizacji
-
-Dowiedz się więcej o tym, jak [ciągle eksportować Security Center dane](continuous-export.md).
+Dowiedz się więcej z [tematu Auto provisioning agents and extensions from Azure Security Center](security-center-enable-data-collection.md)(Automatyczne aprowizowanie agentów i rozszerzeń) Azure Security Center .
 
 
-### <a name="system-updates-should-be-installed-on-your-machines-recommendation-now-includes-subrecommendations"></a>Zalecenie "aktualizacje systemu powinny być zainstalowane na Twoich komputerach" obejmuje teraz podzalecenia
+### <a name="secure-score-is-now-available-in-continuous-export-preview"></a>Ocena bezpieczeństwa jest teraz dostępna w eksportie ciągłym (wersja zapoznawcza)
 
-**Aktualizacje systemu powinny być zainstalowane na** zalecanych komputerach. Nowa wersja obejmuje podzalecenia dla każdej brakującej aktualizacji i oferuje następujące udoskonalenia:
+Dzięki ciągłemu eksportowi bezpiecznego wyniku możesz przesyłać strumieniowo zmiany wyniku w czasie rzeczywistym do Azure Event Hubs lub obszaru roboczego usługi Log Analytics. Ta funkcja umożliwia:
 
-- Ponownie zaprojektowane środowisko na Azure Security Center stronach Azure Portal. **Na swoich maszynach należy zainstalować na** stronie Szczegóły rekomendacji zawierającej listę wyników, jak pokazano poniżej. Po wybraniu pojedynczego wyszukiwania zostanie otwarte okienko Szczegóły z linkiem do informacji o korygowaniu oraz z listą zasobów, których to dotyczy.
+- śledzenie bezpiecznego wyniku w czasie za pomocą raportów dynamicznych
+- eksportowanie danych oceny bezpieczeństwa do Azure Sentinel (lub dowolnego innego rozwiązania SIEM)
+- zintegruj te dane z dowolnymi procesami, których być może już używasz do monitorowania oceny bezpieczeństwa w organizacji
 
-    :::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Otwieranie jednego z podstanowień w portalu w celu uzyskania zaktualizowanego zalecenia":::
+Dowiedz się więcej na temat [ciągłego eksportowania Security Center danych.](continuous-export.md)
 
-- Wzbogacone dane dla zalecenia z grafu zasobów platformy Azure (ARG). ARG to usługa platformy Azure, która została zaprojektowana w celu zapewnienia wydajnej eksploracji zasobów. Za pomocą argumentu ARG można wykonywać zapytania na dużą skalę w ramach danego zestawu subskrypcji, dzięki czemu można efektywnie zarządzać środowiskiem. 
 
-    Aby uzyskać Azure Security Center, można użyć ARG i [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) do wykonywania zapytań o szeroki zakres danych stan zabezpieczeń.
+### <a name="system-updates-should-be-installed-on-your-machines-recommendation-now-includes-subrecommendations"></a>Zalecenie "Aktualizacje systemu powinny być zainstalowane na maszynach" zawiera teraz podpodziały
 
-    Wcześniej, jeśli zbadasz to zalecenie w ARG, jedynymi dostępnymi informacjami było to, że zalecenie należy skorygować na komputerze. Poniższe zapytanie o wersję rozszerzoną zwróci wszystkie brakujące aktualizacje systemu pogrupowane według maszyn.
+Rekomendacja **Aktualizacje systemu powinna zostać zainstalowana na maszynach** została rozszerzona. Nowa wersja zawiera podpodziały dla każdej brakującej aktualizacji i oferuje następujące ulepszenia:
+
+- Przeprojektowane środowisko na Azure Security Center stron Azure Portal. Na maszynach **powinna** zostać zainstalowana strona szczegółów zaleceń dla aktualizacji systemu, która zawiera listę wyników, jak pokazano poniżej. Po wybraniu pojedynczego znajdowania zostanie otwarte okienko szczegółów z linkiem do informacji dotyczących korygowania i listy zasobów, których dotyczy problem.
+
+    :::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Otwieranie jednej z podrecommendations w portalu dla zaktualizowanego zalecenia":::
+
+- Wzbogacone dane dla zalecenia z Azure Resource Graph (ARG). ARG to usługa platformy Azure, która została zaprojektowana w celu zapewnienia efektywnej eksploracji zasobów. Możesz użyć usługi ARG do wykonywania zapytań na dużą skalę w danym zestawie subskrypcji, aby efektywnie zarządzać środowiskiem. 
+
+    Na Azure Security Center można użyć usług ARG i [KQL (Kusto Query Language)](/azure/data-explorer/kusto/query/) do wykonywania zapytań dotyczących szerokiego zakresu danych dotyczących bezpieczeństwa.
+
+    Wcześniej w przypadku zapytania o to zalecenie w ARG jedynymi dostępnymi informacjami było to, że zalecenie musi zostać skorygowane na maszynie. Następujące zapytanie w wersji rozszerzonej zwróci wszystkie brakujące aktualizacje systemu pogrupowane według maszyny.
 
     ```kusto
     securityresources
@@ -865,8 +865,8 @@ Dowiedz się więcej o tym, jak [ciągle eksportować Security Center dane](cont
     | where properties.status.code == "Unhealthy"
     ```
 
-### <a name="policy-management-page-in-the-azure-portal-now-shows-status-of-default-policy-assignments"></a>Na stronie Zarządzanie zasadami w Azure Portal teraz jest wyświetlany stan domyślnych przypisań zasad
+### <a name="policy-management-page-in-the-azure-portal-now-shows-status-of-default-policy-assignments"></a>Strona zarządzania zasadami w Azure Portal teraz wyświetla stan domyślnych przypisań zasad
 
-Teraz możesz sprawdzić, czy subskrypcje mają przypisane domyślne zasady Security Center na stronie **zasady zabezpieczeń** Security Center w Azure Portal.
+Teraz możesz sprawdzić, czy subskrypcje mają przypisane domyślne zasady Security Center, na stronie  zasad zabezpieczeń usługi Security Center w Azure Portal.
 
-:::image type="content" source="media/release-notes/policy-assignment-info-per-subscription.png" alt-text="Strona Zarządzanie zasadami Azure Security Center wyświetlania domyślnych przypisań zasad":::
+:::image type="content" source="media/release-notes/policy-assignment-info-per-subscription.png" alt-text="Strona zarządzania zasadami w Azure Security Center z domyślnymi przypisaniami zasad":::

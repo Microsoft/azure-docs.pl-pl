@@ -1,23 +1,25 @@
 ---
 title: Zarządzanie użytkownikami i rolami w Azure IoT Central zarządzania | Microsoft Docs
 description: Jak zarządzać użytkownikami i rolami w aplikacji Azure IoT Central jako administrator
-author: vishwam
-ms.author: vishwams
+author: lmasieri
+ms.author: lmasieri
 ms.date: 04/16/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 928a9fbad7bde7fe7f1cfaf181bff2a7b9ce458b
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: cff8830d180b0c234e54f7578ed9fafafeb598f0
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107599064"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107719173"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application"></a>Zarządzanie użytkownikami i rolami w aplikacji usługi IoT Central
 
 W tym artykule opisano, jak administrator może dodawać, edytować i usuwać użytkowników w Azure IoT Central aplikacji. W tym artykule opisano również sposób zarządzania rolami w aplikacji.
+
+Aby uzyskać dostęp do sekcji **Administracja** i korzystać z tej sekcji, musisz mieć rolę **Administrator** dla Azure IoT Central aplikacji. Jeśli utworzysz aplikację Azure IoT Central, zostaniesz automatycznie dodany do roli **Administrator** dla tej aplikacji.
 
 ## <a name="add-users"></a>Dodawanie użytkowników
 
@@ -26,21 +28,20 @@ Każdy użytkownik musi mieć konto użytkownika, aby można było zalogować si
 Aby uzyskać więcej informacji, [zobacz konto Microsoft i Szybki](https://support.microsoft.com/products/microsoft-account?category=manage-account)  [start: dodawanie nowych](../../active-directory/fundamentals/add-users-azure-active-directory.md)użytkowników do Azure Active Directory .
 
 1. Aby dodać użytkownika do aplikacji IoT Central, przejdź do strony **Użytkownicy** w **sekcji Administracja.**
-    
-    > [!div class="mx-imgBorder"]
-    >![Zarządzanie użytkownikami](media/howto-manage-users-roles/manage-users-pnp.png)
+
+  :::image type="content" source="media/howto-manage-users-roles/manage-users-pnp.png" alt-text="Zarządzanie użytkownikami":::
 
 1. Aby dodać użytkownika, na stronie **Użytkownicy** wybierz pozycję **+ Dodaj użytkownika.**
 
 1. Wybierz rolę dla użytkownika z **menu** rozwijanego Rola. Dowiedz się więcej o rolach w [sekcji Zarządzanie rolami](#manage-roles) tego artykułu.
 
-    > [!div class="mx-imgBorder"]
-    >![Dodawanie użytkownika i wybieranie roli](media/howto-manage-users-roles/add-user-pnp.png)
+  :::image type="content" source="media/howto-manage-users-roles/add-user-pnp.png" alt-text="Dodaj użytkownika i wybierz rolę.":::
 
-    > [!NOTE]
-    > Użytkownik, który jest w roli niestandardowej, która przyznaje im uprawnienia do dodawania innych użytkowników, może dodawać użytkowników do roli tylko z uprawnieniami o takich samych lub mniejszej liczbie uprawnień niż ich rola.
-    > 
-    > Jeśli użytkownik zostanie usunięty z Azure Active Directory, a następnie dodany ponownie, nie będzie mógł zalogować się do aplikacji IoT Central automatycznie. Aby ponownie włączyć dostęp, administrator aplikacji powinien również usunąć i ponownie dodać użytkownika w aplikacji.
+  > [!NOTE]
+  > Użytkownik, który jest w roli niestandardowej, która przyznaje im uprawnienia do dodawania innych użytkowników, może dodawać użytkowników do roli tylko z uprawnieniami o takich samych lub mniejszej liczbie uprawnień niż ich rola.
+
+  > [!NOTE]
+  > Jeśli użytkownik zostanie usunięty z Azure Active Directory, a następnie dodany z powrotem, nie będzie mógł zalogować się do IoT Central aplikacji. Aby ponownie włączyć dostęp, administrator aplikacji powinien również usunąć i ponownie dodać użytkownika w aplikacji.
 
 ### <a name="edit-the-roles-that-are-assigned-to-users"></a>Edytowanie ról przypisanych do użytkowników
 
@@ -72,7 +73,7 @@ Użytkownicy w roli **konstruktora** mogą zarządzać każdą częścią aplika
 
 ### <a name="operator"></a>Operator
 
-Użytkownicy z rolą **Operator** mogą monitorować kondycję i stan urządzenia. Nie mogą oni wprowadzać zmian w szablonach urządzeń ani administrować aplikacją. Operatorzy mogą dodawać i usuwać urządzenia, zarządzać zestawami urządzeń oraz uruchamiać analizy i zadania. 
+Użytkownicy z rolą **Operator** mogą monitorować kondycję i stan urządzenia. Nie mogą oni wprowadzać zmian w szablonach urządzeń ani administrować aplikacją. Operatorzy mogą dodawać i usuwać urządzenia, zarządzać zestawami urządzeń oraz uruchamiać analizy i zadania.
 
 ## <a name="create-a-custom-role"></a>Tworzenie roli niestandardowej
 
@@ -85,7 +86,7 @@ Użytkowników można dodawać do roli niestandardowej w taki sam sposób, jak w
 
 ### <a name="custom-role-options"></a>Opcje roli niestandardowej
 
-Podczas definiowania roli niestandardowej należy wybrać zestaw uprawnień przyznanych użytkownikowi, jeśli jest on członkiem roli. Niektóre uprawnienia są zależne od innych. Jeśli na przykład dodasz uprawnienie Aktualizuj **pulpity** nawigacyjne aplikacji do roli, potrzebujesz również uprawnienia **Wyświetl pulpity nawigacyjne** aplikacji. W poniższych tabelach podsumowano dostępne uprawnienia i ich zależności, których można użyć podczas tworzenia ról niestandardowych.
+Podczas definiowania roli niestandardowej należy wybrać zestaw uprawnień udzielanych użytkownikowi, jeśli jest on członkiem roli. Niektóre uprawnienia są zależne od innych. Jeśli na przykład dodasz uprawnienie Aktualizuj osobiste pulpity  nawigacyjne do roli, uprawnienie Wyświetlanie osobistych pulpitów nawigacyjnych zostanie dodane automatycznie.  Poniższe tabele zawierają podsumowanie dostępnych uprawnień i ich zależności, których można użyć podczas tworzenia ról niestandardowych.
 
 #### <a name="managing-devices"></a>Zarządzanie urządzeniami
 
@@ -105,9 +106,9 @@ Podczas definiowania roli niestandardowej należy wybrać zestaw uprawnień przy
 | Aktualizacja | Widok <br/> Inne zależności: Wyświetlanie szablonów urządzeń i grup urządzeń  |
 | Utwórz | Widok <br/> Inne zależności: Wyświetlanie szablonów urządzeń i grup urządzeń  |
 | Usuń | Widok <br/> Inne zależności: Wyświetlanie szablonów urządzeń i grup urządzeń  |
-| Wykonywanie poleceń | Aktualizowanie, wyświetlanie <br/> Inne zależności: Wyświetlanie szablonów urządzeń i grup urządzeń  |
+| Wykonywanie poleceń | Aktualizacja, widok <br/> Inne zależności: Wyświetlanie szablonów urządzeń i grup urządzeń  |
 | Wyświetlanie danych pierwotnych | Widok <br/> Inne zależności: Wyświetlanie szablonów urządzeń i grup urządzeń  |
-| Pełna kontrola | Wyświetlanie, aktualizowanie, tworzenie, usuwanie, wykonywanie poleceń, wyświetlanie danych pierwotnych <br/> Inne zależności: Wyświetlanie szablonów urządzeń i grup urządzeń  |
+| Pełna kontrola | Polecenia View, Update, Create, Delete, Execute, View raw data <br/> Inne zależności: Wyświetlanie szablonów urządzeń i grup urządzeń  |
 
 **Uprawnienia grup urządzeń**
 
@@ -160,7 +161,7 @@ Podczas definiowania roli niestandardowej należy wybrać zestaw uprawnień przy
 | Aktualizacja | Widok   |
 | Kopiuj | Widok <br/> Inne zależności: Wyświetlanie szablonów urządzeń, wystąpień urządzeń, grup urządzeń, pulpitów nawigacyjnych, eksportu danych, brandowania, linków pomocy, ról niestandardowych, reguł |
 | Usuń | Widok   |
-| Pełna kontrola | Wyświetlanie, aktualizowanie, kopiowanie, usuwanie <br/> Inne zależności: wyświetlanie szablonów urządzeń, grup urządzeń, pulpitów nawigacyjnych aplikacji, eksportowania danych, znakowania, linków pomocy, ról niestandardowych, reguł |
+| Pełna kontrola | Wyświetlanie, aktualizowanie, kopiowanie, usuwanie <br/> Inne zależności: Wyświetlanie szablonów urządzeń, grup urządzeń, pulpitów nawigacyjnych aplikacji, eksportu danych, brandowania, linków pomocy, ról niestandardowych, reguł |
 
 **Uprawnienia do eksportowania szablonu aplikacji**
 
@@ -270,4 +271,4 @@ Podczas definiowania roli niestandardowej należy wybrać zestaw uprawnień przy
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy już wiesz, jak zarządzać użytkownikami i rolami w aplikacji IoT Central, sugerowanym następnym krokiem jest nauczenia się, jak zarządzać [rachunkiem.](howto-view-bill.md)
+Teraz, gdy już wiesz, jak zarządzać użytkownikami i rolami w aplikacji IoT Central, sugerowanym następnym krokiem jest nauka zarządzania [rachunkiem.](howto-view-bill.md)

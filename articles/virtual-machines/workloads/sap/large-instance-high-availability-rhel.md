@@ -1,36 +1,39 @@
 ---
-title: Duże dostępność dla oprogramowania SAP w systemie Azure na RHEL
-description: Dowiedz się, jak zautomatyzować SAP HANA przełączenia w tryb failover bazy danych przy użyciu klastra Pacemaker w programie Red Hat Enterprise Linux.
+title: Wysoka dostępność dużych wystąpień platformy Azure dla oprogramowania SAP w systemie RHEL
+description: Dowiedz się, jak zautomatyzować tryb failover bazy SAP HANA przy użyciu klastra Pacemaker w Red Hat Enterprise Linux.
 author: jaawasth
 ms.author: jaawasth
 ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.topic: how-to
 ms.date: 02/08/2021
-ms.openlocfilehash: 99e9994d01e4579bf6ef2e369e0fe85c48af52ef
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: dc27fd67a3801815464ecd37fea567c02dee6e49
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102182438"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107719047"
 ---
-# <a name="azure-large-instances-high-availability-for-sap-on-rhel"></a>Duże dostępność dla oprogramowania SAP w systemie Azure na RHEL
+# <a name="azure-large-instances-high-availability-for-sap-on-rhel"></a>Wysoka dostępność dużych wystąpień platformy Azure dla oprogramowania SAP w systemie RHEL
 
-W tym artykule dowiesz się, jak skonfigurować klaster Pacemaker w RHEL 7,6 w celu zautomatyzowania pracy w trybie failover bazy danych SAP HANA. Aby wykonać kroki opisane w tym przewodniku, musisz mieć dobre zrozumienie systemów Linux, SAP HANA i Pacemaker.
+> [!NOTE]
+> Ten artykuł zawiera odwołania do terminu *czarnej listy*, terminu, który nie jest już używany przez firmę Microsoft. Po usunięciu tego terminu z oprogramowania usuniemy go z tego artykułu.
 
-Poniższa tabela zawiera nazwy hostów, które są używane w tym artykule. Bloki kodu w artykule zawierają polecenia, które należy uruchomić, a także dane wyjściowe tych poleceń. Zwróć szczególną uwagę na to, do którego węzła odwołuje się każde polecenie.
+Z tego artykułu dowiesz się, jak skonfigurować klaster Pacemaker w programie RHEL 7.6 w celu zautomatyzowania trybu failover SAP HANA bazy danych. Aby wykonać kroki opisane w tym przewodniku, musisz dobrze zrozumieć system Linux, SAP HANA i program Pacemaker.
+
+W poniższej tabeli przedstawiono nazwy hostów używane w tym artykule. Bloki kodu w artykule pokazują polecenia, które należy uruchomić, a także dane wyjściowe tych poleceń. Zwróć szczególną uwagę na to, do którego węzła odwołuje się każde polecenie.
 
 | Typ | Nazwa hosta | Węzeł|
 |-------|-------------|------|
 |Host podstawowy|`sollabdsm35`|węzeł 1|
-|Dodatkowy Host|`sollabdsm36`|węzeł 2|
+|Host pomocniczy|`sollabdsm36`|węzeł 2|
 
 ## <a name="configure-your-pacemaker-cluster"></a>Konfigurowanie klastra Pacemaker
 
 
-Przed rozpoczęciem konfigurowania klastra należy skonfigurować wymianę kluczy SSH, aby ustanowić relację zaufania między węzłami.
+Przed rozpoczęciem konfigurowania klastra skonfiguruj wymianę kluczy SSH w celu ustanowienia zaufania między węzłami.
 
-1. Użyj następujących poleceń, aby utworzyć identyczne `/etc/hosts` na obu węzłach.
+1. Użyj następujących poleceń, aby utworzyć identyczne w `/etc/hosts` obu węzłach.
 
     ```
     root@sollabdsm35 ~]# cat /etc/hosts
@@ -55,14 +58,14 @@ Przed rozpoczęciem konfigurowania klastra należy skonfigurować wymianę klucz
 
     ```
 
-2.  Utwórz i zaexchange klucze SSH.
-    1. Generuj klucze SSH.
+2.  Utwórz i wymieniaj klucze SSH.
+    1. Wygeneruj klucze SSH.
 
        ```
        [root@sollabdsm35 ~]# ssh-keygen -t rsa -b 1024
        [root@sollabdsm36 ~]# ssh-keygen -t rsa -b 1024
        ```
-    2. Skopiuj klucze na inne hosty dla protokołu SSH bezhasłem.
+    2. Skopiuj klucze do innych hostów w celu ssh bez hasła.
     
        ```
        [root@sollabdsm35 ~]# ssh-copy-id -i /root/.ssh/id_rsa.pub sollabdsm35
@@ -71,7 +74,7 @@ Przed rozpoczęciem konfigurowania klastra należy skonfigurować wymianę klucz
        [root@sollabdsm36 ~]# ssh-copy-id -i /root/.ssh/id_rsa.pub sollabdsm36
        ```
 
-3.  Wyłącz SELinux na obu węzłach.
+3.  Wyłącz selinux w obu węzłach.
     ```
     [root@sollabdsm35 ~]# vi /etc/selinux/config
 
@@ -89,7 +92,7 @@ Przed rozpoczęciem konfigurowania klastra należy skonfigurować wymianę klucz
 
     ```  
 
-4. Uruchom ponownie serwery, a następnie użyj następującego polecenia, aby zweryfikować stan SELinux.
+4. Uruchom ponownie serwery, a następnie użyj następującego polecenia, aby sprawdzić stan środowiska selinux.
     ```
     [root@sollabdsm35 ~]# sestatus
 
@@ -102,8 +105,8 @@ Przed rozpoczęciem konfigurowania klastra należy skonfigurować wymianę klucz
     SELinux status: disabled
     ```
 
-5. Konfigurowanie protokołu NTP (protokół czasu sieciowego). Strefy czasowe i czasowe obu węzłów klastra muszą być zgodne. Aby otworzyć `chrony.conf` i sprawdzić zawartość pliku, użyj następującego polecenia.
-    1. Do pliku konfiguracji należy dodać następującą zawartość. Zmień wartości rzeczywiste na odpowiednie dla danego środowiska.
+5. Konfigurowanie NTP (protokół czasu sieciowego). Strefy czasowe i strefy czasowe dla obu węzłów klastra muszą być zgodne. Użyj następującego polecenia, aby otworzyć `chrony.conf` plik i zweryfikować jego zawartość.
+    1. Do pliku konfiguracji należy dodać następującą zawartość. Zmień rzeczywiste wartości zgodnie ze środowiskiem.
         ```
         vi /etc/chrony.conf
     
@@ -150,7 +153,7 @@ Przed rozpoczęciem konfigurowania klastra należy skonfigurować wymianę klucz
 
 6. Aktualizowanie systemu
     1. Najpierw zainstaluj najnowsze aktualizacje w systemie przed rozpoczęciem instalacji urządzenia SBD.
-    1. Jeśli nie chcesz, aby aktualizacja systemu była kompletna, nawet jeśli jest zalecana, zaktualizuj następujące pakiety co najmniej.
+    1. Jeśli nie chcesz pełnej aktualizacji systemu, nawet jeśli jest to zalecane, zaktualizuj co najmniej następujące pakiety.
         1. `resource-agents-sap-hana`
         1. `selinux-policy`
         1. `iscsi-initiator-utils`
@@ -173,18 +176,18 @@ Przed rozpoczęciem konfigurowania klastra należy skonfigurować wymianę klucz
     ```
       
 
-8. Zainstaluj narzędzia Pacemaker, SBD, OpenIPMI, ipmitools i fencing_sbd na wszystkich węzłach.
+8. Zainstaluj pacemaker, SBD, OpenIPMI, ipmitools i fencing_sbd we wszystkich węzłach.
 
     ``` 
     yum install pcs sbd fence-agent-sbd.x86_64 OpenIPMI
     ipmitools
     ```
 
-  ## <a name="configure-watchdog"></a>Konfigurowanie licznika alarmowego
+  ## <a name="configure-watchdog"></a>Konfigurowanie usługi Watchdog
 
-W tej sekcji dowiesz się, jak skonfigurować licznik alarm. Ta sekcja zawiera te same dwa hosty `sollabdsm35` i `sollabdsm36` , do których odwołuje się na początku tego artykułu.
+W tej sekcji dowiesz się, jak skonfigurować usługę Watchdog. W tej sekcji są używane te same dwa hosty i , do których odwołuje `sollabdsm35` się na początku tego `sollabdsm36` artykułu.
 
-1. Upewnij się, że demon licznika alarm nie jest uruchomiony w żadnym systemie.
+1. Upewnij się, że demon watchdog nie jest uruchomiony w żadnych systemach.
     ```
     [root@sollabdsm35 ~]# systemctl disable watchdog
     [root@sollabdsm36 ~]# systemctl disable watchdog
@@ -205,8 +208,8 @@ W tej sekcji dowiesz się, jak skonfigurować licznik alarm. Ta sekcja zawiera t
 
     ```
 
-2. Domyślne licznik alarmowy systemu Linux, który zostanie zainstalowany podczas instalacji, to iTCO licznik, który nie jest obsługiwany przez systemy UCS i HPE SDFlex. W związku z tym ten licznik alarmowy musi być wyłączony.
-    1. W systemie jest zainstalowany i załadowany nieprawidłowy licznik:
+2. Domyślną usługą Watchdog systemu Linux, która zostanie zainstalowana podczas instalacji, jest watchdog iTCO, która nie jest obsługiwana przez systemy UCS i HPE SDFle. W związku z tym ta czujka musi być wyłączona.
+    1. Niewłaściwa watchdog jest instalowana i ładowana w systemie:
        ```
    
        sollabdsm35:~ # lsmod |grep iTCO
@@ -223,7 +226,7 @@ W tej sekcji dowiesz się, jak skonfigurować licznik alarm. Ta sekcja zawiera t
        sollabdsm36:~ # modprobe -r iTCO_wdt iTCO_vendor_support
        ```  
         
-    3. Aby upewnić się, że sterownik nie jest ładowany podczas następnego rozruchu systemu, Sterownik musi być blocklisted. Aby listy blokowania moduły iTCO, Dodaj następujący na końcu `50-blacklist.conf` pliku:
+    3. Aby upewnić się, że sterownik nie zostanie załadowany podczas następnego rozruchu systemu, sterownik musi być zablokowany. Aby zablokować listę modułów iTCO, dodaj na końcu pliku następujące `50-blacklist.conf` elementy:
        ```
    
        sollabdsm35:~ # vi /etc/modprobe.d/50-blacklist.conf
@@ -234,13 +237,13 @@ W tej sekcji dowiesz się, jak skonfigurować licznik alarm. Ta sekcja zawiera t
    
        blacklist iTCO_vendor_support
        ```
-    4. Skopiuj plik na host pomocniczy.
+    4. Skopiuj plik na hosta pomocniczego.
        ```
        sollabdsm35:~ # scp /etc/modprobe.d/50-blacklist.conf sollabdsm35:
        /etc/modprobe.d/50-blacklist.conf
        ```  
 
-    5. Sprawdź, czy usługa IPMI została uruchomiona. Należy pamiętać, że czasomierz IPMI nie jest uruchomiony. Zarządzanie czasomierzem zostanie wykonane z usługi SBD Pacemaker.
+    5. Sprawdź, czy usługa ipmi jest uruchomiona. Ważne jest, aby czasomierz IPMI nie był uruchomiony. Zarządzanie czasomierzem odbywa się z usługi sbd pacemaker.
        ```
        sollabdsm35:~ # ipmitool mc watchdog get
    
@@ -260,7 +263,7 @@ W tej sekcji dowiesz się, jak skonfigurować licznik alarm. Ta sekcja zawiera t
    
        ``` 
 
-3. Domyślnie wymagane urządzenie to/dev/Watchdog nie zostanie utworzone.
+3. Domyślnie wymagane urządzenie to /dev/watchdog nie zostanie utworzone.
 
     ```
     No watchdog device was created
@@ -270,7 +273,7 @@ W tej sekcji dowiesz się, jak skonfigurować licznik alarm. Ta sekcja zawiera t
     ls: cannot access /dev/watchdog: No such file or directory
     ```
 
-4. Skonfiguruj licznik licznika IPMI.
+4. Skonfiguruj usługę IPMI watchdog.
 
     ``` 
     sollabdsm35:~ # mv /etc/sysconfig/ipmi /etc/sysconfig/ipmi.org
@@ -286,12 +289,12 @@ W tej sekcji dowiesz się, jak skonfigurować licznik alarm. Ta sekcja zawiera t
     IPMI_POWERCYCLE=no
     IPMI_IMB=no
     ```
-5. Skopiuj plik konfiguracji licznika alarmowego do pomocniczego.
+5. Skopiuj plik konfiguracji watchdog do pomocniczej.
     ```
     sollabdsm35:~ # scp /etc/sysconfig/ipmi
     sollabdsm36:/etc/sysconfig/ipmi
     ```
-6.  Włącz i uruchom usługę IPMI.
+6.  Włącz i uruchom usługę ipmi.
     ```
     [root@sollabdsm35 ~]# systemctl enable ipmi
 
@@ -309,8 +312,8 @@ W tej sekcji dowiesz się, jak skonfigurować licznik alarm. Ta sekcja zawiera t
 
     [root@sollabdsm36 ~]# systemctl start ipmi
     ```
-     Teraz usługa IPMI jest uruchomiona i/dev/Watchdog urządzenia, a czasomierz jest nadal zatrzymany. Później SBD będzie zarządzać resetowaniem i włącza czasomierz IPMI.
-7.  Sprawdź, czy/dev/Watchdog istnieje, ale nie jest w użyciu.
+     Teraz usługa IPMI została uruchomiona i urządzenie /dev/watchdog zostało utworzone — ale czasomierz jest nadal zatrzymany. Później SBD będzie zarządzać resetowaniem usługi Watchdog i włącza czasomierz IPMI.
+7.  Sprawdź, czy /dev/watchdog istnieje, ale nie jest w użyciu.
     ```
     [root@sollabdsm35 ~]# ipmitool mc watchdog get
     Watchdog Timer Use: SMS/OS (0x04)
@@ -326,13 +329,13 @@ W tej sekcji dowiesz się, jak skonfigurować licznik alarm. Ta sekcja zawiera t
     [root@sollabdsm35 ~]# lsof /dev/watchdog
     ```
 
-## <a name="sbd-configuration"></a>Konfiguracja SBD
-W tej sekcji dowiesz się, jak skonfigurować SBD. Ta sekcja zawiera te same dwa hosty `sollabdsm35` i `sollabdsm36` , do których odwołuje się na początku tego artykułu.
+## <a name="sbd-configuration"></a>Konfiguracja usługi SBD
+W tej sekcji dowiesz się, jak skonfigurować usługę SBD. W tej sekcji używane są te same dwa hosty i , do których `sollabdsm35` odwołuje się na początku tego `sollabdsm36` artykułu.
 
-1.  Upewnij się, że dysk iSCSI lub FC jest widoczny w obu węzłach. W tym przykładzie jest stosowane urządzenie SBD oparte na FC. Aby uzyskać więcej informacji na temat ogrodzenia SBD, zobacz [dokumentację referencyjną](http://www.linux-ha.org/wiki/SBD_Fencing).
-2.  Identyfikator LUN musi być identyczny we wszystkich węzłach.
+1.  Upewnij się, że dysk iSCSI lub FC jest widoczny w obu węzłach. W tym przykładzie użyto urządzenia SBD opartego na fc. Aby uzyskać więcej informacji na temat ogrodzenia SBD, zobacz [dokumentację referencyjną](http://www.linux-ha.org/wiki/SBD_Fencing).
+2.  Identyfikator LUN-ID musi być identyczny we wszystkich węzłach.
   
-3.  Sprawdź stan wielościeżkowego urządzenia SBD.
+3.  Sprawdź stan wielościeżka urządzenia sbd.
     ```
     multipath -ll
     3600a098038304179392b4d6c6e2f4b62 dm-5 NETAPP ,LUN C-Mode
@@ -346,7 +349,7 @@ W tej sekcji dowiesz się, jak skonfigurować SBD. Ta sekcja zawiera te same dwa
     `- 10:0:3:2 sdl 8:176 active ready running
     ```
 
-4.  Tworzenie dysków SBD i Konfigurowanie ogrodzenia podstawowego klastra. Ten krok należy wykonać na pierwszym węźle.
+4.  Tworzenie dysków SBD i konfigurowanie odchodów pierwotnych klastra. Ten krok należy wykonać w pierwszym węźle.
     ```
     sbd -d /dev/mapper/3600a098038304179392b4d6c6e2f4b62 -4 20 -1 10 create 
 
@@ -359,7 +362,7 @@ W tej sekcji dowiesz się, jak skonfigurować SBD. Ta sekcja zawiera te same dwa
     Device /dev/mapper/3600a098038304179392b4d6c6e2f4b62 is initialized.
     ```
 
-5.  Skopiuj konfigurację SBD do Węzeł2.
+5.  Skopiuj konfigurację SBD do węzła node2.
     ```
     vi /etc/sysconfig/sbd
 
@@ -376,7 +379,7 @@ W tej sekcji dowiesz się, jak skonfigurować SBD. Ta sekcja zawiera te same dwa
     scp /etc/sysconfig/sbd node2:/etc/sysconfig/sbd
     ```
 
-6.  Sprawdź, czy dysk SBD jest widoczny w obu węzłach.
+6.  Sprawdź, czy dysk SBD jest widoczny z obu węzłów.
     ```
     sbd -d /dev/mapper/3600a098038304179392b4d6c6e2f4b62 dump
 
@@ -396,7 +399,7 @@ W tej sekcji dowiesz się, jak skonfigurować SBD. Ta sekcja zawiera te same dwa
     ==Header on disk /dev/mapper/3600a098038304179392b4d6c6e2f4b62 is dumped
     ```
 
-7.  Dodaj urządzenie SBD w pliku konfiguracyjnym SBD.
+7.  Dodaj urządzenie SBD w pliku konfiguracji SBD.
 
     ```
     \# SBD_DEVICE specifies the devices to use for exchanging sbd messages
@@ -415,13 +418,13 @@ W tej sekcji dowiesz się, jak skonfigurować SBD. Ta sekcja zawiera te same dwa
     ```
 
 ## <a name="cluster-initialization"></a>Inicjowanie klastra
-W tej sekcji zainicjujesz klaster. Ta sekcja zawiera te same dwa hosty `sollabdsm35` i `sollabdsm36` , do których odwołuje się na początku tego artykułu.
+W tej sekcji zaimicjujesz klaster. W tej sekcji są używane te same dwa hosty i , do których odwołuje `sollabdsm35` się na początku tego `sollabdsm36` artykułu.
 
 1.  Skonfiguruj hasło użytkownika klastra (wszystkie węzły).
     ```
     passwd hacluster
     ```
-2.  Uruchom komputery we wszystkich systemach.
+2.  Uruchom komputer PCS we wszystkich systemach.
     ```
     systemctl enable pcsd
     ```
@@ -443,7 +446,7 @@ W tej sekcji zainicjujesz klaster. Ta sekcja zawiera te same dwa hosty `sollabds
   
   
 
-5.  Uruchom uwierzytelnianie klastra tylko z Węzeł1.
+5.  Uruchom uwierzytelnianie klastra tylko z węzła node1.
 
     ```
     pcs cluster auth sollabdsm35 sollabdsm36
@@ -504,17 +507,17 @@ W tej sekcji zainicjujesz klaster. Ta sekcja zawiera te same dwa hosty `sollabds
     pcsd: active/disabled
     ```
 
-8. Jeśli jeden węzeł nie jest przyłączany do klastra, sprawdź, czy Zapora jest nadal uruchomiona.
+8. Jeśli jeden węzeł nie dołącza do klastra, sprawdź, czy zapora nadal działa.
 
   
 
-9. Tworzenie i Włączanie urządzenia SBD
+9. Tworzenie i włączanie urządzenia SBD
     ```
     pcs stonith create SBD fence_sbd devices=/dev/mapper/3600a098038303f4c467446447a
     ```
   
 
-10. Zatrzymaj klaster ponownie uruchamia usługi klastra (we wszystkich węzłach).
+10. Zatrzymaj klaster, aby ponownie uruchomić usługi klastra (we wszystkich węzłach).
 
     ```
     pcs cluster stop --all
@@ -533,7 +536,7 @@ W tej sekcji zainicjujesz klaster. Ta sekcja zawiera te same dwa hosty `sollabds
     systemctl start pcsd
     ```
 
-12. Corosync musi uruchomić usługę SBD.
+12. Program Corosync musi uruchomić usługę SBD.
 
     ```
     systemctl status sbd
@@ -546,7 +549,7 @@ W tej sekcji zainicjujesz klaster. Ta sekcja zawiera te same dwa hosty `sollabds
     Active: active (running) since Wed 2021-01-20 01:43:41 EST; 9min ago
     ```
 
-13. Uruchom ponownie klaster (jeśli nie został automatycznie uruchomiony z pcsd).
+13. Uruchom ponownie klaster (jeśli nie zostanie uruchomiony automatycznie z pcsd).
 
     ```
     pcs cluster start –-all
@@ -561,7 +564,7 @@ W tej sekcji zainicjujesz klaster. Ta sekcja zawiera te same dwa hosty `sollabds
     ```
   
 
-14. Włącz ustawienia Stonith.
+14. Włącz ustawienia aplikacji Stonith.
     ```
     pcs stonith enable SBD --device=/dev/mapper/3600a098038304179392b4d6c6e2f4d65
     pcs property set stonith-watchdog-timeout=20
@@ -569,7 +572,7 @@ W tej sekcji zainicjujesz klaster. Ta sekcja zawiera te same dwa hosty `sollabds
     ```
   
 
-15. Sprawdź nowy stan klastra za pomocą teraz jednego zasobu.
+15. Sprawdź stan nowego klastra z jednym zasobem.
     ```
     pcs status
 
@@ -609,7 +612,7 @@ W tej sekcji zainicjujesz klaster. Ta sekcja zawiera te same dwa hosty `sollabds
     ```
   
 
-16. Teraz należy uruchomić czasomierz IPMI, a urządzenie/dev/Watchdog musi być otwarte przez SBD.
+16. Teraz należy uruchomić czasomierz IPMI, a urządzenie /dev/watchdog musi zostać otwarte przez sbd.
 
     ```
     ipmitool mc watchdog get
@@ -646,9 +649,9 @@ W tej sekcji zainicjujesz klaster. Ta sekcja zawiera te same dwa hosty `sollabds
     ```
   
 
-18. Przetestuj ogrodzenie SBD przez awarię jądra.
+18. Przetestuj odsłoanie SBD przez awarię jądra.
 
-    * Wyzwól awarię jądra.
+    * Wyzwalanie awarii jądra.
 
       ```
       echo c > /proc/sysrq-trigger
@@ -657,34 +660,34 @@ W tej sekcji zainicjujesz klaster. Ta sekcja zawiera te same dwa hosty `sollabds
       set as panic_wdt_timeout in the /etc/sysconfig/ipmi config file.
       ```
   
-    * Drugim testem do uruchomienia jest ogrodzenie węzła przy użyciu poleceń komputerów.
+    * Drugim testem do uruchomienia jest ogrodzenie węzła przy użyciu poleceń usługi PCS.
 
       ```
       pcs stonith fence sollabdsm36
       ```
   
 
-19. W pozostałej części klastrowania SAP HANA można wyłączyć STONITH przez ustawienie:
+19. W pozostałej części tego SAP HANA można wyłączyć funkcję STONITH, ustawiając:
 
-   * zestaw właściwości komputerów `stonith-enabled=false`
-   * Ten parametr musi być ustawiony na wartość true, aby można było użyć wydajności. Jeśli ten parametr nie ma wartości true, klaster nie będzie obsługiwany.
-   * zestaw właściwości komputerów `stonith-enabled=true`
+   * Zestaw właściwości pcs `stonith-enabled=false`
+   * Dla tego parametru musi być ustawiona wartość true w celu produktywnego użycia. Jeśli ten parametr nie jest ustawiony na wartość true, klaster nie będzie obsługiwany.
+   * Zestaw właściwości pcs `stonith-enabled=true`
 
 ## <a name="hana-integration-into-the-cluster"></a>Integracja platformy HANA z klastrem
 
-W tej sekcji integrujesz platformę HANA z klastrem. Ta sekcja zawiera te same dwa hosty `sollabdsm35` i `sollabdsm36` , do których odwołuje się na początku tego artykułu.
+W tej sekcji zintegrujemy program HANA z klastrem. W tej sekcji używane są te same dwa hosty i , do których `sollabdsm35` odwołuje się na początku tego `sollabdsm36` artykułu.
 
-Dostępne są dwie opcje integracji platformy HANA. Pierwsza opcja to rozwiązanie zoptymalizowane pod kątem kosztów, za pomocą którego można uruchomić system QAS. Ta metoda nie jest zalecana, ponieważ nie pozostawia systemu do testowania aktualizacji oprogramowania klastra, systemu operacyjnego lub platformy HANA, a aktualizacje konfiguracji mogą prowadzić do nieplanowanych przestojów systemu PRD. Ponadto, jeśli system PRD musi zostać aktywowany w systemie pomocniczym, należy wyłączyć QAS w węźle pomocniczym. Drugą opcją jest zainstalowanie systemu QAS w jednym klastrze i użycie drugiego klastra dla PRD. Ta opcja umożliwia również przetestowanie wszystkich składników przed ich wprowadzeniem do środowiska produkcyjnego. W tym artykule opisano sposób konfigurowania drugiej opcji.
+Istnieją dwie opcje integracji platformy HANA. Pierwsza opcja to rozwiązanie zoptymalizowane pod kątem kosztów, w którym można użyć systemu pomocniczego do uruchomienia systemu QAS. Nie zalecamy tej metody, ponieważ nie pozostawia ona systemu do testowania aktualizacji oprogramowania klastra, systemu operacyjnego lub platformy HANA, a aktualizacje konfiguracji mogą prowadzić do nieplanowanego przestoju systemu PRD. Ponadto jeśli system PRD musi zostać aktywowany w systemie pomocniczym, usługi QAS muszą zostać zamknięte w węźle pomocniczym. Drugą opcją jest zainstalowanie systemu QAS w jednym klastrze i użycie drugiego klastra na użytek prd. Ta opcja umożliwia również przetestowanie wszystkich składników, zanim zostaną one wprowadzone do produkcji. W tym artykule pokazano, jak skonfigurować drugą opcję.
 
 
-* Ten proces jest kompilacją opisu RHEL na stronie:
+* Ten proces jest kompilacją opisu systemu RHEL na stronie:
 
   * https://access.redhat.com/articles/3004101
 
- ### <a name="steps-to-follow-to-configure-hsr"></a>Kroki, które należy wykonać, aby skonfigurować HSR
+ ### <a name="steps-to-follow-to-configure-hsr"></a>Kroki, które należy wykonać w celu skonfigurowania modułu HSR
 
-1.  Są to akcje do wykonania w systemie Węzeł1 (podstawowe).
-    1. Upewnij się, że tryb dziennika bazy danych jest ustawiony na wartość normalny.
+1.  Są to akcje do wykonania w węźle node1 (podstawowym).
+    1. Upewnij się, że tryb dziennika bazy danych jest ustawiony na normalny.
 
        ```  
    
@@ -699,7 +702,7 @@ Dostępne są dwie opcje integracji platformy HANA. Pierwsza opcja to rozwiązan
    
        "normal"
        ```
-    2. Replikacja systemu SAP HANA będzie działała dopiero po wykonaniu początkowej kopii zapasowej. Następujące polecenie tworzy początkową kopię zapasową w `/tmp/` katalogu. Wybierz odpowiedni system plików kopii zapasowej bazy danych. 
+    2. SAP HANA replikacji systemu będzie działać tylko po wykonaniu początkowej kopii zapasowej. Następujące polecenie tworzy początkową kopię zapasową w `/tmp/` katalogu . Wybierz odpowiedni system plików kopii zapasowej dla bazy danych. 
        ```
        * hdbsql -i 00 -u system -p SAPhana10 "BACKUP DATA USING FILE
        ('/tmp/backup')"
@@ -721,7 +724,7 @@ Dostępne są dwie opcje integracji platformy HANA. Pierwsza opcja to rozwiązan
        ```
     
 
-    3. Utwórz kopię zapasową wszystkich kontenerów bazy danych tej bazy danych.
+    3. Tworzenie kopii zapasowych wszystkich kontenerów bazy danych tej bazy danych.
        ```
    
        * hdbsql -i 00 -u system -p SAPhana10 -d SYSTEMDB "BACKUP DATA USING
@@ -793,7 +796,7 @@ Dostępne są dwie opcje integracji platformy HANA. Pierwsza opcja to rozwiązan
        done.
        ```
 
- 2. Są to akcje do wykonania w programie Węzeł2 (pomocniczy).
+ 2. Są to akcje do wykonania w węźle node2 (pomocniczym).
      1. Zatrzymaj bazę danych.
        ```
        su – hr2adm
@@ -802,7 +805,7 @@ Dostępne są dwie opcje integracji platformy HANA. Pierwsza opcja to rozwiązan
        ```
     
 
-     2. Tylko w przypadku SAP HANA 2.0 Skopiuj system SAP HANA `PKI SSFS_HR2.KEY` i `SSFS_HR2.DAT` pliki z węzła podstawowego do węzła pomocniczego.
+     2. Tylko w przypadku oprogramowania SAP HANA2.0 skopiuj SAP HANA i pliki z węzła podstawowego `PKI SSFS_HR2.KEY` `SSFS_HR2.DAT` do węzła pomocniczego.
        ```
        scp
        root@node1:/usr/sap/HR2/SYS/global/security/rsecssfs/key/SSFS_HR2.KEY
@@ -815,7 +818,7 @@ Dostępne są dwie opcje integracji platformy HANA. Pierwsza opcja to rozwiązan
        /usr/sap/HR2/SYS/global/security/rsecssfs/data/SSFS_HR2.DAT
        ```
 
-     3. Włącz pomocniczy jako lokację replikacji.
+     3. Włącz lokację pomocniczą jako lokację replikacji.
        ``` 
        su - hr2adm
    
@@ -916,7 +919,7 @@ Dostępne są dwie opcje integracji platformy HANA. Pierwsza opcja to rozwiązan
        ~~~~~~~~~~~~~~
        ```
 
-3. Można również uzyskać więcej informacji na temat stanu replikacji:
+3. Istnieje również możliwość uzyskania dodatkowych informacji na temat stanu replikacji:
     ```
     ~~~~~
     hr2adm@node1:/usr/sap/HR2/HDB00> python
@@ -956,60 +959,60 @@ Dostępne są dwie opcje integracji platformy HANA. Pierwsza opcja to rozwiązan
 
 #### <a name="log-replication-mode-description"></a>Opis trybu replikacji dziennika
 
-Aby uzyskać więcej informacji na temat trybu replikacji dzienników, zapoznaj się z [oficjalną dokumentacją SAP](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/c039a1a5b8824ecfa754b55e0caffc01.html).
+Aby uzyskać więcej informacji na temat trybu replikacji dzienników, zobacz oficjalną [dokumentację oprogramowania SAP](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/c039a1a5b8824ecfa754b55e0caffc01.html).
   
 
 #### <a name="network-setup-for-hana-system-replication"></a>Konfiguracja sieci dla replikacji systemu HANA
 
 
-Aby zapewnić, że ruch związany z replikacją korzysta z odpowiedniej sieci VLAN do replikacji, musi być prawidłowo skonfigurowany w `global.ini` . W przypadku pominięcia tego kroku platformy HANA będą używać sieci VLAN dostępu do replikacji, co może być niepożądane.
+Aby upewnić się, że ruch replikacji korzysta z odpowiedniej sieci VLAN dla replikacji, musi być prawidłowo skonfigurowany w programie `global.ini` . Jeśli pominiesz ten krok, hana użyje sieci VLAN dostępu do replikacji, co może być niepożądane.
 
 
-W poniższych przykładach przedstawiono konfigurację rozpoznawania nazw hostów na potrzeby replikacji systemu do lokacji dodatkowej. Można zidentyfikować trzy różne sieci:
+W poniższych przykładach przedstawiono konfigurację rozpoznawania nazw hostów dla replikacji systemu do lokacji dodatkowej. Można zidentyfikować trzy odrębne sieci:
 
-* Sieć publiczna z adresami w zakresie 10.0.1. *
+* Sieć publiczna z adresami z zakresu 10.0.1.*
 
-* Sieć do komunikacji wewnętrznej SAP HANA między hostami w każdej lokacji: 192.168.1. *
+* Sieć do wewnętrznej SAP HANA komunikacji między hostami w każdej lokacji: 192.168.1.*
 
-* Sieć dedykowana na potrzeby replikacji systemu: 10.5.1. *
+* Dedykowana sieć do replikacji systemu: 10.5.1.*
 
-W pierwszym przykładzie `[system_replication_communication]listeninterface` parametr został ustawiony na `.global` i określono tylko hosty sąsiedniej lokacji replikacji.
+W pierwszym przykładzie parametr został ustawiony na i określono tylko hosty sąsiedniej `[system_replication_communication]listeninterface` `.global` lokacji replikowania.
 
-W poniższym przykładzie `[system_replication_communication]listeninterface` parametr został ustawiony na, `.internal` a wszystkie hosty obu lokacji są określone.
-
-  
-
-### <a name="source-sap-ag-sap-hana-hrs-networking"></a>Źródłowa sieć SAP AG SAP HANA godz.
+W poniższym przykładzie parametr został ustawiony `[system_replication_communication]listeninterface` na i określono wszystkie `.internal` hosty obu lokacji.
 
   
 
-W przypadku replikacji systemu nie trzeba edytować `/etc/hosts` pliku, wewnętrzne ("wirtualne") nazwy hostów muszą być mapowane na adresy IP w `global.ini` pliku, aby utworzyć dedykowaną sieć do replikacji systemu. Składnia jest następująca:
+### <a name="source-sap-ag-sap-hana-hrs-networking"></a>Source SAP AG SAP HANA HRS Networking
+
+  
+
+W przypadku replikacji systemu nie trzeba edytować pliku. Wewnętrzne ("wirtualne") nazwy hostów muszą być mapowane na adresy IP w pliku, aby utworzyć dedykowaną sieć na potrzeby `/etc/hosts` `global.ini` replikacji systemu. Składnia jest następująca:
 
 global.ini
 
 [system_replication_hostname_resolution]
 
-<IP-address_site>=<wewnętrzny-name_site>
+<ip-address_site>=<internal-host-name_site>
 
 
 ## <a name="configure-sap-hana-in-a-pacemaker-cluster"></a>Konfigurowanie SAP HANA w klastrze Pacemaker
-W tej sekcji dowiesz się, jak skonfigurować SAP HANA w klastrze Pacemaker. Ta sekcja zawiera te same dwa hosty `sollabdsm35` i `sollabdsm36` , do których odwołuje się na początku tego artykułu.
+W tej sekcji dowiesz się, jak skonfigurować SAP HANA klastrze Pacemaker. W tej sekcji są używane te same dwa hosty i , do których odwołuje `sollabdsm35` się na początku tego `sollabdsm36` artykułu.
 
-Upewnij się, że spełniono następujące wymagania wstępne:  
+Upewnij się, że zostały spełnione następujące wymagania wstępne:  
 
-* Klaster Pacemaker jest konfigurowany zgodnie z dokumentacją i ma odpowiednie i działające ogrodzenie
+* Klaster pacemaker jest konfigurowany zgodnie z dokumentacją i ma odpowiednie i robocze ogrodzenie
 
-* SAP HANA uruchamianie przy rozruchu jest wyłączone na wszystkich węzłach klastra, gdy uruchomienie i zatrzymanie będzie zarządzane przez klaster
+* SAP HANA uruchamiania przy rozruchu jest wyłączone na wszystkich węzłach klastra, ponieważ uruchamianie i zatrzymywanie będzie zarządzane przez klaster
 
-* SAP HANA replikacji i przejęcia systemu przy użyciu narzędzi z oprogramowania SAP działają prawidłowo między węzłami klastra
+* SAP HANA replikacji systemu i przejęcia przy użyciu narzędzi firmy SAP działają prawidłowo między węzłami klastra
 
 * SAP HANA zawiera konto monitorowania, które może być używane przez klaster z obu węzłów klastra
 
-* Oba węzły są subskrybowane do kanałów "High-Availability" i "RHEL for SAP HANA" (RHEL 6, RHEL 7)
+* Oba węzły są subskrybowane do kanałów "Wysoka dostępność" i "RHEL for SAP HANA" (RHEL 6,RHEL 7)
 
   
 
-* Ogólnie rzecz biorąc, należy wykonać wszystkie polecenia wszystkie komputery z węzła w węźle, ponieważ CIB zostanie automatycznie zaktualizowana z poziomu powłoki komputery.
+* Ogólnie rzecz biorąc, wykonaj wszystkie polecenia pcs tylko z węzła, ponieważ cib zostanie automatycznie zaktualizowany z powłoki pcs.
 
 * [Więcej informacji na temat zasad kworum](https://access.redhat.com/solutions/645843)
 
@@ -1020,7 +1023,7 @@ Upewnij się, że spełniono następujące wymagania wstępne:
     [root@node1 ~]# pcs resource defaults resource-stickiness=1000
     [root@node1 ~]# pcs resource defaults migration-threshold=5000
     ```
-2.  Skonfiguruj Corosync.
+2.  Skonfiguruj synchronizację corosync.
     ```
     https://access.redhat.com/solutions/1293523 --> quorum information RHEL7
 
@@ -1123,7 +1126,7 @@ Upewnij się, że spełniono następujące wymagania wstępne:
 
     ```
 
-3.  Utwórz zasób podstawowy/pomocniczy SAPHana.
+3.  Utwórz podstawowy/pomocniczy zasób SAPHana.
 
     ```
     SAPHana resource is responsible for starting, stopping and relocating the SAP HANA database. This resource must be run as a Primary/    Secondary cluster resource. The resource has the following attributes.
@@ -1146,7 +1149,7 @@ Upewnij się, że spełniono następujące wymagania wstępne:
     ```
   
 
-5.  Utwórz zasób HANA.
+5.  Utwórz zasób platformy HANA.
     ```
     pcs resource create SAPHana_HR2_00 SAPHana SID=HR2 InstanceNumber=00 PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200   AUTOMATED_REGISTER=true primary notify=true clone-max=2 clone-node-max=1 interleave=true
 
@@ -1268,7 +1271,7 @@ Upewnij się, że spełniono następujące wymagania wstępne:
         stop interval=0s timeout=20s (vip_HR2_00-stop-interval-0s)
     ```
 
-7.  Utwórz ograniczenia.
+7.  Tworzenie ograniczeń.
 
     ```
     For correct operation we need to ensure that SAPHanaTopology resources are started before starting the SAPHana resources and also that  the virtual IP address is present on the node where the Primary resource of SAPHana is running. To achieve this, the following 2    constraints need to be created.
@@ -1279,14 +1282,14 @@ Upewnij się, że spełniono następujące wymagania wstępne:
 
 ###  <a name="testing-the-manual-move-of-saphana-resource-to-another-node"></a>Testowanie ręcznego przenoszenia zasobu SAPHana do innego węzła
 
-#### <a name="sap-hana-takeover-by-cluster"></a>(Przejęcie SAP HANA przez klaster)
+#### <a name="sap-hana-takeover-by-cluster"></a>(Przejęcie sap Hana według klastra)
 
 
-Aby przetestować przenoszenie zasobu SAPHana z jednego węzła do drugiego, użyj poniższego polecenia. Należy zauważyć, że opcja `--primary` nie powinna być używana podczas uruchamiania następującego polecenia ze względu na sposób, w jaki zasób SAPHana działa wewnętrznie.
+Aby przetestować przenoszenie zasobu SAPHana z jednego węzła do innego, użyj poniższego polecenia. Pamiętaj, że opcji nie należy używać podczas uruchamiania następującego polecenia ze względu na sposób wewnętrznego działania `--primary` zasobu SAPHana.
 ```pcs resource move SAPHana_HR2_00-primary```
 
-Po wywołaniu polecenia przenoszenia przez poszczególne komputery komputerów klaster tworzy ograniczenia lokalizacji, aby osiągnąć przeniesienie zasobu. Te ograniczenia muszą zostać usunięte, aby umożliwić automatyczne przejście w tryb failover w przyszłości.
-Aby je usunąć, możesz użyć poniższego polecenia.
+Po każdym wywołania polecenia przenoszenia zasobów komputera klaster tworzy ograniczenia lokalizacji w celu osiągnięcia przeniesienia zasobu. Te ograniczenia należy usunąć, aby umożliwić automatyczne tryb failover w przyszłości.
+Aby je usunąć, możesz użyć następującego polecenia.
 ```
 pcs resource clear SAPHana_HR2_00-primary
 crm_mon -A1
@@ -1319,7 +1322,7 @@ Node Attributes:
 
 * Zaloguj się do platformy HANA jako weryfikacja.
 
-  * obniżony Host:
+  * wyniszczony host:
 
     ```
     hdbsql -i 00 -u system -p SAPhana10 -n 10.7.0.82
@@ -1330,7 +1333,7 @@ Node Attributes:
     failed, rc=111:Connection refused (10.7.0.82:30015))
     ```
   
-  * Promowany Host:
+  * Promowany host:
 
     ```
     hdbsql -i 00 -u system -p SAPhana10 -n 10.7.0.84
@@ -1354,9 +1357,9 @@ Node Attributes:
     ```
   
 
-Po wybraniu opcji `AUTOMATED_REGISTER=false` nie można przełączyć z powrotem.
+Za pomocą opcji `AUTOMATED_REGISTER=false` , nie można przełączać się tam i z powrotem.
 
-Jeśli ta opcja jest ustawiona na false, należy ponownie zarejestrować węzeł:
+Jeśli ta opcja ma wartość false, należy ponownie zarejestrować węzeł:
 
   
 ```
@@ -1364,9 +1367,9 @@ hdbnsutil -sr_register --remoteHost=node2 --remoteInstance=00 --replicationMode=
 ```
   
 
-Teraz Węzeł2, który był podstawowym, działa jako host pomocniczy.
+Teraz węzeł node2, który był podstawowym, działa jako host pomocniczy.
 
-Rozważ ustawienie tej opcji na wartość true, aby zautomatyzować rejestrację obniżonego hosta.
+Rozważ ustawienie tej opcji na wartość true, aby zautomatyzować rejestrację zdegradowanych hostów.
 
   
 ```

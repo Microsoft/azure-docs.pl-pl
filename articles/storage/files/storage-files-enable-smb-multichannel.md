@@ -1,22 +1,22 @@
 ---
-title: Włącz Wielokanałowość protokołu SMB
-description: Dowiedz się, jak włączyć Wielokanałowość protokołu SMB w udziałach plików platformy Azure w warstwie Premium.
+title: Włączanie funkcji SMB Multichannel
+description: Dowiedz się, jak włączyć funkcję SMB Multichannel w udziałach plików platformy Azure w chmurze Premium.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2f867fa6d4b7e1d864a85106b5d957a53d38eb76
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: da4e1a58aef28e5c47100a0311ff81a5af04a918
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101732556"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718985"
 ---
-# <a name="enable-smb-multichannel-on-a-filestorage-account-preview"></a>Włączanie wielokanałowości SMB na koncie FileStorage (wersja zapoznawcza) 
+# <a name="enable-smb-multichannel-on-a-filestorage-account-preview"></a>Włączanie funkcji SMB Multichannel na koncie FileStorage (wersja zapoznawcza) 
 
-Konta usługi Azure FileStorage obsługują Wielokanałowość SMB (wersja zapoznawcza), która zwiększa wydajność klienta SMB 3. x, ustanawiając wiele połączeń sieciowych z udziałami plików w warstwie Premium. Ten artykuł zawiera wskazówki krok po kroku dotyczące włączania wielokanałowości SMB na istniejącym koncie magazynu. Aby uzyskać szczegółowe informacje na temat Azure Files protokole SMB, zobacz wydajność wielokanałowości SMB.
+Konta usługi Azure FileStorage obsługują usługę SMB Multichannel (wersja zapoznawcza), która zwiększa wydajność klienta SMB 3.x przez ustanowienie wielu połączeń sieciowych z udziałami plików w witrynie Premium. Ten artykuł zawiera szczegółowe wskazówki dotyczące włączania funkcji SMB Multichannel na istniejącym koncie magazynu. Aby uzyskać szczegółowe informacje na Azure Files SMB Multichannel, zobacz SMB Multichannel performance (Wydajność wielu kanałów SMB).
 
 ## <a name="limitations"></a>Ograniczenia
 
@@ -28,12 +28,12 @@ Konta usługi Azure FileStorage obsługują Wielokanałowość SMB (wersja zapoz
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Utwórz konto FileStorage](./storage-how-to-create-file-share.md).
-- Jeśli zamierzasz użyć modułu Azure PowerShell, [Zainstaluj wersję 3.0.1-Preview modułu](https://www.powershellgallery.com/packages/Az.Storage/3.0.1-preview).
+- [Utwórz konto FileStorage.](./storage-how-to-create-file-share.md)
+- Jeśli zamierzasz używać modułu Azure PowerShell, zainstaluj wersję [3.0.1-preview modułu](https://www.powershellgallery.com/packages/Az.Storage/3.0.1-preview).
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-Otwórz okno programu PowerShell i zaloguj się do subskrypcji platformy Azure. Z tego miejsca możesz zarejestrować się w wersji zapoznawczej protokołu SMB przy użyciu następujących poleceń.
+Otwórz okno programu PowerShell i zaloguj się do subskrypcji platformy Azure. W tym miejscu możesz zarejestrować się, aby korzystać z wersji zapoznawczej funkcji SMB Multichannel, za pomocą następujących poleceń.
 
 ```azurepowershell
 Connect-AzAccount
@@ -49,9 +49,9 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 > [!NOTE]
 > Rejestracja może potrwać do godziny.
 
-### <a name="verify-that-feature-registration-is-complete"></a>Sprawdź, czy rejestracja funkcji została zakończona
+### <a name="verify-that-feature-registration-is-complete"></a>Sprawdzanie, czy rejestracja funkcji została ukończona
 
-Ponieważ włączenie funkcji na koncie magazynu może potrwać do godziny, możesz użyć następującego polecenia, aby sprawdzić, czy jest on zarejestrowany dla Twojej subskrypcji:
+Włączenie funkcji na koncie magazynu może potrwać godzinę, dlatego możesz użyć następującego polecenia, aby sprawdzić, czy jest ona zarejestrowana dla Twojej subskrypcji:
 
 ```azurepowershell
 Get-AzProviderFeature -FeatureName AllowSMBMultichannel -ProviderNamespace Microsoft.Storage
@@ -59,22 +59,22 @@ Get-AzProviderFeature -FeatureName AllowSMBMultichannel -ProviderNamespace Micro
 
 
 ## <a name="enable-smb-multichannel"></a>Włączanie funkcji SMB Multichannel 
-Po utworzeniu konta usługi FileStorage można postępować zgodnie z instrukcjami, aby zaktualizować ustawienia wielokanałowe protokołu SMB dla konta magazynu.
+Po utworzeniu konta FileStorage możesz wykonać instrukcje aktualizowania ustawień usługi SMB Multichannel dla konta magazynu.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-1. Zaloguj się do Azure Portal i przejdź do konta magazynu FileStorage, dla którego chcesz skonfigurować Wielokanałowość protokołu SMB.
-1. Wybierz pozycję **udziały plików** w obszarze **Usługa plików**, a następnie wybierz pozycję **Ustawienia udziału plików**.
-1. Przełącz **funkcję** **wielokanałowe protokołu SMB** na włączone (lub **Wyłącz** , aby wyłączyć) i wybierz pozycję **Zapisz**.
+1. Zaloguj się do Azure Portal i przejdź do konta magazynu FileStorage, na którym chcesz skonfigurować usługę SMB Multichannel.
+1. Wybierz **pozycję Udziały plików** w obszarze Usługa **plików,** a następnie **wybierz pozycję Ustawienia udziału plików.**
+1. Przełącz opcję **SMB Multichannel** na **włącz** **(lub** wyłącz ją), a następnie wybierz pozycję **Zapisz.**
 
-:::image type="content" source="media/storage-files-enable-smb-multichannel/enable-smb-multichannel-on-storage-account.png" alt-text="Zrzut ekranu konta magazynu, jest włączony tryb wielokanałowe protokołu SMB.":::
+:::image type="content" source="media/storage-files-enable-smb-multichannel/enable-smb-multichannel-on-storage-account.png" alt-text="Zrzut ekranu przedstawiający konto magazynu z włączoną wielokanałową siecią SMB."  lightbox="media/storage-files-enable-smb-multichannel/enable-smb-multichannel-on-storage-account.png":::
 
-Jeśli opcja wielokanałowe protokołu SMB nie jest widoczna w obszarze **Ustawienia udziału plików** lub nie można zaktualizować błędu ustawienia podczas aktualizowania konfiguracji, upewnij się, że Twoja subskrypcja jest zarejestrowana, a Twoje konto należy do jednego z [obsługiwanych regionów](#regional-availability) z obsługiwanym typem konta i replikacją.
+Jeśli opcja SMB Multichannel nie  jest widoczna w ustawieniach udziału plików lub podczas aktualizowania konfiguracji występuje błąd ustawienia nie powiodło się, upewnij się, że Twoja subskrypcja jest zarejestrowana, a Twoje konto znajduje się w jednym z obsługiwanych regionów z obsługiwanym typem konta i replikacją. [](#regional-availability)
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-Aby włączyć Wielokanałowość protokołu SMB przy użyciu modułu Azure PowerShell, należy [zainstalować wersję 3.0.1-Preview](https://www.powershellgallery.com/packages/Az.Storage/3.0.1-preview) modułu.
+Aby włączyć funkcję SMB Multichannel przy użyciu Azure PowerShell, musisz zainstalować wersję [3.0.1-preview](https://www.powershellgallery.com/packages/Az.Storage/3.0.1-preview) modułu.
 
-`$resourceGroupName` `$storageAccountName` Przed uruchomieniem tych poleceń programu PowerShell Ustaw zmienne i grupę zasobów oraz konto magazynu.
+Przed uruchomieniem tych poleceń programu PowerShell ustaw zmienne i na grupę zasobów i konto `$resourceGroupName` `$storageAccountName` magazynu.
 
 ```azurepowershell
 # Enable SMB Multichannel on the premium storage account that's in one of the supported regions
@@ -82,17 +82,17 @@ Update-AzStorageFileServiceProperty -ResourceGroupName $resourceGroupName -Stora
 ```
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
-Interfejs wiersza polecenia platformy Azure nie obsługuje jeszcze konfigurowania wielokanałowości SMB. Zapoznaj się z instrukcjami w portalu w celu skonfigurowania wielokanałowego protokołu SMB na koncie magazynu.
+Interfejs wiersza polecenia platformy Azure nie obsługuje jeszcze konfigurowania usługi SMB Multichannel. Zapoznaj się z instrukcjami w portalu dotyczącymi konfigurowania usługi SMB Multichannel na koncie magazynu.
 
 ---
 
 > [!NOTE]
-> Wszystkie zmiany ustawień konfiguracji wielokanałowości SMB zostaną zastosowane do wszystkich udziałów plików na koncie magazynu. Aby zmiany zaczęły obowiązywać, należy ponownie zainstalować udział na kliencie.
+> Wszelkie zmiany ustawień konfiguracji SMB Multichannel będą stosowane do wszystkich udziałów plików w ramach konta magazynu. Należy jednak ponownie odinstalować udział na kliencie, aby zmiany weszły w życie.
 
 
 ## <a name="next-steps"></a>Następne kroki 
 
-- [Zainstaluj ponownie udział plików](storage-how-to-use-files-windows.md) , aby korzystać ze wielokanałowości SMB.
-- [Rozwiązywanie problemów związanych ze wielokanałowością SMB](storage-troubleshooting-files-performance.md#smb-multichannel-option-not-visible-under-file-share-settings).
-- Aby dowiedzieć się więcej na temat ulepszeń, zobacz [wydajność wielokanałowe protokołu SMB](storage-files-smb-multichannel-performance.md)
- - Aby dowiedzieć się więcej na temat funkcji wielokanałowego protokołu SMB systemu Windows, zobacz [Manage SMB Mulitchannel](/azure-stack/hci/manage/manage-smb-multichannel).
+- [Ponownie odinstaluj udział plików,](storage-how-to-use-files-windows.md) aby skorzystać z usługi SMB Multichannel.
+- [Rozwiąż wszelkie problemy związane z usługą SMB Multichannel.](storage-troubleshooting-files-performance.md#smb-multichannel-option-not-visible-under-file-share-settings)
+- Aby dowiedzieć się więcej na temat ulepszeń, zobacz [Wydajność funkcji SMB Multichannel](storage-files-smb-multichannel-performance.md)
+ - Aby dowiedzieć się więcej na temat funkcji Windows SMB Multichannel, zobacz [Zarządzanie usługą SMB Mulitchannel.](/azure-stack/hci/manage/manage-smb-multichannel)
