@@ -1,47 +1,47 @@
 ---
-title: Używanie sterowników interfejsu magazynu kontenerów (CSI) dla dysków platformy Azure w usłudze Azure Kubernetes Service (AKS)
-description: Dowiedz się, jak używać sterowników interfejsu magazynu kontenerów (CSI) dla dysków platformy Azure w klastrze usługi Azure Kubernetes Service (AKS).
+title: Używanie Container Storage Interface (CSI) dla dysków platformy Azure na Azure Kubernetes Service (AKS)
+description: Dowiedz się, jak używać sterowników Container Storage Interface (CSI) dla dysków platformy Azure w klastrze usługi Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 5f9e28ac568f70801b2bd955c201712cfcb80084
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: c3421b767f465a4a705bdeb4882fd261c5cf914f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105963336"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776235"
 ---
-# <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Korzystanie ze sterowników interfejsu magazynu kontenera platformy Azure (CSI) w usłudze Azure Kubernetes Service (AKS) (wersja zapoznawcza)
-Sterownik Azure Disk Container Storage Interface (CSI) jest sterownikiem zgodnym ze [specyfikacją CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md)używanym przez usługę Azure Kubernetes Service (AKS) do zarządzania cyklem życia dysków platformy Azure.
+# <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Używanie sterowników usługi Azure Disk Container Storage Interface (CSI) w usłudze Azure Kubernetes Service (AKS) (wersja zapoznawcza)
+Sterownik azure disk Container Storage Interface (CSI) to sterownik zgodny ze specyfikacją [CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md)używany przez usługę Azure Kubernetes Service (AKS) do zarządzania cyklem życia dysków platformy Azure.
 
-CSI jest standardem do udostępniania dowolnych systemów blokowych i magazynów plików do obciążeń zwirtualizowanych w Kubernetes. Przyjmując i korzystając z CSI, AKS może napisać, wdrożyć i iterować wtyczki, aby uwidocznić nowe lub ulepszyć istniejące systemy magazynowania w Kubernetes, bez konieczności dotykania podstawowego kodu Kubernetes i oczekiwania na jego cykle wydania.
+CSI to standard uwidniania dowolnych systemów magazynu blokowego i plików na konteneryzowanych obciążeniach na platformie Kubernetes. Dzięki wdrożeniu i użyciu csi usługi AKS mogą pisać, wdrażać i iterować wtyczki w celu uwidoczniania lub ulepszania istniejących systemów magazynowania na platformie Kubernetes bez konieczności dotykania podstawowego kodu Kubernetes i oczekiwania na cykle wydań.
 
-Aby utworzyć klaster AKS z obsługą sterownika CSI, zobacz [Włączanie sterowników CSI dla dysków platformy Azure i Azure Files na AKS](csi-storage-drivers.md).
+Aby utworzyć klaster AKS z obsługą sterowników CSI, zobacz Enable CSI drivers for Azure disks and Azure Files on AKS (Włączanie sterowników CSI dla dysków platformy Azure i Azure Files [usłudze AKS).](csi-storage-drivers.md)
 
 >[!NOTE]
-> *Sterowniki w drzewie* odnoszą się do bieżących sterowników magazynu, które są częścią podstawowego kodu Kubernetes, a nowe sterowniki CSI, które są wtyczkami.
+> *Sterowniki w drzewie* odnoszą się do bieżących sterowników magazynu, które są częścią podstawowego kodu Kubernetes, a nie nowych sterowników CSI, które są wtyczkami.
 
-## <a name="use-csi-persistent-volumes-with-azure-disks"></a>Używanie woluminów trwałych CSI z dyskami platformy Azure
+## <a name="use-csi-persistent-volumes-with-azure-disks"></a>Używanie trwałych woluminów CSI z dyskami platformy Azure
 
-[Wolumin trwały](concepts-storage.md#persistent-volumes) (PV) reprezentuje część magazynu, która jest obsługiwana do użycia z Kubernetesem. Funkcja PV może być używana przez jeden lub wiele zasobników i może być dynamicznie lub statycznie obsługiwana. W tym artykule opisano sposób dynamicznego tworzenia PVs za pomocą dysków platformy Azure do użycia przez jeden element w klastrze AKS. Aby uzyskać obsługę statyczną, zobacz [Ręczne tworzenie woluminu i używanie go z dyskami platformy Azure](azure-disk-volume.md).
+Wolumin [trwały](concepts-storage.md#persistent-volumes) (PV) reprezentuje część magazynu, która jest aprowizowana do użytku z zasobnikami kubernetes. Pv może być używana przez jeden lub wiele zasobników i może być dynamicznie lub statycznie aprowizowana. W tym artykule pokazano, jak dynamicznie tworzyć maszyny wirtualne z dyskami platformy Azure do użycia przez pojedynczy zasobnik w klastrze usługi AKS. Aby uzyskać statyczną aprowizowanie, zobacz Ręczne tworzenie woluminu i [używanie go z dyskami platformy Azure.](azure-disk-volume.md)
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-Aby uzyskać więcej informacji na temat woluminów Kubernetes, zobacz [Opcje magazynu dla aplikacji w AKS][concepts-storage].
+Aby uzyskać więcej informacji na temat woluminów Kubernetes, zobacz Opcje magazynu [dla aplikacji w u usługi AKS][concepts-storage].
 
-## <a name="dynamically-create-azure-disk-pvs-by-using-the-built-in-storage-classes"></a>Dynamiczne tworzenie PVs dysku platformy Azure przy użyciu wbudowanych klas magazynu
+## <a name="dynamically-create-azure-disk-pvs-by-using-the-built-in-storage-classes"></a>Dynamiczne tworzenie dyskowych woluminów twardych platformy Azure przy użyciu wbudowanych klas magazynu
 
-Klasa magazynu służy do definiowania sposobu, w jaki jednostka magazynowa jest tworzona dynamicznie z woluminem trwałym. Aby uzyskać więcej informacji na temat klas magazynu Kubernetes, zobacz [Kubernetes Storage Classes][kubernetes-storage-classes]. W przypadku korzystania z sterowników CSI magazynu w systemie AKS dostępne są dwa dodatkowe wbudowane, `StorageClasses` które używają sterowników magazynu CSI dysku platformy Azure. Dodatkowe klasy magazynów CSI są tworzone razem z klastrem obok domyślnych klas magazynów w drzewie.
+Klasa magazynu służy do definiowania dynamicznego tworzenia jednostki magazynu za pomocą trwałego woluminu. Aby uzyskać więcej informacji na temat klas magazynu Kubernetes, zobacz [Kubernetes storage classes (Klasy magazynu Kubernetes).][kubernetes-storage-classes] W przypadku używania sterowników CSI magazynu w usłudze AKS istnieją dwa dodatkowe wbudowane sterowniki magazynu `StorageClasses` CSI dysków platformy Azure. Dodatkowe klasy magazynu CSI są tworzone wraz z klastrem wraz z domyślnymi klasami magazynu w drzewie.
 
-- `managed-csi`: Program używa platformy Azure SSD w warstwie Standardowa Magazyn lokalnie nadmiarowy (LRS) w celu utworzenia dysku zarządzanego.
-- `managed-csi-premium`: Używa usługi Azure Premium LRS do utworzenia dysku zarządzanego.
+- `managed-csi`: używa usługi Azure SSD w warstwie Standardowa magazynu lokalnie nadmiarowego (LRS) do utworzenia dysku zarządzanego.
+- `managed-csi-premium`: używa usługi Azure Premium LRS do utworzenia dysku zarządzanego.
 
-Zasady odzyskiwania w obu klasach magazynu zapewniają, że podstawowy dysk platformy Azure zostanie usunięty po usunięciu odpowiednich danych PV. Klasy magazynu umożliwiają również skonfigurowanie PVs do rozwijania. Wystarczy edytować trwałego żądania woluminu (PVC) z nowym rozmiarem.
+Zasady odzyskiwania w obu klasach magazynu zapewniają, że podstawowy dysk platformy Azure zostanie usunięty po usunięciu odpowiedniego woluminu PV. Klasy magazynu konfigurują również możliwość rozszerzania tych plików. Wystarczy edytować oświadczenie woluminu trwałego (THE) przy użyciu nowego rozmiaru.
 
-Aby korzystać z tych klas magazynu, należy utworzyć [obwód PVC](concepts-storage.md#persistent-volume-claims) i odpowiednie, na przykład, które odwołują się do nich i używa. Obwód PVC służy do automatycznej aprowizacji magazynu na podstawie klasy magazynu. Obwód PVC może użyć jednej z wstępnie utworzonych klas magazynu lub klasy magazynu zdefiniowanej przez użytkownika w celu utworzenia dysku zarządzanego na platformie Azure dla żądanej jednostki SKU i rozmiaru. Podczas tworzenia definicji pod, obwód PVC jest określany w celu zażądania odpowiedniej pamięci masowej.
+Aby korzystać z tych klas magazynu, należy utworzyć [klasę DOSTĘPNĄ i](concepts-storage.md#persistent-volume-claims) odpowiedni zasobnik, który odwołuje się do nich i z nich korzysta. System PLIKÓW JEST używany do automatycznego aprowizować magazyn na podstawie klasy magazynu. Za pomocą interfejsu ONE można użyć jednej ze wstępnie utworzonych klas magazynu lub zdefiniowanej przez użytkownika klasy magazynu, aby utworzyć dysk zarządzany przez platformę Azure dla żądanej wersji SKU i odpowiedniego rozmiaru. Podczas tworzenia definicji zasobnika jest określana wartość ZASZ, aby zażądać odpowiedniego magazynu.
 
-Utwórz przykład pod i odpowiedniego obwodu PVC przy użyciu polecenia [polecenia kubectl Apply][kubectl-apply] :
+Utwórz przykładowy zasobnik i odpowiednie elementy ZA POMOCĄ polecenia [kubectl apply:][kubectl-apply]
 
 ```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/pvc-azuredisk-csi.yaml
@@ -51,13 +51,13 @@ persistentvolumeclaim/pvc-azuredisk created
 pod/nginx-azuredisk created
 ```
 
-Gdy element jest w stanie uruchomionym, Utwórz nowy plik o nazwie `test.txt` .
+Po uruchomieniu zasobnika utwórz nowy plik o nazwie `test.txt` .
 
 ```bash
 $ kubectl exec nginx-azuredisk -- touch /mnt/azuredisk/test.txt
 ```
 
-Teraz można sprawdzić, czy dysk jest prawidłowo zainstalowany, uruchamiając następujące polecenie i sprawdzając, czy plik jest wyświetlany `test.txt` w danych wyjściowych:
+Teraz możesz sprawdzić, czy dysk jest poprawnie zainstalowany, uruchamiając następujące polecenie i weryfikując, czy `test.txt` plik jest wyświetlany w danych wyjściowych:
 
 ```console
 $ kubectl exec nginx-azuredisk -- ls /mnt/azuredisk
@@ -69,14 +69,14 @@ test.txt
 
 ## <a name="create-a-custom-storage-class"></a>Tworzenie niestandardowej klasy magazynu
 
-Domyślne klasy magazynu odpowiadają najpopularniejszym scenariuszom, ale nie wszystkim. W niektórych przypadkach można chcieć mieć własną klasę magazynu dostosowaną z własnymi parametrami. Na przykład mamy scenariusz, w którym warto zmienić `volumeBindingMode` klasę.
+Domyślne klasy magazynu są dopasowane do najbardziej typowych scenariuszy, ale nie wszystkich. W niektórych przypadkach możesz chcieć mieć własną klasę magazynu dostosowaną przy użyciu własnych parametrów. Na przykład mamy scenariusz, w którym możesz chcieć zmienić `volumeBindingMode` klasę.
 
-Można użyć `volumeBindingMode: Immediate` klasy, która gwarantuje, że występuje bezpośrednio po utworzeniu obwodu PVC. W przypadkach, gdy pule węzłów są ograniczone topologii, na przykład za pomocą stref dostępności, PVs byłoby ograniczone lub obsługiwane bez znajomości wymagań związanych z planowaniem na tym komputerze (w tym przypadku w przypadku określonej strefy).
+Można użyć klasy, która gwarantuje, że nastąpi to `volumeBindingMode: Immediate` natychmiast po utworzeniu klasy NASTĘPNIE. W przypadkach, gdy pule węzłów są ograniczone topologią, na przykład przy użyciu stref dostępności, widoki PVs są powiązane lub aprowowane bez znajomości wymagań dotyczących planowania zasobnika (w tym przypadku w określonej strefie).
 
-Aby rozwiązać ten scenariusz, można użyć `volumeBindingMode: WaitForFirstConsumer` , który opóźnia powiązanie i Inicjowanie obsługi PV do momentu utworzenia elementu, który używa tego obwodu PVC. W ten sposób PV będzie zgodna i będzie obsługiwana w strefie dostępności (lub innej topologii), która jest określona przez ograniczenia planowania na podstawie. Domyślne klasy magazynu używają `volumeBindingMode: WaitForFirstConsumer` klasy.
+Aby rozwiązać ten scenariusz, można użyć funkcji , która opóźnia powiązanie i aprowizowanie pv, dopóki nie zostanie utworzony zasobnik, który korzysta `volumeBindingMode: WaitForFirstConsumer` z usługi BIND. W ten sposób plik PV będzie zgodny i aprowony w strefie dostępności (lub innej topologii) określonej przez ograniczenia planowania zasobnika. Domyślne klasy magazynu używają `volumeBindingMode: WaitForFirstConsumer` klasy .
 
 Utwórz plik o nazwie `sc-azuredisk-csi-waitforfirstconsumer.yaml` i wklej następujący manifest.
-Klasa magazynu jest taka sama jak `managed-csi` Klasa magazynu, ale z inną `volumeBindingMode` klasą.
+Klasa magazynu jest taka sama jak nasza `managed-csi` klasa magazynu, ale z inną `volumeBindingMode` klasą.
 
 ```yaml
 kind: StorageClass
@@ -91,7 +91,7 @@ reclaimPolicy: Delete
 volumeBindingMode: WaitForFirstConsumer
 ```
 
-Utwórz klasę magazynu za pomocą polecenia [polecenia kubectl Apply][kubectl-apply] i określ `sc-azuredisk-csi-waitforfirstconsumer.yaml` plik:
+Utwórz klasę magazynu za pomocą [polecenia kubectl apply][kubectl-apply] i określ `sc-azuredisk-csi-waitforfirstconsumer.yaml` plik:
 
 ```console
 $ kubectl apply -f sc-azuredisk-csi-waitforfirstconsumer.yaml
@@ -101,13 +101,13 @@ storageclass.storage.k8s.io/azuredisk-csi-waitforfirstconsumer created
 
 ## <a name="volume-snapshots"></a>Migawki woluminów
 
-Sterownik CSI dysku platformy Azure obsługuje tworzenie [migawek woluminów trwałych](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html). W ramach tej możliwości sterownik może wykonać *kompletne* lub [ *przyrostowe* migawki](../virtual-machines/disks-incremental-snapshots.md) w zależności od wartości ustawionej w `incremental` parametrze (domyślnie jest to prawdziwe).
+Sterownik CSI dysku platformy Azure obsługuje [tworzenie migawek trwałych woluminów.](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html) W ramach tej możliwości sterownik może  wykonywać [  ](../virtual-machines/disks-incremental-snapshots.md) pełne lub przyrostowe migawki w zależności od wartości ustawionej w parametrze `incremental` (domyślnie jest to prawda).
 
-Aby uzyskać szczegółowe informacje na temat wszystkich parametrów, zobacz [Volume Snapshot Class Parameters](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/docs/driver-parameters.md#volumesnapshotclass).
+Aby uzyskać szczegółowe informacje na temat wszystkich parametrów, zobacz [parametry klasy migawki woluminu](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/docs/driver-parameters.md#volumesnapshotclass).
 
-### <a name="create-a-volume-snapshot"></a>Utwórz migawkę woluminu
+### <a name="create-a-volume-snapshot"></a>Tworzenie migawki woluminu
 
-Aby zapoznać się z przykładem tej możliwości, Utwórz [klasę migawek woluminów](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/storageclass-azuredisk-snapshot.yaml) przy użyciu polecenia [polecenia kubectl Apply][kubectl-apply] :
+Aby uzyskać przykład tej możliwości, utwórz klasę migawki [woluminu za](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/storageclass-azuredisk-snapshot.yaml) pomocą [polecenia kubectl apply:][kubectl-apply]
 
 ```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/snapshot/storageclass-azuredisk-snapshot.yaml
@@ -115,7 +115,7 @@ $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-c
 volumesnapshotclass.snapshot.storage.k8s.io/csi-azuredisk-vsc created
 ```
 
-Teraz Utwórzmy [migawkę woluminu](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/azuredisk-volume-snapshot.yaml) ze obwodu PVC, który został [dynamicznie utworzony na początku tego samouczka](#dynamically-create-azure-disk-pvs-by-using-the-built-in-storage-classes) `pvc-azuredisk` .
+Teraz utwórzmy migawkę woluminu [z](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/azuredisk-volume-snapshot.yaml) poziomu systemu , który dynamicznie utworzyliśmy na początku [tego samouczka](#dynamically-create-azure-disk-pvs-by-using-the-built-in-storage-classes): `pvc-azuredisk` .
 
 
 ```bash
@@ -124,7 +124,7 @@ $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-c
 volumesnapshot.snapshot.storage.k8s.io/azuredisk-volume-snapshot created
 ```
 
-Sprawdź, czy migawka została utworzona prawidłowo:
+Sprawdź, czy migawka została utworzona poprawnie:
 
 ```bash
 $ kubectl describe volumesnapshot azuredisk-volume-snapshot
@@ -155,9 +155,9 @@ Status:
 Events:                                <none>
 ```
 
-### <a name="create-a-new-pvc-based-on-a-volume-snapshot"></a>Tworzenie nowego obwodu PVC na podstawie migawki woluminu
+### <a name="create-a-new-pvc-based-on-a-volume-snapshot"></a>Tworzenie nowej migawki WOLUMINU na podstawie migawki woluminu
 
-Nowy obwód PVC można utworzyć na podstawie migawki woluminu. Użyj migawki utworzonej w poprzednim kroku i Utwórz [Nowy obwód PVC](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/pvc-azuredisk-snapshot-restored.yaml) i [Nowy pod](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/nginx-pod-restored-snapshot.yaml) , aby go używać.
+Możesz utworzyć nową migawkę WOLUMINU opartą na migawce woluminu. Użyj migawki utworzonej w poprzednim kroku, a następnie utwórz nowy [rekord NASTĘPNIE i](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/pvc-azuredisk-snapshot-restored.yaml) nowy [zasobnik,](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/nginx-pod-restored-snapshot.yaml) aby z niego korzystać.
 
 ```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/snapshot/pvc-azuredisk-snapshot-restored.yaml
@@ -168,7 +168,7 @@ persistentvolumeclaim/pvc-azuredisk-snapshot-restored created
 pod/nginx-restored created
 ```
 
-Na koniec upewnij się, że jest to ten sam obwód PVC utworzony przed sprawdzeniem zawartości.
+Na koniec upewnijmy się, że jest to ten sam tworzona wcześniej powłoka IT, sprawdzając jej zawartość.
 
 ```console
 $ kubectl exec nginx-restored -- ls /mnt/azuredisk
@@ -178,13 +178,13 @@ outfile
 test.txt
 ```
 
-Zgodnie z oczekiwaniami nadal możemy zobaczyć poprzednio utworzony `test.txt` plik.
+Zgodnie z oczekiwaniami nadal możemy zobaczyć utworzony wcześniej `test.txt` plik.
 
 ## <a name="clone-volumes"></a>Klonowanie woluminów
 
-Sklonowany wolumin jest zdefiniowany jako duplikat istniejącego woluminu Kubernetes. Aby uzyskać więcej informacji na temat klonowania woluminów w Kubernetes, zapoznaj się z dokumentacją dotyczącą [klonowania woluminów](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#volume-cloning).
+Sklonowany wolumin jest definiowany jako duplikat istniejącego woluminu Kubernetes. Aby uzyskać więcej informacji na temat klonowania woluminów na platformie Kubernetes, zobacz dokumentację koncepcyjną [klonowania woluminów](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#volume-cloning).
 
-Sterownik CSI dla dysków platformy Azure obsługuje klonowanie woluminów. Aby zademonstrować, należy utworzyć [sklonowany wolumin](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/cloning/nginx-pod-restored-cloning.yaml) [poprzednio utworzonego](#dynamically-create-azure-disk-pvs-by-using-the-built-in-storage-classes) `azuredisk-pvc` i [nowego pod kątem korzystania z niego](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/cloning/nginx-pod-restored-cloning.yaml).
+Sterownik CSI dla dysków platformy Azure obsługuje klonowanie woluminów. Aby to zademonstrować, [](#dynamically-create-azure-disk-pvs-by-using-the-built-in-storage-classes) utwórz [sklonowany wolumin](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/cloning/nginx-pod-restored-cloning.yaml) utworzonego wcześniej woluminu `azuredisk-pvc` i nowy [zasobnik, aby z niego korzystać.](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/cloning/nginx-pod-restored-cloning.yaml)
 
 
 ```console
@@ -196,7 +196,7 @@ persistentvolumeclaim/pvc-azuredisk-cloning created
 pod/nginx-restored-cloning created
 ```
 
-Teraz można sprawdzić zawartość sklonowanego woluminu, uruchamiając następujące polecenie i potwierdzając, że nadal widzimy `test.txt` utworzony plik.
+Teraz możemy sprawdzić zawartość sklonowanego woluminu, uruchamiając następujące polecenie i potwierdzając, że nadal widzimy `test.txt` utworzony plik.
 
 ```console
 $ kubectl exec nginx-restored-cloning -- ls /mnt/azuredisk
@@ -206,14 +206,14 @@ outfile
 test.txt
 ```
 
-## <a name="resize-a-persistent-volume"></a>Zmień rozmiar woluminu trwałego
+## <a name="resize-a-persistent-volume"></a>Zmienianie rozmiaru woluminu trwałego
 
-Zamiast tego możesz zażądać większego woluminu dla obwodu PVC. Edytuj obiekt PVC i określ większy rozmiar. Ta zmiana wyzwala rozwinięcie woluminu bazowego, który wykonuje kopię zapasową.
+Zamiast tego można zażądać większego woluminu DLA WOLUMINU. Edytuj obiektTOW i określ większy rozmiar. Ta zmiana wyzwala rozszerzanie woluminu bazowego, który jest podstawą pv.
 
 > [!NOTE]
-> Nowe WB nigdy nie jest tworzone w celu spełnienia tego żądania. Zamiast tego zmieniany jest rozmiar istniejącego woluminu.
+> W celu spełnienia roszczenia nigdy nie jest tworzona nowa pv. Zamiast tego rozmiar istniejącego woluminu jest zmieniany.
 
-W AKS, wbudowana `managed-csi` Klasa magazynu już zezwala na rozszerzanie, dlatego użyj [obwodu PVC utworzonego wcześniej z tą klasą magazynu](#dynamically-create-azure-disk-pvs-by-using-the-built-in-storage-classes). Obwód PVC zażądał woluminu trwałego 10 gi. Możemy potwierdzić, że działa:
+W udatku AKS wbudowana klasa magazynu umożliwia już rozszerzanie, dlatego użyj utworzonego wcześniej `managed-csi` środowiska ZA POMOCĄ TEJ klasy [magazynu](#dynamically-create-azure-disk-pvs-by-using-the-built-in-storage-classes). Zażądano woluminu trwałego 10-Gi. Możemy to potwierdzić, uruchamiając:
 
 ```console 
 $ kubectl exec -it nginx-azuredisk -- df -h /mnt/azuredisk
@@ -223,9 +223,9 @@ Filesystem      Size  Used Avail Use% Mounted on
 ```
 
 > [!IMPORTANT]
-> Obecnie sterownik CSI dysku platformy Azure obsługuje tylko zmienianie rozmiarów obwodów PVC bez skojarzonych z nimi (i woluminy nie są zainstalowane do określonego węzła).
+> Obecnie sterownik CSI dysku platformy Azure obsługuje tylko zmienianie rozmiaru woluminów PVC bez skojarzonych zasobników (i woluminu nie zainstalowanego w określonym węźle).
 
-W związku z tym usuniemy utworzony wcześniej:
+W związku z tym usuń utworzony wcześniej zasobnik:
 
 ```console
 $ kubectl delete -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/nginx-pod-azuredisk.yaml
@@ -233,7 +233,7 @@ $ kubectl delete -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-
 pod "nginx-azuredisk" deleted
 ```
 
-Rozwińmy obwód PVC przez zwiększenie `spec.resources.requests.storage` pola:
+Rozwińmy pole BRANŻY, zwiększając `spec.resources.requests.storage` pole :
 
 ```console
 $ kubectl patch pvc pvc-azuredisk --type merge --patch '{"spec": {"resources": {"requests": {"storage": "15Gi"}}}}'
@@ -241,7 +241,7 @@ $ kubectl patch pvc pvc-azuredisk --type merge --patch '{"spec": {"resources": {
 persistentvolumeclaim/pvc-azuredisk patched
 ```
 
-Sprawdźmy, czy wolumin jest teraz większy:
+Upewnijmy się, że wolumin jest teraz większy:
 
 ```console
 $ kubectl get pv
@@ -252,9 +252,9 @@ pvc-391ea1a6-0191-4022-b915-c8dc4216174a   15Gi       RWO            Delete     
 ```
 
 > [!NOTE]
-> Obwód PVC nie będzie odzwierciedlać nowego rozmiaru, dopóki nie zostanie on ponownie przypisany do.
+> Model ITN nie będzie odzwierciedlał nowego rozmiaru, dopóki nie zostanie z nim ponownie skojarzony zasobnik.
 
-Utwórzmy nowy pod:
+Utwórzmy nowy zasobnik:
 
 ```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/nginx-pod-azuredisk.yaml
@@ -262,7 +262,7 @@ $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-c
 pod/nginx-azuredisk created
 ```
 
-A wreszcie Potwierdź rozmiar obwodu PVC i wewnątrz:
+Na koniec potwierdź rozmiar pliku NASTĘPNIE i wewnątrz zasobnika:
 ```console
 $ kubectl get pvc pvc-azuredisk
 NAME            STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
@@ -275,12 +275,12 @@ Filesystem      Size  Used Avail Use% Mounted on
 
 ## <a name="shared-disk"></a>Dysk udostępniony
 
-[Azure Shared disks](../virtual-machines/disks-shared.md) to funkcja Azure Managed disks, która umożliwia równoczesne dołączanie dysku platformy Azure do węzłów agentów. Dołączanie dysku zarządzanego do wielu węzłów agenta pozwala na przykład wdrożyć nowe lub migrować istniejące aplikacje klastrowane na platformę Azure.
+[Dyski udostępnione platformy Azure](../virtual-machines/disks-shared.md) to funkcja dysków zarządzanych platformy Azure, która umożliwia jednoczesne dołączanie dysku platformy Azure do węzłów agentów. Dołączanie dysku zarządzanego do wielu węzłów agenta umożliwia na przykład wdrażanie nowych lub migrowanie istniejących klastrowanych aplikacji na platformę Azure.
 
 > [!IMPORTANT] 
-> Obecnie tylko pierwotne urządzenie blokowe ( `volumeMode: Block` ) jest obsługiwane przez sterownik CSI dysku platformy Azure. Aplikacje powinny zarządzać koordynacji i kontroli zapisu, odczytów, blokad, pamięci podręcznych, instalacji i ogrodzenia na dysku udostępnionym, który jest udostępniany jako pierwotne urządzenie blokowe.
+> Obecnie sterownik CSI dysku platformy Azure obsługuje tylko nieprzetworzone urządzenie blokowe ( `volumeMode: Block` ). Aplikacje powinny zarządzać koordynacją i kontrolą zapisu, odczytów, blokad, pamięci podręcznych, instalacji i ogrodzenia na dysku udostępnionym, który jest udostępniany jako nieprzetworzone urządzenie blokowe.
 
-Utwórzmy plik o nazwie, `shared-disk.yaml` kopiując następujące polecenie, które zawiera klasę magazynu udostępnionego dysku i obwód PVC:
+Utwórzmy plik o nazwie przez skopiowanie następującego polecenia, które zawiera klasę magazynu dysku `shared-disk.yaml` udostępnionego i klasę CSV:
 
 ```yaml
 apiVersion: storage.k8s.io/v1
@@ -308,7 +308,7 @@ spec:
   storageClassName: managed-csi-shared
 ```
 
-Utwórz klasę magazynu za pomocą polecenia [polecenia kubectl Apply][kubectl-apply] i określ `shared-disk.yaml` plik:
+Utwórz klasę magazynu za pomocą [polecenia kubectl apply][kubectl-apply] i określ `shared-disk.yaml` plik:
 
 ```console
 $ kubectl apply -f shared-disk.yaml
@@ -317,7 +317,7 @@ storageclass.storage.k8s.io/managed-csi-shared created
 persistentvolumeclaim/pvc-azuredisk-shared created
 ``` 
 
-Teraz Utwórzmy plik o nazwie `deployment-shared.yml` , kopiując następujące polecenie:
+Teraz utwórzmy plik o nazwie `deployment-shared.yml` , kopiując następujące polecenie:
 
 ```yaml
 apiVersion: apps/v1
@@ -349,7 +349,7 @@ spec:
             claimName: pvc-azuredisk-shared
 ```
 
-Utwórz wdrożenie przy użyciu polecenia [polecenia kubectl Apply][kubectl-apply] i określ `deployment-shared.yml` plik:
+Utwórz wdrożenie za pomocą [polecenia kubectl apply][kubectl-apply] i określ `deployment-shared.yml` plik:
 
 ```console
 $ kubectl apply -f deployment-shared.yml
@@ -357,7 +357,7 @@ $ kubectl apply -f deployment-shared.yml
 deployment/deployment-azuredisk created
 ```
 
-Na koniec sprawdźmy, czy urządzenie blokowe znajduje się w obrębie:
+Na koniec sprawdźmy urządzenie blokowe w zasobniku:
 
 ```console
 # kubectl exec -it deployment-sharedisk-7454978bc6-xh7jp sh
@@ -368,9 +368,9 @@ Na koniec sprawdźmy, czy urządzenie blokowe znajduje się w obrębie:
 
 ## <a name="windows-containers"></a>Kontenery systemu Windows
 
-Sterownik CSI dysku platformy Azure obsługuje również węzły i kontenery systemu Windows. Jeśli chcesz użyć kontenerów systemu Windows, postępuj zgodnie z [samouczkiem kontenery systemu Windows](windows-container-cli.md) , aby dodać pulę węzłów systemu Windows.
+Sterownik CSI dysku platformy Azure obsługuje również węzły i kontenery systemu Windows. Jeśli chcesz używać kontenerów systemu Windows, postępuj zgodnie z samouczkiem [kontenerów systemu Windows,](windows-container-cli.md) aby dodać pulę węzłów systemu Windows.
 
-Po utworzeniu puli węzłów systemu Windows można teraz używać wbudowanych klas magazynu, takich jak `managed-csi` . Można wdrożyć przykładowy [zestaw stanowy oparty na systemie Windows](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) , który zapisuje sygnatury czasowe w pliku, `data.txt` wdrażając następujące polecenie za pomocą polecenia [polecenia kubectl Apply][kubectl-apply] :
+Po użyciu puli węzłów systemu Windows można teraz używać wbudowanych klas magazynu, takich jak `managed-csi` . Możesz wdrożyć przykładowy zestaw stanowy oparty na systemie [Windows,](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) który zapisuje znaczniki czasu w pliku, wdrażając następujące polecenie za pomocą `data.txt` polecenia [kubectl apply:][kubectl-apply]
 
  ```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/windows/statefulset.yaml
@@ -378,7 +378,7 @@ $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-c
 statefulset.apps/busybox-azuredisk created
 ```
 
-Teraz można sprawdzić poprawność zawartości woluminu przez uruchomienie:
+Teraz możesz zweryfikować zawartość woluminu, uruchamiając:
 
 ```console
 $ kubectl exec -it busybox-azuredisk-0 -- cat c:\\mnt\\azuredisk\\data.txt # on Linux/MacOS Bash
@@ -392,8 +392,8 @@ $ kubectl exec -it busybox-azuredisk-0 -- cat c:\mnt\azuredisk\data.txt # on Win
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się, jak używać sterowników CSI dla Azure Files, zobacz [używanie Azure Files z sterownikami CSI](azure-files-csi.md).
-- Aby uzyskać więcej informacji o najlepszych rozwiązaniach dotyczących magazynu, zobacz [najlepsze rozwiązania dotyczące magazynu i kopii zapasowych w usłudze Azure Kubernetes Service][operator-best-practices-storage].
+- Aby dowiedzieć się, jak używać sterowników CSI na Azure Files, zobacz Używanie Azure Files [ze sterownikami CSI.](azure-files-csi.md)
+- Aby uzyskać więcej informacji na temat najlepszych rozwiązań dotyczących magazynu, zobacz Najlepsze rozwiązania dotyczące magazynu i kopii [zapasowych][operator-best-practices-storage]w Azure Kubernetes Service .
 
 
 <!-- LINKS - external -->
@@ -408,18 +408,18 @@ $ kubectl exec -it busybox-azuredisk-0 -- cat c:\mnt\azuredisk\data.txt # on Win
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/disks-types.md
-[az-disk-list]: /cli/azure/disk#az-disk-list
-[az-snapshot-create]: /cli/azure/snapshot#az-snapshot-create
-[az-disk-create]: /cli/azure/disk#az-disk-create
-[az-disk-show]: /cli/azure/disk#az-disk-show
+[az-disk-list]: /cli/azure/disk#az_disk_list
+[az-snapshot-create]: /cli/azure/snapshot#az_snapshot_create
+[az-disk-create]: /cli/azure/disk#az_disk_create
+[az-disk-show]: /cli/azure/disk#az_disk_show
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [storage-class-concepts]: concepts-storage.md#storage-classes
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register

@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 04/06/2021
 ms.author: mlearned
 ms.custom: include file
-ms.openlocfilehash: 15e91e6f275c3a6ebe44690441404a38e8f61394
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: da22991b9a1c4b69d3a3d6eb6f76b0925a6ad3d4
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107732225"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107799809"
 ---
 | Zasób                                                                                                           | Limit                                                                                                                                                                                                       |
 | ------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Maksymalna liczba klastrów na subskrypcję                                                                                  | 1000                                                                                                                                                                                                        |
-| Maksymalna liczba węzłów na klaster przy użyciu zestawów dostępności maszyny wirtualnej i podstawowej jednostki Load Balancer SKU                       | 100                                                                                                                                                                                                         |
+| Maksymalna liczba klastrów na subskrypcję                                                                                  | 5000                                                                                                                                                                                                        |
+| Maksymalna liczba węzłów na klaster z zestawami dostępności maszyny wirtualnej i jednostką SKU Load Balancer Podstawowa                       | 100                                                                                                                                                                                                         |
 | Maksymalna liczba węzłów na klaster z Virtual Machine Scale Sets i [usługa Load Balancer w warstwie Standardowa SKU][standard-load-balancer] | 1000 (we wszystkich [pulach węzłów)][node-pool]                                            |
 | Maksymalna liczba pul węzłów na klaster                                                                                     | 100                                                                                  |
-| Maksymalna liczba zasobników w węźle: [Podstawowa sieć z][basic-networking] kubenetem                                           | Wartość maksymalna: 250 <br /> Domyślna wartość interfejsu wiersza polecenia platformy Azure: 110 <br /> Azure Resource Manager szablonu: 110 <br /> Azure Portal domyślne wdrożenie: 30          |
-| Maksymalna liczba zasobników na węzeł: [Zaawansowane sieci z Azure Container Networking Interface][advanced-networking]        | Wartość maksymalna: 250 <br /> Wartość domyślna: 30                                                      |
-| Wersja zapoznawcza dodatku AKS Open Service Mesh (SYSTEM)                                                                          | Wersja klastra Kubernetes: 1.19+<sup>1</sup><br />Kontrolery KLASTRÓW na klaster: 1<sup>1</sup><br />Zasobniki na kontroler JEDNOSTKI: 500<sup>1</sup><br />Konta usługi Kubernetes zarządzane przez firmę ICHT: 50<sup>1</sup> |
+| Maksymalna liczba zasobników na węzeł: [podstawowa sieć z][basic-networking] kubenetem                                           | Wartość maksymalna: 250 <br /> Domyślna wartość interfejsu wiersza polecenia platformy Azure: 110 <br /> Azure Resource Manager szablonu domyślnego: 110 <br /> Azure Portal domyślne wdrożenie: 30          |
+| Maksymalna liczba zasobników na węzeł: [Zaawansowane sieci z][advanced-networking] Azure Container Networking Interface        | Wartość maksymalna: 250 <br /> Ustawienie domyślne: 30                                                      |
+| Otwieranie podglądu dodatku usługi AKS usługi Service Mesh (SYSTEM)                                                                          | Wersja klastra Kubernetes: 1.19+<sup>1</sup><br />Kontrolery WOLUMINU na klaster: 1<sup>1</sup><br />Zasobniki na kontroler JEDNOSTKI: 500<sup>1</sup><br />Konta usługi Kubernetes zarządzane przez użytkownika ZEA: 50<sup>1</sup> |
 
 <sup>1</sup> Dodatek IT dla usługi AKS jest w wersji zapoznawczej i zostanie poddany dodatkowym ulepszaniom przed ogólną dostępnością. W fazie wersji zapoznawczej nie zaleca się przekraczania pokazanych limitów.<br />
 

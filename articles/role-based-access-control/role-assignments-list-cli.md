@@ -1,6 +1,6 @@
 ---
-title: Wyświetlanie listy przypisań ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure — RBAC
-description: Dowiedz się, jak określić zasoby, których użytkownicy, grupy, nazwy główne usług lub tożsamości zarządzane mają dostęp do korzystania z interfejsu wiersza polecenia platformy Azure i kontroli dostępu opartej na rolach (Azure RBAC).
+title: Lista przypisań ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure — Azure RBAC
+description: Dowiedz się, do jakich zasobów użytkownicy, grupy, jednostki usługi lub tożsamości zarządzane mają dostęp przy użyciu interfejsu wiersza polecenia platformy Azure i kontroli dostępu na podstawie ról (RBAC) platformy Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,35 +14,35 @@ ms.workload: identity
 ms.date: 10/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: cc64e314a8acb035736df0521987cb78a7297326
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d30571b68ba7e38e9960d1e434cf7844f6be852
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100556919"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780105"
 ---
 # <a name="list-azure-role-assignments-using-azure-cli"></a>Lista przypisań ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control/definition-list.md)] W tym artykule opisano sposób wyświetlania przypisań ról przy użyciu interfejsu wiersza polecenia platformy Azure.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control/definition-list.md)] W tym artykule opisano sposób listy przypisań ról przy użyciu interfejsu wiersza polecenia platformy Azure.
 
 > [!NOTE]
-> Jeśli organizacja ma funkcje zarządzania, które są używane przez usługę zarządzania [zasobami delegowanymi przez platformę Azure](../lighthouse/concepts/azure-delegated-resource-management.md), w tym miejscu nie będą wyświetlane przypisania ról autoryzowane przez tego dostawcę usług.
+> Jeśli Twoja organizacja ma funkcje zarządzania zewnętrznego dla dostawcy usług, który korzysta z zarządzania zasobami delegowanymi na platformie [Azure,](../lighthouse/concepts/azure-delegated-resource-management.md)przypisania ról autoryzowane przez tego dostawcę usług nie będą wyświetlane w tym miejscu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Bash w Azure Cloud Shell](../cloud-shell/overview.md) lub [interfejs wiersza polecenia platformy Azure](/cli/azure)
+- [Powłoka Bash w programie Azure Cloud Shell](../cloud-shell/overview.md) lub interfejsie [wiersza polecenia platformy Azure](/cli/azure)
 
 ## <a name="list-role-assignments-for-a-user"></a>Tworzenie listy przypisań ról dla użytkownika
 
-Aby wyświetlić listę przypisań ról dla określonego użytkownika, użyj [AZ role przypisanie list](/cli/azure/role/assignment#az-role-assignment-list):
+Aby wyświetlić listę przypisań ról dla określonego użytkownika, użyj [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list):
 
 ```azurecli
 az role assignment list --assignee {assignee}
 ```
 
-Domyślnie zostanie wyświetlona tylko przydziały ról dla bieżącej subskrypcji. Aby wyświetlić przypisania ról dla bieżącej subskrypcji i poniżej, Dodaj `--all` parametr. Aby wyświetlić dziedziczone przypisania ról, Dodaj `--include-inherited` parametr.
+Domyślnie będą wyświetlane tylko przypisania ról dla bieżącej subskrypcji. Aby wyświetlić przypisania ról dla bieżącej subskrypcji i poniżej, dodaj `--all` parametr . Aby wyświetlić dziedziczone przypisania ról, dodaj `--include-inherited` parametr .
 
-Poniższy przykład zawiera listę przypisań ról przypisanych bezpośrednio do użytkownika *patlong \@ contoso.com* :
+Poniższy przykład zawiera listę przypisań ról, które są przypisane bezpośrednio do użytkownika *contoso.com patlong: \@*
 
 ```azurecli
 az role assignment list --all --assignee patlong@contoso.com --output json --query '[].{principalName:principalName, roleDefinitionName:roleDefinitionName, scope:scope}'
@@ -65,13 +65,13 @@ az role assignment list --all --assignee patlong@contoso.com --output json --que
 
 ## <a name="list-role-assignments-for-a-resource-group"></a>Wyświetlanie listy przypisań ról dla grupy zasobów
 
-Aby wyświetlić listę przypisań ról istniejących w zakresie grupy zasobów, użyj [AZ role przypisanie list](/cli/azure/role/assignment#az-role-assignment-list):
+Aby wyświetlić listę przypisań ról, które istnieją w zakresie grupy zasobów, użyj [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list):
 
 ```azurecli
 az role assignment list --resource-group {resourceGroup}
 ```
 
-Poniższy przykład zawiera listę przypisań ról dla grupy zasobów *Pharma-Sales* :
+Poniższy przykład zawiera listę przypisań ról dla *grupy zasobów sales:*
 
 ```azurecli
 az role assignment list --resource-group pharma-sales --output json --query '[].{principalName:principalName, roleDefinitionName:roleDefinitionName, scope:scope}'
@@ -97,7 +97,7 @@ az role assignment list --resource-group pharma-sales --output json --query '[].
 
 ## <a name="list-role-assignments-for-a-subscription"></a>Tworzenie listy przypisań ról dla subskrypcji
 
-Aby wyświetlić listę wszystkich przypisań ról w zakresie subskrypcji, użyj [AZ role przypisanie list](/cli/azure/role/assignment#az-role-assignment-list). Aby uzyskać identyfikator subskrypcji, możesz go znaleźć w bloku **subskrypcje** w Azure Portal lub użyć [AZ Account List](/cli/azure/account#az-account-list).
+Aby wyświetlić listę wszystkich przypisań ról w zakresie subskrypcji, użyj [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list). Aby uzyskać identyfikator subskrypcji, możesz go  znaleźć w bloku Subskrypcje w skrypcie Azure Portal lub użyć [az account list](/cli/azure/account#az_account_list).
 
 ```azurecli
 az role assignment list --subscription {subscriptionNameOrId}
@@ -132,9 +132,9 @@ az role assignment list --subscription 00000000-0000-0000-0000-000000000000 --ou
 ]
 ```
 
-## <a name="list-role-assignments-for-a-management-group"></a>Wyświetlanie listy przypisań ról dla grupy zarządzania
+## <a name="list-role-assignments-for-a-management-group"></a>Lista przypisań ról dla grupy zarządzania
 
-Aby wyświetlić listę wszystkich przypisań ról w zakresie grupy zarządzania, użyj [AZ role przypisanie list](/cli/azure/role/assignment#az-role-assignment-list). Aby uzyskać identyfikator grupy zarządzania, można go znaleźć w bloku **grupy zarządzania** w Azure Portal lub użyć [AZ Account Management-Group list](/cli/azure/account/management-group#az-account-management-group-list).
+Aby wyświetlić listę wszystkich przypisań ról w zakresie grupy zarządzania, użyj [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list). Aby uzyskać identyfikator grupy zarządzania, można  go znaleźć w bloku Grupy zarządzania w grupę Azure Portal lub użyć listy [az account management-group .](/cli/azure/account/management-group#az_account_management_group_list)
 
 ```azurecli
 az role assignment list --scope /providers/Microsoft.Management/managementGroups/{groupId}
@@ -161,25 +161,25 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 ]
 ```
 
-## <a name="list-role-assignments-for-a-managed-identity"></a>Wyświetlanie listy przypisań ról dla tożsamości zarządzanej
+## <a name="list-role-assignments-for-a-managed-identity"></a>Lista przypisań ról dla tożsamości zarządzanej
 
-1. Uzyskaj identyfikator podmiotu zabezpieczeń przypisanej do systemu lub tożsamości zarządzanej przypisanej przez użytkownika.
+1. Pobierz identyfikator podmiotu zabezpieczeń tożsamości zarządzanej przypisanej przez system lub przez użytkownika.
 
-    Aby uzyskać identyfikator podmiotu zabezpieczeń dla tożsamości zarządzanej przypisanej przez użytkownika, można użyć [AZ AD Sp list](/cli/azure/ad/sp#az-ad-sp-list) lub [AZ Identity list](/cli/azure/identity#az-identity-list).
+    Aby uzyskać identyfikator podmiotu zabezpieczeń tożsamości zarządzanej przypisanej przez użytkownika, możesz użyć az [ad sp list](/cli/azure/ad/sp#az_ad_sp_list) lub az identity [list](/cli/azure/identity#az_identity_list).
 
     ```azurecli
     az ad sp list --display-name "{name}" --query [].objectId --output tsv
     ```
 
-    Aby uzyskać identyfikator podmiotu zabezpieczeń zarządzanej tożsamości przypisanej do systemu, można użyć [AZ AD Sp list](/cli/azure/ad/sp#az-ad-sp-list).
+    Aby uzyskać identyfikator podmiotu zabezpieczeń tożsamości zarządzanej przypisanej przez system, możesz użyć [az ad sp list](/cli/azure/ad/sp#az_ad_sp_list).
 
     ```azurecli
     az ad sp list --display-name "{vmname}" --query [].objectId --output tsv
     ```
 
-1. Aby wyświetlić listę przypisań ról, użyj [AZ role przypisanie list](/cli/azure/role/assignment#az-role-assignment-list).
+1. Aby wyświetlić listę przypisań ról, użyj [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list).
 
-    Domyślnie zostanie wyświetlona tylko przydziały ról dla bieżącej subskrypcji. Aby wyświetlić przypisania ról dla bieżącej subskrypcji i poniżej, Dodaj `--all` parametr. Aby wyświetlić dziedziczone przypisania ról, Dodaj `--include-inherited` parametr.
+    Domyślnie będą wyświetlane tylko przypisania ról dla bieżącej subskrypcji. Aby wyświetlić przypisania ról dla bieżącej subskrypcji i poniżej, dodaj `--all` parametr . Aby wyświetlić dziedziczone przypisania ról, dodaj `--include-inherited` parametr .
 
     ```azurecli
     az role assignment list --assignee {objectId}

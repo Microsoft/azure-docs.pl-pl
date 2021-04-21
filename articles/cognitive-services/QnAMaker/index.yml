@@ -11,12 +11,12 @@ metadata:
   services: cognitive-services
   title: Dokumentacja usługi QnA Maker
   description: Usługa QnA Maker to oparta na chmurze usługa interfejsu API, która tworzy warstwę konwersacji w postaci pytań i odpowiedzi nad Twoimi danymi. Usługa QnA Maker umożliwia zasilanie usługi pytań i odpowiedzi za pomocą częściowo ustrukturyzowanej zawartości, takiej jak dokumenty z często zadawanymi pytaniami, adresy URL i podręczniki produktów. Usługa QnA Maker odpowiada na pytania użytkowników zadane w języku naturalnym, dopasowując je do najlepszej możliwej odpowiedzi spośród pytań i odpowiedzi w Twojej bazie wiedzy.
-  ms.openlocfilehash: d993dfcc4d486190e2501940465598b53808b965
-  ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+  ms.openlocfilehash: 05ea6890e9b02c82bfca563108c92ed00e0f759b
+  ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/10/2021
-  ms.locfileid: "102613888"
+  ms.lasthandoff: 04/20/2021
+  ms.locfileid: "107766883"
 landingContent:
 - title: Informacje o usłudze QnA Maker
   linkLists:
@@ -60,7 +60,7 @@ landingContent:
     links:
     - text: 'Szybki start: przy użyciu narzędzia Postman lub cURL'
       url: quickstarts/get-answer-from-knowledge-base-using-url-tool.md
-    - text: 'Szybki Start: korzystanie z zestawu SDK i interfejsu API REST'
+    - text: 'Szybki start: korzystanie z zestawu SDK i interfejsu API REST'
       url: quickstarts/quickstart-sdk.md
   - linkListType: how-to-guide
     links:
@@ -109,7 +109,7 @@ landingContent:
     - text: Azure PowerShell
       url: /powershell/module/az.cognitiveservices/#cognitive_services
     - text: Interfejs wiersza polecenia platformy Azure
-      url: /cli/azure/cognitiveservices#az-cognitiveservices-list
+      url: /cli/azure/cognitiveservices#az_cognitiveservices_list
 - title: Pomoc i opinie
   linkLists:
   - linkListType: reference

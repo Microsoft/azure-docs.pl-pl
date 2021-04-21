@@ -1,7 +1,7 @@
 ---
-title: Przesyłanie strumieniowe skompresowanego dźwięku koderów-koderów za pomocą zestawu SPEECH SDK — usługa rozpoznawania mowy
+title: Przesyłanie strumieniowe skompresowanego dźwięku kodeka za pomocą zestawu SPEECH SDK — usługa rozpoznawania mowy
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak przesyłać strumieniowo skompresowany dźwięk do usługi Mowa przy użyciu zestawu SPEECH SDK. Dostępne dla języków C++, C# i Java dla systemu Linux, języka Java w systemie Android i języka Objective-C w systemie iOS.
+description: Dowiedz się, jak przesyłać strumieniowo skompresowany dźwięk do usługi Mowa za pomocą zestawu SPEECH SDK. Dostępne dla języków C++, C# i Java dla systemu Linux, języka Java w systemie Android i języka Objective-C w systemie iOS.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -12,27 +12,27 @@ ms.date: 03/30/2020
 ms.author: amishu
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-two
-ms.openlocfilehash: f02a9a3b493ed0f3068e6e0ccd2daa40850a4fb6
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: db902019b4fb1237c8403c719862d8fca4ba4f28
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726182"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772527"
 ---
-# <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Używanie skompresowanych danych wejściowych audio koderów-koderów z zestawem Speech SDK
+# <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Używanie skompresowanych danych wejściowych audio koder-in z zestawem Speech SDK
 
-Zestaw SDK usługi Mowa umożliwia bezpośrednie wysyłanie skompresowanych formatów audio do usługi rozpoznawania mowy przy użyciu metody ani (strumienie podejścia bezpośrednio do usługi są wysyłane do usługi, a nieprzetworzone formaty PCM są nadal wysyłane do `PullStream` `PushStream` usługi).
+Zestaw SDK usługi Mowa może akceptować skompresowane formaty audio. Dekompresuje dźwięk przed wysłaniem go za pośrednictwem sieci do usługi rozpoznawania mowy jako nieprzetworzoną usługę PCM.
 
 Platforma | Języki | Obsługiwana wersja GStreamer
 | :--- | ---: | :---:
-Windows (z wyjątkiem platformy UWP)  | C++, C#, Java, Python | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/windows/1.18.3/)
+Windows (z wyłączeniem platformy UWP)  | C++, C#, Java, Python | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/windows/1.18.3/)
 Linux  | C++, C#, Java, Python | [obsługiwane dystrybucje systemu Linux i architektury docelowe](~/articles/cognitive-services/speech-service/speech-sdk.md)
 Android  | Java | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/android/1.18.3/)
 
 ## <a name="speech-sdk-version-required-for-compressed-audio-input"></a>Wersja zestawu SPEECH SDK wymagana dla skompresowanych danych wejściowych audio
-* Zestaw Speech SDK w wersji 1.10.0 lub nowszej jest wymagany w systemach RHEL 8 i CentOS 8
+* Zestaw SPEECH SDK w wersji 1.10.0 lub nowszej jest wymagany w systemach RHEL 8 i CentOS 8
 * Zestaw SPEECH SDK w wersji 1.11.0 lub nowszej jest wymagany dla systemu Windows.
-* Zestaw SPEECH SDK w wersji 1.16.0 lub nowszej dla najnowszego narzędzia gstreamer w systemach Windows i Android.
+* Zestaw SPEECH SDK w wersji 1.16.0 lub nowszej dla najnowszego programu gstreamer w systemach Windows i Android.
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 

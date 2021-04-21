@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/06/2021
 ms.author: mbullwin
-ms.openlocfilehash: b3acea520859de10825468a4d37c3030f9b862bd
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: a657b8f5bf967131a0168dbea5bb1db86b3b559e
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107732497"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107799815"
 ---
 Rozpoczynanie pracy z Narzędzie do wykrywania anomalii wielozmianową biblioteką klienta dla programu .NET. Wykonaj następujące kroki, aby zainstalować pakiet i rozpocząć korzystanie z algorytmów dostarczonych przez usługę. Nowe, wielowariacyjne interfejsy API wykrywania anomalii umożliwiają deweloperom łatwe integrowanie zaawansowanej ai do wykrywania anomalii z grup metryk bez konieczności znajomości uczenia maszynowego ani danych oznaczonych etykietami. Zależności i wzajemne korelacje między różnymi sygnałami są automatycznie liczone jako kluczowe czynniki. Pomaga to aktywnie chronić złożone systemy przed awariami.
 
@@ -37,7 +37,7 @@ Użyj wielo Narzędzie do wykrywania anomalii biblioteki klienta dla programu .N
 
 ### <a name="create-a-new-net-core-application"></a>Tworzenie nowej aplikacji .NET Core
 
-W oknie konsoli (takim jak cmd, PowerShell lub Bash) użyj polecenia , aby utworzyć nową aplikację `dotnet new` konsolową o nazwie `anomaly-detector-quickstart-multivariate` . To polecenie tworzy prosty projekt "Hello world" z pojedynczym plikiem źródłowym języka C#: *Program.cs*.
+W oknie konsoli (takim jak cmd, PowerShell lub Bash) użyj polecenia , aby utworzyć nową aplikację `dotnet new` konsolową o nazwie `anomaly-detector-quickstart-multivariate` . To polecenie tworzy prosty projekt "Hello world" z pojedynczym plikiem źródłowym języka C#: *Program.cs.*
 
 ```dotnetcli
 dotnet new console -n anomaly-detector-quickstart-multivariate
@@ -61,7 +61,7 @@ Build succeeded.
 
 ### <a name="install-the-client-library"></a>Instalowanie biblioteki klienta
 
-W katalogu aplikacji zainstaluj bibliotekę klienta Narzędzie do wykrywania anomalii dla programu .NET za pomocą następującego polecenia:
+W katalogu aplikacji zainstaluj bibliotekę Narzędzie do wykrywania anomalii klienta dla programu .NET za pomocą następującego polecenia:
 
 ```dotnetcli
 dotnet add package Azure.AI.AnomalyDetector --version 3.0.0-preview.3
@@ -94,7 +94,7 @@ string apiKey =  "YOUR_ENDPOINT";
 string datasource = "YOUR_SAMPLE_ZIP_FILE_LOCATED_IN_AZURE_BLOB_STORAGE_WITH_SAS";
 ```
 
- Aby użyć Narzędzie do wykrywania anomalii wielozmianowych interfejsów API, musimy wytszkolić własny model przed użyciem wykrywania. Dane używane do trenowania to partia szeregów czasu. Każdy szereg czasowy powinien być w formacie CSV z dwiema kolumnami, sygnaturą czasową i wartością. Wszystkie serie czasu powinny być spakowane w jednym pliku zip i przekazane do [usługi Azure Blob Storage.](../../../../storage/blobs/storage-blobs-introduction.md#blobs) Domyślnie nazwa pliku będzie służyć do reprezentowania zmiennej szeregów czasu. Alternatywnie można meta.jspliku zip, jeśli chcesz, aby nazwa zmiennej różniła się od nazwy pliku zip. Po wygenerowaniu adresu [URL sygnatury](../../../../storage/common/storage-sas-overview.md)dostępu współdzielonego obiektu blob możemy użyć adresu URL do pliku zip na użytek szkolenia.
+ Aby użyć Narzędzie do wykrywania anomalii wielozmianowych interfejsów API, musimy wytterować własny model przed użyciem wykrywania. Dane używane do trenowania to partia szeregów czasu. Każdy szereg czasowy powinien być w formacie CSV z dwiema kolumnami, sygnaturą czasową i wartością. Wszystkie serie czasu powinny być spakowane w jednym pliku zip i przekazane do [usługi Azure Blob Storage.](../../../../storage/blobs/storage-blobs-introduction.md#blobs) Domyślnie nazwa pliku będzie służyć do reprezentowania zmiennej dla szeregów czasu. Alternatywnie można meta.jspliku zip, jeśli chcesz, aby nazwa zmiennej różniła się od nazwy pliku zip. Po wygenerowaniu adresu [URL sygnatury](../../../../storage/common/storage-sas-overview.md)dostępu współdzielonego (sygnatury dostępu współdzielonego) obiektu blob możemy użyć adresu URL do pliku zip w celu szkolenia.
 
 ## <a name="code-examples"></a>Przykłady kodu
 
@@ -108,7 +108,7 @@ Te fragmenty kodu pokazują, jak wykonać następujące czynności za pomocą Na
 
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
-Za pomocą punktu końcowego i klucza Narzędzie do wykrywania anomalii wystąpienia klienta.
+Należy utworzyć wystąpienia Narzędzie do wykrywania anomalii klienta z punktem końcowym i kluczem.
 
 ```csharp
 var endpointUri = new Uri(endpoint);
@@ -119,7 +119,7 @@ AnomalyDetectorClient client = new AnomalyDetectorClient(endpointUri, credential
 
 ## <a name="train-the-model"></a>Trenowanie modelu
 
-Utwórz nowe prywatne zadanie asynchroniczne zgodnie z poniższymi instrukcjami, aby obsłużyć trenowanie modelu. Użyjemy go `TrainMultivariateModel` do szkolenia modelu i `GetMultivariateModelAysnc` sprawdzenia, kiedy trenowanie zostanie ukończone.
+Utwórz nowe prywatne zadanie asynchroniczne, jak po poniższej stronie, aby obsłużyć trenowanie modelu. Użyjemy funkcji `TrainMultivariateModel` do trenowania modelu `GetMultivariateModelAysnc` i sprawdzenia, kiedy trenowanie zostanie ukończone.
 
 ```csharp
 private async Task trainAsync(AnomalyDetectorClient client, string datasource, DateTimeOffset start_time, DateTimeOffset end_time, int max_tryout = 500)
@@ -176,7 +176,7 @@ private async Task trainAsync(AnomalyDetectorClient client, string datasource, D
 
 ## <a name="detect-anomalies"></a>Wykrywanie anomalii
 
-Aby wykryć anomalie przy użyciu nowo wytrenowany model, utwórz element `private async Task` o nazwie `detectAsync` . Utworzysz nowy i `DetectionRequest` przekażemy go jako parametr do . `DetectAnomalyAsync`
+Aby wykryć anomalie przy użyciu nowo wytrenowany model, utwórz element o `private async Task` nazwie `detectAsync` . Utworzysz nowy i `DetectionRequest` przekażemy go jako parametr do . `DetectAnomalyAsync`
 
 ```csharp
 private async Task<DetectionResult> detectAsync(AnomalyDetectorClient client, string datasource, Guid model_id, DateTimeOffset start_time, DateTimeOffset end_time, int max_tryout = 500)
@@ -218,18 +218,16 @@ private async Task<DetectionResult> detectAsync(AnomalyDetectorClient client, st
 
 ## <a name="export-model"></a>Eksportowanie modelu
 
-Aby wyeksportować wcześniej wytrenowany model, utwórz o `private async Task` nazwie `exportAysnc` . `ExportModelAsync`Użyjemy i przekażemy identyfikator modelu, który chcesz wyeksportować.
+Aby wyeksportować wcześniej wytrenowany model, utwórz o `private async Task` nazwie `exportAysnc` . Użyjemy identyfikatora modelu, który chcesz `ExportModelAsync` wyeksportować, i przekażemy go.
 
 ```csharp
 private async Task exportAsync(AnomalyDetectorClient client, Guid model_id, string model_path = "model.zip")
 {
     try
     {
-        Response model_response = await client.ExportModelAsync(model_id).ConfigureAwait(false);
-        Stream model;
-        if (model_response.ContentStream != null)
+        Stream model = await client.ExportModelAsync(model_id).ConfigureAwait(false);
+        if (model != null)
         {
-            model = model_response.ContentStream;
             var fileStream = File.Create(model_path);
             model.Seek(0, SeekOrigin.Begin);
             model.CopyTo(fileStream);
@@ -246,7 +244,7 @@ private async Task exportAsync(AnomalyDetectorClient client, Guid model_id, stri
 
 ## <a name="delete-model"></a>Usuwanie modelu
 
-Aby usunąć utworzony wcześniej model, użyj i przekaż identyfikator modelu, `DeleteMultivariateModelAsync` który chcesz usunąć. Aby pobrać identyfikator modelu, `getModelNumberAsync` możemy:
+Aby usunąć utworzony wcześniej model, użyj i przekaż identyfikator modelu, `DeleteMultivariateModelAsync` który chcesz usunąć. Aby pobrać identyfikator modelu, możesz `getModelNumberAsync` użyć:
 
 ```csharp
 private async Task deleteAsync(AnomalyDetectorClient client, Guid model_id)
@@ -274,7 +272,7 @@ private async Task<int> getModelNumberAsync(AnomalyDetectorClient client, bool d
 
 ## <a name="main-method"></a>Metoda main
 
-Teraz, gdy masz wszystkie części składowe, musisz dodać dodatkowy kod do metody głównej, aby wywołać nowo utworzone zadania.
+Teraz, gdy masz wszystkie części składowe, musisz dodać dodatkowy kod do metody głównej w celu wywołania nowo utworzonych zadań.
 
 ```csharp
 
@@ -342,4 +340,4 @@ dotnet run
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Narzędzie do wykrywania anomalii najlepsze rozwiązania dotyczące wielu kowariant](../../concepts/best-practices-multivariate.md)
+* [Narzędzie do wykrywania anomalii kowariantnych najlepszych rozwiązań](../../concepts/best-practices-multivariate.md)

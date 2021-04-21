@@ -1,24 +1,24 @@
 ---
-title: Samouczek — Kompilowanie obrazu przy zatwierdzaniu kodu
+title: Samouczek — kompilowanie obrazu po zatwierdzeniu kodu
 description: Z tego samouczka dowiesz się, jak skonfigurować usługę Azure Container Registry Task w celu automatycznego wyzwalania kompilacji obrazu kontenera w chmurze, gdy zatwierdzasz kod źródłowy do repozytorium Git.
 ms.topic: tutorial
 ms.date: 11/24/2020
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: 9c642a6c52a2d992c617993964bedd3ee04a7076
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: b4806ed30319ff058df6dfae0340a73ad4cb6132
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060333"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780789"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Samouczek: Automatyzowanie kompilacji obrazu kontenera w chmurze po zatwierdzeniu kodu źródłowego
 
-Oprócz [szybkiego zadania](container-registry-tutorial-quick-task.md)zadania ACR obsługują zautomatyzowane kompilacje obrazów kontenerów platformy Docker w chmurze podczas zatwierdzania kodu źródłowego w repozytorium git. Obsługiwane konteksty git dla zadań ACR obejmują publiczną lub prywatną witrynę GitHub lub Azure Repos.
+Oprócz szybkiego [zadania](container-registry-tutorial-quick-task.md)program zadania usługi ACR automatyczne kompilacje obrazu kontenera platformy Docker w chmurze po zatwierdzeniu kodu źródłowego do repozytorium Git. Obsługiwane konteksty usługi Git dla zadania usługi ACR obejmują publiczne lub prywatne usługi GitHub lub Azure Repos.
 
 > [!NOTE]
-> Obecnie zadania ACR nie obsługują wyzwalaczy żądań zatwierdzenia lub ściągnięcia w ramach repozytoriów Enterprise usługi GitHub.
+> Obecnie zadania usługi ACR nie obsługuje wyzwalaczy zatwierdzeń ani żądań ściągnięć w GitHub Enterprise żądania.
 
-W tym samouczku zadanie ACR kompiluje i wypycha pojedynczy obraz kontenera określony w pliku dockerfile podczas zatwierdzania kodu źródłowego w repozytorium git. Aby utworzyć [zadanie wieloetapowe](container-registry-tasks-multi-step.md) używające pliku YAML do definiowania kroków do kompilowania, wypychania i opcjonalnego testowania wielu kontenerów przy przekazywaniu kodu, zobacz [Samouczek: uruchamianie wieloetapowego przepływu pracy kontenera w chmurze podczas zatwierdzania kodu źródłowego](container-registry-tutorial-multistep-task.md). Aby zapoznać się z omówieniem zadań ACR, zobacz [Automatyzowanie poprawek systemu operacyjnego i platformy przy użyciu zadań ACR](container-registry-tasks-overview.md)
+W tym samouczku zadanie usługi ACR skompilowało i wypchło pojedynczy obraz kontenera określony w pliku Dockerfile podczas zatwierdzania kodu źródłowego do repozytorium Git. Aby utworzyć [](container-registry-tasks-multi-step.md) wieloetapowe zadanie, które używa pliku YAML do definiowania kroków kompilacji, wypychania i opcjonalnie testowania wielu kontenerów podczas zatwierdzania kodu, zobacz [Samouczek:](container-registry-tutorial-multistep-task.md)uruchamianie wieloetapowego przepływu pracy kontenera w chmurze po zatwierdzeniu kodu źródłowego . Aby uzyskać omówienie zadania usługi ACR, zobacz [Automate OS and framework patching with zadania usługi ACR (Automatyzacja](container-registry-tasks-overview.md) systemu operacyjnego i stosowanie poprawek struktury za pomocą zadania usługi ACR
 
 W tym samouczku:
 
@@ -37,7 +37,7 @@ W samouczku założono, że zostały już wykonane kroki z [poprzedniego samoucz
 
 Po ukończeniu kroków wymaganych do włączenia usługi ACR Tasks w celu odczytywania stanu zatwierdzenia i tworzenia elementów webhook w repozytorium możesz utworzyć zadanie, które wyzwala kompilację obrazu kontenera po zatwierdzeniu do repozytorium.
 
-Najpierw wypełnij te zmienne środowiskowe powłoki przy użyciu wartości odpowiednich dla danego środowiska. Ten krok nie jest ściśle wymagany, ale trochę ułatwia wykonywanie przedstawionych w tym samouczku wielowierszowych poleceń interfejsu wiersza polecenia platformy Azure. Jeśli te zmienne środowiskowe nie zostaną wypełnione, należy ręcznie zastąpić każdą wartość w dowolnym miejscu w przykładowych poleceniach.
+Najpierw wypełnij te zmienne środowiskowe powłoki przy użyciu wartości odpowiednich dla danego środowiska. Ten krok nie jest ściśle wymagany, ale trochę ułatwia wykonywanie przedstawionych w tym samouczku wielowierszowych poleceń interfejsu wiersza polecenia platformy Azure. Jeśli te zmienne środowiskowe nie zostaną wypełnione, musisz ręcznie zastąpić każdą wartość wszędzie tam, gdzie jest wyświetlana w przykładowych poleceniach.
 
 ```console
 ACR_NAME=<registry-name>        # The name of your Azure container registry
@@ -45,7 +45,7 @@ GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
 ```
 
-Teraz Utwórz zadanie, wykonując następujące polecenie [AZ ACR Task Create][az-acr-task-create] :
+Teraz utwórz zadanie, wykonując następujące [polecenie az acr task create:][az-acr-task-create]
 
 ```azurecli
 az acr task create \
@@ -58,7 +58,7 @@ az acr task create \
 ```
 
 
-To zadanie Określa, że dowolny kod czasu jest zatwierdzany do *głównej* gałęzi w repozytorium określonym przez `--context` , ACR zadania spowodują skompilowanie obrazu kontenera na podstawie kodu w tej gałęzi. Do kompilowania obrazu jest używany plik Dockerfile określony przez parametr `--file` z katalogu głównego repozytorium. Argument `--image` określa wartość sparametryzowaną elementu `{{.Run.ID}}` dla części wersji tagu obrazu, zapewniając, że skompilowany obraz jest powiązany z określoną kompilacją i jest jednoznacznie oznakowany.
+To zadanie określa, że za każdym razem, gdy kod zostanie zatwierdzone do gałęzi *main* w repozytorium określonym przez , zadania usługi ACR skompilować obraz kontenera z kodu `--context` w tej gałęzi. Do kompilowania obrazu jest używany plik Dockerfile określony przez parametr `--file` z katalogu głównego repozytorium. Argument `--image` określa wartość sparametryzowaną elementu `{{.Run.ID}}` dla części wersji tagu obrazu, zapewniając, że skompilowany obraz jest powiązany z określoną kompilacją i jest jednoznacznie oznakowany.
 
 Dane wyjściowe z pomyślnie wykonanego polecenia [az acr task create][az-acr-task-create] przypominają następujące dane:
 
@@ -89,7 +89,7 @@ Dane wyjściowe z pomyślnie wykonanego polecenia [az acr task create][az-acr-ta
     ],
     "isPushEnabled": true,
     "noCache": false,
-    "type&quot;: &quot;Docker"
+    "type": "Docker"
   },
   "tags": null,
   "timeout": 3600,
@@ -97,7 +97,7 @@ Dane wyjściowe z pomyślnie wykonanego polecenia [az acr task create][az-acr-ta
     "baseImageTrigger": {
       "baseImageTriggerType": "Runtime",
       "name": "defaultBaseimageTriggerName",
-      "status&quot;: &quot;Enabled"
+      "status": "Enabled"
     },
     "sourceTriggers": [
       {
@@ -106,16 +106,16 @@ Dane wyjściowe z pomyślnie wykonanego polecenia [az acr task create][az-acr-ta
           "branch": "main",
           "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node#main",
           "sourceControlAuthProperties": null,
-          "sourceControlType&quot;: &quot;GitHub"
+          "sourceControlType": "GitHub"
         },
         "sourceTriggerEvents": [
           "commit"
         ],
-        "status&quot;: &quot;Enabled"
+        "status": "Enabled"
       }
     ]
   },
-  "type&quot;: &quot;Microsoft.ContainerRegistry/registries/tasks"
+  "type": "Microsoft.ContainerRegistry/registries/tasks"
 }
 ```
 
@@ -252,10 +252,7 @@ W tym samouczku pokazano, jak używać zadania w celu automatycznego wyzwalania 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
 [az-acr-task]: /cli/azure/acr/task
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
-[az-acr-task-list-runs]: /cli/azure/acr/task#az-acr-task-list-runs
-[az-login]: /cli/azure/reference-index#az-login
-
-
-
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-acr-task-run]: /cli/azure/acr/task#az_acr_task_run
+[az-acr-task-list-runs]: /cli/azure/acr/task#az_acr_task_list_runs
+[az-login]: /cli/azure/reference-index#az_login

@@ -1,6 +1,6 @@
 ---
-title: Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure — RBAC
-description: Dowiedz się, jak wyświetlać, tworzyć, aktualizować i usuwać role niestandardowe platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure i kontroli dostępu opartej na rolach (RBAC) platformy Azure.
+title: Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure — RBAC platformy Azure
+description: Dowiedz się, jak wyświetlić, utworzyć, zaktualizować lub usunąć role niestandardowe platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure i kontroli dostępu na podstawie ról (RBAC) platformy Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,34 +14,34 @@ ms.workload: identity
 ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 31dabcf77f0db76047919fa76d00f1c5ed3c96d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d3d05ba65e0d3918f1651c36cd17700ebf74de76
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97369144"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778341"
 ---
 # <a name="create-or-update-azure-custom-roles-using-azure-cli"></a>Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
 > [!IMPORTANT]
-> Dodawanie grupy zarządzania do programu `AssignableScopes` jest obecnie w wersji zapoznawczej.
+> Dodawanie grupy zarządzania do programu jest `AssignableScopes` obecnie dostępne w wersji zapoznawczej.
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
 > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Jeśli [wbudowane role platformy Azure](built-in-roles.md) nie są zgodne z konkretnymi potrzebami organizacji, możesz utworzyć własne role niestandardowe. W tym artykule opisano sposób wyświetlania, tworzenia, aktualizowania lub usuwania ról niestandardowych przy użyciu interfejsu wiersza polecenia platformy Azure.
+Jeśli wbudowane [role platformy Azure](built-in-roles.md) nie spełniają określonych potrzeb organizacji, możesz utworzyć własne role niestandardowe. W tym artykule opisano sposób tworzenia, aktualizowania i usuwania ról niestandardowych przy użyciu interfejsu wiersza polecenia platformy Azure.
 
-Aby zapoznać się z samouczkiem krok po kroku na temat tworzenia roli niestandardowej, zobacz [Samouczek: tworzenie roli niestandardowej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](tutorial-custom-role-cli.md).
+Aby uzyskać samouczek krok po kroku dotyczący tworzenia roli niestandardowej, zobacz [Samouczek: tworzenie](tutorial-custom-role-cli.md)roli niestandardowej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do tworzenia ról niestandardowych wymagane są:
+Do utworzenia ról niestandardowych potrzebne są:
 
 - Uprawnienia do tworzenia ról niestandardowych, takie jak [Właściciel](built-in-roles.md#owner) lub [Administrator dostępu użytkowników](built-in-roles.md#user-access-administrator)
 - [Azure Cloud Shell](../cloud-shell/overview.md) lub [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)
 
 ## <a name="list-custom-roles"></a>Wyświetlanie ról niestandardowych
 
-Aby wyświetlić listę ról niestandardowych, które są dostępne do przypisania, użyj [AZ role Definition list](/cli/azure/role/definition#az-role-definition-list). Poniższy przykład wyświetla listę wszystkich ról niestandardowych w bieżącej subskrypcji.
+Aby wyświetlić listę ról niestandardowych, które są dostępne do przypisania, użyj [az role definition list](/cli/azure/role/definition#az_role_definition_list). Poniższy przykład zawiera listę wszystkich ról niestandardowych w bieżącej subskrypcji.
 
 ```azurecli
 az role definition list --custom-role-only true --output json --query '[].{roleName:roleName, roleType:roleType}'
@@ -64,15 +64,15 @@ az role definition list --custom-role-only true --output json --query '[].{roleN
 ]
 ```
 
-## <a name="list-a-custom-role-definition"></a>Utwórz listę niestandardowych definicji roli
+## <a name="list-a-custom-role-definition"></a>Lista definicji roli niestandardowej
 
-Aby wyświetlić listę niestandardowych definicji roli, użyj [AZ role Definition list](/cli/azure/role/definition#az-role-definition-list). Jest to samo polecenie, którego można użyć w przypadku roli wbudowanej.
+Aby wyświetlić listę definicji roli niestandardowej, użyj [az role definition list](/cli/azure/role/definition#az_role_definition_list). Jest to to samo polecenie, które będzie miało zastosowanie w przypadku roli wbudowanej.
 
 ```azurecli
 az role definition list --name {roleName}
 ```
 
-Poniższy przykład zawiera listę definicji roli *operatora maszyny wirtualnej* :
+W poniższym przykładzie przedstawiono *definicję roli Operator maszyny* wirtualnej:
 
 ```azurecli
 az role definition list --name "Virtual Machine Operator"
@@ -114,7 +114,7 @@ az role definition list --name "Virtual Machine Operator"
 ]
 ```
 
-Poniższy przykład zawiera listę tylko działań roli *operatora maszyny wirtualnej* :
+W poniższym przykładzie wymieniono tylko akcje roli *Operator maszyny wirtualnej:*
 
 ```azurecli
 az role definition list --name "Virtual Machine Operator" --output json --query '[].permissions[0].actions'
@@ -140,15 +140,15 @@ az role definition list --name "Virtual Machine Operator" --output json --query 
 
 ## <a name="create-a-custom-role"></a>Tworzenie roli niestandardowej
 
-Aby utworzyć rolę niestandardową, użyj [AZ role Definition Create](/cli/azure/role/definition#az-role-definition-create). Definicja roli może być opisem JSON lub ścieżką do pliku zawierającego opis JSON.
+Aby utworzyć rolę niestandardową, użyj [az role definition create](/cli/azure/role/definition#az_role_definition_create). Definicją roli może być opis JSON lub ścieżka do pliku zawierającego opis JSON.
 
 ```azurecli
 az role definition create --role-definition {roleDefinition}
 ```
 
-Poniższy przykład tworzy rolę niestandardową o nazwie *operator maszyny wirtualnej*. Ta rola niestandardowa przypisuje dostęp do wszystkich operacji odczytu dostawcy zasobów *Microsoft. COMPUTE*, *Microsoft. Storage* i *Microsoft. Network* oraz przypisuje do uruchamiania, ponownego uruchamiania i monitorowania maszyn wirtualnych. Ta rola niestandardowa może być używana w dwóch subskrypcjach. W tym przykładzie plik JSON jest wykorzystywany jako dane wejściowe.
+Poniższy przykład tworzy rolę niestandardową o nazwie *Operator maszyny wirtualnej*. Ta rola niestandardowa przypisuje dostęp do wszystkich operacji odczytu dostawców zasobów *Microsoft.Compute,* *Microsoft.Storage* i *Microsoft.Network* oraz przypisuje dostęp do uruchamiania, ponownego uruchamiania i monitorowania maszyn wirtualnych. Tej roli niestandardowej można używać w dwóch subskrypcjach. W tym przykładzie użyto pliku JSON jako danych wejściowych.
 
-vmoperator.jsna
+vmoperator.jswł.
 
 ```json
 {
@@ -183,15 +183,15 @@ az role definition create --role-definition ~/roles/vmoperator.json
 
 ## <a name="update-a-custom-role"></a>Aktualizacja roli niestandardowej
 
-Aby zaktualizować rolę niestandardową, należy najpierw użyć [AZ role Definition list](/cli/azure/role/definition#az-role-definition-list) do pobrania definicji roli. Następnie wprowadź żądane zmiany w definicji roli. Na koniec Użyj [AZ role Definition Update](/cli/azure/role/definition#az-role-definition-update) w celu zapisania zaktualizowanej definicji roli.
+Aby zaktualizować rolę niestandardową, najpierw użyj [az role definition list,](/cli/azure/role/definition#az_role_definition_list) aby pobrać definicję roli. Po drugie, należy wprowadzić żądane zmiany w definicji roli. Na koniec użyj [przycisku az role definition update,](/cli/azure/role/definition#az_role_definition_update) aby zapisać zaktualizowaną definicję roli.
 
 ```azurecli
 az role definition update --role-definition {roleDefinition}
 ```
 
-Poniższy przykład dodaje do *programu Microsoft. Insights/diagnosticSettings/* Operations to `Actions` i dodaje grupę zarządzania do `AssignableScopes` roli niestandardowej *operatora maszyny wirtualnej* . Dodawanie grupy zarządzania do programu `AssignableScopes` jest obecnie w wersji zapoznawczej.
+W poniższym przykładzie dodano operację *Microsoft.Insights/diagnosticSettings/* do funkcji i dodano grupę zarządzania dla roli niestandardowej `Actions` `AssignableScopes` *Operator* maszyny wirtualnej. Dodawanie grupy zarządzania do programu jest `AssignableScopes` obecnie dostępne w wersji zapoznawczej.
 
-vmoperator.jsna
+vmoperator.jswł.
 
 ```json
 {
@@ -228,13 +228,13 @@ az role definition update --role-definition ~/roles/vmoperator.json
 
 ## <a name="delete-a-custom-role"></a>Usuwanie roli niestandardowej
 
-Aby usunąć rolę niestandardową, użyj [AZ role Definition Delete](/cli/azure/role/definition#az-role-definition-delete). Aby określić rolę do usunięcia, użyj nazwy roli lub identyfikatora roli. Aby określić identyfikator roli, użyj [AZ role Definition list](/cli/azure/role/definition#az-role-definition-list).
+Aby usunąć rolę niestandardową, użyj [az role definition delete](/cli/azure/role/definition#az_role_definition_delete). Aby określić rolę do usunięcia, użyj nazwy roli lub identyfikatora roli. Aby określić identyfikator roli, użyj [az role definition list](/cli/azure/role/definition#az_role_definition_list).
 
 ```azurecli
 az role definition delete --name {roleNameOrId}
 ```
 
-Poniższy przykład usuwa rolę niestandardową *operatora maszyny wirtualnej* .
+Poniższy przykład usuwa rolę niestandardową *Operator maszyny* wirtualnej.
 
 ```azurecli
 az role definition delete --name "Virtual Machine Operator"

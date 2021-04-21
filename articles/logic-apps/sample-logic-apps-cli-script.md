@@ -1,63 +1,63 @@
 ---
-title: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — Tworzenie aplikacji logiki
-description: Przykładowy skrypt służący do tworzenia aplikacji logiki za pomocą rozszerzenia Logic Apps w interfejsie wiersza polecenia platformy Azure.
+title: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — tworzenie aplikacji logiki
+description: Przykładowy skrypt do tworzenia aplikacji logiki za pośrednictwem Logic Apps w interfejsie wiersza polecenia platformy Azure.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/30/2020
-ms.openlocfilehash: a4553ceee482fb232e9ab56deca650be93f9dc6b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b81d9b4a637965dd103d8fa89305424686a0c72c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102218047"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789919"
 ---
-# <a name="azure-cli-script-sample---create-a-logic-app"></a>Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — Tworzenie aplikacji logiki
+# <a name="azure-cli-script-sample---create-a-logic-app"></a>Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — tworzenie aplikacji logiki
 
-Ten skrypt tworzy przykładową aplikację logiki za pomocą [rozszerzenia Logic Apps interfejsu wiersza polecenia platformy Azure](/cli/azure/ext/logic/logic)( `az logic` ). Aby uzyskać szczegółowy przewodnik tworzenia aplikacji logiki i zarządzania nimi za pomocą interfejsu wiersza polecenia platformy Azure, [Logic Apps zobacz Przewodnik Szybki Start dotyczący interfejsu wiersza polecenia platformy Azure](quickstart-logic-apps-azure-cli.md).
+Ten skrypt tworzy przykładową aplikację logiki za pośrednictwem interfejsu [wiersza polecenia platformy Azure Logic Apps rozszerzeniem](/cli/azure/ext/logic/logic), ( `az logic` ). Aby uzyskać szczegółowy przewodnik dotyczący tworzenia aplikacji logiki i zarządzania nimi za pomocą interfejsu wiersza polecenia platformy Azure, zobacz Logic Apps szybki start dotyczący interfejsu [wiersza polecenia platformy Azure.](quickstart-logic-apps-azure-cli.md)
 
 > [!WARNING]
-> Rozszerzenie interfejsu wiersza polecenia platformy Azure Logic Apps jest obecnie *eksperymentalne* i *nie jest objęte pomocą techniczną klienta*. Użyj tego rozszerzenia interfejsu wiersza polecenia z zachowaniem ostrożności, zwłaszcza jeśli zdecydujesz się użyć rozszerzenia w środowiskach produkcyjnych.
+> Rozszerzenie interfejsu wiersza polecenia Logic Apps platformy Azure jest obecnie *eksperymentalne* i *nie jest objęte pomocą techniczną dla klientów.* Używaj tego rozszerzenia interfejsu wiersza polecenia z rozwagą, szczególnie jeśli zdecydujesz się używać tego rozszerzenia w środowiskach produkcyjnych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Konto platformy Azure z aktywną subskrypcją. Jeśli nie masz subskrypcji platformy Azure, [Utwórz bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) zainstalowany na komputerze lokalnym.
-* [Rozszerzenie interfejsu wiersza polecenia platformy Azure Logic Apps](/cli/azure/azure-cli-extensions-list) zainstalowane na tym komputerze. Aby zainstalować to rozszerzenie, użyj tego polecenia: `az extension add --name logic`
-* [Definicja przepływu pracy](quickstart-logic-apps-azure-cli.md#workflow-definition) dla aplikacji logiki. Ten plik JSON musi być zgodny ze [schematem języka definicji przepływu pracy](logic-apps-workflow-definition-language.md).
-* Połączenie interfejsu API z kontem e-mail za pośrednictwem obsługiwanego [łącznika Logic Apps](../connectors/apis-list.md) w tej samej grupie zasobów, w której znajduje się aplikacja logiki. W tym przykładzie użyto łącznika [pakietu Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md) , ale można również użyć innych łączników, takich jak [Outlook.com](../connectors/connectors-create-api-outlook.md).
+* Konto platformy Azure z aktywną subskrypcją. Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Interfejs [wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) zainstalowany na komputerze lokalnym.
+* Rozszerzenie [Logic Apps interfejsu wiersza polecenia platformy Azure](/cli/azure/azure-cli-extensions-list) zainstalowane na komputerze. Aby zainstalować to rozszerzenie, użyj tego polecenia: `az extension add --name logic`
+* Definicja [przepływu](quickstart-logic-apps-azure-cli.md#workflow-definition) pracy dla aplikacji logiki. Ten plik JSON musi być zgodne ze [schematem języka definicji przepływu pracy](logic-apps-workflow-definition-language.md).
+* Połączenie interfejsu API z kontem e-mail za pośrednictwem obsługiwanego [łącznika Logic Apps w](../connectors/apis-list.md) tej samej grupie zasobów co aplikacja logiki. W tym przykładzie użyto [łącznika usługi Office 365 Outlook,](../connectors/connectors-create-api-office365-outlook.md) ale można również użyć innych łączników, takich [jak Outlook.com](../connectors/connectors-create-api-outlook.md).
 
 ### <a name="prerequisite-check"></a>Sprawdzanie wymagań wstępnych
 
-Sprawdź poprawność środowiska przed rozpoczęciem:
+Przed rozpoczęciem zweryfikuj środowisko:
 
-* Zaloguj się do Azure Portal i sprawdź, czy Twoja subskrypcja jest aktywna, uruchamiając `az login` .
+* Zaloguj się do Azure Portal i sprawdź, czy twoja subskrypcja jest aktywna, uruchamiając . `az login`
 
-* Sprawdź wersję interfejsu wiersza polecenia platformy Azure w terminalu lub oknie poleceń, uruchamiając polecenie `az --version` . Aby uzyskać najnowszą wersję, zapoznaj się z [najnowszymi informacjami o wersji](/cli/azure/release-notes-azure-cli).
+* Sprawdź wersję interfejsu wiersza polecenia platformy Azure w terminalu lub oknie poleceń, uruchamiając polecenie `az --version` . Aby uzyskać najnowszą wersję, zobacz [najnowsze informacje o wersji.](/cli/azure/release-notes-azure-cli)
 
-  * Jeśli nie masz najnowszej wersji, zaktualizuj instalację, postępując zgodnie z [instrukcją instalacji systemu operacyjnego lub platformy](/cli/azure/install-azure-cli).
+  * Jeśli nie masz najnowszej wersji, zaktualizuj instalację, korzystając z przewodnika instalacji dla systemu operacyjnego [lub platformy](/cli/azure/install-azure-cli).
 
-### <a name="sample-workflow-explanation"></a>Przykładowe wyjaśnienie przepływu pracy
+### <a name="sample-workflow-explanation"></a>Wyjaśnienie przykładowego przepływu pracy
 
-Ten przykładowy plik definicji przepływu pracy tworzy tę samą podstawową aplikację logiki, co [Logic Apps przewodniku szybki start dla Azure Portal](quickstart-create-first-logic-app-workflow.md). 
+Ten przykładowy plik definicji przepływu pracy tworzy tę samą podstawową aplikację [logiki co Logic Apps szybki](quickstart-create-first-logic-app-workflow.md)start dla Azure Portal . 
 
 Ten przykładowy przepływ pracy: 
 
-1. Określa schemat `$schema` dla aplikacji logiki.
+1. Określa schemat aplikacji `$schema` logiki.
 
-1. Definiuje wyzwalacz dla aplikacji logiki na liście wyzwalaczy `triggers` . Wyzwalacz powtarza się ( `recurrence` ) co 3 godziny. Akcje są wyzwalane po opublikowaniu nowego elementu kanału informacyjnego ( `When_a_feed_item_is_published` ) dla określonego kanału informacyjnego RSS ( `feedUrl` ).
+1. Definiuje wyzwalacz dla aplikacji logiki na liście wyzwalaczy `triggers` . Wyzwalacz jest powtarzany `recurrence` () co 3 godziny. Akcje są wyzwalane po opublikowaniu nowego elementu kanału informacyjnego ( `When_a_feed_item_is_published` ) dla określonego kanału informacyjnego RSS ( `feedUrl` ).
 
-1. Definiuje akcję dla aplikacji logiki na liście akcji `actions` . Akcja wysyła wiadomość e-mail ( `Send_an_email_(V2)` ) za pośrednictwem Microsoft 365 ze szczegółowymi informacjami z elementów kanału informacyjnego RSS, jak określono w sekcji treści ( `body` ) danych wejściowych akcji () `inputs` .
+1. Definiuje akcję dla aplikacji logiki na liście akcji `actions` . Akcja wysyła wiadomość e-mail ( ) za pośrednictwem Microsoft 365 ze szczegółami z elementów kanału informacyjnego RSS określonymi w sekcji treści ( ) danych wejściowych `Send_an_email_(V2)` `body` akcji ( `inputs` ).
 
-## <a name="sample-workflow-definition"></a>Przykładowa definicja przepływu pracy
+## <a name="sample-workflow-definition"></a>Definicja przykładowego przepływu pracy
 
-Przed uruchomieniem przykładowego skryptu należy najpierw utworzyć przykładową [definicję przepływu pracy](#prerequisites).
+Przed uruchomieniem przykładowego skryptu należy najpierw utworzyć przykładową definicję [przepływu pracy](#prerequisites).
 
 1. Utwórz plik JSON `testDefinition.json` na komputerze. 
 
-1. Skopiuj poniższą zawartość do pliku JSON: 
+1. Skopiuj następującą zawartość do pliku JSON: 
     ```json
     
     {
@@ -134,22 +134,22 @@ Przed uruchomieniem przykładowego skryptu należy najpierw utworzyć przykłado
     
     ```
 
-1. Zaktualizuj wartości zastępcze przy użyciu własnych informacji:
+1. Zaktualizuj wartości symboli zastępczych własnymi informacjami:
 
-    1. Zamień symbol zastępczy adresu e-mail ( `"To": "test@example.com"` ). Musisz użyć adresu e-mail zgodnego z łącznikami Logic Apps. Aby uzyskać więcej informacji, zobacz [wymagania wstępne](#prerequisites).
+    1. Zastąp zastępczy adres e-mail ( `"To": "test@example.com"` ). Musisz użyć adresu e-mail zgodnego z Logic Apps łącznikami. Aby uzyskać więcej informacji, zobacz [wymagania wstępne](#prerequisites).
 
-    1. Zastąp dodatkowe szczegóły łącznika, jeśli używasz innego łącznika poczty e-mail niż łącznik Office 365 Outlook.
+    1. Zastąp dodatkowe szczegóły łącznika, jeśli używasz innego łącznika poczty e-mail niż łącznik usługi Office 365 Outlook.
 
-    1. Zastąp zastępcze wartości subskrypcji ( `00000000-0000-0000-0000-000000000000` ) dla identyfikatorów połączeń ( `connectionId` i `id` ) w ramach parametru Connections ( `$connections` ) przy użyciu własnych wartości subskrypcji.
+    1. Zastąp symbole zastępcze wartości subskrypcji ( ) dla `00000000-0000-0000-0000-000000000000` identyfikatorów połączeń ( `connectionId` i ) `id` w parametrze połączeń ( ) `$connections` własnymi wartościami subskrypcji.
 
 1. Zapisz zmiany.
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
 > [!NOTE]
-> Ten przykład jest zapisywana dla `bash` powłoki. Jeśli chcesz uruchomić ten przykład w innej powłoki, takiej jak program Windows PowerShell lub wiersz polecenia, może być konieczne wprowadzenie modyfikacji skryptu.
+> Ten przykład jest napisany dla `bash` powłoki . Jeśli chcesz uruchomić ten przykład w innej powłoki, takiej jak Windows PowerShell lub wierszu polecenia, może być konieczne wprowadzenie modyfikacji skryptu.
 
-Przed uruchomieniem tego przykładowego skryptu Uruchom to polecenie, aby nawiązać połączenie z platformą Azure:
+Przed uruchomieniem tego przykładowego skryptu uruchom to polecenie, aby nawiązać połączenie z platformą Azure:
 
 ```azurecli-interactive
 
@@ -157,7 +157,7 @@ az login
 
 ```
 
-Następnie przejdź do katalogu, w którym została utworzona definicja przepływu pracy. Jeśli na przykład plik JSON definicji przepływu pracy został utworzony na pulpicie:
+Następnie przejdź do katalogu, w którym utworzono definicję przepływu pracy. Jeśli na przykład utworzono plik JSON definicji przepływu pracy na pulpicie:
 
 ```azurecli
 
@@ -183,7 +183,7 @@ az logic workflow create --resource-group "testResourceGroup" --location "westus
 
 ### <a name="clean-up-deployment"></a>Czyszczenie wdrożenia
 
-Po zakończeniu korzystania z przykładowego skryptu Uruchom następujące polecenie, aby usunąć grupę zasobów i wszystkie jej zagnieżdżone zasoby, w tym aplikację logiki.
+Po zakończeniu korzystania z przykładowego skryptu uruchom następujące polecenie, aby usunąć grupę zasobów i wszystkie jej zagnieżdżone zasoby, w tym aplikację logiki.
 
 ```azurecli-interactive
 
@@ -193,16 +193,16 @@ az group delete --name testResourceGroup --yes
 
 ## <a name="script-explanation"></a>Objaśnienia dla skryptu
 
-Ten przykładowy skrypt używa następujących poleceń w celu utworzenia nowej grupy zasobów i aplikacji logiki.
+Ten przykładowy skrypt używa poniższych poleceń do utworzenia nowej grupy zasobów i aplikacji logiki.
 
 | Polecenie | Uwagi |
 | ------- | ----- |
-| [`az group create`](/cli/azure/group#az-group-create) | Tworzy grupę zasobów, w której są przechowywane zasoby aplikacji logiki. |
+| [`az group create`](/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w której są przechowywane zasoby aplikacji logiki. |
 | [`az logic workflow create`](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create) | Tworzy aplikację logiki na podstawie przepływu pracy zdefiniowanego w parametrze `--definition` . |
 | [`az group delete`](/cli/azure/vm/extension) | Usuwa grupę zasobów i wszystkie jej zagnieżdżone zasoby. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure/).
+Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure.](/cli/azure/)
 
-Logic Apps dodatkowe przykłady skryptów interfejsu wiersza polecenia można znaleźć w [przeglądarce przykładów kodu firmy Microsoft](/samples/browse/?products=azure-logic-apps).
+Dodatkowe przykłady skryptów Logic Apps interfejsu wiersza polecenia można znaleźć w [przeglądarce przykładów kodu firmy Microsoft.](/samples/browse/?products=azure-logic-apps)

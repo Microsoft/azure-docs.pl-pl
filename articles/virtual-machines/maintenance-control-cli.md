@@ -1,6 +1,6 @@
 ---
-title: Kontrola konserwacji maszyn wirtualnych platformy Azure przy użyciu interfejsu wiersza polecenia
-description: Dowiedz się, jak kontrolować, kiedy konserwacja jest stosowana do maszyn wirtualnych platformy Azure przy użyciu funkcji sterowania konserwacją i interfejsu wiersza polecenia.
+title: Sterowanie konserwacją maszyn wirtualnych platformy Azure przy użyciu interfejsu wiersza polecenia
+description: Dowiedz się, jak kontrolować, kiedy konserwacja jest stosowana do maszyn wirtualnych platformy Azure przy użyciu kontrolki konserwacji i interfejsu wiersza polecenia.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: maintenance-control
@@ -8,20 +8,20 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 9425759de1e08bc83cac80cd1b56c602edb59fb1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c57f66eca5d15024c6b10e8fad12ddb575b9f894
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102562966"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765903"
 ---
-# <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>Sterowanie aktualizacjami przy użyciu sterowania konserwacją i interfejsu wiersza polecenia platformy Azure
+# <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>Kontrolowanie aktualizacji za pomocą kontrolki konserwacji i interfejsu wiersza polecenia platformy Azure
 
-Kontrola konserwacji umożliwia określenie, kiedy należy zastosować aktualizacje platformy do infrastruktury hosta izolowanych maszyn wirtualnych i hostów dedykowanych platformy Azure. W tym temacie omówiono opcje interfejsu wiersza polecenia platformy Azure służące do sterowania konserwacją. Aby uzyskać więcej informacji na temat korzyści z używania kontroli konserwacji, jej ograniczeń i innych opcji zarządzania, zobacz [Zarządzanie aktualizacjami platformy przy użyciu kontroli konserwacji](maintenance-control.md).
+Kontrola konserwacji umożliwia podjęcie decyzji o tym, kiedy zastosować aktualizacje platformy do hostowania infrastruktury izolowanych maszyn wirtualnych i dedykowanych hostów platformy Azure. W tym temacie omykamy opcje interfejsu wiersza polecenia platformy Azure dotyczące kontroli konserwacji. Aby uzyskać więcej informacji o korzyściach z używania kontroli konserwacji, jej ograniczeniach i innych opcjach zarządzania, zobacz Zarządzanie aktualizacjami platformy [za pomocą kontrolki konserwacji.](maintenance-control.md)
 
 ## <a name="create-a-maintenance-configuration"></a>Utworzenie konfiguracji konserwacji
 
-Użyj `az maintenance configuration create` , aby utworzyć konfigurację konserwacji. W tym przykładzie zostanie utworzona konfiguracja konserwacji o nazwie Moja *config* objęta zakresem hosta. 
+Użyj `az maintenance configuration create` , aby utworzyć konfigurację konserwacji. Ten przykład tworzy konfigurację konserwacji o nazwie *myConfig* w zakresie hosta. 
 
 ```azurecli-interactive
 az group create \
@@ -34,20 +34,20 @@ az maintenance configuration create \
    --location eastus
 ```
 
-Skopiuj identyfikator konfiguracji z danych wyjściowych do użycia później.
+Skopiuj identyfikator konfiguracji z danych wyjściowych do późniejszego użycia.
 
-Użycie `--maintenance-scope host` gwarantuje, że konfiguracja konserwacji służy do kontrolowania aktualizacji infrastruktury hosta.
+Użycie `--maintenance-scope host` opcji zapewnia, że konfiguracja konserwacji jest używana do kontrolowania aktualizacji infrastruktury hosta.
 
-Jeśli spróbujesz utworzyć konfigurację o tej samej nazwie, ale w innej lokalizacji, zostanie wyświetlony komunikat o błędzie. Nazwy konfiguracji muszą być unikatowe dla grupy zasobów.
+Jeśli spróbujesz utworzyć konfigurację o tej samej nazwie, ale w innej lokalizacji, wystąpi błąd. Nazwy konfiguracji muszą być unikatowe dla grupy zasobów.
 
-Można wykonać zapytanie o dostępne konfiguracje konserwacji przy użyciu programu `az maintenance configuration list` .
+Zapytania dotyczące dostępnych konfiguracji konserwacji można uzyskać przy użyciu programu `az maintenance configuration list` .
 
 ```azurecli-interactive
 az maintenance configuration list --query "[].{Name:name, ID:id}" -o table 
 ```
 
-### <a name="create-a-maintenance-configuration-with-scheduled-window"></a>Utwórz konfigurację konserwacji z zaplanowanym oknem
-Możesz również zadeklarować zaplanowane okno, gdy platforma Azure zastosuje aktualizacje do zasobów. W tym przykładzie zostanie utworzona konfiguracja konserwacji o nazwie Moja config z zaplanowanym oknem 5 godzin w czwartym poniedziałek każdego miesiąca. Po utworzeniu zaplanowanego okna nie trzeba już ręcznie stosować aktualizacji.
+### <a name="create-a-maintenance-configuration-with-scheduled-window"></a>Tworzenie konfiguracji konserwacji za pomocą zaplanowanego okna
+Możesz również zadeklarować zaplanowane okno, w którym platforma Azure zastosuje aktualizacje do zasobów. Ten przykład tworzy konfigurację konserwacji o nazwie myConfig z zaplanowanym oknem 5 godzin w czwarty poniedziałek każdego miesiąca. Po utworzeniu zaplanowanego okna nie trzeba już ręcznie stosować aktualizacji.
 
 ```azurecli-interactive
 az maintenance configuration create \
@@ -62,21 +62,21 @@ az maintenance configuration create \
 ```
 
 > [!IMPORTANT]
-> **Czas trwania** konserwacji nie może być dłuższy niż *2 godziny* . **Cykl** konserwacji musi być ustawiony na co najmniej raz w ciągu 35 dni.
+> Czas **trwania** konserwacji musi być *co najmniej 2* godziny. Cykl **konserwacji** musi być ustawiony na co najmniej raz w ciągu 35 dni.
 
-Cykl konserwacji można wyrazić jako codziennie, co tydzień lub co miesiąc. Przykłady to:
-- **codzienne**— konserwacja — powtarzanie okna — co: "dzień" **lub** "3Days"
-- **cotygodniowe**— konserwacja — powtarzanie okna — co: "3Weeks" **lub** "tydzień Sobota, Niedziela"
-- **miesięczne**-konserwacyjne — powtarzanie okna — co: "miesiąc day23, day24" **lub** "miesiąc ostatni Niedziela" **lub** "miesiąc czwarty poniedziałek"
+Cykl konserwacji może być wyrażony jako codziennie, co tydzień lub co miesiąc. Przykłady to:
+- **daily**— maintenance-window-recur-every: "Day" **lub** "3Days"
+- **weekly**- maintenance-window-recur-every: "3Weeks" **lub** "Week Saturday,Sunday"
+- **monthly**- maintenance-window-recur-every: "Month day23,day24" **or** "Month Last Sunday" **or** "Month Fourth Monday"
 
 
-## <a name="assign-the-configuration"></a>Przypisz konfigurację
+## <a name="assign-the-configuration"></a>Przypisywanie konfiguracji
 
-Służy `az maintenance assignment create` do przypisywania konfiguracji do izolowanej maszyny wirtualnej lub dedykowanego hosta platformy Azure.
+Użyj `az maintenance assignment create` , aby przypisać konfigurację do izolowanej maszyny wirtualnej lub Azure Dedicated Host.
 
 ### <a name="isolated-vm"></a>Izolowana maszyna wirtualna
 
-Zastosuj konfigurację do maszyny wirtualnej przy użyciu identyfikatora konfiguracji. Określ `--resource-type virtualMachines` i podaj nazwę maszyny wirtualnej dla programu `--resource-name` oraz grupę zasobów dla maszyny wirtualnej w programie `--resource-group` oraz lokalizację maszyny wirtualnej dla programu `--location` . 
+Zastosuj konfigurację do maszyny wirtualnej przy użyciu identyfikatora konfiguracji. Określ i podaj nazwę maszyny wirtualnej dla programu oraz grupę zasobów dla maszyny wirtualnej w programie oraz lokalizację maszyny `--resource-type virtualMachines` `--resource-name` `--resource-group` wirtualnej dla programu `--location` . 
 
 ```azurecli-interactive
 az maintenance assignment create \
@@ -91,9 +91,9 @@ az maintenance assignment create \
 
 ### <a name="dedicated-host"></a>Dedykowany host
 
-Aby zastosować konfigurację do dedykowanego hosta, należy dołączyć `--resource-type hosts` , `--resource-parent-name` z nazwą grupy hostów, i `--resource-parent-type hostGroups` . 
+Aby zastosować konfigurację do dedykowanego hosta, należy dołączyć , `--resource-type hosts` `--resource-parent-name` z nazwą grupy hostów i `--resource-parent-type hostGroups` . 
 
-Parametr `--resource-id` jest identyfikatorem hosta. Aby uzyskać identyfikator dedykowanego hosta, można użyć [AZ VM Host Get-instance-View](/cli/azure/vm/host#az-vm-host-get-instance-view) .
+Parametr `--resource-id` jest identyfikatorem hosta. Aby uzyskać identyfikator dedykowanego hosta, możesz użyć az [vm host get-instance-view.](/cli/azure/vm/host#az_vm_host_get_instance_view)
 
 ```azurecli-interactive
 az maintenance assignment create \
@@ -108,9 +108,9 @@ az maintenance assignment create \
    --resource-parent-type hostGroups 
 ```
 
-## <a name="check-configuration"></a>Sprawdź konfigurację
+## <a name="check-configuration"></a>Sprawdzanie konfiguracji
 
-Można sprawdzić, czy konfiguracja została zastosowana prawidłowo, lub sprawdzić, jaka konfiguracja jest aktualnie stosowana `az maintenance assignment list` .
+Możesz sprawdzić, czy konfiguracja została zastosowana poprawnie, lub sprawdzić, jaka konfiguracja jest obecnie stosowana przy użyciu programu `az maintenance assignment list` .
 
 ### <a name="isolated-vm"></a>Izolowana maszyna wirtualna
 
@@ -139,13 +139,13 @@ az maintenance assignment list \
 ```
 
 
-## <a name="check-for-pending-updates"></a>Wyszukaj oczekujące aktualizacje
+## <a name="check-for-pending-updates"></a>Sprawdzanie oczekujących aktualizacji
 
-Użyj `az maintenance update list` , aby sprawdzić, czy istnieją oczekujące aktualizacje. Update--Subscription to identyfikator subskrypcji zawierającej maszynę wirtualną.
+Użyj `az maintenance update list` , aby sprawdzić, czy istnieją oczekujące aktualizacje. Zaktualizuj --subscription, aby był identyfikatorem subskrypcji zawierającej maszynę wirtualną.
 
 Jeśli nie ma żadnych aktualizacji, polecenie zwróci komunikat o błędzie, który będzie zawierać tekst: `Resource not found...StatusCode: 404` .
 
-Jeśli są dostępne aktualizacje, zostanie zwrócony tylko jeden, nawet jeśli istnieje wiele oczekujących aktualizacji. Dane dla tej aktualizacji zostaną zwrócone w obiekcie:
+Jeśli istnieją aktualizacje, zostanie zwrócona tylko jedna, nawet jeśli istnieje wiele oczekujących aktualizacji. Dane dla tej aktualizacji zostaną zwrócone w obiekcie :
 
 ```text
 [
@@ -162,7 +162,7 @@ Jeśli są dostępne aktualizacje, zostanie zwrócony tylko jeden, nawet jeśli 
 
 ### <a name="isolated-vm"></a>Izolowana maszyna wirtualna
 
-Sprawdź, czy istnieją oczekujące aktualizacje dla izolowanej maszyny wirtualnej. W tym przykładzie dane wyjściowe są sformatowane jako tabela na potrzeby czytelności.
+Sprawdź oczekujące aktualizacje izolowanej maszyny wirtualnej. W tym przykładzie dane wyjściowe są formatowane jako tabela w celu ich czytelności.
 
 ```azurecli-interactive
 az maintenance update list \
@@ -175,7 +175,7 @@ az maintenance update list \
 
 ### <a name="dedicated-host"></a>Dedykowany host
 
-Aby sprawdzić oczekujące aktualizacje dla dedykowanego hosta. W tym przykładzie dane wyjściowe są sformatowane jako tabela na potrzeby czytelności. Zamień wartości dla zasobów własnymi.
+Aby sprawdzić oczekujące aktualizacje dla dedykowanego hosta. W tym przykładzie dane wyjściowe są formatowane jako tabela w celu ich czytelności. Zastąp wartości zasobów własnymi.
 
 ```azurecli-interactive
 az maintenance update list \
@@ -191,11 +191,11 @@ az maintenance update list \
 
 ## <a name="apply-updates"></a>Stosowanie aktualizacji
 
-Użyj `az maintenance apply update` , aby zastosować oczekujące aktualizacje. W przypadku powodzenia to polecenie zwróci kod JSON zawierający szczegóły aktualizacji.
+Użyj `az maintenance apply update` , aby zastosować oczekujące aktualizacje. W przypadku powodzenia to polecenie zwróci dane JSON zawierające szczegóły aktualizacji.
 
 ### <a name="isolated-vm"></a>Izolowana maszyna wirtualna
 
-Utwórz żądanie zastosowania aktualizacji dla izolowanej maszyny wirtualnej.
+Utwórz żądanie zastosowania aktualizacji do izolowanej maszyny wirtualnej.
 
 ```azurecli-interactive
 az maintenance applyupdate create \
@@ -209,7 +209,7 @@ az maintenance applyupdate create \
 
 ### <a name="dedicated-host"></a>Dedykowany host
 
-Zastosuj aktualizacje do dedykowanego hosta.
+Stosowanie aktualizacji na dedykowanym hoście.
 
 ```azurecli-interactive
 az maintenance applyupdate create \
@@ -222,11 +222,11 @@ az maintenance applyupdate create \
    --resource-parent-type hostGroups
 ```
 
-## <a name="check-the-status-of-applying-updates"></a>Sprawdź stan zastosowania aktualizacji 
+## <a name="check-the-status-of-applying-updates"></a>Sprawdzanie stanu stosowania aktualizacji 
 
-Postęp aktualizacji można sprawdzić za pomocą programu `az maintenance applyupdate get` . 
+Możesz sprawdzić postęp aktualizacji przy użyciu narzędzia `az maintenance applyupdate get` . 
 
-Możesz użyć `default` jako nazwy aktualizacji, aby zobaczyć wyniki dla ostatniej aktualizacji lub zamienić na `myUpdateName` nazwę aktualizacji, która została zwrócona podczas uruchomienia `az maintenance applyupdate create` .
+Możesz użyć nazwy aktualizacji, aby wyświetlić wyniki ostatniej aktualizacji, lub zastąpić nazwą aktualizacji zwróconą podczas `default` `myUpdateName` korzystania z programu `az maintenance applyupdate create` .
 
 ```text
 Status         : Completed
@@ -238,7 +238,7 @@ ute/virtualMachines/DXT-test-04-iso/providers/Microsoft.Maintenance/applyUpdates
 Name           : default
 Type           : Microsoft.Maintenance/applyUpdates
 ```
-LastUpdateTime będzie czas, w którym aktualizacja została ukończona, inicjowana przez użytkownika lub przez platformę w przypadku nieużycia okna samoobsługowego. Jeśli aktualizacja nie została zastosowana przez kontrolę konserwacji, zostanie wyświetlona wartość domyślna.
+LastUpdateTime będzie godziną ukończenia aktualizacji zainicjowaną przez Użytkownika lub przez platformę w przypadku, gdy nie zostało użyte okno samodzielnej konserwacji. Jeśli aktualizacja nie została nigdy zastosowana za pośrednictwem kontroli konserwacji, zostanie pokazana wartość domyślna.
 
 ### <a name="isolated-vm"></a>Izolowana maszyna wirtualna
 
@@ -268,9 +268,9 @@ az maintenance applyupdate get \
 ```
 
 
-## <a name="delete-a-maintenance-configuration"></a>Usuń konfigurację konserwacji
+## <a name="delete-a-maintenance-configuration"></a>Usuwanie konfiguracji konserwacji
 
-Służy `az maintenance configuration delete` do usuwania konfiguracji konserwacji. Usunięcie konfiguracji spowoduje usunięcie kontroli konserwacji ze skojarzonych zasobów.
+Użyj `az maintenance configuration delete` , aby usunąć konfigurację konserwacji. Usunięcie konfiguracji powoduje usunięcie kontrolki konserwacji ze skojarzonych zasobów.
 
 ```azurecli-interactive
 az maintenance configuration delete \
@@ -280,4 +280,4 @@ az maintenance configuration delete \
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej, zobacz temat [konserwacja i aktualizacje](maintenance-and-updates.md).
+Aby dowiedzieć się więcej, zobacz [Konserwacja i aktualizacje.](maintenance-and-updates.md)

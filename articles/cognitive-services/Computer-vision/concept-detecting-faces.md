@@ -1,7 +1,7 @@
 ---
-title: Wykrywanie czołowe — przetwarzanie obrazów
+title: Wykrywanie twarzy — przetwarzanie obrazów
 titleSuffix: Azure Cognitive Services
-description: Zapoznaj się z pojęciami dotyczącymi funkcji wykrywania kroju interfejs API przetwarzania obrazów.
+description: Poznaj pojęcia związane z funkcją wykrywania twarzy w interfejsie API przetwarzanie obrazów API.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,23 +11,23 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 3aa8f9057c3c9e3a141824a9d23e9be8d0bbe4b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bfb352c68b910a114e13041da4e8e86529e52040
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96532639"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778845"
 ---
-# <a name="face-detection-with-computer-vision"></a>Wykrywanie kroju przy użyciu przetwarzanie obrazów
+# <a name="face-detection-with-computer-vision"></a>Wykrywanie twarzy za pomocą przetwarzanie obrazów
 
-Przetwarzanie obrazów mogą wykrywać ludzkie twarze na obrazie i generować wiek, płeć oraz prostokąt dla każdej wykrytej twarzy. 
+przetwarzanie obrazów wykrywać ludzkie twarze na obrazie i generować wiek, płeć i prostokąt dla każdej wykrytej twarzy. 
 
 > [!NOTE]
-> Ta funkcja jest również oferowana [przez usługę Azure](../face/index.yml) site. Zapoznaj się z tą alternatywą w celu uzyskania bardziej szczegółowej analizy, w tym identyfikacji i wykrywania ułożenia. 
+> Ta funkcja jest również oferowana przez usługę rozpoznawania [twarzy platformy](../face/index.yml) Azure. Zapoznaj się z tą alternatywą, aby uzyskać bardziej szczegółową analizę twarzy, w tym identyfikację twarzy i wykrywanie pozy. 
 
-## <a name="face-detection-examples"></a>Przykłady wykrywania kroju
+## <a name="face-detection-examples"></a>Przykłady wykrywania twarzy
 
-Poniższy przykład demonstruje odpowiedź JSON zwracaną przez przetwarzanie obrazów obrazu zawierającego pojedynczy człowiek.
+W poniższym przykładzie pokazano odpowiedź JSON zwróconą przez przetwarzanie obrazów dla obrazu zawierającego jedną ludzką twarz.
 
 ![Analiza obrazu — kobieta, dach, twarz](./Images/woman_roof_face.png)
 
@@ -54,9 +54,9 @@ Poniższy przykład demonstruje odpowiedź JSON zwracaną przez przetwarzanie ob
 }
 ```
 
-W następnym przykładzie pokazano odpowiedź JSON zwracaną dla obrazu zawierającego wiele twarzy.
+W następnym przykładzie pokazano odpowiedź JSON zwróconą dla obrazu zawierającego wiele ludzkich twarzy.
 
-![Wzrokowa analiza kroju zdjęcia rodziny](./Images/family_photo_face.png)
+![Analiza obrazów twarzy na zdjęciach rodziny](./Images/family_photo_face.png)
 
 ```json
 {
@@ -113,6 +113,6 @@ W następnym przykładzie pokazano odpowiedź JSON zwracaną dla obrazu zawieraj
 
 ## <a name="use-the-api"></a>Używanie interfejsu API
 
-Funkcja wykrywania czołowa jest częścią usługi [Analizowanie obrazu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) interfejsu API. Ten interfejs API można wywołać za pomocą natywnego zestawu SDK lub wywołań REST. Uwzględnij `Faces` w parametrze zapytania **visualFeatures** . Po otrzymaniu pełnej odpowiedzi JSON należy po prostu przeanalizować ciąg dla zawartości `"faces"` sekcji.
+Funkcja wykrywania twarzy jest częścią interfejsu API [analizowanie obrazów](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f21b) API. Ten interfejs API można wywołać za pomocą natywnego zestawu SDK lub wywołań REST. Uwzględnij `Faces` w **parametrze zapytania visualFeatures.** Następnie, gdy otrzymasz pełną odpowiedź JSON, po prostu prze analizuj ciąg pod celu uzyskania zawartości `"faces"` sekcji.
 
-* [Szybki Start: przetwarzanie obrazów interfejsów API REST lub bibliotek klienckich](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Szybki start: przetwarzanie obrazów API REST lub bibliotek klienckich](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)

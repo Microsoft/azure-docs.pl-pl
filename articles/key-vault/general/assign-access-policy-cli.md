@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 349d7453962a736c9f15bb7d31d5a44098f463a4
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 96b4daa027871201a201b253721114372e58f377
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107791953"
+ms.locfileid: "107751440"
 ---
 # <a name="assign-a-key-vault-access-policy"></a>Przypisywanie zasad Key Vault dostępu
 
@@ -22,7 +22,7 @@ Zasady Key Vault [określają,](../secrets/index.yml)czy dany podmiot zabezpiecz
 
 [!INCLUDE [key-vault-access-policy-limits.md](../../../includes/key-vault-access-policy-limits.md)]
 
-Aby uzyskać więcej informacji na temat tworzenia grup w Azure Active Directory przy użyciu interfejsu wiersza polecenia platformy Azure, zobacz [az ad group create](/cli/azure/ad/group#az_ad_group_create) i az ad group member [add](/cli/azure/ad/group/member#az_ad_group_member_add).
+Aby uzyskać więcej informacji na temat tworzenia grup w Azure Active Directory przy użyciu interfejsu wiersza polecenia platformy Azure, zobacz [az ad group create](/cli/azure/ad/group#az-ad-group-create) i az ad group member [add](/cli/azure/ad/group/member#az-ad-group-member-add).
 
 ## <a name="configure-the-azure-cli-and-sign-in"></a>Konfigurowanie interfejsu wiersza polecenia platformy Azure i logowanie
 
@@ -42,19 +42,19 @@ Aby uzyskać więcej informacji na temat tworzenia grup w Azure Active Directory
 
 Określ identyfikator obiektu aplikacji, grupy lub użytkownika, do którego chcesz przypisać zasady dostępu:
 
-- Aplikacje i inne jednostki usługi: użyj [polecenia az ad sp list,](/cli/azure/ad/sp#az_ad_sp_list) aby pobrać jednostki usługi. Sprawdź dane wyjściowe polecenia, aby określić identyfikator obiektu podmiotu zabezpieczeń, do którego chcesz przypisać zasady dostępu.
+- Aplikacje i inne jednostki usługi: użyj [polecenia az ad sp list,](/cli/azure/ad/sp#az-ad-sp-list) aby pobrać jednostki usługi. Sprawdź dane wyjściowe polecenia, aby określić identyfikator obiektu podmiotu zabezpieczeń, do którego chcesz przypisać zasady dostępu.
 
     ```azurecli-interactive
     az ad sp list --show-mine
     ```
 
-- Grupy: użyj [polecenia az ad group list,](/cli/azure/ad/group#az_ad_group_list) filtrując wyniki za pomocą `--display-name` parametru :
+- Grupy: użyj [polecenia az ad group list,](/cli/azure/ad/group#az-ad-group-list) filtrując wyniki za pomocą `--display-name` parametru :
 
      ```azurecli-interactive
     az ad group list --display-name <search-string>
     ```
 
-- Użytkownicy: użyj [polecenia az ad user show,](/cli/azure/ad/user#az_ad_user_show) przekazując adres e-mail użytkownika w `--id` parametrze :
+- Użytkownicy: użyj [polecenia az ad user show,](/cli/azure/ad/user#az-ad-user-show) przekazując adres e-mail użytkownika w `--id` parametrze :
 
     ```azurecli-interactive
     az ad user show --id <email-address-of-user>
@@ -62,7 +62,7 @@ Określ identyfikator obiektu aplikacji, grupy lub użytkownika, do którego chc
 
 ## <a name="assign-the-access-policy"></a>Przypisywanie zasad dostępu
     
-Użyj polecenia [az keyvault set-policy,](/cli/azure/keyvault#az_keyvault_set_policy) aby przypisać żądane uprawnienia:
+Użyj polecenia [az keyvault set-policy,](/cli/azure/keyvault#az-keyvault-set-policy) aby przypisać żądane uprawnienia:
 
 ```azurecli-interactive
 az keyvault set-policy --name myKeyVault --object-id <object-id> --secret-permissions <secret-permissions> --key-permissions <key-permissions> --certificate-permissions <certificate-permissions>
@@ -70,7 +70,7 @@ az keyvault set-policy --name myKeyVault --object-id <object-id> --secret-permis
 
 Zastąp `<object-id>` identyfikatorem obiektu podmiotu zabezpieczeń.
 
-Podczas przypisywania uprawnień do tych konkretnych typów należy uwzględnić tylko `--secret-permissions` `--key-permissions` wartości , i `--certificate-permissions` . Dopuszczalne wartości dla `<secret-permissions>` , i są podane w `<key-permissions>` `<certificate-permissions>` [dokumentacji az keyvault set-policy.](/cli/azure/keyvault#az_keyvault_set_policy)
+Podczas przypisywania uprawnień do tych konkretnych typów należy uwzględnić tylko `--secret-permissions` `--key-permissions` wartości , i `--certificate-permissions` . Dopuszczalne wartości dla `<secret-permissions>` , i są podane w `<key-permissions>` `<certificate-permissions>` [dokumentacji az keyvault set-policy.](/cli/azure/keyvault#az-keyvault-set-policy)
 
 ## <a name="next-steps"></a>Następne kroki
 

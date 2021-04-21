@@ -1,23 +1,23 @@
 ---
-title: Tworzenie kontenera systemu Windows Server w klastrze AKS przy użyciu interfejsu wiersza polecenia platformy Azure
-description: Dowiedz się, jak szybko utworzyć klaster Kubernetes, wdrożyć aplikację w kontenerze systemu Windows Server w usłudze Azure Kubernetes Service (AKS) przy użyciu interfejsu wiersza polecenia platformy Azure.
+title: Tworzenie kontenera systemu Windows Server w klastrze usługi AKS przy użyciu interfejsu wiersza polecenia platformy Azure
+description: Dowiedz się, jak szybko utworzyć klaster Kubernetes i wdrożyć aplikację w kontenerze systemu Windows Server w usłudze Azure Kubernetes Service (AKS) przy użyciu interfejsu wiersza polecenia platformy Azure.
 services: container-service
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: 13b4fbd21bb348d1ef79a3ca68128869115745cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 617590a3f482e246b8af5db6dd906591c16b20fa
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200905"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769431"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Tworzenie kontenera systemu Windows Server w klastrze usługi Azure Kubernetes Service (AKS) przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Azure Kubernetes Service (AKS) to zarządzana usługa platformy Kubernetes, która umożliwia szybkie wdrażanie klastrów i zarządzanie nimi. W tym artykule opisano wdrażanie klastra AKS przy użyciu interfejsu wiersza polecenia platformy Azure. Możesz również wdrożyć aplikację przykładową ASP.NET w kontenerze systemu Windows Server w klastrze.
+Azure Kubernetes Service (AKS) to zarządzana usługa platformy Kubernetes, która umożliwia szybkie wdrażanie klastrów i zarządzanie nimi. W tym artykule wdrożysz klaster usługi AKS przy użyciu interfejsu wiersza polecenia platformy Azure. Możesz również wdrożyć ASP.NET przykładowej aplikacji w kontenerze systemu Windows Server w klastrze.
 
-![Obraz przedstawiający przeglądanie do aplikacji przykładowej ASP.NET](media/windows-container/asp-net-sample-app.png)
+![Obraz przeglądania do ASP.NET przykładowej aplikacji](media/windows-container/asp-net-sample-app.png)
 
-W tym artykule założono podstawową wiedzę na temat koncepcji Kubernetes. Aby uzyskać więcej informacji, zobacz [Podstawowe pojęcia dotyczące usługi Azure Kubernetes Service (AKS)][kubernetes-concepts].
+W tym artykule założono, że rozumiesz pojęcia związane z platformą Kubernetes. Aby uzyskać więcej informacji, zobacz [Podstawowe pojęcia dotyczące usługi Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -25,25 +25,25 @@ W tym artykule założono podstawową wiedzę na temat koncepcji Kubernetes. Aby
 
 ### <a name="limitations"></a>Ograniczenia
 
-Następujące ograniczenia są stosowane podczas tworzenia klastrów AKS i zarządzania nimi, które obsługują pule wielu węzłów:
+Podczas tworzenia klastrów usługi AKS, które obsługują wiele pul węzłów i zarządzają nimi, obowiązują następujące ograniczenia:
 
 * Nie można usunąć pierwszej puli węzłów.
 
-Następujące dodatkowe ograniczenia mają zastosowanie do pul węzłów systemu Windows Server:
+Następujące dodatkowe ograniczenia dotyczą pul węzłów systemu Windows Server:
 
-* Klaster AKS może mieć maksymalnie 10 pul węzłów.
-* Klaster AKS może mieć maksymalnie 100 węzłów w każdej puli węzłów.
+* Klaster usługi AKS może mieć maksymalnie 10 pul węzłów.
+* Klaster usługi AKS może mieć maksymalnie 100 węzłów w każdej puli węzłów.
 * Nazwa puli węzłów systemu Windows Server ma limit 6 znaków.
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Grupa zasobów platformy Azure to logiczna grupa przeznaczona do wdrażania zasobów platformy Azure i zarządzania nimi. Podczas tworzenia grupy zasobów użytkownik jest proszony o określenie lokalizacji. Ta lokalizacja wskazuje, gdzie są przechowywane metadane grupy zasobów, a także czy zasoby są uruchamiane na platformie Azure, jeśli nie określisz innego regionu podczas tworzenia zasobów. Utwórz grupę zasobów przy użyciu polecenia [az group create][az-group-create].
+Grupa zasobów platformy Azure to logiczna grupa przeznaczona do wdrażania zasobów platformy Azure i zarządzania nimi. Podczas tworzenia grupy zasobów użytkownik jest proszony o określenie lokalizacji. W tej lokalizacji są przechowywane metadane grupy zasobów, a zasoby są uruchamiane na platformie Azure, jeśli nie określisz innego regionu podczas tworzenia zasobów. Utwórz grupę zasobów przy użyciu polecenia [az group create][az-group-create].
 
 Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus*.
 
 > [!NOTE]
-> W tym artykule użyto składni bash dla poleceń w tym samouczku.
-> Jeśli używasz Azure Cloud Shell, upewnij się, że lista rozwijana w lewym górnym rogu okna Cloud Shell jest ustawiona na **bash**.
+> W tym artykule do poleceń w tym samouczku jest używana składnia powłoki Bash.
+> Jeśli używasz usługi Azure Cloud Shell, upewnij się, że lista rozwijana w lewym górnym rogu okna Cloud Shell jest ustawiona na **bash.**
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -67,22 +67,22 @@ Następujące przykładowe dane wyjściowe przedstawiają pomyślnie utworzoną 
 
 ## <a name="create-an-aks-cluster"></a>Tworzenie klastra AKS
 
-Aby uruchomić klaster AKS, który obsługuje pule węzłów dla kontenerów systemu Windows Server, klaster musi używać zasad sieciowych, które korzystają z wtyczki sieciowej [Azure CNI][azure-cni-about] (Advanced). Aby uzyskać bardziej szczegółowe informacje ułatwiające planowanie wymaganych zakresów podsieci i zagadnień dotyczących sieci, zobacz [Konfigurowanie usługi Azure CNI Networking][use-advanced-networking]. Użyj polecenia [AZ AKS Create][az-aks-create] , aby utworzyć klaster AKS o nazwie *myAKSCluster*. To polecenie spowoduje utworzenie niezbędnych zasobów sieciowych, jeśli nie istnieją.
+Aby uruchomić klaster AKS obsługujący pule węzłów dla kontenerów systemu Windows Server, klaster musi używać zasad sieciowych, które [używają Azure CNI][azure-cni-about] (zaawansowanej) wtyczki sieciowej. Aby uzyskać bardziej szczegółowe informacje pomocne w planowaniu wymaganych zakresów podsieci i kwestii dotyczących sieci, zobacz [konfigurowanie Azure CNI sieci.][use-advanced-networking] Użyj polecenia [az aks create,][az-aks-create] aby utworzyć klaster usługi AKS o *nazwie myAKSCluster.* To polecenie spowoduje utworzenie niezbędnych zasobów sieciowych, jeśli nie istnieją.
 
 * Klaster jest skonfigurowany z dwoma węzłami.
-* `--windows-admin-password`Parametry i `--windows-admin-username` ustawiają poświadczenia administratora dla wszystkich kontenerów systemu Windows Server utworzonych w klastrze i muszą spełniać [wymagania dotyczące hasła systemu Windows Server][windows-server-password]. Jeśli nie określisz parametru *Windows-Admin-Password* , zostanie wyświetlony monit o podanie wartości.
-* Pula węzłów używa `VirtualMachineScaleSets` .
+* Parametry i ustawiają poświadczenia administratora dla dowolnych kontenerów systemu Windows Server utworzonych w klastrze i `--windows-admin-password` `--windows-admin-username` muszą spełniać wymagania dotyczące haseł systemu [Windows Server.][windows-server-password] Jeśli nie określisz parametru *windows-admin-password,* zostanie wyświetlony monit o podanie wartości.
+* Pula węzłów `VirtualMachineScaleSets` używa .
 
 > [!NOTE]
 > Aby zapewnić niezawodne działanie klastra, należy uruchomić co najmniej 2 (dwa) węzły w domyślnej puli węzłów.
 
-Utwórz nazwę użytkownika do użycia jako poświadczenia administratora dla kontenerów systemu Windows Server w klastrze. Następujące polecenia monitują o podanie nazwy użytkownika i ustawienie jej WINDOWS_USERNAME do użycia w późniejszym poleceniu (należy pamiętać, że polecenia w tym artykule są wprowadzane do powłoki BASH).
+Utwórz nazwę użytkownika do użycia jako poświadczenia administratora dla kontenerów systemu Windows Server w klastrze. Następujące polecenia monitują o nazwę użytkownika i ustawiają ją WINDOWS_USERNAME do użycia w późniejszym poleceniu (pamiętaj, że polecenia w tym artykule są wprowadzane do powłoki BASH).
 
 ```azurecli-interactive
 echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read WINDOWS_USERNAME
 ```
 
-Utwórz klaster, upewniając się, że określisz `--windows-admin-username` parametr. Poniższe przykładowe polecenie tworzy klaster przy użyciu wartości z *WINDOWS_USERNAME* ustawionych w poprzednim poleceniu. Alternatywnie można podać inną nazwę użytkownika bezpośrednio w parametrze zamiast używać *WINDOWS_USERNAME*. Następujące polecenie spowoduje również wyświetlenie monitu o utworzenie hasła dla poświadczeń administratora dla kontenerów systemu Windows Server w klastrze. Alternatywnie możesz użyć parametru *Windows-Admin-Password* i określić własną wartość w tym miejscu.
+Utwórz klaster, określając parametr `--windows-admin-username` . Następujące przykładowe polecenie tworzy klaster przy użyciu wartości *WINDOWS_USERNAME* ustawionej w poprzednim poleceniu. Alternatywnie możesz podać inną nazwę użytkownika bezpośrednio w parametrze zamiast używać *WINDOWS_USERNAME*. Następujące polecenie wyświetli również monit o utworzenie hasła dla poświadczeń administratora dla kontenerów systemu Windows Server w klastrze. Alternatywnie możesz użyć parametru *windows-admin-password* i określić w tym miejscu własną wartość.
 
 ```azurecli-interactive
 az aks create \
@@ -97,13 +97,13 @@ az aks create \
 ```
 
 > [!NOTE]
-> Jeśli zostanie wyświetlony komunikat o błędzie weryfikacji hasła, sprawdź, czy ustawione hasło spełnia [wymagania dotyczące hasła systemu Windows Server][windows-server-password]. Jeśli hasło spełnia wymagania, spróbuj utworzyć grupę zasobów w innym regionie. Następnie spróbuj utworzyć klaster przy użyciu nowej grupy zasobów.
+> Jeśli wystąpi błąd weryfikacji hasła, sprawdź, czy ustawione hasło spełnia wymagania [dotyczące hasła systemu Windows Server.][windows-server-password] Jeśli hasło spełnia wymagania, spróbuj utworzyć grupę zasobów w innym regionie. Następnie spróbuj utworzyć klaster z nową grupą zasobów.
 
-Po kilku minutach polecenie zostanie wykonane i zwróci informacje o klastrze w formacie JSON. Czasami klaster może trwać dłużej niż kilka minut. W takich przypadkach Zezwalaj na maksymalnie 10 minut.
+Po kilku minutach polecenie zostanie wykonane i zwróci informacje o klastrze w formacie JSON. Czasami aprowizowanie klastra może potrwać dłużej niż kilka minut. W takich przypadkach odzwytuj do 10 minut.
 
 ## <a name="add-a-windows-server-node-pool"></a>Dodawanie puli węzłów systemu Windows Server
 
-Domyślnie klaster AKS jest tworzony przy użyciu puli węzłów, która może uruchamiać kontenery systemu Linux. Użyj `az aks nodepool add` polecenia, aby dodać dodatkową pulę węzłów, która może uruchamiać kontenery systemu Windows Server wraz z pulą węzłów Linux.
+Domyślnie klaster usługi AKS jest tworzony z pulą węzłów, w których można uruchamiać kontenery systemu Linux. Użyj `az aks nodepool add` polecenia , aby dodać dodatkową pulę węzłów, która może uruchamiać kontenery systemu Windows Server obok puli węzłów systemu Linux.
 
 ```azurecli
 az aks nodepool add \
@@ -114,7 +114,7 @@ az aks nodepool add \
     --node-count 1
 ```
 
-Powyższe polecenie tworzy nową pulę węzłów o nazwie *npwin* i dodaje ją do *myAKSCluster*. Podczas tworzenia puli węzłów do uruchamiania kontenerów systemu Windows Server, wartość domyślna dla *węzła Node-VM-size* jest *Standard_D2s_v3*. Jeśli zdecydujesz się ustawić parametr *Node-VM-size* , sprawdź listę [rozmiarów maszyn wirtualnych z ograniczeniami][restricted-vm-sizes]. Minimalny zalecany rozmiar to *Standard_D2s_v3*. Powyższe polecenie używa również domyślnej podsieci w domyślnej sieci wirtualnej utworzonej podczas uruchamiania `az aks create` .
+Powyższe polecenie tworzy nową pulę węzłów o nazwie *npwin* i dodaje ją do *klastra myAKSCluster.* Podczas tworzenia puli węzłów do uruchamiania kontenerów systemu Windows Server wartością domyślną rozmiaru *węzła-maszyny wirtualnej* *jest Standard_D2s_v3*. Jeśli zdecydujesz się ustawić parametr *node-vm-size,* sprawdź listę [ograniczonych rozmiarów maszyn wirtualnych.][restricted-vm-sizes] Minimalny zalecany rozmiar to *Standard_D2s_v3*. Powyższe polecenie używa również domyślnej podsieci w domyślnej sieci wirtualnej utworzonej podczas uruchamiania polecenia `az aks create` .
 
 ## <a name="connect-to-the-cluster"></a>Łączenie z klastrem
 
@@ -136,7 +136,7 @@ Aby sprawdzić połączenie z klastrem, użyj polecenia [kubectl get][kubectl-ge
 kubectl get nodes
 ```
 
-Następujące przykładowe dane wyjściowe pokazują wszystkie węzły w klastrze. Upewnij się, że stan wszystkich węzłów jest *gotowy*:
+Poniższe przykładowe dane wyjściowe pokazują wszystkie węzły w klastrze. Upewnij się, że stan wszystkich węzłów to *Gotowe:*
 
 ```output
 NAME                                STATUS   ROLES   AGE    VERSION
@@ -146,9 +146,9 @@ aksnpwin987654                      Ready    agent   108s   v1.16.9
 
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
 
-Plik manifestu platformy Kubernetes definiuje żądany stan klastra, w tym informacje o obrazach kontenera do uruchomienia. W tym artykule manifest służy do tworzenia wszystkich obiektów wymaganych do uruchomienia przykładowej aplikacji ASP.NET w kontenerze systemu Windows Server. Ten manifest obejmuje [wdrożenie Kubernetes][kubernetes-deployment] dla przykładowej aplikacji ASP.NET i zewnętrznej [usługi Kubernetes][kubernetes-service] , aby uzyskać dostęp do aplikacji z Internetu.
+Plik manifestu platformy Kubernetes definiuje żądany stan klastra, w tym informacje o obrazach kontenera do uruchomienia. W tym artykule manifest służy do tworzenia wszystkich obiektów potrzebnych do uruchomienia ASP.NET przykładowej aplikacji w kontenerze systemu Windows Server. Ten manifest obejmuje wdrożenie [rozwiązania Kubernetes][kubernetes-deployment] dla przykładowej ASP.NET oraz zewnętrzną usługę [Kubernetes][kubernetes-service] w celu uzyskania dostępu do aplikacji z Internetu.
 
-Przykładowa aplikacja ASP.NET jest dostarczana jako część [przykładów .NET Framework][dotnet-samples] i uruchamiana w kontenerze systemu Windows Server. AKS wymaga, aby kontenery systemu Windows Server były oparte na obrazach *systemu Windows server 2019* lub nowszego. Plik manifestu Kubernetes musi także definiować [Selektor węzła][node-selector] , aby poinformować klaster AKS o konieczności uruchomienia ASP.NET przykładowej aplikacji na węźle, który może uruchamiać kontenery systemu Windows Server.
+Przykładowa ASP.NET jest dostarczana jako część przykładów .NET Framework [i][dotnet-samples] uruchamiana w kontenerze systemu Windows Server. Usługa AKS wymaga, aby kontenery systemu Windows Server bazowały na *obrazach systemu Windows Server 2019* lub jego wersji. Plik manifestu kubernetes musi [][node-selector] również zdefiniować selektor węzłów, aby poinformować klaster usługi AKS o uruchomieniu zasobnika przykładowej aplikacji usługi ASP.NET w węźle, w którym można uruchamiać kontenery systemu Windows Server.
 
 Utwórz plik o nazwie `sample.yaml` i skopiuj go do poniższej definicji YAML. Jeśli używasz usługi Azure Cloud Shell, ten plik można utworzyć przy użyciu programu `vi` lub `nano`, tak jak podczas pracy w systemie wirtualnym lub fizycznym:
 
@@ -204,7 +204,7 @@ Wdróż aplikację przy użyciu polecenia [kubectl apply][kubectl-apply] i podaj
 kubectl apply -f sample.yaml
 ```
 
-Następujące przykładowe dane wyjściowe pokazują, że wdrożenie i usługa została utworzona pomyślnie:
+Następujące przykładowe dane wyjściowe pokazują pomyślnie utworzone wdrożenie i usługę:
 
 ```output
 deployment.apps/sample created
@@ -213,7 +213,7 @@ service/sample created
 
 ## <a name="test-the-application"></a>Testowanie aplikacji
 
-Podczas uruchamiania aplikacji usługa Kubernetes uwidacznia fronton aplikacji w Internecie. Ten proces może potrwać kilka minut. Czasami usługa może potrwać dłużej niż kilka minut. W takich przypadkach Zezwalaj na maksymalnie 10 minut.
+Podczas uruchamiania aplikacji usługa Kubernetes uwidacznia fronton aplikacji w Internecie. Ten proces może potrwać kilka minut. Czasami aprowizowania usługi może potrwać dłużej niż kilka minut. W takich przypadkach odzwyć do 10 minut.
 
 Aby monitorować postęp, użyj polecenia [kubectl get-service][kubectl-get] z argumentem `--watch`.
 
@@ -221,7 +221,7 @@ Aby monitorować postęp, użyj polecenia [kubectl get-service][kubectl-get] z a
 kubectl get service sample --watch
 ```
 
-Początkowo *adres IP* dla *przykładowej* usługi jest pokazywany jako *oczekujący*.
+Początkowo adres *EXTERNAL-IP* dla *przykładowej usługi* jest wyświetlany *jako* oczekujący .
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
@@ -234,12 +234,12 @@ Gdy dla adresu *EXTERNAL-IP* wartość *oczekujący* zmieni się na rzeczywisty 
 sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-Aby wyświetlić przykładową aplikację w działaniu, Otwórz przeglądarkę internetową na zewnętrzny adres IP usługi.
+Aby zobaczyć, jak działa przykładowa aplikacja, otwórz w przeglądarce internetowej zewnętrzny adres IP usługi.
 
-![Obraz przedstawiający przeglądanie do aplikacji przykładowej ASP.NET](media/windows-container/asp-net-sample-app.png)
+![Obraz przeglądania do ASP.NET przykładowej aplikacji](media/windows-container/asp-net-sample-app.png)
 
 > [!Note]
-> Jeśli podczas próby załadowania strony otrzymasz limit czasu połączenia, należy sprawdzić, czy Przykładowa aplikacja jest gotowa przy użyciu następującego polecenia [polecenia kubectl Get — Watch]. Czasami kontener systemu Windows nie zostanie uruchomiony przez czas dostępności zewnętrznego adresu IP.
+> Jeśli podczas próby załadowania strony zostanie wyświetlony limit czasu połączenia, sprawdź, czy przykładowa aplikacja jest gotowa, korzystając z następującego polecenia [kubectl get pods --watch]. Czasami kontener systemu Windows nie zostanie uruchomiony do czasu, gdy zewnętrzny adres IP będzie dostępny.
 
 ## <a name="delete-cluster"></a>Usuwanie klastra
 
@@ -250,11 +250,11 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> Po usunięciu klastra jednostka usługi Azure Active Directory używana przez klaster usługi AKS nie jest usuwana. Aby sprawdzić, jak usunąć jednostkę usługi, zobacz [AKS service principal considerations and deletion (Uwagi dotyczące jednostki usługi AKS i jej usuwanie)][sp-delete]. Jeśli używana jest tożsamość zarządzana, tożsamość jest zarządzana przez platformę i nie wymaga usunięcia.
+> Po usunięciu klastra jednostka usługi Azure Active Directory używana przez klaster usługi AKS nie jest usuwana. Aby sprawdzić, jak usunąć jednostkę usługi, zobacz [AKS service principal considerations and deletion (Uwagi dotyczące jednostki usługi AKS i jej usuwanie)][sp-delete]. Jeśli używasz tożsamości zarządzanej, tożsamość jest zarządzana przez platformę i nie wymaga usunięcia.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule został wdrożony klaster Kubernetes i wdrożono przykładową aplikację ASP.NET w kontenerze systemu Windows Server. [Uzyskaj dostęp do internetowego pulpitu nawigacyjnego rozwiązania Kubernetes][kubernetes-dashboard] dla właśnie utworzonego klastra.
+W tym artykule wdrożono klaster Kubernetes i wdrożono w nim ASP.NET przykładową aplikację w kontenerze systemu Windows Server. [Uzyskaj dostęp do internetowego pulpitu nawigacyjnego rozwiązania Kubernetes][kubernetes-dashboard] dla właśnie utworzonego klastra.
 
 Aby dowiedzieć się więcej o usłudze AKS i poznać dokładnie proces od kompletnego kodu do wdrożenia, przejdź do samouczka dotyczącego klastra Kubernetes.
 
@@ -273,16 +273,16 @@ Aby dowiedzieć się więcej o usłudze AKS i poznać dokładnie proces od kompl
 [kubernetes-concepts]: concepts-clusters-workloads.md
 [aks-monitor]: ../azure-monitor/containers/container-insights-onboard.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
-[az-aks-browse]: /cli/azure/aks#az-aks-browse
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-group-create]: /cli/azure/group#az-group-create
-[az-group-delete]: /cli/azure/group#az-group-delete
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-aks-browse]: /cli/azure/aks#az_aks_browse
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-group-create]: /cli/azure/group#az_group_create
+[az-group-delete]: /cli/azure/group#az_group_delete
+[az-provider-register]: /cli/azure/provider#az_provider_register
 [azure-cli-install]: /cli/azure/install-azure-cli
 [azure-cni-about]: concepts-network.md#azure-cni-advanced-networking
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
@@ -294,6 +294,6 @@ Aby dowiedzieć się więcej o usłudze AKS i poznać dokładnie proces od kompl
 [use-advanced-networking]: configure-azure-cni.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
 [windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference

@@ -1,0 +1,53 @@
+### YamlMime:Landing
+title: Azure File Sync dokumentacji
+summary: Azure File Sync umożliwia scentralizowanie udziałów plików organizacji w programie Azure Files przy zachowaniu elastyczności, wydajności i zgodności serwera plików z systemem Windows.
+metadata:
+  title: Azure File Sync dokumentacji
+  description: Instaluj udziały plików w chmurze lub środowisku lokalnym w systemie Windows, Linux i macOS. Buforuj udziały plików platformy Azure w systemach Windows Server za pomocą funkcji Azure File Sync w celu zapewnienia dostępu lokalnego.
+  services: storage
+  ms.service: storage
+  ms.subservice: files
+  ms.topic: landing-page
+  ms.collection: collection
+  author: roygara
+  ms.author: rogarana
+  ms.date: 04/19/2021
+  ms.openlocfilehash: 1a384985bbd58285ec1a556f2840f27994c4c40b
+  ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+  ms.translationtype: MT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 04/20/2021
+  ms.locfileid: "107798958"
+landingContent:
+- title: Informacje o Azure Files synchronizacji
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Przewodnik planowania dla usługi Azure File Sync
+      url: file-sync-planning.md
+    - text: Co to jest usługa Azure File Sync?
+      url: file-sync-introduction.md
+    - text: Omówienie warstw w chmurze
+      url: file-sync-cloud-tiering-overview.md
+- title: Rozpoczęcie pracy
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Tworzenie udziałów plików i korzystanie z nich — Windows
+      url: ../files/storage-files-quick-create-use-windows.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
+    - text: Zarządzanie serwerem w usłudze Azure File Sync
+      url: file-sync-server-registration.md
+  - linkListType: tutorial
+    links:
+    - text: Rozszerzanie serwerów plików systemu Windows przy użyciu usługi Azure File Sync
+      url: file-sync-extend-servers.md
+- title: Rozwiązywanie problemów
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Rozwiązywanie problemów z usługą Azure Files w systemie Windows
+      url: ../files/storage-troubleshoot-windows-file-connection-problems.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
+    - text: Rozwiązywanie problemów z wydajnością usługi Azure Files
+      url: ../files/storage-troubleshooting-files-performance.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
+    - text: Rozwiązywanie problemów z usługą Azure File Sync
+      url: file-sync-troubleshoot.md

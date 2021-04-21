@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: Tworzenie serwera — interfejs wiersza polecenia platformy Azure — Azure Database for MariaDB'
+title: 'Szybki start: tworzenie serwera — interfejs wiersza polecenia platformy Azure — Azure Database for MariaDB'
 description: W tym przewodniku Szybki start opisano, jak utworzyć serwer usługi Azure Database for MariaDB w grupie zasobów platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure.
 author: savjani
 ms.author: pariks
@@ -8,14 +8,14 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3279150d0cb7b287f0a78581094a51356033596c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 042c70fdd08a6de2b97c4560eb2b6a24eec0bb34
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98662164"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789991"
 ---
-# <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Szybki Start: Tworzenie serwera Azure Database for MariaDB przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Szybki start: tworzenie serwera Azure Database for MariaDB przy użyciu interfejsu wiersza polecenia platformy Azure
 
 Interfejs wiersza polecenia platformy Azure może służyć do tworzenia zasobów platformy Azure i zarządzania nimi z poziomu wiersza polecenia lub skryptów. W tym przewodniku Szybki start opisano, jak utworzyć serwer usługi Azure Database for MariaDB w grupie zasobów platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure w czasie około pięciu minut.
 
@@ -23,9 +23,9 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- Ten artykuł wymaga wersji 2,0 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
+- Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Jeśli używasz Azure Cloud Shell, najnowsza wersja jest już zainstalowana.
 
-Jeśli masz wiele subskrypcji, wybierz tę subskrypcję, która zawiera zasób, lub subskrypcję, w której są naliczane opłaty. Aby wybrać określony identyfikator subskrypcji na Twoim koncie, użyj polecenia [az account set](/cli/azure/account#az-account-set):
+Jeśli masz wiele subskrypcji, wybierz tę subskrypcję, która zawiera zasób, lub subskrypcję, w której są naliczane opłaty. Aby wybrać określony identyfikator subskrypcji na Twoim koncie, użyj polecenia [az account set](/cli/azure/account#az_account_set):
 
 ```azurecli-interactive
 az account set --subscription 00000000-0000-0000-0000-000000000000
@@ -33,7 +33,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz [grupę zasobów platformy Azure](../azure-resource-manager/management/overview.md) za pomocą polecenia [az group create](/cli/azure/group#az-group-create). Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi w formie grupy.
+Utwórz [grupę zasobów platformy Azure](../azure-resource-manager/management/overview.md) za pomocą polecenia [az group create](/cli/azure/group#az_group_create). Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi w formie grupy.
 
 Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie `myresourcegroup` w lokalizacji `westus`:
 
@@ -43,21 +43,21 @@ az group create --name myresourcegroup --location westus
 
 ## <a name="create-an-azure-database-for-mariadb-server"></a>Tworzenie serwera usługi Azure Database for MariaDB
 
-Utwórz serwer usługi Azure Database for MariaDB za pomocą polecenia [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create). Serwer umożliwia zarządzanie wieloma bazami danych. Zwykle dla każdego projektu lub użytkownika używana jest oddzielna baza danych.
+Utwórz serwer usługi Azure Database for MariaDB za pomocą polecenia [az mariadb server create](/cli/azure/mariadb/server#az_mariadb_server_create). Serwer umożliwia zarządzanie wieloma bazami danych. Zwykle dla każdego projektu lub użytkownika używana jest oddzielna baza danych.
 
 Ustawienie | Wartość przykładowa | Opis
 ---|---|---
 name | **mydemoserver** | Wprowadź unikatową nazwę, która identyfikuje Twój serwer usługi Azure Database for MariaDB. Nazwa serwera może zawierać tylko małe litery, cyfry i znaki łącznika (-). Musi zawierać od 3 do 63 znaków.
 resource-group | **myresourcegroup** | Wprowadź nazwę grupy zasobów platformy Azure.
-sku-name | **GP_Gen5_2** | Nazwa jednostki SKU. Zgodnie z Konwencją Konwencji *cenowej* \_ rdzeni wirtualnych *generacji obliczeń* \_  w postaci skróconej. Aby uzyskać więcej informacji na temat parametru **sku-name**, zobacz sekcję poniżej tabeli.
+sku-name | **GP_Gen5_2** | Nazwa jednostki SKU. Zgodnie z *konwencją w skrócie* rdzenie wirtualne generacji obliczeniowej warstwy \_  \_  cenowej. Aby uzyskać więcej informacji na temat parametru **sku-name**, zobacz sekcję poniżej tabeli.
 backup-retention | **7** | Jak długo należy przechowywać kopię zapasową. Jednostka to dni. Zakres: 7–35. 
-geo-redundant-backup | **Disabled** | Określa, czy dla tego serwera powinny być włączone geograficznie nadmiarowe kopie zapasowe. Dozwolone wartości: **włączone**, **wyłączone**.
+geo-redundant-backup | **Disabled** | Określa, czy dla tego serwera powinny być włączone geograficznie nadmiarowe kopie zapasowe. Dozwolone wartości: **Włączone,** **Wyłączone.**
 location | **westus** | Lokalizacja platformy Azure dla serwera.
-ssl-enforcement | **Włączono** | Określa, czy dla tego serwera powinien być włączony protokół SSL. Dozwolone wartości: **włączone**, **wyłączone**.
+ssl-enforcement | **Włączono** | Określa, czy dla tego serwera powinien być włączony protokół SSL. Dozwolone wartości: **Włączone,** **Wyłączone.**
 storage-size | **51200** | Pojemność magazynu serwera (w megabajtach). Prawidłowy rozmiar magazynu to 5120 MB (minimum) rosnący z przyrostem 1024 MB. Aby uzyskać więcej informacji na temat limitów rozmiaru magazynu, zobacz [Warstwy cenowe](./concepts-pricing-tiers.md). 
-Wersja | **10,2** | Wersja główna aparatu MariaDB.
+Wersja | **10.2** | Wersja główna aparatu MariaDB.
 admin-user | **myadmin** | Nazwa użytkownika w przypadku logowania administratora. Parametr **admin-user** nie może mieć wartości **azure_superuser**, **admin**, **administrator**, **root**, **guest** ani **public**.
-admin-password | *Twoje hasło* | Hasło użytkownika administratora. Twoje hasło musi zawierać od 8 do 128 znaków. Musi ono zawierać znaki z trzech z następujących kategorii: wielkie litery angielskie, małe litery angielskie, cyfry i znaki inne niż alfanumeryczne.
+admin-password | *twoje hasło* | Hasło użytkownika administratora. Twoje hasło musi zawierać od 8 do 128 znaków. Musi ono zawierać znaki z trzech z następujących kategorii: wielkie litery angielskie, małe litery angielskie, cyfry i znaki inne niż alfanumeryczne.
 
 Wartość parametru sku-name jest zgodna z konwencją {warstwa cenowa}\_{generacja obliczeniowa}\_{rdzenie wirtualne}, jak pokazano w przykładach poniżej:
 + `--sku-name B_Gen5_1` — warstwa podstawowa, 5. generacja, 1 rdzeń wirtualny. Ta opcja to najmniejsza dostępna jednostka SKU.
@@ -77,7 +77,7 @@ az mariadb server create --resource-group myresourcegroup --name mydemoserver  -
 
 ## <a name="configure-a-firewall-rule"></a>Konfigurowanie reguły zapory
 
-Utwórz regułę zapory na poziomie serwera usługi Azure Database for MariaDB za pomocą polecenia [az mariadb server firewall-rule create](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-create). Reguła zapory na poziomie serwera pozwala aplikacji zewnętrznej, takiej jak narzędzie wiersza polecenia mysql lub program MySQL Workbench, na nawiązywanie połączeń z Twoim serwerem przez zaporę usługi Azure Database for MariaDB.
+Utwórz regułę zapory na poziomie serwera usługi Azure Database for MariaDB za pomocą polecenia [az mariadb server firewall-rule create](/cli/azure/mariadb/server/firewall-rule#az_mariadb_server_firewall_rule_create). Reguła zapory na poziomie serwera pozwala aplikacji zewnętrznej, takiej jak narzędzie wiersza polecenia mysql lub program MySQL Workbench, na nawiązywanie połączeń z Twoim serwerem przez zaporę usługi Azure Database for MariaDB.
 
 Poniższy przykład powoduje utworzenie reguły zapory o nazwie `AllowMyIP`, która zezwala na połączenia z określonego adresu IP – 192.168.0.1. Zastąp adres IP lub zakres adresów IP, który odnosi się do lokalizacji, z której się łączysz.
 
@@ -216,8 +216,8 @@ Aby nawiązać połączenie z serwerem, używając narzędzia wiersza polecenia 
    | Connection Method (Metoda połączenia) | **Standard (TCP/IP)** | Użyj protokołu TCP/IP do nawiązania połączenia z usługą Azure Database for MariaDB |
    | Hostname (Nazwa hosta) | **mydemoserver.mariadb.database.azure.com** | Zanotowana wcześniej nazwa serwera. |
    | Port | **3306** | Domyślny port dla usługi Azure Database for MariaDB. |
-   | Nazwa użytkownika | **mydemoserver administratora \@** | Zanotowany wcześniej identyfikator logowania administratora serwera. |
-   | Hasło | *Twoje hasło* | Użyj skonfigurowanego wcześniej hasła konta administratora. |
+   | Nazwa użytkownika | **myadmin \@ mydemoserver** | Zanotowany wcześniej identyfikator logowania administratora serwera. |
+   | Hasło | *twoje hasło* | Użyj skonfigurowanego wcześniej hasła konta administratora. |
 
 3. Aby sprawdzić, czy wszystkie parametry zostały skonfigurowane poprawnie, wybierz pozycję **Testuj połączenie**.
 
@@ -231,7 +231,7 @@ Jeśli nie potrzebujesz zasobów, które były używane w tym przewodniku Szybki
 az group delete --name myresourcegroup
 ```
 
-Jeśli chcesz usunąć tylko serwer, który został utworzony w tym przewodniku Szybki start, uruchom polecenie [az mariadb server delete](/cli/azure/mariadb/server#az-mariadb-server-delete):
+Jeśli chcesz usunąć tylko serwer, który został utworzony w tym przewodniku Szybki start, uruchom polecenie [az mariadb server delete](/cli/azure/mariadb/server#az_mariadb_server_delete):
 
 ```azurecli-interactive
 az mariadb server delete --resource-group myresourcegroup --name mydemoserver

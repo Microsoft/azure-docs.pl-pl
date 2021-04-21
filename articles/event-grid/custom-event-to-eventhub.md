@@ -1,17 +1,17 @@
 ---
-title: 'Szybki Start: wysyłanie zdarzeń niestandardowych do Event Hubs-Event Grid, interfejs wiersza polecenia platformy Azure'
-description: 'Szybki Start: używanie Azure Event Grid i interfejsu wiersza polecenia platformy Azure do publikowania tematu i subskrybowania tego zdarzenia. Centrum zdarzeń jest używane dla punktu końcowego.'
+title: 'Szybki start: wysyłanie zdarzeń niestandardowych do usługi Event Hubs — Event Grid, interfejs wiersza polecenia platformy Azure'
+description: 'Szybki start: publikowanie Azure Event Grid i subskrybowanie tego zdarzenia przy użyciu interfejsu wiersza polecenia platformy Azure i interfejsu wiersza polecenia platformy Azure. Centrum zdarzeń jest używane dla punktu końcowego.'
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7c236025f31e10c00b324e5ff3374bd6504b2b7e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e1989c94cc7b260cfc36a3129d2743350ca430bf
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91324114"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780497"
 ---
-# <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Szybki Start: kierowanie zdarzeń niestandardowych do usługi Azure Event Hubs przy użyciu interfejsu wiersza polecenia platformy Azure i Event Grid
+# <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Szybki start: przekieruj zdarzenia niestandardowe do Azure Event Hubs interfejsu wiersza polecenia platformy Azure i Event Grid
 
 Azure Event Grid to usługa obsługi zdarzeń dla chmury. Usługa Azure Event Hubs jest jedną z obsługiwanych procedur obsługi zdarzeń. W tym artykule omówiono tworzenie tematu niestandardowego, subskrybowanie go i wyzwalanie zdarzenia w celu wyświetlenia wyniku za pomocą interfejsu wiersza polecenia platformy Azure. Zdarzenia są wysyłane do centrum zdarzeń.
 
@@ -21,7 +21,7 @@ Azure Event Grid to usługa obsługi zdarzeń dla chmury. Usługa Azure Event Hu
 
 Tematy usługi Event Grid to zasoby platformy Azure i muszą być umieszczone w grupie zasobów platformy Azure. Grupa zasobów to kolekcja logiczna przeznaczona do wdrażania zasobów platformy Azure i zarządzania nimi.
 
-Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az-group-create). 
+Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az_group_create). 
 
 Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *gridResourceGroup* w lokalizacji *westus2*.
 
@@ -54,7 +54,7 @@ az eventhubs eventhub create --name $hubname --namespace-name $namespace --resou
 
 ## <a name="subscribe-to-a-custom-topic"></a>Subskrybowanie tematu niestandardowego
 
-Zasubskrybujesz temat usługi Event Grid, aby poinformować Event Grid, które zdarzenia mają być śledzone. Poniższy przykład subskrybuje utworzony temat niestandardowy i przekazuje identyfikator zasobu centrum zdarzeń dla punktu końcowego. Punkt końcowy ma następujący format:
+Subskrybowanie tematu usługi Event Grid umożliwia Event Grid, które zdarzenia chcesz śledzić. Poniższy przykład subskrybuje utworzony temat niestandardowy i przekazuje identyfikator zasobu centrum zdarzeń dla punktu końcowego. Punkt końcowy ma następujący format:
 
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.EventHub/namespaces/<namespace-name>/eventhubs/<hub-name>`
 
