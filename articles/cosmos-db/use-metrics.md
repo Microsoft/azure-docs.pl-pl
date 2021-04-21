@@ -1,5 +1,5 @@
 ---
-title: Monitoruj i Debuguj przy użyciu metryk w Azure Cosmos DB
+title: Monitorowanie i debugowanie za pomocą metryk w Azure Cosmos DB
 description: Użyj metryk w Azure Cosmos DB, aby debugować typowe problemy i monitorować bazę danych.
 author: kanshiG
 ms.author: govindk
@@ -7,77 +7,77 @@ ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 04/09/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0711d764514e45d3c28e26cf99b45dc711ef201c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cf92d9e1a1f92c2dc3294b71e3e620166fd90680
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104868260"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818707"
 ---
-# <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Monitoruj i Debuguj przy użyciu metryk w Azure Cosmos DB
+# <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Monitorowanie i debugowanie za pomocą metryk w Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Usługa Azure Cosmos DB udostępnia metryki dotyczące przepływności, magazynu, spójności, dostępności i opóźnienia. Witryna Azure Portal oferuje zagregowany widok tych metryk. Możesz również wyświetlić metryki usługi Azure Cosmos DB z poziomu interfejsu API usługi Azure Monitor. W wartościach wymiarów dla metryk, takich jak nazwa kontenera, nie jest rozróżniana wielkość liter. Dlatego należy użyć porównania bez uwzględniania wielkości liter podczas porównywania ciągów dla tych wartości wymiarów. Aby dowiedzieć się, jak wyświetlać metryki z usługi Azure monitor, zobacz artykuł [Uzyskiwanie metryk z Azure monitor](./monitor-cosmos-db.md) .
+Usługa Azure Cosmos DB udostępnia metryki dotyczące przepływności, magazynu, spójności, dostępności i opóźnienia. Witryna Azure Portal oferuje zagregowany widok tych metryk. Możesz również wyświetlić metryki usługi Azure Cosmos DB z poziomu interfejsu API usługi Azure Monitor. W wartościach wymiarów metryk, takich jak nazwa kontenera, nie jest uwzględniania liter. Dlatego podczas porównywania ciągów na tych wartościach wymiarów należy używać porównania bez uwzględniania liter. Aby dowiedzieć się, jak wyświetlać metryki z usługi Azure Monitor, zobacz artykuł [Get metrics from Azure Monitor](./monitor-cosmos-db.md) (Uzyskiwanie metryk z usługi Azure Monitor).
 
-W tym artykule przedstawiono typowe przypadki użycia oraz sposób, w jaki metryki usługi Azure Cosmos DB mogą być używane do analizowania i debugowania tych problemów. Metryki są zbierane co pięć minut i są przechowywane przez siedem dni.
+W tym artykule przedstawiono typowe przypadki użycia oraz sposób, w jaki metryki usługi Azure Cosmos DB mogą być używane do analizowania i debugowania tych problemów. Metryki są zbierane co pięć minut i przechowywane przez siedem dni.
 
-## <a name="view-metrics-from-azure-portal"></a>Wyświetl metryki z Azure Portal
+## <a name="view-metrics-from-azure-portal"></a>Wyświetlanie metryk z Azure Portal
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 
-1. Otwórz okienko **metryki** . Domyślnie w okienku metryki są wyświetlane metryki magazynu, indeksu, jednostki żądań dla wszystkich baz danych na koncie usługi Azure Cosmos. Można filtrować te metryki na bazę danych, kontener lub region. Można również filtrować metryki z określoną szczegółowością czasu. Więcej informacji na temat przepływności, magazynu, dostępności, opóźnień i metryk spójności znajdują się na oddzielnych kartach. 
+1. Otwórz **okienko Metryki.** Domyślnie okienko metryk zawiera metryki magazynu, indeksu i jednostek żądań dla wszystkich baz danych na koncie usługi Azure Cosmos. Te metryki można filtrować według bazy danych, kontenera lub regionu. Możesz również filtrować metryki z określonym poziomem szczegółowości czasu. Więcej szczegółów na temat metryk przepływności, magazynu, dostępności, opóźnienia i spójności można znaleźć na oddzielnych kartach. 
 
-   :::image type="content" source="./media/use-metrics/performance-metrics.png" alt-text="Cosmos DB metryki wydajności w Azure Portal":::
+   :::image type="content" source="./media/use-metrics/performance-metrics.png" alt-text="Cosmos DB metryk wydajności w programie Azure Portal":::
 
-Następujące metryki są dostępne w okienku **metryki** : 
+W okienku Metryki są dostępne **następujące** metryki:
 
-* **Metryki przepływności** — ta Metryka przedstawia liczbę żądań zużytych lub zakończonych niepowodzeniem (429 kod odpowiedzi), ponieważ przekroczono pojemność przepływności lub magazynu dla kontenera.
+* **Metryki przepływności** — ta metryka przedstawia liczbę żądań, które zostały zużyte lub zakończyły się niepowodzeniem (kod odpowiedzi 429), ponieważ przekroczono przepływność lub pojemność magazynu aprowizowana dla kontenera.
 
-* **Metryki magazynu** — ta Metryka przedstawia rozmiar danych i użycie indeksów.
+* **Metryki magazynu —** ta metryka przedstawia rozmiar danych i użycie indeksu.
 
-* **Metryki dostępności** — ta Metryka przedstawia wartość procentową liczby pomyślnych żądań przez łączną liczbę żądań na godzinę. Częstotliwość powodzeń jest definiowana przez Azure Cosmos DB umowy SLA.
+* **Metryki dostępności —** ta metryka przedstawia procent żądań pomyślnych w ciągu łącznej liczby żądań na godzinę. Wskaźnik powodzenia jest definiowany przez Azure Cosmos DB SLA.
 
-* **Metryki opóźnienia** — ta Metryka przedstawia opóźnienie odczytu i zapisu zaobserwowane przez Azure Cosmos DB w regionie, w którym działa Twoje konto. Możesz wizualizować opóźnienia w różnych regionach dla konta zreplikowanego geograficznie. Ta Metryka nie reprezentuje opóźnienia żądania end-to-end.
+* **Metryki opóźnienia —** ta metryka przedstawia opóźnienie odczytu i zapisu zaobserwowane przez Azure Cosmos DB w regionie, w którym działa Twoje konto. Możesz wizualizować opóźnienia między regionami dla konta z replikacją geograficzną. Ta metryka nie reprezentuje opóźnienia żądania typu end-to-end.
 
-* **Metryki spójności** — ta Metryka przedstawia, jak ostateczna jest spójność wybranego modelu spójności. W przypadku kont wieloregionowych ta Metryka przedstawia również opóźnienie replikacji między wybranymi regionami.
+* **Metryki spójności —** ta metryka pokazuje, jak ostateczna jest spójność dla wybieranego modelu spójności. W przypadku kont w wielu regionach ta metryka pokazuje również opóźnienie replikacji między wybranymi regionami.
 
-* **Metryki systemu** — ta Metryka przedstawia liczbę żądań metadanych obsługiwanych przez partycję podstawową. Pomaga również identyfikować żądania ograniczające.
+* **Metryki systemu —** ta metryka pokazuje, ile żądań metadanych jest obsługiwanych przez partycję podstawową. Ułatwia to również identyfikowanie żądań z ograniczeniami.
 
-W poniższych sekcjach objaśniono typowe scenariusze, w których można używać metryk Azure Cosmos DB. 
+W poniższych sekcjach wyjaśniono typowe scenariusze, w których można używać Azure Cosmos DB metryk. 
 
-## <a name="understand-how-many-requests-are-succeeding-or-causing-errors"></a>Informacje o liczbie żądań zakończonych powodzeniem lub błędach
+## <a name="understand-how-many-requests-are-succeeding-or-causing-errors"></a>Informacje o tym, ile żądań zakończyło się powodzeniem lub błędami
 
-Aby rozpocząć, należy przejść do [Azure Portal](https://portal.azure.com) i przejdź do bloku **metryki** . W bloku Znajdź * * liczba żądań, które przekroczyły pojemność na wykres 1-minutowy. Ten wykres pokazuje łączną liczbę żądań, które są segmentami przez minutę przez kod stanu. Aby uzyskać więcej informacji na temat kodów stanu HTTP, zobacz [kody stanu HTTP dla Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
+Aby rozpocząć, przejdź do [Azure Portal](https://portal.azure.com) i przejdź do bloku **Metryki.** W bloku znajdź wykres **Liczba żądań przekroczonych pojemność na 1 minutę. Na tym wykresie przedstawiono minutę po minucie całkowitą liczbę żądań segmentowanych według kodu stanu. Aby uzyskać więcej informacji na temat kodów stanu [HTTP, zobacz Http status codes for Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
-Najbardziej typowym kodem stanu błędu jest 429 (ograniczanie szybkości/ograniczanie przepustowości). Ten błąd oznacza, że żądania Azure Cosmos DB przekraczają przepływność zainicjowaną. Najbardziej typowym rozwiązaniem tego problemu jest [skalowanie w górę jednostek ru](./set-throughput.md) dla danej kolekcji.
+Najbardziej powszechnym kodem stanu błędu jest 429 (ograniczanie/ograniczanie szybkości). Ten błąd oznacza, że żądania Azure Cosmos DB są więcej niż aprowizowana przepływność. Najbardziej powszechnym rozwiązaniem tego problemu jest [skalowanie w górę](./set-throughput.md) procesorów DLA danej kolekcji.
 
 :::image type="content" source="media/use-metrics/metrics-12.png" alt-text="Liczba żądań na minutę":::
 
-## <a name="determine-the-throughput-distribution-across-partitions"></a>Określanie rozkładu przepływności między partycjami
+## <a name="determine-the-throughput-distribution-across-partitions"></a>Określanie dystrybucji przepływności między partycjami
 
-Dobrą kardynalnością kluczy partycji jest istotna dla każdej skalowalnej aplikacji. Aby określić dystrybucję przepływności dowolnego kontenera partycjonowanego podzielonego na partycje, przejdź do **bloku metryki** w [Azure Portal](https://portal.azure.com). Na karcie **przepływność** , podział magazynu jest pokazywany w polu **Maksymalna liczba ZUŻYTych jednostek ru na sekundę według poszczególnych wykresów partycji fizycznej** . Na poniższej ilustracji przedstawiono przykład słabej dystrybucji danych, jak pokazano na partycji skośnej po lewej stronie.
+Dobra kardynalność kluczy partycji jest niezbędna dla każdej skalowalnej aplikacji. Aby określić dystrybucję przepływności dowolnego partycjonowanych kontenerów podzielonych według partycji, przejdź do bloku **Metryki** w [Azure Portal](https://portal.azure.com). Na karcie **Przepływność** podział magazynu jest wyświetlany na wykresie Maksymalna liczba zużytych **ru/s przez poszczególne partycje** fizyczne. Na poniższej ilustracji przedstawiono przykład słabego rozkładu danych, jak pokazano w przypadku pochyłej partycji po lewej stronie.
 
-:::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Użycie pojedynczej partycji":::
+:::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Duże użycie pojedynczej partycji":::
 
-Nierówna dystrybucja przepływności może spowodować powstanie partycji na *gorąco* , co może spowodować ograniczenie żądań i może wymagać ponownego partycjonowania. Aby uzyskać więcej informacji na temat partycjonowania w Azure Cosmos DB, zobacz [partycja i skalowanie w Azure Cosmos DB](./partitioning-overview.md).
+Nierówna dystrybucja przepływności może powodować *gorące* partycje, co może powodować ograniczanie żądań i wymagać ponownego partycjonowania. Aby uzyskać więcej informacji na temat partycjonowania w Azure Cosmos DB, zobacz [Partycjonowanie](./partitioning-overview.md)i skalowanie w Azure Cosmos DB .
 
 ## <a name="determine-the-storage-distribution-across-partitions"></a>Określanie dystrybucji magazynu między partycjami
 
-Posiadanie odpowiedniej kardynalności partycji jest niezbędne dla każdej skalowalnej aplikacji. Aby określić dystrybucję magazynu dla dowolnego kontenera partycjonowanego podzielonego na partycje, przejdź do bloku metryki w [Azure Portal](https://portal.azure.com). Na karcie Magazyn zostanie wyświetlona wartość podział magazynu w magazynie dane i indeks używane przez wykres najważniejszych kluczy partycji. Poniższa ilustracja przedstawia słabą dystrybucję magazynu danych, jak pokazano na partycji skośnej po lewej stronie.
+Dobra kardynalność partycji jest niezbędna dla każdej skalowalnej aplikacji. Aby określić dystrybucję magazynu dowolnego partycjonowanych kontenerów podzielonych według partycji, przejdź do bloku Metryki w [Azure Portal](https://portal.azure.com). Na karcie Magazyn podział magazynu jest wyświetlany na wykresie Magazyn danych i indeksu, który jest zużywany przez najważniejsze klucze partycji. Na poniższej ilustracji przedstawiono słabą dystrybucję magazynu danych, jak pokazano w przypadku pochyłej partycji po lewej stronie.
 
 :::image type="content" source="media/use-metrics/metrics-07.png" alt-text="Przykład słabej dystrybucji danych":::
 
-Możesz przyczynić się, że klucz partycji pochyla dystrybucję, klikając partycję na wykresie.
+Aby określić główną przyczynę tego, który klucz partycji powoduje niesłabnący rozkład, kliknij partycję na wykresie.
 
-:::image type="content" source="media/use-metrics/metrics-05.png" alt-text="Klucz partycji pochyla rozkład":::
+:::image type="content" source="media/use-metrics/metrics-05.png" alt-text="Klucz partycji niesyłania dystrybucji":::
 
-Po zidentyfikowaniu, który klucz partycji powoduje pochylenie w dystrybucji, może być konieczne ponowne partycjonowanie kontenera przy użyciu bardziej rozproszonego klucza partycji. Aby uzyskać więcej informacji na temat partycjonowania w Azure Cosmos DB, zobacz [partycja i skalowanie w Azure Cosmos DB](./partitioning-overview.md).
+Po zidentyfikowaniu, który klucz partycji powoduje niesyć w dystrybucji, może być trzeba ponownie podzielić kontener na bardziej rozproszony klucz partycji. Aby uzyskać więcej informacji na temat partycjonowania w Azure Cosmos DB, zobacz [Partycjonowanie](./partitioning-overview.md)i skalowanie w Azure Cosmos DB .
 
-## <a name="compare-data-size-against-index-size"></a>Porównaj rozmiar danych z rozmiarem indeksu
+## <a name="compare-data-size-against-index-size"></a>Porównanie rozmiaru danych z rozmiarem indeksu
 
-W Azure Cosmos DB łączny zużyty magazyn to kombinacja rozmiaru danych i rozmiaru indeksu. Zazwyczaj rozmiar indeksu jest częścią rozmiaru danych. Aby dowiedzieć się więcej, zobacz artykuł dotyczący [rozmiaru indeksu](index-policy.md#index-size) . W bloku metryk w [Azure Portal](https://portal.azure.com)na karcie Magazyn jest prezentowany podział użycia magazynu na podstawie danych i indeksu.
+W Azure Cosmos DB łączny zużyty magazyn jest kombinacją zarówno rozmiaru danych, jak i rozmiaru indeksu. Zazwyczaj rozmiar indeksu jest ułamkiem rozmiaru danych. Aby dowiedzieć się więcej, zobacz [artykuł Rozmiar](index-policy.md#index-size) indeksu. W bloku Metryki w Azure Portal [karta](https://portal.azure.com)Magazyn przedstawia podział użycia magazynu na podstawie danych i indeksu.
 
 ```csharp
 // Measure the document size usage (which includes the index size)  
@@ -87,9 +87,9 @@ ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentC
 
 Jeśli chcesz zaoszczędzić miejsce na indeksie, możesz dostosować [zasady indeksowania](index-policy.md).
 
-## <a name="debug-why-queries-are-running-slow"></a>Debugowanie dlaczego zapytania działają wolno
+## <a name="debug-why-queries-are-running-slow"></a>Debugowanie przyczyn powolnego działania zapytań
 
-W zestawach SDK interfejsu API SQL Azure Cosmos DB zawiera statystyki wykonywania zapytania.
+W zestawach SDK interfejsu API SQL Azure Cosmos DB statystyki wykonywania zapytań.
 
 ```csharp
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -108,12 +108,12 @@ FeedResponse<dynamic> result = await query.ExecuteNextAsync();
 IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 ```
 
-*QueryMetrics* zawiera szczegółowe informacje o tym, jak długo każdy składnik zapytania wykonał wykonanie. Najbardziej powszechną główną przyczyną długotrwałych zapytań jest skanowanie, co oznacza, że zapytanie nie mogło użyć indeksów. Ten problem można rozwiązać, używając lepszego warunku filtru.
+*Element QueryMetrics* zawiera szczegółowe informacje o tym, jak długo trwało wykonywanie poszczególnych składników zapytania. Najczęstszą główną przyczyną długotrwałych zapytań są skanowania, co oznacza, że zapytanie nie może wykorzystać indeksów. Ten problem można rozwiązać za pomocą lepszego warunku filtru.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz wiesz już, jak monitorować i debugować problemy przy użyciu metryk podanych w Azure Portal. Warto dowiedzieć się więcej o ulepszaniu wydajności bazy danych, czytając następujące artykuły:
+Teraz wiesz już, jak monitorować i debugować problemy przy użyciu metryk dostępnych w Azure Portal. Aby dowiedzieć się więcej na temat poprawy wydajności bazy danych, zapoznaj się z następującymi artykułami:
 
-* Aby dowiedzieć się, jak wyświetlać metryki z usługi Azure monitor, zobacz artykuł [Uzyskiwanie metryk z Azure monitor](./monitor-cosmos-db.md) . 
-* [Testowanie wydajności i skalowania przy użyciu Azure Cosmos DB](performance-testing.md)
+* Aby dowiedzieć się, jak wyświetlać metryki z usługi Azure Monitor, zobacz artykuł Get [metrics from Azure Monitor](./monitor-cosmos-db.md) (Uzyskiwanie metryk z usługi Azure Monitor). 
+* [Testowanie wydajności i skali za pomocą Azure Cosmos DB](performance-testing.md)
 * [Porady dotyczące wydajności usługi Azure Cosmos DB](performance-tips.md)

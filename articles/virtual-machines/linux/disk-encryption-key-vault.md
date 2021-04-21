@@ -9,16 +9,16 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 313f7030d56a8a199c6d2d04fa0d979429d0bce1
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 29f6f01ece0536d93ca18ca54379757adc120308
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750810"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818786"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Tworzenie i konfigurowanie magazynu kluczy dla usługi Azure Disk Encryption
 
-Azure Disk Encryption używa Azure Key Vault do kontrolowania kluczy szyfrowania dysków i wpisów tajnych oraz zarządzania nimi.  Aby uzyskać więcej informacji na temat magazynów kluczy, zobacz [Get started with Azure Key Vault](../../key-vault/general/overview.md) and Secure your key vault (Rozpoczynanie pracy z magazynem kluczy i [zabezpieczanie magazynu kluczy).](../../key-vault/general/security-overview.md) 
+Azure Disk Encryption używa Azure Key Vault do kontrolowania kluczy szyfrowania dysków i wpisów tajnych oraz zarządzania nimi.  Aby uzyskać więcej informacji na temat magazynów kluczy, zobacz [Get started with Azure Key Vault](../../key-vault/general/overview.md) and Secure your key vault (Rozpoczynanie pracy z magazynem kluczy i [zabezpieczanie magazynu kluczy).](../../key-vault/general/security-features.md) 
 
 > [!WARNING]
 > - Jeśli wcześniej zaszyfrowano maszynę wirtualną Azure Disk Encryption usłudze Azure AD, należy nadal używać tej opcji do szyfrowania maszyny wirtualnej. Aby uzyskać szczegółowe informacje, zobacz Creating [and configuring a key vault for Azure Disk Encryption with Azure AD (previous release) (Tworzenie](disk-encryption-key-vault-aad.md) i konfigurowanie magazynu kluczy dla usługi Azure Disk Encryption azure AD w poprzedniej wersji).
@@ -65,5 +65,5 @@ Connect-AzAccount
 - [Azure Disk Encryption wymagań wstępnych interfejsu wiersza polecenia](https://github.com/ejarvi/ade-cli-getting-started)
 - [Azure Disk Encryption wymagań wstępnych programu PowerShell](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)
 - Dowiedz [się Azure Disk Encryption scenariuszy na temat maszyn wirtualnych z systemem Linux](disk-encryption-linux.md)
-- Dowiedz się, jak [rozwiązywać problemy z Azure Disk Encryption](disk-encryption-troubleshooting.md)
+- Dowiedz się, jak [rozwiązywać Azure Disk Encryption](disk-encryption-troubleshooting.md)
 - Przeczytaj [przykładowe Azure Disk Encryption skrypty](disk-encryption-sample-scripts.md)

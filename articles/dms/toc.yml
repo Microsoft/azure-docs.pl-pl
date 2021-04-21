@@ -45,7 +45,9 @@
           href: tutorial-sql-server-managed-instance-online.md
     - name: Migracja z bazy danych MySQL
       items:
-        - name: do usługi Azure Database for MySQL
+        - name: do Azure Database for MySQL (offline)
+          href: tutorial-mysql-azure-mysql-offline-portal.md
+        - name: to Azure Database for MySQL (online)
           href: tutorial-mysql-azure-mysql-online.md
     - name: Migracja z usług pulpitu zdalnego bazy danych MySQL
       items:
@@ -83,10 +85,12 @@
       items:
         - name: z programu SQL Server do usługi SQL Database
           href: howto-sql-server-to-azure-sql-powershell.md
-        - name: SQL Server do SQL — MI (online)
+        - name: SQL Server do usługi SQL MI (online)
           href: howto-sql-server-to-azure-sql-managed-instance-powershell-online.md
-        - name: SQL Server do SQL — MI (offline)
+        - name: SQL Server do usługi SQL MI (offline)
           href: howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md
+        - name: MySQL do Azure Database for MySQL (offline)
+          href: migrate-mysql-to-azure-mysql-powershell.md
     - name: Ponowne wdrażanie pakietu SSIS w
       items:
         - name: Azure SQL Database
@@ -141,11 +145,11 @@
               href: known-issues-azure-sql-db-managed-instance-online.md
             - name: Azure DB dla MySQL
               href: known-issues-azure-mysql-online.md
-            - name: PostgreSQL do usługi Azure DB dla PostgreSQL
+            - name: PostgreSQL do Azure DB for PostgreSQL
               href: known-issues-azure-postgresql-online.md
-            - name: Oracle do usługi Azure DB dla PostgreSQL
+            - name: Oracle do Azure DB for PostgreSQL
               href: known-issues-oracle-azure-postgresql-online.md
-            - name: Azure Cosmos DB MongoDB interfejsu API dla MongoDB
+            - name: MongoDB do interfejsu API Azure Cosmos DB dla bazy danych MongoDB
               href: known-issues-mongo-cosmos-db.md
     - name: Filmy wideo
       items:

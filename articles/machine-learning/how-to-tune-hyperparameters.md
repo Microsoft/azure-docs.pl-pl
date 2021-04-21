@@ -1,7 +1,7 @@
 ---
-title: Parametr strojenia modelu
+title: Dostrajanie hiperparametryczne modelu
 titleSuffix: Azure Machine Learning
-description: Zautomatyzowanie dostrajania parametrów dla modeli uczenia głębokiego i uczenia maszynowego przy użyciu Azure Machine Learning.
+description: Automatyzuj dostrajanie hiperparametryczne dla modeli uczenia głębokiego i uczenia maszynowego przy użyciu Azure Machine Learning.
 ms.author: anumamah
 author: Aniththa
 ms.reviewer: sgilley
@@ -11,47 +11,47 @@ ms.subservice: core
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 34adcf2218e29572ec9a86583addc7c021313085
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ec01561c5c44c850b32187629552b1bdb99537e7
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102519643"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107819182"
 ---
-# <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Parametr strojenia modelu z Azure Machine Learning
+# <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Dostrajanie hiperparametryczne modelu za pomocą Azure Machine Learning
 
-Automatyzuj wydajne dostrajanie parametrów przy użyciu [pakietu](/python/api/azureml-train-core/azureml.train.hyperdrive)Azure Machine Learning. Dowiedz się, jak wykonać kroki wymagane do dostrajania parametrów z [zestawem SDK Azure Machine Learning](/python/api/overview/azure/ml/):
+Zautomatyzuj wydajne dostrajanie hiperparametryczne przy użyciu Azure Machine Learning [HyperDrive.](/python/api/azureml-train-core/azureml.train.hyperdrive) Dowiedz się, jak wykonać kroki wymagane do dostrojenia hiperparametrów przy użyciu Azure Machine Learning [SDK:](/python/api/overview/azure/ml/)
 
-1. Zdefiniuj miejsce przeszukiwania parametrów
-1. Określ metrykę podstawową do optymalizacji  
-1. Określ zasady wczesnego zakończenia dla przebiegów o niskiej wydajności
+1. Definiowanie obszaru wyszukiwania parametrów
+1. Określanie podstawowej metryki do optymalizacji  
+1. Określanie zasad wczesnego zakończenia dla przebiegów o niskiej mocy
 1. Tworzenie i przypisywanie zasobów
-1. Uruchom eksperyment ze zdefiniowaną konfiguracją
-1. Wizualizuj przebiegi szkoleniowe
-1. Wybierz najlepszą konfigurację dla modelu
+1. Uruchamianie eksperymentu ze zdefiniowaną konfiguracją
+1. Wizualizowanie przebiegów trenowania
+1. Wybieranie najlepszej konfiguracji dla modelu
 
-## <a name="what-is-hyperparameter-tuning"></a>Co to jest Dostrajanie parametru?
+## <a name="what-is-hyperparameter-tuning"></a>Co to jest dostrajanie hiperparametryczne?
 
-Parametry **są dostosowywanymi parametrami** , które umożliwiają kontrolę nad procesem szkolenia modeli. Na przykład w przypadku sieci neuronowych należy określić liczbę ukrytych warstw oraz liczbę węzłów w każdej warstwie. Wydajność modelu zależy od zbyt wielu parametrów.
+**Hiperparametry to** dostosowywane parametry, które umożliwiają kontrolowanie procesu trenowania modelu. Na przykład w przypadku sieci neuronowych decydujesz o liczbie ukrytych warstw i liczbie węzłów w każdej warstwie. Wydajność modelu w dużym stopniu zależy od hiperparametrów.
 
- **Dostrajanie parametrów**, nazywane również **optymalizacją parametrów**, to proces znajdowania konfiguracji parametrów, które zapewniają najlepszą wydajność. Proces jest zwykle kosztowny i ręczny.
+ **Dostrajanie** **hiperparametryczne**, nazywane również optymalizacją hiperparametrywną, to proces znajdowania konfiguracji hiperparametrów, co skutkuje najlepszą wydajnością. Proces jest zwykle kosztowny obliczeniowo i ręczny.
 
-Azure Machine Learning pozwala zautomatyzować dostrajanie parametrów i uruchamiać eksperymenty równolegle w celu wydajnej optymalizacji parametrów.
+Azure Machine Learning umożliwia automatyzację dostrajania hiperparametrów i równoległe uruchamianie eksperymentów w celu wydajnej optymalizacji hiperparametrów.
 
 
-## <a name="define-the-search-space"></a>Zdefiniuj miejsce wyszukiwania
+## <a name="define-the-search-space"></a>Definiowanie obszaru wyszukiwania
 
-Dostrajanie parametrów przez Eksplorowanie zakresu wartości zdefiniowanych dla każdego parametru.
+Dostosuj hiperparametry, eksplorując zakres wartości zdefiniowanych dla każdego hiperparametru.
 
-Parametry "parameter" mogą być dyskretne lub ciągłe i mają rozkład wartości opisany przez [wyrażenie parametru](/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions).
+Hiperparametry mogą być dyskretne lub ciągłe i mają rozkład wartości opisanych przez [wyrażenie parametru](/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions).
 
-### <a name="discrete-hyperparameters"></a>Dyskretne parametry
+### <a name="discrete-hyperparameters"></a>Hiperparametry dyskretne
 
-Dyskretne podparametry są określone jako `choice` wartości dyskretne. `choice` może to być:
+Hiperparametry dyskretne są określane jako wartości `choice` dyskretne. `choice` Może to być:
 
-* co najmniej jedna wartość oddzielona przecinkami
-* `range`obiekt
-* dowolny dowolny `list` obiekt
+* co najmniej jedna wartość rozdzielona przecinkami
+* obiekt `range`
+* dowolny `list` obiekt
 
 
 ```Python
@@ -61,23 +61,23 @@ Dyskretne podparametry są określone jako `choice` wartości dyskretne. `choice
     }
 ```
 
-W takim przypadku `batch_size` jedną z wartości [16, 32, 64, 128] i `number_of_hidden_layers` przyjmuje jedną z wartości [1, 2, 3, 4].
+W tym przypadku jedna z wartości `batch_size` [16, 32, 64, 128] i przyjmuje jedną z wartości `number_of_hidden_layers` [1, 2, 3, 4].
 
-Następujące zaawansowane parametry dyskretne mogą być również określone przy użyciu dystrybucji:
+Następujące zaawansowane hiperparametry dyskretne można również określić przy użyciu dystrybucji:
 
-* `quniform(low, high, q)` -Zwraca wartość jak Round (Uniform (Low, High)/q) * q
-* `qloguniform(low, high, q)` -Zwraca wartość, taką jak Round (EXP (Uniform (Low, High))/q) * q
-* `qnormal(mu, sigma, q)` -Zwraca wartość, jak Round (Normal, Sigma)/q) * q
-* `qlognormal(mu, sigma, q)` -Zwraca wartość, np. Round (EXP (normalne (mu, Sigma))/q) * q
+* `quniform(low, high, q)` - Zwraca wartość, na przykład round(uniform(low, high) /q) * q
+* `qloguniform(low, high, q)` - Zwraca wartość, na przykład round(exp(uniform(low, high)) / q) * q
+* `qnormal(mu, sigma, q)` - Zwraca wartość, na przykład round(normal(mu, sigma) /q) * q
+* `qlognormal(mu, sigma, q)` - Zwraca wartość, na przykład round(exp(normal(mu, sigma)) / q) * q
 
-### <a name="continuous-hyperparameters"></a>Parametry ciągłe 
+### <a name="continuous-hyperparameters"></a>Hiperparametry ciągłe 
 
-Parametry ciągłe są określane jako dystrybucja nad ciągłym zakresem wartości:
+Hiperparametry ciągłe są określane jako rozkład w ciągłym zakresie wartości:
 
-* `uniform(low, high)` -Zwraca wartość równomiernie rozdystrybuowaną między niskim i wysoką
-* `loguniform(low, high)` -Zwraca wartość narysowana przy użyciu funkcji EXP (Uniform (Low, High)), aby logarytm wartości zwracanej był równomiernie dystrybuowany
-* `normal(mu, sigma)` -Zwraca wartość rzeczywistą, która jest zwykle dystrybuowana z średnią i odchyleniem Standard Sigma
-* `lognormal(mu, sigma)` -Zwraca wartość narysowana przy użyciu funkcji EXP (normalne (mu, Sigma)), aby logarytm wartości zwracanej był zwykle dystrybuowany
+* `uniform(low, high)` - Zwraca wartość równomiernie rozmieszczaną między wartościami niskimi i wysokimi
+* `loguniform(low, high)` - Zwraca wartość rysowaną zgodnie z exp(uniform(low, high)), tak aby logarytm wartości zwracanej był równomiernie rozłożony
+* `normal(mu, sigma)` - Zwraca wartość rzeczywistą, która jest zwykle dystrybuowana ze średnią mu i odchyleniem standardowym sigma
+* `lognormal(mu, sigma)` - Zwraca wartość rysowaną zgodnie z wartością exp(normal(mu, sigma)), tak aby logarytm wartości zwracanej był rozkład normalny
 
 Przykład definicji przestrzeni parametrów:
 
@@ -88,21 +88,21 @@ Przykład definicji przestrzeni parametrów:
     }
 ```
 
-Ten kod definiuje miejsce wyszukiwania z dwoma parametrami — `learning_rate` i `keep_probability` . `learning_rate` ma rozkład normalny z wartością średnia 10 i odchylenie standardowe równe 3. `keep_probability` ma jednolitą dystrybucję o wartości minimalnej 0,05 i maksymalnej wartości 0,1.
+Ten kod definiuje obszar wyszukiwania z dwoma parametrami — `learning_rate` i `keep_probability` . `learning_rate` ma rozkład normalny z wartością średnią 10 i odchyleniem standardowym o wartości 3. `keep_probability` ma jednolity rozkład z minimalną wartością 0,05 i maksymalną wartością 0,1.
 
-### <a name="sampling-the-hyperparameter-space"></a>Próbkowanie obszaru hiperprzestrzeni
+### <a name="sampling-the-hyperparameter-space"></a>Próbkowanie przestrzeni hiperparametrów
 
-Określ metodę próbkowania parametrów, która ma być używana w miejscu parametru. Azure Machine Learning obsługuje następujące metody:
+Określ metodę próbkowania parametrów, która ma być stosowana w przestrzeni hiperparametrów. Azure Machine Learning obsługuje następujące metody:
 
-* Próbkowanie losowe
+* Losowanie losowe
 * Próbkowanie siatki
 * Próbkowanie Bayesowskie
 
-#### <a name="random-sampling"></a>Próbkowanie losowe
+#### <a name="random-sampling"></a>Losowanie losowe
 
-[Próbkowanie losowe](/python/api/azureml-train-core/azureml.train.hyperdrive.randomparametersampling) obsługuje dyskretne i ciągłe parametry. Obsługuje wczesne zakończenie uruchamiania niskiej wydajności. Niektórzy użytkownicy wykonują wstępne wyszukiwanie przy użyciu losowego próbkowania, a następnie ograniczają miejsce wyszukiwania, aby poprawić wyniki.
+[Próbkowanie losowe](/python/api/azureml-train-core/azureml.train.hyperdrive.randomparametersampling) obsługuje dyskretne i ciągłe hiperparametry. Obsługuje wczesne zakończenie przebiegów o niskiej wydajności. Niektórzy użytkownicy wykonają wstępne wyszukiwanie przy użyciu próbkowania losowego, a następnie uściślij obszar wyszukiwania, aby poprawić wyniki.
 
-W przypadku próbkowania losowego wartości parametrów są losowo wybierane ze zdefiniowanego miejsca wyszukiwania. 
+W próbkowaniu losowym wartości hiperparametrów są wybierane losowo ze zdefiniowanego obszaru wyszukiwania. 
 
 ```Python
 from azureml.train.hyperdrive import RandomParameterSampling
@@ -117,9 +117,9 @@ param_sampling = RandomParameterSampling( {
 
 #### <a name="grid-sampling"></a>Próbkowanie siatki
 
-[Próbkowanie siatki](/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling) obsługuje dyskretne parametry. Użyj próbkowania siatki, jeśli możesz zabudżetować, aby w sposób wyczerpujący przeszukiwać miejsce wyszukiwania. Obsługuje wczesne zakończenie uruchamiania niskiej wydajności.
+[Próbkowanie siatki](/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling) obsługuje dyskretne hiperparametry. Użyj próbkowania siatki, jeśli możesz uzyskać budżet, aby dokładnie przeszukać obszar wyszukiwania. Obsługuje wcześniejsze zakończenie przebiegów o niskiej wydajności.
 
-Próbkowanie siatki wykonuje proste przeszukiwanie siatki dla wszystkich możliwych wartości. Próbkowanie siatki może być używane tylko z `choice` parametrami. Na przykład następujące miejsce ma sześć przykładów:
+Próbkowanie siatki umożliwia proste wyszukiwanie siatki dla wszystkich możliwych wartości. Próbkowania siatki można używać tylko z `choice` hiperparametrami. Na przykład następujące miejsce ma sześć próbek:
 
 ```Python
 from azureml.train.hyperdrive import GridParameterSampling
@@ -133,13 +133,13 @@ param_sampling = GridParameterSampling( {
 
 #### <a name="bayesian-sampling"></a>Próbkowanie Bayesowskie
 
-[Próbkowanie bayesowskie](/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling) jest oparte na algorytmie optymalizacji bayesowskie. Wybiera próbki w oparciu o to, jak poprzednie przykłady zakończyły się, więc nowe przykłady zwiększają podstawową metrykę.
+[Próbkowanie bayesów](/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling) opiera się na algorytmie optymalizacji bayesów. Wybiera ona przykłady na podstawie tego, jak poprzednie próbki były, aby nowe próbki poprawiły podstawową metrykę.
 
-Próbkowanie bayesowskie jest zalecane, jeśli masz wystarczającą ilość budżetu do eksplorowania miejsca na parametrze. Aby uzyskać najlepsze wyniki, zaleca się, aby maksymalna liczba przebiegów była większa niż lub równa 20 razy liczba dostrojenia parametrów. 
+Próbkowanie bayesów jest zalecane, jeśli masz wystarczająco dużo budżetu, aby zbadać obszar hiperparametrów. Aby uzyskać najlepsze wyniki, zalecamy maksymalną liczbę przebiegów większą lub równą 20-krotności liczby strojonych hiperparametrów. 
 
-Liczba współbieżnych uruchomień ma wpływ na efektywność procesu dostrajania. Mniejsza liczba współbieżnych uruchomień może prowadzić do lepszego próbkowania zbieżności, ponieważ mniejszy stopień równoległości zwiększa liczbę przebiegów korzystających z wcześniej ukończonych przebiegów.
+Liczba współbieżnych przebiegów ma wpływ na efektywność procesu dostrajania. Mniejsza liczba współbieżnych przebiegów może prowadzić do lepszej zbieżności próbkowania, ponieważ mniejszy stopień równoległości zwiększa liczbę przebiegów, które korzystają z wcześniej ukończonych przebiegów.
 
-Próbkowanie bayesowskie obsługuje `choice` , `uniform` i `quniform` rozpowszechniać tylko w obszarze wyszukiwania.
+Próbkowanie Bayesa obsługuje `choice` tylko `uniform` dystrybucje , i `quniform` w przestrzeni wyszukiwania.
 
 ```Python
 from azureml.train.hyperdrive import BayesianParameterSampling
@@ -153,14 +153,14 @@ param_sampling = BayesianParameterSampling( {
 
 
 
-## <a name="specify-primary-metric"></a><a name="specify-primary-metric-to-optimize"></a> Określ metrykę podstawową
+## <a name="specify-primary-metric"></a><a name="specify-primary-metric-to-optimize"></a> Określanie metryki podstawowej
 
-Określ [podstawową metrykę](/python/api/azureml-train-core/azureml.train.hyperdrive.primarymetricgoal) , która ma zostać zoptymalizowana. Poszczególne przebiegi szkoleniowe są oceniane dla metryki podstawowej. Zasady wczesnej zakończenia wykorzystują podstawową metrykę do identyfikowania przebiegów o niskiej wydajności.
+Określ [podstawową metrykę,](/python/api/azureml-train-core/azureml.train.hyperdrive.primarymetricgoal) którą chcesz zoptymalizować dostrajania hiperparametrów. Każdy przebieg trenowania jest oceniany dla metryki podstawowej. Zasady wczesnego zakończenia wykorzystują podstawową metrykę do identyfikowania przebiegów o niskiej wydajności.
 
-Określ następujące atrybuty głównej metryki:
+Określ następujące atrybuty dla metryki podstawowej:
 
-* `primary_metric_name`: Nazwa głównej metryki musi dokładnie odpowiadać nazwie metryki rejestrowanej przez skrypt szkoleniowy
-* `primary_metric_goal`: Może to być albo `PrimaryMetricGoal.MAXIMIZE` `PrimaryMetricGoal.MINIMIZE` i i określać, czy Metryka podstawowa będzie zmaksymalizowana, czy zminimalizowana podczas oceniania przebiegów. 
+* `primary_metric_name`: nazwa podstawowej metryki musi dokładnie odpowiadać nazwie metryki zarejestrowanej przez skrypt trenowania
+* `primary_metric_goal`: może to być metryka lub i określa, czy metryka podstawowa będzie zmaksymalizowana, czy zminimalizowana podczas `PrimaryMetricGoal.MAXIMIZE` `PrimaryMetricGoal.MINIMIZE` oceny przebiegów. 
 
 ```Python
 primary_metric_name="accuracy",
@@ -169,11 +169,11 @@ primary_metric_goal=PrimaryMetricGoal.MAXIMIZE
 
 Ten przykład maksymalizuje "dokładność".
 
-### <a name="log-metrics-for-hyperparameter-tuning"></a><a name="log-metrics-for-hyperparameter-tuning"></a>Metryki dzienników dla strojenia parametru
+### <a name="log-metrics-for-hyperparameter-tuning"></a><a name="log-metrics-for-hyperparameter-tuning"></a>Metryki dzienników dostrajania hiperparametrów
 
-Skrypt szkoleniowy dla Twojego modelu **musi** rejestrować podstawową metrykę podczas szkolenia modelu, aby można było uzyskać do niego dostęp do dostrajania parametrów.
+Skrypt trenowania modelu **musi** rejestrować podstawową metrykę podczas trenowania modelu, aby funkcja HyperDrive może uzyskać do niego dostęp w celu dostrajania hiperparametrów.
 
-Rejestruj podstawową metrykę w skrypcie szkoleniowym przy użyciu następującego fragmentu przykładu:
+Rejestruj podstawową metrykę w skrypcie trenowania przy użyciu następującego przykładowego fragmentu kodu:
 
 ```Python
 from azureml.core.run import Run
@@ -181,40 +181,40 @@ run_logger = Run.get_context()
 run_logger.log("accuracy", float(val_accuracy))
 ```
 
-Skrypt szkoleniowy oblicza `val_accuracy` i rejestruje go jako podstawową metrykę "dokładność". Za każdym razem, gdy Metryka jest rejestrowana, jest odbierana przez usługę strojenia parametru. Istnieje możliwość ustalenia częstotliwości raportowania.
+Skrypt trenowania oblicza wartość i `val_accuracy` rejestruje ją jako "dokładność" podstawowej metryki. Za każdym razem, gdy metryka jest rejestrowana, jest odbierana przez usługę dostrajania hiperparametrów. To Ty decydujesz o częstotliwości raportowania.
 
-Aby uzyskać więcej informacji o rejestrowaniu wartości w przebiegach szkoleniowych modelu, zobacz [Włączanie rejestrowania w usłudze Azure ml Training](how-to-track-experiments.md).
+Aby uzyskać więcej informacji na temat rejestrowania wartości w przebiegach trenowania modelu, zobacz [Enable logging in Azure ML training runs (Włączanie rejestrowania w](how-to-log-view-metrics.md)przebiegach trenowania usługi Azure ML).
 
-## <a name="specify-early-termination-policy"></a><a name="early-termination"></a> Określ zasady wczesnego zakończenia
+## <a name="specify-early-termination-policy"></a><a name="early-termination"></a> Określanie zasad wcześniejszego zakończenia
 
-Automatycznie kończy działać z zasadami wczesnego zakończenia. Wczesne zakończenie poprawia wydajność obliczeniową.
+Automatyczne zakończenie przebiegów o niskiej jakości za pomocą zasad wczesnego zakończenia. Wczesne zakończenie zwiększa wydajność obliczeniową.
 
-Można skonfigurować następujące parametry, które kontrolują, kiedy zasady są stosowane:
+Można skonfigurować następujące parametry, które kontrolują zastosowanie zasad:
 
-* `evaluation_interval`: częstotliwość stosowania zasad. Za każdym razem, gdy skrypt szkoleniowy rejestruje podstawową metrykę jako jeden interwał. `evaluation_interval`1 zastosuje zasady za każdym razem, gdy skrypt szkoleniowy zgłosi podstawową metrykę. `evaluation_interval`Zasada z 2 będzie stosować zasady co godzinę. Jeśli nie zostanie określona, `evaluation_interval` jest domyślnie ustawiona na 1.
-* `delay_evaluation`: opóźnia pierwszą ocenę zasad przez określoną liczbę interwałów. Jest to opcjonalny parametr, który pozwala uniknąć przedwcześnie zakończenia przebiegów szkoleniowych przez zezwolenie na uruchamianie wszystkich konfiguracji przez minimalną liczbę interwałów. Jeśli ta wartość jest określona, zasady stosują się do każdej wielokrotności evaluation_interval, która jest większa lub równa delay_evaluation.
+* `evaluation_interval`: częstotliwość stosowania zasad. Za każdym razem, gdy skrypt trenowania rejestruje metrykę podstawową, jest liczony jako jeden interwał. Wartość `evaluation_interval` 1 spowoduje zastosowanie zasad za każdym razem, gdy skrypt trenowania zgłasza podstawową metrykę. Dla `evaluation_interval` ustawienia 2 zasady będą stosowane za każdym razem. Jeśli nie zostanie określony, `evaluation_interval` domyślnie jest ustawiona wartość 1.
+* `delay_evaluation`: opóźnia pierwszą ocenę zasad o określoną liczbę interwałów. Jest to opcjonalny parametr, który pozwala uniknąć przedwczesnego zakończenia przebiegów trenowania, zezwalając na uruchamianie wszystkich konfiguracji w minimalnej liczbie interwałów. Jeśli określono, zasady mają zastosowanie do każdej wielokrotności evaluation_interval, która jest większa lub równa delay_evaluation.
 
-Azure Machine Learning obsługuje następujące zasady wczesnego zakończenia:
-* [Zasady Bandit](#bandit-policy)
-* [Średnie zatrzymywanie zasad](#median-stopping-policy)
-* [Zasady wyboru obcinania](#truncation-selection-policy)
+Azure Machine Learning obsługuje następujące zasady wcześniejszego zakończenia:
+* [Zasady bandyta](#bandit-policy)
+* [Zasady zatrzymywania mediany](#median-stopping-policy)
+* [Zasady wyboru przycinania](#truncation-selection-policy)
 * [Brak zasad zakończenia](#no-termination-policy-default)
 
 
-### <a name="bandit-policy"></a>Zasady Bandit
+### <a name="bandit-policy"></a>Zasady bandyt
 
-[Zasady Bandit](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy#definition) są oparte na wartości współczynnika zapasu/zapasu czasu i interwału obliczania. Bandit kończy się, gdy Metryka podstawowa nie znajduje się w określonym współczynniku zapasu/zapasie czasu dla najbardziej pomyślnego uruchomienia.
+[Zasady bandyt](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy#definition) są oparte na wartości współczynnika slack/wartości slack i interwale oceny. Bandyt kończy się, gdy metryka podstawowa nie znajduje się w określonym współczynniku slack/ilości slack najbardziej pomyślnego uruchomienia.
 
 > [!NOTE]
-> Próbkowanie bayesowskie nie obsługuje wczesnego kończenia pracy. W przypadku korzystania z próbkowania bayesowskie Ustaw `early_termination_policy = None` .
+> Próbkowanie Bayesa nie obsługuje wcześniejszego zakończenia. W przypadku korzystania z próbkowania Bayesa ustaw wartość `early_termination_policy = None` .
 
 Określ następujące parametry konfiguracji:
 
-* `slack_factor` lub `slack_amount` : zapasowy, który jest dozwolony w odniesieniu do najlepszego przebiegu szkoleniowego. `slack_factor` Określa dopuszczalny zapas czasu jako współczynnik. `slack_amount` Określa dozwolony czas zapasowy jako ilość bezwzględną, a nie współczynnik.
+* `slack_factor` lub `slack_amount` : dozwolone są zapasy w odniesieniu do przebiegów trenowania o najlepszej jakości. `slack_factor` określa dopuszczalne zapasy jako współczynnik. `slack_amount` określa luz jako wartość bezwzględną, a nie współczynnik.
 
-    Rozważmy na przykład, że zasady Bandit zostały zastosowane w interwale 10. Załóżmy, że najlepiej działający przebieg w interwale 10 zgłosił podstawową metrykę do 0,8 z celem, aby zmaksymalizować podstawową metrykę. Jeśli zasady określają `slack_factor` 0,2, każdy przebieg szkolenia, którego Najlepsza Metryka w interwale 10 jest mniejsza niż 0,66 (0,8/(1 + `slack_factor` )) zostanie zakończony.
+    Rozważmy na przykład zasady bandyt stosowane w interwale 10. Załóżmy, że najbardziej wydajny przebieg w interwale 10 zgłosił metrykę podstawową o wartości 0,8, aby zmaksymalizować metrykę podstawową. Jeśli zasady określają wartość 0,2, wszystkie przebiegi trenowania, których najlepsza metryka w interwale 10 jest mniejsza niż `slack_factor` 0,66 (0,8/(1+ )), zostanie `slack_factor` zakończona.
 * `evaluation_interval`: (opcjonalnie) częstotliwość stosowania zasad
-* `delay_evaluation`: (opcjonalnie) opóźnia pierwszą ocenę zasad przez określoną liczbę interwałów
+* `delay_evaluation`: (opcjonalnie) opóźnia pierwszą ocenę zasad o określoną liczbę interwałów
 
 
 ```Python
@@ -222,15 +222,15 @@ from azureml.train.hyperdrive import BanditPolicy
 early_termination_policy = BanditPolicy(slack_factor = 0.1, evaluation_interval=1, delay_evaluation=5)
 ```
 
-W tym przykładzie zasady wczesnej zakończenia są stosowane w każdym interwale, gdy raportowane są metryki, rozpoczynając od interwału próbnego 5. Każdy przebieg, którego Najlepsza Metryka jest mniejsza niż (1/(1 + 0,1) lub 91% najlepszego przebiegu, zostanie zakończony.
+W tym przykładzie zasady wczesnego zakończenia są stosowane w każdym interwale, gdy są zgłaszane metryki, począwszy od interwału oceny 5. Każdy przebieg, którego najlepsza metryka jest mniejsza niż (1/(1+0,1) lub 91% przebiegów o najlepszej wydajności, zostanie zakończony.
 
-### <a name="median-stopping-policy"></a>Średnie zatrzymywanie zasad
+### <a name="median-stopping-policy"></a>Zasady zatrzymywania mediany
 
-[Mediana zatrzymywana](/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy) to zasady wczesnej zakończenia na podstawie średnich podstawowych metryk raportowanych przez uruchomienia. Te zasady obliczają średnie uruchamiania w ramach wszystkich przebiegów szkoleniowych i przerywają uruchomienia, których podstawowa Metryka jest gorsza niż wartość mediana średnika.
+[Zatrzymanie mediany](/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy) to zasady wczesnego zakończenia oparte na średnich uruchomieniach metryk podstawowych zgłaszanych przez przebiegi. Ta zasada oblicza średnie bieżące we wszystkich przebiegach trenowania i zatrzymuje przebiegi, których podstawowa wartość metryki jest gorsza niż mediana średnich.
 
-Te zasady pobierają następujące parametry konfiguracji:
+Te zasady mają następujące parametry konfiguracji:
 * `evaluation_interval`: częstotliwość stosowania zasad (parametr opcjonalny).
-* `delay_evaluation`: opóźnia pierwsze oszacowanie zasad dla określonej liczby interwałów (parametr opcjonalny).
+* `delay_evaluation`: opóźnia pierwszą ocenę zasad dla określonej liczby interwałów (parametr opcjonalny).
 
 
 ```Python
@@ -238,17 +238,17 @@ from azureml.train.hyperdrive import MedianStoppingPolicy
 early_termination_policy = MedianStoppingPolicy(evaluation_interval=1, delay_evaluation=5)
 ```
 
-W tym przykładzie zasady wczesnej zakończenia są stosowane w każdym interwale, rozpoczynając od okresu ewaluacyjnego 5. Uruchomienie jest zatrzymane w przedziale 5, jeśli jego Najlepsza Metryka podstawowa jest gorsza niż wartość mediana średnich wartości z interwałów 1:5 dla wszystkich przebiegów szkoleniowych.
+W tym przykładzie zasady wczesnego zakończenia są stosowane w każdym interwale, począwszy od interwału oceny 5. Przebieg jest zatrzymywany w interwale 5, jeśli jego najlepsza metryka podstawowa jest gorsza niż mediana średnich uruchomionych w interwałach 1:5 we wszystkich przebiegach trenowania.
 
-### <a name="truncation-selection-policy"></a>Zasady wyboru obcinania
+### <a name="truncation-selection-policy"></a>Zasady wyboru przycinania
 
-[Zaznaczenie obcięcia](/python/api/azureml-train-core/azureml.train.hyperdrive.truncationselectionpolicy) powoduje anulowanie procentu najniższych przebiegów wykonywanych w każdym interwale ewaluacyjnym. Przebiegi są porównywane przy użyciu metryki podstawowej. 
+[Wybór przycinania anuluje](/python/api/azureml-train-core/azureml.train.hyperdrive.truncationselectionpolicy) procent najmniej wydajnych przebiegów w każdym interwale oceny. Przebiegi są porównywane przy użyciu metryki podstawowej. 
 
-Te zasady pobierają następujące parametry konfiguracji:
+Te zasady mają następujące parametry konfiguracji:
 
-* `truncation_percentage`: procent najniższych przebiegów wykonywanych w każdym interwale oceny. Wartość całkowita z zakresu od 1 do 99.
+* `truncation_percentage`: procent przebiegów o najniższej wykonywaniu do zakończenia w każdym interwale oceny. Wartość całkowita z wartości od 1 do 99.
 * `evaluation_interval`: (opcjonalnie) częstotliwość stosowania zasad
-* `delay_evaluation`: (opcjonalnie) opóźnia pierwszą ocenę zasad przez określoną liczbę interwałów
+* `delay_evaluation`: (opcjonalnie) opóźnia pierwszą ocenę zasad o określoną liczbę interwałów
 
 
 ```Python
@@ -256,60 +256,60 @@ from azureml.train.hyperdrive import TruncationSelectionPolicy
 early_termination_policy = TruncationSelectionPolicy(evaluation_interval=1, truncation_percentage=20, delay_evaluation=5)
 ```
 
-W tym przykładzie zasady wczesnej zakończenia są stosowane w każdym interwale, rozpoczynając od okresu ewaluacyjnego 5. Przebieg kończy się w interwale 5, jeśli jego wydajność w interwale 5 jest w najmniejszej 20% wydajności wszystkich przebiegów w przedziale 5.
+W tym przykładzie zasady wczesnego zakończenia są stosowane w każdym interwale, począwszy od interwału oceny 5. Przebieg kończy się w interwale 5, jeśli jego wydajność w interwale 5 jest w najniższym 20% wydajności wszystkich przebiegów w interwale 5.
 
-### <a name="no-termination-policy-default"></a>Brak zasad zakończenia (wartość domyślna)
+### <a name="no-termination-policy-default"></a>Brak zasad zakończenia (ustawienie domyślne)
 
-Jeśli żadna zasada nie zostanie określona, usługa strojenia parametrów będzie zezwalać na wykonywanie wszystkich operacji szkoleniowych.
+Jeśli żadne zasady nie zostaną określone, usługa dostrajania hiperparametrów pozwoli na ukończenie wszystkich przebiegów trenowania.
 
 ```Python
 policy=None
 ```
 
-### <a name="picking-an-early-termination-policy"></a>Wybieranie zasad wczesnego zakończenia
+### <a name="picking-an-early-termination-policy"></a>Wybieranie zasad wcześniejszego zakończenia
 
-* Aby zapoznać się z zasadami, które zapewniają oszczędności bez kończenia zadań obietnicy, należy wziąć pod uwagę średnią zatrzymywanie zasad z `evaluation_interval` 1 i `delay_evaluation` 5. Są to ustawienia, które mogą zapewnić około 25%-35% oszczędności bez utraty podstawowej metryki (na podstawie naszych danych oceny).
-* Aby uzyskać bardziej agresywne oszczędności, użyj zasad Banditymi z mniejszym dozwolonym użyciem zapasu lub zasad wyboru obcięcia z większym procentem obcięcia.
+* W przypadku zachowawczych zasad, które zapewniają oszczędności bez przerywania obietnicowych zadań, należy wziąć pod uwagę zasady zatrzymywania mediany z `evaluation_interval` wartościami 1 i `delay_evaluation` 5. Są to ustawienia zachowawcze, które mogą zapewnić oszczędności na poziomie około 25–35% bez utraty podstawowej metryki (na podstawie naszych danych oceny).
+* Aby uzyskać bardziej agresywne oszczędności, użyj zasad Bandit Policy z mniejszymi dopuszczalnymi usługami Slack lub Truncation Selection Policy z większym procentem przycinania.
 
 ## <a name="create-and-assign-resources"></a>Tworzenie i przypisywanie zasobów
 
-Kontroluj budżet zasobów, określając maksymalną liczbę przebiegów szkoleniowych.
+Kontroluj budżet zasobów, określając maksymalną liczbę przebiegów trenowania.
 
-* `max_total_runs`: Maksymalna liczba przebiegów szkoleniowych. Musi być liczbą całkowitą z zakresu od 1 do 1000.
-* `max_duration_minutes`: (opcjonalnie) maksymalny czas trwania eksperymentu strojenia parametru w minutach. Uruchamiany po anulowaniu tego czasu trwania.
-
->[!NOTE] 
->Jeśli oba `max_total_runs` i `max_duration_minutes` są określone, eksperyment strojenia parametrów kończy się, gdy zostanie osiągnięty pierwszy z tych dwóch progów.
-
-Ponadto Określ maksymalną liczbę przebiegów szkoleniowych uruchamianych współbieżnie podczas wyszukiwania dostrajania parametrów.
-
-* `max_concurrent_runs`: (opcjonalnie) Maksymalna liczba przebiegów, które mogą być uruchamiane współbieżnie. Jeśli nie zostanie określony, wszystkie uruchomienia są uruchamiane równolegle. Jeśli ta wartość jest określona, musi być liczbą całkowitą z zakresu od 1 do 100.
+* `max_total_runs`: maksymalna liczba przebiegów trenowania. Musi być liczbą całkowitą z od 1 do 1000.
+* `max_duration_minutes`: (opcjonalnie) Maksymalny czas trwania eksperymentu dostrajania hiperparametrów w minutach. Przebiegi po tym czasie trwania zostaną anulowane.
 
 >[!NOTE] 
->Liczba współbieżnych uruchomień jest zależna od zasobów dostępnych w określonym elemencie docelowym obliczeń. Upewnij się, że element docelowy obliczeń ma dostępne zasoby dla żądanego współbieżności.
+>Jeśli określono wartości i , eksperyment `max_total_runs` dostrajania hiperparametrów kończy działanie po osiągnięciu pierwszego z `max_duration_minutes` tych dwóch progów.
+
+Ponadto określ maksymalną liczbę przebiegów trenowania, które mają być uruchamiane współbieżnie podczas wyszukiwania dostrajania hiperparametrów.
+
+* `max_concurrent_runs`: (opcjonalnie) Maksymalna liczba przebiegów, które mogą być uruchamiane współbieżnie. Jeśli nie zostanie określony, wszystkie przebiegi będą uruchamiane równolegle. Jeśli jest określony, musi być liczbą całkowitą z zakresie od 1 do 100.
+
+>[!NOTE] 
+>Liczba współbieżnych przebiegów jest określana na podstawie zasobów dostępnych w określonym docelowym obiektem obliczeniowym. Upewnij się, że docelowy obiekt obliczeniowy ma dostępne zasoby dla żądanej współbieżności.
 
 ```Python
 max_total_runs=20,
 max_concurrent_runs=4
 ```
 
-Ten kod umożliwia skonfigurowanie eksperymentu strojenia parametrów w celu użycia maksymalnie 20 łącznych uruchomień z czterema konfiguracjami jednocześnie.
+Ten kod konfiguruje eksperyment dostrajania hiperparametrów tak, aby używać maksymalnie 20 przebiegów, uruchamiając cztery konfiguracje jednocześnie.
 
-## <a name="configure-hyperparameter-tuning-experiment"></a>Konfigurowanie eksperymentu strojenia parametrów
+## <a name="configure-hyperparameter-tuning-experiment"></a>Konfigurowanie eksperymentu dostrajania hiperparametrów
 
-Aby [skonfigurować eksperyment strojenia parametrów](/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig) , podaj następujące elementy:
-* Zdefiniowany obszar wyszukiwania parametru
-* Zasady wczesnego zakończenia
-* Podstawowa metryka
-* Ustawienia przydziału zasobów
+Aby [skonfigurować eksperyment dostrajania hiperparametrów,](/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig) podaj następujące informacje:
+* Zdefiniowana przestrzeń wyszukiwania hiperparametrów
+* Twoje zasady wcześniejszego zakończenia
+* Metryka podstawowa
+* Ustawienia alokacji zasobów
 * ScriptRunConfig `script_run_config`
 
-ScriptRunConfig to skrypt szkoleniowy, który będzie uruchamiany przy użyciu parametrów z próbkami. Definiuje zasoby na zadanie (jeden lub wiele węzłów) oraz miejsce docelowe obliczeń do użycia.
+ScriptRunConfig to skrypt trenowania, który będzie uruchamiany z próbkami hiperparametrów. Definiuje ona zasoby na zadanie (jednowęzłowe lub wielowęzłowe) oraz docelowy obiekt obliczeniowy do użycia.
 
 > [!NOTE]
->Obiekt docelowy obliczeń używany w programie `script_run_config` musi mieć wystarczającą ilość zasobów do spełnienia poziomu współbieżności. Aby uzyskać więcej informacji na temat ScriptRunConfig, zobacz [Konfigurowanie przebiegów szkoleniowych](how-to-set-up-training-targets.md).
+>Docelowy obiekt obliczeniowy używany w programie musi mieć wystarczającą ilość zasobów, aby spełnić wymagania poziomu `script_run_config` współbieżności. Aby uzyskać więcej informacji na temat polecenia ScriptRunConfig, zobacz Configure training runs (Konfigurowanie [przebiegów trenowania).](how-to-set-up-training-targets.md)
 
-Konfigurowanie eksperymentu strojenia parametrów:
+Skonfiguruj eksperyment dostrajania hiperparametrów:
 
 ```Python
 from azureml.train.hyperdrive import HyperDriveConfig
@@ -332,9 +332,9 @@ hd_config = HyperDriveConfig(run_config=script_run_config,
                              max_concurrent_runs=4)
 ```
 
-`HyperDriveConfig`Ustawia parametry przesłane do `ScriptRunConfig script_run_config` . `script_run_config`, Z kolei, przekazuje parametry do skryptu szkoleniowego. Powyższy fragment kodu jest pobierany z przykładowego [uczenia się notesu, dostrajania parametrów i wdrażania przy użyciu PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch). W tym przykładzie `learning_rate` `momentum` Parametry i zostaną dostrojone. Wczesne zatrzymanie przebiegów zostanie określone przez `BanditPolicy` , która zatrzymuje przebieg, którego Podstawowa metryka znajduje się poza `slack_factor` (zobacz [odwołanie do klasy BanditPolicy](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy)). 
+Ustawia `HyperDriveConfig` parametry przekazywane do `ScriptRunConfig script_run_config` . Z `script_run_config` kolei parametr przekazuje do skryptu trenowania. Powyższy fragment kodu pochodzi z przykładowego notesu [Trenuj, dostrajanie hiperparametryczne i wdrażaj za pomocą programu PyTorch.](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch) W tym przykładzie `learning_rate` parametry `momentum` i zostaną dostrojone. Wczesne zatrzymywanie przebiegów będzie określane przez parametr , który zatrzymuje przebieg, którego metryka podstawowa znajduje się poza parametrem (zobacz informacje o klasach `BanditPolicy` `slack_factor` [BanditPolicy).](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy) 
 
-Poniższy kod z przykładu pokazuje, w jaki sposób wartości są odbierane, analizowane i przenoszone do funkcji skryptu szkoleniowego `fine_tune_model` :
+Poniższy kod z przykładu pokazuje, jak strojone wartości są odbierane, analizowane i przekazywane do funkcji skryptu `fine_tune_model` trenowania:
 
 ```python
 # from pytorch_train.py
@@ -360,11 +360,11 @@ def main():
 ```
 
 > [!Important]
-> Każde uruchomienie każdego z parametrów powoduje ponowne uruchomienie szkolenia od podstaw, w tym Odbudowywanie modelu i _wszystkich modułów ładujących dane_. Możesz zminimalizować ten koszt przy użyciu potoku Azure Machine Learning lub ręcznego procesu, aby jak najszybciej przygotować dane przed uruchomieniem szkolenia. 
+> Każdy przebieg hiperparametru powoduje ponowne uruchomienie trenowania od podstaw, w tym ponowne skompilowanie modelu i _wszystkich modułu ładującego dane_. Ten koszt można zminimalizować, używając potoku Azure Machine Learning lub procesu ręcznego, aby przygotować jak najwięcej danych przed przebiegami trenowania. 
 
-## <a name="submit-hyperparameter-tuning-experiment"></a>Prześlij eksperyment strojenia parametru
+## <a name="submit-hyperparameter-tuning-experiment"></a>Przesyłanie eksperymentu dostrajania hiperparametrów
 
-Po zdefiniowaniu konfiguracji strojenia parametru [Prześlij eksperyment](/python/api/azureml-core/azureml.core.experiment%28class%29#submit-config--tags-none----kwargs-):
+Po zdefiniowaniu konfiguracji dostrajania hiperparametrów [prześlij eksperyment](/python/api/azureml-core/azureml.core.experiment%28class%29#submit-config--tags-none----kwargs-):
 
 ```Python
 from azureml.core.experiment import Experiment
@@ -372,15 +372,15 @@ experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hd_config)
 ```
 
-## <a name="warm-start-hyperparameter-tuning-optional"></a>Dostrajanie parametru uruchomienia ciepłego (opcjonalnie)
+## <a name="warm-start-hyperparameter-tuning-optional"></a>Dostrajanie hiperparametrów na gorąco początek (opcjonalnie)
 
-Znalezienie najlepszych wartości parametrów dla modelu może być procesem iteracyjnym. Możesz ponownie użyć wiedzy z pięciu poprzednich przebiegów, aby przyspieszyć dostrajanie parametrów.
+Znalezienie najlepszych wartości hiperparametrów dla modelu może być procesem iteracyjnym. Możesz ponownie użyć wiedzy z pięciu poprzednich przebiegów, aby przyspieszyć dostrajanie hiperparametrów.
 
-Uruchamianie ciepłe jest obsługiwane w różny sposób w zależności od metody próbkowania:
-- **Bayesowskie próbkowanie**: próby z poprzedniego przebiegu są używane jako wcześniejsza wiedza, aby wybrać nowe przykłady i zwiększyć podstawową metrykę.
-- **Próbkowanie losowe** lub **próbkowanie siatki**: wczesne zakończenie korzystania z wiedzy z poprzednich przebiegów, aby określić niewłaściwie wykonywane uruchomienia. 
+Uruchamianie na ciepło jest obsługiwane inaczej w zależności od metody próbkowania:
+- **Próbkowanie bayesów:** Próby z poprzedniego uruchomienia są używane jako wcześniejsza wiedza do pobierania nowych próbek i ulepszania podstawowej metryki.
+- **Próbkowanie losowe** **lub próbkowanie siatki:** Wczesne zakończenie używa wiedzy z poprzednich przebiegów w celu określenia przebiegów o niskiej jakości. 
 
-Określ listę przebiegów nadrzędnych, z których chcesz zacząć uruchamiać.
+Określ listę przebiegów nadrzędnych, z których chcesz rozpocząć ciepło.
 
 ```Python
 from azureml.train.hyperdrive import HyperDriveRun
@@ -390,9 +390,9 @@ warmstart_parent_2 = HyperDriveRun(experiment, "warmstart_parent_run_ID_2")
 warmstart_parents_to_resume_from = [warmstart_parent_1, warmstart_parent_2]
 ```
 
-Jeśli eksperyment strojenia parametrów zostanie anulowany, można wznowić przebiegi szkoleniowe z ostatniego punktu kontrolnego. Jednak skrypt szkoleniowy musi obsługiwać logikę punktów kontrolnych.
+Jeśli eksperyment dostrajania hiperparametrów zostanie anulowany, możesz wznowić przebiegi trenowania od ostatniego punktu kontrolnego. Jednak skrypt trenowania musi obsługiwać logikę punktów kontrolnych.
 
-Uruchomienie szkolenia musi używać tej samej konfiguracji z parametrami i zainstalowała foldery wyjściowe. Skrypt szkoleniowy musi akceptować `resume-from` argument, który zawiera punkt kontrolny lub pliki modelu, z których ma zostać wznowione uruchomienie szkolenia. Poszczególne przebiegi szkoleniowe można wznowić, korzystając z następującego fragmentu kodu:
+Przebieg trenowania musi korzystać z tej samej konfiguracji hiperparametrów i zainstalowane foldery danych wyjściowych. Skrypt trenowania musi akceptować argument , który zawiera pliki punktu kontrolnego lub `resume-from` modelu, z których ma zostać wznowiony przebieg trenowania. Poszczególne przebiegi trenowania można wznowić przy użyciu następującego fragmentu kodu:
 
 ```Python
 from azureml.core.run import Run
@@ -402,7 +402,7 @@ resume_child_run_2 = Run(experiment, "resume_child_run_ID_2")
 child_runs_to_resume = [resume_child_run_1, resume_child_run_2]
 ```
 
-Możesz skonfigurować eksperyment strojenia parametrów, aby rozpocząć pracę z poprzedniego eksperymentu lub wznowić indywidualne uruchomienie szkolenia przy użyciu parametrów opcjonalnych `resume_from` i `resume_child_runs` konfiguracji:
+Eksperyment dostrajania hiperparametrów można skonfigurować tak, aby rozgrzewał się z poprzedniego eksperymentu, lub wznowić poszczególne przebiegi trenowania przy użyciu parametrów opcjonalnych i `resume_from` `resume_child_runs` w konfiguracji:
 
 ```Python
 from azureml.train.hyperdrive import HyperDriveConfig
@@ -418,48 +418,48 @@ hd_config = HyperDriveConfig(run_config=script_run_config,
                              max_concurrent_runs=4)
 ```
 
-## <a name="visualize-hyperparameter-tuning-runs"></a>Wizualizacja przebiegów strojenia parametrów
+## <a name="visualize-hyperparameter-tuning-runs"></a>Wizualizowanie przebiegów dostrajania hiperparametrów
 
-Możesz wizualizować przebiegi strojenia parametrów w programie Azure Machine Learning Studio lub użyć widżetu Notes.
+Możesz zwizualizować przebiegi dostrajania hiperparametrów w Azure Machine Learning studio lub użyć widżetu notesu.
 
 ### <a name="studio"></a>Studio
 
-Wszystkie przebiegi strojenia parametrów można wizualizować w [Azure Machine Learning Studio](https://ml.azure.com). Aby uzyskać więcej informacji na temat sposobu wyświetlania eksperymentu w portalu, zobacz [Wyświetlanie rekordów uruchamiania w Studio](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal).
+Wszystkie przebiegi dostrajania hiperparametrów można wizualizować w Azure Machine Learning studio [.](https://ml.azure.com) Aby uzyskać więcej informacji na temat wyświetlania eksperymentu w portalu, zobacz [Wyświetlanie rekordów przebiegów w studio.](how-to-log-view-metrics.md#view-the-experiment-in-the-web-portal)
 
-- **Wykres metryk**: Ta Wizualizacja śledzi metryki zarejestrowane dla każdego podrzędnego przebiegu na dysku przez okres strojenia parametru. Każdy wiersz reprezentuje uruchomienie podrzędne, a każdy punkt mierzy podstawową wartość metryki w tej iteracji środowiska uruchomieniowego.  
+- **Wykres metryk:** ta wizualizacja śledzi metryki zarejestrowane dla każdego uruchomienia podrzędnego funkcji hyperdrive w czasie trwania dostrajania hiperparametryowego. Każdy wiersz reprezentuje przebieg podrzędny, a każdy punkt mierzy wartość podstawowej metryki w tej iteracji środowiska uruchomieniowego.  
 
-    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-metrics.png" alt-text="Wykres metryk dostrajania parametrów":::
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-metrics.png" alt-text="Wykres metryk dostrajania hiperparametrów":::
 
-- **Wykres równoległych współrzędnych**: Ta Wizualizacja przedstawia korelację między podstawową wydajnością metryki i poszczególnymi wartościami parametrów. Wykres jest interaktywny poprzez przenoszenie osi (kliknij i przeciągnij według etykiety osi), a następnie wyróżnij wartości na jednej osi (kliknij i przeciągnij pionowo wzdłuż jednej osi, aby zaznaczyć zakres żądanych wartości).
+- **Wykres współrzędnych równoległych:** ta wizualizacja przedstawia korelację między wydajnością metryki podstawowej a poszczególnymi wartościami hiperparametrów. Wykres jest interakcyjny za pośrednictwem przesuwania osi (klikanie i przeciąganie według etykiety osi) oraz wyróżnianie wartości na jednej osi (kliknięcie i przeciągnięcie w pionie wzdłuż jednej osi w celu wyróżnienia zakresu żądanych wartości).
 
-    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates.png" alt-text="Wykres współrzędnych równoległych strojenia parametrów":::
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates.png" alt-text="Wykres współrzędnych dostrajania hiperparametrów":::
 
-- **Wykres punktowy 2-wymiarowy**: wizualizacja pokazuje korelację między dwoma pojedynczymi parametrami oraz skojarzoną z nią podstawową wartość metryki.
+- **Dwuwymiarowy wykres punktowy:** ta wizualizacja przedstawia korelację między dowolnymi dwoma poszczególnymi hiperparametrami wraz ze skojarzoną z nimi wartością metryki podstawowej.
 
-    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-2-dimensional-scatter.png" alt-text="Wykres punktowy strojenia Hyparameter 2-wymiarowego":::
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-2-dimensional-scatter.png" alt-text="Strojenie hiperparametryczne dwuwymiarowego wykresu punktowego":::
 
-- **Wykres punktowy** trójwymiarowy: wizualizacja jest taka sama jak 2D, ale pozwala na trzy parametry wymiarów korelacji z podstawową wartością metryki. Możesz również kliknąć i przeciągnąć, aby zmienić orientację wykresu, aby wyświetlić różne korelacje w przestrzeni trójwymiarowej.
+- **3-wymiarowy wykres** punktowy: ta wizualizacja jest taka sama jak 2D, ale umożliwia trzy hiperparametryczne wymiary korelacji z podstawową wartością metryki. Możesz również kliknąć i przeciągnąć, aby zmienić orientację wykresu w celu wyświetlenia różnych korelacji w przestrzeni 3D.
 
-    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-3-dimensional-scatter.png" alt-text="Wykres punktowy strojenia Hyparameter 3-wymiarowego":::
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-3-dimensional-scatter.png" alt-text="Strojenie hiperparametryczne 3-wymiarowego wykresu punktowego":::
 
 ### <a name="notebook-widget"></a>Widżet notesu
 
-Za pomocą [widżetu Notes](/python/api/azureml-widgets/azureml.widgets.rundetails) można wizualizować postępy przebiegów szkoleniowych. Poniższy fragment kodu wizualizuje wszystkie przebiegi strojenia parametrów w jednym miejscu w notesie Jupyter:
+Użyj [widżetu Notes,](/python/api/azureml-widgets/azureml.widgets.rundetails) aby zwizualizować postęp przebiegów trenowania. Poniższy fragment kodu wizualizuje wszystkie przebiegi dostrajania hiperparametrów w jednym miejscu w notesie Jupyter:
 
 ```Python
 from azureml.widgets import RunDetails
 RunDetails(hyperdrive_run).show()
 ```
 
-Ten kod przedstawia tabelę zawierającą szczegóły dotyczące szkoleń dla każdej konfiguracji parametrów.
+Ten kod wyświetla tabelę ze szczegółami przebiegów trenowania dla każdej konfiguracji hiperparametrów.
 
-:::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-table.png" alt-text="Tabela strojenia parametru":::
+:::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-table.png" alt-text="Tabela dostrajania hiperparametrów":::
 
-Możesz również wizualizować wydajność poszczególnych przebiegów w miarę postępów szkoleniowych.
+Można również wizualizować wydajność każdego z przebiegów w trakcie trenowania.
 
-## <a name="find-the-best-model"></a>Znajdź najlepszy model
+## <a name="find-the-best-model"></a>Znajdowanie najlepszego modelu
 
-Po zakończeniu wszystkich przebiegów strojenia parametrów należy określić największą wykonywaną konfigurację i wartości parametrów:
+Po zakończeniu wszystkich przebiegów dostrajania hiperparametrów zidentyfikuj najlepszą konfigurację i wartości hiperparametrów:
 
 ```Python
 best_run = hyperdrive_run.get_best_run_by_primary_metric()
@@ -473,13 +473,13 @@ print('\n keep probability:',parameter_values[5])
 print('\n batch size:',parameter_values[7])
 ```
 
-## <a name="sample-notebook"></a>Przykładowy Notes
+## <a name="sample-notebook"></a>Przykładowy notes
 
-Zapoznaj się z notesem uczenia-*-* w tym folderze:
-* [Jak używać — platforma Azure/ml — platformy](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks)
+Zapoznaj się z notesami train-hyperparameter-* w tym folderze:
+* [how-to-use-azureml/ml-frameworks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Następne kroki
-* [Śledzenie eksperymentu](how-to-track-experiments.md)
+* [Śledzenie eksperymentu](how-to-log-view-metrics.md)
 * [Wdrażanie przeszkolonego modelu](how-to-deploy-and-where.md)

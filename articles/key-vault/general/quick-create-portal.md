@@ -1,5 +1,5 @@
 ---
-title: Szybki start — tworzenie Azure Key Vault pomocą Azure Portal
+title: Szybki start — tworzenie aplikacji Azure Key Vault pomocą Azure Portal
 description: Przewodnik Szybki start przedstawiający sposób tworzenia aplikacji Azure Key Vault użyciu Azure Portal
 services: key-vault
 author: msmbaldwin
@@ -10,16 +10,16 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 12/08/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 2d8bfdf3a4ad8b713fb6c937d61fa437fc7977f2
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 93c0c77ad36be82802fd53e4130e48ac431b0280
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749676"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107819290"
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-portal"></a>Szybki start: tworzenie magazynu kluczy przy użyciu Azure Portal
 
-Azure Key Vault to usługa w chmurze, która zapewnia bezpieczny magazyn [kluczy,](../keys/index.yml) [wpisów tajnych](../secrets/index.yml) [i certyfikatów.](../certificates/index.yml) Aby uzyskać więcej informacji na Key Vault, zobacz [Informacje o Azure Key Vault](overview.md); Aby uzyskać więcej informacji na temat tego, co można przechowywać w magazynie kluczy, zobacz About keys, secrets, and certificates (Informacje o [kluczach, wpisach tajnych i certyfikatach).](about-keys-secrets-certificates.md)
+Azure Key Vault to usługa w chmurze, która zapewnia bezpieczny magazyn [kluczy,](../keys/index.yml) [wpisów tajnych](../secrets/index.yml) [i certyfikatów.](../certificates/index.yml) Aby uzyskać więcej informacji na Key Vault, zobacz [Informacje o Azure Key Vault](overview.md); Aby uzyskać więcej informacji na temat tego, co można przechowywać w magazynie kluczy, zobacz [About keys, secrets, and certificates (Informacje o kluczach, wpisach tajnych i certyfikatach).](about-keys-secrets-certificates.md)
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -69,5 +69,5 @@ Jeśli nie będą Ci one już potrzebne, usuń grupę zasobów, a zostanie takż
 W tym przewodniku Szybki start utworzono Key Vault pomocą Azure Portal. Aby dowiedzieć się więcej Key Vault o tym, jak zintegrować ją z aplikacjami, przejdź do poniższych artykułów.
 
 - Przeczytaj omówienie [Azure Key Vault](overview.md)
-- Przejrzyj omówienie [Azure Key Vault zabezpieczeń](security-overview.md)
+- Zapoznaj się z [omówieniem Azure Key Vault zabezpieczeń](security-features.md)
 - Zobacz Azure Key Vault [dewelopera](developers-guide.md)

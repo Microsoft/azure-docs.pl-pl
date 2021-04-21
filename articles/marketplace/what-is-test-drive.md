@@ -1,97 +1,97 @@
 ---
-title: Co to jest wersja testowa? Komercyjne oprogramowanie Microsoft Marketplace
-description: Wyjaśnienie funkcji dysku testowego Marketplace
+title: Co to jest wersja testowa? Platforma handlowa firmy Microsoft
+description: Wyjaśnienie funkcji dysku testowego witryny Marketplace
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 06/19/2020
-ms.openlocfilehash: 193e7bd78046a1d73cb55171c15c9cb6a7278297
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e44d5d94a8dc172962a26f3e0dae9ccbb7f8a865
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96490044"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818894"
 ---
 # <a name="what-is-a-test-drive"></a>Co to jest wersja testowa?
 
-Wersja testowa to doskonały sposób na pokazanie oferty dla potencjalnych klientów, dając im możliwość wypróbowania przed zakupieniem, generując wysoce kwalifikowanych potencjalnych klientów i powodującą zwiększenie konwersji. Wersja testowa umożliwia korzystanie z produktu w rzeczywistym scenariuszu implementacji. Klienci, którzy wypróbuje Twój produkt, pokazują jasny cel zakupu podobnego rozwiązania. Skorzystaj z tej funkcji, postępując zgodnie z bardziej zaawansowanymi potencjalnymi klientami.
+Dysk testowy to doskonały sposób, aby zaprezentować swoją ofertę potencjalnym klientom, dając im możliwość wypróbowania przed zakupem, generowania wysoce kwalifikowanych potencjalnych klientów i uzyskania zwiększonej konwersji. Dysk testowy wprowadza produkt do życia w rzeczywistym scenariuszu implementacji. Klienci, którzy wypróbują Twój produkt, jasno demonstrują zamiar zakupu podobnego rozwiązania. Skorzystaj z tego, korzystając z bardziej zaawansowanych potencjalnych klientów.
 
-Klienci korzystają również z dysku testowego. Przez umożliwienie im wcześniejszego wypróbowania produktu, możesz zmniejszyć liczbę operacji zakupu. Ponadto dysk testowy jest wstępnie zainicjowany, tj. klienci nie muszą pobierać, konfigurować ani konfigurować produktu.
+Klienci korzystają również z dysku testowego. Umożliwienie im wypróbowania najpierw produktu zmniejsza liczbę procesów zakupu. Ponadto wstępnie aprowizowana jest dysk testowy, tzn. klienci nie muszą pobierać, konfigurować ani konfigurować produktu.
 
 ## <a name="how-does-it-work"></a>Jak to działa?
 
-Dyski testowe to wystąpienia zarządzane, które uruchamiają rozwiązanie lub aplikację na żądanie dla klientów, którzy go żądają. Po przypisaniu wystąpienia dysku testowego jest ono dostępne do użycia przez tego klienta przez określony okres. Po zakończeniu okresu zostanie on usunięty w celu utworzenia pokoju dla innego klienta.
+Dyski testowe to wystąpienia zarządzane, które uruchamiają Twoje rozwiązanie lub aplikację na żądanie dla klientów, którzy go zażądają. Po przypisaniu wystąpienia wersji testowej jest ono dostępne do użycia przez tego klienta przez określony czas. Po zakończeniu okresu jest on usuwany w celu utworzenia miejsca dla innego klienta.
 
-Jako wydawca możesz zarządzać ustawieniami dysków testowych w centrum partnerskim i konfigurować je. Szczegóły konfiguracji technicznej różnią się w zależności od typu oferty. Aby uzyskać szczegółowe wskazówki, zobacz [konfigurację techniczną na dysku testowym](./test-drive-technical-configuration.md).
+Jako wydawca konfigurujesz ustawienia dysków testowych i zarządzasz nimi w Partner Center. Szczegóły konfiguracji technicznej różnią się w zależności od typu oferty. Aby uzyskać szczegółowe wskazówki, zobacz [Test drive technical configuration (Konfiguracja techniczna dysku testowego).](./test-drive-technical-configuration.md)
 
-Potencjalni klienci odkrywają swój dysk testowy jako CTA w ramach oferty w witrynie [AppSource](https://appsource.microsoft.com/en-US/). Udostępniają one swoje informacje kontaktowe i akceptują Warunki oferty oraz zasady zachowania poufności informacji, a następnie uzyskują dostęp do wstępnie skonfigurowanego środowiska w celu wypróbowania go przez ustalony okres. Klienci otrzymują praktyczne, samodzielne wersje próbne kluczowych funkcji i korzyści produktu, a ty otrzymujesz cenny potencjalny klient.
+Potencjalni klienci odnajdą Twój testowy dysk jako wezwanie do działania w twojej ofercie w [usłudze AppSource.](https://appsource.microsoft.com/en-US/) Podają informacje kontaktowe i zgadzają się na warunki oferty oraz zasady ochrony prywatności, a następnie uzyskują dostęp do wstępnie skonfigurowanego środowiska w celu wypróbowania go przez ustalony czas. Klienci otrzymują praktyczne, samodzielne wersje próbne najważniejszych funkcji i korzyści twojego produktu, a Ty otrzymujesz cennego potencjalnego klienta.
 
 ## <a name="types-of-test-drives"></a>Typy dysków testowych
 
-Istnieją różne dyski testowe dostępne na rynku komercyjnym dla wybranych ofert w zależności od typu produktu, scenariusza i portalu Marketplace:
+Dostępne są różne dyski testowe na komercyjnej platformie handlowej dla wybranych ofert w zależności od typu produktu, scenariusza i platformy handlowej, na którym się znajdujesz:
 
 - Azure Resource Manager
     - Aplikacje platformy Azure
     - SaaS
     - Virtual Machines
 - Hostowany dysk testowy
-    - Dynamics 365 for Business Central (obecnie nieobsługiwane)
+    - Dynamics 365 for Business Central (obecnie nie jest obsługiwana)
     - Dynamics 365 for Customer Engagement
     - Dynamics 365 for Operations
-- Aplikacja logiki (tylko w trybie obsługi)
+- Aplikacja logiki (tylko w trybie pomocy technicznej)
 - Power BI
 
-Aby uzyskać szczegółowe informacje na temat konfigurowania jednego z tych dysków testowych, zobacz temat [konfiguracja techniczna systemu testowego](./test-drive-technical-configuration.md). 
+Aby uzyskać szczegółowe informacje na temat konfigurowania jednego z tych dysków testowych, zobacz [Konfiguracja techniczna dysku testowego](./test-drive-technical-configuration.md). 
 
-### <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager dysk testowy
+### <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager testowa
 
-Ten szablon wdrożenia zawiera wszystkie zasoby platformy Azure, które składają się na Twoje rozwiązanie. Produkty, które pasują do tego scenariusza, korzystają tylko z zasobów platformy Azure. Dla następujących typów ofert jest dostępny Azure Resource Manager dysk testowy: 
+Ten szablon wdrożenia zawiera wszystkie zasoby platformy Azure, które składają się na Twoje rozwiązanie. Produkty, które pasują do tego scenariusza, używają tylko zasobów platformy Azure. Dysk Azure Resource Manager testowy jest dostępny dla następujących typów ofert: 
 
 - Aplikacje platformy Azure
 - SaaS
 - Maszyny wirtualne
 
 >[!NOTE]
->Jest to jedyna opcja dysku testowego dla ofert dla maszyn wirtualnych i aplikacji platformy Azure.
+>Jest to jedyna opcja wersji testowej dla maszyn wirtualnych i ofert aplikacji platformy Azure.
 
 ### <a name="hosted-test-drive-recommended"></a>Hostowany dysk testowy (zalecane)
 
-Hostowany dysk testowy eliminuje złożoność Instalatora przez umożliwienie hostowi firmy Microsoft i konserwację usługi, która wykonuje wstępne Inicjowanie obsługi administracyjnej użytkowników i zwalnianie. Jeśli masz ofertę na Microsoft AppSource, skompiluj dysk testowy, aby połączyć się z wystąpieniem programu Dynamics AX/CRM. Można użyć następujących typów ofert AppSource:
+Hostowany dysk testowy usuwa złożoność konfiguracji, umożliwiając hostowi firmy Microsoft i konserwowanie usługi, która wykonuje aprowizowanie i cokaprowizowanie użytkowników na dysku testowym. Jeśli masz ofertę na platformie Microsoft AppSource, skompilować dysk testowy, aby nawiązać połączenie z wystąpieniem dynamics AX/CRM. Możesz użyć następujących typów ofert w usłudze AppSource:
 
-- Użyj usługi [Dynamics 365 do zaangażowania klientów](partner-center-portal/create-new-customer-engagement-offer.md) w system zaangażowania klientów, taki jak sprzedaż, usługa, usługa projektu i usługa pola.
-- Użyj usługi [Dynamics 365 dla operacji](partner-center-portal/create-new-operations-offer.md) dla systemu planowania zasobów przedsiębiorstwa (Finanse i operacyjne), takich jak finanse, operacje i produkcja, łańcuch dostaw.
+- Użyj [usługi Dynamics 365 for Customer Engagement](dynamics-365-customer-engage-offer-setup.md) i Power Apps dla systemu Customer Engagement, takiego jak sprzedaż, usługa, usługa projektu i usługa w terenie.
+- Użyj [usługi Dynamics 365 for Operations dla](partner-center-portal/create-new-operations-offer.md) systemu planowania zasobów przedsiębiorstwa Finance and Operations, takiego jak finanse, operacje i produkcja, łańcuch dostaw.
 
-### <a name="logic-app-test-drive"></a>Dysk testowy aplikacji logiki
+### <a name="logic-app-test-drive"></a>Test aplikacji logiki
 
-Ten typ dysku testowego nie jest hostowany przez firmę Microsoft i używa szablonów Azure Resource Manager (ARM) dla typów ofert Dynamics AX/CRM. Musisz uruchomić szablon ARM, aby utworzyć wymagane zasoby w ramach subskrypcji platformy Azure. Wersja testowa aplikacji logiki jest obecnie dostępna tylko w trybie obsługi i nie jest zalecana przez firmę Microsoft w celu uzyskania szczegółowych informacji na temat konfigurowania dysku testowego aplikacji logiki, zobacz temat [konfiguracja techniczna testowa](./test-drive-technical-configuration.md).
+Ten typ dysku testowego nie jest hostowany przez firmę Microsoft i używa szablonów Azure Resource Manager (ARM) dla typów ofert Dynamics AX/CRM. Aby utworzyć wymagane zasoby w subskrypcji platformy Azure, należy uruchomić szablon usługi ARM. Usługa Logic App Test Drive jest obecnie dostępna tylko w trybie pomocy technicznej i nie jest zalecana przez firmę Microsoft. Aby uzyskać szczegółowe informacje na temat konfigurowania dysku testowego aplikacji logiki, zobacz Test drive technical configuration (Konfiguracja techniczna dysku [testowego).](./test-drive-technical-configuration.md)
 
-### <a name="power-bi-test-drive"></a>Power BI dysk testowy
+### <a name="power-bi-test-drive"></a>Power BI testowa
 
-Jest to po prostu osadzony link do pulpitu nawigacyjnego skompilowanego niestandardowo. Każdy produkt, który demonstruje tylko interaktywną wizualizację Power BI, powinien używać tego typu dysku testowego.
+Jest to po prostu osadzony link do niestandardowego pulpitu nawigacyjnego. Każdy produkt, który demonstruje tylko Power BI wizualizacji, powinien używać tego typu dysku testowego.
 
-## <a name="transforming-examples"></a>Przykłady transformacji
+## <a name="transforming-examples"></a>Przekształcanie przykładów
 
-Proces przekształcania architektury zasobów na dysk testowy może być zniechęcające. Zapoznaj się z tymi przykładami, jak najlepiej przetwarzać bieżące architektury.
+Proces przekształcania architektury zasobów w dysk testowy może być przytłaczający. Zapoznaj się z tymi przykładami, aby dowiedzieć się, jak najlepiej przekształcić bieżące architektury.
 
-[Przekształcanie szablonu witryny sieci Web w dysk testowy](https://github.com/Azure/AzureTestDrive/wiki/Transforming-Website-Deployment-Template-for-Test-Drive)
+[Przekształcanie szablonu witryny internetowej w dysk testowy](https://github.com/Azure/AzureTestDrive/wiki/Transforming-Website-Deployment-Template-for-Test-Drive)
 
 [Przekształcanie szablonu maszyny wirtualnej w dysk testowy](https://github.com/Azure/AzureTestDrive/wiki/Transforming-Virtual-Machine-Deployment-Template-for-Test-Drive)
 
-[Przekształć istniejący szablon Menedżer zasobów na dysk testowy](https://github.com/Azure/AzureTestDrive/wiki/Deploying-Existing-Solutions)
+[Przekształcanie istniejącego Resource Manager szablonu na dysk testowy](https://github.com/Azure/AzureTestDrive/wiki/Deploying-Existing-Solutions)
 
-## <a name="generate-leads-from-your-test-drive"></a>Generuj potencjalni klienci z dysku testowego
+## <a name="generate-leads-from-your-test-drive"></a>Generowanie potencjalnych klientów z dysku testowego
 
-Komercyjny dysk testowy portalu Marketplace jest doskonałym narzędziem dla rynków. Firma Microsoft zaleca, aby podczas uruchamiania w celu wygenerowania większej liczby potencjalnych klientów dla Twojej firmy uwzględnić je w działaniach na rynku. Aby uzyskać szczegółowe wskazówki, zobacz temat [potencjalni klienci z oferty komercyjnej witryny Marketplace](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads.md).
+Testowa platforma handlowa to doskonałe narzędzie dla marketerów. Zalecamy uwzględnienie go w działaniach w zakresie wprowadzenia na rynek po uruchomieniu w celu wygenerowania większej liczby potencjalnych klientów dla swojej firmy. Aby uzyskać szczegółowe wskazówki, zobacz Customer leads from your commercial marketplace offer (Potencjalni klienci [z oferty platformy handlowej).](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads.md)
 
-Jeśli zamkniesz pracę z potencjalnym klientem testowym, pamiętaj o zarejestrowaniu go na platformie [Microsoft Partner Sales Connect](https://support.microsoft.com/help/3155788/getting-started-with-microsoft-partner-sales-connect). Ponadto chcielibyśmy poznać klienta usługi WINS, gdzie dysk testowy odgrywa rolę.
+Jeśli zamkniesz umowę z potencjalnym użytkownikiem testowym, zarejestruj go w witrynie [Microsoft Partner Sales Connect.](https://support.microsoft.com/help/3155788/getting-started-with-microsoft-partner-sales-connect) Ponadto chcielibyśmy się dosyć o tym, że klienci wygrają miejsce, w którym w roli odgrywała dysk testowy.
 
 ## <a name="other-resources"></a>Inne zasoby
 
-Dodatkowe zasoby dotyczące stacji testowych:
+Dodatkowe zasoby na dysku testowym:
 
-- [Najlepsze rozwiązania dotyczące wersji testowej](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
+- [Najlepsze rozwiązania dotyczące dysków testowych](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Przegląd](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF; upewnij się, że blokowanie wyskakujących okienek jest wyłączone)
 
 ## <a name="next-step"></a>Następny krok

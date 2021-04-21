@@ -1,6 +1,6 @@
 ---
 title: Przykładowy skrypt programu Azure PowerShell — konfigurowanie zasad limitu szybkości | Microsoft Docs
-description: Dowiedz się, jak skonfigurować zasady ograniczania szybkości za pomocą Azure PowerShell. Zobacz przykładowy skrypt i wyświetlenie dodatkowych dostępnych zasobów.
+description: Dowiedz się, jak skonfigurować zasady limitu szybkości za pomocą Azure PowerShell. Zobacz przykładowy skrypt i wyświetl dodatkowe dostępne zasoby.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -11,17 +11,17 @@ ms.workload: mobile
 ms.topic: sample
 ms.date: 11/16/2017
 ms.author: apimpm
-ms.custom: mvc
-ms.openlocfilehash: 40bbd520eb265b70f95c6b365b590727af8ea144
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: f78639b4f693b5dd0d414bf603b5518ddd2bf5da
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87851294"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818606"
 ---
 # <a name="set-up-rate-limit-policy"></a>Konfigurowanie zasad limitu szybkości
 
-Ten przykładowy skrypt służy do ustawiania zasad limitu szybkości. 
+Ten przykładowy skrypt konfiguruje zasady limitu szybkości. 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

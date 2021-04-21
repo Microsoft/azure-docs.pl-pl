@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/14/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 37e67ad869af23b51497e1497865f620bae612aa
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: b8690b5ce3e2aee9a554d3e0682161b86264e124
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749190"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818537"
 ---
 # <a name="client-libraries-for-azure-key-vault"></a>Biblioteki klienckie dla Azure Key Vault
 
@@ -35,4 +35,4 @@ Każdy zestaw SDK ma oddzielne biblioteki klienta dla magazynu kluczy, wpisów t
 
 - Zobacz przewodnik [Azure Key Vault deweloperów](developers-guide.md)
 - Przeczytaj więcej na [temat uwierzytelniania w magazynie kluczy](authentication.md)
-- Przeczytaj więcej na [temat zabezpieczania dostępu do Key Vault](security-overview.md)
+- Przeczytaj więcej na [temat zabezpieczania dostępu do Key Vault](security-features.md)

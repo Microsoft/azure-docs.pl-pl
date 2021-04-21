@@ -345,7 +345,7 @@
             - name: Łączenie z usługą Azure Storage (Python)
               displayName: 'blob, get, fileshare, access, mount, download, data lake, datastore'
               href: how-to-access-data.md
-            - name: Dostęp do magazynu na podstawie tożsamości
+            - name: Dostęp danych oparty na tożsamości do magazynu
               displayName: 'blob, access, data lake, datastore, managed identity'
               href: how-to-identity-based-data-access.md
             - name: Pobieranie danych z magazynu danych (Python)
@@ -390,15 +390,12 @@
           href: how-to-migrate-from-estimators-to-scriptrunconfig.md
         - name: Śledzenie i monitorowanie trenowania
           items:
-            - name: 'Uruchamianie, monitorowanie i anulowanie przebiegów'
+            - name: 'Śledzenie, monitorowanie i analizowanie przebiegów'
               displayName: 'cancel, fail, status, child run'
-              href: how-to-manage-runs.md
-            - name: Włączanie dzienników
-              displayName: 'troubleshoot, log, files, tracing'
-              href: how-to-track-experiments.md
-            - name: Wyświetlanie dzienników i metryk przebiegów
+              href: how-to-track-monitor-analyze-runs.md
+            - name: Dziennik & metryki i pliki dziennika
               displayName: 'troubleshoot, log, files, tracing, metrics'
-              href: how-to-monitor-view-training-logs.md
+              href: how-to-log-view-metrics.md
             - name: Wizualizacja przebiegów za pomocą narzędzia TensorBoard
               displayName: 'log, monitor, metrics'
               href: how-to-monitor-tensorboard.md
@@ -459,7 +456,7 @@
           href: how-to-understand-automated-ml.md
         - name: Korzystanie z modelu ONNX w aplikacji .NET
           href: how-to-use-automl-onnx-model-dotnet.md
-        - name: Rozwiązywanie problemów z zautomatyzowanym uczenia maszynowego
+        - name: Rozwiązywanie problemów z zautomatyzowanym mle
           href: how-to-troubleshoot-auto-ml.md
     - name: Wdrażanie i obsługa modeli
       items:

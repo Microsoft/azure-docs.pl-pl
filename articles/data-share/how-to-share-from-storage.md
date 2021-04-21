@@ -1,136 +1,136 @@
 ---
 title: Udostępnianie i odbieranie danych z usług Azure Blob Storage i Azure Data Lake Storage
-description: Dowiedz się, jak udostępniać i odbierać dane z usługi Azure Blob Storage i Azure Data Lake Storage.
+description: Dowiedz się, jak udostępniać i odbierać dane z Azure Blob Storage i Azure Data Lake Storage.
 author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 02/23/2021
-ms.openlocfilehash: 4db523624922d8ddcb8c1868b84927926d9ed3d5
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.date: 04/20/2021
+ms.openlocfilehash: 59c1ca67c9e93b62890512cda647ffcdf7712f9a
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103814"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107819272"
 ---
 # <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Udostępnianie i odbieranie danych z usług Azure Blob Storage i Azure Data Lake Storage
 
 [!INCLUDE[appliesto-storage](includes/appliesto-storage.md)]
 
-Udział danych platformy Azure obsługuje udostępnianie oparte na migawce z konta magazynu. W tym artykule wyjaśniono, jak udostępniać i odbierać dane z usługi Azure Blob Storage, Azure Data Lake Storage Gen1 i Azure Data Lake Storage Gen2.
+Azure Data Share obsługuje udostępnianie na podstawie migawek z konta magazynu. W tym artykule wyjaśniono, jak udostępniać i odbierać dane z Azure Blob Storage, Azure Data Lake Storage Gen1 i Azure Data Lake Storage Gen2.
 
-Udział danych platformy Azure obsługuje udostępnianie plików, folderów i systemów plików z Azure Data Lake Gen1 i Azure Data Lake Gen2. Obsługuje także udostępnianie obiektów blob, folderów i kontenerów z usługi Azure Blob Storage. Obecnie obsługiwane są tylko blokowe obiekty blob. Dane udostępniane z tych źródeł mogą być odbierane przez Azure Data Lake Gen2 lub Blob Storage platformy Azure.
+Azure Data Share obsługuje udostępnianie plików, folderów i systemów plików z usług Azure Data Lake Gen1 i Azure Data Lake Gen2. Obsługuje również udostępnianie obiektów blob, folderów i kontenerów z Azure Blob Storage. Możesz udostępniać blokowe, uzupełnialne lub stronicowe obiekty blob, które są odbierane jako blokowe obiekty blob. Dane udostępniane z tych źródeł mogą być odbierane przez usługę Azure Data Lake Gen2 lub Azure Blob Storage.
 
-Gdy systemy plików, kontenery i foldery są udostępniane w ramach udostępniania opartego na migawce, użytkownicy danych mogą wybrać pełną kopię danych udziału. Można też użyć funkcji migawki przyrostowej, aby skopiować tylko nowe lub zaktualizowane pliki. Możliwość tworzenia migawek przyrostowych zależy od czasu ostatniej modyfikacji plików. 
+Gdy systemy plików, kontenery lub foldery są udostępniane w trybie udostępniania opartego na migawkach, użytkownicy danych mogą zdecydować się na tworzenie pełnej kopii danych udziału. Mogą też używać funkcji migawki przyrostowej do kopiowania tylko nowych lub zaktualizowanych plików. Możliwość tworzenia migawek przyrostowych jest oparta na czasie ostatniej modyfikacji plików. 
 
-Istniejące pliki, które mają taką samą nazwę, są zastępowane podczas tworzenia migawki. Plik usunięty ze źródła nie został usunięty z obiektu docelowego. Puste podfoldery w źródle nie są kopiowane do obiektu docelowego. 
+Istniejące pliki o tej samej nazwie są zastępowane podczas tworzenia migawki. Plik, który został usunięty ze źródła, nie jest usuwany na komputerze docelowym. Puste podfoldery w źródle nie są kopiowane do obiektu docelowego. 
 
 ## <a name="share-data"></a>Udostępnianie danych
 
-Skorzystaj z informacji w poniższych sekcjach, aby udostępnić dane za pomocą udziału danych platformy Azure. 
+Skorzystaj z informacji w poniższych sekcjach, aby udostępnić dane przy użyciu Azure Data Share. 
 ### <a name="prerequisites-to-share-data"></a>Wymagania wstępne dotyczące udostępniania danych
 
 * Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
-* Znajdź adres e-mail logowania odbiorcy platformy Azure. Alias adresu e-mail adresata nie będzie działał w Twoich celach.
-* Jeśli źródłowy magazyn danych platformy Azure znajduje się w innej subskrypcji platformy Azure niż ta, w której utworzysz zasób udziału danych, zarejestruj [dostawcę zasobów Microsoft. datashare](concepts-roles-permissions.md#resource-provider-registration) w subskrypcji, w której znajduje się magazyn danych platformy Azure. 
+* Znajdź adres e-mail logowania do platformy Azure odbiorcy. Alias adresu e-mail adresata nie będzie działać dla Twoich celów.
+* Jeśli źródłowy magazyn danych platformy Azure znajduje się w innej subskrypcji platformy Azure niż ta, w której utworzysz zasób usługi Data Share, zarejestruj dostawcę zasobów [Microsoft.DataShare](concepts-roles-permissions.md#resource-provider-registration) w subskrypcji, w której znajduje się magazyn danych platformy Azure. 
 
 ### <a name="prerequisites-for-the-source-storage-account"></a>Wymagania wstępne dotyczące źródłowego konta magazynu
 
-* Konto usługi Azure Storage. Jeśli nie masz jeszcze konta, [Utwórz je](../storage/common/storage-account-create.md).
-* Uprawnienie do zapisu na koncie magazynu. Uprawnienie do zapisu w usłudze *Microsoft. Storage/storageAccounts/Write*. Jest częścią roli współautor.
-* Uprawnienie do dodawania przypisania roli do konta magazynu. To uprawnienie jest w *firmie Microsoft. Autoryzacja/przypisania ról/zapis*. Jest częścią roli właściciela. 
+* Konto usługi Azure Storage. Jeśli nie masz jeszcze konta, utwórz [je.](../storage/common/storage-account-create.md)
+* Uprawnienie do zapisu na koncie magazynu. Uprawnienie do zapisu znajduje się *w microsoft.storage/storageAccounts/write.* Jest on częścią roli Współautor.
+* Uprawnienie do dodawania przypisania roli do konta magazynu. To uprawnienie znajduje się w *witrynie Microsoft.Authorization/role assignments/write.* Jest on częścią roli Właściciel. 
 
 ### <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-### <a name="create-a-data-share-account"></a>Tworzenie konta udziału danych
+### <a name="create-a-data-share-account"></a>Tworzenie konta Data Share magazynu
 
-Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure.
+Utwórz zasób Azure Data Share w grupie zasobów platformy Azure.
 
-1. W lewym górnym rogu portalu Otwórz menu, a następnie wybierz pozycję **Utwórz zasób** (+).
+1. W lewym górnym rogu portalu otwórz menu, a następnie wybierz pozycję **Utwórz zasób** (+).
 
-1. Wyszukaj *udział danych*.
+1. Wyszukaj *Data Share*.
 
-1. Wybierz opcję **udział danych** i **Utwórz**.
+1. Wybierz **Data Share** i **utwórz .**
 
-1. Podaj podstawowe szczegóły zasobu udziału danych platformy Azure: 
+1. Podaj podstawowe szczegóły zasobu Azure Data Share zasobów: 
 
      **Ustawienie** | **Sugerowana wartość** | **Opis pola**
     |---|---|---|
     | Subskrypcja | Twoja subskrypcja | Wybierz subskrypcję platformy Azure dla konta udziału danych.|
-    | Grupa zasobów | *Testuj grupę zasobów* | Użyj istniejącej grupy zasobów lub Utwórz grupę zasobów. |
+    | Grupa zasobów | *test-resource-group* | Użyj istniejącej grupy zasobów lub utwórz grupę zasobów. |
     | Lokalizacja | *Wschodnie stany USA 2* | Wybierz region dla konta udziału danych.
-    | Nazwa | *datashareaccount* | Nadaj nazwę swojemu kontu danych. |
+    | Nazwa | *datashareaccount* | Nadaj nazwę kontu udziału danych. |
     | | |
 
-1. Wybierz pozycję **Przegląd + Utwórz**  >  **Utwórz** , aby zainicjować obsługę konta udziału danych. Inicjowanie obsługi nowego konta udziału danych trwa zwykle około 2 minuty. 
+1. Wybierz **pozycję Przeglądanie + tworzenie**  >  **Utwórz,** aby aprowizować konto udziału danych. Aprowizowanie nowego konta udziału danych zwykle trwa około 2 minut. 
 
 1. Po zakończeniu wdrożenia wybierz pozycję **Przejdź do zasobu**.
 
 ### <a name="create-a-share"></a>Tworzenie udziału
 
-1. Przejdź do strony **Przegląd** udziału danych.
+1. Przejdź do strony Przegląd **udziału** danych.
 
-   :::image type="content" source="./media/share-receive-data.png" alt-text="Zrzut ekranu przedstawiający przegląd udziału danych.":::
+   :::image type="content" source="./media/share-receive-data.png" alt-text="Zrzut ekranu przedstawiający omówienie udziału danych.":::
 
-1. Wybierz pozycję **Rozpocznij udostępnianie danych**.
+1. Wybierz **pozycję Rozpocznij udostępnianie danych.**
 
 1. Wybierz przycisk **Utwórz**.   
 
-1. Podaj szczegółowe informacje o udziale. Określ nazwę, typ udziału, opis zawartości udziału i warunki użytkowania (opcjonalnie). 
+1. Podaj szczegóły udziału. Określ nazwę, typ udziału, opis zawartości udziału i warunki użytkowania (opcjonalnie). 
 
     ![Zrzut ekranu przedstawiający szczegóły udziału danych.](./media/enter-share-details.png "Wprowadź szczegóły udziału danych.") 
 
 1. Wybierz opcję **Kontynuuj**.
 
-1. Aby dodać zestawy danych do udziału, wybierz pozycję **Dodaj zestawy danych**. 
+1. Aby dodać zestawy danych do udziału, wybierz **pozycję Dodaj zestawy danych.** 
 
-    ![Zrzut ekranu przedstawiający sposób dodawania zestawów danych do udziału.](./media/datasets.png "Zestawów danych.")
+    ![Zrzut ekranu przedstawiający sposób dodawania zestawów danych do udziału.](./media/datasets.png "Zestawach danych.")
 
-1. Wybierz typ zestawu danych, który ma zostać dodany. Lista typów zestawów danych zależy od tego, czy w poprzednim kroku wybrano opcję Udostępnianie oparte na migawce czy udostępnianie w miejscu. 
+1. Wybierz typ zestawu danych do dodania. Lista typów zestawów danych zależy od tego, czy w poprzednim kroku wybrano udostępnianie oparte na migawkach, czy udostępnianie w miejscu. 
 
-    ![Zrzut ekranu przedstawiający lokalizację, w której ma zostać wybrany typ zestawu danych.](./media/add-datasets.png "Dodaj zestawy danych.")    
+    ![Zrzut ekranu przedstawiający miejsce wybierania typu zestawu danych.](./media/add-datasets.png "Dodawanie zestawów danych.")    
 
-1. Przejdź do obiektu, który chcesz udostępnić. Następnie wybierz pozycję **Dodaj zestawy danych**. 
+1. Przejdź do obiektu, który chcesz udostępnić. Następnie wybierz **pozycję Dodaj zestawy danych.** 
 
-    ![Zrzut ekranu przedstawiający sposób wybierania obiektu do udostępnienia.](./media/select-datasets.png "Wybierz pozycję zestawy danych.")    
+    ![Zrzut ekranu przedstawiający sposób wybierania obiektu do udostępnienia.](./media/select-datasets.png "Wybierz pozycję Zestawy danych.")    
 
-1. Na karcie **Adresaci** Dodaj adres e-mail konsumenta danych, wybierając pozycję **Dodaj odbiorcę**. 
+1. Na karcie **Adresaci** dodaj adres e-mail użytkownika danych, wybierając pozycję **Dodaj adresata.** 
 
-    ![Zrzut ekranu przedstawiający sposób dodawania adresów e-mail adresatów.](./media/add-recipient.png "Dodaj adresatów.") 
+    ![Zrzut ekranu przedstawiający sposób dodawania adresów e-mail adresata.](./media/add-recipient.png "Dodaj adresatów.") 
 
 1. Wybierz opcję **Kontynuuj**.
 
-1. W przypadku wybrania typu udziału migawek można skonfigurować harmonogram migawek, aby zaktualizować dane dla konsumenta danych. 
+1. Jeśli wybrano typ udziału migawki, możesz skonfigurować harmonogram migawek w celu zaktualizowania danych użytkownika danych. 
 
-    ![Zrzut ekranu przedstawiający ustawienia harmonogramu migawek.](./media/enable-snapshots.png "Włącz migawki.") 
+    ![Zrzut ekranu przedstawiający ustawienia harmonogramu migawek.](./media/enable-snapshots.png "Włączanie migawek.") 
 
 1. Wybierz czas rozpoczęcia i interwał cyklu. 
 
 1. Wybierz opcję **Kontynuuj**.
 
-1. Na karcie **Recenzja + tworzenie** przejrzyj zawartość pakietu, ustawienia, adresatów i ustawienia synchronizacji. Następnie wybierz pozycję **Utwórz**.
+1. Na karcie **Przeglądanie + tworzenie** przejrzyj zawartość pakietu, ustawienia, adresatów i ustawienia synchronizacji. Następnie wybierz pozycję **Utwórz**.
 
-Twój udział danych platformy Azure został utworzony. Odbiorca Twojego udziału danych może zaakceptować zaproszenie. 
+Udział danych platformy Azure został utworzony. Odbiorca udziału danych może zaakceptować Zaproszenie. 
 
-## <a name="receive-data"></a>Odbierz dane
+## <a name="receive-data"></a>Odbieranie danych
 
-W poniższych sekcjach opisano, jak odbierać udostępnione dane.
+W poniższych sekcjach opisano sposób odbierania danych udostępnionych.
 ### <a name="prerequisites-to-receive-data"></a>Wymagania wstępne dotyczące odbierania danych
-Przed zaakceptowaniem zaproszenia do udziału danych upewnij się, że zostały spełnione następujące wymagania wstępne: 
+Przed zaakceptowaniem zaproszenia do udziału danych upewnij się, że masz następujące wymagania wstępne: 
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
-* Zaproszenie z platformy Azure. Temat wiadomości e-mail powinien mieć wartość "zaproszenie do udostępniania danych platformy Azure *\<yourdataprovider\@domain.com>* ".
-* Zarejestrowano [dostawcę zasobów Microsoft. datashare](concepts-roles-permissions.md#resource-provider-registration) w:
-    * Subskrypcja platformy Azure, w której utworzysz zasób udziału danych.
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, utwórz bezpłatne [konto](https://azure.microsoft.com/free/).
+* Zaproszenie z platformy Azure. Temat wiadomości e-mail powinien być "Azure Data Share z *\<yourdataprovider\@domain.com>* ".
+* Zarejestrowany dostawca [zasobów Microsoft.DataShare w:](concepts-roles-permissions.md#resource-provider-registration)
+    * Subskrypcja platformy Azure, w której utworzysz zasób Data Share zasobów.
     * Subskrypcja platformy Azure, w której znajdują się docelowe magazyny danych platformy Azure.
 
 ### <a name="prerequisites-for-a-target-storage-account"></a>Wymagania wstępne dotyczące docelowego konta magazynu
 
-* Konto usługi Azure Storage. [Utwórz konto](../storage/common/storage-account-create.md), jeśli jeszcze go nie masz. 
-* Uprawnienie do zapisu na koncie magazynu. To uprawnienie znajduje się w *witrynie Microsoft. Storage/storageAccounts/Write*. Jest częścią roli współautor. 
-* Uprawnienie do dodawania przypisania roli do konta magazynu. To przypisanie jest w *firmie Microsoft. Autoryzacja/przypisania ról/zapis*. Jest częścią roli właściciela.  
+* Konto usługi Azure Storage. Jeśli jeszcze go nie masz, [utwórz konto](../storage/common/storage-account-create.md). 
+* Uprawnienie do zapisu na koncie magazynu. To uprawnienie znajduje się w *microsoft.storage/storageAccounts/write.* Jest on częścią roli Współautor. 
+* Uprawnienie do dodawania przypisania roli do konta magazynu. To przypisanie znajduje się w *witrynie Microsoft.Authorization/role assignments/write.* Jest on częścią roli Właściciel.  
 
 ### <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
@@ -138,71 +138,71 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ### <a name="open-an-invitation"></a>Otwieranie zaproszenia
 
-Możesz otworzyć zaproszenie z poczty e-mail lub bezpośrednio z Azure Portal.
+Zaproszenie możesz otworzyć za pomocą wiadomości e-mail lub bezpośrednio z Azure Portal.
 
-1. Aby otworzyć zaproszenie z poczty e-mail, sprawdź skrzynkę odbiorczą dla zaproszenia od dostawcy danych. Zaproszenie z Microsoft Azure jest zatytułowane "zaproszenie do udziału danych platformy Azure z *\<yourdataprovider\@domain.com>* ". Wybierz pozycję **Wyświetl zaproszenie** , aby zobaczyć zaproszenie na platformie Azure. 
+1. Aby otworzyć zaproszenie z wiadomości e-mail, sprawdź w skrzynce odbiorczej zaproszenie od dostawcy danych. Zaproszenie z Microsoft Azure ma tytuł "Azure Data Share z *\<yourdataprovider\@domain.com>* ". Wybierz **pozycję Wyświetl zaproszenie,** aby wyświetlić zaproszenie na platformie Azure. 
 
-   Aby otworzyć zaproszenie z Azure Portal, Wyszukaj *zaproszenia udziału danych*. Zostanie wyświetlona lista zaproszeń do udziału danych.
+   Aby otworzyć zaproszenie z Azure Portal, wyszukaj Data Share *zaproszenia.* Zostanie wyświetlona lista Data Share zaproszenia.
 
    ![Zrzut ekranu przedstawiający listę zaproszeń w Azure Portal.](./media/invitations.png "Lista zaproszeń.") 
 
 1. Wybierz udział, który chcesz wyświetlić. 
 
 ### <a name="accept-an-invitation"></a>Akceptowanie zaproszenia
-1. Przejrzyj wszystkie pola, w tym **warunki użytkowania**. Jeśli akceptujesz warunki, zaznacz pole wyboru. 
+1. Przejrzyj wszystkie pola, w tym **Warunki użytkowania**. Jeśli akceptujesz warunki, zaznacz pole wyboru. 
 
-   ![Zrzut ekranu przedstawiający obszar Warunki użytkowania.](./media/terms-of-use.png "Warunki użytkowania.") 
+   ![Zrzut ekranu przedstawiający obszar Warunki użytkowania danych.](./media/terms-of-use.png "Warunki użytkowania.") 
 
-1. W obszarze **docelowe konto udziału danych** wybierz subskrypcję i grupę zasobów, w której będziesz wdrażać udział danych. Następnie wypełnij następujące pola:
+1. W **obszarze Data Share docelowego** wybierz subskrypcję i grupę zasobów, w której będziesz wdrażać Data Share. Następnie wypełnij następujące pola:
 
-   * W polu **konto udziału danych** wybierz pozycję **Utwórz nową** , jeśli nie masz konta udziału danych. W przeciwnym razie wybierz istniejące konto udziału danych, które będzie akceptować udział danych. 
+   * W polu **Konto udziału** danych wybierz pozycję **Utwórz nowe,** jeśli nie masz konta Data Share danych. W przeciwnym razie wybierz istniejące Data Share, które będzie akceptować Twój udział danych. 
 
-   * W polu **Nazwa otrzymanego udziału** pozostaw wartość domyślną określoną przez dostawcę danych lub określ nową nazwę dla odebranego udziału. 
+   * W polu **Odebrano nazwę udziału** pozostaw wartość domyślną określoną przez dostawcę danych lub określ nową nazwę odebranego udziału. 
 
-1. Wybierz pozycję **Zaakceptuj i skonfiguruj**. Zostanie utworzona subskrypcja udziału. 
+1. Wybierz **pozycję Zaakceptuj i skonfiguruj**. Zostanie utworzona subskrypcja udziału. 
 
-   ![Zrzut ekranu przedstawiający miejsce zaakceptowania opcji konfiguracji.](./media/accept-options.png "Zaakceptuj opcje") 
+   ![Zrzut ekranu przedstawiający miejsce akceptowania opcji konfiguracji.](./media/accept-options.png "Zaakceptuj opcje") 
 
-    Otrzymany udział pojawia się na koncie udziału danych. 
+    Odebrany udział zostanie wyświetlony na Data Share konta. 
 
-    Jeśli nie chcesz zaakceptować zaproszenia, wybierz pozycję **Odrzuć**. 
+    Jeśli nie chcesz akceptować zaproszenia, wybierz pozycję **Odrzuć**. 
 
-### <a name="configure-a-received-share"></a>Skonfiguruj odebrany udział
+### <a name="configure-a-received-share"></a>Konfigurowanie odebranego udziału
 Wykonaj kroki opisane w tej sekcji, aby skonfigurować lokalizację do odbierania danych.
 
-1. Na karcie **zestawy** danych zaznacz pole wyboru obok elementu DataSet, do którego chcesz przypisać miejsce docelowe. Wybierz pozycję **Mapuj do** celu, aby wybrać docelowy magazyn danych. 
+1. Na karcie **Zestawy** danych zaznacz pole wyboru obok zestawu danych, do którego chcesz przypisać miejsce docelowe. Wybierz **pozycję Mapuj do celu,** aby wybrać docelowy magazyn danych. 
 
-   ![Zrzut ekranu przedstawiający sposób mapowania na element docelowy.](./media/dataset-map-target.png "Mapuj na element docelowy.") 
+   ![Zrzut ekranu przedstawiający sposób mapowania na element docelowy.](./media/dataset-map-target.png "Mapowanie na element docelowy.") 
 
-1. Wybierz docelowy magazyn danych dla danych. Pliki w docelowym magazynie danych, które mają taką samą ścieżkę i nazwę jak pliki w odebranych danych zostaną nadpisywane. 
+1. Wybierz docelowy magazyn danych dla danych. Pliki w docelowym magazynie danych, które mają taką samą ścieżkę i nazwę jak pliki w odebranych danych, zostaną zastąpione. 
 
-   ![Zrzut ekranu przedstawiający lokalizację, w której ma zostać wybrane docelowe konto magazynu.](./media/map-target.png "Magazyn docelowy.") 
+   ![Zrzut ekranu przedstawiający miejsce wybierania docelowego konta magazynu.](./media/map-target.png "Magazyn docelowy.") 
 
-1. W przypadku udostępniania opartego na migawce, jeśli dostawca danych używa harmonogramu migawek do regularnego aktualizowania danych, można włączyć harmonogram na karcie **harmonogram migawek** . Zaznacz pole obok harmonogramu migawek. Następnie wybierz pozycję **Włącz**. Należy pamiętać, że pierwsza zaplanowana migawka rozpocznie się w ciągu minuty od czasu zaplanowanego, a kolejne migawki rozpocznie się w ciągu kilku sekund od zaplanowanego czasu.
+1. W przypadku udostępniania opartego na migawkach, jeśli dostawca danych używa harmonogramu migawek do regularnego aktualizowania danych, harmonogram można włączyć na karcie **Harmonogram migawek.** Zaznacz pole wyboru obok harmonogramu migawek. Następnie wybierz pozycję **Włącz.** Należy pamiętać, że pierwsza zaplanowana migawka zostanie uruchamiana w ciągu jednej minuty od harmonogramu, a kolejne migawki będą rozpoczynać się w ciągu sekund od zaplanowanego czasu.
 
    ![Zrzut ekranu przedstawiający sposób włączania harmonogramu migawek.](./media/enable-snapshot-schedule.png "Włącz harmonogram migawek.")
 
 ### <a name="trigger-a-snapshot"></a>Wyzwalanie migawki
-Kroki opisane w tej sekcji dotyczą tylko udostępniania opartego na migawce.
+Kroki opisane w tej sekcji dotyczą tylko udostępniania opartego na migawkach.
 
-1. Migawkę można wyzwolić na karcie **szczegóły** . Na karcie Wybierz pozycję **Wyzwól migawkę**. Możesz wyzwolić pełną migawkę lub przyrostową migawkę danych. Jeśli po raz pierwszy otrzymujesz dane z dostawcy danych, wybierz pozycję **pełna kopia**. Gdy wykonywana jest migawka, kolejne migawki nie rozpocznie się aż do ukończenia poprzedniej.
+1. Migawkę można wyzwolić z **karty Szczegóły.** Na karcie wybierz pozycję **Wyzwolij migawkę**. Możesz wyzwolić pełną migawkę lub przyrostową migawkę danych. Jeśli po raz pierwszy otrzymujesz dane od dostawcy danych, wybierz pozycję **Pełna kopia.** Podczas wykonywania migawki kolejne migawki nie będą rozpoczynane do momentu ukończenia poprzedniego.
 
    ![Zrzut ekranu przedstawiający wybór migawki wyzwalacza.](./media/trigger-snapshot.png "Wyzwalanie migawki.") 
 
-1. Po *pomyślnym* zakończeniu ostatniego uruchomienia Przejdź do docelowego magazynu danych, aby wyświetlić odebrane dane. Wybierz pozycję **zestawy danych**, a następnie wybierz link ścieżka docelowa. 
+1. Po pomyślnym ostatnim uruchomieniu *przejdź* do docelowego magazynu danych, aby wyświetlić odebrane dane. Wybierz **pozycję Zestawy** danych, a następnie wybierz link ścieżki docelowej. 
 
-   ![Zrzut ekranu przedstawiający mapowanie zestawu danych odbiorcy.](./media/consumer-datasets.png "Mapowanie zestawu danych klienta.") 
+   ![Zrzut ekranu przedstawiający mapowanie zestawu danych odbiorców.](./media/consumer-datasets.png "Mapowanie zestawu danych odbiorców.") 
 
 ### <a name="view-history"></a>Wyświetlanie historii
-Historię migawek można wyświetlić tylko w ramach udostępniania opartego na migawce. Aby wyświetlić historię, Otwórz kartę **historia** . Tutaj zobaczysz historię wszystkich migawek, które zostały wygenerowane w ciągu ostatnich 30 dni. 
+Historię migawek można wyświetlać tylko w przypadku udostępniania opartego na migawkach. Aby wyświetlić historię, otwórz **kartę** Historia. W tym miejscu zobaczysz historię wszystkich migawek, które zostały wygenerowane w ciągu ostatnich 30 dni. 
 
 ## <a name="storage-snapshot-performance"></a>Wydajność migawek magazynu
-Wydajność migawki magazynu ma wpływ na wiele czynników oprócz liczby plików i rozmiaru udostępnionych danych. Zawsze zaleca się przeprowadzanie własnych testów wydajnościowych. Poniżej przedstawiono przykładowe czynniki wpływające na wydajność.
+Na wydajność migawek magazynu oprócz liczby plików i rozmiaru udostępnionych danych ma wpływ wiele czynników. Zawsze zaleca się przeprowadzanie własnych testów wydajnościowych. Poniżej przedstawiono niektóre przykładowe czynniki wpływające na wydajność.
 
 * Współbieżny dostęp do źródłowych i docelowych magazynów danych.  
 * Lokalizacja źródłowych i docelowych magazynów danych. 
-* W przypadku migawki przyrostowej liczba plików w udostępnionym zestawie danych może mieć wpływ na czas potrzebny na znalezienie listy plików z czasem ostatniej modyfikacji po ostatniej pomyślnej migawce. 
+* W przypadku migawki przyrostowej liczba plików w udostępnionym zestawie danych może mieć wpływ na czas, jaki zajmuje znalezienie listy plików z czasem ostatniej modyfikacji po ostatniej pomyślnej migawce. 
 
 
 ## <a name="next-steps"></a>Następne kroki
-Wiesz już, jak udostępniać i odbierać dane z konta magazynu przy użyciu usługi udziału danych platformy Azure. Aby dowiedzieć się więcej o udostępnianiu z innych źródeł danych, zobacz [obsługiwane magazyny danych](supported-data-stores.md).
+Wiesz już, jak udostępniać i odbierać dane z konta magazynu przy użyciu usługi Azure Data Share magazynu. Aby dowiedzieć się więcej o udostępnianiu z innych źródeł danych, zobacz [Obsługiwane magazyny danych.](supported-data-stores.md)

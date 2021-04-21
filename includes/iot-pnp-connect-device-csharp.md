@@ -4,29 +4,31 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 30ea75a2df63fa935314fc103fe1e7e092f655b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b7b0cfa20257ad07d8418c39af68724d613adf41
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104612056"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107820995"
 ---
-Ten przewodnik Szybki Start przedstawia sposób tworzenia przykładowej aplikacji urządzenia IoT Plug and Play, łączenia jej z usługą IoT Hub i używania narzędzia Azure IoT Explorer do wyświetlania danych telemetrycznych wysyłanych przez nią. Przykładowa aplikacja jest zapisywana w języku C# i jest uwzględniona w przykładach usługi Azure IoT dla języka C#. Konstruktor rozwiązań może używać narzędzia Azure IoT Explorer do poznania możliwości urządzenia Plug and Play IoT bez konieczności wyświetlania kodu urządzenia.
+W tym przewodniku Szybki start pokazano, jak utworzyć przykładową aplikację urządzenia IoT Plug and Play, połączyć ją z centrum IoT i wyświetlić wysyłane dane telemetryczne za pomocą narzędzia Eksplorator usługi Azure IoT. Przykładowa aplikacja jest napisana w języku C# i znajduje się w przykładach usługi Azure IoT dla języka C#. Konstruktor rozwiązań może użyć narzędzia Azure IoT Explorer, aby zrozumieć możliwości urządzenia IoT Plug and Play bez konieczności wyświetlania kodu urządzenia.
+
+[![Przeglądaj kod](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/device/PnpDeviceSamples/Thermostat)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 [!INCLUDE [iot-pnp-prerequisites](iot-pnp-prerequisites.md)]
 
-Aby ukończyć ten przewodnik Szybki Start w systemie Windows, na komputerze deweloperskim musi być zainstalowane następujące oprogramowanie:
+Aby ukończyć ten przewodnik Szybki start w systemie Windows, na komputerze dewelopera musi być zainstalowane następujące oprogramowanie:
 
 * [Visual Studio (Community, Professional lub Enterprise)](https://visualstudio.microsoft.com/downloads/).
-* Usługi [git](https://git-scm.com/download/).
+* [Git](https://git-scm.com/download/).
 
 ## <a name="download-the-code"></a>Pobieranie kodu
 
-W tym przewodniku szybki start przygotowano środowisko programistyczne, którego można użyć do klonowania i kompilowania przykładów usługi Azure IoT dla repozytorium języka C#.
+W tym przewodniku Szybki start przygotujemy środowisko projektowe, które umożliwia sklonowanie i skompilowanie repozytorium przykładów usługi Azure IoT dla języka C#.
 
-Otwórz wiersz polecenia w wybranym folderze. Uruchom następujące polecenie, aby sklonować [Microsoft Azure IoT Samples for C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) w tej lokalizacji:
+Otwórz wiersz polecenia w folderze, który można wybrać. Uruchom następujące polecenie, aby sklonować [repozytorium GitHub Microsoft Azure Przykłady IoT dla języka C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) w tej lokalizacji:
 
 ```cmd
 git clone  https://github.com/Azure-Samples/azure-iot-samples-csharp.git
@@ -34,39 +36,39 @@ git clone  https://github.com/Azure-Samples/azure-iot-samples-csharp.git
 
 ## <a name="build-the-code"></a>Kompilowanie kod
 
-Teraz można skompilować przykład w programie Visual Studio i uruchomić go w trybie debugowania.
+Teraz możesz skompilować przykład w Visual Studio uruchomić go w trybie debugowania.
 
-1. Otwórz plik projektu *Azure-IoT-Samples-csharp\iot-hub\Samples\device\PnpDeviceSamples\Thermostat\Thermostat.csproj* w programie Visual Studio 2019.
+1. Otwórz plik *projektu azure-iot-samples-csharp\iot-hub\Samples\device\PnpDeviceSamples\Termostat\Termostat.csproj* w programie Visual Studio 2019.
 
-1. W programie Visual Studio przejdź do **Właściwości programu Project > termostat > Debuguj**. Następnie Dodaj następujące zmienne środowiskowe do projektu:
+1. W Visual Studio przejdź do właściwości **termostatu project >, > debugowania**. Następnie dodaj następujące zmienne środowiskowe do projektu:
 
     | Nazwa | Wartość |
     | ---- | ----- |
-    | IOTHUB_DEVICE_SECURITY_TYPE | DOKUMENTY |
+    | IOTHUB_DEVICE_SECURITY_TYPE | Dps |
     | IOTHUB_DEVICE_DPS_ENDPOINT | global.azure-devices-provisioning.net |
-    | IOTHUB_DEVICE_DPS_ID_SCOPE | Wartość zanotowana po zakończeniu [konfigurowania środowiska](../articles/iot-pnp/set-up-environment.md) |
-    | IOTHUB_DEVICE_DPS_DEVICE_ID | My-PnP-Device |
-    | IOTHUB_DEVICE_DPS_DEVICE_KEY | Wartość zanotowana po zakończeniu [konfigurowania środowiska](../articles/iot-pnp/set-up-environment.md) |
+    | IOTHUB_DEVICE_DPS_ID_SCOPE | Wartość zanotowana podczas ukończenia konfigurowanie [środowiska](../articles/iot-pnp/set-up-environment.md) |
+    | IOTHUB_DEVICE_DPS_DEVICE_ID | my-pnp-device |
+    | IOTHUB_DEVICE_DPS_DEVICE_KEY | Wartość zanotowana podczas ukończenia konfigurowanie [środowiska](../articles/iot-pnp/set-up-environment.md) |
 
-Teraz można skompilować przykład w programie Visual Studio i uruchomić go w trybie debugowania.
+Teraz możesz skompilować przykład w Visual Studio i uruchomić go w trybie debugowania.
 
-## <a name="run-the-device-sample"></a>Uruchamianie przykładu urządzenia
+## <a name="run-the-device-sample"></a>Uruchamianie przykładowego urządzenia
 
-Aby śledzić wykonywanie kodu w programie Visual Studio w systemie Windows, Dodaj punkt przerwania do `main` funkcji w pliku program. cs.
+Aby śledzić wykonywanie kodu w Visual Studio w systemie Windows, dodaj punkt przerwania do funkcji `main` w pliku program.cs.
 
-Urządzenie jest teraz gotowe do odbierania poleceń i aktualizacji właściwości i rozpoczęło wysyłanie danych telemetrycznych do centrum. Kontynuuj działanie przykładu w przypadku wykonywania następnych kroków.
+Urządzenie jest teraz gotowe do odbierania poleceń i aktualizacji właściwości i zaczęło wysyłać dane telemetryczne do centrum. Utrzymuj działanie przykładu w kolejnych krokach.
 
-## <a name="use-azure-iot-explorer-to-validate-the-code"></a>Sprawdzanie poprawności kodu za pomocą programu Azure IoT Explorer
+## <a name="use-azure-iot-explorer-to-validate-the-code"></a>Weryfikowanie kodu za pomocą eksploratora usługi Azure IoT
 
-Po rozpoczęciu próby klienta urządzenia Użyj narzędzia Azure IoT Explorer, aby sprawdzić, czy działa.
+Po zakończeniu przykładowego klienta urządzenia użyj narzędzia Azure IoT Explorer, aby sprawdzić, czy działa.
 
 [!INCLUDE [iot-pnp-iot-explorer.md](iot-pnp-iot-explorer.md)]
 
 ## <a name="review-the-code"></a>Przeglądanie kodu
 
-Ten przykład implementuje proste urządzenie z termostatem Plug and Play. Model tego przykładowego implementuje nie korzysta ze [składników](../articles/iot-pnp/concepts-modeling-guide.md)Plug and Play IoT. [Plik modelu Digital bliźniaczych reprezentacji Definition Language (DTDL) dla urządzenia termostatu](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) definiuje dane telemetryczne, właściwości i polecenia implementowane przez urządzenie.
+Ten przykład implementuje proste urządzenie IoT Plug and Play termostatu. Model implementowany w tym przykładzie nie używa IoT Plug and Play [składników](../articles/iot-pnp/concepts-modeling-guide.md). Plik [Digital Twins (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) dla urządzenia termostatu definiuje telemetrię, właściwości i polecenia implementowany przez urządzenie.
 
-Kod urządzenia łączy się z Centrum IoT Hub przy użyciu standardowej `CreateFromConnectionString` metody. Urządzenie wysyła identyfikator modelu DTDL, który implementuje w żądaniu połączenia. Urządzenie, które wysyła identyfikator modelu, jest urządzeniem Plug and Play IoT:
+Kod urządzenia łączy się z centrum IoT przy użyciu standardowej `CreateFromConnectionString` metody. Urządzenie wysyła identyfikator modelu DTDL implementowany w żądaniu połączenia. Urządzenie, które wysyła identyfikator modelu, jest urządzeniem IoT Plug and Play urządzeniem:
 
 ```csharp
 private static void InitializeDeviceClientAsync()
@@ -89,9 +91,9 @@ Identyfikator modelu jest przechowywany w kodzie, jak pokazano w poniższym frag
 private const string ModelId = "dtmi:com:example:Thermostat;1";
 ```
 
-Kod, który aktualizuje właściwości, obsługuje polecenia i wysyła dane telemetryczne, jest identyczny z kodem dla urządzenia, które nie korzysta z Konwencji Plug and Play IoT.
+Kod, który aktualizuje właściwości, obsługuje polecenia i wysyła dane telemetryczne, jest identyczny z kodem urządzenia, które nie używa IoT Plug and Play danych.
 
-Przykład używa biblioteki JSON do analizowania obiektów JSON w ładunków wysyłanych z Centrum IoT:
+W przykładzie użyto biblioteki JSON do analizowania obiektów JSON w ładunkach wysyłanych z centrum IoT:
 
 ```csharp
 using Newtonsoft.Json;

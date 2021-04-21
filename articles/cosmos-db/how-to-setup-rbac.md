@@ -1,23 +1,23 @@
 ---
-title: Konfigurowanie kontroli dostępu opartej na rolach dla konta Azure Cosmos DB za pomocą usługi Azure AD
-description: Dowiedz się, jak skonfigurować kontrolę dostępu opartą na rolach przy użyciu Azure Active Directory dla Azure Cosmos DB konta
+title: Konfigurowanie kontroli dostępu opartej na rolach dla konta Azure Cosmos DB przy użyciu usługi Azure AD
+description: Dowiedz się, jak skonfigurować kontrolę dostępu opartą na rolach przy użyciu Azure Active Directory dla konta Azure Cosmos DB aplikacji
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 04/19/2021
 ms.author: thweiss
-ms.openlocfilehash: 209d18dfbadea89f14fd90da9a1bc57b3ccf0dfe
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 9de41835e33d50a670a44089cb10d44cc57e92a7
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728079"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818710"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Konfigurowanie kontroli dostępu opartej na rolach przy użyciu Azure Active Directory dla konta Azure Cosmos DB (wersja zapoznawcza)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]
-> Azure Cosmos DB kontroli dostępu opartej na rolach jest obecnie dostępna w wersji zapoznawczej. Ta wersja zapoznawcza jest dostarczana bez Umowa dotycząca poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz Dodatkowe warunki użytkowania dla [wersji Microsoft Azure zapoznawczych.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+> Azure Cosmos DB kontroli dostępu opartej na rolach jest obecnie dostępna w wersji zapoznawczej. Ta wersja zapoznawcza jest dostarczana bez Umowa dotycząca poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz Dodatkowe warunki użytkowania dla wersji [Microsoft Azure zapoznawczych.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 > [!NOTE]
 > Ten artykuł dotyczy kontroli dostępu opartej na rolach dla operacji płaszczyzny danych w Azure Cosmos DB. Jeśli używasz operacji płaszczyzny zarządzania, zobacz [artykuł Kontrola dostępu](role-based-access-control.md) oparta na rolach zastosowana do operacji płaszczyzny zarządzania.
@@ -31,12 +31,12 @@ Azure Cosmos DB udostępnia wbudowany system kontroli dostępu opartej na rolach
 
 Ta Azure Cosmos DB RBAC płaszczyzny danych jest zbudowana na pojęciach, które często znajdują się w innych systemach RBAC, takich jak [RBAC platformy Azure:](../role-based-access-control/overview.md)
 
-- Model [uprawnień składa](#permission-model) się z zestawu **akcji**; Każda z tych akcji jest mapowa na jedną lub wiele operacji bazy danych. Niektóre przykłady akcji obejmują odczytywanie elementu, pisanie elementu lub wykonywanie zapytania.
+- Model [uprawnień](#permission-model) składa się z zestawu **akcji**; Każda z tych akcji mapuje na jedną lub wiele operacji bazy danych. Niektóre przykłady akcji obejmują odczytywanie elementu, pisanie elementu lub wykonywanie zapytania.
 - Azure Cosmos DB użytkownicy tworzą **[definicje ról zawierające](#role-definitions)** listę dozwolonych akcji.
-- Definicje ról są przypisywane do określonych tożsamości usługi Azure AD za **[pośrednictwem przypisań ról.](#role-assignments)** Przypisanie roli definiuje również zakres, do który ma zastosowanie definicja roli; Obecnie istnieją trzy zakresy:
+- Definicje ról są przypisywane do określonych tożsamości usługi Azure AD za **[pomocą przypisań ról.](#role-assignments)** Przypisanie roli definiuje również zakres, do który ma zastosowanie definicja roli. Obecnie istnieją trzy zakresy:
     - Konto Azure Cosmos DB,
     - Baza Azure Cosmos DB danych,
-    - Kontener Azure Cosmos DB kontenera.
+    - Kontener Azure Cosmos DB kontener.
 
   :::image type="content" source="./media/how-to-setup-rbac/concepts.png" alt-text="Pojęcia dotyczące kontroli RBAC":::
 
@@ -46,7 +46,7 @@ Ta Azure Cosmos DB RBAC płaszczyzny danych jest zbudowana na pojęciach, które
 ## <a name="permission-model"></a><a id="permission-model"></a> Model uprawnień
 
 > [!IMPORTANT]
-> Ten model uprawnień obejmuje tylko operacje bazy danych, które umożliwiają odczytywanie i zapis danych. Nie obejmuje **ona** żadnych operacji zarządzania, takich jak tworzenie kontenerów lub zmienianie ich przepływności. Oznacza to, że **nie można używać żadnego zestawu SDK Azure Cosmos DB danych** do uwierzytelniania operacji zarządzania przy użyciu tożsamości usługi AAD. Zamiast tego należy użyć kontroli [RBAC platformy Azure za pośrednictwem:](role-based-access-control.md)
+> Ten model uprawnień obejmuje tylko operacje bazy danych, które umożliwiają odczytywanie i zapis danych. Nie obejmuje **ona** żadnych operacji zarządzania, takich jak tworzenie kontenerów lub zmienianie ich przepływności. Oznacza to, że **nie można używać żadnego zestawu SDK Azure Cosmos DB danych** do uwierzytelniania operacji zarządzania przy użyciu tożsamości usługi AAD. Zamiast tego należy użyć kontroli [RBAC platformy Azure za](role-based-access-control.md) pośrednictwem:
 > - [Szablony arm](manage-with-templates.md)
 > - [Azure PowerShell skryptów ,](manage-with-powershell.md)
 > - [Skrypty interfejsu wiersza polecenia platformy Azure,](manage-with-cli.md)
@@ -63,14 +63,14 @@ W poniższej tabeli wymieniono wszystkie akcje udostępniane przez model uprawni
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/create` | Utwórz nowy element. |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read` | Odczytywanie pojedynczego elementu według jego identyfikatora i klucza partycji (odczyt punktowy). |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/replace` | Zastąp istniejący element. |
-| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/upsert` | "Upsert" element, co oznacza utworzenie go, jeśli nie istnieje, lub zastąpienie go, jeśli istnieje. |
+| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/upsert` | "Upsert" element, co oznacza, że utwórz go, jeśli nie istnieje, lub zastąp go, jeśli istnieje. |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/delete` | Usuwanie elementu. |
-| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery` | Wykonaj zapytanie [SQL](sql-query-getting-started.md). |
+| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery` | Wykonaj zapytanie [SQL.](sql-query-getting-started.md) |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed` | Odczytaj z zestawienia zmian [kontenera](read-change-feed.md). |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeStoredProcedure` | Wykonaj procedurę [składowaną](stored-procedures-triggers-udfs.md). |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/manageConflicts` | Manage [conflicts](conflict-resolution-policies.md) for multi-write region accounts (that is, list and delete items from the conflict feed). |
 
-Symbole wieloznaczne są obsługiwane zarówno na *poziomie kontenerów,* *jak i* elementów:
+Symbole wieloznaczne są obsługiwane na *poziomie kontenerów* *i* elementów:
 
 - `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*`
 - `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*`
@@ -85,7 +85,7 @@ W przypadku Azure Cosmos DB zestawów SDK te zestawy SDK podczas inicjowania wys
 
 Nie *pobierają* żadnych danych przechowywanych na Twoim koncie.
 
-Aby zapewnić najlepszą przejrzystość naszego modelu uprawnień, te żądania metadanych są jawnie objęte `Microsoft.DocumentDB/databaseAccounts/readMetadata` akcją. Ta akcja powinna być dozwolona w każdej sytuacji, Azure Cosmos DB do konta użytkownika jest uzyskiwany za pośrednictwem jednego z Azure Cosmos DB SDK. Można go przypisać (za pomocą przypisania roli) na dowolnym poziomie w hierarchii Azure Cosmos DB (konta, bazy danych lub kontenera).
+Aby zapewnić najlepszą przejrzystość naszego modelu uprawnień, te żądania metadanych są jawnie objęte `Microsoft.DocumentDB/databaseAccounts/readMetadata` akcją. Ta akcja powinna być dozwolona w każdej sytuacji, Azure Cosmos DB dostęp do konta użytkownika jest uzyskiwany za pośrednictwem jednego z Azure Cosmos DB SDK. Można go przypisać (za pomocą przypisania roli) na dowolnym poziomie w hierarchii Azure Cosmos DB (konta, bazy danych lub kontenera).
 
 Rzeczywiste żądania metadanych dozwolone przez akcję zależą od zakresu, do który `Microsoft.DocumentDB/databaseAccounts/readMetadata` jest przypisana akcja:
 
@@ -104,13 +104,13 @@ Podczas tworzenia definicji roli należy podać:
 - Typ definicji roli; Program `CustomRole` jest obecnie obsługiwany tylko przez program .
 - Nazwa definicji roli.
 - Lista [akcji,](#permission-model) na które rola ma zezwalać.
-- Jeden lub wiele zakresów, w których można przypisać definicję roli; obsługiwane zakresy to:
+- Jeden lub wiele zakresów, do których można przypisać definicję roli; obsługiwane zakresy to:
     - `/` (na poziomie konta),
     - `/dbs/<database-name>` (poziom bazy danych),
     - `/dbs/<database-name>/colls/<container-name>` (poziom kontenera).
 
 > [!NOTE]
-> Operacje opisane poniżej są obecnie dostępne w:
+> Opisane poniżej operacje są obecnie dostępne w:
 > - Azure PowerShell: [Az.CosmosDB w wersji 2.0.1-preview](https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.1-preview)
 > - Interfejs wiersza polecenia platformy Azure: [rozszerzenie "cosmosdb-preview" w wersji 0.4.0](https://github.com/Azure/azure-cli-extensions/tree/master/src/cosmosdb-preview)
 
@@ -132,7 +132,7 @@ New-AzCosmosDBSqlRoleDefinition -AccountName $accountName `
     -AssignableScope "/"
 ```
 
-Utwórz rolę o nazwie *MyReadWriteRole,* która zawiera wszystkie akcje:
+Utwórz rolę o *nazwie MyReadWriteRole* zawierającą wszystkie akcje:
 
 ```powershell
 New-AzCosmosDBSqlRoleDefinition -AccountName $accountName `
@@ -326,13 +326,14 @@ az cosmosdb sql role assignment create --account-name $accountName --resource-gr
 
 ## <a name="initialize-the-sdk-with-azure-ad"></a>Inicjowanie zestawu SDK za pomocą usługi Azure AD
 
-Aby użyć Azure Cosmos DB RBAC w aplikacji, musisz zaktualizować sposób inicjowania zestawu AZURE COSMOS DB SDK. Zamiast przekazywać klucz podstawowy konta, musisz przekazać wystąpienie `TokenCredential` klasy . To wystąpienie udostępnia Azure Cosmos DB SDK z kontekstem wymaganym do pobrania tokenu usługi AAD w imieniu tożsamości, która ma być potrzebna.
+Aby użyć Azure Cosmos DB RBAC w aplikacji, musisz zaktualizować sposób inicjowania zestawu AZURE COSMOS DB SDK. Zamiast przekazywać klucz podstawowy konta, musisz przekazać wystąpienie `TokenCredential` klasy. To wystąpienie zawiera Azure Cosmos DB SDK z kontekstem wymaganym do pobrania tokenu usługi AAD w imieniu tożsamości, która ma być potrzebna.
 
-Sposób tworzenia wystąpienia `TokenCredential` wykracza poza zakres tego artykułu. Istnieje wiele sposobów tworzenia takiego wystąpienia w zależności od typu tożsamości usługi AAD, której chcesz użyć (jednostki użytkownika, jednostki usługi, grupy itp.). Co najważniejsze, wystąpienie musi zostać rozpoznane jako tożsamość (identyfikator podmiotu zabezpieczeń), do których `TokenCredential` przypisano role. Możesz znaleźć przykłady tworzenia `TokenCredential` klasy:
+Sposób tworzenia wystąpienia `TokenCredential` wykracza poza zakres tego artykułu. Istnieje wiele sposobów tworzenia takiego wystąpienia w zależności od typu tożsamości usługi AAD, której chcesz użyć (jednostki użytkownika, jednostki usługi, grupy itp.). Co najważniejsze, `TokenCredential` wystąpienie musi zostać rozwiązane z tożsamością (identyfikatorem podmiotu zabezpieczeń), do których przypisano role. Możesz znaleźć przykłady tworzenia `TokenCredential` klasy:
 
-- [na .NET](/dotnet/api/overview/azure/identity-readme#credential-classes)
-- [w języku Java](/java/api/overview/azure/identity-readme#credential-classes)
-- [w języku JavaScript](/javascript/api/overview/azure/identity-readme#credential-classes)
+- [Na .NET](/dotnet/api/overview/azure/identity-readme#credential-classes)
+- [W języku Java](/java/api/overview/azure/identity-readme#credential-classes)
+- [W języku JavaScript](/javascript/api/overview/azure/identity-readme#credential-classes)
+- W interfejsie API REST
 
 W poniższych przykładach używa się jednostki usługi z `ClientSecretCredential` wystąpieniem .
 
@@ -350,7 +351,7 @@ CosmosClient client = new CosmosClient("<account-endpoint>", servicePrincipal);
 
 ### <a name="in-java"></a>W języku Java
 
-Ta Azure Cosmos DB RBAC jest obecnie obsługiwana w zestawie [Java SDK w wersji 4.](sql-api-sdk-java-v4.md)
+Ta Azure Cosmos DB RBAC jest obecnie obsługiwana w zestawie [JAVA SDK w wersji 4.](sql-api-sdk-java-v4.md)
 
 ```java
 TokenCredential ServicePrincipal = new ClientSecretCredentialBuilder()
@@ -367,7 +368,7 @@ CosmosAsyncClient Client = new CosmosClientBuilder()
 
 ### <a name="in-javascript"></a>W języku JavaScript
 
-Ta Azure Cosmos DB RBAC jest obecnie obsługiwana w zestawie [SDK języka JavaScript w wersji 3.](sql-api-sdk-node.md)
+Ta Azure Cosmos DB RBAC jest obecnie obsługiwana w zestawie SDK języka [JavaScript w wersji 3.](sql-api-sdk-node.md)
 
 ```javascript
 const servicePrincipal = new ClientSecretCredential(
@@ -380,13 +381,19 @@ const client = new CosmosClient({
 });
 ```
 
+### <a name="in-rest-api"></a>W interfejsie API REST
+
+Ta Azure Cosmos DB RBAC jest obecnie obsługiwana w wersji 2021-03-15 interfejsu API REST. Podczas konstruowania [nagłówka](/rest/api/cosmos-db/access-control-on-cosmosdb-resources)  autoryzacji ustaw parametr typu na **aad, a** sygnaturę **skrótu (sig)** na **token OAuth,** jak pokazano w poniższym przykładzie:
+
+`type=aad&ver=1.0&sig=<token-from-oauth>`
+
 ## <a name="auditing-data-requests"></a>Inspekcja żądań danych
 
-W przypadku korzystania Azure Cosmos DB RBAC [dzienniki](cosmosdb-monitor-resource-logs.md) diagnostyczne są rozszerzane o informacje o tożsamości i autoryzacji dla każdej operacji danych. Dzięki temu można przeprowadzić szczegółową inspekcję i pobrać tożsamość aAD używaną dla każdego żądania danych wysyłanego do Azure Cosmos DB konta.
+W przypadku korzystania Azure Cosmos DB RBAC [dzienniki](cosmosdb-monitor-resource-logs.md) diagnostyczne są rozszerzane o informacje o tożsamości i autoryzacji dla każdej operacji danych. Dzięki temu można przeprowadzić szczegółową inspekcję i pobrać tożsamość aAD używaną dla każdego żądania danych wysłanego do Azure Cosmos DB konta.
 
-Te dodatkowe informacje przepływają w **kategorii dzienników DataPlaneRequests** i składają się z dwóch dodatkowych kolumn:
+Te dodatkowe informacje przepływają w **kategorii dziennika DataPlaneRequests** i składają się z dwóch dodatkowych kolumn:
 
-- `aadPrincipalId_g` Wyświetla identyfikator podmiotu zabezpieczeń tożsamości usługi AAD, który został użyty do uwierzytelnienia żądania.
+- `aadPrincipalId_g` Wyświetla identyfikator podmiotu zabezpieczeń tożsamości usługi AAD, która została użyta do uwierzytelnienia żądania.
 - `aadAppliedRoleAssignmentId_g` Pokazuje [przypisanie roli,](#role-assignments) które zostało honorowane podczas autoryzowania żądania.
 
 ## <a name="limits"></a>Limity
@@ -394,8 +401,8 @@ Te dodatkowe informacje przepływają w **kategorii dzienników DataPlaneRequest
 - Można utworzyć maksymalnie 100 definicji ról i 2000 przypisań ról na Azure Cosmos DB konto.
 - Definicje ról można przypisywać tylko do tożsamości usługi Azure AD należących do tej samej dzierżawy usługi Azure AD co Azure Cosmos DB usługi.
 - Rozwiązanie grupy usługi Azure AD nie jest obecnie obsługiwane w przypadku tożsamości należących do więcej niż 200 grup.
-- Token usługi Azure AD jest obecnie przekazywany jako nagłówek z każdym indywidualnym żądaniem wysłanym do usługi Azure Cosmos DB, zwiększając całkowity rozmiar ładunku.
-- Uzyskiwanie dostępu do danych za pomocą usługi Azure AD za [pośrednictwem Eksplorator usługi Azure Cosmos DB](data-explorer.md) nie jest jeszcze obsługiwane. Korzystanie Eksplorator usługi Azure Cosmos DB nadal wymaga, aby użytkownik miał dostęp do klucza podstawowego konta.
+- Token usługi Azure AD jest obecnie przekazywany jako nagłówek, a każde pojedyncze żądanie jest wysyłane do usługi Azure Cosmos DB, co zwiększa ogólny rozmiar ładunku.
+- Uzyskiwanie dostępu do danych za pomocą usługi Azure AD za [pośrednictwem Eksplorator usługi Azure Cosmos DB](data-explorer.md) nie jest jeszcze obsługiwane. Korzystanie z Eksplorator usługi Azure Cosmos DB nadal wymaga, aby użytkownik miał dostęp do klucza podstawowego konta.
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
@@ -409,7 +416,7 @@ Witryna Azure Portal nie udostępnia jeszcze obsługi zarządzania rolami.
 
 ### <a name="which-sdks-in-azure-cosmos-db-sql-api-support-rbac"></a>Które zestawy SDK w Azure Cosmos DB API SQL obsługują RBAC?
 
-Zestawy [SDK .NET v3](sql-api-sdk-dotnet-standard.md) [i Java w wersji 4](sql-api-sdk-java-v4.md) są obecnie obsługiwane.
+Zestawy [SDK .NET V3](sql-api-sdk-dotnet-standard.md) [i Java V4](sql-api-sdk-java-v4.md) są obecnie obsługiwane.
 
 ### <a name="is-the-azure-ad-token-automatically-refreshed-by-the-azure-cosmos-db-sdks-when-it-expires"></a>Czy token usługi Azure AD jest automatycznie odświeżany przez zestawy SDK usługi Azure Cosmos DB po jego wygaśnięciu?
 

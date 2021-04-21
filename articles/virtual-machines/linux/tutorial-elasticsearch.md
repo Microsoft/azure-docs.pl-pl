@@ -1,27 +1,24 @@
 ---
 title: Wdrażanie programu ElasticSearch na deweloperskiej maszynie wirtualnej na platformie Azure
-description: Samouczek — Instalowanie programu Elastic Stack na deweloperskiej maszynie wirtualnej z systemem Linux na platformie Azure
+description: Instalowanie rozwiązania Elastic Stack (ELK) na deweloperskiej maszynie wirtualnej z systemem Linux na platformie Azure
 services: virtual-machines
-documentationcenter: virtual-machines
 author: rloutlaw
 manager: justhe
-tags: azure-resource-manager
 ms.service: virtual-machines
 ms.collection: linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 10/11/2017
 ms.author: routlaw
-ms.openlocfilehash: b3213d7de9aee88486fa1db1388c51948fbde430
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ce28efa30b04a2a762c39f47dac739633eac209
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102557815"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818480"
 ---
-# <a name="install-the-elastic-stack-on-an-azure-vm"></a>Instalowanie programu Elastic Stack na maszynie wirtualnej platformy Azure
+# <a name="install-the-elastic-stack-elk-on-an-azure-vm"></a>Instalowanie rozwiązania Elastic Stack (ELK) na maszynie wirtualnej platformy Azure
 
 W tym artykule przedstawiono sposób wdrażania programów [Elasticsearch](https://www.elastic.co/products/elasticsearch), [Logstash](https://www.elastic.co/products/logstash) i [Kibana](https://www.elastic.co/products/kibana) na maszynie wirtualnej z systemem Ubuntu na platformie Azure. Aby zobaczyć program Elastic Stack w działaniu, można opcjonalnie połączyć się z programem Kibana i popracować z przykładowymi danymi rejestrów. 
 
@@ -38,7 +35,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-- Ten artykuł wymaga wersji 2.0.4 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
+- Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Jeśli używasz Azure Cloud Shell, najnowsza wersja jest już zainstalowana.
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -82,7 +79,7 @@ Po utworzeniu maszyny wirtualnej w interfejsie wiersza polecenia platformy Azure
 
 ## <a name="ssh-into-your-vm"></a>Łączenie z maszyną wirtualną za pośrednictwem protokołu SSH
 
-Jeśli nie znasz jeszcze publicznego adresu IP maszyny wirtualnej, uruchom polecenie [AZ Network Public-IP list](/cli/azure/network/public-ip) :
+Jeśli nie znasz jeszcze publicznego adresu IP maszyny wirtualnej, uruchom polecenie [az network public-ip list:](/cli/azure/network/public-ip)
 
 ```azurecli-interactive
 az network public-ip list --resource-group myResourceGroup --query [].ipAddress
@@ -165,7 +162,7 @@ Przetestuj program Logstash w trybie interakcyjnym, aby upewnić się, że dzia�
 sudo /usr/share/logstash/bin/logstash -e 'input { stdin { } } output { stdout {} }'
 ```
 
-Jest to podstawowy [potok](https://www.elastic.co/guide/en/logstash/5.6/pipeline.html) logstash, który odwzorowuje dane ze standardowego wejścia na standardowym wyjściu. 
+Jest to podstawowy potok [](https://www.elastic.co/guide/en/logstash/5.6/pipeline.html) usługi Logstash, który odzwierciedla standardowe dane wejściowe do standardowych danych wyjściowych. 
 
 ```output
 The stdin plugin is now waiting for input:
@@ -229,7 +226,7 @@ az vm open-port --port 5601 --resource-group myResourceGroup --name myVM
 
 Otwórz konsolę Kibana i wybierz pozycję **Utwórz** w celu wygenerowania domyślnego indeksu na podstawie danych dziennika systemu wysłanych wcześniej do programu Elasticsearch. 
 
-![Zrzut ekranu pokazujący konsolę Kibana i wyróżniony przycisk Utwórz.](media/elasticsearch-install/kibana-index.png)
+![Zrzut ekranu przedstawiający konsolę Kibana i wyróżniony przycisk Utwórz.](media/elasticsearch-install/kibana-index.png)
 
 Wybierz pozycję **Discover** (Odnajdywanie) w konsoli Kibana, aby wyszukiwać, przeglądać i filtrować zdarzenia z dziennika systemu.
 

@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 2d385357f7d4b1d1edec1cf336628bf8b3f9dda3
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 4f256ced9444a67d5e2618b6fd816cb811f2920a
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107764643"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818840"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release-for-linux-vms"></a>Tworzenie i konfigurowanie magazynu kluczy dla maszyn wirtualnych Azure Disk Encryption azure AD (poprzednia wersja) dla maszyn wirtualnych z systemem Linux
 
 **Nowa wersja usługi Azure Disk Encryption eliminuje wymaganie podania parametru aplikacji usługi Azure AD w celu włączenia szyfrowania dysków maszyny wirtualnej. W nowej wersji nie jest już wymagane podanie poświadczeń usługi Azure AD podczas kroku włączania szyfrowania. Wszystkie nowe maszyny wirtualne muszą być szyfrowane bez parametrów aplikacji usługi Azure AD przy użyciu nowej wersji. Aby wyświetlić instrukcje włączania szyfrowania dysków maszyny wirtualnej przy użyciu nowej wersji, [zobacz Azure Disk Encryption](disk-encryption-overview.md). Maszyny wirtualne, które zostały już zaszyfrowane za pomocą parametrów aplikacji usługi Azure AD, są nadal obsługiwane i powinny być nadal obsługiwane przy użyciu składni usługi AAD.**
 
-Azure Disk Encryption używa Azure Key Vault do kontrolowania kluczy szyfrowania dysków i wpisów tajnych oraz zarządzania nimi.  Aby uzyskać więcej informacji na temat magazynów kluczy, zobacz [Get started with Azure Key Vault](../../key-vault/general/overview.md) and Secure your key vault (Rozpoczynanie pracy z magazynem kluczy i [zabezpieczanie magazynu kluczy).](../../key-vault/general/security-overview.md) 
+Azure Disk Encryption używa Azure Key Vault do kontrolowania kluczy szyfrowania dysków i wpisów tajnych oraz zarządzania nimi.  Aby uzyskać więcej informacji na temat magazynów kluczy, zobacz [Get started with Azure Key Vault](../../key-vault/general/overview.md) and Secure your key vault (Rozpoczynanie pracy z magazynem kluczy i [zabezpieczanie magazynu kluczy).](../../key-vault/general/security-features.md) 
 
 Tworzenie i konfigurowanie magazynu kluczy do użycia z usługą Azure Disk Encryption z usługą Azure AD (poprzednia wersja) obejmuje trzy kroki:
 
@@ -38,7 +38,7 @@ Zobacz główny artykuł Tworzenie i konfigurowanie magazynu kluczy dla [usługi
 
 
 ## <a name="create-a-key-vault"></a>Tworzenie magazynu kluczy 
-Azure Disk Encryption jest zintegrowana z [usługą Azure Key Vault,](https://azure.microsoft.com/documentation/services/key-vault/) aby ułatwić kontrolowanie kluczy szyfrowania dysków i wpisów tajnych oraz zarządzanie nimi w ramach subskrypcji magazynu kluczy. Możesz utworzyć magazyn kluczy lub użyć istniejącego magazynu na Azure Disk Encryption. Aby uzyskać więcej informacji na temat magazynów kluczy, zobacz [Get started with Azure Key Vault](../../key-vault/general/overview.md) and Secure your key vault (Rozpoczynanie pracy z magazynem kluczy i [zabezpieczanie magazynu kluczy).](../../key-vault/general/security-overview.md) Do utworzenia magazynu kluczy Resource Manager szablonu, interfejsu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure. 
+Azure Disk Encryption jest zintegrowana z [usługą Azure Key Vault,](https://azure.microsoft.com/documentation/services/key-vault/) aby ułatwić kontrolowanie kluczy szyfrowania dysków i wpisów tajnych w ramach subskrypcji magazynu kluczy oraz zarządzanie nimi. Możesz utworzyć magazyn kluczy lub użyć istniejącego magazynu na Azure Disk Encryption. Aby uzyskać więcej informacji na temat magazynów kluczy, zobacz [Get started with Azure Key Vault](../../key-vault/general/overview.md) and Secure your key vault (Rozpoczynanie pracy z magazynem kluczy i [zabezpieczanie magazynu kluczy).](../../key-vault/general/security-features.md) Do utworzenia magazynu kluczy Resource Manager szablonu, interfejsu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure. 
 
 
 >[!WARNING]
@@ -153,7 +153,7 @@ Aplikacja usługi Azure AD wymaga praw dostępu do kluczy lub wpisów tajnych w 
 ### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-azure-cli"></a><a name="bkmk_KVAPCLI"></a> Ustawianie zasad dostępu magazynu kluczy dla aplikacji usługi Azure AD przy użyciu interfejsu wiersza polecenia platformy Azure
 Użyj [az keyvault set-policy,](/cli/azure/keyvault#az_keyvault_set_policy) aby ustawić zasady dostępu. Aby uzyskać więcej informacji, zobacz Manage Key Vault using CLI 2.0 (Zarządzanie Key Vault [przy użyciu interfejsu wiersza polecenia 2.0).](../../key-vault/general/manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret)
 
-Nadaj jednostki usługi utworzonej za pośrednictwem interfejsu wiersza polecenia platformy Azure dostęp do uzyskiwania wpisów tajnych i opakowywania kluczy za pomocą następującego polecenia:
+Nadaj jednostki usługi utworzonej za pośrednictwem interfejsu wiersza polecenia platformy Azure dostęp w celu uzyskania wpisów tajnych i opakowania kluczy za pomocą następującego polecenia:
 
 ```azurecli-interactive
 az keyvault set-policy --name "MySecureVault" --spn "<spn created with CLI/the Azure AD ClientID>" --key-permissions wrapKey --secret-permissions set
@@ -229,20 +229,20 @@ Użyj [narzędzia az keyvault update,](/cli/azure/keyvault#az_keyvault_update) a
 ## <a name="set-up-a-key-encryption-key-optional"></a><a name="bkmk_KEK"></a> Konfigurowanie klucza szyfrowania klucza (opcjonalnie)
 Jeśli chcesz użyć klucza szyfrowania klucza (KEK) dla dodatkowej warstwy zabezpieczeń kluczy szyfrowania, dodaj klucz szyfrowania kluczy do magazynu kluczy. Użyj polecenia cmdlet [Add-AzKeyVaultKey,](/powershell/module/az.keyvault/add-azkeyvaultkey) aby utworzyć klucz szyfrowania klucza w magazynie kluczy. Można również zaimportować klucz szyfrowania kluczy z lokalnego modułu HSM do zarządzania kluczami. Aby uzyskać więcej informacji, [zobacz dokumentację Key Vault .](../../key-vault/keys/hsm-protected-keys.md) Po podano klucz szyfrowania klucza, Azure Disk Encryption używa tego klucza do opakowywania wpisów tajnych szyfrowania przed zapisem w Key Vault. 
 
-* Podczas generowania kluczy użyj typu klucza RSA. Azure Disk Encryption nie obsługuje jeszcze używania kluczy krzywej wielokropka.
+* Podczas generowania kluczy użyj typu klucza RSA. Azure Disk Encryption nie obsługuje jeszcze używania klawiszy krzywej eliptycznej.
 
 * Klucz tajny magazynu kluczy i adresy URL klucza szyfrowania kluczy muszą mieć wersje. Platforma Azure wymusza to ograniczenie dotyczące wersji. Prawidłowy klucz tajny i adresy URL KEK można znaleźć w następujących przykładach:
 
   * Przykład prawidłowego adresu URL tajnego:   *https://contosovault.vault.azure.net/secrets/EncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
   * Przykład prawidłowego adresu URL KEK:   *https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
-* Azure Disk Encryption nie obsługuje określania numerów portów jako części wpisów tajnych magazynu kluczy i adresów URL klucza szyfrowania kluczy. Aby uzyskać przykłady niespartych i obsługiwanych adresów URL magazynu kluczy, zobacz następujące przykłady:
+* Azure Disk Encryption nie obsługuje określania numerów portów jako części wpisów tajnych magazynu kluczy i adresów URL klucza szyfrowania kluczy. Przykłady nie obsługiwanych i obsługiwanych adresów URL magazynu kluczy można znaleźć w następujących przykładach:
 
   * Nieakceptowalny adres URL magazynu kluczy  *https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
   * Dopuszczalny adres URL magazynu kluczy:   *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
-### <a name="set-up-a-key-encryption-key-with-azure-powershell"></a><a name="bkmk_KEKPSH"></a> Konfigurowanie klucza szyfrowania klucza za pomocą Azure PowerShell 
-Przed rozpoczęciem korzystania ze skryptu programu PowerShell należy zapoznać się z Azure Disk Encryption wstępnymi, aby zrozumieć kroki opisane w skrypcie. Przykładowy skrypt może wymagać zmian w twoim środowisku. Ten skrypt tworzy wszystkie Azure Disk Encryption wymagań wstępnych i szyfruje istniejącą maszynę wirtualną IaaS, opakowując klucz szyfrowania dysku przy użyciu klucza szyfrowania klucza. 
+### <a name="set-up-a-key-encryption-key-with-azure-powershell"></a><a name="bkmk_KEKPSH"></a> Konfigurowanie klucza szyfrowania klucza przy użyciu Azure PowerShell 
+Przed rozpoczęciem korzystania ze skryptu programu PowerShell należy zapoznać się z podstawowymi Azure Disk Encryption, aby zrozumieć kroki opisane w skrypcie. Przykładowy skrypt może wymagać zmian w twoim środowisku. Ten skrypt tworzy wszystkie Azure Disk Encryption wymagań wstępnych i szyfruje istniejącą maszynę wirtualną IaaS, opakowując klucz szyfrowania dysku przy użyciu klucza szyfrowania klucza. 
 
  ```powershell
  # Step 1: Create a new resource group and key vault in the same location.

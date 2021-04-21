@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 65dc9da03a6b763d419c51e53bf756550e8b56a4
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 1a1cd8c051f9e04c09ef2986805873d8e7fea54e
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751854"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817634"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Przenoszenie magazynu kluczy platformy Azure do innej subskrypcji
 
@@ -123,5 +123,5 @@ Jeśli używasz tożsamości zarządzanej, musisz również zaktualizować tożs
 - Dowiedz się więcej [o kluczach, wpisach tajnych i certyfikatach](about-keys-secrets-certificates.md)
 - Aby uzyskać informacje koncepcyjne, w tym informacje o Key Vault dziennikach, [zobacz Key Vault rejestrowanie](logging.md)
 - [Przewodnik dewelopera usługi Key Vault](../general/developers-guide.md)
-- [Zabezpieczanie magazynu kluczy](security-overview.md)
+- [Azure Key Vault zabezpieczeń](security-features.md)
 - [Konfigurowanie Azure Key Vault sieci wirtualnych i zapory sieci wirtualnych](network-security.md)

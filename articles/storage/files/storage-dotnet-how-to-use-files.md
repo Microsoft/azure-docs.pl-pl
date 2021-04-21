@@ -1,6 +1,6 @@
 ---
 title: Tworzenie oprogramowania dla usługi Azure Files przy użyciu platformy .NET | Microsoft Docs
-description: Dowiedz się, jak opracowywać aplikacje i usługi platformy .NET, które używają Azure Files do przechowywania danych.
+description: Dowiedz się, jak tworzyć aplikacje i usługi .NET, które używają Azure Files do przechowywania danych.
 author: roygara
 ms.service: storage
 ms.devlang: dotnet
@@ -9,111 +9,111 @@ ms.date: 10/02/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e112060db4a44884d3094a939b03ff106ba72e65
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c00f001ae3cba9420a137a42f9f696619584d50
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96492203"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817381"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Tworzenie oprogramowania dla usługi Azure Files przy użyciu platformy .NET
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
-Poznaj podstawy tworzenia aplikacji platformy .NET, które używają [Azure Files](storage-files-introduction.md) do przechowywania danych. W tym artykule pokazano, jak utworzyć prostą aplikację konsolową, aby wykonać następujące czynności w programie .NET i Azure Files:
+Poznaj podstawy tworzenia aplikacji .NET, które używają Azure Files [do](storage-files-introduction.md) przechowywania danych. W tym artykule pokazano, jak utworzyć prostą aplikację konsoli, aby wykonać następujące czynności za pomocą programu .NET i Azure Files:
 
 - Pobierz zawartość pliku.
-- Ustaw maksymalny rozmiar lub limit przydziału dla udziału plików.
-- Utwórz sygnaturę dostępu współdzielonego (SAS) dla pliku.
+- Ustaw maksymalny rozmiar (limit przydziału) dla udziału plików.
+- Utwórz sygnaturę dostępu współdzielonego dla pliku.
 - Skopiowanie pliku do innego pliku w tym samym koncie magazynu.
 - Skopiowanie pliku do obiektu blob w tym samym koncie magazynu.
 - Utwórz migawkę udziału plików.
-- Przywróć plik z migawki udziału.
-- Skorzystaj z metryk usługi Azure Storage w celu rozwiązywania problemów.
+- Przywracanie pliku z migawki udziału.
+- Użyj metryk usługi Azure Storage na potrzeby rozwiązywania problemów.
 
-Aby dowiedzieć się więcej na temat Azure Files, zobacz [co to jest Azure Files?](storage-files-introduction.md)
+Aby dowiedzieć się więcej o Azure Files, zobacz [Co to jest Azure Files?](storage-files-introduction.md)
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
 ## <a name="understanding-the-net-apis"></a>Opis interfejsów API platformy .NET
 
-Usługa Azure Files oferuje dwa obszerne podejścia do aplikacji klienckich: blok komunikatów serwera (SMB) i interfejs REST. W programie .NET `System.IO` `Azure.Storage.Files.Shares` interfejsy API i są abstrakcyjne.
+Usługa Azure Files oferuje dwa obszerne podejścia do aplikacji klienckich: blok komunikatów serwera (SMB) i interfejs REST. W programie .NET te `System.IO` podejścia są `Azure.Storage.Files.Shares` abstrakcją interfejsów API i .
 
 Interfejs API | Kiedy stosować | Uwagi
 ----|-------------|------
-[System.IO](/dotnet/api/system.io) | Twoja aplikacja: <ul><li>Wymaga odczytu/zapisu plików przy użyciu protokołu SMB</li><li>Działa na urządzeniu, które ma dostęp do konta usługi Azure Files za pośrednictwem portu 445</li><li>Nie musi zarządzać żadnymi ustawieniami administracyjnymi udziału plików</li></ul> | We/wy plików wdrożonych przy użyciu Azure Files za pośrednictwem protokołu SMB zwykle jest taka sama jak we/wy z dowolnym sieciowym udziałem plików lub lokalnym urządzeniem magazynującym. Aby zapoznać się z wprowadzeniem do wielu funkcji platformy .NET, w tym plików we/wy, zobacz Samouczek dotyczący [aplikacji konsolowej](/dotnet/csharp/tutorials/console-teleprompter) .
-[Azure. Storage. Files. shares](/dotnet/api/azure.storage.files.shares) | Twoja aplikacja: <ul><li>Nie można uzyskać dostępu do Azure Files przy użyciu protokołu SMB na porcie 445 z powodu ograniczeń zapory lub usługodawcy internetowego</li><li>Wymaga funkcji administracyjnych, takich jak możliwość ustawiania przydziału udziału plików lub tworzenia sygnatury dostępu współdzielonego</li></ul> | W tym artykule przedstawiono sposób użycia `Azure.Storage.Files.Shares` funkcji we/wy na plikach przy użyciu protokołu REST zamiast SMB i zarządzania udziałem plików.
+[System.IO](/dotnet/api/system.io) | Twoja aplikacja: <ul><li>Musi odczytywać/zapisywać pliki przy użyciu funkcji SMB</li><li>Działa na urządzeniu, które ma dostęp do konta usługi Azure Files za pośrednictwem portu 445</li><li>Nie musi zarządzać żadnymi ustawieniami administracyjnymi udziału plików</li></ul> | We/Wy plików zaimplementowane Azure Files za pośrednictwem SMB jest zwykle takie samo jak we/wy z dowolnym sieciowym udziałem plików lub lokalnym urządzeniem magazynu. Wprowadzenie do wielu funkcji na platformie .NET, w tym we/wy plików, można znaleźć w [samouczku Aplikacja konsolowa.](/dotnet/csharp/tutorials/console-teleprompter)
+[Azure.Storage.Files.Shares](/dotnet/api/azure.storage.files.shares) | Twoja aplikacja: <ul><li>Nie można uzyskać dostępu do Azure Files przy użyciu SMB na porcie 445 ze względu na ograniczenia zapory lub isp</li><li>Wymaga funkcji administracyjnych, takich jak możliwość ustawiania przydziału udziału plików lub tworzenia sygnatury dostępu współdzielonego</li></ul> | W tym artykule pokazano, jak używać funkcji dla we/wy plików przy użyciu rest zamiast SMB i zarządzania `Azure.Storage.Files.Shares` udziałem plików.
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>Tworzenie aplikacji konsolowej i uzyskiwanie zestawu
 
-Biblioteki klienta Azure Files można użyć w dowolnym typie aplikacji platformy .NET. Te aplikacje obejmują usługi Azure Cloud, Web, Desktop i Mobile Apps. W tym przewodniku Tworzymy aplikację konsolową dla uproszczenia.
+Biblioteki klienta Azure Files można używać w aplikacji .NET dowolnego typu. Należą do nich aplikacje w chmurze, aplikacje internetowe, klasyczne i mobilne platformy Azure. W tym przewodniku dla uproszczenia utworzymy aplikację konsolowa.
 
-W programie Visual Studio utwórz nową aplikację konsoli dla systemu Windows. Poniższe kroki pokazują, jak utworzyć aplikację konsolową w programie Visual Studio 2019. Procedura jest podobna w innych wersjach programu Visual Studio.
+W programie Visual Studio utwórz nową aplikację konsoli dla systemu Windows. W poniższych krokach przedstawiono sposób tworzenia aplikacji konsolowej w programie Visual Studio 2019. Procedura jest podobna w innych wersjach programu Visual Studio.
 
-1. Uruchom program Visual Studio i wybierz pozycję **Utwórz nowy projekt**.
-1. W obszarze **Utwórz nowy projekt** wybierz pozycję **aplikacja konsoli (.NET Framework)** dla języka C#, a następnie wybierz pozycję **dalej**.
-1. W obszarze **Konfigurowanie nowego projektu** wprowadź nazwę aplikacji, a następnie wybierz pozycję **Utwórz**.
+1. Uruchom Visual Studio i wybierz **pozycję Utwórz nowy projekt.**
+1. W **oknie Tworzenie nowego projektu** wybierz pozycję Aplikacja konsoli **(.NET Framework)** dla języka C#, a następnie wybierz pozycję **Dalej.**
+1. Na **stronie Konfigurowanie nowego projektu** wprowadź nazwę aplikacji, a następnie wybierz pozycję **Utwórz.**
 
-Dodaj wszystkie przykłady kodu z tego artykułu do `Program` klasy w pliku *program. cs* .
+Dodaj wszystkie przykłady kodu w tym artykule do `Program` klasy w *pliku Program.cs.*
 
 ## <a name="use-nuget-to-install-the-required-packages"></a>Użycie pakietu NuGet w celu zainstalowania wymaganych pakietów
 
 Zapoznaj się z tymi pakietami w projekcie:
 
-# <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
+# <a name="azure-net-sdk-v12"></a>[Zestaw Azure \. NET SDK w wersji 12](#tab/dotnet)
 
-- [Podstawowa Biblioteka platformy Azure dla platformy .NET](https://www.nuget.org/packages/Azure.Core/): Ten pakiet jest implementacją potoku klienta platformy Azure.
-- [Azure Storage BLOBa Biblioteka kliencka dla platformy .NET](https://www.nuget.org/packages/Azure.Storage.Blobs/): Ten pakiet zapewnia programistyczny dostęp do zasobów obiektów BLOB na koncie magazynu.
-- [Biblioteka kliencka plików usługi Azure Storage dla platformy .NET](https://www.nuget.org/packages/Azure.Storage.Files.Shares/): Ten pakiet zapewnia programistyczny dostęp do zasobów plików na koncie magazynu.
-- [Biblioteka Configuration Manager systemu dla platformy .NET](https://www.nuget.org/packages/System.Configuration.ConfigurationManager/): Ten pakiet udostępnia klasę przechowującą i pobierającą wartości w pliku konfiguracji.
+- [Podstawowa biblioteka platformy Azure dla platformy .NET:](https://www.nuget.org/packages/Azure.Core/)ten pakiet jest implementacją potoku klienta platformy Azure.
+- [Azure Storage Blob klienta dla platformy .NET:](https://www.nuget.org/packages/Azure.Storage.Blobs/)ten pakiet zapewnia programowy dostęp do zasobów obiektów blob na koncie magazynu.
+- [Biblioteka klienta usługi Azure Storage Files dla platformy .NET:](https://www.nuget.org/packages/Azure.Storage.Files.Shares/)ten pakiet zapewnia programowy dostęp do zasobów plików na koncie magazynu.
+- Biblioteka Menedżer konfiguracji dla programu [.NET:](https://www.nuget.org/packages/System.Configuration.ConfigurationManager/)ten pakiet zawiera klasę przechowującą i pobierania wartości w pliku konfiguracji.
 
-Aby uzyskać pakiety, można użyć narzędzia NuGet. Wykonaj następujące kroki:
+Aby uzyskać pakiety, możesz użyć pakietu NuGet. Wykonaj następujące kroki:
 
-1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Zarządzaj pakietami NuGet**.
-1. W **Menedżerze pakietów NuGet** wybierz pozycję **Przeglądaj**. Następnie wyszukaj i wybierz pozycję **Azure. Core**, a następnie wybierz pozycję **Zainstaluj**.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Zarządzaj pakietami NuGet.**
+1. Na **stronie Menedżer pakietów NuGet** wybierz pozycję **Przeglądaj.** Następnie wyszukaj i wybierz pozycję **Azure.Core,** a następnie wybierz pozycję **Zainstaluj.**
 
-   Ten krok powoduje zainstalowanie pakietu wraz z jego zależnościami.
+   Ten krok instaluje pakiet i jego zależności.
 
-1. Wyszukaj i Zainstaluj następujące pakiety:
+1. Wyszukaj i zainstaluj następujące pakiety:
 
-   - **Azure. Storage. Blobs**
-   - **Azure. Storage. Files. shares**
+   - **Azure.Storage.Blobs**
+   - **Azure.Storage.Files.Shares**
    - **System.Configuration.ConfigurationManager**
 
-# <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
+# <a name="azure-net-sdk-v11"></a>[Zestaw Azure \. NET SDK w wersji 11](#tab/dotnetv11)
 
-- [Microsoft Azure Storage wspólna biblioteka dla platformy .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): Ten pakiet zapewnia programistyczny dostęp do wspólnych zasobów na koncie magazynu.
-- [Biblioteka obiektów blob Microsoft Azure Storage dla platformy .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/): Ten pakiet zapewnia programistyczny dostęp do zasobów obiektów BLOB na koncie magazynu.
-- [Biblioteka plików Microsoft Azure Storage dla platformy .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/): Ten pakiet zapewnia programistyczny dostęp do zasobów plików na koncie magazynu.
-- [Microsoft Azure Configuration Manager Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): Ten pakiet zawiera klasę do analizowania parametrów połączenia w pliku konfiguracji, wszędzie tam, gdzie aplikacja jest uruchomiona.
+- [Microsoft Azure Storage biblioteki dla programu .NET:](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)ten pakiet zapewnia programowy dostęp do typowych zasobów na koncie magazynu.
+- [Microsoft Azure Storage blob dla platformy .NET:](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)ten pakiet zapewnia programowy dostęp do zasobów obiektów blob na koncie magazynu.
+- [Microsoft Azure Storage plików dla programu .NET:](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/)ten pakiet zapewnia programowy dostęp do zasobów plików na koncie magazynu.
+- [Microsoft Azure Menedżer konfiguracji biblioteki dla programu .NET:](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)ten pakiet zawiera klasę do analizowania parametrów połączenia w pliku konfiguracji, niezależnie od tego, gdzie jest uruchomiona aplikacja.
 
-Aby uzyskać pakiety, można użyć narzędzia NuGet. Wykonaj następujące kroki:
+Aby uzyskać pakiety, możesz użyć pakietu NuGet. Wykonaj następujące kroki:
 
-1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Zarządzaj pakietami NuGet**.
-1. W **Menedżerze pakietów NuGet** wybierz pozycję **Przeglądaj**. Następnie wyszukaj i wybierz pozycję **Microsoft. Azure. Storage. blob**, a następnie wybierz pozycję **Zainstaluj**.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Zarządzaj pakietami NuGet.**
+1. W **programie NuGet Menedżer pakietów** wybierz pozycję **Przeglądaj.** Następnie wyszukaj i wybierz pozycję **Microsoft.Azure.Storage.Blob,** a następnie wybierz pozycję **Zainstaluj.**
 
-   Ten krok powoduje zainstalowanie pakietu wraz z jego zależnościami.
-1. Wyszukaj i Zainstaluj następujące pakiety:
+   Ten krok instaluje pakiet i jego zależności.
+1. Wyszukaj i zainstaluj następujące pakiety:
 
-   - **Microsoft. Azure. Storage. Common**
-   - **Microsoft. Azure. Storage. File**
+   - **Microsoft.Azure.Storage.Common**
+   - **Microsoft.Azure.Storage.File**
    - **Microsoft.Azure.ConfigurationManager**
 
 ---
 
-## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Zapisz poświadczenia konta magazynu w pliku App.config
+## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Zapisywanie poświadczeń konta magazynu w App.config magazynu
 
-Następnie Zapisz poświadczenia w pliku *App.config* projektu. W **Eksplorator rozwiązań** kliknij dwukrotnie `App.config` plik i zmodyfikuj go tak, aby był podobny do poniższego przykładu.
+Następnie zapisz poświadczenia w plikuApp.config *projektu.* W **Eksplorator rozwiązań** kliknij dwukrotnie plik i edytuj go tak, aby `App.config` był podobny do poniższego przykładu.
 
-# <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
+# <a name="azure-net-sdk-v12"></a>[Zestaw Azure \. NET SDK w wersji 12](#tab/dotnet)
 
-Zastąp ciąg `myaccount` nazwą konta magazynu i `mykey` kluczem konta magazynu.
+Zastąp `myaccount` element nazwą konta magazynu, a element `mykey` kluczem konta magazynu.
 
 :::code language="xml" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/app.config" highlight="5,6,7":::
 
-# <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
+# <a name="azure-net-sdk-v11"></a>[Zestaw Azure \. NET SDK w wersji 11](#tab/dotnetv11)
 
-Zastąp ciąg `myaccount` nazwą konta magazynu i `StorageAccountKeyEndingIn==` kluczem konta magazynu.
+Zastąp `myaccount` element nazwą konta magazynu, a element `StorageAccountKeyEndingIn==` kluczem konta magazynu.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -131,17 +131,17 @@ Zastąp ciąg `myaccount` nazwą konta magazynu i `StorageAccountKeyEndingIn==` 
 ---
 
 > [!NOTE]
-> Emulator magazynu azurite nie obsługuje obecnie Azure Files. Parametry połączenia muszą wskazywać konto usługi Azure Storage w chmurze, aby można było korzystać z Azure Files.
+> Emulator magazynu Azurite nie obsługuje obecnie Azure Files. Aby można było pracować z kontem usługi Azure Storage w chmurze, w celu współpracy z Azure Files.
 
 ## <a name="add-using-directives"></a>Dodawanie dyrektyw using
 
-W **Eksplorator rozwiązań** Otwórz plik *program. cs* i Dodaj następujące dyrektywy using na początku pliku.
+W **Eksplorator rozwiązań** pliku otwórz *plik Program.cs* i dodaj na początku pliku następujące dyrektywy using.
 
-# <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
+# <a name="azure-net-sdk-v12"></a>[Zestaw Azure \. NET SDK w wersji 12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_UsingStatements":::
 
-# <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
+# <a name="azure-net-sdk-v11"></a>[Zestaw Azure \. NET SDK w wersji 11](#tab/dotnetv11)
 
 ```csharp
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
@@ -156,17 +156,17 @@ using Microsoft.Azure.Storage.File; // Namespace for Azure Files
 
 ## <a name="access-the-file-share-programmatically"></a>Programowy dostęp do udziału plików
 
-W pliku *program. cs* Dodaj następujący kod, aby programowo uzyskać dostęp do udziału plików.
+W pliku *Program.cs* dodaj następujący kod, aby programowo uzyskać dostęp do udziału plików.
 
-# <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
+# <a name="azure-net-sdk-v12"></a>[Zestaw Azure \. NET SDK w wersji 12](#tab/dotnet)
 
-Poniższa metoda tworzy udział plików, jeśli jeszcze nie istnieje. Metoda jest uruchamiana przez utworzenie obiektu [ShareClient](/dotnet/api/azure.storage.files.shares.shareclient) na podstawie parametrów połączenia. Następnie próbuje pobrać utworzony wcześniej plik. Wywołaj tę metodę z `Main()` .
+Następująca metoda tworzy udział plików, jeśli jeszcze nie istnieje. Metoda rozpoczyna się od utworzenia [obiektu ShareClient](/dotnet/api/azure.storage.files.shares.shareclient) na pomocą parametrów połączenia. Następnie przykład próbuje pobrać utworzony wcześniej plik. Wywołaj tę metodę z `Main()` metody .
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_CreateShare":::
 
-# <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
+# <a name="azure-net-sdk-v11"></a>[Zestaw Azure \. NET SDK w wersji 11](#tab/dotnetv11)
 
-Następnie Dodaj poniższą zawartość do `Main()` metody po kodzie pokazanym powyżej, aby pobrać parametry połączenia. Ten kod pobiera odwołanie do utworzonego wcześniej pliku i wyświetla jego zawartość.
+Następnie dodaj następującą zawartość do metody po kodzie przedstawionym `Main()` powyżej, aby pobrać ciąg połączenia. Ten kod pobiera odwołanie do utworzonego wcześniej pliku i wyprowadza jego zawartość.
 
 ```csharp
 // Create a CloudFileClient object for credentialed access to Azure Files.
@@ -206,17 +206,17 @@ Aby zobaczyć dane wyjściowe, uruchom aplikację konsolową.
 
 ## <a name="set-the-maximum-size-for-a-file-share"></a>Ustawianie maksymalnego rozmiaru udziału plików
 
-Począwszy od wersji 5. x biblioteki klienta Azure Files, można ustawić limit przydziału (maksymalny rozmiar) udziału plików. Można również sprawdzić, ile danych jest obecnie przechowywanych w udziale.
+Począwszy od wersji 5.x Azure Files klienta programu , można ustawić limit przydziału (maksymalny rozmiar) udziału plików. Można również sprawdzić, ile danych jest obecnie przechowywanych w udziale.
 
-Ustawienie limitu przydziału udziału ogranicza łączny rozmiar plików przechowywanych w udziale. Jeśli łączny rozmiar plików w udziale przekracza limit przydziału, klienci nie mogą zwiększyć rozmiaru istniejących plików. Klienci nie mogą również tworzyć nowych plików, chyba że te pliki są puste.
+Ustawienie limitu przydziału udziału ogranicza całkowity rozmiar plików przechowywanych w tym udziału. Jeśli całkowity rozmiar plików w udziału przekracza limit przydziału, klienci nie mogą zwiększyć rozmiaru istniejących plików. Klienci nie mogą również tworzyć nowych plików, chyba że te pliki są puste.
 
 W poniższym przykładzie pokazano, jak sprawdzić bieżące użycie udziału oraz jak ustawić limit przydziału w udziale.
 
-# <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
+# <a name="azure-net-sdk-v12"></a>[Zestaw Azure \. NET SDK w wersji 12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_SetMaxShareSize":::
 
-# <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
+# <a name="azure-net-sdk-v11"></a>[Zestaw Azure \. NET SDK w wersji 11](#tab/dotnetv11)
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -252,17 +252,17 @@ if (share.Exists())
 
 ### <a name="generate-a-shared-access-signature-for-a-file-or-file-share"></a>Generowanie sygnatury dostępu współdzielonego dla pliku lub udziału plików
 
-Począwszy od wersji 5. x biblioteki klienta Azure Files, można wygenerować sygnaturę dostępu współdzielonego (SAS) dla udziału plików lub dla pojedynczego pliku.
+Począwszy od wersji 5.x biblioteki klienta Azure Files, można wygenerować sygnaturę dostępu współdzielonego (SAS) dla udziału plików lub dla pojedynczego pliku.
 
-# <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
+# <a name="azure-net-sdk-v12"></a>[Zestaw Azure \. NET SDK w wersji 12](#tab/dotnet)
 
-Poniższa przykładowa Metoda zwraca sygnaturę dostępu współdzielonego dla pliku w określonym udziale.
+Następująca przykładowa metoda zwraca sygnaturę dostępu współdzielonego dla pliku w określonym udziału.
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_GetFileSasUri":::
 
-# <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
+# <a name="azure-net-sdk-v11"></a>[Zestaw Azure \. NET SDK w wersji 11](#tab/dotnetv11)
 
-Możesz również utworzyć przechowywane zasady dostępu w udziale plików, aby zarządzać sygnaturami dostępu współdzielonego. Zaleca się utworzenie zasad dostępu przechowywanego, ponieważ umożliwia odwoływanie skojarzeń zabezpieczeń w przypadku naruszenia zabezpieczeń. Poniższy przykład tworzy zasady dostępu przechowywanego w udziale. W przykładzie zastosowano te zasady, aby zapewnić ograniczenia dla sygnatury dostępu współdzielonego dla pliku w udziale.
+Można również utworzyć zapisane zasady dostępu w udziałach plików, aby zarządzać sygnaturami dostępu współdzielonych. Zalecamy utworzenie zapisanych zasad dostępu, ponieważ umożliwiają one odwołanie sygnatury dostępu współdzielonego w przypadku naruszenia zabezpieczeń. Poniższy przykład tworzy zapisane zasady dostępu w udziału. W przykładzie te zasady są używane do zapewnienia ograniczeń sygnatury dostępu współdzielonego dla pliku w udziałach.
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -310,26 +310,26 @@ if (share.Exists())
 
 ---
 
-Aby uzyskać więcej informacji na temat tworzenia i używania sygnatur dostępu współdzielonego, zobacz [jak działa sygnatura dostępu współdzielonego](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#how-a-shared-access-signature-works).
+Aby uzyskać więcej informacji na temat tworzenia i używania sygnatur dostępu współdzielonych, zobacz [Jak działa sygnatura dostępu współdzielona](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#how-a-shared-access-signature-works).
 
 ## <a name="copy-files"></a>Kopiowanie plików
 
-Począwszy od wersji 5. x biblioteki klienta Azure Files, można skopiować plik do innego pliku, pliku do obiektu BLOB lub obiektu BLOB do pliku.
+Począwszy od wersji 5.x biblioteki Azure Files klienta programu , można skopiować plik do innego pliku, plik do obiektu blob lub obiekt blob do pliku.
 
-Można również użyć AzCopy do kopiowania jednego pliku do innego lub kopiowania obiektu BLOB do pliku lub w inny sposób. Zobacz Rozpoczynanie [pracy z usługą AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+Możesz również użyć programu AzCopy, aby skopiować jeden plik do innego lub skopiować obiekt blob do pliku lub na drugi. Zobacz [Wprowadzenie do programu AzCopy.](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 
 > [!NOTE]
 > W przypadku kopiowania obiektu blob do pliku lub pliku do obiektu blob konieczne jest autoryzowanie dostępu do obiektu źródłowego za pomocą sygnatury dostępu współdzielonego, nawet jeśli kopiowanie odbywa się w ramach tego samego konta magazynu.
 
 ### <a name="copy-a-file-to-another-file"></a>Kopiowanie pliku do innego pliku
 
-Poniższy przykładowy kod kopiuje plik do innego pliku w tym samym udziale. Aby wykonać kopię, można użyć [uwierzytelniania klucza współużytkowanego](/rest/api/storageservices/authorize-with-shared-key) , ponieważ ta operacja kopiuje pliki w ramach tego samego konta magazynu.
+Poniższy przykładowy kod kopiuje plik do innego pliku w tym samym udziale. Możesz użyć [uwierzytelniania klucza wspólnego,](/rest/api/storageservices/authorize-with-shared-key) aby wykonać kopię, ponieważ ta operacja kopiuje pliki w ramach tego samego konta magazynu.
 
-# <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
+# <a name="azure-net-sdk-v12"></a>[Zestaw Azure \. NET SDK w wersji 12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_CopyFile":::
 
-# <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
+# <a name="azure-net-sdk-v11"></a>[Zestaw Azure \. NET SDK w wersji 11](#tab/dotnetv11)
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -379,11 +379,11 @@ if (share.Exists())
 
 Poniższy przykładowy kod tworzy plik i kopiuje go do obiektu blob w ramach tego samego konta magazynu. Dla pliku źródłowego tworzona jest sygnatura dostępu współdzielonego, za pomocą której usługa autoryzuje dostęp do tego pliku podczas operacji kopiowania.
 
-# <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
+# <a name="azure-net-sdk-v12"></a>[Zestaw Azure \. NET SDK w wersji 12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_CopyFileToBlob":::
 
-# <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
+# <a name="azure-net-sdk-v11"></a>[Zestaw Azure \. NET SDK w wersji 11](#tab/dotnetv11)
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -435,17 +435,17 @@ W ten sam sposób można skopiować obiekt blob do pliku. Jeśli obiekt źródł
 
 ## <a name="share-snapshots"></a>Migawki udziałów
 
-Począwszy od wersji 8,5 biblioteki klienta Azure Files można utworzyć migawkę udziału. Można również wyświetlać listę migawek udziałów oraz je przeglądać i usuwać. Po utworzeniu migawki udziałów są tylko do odczytu.
+Począwszy od wersji 8.5 Azure Files klienta programu , można utworzyć migawkę udziału. Można również wyświetlać listę migawek udziałów oraz je przeglądać i usuwać. Po utworzeniu migawki udziałów są tylko do odczytu.
 
 ### <a name="create-share-snapshots"></a>Tworzenie migawek udziałów
 
 W poniższym przykładzie przedstawiono sposób tworzenia migawki udziału plików.
 
-# <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
+# <a name="azure-net-sdk-v12"></a>[Zestaw Azure \. NET SDK w wersji 12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_CreateShareSnapshot":::
 
-# <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
+# <a name="azure-net-sdk-v11"></a>[Zestaw Azure \. NET SDK w wersji 11](#tab/dotnetv11)
 
 ```csharp
 storageAccount = CloudStorageAccount.Parse(ConnectionString); 
@@ -460,13 +460,13 @@ var snapshotShare = myShare.Snapshot();
 
 ### <a name="list-share-snapshots"></a>Wyświetlanie listy migawek udziałów
 
-Poniższy przykład zawiera listę migawek udziału.
+Poniższy przykład zawiera listę migawek w udziału.
 
-# <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
+# <a name="azure-net-sdk-v12"></a>[Zestaw Azure \. NET SDK w wersji 12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_ListShareSnapshots":::
 
-# <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
+# <a name="azure-net-sdk-v11"></a>[Zestaw Azure \. NET SDK w wersji 11](#tab/dotnetv11)
 
 ```csharp
 var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
@@ -474,15 +474,15 @@ var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
 
 ---
 
-### <a name="list-files-and-directories-within-share-snapshots"></a>Wyświetlanie listy plików i katalogów w ramach migawek udziałów
+### <a name="list-files-and-directories-within-share-snapshots"></a>Tworzenie listy plików i katalogów w ramach migawek udziałów
 
-W poniższym przykładzie pliki i katalogi są przeglądane w ramach migawek udziałów.
+Poniższy przykład umożliwia przeglądanie plików i katalogów w ramach migawek udziałów.
 
-# <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
+# <a name="azure-net-sdk-v12"></a>[Zestaw Azure \. NET SDK w wersji 12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_ListSnapshotContents":::
 
-# <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
+# <a name="azure-net-sdk-v11"></a>[Zestaw Azure \. NET SDK w wersji 11](#tab/dotnetv11)
 
 ```csharp
 CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); 
@@ -494,15 +494,15 @@ var items = rootDirectory.ListFilesAndDirectories();
 
 ### <a name="restore-file-shares-or-files-from-share-snapshots"></a>Przywracanie udziałów plików lub plików z migawek udziałów
 
-Wykonanie migawki udziału plików umożliwia odzyskanie poszczególnych plików lub całego udziału plików.
+Tworzenie migawki udziału plików umożliwia odzyskanie poszczególnych plików lub całego udziału plików.
 
-Aby przywrócić plik z migawki udziału plików, można utworzyć zapytanie o migawki udziałów w udziale plików. Następnie można pobrać plik, który należy do określonej migawki udziału. Użyj tej wersji, aby bezpośrednio odczytywać lub przywracać plik.
+Aby przywrócić plik z migawki udziału plików, można utworzyć zapytanie o migawki udziałów w udziale plików. Następnie można pobrać plik, który należy do określonej migawki udziału. Użyj tej wersji, aby bezpośrednio odczytać lub przywrócić plik.
 
-# <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
+# <a name="azure-net-sdk-v12"></a>[Zestaw Azure \. NET SDK w wersji 12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_RestoreFileFromSnapshot":::
 
-# <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
+# <a name="azure-net-sdk-v11"></a>[Zestaw Azure \. NET SDK w wersji 11](#tab/dotnetv11)
 
 ```csharp
 CloudFileShare liveShare = fClient.GetShareReference(baseShareName);
@@ -533,11 +533,11 @@ fileInliveShare.StartCopyAsync(new Uri(sourceUri));
 
 W poniższym przykładzie przedstawiono sposób usuwania migawki udziału plików.
 
-# <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
+# <a name="azure-net-sdk-v12"></a>[Zestaw Azure \. NET SDK w wersji 12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_DeleteSnapshot":::
 
-# <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
+# <a name="azure-net-sdk-v11"></a>[Zestaw Azure \. NET SDK w wersji 11](#tab/dotnetv11)
 
 ```csharp
 CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); mySnapshot.Delete(null, null, null);
@@ -545,28 +545,28 @@ CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTim
 
 ---
 
-## <a name="troubleshoot-azure-files-by-using-metrics"></a>Rozwiązywanie problemów z Azure Files przy użyciu metryk<a name="troubleshooting-azure-files-using-metrics"></a>
+## <a name="troubleshoot-azure-files-by-using-metrics"></a>Rozwiązywanie Azure Files przy użyciu metryk<a name="troubleshooting-azure-files-using-metrics"></a>
 
 Azure Storage Analytics obsługuje metryki dla Azure Files. Dane metryk umożliwiają śledzenie żądań i diagnozowanie problemów.
 
-Można włączyć metryki dla Azure Files z [Azure Portal](https://portal.azure.com). Można również programowo włączyć metryki, wywołując operację [ustawiania właściwości usługi plików](/rest/api/storageservices/set-file-service-properties) za pomocą interfejsu API REST lub jednego z jego analogek w Azure Filesej bibliotece klienta.
+Metryki dla Azure Files można włączyć z [Azure Portal](https://portal.azure.com). Metryki można również włączyć programowo, wywołując operację Ustawianie właściwości usługi plików przy użyciu interfejsu API REST lub jedną z jego analogi w Azure Files klienta. [](/rest/api/storageservices/set-file-service-properties)
 
-Poniższy przykład kodu pokazuje, jak używać biblioteki klienckiej .NET do włączania metryk dla Azure Files.
+Poniższy przykład kodu przedstawia sposób użycia biblioteki klienta .NET w celu włączenia metryk dla Azure Files.
 
-# <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
+# <a name="azure-net-sdk-v12"></a>[Zestaw Azure \. NET SDK w wersji 12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_UseMetrics":::
 
-# <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
+# <a name="azure-net-sdk-v11"></a>[Zestaw Azure \. NET SDK w wersji 11](#tab/dotnetv11)
 
-Najpierw Dodaj następujące `using` dyrektywy do pliku *programu program. cs* wraz z tymi, które zostały dodane powyżej:
+Najpierw dodaj następujące dyrektywy `using` do pliku *Program.cs* wraz z dodanymi powyżej dyrektywami:
 
 ```csharp
 using Microsoft.Azure.Storage.File.Protocol;
 using Microsoft.Azure.Storage.Shared.Protocol;
 ```
 
-Chociaż obiekty blob platformy Azure, tabele platformy Azure i kolejki platformy Azure używają typu współużytkowanego `ServiceProperties` w `Microsoft.Azure.Storage.Shared.Protocol` przestrzeni nazw, Azure Files używa własnego typu, `FileServiceProperties` typu w `Microsoft.Azure.Storage.File.Protocol` przestrzeni nazw. Należy jednak odwoływać się do obu przestrzeni nazw w kodzie, aby można było skompilować Poniższy kod.
+Chociaż usługi Azure Blobs, Azure Tables i Azure Queues używają typu udostępnionego w przestrzeni nazw , Azure Files używa własnego typu , typu `ServiceProperties` `Microsoft.Azure.Storage.Shared.Protocol` w przestrzeni `FileServiceProperties` `Microsoft.Azure.Storage.File.Protocol` nazw. Jednak w celu skompilowania poniższego kodu należy odwołać się do obu przestrzeni nazw z kodu.
 
 ```csharp
 // Parse your storage connection string from your application's configuration file.
@@ -611,11 +611,11 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 
 ---
 
-Jeśli napotkasz jakiekolwiek problemy, możesz zapoznać się z tematem [rozwiązywania problemów Azure Files problemów w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md).
+Jeśli napotkasz jakiekolwiek problemy, możesz zapoznać się z tematem [Rozwiązywanie problemów Azure Files w systemie Windows.](storage-troubleshoot-windows-file-connection-problems.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat Azure Files, zobacz następujące zasoby:
+Aby uzyskać więcej informacji na Azure Files, zobacz następujące zasoby:
 
 ### <a name="conceptual-articles-and-videos"></a>Artykuły koncepcyjne i filmy
 

@@ -1,47 +1,42 @@
 ---
-title: Samouczek — Równoważenie obciążenia maszyn wirtualnych z systemem Linux na platformie Azure
+title: Samouczek — równoważenie obciążenia maszyn wirtualnych w celu wysokiej dostępności
 description: Z tego samouczka dowiesz się, jak za pomocą interfejsu wiersza polecenia platformy Azure można utworzyć moduł równoważenia obciążenia dla bezpiecznej aplikacji o wysokiej dostępności na trzech maszynach wirtualnych z systemem Linux
-services: virtual-machines
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
 ms.subservice: networking
-ms.assetid: ''
 ms.service: virtual-machines
 ms.collection: linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/13/2017
+ms.date: 04/20/2021
 ms.author: cynthn
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 433bbd51618cfb5624c8ed2c549e1793488f0e81
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 191eb1338533cf1a5f81f4d04c5dfc6fd5cc569c
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102553769"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818750"
 ---
-# <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Samouczek: równoważenie obciążenia maszyn wirtualnych z systemem Linux na platformie Azure w celu utworzenia aplikacji o wysokiej dostępności za pomocą interfejsu wiersza polecenia platformy Azure
+# <a name="tutorial-load-balance-vms-for-high-availability"></a>Samouczek: równoważenie obciążenia maszyn wirtualnych w celu wysokiej dostępności
 
 Równoważenie obciążenia zwiększa dostępność dzięki rozdzieleniu żądań przychodzących pomiędzy wiele maszyn wirtualnych. W tym samouczku poznasz poszczególne składniki modułu równoważenia obciążenia platformy Azure, które dystrybuują ruch i zapewniają wysoką dostępność. Omawiane kwestie:
 
 > [!div class="checklist"]
-> * Tworzenie modułu równoważenia obciążenia na platformie Azure
-> * Tworzenie sondy kondycji modułu równoważenia obciążenia
-> * Tworzenie reguł ruchu modułu równoważenia obciążenia
-> * Używanie pliku cloud-init do tworzenia podstawowej aplikacji Node.js
-> * Tworzenie maszyn wirtualnych i dołączanie ich do modułu równoważenia obciążenia
-> * Wyświetlanie działającego modułu równoważenia obciążenia
-> * Dodawanie i usuwanie maszyn wirtualnych w module równoważenia obciążenia
+> * Tworzenie modułu równoważenia obciążenia
+> * Tworzenie sondy kondycji
+> * Tworzenie reguł ruchu
+> * Instalowanie podstawowej aplikacji Node.js cloud-init
+> * Tworzenie maszyn wirtualnych i dołączanie ich do usługi równoważenia obciążenia
+> * Wyświetlanie działania równoważenia obciążenia
+> * Dodawanie i usuwanie maszyn wirtualnych z równoważenia obciążenia
 
-W tym samouczku jest używany interfejs wiersza polecenia w [Azure Cloud Shell](../../cloud-shell/overview.md), który jest stale aktualizowany do najnowszej wersji. Aby otworzyć Cloud Shell, wybierz opcję **Wypróbuj** z góry dowolnego bloku kodu.
+W tym samouczku używany jest interfejs wiersza [polecenia Azure Cloud Shell](../../cloud-shell/overview.md), który jest stale aktualizowany do najnowszej wersji. Aby otworzyć Cloud Shell, wybierz pozycję **Wypróbuj** w górnej części bloku kodu.
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.30 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="azure-load-balancer-overview"></a>Omówienie modułu równoważenia obciążenia platformy Azure
+
 Moduł równoważenia obciążenia platformy Azure jest modułem w warstwie 4 (TCP, UDP), który zapewnia wysoką dostępność, rozkładając ruch przychodzący na maszyny wirtualne w dobrej kondycji. Sonda kondycji modułu równoważenia obciążenia monitoruje określony port na każdej maszynie wirtualnej i dystrybuuje ruch tylko do działającej maszyny wirtualnej.
 
 Zdefiniuj konfigurację IP frontonu z co najmniej jednym publicznym adresem IP. Ta konfiguracja frontonu zapewnia dostęp do aplikacji i modułu równoważenia obciążenia za pośrednictwem Internetu. 
@@ -219,7 +214,7 @@ runcmd:
 ### <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 Aby poprawić wysoką dostępność aplikacji, umieść maszyny wirtualne w zestawie dostępności. Aby uzyskać więcej informacji na temat zestawów dostępności, zobacz poprzedni samouczek [How to create highly available virtual machines (Tworzenie maszyn wirtualnych o wysokiej dostępności)](tutorial-availability-sets.md).
 
-Utwórz zestaw dostępności za pomocą [AZ VM Availability-Set Create](/cli/azure/vm/availability-set). W poniższym przykładzie zostanie utworzony zestaw dostępności o nazwie *myAvailabilitySet*:
+Utwórz zestaw dostępności za pomocą az [vm availability-set create](/cli/azure/vm/availability-set). W poniższym przykładzie zostanie utworzony zestaw dostępności o nazwie *myAvailabilitySet*:
 
 ```azurecli-interactive 
 az vm availability-set create \

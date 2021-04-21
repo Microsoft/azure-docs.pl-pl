@@ -1,67 +1,70 @@
 ---
-title: Włącz uwierzytelnianie AD DS w udziałach plików platformy Azure
-description: Dowiedz się, jak włączyć uwierzytelnianie Active Directory Domain Services za pośrednictwem protokołu SMB dla udziałów plików platformy Azure. Przyłączone do domeny maszyny wirtualne z systemem Windows mogą uzyskiwać dostęp do udziałów plików platformy Azure przy użyciu poświadczeń AD DS.
+title: Włączanie AD DS uwierzytelniania w udziałach plików platformy Azure
+description: Dowiedz się, jak włączyć uwierzytelnianie Active Directory Domain Services przez SMB dla udziałów plików platformy Azure. Maszyny wirtualne z systemem Windows przyłączone do domeny mogą następnie uzyskać dostęp do udziałów plików platformy Azure przy użyciu AD DS poświadczeń.
 author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 5ee4481b3151e28d5d37760e486a43adbc194994
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f38911b1fffb083902ba67e262141b6780a43ada
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102553225"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817850"
 ---
-# <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Część 1: Włączanie uwierzytelniania AD DS dla udziałów plików platformy Azure 
+# <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Część 1: włączanie AD DS uwierzytelniania dla udziałów plików platformy Azure 
 
-Przed włączeniem Active Directory Domain Services (AD DS) należy zapoznać się z [artykułem Omówienie](storage-files-identity-auth-active-directory-enable.md) , aby poznać obsługiwane scenariusze i wymagania.
+Przed włączeniem Active Directory Domain Services (AD DS) zapoznaj się z artykułem z [](storage-files-identity-auth-active-directory-enable.md) omówieniem, aby poznać obsługiwane scenariusze i wymagania.
 
-W tym artykule opisano proces wymagany do włączenia uwierzytelniania Active Directory Domain Services (AD DS) na koncie magazynu. Po włączeniu tej funkcji musisz skonfigurować konto magazynu i AD DS, aby użyć poświadczeń AD DS do uwierzytelniania w udziale plików platformy Azure. Aby włączyć uwierzytelnianie AD DS za pośrednictwem protokołu SMB dla udziałów plików platformy Azure, należy zarejestrować konto magazynu za pomocą AD DS a następnie ustawić wymagane właściwości domeny na koncie magazynu.
+W tym artykule opisano proces wymagany do włączenia Active Directory Domain Services (AD DS) na koncie magazynu. Po włączeniu tej funkcji należy skonfigurować konto magazynu i konto AD DS, aby używać poświadczeń AD DS do uwierzytelniania w udziałach plików platformy Azure. Aby włączyć AD DS za pośrednictwem protokołu SMB dla udziałów plików platformy Azure, należy zarejestrować konto magazynu w usłudze AD DS, a następnie ustawić wymagane właściwości domeny na koncie magazynu.
 
-Aby zarejestrować konto magazynu za pomocą AD DS, Utwórz konto reprezentujące je w AD DS. Ten proces można traktować tak, jakby jak utworzyć konto reprezentujące lokalny serwer plików systemu Windows w AD DS. Gdy ta funkcja jest włączona na koncie magazynu, ma zastosowanie do wszystkich nowych i istniejących udziałów plików na koncie.
+Aby zarejestrować konto magazynu w AD DS, utwórz konto reprezentujące je w AD DS. Ten proces można myśleć tak, jakby przypominał tworzenie konta reprezentującego lokalnego serwera plików systemu Windows w AD DS. Po włączeniu tej funkcji na koncie magazynu ma ona zastosowanie do wszystkich nowych i istniejących udziałów plików na koncie.
 
-## <a name="option-one-recommended-use-azfileshybrid-powershell-module"></a>Opcja jeden (zalecane): Użyj modułu AzFilesHybrid PowerShell
+## <a name="option-one-recommended-use-azfileshybrid-powershell-module"></a>Opcja 1 (zalecana): użyj modułu AzFilesHybrid programu PowerShell
 
-Polecenia cmdlet w module AzFilesHybrid PowerShell wprowadzają niezbędne modyfikacje i umożliwiają korzystanie z tej funkcji. Ponieważ niektóre części poleceń cmdlet współdziałają z lokalnym AD DS, wyjaśnimy działanie poleceń cmdlet, aby można było określić, czy zmiany są wyrównane z zasadami zgodności i zabezpieczeń, i upewnij się, że masz odpowiednie uprawnienia do wykonywania poleceń cmdlet. Chociaż zalecamy użycie modułu AzFilesHybrid, jeśli nie można tego zrobić, firma Microsoft udostępnia te kroki, aby można było wykonać je ręcznie.
+Polecenia cmdlet w module AzFilesHybrid programu PowerShell umożliwiają wprowadzenie niezbędnych modyfikacji i włączenie tej funkcji. Ponieważ niektóre części poleceń cmdlet współdziałają z lokalną usługą AD DS, wyjaśniamy, do czego te polecenia cmdlet mają dostęp, aby określić, czy zmiany są zgodne z zasadami zgodności i zasadami zabezpieczeń, i upewnić się, że masz odpowiednie uprawnienia do wykonywania poleceń cmdlet. Mimo że zalecamy używanie modułu AzFilesHybrid, jeśli nie możesz tego zrobić, zapewniamy kroki, aby można było wykonać je ręcznie.
 
-### <a name="download-azfileshybrid-module"></a>Pobierz moduł AzFilesHybrid
+### <a name="download-azfileshybrid-module"></a>Pobieranie modułu AzFilesHybrid
 
-- [Pobierz i rozpakuj moduł AzFilesHybrid (ga module: v 0.2.0 +)](https://github.com/Azure-Samples/azure-files-samples/releases) Należy pamiętać, że szyfrowanie AES 256 Kerberos jest obsługiwane w programie v 0.2.2 lub nowszym. Jeśli włączono funkcję z wersją AzFilesHybrid na 0.2.2 v i chcesz ją zaktualizować w celu obsługi szyfrowania AES 256 Kerberos, zapoznaj się z [tym artykułem](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). 
-- Zainstaluj i wykonaj moduł w urządzeniu przyłączonym do lokalnego AD DS z poświadczeniami AD DS, które mają uprawnienia do tworzenia konta logowania do usługi lub konta komputera w docelowej usłudze AD.
--  Uruchom skrypt przy użyciu lokalnego poświadczenia AD DS, które jest synchronizowane z usługą Azure AD. Poświadczenia lokalnego AD DS muszą mieć właściciela konta magazynu lub uprawnienia roli współautor platformy Azure.
+- [Pobierz i rozpakować moduł AzFilesHybrid (moduł ga ga: v0.2.0+)](https://github.com/Azure-Samples/azure-files-samples/releases) Należy pamiętać, że szyfrowanie Kerberos AES 256 jest obsługiwane w wersji 0.2.2 lub wersji powyżej. Jeśli funkcja została włączona przy użyciu pliku AzFilesHybrid w wersji nej niż 0.2.2 i chcesz zaktualizować usługę do obsługi szyfrowania AES 256 Kerberos, zapoznaj się z [tym artykułem.](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption) 
+- Zainstaluj i wykonaj moduł na urządzeniu, które jest przyłączone do domeny lokalnej w usłudze AD DS przy użyciu poświadczeń usługi AD DS, które mają uprawnienia do tworzenia konta logowania do usługi lub konta komputera w docelowej usłudze AD.
+-  Uruchom skrypt przy użyciu lokalnego poświadczenia AD DS zsynchronizowanego z usługą Azure AD. Poświadczenie lokalnego AD DS musi mieć uprawnienia właściciela konta magazynu lub współautora roli platformy Azure.
 
-### <a name="run-join-azstorageaccountforauth"></a>Uruchom Join-AzStorageAccountForAuth
+### <a name="run-join-azstorageaccountforauth"></a>Uruchamianie Join-AzStorageAccountForAuth
 
-`Join-AzStorageAccountForAuth`Polecenie cmdlet wykonuje odpowiednik przyłączania do domeny w trybie offline w imieniu określonego konta magazynu. Skrypt używa polecenia cmdlet do utworzenia [konta komputera](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) w domenie usługi AD. Jeśli z jakiegoś powodu nie możesz użyć konta komputera, możesz zmienić skrypt, aby utworzyć [konto logowania do usługi](/windows/win32/ad/about-service-logon-accounts) . Jeśli zdecydujesz się uruchomić polecenie ręcznie, wybierz konto najlepiej dopasowane do danego środowiska.
+Polecenie cmdlet wykonuje odpowiednik przyłączenia do domeny w trybie `Join-AzStorageAccountForAuth` offline w imieniu określonego konta magazynu. Skrypt używa polecenia cmdlet do utworzenia konta [komputera w](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) domenie usługi AD. Jeśli z jakiegoś powodu nie można użyć konta komputera, można zmienić skrypt w celu utworzenia konta [logowania do usługi.](/windows/win32/ad/about-service-logon-accounts) Jeśli zdecydujesz się uruchomić polecenie ręcznie, wybierz konto, które najlepiej odpowiada Twojemu środowisku.
 
-Konto AD DS utworzone przez polecenie cmdlet reprezentuje konto magazynu. Jeśli konto AD DS jest tworzone w ramach jednostki organizacyjnej (OU), która wymusza wygaśnięcie hasła, należy zaktualizować hasło przed maksymalnym okresem ważności hasła. Nie można zaktualizować hasła konta przed tą datą spowoduje błędy uwierzytelniania podczas uzyskiwania dostępu do udziałów plików platformy Azure. Aby dowiedzieć się, jak zaktualizować hasło, zobacz [Aktualizacja hasła konta AD DS](storage-files-identity-ad-ds-update-password.md).
+Konto AD DS utworzone przez polecenie cmdlet reprezentuje konto magazynu. Jeśli konto AD DS zostało utworzone w ramach jednostki organizacyjnej(OU), która wymusza wygaśnięcie hasła, należy zaktualizować hasło przed maksymalnym okresem ważności hasła. Niepowodzenie aktualizacji hasła konta przed tym dniem powoduje niepowodzenia uwierzytelniania podczas uzyskiwania dostępu do udziałów plików platformy Azure. Aby dowiedzieć się, jak zaktualizować hasło, zobacz [Aktualizowanie AD DS hasła konta.](storage-files-identity-ad-ds-update-password.md)
 
-Zastąp wartości symboli zastępczych własnymi parametrami poniżej przed wykonaniem polecenia w programie PowerShell.
+Zastąp wartości symboli zastępczych własnymi wartościami w poniższych parametrach przed ich wykonaniem w programie PowerShell.
 > [!IMPORTANT]
-> Polecenie cmdlet Join do domeny utworzy konto usługi AD reprezentujące konto magazynu (udział plików) w usłudze AD. Możesz zarejestrować się jako konto komputera lub konto logowania do usługi, aby uzyskać szczegółowe informacje, zobacz [często zadawane pytania](./storage-files-faq.md#security-authentication-and-access-control) . W przypadku kont komputerów istnieje domyślny okres ważności hasła ustawiony w usłudze AD w ciągu 30 dni. Podobnie konto logowania do usługi może mieć ustawiony domyślny okres ważności hasła dla domeny usługi AD lub jednostki organizacyjnej (OU).
-> W przypadku obu typów kont zalecamy sprawdzenie wieku ważności hasła skonfigurowanego w środowisku usługi AD i zaplanowanie [aktualizacji hasła tożsamości konta](storage-files-identity-ad-ds-update-password.md) usługi AD przed maksymalnym okresem ważności hasła. Można rozważyć [utworzenie nowej jednostki organizacyjnej (OU) usługi AD w usłudze AD](/powershell/module/addsadministration/new-adorganizationalunit) i wyłączenie zasad wygasania haseł na [kontach komputerów](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)) lub kontach logowania do usługi. 
+> Polecenie cmdlet przyłączania do domeny utworzy konto usługi AD do reprezentowania konta magazynu (udziału plików) w u usługi AD. Możesz zarejestrować się jako konto komputera lub konto logowania do usługi. Aby uzyskać szczegółowe informacje, zobacz [Często](./storage-files-faq.md#security-authentication-and-access-control) zadawane pytania. W przypadku kont komputerów domyślny wiek wygaśnięcia hasła w u usługi AD wynosi 30 dni. Podobnie konto logowania do usługi może mieć ustawiony domyślny wiek wygaśnięcia hasła w domenie usługi AD lub jednostce organizacyjnej ( OU).
+> W przypadku obu typów kont zalecamy sprawdzenie wieku wygaśnięcia hasła skonfigurowanego [](storage-files-identity-ad-ds-update-password.md) w środowisku usługi AD i zaplanowanie aktualizacji hasła tożsamości konta magazynu dla konta usługi AD przed maksymalnym okresem ważności hasła. Możesz rozważyć utworzenie [nowej jednostki](/powershell/module/addsadministration/new-adorganizationalunit) organizacyjnej usługi AD w usłudze [](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)) AD i odpowiednie wyłączenie zasad wygasania haseł na kontach komputerów lub kontach logowania do usługi. 
 
 ```PowerShell
-#Change the execution policy to unblock importing AzFilesHybrid.psm1 module
+# Change the execution policy to unblock importing AzFilesHybrid.psm1 module
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 
 # Navigate to where AzFilesHybrid is unzipped and stored and run to copy the files into your path
 .\CopyToPSPath.ps1 
 
-#Import AzFilesHybrid module
+# Import AzFilesHybrid module
 Import-Module -Name AzFilesHybrid
 
-#Login with an Azure AD credential that has either storage account owner or contributer Azure role assignment
+# Login with an Azure AD credential that has either storage account owner or contributer Azure role assignment
+# If you are logging into an Azure environment other than Public (ex. AzureUSGovernment) you will need to specify that.
+# See https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-ps
+# for more information.
 Connect-AzAccount
 
-#Define parameters
+# Define parameters
 $SubscriptionId = "<your-subscription-id-here>"
 $ResourceGroupName = "<resource-group-name-here>"
 $StorageAccountName = "<storage-account-name-here>"
 
-#Select the target subscription for the current session
+# Select the target subscription for the current session
 Select-AzSubscription -SubscriptionId $SubscriptionId 
 
 # Register the target storage account with your active directory environment under the target OU (for example: specify the OU with Name as "UserAccounts" or DistinguishedName as "OU=UserAccounts,DC=CONTOSO,DC=COM"). 
@@ -83,17 +86,17 @@ Update-AzStorageAccountAuthForAES256 -ResourceGroupName $ResourceGroupName -Stor
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
 ```
 
-## <a name="option-2-manually-perform-the-enablement-actions"></a>Opcja 2: Ręczne wykonywanie akcji włączania
+## <a name="option-2-manually-perform-the-enablement-actions"></a>Opcja 2. Ręczne wykonywanie akcji włączania
 
-Jeśli skrypt został już wykonany `Join-AzStorageAccountForAuth` powyżej, przejdź do sekcji [Potwierdź, że funkcja jest włączona](#confirm-the-feature-is-enabled) . Nie musisz wykonywać następujących czynności ręcznych.
+Jeśli powyższy skrypt został już pomyślnie `Join-AzStorageAccountForAuth` wykonany, przejdź do sekcji [Potwierdzanie, że funkcja jest włączona.](#confirm-the-feature-is-enabled) Nie musisz wykonywać następujących czynności ręcznych.
 
 ### <a name="checking-environment"></a>Sprawdzanie środowiska
 
-Najpierw należy sprawdzić stan środowiska. W odróżnieniu od tego należy sprawdzić, czy [Active Directory PowerShell](/powershell/module/addsadministration/) jest zainstalowana i czy powłoka jest wykonywana z uprawnieniami administratora. Następnie sprawdź, czy zainstalowano [moduł Az.Storage 2.0](https://www.powershellgallery.com/packages/Az.Storage/2.0.0), i zainstaluj go, jeśli tego nie zrobiono. Po zakończeniu tych sprawdzeń Sprawdź AD DS, aby sprawdzić, czy [konto komputera](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (domyślne) lub [konto logowania do usługi](/windows/win32/ad/about-service-logon-accounts) , które zostało już utworzone przy użyciu nazwy SPN/UPN jako "CIFS/Twoje konto-Storage-Name-tutaj. plik. Core. Windows. NET". Jeśli konto nie istnieje, utwórz je zgodnie z opisem w następnej sekcji.
+Najpierw należy sprawdzić stan środowiska. W szczególności należy sprawdzić, czy program [PowerShell](/powershell/module/addsadministration/) usługi Active Directory jest zainstalowany i czy powłoka jest wykonywana z uprawnieniami administratora. Następnie sprawdź, czy zainstalowano [moduł Az.Storage 2.0](https://www.powershellgallery.com/packages/Az.Storage/2.0.0), i zainstaluj go, jeśli tego nie zrobiono. Po zakończeniu tych testów sprawdź, AD DS, czy istnieje konto komputera [](/windows/win32/ad/about-service-logon-accounts) [(domyślne)](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) lub konto logowania do usługi, które zostało już utworzone przy użyciu nazwy SPN/UPN jako "cifs/your-storage-account-name-here.file.core.windows.net". Jeśli konto nie istnieje, utwórz je zgodnie z opisem w poniższej sekcji.
 
-### <a name="creating-an-identity-representing-the-storage-account-in-your-ad-manually"></a>Ręczne tworzenie tożsamości reprezentującej konto magazynu w usłudze AD
+### <a name="creating-an-identity-representing-the-storage-account-in-your-ad-manually"></a>Ręczne tworzenie tożsamości reprezentującej konto magazynu w u usługi AD
 
-Aby ręcznie utworzyć to konto, Utwórz nowy klucz Kerberos dla konta magazynu. Następnie użyj tego klucza Kerberos jako hasła dla konta za pomocą poleceń cmdlet programu PowerShell poniżej. Ten klucz jest używany tylko podczas instalacji i nie może być używany dla operacji kontroli ani płaszczyzny danych na koncie magazynu. 
+Aby ręcznie utworzyć to konto, utwórz nowy klucz protokołu Kerberos dla konta magazynu. Następnie użyj tego klucza protokołu Kerberos jako hasła dla konta przy użyciu poniższych poleceń cmdlet programu PowerShell. Ten klucz jest używany tylko podczas instalacji i nie może być używany do żadnych operacji kontroli ani płaszczyzny danych na koncie magazynu. 
 
 ```PowerShell
 # Create the Kerberos key on the storage account and get the Kerb1 key as the password for the AD identity to represent the storage account
@@ -104,17 +107,17 @@ New-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAcco
 Get-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -ListKerbKey | where-object{$_.Keyname -contains "kerb1"}
 ```
 
-Po utworzeniu tego klucza Utwórz konto usługi lub komputera w jednostce organizacyjnej. Użyj następującej specyfikacji (Pamiętaj, aby zastąpić przykładowy tekst nazwą konta magazynu):
+Po utworzeniu tego klucza utwórz konto usługi lub komputera w ramach swojej aplikacji OU. Użyj następującej specyfikacji (pamiętaj, aby zastąpić przykładowy tekst nazwą konta magazynu):
 
-SPN: "CIFS/Storage-account-name-tutaj. File. Core. Windows. NET" Password: klucz Kerberos dla konta magazynu.
+NAZWA SPN: "cifs/your-storage-account-name-here.file.core.windows.net" Hasło: klucz protokołu Kerberos dla konta magazynu.
 
-Jeśli jednostka organizacyjna wymusza wygaśnięcie hasła, należy zaktualizować hasło przed maksymalnym okresem ważności hasła, aby zapobiec błędom uwierzytelniania podczas uzyskiwania dostępu do udziałów plików platformy Azure. Aby uzyskać szczegółowe informacje [, zobacz Aktualizowanie hasła tożsamości konta magazynu w usłudze AD](storage-files-identity-ad-ds-update-password.md) .
+Jeśli twoja nazwa OU wymusza wygaśnięcie hasła, musisz zaktualizować hasło przed maksymalnym okresem ważności hasła, aby zapobiec niepowodzeniu uwierzytelniania podczas uzyskiwania dostępu do udziałów plików platformy Azure. Aby uzyskać szczegółowe informacje, zobacz Aktualizowanie [hasła tożsamości konta magazynu w u usługi AD.](storage-files-identity-ad-ds-update-password.md)
 
-Zachowaj identyfikator SID nowo utworzonej tożsamości, który będzie potrzebny do następnego kroku. Utworzona tożsamość, która reprezentuje konto magazynu, nie musi być synchronizowana z usługą Azure AD.
+Zachowaj identyfikator SID nowo utworzonej tożsamości. Będzie on potrzebny w następnym kroku. Utworzona tożsamość reprezentująca konto magazynu nie musi być synchronizowana z usługą Azure AD.
 
-### <a name="enable-the-feature-on-your-storage-account"></a>Włącz funkcję na koncie magazynu
+### <a name="enable-the-feature-on-your-storage-account"></a>Włączanie funkcji na koncie magazynu
 
-Teraz możesz włączyć tę funkcję na koncie magazynu. Podaj szczegóły konfiguracji właściwości domeny w poniższym poleceniu, a następnie uruchom je. Identyfikator SID konta magazynu wymagany w poniższym poleceniu jest identyfikatorem SID tożsamości utworzonej w AD DS w [poprzedniej sekcji](#creating-an-identity-representing-the-storage-account-in-your-ad-manually).
+Teraz możesz włączyć tę funkcję na koncie magazynu. Podaj szczegóły konfiguracji właściwości domeny w poniższym poleceniu, a następnie uruchom ją. Identyfikator SID konta magazynu wymagany w poniższym poleceniu to identyfikator SID tożsamości utworzonej w AD DS [w poprzedniej sekcji](#creating-an-identity-representing-the-storage-account-in-your-ad-manually).
 
 ```PowerShell
 # Set the feature flag on the target storage account and provide the required AD domain information
@@ -132,15 +135,15 @@ Set-AzStorageAccount `
 
 ### <a name="debugging"></a>Debugowanie
 
-Można uruchomić polecenie cmdlet Debug-AzStorageAccountAuth, aby przeprowadzić zestaw podstawowych sprawdzeń konfiguracji usługi AD przy użyciu zalogowanego użytkownika usługi AD. To polecenie cmdlet jest obsługiwane w wersji AzFilesHybrid 0.1.2+. Aby uzyskać więcej informacji na temat kontroli wykonanych w tym poleceniu cmdlet, zobacz [nie można zainstalować Azure Files z poświadczeniami usługi AD](storage-troubleshoot-windows-file-connection-problems.md#unable-to-mount-azure-files-with-ad-credentials) w przewodniku rozwiązywania problemów dla systemu Windows.
+Możesz uruchomić polecenie cmdlet Debug-AzStorageAccountAuth, aby przeprowadzić zestaw podstawowych kontroli konfiguracji usługi AD z zalogowanym użytkownikiem usługi AD. To polecenie cmdlet jest obsługiwane w wersji AzFilesHybrid 0.1.2+. Aby uzyskać więcej informacji na temat kontroli wykonywanych w tym polecenie cmdlet, zobacz nie można zainstalować Azure Files przy użyciu poświadczeń [usługi AD](storage-troubleshoot-windows-file-connection-problems.md#unable-to-mount-azure-files-with-ad-credentials) w przewodniku rozwiązywania problemów dla systemu Windows.
 
 ```PowerShell
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
 ```
 
-## <a name="confirm-the-feature-is-enabled"></a>Potwierdź, że funkcja jest włączona
+## <a name="confirm-the-feature-is-enabled"></a>Potwierdzanie, że funkcja jest włączona
 
-Możesz sprawdzić, czy funkcja jest włączona na koncie magazynu, za pomocą następującego skryptu:
+Aby sprawdzić, czy funkcja jest włączona na koncie magazynu, możesz użyć następującego skryptu:
 
 ```PowerShell
 # Get the target storage account
@@ -155,7 +158,7 @@ $storageAccount.AzureFilesIdentityBasedAuth.DirectoryServiceOptions
 $storageAccount.AzureFilesIdentityBasedAuth.ActiveDirectoryProperties
 ```
 
-Jeśli to się powiedzie, dane wyjściowe powinny wyglądać następująco:
+Jeśli to się powiedzie, dane wyjściowe powinny wyglądać tak:
 
 ```PowerShell
 DomainName:<yourDomainHere>
@@ -167,6 +170,6 @@ AzureStorageID:<yourStorageSIDHere>
 ```
 ## <a name="next-steps"></a>Następne kroki
 
-Pomyślnie włączono funkcję na koncie magazynu. Aby skorzystać z tej funkcji, należy przypisać uprawnienia na poziomie udziału. Przejdź do następnej sekcji.
+Funkcja została pomyślnie włączona na koncie magazynu. Aby korzystać z tej funkcji, musisz przypisać uprawnienia na poziomie udziału. Przejdź do następnej sekcji.
 
-[Część druga: przypisywanie uprawnień na poziomie udziału do tożsamości](storage-files-identity-ad-ds-assign-permissions.md)
+[Część 2. Przypisywanie uprawnień na poziomie udziału do tożsamości](storage-files-identity-ad-ds-assign-permissions.md)
