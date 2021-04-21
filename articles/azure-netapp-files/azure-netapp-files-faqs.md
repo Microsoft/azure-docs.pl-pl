@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2021
+ms.date: 04/20/2021
 ms.author: b-juche
-ms.openlocfilehash: a8c06b25b923d663e982e940100be7b9a2a009e1
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 6cef4860184b217e96e8967ab24a3befc632e316
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726848"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107811854"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Często zadawane pytania dotyczące Azure NetApp Files
 
@@ -214,6 +214,11 @@ Zarządzanie `SMB Shares` usługami `Sessions` , i za `Open Files` pośrednictwe
 
 Użyj **linku Widok JSON** w okienku przeglądu woluminu i poszukaj identyfikatora **startIp** w obszarze **właściwości**  ->  **mountTargets**.
 
+### <a name="can-an-azure-netapp-files-smb-share-act-as-an-dfs-namespace-dfs-n-root"></a>Czy udział SMB Azure NetApp Files może działać jako katalog główny przestrzeni nazw systemu plików DFS (DFS-N)?
+
+Nie. Jednak Azure NetApp Files SMB mogą służyć jako obiekt docelowy folderu przestrzeni nazw systemu plików DFS (DFS-N).   
+Aby użyć udziału SMB Azure NetApp Files jako obiektu docelowego folderu DFS-N, podaj ścieżkę instalacji Universal Naming Convention (UNC) udziału SMB w systemie plików Azure NetApp Files za pomocą procedury Dodawania obiektu docelowego folderu systemu plików [DFS.](/windows-server/storage/dfs-namespaces/add-folder-targets#to-add-a-folder-target)  
+
 ### <a name="smb-encryption-faqs"></a>Często zadawane pytania o szyfrowanie SMB
 
 W tej sekcji znajdują się odpowiedzi na często zadawane pytania dotyczące szyfrowania SMB (SMB 3.0 i SMB 3.1.1).
@@ -240,7 +245,7 @@ SMB 3.0 wykorzystuje algorytm AES-CCM, a SMB 3.1.1 wykorzystuje algorytm AES-GCM
 
 #### <a name="is-smb-encryption-required"></a>Czy szyfrowanie SMB jest wymagane?
 
-Szyfrowanie SMB nie jest wymagane. W związku z tym jest on włączony tylko dla danego udziału, jeśli użytkownik zażąda, Azure NetApp Files go włączyć. Azure NetApp Files nigdy nie są udostępniane w Internecie. Są one dostępne tylko z danej sieci wirtualnej, za pośrednictwem sieci VPN lub usługi Express Route, więc Azure NetApp Files są z założenia bezpieczne. Wybór opcji włączenia szyfrowania SMB zależy wyłącznie od użytkownika. Przed włączeniem tej funkcji należy pamiętać o przewidywanej karze wydajności.
+Szyfrowanie SMB nie jest wymagane. W związku z tym jest on włączony tylko dla danego udziału, jeśli użytkownik zażąda, Azure NetApp Files go włączyć. Azure NetApp Files nigdy nie są udostępniane w Internecie. Są one dostępne tylko z poziomu danej sieci wirtualnej, za pośrednictwem sieci VPN lub usługi Express Route, Azure NetApp Files udziały są z natury bezpieczne. Wybór opcji włączenia szyfrowania SMB zależy wyłącznie od użytkownika. Przed włączeniem tej funkcji należy pamiętać o przewidywanej karze za wydajność.
 
 #### <a name="what-is-the-anticipated-impact-of-smb-encryption-on-client-workloads"></a><a name="smb_encryption_impact"></a>Jaki jest przewidywany wpływ szyfrowania SMB na obciążenia klientów?
 
@@ -265,7 +270,7 @@ Nie. Azure NetApp Files nie jest obsługiwane przez Eksplorator usługi Azure St
 
 Za pomocą polecenia klienta można sprawdzić, czy katalog zbliża się do maksymalnego limitu rozmiaru metadanych katalogu `stat` (320 MB).   
 
-W przypadku katalogu o rozmiarze 320 MB liczba bloków wynosi 655360, a każdy rozmiar bloku to 512 bajtów.  (Czyli 320x1024x1024/512).  Ta liczba przekłada się na około 4 miliony plików w katalogu o rozmiarze 320 MB. Jednak rzeczywista maksymalna liczba plików może być mniejsza w zależności od czynników, takich jak liczba plików zawierających znaki inne niż ASCII w katalogu. W związku z tym należy użyć polecenia w następujący sposób, aby `stat` określić, czy katalog zbliża się do limitu.  
+W przypadku katalogu o rozmiarze 320 MB liczba bloków wynosi 655360, a każdy rozmiar bloku to 512 bajtów.  (Czyli 320x1024x1024/512).  Ta liczba przekłada się na około 4 miliony plików maksymalnych dla katalogu o rozmiarze 320 MB. Jednak rzeczywista maksymalna liczba plików może być mniejsza w zależności od czynników, takich jak liczba plików zawierających znaki inne niż ASCII w katalogu. W związku z tym należy użyć polecenia `stat` w następujący sposób, aby określić, czy katalog zbliża się do limitu.  
 
 Przykłady:
 
@@ -306,7 +311,7 @@ Azure NetApp Files udostępnia woluminy NFS i SMB.  Do replikowania danych międ
 
 Usługa NetApp oferuje oparte na modelu SaaS rozwiązanie [NetApp Cloud Sync.](https://cloud.netapp.com/cloud-sync-service)  Rozwiązanie umożliwia replikowanie danych NFS lub SMB do Azure NetApp Files NFS lub udziałów SMB. 
 
-Możesz również użyć szerokiej gamy bezpłatnych narzędzi do kopiowania danych. W przypadku systemu plików NFS można użyć narzędzi obciążeń, takich jak [rsync,](https://rsync.samba.org/examples.html) aby skopiować i zsynchronizować dane źródłowe Azure NetApp Files woluminie. W przypadku funkcji SMB można w ten sam sposób użyć [funkcji robocopy](/windows-server/administration/windows-commands/robocopy) obciążeń.  Te narzędzia mogą również replikować uprawnienia do plików lub folderów. 
+Do kopiowania danych można również użyć szerokiej gamy bezpłatnych narzędzi. W przypadku systemu plików NFS można użyć narzędzi obciążeń, takich jak [rsync,](https://rsync.samba.org/examples.html) aby skopiować i zsynchronizować dane źródłowe Azure NetApp Files woluminie. W przypadku funkcji SMB można w ten sam sposób użyć [funkcji robocopy](/windows-server/administration/windows-commands/robocopy) obciążeń.  Te narzędzia mogą również replikować uprawnienia do plików lub folderów. 
 
 Wymagania dotyczące replikowania woluminu Azure NetApp Files do innego regionu świadczenia usługi Azure są następujące: 
 - Upewnij Azure NetApp Files, że usługa jest dostępna w docelowym regionie świadczenia usługi Azure.
@@ -328,7 +333,7 @@ Nie. Usługa Azure Import/Export nie obsługuje Azure NetApp Files obecnie.
 
 Woluminy NFS Azure NetApp Files można zainstalować na maszyny wirtualne z systemem Windows lub Linux usługi AVS. Możesz mapować Azure NetApp Files SMB na maszyny wirtualne AVS z systemem Windows. Aby uzyskać więcej informacji, zobacz [Azure NetApp Files z Azure VMware Solution]( ../azure-vmware/netapp-files-with-azure-vmware-solution.md).  
 
-### <a name="what-regions-are-supported-for-using-azure-netapp-files-nfs-or-smb-volumes-with-azure-vmware-solution-avs"></a>Jakie regiony są obsługiwane w przypadku Azure NetApp Files NFS lub SMB z Azure VMware Solution (AVS)?
+### <a name="what-regions-are-supported-for-using-azure-netapp-files-nfs-or-smb-volumes-with-azure-vmware-solution-avs"></a>Jakie regiony są obsługiwane w przypadku korzystania Azure NetApp Files NFS lub SMB z Azure VMware Solution (AVS)?
 
 Używanie Azure NetApp Files NFS lub SMB z usługą AVS jest obsługiwane w następujących regionach: Wschodnie stany USA, Zachodnie stany USA, Europa Zachodnia i Australia Wschodnia.
 
