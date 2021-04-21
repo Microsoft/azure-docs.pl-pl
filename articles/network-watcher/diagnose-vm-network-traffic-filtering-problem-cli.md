@@ -1,7 +1,7 @@
 ---
-title: 'Szybki Start: diagnozowanie problemu z filtrem ruchu sieciowego maszyny wirtualnej — interfejs wiersza polecenia platformy Azure'
+title: 'Szybki start: diagnozowanie problemu z filtrowaniem ruchu sieciowego maszyny wirtualnej — interfejs wiersza polecenia platformy Azure'
 titleSuffix: Azure Network Watcher
-description: Dowiedz się, jak za pomocą interfejsu wiersza polecenia platformy Azure zdiagnozować problem z filtrem ruchu sieciowego maszyny wirtualnej za pomocą funkcji weryfikacji przepływu adresu IP platformy Azure Network Watcher.
+description: Dowiedz się, jak za pomocą interfejsu wiersza polecenia platformy Azure zdiagnozować problem z filtrowaniem ruchu sieciowego maszyny wirtualnej przy użyciu funkcji weryfikowania przepływu adresów IP usługi Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
 author: KumudD
@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 01/07/2021
 ms.author: kumud
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 18e380345ef0caab52e9b1c537bada73e36d8b48
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 701df4353e8d2e36baf0496bd6944c4a95395414
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063313"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763275"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>Szybki start: diagnozowanie problemu z filtrowaniem ruchu sieciowego maszyny wirtualnej — interfejs wiersza polecenia platformy Azure
 
@@ -32,19 +32,19 @@ W tym przewodniku Szybki start wdrożysz maszynę wirtualną, a następnie spraw
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- Ten przewodnik Szybki Start wymaga wersji 2,0 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana. 
+- Ten przewodnik Szybki start wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Jeśli używasz Azure Cloud Shell, najnowsza wersja jest już zainstalowana. 
 
-- Polecenie interfejsu wiersza polecenia platformy Azure w tym przewodniku Szybki Start jest sformatowane do uruchamiania w powłoce bash.
+- Polecenia interfejsu wiersza polecenia platformy Azure w tym przewodniku Szybki start są sformatowane do uruchamiania w powłoce Bash.
 
 ## <a name="create-a-vm"></a>Tworzenie maszyny wirtualnej
 
-Przed utworzeniem maszyny wirtualnej musisz utworzyć grupę zasobów, która będzie zawierała maszynę wirtualną. Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group). Poniższy przykład tworzy grupę zasobów o nazwie Moja *zasobów* w lokalizacji *Wschodnie* :
+Przed utworzeniem maszyny wirtualnej musisz utworzyć grupę zasobów, która będzie zawierała maszynę wirtualną. Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group). Poniższy przykład tworzy grupę zasobów o *nazwie myResourceGroup* w *lokalizacji eastus:*
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm). Jeśli klucze SSH nie istnieją jeszcze w domyślnej lokalizacji kluczy, to polecenie je utworzy. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`. Poniższy przykład tworzy maszynę wirtualną o nazwie *myVm*:
+Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm). Jeśli klucze SSH nie istnieją jeszcze w domyślnej lokalizacji kluczy, to polecenie je utworzy. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`. Poniższy przykład tworzy maszynę wirtualną *o nazwie myVm:*
 
 ```azurecli-interactive
 az vm create \
@@ -54,7 +54,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-W ciągu kilku minut zostanie utworzona maszyna wirtualna. Nie wykonuj pozostałych kroków do momentu utworzenia maszyny wirtualnej, a interfejs wiersza polecenia platformy Azure zwraca dane wyjściowe.
+W ciągu kilku minut zostanie utworzona maszyna wirtualna. Nie kontynuuj pozostałych kroków, dopóki maszyna wirtualna nie zostanie utworzona, a interfejs wiersza polecenia platformy Azure nie zwróci danych wyjściowych.
 
 ## <a name="test-network-communication"></a>Testowanie komunikacji sieciowej
 
@@ -62,7 +62,7 @@ Aby przetestować komunikację sieciową za pomocą usługi Network Watcher, nal
 
 ### <a name="enable-network-watcher"></a>Włączanie usługi Network Watcher
 
-Jeśli masz już włączoną usługę Network Watcher w regionie Wschodnie stany USA, przejdź do sekcji [Korzystanie z weryfikowania przepływu adresów IP](#use-ip-flow-verify). Za pomocą polecenia [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure) utwórz usługę Network Watcher w regionie Wschodnie stany USA:
+Jeśli masz już włączoną usługę Network Watcher w regionie Wschodnie stany USA, przejdź do sekcji [Korzystanie z weryfikowania przepływu adresów IP](#use-ip-flow-verify). Za pomocą polecenia [az network watcher configure](/cli/azure/network/watcher#az_network_watcher_configure) utwórz usługę Network Watcher w regionie Wschodnie stany USA:
 
 ```azurecli-interactive
 az network watcher configure \
@@ -73,7 +73,7 @@ az network watcher configure \
 
 ### <a name="use-ip-flow-verify"></a>Korzystanie z weryfikowania przepływu adresów IP
 
-Podczas tworzenia maszyny wirtualnej platforma Azure domyślnie zezwala na i blokuje ruch sieciowy do i z maszyny wirtualnej. Domyślne ustawienia platformy Azure można później zastąpić, aby zezwalać lub nie zezwalać na dodatkowe typy ruchu. Aby sprawdzić, czy ruch do różnych miejsc docelowych i ze źródłowego adresu IP jest dozwolony, czy blokowany, użyj polecenia [az network watcher test-ip-flow](/cli/azure/network/watcher#az-network-watcher-test-ip-flow).
+Podczas tworzenia maszyny wirtualnej platforma Azure domyślnie zezwala na i blokuje ruch sieciowy do i z maszyny wirtualnej. Domyślne ustawienia platformy Azure można później zastąpić, aby zezwalać lub nie zezwalać na dodatkowe typy ruchu. Aby sprawdzić, czy ruch do różnych miejsc docelowych i ze źródłowego adresu IP jest dozwolony, czy blokowany, użyj polecenia [az network watcher test-ip-flow](/cli/azure/network/watcher#az_network_watcher_test_ip_flow).
 
 Przetestuj komunikację wychodzącą z maszyny wirtualnej do jednego z adresów IP domeny www.bing.com:
 
@@ -125,7 +125,7 @@ Zwrócony wynik informuje o odmowie dostępu z powodu reguły zabezpieczeń o na
 
 ## <a name="view-details-of-a-security-rule"></a>Wyświetlanie szczegółów reguły zabezpieczeń
 
-Aby dowiedzieć się, dlaczego reguły wymienione w sekcji [Korzystanie z weryfikowania przepływu adresów IP](#use-ip-flow-verify) zezwalają na lub blokują komunikację, przejrzyj obowiązujące reguły zabezpieczeń dla interfejsu sieciowego za pomocą polecenia [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg):
+Aby dowiedzieć się, dlaczego reguły wymienione w sekcji [Korzystanie z weryfikowania przepływu adresów IP](#use-ip-flow-verify) zezwalają na lub blokują komunikację, przejrzyj obowiązujące reguły zabezpieczeń dla interfejsu sieciowego za pomocą polecenia [az network nic list-effective-nsg](/cli/azure/network/nic#az_network_nic_list_effective_nsg):
 
 ```azurecli-interactive
 az network nic list-effective-nsg \

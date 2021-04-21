@@ -1,6 +1,6 @@
 ---
 title: 'Interfejs wiersza polecenia: ręczne skalowanie aplikacji'
-description: Dowiedz się, jak zautomatyzować wdrażanie aplikacji App Service i zarządzanie nią za pomocą interfejsu wiersza polecenia platformy Azure. Ten przykład pokazuje, jak ręcznie skalować aplikację.
+description: Dowiedz się, jak używać interfejsu wiersza polecenia platformy Azure do automatyzowania wdrażania aplikacji App Service zarządzania nimi. W tym przykładzie pokazano, jak ręcznie skalować aplikację.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 251d9074-8fff-4121-ad16-9eca9556ac96
@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: 9b909d041cf6acba0f3b12ad69018ebc371ff599
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0c2dbd7368cb8cc43c069b54d286e3e7f4f733c6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97005617"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787651"
 ---
 # <a name="scale-an-app-service-app-manually-using-azure-cli"></a>Ręczne skalowanie aplikacji usługi App Service przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -24,7 +24,7 @@ Ten przykładowy skrypt tworzy grupę zasobów, plan usługi App Service i aplik
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
- - Ten samouczek wymaga wersji 2,0 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
+ - Ten samouczek wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Jeśli używasz Azure Cloud Shell, najnowsza wersja jest już zainstalowana.
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -38,10 +38,10 @@ Ten skrypt używa poniższych poleceń do tworzenia grupy zasobów, aplikacji us
 
 | Polecenie | Uwagi |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Tworzy plan usługi App Service. |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Tworzy aplikację usługi App Service. |
-| [`az appservice plan update`](/cli/azure/appservice/plan#az-appservice-plan-update) | Aktualizuje właściwości planu usługi App Service. |
+| [`az group create`](/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Tworzy plan usługi App Service. |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Tworzy aplikację usługi App Service. |
+| [`az appservice plan update`](/cli/azure/appservice/plan#az_appservice_plan_update) | Aktualizuje właściwości planu usługi App Service. |
 
 ## <a name="next-steps"></a>Następne kroki
 

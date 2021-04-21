@@ -8,12 +8,12 @@ ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9121774af0a1cfac6f677b4b8e2f4cd4b535042e
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: e864dcaa2a611746ae813a4f0adf8409fbc50871
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107717200"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789793"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Korzystanie z udziału plików platformy Azure w systemie Windows
 [Azure Files](storage-files-introduction.md) to łatwy w użyciu system plików w chmurze firmy Microsoft. Udziałów plików platformy Azure można bezproblemowo używać w systemach Windows i Windows Server. W tym artykule omówiono zagadnienia dotyczące korzystania z udziału plików platformy Azure w systemach Windows i Windows Server.
@@ -48,7 +48,7 @@ Otwarty port 445: protokół SMB wymaga otwartego portu TCP 445; połączenia za
 ## <a name="using-an-azure-file-share-with-windows"></a>Korzystanie z udziału plików platformy Azure w systemie Windows
 Aby używać udziału plików platformy Azure w systemie Windows, musisz go zainstalować, czyli przypisać do niego literę dysku bądź ścieżkę do punktu instalacji, lub uzyskiwać do niego dostęp za pośrednictwem jego [ścieżki UNC](/windows/win32/fileio/naming-a-file). 
 
-W tym artykule do uzyskiwania dostępu do udziału plików używany jest klucz konta magazynu. Klucz konta magazynu jest kluczem administratora konta magazynu, w tym uprawnieniami administratora do wszystkich plików i folderów w ramach udziału plików, do których uzyskujesz dostęp, oraz do wszystkich udziałów plików i innych zasobów magazynu (obiektów blob, kolejek, tabel itp.) zawartych w ramach konta magazynu. Jeśli nie jest to wystarczające dla obciążenia, [można użyć Azure File Sync](storage-sync-files-planning.md) lub użyć uwierzytelniania opartego na tożsamościach za [pośrednictwem protokołu SMB.](storage-files-active-directory-overview.md)
+W tym artykule do uzyskiwania dostępu do udziału plików używany jest klucz konta magazynu. Klucz konta magazynu jest kluczem administratora konta magazynu, w tym uprawnieniami administratora do wszystkich plików i folderów w ramach udziału plików, do których uzyskujesz dostęp, oraz do wszystkich udziałów plików i innych zasobów magazynu (obiektów blob, kolejek, tabel itp.) zawartych w ramach konta magazynu. Jeśli nie jest to wystarczające dla obciążenia, [można użyć Azure File Sync](../file-sync/file-sync-planning.md) lub użyć uwierzytelniania opartego na tożsamościach za [pośrednictwem protokołu SMB.](storage-files-active-directory-overview.md)
 
 Typowym sposobem na przeniesienie na platformę Azure aplikacji biznesowych (LOB), które oczekują obsługi udziału plików SMB, jest użycie udziału plików platformy Azure jako alternatywy do uruchamiania dedykowanego serwera plików Windows na maszynie wirtualnej platformy Azure. Ważnym zagadnieniem warunkującym pomyślną migrację aplikacji biznesowej do korzystania z udziału plików platformy Azure jest to, że wiele aplikacji biznesowych działa w kontekście dedykowanego konta usługi z ograniczonymi uprawnieniami systemowymi, a nie w kontekście konta administracyjnego maszyny wirtualnej. W związku z tym należy się upewnić, że poświadczenia dla udziału plików platformy Azure zostały zainstalowane/zapisane w kontekście konta usługi, a nie konta administracyjnego.
 
@@ -69,10 +69,10 @@ Aby uzyskać ten skrypt:
 
     :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="Zrzut ekranu przedstawiający ikonę połączenia dla udziału plików.":::
 
-1. Wybierz literę dysku, aby zainstalować udział.
+1. Wybierz literę dysku, w których chcesz zainstalować udział.
 1. Skopiuj podany skrypt.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Zrzut ekranu przedstawiający blok Połącz, wyróżniony przycisk kopiowania w skrypcie.":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Zrzut ekranu przedstawiający blok Połącz, wyróżniony jest przycisk kopiowania w skrypcie.":::
 
 1. Wklej skrypt do powłoki na hoście, na który chcesz zainstalować udział plików, i uruchom go.
 
@@ -84,7 +84,7 @@ Udział plików platformy Azure został zainstalowany.
 
 1. Otwórz Eksploratora plików. Można to zrobić przy użyciu menu Start lub przez naciśnięcie skrótu Win+E.
 
-1. Przejdź do **tego komputera** po lewej stronie okna. Spowoduje to zmianę menu dostępnego na wstążce. W menu Komputer wybierz pozycję **Mapuj dysk sieciowy.**
+1. Przejdź do **tego komputera** po lewej stronie okna. Spowoduje to zmianę menu dostępnego na wstążce. W menu Komputer wybierz pozycję **Mapuj dysk sieciowy**.
     
     ![Zrzut ekranu przedstawiający menu rozwijane „Mapuj dysk sieciowy”](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
@@ -103,7 +103,7 @@ Udział plików platformy Azure został zainstalowany.
 1. Gdy zajdzie potrzeba odinstalowania udziału plików platformy Azure, możesz to zrobić przez kliknięcie prawym przyciskiem myszy wpisu dla udziału w obszarze **Lokalizacje sieciowe** w Eksploratorze plików i wybranie polecenia **Odłącz**.
 
 ### <a name="accessing-share-snapshots-from-windows"></a>Dostęp do migawek udziałów z systemu Windows
-Jeśli migawkę udziału utworzono ręcznie lub automatycznie za pomocą skryptu bądź usługi, takiej jak Azure Backup, możesz wyświetlić poprzednie wersje udziału, katalogu lub konkretnego pliku z udziału plików w systemie Windows. Migawkę udziału można utworzyć przy [użyciu](storage-how-to-use-files-powershell.md)Azure PowerShell , [interfejsu](storage-how-to-use-files-cli.md)wiersza polecenia platformy Azure [lub Azure Portal](storage-how-to-use-files-portal.md).
+Jeśli migawkę udziału utworzono ręcznie lub automatycznie za pomocą skryptu bądź usługi, takiej jak Azure Backup, możesz wyświetlić poprzednie wersje udziału, katalogu lub konkretnego pliku z udziału plików w systemie Windows. Migawkę udziału można utworzyć przy użyciu [Azure PowerShell](storage-how-to-use-files-powershell.md), [interfejsu wiersza polecenia](storage-how-to-use-files-cli.md)platformy Azure lub [Azure Portal](storage-how-to-use-files-portal.md).
 
 #### <a name="list-previous-versions"></a>Wyświetlanie listy poprzednich wersji
 Przejdź do elementu lub elementu nadrzędnego, który należy przywrócić. Kliknij dwukrotnie, aby przejść do żądanego katalogu. Kliknij prawym przyciskiem myszy i wybierz z menu pozycję **Właściwości**.

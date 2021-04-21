@@ -1,40 +1,51 @@
 ---
-title: Język Bicep dla szablonów Azure Resource Manager
-description: Opisuje język Bicep na potrzeby wdrażania infrastruktury na platformie Azure za pomocą szablonów Azure Resource Manager.
+title: Język bicep dla szablonów Azure Resource Manager bicep
+description: Opisuje język Bicep do wdrażania infrastruktury na platformie Azure za pomocą Azure Resource Manager szablonów.
 ms.topic: conceptual
 ms.date: 03/23/2021
-ms.openlocfilehash: 74028c682b48a492c2e8f13bef538d1694370cbd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: af207e6ca88eab50fe6030883379c87c0ec05691
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104955911"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773751"
 ---
-# <a name="what-is-bicep-preview"></a>Co to jest Bicep (wersja zapoznawcza)?
+# <a name="what-is-bicep-preview"></a>Co to jest bicep (wersja zapoznawcza)?
 
-Bicep to język służący do deklaratywnego wdrażania zasobów platformy Azure. Możesz użyć Bicep zamiast JSON do tworzenia szablonów Azure Resource Manager (szablony ARM). Bicep upraszcza proces tworzenia, dostarczając zwięzłą składnię, lepszą obsługę kodu i zwiększa bezpieczeństwo. Bicep to język specyficzny dla domeny (DSL), który oznacza, że jest przeznaczony dla określonego scenariusza lub domeny. Nie jest ona przeznaczona do ogólnego języka programowania do pisania aplikacji.
+Bicep to język do deklaratywnego wdrażania zasobów platformy Azure. Do tworzenia szablonów aplikacji (szablonów arm) można używać Azure Resource Manager Bicep zamiast JSON. Bicep upraszcza tworzenie, zapewniając zwięzłą składnię, lepszą obsługę ponownego użycia kodu i ulepszone bezpieczeństwo typów. Bicep to język specyficzny dla domeny (DSL), co oznacza, że jest przeznaczony dla określonego scenariusza lub domeny. Nie jest on przeznaczony jako ogólny język programowania do pisania aplikacji.
 
-Składnia JSON dla tworzenia szablonu może być pełna i wymaga wyrażenia złożonego. Bicep Ulepsza ten proces bez utraty możliwości szablonu JSON. Jest to przezroczyste streszczenie w formacie JSON dla szablonów ARM. Każdy plik Bicep kompiluje się do standardowego szablonu ARM. Typy zasobów, wersje interfejsu API i właściwości, które są prawidłowe w szablonie ARM, są prawidłowe w pliku Bicep. Bieżąca wersja zawiera pewne [znane ograniczenia](#known-limitations) .
+Składnia JSON do tworzenia szablonu może być szczegółowa i wymagać skomplikowanego wyrażenia. Bicep poprawia to środowisko bez utraty żadnych możliwości szablonu JSON. Jest to przezroczysta abstrakcja dla danych JSON dla szablonów arm. Każdy plik Bicep jest kompilowany do standardowego szablonu usługi ARM. Typy zasobów, wersje interfejsu API i właściwości, które są prawidłowe w szablonie usługi ARM, są prawidłowe w pliku Bicep. W bieżącej [wersji istnieje](#known-limitations) kilka znanych ograniczeń.
 
-Bicep jest obecnie w wersji zapoznawczej. Aby śledzić stan pracy, zobacz [repozytorium projektu Bicep](https://github.com/Azure/bicep).
+Bicep jest obecnie w wersji zapoznawczej. Aby śledzić stan pracy, zobacz repozytorium [projektu Bicep](https://github.com/Azure/bicep).
 
-Aby dowiedzieć się więcej na temat Bicep, zobacz następujące wideo.
+Aby dowiedzieć się więcej na temat bicepu, zobacz poniższy film wideo.
 
 > [!VIDEO https://www.youtube.com/embed/sc1kJfcRQgY]
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 
-Aby rozpocząć od Bicep, [Zainstaluj narzędzia](bicep-install.md).
+Aby rozpocząć od narzędzia Bicep, [zainstaluj narzędzia](bicep-install.md).
 
-Po zainstalowaniu narzędzi Wypróbuj [samouczek Bicep](./bicep-tutorial-create-first-bicep.md). Seria samouczków przeprowadzi Cię przez strukturę i możliwości Bicep. Wdrażasz pliki Bicep i konwertujesz szablon ARM na odpowiedni plik Bicep.
+Po zainstalowaniu narzędzi wypróbuj samouczek [bicep](./bicep-tutorial-create-first-bicep.md). W tej serii samouczków osłaniamy strukturę i możliwości aplikacji Bicep. Wdrażasz pliki Bicep i konwertujemy szablon usługi ARM na równoważny plik Bicep.
 
-Aby wyświetlić równoważne pliki JSON i Bicep obok siebie, zobacz [Bicep plac zabaw](https://aka.ms/bicepdemo).
+Aby wyświetlić obok siebie równoważne pliki JSON i Bicep, zobacz Temat [Bicep Playground](https://aka.ms/bicepdemo).
 
-Jeśli masz istniejący szablon ARM do przekonwertowania na Bicep, zobacz [konwertowanie szablonów ARM między elementami JSON i Bicep](bicep-decompile.md).
+Jeśli masz istniejący szablon usługi ARM, który chcesz przekonwertować na bicep, zobacz Konwertowanie szablonów [arm między JSON i Bicep.](bicep-decompile.md)
 
-## <a name="bicep-improvements"></a>Udoskonalenia Bicep
+## <a name="benefits-of-bicep-versus-other-tools"></a>Zalety bicep w porównaniu z innymi narzędziami
 
-Bicep oferuje łatwiejszy i bardziej zwięzłą składnię w porównaniu z równoważnym formatem JSON. Nie można używać `[...]` wyrażeń. Zamiast tego należy bezpośrednio wywołać funkcje i uzyskać wartości z parametrów i zmiennych. Każdy wdrożony zasób należy nadać nazwie symbolicznej, co ułatwia odwoływanie się do tego zasobu w szablonie.
+Bicep zapewnia następujące korzyści w związku z innymi opcjami:
+
+* **Obsługa wszystkich typów zasobów i wersji interfejsu API:** platforma Bicep natychmiast obsługuje wszystkie wersje zapoznawcze i wersji gałęd dla usług platformy Azure. Gdy tylko dostawca zasobów wprowadzi nowe typy zasobów i wersje interfejsu API, możesz ich użyć w pliku Bicep. Nie musisz czekać na zaktualizowanie narzędzi przed rozpoczęciem korzystania z nowych usług.
+* **Środowisko tworzenia:** gdy używasz VS Code do tworzenia plików Bicep, masz najwyższej klasy środowisko tworzenia. Edytor zapewnia bogaty poziom bezpieczeństwa typów, funkcji IntelliSense i weryfikacji składni.
+* **Modułowość:** kod Bicep można rozbić na części, które można zarządzać, przy użyciu [modułów](bicep-modules.md). Moduł wdraża zestaw powiązanych zasobów. Moduły umożliwiają ponowne użycie kodu i uproszczenie opracowywania. Dodaj moduł do pliku Bicep w dowolnym momencie, gdy będzie konieczne wdrożenie tych zasobów.
+* **Integracja z usługami platformy Azure:** platforma Bicep jest zintegrowana z usługami platformy Azure, takimi jak Azure Policy, specyfikacje szablonów i strategie.
+* **Brak plików stanu lub stanu do zarządzania:** cały stan jest przechowywany na platformie Azure. Użytkownicy mogą współpracować i mieć pewność, że ich aktualizacje są obsługiwane zgodnie z oczekiwaniami. Użyj operacji [what-if,](template-deploy-what-if.md) aby wyświetlić podgląd zmian przed wdrożeniem szablonu.
+* **Brak kosztów i open source:** bicep jest całkowicie bezpłatny. Nie musisz płacić za funkcje premium. Jest ona również obsługiwana przez pomoc techniczną firmy Microsoft.
+
+## <a name="bicep-improvements"></a>Ulepszenia bicep
+
+Bicep oferuje prostszą i bardziej zwięzłą składnię w porównaniu z równoważnym JSON. Nie używasz `[...]` wyrażeń. Zamiast tego można bezpośrednio wywołać funkcje i pobrać wartości z parametrów i zmiennych. Każdy wdrożony zasób ma nazwę symboliczną, co ułatwia odwołanie się do tego zasobu w szablonie.
 
 Na przykład poniższy kod JSON zwraca wartość wyjściową z właściwości zasobu.
 
@@ -47,56 +58,52 @@ Na przykład poniższy kod JSON zwraca wartość wyjściową z właściwości za
 }
 ```
 
-Równoważne wyrażenie wyjściowe w Bicep jest łatwiejsze do zapisu. Poniższy przykład zwraca tę samą właściwość przy użyciu nazwy symbolicznej **przywołującym element publicip** dla zasobu, który jest zdefiniowany w ramach szablonu:
+Równoważne wyrażenie wyjściowe w bicepie jest łatwiejsze do napisania. Poniższy przykład zwraca tę samą właściwość przy użyciu symbolicznej nazwy **publicIP** dla zasobu zdefiniowanego w szablonie:
 
 ```bicep
 output hostname string = publicIP.properties.dnsSettings.fqdn
 ```
 
-Aby zapoznać się z pełnym porównaniem składni, zobacz [porównanie JSON i Bicep dla szablonów](compare-template-syntax.md).
+Aby uzyskać pełne porównanie składni, zobacz Porównanie danych [JSON](compare-template-syntax.md)i Bicep dla szablonów .
 
-Bicep automatycznie zarządza zależnościami między zasobami. Można uniknąć ustawienia `dependsOn` , gdy Nazwa symboliczna zasobu jest używana w innej deklaracji zasobu.
+Bicep automatycznie zarządza zależnościami między zasobami. Można uniknąć ustawienia, gdy nazwa symboliczna zasobu jest używana `dependsOn` w innej deklaracji zasobu.
 
-Za pomocą Bicep można przerwać projekt w wielu modułach.
-
-Struktura pliku Bicep jest bardziej elastyczna niż szablon JSON. Można zadeklarować parametry, zmienne i dane wyjściowe w dowolnym miejscu w pliku. W formacie JSON należy zadeklarować wszystkie parametry, zmienne i dane wyjściowe w odpowiednich sekcjach szablonu.
-
-VS Code rozszerzenie Bicep oferuje rozbudowaną weryfikację i funkcję IntelliSense. Na przykład można użyć funkcji IntelliSense rozszerzenia do pobierania właściwości zasobu.
+Struktura pliku Bicep jest bardziej elastyczna niż szablon JSON. Parametry, zmienne i dane wyjściowe można zadeklarować w dowolnym miejscu pliku. W pliku JSON należy zadeklarować wszystkie parametry, zmienne i dane wyjściowe w odpowiednich sekcjach szablonu.
 
 ## <a name="known-limitations"></a>Znane ograniczenia
 
 Obecnie istnieją następujące limity:
 
-* Nie można ustawić rozmiaru trybu lub partii w pętlach kopiowania.
-* Nie można połączyć pętli i warunków.
-* Jednowierszowe obiekty i tablice, takie jak `['a', 'b', 'c']` , nie są obsługiwane.
+* Nie można ustawić trybu ani rozmiaru partii w pętlach kopiowania.
+* Nie można łączyć pętli i warunków.
+* Obiekt jedno wierszowy i tablice, takie jak `['a', 'b', 'c']` , nie są obsługiwane.
 
 ## <a name="faq"></a>Często zadawane pytania
 
 **Dlaczego warto utworzyć nowy język zamiast korzystać z istniejącego?**
 
-Możesz traktować Bicep jako poprawkę do istniejącego języka szablonów ARM, a nie nowego języka. Składnia została zmieniona, ale podstawowe funkcje i środowisko uruchomieniowe pozostają takie same.
+O bicepie można myśleć jako o wersji istniejącego języka szablonu usługi ARM, a nie o nowym języku. Składnia uległa zmianie, ale podstawowe funkcje i środowisko uruchomieniowe pozostają takie same.
 
-Przed rozpoczęciem opracowywania Bicep uważamy, że korzystasz z istniejącego języka programowania. Mamy zdecydowaną, że docelowi odbiorcy będą łatwiej poznać Bicep zamiast zacząć pracę z innym językiem.
+Przed opracowaniem aplikacji Bicep rozważyliśmy użycie istniejącego języka programowania. Postanowiliśmy, że odbiorcy docelowi będą łatwiej uczyć się bicepu, zamiast rozpoczynać pracę z innym językiem.
 
-**Dlaczego nie należy skoncentrować się na Terraform lub innej infrastrukturze innej firmy jako oferty kodu?**
+**Dlaczego nie skoncentrować się na programie Terraform lub ofercie infrastruktury jako kodu innej firmy?**
 
-Różni użytkownicy preferują różne języki i narzędzia konfiguracyjne. Chcemy upewnić się, że wszystkie te narzędzia zapewniają doskonałe środowisko na platformie Azure. Bicep jest częścią tego nakładu pracy.
+Różni użytkownicy preferują różne języki konfiguracji i narzędzia. Chcemy mieć pewność, że wszystkie te narzędzia zapewniają doskonałe środowisko na platformie Azure. Bicep jest częścią tego wysiłku.
 
-Jeśli jesteś zadowolony z używania Terraform, nie ma powodów do przełączenia. Firma Microsoft dokłada starań, aby upewnić się, że Terraform na platformie Azure są najlepszym rozwiązaniem.
+Jeśli korzystanie z narzędzia Terraform jest dla Ciebie zadowolenie, nie ma powodu, aby się przełączać. Firma Microsoft dokłada starań, aby upewnić się, że narzędzie Terraform na platformie Azure jest najlepszym rozwiązaniem.
 
-W przypadku klientów, którzy mają wybrane szablony ARM, firma Microsoft uważa, że Bicep ulepsza proces tworzenia. Bicep również pomaga w przejściu klientów, którzy nie przyjęli infrastruktury jako kodu.
+W przypadku klientów, którzy wybrali szablony usługi ARM, uważamy, że bicep usprawnia tworzenie. Bicep pomaga również w przejściu dla klientów, którzy nie uchwalili infrastruktury jako kodu.
 
-**Czy jest Bicep tylko na platformie Azure?**
+**Czy bicep jest tylko dla platformy Azure?**
 
-Bicep to DSL ukierunkowana na wdrażanie kompletnych rozwiązań na platformie Azure. Spełnienie tego celu wymaga pracy z niektórymi interfejsami API, które znajdują się poza platformą Azure. Oczekujemy, że dla tych scenariuszy są używane punkty rozszerzalności.
+Bicep to DSL ukierunkowany na wdrażanie kompletnych rozwiązań na platformie Azure. Spełnianie tego celu wymaga pracy z niektórymi interfejsami API spoza platformy Azure. Oczekujemy zapewnienia punktów rozszerzalności dla tych scenariuszy.
 
-**Co się stanie z moimi istniejącymi szablonami ARM?**
+**Co się stanie z istniejącymi szablonami arm?**
 
-Nadal działają tak samo, jak zawsze. Nie musisz wprowadzać żadnych zmian. Będziemy nadal obsługiwać podstawowy język JSON szablonu ARM. Pliki Bicep kompilują do formatu JSON, a ten kod JSON jest wysyłany do platformy Azure w celu wdrożenia.
+Nadal działają dokładnie tak, jak zawsze. Nie musisz wprowadzać żadnych zmian. Będziemy nadal obsługiwać podstawowy język JSON szablonu USŁUGI ARM. Pliki Bicep są kompilowane do pliku JSON, a ten kod JSON jest wysyłany na platformę Azure w celu wdrożenia.
 
-Gdy wszystko będzie gotowe, można [przekonwertować pliki JSON na Bicep](bicep-decompile.md).
+Gdy wszystko będzie gotowe, możesz przekonwertować pliki [JSON na plik Bicep](bicep-decompile.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zacznij korzystać z [samouczka Bicep](./bicep-tutorial-create-first-bicep.md).
+Wprowadzenie do samouczka [bicep](./bicep-tutorial-create-first-bicep.md).

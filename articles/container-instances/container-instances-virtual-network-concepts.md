@@ -3,87 +3,87 @@ title: Scenariusze korzystania z sieci wirtualnej
 description: Scenariusze, zasoby i ograniczenia dotyczące wdrażania grup kontenerów w sieci wirtualnej platformy Azure.
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 20c2b4fe2f19402d6647f398a9696b7e16550d8e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6de99c68c3f05e4734dd46a579d28a6f1a3b824e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104606892"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763779"
 ---
-# <a name="virtual-network-scenarios-and-resources"></a>Scenariusze i zasoby sieci wirtualnej
+# <a name="virtual-network-scenarios-and-resources"></a>Scenariusze i zasoby dotyczące sieci wirtualnej
 
-[Usługa azure Virtual Network](../virtual-network/virtual-networks-overview.md) zapewnia bezpieczną i prywatną sieć dla zasobów platformy Azure i lokalnych. Wdrażając grupy kontenerów w sieci wirtualnej platformy Azure, kontenery mogą bezpiecznie komunikować się z innymi zasobami w sieci wirtualnej. 
+[Usługa Azure Virtual Network](../virtual-network/virtual-networks-overview.md) zapewnia bezpieczną, prywatną sieć dla platformy Azure i zasobów lokalnych. Wdrażając grupy kontenerów w sieci wirtualnej platformy Azure, kontenery mogą bezpiecznie komunikować się z innymi zasobami w sieci wirtualnej. 
 
-Ten artykuł zawiera informacje o scenariuszach, ograniczeniach i zasobach sieci wirtualnej. Przykłady wdrażania przy użyciu interfejsu wiersza polecenia platformy Azure znajdują się [w temacie Wdrażanie wystąpień kontenerów w sieci wirtualnej platformy Azure](container-instances-vnet.md).
+Ten artykuł zawiera podstawowe informacje na temat scenariuszy, ograniczeń i zasobów sieci wirtualnej. Aby uzyskać przykłady wdrożenia przy użyciu interfejsu wiersza polecenia platformy Azure, zobacz Deploy container instances into an Azure virtual network (Wdrażanie wystąpień [kontenerów w sieci wirtualnej platformy Azure).](container-instances-vnet.md)
 
 > [!IMPORTANT]
-> Wdrożenie grupy kontenerów w sieci wirtualnej jest ogólnie dostępne dla kontenerów systemu Linux w większości regionów, w których Azure Container Instances jest dostępna. Aby uzyskać szczegółowe informacje, zobacz [regiony i dostępność zasobów](container-instances-region-availability.md). 
+> Wdrażanie grupy kontenerów w sieci wirtualnej jest ogólnie dostępne dla kontenerów systemu Linux w większości regionów, Azure Container Instances jest dostępna. Aby uzyskać szczegółowe informacje, [zobacz Regions and resource availability (Regiony i dostępność zasobów).](container-instances-region-availability.md) 
 
 ## <a name="scenarios"></a>Scenariusze
 
-Grupy kontenerów wdrożone w usłudze Azure Virtual Network umożliwiają włączanie scenariuszy, takich jak:
+Grupy kontenerów wdrożone w sieci wirtualnej platformy Azure umożliwiają scenariusze, takie jak:
 
 * Bezpośrednia komunikacja między grupami kontenerów w tej samej podsieci
-* Wysyłaj dane wyjściowe obciążenia [opartego na zadaniach](container-instances-restart-policy.md) z wystąpień kontenerów do bazy danych w sieci wirtualnej
-* Pobieranie zawartości dla wystąpień kontenerów z [punktu końcowego usługi](../virtual-network/virtual-network-service-endpoints-overview.md) w sieci wirtualnej
-* Włącz komunikację kontenera z zasobami lokalnymi za pośrednictwem [bramy sieci VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) lub [ExpressRoute](../expressroute/expressroute-introduction.md)
-* Integracja z [zaporą platformy Azure](../firewall/overview.md) w celu zidentyfikowania ruchu wychodzącego pochodzącego z kontenera 
-* Rozpoznawanie nazw za pośrednictwem wewnętrznego Azure DNS na potrzeby komunikacji z zasobami platformy Azure w sieci wirtualnej, takich jak maszyny wirtualne
-* Używanie reguł sieciowej grupy zabezpieczeń do kontrolowania dostępu kontenera do podsieci lub innych zasobów sieciowych
+* Wysyłanie [danych wyjściowych obciążenia opartego](container-instances-restart-policy.md) na zadaniach z wystąpień kontenera do bazy danych w sieci wirtualnej
+* Pobieranie zawartości dla wystąpień kontenera z punktu [końcowego usługi](../virtual-network/virtual-network-service-endpoints-overview.md) w sieci wirtualnej
+* Włączanie komunikacji kontenera z zasobami lokalnymi za pośrednictwem [bramy sieci VPN lub](../vpn-gateway/vpn-gateway-about-vpngateways.md) usługi [ExpressRoute](../expressroute/expressroute-introduction.md)
+* Integracja z [Azure Firewall,](../firewall/overview.md) aby identyfikować ruch wychodzący pochodzący z kontenera 
+* Rozpoznawania nazw za pośrednictwem wewnętrznego Azure DNS komunikacji z zasobami platformy Azure w sieci wirtualnej, takimi jak maszyny wirtualne
+* Kontrolowanie dostępu do kontenerów do podsieci lub innych zasobów sieciowych przy użyciu reguł sieciowej sieciowej sieci
 
-## <a name="unsupported-networking-scenarios"></a>Nieobsługiwane scenariusze sieci 
+## <a name="unsupported-networking-scenarios"></a>Nieobsługiwane scenariusze sieciowe 
 
-* **Azure Load Balancer** — umieszczenie Azure Load Balancer przed wystąpieniami kontenerów w grupie kontenerów sieciowych nie jest obsługiwane
-* **Globalne wirtualne sieci równorzędne** — globalna komunikacja równorzędna (łączenie sieci wirtualnych w regionach platformy Azure) nie jest obsługiwana
-* **Public IP lub etykieta DNS** — grupy kontenerów wdrożone w sieci wirtualnej nie obsługują obecnie udostępniania kontenerów bezpośrednio w Internecie za pomocą publicznego adresu IP lub w pełni kwalifikowanej nazwy domeny
-* **Virtual Network translator adresów sieciowych** — grupy kontenerów wdrożone w sieci wirtualnej nie są obecnie obsługiwane przy użyciu zasobu bramy translatora adresów sieciowych do wychodzącej łączności z Internetem.
+* **Azure Load Balancer** — umieszczanie Azure Load Balancer przed wystąpieniami kontenerów w sieciowej grupie kontenerów nie jest obsługiwane
+* **Globalna komunikacja równorzędna sieci wirtualnych** — globalna komunikacja równorzędna (łączenie sieci wirtualnych między regionami platformy Azure) nie jest obsługiwana
+* Publiczny adres IP lub **etykieta DNS** — grupy kontenerów wdrożone w sieci wirtualnej nie obsługują obecnie uwyłania kontenerów bezpośrednio w Internecie za pomocą publicznego adresu IP lub w pełni kwalifikowanej nazwy domeny
+* **Translator adresów sieciowych usługi Virtual Network** — grupy kontenerów wdrożone w sieci wirtualnej nie obsługują obecnie korzystania z zasobu bramy nat dla wychodzącej łączności z Internetem.
 
 ## <a name="other-limitations"></a>Inne ograniczenia
 
 * Obecnie w grupie kontenerów wdrożonej w sieci wirtualnej są obsługiwane tylko kontenery systemu Linux.
-* Aby wdrożyć grupy kontenerów w podsieci, podsieć nie może zawierać innych typów zasobów. Usuń wszystkie istniejące zasoby z istniejącej podsieci przed wdrożeniem w niej grup kontenerów lub Utwórz nową podsieć.
-* Nie można użyć [tożsamości zarządzanej](container-instances-managed-identity.md) w grupie kontenerów wdrożonej w sieci wirtualnej.
-* Nie można włączyć [sondy na żywo](container-instances-liveness-probe.md) lub [sondy gotowości](container-instances-readiness-probe.md) w grupie kontenerów wdrożonej w sieci wirtualnej.
-* Ze względu na dodatkowe zasoby sieci, wdrożenia w sieci wirtualnej są zwykle wolniejsze niż wdrożenie standardowego wystąpienia kontenera.
-* Jeśli łączysz grupę kontenerów z kontem usługi Azure Storage, musisz dodać [punkt końcowy usługi](../virtual-network/virtual-network-service-endpoints-overview.md) do tego zasobu.
+* Aby wdrożyć grupy kontenerów w podsieci, podsieć nie może zawierać innych typów zasobów. Usuń wszystkie istniejące zasoby z istniejącej podsieci przed wdrożeniem w nim grup kontenerów lub utwórz nową podsieć.
+* Nie można użyć tożsamości [zarządzanej w](container-instances-managed-identity.md) grupie kontenerów wdrożonej w sieci wirtualnej.
+* Nie można włączyć [sondy uaktywnienia](container-instances-liveness-probe.md) ani [sondy](container-instances-readiness-probe.md) gotowości w grupie kontenerów wdrożonej w sieci wirtualnej.
+* Ze względu na dodatkowe zasoby sieciowe wdrożenia w sieci wirtualnej są zwykle wolniejsze niż wdrażanie standardowego wystąpienia kontenera.
+* Jeśli łączysz grupę kontenerów z kontem usługi Azure Storage, musisz dodać punkt [końcowy usługi](../virtual-network/virtual-network-service-endpoints-overview.md) do tego zasobu.
 
 [!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
 
 ## <a name="required-network-resources"></a>Wymagane zasoby sieciowe
 
-Do wdrożenia grup kontenerów w sieci wirtualnej są wymagane trzy zasoby Virtual Network platformy Azure: [Sieć wirtualna](#virtual-network) , [podsieć delegowana](#subnet-delegated) w ramach sieci wirtualnej i [profil sieciowy](#network-profile). 
+Istnieją trzy zasoby usługi Azure Virtual Network wymagane do wdrożenia grup kontenerów w sieci [](#subnet-delegated) wirtualnej: sama sieć wirtualna, delegowana podsieć w sieci wirtualnej i [profil sieci.](#network-profile) [](#virtual-network) 
 
 ### <a name="virtual-network"></a>Sieć wirtualna
 
-Sieć wirtualna definiuje przestrzeń adresową, w której można utworzyć co najmniej jedną podsieć. Następnie należy wdrożyć zasoby platformy Azure (takie jak grupy kontenerów) w podsieciach w sieci wirtualnej.
+Sieć wirtualna definiuje przestrzeń adresową, w której tworzysz co najmniej jedną podsieć. Następnie wdrożysz zasoby platformy Azure (takie jak grupy kontenerów) w podsieciach w sieci wirtualnej.
 
 ### <a name="subnet-delegated"></a>Podsieć (delegowana)
 
-Podsieci umożliwiają segmentację sieci wirtualnej na oddzielne przestrzenie adresowe, które są używane przez zasoby platformy Azure, które znajdują się w nich. Należy utworzyć co najmniej jedną podsieć w ramach sieci wirtualnej.
+Podsieci segmentują sieć wirtualną na oddzielne przestrzenie adresowe, z których mogą korzystać zasoby platformy Azure, które się w nich znajdują. Należy utworzyć jedną lub kilka podsieci w sieci wirtualnej.
 
-Podsieć używana dla grup kontenerów może zawierać tylko grupy kontenerów. Podczas pierwszego wdrażania grupy kontenerów w podsieci usługa Azure deleguje tę podsieć do Azure Container Instances. Po delegowaniu ta podsieć może być używana tylko dla grup kontenerów. Jeśli podjęto próbę wdrożenia zasobów innych niż grupy kontenerów w delegowanej podsieci, operacja zakończy się niepowodzeniem.
+Podsieć, która jest dostępna dla grup kontenerów, może zawierać tylko grupy kontenerów. Po pierwszym wdrożeniu grupy kontenerów w podsieci platforma Azure deleguje podsieć do Azure Container Instances. Po delegowaniu podsieć może być używana tylko dla grup kontenerów. Jeśli spróbujemy wdrożyć zasoby inne niż grupy kontenerów w podsieci delegowanej, operacja zakończy się niepowodzeniem.
 
 ### <a name="network-profile"></a>Profil sieci
 
-Profil sieci to szablon konfiguracji sieci dla zasobów platformy Azure. Określa pewne właściwości sieci dla zasobu, na przykład podsieć, w której ma zostać wdrożona. Po pierwszym użyciu polecenia [AZ Container Create][az-container-create] do wdrożenia grupy kontenerów w podsieci (i w ten sposób do sieci wirtualnej) platforma Azure tworzy profil sieciowy. Tego profilu sieciowego można następnie użyć do przyszłych wdrożeń w podsieci. 
+Profil sieciowy to szablon konfiguracji sieci dla zasobów platformy Azure. Określa on pewne właściwości sieci dla zasobu, na przykład podsieć, w której ma zostać wdrożony. Przy pierwszym użyciu [polecenia az container create][az-container-create] w celu wdrożenia grupy kontenerów w podsieci (a tym samym sieci wirtualnej) platforma Azure utworzy dla Ciebie profil sieci. Następnie można użyć tego profilu sieci na użytek przyszłych wdrożeń w podsieci. 
 
-Aby użyć szablonu Menedżer zasobów, pliku YAML lub metody programowej do wdrożenia grupy kontenerów w podsieci, należy podać pełny Menedżer zasobów identyfikator zasobu profilu sieciowego. Możesz użyć profilu utworzonego wcześniej przy użyciu polecenia [AZ Container Create][az-container-create]lub Create a profile przy użyciu szablonu Menedżer zasobów (zobacz [przykład szablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet) i [odwołanie](/azure/templates/microsoft.network/networkprofiles)). Aby uzyskać identyfikator utworzonego wcześniej profilu, użyj polecenia [AZ Network profile list][az-network-profile-list] . 
+Aby wdrożyć grupę kontenerów w podsieci przy użyciu szablonu Resource Manager, pliku YAML lub metody programowej, należy podać pełny identyfikator zasobu Resource Manager profilu sieciowego. Możesz użyć profilu utworzonego wcześniej przy użyciu narzędzia [az container create][az-container-create]lub utworzyć profil przy użyciu Resource Manager szablonu (zobacz przykład szablonu i [odwołanie](/azure/templates/microsoft.network/networkprofiles)). [](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet) Aby uzyskać identyfikator wcześniej utworzonego profilu, użyj [polecenia az network profile list.][az-network-profile-list] 
 
-Na poniższym diagramie kilka grup kontenerów zostało wdrożonych w podsieci delegowanej do Azure Container Instances. Po wdrożeniu jednej grupy kontenerów w podsieci można wdrożyć do niej dodatkowe grupy kontenerów, określając ten sam profil sieci.
+Na poniższym diagramie wdrożono kilka grup kontenerów w podsieci delegowane do Azure Container Instances. Po wdrożeniu jednej grupy kontenerów w podsieci można wdrożyć w tej podsieci dodatkowe grupy kontenerów, określając ten sam profil sieciowy.
 
-![Grupy kontenerów w ramach sieci wirtualnej][aci-vnet-01]
+![Grupy kontenerów w sieci wirtualnej][aci-vnet-01]
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Przykłady wdrożenia z interfejsem wiersza polecenia platformy Azure można znaleźć [w temacie Deploying instance Containers to the Azure Virtual Network](container-instances-vnet.md).
-* Aby wdrożyć nową sieć wirtualną, podsieć, profil sieci i grupę kontenerów przy użyciu szablonu Menedżer zasobów, zobacz [Tworzenie grupy kontenerów platformy Azure przy](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
-)użyciu sieci wirtualnej.
-* Podczas tworzenia wystąpienia kontenera przy użyciu [Azure Portal](container-instances-quickstart-portal.md) można także podać ustawienia dla nowej lub exsting sieci wirtualnej na karcie **Sieć** .
+* Aby uzyskać przykłady wdrożenia za pomocą interfejsu wiersza polecenia platformy Azure, zobacz Wdrażanie wystąpień [kontenerów w sieci wirtualnej platformy Azure.](container-instances-vnet.md)
+* Aby wdrożyć nową sieć wirtualną, podsieć, profil sieci i grupę kontenerów przy użyciu szablonu Resource Manager, zobacz Tworzenie grupy kontenerów platformy Azure za [pomocą sieci wirtualnej](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
+).
+* Podczas tworzenia [Azure Portal](container-instances-quickstart-portal.md) kontenera przy użyciu interfejsu sieciowego można również określić ustawienia nowej lub exsting sieci wirtualnej na **karcie** Sieć.
 
 
 <!-- IMAGES -->
 [aci-vnet-01]: ./media/container-instances-virtual-network-concepts/aci-vnet-01.png
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-network-profile-list]: /cli/azure/network/profile#az-network-profile-list
+[az-container-create]: /cli/azure/container#az_container_create
+[az-network-profile-list]: /cli/azure/network/profile#az_network_profile_list

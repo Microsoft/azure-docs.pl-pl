@@ -1,6 +1,6 @@
 ---
-title: 'Interfejs wiersza polecenia: wdrażanie prywatnego punktu końcowego dla aplikacji internetowej przy użyciu interfejsu wiersza polecenia platformy Azure'
-description: Dowiedz się, jak wdrożyć prywatny punkt końcowy dla aplikacji sieci Web przy użyciu interfejsu wiersza polecenia platformy Azure
+title: 'Interfejs wiersza polecenia: wdrażanie prywatnego punktu końcowego dla aplikacji internetowej za pomocą interfejsu wiersza polecenia platformy Azure'
+description: Dowiedz się, jak za pomocą interfejsu wiersza polecenia platformy Azure wdrożyć prywatny punkt końcowy dla aplikacji internetowej
 author: ericgre
 ms.assetid: a56faf72-7237-41e7-85ce-da8346f2bcaa
 ms.devlang: azurecli
@@ -9,26 +9,26 @@ ms.date: 07/06/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: acebc75b579b13ebb2cfad0e18057245781165ad
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3c8d0927c3fb74c52e54ceb5ff8ba5c0361c4f46
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102175281"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787847"
 ---
 # <a name="create-an-app-service-app-and-deploy-private-endpoint-using-azure-cli"></a>Tworzenie aplikacji App Service i wdrażanie prywatnego punktu końcowego przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Ten przykładowy skrypt tworzy aplikację w App Service z jej powiązanymi zasobami, a następnie wdraża prywatny punkt końcowy.
+Ten przykładowy skrypt tworzy aplikację w App Service z powiązanymi zasobami, a następnie wdraża prywatny punkt końcowy.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
- - Ten samouczek wymaga wersji 2.0.28 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
+ - Ten samouczek wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.28 lub nowszej. Jeśli używasz Azure Cloud Shell, najnowsza wersja jest już zainstalowana.
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Przed utworzeniem dowolnego zasobu należy utworzyć grupę zasobów do obsługi aplikacji sieci Web, Virtual Network i innych składników sieciowych. Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group). Ten przykład tworzy grupę zasobów o nazwie Moja *zasobów* w lokalizacji *francecentral* :
+Przed utworzeniem dowolnego zasobu należy utworzyć grupę zasobów do hostowania aplikacji internetowej, Virtual Network i innych składników sieciowych. Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group). W tym przykładzie grupę zasobów o *nazwie myResourceGroup tworzy* się w *lokalizacji francecentral:*
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location francecentral 
@@ -36,9 +36,9 @@ az group create --name myResourceGroup --location francecentral
 
 ## <a name="create-an-app-service-plan"></a>Tworzenie planu usługi App Service
 
-Musisz utworzyć plan App Service, aby hostować aplikację internetową.
-Utwórz plan App Service za pomocą [AZ appService plan Create](/cli/azure/appservice/plan#az-appservice-plan-create).
-Ten przykład tworzy App Service plan o nazwie *myAppServicePlan* w lokalizacji *francecentral* z jednostką SKU *P1V2* i tylko jeden proces roboczy: 
+Musisz utworzyć plan App Service hostować aplikację internetową.
+Utwórz plan App Service za pomocą [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create).
+W tym przykładzie App Service plan o nazwie *myAppServicePlan* w lokalizacji *francecentral* z *sku P1V2* i tylko jednym procesem roboczy: 
 
 ```azurecli-interactive
 az appservice plan create \
@@ -51,9 +51,9 @@ az appservice plan create \
 
 ## <a name="create-a-web-app"></a>Tworzenie aplikacji internetowej
 
-Teraz, gdy masz plan App Service, możesz wdrożyć aplikację internetową.
-Utwórz aplikację sieci Web przy użyciu programu [AZ appService plan Create] (/CLI/Azure/webapp # AZ-webapp-Create.
-Ten przykład umożliwia utworzenie aplikacji sieci Web o nazwie *Moja witryna* w planie o nazwie *myAppServicePlan*
+Teraz, gdy masz już App Service, możesz wdrożyć aplikację internetową.
+Utwórz aplikację internetową za pomocą polecenia [az appservice plan create](/cli/azure/webapp#az_webapp_create.
+W tym przykładzie w planie jest owana aplikacja internetowa o nazwie *mySiteName* o nazwie *myAppServicePlan.*
 
 ```azurecli-interactive
 az webapp create \
@@ -64,7 +64,7 @@ az webapp create \
 
 ## <a name="create-a-vnet"></a>Tworzenie sieci wirtualnej
 
-Utwórz Virtual Network za pomocą [AZ Network VNET Create](/cli/azure/network/vnet). W tym przykładzie tworzony jest domyślny Virtual Network o nazwie *myVNet* z jedną podsiecią o nazwie Moja *podsieć*:
+Utwórz nową Virtual Network za pomocą [az network vnet create](/cli/azure/network/vnet). W tym przykładzie jest domyślną Virtual Network o nazwie *myVNet* z jedną podsiecią *o nazwie mySubnet:*
 
 ```azurecli-interactive
 az network vnet create \
@@ -78,7 +78,7 @@ az network vnet create \
 
 ## <a name="configure-the-subnet"></a>Konfigurowanie podsieci 
 
-Należy zaktualizować podsieć, aby wyłączyć zasady sieci prywatnych punktów końcowych. Zaktualizuj konfigurację podsieci o nazwie Moja *podsieć* za pomocą elementu [AZ Network VNET Subnet Update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
+Musisz zaktualizować podsieć, aby wyłączyć zasady sieci prywatnego punktu końcowego. Zaktualizuj konfigurację podsieci o nazwie *mySubnet za* pomocą [az network vnet subnet update:](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -90,7 +90,7 @@ az network vnet subnet update \
 
 ## <a name="create-the-private-endpoint"></a>Tworzenie prywatnego punktu końcowego
 
-Utwórz prywatny punkt końcowy dla aplikacji sieci Web za pomocą [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint). W tym przykładzie tworzony jest prywatny punkt końcowy o nazwie *myPrivateEndpoint* w sieci wirtualnej *myVNet* w *podsieci z połączeniem o* nazwie *webconnectionname* z identyfikatorem zasobu mojej aplikacji sieci Web/subscriptions/SubscriptionID/resourceGroups/myResourceGroup/Providers/Microsoft.Web/Sites/myWebApp, parametr grupy to *Lokacje* dla typu aplikacji sieci Web. 
+Utwórz prywatny punkt końcowy dla aplikacji internetowej za pomocą [az network private-endpoint create](/cli/azure/network/private-endpoint). Ten przykład tworzy prywatny punkt końcowy  o nazwie *myPrivateEndpoint* w sieci wirtualnej *myVNet* w podsieci *mySubnet* z połączeniem o nazwie *myConnectionName* z identyfikatorem zasobu mojej aplikacji internetowej /subscriptions/SubscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/myWebApp. Parametr grupy to witryny dla typu aplikacji internetowej. 
 
 ```azurecli-interactive
 az network private-endpoint create \
@@ -103,9 +103,9 @@ az network private-endpoint create \
 --group-id sites
 ```
 
-## <a name="configure-the-private-zone"></a>Skonfiguruj strefę prywatną
+## <a name="configure-the-private-zone"></a>Konfigurowanie strefy prywatnej
 
-Na koniec należy utworzyć prywatną strefę DNS o nazwie *privatelink.azurewebsites.NET* połączonej z siecią wirtualną, aby rozpoznać nazwę DNS aplikacji sieci Web.
+Na koniec należy utworzyć prywatną strefę DNS o *nazwie privatelink.azurewebsites.net* z siecią wirtualną, aby rozpoznać nazwę DNS aplikacji internetowej.
 
 
 ```azurecli-interactive

@@ -1,7 +1,7 @@
 ---
-title: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — współpraca z kluczowymi wartościami w magazynie konfiguracji aplikacji
+title: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — praca z kluczami-wartościami w App Configuration Store
 titleSuffix: Azure App Configuration
-description: Używanie skryptu interfejsu wiersza polecenia platformy Azure do tworzenia, wyświetlania, aktualizowania i usuwania wartości klucza z magazynu konfiguracji aplikacji
+description: Używanie skryptu interfejsu wiersza polecenia platformy Azure do tworzenia, wyświetlania, aktualizowania i usuwania wartości kluczy App Configuration magazynu
 services: azure-app-configuration
 author: AlexandraKemperMS
 ms.service: azure-app-configuration
@@ -10,26 +10,26 @@ ms.topic: sample
 ms.date: 02/19/2020
 ms.author: alkemper
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 54ad9f389070e1d5d280517a2f6c41e9a0f8f33e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc329feffbf22d63774ab0f3779d62d3ccf53adb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96929994"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774133"
 ---
 # <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Praca z parami klucz-wartość w magazynie usługi Azure App Configuration
 
 Ten przykładowy skrypt pokazuje, jak:
-* Utwórz nową parę klucz-wartość
-* Wyświetl wszystkie istniejące pary klucz-wartość
-* Zaktualizuj wartość nowo utworzonego klucza
-* Usuń nową parę klucz-wartość
+* Tworzenie nowej pary klucz-wartość
+* Lista wszystkich istniejących par klucz-wartość
+* Aktualizowanie wartości nowo utworzonego klucza
+* Usuwanie nowej pary klucz-wartość
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
- - Ten samouczek wymaga wersji 2,0 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
+ - Ten samouczek wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Jeśli używasz Azure Cloud Shell, najnowsza wersja jest już zainstalowana.
 ## <a name="sample-script"></a>Przykładowy skrypt
 
 ```azurecli-interactive
@@ -79,16 +79,16 @@ az appconfig kv list --name $appConfigName
 
 ## <a name="script-explanation"></a>Objaśnienia dla skryptu
 
-Ta tabela zawiera listę poleceń używanych w naszym przykładowym skrypcie. 
+W tej tabeli wymieniono polecenia używane w naszym przykładowym skrypcie. 
 
 | Polecenie | Uwagi |
 |---|---|
-| [az appconfig kv set](/cli/azure/appconfig/kv#az-appconfig-kv-set) | Utwórz lub zaktualizuj parę klucz-wartość. |
-| [az appconfig kv list](/cli/azure/appconfig/kv#az-appconfig-kv-list) | Wyświetl listę par klucz-wartość w magazynie konfiguracji aplikacji. |
-| [az appconfig kv delete](/cli/azure/appconfig/kv#az-appconfig-kv-delete) | Usuń parę klucz-wartość. |
+| [az appconfig kv set](/cli/azure/appconfig/kv#az_appconfig_kv_set) | Utwórz lub zaktualizuj parę klucz-wartość. |
+| [az appconfig kv list](/cli/azure/appconfig/kv#az_appconfig_kv_list) | Lista par klucz-wartość w magazynie App Configuration magazynu. |
+| [az appconfig kv delete](/cli/azure/appconfig/kv#az_appconfig_kv_delete) | Usuń parę klucz-wartość. |
 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure).
 
-Dodatkowe przykłady skryptów interfejsu wiersza polecenia konfiguracji aplikacji można znaleźć w [przykładach interfejsu wiersza polecenia konfiguracji aplikacji platformy Azure](../cli-samples.md).
+Więcej App Configuration przykładowych skryptów interfejsu wiersza polecenia można znaleźć w przykładach Azure App Configuration [wiersza polecenia.](../cli-samples.md)

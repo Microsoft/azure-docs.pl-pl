@@ -1,35 +1,35 @@
 ---
 title: 'Azure HDInsight: przykłady interfejsu wiersza polecenia platformy Azure'
-description: Przykłady interfejsu wiersza polecenia platformy Azure dla typowych zadań w usłudze Azure HDInsight.
+description: Przykłady interfejsu wiersza polecenia platformy Azure dla typowych zadań w Azure HDInsight.
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 09/23/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9367c1b4d82e984b2b4200768a3f83f9245c7f0f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4502cb26b4aeedff4223aaf5a592581aee36a0e6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98946890"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775105"
 ---
 # <a name="azure-hdinsight-azure-cli-samples"></a>Azure HDInsight: przykłady interfejsu wiersza polecenia platformy Azure
 
 > [!div class="op_single_selector"]
-> Przykłady dla platformy [.NET](hdinsight-sdk-dotnet-samples.md) 
->  [Przykłady](hdinsight-sdk-python-samples.md) 
->  języka Python [Przykłady w języku Java](hdinsight-sdk-java-samples.md)
+> [Przykłady dla .NET](hdinsight-sdk-dotnet-samples.md) 
+>  [Przykłady języka](hdinsight-sdk-python-samples.md) 
+>  Python [Przykłady języka Java](hdinsight-sdk-java-samples.md)
 
-Ten artykuł zawiera przykładowe skrypty dla typowych zadań. Dla każdego przykładu należy zaktualizować zmienne przy użyciu odpowiednich wartości, a następnie wykonać polecenie.
+Ten artykuł zawiera przykładowe skrypty dla typowych zadań. Dla każdego przykładu zaktualizuj zmienne przy użyciu odpowiednich wartości, a następnie wykonaj polecenie .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Interfejs wiersza polecenia platformy Azure. Aby uzyskać instrukcje [, zobacz Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) .
+* Interfejs wiersza polecenia platformy Azure. Aby uzyskać [instrukcje, zobacz Instalowanie interfejsu wiersza](/cli/azure/install-azure-cli) polecenia platformy Azure.
 
-* Opcjonalnie: bash. W przykładach w tym artykule użyto powłoki bash w systemie Windows 10. Aby uzyskać instrukcje dotyczące instalacji, zobacz artykuł [podsystem instalacji systemu Windows dla systemu Linux w systemie Windows 10](/windows/wsl/install-win10) .  Przykłady będą działały z wiersza polecenia systemu Windows z niewielkimi modyfikacjami.
+* Opcjonalnie: Bash. W przykładach w tym artykule powłoka Bash jest Windows 10. Zobacz [Podsystem Windows dla systemu Linux przewodnik instalacji, Windows 10,](/windows/wsl/install-win10) aby uzyskać informacje o krokach instalacji.  Przykłady będą działać z wiersza polecenia systemu Windows z niewielkimi zmianami.
 
 ## <a name="az-login"></a>az login
 
-[Zaloguj się do platformy Azure](/cli/azure/reference-index#az-login).
+[Zaloguj się do platformy Azure.](/cli/azure/reference-index#az_login)
 
 ```azurecli
 az login
@@ -38,9 +38,9 @@ az login
 # az account set --subscription "SUBSCRIPTIONID"
 ```
 
-## <a name="az-hdinsight-create"></a>AZ HDInsight Create
+## <a name="az-hdinsight-create"></a>az hdinsight create
 
-[Tworzy nowy klaster](/cli/azure/hdinsight#az-hdinsight-create).
+[Tworzy nowy klaster](/cli/azure/hdinsight#az_hdinsight_create).
 
 ### <a name="create-a-cluster-with-an-existing-storage-account"></a>Tworzenie klastra z istniejącym kontem magazynu
 
@@ -60,7 +60,7 @@ az hdinsight create \
     --storage-account $AZURE_STORAGE_ACCOUNT
 ```
 
-### <a name="create-a-cluster-with-the-enterprise-security-package-esp"></a>Tworzenie klastra z pakiet Enterprise Security (ESP)
+### <a name="create-a-cluster-with-the-enterprise-security-package-esp"></a>Tworzenie klastra przy użyciu pakiet Enterprise Security (ESP)
 
 ```azurecli
 export clusterName=CLUSTERNAME
@@ -88,7 +88,7 @@ az hdinsight create \
     --cluster-users-group-dns $groupDNS
 ```
 
-### <a name="create-a-kafka-cluster-with-disk-encryption"></a>Tworzenie klastra Kafka z [szyfrowaniem dysków](./disk-encryption.md)
+### <a name="create-a-kafka-cluster-with-disk-encryption"></a>Tworzenie klastra platformy Kafka z [szyfrowaniem dysków](./disk-encryption.md)
 
 ```azurecli
 export clusterName=CLUSTERNAME
@@ -114,7 +114,7 @@ az hdinsight create \
     --assign-identity $userAssignedIdentity
 ```
 
-### <a name="create-a-cluster-with-azure-data-lake-storage-gen2"></a>Tworzenie klastra przy użyciu Azure Data Lake Storage Gen2
+### <a name="create-a-cluster-with-azure-data-lake-storage-gen2"></a>Tworzenie klastra z Azure Data Lake Storage Gen2
 
 ```azurecli
 export clusterName=CLUSTERNAME
@@ -133,7 +133,7 @@ az hdinsight create \
     --storage-account-managed-identity $sami
 ```
 
-### <a name="create-a-cluster-with-configuration-from-json-string"></a>Utwórz klaster z konfiguracją z ciągu JSON
+### <a name="create-a-cluster-with-configuration-from-json-string"></a>Tworzenie klastra z konfiguracją na pomocą ciągu JSON
 
 ```azurecli
 export clusterName=CLUSTERNAME
@@ -171,11 +171,11 @@ az hdinsight create \
     --cluster-configuration $clusterConfiguration
 ```
 
-## <a name="az-hdinsight-application-create"></a>AZ HDInsight Application Create
+## <a name="az-hdinsight-application-create"></a>az hdinsight application create
 
-[Tworzenie aplikacji dla klastra usługi HDInsight](/cli/azure/hdinsight/application#az-hdinsight-application-create).
+[Utwórz aplikację dla klastra usługi HDInsight.](/cli/azure/hdinsight/application#az_hdinsight_application_create)
 
-### <a name="create-an-application-with-a-script-uri"></a>Tworzenie aplikacji za pomocą identyfikatora URI skryptu
+### <a name="create-an-application-with-a-script-uri"></a>Tworzenie aplikacji przy użyciu skryptu URI
 
 ```azurecli
 export resourceGroupName=RESOURCEGROUPNAME
@@ -194,7 +194,7 @@ az hdinsight application create \
     --script-parameters "$scriptParameters"
 ```
 
-### <a name="create-an-application-with-a-script-uri-and-specified-edge-node-size"></a>Tworzenie aplikacji z identyfikatorem URI skryptu i określonym rozmiarem węzła krawędzi
+### <a name="create-an-application-with-a-script-uri-and-specified-edge-node-size"></a>Tworzenie aplikacji z określonym rozmiarem węzła krawędzi i uri skryptu
 
 ```azurecli
 export resourceGroupName=RESOURCEGROUPNAME
@@ -215,7 +215,7 @@ az hdinsight application create \
     --edgenode-size $edgenodeSize
 ```
 
-### <a name="create-an-application-with-https-endpoint"></a>Tworzenie aplikacji z punktem końcowym HTTPS
+### <a name="create-an-application-with-https-endpoint"></a>Tworzenie aplikacji przy użyciu punktu końcowego HTTPS
 
 ```azurecli
 export resourceGroupName=RESOURCEGROUPNAME
@@ -238,11 +238,11 @@ az hdinsight application create \
     --sub-domain-suffix $subDomainSuffix
 ```
 
-## <a name="az-hdinsight-script-action-execute"></a>AZ HDInsight Script-Action Execute
+## <a name="az-hdinsight-script-action-execute"></a>az hdinsight script-action execute
 
-[Wykonaj akcje skryptu w określonym klastrze usługi HDInsight](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-execute).
+[Wykonaj akcje skryptu w określonym klastrze usługi HDInsight.](/cli/azure/hdinsight/script-action#az_hdinsight_script_action_execute)
 
-### <a name="execute-a-script-action-and-persist-on-success"></a>Wykonywanie akcji skryptu i utrwalanie po sukcesie
+### <a name="execute-a-script-action-and-persist-on-success"></a>Wykonywanie akcji skryptu i utrwalanie w przypadku powodzenia
 
 ```azurecli
 export resourceGroupName=RESOURCEGROUPNAME

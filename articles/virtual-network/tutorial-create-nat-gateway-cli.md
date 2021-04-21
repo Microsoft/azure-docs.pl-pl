@@ -9,12 +9,12 @@ ms.subservice: nat
 ms.topic: tutorial
 ms.date: 03/10/2021
 ms.custom: template-tutorial, devx-track-azurecli
-ms.openlocfilehash: d312702f441cfe2ad94e347cadcdfc88d4cc2a72
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 60436b8d4a0f338f4ece59ad4cd11c14c9e4c352
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479325"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762645"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-cli"></a>Samouczek: tworzenie bramy nat przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -92,7 +92,7 @@ Utwórz sieć wirtualną o nazwie **myVnet z** podsiecią o nazwie **mySubnet** 
 
 Utwórz hosta Azure Bastion o nazwie **myBastionHost,** aby uzyskać dostęp do maszyny wirtualnej. 
 
-Użyj [az network vnet subnet create,](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) aby utworzyć Azure Bastion podsieci.
+Użyj [az network vnet subnet create,](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) aby utworzyć Azure Bastion podsieci.
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -111,7 +111,7 @@ az network public-ip create \
     --sku Standard
 ```
 
-Użyj [az network bastion create,](/cli/azure/network/bastion#az-network-bastion-create) aby utworzyć hosta bastionu. 
+Użyj [az network bastion create,](/cli/azure/network/bastion#az_network_bastion_create) aby utworzyć hosta bastionu. 
 
 ```azurecli-interactive
 az network bastion create \
@@ -124,7 +124,7 @@ az network bastion create \
 
 ### <a name="configure-nat-service-for-source-subnet"></a>Konfigurowanie usługi NAT dla podsieci źródłowej
 
-Skonfigurujemy źródłową **podsieć mySubnet** w sieci wirtualnej **myVnet** do używania określonego zasobu bramy nat **myNATgateway** za pomocą az [network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update). To polecenie aktywuje usługę NAT w określonej podsieci.
+Skonfigurujemy źródłową **podsieć mySubnet** w sieci wirtualnej **myVnet** do używania określonego zasobu bramy NAT **myNATgateway** za pomocą az [network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update). To polecenie aktywuje usługę NAT w określonej podsieci.
 
 ```azurecli-interactive
   az network vnet subnet update \
@@ -134,14 +134,14 @@ Skonfigurujemy źródłową **podsieć mySubnet** w sieci wirtualnej **myVnet** 
     --nat-gateway myNATgateway
 ```
 
-Cały ruch wychodzący do miejsc docelowych w Internecie korzysta teraz z bramy nat.  Nie trzeba konfigurować sieci UDR.
+Cały ruch wychodzący do miejsc docelowych w Internecie korzysta teraz z bramy nat.  Nie trzeba konfigurować konfiguracji UDR.
 
 
 ## <a name="virtual-machine"></a>Maszyna wirtualna
 
 W tej sekcji utworzysz maszynę wirtualną, aby przetestować bramę nat w celu zweryfikowania publicznego adresu IP połączenia wychodzącego.
 
-Utwórz maszynę wirtualną za pomocą [az vm create](/cli/azure/vm#az-vm-create).
+Utwórz maszynę wirtualną za pomocą [az vm create](/cli/azure/vm#az_vm_create).
 
 ```azurecli-interactive
 az vm create \
@@ -170,7 +170,7 @@ W tej sekcji przetestujemy bramę nat. Najpierw odkryjemy publiczny adres IP bra
 
 3. Wybierz **pozycję** Wszystkie usługi w menu po lewej stronie, wybierz pozycję Wszystkie **zasoby,** a następnie z listy zasobów wybierz pozycję **myVM** znajdującą się w grupie zasobów **myResourceGroupNAT.**
 
-4. Na stronie **Przegląd** wybierz pozycję **Połącz,** a następnie **pozycję Bastion.**
+4. Na stronie **Przegląd** wybierz pozycję **Połącz,** a następnie **pozycję Bastion**.
 
 5. Wybierz niebieski przycisk **Użyj bastionu.**
 
@@ -180,13 +180,13 @@ W tej sekcji przetestujemy bramę nat. Najpierw odkryjemy publiczny adres IP bra
 
 8. Wprowadź **https://whatsmyip.com** na pasku adresu.
 
-9. Sprawdź, czy wyświetlony adres IP odpowiada adresowi bramy adresów sieciowych zanotonym w poprzednim kroku:
+9. Sprawdź, czy wyświetlany adres IP odpowiada adresowi bramy nat zanotem w poprzednim kroku:
 
     :::image type="content" source="./media/tutorial-create-nat-gateway-portal/my-ip.png" alt-text="Internet Explorer wyświetlanie zewnętrznego wychodzącego adresu IP" border="true":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli nie zamierzasz nadal korzystać z tej aplikacji, usuń sieć wirtualną, maszynę wirtualną i bramę nat. W tym celu należy wykonać następujące czynności:
+Jeśli nie zamierzasz w dalszym ciągu korzystać z tej aplikacji, usuń sieć wirtualną, maszynę wirtualną i bramę nat. W tym celu należy wykonać następujące czynności:
 
 ```azurecli-interactive 
   az group delete \

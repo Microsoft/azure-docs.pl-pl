@@ -3,15 +3,15 @@ title: Używanie niestandardowego kontrolera ruchu przychodzących NGINX i konfi
 services: azure-dev-spaces
 ms.date: 12/10/2019
 ms.topic: conceptual
-description: Dowiedz się, jak skonfigurować Azure Dev Spaces do korzystania z niestandardowego kontrolera ruchu przychodzących NGINX i skonfigurować protokół HTTPS przy użyciu tego kontrolera ruchu wychodzącego
+description: Dowiedz się, jak skonfigurować Azure Dev Spaces do korzystania z niestandardowego kontrolera ruchu przychodzących NGINX i skonfigurować protokół HTTPS przy użyciu tego kontrolera ruchu przychodzących
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
 ms.custom: devx-track-js
-ms.openlocfilehash: a0c8fa453115936b61b2cdae299e07ae10356ed3
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: b07d66e0031b907811c4ec251987aa020542b05a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378775"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777513"
 ---
 # <a name="use-a-custom-nginx-ingress-controller-and-configure-https"></a>Używanie niestandardowego kontrolera ruchu przychodzących NGINX i konfigurowanie protokołu HTTPS
 
@@ -23,9 +23,9 @@ W tym artykule pokazano, jak skonfigurować Azure Dev Spaces do korzystania z ni
 
 * Subskrypcja platformy Azure. Jeśli nie masz, możesz utworzyć [bezpłatne konto][azure-account-create].
 * [Zainstalowany interfejs wiersza polecenia platformy Azure][az-cli].
-* Azure Kubernetes Service (AKS) z Azure Dev Spaces włączone.
+* Azure Kubernetes Service (AKS) z włączonym Azure Dev Spaces .
 * [Zainstalowane oprogramowanie kubectl.][kubectl]
-* [Program Helm 3 został zainstalowany.][helm-installed]
+* [Program Helm 3 zainstalował program][helm-installed].
 * [Domena niestandardowa ze][custom-domain] [strefą DNS.][dns-zone]  W tym artykule przyjęto założenie, że domena niestandardowa i strefa DNS znajdują się w tej samej grupie zasobów co klaster usługi AKS, ale istnieje możliwość użycia domeny niestandardowej i strefy DNS w innej grupie zasobów.
 
 ## <a name="configure-a-custom-nginx-ingress-controller"></a>Konfigurowanie niestandardowego kontrolera ruchu przychodzących NGINX
@@ -44,7 +44,7 @@ NAME                                STATUS   ROLES   AGE    VERSION
 aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.1
 ```
 
-Dodaj oficjalne [stabilne repozytorium Helm,][helm-stable-repo]które zawiera pakiet Helm kontrolera ruchu przychodzących NGINX.
+Dodaj oficjalne [stabilne repozytorium Helm,][helm-stable-repo]które zawiera wykres Helm kontrolera ruchu przychodzących NGINX.
 
 ```console
 helm repo add stable https://kubernetes-charts.storage.googleapis.com/
@@ -58,19 +58,19 @@ helm install nginx stable/nginx-ingress --namespace nginx --version 1.27.0
 ```
 
 > [!NOTE]
-> Powyższy przykład tworzy publiczny punkt końcowy dla kontrolera ruchu wychodzącego. Jeśli zamiast tego musisz użyć prywatnego punktu końcowego dla kontrolera ruchu wychodzącego, dodaj *parametr --set controller.service.annotations". parametr \\ .beta \\ .kubernetes \\ .io/azure-load-balancer-internal"=true* polecenia *helm install.* Na przykład:
+> Powyższy przykład tworzy publiczny punkt końcowy dla kontrolera ruchu przychodzących. Jeśli zamiast tego musisz użyć prywatnego punktu końcowego dla kontrolera ruchu przychodzących, dodaj *parametr --set controller.service.annotations". service \\ .beta \\ .kubernetes \\ .io/azure-load-balancer-internal"=true* parametr polecenia *helm install.* Na przykład:
 > ```console
 > helm install nginx stable/nginx-ingress --namespace nginx --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true --version 1.27.0
 > ```
 > Ten prywatny punkt końcowy jest ujawniony w sieci wirtualnej, w której wdrożono klaster usługi AKS.
 
-Pobierz adres IP usługi kontrolera ruchu przychodzących NGINX przy użyciu narzędzia [kubectl get][kubectl-get].
+Pobierz adres IP usługi kontrolera ruchu przychodzących NGINX przy użyciu [narzędzia kubectl get][kubectl-get].
 
 ```console
 kubectl get svc -n nginx --watch
 ```
 
-Przykładowe dane wyjściowe pokazują adresy IP wszystkich usług w przestrzeni *nazw serwera nginx.*
+Przykładowe dane wyjściowe pokazują adresy IP wszystkich usług w *przestrzeni nazw serwera nginx.*
 
 ```console
 NAME                                  TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)                      AGE
@@ -80,7 +80,7 @@ nginx-nginx-ingress-default-backend   ClusterIP      10.0.210.231   <none>      
 nginx-nginx-ingress-controller        LoadBalancer   10.0.19.39     MY_EXTERNAL_IP   80:31314/TCP,443:30521/TCP   26s
 ```
 
-Dodaj rekord *A* do strefy DNS przy użyciu zewnętrznego adresu IP usługi NGINX, używając [az network dns record-set add-record.][az-network-dns-record-set-a-add-record]
+Dodaj rekord *A* do strefy DNS przy użyciu zewnętrznego adresu IP usługi NGINX za pomocą [narzędzia az network dns record-set a add-record][az-network-dns-record-set-a-add-record].
 
 ```azurecli
 az network dns record-set a add-record \
@@ -90,7 +90,7 @@ az network dns record-set a add-record \
     --ipv4-address MY_EXTERNAL_IP
 ```
 
-Powyższy przykład dodaje *rekord A* do MY_CUSTOM_DOMAIN DNS. 
+W powyższym przykładzie dodano *rekord A* do *MY_CUSTOM_DOMAIN* DNS.
 
 W tym artykule użyjemy przykładowej [aplikacji Azure Dev Spaces Bike Sharing,](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp) aby zademonstrować korzystanie z Azure Dev Spaces. Klonowanie aplikacji z usługi GitHub i przechodzenie do jej katalogu:
 
@@ -101,7 +101,7 @@ cd dev-spaces/samples/BikeSharingApp/charts
 
 Otwórz [program values.yaml][values-yaml] i dokonaj następujących aktualizacji:
 * Zastąp wszystkie wystąpienia<REPLACE_ME_WITH_HOST_SUFFIX>przy *użyciu* *serwera nginx. MY_CUSTOM_DOMAIN* domeny na MY_CUSTOM_DOMAIN *.* 
-* Zastąp *kubernetes.io/ingress.class: traefik-azds # Dev Spaces-specific* na *kubernetes.io/ingress.class: nginx # Custom Ingress*. 
+* Zastąp *kubernetes.io/ingress.class: traefik-azds # Dev Spaces specyficzny* dla *kubernetes.io/ingress.class: nginx # Niestandardowy ruch przychodzący.* 
 
 Poniżej znajduje się przykład zaktualizowanego `values.yaml` pliku:
 
@@ -132,15 +132,15 @@ Utwórz obszar *dewelopera* z przykładową aplikacją przy użyciu metody `azds
 azds space select -n dev -y
 ```
 
-Wd wdrażają przykładową aplikację przy użyciu narzędzia `helm install` .
+Wd wdrażaj przykładową aplikację przy użyciu narzędzia `helm install` .
 
 ```console
 helm install bikesharingsampleapp . --dependency-update --namespace dev --atomic
 ```
 
-Powyższy przykład wdraża przykładową aplikację w przestrzeni *nazw dev.*
+W powyższym przykładzie przykładowa aplikacja jest wdrażana w przestrzeni *nazw dev.*
 
-Wyświetl adresy URL w celu uzyskania dostępu do przykładowej aplikacji przy użyciu . `azds list-uris`
+Wyświetl adresy URL, aby uzyskać dostęp do przykładowej aplikacji przy `azds list-uris` użyciu .
 
 ```console
 azds list-uris
@@ -176,7 +176,7 @@ http://azureuser1.s.dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/  Available
 http://azureuser1.s.dev.gateway.nginx.MY_CUSTOM_DOMAIN/         Available
 ```
 
-Przejdź do usługi *bikesharingweb* w podrzędnej przestrzeni deweloperskiej *azureuser1,* otwierając publiczny adres URL z `azds list-uris` polecenia . W powyższym przykładzie publiczny adres URL usługi *bikesharingweb* w podrzędnej przestrzeni deweloperskiej *azureuser1* to `http://azureuser1.s.dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/` .
+Przejdź do usługi *bikesharingweb* w podrzędnej przestrzeni *deweloperskiej azureuser1,* otwierając publiczny adres URL z `azds list-uris` polecenia . W powyższym przykładzie publiczny adres URL usługi *bikesharingweb* w podrzędnej przestrzeni deweloperskiej *azureuser1* to `http://azureuser1.s.dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/` .
 
 ## <a name="configure-the-nginx-ingress-controller-to-use-https"></a>Konfigurowanie kontrolera ruchu przychodzących NGINX do korzystania z protokołu HTTPS
 
@@ -210,7 +210,7 @@ spec:
 ```
 
 > [!NOTE]
-> Na użytek testowania istnieje również serwer [przejściowy,][letsencrypt-staging-issuer] który może być dla usługi *ClusterIssuer.*
+> Na użytek testowania istnieje również [serwer przejściowy,][letsencrypt-staging-issuer] który może być serwerem *klastra.*
 
 Użyj `kubectl` , aby zastosować `letsencrypt-clusterissuer.yaml` .
 
@@ -255,7 +255,7 @@ Uaktualnij przykładową aplikację przy użyciu narzędzia `helm` :
 helm upgrade bikesharingsampleapp . --namespace dev --atomic
 ```
 
-Przejdź do przykładowej aplikacji w przestrzeni *podrzędnej dev/azureuser1* i zwróć uwagę, że nastąpi przekierowanie do korzystania z protokołu HTTPS. Zwróć również uwagę, że strona jest ładowana, ale przeglądarka wyświetla pewne błędy. Otwarcie konsoli przeglądarki pokazuje błąd związany ze stroną HTTPS próbującą załadować zasoby HTTP. Na przykład:
+Przejdź do przykładowej aplikacji w przestrzeni podrzędnej *dev/azureuser1* i zwróć uwagę, że nastąpi przekierowanie do korzystania z protokołu HTTPS. Zauważ również, że strona ładuje się, ale przeglądarka wyświetla pewne błędy. Otwarcie konsoli przeglądarki pokazuje błąd związany ze stroną HTTPS próbującą załadować zasoby HTTP. Na przykład:
 
 ```console
 Mixed Content: The page at 'https://azureuser1.s.dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/devsignin' was loaded over HTTPS, but requested an insecure resource 'http://azureuser1.s.dev.gateway.nginx.MY_CUSTOM_DOMAIN/api/user/allUsers'. This request has been blocked; the content must be served over HTTPS.
@@ -279,7 +279,7 @@ Aby naprawić ten błąd, zaktualizuj [wartość BikeSharingWeb/azds.yaml][azds-
 ...
 ```
 
-Zaktualizuj [właściwość BikeSharingWeb/package.jsna przy][package-json] użyciu zależności dla pakietu *adresu* URL.
+Zaktualizuj [właściwość BikeSharingWeb/package.jsna przy][package-json] użyciu zależności pakietu *adresu* URL.
 
 ```json
 {
@@ -308,14 +308,14 @@ Zaktualizuj metodę *getApiHostAsync* w [pliku BikeSharingWeb/lib/helpers.js,][h
 ...
 ```
 
-Przejdź do katalogu `BikeSharingWeb` i użyj programu , aby uruchomić `azds up` zaktualizowaną *usługę BikeSharingWeb.*
+Przejdź do katalogu `BikeSharingWeb` i użyj funkcji , aby uruchomić `azds up` zaktualizowaną *usługę BikeSharingWeb.*
 
 ```console
 cd ../BikeSharingWeb/
 azds up
 ```
 
-Przejdź do przykładowej aplikacji w przestrzeni podrzędnej *dev/azureuser1* i zwróć uwagę, że nastąpi przekierowanie do korzystania z protokołu HTTPS bez żadnych błędów.
+Przejdź do przykładowej aplikacji w przestrzeni podrzędnej *dev/azureuser1* i zwróć uwagę, że nastąpi przekierowanie do używania protokołu HTTPS bez żadnych błędów.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -326,8 +326,8 @@ Dowiedz się więcej o tym, Azure Dev Spaces działa.
 
 
 [az-cli]: /cli/azure/install-azure-cli
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/a#az-network-dns-record-set-a-add-record
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/a#az_network_dns_record_set_a_add_record
 [custom-domain]: ../../app-service/manage-custom-dns-buy-domain.md#buy-an-app-service-domain
 [dns-zone]: ../../dns/dns-getstarted-cli.md
 [azds-yaml]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/azds.yaml

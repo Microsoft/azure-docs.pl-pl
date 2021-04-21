@@ -9,27 +9,27 @@ ms.subservice: maintenance-control
 ms.date: 11/12/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 355e29cf062b731ed26670497a8de75fef266b99
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: ec8d211bd25eb04f9e000af950cea9a28a0d1874
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375716"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762843"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Powiadomienia dotyczące planowanej konserwacji zestawów skalowania maszyn wirtualnych
 
 
 Platforma Azure okresowo przeprowadza aktualizacje w celu zwiększenia niezawodności, wydajności i bezpieczeństwa infrastruktury hosta dla maszyn wirtualnych. Aktualizacje mogą obejmować stosowanie poprawek do środowiska hostingu lub uaktualnianie i likwidowanie sprzętu. Większość aktualizacji nie ma wpływu na hostowane maszyny wirtualne. Jednak aktualizacje wpływają na maszyny wirtualne w tych scenariuszach:
 
-- Jeśli konserwacja nie wymaga ponownego uruchomienia, platforma Azure wstrzymuje maszynę wirtualną na kilka sekund podczas aktualizowania hosta. Tego typu operacje konserwacji są stosowane w domenie błędów według domeny błędów. Postęp jest zatrzymywany, jeśli zostaną odebrane jakiekolwiek sygnały ostrzegawcze dotyczące kondycji.
+- Jeśli konserwacja nie wymaga ponownego uruchomienia, platforma Azure wstrzymuje maszynę wirtualną na kilka sekund podczas aktualizowania hosta. Tego typu operacje konserwacji są stosowane w domenie błędów według domeny błędów. Postęp jest zatrzymywany po otrzymaniu jakichkolwiek sygnałów ostrzegawczych o kondycji.
 
 - Jeśli konserwacja wymaga ponownego uruchomienia, otrzymasz powiadomienie o planowanym czasie konserwacji. W takich przypadkach masz podany czas, który zazwyczaj wynosi 35 dni, w którym możesz samodzielnie rozpocząć konserwację, gdy będzie to możliwe.
 
 
 Planowana konserwacja, która wymaga ponownego uruchomienia, jest zaplanowana w falach. Każda fala ma inny zakres (regiony):
 
-- Fala rozpoczyna się od powiadomienia do klientów. Domyślnie powiadomienie jest wysyłane do właściciela i współwłaścicieli subskrypcji. Do powiadomień można dodawać adresatów i opcje obsługi wiadomości, takie jak wiadomości e-mail, wiadomości SMS i webhook, przy użyciu alertów dziennika [aktywności platformy](../azure-monitor/essentials/platform-logs-overview.md)Azure.  
-- Po powiadomieniu *zostanie udostępnione okno* samoobsługi. W tym oknie, które zwykle trwa 35 dni, można sprawdzić, które maszyny wirtualne znajdują się na fali. Możesz aktywnie rozpocząć konserwację zgodnie z własnymi potrzebami w zakresie planowania.
+- Fala rozpoczyna się od powiadomienia do klientów. Domyślnie powiadomienie jest wysyłane do właściciela i współwłaścicieli subskrypcji. Do powiadomień można dodać adresatów i opcje obsługi wiadomości, takie jak wiadomości e-mail, wiadomości SMS i webhook, przy użyciu alertów dziennika [aktywności platformy](../azure-monitor/essentials/platform-logs-overview.md)Azure.  
+- Po otrzymaniu powiadomienia *zostanie udostępnione okno* samoobsługi. W tym oknie, które zwykle trwa 35 dni, można sprawdzić, które maszyny wirtualne znajdują się na fali. Możesz aktywnie rozpocząć konserwację zgodnie z własnymi potrzebami w zakresie planowania.
 - Po oknie samoobsługi rozpoczyna *się okno zaplanowanej* konserwacji. W pewnym momencie w tym oknie platforma Azure planuje i stosuje wymaganą konserwację maszyny wirtualnej. 
 
 Celem posiadania dwóch okien jest zapewninie wystarczającej ilości czasu na rozpoczęcie konserwacji i ponowne uruchomienie maszyny wirtualnej przy jednoczesnym poznaniu, kiedy platforma Azure automatycznie rozpocznie konserwację.
@@ -73,11 +73,11 @@ Najlepiej używać konserwacji samoobsługowej w następujących przypadkach:
 Po zaplanowaniu planowanej fali konserwacji można wyświetlić listę zestawów skalowania maszyn wirtualnych, na które ma wpływ nadchodząca fala konserwacji, korzystając z Azure Portal. 
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. W menu po lewej stronie wybierz pozycję **Wszystkie usługi,** a następnie wybierz **pozycję Zestawy skalowania maszyn wirtualnych.**
+2. W menu po lewej stronie wybierz **pozycję Wszystkie usługi,** a następnie wybierz **pozycję Zestawy skalowania maszyn wirtualnych.**
 3. W **obszarze Zestawy skalowania maszyn wirtualnych** wybierz pozycję Edytuj **kolumny,** aby otworzyć listę dostępnych kolumn.
 4. W sekcji **Dostępne kolumny** wybierz pozycję **Konserwacja samoobsługowa,** a następnie przenieś ją do **listy Wybrane kolumny.** Wybierz przycisk **Zastosuj**.  
 
-    Aby ułatwić **znajdowanie elementu** Konserwacja samoobsługowa, możesz zmienić opcję listy rozwijanej w sekcji Dostępne kolumny z Wszystkie na **Właściwości**.  
+    Aby ułatwić **znajdowanie elementu** konserwacji samoobsługowej, możesz zmienić opcję listy rozwijanej w sekcji Dostępne kolumny z Wszystkie na **Właściwości**.  
 
 Kolumna **Konserwacja samoobsługowa** jest teraz wyświetlana na liście zestawów skalowania maszyn wirtualnych. Każdy zestaw skalowania maszyn wirtualnych może mieć jedną z następujących wartości dla kolumny konserwacji samoobsługowej:
 
@@ -89,12 +89,12 @@ Kolumna **Konserwacja samoobsługowa** jest teraz wyświetlana na liście zestaw
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Powiadomienia i alerty w portalu
 
-Platforma Azure komunikuje harmonogram planowanej konserwacji, wysyłając wiadomość e-mail do właściciela subskrypcji i grupy współwłaścicieli. Do tej komunikacji możesz dodać adresatów i kanały, tworząc alerty dziennika aktywności. Aby uzyskać więcej informacji, zobacz [Monitorowanie aktywności subskrypcji za pomocą dziennika aktywności platformy Azure.](../azure-monitor/essentials/platform-logs-overview.md)
+Platforma Azure komunikuje harmonogram planowanej konserwacji, wysyłając wiadomość e-mail do właściciela subskrypcji i grupy współwłaścicieli. Do tej komunikacji można dodać adresatów i kanały, tworząc alerty dziennika aktywności. Aby uzyskać więcej informacji, zobacz [Monitorowanie aktywności subskrypcji za pomocą dziennika aktywności platformy Azure.](../azure-monitor/essentials/platform-logs-overview.md)
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. W menu po lewej stronie wybierz pozycję **Monitoruj.** 
-3. W **okienku Monitor — alerty (klasyczne)** wybierz **pozycję +Dodaj alert dziennika aktywności.**
-4. Na stronie **Dodawanie alertu dziennika** aktywności wybierz lub wprowadź żądane informacje. W **kryteria**, upewnij się, że ustawiono następujące wartości:
+3. W **okienku Monitorowanie — alerty (klasyczne)** wybierz **pozycję +Dodaj alert dziennika aktywności.**
+4. Na stronie **Dodawanie alertu dziennika** aktywności wybierz lub wprowadź żądane informacje. W **kryteriów**, upewnij się, że ustawiono następujące wartości:
    - **Kategoria zdarzenia:** wybierz **Service Health**.
    - **Usługi:** wybierz **Virtual Machine Scale Sets i Virtual Machines**.
    - **Typ:** wybierz pozycję **Planowana konserwacja.** 
@@ -135,7 +135,7 @@ Następujące właściwości są zwracane w **obszarze MaintenanceRedeployStatus
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-powershell"></a>Rozpoczynanie konserwacji wystąpienia maszyny wirtualnej przy użyciu programu PowerShell
 
-Konserwację maszyny wirtualnej można rozpocząć, jeśli dla ustawienia **IsCustomerInitiatedMaintenanceAllowed** ustawiono wartość **true**. Użyj polecenia cmdlet [Set-AzVmss](/powershell/module/az.compute/set-azvmss) z `-PerformMaintenance` parametrem .
+Konserwację maszyny wirtualnej można rozpocząć, jeśli dla ustawienia **IsCustomerInitiatedMaintenanceAllowed** ustawiono wartość **true**. Użyj polecenia cmdlet [Set-AzVmss z](/powershell/module/az.compute/set-azvmss) `-PerformMaintenance` parametrem .
 
 ```powershell
 Set-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
@@ -143,7 +143,7 @@ Set-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -Pe
 
 ## <a name="check-maintenance-status-by-using-the-cli"></a>Sprawdzanie stanu konserwacji przy użyciu interfejsu wiersza polecenia
 
-Informacje o planowanej konserwacji można wyświetlić za pomocą [narzędzia az vmss list-instances.](/cli/azure/vmss#az-vmss-list-instances)
+Informacje o planowanej konserwacji można wyświetlić za pomocą [narzędzia az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances).
  
 Informacje o konserwacji są zwracane tylko w przypadku planowanej konserwacji. Jeśli nie zaplanowano żadnej konserwacji, która ma wpływ na wystąpienie maszyny wirtualnej, polecenie nie zwraca żadnych informacji o konserwacji. 
 
@@ -165,7 +165,7 @@ Następujące właściwości są zwracane w obszarze **MaintenanceRedeployStatus
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-the-cli"></a>Rozpoczynanie konserwacji wystąpienia maszyny wirtualnej przy użyciu interfejsu wiersza polecenia
 
-Następujące wywołanie inicjuje konserwację wystąpienia maszyny wirtualnej, jeśli `IsCustomerInitiatedMaintenanceAllowed` jest ustawiona na **wartość true:**
+Następujące wywołanie inicjuje konserwację wystąpienia maszyny wirtualnej, jeśli `IsCustomerInitiatedMaintenanceAllowed` jest ustawiona na **wartość true**:
 
 ```azurecli
 az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
@@ -177,7 +177,7 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 **A:** Mimo że większość aktualizacji i uaktualnień platformy Azure nie ma wpływu na dostępność maszyn wirtualnych, w niektórych przypadkach nie można uniknąć ponownego uruchamiania maszyn wirtualnych hostowanych na platformie Azure. Zebraliśmy kilka zmian, które wymagają ponownego uruchomienia serwerów, co spowoduje ponowne uruchomienie maszyny wirtualnej.
 
-**Pytanie: Czy jeśli postępuję zgodnie z zaleceniami w zakresie wysokiej dostępności przy użyciu zestawu dostępności, czy mogę bezpiecznie?**
+**Pytanie: Czy mogę bezpiecznie stosować się do zaleceń dotyczących wysokiej dostępności przy użyciu zestawu dostępności?**
 
 **A:** Maszyny wirtualne wdrożone w zestawie dostępności lub w zestawach skalowania maszyn wirtualnych używają domen aktualizacji. Podczas przeprowadzania konserwacji platforma Azure honoruje ograniczenie domeny aktualizacji i nie uruchamia ponownie maszyn wirtualnych z innej domeny aktualizacji (w tym samym zestawie dostępności). Platforma Azure czeka również co najmniej 30 minut przed przejściem do następnej grupy maszyn wirtualnych. 
 
@@ -187,29 +187,29 @@ Aby uzyskać więcej informacji na temat wysokiej dostępności, zobacz [Regions
 
 **A:** Fala planowanej konserwacji rozpoczyna się od ustawienia harmonogramu na co najmniej jeden region świadczenia usługi Azure. Wkrótce do administratorów subskrypcji, współadministracyjnym, właścicieli i współautorów zostanie wysłane powiadomienie e-mail (jedna wiadomość e-mail na subskrypcję). Dodatkowe kanały i adresatów tego powiadomienia można skonfigurować przy użyciu alertów dziennika aktywności. W przypadku wdrożenia maszyny wirtualnej w regionie, w którym planowana konserwacja jest już zaplanowana, nie otrzymasz powiadomienia. Zamiast tego sprawdź stan konserwacji maszyny wirtualnej.
 
-**Pytanie: Nie widzę żadnego wskazania dotyczącej planowanej konserwacji w portalu, programie PowerShell lub interfejsie wiersza polecenia. Co jest nie tak?**
+**Pytanie: Nie widzę żadnego wskazania o planowanej konserwacji w portalu, programie PowerShell lub interfejsie wiersza polecenia. Co jest nie tak?**
 
 **A:** Informacje związane z planowaną konserwacją są dostępne podczas fali planowanej konserwacji tylko dla maszyn wirtualnych, których dotyczy planowana konserwacja. Jeśli nie widzisz danych, fala konserwacji może być już zakończona (lub nie została uruchomiona) lub maszyna wirtualna może być już hostowana na zaktualizowanym serwerze.
 
-**Pytanie: Czy istnieje sposób, aby dowiedzieć się dokładnie, kiedy będzie to dotyczyć mojej maszyny wirtualnej?**
+**Pytanie: Czy istnieje sposób, aby dokładnie wiedzieć, kiedy będzie to dotyczyć mojej maszyny wirtualnej?**
 
-**A:** Gdy ustawimy harmonogram, zdefiniujemy kilkudniowy okres czasu. Dokładne sekwencjonowanie serwerów (i maszyn wirtualnych) w tym oknie (przedziale czasu) jest nieznane. Jeśli chcesz dowiedzieć się, o której dokładnie godzinie maszyny wirtualne zostaną zaktualizowane, możesz użyć [zaplanowanych zdarzeń.](../virtual-machines/windows/scheduled-events.md) W przypadku korzystania z zaplanowanych zdarzeń można zapytania z poziomu maszyny wirtualnej i odbierać 15-minutowe powiadomienie przed ponownym uruchomieniem maszyny wirtualnej.
+**A:** Ustawiamy harmonogram, definiując okno czasu na kilka dni. Dokładne sekwencjonowanie serwerów (i maszyn wirtualnych) w tym oknie (przedziale czasu) jest nieznane. Jeśli chcesz dowiedzieć się, o której dokładnie godzinie maszyny wirtualne zostaną zaktualizowane, możesz użyć [zaplanowanych zdarzeń.](../virtual-machines/windows/scheduled-events.md) Jeśli używasz zaplanowanych zdarzeń, możesz zapytania z poziomu maszyny wirtualnej i odbierać 15-minutowe powiadomienie przed ponownym uruchomieniem maszyny wirtualnej.
 
 **Pytanie: Jak długo potrwa ponowne uruchomienie mojej maszyny wirtualnej?**
 
-**A:**  W zależności od rozmiaru maszyny wirtualnej ponowne uruchomienie może potrwać do kilku minut w oknie konserwacji samoobsługowej. Podczas ponownego uruchamiania zainicjowanego przez platformę Azure w oknie zaplanowanej konserwacji ponowne uruchomienie trwa zwykle około 25 minut. Jeśli używasz Cloud Services (rola sieć Web/proces roboczy), zestawów skalowania maszyn wirtualnych lub zestawów dostępności, podczas zaplanowanego okna obsługi masz dostęp do 30 minut między każdą grupą maszyn wirtualnych (domeną aktualizacji). 
+**A:**  W zależności od rozmiaru maszyny wirtualnej ponowne uruchomienie komputera może potrwać do kilku minut w oknie konserwacji samoobsługowej. Podczas ponownego uruchamiania zainicjowanego przez platformę Azure w oknie zaplanowanej konserwacji ponowne uruchomienie trwa zwykle około 25 minut. Jeśli używasz Cloud Services (rola sieć Web/proces roboczy), zestawów skalowania maszyn wirtualnych lub zestawów dostępności, podczas zaplanowanego okna obsługi masz dostęp do 30 minut między każdą grupą maszyn wirtualnych (domeną aktualizacji). 
 
-**Pytanie: Nie widzę żadnych informacji o konserwacji moich maszyn wirtualnych. Co poszło nie tak?**
+**Pytanie: Nie widzę żadnych informacji o konserwacji maszyn wirtualnych. Co poszło nie tak?**
 
 **A:** Istnieje kilka powodów, dla których nie są dostępne żadne informacje dotyczące konserwacji maszyn wirtualnych:
-   - Używasz subskrypcji oznaczonej jako *Microsoft Internal*.
+   - Używasz subskrypcji oznaczonej jako *Wewnętrzna firma Microsoft.*
    - Maszyny wirtualne nie są zaplanowane do konserwacji. Być może fala konserwacji została zakończona, anulowana lub zmodyfikowana, aby nie miała już na nie wpływu.
    - Kolumna Konserwacja nie jest **dodana** do widoku listy maszyn wirtualnych. Mimo że dodaliśmy tę kolumnę do widoku domyślnego, jeśli skonfigurujesz widok tak, aby wyświetlał kolumny inne niż domyślne, musisz ręcznie dodać kolumnę Konserwacja do widoku listy maszyn wirtualnych. 
 
 **Pytanie: Moja maszyna wirtualna została zaplanowana do konserwacji po raz drugi. Dlaczego?**
 
 **A:** W kilku przypadkach użycia maszyna wirtualna jest zaplanowana do konserwacji po zakończeniu konserwacji i jej ponownego zakończeniu:
-   - Anulowaliśmy falę konserwacji i uruchomiliśmy ją ponownie z innym ładunkiem. Może się okazać, że wykryliśmy uszkodzony ładunek i musimy po prostu wdrożyć dodatkowy ładunek.
+   - Anulowaliśmy falę konserwacji i uruchomiliśmy ją ponownie z innym ładunkiem. Być może wykryliśmy uszkodzony ładunek i po prostu musimy wdrożyć dodatkowy ładunek.
    - Twoja maszyna *wirtualna została zrównana z* innym węzłem z powodu błędu sprzętowego.
    - Wybrano opcję zatrzymania (cofenia alokacji) i ponownego uruchomienia maszyny wirtualnej.
    - Dla maszyny **wirtualnej jest** włączone automatyczne zamykanie.

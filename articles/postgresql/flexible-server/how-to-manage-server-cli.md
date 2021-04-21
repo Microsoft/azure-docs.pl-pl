@@ -1,83 +1,83 @@
 ---
-title: Zarządzanie serwerem — interfejs wiersza polecenia platformy Azure — Azure Database for PostgreSQL-elastyczny serwer
-description: Dowiedz się, jak zarządzać serwerem elastycznym Azure Database for PostgreSQL z poziomu interfejsu wiersza polecenia platformy Azure.
+title: Zarządzanie serwerem — interfejs wiersza polecenia platformy Azure — Azure Database for PostgreSQL — serwer elastyczny
+description: Dowiedz się, jak zarządzać serwerem Azure Database for PostgreSQL — elastycznym z interfejsu wiersza polecenia platformy Azure.
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 278f8f816909a7e365d7e45d04c5169950e79a65
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9a7e16bf85293a412baf5015af825377438ebb7b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96493682"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778503"
 ---
-# <a name="manage-an-azure-database-for-postgresql---flexible-server-by-using-the-azure-cli"></a>Zarządzanie serwerem elastycznym Azure Database for PostgreSQL przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="manage-an-azure-database-for-postgresql---flexible-server-by-using-the-azure-cli"></a>Zarządzanie serwerem Azure Database for PostgreSQL — elastyczny serwer przy użyciu interfejsu wiersza polecenia platformy Azure
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL — serwer elastyczny jest w wersji zapoznawczej.
 
-W tym artykule pokazano, jak zarządzać elastycznym serwerem wdrożonym na platformie Azure. Zadania zarządzania obejmują skalowanie obliczeniowe i magazynowe, Resetowanie hasła administratora oraz wyświetlanie szczegółów serwera.
+W tym artykule pokazano, jak zarządzać serwerem elastycznym wdrożonym na platformie Azure. Zadania zarządzania obejmują skalowanie obliczeń i magazynu, resetowanie hasła administratora i wyświetlanie szczegółów serwera.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto. 
 
-Musisz uruchomić interfejs wiersza polecenia platformy Azure w wersji 2,0 lub nowszej lokalnie. Aby sprawdzić zainstalowaną wersję, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+Musisz lokalnie uruchamiać interfejs wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Aby sprawdzić zainstalowaną wersję, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
-Zaloguj się do swojego konta za pomocą polecenia [AZ login](/cli/azure/reference-index#az-login) . 
+Zaloguj się do swojego konta przy użyciu [polecenia az login.](/cli/azure/reference-index#az_login) 
 
 ```azurecli-interactive
 az login
 ```
 
-Wybierz swoją subskrypcję za pomocą polecenia [AZ Account Set](/cli/azure/account) . Zanotuj wartość **identyfikatora** z polecenia **AZ login** Output, aby użyć jako wartości argumentu **Subscription** w poniższym poleceniu. Jeśli masz wiele subskrypcji, wybierz subskrypcję, dla której chcesz obciążyć zasób. Aby zidentyfikować wszystkie subskrypcje, użyj polecenia [AZ Account List](/cli/azure/account#az-account-list) .
+Wybierz subskrypcję za pomocą [polecenia az account set.](/cli/azure/account) Zanotuj wartość **identyfikatora z** danych wyjściowych polecenia **az login,** która będzie wartością **argumentu** subskrypcji w poniższym poleceniu. Jeśli masz wiele subskrypcji, wybierz subskrypcję, w ramach której mają być naliczane opłaty za zasób. Aby zidentyfikować wszystkie subskrypcje, użyj [polecenia az account list.](/cli/azure/account#az_account_list)
 
 ```azurecli
 az account set --subscription <subscription id>
 ```
 
 > [!Important]
-> Jeśli nie utworzono jeszcze elastycznego serwera, należy to zrobić, aby wykonać czynności opisane w tym przewodniku.
+> Jeśli nie utworzono jeszcze serwera elastycznego, należy to zrobić, aby postępować zgodnie z tym przewodnikiem.
 
 ## <a name="scale-compute-and-storage"></a>Skalowanie zasobów obliczeniowych i magazynu
 
-Możesz łatwo skalować warstwę obliczeniową, rdzeni wirtualnych i magazyn przy użyciu poniższego polecenia. Aby uzyskać listę wszystkich operacji serwera, które można uruchomić, zobacz [AZ Postgres elastyczny-Server](/cli/azure/postgres/flexible-server) Overview.
+Możesz łatwo skalować w górę warstwę obliczeniową, rdzenie wirtualne i magazyn przy użyciu następującego polecenia. Aby uzyskać listę wszystkich operacji serwera, które można uruchomić, zobacz [az postgres flexible-server overview (Az postgres flexible-server](/cli/azure/postgres/flexible-server) overview).
 
 ```azurecli-interactive
 az postgres flexible-server update --resource-group myresourcegroup --name mydemoserver --sku-name Standard_D4ds_v3 --storage-size 6144
 ```
 
-Poniżej znajdują się szczegółowe informacje dotyczące argumentów w poprzednim kodzie:
+Poniżej przedstawiono szczegóły argumentów w poprzednim kodzie:
 
 **Ustawienie** | **Wartość przykładowa** | **Opis**
 ---|---|---
 name | mydemoserver | Wprowadź unikatową nazwę serwera. Nazwa serwera może zawierać tylko małe litery, cyfry i znaki łącznika (-). Musi zawierać od 3 do 63 znaków.
 resource-group | myresourcegroup | Podaj nazwę grupy zasobów platformy Azure.
-sku-name|Standard_D4ds_v3|Wprowadź nazwę warstwy obliczeniowej i jej rozmiaru. Wartość jest zgodna z Konwencją *Standard_ {rozmiar maszyny wirtualnej}* w postaci skróconej. Aby uzyskać więcej informacji, zobacz [warstwy cenowe](../concepts-pricing-tiers.md) .
-storage-size | 6144 | Wprowadź pojemność magazynu serwera (w megabajtach). Wartość minimalna to 5120, zwiększająca się o przyrosty 1024.
+sku-name|Standard_D4ds_v3|Wprowadź nazwę warstwy obliczeniowej i jej rozmiar. Wartość jest zgodna z *konwencją Standard_{rozmiar maszyny wirtualnej}* w skrócie. Zobacz warstwy [cenowe, aby](../concepts-pricing-tiers.md) uzyskać więcej informacji.
+storage-size | 6144 | Wprowadź pojemność magazynu serwera w megabajtach. Minimalna wartość to 5120, co zwiększa się o 1024.
 
 > [!IMPORTANT]
 > Nie można skalować magazynu w dół. 
 
 ## <a name="manage-postgresql-databases-on-a-server"></a>Zarządzanie bazami danych PostgreSQL na serwerze
 
-Istnieje wiele aplikacji, za pomocą których można nawiązać połączenie z serwerem usługi Azure Database for PostgreSQL. Jeśli na komputerze klienckim jest zainstalowany program PostgreSQL, możesz użyć lokalnego wystąpienia programu [PSQL](https://www.postgresql.org/docs/current/static/app-psql.html). Użyjmy teraz narzędzia wiersza polecenia PSQL, aby nawiązać połączenie z serwerem Azure Database for PostgreSQL.
+Istnieje wiele aplikacji, za pomocą których można nawiązać połączenie z serwerem usługi Azure Database for PostgreSQL. Jeśli na komputerze klienckim jest zainstalowany program PostgreSQL, możesz użyć lokalnego wystąpienia [programu psql](https://www.postgresql.org/docs/current/static/app-psql.html). Użyjmy teraz narzędzia wiersza polecenia psql, aby nawiązać połączenie z Azure Database for PostgreSQL serwera.
 
-1. Uruchom następujące polecenie **PSQL** :
+1. Uruchom następujące polecenie **psql:**
 
    ```bash
    psql --host=<servername> --port=<port> --username=<user> --dbname=<dbname>
    ```
 
-   Na przykład następujące polecenie nawiązuje połączenie z domyślną bazą danych o nazwie **Postgres** na serwerze PostgreSQL **mydemoserver.Postgres.Database.Azure.com** za pomocą poświadczeń dostępu. Po wyświetleniu monitu wprowadź `<server_admin_password>` wybraną opcję.
+   Na przykład następujące polecenie łączy się z domyślną bazą danych o nazwie **postgres** na serwerze PostgreSQL mydemoserver.postgres.database.azure.com **przy** użyciu poświadczeń dostępu. Po wyświetleniu monitu wprowadź `<server_admin_password>` wybraną wartość.
   
    ```bash
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin --dbname=postgres
    ```
 
-   Po nawiązaniu połączenia narzędzie PSQL wyświetli monit **Postgres** , gdzie można wprowadzić polecenia SQL. Gdy używana wersja programu PSQL różni się od wersji na serwerze Azure Database for PostgreSQL, zostanie wyświetlone ostrzeżenie.
+   Po nawiązania połączenia narzędzie psql wyświetli wiersz **polecenia postgres,** w którym można wprowadzić polecenia SQL. W początkowych danych wyjściowych połączenia zostanie wyświetlone ostrzeżenie, jeśli wersja narzędzia psql, którego używasz, różni się od wersji na Azure Database for PostgreSQL serwera.
 
    Przykład danych wyjściowych narzędzia psql:
 
@@ -94,27 +94,27 @@ Istnieje wiele aplikacji, za pomocą których można nawiązać połączenie z s
    > [!TIP]
    > Jeśli konfiguracja zapory nie umożliwia dostępu do adresu IP klienta, wystąpi następujący błąd:
    >
-   > "PSQL: błąd krytyczny: brak wpisu pg_hba. conf dla hosta `<IP address>` , użytkownik" Administrator ", baza danych" Postgres ", SSL w przypadku krytycznym: wymagane jest połączenie SSL. Określ opcje protokołu SSL i spróbuj ponownie. "
+   > "psql: BŁĄD KRYTYCZNY: brak wpisu pg_hba.conf dla `<IP address>` hosta, użytkownika "myadmin", bazy danych "postgres", BŁĄD KRYTYCZNY protokołu SSL: wymagane jest połączenie SSL. Określ opcje protokołu SSL i ponów próbę".
    >
    > Upewnij się, że adres IP klienta jest dozwolony w regułach zapory.
 
-2. Utwórz pustą bazę danych o nazwie **postgresdb** , wpisując w wierszu polecenia następujące polecenie:
+2. Utwórz pustą bazę danych **o nazwie postgresdb,** wpisując następujące polecenie w wierszu polecenia:
 
     ```bash
     CREATE DATABASE postgresdb;
     ```
 
-3. W wierszu polecenia Uruchom następujące polecenie, aby przełączyć połączenia na nowo utworzoną bazę danych **postgresdb**:
+3. Po wyświetleniu monitu uruchom następujące polecenie, aby przełączyć połączenia na nowo utworzoną bazę **danych postgresdb:**
 
     ```bash
     \c postgresdb
     ```
 
-4. Wpisz  `\q` , a następnie naciśnij klawisz ENTER, aby zakończyć PSQL.
+4. Wpisz  `\q` i wybierz klawisz Enter, aby zamknąć program psql.
 
-W tej sekcji połączono się z serwerem Azure Database for PostgreSQL za pośrednictwem programu PSQL i utworzono pustą bazę danych użytkownika.
+W tej sekcji nawiązliśmy połączenie z serwerem Azure Database for PostgreSQL za pomocą programu psql i utworzono pustą bazę danych użytkownika.
 
-## <a name="reset-the-admin-password"></a>Zresetuj hasło administratora
+## <a name="reset-the-admin-password"></a>Resetowanie hasła administratora
 
 Hasło roli administratora można zmienić za pomocą następującego polecenia:
 
@@ -123,7 +123,7 @@ az postgres flexible-server update --resource-group myresourcegroup --name mydem
 ```
 
 > [!IMPORTANT]
-> Wybierz hasło, które zawiera co najmniej 8 znaków i maksymalnie 128 znaków. Hasło musi zawierać znaki z trzech z następujących kategorii: 
+> Wybierz hasło, które ma co najmniej 8 znaków i maksymalnie 128 znaków. Hasło musi zawierać znaki z trzech z następujących kategorii: 
 > - Wielkie litery angielskie
 > - Małe litery angielskie
 > - Liczby
@@ -131,7 +131,7 @@ az postgres flexible-server update --resource-group myresourcegroup --name mydem
 
 ## <a name="delete-a-server"></a>Usuwanie serwera
 
-Aby usunąć serwer elastyczny Azure Database for PostgreSQL, uruchom polecenie [AZ Postgres elastyczny-Server Delete](/cli/azure/postgres/flexible-server#az-PostgreSQL-flexible-server-delete) .
+Aby usunąć Azure Database for PostgreSQL serwera elastycznego, uruchom [polecenie az postgres flexible-server delete.](/cli/azure/postgres/flexible-server#az_postgresql_flexible_server_delete)
 
 ```azurecli-interactive
 az postgres flexible-server delete --resource-group myresourcegroup --name mydemoserver
@@ -139,5 +139,5 @@ az postgres flexible-server delete --resource-group myresourcegroup --name mydem
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Informacje o pojęciach dotyczących tworzenia kopii zapasowych i przywracania](concepts-backup-restore.md)
+- [Opis pojęć związanych z tworzeniem i przywracaniem kopii zapasowych](concepts-backup-restore.md)
 - [Dostrajanie i monitorowanie serwera](concepts-monitoring.md)

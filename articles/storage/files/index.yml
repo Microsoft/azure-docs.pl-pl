@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: roygara
   ms.author: rogarana
-  ms.date: 08/27/2019
-  ms.openlocfilehash: 1ede53a8e288b14696ca2c30088486478a13a3af
-  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.date: 04/19/2021
+  ms.openlocfilehash: 56879a2b6efc0ae5e7278828a474d0197f37f255
+  ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/03/2021
-  ms.locfileid: "101724204"
+  ms.lasthandoff: 04/20/2021
+  ms.locfileid: "107761713"
 landingContent:
 - title: Informacje o usłudze Azure Files
   linkLists:
@@ -25,24 +25,16 @@ landingContent:
     links:
     - text: Przewodnik planowania dla usługi Azure Files
       url: storage-files-planning.md
-    - text: Przewodnik planowania dla usługi Azure File Sync
-      url: storage-sync-files-planning.md
     - text: Co to jest usługa Azure Files?
       url: storage-files-introduction.md
+    - text: Uwierzytelnianie oparte na tożsamościach
+      url: storage-files-active-directory-overview.md
 - title: Rozpoczęcie pracy
   linkLists:
   - linkListType: get-started
     links:
     - text: Tworzenie udziałów plików i korzystanie z nich — Windows
       url: storage-files-quick-create-use-windows.md
-    - text: Tworzenie udziałów plików w warstwie Premium
-      url: ./storage-how-to-create-file-share.md
-    - text: Zarządzanie serwerem w usłudze Azure File Sync
-      url: storage-sync-files-server-registration.md
-  - linkListType: tutorial
-    links:
-    - text: Rozszerzanie serwerów plików systemu Windows przy użyciu usługi Azure File Sync
-      url: storage-sync-files-extend-servers.md
 - title: Rozwiązywanie problemów
   linkLists:
   - linkListType: reference
@@ -53,5 +45,3 @@ landingContent:
       url: storage-troubleshoot-linux-file-connection-problems.md
     - text: Rozwiązywanie problemów z wydajnością usługi Azure Files
       url: storage-troubleshooting-files-performance.md
-    - text: Rozwiązywanie problemów z usługą Azure File Sync
-      url: storage-sync-files-troubleshoot.md
