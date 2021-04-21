@@ -3,29 +3,29 @@ title: Store Helm charts (Przechowuj wykresy helm)
 description: Dowiedz się, jak przechowywać wykresy programu Helm dla aplikacji Kubernetes przy użyciu repozytoriów w Azure Container Registry
 ms.topic: article
 ms.date: 04/15/2021
-ms.openlocfilehash: 6698eb8f5e18511717e44bf5dc06a51d8f3903b8
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: c7dcdf222e9628daedb7e1c3617efb0b9c7af185
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537313"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772383"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Wypychanie i ściąganie wykresów programu Helm do rejestru kontenerów platformy Azure
 
-Aby szybko wdrażać aplikacje dla rozwiązania Kubernetes i zarządzać nimi, możesz użyć menedżera pakietów Helm typu [open source.][helm] W programie Helm pakiety aplikacji są definiowane jako [pakiety](https://helm.sh/docs/topics/charts/), które są zbierane i przechowywane w [repozytorium pakietów Helm.](https://helm.sh/docs/topics/chart_repository/)
+Aby szybko zarządzać aplikacjami dla rozwiązania Kubernetes i wdrażać je, możesz użyć menedżera pakietów [Helm typu open source.][helm] W programie Helm pakiety aplikacji są definiowane jako [wykresy](https://helm.sh/docs/topics/charts/), które są zbierane i przechowywane w [repozytorium pakietów Programu Helm.](https://helm.sh/docs/topics/chart_repository/)
 
-W tym artykule pokazano, jak hostować repozytoria wykresów programu Helm w rejestrze kontenerów platformy Azure przy użyciu poleceń programu Helm 3. W wielu scenariuszach należy tworzyć i przekazywać własne wykresy dla kompilowanych aplikacji. Aby uzyskać więcej informacji na temat tworzenia własnych wykresów programu Helm, zobacz Przewodnik dewelopera szablonów [wykresów][develop-helm-charts]. Możesz również przechowywać istniejący pakiet Helm z innego repo narzędzia Helm.
+W tym artykule pokazano, jak hostować repozytoria pakietów helm w rejestrze kontenerów platformy Azure przy użyciu poleceń programu Helm 3. W wielu scenariuszach należy tworzyć i przekazywać własne wykresy dla aplikacji, które tworzysz. Aby uzyskać więcej informacji na temat tworzenia własnych wykresów programu Helm, zobacz Przewodnik dewelopera szablonu [wykresu.][develop-helm-charts] Możesz również przechowywać istniejący pakiet Helm z innego repo narzędzia Helm.
 
 ## <a name="helm-3-or-helm-2"></a>Helm 3 czy Helm 2?
 
 Do przechowywania i instalowania wykresów programu Helm oraz zarządzania nimi należy użyć klienta programu Helm i interfejsu wiersza polecenia programu Helm. Główne wersje klienta helm to Helm 3 i Helm 2. Aby uzyskać szczegółowe informacje na temat różnic między wersjami, zobacz [często zadawane pytania dotyczące wersji.](https://helm.sh/docs/faq/) 
 
-Helm 3 powinien być używany do hostowania wykresów Helm w Azure Container Registry. Program Helm 3 umożliwia:
+Helm 3 powinien być używany do hostowania wykresów helm w Azure Container Registry. W programie Helm 3:
 
 * Może utworzyć co najmniej jedno repozytorium programu Helm w rejestrze kontenerów platformy Azure
-* Przechowuj wykresy helm 3 w rejestrze jako [artefakty OCI.](container-registry-image-formats.md#oci-artifacts) Azure Container Registry zapewnia ga ga dla artefaktów [OCI,](container-registry-oci-artifacts.md)w tym wykresów Helm.
+* Przechowuj wykresy helm 3 w rejestrze jako [artefakty OCI.](container-registry-image-formats.md#oci-artifacts) Azure Container Registry obsługuje artefakty [OCI,](container-registry-oci-artifacts.md)w tym wykresy Helm, w gachodniej.
 * Uwierzytelnij się w rejestrze za pomocą `helm registry login` polecenia .
-* Używanie `helm chart` poleceń w interfejsie wiersza polecenia programu Helm do wypychania i ściągania wykresów Programu Helm oraz zarządzania nimi w rejestrze
+* Używanie poleceń w interfejsie wiersza polecenia programu Helm do wypychania i ściągania wykresów `helm chart` Programu Helm oraz zarządzania nimi w rejestrze
 * Użyj `helm install` funkcji , aby zainstalować wykresy w klastrze Kubernetes z lokalnej pamięci podręcznej repozytorium.
 > [!NOTE]
 > Od programu Helm 3 polecenia [az acr helm][az-acr-helm] do użycia z klientem helm 2 są przestarzałe. Powiadomienie z co najmniej 3-miesięcy zostanie dostarczone przed usunięciem polecenia. Jeśli wcześniej wdrożono wykresy helm 2, zobacz [Migrowanie usługi Helm w wersji 2 do wersji 3.](https://helm.sh/docs/topics/v2_v3_migration/)
@@ -88,7 +88,7 @@ Aby uzyskać więcej informacji na temat tworzenia i uruchamiania tego przykład
 
 ## <a name="save-chart-to-local-registry-cache"></a>Zapisywanie wykresu w lokalnej pamięci podręcznej rejestru
 
-Zmień katalog na `hello-world` podkatalog. Następnie uruchom program , aby zapisać lokalnie kopię wykresu, a także utworzyć alias z w pełni kwalifikowaną nazwą rejestru (tylko małymi literami) oraz docelowym repozytorium `helm chart save` i tagiem. 
+Zmień katalog na `hello-world` podkatalog. Następnie uruchom plik , aby zapisać kopię wykresu lokalnie, a także utworzyć alias z w pełni kwalifikowaną nazwą rejestru (wszystkie małe litery) oraz docelowym repozytorium `helm chart save` i tagiem. 
 
 W poniższym przykładzie nazwa rejestru to *mycontainerregistry,* docelowe repo to *hello-world,* a tag wykresu docelowego to *v1,* ale zastąp wartości dla swojego środowiska:
 
@@ -291,12 +291,12 @@ az acr repository delete --name mycontainerregistry --image helm/hello-world:v1
 [azure-cli-install]: /cli/azure/install-azure-cli
 [aks-quickstart]: ../aks/kubernetes-walkthrough.md
 [acr-bestpractices]: container-registry-best-practices.md
-[az-configure]: /cli/azure/reference-index#az-configure
-[az-acr-login]: /cli/azure/acr#az-acr-login
+[az-configure]: /cli/azure/reference-index#az_configure
+[az-acr-login]: /cli/azure/acr#az_acr_login
 [az-acr-helm]: /cli/azure/acr/helm
 [az-acr-repository]: /cli/azure/acr/repository
-[az-acr-repository-show]: /cli/azure/acr/repository#az-acr-repository-show
-[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
-[az-acr-repository-show-tags]: /cli/azure/acr/repository#az-acr-repository-show-tags
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests
+[az-acr-repository-show]: /cli/azure/acr/repository#az_acr_repository_show
+[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
+[az-acr-repository-show-tags]: /cli/azure/acr/repository#az_acr_repository_show_tags
+[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests
 [acr-tasks]: container-registry-tasks-overview.md

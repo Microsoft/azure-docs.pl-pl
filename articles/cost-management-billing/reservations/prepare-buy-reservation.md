@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 04/12/2021
 ms.author: banders
-ms.openlocfilehash: 13a9e3ad1dcdfa230d757230e3fdea91e4ee9d23
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: b2cdb106ab1c77c23626258f7e0708a20ffd3c4e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310397"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772257"
 ---
 # <a name="buy-a-reservation"></a>Kupowanie rezerwacji
 
@@ -44,9 +44,9 @@ Masz trzy opcje zakresu rezerwacji do wyboru w zależności od potrzeb:
 
 Podczas stosowania rabatów na rezerwację w stosunku do użycia platforma Azure przetwarza rezerwacje w następującej kolejności:
 
-1. Rezerwacje z jednym zakresem grupy zasobów
-2. Rezerwacje z jednym zakresem subskrypcji
-3. Rezerwacje z współdzielonym zakresem (wiele subskrypcji), opisane wcześniej
+1. Rezerwacje z zakresem pojedynczej grupy zasobów
+2. Rezerwacje z zakresem pojedynczej subskrypcji
+3. Rezerwacje z zakresem udostępnionym (wiele subskrypcji), opisane wcześniej
 
 Zakres można zaktualizować w dowolnym momencie po zakupie rezerwacji. W tym celu należy przejść do rezerwacji, kliknąć pozycję **Konfiguracja** i ponownie określić zakres. Zmiana zakresu rezerwacji nie jest transakcją handlową. Okres rezerwacji nie jest zmieniany. Aby uzyskać więcej informacji o aktualizowaniu zakresu, [zobacz Aktualizowanie zakresu po zakupie rezerwacji.](manage-reserved-vm-instance.md#change-the-reservation-scope)
 
@@ -133,4 +133,8 @@ W przypadku klientów z subskrypcjami indywidualnymi:
 
 ## <a name="next-steps"></a>Następne kroki
 
+- [Dowiedz się więcej o uprawnieniach rezerwacji](view-reservations.md)
 - [Zarządzanie rezerwacjami zasobów platformy Azure](manage-reserved-vm-instance.md)
+- [Automatyzowanie przy użyciu interfejsów API REST](/rest/api/reserved-vm-instances/reservationorder)
+- [Automatyzowanie przy użyciu Azure PowerShell](/powershell/module/az.reservations)
+- [Automatyzowanie przy użyciu interfejsu wiersza polecenia](/cli/azure/reservations)
