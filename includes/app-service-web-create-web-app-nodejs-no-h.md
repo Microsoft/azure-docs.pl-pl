@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: f49b0198b0365b9c2d83ad1f08059b4812f9d423
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 337b6a23691e9fd533009ea5553e4b8765eb91bc
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107513321"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767340"
 ---
 Utwórz aplikację [internetową w](../articles/app-service/overview.md#app-service-on-linux) `myAppServicePlan` planie App Service aplikacji. 
 
-W Cloud Shell możesz użyć polecenia [`az webapp create`](/cli/azure/webapp) . W poniższym przykładzie zastąp ciąg `<app-name>` globalnie unikatową nazwą aplikacji (prawidłowe znaki to `a-z`, `0-9` i `-`). Środowisko uruchomieniowe ma ustawioną wartość `NODE|6.9`. Aby wyświetlić wszystkie obsługiwane środowiska uruchomieniowe, [`az webapp list-runtimes`](/cli/azure/webapp#az-webapp-list-runtimes) uruchom . 
+W Cloud Shell możesz użyć polecenia [`az webapp create`](/cli/azure/webapp) . W poniższym przykładzie zastąp ciąg `<app-name>` globalnie unikatową nazwą aplikacji (prawidłowe znaki to `a-z`, `0-9` i `-`). Środowisko uruchomieniowe ma ustawioną wartość `NODE|6.9`. Aby wyświetlić wszystkie obsługiwane środowiska uruchomieniowe, [`az webapp list-runtimes`](/cli/azure/webapp#az_webapp_list_runtimes) uruchom . 
 
 ```azurecli-interactive
 # Bash
@@ -44,7 +44,7 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;app-name&gt;.s
 }
 </pre>
 
-Youâ€™ utworzono pustą aplikację internetową z włączonym wdrożeniem git.
+Utworzona została pusta aplikacja internetowa z włączonym wdrażaniem git.
 
 > [!NOTE]
 > Adres URL zdalnego repozytorium Git jest wyświetlany we właściwości `deploymentLocalGitUrl` w formacie `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Zapisz ten adres URL, ponieważ będzie on potrzebny później.

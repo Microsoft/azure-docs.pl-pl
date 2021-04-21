@@ -1,48 +1,48 @@
 ---
-title: Tworzenie alertów Azure Advisor dla nowych zaleceń przy użyciu szablonu Menedżer zasobów
-description: Dowiedz się, jak skonfigurować alert dotyczący nowych zaleceń z Azure Advisor przy użyciu szablonu Azure Resource Manager (szablon ARM).
+title: Tworzenie Azure Advisor alertów dotyczących nowych zaleceń przy użyciu Resource Manager szablonu
+description: Dowiedz się, jak skonfigurować alert dla nowych zaleceń z usługi Azure Advisor użyciu szablonu Azure Resource Manager (szablonu usługi ARM).
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 06/29/2020
-ms.openlocfilehash: 7b10ad06e5397ab733987373a3bd18de981c8c97
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 716ab104ce6517aeb554b42522e5906829877259
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100590057"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765671"
 ---
-# <a name="quickstart-create-azure-advisor-alerts-on-new-recommendations-using-an-arm-template"></a>Szybki Start: tworzenie alertów Azure Advisor na temat nowych zaleceń przy użyciu szablonu ARM
+# <a name="quickstart-create-azure-advisor-alerts-on-new-recommendations-using-an-arm-template"></a>Szybki start: tworzenie alertów Azure Advisor dotyczących nowych zaleceń przy użyciu szablonu usługi ARM
 
-W tym artykule opisano sposób konfigurowania alertu dotyczącego nowych zaleceń z Azure Advisor przy użyciu szablonu Azure Resource Manager (szablon ARM).
+W tym artykule pokazano, jak skonfigurować alert dla nowych zaleceń z usługi Azure Advisor użyciu szablonu Azure Resource Manager (szablonu usługi ARM).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Za każdym razem, gdy Azure Advisor wykryje nowe zalecenie dla jednego z zasobów, zdarzenie jest przechowywane w [dzienniku aktywności platformy Azure](../azure-monitor/essentials/platform-logs-overview.md). Alerty dotyczące tych zdarzeń można skonfigurować w Azure Advisor przy użyciu funkcji tworzenia alertów specyficznych dla zalecenia. Możesz wybrać subskrypcję i opcjonalnie grupę zasobów, aby określić zasoby, dla których chcesz otrzymywać alerty.
+Zawsze Azure Advisor wykryje nowe zalecenie dla jednego z twoich zasobów, zdarzenie jest przechowywane w dzienniku [aktywności platformy Azure.](../azure-monitor/essentials/platform-logs-overview.md) Alerty dla tych zdarzeń można skonfigurować na Azure Advisor przy użyciu funkcji tworzenia alertów specyficznych dla rekomendacji. Możesz wybrać subskrypcję i opcjonalnie grupę zasobów, aby określić zasoby, dla których chcesz otrzymywać alerty.
 
-Możesz również określić typy zaleceń, korzystając z następujących właściwości:
+Typy zaleceń można również określić przy użyciu następujących właściwości:
 
 - Kategoria
 - Poziom wpływu
 - Typ zalecenia
 
-Możesz również skonfigurować akcję, która będzie wykonywana po wyzwoleniu alertu przez:
+Możesz również skonfigurować akcję, która będzie miała miejsce po wyzwoleniu alertu przez:
 
 - Wybieranie istniejącej grupy akcji
 - Tworzenie nowej grupy akcji
 
-Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi](../azure-monitor/alerts/action-groups.md).
+Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi.](../azure-monitor/alerts/action-groups.md)
 
 > [!NOTE]
-> Alerty usługi Advisor są obecnie dostępne tylko w celu uzyskania wysokiej dostępności, wydajności i zaleceń dotyczących kosztów. Zalecenia dotyczące zabezpieczeń nie są obsługiwane.
+> Alerty usługi Advisor są obecnie dostępne tylko w przypadku rekomendacji dotyczących wysokiej dostępności, wydajności i kosztów. Zalecenia dotyczące zabezpieczeń nie są obsługiwane.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Aby uruchomić polecenia z komputera lokalnego, zainstaluj interfejs wiersza polecenia platformy Azure lub moduły Azure PowerShell. Aby uzyskać więcej informacji, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) i [Instalowanie Azure PowerShell](/powershell/azure/install-az-ps).
+- Aby uruchamiać polecenia z komputera lokalnego, zainstaluj interfejs wiersza polecenia platformy Azure lub Azure PowerShell modułów. Aby uzyskać więcej informacji, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) i Instalowanie [Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="review-the-template"></a>Przegląd szablonu
 
-Poniższy szablon umożliwia utworzenie grupy akcji z miejscem docelowym poczty e-mail i włączenie wszystkich powiadomień o kondycji usługi dla subskrypcji docelowej. Zapisz ten szablon jako *CreateAdvisorAlert.js*.
+Poniższy szablon tworzy grupę akcji z docelową pocztą e-mail i włącza wszystkie powiadomienia o kondycji usługi dla subskrypcji docelowej. Zapisz ten szablon jakoCreateAdvisorAlert.js *w pliku*.
 
 ```json
 {
@@ -141,12 +141,12 @@ Poniższy szablon umożliwia utworzenie grupy akcji z miejscem docelowym poczty 
 
 Szablon definiuje dwa zasoby:
 
-- [Microsoft. Insights/actionGroups](/azure/templates/microsoft.insights/actiongroups)
-- [Microsoft. Insights/activityLogAlerts](/azure/templates/microsoft.insights/activityLogAlerts)
+- [Microsoft.Insights/actionGroups](/azure/templates/microsoft.insights/actiongroups)
+- [Microsoft.Insights/activityLogAlerts](/azure/templates/microsoft.insights/activityLogAlerts)
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
-Wdróż szablon przy użyciu dowolnej standardowej metody [wdrażania szablonu ARM](../azure-resource-manager/templates/deploy-portal.md) , takiego jak poniższe przykłady przy użyciu interfejsu wiersza polecenia i programu PowerShell. Zastąp przykładowe wartości dla **grupy zasobów** i **EmailAddress** z odpowiednimi wartościami dla danego środowiska. Nazwa obszaru roboczego musi być unikatowa wśród wszystkich subskrypcji platformy Azure.
+Wd wdrażaj szablon przy użyciu dowolnej standardowej metody wdrażania szablonu [usługi ARM,](../azure-resource-manager/templates/deploy-portal.md) takiej jak poniższe przykłady przy użyciu interfejsu wiersza polecenia i programu PowerShell. Zastąp przykładowe wartości **dla grup zasobów** i **emailAddress** odpowiednimi wartościami dla twojego środowiska. Nazwa obszaru roboczego musi być unikatowa wśród wszystkich subskrypcji platformy Azure.
 
 # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
 
@@ -167,7 +167,7 @@ New-AzResourceGroupDeployment -Name CreateAdvisorAlert -ResourceGroupName my-res
 
 ## <a name="validate-the-deployment"></a>Weryfikowanie wdrożenia
 
-Sprawdź, czy obszar roboczy został utworzony przy użyciu jednego z następujących poleceń. Zastąp przykładowe wartości dla **grupy zasobów** wartością użytą powyżej.
+Sprawdź, czy obszar roboczy został utworzony przy użyciu jednego z następujących poleceń. Zastąp przykładowe wartości dla **grupy zasobów** wartością u używaną powyżej.
 
 # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
 
@@ -185,7 +185,7 @@ Get-AzActivityLogAlert -ResourceGroupName my-resource-group -Name AdvisorAlertsT
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli planujesz kontynuować pracę z kolejnymi przewodnikami Szybki Start i samouczkami, możesz pozostawić te zasoby na miejscu. Gdy grupa zasobów nie będzie już konieczna, usuń ją, usuwając regułę alertu i powiązane zasoby. Aby usunąć grupę zasobów przy użyciu interfejsu wiersza polecenia platformy Azure lub Azure PowerShell
+Jeśli planujesz kontynuować pracę z kolejnymi przewodnikami Szybki start i samouczkami, możesz pozostawić te zasoby na miejscu. Gdy grupa zasobów nie będzie już potrzebna, usuń ją, co spowoduje usunięcie reguły alertu i powiązanych zasobów. Aby usunąć grupę zasobów przy użyciu interfejsu wiersza polecenia platformy Azure lub Azure PowerShell
 
 # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
 
@@ -203,5 +203,5 @@ Remove-AzResourceGroup -Name my-resource-group
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zapoznaj się z [omówieniem alertów dziennika aktywności](../azure-monitor/alerts/alerts-overview.md)i Dowiedz się, jak otrzymywać alerty.
-- Dowiedz się więcej na temat [grup akcji](../azure-monitor/alerts/action-groups.md).
+- Zapoznaj się [z omówieniem alertów dziennika aktywności](../azure-monitor/alerts/alerts-overview.md)i dowiedz się, jak otrzymywać alerty.
+- Dowiedz się więcej o [grupach akcji.](../azure-monitor/alerts/action-groups.md)

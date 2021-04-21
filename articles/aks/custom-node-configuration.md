@@ -1,39 +1,39 @@
 ---
-title: Dostosowywanie konfiguracji węzła dla pul węzłów usługi Azure Kubernetes Service (AKS) (wersja zapoznawcza)
-description: Dowiedz się, jak dostosować konfigurację w węzłach klastra usługi Azure Kubernetes Service (AKS) i pulach węzłów.
+title: Dostosowywanie konfiguracji węzłów dla pul Azure Kubernetes Service (AKS) (wersja zapoznawcza)
+description: Dowiedz się, jak dostosować konfigurację w węzłach Azure Kubernetes Service (AKS) i pulach węzłów.
 ms.service: container-service
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 7b39242a7d7208b33a070e86088b25e9414ead04
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c2173118b58ca92d69286fb36014872c19058bd6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101714633"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779979"
 ---
-# <a name="customize-node-configuration-for-azure-kubernetes-service-aks-node-pools-preview"></a>Dostosuj konfigurację węzła dla pul węzłów usługi Azure Kubernetes Service (AKS) (wersja zapoznawcza)
+# <a name="customize-node-configuration-for-azure-kubernetes-service-aks-node-pools-preview"></a>Dostosowywanie konfiguracji węzłów dla Azure Kubernetes Service (AKS) (wersja zapoznawcza)
 
-Dostosowanie konfiguracji węzła umożliwia skonfigurowanie lub dostosowanie ustawień systemu operacyjnego lub parametrów kubelet, aby odpowiadały potrzebom obciążeń. Podczas tworzenia klastra AKS lub dodawania puli węzłów do klastra można dostosować podzestaw często używanych ustawień systemu operacyjnego i kubelet. Aby skonfigurować ustawienia wykraczające poza ten podzbiór, [Użyj zestawu demonów, aby dostosować potrzebne konfiguracje bez obsługi utracie AKS dla węzłów](support-policies.md#shared-responsibility).
+Dostosowanie konfiguracji węzła umożliwia skonfigurowanie lub dostrojenie ustawień systemu operacyjnego lub parametrów kubelet w celu dopasowania ich do potrzeb obciążeń. Podczas tworzenia klastra usługi AKS lub dodawania puli węzłów do klastra można dostosować podzbiór często używanych ustawień systemu operacyjnego i kubelet. Aby skonfigurować ustawienia poza tym podzbiorem, użyj zestawu demonów, aby dostosować wymagane konfiguracje bez utraty obsługi usługi [AKS dla węzłów.](support-policies.md#shared-responsibility)
 
-## <a name="register-the-customnodeconfigpreview-preview-feature"></a>Rejestrowanie `CustomNodeConfigPreview` funkcji w wersji zapoznawczej
+## <a name="register-the-customnodeconfigpreview-preview-feature"></a>Rejestrowanie funkcji w `CustomNodeConfigPreview` wersji zapoznawczej
 
-Aby utworzyć klaster AKS lub pulę węzłów, która może dostosowywać parametry kubelet lub ustawienia systemu operacyjnego, należy włączyć `CustomNodeConfigPreview` flagę funkcji w subskrypcji.
+Aby utworzyć klaster lub pulę węzłów usługi AKS, która może dostosowywać parametry kubelet lub ustawienia systemu operacyjnego, należy włączyć `CustomNodeConfigPreview` flagę funkcji w subskrypcji.
 
-Zarejestruj `CustomNodeConfigPreview` flagę funkcji za pomocą polecenia [AZ Feature Register][az-feature-register] , jak pokazano w następującym przykładzie:
+Zarejestruj `CustomNodeConfigPreview` flagę funkcji za pomocą [polecenia az feature register,][az-feature-register] jak pokazano w poniższym przykładzie:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "CustomNodeConfigPreview"
 ```
 
-Wyświetlenie stanu *rejestracji* może potrwać kilka minut. Sprawdź stan rejestracji za pomocą polecenia [AZ Feature list][az-feature-list] :
+Wyświetlanie zarejestrowanego stanu może potrwać *kilka minut.* Sprawdź stan rejestracji za pomocą [polecenia az feature list:][az-feature-list]
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/CustomNodeConfigPreview')].{Name:name,State:properties.state}"
 ```
 
-Gdy wszystko będzie gotowe, Odśwież rejestrację dostawcy zasobów *Microsoft. ContainerService* za pomocą polecenia [AZ Provider Register][az-provider-register] :
+Gdy wszystko będzie gotowe, odśwież rejestrację dostawcy *zasobów Microsoft.ContainerService* za pomocą [polecenia az provider register:][az-provider-register]
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -43,7 +43,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="install-aks-preview-cli-extension"></a>Instalowanie rozszerzenia interfejsu wiersza polecenia aks-preview
 
-Aby utworzyć klaster AKS lub pulę węzłów, która może dostosowywać parametry kubelet lub ustawienia systemu operacyjnego, należy dysponować najnowszym rozszerzeniem interfejsu wiersza polecenia platformy Azure w *wersji zapoznawczej AKS* . Zainstaluj rozszerzenie interfejsu wiersza polecenia platformy Azure w *wersji zapoznawczej AKS* , używając polecenie [AZ Extension Add][az-extension-add] . Lub zainstalować wszystkie dostępne aktualizacje za pomocą polecenia [AZ Extension Update][az-extension-update] .
+Aby utworzyć klaster usługi AKS lub pulę węzłów, która może dostosowywać parametry kubelet lub ustawienia systemu operacyjnego, potrzebne jest najnowsze rozszerzenie interfejsu wiersza polecenia platformy Azure *aks-preview.* Zainstaluj rozszerzenie interfejsu wiersza polecenia platformy Azure *aks-preview* za pomocą [polecenia az extension add.][az-extension-add] Możesz też zainstalować wszystkie dostępne aktualizacje za pomocą [polecenia az extension update.][az-extension-update]
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -53,86 +53,86 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ``` 
 
-## <a name="use-custom-node-configuration"></a>Użyj konfiguracji węzła niestandardowego
+## <a name="use-custom-node-configuration"></a>Korzystanie z niestandardowej konfiguracji węzła
 
-### <a name="kubelet-custom-configuration"></a>Konfiguracja niestandardowa Kubelet
+### <a name="kubelet-custom-configuration"></a>Konfiguracja niestandardowa rozwiązania Kubelet
 
-Poniżej wymieniono obsługiwane parametry Kubelet i akceptowane wartości.
+Poniżej wymieniono obsługiwane parametry i akceptowane wartości kubelet.
 
 | Parametr | Dozwolone wartości/interwał | Domyślne | Opis |
 | --------- | ----------------------- | ------- | ----------- |
-| `cpuManagerPolicy` | Brak, statyczne | brak | Zasady statyczne umożliwiają kontenery w [gwarantowanym zasobniku](https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/) z liczbą całkowitą żądania dostępu do wyłącznego procesora CPU w węźle. |
-| `cpuCfsQuota` | wartość true, false | true |  Włącz/Wyłącz wymuszanie przydziałów procesora CPU CFS dla kontenerów, które określają limity procesora CPU. | 
-| `cpuCfsQuotaPeriod` | Interwał w milisekundach (MS) | `100ms` | Ustawia wartość okresu przydziału CFS procesora CPU. | 
-| `imageGcHighThreshold` | 0-100 | 85 | Procent użycia dysku, po którym jest zawsze uruchamiane odzyskiwanie pamięci obrazu. Minimalne użycie **dysku, które wyzwoli** wyrzucanie elementów bezużytecznych. Aby wyłączyć odzyskiwanie pamięci obrazu, ustaw wartość na 100. | 
-| `imageGcLowThreshold` | 0-100, nie więcej niż `imageGcHighThreshold` | 80 | Procent użycia dysku przed tym, że odzyskiwanie pamięci obrazu nigdy nie jest uruchamiane. Minimalne użycie dysku, które **może** wyzwolić wyrzucanie elementów bezużytecznych. |
-| `topologyManagerPolicy` | Brak, najlepszy nakład pracy, ograniczony, pojedynczy węzeł NUMA | brak | Zoptymalizuj wyrównanie węzłów NUMA, zobacz [tutaj](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/). Tylko Kubernetes v 1.18 +. |
-| `allowedUnsafeSysctls` | `kernel.shm*`, `kernel.msg*`, `kernel.sem`, `fs.mqueue.*`, `net.*` | Brak | Lista dozwolonych wzorców niebezpiecznego sysctls lub niebezpiecznych elementów sysctl. | 
+| `cpuManagerPolicy` | brak, statyczny | brak | Zasady statyczne umożliwiają kontenerom w zasobnikach [Gwarantowane](https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/) z liczbami całkowitymi żądań procesora dostęp do wyłącznych procesorów CPU w węźle. |
+| `cpuCfsQuota` | wartość true, false | true |  Włączanie/wyłączanie wymuszania limitu przydziału cfs procesora CPU dla kontenerów, które określają limity procesora CPU. | 
+| `cpuCfsQuotaPeriod` | Interwał w milisekundach (ms) | `100ms` | Ustawia wartość okresu limitu przydziału cfs procesora CPU. | 
+| `imageGcHighThreshold` | 0-100 | 85 | Procent użycia dysku, po którym zawsze jest uruchamiane odzyskiwanie pamięci obrazu. Minimalne użycie dysku, które **spowoduje wyzwolenie** wyrzucania elementów bezużytecznych. Aby wyłączyć odzyskiwanie pamięci obrazu, ustaw wartość 100. | 
+| `imageGcLowThreshold` | 0–100, nie wyższe niż `imageGcHighThreshold` | 80 | Procent użycia dysku, przed którym nigdy nie jest uruchamiane odzyskiwanie pamięci obrazu. Minimalne użycie dysku, które **może wyzwalać** wyrzucanie elementów bezużytecznych. |
+| `topologyManagerPolicy` | none, best-effort, restricted, single-numa-node | brak | Zoptymalizuj wyrównanie węzła NUMA. Więcej [informacji można znaleźć tutaj.](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/) Tylko kubernetes v1.18+. |
+| `allowedUnsafeSysctls` | `kernel.shm*`, `kernel.msg*`, `kernel.sem`, `fs.mqueue.*`, `net.*` | Brak | Dozwolona lista niebezpiecznych wzorców sysctls lub unsafe sysctl. | 
 
-### <a name="linux-os-custom-configuration"></a>Konfiguracja niestandardowa systemu operacyjnego Linux
+### <a name="linux-os-custom-configuration"></a>Niestandardowa konfiguracja systemu operacyjnego Linux
 
-Poniżej wymieniono obsługiwane ustawienia systemu operacyjnego i akceptowane wartości.
+Obsługiwane ustawienia systemu operacyjnego i akceptowane wartości są wymienione poniżej.
 
-#### <a name="file-handle-limits"></a>Limity dojścia plików
+#### <a name="file-handle-limits"></a>Limity dojścia do plików
 
-W przypadku korzystania z dużej ilości ruchu jest to typowy ruch pochodzący z dużej liczby plików lokalnych. Można dostosować poniższe ustawienia jądra i wbudowane limity, aby umożliwić obsługę większej liczby kosztów w przypadku niektórych pamięci systemowej.
-
-| Ustawienie | Dozwolone wartości/interwał | Domyślne | Opis |
-| ------- | ----------------------- | ------- | ----------- |
-| `fs.file-max` | 8192 – 12000500 | 709620 | Maksymalna liczba dojść do plików, które zostaną przydzielone przez jądro systemu Linux przez zwiększenie tej wartości można zwiększyć maksymalną dozwoloną liczbę otwartych plików. |
-| `fs.inotify.max_user_watches` | 781250 – 2097152 | 1048576 | Maksymalna liczba obserwujących plików dozwolona przez system. Każde *czujka* jest około 90 bajtów na jądrze 32-bitowym i w przybliżeniu 160 bajty na jądrze 64-bitowego. | 
-| `fs.aio-max-nr` | 65536 – 6553500 | 65536 | AIO-nr przedstawia bieżącą liczbę asynchronicznych żądań we/wy na poziomie systemu. AIO — Max-nr pozwala zmienić wartość maksymalną AIO-nr, aby można było powiększyć do. |
-| `fs.nr_open` | 8192 – 20000500 | 1048576 | Maksymalna liczba dojść do plików, które może przydzielić proces. |
-
-
-#### <a name="socket-and-network-tuning"></a>Dostrajanie gniazda i sieci
-
-W przypadku węzłów agentów, które powinny obsługiwać bardzo dużą liczbę współbieżnych sesji, można użyć podzestawu opcji TCP i sieci poniżej, które można dostosować do puli węzłów. 
+Gdy obsługujesz duży ruch, często jest to ruch, który obsługujesz, pochodzi z dużej liczby plików lokalnych. Możesz dostosować poniższe ustawienia jądra i wbudowane limity, aby umożliwić obsługę większej ilości pamięci systemowej.
 
 | Ustawienie | Dozwolone wartości/interwał | Domyślne | Opis |
 | ------- | ----------------------- | ------- | ----------- |
-| `net.core.somaxconn` | 4096 – 3240000 | 16384 | Maksymalna liczba żądań połączeń, które mogą być umieszczone w kolejce dla danego gniazda nasłuchiwania. Górny limit wartości parametru zaległości przekazaną do funkcji [Listen (2)](http://man7.org/linux/man-pages/man2/listen.2.html) . Jeśli argument zaległości jest większy niż `somaxconn` , wówczas jest on w trybie dyskretnym obcinany do tego limitu.
-| `net.core.netdev_max_backlog` | 1000 – 3240000 | 1000 | Maksymalna liczba pakietów umieszczonych w kolejce po stronie WEJŚCIOWEj, gdy interfejs odbiera pakiety szybciej niż jądro może je przetworzyć. |
-| `net.core.rmem_max` | 212992 – 134217728 | 212992 | Maksymalny rozmiar buforu gniazda odbioru w bajtach. |
-| `net.core.wmem_max` | 212992 – 134217728 | 212992 | Maksymalny rozmiar buforu gniazda wysyłania w bajtach. | 
-| `net.core.optmem_max` | 20480 – 4194304 | 20480 | Maksymalny rozmiar buforu pomocniczego (bufor pamięci) dozwolony na gniazdo. Pamięć opcji gniazda jest używana w kilku przypadkach w celu przechowywania dodatkowych struktur odnoszących się do użycia gniazda. | 
-| `net.ipv4.tcp_max_syn_backlog` | 128 – 3240000 | 16384 | Maksymalna liczba żądań połączeń umieszczonych w kolejce, które nadal nie otrzymały potwierdzenia od klienta nawiązującego połączenie. W przypadku przekroczenia liczby, jądro rozpocznie usuwanie żądań. |
-| `net.ipv4.tcp_max_tw_buckets` | 8000 – 1440000 | 32768 | Maksymalna liczba `timewait` gniazd przechowywanych przez system jednocześnie. Jeśli ta liczba zostanie przekroczona, gniazdo oczekiwania czasu jest natychmiast niszczone i zostanie wyświetlone ostrzeżenie. |
-| `net.ipv4.tcp_fin_timeout` | 5 - 120 | 60 | Czas, przez który oddzielona wartość (nie jest już przywoływana przez żadną aplikację) będzie pozostawać w stanie FIN_WAIT_2 przed przerwaniem na lokalnym końcu. |
-| `net.ipv4.tcp_keepalive_time` | 30 - 432000 | 7200 | Częstotliwość, z jaką protokół TCP wysyła `keepalive` komunikaty, gdy `keepalive` jest włączona. |
-| `net.ipv4.tcp_keepalive_probes` | 1 - 15 | 9 | Liczba `keepalive` sond wysyłanych przez protokół TCP do momentu, gdy nie zdecyduje się na zerwanie połączenia. |
-| `net.ipv4.tcp_keepalive_intvl` | 1 - 75 | 75 | Częstotliwość, z jaką sondy są wysyłane. Pomnożone przez `tcp_keepalive_probes` ten czas na wyczyszczenie połączenia, które nie odpowiada, po rozpoczęciu sondowania. | 
-| `net.ipv4.tcp_tw_reuse` | 0 lub 1 | 0 | Zezwalaj na ponowne używanie `TIME-WAIT` gniazd dla nowych połączeń, gdy jest to bezpieczne z punktu widzenia protokołu. | 
-| `net.ipv4.ip_local_port_range` | Najpierw: 1024-60999 i Last: 32768-65000] | Pierwszy: 32768 i ostatni: 60999 | Zakres portów lokalnych używany przez ruch TCP i UDP do wybierania portu lokalnego. Składający się z dwóch liczb: pierwszy numer to pierwszy port lokalny dozwolony dla ruchu TCP i UDP w węźle agenta, a drugi to ostatni numer portu lokalnego. | 
-| `net.ipv4.neigh.default.gc_thresh1`|  128 – 80000 | 4096 | Minimalna liczba wpisów, które mogą znajdować się w pamięci podręcznej ARP. Wyrzucanie elementów bezużytecznych nie zostanie wyzwolone, jeśli liczba wpisów jest poniżej tego ustawienia. | 
-| `net.ipv4.neigh.default.gc_thresh2`|  512 – 90000 | 8192 | Maksymalna liczba wpisów, które mogą znajdować się w pamięci podręcznej ARP. To ustawienie jest raczej najważniejsze, ponieważ wyrzucanie elementów bezużytecznych ARP zostanie wyzwolone około 5 sekund po osiągnięciu tej nietrwałej wartości maksymalnej. |
-| `net.ipv4.neigh.default.gc_thresh3`|  1024 – 100000 | 16384 | Twarda Maksymalna liczba wpisów w pamięci podręcznej ARP. |
-| `net.netfilter.nf_conntrack_max` | 131072 – 589824 | 131072 | `nf_conntrack` jest modułem, który śledzi wpisy połączenia dla translatora adresów sieciowych w systemie Linux. `nf_conntrack`Moduł używa tabeli skrótów do rejestrowania *ustalonego rekordu połączenia* protokołu TCP. `nf_conntrack_max` jest maksymalną liczbą węzłów w tabeli skrótów, czyli maksymalną liczbę połączeń obsługiwaną przez `nf_conntrack` moduł lub rozmiar tabeli śledzenia połączeń. | 
-| `net.netfilter.nf_conntrack_buckets` | 65536 – 147456 | 65536 | `nf_conntrack` jest modułem, który śledzi wpisy połączenia dla translatora adresów sieciowych w systemie Linux. `nf_conntrack`Moduł używa tabeli skrótów do rejestrowania *ustalonego rekordu połączenia* protokołu TCP. `nf_conntrack_buckets` jest rozmiarem tabeli skrótów. | 
+| `fs.file-max` | 8192 - 12000500 | 709620 | Maksymalna liczba dojść do plików przydzielanych przez jądro systemu Linux przez zwiększenie tej wartości pozwala zwiększyć maksymalną dozwoloną liczbę otwartych plików. |
+| `fs.inotify.max_user_watches` | 781250 - 2097152 | 1048576 | Maksymalna liczba zegarków plików dozwolonych przez system. Każdy *zegarek* ma około 90 bajtów na jądrze 32-bitowym i około 160 bajtów w jądrze 64-bitowym. | 
+| `fs.aio-max-nr` | 65536 - 6553500 | 65536 | Aio-nr pokazuje bieżącą liczbę asynchronicznych żądań we/wy dla całego systemu. AIO-max-nr umożliwia zmianę maksymalnej wartości, na która może rosnąć. |
+| `fs.nr_open` | 8192 - 20000500 | 1048576 | Maksymalna liczba plików, które proces może przydzielić. |
+
+
+#### <a name="socket-and-network-tuning"></a>Dostrajanie gniazd i sieci
+
+W przypadku węzłów agenta, które powinny obsługiwać bardzo dużą liczbę współbieżnych sesji, można użyć poniższego podzestawu opcji tcp i sieci, które można dostosować dla puli węzłów. 
+
+| Ustawienie | Dozwolone wartości/interwał | Domyślne | Opis |
+| ------- | ----------------------- | ------- | ----------- |
+| `net.core.somaxconn` | 4096 - 3240000 | 16384 | Maksymalna liczba żądań połączeń, które mogą być kolejkowane dla dowolnego gniazda nasłuchiwania. Górny limit wartości parametru listy prac przekazanej do funkcji [listen(2).](http://man7.org/linux/man-pages/man2/listen.2.html) Jeśli argument listy prac jest większy niż , zostanie dyskretnie obcięty `somaxconn` do tego limitu.
+| `net.core.netdev_max_backlog` | 1000 - 3240000 | 1000 | Maksymalna liczba pakietów w kolejce po stronie INPUT, gdy interfejs odbiera pakiety szybciej niż jądro może je przetworzyć. |
+| `net.core.rmem_max` | 212992 - 134217728 | 212992 | Maksymalny rozmiar buforu gniazda odbioru w bajtach. |
+| `net.core.wmem_max` | 212992 - 134217728 | 212992 | Maksymalny rozmiar buforu gniazda wysyłania w bajtach. | 
+| `net.core.optmem_max` | 20480 - 4194304 | 20480 | Maksymalny rozmiar buforu pomocniczego (bufor pamięci opcji) dozwolony na gniazdo. Pamięć opcji gniazda jest używana w kilku przypadkach do przechowywania dodatkowych struktur związanych z użyciem gniazda. | 
+| `net.ipv4.tcp_max_syn_backlog` | 128 - 3240000 | 16384 | Maksymalna liczba żądań połączeń w kolejce, które nadal nie otrzymały potwierdzenia od łączącego się klienta. Jeśli ta liczba zostanie przekroczona, jądro rozpocznie porzucanie żądań. |
+| `net.ipv4.tcp_max_tw_buckets` | 8000 - 1440000 | 32768 | Maksymalna liczba `timewait` gniazd, które są przechowywane jednocześnie przez system. W przypadku przekroczenia tej liczby gniazdo czasu oczekiwania jest natychmiast niszczone i wyświetlane jest ostrzeżenie. |
+| `net.ipv4.tcp_fin_timeout` | 5 - 120 | 60 | Czas, przez który oddzielone połączenie (do którego nie odwołuje się już żadna aplikacja) pozostanie w stanie FIN_WAIT_2, zanim zostanie przerwane na końcu lokalnym. |
+| `net.ipv4.tcp_keepalive_time` | 30 - 432000 | 7200 | Jak często protokół TCP wysyła `keepalive` komunikaty, `keepalive` gdy jest włączony. |
+| `net.ipv4.tcp_keepalive_probes` | 1 - 15 | 9 | Ile sond wysyła protokół TCP, dopóki nie `keepalive` zadecyduje, że połączenie zostało przerwane. |
+| `net.ipv4.tcp_keepalive_intvl` | 1 - 75 | 75 | Jak często sondy są wysyłane. Pomnożony przez niego czas na zabicia połączenia, które nie `tcp_keepalive_probes` odpowiada, po uruchomionych sondach. | 
+| `net.ipv4.tcp_tw_reuse` | 0 lub 1 | 0 | Zezwalaj na `TIME-WAIT` ponowne używanie gniazd dla nowych połączeń, gdy są one bezpieczne z punktu widzenia protokołu. | 
+| `net.ipv4.ip_local_port_range` | Pierwsze: 1024–60999 i Ostatnie: 32768–65000] | Pierwsze: 32768 i Ostatnie: 60999 | Zakres portów lokalnych, który jest używany przez ruch TCP i UDP do wybrania portu lokalnego. Składa się z dwóch liczb: pierwsza liczba to pierwszy port lokalny dozwolony dla ruchu TCP i UDP w węźle agenta, a drugi to ostatni numer portu lokalnego. | 
+| `net.ipv4.neigh.default.gc_thresh1`|  128 - 80000 | 4096 | Minimalna liczba wpisów, które mogą być w pamięci podręcznej usługi ARP. Odzyskiwanie pamięci nie zostanie wyzwolone, jeśli liczba wpisów jest poniżej tego ustawienia. | 
+| `net.ipv4.neigh.default.gc_thresh2`|  512 - 90000 | 8192 | Maksymalna nieu programowa liczba wpisów, które mogą być w pamięci podręcznej ARP. To ustawienie jest prawdopodobnie najważniejsze, ponieważ odzyskiwanie pamięci ARP zostanie wyzwolone około 5 sekund po osiągnięciu tego maksymalnego czasu programowego. |
+| `net.ipv4.neigh.default.gc_thresh3`|  1024 - 100000 | 16384 | Hard maksymalna liczba wpisów w pamięci podręcznej ARP. |
+| `net.netfilter.nf_conntrack_max` | 131072 - 589824 | 131072 | `nf_conntrack` to moduł, który śledzi wpisy połączenia dla nat w systemie Linux. Moduł `nf_conntrack` używa tabeli skrótów do rekordu *ustanowionego połączenia* protokołu TCP. `nf_conntrack_max` to maksymalna liczba węzłów w tabeli skrótów, czyli maksymalna liczba połączeń obsługiwanych przez moduł lub rozmiar tabeli `nf_conntrack` śledzenia połączeń. | 
+| `net.netfilter.nf_conntrack_buckets` | 65536 - 147456 | 65536 | `nf_conntrack` to moduł, który śledzi wpisy połączenia dla nat w systemie Linux. Moduł `nf_conntrack` używa tabeli skrótów do rekordu *ustanowionego połączenia* protokołu TCP. `nf_conntrack_buckets` to rozmiar tabeli skrótów. | 
 
 #### <a name="worker-limits"></a>Limity procesów roboczych
 
-Podobnie jak w przypadku limitów deskryptorów plików, liczba procesów roboczych lub wątków, które proces może utworzyć, jest ograniczona przez ustawienie jądra i limity użytkowników. Limit użytkowników w AKS jest nieograniczony. 
+Podobnie jak limity deskryptora plików, liczba procesów roboczych lub wątków, które może utworzyć proces, jest ograniczona zarówno przez ustawienie jądra, jak i limity użytkownika. Limit użytkowników w ucieku AKS jest nieograniczony. 
 
 | Ustawienie | Dozwolone wartości/interwał | Domyślne | Opis |
 | ------- | ----------------------- | ------- | ----------- |
-| `kernel.threads-max` | 20 - 513785 | 55601 | Procesy mogą uruchamiać wątki robocze. Maksymalna liczba wątków, które można utworzyć, jest ustawiona z ustawieniem jądra `kernel.threads-max` . | 
+| `kernel.threads-max` | 20 - 513785 | 55601 | Procesy mogą rozkręcać wątki robocze. Maksymalna liczba wszystkich wątków, które można utworzyć, jest ustawiana przy użyciu ustawienia jądra `kernel.threads-max` . | 
 
 #### <a name="virtual-memory"></a>Pamięć wirtualna
 
-Poniższe ustawienia mogą służyć do dostrajania operacji w podsystemie pamięci wirtualnej jądra systemu Linux oraz `writeout` o zanieczyszczonych danych na dysku.
+Poniższe ustawienia mogą służyć do dostrajania działania podsystemu pamięci wirtualnej jądra systemu Linux i zanieczyszczonych `writeout` danych na dysku.
 
 | Ustawienie | Dozwolone wartości/interwał | Domyślne | Opis |
 | ------- | ----------------------- | ------- | ----------- |
-| `vm.max_map_count` |  65530 – 262144 | 65530 | Ten plik zawiera maksymalną liczbę obszarów mapy pamięci, jaką może mieć proces. Obszary mapy pamięci są używane jako efekt uboczny wywoływania `malloc` , bezpośrednio przez `mmap` , `mprotect` , i `madvise` , a także podczas ładowania bibliotek udostępnionych. | 
-| `vm.vfs_cache_pressure` | 1 - 500 | 100 | Ta wartość procentowa kontroluje tendencję jądra do odzyskiwania pamięci, która jest używana do buforowania obiektów katalogu i inode. |
-| `vm.swappiness` | 0 - 100 | 60 | Ten formant służy do definiowania sposobu, w jaki agresywne jądro zamienia strony pamięci. Wyższe wartości spowodują zwiększenie stopnia agresywności, ale niższe wartości zmniejszają liczbę zamian. Wartość 0 instruuje jądro, aby nie inicjować wymiany do momentu, gdy liczba stron wolnych i kopii zapasowych nie jest mniejsza niż w przypadku górnego znacznika w strefie. | 
-| `swapFileSizeMB` | 1 MB — rozmiar [dysku tymczasowego](../virtual-machines/managed-disks-overview.md#temporary-disk) (/dev/sdb) | Brak | SwapFileSizeMB określa rozmiar w MEGABAJTach pliku wymiany, który zostanie utworzony w węzłach agenta z tej puli węzłów. | 
-| `transparentHugePageEnabled` | `always`, `madvise`, `never` | `always` | [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge) jest funkcją jądra systemu Linux, która pozwala zwiększyć wydajność dzięki wydajniejszemu użyciu sprzętowego mapowania pamięci procesora. Po włączeniu jądra próbuje przydzielić, `hugepages` gdy to możliwe, a każdy proces systemu Linux otrzyma strony o rozmiarze 2 MB, jeśli `mmap` region jest w sposób naturalny wyrównany do 2 MB. W niektórych przypadkach `hugepages` , gdy system jest włączony, aplikacje mogą zakończyć przydzielanie większej ilości zasobów pamięci. Aplikacja może `mmap` mieć duży region, ale tylko Touch 1 bajt, w takim przypadku można przydzielyć stronę o rozmiarze 2 MB zamiast strony 4K z niedobrej przyczyny. W tym scenariuszu można wyłączyć `hugepages` cały system lub w taki sposób, aby były one w `MADV_HUGEPAGE madvise` regionach. | 
-| `transparentHugePageDefrag` | `always`, `defer`, `defer+madvise`, `madvise`, `never` | `madvise` | Ta wartość określa, czy jądro powinno zwiększyć użycie kompaktowania pamięci, aby zwiększyć `hugepages` dostępność. | 
+| `vm.max_map_count` |  65530 - 262144 | 65530 | Ten plik zawiera maksymalną liczbę obszarów mapy pamięci, które może mieć proces. Obszary mapy pamięci są używane jako efekt uboczny wywoływania , bezpośrednio przez , i , a także `malloc` `mmap` podczas ładowania bibliotek `mprotect` `madvise` udostępnionych. | 
+| `vm.vfs_cache_pressure` | 1 - 500 | 100 | Ta wartość procentowa kontroluje tendencję jądra do odzyskiwania pamięci, która jest używana do buforowania obiektów katalogów i i-w-wędrowych. |
+| `vm.swappiness` | 0 - 100 | 60 | Ta kontrolka służy do definiowania, jak agresywne jądro zamieni strony pamięci. Wyższe wartości zwiększają poziom agresywności, a niższe wartości zmniejszają ilość wymiany. Wartość 0 powoduje, że jądro nie inicjuje zamiany, dopóki ilość wolnych stron i stron z kopiami plików nie będzie mniejsza niż znacznik najwyższego poziomu w strefie. | 
+| `swapFileSizeMB` | 1 MB — rozmiar dysku [tymczasowego](../virtual-machines/managed-disks-overview.md#temporary-disk) (/dev/sdb) | Brak | SwapFileSizeMB określa rozmiar w MB pliku wymiany, który zostanie utworzony w węzłach agenta z tej puli węzłów. | 
+| `transparentHugePageEnabled` | `always`, `madvise`, `never` | `always` | [Transparent Hugepages to](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge) funkcja jądra systemu Linux, która ma na celu zwiększenie wydajności dzięki efektywniejszemu użyciu sprzętu do mapowania pamięci procesora. Po włączeniu jądro próbuje przydzielić zawsze, gdy jest to możliwe, a dowolny proces systemu Linux otrzyma 2 MB stron, jeśli region jest `hugepages` `mmap` naturalnie wyrównany o rozmiarze 2 MB. W niektórych przypadkach, `hugepages` gdy włączono system, aplikacje mogą przydzielać więcej zasobów pamięci. Aplikacja może mieć duży region, ale tylko 1 bajt, w takim przypadku może zostać przydzielona strona o rozmiarze 2 MB, a nie strona o rozmiarze `mmap` 4 tys. bez powodu. W tym scenariuszu można wyłączyć dostęp dla całego systemu lub tylko w `hugepages` `MADV_HUGEPAGE madvise` regionach. | 
+| `transparentHugePageDefrag` | `always`, `defer`, `defer+madvise`, `madvise`, `never` | `madvise` | Ta wartość określa, czy jądro powinno agresywnie korzystać z kompaktowania pamięci, aby było bardziej `hugepages` dostępne. | 
 
 > [!IMPORTANT]
-> Aby ułatwić wyszukiwanie i czytelność, ustawienia systemu operacyjnego są wyświetlane w tym dokumencie według ich nazwy, ale należy je dodać do pliku JSON konfiguracji lub interfejsu API AKS przy użyciu [Konwencji z wielką literą CamelCase](/dotnet/standard/design-guidelines/capitalization-conventions).
+> Aby ułatwić wyszukiwanie i czytelność, ustawienia systemu operacyjnego są wyświetlane w tym dokumencie według ich nazwy, ale należy je dodać do pliku konfiguracji json lub interfejsu API usługi AKS przy użyciu konwencji wielkich liter [camelCase.](/dotnet/standard/design-guidelines/capitalization-conventions)
 
 Utwórz `kubeletconfig.json` plik o następującej zawartości:
 
@@ -166,19 +166,19 @@ Utwórz `linuxosconfig.json` plik o następującej zawartości:
 }
 ```
 
-Utwórz nowy klaster, określając konfiguracje kubelet i OS przy użyciu plików JSON utworzonych w poprzednim kroku. 
+Utwórz nowy klaster określający konfiguracje kubelet i systemu operacyjnego przy użyciu plików JSON utworzonych w poprzednim kroku. 
 
 > [!NOTE]
-> Podczas tworzenia klastra można określić konfigurację kubelet, konfigurację systemu operacyjnego lub oba te elementy. Jeśli określisz konfigurację podczas tworzenia klastra, ta konfiguracja zostanie zastosowana tylko do węzłów w puli węzłów początkowych. Wszystkie ustawienia, które nie zostały skonfigurowane w pliku JSON, będą zachować wartość domyślną.
+> Podczas tworzenia klastra można określić konfigurację kubeletu, konfigurację systemu operacyjnego lub obie te konfiguracje. Jeśli określisz konfigurację podczas tworzenia klastra, ta konfiguracja zostanie zastosowana tylko w węzłach w początkowej puli węzłów. Wszystkie ustawienia nieskonfigurowane w pliku JSON zachowają wartość domyślną.
 
 ```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup --kubelet-config ./kubeletconfig.json --linux-os-config ./linuxosconfig.json
 ```
 
-Dodaj nową pulę węzłów określającą Kubelet parametry przy użyciu utworzonego pliku JSON.
+Dodaj nową pulę węzłów określającą parametry kubeletu przy użyciu utworzonego pliku JSON.
 
 > [!NOTE]
-> Po dodaniu puli węzłów do istniejącego klastra można określić konfigurację kubelet, konfigurację systemu operacyjnego lub oba te elementy. Jeśli określisz konfigurację podczas dodawania puli węzłów, ta konfiguracja zostanie zastosowana tylko do węzłów w nowej puli węzłów. Wszystkie ustawienia, które nie zostały skonfigurowane w pliku JSON, będą zachować wartość domyślną.
+> Podczas dodawania puli węzłów do istniejącego klastra można określić konfigurację kubelet, konfigurację systemu operacyjnego lub oba te ustawienia. Jeśli określisz konfigurację podczas dodawania puli węzłów, ta konfiguracja zostanie zastosowana tylko do węzłów w nowej puli węzłów. Wszystkie ustawienia nieskonfigurowane w pliku JSON zachowają wartość domyślną.
 
 ```azurecli
 az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --kubelet-config ./kubeletconfig.json
@@ -186,10 +186,10 @@ az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-gr
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się [, jak skonfigurować klaster AKS](cluster-configuration.md).
-- Dowiedz się [, jak uaktualnić obrazy węzłów](node-image-upgrade.md) w klastrze.
-- Zobacz [Uaktualnianie klastra usługi Azure Kubernetes Service (AKS)](upgrade-cluster.md) , aby dowiedzieć się, jak uaktualnić klaster do najnowszej wersji Kubernetes.
-- Zapoznaj się z listą [często zadawanych pytań dotyczących AKS](faq.md) , aby znaleźć odpowiedzi na niektóre często zadawane pytania dotyczące AKS.
+- Dowiedz [się, jak skonfigurować klaster usługi AKS.](cluster-configuration.md)
+- Dowiedz [się, jak uaktualnić obrazy węzłów](node-image-upgrade.md) w klastrze.
+- Zobacz [Upgrade an Azure Kubernetes Service (AKS) cluster (Uaktualnianie](upgrade-cluster.md) klastra usługi AKS), aby dowiedzieć się, jak uaktualnić klaster do najnowszej wersji rozwiązania Kubernetes.
+- Zapoznaj się z listą [często zadawanych pytań dotyczących aks,](faq.md) aby znaleźć odpowiedzi na niektóre typowe pytania dotyczące AKS.
 
 <!-- LINKS - internal -->
 [aks-faq]: faq.md
@@ -201,15 +201,15 @@ az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-gr
 [aks-view-master-logs]: ./view-control-plane-logs.md#enable-resource-logs
 [autoscaler-profile-properties]: #using-the-autoscaler-profile
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-update]: /cli/azure/aks#az-aks-update
-[az-aks-scale]: /cli/azure/aks#az-aks-scale
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-update]: /cli/azure/aks#az_aks_update
+[az-aks-scale]: /cli/azure/aks#az_aks_scale
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
 [upgrade-cluster]: upgrade-cluster.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [max-surge]: upgrade-cluster.md#customize-node-surge-upgrade

@@ -1,107 +1,107 @@
 ---
 title: Nawiązywanie połączenia z serwerem SFTP przy użyciu protokołu SSH
-description: Automatyzowanie zadań, które monitorują, tworzą, zarządzają, wysyłają i odbierają pliki dla serwera SFTP przy użyciu protokołu SSH i Azure Logic Apps
+description: Automatyzowanie zadań, które monitorują, tworzą, wysyłają i odbierają pliki dla serwera SFTP oraz zarządzają nimi przy użyciu protokołu SSH i Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm, azla
-ms.topic: article
-ms.date: 04/05/2021
+ms.topic: conceptual
+ms.date: 04/19/2021
 tags: connectors
-ms.openlocfilehash: 5eae6b48a65f919ea233ad77a215ed5672425175
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: a19253e117f748b4d4045bfd2a29552018bba91e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385857"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781563"
 ---
-# <a name="create-and-manage-sftp-files-using-ssh-and-azure-logic-apps"></a>Tworzenie plików SFTP i zarządzanie nimi przy użyciu protokołów SSH i Azure Logic Apps
+# <a name="create-and-manage-sftp-files-using-ssh-and-azure-logic-apps"></a>Tworzenie plików SFTP i zarządzanie nimi przy użyciu protokołu SSH i Azure Logic Apps
 
-Aby zautomatyzować zadania, które tworzą i zarządzają plikami na serwerze [bezpiecznym protokół transferu plików (SFTP)](https://www.ssh.com/ssh/sftp/) przy użyciu protokołu [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) , można tworzyć zautomatyzowane przepływy pracy integracji przy użyciu Azure Logic Apps oraz łącznika SFTP-SSH. SFTP to protokół sieciowy, który zapewnia dostęp do plików, transfer plików i zarządzanie plikami za pośrednictwem dowolnego niezawodnego strumienia danych.
+Aby zautomatyzować zadania, które tworzą pliki i zarządzają nimi na serwerze [Secure protokół transferu plików (SFTP)](https://www.ssh.com/ssh/sftp/) przy użyciu protokołu [Secure Shell (SSH),](https://www.ssh.com/ssh/protocol/) można utworzyć zautomatyzowane przepływy pracy integracji przy użyciu programu Azure Logic Apps i łącznika SFTP-SSH. SFTP to protokół sieciowy, który zapewnia dostęp do plików, transfer plików i zarządzanie plikami za pośrednictwem dowolnego niezawodnego strumienia danych.
 
-Poniżej przedstawiono kilka przykładowych zadań, które można zautomatyzować:
+Oto kilka przykładowych zadań, które można zautomatyzować:
 
-* Monitoruj, gdy pliki są dodawane lub zmieniane.
-* Pobieranie, tworzenie, kopiowanie, zmienianie nazwy, aktualizowanie, wyświetlanie i usuwanie plików.
+* Monitoruj, kiedy pliki są dodawane lub zmieniane.
+* Pobierz, utwórz, skopiuj, zmień nazwę, zaktualizuj, utwórz listę i usuń pliki.
 * Tworzenie folderów.
-* Pobieranie zawartości i metadanych pliku.
+* Pobierz zawartość pliku i metadane.
 * Wyodrębnij archiwa do folderów.
 
-W przepływie pracy można użyć wyzwalacza, który monitoruje zdarzenia na serwerze SFTP i udostępnia dane wyjściowe dla innych akcji. Następnie można użyć akcji do wykonywania różnych zadań na serwerze SFTP. Możesz również uwzględnić inne akcje, które używają danych wyjściowych z akcji SFTP-SSH. Na przykład w przypadku regularnego pobierania plików z serwera SFTP można wysyłać alerty e-mail dotyczące tych plików i ich zawartości za pomocą łącznika usługi Office 365 Outlook lub łącznika Outlook.com. Jeśli jesteś nowym sposobem logiki aplikacji, zapoznaj [się z tematem Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+W przepływie pracy można użyć wyzwalacza, który monitoruje zdarzenia na serwerze SFTP i udostępnia dane wyjściowe innym akcji. Następnie można użyć akcji do wykonywania różnych zadań na serwerze SFTP. Możesz również uwzględnić inne akcje, które używają danych wyjściowych akcji SFTP-SSH. Jeśli na przykład regularnie pobierasz pliki z serwera SFTP, możesz wysyłać alerty e-mail dotyczące tych plików i ich zawartości przy użyciu łącznika usługi Office 365 Outlook lub łącznika Outlook.com usługi. Jeśli jesteś nowym użytkownikom aplikacji logiki, zapoznaj się z [tematem Co to jest Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-Aby uzyskać różnice między łącznikiem protokołu SFTP-SSH a łącznikiem SFTP, zapoznaj się z sekcją [porównanie protokołu SFTP-SSH i SFTP](#comparison) w dalszej części tego tematu.
+Różnice między łącznikiem SFTP-SSH a łącznikiem SFTP można uzyskać w sekcji Porównanie protokołu [SFTP-SSH](#comparison) i SFTP w dalszej części tego tematu.
 
 ## <a name="limits"></a>Limity
 
-* Łącznik SFTP-SSH aktualnie nie obsługuje tych serwerów SFTP:
+* Łącznik SFTP-SSH obecnie nie obsługuje tych serwerów SFTP:
 
-  * IBM datapowershell
+  * IBM DataPower
   * MessageWay
   * OpenText Secure MFT
   * OpenText GXS
 
-* W przypadku akcji protokołu SFTP-SSH, które obsługują dzielenie może obsłużyć pliki o rozmiarze do 1 GB, natomiast akcje SFTP-SSH, które nie obsługują fragmentów [, mogą obsługiwać](../logic-apps/logic-apps-handle-large-messages.md) pliki do 50 MB. Domyślny rozmiar fragmentu to 15 MB. Jednak ten rozmiar może się dynamicznie zmieniać, począwszy od 5 MB i stopniowo zwiększany do 50 MB. Dynamiczne określanie wielkości jest oparte na czynnikach, takich jak opóźnienie sieci, czas odpowiedzi serwera i tak dalej.
+* Akcje SFTP-SSH, [](../logic-apps/logic-apps-handle-large-messages.md) które obsługują fragmentowanie, mogą obsługiwać pliki o rozmiarze do 1 GB, natomiast akcje SFTP-SSH, które nie obsługują fragmentowania, mogą obsługiwać pliki o rozmiarze do 50 MB. Domyślny rozmiar fragmentu to 15 MB. Jednak ten rozmiar może zmieniać się dynamicznie, począwszy od 5 MB i stopniowo zwiększając do maksymalnego rozmiaru 50 MB. Dynamiczne zmiany rozmiaru są oparte na czynnikach, takich jak opóźnienie sieci, czas odpowiedzi serwera itp.
 
   > [!NOTE]
-  > W przypadku aplikacji logiki w [środowisku usługi integracji (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), wersja tego łącznika z oznaczeniem ISE wymaga, aby w zamian używały [limitów komunikatów ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
+  > W przypadku aplikacji logiki w środowisku usługi integracji [(ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)wersja z etykietą ISE tego łącznika wymaga fragmentowania, aby zamiast tego użyć limitów komunikatów [ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
 
-  Można zastąpić to zachowanie adaptacyjne w przypadku [określenia stałego rozmiaru fragmentu](#change-chunk-size) do użycia. Ten rozmiar może nawiązać od 5 MB do 50 MB. Załóżmy na przykład, że masz plik 45-MB i sieć, która może obsługiwać ten rozmiar plików bez opóźnień. Adaptacyjne rozdzielenie skutkuje wieloma wywołaniami, a tym samym wywołaniem. Aby zmniejszyć liczbę wywołań, można spróbować ustawić rozmiar segmentu 50-MB. W innym scenariuszu, jeśli aplikacja logiki jest przekroczenia limitu czasu, na przykład w przypadku używania fragmentów 15 MB można spróbować zmniejszyć rozmiar do 5 MB.
+  To zachowanie adaptacyjne można zastąpić, określając zamiast tego stały [rozmiar](#change-chunk-size) fragmentu. Ten rozmiar może mieć zakres od 5 MB do 50 MB. Załóżmy na przykład, że masz plik o rozmiarze 45 MB i sieć, która może obsługiwać ten rozmiar pliku bez opóźnień. Adaptacyjne fragmentowanie powoduje kilka wywołań, a nie jedno wywołanie. Aby zmniejszyć liczbę wywołań, możesz spróbować ustawić rozmiar fragmentu 50 MB. W innym scenariuszu, jeśli aplikacja logiki ma limit czasu, na przykład w przypadku korzystania z fragmentów o rozmiarze 15 MB możesz spróbować zmniejszyć rozmiar do 5 MB.
 
-  Rozmiar fragmentu jest skojarzony z połączeniem. Ten atrybut oznacza, że można użyć tego samego połączenia dla obu akcji, które obsługują rozdzielenie i akcje, które nie obsługują fragmentów. W tym przypadku rozmiar fragmentu dla akcji, które nie obsługują zakresów podziału z 5 MB do 50 MB. W tej tabeli przedstawiono, które działania SFTP obsługują fragmenty:
+  Rozmiar fragmentu jest skojarzony z połączeniem. Ten atrybut oznacza, że można użyć tego samego połączenia dla obu akcji, które obsługują fragmentowanie, i akcji, które nie obsługują fragmentowania. W tym przypadku rozmiar fragmentu dla akcji, które nie obsługują fragmentowania, wynosi od 5 MB do 50 MB. W poniższej tabeli przedstawiono, które akcje SFTP-SSH obsługują fragmentowanie:
 
-  | Akcja | Obsługa fragmentów | Przesłoń obsługę rozmiaru fragmentu |
+  | Akcja | Obsługa fragmentowania | Obsługa zastępowania rozmiaru fragmentu |
   |--------|------------------|-----------------------------|
-  | **Kopiuj plik** | Nie | Nie dotyczy |
-  | **Utwórz plik** | Tak | Tak |
-  | **Utwórz folder** | Nie dotyczy | Nie dotyczy |
-  | **Usuń plik** | Nie dotyczy | Nie dotyczy |
+  | **Kopiowanie pliku** | Nie | Nie dotyczy |
+  | **Tworzenie pliku** | Tak | Tak |
+  | **Tworzenie folderu** | Nie dotyczy | Nie dotyczy |
+  | **Usuwanie pliku** | Nie dotyczy | Nie dotyczy |
   | **Wyodrębnij archiwum do folderu** | Nie dotyczy | Nie dotyczy |
-  | **Pobierz zawartość pliku** | Tak | Tak |
-  | **Pobierz zawartość pliku przy użyciu ścieżki** | Tak | Tak |
-  | **Pobierz metadane pliku** | Nie dotyczy | Nie dotyczy |
-  | **Pobierz metadane pliku przy użyciu ścieżki** | Nie dotyczy | Nie dotyczy |
-  | **Wyświetl listę plików w folderze** | Nie dotyczy | Nie dotyczy |
-  | **Zmień nazwę pliku** | Nie dotyczy | Nie dotyczy |
-  | **Plik aktualizacji** | Nie | Nie dotyczy |
+  | **Uzyskiwanie zawartości pliku** | Tak | Tak |
+  | **Uzyskiwanie zawartości pliku przy użyciu ścieżki** | Tak | Tak |
+  | **Uzyskiwanie metadanych pliku** | Nie dotyczy | Nie dotyczy |
+  | **Uzyskiwanie metadanych pliku przy użyciu ścieżki** | Nie dotyczy | Nie dotyczy |
+  | **Lista plików w folderze** | Nie dotyczy | Nie dotyczy |
+  | **Zmienianie nazwy pliku** | Nie dotyczy | Nie dotyczy |
+  | **Aktualizowanie pliku** | Nie | Nie dotyczy |
   ||||
 
-* Protokół SFTP-SSH wyzwalacze nie obsługują fragmentacji komunikatów. Podczas żądania zawartości pliku wyzwalane są tylko pliki o rozmiarze 15 MB lub mniejszej. Aby uzyskać pliki o rozmiarze większym niż 15 MB, użyj tego wzorca:
+* Wyzwalacze SFTP-SSH nie obsługują fragmentowania komunikatów. Podczas żądania zawartości pliku wyzwalacze wybieraj tylko pliki o rozmiarze 15 MB lub mniejszym. Aby uzyskać pliki większe niż 15 MB, zamiast tego postępuj zgodnie z tym wzorcem:
 
-  1. Użyj wyzwalacza SFTP-SSH, który zwraca tylko właściwości pliku. Te wyzwalacze mają nazwy, które zawierają opis **(tylko właściwości)**.
+  1. Użyj wyzwalacza SFTP-SSH, który zwraca tylko właściwości pliku. Te wyzwalacze mają nazwy, które zawierają opis **(tylko właściwości).**
 
-  1. Śledź wyzwalacz z akcją **Pobierz zawartość pliku** SFTP-SSH. Ta akcja odczytuje kompletny plik i niejawnie używa fragmentacji komunikatów.
+  1. Postępuj zgodnie z wyzwalaczem za pomocą akcji SFTP-SSH **Pobierz zawartość** pliku. Ta akcja odczytuje kompletny plik i niejawnie używa fragmentowania komunikatów.
 
 <a name="comparison"></a>
 
-## <a name="compare-sftp-ssh-versus-sftp"></a>Porównanie protokołów SFTP-SSH i SFTP
+## <a name="compare-sftp-ssh-versus-sftp"></a>Porównanie protokołu SFTP-SSH i SFTP
 
-Poniższa lista zawiera opis kluczowych możliwości protokołu SFTP-SSH, które różnią się od łącznika SFTP:
+Na poniższej liście opisano kluczowe możliwości protokołu SFTP-SSH, które różnią się od łącznika SFTP:
 
-* Używa [biblioteki SSH.NET](https://github.com/sshnet/SSH.NET), która jest biblioteką Secure Shell (SSH), która obsługuje platformę .NET.
+* Używa [biblioteki SSH.NET](https://github.com/sshnet/SSH.NET), która jest biblioteką open source Secure Shell (SSH), która obsługuje program .NET.
 
-* Udostępnia akcję **Utwórz folder** , która tworzy folder w określonej ścieżce na serwerze SFTP.
+* Udostępnia **akcję Utwórz folder,** która tworzy folder w określonej ścieżce na serwerze SFTP.
 
-* Udostępnia akcję **zmiany nazwy pliku** , która zmienia nazwę pliku na serwerze SFTP.
+* Udostępnia **akcję Zmień nazwę** pliku, która zmienia nazwę pliku na serwerze SFTP.
 
-* Buforuje połączenie z serwerem SFTP *przez maksymalnie 1 godzinę*. Ta funkcja zwiększa wydajność i zmniejsza, jak często łącznik próbuje nawiązać połączenie z serwerem. Aby ustawić czas trwania tego zachowania buforowania, Edytuj [Właściwość **ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) w konfiguracji SSH na serwerze SFTP.
+* Buforuje połączenie z serwerem SFTP *przez maksymalnie 1 godzinę.* Ta funkcja zwiększa wydajność i zmniejsza, jak często łącznik próbuje połączyć się z serwerem. Aby ustawić czas trwania tego zachowania buforowania, edytuj właściwość [ **ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) w konfiguracji protokołu SSH na serwerze SFTP.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/).
 
-* Adres serwera SFTP i poświadczenia konta, aby przepływ pracy mógł uzyskać dostęp do Twojego konta SFTP. Wymagany jest również dostęp do prywatnego klucza SSH oraz hasła prywatnego klucza SSH. Aby przekazać duże pliki przy użyciu fragmentów, musisz mieć dostęp do odczytu i zapisu dla folderu głównego na serwerze SFTP. W przeciwnym razie zostanie wyświetlony komunikat o błędzie "401 bez autoryzacji".
+* Adres serwera SFTP i poświadczenia konta, dzięki czemu przepływ pracy może uzyskać dostęp do konta SFTP. Potrzebny jest również dostęp do klucza prywatnego SSH i hasła klucza prywatnego SSH. Do przekazywania dużych plików przy użyciu fragmentowania potrzebny jest zarówno dostęp do odczytu, jak i zapisu dla folderu głównego na serwerze SFTP. W przeciwnym razie zostanie wyświetlany błąd "401 Brak autoryzacji".
 
-  Łącznik SFTP-SSH obsługuje zarówno uwierzytelnianie klucza prywatnego, jak i uwierzytelnianie hasła. Jednak łącznik SFTP-SSH obsługuje *tylko* te formaty kluczy prywatnych, algorytmy i odciski palców:
+  Łącznik SFTP-SSH obsługuje zarówno uwierzytelnianie za pomocą klucza prywatnego, jak i uwierzytelnianie hasłem. Jednak łącznik SFTP-SSH obsługuje *tylko* te formaty kluczy prywatnych, algorytmy i odciski palców:
 
-  * **Formaty kluczy prywatnych**: klucze RSA (Rivest Shamir Adleman) i DSA (algorytm podpisywania cyfrowego) w formatach OpenSSH i SSH.com. Jeśli klucz prywatny jest w formacie. PPK), najpierw [przekonwertuj klucz na format pliku OpenSSH (PEM)](#convert-to-openssh).
-  * **Algorytmy szyfrowania**: des-EDE3-CBC, des-EDE3-CFB, des-CBC, aes-128-CBC, AES-192-CBC i AES-256-CBC
-  * **Odcisk palca**: MD5
+  * **Formaty kluczy prywatnych:** RSA (Rivest Shamir Adleman) i DSA (Digital Signature Algorithm) w formatach OpenSSH i ssh.com formatach. Jeśli klucz prywatny jest w formacie pliku PuTTY (ppk), najpierw przekonwertuj klucz na format pliku [OpenSSH (pem).](#convert-to-openssh)
+  * **Algorytmy szyfrowania:** DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC i AES-256-CBC
+  * **Odcisk palca:** MD5
 
-  Po dodaniu wyzwalacza SFTP-SSH lub akcji do przepływu pracy należy podać informacje o połączeniu dla serwera SFTP. Po podaniu prywatnego klucza SSH dla tego połączenia ***nie wprowadzaj ręcznie ani nie edytuj klucza** _, co może spowodować niepowodzenie połączenia. Zamiast tego Pamiętaj, aby _*_skopiować klucz_*_ z pliku prywatnego klucza SSH, a następnie *_Wklej_** ten klucz do szczegółów połączenia. Aby uzyskać więcej informacji, zobacz sekcję [łączenie się](#connect) z PROTOKOŁem SSH w dalszej części tego artykułu.
+  Po dodaniu wyzwalacza lub akcji SFTP-SSH do przepływu pracy należy podać informacje o połączeniu dla serwera SFTP. Po powiązaniu klucza prywatnego SSH dla tego połączenia ***** nie należy ręcznie wprowadzać ani edytować klucza _, co może spowodować niepowodzenie połączenia. Zamiast tego upewnij się, _*_że_*_ klucz został skopiowany z pliku klucza prywatnego SSH, a element _ *_wklej_** ten klucz do szczegółów połączenia. Aby uzyskać więcej informacji, zobacz sekcję [Nawiązywanie połączenia z sftp za](#connect) pomocą protokołu SSH w dalszej części tego artykułu.
 
 * Podstawowa wiedza [na temat tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Przepływ pracy aplikacji logiki, w którym chcesz uzyskać dostęp do konta SFTP. Aby rozpocząć pracę z wyzwalaczem SFTP-SSH, [Utwórz pusty przepływ pracy aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Aby użyć akcji SFTP-SSH, Uruchom przepływ pracy z innym wyzwalaczem, na przykład wyzwalaczem **cyklu** .
+* Przepływ pracy aplikacji logiki, w którym chcesz uzyskać dostęp do konta SFTP. Aby rozpocząć od wyzwalacza SFTP-SSH, [utwórz pusty przepływ pracy aplikacji logiki.](../logic-apps/quickstart-create-first-logic-app-workflow.md) Aby użyć akcji SFTP-SSH, uruchom przepływ pracy z innym wyzwalaczem, na przykład **wyzwalaczem Cykl.**
 
 ## <a name="how-sftp-ssh-triggers-work"></a>Jak działają wyzwalacze SFTP-SSH
 
@@ -109,35 +109,35 @@ Poniższa lista zawiera opis kluczowych możliwości protokołu SFTP-SSH, które
 
 ### <a name="polling-behavior"></a>Zachowanie sondowania
 
-Protokół SFTP-SSH wyzwala sondowanie systemu plików SFTP i szuka każdego pliku, który zmienił się od czasu ostatniego sondowania. Niektóre narzędzia pozwalają zachować sygnaturę czasową, gdy pliki zmienią się. W takich przypadkach należy wyłączyć tę funkcję, aby wyzwalacz mógł funkcjonować. Poniżej przedstawiono niektóre typowe ustawienia:
+Wyzwalacze SFTP-SSH sonduje system plików SFTP i szukają plików, które uległy zmianie od czasu ostatniego sondowania. Niektóre narzędzia umożliwiają zachowanie znacznika czasu po zmianie plików. W takich przypadkach należy wyłączyć tę funkcję, aby wyzwalacz działał. Oto kilka typowych ustawień:
 
 | Klient SFTP | Akcja |
 |-------------|--------|
-| WinSCP | Przejdź do pozycji **Opcje**  >  **Preferencje**  >  **transfer**  >  **Edycja**  >  **Zachowaj sygnaturę czasową**  >  **Wyłącz** |
-| FileZilla | Przejdź do **transferu**  >  **Zachowaj sygnatury czasowe transferowanych plików**  >  **wyłączone** |
+| Winscp | Przejdź do opcji  >    >  **Preferencje Transfer**  >  **Edytuj**  >  **Zachowaj znacznik czasu**  >  **Wyłącz** |
+| Filezilla | Przejdź do **opcji Transfer** Zachowaj znaczniki  >  **czasu transferowanych plików**  >  **Wyłącz** |
 |||
 
-Gdy wyzwalacz odnajdzie nowy plik, wyzwalacz sprawdza, czy nowy plik jest zakończony i nie jest częściowo zapisany. Na przykład plik może mieć zmiany w toku, gdy wyzwalacz sprawdza serwer plików. Aby uniknąć powrotu częściowo zapisywanego pliku, wyzwalacz odnotowuje sygnaturę czasową dla pliku, który ma ostatnio wprowadzone zmiany, ale nie zwraca natychmiast tego pliku. Wyzwalacz zwraca plik tylko wtedy, gdy ponownie sonduje serwer. Czasami takie zachowanie może spowodować opóźnienie, który jest maksymalnie dwa razy interwał sondowania wyzwalacza.
+Gdy wyzwalacz znajdzie nowy plik, wyzwalacz sprawdza, czy nowy plik jest ukończony i nie został częściowo zapisany. Na przykład plik może mieć zmiany w toku, gdy wyzwalacz sprawdza serwer plików. Aby uniknąć zwracania częściowo zapisanego pliku, wyzwalacz zaobejmuje znacznik czasu dla pliku, który ma ostatnie zmiany, ale nie zwraca natychmiast tego pliku. Wyzwalacz zwraca plik tylko podczas sondowania serwera ponownie. Czasami takie zachowanie może spowodować opóźnienie, które wynosi maksymalnie dwa razy więcej niż interwał sondowania wyzwalacza.
 
 <a name="trigger-recurrence-shift-drift"></a>
 
-### <a name="trigger-recurrence-shift-and-drift"></a>Wyzwól przesunięcie i przesunięcia cykli
+### <a name="trigger-recurrence-shift-and-drift"></a>Wyzwalanie przesunięcia i dryfu cyklu
 
-Wyzwalacze oparte na połączeniach, w których należy utworzyć połączenie, takie jak wyzwalacz SFTP-SSH, różnią się od wbudowanych wyzwalaczy, które działają natywnie w Azure Logic Apps, takich jak [wyzwalacz cyklu](../connectors/connectors-native-recurrence.md). W cyklicznych wyzwalaczach opartych na połączeniach harmonogram cyklu nie jest jedynym sterownikiem, które steruje wykonywaniem, a strefa czasowa określa tylko początkowy czas rozpoczęcia. Kolejne uruchomienia są zależne od harmonogramu cyklu, ostatniego wykonania wyzwalacza *i* innych czynników, które mogą spowodować przekroczenie czasu uruchamiania lub wygenerowanie nieoczekiwanego zachowania. Na przykład nieoczekiwane zachowanie może obejmować niepowodzenie utrzymania określonego harmonogramu, gdy czas letni (DST) rozpoczyna się i skończy. Aby upewnić się, że czas cyklu nie zostanie przesunięty, gdy zmiana czasu zacznie obowiązywać, ręcznie Dostosuj cykl. Dzięki temu przepływ pracy będzie nadal działać w oczekiwanym czasie. W przeciwnym razie czas rozpoczęcia jest przesuwany o jedną godzinę do przodu, gdy DST zaczyna się od godziny i do tyłu po zakończeniu DST. Aby uzyskać więcej informacji, zobacz [cykl dla wyzwalaczy opartych na połączeniach](../connectors/apis-list.md#recurrence-connection-based).
+Wyzwalacze oparte na połączeniach, w przypadku których należy najpierw utworzyć połączenie, takie jak wyzwalacz SFTP-SSH, różnią się od wbudowanych wyzwalaczy uruchamianych natywnie w programie Azure Logic Apps, takich jak wyzwalacz [Cykl.](../connectors/connectors-native-recurrence.md) W przypadku wyzwalaczy cyklicznych opartych na połączeniu harmonogram cyklu nie jest jedynym sterownikem sterującym wykonywaniem, a strefa czasowa określa tylko początkowy czas rozpoczęcia. Kolejne przebiegi zależą od harmonogramu cyklu,  ostatniego wykonania wyzwalacza i innych czynników, które mogą powodować dryfowanie czasu wykonywania lub spowodować nieoczekiwane zachowanie. Na przykład nieoczekiwane zachowanie może obejmować niepowodzenie utrzymania określonego harmonogramu podczas uruchamiania i zakończenia czasu letniego (DST). Aby upewnić się, że czas cyklu nie zmienia się, gdy czas DST zajmuje się zmianą, ręcznie dostosuj cykl. Dzięki temu przepływ pracy będzie nadal działać w oczekiwanym czasie. W przeciwnym razie czas rozpoczęcia przesuwa się o godzinę do przodu, gdy rozpoczyna się czas DST, i o godzinę do tyłu po zakończeniu czasu DST. Aby uzyskać więcej informacji, zobacz [Cykl dla wyzwalaczy opartych na połączeniu.](../connectors/apis-list.md#recurrence-for-connection-based-triggers)
 
 <a name="convert-to-openssh"></a>
 
-## <a name="convert-putty-based-key-to-openssh"></a>Konwertuj wyskakujące klucze na OpenSSH
+## <a name="convert-putty-based-key-to-openssh"></a>Konwertowanie klucza opartego na programie PuTTY na openSSH
 
-Formaty format i format OpenSSH używają różnych rozszerzeń nazw plików. W formacie "format" jest stosowany plik. ppk lub podano klucz prywatny. Format OpenSSH używa rozszerzenia nazwy pliku PEM lub Privacy Enhanced Mail. Jeśli klucz prywatny jest w formacie podano i musisz użyć formatu OpenSSH, najpierw przekonwertuj klucz do formatu OpenSSH, wykonując następujące czynności:
+Format PuTTY i OpenSSH używają różnych rozszerzeń nazw plików. Format PuTTY używa rozszerzenia nazwy pliku ppk lub klucza prywatnego PuTTY. Format OpenSSH używa rozszerzenia nazwy Privacy Enhanced Mail .pem. Jeśli klucz prywatny jest w formacie PuTTY i musisz użyć formatu OpenSSH, najpierw przekonwertuj klucz na format OpenSSH, wykonać następujące czynności:
 
-### <a name="unix-based-os"></a>System operacyjny oparty na systemie UNIX
+### <a name="unix-based-os"></a>System operacyjny unix
 
-1. Jeśli nie masz zainstalowanych narzędzi w systemie, zrób to teraz, na przykład:
+1. Jeśli w systemie nie masz zainstalowanych narzędzi PuTTY, zrób to teraz, na przykład:
 
    `sudo apt-get install -y putty`
 
-1. Uruchom to polecenie, które tworzy plik, którego można użyć z łącznikiem SFTP-SSH:
+1. Uruchom to polecenie, aby utworzyć plik, którego można używać z łącznikiem SFTP-SSH:
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
@@ -147,15 +147,15 @@ Formaty format i format OpenSSH używają różnych rozszerzeń nazw plików. W 
 
 ### <a name="windows-os"></a>System operacyjny Windows
 
-1. Jeśli jeszcze tego nie zrobiono, [Pobierz najnowsze narzędzie do generowania generatora (puttygen.exe)](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html), a następnie uruchom narzędzie.
+1. Jeśli jeszcze tego nie zrobiono, pobierz najnowsze narzędzie [PuTTY Generator (puttygen.exe),](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)a następnie uruchom narzędzie.
 
 1. Na tym ekranie wybierz pozycję **Załaduj**.
 
    ![Wybierz pozycję "Załaduj"](./media/connectors-sftp-ssh/puttygen-load.png)
 
-1. Przejdź do pliku klucza prywatnego w formacie podano i wybierz pozycję **Otwórz**.
+1. Przejdź do pliku klucza prywatnego w formacie PuTTY, a następnie wybierz **pozycję Otwórz**.
 
-1. Z menu **konwersje** wybierz pozycję **Eksportuj klucz OpenSSH**.
+1. W menu **Konwersje** wybierz pozycję **Eksportuj klucz OpenSSH.**
 
    ![Wybierz pozycję "Eksportuj klucz OpenSSH"](./media/connectors-sftp-ssh/export-openssh-key.png)
 
@@ -167,85 +167,85 @@ W tej sekcji opisano zagadnienia, które należy wziąć pod uwagę podczas korz
 
 <a name="different-folders-trigger-processing-file-storage"></a>
 
-### <a name="use-different-sftp-folders-for-file-upload-and-processing"></a>Używanie innych folderów SFTP do przekazywania i przetwarzania plików
+### <a name="use-different-sftp-folders-for-file-upload-and-processing"></a>Przekazywanie i przetwarzanie plików przy użyciu różnych folderów SFTP
 
-Na serwerze SFTP Użyj oddzielnych folderów do przechowywania przekazanych plików i dla wyzwalacza, aby monitorować te pliki do przetworzenia. W przeciwnym razie wyzwalacz nie zostanie uruchomiony i nie będzie działać w sposób nieprzewidziany, na przykład pomijając losową liczbę plików przetwarzanych przez wyzwalacz. Jednak to wymaganie jest niezbędne do przenoszenia plików między tymi folderami. 
+Na serwerze SFTP użyj oddzielnych folderów do przechowywania przekazanych plików i do monitorowania tych plików w celu ich przetwarzania przez wyzwalacz. W przeciwnym razie wyzwalacz nie zostanie uruchomiony i będzie zachowywać się w sposób nieprzewidywalny, na przykład pomijając losową liczbę plików przetwarzanych przez wyzwalacz. Jednak to wymaganie oznacza, że potrzebny jest sposób przenoszenia plików między tymi folderami. 
 
-Jeśli ten problem wystąpi, Usuń pliki z folderu monitorowanego przez wyzwalacz i użyj innego folderu do przechowywania przekazanych plików.
+Jeśli ten problem z wyzwalaczem występuje, usuń pliki z folderu monitorowanego przez wyzwalacz i użyj innego folderu do przechowywania przekazanych plików.
 
 <a name="create-file"></a>
 
-### <a name="create-file"></a>Utwórz plik
+### <a name="create-file"></a>Tworzenie pliku
 
-Aby utworzyć plik na serwerze SFTP, możesz skorzystać z akcji **Utwórz plik** SFTP-SSH. Gdy ta akcja spowoduje utworzenie pliku, usługa Logic Apps automatycznie wywoła serwer SFTP w celu pobrania metadanych pliku. Jeśli jednak przeniesiesz nowo utworzony plik, zanim usługa Logic Apps będzie mogła nawiązać wywołanie w celu uzyskania metadanych, zostanie wyświetlony `404` komunikat o błędzie `'A reference was made to a file or folder which does not exist'` . Aby pominąć odczytywanie metadanych pliku po utworzeniu pliku, wykonaj kroki, aby [dodać i ustawić właściwość **Pobierz wszystkie metadane pliku** na wartość **nie**](#file-does-not-exist).
+Aby utworzyć plik na serwerze SFTP, możesz użyć akcji SFTP-SSH **Utwórz** plik. Gdy ta akcja powoduje utworzenie pliku, Logic Apps automatycznie wywołuje serwer SFTP w celu uzyskania metadanych pliku. Jeśli jednak przeniesiesz nowo utworzony plik przed wywołaniem usługi Logic Apps w celu uzyskania metadanych, zostanie wyświetlony `404` komunikat o błędzie `'A reference was made to a file or folder which does not exist'` . Aby pominąć odczytywanie metadanych pliku po utworzeniu pliku, wykonaj kroki, aby dodać i ustawić właściwość Pobierz wszystkie [ **metadane** pliku na **wartość Nie.**](#file-does-not-exist)
 
 <a name="connect"></a>
 
-## <a name="connect-to-sftp-with-ssh"></a>Nawiązywanie połączenia z protokołem SFTP przy użyciu protokołu SSH
+## <a name="connect-to-sftp-with-ssh"></a>Nawiązywanie połączenia z sfTP przy użyciu protokołu SSH
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com)i Otwórz aplikację logiki w Projektancie aplikacji logiki, jeśli nie jest jeszcze otwarta.
+1. Zaloguj się do aplikacji [Azure Portal](https://portal.azure.com)i otwórz aplikację logiki w Projektancie aplikacji logiki, jeśli nie została jeszcze otwarta.
 
-1. W przypadku pustych aplikacji logiki w polu wyszukiwania wprowadź `sftp ssh` jako filtr. Na liście Wyzwalacze wybierz wyzwalacz, który chcesz.
+1. W przypadku pustych aplikacji logiki w polu wyszukiwania wprowadź `sftp ssh` wartość jako filtr. Z listy wyzwalaczy wybierz wyzwalacz, którego potrzebujesz.
 
    -lub-
 
-   W przypadku istniejących aplikacji logiki w ostatnim kroku, w którym chcesz dodać akcję, wybierz pozycję **nowy krok**. W polu wyszukiwania wprowadź `sftp ssh` jako filtr. Na liście Akcje wybierz żądaną akcję.
+   W przypadku istniejących aplikacji logiki w ostatnim kroku, w którym chcesz dodać akcję, wybierz **pozycję Nowy krok**. W polu wyszukiwania wprowadź `sftp ssh` wartość jako filtr. Na liście akcji wybierz akcję, której chcesz użyć.
 
-   Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między krokami. Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję**.
+   Aby dodać akcję między krokami, przesuń wskaźnik na strzałkę między krokami. Wybierz wyświetlony znak plus **+** (), a następnie wybierz **pozycję Dodaj akcję**.
 
-1. Podaj niezbędne szczegóły dotyczące połączenia.
+1. Podaj szczegóły niezbędne do nawiązaniu połączenia.
 
    > [!IMPORTANT]
    >
-   > Po wprowadzeniu klucza prywatnego SSH we właściwości **prywatnego klucza SSH** wykonaj te dodatkowe kroki, aby upewnić się, że podajesz pełną i poprawną wartość dla tej właściwości. Nieprawidłowy klucz powoduje niepowodzenie połączenia.
+   > Po wprowadzeniu klucza prywatnego SSH we właściwości klucza prywatnego **SSH** wykonaj dodatkowe kroki, które ułatwiają zapewnienie pełnej i poprawnej wartości tej właściwości. Nieprawidłowy klucz powoduje niepowodzenie połączenia.
 
-   Mimo że można użyć dowolnego edytora tekstu, poniżej przedstawiono przykładowe kroki, które pokazują, jak poprawnie skopiować i wkleić klucz przy użyciu Notepad.exe na przykład.
+   Chociaż można użyć dowolnego edytora tekstów, poniżej znajdują się przykładowe kroki, które pokazują, jak poprawnie skopiować i wkleić klucz przy użyciu Notepad.exe jako przykładu.
 
-   1. Otwórz plik klucza prywatnego SSH w edytorze tekstu. W tych krokach użyto Notatnika jako przykładu.
+   1. Otwórz plik klucza prywatnego SSH w edytorze tekstów. W tych krokach jako przykładu jest używać Notatnika.
 
-   1. W menu **Edycja** Notatnik wybierz pozycję **Zaznacz wszystko**.
+   1. W menu Edycja **Notatnika** wybierz pozycję **Zaznacz wszystko.**
 
-   1. Wybierz pozycję **Edytuj**  >  **kopię**.
+   1. Wybierz **pozycję Edytuj**  >  **kopię**.
 
-   1. W wyzwalaczu SFTP-SSH lub akcji *Wklej pełny* skopiowany klucz we właściwości **prywatnego klucza SSH** , która obsługuje wiele wierszy. **_Nie wprowadzaj ręcznie ani nie edytuj klucza_**.
+   1. W wyzwalaczu lub akcji SFTP-SSH wklej pełny skopiowany klucz we właściwości klucza prywatnego **SSH,** która obsługuje wiele wierszy.  **_Nie należy ręcznie wprowadzać ani edytować klucza_**.
 
 1. Po zakończeniu wprowadzania szczegółów połączenia wybierz pozycję **Utwórz**.
 
-1. Podaj teraz niezbędne szczegóły wybranego wyzwalacza lub akcji i Kontynuuj tworzenie przepływu pracy aplikacji logiki.
+1. Teraz podaj niezbędne szczegóły dla wybranego wyzwalacza lub akcji i kontynuuj tworzenie przepływu pracy aplikacji logiki.
 
 <a name="change-chunk-size"></a>
 
-## <a name="override-chunk-size"></a>Przesłoń rozmiar fragmentu
+## <a name="override-chunk-size"></a>Zastąp rozmiar fragmentu
 
-Aby zastąpić domyślne zachowanie adaptacyjne używane do rozdzielania, można określić stały rozmiar fragmentu od 5 MB do 50 MB.
+Aby zastąpić domyślne zachowanie adaptacyjne używane przez fragmentowanie, można określić stały rozmiar fragmentu od 5 MB do 50 MB.
 
 1. W prawym górnym rogu akcji wybierz przycisk wielokropka (**...**), a następnie wybierz pozycję **Ustawienia**.
 
-   ![Otwórz ustawienia protokołu SFTP-SSH](./media/connectors-sftp-ssh/sftp-ssh-connector-setttings.png)
+   ![Otwieranie ustawień PROTOKOŁU SFTP-SSH](./media/connectors-sftp-ssh/sftp-ssh-connector-setttings.png)
 
-1. W obszarze **transfer zawartości** w właściwości **rozmiar fragmentu** wprowadź wartość całkowitą z `5` do `50` , na przykład: 
+1. W **obszarze Content Transfer**(Transfer zawartości) we właściwości **Chunk size (Rozmiar** fragmentu) wprowadź wartość całkowitą z wartości `5` do , na `50` przykład: 
 
-   ![Określ rozmiar fragmentu do użycia zamiast niego](./media/connectors-sftp-ssh/specify-chunk-size-override-default.png)
+   ![Określanie rozmiaru fragmentu do użycia](./media/connectors-sftp-ssh/specify-chunk-size-override-default.png)
 
-1. Po zakończeniu wybierz pozycję **gotowe**.
+1. Po zakończeniu wybierz pozycję **Gotowe.**
 
 ## <a name="examples"></a>Przykłady
 
 <a name="file-added-modified"></a>
 
-### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>Wyzwalacz SFTP-SSH: po dodaniu lub zmodyfikowaniu pliku
+### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>SFTP — wyzwalacz SSH: po dodaniu lub zmodyfikowaniu pliku
 
-Ten wyzwalacz uruchamia przepływ pracy po dodaniu lub zmodyfikowaniu pliku na serwerze SFTP. Zgodnie z przykładowymi akcjami, przepływ pracy może użyć warunku, aby sprawdzić, czy zawartość pliku spełnia określone kryteria. Jeśli zawartość spełnia warunek, Akcja **Pobierz zawartość pliku** SFTP-SSH może pobrać zawartość, a następnie inna akcja SFTP-SSH może umieścić ten plik w innym folderze na serwerze SFTP.
+Ten wyzwalacz uruchamia przepływ pracy po dodaniu lub zmianie pliku na serwerze SFTP. Jako przykładowe kolejne akcje przepływ pracy może użyć warunku, aby sprawdzić, czy zawartość pliku spełnia określone kryteria. Jeśli zawartość spełnia warunek, akcja **Pobierz** zawartość SFTP-SSH może pobrać zawartość, a następnie inna akcja SFTP-SSH może umieścić ten plik w innym folderze na serwerze SFTP.
 
-**Przykład przedsiębiorstwa**: ten wyzwalacz służy do monitorowania folderu SFTP dla nowych plików reprezentujących zamówienia klienta. Następnie można użyć akcji SFTP-SSH, takiej jak **pobieranie zawartości pliku** , aby uzyskać zawartość zamówienia do dalszej obróbki i przechowywać ją w bazie danych zamówień.
+**Przykład przedsiębiorstwa:** ten wyzwalacz umożliwia monitorowanie folderu SFTP pod uwagę nowych plików reprezentujących zamówienia klientów. Następnie możesz użyć akcji SFTP-SSH, takiej jak Pobierz zawartość pliku, aby uzyskać zawartość zamówienia do dalszego przetwarzania i zapisać to zamówienie w bazie danych zamówień. 
 
 <a name="get-content"></a>
 
-### <a name="sftp---ssh-action-get-file-content-using-path"></a>Działanie SFTP-SSH: pobieranie zawartości pliku przy użyciu ścieżki
+### <a name="sftp---ssh-action-get-file-content-using-path"></a>SFTP — akcja SSH: uzyskiwanie zawartości pliku przy użyciu ścieżki
 
-Ta akcja pobiera zawartość z pliku na serwerze SFTP przez określenie ścieżki pliku. Na przykład można dodać wyzwalacz z poprzedniego przykładu i warunek, który musi spełniać zawartość pliku. Jeśli warunek ma wartość true, Akcja, która pobiera zawartość, może zostać uruchomiona.
+Ta akcja pobiera zawartość z pliku na serwerze SFTP, określając ścieżkę pliku. Możesz na przykład dodać wyzwalacz z poprzedniego przykładu i warunek, który zawartość pliku musi spełniać. Jeśli warunek ma wartość true, można uruchomić akcję, która pobiera zawartość.
 
 <a name="troubleshooting-errors"></a>
 
@@ -255,41 +255,41 @@ W tej sekcji opisano możliwe rozwiązania typowych błędów lub problemów.
 
 <a name="connection-attempt-failed"></a>
 
-### <a name="504-error-a-connection-attempt-failed-because-the-connected-party-did-not-properly-respond-after-a-period-of-time-or-established-connection-failed-because-connected-host-has-failed-to-respond-or-request-to-the-sftp-server-has-taken-more-than-000030-seconds"></a>504: "próba nawiązania połączenia nie powiodła się, ponieważ połączona Strona nie odpowiedziała prawidłowo po upływie określonego czasu lub nawiązane połączenie nie powiodło się, ponieważ podłączony host nie odpowiedział" lub "żądanie do serwera SFTP zajęło więcej niż" 00:00:30 "s"
+### <a name="504-error-a-connection-attempt-failed-because-the-connected-party-did-not-properly-respond-after-a-period-of-time-or-established-connection-failed-because-connected-host-has-failed-to-respond-or-request-to-the-sftp-server-has-taken-more-than-000030-seconds"></a>Błąd 504: "Próba połączenia nie powiodła się, ponieważ połączona strona nie odpowiedziała prawidłowo po upływie czasu lub połączenie nie powiodło się, ponieważ połączony host nie odpowiedział" lub "Żądanie do serwera SFTP zajęło więcej niż "00:00:30" sekund"
 
 Ten błąd może wystąpić, gdy aplikacja logiki nie może pomyślnie nawiązać połączenia z serwerem SFTP. Przyczyny tego problemu mogą być różne, dlatego wypróbuj następujące opcje rozwiązywania problemów:
 
-* Limit czasu połączenia wynosi 20 sekund. Sprawdź, czy serwer SFTP ma dobrą wydajność i pośrednie urządzenia, takie jak zapory, nie dodając narzutu. 
+* Limit czasu połączenia wynosi 20 sekund. Sprawdź, czy serwer SFTP ma dobrą wydajność, a urządzenia pośrednie, takie jak zapory, nie dodają narzutu. 
 
-* Jeśli masz skonfigurowaną zaporę, upewnij się, że adresy **IP łącznika zarządzanego** są dodawane do listy zatwierdzonych. Aby znaleźć adresy IP dla regionu aplikacji logiki, zobacz [limity i konfiguracja dla Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#multi-tenant-azure---outbound-ip-addresses).
+* Jeśli masz ustawioną zaporę, upewnij się, że do listy zatwierdzonych dodasz adresy **IP** łącznika zarządzanego. Aby znaleźć adresy IP dla regionu aplikacji logiki, zobacz [Limity i konfiguracja](../logic-apps/logic-apps-limits-and-config.md#multi-tenant-azure---outbound-ip-addresses)dla Azure Logic Apps .
 
-* Jeśli ten błąd wystąpi sporadycznie, należy zmienić ustawienie **zasad ponawiania** dla akcji SFTP-SSH na liczbę ponownych prób wyższych niż domyślne cztery ponowne próby.
+* Jeśli ten błąd występuje sporadycznie, zmień ustawienie zasad Ponawianie w akcji SFTP-SSH na liczbę ponownych prób większą niż domyślna liczba ponownych prób. 
 
-* Sprawdź, czy serwer SFTP ogranicza liczbę połączeń z poszczególnych adresów IP. Jeśli istnieje ograniczenie, może być konieczne ograniczenie liczby współbieżnych wystąpień aplikacji logiki.
+* Sprawdź, czy serwer SFTP ogranicza liczbę połączeń z każdego adresu IP. Jeśli limit istnieje, może być konieczne ograniczenie liczby współbieżnych wystąpień aplikacji logiki.
 
-* Aby zmniejszyć koszt ustanowienia połączenia, w konfiguracji SSH dla serwera SFTP Zwiększ wartość właściwości [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) na około 1 godzinę.
+* Aby zmniejszyć koszt ustanowienia połączenia, w konfiguracji SSH serwera SFTP zwiększ właściwość [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) do około godziny.
 
-* Przejrzyj dziennik serwera SFTP, aby sprawdzić, czy żądanie z aplikacji logiki osiągnęło serwer SFTP. Aby uzyskać więcej informacji na temat problemu z łącznością, można również uruchomić śledzenie sieci na zaporze i na serwerze SFTP.
+* Przejrzyj dziennik serwera SFTP, aby sprawdzić, czy żądanie z aplikacji logiki dotarło do serwera SFTP. Aby uzyskać więcej informacji na temat problemu z łącznością, możesz również uruchomić śledzenie sieci na zaporze i serwerze SFTP.
 
 <a name="file-does-not-exist"></a>
 
-### <a name="404-error-a-reference-was-made-to-a-file-or-folder-which-does-not-exist"></a>404 błąd: "odwołanie zostało wykonane do pliku lub folderu, który nie istnieje"
+### <a name="404-error-a-reference-was-made-to-a-file-or-folder-which-does-not-exist"></a>Błąd 404: "Zostało wykonane odwołanie do pliku lub folderu, który nie istnieje"
 
-Ten błąd może wystąpić, gdy przepływ pracy tworzy plik na serwerze SFTP z akcją **tworzenia pliku** SFTP-SSH, ale natychmiast przenosi ten plik przed uzyskaniem metadanych pliku przez usługę Logic Apps. Gdy przepływ pracy uruchamia akcję **Utwórz plik** , usługa Logic Apps automatycznie WYWOŁA serwer SFTP w celu pobrania metadanych pliku. Jeśli jednak aplikacja logiki przeniesie plik, usługa Logic Apps nie będzie już znajdować pliku, więc zostanie wyświetlony `404` komunikat o błędzie.
+Ten błąd może wystąpić, gdy przepływ pracy tworzy plik na serwerze  SFTP za pomocą akcji Utwórz plik SFTP-SSH, ale natychmiast przenosi ten plik, zanim usługa Logic Apps będzie w stanie pobrać metadane pliku. Gdy przepływ pracy uruchamia **akcję Utwórz** plik, usługa Logic Apps automatycznie wywołuje serwer SFTP w celu uzyskania metadanych pliku. Jeśli jednak aplikacja logiki przenosi plik, usługa Logic Apps nie może już znaleźć pliku, więc zostanie wyświetlony `404` komunikat o błędzie.
 
-Jeśli nie możesz uniknąć ani opóźnić przeniesienia pliku, możesz pominąć odczytywanie metadanych pliku po utworzeniu pliku, wykonując następujące czynności:
+Jeśli nie możesz uniknąć lub opóźnić przenoszenia pliku, możesz pominąć odczytywanie metadanych pliku po utworzeniu pliku, zamiast tego wykonać następujące kroki:
 
-1. W akcji **Utwórz plik** Otwórz listę **Dodaj nowy parametr** , wybierz właściwość **Pobierz wszystkie metadane pliku** i ustaw wartość na **nie**.
+1. W akcji **Utwórz plik** otwórz listę Dodaj **nowy** parametr, wybierz właściwość Pobierz wszystkie **metadane** pliku i ustaw wartość **Nie.**
 
-1. Jeśli te metadane pliku są potrzebne później, można użyć akcji **Pobierz metadane pliku** .
+1. Jeśli te metadane będą potrzebne później, możesz użyć akcji **Pobierz metadane** pliku.
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
 
-Aby uzyskać więcej szczegółowych informacji technicznych dotyczących tego łącznika, takich jak wyzwalacze, akcje i limity, zgodnie z opisem w pliku Swagger łącznika, zobacz [stronę odwołania łącznika](/connectors/sftpwithssh/).
+Aby uzyskać więcej informacji technicznych na temat tego łącznika, takich jak wyzwalacze, akcje i limity, zgodnie z opisem w pliku swagger łącznika, zobacz stronę referencyjną [łącznika](/connectors/sftpwithssh/).
 
 > [!NOTE]
-> W przypadku aplikacji logiki w [środowisku usługi integracji (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), wersja tego łącznika z oznaczeniem ISE, wymaga, aby fragmenty używały [limitów komunikatów ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
+> W przypadku aplikacji logiki w środowisku usługi integracji [(ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)wersja tego łącznika oznaczona etykietą ISE wymaga fragmentowania, aby zamiast tego użyć limitów komunikatów [ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej na temat innych [łączników Logic Apps](../connectors/apis-list.md)
+* Dowiedz się więcej o [innych Logic Apps łączników](../connectors/apis-list.md)

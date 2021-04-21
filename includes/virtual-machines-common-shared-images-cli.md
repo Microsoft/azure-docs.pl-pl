@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cynthn
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 9556b20ba0ceac2d4c1ad92897e6f9d46293387f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc35f277bfafa80f6239ef807f1a83591646a503
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96027211"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107799926"
 ---
 ## <a name="create-an-image-gallery"></a>Tworzenie galerii obrazów 
 
-Galeria obrazów jest podstawowym zasobem używanym do włączania udostępniania obrazu. 
+Galeria obrazów jest podstawowym zasobem używanym do włączania udostępniania obrazów. 
 
-Dozwolone znaki w nazwie galerii to wielkie lub małe litery, cyfry, kropki i kropki. Nazwa galerii nie może zawierać kresek.   Nazwy galerii muszą być unikatowe w ramach subskrypcji. 
+Dozwolone znaki nazwy galerii to wielkie lub małe litery, cyfry, kropki i kropki. Nazwa galerii nie może zawierać łączników.   Nazwy galerii muszą być unikatowe w ramach subskrypcji. 
 
-Utwórz galerię obrazów przy użyciu polecenia [AZ SIG Create](/cli/azure/sig#az-sig-create). Poniższy przykład tworzy grupę zasobów o nazwie Galeria o nazwie *myGalleryRG* w *regionie Wschodnie stany USA* i galerię o nazwie Moja *Gallery*.
+Utwórz galerię obrazów za pomocą [narzędzia az sig create](/cli/azure/sig#az_sig_create). Poniższy przykład tworzy grupę zasobów o nazwie galeria o nazwie *myGalleryRG* w regionach *Wschodnie* usa oraz galerię *o nazwie myGallery*.
 
 ```azurecli-interactive
 az group create --name myGalleryRG --location eastus
@@ -30,9 +30,9 @@ az sig create --resource-group myGalleryRG --gallery-name myGallery
 
 ## <a name="share-the-gallery"></a>Udostępnianie galerii
 
-Możesz udostępniać obrazy między subskrypcjami przy użyciu Role-Based Access Control (RBAC). Obrazy można udostępniać w galerii, definicji obrazu lub na poziomie wersji obrazu. Każdy użytkownik, który ma uprawnienia do odczytu wersji obrazu, nawet między subskrypcjami, będzie mógł wdrożyć maszynę wirtualną przy użyciu wersji obrazu.
+Obrazy można udostępniać między subskrypcjami przy użyciu Role-Based Access Control (RBAC). Obrazy można udostępniać na poziomie galerii, definicji obrazu lub wersji obrazu. Każdy użytkownik, który ma uprawnienia do odczytu do wersji obrazu, nawet w różnych subskrypcjach, będzie mógł wdrożyć maszynę wirtualną przy użyciu wersji obrazu.
 
-Zalecamy udostępnianie innym użytkownikom na poziomie galerii. Aby uzyskać identyfikator obiektu galerii, użyj [AZ SIG show](/cli/azure/sig#az-sig-show).
+Zalecamy udostępnianie innym użytkownikom na poziomie galerii. Aby uzyskać identyfikator obiektu galerii, użyj [az sig show](/cli/azure/sig#az_sig_show).
 
 ```azurecli-interactive
 az sig show \
@@ -41,7 +41,7 @@ az sig show \
    --query id
 ```
 
-Użyj identyfikatora obiektu jako zakresu wraz z adresem e-mail i [AZ role przypisanie Create](/cli/azure/role/assignment#az-role-assignment-create) , aby dać użytkownikowi dostęp do galerii obrazów udostępnionych. Zastąp `<email-address>` i `<gallery iD>` własnymi informacjami.
+Użyj identyfikatora obiektu jako zakresu, adresu e-mail i az [role assignment create,](/cli/azure/role/assignment#az_role_assignment_create) aby udzielić użytkownikowi dostępu do galerii obrazów udostępnionych. Zastąp `<email-address>` i `<gallery iD>` własnymi informacjami.
 
 ```azurecli-interactive
 az role assignment create \
@@ -50,4 +50,4 @@ az role assignment create \
    --scope <gallery ID>
 ```
 
-Aby uzyskać więcej informacji o sposobie udostępniania zasobów przy użyciu funkcji RBAC, zobacz [Zarządzanie dostępem przy użyciu funkcji RBAC i interfejsu wiersza polecenia platformy Azure](../articles/role-based-access-control/role-assignments-cli.md).
+Aby uzyskać więcej informacji na temat udostępniania zasobów przy użyciu kontroli RBAC, zobacz [Manage access using RBAC and Azure CLI (Zarządzanie](../articles/role-based-access-control/role-assignments-cli.md)dostępem przy użyciu funkcji RBAC i interfejsu wiersza polecenia platformy Azure).

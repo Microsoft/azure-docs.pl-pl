@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z siecią za pomocą rejestru
 description: Objawy, przyczyny i rozwiązania typowych problemów występujących podczas uzyskiwania dostępu do rejestru kontenerów platformy Azure w sieci wirtualnej lub za zaporą
 ms.topic: article
 ms.date: 03/30/2021
-ms.openlocfilehash: 0fdedf109703eb443904989d2c0b2d75a6ba5bb1
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: dc2110405713791d11fb438565fc091da9c9dd5c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481229"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780756"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Rozwiązywanie problemów z siecią za pomocą rejestru
 
@@ -23,8 +23,8 @@ Może zawierać co najmniej jedną z następujących czynności:
 * Nie można wypchnąć lub ściągnąć obrazów i zostanie wyświetlony błąd interfejsu wiersza polecenia platformy Azure `Could not connect to the registry login server`
 * Nie można ściągnąć obrazów z rejestru do Azure Kubernetes Service lub innej usługi platformy Azure
 * Nie można uzyskać dostępu do rejestru za serwerem proxy HTTPS i występuje błąd `Error response from daemon: login attempt failed with status: 403 Forbidden` lub `Error response from daemon: Get <registry>: proxyconnect tcp: EOF Login failed`
-* Nie można skonfigurować ustawień sieci wirtualnej i jest wyświetlany błąd `Failed to save firewall and virtual network settings for container registry`
-* Nie można uzyskać dostępu do ustawień rejestru w usłudze Azure Portal lub zarządzać rejestrem przy użyciu interfejsu wiersza polecenia platformy Azure
+* Nie można skonfigurować ustawień sieci wirtualnej i występuje błąd `Failed to save firewall and virtual network settings for container registry`
+* Nie można uzyskać dostępu do ustawień rejestru lub wyświetlić ich w Azure Portal lub zarządzać rejestrem przy użyciu interfejsu wiersza polecenia platformy Azure
 * Nie można dodać lub zmodyfikować ustawień sieci wirtualnej lub reguł dostępu publicznego
 * zadania usługi ACR nie może wypychać ani ściągać obrazów
 * Azure Security Center nie można skanować obrazów w rejestrze lub wyniki skanowania nie są wyświetlane w Azure Security Center
@@ -39,9 +39,9 @@ Może zawierać co najmniej jedną z następujących czynności:
 
 ## <a name="further-diagnosis"></a>Dalsza diagnostyka 
 
-Uruchom [polecenie az acr check-health,](/cli/azure/acr#az-acr-check-health) aby uzyskać więcej informacji o kondycji środowiska rejestru i opcjonalnie uzyskać dostęp do rejestru docelowego. Na przykład zdiagnozuj niektóre problemy z łącznością sieciową lub konfiguracją. 
+Uruchom [polecenie az acr check-health,](/cli/azure/acr#az_acr_check_health) aby uzyskać więcej informacji o kondycji środowiska rejestru i opcjonalnie uzyskać dostęp do rejestru docelowego. Na przykład zdiagnozuj niektóre problemy z łącznością sieciową lub konfiguracją. 
 
-Zobacz [Sprawdzanie kondycji rejestru kontenerów platformy Azure, aby uzyskać](container-registry-check-health.md) przykłady poleceń. Jeśli zostaną zgłoszone błędy, zapoznaj się z [odwołaniami do błędów](container-registry-health-error-reference.md) i następującymi sekcjami, aby zapoznać się z zalecanymi rozwiązaniami.
+Zobacz [Sprawdzanie kondycji rejestru kontenerów platformy Azure, aby uzyskać](container-registry-check-health.md) przykłady poleceń. Jeśli zostaną zgłoszone błędy, przejrzyj informacje [o błędach](container-registry-health-error-reference.md) i poniższe sekcje, aby zapoznać się z zalecanymi rozwiązaniami.
 
 Jeśli występują problemy z używaniem usługi Azure Kubernetes Service ze zintegrowanym rejestrem, uruchom polecenie [az aks check-acr,](/cli/azure/aks#az_aks_check_acr) aby sprawdzić, czy klaster usługi AKS może uzyskać dostęp do rejestru.
 
@@ -52,7 +52,7 @@ Jeśli występują problemy z używaniem usługi Azure Kubernetes Service ze zin
 
 ### <a name="configure-client-firewall-access"></a>Konfigurowanie dostępu zapory klienta
 
-Aby uzyskać dostęp do rejestru zza zapory klienta lub serwera proxy, skonfiguruj reguły zapory w celu uzyskania dostępu do publicznego serwera REST i punktów końcowych danych rejestru. Jeśli [dedykowane punkty końcowe danych](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) są włączone, potrzebne są reguły dostępu:
+Aby uzyskać dostęp do rejestru zza zapory klienta lub serwera proxy, skonfiguruj reguły zapory, aby uzyskać dostęp do publicznego rest i punktów końcowych danych rejestru. Jeśli [dedykowane punkty końcowe danych](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) są włączone, potrzebne są reguły dostępu:
 
 * Punkt końcowy REST: `<registryname>.azurecr.io`
 * Punkty końcowe danych: `<registry-name>.<region>.data.azurecr.io`
@@ -93,9 +93,9 @@ Przejrzyj reguły sieciowej organizacji sieciowej i tagi usługi używane do ogr
 
 Jeśli skonfigurowano punkt końcowy usługi dla rejestru, upewnij się, że do rejestru dodano regułę sieci, która zezwala na dostęp z tej podsieci sieciowej. Punkt końcowy usługi obsługuje dostęp tylko z maszyn wirtualnych i klastrów usługi AKS w sieci.
 
-Jeśli chcesz ograniczyć dostęp do rejestru przy użyciu sieci wirtualnej w innej subskrypcji platformy Azure, upewnij się, że dostawca zasobów został zarejestrowany `Microsoft.ContainerRegistry` w tej subskrypcji. [Zarejestruj dostawcę zasobów dla usługi](../azure-resource-manager/management/resource-providers-and-types.md) Azure Container Registry użyciu interfejsu Azure Portal, interfejsu wiersza polecenia platformy Azure lub innych narzędzi platformy Azure.
+Jeśli chcesz ograniczyć dostęp do rejestru przy użyciu sieci wirtualnej w innej subskrypcji platformy Azure, upewnij się, że zarejestrowano `Microsoft.ContainerRegistry` dostawcę zasobów w tej subskrypcji. [Zarejestruj dostawcę zasobów dla usługi](../azure-resource-manager/management/resource-providers-and-types.md) Azure Container Registry użyciu interfejsu Azure Portal, interfejsu wiersza polecenia platformy Azure lub innych narzędzi platformy Azure.
 
-Jeśli Azure Firewall lub podobne rozwiązanie jest skonfigurowane w sieci, sprawdź, czy ruch wychodzący z innych zasobów, takich jak klaster usługi AKS, jest włączony w celu dotarcia do punktów końcowych rejestru.
+Jeśli Azure Firewall lub podobne rozwiązanie jest skonfigurowane w sieci, sprawdź, czy ruch wychodzący z innych zasobów, takich jak klaster AKS, jest włączony w celu dotarcia do punktów końcowych rejestru.
 
 Powiązane linki:
 

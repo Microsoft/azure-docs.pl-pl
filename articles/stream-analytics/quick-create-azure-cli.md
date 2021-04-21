@@ -1,6 +1,6 @@
 ---
-title: Szybki Start — Tworzenie zadania Azure Stream Analytics przy użyciu interfejsu wiersza polecenia platformy Azure
-description: W tym przewodniku szybki start pokazano, jak utworzyć zadanie Azure Stream Analytics przy użyciu interfejsu wiersza polecenia platformy Azure.
+title: Szybki start — tworzenie zadania Azure Stream Analytics pomocą interfejsu wiersza polecenia platformy Azure
+description: W tym przewodniku Szybki start pokazano, jak za pomocą interfejsu wiersza polecenia platformy Azure utworzyć Azure Stream Analytics zadań.
 services: stream-analytics
 ms.service: stream-analytics
 author: sidramadoss
@@ -10,16 +10,16 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/01/2020
-ms.openlocfilehash: a3cc4c3d6936a51ca2010209ce23e4d82c9333eb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 58dccf56cd493782a422b0ddf0386e31d4d87daf
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98016344"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765993"
 ---
-# <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Szybki Start: Tworzenie zadania Azure Stream Analytics przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Szybki start: tworzenie zadania Azure Stream Analytics pomocą interfejsu wiersza polecenia platformy Azure
 
-W tym przewodniku szybki start użyjesz interfejsu wiersza polecenia platformy Azure w celu zdefiniowania zadania Stream Analytics, które filtruje komunikaty czujnika w czasie rzeczywistym z odczytem temperatury większym niż 27. Zadanie Stream Analytics będzie odczytywać dane z IoT Hub, przekształcać dane i zapisywać dane z powrotem do kontenera w usłudze BLOB Storage. Dane wejściowe używane w tym przewodniku Szybki start są generowany przez symulator online Raspberry Pi.
+W tym przewodniku Szybki start użyjemy interfejsu wiersza polecenia platformy Azure do zdefiniowania zadania Stream Analytics, które filtruje komunikaty czujników w czasie rzeczywistym z odczytem temperatury większym niż 27. Zadanie Stream Analytics będzie odczytywać dane z usługi IoT Hub, przekształcać dane i zapisywać je z powrotem do kontenera w magazynie obiektów blob. Dane wejściowe używane w tym przewodniku Szybki start są generowany przez symulator online Raspberry Pi.
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
@@ -27,9 +27,9 @@ W tym przewodniku szybki start użyjesz interfejsu wiersza polecenia platformy A
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- Utwórz grupę zasobów. Wszystkie zasoby platformy Azure muszą zostać wdrożone w grupie zasobów. Grupy zasobów umożliwiają organizowanie powiązanych zasobów platformy Azure i zarządzanie nimi.
+- Utwórz grupę zasobów. Wszystkie zasoby platformy Azure należy wdrożyć w grupie zasobów. Grupy zasobów umożliwiają organizowanie powiązanych zasobów platformy Azure i zarządzanie nimi.
 
-   W tym przewodniku szybki start Utwórz grupę zasobów o nazwie *streamanalyticsrg* w lokalizacji *Wschodnie* przy użyciu następującego polecenia [AZ Group Create](/cli/azure/group#az-group-create) :
+   W tym przewodniku Szybki start utwórz grupę zasobów o nazwie *streamanalyticsrg w* lokalizacji *eastus* za pomocą następującego [polecenia az group create:](/cli/azure/group#az_group_create)
 
    ```azurecli
    az group create --name streamanalyticsrg --location eastus
@@ -37,9 +37,9 @@ W tym przewodniku szybki start użyjesz interfejsu wiersza polecenia platformy A
 
 ## <a name="prepare-the-input-data"></a>Przygotowywanie danych wejściowych
 
-Przed zdefiniowaniem zadania Stream Analytics Przygotuj dane, które są używane na potrzeby danych wejściowych zadania.
+Przed zdefiniowaniem Stream Analytics należy przygotować dane używane do wprowadzania danych wejściowych zadania.
 
-Poniższe bloki kodu interfejsu wiersza polecenia platformy Azure to polecenia przygotowujące dane wejściowe wymagane przez zadanie. Przejrzyj sekcje, aby zapoznać się z kodem.
+Poniższe bloki kodu interfejsu wiersza polecenia platformy Azure to polecenia, które przygotowują dane wejściowe wymagane przez zadanie. Przejrzyj sekcje, aby zapoznać się z kodem.
 
 1. Utwórz centrum IoT Hub za pomocą polecenia [az iot hub create](../iot-hub/iot-hub-create-using-cli.md#create-an-iot-hub). W tym przykładzie tworzone jest centrum IoT Hub o nazwie **MyASAIoTHub**. Ponieważ nazwy centrów IoT Hub są unikatowe, musisz utworzyć własną nazwę centrum IoT Hub. Ustaw jednostkę SKU F1, aby skorzystać z warstwy bezpłatnej, jeśli jest dostępna w ramach subskrypcji. W przeciwnym razie wybierz kolejną najniższą warstwę.
 
@@ -71,13 +71,13 @@ Poniższe bloki kodu interfejsu wiersza polecenia platformy Azure to polecenia p
     HostName=MyASAIoTHub.azure-devices.net;DeviceId=MyASAIoTDevice;SharedAccessKey=a2mnUsg52+NIgYudxYYUNXI67r0JmNubmfVafojG8=
     ```
 
-## <a name="create-a-blob-storage-account"></a>Tworzenie konta magazynu obiektów BLOB
+## <a name="create-a-blob-storage-account"></a>Tworzenie konta magazynu obiektów blob
 
-Poniższy blok kodu interfejsu wiersza polecenia platformy Azure tworzy konto usługi BLOB Storage, które jest używane na potrzeby danych wyjściowych zadania. Przejrzyj sekcje, aby zapoznać się z kodem.
+Poniższe bloki kodu interfejsu wiersza polecenia platformy Azure tworzą konto magazynu obiektów blob, które jest używane do danych wyjściowych zadania. Przejrzyj sekcje, aby zapoznać się z kodem.
 
 1. Do utworzenia konta magazynu (ogólnego przeznaczenia) służy polecenie [az storage account create](/cli/azure/storage/account). Konta magazynu można używać z wszystkimi czterema usługami: obiektami blob, plikami, tabelami i kolejkami.
 
-   Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach ostrych własnymi wartościami:
+   Pamiętaj, aby zastąpić wartości zastępcze w nawiasach kątowych własnymi wartościami:
 
    ```azurecli
    az storage account create \
@@ -88,13 +88,13 @@ Poniższy blok kodu interfejsu wiersza polecenia platformy Azure tworzy konto us
        --encryption-services blob
    ```
 
-2. Pobierz klucz dla konta magazynu, uruchamiając polecenie [AZ Storage account Keys list](/cli/azure/storage/account/keys) . Zapisz ten klucz do użycia w następnym kroku.
+2. Pobierz klucz konta magazynu, uruchamiając [polecenie az storage account keys list.](/cli/azure/storage/account/keys) Zapisz ten klucz, aby użyć go w następnym kroku.
 
    ```azurecli
    az storage account keys list -g streamanalyticsrg -n <storage-account>
    ```
 
-3. Do tworzenia kontenera do przechowywania obiektów blob służy polecenie [az storage container create](/cli/azure/storage/container). Klucz konta magazynu jest używany do autoryzacji operacji tworzenia kontenera. Aby uzyskać więcej informacji na temat autoryzacji operacji na danych za pomocą interfejsu wiersza polecenia platformy Azure, zobacz temat [Autoryzuj dostęp do danych obiektu BLOB lub kolejki za pomocą interfejsu wiersza polecenia platformy Azure](../storage/blobs/authorize-data-operations-cli.md).
+3. Do tworzenia kontenera do przechowywania obiektów blob służy polecenie [az storage container create](/cli/azure/storage/container). Klucz konta magazynu umożliwia autoryzowanie operacji tworzenia kontenera. Aby uzyskać więcej informacji na temat autoryzacji operacji na danych za pomocą interfejsu wiersza polecenia platformy Azure, zobacz Autoryzowanie dostępu do danych [obiektów blob lub kolejek za pomocą interfejsu wiersza polecenia platformy Azure.](../storage/blobs/authorize-data-operations-cli.md)
 
    ```azurecli
    az storage container create \
@@ -106,9 +106,9 @@ Poniższy blok kodu interfejsu wiersza polecenia platformy Azure tworzy konto us
 
 ## <a name="create-a-stream-analytics-job"></a>Tworzenie zadania usługi Stream Analytics
 
-Poniższe bloki kodu interfejsu wiersza polecenia platformy Azure tworzą zadanie Stream Analytics. Zapoznaj się z sekcją, aby zrozumieć kod
+Poniższe bloki kodu interfejsu wiersza polecenia platformy Azure tworzą Stream Analytics zadania. Przejrzyj sekcje, aby zrozumieć kod
 
-1. Utwórz zadanie Stream Analytics za pomocą polecenia [AZ Stream-Analytics Job Create](/cli/azure/ext/stream-analytics/stream-analytics/job#ext-stream-analytics-az-stream-analytics-job-create) .
+1. Utwórz zadanie Stream Analytics za pomocą [polecenia az stream-analytics job create.](/cli/azure/ext/stream-analytics/stream-analytics/job#ext-stream-analytics-az-stream-analytics-job-create)
 
 ```azurecli
 az stream-analytics job create \
@@ -124,7 +124,7 @@ az stream-analytics job create \
 
 ## <a name="configure-input-to-the-job"></a>Konfigurowanie danych wejściowych zadania
 
-Dodaj dane wejściowe do zadania za pomocą polecenia [AZ Stream-Analytics Input](/cli/azure/ext/stream-analytics/stream-analytics/input#ext-stream-analytics-az-stream-analytics-input-create) . To polecenie cmdlet przyjmuje jako parametry nazwę zadania, nazwę danych wejściowych zadania, nazwę grupy zasobów i definicję danych wejściowych zadania. Definicja danych wejściowych zadania to plik JSON, który zawiera właściwości wymagane do skonfigurowania danych wejściowych zadania. W tym przykładzie utworzysz IoT Hub jako dane wejściowe.
+Dodaj dane wejściowe do zadania przy użyciu [polecenia cmdlet az stream-analytics input.](/cli/azure/ext/stream-analytics/stream-analytics/input#ext-stream-analytics-az-stream-analytics-input-create) To polecenie cmdlet przyjmuje jako parametry nazwę zadania, nazwę danych wejściowych zadania, nazwę grupy zasobów i definicję danych wejściowych zadania. Definicja danych wejściowych zadania to plik JSON zawierający właściwości wymagane do skonfigurowania danych wejściowych zadania. W tym przykładzie utworzysz nowy IoT Hub jako dane wejściowe.
 
 Na maszynie lokalnej utwórz plik o nazwie `datasource.json` i dodaj do niego następujące dane JSON. Pamiętaj o zastąpieniu wartości `sharedAccessPolicyKey` częścią `SharedAccessKey` z parametrów połączenia centrum IoT Hub zapisanych w poprzedniej sekcji.
 
@@ -152,7 +152,7 @@ Na maszynie lokalnej utwórz plik o nazwie `serialization.json` i dodaj do niego
 }
 ```
 
-Następnie uruchom polecenie cmdlet `az stream-analytics input create`. Pamiętaj, aby zastąpić wartość `datasource` zmiennej ścieżką, w której zapisano plik JSON definicji danych wejściowych zadania, oraz wartość `serialization` zmiennej z ścieżką, w której ZAPISANO plik JSON serializacji.
+Następnie uruchom polecenie cmdlet `az stream-analytics input create`. Pamiętaj, aby zastąpić wartość zmiennej ścieżką, w której jest przechowywany plik JSON definicji danych wejściowych zadania, a wartość zmiennej ścieżką, w której jest przechowywany plik `datasource` `serialization` JSON serializacji.
 
 ```azurecli
 az stream-analytics input create \
@@ -166,9 +166,9 @@ az stream-analytics input create \
 
 ## <a name="configure-output-to-the-job"></a>Konfigurowanie danych wyjściowych zadania
 
-Dodawanie danych wyjściowych do zadania za pomocą polecenia [AZ Stream-Analytics Output Create](/cli/azure/ext/stream-analytics/stream-analytics/output#ext-stream-analytics-az-stream-analytics-output-create) . To polecenie cmdlet przyjmuje jako parametry nazwę zadania, nazwę danych wyjściowych zadania, nazwę grupy zasobów i definicję danych wyjściowych zadania. Definicja danych wyjściowych zadania to plik JSON, który zawiera właściwości wymagane do skonfigurowania danych wyjściowych zadania. W tym przykładzie jako dane wyjściowe używany jest magazyn obiektów blob.
+Dodaj dane wyjściowe do zadania za pomocą [polecenia cmdlet az stream-analytics output create.](/cli/azure/ext/stream-analytics/stream-analytics/output#ext-stream-analytics-az-stream-analytics-output-create) To polecenie cmdlet przyjmuje jako parametry nazwę zadania, nazwę danych wyjściowych zadania, nazwę grupy zasobów i definicję danych wyjściowych zadania. Definicja danych wyjściowych zadania to plik JSON zawierający właściwości wymagane do skonfigurowania danych wyjściowych zadania. W tym przykładzie jako dane wyjściowe używany jest magazyn obiektów blob.
 
-Na maszynie lokalnej utwórz plik o nazwie `datasink.json` i dodaj do niego następujące dane JSON. Pamiętaj, aby zastąpić wartość dla `accountKey` klucza dostępu konta magazynu, który jest wartością przechowywaną w $storageAccountKey wartość.
+Na maszynie lokalnej utwórz plik o nazwie `datasink.json` i dodaj do niego następujące dane JSON. Pamiętaj, aby zastąpić wartość kluczem dostępu konta magazynu, który jest wartością przechowywaną w `accountKey` $storageAccountKey magazynu.
 
 ```json
 {
@@ -188,7 +188,7 @@ Na maszynie lokalnej utwórz plik o nazwie `datasink.json` i dodaj do niego nast
 }
 ```
 
-Następnie uruchom polecenie cmdlet `az stream-analytics output`. Pamiętaj, aby zastąpić wartość `datasource` zmiennej ścieżką, w której zapisano plik JSON definicji danych wyjściowych zadania, oraz wartość `serialization` zmiennej z ścieżką, w której zapisano plik serializacji JSON.
+Następnie uruchom polecenie cmdlet `az stream-analytics output`. Pamiętaj, aby zastąpić wartość zmiennej ścieżką, w której jest przechowywany plik JSON definicji danych wyjściowych zadania, a wartość zmiennej ścieżką, w której jest przechowywany `datasource` `serialization` plik JSON serializacji.
 
 ```azurecli
 az stream-analytics output create \
@@ -201,9 +201,9 @@ az stream-analytics output create \
 
 ## <a name="define-the-transformation-query"></a>Definiowanie zapytania przekształcenia
 
-Dodaj przekształcenie zadania za pomocą polecenia [AZ Stream-Analytics Transformation Create](/cli/azure/ext/stream-analytics/stream-analytics/transformation#ext-stream-analytics-az-stream-analytics-transformation-create) . To polecenie cmdlet przyjmuje jako parametry nazwę zadania, nazwę przekształcenia zadania, nazwę grupy zasobów i definicję przekształcenia zadania. 
+Dodaj przekształcenie zadania przy użyciu [polecenia cmdlet az stream-analytics transformation create.](/cli/azure/ext/stream-analytics/stream-analytics/transformation#ext-stream-analytics-az-stream-analytics-transformation-create) To polecenie cmdlet przyjmuje jako parametry nazwę zadania, nazwę przekształcenia zadania, nazwę grupy zasobów i definicję przekształcenia zadania. 
 
-Uruchom `az stream-analytics transformation create` polecenie cmdlet.
+Uruchom `az stream-analytics transformation create` polecenie cmdlet .
 
 ```azurecli
 az stream-analytics transformation create \
@@ -225,7 +225,7 @@ az stream-analytics transformation create \
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Uruchamianie zadania usługi Stream Analytics i sprawdzanie danych wyjściowych
 
-Uruchom zadanie przy użyciu polecenia [AZ Stream-Analytics Job Start](/cli/azure/ext/stream-analytics/stream-analytics/job#ext-stream-analytics-az-stream-analytics-job-start) . To polecenie cmdlet przyjmuje jako parametry nazwę zadania, nazwę grupy zasobów, tryb uruchamiania danych wyjściowych i czas rozpoczęcia. Parametr `OutputStartMode` przyjmuje wartość `JobStartTime`, `CustomTime` lub `LastOutputEventTime`.
+Uruchom zadanie za pomocą [polecenia cmdlet az stream-analytics job start.](/cli/azure/ext/stream-analytics/stream-analytics/job#ext-stream-analytics-az-stream-analytics-job-start) To polecenie cmdlet przyjmuje jako parametry nazwę zadania, nazwę grupy zasobów, tryb uruchamiania danych wyjściowych i czas rozpoczęcia. Parametr `OutputStartMode` przyjmuje wartość `JobStartTime`, `CustomTime` lub `LastOutputEventTime`.
 
 Po uruchomieniu poniższego polecenia cmdlet zwróci ono wartość `True` jako dane wyjściowe, jeśli zadanie zostało uruchomione. W kontenerze magazynu zostanie utworzony folder wyjściowy z przekształconymi danymi.
 
@@ -248,7 +248,7 @@ az group delete \
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start wdrożono proste zadanie Stream Analytics przy użyciu interfejsu wiersza polecenia platformy Azure. Możesz też wdrażać zadania usługi Stream Analytics przy użyciu witryny [Azure Portal](stream-analytics-quick-create-portal.md) i programu [Visual Studio](stream-analytics-quick-create-vs.md).
+W tym przewodniku Szybki start wdrożono proste zadanie Stream Analytics interfejsu wiersza polecenia platformy Azure. Możesz też wdrażać zadania usługi Stream Analytics przy użyciu witryny [Azure Portal](stream-analytics-quick-create-portal.md) i programu [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Aby dowiedzieć się więcej o konfigurowaniu innych źródeł danych wejściowych i wykonywaniu wykrywania w czasie rzeczywistym, zapoznaj się z następującym artykułem:
 
