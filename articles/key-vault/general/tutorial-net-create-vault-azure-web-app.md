@@ -10,20 +10,20 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 901f2b938512f842a5b4c34adbfc61f9379e5131
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 479181e851e6f54246a2ad89e7529bf3f50bb8a4
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772168"
+ms.locfileid: "107751980"
 ---
-# <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-in-net"></a>Samouczek: używanie tożsamości zarządzanej do nawiązywania Key Vault z aplikacją internetową platformy Azure na platformie .NET
+# <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-in-net"></a>Samouczek: używanie tożsamości zarządzanej do nawiązywania połączenia Key Vault z aplikacją internetową platformy Azure na platformie .NET
 
-[Azure Key Vault](./overview.md) umożliwia przechowywanie poświadczeń i innych wpisów tajnych ze zwiększonymi zabezpieczeniami. Jednak kod musi uwierzytelniać się, aby Key Vault je pobrać. [Tożsamości zarządzane dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md) pomagają rozwiązać ten problem, nadając usługom platformy Azure automatycznie zarządzaną tożsamość w usłudze Azure Active Directory (Azure AD). Ta tożsamość umożliwia uwierzytelnianie w dowolnej usłudze obsługującej uwierzytelnianie usługi Azure AD, w tym w Key Vault, bez konieczności wyświetlania poświadczeń w kodzie.
+[Azure Key Vault](./overview.md) umożliwia przechowywanie poświadczeń i innych wpisów tajnych ze zwiększonymi zabezpieczeniami. Jednak kod musi uwierzytelniać się, aby Key Vault je pobrać. [Tożsamości zarządzane dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md) pomagają rozwiązać ten problem, nadając usługom platformy Azure automatycznie zarządzaną tożsamość w usłudze Azure Active Directory (Azure AD). Tej tożsamości można użyć do uwierzytelniania w dowolnej usłudze obsługującej uwierzytelnianie usługi Azure AD, w tym Key Vault, bez konieczności wyświetlania poświadczeń w kodzie.
 
-W tym samouczku utworzysz i wdrożysz aplikację internetową platformy Azure w [usłudze Azure App Service](../../app-service/overview.md). Użyjesz tożsamości zarządzanej do uwierzytelnienia aplikacji internetowej platformy Azure w usłudze Azure Key Vault przy użyciu [tajnej](/dotnet/api/overview/azure/key-vault) biblioteki klienta usługi Azure Key Vault dla platformy .NET i interfejsu wiersza [polecenia platformy Azure.](/cli/azure/get-started-with-azure-cli) Te same podstawowe zasady mają zastosowanie w przypadku używania wybranego języka programowania, Azure PowerShell i/lub Azure Portal.
+W tym samouczku utworzysz i wdrożysz aplikację internetową platformy Azure w [usłudze Azure App Service.](../../app-service/overview.md) Tożsamości zarządzanej użyjesz do uwierzytelniania aplikacji internetowej platformy Azure w usłudze Azure Key Vault przy użyciu Azure Key Vault tajnej biblioteki klienta dla platformy [.NET](/dotnet/api/overview/azure/key-vault) i interfejsu [wiersza polecenia platformy Azure.](/cli/azure/get-started-with-azure-cli) Te same podstawowe zasady mają zastosowanie w przypadku używania wybranego języka programowania, Azure PowerShell i/lub Azure Portal.
 
-Aby uzyskać więcej informacji na temat wdrażania i aplikacji internetowych usługi Azure App Service przedstawionych w tym samouczku, zobacz:
+Aby uzyskać więcej informacji na temat aplikacji internetowych i wdrożeń usługi Azure App Service przedstawionych w tym samouczku, zobacz:
 - [Omówienie usługi App Service](../../app-service/overview.md)
 - [Tworzenie aplikacji ASP.NET Core w programie Azure App Service](../../app-service/quickstart-dotnetcore.md)
 - [Lokalne wdrożenie usługi Git w Azure App Service](../../app-service/deploy-local-git.md)
@@ -37,14 +37,14 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 * Instalacja [usługi Git](https://www.git-scm.com/downloads) w wersji 2.28.0 lub większej.
 * Interfejs [wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) lub [Azure PowerShell](/powershell/azure/).
 * [Azure Key Vault.](./overview.md) Magazyn kluczy można utworzyć przy użyciu interfejsu [Azure Portal](quick-create-portal.md), interfejsu wiersza [polecenia platformy Azure](quick-create-cli.md)lub [Azure PowerShell](quick-create-powershell.md).
-* Klucz Key Vault [tajny](../secrets/about-secrets.md). Klucz tajny można utworzyć przy użyciu interfejsu [Azure Portal](../secrets/quick-create-portal.md), [programu PowerShell](../secrets/quick-create-powershell.md)lub interfejsu wiersza [polecenia platformy Azure.](../secrets/quick-create-cli.md)
+* Klucz Key Vault [tajny.](../secrets/about-secrets.md) Klucz tajny można utworzyć przy użyciu narzędzia [Azure Portal](../secrets/quick-create-portal.md), [programu PowerShell](../secrets/quick-create-powershell.md)lub interfejsu wiersza [polecenia platformy Azure.](../secrets/quick-create-cli.md)
 
-Jeśli twoja aplikacja internetowa została już wdrożona w programie [](#create-and-assign-a-managed-identity) Azure App Service, możesz od razu skonfigurować dostęp aplikacji internetowej do magazynu kluczy i zmodyfikować [sekcje kodu](#modify-the-app-to-access-your-key-vault) aplikacji internetowej.
+Jeśli twoja aplikacja internetowa została już wdrożona w programie [](#create-and-assign-a-managed-identity) Azure App Service, możesz od razu przejść do konfigurowania dostępu aplikacji internetowej do magazynu kluczy i modyfikowania [sekcji kodu aplikacji](#modify-the-app-to-access-your-key-vault) internetowej.
 
 ## <a name="create-a-net-core-app"></a>Tworzenie aplikacji .NET Core
 W tym kroku skonfigurujesz lokalny projekt .NET Core.
 
-W oknie terminalu na maszynie utwórz katalog o nazwie i `akvwebapp` utwórz go jako bieżący katalog:
+W oknie terminalu na maszynie utwórz katalog o nazwie `akvwebapp` i nadaj temu katalogowi nazwę:
 
 ```bash
 mkdir akvwebapp
@@ -57,7 +57,7 @@ Utwórz aplikację .NET Core za pomocą polecenia [dotnet new web:](/dotnet/core
 dotnet new web
 ```
 
-Uruchom aplikację lokalnie, aby wiedzieć, jak powinna ona wyglądać po wdrożeniu na platformie Azure:
+Uruchom aplikację lokalnie, aby wiedzieć, jak powinna wyglądać po wdrożeniu na platformie Azure:
 
 ```bash
 dotnet run
@@ -71,11 +71,11 @@ Aby uzyskać więcej informacji na temat tworzenia aplikacji internetowych dla p
 
 ## <a name="deploy-the-app-to-azure"></a>Wdrażanie aplikacji na platformie Azure
 
-W tym kroku wdrożysz aplikację .NET Core w usłudze Azure App Service przy użyciu lokalnego narzędzia Git. Aby uzyskać więcej informacji na temat tworzenia i wdrażania aplikacji, zobacz Create an ASP.NET Core web app in Azure (Tworzenie aplikacji internetowej [ASP.NET Core na platformie Azure).](../../app-service/quickstart-dotnetcore.md)
+W tym kroku wdrożysz aplikację .NET Core na platformie Azure App Service pomocą lokalnego narzędzia Git. Aby uzyskać więcej informacji na temat tworzenia i wdrażania aplikacji, zobacz Create an ASP.NET Core web app in Azure (Tworzenie aplikacji internetowej [ASP.NET Core na platformie Azure).](../../app-service/quickstart-dotnetcore.md)
 
 ### <a name="configure-the-local-git-deployment"></a>Konfigurowanie lokalnego wdrożenia usługi Git
 
-W oknie terminalu naciśnij klawisze **Ctrl+C,** aby zamknąć serwer internetowy.  Zainicjuj repozytorium Git dla projektu .NET Core:
+W oknie terminalu naciśnij **klawisze Ctrl+C,** aby zamknąć serwer internetowy.  Zainicjuj repozytorium Git dla projektu .NET Core:
 
 ```bash
 git init --initial-branch=main
@@ -85,7 +85,7 @@ git commit -m "first commit"
 
 Za pomocą protokołu FTP i lokalnego narzędzia Git można wdrożyć aplikację internetową platformy Azure przy użyciu *użytkownika wdrożenia.* Po skonfigurowaniu użytkownika wdrożenia można go używać we wszystkich wdrożeniach platformy Azure. Nazwa użytkownika i hasło wdrożenia na poziomie konta różnią się od poświadczeń subskrypcji platformy Azure. 
 
-Aby skonfigurować użytkownika wdrożenia, uruchom [polecenie az webapp deployment user set.](/cli/azure/webapp/deployment/user?#az_webapp_deployment_user_set) Wybierz nazwę użytkownika i hasło zgodne z tymi wytycznymi: 
+Aby skonfigurować użytkownika wdrożenia, uruchom [polecenie az webapp deployment user set.](/cli/azure/webapp/deployment/user?#az-webapp-deployment-user-set) Wybierz nazwę użytkownika i hasło zgodne z tymi wytycznymi: 
 
 - Nazwa użytkownika musi być unikatowa w obrębie platformy Azure. W przypadku lokalnych wypchnięć git nie może zawierać symbolu @. 
 - Hasło musi mieć co najmniej osiem znaków i zawierać dwa z następujących trzech elementów: litery, cyfry i symbole. 
@@ -100,7 +100,7 @@ Zanotuj nazwę użytkownika i hasło, aby można było ich używać do wdrażani
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Grupa zasobów to logiczny kontener, w którym wdrażasz zasoby platformy Azure i zarządzasz nimi. Utwórz grupę zasobów, która będzie zawierać zarówno magazyn kluczy, jak i aplikację internetową, za pomocą [polecenia az group create:](/cli/azure/group?#az_group_create)
+Grupa zasobów to logiczny kontener, w którym wdrażasz zasoby platformy Azure i zarządzasz nimi. Utwórz grupę zasobów, która będzie zawierać zarówno magazyn kluczy, jak i aplikację internetową, za pomocą [polecenia az group create:](/cli/azure/group?#az-group-create)
 
 ```azurecli-interactive
 az group create --name "myResourceGroup" -l "EastUS"
@@ -114,7 +114,7 @@ Utwórz plan [App Service za](../../app-service/overview-hosting-plans.md) pomoc
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
 ```
 
-Po utworzeniu App Service wiersza polecenia platformy Azure zostaną wyświetlone informacje podobne do tych, które widzisz tutaj:
+Po utworzeniu App Service interfejs wiersza polecenia platformy Azure wyświetli informacje podobne do tego, co widzisz tutaj:
 
 <pre>
 { 
@@ -138,17 +138,17 @@ Aby uzyskać więcej informacji, zobacz [Zarządzanie planem usługi App Service
 
 ### <a name="create-a-web-app"></a>Tworzenie aplikacji internetowej
 
-Utwórz aplikację [internetową platformy Azure](../../app-service/overview.md) w App Service `myAppServicePlan` planu. 
+Utwórz aplikację [internetową platformy Azure](../../app-service/overview.md) w `myAppServicePlan` planie App Service usługi. 
 
 > [!Important]
-> Podobnie jak w przypadku magazynu kluczy aplikacja internetowa platformy Azure musi mieć unikatową nazwę. Zastąp `<your-webapp-name>` nazwą swojej aplikacji internetowej w poniższych przykładach.
+> Podobnie jak magazyn kluczy aplikacja internetowa platformy Azure musi mieć unikatową nazwę. W poniższych przykładach zastąp nazwą swojej aplikacji `<your-webapp-name>` internetowej.
 
 
 ```azurecli-interactive
 az webapp create --resource-group "myResourceGroup" --plan "myAppServicePlan" --name "<your-webapp-name>" --deployment-local-git
 ```
 
-Po utworzeniu aplikacji internetowej interfejs wiersza polecenia platformy Azure wyświetla dane wyjściowe podobne do tych, które widzisz tutaj:
+Po utworzeniu aplikacji internetowej interfejs wiersza polecenia platformy Azure wyświetla dane wyjściowe podobne do tych, które widać tutaj:
 
 <pre>
 Local git is configured with url of 'https://&lt;username&gt;@&lt;your-webapp-name&gt;.scm.azurewebsites.net/&lt;ayour-webapp-name&gt;.git'
@@ -167,9 +167,9 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;your-webapp-na
 }
 </pre>
 
-Adres URL zdalnego repozytorium Git jest wyświetlany we właściwości `deploymentLocalGitUrl` w formacie `https://<username>@<your-webapp-name>.scm.azurewebsites.net/<your-webapp-name>.git` . Zapisz ten adres URL. Będzie on potrzebny później.
+Adres URL zdalnego repozytorium Git jest wyświetlany we `deploymentLocalGitUrl` właściwości w formacie `https://<username>@<your-webapp-name>.scm.azurewebsites.net/<your-webapp-name>.git` . Zapisz ten adres URL. Będzie on potrzebny później.
 
-Teraz skonfiguruj aplikację internetową do wdrożenia z `main` gałęzi :
+Teraz skonfiguruj aplikację internetową do wdrożenia z gałęzi `main` :
 
 ```azurecli-interactive
  az webapp config appsettings set -g MyResourceGroup -name "<your-webapp-name>"--settings deployment_branch=main
@@ -243,7 +243,7 @@ W tej sekcji skonfigurujesz dostęp do Internetu w celu Key Vault i zaktualizuje
 
 W tym samouczku użyjemy tożsamości [zarządzanej do](../../active-directory/managed-identities-azure-resources/overview.md) uwierzytelniania w Key Vault. Tożsamość zarządzana automatycznie zarządza poświadczeniami aplikacji.
 
-Aby utworzyć tożsamość aplikacji w interfejsie wiersza polecenia platformy Azure, uruchom [polecenie az webapp-identity assign:](/cli/azure/webapp/identity?#az_webapp_identity_assign)
+Aby utworzyć tożsamość aplikacji w interfejsie wiersza polecenia platformy Azure, uruchom [polecenie az webapp-identity assign:](/cli/azure/webapp/identity?#az-webapp-identity-assign)
 
 ```azurecli-interactive
 az webapp identity assign --name "<your-webapp-name>" --resource-group "myResourceGroup"
@@ -259,7 +259,7 @@ Polecenie zwróci ten fragment kodu JSON:
 }
 ```
 
-Aby nadać aplikacji internetowej  uprawnienia do operacji get i **list** w magazynie kluczy, przekaż polecenie `principalId` az [keyvault set-policy](/cli/azure/keyvault?#az_keyvault_set_policy) interfejsu wiersza polecenia platformy Azure:
+Aby nadać aplikacji internetowej  uprawnienia do operacji get i **list** w magazynie kluczy, przekaż polecenie `principalId` az [keyvault set-policy](/cli/azure/keyvault?#az-keyvault-set-policy) interfejsu wiersza polecenia platformy Azure:
 
 ```azurecli-interactive
 az keyvault set-policy --name "<your-keyvault-name>" --object-id "<principalId>" --secret-permissions get list
@@ -273,7 +273,7 @@ W tym samouczku do celów demonstracyjnych [użyjesz Azure Key Vault tajnej](/do
 
 #### <a name="install-the-packages"></a>Instalowanie pakietów
 
-W oknie terminalu zainstaluj Azure Key Vault klienta tajnego dla pakietów bibliotek klienta .NET i Azure Identity:
+W oknie terminalu zainstaluj Azure Key Vault klienta dla pakietów bibliotek klienta tożsamości platformy .NET i platformy Azure:
 
 ```console
 dotnet add package Azure.Identity
@@ -292,7 +292,7 @@ using Azure.Security.KeyVault.Secrets;
 using Azure.Core;
 ```
 
-Dodaj następujące wiersze przed `app.UseEndpoints` wywołaniem , aktualizując adres URI w celu `vaultUri` odzwierciedlenia klucza magazynu kluczy. Ten kod używa  [wartości DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential) do uwierzytelniania Key Vault, która używa tokenu z tożsamości zarządzanej do uwierzytelniania. Aby uzyskać więcej informacji na temat uwierzytelniania w Key Vault, zobacz [Developer's Guide (Przewodnik dewelopera).](./developers-guide.md#authenticate-to-key-vault-in-code) Kod używa również wykładniczego odgałęzienia dla ponownych prób na Key Vault jest ograniczany. Aby uzyskać więcej informacji o limitach Key Vault transakcji, zobacz Azure Key Vault throttling guidance (Wskazówki [dotyczące ograniczania przepustowości).](./overview-throttling.md)
+Dodaj następujące wiersze przed `app.UseEndpoints` wywołaniem , aktualizując adres URI w celu `vaultUri` odzwierciedlenia klucza magazynu kluczy. Ten kod używa  [wartości DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential) do uwierzytelniania Key Vault, która używa tokenu z tożsamości zarządzanej do uwierzytelniania. Aby uzyskać więcej informacji na temat uwierzytelniania Key Vault, zobacz [Developer's Guide (Przewodnik dewelopera).](./developers-guide.md#authenticate-to-key-vault-in-code) Kod używa również wykładniczego odgałęzienia dla ponownych prób w przypadku Key Vault jest ograniczana. Aby uzyskać więcej informacji na Key Vault limitów transakcji, [zobacz Azure Key Vault throttling guidance (Wskazówki dotyczące ograniczania przepustowości).](./overview-throttling.md)
 
 ```csharp
 SecretClientOptions options = new SecretClientOptions()
@@ -312,7 +312,7 @@ KeyVaultSecret secret = client.GetSecret("<mySecret>");
 string secretValue = secret.Value;
 ```
 
-Zaktualizuj `await context.Response.WriteAsync("Hello World!");` wiersz, aby wyglądał jak ten wiersz:
+Zaktualizuj wiersz, `await context.Response.WriteAsync("Hello World!");` aby wyglądał jak ten wiersz:
 
 ```csharp
 await context.Response.WriteAsync(secretValue);
@@ -322,7 +322,7 @@ Pamiętaj o zapisaniu zmian przed kontynuowaniem do następnego kroku.
 
 #### <a name="redeploy-your-web-app"></a>Ponowne wdrażanie aplikacji internetowej
 
-Teraz, gdy kod został zaktualizowany, możesz go ponownie wdepchać na platformie Azure przy użyciu tych poleceń git:
+Teraz, gdy kod został zaktualizowany, możesz go ponownie wdusić na platformie Azure przy użyciu tych poleceń usługi Git:
 
 ```bash
 git add .
@@ -336,11 +336,11 @@ git push azure main
 http://<your-webapp-name>.azurewebsites.net
 ```
 
-Tam, gdzie wcześniej był Hello world "Hello world!", powinna być teraz wyświetlana wartość twojego tajnego.
+Tam, gdzie wcześniej był Hello world", powinna być teraz wyświetlana wartość twojego tajnego.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Używanie Azure Key Vault z aplikacjami wdrożonymi na maszynie wirtualnej na platformie .NET](./tutorial-net-virtual-machine.md)
 - Dowiedz się więcej o [tożsamościach zarządzanych dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md)
-- Wyświetlanie [przewodnika dewelopera](./developers-guide.md)
+- Wyświetl [Przewodnik dewelopera](./developers-guide.md)
 - [Bezpieczny dostęp do magazynu kluczy](./security-overview.md)

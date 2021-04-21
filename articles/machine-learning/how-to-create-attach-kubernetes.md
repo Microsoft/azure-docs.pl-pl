@@ -1,7 +1,7 @@
 ---
-title: Tworzenie i dołączanie usługi Azure Kubernetes Service
+title: Tworzenie i dołączanie Azure Kubernetes Service
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak utworzyć nowy klaster usługi Azure Kubernetes za pomocą Azure Machine Learning, lub dołączać istniejący klaster AKS do obszaru roboczego.
+description: Dowiedz się, jak utworzyć nowy klaster Azure Kubernetes Service za pośrednictwem usługi Azure Machine Learning lub jak dołączyć istniejący klaster usługi AKS do obszaru roboczego.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,89 +11,89 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 04/08/2021
-ms.openlocfilehash: 075b02e3e5f2e409298bf31eb0b6720e64af68a0
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: 1c9434d137114560b5585b081961497412dfbf69
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210832"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770259"
 ---
-# <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Tworzenie i dołączanie klastra usługi Azure Kubernetes Service
+# <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Tworzenie i dołączanie Azure Kubernetes Service klastra
 
-Azure Machine Learning można wdrożyć przeszkolone modele uczenia maszynowego w usłudze Azure Kubernetes Service. Należy jednak najpierw __utworzyć__ klaster usługi Azure Kubernetes Service (AKS) w obszarze roboczym usługi Azure ml lub __dołączyć__ istniejący klaster AKS. Ten artykuł zawiera informacje dotyczące tworzenia i dołączania klastra.
+Azure Machine Learning wdrożyć wytrenowane modele uczenia maszynowego w Azure Kubernetes Service. Należy jednak najpierw __utworzyć__ klaster usługi Azure Kubernetes Service (AKS) z obszaru  roboczego usługi Azure ML lub dołączyć istniejący klaster usługi AKS. Ten artykuł zawiera informacje dotyczące tworzenia i dołączania klastra.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Obszar roboczy usługi Azure Machine Learning. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego Azure Machine Learning](how-to-manage-workspace.md).
+- Obszar roboczy usługi Azure Machine Learning. Aby uzyskać więcej informacji, zobacz [Tworzenie Azure Machine Learning roboczego.](how-to-manage-workspace.md)
 
-- [Rozszerzenie interfejsu wiersza polecenia platformy Azure dla usługi Machine Learning Service](reference-azure-machine-learning-cli.md), [Azure Machine Learning SDK języka Python](/python/api/overview/azure/ml/intro)lub [rozszerzenia Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
+- Rozszerzenie [interfejsu wiersza polecenia](reference-azure-machine-learning-cli.md)platformy Azure Machine Learning service , Azure Machine Learning python [SDK](/python/api/overview/azure/ml/intro)lub rozszerzenie [Azure Machine Learning Visual Studio Code .](tutorial-setup-vscode-extension.md)
 
-- Jeśli planujesz używać Virtual Network platformy Azure do zabezpieczania komunikacji między obszarem roboczym usługi Azure ML a klastrem AKS, zapoznaj się z [izolacją sieci podczas szkolenia & artykułu wnioskowania](./how-to-network-security-overview.md) .
+- Jeśli planujesz używanie usługi Azure Virtual Network do zabezpieczania komunikacji między obszarem roboczym usługi Azure ML i klastrem usługi AKS, przeczytaj artykuł Izolacja sieci podczas trenowania & [wnioskowania.](./how-to-network-security-overview.md)
 
 ## <a name="limitations"></a>Ograniczenia
 
-- Jeśli potrzebujesz **Usługa Load Balancer w warstwie Standardowa (moduł równoważenia obciążenia)** wdrożonego w klastrze zamiast podstawowego Load BALANCER (BLB), Utwórz klaster w portalu AKS/interfejsie wiersza polecenia/SDK, a następnie **Dołącz** go do obszaru roboczego AML.
+- Jeśli potrzebujesz usługi **usługa Load Balancer w warstwie Standardowa (SLB)** wdrożonej w klastrze zamiast podstawowego zestawu Load Balancer (BLB), utwórz klaster w portalu  usługi AKS,interfejsie wiersza polecenia/zestawie SDK, a następnie dołącz go do obszaru roboczego usługi AML.
 
-- Jeśli masz Azure Policy, które ograniczają tworzenie publicznych adresów IP, tworzenie klastra AKS zakończy się niepowodzeniem. AKS wymaga publicznego adresu IP dla [ruchu wychodzącego](../aks/limit-egress-traffic.md). Artykuł dotyczący ruchu wychodzącego zawiera również wskazówki dotyczące blokowania ruchu wyjściowego z klastra za pośrednictwem publicznego adresu IP, z wyjątkiem kilku w pełni kwalifikowanych nazw domen. Istnieją dwa sposoby włączania publicznego adresu IP:
-    - Klaster może korzystać z publicznego adresu IP utworzonego domyślnie przy użyciu BLB lub modułu równoważenia obciążenia lub
-    - Klaster można utworzyć bez publicznego adresu IP, a następnie publiczny adres IP skonfigurowany za pomocą zapory z trasą zdefiniowaną przez użytkownika. Aby uzyskać więcej informacji, zobacz Dostosowywanie ruchu wychodzącego [klastra przy użyciu trasy zdefiniowanej przez użytkownika](../aks/egress-outboundtype.md).
+- Jeśli masz skoja Azure Policy, która ogranicza tworzenie publicznych adresów IP, tworzenie klastra usługi AKS nie powiedzie się. Dla ruchu wychodzącego aks jest [wymagany publiczny adres IP.](../aks/limit-egress-traffic.md) Artykuł na temat ruchu wychodzącego zawiera również wskazówki dotyczące blokowania ruchu wychodzącego z klastra za pośrednictwem publicznego adresu IP, z wyjątkiem kilku w pełni kwalifikowanych nazw domen. Istnieją 2 sposoby włączenia publicznego adresu IP:
+    - Klaster może używać publicznego adresu IP utworzonego domyślnie z usługą BLB lub SLB albo
+    - Klaster można utworzyć bez publicznego adresu IP, a następnie publiczny adres IP jest konfigurowany przy użyciu zapory z trasą zdefiniowaną przez użytkownika. Aby uzyskać więcej informacji, zobacz [Customize cluster egress with a user-defined-route](../aks/egress-outboundtype.md)(Dostosowywanie ruchu wychodzącego klastra za pomocą trasy zdefiniowanej przez użytkownika).
     
-    Płaszczyzna sterująca AML nie komunikuje się z tym publicznym adresem IP. Komunikuje się ona z płaszczyzną kontroli AKS dla wdrożeń. 
+    Płaszczyzna sterowania AML nie rozmawia z tym publicznym adresem IP. Zawiera on rozmowy z płaszczyzną sterowania usługi AKS na temat wdrożeń. 
 
-- W przypadku **dołączania** klastra AKS z [włączonym dozwolonym zakresem adresów IP w celu uzyskania dostępu do serwera interfejsu API](../aks/api-server-authorized-ip-ranges.md)Włącz zakres adresów IP płaszczyzny kontroli AML dla klastra AKS. Płaszczyzna kontroli AMLa jest wdrażana w sparowanych regionach i wdraża zbiory wnioskowania w klastrze AKS. Bez dostępu do serwera interfejsu API nie można wdrożyć wywnioskowanych zasobów. W przypadku włączenia zakresów adresów IP w klastrze AKS należy użyć [zakresów adresów IP](https://www.microsoft.com/download/confirmation.aspx?id=56519) dla obu [par regionów](../best-practices-availability-paired-regions.md) .
+- W przypadku **dołączania** klastra usługi AKS z włączonym autoryzowanym zakresem [adresów IP](../aks/api-server-authorized-ip-ranges.md)umożliwiającym dostęp do serwera interfejsu API włącz zakresy adresów IP płaszczyzny sterowania AML dla klastra usługi AKS. Płaszczyzna sterowania AML jest wdrażana w sparowanych regionach i wdraża zasobniki wnioskowania w klastrze usługi AKS. Bez dostępu do serwera interfejsu API nie można wdrożyć zasobników wnioskowania. Zakresów [adresów IP należy używać](https://www.microsoft.com/download/confirmation.aspx?id=56519) w obu [sparowanych regionach](../best-practices-availability-paired-regions.md) podczas włączania zakresów adresów IP w klastrze usługi AKS.
 
-    Autoryzowane zakresy adresów IP współdziałają z usługa Load Balancer w warstwie Standardowa.
+    Autoryzowane zakresy adresów IP współpracuje tylko z usługa Load Balancer w warstwie Standardowa.
 
-- W przypadku **dołączania** klastra AKS musi on znajdować się w tej samej subskrypcji platformy Azure co obszar roboczy Azure Machine Learning.
+- Podczas **dołączania** klastra usługi AKS musi on znajdować się w tej samej subskrypcji platformy Azure, co Azure Machine Learning obszaru roboczego.
 
-- Jeśli chcesz użyć prywatnego klastra AKS (przy użyciu prywatnego linku platformy Azure), musisz najpierw utworzyć klaster, a następnie **dołączyć** go do obszaru roboczego. Aby uzyskać więcej informacji, zobacz [Tworzenie prywatnego klastra usługi Azure Kubernetes Service](../aks/private-clusters.md).
+- Jeśli chcesz użyć prywatnego klastra usługi AKS (przy użyciu usługi Azure Private Link), musisz najpierw utworzyć klaster, a następnie dołączyć **go** do obszaru roboczego. Aby uzyskać więcej informacji, zobacz [Tworzenie klastra Azure Kubernetes Service prywatnego.](../aks/private-clusters.md)
 
-- Nazwa obliczeniowa klastra AKS musi być unikatowa w obszarze roboczym usługi Azure ML. Może zawierać litery, cyfry i łączniki. Musi zaczynać się literą, kończyć literą lub cyfrą i mieć długość od 3 do 24 znaków.
+- Nazwa obliczeniowa klastra usługi AKS MUSI być unikatowa w obszarze roboczym usługi Azure ML. Może zawierać litery, cyfry i łączniki. Musi zaczynać się literą, kończyć literą lub cyfrą i mieć długość od 3 do 24 znaków.
  
- - Jeśli chcesz wdrożyć modele na węzłach **GPU** lub węzłach **FPGA** (lub dowolnej określonej jednostce SKU), należy utworzyć klaster z określoną jednostką SKU. Nie jest obsługiwane tworzenie puli węzłów pomocniczych w istniejącym klastrze i wdrażanie modeli w puli węzłów pomocniczych.
+ - Jeśli chcesz wdrożyć modele w węzłach **procesora GPU** lub węzłach **FPGA** (lub dowolnej określonej sku), musisz utworzyć klaster z określoną sku. Nie ma obsługi tworzenia puli węzłów pomocniczych w istniejącym klastrze i wdrażania modeli w puli węzłów pomocniczych.
  
-- Podczas tworzenia lub dołączania klastra możesz wybrać, czy chcesz utworzyć klaster na potrzeby programowania i __testowania__ czy __produkcji__. Jeśli chcesz utworzyć klaster AKS na potrzeby tworzenia, __sprawdzania poprawności__ i __testowania__ zamiast __środowiska__ produkcyjnego, ustaw __cel klastra__ na __Dev-Test__. Jeśli nie określisz celu klastra, tworzony jest klaster __produkcyjny__ . 
+- Podczas tworzenia lub dołączania klastra możesz wybrać, czy chcesz utworzyć klaster do tworzenia __i testowania,__ czy __do produkcji.__ Jeśli chcesz utworzyć klaster usługi AKS na  potrzeby tworzenia, walidacji i testowania zamiast produkcji, ustaw cel klastra na __tworzenie i testowanie.__    Jeśli nie określisz celu klastra, __zostanie__ utworzony klaster produkcyjny. 
 
     > [!IMPORTANT]
-    > Klaster __deweloperski-test__ nie jest odpowiedni dla ruchu na poziomie produkcyjnym i może zwiększyć czas wnioskowania. Klastry deweloperskie i testowe nie gwarantują odporności na uszkodzenia.
+    > Klaster __dewelopersko-testowy__ nie jest odpowiedni dla ruchu na poziomie produkcyjnym i może zwiększyć czas wnioskowania. Klastry dewelopersko-testowe również nie gwarantują odporności na uszkodzenia.
 
-- W przypadku tworzenia lub dołączania klastra, Jeśli klaster będzie używany do __produkcji__, musi on zawierać co najmniej 12 __wirtualnych procesorów CPU__. Liczbę wirtualnych procesorów CPU można obliczyć przez pomnożenie __liczby węzłów__ w klastrze przez __liczbę rdzeni__ zapewnioną przez wybrany rozmiar maszyny wirtualnej. Na przykład jeśli używasz rozmiaru maszyny wirtualnej "Standard_D3_v2", który ma 4 rdzenie wirtualne, należy wybrać 3 lub większą liczbę węzłów.
+- Jeśli podczas tworzenia lub dołączania klastra będzie on używany w środowisku __produkcyjnym,__ musi zawierać co najmniej 12 __wirtualnych procesorów CPU.__ Liczbę procesorów wirtualnych można obliczyć przez  pomnożenie liczby węzłów w klastrze przez liczbę rdzeni zapewnianych przez wybrany rozmiar maszyny wirtualnej.  Jeśli na przykład używasz rozmiaru maszyny wirtualnej "Standard_D3_v2", który ma 4 rdzenie wirtualne, wybierz co najmniej 3 jako liczbę węzłów.
 
-    W przypadku klastra __deweloperskiego-testowego__ polecenie jest używane co najmniej 2 wirtualne procesory CPU.
+    W przypadku __klastra dewelopersko-testowego__ zalecamy co najmniej 2 wirtualne procesory CPU.
 
-- Zestaw SDK Azure Machine Learning nie zapewnia obsługi skalowania klastra AKS. Aby skalować węzły w klastrze, użyj interfejsu użytkownika dla klastra AKS w programie Azure Machine Learning Studio. Można zmienić tylko liczbę węzłów, a nie rozmiar maszyn wirtualnych klastra. Więcej informacji na temat skalowania węzłów w klastrze AKS można znaleźć w następujących artykułach:
+- Zestaw Azure Machine Learning SDK nie zapewnia obsługi skalowania klastra usługi AKS. Aby skalować węzły w klastrze, użyj interfejsu użytkownika klastra usługi AKS w Azure Machine Learning studio. Możesz zmienić tylko liczbę węzłów, a nie rozmiar maszyny wirtualnej klastra. Aby uzyskać więcej informacji na temat skalowania węzłów w klastrze usługi AKS, zobacz następujące artykuły:
 
-    - [Ręczne skalowanie liczby węzłów w klastrze AKS](../aks/scale-cluster.md)
-    - [Konfigurowanie automatycznego skalowania klastra w AKS](../aks/cluster-autoscaler.md)
+    - [Ręczne skalowanie liczby węzłów w klastrze usługi AKS](../aks/scale-cluster.md)
+    - [Konfigurowanie automatycznego skalowania klastra w u usługi AKS](../aks/cluster-autoscaler.md)
 
-- __Nie należy bezpośrednio aktualizować klastra przy użyciu konfiguracji YAML__. Chociaż usługi Azure Kubernetes Services obsługują aktualizacje za pośrednictwem konfiguracji YAML, wdrożenia Azure Machine Learning przesłonią zmiany. Tylko dwa pola YAML, które nie zostaną zastępować, są __limitami żądań__ oraz __procesora CPU i pamięci__.
+- __Nie należy bezpośrednio aktualizować klastra przy użyciu konfiguracji YAML.__ Chociaż usługi Azure Kubernetes Services obsługują aktualizacje za pośrednictwem konfiguracji YAML, Azure Machine Learning wdrożenia zastąpią wprowadzone zmiany. Jedynymi dwoma polami YAML, które nie zostaną zastąpione, są __limity__ żądań oraz __procesor i pamięć__.
 
-- Tworzenie klastra AKS przy użyciu interfejsu użytkownika programu Azure Machine Learning Studio, zestawu SDK lub rozszerzenia interfejsu wiersza polecenia __nie__ jest idempotentne. Ponowne utworzenie zasobu spowoduje błąd, że klaster o takiej samej nazwie już istnieje.
+- Tworzenie klastra AKS przy użyciu interfejsu Azure Machine Learning studio, zestawu SDK lub rozszerzenia interfejsu wiersza polecenia nie __jest__ idempotentne. Próba utworzenia zasobu ponownie spowoduje błąd, że klaster o takiej samej nazwie już istnieje.
     
-    - Użycie szablonu Azure Resource Manager oraz zasobu [Microsoft. MachineLearningServices/Workspaces/Computes](/azure/templates/microsoft.machinelearningservices/2019-11-01/workspaces/computes) w celu utworzenia klastra AKS __nie__ jest również idempotentne. Jeśli spróbujesz ponownie użyć szablonu do zaktualizowania istniejącego zasobu, wystąpi ten sam błąd.
+    - Użycie szablonu Azure Resource Manager zasobów [Microsoft.MachineLearningServices/workspaces/computes](/azure/templates/microsoft.machinelearningservices/2019-11-01/workspaces/computes) do utworzenia klastra usługi AKS również nie __jest__ idempotentne. Jeśli spróbujemy ponownie użyć szablonu w celu zaktualizowania istniejącego zasobu, zostanie wyświetlony ten sam błąd.
 
 ## <a name="azure-kubernetes-service-version"></a>Wersja usługi Azure Kubernetes Service
 
-Usługa Azure Kubernetes umożliwia tworzenie klastra przy użyciu różnych wersji programu Kubernetes. Aby uzyskać więcej informacji na temat dostępnych wersji, zobacz [obsługiwane wersje Kubernetes w usłudze Azure Kubernetes Service](../aks/supported-kubernetes-versions.md).
+Azure Kubernetes Service umożliwia utworzenie klastra przy użyciu różnych wersji usługi Kubernetes. Aby uzyskać więcej informacji na temat dostępnych wersji, zobacz [obsługiwane wersje kubernetes w Azure Kubernetes Service](../aks/supported-kubernetes-versions.md).
 
-Podczas **tworzenia** klastra usługi Azure Kubernetes przy użyciu jednej z następujących metod *nie masz możliwości wyboru w używanej wersji* klastra:
+Podczas **tworzenia** Azure Kubernetes Service klastra przy użyciu jednej z  następujących metod nie ma możliwości wyboru w tworzonej wersji klastra:
 
-* Azure Machine Learning Studio lub sekcja Azure Machine Learning Azure Portal.
-* Machine Learning rozszerzenie interfejsu wiersza polecenia platformy Azure.
+* Azure Machine Learning studio lub Azure Machine Learning sekcji Azure Portal.
+* Machine Learning dla interfejsu wiersza polecenia platformy Azure.
 * Azure Machine Learning SDK.
 
-Te metody tworzenia klastra AKS używają __domyślnej__ wersji klastra. *Wersja domyślna zmienia się w* miarę upływu czasu, gdy dostępne są nowe wersje Kubernetes.
+Te metody tworzenia klastra usługi AKS używają __domyślnej__ wersji klastra. *Wersja domyślna zmienia się wraz z* czasem, gdy staną się dostępne nowe wersje kubernetes.
 
-W przypadku **dołączania** istniejącego klastra AKS obsługiwane są wszystkie obecnie obsługiwane wersje AKS.
+Podczas **dołączania istniejącego** klastra usługi AKS obsługiwane są wszystkie obecnie obsługiwane wersje usługi AKS.
 
 > [!NOTE]
-> Mogą istnieć sytuacje, w których istnieje starszy klaster, który nie jest już obsługiwany. W takim przypadku operacja Attach spowoduje zwrócenie błędu i wyświetlenie listy aktualnie obsługiwanych wersji.
+> Mogą wystąpić przypadki brzegowe, w których masz starszy klaster, który nie jest już obsługiwany. W takim przypadku operacja dołączania zwróci błąd i zwróci listę obecnie obsługiwanych wersji.
 >
-> Możesz dołączyć wersje **zapoznawcze** . Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Obsługa korzystania z wersji zapoznawczej może być ograniczona. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Możesz dołączyć wersje **zapoznawcze.** Funkcja w wersji zapoznawczej jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Obsługa korzystania z wersji zapoznawczych może być ograniczona. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-### <a name="available-and-default-versions"></a>Wersje dostępne i domyślne
+### <a name="available-and-default-versions"></a>Dostępne i domyślne wersje
 
-Aby znaleźć dostępne i domyślne wersje programu AKS, należy użyć polecenia [platformy Azure](/cli/azure/install-azure-cli) polecenie [AZ AKS Get-Versions](/cli/azure/aks#az_aks_get_versions). Na przykład następujące polecenie zwraca wersje dostępne w regionie zachodnie stany USA:
+Aby znaleźć dostępne i domyślne wersje usługi AKS, użyj polecenia [az aks get-versions](/cli/azure/aks#az_aks_get_versions)interfejsu wiersza polecenia platformy [Azure.](/cli/azure/install-azure-cli) Na przykład następujące polecenie zwraca wersje dostępne w regionie Zachodnie stany USA:
 
 ```azurecli-interactive
 az aks get-versions -l westus -o table
@@ -114,7 +114,7 @@ KubernetesVersion    Upgrades
 1.15.11              1.15.12, 1.16.10, 1.16.13
 ```
 
-Aby znaleźć domyślną wersję używaną podczas **tworzenia** klastra za pomocą Azure Machine Learning, można użyć `--query` parametru, aby wybrać domyślną wersję:
+Aby znaleźć wersję domyślną  używaną podczas tworzenia klastra za pośrednictwem Azure Machine Learning, możesz użyć parametru , `--query` aby wybrać wersję domyślną:
 
 ```azurecli-interactive
 az aks get-versions -l westus --query "orchestrators[?default == `true`].orchestratorVersion" -o table
@@ -128,9 +128,9 @@ Result
 1.16.13
 ```
 
-Jeśli chcesz **programowo sprawdzić dostępne wersje**, użyj interfejsu API REST [usługi Container Service Client](/rest/api/container-service/container%20service%20client/listorchestrators) . Aby znaleźć dostępne wersje, należy zapoznać się z wpisami, gdzie `orchestratorType` jest `Kubernetes` . Skojarzone `orchestrationVersion` wpisy zawierają dostępne wersje, które można **dołączyć** do obszaru roboczego.
+Jeśli chcesz programowo **sprawdzić** dostępne wersje, użyj interfejsu API REST [Container Service Client - List Orchestrators.](/rest/api/container-service/container%20service%20client/listorchestrators) Aby znaleźć dostępne wersje, przyjrzyj się wpisom, w których `orchestratorType` znajduje się . `Kubernetes` Skojarzone wpisy `orchestrationVersion` zawierają dostępne wersje, które można **dołączyć do** obszaru roboczego.
 
-Aby znaleźć domyślną wersję używaną podczas **tworzenia** klastra za pomocą Azure Machine Learning, Znajdź wpis, gdzie `orchestratorType` jest `Kubernetes` i `default` jest `true` . Skojarzona `orchestratorVersion` wartość jest wersją domyślną. Poniższy fragment kodu JSON przedstawia przykładowy wpis:
+Aby znaleźć domyślną wersję  używaną podczas tworzenia klastra za pośrednictwem usługi Azure Machine Learning, znajdź wpis , gdzie to , `orchestratorType` a to `Kubernetes` `default` `true` . `orchestratorVersion`Skojarzona wartość to wersja domyślna. Poniższy fragment kodu JSON przedstawia przykładowy wpis:
 
 ```json
 ...
@@ -149,13 +149,13 @@ Aby znaleźć domyślną wersję używaną podczas **tworzenia** klastra za pomo
 ...
 ```
 
-## <a name="create-a-new-aks-cluster"></a>Tworzenie nowego klastra AKS
+## <a name="create-a-new-aks-cluster"></a>Tworzenie nowego klastra usługi AKS
 
-**Szacowany czas**: około 10 minut.
+**Szacowany czas:** około 10 minut.
 
-Tworzenie i dołączanie klastra AKS jest jednym procesem czasu dla Twojego obszaru roboczego. Można ponownie użyć tego klastra dla wielu wdrożeń. W przypadku usunięcia klastra lub grupy zasobów, która zawiera tę usługę, należy utworzyć nowy klaster przy następnym wdrożeniu. Do obszaru roboczego można dołączyć wiele klastrów AKS.
+Tworzenie lub dołączanie klastra usługi AKS jest procesem tylko raz dla obszaru roboczego. Ten klaster można ponownie wykorzystać w wielu wdrożeniach. Jeśli usuniesz klaster lub grupę zasobów, która go zawiera, musisz utworzyć nowy klaster przy następnym wdrożeniu. Do obszaru roboczego może być dołączonych wiele klastrów usługi AKS.
 
-W poniższym przykładzie pokazano, jak utworzyć nowy klaster AKS przy użyciu zestawu SDK i interfejsu wiersza polecenia:
+W poniższym przykładzie pokazano, jak utworzyć nowy klaster usługi AKS przy użyciu zestawu SDK i interfejsu wiersza polecenia:
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -189,7 +189,7 @@ Aby uzyskać więcej informacji na temat klas, metod i parametrów używanych w 
 
 * [AksCompute.ClusterPurpose](/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose)
 * [AksCompute.provisioning_configuration](/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
-* [ComputeTarget. Create](/python/api/azureml-core/azureml.core.compute.computetarget#create-workspace--name--provisioning-configuration-)
+* [ComputeTarget.create](/python/api/azureml-core/azureml.core.compute.computetarget#create-workspace--name--provisioning-configuration-)
 * [ComputeTarget.wait_for_completion](/python/api/azureml-core/azureml.core.compute.computetarget#wait-for-completion-show-output-false-)
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
@@ -198,36 +198,36 @@ Aby uzyskać więcej informacji na temat klas, metod i parametrów używanych w 
 az ml computetarget create aks -n myaks
 ```
 
-Aby uzyskać więcej informacji, zobacz [AZ ml computetarget Create AKS](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-aks) Reference.
+Aby uzyskać więcej informacji, zobacz [az ml computetarget create aks reference (Az ml computetarget create aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-aks) reference).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Aby uzyskać informacje na temat tworzenia klastra AKS w portalu, zobacz [Tworzenie obiektów docelowych obliczeń w programie Azure Machine Learning Studio](how-to-create-attach-compute-studio.md#inference-clusters).
+Aby uzyskać informacje na temat tworzenia klastra usługi AKS w portalu, zobacz [Create compute targets in Azure Machine Learning studio](how-to-create-attach-compute-studio.md#inference-clusters)(Tworzenie docelowych obiektów obliczeniowych w u Azure Machine Learning studio .
 
 ---
 
-## <a name="attach-an-existing-aks-cluster"></a>Dołącz istniejący klaster AKS
+## <a name="attach-an-existing-aks-cluster"></a>Dołączanie istniejącego klastra usługi AKS
 
 **Szacowany czas:** Około 5 minut.
 
-Jeśli masz już klaster AKS w ramach subskrypcji platformy Azure, możesz go używać z obszarem roboczym.
+Jeśli masz już klaster usługi AKS w subskrypcji platformy Azure, możesz go używać z obszarem roboczym.
 
 > [!TIP]
-> Istniejący klaster AKS może znajdować się w regionie świadczenia usługi Azure innym niż obszar roboczy Azure Machine Learning.
+> Istniejący klaster usługi AKS może być w regionie świadczenia usługi Azure innym Azure Machine Learning roboczym.
 
 
 > [!WARNING]
-> Nie należy tworzyć wielu jednoczesnych załączników do tego samego klastra AKS z obszaru roboczego. Na przykład po dołączeniu jednego klastra AKS do obszaru roboczego przy użyciu dwóch różnych nazw. Każdy nowy załącznik spowoduje przerwanie poprzednich istniejących załączników.
+> Nie należy tworzyć wielu równoczesnych załączników w tym samym klastrze usługi AKS z obszaru roboczego. Na przykład dołączanie jednego klastra usługi AKS do obszaru roboczego przy użyciu dwóch różnych nazw. Każdy nowy załącznik spowoduje przerwę w poprzednich istniejących załącznikach.
 >
-> Jeśli chcesz ponownie dołączyć klaster AKS, na przykład aby zmienić ustawienia konfiguracji TLS lub innego klastra, musisz najpierw usunąć istniejący załącznik przy użyciu [AksCompute. Odłącz ()](/python/api/azureml-core/azureml.core.compute.akscompute#detach--).
+> Jeśli chcesz ponownie dołączyć klaster AKS, na przykład w celu zmiany ustawienia konfiguracji TLS lub innego klastra, musisz najpierw usunąć istniejący załącznik przy użyciu [funkcji AksCompute.detach().](/python/api/azureml-core/azureml.core.compute.akscompute#detach--)
 
-Aby uzyskać więcej informacji na temat tworzenia klastra AKS przy użyciu interfejsu wiersza polecenia platformy Azure lub portalu, zobacz następujące artykuły:
+Aby uzyskać więcej informacji na temat tworzenia klastra usługi AKS przy użyciu interfejsu wiersza polecenia platformy Azure lub portalu, zobacz następujące artykuły:
 
-* [Tworzenie klastra AKS (interfejs wiersza polecenia)](/cli/azure/aks?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2faks%2fTOC.json#az-aks-create)
-* [Tworzenie klastra AKS (Portal)](../aks/kubernetes-walkthrough-portal.md)
-* [Tworzenie klastra AKS (szablon ARM w szablonach szybkiego startu platformy Azure)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aks-azml-targetcompute)
+* [Tworzenie klastra AKS (interfejs wiersza polecenia)](/cli/azure/aks?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2faks%2fTOC.json#az_aks_create)
+* [Tworzenie klastra usługi AKS (portal)](../aks/kubernetes-walkthrough-portal.md)
+* [Tworzenie klastra AKS (szablon usługi ARM w szablonach szybkiego startu platformy Azure)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aks-azml-targetcompute)
 
-W poniższym przykładzie pokazano, jak dołączyć istniejący klaster AKS do obszaru roboczego:
+W poniższym przykładzie pokazano, jak dołączyć istniejący klaster usługi AKS do obszaru roboczego:
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -251,13 +251,13 @@ aks_target.wait_for_completion(show_output = True)
 
 Aby uzyskać więcej informacji na temat klas, metod i parametrów używanych w tym przykładzie, zobacz następujące dokumenty referencyjne:
 
-* [AksCompute.attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
+* [AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
 * [AksCompute.ClusterPurpose](/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose)
-* [AksCompute. Attach](/python/api/azureml-core/azureml.core.compute.computetarget#attach-workspace--name--attach-configuration-)
+* [AksCompute.attach](/python/api/azureml-core/azureml.core.compute.computetarget#attach-workspace--name--attach-configuration-)
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Aby dołączyć istniejący klaster przy użyciu interfejsu wiersza polecenia, należy uzyskać identyfikator zasobu istniejącego klastra. Aby uzyskać tę wartość, użyj następującego polecenia. Zamień `myexistingcluster` na nazwę klastra AKS. Zamień na `myresourcegroup` grupę zasobów zawierającą klaster:
+Aby dołączyć istniejący klaster przy użyciu interfejsu wiersza polecenia, musisz uzyskać identyfikator zasobu istniejącego klastra. Aby uzyskać tę wartość, użyj następującego polecenia. Zastąp `myexistingcluster` nazwą klastra usługi AKS. `myresourcegroup`Zamień na grupę zasobów zawierającą klaster:
 
 ```azurecli
 az aks show -n myexistingcluster -g myresourcegroup --query id
@@ -269,24 +269,24 @@ To polecenie zwraca wartość podobną do następującego tekstu:
 /subscriptions/{GUID}/resourcegroups/{myresourcegroup}/providers/Microsoft.ContainerService/managedClusters/{myexistingcluster}
 ```
 
-Aby dołączyć istniejący klaster do obszaru roboczego, użyj następującego polecenia. Zamień na `aksresourceid` wartość zwracaną przez poprzednie polecenie. Zamień na `myresourcegroup` grupę zasobów, która zawiera obszar roboczy. Zamień `myworkspace` na nazwę obszaru roboczego.
+Aby dołączyć istniejący klaster do obszaru roboczego, użyj następującego polecenia. Zastąp `aksresourceid` wartość wartością zwróconą przez poprzednie polecenie. Zastąp `myresourcegroup` grupę zasobów zawierającą obszar roboczy. Zastąp `myworkspace` nazwą swojego obszaru roboczego.
 
 ```azurecli
 az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w myworkspace
 ```
 
-Aby uzyskać więcej informacji, zobacz [AZ ml computetarget Attach AKS](/cli/azure/ext/azure-cli-ml/ml/computetarget/attach#ext-azure-cli-ml-az-ml-computetarget-attach-aks) Reference.
+Aby uzyskać więcej informacji, zobacz [az ml computetarget attach aks reference (Az ml computetarget attach aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/attach#ext-azure-cli-ml-az-ml-computetarget-attach-aks) reference).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Aby uzyskać informacje na temat dołączania klastra AKS w portalu, zobacz [Tworzenie obiektów docelowych obliczeń w programie Azure Machine Learning Studio](how-to-create-attach-compute-studio.md#inference-clusters).
+Aby uzyskać informacje na temat dołączania klastra AKS w portalu, zobacz [Create compute targets in Azure Machine Learning studio](how-to-create-attach-compute-studio.md#inference-clusters).
 
 ---
 
-## <a name="create-or-attach-an-aks-cluster-with-tls-termination"></a>Utwórz lub Dołącz klaster AKS z zakończeniem TLS
-Podczas [tworzenia lub dołączania klastra AKS](how-to-create-attach-kubernetes.md)można włączyć zakończenie protokołu TLS z obiektami konfiguracji **[AksCompute.provisioning_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** i **[AksCompute.attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** . Obie metody zwracają obiekt konfiguracji, który ma metodę **enable_ssl** i można użyć metody **enable_ssl** do włączenia protokołu TLS.
+## <a name="create-or-attach-an-aks-cluster-with-tls-termination"></a>Tworzenie lub dołączanie klastra usługi AKS z zakończeniem działania TLS
+Podczas tworzenia [lub dołączania](how-to-create-attach-kubernetes.md)klastra usługi AKS można włączyć zakończenie TLS za pomocą **[AksCompute.provisioning_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** **[i AksCompute.attach_configuration().](/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** Obie metody zwracają obiekt konfiguracji, który ma **enable_ssl,** i można użyć enable_ssl **metody** do włączenia zabezpieczeń TLS.
 
-Poniższy przykład pokazuje, jak włączyć działanie protokołu TLS z automatyczną generowaniem i konfiguracją certyfikatów TLS przy użyciu certyfikatu Microsoft w ramach okapu.
+Poniższy przykład pokazuje, jak włączyć zakończenie TLS przy użyciu automatycznego generowania i konfigurowania certyfikatów TLS przy użyciu certyfikatu firmy Microsoft.
 ```python
    from azureml.core.compute import AksCompute, ComputeTarget
    
@@ -306,7 +306,7 @@ Poniższy przykład pokazuje, jak włączyć działanie protokołu TLS z automat
 
 
 ```
-Poniższy przykład pokazuje, jak włączyć zakończenie protokołu TLS z certyfikatem niestandardowym i niestandardową nazwą domeny. W przypadku domeny niestandardowej i certyfikatu należy zaktualizować rekord DNS, aby wskazywał adres IP punktu końcowego oceniania, zobacz [Aktualizowanie usługi DNS](how-to-secure-web-service.md#update-your-dns) .
+Poniższy przykład pokazuje, jak włączyć zakończenie TLS przy użyciu niestandardowego certyfikatu i niestandardowej nazwy domeny. W przypadku niestandardowej domeny i certyfikatu należy zaktualizować rekord [DNS,](how-to-secure-web-service.md#update-your-dns) aby wskazać adres IP punktu końcowego oceniania. Zobacz Aktualizowanie systemu DNS
 
 ```python
    from azureml.core.compute import AksCompute, ComputeTarget
@@ -324,10 +324,10 @@ Poniższy przykład pokazuje, jak włączyć zakończenie protokołu TLS z certy
 
 ```
 >[!NOTE]
-> Aby uzyskać więcej informacji na temat zabezpieczania wdrażania modelu w klastrze AKS, zobacz [Korzystanie z protokołu TLS w celu zabezpieczenia usługi sieci Web za pomocą Azure Machine Learning](how-to-secure-web-service.md)
+> Aby uzyskać więcej informacji na temat zabezpieczania wdrożenia modelu w klastrze usługi AKS, zobacz zabezpieczanie usługi internetowej za pomocą usługi [TLS za](how-to-secure-web-service.md) pośrednictwem usługi Azure Machine Learning
 
-## <a name="create-or-attach-an-aks-cluster-to-use-internal-load-balancer-with-private-ip"></a>Utwórz lub Dołącz klaster AKS, aby użyć wewnętrznego Load Balancer z prywatnym adresem IP
-Podczas tworzenia lub dołączania klastra AKS można skonfigurować klaster tak, aby korzystał z wewnętrznego Load Balancer. Przy użyciu wewnętrznego Load Balancer punkty końcowe oceniania dla wdrożeń AKS będą używać prywatnego adresu IP w ramach sieci wirtualnej. Poniższe fragmenty kodu przedstawiają sposób konfigurowania wewnętrznego Load Balancer klastra AKS.
+## <a name="create-or-attach-an-aks-cluster-to-use-internal-load-balancer-with-private-ip"></a>Tworzenie lub dołączanie klastra usługi AKS w celu używania adresów Load Balancer z prywatnym adresem IP
+Podczas tworzenia lub dołączania klastra usługi AKS można skonfigurować klaster do używania wewnętrznego Load Balancer. W przypadku wewnętrznej Load Balancer punkty końcowe oceniania wdrożeń w u usługi AKS będą używać prywatnego adresu IP w sieci wirtualnej. Poniższe fragmenty kodu pokazują, jak skonfigurować wewnętrzną Load Balancer klastra usługi AKS.
 ```python
    
    from azureml.core.compute.aks import AksUpdateConfiguration
@@ -350,17 +350,17 @@ Podczas tworzenia lub dołączania klastra AKS można skonfigurować klaster tak
    
 ```
 >[!IMPORTANT]
-> Azure Machine Learning nie obsługuje zakończenia protokołu TLS z wewnętrznym Load Balancer. Wewnętrzny Load Balancer ma prywatny adres IP, a prywatny adres IP może być w innej sieci, a certyfikat może być recused. 
+> Azure Machine Learning nie obsługuje zakończenia TLS z wewnętrznymi Load Balancer. Adres Load Balancer ma prywatny adres IP, a prywatny adres IP może być w innej sieci, a certyfikat może zostać odmówiony. 
 
 >[!NOTE]
-> Aby uzyskać więcej informacji na temat zabezpieczania środowiska inferencing, zobacz [zabezpieczanie środowiska Azure Machine Learning inferencing](how-to-secure-inferencing-vnet.md) .
+> Aby uzyskać więcej informacji na temat zabezpieczania środowiska wnioskowania, zobacz [Secure an Azure Machine Learning Inferencing Environment](how-to-secure-inferencing-vnet.md) (Zabezpieczanie środowiska wnioskowania wnioskowania)
 
-## <a name="detach-an-aks-cluster"></a>Odłączanie klastra AKS
+## <a name="detach-an-aks-cluster"></a>Odłączanie klastra usługi AKS
 
-Aby odłączyć klaster od obszaru roboczego, należy użyć jednej z następujących metod:
+Aby odłączyć klaster od obszaru roboczego, użyj jednej z następujących metod:
 
 > [!WARNING]
-> Korzystając z Azure Machine Learning Studio, SDK lub rozszerzenia interfejsu wiersza polecenia platformy Azure dla usługi Machine Learning w celu odłączenia klastra AKS nie **powoduje usunięcia klastra AKS**. Aby usunąć klaster, zobacz [Korzystanie z interfejsu wiersza polecenia platformy Azure z AKS](../aks/kubernetes-walkthrough.md#delete-the-cluster).
+> Odłączenie klastra usługi AKS przy użyciu Azure Machine Learning studio, zestawu SDK lub rozszerzenia interfejsu wiersza polecenia platformy Azure w celu odłączenia klastra usługi AKS nie powoduje **usunięcia klastra usługi AKS.** Aby usunąć klaster, zobacz Use the Azure CLI with AKS (Używanie [interfejsu wiersza polecenia platformy Azure z usługą AKS).](../aks/kubernetes-walkthrough.md#delete-the-cluster)
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -370,7 +370,7 @@ aks_target.detach()
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Aby odłączyć istniejący klaster do obszaru roboczego, użyj następującego polecenia. Zamień na `myaks` nazwę, do której jest dołączony klaster AKS. Zamień na `myresourcegroup` grupę zasobów, która zawiera obszar roboczy. Zamień `myworkspace` na nazwę obszaru roboczego.
+Aby odłączyć istniejący klaster od obszaru roboczego, użyj następującego polecenia. Zastąp `myaks` nazwą, jako że klaster usługi AKS jest dołączony do obszaru roboczego. Zastąp `myresourcegroup` grupę zasobów zawierającą obszar roboczy. Zastąp `myworkspace` nazwą swojego obszaru roboczego.
 
 ```azurecli
 az ml computetarget detach -n myaks -g myresourcegroup -w myworkspace
@@ -378,16 +378,16 @@ az ml computetarget detach -n myaks -g myresourcegroup -w myworkspace
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-W Azure Machine Learning Studio wybierz pozycję __obliczenia__, __klastry wnioskowania__ i klaster, który chcesz usunąć. Użyj linku __Odłącz__ , aby odłączyć klaster.
+W Azure Machine Learning studio wybierz __pozycję Obliczenia,__ __Klastry wnioskowania__ i klaster, który chcesz usunąć. Użyj __linku Odłącz,__ aby odłączyć klaster.
 
 ---
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 ### <a name="update-the-cluster"></a>Aktualizowanie klastra
 
-Należy ręcznie zastosować aktualizacje Azure Machine Learning składników zainstalowanych w klastrze usługi Azure Kubernetes. 
+Aktualizacje Azure Machine Learning zainstalowanych w klastrze Azure Kubernetes Service muszą być stosowane ręcznie. 
 
-Te aktualizacje można zastosować, odłączając klaster od obszaru roboczego Azure Machine Learning, a następnie dołączając ponownie klaster do obszaru roboczego. Jeśli w klastrze jest włączony protokół TLS, podczas ponownego dołączania klastra należy podać certyfikat TLS/SSL i klucz prywatny. 
+Te aktualizacje można zastosować, odłączając klaster od Azure Machine Learning roboczego, a następnie ponownie dołączyć klaster do obszaru roboczego. Jeśli protokół TLS jest włączony w klastrze, podczas ponownego dołączania klastra należy podać certyfikat TLS/SSL i klucz prywatny. 
 
 ```python
 compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)
@@ -408,18 +408,18 @@ compute_target = ComputeTarget.attach(workspace=ws, name=args.clusterWorkspaceNa
 compute_target.wait_for_completion(show_output=True)
 ```
 
-Jeśli nie masz już certyfikatu TLS/SSL i klucza prywatnego lub używasz certyfikatu wygenerowanego przez Azure Machine Learning, możesz pobrać pliki przed odłączeniem klastra, łącząc się z klastrem przy użyciu `kubectl` i pobierając klucz tajny `azuremlfessl` .
+Jeśli nie masz już certyfikatu TLS/SSL i klucza prywatnego lub używasz certyfikatu wygenerowanego przez usługę Azure Machine Learning, możesz pobrać pliki przed odłączeniu klastra, łącząc się z klastrem przy użyciu narzędzia i pobierając klucz `kubectl` tajny `azuremlfessl` .
 
 ```bash
 kubectl get secret/azuremlfessl -o yaml
 ```
 
 >[!Note]
->Kubernetes przechowuje wpisy tajne w zakodowanym formacie Base-64. `cert.pem` `key.pem` Przed udostępnieniem tych elementów tajnych należy oprzeć na base-64 `attach_config.enable_ssl` . 
+>Kubernetes przechowuje wpisy tajne w formacie zakodowanym w formacie Base-64. Przed dostarczeniem wpisów tajnych do usługi należy zdekodować składniki i wpisów `cert.pem` `key.pem` tajnych w `attach_config.enable_ssl` bazie-64. 
 
-### <a name="webservice-failures"></a>Błędy usługi WebService
+### <a name="webservice-failures"></a>Błędy usługi internetowej
 
-Wiele błędów sieci Web w AKS można debugować, łącząc się z klastrem przy użyciu programu `kubectl` . Możesz uzyskać `kubeconfig.json` dla klastra AKS, uruchamiając
+Wiele błędów usługi sieci Web w u usługi AKS można debugować, łącząc się z klastrem przy użyciu polecenia `kubectl` . Klaster usługi AKS można `kubeconfig.json` uzyskać, uruchamiając
 
 ```azurecli-interactive
 az aks get-credentials -g <rg> -n <aks cluster name>
@@ -427,6 +427,6 @@ az aks get-credentials -g <rg> -n <aks cluster name>
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Korzystanie z usługi Azure RBAC na potrzeby autoryzacji Kubernetes](../aks/manage-azure-rbac.md)
-* [Jak i gdzie należy wdrożyć model](how-to-deploy-and-where.md)
-* [Wdrażanie modelu w klastrze usługi Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
+* [Używanie kontroli RBAC platformy Azure na użytek autoryzacji platformy Kubernetes](../aks/manage-azure-rbac.md)
+* [Jak i gdzie wdrożyć model](how-to-deploy-and-where.md)
+* [Wdrażanie modelu w klastrze Azure Kubernetes Service klastra](how-to-deploy-azure-kubernetes-service.md)

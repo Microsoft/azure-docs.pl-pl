@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 07/12/2019
 ms.author: danlep
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: d81b6f5367efa92c9249956faa058441edf98561
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 70bd79ef944e5918d750a130bd2e2b2c2b656bf4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92755794"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781148"
 ---
 ### <a name="create-a-user-assigned-identity"></a>Tworzenie tożsamości przypisanej przez użytkownika
 
-Utwórz tożsamość o nazwie *myACRTasksId* w subskrypcji za pomocą polecenia [AZ Identity Create][az-identity-create] . Możesz użyć tej samej grupy zasobów, która została wcześniej użyta do utworzenia rejestru kontenerów lub innej.
+Utwórz tożsamość o *nazwie myACRTasksId w* subskrypcji przy użyciu [polecenia az identity create.][az-identity-create] Możesz użyć tej samej grupy zasobów, która została wcześniej użyta do utworzenia rejestru kontenerów, lub innej.
 
 ```azurecli
 az identity create \
@@ -25,7 +25,7 @@ az identity create \
   --name myACRTasksId
 ```
 
-Aby skonfigurować tożsamość przypisaną przez użytkownika w poniższych krokach, użyj polecenia [AZ Identity show][az-identity-show] do przechowywania identyfikatora zasobu tożsamości, identyfikatora podmiotu zabezpieczeń i identyfikatora klienta w zmiennych.
+Aby skonfigurować tożsamość przypisaną przez użytkownika w poniższych krokach, użyj polecenia [az identity show,][az-identity-show] aby zapisać identyfikator zasobu tożsamości, identyfikator podmiotu zabezpieczeń i identyfikator klienta w zmiennych.
 
 ```azurecli
 # Get resource ID of the user-assigned identity
@@ -48,5 +48,5 @@ clientID=$(az identity show \
 ```
 
 <!-- LINKS - Internal -->
-[az-identity-create]: /cli/azure/identity#az-identity-create
-[az-identity-show]: /cli/azure/identity#az-identity-show
+[az-identity-create]: /cli/azure/identity#az_identity_create
+[az-identity-show]: /cli/azure/identity#az_identity_show

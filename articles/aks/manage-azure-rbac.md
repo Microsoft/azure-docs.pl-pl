@@ -1,55 +1,55 @@
 ---
-title: Zarządzanie RBAC platformy Azure w programie Kubernetes z platformy Azure
+title: Zarządzanie RBAC platformy Azure na platformie Kubernetes z platformy Azure
 titleSuffix: Azure Kubernetes Service
-description: Dowiedz się, jak za pomocą usługi Azure Kubernetes Service (AKS) używać uwierzytelniania RBAC platformy Azure dla Kubernetes.
+description: Dowiedz się, jak używać kontroli RBAC platformy Azure na użytek autoryzacji kubernetes z Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 9ce8bc71139b52d690893734435e6bfee090062d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c708a577a1c2e4bb8f7ddff90f458afd0d9e566f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102184376"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783003"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Autoryzacja na platformie Kubernetes przy użyciu kontroli dostępu opartej na rolach platformy Azure (wersja zapoznawcza)
 
-Obecnie można już korzystać ze [zintegrowanego uwierzytelniania między Azure Active Directory (Azure AD) i AKS](managed-aad.md). Po włączeniu ta Integracja umożliwia klientom korzystanie z użytkowników usługi Azure AD, grup lub jednostek usługi jako tematów w Kubernetes RBAC, zobacz [tutaj](azure-ad-rbac.md).
-Ta funkcja zwalnia z konieczności oddzielnego zarządzania tożsamościami i poświadczeniami użytkowników w celu Kubernetes. Jednak nadal trzeba skonfigurować i osobno zarządzać usługą Azure RBAC oraz Kubernetes RBAC. Aby uzyskać więcej informacji na temat uwierzytelniania i autoryzacji za pomocą RBAC w systemie AKS, zobacz [tutaj](concepts-identity.md).
+Obecnie można już korzystać ze zintegrowanego uwierzytelniania między [usługami Azure Active Directory (Azure AD) i AKS.](managed-aad.md) Po włączeniu tej integracji klienci mogą używać użytkowników, grup lub jednostki usługi Azure AD jako tematów w kontroli RBAC na platformie Kubernetes. Więcej informacji można znaleźć [tutaj.](azure-ad-rbac.md)
+Dzięki tej funkcji nie trzeba oddzielnie zarządzać tożsamościami użytkowników i poświadczeniami dla usługi Kubernetes. Jednak nadal trzeba skonfigurować RBAC platformy Azure i kubernetes RBAC oddzielnie oraz zarządzać nimi. Aby uzyskać więcej informacji na temat uwierzytelniania i autoryzacji przy użyciu kontroli dostępu na podstawie ról w u usługi AKS, [zobacz tutaj](concepts-identity.md).
 
-W tym dokumencie opisano nowe podejście, które pozwala na ujednolicone zarządzanie i kontrolę dostępu między zasobami platformy Azure, AKS i zasobami Kubernetes.
+Ten dokument zawiera nowe podejście, które umożliwia ujednolicone zarządzanie zasobami platformy Azure, usługami AKS i platformą Kubernetes oraz kontrolę dostępu do nich.
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
-Możliwość zarządzania RBAC dla zasobów Kubernetes z platformy Azure umożliwia zarządzanie RBAC dla zasobów klastra przy użyciu platformy Azure lub natywnych mechanizmów Kubernetes. Po włączeniu nazwy główne usługi Azure AD będą weryfikowane wyłącznie przez funkcję RBAC platformy Azure, podczas gdy regularni Użytkownicy i konta usług Kubernetes są weryfikowane wyłącznie przez Kubernetes RBAC. Aby uzyskać więcej informacji na temat uwierzytelniania i autoryzacji za pomocą RBAC w systemie AKS, zobacz [tutaj](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview).
+Możliwość zarządzania RBAC dla zasobów platformy Kubernetes z platformy Azure umożliwia zarządzanie RBAC dla zasobów klastra przy użyciu platformy Azure lub natywnych mechanizmów kubernetes. Po włączeniu podmioty zabezpieczeń usługi Azure AD będą weryfikowane wyłącznie przez funkcję RBAC platformy Azure, a zwykłe konta usługi i użytkowników platformy Kubernetes są weryfikowane wyłącznie przez funkcję RBAC platformy Kubernetes. Aby uzyskać więcej informacji na temat uwierzytelniania i autoryzacji przy użyciu kontroli dostępu na podstawie ról w u usługi AKS, [zobacz tutaj](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="prerequisites"></a>Wymagania wstępne 
 - Upewnij się, że masz interfejs wiersza polecenia platformy Azure w wersji 2.9.0 lub nowszej
-- Upewnij się, że `EnableAzureRBACPreview` Flaga funkcji jest włączona.
-- Upewnij się, że jest `aks-preview` zainstalowany [interfejs wiersza polecenia][az-extension-add] w wersji 0.4.55 lub nowszej
-- Upewnij się, że zainstalowano [polecenia kubectl v 1.18.3 +][az-aks-install-cli].
+- Upewnij się, że `EnableAzureRBACPreview` flaga funkcji jest włączona.
+- Upewnij się, że masz `aks-preview` [zainstalowane rozszerzenie interfejsu wiersza][az-extension-add] polecenia w wersji 0.4.55 lub wyższej
+- Upewnij się, że [zainstalowano program kubectl w wersji 1.18.3+][az-aks-install-cli].
 
-#### <a name="register-enableazurerbacpreview-preview-feature"></a>Funkcja rejestracji w `EnableAzureRBACPreview` wersji zapoznawczej
+#### <a name="register-enableazurerbacpreview-preview-feature"></a>Rejestrowanie `EnableAzureRBACPreview` funkcji w wersji zapoznawczej
 
-Aby utworzyć klaster AKS, który używa usługi Azure RBAC do autoryzacji Kubernetes, należy włączyć `EnableAzureRBACPreview` flagę funkcji w ramach subskrypcji.
+Aby utworzyć klaster usługi AKS, który używa kontroli dostępu na podstawie ról platformy Azure dla autoryzacji Kubernetes, należy włączyć `EnableAzureRBACPreview` flagę funkcji w subskrypcji.
 
-Zarejestruj `EnableAzureRBACPreview` flagę funkcji za pomocą polecenia [AZ Feature Register][az-feature-register] , jak pokazano w następującym przykładzie:
+Zarejestruj `EnableAzureRBACPreview` flagę funkcji za pomocą [polecenia az feature register,][az-feature-register] jak pokazano w poniższym przykładzie:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureRBACPreview"
 ```
 
- Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list][az-feature-list] :
+ Stan rejestracji można sprawdzić za pomocą [polecenia az feature list:][az-feature-list]
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAzureRBACPreview')].{Name:name,State:properties.state}"
 ```
 
-Gdy wszystko będzie gotowe, Odśwież rejestrację dostawcy zasobów *Microsoft. ContainerService* za pomocą polecenia [AZ Provider Register][az-provider-register] :
+Gdy wszystko będzie gotowe, odśwież rejestrację dostawcy *zasobów Microsoft.ContainerService* za pomocą [polecenia az provider register:][az-provider-register]
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -57,7 +57,7 @@ az provider register --namespace Microsoft.ContainerService
 
 #### <a name="install-aks-preview-cli-extension"></a>Instalowanie rozszerzenia interfejsu wiersza polecenia aks-preview
 
-Aby utworzyć klaster AKS, który korzysta z usługi Azure RBAC, potrzebujesz rozszerzenia interfejsu wiersza polecenia *AKS-Preview* w wersji 0.4.55 lub nowszej. Zainstaluj rozszerzenie interfejsu wiersza polecenia platformy Azure w *wersji zapoznawczej* przy użyciu poleceń [AZ Extension Add][az-extension-add] lub zainstaluj wszystkie dostępne aktualizacje za pomocą polecenia [AZ Extension Update][az-extension-update] .
+Aby utworzyć klaster usługi AKS, który używa kontroli RBAC platformy Azure, potrzebne jest rozszerzenie interfejsu wiersza polecenia *aks-preview* w wersji 0.4.55 lub wyższej. Zainstaluj rozszerzenie interfejsu wiersza polecenia platformy Azure *aks-preview* za pomocą [polecenia az extension add][az-extension-add] lub zainstaluj wszystkie dostępne aktualizacje za pomocą polecenia az extension [update:][az-extension-update]
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -69,16 +69,16 @@ az extension update --name aks-preview
 
 ### <a name="limitations"></a>Ograniczenia
 
-- Wymaga [zarządzanej integracji z usługą Azure AD](managed-aad.md).
-- Nie możesz zintegrować usługi Azure RBAC z autoryzacją Kubernetes w istniejących klastrach w trakcie okresu zapoznawczego, ale będziesz mieć dostęp do ogólnej dostępności.
-- Użyj [polecenia kubectl v 1.18.3 +][az-aks-install-cli].
-- Jeśli masz CRDs i tworzysz niestandardowe definicje ról, jedynym sposobem na pokrycie CRDs dzisiaj jest zapewnienie `Microsoft.ContainerService/managedClusters/*/read` . AKS pracuje nad zapewnieniem bardziej szczegółowych uprawnień dla CRDs. Dla pozostałych obiektów można użyć określonych grup interfejsów API, na przykład: `Microsoft.ContainerService/apps/deployments/read` .
-- Nowe przypisania ról mogą trwać do 5 min i aktualizować je na serwerze autoryzacji.
-- Wymaga, aby dzierżawa usługi Azure AD była taka sama jak dzierżawa dla subskrypcji zawierającej klaster AKS. 
+- Wymaga [integracji zarządzanej z usługą Azure AD.](managed-aad.md)
+- Podczas wersji zapoznawczej nie można zintegrować funkcji RBAC platformy Azure dla autoryzacji platformy Kubernetes z istniejącymi klastrami, ale będzie to możliwe w wersji ogólnie dostępnej.
+- Użyj [kubectl v1.18.3+][az-aks-install-cli].
+- Jeśli masz definicje CLD i tworzyć niestandardowe definicje ról, jedynym sposobem, aby je obecnie objąć, jest zapewnienie `Microsoft.ContainerService/managedClusters/*/read` . AKS pracuje nad zapewnieniem bardziej szczegółowych uprawnień dla CLD. Dla pozostałych obiektów można użyć określonych grup interfejsu API, na przykład: `Microsoft.ContainerService/apps/deployments/read` .
+- Propagacja nowych przypisań ról może potrwać do 5 minut i może zostać zaktualizowana przez serwer autoryzacji.
+- Wymaga, aby dzierżawa usługi Azure AD skonfigurowana do uwierzytelniania było taka sama jak dzierżawa dla subskrypcji, która zawiera klaster usługi AKS. 
 
-## <a name="create-a-new-cluster-using-azure-rbac-and-managed-azure-ad-integration"></a>Tworzenie nowego klastra przy użyciu funkcji RBAC platformy Azure i zarządzanej integracji usługi Azure AD
+## <a name="create-a-new-cluster-using-azure-rbac-and-managed-azure-ad-integration"></a>Tworzenie nowego klastra przy użyciu kontroli RBAC platformy Azure i zarządzanej integracji z usługą Azure AD
 
-Utwórz klaster AKS przy użyciu następujących poleceń interfejsu wiersza polecenia.
+Utwórz klaster usługi AKS przy użyciu następujących poleceń interfejsu wiersza polecenia.
 
 Utwórz grupę zasobów platformy Azure:
 
@@ -87,14 +87,14 @@ Utwórz grupę zasobów platformy Azure:
 az group create --name myResourceGroup --location westus2
 ```
 
-Utwórz klaster AKS z zarządzaną integracją usługi Azure AD i usługą Azure RBAC na potrzeby autoryzacji Kubernetes.
+Utwórz klaster usługi AKS z zarządzaną integracją usługi Azure AD i usługą Azure RBAC dla autoryzacji kubernetes.
 
 ```azurecli-interactive
 # Create an AKS-managed Azure AD cluster
 az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad --enable-azure-rbac
 ```
 
-Pomyślne utworzenie klastra z integracją z usługą Azure AD i użyciem usługi Azure RBAC na potrzeby autoryzacji Kubernetes ma następującą sekcję w treści odpowiedzi:
+Pomyślne utworzenie klastra z integracją usługi Azure AD i autoryzacją RBAC platformy Azure dla platformy Kubernetes zawiera następującą sekcję w treści odpowiedzi:
 
 ```json
 "AADProfile": {
@@ -115,13 +115,13 @@ AKS udostępnia następujące cztery wbudowane role:
 
 | Rola                                | Opis  |
 |-------------------------------------|--------------|
-| Czytnik RBAC usługi Azure Kubernetes Service  | Zezwala na dostęp tylko do odczytu do wyświetlania większości obiektów w przestrzeni nazw. Nie zezwala na wyświetlanie ról ani powiązań ról. Ta rola nie zezwala na przeglądanie `Secrets` , ponieważ odczytywanie zawartości wpisów tajnych umożliwia dostęp do poświadczeń usługi ServiceAccount w przestrzeni nazw, co umożliwia dostęp do interfejsu API jako dowolne ServiceAccount w przestrzeni nazw (w formie eskalacji uprawnień).  |
-| Składnik zapisywania RBAC usługi Azure Kubernetes Service | Zezwala na dostęp do odczytu/zapisu do większości obiektów w przestrzeni nazw. Ta rola nie zezwala na przeglądanie ani modyfikowanie ról ani powiązań ról. Jednak ta rola pozwala uzyskać dostęp do `Secrets` i uruchamiać zasobniki jako dowolne ServiceAccount w przestrzeni nazw, dzięki czemu można je wykorzystać do uzyskania poziomów dostępu interfejsu API dowolnego konta ServiceAccount w przestrzeni nazw. |
-| Administrator RBAC usługi Azure Kubernetes Service  | Zezwala na dostęp administratora, który ma być przyznany w przestrzeni nazw. Zezwala na dostęp do odczytu/zapisu do większości zasobów w przestrzeni nazw (lub zakresie klastra), w tym możliwość tworzenia ról i powiązań ról w przestrzeni nazw. Ta rola nie zezwala na dostęp do zapisu do przydziału zasobów ani do samego obszaru nazw. |
-| Administrator klastra RBAC usługi Azure Kubernetes Service  | Zezwala na dostęp administratora do wykonywania dowolnych akcji względem dowolnego zasobu. Zapewnia pełną kontrolę nad każdym zasobem w klastrze i we wszystkich przestrzeniach nazw. |
+| Azure Kubernetes Service RBAC Reader  | Zezwala na dostęp tylko do odczytu, aby wyświetlić większość obiektów w przestrzeni nazw. Nie zezwala na wyświetlanie ról ani powiązań ról. Ta rola nie zezwala na wyświetlanie elementu , ponieważ odczytywanie zawartości wpisów tajnych umożliwia dostęp do poświadczeń konta usługi w przestrzeni nazw, co umożliwia dostęp do interfejsu API jako dowolnemu użytkownikowi ServiceAccount w przestrzeni nazw (w formie eskalacji `Secrets` uprawnień)  |
+| Azure Kubernetes Service RBAC Writer | Umożliwia dostęp do odczytu/zapisu do większości obiektów w przestrzeni nazw. Ta rola nie zezwala na wyświetlanie ani modyfikowanie ról ani powiązań ról. Jednak ta rola umożliwia uzyskiwanie dostępu do zasobników i uruchamianie ich jako dowolnego konta usługi w przestrzeni nazw, więc może służyć do uzyskiwania poziomów dostępu do interfejsu API dowolnego konta usługi w przestrzeni `Secrets` nazw. |
+| Azure Kubernetes Service RBAC Admin  | Zezwala na dostęp administratora, który ma zostać przyznany w przestrzeni nazw. Umożliwia dostęp do odczytu/zapisu do większości zasobów w przestrzeni nazw (lub zakresie klastra), w tym na możliwość tworzenia ról i powiązań ról w przestrzeni nazw. Ta rola nie zezwala na dostęp do zapisu do limitu przydziału zasobów ani do samej przestrzeni nazw. |
+| Azure Kubernetes Service RBAC Cluster Admin  | Umożliwia superuzyskonom dostęp do wykonywania dowolnych akcji na dowolnym zasobie. Zapewnia pełną kontrolę nad każdym zasobem w klastrze i we wszystkich przestrzeniach nazw. |
 
 
-Przypisania ról należące do **całego klastra AKS** można wykonać w bloku Access Control (IAM) zasobu klastra na Azure Portal lub przy użyciu poleceń interfejsu wiersza polecenia platformy Azure, jak pokazano poniżej:
+Przypisania ról w zakresie całego klastra **usługi AKS** można wykonać w bloku Access Control (IAM) zasobu klastra w usłudze Azure Portal lub za pomocą poleceń interfejsu wiersza polecenia platformy Azure, jak pokazano poniżej:
 
 ```bash
 # Get your AKS Resource ID
@@ -132,25 +132,25 @@ AKS_ID=$(az aks show -g MyResourceGroup -n MyManagedCluster --query id -o tsv)
 az role assignment create --role "Azure Kubernetes Service RBAC Admin" --assignee <AAD-ENTITY-ID> --scope $AKS_ID
 ```
 
-gdzie `<AAD-ENTITY-ID>` może być nazwą użytkownika (na przykład), a user@contoso.com nawet ClientID nazwy głównej usługi.
+gdzie może być nazwą użytkownika (na przykład ), a `<AAD-ENTITY-ID>` nawet user@contoso.com clientID jednostki usługi.
 
-Można również utworzyć przypisania ról do zakresu określonej **przestrzeni nazw** w klastrze:
+Można również tworzyć przypisania ról w zakresie określonej przestrzeni **nazw** w klastrze:
 
 ```azurecli-interactive
 az role assignment create --role "Azure Kubernetes Service RBAC Viewer" --assignee <AAD-ENTITY-ID> --scope $AKS_ID/namespaces/<namespace-name>
 ```
 
-Dzisiaj przypisania ról należące do zakresu przestrzeni nazw muszą zostać skonfigurowane za pomocą interfejsu wiersza polecenia platformy Azure.
+Obecnie przypisania ról w zakresie przestrzeni nazw należy skonfigurować za pomocą interfejsu wiersza polecenia platformy Azure.
 
 
 ### <a name="create-custom-roles-definitions"></a>Tworzenie definicji ról niestandardowych
 
-Opcjonalnie możesz utworzyć własną definicję roli, a następnie przypisać ją jak powyżej.
+Opcjonalnie możesz utworzyć własną definicję roli, a następnie przypisać rolę zgodnie z powyższymi informacjami.
 
-Poniżej znajduje się przykład definicji roli, która umożliwia użytkownikowi tylko odczytywanie wdrożeń i nic innego. Pełną listę możliwych akcji można sprawdzić [tutaj](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice).
+Poniżej znajduje się przykład definicji roli, która umożliwia użytkownikowi tylko odczytywanie wdrożeń i nic innego. Pełną listę możliwych akcji można sprawdzić [tutaj.](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice)
 
 
-Skopiuj poniższy kod JSON do pliku o nazwie `deploy-view.json` .
+Skopiuj poniższy plik json do pliku o nazwie `deploy-view.json` .
 
 ```json
 {
@@ -168,47 +168,47 @@ Skopiuj poniższy kod JSON do pliku o nazwie `deploy-view.json` .
 }
 ```
 
-Zastąp ciąg `<YOUR SUBSCRIPTION ID>` identyfikatorem z subskrypcji, którą możesz uzyskać, uruchamiając polecenie:
+Zastąp `<YOUR SUBSCRIPTION ID>` identyfikatorem subskrypcji, który możesz uzyskać, uruchamiając:
 
 ```azurecli-interactive
 az account show --query id -o tsv
 ```
 
 
-Teraz możemy utworzyć definicję roli, uruchamiając poniższe polecenie z folderu, w którym zapisano `deploy-view.json` :
+Teraz możemy utworzyć definicję roli, uruchamiając poniższe polecenie w folderze, w którym zapisano polecenie `deploy-view.json` :
 
 ```azurecli-interactive
 az role definition create --role-definition @deploy-view.json 
 ```
 
-Teraz, gdy masz definicję roli, możesz ją przypisać do użytkownika lub innej tożsamości, uruchamiając następujące polecenie:
+Teraz, gdy masz już definicję roli, możesz przypisać ją do użytkownika lub innej tożsamości, uruchamiając:
 
 ```azurecli-interactive
 az role assignment create --role "AKS Deployment Viewer" --assignee <AAD-ENTITY-ID> --scope $AKS_ID
 ```
 
-## <a name="use-azure-rbac-for-kubernetes-authorization-with-kubectl"></a>Korzystanie z usługi Azure RBAC na potrzeby autoryzacji Kubernetes przy użyciu `kubectl`
+## <a name="use-azure-rbac-for-kubernetes-authorization-with-kubectl"></a>Używanie kontroli RBAC platformy Azure na użytek autoryzacji Kubernetes za pomocą `kubectl`
 
 > [!NOTE]
-> Upewnij się, że masz najnowszą polecenia kubectl, uruchamiając następujące polecenie:
+> Upewnij się, że masz najnowszą wersję polecenia kubectl, uruchamiając poniższe polecenie:
 >
 > ```azurecli-interactive
 > az aks install-cli
 > ```
 > Może być konieczne uruchomienie go z `sudo` uprawnieniami. 
 
-Teraz masz przypisaną żądaną rolę i uprawnienia. Możesz rozpocząć wywoływanie interfejsu API Kubernetes, na przykład z `kubectl` .
+Teraz, gdy masz przypisaną żądaną rolę i uprawnienia. Możesz rozpocząć wywoływanie interfejsu API Kubernetes, na przykład z `kubectl` .
 
-W tym celu należy najpierw pobrać kubeconfig klastra przy użyciu poniższego polecenia:
+W tym celu najpierw pobierzmy konfigurację kubeconfig klastra przy użyciu poniższego polecenia:
 
 ```azurecli-interactive
 az aks get-credentials -g MyResourceGroup -n MyManagedCluster
 ```
 
 > [!IMPORTANT]
-> Do wykonania powyższych kroków będzie potrzebna wbudowana rola [użytkownika klastra usługi Azure Kubernetes](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) .
+> Aby wykonać powyższy [krok, Azure Kubernetes Service](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) wbudowaną rolę użytkownika klastra klastra.
 
-Teraz możesz użyć polecenia kubectl, aby na przykład wyświetlić listę węzłów w klastrze. Przy pierwszym uruchomieniu należy się zalogować, a kolejne polecenia będą używały odpowiedniego tokenu dostępu.
+Teraz możesz użyć kubectl, aby na przykład wyświetlić listę węzłów w klastrze. Przy pierwszym uruchomieniu będzie konieczne zalogowanie się, a kolejne polecenia będą używać odpowiedniego tokenu dostępu.
 
 ```azurecli-interactive
 kubectl get nodes
@@ -221,9 +221,9 @@ aks-nodepool1-93451573-vmss000002   Ready    agent   3h6m   v1.15.11
 ```
 
 
-## <a name="use-azure-rbac-for-kubernetes-authorization-with-kubelogin"></a>Korzystanie z usługi Azure RBAC na potrzeby autoryzacji Kubernetes przy użyciu `kubelogin`
+## <a name="use-azure-rbac-for-kubernetes-authorization-with-kubelogin"></a>Używanie kontroli RBAC platformy Azure na użytek autoryzacji Kubernetes za pomocą `kubelogin`
 
-Aby odblokować dodatkowe scenariusze, takie jak logowania nieinterakcyjne, starsze `kubectl` wersje lub korzystające z logowania JEDNOkrotnego w wielu klastrach bez konieczności logowania się do nowego klastra, nadano, że token jest nadal ważny, AKS utworzyć wtyczkę exec o nazwie [`kubelogin`](https://github.com/Azure/kubelogin) .
+Aby odblokować dodatkowe scenariusze, takie jak logowania nieinterakcyjne, starsze wersje lub korzystanie z logowania jednokrotnego w wielu klastrach bez konieczności logowania się do nowego klastra, przy przyznaniu, że token jest nadal prawidłowy, usługa AKS utworzyła wtyczkę exec o `kubectl` nazwie [`kubelogin`](https://github.com/Azure/kubelogin) .
 
 Można go użyć, uruchamiając:
 
@@ -232,7 +232,7 @@ export KUBECONFIG=/path/to/kubeconfig
 kubelogin convert-kubeconfig
 ``` 
 
-Po raz pierwszy trzeba będzie zalogować się interaktywnie, podobnie jak w przypadku zwykłych polecenia kubectl, ale następnie nie będzie już potrzebne, nawet w przypadku nowych klastrów usługi Azure AD (o ile token jest nadal ważny).
+Za pierwszym razem musisz zalogować się interaktywnie, tak jak przy użyciu zwykłego narzędzia kubectl, ale później nie będzie już konieczne, nawet w przypadku nowych klastrów usługi Azure AD (o ile token jest nadal ważny).
 
 ```bash
 kubectl get nodes
@@ -247,7 +247,7 @@ aks-nodepool1-93451573-vmss000002   Ready    agent   3h6m   v1.15.11
 
 ## <a name="clean-up"></a>Czyszczenie
 
-### <a name="clean-role-assignment"></a>Wyczyść przypisanie roli
+### <a name="clean-role-assignment"></a>Przypisanie czystej roli
 
 ```azurecli-interactive
 az role assignment list --scope $AKS_ID --query [].id -o tsv
@@ -258,13 +258,13 @@ Skopiuj identyfikator lub identyfikatory ze wszystkich przypisań, a następnie.
 az role assignment delete --ids <LIST OF ASSIGNMENT IDS>
 ```
 
-### <a name="clean-up-role-definition"></a>Wyczyść definicję roli
+### <a name="clean-up-role-definition"></a>Czyszczenie definicji roli
 
 ```azurecli-interactive
 az role definition delete -n "AKS Deployment Viewer"
 ```
 
-### <a name="delete-cluster-and-resource-group"></a>Usuń klaster i grupę zasobów
+### <a name="delete-cluster-and-resource-group"></a>Usuwanie klastra i grupy zasobów
 
 ```azurecli-interactive
 az group delete -n MyResourceGroup
@@ -272,17 +272,17 @@ az group delete -n MyResourceGroup
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Przeczytaj więcej na temat uwierzytelniania AKS, autoryzacji, Kubernetes RBAC i usługi Azure RBAC [tutaj](concepts-identity.md).
-- Więcej informacji na temat usługi Azure RBAC można znaleźć [tutaj](../role-based-access-control/overview.md).
-- Przeczytaj więcej na temat wszystkich akcji, których można użyć, aby szczegółowo zdefiniować niestandardowe role platformy Azure na [potrzeby autoryzacji Kubernetes](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice).
+- Więcej informacji na temat uwierzytelniania, autoryzacji, kontroli RBAC na platformie Kubernetes i kontroli dostępu na platformie Azure znajdziesz [tutaj.](concepts-identity.md)
+- Więcej informacji na temat kontroli RBAC na platformie Azure [znajdziesz tutaj.](../role-based-access-control/overview.md)
+- Więcej informacji o wszystkich akcjach, których można użyć do szczegółowego definiowania niestandardowych ról platformy Azure na użytek autoryzacji kubernetes, [znajdziesz tutaj.](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice)
 
 
 <!-- LINKS - Internal -->
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
+[az-provider-register]: /cli/azure/provider#az_provider_register

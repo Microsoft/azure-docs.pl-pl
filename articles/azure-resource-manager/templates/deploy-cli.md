@@ -1,72 +1,72 @@
 ---
 title: Wdrażanie zasobów przy użyciu interfejsu wiersza polecenia platformy Azure i szablonu
-description: Użyj Azure Resource Manager i interfejsu wiersza polecenia platformy Azure, aby wdrożyć zasoby na platformie Azure. Zasoby są zdefiniowane w szablonie Menedżer zasobów lub pliku Bicep.
+description: Wdrażanie Azure Resource Manager na platformie Azure przy użyciu interfejsu wiersza polecenia platformy Azure. Zasoby są definiowane w szablonie Resource Manager lub pliku Bicep.
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: b19dc6cc292306cc796f8c1d8f93b358a079d83b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f616a40f2683268f0cc26314fcc88ecca23bdbcf
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105544438"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782067"
 ---
-# <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Wdrażanie zasobów za pomocą szablonów ARM i interfejsu wiersza polecenia platformy Azure
+# <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Wdrażanie zasobów przy użyciu szablonów usługi ARM i interfejsu wiersza polecenia platformy Azure
 
-W tym artykule wyjaśniono, jak używać interfejsu wiersza polecenia platformy Azure z szablonami Azure Resource Manager (szablony ARM) lub plików Bicep do wdrażania zasobów na platformie Azure. Jeśli nie znasz pojęć związanych z wdrażaniem rozwiązań platformy Azure i zarządzaniem nimi, zobacz [Omówienie wdrażania szablonów](overview.md) lub [Przegląd Bicep](bicep-overview.md).
+W tym artykule wyjaśniono, jak używać interfejsu wiersza polecenia platformy Azure z szablonami Azure Resource Manager (szablony ARM) lub plikami Bicep w celu wdrożenia zasobów na platformie Azure. Jeśli nie znasz pojęć związanych z wdrażaniem rozwiązań platformy Azure i zarządzaniem nimi, zobacz Omówienie wdrażania szablonów [lub](overview.md) Omówienie [rozwiązania Bicep](bicep-overview.md).
 
-Polecenia wdrożenia zmieniły się w interfejsie CLI platformy Azure w wersji 2.2.0. Przykłady w tym artykule wymagają interfejsu wiersza polecenia platformy Azure w wersji 2.2.0 lub nowszej. Do wdrożenia plików Bicep wymagany jest [interfejs wiersza polecenia platformy Azure w wersji 2.20.0 lub nowszej](/cli/azure/install-azure-cli).
+Polecenia wdrażania zostały zmienione w interfejsie wiersza polecenia platformy Azure w wersji 2.2.0. Przykłady w tym artykule wymagają interfejsu wiersza polecenia platformy Azure w wersji 2.2.0 lub nowszej. Do wdrożenia plików Bicep potrzebny jest interfejs wiersza polecenia platformy Azure w wersji [2.20.0 lub nowszej.](/cli/azure/install-azure-cli)
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-Jeśli nie masz zainstalowanego interfejsu wiersza polecenia platformy Azure, możesz użyć Azure Cloud Shell. Aby uzyskać więcej informacji, zobacz [wdrażanie szablonów ARM z Azure Cloud Shell](deploy-cloud-shell.md).
+Jeśli nie masz zainstalowanego interfejsu wiersza polecenia platformy Azure, możesz użyć Azure Cloud Shell. Aby uzyskać więcej informacji, zobacz [Wdrażanie szablonów usługi ARM z Azure Cloud Shell](deploy-cloud-shell.md).
 
 ## <a name="deployment-scope"></a>Zakres wdrożenia
 
-Wdrożenie można określić w grupie zasobów, subskrypcji, grupie zarządzania lub dzierżawie. W zależności od zakresu wdrożenia używane są inne polecenia.
+Wdrożenie można ukierunkować na grupę zasobów, subskrypcję, grupę zarządzania lub dzierżawę. W zależności od zakresu wdrożenia są dostępne różne polecenia.
 
-* Aby wdrożyć w **grupie zasobów**, użyj [AZ Deployment Group Create](/cli/azure/deployment/group#az-deployment-group-create):
+* Aby wdrożyć w **grupie zasobów,** użyj [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create):
 
   ```azurecli-interactive
   az deployment group create --resource-group <resource-group-name> --template-file <path-to-template-or-bicep>
   ```
 
-* Aby wdrożyć w **ramach subskrypcji**, użyj polecenie [AZ Deployment sub Create](/cli/azure/deployment/sub#az-deployment-sub-create):
+* Aby wdrożyć w **subskrypcji,** użyj [az deployment sub create](/cli/azure/deployment/sub#az_deployment_sub_create):
 
   ```azurecli-interactive
   az deployment sub create --location <location> --template-file <path-to-template-or-bicep>
   ```
 
-  Aby uzyskać więcej informacji o wdrożeniach na poziomie subskrypcji, zobacz [Tworzenie grup zasobów i zasobów na poziomie subskrypcji](deploy-to-subscription.md).
+  Aby uzyskać więcej informacji na temat wdrożeń na poziomie subskrypcji, zobacz [Tworzenie grup zasobów i zasobów na poziomie subskrypcji.](deploy-to-subscription.md)
 
-* Aby wdrożyć w **grupie zarządzania**, użyj [AZ Deployment mg Create](/cli/azure/deployment/mg#az-deployment-mg-create):
+* Aby wdrożyć w **grupie zarządzania,** użyj [az deployment mg create](/cli/azure/deployment/mg#az_deployment_mg_create):
 
   ```azurecli-interactive
   az deployment mg create --location <location> --template-file <path-to-template-or-bicep>
   ```
 
-  Aby uzyskać więcej informacji o wdrożeniach na poziomie grupy zarządzania, zobacz [Tworzenie zasobów na poziomie grupy zarządzania](deploy-to-management-group.md).
+  Aby uzyskać więcej informacji na temat wdrożeń na poziomie grupy zarządzania, zobacz [Tworzenie zasobów na poziomie grupy zarządzania](deploy-to-management-group.md).
 
-* Aby wdrożyć aplikację w **dzierżawie**, użyj polecenie [AZ Deployment dzierżawca Create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
+* Aby wdrożyć w **dzierżawie,** użyj [az deployment tenant create](/cli/azure/deployment/tenant#az_deployment_tenant_create):
 
   ```azurecli-interactive
   az deployment tenant create --location <location> --template-file <path-to-template-or-bicep>
   ```
 
-  Aby uzyskać więcej informacji na temat wdrożeń na poziomie dzierżawy, zobacz [Tworzenie zasobów na poziomie dzierżawy](deploy-to-tenant.md).
+  Aby uzyskać więcej informacji na temat wdrożeń na poziomie dzierżawy, zobacz [Tworzenie zasobów na poziomie dzierżawy.](deploy-to-tenant.md)
 
 Dla każdego zakresu użytkownik wdrażający szablon lub plik Bicep musi mieć uprawnienia wymagane do tworzenia zasobów.
 
-## <a name="deploy-local-template-or-bicep-file"></a>Wdróż plik szablonu lokalnego lub Bicep
+## <a name="deploy-local-template-or-bicep-file"></a>Wdrażanie szablonu lokalnego lub pliku Bicep
 
-Szablon można wdrożyć z komputera lokalnego lub z niego, który jest przechowywany zewnętrznie. W tej sekcji opisano Wdrażanie szablonu lokalnego.
+Szablon można wdrożyć z komputera lokalnego lub z komputera przechowywanego zewnętrznie. W tej sekcji opisano wdrażanie szablonu lokalnego.
 
-Jeśli wdrażasz w grupie zasobów, która nie istnieje, Utwórz grupę zasobów. Nazwa grupy zasobów może zawierać tylko znaki alfanumeryczne, kropki, podkreślenia, łączniki i nawiasy. Może składać się z maksymalnie 90 znaków. Nazwa nie może kończyć się kropką.
+Jeśli wdrażasz w grupie zasobów, która nie istnieje, utwórz grupę zasobów. Nazwa grupy zasobów może zawierać tylko znaki alfanumeryczne, kropki, podkreślenia, łączniki i nawiasy. Może mieć do 90 znaków. Nazwa nie może kończyć się okresem.
 
 ```azurecli-interactive
 az group create --name ExampleGroup --location "Central US"
 ```
 
-Aby wdrożyć szablon lokalny lub plik Bicep, użyj `--template-file` parametru w poleceniu Deployment. Poniższy przykład pokazuje również, jak ustawić wartość parametru.
+Aby wdrożyć lokalny szablon lub plik Bicep, użyj `--template-file` parametru w poleceniu wdrożenia. W poniższym przykładzie pokazano również sposób ustawienia wartości parametru.
 
 ```azurecli-interactive
 az deployment group create \
@@ -76,22 +76,22 @@ az deployment group create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-Wdrożenie może potrwać kilka minut. Po zakończeniu zobaczysz komunikat, który zawiera wynik:
+Wdrożenie może potrwać kilka minut. Po zakończeniu zostanie wyświetlony komunikat, który zawiera wynik:
 
 ```output
 "provisioningState": "Succeeded",
 ```
 
-## <a name="deploy-remote-template"></a>Wdróż zdalny szablon
+## <a name="deploy-remote-template"></a>Wdrażanie szablonu zdalnego
 
 > [!NOTE]
-> Obecnie interfejs wiersza polecenia platformy Azure nie obsługuje wdrażania zdalnych plików Bicep. Użyj [interfejsu wiersza polecenia Bicep](./bicep-install.md#development-environment) , aby skompilować plik Bicep do szablonu JSON, a następnie załaduj plik JSON do lokalizacji zdalnej.
+> Obecnie interfejs wiersza polecenia platformy Azure nie obsługuje wdrażania zdalnych plików Bicep. Użyj [interfejsu wiersza polecenia bicep,](./bicep-install.md#development-environment) aby skompilować plik Bicep do szablonu JSON, a następnie załaduj plik JSON do lokalizacji zdalnej.
 
-Zamiast przechowywać szablony ARM na komputerze lokalnym, warto przechowywać je w lokalizacji zewnętrznej. Szablony można przechowywać w repozytorium kontroli źródła (na przykład GitHub). Można je również przechowywać na koncie usługi Azure Storage w celu uzyskania dostępu współdzielonego w organizacji.
+Zamiast przechowywać szablony usługi ARM na komputerze lokalnym, możesz wolisz przechowywać je w lokalizacji zewnętrznej. Szablony można przechowywać w repozytorium kontroli źródła (na przykład GitHub). Można je również przechowywać na koncie usługi Azure Storage w celu uzyskania dostępu współdzielonego w organizacji.
 
 [!INCLUDE [Deploy templates in private GitHub repo](../../../includes/resource-manager-private-github-repo-templates.md)]
 
-Jeśli wdrażasz w grupie zasobów, która nie istnieje, Utwórz grupę zasobów. Nazwa grupy zasobów może zawierać tylko znaki alfanumeryczne, kropki, podkreślenia, łączniki i nawiasy. Może składać się z maksymalnie 90 znaków. Nazwa nie może kończyć się kropką.
+Jeśli wdrażasz w grupie zasobów, która nie istnieje, utwórz grupę zasobów. Nazwa grupy zasobów może zawierać tylko znaki alfanumeryczne, kropki, podkreślenia, łączniki i nawiasy. Może mieć do 90 znaków. Nazwa nie może kończyć się okresem.
 
 ```azurecli-interactive
 az group create --name ExampleGroup --location "Central US"
@@ -107,9 +107,9 @@ az deployment group create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-Poprzedni przykład wymaga publicznie dostępnego identyfikatora URI dla szablonu, który działa w większości scenariuszy, ponieważ szablon nie powinien zawierać poufnych danych. Jeśli musisz określić dane poufne (na przykład hasło administratora), przekaż tę wartość jako bezpieczny parametr. Jeśli jednak chcesz zarządzać dostępem do szablonu, rozważ użycie [specyfikacji szablonu](#deploy-template-spec).
+Poprzedni przykład wymaga publicznie dostępnego dla szablonu URI, który działa w większości scenariuszy, ponieważ szablon nie powinien zawierać poufnych danych. Jeśli musisz określić poufne dane (takie jak hasło administratora), przekaż te wartości jako bezpieczny parametr. Jeśli jednak chcesz zarządzać dostępem do szablonu, rozważ użycie [specyfikacji szablonu](#deploy-template-spec).
 
-Aby wdrożyć zdalne połączone szablony ze ścieżką względną, które są przechowywane na koncie magazynu, użyj, `query-string` Aby określić token sygnatury dostępu współdzielonego:
+Aby wdrożyć zdalne połączone szablony ze ścieżką względną przechowywaną na koncie magazynu, użyj , `query-string` aby określić token SAS:
 
 ```azurecli-interactive
 az deployment group create \
@@ -119,44 +119,44 @@ az deployment group create \
   --query-string $sasToken
 ```
 
-Aby uzyskać więcej informacji, zobacz [Używanie ścieżki względnej dla połączonych szablonów](./linked-templates.md#linked-template).
+Aby uzyskać więcej informacji, zobacz [Używanie ścieżki względnej dla połączonych szablonów.](./linked-templates.md#linked-template)
 
 ## <a name="deployment-name"></a>Nazwa wdrożenia
 
-Podczas wdrażania szablonu ARM można nadać nazwę wdrożenie. Ta nazwa może pomóc w pobraniu wdrożenia z historii wdrażania. Jeśli nie podano nazwy wdrożenia, zostanie użyta nazwa pliku szablonu. Na przykład jeśli wdrażasz szablon o nazwie `azuredeploy.json` i nie określisz nazwy wdrożenia, wdrożenie ma nazwę `azuredeploy` .
+Podczas wdrażania szablonu usługi ARM można nadać nazwę wdrożenia. Ta nazwa może ułatwić pobranie wdrożenia z historii wdrożenia. Jeśli nie po podaj nazwy wdrożenia, zostanie użyta nazwa pliku szablonu. Jeśli na przykład wdrożysz szablon o nazwie i nie określisz nazwy `azuredeploy.json` wdrożenia, wdrożenie będzie nosiło nazwę `azuredeploy` .
 
-Za każdym razem, gdy uruchamiasz wdrożenie, do historii wdrożenia grupy zasobów zostanie dodany wpis z nazwą wdrożenia. Jeśli zostanie uruchomione inne wdrożenie i nastąpi taka sama nazwa, wcześniejszy wpis zostanie zastąpiony bieżącym wdrożeniem. Jeśli chcesz zachować unikatowe wpisy w historii wdrożenia, nadaj każdemu wdrożeniu unikatową nazwę.
+Za każdym razem, gdy uruchamiasz wdrożenie, do historii wdrażania grupy zasobów jest dodawany wpis o nazwie wdrożenia. Jeśli zostanie uruchomione inne wdrożenie i nadasz mu taką samą nazwę, wcześniejszy wpis zostanie zastąpiony bieżącym wdrożeniem. Jeśli chcesz zachować unikatowe wpisy w historii wdrażania, nadaj każdemu wdrożeniu unikatową nazwę.
 
-Aby utworzyć unikatową nazwę, można przypisać liczbę losową.
+Aby utworzyć unikatową nazwę, możesz przypisać liczbę losową.
 
 ```azurecli-interactive
 deploymentName='ExampleDeployment'$RANDOM
 ```
 
-Lub Dodaj wartość daty.
+Możesz też dodać wartość daty.
 
 ```azurecli-interactive
 deploymentName='ExampleDeployment'$(date +"%d-%b-%Y")
 ```
 
-W przypadku uruchamiania współbieżnych wdrożeń w tej samej grupie zasobów o tej samej nazwie wdrożenia zostanie wykonane tylko ostatnie wdrożenie. Wszystkie wdrożenia o tej samej nazwie, które nie zostały zakończone, są zastępowane przez ostatnie wdrożenie. Jeśli na przykład zostanie uruchomione wdrożenie o nazwie, `newStorage` które wdraża konto magazynu o nazwie `storage1` , a w tym samym czasie zostanie uruchomione inne wdrożenie o nazwie, `newStorage` które wdraża konto magazynu o nazwie `storage2` , zostanie wdrożone tylko jedno konto magazynu. Utworzone konto magazynu ma nazwę `storage2` .
+Jeśli współbieżne wdrożenia są uruchamiane w tej samej grupie zasobów o tej samej nazwie wdrożenia, ukończone jest tylko ostatnie wdrożenie. Wszystkie wdrożenia o tej samej nazwie, które nie zostały ukończone, są zastępowane przez ostatnie wdrożenie. Jeśli na przykład uruchamiasz wdrożenie o nazwie , które wdraża konto magazynu o nazwie , a jednocześnie uruchamiasz inne wdrożenie o nazwie , które wdraża konto magazynu o nazwie , wdrażasz tylko jedno `newStorage` `storage1` konto `newStorage` `storage2` magazynu. Wynikowe konto magazynu ma nazwę `storage2` .
 
-Jeśli jednak zostanie uruchomione wdrożenie o nazwie, `newStorage` które wdraża konto magazynu o nazwie `storage1` i natychmiast po jego zakończeniu uruchomisz inne wdrożenie o nazwie, `newStorage` które wdraża konto magazynu o nazwie `storage2` , masz dwa konta magazynu. Jeden z nich ma nazwę `storage1` , a drugi o nazwie `storage2` . Jednak w historii wdrożenia znajduje się tylko jeden wpis.
+Jeśli jednak uruchamiasz wdrożenie o nazwie , które wdraża konto magazynu o nazwie , a natychmiast po jego zakończeniu uruchamiasz kolejne wdrożenie o nazwie , które wdraża konto magazynu o nazwie , masz dwa `newStorage` `storage1` konta `newStorage` `storage2` magazynu. Jeden ma nazwę `storage1` , a drugi o nazwie `storage2` . Jednak w historii wdrażania jest tylko jeden wpis.
 
-W przypadku określenia unikatowej nazwy dla każdego wdrożenia można uruchomić je współbieżnie bez konfliktu. W przypadku uruchomienia wdrożenia o nazwie, `newStorage1` które wdraża konto magazynu o nazwie `storage1` i w tym samym czasie, należy uruchomić inne wdrożenie o nazwie, `newStorage2` które wdraża konto magazynu o nazwie `storage2` , istnieją dwa konta magazynu i dwa wpisy w historii wdrażania.
+Po określeniu unikatowej nazwy dla każdego wdrożenia można uruchamiać je współbieżnie bez konfliktu. Jeśli uruchamiasz wdrożenie o nazwie , które wdraża konto magazynu o nazwie , a jednocześnie uruchamiasz inne wdrożenie o nazwie , które wdraża konto magazynu o nazwie , wówczas w historii wdrażania masz dwa konta magazynu i dwa `newStorage1` `storage1` `newStorage2` `storage2` wpisy.
 
-Aby uniknąć konfliktów z jednoczesnymi wdrożeniami i zapewnić unikatowe wpisy w historii wdrożenia, należy nadać każdemu wdrożeniu unikatową nazwę.
+Aby uniknąć konfliktów z wdrożeniami współbieżnych i zapewnić unikatowe wpisy w historii wdrażania, nadaj każdemu wdrożeniu unikatową nazwę.
 
-## <a name="deploy-template-spec"></a>Wdróż specyfikację szablonu
+## <a name="deploy-template-spec"></a>Wdrażanie specyfikacji szablonu
 
 > [!NOTE]
-> Obecnie interfejs wiersza polecenia platformy Azure nie obsługuje tworzenia specyfikacji szablonu przez udostępnienie plików Bicep. Można jednak utworzyć plik Bicep z zasobem [Microsoft. resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) w celu wdrożenia specyfikacji szablonu. Oto [przykład](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep).
+> Obecnie interfejs wiersza polecenia platformy Azure nie obsługuje tworzenia specyfikacji szablonu przez udostępnianie plików Bicep. Można jednak utworzyć plik Bicep z zasobem [Microsoft.Resources/templateSpecs,](/azure/templates/microsoft.resources/templatespecs) aby wdrożyć specyfikację szablonu. Oto [przykład](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep).
 
-Zamiast wdrażać szablon lokalny lub zdalny, można utworzyć [specyfikację szablonu](template-specs.md). Specyfikacja szablonu jest zasobem w subskrypcji platformy Azure, który zawiera szablon ARM. Ułatwia to bezpieczne udostępnianie szablonu użytkownikom w organizacji. Za pomocą kontroli dostępu opartej na rolach (Azure RBAC) można udzielić dostępu do specyfikacji szablonu. Ta funkcja jest obecnie dostępna w wersji zapoznawczej.
+Zamiast wdrażać szablon lokalny lub zdalny, można utworzyć [specyfikację szablonu](template-specs.md). Specyfikacja szablonu to zasób w subskrypcji platformy Azure, który zawiera szablon usługi ARM. Ułatwia bezpieczne udostępnianie szablonu użytkownikom w organizacji. Aby udzielić dostępu do specyfikacji szablonu, należy użyć kontroli dostępu opartej na rolach (RBAC) platformy Azure. Ta funkcja jest obecnie dostępna w wersji zapoznawczej.
 
-W poniższych przykładach pokazano, jak utworzyć i wdrożyć specyfikację szablonu.
+Poniższe przykłady pokazują, jak utworzyć i wdrożyć specyfikację szablonu.
 
-Najpierw utwórz specyfikację szablonu, podając szablon ARM.
+Najpierw utwórz specyfikację szablonu, podając szablon usługi ARM.
 
 ```azurecli
 az ts create \
@@ -167,7 +167,7 @@ az ts create \
   --template-file "./mainTemplate.json"
 ```
 
-Następnie Pobierz identyfikator specyfikacji szablonu i Wdróż go.
+Następnie pobierz identyfikator specyfikacji szablonu i wdaj go.
 
 ```azurecli
 id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
@@ -177,19 +177,19 @@ az deployment group create \
   --template-spec $id
 ```
 
-Aby uzyskać więcej informacji, zobacz [Azure Resource Manager szablonu specyfikacji (wersja zapoznawcza)](template-specs.md).
+Aby uzyskać więcej informacji, [zobacz Azure Resource Manager szablonu (wersja zapoznawcza).](template-specs.md)
 
 ## <a name="preview-changes"></a>Podgląd zmian
 
-Przed wdrożeniem szablonu można wyświetlić podgląd zmian wprowadzonych przez szablon w danym środowisku. Użyj [operacji działania warunkowego](template-deploy-what-if.md) , aby sprawdzić, czy szablon wprowadza zmiany, których oczekujesz. Co-jeśli również sprawdza poprawność szablonu pod kątem błędów.
+Przed wdrożeniem szablonu można wyświetlić podgląd zmian wprowadzonych w środowisku przez szablon. Użyj operacji [what-if,](template-deploy-what-if.md) aby sprawdzić, czy szablon wprowadza spodziewane zmiany. What-if również weryfikuje szablon pod celu sprawdzenia, czy wystąpiły błędy.
 
 ## <a name="parameters"></a>Parametry
 
-Aby przekazać wartości parametrów, można użyć parametrów wbudowanych lub pliku parametrów.
+Aby przekazać wartości parametrów, można użyć parametrów w tekście lub pliku parametrów.
 
 ### <a name="inline-parameters"></a>Parametry wbudowane
 
-Aby przekazać parametry wbudowane, podaj wartości w `parameters` . Na przykład aby przekazać ciąg i tablicę do szablonu w bash Shell, użyj:
+Aby przekazać parametry wbudowane, podaj wartości w parametrze `parameters` . Aby na przykład przekazać ciąg i tablicę do szablonu w powłoce Bash, użyj:
 
 ```azurecli-interactive
 az deployment group create \
@@ -198,9 +198,9 @@ az deployment group create \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
 ```
 
-Jeśli używasz interfejsu wiersza polecenia platformy Azure z wierszem poleceń systemu Windows (CMD) lub PowerShell, Przekaż tablicę w formacie: `exampleArray="['value1','value2']"` .
+Jeśli używasz interfejsu wiersza polecenia platformy Azure z wierszem polecenia systemu Windows (CMD) lub programem PowerShell, przekaż tablicę w formacie: `exampleArray="['value1','value2']"` .
 
-Możesz również pobrać zawartość pliku i podać tę zawartość jako parametr wbudowany.
+Możesz również pobrać zawartość pliku i podać ją jako parametr w tekście.
 
 ```azurecli-interactive
 az deployment group create \
@@ -209,9 +209,9 @@ az deployment group create \
   --parameters exampleString=@stringContent.txt exampleArray=@arrayContent.json
 ```
 
-Pobieranie wartości parametru z pliku jest przydatne, gdy trzeba podać wartości konfiguracyjne. Można na przykład udostępnić [wartości z usługi Cloud-init dla maszyny wirtualnej z systemem Linux](../../virtual-machines/linux/using-cloud-init.md).
+Pobieranie wartości parametru z pliku jest przydatne, gdy trzeba podać wartości konfiguracji. Możesz na przykład podać wartości [cloud-init dla maszyny wirtualnej z systemem Linux.](../../virtual-machines/linux/using-cloud-init.md)
 
-_arrayContent.jsw_ formacie:
+Format _arrayContent.js_ jest:
 
 ```json
 [
@@ -220,7 +220,7 @@ _arrayContent.jsw_ formacie:
 ]
 ```
 
-Aby przekazać obiekt, na przykład w celu ustawienia tagów, użyj formatu JSON. Na przykład szablon może zawierać parametr podobny do tego:
+Aby przekazać obiekt, na przykład w celu ustawienia tagów, użyj kodu JSON. Na przykład szablon może zawierać parametr podobny do tego:
 
 ```json
     "resourceTags": {
@@ -231,7 +231,7 @@ Aby przekazać obiekt, na przykład w celu ustawienia tagów, użyj formatu JSON
     }
 ```
 
-W takim przypadku można przekazać ciąg JSON w celu ustawienia parametru, jak pokazano w następującym skrypcie bash:
+W takim przypadku możesz przekazać ciąg JSON, aby ustawić parametr, jak pokazano w poniższym skrypcie powłoki Bash:
 
 ```bash
 tags='{"Owner":"Contoso","Cost Center":"2345-324"}'
@@ -240,15 +240,15 @@ az deployment group create --name addstorage  --resource-group myResourceGroup \
 --parameters resourceName=abcdef4556 resourceTags="$tags"
 ```
 
-Użyj podwójnych cudzysłowów wokół kodu JSON, które chcesz przekazać do obiektu.
+Wokół kodu JSON, który chcesz przekazać do obiektu, użyj podwójnych cudzysłowów.
 
 ### <a name="parameter-files"></a>Pliki parametrów
 
-Zamiast przekazywania parametrów jako wartości śródwierszowych w skrypcie prostszym może się okazać użycie pliku JSON zawierającego wartości parametrów. Plik parametru musi być plikiem lokalnym. Zewnętrzne pliki parametrów nie są obsługiwane w interfejsie wiersza polecenia platformy Azure. Zarówno szablon ARM, jak i plik Bicep używają plików parametrów JSON.
+Zamiast przekazywania parametrów jako wartości śródwierszowych w skrypcie prostszym może się okazać użycie pliku JSON zawierającego wartości parametrów. Plik parametrów musi być plikiem lokalnym. Pliki parametrów zewnętrznych nie są obsługiwane w interfejsie wiersza polecenia platformy Azure. Zarówno szablon ARM, jak i plik Bicep używają plików parametrów JSON.
 
 Aby uzyskać więcej informacji na temat pliku parametrów, zobacz [Tworzenie pliku parametrów usługi Resource Manager](parameter-files.md).
 
-Aby przekazać lokalny plik parametrów, użyj, `@` Aby określić plik lokalny o nazwie _storage.parameters.json_.
+Aby przekazać plik parametrów lokalnych, użyj , aby określić plik lokalny `@` o nazwiestorage.parameters.jsna _._
 
 ```azurecli-interactive
 az deployment group create \
@@ -260,7 +260,7 @@ az deployment group create \
 
 ## <a name="handle-extended-json-format"></a>Obsługa rozszerzonego formatu JSON
 
-Aby wdrożyć szablon z wielowierszowymi ciągami lub komentarzami przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.3.0 lub starszej, należy użyć `--handle-extended-json-format` przełącznika.  Na przykład:
+Aby wdrożyć szablon z ciągami wielo wierszowymi lub komentarzami przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.3.0 lub starszej, należy użyć `--handle-extended-json-format` przełącznika .  Na przykład:
 
 ```json
 {
@@ -282,7 +282,7 @@ Aby wdrożyć szablon z wielowierszowymi ciągami lub komentarzami przy użyciu 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby wrócić do pomyślnego wdrożenia, gdy wystąpi błąd, zobacz [wycofywanie po pomyślnym wdrożeniu](rollback-on-error.md).
-* Aby określić sposób obsługi zasobów, które istnieją w grupie zasobów, ale nie są zdefiniowane w szablonie, zobacz [Azure Resource Manager trybami wdrożenia](deployment-modes.md).
-* Aby zrozumieć, jak definiować parametry w szablonie, zobacz [Opis struktury i składni szablonów ARM](template-syntax.md).
-* Aby uzyskać wskazówki dotyczące rozwiązywania typowych błędów wdrażania, zobacz [Rozwiązywanie typowych błędów wdrażania platformy Azure przy użyciu Azure Resource Manager](common-deployment-errors.md).
+* Aby wrócić do pomyślnego wdrożenia, gdy wystąpi błąd, zobacz Wycofywanie po [błędzie pomyślnego wdrożenia.](rollback-on-error.md)
+* Aby określić sposób obsługi zasobów, które istnieją w grupie zasobów, ale nie są zdefiniowane w szablonie, zobacz [Azure Resource Manager wdrożenia](deployment-modes.md).
+* Aby zrozumieć, jak definiować parametry w szablonie, zobacz Understand the structure and syntax of ARM templates (Opis struktury [i składni szablonów usługi ARM).](template-syntax.md)
+* Aby uzyskać porady dotyczące rozwiązywania typowych błędów wdrażania, zobacz [Troubleshoot common Azure deployment errors with Azure Resource Manager](common-deployment-errors.md)(Rozwiązywanie typowych błędów wdrażania platformy Azure za pomocą Azure Resource Manager ).

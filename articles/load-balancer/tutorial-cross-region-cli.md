@@ -1,42 +1,42 @@
 ---
-title: 'Samouczek: Tworzenie międzyregionowego modułu równoważenia obciążenia przy użyciu interfejsu wiersza polecenia platformy Azure'
+title: 'Samouczek: tworzenie usługi równoważenia obciążenia między regionami przy użyciu interfejsu wiersza polecenia platformy Azure'
 titleSuffix: Azure Load Balancer
-description: Rozpocznij pracę z tym samouczkiem, wdrażając Azure Load Balancer międzyregionowe za pomocą interfejsu wiersza polecenia platformy Azure.
+description: Rozpoczynanie pracy z tym samouczkiem w celu wdrożenia aplikacji między regionami przy Azure Load Balancer interfejsu wiersza polecenia platformy Azure.
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 03/04/2021
-ms.openlocfilehash: 83efb428a94d49b77ecd923d4868afe034374b5f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ca4134ff25dc9915f256b5a7bdd9404021b60a8e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103225187"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791917"
 ---
-# <a name="tutorial-create-a-cross-region-azure-load-balancer-using-azure-cli"></a>Samouczek: Tworzenie Azure Load Balancer międzyregionowych przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="tutorial-create-a-cross-region-azure-load-balancer-using-azure-cli"></a>Samouczek: tworzenie aplikacji między regionami przy Azure Load Balancer interfejsu wiersza polecenia platformy Azure
 
-Moduł równoważenia obciążenia między regionami gwarantuje, że usługa jest dostępna globalnie w wielu regionach świadczenia usługi Azure. Jeśli jeden region ulegnie awarii, ruch jest kierowany do następnego najbliższego w dobrej kondycji regionalnego modułu równoważenia obciążenia.  
+Usługa równoważenia obciążenia między regionami zapewnia, że usługa jest dostępna globalnie w wielu regionach świadczenia usługi Azure. Jeśli jeden region ulegnie awarii, ruch jest przekierowyny do następnego regionu równoważenia obciążenia o najbliższej dobrej kondycji.  
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Utwórz międzyregionowy moduł równoważenia obciążenia.
+> * Utwórz między regionami równoważenia obciążenia.
 > * Utwórz regułę modułu równoważenia obciążenia.
-> * Utwórz pulę zaplecza zawierającą dwa regionalne moduły równoważenia obciążenia.
-> * Przetestuj moduł równoważenia obciążenia.
+> * Utwórz pulę zaplecza zawierającą dwa regionalne równoważenia obciążenia.
+> * Przetestuj równoważenie obciążenia.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, [](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem utwórz bezpłatne konto.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Subskrypcja platformy Azure.
-- Dwie usługi równoważenia obciążenia platformy Azure w **warstwie Standardowa** z pulami zaplecza wdrożonymi w dwóch różnych regionach świadczenia usługi Azure.
-    - Aby uzyskać informacje na temat tworzenia regionalnego standardowego modułu równoważenia obciążenia i maszyn wirtualnych dla pul zaplecza, zobacz [Szybki Start: Tworzenie publicznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure](quickstart-load-balancer-standard-public-cli.md).
-        - Dołącz nazwy modułów równoważenia obciążenia i maszyn wirtualnych w każdym regionie z **-R1** i **-R2**. 
-- Interfejs wiersza polecenia platformy Azure został zainstalowany lokalnie lub Azure Cloud Shell.
+- Dwie **standardowe sku** usługi Azure Load Balancer z pulami zaplecza wdrożonych w dwóch różnych regionach świadczenia usługi Azure.
+    - Aby uzyskać informacje na temat tworzenia regionalnego standardowego równoważenia obciążenia i maszyn wirtualnych dla pul zaplecza, zobacz Szybki start: tworzenie publicznego równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu interfejsu wiersza [polecenia platformy Azure.](quickstart-load-balancer-standard-public-cli.md)
+        - Dołącz nazwę usługi równoważenia obciążenia i maszyn wirtualnych w każdym regionie za pomocą **-R1** i **-R2.** 
+- Interfejs wiersza polecenia platformy Azure zainstalowany lokalnie lub Azure Cloud Shell.
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten przewodnik Szybki Start będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.28 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i używać go lokalnie, ten przewodnik Szybki start wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.28 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="sign-in-to-azure-cli"></a>Logowanie do interfejsu wiersza polecenia platformy Azure
 
@@ -46,18 +46,18 @@ Zaloguj się do interfejsu wiersza polecenia platformy Azure:
 az login
 ```
 
-## <a name="create-cross-region-load-balancer"></a>Tworzenie międzyregionowego modułu równoważenia obciążenia
+## <a name="create-cross-region-load-balancer"></a>Tworzenie między regionami równoważenia obciążenia
 
-W tej sekcji utworzysz międzyregionowy moduł równoważenia obciążenia, publiczny adres IP i regułę równoważenia obciążenia.
+W tej sekcji utworzysz między regionami usługę równoważenia obciążenia, publiczny adres IP i regułę równoważenia obciążenia.
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
 Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi.
 
-Utwórz grupę zasobów za pomocą [AZ Group Create](/cli/azure/group#az-group-create):
+Utwórz grupę zasobów za pomocą [az group create](/cli/azure/group#az_group_create):
 
-* Nazwana **myResourceGroupLB-CR**.
-* W lokalizacji **zachodniej** .
+* O **nazwie myResourceGroupLB-CR.**
+* W lokalizacji **westus.**
 
 ```azurecli-interactive
   az group create \
@@ -65,13 +65,13 @@ Utwórz grupę zasobów za pomocą [AZ Group Create](/cli/azure/group#az-group-c
     --location westus
 ```
 
-### <a name="create-the-load-balancer-resource"></a>Tworzenie zasobu modułu równoważenia obciążenia
+### <a name="create-the-load-balancer-resource"></a>Tworzenie zasobu równoważenia obciążenia
 
-Utwórz międzyregionowy moduł równoważenia obciążenia za pomocą [AZ Network Cross-region-lb Create](/cli/azure/network/cross-region-lb#az_network_cross_region_lb_create):
+Utwórz usługę równoważenia obciążenia między regionami za pomocą [az network cross-region-lb create:](/cli/azure/network/cross-region-lb#az_network_cross_region_lb_create)
 
-* Nazwana **myLoadBalancer-CR**.
-* Pula frontonu o nazwie Moja **fronton — CR**.
-* Pula zaplecza o nazwie **myBackEndPool-CR**.
+* Nosi **nazwę myLoadBalancer-CR.**
+* Pula frontendu o **nazwie myFrontEnd-CR.**
+* Pula zaplecza o nazwie **myBackEndPool-CR.**
 
 ```azurecli-interactive
   az network cross-region-lb create \
@@ -83,17 +83,17 @@ Utwórz międzyregionowy moduł równoważenia obciążenia za pomocą [AZ Netwo
 
 ### <a name="create-the-load-balancer-rule"></a>Tworzenie reguły modułu równoważenia obciążenia
 
-Reguła modułu równoważenia obciążenia definiuje:
+Reguła równoważenia obciążenia definiuje:
 
-* Konfiguracja adresu IP frontonu dla ruchu przychodzącego.
-* Pula adresów IP zaplecza do odbierania ruchu sieciowego.
+* Konfiguracja adresu IP frontonia dla ruchu przychodzącego.
+* Pula adresów IP zaplecza do odbierania ruchu.
 * Wymagany port źródłowy i docelowy. 
 
-Utwórz regułę modułu równoważenia obciążenia za pomocą elementu [AZ Network Cross-region-lb Rule Create](/cli/azure/network/cross-region-lb/rule#az_network_cross_region_lb_rule_create):
+Utwórz regułę usługi równoważenia obciążenia za pomocą [az network cross-region-lb rule create](/cli/azure/network/cross-region-lb/rule#az_network_cross_region_lb_rule_create):
 
-* O nazwie **myHTTPRule-CR**
-* Nasłuchiwanie na **porcie 80** w puli frontonu **— CR**.
-* Wysyłanie ruchu sieciowego o zrównoważonym obciążeniu do puli adresów zaplecza **myBackEndPool-CR** przy użyciu **portu 80**. 
+* O **nazwie myHTTPRule-CR**
+* Nasłuchuje **na porcie 80** w puli frontonie **myFrontEnd-CR.**
+* Wysyłanie ruchu sieciowego ze zrównoważonym obciążeniem do puli adresów zaplecza **myBackEndPool-CR** przy **użyciu portu 80.** 
 * Protokół **TCP**.
 
 ```azurecli-interactive
@@ -110,18 +110,18 @@ Utwórz regułę modułu równoważenia obciążenia za pomocą elementu [AZ Net
 
 ## <a name="create-backend-pool"></a>Tworzenie puli zaplecza
 
-W tej sekcji dodasz dwa regionalne standardowe usługi równoważenia obciążenia do puli zaplecza modułu równoważenia obciążenia między regionami.
+W tej sekcji dodasz dwa regionalne standardowe równoważenia obciążenia do puli zaplecza między regionami.
 
 > [!IMPORTANT]
-> Aby wykonać te kroki, należy się upewnić, że w subskrypcji wdrożono dwa regionalne moduły równoważenia obciążenia z pulami zaplecza.  Aby uzyskać więcej informacji, zobacz **[Przewodnik Szybki Start: Tworzenie publicznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure](quickstart-load-balancer-standard-public-cli.md)**.
+> Aby wykonać te kroki, upewnij się, że w twojej subskrypcji zostały wdrożone dwa regionalne usługi równoważenia obciążenia z pulami zaplecza.  Aby uzyskać więcej informacji, zobacz Szybki start: tworzenie publicznego równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu interfejsu **[wiersza polecenia platformy Azure.](quickstart-load-balancer-standard-public-cli.md)**
 
-### <a name="add-the-regional-frontends-to-load-balancer"></a>Dodawanie regionalnych frontonów do modułu równoważenia obciążenia
+### <a name="add-the-regional-frontends-to-load-balancer"></a>Dodawanie regionalnych frontendów do równoważenia obciążenia
 
-W tej sekcji umieścisz identyfikatory zasobów dwóch frontonów modułów równoważenia obciążenia na zmienne.  Następnie użyjesz zmiennych, aby dodać frontony do puli adresów zaplecza modułu równoważenia obciążenia między regionami.
+W tej sekcji umieść identyfikatory zasobów dwóch frontoników regionalnych równoważenia obciążenia w zmiennych.  Następnie użyjesz tych zmiennych, aby dodać frontonie do puli adresów zaplecza między regionami równoważenia obciążenia.
 
-Pobierz identyfikatory zasobów przy użyciu [AZ Network lb frontonu-IP show](/cli/azure/network/lb/frontend-ip#az_network_lb_frontend_ip_show).
+Pobierz identyfikatory zasobów za pomocą [az network lb frontend-ip show](/cli/azure/network/lb/frontend-ip#az_network_lb_frontend_ip_show).
 
-Użyj [AZ Network Cross-inregion-lb Address — adres puli Dodaj](/cli/azure/network/cross-region-lb/address-pool/address#az_network_cross_region_lb_address_pool_address_add) , aby dodać frontony umieszczane w zmiennych w puli zaplecza modułu równoważenia obciążenia między regionami:
+Użyj [az network cross-region-lb address-pool address add,](/cli/azure/network/cross-region-lb/address-pool/address#az_network_cross_region_lb_address_pool_address_add) aby dodać frontony umieszczone w zmiennych w puli zaplecza usługi równoważenia obciążenia między regionami:
 
 ```azurecli-interactive
   region1id=$(az network lb frontend-ip show \
@@ -155,9 +155,9 @@ Użyj [AZ Network Cross-inregion-lb Address — adres puli Dodaj](/cli/azure/net
 
 ## <a name="test-the-load-balancer"></a>Testowanie modułu równoważenia obciążenia
 
-W tej sekcji przetestujesz moduł równoważenia obciążenia między regionami. Nastąpi połączenie z publicznym adresem IP w przeglądarce internetowej.  Zatrzymasz maszyny wirtualne w jednym z pul zaplecza modułu równoważenia obciążenia i obserwuj przełączenia w tryb failover.
+W tej sekcji przetestujemy między regionami równoważenia obciążenia. Połączysz się z publicznym adresem IP w przeglądarce internetowej.  Zatrzymasz maszyny wirtualne w jednej z regionalnych pul zaplecza usługi równoważenia obciążenia i zobaczysz, jak jest to używane w przypadku trybu failover.
 
-1. Aby uzyskać publiczny adres IP modułu równoważenia obciążenia, użyj [AZ Network Public-IP show](/cli/azure/network/public-ip#az-network-public-ip-show):
+1. Aby uzyskać publiczny adres IP usługi równoważenia obciążenia, użyj [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show):
 
     ```azurecli-interactive
       az network public-ip show \
@@ -168,13 +168,13 @@ W tej sekcji przetestujesz moduł równoważenia obciążenia między regionami.
     ```
 2. Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki. W przeglądarce jest wyświetlana domyślna strona internetowego serwera usług IIS.
 
-3. Zatrzymaj maszyny wirtualne w puli zaplecza jednego z regionalnych modułów równoważenia obciążenia.
+3. Zatrzymaj maszyny wirtualne w puli zaplecza jednego z regionalnych równoważenia obciążenia.
 
-4. Odśwież przeglądarkę internetową i zaobserwuj tryb failover połączenia z innym regionalnym modułem równoważenia obciążenia.
+4. Odśwież przeglądarkę internetową i obserwuj, jak połączenie jest w stanie failover z innym regionalnym usługą równoważenia obciążenia.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy nie jest już potrzebne, użyj polecenia [AZ Group Delete](/cli/azure/group#az-group-delete) , aby usunąć grupę zasobów, moduł równoważenia obciążenia i wszystkie powiązane zasoby.
+Gdy grupa zasobów, równoważenie obciążenia i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je za pomocą polecenia [az group](/cli/azure/group#az_group_delete) delete.
 
 ```azurecli-interactive
   az group delete \
@@ -185,11 +185,11 @@ Gdy nie jest już potrzebne, użyj polecenia [AZ Group Delete](/cli/azure/group#
 
 W tym samouczku zostały wykonane następujące czynności:
 
-* Utworzono moduł równoważenia obciążenia między regionami.
+* Utworzono między regionami równoważenie obciążenia.
 * Utworzono regułę równoważenia obciążenia.
-* Dodano regionalne moduły równoważenia obciążenia do puli zaplecza międzyregionowego modułu równoważenia obciążenia.
-* Przetestowano moduł równoważenia obciążenia.
+* Dodano regionalne równoważenie obciążenia do puli zaplecza między regionami.
+* Przetestowano równoważenie obciążenia.
 
-Przejdź do następnego artykułu, aby dowiedzieć się, jak to zrobić...
+Zapoznaj się z następnym artykułem, aby dowiedzieć się, jak...
 > [!div class="nextstepaction"]
 > [Równoważenie obciążenia maszyn wirtualnych w różnych strefach dostępności](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

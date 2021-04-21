@@ -1,38 +1,37 @@
 ---
-title: Rejestrowanie Azure Key Vault | Microsoft Docs
-description: Dowiedz się, jak monitorować dostęp do magazynów kluczy, włączając rejestrowanie dla Azure Key Vault, które zapisuje informacje na koncie usługi Azure Storage, które podano.
+title: Azure Key Vault rejestrowania | Microsoft Docs
+description: Dowiedz się, jak monitorować dostęp do magazynów kluczy, włączając rejestrowanie dla magazynu Azure Key Vault, co pozwala zapisywać informacje na podaną przez Ciebie koncie usługi Azure Storage.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 99313cf1248ef5e90d7cd60d528a58c7925298d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5847fcb2cf553e1fcc744877e52dbbdf1f24d992
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102499530"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751836"
 ---
 # <a name="azure-key-vault-logging"></a>Funkcja rejestrowania usługi Azure Key Vault
 
-Po utworzeniu co najmniej jednego magazynu kluczy prawdopodobnie zechcesz monitorować sposób i czas uzyskiwania dostępu do Twoich magazynów kluczy oraz przez kogo. Można to zrobić przez włączenie rejestrowania dla Azure Key Vault, które zapisuje informacje na koncie usługi Azure Storage, które podano. Aby uzyskać wskazówki krok po kroku dotyczące konfigurowania tego ustawienia, zobacz [jak włączyć rejestrowanie Key Vault](howto-logging.md).
+Po utworzeniu co najmniej jednego magazynu kluczy prawdopodobnie będziesz chcieć monitorować sposób i czas dostępu do magazynów kluczy oraz ich użytkowników. Możesz to zrobić, włączając rejestrowanie dla Azure Key Vault, co powoduje zapisanie informacji na podaną przez Ciebie koncie usługi Azure Storage. Aby uzyskać szczegółowe wskazówki dotyczące konfigurowania tej funkcji, zobacz [How to enable Key Vault logging](howto-logging.md)(Jak włączyć rejestrowanie danych).
 
-Możesz uzyskać dostęp do informacji o rejestrowaniu 10 minut (maksymalnie) po operacji magazynu kluczy. W większości przypadków czas będzie krótszy.  Zarządzanie dziennikami na Twoim koncie magazynu zależy od Ciebie:
+Dostęp do informacji rejestrowania można uzyskać co najwyżej 10 minut po operacji magazynu kluczy. W większości przypadków czas będzie krótszy.  Zarządzanie dziennikami na Twoim koncie magazynu zależy od Ciebie:
 
-* Użyj standardowych metod kontroli dostępu platformy Azure na koncie magazynu, aby zabezpieczyć dzienniki przez ograniczenie, kto może uzyskiwać do nich dostęp.
+* Użyj standardowych metod kontroli dostępu platformy Azure na koncie magazynu, aby zabezpieczyć dzienniki przez ograniczenie dostępu do nich.
 * Usuń dzienniki, których już nie chcesz przechowywać na koncie magazynu.
 
-Aby uzyskać przegląd informacji na temat Key Vault, zobacz [co to jest Azure Key Vault?](overview.md). Informacje o tym, gdzie Key Vault są dostępne, można znaleźć na [stronie z cennikiem](https://azure.microsoft.com/pricing/details/key-vault/). Aby uzyskać informacje na temat korzystania z [Azure Monitor Key Vault](../../azure-monitor/insights/key-vault-insights-overview.md).
+Aby uzyskać omówienie Key Vault, zobacz [Co to jest Azure Key Vault?](overview.md). Aby uzyskać informacje o tym, Key Vault jest dostępna, zobacz [stronę cennika](https://azure.microsoft.com/pricing/details/key-vault/). Aby uzyskać informacje na [temat używania Azure Monitor dla Key Vault](../../azure-monitor/insights/key-vault-insights-overview.md).
 
 ## <a name="interpret-your-key-vault-logs"></a>Interpretowanie dzienników usługi Key Vault
 
-Po włączeniu rejestrowania nowy kontener o nazwie **Insights-Logs-auditevent** jest tworzony automatycznie dla określonego konta magazynu. Tego samego konta magazynu można używać do zbierania dzienników dla wielu magazynów kluczy.
+Po włączeniu rejestrowania dla określonego konta magazynu zostanie automatycznie utworzony nowy kontener o nazwie **insights-logs-auditevent.** Tego samego konta magazynu można użyć do zbierania dzienników dla wielu magazynów kluczy.
 
-Poszczególne obiekty blob są przechowywane jako tekst w formacie obiektu blob JSON. Przyjrzyjmy się przykładowym wpisowi dziennika. 
+Poszczególne obiekty blob są przechowywane jako tekst w formacie obiektu blob JSON. Przyjrzyjmy się przykładowej pozycji dziennika. 
 
 ```json
     {
@@ -57,31 +56,31 @@ Poszczególne obiekty blob są przechowywane jako tekst w formacie obiektu blob 
     }
 ```
 
-W poniższej tabeli wymieniono nazwy pól i opisy:
+W poniższej tabeli wymieniono nazwy i opisy pól:
 
 | Nazwa pola | Opis |
 | --- | --- |
-| **pierwszym** |Data i godzina w formacie UTC. |
-| **Identyfikator** |Azure Resource Manager identyfikator zasobu. W przypadku dzienników Key Vault jest to zawsze identyfikator zasobu Key Vault. |
+| **Czas** |Data i godzina w czasie UTC. |
+| **resourceId** |Azure Resource Manager identyfikatora zasobu. W Key Vault dziennikach jest to zawsze identyfikator Key Vault zasobu. |
 | **operationName** |Nazwa operacji zgodnie z opisem w następnej tabeli. |
 | **operationVersion** |Wersja interfejsu API REST żądana przez klienta. |
-| **kategorii** |Typ wyniku. W przypadku dzienników Key Vault `AuditEvent` jest to jedyna dostępna wartość. |
-| **Result** |Wynik żądania interfejsu API REST. |
+| **Kategorii** |Typ wyniku. W Key Vault jest `AuditEvent` pojedynczą dostępną wartością. |
+| **Resulttype** |Wynik żądania interfejsu API REST. |
 | **resultSignature** |Stan HTTP. |
 | **resultDescription** |Dodatkowy opis wyniku, jeśli jest dostępny. |
-| **Milisekundach)** |Czas potrzebny do obsłużenia żądania interfejsu API REST podany w milisekundach. Nie obejmuje opóźnienia sieci, więc czas zmierzony po stronie klienta może być niezgodny z tym czasem. |
-| **callerIpAddress** |Adres IP klienta, który wykonał żądanie. |
-| **korelacj** |Opcjonalny identyfikator GUID, który klient może przekazać w celu skorelowania dzienników po stronie klienta z dziennikami po stronie usługi (Key Vault). |
-| **Identity** |Tożsamość z tokenu, która została przedstawiona w żądaniu interfejsu API REST. Zwykle jest to "użytkownik", "Nazwa główna usługi" lub kombinacja "użytkownik + appId", jak w przypadku żądania, które wynika z Azure PowerShell polecenia cmdlet. |
-| **aœciwoœci** |Informacje, które różnią się w zależności od operacji (**OperationName**). W większości przypadków to pole zawiera informacje o kliencie (ciąg agenta użytkownika przekazaną przez klienta), dokładny identyfikator URI żądania interfejsu API REST i kod stanu HTTP. Ponadto, gdy obiekt jest zwracany w wyniku żądania (na przykład **Create** lub **VaultGet**), zawiera również identyfikator URI klucza (AS `id` ), identyfikator URI magazynu lub identyfikator URI wpisu tajnego. |
+| **durationMs** |Czas potrzebny do obsłużenia żądania interfejsu API REST podany w milisekundach. Nie obejmuje opóźnienia sieci, więc czas zmierzony po stronie klienta może być niezgodny z tym czasem. |
+| **callerIpAddress** |Adres IP klienta, który złożył żądanie. |
+| **Correlationid** |Opcjonalny identyfikator GUID, który klient może przekazać w celu skorelowania dzienników po stronie klienta z dziennikami po stronie usługi (Key Vault). |
+| **Tożsamości** |Tożsamość z tokenu, który został przedstawiony w żądaniu interfejsu API REST. Zazwyczaj jest to "użytkownik", "nazwa główna usługi" lub kombinacja "user+appId", jak w przypadku żądania, które wynika z Azure PowerShell cmdlet. |
+| **Właściwości** |Informacje, które różnią się w zależności od operacji **(operationName).** W większości przypadków to pole zawiera informacje o kliencie (ciąg agenta użytkownika przekazany przez klienta), dokładny identyfikator URI żądania interfejsu API REST i kod stanu HTTP. Ponadto, gdy obiekt jest zwracany w wyniku żądania (na przykład **KeyCreate** lub **VaultGet),** zawiera również identyfikator URI klucza (jako ), identyfikator URI magazynu lub identyfikator URI klucza `id` tajnego. |
 
-Wartości pola **OperationName** są w formacie *ObjectVerb* . Na przykład:
+Wartości **pól operationName** są w *formacie ObjectVerb.* Na przykład:
 
-* Wszystkie operacje magazynu kluczy mają `Vault<action>` Format, taki jak `VaultGet` i `VaultCreate` .
-* Wszystkie operacje na kluczach mają `Key<action>` Format, taki jak `KeySign` i `KeyList` .
-* Wszystkie operacje tajne mają `Secret<action>` Format, taki jak `SecretGet` i `SecretListVersions` .
+* Wszystkie operacje magazynu kluczy mają `Vault<action>` format, taki jak `VaultGet` i `VaultCreate` .
+* Wszystkie operacje klucza mają `Key<action>` format, taki jak `KeySign` i `KeyList` .
+* Wszystkie operacje na kluczu tajnym `Secret<action>` mają format, taki `SecretGet` jak i `SecretListVersions` .
 
-W poniższej tabeli wymieniono wartości **OperationName** i odpowiednie polecenia interfejsu API REST:
+W poniższej tabeli wymieniono **wartości operationName** i odpowiednie polecenia interfejsu API REST:
 
 ### <a name="operation-names-table"></a>Tabela nazw operacji
 
@@ -89,16 +88,16 @@ W poniższej tabeli wymieniono wartości **OperationName** i odpowiednie polecen
 
 | operationName | Polecenie interfejsu API REST |
 | --- | --- |
-| **Authentication** |Uwierzytelnianie za pośrednictwem punktu końcowego Azure Active Directory |
+| **Authentication** |Uwierzytelnianie za pośrednictwem Azure Active Directory końcowego |
 | **VaultGet** |[Pobierz informacje o magazynie kluczy](/rest/api/keyvault/vaults) |
 | **VaultPut** |[Utwórz lub zaktualizuj magazyn kluczy](/rest/api/keyvault/vaults) |
 | **VaultDelete** |[Usuń magazyn kluczy](/rest/api/keyvault/vaults) |
 | **VaultPatch** |[Zaktualizuj magazyn kluczy](/rest/api/keyvault/vaults) |
 | **VaultList** |[Utwórz listę wszystkich magazynów kluczy w grupie zasobów](/rest/api/keyvault/vaults) |
-| **VaultPurge** |[Przeczyść usunięty magazyn](/rest/api/keyvault/vaults/purgedeleted) |
-| **VaultRecover** |Odzyskaj usunięty magazyn|
-| **VaultGetDeleted** |[Pobierz usunięty magazyn](/rest/api/keyvault/vaults/getdeleted) |
-| **VaultListDeleted** |[Wyświetl listę usuniętych magazynów](/rest/api/keyvault/vaults/listdeleted) |
+| **VaultPurge** |[Przeczyszczanie usuniętego magazynu](/rest/api/keyvault/vaults/purgedeleted) |
+| **VaultRecover** |Odzyskiwanie usuniętego magazynu|
+| **VaultGetDeleted** |[Uzyskiwanie usuniętego magazynu](/rest/api/keyvault/vaults/getdeleted) |
+| **VaultListDeleted** |[Lista usuniętych magazynów](/rest/api/keyvault/vaults/listdeleted) |
 | **VaultAccessPolicyChangedEventGridNotification** | Opublikowano zdarzenie zmiany zasad dostępu do magazynu |
 
 # <a name="keys"></a>[Klucze](#tab/Keys)
@@ -118,83 +117,83 @@ W poniższej tabeli wymieniono wartości **OperationName** i odpowiednie polecen
 | **KeyUpdate** |[Zaktualizuj klucz](/rest/api/keyvault/updatekey) |
 | **KeyList** |[Utwórz listę kluczy w magazynie](/rest/api/keyvault/getkeys) |
 | **KeyListVersions** |[Utwórz listę wersji klucza](/rest/api/keyvault/getkeyversions) |
-| **Przeczyszczanie** |[Przeczyszczanie klucza](/rest/api/keyvault/purgedeletedkey) |
+| **Kluczpurge** |[Przeczyszczanie klucza](/rest/api/keyvault/purgedeletedkey) |
 | **KeyBackup** |[Tworzenie kopii zapasowej klucza](/rest/api/keyvault/backupkey) |
 | **KeyRestore** |[Przywróć klucz](/rest/api/keyvault/restorekey) |
-| **Odzyskiwanie po awarii** |[Odzyskaj klucz](/rest/api/keyvault/recoverdeletedkey) |
-| **KeyGetDeleted** |[Pobierz klucz usunięty](/rest/api/keyvault/getdeletedkey) |
-| **KeyListDeleted** |[Wyświetlanie listy usuniętych kluczy w magazynie](/rest/api/keyvault/getdeletedkeys) |
-| **KeyNearExpiryEventGridNotification** |Opublikowano wydarzenie bliskie wygaśnięcia |
-| **KeyExpiredEventGridNotification** |Opublikowano wygasłe zdarzenie klucza |
+| **KeyRecover** |[Odzyskiwanie klucza](/rest/api/keyvault/recoverdeletedkey) |
+| **Element KeyGetDeleted** |[Uzyskiwanie usuniętego klucza](/rest/api/keyvault/getdeletedkey) |
+| **Element KeyListDeleted** |[Lista usuniętych kluczy w magazynie](/rest/api/keyvault/getdeletedkeys) |
+| **KeyNearExpiryEventGridNotification** |Opublikowano zdarzenie bliskie wygaśnięcia klucza |
+| **KeyExpiredEventGridNotification** |Opublikowano zdarzenie wygasłe klucza |
 
 # <a name="secrets"></a>[Wpisy tajne](#tab/Secrets)
 
 | operationName | Polecenie interfejsu API REST |
 | --- | --- |
 | **SecretSet** |[Utwórz klucz tajny](/rest/api/keyvault/updatecertificate) |
-| **SecretGet** |[Pobierz wpis tajny](/rest/api/keyvault/getsecret) |
+| **SecretGet** |[Uzyskiwanie tajnego](/rest/api/keyvault/getsecret) |
 | **SecretUpdate** |[Zaktualizuj klucz tajny](/rest/api/keyvault/updatesecret) |
 | **SecretDelete** |[Usuń klucz tajny](/rest/api/keyvault/deletesecret) |
 | **SecretList** |[Utwórz listę kluczy tajnych w magazynie](/rest/api/keyvault/getsecrets) |
 | **SecretListVersions** |[Utwórz listę wersji klucza tajnego](/rest/api/keyvault/getsecretversions) |
-| **SecretPurge** |[Przeczyszczanie klucza tajnego](/rest/api/keyvault/purgedeletedsecret) |
-| **SecretBackup** |[Tworzenie kopii zapasowej klucza tajnego](/rest/api/keyvault/backupsecret) |
-| **SecretRestore** |[Przywracanie klucza tajnego](/rest/api/keyvault/restoresecret) |
-| **SecretRecover** |[Odzyskaj klucz tajny](/rest/api/keyvault/recoverdeletedsecret) |
-| **SecretGetDeleted** |[Pobierz usunięty klucz tajny](/rest/api/keyvault/getdeletedsecret) |
-| **SecretListDeleted** |[Wyświetlanie listy usuniętych wpisów tajnych w magazynie](/rest/api/keyvault/getdeletedsecrets) |
-| **SecretNearExpiryEventGridNotification** |Opublikowano wpis tajny po bliskim wygaśnięciu zdarzenia |
-| **SecretExpiredEventGridNotification** |Opublikowano wydarzenie wygasłe dla wpisu tajnego |
+| **SecretPurge** |[Przeczyszczanie tajnego](/rest/api/keyvault/purgedeletedsecret) |
+| **SecretBackup** |[Tworzenie kopii zapasowej tajnego](/rest/api/keyvault/backupsecret) |
+| **SecretRestore** |[Przywracanie tajnego](/rest/api/keyvault/restoresecret) |
+| **SecretRecover** |[Odzyskiwanie tajnego](/rest/api/keyvault/recoverdeletedsecret) |
+| **SecretGetDeleted** |[Uzyskiwanie usuniętego tajnego](/rest/api/keyvault/getdeletedsecret) |
+| **SecretListDeleted** |[Lista usuniętych wpisów tajnych w magazynie](/rest/api/keyvault/getdeletedsecrets) |
+| **SecretNearExpiryEventGridNotification** |Opublikowano zdarzenie tajne bliskie wygaśnięcia |
+| **SecretExpiredEventGridNotification** |Opublikowano zdarzenie wygasłe w kluczu tajnym |
 
 # <a name="certificates"></a>[Certyfikaty](#tab/Cerificates)
 
 | operationName | Polecenie interfejsu API REST |
 | --- | --- |
-| **CertificateGet** |[Uzyskaj informacje na temat certyfikatu](/rest/api/keyvault/getcertificate) |
-| **CertificateCreate** |[Utwórz certyfikat](/rest/api/keyvault/createcertificate) |
+| **CertificateGet** |[Uzyskiwanie informacji o certyfikacie](/rest/api/keyvault/getcertificate) |
+| **CertificateCreate** |[Tworzenie certyfikatu](/rest/api/keyvault/createcertificate) |
 | **CertificateImport** |[Importowanie certyfikatu do magazynu](/rest/api/keyvault/importcertificate) |
 | **CertificateUpdate** |[Aktualizowanie certyfikatu](/rest/api/keyvault/updatecertificate) |
-| **CertificateList** |[Wyświetlanie listy certyfikatów w magazynie](/rest/api/keyvault/getcertificates) |
-| **CertificateListVersions** |[Wyświetl listę wersji certyfikatu](/rest/api/keyvault/getcertificateversions) |
+| **Lista certyfikatów** |[Lista certyfikatów w magazynie](/rest/api/keyvault/getcertificates) |
+| **CertificateListVersions** |[Lista wersji certyfikatu](/rest/api/keyvault/getcertificateversions) |
 | **CertificateDelete** |[Usuwanie certyfikatu](/rest/api/keyvault/deletecertificate) |
-| **CertificatePurge** |[Przeczyść certyfikat](/rest/api/keyvault/purgedeletedcertificate) |
+| **CertificatePurge** |[Przeczyszczanie certyfikatu](/rest/api/keyvault/purgedeletedcertificate) |
 | **CertificateBackup** |[Tworzenie kopii zapasowej certyfikatu](/rest/api/keyvault/backupcertificate) |
-| **CertificateRestore** |[Przywracanie certyfikatu](/rest/api/keyvault/restorecertificate) |
+| **Magazyn certyfikatów** |[Przywracanie certyfikatu](/rest/api/keyvault/restorecertificate) |
 | **CertificateRecover** |[Odzyskiwanie certyfikatu](/rest/api/keyvault/recoverdeletedcertificate) |
-| **CertificateGetDeleted** |[Pobierz usunięty certyfikat](/rest/api/keyvault/getdeletedcertificate) |
-| **CertificateListDeleted** |[Wyświetlanie listy usuniętych certyfikatów w magazynie](/rest/api/keyvault/getdeletedcertificates) |
-| **CertificatePolicyGet** |[Pobierz zasady certyfikatów](/rest/api/keyvault/getcertificatepolicy) |
+| **CertificateGetDeleted** |[Uzyskiwanie usuniętego certyfikatu](/rest/api/keyvault/getdeletedcertificate) |
+| **CertificateListDeleted** |[Lista usuniętych certyfikatów w magazynie](/rest/api/keyvault/getdeletedcertificates) |
+| **CertificatePolicyGet** |[Uzyskiwanie zasad certyfikatów](/rest/api/keyvault/getcertificatepolicy) |
 | **CertificatePolicyUpdate** |[Aktualizowanie zasad certyfikatów](/rest/api/keyvault/updatecertificatepolicy) |
 | **CertificatePolicySet** |[Tworzenie zasad certyfikatów](/rest/api/keyvault/createcertificate) |
-| **CertificateContactsGet** |[Pobierz kontakty certyfikatu](/rest/api/keyvault/getcertificatecontacts) |
+| **CertificateContactsGet** |[Uzyskiwanie kontaktów z certyfikatem](/rest/api/keyvault/getcertificatecontacts) |
 | **CertificateContactsSet** |[Ustawianie kontaktów certyfikatów](/rest/api/keyvault/setcertificatecontacts) |
-| **CertificateContactsDelete** |[Usuwanie kontaktów z certyfikatem](/rest/api/keyvault/deletecertificatecontacts) |
-| **CertificateIssuerGet** |[Pobieranie wystawcy certyfikatu](/rest/api/keyvault/getcertificateissuer) |
+| **CertificateContactsDelete** |[Usuwanie kontaktów z certyfikatami](/rest/api/keyvault/deletecertificatecontacts) |
+| **CertificateIssuerGet** |[Uzyskiwanie wystawcy certyfikatu](/rest/api/keyvault/getcertificateissuer) |
 | **CertificateIssuerSet** |[Ustawianie wystawcy certyfikatu](/rest/api/keyvault/setcertificateissuer) |
 | **CertificateIssuerUpdate** |[Aktualizowanie wystawcy certyfikatu](/rest/api/keyvault/updatecertificateissuer) |
 | **CertificateIssuerDelete** |[Usuwanie wystawcy certyfikatu](/rest/api/keyvault/deletecertificateissuer) |
-| **CertificateIssuersList** |[Wyświetlanie listy wystawców certyfikatów](/rest/api/keyvault/getcertificateissuers) |
+| **CertificateIssuersList** |[Lista wystawców certyfikatów](/rest/api/keyvault/getcertificateissuers) |
 | **CertificateEnroll** |Rejestrowanie certyfikatu |
-| **CertificateRenew** |Odnów certyfikat |
-| **CertificatePendingGet** |Pobierz oczekujący certyfikat |
+| **CertificateRenew** |Odnawianie certyfikatu |
+| **CertificatePendingGet** |Pobieranie oczekującego certyfikatu |
 | **CertificatePendingMerge** |Oczekiwanie na scalenie certyfikatu |
 | **CertificatePendingUpdate** |Oczekiwanie na aktualizację certyfikatu |
-| **CertificatePendingDelete** |Usuń oczekujący certyfikat |
-| **CertificateNearExpiryEventGridNotification** |Opublikowano wydarzenie bliskie wygaśnięcia certyfikatu |
-| **CertificateExpiredEventGridNotification** |Opublikowano zdarzenie wygasłe certyfikatu |
+| **CertificatePendingDelete** |Usuwanie oczekującego certyfikatu |
+| **CertificateNearExpiryEventGridNotification** |Opublikowano zdarzenie bliskie wygaśnięcia certyfikatu |
+| **CertificateExpiredEventGridNotification** |Opublikowano zdarzenie wygasłego certyfikatu |
 
 ---
 
 ## <a name="use-azure-monitor-logs"></a>Korzystanie z dzienników usługi Azure Monitor
 
-Możesz użyć rozwiązania Key Vault w dziennikach Azure Monitor do przeglądania dzienników Key Vault `AuditEvent` . W dziennikach Azure Monitor są używane zapytania dzienników do analizowania danych i uzyskiwania potrzebnych informacji. 
+Możesz użyć rozwiązania Key Vault w dziennikach Azure Monitor, aby przejrzeć Key Vault `AuditEvent` dzienników. W Azure Monitor dziennikach zapytania dzienników są wykorzystywane do analizowania danych i uzyskania potrzebnych informacji. 
 
-Aby uzyskać więcej informacji, w tym o sposobie konfigurowania tego elementu, zobacz [Azure Key Vault w Azure monitor](../../azure-monitor/insights/key-vault-insights-overview.md).
+Aby uzyskać więcej informacji, w tym na temat sposobu jej skonfigurowania, [zobacz Azure Key Vault w Azure Monitor](../../azure-monitor/insights/key-vault-insights-overview.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Jak włączyć rejestrowanie Key Vault](howto-logging.md)
-- [Monitor platformy Azure](../../azure-monitor/index.yml)
-- Aby zapoznać się z samouczkiem korzystającym Azure Key Vault w aplikacji sieci Web platformy .NET, zobacz [Korzystanie z Azure Key Vault z aplikacji sieci Web](tutorial-net-create-vault-azure-web-app.md).
+- [Jak włączyć Key Vault rejestrowania](howto-logging.md)
+- [Azure Monitor](../../azure-monitor/index.yml)
+- Aby uzyskać samouczek, który używa Azure Key Vault w aplikacji internetowej .NET, zobacz [Azure Key Vault z aplikacji internetowej](tutorial-net-create-vault-azure-web-app.md).
 - Odwołania dotyczące programowania znajdują się w [przewodniku dewelopera usługi Azure Key Vault](developers-guide.md).
-- Aby uzyskać listę poleceń cmdlet Azure PowerShell 1,0 dla Azure Key Vault, zobacz [polecenia cmdlet Azure Key Vault](/powershell/module/az.keyvault/#key_vault).
+- Aby uzyskać listę Azure PowerShell cmdlet w Azure Key Vault 1.0, zobacz [Azure Key Vault cmdlet](/powershell/module/az.keyvault/#key_vault).

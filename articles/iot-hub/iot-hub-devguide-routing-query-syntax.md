@@ -1,6 +1,6 @@
 ---
-title: Zapytanie w usłudze Azure IoT Hub Routing komunikatów | Microsoft Docs
-description: Dowiedz się więcej na temat języka zapytań dotyczących routingu komunikatów IoT Hub, którego możesz użyć, aby zastosować zaawansowane zapytania do wiadomości w celu uzyskania danych, które są dla Ciebie ważne.
+title: Wykonywanie zapytań Azure IoT Hub routingu komunikatów | Microsoft Docs
+description: Dowiedz się więcej IoT Hub zapytań routingu komunikatów, który umożliwia stosowanie rozbudowanych zapytań do komunikatów w celu odbierania ważnych danych.
 author: ash2017
 ms.service: iot-hub
 services: iot-hub
@@ -10,24 +10,24 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 83c290adea02915db1dc52bd359b4d3165611522
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4ba48377d868404ff130ec458e50e2b42fae977
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92547711"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790521"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Składnia zapytania dotyczącego routingu komunikatów usługi IoT Hub
 
-Routing komunikatów umożliwia użytkownikom kierowanie różnych typów danych, takich jak komunikaty telemetryczne urządzenia, zdarzenia cyklu życia urządzenia i zdarzenia zmiany z urządzeń z różnymi punktami końcowymi. Możesz również zastosować zaawansowane zapytania do tych danych przed ich kierowaniem, aby otrzymywać do nich dane. W tym artykule opisano język zapytań routingu komunikatów IoT Hub i przedstawiono kilka typowych wzorców zapytań.
+Routing komunikatów umożliwia użytkownikom kierowanie różnych typów danych, a mianowicie komunikatów telemetrycznych urządzenia, zdarzeń cyklu życia urządzenia i zdarzeń zmiany bliźniaczej reprezentacji urządzenia do różnych punktów końcowych. Możesz również zastosować do tych danych rozbudowane zapytania przed ich kierowaniem w celu odbierania ważnych dla Ciebie danych. W tym artykule opisano IoT Hub zapytań routingu komunikatów i przedstawiono niektóre typowe wzorce zapytań.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Routing komunikatów umożliwia wykonywanie zapytań dotyczących właściwości komunikatów i treści wiadomości, a także znaczników sznurka urządzenia i właściwości sznurów urządzenia. Jeśli treść komunikatu nie jest JSON, routing komunikatów może nadal kierować komunikat, ale nie można zastosować zapytań do treści komunikatu.  Zapytania są opisane jako wyrażenia logiczne, w których wartość logiczna true powoduje, że zapytanie powiodło się, które kieruje wszystkie dane przychodzące, a wartość logiczna false kończy się niepowodzeniem i nie są kierowane żadne dane. Jeśli wyrażenie ma wartość null lub nie jest zdefiniowane, jest traktowane jako FAŁSZ i zostanie wygenerowany błąd w IoT Hub [kierowanie dzienników dzienników zasobów](monitor-iot-hub-reference.md#routes) w przypadku awarii. Składnia zapytania musi być prawidłowa dla trasy, która ma zostać zapisana i oceniona.  
+Routing komunikatów umożliwia wykonywanie zapytań o właściwości komunikatu i treść komunikatu, a także tagi bliźniaczej reprezentacji urządzenia i właściwości bliźniaczej reprezentacji urządzenia. Jeśli treść komunikatu nie jest w notcie JSON, routing komunikatów nadal może przekierowyować komunikat, ale nie można zastosować zapytań do treści komunikatu.  Zapytania są opisane jako wyrażenia logiczne, w których wartość logiczna true sprawia, że zapytanie kończy się powodzeniem, co kieruje wszystkie przychodzące dane, a wartość logiczna false kończy się niepowodzeniem zapytania i żadne dane nie są kierowane. Jeśli wyrażenie ma wartość null lub jest niezdefiniowane, jest ono traktowane jako fałsz i w przypadku awarii zostanie wygenerowany błąd IoT Hub [trasy](monitor-iot-hub-reference.md#routes) dzienników zasobów. Składnia zapytania musi być poprawna, aby trasa została zapisana i oceniona.  
 
-## <a name="message-routing-query-based-on-message-properties"></a>Kwerenda routingu komunikatów oparta na właściwościach komunikatów 
+## <a name="message-routing-query-based-on-message-properties"></a>Zapytanie routingu komunikatów oparte na właściwościach komunikatu 
 
-IoT Hub definiuje [typowy format](iot-hub-devguide-messages-construct.md) dla wszystkich komunikatów przesyłanych z urządzenia do chmury w celu współdziałania z protokołami. IoT Hub komunikat przyjmuje następujący reprezentację w formacie JSON. Właściwości systemu są dodawane dla wszystkich użytkowników i identyfikują zawartość wiadomości. Użytkownicy mogą wybiórczo dodawać do wiadomości właściwości aplikacji. Zalecamy używanie unikatowych nazw właściwości jako IoT Hub komunikatów z urządzenia do chmury nie jest rozróżniana wielkość liter. Na przykład jeśli masz wiele właściwości o tej samej nazwie, IoT Hub wyśle tylko jedną z właściwości.  
+W IoT Hub zdefiniowano wspólny [format](iot-hub-devguide-messages-construct.md) dla wszystkich komunikatów z urządzenia do chmury w celu współdziałania między protokołami. IoT Hub przyjmuje następującą reprezentację komunikatu w danych JSON. Właściwości systemu są dodawane dla wszystkich użytkowników i identyfikują zawartość komunikatu. Użytkownicy mogą selektywnie dodawać właściwości aplikacji do komunikatu. Zalecamy używanie unikatowych nazw właściwości, ponieważ IoT Hub komunikatów z urządzenia do chmury nie jest zróżnicowyana wielkość liter. Jeśli na przykład masz wiele właściwości o tej samej nazwie, IoT Hub wyśle tylko jedną z właściwości.  
 
 ```json
 { 
@@ -55,48 +55,48 @@ Właściwości systemu pomagają identyfikować zawartość i źródło komunika
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| contentType | ciąg | Użytkownik określa typ zawartości komunikatu. Aby zezwolić na zapytanie w treści wiadomości, należy ustawić wartość Application/JSON. |
-| contentEncoding | ciąg | Użytkownik określa typ kodowania wiadomości. Dozwolone wartości to UTF-8, UTF-16, UTF-32, jeśli dla właściwości contentType ustawiono wartość Application/JSON. |
-| iothub-Connection-ID urządzenia | ciąg | Ta wartość jest ustawiana przez IoT Hub i identyfikuje identyfikator urządzenia. Aby wykonać zapytanie, użyj `$connectionDeviceId` . |
-| iothub — enqueuedtime | ciąg | Ta wartość jest ustawiana przez IoT Hub i reprezentuje rzeczywisty czas umieszczenie komunikatu w formacie UTC. Aby wykonać zapytanie, użyj `enqueuedTime` . |
-| DT — schemat elementu | ciąg |  Ta wartość jest ustawiana przez Centrum IoT Hub w komunikatach przesyłanych z urządzenia do chmury. Zawiera identyfikator modelu urządzenia ustawiony w ramach połączenia urządzenia. Aby wykonać zapytanie, użyj `$dt-dataschema` . |
-| DT — temat | ciąg | Nazwa składnika wysyłającego komunikaty z urządzenia do chmury. Aby wykonać zapytanie, użyj `$dt-subject` . |
+| Contenttype | ciąg | Użytkownik określa typ zawartości komunikatu. Aby zezwolić na zapytanie w treści komunikatu, tę wartość należy ustawić na wartość application/JSON. |
+| contentEncoding | ciąg | Użytkownik określa typ kodowania komunikatu. Dozwolone wartości to UTF-8, UTF-16 i UTF-32, jeśli dla właściwości contentType ustawiono wartość application/JSON. |
+| iothub-connection-device-id | ciąg | Ta wartość jest ustawiana IoT Hub i identyfikuje identyfikator urządzenia. Aby odpytować, `$connectionDeviceId` użyj . |
+| iothub-enqueuedtime | ciąg | Ta wartość jest ustawiana IoT Hub i reprezentuje rzeczywisty czas kolejkowania komunikatu w czasie UTC. Aby odpytować, `enqueuedTime` użyj . |
+| dt-dataschema | ciąg |  Ta wartość jest ustawiana przez centrum IoT hub w przypadku komunikatów wysyłanych z urządzenia do chmury. Zawiera on identyfikator modelu urządzenia ustawiony w połączeniu urządzenia. Aby odpytować, `$dt-dataschema` użyj . |
+| podmiot dt | ciąg | Nazwa składnika, który wysyła komunikaty z urządzenia do chmury. Aby odpytować, `$dt-subject` użyj . |
 
-Zgodnie z opisem w komunikatach [IoT Hub](iot-hub-devguide-messages-construct.md)w komunikacie są dostępne dodatkowe właściwości systemu. Oprócz powyższych właściwości w poprzedniej tabeli można także wysyłać zapytania **connectionDeviceId**, **connectionModuleId**.
+Zgodnie z opisem [w IoT Hub komunikatów](iot-hub-devguide-messages-construct.md)istnieją dodatkowe właściwości systemowe w komunikacie. Oprócz powyższych właściwości w poprzedniej tabeli można również utworzyć zapytanie **connectionDeviceId,** **connectionModuleId**.
 
 ### <a name="application-properties"></a>Właściwości aplikacji
 
-Właściwości aplikacji są ciągami zdefiniowanymi przez użytkownika, które można dodać do wiadomości. Te pola są opcjonalne.  
+Właściwości aplikacji to ciągi zdefiniowane przez użytkownika, które można dodać do komunikatu. Te pola są opcjonalne.  
 
 ### <a name="query-expressions"></a>Wyrażenia zapytań
 
-Zapytanie dotyczące właściwości systemu komunikatów musi być poprzedzone `$` symbolem. Zapytania dotyczące właściwości aplikacji są dostępne wraz z ich nazwą i nie powinny być poprzedzone `$` znakiem. Jeśli nazwa właściwości aplikacji zaczyna się od `$` , IoT Hub wyszuka ją we właściwościach systemu i nie zostanie znaleziona, będzie wyglądać we właściwościach aplikacji. Na przykład: 
+Zapytanie dotyczące właściwości systemu komunikatów musi być poprzedzone `$` symbolem . Zapytania dotyczące właściwości aplikacji są dostępne przy użyciu ich nazwy i nie powinny być poprzedzone `$` symbolem . Jeśli nazwa właściwości aplikacji zaczyna się od , IoT Hub wyszuka ją we właściwościach systemu i nie zostanie znaleziona, a następnie wyszuka we `$` właściwościach aplikacji. Na przykład: 
 
-Aby wykonać zapytanie o Właściwość system contentEncoding 
+Aby odpytać o zawartość właściwości systemuEncoding 
 
 ```sql
 $contentEncoding = 'UTF-8'
 ```
 
-Aby wykonać zapytanie o Właściwość processingPath aplikacji:
+Aby kwerendy dotyczące właściwości aplikacji processingPath:
 
 ```sql
 processingPath = 'hot'
 ```
 
-Aby połączyć te zapytania, można użyć wyrażeń i funkcji logicznych:
+Aby połączyć te zapytania, można użyć wyrażeń logicznych i funkcji:
 
 ```sql
 $contentEncoding = 'UTF-8' AND processingPath = 'hot'
 ```
 
-Pełna lista obsługiwanych operatorów i funkcji jest wyświetlana w [wyrażeniach i warunkach](iot-hub-devguide-query-language.md#expressions-and-conditions).
+Pełna lista obsługiwanych operatorów i funkcji jest wyświetlana w [wyrażeniu i warunkach](iot-hub-devguide-query-language.md#expressions-and-conditions).
 
-## <a name="message-routing-query-based-on-message-body"></a>Zapytanie routingu komunikatów na podstawie treści wiadomości
+## <a name="message-routing-query-based-on-message-body"></a>Zapytanie routingu komunikatów oparte na treści komunikatu
 
-Aby włączyć zapytania dotyczące treści wiadomości, komunikat powinien znajdować się w formacie JSON zakodowanym w formacie UTF-8, UTF-16 lub UTF-32. Wartość `contentType` musi być ustawiona na `application/JSON` i `contentEncoding` na jeden z obsługiwanych kodowań UTF we właściwości System. Jeśli te właściwości nie są określone, IoT Hub nie będzie szacować wyrażenia zapytania w treści komunikatu. 
+Aby włączyć wykonywanie zapytań w treści komunikatu, komunikat powinien być w formacie JSON zakodowanym w formacie UTF-8, UTF-16 lub UTF-32. Właściwość `contentType` musi być ustawiona na i na `application/JSON` jedno z `contentEncoding` obsługiwanych kodowań UTF we właściwości systemowej. Jeśli te właściwości nie zostaną określone, IoT Hub nie oceni wyrażenia zapytania w treści komunikatu. 
 
-Poniższy przykład pokazuje, jak utworzyć komunikat z poprawnie sformułowaną i zakodowaną treścią JSON: 
+W poniższym przykładzie pokazano, jak utworzyć komunikat z poprawnie uformowaną i zakodowaną treścią JSON: 
 
 ```javascript
 var messageBody = JSON.stringify(Object.assign({}, {
@@ -146,12 +146,12 @@ deviceClient.sendEvent(message, (err, res) => {
 ```
 
 > [!NOTE] 
-> Pokazuje, jak obsłużyć kodowanie treści w języku JavaScript. Jeśli chcesz zobaczyć przykład w języku C#, Pobierz [przykłady w języku c# dla usługi Azure IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Rozpakuj plik master.zip. Plik programu Visual Studio Solution *SimulatedDevice*. cs zawiera informacje dotyczące kodowania i przesyłania komunikatów do IoT Hub. Jest to ten sam przykład używany do testowania routingu wiadomości, zgodnie z opisem w [samouczku dotyczącym routingu wiadomości](tutorial-routing.md). W dolnej części programu program. cs ma także metodę odczytu w jednym z zakodowanych plików, zdekodować ją i zapisać jako ASCII, aby można było ją odczytać. 
+> W tym przykładzie pokazano, jak obsługiwać kodowanie treści w języku JavaScript. Jeśli chcesz zobaczyć przykład w języku C#, pobierz przykłady dla języka C# usługi [Azure IoT.](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) Rozpakować master.zip pliku. Plik Program.cs rozwiązania Visual Studio *SimulatedDevice* pokazuje, jak kodować i przesyłać komunikaty do IoT Hub. Jest to ten sam przykład używany do testowania routingu komunikatów, jak wyjaśniono w samouczku [Routing komunikatów.](tutorial-routing.md) W dolnej części pliku Program.cs znajduje się również metoda odczytu w jednym z zakodowanych plików, jego dekodowania i zapisu z powrotem jako pliku ASCII, aby można było go odczytać. 
 
 
 ### <a name="query-expressions"></a>Wyrażenia zapytań
 
-Zapytanie o treść wiadomości musi być poprzedzone prefiksem `$body` . W wyrażeniu zapytania można użyć odwołania do treści, odwołania do tablicy treści lub wielu odwołań do treści. Wyrażenie zapytania może także łączyć treść z odwołaniem przy użyciu właściwości systemu komunikatów i komunikatów o właściwościach aplikacji. Na przykład następujące są wszystkie prawidłowe wyrażenia zapytania: 
+Zapytanie w treści komunikatu musi być poprzedzone prefiksem `$body` . W wyrażeniu zapytania można użyć odwołania do treści, odwołania do tablicy treści lub wielu odwołań do treści. Wyrażenie zapytania może również łączyć odwołanie do treści z właściwościami systemu komunikatów i odwołaniem do właściwości aplikacji komunikatów. Na przykład wszystkie prawidłowe wyrażenia zapytania są następujące: 
 
 ```sql
 $body.Weather.HistoricalData[0].Month = 'Feb' 
@@ -169,9 +169,16 @@ length($body.Weather.Location.State) = 2
 $body.Weather.Temperature = 50 AND processingPath = 'hot'
 ```
 
-## <a name="message-routing-query-based-on-device-twin"></a>Zapytanie routingu komunikatów na podstawie sznurka urządzenia 
+> [!NOTE] 
+> Zapytania i funkcje można uruchamiać tylko dla właściwości w treści odwołania. Nie można uruchamiać zapytań ani funkcji dotyczących całego odwołania do treści. Na przykład następujące zapytanie nie jest *obsługiwane* i zwróci zapytanie `undefined` :
+> 
+> ```sql
+> $body[0] = 'Feb'
+> ```
 
-Routing komunikatów umożliwia wykonywanie zapytań dotyczących tagów i właściwości [sznurka urządzenia](iot-hub-devguide-device-twins.md) , które są obiektami JSON. Obsługiwane jest również wykonywanie zapytań dotyczących sznurka modułu. Poniżej przedstawiono przykładowe znaczniki i właściwości dotyczące sznurka urządzenia.
+## <a name="message-routing-query-based-on-device-twin"></a>Zapytanie routingu komunikatów oparte na bliźniaczej reprezentacji urządzenia 
+
+Routing komunikatów umożliwia wykonywanie zapytań o [tagi](iot-hub-devguide-device-twins.md) i właściwości bliźniaczej reprezentacji urządzenia, które są obiektami JSON. Obsługiwane jest również wykonywanie zapytań w bliźniaczej reprezentacji modułu. Poniżej przedstawiono przykład tagów i właściwości bliźniaczej reprezentacji urządzenia.
 
 ```JSON
 {
@@ -204,7 +211,7 @@ Routing komunikatów umożliwia wykonywanie zapytań dotyczących tagów i wła�
 
 ### <a name="query-expressions"></a>Wyrażenia zapytań
 
-Zapytanie dotyczące sznurka komunikatu musi być poprzedzone prefiksem `$twin` . Wyrażenie zapytania może również łączyć tag bliźniaczy lub odwołanie do właściwości z odwołaniem do treści, właściwościami systemu komunikatów i odwołaniami do właściwości aplikacji komunikatów. Zalecamy używanie unikatowych nazw w tagach i właściwościach, ponieważ w kwerendzie nie jest rozróżniana wielkość liter. Dotyczy to zarówno bliźniaczych reprezentacji urządzeń, jak i modułu bliźniaczych reprezentacji. Należy również zrezygnować z używania `twin` , `$twin` , `body` , lub `$body` , jako nazwy właściwości. Na przykład następujące są wszystkie prawidłowe wyrażenia zapytania: 
+Zapytanie w bliźniaczej reprezentacji komunikatu musi mieć prefiks `$twin` . Wyrażenie zapytania może również połączyć tag bliźniaczej reprezentacji lub odwołanie do właściwości z odwołaniem do treści, właściwościami systemu komunikatów i odwołaniem do właściwości aplikacji komunikatów. Zalecamy używanie unikatowych nazw w tagach i właściwościach, ponieważ w zapytaniu nie jest wielkość liter. Dotyczy to zarówno bliźniaczych reprezentacji urządzeń, jak i bliźniaczych reprezentacji modułu. Nie należy również używać `twin` , , lub , jako nazw `$twin` `body` `$body` właściwości. Na przykład wszystkie prawidłowe wyrażenia zapytania są następujące: 
 
 ```sql
 $twin.properties.desired.telemetryConfig.sendFrequency = '5m'
@@ -218,9 +225,9 @@ $body.Weather.Temperature = 50 AND $twin.properties.desired.telemetryConfig.send
 $twin.tags.deploymentLocation.floor = 1 
 ```
 
-Zapytanie routingu dotyczące sznurka treści lub urządzenia z kropką w ładunku lub nazwie właściwości nie jest obsługiwane.
+Zapytanie routingu dla treści lub bliźniaczej reprezentacji urządzenia z okresem w ładunku lub nazwie właściwości nie jest obsługiwane.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [routingu komunikatów](iot-hub-devguide-messages-d2c.md).
+* Dowiedz się więcej o [routingu komunikatów.](iot-hub-devguide-messages-d2c.md)
 * Wypróbuj [samouczek routingu komunikatów](tutorial-routing.md).

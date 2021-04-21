@@ -1,6 +1,6 @@
 ---
-title: Kierowanie ruchu za pośrednictwem sieciowego urządzenia wirtualnego — przykład skryptu interfejsu wiersza polecenia platformy Azure
-description: Kierowanie ruchu przez urządzenie wirtualne w sieci zapory — przykład skryptu interfejsu wiersza polecenia platformy Azure.
+title: Przekieruj ruch za pośrednictwem wirtualnego urządzenia sieciowego — przykładowy skrypt interfejsu wiersza polecenia platformy Azure
+description: Przekieruj ruch przez wirtualne urządzenie sieciowe zapory — przykładowy skrypt interfejsu wiersza polecenia platformy Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 964fda8168867c115502c7262dc1d41e55075866
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7dca5e36144fe17b39f76bb61543f59a1c6d7772
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91317654"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790191"
 ---
-# <a name="route-traffic-through-a-network-virtual-appliance---azure-cli-script-sample"></a>Kierowanie ruchu przez sieciowe urządzenie wirtualne — przykład skryptu interfejsu wiersza polecenia platformy Azure
+# <a name="route-traffic-through-a-network-virtual-appliance---azure-cli-script-sample"></a>Przekieruj ruch przez wirtualne urządzenie sieciowe — przykładowy skrypt interfejsu wiersza polecenia platformy Azure
 
 Ten przykładowy skrypt tworzy sieć wirtualną z podsieciami frontonu i zaplecza. Tworzy również maszynę wirtualną z włączonym przekazywaniem adresu IP, aby przekierowywać ruch między dwiema podsieciami. Po uruchomieniu skryptu można wdrażać oprogramowanie sieciowe, takie jak aplikacja zapory, na maszynie wirtualnej.
 
@@ -58,8 +58,8 @@ Ten skrypt zawiera następujące polecenia służące do tworzenia grupy zasobó
 | [az network nsg create](/cli/azure/network/nsg) | Tworzy sieciową grupę zabezpieczeń. |
 | [az network nsg rule create](/cli/azure/network/nsg/rule) | Tworzy reguły sieciowych grup zabezpieczeń, które zezwalają na użycie portów HTTP i HTTPS dla ruchu przychodzącego do maszyny wirtualnej. |
 | [az network vnet subnet update](/cli/azure/network/vnet/subnet)| Tworzy skojarzenie sieciowych grup zabezpieczeń i tabel tras z podsieciami. |
-| [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create)| Tworzy tabelę tras dla wszystkich tras. |
-| [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create)| Tworzy trasy na potrzeby kierowania ruchem między podsieciami i Internetem za pośrednictwem maszyny wirtualnej. |
+| [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create)| Tworzy tabelę tras dla wszystkich tras. |
+| [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create)| Tworzy trasy na potrzeby kierowania ruchem między podsieciami i Internetem za pośrednictwem maszyny wirtualnej. |
 | [az vm create](/cli/azure/vm) | Tworzy maszynę wirtualną i dołącza do niej kartę sieciową. To polecenie określa również obraz maszyny wirtualnej do użycia oraz poświadczenia administracyjne. |
 | [az group delete](/cli/azure/group) | Usuwa grupę zasobów i wszystkie zasoby, które zawiera. |
 

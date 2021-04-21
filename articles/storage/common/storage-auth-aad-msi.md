@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 2aa6730759a9aa1aaab3156c55bf19e82641b8ea
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 80df7b85ec1ad9e273081f9a6a96b9a9d7ec8cd9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739336"
+ms.locfileid: "107791197"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autoryzowanie dostępu do danych obiektów blob i kolejek przy użyciu tożsamości zarządzanych dla zasobów platformy Azure
 
@@ -53,23 +53,23 @@ Gdy podmiot zabezpieczeń usługi Azure AD próbuje uzyskać dostęp do danych o
 > [!NOTE]
 > Podczas tworzenia konta usługi Azure Storage nie są automatycznie przypisywane uprawnienia dostępu do danych za pośrednictwem usługi Azure AD. Musisz jawnie przypisać sobie rolę platformy Azure dla usługi Azure Storage. Możesz przypisać go na poziomie subskrypcji, grupy zasobów, konta magazynu lub kontenera bądź kolejki.
 >
-> Przed przypisaniem sobie roli dostępu do danych będziesz mieć dostęp do danych na koncie magazynu za pośrednictwem usługi Azure Portal, ponieważ Azure Portal może również używać klucza konta do uzyskiwania dostępu do danych. Aby uzyskać więcej informacji, [zobacz Choose how to authorize access to blob data in the Azure Portal](../blobs/authorize-data-operations-portal.md).
+> Przed przypisaniem sobie roli dostępu do danych będzie można uzyskać dostęp do danych na koncie magazynu za pośrednictwem usługi Azure Portal, ponieważ użytkownik Azure Portal może również użyć klucza konta w celu uzyskania dostępu do danych. Aby uzyskać więcej informacji, zobacz [Wybieranie sposobu autoryzowania dostępu do danych obiektów blob w Azure Portal](../blobs/authorize-data-operations-portal.md).
 
 ### <a name="authenticate-the-user-in-the-development-environment"></a>Uwierzytelnianie użytkownika w środowisku dewelopera
 
-Gdy kod jest uruchomiony w środowisku dewelopera, uwierzytelnianie może być obsługiwane automatycznie lub może wymagać logowania za pomocą przeglądarki, w zależności od tego, których narzędzi używasz. Na przykład usługa Microsoft Visual Studio logowanie jednokrotne, dzięki czemu aktywne konto użytkownika usługi Azure AD jest automatycznie używane do uwierzytelniania. Aby uzyskać więcej informacji na temat logowania jednokrotnego, zobacz [Logowanie jednokrotne do aplikacji.](../../active-directory/manage-apps/what-is-single-sign-on.md)
+Gdy kod jest uruchomiony w środowisku dewelopera, uwierzytelnianie może być obsługiwane automatycznie lub może wymagać logowania za pomocą przeglądarki, w zależności od tego, których narzędzi używasz. Na przykład usługa Microsoft Visual Studio logowanie jednokrotne, dzięki czemu aktywne konto użytkownika usługi Azure AD jest automatycznie używane do uwierzytelniania. Aby uzyskać więcej informacji na temat logowania jednokrotnego, [zobacz Single sign-on to applications](../../active-directory/manage-apps/what-is-single-sign-on.md)(Logowanie jednokrotne do aplikacji).
 
 Inne narzędzia programskie mogą monitować o zalogowanie się za pośrednictwem przeglądarki internetowej.
 
 ### <a name="authenticate-a-service-principal-in-the-development-environment"></a>Uwierzytelnianie jednostki usługi w środowisku dewelopera
 
-Jeśli środowisko projektowe nie obsługuje logowania ani logowania się za pośrednictwem przeglądarki internetowej, możesz użyć jednostki usługi do uwierzytelniania w środowisku dewelopera.
+Jeśli środowisko projektowe nie obsługuje logowania ani logowania za pośrednictwem przeglądarki internetowej, możesz użyć jednostki usługi do uwierzytelniania w środowisku dewelopera.
 
 #### <a name="create-the-service-principal"></a>Tworzenie jednostki usługi
 
-Aby utworzyć jednostkę usługi przy użyciu interfejsu wiersza polecenia platformy Azure i przypisać rolę platformy Azure, wywołaj [polecenie az ad sp create-for-rbac.](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) Podaj rolę dostępu do danych usługi Azure Storage do przypisania do nowej jednostki usługi. Ponadto podaj zakres przypisania roli. Aby uzyskać więcej informacji na temat wbudowanych ról usługi Azure Storage, zobacz Role wbudowane [platformy Azure.](../../role-based-access-control/built-in-roles.md)
+Aby utworzyć jednostkę usługi za pomocą interfejsu wiersza polecenia platformy Azure i przypisać rolę platformy Azure, wywołaj [polecenie az ad sp create-for-rbac.](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) Podaj rolę dostępu do danych usługi Azure Storage do przypisania do nowej jednostki usługi. Ponadto podaj zakres przypisania roli. Aby uzyskać więcej informacji na temat wbudowanych ról usługi Azure Storage, zobacz [Wbudowane role platformy Azure.](../../role-based-access-control/built-in-roles.md)
 
-Jeśli nie masz wystarczających uprawnień do przypisania roli do jednostki usługi, może być konieczne poproszę właściciela lub administratora konta o wykonanie przypisania roli.
+Jeśli nie masz wystarczających uprawnień do przypisania roli do jednostki usługi, może być konieczne poproszę właściciela konta lub administratora o wykonanie przypisania roli.
 
 W poniższym przykładzie użyto interfejsu wiersza polecenia platformy Azure, aby utworzyć nową jednostkę usługi i przypisać do niego rolę Czytelnik danych obiektu blob usługi **Storage** z zakresem konta
 

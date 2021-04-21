@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie domenami błędów w zestawach skalowania maszyn wirtualnych platformy Azure
-description: Dowiedz się, jak wybrać odpowiednią liczbę domenami błędów podczas tworzenia zestawu skalowania maszyn wirtualnych.
+description: Dowiedz się, jak wybrać odpowiednią liczbę identyfikatorów FD podczas tworzenia zestawu skalowania maszyn wirtualnych.
 author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
@@ -9,23 +9,23 @@ ms.subservice: availability
 ms.date: 12/18/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 8c114d6260cf81bcc4fb256fc8a09947ab9ce1d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 10d45662f84a354ee4b261c2e7255a57aa81ad0f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102502488"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774489"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Choosing the right number of fault domains for virtual machine scale set (Wybieranie odpowiedniej liczby domen błędów dla zestawu skalowania maszyn wirtualnych)
-Zestawy skalowania maszyn wirtualnych są tworzone z pięcioma domenami błędów domyślnie w regionach platformy Azure bez stref. W przypadku regionów obsługujących wdrożenie strefowe zestawów skalowania maszyn wirtualnych i wybrania tej opcji wartość domyślna liczby domen błędów wynosi 1 dla każdej z tych stref. Demon = 1 w tym przypadku oznacza, że wystąpienia maszyn wirtualnych należące do zestawu skalowania będą rozłożone w wielu stojakach na podstawie najlepszego wysiłku.
+Zestawy skalowania maszyn wirtualnych są domyślnie tworzone z pięcioma domenami błędów w regionach świadczenia usługi Azure bez stref. W regionach, które obsługują strefowe wdrażanie zestawów skalowania maszyn wirtualnych i ta opcja jest zaznaczona, domyślna wartość liczby domen błędów wynosi 1 dla każdej strefy. FD=1 w tym przypadku oznacza, że wystąpienia maszyn wirtualnych należące do zestawu skalowania będą rozłożyć się na wiele stojaków przy najlepszym narzucie pracy.
 
-Można również rozważyć wyrównanie liczby domen błędów zestawu skalowania z liczbą domen błędów Managed Disks. To wyrównanie może pomóc w zapobieganiu utracie kworum, jeśli cała domena błędów Managed Disks ulegnie awarii. Licznik FD może być ustawiony na wartość mniejszą lub równą liczbie Managed Disks domen błędów dostępnych w poszczególnych regionach. Zapoznaj się z tym [dokumentem](../virtual-machines/availability.md) , aby dowiedzieć się więcej o liczbie Managed disks domen błędów według regionów.
+Można również rozważyć dopasowanie liczby domen błędów zestawu skalowania do liczby domen błędów Dyski zarządzane błędów. Takie wyrównanie może pomóc zapobiec utracie kworum, jeśli cała Dyski zarządzane domeny błędów nie działa. Liczbę błędów FD można ustawić na mniejszą lub równą liczbie domen błędów Dyski zarządzane dostępnych w każdym z regionów. Zapoznaj się z [tym dokumentem,](../virtual-machines/availability.md) aby dowiedzieć się więcej o liczbie Dyski zarządzane błędów według regionów.
 
 ## <a name="rest-api"></a>Interfejs API REST
-Właściwość można ustawić na wartość `properties.platformFaultDomainCount` 1, 2 lub 3 (Domyślnie wartość 3, jeśli nie zostanie określona). Zapoznaj się z dokumentacją interfejsu API REST [tutaj](/rest/api/compute/virtualmachinescalesets/createorupdate).
+Właściwość można ustawić na `properties.platformFaultDomainCount` 1, 2 lub 3 (wartość domyślna to 3, jeśli nie zostanie określona). Zapoznaj się z dokumentacją interfejsu API REST [tutaj.](/rest/api/compute/virtualmachinescalesets/createorupdate)
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
-Parametr można ustawić na wartość `--platform-fault-domain-count` 1, 2 lub 3 (Domyślnie wartość 3, jeśli nie zostanie określona). W [tym miejscu](/cli/azure/vmss#az-vmss-create)zapoznaj się z dokumentacją interfejsu wiersza polecenia platformy Azure.
+Możesz ustawić parametr na `--platform-fault-domain-count` 1, 2 lub 3 (wartość domyślna to 3, jeśli nie zostanie określona). Zapoznaj się z dokumentacją interfejsu wiersza polecenia platformy Azure [tutaj.](/cli/azure/vmss#az_vmss_create)
 
 ```azurecli-interactive
 az vmss create \
@@ -41,4 +41,4 @@ az vmss create \
 Utworzenie i skonfigurowanie wszystkich zasobów zestawu skalowania i maszyn wirtualnych trwa kilka minut.
 
 ## <a name="next-steps"></a>Następne kroki
-- Dowiedz się więcej o [funkcjach dostępności i nadmiarowości](../virtual-machines/availability.md) dla środowisk platformy Azure.
+- Dowiedz się więcej o [funkcjach dostępności i nadmiarowości dla](../virtual-machines/availability.md) środowisk platformy Azure.

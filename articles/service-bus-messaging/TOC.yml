@@ -345,7 +345,7 @@
 - name: Zasoby
   items:
     - name: Często zadawane pytania
-      href: service-bus-faq.md
+      href: service-bus-faq.yml
     - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn
       href: /learn/browse/?products=azure-service-bus
     - name: Harmonogram działania dla platformy Azure
