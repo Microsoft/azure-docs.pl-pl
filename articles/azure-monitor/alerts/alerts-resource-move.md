@@ -1,21 +1,21 @@
 ---
 title: Jak zaktualizować reguły alertów lub reguły akcji, gdy ich zasób docelowy zostanie przeniesiony do innego regionu świadczenia usługi Azure
-description: Tło i instrukcje dotyczące aktualizowania reguł alertów lub reguł akcji, gdy ich zasób docelowy jest przesunyny do innego regionu platformy Azure.
+description: Tło i instrukcje dotyczące aktualizowania reguł alertów lub reguł akcji, gdy ich zasób docelowy zostanie przeniesiony do innego regionu świadczenia usługi Azure.
 author: harelbr
 ms.author: harelbr
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 02/14/2021
-ms.openlocfilehash: 727196f274db3abae75a38d3ecdf31a78dec0fab
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: d21ee7a60d11a154737c5380ec20d3e9c4490962
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107725948"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786067"
 ---
 # <a name="how-to-update-alert-rules-or-action-rules-when-their-target-resource-moves-to-a-different-azure-region"></a>Jak zaktualizować reguły alertów lub reguły akcji, gdy ich zasób docelowy zostanie przeniesiony do innego regionu świadczenia usługi Azure
 
-W tym artykule opisano, dlaczego istniejące reguły [alertów](./alerts-overview.md) i reguły akcji mogą mieć wpływ na przenoszenie innych zasobów platformy Azure między regionami oraz jak identyfikować i rozwiązywać te problemy. [](./alerts-action-rules.md) Zapoznaj się z główną [dokumentacją przenoszenia](../../azure-resource-manager/management/move-resources-overview.md) zasobów, aby uzyskać dodatkowe informacje na temat przydatnego przenoszenia zasobów między regionami oraz listę kontrolną dotyczącą projektowania procesu przenoszenia.
+W tym artykule opisano, dlaczego istniejące reguły [alertów](./alerts-overview.md) i reguły [akcji](./alerts-action-rules.md) mogą mieć wpływ na przenoszenie innych zasobów platformy Azure między regionami oraz jak identyfikować i rozwiązywać te problemy. Zapoznaj się z główną [dokumentacją przenoszenia](../../azure-resource-manager/management/move-resources-overview.md) zasobów, aby uzyskać dodatkowe informacje na temat przydatnego przenoszenia zasobów między regionami oraz listę kontrolną projektowania procesu przenoszenia.
 
 ## <a name="why-the-problem-exists"></a>Dlaczego problem istnieje
 
@@ -28,7 +28,7 @@ Istnieją dwie główne przyczyny, dla których reguły mogą przestać działa�
 
 ## <a name="rule-scope-explicitly-refers-to-the-old-resource"></a>Zakres reguły jawnie odwołuje się do starego zasobu
 
-Podczas przenoszenia zasobu identyfikator zasobu zmienia się w większości przypadków. W tle system replikuje zasób do nowego regionu przed usunięciem go ze starego regionu. Ten proces wymaga, aby dwa zasoby i w związku z tym dwa różne identyfikatory zasobów istniały jednocześnie przez niewielki okres czasu. Ponieważ identyfikatory zasobów muszą być unikatowe, w trakcie tego procesu należy utworzyć nowy identyfikator. 
+Gdy przenosisz zasób, jego identyfikator zasobu zmienia się w większości przypadków. W tle system replikuje zasób do nowego regionu przed usunięciem go ze starego regionu. Ten proces wymaga, aby dwa zasoby i w związku z tym dwa różne identyfikatory zasobów istniały jednocześnie przez niewielki okres czasu. Ponieważ identyfikatory zasobów muszą być unikatowe, podczas tego procesu należy utworzyć nowy identyfikator. 
 
 **Jak przeniesienie zasobu wpływa na istniejące reguły?**
 
@@ -37,9 +37,9 @@ Na przykład poniżej znajduje się reguła z zakresem z dwoma zasobami (dwie ma
 
 ![Reguła alertu o wielu zasobach](media/alerts-resource-move/multi-resource-alert-rule.png)
 
-Jeśli zakres reguły jawnie mówi o zasobie, a zasób został przeniesiony i zmieniony jego identyfikator zasobu, ta reguła będzie szukać nieprawidłowego lub nieistniejącego zasobu i w związku z tym nie powiedzie się.
+Jeśli zakres reguły jawnie wspomina o zasobie, a ten zasób został przeniesiony i zmieniony jego identyfikator zasobu, ta reguła będzie szukać niewłaściwego lub nieistniejącego zasobu i w związku z tym nie powiedzie się.
 
-**Jak rozwiązać problem?**
+**Jak rozwiązać ten problem?**
 
 Zaktualizuj lub utwórz ponownie regułę, których dotyczy problem, aby wskazać nowy zasób. Proces aktualizowania zakresu znajduje się w dalszej części tego artykułu.
 
@@ -47,29 +47,29 @@ Problem dotyczy następujących typów reguł:
 
 - Reguły alertów dziennika aktywności
 - Reguły akcji
-- Alerty metryk — aby uzyskać więcej informacji, zobacz następną [sekcję Reguły alertów oparte na metrykach.](#alert-rules-based-on-metrics)
+- Alerty dotyczące metryk — aby uzyskać więcej informacji, zobacz następną [sekcję Reguły alertów oparte na metrykach.](#alert-rules-based-on-metrics)
 
 > [!NOTE]
-> Nie ma to wpływu na reguły alertów przeszukiwania dzienników i reguły alertów inteligentnego wykrywania, ponieważ ich zakres to obszar roboczy lub Application Insights. Żaden z tych zakresów nie obsługuje obecnie przesuwania się regionu.
+> Nie ma to wpływu na reguły alertów przeszukiwania dzienników i reguły alertów inteligentnego wykrywania, ponieważ ich zakres to obszar roboczy lub Application Insights. Żaden z tych zakresów nie obsługuje obecnie przenosi regionów.
 
 ## <a name="alert-rules-based-on-metrics"></a>Reguły alertów oparte na metrykach
 
-Metryki emitujące zasoby platformy Azure są regionalne. Za każdym razem, gdy zasób zostanie przeniesiony do nowego regionu, rozpoczyna emitowanie metryk w tym nowym regionie. W związku z tym wszystkie reguły alertów oparte na metrykach muszą zostać zaktualizowane lub ponownie utworzone, aby wskazać bieżący strumień metryki w poprawnym regionie.
+Metryki emitowane przez zasoby platformy Azure są regionalne. Za każdym razem, gdy zasób zostanie przeniesiony do nowego regionu, rozpoczyna emitowanie metryk w tym nowym regionie. W związku z tym wszystkie reguły alertów oparte na metrykach muszą zostać zaktualizowane lub ponownie utworzone, aby wskazać bieżący strumień metryk w poprawnym regionie.
 
-To wyjaśnienie dotyczy zarówno reguł [alertów dotyczących metryk, jak](alerts-metric-overview.md) i [reguł alertów testu dostępności.](../app/monitor-web-app-availability.md)
+To wyjaśnienie dotyczy zarówno reguł [alertów dotyczących metryk,](alerts-metric-overview.md) jak [i reguł alertów testów dostępności.](../app/monitor-web-app-availability.md)
 
 Jeśli **wszystkie** zasoby w zakresie zostały przeniesione, nie trzeba ponownie tworzyć reguły. Wystarczy zaktualizować dowolne pole reguły alertu, takie jak opis reguły alertu, i zapisać je.
-Jeśli **tylko niektóre** zasoby w zakresie zostały przeniesione, musisz usunąć przeniesione zasoby z istniejącej reguły i utworzyć nową regułę, która obejmuje tylko przeniesione zasoby.
+Jeśli **tylko niektóre** zasoby w zakresie zostały przeniesione, musisz usunąć przeniesione zasoby z istniejącej reguły i utworzyć nową regułę, która będzie dotyczyć tylko przeniesionych zasobów.
 
 ## <a name="procedures-to-fix-problems"></a>Procedury naprawiania problemów
 
 ### <a name="identifying-rules-associated-with-a-moved-resource-from-the-azure-portal"></a>Identyfikowanie reguł skojarzonych z przeniesionym zasobem z Azure Portal
 
-- **W przypadku reguł alertów** — przejdź do > Alerty i Zarządzaj regułami alertów > filtruj według zawierającej subskrypcji i przeniesionego zasobu.
+- **W przypadku reguł alertów** — przejdź do > Alerty i Zarządzaj regułami alertów> filtruj według zawierającej subskrypcji i przeniesionego zasobu.
 > [!NOTE]
 > Reguły alertów dziennika aktywności nie obsługują tego procesu. Nie można zaktualizować zakresu reguły alertu dziennika aktywności i wskazać zasobu w innej subskrypcji. Zamiast tego można utworzyć nową regułę, która zastąpi starą regułę.
 
-- **W przypadku reguł akcji** — przejdź do tematu Alerty > Zarządzaj akcjami > Reguły akcji (wersja zapoznawcza) > filtruj według zawierającej subskrypcji i przeniesionego zasobu.
+- **W przypadku reguł akcji** — przejdź do tematu Alerty > Zarządzaj akcjami > Reguły akcji (wersja zapoznawcza) > filtru według zawierającej subskrypcji i przeniesionego zasobu.
 
 ### <a name="change-scope-of-a-rule-from-the-azure-portal"></a>Zmienianie zakresu reguły z Azure Portal
 
@@ -80,11 +80,11 @@ Jeśli **tylko niektóre** zasoby w zakresie zostały przeniesione, musisz usun�
 
 ![Zmienianie zakresu reguły alertu](media/alerts-resource-move/change-alert-rule-scope.png)
 
-### <a name="change-the-scope-of-a-rule-using-azure-resource-manager-templates"></a>Zmienianie zakresu reguły przy użyciu szablonów Azure Resource Manager szablonów
+### <a name="change-the-scope-of-a-rule-using-azure-resource-manager-templates"></a>Zmienianie zakresu reguły przy użyciu Azure Resource Manager szablonów
 
 1. Uzyskaj Azure Resource Manager szablonu reguły.   Aby wyeksportować szablon reguły z Azure Portal:
    1. Przejdź do sekcji Grupy zasobów w portalu i otwórz grupę zasobów zawierającą regułę.
-   2. W sekcji Przegląd zaznacz pole wyboru **Pokaż typ** ukryty i filtruj według odpowiedniego typu reguły.
+   2. W sekcji Przegląd zaznacz pole wyboru **Pokaż** typ ukryty i filtruj według odpowiedniego typu reguły.
    3. Wybierz odpowiednią regułę, aby wyświetlić jej szczegóły.
    4. W **obszarze Ustawienia** wybierz pozycję **Eksportuj szablon**.
 2. Zmodyfikuj szablon. W razie potrzeby podziel na dwie reguły (odpowiednie dla niektórych przypadków alertów dotyczących metryk, jak wspomniano powyżej).
@@ -94,7 +94,7 @@ Jeśli **tylko niektóre** zasoby w zakresie zostały przeniesione, musisz usun�
 
 1. Pobierz istniejącą regułę[(alerty metryk,](/rest/api/monitor/metricalerts/get) [alerty dziennika aktywności)](/rest/api/monitor/activitylogalerts/get)
 2. Modyfikowanie zakresu[(alerty dziennika aktywności](/rest/api/monitor/activitylogalerts/update))
-3. Ponowne wdychaj regułę[(alerty metryk,](/rest/api/monitor/metricalerts/createorupdate) [alerty dziennika aktywności](/rest/api/monitor/activitylogalerts/createorupdate))
+3. Ponownie wdychaj regułę[(alerty metryk,](/rest/api/monitor/metricalerts/createorupdate) [alerty dziennika aktywności](/rest/api/monitor/activitylogalerts/createorupdate))
 
 ### <a name="change-scope-of-a-rule-using-powershell"></a>Zmienianie zakresu reguły przy użyciu programu PowerShell
 
@@ -104,8 +104,8 @@ Jeśli **tylko niektóre** zasoby w zakresie zostały przeniesione, musisz usun�
 
 ### <a name="change-the-scope-of-a-rule-using-azure-cli"></a>Zmienianie zakresu reguły przy użyciu interfejsu wiersza polecenia platformy Azure
 
-1.  Pobierz istniejącą regułę[(alerty metryk,](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-show) [alerty dziennika aktywności).](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)
-2.  Bezpośrednie aktualizowanie zakresu reguły[(alerty metryk,](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update) [alerty dziennika aktywności)](/cli/azure/monitor/activity-log/alert/scope)
+1.  Pobierz istniejącą regułę[(alerty metryk,](/cli/azure/monitor/metrics/alert#az_monitor_metrics_alert_show) [alerty dziennika aktywności).](/cli/azure/monitor/activity-log/alert#az_monitor_activity_log-alert_list)
+2.  Bezpośrednie aktualizowanie zakresu reguły[(alerty metryk,](/cli/azure/monitor/metrics/alert#az_monitor_metrics_alert_update) [alerty dziennika aktywności)](/cli/azure/monitor/activity-log/alert/scope)
 3.  W razie potrzeby podziel na dwie reguły (odpowiednie dla niektórych przypadków alertów dotyczących metryk, jak wspomniano powyżej).
 
 ## <a name="next-steps"></a>Następne kroki

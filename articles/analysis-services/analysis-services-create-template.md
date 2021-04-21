@@ -8,16 +8,13 @@ ms.topic: quickstart
 ms.service: azure-analysis-services
 tags:
 - azure-resource-manager
-ms.custom:
-- subject-armqs
-- references_regions
-- mode-arm
-ms.openlocfilehash: 3e9210bb94cca354a7c0a5cb5c81b6153900b4ec
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.custom: devx-track-azurepowershell - subject-armqs - references_regions - mode-arm
+ms.openlocfilehash: e7203f4b5890ab81cbf337c5f3201d85a3aef0c0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538226"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769373"
 ---
 # <a name="quickstart-create-a-server---arm-template"></a>Szybki start: tworzenie serwera — szablon usługi ARM
 
@@ -61,7 +58,7 @@ Pojedynczy [zasób Microsoft.AnalysisServices/servers](/azure/templates/microsof
     * **Nazwa SKU:** wprowadź nazwę sku dla serwera Analysis Services do utworzenia. Do wyboru: B1, B2, D1, S0, S1, S2, S3, S4, S8v2, S9v2. Dostępność SKU zależy od regionu. Do oceny i testowania zaleca się użycie S0 lub D1.
     * **Pojemność:** wprowadź łączną liczbę wystąpień skalowania repliki zapytania w celu skalowania w zewnątrz. Skalowanie w zewnątrz więcej niż jednego wystąpienia jest obsługiwane tylko w wybranych regionach.
     * **Ustawienia zapory:** wprowadź reguły zapory dla ruchu przychodzącego do zdefiniowania dla serwera. Jeśli nie zostanie określony, zapora zostanie wyłączona.
-    * **Backup Blob Container URI (Tworzenie** kopii zapasowej kontenera obiektów blob): wprowadź Azure Blob Storage URI sygnatury dostępu współdzielonego do prywatnego kontenera z uprawnieniami do odczytu, zapisu i listy. Wymagane tylko wtedy, gdy zamierzasz używać kopii [zapasowej/przywracania.](analysis-services-backup.md)
+    * **Backup Blob Container URI (Tworzenie** kopii zapasowej kontenera obiektów blob): wprowadź wartość URI sygnatury dostępu współdzielonego Azure Blob Storage kontenera z uprawnieniami do odczytu, zapisu i listy. Wymagane tylko wtedy, gdy zamierzasz używać kopii [zapasowej/przywracania.](analysis-services-backup.md)
     * **Wyrażam zgodę na powyższe warunki i postanowienia**: Zaznacz.
 
 3. Wybierz pozycję **Kup**. Po pomyślnym wdrożeniu serwera otrzymasz powiadomienie:
@@ -84,7 +81,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy grupa zasobów i zasób serwera nie będą już Azure Portal, interfejsu wiersza polecenia platformy Azure Azure PowerShell, usuń je.
+Gdy grupa zasobów i zasób serwera nie Azure Portal już potrzebne, Azure PowerShell interfejsu wiersza polecenia platformy Azure lub serwera.
 
 # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
 
@@ -107,7 +104,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start za pomocą szablonu usługi ARM utworzyliśmy nową grupę zasobów i zasób Azure Analysis Services serwera. Po utworzeniu zasobu serwera przy użyciu szablonu należy wziąć pod uwagę następujące kwestie:
+W tym przewodniku Szybki start za pomocą szablonu usługi ARM utworzyliśmy nową grupę zasobów i zasób Azure Analysis Services zasobów serwera. Po utworzeniu zasobu serwera przy użyciu szablonu należy wziąć pod uwagę następujące kwestie:
 
 > [!div class="nextstepaction"]
 > [Szybki start: Konfigurowanie zapory serwera — Portal](analysis-services-qs-firewall.md)   

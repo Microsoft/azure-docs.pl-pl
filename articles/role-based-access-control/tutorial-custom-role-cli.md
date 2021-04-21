@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: tworzenie roli niestandardowej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure — RBAC'
-description: Rozpocznij tworzenie roli niestandardowej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure i kontroli dostępu opartej na rolach (Azure RBAC) w tym samouczku.
+title: 'Samouczek: tworzenie roli niestandardowej platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure — RBAC platformy Azure'
+description: W tym samouczku rozpoczynamy tworzenie roli niestandardowej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure i kontroli dostępu na podstawie ról (RBAC) platformy Azure.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 319bca74c8e781e5dc5022e9fb901b2edca24a80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3743697d58d0f5b167b123df59bc5638aa60489
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87485647"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771681"
 ---
 # <a name="tutorial-create-an-azure-custom-role-using-azure-cli"></a>Samouczek: tworzenie roli niestandardowej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Jeśli [wbudowane role platformy Azure](built-in-roles.md) nie są zgodne z konkretnymi potrzebami organizacji, możesz utworzyć własne role niestandardowe. W tym samouczku utworzysz rolę niestandardową o nazwie Reader Support Tickets przy użyciu interfejsu wiersza polecenia platformy Azure. Rola niestandardowa umożliwi użytkownikowi przeglądanie całej zawartości płaszczyzny zarządzania subskrypcją, a także otwieranie biletów pomocy technicznej.
+Jeśli wbudowane [role platformy Azure](built-in-roles.md) nie spełniają określonych potrzeb organizacji, możesz utworzyć własne role niestandardowe. W tym samouczku utworzysz rolę niestandardową o nazwie Reader Support Tickets przy użyciu interfejsu wiersza polecenia platformy Azure. Rola niestandardowa umożliwi użytkownikowi przeglądanie całej zawartości płaszczyzny zarządzania subskrypcją, a także otwieranie biletów pomocy technicznej.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -44,7 +44,7 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 
 ## <a name="sign-in-to-azure-cli"></a>Logowanie do interfejsu wiersza polecenia platformy Azure
 
-Zaloguj się do [interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli).
+Zaloguj się do interfejsu [wiersza polecenia platformy Azure.](/cli/azure/authenticate-azure-cli)
 
 ## <a name="create-a-custom-role"></a>Tworzenie roli niestandardowej
 
@@ -62,7 +62,7 @@ Najprostszym sposobem na utworzenie roli niestandardowej jest rozpoczęcie od sz
 
 1. Otwórz plik ReaderSupportRole.json w edytorze i dodaj następujący kod JSON.
 
-    Aby uzyskać informacje o różnych właściwościach, zobacz [role niestandardowe platformy Azure](custom-roles.md).
+    Aby uzyskać informacje o różnych właściwościach, zobacz [Role niestandardowe platformy Azure.](custom-roles.md)
 
     ```json
     {
@@ -86,7 +86,7 @@ Najprostszym sposobem na utworzenie roli niestandardowej jest rozpoczęcie od sz
     "Microsoft.Support/*"
     ```
 
-1. Pobierz identyfikator subskrypcji za pomocą polecenia [az account list](/cli/azure/account#az-account-list).
+1. Pobierz identyfikator subskrypcji za pomocą polecenia [az account list](/cli/azure/account#az_account_list).
 
     ```azurecli
     az account list --output table
@@ -118,7 +118,7 @@ Najprostszym sposobem na utworzenie roli niestandardowej jest rozpoczęcie od sz
     }
     ```
     
-1. Aby utworzyć nową rolę niestandardową, użyj polecenia [az role definition create](/cli/azure/role/definition#az-role-definition-create) i określ plik definicji roli JSON.
+1. Aby utworzyć nową rolę niestandardową, użyj polecenia [az role definition create](/cli/azure/role/definition#az_role_definition_create) i określ plik definicji roli JSON.
 
     ```azurecli
     az role definition create --role-definition "~/CustomRoles/ReaderSupportRole.json"
@@ -155,7 +155,7 @@ Najprostszym sposobem na utworzenie roli niestandardowej jest rozpoczęcie od sz
 
 ## <a name="list-custom-roles"></a>Wyświetlanie ról niestandardowych
 
-- Aby wyświetlić listę wszystkich ról niestandardowych, użyj polecenia [az role definition list](/cli/azure/role/definition#az-role-definition-list) z parametrem `--custom-role-only`.
+- Aby wyświetlić listę wszystkich ról niestandardowych, użyj polecenia [az role definition list](/cli/azure/role/definition#az_role_definition_list) z parametrem `--custom-role-only`.
 
     ```azurecli
     az role definition list --custom-role-only true
@@ -225,7 +225,7 @@ Aby zaktualizować rolę niestandardową, zaktualizuj plik JSON, a następnie za
     }
     ```
         
-1. Aby zaktualizować rolę niestandardową, użyj polecenia [az role definition update](/cli/azure/role/definition#az-role-definition-update) i określ zaktualizowany plik JSON.
+1. Aby zaktualizować rolę niestandardową, użyj polecenia [az role definition update](/cli/azure/role/definition#az_role_definition_update) i określ zaktualizowany plik JSON.
 
     ```azurecli
     az role definition update --role-definition "~/CustomRoles/ReaderSupportRole.json"
@@ -261,7 +261,7 @@ Aby zaktualizować rolę niestandardową, zaktualizuj plik JSON, a następnie za
     
 ## <a name="delete-a-custom-role"></a>Usuwanie roli niestandardowej
 
-- Użyj polecenia [az role definition delete](/cli/azure/role/definition#az-role-definition-delete) i określ nazwę lub identyfikator roli w celu usunięcia roli niestandardowej.
+- Użyj polecenia [az role definition delete](/cli/azure/role/definition#az_role_definition_delete) i określ nazwę lub identyfikator roli w celu usunięcia roli niestandardowej.
 
     ```azurecli
     az role definition delete --name "Reader Support Tickets"

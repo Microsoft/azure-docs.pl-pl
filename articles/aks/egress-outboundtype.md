@@ -1,85 +1,85 @@
 ---
-title: Dostosowywanie tras zdefiniowanych przez użytkownika (UDR) w usłudze Azure Kubernetes Service (AKS)
-description: Informacje o definiowaniu niestandardowej trasy ruchu wychodzącego w usłudze Azure Kubernetes Service (AKS)
+title: Dostosowywanie tras zdefiniowanych przez użytkownika w Azure Kubernetes Service (AKS)
+description: Dowiedz się, jak zdefiniować niestandardową trasę ruchu wychodzącego w Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 06/29/2020
-ms.openlocfilehash: 72ba90510afb00ee001c97612e88f452039f53a4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e9433978c8ee855ec66901c7692e4d2b59261fd3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102182132"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773049"
 ---
-# <a name="customize-cluster-egress-with-a-user-defined-route"></a>Dostosowywanie ruchu wychodzącego klastra przy użyciu trasy User-Defined
+# <a name="customize-cluster-egress-with-a-user-defined-route"></a>Dostosowywanie ruchu wychodzącego klastra za pomocą User-Defined trasy
 
-Ruch wychodzący z klastra AKS można dostosować do określonych scenariuszy. Domyślnie AKS będzie obsługiwać standardową jednostkę Load Balancer SKU, która będzie używana w celu skonfigurowania i użycia dla ruchu wychodzącego. Jednak konfiguracja domyślna może nie spełniać wymagań wszystkich scenariuszy, jeśli publiczne adresy IP są niedozwolone lub dodatkowe przeskoki są wymagane dla ruchu wychodzącego.
+Ruch wychodzący z klastra usługi AKS można dostosować do określonych scenariuszy. Domyślnie usługę AKS aprowizuje standardową Load Balancer SKU do skonfigurowania i obsługi dla danych wychodzących. Jednak konfiguracja domyślna może nie spełniać wymagań wszystkich scenariuszy, jeśli publiczne ip są niedozwolone lub dla danych wychodzących są wymagane dodatkowe przeskoki.
 
-W tym artykule opisano sposób dostosowywania trasy ruchu wychodzącego klastra w celu zapewnienia obsługi niestandardowych scenariuszy sieciowych, takich jak te, które uniemożliwiają publiczne adresy IP i wymagają, aby klaster znajduje się za sieciowym urządzeniem wirtualnym (urządzenie WUS).
+W tym artykule opisano sposób dostosowywania trasy ruchu wychodzącego klastra do obsługi niestandardowych scenariuszy sieciowych, takich jak te, które nie zezwalają na publiczne ip i wymagają, aby klaster znajduje się za wirtualnym urządzeniem sieciowym (WUS).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Interfejs wiersza polecenia platformy Azure w wersji 2.0.81 lub nowszej
-* Wersja interfejsu API `2020-01-01` lub nowsza
+* Interfejs API w wersji `2020-01-01` lub większej
 
 
 ## <a name="limitations"></a>Ograniczenia
-* Wartości inboundtype można definiować tylko w czasie tworzenia klastra i nie można ich później zaktualizować.
-* Ustawienie `outboundType` wymaga klastrów AKS z `vm-set-type` `VirtualMachineScaleSets` i `load-balancer-sku` z `Standard` .
-* Ustawienie `outboundType` wartości `UDR` wymaga trasy zdefiniowanej przez użytkownika z prawidłową łącznością wychodzącą dla klastra.
-* Ustawienie `outboundType` wartości powoduje `UDR` , że adres IP źródła danych przychodzących kierowany do modułu równoważenia obciążenia może być **niezgodny** z wychodzącym docelowym ruchem wyjściowym klastra.
+* Typ OutboundType można zdefiniować tylko w czasie tworzenia klastra i nie można go później zaktualizować.
+* Ustawienie `outboundType` wymaga klastrów AKS z `vm-set-type` wartościami i `VirtualMachineScaleSets` `load-balancer-sku` `Standard` .
+* Ustawienie wartości na wartość wymaga trasy zdefiniowanej `outboundType` `UDR` przez użytkownika z prawidłową łącznością wychodzącą dla klastra.
+* Ustawienie wartości oznacza, że źródłowy adres IP ruchu przychodzącego kierowanego do usługi równoważenia obciążenia może nie być zgodne z wychodzącym adresem docelowym `outboundType` `UDR` ruchu wychodzącego klastra. 
 
-## <a name="overview-of-outbound-types-in-aks"></a>Przegląd typów wychodzących w AKS
+## <a name="overview-of-outbound-types-in-aks"></a>Omówienie typów ruchu wychodzącego w ucieku AKS
 
-Klaster AKS można dostosować przy użyciu unikatowego `outboundType` typu `loadBalancer` lub `userDefinedRouting` .
-
-> [!IMPORTANT]
-> Typ wychodzący ma wpływ tylko na ruch wyjściowy klastra. Aby uzyskać więcej informacji, zobacz [Konfigurowanie kontrolerów danych wejściowych](ingress-basic.md).
-
-> [!NOTE]
-> Możesz użyć własnej [tabeli tras][byo-route-table] z obsługą sieci UDR i korzystającą wtyczki kubenet. Upewnij się, że tożsamość klastra (główna nazwa usługi lub tożsamość zarządzana) ma uprawnienia współautora do niestandardowej tabeli tras.
-
-### <a name="outbound-type-of-loadbalancer"></a>Typ wychodzącego modułu równoważenia obciążenia
-
-Jeśli `loadBalancer` jest ustawiona, AKS automatycznie wykonuje następującą konfigurację. Moduł równoważenia obciążenia jest używany do ruchu wychodzącego przez AKS przypisany publiczny adres IP. Typ wychodzący `loadBalancer` obsługuje usługi Kubernetes Services typu `loadBalancer` , które oczekują wyjście z modułu równoważenia obciążenia utworzonego przez dostawcę zasobów AKS.
-
-Następująca konfiguracja jest wykonywana przez AKS.
-   * Publiczny adres IP jest inicjowany dla ruchu wychodzącego klastra.
-   * Publiczny adres IP jest przypisywany do zasobu modułu równoważenia obciążenia.
-   * Pule zaplecza dla modułu równoważenia obciążenia są konfigurowane dla węzłów agenta w klastrze.
-
-Poniżej znajduje się topologia sieci wdrożona domyślnie w klastrach AKS, która korzysta `outboundType` z programu `loadBalancer` .
-
-![Na diagramie przedstawiono ruch przychodzący i P i wyjścia i P, gdzie usługa transfer danych przychodzących i P kieruje ruchu do modułu równoważenia obciążenia, który kieruje ruch do i z klastra wewnętrznego i innego ruchu do danych wyjściowych, które kierują ruch do Internetu, M C R, wymagane usługi platformy Azure i płaszczyznę kontroli K S.](media/egress-outboundtype/outboundtype-lb.png)
-
-### <a name="outbound-type-of-userdefinedrouting"></a>Typ wychodzący userDefinedRouting
-
-> [!NOTE]
-> Użycie typu wychodzącego jest zaawansowanym scenariuszem sieci i wymaga odpowiedniej konfiguracji sieci.
-
-Jeśli `userDefinedRouting` jest ustawiona, AKS nie konfiguruje automatycznie ścieżek ruchu wychodzącego. Konfigurację ruchu wychodzącego należy wykonać przez użytkownika.
-
-Klaster AKS musi zostać wdrożony w istniejącej sieci wirtualnej z podsiecią, która została wcześniej skonfigurowana, ponieważ w przypadku braku korzystania ze standardowej architektury modułu równoważenia obciążenia należy ustanowić jawne dane wyjściowe. W związku z tym ta architektura wymaga jawnego wysłania ruchu wychodzącego do urządzenia, takiego jak zapora, Brama lub serwer proxy lub umożliwienie translacji adresów sieciowych (NAT) przez publiczny adres IP przypisany do standardowego modułu równoważenia obciążenia lub urządzenia.
-
-#### <a name="load-balancer-creation-with-userdefinedrouting"></a>Tworzenie modułu równoważenia obciążenia za pomocą usługi userDefinedRouting
-
-Klastry AKS z typem wychodzącym UDR otrzymują moduł równoważenia obciążenia w warstwie Standardowa, tylko wtedy, gdy jest wdrożona pierwsza usługa Kubernetes typu "równoważenia obciążenia". Moduł równoważenia obciążenia jest skonfigurowany z publicznym adresem IP dla żądań *przychodzących* i puli zaplecza dla żądań *przychodzących* . Reguły ruchu przychodzącego są konfigurowane przez dostawcę chmury platformy Azure, ale **żaden publiczny adres IP lub reguły** wychodzące nie są konfigurowane w wyniku posiadania typu wychodzącego UDR. UDR będzie nadal jedynym źródłem ruchu wychodzącego.
-
-Usługi równoważenia obciążenia Azure [nie wiążą się z opłatą do momentu, gdy reguła zostanie umieszczona](https://azure.microsoft.com/pricing/details/load-balancer/).
-
-## <a name="deploy-a-cluster-with-outbound-type-of-udr-and-azure-firewall"></a>Wdrażanie klastra z typem wychodzącym UDR i zaporą platformy Azure
-
-Aby zilustrować aplikację klastra z typem wychodzącym przy użyciu trasy zdefiniowanej przez użytkownika, klaster można skonfigurować w sieci wirtualnej za pomocą zapory platformy Azure we własnej podsieci. Zapoznaj się z tym przykładem w [przykładzie Ogranicz ruch wychodzący przy użyciu zapory platformy Azure](limit-egress-traffic.md#restrict-egress-traffic-using-azure-firewall).
+Klaster usługi AKS można dostosować za pomocą `outboundType` unikatowego typu `loadBalancer` lub `userDefinedRouting` .
 
 > [!IMPORTANT]
-> Typ wychodzący UDR wymaga trasy dla 0.0.0.0/0 i lokalizacji docelowej następnego przeskoku urządzenie WUS (sieciowe urządzenie wirtualne) w tabeli tras.
-> Tabela tras ma już domyślne wartości 0.0.0.0/0 do Internetu, bez publicznego adresu IP do podłączania, po prostu dodanie tej trasy nie spowoduje wypróbowania ruchu wychodzącego. AKS sprawdzi, czy nie utworzysz trasy 0.0.0.0/0 wskazującej Internet, ale zamiast urządzenie WUS lub bramy itd. W przypadku korzystania z typu wychodzącego UDR, publiczny adres IP modułu równoważenia obciążenia dla **żądań przychodzących** nie zostanie utworzony, chyba że jest skonfigurowana usługa typu *równoważenia* obciążenia. Publiczny adres IP dla **żądań wychodzących** nigdy nie jest tworzony przez AKS, jeśli ustawiono typ wychodzący UDR.
+> Typ ruchu wychodzącego ma wpływ tylko na ruch wychodzący klastra. Aby uzyskać więcej informacji, zobacz [konfigurowanie kontrolerów ruchu wychodzącego.](ingress-basic.md)
+
+> [!NOTE]
+> Możesz użyć własnej tabeli tras [z trasą][byo-route-table] UDR i siecią kubenet. Upewnij się, że tożsamość klastra (jednostki usługi lub tożsamość zarządzana) ma uprawnienia współautora do niestandardowej tabeli tras.
+
+### <a name="outbound-type-of-loadbalancer"></a>Typ ruchu wychodzącego loadBalancer
+
+Jeśli `loadBalancer` jest ustawiona, aKS automatycznie ukończy następującą konfigurację. Równoważenie obciążenia jest używane do wychodzącego za pośrednictwem publicznego adresu IP przypisanego do usługi AKS. Typ ruchu wychodzącego obsługuje usługi typu Kubernetes, które oczekują ruchu wychodzącego z usługi równoważenia obciążenia utworzonej `loadBalancer` przez dostawcę zasobów usługi `loadBalancer` AKS.
+
+Następująca konfiguracja jest wykonywana przez usługę AKS.
+   * Publiczny adres IP jest aprowowany dla wychodzącego klastra.
+   * Publiczny adres IP jest przypisywany do zasobu usługi równoważenia obciążenia.
+   * Pule zaplecza dla usługi równoważenia obciążenia są ustawiane dla węzłów agentów w klastrze.
+
+Poniżej przedstawiono topologię sieci wdrożoną domyślnie w klastrach usługi AKS, które używają `outboundType` elementu `loadBalancer` .
+
+![Diagram przedstawiający ruch przychodzący I P i wychodzący I P, gdzie ruch przychodzący I P kieruje ruch do usługi równoważenia obciążenia, która kieruje ruch do i z klastra wewnętrznego i innego ruchu do ruchu wychodzącego I P, który kieruje ruch do Internetu, M C R, wymaganych usług platformy Azure i płaszczyzny sterowania A K S.](media/egress-outboundtype/outboundtype-lb.png)
+
+### <a name="outbound-type-of-userdefinedrouting"></a>Typ ruchu wychodzącego userDefinedRouting
+
+> [!NOTE]
+> Korzystanie z typu ruchu wychodzącego jest zaawansowanym scenariuszem sieciowym i wymaga odpowiedniej konfiguracji sieci.
+
+Jeśli `userDefinedRouting` ta wartość jest ustawiona, usługi AKS nie skonfiguruje automatycznie ścieżek ruchu wychodzącego. Konfiguracja dla danych wychodzących musi zostać wykonana przez Ciebie.
+
+Klaster usługi AKS należy wdrożyć w istniejącej sieci wirtualnej z wcześniej skonfigurowaną podsiecią, ponieważ w przypadku nieuzyskania architektury standardowego równoważenia obciążenia (SLB) należy ustanowić jawny ruch wychodzący. W związku z tym ta architektura wymaga jawnego wysyłania ruchu wychodzącego do urządzenia, takiego jak zapora, brama lub serwer proxy, aby umożliwić tłumaczenie adresów sieciowych (NAT) za pomocą publicznego adresu IP przypisanego do standardowego urządzenia lub usługi równoważenia obciążenia.
+
+#### <a name="load-balancer-creation-with-userdefinedrouting"></a>Tworzenie modułów równoważenia obciążenia za pomocą userDefinedRouting
+
+Klastry usługi AKS z typem ruchu wychodzącego UDR otrzymują standardowy usługę równoważenia obciążenia tylko wtedy, gdy jest wdrożona pierwsza usługa Kubernetes typu "loadBalancer". Równoważenie obciążenia jest konfigurowane przy użyciu publicznego adresu IP dla żądań *przychodzących* i puli zaplecza dla *żądań przychodzących.* Reguły ruchu przychodzącego są konfigurowane przez dostawcę chmury platformy Azure, ale żaden publiczny adres **IP** ruchu wychodzącego ani reguły ruchu wychodzącego nie są konfigurowane ze względu na typ ruchu wychodzącego UDR. Twoja UDR będzie nadal jedynym źródłem ruchu wychodzącego.
+
+Za usługi równoważenia obciążenia platformy Azure nie są naliczane [opłaty, dopóki reguła nie zostanie umieszczona.](https://azure.microsoft.com/pricing/details/load-balancer/)
+
+## <a name="deploy-a-cluster-with-outbound-type-of-udr-and-azure-firewall"></a>Wdrażanie klastra z typem ruchu wychodzącego UDR i Azure Firewall
+
+Aby zilustrować zastosowanie klastra z typem ruchu wychodzącego przy użyciu trasy zdefiniowanej przez użytkownika, klaster można skonfigurować w sieci wirtualnej z Azure Firewall we własnej podsieci. Zobacz ten przykład w przykładzie [ograniczania ruchu wychodzącego za pomocą usługi Azure Firewall.](limit-egress-traffic.md#restrict-egress-traffic-using-azure-firewall)
+
+> [!IMPORTANT]
+> Wychodzący typ trasy UDR wymaga trasy dla adresu 0.0.0.0/0 i miejsca docelowego następnego przeskoku urządzenia WUS (wirtualnego urządzenia sieciowego) w tabeli tras.
+> Tabela tras ma już domyślną wartość 0.0.0.0/0 do Internetu, bez publicznego adresu IP do SNAT po prostu dodanie tej trasy nie zapewni ruchu wychodzącego. AKS zweryfikuje, czy nie tworzysz trasy 0.0.0.0/0 kierowanej do Internetu, ale zamiast tego do urządzenia WUS lub bramy itp. W przypadku korzystania z typu ruchu wychodzącego UDR  publiczny adres IP usługi równoważenia obciążenia dla żądań przychodzących nie jest tworzony, chyba że skonfigurowano usługę typu *loadbalancer.* Publiczny adres IP dla żądań **wychodzących nigdy** nie jest tworzony przez usługę AKS, jeśli ustawiono typ ruchu wychodzącego UDR.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [Omówienie usługi Azure Network UDR](../virtual-network/virtual-networks-udr-overview.md).
+Zobacz [Azure networking UDR overview (Omówienie funkcji UDR dla sieci platformy Azure).](../virtual-network/virtual-networks-udr-overview.md)
 
-Zobacz [jak utworzyć, zmienić lub usunąć tabelę tras](../virtual-network/manage-route-table.md).
+Zobacz, [jak utworzyć, zmienić lub usunąć tabelę tras.](../virtual-network/manage-route-table.md)
 
 <!-- LINKS - internal -->
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [byo-route-table]: configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet
