@@ -1,33 +1,33 @@
 ---
 title: Wyświetlanie dzienników uruchamiania zadań — zadania
-description: Jak wyświetlać dzienniki uruchamiania generowane przez zadania ACR i zarządzać nimi.
+description: Sposób wyświetlania dzienników uruchamiania generowanych przez zadania usługi ACR.
 ms.topic: article
 ms.date: 03/09/2020
-ms.openlocfilehash: b2a10d4a3a2746acf38445673af994c6317c77de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ce5f33853be2aa48bcfd1916c7f8b94b9702f38c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93027180"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781059"
 ---
 # <a name="view-and-manage-task-run-logs"></a>Wyświetlanie dzienników uruchamiania zadań i zarządzanie nimi
 
-Każde zadanie uruchamiane w [Azure Container Registry zadania](container-registry-tasks-overview.md) generuje dane wyjściowe dziennika, które można sprawdzić, aby określić, czy kroki zadania zostały wykonane pomyślnie. 
+Każde zadanie uruchamiane w [Azure Container Registry generuje](container-registry-tasks-overview.md) dane wyjściowe dziennika, które można sprawdzić, aby ustalić, czy kroki zadania zostały pomyślnie uruchomione. 
 
-W tym artykule opisano sposób wyświetlania dzienników uruchamiania zadań i zarządzania nimi.
+W tym artykule wyjaśniono, jak wyświetlać dzienniki uruchamiania zadań i zarządzać nimi.
 
-## <a name="view-streamed-logs"></a>Wyświetl dzienniki przesyłane strumieniowo
+## <a name="view-streamed-logs"></a>Wyświetlanie strumieniowanych dzienników
 
-Gdy zadanie zostanie wyzwolone ręcznie, dane wyjściowe dziennika są przesyłane strumieniowo bezpośrednio do konsoli programu. Na przykład podczas ręcznego wyzwalania zadania za pomocą polecenia [AZ ACR Build](/cli/azure/acr#az-acr-build), [AZ ACR Run](/cli/azure/acr#az-acr-run)lub [AZ ACR Task Run](/cli/azure/acr/task#az-acr-task-run) można zobaczyć dane wyjściowe dziennika przesyłane strumieniowo do konsoli programu. 
+Po ręcznym wyzwoleniu zadania dane wyjściowe dziennika są przesyłane strumieniowo bezpośrednio do konsoli. Na przykład po ręcznym wyzwoleniu zadania przy użyciu polecenia [az acr build,](/cli/azure/acr#az_acr_build) [az acr run](/cli/azure/acr#az_acr_run)lub az [acr task run](/cli/azure/acr/task#az_acr_task_run) zobaczysz dane wyjściowe dziennika przesyłane strumieniowo do konsoli. 
 
-Poniższy przykład [AZ ACR Run](/cli/azure/acr#az-acr-run) polecenie ręcznie wyzwala zadanie, które uruchamia kontener ściągnięty z tego samego rejestru:
+Następujące przykładowe [polecenie az acr run](/cli/azure/acr#az_acr_run) ręcznie wyzwala zadanie, które uruchamia kontener ściągnięty z tego samego rejestru:
 
 ```azurecli
 az acr run --registry mycontainerregistry1220 \
   --cmd '$Registry/samples/hello-world:v1' /dev/null
 ```
 
-Dziennik strumieniowy:
+Dziennik przesyłany strumieniowo:
 
 ```console
 Queued a run with ID: cf4
@@ -56,23 +56,23 @@ This message shows that your installation appears to be working correctly.
 Run ID: cf4 was successful after 5s
 ```
 
-## <a name="view-stored-logs"></a>Wyświetlanie dzienników przechowywanych 
+## <a name="view-stored-logs"></a>Wyświetlanie przechowywanych dzienników 
 
-Azure Container Registry przechowuje dzienniki uruchamiania dla wszystkich zadań. Przechowywane dzienniki uruchamiania można wyświetlić w Azure Portal. Lub użyj polecenia [AZ ACR Task Logs](/cli/azure/acr/task#az-acr-task-logs) , aby wyświetlić wybrany dziennik. Domyślnie dzienniki są przechowywane przez 30 dni.
+Azure Container Registry przechowuje dzienniki uruchamiania dla wszystkich zadań. Możesz wyświetlić przechowywane dzienniki uruchamiania w Azure Portal. Możesz też użyć [polecenia az acr task logs,](/cli/azure/acr/task#az_acr_task_logs) aby wyświetlić wybrany dziennik. Domyślnie dzienniki są przechowywane przez 30 dni.
 
-Jeśli zadanie jest wyzwalane automatycznie, na przykład przez aktualizację kodu źródłowego, dostęp do przechowywanych dzienników jest *jedynym* sposobem wyświetlania dzienników uruchomienia. Automatyczne Wyzwalacze zadań obejmują zatwierdzenia kodu źródłowego lub żądania ściągnięcia, aktualizacje obrazu podstawowego i wyzwalacze czasomierza.
+Jeśli zadanie jest wyzwalane automatycznie, na przykład przez aktualizację kodu  źródłowego, uzyskanie dostępu do przechowywanych dzienników jest jedynym sposobem wyświetlania dzienników uruchamiania. Automatyczne wyzwalacze zadań obejmują zatwierdzenia kodu źródłowego lub żądania ściągnięć, aktualizacje obrazu podstawowego i wyzwalacze czasomierza.
 
 Aby wyświetlić dzienniki uruchamiania w portalu:
 
 1. Przejdź do rejestru kontenerów.
-1. W obszarze **usługi** wybierz pozycję **zadania**  >  **uruchomienia**.
-1. Wybierz **Identyfikator uruchomienia** , aby wyświetlić stan uruchomienia i dzienniki uruchomienia. Dziennik zawiera te same informacje, co w przypadku dziennika strumieniowego, jeśli został wygenerowany.
+1. W **chmurze Services**(Usługi) wybierz pozycję Tasks Runs   >  **(Zadania są uruchamiane).**
+1. Wybierz identyfikator **uruchomienia,** aby wyświetlić stan uruchomienia i dzienniki uruchamiania. Dziennik zawiera te same informacje co przesyłany strumieniowo dziennik, jeśli został wygenerowany.
 
-![Wyświetl Portal logowania uruchamiania zadań](./media/container-registry-tasks-logs/portal-task-run-logs.png)
+![Wyświetlanie portalu logowania uruchamiania zadania](./media/container-registry-tasks-logs/portal-task-run-logs.png)
 
-Aby wyświetlić dziennik przy użyciu interfejsu wiersza polecenia platformy Azure, uruchom polecenie [AZ ACR Task Logs](/cli/azure/acr/task#az-acr-task-logs) i określ identyfikator uruchomienia, nazwę zadania lub określony obraz tworzony przez zadanie kompilacji. Jeśli nazwa zadania zostanie określona, polecenie wyświetli dziennik dla ostatniego utworzonego uruchomienia.
+Aby wyświetlić dziennik przy użyciu interfejsu wiersza polecenia platformy Azure, uruchom narzędzie [az acr task logs](/cli/azure/acr/task#az_acr_task_logs) i określ identyfikator uruchomienia, nazwę zadania lub określony obraz, który został przez zadanie kompilacji. Jeśli zostanie określona nazwa zadania, polecenie wyświetla dziennik dla ostatniego utworzonego uruchomienia.
 
-Poniższy przykład wyprowadza dziennik dla przebiegu o IDENTYFIKATORze *CF4*:
+Poniższy przykład wyprowadza dziennik dla uruchomienia o identyfikatorze *cf4*:
 
 ```azurecli
 az acr task logs --registry mycontainerregistry1220 \
@@ -81,9 +81,9 @@ az acr task logs --registry mycontainerregistry1220 \
 
 ## <a name="alternative-log-storage"></a>Alternatywny magazyn dzienników
 
-Możesz chcieć przechowywać dzienniki uruchamiania zadań w lokalnym systemie plików lub użyć alternatywnego rozwiązania do archiwizowania, takiego jak Azure Storage.
+Możesz przechowywać dzienniki uruchamiania zadań w lokalnym systemie plików lub użyć alternatywnego rozwiązania do archiwizacji, takiego jak usługa Azure Storage.
 
-Można na przykład utworzyć lokalny katalog *tasklogs* i przekierować dane wyjściowe [dzienników zadań AZ ACR](/cli/azure/acr/task#az-acr-task-logs) do pliku lokalnego:
+Na przykład utwórz lokalny katalog *tasklogs* i przekieruj dane wyjściowe [dziennika zadań az acr](/cli/azure/acr/task#az_acr_task_logs) do pliku lokalnego:
 
 ```azurecli
 mkdir ~/tasklogs
@@ -92,22 +92,22 @@ az acr task logs --registry mycontainerregistry1220 \
   --run-id cf4 > ~/tasklogs/cf4.log
 ```
 
-Pliki dzienników lokalnych można także zapisać do usługi Azure Storage. Na przykład użyj [interfejsu wiersza polecenia platformy Azure](../storage/blobs/storage-quickstart-blobs-cli.md), [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md)lub innych metod przekazywania plików na konto magazynu.
+Możesz również zapisywać lokalne pliki dziennika w usłudze Azure Storage. Możesz na przykład użyć interfejsu wiersza polecenia platformy [Azure,](../storage/blobs/storage-quickstart-blobs-cli.md) [interfejsu Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md)lub innych metod przekazywania plików na konto magazynu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [zadaniach Azure Container Registry](container-registry-tasks-overview.md)
+* Dowiedz się więcej o [zadania usługi Azure Container Registry](container-registry-tasks-overview.md)
 
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-build]: /cli/azure/acr#az-acr-build
-[az-acr-pack-build]: /cli/azure/acr/pack#az-acr-pack-build
+[az-acr-build]: /cli/azure/acr#az_acr_build
+[az-acr-pack-build]: /cli/azure/acr/pack#az_acr_pack_build
 [az-acr-task]: /cli/azure/acr/task
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
-[az-acr-task-update]: /cli/azure/acr/task#az-acr-task-update
-[az-login]: /cli/azure/reference-index#az-login
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-acr-task-run]: /cli/azure/acr/task#az_acr_task_run
+[az-acr-task-update]: /cli/azure/acr/task#az_acr_task_update
+[az-login]: /cli/azure/reference-index#az_login
 [az-login-service-principal]: /cli/azure/authenticate-azure-cli
 
 <!-- IMAGES -->

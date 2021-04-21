@@ -1,7 +1,7 @@
 ---
 title: Tagi zawartości — przetwarzanie obrazów
 titleSuffix: Azure Cognitive Services
-description: Zapoznaj się z pojęciami dotyczącymi funkcji tagowania obrazów w interfejs API przetwarzania obrazów.
+description: Poznaj pojęcia związane z funkcją tagowania obrazów interfejsu API przetwarzanie obrazów API.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a75e55cd51890173b6733ab5f8c0f1bcbfeef0f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ef2d07b736d391fc3509266dea77fdc1b325ff2
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96532979"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778719"
 ---
 # <a name="applying-content-tags-to-images"></a>Stosowanie tagów zawartości do obrazów
 
-Przetwarzanie obrazów zwraca Tagi na podstawie tysięcy rozpoznawalnych obiektów, żywych, scenerii i akcji. Gdy tagi są niejednoznaczne lub wykraczają poza popularną wiedzę, odpowiedź interfejsu API zawiera „wskazówki”, aby wyjaśnić ich znaczenie w kontekście znanego otoczenia. Tagi nie są zorganizowane w postaci taksonomii i nie mają hierarchii dziedziczenia. Kolekcja tagów zawartości stanowi podstawę „opisu” obrazu wyświetlanego jako język zrozumiały dla użytkownika w formie pełnych zdań. Należy pamiętać, że obecnie jedynym obsługiwanym językiem opisu obrazu jest język angielski.
+przetwarzanie obrazów zwraca tagi na podstawie tysięcy rozpoznawalnych obiektów, istot żywych, scenerii i akcji. Gdy tagi są niejednoznaczne lub wykraczają poza popularną wiedzę, odpowiedź interfejsu API zawiera „wskazówki”, aby wyjaśnić ich znaczenie w kontekście znanego otoczenia. Tagi nie są zorganizowane w postaci taksonomii i nie mają hierarchii dziedziczenia. Kolekcja tagów zawartości stanowi podstawę „opisu” obrazu wyświetlanego jako język zrozumiały dla użytkownika w formie pełnych zdań. Należy pamiętać, że obecnie jedynym obsługiwanym językiem opisu obrazu jest język angielski.
 
 Po przekazaniu obrazu lub określeniu adresu URL obrazu algorytmy przetwarzania obrazów tworzą tagi wyjściowe na podstawie obiektów, żywych istot i akcji zidentyfikowanych na obrazie. Tagowanie nie jest ograniczone do głównego tematu, na przykład do osoby na pierwszym planie, ale uwzględnia także otoczenie (wewnątrz lub na zewnątrz), meble, narzędzia, rośliny, zwierzęta, akcesoria, gadżety itd.
 
-## <a name="image-tagging-example"></a>Przykład tagowania obrazu
+## <a name="image-tagging-example"></a>Przykład tagowania obrazów
 
-Następująca odpowiedź JSON ilustruje, co przetwarzanie obrazów zwracać podczas tagowania funkcji wizualnych wykrytych w przykładowym obrazie.
+Następująca odpowiedź JSON ilustruje, przetwarzanie obrazów zwraca podczas tagowania cech wizualnych wykrytych na przykładzie obrazu.
 
-![Niebieska i czołowa Jard](./Images/house_yard.png).
+![Niebieski dom i front](./Images/house_yard.png).
 
 ```json
 {
@@ -85,10 +85,10 @@ Następująca odpowiedź JSON ilustruje, co przetwarzanie obrazów zwracać podc
 
 ## <a name="use-the-api"></a>Używanie interfejsu API
 
-Funkcja tagowania jest częścią interfejsu API [analizowania obrazu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) . Ten interfejs API można wywołać za pomocą natywnego zestawu SDK lub wywołań REST. Uwzględnij `Tags` w parametrze zapytania **visualFeatures** . Po otrzymaniu pełnej odpowiedzi JSON należy po prostu przeanalizować ciąg dla zawartości `"tags"` sekcji.
+Funkcja tagowania jest częścią interfejsu API [analizowanie obrazów](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f21b) API. Ten interfejs API można wywołać za pomocą natywnego zestawu SDK lub wywołań REST. Uwzględnij `Tags` w **parametrze zapytania visualFeatures.** Następnie, gdy otrzymasz pełną odpowiedź JSON, po prostu prze analizuj ciąg pod celu uzyskania zawartości `"tags"` sekcji.
 
-* [Szybki Start: przetwarzanie obrazów interfejsów API REST lub bibliotek klienckich](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Szybki start: przetwarzanie obrazów API REST lub bibliotek klienckich](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Poznaj powiązane koncepcje [kategoryzacji obrazów](concept-categorizing-images.md) i [opisywania obrazów](concept-describing-images.md).
+Poznaj powiązane pojęcia dotyczące [kategoryzowania obrazów](concept-categorizing-images.md) [i opisywania obrazów.](concept-describing-images.md)

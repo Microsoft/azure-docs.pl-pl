@@ -1,40 +1,40 @@
 ---
-title: Samouczek — przywracanie SAP HANA bazy danych na platformie Azure przy użyciu interfejsu wiersza polecenia
-description: W tym samouczku dowiesz się, jak przywrócić bazy danych SAP HANA uruchomione na maszynie wirtualnej platformy Azure z magazynu Azure Backup Recovery Services przy użyciu interfejsu wiersza polecenia platformy Azure.
+title: Samouczek — przywracanie bazy SAP HANA DB na platformie Azure przy użyciu interfejsu wiersza polecenia
+description: Z tego samouczka dowiesz się, jak przywrócić bazy danych SAP HANA uruchomione na maszynie wirtualnej platformy Azure z magazynu Azure Backup Recovery Services przy użyciu interfejsu wiersza polecenia platformy Azure.
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0e524bfe090f0d67b76c13e876f44e83986aeb9e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a249ab63aa72c1d39ab1626e72ff3b2037f3f723
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91334807"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768455"
 ---
-# <a name="tutorial-restore-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Samouczek: Przywracanie SAP HANA baz danych na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="tutorial-restore-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Samouczek: przywracanie baz SAP HANA na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów platformy Azure i zarządzanie nimi za pomocą wiersza poleceń lub skryptów. W tej dokumentacji szczegółowo przedstawiono sposób przywracania bazy danych SAP HANA kopii zapasowej na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure. Te kroki można również wykonać przy użyciu [Azure Portal](./sap-hana-db-restore.md).
+Interfejs wiersza polecenia platformy Azure służy do tworzenia zasobów platformy Azure i zarządzania nimi z wiersza polecenia lub za pośrednictwem skryptów. W tej dokumentacji szczegółowo opisano sposób przywracania kopii zapasowej bazy SAP HANA na maszynie wirtualnej platformy Azure — przy użyciu interfejsu wiersza polecenia platformy Azure. Te kroki można również wykonać przy użyciu [Azure Portal](./sap-hana-db-restore.md).
 
-Użyj [Azure Cloud Shell](tutorial-sap-hana-backup-cli.md) do uruchamiania poleceń interfejsu wiersza polecenia.
+Użyj [Azure Cloud Shell](tutorial-sap-hana-backup-cli.md) polecenia do uruchamiania poleceń interfejsu wiersza polecenia.
 
-Po zakończeniu tego samouczka będziesz mieć możliwość:
+Po zakończeniu tego samouczka będziesz w stanie:
 
 > [!div class="checklist"]
 >
 > * Wyświetlanie punktów przywracania dla kopii zapasowej bazy danych
 > * Przywracanie bazy danych
 
-W tym samouczku założono, że masz bazę danych SAP HANA działającą na maszynie wirtualnej platformy Azure, której kopia zapasowa została utworzona przy użyciu Azure Backup. Jeśli utworzono [kopię zapasową bazy danych SAP HANA na platformie Azure przy użyciu interfejsu wiersza polecenia](tutorial-sap-hana-backup-cli.md) , aby utworzyć kopię zapasową bazy danych SAP HANA, wówczas używasz następujących zasobów:
+W tym samouczku przyjęto założenie, że masz SAP HANA na maszynie wirtualnej platformy Azure, dla których jest back-up z systemem Azure Backup. Jeśli używasz funkcji back up an [SAP HANA database in Azure](tutorial-sap-hana-backup-cli.md) using CLI to back up your SAP HANA database (Kopię zapasową bazy danych na platformie Azure przy użyciu interfejsu wiersza polecenia) używasz następujących zasobów:
 
-* Grupa zasobów o nazwie *saphanaResourceGroup*
+* grupa zasobów o nazwie *saphanaResourceGroup*
 * magazyn o nazwie *saphanaVault*
-* chroniony kontener o nazwie *VMAppContainer; Obliczenia; saphanaResourceGroup; saphanaVM*
-* kopia zapasowa bazy danych/elementu o nazwie *saphanadatabase; HXE; HXE*
-* zasoby w regionie *westus2*
+* chroniony kontener o nazwie *VMAppContainer; Compute;saphanaResourceGroup;saphanaVM*
+* baza danych kopii zapasowej/element o *nazwie saphanadatabase;hxe;hxe*
+* zasoby w *regionie westus2*
 
 ## <a name="view-restore-points-for-a-backed-up-database"></a>Wyświetlanie punktów przywracania dla kopii zapasowej bazy danych
 
-Aby wyświetlić listę wszystkich punktów odzyskiwania dla bazy danych, użyj polecenia [AZ Backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) w następujący sposób:
+Aby wyświetlić listę wszystkich punktów odzyskiwania dla bazy danych, użyj polecenia cmdlet [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az_backup_recoverypoint_show_log_chain) w następujący sposób:
 
 ```azurecli-interactive
 az backup recoverypoint list --resource-group saphanaResourceGroup \
@@ -54,43 +54,43 @@ Name                      Time                               BackupManagementTyp
 DefaultRangeRecoveryPoint                                    AzureWorkload          SAPHanaDtabase;hxe;hxe  Log
 ```
 
-Jak widać, Powyższa lista zawiera trzy punkty odzyskiwania: jeden dla pełnych, różnicowych i kopii zapasowych dziennika.
+Jak widać, na powyższej liście znajdują się trzy punkty odzyskiwania: po jednym dla kopii zapasowej pełnej, różnicowej i dziennika.
 
 >[!NOTE]
->Możesz również wyświetlić punkty początkowe i końcowe każdego nieuszkodzonego łańcucha kopii zapasowych dziennika za pomocą polecenia [AZ Backup recoverypoint show-log-łańcucha](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) .
+>Możesz również wyświetlić punkty rozpoczęcia i zakończenia każdego łańcucha kopii zapasowej dziennika bez zabezpieczeń, używając polecenia cmdlet [az backup recoverypoint show-log-chain.](/cli/azure/backup/recoverypoint#az_backup_recoverypoint_show_log_chain)
 
 ## <a name="prerequisites-to-restore-a-database"></a>Wymagania wstępne dotyczące przywracania bazy danych
 
-Przed przystąpieniem do przywracania bazy danych upewnij się, że zostały spełnione następujące wymagania wstępne:
+Przed przywróceniem bazy danych upewnij się, że spełnione są następujące wymagania wstępne:
 
-* Bazę danych można przywrócić tylko do wystąpienia SAP HANA znajdującego się w tym samym regionie.
-* Wystąpienie docelowe musi być zarejestrowane w tym samym magazynie co Źródło
-* Azure Backup nie może zidentyfikować dwóch różnych wystąpień SAP HANA na tej samej maszynie wirtualnej. W związku z tym przywracanie danych z jednego wystąpienia do innego na tej samej maszynie wirtualnej nie jest możliwe.
+* Bazę danych można przywrócić tylko do SAP HANA, które jest w tym samym regionie
+* Wystąpienie docelowe musi być zarejestrowane w tym samym magazynie co źródło
+* Azure Backup nie można zidentyfikować dwóch różnych wystąpień SAP HANA na tej samej maszynie wirtualnej. Dlatego przywracanie danych z jednego wystąpienia do innego na tej samej maszynie wirtualnej nie jest możliwe.
 
 ## <a name="restore-a-database"></a>Przywracanie bazy danych
 
-Azure Backup można przywrócić SAP HANA baz danych uruchomionych na maszynach wirtualnych platformy Azure w następujący sposób:
+Azure Backup można przywrócić SAP HANA baz danych uruchomionych na maszyn wirtualnych platformy Azure w następujący sposób:
 
-* Przywracanie do określonej daty lub czasu (w drugim) przy użyciu kopii zapasowych dziennika. Azure Backup automatycznie określa odpowiednie pełne, różnicowe kopie zapasowe i łańcuch kopii zapasowych dziennika, które są wymagane do przywrócenia w oparciu o wybrany czas.
-* Przywróć do konkretnej pełnej lub różnicowej kopii zapasowej, aby przywrócić do określonego punktu odzyskiwania.
+* Przywróć do określonej daty lub godziny (do drugiej) przy użyciu kopii zapasowych dziennika. Azure Backup automatycznie określa odpowiednie pełne, różnicowe kopie zapasowe i łańcuch kopii zapasowych dzienników, które są wymagane do przywrócenia na podstawie wybranego czasu.
+* Przywracanie do określonej pełnej lub różnicowej kopii zapasowej w celu przywrócenia do określonego punktu odzyskiwania.
 
-Aby przywrócić bazę danych, użyj polecenia [AZ Restore Restore-azurewl](/cli/azure/backup/restore#az-backup-restore-restore-azurewl) , które wymaga obiektu konfiguracji odzyskiwania jako jednego z danych wejściowych. Ten obiekt można wygenerować za pomocą polecenia [AZ Backup recoveryconfig show](/cli/azure/backup/recoveryconfig#az-backup-recoveryconfig-show) . Obiekt konfiguracji odzyskiwania zawiera wszystkie szczegóły do wykonania przywracania. Jeden z nich jest trybem przywracania — **OriginalWorkloadRestore** lub **AlternateWorkloadRestore**.
+Aby przywrócić bazę danych, użyj polecenia cmdlet [az restore-azurewl,](/cli/azure/backup/restore#az_backup_restore_restore_azurewl) które wymaga obiektu konfiguracji odzyskiwania jako jednego z danych wejściowych. Ten obiekt można wygenerować za pomocą [polecenia cmdlet az backup recoveryconfig show.](/cli/azure/backup/recoveryconfig#az_backup_recoveryconfig_show) Obiekt konfiguracji odzyskiwania zawiera wszystkie szczegóły do wykonania przywracania. Jednym z nich jest tryb przywracania **— OriginalWorkloadRestore** lub **AlternateWorkloadRestore.**
 
 >[!NOTE]
-> **OriginalWorkloadRestore** — Przywróć dane do tego samego wystąpienia SAP HANA co oryginalne źródło. Ta opcja zastępuje oryginalną bazę danych. <br>
-> **AlternateWorkloadRestore** — Przywróć bazę danych do alternatywnej lokalizacji i Zachowaj oryginalną źródłową bazę danych.
+> **OriginalWorkloadRestore** — przywraca dane do tego samego SAP HANA co oryginalne źródło. Ta opcja zastępuje oryginalną bazę danych. <br>
+> **AlternateWorkloadRestore** — przywracanie bazy danych do lokalizacji alternatywnej i zachowanie oryginalnej źródłowej bazy danych.
 
-## <a name="restore-to-alternate-location"></a>Przywróć do lokalizacji alternatywnej
+## <a name="restore-to-alternate-location"></a>Przywracanie do lokalizacji alternatywnej
 
-Aby przywrócić bazę danych do innej lokalizacji, użyj **AlternateWorkloadRestore** jako trybu przywracania. Następnie należy wybrać punkt przywracania, który może być wcześniejszym punktem w czasie lub dowolnym z poprzednich punktów przywracania.
+Aby przywrócić bazę danych do lokalizacji alternatywnej, użyj **alternateWorkloadRestore** jako trybu przywracania. Następnie należy wybrać punkt przywracania, który może być poprzednim punktem w czasie lub dowolnym z poprzednich punktów przywracania.
 
-W tym samouczku przywrócisz do poprzedniego punktu przywracania. [Wyświetl listę punktów przywracania](#view-restore-points-for-a-backed-up-database) bazy danych i wybierz punkt, do którego chcesz przywrócić. W tym samouczku zostanie użyty punkt przywracania o nazwie *7660777527047692711*.
+W tym samouczku przywrócisz poprzedni punkt przywracania. [Wyświetl listę punktów przywracania dla](#view-restore-points-for-a-backed-up-database) bazy danych i wybierz punkt, do którego chcesz przywrócić. W tym samouczku użyjemy punktu przywracania o *nazwie 7660777527047692711.*
 
-Korzystając z powyższej nazwy punktu przywracania i trybu przywracania, Utwórz teraz obiekt konfiguracji odzyskiwania za pomocą polecenia [AZ Backup recoveryconfig show](/cli/azure/backup/recoveryconfig#az-backup-recoveryconfig-show) . Przyjrzyjmy się poszczególnym parametrom w tym poleceniu cmdlet:
+Korzystając z powyższej nazwy punktu przywracania i trybu przywracania, utwórzmy obiekt konfiguracji odzyskiwania przy użyciu polecenia cmdlet [az backup recoveryconfig show.](/cli/azure/backup/recoveryconfig#az_backup_recoveryconfig_show) Przyjrzyjmy się, co oznaczają poszczególne pozostałe parametry tego polecenia cmdlet:
 
-* **--Target-Item-Name** Jest to nazwa używana przez przywróconą bazę danych. W takim przypadku użyto nazwy *restored_database*.
-* **--Target-Server-Name** Jest to nazwa serwera SAP HANA, który został pomyślnie zarejestrowany w magazynie Recovery Services i znajduje się w tym samym regionie, w którym znajduje się baza danych, która ma zostać przywrócona. W tym samouczku będziemy przywracać bazę danych na tym samym serwerze SAP HANA, który został objęty ochroną, o nazwie *hxehost*.
-* **--Target-Server-Type** Aby można było przywrócić SAP HANA baz danych, należy użyć **HANAInstance** .
+* **--target-item-name** Jest to nazwa, która będzie używać przywróconej bazy danych. W tym przypadku umyliśmy *nazwę* restored_database .
+* **--target-server-name** Jest to nazwa serwera usługi SAP HANA, który został pomyślnie zarejestrowany w magazynie usługi Recovery Services i znajduje się w tym samym regionie co baza danych do przywrócenia. W tym samouczku przywrócimy bazę danych na ten sam serwer SAP HANA chroniony przez nas o nazwie *hxehost.*
+* **--target-server-type** Aby przywrócić bazy SAP HANA, należy użyć platformy **HANAInstance.**
 
 ```azurecli-interactive
 
@@ -107,13 +107,13 @@ az backup recoveryconfig show --resource-group saphanaResourceGroup \
     --output json
 ```
 
-Odpowiedź na powyższe zapytanie będzie obiektem konfiguracji odzyskiwania, który wygląda następująco:
+Odpowiedzią na powyższe zapytanie będzie obiekt konfiguracji odzyskiwania, który wygląda podobnie do tego:
 
 ```output
 {"restore_mode": "AlternateLocation", "container_uri": " VMAppContainer;Compute;saphanaResourceGroup;saphanaVM ", "item_uri": "SAPHanaDatabase;hxe;hxe", "recovery_point_id": "7660777527047692711", "item_type": "SAPHana", "source_resource_id": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm", "database_name": null, "container_id": null, "alternate_directory_paths": null}
 ```
 
-Teraz, aby przywrócić bazę danych, uruchom polecenie [AZ Restore Restore-azurewl](/cli/azure/backup/restore#az-backup-restore-restore-azurewl) . Aby użyć tego polecenia, wprowadzimy powyższe dane wyjściowe JSON zapisane w pliku o nazwie *recoveryconfig.jsna*.
+Teraz, aby przywrócić bazę danych, uruchom [polecenie cmdlet az restore restore-azurewl.](/cli/azure/backup/restore#az_backup_restore_restore_azurewl) Aby użyć tego polecenia, wprowadź powyższe dane wyjściowe JSON zapisane w pliku o *nazwierecoveryconfig.jsw pliku*.
 
 ```azurecli-interactive
 az backup restore restore-azurewl --resource-group saphanaResourceGroup \
@@ -122,7 +122,7 @@ az backup restore restore-azurewl --resource-group saphanaResourceGroup \
     --output table
 ```
 
-Dane wyjściowe będą wyglądać następująco:
+Dane wyjściowe będą wyglądać tak:
 
 ```output
 Name                                  Resource
@@ -130,13 +130,13 @@ Name                                  Resource
 5b198508-9712-43df-844b-977e5dfc30ea  SAPHANA
 ```
 
-Odpowiedź będzie zawierać nazwę zadania. Ta nazwa zadania może służyć do śledzenia stanu zadania za pomocą polecenia [AZ Backup Job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
+Odpowiedź będzie zawierała nazwę zadania. Ta nazwa zadania może służyć do śledzenia stanu zadania przy użyciu [polecenia cmdlet az backup job show.](/cli/azure/backup/job#az_backup_job_show)
 
-## <a name="restore-and-overwrite"></a>Przywróć i Zastąp
+## <a name="restore-and-overwrite"></a>Przywracanie i zastępowanie
 
-Aby przywrócić do oryginalnej lokalizacji, użyjemy **OrignialWorkloadRestore** jako trybu przywracania. Następnie należy wybrać punkt przywracania, który może być wcześniejszym punktem w czasie lub dowolnym z poprzednich punktów przywracania.
+Aby przywrócić do oryginalnej lokalizacji, użyjemy trybu **przywracania OrignialWorkloadRestore.** Następnie należy wybrać punkt przywracania, który może być poprzednim punktem w czasie lub dowolnym z poprzednich punktów przywracania.
 
-Na potrzeby tego samouczka wybierzemy poprzedni punkt w czasie "28-11-2019-09:53:00", aby przywrócić wartość. Ten punkt przywracania można podać w następujących formatach: dd-mm-rrrr, dd-mm-rrrr-hh: mm: SS. Aby wybrać prawidłowy punkt w czasie do przywrócenia, użyj polecenia [AZ Backup recoverypoint show-log-łańcucha](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) , które wyświetla listę interwałów tworzenia kopii zapasowych łańcucha dzienników.
+W tym samouczku wybierzemy poprzedni punkt w czasie "28-11-2019-09:53:00", do których ma zostać przywrócony. Ten punkt przywracania można podać w następujących formatach: dd-mm-yyyy, dd-mm-yyyy-hh:mm:ss. Aby wybrać prawidłowy punkt w czasie do przywrócenia, użyj polecenia cmdlet [az backup recoverypoint show-log-chain,](/cli/azure/backup/recoverypoint#az_backup_recoverypoint_show_log_chain) które zawiera listę interwałów nieuprawnianych kopii zapasowych łańcucha dzienników.
 
 ```azurecli-interactive
 az backup recoveryconfig show --resource-group saphanaResourceGroup \
@@ -148,13 +148,13 @@ az backup recoveryconfig show --resource-group saphanaResourceGroup \
     --output json
 ```
 
-Odpowiedź na powyższe zapytanie będzie obiektem konfiguracji odzyskiwania, który wygląda następująco:
+Odpowiedzią na powyższe zapytanie będzie obiekt konfiguracji odzyskiwania, który wygląda następująco:
 
 ```output
 {"restore_mode": "OriginalLocation", "container_uri": " VMAppContainer;Compute;saphanaResourceGroup;saphanaVM ", "item_uri": "SAPHanaDatabase;hxe;hxe", "recovery_point_id": "DefaultRangeRecoveryPoint", "log_point_in_time": "28-11-2019-09:53:00", "item_type": "SAPHana", "source_resource_id": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm", "database_name": null, "container_id": null, "alternate_directory_paths": null}"
 ```
 
-Teraz, aby przywrócić bazę danych, uruchom polecenie [AZ Restore Restore-azurewl](/cli/azure/backup/restore#az-backup-restore-restore-azurewl) . Aby użyć tego polecenia, wprowadzimy powyższe dane wyjściowe JSON zapisane w pliku o nazwie *recoveryconfig.jsna*.
+Teraz, aby przywrócić bazę danych, uruchom [polecenie cmdlet az restore restore-azurewl.](/cli/azure/backup/restore#az_backup_restore_restore_azurewl) Aby użyć tego polecenia, wprowadź powyższe dane wyjściowe JSON zapisane w pliku o *nazwierecoveryconfig.jspliku*.
 
 ```azurecli-interactive
 az backup restore restore-azurewl --resource-group saphanaResourceGroup \
@@ -163,7 +163,7 @@ az backup restore restore-azurewl --resource-group saphanaResourceGroup \
     --output table
 ```
 
-Dane wyjściowe będą wyglądać następująco:
+Dane wyjściowe będą wyglądać tak:
 
 ```output
 Name                                  Resource
@@ -171,18 +171,18 @@ Name                                  Resource
 5b198508-9712-43df-844b-977e5dfc30ea  SAPHANA
 ```
 
-Odpowiedź będzie zawierać nazwę zadania. Ta nazwa zadania może służyć do śledzenia stanu zadania za pomocą polecenia [AZ Backup Job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
+Odpowiedź będzie zawierała nazwę zadania. Ta nazwa zadania może służyć do śledzenia stanu zadania za pomocą [polecenia az backup job show](/cli/azure/backup/job#az_backup_job_show) cmdlet.
 
 ## <a name="restore-as-files"></a>Przywróć jako pliki
 
-Aby przywrócić dane kopii zapasowej jako pliki zamiast bazy danych, użyjemy **RestoreAsFiles** jako trybu przywracania. Następnie wybierz punkt przywracania, który może być wcześniejszym punktem w czasie lub dowolnym z poprzednich punktów przywracania. Po zrzucie plików do określonej ścieżki można wykonać te pliki na dowolnym komputerze SAP HANA, na którym chcesz je przywrócić jako bazę danych. Ponieważ można przenieść te pliki na dowolną maszynę, można teraz przywrócić dane między subskrypcjami i regionami.
+Aby przywrócić dane kopii zapasowej jako pliki zamiast bazy danych, użyjemy **trybu przywracania RestoreAsFiles.** Następnie wybierz punkt przywracania, który może być poprzednim punktem w czasie lub dowolnym z poprzednich punktów przywracania. Po zrzucie plików do określonej ścieżki można je zabrać do dowolnej maszyny SAP HANA, na której chcesz przywrócić je jako bazę danych. Ponieważ możesz przenieść te pliki na dowolną maszynę, możesz teraz przywrócić dane między subskrypcjami i regionami.
 
-Na potrzeby tego samouczka wybierzemy poprzedni punkt w czasie, w którym ma zostać `28-11-2019-09:53:00` przywrócona wartość, i lokalizacja do zrzutu plików kopii zapasowej `/home/saphana/restoreasfiles` na tym samym serwerze SAP HANA. Ten punkt przywracania można podać w dowolnym z następujących formatów: **dd-mm-rrrr** lub **dd-mm-rrrr-hh: mm: SS**. Aby wybrać prawidłowy punkt w czasie do przywrócenia, użyj polecenia [AZ Backup recoverypoint show-log-łańcucha](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) , które wyświetla listę interwałów tworzenia kopii zapasowych łańcucha dzienników.
+W tym samouczku wybierzemy poprzedni punkt w czasie do przywrócenia oraz lokalizację, do których mają zostać zrzucane pliki kopii zapasowej, jak na tym samym `28-11-2019-09:53:00` `/home/saphana/restoreasfiles` SAP HANA serwera. Ten punkt przywracania można podać w jednym z następujących formatów: **dd-mm-yyyy lub** **dd-mm-yyyy-hh:mm:ss.** Aby wybrać prawidłowy punkt w czasie do przywrócenia, użyj polecenia cmdlet [az backup recoverypoint show-log-chain,](/cli/azure/backup/recoverypoint#az_backup_recoverypoint_show_log_chain) które zawiera listę interwałów nieuprawnianych kopii zapasowych łańcucha dzienników.
 
-Korzystając z powyższej nazwy punktu przywracania i trybu przywracania, Utwórz obiekt konfiguracji odzyskiwania za pomocą polecenia [AZ Backup recoveryconfig show](/cli/azure/backup/recoveryconfig#az-backup-recoveryconfig-show) . Przyjrzyjmy się poszczególnym parametrom w tym poleceniu cmdlet:
+Korzystając z powyższej nazwy punktu przywracania i trybu przywracania, utwórzmy obiekt konfiguracji odzyskiwania przy użyciu polecenia cmdlet [az backup recoveryconfig show.](/cli/azure/backup/recoveryconfig#az_backup_recoveryconfig_show) Przyjrzyjmy się, co oznaczają poszczególne pozostałe parametry tego polecenia cmdlet:
 
-* **--Target-Container-Name** Jest to nazwa serwera SAP HANA, który został pomyślnie zarejestrowany w magazynie Recovery Services i znajduje się w tym samym regionie, w którym znajduje się baza danych, która ma zostać przywrócona. W tym samouczku przywrócono bazę danych jako pliki do tego samego serwera SAP HANA, który został objęty ochroną, o nazwie *hxehost*.
-* **--RP-Name** W przypadku przywracania do punktu w czasie nazwa punktu przywracania będzie **DefaultRangeRecoveryPoint**
+* **--target-container-name** Jest to nazwa serwera usługi SAP HANA, który został pomyślnie zarejestrowany w magazynie usługi Recovery Services i znajduje się w tym samym regionie co baza danych do przywrócenia. W tym samouczku przywrócimy bazę danych jako pliki na ten sam serwer SAP HANA chroniony przez nas o nazwie *hxehost.*
+* **--rp-name** W przypadku przywracania do punktu w czasie nazwą punktu przywracania będzie **DefaultRangeRecoveryPoint**
 
 ```azurecli-interactive
 az backup recoveryconfig show --resource-group saphanaResourceGroup \
@@ -197,7 +197,7 @@ az backup recoveryconfig show --resource-group saphanaResourceGroup \
     --output json
 ```
 
-Odpowiedź na powyższe zapytanie będzie obiektem konfiguracji odzyskiwania, który wygląda następująco:
+Odpowiedzią na powyższe zapytanie będzie obiekt konfiguracji odzyskiwania, który wygląda następująco:
 
 ```output
 {
@@ -216,7 +216,7 @@ Odpowiedź na powyższe zapytanie będzie obiektem konfiguracji odzyskiwania, kt
 }
 ```
 
-Teraz, aby przywrócić bazę danych jako pliki, uruchom polecenie [AZ Restore Restore-azurewl](/cli/azure/backup/restore#az-backup-restore-restore-azurewl) . Aby użyć tego polecenia, wprowadzimy dane wyjściowe JSON powyżej, które są zapisywane w pliku o nazwie *recoveryconfig.jsna*.
+Teraz, aby przywrócić bazę danych jako pliki, uruchom [polecenie cmdlet az restore restore-azurewl.](/cli/azure/backup/restore#az_backup_restore_restore_azurewl) Aby użyć tego polecenia, wprowadź dane wyjściowe JSON powyżej, które są zapisywane w pliku *o nazwierecoveryconfig.jsna .*
 
 ```azurecli-interactive
 az backup restore restore-azurewl --resource-group saphanaResourceGroup \
@@ -225,7 +225,7 @@ az backup restore restore-azurewl --resource-group saphanaResourceGroup \
     --output json
 ```
 
-Dane wyjściowe będą wyglądać następująco:
+Dane wyjściowe będą wyglądać tak:
 
 ```output
 {
@@ -267,24 +267,24 @@ Dane wyjściowe będą wyglądać następująco:
 }
 ```
 
-Odpowiedź będzie zawierać nazwę zadania. Ta nazwa zadania może służyć do śledzenia stanu zadania za pomocą polecenia [AZ Backup Job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
+Odpowiedź będzie zawierała nazwę zadania. Ta nazwa zadania może służyć do śledzenia stanu zadania przy użyciu [polecenia cmdlet az backup job show.](/cli/azure/backup/job#az_backup_job_show)
 
-Pliki, które są zrzucane do kontenera docelowego:
+Pliki, które są zrzucane do kontenera docelowego, to:
 
 * Pliki kopii zapasowej bazy danych
 * Pliki wykazu
-* Pliki metadanych JSON (dla każdego pliku kopii zapasowej, który jest powiązany)
+* Pliki metadanych JSON (dla każdego związanego z tym pliku kopii zapasowej)
 
-Zwykle ścieżka udziału sieciowego lub ścieżka zainstalowanego udziału plików platformy Azure, gdy zostanie określona jako ścieżka docelowa, zapewnia łatwiejszy dostęp do tych plików przez inne maszyny w tej samej sieci lub z tym samym udziałem plików platformy Azure.
+Zazwyczaj ścieżka udziału sieciowego lub ścieżka zainstalowanego udziału plików platformy Azure określona jako ścieżka docelowa umożliwia łatwiejszy dostęp do tych plików przez inne maszyny w tej samej sieci lub z zainstalowanym na nich tym samym udziałem plików platformy Azure.
 
 >[!NOTE]
->Aby przywrócić pliki kopii zapasowej bazy danych w udziale plików platformy Azure zainstalowanym na docelowej zarejestrowanej maszynie wirtualnej, upewnij się, że konto główne ma uprawnienia do odczytu/zapisu w udziale plików platformy Azure.
+>Aby przywrócić pliki kopii zapasowej bazy danych w udziałach plików platformy Azure zainstalowanych na docelowej zarejestrowanej maszynie wirtualnej, upewnij się, że konto główne ma uprawnienia do odczytu/zapisu w udziałach plików platformy Azure.
 
-W oparciu o typ wybranego punktu przywracania (**punkt w czasie** lub **pełny & różnicowa**) zobaczysz co najmniej jeden folder utworzony w ścieżce docelowej. Jeden z folderów o nazwie `Data_<date and time of restore>` zawiera pełne i różnicowe kopie zapasowe, a inny folder o nazwie `Log` zawiera kopie zapasowe dziennika.
+W zależności od wybranego typu punktu przywracania **(punkt** w czasie lub pełna & różnicowa) zobaczysz co najmniej jeden folder utworzony w ścieżce docelowej. Jeden z folderów o nazwie zawiera pełne i różnicowe kopie zapasowe, a drugi folder o nazwie `Data_<date and time of restore>` `Log` zawiera kopie zapasowe dzienników.
 
-Przenieś te przywrócone pliki na serwer SAP HANA, na którym chcesz je przywrócić jako bazę danych. Następnie wykonaj następujące kroki, aby przywrócić bazę danych:
+Przenieś te przywrócone pliki na serwer SAP HANA, na którym chcesz przywrócić je jako bazę danych. Następnie wykonaj następujące kroki, aby przywrócić bazę danych:
 
-1. Ustaw uprawnienia do folderu/katalogu, w którym są przechowywane pliki kopii zapasowej, przy użyciu następującego polecenia:
+1. Ustaw uprawnienia w folderze/katalogu, w którym są przechowywane pliki kopii zapasowej, za pomocą następującego polecenia:
 
     ```bash
     chown -R <SID>adm:sapsys <directory>
@@ -296,7 +296,7 @@ Przenieś te przywrócone pliki na serwer SAP HANA, na którym chcesz je przywr�
     su - <sid>adm
     ```
 
-1. Wygeneruj plik wykazu do przywrócenia. Wyodrębnij **BackupId** z pliku metadanych JSON dla pełnej kopii zapasowej, która zostanie użyta w dalszej części operacji przywracania. Upewnij się, że kopie zapasowe pełnych i dzienników znajdują się w różnych folderach i Usuń pliki wykazu oraz pliki metadanych JSON w tych folderach.
+1. Wygeneruj plik wykazu do przywrócenia. Wyodrębnij **nazwę BackupId** z pliku metadanych JSON w celu tworzenia pełnej kopii zapasowej, która będzie używana w dalszej części operacji przywracania. Upewnij się, że pełne kopie zapasowe i kopie zapasowe dzienników znajdują się w różnych folderach, a następnie usuń pliki wykazu i pliki metadanych JSON w tych folderach.
 
     ```bash
     hdbbackupdiag --generate --dataDir <DataFileDir> --logDirs <LogFilesDir> -d <PathToPlaceCatalogFile>
@@ -304,15 +304,15 @@ Przenieś te przywrócone pliki na serwer SAP HANA, na którym chcesz je przywr�
 
     W powyższym poleceniu:
 
-    * `<DataFileDir>` -folder zawierający pełne kopie zapasowe
-    * `<LogFilesDir>` -folder zawierający kopie zapasowe dziennika
-    * `<PathToPlaceCatalogFile>` -folder, w którym został wygenerowany plik wykazu, musi być umieszczony
+    * `<DataFileDir>` — folder zawierający pełne kopie zapasowe
+    * `<LogFilesDir>` — folder zawierający kopie zapasowe dzienników
+    * `<PathToPlaceCatalogFile>` — folder, w którym musi zostać wygenerowany plik wykazu
 
-1. Przywróć przy użyciu nowo wygenerowanego pliku wykazu za pośrednictwem platformy HANA Studio lub uruchom zapytanie HDBSQL Restore z tym nowo wygenerowanym wykazem. Poniżej wymieniono zapytania HDBSQL:
+1. Przywróć przy użyciu nowo wygenerowanego pliku wykazu za pośrednictwem programu HANA Studio lub uruchom zapytanie dotyczące przywracania HDBSQL z tym nowo wygenerowanym wykazem. Poniżej przedstawiono zapytania HDBSQL:
 
     * Aby przywrócić do punktu w czasie:
 
-        W przypadku tworzenia nowej przywróconej bazy danych Uruchom polecenie HDBSQL w celu utworzenia nowej bazy danych, `<DatabaseName>` a następnie Zatrzymaj przywracanie bazy danych. Jeśli jednak przywracasz tylko istniejącą bazę danych, uruchom polecenie HDBSQL, aby zatrzymać bazę danych.
+        Jeśli tworzysz nową przywróconą bazę danych, uruchom polecenie HDBSQL, aby utworzyć nową bazę danych, a następnie zatrzymaj bazę danych w `<DatabaseName>` celu przywrócenia. Jeśli jednak przywracasz tylko istniejącą bazę danych, uruchom polecenie HDBSQL, aby zatrzymać bazę danych.
 
         Następnie uruchom następujące polecenie, aby przywrócić bazę danych:
 
@@ -320,32 +320,32 @@ Przenieś te przywrócone pliki na serwer SAP HANA, na którym chcesz je przywr�
         RECOVER DATABASE FOR <DatabaseName> UNTIL TIMESTAMP '<TimeStamp>' CLEAR LOG USING SOURCE '<DatabaseName@HostName>'  USING CATALOG PATH ('<PathToGeneratedCatalogInStep3>') USING LOG PATH (' <LogFileDir>') USING DATA PATH ('<DataFileDir>') USING BACKUP_ID <BackupIdFromJsonFile> CHECK ACCESS USING FILE
         ```
 
-        * `<DatabaseName>` -Nazwa nowej bazy danych lub istniejącej bazy danych, która ma zostać przywrócona
-        * `<Timestamp>` -Dokładne sygnatura czasowa przywracania do punktu w czasie
-        * `<DatabaseName@HostName>` -Nazwa bazy danych, której kopia zapasowa jest używana do przywracania i nazwa serwera **hosta** /SAP HANA, na którym znajduje się ta baza danych. `USING SOURCE <DatabaseName@HostName>`Opcja określa, że kopia zapasowa danych (używana do przywracania) jest bazą danych o innym identyfikatorze SID lub nazwie niż docelowa maszyna SAP HANA. Dlatego nie trzeba określać operacji przywracania wykonanej na tym samym serwerze HANA, w którym jest wykonywana kopia zapasowa.
-        * `<PathToGeneratedCatalogInStep3>` -Ścieżka do pliku wykazu wygenerowanego w **kroku 3**
-        * `<DataFileDir>` -folder zawierający pełne kopie zapasowe
-        * `<LogFilesDir>` -folder zawierający kopie zapasowe dziennika
-        * `<BackupIdFromJsonFile>` - **BackupId** wyodrębniony w **kroku 3**
+        * `<DatabaseName>` - Nazwa nowej bazy danych lub istniejącej bazy danych, którą chcesz przywrócić
+        * `<Timestamp>` - Dokładny znacznik czasu przywracania do punktu w czasie
+        * `<DatabaseName@HostName>` - Nazwa bazy danych, której kopia zapasowa jest używana do przywracania, oraz **nazwa** SAP HANA serwera, na którym znajduje się ta baza danych. Opcja `USING SOURCE <DatabaseName@HostName>` określa, że kopia zapasowa danych (używana do przywracania) jest bazą danych o innym identyfikatorze SID lub nazwie niż nazwa docelowej maszyny SAP HANA danych. Dlatego nie trzeba go określać dla przywracania wykonywanego na tym samym serwerze HANA, z którego jest wykonywana kopia zapasowa.
+        * `<PathToGeneratedCatalogInStep3>` - Ścieżka do pliku katalogu wygenerowanego w **kroku 3**
+        * `<DataFileDir>` — folder zawierający pełne kopie zapasowe
+        * `<LogFilesDir>` — folder zawierający kopie zapasowe dziennika
+        * `<BackupIdFromJsonFile>` — **backupid wyodrębniony** w **kroku 3**
 
-    * Aby przywrócić do konkretnej pełnej lub różnicowej kopii zapasowej:
+    * Aby przywrócić do określonej pełnej lub różnicowej kopii zapasowej:
 
-        W przypadku tworzenia nowej przywróconej bazy danych Uruchom polecenie HDBSQL w celu utworzenia nowej bazy danych, `<DatabaseName>` a następnie Zatrzymaj przywracanie bazy danych. Jeśli jednak przywracasz tylko istniejącą bazę danych, uruchom polecenie HDBSQL, aby zatrzymać bazę danych:
+        Jeśli tworzysz nową przywróconą bazę danych, uruchom polecenie HDBSQL, aby utworzyć nową bazę danych, a następnie zatrzymaj bazę `<DatabaseName>` danych w celu przywrócenia. Jeśli jednak przywracasz tylko istniejącą bazę danych, uruchom polecenie HDBSQL, aby zatrzymać bazę danych:
 
         ```hdbsql
         RECOVER DATA FOR <DatabaseName> USING BACKUP_ID <BackupIdFromJsonFile> USING SOURCE '<DatabaseName@HostName>'  USING CATALOG PATH ('<PathToGeneratedCatalogInStep3>') USING DATA PATH ('<DataFileDir>')  CLEAR LOG
         ```
 
-        * `<DatabaseName>` — Nazwa nowej bazy danych lub istniejącej bazy danych, którą chcesz przywrócić.
-        * `<Timestamp>` -dokładne sygnatura czasowa przywracania do punktu w czasie
-        * `<DatabaseName@HostName>` — Nazwa bazy danych, której kopia zapasowa jest używana do przywracania i nazwa serwera **hosta** /SAP HANA, na którym znajduje się ta baza danych. `USING SOURCE <DatabaseName@HostName>`Opcja określa, że kopia zapasowa danych (używana do przywracania) jest bazą danych o innym identyfikatorze SID lub nazwie niż docelowa maszyna SAP HANA. Dlatego nie trzeba określać operacji przywracania na tym samym serwerze HANA, w którym jest wykonywana kopia zapasowa.
-        * `<PathToGeneratedCatalogInStep3>` -ścieżka do pliku wykazu wygenerowanego w **kroku 3**
-        * `<DataFileDir>` -folder zawierający pełne kopie zapasowe
-        * `<LogFilesDir>` -folder zawierający kopie zapasowe dziennika
-        * `<BackupIdFromJsonFile>` - **BackupId** wyodrębniony w **kroku 3**
+        * `<DatabaseName>` — nazwa nowej bazy danych lub istniejącej bazy danych, którą chcesz przywrócić
+        * `<Timestamp>` — dokładny znacznik czasu przywracania do punktu w czasie
+        * `<DatabaseName@HostName>` — nazwa bazy danych, której kopia zapasowa jest używana do przywracania, oraz **nazwa** hosta/SAP HANA serwera, na którym znajduje się ta baza danych. Opcja `USING SOURCE <DatabaseName@HostName>`  określa, że kopia zapasowa danych (używana do przywracania) jest bazą danych o innym identyfikatorze SID lub nazwie niż nazwa SAP HANA docelowej. Dlatego nie trzeba go określać dla przywracania na tym samym serwerze HANA, z którego jest wykonywana kopia zapasowa.
+        * `<PathToGeneratedCatalogInStep3>` — ścieżka do pliku katalogu wygenerowanego w **kroku 3**
+        * `<DataFileDir>` — folder zawierający pełne kopie zapasowe
+        * `<LogFilesDir>` — folder zawierający kopie zapasowe dziennika
+        * `<BackupIdFromJsonFile>` — **backupid wyodrębniony** w **kroku 3**
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się, jak zarządzać bazami danych SAP HANA, których kopia zapasowa została utworzona przy użyciu interfejsu wiersza polecenia platformy Azure, przejdź do samouczka [Zarządzanie bazą danych SAP HANA na maszynie wirtualnej platformy Azure](tutorial-sap-hana-backup-cli.md)
+* Aby dowiedzieć się, jak zarządzać bazami danych SAP HANA, których kopię zapasową pisano przy użyciu interfejsu wiersza polecenia platformy Azure, przejdź do samouczka Manage an SAP HANA database in Azure VM using CLI (Zarządzanie bazą danych usługi azure database na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza [polecenia)](tutorial-sap-hana-backup-cli.md)
 
-* Aby dowiedzieć się, jak przywrócić bazę danych SAP HANA działającą na maszynie wirtualnej platformy Azure przy użyciu Azure Portal, zobacz [przywracanie baz danych SAP HANA na maszynach wirtualnych platformy Azure](./sap-hana-db-restore.md)
+* Aby dowiedzieć się, jak przywrócić bazę danych SAP HANA uruchomionej na maszynie wirtualnej platformy Azure przy użyciu maszyny Azure Portal, zapoznaj się z tematem Restore [an SAP HANA databases on Azure VMs](./sap-hana-db-restore.md) (Przywracanie bazy danych SAP HANA na maszynach wirtualnych platformy Azure)

@@ -1,31 +1,31 @@
 ---
-title: Uaktualnij obrazy węzła usługi Azure Kubernetes Service (AKS)
-description: Dowiedz się, jak uaktualnić obrazy w węzłach klastra AKS i w pulach węzłów.
+title: Uaktualnianie Azure Kubernetes Service węzłów (AKS)
+description: Dowiedz się, jak uaktualnić obrazy w węzłach klastra i pulach węzłów usługi AKS.
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: jpalma
-ms.openlocfilehash: 83d7d48922806334e2b49494fe0ef1d15e1a7a6a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4f6ac01c1d4df288c823142abbc93e981048d8db
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96531483"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767533"
 ---
-# <a name="azure-kubernetes-service-aks-node-image-upgrade"></a>Uaktualnianie obrazu węzła usługi Azure Kubernetes Service (AKS)
+# <a name="azure-kubernetes-service-aks-node-image-upgrade"></a>Azure Kubernetes Service obrazu węzła (AKS)
 
-Program AKS obsługuje uaktualnianie obrazów w węźle, dzięki czemu jesteś aktualny z najnowszymi aktualizacjami systemu operacyjnego i środowiska uruchomieniowego. Program AKS udostępnia jeden nowy obraz tygodniowo z najnowszymi aktualizacjami, dlatego warto uaktualnić obrazy węzła regularnie w przypadku najnowszych funkcji, w tym dla systemu Linux lub Windows. W tym artykule pokazano, jak uaktualnić obrazy węzłów klastra AKS oraz jak aktualizować obrazy puli węzłów bez uaktualniania wersji programu Kubernetes.
+AKS obsługuje uaktualnianie obrazów w węźle, aby być na bieżąco z najnowszymi aktualizacjami systemu operacyjnego i środowiska uruchomieniowego. Usługa AKS udostępnia jeden nowy obraz na tydzień z najnowszymi aktualizacjami, dlatego warto regularnie uaktualniać obrazy węzła w celu uwzględnienia najnowszych funkcji, w tym poprawek systemu Linux lub Windows. W tym artykule pokazano, jak uaktualnić obrazy węzłów klastra usługi AKS i jak zaktualizować obrazy puli węzłów bez uaktualniania wersji usługi Kubernetes.
 
-Aby uzyskać więcej informacji na temat najnowszych obrazów dostarczonych przez AKS, zobacz [Informacje o wersji AKS](https://github.com/Azure/AKS/releases).
+Aby uzyskać więcej informacji na temat najnowszych obrazów dostarczanych przez usługę AKS, zobacz [informacje o wersji usługi AKS.](https://github.com/Azure/AKS/releases)
 
-Aby uzyskać informacje na temat uaktualniania wersji Kubernetes dla klastra, zobacz [Uaktualnianie klastra AKS][upgrade-cluster].
+Aby uzyskać informacje na temat uaktualniania wersji usługi Kubernetes dla klastra, zobacz [Uaktualnianie klastra usługi AKS.][upgrade-cluster]
 
 > [!NOTE]
-> Klaster AKS musi używać zestawów skalowania maszyn wirtualnych dla węzłów.
+> Klaster usługi AKS musi używać zestawów skalowania maszyn wirtualnych dla węzłów.
 
-## <a name="check-if-your-node-pool-is-on-the-latest-node-image"></a>Sprawdź, czy pula węzłów znajduje się na najnowszym obrazie węzła
+## <a name="check-if-your-node-pool-is-on-the-latest-node-image"></a>Sprawdź, czy pula węzłów znajduje się w najnowszym obrazie węzła
 
-Możesz sprawdzić, jaka jest Najnowsza wersja obrazu węzła dostępna dla puli węzłów za pomocą następującego polecenia: 
+Możesz sprawdzić, jaka jest najnowsza wersja obrazu węzła dostępna dla puli węzłów, za pomocą następującego polecenia: 
 
 ```azurecli
 az aks nodepool get-upgrades \
@@ -34,7 +34,7 @@ az aks nodepool get-upgrades \
     --resource-group myResourceGroup
 ```
 
-W danych wyjściowych można zobaczyć, `latestNodeImageVersion` jak pokazano na poniższym przykładzie:
+W danych wyjściowych możesz zobaczyć, jak `latestNodeImageVersion` w poniższym przykładzie:
 
 ```output
 {
@@ -49,7 +49,7 @@ W danych wyjściowych można zobaczyć, `latestNodeImageVersion` jak pokazano na
 }
 ```
 
-W związku `nodepool1` z tym najnowszy obraz węzła jest dostępny `AKSUbuntu-1604-2020.10.28` . Teraz można ją porównać z bieżącą wersją obrazu węzła używaną przez pulę węzłów przez uruchomienie:
+Dlatego najnowszy `nodepool1` dostępny obraz węzła to `AKSUbuntu-1604-2020.10.28` . Teraz możesz porównać go z bieżącą wersją obrazu węzła używaną przez pulę węzłów, uruchamiając:
 
 ```azurecli
 az aks nodepool show \
@@ -59,17 +59,17 @@ az aks nodepool show \
     --query nodeImageVersion
 ```
 
-Przykładowe dane wyjściowe:
+Przykładowe dane wyjściowe to:
 
 ```output
 "AKSUbuntu-1604-2020.10.08"
 ```
 
-W tym przykładzie można przeprowadzić uaktualnienie z bieżącej `AKSUbuntu-1604-2020.10.08` wersji obrazu do najnowszej wersji `AKSUbuntu-1604-2020.10.28` . 
+Dlatego w tym przykładzie można uaktualnić bieżącą wersję `AKSUbuntu-1604-2020.10.08` obrazu do najnowszej wersji `AKSUbuntu-1604-2020.10.28` . 
 
-## <a name="upgrade-all-nodes-in-all-node-pools"></a>Uaktualnij wszystkie węzły we wszystkich pulach węzłów
+## <a name="upgrade-all-nodes-in-all-node-pools"></a>Uaktualnianie wszystkich węzłów we wszystkich pulach węzłów
 
-Uaktualnianie obrazu węzła odbywa się przy użyciu `az aks upgrade` . Aby uaktualnić obraz węzła, użyj następującego polecenia:
+Uaktualnianie obrazu węzła odbywa się za pomocą programu `az aks upgrade` . Aby uaktualnić obraz węzła, użyj następującego polecenia:
 
 ```azurecli
 az aks upgrade \
@@ -78,13 +78,13 @@ az aks upgrade \
     --node-image-only
 ```
 
-Podczas uaktualniania sprawdź stan obrazów węzłów za pomocą następującego `kubectl` polecenia, aby uzyskać etykiety i odfiltrować informacje o bieżącym obrazie węzła:
+Podczas uaktualniania sprawdź stan obrazów węzłów za pomocą następującego polecenia, aby uzyskać etykiety i `kubectl` odfiltrować informacje o bieżącym obrazie węzła:
 
 ```azurecli
 kubectl get nodes -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.kubernetes\.azure\.com\/node-image-version}{"\n"}{end}'
 ```
 
-Po zakończeniu uaktualniania Użyj `az aks show` programu, aby uzyskać informacje o zaktualizowanych puli węzłów. Bieżący obraz węzła jest pokazywany we `nodeImageVersion` właściwości.
+Po zakończeniu uaktualniania użyj programu , `az aks show` aby uzyskać zaktualizowane szczegóły puli węzłów. Bieżący obraz węzła jest wyświetlany we właściwości `nodeImageVersion` .
 
 ```azurecli
 az aks show \
@@ -96,7 +96,7 @@ az aks show \
 
 Uaktualnianie obrazu w puli węzłów jest podobne do uaktualniania obrazu w klastrze.
 
-Aby zaktualizować obraz systemu operacyjnego puli węzłów bez wykonywania uaktualnienia klastra Kubernetes, użyj `--node-image-only` opcji w następującym przykładzie:
+Aby zaktualizować obraz systemu operacyjnego puli węzłów bez uaktualniania klastra Kubernetes, użyj `--node-image-only` opcji w poniższym przykładzie:
 
 ```azurecli
 az aks nodepool upgrade \
@@ -106,13 +106,13 @@ az aks nodepool upgrade \
     --node-image-only
 ```
 
-Podczas uaktualniania sprawdź stan obrazów węzłów za pomocą następującego `kubectl` polecenia, aby uzyskać etykiety i odfiltrować informacje o bieżącym obrazie węzła:
+Podczas uaktualniania sprawdź stan obrazów węzłów za pomocą następującego polecenia, aby uzyskać etykiety i `kubectl` odfiltrować bieżące informacje o obrazie węzła:
 
 ```azurecli
 kubectl get nodes -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.kubernetes\.azure\.com\/node-image-version}{"\n"}{end}'
 ```
 
-Po zakończeniu uaktualniania Użyj `az aks nodepool show` programu, aby uzyskać informacje o zaktualizowanych puli węzłów. Bieżący obraz węzła jest pokazywany we `nodeImageVersion` właściwości.
+Po zakończeniu uaktualniania użyj programu , `az aks nodepool show` aby uzyskać zaktualizowane szczegóły puli węzłów. Bieżący obraz węzła jest wyświetlany we właściwości `nodeImageVersion` .
 
 ```azurecli
 az aks nodepool show \
@@ -121,13 +121,13 @@ az aks nodepool show \
     --name mynodepool
 ```
 
-## <a name="upgrade-node-images-with-node-surge"></a>Uaktualnianie obrazów węzłów z przepięciem węzła
+## <a name="upgrade-node-images-with-node-surge"></a>Uaktualnianie obrazów węzłów przy użyciu skoków liczby węzłów
 
-Aby przyspieszyć proces uaktualniania obrazu węzła, można uaktualnić obrazy węzłów przy użyciu dostosowywalnej wartości przepięcia węzła. Domyślnie AKS używa jednego dodatkowego węzła do konfigurowania uaktualnień.
+Aby przyspieszyć proces uaktualniania obrazu węzła, możesz uaktualnić obrazy węzłów przy użyciu dostosowywanej wartości skoków węzła. Domyślnie do konfigurowania uaktualnień usługi AKS jest używany jeden dodatkowy węzeł.
 
-Jeśli chcesz zwiększyć szybkość uaktualniania, użyj `--max-surge` wartości, aby skonfigurować liczbę węzłów, które mają być używane na potrzeby uaktualnień, aby zostały ukończone szybciej. Aby dowiedzieć się więcej o zaletach różnych `--max-surge` ustawień, zobacz [Dostosowywanie przepięcia węzła][max-surge].
+Jeśli chcesz zwiększyć szybkość uaktualnień, użyj wartości , aby skonfigurować liczbę węzłów do użycia na użytek uaktualnień, aby były `--max-surge` one szybsze. Aby dowiedzieć się więcej o kosztach różnych ustawień, zobacz Dostosowywanie uaktualnienia `--max-surge` [skoków węzłów.][max-surge]
 
-Następujące polecenie ustawia maksymalną wartość przepięcia służącą do przeprowadzania uaktualnienia obrazu węzła:
+Następujące polecenie ustawia maksymalną wartość skoków dla wykonywania uaktualnienia obrazu węzła:
 
 ```azurecli
 az aks nodepool upgrade \
@@ -139,13 +139,13 @@ az aks nodepool upgrade \
     --no-wait
 ```
 
-Podczas uaktualniania sprawdź stan obrazów węzłów za pomocą następującego `kubectl` polecenia, aby uzyskać etykiety i odfiltrować informacje o bieżącym obrazie węzła:
+Podczas uaktualniania sprawdź stan obrazów węzłów za pomocą następującego polecenia, aby uzyskać etykiety i `kubectl` odfiltrować bieżące informacje o obrazie węzła:
 
 ```azurecli
 kubectl get nodes -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.kubernetes\.azure\.com\/node-image-version}{"\n"}{end}'
 ```
 
-Użyj, `az aks nodepool show` Aby uzyskać zaktualizowane szczegóły puli węzłów. Bieżący obraz węzła jest pokazywany we `nodeImageVersion` właściwości.
+Użyj `az aks nodepool show` , aby uzyskać zaktualizowane szczegóły puli węzłów. Bieżący obraz węzła jest wyświetlany we właściwości `nodeImageVersion` .
 
 ```azurecli
 az aks nodepool show \
@@ -156,15 +156,15 @@ az aks nodepool show \
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Informacje o najnowszych obrazach węzłów można znaleźć w informacjach o [wersji AKS](https://github.com/Azure/AKS/releases) .
-- Dowiedz się, jak uaktualnić wersję Kubernetes z [uaktualnieniem klastra AKS][upgrade-cluster].
-- [Automatyczne stosowanie uaktualnień puli klastra i węzła przy użyciu akcji GitHub][github-schedule]
-- Dowiedz się więcej o wielu pulach węzłów oraz jak uaktualnić pule węzłów za pomocą [tworzenia wielu pul węzłów i zarządzania nimi][use-multiple-node-pools].
+- Zobacz informacje [o wersji AKS,](https://github.com/Azure/AKS/releases) aby uzyskać informacje o najnowszych obrazach węzłów.
+- Dowiedz się, jak uaktualnić wersję usługi Kubernetes za [pomocą uaktualnienia klastra usługi AKS.][upgrade-cluster]
+- [Automatyczne stosowanie uaktualnień klastra i puli węzłów przy użyciu GitHub Actions][github-schedule]
+- Dowiedz się więcej na temat wielu pul węzłów i sposobu uaktualniania pul węzłów za pomocą [tematu Tworzenie wielu pul węzłów][use-multiple-node-pools]i zarządzanie nimi.
 
 <!-- LINKS - internal -->
 [upgrade-cluster]: upgrade-cluster.md
 [github-schedule]: node-upgrade-github-actions.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [max-surge]: upgrade-cluster.md#customize-node-surge-upgrade
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update

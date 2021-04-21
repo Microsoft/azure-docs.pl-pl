@@ -1,160 +1,159 @@
 ---
-title: Informacje o certyfikatach Azure Key Vault — Azure Key Vault
-description: Omówienie Azure Key Vault interfejsem REST i certyfikatami.
+title: Informacje Azure Key Vault certyfikatów — Azure Key Vault
+description: Omówienie interfejsu REST Azure Key Vault certyfikatów.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b410dc89b286ef830f0d5b6a9c33fe77d380f5d1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb69068ddac311a8020a76eec9b18fab3256fea6
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102507215"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752538"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Informacje o certyfikatach usługi Azure Key Vault
 
-Obsługa certyfikatów Key Vault umożliwia zarządzanie certyfikatami x509 i następującymi zachowaniami:  
+Key Vault certyfikatów zapewnia zarządzanie certyfikatami x509 i następujące zachowania:  
 
--   Umożliwia właścicielowi certyfikatu utworzenie certyfikatu za pomocą procesu tworzenia Key Vault lub przez zaimportowanie istniejącego certyfikatu. Obejmuje certyfikaty wygenerowane zarówno z podpisem własnym, jak i urzędu certyfikacji.
--   Umożliwia właścicielowi certyfikatu Key Vault implementowanie bezpiecznego magazynu i zarządzanie certyfikatami x509 bez interakcji z materiałem klucza prywatnego.  
--   Umożliwia właścicielowi certyfikatu utworzenie zasad, które kierują Key Vault do zarządzania cyklem życia certyfikatu.  
--   Umożliwia właścicielom certyfikatu udostępnianie informacji kontaktowych w celu powiadomienia o zdarzeniach cyklu życia i odnowieniu certyfikatu.  
--   Obsługuje automatyczne odnawianie z wybranymi wystawcami — dostawcy certyfikatów x509 Key Vault partner/urzędy certyfikacji.
+-   Umożliwia właścicielowi certyfikatu utworzenie certyfikatu za pośrednictwem Key Vault lub przez zaimportowanie istniejącego certyfikatu. Obejmuje certyfikaty z podpisem własnym i certyfikat wygenerowany przez urząd certyfikacji.
+-   Umożliwia właścicielowi Key Vault zaimplementowanie bezpiecznego magazynu certyfikatów X509 i zarządzanie nimi bez interakcji z materiałami klucza prywatnego.  
+-   Umożliwia właścicielowi certyfikatu utworzenie zasad, które Key Vault zarządzania cyklem życia certyfikatu.  
+-   Umożliwia właścicielom certyfikatów podanie informacji kontaktowych w celu powiadamiania o zdarzeniach cyklu życia wygaśnięcia i odnowienia certyfikatu.  
+-   Obsługuje automatyczne odnawianie przy użyciu wybranych wystawców — Key Vault certyfikatów X509 partnera/ urzędów certyfikacji.
 
 >[!Note]
->Niebędący dostawcami/urzędy są również dozwolone, ale nie obsługują funkcji autoodnawiania.
+>Dostawcy/urzędy, którzy nie są partnerami, są również dozwolone, ale nie będą obsługiwać funkcji automatycznego odnawiania.
 
-## <a name="composition-of-a-certificate"></a>Składanie certyfikatu
+## <a name="composition-of-a-certificate"></a>Kompozycja certyfikatu
 
-Po utworzeniu certyfikatu Key Vault zostanie również utworzony klucz adresowy i wpis tajny o tej samej nazwie. Klucz Key Vault pozwala na wykonywanie kluczowych operacji, a klucz tajny Key Vault umożliwia pobieranie wartości certyfikatu jako klucza tajnego. Certyfikat Key Vault zawiera również publiczne metadane certyfikatu x509.  
+Po utworzeniu Key Vault jest tworzony adresowalny klucz i klucz tajny o tej samej nazwie. Klucz Key Vault umożliwia operacje na kluczach, a klucz Key Vault tajny umożliwia pobranie wartości certyfikatu jako klucza tajnego. Certyfikat Key Vault również zawiera metadane publicznego certyfikatu x509.  
 
-Identyfikator i wersja certyfikatów są podobne do tych kluczy i wpisów tajnych. W odpowiedzi na certyfikat Key Vault jest dostępna określona wersja klucza i wpisu tajnego, który został utworzony przy użyciu wersji certyfikatu Key Vault.
+Identyfikator i wersja certyfikatów są podobne do kluczy i wpisów tajnych. Konkresowa wersja adresowalnego klucza i klucza tajnego utworzonego za pomocą Key Vault wersji certyfikatu jest dostępna w odpowiedzi Key Vault certyfikatu.
  
 ![Certyfikaty są obiektami złożonymi](../media/azure-key-vault.png)
 
-## <a name="exportable-or-non-exportable-key"></a>Klucz możliwy do eksportu lub niemożliwy do eksportu
+## <a name="exportable-or-non-exportable-key"></a>Klucz eksportowalny lub nieeksportowalny
 
-Po utworzeniu certyfikatu Key Vault można go pobrać ze klucza prywatnego z adresami w formacie PFX lub PEM. Zasady użyte do utworzenia certyfikatu muszą wskazywać, że klucz jest eksportowalny. Jeśli zasady wskazują, że nie można eksportować, klucz prywatny nie jest częścią wartości, gdy zostanie pobrany jako wpis tajny.  
+Po utworzeniu Key Vault można go pobrać z adresowalnego klucza tajnego przy użyciu klucza prywatnego w formacie PFX lub PEM. Zasady używane do tworzenia certyfikatu muszą wskazywać, że klucz można eksportować. Jeśli zasady wskazują, że nie można eksportować, klucz prywatny nie jest częścią wartości po pobraniu jako klucz tajny.  
 
-Klucz adresowania jest bardziej istotny dla niemożliwych do eksportu certyfikatów KV. Operacje na kluczu KV z adresami są mapowane z pola *użycie* klucza dla zasad certyfikatu KV użytych do utworzenia certyfikatu kV.  
+Adresowalny klucz staje się bardziej istotny w przypadku nieeksportowalnych certyfikatów KV. Operacje adresowalnego klucza KV są mapowane z pola *keyusage* zasad certyfikatów KV używanych do tworzenia certyfikatu KV.  
 
-Typ pary kluczy, która ma być obsługiwana dla certyfikatów
+Typ pary kluczy obsługiwanej dla certyfikatów
 
- - Obsługiwane typy kluczy: RSA, RSA-HSM, EC, we-HSM, Oct (wymienione [tutaj](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) można eksportować tylko za pomocą RSA, we. Klucze HSM nie mogą być eksportowane.
+ - Obsługiwane typy kluczy: RSA, RSA-HSM, EC, EC-HSM, oct (wymienione tutaj [)](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)Eksportowanie jest dozwolone tylko w przypadku RSA, EC. Kluczy HSM nie można eksportować.
 
 |Typ klucza|Informacje|Zabezpieczenia|
 |--|--|--|
-|**RSA**| Klucz RSA "chroniony przez oprogramowanie"|Poziom FIPS 140-2|
-|**RSA — HSM**| Klucz RSA "chroniony przez HSM" (tylko wersja Premium)|Moduł HSM FIPS 140-2 Level 2|
-|**EC**| Klucz krzywej eliptyczna "chronione przez oprogramowanie"|Poziom FIPS 140-2|
-|**WE-HSM**| Klucz krzywej eliptyczna "chroniony przez moduł HSM" (tylko wersja Premium)|Moduł HSM FIPS 140-2 Level 2|
+|**Rsa**| Klucz RSA "Chroniony przez oprogramowanie"|FIPS 140-2 Poziom 1|
+|**RSA-HSM**| Klucz RSA "chroniony przez moduł HSM" (tylko wersja Premium SKU)|MODUŁ HSM fips 140-2 poziom 2|
+|**EC**| Klucz krzywej wielokropka "Chronione przez oprogramowanie"|FIPS 140-2 Poziom 1|
+|**MODUŁ HSM EC**| Klucz krzywej wielokropka "chronione przez moduł HSM" (tylko wersja Premium SKU)|MODUŁ HSM fips 140-2 poziom 2|
 |||
 
-## <a name="certificate-attributes-and-tags"></a>Atrybuty i Tagi certyfikatu
+## <a name="certificate-attributes-and-tags"></a>Atrybuty i tagi certyfikatu
 
-Oprócz metadanych certyfikatu, klucz adresowy i wpis tajny adresowane, certyfikat Key Vault również zawiera atrybuty i Tagi.  
+Oprócz metadanych certyfikatu, adresowalnego klucza i adresowalnego klucza tajnego, certyfikat Key Vault również atrybuty i tagi.  
 
 ### <a name="attributes"></a>Atrybuty
 
-Atrybuty certyfikatu są duplikowane do atrybutów klucza, który można adresować i wpisu tajnego utworzonych podczas tworzenia certyfikatu KV.  
+Atrybuty certyfikatu są dublowane do atrybutów adresowalnego klucza i klucza tajnego utworzonych podczas tworzenia certyfikatu KV.  
 
 Certyfikat Key Vault ma następujące atrybuty:  
 
--   *włączone*: wartość logiczna, opcjonalna, **wartość** domyślna to true. Można określić, aby wskazać, czy dane certyfikatu mogą być pobierane jako tajne, czy jako klucz. Używany także w połączeniu z *NBF* i *EXP* , gdy operacja występuje między *NBF* i *EXP*, i będzie dozwolona tylko wtedy, gdy wartość Enabled jest ustawiona na true. Operacje poza oknem *NBF* i *EXP* są automatycznie niedozwolone.  
+-   *enabled*: wartość logiczna, opcjonalna, wartość domyślna to **true.** Można określić, aby wskazać, czy dane certyfikatu mogą być pobierane jako klucz tajny lub czy mogą być obsługiwane jako klucz. Używana również w połączeniu z *nbf* i *exp,* gdy operacja występuje między *nbf* i *exp*, i będzie dozwolone tylko wtedy, gdy włączona jest ustawiona na wartość true. Operacje poza *oknem nbf* *i exp* są automatycznie niedozwolone.  
 
-Istnieją dodatkowe atrybuty tylko do odczytu, które znajdują się w odpowiedzi:
+Istnieją dodatkowe atrybuty tylko do odczytu, które są uwzględnione w odpowiedzi:
 
--   *utworzono*: IntDate: wskazuje, kiedy ta wersja certyfikatu została utworzona.  
--   *Zaktualizowano*: IntDate: wskazuje, kiedy ta wersja certyfikatu została zaktualizowana.  
--   *EXP*: IntDate: zawiera wartość daty wygaśnięcia certyfikatu x509.  
--   *NBF*: IntDate: zawiera wartość daty certyfikatu x509.  
+-   *created*: IntDate: wskazuje, kiedy ta wersja certyfikatu została utworzona.  
+-   *updated:* IntDate: wskazuje, kiedy ta wersja certyfikatu została zaktualizowana.  
+-   *exp*: IntDate: zawiera wartość daty wygaśnięcia certyfikatu x509.  
+-   *nbf:* IntDate: zawiera wartość daty certyfikatu x509.  
 
 > [!Note] 
 > Jeśli certyfikat usługi Key Vault wygaśnie, adresowany klucz i wpis tajny przestaną działać.  
 
 ### <a name="tags"></a>Tagi
 
- Określony przez klienta słownik par wartości klucza, podobny do tagów w kluczach i wpisach tajnych.  
+ Określony przez klienta słownik par klucz-wartość, podobny do tagów w kluczach i wpisach tajnych.  
 
  > [!Note]
-> Znaczniki są odczytywane przez obiekt wywołujący, jeśli mają *listę* lub *uzyskują* uprawnienia do tego typu obiektu (klucze, wpisy tajne lub certyfikaty).
+> Tagi są czytelne dla obiektu wywołującego, jeśli mają listę lub mają uprawnienia do tego typu obiektu (klucze, wpisy tajne lub certyfikaty).  
 
 ## <a name="certificate-policy"></a>Zasady certyfikatów
 
-Zasady dotyczące certyfikatów zawierają informacje dotyczące sposobu tworzenia i zarządzania cyklem życia certyfikatu Key Vault. Gdy certyfikat z kluczem prywatnym zostanie zaimportowany do magazynu kluczy, zasady domyślne są tworzone przez odczytanie certyfikatu x509.  
+Zasady certyfikatów zawierają informacje na temat tworzenia cyklu życia certyfikatu Key Vault zarządzania nim. Gdy certyfikat z kluczem prywatnym jest importowany do magazynu kluczy, zasady domyślne są tworzone przez odczytanie certyfikatu x509.  
 
-Po utworzeniu certyfikatu Key Vault od podstaw należy podać zasady. Zasady określają sposób tworzenia tej wersji certyfikatu Key Vault lub następnej wersji certyfikatu Key Vault. Po ustanowieniu zasad nie jest to wymagane z kolejnymi operacjami tworzenia dla przyszłych wersji. Istnieje tylko jedno wystąpienie zasad dla wszystkich wersji certyfikatu Key Vault.  
+Gdy certyfikat Key Vault jest tworzony od podstaw, należy dostarczyć zasady. Zasady określają sposób tworzenia tej Key Vault wersji certyfikatu lub następnej Key Vault wersji certyfikatu. Po utworzeniu zasady nie są wymagane w kolejnych operacjach tworzenia dla przyszłych wersji. Istnieje tylko jedno wystąpienie zasad dla wszystkich wersji Key Vault certyfikatu.  
 
-Na wysokim poziomie zasady certyfikatów zawierają następujące informacje (ich definicje można znaleźć [tutaj](/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy)):  
+Na wysokim poziomie zasady certyfikatów zawierają następujące informacje (ich definicje można znaleźć [tutaj):](/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy)  
 
--   Właściwości certyfikatu x509: zawiera nazwę podmiotu, alternatywne nazwy podmiotu i inne właściwości używane do tworzenia żądania certyfikatu x509.  
--   Właściwości klucza: zawiera typ klucza, Długość klucza, możliwe do eksportu i pola ReuseKeyOnRenewal. Te pola instruują Magazyn kluczy, aby utworzyć klucz. 
-     - Obsługiwane typy kluczy: RSA, RSA-HSM, EC, EC-HSM, Oct (wymienione [tutaj](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) 
--   Właściwości klucza tajnego: zawiera właściwości tajne, takie jak typ zawartości klucza tajnego adresowanego do wygenerowania wartości klucza tajnego w celu pobierania certyfikatu jako klucza tajnego.  
--   Akcje okresu istnienia: zawiera akcje okresu istnienia dla certyfikatu KV. Każda akcja okresu istnienia zawiera:  
+-   Właściwości certyfikatu X509: zawiera nazwę podmiotu, alternatywne nazwy podmiotu i inne właściwości używane do tworzenia żądania certyfikatu x509.  
+-   Właściwości klucza: zawiera pola typ klucza, długość klucza, pola eksportowalne i ReuseKeyOnRenewal. Te pola instruuje magazyn kluczy, jak wygenerować klucz. 
+     - Obsługiwane typy kluczy: RSA, RSA-HSM, EC, EC-HSM, oct (wymienione [tutaj](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) 
+-   Właściwości wpisów tajnych: zawierają właściwości wpisów tajnych, takie jak typ zawartości adresowalnego wpisu tajnego w celu wygenerowania wartości wpisów tajnych do pobierania certyfikatu jako tajnego.  
+-   Akcje okresu istnienia: zawierają akcje okresu istnienia dla certyfikatu KV. Każda akcja okresu istnienia zawiera:  
 
-     - Wyzwalacz: określony przez dni przed upływem wartości procentowej wygaśnięcia lub okresu istnienia  
+     - Wyzwalacz: określony za pośrednictwem dni przed wygaśnięciem lub procentem zakresu okresu istnienia  
 
-     - Akcja: Określanie typu akcji — *emailContacts* lub *autorenew*  
+     - Akcja: określanie typu akcji — *emailContacts* lub *autoRenew*  
 
--   Wystawca: parametry dotyczące wystawcy certyfikatu do użycia w celu wystawiania certyfikatów x509.  
+-   Wystawca: parametry dotyczące wystawcy certyfikatu do użycia w celu wystawienia certyfikatów x509.  
 -   Atrybuty zasad: zawiera atrybuty skojarzone z zasadami  
 
-### <a name="x509-to-key-vault-usage-mapping"></a>Mapowanie użycia x509 do Key Vault
+### <a name="x509-to-key-vault-usage-mapping"></a>X509 do Key Vault mapowania użycia
 
-Poniższa tabela przedstawia mapowanie zasad użycia klucza x509 do efektywnych operacji kluczowych klucza utworzonego w ramach tworzenia certyfikatu Key Vault.
+W poniższej tabeli przedstawiono mapowanie zasad użycia klucza x509 na efektywne operacje klucza utworzonego w ramach tworzenia Key Vault certyfikatu.
 
-|**Flagi użycia klucza x509**|**Key Vault kluczowe operacje**|**Zachowanie domyślne**|
+|**Flagi użycia klucza X509**|**Key Vault kluczowych operacyjno**|**Zachowanie domyślne**|
 |----------|--------|--------|
-|DataEncipherment|szyfrowanie, odszyfrowywanie| Nie dotyczy |
-|DecipherOnly|zawartości| Nie dotyczy  |
-|Bity digitalSignature|Podpisz, zweryfikuj| Key Vault domyślne bez określenia użycia podczas tworzenia certyfikatu | 
+|Szyfrowanie danych|szyfrowanie, odszyfrowywanie| Nie dotyczy |
+|DecipherOnly|Odszyfrować| Nie dotyczy  |
+|DigitalSignature|podpisywanie, weryfikowanie| Key Vault bez specyfikacji użycia w czasie tworzenia certyfikatu | 
 |EncipherOnly|encrypt| Nie dotyczy |
-|KeyCertSign|Podpisz, zweryfikuj|Nie dotyczy|
-|KeyEncipherment|wrapKey, unwrapKey| Key Vault domyślne bez określenia użycia podczas tworzenia certyfikatu | 
-|Niemożność wyparcia|Podpisz, zweryfikuj| Nie dotyczy |
-|crlsign bit|Podpisz, zweryfikuj| Nie dotyczy |
+|KeyCertSign|podpisywanie, weryfikowanie|Nie dotyczy|
+|Szyfrowanie klucza|wrapKey, unwrapKey| Key Vault bez specyfikacji użycia w czasie tworzenia certyfikatu | 
+|NonRepudiation|podpisywanie, weryfikowanie| Nie dotyczy |
+|crlsign|podpisywanie, weryfikowanie| Nie dotyczy |
 
 ## <a name="certificate-issuer"></a>Wystawca certyfikatu
 
-Obiekt certyfikatu Key Vault zawiera konfigurację służącą do komunikowania się z wybranym dostawcą wystawcy certyfikatu w celu uporządkowania certyfikatów x509.  
+Obiekt Key Vault zawiera konfigurację używaną do komunikowania się z wybranym dostawcą wystawcy certyfikatów w celu zamówienia certyfikatów x509.  
 
--   Key Vault partnerów z następującymi dostawcami wystawcy certyfikatów dla certyfikatów TLS/SSL
+-   Key Vault z następującymi dostawcami wystawców certyfikatów dla certyfikatów TLS/SSL
 
 |**Nazwa dostawcy**|**Lokalizacje**|
 |----------|--------|
 |DigiCert|Obsługiwane we wszystkich lokalizacjach usługi magazynu kluczy w chmurze publicznej i Azure Government|
 |GlobalSign|Obsługiwane we wszystkich lokalizacjach usługi magazynu kluczy w chmurze publicznej i Azure Government|
 
-Przed utworzeniem wystawcy certyfikatu w Key Vault należy pomyślnie wykonać następujące czynności wstępne 1 i 2.  
+Aby można było utworzyć wystawcę certyfikatu w Key Vault, należy pomyślnie wykonać kroki 1 i 2 wymagań wstępnych.  
 
 1. Dołączanie do dostawców urzędu certyfikacji  
 
-    -   Administrator organizacji musi być na pokładzie firmy (np. Firma Contoso) z co najmniej jednym dostawcą urzędu certyfikacji.  
+    -   Administrator organizacji musi dochować swojej firmy (np. Contoso) z co najmniej jednym dostawcą urzędu certyfikacji.  
 
-2. Administrator tworzy poświadczenia żądającego w celu Key Vault rejestracji (i odnowienia) certyfikatów TLS/SSL  
+2. Administrator tworzy poświadczenia żądają dla Key Vault rejestrowania (i odnawiania) certyfikatów TLS/SSL  
 
-    -   Zapewnia konfigurację, która ma zostać użyta do utworzenia obiektu wystawcy dostawcy w magazynie kluczy  
+    -   Zawiera konfigurację, która ma być używana do tworzenia obiektu wystawcy dostawcy w magazynie kluczy  
 
-Aby uzyskać więcej informacji na temat tworzenia obiektów wystawcy z poziomu portalu certyfikatów, zobacz [blog Key Vault Certificates](/archive/blogs/kv/manage-certificates-via-azure-key-vault)  
+Aby uzyskać więcej informacji na temat tworzenia obiektów wystawcy z portalu certyfikatów, zobacz [blog Key Vault Certyfikatów](/archive/blogs/kv/manage-certificates-via-azure-key-vault)  
 
-Key Vault umożliwia tworzenie wielu obiektów wystawcy z inną konfiguracją dostawcy wystawcy. Po utworzeniu obiektu Issuer jego nazwy można odwoływać się w jednej lub wielu zasadach certyfikatów. Odwołujący się do obiektu wystawcy instruuje Key Vault, aby użyć konfiguracji określonej w obiekcie Issuer podczas żądania certyfikatu x509 od dostawcy urzędu certyfikacji podczas tworzenia i odnawiania certyfikatu.  
+Key Vault umożliwia utworzenie wielu obiektów wystawców z różnymi konfiguracjami dostawcy wystawców. Po utworzeniu obiektu wystawcy można odwoływać się do jego nazwy w jednej lub wielu zasadach certyfikatów. Odwołanie do obiektu wystawcy powoduje, że Key Vault konfiguracji określonej w obiekcie wystawcy podczas żądania certyfikatu x509 od dostawcy urzędu certyfikacji podczas tworzenia i odnawiania certyfikatu.  
 
 Obiekty wystawcy są tworzone w magazynie i mogą być używane tylko z certyfikatami KV w tym samym magazynie.  
 
-## <a name="certificate-contacts"></a>Kontakty certyfikatów
+## <a name="certificate-contacts"></a>Kontakty z certyfikatami
 
-Kontakty certyfikatów zawierają informacje kontaktowe do wysyłania powiadomień wyzwalanych przez zdarzenia okresu istnienia certyfikatu. Informacje o kontaktach są współużytkowane przez wszystkie certyfikaty w magazynie kluczy. Powiadomienie zostanie wysłane do wszystkich określonych kontaktów dla zdarzenia dowolnego certyfikatu w magazynie kluczy. Aby uzyskać informacje na temat sposobu ustawiania kontaktu z certyfikatami, zobacz [tutaj](overview-renew-certificate.md#steps-to-set-certificate-notifications)  
+Kontakty certyfikatów zawierają informacje kontaktowe do wysyłania powiadomień wyzwalanych przez zdarzenia okresu istnienia certyfikatu. Informacje o kontaktach są współdzielone przez wszystkie certyfikaty w magazynie kluczy. Powiadomienie o zdarzeniu dla dowolnego certyfikatu w magazynie kluczy jest wysyłane do wszystkich określonych kontaktów. Aby uzyskać informacje na temat sposobu ustawienia kontaktu z certyfikatem, zobacz [tutaj](overview-renew-certificate.md#steps-to-set-certificate-notifications)  
 
-## <a name="certificate-access-control"></a>Access Control certyfikatów
+## <a name="certificate-access-control"></a>Certyfikat Access Control
 
- Kontrola dostępu do certyfikatów jest zarządzana przez usługę Key Vault i jest dostarczana przez magazyn kluczy, który zawiera te certyfikaty. Zasady kontroli dostępu dla certyfikatów różnią się od zasad kontroli dostępu dla kluczy i wpisów tajnych w tym samym Key Vault. Użytkownicy mogą utworzyć jeden lub więcej magazynów w celu przechowywania certyfikatów, aby zachować scenariusz odpowiedniej segmentacji i zarządzania certyfikatami.  Aby uzyskać więcej informacji na temat kontroli dostępu do certyfikatów, zobacz [tutaj](certificate-access-control.md)
+ Kontrola dostępu do certyfikatów jest zarządzana przez usługę Key Vault i jest dostarczana przez magazyn kluczy, który zawiera te certyfikaty. Zasady kontroli dostępu dla certyfikatów różnią się od zasad kontroli dostępu dla kluczy i wpisów tajnych w tym samym Key Vault. Użytkownicy mogą tworzyć co najmniej jeden magazyn do przechowywania certyfikatów w celu obsługi odpowiedniej segmentacji i zarządzania certyfikatami w scenariuszu.  Aby uzyskać więcej informacji na temat kontroli dostępu do certyfikatów, zobacz [tutaj](certificate-access-control.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

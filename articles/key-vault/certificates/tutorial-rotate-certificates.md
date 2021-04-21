@@ -1,9 +1,8 @@
 ---
-title: Samouczek — aktualizowanie częstotliwości autorotacji certyfikatów w Key Vault | Microsoft Docs
-description: Samouczek przedstawiający sposób aktualizowania częstotliwości autorotacji certyfikatu w Azure Key Vault przy użyciu Azure Portal
+title: Samouczek — aktualizowanie częstotliwości automatycznego obracania certyfikatów w Key Vault | Microsoft Docs
+description: Samouczek przedstawiający sposób aktualizowania częstotliwości automatycznej rotacji certyfikatu w programie Azure Key Vault użyciu Azure Portal
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
@@ -11,16 +10,16 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: ec648f02918717dad6b739aa6ae99206bcec1d6e
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 48a531e054bf92c8ddc7761689b8fdf1df8a28a7
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581825"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750018"
 ---
-# <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>Samouczek: Konfigurowanie autorotacji certyfikatów w Key Vault
+# <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>Samouczek: konfigurowanie automatycznego obracania certyfikatów w Key Vault
 
-Za pomocą Azure Key Vault można łatwo udostępniać i wdrażać certyfikaty cyfrowe oraz zarządzać nimi. Certyfikaty mogą być certyfikatami publicznymi i prywatnymi Secure Sockets Layer (SSL) podpisywanymi przez urząd certyfikacji (CA) lub certyfikat z podpisem własnym. Key Vault mogą również żądać certyfikatów i odnawiać je poprzez partnerstwo z urzędami certyfikacji, zapewniając niezawodne rozwiązanie do zarządzania cyklem życia certyfikatów. W tym samouczku zostaną zaktualizowane okresy ważności certyfikatu, częstotliwość przestawiania i atrybuty urzędu certyfikacji.
+Certyfikaty cyfrowe można łatwo aprowizować i wdrażać oraz zarządzać nimi przy użyciu Azure Key Vault. Certyfikaty mogą być publicznymi i prywatnymi Secure Sockets Layer (SSL)/Transport Layer Security (TLS) podpisanymi przez urząd certyfikacji lub certyfikat z podpisem własnym. Key Vault żądać i odnawiać certyfikaty za pośrednictwem partnerstwa z urzędu certyfikacji, zapewniając niezawodne rozwiązanie do zarządzania cyklem życia certyfikatów. W tym samouczku zaktualizujemy okres ważności certyfikatu, częstotliwość automatycznej rotacji i atrybuty urzędu certyfikacji.
 
 Ten samouczek przedstawia sposób wykonania następujących czynności:
 
@@ -28,10 +27,10 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 > * Zarządzanie certyfikatem przy użyciu Azure Portal.
 > * Dodaj konto dostawcy urzędu certyfikacji.
 > * Zaktualizuj okres ważności certyfikatu.
-> * Zaktualizuj częstotliwość ponownego rotacji certyfikatu.
-> * Aktualizowanie atrybutów certyfikatu za pomocą Azure PowerShell.
+> * Zaktualizuj częstotliwość automatycznej rotacji certyfikatu.
+> * Zaktualizuj atrybuty certyfikatu przy użyciu Azure PowerShell.
 
-Przed rozpoczęciem Przeczytaj [Key Vault podstawowe pojęcia](../general/basic-concepts.md).
+Przed rozpoczęciem zapoznaj się [z Key Vault podstawowymi pojęciami.](../general/basic-concepts.md)
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -41,49 +40,51 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Tworzenie magazynu
 
-Utwórz Azure Key Vault przy użyciu [Azure Portal](../general/quick-create-portal.md), [interfejsu wiersza polecenia platformy Azure](../general/quick-create-cli.md)lub [Azure PowerShell](../general/quick-create-powershell.md). W tym przykładzie nazwa magazynu kluczy jest **przykładem magazynu**.
+Utwórz nową Azure Key Vault przy [użyciu Azure Portal](../general/quick-create-portal.md), [interfejsu wiersza polecenia platformy Azure](../general/quick-create-cli.md)lub [Azure PowerShell](../general/quick-create-powershell.md). W tym przykładzie nazwa magazynu kluczy to **Example-Vault**.
 
 ![Dane wyjściowe po zakończeniu tworzenia magazynu kluczy](../media/certificates/tutorial-import-cert/vault-properties.png)
 
 ## <a name="create-a-certificate-in-key-vault"></a>Tworzenie certyfikatu w Key Vault
 
-Utwórz certyfikat lub zaimportuj certyfikat do magazynu kluczy (zobacz [procedurę tworzenia certyfikatu w Key Vault](../secrets/quick-create-portal.md)). W takim przypadku będziesz korzystać z certyfikatu o nazwie **ExampleCertificate**.
+Utwórz certyfikat lub zaimportuj certyfikat do magazynu kluczy (zobacz [Steps to create a certificate in Key Vault](../secrets/quick-create-portal.md)). W tym przypadku będziesz pracować nad certyfikatem o nazwie **ExampleCertificate**.
 
-## <a name="update-certificate-lifecycle-attributes"></a>Aktualizuj atrybuty cyklu życia certyfikatu
+## <a name="update-certificate-lifecycle-attributes"></a>Aktualizowanie atrybutów cyklu życia certyfikatu
 
-W Azure Key Vault można aktualizować atrybuty cyklu życia certyfikatu zarówno w momencie tworzenia certyfikatu, jak i po nim.
+W Azure Key Vault można zaktualizować atrybuty cyklu życia certyfikatu zarówno podczas tworzenia certyfikatu, jak i później.
 
 Certyfikat utworzony w Key Vault może być:
 
 - Certyfikat z podpisem własnym.
-- Certyfikat utworzony przy użyciu urzędu certyfikacji, który jest partnerem z Key Vault.
-- Certyfikat z urzędem certyfikacji, który nie jest partnerem Key Vault.
+- Certyfikat utworzony za pomocą urzędu certyfikacji, który jest partnerem Key Vault.
+- Certyfikat z urzędu certyfikacji, który nie jest partnerem Key Vault.
 
-Następujące urzędy certyfikacji są obecnie partnerskimi dostawcami z Key Vault:
+Następujące firmy CA są obecnie dostawcami partnerskimi z Key Vault:
 
-- DigiCert: Key Vault oferuje OV protokołu TLS/SSL.
-- GlobalSign: Key Vault oferuje OV protokołu TLS/SSL.
+- DigiCert: Key Vault oferuje certyfikaty OV TLS/SSL.
+- GlobalSign: Key Vault oferuje certyfikaty OV TLS/SSL.
 
-Key Vault automatyczne obracanie certyfikatów poprzez ustalone partnerstwo z urzędami certyfikacji. Ponieważ Key Vault automatycznie żądania certyfikatów i odnawiać je za pomocą partnerstwa, funkcja automatycznego rotacji nie ma zastosowania w przypadku certyfikatów utworzonych przy użyciu urzędów certyfikacji, których nie współpracujeli z Key Vault.
+Key Vault automatycznie obraca certyfikaty za pośrednictwem ustanowionych partnerstwa z urzędu certyfikacji. Ponieważ Key Vault automatycznie żąda i odnawia certyfikaty za pośrednictwem partnerstwa, możliwość automatycznej rotacji nie ma zastosowania do certyfikatów utworzonych za pomocą urzędu certyfikacji, które nie są Key Vault.
 
 > [!NOTE]
-> Administrator konta dla dostawcy urzędu certyfikacji tworzy poświadczenia, których Key Vault używa do tworzenia, odnawiania i używania certyfikatów TLS/SSL.
+> Administrator konta dostawcy urzędu certyfikacji tworzy poświadczenia, które Key Vault do tworzenia, odnawiania i używania certyfikatów TLS/SSL.
 ![Urząd certyfikacji](../media/certificates/tutorial-rotate-cert/cert-authority-create.png)
 >
 
-### <a name="update-certificate-lifecycle-attributes-at-the-time-of-creation"></a>Aktualizowanie atrybutów cyklu życia certyfikatu w momencie tworzenia
+### <a name="update-certificate-lifecycle-attributes-at-the-time-of-creation"></a>Aktualizowanie atrybutów cyklu życia certyfikatu w czasie tworzenia
 
-1. Na stronie właściwości Key Vault wybierz pozycję **Certyfikaty**.
-1. Wybierz pozycję **Generuj/Importuj**.
-1. Na ekranie **Tworzenie certyfikatu** zaktualizuj następujące wartości:
+1. Na Key Vault właściwości wybierz pozycję **Certyfikaty.**
+1. Wybierz **pozycję Generuj/Zaimportuj.**
+1. Na **ekranie Tworzenie certyfikatu** zaktualizuj następujące wartości:
 
-   - **Okres ważności**: wprowadź wartość (w miesiącach). Tworzenie krótkoterminowych certyfikatów jest zalecaną metodą zabezpieczeń. Domyślnie wartość ważności nowo utworzonego certyfikatu wynosi 12 miesięcy.
-   - **Typ akcji okresu istnienia**: Wybierz akcję autoodnawiania i alertu certyfikatu, a następnie zaktualizuj **okres istnienia (w procentach** ) lub **liczbę dni przed wygaśnięciem**. Domyślnie automatyczne odnawianie certyfikatu jest ustawiane na 80% okresu istnienia. Z menu rozwijanego wybierz jedną z następujących opcji.
+   - **Okres ważności:** wprowadź wartość (w miesiącach). Tworzenie certyfikatów o krótkim okresie życia jest zalecanym rozwiązaniem w zakresie zabezpieczeń. Domyślnie wartość ważności nowo utworzonego certyfikatu wynosi 12 miesięcy.
+   - **Typ akcji okresu istnienia:** wybierz akcję automatycznego odnawiania  i alertów certyfikatu, a następnie zaktualizuj procent okresu istnienia lub liczbę dni przed **wygaśnięciem**. Domyślnie automatyczne odnawianie certyfikatu jest ustawiane na 80 procent jego okresu istnienia. Z menu rozwijanego wybierz jedną z następujących opcji.
 
-        |  Automatycznie Odnów w danym momencie| Wyślij wiadomość e-mail do wszystkich kontaktów w danym momencie |
-        |-----------|------|
-        |Wybranie tej opcji spowoduje *włączenie* autorotacji. | Wybranie tej opcji *nie* spowoduje przerotacji automatyczne, ale spowoduje tylko wyświetlenie alertu.|
-         You can learn about [setting up Email contact here](https://docs.microsoft.com/azure/key-vault/certificates/overview-renew-certificate#get-notified-about-certificate-expiration)
+      |  Automatyczne odnawianie w danym momencie| Wyślij wiadomość e-mail do wszystkich kontaktów w danym momencie |
+      |-----------|------|
+      |Wybranie tej opcji *spowoduje włączenie* autorotacji. | Wybranie tej opcji nie *spowoduje automatycznego* obracania, ale spowoduje tylko alert dla kontaktów.|
+      
+      Informacje na temat konfigurowania [kontaktu e-mail można znaleźć tutaj](https://docs.microsoft.com/azure/key-vault/certificates/overview-renew-certificate#get-notified-about-certificate-expiration)
+
 1. Wybierz przycisk **Utwórz**.
 
 ![Cykl życia certyfikatu](../media/certificates/tutorial-rotate-cert/create-cert-lifecycle.png)
@@ -91,23 +92,23 @@ Key Vault automatyczne obracanie certyfikatów poprzez ustalone partnerstwo z ur
 ### <a name="update-lifecycle-attributes-of-a-stored-certificate"></a>Aktualizowanie atrybutów cyklu życia przechowywanego certyfikatu
 
 1. Wybierz magazyn kluczy.
-1. Na stronie właściwości Key Vault wybierz pozycję **Certyfikaty**.
-1. Wybierz certyfikat, który chcesz zaktualizować. W takim przypadku będziesz korzystać z certyfikatu o nazwie **ExampleCertificate**.
-1. Wybierz pozycję **zasady wystawiania** z górnego paska menu.
+1. Na stronach Key Vault właściwości wybierz **pozycję Certyfikaty.**
+1. Wybierz certyfikat, który chcesz zaktualizować. W tym przypadku będziesz pracować nad certyfikatem o nazwie **ExampleCertificate**.
+1. Wybierz **pozycję Zasady wystawiania** na górnym pasku menu.
 
-   ![Zrzut ekranu, który podświetla przycisk zasady wystawiania.](../media/certificates/tutorial-rotate-cert/cert-issuance-policy.png)
+   ![Zrzut ekranu przedstawiający przycisk Zasady wystawiania.](../media/certificates/tutorial-rotate-cert/cert-issuance-policy.png)
 
-1. Na ekranie **zasady wystawiania** zaktualizuj następujące wartości:
+1. Na **ekranie Zasady wystawiania** zaktualizuj następujące wartości:
 
-   - **Okres ważności**: zaktualizuj wartość (w miesiącach).
-   - **Typ akcji okresu istnienia**: Wybierz akcję autoodnawiania i alertu certyfikatu, a następnie zaktualizuj **okres istnienia (w procentach** ) lub **liczbę dni przed wygaśnięciem**.
+   - **Okres ważności:** zaktualizuj wartość (w miesiącach).
+   - **Typ akcji okresu istnienia:** wybierz akcję automatycznego odnawiania i  alertów certyfikatu, a następnie zaktualizuj wartość procentową okresu istnienia lub liczbę dni przed **wygaśnięciem**.
 
    ![Właściwości certyfikatu](../media/certificates/tutorial-rotate-cert/cert-policy-change.png)
 
 1. Wybierz pozycję **Zapisz**.
 
 > [!IMPORTANT]
-> Zmiana typu akcji okresu istnienia dla certyfikatu spowoduje natychmiastowe zapisanie modyfikacji istniejących certyfikatów.
+> Zmiana typu akcji okresu istnienia dla certyfikatu spowoduje natychmiastowe rejestrowanie modyfikacji istniejących certyfikatów.
 
 
 ### <a name="update-certificate-attributes-by-using-powershell"></a>Aktualizowanie atrybutów certyfikatu przy użyciu programu PowerShell
@@ -121,7 +122,7 @@ Set-AzureKeyVaultCertificatePolicy -VaultName $vaultName
 ```
 
 > [!TIP]
-> Aby zmodyfikować zasady odnawiania dla listy certyfikatów, wprowadź tekst `File.csv` zawierający `VaultName,CertName` jak w następującym przykładzie:
+> Aby zmodyfikować zasady odnawiania dla listy certyfikatów, wprowadź wartość zawierającą wartość `File.csv` , jak w poniższym `VaultName,CertName` przykładzie:
 > <br/>
  `vault1,Cert1` <br/>
 >  `vault2,Cert2`
@@ -134,23 +135,23 @@ Set-AzureKeyVaultCertificatePolicy -VaultName $vaultName
 > }
 >  ```
 > 
-Aby dowiedzieć się więcej na temat parametrów, zobacz [AZ webmagazyn Certificate](/cli/azure/keyvault/certificate#az-keyvault-certificate-set-attributes).
+Aby dowiedzieć się więcej na temat parametrów, zobacz [az keyvault certificate](/cli/azure/keyvault/certificate#az-keyvault-certificate-set-attributes).
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Inne samouczki Key Vault kompilują się na tym samouczku. Jeśli planujesz korzystać z tych samouczków, możesz pozostawić te istniejące zasoby na miejscu.
-Gdy nie są już potrzebne, Usuń grupę zasobów, która spowoduje usunięcie magazynu kluczy i powiązanych zasobów.
+Inne Key Vault samouczków są opierane na tym samouczku. Jeśli planujesz pracę z tymi samouczkami, możesz pozostawić te istniejące zasoby na miejscu.
+Gdy nie będą już potrzebne, usuń grupę zasobów, co spowoduje usunięcie magazynu kluczy i powiązanych zasobów.
 
 Aby usunąć grupę zasobów przy użyciu portalu:
 
-1. Wprowadź nazwę grupy zasobów w polu **wyszukiwania** w górnej części portalu. Gdy grupa zasobów używana w tym przewodniku Szybki Start pojawi się w wynikach wyszukiwania, wybierz ją.
+1. Wprowadź nazwę grupy zasobów w **polu** Wyszukaj w górnej części portalu. Gdy grupa zasobów używana w tym przewodniku Szybki start pojawi się w wynikach wyszukiwania, wybierz ją.
 1. Wybierz pozycję **Usuń grupę zasobów**.
-1. W polu **wpisz nazwę grupy zasobów:** wpisz nazwę grupy zasobów, a następnie wybierz pozycję **Usuń**.
+1. W **polu WPISZ NAZWĘ GRUPY ZASOBÓW:** wpisz nazwę grupy zasobów, a następnie wybierz pozycję **Usuń**.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku zostały zaktualizowane atrybuty cyklu życia certyfikatu. Aby dowiedzieć się więcej na temat Key Vault i sposobu integrowania go z aplikacjami, przejdź do następujących artykułów:
+W tym samouczku zaktualizowano atrybuty cyklu życia certyfikatu. Aby dowiedzieć się więcej Key Vault o tym, jak zintegrować ją z aplikacjami, przejdź do następujących artykułów:
 
-- Przeczytaj więcej [na temat zarządzania tworzeniem certyfikatów w Azure Key Vault](./create-certificate-scenarios.md).
-- Zapoznaj się z [omówieniem Key Vault](../general/overview.md).
+- Przeczytaj więcej na [temat zarządzania tworzeniem certyfikatów w Azure Key Vault](./create-certificate-scenarios.md).
+- Zapoznaj się [z Key Vault omówieniem.](../general/overview.md)

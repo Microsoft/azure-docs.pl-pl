@@ -1,24 +1,24 @@
 ---
-title: Informacje na temat użycia usługi Azure rezerwacje Enterprise Agreement i umowy klienta firmy Microsoft
-description: Dowiedz się, jak przeczytać informacje o użyciu, aby zrozumieć, w jaki sposób rezerwacja platformy Azure ma zastosowanie do Enterprise Agreement i użytkowania umowy klienta firmy Microsoft.
+title: Understand Azure reservations usage for Enterprise Agreement and Umowa z Klientem Microsoft (Informacje na temat użycia rezerwacji platformy Azure dla Enterprise Agreement i Umowa z Klientem Microsoft
+description: Dowiedz się, jak odczytywać informacje o użyciu, aby zrozumieć, jak rezerwacja platformy Azure ma zastosowanie do Enterprise Agreement i Umowa z Klientem Microsoft użycia.
 author: bandersmsft
 ms.reviewer: yashar
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 01/19/2020
+ms.date: 04/20/2021
 ms.author: banders
-ms.openlocfilehash: 0c69e9533130d6ca70c57422c7cdd5fc75adff72
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: edc1a80687f768723a3a218ecaa1f6459cd484ed
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683721"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763563"
 ---
-# <a name="get-enterprise-agreement-and-microsoft-customer-agreement-reservation-costs-and-usage"></a>Uzyskaj Enterprise Agreement i koszty rezerwacji i użycie umowy klienta firmy Microsoft
+# <a name="get-enterprise-agreement-and-microsoft-customer-agreement-reservation-costs-and-usage"></a>Uzyskiwanie Enterprise Agreement i Umowa z Klientem Microsoft kosztów i użycia rezerwacji
 
-Ulepszone dane dotyczące kosztów i użycia rezerwacji są dostępne dla Enterprise Agreement (EA) oraz użycie umowy Microsoft Customer Agreement (MCA) w usłudze Cost Management. Ten artykuł zawiera informacje, które pomogą:
+Ulepszone dane dotyczące kosztów i użycia rezerwacji są dostępne dla Enterprise Agreement (EA) i Umowa z Klientem Microsoft (MCA) w u usługi Cost Management. Ten artykuł zawiera informacje, które pomogą:
 
 - Pobrać dane zakupu rezerwacji
 - Dowiedzieć się, w przypadku której subskrypcji, grupy zasobów lub którego zasobu została użyta rezerwacja
@@ -95,7 +95,6 @@ W witrynie Azure Portal przejdź do obszaru [Zarządzanie kosztami i rozliczenia
 ![Przykład pokazujący, gdzie pobrać plik CSV z danymi użycia w witrynie Azure Portal](./media/understand-reserved-instance-usage-ea/portal-download-csv.png)
 4. W obszarze **Pobierz użycie i opłaty** pod pozycją **Szczegóły użycia — wersja 2** wybierz pozycję **Wszystkie opłaty (użycie i zakupy)** , a następnie kliknij przycisk Pobierz. Powtórz dla **Opłaty zamortyzowane (użycie i zakupy)** .
 
-Pobierane przez Ciebie pliki CSV zawierają koszty rzeczywiste i zamortyzowane.
 
 ## <a name="common-cost-and-usage-tasks"></a>Typowe zadania związane z kosztami i użyciem
 
@@ -158,8 +157,7 @@ Aby dowiedzieć się więcej na temat rezerwacji platformy Azure, zobacz następ
 
 - [Co to są rezerwacje platformy Azure?](save-compute-costs-reservations.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances (Opłacanie maszyn wirtualnych z góry przy użyciu usługi Azure Reserved VM Instances)](../../virtual-machines/prepay-reserved-vm-instances.md)
-- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity (Opłacanie zasobów obliczeniowych usługi SQL Database z góry przy użyciu zarezerwowanej pojemności usługi Azure SQL Database)](../../azure-sql/database/reserved-capacity-overview.md)
-- [Zarządzanie usługą Azure Reservations](manage-reserved-vm-instance.md)
 - [Jak jest stosowany rabat na rezerwacje](../manage/understand-vm-reservation-charges.md)
-- [Understand reservation usage for your Pay-As-You-Go subscription (Informacje na temat użycia wystąpień zarezerwowanych w przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem)](understand-reserved-instance-usage.md)
 - [Windows software costs not included with Reservations (Koszty oprogramowania systemu Windows nieuwzględniane w przypadku rezerwacji)](reserved-instance-windows-software-costs.md)
+- [Uzyskiwanie danych kosztów przy użyciu jednostki usługi](../manage/assign-roles-azure-service-principals.md)
+- [Korzystanie z eksportów zarządzania kosztami](../costs/tutorial-export-acm-data.md)

@@ -8,51 +8,51 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: cca08e1be0f81c26d0838566ac4900d36580b8b8
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: ca46ce3355edf2b77400011d023cd6af330a3b58
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106066300"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770437"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Co to jest usługa Azure Data Box Disk?
 
-Rozwiązanie Microsoft Azure Data Box Disk umożliwia wysyłanie terabajtów danych lokalnych na platformę Azure w szybki, niedrogi i niezawodny sposób. Bezpieczny transfer danych jest przyspieszany przez wysłanie od 1 do 5 dysków półprzewodnikowych (SSD). Te dyski zaszyfrowane 8 TB są wysyłane do centrum danych za pomocą operatora regionalnego.
+Rozwiązanie Microsoft Azure Data Box Disk umożliwia wysyłanie terabajtów danych lokalnych na platformę Azure w szybki, niedrogi i niezawodny sposób. Bezpieczny transfer danych jest przyspieszany przez wysłanie od 1 do 5 dysków półprzewodnikowych (SSD). Te zaszyfrowane dyski o pojemności 8 TB są wysyłane do centrum danych za pośrednictwem regionalnego przewoźnika.
 
-Można szybko skonfigurować, połączyć i odblokować dyski za pomocą usługi urządzenie Data Box w Azure Portal. Skopiuj dane na dyski i odeślij dyski z powrotem do platformy Azure. W centrum danych platformy Azure dane są automatycznie przekazywane z dysków do chmury przez szybki, prywatny link przekazywania do sieci.
+Dyski można szybko konfigurować, łączyć i odblokowywać za pośrednictwem usługi urządzenie Data Box w Azure Portal. Skopiuj dane na dyski i odeślij dyski z powrotem do platformy Azure. W centrum danych platformy Azure dane są automatycznie przekazywane z dysków do chmury przez szybki, prywatny link przekazywania do sieci.
 
 ## <a name="use-cases"></a>Przypadki zastosowań
 
 Usługa Data Box Disk umożliwia przenoszenie terabajtów danych w scenariuszach bez łączności lub z ograniczoną łącznością z siecią. Przenoszenie danych może być jednorazowe lub okresowe. Może być to również początkowy transfer danych zbiorczych, po którym następują transfery okresowe.
 
 - **Migracja jednorazowa** — przenoszenie dużej ilości danych lokalnych na platformę Azure. Może być to na przykład przenoszenie danych z taśm w trybie offline do danych archiwalnych w chłodnym magazynie platformy Azure.
-- **Transfer przyrostowy** — po zakończeniu początkowego transferu zbiorczego przeprowadzonego za pomocą urządzenia Data Box Disk (inicjatora) następują transfery przyrostowe za pośrednictwem sieci. Na przykład rozwiązania Commvault i Data Box Disk są używane do przenoszenia kopii zapasowych na platformę Azure. Po migracji następuje kopiowanie przyrostowych danych przy użyciu sieci do usługi Azure Storage.
+- **Transfer przyrostowy** — po zakończeniu początkowego transferu zbiorczego przeprowadzonego za pomocą urządzenia Data Box Disk (inicjatora) następują transfery przyrostowe za pośrednictwem sieci. Na przykład rozwiązania Commvault i Data Box Disk są używane do przenoszenia kopii zapasowych na platformę Azure. Po tej migracji następuje kopiowanie danych przyrostowych przy użyciu sieci do usługi Azure Storage.
 - **Okresowe operacje przekazywania** — gdy duże ilości danych są generowane okresowo i trzeba je przenosić na platformę Azure. Może to dotyczyć na przykład scenariusza eksploracji zasobów energii, w którym jest generowana zawartość wideo przeznaczona dla platform wiertniczych i elektrowni wiatrowych.
 
 ### <a name="ingestion-of-data-from-data-box"></a>Pozyskiwanie danych z urządzenie Data Box
 
-Dostawcy platformy Azure i dostawcy spoza platformy Azure mogą pozyskiwanie danych z Azure Data Box. Usługi platformy Azure, które zapewniają pozyskiwanie danych z Azure Data Box obejmują:
+Dostawcy platformy Azure i dostawcy spoza platformy Azure mogą pozysać dane z Azure Data Box. Usługi platformy Azure, które zapewniają pozyskiwanie danych z Azure Data Box obejmują:
 
-- **SharePoint Online** — Użyj Azure Data Box i narzędzia do migracji programu SharePoint (SPMT) do migrowania zawartości udziału plików do usługi SharePoint Online. Za pomocą urządzenie Data Box można usunąć zależność od linku sieci WAN do transferu danych. Aby uzyskać więcej informacji, zobacz [używanie Azure Data Box Heavy do migrowania zawartości udziału plików do usługi SharePoint Online](data-box-heavy-migrate-spo.md).
+- **SharePoint Online** — użyj Azure Data Box i narzędzia do migracji programu SharePoint (SPMT), aby przeprowadzić migrację zawartości udziału plików do usługi SharePoint Online. Za urządzenie Data Box można usunąć zależność od łącza sieci WAN w celu transferu danych. Aby uzyskać więcej informacji, zobacz [Używanie Azure Data Box Heavy do migrowania zawartości udziału plików do usługi SharePoint Online.](data-box-heavy-migrate-spo.md)
 
-- **Azure File Sync** — replikuje pliki z urządzenie Data Box do udziału plików platformy Azure, co pozwala na scentralizowanie usług plików na platformie Azure przy zachowaniu lokalnego dostępu do danych. Aby uzyskać więcej informacji, zobacz [wdrażanie Azure File Sync](../storage/files/storage-sync-files-deployment-guide.md).
+- **Azure File Sync** — replikuje pliki z usługi urządzenie Data Box do udziału plików platformy Azure, umożliwiając scentralizowanie usług plików na platformie Azure przy zachowaniu lokalnego dostępu do danych. Aby uzyskać więcej informacji, zobacz [Wdrażanie Azure File Sync](../storage/file-sync/file-sync-deployment-guide.md).
 
-- System plików **HDFS** — migruje dane z lokalnego magazynu usługi Hadoop rozproszony system plików (HDFS) do magazynu platformy Azure przy użyciu urządzenie Data Box. Aby uzyskać więcej informacji, zobacz [Migrowanie ze sklepu premium HDFS do usługi Azure Storage za pomocą Azure Data Box](../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
+- **Magazyny HDFS** — migrowanie danych z lokalnego magazynu usługi Hadoop rozproszony system plików (HDFS) klastra Hadoop do usługi Azure Storage przy użyciu urządzenie Data Box. Aby uzyskać więcej informacji, zobacz [Migrate from on-prem HDFS store to Azure Storage with Azure Data Box](../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md)(Migrowanie z magazynu w systemie plików HDFS w sieci Azure Data Box).
 
-- **Azure Backup** — umożliwia przenoszenie dużych kopii zapasowych krytycznych danych przedsiębiorstwa za pomocą mechanizmów offline do magazynu Recovery Services platformy Azure. Aby uzyskać więcej informacji, zobacz [Azure Backup przegląd](../backup/backup-overview.md).
+- **Azure Backup** — umożliwia przenoszenie dużych kopii zapasowych kluczowych danych przedsiębiorstwa za pośrednictwem mechanizmów trybu offline do magazynu usługi Azure Recovery Services. Aby uzyskać więcej informacji, [zobacz Azure Backup omówienie systemu](../backup/backup-overview.md).
 
-Możesz użyć danych urządzenie Data Box z wieloma dostawcami usług spoza platformy Azure. Przykład:
+Możesz używać swoich danych urządzenie Data Box u wielu dostawców usług spoza platformy Azure. Przykład:
 
-- **[CommVault](http://documentation.commvault.com/commvault/v11/article?p=97276.htm)** — umożliwia migrowanie dużych ilości danych do Microsoft Azure przy użyciu Azure Data Box.
-- **[Veeam](https://helpcenter.veeam.com/docs/backup/hyperv/osr_adding_data_box.html?ver=100)** — umożliwia tworzenie kopii zapasowych i replikowanie dużych ilości danych z komputera funkcji Hyper-V do urządzenie Data Box.
+- **[Commvault](http://documentation.commvault.com/commvault/v11/article?p=97276.htm)** — umożliwia migrowanie dużych ilości danych do Microsoft Azure przy użyciu Azure Data Box.
+- **[Rozwiązanie —](https://helpcenter.veeam.com/docs/backup/hyperv/osr_adding_data_box.html?ver=100)** umożliwia tworzenie kopii zapasowych i replikowanie dużych ilości danych z maszyny funkcji Hyper-V do urządzenie Data Box.
 
-Listę innych dostawców usług spoza platformy Azure, które integrują się z urządzenie Data Box, można znaleźć w temacie [Azure Data Box Partners](https://cloudchampions.blob.core.windows.net/db-partners/PartnersTable.pdf).
+Aby uzyskać listę innych dostawców usług spoza platformy Azure, którzy integrują się z usługą urządzenie Data Box, [zobacz Azure Data Box Partners](https://cloudchampions.blob.core.windows.net/db-partners/PartnersTable.pdf).
 
 ## <a name="the-workflow"></a>Przepływ pracy
 
 Typowy przepływ obejmuje następujące kroki:
 
-1. **Zamówienie** — Utwórz zamówienie w Azure Portal, podaj informacje o wysyłce i docelowe konto usługi Azure Storage dla swoich danych. Jeśli dyski są dostępne, platforma Azure szyfruje, przygotuje i wysyła dyski z identyfikatorem śledzenia wysyłki.
+1. **Zamówienie** — utwórz zamówienie w Azure Portal, podaj informacje o wysyłce i docelowe konto usługi Azure Storage dla danych. Jeśli dyski są dostępne, platforma Azure szyfruje, przygotuje i wysyła dyski z identyfikatorem śledzenia wysyłki.
 
 2. **Odbieranie** — rozpakowywanie i łączenie dostarczonych dysków z komputerem zawierającym dane do skopiowania. Odblokuj dyski.
 
@@ -62,7 +62,7 @@ Typowy przepływ obejmuje następujące kroki:
 
 5. **Przekazywanie** — dane są automatycznie kopiowane z dysków na platformę Azure. Dyski są bezpiecznie wymazywane zgodnie z wytycznymi Narodowego Instytutu Standaryzacji i Technologii (NIST, National Institute of Standards and Technology).
 
-W trakcie tego procesu otrzymujesz powiadomienie pocztą e-mail o wszystkich zmianach stanu. Aby uzyskać więcej informacji na temat szczegółowego przepływu, przejdź do tematu [Deploy Data Box Disks in Azure portal (Wdrażanie dysków usługi Data Box Disk w witrynie Azure Portal)](data-box-disk-quickstart-portal.md).
+W trakcie tego procesu będziesz powiadamiać pocztą e-mail o wszystkich zmianach stanu. Aby uzyskać więcej informacji na temat szczegółowego przepływu, przejdź do tematu [Deploy Data Box Disks in Azure portal (Wdrażanie dysków usługi Data Box Disk w witrynie Azure Portal)](data-box-disk-quickstart-portal.md).
 
 ## <a name="benefits"></a>Korzyści
 
@@ -76,7 +76,7 @@ Rozwiązanie Data Box Disk jest przeznaczone do przenoszenia dużych ilości dan
   - Dyski mają niewielkie rozmiary, co ułatwia ich obsługę.
   - Dyski nie mają żadnych wymagań dotyczących zasilania zewnętrznego.
   - Dyski mogą być używane z serwerem centrum danych, komputerem stacjonarnym lub laptopem.
-  - Rozwiązanie to kompleksowe śledzenie przy użyciu Azure Portal.
+  - Rozwiązanie zapewnia szczegółowe śledzenie przy użyciu Azure Portal.
 
 - **Zabezpieczanie** — usługa Data Box Disk ma wbudowane zabezpieczenia dysków, danych i usługi.
   - Dyski są odporne na modyfikacje i obsługują możliwość bezpiecznej aktualizacji.
@@ -103,7 +103,7 @@ Aby uzyskać więcej informacji, przejdź do tematu [Zabezpieczenia i ochrona da
 
 ## <a name="region-availability"></a>Dostępność w danym regionie
 
-Aby uzyskać informacje na temat dostępności regionów, przejdź do pozycji [produkty platformy Azure dostępne według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Data Box Disk można również wdrożyć w chmurze Azure Government. Aby uzyskać więcej informacji, zobacz [co to jest Azure Government?](../azure-government/documentation-government-welcome.md).
+Aby uzyskać informacje na temat dostępności regionów, przejdź do tematu [Dostępność produktów platformy Azure według regionów.](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all) Data Box Disk można również wdrożyć w chmurze Azure Government Cloud. Aby uzyskać więcej informacji, [zobacz Co to jest Azure Government?](../azure-government/documentation-government-welcome.md).
 
 ## <a name="pricing"></a>Ceny
 

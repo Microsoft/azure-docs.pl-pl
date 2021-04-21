@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 01/12/2021
 ms.custom: mvc
-ms.openlocfilehash: baf82ee1393214f96f11de8f6d838c41222fa359
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 68aedbe90d5f08a4b6b67d134c0460caa11c542b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107377195"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786373"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>Samouczek: uaktualnianie rozwiązania Kubernetes w usłudze Azure Kubernetes Service (AKS)
 
@@ -80,9 +80,9 @@ az aks upgrade \
 ```
 
 > [!NOTE]
-> Jednocześnie można uaktualnić tylko jedną wersję pomocniczą. Na przykład można uaktualnić z *wersji 1.14.x* do *wersji 1.15.x,* ale nie można bezpośrednio uaktualnić z wersji *1.14.x* do *wersji 1.16.x.* Aby uaktualnić z *wersji 1.14.x* do *wersji 1.16.x,* najpierw uaktualnij z *wersji 1.14.x* do *wersji 1.15.x,* a następnie wykonaj kolejne uaktualnienie z wersji *1.15.x* do *wersji 1.16.x.*
+> Jednocześnie można uaktualnić tylko jedną wersję pomocniczą. Na przykład można uaktualnić z *wersji 1.14.x* do *wersji 1.15.x,* ale nie można bezpośrednio uaktualnić z *wersji 1.14.x* do *wersji 1.16.x.* Aby uaktualnić z *wersji 1.14.x* do *wersji 1.16.x,* najpierw uaktualnij z *wersji 1.14.x* do *wersji 1.15.x,* a następnie wykonaj kolejne uaktualnienie z *wersji 1.15.x* do *wersji 1.16.x.*
 
-Poniższe skrócone przykładowe dane wyjściowe pokazują wynik uaktualnienia do *wersji 1.19.1.* Zwróć *uwagę, że w przypadku wersji kubernetesVersion* jest teraz *zgłaszana wersja 1.19.1:*
+Poniższe skrócone przykładowe dane wyjściowe pokazują wynik uaktualnienia do *wersji 1.19.1*. Zwróć *uwagę, że w przypadku wersji kubernetesVersion* jest teraz *zgłaszana wersja 1.19.1:*
 
 ```json
 {
@@ -115,7 +115,7 @@ Potwierdź, że uaktualnienie powiodło się, używając polecenia [az aks show]
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-Następujące przykładowe dane wyjściowe pokazują, że w klastrze usługi AKS *działa usługa KubernetesVersion 1.19.1:*
+Następujące przykładowe dane wyjściowe pokazują, że w klastrze usługi AKS działa *wersja KubernetesVersion 1.19.1:*
 
 ```output
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
@@ -132,7 +132,7 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> Po usunięciu klastra jednostka usługi Azure Active Directory używana przez klaster usługi AKS nie jest usuwana. Aby sprawdzić, jak usunąć jednostkę usługi, zobacz [AKS service principal considerations and deletion (Uwagi dotyczące jednostki usługi AKS i jej usuwanie)][sp-delete]. Jeśli używasz tożsamości zarządzanej, jest ona zarządzana przez platformę i nie wymaga aprowizować ani obracać żadnych wpisów tajnych.
+> Po usunięciu klastra jednostka usługi Azure Active Directory używana przez klaster usługi AKS nie jest usuwana. Aby sprawdzić, jak usunąć jednostkę usługi, zobacz [AKS service principal considerations and deletion (Uwagi dotyczące jednostki usługi AKS i jej usuwanie)][sp-delete]. Jeśli używasz tożsamości zarządzanej, tożsamość jest zarządzana przez platformę i nie wymaga aprowizować ani obracać żadnych wpisów tajnych.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -143,7 +143,7 @@ W tym samouczku uaktualniane jest rozwiązanie Kubernetes w klastrze AKS. W tym 
 > * Uaktualnianie węzłów rozwiązania Kubernetes
 > * Weryfikowanie pomyślnego uaktualnienia
 
-Aby uzyskać więcej informacji na temat aks, zobacz [Omówienie aKS][aks-intro]. Aby uzyskać wskazówki dotyczące tworzenia pełnych rozwiązań za pomocą usług AKS, zobacz [Wskazówki dotyczące rozwiązania AKS][aks-solution-guidance].
+Aby uzyskać więcej informacji na temat AKS, zobacz [Omówienie aKS.][aks-intro] Aby uzyskać wskazówki dotyczące tworzenia pełnych rozwiązań za pomocą usług AKS, zobacz [Wskazówki dotyczące rozwiązania AKS.][aks-solution-guidance]
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
@@ -151,10 +151,10 @@ Aby uzyskać więcej informacji na temat aks, zobacz [Omówienie aKS][aks-intro]
 <!-- LINKS - internal -->
 [aks-intro]: ./intro-kubernetes.md
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
-[az aks show]: /cli/azure/aks#az-aks-show
-[az aks get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
-[az aks upgrade]: /cli/azure/aks#az-aks-upgrade
+[az aks show]: /cli/azure/aks#az_aks_show
+[az aks get-upgrades]: /cli/azure/aks#az_aks_get_upgrades
+[az aks upgrade]: /cli/azure/aks#az_aks_upgrade
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-group-delete]: /cli/azure/group#az-group-delete
+[az-group-delete]: /cli/azure/group#az_group_delete
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
 [aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE

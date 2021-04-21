@@ -1,46 +1,46 @@
 ---
 title: Blokowanie obrazów
-description: Ustaw atrybuty dla obrazu kontenera lub repozytorium, aby nie można go było usunąć ani zastąpić w rejestrze kontenerów platformy Azure.
+description: Ustaw atrybuty dla obrazu kontenera lub repozytorium, aby nie można było go usunąć ani nadpisać w rejestrze kontenerów platformy Azure.
 ms.topic: article
 ms.date: 09/30/2019
-ms.openlocfilehash: da84767523bb6d948b71b1c1ad2ddaffb628354a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 340beb1bb6666ddf0de7de38adee6be71f5f52bd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "77659700"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772347"
 ---
-# <a name="lock-a-container-image-in-an-azure-container-registry"></a>Blokowanie obrazu kontenera w usłudze Azure Container Registry
+# <a name="lock-a-container-image-in-an-azure-container-registry"></a>Blokowanie obrazu kontenera w rejestrze kontenerów platformy Azure
 
-W usłudze Azure Container Registry można zablokować wersję obrazu lub repozytorium, aby nie można go było usunąć ani zaktualizować. Aby zablokować obraz lub repozytorium, zaktualizuj jego atrybuty przy użyciu interfejsu wiersza polecenia platformy Azure [AZ ACR Repository Update][az-acr-repository-update]. 
+W rejestrze kontenerów platformy Azure można zablokować wersję obrazu lub repozytorium, aby nie można było go usunąć ani zaktualizować. Aby zablokować obraz lub repozytorium, zaktualizuj jego atrybuty przy użyciu polecenia interfejsu wiersza polecenia platformy Azure [az acr repository update.][az-acr-repository-update] 
 
-Ten artykuł wymaga uruchomienia interfejsu wiersza polecenia platformy Azure w Azure Cloud Shell lub lokalnie (zalecane jest w wersji 2.0.55 lub nowszej). Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli].
+Ten artykuł wymaga uruchomienia interfejsu wiersza polecenia platformy Azure Azure Cloud Shell lokalnie (zalecana jest wersja 2.0.55 lub nowsza). Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli].
 
 > [!IMPORTANT]
-> Ten artykuł nie dotyczy blokowania całego rejestru, na przykład przy użyciu **ustawień > blokad** w Azure Portal lub `az lock` poleceń w interfejsie wiersza polecenia platformy Azure. Zablokowanie zasobu rejestru nie uniemożliwia tworzenia, aktualizowania lub usuwania danych w repozytoriach. Blokowanie rejestru dotyczy tylko operacji zarządzania, takich jak dodawanie lub usuwanie replikacji lub usuwanie samego rejestru. Więcej informacji w obszarze [Zablokuj zasoby, aby zapobiec nieoczekiwanym zmianom](../azure-resource-manager/management/lock-resources.md).
+> Ten artykuł nie dotyczy blokowania całego rejestru, na przykład używania ustawień **> blokady** w Azure Portal lub poleceń w interfejsie wiersza polecenia `az lock` platformy Azure. Blokowanie zasobu rejestru nie uniemożliwia tworzenia, aktualizowania ani usuwania danych w repozytoriach. Blokowanie rejestru ma wpływ tylko na operacje zarządzania, takie jak dodawanie lub usuwanie replikacji lub usuwanie samego rejestru. Więcej informacji zawiera [temat Blokowanie zasobów w celu zapobiegania nieoczekiwanym zmianom.](../azure-resource-manager/management/lock-resources.md)
 
 ## <a name="scenarios"></a>Scenariusze
 
-Domyślnie oznakowany obraz w Azure Container Registry jest *modyfikowalny*, więc z odpowiednimi uprawnieniami można wielokrotnie aktualizować i wypchnąć obraz z tym samym tagiem do rejestru. Obrazy kontenerów można także [usuwać](container-registry-delete.md) w razie konieczności. To zachowanie jest przydatne w przypadku tworzenia obrazów i zachowywania rozmiaru rejestru.
+Domyślnie otagowany obraz w Azure Container Registry jest modyfikowalny, więc przy odpowiednich uprawnieniach można wielokrotnie aktualizować i wypychać obraz z tym samym tagiem do rejestru. W razie potrzeby można również [usunąć obrazy](container-registry-delete.md) kontenerów. To zachowanie jest przydatne w przypadku tworzenia obrazów i konieczności zachowania rozmiaru rejestru.
 
-Jednak podczas wdrażania obrazu kontenera w środowisku produkcyjnym może być potrzebny *niezmienny* obraz kontenera. Niezmienny obraz to taki, którego nie można przypadkowo usunąć ani zastąpić.
+Jednak podczas wdrażania obrazu kontenera w środowisku produkcyjnym może być potrzebny *niezmienny obraz* kontenera. Obraz niezmienny to taki, który nie może zostać przypadkowo usunięty ani nadpisany.
 
-Zapoznaj się z [zaleceniami dotyczącymi tagowania i przechowywania wersji obrazów kontenerów](container-registry-image-tag-version.md) w celu uzyskania strategii tagów i wersji obrazów w rejestrze.
+Zobacz [Zalecenia dotyczące tagowania i wersjonarowania obrazów kontenerów,](container-registry-image-tag-version.md) aby uzyskać informacje na temat strategii tagowania i wersjowania obrazów w rejestrze.
 
-Użyj polecenia [AZ ACR Repository Update][az-acr-repository-update] , aby ustawić atrybuty repozytorium, dzięki czemu możesz:
+Użyj polecenia [az acr repository update,][az-acr-repository-update] aby ustawić atrybuty repozytorium, aby:
 
-* Zablokuj wersję obrazu lub całe repozytorium
+* Blokowanie wersji obrazu lub całego repozytorium
 
-* Ochrona wersji obrazu lub repozytorium przed usunięciem, ale Zezwalaj na aktualizacje
+* Ochrona wersji obrazu lub repozytorium przed usunięciem, ale zezwalanie na aktualizacje
 
-* Zapobiegaj operacji odczytu (ściągania) w wersji obrazu lub w całym repozytorium
+* Uniemożliwianie operacji odczytu (ściągania) w wersji obrazu lub w całym repozytorium
 
 Przykłady można znaleźć w poniższych sekcjach. 
 
 ## <a name="lock-an-image-or-repository"></a>Blokowanie obrazu lub repozytorium 
 
-### <a name="show-the-current-repository-attributes"></a>Pokaż atrybuty bieżącego repozytorium
-Aby wyświetlić bieżące atrybuty repozytorium, uruchom następujące polecenie [AZ ACR Repository show][az-acr-repository-show] :
+### <a name="show-the-current-repository-attributes"></a>Wyświetlanie bieżących atrybutów repozytorium
+Aby wyświetlić bieżące atrybuty repozytorium, uruchom następujące polecenie [az acr repository show:][az-acr-repository-show]
 
 ```azurecli
 az acr repository show \
@@ -48,8 +48,8 @@ az acr repository show \
     --output jsonc
 ```
 
-### <a name="show-the-current-image-attributes"></a>Pokaż atrybuty bieżącego obrazu
-Aby wyświetlić bieżące atrybuty tagu, uruchom następujące polecenie [AZ ACR Repository show][az-acr-repository-show] :
+### <a name="show-the-current-image-attributes"></a>Wyświetlanie bieżących atrybutów obrazu
+Aby wyświetlić bieżące atrybuty tagu, uruchom następujące [polecenie az acr repository show:][az-acr-repository-show]
 
 ```azurecli
 az acr repository show \
@@ -57,9 +57,9 @@ az acr repository show \
     --output jsonc
 ```
 
-### <a name="lock-an-image-by-tag"></a>Zablokuj obraz przez tag
+### <a name="lock-an-image-by-tag"></a>Blokowanie obrazu według tagu
 
-Aby zablokować obraz *taga/webimage: tag* w *rejestrze*, uruchom następujące polecenie [AZ ACR Repository Update][az-acr-repository-update] :
+Aby zablokować *obraz myrepo/myimage:tag* w repozytorium *myregistry,* uruchom następujące [polecenie az acr repository update:][az-acr-repository-update]
 
 ```azurecli
 az acr repository update \
@@ -67,9 +67,9 @@ az acr repository update \
     --write-enabled false
 ```
 
-### <a name="lock-an-image-by-manifest-digest"></a>Zablokuj obraz przez podsumowanie manifestu
+### <a name="lock-an-image-by-manifest-digest"></a>Blokowanie obrazu za pomocą skrótu manifestu
 
-Aby zablokować obraz z *repozytorium/* obrazu identyfikowany przez szyfrowanie manifestu (skrót SHA-256, reprezentowane jako `sha256:...` ), uruchom następujące polecenie. (Aby znaleźć podsumowanie manifestu skojarzone z co najmniej jednym tagiem obrazu, uruchom polecenie [AZ ACR Repository show-Manifests][az-acr-repository-show-manifests] .)
+Aby zablokować *obraz myrepo/myimage* identyfikowany przez skrót manifestu (skrót SHA-256 reprezentowany jako `sha256:...` ), uruchom następujące polecenie. (Aby znaleźć skrót manifestu skojarzony z co najmniej jednym tagiem obrazu, uruchom polecenie [az acr repository show-manifests).][az-acr-repository-show-manifests]
 
 ```azurecli
 az acr repository update \
@@ -79,7 +79,7 @@ az acr repository update \
 
 ### <a name="lock-a-repository"></a>Blokowanie repozytorium
 
-Aby zablokować repozytorium moje repozytorium */obrazy* i wszystkie znajdujące się w nim obrazy, uruchom następujące polecenie:
+Aby zablokować *repozytorium myrepo/myimage* i wszystkie obrazy w nim, uruchom następujące polecenie:
 
 ```azurecli
 az acr repository update \
@@ -91,7 +91,7 @@ az acr repository update \
 
 ### <a name="protect-an-image-from-deletion"></a>Ochrona obrazu przed usunięciem
 
-Aby zezwolić na aktualizowanie obrazu *tagu/repozytorium:* , ale nie został usunięty, uruchom następujące polecenie:
+Aby zezwolić *na zaktualizowanie obrazu myrepo/myimage:tag,* ale nie zostanie usunięty, uruchom następujące polecenie:
 
 ```azurecli
 az acr repository update \
@@ -101,7 +101,7 @@ az acr repository update \
 
 ### <a name="protect-a-repository-from-deletion"></a>Ochrona repozytorium przed usunięciem
 
-Następujące polecenie ustawia repozytorium moje *repozytorium/zdjęcie* , więc nie można go usunąć. Poszczególne obrazy można nadal aktualizować lub usuwać.
+Następujące polecenie ustawia *repozytorium myrepo/myimage,* aby nie można było go usunąć. Poszczególne obrazy można nadal aktualizować lub usuwać.
 
 ```azurecli
 az acr repository update \
@@ -109,9 +109,9 @@ az acr repository update \
     --delete-enabled false --write-enabled true
 ```
 
-## <a name="prevent-read-operations-on-an-image-or-repository"></a>Zapobiegaj operacji odczytu w obrazie lub repozytorium
+## <a name="prevent-read-operations-on-an-image-or-repository"></a>Zapobieganie operacjam odczytu obrazu lub repozytorium
 
-Aby zapobiec operacji odczytu (ściągania) na obrazie *webrepozytorium/webimage: tag* , uruchom następujące polecenie:
+Aby uniemożliwić operacje odczytu (ściągania) na *obrazie myrepo/myimage:tag,* uruchom następujące polecenie:
 
 ```azurecli
 az acr repository update \
@@ -119,7 +119,7 @@ az acr repository update \
     --read-enabled false
 ```
 
-Aby zapobiec operacji odczytu wszystkich obrazów w repozytorium moje *repozytorium/zdjęcie* , uruchom następujące polecenie:
+Aby uniemożliwić odczytywanie wszystkich obrazów w *repozytorium myrepo/myimage,* uruchom następujące polecenie:
 
 ```azurecli
 az acr repository update \
@@ -129,7 +129,7 @@ az acr repository update \
 
 ## <a name="unlock-an-image-or-repository"></a>Odblokowywanie obrazu lub repozytorium
 
-Aby przywrócić domyślne zachowanie obrazu *taga/webimage: tag* , aby można go było usunąć i zaktualizować, uruchom następujące polecenie:
+Aby przywrócić domyślne zachowanie obrazu *myrepo/myimage:tag,* aby można go było usunąć i zaktualizować, uruchom następujące polecenie:
 
 ```azurecli
 az acr repository update \
@@ -137,7 +137,7 @@ az acr repository update \
     --delete-enabled true --write-enabled true
 ```
 
-Aby przywrócić domyślne zachowanie repozytorium moje repozytorium */obrazu* oraz wszystkie obrazy, aby można je było usunąć i zaktualizować, uruchom następujące polecenie:
+Aby przywrócić domyślne zachowanie *repozytorium myrepo/myimage* i wszystkich obrazów, aby można je było usunąć i zaktualizować, uruchom następujące polecenie:
 
 ```azurecli
 az acr repository update \
@@ -147,16 +147,15 @@ az acr repository update \
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule przedstawiono informacje dotyczące korzystania z polecenia [AZ ACR Repository Update][az-acr-repository-update] w celu zapobiegania usunięciu lub aktualizowaniu wersji obrazu w repozytorium. Aby ustawić dodatkowe atrybuty, zobacz [AZ ACR Repository Update][az-acr-repository-update] Reference.
+W tym artykule za pomocą polecenia [az acr repository update][az-acr-repository-update] wiesz już, jak zapobiegać usuwaniu lub aktualizowaniu wersji obrazów w repozytorium. Aby ustawić dodatkowe atrybuty, zobacz informacje o poleceniu [az acr repository update.][az-acr-repository-update]
 
-Aby wyświetlić atrybuty ustawione dla wersji obrazu lub repozytorium, użyj polecenia [AZ ACR Repository show][az-acr-repository-show] .
+Aby wyświetlić atrybuty ustawione dla wersji obrazu lub repozytorium, użyj [polecenia az acr repository show.][az-acr-repository-show]
 
-Aby uzyskać szczegółowe informacje o operacjach usuwania, zobacz [usuwanie obrazów kontenerów w Azure Container Registry][container-registry-delete].
+Aby uzyskać szczegółowe informacje o operacjach usuwania, zobacz [Usuwanie obrazów kontenerów w Azure Container Registry][container-registry-delete].
 
 <!-- LINKS - Internal -->
-[az-acr-repository-update]: /cli/azure/acr/repository#az-acr-repository-update
-[az-acr-repository-show]: /cli/azure/acr/repository#az-acr-repository-show
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests
+[az-acr-repository-update]: /cli/azure/acr/repository#az_acr_repository_update
+[az-acr-repository-show]: /cli/azure/acr/repository#az_acr_repository_show
+[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests
 [azure-cli]: /cli/azure/install-azure-cli
 [container-registry-delete]: container-registry-delete.md
-

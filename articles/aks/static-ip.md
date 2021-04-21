@@ -1,34 +1,34 @@
 ---
-title: Używanie statycznego adresu IP z usługą równoważenia obciążenia
+title: Używanie statycznego adresu IP z równoważeniem obciążenia
 titleSuffix: Azure Kubernetes Service
-description: Dowiedz się, jak utworzyć statyczny adres IP i używać go w usłudze równoważenia obciążenia usługi Azure Kubernetes Service (AKS).
+description: Dowiedz się, jak utworzyć i używać statycznego adresu IP za pomocą Azure Kubernetes Service równoważenia obciążenia usługi (AKS).
 services: container-service
 ms.topic: article
 ms.date: 11/14/2020
-ms.openlocfilehash: 102df48ca22fb996e0f4d9c402b8ce8f0fa80f2c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb1e5691027a4bd86b57390e12259ac165ca9ed8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102509476"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769521"
 ---
-# <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>Używanie statycznego publicznego adresu IP i etykiety DNS w usłudze Azure Kubernetes Service (AKS)
+# <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>Używanie statycznego publicznego adresu IP i etykiety DNS z Azure Kubernetes Service równoważenia obciążenia usługi (AKS)
 
-Domyślnie publiczny adres IP przypisany do zasobu modułu równoważenia obciążenia utworzonego przez klaster AKS jest prawidłowy tylko dla cykl życia tego zasobu. Usunięcie usługi Kubernetes spowoduje również usunięcie powiązanego modułu równoważenia obciążenia i adresu IP. Jeśli chcesz przypisać określony adres IP lub zachować adres IP dla ponownie wdrożonych usług Kubernetes, możesz utworzyć statyczny publiczny adres IP i używać go.
+Domyślnie publiczny adres IP przypisany do zasobu usługi równoważenia obciążenia utworzonego przez klaster usługi AKS jest ważny tylko przez okres istnienia tego zasobu. Usunięcie usługi Kubernetes spowoduje również usunięcie skojarzonego usługi równoważenia obciążenia i adresu IP. Jeśli chcesz przypisać określony adres IP lub zachować adres IP dla ponownie wdpoletowanych usług Kubernetes, możesz utworzyć statyczny publiczny adres IP i użyć go.
 
-W tym artykule opisano sposób tworzenia statycznego publicznego adresu IP i przypisywania go do usługi Kubernetes.
+W tym artykule pokazano, jak utworzyć statyczny publiczny adres IP i przypisać go do usługi Kubernetes.
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
-W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
+W tym artykule przyjęto założenie, że masz istniejący klaster usługi AKS. Jeśli potrzebujesz klastra usługi AKS, zobacz przewodnik Szybki start usługi AKS przy użyciu interfejsu wiersza polecenia platformy [Azure][aks-quickstart-cli] lub Azure Portal [.][aks-quickstart-portal]
 
-Konieczne jest również zainstalowanie i skonfigurowanie interfejsu wiersza polecenia platformy Azure w wersji 2.0.59 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
+Musisz również zainstalować i skonfigurować interfejs wiersza polecenia platformy Azure w wersji 2.0.59 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 
-W tym artykule opisano użycie *standardowego* adresu IP jednostki SKU przy użyciu modułu równoważenia obciążenia ze *standardową* jednostką SKU. Aby uzyskać więcej informacji, zobacz [typy adresów IP i metody alokacji na platformie Azure][ip-sku].
+W tym artykule o mowa o *używaniu* adresu IP standardowej wersji SKU z *usługą* równoważenia obciążenia w standardowych sku. Aby uzyskać więcej informacji, zobacz [Typy adresów IP i metody alokacji na platformie Azure.][ip-sku]
 
 ## <a name="create-a-static-ip-address"></a>Tworzenie statycznego adresu IP
 
-Utwórz statyczny publiczny adres IP za pomocą polecenia [AZ Network Public IP Create][az-network-public-ip-create] . Poniżej przedstawiono tworzenie zasobu statyczny adres IP o nazwie *myAKSPublicIP* w grupie zasobów zasobu *webresources* :
+Utwórz statyczny publiczny adres IP za pomocą [polecenia az network public ip create.][az-network-public-ip-create] Poniżej przedstawiono sposób tworzenia zasobu statycznego adresu IP o *nazwie myAKSPublicIP* w grupie zasobów *myResourceGroup:*
 
 ```azurecli-interactive
 az network public-ip create \
@@ -39,9 +39,9 @@ az network public-ip create \
 ```
 
 > [!NOTE]
-> Jeśli używasz *podstawowego* modułu równoważenia obciążenia SKU w klastrze AKS, użyj opcji *podstawowa* dla parametru *SKU* podczas definiowania publicznego adresu IP. Tylko *podstawowe* adresy IP jednostki SKU współpracują z usługą równoważenia obciążenia *podstawowej* jednostki SKU i tylko *standardowe* adresy IP jednostki SKU współpracują ze *standardowymi* modułami równoważenia obciążenia jednostki SKU. 
+> Jeśli używasz podstawowego usługi *równoważenia* obciążenia SKU w klastrze usługi AKS, użyj wartości *Podstawowa* dla *parametru SKU* podczas definiowania publicznego adresu IP. Tylko *podstawowe ip* SKU działają z usługą równoważenia obciążenia podstawowej wersji SKU, a tylko standardowe ipy SKU działają z usługami równoważenia obciążenia w standardowych sku.    
 
-Wyświetlany jest adres IP, jak pokazano w następujących wąskich przykładowych danych wyjściowych:
+Zostanie wyświetlony adres IP, jak pokazano w poniższych skróconych przykładowych danych wyjściowych:
 
 ```json
 {
@@ -53,7 +53,7 @@ Wyświetlany jest adres IP, jak pokazano w następujących wąskich przykładowy
 }
 ```
 
-Możesz później uzyskać publiczny adres IP za pomocą polecenia [AZ Network Public-IP list][az-network-public-ip-list] . Określ nazwę grupy zasobów węzła i utworzonego publicznego adresu IP, a następnie zapytaj o *adres* IP, jak pokazano w następującym przykładzie:
+Publiczny adres IP można później uzyskać za pomocą [polecenia az network public-ip list.][az-network-public-ip-list] Określ nazwę utworzonej grupy zasobów węzła i publiczny adres IP oraz zapytanie o *adres ipAddress,* jak pokazano w poniższym przykładzie:
 
 ```azurecli-interactive
 $ az network public-ip show --resource-group myResourceGroup --name myAKSPublicIP --query ipAddress --output tsv
@@ -63,7 +63,7 @@ $ az network public-ip show --resource-group myResourceGroup --name myAKSPublicI
 
 ## <a name="create-a-service-using-the-static-ip-address"></a>Tworzenie usługi przy użyciu statycznego adresu IP
 
-Przed utworzeniem usługi upewnij się, że tożsamość klastra używana przez klaster AKS ma delegowane uprawnienia do innej grupy zasobów. Na przykład:
+Przed utworzeniem usługi upewnij się, że tożsamość klastra używana przez klaster usługi AKS ma delegowane uprawnienia do innej grupy zasobów. Na przykład:
 
 ```azurecli-interactive
 az role assignment create \
@@ -73,9 +73,9 @@ az role assignment create \
 ```
 
 > [!IMPORTANT]
-> W przypadku dostosowania wychodzącego adresu IP upewnij się, że tożsamość klastra ma uprawnienia zarówno do wychodzącego publicznego adresu IP, jak i tego przychodzącego publicznego adresu IP.
+> Jeśli adres IP ruchu wychodzącego został dostosowany, upewnij się, że tożsamość klastra ma uprawnienia zarówno do publicznego adresu IP ruchu wychodzącego, jak i do tego przychodzącego publicznego adresu IP.
 
-Aby utworzyć usługę *równoważenia obciążenia* przy użyciu statycznego publicznego adresu IP, Dodaj `loadBalancerIP` Właściwość i wartość statycznego publicznego adresu IP do manifestu YAML. Utwórz plik o nazwie `load-balancer-service.yaml` i skopiuj w następującym YAML. Podaj własny publiczny adres IP utworzony w poprzednim kroku. Poniższy przykład ustawia również adnotację z grupą zasobów o nazwie Moja *zasobów*. Podaj własną nazwę grupy zasobów.
+Aby utworzyć *usługę LoadBalancer* ze statycznym publicznym adresem IP, dodaj właściwość i wartość statycznego publicznego adresu IP do `loadBalancerIP` manifestu YAML. Utwórz plik o nazwie `load-balancer-service.yaml` i skopiuj go w poniższym pliku YAML. Podaj własny publiczny adres IP utworzony w poprzednim kroku. W poniższym przykładzie adnotacja jest również ustawiana na grupę zasobów *o nazwie myResourceGroup*. Podaj własną nazwę grupy zasobów.
 
 ```yaml
 apiVersion: v1
@@ -93,7 +93,7 @@ spec:
     app: azure-load-balancer
 ```
 
-Utwórz usługę i wdrożenie za pomocą `kubectl apply` polecenia.
+Utwórz usługę i wdrożenie za pomocą `kubectl apply` polecenia .
 
 ```console
 kubectl apply -f load-balancer-service.yaml
@@ -101,9 +101,9 @@ kubectl apply -f load-balancer-service.yaml
 
 ## <a name="apply-a-dns-label-to-the-service"></a>Stosowanie etykiety DNS do usługi
 
-Jeśli w usłudze jest używany dynamiczny lub statyczny publiczny adres IP, możesz użyć adnotacji usługi, `service.beta.kubernetes.io/azure-dns-label-name` Aby ustawić publiczną etykietę DNS. Spowoduje to opublikowanie w pełni kwalifikowanej nazwy domeny dla usługi przy użyciu publicznych serwerów DNS i domen najwyższego poziomu platformy Azure. Wartość adnotacji musi być unikatowa w obrębie lokalizacji platformy Azure, więc zaleca się użycie wystarczająco kwalifikowanej etykiety.   
+Jeśli usługa używa dynamicznego lub statycznego publicznego adresu IP, możesz użyć adnotacji usługi, aby ustawić publiczną `service.beta.kubernetes.io/azure-dns-label-name` etykietę DNS. To narzędzie publikuje w pełni kwalifikowaną nazwę domeny dla usługi przy użyciu publicznych serwerów DNS platformy Azure i domeny najwyższego poziomu. Wartość adnotacji musi być unikatowa w obrębie lokalizacji platformy Azure, dlatego zaleca się użycie odpowiednio kwalifikowanej etykiety.   
 
-Na platformie Azure zostanie automatycznie dołączona domyślna podsieć, na przykład `<location>.cloudapp.azure.com` (gdzie lokalizacja jest wybranym regionem) do podania nazwy, aby utworzyć w pełni kwalifikowaną nazwę DNS. Na przykład:
+Platforma Azure automatycznie dołączy domyślną podsieć, taką jak (gdzie lokalizacja to wybrany region), do podanej nazwy, aby utworzyć w pełni `<location>.cloudapp.azure.com` kwalifikowaną nazwę DNS. Na przykład:
 
 ```yaml
 apiVersion: v1
@@ -121,17 +121,17 @@ spec:
 ```
 
 > [!NOTE] 
-> Aby opublikować usługę we własnej domenie, zobacz [Azure DNS][azure-dns-zone] i projekt [zewnętrzny DNS][external-dns] .
+> Aby opublikować usługę we własnej domenie, zobacz [Azure DNS][azure-dns-zone] i [projekt external-dns.][external-dns]
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
-Jeśli statyczny adres IP zdefiniowany we właściwości *loadBalancerIP* manifestu usługi Kubernetes nie istnieje lub nie został utworzony w grupie zasobów węzła i nie skonfigurowano żadnych dodatkowych delegowania, tworzenie usługi równoważenia obciążenia zakończy się niepowodzeniem. Aby rozwiązać problem, Przejrzyj zdarzenia tworzenia usługi za pomocą polecenia [polecenia kubectl opisywanie][kubectl-describe] . Podaj nazwę usługi określoną w manifeście YAML, jak pokazano w następującym przykładzie:
+Jeśli statyczny adres IP zdefiniowany we właściwości *loadBalancerIP* manifestu usługi Kubernetes nie istnieje lub nie został utworzony w grupie zasobów węzła i nie skonfigurowano żadnych dodatkowych delegowania, tworzenie usługi równoważenia obciążenia kończy się niepowodzeniem. Aby rozwiązać problemy, przejrzyj zdarzenia tworzenia usługi za pomocą [polecenia kubectl describe.][kubectl-describe] Podaj nazwę usługi określoną w manifeście YAML, jak pokazano w poniższym przykładzie:
 
 ```console
 kubectl describe service azure-load-balancer
 ```
 
-Zostanie wyświetlone informacje o zasobie usługi Kubernetes. *Zdarzenia* na końcu następujących przykładowych danych wyjściowych wskazują, że *nie znaleziono adresu IP dostarczonego przez użytkownika*. W tych scenariuszach upewnij się, że w grupie zasobów węzła został utworzony statyczny publiczny adres IP i że adres IP określony w manifeście usługi Kubernetes jest poprawny.
+Zostaną wyświetlone informacje o zasobie usługi Kubernetes. Zdarzenia *na* końcu następujących przykładowych danych wyjściowych wskazują, że nie znaleziono adresu *IP podanego przez użytkownika.* W tych scenariuszach sprawdź, czy w grupie zasobów węzła utworzono statyczny publiczny adres IP oraz czy adres IP określony w manifeście usługi Kubernetes jest poprawny.
 
 ```
 Name:                     azure-load-balancer
@@ -157,7 +157,7 @@ Events:
 
 ## <a name="next-steps"></a>Następne kroki
 
-W celu zapewnienia dodatkowej kontroli nad ruchem sieciowym w aplikacjach można [utworzyć kontroler][aks-ingress-basic]transferu danych przychodzących. Można również utworzyć kontroler transferu danych przychodzących [ze statycznym publicznym adresem IP][aks-static-ingress].
+Aby uzyskać dodatkową kontrolę nad ruchem sieciowym do aplikacji, można zamiast tego utworzyć [kontroler ruchu wychodzącego][aks-ingress-basic]. Można również utworzyć [kontroler ruchu wychodzącego ze statycznym publicznym adresem IP][aks-static-ingress].
 
 <!-- LINKS - External -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
@@ -166,9 +166,9 @@ W celu zapewnienia dodatkowej kontroli nad ruchem sieciowym w aplikacjach można
 
 <!-- LINKS - Internal -->
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
-[az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
-[az-network-public-ip-list]: /cli/azure/network/public-ip#az-network-public-ip-list
-[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-network-public-ip-create]: /cli/azure/network/public-ip#az_network_public_ip_create
+[az-network-public-ip-list]: /cli/azure/network/public-ip#az_network_public_ip_list
+[az-aks-show]: /cli/azure/aks#az_aks_show
 [aks-ingress-basic]: ingress-basic.md
 [aks-static-ingress]: ingress-static-ip.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md

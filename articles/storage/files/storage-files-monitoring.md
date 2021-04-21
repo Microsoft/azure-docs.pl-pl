@@ -1,6 +1,6 @@
 ---
-title: Azure Files monitorowania | Microsoft Docs
-description: Dowiedz się, jak monitorować wydajność i dostępność Azure Files. Monitoruj Azure Files dane, Dowiedz się więcej o konfiguracji i analizuj dane dotyczące metryk i dzienników.
+title: Monitorowanie Azure Files | Microsoft Docs
+description: Dowiedz się, jak monitorować wydajność i dostępność Azure Files. Monitoruj Azure Files, dowiedz się więcej o konfiguracji oraz analizuj metryki i dane dzienników.
 author: normesta
 services: storage
 ms.service: storage
@@ -10,64 +10,64 @@ ms.date: 3/02/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 16a899b7f0e40c2eee91d1dd445f0992572a9dda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 620ee3bc5978da4b274aed9a412679ae0835f0b9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103418168"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107759831"
 ---
-# <a name="monitoring-azure-files"></a>Azure Files monitorowania
+# <a name="monitoring-azure-files"></a>Monitorowanie Azure Files
 
-Jeśli masz krytyczne aplikacje i procesy biznesowe, które opierają się na zasobach platformy Azure, chcesz monitorować te zasoby pod kątem ich dostępności, wydajności i operacji. W tym artykule opisano dane monitorowania, które są generowane przez Azure Files i jak można użyć funkcji Azure Monitor do analizowania alertów dotyczących tych danych.
+Jeśli masz krytyczne aplikacje i procesy biznesowe, które opierają się na zasobach platformy Azure, chcesz monitorować te zasoby pod względu na ich dostępność, wydajność i działanie. W tym artykule opisano dane monitorowania generowane przez program Azure Files oraz sposób użycia funkcji usługi Azure Monitor do analizowania alertów dotyczących tych danych.
 
-## <a name="monitor-overview"></a>Przegląd monitora
+## <a name="monitor-overview"></a>Omówienie monitorowania
 
-Strona **Przegląd** w Azure Portal dla każdego zasobu Azure Files zawiera krótki widok użycia zasobów, na przykład żądania i rozliczenia godzinowe. Te informacje są przydatne, ale dostępna jest tylko niewielka ilość danych monitorowania. Niektóre z tych danych są zbierane automatycznie i są dostępne do analizy zaraz po utworzeniu zasobu. Dodatkowe typy zbierania danych można włączyć za pomocą jakiejś konfiguracji.
+Strona **Przegląd** w Azure Portal dla każdego zasobu Azure Files zawiera krótki widok użycia zasobów, taki jak żądania i rozliczenia godzinowe. Te informacje są przydatne, ale dostępna jest tylko niewielka ilość danych monitorowania. Niektóre z tych danych są zbierane automatycznie i są dostępne do analizy zaraz po utworzeniu zasobu. Dodatkowe typy zbierania danych można włączyć przy użyciu konfiguracji.
 
 ## <a name="what-is-azure-monitor"></a>Co to jest Azure Monitor?
-Azure Files tworzy dane monitorowania przy użyciu [Azure monitor](../../azure-monitor/overview.md), który jest pełną usługą monitorowania stosu na platformie Azure. Azure Monitor oferuje pełny zestaw funkcji służących do monitorowania zasobów i zasobów platformy Azure w innych chmurach i lokalnych. 
+Azure Files tworzy dane monitorowania przy [użyciu](../../azure-monitor/overview.md)Azure Monitor , która jest usługą monitorowania pełnego stosu na platformie Azure. Azure Monitor udostępnia kompletny zestaw funkcji do monitorowania zasobów i zasobów platformy Azure w innych chmurach i lokalnie. 
 
-Zacznij od artykułu [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../../azure-monitor/essentials/monitor-azure-resource.md), który opisuje następujące kwestie:
+Zacznij od artykułu [Monitorowanie zasobów platformy Azure za pomocą Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md), który opisuje następujące kwestie:
 
 - Co to jest Azure Monitor?
 - Koszty związane z monitorowaniem
 - Monitorowanie danych zebranych na platformie Azure
 - Konfigurowanie zbierania danych
-- Standardowe narzędzia na platformie Azure na potrzeby analizowania danych monitorowania i powiadamiania o nich
+- Standardowe narzędzia na platformie Azure do analizowania danych monitorowania i tworzenia alertów
 
-Poniższe sekcje zostały skompilowane w tym artykule, opisując szczegółowe dane zebrane z Azure Files. Przykłady pokazują, jak skonfigurować zbieranie danych i analizować je za pomocą narzędzi platformy Azure.
+Poniższe sekcje są kompilowane w oparciu o ten artykuł, opisując konkretne dane zebrane z Azure Files. Przykłady pokazują, jak skonfigurować zbieranie danych i analizować te dane za pomocą narzędzi platformy Azure.
 
 ## <a name="monitoring-data"></a>Dane monitorowania
 
-Azure Files gromadzi te same rodzaje danych monitorowania jak inne zasoby platformy Azure, które są opisane w temacie [monitorowanie danych z zasobów platformy Azure](../../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data). 
+Azure Files zbiera te same rodzaje danych monitorowania co inne zasoby platformy Azure, które opisano w tesłudze [monitorowania danych z zasobów platformy Azure.](../../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data) 
 
-Aby uzyskać szczegółowe informacje na temat metryk i dzienników tworzonych przez Azure Files, zobacz [Dokumentacja usługi Azure File monitoring](storage-files-monitoring-reference.md) .
+Zobacz [Azure File monitoring data reference (Informacje](storage-files-monitoring-reference.md) o danych monitorowania plików platformy Azure), aby uzyskać szczegółowe informacje na temat metryk i dzienników utworzonych przez Azure Files.
 
-Metryki i dzienniki w Azure Monitor obsługują tylko Azure Resource Manager kont magazynu. Azure Monitor nie obsługuje klasycznych kont magazynu. Jeśli chcesz użyć metryk lub dzienników na klasycznym koncie magazynu, musisz przeprowadzić migrację do konta magazynu Azure Resource Manager. Zobacz [Migrowanie do Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
+Metryki i dzienniki w Azure Monitor obsługują tylko Azure Resource Manager magazynu. Azure Monitor nie obsługuje klasycznych kont magazynu. Jeśli chcesz używać metryk lub dzienników na klasycznym koncie magazynu, musisz przeprowadzić migrację do Azure Resource Manager magazynu. Zobacz [Migrowanie do Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
-## <a name="collection-and-routing"></a>Kolekcja i Routing
+## <a name="collection-and-routing"></a>Zbieranie i routing
 
-Metryki platformy i dziennik aktywności są zbierane automatycznie, ale mogą być kierowane do innych lokalizacji przy użyciu ustawień diagnostycznych. 
+Metryki platformy i dziennik aktywności są zbierane automatycznie, ale mogą być kierowane do innych lokalizacji przy użyciu ustawienia diagnostycznego. 
 
-Aby zbierać dzienniki zasobów, należy utworzyć ustawienie diagnostyczne. Po utworzeniu ustawienia wybierz pozycję **plik** jako typ magazynu, dla którego chcesz włączyć dzienniki. Następnie należy określić jedną z następujących kategorii operacji, dla których mają być zbierane dzienniki. 
+Aby zbierać dzienniki zasobów, należy utworzyć ustawienie diagnostyczne. Podczas tworzenia ustawienia wybierz **plik** jako typ magazynu, dla którego chcesz włączyć dzienniki. Następnie określ jedną z następujących kategorii operacji, dla których chcesz zbierać dzienniki. 
 
 | Kategoria | Opis |
 |:---|:---|
 | StorageRead | Operacje odczytu na obiektach. |
-| StorageWrite | Operacje zapisu w obiektach. |
-| StorageDelete | Operacje usuwania obiektów. |
+| StorageWrite | Operacje zapisu na obiektach. |
+| StorageDelete | Usuwanie operacji na obiektach. |
 
-Aby uzyskać listę zarejestrowanych operacji SMB i REST, zobacz temat [zarejestrowane operacje magazynu i komunikaty o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) oraz informacje o [danych monitorowania Azure Files](storage-files-monitoring-reference.md).
+Aby uzyskać listę rejestrowanych operacji SMB i REST, zobacz Storage [logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) (Zarejestrowane operacje i komunikaty o stanie magazynu) oraz Azure Files danych [monitorowania](storage-files-monitoring-reference.md).
 
-## <a name="creating-a-diagnostic-setting"></a>Tworzenie ustawień diagnostycznych
+## <a name="creating-a-diagnostic-setting"></a>Tworzenie ustawienia diagnostycznego
 
-Ustawienie diagnostyczne można utworzyć przy użyciu Azure Portal, programu PowerShell, interfejsu wiersza polecenia platformy Azure lub szablonu Azure Resource Manager.
+Ustawienie diagnostyczne można utworzyć przy użyciu Azure Portal, programu PowerShell, interfejsu wiersza polecenia platformy Azure lub Azure Resource Manager szablonu.
 
 > [!NOTE]
-> Dzienniki usługi Azure Storage w Azure Monitor są w publicznej wersji zapoznawczej i są dostępne do testowania wersji zapoznawczej we wszystkich regionach chmury publicznej. Ta wersja zapoznawcza umożliwia korzystanie z dzienników dla obiektów BLOB (w tym Azure Data Lake Storage Gen2), plików, kolejek i tabel. Ta funkcja jest dostępna dla wszystkich kont magazynu utworzonych za pomocą modelu wdrażania Azure Resource Manager. Zobacz [Omówienie konta magazynu](../common/storage-account-overview.md).
+> Dzienniki usługi Azure Storage w Azure Monitor są w publicznej wersji zapoznawczej i są dostępne do testowania w wersji zapoznawczej we wszystkich regionach chmury publicznej. Ta wersja zapoznawcza umożliwia korzystanie z dzienników obiektów blob (w tym Azure Data Lake Storage Gen2), plików, kolejek i tabel. Ta funkcja jest dostępna dla wszystkich kont magazynu utworzonych za pomocą Azure Resource Manager modelu wdrażania. Zobacz [Omówienie konta magazynu.](../common/storage-account-overview.md)
 
-Aby uzyskać ogólne wskazówki, zobacz [Tworzenie ustawień diagnostycznych w celu zbierania dzienników platformy i metryk na platformie Azure](../../azure-monitor/essentials/diagnostic-settings.md).
+Aby uzyskać ogólne wskazówki, zobacz Create diagnostic setting to collect platform logs and metrics in Azure (Tworzenie ustawienia diagnostycznego w celu zbierania dzienników i [metryk platformy na platformie Azure).](../../azure-monitor/essentials/diagnostic-settings.md)
 
 ### <a name="azure-portal"></a>[Witryna Azure Portal](#tab/azure-portal)
 
@@ -75,70 +75,70 @@ Aby uzyskać ogólne wskazówki, zobacz [Tworzenie ustawień diagnostycznych w c
 
 2. Przejdź do konta magazynu.
 
-3. W sekcji **monitorowanie** kliknij pozycję **Ustawienia diagnostyczne (wersja zapoznawcza)**.
+3. W sekcji **Monitorowanie** kliknij pozycję **Ustawienia diagnostyczne (wersja zapoznawcza).**
 
    > [!div class="mx-imgBorder"]
-   > ![Portal — dzienniki diagnostyki](media/storage-files-monitoring/diagnostic-logs-settings-pane.png)   
+   > ![portal — dzienniki diagnostyczne](media/storage-files-monitoring/diagnostic-logs-settings-pane.png)   
 
-4. Wybierz pozycję **plik** jako typ magazynu, dla którego chcesz włączyć dzienniki.
+4. Wybierz **plik** jako typ magazynu, dla którego chcesz włączyć dzienniki.
 
-5. Kliknij pozycję **Dodaj ustawienie diagnostyczne**.
-
-   > [!div class="mx-imgBorder"]
-   > ![Portal — dzienniki zasobów — Dodaj ustawienie diagnostyczne](media/storage-files-monitoring/diagnostic-logs-settings-pane-2.png)
-
-   Zostanie wyświetlona strona **Ustawienia diagnostyczne** .
+5. Kliknij **pozycję Dodaj ustawienie diagnostyczne.**
 
    > [!div class="mx-imgBorder"]
-   > ![Strona dzienniki zasobów](media/storage-files-monitoring/diagnostic-logs-page.png)
+   > ![portal — dzienniki zasobów — dodawanie ustawienia diagnostycznego](media/storage-files-monitoring/diagnostic-logs-settings-pane-2.png)
 
-6. W polu **Nazwa** strony wprowadź nazwę tego ustawienia dziennika zasobów. Następnie wybierz operacje, które mają być rejestrowane (operacje odczytu, zapisu i usuwania) i miejsce, w którym mają być wysyłane dzienniki.
+   Zostanie **wyświetlona strona Ustawienia** diagnostyczne.
+
+   > [!div class="mx-imgBorder"]
+   > ![Strona dzienników zasobów](media/storage-files-monitoring/diagnostic-logs-page.png)
+
+6. W **polu** Nazwa strony wprowadź nazwę dla tego ustawienia Dziennik zasobów. Następnie wybierz operacje, które mają być rejestrowane (operacje odczytu, zapisu i usuwania) oraz miejsce, do którego mają być wysyłane dzienniki.
 
 #### <a name="archive-logs-to-a-storage-account"></a>Archiwizowanie dzienników na koncie magazynu
 
-Jeśli zdecydujesz się na archiwizowanie dzienników na koncie magazynu, płacisz za ilość dzienników wysyłanych do konta magazynu. Aby uzyskać szczegółowe informacje o cenach, zobacz sekcję **dzienniki platformy** na stronie [cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) .
+Jeśli zdecydujesz się zarchiwizować dzienniki na koncie magazynu, zapłacisz za ilość dzienników wysyłanych do konta magazynu. Aby uzyskać szczegółowe informacje o cenach, zobacz **sekcję Dzienniki platformy** na [Azure Monitor cennika.](https://azure.microsoft.com/pricing/details/monitor/#platform-logs)
 
-1. Zaznacz pole wyboru **Archiwizuj do konta magazynu** , a następnie kliknij przycisk **Konfiguruj** .
+1. Zaznacz pole **wyboru Zarchiwizuj na koncie** magazynu, a następnie kliknij **przycisk** Konfiguruj.
 
    > [!div class="mx-imgBorder"]   
-   > ![Magazyn archiwum stron ustawień diagnostycznych](media/storage-files-monitoring/diagnostic-logs-settings-pane-archive-storage.png)
+   > ![Magazyn archiwum strony ustawień diagnostycznych](media/storage-files-monitoring/diagnostic-logs-settings-pane-archive-storage.png)
 
-2. Z listy rozwijanej **konto magazynu** wybierz konto magazynu, w którym mają być archiwizowane dzienniki, kliknij przycisk **OK** , a następnie kliknij przycisk **Zapisz** .
+2. Z **listy rozwijanej** Konto magazynu wybierz konto magazynu, na którym chcesz zarchiwizować dzienniki, kliknij przycisk **OK,** a następnie kliknij przycisk **Zapisz.**
 
    [!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
 
    > [!NOTE]
-   > Przed wybraniem konta magazynu jako miejsca docelowego eksportu Zobacz sekcję [Archiwizowanie dzienników zasobów platformy Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) , aby poznać wymagania wstępne na koncie magazynu.
+   > Przed wybraniem konta magazynu jako miejsca docelowego eksportu zobacz Archiwizowanie dzienników zasobów [platformy Azure,](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) aby poznać wymagania wstępne dotyczące konta magazynu.
 
-#### <a name="stream-logs-to-azure-event-hubs"></a>Przesyłanie strumieniowe dzienników do usługi Azure Event Hubs
+#### <a name="stream-logs-to-azure-event-hubs"></a>Przesyłanie strumieniowe dzienników do Azure Event Hubs
 
-W przypadku wybrania przesyłania strumieniowego dzienników do centrum zdarzeń płacisz za ilość dzienników wysyłanych do centrum zdarzeń. Aby uzyskać szczegółowe informacje o cenach, zobacz sekcję **dzienniki platformy** na stronie [cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) .
+Jeśli zdecydujesz się na przesyłanie strumieniowe dzienników do centrum zdarzeń, zapłacisz za ilość dzienników wysyłanych do centrum zdarzeń. Aby uzyskać szczegółowe informacje o cenach, zobacz **sekcję Dzienniki** platformy na [Azure Monitor cennika.](https://azure.microsoft.com/pricing/details/monitor/#platform-logs)
 
-1. Zaznacz pole wyboru **strumień do centrum zdarzeń** , a następnie kliknij przycisk **Konfiguruj** .
+1. Zaznacz pole **wyboru Przesyłaj strumieniowo do centrum** zdarzeń, a następnie kliknij **przycisk** Konfiguruj.
 
-2. W okienku **Wybierz centrum zdarzeń** wybierz przestrzeń nazw, nazwę i nazwę zasad centrum zdarzeń, do którego chcesz przesyłać strumieniowo dzienniki. 
+2. W **okienku Wybierz centrum zdarzeń** wybierz przestrzeń nazw, nazwę i nazwę zasad centrum zdarzeń, do którego chcesz przesyłać strumieniowo dzienniki. 
 
    > [!div class="mx-imgBorder"]
    > ![Centrum zdarzeń strony ustawień diagnostycznych](media/storage-files-monitoring/diagnostic-logs-settings-pane-event-hub.png)
 
-3. Kliknij przycisk **OK** , a następnie kliknij przycisk **Zapisz** .
+3. Kliknij przycisk **OK,** a następnie kliknij **przycisk** Zapisz.
 
-#### <a name="send-logs-to-azure-log-analytics"></a>Wyślij dzienniki do usługi Azure Log Analytics
+#### <a name="send-logs-to-azure-log-analytics"></a>Wysyłanie dzienników do usługi Azure Log Analytics
 
-1. Zaznacz pole wyboru **Wyślij do log Analytics** wybierz obszar roboczy usługi log Analytics, a następnie kliknij przycisk **Zapisz** .
+1. Zaznacz pole **wyboru Wyślij do usługi Log Analytics,** wybierz obszar roboczy usługi Log Analytics, a następnie kliknij przycisk **Zapisz.**
 
    > [!div class="mx-imgBorder"]   
-   > ![Analiza dzienników strony ustawień diagnostycznych](media/storage-files-monitoring/diagnostic-logs-settings-pane-log-analytics.png)
+   > ![Analiza dzienników stron ustawień diagnostycznych](media/storage-files-monitoring/diagnostic-logs-settings-pane-log-analytics.png)
 
 ### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-1. Otwórz okno polecenia programu Windows PowerShell i zaloguj się do subskrypcji platformy Azure za pomocą `Connect-AzAccount` polecenia. Następnie postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
+1. Otwórz Windows PowerShell polecenia i zaloguj się do subskrypcji platformy Azure za pomocą `Connect-AzAccount` polecenia . Następnie postępuj zgodnie z instrukcjami na ekranie.
 
    ```powershell
    Connect-AzAccount
    ```
 
-2. Ustaw aktywną subskrypcję na konto magazynu, dla którego chcesz włączyć rejestrowanie.
+2. Ustaw aktywną subskrypcję na subskrypcję konta magazynu, dla którego chcesz włączyć rejestrowanie.
 
    ```powershell
    Set-AzContext -SubscriptionId <subscription-id>
@@ -146,17 +146,17 @@ W przypadku wybrania przesyłania strumieniowego dzienników do centrum zdarzeń
 
 #### <a name="archive-logs-to-a-storage-account"></a>Archiwizowanie dzienników na koncie magazynu
 
-Jeśli zdecydujesz się na archiwizowanie dzienników na koncie magazynu, płacisz za ilość dzienników wysyłanych do konta magazynu. Aby uzyskać szczegółowe informacje o cenach, zobacz sekcję **dzienniki platformy** na stronie [cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) .
+Jeśli zdecydujesz się zarchiwizować dzienniki na koncie magazynu, zapłacisz za ilość dzienników wysyłanych do konta magazynu. Aby uzyskać szczegółowe informacje o cenach, zobacz **sekcję Dzienniki** platformy na [Azure Monitor cennika.](https://azure.microsoft.com/pricing/details/monitor/#platform-logs)
 
-Włącz dzienniki przy użyciu polecenia cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) programu PowerShell wraz z `StorageAccountId` parametrem.
+Włącz dzienniki przy użyciu polecenia cmdlet programu PowerShell [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) wraz z `StorageAccountId` parametrem .
 
 ```powershell
 Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log> 
 ```
 
-Zastąp `<storage-service-resource--id>` symbol zastępczy w tym fragmencie kodu identyfikatorem zasobu usługi plików platformy Azure. Identyfikator zasobu można znaleźć w Azure Portal, otwierając stronę **Właściwości** konta magazynu.
+Zastąp symbol `<storage-service-resource--id>` zastępczy w tym fragmencie kodu identyfikatorem zasobu usługi Azure File. Identyfikator zasobu można znaleźć w Azure Portal, otwierając **stronę** Właściwości konta magazynu.
 
-Można użyć `StorageRead` , `StorageWrite` i `StorageDelete` dla wartości parametru **kategorii** .
+Jako wartości parametru Category można użyć wartości `StorageRead` `StorageWrite` , i `StorageDelete` . 
 
 [!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
 
@@ -164,13 +164,13 @@ Oto przykład:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -StorageAccountId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount -Enabled $true -Category StorageWrite,StorageDelete`
 
-Opis każdego z parametrów można znaleźć w temacie [Archiwizowanie dzienników zasobów platformy Azure za pośrednictwem Azure PowerShell](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage).
+Aby uzyskać opis każdego parametru, zobacz Archiwizowanie [dzienników zasobów platformy Azure za pośrednictwem Azure PowerShell](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage).
 
 #### <a name="stream-logs-to-an-event-hub"></a>Przesyłanie strumieniowe dzienników do centrum zdarzeń
 
-W przypadku wybrania przesyłania strumieniowego dzienników do centrum zdarzeń płacisz za ilość dzienników wysyłanych do centrum zdarzeń. Aby uzyskać szczegółowe informacje o cenach, zobacz sekcję **dzienniki platformy** na stronie [cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) .
+Jeśli zdecydujesz się przesłać strumieniowo dzienniki do centrum zdarzeń, zapłacisz za ilość dzienników wysyłanych do centrum zdarzeń. Aby uzyskać szczegółowe informacje o cenach, zobacz **sekcję Dzienniki platformy** na [Azure Monitor cennika.](https://azure.microsoft.com/pricing/details/monitor/#platform-logs)
 
-Włącz dzienniki przy użyciu polecenia cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) programu PowerShell z `EventHubAuthorizationRuleId` parametrem.
+Włącz dzienniki przy użyciu polecenia cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) programu PowerShell z `EventHubAuthorizationRuleId` parametrem .
 
 ```powershell
 Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
@@ -180,11 +180,11 @@ Oto przykład:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
 
-Aby uzyskać opis każdego z parametrów, zobacz [dane strumienia do Event Hubs za pomocą poleceń cmdlet programu PowerShell](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs).
+Aby uzyskać opis każdego parametru, zobacz [Stream Data to Event Hubs via PowerShell cmdlets (Przesyłanie](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)strumieniowe danych do usługi Event Hubs za pomocą poleceń cmdlet programu PowerShell).
 
 #### <a name="send-logs-to-log-analytics"></a>Wysyłanie dzienników do usługi Log Analytics
 
-Włącz dzienniki przy użyciu polecenia cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) programu PowerShell z `WorkspaceId` parametrem.
+Włącz dzienniki przy użyciu polecenia cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) programu PowerShell z `WorkspaceId` parametrem .
 
 ```powershell
 Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
@@ -194,33 +194,33 @@ Oto przykład:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -WorkspaceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace -Enabled $true -Category StorageDelete`
 
-Aby uzyskać więcej informacji, zobacz [przesyłanie strumieniowe dzienników zasobów platformy Azure do obszaru roboczego log Analytics w Azure monitor](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
+Aby uzyskać więcej informacji, zobacz Stream Azure Resource Logs to Log Analytics workspace in Azure Monitor (Przesyłanie strumieniowe dzienników zasobów platformy Azure do obszaru roboczego usługi [Log Analytics Azure Monitor).](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace)
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-1. Najpierw Otwórz [Azure Cloud Shell](../../cloud-shell/overview.md)lub jeśli interfejs wiersza polecenia platformy Azure został [zainstalowany](/cli/azure/install-azure-cli) lokalnie, Otwórz aplikację konsoli poleceń, taką jak Windows PowerShell.
+1. Najpierw otwórz aplikację [Azure Cloud Shell](../../cloud-shell/overview.md)lub jeśli interfejs [](/cli/azure/install-azure-cli) wiersza polecenia platformy Azure został zainstalowany lokalnie, otwórz aplikację konsoli poleceń, taką jak Windows PowerShell.
 
-2. Jeśli Twoja tożsamość jest skojarzona z więcej niż jedną subskrypcją, ustaw aktywną subskrypcję na konto magazynu, dla którego chcesz włączyć dzienniki.
+2. Jeśli tożsamość jest skojarzona z więcej niż jedną subskrypcją, ustaw aktywną subskrypcję na subskrypcję konta magazynu, dla którego chcesz włączyć dzienniki.
 
    ```azurecli-interactive
    az account set --subscription <subscription-id>
    ```
 
-   Zastąp `<subscription-id>` wartość symbolu zastępczego identyfikatorem subskrypcji.
+   Zastąp wartość `<subscription-id>` symbolu zastępczego identyfikatorem subskrypcji.
 
 #### <a name="archive-logs-to-a-storage-account"></a>Archiwizowanie dzienników na koncie magazynu
 
-Jeśli zdecydujesz się na archiwizowanie dzienników na koncie magazynu, płacisz za ilość dzienników wysyłanych do konta magazynu. Aby uzyskać szczegółowe informacje o cenach, zobacz sekcję **dzienniki platformy** na stronie [cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) .
+Jeśli zdecydujesz się zarchiwizować dzienniki na koncie magazynu, zapłacisz za ilość dzienników wysyłanych do konta magazynu. Aby uzyskać szczegółowe informacje o cenach, zobacz **sekcję Dzienniki platformy** na [Azure Monitor cennika.](https://azure.microsoft.com/pricing/details/monitor/#platform-logs)
 
-Włącz dzienniki przy użyciu polecenia [AZ monitor Diagnostic-Settings Create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) .
+Włącz dzienniki za pomocą [polecenia az monitor diagnostic-settings create.](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create)
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true}]'
 ```
 
-Zastąp `<storage-service-resource--id>` symbol zastępczy w tym fragmencie kodu nazwą zasobu usługi BLOB Storage. Identyfikator zasobu można znaleźć w Azure Portal, otwierając stronę **Właściwości** konta magazynu.
+Zastąp symbol `<storage-service-resource--id>` zastępczy w tym fragmencie kodu usługą magazynu obiektów blob o identyfikatorze zasobu. Identyfikator zasobu można znaleźć w Azure Portal, otwierając **stronę** Właściwości konta magazynu.
 
-Można użyć `StorageRead` , `StorageWrite` i `StorageDelete` dla wartości parametru **kategorii** .
+Jako wartości parametru kategorii można użyć `StorageRead` `StorageWrite` wartości , i `StorageDelete` . 
 
 [!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
 
@@ -228,13 +228,13 @@ Oto przykład:
 
 `az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true}]'`
 
-Aby zapoznać się z opisem każdego parametru, zobacz [archiwum dzienników zasobów za pośrednictwem interfejsu wiersza polecenia platformy Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage).
+Opis każdego parametru zawiera temat [Archive Resource logs via the Azure CLI (Archiwizowanie dzienników zasobów za pośrednictwem interfejsu wiersza polecenia platformy Azure).](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 #### <a name="stream-logs-to-an-event-hub"></a>Przesyłanie strumieniowe dzienników do centrum zdarzeń
 
-W przypadku wybrania przesyłania strumieniowego dzienników do centrum zdarzeń płacisz za ilość dzienników wysyłanych do centrum zdarzeń. Aby uzyskać szczegółowe informacje o cenach, zobacz sekcję **dzienniki platformy** na stronie [cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) .
+Jeśli zdecydujesz się na przesyłanie strumieniowe dzienników do centrum zdarzeń, zapłacisz za ilość dzienników wysyłanych do centrum zdarzeń. Aby uzyskać szczegółowe informacje o cenach, zobacz **sekcję Dzienniki** platformy na [Azure Monitor cennika.](https://azure.microsoft.com/pricing/details/monitor/#platform-logs)
 
-Włącz dzienniki przy użyciu polecenia [AZ monitor Diagnostic-Settings Create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) .
+Włącz dzienniki za pomocą [polecenia az monitor diagnostic-settings create.](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create)
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
@@ -244,11 +244,11 @@ Oto przykład:
 
 `az monitor diagnostic-settings create --name setting1 --event-hub myeventhub --event-hub-rule /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --logs '[{"category": StorageDelete, "enabled": true }]'`
 
-Aby uzyskać opis każdego z parametrów, zobacz [dane strumienia do Event Hubs za pomocą interfejsu wiersza polecenia platformy Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs).
+Opis każdego parametru można znaleźć w tesłudze Stream data to Event Hubs via Azure CLI (Przesyłanie strumieniowe danych [Event Hubs interfejsu wiersza polecenia platformy Azure).](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)
 
 #### <a name="send-logs-to-log-analytics"></a>Wysyłanie dzienników do usługi Log Analytics
 
-Włącz dzienniki przy użyciu polecenia [AZ monitor Diagnostic-Settings Create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) .
+Włącz dzienniki za pomocą [polecenia az monitor diagnostic-settings create.](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create)
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
@@ -258,37 +258,37 @@ Oto przykład:
 
 `az monitor diagnostic-settings create --name setting1 --workspace /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --logs '[{"category": StorageDelete, "enabled": true ]'`
 
- Aby uzyskać więcej informacji, zobacz [przesyłanie strumieniowe dzienników zasobów platformy Azure do obszaru roboczego log Analytics w Azure monitor](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
+ Aby uzyskać więcej informacji, zobacz Stream Azure Resource Logs to Log Analytics workspace in Azure Monitor (Przesyłanie strumieniowe dzienników zasobów platformy Azure do obszaru roboczego usługi [Log Analytics Azure Monitor).](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace)
 
 ### <a name="template"></a>[Szablon](#tab/template)
 
-Aby wyświetlić szablon Azure Resource Manager, który tworzy ustawienie diagnostyczne, zobacz [ustawienie diagnostyczne dla usługi Azure Storage](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage).
+Aby wyświetlić szablon Azure Resource Manager, który tworzy ustawienie diagnostyczne, zobacz [Ustawienie diagnostyczne dla usługi Azure Storage.](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage)
 
 ---
 
 ## <a name="analyzing-metrics"></a>Analizowanie metryk
 
-Metryki usługi Azure Storage można analizować za pomocą metryk z innych usług platformy Azure, korzystając z Eksplorator metryk. Otwórz Eksplorator metryk, wybierając **metryki** z menu **Azure monitor** . Aby uzyskać szczegółowe informacje na temat korzystania z tego narzędzia, zobacz [Rozpoczynanie pracy z usługą Azure Eksplorator metryk](../../azure-monitor/essentials/metrics-getting-started.md). 
+Metryki usługi Azure Storage można analizować za pomocą metryk z innych usług platformy Azure przy użyciu Eksplorator metryk. Otwórz Eksplorator metryk, wybierając **pozycję Metryki** z **Azure Monitor** menu. Aby uzyskać szczegółowe informacje na temat korzystania z tego narzędzia, zobacz Getting started with Azure Eksplorator metryk (Wprowadzenie [do usługi Azure Eksplorator metryk).](../../azure-monitor/essentials/metrics-getting-started.md) 
 
-W przypadku metryk, które obsługują wymiary, można filtrować metrykę przy użyciu żądanej wartości wymiaru.  Aby uzyskać pełną listę wymiarów obsługiwanych przez usługę Azure Storage, zobacz [Dimension Metrics](storage-files-monitoring-reference.md#metrics-dimensions). Metryki dla Azure Files należą do następujących przestrzeni nazw: 
+W przypadku metryk, które obsługują wymiary, możesz filtrować metrykę przy użyciu żądanej wartości wymiaru.  Aby uzyskać pełną listę wymiarów, które obsługuje usługa Azure Storage, zobacz [Metrics dimensions (Wymiary metryk).](storage-files-monitoring-reference.md#metrics-dimensions) Metryki dla Azure Files znajdują się w tych przestrzeniach nazw: 
 
-- Microsoft. Storage/storageAccounts
-- Microsoft. Storage/storageAccounts/fileServices
+- Microsoft.Storage/storageAccounts
+- Microsoft.Storage/storageAccounts/fileServices
 
-Aby uzyskać listę wszystkich Azure Monitor metryki pomocy technicznej, w tym Azure Files, zobacz temat [Azure monitor support Metrics](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsfileservices).
+Aby uzyskać listę wszystkich metryk Azure Monitor, w tym metryki Azure Files, [zobacz Azure Monitor obsługiwanych metryk.](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsfileservices)
 
 ### <a name="accessing-metrics"></a>Uzyskiwanie dostępu do metryk
 
 > [!TIP]
-> Aby wyświetlić przykłady interfejsu wiersza polecenia platformy Azure lub platformy .NET, wybierz odpowiednie karty wymienione w tym miejscu.
+> Aby wyświetlić przykłady interfejsu wiersza polecenia platformy Azure lub platformy .NET, wybierz odpowiednie karty wymienione tutaj.
 
 ### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-#### <a name="list-the-metric-definition"></a>Lista definicji metryk
+#### <a name="list-the-metric-definition"></a>Lista definicji metryki
 
-Można wyświetlić listę definicji metryk konta magazynu lub usługi Azure Files. Użyj polecenia cmdlet [Get-AzMetricDefinition](/powershell/module/az.monitor/get-azmetricdefinition) .
+Możesz wyświetlić definicję metryki konta magazynu lub Azure Files magazynu. Użyj polecenia cmdlet [Get-AzMetricDefinition.](/powershell/module/az.monitor/get-azmetricdefinition)
 
-W tym przykładzie Zastąp `<resource-ID>` symbol zastępczy identyfikatorem zasobu całego konta magazynu lub identyfikatorem zasobu usługi Azure Files.  Te identyfikatory zasobów można znaleźć na stronach **Właściwości** konta magazynu w Azure Portal.
+W tym przykładzie zastąp symbol zastępczy identyfikatorem zasobu całego konta magazynu lub identyfikatorem zasobu usługi `<resource-ID>` Azure Files magazynu.  Te identyfikatory zasobów można znaleźć na **stronach** Właściwości konta magazynu w Azure Portal.
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -297,7 +297,7 @@ W tym przykładzie Zastąp `<resource-ID>` symbol zastępczy identyfikatorem zas
 
 #### <a name="reading-metric-values"></a>Odczytywanie wartości metryk
 
-Można odczytywać wartości metryk na poziomie konta magazynu lub usługi Azure Files. Użyj polecenia cmdlet [Get-AzMetric](/powershell/module/Az.Monitor/Get-AzMetric) .
+Możesz odczytywać wartości metryk na poziomie konta magazynu lub Azure Files magazynu. Użyj polecenia cmdlet [Get-AzMetric.](/powershell/module/Az.Monitor/Get-AzMetric)
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -306,19 +306,19 @@ Można odczytywać wartości metryk na poziomie konta magazynu lub usługi Azure
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-#### <a name="list-the-account-level-metric-definition"></a>Utwórz listę definicji metryk na poziomie konta
+#### <a name="list-the-account-level-metric-definition"></a>Lista definicji metryki na poziomie konta
 
-Można wyświetlić listę definicji metryk konta magazynu lub usługi Azure Files. Użyj polecenia [AZ monitor Metric list-](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions) Definitions.
+Możesz wyświetlić definicję metryki konta magazynu lub Azure Files magazynu. Użyj [polecenia az monitor metrics list-definitions.](/cli/azure/monitor/metrics#az_monitor_metrics_list_definitions)
  
-W tym przykładzie Zastąp `<resource-ID>` symbol zastępczy identyfikatorem zasobu całego konta magazynu lub identyfikatorem zasobu usługi Azure Files. Te identyfikatory zasobów można znaleźć na stronach **Właściwości** konta magazynu w Azure Portal.
+W tym przykładzie zastąp symbol zastępczy identyfikatorem zasobu całego konta magazynu lub identyfikatorem zasobu Azure Files `<resource-ID>` magazynu. Te identyfikatory zasobów można znaleźć na **stronach** Właściwości konta magazynu w Azure Portal.
 
 ```azurecli-interactive
    az monitor metrics list-definitions --resource <resource-ID>
 ```
 
-#### <a name="read-account-level-metric-values"></a>Odczytaj wartości metryk na poziomie konta
+#### <a name="read-account-level-metric-values"></a>Odczytywanie wartości metryk na poziomie konta
 
-Można odczytać wartości metryk konta magazynu lub usługi Azure Files. Użyj polecenia [AZ monitor Metric list](/cli/azure/monitor/metrics#az-monitor-metrics-list) .
+Możesz odczytać wartości metryk konta magazynu lub usługi Azure Files magazynu. Użyj [polecenia az monitor metrics list.](/cli/azure/monitor/metrics#az_monitor_metrics_list)
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
@@ -326,15 +326,15 @@ Można odczytać wartości metryk konta magazynu lub usługi Azure Files. Użyj 
 
 ### <a name="net"></a>[.NET](#tab/azure-portal)
 
-Azure Monitor udostępnia [zestaw .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) do odczytywania definicji metryk i wartości. [Przykładowy kod](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) pokazuje, jak używać zestawu SDK z innymi parametrami. Aby `0.18.0-preview` uzyskać metryki magazynu, należy użyć lub nowszej wersji.
+Azure Monitor udostępnia zestaw [SDK platformy .NET do](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) odczytywania definicji i wartości metryk. Przykładowy [kod pokazuje,](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) jak używać zestawu SDK z różnymi parametrami. W przypadku metryk magazynu należy użyć lub `0.18.0-preview` nowszej wersji.
  
-W tych przykładach Zastąp `<resource-ID>` symbol zastępczy identyfikatorem zasobu całego konta magazynu lub usługi Azure Files. Te identyfikatory zasobów można znaleźć na stronach **Właściwości** konta magazynu w Azure Portal.
+W tych przykładach zastąp symbol zastępczy identyfikatorem zasobu całego konta magazynu lub Azure Files `<resource-ID>` magazynu. Te identyfikatory zasobów można znaleźć na **stronach** Właściwości konta magazynu w Azure Portal.
 
-Zastąp `<subscription-ID>` ZMIENNĄ identyfikatorem subskrypcji. Aby uzyskać wskazówki dotyczące uzyskiwania wartości dla `<tenant-ID>` , `<application-ID>` i `<AccessKey>` , zobacz [Korzystanie z portalu do tworzenia aplikacji usługi Azure AD i nazwy głównej usługi, która może uzyskiwać dostęp do zasobów](../../active-directory/develop/howto-create-service-principal-portal.md). 
+Zastąp `<subscription-ID>` zmienną identyfikatorem subskrypcji. Aby uzyskać wskazówki dotyczące uzyskiwania wartości dla , i , zobacz Use the portal to create an Azure AD application and service principal that can access resources (Używanie portalu do tworzenia aplikacji usługi Azure AD i jednostki usługi, które mogą `<tenant-ID>` `<application-ID>` `<AccessKey>` [uzyskiwać dostęp do zasobów).](../../active-directory/develop/howto-create-service-principal-portal.md) 
 
-#### <a name="list-the-account-level-metric-definition"></a>Utwórz listę definicji metryk na poziomie konta
+#### <a name="list-the-account-level-metric-definition"></a>Lista definicji metryki na poziomie konta
 
-Poniższy przykład pokazuje, jak wyświetlić definicję metryki na poziomie konta:
+W poniższym przykładzie pokazano, jak wyświetlić listę definicji metryki na poziomie konta:
 
 ```csharp
     public static async Task ListStorageMetricDefinition()
@@ -367,7 +367,7 @@ Poniższy przykład pokazuje, jak wyświetlić definicję metryki na poziomie ko
 
 #### <a name="reading-account-level-metric-values"></a>Odczytywanie wartości metryk na poziomie konta
 
-Poniższy przykład pokazuje, jak odczytywać `UsedCapacity` dane na poziomie konta:
+Poniższy przykład pokazuje, jak `UsedCapacity` odczytywać dane na poziomie konta:
 
 ```csharp
     public static async Task ReadStorageMetricValue()
@@ -411,11 +411,11 @@ Poniższy przykład pokazuje, jak odczytywać `UsedCapacity` dane na poziomie ko
 
 ```
 
-#### <a name="reading-multidimensional-metric-values"></a>Odczytywanie wartości metryk wielowymiarowych
+#### <a name="reading-multidimensional-metric-values"></a>Odczytywanie wielowymiarowych wartości metryk
 
 W przypadku metryk wielowymiarowych należy zdefiniować filtry metadanych, jeśli chcesz odczytywać dane metryk dla określonych wartości wymiarów.
 
-Poniższy przykład pokazuje, jak odczytywać dane metryki z obsługą wielowymiarową metryki:
+W poniższym przykładzie pokazano, jak odczytywać dane metryki dotyczące metryki obsługi wielowymiarowej:
 
 ```csharp
     public static async Task ReadStorageMetricValueTest()
@@ -472,29 +472,29 @@ Nie dotyczy.
 
 ## <a name="analyzing-logs"></a>Analizowanie dzienników
 
-Można uzyskać dostęp do dzienników zasobów jako obiektów BLOB na koncie magazynu, jako dane zdarzenia lub za pomocą zapytań analitycznych dzienników.
+Dostęp do dzienników zasobów można uzyskać jako obiekt blob na koncie magazynu, jako dane zdarzenia lub za pośrednictwem zapytań usługi Log Analytic.
 
-Aby uzyskać listę zarejestrowanych operacji SMB i REST, zobacz temat [zarejestrowane operacje magazynu i komunikaty o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) oraz informacje o [danych monitorowania Azure Files](storage-files-monitoring-reference.md).
+Aby uzyskać listę rejestrowanych operacji SMB i REST, zobacz Storage [logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) (Zarejestrowane operacje i komunikaty o stanie magazynu) oraz Azure Files danych [monitorowania](storage-files-monitoring-reference.md).
 
 > [!NOTE]
-> Dzienniki usługi Azure Storage w Azure Monitor są w publicznej wersji zapoznawczej i są dostępne do testowania wersji zapoznawczej we wszystkich regionach chmury publicznej. Ta wersja zapoznawcza umożliwia korzystanie z dzienników obiektów BLOB (w tym Azure Data Lake Storage Gen2), plików, kolejek, tabel, kont magazynu w warstwie Premium w celu ogólnego przeznaczenia w wersji 1 i w wersji 2. Klasyczne konta magazynu nie są obsługiwane.
+> Dzienniki usługi Azure Storage w usłudze Azure Monitor są w publicznej wersji zapoznawczej i są dostępne do testowania w wersji zapoznawczej we wszystkich regionach chmury publicznej. Ta wersja zapoznawcza umożliwia korzystanie z dzienników obiektów blob (w tym Azure Data Lake Storage Gen2), plików, kolejek, tabel, kont magazynu w chmurze Premium w przypadku kont ogólnego przeznaczenia w wersji 1 oraz kont magazynu ogólnego przeznaczenia w wersji 2. Klasyczne konta magazynu nie są obsługiwane.
 
-Wpisy dziennika są tworzone tylko wtedy, gdy istnieją żądania skierowane do punktu końcowego usługi. Na przykład jeśli konto magazynu ma aktywność w punkcie końcowym pliku, ale nie znajduje się w jego punktach końcowych tabeli lub kolejki, tworzone są tylko dzienniki odnoszące się do usługi plików platformy Azure. Dzienniki usługi Azure Storage zawierają szczegółowe informacje na temat żądań zakończonych powodzeniem i zakończonych niepowodzeniem w usłudze magazynu. Tych informacji można używać na potrzeby monitorowania poszczególnych żądań i diagnozowania problemów z usługą magazynu. Żądania są rejestrowane na podstawie najlepszego wysiłku.
+Wpisy dziennika są tworzone tylko wtedy, gdy istnieją żądania dotyczące punktu końcowego usługi. Jeśli na przykład konto magazynu ma działanie w punkcie końcowym pliku, ale nie w punktach końcowych tabeli lub kolejki, tworzone są tylko dzienniki dotyczące usługi Azure File. Dzienniki usługi Azure Storage zawierają szczegółowe informacje o żądaniach do usługi magazynu, które zakończyły się powodzeniem i niepowodzeniem. Tych informacji można używać na potrzeby monitorowania poszczególnych żądań i diagnozowania problemów z usługą magazynu. Żądania są rejestrowane na podstawie wszelkich wysiłków.
 
-### <a name="log-authenticated-requests"></a>Rejestruj uwierzytelnione żądania
+### <a name="log-authenticated-requests"></a>Rejestrowanie uwierzytelnionych żądań
 
  Rejestrowane są następujące typy żądań uwierzytelnionych:
 
 - Żądania zakończone powodzeniem
 - Żądania zakończone niepowodzeniem, w tym błędy limitu czasu, ograniczania przepustowości, sieci, autoryzacji i inne błędy
-- Żądania korzystające z protokołu Kerberos, NTLM lub sygnatury dostępu współdzielonego (SAS), w tym żądania zakończone niepowodzeniem i zakończone powodzeniem
-- Żądania danych analitycznych (klasyczne dane dziennika w kontenerze **$Logs** i dane metryki klasycznej w tabelach **$Metric** )
+- Żądania, które używają protokołu Kerberos, NTLM lub sygnatury dostępu współdzielonego (SAS), w tym żądania, które zakończyły się niepowodzeniem i zakończyły się powodzeniem
+- Żądania do danych analitycznych (klasyczne dane dziennika w **kontenerze $logs** i klasyczne dane metryk w **tabelach $metric** danych)
 
-Żądania wykonywane przez samą usługę Azure Files, takie jak tworzenie lub usuwanie dziennika, nie są rejestrowane. Aby uzyskać pełną listę zarejestrowanych żądań SMB i REST, zobacz temat [zarejestrowane operacje magazynu i komunikaty o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) oraz informacje o [danych monitorowania Azure Files](storage-files-monitoring-reference.md).
+Żądania Azure Files, takie jak tworzenie lub usuwanie dzienników, nie są rejestrowane. Aby uzyskać pełną listę rejestrowanych żądań SMB i REST, zobacz Storage [logged operations](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and status messages [(Zarejestrowane](storage-files-monitoring-reference.md)operacje i komunikaty o stanie magazynu) oraz Azure Files danych monitorowania .
 
 ### <a name="accessing-logs-in-a-storage-account"></a>Uzyskiwanie dostępu do dzienników na koncie magazynu
 
-Dzienniki są wyświetlane jako obiekty blob przechowywane w kontenerze na docelowym koncie magazynu. Dane są zbierane i przechowywane w pojedynczym obiekcie BLOB jako ładunek JSON rozdzielany wierszami. Nazwa obiektu BLOB jest zgodna z tą konwencją nazewnictwa:
+Dzienniki są wyświetlane jako obiekty blob przechowywane w kontenerze na docelowym koncie magazynu. Dane są zbierane i przechowywane wewnątrz pojedynczego obiektu blob jako rozdzielany wierszami ładunek JSON. Nazwa obiektu blob jest zgodna z następującą konwencją nazewnictwa:
 
 `https://<destination-storage-account>.blob.core.windows.net/insights-logs-<storage-operation>/resourceId=/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<source-storage-account>/fileServices/default/y=<year>/m=<month>/d=<day>/h=<hour>/m=<minute>/PT1H.json`
 
@@ -504,35 +504,35 @@ Oto przykład:
 
 ### <a name="accessing-logs-in-an-event-hub"></a>Uzyskiwanie dostępu do dzienników w centrum zdarzeń
 
-Dzienniki wysyłane do centrum zdarzeń nie są przechowywane jako plik, ale można sprawdzić, czy centrum zdarzeń otrzymało informacje dziennika. W Azure Portal przejdź do centrum zdarzeń i sprawdź, czy liczba **przychodzących komunikatów** jest większa od zera. 
+Dzienniki wysyłane do centrum zdarzeń nie są przechowywane jako plik, ale można sprawdzić, czy centrum zdarzeń odebrało informacje dziennika. W Azure Portal przejdź do centrum zdarzeń i sprawdź, czy **liczba** komunikatów przychodzących jest większa niż zero. 
 
 ![Dzienniki inspekcji](media/storage-files-monitoring/event-hub-log.png)
 
-Możesz uzyskiwać dostęp do danych dziennika, które są wysyłane do centrum zdarzeń, i je odczytywać, korzystając z informacji o zabezpieczeniach i narzędzi do monitorowania. Aby uzyskać więcej informacji, zobacz [co można zrobić przy użyciu danych monitorowania wysyłanych do centrum zdarzeń?](../../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
+Możesz uzyskać dostęp do danych dziennika wysyłanych do centrum zdarzeń i odczytywać je przy użyciu informacji o zabezpieczeniach oraz narzędzi do zarządzania zdarzeniami i monitorowania. Aby uzyskać więcej informacji, zobacz [Co mogę zrobić z danymi monitorowania wysyłanymi do centrum zdarzeń?](../../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
 
-### <a name="accessing-logs-in-a-log-analytics-workspace"></a>Uzyskiwanie dostępu do dzienników w obszarze roboczym Log Analytics
+### <a name="accessing-logs-in-a-log-analytics-workspace"></a>Uzyskiwanie dostępu do dzienników w obszarze roboczym usługi Log Analytics
 
-Można uzyskać dostęp do dzienników wysyłanych do obszaru roboczego Log Analytics przy użyciu zapytań dziennika Azure Monitor. Dane są przechowywane w tabeli **StorageFileLogs** . 
+Dostęp do dzienników wysyłanych do obszaru roboczego usługi Log Analytics można uzyskać przy użyciu Azure Monitor dziennika. Dane są przechowywane w **tabeli StorageFileLogs.** 
 
-Aby uzyskać więcej informacji, zobacz [samouczek log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md).
+Aby uzyskać więcej informacji, zobacz [Samouczek usługi Log Analytics.](../../azure-monitor/logs/log-analytics-tutorial.md)
 
-#### <a name="sample-kusto-queries"></a>Przykładowe zapytania Kusto
+#### <a name="sample-kusto-queries"></a>Przykładowe zapytania kusto
 
-Poniżej przedstawiono niektóre zapytania, które można wprowadzić na pasku **przeszukiwania dzienników** , aby ułatwić monitorowanie Azure Files. Te zapytania działają w [nowym języku](../../azure-monitor/logs/log-query-overview.md).
+Oto kilka zapytań, które można  wprowadzić na pasku wyszukiwania w dzienniku, aby ułatwić monitorowanie Azure Files. Te zapytania działają z nowym [językiem](../../azure-monitor/logs/log-query-overview.md).
 
 > [!IMPORTANT]
-> Po wybraniu opcji **dzienniki** z menu Grupa zasobów konta magazynu zostanie otwarty log Analytics z zakresem zapytania ustawionym na bieżącą grupę zasobów. Oznacza to, że zapytania dziennika będą zawierać tylko dane z tej grupy zasobów. Jeśli chcesz uruchomić zapytanie, które zawiera dane z innych zasobów lub danych z innych usług platformy Azure, wybierz pozycję **dzienniki** z menu **Azure monitor** . Aby uzyskać szczegółowe informacje [, zobacz zakres zapytań dzienników i zakres czasu w Azure Monitor Log Analytics](../../azure-monitor/logs/scope.md) .
+> Po wybraniu pozycji **Dzienniki** z menu grupy zasobów konta magazynu usługa Log Analytics zostanie otwarta z zakresem zapytania ustawionym na bieżącą grupę zasobów. Oznacza to, że zapytania dziennika będą zawierać tylko dane z tej grupy zasobów. Jeśli chcesz uruchomić zapytanie, które zawiera dane z innych zasobów  lub danych z innych usług platformy Azure, wybierz pozycję Dzienniki z Azure Monitor **menu.** Aby [uzyskać szczegółowe informacje, zobacz](../../azure-monitor/logs/scope.md) Zakres i zakres czasu zapytania Azure Monitor Log Analytics.
 
 Użyj tych zapytań, aby ułatwić monitorowanie udziałów plików platformy Azure:
 
-- Wyświetlanie błędów SMB w ciągu ostatniego tygodnia
+- Wyświetlanie błędów SMB w ostatnim tygodniu
 
 ```Kusto
 StorageFileLogs
 | where Protocol == "SMB" and TimeGenerated >= ago(7d) and StatusCode contains "-"
 | sort by StatusCode
 ```
-- Utwórz wykres kołowy operacji SMB w ciągu ostatniego tygodnia
+- Tworzenie wykresu kołowego operacji SMB w ostatnim tygodniu
 
 ```Kusto
 StorageFileLogs
@@ -542,7 +542,7 @@ StorageFileLogs
 | render piechart
 ```
 
-- Wyświetlanie błędów REST w ciągu ostatniego tygodnia
+- Wyświetlanie błędów REST w ostatnim tygodniu
 
 ```Kusto
 StorageFileLogs
@@ -550,7 +550,7 @@ StorageFileLogs
 | sort by StatusText asc
 ```
 
-- Tworzenie wykresu kołowego operacji REST w ciągu ostatniego tygodnia
+- Tworzenie wykresu kołowego operacji REST w ostatnim tygodniu
 
 ```Kusto
 StorageFileLogs
@@ -560,54 +560,54 @@ StorageFileLogs
 | render piechart
 ```
 
-Aby wyświetlić listę nazw kolumn i opisów Azure Files, zobacz [StorageFileLogs](/azure/azure-monitor/reference/tables/storagefilelogs).
+Aby wyświetlić listę nazw kolumn i opisów dla Azure Files, zobacz [StorageFileLogs](/azure/azure-monitor/reference/tables/storagefilelogs).
 
-Aby uzyskać więcej informacji na temat pisania zapytań, zobacz [samouczek log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md).
+Aby uzyskać więcej informacji na temat pisania zapytań, zobacz [Samouczek usługi Log Analytics.](../../azure-monitor/logs/log-analytics-tutorial.md)
 
 ## <a name="alerts"></a>Alerty
 
-Alerty Azure Monitor z wyprzedzeniem powiadamiają Cię, gdy w danych monitorowania zostaną znalezione ważne warunki. Umożliwiają identyfikowanie i rozwiązywanie problemów w systemie przed ich zapisaniem przez klientów. Można ustawić alerty dotyczące [metryk](../../azure-monitor/alerts/alerts-metric-overview.md), [dzienników](../../azure-monitor/alerts/alerts-unified-log.md)i [dziennika aktywności](../../azure-monitor/alerts/activity-log-alerts.md). 
+Azure Monitor proaktywnie powiadamiają użytkownika, gdy w danych monitorowania zostaną znalezione ważne warunki. Pozwalają one identyfikować i rozsyłać problemy w systemie, zanim klienci ich zauważą. Alerty można ustawić dla [metryk,](../../azure-monitor/alerts/alerts-metric-overview.md) [dzienników](../../azure-monitor/alerts/alerts-unified-log.md)i [dziennika aktywności.](../../azure-monitor/alerts/activity-log-alerts.md) 
 
-W poniższej tabeli przedstawiono niektóre przykładowe scenariusze monitorowania i właściwej metryki do użycia w ramach alertu:
+W poniższej tabeli wymieniono kilka przykładowych scenariuszy monitorowania oraz odpowiednią metrykę do użycia dla alertu:
 
 | Scenariusz | Metryka do użycia dla alertu |
 |-|-|
-| Udział plików jest ograniczany. | Metryka: transakcje<br>Nazwa wymiaru: typ odpowiedzi <br>Nazwa wymiaru: plik udziału (tylko udział plików w warstwie Premium) |
-| Rozmiar udziału plików to 80% pojemności. | Metryka: pojemność pliku<br>Nazwa wymiaru: plik udziału (tylko udział plików w warstwie Premium) |
-| Wychodzący udział plików przekroczył 500 GiB w ciągu jednego dnia. | Metryka: ruch wychodzący<br>Nazwa wymiaru: plik udziału (tylko udział plików w warstwie Premium) |
+| Udział plików jest ograniczany. | Metryka: Transakcje<br>Nazwa wymiaru: Typ odpowiedzi <br>Nazwa wymiaru: Udział plików (tylko udział plików Premium) |
+| Rozmiar udziału plików to 80% pojemności. | Metryka: Pojemność pliku<br>Nazwa wymiaru: Udział plików (tylko udział plików Premium) |
+| Ruch wychodzący udziału plików przekroczył 500 GiB w ciągu jednego dnia. | Metryka: Ruch wychodzący<br>Nazwa wymiaru: Udział plików (tylko udział plików Premium) |
 
-### <a name="how-to-create-alerts-for-azure-files"></a>Jak utworzyć alerty dla Azure Files
+### <a name="how-to-create-alerts-for-azure-files"></a>Jak tworzyć alerty dla Azure Files
 
-1. Przejdź do swojego **konta magazynu** w **Azure Portal**. 
+1. Przejdź do **konta magazynu w** Azure Portal .  
 
-2. Kliknij pozycję **alerty** , a następnie kliknij pozycję **+ Nowa reguła alertów**.
+2. Kliknij **pozycję Alerty,** a następnie **kliknij pozycję + Nowa reguła alertu.**
 
-3. Kliknij pozycję **Edytuj zasób**, wybierz **Typ zasobu plik** , a następnie kliknij przycisk **gotowe**. 
+3. Kliknij **pozycję Edytuj zasób,** wybierz typ **zasobu Plik,** a następnie kliknij pozycję **Gotowe.** 
 
-4. Kliknij pozycję **Dodaj warunek** i podaj następujące informacje dotyczące alertu: 
+4. Kliknij **pozycję Dodaj warunek** i podaj następujące informacje dotyczące alertu: 
 
     - **Metryka**
     - **Nazwa wymiaru**
-    - **Logika alertu**
+    - **Logika alertów**
 
-5. Kliknij pozycję **Dodaj grupy akcji** i Dodaj grupę akcji (wiadomości e-mail, wiadomości SMS itp.) do alertu, wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
+5. Kliknij **pozycję Dodaj grupy akcji** i dodaj grupę akcji (wiadomość e-mail, wiadomość SMS itp.) do alertu, wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
 
-6. Wypełnij **szczegóły alertu** , takie jak nazwa, **Opis** i **ważność** **reguły alertu**.
+6. Wypełnij szczegóły **alertu, takie** jak **Nazwa reguły alertu,** **Opis** i **Ważność.**
 
-7. Kliknij przycisk **Utwórz regułę alertu** , aby utworzyć alert.
+7. Kliknij **pozycję Utwórz regułę alertu,** aby utworzyć alert.
 
 > [!NOTE]  
-> Jeśli tworzysz alert i jest zbyt dużo szumu, Dostosuj wartość progową i logikę alertu.
+> Jeśli tworzysz alert i jest on zbyt zaszumiiony, dostosuj wartość progową i logikę alertu.
 
 ### <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Jak utworzyć alert, jeśli udział plików jest ograniczany
 
-1. Przejdź do swojego **konta magazynu** w **Azure Portal**.
-2. W sekcji **monitorowanie** kliknij pozycję **alerty**, a następnie kliknij pozycję **+ Nowa reguła alertów**.
-3. Kliknij pozycję **Edytuj zasób**, wybierz **Typ zasobu pliku** dla konta magazynu, a następnie kliknij pozycję **gotowe**. Jeśli na przykład nazwa konta magazynu to `contoso` , wybierz `contoso/file` zasób.
-4. Kliknij przycisk **Dodaj warunek** , aby dodać warunek.
-5. Zostanie wyświetlona lista sygnałów obsługiwanych przez konto magazynu, wybierz metrykę **transakcji** .
-6. W bloku **Konfigurowanie logiki sygnału** kliknij listę rozwijaną **Nazwa wymiaru** i wybierz pozycję **Typ odpowiedzi**.
-7. Kliknij listę rozwijaną **wartości wymiaru** i wybierz odpowiednie typy odpowiedzi dla danego udziału plików.
+1. Przejdź do konta **magazynu w** **Azure Portal**.
+2. W sekcji **Monitorowanie** kliknij pozycję **Alerty,** a następnie **kliknij pozycję + Nowa reguła alertu.**
+3. Kliknij **pozycję Edytuj zasób,** wybierz typ **zasobu Plik** dla konta magazynu, a następnie kliknij pozycję **Gotowe.** Jeśli na przykład nazwa konta magazynu to `contoso` , wybierz `contoso/file` zasób.
+4. Kliknij **pozycję Dodaj warunek,** aby dodać warunek.
+5. Zostanie wyświetlona lista sygnałów obsługiwanych dla konta magazynu. Wybierz **metrykę Transakcje.**
+6. W bloku **Konfigurowanie logiki sygnału** kliknij menu **rozwijane Nazwa** wymiaru i wybierz pozycję **Typ odpowiedzi.**
+7. Kliknij menu **rozwijane Wartości** wymiarów i wybierz odpowiednie typy odpowiedzi dla udziału plików.
 
     W przypadku standardowych udziałów plików wybierz następujące typy odpowiedzi:
 
@@ -615,7 +615,7 @@ W poniższej tabeli przedstawiono niektóre przykładowe scenariusze monitorowan
     - SuccessWithThrottling
     - ClientShareIopsThrottlingError
 
-    W przypadku udziałów plików w warstwie Premium wybierz następujące typy odpowiedzi:
+    W przypadku udziałów plików Premium wybierz następujące typy odpowiedzi:
 
     - SuccessWithShareEgressThrottling
     - SuccessWithShareIngressThrottling
@@ -625,66 +625,66 @@ W poniższej tabeli przedstawiono niektóre przykładowe scenariusze monitorowan
     - ClientShareIopsThrottlingError
 
    > [!NOTE]
-   > Jeśli typy odpowiedzi nie są wyświetlane na liście rozwijanej **wartości wymiaru** , oznacza to, że zasób nie został ograniczony. Aby dodać wartości wymiaru, obok listy rozwijanej **wartości wymiaru** wybierz pozycję **Dodaj wartość niestandardową**, wprowadź typ respone (na przykład **SuccessWithThrottling**), wybierz pozycję **OK**, a następnie powtórz te kroki, aby dodać wszystkie odpowiednie typy odpowiedzi dla udziału plików.
+   > Jeśli typy odpowiedzi nie są wymienione na liście **rozwijanej** Wartości wymiaru, oznacza to, że zasób nie został ograniczany. Aby dodać wartości wymiarów,  obok listy rozwijanej Wartości wymiaru wybierz pozycję Dodaj wartość niestandardową, wprowadź typ ponawiania (na przykład **SuccessWithThrottling),** wybierz przycisk **OK,** a następnie powtórz te kroki, aby dodać wszystkie odpowiednie typy odpowiedzi dla udziału plików.
 
-8. W przypadku **udziałów plików w warstwie Premium** kliknij listę rozwijaną **Nazwa wymiaru** i wybierz pozycję **udział plików**. W przypadku **standardowych udziałów plików** przejdź do **kroku #10**.
+8. W **przypadku udziałów plików Premium** kliknij menu rozwijane **Nazwa** wymiaru i wybierz pozycję **Udział plików**. W **przypadku standardowych udziałów plików** przejdź do kroku **#10**.
 
    > [!NOTE]
-   > Jeśli udział plików jest standardowym udziałem plików, wymiar **udziału plików** nie będzie wyświetlać udziałów plików, ponieważ metryki dla udziałów nie są dostępne dla standardowych udziałów plików. Alerty dotyczące ograniczania przepustowości dla standardowych udziałów plików będą wyzwalane, jeśli jakikolwiek udział plików w ramach konta magazynu zostanie ograniczony, a alert nie określi, który udział plików został ograniczony. Ponieważ metryki dla poszczególnych udziałów nie są dostępne dla standardowych udziałów plików, zalecenie ma mieć jeden udział plików na konto magazynu.
+   > Jeśli udział plików jest standardowym udziałem plików, wymiar Udział plików nie będzie zawierał listy udziałów plików, ponieważ metryki dla udziału nie są dostępne dla standardowych udziałów plików.  Alerty ograniczania dla standardowych udziałów plików zostaną wyzwolone, jeśli dowolny udział plików w ramach konta magazynu jest ograniczany, a alert nie zidentyfikuje, który udział plików został ograniczany. Ponieważ metryki na udział nie są dostępne dla standardowych udziałów plików, zaleca się, aby mieć jeden udział plików na konto magazynu.
 
-9. Kliknij listę rozwijaną **wartości wymiaru** i wybierz udziały plików, dla których chcesz utworzyć alert.
-10. Zdefiniuj **Parametry alertu** (wartość progowa, operator, stopień szczegółowości agregacji i częstotliwość oceny), a następnie kliknij pozycję **gotowe**.
+9. Kliknij menu **rozwijane Wartości** wymiarów i wybierz udziały plików, dla których chcesz ostrzegania.
+10. **Zdefiniuj parametry alertu** (wartość progowa, operator, poziom szczegółowości agregacji i częstotliwość oceny) i kliknij przycisk **Gotowe.**
 
     > [!TIP]
-    > Jeśli jest używany próg statyczny, wykres metryk może pomóc w ustaleniu rozsądnej wartości progowej, jeśli udział plików jest obecnie ograniczany. Jeśli używasz progu dynamicznego, wykres metryki wyświetli obliczone progi na podstawie ostatnich danych.
+    > Jeśli używasz progu statycznego, wykres metryki może pomóc określić rozsądną wartość progową, jeśli udział plików jest obecnie ograniczany. Jeśli używasz progu dynamicznego, wykres metryki wyświetli obliczone progi na podstawie ostatnich danych.
 
-11. Kliknij pozycję **Dodaj grupy akcji** , aby dodać do alertu **grupę akcji** (wiadomości e-mail, wiadomości SMS itp.), wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
-12. Wypełnij **szczegóły alertu** , takie jak nazwa, **Opis** i **ważność** **reguły alertu**.
-13. Kliknij przycisk **Utwórz regułę alertu** , aby utworzyć alert.
+11. Kliknij **pozycję Dodaj grupy akcji,** aby dodać grupę akcji (wiadomość e-mail, wiadomość SMS itp.) do alertu, wybierając istniejącą grupę akcji lub tworząc nową grupę akcji. 
+12. Wypełnij szczegóły **alertu, takie** jak **Nazwa reguły alertu,** **Opis** i **Ważność.**
+13. Kliknij **pozycję Utwórz regułę alertu,** aby utworzyć alert.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-size-is-80-of-capacity"></a>Jak utworzyć alert, jeśli rozmiar udziału plików platformy Azure wynosi 80% pojemności
 
-1. Przejdź do swojego **konta magazynu** w **Azure Portal**.
-2. W sekcji **monitorowanie** kliknij pozycję **alerty** , a następnie kliknij pozycję **+ Nowa reguła alertów**.
-3. Kliknij pozycję **Edytuj zasób**, wybierz **Typ zasobu pliku** dla konta magazynu, a następnie kliknij pozycję **gotowe**. Jeśli na przykład nazwa konta magazynu to `contoso` , wybierz `contoso/file` zasób.
-4. Kliknij przycisk **Dodaj warunek** , aby dodać warunek.
-5. Zostanie wyświetlona lista sygnałów obsługiwanych przez konto magazynu, wybierz metrykę **pojemności pliku** .
-6. W przypadku **udziałów plików w warstwie Premium** kliknij listę rozwijaną **Nazwa wymiaru** i wybierz pozycję **udział plików**. W przypadku **standardowych udziałów plików** przejdź do **kroku #8**.
+1. Przejdź do konta **magazynu w** **Azure Portal**.
+2. W sekcji **Monitorowanie** kliknij pozycję **Alerty,** a następnie **kliknij pozycję + Nowa reguła alertu.**
+3. Kliknij **pozycję Edytuj zasób,** wybierz typ zasobu **Plik** dla konta magazynu, a następnie kliknij przycisk **Gotowe.** Jeśli na przykład nazwa konta magazynu to `contoso` , wybierz `contoso/file` zasób.
+4. Kliknij **pozycję Dodaj warunek,** aby dodać warunek.
+5. Zostanie wyświetlona lista sygnałów obsługiwanych dla konta magazynu. Wybierz **metrykę Pojemność** pliku.
+6. W **przypadku udziałów plików Premium** kliknij menu rozwijane **Nazwa** wymiaru i wybierz pozycję **Udział plików**. W **przypadku standardowych udziałów plików** przejdź do **#8**.
 
    > [!NOTE]
-   > Jeśli udział plików jest standardowym udziałem plików, wymiar **udziału plików** nie będzie wyświetlać udziałów plików, ponieważ metryki dla udziałów nie są dostępne dla standardowych udziałów plików. Alerty dla standardowych udziałów plików są oparte na wszystkich udziałach plików na koncie magazynu. Ponieważ metryki dla poszczególnych udziałów nie są dostępne dla standardowych udziałów plików, zalecenie ma mieć jeden udział plików na konto magazynu.
+   > Jeśli udział plików jest standardowym udziałem plików, wymiar Udziału plików nie będzie zawierał listy udziałów plików, ponieważ metryki dla każdego udziału nie są dostępne dla standardowych udziałów plików.  Alerty dotyczące standardowych udziałów plików są oparte na wszystkich udziałach plików na koncie magazynu. Ponieważ metryki na udział nie są dostępne dla standardowych udziałów plików, zaleca się, aby mieć jeden udział plików na konto magazynu.
 
-7. Kliknij listę rozwijaną **wartości wymiaru** i wybierz udziały plików, dla których chcesz utworzyć alert.
-8. Wprowadź **wartość progową** w bajtach. Jeśli na przykład rozmiar udziału plików to 100 TiB i chcesz otrzymywać alert, gdy rozmiar udziału plików wynosi 80% pojemności, wartość progowa w bajtach to 87960930222080.
-9. Zdefiniuj pozostałe **Parametry alertu** (stopień szczegółowości agregacji i częstotliwość oceny), a następnie kliknij przycisk **gotowe**.
-10. Kliknij pozycję **Dodaj grupy akcji** , aby dodać do alertu **grupę akcji** (wiadomości e-mail, wiadomości SMS itp.), wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
-11. Wypełnij **szczegóły alertu** , takie jak nazwa, **Opis** i **ważność** **reguły alertu**.
-12. Kliknij przycisk **Utwórz regułę alertu** , aby utworzyć alert.
+7. Kliknij menu **rozwijane Wartości** wymiarów i wybierz udziały plików, dla których chcesz ostrzegania.
+8. Wprowadź wartość **progową w** bajtach. Jeśli na przykład rozmiar udziału plików wynosi 100 TiB i chcesz otrzymać alert, gdy rozmiar udziału plików wynosi 80% pojemności, wartość progowa w bajtach to 87960930222080.
+9. Zdefiniuj pozostałe parametry **alertu** (poziom szczegółowości agregacji i częstotliwość oceny), a następnie kliknij pozycję **Gotowe.**
+10. Kliknij **pozycję Dodaj grupy akcji,** aby dodać grupę akcji (wiadomość e-mail, wiadomość SMS itp.) do alertu, wybierając istniejącą grupę akcji lub tworząc nową grupę akcji. 
+11. Wypełnij szczegóły **alertu, takie** jak **Nazwa reguły alertu,** **Opis** i **Ważność.**
+12. Kliknij **pozycję Utwórz regułę alertu,** aby utworzyć alert.
 
-### <a name="how-to-create-an-alert-if-the-azure-file-share-egress-has-exceeded-500-gib-in-a-day"></a>Jak utworzyć alert, jeśli udział plików platformy Azure przekroczył 500 GiB w ciągu dnia
+### <a name="how-to-create-an-alert-if-the-azure-file-share-egress-has-exceeded-500-gib-in-a-day"></a>Jak utworzyć alert, jeśli ruch wychodzący udziału plików platformy Azure przekroczył 500 GiB w ciągu dnia
 
-1. Przejdź do swojego **konta magazynu** w **Azure Portal**.
-2. W sekcji monitorowanie kliknij pozycję **alerty** , a następnie kliknij pozycję **+ Nowa reguła alertów**.
-3. Kliknij pozycję **Edytuj zasób**, wybierz **Typ zasobu pliku** dla konta magazynu, a następnie kliknij pozycję **gotowe**. Jeśli na przykład nazwa konta magazynu to contoso, wybierz zasób contoso/File.
-4. Kliknij przycisk **Dodaj warunek** , aby dodać warunek.
-5. Zostanie wyświetlona lista sygnałów obsługiwanych przez konto magazynu, wybierz metrykę **ruchu** wychodzącego.
-6. W przypadku **udziałów plików w warstwie Premium** kliknij listę rozwijaną **Nazwa wymiaru** i wybierz pozycję **udział plików**. W przypadku **standardowych udziałów plików** przejdź do **kroku #8**.
+1. Przejdź do konta **magazynu w** **Azure Portal**.
+2. W sekcji Monitorowanie kliknij pozycję **Alerty,** a następnie **kliknij pozycję + Nowa reguła alertu.**
+3. Kliknij **pozycję Edytuj zasób,** wybierz typ **zasobu Plik** dla konta magazynu, a następnie kliknij pozycję **Gotowe.** Jeśli na przykład nazwa konta magazynu to contoso, wybierz zasób contoso/file.
+4. Kliknij **pozycję Dodaj warunek,** aby dodać warunek.
+5. Zobaczysz listę sygnałów obsługiwanych dla konta magazynu i wybierz metrykę **Ruch wychodzący.**
+6. W **przypadku udziałów plików Premium** kliknij menu rozwijane **Nazwa** wymiaru i wybierz pozycję **Udział plików.** W **przypadku standardowych udziałów plików** przejdź do kroku **#8**.
 
    > [!NOTE]
-   > Jeśli udział plików jest standardowym udziałem plików, wymiar **udziału plików** nie będzie wyświetlać udziałów plików, ponieważ metryki dla udziałów nie są dostępne dla standardowych udziałów plików. Alerty dla standardowych udziałów plików są oparte na wszystkich udziałach plików na koncie magazynu. Ponieważ metryki dla poszczególnych udziałów nie są dostępne dla standardowych udziałów plików, zalecenie ma mieć jeden udział plików na konto magazynu.
+   > Jeśli udział plików jest standardowym udziałem plików, wymiar Udział plików nie będzie zawierał listy udziałów plików, ponieważ metryki dla udziału nie są dostępne dla standardowych udziałów plików.  Alerty dotyczące standardowych udziałów plików są oparte na wszystkich udziałach plików na koncie magazynu. Ponieważ metryki na udział nie są dostępne dla standardowych udziałów plików, zaleca się, aby mieć jeden udział plików na konto magazynu.
 
-7. Kliknij listę rozwijaną **wartości wymiaru** i wybierz udziały plików, dla których chcesz utworzyć alert.
-8. Wprowadź **536870912000** bajtów dla wartości progowej. 
-9. Kliknij listę rozwijaną **stopień szczegółowości agregacji** i wybierz pozycję **24 godziny**.
-10. Wybierz **częstotliwość oceny** i **kliknij przycisk Gotowe**.
-11. Kliknij pozycję **Dodaj grupy akcji** , aby dodać do alertu **grupę akcji** (wiadomości e-mail, wiadomości SMS itp.), wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
-12. Wypełnij **szczegóły alertu** , takie jak nazwa, **Opis** i **ważność** **reguły alertu**.
-13. Kliknij przycisk **Utwórz regułę alertu** , aby utworzyć alert.
+7. Kliknij menu **rozwijane Wartości** wymiarów i wybierz udziały plików, dla których chcesz ostrzegania.
+8. Wprowadź **536870912000** bajtów w wartości progowej. 
+9. Kliknij menu **rozwijane Poziom szczegółowości agregacji** i wybierz **pozycję 24 godziny.**
+10. Wybierz częstotliwość **oceny i** kliknij **przycisk Gotowe.**
+11. Kliknij **pozycję Dodaj grupy akcji,** aby dodać grupę akcji (wiadomość e-mail, wiadomość SMS itp.) do alertu, wybierając istniejącą grupę akcji lub tworząc nową grupę akcji. 
+12. Wypełnij szczegóły **alertu, takie** jak **Nazwa reguły alertu,** **Opis** i **Ważność.**
+13. Kliknij **pozycję Utwórz regułę alertu,** aby utworzyć alert.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Informacje o danych monitorowania Azure Files](storage-files-monitoring-reference.md)
-- [Monitoruj zasoby platformy Azure za pomocą Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md)
+- [Azure Files danych monitorowania](storage-files-monitoring-reference.md)
+- [Monitorowanie zasobów platformy Azure za pomocą Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md)
 - [Migracja metryk usługi Azure Storage](../common/storage-metrics-migration.md)
 - [Planowanie wdrożenia usługi Azure Files](./storage-files-planning.md)
 - [Jak wdrożyć usługę Azure Files](./storage-how-to-create-file-share.md)

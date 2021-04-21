@@ -1,6 +1,6 @@
 ---
-title: Ochrona wystąpienia dla wystąpień zestawu skalowania maszyn wirtualnych platformy Azure
-description: Dowiedz się, jak chronić wystąpienia zestawu skalowania maszyn wirtualnych platformy Azure na podstawie operacji skalowania i skalowania.
+title: Ochrona wystąpień dla wystąpień zestawu skalowania maszyn wirtualnych platformy Azure
+description: Dowiedz się, jak chronić wystąpienia zestawu skalowania maszyn wirtualnych platformy Azure przed operacjami skalowania w systemie i zestawu skalowania.
 author: avirishuv
 ms.author: avverma
 ms.topic: conceptual
@@ -9,56 +9,56 @@ ms.subservice: instance-protection
 ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 8b331eaf52a0a97232d481dccfff932221cd5faa
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 292abce3361c000eeeef2c399d5ffa2d2c4852e1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933461"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762861"
 ---
-# <a name="instance-protection-for-azure-virtual-machine-scale-set-instances"></a>Ochrona wystąpienia dla wystąpień zestawu skalowania maszyn wirtualnych platformy Azure
+# <a name="instance-protection-for-azure-virtual-machine-scale-set-instances"></a>Ochrona wystąpień dla wystąpień zestawu skalowania maszyn wirtualnych platformy Azure
 
-Zestawy skalowania maszyn wirtualnych platformy Azure umożliwiają lepszą elastyczność obciążeń dzięki funkcji [automatycznego skalowania](virtual-machine-scale-sets-autoscale-overview.md), dzięki czemu można skonfigurować czas skalowania infrastruktury i skalowania w poziomie. Zestawy skalowania umożliwiają również centralne zarządzanie, Konfigurowanie i aktualizowanie dużej liczby maszyn wirtualnych za pomocą różnych ustawień [zasad uaktualniania](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) . Można skonfigurować aktualizację modelu zestawu skalowania, a nowa konfiguracja jest automatycznie stosowana do każdego wystąpienia zestawu skalowania, jeśli zasady uaktualniania są ustawiane na automatyczne lub stopniowe.
+Zestawy skalowania maszyn wirtualnych platformy Azure [](virtual-machine-scale-sets-autoscale-overview.md)umożliwiają większą elastyczność obciążeń dzięki funkcji automatycznego skalowania, dzięki czemu można skonfigurować skalowanie infrastruktury w celu zwiększenia skali w zewnątrz i skali w zewnątrz. Zestawy skalowania umożliwiają również centralne konfigurowanie i aktualizowanie dużej liczby maszyn wirtualnych oraz zarządzanie nimi za pomocą różnych [ustawień zasad uaktualniania.](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) Możesz skonfigurować aktualizację w modelu zestawu skalowania, a nowa konfiguracja zostanie automatycznie zastosowana do każdego wystąpienia zestawu skalowania, jeśli ustawiono zasady uaktualniania automatyczne lub stopniowe.
 
-Gdy aplikacja przetwarza ruch, mogą wystąpić sytuacje, w których określone wystąpienia mają być traktowane inaczej niż pozostałe wystąpienia zestawu skalowania. Na przykład niektóre wystąpienia w zestawie skalowania mogą wykonywać długotrwałe operacje i nie chcesz, aby te wystąpienia były skalowane do momentu zakończenia operacji. Możesz również mieć wyspecjalizowane kilka wystąpień w zestawie skalowania do wykonywania dodatkowych lub różnych zadań niż inne elementy członkowskie zestawu skalowania. Te maszyny wirtualne "specjalne" są wymagane, aby nie były modyfikowane przy użyciu innych wystąpień w zestawie skalowania. Ochrona wystąpienia udostępnia dodatkowe funkcje kontroli umożliwiające te i inne scenariusze dla aplikacji.
+Gdy aplikacja przetwarza ruch, mogą być sytuacje, w których określone wystąpienia mają być traktowane inaczej niż pozostałe wystąpienia zestawu skalowania. Na przykład niektóre wystąpienia w zestawie skalowania mogą wykonywać długotrwałe operacje i nie chcesz, aby te wystąpienia były skalowane do momentu ukończenia operacji. Być może masz również wyspecjalizowanych kilka wystąpień w zestawie skalowania, aby wykonywać dodatkowe lub inne zadania niż inne elementy członkowskie zestawu skalowania. Te "specjalne" maszyny wirtualne nie powinny być modyfikowane przy użyciu innych wystąpień w zestawie skalowania. Ochrona wystąpień zapewnia dodatkowe kontrolki umożliwiające włączenie tych i innych scenariuszy dla aplikacji.
 
-W tym artykule opisano, jak można zastosować różne możliwości ochrony wystąpień z wystąpieniami zestawów skalowania i korzystać z nich.
+W tym artykule opisano sposób stosowania różnych możliwości ochrony wystąpień i korzystania z nich za pomocą wystąpień zestawu skalowania.
 
-## <a name="types-of-instance-protection"></a>Typy ochrony wystąpienia
-Zestawy skalowania oferują dwa typy możliwości ochrony wystąpienia:
+## <a name="types-of-instance-protection"></a>Typy ochrony wystąpień
+Zestawy skalowania zapewniają dwa typy możliwości ochrony wystąpień:
 
--   **Ochrona przed skalowaniem w poziomie**
-    - Włączono za pomocą właściwości **protectFromScaleIn** w wystąpieniu zestawu skalowania
-    - Chroni wystąpienie na podstawie zainicjowanej skalowania automatycznego skalowania w poziomie
+-   **Ochrona przed skalą w skali w**
+    - Włączane **za pomocą właściwości protectFromScaleIn** w wystąpieniu zestawu skalowania
+    - Chroni wystąpienie przed skalowaniem inicjowane przez autoskalowanie
     - Operacje wystąpienia inicjowane przez użytkownika (w tym usuwanie wystąpienia) **nie są blokowane**
-    - Operacje zainicjowane w zestawie skalowania (uaktualnianie, ponowne tworzenie obrazu, cofanie alokacji itp.) **nie są blokowane**
+    - Operacje inicjowane w zestawie skalowania (uaktualnianie, odtwarzanie z obrazu, cofanie alokacji itp.) **nie są blokowane**
 
 -   **Ochrona przed akcjami zestawu skalowania**
-    - Włączono za pomocą właściwości **protectFromScaleSetActions** w wystąpieniu zestawu skalowania
-    - Chroni wystąpienie na podstawie zainicjowanej skalowania automatycznego skalowania w poziomie
-    - Chroni wystąpienie od operacji zainicjowanych w zestawie skalowania (takich jak uaktualnianie, odtwarzanie obrazu, cofanie alokacji itp.)
+    - Włączane **za pomocą właściwości protectFromScaleSetActions** w wystąpieniu zestawu skalowania
+    - Chroni wystąpienie przed skalowaniem inicjowaym przez autoskalowanie
+    - Chroni wystąpienie przed operacjami zainicjowane w zestawie skalowania (takimi jak uaktualnianie, odtwarzanie z obrazu, cofanie alokacji itp.)
     - Operacje wystąpienia inicjowane przez użytkownika (w tym usuwanie wystąpienia) **nie są blokowane**
-    - Usuwanie pełnego zestawu skalowania nie jest **blokowane**
+    - Usuwanie pełnego zestawu skalowania **nie jest blokowane**
 
-## <a name="protect-from-scale-in"></a>Ochrona przed skalowaniem w poziomie
-Ochronę wystąpienia można zastosować do wystąpień zestawów skalowania po utworzeniu wystąpień. Ochrona jest stosowana i modyfikowana tylko w [modelu wystąpienia](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-vm-model-view) , a nie w [modelu zestawu skalowania](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model).
+## <a name="protect-from-scale-in"></a>Ochrona przed skalowaniem w
+Ochronę wystąpień można zastosować do wystąpień zestawu skalowania po ich utworzeniu. Ochrona jest stosowana i modyfikowana tylko w [modelu wystąpienia,](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-vm-model-view) a nie w modelu [zestawu skalowania](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model).
 
-Istnieje wiele sposobów zastosowania ochrony skalowania w Twoich wystąpieniach zestawu skalowania zgodnie z opisem w poniższych przykładach.
+Istnieje wiele sposobów stosowania ochrony skalowania w skali w wystąpieniach zestawu skalowania, jak o ile o tym omówienie o tym w poniższych przykładach.
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Możesz zastosować ochronę skalowania w Azure Portal do wystąpienia w zestawie skalowania. Nie można jednocześnie dopasować więcej niż jednego wystąpienia. Powtórz kroki dla każdego wystąpienia, które chcesz chronić.
+Ochronę skalowania w skali można zastosować za pośrednictwem Azure Portal wystąpienia w zestawie skalowania. Jednocześnie nie można dostosować więcej niż jednego wystąpienia. Powtórz kroki dla każdego wystąpienia, które chcesz chronić.
  
 1. Przejdź do istniejącego zestawu skalowania maszyn wirtualnych.
-1. Wybierz pozycję **wystąpienia** z menu po lewej stronie, w obszarze **Ustawienia**.
+1. Wybierz **pozycję Wystąpienia** z menu po lewej stronie w obszarze **Ustawienia**.
 1. Wybierz nazwę wystąpienia, które chcesz chronić.
-1. Wybierz kartę **Zasady ochrony** .
-1. W bloku **Zasady ochrony** wybierz opcję **Chroń przed skalowaniem** .
+1. Wybierz **kartę Zasady** ochrony.
+1. W bloku **Zasady ochrony** wybierz opcję Chroń **przed skalowaniem w** skali.
 1. Wybierz pozycję **Zapisz**. 
 
 ### <a name="rest-api"></a>Interfejs API REST
 
-W poniższym przykładzie zastosowano ochronę skalowania do wystąpienia w zestawie skalowania.
+Poniższy przykład dotyczy ochrony skalowanej w skali w przypadku wystąpienia w zestawie skalowania.
 
 ```
 PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines/{instance-id}?api-version=2019-03-01`
@@ -76,13 +76,13 @@ PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provi
 ```
 
 > [!NOTE]
->Ochrona wystąpienia jest obsługiwana tylko w przypadku interfejsu API w wersji 2019-03-01 lub nowszej
+>Ochrona wystąpień jest obsługiwana tylko w interfejsie API w wersji 2019-03-01 lub nowszą
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Użyj polecenia cmdlet [Update-AzVmssVM](/powershell/module/az.compute/update-azvmssvm) , aby zastosować ochronę skalowania do wystąpienia zestawu skalowania.
+Użyj polecenia cmdlet [Update-AzVmssVM,](/powershell/module/az.compute/update-azvmssvm) aby zastosować ochronę skalowania w skali w skali w wystąpieniu zestawu skalowania.
 
-Poniższy przykład stosuje ochronę skalowania do wystąpienia w zestawie skalowania z IDENTYFIKATORem wystąpienia 0.
+W poniższym przykładzie ochrona skalowana w skali w skali jest stosowana do wystąpienia w zestawie skalowania o identyfikatorze wystąpienia 0.
 
 ```azurepowershell-interactive
 Update-AzVmssVM `
@@ -94,9 +94,9 @@ Update-AzVmssVM `
 
 ### <a name="azure-cli-20"></a>Interfejs wiersza polecenia platformy Azure 2.0
 
-Użyj [AZ VMSS Update](/cli/azure/vmss#az-vmss-update) , aby zastosować ochronę skalowania do wystąpienia zestawu skalowania.
+Użyj [az vmss update,](/cli/azure/vmss#az_vmss_update) aby zastosować ochronę skalowania w skali w wystąpieniu zestawu skalowania.
 
-Poniższy przykład stosuje ochronę skalowania do wystąpienia w zestawie skalowania z IDENTYFIKATORem wystąpienia 0.
+W poniższym przykładzie ochrona skalowana w skali w skali jest stosowana do wystąpienia w zestawie skalowania o identyfikatorze wystąpienia 0.
 
 ```azurecli-interactive
 az vmss update \  
@@ -107,26 +107,26 @@ az vmss update \
 ```
 
 ## <a name="protect-from-scale-set-actions"></a>Ochrona przed akcjami zestawu skalowania
-Ochronę wystąpienia można zastosować do wystąpień zestawów skalowania po utworzeniu wystąpień. Ochrona jest stosowana i modyfikowana tylko w [modelu wystąpienia](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-vm-model-view) , a nie w [modelu zestawu skalowania](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model).
+Ochronę wystąpień można zastosować do wystąpień zestawu skalowania po ich utworzeniu. Ochrona jest stosowana i modyfikowana tylko w [modelu wystąpienia,](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-vm-model-view) a nie w modelu [zestawu skalowania](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model).
 
-Ochrona wystąpienia z poziomu akcji zestawu skalowania chroni również wystąpienie w ramach skalowania automatycznego skalowania w poziomie.
+Ochrona wystąpienia przed akcjami zestawu skalowania chroni również wystąpienie przed skalowaniem do inicjatora skalowania automatycznego.
 
-Istnieje wiele sposobów stosowania ochrony akcji zestawu skalowania w wystąpieniach zestawu skalowania, jak opisano w poniższych przykładach.
+Istnieje wiele sposobów stosowania ochrony akcji zestawu skalowania w wystąpieniach zestawu skalowania zgodnie z poniższymi przykładami.
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Możesz zastosować ochronę przed akcjami zestawu skalowania za pośrednictwem Azure Portal do wystąpienia w zestawie skalowania. Nie można jednocześnie dopasować więcej niż jednego wystąpienia. Powtórz kroki dla każdego wystąpienia, które chcesz chronić.
+Ochronę można zastosować z poziomu akcji zestawu skalowania za pośrednictwem Azure Portal do wystąpienia w zestawie skalowania. Jednocześnie nie można dostosować więcej niż jednego wystąpienia. Powtórz kroki dla każdego wystąpienia, które chcesz chronić.
  
 1. Przejdź do istniejącego zestawu skalowania maszyn wirtualnych.
-1. Wybierz pozycję **wystąpienia** z menu po lewej stronie, w obszarze **Ustawienia**.
+1. Wybierz **pozycję Wystąpienia** z menu po lewej stronie w obszarze **Ustawienia**.
 1. Wybierz nazwę wystąpienia, które chcesz chronić.
-1. Wybierz kartę **Zasady ochrony** .
-1. W bloku **Zasady ochrony** wybierz opcję **Chroń przed zestawem skalowania** .
+1. Wybierz **kartę Zasady** ochrony.
+1. W bloku **Zasady ochrony** wybierz opcję Akcje Chroń **przed zestawem skalowania.**
 1. Wybierz pozycję **Zapisz**. 
 
 ### <a name="rest-api"></a>Interfejs API REST
 
-Poniższy przykład stosuje ochronę przed akcjami zestawu skalowania do wystąpienia w zestawie skalowania.
+W poniższym przykładzie ochrona przed akcjami zestawu skalowania jest stosowana do wystąpienia w zestawie skalowania.
 
 ```
 PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vMScaleSetName}/virtualMachines/{instance-id}?api-version=2019-03-01`
@@ -145,14 +145,14 @@ PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provi
 ```
 
 > [!NOTE]
->Ochrona wystąpienia jest obsługiwana tylko w przypadku interfejsu API w wersji 2019-03-01 lub nowszej.</br>
-Ochrona wystąpienia z poziomu akcji zestawu skalowania chroni również wystąpienie w ramach skalowania automatycznego skalowania w poziomie. Nie można określić "protectFromScaleIn": false podczas ustawiania "protectFromScaleSetActions": true
+>Ochrona wystąpień jest obsługiwana tylko w interfejsie API w wersji 2019-03-01 lub nowszej.</br>
+Ochrona wystąpienia przed akcjami zestawu skalowania chroni również wystąpienie przed skalowaniem do inicjatora skalowania automatycznego. Nie można określić wartości "protectFromScaleIn": false podczas ustawiania opcji "protectFromScaleSetActions": true
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Użyj polecenia cmdlet [Update-AzVmssVM](/powershell/module/az.compute/update-azvmssvm) , aby zastosować ochronę z poziomu akcji zestawu skalowania do wystąpienia zestawu skalowania.
+Użyj polecenia cmdlet [Update-AzVmssVM,](/powershell/module/az.compute/update-azvmssvm) aby zastosować ochronę przed akcjami zestawu skalowania do wystąpienia zestawu skalowania.
 
-Poniższy przykład stosuje ochronę przed akcjami zestawu skalowania do wystąpienia w zestawie skalowania z IDENTYFIKATORem wystąpienia 0.
+W poniższym przykładzie ochrona przed akcjami zestawu skalowania jest stosowana do wystąpienia w zestawie skalowania o identyfikatorze wystąpienia 0.
 
 ```azurepowershell-interactive
 Update-AzVmssVM `
@@ -165,9 +165,9 @@ Update-AzVmssVM `
 
 ### <a name="azure-cli-20"></a>Interfejs wiersza polecenia platformy Azure 2.0
 
-Użyj [AZ VMSS Update](/cli/azure/vmss#az-vmss-update) , aby zastosować ochronę przed akcjami zestawu skalowania do wystąpienia zestawu skalowania.
+Użyj [az vmss update,](/cli/azure/vmss#az_vmss_update) aby zastosować ochronę z akcji zestawu skalowania do wystąpienia zestawu skalowania.
 
-Poniższy przykład stosuje ochronę przed akcjami zestawu skalowania do wystąpienia w zestawie skalowania z IDENTYFIKATORem wystąpienia 0.
+W poniższym przykładzie ochrona przed akcjami zestawu skalowania jest stosowana do wystąpienia w zestawie skalowania o identyfikatorze wystąpienia 0.
 
 ```azurecli-interactive
 az vmss update \  
@@ -179,16 +179,16 @@ az vmss update \
 ```
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
-### <a name="no-protectionpolicy-on-scale-set-model"></a>Brak protectionPolicy na modelu zestawu skalowania
-Ochrona wystąpienia ma zastosowanie tylko w wystąpieniach zestawu skalowania, a nie w modelu zestawu skalowania.
+### <a name="no-protectionpolicy-on-scale-set-model"></a>Brak ochronyPolicy w modelu zestawu skalowania
+Ochrona wystąpień ma zastosowanie tylko w wystąpieniach zestawu skalowania, a nie w modelu zestawu skalowania.
 
-### <a name="no-protectionpolicy-on-scale-set-instance-model"></a>Brak protectionPolicy z modelem wystąpienia zestawu skalowania
+### <a name="no-protectionpolicy-on-scale-set-instance-model"></a>Brak ochronyPolicy w modelu wystąpienia zestawu skalowania
 Domyślnie zasady ochrony nie są stosowane do wystąpienia podczas jego tworzenia.
 
-Po utworzeniu wystąpień można zastosować ochronę wystąpienia do wystąpień zestawów skalowania.
+Ochronę wystąpień można zastosować do wystąpień zestawu skalowania po utworzeniu wystąpień.
 
 ### <a name="not-able-to-apply-instance-protection"></a>Nie można zastosować ochrony wystąpienia
-Ochrona wystąpienia jest obsługiwana tylko w przypadku interfejsu API w wersji 2019-03-01 lub nowszej. Sprawdź używaną wersję interfejsu API i Aktualizuj ją zgodnie z wymaganiami. Może być również konieczne zaktualizowanie programu PowerShell lub interfejsu wiersza polecenia do najnowszej wersji.
+Ochrona wystąpień jest obsługiwana tylko w interfejsie API w wersji 2019-03-01 lub nowszą. Sprawdź używaną wersję interfejsu API i zaktualizuj go zgodnie z wymaganiami. Może być również konieczne zaktualizowanie programu PowerShell lub interfejsu wiersza polecenia do najnowszej wersji.
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się, jak [wdrożyć aplikację](virtual-machine-scale-sets-deploy-app.md) w zestawach skalowania maszyn wirtualnych.
+Dowiedz się, jak [wdrożyć aplikację w zestawach](virtual-machine-scale-sets-deploy-app.md) skalowania maszyn wirtualnych.

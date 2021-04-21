@@ -8,12 +8,12 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: f1a502722156bc010dab917afdbd1d49ae93681a
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 804c4732ce979cd9ec46c69456b3f731284c9c73
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375988"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107748530"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-java"></a>Szybki start: Azure Key Vault klienta secret dla języka Java
 Wprowadzenie do biblioteki klienta Azure Key Vault Secret dla języka Java. Wykonaj poniższe kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.
@@ -60,7 +60,7 @@ mvn archetype:generate -DgroupId=com.keyvault.secrets.quickstart
                        -DinteractiveMode=false
 ```
 
-Dane wyjściowe z generowania projektu będą wyglądać podobnie do tych:
+Dane wyjściowe wygenerowania projektu będą wyglądać podobnie do tych:
 
 ```console
 [INFO] ----------------------------------------------------------------------------
@@ -134,7 +134,7 @@ macOS lub Linux
 export KEY_VAULT_NAME=<your-key-vault-name>
 ```
 
-## <a name="object-model"></a>Model obiektów
+## <a name="object-model"></a>Model obiektu
 Biblioteka Azure Key Vault klienta secret dla języka Java umożliwia zarządzanie wpisami tajnymi. W [sekcji Przykłady](#code-examples) kodu pokazano, jak utworzyć klienta, ustawić klucz tajny, pobrać klucz tajny i usunąć klucz tajny.
 
 Cała aplikacja konsolowa znajduje się [poniżej .](#sample-code)
@@ -154,7 +154,7 @@ import com.azure.security.keyvault.secrets.models.KeyVaultSecret;
 ```
 
 ### <a name="authenticate-and-create-a-client"></a>Uwierzytelnianie i tworzenie klienta
-W tym przewodniku Szybki start zalogowany użytkownik jest używany do uwierzytelniania w Key Vault, co jest preferowaną metodą tworzenia aplikacji lokalnych. W przypadku aplikacji wdrożonych na platformie Azure tożsamość zarządzana powinna zostać przypisana do App Service wirtualnej. Aby uzyskać więcej informacji, zobacz [Omówienie tożsamości zarządzanej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+W tym przewodniku Szybki start zalogowany użytkownik jest używany do uwierzytelniania w Key Vault, co jest preferowaną metodą tworzenia aplikacji lokalnych. W przypadku aplikacji wdrożonych na platformie Azure tożsamość zarządzana powinna zostać przypisana do App Service wirtualnej. Aby uzyskać więcej informacji, zobacz [Omówienie tożsamości zarządzanej.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
 W poniższym przykładzie nazwa magazynu kluczy jest rozszerzana do wartości URI magazynu kluczy w formacie "https:// \<your-key-vault-name\> .vault.azure.net". W tym przykładzie używa się klasy ["DefaultAzureCredential()",](https://docs.microsoft.com/java/api/com.azure.identity.defaultazurecredential) która umożliwia używanie tego samego kodu w różnych środowiskach z różnymi opcjami w celu zapewnienia tożsamości. Aby uzyskać więcej informacji, zobacz [Domyślne uwierzytelnianie poświadczeń platformy Azure.](https://docs.microsoft.com/java/api/overview/azure/identity-readme)
 
@@ -207,7 +207,7 @@ az keyvault secret show --vault-name <your-unique-key-vault-name> --name mySecre
 ```
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
-Gdy magazyn kluczy i odpowiednia grupa zasobów nie będą już potrzebne, możesz Azure PowerShell interfejsu wiersza polecenia platformy Azure lub grupy zasobów.
+Gdy magazyn kluczy i odpowiednia grupa zasobów nie będą już potrzebne, można je usunąć za pomocą Azure PowerShell wiersza polecenia platformy Azure lub grupy zasobów.
 
 ```azurecli
 az group delete -g "myResourceGroup"
@@ -281,4 +281,4 @@ W tym przewodniku Szybki start utworzono magazyn kluczy, przechowywano klucz taj
 
 - Przeczytaj omówienie [Azure Key Vault](../general/overview.md)
 - Zobacz Azure Key Vault [dewelopera](../general/developers-guide.md)
-- Jak zabezpieczyć [dostęp do magazynu kluczy](../general/secure-your-key-vault.md)
+- Jak zabezpieczyć [dostęp do magazynu kluczy](../general/security-overview.md)

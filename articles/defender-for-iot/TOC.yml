@@ -21,7 +21,7 @@
           displayName: 'firewall, proxy, open ports'
           href: quickstart-system-prerequisites.md
         - name: Rozpoczynanie pracy z usługą Azure Defender dla IoT
-          displayName: 'getting started, registration, onboarding'
+          displayName: 'getting started, registration, onboarding, activation, threat intelligence'
           href: getting-started.md
     - name: Rozwiązanie oparte na agencie dla konstruktorów urządzeń
       items:
@@ -122,8 +122,8 @@
               href: how-to-install-software.md
         - name: Przygotowywanie czujników
           items:
-            - name: Zarządzanie czujnikami
-              displayName: 'onboard, cloud, register, activate, offboard, subscription, subscriptions, offboarding'
+            - name: Dołączanie czujników
+              displayName: 'onboard, cloud, register, version, activate, offboard, subscription, threat intelligence, packages, connected'
               href: how-to-manage-sensors-on-the-cloud.md
             - name: Aktywowanie i konfigurowanie czujnika
               displayName: 'deployment, onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial'
@@ -171,6 +171,7 @@
           displayName: 'mail, SMTP, activation, certificate, software update, backup, restore, proxy, password recovery'
         - name: Praca z pakietami analizy zagrożeń
           href: how-to-work-with-threat-intelligence-packages.md
+          displayName: 'packages, automatic, intelligence, push, threat'
         - name: Praca z informacjami spisu urządzeń
           items:
             - name: Badanie wszystkich wykryć czujników przedsiębiorstwa w spisie urządzeń
@@ -274,7 +275,7 @@
         - name: Defender-IoT-micro-agent for Azure RTOS
           href: iot-security-azure-rtos.md
           items:
-            - name: Praca z mikrousługą Defender-IoT-micro-agent na Azure RTOS
+            - name: Praca z mikrousługą Defender-IoT-micro-agent dla Azure RTOS
               href: how-to-azure-rtos-security-module.md
             - name: Opis usługi Defender-IoT-micro-agent dla Azure RTOS
               href: concept-rtos-security-module.md

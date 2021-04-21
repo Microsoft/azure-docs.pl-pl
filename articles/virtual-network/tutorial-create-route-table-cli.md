@@ -1,6 +1,6 @@
 ---
-title: Kierowanie ruchu sieciowego — interfejs wiersza polecenia platformy Azure | Microsoft Docs
-description: W tym artykule dowiesz się, jak kierować ruchem sieciowym za pomocą tabeli tras przy użyciu interfejsu wiersza polecenia platformy Azure.
+title: Przekieruj ruch sieciowy — interfejs wiersza polecenia platformy Azure | Microsoft Docs
+description: W tym artykule dowiesz się, jak rozsyłać ruch sieciowy za pomocą tabeli tras przy użyciu interfejsu wiersza polecenia platformy Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ed2a97ccfb0a3b9b4b43021ab0fff1460919c9b9
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 2ff643c39820fa529c8678c7a36881dd25da354c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060724"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762501"
 ---
-# <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Kierowanie ruchu sieciowego za pomocą tabeli tras przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Route network traffic with a route table using the Azure CLI
 
 Platforma Azure automatycznie domyślnie kieruje ruchem między wszystkimi podsieciami w sieci wirtualnej. Możesz tworzyć własne trasy zastępujące domyślne trasy platformy Azure. Możliwość tworzenia niestandardowych tras jest przydatna, jeśli na przykład chcesz kierować ruchem między podsieciami za pomocą wirtualnego urządzenia sieciowego (NVA). W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -39,11 +39,11 @@ Platforma Azure automatycznie domyślnie kieruje ruchem między wszystkimi podsi
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- Ten artykuł wymaga wersji 2.0.28 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
+- Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.28 lub nowszej. Jeśli używasz Azure Cloud Shell, najnowsza wersja jest już zainstalowana.
 
 ## <a name="create-a-route-table"></a>Tworzenie tabeli tras
 
-Przed utworzeniem tabeli tras Utwórz grupę zasobów za pomocą metody [AZ Group Create](/cli/azure/group) dla wszystkich zasobów utworzonych w tym artykule. 
+Przed utworzeniem tabeli tras utwórz grupę zasobów za pomocą az [group create dla](/cli/azure/group) wszystkich zasobów utworzonych w tym artykule. 
 
 ```azurecli-interactive
 # Create a resource group.
@@ -52,7 +52,7 @@ az group create \
   --location eastus
 ```
 
-Utwórz tabelę tras za pomocą [AZ Network Route-Table Create](/cli/azure/network/route-table#az-network-route-table-create). Poniższy przykład tworzy tabelę tras o nazwie *myRouteTablePublic*. 
+Utwórz tabelę tras za pomocą [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create). Poniższy przykład tworzy tabelę tras o nazwie *myRouteTablePublic*. 
 
 ```azurecli-interactive
 # Create a route table
@@ -63,7 +63,7 @@ az network route-table create \
 
 ## <a name="create-a-route"></a>Tworzenie trasy
 
-Utwórz trasę w tabeli tras za pomocą [AZ Network Route-Table Route Create](/cli/azure/network/route-table/route#az-network-route-table-route-create). 
+Utwórz trasę w tabeli tras za pomocą az [network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create). 
 
 ```azurecli-interactive
 az network route-table route create \
@@ -77,7 +77,7 @@ az network route-table route create \
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Kojarzenie tabeli tras z podsiecią
 
-Zanim skojarzysz tabelę tras z podsiecią, musisz utworzyć sieć wirtualną i podsieć. Utwórz sieć wirtualną z jedną podsiecią za pomocą [AZ Network VNET Create](/cli/azure/network/vnet).
+Zanim skojarzysz tabelę tras z podsiecią, musisz utworzyć sieć wirtualną i podsieć. Utwórz sieć wirtualną z jedną podsiecią za pomocą [az network vnet create](/cli/azure/network/vnet).
 
 ```azurecli-interactive
 az network vnet create \
@@ -88,7 +88,7 @@ az network vnet create \
   --subnet-prefix 10.0.0.0/24
 ```
 
-Utwórz dwie dodatkowe podsieci za pomocą [AZ Network VNET Subnet Create](/cli/azure/network/vnet/subnet).
+Utwórz dwie dodatkowe podsieci za pomocą az [network vnet subnet create](/cli/azure/network/vnet/subnet).
 
 ```azurecli-interactive
 # Create a private subnet.
@@ -106,7 +106,7 @@ az network vnet subnet create \
   --address-prefix 10.0.2.0/24
 ```
 
-Skojarz tabelę tras *myRouteTablePublic* z podsiecią *publiczną* przy użyciu [AZ Network VNET Subnet Update](/cli/azure/network/vnet/subnet).
+*Skojarz tabelę tras myRouteTablePublic* z *podsiecią publiczną* za pomocą [az network vnet subnet update](/cli/azure/network/vnet/subnet).
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -120,7 +120,7 @@ az network vnet subnet update \
 
 Urządzenie NVA jest maszyną wirtualną, która realizuje funkcje sieci, takie jak routing, zapora lub optymalizacja sieci WAN.
 
-Utwórz urządzenie WUS w podsieci *DMZ* przy użyciu [AZ VM Create](/cli/azure/vm). Podczas tworzenia maszyny wirtualnej platforma Azure domyślnie tworzy i przypisuje publiczny adres IP do maszyny wirtualnej. `--public-ip-address ""`Parametr instruuje platformę Azure, aby nie utworzył i przypisał publicznego adresu IP do maszyny wirtualnej, ponieważ maszyna wirtualna nie musi być połączona z Internetem. Jeśli klucze SSH nie istnieją jeszcze w domyślnej lokalizacji kluczy, to polecenie je utworzy. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`.
+Utwórz urządzenie WUS w podsieci *DMZ* za pomocą [az vm create](/cli/azure/vm). Podczas tworzenia maszyny wirtualnej platforma Azure domyślnie tworzy i przypisuje do maszyny wirtualnej publiczny adres IP. Parametr instruuje platformę Azure, aby nie tworzyć i przypisywać publicznego adresu IP do maszyny wirtualnej, ponieważ maszyna wirtualna nie musi być połączona `--public-ip-address ""` z Internetu. Jeśli klucze SSH nie istnieją jeszcze w domyślnej lokalizacji kluczy, to polecenie je utworzy. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`.
 
 ```azurecli-interactive
 az vm create \
@@ -133,9 +133,9 @@ az vm create \
   --generate-ssh-keys
 ```
 
-W ciągu kilku minut zostanie utworzona maszyna wirtualna. Nie Kontynuuj do następnego kroku, dopóki platforma Azure nie zakończy tworzenia maszyny wirtualnej i nie zwróci danych wyjściowych dotyczących maszyny wirtualnej. 
+W ciągu kilku minut zostanie utworzona maszyna wirtualna. Nie przejdź do następnego kroku, dopóki platforma Azure nie zakończy tworzenia maszyny wirtualnej i nie zwróci danych wyjściowych dotyczących maszyny wirtualnej. 
 
-Aby karta sieciowa mogła przekazywać dalej wysyłany do niej ruch sieciowy, który nie jest przeznaczony dla jej własnego adresu IP, musi być włączone przekazywanie adresu IP dla interfejsu sieciowego. Włącz przekazywanie IP dla interfejsu sieciowego za pomocą funkcji [AZ Network nic Update](/cli/azure/network/nic).
+Aby karta sieciowa mogła przekazywać dalej wysyłany do niej ruch sieciowy, który nie jest przeznaczony dla jej własnego adresu IP, musi być włączone przekazywanie adresu IP dla interfejsu sieciowego. Włącz przekazywanie ip dla interfejsu sieciowego za pomocą [az network nic update](/cli/azure/network/nic).
 
 ```azurecli-interactive
 az network nic update \
@@ -144,7 +144,7 @@ az network nic update \
   --ip-forwarding true
 ```
 
-W ramach maszyny wirtualnej system operacyjny lub aplikacja działająca na maszynie wirtualnej musi także móc przekazywać dalej ruch sieciowy. Włącz przekazywanie adresów IP w ramach systemu operacyjnego maszyny wirtualnej za pomocą funkcji [AZ VM Extension Set](/cli/azure/vm/extension):
+W ramach maszyny wirtualnej system operacyjny lub aplikacja działająca na maszynie wirtualnej musi także móc przekazywać dalej ruch sieciowy. Włącz przekazywanie ip w systemie operacyjnym maszyny wirtualnej za pomocą [az vm extension set:](/cli/azure/vm/extension)
 
 ```azurecli-interactive
 az vm extension set \
@@ -159,9 +159,9 @@ Wykonanie polecenia może potrwać do minuty.
 
 ## <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 
-Utwórz dwie maszyny wirtualne w sieci wirtualnej, aby można było sprawdzić, czy ruch z podsieci *publicznej* jest kierowany do podsieci *prywatnej* za pośrednictwem urządzenie WUS w późniejszym kroku. 
+Utwórz dwie maszyny wirtualne w sieci wirtualnej, aby w późniejszym kroku sprawdzić, czy ruch z podsieci *Public* jest przekierowyowany do podsieci *Private* za pośrednictwem urządzenia WUS. 
 
-Utwórz maszynę wirtualną w podsieci *publicznej* za pomocą [AZ VM Create](/cli/azure/vm). `--no-wait`Parametr umożliwia platformie Azure wykonywanie polecenia w tle, dzięki czemu można przejść do następnego polecenia. W celu uproszczenia tego artykułu jest używane hasło. Klucze są zwykle używane w wdrożeniach produkcyjnych. W przypadku korzystania z kluczy należy również skonfigurować przekazywanie agentów SSH. Aby uzyskać więcej informacji, zapoznaj się z dokumentacją klienta SSH. Zastąp wartość `<replace-with-your-password>` w poniższym poleceniu, wybierając wybrane hasło.
+Utwórz maszynę wirtualną w podsieci *Public* za pomocą [az vm create](/cli/azure/vm). Parametr `--no-wait` umożliwia platformie Azure wykonanie polecenia w tle, dzięki czemu można przejść do następnego polecenia. Aby usprawnić ten artykuł, używane jest hasło. Klucze są zwykle używane we wdrożeniach produkcyjnych. Jeśli używasz kluczy, musisz również skonfigurować przekazywanie agenta SSH. Aby uzyskać więcej informacji, zobacz dokumentację klienta SSH. Zastąp `<replace-with-your-password>` w poniższym poleceniu swoim hasłem.
 
 ```azurecli-interactive
 adminPassword="<replace-with-your-password>"
@@ -177,7 +177,7 @@ az vm create \
   --no-wait
 ```
 
-Utwórz maszynę wirtualną w podsieci *prywatnej* .
+Utwórz maszynę wirtualną w podsieci *Private.*
 
 ```azurecli-interactive
 az vm create \
@@ -190,7 +190,7 @@ az vm create \
   --admin-password $adminPassword
 ```
 
-W ciągu kilku minut zostanie utworzona maszyna wirtualna. Po utworzeniu maszyny wirtualnej interfejs wiersza polecenia platformy Azure wyświetli informacje podobne do następującego przykładu: 
+W ciągu kilku minut zostanie utworzona maszyna wirtualna. Po utworzeniu maszyny wirtualnej interfejs wiersza polecenia platformy Azure wyświetla informacje podobne do następujących: 
 
 ```output
 {
@@ -209,21 +209,21 @@ Zanotuj wartość adresu **publicIpAddress**. Ten adres jest używany w celu uzy
 
 ## <a name="route-traffic-through-an-nva"></a>Kierowanie ruchem za pośrednictwem urządzenia NVA
 
-Użyj następującego polecenia, aby utworzyć sesję SSH z maszyną wirtualną *myVmPrivate* . Zastąp *\<publicIpAddress>* wartość publicznym adresem IP maszyny wirtualnej. W powyższym przykładzie adres IP to *13.90.242.231*.
+Użyj następującego polecenia, aby utworzyć sesję SSH z maszyną *wirtualną myVmPrivate.* Zastąp *\<publicIpAddress>* publicznym adresem IP maszyny wirtualnej. W powyższym przykładzie adres IP to *13.90.242.231.*
 
 ```bash
 ssh azureuser@<publicIpAddress>
 ```
 
-Po wyświetleniu monitu o podanie hasła wprowadź hasło wybrane w obszarze [Tworzenie maszyn wirtualnych](#create-virtual-machines).
+Po wyświetleniu monitu o hasło wprowadź hasło wybrane w te sposób, [aby utworzyć maszyny wirtualne.](#create-virtual-machines)
 
-Użyj następującego polecenia, aby zainstalować trasę śledzenia na maszynie wirtualnej *myVmPrivate* :
+Użyj następującego polecenia, aby zainstalować trasę śledzenia na maszynie *wirtualnej myVmPrivate:*
 
 ```bash
 sudo apt-get install traceroute
 ```
 
-Użyj poniższego polecenia, aby przetestować Routing ruchu sieciowego do maszyny wirtualnej *myVmPublic* z maszyny wirtualnej *myVmPrivate* .
+Użyj następującego polecenia, aby przetestować routing dla ruchu sieciowego do maszyny wirtualnej *myVmPublic* z *maszyny wirtualnej myVmPrivate.*
 
 ```bash
 traceroute myVmPublic
@@ -236,21 +236,21 @@ traceroute to myVmPublic (10.0.0.4), 30 hops max, 60 byte packets
 1  10.0.0.4 (10.0.0.4)  1.404 ms  1.403 ms  1.398 ms
 ```
 
-Widać, że ruch jest kierowany bezpośrednio z maszyny wirtualnej *myVmPrivate* do maszyny wirtualnej *myVmPublic*. Trasy domyślne platformy Azure, kierowanie ruchu bezpośrednio między podsieciami. 
+Widać, że ruch jest kierowany bezpośrednio z maszyny wirtualnej *myVmPrivate* do maszyny wirtualnej *myVmPublic*. Trasy domyślne platformy Azure, które kieruje ruch bezpośrednio między podsieciami. 
 
-Użyj następującego polecenia, aby SSH do maszyny wirtualnej *myVmPublic* z maszyny wirtualnej *myVmPrivate* :
+Użyj następującego polecenia, aby na maszynie wirtualnej *myVmPublic* na maszynie wirtualnej myVmPrivate na maszynie wirtualnej SSH nawiążesz z maszyną wirtualną *myVmPrivate:*
 
 ```bash
 ssh azureuser@myVmPublic
 ```
 
-Użyj następującego polecenia, aby zainstalować trasę śledzenia na maszynie wirtualnej *myVmPublic* :
+Użyj następującego polecenia, aby zainstalować trasę śledzenia na *maszynie wirtualnej myVmPublic:*
 
 ```bash
 sudo apt-get install traceroute
 ```
 
-Użyj poniższego polecenia, aby przetestować Routing ruchu sieciowego do maszyny wirtualnej *myVmPrivate* z maszyny wirtualnej *myVmPublic* .
+Użyj następującego polecenia, aby przetestować routing dla ruchu sieciowego do maszyny *wirtualnej myVmPrivate* z *maszyny wirtualnej myVmPublic.*
 
 ```bash
 traceroute myVmPrivate
@@ -266,11 +266,11 @@ traceroute to myVmPrivate (10.0.1.4), 30 hops max, 60 byte packets
 
 Teraz możesz zobaczyć, że pierwszym przeskokiem jest 10.0.2.4, czyli prywatny adres IP urządzenia NVA. Drugim przeskokiem jest 10.0.1.4, prywatny adres IP maszyny wirtualnej *myVmPrivate*. Trasa dodana do tabeli tras *myRouteTablePublic* i powiązana z podsiecią *Public* spowodowała, że platforma Azure skierowała ruch przez urządzenie NVA, a nie bezpośrednio do podsieci *Private*.
 
-Zamknij sesje SSH zarówno na maszynach wirtualnych *myVmPublic* , jak i *myVmPrivate* .
+Zamknij sesje SSH dla maszyn wirtualnych *myVmPublic* *i myVmPrivate.*
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy nie jest już potrzebne, użyj [AZ Group Delete](/cli/azure/group) , aby usunąć grupę zasobów i wszystkie zawarte w niej zasoby.
+Gdy grupa zasobów i wszystkie zasoby w niej dostępne nie będą już potrzebne, użyj przycisku [az group delete.](/cli/azure/group)
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes
@@ -280,4 +280,4 @@ az group delete --name myResourceGroup --yes
 
 W tym artykule utworzono tabelę tras i skojarzono ją z podsiecią. Utworzono proste urządzenie NVA, które kierowało ruch z podsieci publicznej do podsieci prywatnej. Wdrożono różne wstępnie skonfigurowane urządzenia NVA wykonujące funkcje sieciowe, takie jak zapora i optymalizacja sieci WAN, z witryny [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Aby dowiedzieć się więcej na temat routingu, zobacz [Routing overview (Omówienie routingu)](virtual-networks-udr-overview.md) i [Manage a route table (Zarządzanie tabelą tras)](manage-route-table.md).
 
-Chociaż możesz wdrożyć wiele zasobów platformy Azure w ramach sieci wirtualnej, zasobów dla niektórych usług PaaS platformy Azure nie można wdrożyć w sieci wirtualnej. Nadal możesz ograniczyć dostęp do zasobów niektórych usług PaaS platformy Azure tylko do ruchu z podsieci sieci wirtualnej. Aby dowiedzieć się, jak to zrobić, zobacz [ograniczanie dostępu sieciowego do zasobów PaaS](tutorial-restrict-network-access-to-resources-cli.md).
+Chociaż możesz wdrożyć wiele zasobów platformy Azure w ramach sieci wirtualnej, zasobów dla niektórych usług PaaS platformy Azure nie można wdrożyć w sieci wirtualnej. Nadal możesz ograniczyć dostęp do zasobów niektórych usług PaaS platformy Azure tylko do ruchu z podsieci sieci wirtualnej. Aby dowiedzieć się, jak to zrobić, [zobacz Ograniczanie dostępu sieciowego do zasobów PaaS.](tutorial-restrict-network-access-to-resources-cli.md)

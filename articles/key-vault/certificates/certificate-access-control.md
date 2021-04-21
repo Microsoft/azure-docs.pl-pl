@@ -1,52 +1,51 @@
 ---
-title: Informacje o kontroli dostępu Azure Key Vault certyfikatów
-description: Omówienie kontroli dostępu do Azure Key Vault certyfikatów
+title: Informacje Azure Key Vault kontroli dostępu do certyfikatów
+description: Omówienie kontroli dostępu Azure Key Vault certyfikatów
 services: key-vault
 author: sebansal
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: overview
 ms.date: 10/12/2020
 ms.author: sebansal
-ms.openlocfilehash: 1308debb34d724f93526b776f19e0cbf1914d945
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 54874f30384d7f4827b13a597a469bfc67bc8fd2
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92128648"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752484"
 ---
-# <a name="certificate-access-control"></a>Access Control certyfikatów
+# <a name="certificate-access-control"></a>Certyfikat Access Control
 
- Kontrola dostępu do certyfikatów jest zarządzana przez usługę Key Vault i jest dostarczana przez magazyn kluczy, który zawiera te certyfikaty. Zasady kontroli dostępu dla certyfikatów różnią się od zasad kontroli dostępu dla kluczy i wpisów tajnych w tym samym Key Vault. Użytkownicy mogą utworzyć jeden lub więcej magazynów w celu przechowywania certyfikatów, aby zachować scenariusz odpowiedniej segmentacji i zarządzania certyfikatami.  
+ Kontrola dostępu do certyfikatów jest zarządzana przez usługę Key Vault i jest dostarczana przez magazyn kluczy, który zawiera te certyfikaty. Zasady kontroli dostępu dla certyfikatów różnią się od zasad kontroli dostępu dla kluczy i wpisów tajnych w tym samym Key Vault. Użytkownicy mogą utworzyć co najmniej jeden magazyn do przechowywania certyfikatów, aby zachować odpowiednią segmentację certyfikatów i zarządzanie nimi w scenariuszu.  
 
- Następujące uprawnienia mogą być używane dla każdego podmiotu zabezpieczeń w pozycji kontrola dostępu do kluczy tajnych w magazynie kluczy i ściśle odzwierciedlają operacje dozwolone na obiekcie tajnym:  
+ Następujące uprawnienia mogą być używane dla każdego podmiotu zabezpieczeń we wpisie kontroli dostępu wpisów tajnych w magazynie kluczy i ściśle dubluje operacje dozwolone w obiekcie wpisu tajnego:  
 
 - Uprawnienia do operacji zarządzania certyfikatami
-  - **Pobierz**: Pobierz bieżącą wersję certyfikatu lub dowolną wersję certyfikatu
-  - **Lista**: lista bieżących certyfikatów lub wersji certyfikatu  
-  - **Aktualizacja**: aktualizowanie certyfikatu
-  - **Tworzenie**: tworzenie certyfikatu Key Vault
-  - **Import**: Importowanie materiału certyfikatu do certyfikatu Key Vault
-  - **usuwanie**: Usuwanie certyfikatu, jego zasad i wszystkich wersji  
-  - **odzyskiwanie**: Odzyskiwanie usuniętego certyfikatu
-  - **kopia zapasowa**: Tworzenie kopii zapasowej certyfikatu w magazynie kluczy
-  - **przywracanie**: Przywracanie certyfikatu z kopią zapasową do magazynu kluczy
-  - **managecontacts**: Zarządzaj kontaktami z certyfikatem Key Vault  
-  - **manageissuers**: Zarządzanie Key Vault urzędów certyfikacji/wystawców
-  - **getemitencis**: pobieranie urzędów certyfikacji/wystawców certyfikatów
-  - **listissuers**: Wyświetl listę urzędów certyfikacji/wystawców certyfikatów  
-  - **setemitencis**: Tworzenie lub aktualizowanie urzędów/wystawców certyfikatu Key Vault  
-  - **deleteissuers**: Usuwanie urzędów certyfikacji i wystawców certyfikatów Key Vault  
+  - **get**: pobierz bieżącą wersję certyfikatu lub dowolną wersję certyfikatu
+  - **list:** lista bieżących certyfikatów lub wersji certyfikatu  
+  - **aktualizacja:** aktualizowanie certyfikatu
+  - **tworzenie:** tworzenie certyfikatu Key Vault certyfikatu
+  - **import:** zaimportuj materiał certyfikatu do Key Vault certyfikatu
+  - **delete:** usuwanie certyfikatu, jego zasad i wszystkich jego wersji  
+  - **odzyskiwanie:** odzyskiwanie usuniętego certyfikatu
+  - **kopia zapasowa:** tworzenie kopii zapasowej certyfikatu w magazynie kluczy
+  - **przywracanie:** przywracanie certyfikatu kopii zapasowej do magazynu kluczy
+  - **managecontacts:** Zarządzanie kontaktami Key Vault certyfikatów  
+  - **manageissuers**: Zarządzanie Key Vault certyfikatów/wystawców
+  - **getissuers:** uzyskiwanie urzędów/wystawców certyfikatu
+  - **listissuers**: Lista urzędów/wystawców certyfikatu  
+  - **setissuers**: Tworzenie lub aktualizowanie Key Vault/wystawców certyfikatu  
+  - **deleteissuers**:Delete a Key Vault certificate's authorities/issuers (Usuń urzędy/wystawców certyfikatu)  
  
 - Uprawnienia dla operacji uprzywilejowanych
-  - **przeczyszczanie**: przeczyszczanie (trwałe usuwanie) usuniętego certyfikatu
+  - **przeczyszczanie:** przeczyszczanie (trwałe usuwanie) usuniętego certyfikatu
 
-Aby uzyskać więcej informacji, zobacz [operacje na certyfikatach w dokumentacji interfejsu API REST Key Vault](/rest/api/keyvault). Aby uzyskać informacje dotyczące ustanawiania uprawnień, zobacz temat [magazyny — aktualizacje zasad dostępu](/rest/api/keyvault/vaults/updateaccesspolicy).
+Aby uzyskać więcej informacji, zobacz [operacje na certyfikatach w te Key Vault API REST](/rest/api/keyvault). Aby uzyskać informacje na temat ustanawiania uprawnień, [zobacz Magazyny — aktualizowanie zasad dostępu.](/rest/api/keyvault/vaults/updateaccesspolicy)
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
-Może zostać wyświetlony błąd spowodowany brakiem zasad dostępu. Aby na przykład ```Error type : Access denied or user is unauthorized to create certificate``` rozwiązać ten problem, należy dodać certyfikaty/uprawnienia do tworzenia.
+Może zostać wyświetlony błąd z powodu braku zasad dostępu. Na przykład ```Error type : Access denied or user is unauthorized to create certificate``` Aby rozwiązać ten błąd, należy dodać uprawnienia do tworzenia/certyfikatów.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,15 +1,15 @@
 ---
-title: Tworzenie aplikacji funkcji przy użyciu interfejsu wiersza polecenia platformy Azure Azure Cosmos DB
+title: Tworzenie aplikacji funkcji za pomocą usługi Azure Cosmos DB — interfejs wiersza polecenia platformy Azure
 description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — tworzenie funkcji platformy Azure łączącej się z usługą Azure Cosmos DB
 ms.topic: sample
 ms.date: 07/03/2018
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 9ec4d3cb9d47608aa98075ba98aacfde51f341cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 261ede1493b93ccd3cfed19125bbabc3be871698
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97934428"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786301"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Tworzenie funkcji platformy Azure łączącej się z usługą Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Ten przykładowy skrypt usługi Azure Functions tworzy aplikację funkcji i łą
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
- - Ten samouczek wymaga wersji 2,0 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana. 
+ - Ten samouczek wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Jeśli używasz Azure Cloud Shell, najnowsza wersja jest już zainstalowana. 
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -35,20 +35,16 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 
 | Polecenie | Uwagi |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Tworzy grupę zasobów w lokalizacji. |
-| [az storage accounts create](/cli/azure/storage/account#az-storage-account-create) | Tworzenie konta magazynu |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Tworzy aplikację funkcji w [planie zużycia](../consumption-plan.md)bezserwerowego. |
-| [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Tworzy bazę danych usługi Azure Cosmos DB. |
-| [AZ cosmosdb show](/cli/azure/cosmosdb#az-cosmosdb-show)| Pobiera połączenie z kontem bazy danych. |
-| [az cosmosdb list-keys](/cli/azure/cosmosdb#az-cosmosdb-list-keys)| Pobiera klucze dla bazy danych. |
-| [AZ functionapp config AppSettings Set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) | Ustawia parametry połączenia jako ustawienia aplikacji w aplikacji funkcji. |
+| [az group create](/cli/azure/group#az_group_create) | Tworzy grupę zasobów w lokalizacji. |
+| [az storage accounts create](/cli/azure/storage/account#az_storage_account_create) | Tworzenie konta magazynu |
+| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | Tworzy aplikację funkcji w bezużyteczny [plan zużycie](../consumption-plan.md). |
+| [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) | Tworzy bazę danych usługi Azure Cosmos DB. |
+| [az cosmosdb show](/cli/azure/cosmosdb#az_cosmosdb_show)| Pobiera połączenie konta bazy danych. |
+| [az cosmosdb list-keys](/cli/azure/cosmosdb#az_cosmosdb_list_keys)| Pobiera klucze dla bazy danych. |
+| [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) | Ustawia ciąg połączenia jako ustawienie aplikacji w aplikacji funkcji. |
 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure).
 
 Więcej przykładowych skryptów interfejsu wiersza polecenia dla usługi Azure Functions można znaleźć w [dokumentacji usługi Azure Functions](../functions-cli-samples.md).
-
-
-
-

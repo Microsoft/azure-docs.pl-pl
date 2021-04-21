@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 07/06/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 1b7c8487eb42204f2741679c9ef6eb2717c272cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c059746262cdaf2901c765d3ce3848887b2e629c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86057362"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781139"
 ---
-W danych wyjściowych polecenia `identity` sekcja pokazuje tożsamość typu `SystemAssigned` jest ustawiana w zadaniu. `principalId`Jest identyfikatorem podmiotu zabezpieczeń dla tożsamości zadania:
+W danych wyjściowych polecenia `identity` sekcja pokazuje, że tożsamość typu jest `SystemAssigned` ustawiona w zadaniu. To `principalId` identyfikator podmiotu zabezpieczeń tożsamości zadania:
 
 ```console
 [...]
@@ -28,7 +28,7 @@ W danych wyjściowych polecenia `identity` sekcja pokazuje tożsamość typu `Sy
   "location": "eastus",
 [...]
 ``` 
-Użyj polecenia [AZ ACR Task show][az-acr-task-show] , aby zapisać principalId w zmiennej, aby użyć ich w późniejszych poleceniach. Zastąp nazwę zadania i rejestr w następującym poleceniu:
+Użyj polecenia [az acr task show,][az-acr-task-show] aby zapisać principalId w zmiennej do użycia w późniejszych poleceniach. Zastąp nazwę zadania i rejestr w następującym poleceniu:
 
 ```azurecli
 principalID=$(az acr task show \
@@ -37,4 +37,4 @@ principalID=$(az acr task show \
 ```
 
 <!-- LINKS - Internal -->
-[az-acr-task-show]: /cli/azure/acr/task#az-acr-task-show
+[az-acr-task-show]: /cli/azure/acr/task#az_acr_task_show

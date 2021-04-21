@@ -1,9 +1,8 @@
 ---
-title: Szybki start — & wyświetlanie Azure Key Vault certyfikatów przy użyciu Azure PowerShell
+title: Szybki start — ustawianie & wyświetlania Azure Key Vault certyfikatów przy użyciu Azure PowerShell
 description: Przewodnik Szybki start przedstawiający sposób ustawienia i pobrania certyfikatu z usługi Azure Key Vault użyciu Azure PowerShell
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
@@ -11,16 +10,16 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurepowershell
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 11f463ab0ae60f489fd6b10d06402b6d27fc9930
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: a641ca1206cb41ded0513db72daa278dc3753c85
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502265"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750396"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-powershell"></a>Szybki start: konfigurowanie i pobieranie certyfikatu z usługi Azure Key Vault użyciu Azure PowerShell
 
-W tym przewodniku Szybki start utworzysz magazyn kluczy w Azure Key Vault za pomocą Azure PowerShell. Azure Key Vault to usługa w chmurze, która działa jako bezpieczny magazyn wpisów tajnych. Możesz bezpiecznie przechowywać klucze, hasła, certyfikaty oraz inne wpisy tajne. Aby uzyskać więcej informacji na Key Vault, zapoznaj się z tematem [Omówienie.](../general/overview.md) Azure PowerShell służy do tworzenia zasobów platformy Azure i zarządzania nimi za pomocą poleceń lub skryptów. Po zakończeniu tego procesu certyfikat zostanie przechowynyny.
+W tym przewodniku Szybki start utworzysz magazyn kluczy w Azure Key Vault przy użyciu Azure PowerShell. Azure Key Vault to usługa w chmurze, która działa jako bezpieczny magazyn wpisów tajnych. Możesz bezpiecznie przechowywać klucze, hasła, certyfikaty oraz inne wpisy tajne. Aby uzyskać więcej informacji na Key Vault, zapoznaj się z tematem [Omówienie.](../general/overview.md) Azure PowerShell służy do tworzenia zasobów platformy Azure i zarządzania nimi za pomocą poleceń lub skryptów. Po zakończeniu tego procesu certyfikat zostanie przechowynyny.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

@@ -1,42 +1,42 @@
 ---
-title: Warstwy i funkcje usługi Registry
-description: Dowiedz się więcej o funkcjach i limitach (przydziały) w warstwach usługi podstawowa, standardowa i Premium (SKU) Azure Container Registry.
+title: Warstwy i funkcje usługi rejestru
+description: Dowiedz się więcej o funkcjach i limitach (limitach przydziału) w warstwach usług Podstawowa, Standardowa i Premium (SKU) Azure Container Registry.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: b55fc16dcd6dcb544ed4597ce4bdc6ba17b52646
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 323d36fe022d8b8e9618b8beb1facae93d22df4e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98015672"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781257"
 ---
-# <a name="azure-container-registry-service-tiers"></a>Azure Container Registry warstw usług
+# <a name="azure-container-registry-service-tiers"></a>Azure Container Registry usług
 
-Azure Container Registry jest dostępny w wielu warstwach usług (nazywanych również jednostkami SKU). Te warstwy zapewniają przewidywalną cenę i kilka opcji dopasowania do wzorców pojemności i użycia prywatnego rejestru platformy Docker na platformie Azure.
+Azure Container Registry jest dostępna w wielu warstwach usług (nazywanych również jednostkami SKU). Te warstwy zapewniają przewidywalne ceny i kilka opcji dostosowania do wzorców pojemności i użycia prywatnego rejestru platformy Docker na platformie Azure.
 
 | Warstwa | Opis |
 | --- | ----------- |
-| **Podstawowa** | Zoptymalizowany pod kątem kosztów punkt wejścia dla deweloperów poznających usługę Azure Container Registry. Podstawowe rejestry mają takie same funkcje programistyczne jak standard i Premium (takie jak Azure Active Directory [integracja z uwierzytelnianiem](container-registry-authentication.md#individual-login-with-azure-ad), [Usuwanie obrazu][container-registry-delete]i elementy [webhook][container-registry-webhook]). Jednak przepływność dołączonego magazynu i obrazu jest najbardziej odpowiednia w przypadku małych scenariuszy użycia. |
-| **Standardowa** | Standardowe rejestry oferują te same możliwości co podstawowa, dzięki czemu można zwiększyć pojemność magazynu i przepływność obrazu. Rejestry w warstwie Standardowa powinny spełniać wymagania większości scenariuszy produkcyjnych. |
-| **Premium** | Rejestry Premium zapewniają największą ilość dołączonego magazynu i współbieżnych operacji, co umożliwia wykonywanie scenariuszy o dużej pojemności. Oprócz wyższej przepływności obrazów funkcja Premium dodaje funkcje, takie jak [replikacja geograficzna][container-registry-geo-replication] służąca do zarządzania pojedynczym rejestrem w wielu regionach, [zaufania zawartości](container-registry-content-trust.md) dla podpisywania tagów obrazu, [prywatnego linku z prywatnymi punktami końcowymi](container-registry-private-link.md) w celu ograniczenia dostępu do rejestru. |
+| **Podstawowa** | Zoptymalizowany pod kątem kosztów punkt wejścia dla deweloperów poznających usługę Azure Container Registry. Rejestry podstawowe mają takie same możliwości programowe jak w wersjach [][container-registry-delete]Standardowa i Premium (takie jak integracja uwierzytelniania usługi [Azure Active Directory,](container-registry-authentication.md#individual-login-with-azure-ad)usuwanie obrazów i [elementów webhook).][container-registry-webhook] Jednak uwzględniona przepływność magazynu i obrazu jest najbardziej odpowiednia dla scenariuszy mniejszego użycia. |
+| **Standardowa** | Rejestry w standardowych usługach oferują takie same możliwości jak rejestry w chmurze Podstawowa z większą uwzględnioną przepływnością magazynu i obrazu. Rejestry w warstwie Standardowa powinny spełniać wymagania większości scenariuszy produkcyjnych. |
+| **Premium** | Rejestry w chmurze w chmurze zapewniają największą ilość dołączonego magazynu i operacji współbieżnych, umożliwiając scenariusze o dużej ilości danych. Oprócz większej przepływności obrazu, wersja [][container-registry-geo-replication] Premium dodaje funkcje, takie jak replikacja geograficzna do zarządzania pojedynczym rejestrem w wielu regionach, [](container-registry-content-trust.md) zaufanie do zawartości dla podpisywania tagów obrazów, [](container-registry-private-link.md) łącze prywatne z prywatnymi punktami końcowymi w celu ograniczenia dostępu do rejestru. |
 
-Warstwy Basic, standard i Premium zapewniają te same funkcje programistyczne. Wszystkie korzyści z [magazynu obrazów][container-registry-storage] są również zarządzane całkowicie przez platformę Azure. Wybranie warstwy wyższego poziomu zapewnia lepszą wydajność i skalowalność. W przypadku wielu warstw usług możesz rozpocząć pracę z usługą Basic, a następnie przekonwertować ją na Standard i Premium w miarę wzrostu użycia rejestru.
+Wszystkie warstwy Podstawowa, Standardowa i Premium zapewniają te same możliwości programowe. Wszystkie one również korzystają z magazynu [obrazów zarządzanego][container-registry-storage] w całości przez platformę Azure. Wybranie warstwy wyższego poziomu zapewnia większą wydajność i skalę. W przypadku wielu warstw usług możesz zacząć korzystać z warstwy Podstawowa, a następnie konwertować na warstwy Standardowa i Premium w przypadku wzrostu użycia rejestru.
 
 ## <a name="service-tier-features-and-limits"></a>Funkcje i limity warstwy usług
 
-W poniższej tabeli przedstawiono szczegółowe informacje o funkcjach i limitach rejestru dla warstw usługi Basic, standard i Premium.
+W poniższej tabeli przedstawiono szczegółowo funkcje i limity rejestru w warstwach usług Podstawowa, Standardowa i Premium.
 
 [!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 
-## <a name="changing-tiers"></a>Zmiana warstw
+## <a name="changing-tiers"></a>Zmienianie warstw
 
-Warstwę usług w rejestrze można zmienić za pomocą interfejsu wiersza polecenia platformy Azure lub w Azure Portal. Można swobodnie przesuwać się między warstwami, o ile przełączana warstwa ma wymaganą maksymalną pojemność magazynu. 
+Warstwę usług rejestru można zmienić za pomocą interfejsu wiersza polecenia platformy Azure lub w Azure Portal. Możesz swobodnie przechodzić między warstwami, o ile przełączana warstwa ma wymaganą maksymalną pojemność magazynu. 
 
-Podczas przechodzenia między warstwami usług nie ma żadnego przestoju rejestru ani wpływu na operacje rejestru.
+Podczas przechodzenia między warstwami usług nie występują przestoje rejestru ani nie ma to wpływu na operacje rejestru.
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Aby przejść między warstwami usług w interfejsie wiersza polecenia platformy Azure, użyj polecenia [AZ ACR Update][az-acr-update] . Na przykład, aby przełączyć się do warstwy Premium:
+Aby przechodzić między warstwami usług w interfejsie wiersza polecenia platformy Azure, użyj [polecenia az acr update.][az-acr-update] Aby na przykład przełączyć się na wersję Premium:
 
 ```azurecli
 az acr update --name myregistry --sku Premium
@@ -44,25 +44,25 @@ az acr update --name myregistry --sku Premium
 
 ### <a name="azure-portal"></a>Azure Portal
 
-W obszarze **Przegląd** rejestru kontenerów w Azure Portal wybierz pozycję **Aktualizuj**, a następnie wybierz nową **jednostkę SKU** z listy rozwijanej jednostka SKU.
+W przeglądzie rejestru **kontenerów** w Azure Portal wybierz pozycję **Aktualizuj,** a następnie wybierz nową **pozycję SKU** z listy rozwijanej SKU.
 
-![Aktualizowanie jednostki SKU rejestru kontenerów w Azure Portal][update-registry-sku]
+![Aktualizowanie wersji SKU rejestru kontenerów w Azure Portal][update-registry-sku]
 
 ## <a name="pricing"></a>Ceny
 
-Aby uzyskać informacje o cenach poszczególnych Azure Container Registry warstw usług, zobacz [Container Registry Cennik][container-registry-pricing].
+Aby uzyskać informacje o cenach poszczególnych warstw Azure Container Registry, zobacz [Container Registry cennik.][container-registry-pricing]
 
-Aby uzyskać szczegółowe informacje o cenach transferów danych, zobacz [szczegóły cennika](https://azure.microsoft.com/pricing/details/bandwidth/)dotyczącego przepustowości. 
+Aby uzyskać szczegółowe informacje o cenach transferów danych, zobacz [Szczegóły cennika przepustowości](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
 ## <a name="next-steps"></a>Następne kroki
 
-**Azure Container Registry plan**
+**Azure Container Registry mapy**
 
-Odwiedź [Plan ACR][acr-roadmap] w witrynie GitHub, aby uzyskać informacje o nadchodzących funkcjach usługi.
+Odwiedź stronę [mapy usługi ACR w][acr-roadmap] witrynie GitHub, aby znaleźć informacje o nadchodzących funkcjach w usłudze.
 
 **Azure Container Registry UserVoice**
 
-Prześlij i zagłosuj na nowe sugestie dotyczące funkcji w witrynie [ACR UserVoice][container-registry-uservoice].
+Prześlij sugestie dotyczące nowych funkcji i zagłosuj na nie w [uciece ACR UserVoice.][container-registry-uservoice]
 
 <!-- IMAGES -->
 [update-registry-sku]: ./media/container-registry-skus/update-registry-sku.png
@@ -73,7 +73,7 @@ Prześlij i zagłosuj na nowe sugestie dotyczące funkcji w witrynie [ACR UserVo
 [container-registry-uservoice]: https://feedback.azure.com/forums/903958-azure-container-registry
 
 <!-- LINKS - Internal -->
-[az-acr-update]: /cli/azure/acr#az-acr-update
+[az-acr-update]: /cli/azure/acr#az_acr_update
 [container-registry-geo-replication]: container-registry-geo-replication.md
 [container-registry-storage]: container-registry-storage.md
 [container-registry-delete]: container-registry-delete.md

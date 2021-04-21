@@ -1,57 +1,57 @@
 ---
 title: Importowanie obrazów kontenerów
-description: Zaimportuj obrazy kontenerów do usługi Azure Container Registry za pomocą interfejsów API platformy Azure bez konieczności uruchamiania poleceń platformy Docker.
+description: Importowanie obrazów kontenerów do usługi Azure Container Registry przy użyciu interfejsów API platformy Azure bez konieczności uruchamiania poleceń platformy Docker.
 ms.topic: article
 ms.date: 01/15/2021
-ms.openlocfilehash: b481a2b4f0a08f0ccbfd33f7059e5d8e0c04f5f0
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: e7becadab7f23acd7b85d6d82fd8abbfa7608add
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106221504"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781527"
 ---
-# <a name="import-container-images-to-a-container-registry"></a>Importowanie obrazów kontenera do rejestru kontenerów
+# <a name="import-container-images-to-a-container-registry"></a>Importowanie obrazów kontenerów do rejestru kontenerów
 
-Można łatwo importować (kopiować) obrazy kontenerów do usługi Azure Container Registry bez używania poleceń platformy Docker. Na przykład zaimportuj obrazy z rejestru projektowego do rejestru produkcyjnego lub skopiuj obrazy podstawowe z rejestru publicznego.
+Obrazy kontenerów można łatwo importować (kopiować) do rejestru kontenerów platformy Azure bez używania poleceń platformy Docker. Można na przykład zaimportować obrazy z rejestru dewelopera do rejestru produkcyjnego lub skopiować obrazy podstawowe z rejestru publicznego.
 
 Azure Container Registry obsługuje wiele typowych scenariuszy kopiowania obrazów i innych artefaktów z istniejącego rejestru:
 
-* Importuj obrazy z rejestru publicznego
+* Importowanie obrazów z rejestru publicznego
 
-* Importuj obrazy lub artefakty OCI, w tym wykresy Helm 3 z innego rejestru kontenera platformy Azure, w tej samej lub innej subskrypcji lub dzierżawie platformy Azure
+* Importowanie obrazów lub artefaktów OCI, w tym wykresów programu Helm 3 z innego rejestru kontenerów platformy Azure, w tej samej lub innej subskrypcji lub dzierżawie platformy Azure
 
-* Importuj z rejestru kontenerów prywatnych spoza platformy Azure
+* Importowanie z prywatnego rejestru kontenerów spoza platformy Azure
 
-Importowanie obrazów do usługi Azure Container Registry ma następujące zalety, aby korzystać z poleceń interfejsu wiersza polecenia platformy Docker:
+Importowanie obrazów do usługi Azure Container Registry ma następujące korzyści w witrynie z użyciem poleceń interfejsu wiersza polecenia platformy Docker:
 
-* Ze względu na to, że środowisko klienta nie wymaga lokalnej instalacji platformy Docker, zaimportuj dowolny obraz kontenera niezależnie od obsługiwanego typu systemu operacyjnego.
+* Ponieważ środowisko klienta nie wymaga lokalnej instalacji platformy Docker, zaimportuj dowolny obraz kontenera, niezależnie od obsługiwanego typu systemu operacyjnego.
 
-* Podczas importowania obrazów wieloarchitekturowych (takich jak oficjalne obrazy platformy Docker) obrazy wszystkich architektur i platform określonych na liście manifestów zostaną skopiowane.
+* Podczas importowania obrazów o wielu architekturach (takich jak oficjalne obrazy platformy Docker) kopiowane są obrazy dla wszystkich architektur i platform określonych na liście manifestów.
 
-* Dostęp do rejestru docelowego nie ma konieczności używania publicznego punktu końcowego rejestru.
+* Dostęp do rejestru docelowego nie musi używać publicznego punktu końcowego rejestru.
 
-Aby zaimportować obrazy kontenerów, ten artykuł wymaga uruchomienia interfejsu wiersza polecenia platformy Azure w Azure Cloud Shell lub lokalnie (zalecane jest w wersji 2.0.55 lub nowszej). Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli].
+Aby zaimportować obrazy kontenerów, ten artykuł wymaga uruchomienia interfejsu wiersza polecenia platformy Azure Azure Cloud Shell lokalnie (zalecana jest wersja 2.0.55 lub nowsza). Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli].
 
 > [!NOTE]
-> Jeśli konieczne jest dystrybuowanie identycznych obrazów kontenerów w wielu regionach platformy Azure, Azure Container Registry obsługuje również [replikację geograficzną](container-registry-geo-replication.md). Dzięki replikacji geograficznej rejestru (wymagana warstwa usługi Premium) można obsłużyć wiele regionów z identycznymi nazwami obrazów i tagów z jednego rejestru.
+> Jeśli musisz dystrybuować identyczne obrazy kontenerów w wielu regionach platformy Azure, Azure Container Registry obsługuje również [replikację geograficzną.](container-registry-geo-replication.md) Dzięki replikacji geograficznej rejestru (wymagana warstwa usługi Premium) można obsługiwać wiele regionów z identycznymi nazwami obrazów i tagów z jednego rejestru.
 >
 
 > [!IMPORTANT]
-> Wprowadzono zmiany w importowaniu obrazów między dwoma rejestrami kontenerów platformy Azure, które zostały wprowadzone od stycznia 2021:
-> * Importowanie do lub z usługi Azure Container Registry z ograniczeniami w sieci wymaga, aby rejestr z ograniczeniami [**zezwalał na dostęp zaufanych usług**](allow-access-trusted-services.md) w celu obejścia sieci. Domyślnie to ustawienie jest włączone, co umożliwia import. Jeśli to ustawienie nie jest włączone w nowo utworzonym rejestrze z prywatnym punktem końcowym lub z regułami zapory rejestru, importowanie zakończy się niepowodzeniem. 
-> * W istniejącym w sieci ograniczonym rejestrze kontenerów platformy Azure, który jest używany jako źródło lub cel importu, włączenie tej funkcji zabezpieczeń sieci jest opcjonalne, ale zalecane.
+> Zmiany importowania obrazów między dwoma rejestrami kontenerów platformy Azure zostały wprowadzone od stycznia 2021 r.:
+> * Importowanie do lub z rejestru kontenerów platformy Azure [](allow-access-trusted-services.md) z ograniczeniami sieci wymaga rejestru z ograniczeniami, aby zezwolić na dostęp przez zaufane usługi w celu obejścia sieci. Domyślnie to ustawienie jest włączone, co umożliwia importowanie. Jeśli to ustawienie nie jest włączone w nowo utworzonym rejestrze z prywatnym punktem końcowym lub z regułami zapory rejestru, importowanie nie powiedzie się. 
+> * W istniejącym rejestrze kontenerów platformy Azure z ograniczeniami sieci, który jest używany jako źródło importu lub obiekt docelowy, włączenie tej funkcji zabezpieczeń sieci jest opcjonalne, ale zalecane.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz jeszcze usługi Azure Container Registry, Utwórz rejestr. Aby uzyskać instrukcje, zobacz [Szybki Start: Tworzenie prywatnego rejestru kontenerów za pomocą interfejsu wiersza polecenia platformy Azure](container-registry-get-started-azure-cli.md).
+Jeśli nie masz jeszcze rejestru kontenerów platformy Azure, utwórz rejestr. Aby uzyskać instrukcje, zobacz [Szybki start: tworzenie prywatnego rejestru kontenerów przy użyciu interfejsu wiersza polecenia platformy Azure.](container-registry-get-started-azure-cli.md)
 
-Do zaimportowania obrazu do usługi Azure Container Registry tożsamość musi mieć uprawnienia do zapisu w rejestrze docelowym (co najmniej rola współautor lub rola niestandardowa, która umożliwia działanie importImage). Zobacz [Azure Container Registry ról i uprawnień](container-registry-roles.md#custom-roles). 
+Aby zaimportować obraz do rejestru kontenerów platformy Azure, tożsamość musi mieć uprawnienia do zapisu w rejestrze docelowym (co najmniej rola Współautor lub rola niestandardowa, która zezwala na akcję importImage). Zobacz [Azure Container Registry i uprawnienia.](container-registry-roles.md#custom-roles) 
 
-## <a name="import-from-a-public-registry"></a>Importuj z rejestru publicznego
+## <a name="import-from-a-public-registry"></a>Importowanie z rejestru publicznego
 
-### <a name="import-from-docker-hub"></a>Importuj z usługi Docker Hub
+### <a name="import-from-docker-hub"></a>Importowanie z Docker Hub
 
-Na przykład użyj polecenia [AZ ACR import][az-acr-import] w celu zaimportowania obrazu wieloarchitekturowego `hello-world:latest` z usługi Docker Hub do rejestru o nazwie Moje *Rejestr*. Ponieważ `hello-world` jest oficjalnym obrazem z usługi Docker Hub, ten obraz znajduje się w domyślnym `library` repozytorium. Dołącz nazwę repozytorium i opcjonalnie tag w wartości `--source` parametru obrazu. (Opcjonalnie można zidentyfikować obraz według jego skrótu manifestu zamiast znacznika, który gwarantuje określoną wersję obrazu).
+Na przykład użyj polecenia [az acr import,][az-acr-import] aby zaimportować obraz o wielu architekturach z Docker Hub do rejestru `hello-world:latest` o nazwie *myregistry*. Ponieważ `hello-world` jest to oficjalny obraz z Docker Hub, ten obraz znajduje się w `library` repozytorium domyślnym. Dołącz nazwę repozytorium i opcjonalnie tag w wartości `--source` parametru obrazu. (Opcjonalnie można zidentyfikować obraz według jego skrótu manifestu zamiast według tagu, co gwarantuje określoną wersję obrazu).
  
 ```azurecli
 az acr import \
@@ -60,7 +60,7 @@ az acr import \
   --image hello-world:latest
 ```
 
-Aby sprawdzić, czy do tego obrazu są skojarzone wiele manifestów, należy uruchomić `az acr repository show-manifests` polecenie:
+Możesz sprawdzić, czy z tym obrazem jest skojarzonych wiele manifestów, uruchamiając `az acr repository show-manifests` polecenie:
 
 ```azurecli
 az acr repository show-manifests \
@@ -68,7 +68,7 @@ az acr repository show-manifests \
   --repository hello-world
 ```
 
-Jeśli masz konto usługi [Docker Hub](https://www.docker.com/pricing), zalecamy użycie poświadczeń podczas importowania obrazu z usługi Docker Hub. Przekaż nazwę użytkownika centrum platformy Docker oraz hasło lub [token dostępu osobistego](https://docs.docker.com/docker-hub/access-tokens/) jako parametry do programu `az acr import` . Poniższy przykład importuje obraz publiczny z `tensorflow` repozytorium w usłudze Docker Hub przy użyciu poświadczeń usługi Docker Hub:
+Jeśli masz konto [Docker Hub](https://www.docker.com/pricing), zalecamy użycie poświadczeń podczas importowania obrazu z Docker Hub. Przekaż nazwę Docker Hub użytkownika i hasło lub [osobisty token dostępu jako](https://docs.docker.com/docker-hub/access-tokens/) parametry do pliku `az acr import` . Poniższy przykład importuje obraz publiczny z repozytorium w `tensorflow` programie Docker Hub przy użyciu Docker Hub poświadczeń:
 
 ```azurecli
 az acr import \
@@ -79,9 +79,9 @@ az acr import \
   --password <Docker Hub token>
 ```
 
-### <a name="import-from-microsoft-container-registry"></a>Importuj z Container Registry firmy Microsoft
+### <a name="import-from-microsoft-container-registry"></a>Importowanie z Microsoft Container Registry
 
-Na przykład zaimportuj `ltsc2019` obraz systemu Windows Server Core z `windows` repozytorium w programie Microsoft Container Registry.
+Na przykład zaimportuj `ltsc2019` obraz Systemu Windows Server Core z `windows` repozytorium w Microsoft Container Registry.
 
 ```azurecli
 az acr import \
@@ -90,21 +90,21 @@ az acr import \
 --image servercore:ltsc2019
 ```
 
-## <a name="import-from-an-azure-container-registry-in-the-same-ad-tenant"></a>Importowanie z usługi Azure Container Registry w ramach tej samej dzierżawy usługi AD
+## <a name="import-from-an-azure-container-registry-in-the-same-ad-tenant"></a>Importowanie z rejestru kontenerów platformy Azure w tej samej dzierżawie usługi AD
 
-Możesz zaimportować obraz z usługi Azure Container Registry w tej samej dzierżawie usługi AD przy użyciu zintegrowanych uprawnień Azure Active Directory.
+Obraz można zaimportować z rejestru kontenerów platformy Azure w tej samej dzierżawie usługi AD przy użyciu zintegrowanych Azure Active Directory usługi.
 
-* Twoja tożsamość musi mieć uprawnienia Azure Active Directory do odczytu z rejestru źródłowego (roli czytelnika) oraz do importowania do rejestru docelowego (rola współautora lub [rola niestandardowa](container-registry-roles.md#custom-roles) , która umożliwia działanie importImage).
+* Tożsamość musi mieć uprawnienia Azure Active Directory odczytu z rejestru źródłowego (roli Czytelnik) i importowania do rejestru [](container-registry-roles.md#custom-roles) docelowego (rola współautora lub roli niestandardowej, która umożliwia akcję importImage).
 
-* Rejestr może znajdować się w tej samej lub innej subskrypcji platformy Azure w tej samej dzierżawie Active Directory.
+* Rejestr może być w tej samej lub innej subskrypcji platformy Azure w tej samej dzierżawie usługi Active Directory.
 
-* [Publiczny dostęp](container-registry-access-selected-networks.md#disable-public-network-access) do rejestru źródłowego może być wyłączony. Jeśli dostęp publiczny jest wyłączony, określ rejestr źródłowy według identyfikatora zasobu zamiast nazwy serwera logowania rejestru.
+* [Dostęp publiczny](container-registry-access-selected-networks.md#disable-public-network-access) do rejestru źródłowego może być wyłączony. Jeśli dostęp publiczny jest wyłączony, określ rejestr źródłowy według identyfikatora zasobu, a nie nazwy serwera logowania rejestru.
 
-* Jeśli rejestr źródłowy i/lub rejestr docelowy mają prywatny punkt końcowy lub reguły zapory rejestru są stosowane, należy się upewnić, że rejestr z ograniczeniami [zezwala zaufanym usługom](allow-access-trusted-services.md) na dostęp do sieci.
+* Jeśli w rejestrze źródłowym i/lub rejestrze docelowym zastosowano reguły zapory prywatnego punktu końcowego [](allow-access-trusted-services.md) lub rejestru, upewnij się, że rejestr z ograniczeniami umożliwia zaufanym usługom dostęp do sieci.
 
-### <a name="import-from-a-registry-in-the-same-subscription"></a>Importuj z rejestru w ramach tej samej subskrypcji
+### <a name="import-from-a-registry-in-the-same-subscription"></a>Importowanie z rejestru w tej samej subskrypcji
 
-Na przykład zaimportuj `aci-helloworld:latest` obraz ze źródłowego rejestru *mysourceregistry* do *rejestru* w tej samej subskrypcji platformy Azure.
+Na przykład zaimportuj obraz z rejestru `aci-helloworld:latest` źródłowego *mysourceregistry* do *myregistry* w tej samej subskrypcji platformy Azure.
 
 ```azurecli
 az acr import \
@@ -113,7 +113,7 @@ az acr import \
   --image aci-helloworld:latest
 ```
 
-Poniższy przykład importuje `aci-helloworld:latest` obraz do *rejestru* ze źródłowego rejestru *mysourceregistry* , w którym dostęp do publicznego punktu końcowego rejestru jest wyłączony. Podaj identyfikator zasobu rejestru źródłowego z `--registry` parametrem. Należy zauważyć, że `--source` parametr określa tylko repozytorium źródłowe i tag, a nie nazwę serwera logowania rejestru.
+Poniższy przykład importuje obraz do `aci-helloworld:latest` *myregistry* z rejestru źródłowego *mysourceregistry,* w którym dostęp do publicznego punktu końcowego rejestru jest wyłączony. W identyfikatorze zasobu rejestru źródłowego należy podać `--registry` parametr . Zwróć uwagę, że parametr określa tylko repozytorium źródłowe i tag, a `--source` nie nazwę serwera logowania rejestru.
 
 ```azurecli
 az acr import \
@@ -123,7 +123,7 @@ az acr import \
   --registry /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sourceResourceGroup/providers/Microsoft.ContainerRegistry/registries/mysourceregistry
 ```
 
-Poniższy przykład importuje obraz przez szyfrowanie manifestu (skrót SHA-256, reprezentowane jako `sha256:...` ), a nie przez tag:
+Poniższy przykład importuje obraz według skrótu manifestu (skrót SHA-256 reprezentowany jako `sha256:...` ) zamiast według tagu:
 
 ```azurecli
 az acr import \
@@ -131,9 +131,9 @@ az acr import \
   --source mysourceregistry.azurecr.io/aci-helloworld@sha256:123456abcdefg 
 ```
 
-### <a name="import-from-a-registry-in-a-different-subscription"></a>Importuj z rejestru w innej subskrypcji
+### <a name="import-from-a-registry-in-a-different-subscription"></a>Importowanie z rejestru w innej subskrypcji
 
-W poniższym przykładzie *mysourceregistry* znajduje się w innej subskrypcji z *rejestru* w tej samej dzierżawie Active Directory. Podaj identyfikator zasobu rejestru źródłowego z `--registry` parametrem. Należy zauważyć, że `--source` parametr określa tylko repozytorium źródłowe i tag, a nie nazwę serwera logowania rejestru.
+W poniższym przykładzie *mysourceregistry* znajduje się w innej subskrypcji niż *myregistry* w tej samej dzierżawie usługi Active Directory. W identyfikatorze zasobu rejestru źródłowego należy podać `--registry` parametr . Zwróć uwagę, że parametr określa tylko repozytorium źródłowe i tag, a `--source` nie nazwę serwera logowania rejestru.
 
 ```azurecli
 az acr import \
@@ -145,7 +145,7 @@ az acr import \
 
 ### <a name="import-from-a-registry-using-service-principal-credentials"></a>Importowanie z rejestru przy użyciu poświadczeń jednostki usługi
 
-Aby zaimportować z rejestru, do którego nie można uzyskać dostępu za pomocą uprawnień zintegrowanych Active Directory, można użyć poświadczeń jednostki usługi (jeśli są dostępne) w rejestrze źródłowym. Podaj identyfikator appID i hasło [nazwy głównej usługi](container-registry-auth-service-principal.md) Active Directory, która ma dostęp ACRPull do rejestru źródłowego. Użycie jednostki usługi jest przydatne w przypadku systemów kompilacji i innych systemów nienadzorowanych, które muszą importować obrazy do rejestru.
+Aby zaimportować dane z rejestru, do których nie można uzyskać dostępu przy użyciu zintegrowanych uprawnień usługi Active Directory, możesz użyć poświadczeń jednostki usługi (jeśli są dostępne) do rejestru źródłowego. Należy podać wartość appID i hasło jednostki usługi Active [Directory,](container-registry-auth-service-principal.md) która ma dostęp do rejestru źródłowego za pomocą usługi ACRPull. Użycie jednostki usługi jest przydatne w przypadku systemów kompilacji i innych systemów nienadzorowanych, które muszą importować obrazy do rejestru.
 
 ```azurecli
 az acr import \
@@ -156,9 +156,9 @@ az acr import \
   --password <SP_Passwd>
 ```
 
-## <a name="import-from-an-azure-container-registry-in-a-different-ad-tenant"></a>Importowanie z usługi Azure Container Registry w innej dzierżawie usługi AD
+## <a name="import-from-an-azure-container-registry-in-a-different-ad-tenant"></a>Importowanie z rejestru kontenerów platformy Azure w innej dzierżawie usługi AD
 
-Aby zaimportować dane z rejestru kontenerów platformy Azure w innej dzierżawie Azure Active Directory, określ rejestr źródłowy według nazwy serwera logowania i podaj poświadczenia nazwy użytkownika i hasła, które umożliwiają uzyskanie dostępu do rejestru. Można na przykład użyć tokenu i hasła w [zakresie repozytorium](container-registry-repository-scoped-permissions.md) lub identyfikatora AppID i hasła jednostki [usługi](container-registry-auth-service-principal.md) Active Directory, która ma dostęp ACRPull do rejestru źródłowego. 
+Aby zaimportować dane z rejestru kontenerów platformy Azure w innej dzierżawie usługi Azure Active Directory, określ rejestr źródłowy według nazwy serwera logowania i podaj poświadczenia nazwy użytkownika i hasła, które umożliwiają dostęp do ściągania do rejestru. Na przykład użyj [](container-registry-repository-scoped-permissions.md) tokenu i hasła w zakresie repozytorium lub wartości appID i hasła jednostki usługi Active [Directory,](container-registry-auth-service-principal.md) która ma dostęp do rejestru źródłowego za pomocą usługi ACRPull. 
 
 ```azurecli
 az acr import \
@@ -169,9 +169,9 @@ az acr import \
   --password <SP_Passwd>
 ```
 
-## <a name="import-from-a-non-azure-private-container-registry"></a>Importuj z rejestru kontenerów prywatnych spoza platformy Azure
+## <a name="import-from-a-non-azure-private-container-registry"></a>Importowanie z prywatnego rejestru kontenerów spoza platformy Azure
 
-Zaimportuj obraz z rejestru prywatnego niepochodzącego od platformy Azure, określając poświadczenia umożliwiające dostęp ściągający do rejestru. Na przykład Pobierz obraz z prywatnego rejestru platformy Docker: 
+Zaimportuj obraz z rejestru prywatnego spoza platformy Azure, określając poświadczenia umożliwiające dostęp do ściągania do rejestru. Na przykład ściągnij obraz z prywatnego rejestru platformy Docker: 
 
 ```azurecli
 az acr import \
@@ -184,10 +184,10 @@ az acr import \
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule przedstawiono informacje o importowaniu obrazów kontenerów do usługi Azure Container Registry z rejestru publicznego lub innego rejestru prywatnego. Dodatkowe opcje importowania obrazu można znaleźć w temacie [AZ ACR import][az-acr-import] Command Reference. 
+W tym artykule o tym, jak importować obrazy kontenerów do rejestru kontenerów platformy Azure z rejestru publicznego lub innego rejestru prywatnego. Aby uzyskać dodatkowe opcje importowania obrazów, zobacz informacje o [poleceniu az acr import.][az-acr-import] 
 
 
 <!-- LINKS - Internal -->
-[az-login]: /cli/azure/reference-index#az-login
-[az-acr-import]: /cli/azure/acr#az-acr-import
+[az-login]: /cli/azure/reference-index#az_login
+[az-acr-import]: /cli/azure/acr#az_acr_import
 [azure-cli]: /cli/azure/install-azure-cli

@@ -1,6 +1,6 @@
 ---
 title: Efemeryczne dyski systemu operacyjnego
-description: Dowiedz się więcej o dyskach tymczasowych systemu operacyjnego dla maszyn wirtualnych platformy Azure.
+description: Dowiedz się więcej o efemeralnych dyskach systemu operacyjnego dla maszyn wirtualnych platformy Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
@@ -8,61 +8,61 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 814824fb6708abaf549bb3de19b4aced4774a244
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 24b1be2ca55b057c887c8782ce7eea1150f143da
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102485762"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762627"
 ---
-# <a name="ephemeral-os-disks-for-azure-vms"></a>Tymczasowe dyski systemu operacyjnego dla maszyn wirtualnych platformy Azure
+# <a name="ephemeral-os-disks-for-azure-vms"></a>Efemeracyjne dyski systemu operacyjnego dla maszyn wirtualnych platformy Azure
 
-Dyski tymczasowe systemu operacyjnego są tworzone na lokalnym magazynie maszyny wirtualnej i nie zostały zapisane w zdalnym magazynie platformy Azure. Tymczasowe dyski systemu operacyjnego działają dobrze w przypadku obciążeń bezstanowych, w przypadku których aplikacje są odporne na pojedyncze awarie maszyn wirtualnych, ale mają większe wpływ na czas wdrażania maszyny wirtualnej lub odtwarzanie obrazów poszczególnych wystąpień maszyn wirtualnych. Dzięki tymczasowemu dyskowi systemu operacyjnego uzyskujesz mniejsze opóźnienie odczytu/zapisu na dysku systemu operacyjnego i szybsze odtwarzanie maszyn wirtualnych. 
+Efemeracyjne dyski systemu operacyjnego są tworzone w magazynie lokalnej maszyny wirtualnej i nie są zapisywane w zdalnej usłudze Azure Storage. Efemeralne dyski systemu operacyjnego dobrze działają w przypadku obciążeń bez stanowych, w których aplikacje są tolerowane na awarie poszczególnych maszyn wirtualnych, ale mają większy wpływ na czas wdrażania maszyny wirtualnej lub ponowne odtwarzanie poszczególnych wystąpień maszyn wirtualnych. Dzięki efemernemu dyskowi systemu operacyjnego masz mniejsze opóźnienie odczytu/zapisu na dysku systemu operacyjnego i szybsze odtwarzanie maszyny wirtualnej z obrazu. 
  
-Kluczowe funkcje dysków tymczasowych są następujące: 
-- Idealne rozwiązanie w przypadku aplikacji bezstanowych.
-- Mogą być używane zarówno w portalu Marketplace, jak i w obrazach niestandardowych.
-- Możliwość szybkiego resetowania lub odobrazowania maszyn wirtualnych oraz wystąpień zestawów skalowania do oryginalnego stanu rozruchu.  
-- Małe opóźnienia, podobne do dysku tymczasowego. 
-- Dyski tymczasowe systemu operacyjnego są bezpłatne, ale nie są naliczane żadne koszty związane z magazynowaniem dysku systemu operacyjnego.
+Najważniejsze funkcje dysków efemeralnych to: 
+- Idealne rozwiązanie w przypadku aplikacji bez stanowych.
+- Można ich używać zarówno z obrazami witryny Marketplace, jak i obrazami niestandardowymi.
+- Możliwość szybkiego resetowania lub ponownego tworzenia maszyn wirtualnych i wystąpień zestawu skalowania do oryginalnego stanu rozruchu.  
+- Mniejsze opóźnienie, podobne do dysku tymczasowego. 
+- Efemeralne dyski systemu operacyjnego są bezpłatne, nie są naliczane żadne opłaty za magazyn dla dysku systemu operacyjnego.
 - Są one dostępne we wszystkich regionach świadczenia usługi Azure. 
-- Dysk z systemem operacyjnym jest obsługiwany przez [galerię obrazów udostępnionych](./shared-image-galleries.md). 
+- Efemeralny dysk systemu operacyjnego jest obsługiwany [przez](./shared-image-galleries.md)Shared Image Gallery . 
  
 
  
-Kluczowe różnice między dyskami trwałymi i stałymi systemu operacyjnego:
+Kluczowe różnice między trwałymi i efemerskimi dyskami systemu operacyjnego:
 
 |                             | Trwały dysk systemu operacyjnego                          | Efemeryczny dysk systemu operacyjnego                              |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
-| **Limit rozmiaru dysku systemu operacyjnego**      | 2 TiB                                                                                        | Rozmiar pamięci podręcznej dla rozmiaru maszyny wirtualnej lub 2TiB, w zależności od tego, który jest mniejszy. Dla **rozmiaru pamięci podręcznej w GIB**, zobacz [ds](sizes-general.md), [es](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md)i [GS](sizes-previous-gen.md#gs-series)              |
-| **Obsługiwane rozmiary maszyn wirtualnych**          | Wszystko                                                                                          | Rozmiary maszyn wirtualnych obsługujące magazyn Premium Storage, takie jak DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, M                                               |
-| **Obsługa typu dysku**           | Zarządzany i niezarządzany dysk systemu operacyjnego                                                                | Tylko zarządzany dysk systemu operacyjnego                                                               |
+| **Limit rozmiaru dysku systemu operacyjnego**      | 2 TiB                                                                                        | Rozmiar pamięci podręcznej dla rozmiaru maszyny wirtualnej lub 2TiB, w zależności od tego, który z nich jest mniejszy. Aby uzyskać **informacje o rozmiarze pamięci podręcznej w GiB**, [zobacz DS,](sizes-general.md) [ES,](sizes-memory.md) [M,](sizes-memory.md) [FS](sizes-compute.md)i [GS](sizes-previous-gen.md#gs-series)              |
+| **Obsługiwane rozmiary maszyn wirtualnych**          | Wszystko                                                                                          | Rozmiary maszyn wirtualnych, które obsługują magazyn Premium, takie jak DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
+| **Obsługa typów dysków**           | Zarządzany i nieza zarządzany dysk systemu operacyjnego                                                                | Tylko zarządzany dysk systemu operacyjnego                                                               |
 | **Obsługa regionów**              | Wszystkie regiony                                                                                  | Wszystkie regiony                              |
-| **Trwałość danych**            | Dane dysku systemu operacyjnego zapisane na dysku systemu operacyjnego są przechowywane w usłudze Azure Storage                                  | Dane zapisane na dysku systemu operacyjnego są przechowywane w lokalnym magazynie maszyn wirtualnych i nie są utrwalane w usłudze Azure Storage. |
-| **Stan zatrzymania bez przydziału**      | Wystąpienia maszyn wirtualnych i zestawów skalowania można zatrzymać bez przydziału i ponownie uruchamiać ze stanu wstrzymania bez przydziału | Nie można zatrzymać cofania przydziału maszyn wirtualnych i wystąpień zestawów skalowania                                  |
-| **Wyspecjalizowana Obsługa dysków systemu operacyjnego** | Tak                                                                                          | Nie                                                                                 |
-| **Zmiana rozmiaru dysku systemu operacyjnego**              | Obsługiwane podczas tworzenia maszyny wirtualnej i cofanie przydziału maszyny wirtualnej                                | Obsługiwane tylko podczas tworzenia maszyny wirtualnej                                                  |
-| **Zmienianie rozmiaru do nowego rozmiaru maszyny wirtualnej**   | Dane dysku systemu operacyjnego są zachowywane                                                                    | Dane na dysku systemu operacyjnego są usuwane, ponowne Inicjowanie obsługi systemu operacyjnego       
-| **Położenie pliku stronicowania**   | Dla systemu Windows, plik stronicowania jest przechowywany na dysku zasobów                                              | W przypadku systemu Windows plik stronicowania jest przechowywany na dysku systemu operacyjnego   |
+| **Trwałość danych**            | Dane dysku systemu operacyjnego zapisywane na dysku systemu operacyjnego są przechowywane w usłudze Azure Storage                                  | Dane zapisane na dysku systemu operacyjnego są przechowywane w lokalnym magazynie maszyny wirtualnej i nie są utrwalane w usłudze Azure Storage. |
+| **Stan zatrzymania— cofniesz alokację**      | Maszyny wirtualne i wystąpienia zestawu skalowania mogą zostać zatrzymane, a ich alokacja może zostać cofzona i ponownie uruchomiona ze stanu zatrzymać— cofniesz alokację | Nie można zatrzymać/cofnić alokacji maszyn wirtualnych i wystąpień zestawu skalowania                                  |
+| **Obsługa wyspecjalizowanych dysków systemu operacyjnego** | Tak                                                                                          | Nie                                                                                 |
+| **Zmiana rozmiaru dysku systemu operacyjnego**              | Obsługiwane podczas tworzenia maszyny wirtualnej i po zatrzymaniu maszyny wirtualnej — cofniesz jej alokację                                | Obsługiwane tylko podczas tworzenia maszyny wirtualnej                                                  |
+| **Zmiana rozmiaru na nowy rozmiar maszyny wirtualnej**   | Dane dysku systemu operacyjnego są zachowywane                                                                    | Dane na dysku systemu operacyjnego są usuwane, system operacyjny jest ponownie aprowowany       
+| **Umieszczanie pliku stronicowania**   | W przypadku systemu Windows plik stronicowy jest przechowywany na dysku zasobów                                              | W przypadku systemu Windows plik stronicowy jest przechowywany na dysku systemu operacyjnego   |
 
 ## <a name="size-requirements"></a>Wymagania dotyczące rozmiaru
 
-Możesz wdrożyć maszyny wirtualne i obrazy wystąpień o rozmiarze do rozmiaru pamięci podręcznej maszyny wirtualnej. Na przykład standardowe obrazy systemu Windows Server z portalu Marketplace dotyczą 127 GiB, co oznacza, że potrzebujesz rozmiaru maszyny wirtualnej, która ma pamięć podręczną o rozmiarze większym niż 127 GiB. W tym przypadku [Standard_DS2_v2](dv2-dsv2-series.md) ma rozmiar pamięci podręcznej wynoszącej 86 GIB, która nie jest wystarczająco duża. Standard_DS3_v2 ma rozmiar pamięci podręcznej 172 GiB, która jest wystarczająco duża. W takim przypadku Standard_DS3_v2 jest najmniejszy rozmiar w serii DSv2, którego można używać z tym obrazem. Podstawowe obrazy systemu Linux w obrazach z witryny Marketplace i Windows Server, które są ujęte w wyniku `[smallsize]` przetargu na około 30 Gib i mogą korzystać z większości dostępnych rozmiarów maszyn wirtualnych.
+Możesz wdrożyć obrazy maszyn wirtualnych i wystąpień do rozmiaru pamięci podręcznej maszyny wirtualnej. Na przykład standardowe obrazy systemu Windows Server z platformy handlowej mają rozmiar około 127 GiB, co oznacza, że potrzebny jest rozmiar maszyny wirtualnej z pamięcią podręczną większą niż 127 GiB. W tym przypadku rozmiar [Standard_DS2_v2](dv2-dsv2-series.md) pamięci podręcznej wynosi 86 GiB, co nie jest wystarczająco duże. Rozmiar Standard_DS3_v2 pamięci podręcznej wynosi 172 GiB, co jest wystarczająco duże. W tym przypadku rozmiar Standard_DS3_v2 najmniejszą z serii DSv2, których można użyć z tym obrazem. Podstawowe obrazy systemu Linux w witrynie Marketplace i obrazy systemu Windows Server, które są oznaczone przez usługę , zazwyczaj mają rozmiar około 30 GiB i mogą używać większości `[smallsize]` dostępnych rozmiarów maszyn wirtualnych.
 
-Dyski tymczasowe wymagają również, aby rozmiar maszyny wirtualnej obsługiwał usługę Premium Storage. Rozmiary zwykle (ale nie zawsze) mają `s` nazwę, taką jak DSv2 i EsV3. Aby uzyskać więcej informacji, zobacz [rozmiary maszyn wirtualnych platformy Azure](sizes.md) , aby uzyskać szczegółowe informacje o tym, które rozmiary obsługują usługę Premium Storage.
+Dyski efemeracyjne wymagają również, aby rozmiar maszyny wirtualnej obsługuje magazyn w warstwie Premium. Rozmiary zwykle (ale nie zawsze) mają nazwę , na `s` przykład DSv2 i EsV3. Aby uzyskać więcej informacji, zobacz [Rozmiary maszyn wirtualnych platformy Azure,](sizes.md) aby uzyskać szczegółowe informacje na temat rozmiarów, które obsługują usługę Premium Storage.
 
-## <a name="preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks"></a>Wersja zapoznawcza — dyski z systemem operacyjnym mogą być teraz przechowywane na dyskach tymczasowych
-Tymczasowe dyski systemu operacyjnego mogą teraz być przechowywane na dysku tymczasowym/zasobów maszyny wirtualnej oprócz pamięci podręcznej maszyny wirtualnej. W związku z tym teraz można używać tymczasowych dysków systemu operacyjnego z maszyną wirtualną, która nie ma pamięci podręcznej lub ma niewystarczającą pamięć podręczną, ale ma dysk temp/Resource do przechowywania tymczasowego dysku systemu operacyjnego, takiego jak Dav3, Dav4, Eav4 i Eav3. Jeśli maszyna wirtualna ma wystarczającą ilość pamięci podręcznej i tymczasową, można teraz określić miejsce przechowywania tymczasowego dysku systemu operacyjnego przy użyciu nowej właściwości o nazwie [DiffDiskPlacement](/rest/api/compute/virtualmachines/list#diffdiskplacement). Po zainicjowaniu obsługi maszyny wirtualnej z systemem Windows zostanie skonfigurowany plik stronicowania, który ma znajdować się na dysku systemu operacyjnego. Ta funkcja jest obecnie w wersji zapoznawczej. Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Aby rozpocząć, [Zażądaj dostępu](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u).
+## <a name="preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks"></a>Wersja zapoznawcza — efemeralne dyski systemu operacyjnego można teraz przechowywać na dyskach tymczasowych
+Efemeracyjne dyski systemu operacyjnego można teraz przechowywać na dysku tymczasowym/zasobowym maszyny wirtualnej oprócz pamięci podręcznej maszyny wirtualnej. Teraz możesz używać efemeralnych dysków systemu operacyjnego z maszyną wirtualną, która nie ma pamięci podręcznej lub nie ma wystarczającej pamięci podręcznej, ale ma dysk tymczasowy/dysk zasobu do przechowywania efemerskiego dysku systemu operacyjnego, takiego jak Dav3, Dav4, Eav4 i Eav3. Jeśli maszyna wirtualna ma wystarczającą ilość pamięci podręcznej i miejsca tymczasowego, teraz będzie można również określić miejsce przechowywania efemerskiego dysku systemu operacyjnego przy użyciu nowej właściwości o nazwie [DiffDiskPlacement](/rest/api/compute/virtualmachines/list#diffdiskplacement). Dzięki tej funkcji podczas aprowizowania maszyny wirtualnej z systemem Windows konfigurujemy plik stronicowania tak, aby znajdował się na dysku systemu operacyjnego. Ta funkcja jest obecnie w wersji zapoznawczej. Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Aby rozpocząć, [zażądaj dostępu](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u).
 
 ## <a name="powershell"></a>PowerShell
 
-Aby użyć dysku tymczasowych do wdrożenia maszyny wirtualnej programu PowerShell, należy użyć polecenia [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) w konfiguracji maszyny wirtualnej. Ustaw wartość `-DiffDiskSetting` na `Local` i `-Caching` `ReadOnly` .     
+Aby użyć dysku efemery w celu wdrożenia maszyny wirtualnej programu PowerShell, użyj polecenia [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) w konfiguracji maszyny wirtualnej. Ustaw dla `-DiffDiskSetting` i `Local` wartość `-Caching` `ReadOnly` .     
 
 ```powershell
 Set-AzVMOSDisk -DiffDiskSetting Local -Caching ReadOnly
 ```
 
-W przypadku wdrożeń zestawu skalowania należy użyć polecenia cmdlet [Set-AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) w konfiguracji. Ustaw wartość `-DiffDiskSetting` na `Local` i `-Caching` `ReadOnly` .
+W przypadku wdrożeń zestawu skalowania użyj polecenia cmdlet [Set-AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) w konfiguracji. Ustaw dla `-DiffDiskSetting` i `Local` wartość `-Caching` `ReadOnly` .
 
 
 ```powershell
@@ -71,7 +71,7 @@ Set-AzVmssStorageProfile -DiffDiskSetting Local -OsDiskCaching ReadOnly
 
 ## <a name="cli"></a>Interfejs wiersza polecenia
 
-Aby użyć dysku tymczasowych do wdrożenia maszyny wirtualnej z interfejsem wiersza polecenia, należy ustawić `--ephemeral-os-disk` parametr w [AZ VM Create](/cli/azure/vm#az-vm-create) to `true` i `--os-disk-caching` parametr na `ReadOnly` .
+Aby użyć dysku efemeryzowego do wdrożenia maszyny wirtualnej interfejsu wiersza polecenia, ustaw parametr w parametrze az vm create na , a `--ephemeral-os-disk` parametr na [](/cli/azure/vm#az_vm_create) `true` `--os-disk-caching` `ReadOnly` .
 
 ```azurecli-interactive
 az vm create \
@@ -84,22 +84,22 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Dla zestawów skalowania Użyj tego samego `--ephemeral-os-disk true` parametru dla [AZ-VMSS-Create](/cli/azure/vmss#az-vmss-create) i ustaw `--os-disk-caching` parametr na `ReadOnly` .
+W przypadku zestawów skalowania użyj tego samego `--ephemeral-os-disk true` parametru dla [parametru az-vmss-create](/cli/azure/vmss#az_vmss_create) i ustaw `--os-disk-caching` parametr na `ReadOnly` .
 
 ## <a name="portal"></a>Portal
 
-W Azure Portal można wybrać używanie dysków tymczasowych podczas wdrażania maszyny wirtualnej, otwierając sekcję **Zaawansowane** na karcie **dyski** . W obszarze **dysk tymczasowe systemu operacyjnego** wybierz pozycję **tak**.
+W Azure Portal można użyć dysków efemeralnych podczas wdrażania maszyny wirtualnej, otwierając sekcję Zaawansowane **na karcie Dyski.**  W **przypadku opcji Użyj efemerowego dysku systemu operacyjnego wybierz** pozycję **Tak.**
 
-![Zrzut ekranu przedstawiający przycisk radiowy służący do wybierania użycia dysku z systemem operacyjnym](./media/virtual-machines-common-ephemeral/ephemeral-portal.png)
+![Zrzut ekranu przedstawiający przycisk radiowy do wybierania użycia efemeralnego dysku systemu operacyjnego](./media/virtual-machines-common-ephemeral/ephemeral-portal.png)
 
-Jeśli opcja korzystania z dysku tymczasowych jest wyszarzona, być może wybrano rozmiar maszyny wirtualnej, który nie ma rozmiaru pamięci podręcznej większej niż obraz systemu operacyjnego lub nie obsługuje usługi Premium Storage. Wróć do strony **podstawy** i spróbuj wybrać inny rozmiar maszyny wirtualnej.
+Jeśli opcja użycia dysku efemeryzowego jest wyszarana, być może wybrano rozmiar maszyny wirtualnej, który nie ma rozmiaru pamięci podręcznej większego niż obraz systemu operacyjnego lub który nie obsługuje magazynu w chmurze Premium. Wstecz na stronę **Podstawowe** i spróbuj wybrać inny rozmiar maszyny wirtualnej.
 
-Zestawy skalowania można również tworzyć przy użyciu tymczasowych dysków systemu operacyjnego za pomocą portalu. Upewnij się, że wybrano rozmiar maszyny wirtualnej z wystarczającą ilością pamięci podręcznej, a następnie w obszarze **Użyj dysku z systemem operacyjnym** , wybierz pozycję **tak**.
+Przy użyciu portalu można również tworzyć zestawy skalowania z efemerskimi dyskami systemu operacyjnego. Po prostu upewnij się, że wybierasz rozmiar maszyny wirtualnej z wystarczająco dużym rozmiarem pamięci podręcznej, a następnie w opcji Użyj **efemerowego** dysku systemu operacyjnego wybierz pozycję **Tak.**
 
-![Zrzut ekranu przedstawiający przycisk radiowy służący do wybierania użycia dysku z systemem operacyjnym w ramach zestawu skalowania](./media/virtual-machines-common-ephemeral/scale-set.png)
+![Zrzut ekranu przedstawiający przycisk radiowy do wybierania użycia efemeralnego dysku systemu operacyjnego dla zestawu skalowania](./media/virtual-machines-common-ephemeral/scale-set.png)
 
-## <a name="scale-set-template-deployment"></a>Wdrożenie szablonu zestawu skalowania  
-Proces tworzenia zestawu skalowania, który używa tymczasowych dysków systemu operacyjnego, to dodanie `diffDiskSettings` właściwości do `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` typu zasobu w szablonie. Ponadto zasady buforowania muszą być ustawione na dysk tymczasowe `ReadOnly` systemu operacyjnego. 
+## <a name="scale-set-template-deployment"></a>Wdrażanie szablonu zestawu skalowania  
+Proces tworzenia zestawu skalowania, który używa efemeralnego dysku systemu operacyjnego, to dodanie właściwości do typu zasobu `diffDiskSettings` `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` w szablonie. Ponadto zasady buforowania muszą być ustawione na `ReadOnly` wartość dla efemeralnego dysku systemu operacyjnego. 
 
 
 ```json
@@ -142,8 +142,8 @@ Proces tworzenia zestawu skalowania, który używa tymczasowych dysków systemu 
 }  
 ```
 
-## <a name="vm-template-deployment"></a>Wdrożenie szablonu maszyny wirtualnej 
-Możesz wdrożyć maszynę wirtualną z dyskiem systemu operacyjnego z systemem operacyjnym przy użyciu szablonu. Proces tworzenia maszyny wirtualnej korzystającej z dysków tymczasowych systemów operacyjnych polega na dodaniu `diffDiskSettings` właściwości do typu zasobu Microsoft. COMPUTE/virtualMachines w szablonie. Ponadto zasady buforowania muszą być ustawione na dysk tymczasowe `ReadOnly` systemu operacyjnego. 
+## <a name="vm-template-deployment"></a>Wdrażanie szablonu maszyny wirtualnej 
+Maszynę wirtualną z efemerskim dyskiem systemu operacyjnego można wdrożyć przy użyciu szablonu. Proces tworzenia maszyny wirtualnej, która używa efemeralnych dysków systemu operacyjnego, to dodanie właściwości do typu zasobu `diffDiskSettings` Microsoft.Compute/virtualMachines w szablonie. Ponadto zasady buforowania muszą być ustawione na `ReadOnly` wartość dla efemeralnego dysku systemu operacyjnego. 
 
 ```json
 { 
@@ -180,8 +180,8 @@ Możesz wdrożyć maszynę wirtualną z dyskiem systemu operacyjnego z systemem 
 ```
 
 
-## <a name="reimage-a-vm-using-rest"></a>Odtwarzanie z obrazu maszyny wirtualnej przy użyciu interfejsu REST
-Można odtworzyć z obrazu wystąpienie maszyny wirtualnej z dyskiem systemu operacyjnego, korzystając z interfejsu API REST, jak opisano poniżej i za pośrednictwem witryny Azure Portal, przechodząc do okienka przegląd maszyny wirtualnej. W przypadku zestawów skalowania odtwarzanie z obrazu jest już dostępne za pomocą programu PowerShell, interfejsu wiersza polecenia i portalu.
+## <a name="reimage-a-vm-using-rest"></a>Odtwarzanie maszyny wirtualnej z obrazu przy użyciu usługi REST
+Wystąpienie maszyny wirtualnej można odtąd odtąd utworzyć z efemerowym dyskiem systemu operacyjnego przy użyciu interfejsu API REST, jak opisano poniżej i za pośrednictwem witryny Azure Portal, przechodząc do okienka Przegląd maszyny wirtualnej. W przypadku zestawów skalowania odtwarzanie z obrazu jest już dostępne za pośrednictwem programu PowerShell, interfejsu wiersza polecenia i portalu.
 
 ```
 POST https://management.azure.com/subscriptions/{sub-
@@ -190,23 +190,23 @@ id}/resourceGroups/{rgName}/providers/Microsoft.Compute/VirtualMachines/{vmName}
  
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
-**P: Jakie są rozmiary lokalnych dysków systemu operacyjnego?**
+**Pytanie: jaki jest rozmiar lokalnych dysków systemu operacyjnego?**
 
-Odp.: obsługujemy platformę i obrazy niestandardowe — do rozmiaru pamięci podręcznej maszyny wirtualnej, gdzie wszystkie operacje odczytu/zapisu na dysku systemu operacyjnego będą lokalne w tym samym węźle co maszyna wirtualna. 
+A: Obsługujemy platformę i obrazy niestandardowe do rozmiaru pamięci podręcznej maszyny wirtualnej, gdzie wszystkie odczyty/zapis na dysku systemu operacyjnego będą lokalne w tym samym węźle co maszyna wirtualna. 
 
-**P: Czy można zmienić rozmiar dysku tymczasowych systemów operacyjnych?**
+**Pytanie: Czy można zmienić rozmiar efemeralnego dysku systemu operacyjnego?**
 
-Odp.: nie, po aprowizacji tymczasowego dysku systemu operacyjnego nie można zmienić rozmiaru dysku systemu operacyjnego. 
+A: Nie. Po aprowizowanych efemeralnych dyskach systemu operacyjnego nie można zmienić rozmiaru dysku systemu operacyjnego. 
 
-**P: Czy można dołączyć Managed Disks do tymczasowej maszyny wirtualnej?**
+**Pytanie: Czy mogę dołączyć Dyski zarządzane do efemerskiej maszyny wirtualnej?**
 
-Odp.: tak, można dołączyć zarządzany dysk danych do maszyny wirtualnej korzystającej z dysku z systemem operacyjnym. 
+Odpowiedź: Tak, można dołączyć zarządzany dysk danych do maszyny wirtualnej, która korzysta z efemeralnego dysku systemu operacyjnego. 
 
-**P: czy wszystkie rozmiary maszyn wirtualnych będą obsługiwane w przypadku tymczasowych dysków systemu operacyjnego?**
+**Pytanie: czy wszystkie rozmiary maszyn wirtualnych będą obsługiwane w przypadku efemeralnych dysków systemu operacyjnego?**
 
-Odp.: nie, obsługiwane są większość Premium Storage rozmiary maszyn wirtualnych (DS, ES, FS, GS, M itp.). Aby dowiedzieć się, czy określony rozmiar maszyny wirtualnej obsługuje dyski tymczasowe systemu operacyjnego, możesz:
+O: Nie, większość Premium Storage maszyn wirtualnych jest obsługiwana (DS, ES, FS, GS, M itp.). Aby dowiedzieć się, czy określony rozmiar maszyny wirtualnej obsługuje efemeralne dyski systemu operacyjnego, możesz:
 
-Wywoływanie `Get-AzComputeResourceSku` polecenia cmdlet programu PowerShell
+Wywołanie polecenia `Get-AzComputeResourceSku` cmdlet programu PowerShell
 ```azurepowershell-interactive
  
 $vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')} 
@@ -223,32 +223,32 @@ foreach($vmSize in $vmSizes)
 }
 ```
  
-**P: czy dysk z systemem operacyjnym może zostać zastosowany do istniejących maszyn wirtualnych i zestawów skalowania?**
+**Pytanie: Czy efemeralny dysk systemu operacyjnego można zastosować do istniejących maszyn wirtualnych i zestawów skalowania?**
 
-Odp.: nie, dysk z systemem operacyjnym może być używany tylko podczas tworzenia maszyny wirtualnej i zestawu skalowania. 
+O: Nie. Efemeralny dysk systemu operacyjnego może być używany tylko podczas tworzenia maszyny wirtualnej i zestawu skalowania. 
 
-**P: Czy można mieszać stałe i normalne dyski systemu operacyjnego w zestawie skalowania?**
+**Pytanie: Czy można mieszać efemeracyjne i normalne dyski systemu operacyjnego w zestawie skalowania?**
 
-Odp.: nie, nie można utworzyć wystąpienia tymczasowych i trwałych wystąpień systemu operacyjnego w ramach tego samego zestawu skalowania. 
+O: Nie, nie można mieć kombinacji efemeralnych i trwałych wystąpień dysków systemu operacyjnego w ramach tego samego zestawu skalowania. 
 
-**P: Czy można utworzyć tymczasowych dysków systemu operacyjnego za pomocą programu PowerShell lub interfejsu wiersza polecenia?**
+**Pytanie: Czy efemeralny dysk systemu operacyjnego można utworzyć przy użyciu programu PowerShell lub interfejsu wiersza polecenia?**
 
-Odp.: tak, możesz tworzyć maszyny wirtualne z dyskiem systemu operacyjnego z systemem operacyjnym przy użyciu REST, szablonów, programu PowerShell i interfejsu wiersza polecenia.
+Odpowiedź: Tak, maszyny wirtualne można tworzyć za pomocą efemeralnego dysku systemu operacyjnego przy użyciu interfejsu REST, szablonów, programu PowerShell i interfejsu wiersza polecenia.
 
-**P: jakie funkcje nie są obsługiwane w przypadku systemu operacyjnego z systemem operacyjnym?**
+**Pytanie: Jakie funkcje nie są obsługiwane w przypadku efemeralnego dysku systemu operacyjnego?**
 
-Odp.: dyski tymczasowe nie obsługują:
+A: Dyski efemeracyjne nie obsługują:
 - Przechwytywanie obrazów maszyn wirtualnych
 - Migawki dysków 
 - Usługa Azure Disk Encryption 
 - Azure Backup
 - Azure Site Recovery  
-- Wymiana dysków systemu operacyjnego 
+- Wymiana dysku systemu operacyjnego 
 
 > [!NOTE]
 > 
-> Dysk tymczasowych nie będzie dostępny za poorednictwem portalu. Podczas uzyskiwania dostępu do dysku tymczasowych Oczekiwano błędu "nie znaleziono zasobu" lub "404".
+> Dysk efemeralny nie będzie dostępny za pośrednictwem portalu. Podczas uzyskiwania dostępu do dysku efemeralnego, który jest oczekiwany, zostanie wyświetlony błąd "Nie znaleziono zasobu" lub "404".
 > 
  
 ## <a name="next-steps"></a>Następne kroki
-Za pomocą [interfejsu wiersza polecenia platformy Azure](/cli/azure/vm#az-vm-create)można utworzyć maszynę wirtualną z dyskiem systemu operacyjnego.
+Maszynę wirtualną z efemeracyjnym dyskiem systemu operacyjnego można utworzyć przy użyciu interfejsu wiersza [polecenia platformy Azure.](/cli/azure/vm#az_vm_create)

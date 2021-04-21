@@ -1,7 +1,7 @@
 ---
-title: Bezpieczny API Management zaplecza przy użyciu uwierzytelniania certyfikatu klienta
+title: Zabezpieczanie API Management zaplecza przy użyciu uwierzytelniania certyfikatu klienta
 titleSuffix: Azure API Management
-description: Dowiedz się, jak zarządzać certyfikatami klienta i bezpiecznymi usługami zaplecza przy użyciu uwierzytelniania certyfikatu klienta w usłudze Azure API Management.
+description: Dowiedz się, jak zarządzać certyfikatami klienta i zabezpieczać usługi zaplecza przy użyciu uwierzytelniania certyfikatu klienta w usłudze Azure API Management.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -9,116 +9,116 @@ ms.service: api-management
 ms.topic: article
 ms.date: 01/26/2021
 ms.author: apimpm
-ms.openlocfilehash: 2e4a398ab71878134887fb8fba025cd8aa6122ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d5d261368260a1c9658ae0bef8bdf63a7ca6bafe
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99492854"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750630"
 ---
-# <a name="secure-backend-services-using-client-certificate-authentication-in-azure-api-management"></a>Zabezpieczanie usług zaplecza przy użyciu uwierzytelniania certyfikatów klientów na platformie Azure API Management
+# <a name="secure-backend-services-using-client-certificate-authentication-in-azure-api-management"></a>Zabezpieczanie usług zaplecza przy użyciu uwierzytelniania certyfikatu klienta w usłudze Azure API Management
 
-API Management pozwala zabezpieczyć dostęp do usługi zaplecza interfejsu API przy użyciu certyfikatów klienta. W tym przewodniku przedstawiono sposób zarządzania certyfikatami w wystąpieniu usługi Azure API Management przy użyciu Azure Portal. Wyjaśniono również sposób konfigurowania interfejsu API do korzystania z certyfikatu w celu uzyskania dostępu do usługi zaplecza.
+API Management umożliwia zabezpieczenie dostępu do usługi zaplecza interfejsu API przy użyciu certyfikatów klienta. W tym przewodniku pokazano, jak zarządzać certyfikatami w wystąpieniu usługi Azure API Management przy użyciu Azure Portal. Wyjaśniono również, jak skonfigurować interfejs API do używania certyfikatu w celu uzyskania dostępu do usługi zaplecza.
 
-Za pomocą [interfejsu API REST API Management](/rest/api/apimanagement/2020-06-01-preview/certificate)można także zarządzać certyfikatami API Management.
+Możesz również zarządzać certyfikatami API Management przy użyciu interfejsu [API REST usługi API Management .](/rest/api/apimanagement/2020-06-01-preview/certificate)
 
 ## <a name="certificate-options"></a>Opcje certyfikatu
 
 API Management udostępnia dwie opcje zarządzania certyfikatami używanymi do zabezpieczania dostępu do usług zaplecza:
 
-* Odwoływanie się do certyfikatu zarządzanego w [Azure Key Vault](../key-vault/general/overview.md) 
-* Dodaj plik certyfikatu bezpośrednio w API Management
+* Odwołanie do certyfikatu zarządzanego w [programie Azure Key Vault](../key-vault/general/overview.md) 
+* Dodawanie pliku certyfikatu bezpośrednio w API Management
 
-Zaleca się korzystanie z certyfikatów magazynu kluczy, ponieważ ułatwia to poprawę zabezpieczeń API Management:
+Korzystanie z certyfikatów magazynu kluczy jest zalecane, ponieważ pomaga zwiększyć API Management zabezpieczeń:
 
-* Certyfikaty przechowywane w magazynach kluczy mogą być ponownie używane przez usługi
-* Szczegółowe [zasady dostępu](../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) można stosować do certyfikatów przechowywanych w magazynach kluczy
-* Certyfikaty aktualizowane w magazynie kluczy są automatycznie obracane w API Management. Po aktualizacji w magazynie kluczy certyfikat w API Management jest aktualizowany w ciągu 4 godzin. Certyfikat można również odświeżyć ręcznie przy użyciu Azure Portal lub za pośrednictwem interfejsu API REST zarządzania.
+* Certyfikaty przechowywane w magazynach kluczy mogą być ponownie używane w usługach
+* Zasady [szczegółowego dostępu](../key-vault/general/security-overview.md#privileged-access) można stosować do certyfikatów przechowywanych w magazynach kluczy
+* Certyfikaty aktualizowane w magazynie kluczy są automatycznie obracane w API Management. Po aktualizacji w magazynie kluczy certyfikat w API Management zostanie zaktualizowany w ciągu 4 godzin. Certyfikat można również odświeżyć ręcznie przy użyciu interfejsu Azure Portal lub za pośrednictwem interfejsu API REST zarządzania.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Jeśli nie utworzono jeszcze wystąpienia usługi API Management, zobacz [Tworzenie wystąpienia usługi API Management][Create an API Management service instance].
-* Usługa zaplecza powinna być skonfigurowana do uwierzytelniania certyfikatu klienta. Aby skonfigurować uwierzytelnianie certyfikatów w Azure App Service, zapoznaj się z [tym artykułem][to configure certificate authentication in Azure WebSites refer to this article]. 
-* Wymagany jest dostęp do certyfikatu oraz hasła do zarządzania w magazynie kluczy platformy Azure lub do usługi API Management. Certyfikat musi być w formacie **PFX** . Certyfikaty z podpisem własnym są dozwolone.
+* Jeśli jeszcze nie utworzono API Management usługi, zobacz [Tworzenie API Management usługi][Create an API Management service instance].
+* Usługa zaplecza powinna być skonfigurowana do uwierzytelniania certyfikatu klienta. Aby skonfigurować uwierzytelnianie certyfikatu w Azure App Service, zapoznaj się z [tym artykułem.][to configure certificate authentication in Azure WebSites refer to this article] 
+* Potrzebujesz dostępu do certyfikatu i hasła na potrzeby zarządzania w usłudze Azure Key Vault lub przekazania do API Management usługi. Certyfikat musi być w **formacie PFX.** Certyfikaty z podpisem własnym są dozwolone.
 
-### <a name="prerequisites-for-key-vault-integration"></a>Wymagania wstępne dotyczące integracji magazynu kluczy
+### <a name="prerequisites-for-key-vault-integration"></a>Wymagania wstępne dotyczące integracji z magazynem kluczy
 
-1. Aby uzyskać instrukcje dotyczące tworzenia magazynu kluczy, zobacz [Szybki Start: Tworzenie magazynu kluczy przy użyciu Azure Portal](../key-vault/general/quick-create-portal.md).
-1. Włącz [tożsamość zarządzaną](api-management-howto-use-managed-service-identity.md) przez system lub przypisanej przez użytkownika w wystąpieniu API Management.
-1. Przypisz do zarządzanej tożsamości [zasady dostępu do magazynu kluczy](../key-vault/general/assign-access-policy-portal.md) z uprawnieniami do pobierania i wyświetlania certyfikatów z magazynu. Aby dodać zasady:
+1. Aby uzyskać instrukcje dotyczące tworzenia magazynu kluczy, zobacz [Szybki start: tworzenie magazynu kluczy przy](../key-vault/general/quick-create-portal.md)użyciu Azure Portal .
+1. Włącz tożsamość zarządzaną przypisaną przez [](api-management-howto-use-managed-service-identity.md) system lub przypisaną przez użytkownika w API Management wystąpienia.
+1. Przypisz [zasady dostępu magazynu kluczy do](../key-vault/general/assign-access-policy-portal.md) tożsamości zarządzanej z uprawnieniami do uzyskiwania certyfikatów z magazynu i ich listy. Aby dodać zasady:
     1. W portalu przejdź do magazynu kluczy.
-    1. Wybierz pozycję **ustawienia > zasady dostępu > + Dodaj zasady dostępu**.
-    1. Wybierz pozycję **uprawnienia certyfikatów**, a następnie wybierz pozycję **Pobierz** i **Wyświetl**.
-    1. W obszarze **Wybierz podmiot zabezpieczeń** wybierz nazwę zasobu tożsamości zarządzanej. Jeśli używasz tożsamości przypisanej do systemu, podmiot zabezpieczeń jest nazwą wystąpienia API Management.
-1. Utwórz lub zaimportuj certyfikat do magazynu kluczy. Zobacz [Szybki Start: Ustawianie i pobieranie certyfikatu z Azure Key Vault przy użyciu Azure Portal](../key-vault/certificates/quick-create-portal.md).
+    1. Wybierz **pozycję Ustawienia > zasad dostępu > + Dodaj zasady dostępu.**
+    1. Wybierz **pozycję Uprawnienia certyfikatu,** a następnie wybierz **pozycję Pobierz** i **wyekstoruj.**
+    1. W **grupę** Wybierz podmiot zabezpieczeń wybierz nazwę zasobu tożsamości zarządzanej. Jeśli używasz tożsamości przypisanej przez system, podmiot zabezpieczeń jest nazwą API Management wystąpienia.
+1. Utwórz lub zaimportuj certyfikat do magazynu kluczy. Zobacz [Szybki start: ustawianie i pobieranie certyfikatu z usługi Azure Key Vault użyciu Azure Portal](../key-vault/certificates/quick-create-portal.md).
 
 [!INCLUDE [api-management-key-vault-network](../../includes/api-management-key-vault-network.md)]
 
 ## <a name="add-a-key-vault-certificate"></a>Dodawanie certyfikatu magazynu kluczy
 
-Zapoznaj się z [wymaganiami wstępnymi dotyczącymi integracji magazynu kluczy](#prerequisites-for-key-vault-integration).
+Zobacz [Wymagania wstępne dotyczące integracji z magazynem kluczy](#prerequisites-for-key-vault-integration).
 
 > [!CAUTION]
-> W przypadku korzystania z certyfikatu magazynu kluczy w API Management należy zachować ostrożność, aby nie usuwać certyfikatu, magazynu kluczy ani tożsamości zarządzanej używanej do uzyskiwania dostępu do magazynu kluczy.
+> W przypadku korzystania z certyfikatu magazynu kluczy w API Management należy uważać, aby nie usuwać certyfikatu, magazynu kluczy lub tożsamości zarządzanej używanej do uzyskiwania dostępu do magazynu kluczy.
 
 Aby dodać certyfikat magazynu kluczy do API Management:
 
-1. W [Azure Portal](https://portal.azure.com)przejdź do wystąpienia API Management.
-1. W obszarze **zabezpieczenia** wybierz pozycję **Certyfikaty**.
-1. Wybierz pozycję **Certyfikaty**  >  **i Dodaj**.
-1. W polu **Identyfikator** wprowadź wybraną nazwę.
-1. W obszarze **certyfikat** wybierz pozycję **Magazyn kluczy**.
-1. Wprowadź identyfikator certyfikatu magazynu kluczy lub wybierz opcję **Wybierz** , aby wybrać certyfikat z magazynu kluczy.
+1. W [Azure Portal](https://portal.azure.com)przejdź do swojego API Management wystąpienia.
+1. W **obszarze Zabezpieczenia** wybierz pozycję **Certyfikaty.**
+1. Wybierz **pozycję Certyfikaty** i  >  **dodaj**.
+1. W **identyfikatorze** wprowadź nazwę.
+1. W **chmurze Certyfikat** wybierz **pozycję Magazyn kluczy.**
+1. Wprowadź identyfikator certyfikatu magazynu kluczy lub wybierz pozycję **Wybierz,** aby wybrać certyfikat z magazynu kluczy.
     > [!IMPORTANT]
-    > Jeśli ręcznie wprowadzisz identyfikator certyfikatu magazynu kluczy, upewnij się, że nie ma on informacji o wersji. W przeciwnym razie certyfikat nie zostanie automatycznie obrócony w API Management po aktualizacji w magazynie kluczy.
-1. W obszarze **tożsamość klienta** wybierz przypisaną przez system lub istniejącą tożsamość zarządzaną przez użytkownika. Dowiedz się [, jak dodać lub zmodyfikować zarządzane tożsamości w usłudze API Management](api-management-howto-use-managed-service-identity.md).
+    > Jeśli samodzielnie wprowadzasz identyfikator certyfikatu magazynu kluczy, upewnij się, że nie zawiera on informacji o wersji. W przeciwnym razie certyfikat nie zostanie automatycznie obrócony API Management aktualizacji w magazynie kluczy.
+1. W **tożsamości klienta** wybierz tożsamość zarządzaną przypisaną przez system lub istniejącą przypisaną przez użytkownika. Dowiedz się, [jak dodawać lub modyfikować tożsamości zarządzane w usłudze API Management usługi](api-management-howto-use-managed-service-identity.md).
     > [!NOTE]
-    > Tożsamość wymaga uprawnień do pobierania i wyświetlania certyfikatów z magazynu kluczy. Jeśli dostęp do magazynu kluczy nie został jeszcze skonfigurowany, API Management zostanie wyświetlony komunikat z prośbą o to, aby mógł on automatycznie skonfigurować tożsamość z niezbędnymi uprawnieniami.
+    > Tożsamość musi mieć uprawnienia do uzyskania i uzyskania certyfikatu z magazynu kluczy. Jeśli nie skonfigurowano jeszcze dostępu do magazynu kluczy, API Management monit, aby automatycznie skonfigurować tożsamość z niezbędnymi uprawnieniami.
 1. Wybierz pozycję **Dodaj**.
 
-    :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-kv.png" alt-text="Dodaj certyfikat magazynu kluczy":::
+    :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-kv.png" alt-text="Dodawanie certyfikatu magazynu kluczy":::
 
-## <a name="upload-a-certificate"></a>Przekaż certyfikat
+## <a name="upload-a-certificate"></a>Przekazywanie certyfikatu
 
-Aby przekazać certyfikat klienta do API Management: 
+Aby przekazać certyfikat klienta do usługi API Management: 
 
-1. W [Azure Portal](https://portal.azure.com)przejdź do wystąpienia API Management.
-1. W obszarze **zabezpieczenia** wybierz pozycję **Certyfikaty**.
-1. Wybierz pozycję **Certyfikaty**  >  **i Dodaj**.
-1. W polu **Identyfikator** wprowadź wybraną nazwę.
-1. W obszarze **certyfikat** wybierz pozycję **niestandardowy**.
-1. Przejdź do opcji wybierz plik Certificate. pfx, a następnie wprowadź hasło.
+1. W [Azure Portal](https://portal.azure.com)przejdź do swojego API Management wystąpienia.
+1. W **obszarze Zabezpieczenia** wybierz pozycję **Certyfikaty.**
+1. Wybierz **pozycję Certyfikaty** i  >  **dodaj**.
+1. W **identyfikatorze** wprowadź nazwę.
+1. W **elektorze** Certyfikat wybierz pozycję **Niestandardowy.**
+1. Przejdź do pliku pfx certyfikatu i wprowadź jego hasło.
 1. Wybierz pozycję **Dodaj**.
 
-    :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-add.png" alt-text="Przekaż certyfikat klienta":::
+    :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-add.png" alt-text="Przekazywanie certyfikatu klienta":::
 
-Po przekazaniu certyfikatu zostanie on wyświetlony w oknie **Certyfikaty** . Jeśli masz wiele certyfikatów, zanotuj odcisk palca żądanego certyfikatu, aby skonfigurować interfejs API do korzystania z certyfikatu klienta na potrzeby [uwierzytelniania bramy](#configure-an-api-to-use-client-certificate-for-gateway-authentication).
+Po przesłaniu certyfikatu jest on wyświetlany w **oknie** Certyfikaty. Jeśli masz wiele certyfikatów, zanotuj odcisk palca żądanego certyfikatu, aby skonfigurować interfejs API do używania certyfikatu klienta na potrzeby [uwierzytelniania bramy.](#configure-an-api-to-use-client-certificate-for-gateway-authentication)
 
 > [!NOTE]
-> Aby wyłączyć weryfikację łańcucha certyfikatów przy użyciu programu, na przykład certyfikat z podpisem własnym, wykonaj kroki opisane w [certyfikatach](#self-signed-certificates)z podpisem własnym, w dalszej części tego artykułu.
+> Aby wyłączyć weryfikację łańcucha certyfikatów w przypadku używania na przykład certyfikatu z podpisem własnym, wykonaj kroki opisane w artykule Certyfikaty z podpisem własnym [w](#self-signed-certificates)dalszej części tego artykułu.
 
-## <a name="configure-an-api-to-use-client-certificate-for-gateway-authentication"></a>Konfigurowanie interfejsu API do używania certyfikatu klienta na potrzeby uwierzytelniania bramy
+## <a name="configure-an-api-to-use-client-certificate-for-gateway-authentication"></a>Konfigurowanie interfejsu API do używania certyfikatu klienta do uwierzytelniania bramy
 
-1. W [Azure Portal](https://portal.azure.com)przejdź do wystąpienia API Management.
-1. W obszarze **interfejsy API** wybierz pozycję **interfejsy API**.
-1. Wybierz z listy interfejs API. 
-2. Na karcie **projektowanie** wybierz ikonę Edytor w sekcji **zaplecze** .
-3. W obszarze **poświadczenia bramy** wybierz pozycję certyfikat **klienta** i wybierz certyfikat z listy rozwijanej.
+1. W [Azure Portal](https://portal.azure.com)przejdź do swojego API Management wystąpienia.
+1. W **obszarze Interfejsy API** wybierz pozycję **Interfejsy API.**
+1. Wybierz interfejs API z listy. 
+2. Na karcie **Projekt** wybierz ikonę edytora w **sekcji Backend.**
+3. W **menu Poświadczenia bramy** wybierz pozycję Certyfikat **klienta** i wybierz certyfikat z listy rozwijanej.
 1. Wybierz pozycję **Zapisz**.
 
     :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png" alt-text="Używanie certyfikatu klienta do uwierzytelniania bramy":::
 
 > [!CAUTION]
-> Ta zmiana obowiązuje natychmiast, a wywołania operacji tego interfejsu API będą używać certyfikatu do uwierzytelniania na serwerze wewnętrznej bazy danych.
+> Ta zmiana obowiązuje natychmiast, a wywołania operacji tego interfejsu API będą używać certyfikatu do uwierzytelniania na serwerze zaplecza.
 
 > [!TIP]
-> Jeśli certyfikat jest określony na potrzeby uwierzytelniania bramy dla usługi zaplecza interfejsu API, stanie się częścią zasad dla tego interfejsu API i może być wyświetlany w edytorze zasad.
+> Gdy certyfikat jest określony na celu uwierzytelnianie bramy dla usługi zaplecza interfejsu API, staje się on częścią zasad dla tego interfejsu API i można go wyświetlić w edytorze zasad.
 
 ## <a name="self-signed-certificates"></a>Certyfikaty z podpisem własnym
 
-W przypadku korzystania z certyfikatów z podpisem własnym należy wyłączyć weryfikację łańcucha certyfikatów dla API Management, aby komunikować się z systemem zaplecza. W przeciwnym razie zwróci kod błędu 500. Aby skonfigurować tę opcję, można użyć [`New-AzApiManagementBackend`](/powershell/module/az.apimanagement/new-azapimanagementbackend) poleceń cmdlet programu PowerShell (dla nowego zaplecza) lub [`Set-AzApiManagementBackend`](/powershell/module/az.apimanagement/set-azapimanagementbackend) (dla istniejących zaplecza) i ustawić `-SkipCertificateChainValidation` parametr na `True` .
+Jeśli używasz certyfikatów z podpisem własnym, musisz wyłączyć weryfikację łańcucha certyfikatów, aby API Management się z systemem zaplecza. W przeciwnym razie zostanie zwrócony kod błędu 500. Aby to skonfigurować, możesz użyć poleceń [`New-AzApiManagementBackend`](/powershell/module/az.apimanagement/new-azapimanagementbackend) cmdlet programu PowerShell (dla nowego zaplecza) lub (dla istniejącego zaplecza) i ustawić [`Set-AzApiManagementBackend`](/powershell/module/az.apimanagement/set-azapimanagementbackend) `-SkipCertificateChainValidation` parametr na `True` .
 
 ```powershell
 $context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
@@ -127,17 +127,17 @@ New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -
 
 ## <a name="delete-a-client-certificate"></a>Usuwanie certyfikatu klienta
 
-Aby usunąć certyfikat, zaznacz go, a następnie wybierz pozycję **Usuń** z menu kontekstowego (**...**).
+Aby usunąć certyfikat, wybierz go, a następnie wybierz pozycję **Usuń** z menu kontekstowego (**...**).
 
 :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-delete-new.png" alt-text="Usuwanie certyfikatu":::
 
 > [!IMPORTANT]
-> Jeśli do certyfikatu odwołują się żadne zasady, zostanie wyświetlony ekran ostrzegawczy. Aby usunąć certyfikat, należy najpierw usunąć ten certyfikat z dowolnych zasad skonfigurowanych do korzystania z niej.
+> Jeśli do certyfikatu odwołują się jakiekolwiek zasady, zostanie wyświetlony ekran ostrzegawczy. Aby usunąć certyfikat, należy najpierw usunąć certyfikat ze wszystkich zasad skonfigurowanych do korzystania z niego.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Jak zabezpieczać interfejsy API przy użyciu uwierzytelniania za pomocą certyfikatów klienta w usłudze API Management](api-management-howto-mutual-certificates-for-clients.md)
-* Informacje o [zasadach w API Management](api-management-howto-policies.md)
+* Dowiedz się więcej [o zasadach w API Management](api-management-howto-policies.md)
 
 
 [How to add operations to an API]: ./mock-api-responses.md

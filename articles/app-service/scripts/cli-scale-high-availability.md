@@ -1,6 +1,6 @@
 ---
 title: 'Interfejs wiersza polecenia: skalowanie aplikacji za pomocą Traffic Manager'
-description: Dowiedz się, jak zautomatyzować wdrażanie aplikacji App Service i zarządzanie nią za pomocą interfejsu wiersza polecenia platformy Azure. W tym przykładzie przedstawiono sposób skalowania na całym świecie przy użyciu Traffic Manager.
+description: Dowiedz się, jak używać interfejsu wiersza polecenia platformy Azure do automatyzowania wdrażania aplikacji App Service zarządzania nimi. W tym przykładzie pokazano, jak skalować na całym świecie przy użyciu Traffic Manager.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: e4033a50-0e05-4505-8ce8-c876204b2acc
@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: 9c1c4ad16a491f7e868a395fa5c36d9605348cdb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 089ab9d6b3c0f678c2a200872a0da4160fa6292a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97005702"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787671"
 ---
 # <a name="scale-an-app-service-app-worldwide-with-a-high-availability-architecture-using-azure-cli"></a>Skalowanie aplikacji usługi App Service na całym świecie przy użyciu architektury wysokiej dostępności za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -24,7 +24,7 @@ Ten przykładowy skrypt służy do tworzenia grupy zasobów, dwóch planów usł
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
- - Ten samouczek wymaga wersji 2,0 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
+ - Ten samouczek wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Jeśli używasz Azure Cloud Shell, najnowsza wersja jest już zainstalowana.
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -38,11 +38,11 @@ W tym skrypcie użyto następujących poleceń do utworzenia grupy zasobów, apl
 
 | Polecenie | Uwagi |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Tworzy plan usługi App Service. |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Tworzy aplikację usługi App Service. |
-| [`az network traffic-manager profile create`](/cli/azure/network/traffic-manager/profile#az-network-traffic-manager-profile-create) | Tworzy profil usługi Azure Traffic Manager. |
-| [`az network traffic-manager endpoint create`](/cli/azure/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-create) | Dodaje punkt końcowy do profilu usługi Azure Traffic Manager. |
+| [`az group create`](/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Tworzy plan usługi App Service. |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Tworzy aplikację usługi App Service. |
+| [`az network traffic-manager profile create`](/cli/azure/network/traffic-manager/profile#az_network_traffic_manager_profile_create) | Tworzy profil usługi Azure Traffic Manager. |
+| [`az network traffic-manager endpoint create`](/cli/azure/network/traffic-manager/endpoint#az_network_traffic-manager_endpoint_create) | Dodaje punkt końcowy do profilu usługi Azure Traffic Manager. |
 
 ## <a name="next-steps"></a>Następne kroki
 

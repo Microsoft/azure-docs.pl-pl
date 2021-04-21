@@ -1,123 +1,123 @@
 ---
-title: Skonfiguruj własny klucz szyfrowania danych Azure Service Bus przechowywanych w spoczynku
-description: Ten artykuł zawiera informacje dotyczące sposobu konfigurowania własnego klucza do szyfrowania danych Azure Service Bus Rest.
+title: Konfigurowanie własnego klucza do szyfrowania danych Azure Service Bus danych w spoczynku
+description: Ten artykuł zawiera informacje na temat sposobu konfigurowania własnego klucza na Azure Service Bus danych.
 ms.topic: conceptual
 ms.date: 02/10/2021
-ms.openlocfilehash: 5d14c8953819575d1c2688520838135efc7121e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b982f01b02e7aa99f1b83e2f590e3660cb69c54
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100378319"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751350"
 ---
-# <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Konfigurowanie kluczy zarządzanych przez klienta do szyfrowania Azure Service Bus danych przechowywanych przy użyciu Azure Portal
-Azure Service Bus Premium zapewnia szyfrowanie danych przechowywanych przy użyciu usługi Azure szyfrowanie usługi Storage (SSE platformy Azure). Service Bus Premium używa usługi Azure Storage do przechowywania danych. Wszystkie dane przechowywane w usłudze Azure Storage są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. Jeśli używasz własnego klucza (nazywanego również Bring Your Own Key (BYOK) lub kluczem zarządzanym przez klienta), dane są nadal szyfrowane przy użyciu klucza zarządzanego przez firmę Microsoft, ale dodatkowo klucz zarządzany przez firmę Microsoft zostanie zaszyfrowany przy użyciu klucza zarządzanego przez klienta. Ta funkcja umożliwia tworzenie, obracanie, wyłączanie i odwoływanie dostępu do kluczy zarządzanych przez klienta, które są używane do szyfrowania kluczy zarządzanych przez firmę Microsoft. Włączenie funkcji BYOK to jednorazowy proces konfiguracji w przestrzeni nazw.
+# <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Konfigurowanie kluczy zarządzanych przez klienta na potrzeby szyfrowania Azure Service Bus danych w spoczynku przy użyciu Azure Portal
+Azure Service Bus Premium zapewnia szyfrowanie danych magazynowych za pomocą usługi Azure szyfrowanie usługi Storage (Azure SSE). Service Bus Premium używa usługi Azure Storage do przechowywania danych. Wszystkie dane przechowywane w usłudze Azure Storage są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. Jeśli używasz własnego klucza (nazywanego również kluczem Bring Your Own Key (BYOK) lub kluczem zarządzanym przez klienta, dane są nadal szyfrowane przy użyciu klucza zarządzanego przez firmę Microsoft, ale dodatkowo klucz zarządzany przez firmę Microsoft zostanie zaszyfrowany przy użyciu klucza zarządzanego przez klienta. Ta funkcja umożliwia tworzenie, obracanie, wyłączanie i odwoływanie dostępu do kluczy zarządzanych przez klienta, które są używane do szyfrowania kluczy zarządzanych przez firmę Microsoft. Włączenie funkcji BYOK jest procesem instalacji jeden raz w przestrzeni nazw.
 
-Klucz zarządzany przez klienta ma pewne zastrzeżenia dotyczące szyfrowania po stronie usługi. 
-- Ta funkcja jest obsługiwana przez [Azure Service Bus warstwy Premium](service-bus-premium-messaging.md) . Nie można jej włączyć dla Service Bus przestrzeni nazw w warstwie Standardowa.
-- Szyfrowanie można włączyć tylko dla nowych lub pustych przestrzeni nazw. Jeśli przestrzeń nazw zawiera jakiekolwiek kolejki lub tematy, operacja szyfrowania zakończy się niepowodzeniem.
+Istnieją pewne zastrzeżenia do klucza zarządzanego przez klienta dotyczące szyfrowania po stronie usługi. 
+- Ta funkcja jest obsługiwana przez [Azure Service Bus Premium.](service-bus-premium-messaging.md) Nie można go włączyć dla warstwy Standardowa Service Bus przestrzeni nazw.
+- Szyfrowanie można włączyć tylko dla nowych lub pustych przestrzeni nazw. Jeśli przestrzeń nazw zawiera jakiekolwiek kolejki lub tematy, operacja szyfrowania nie powiedzie się.
 
-Za pomocą Azure Key Vault można zarządzać kluczami i przeprowadzać inspekcję użycia klucza. Możesz utworzyć własne klucze i zapisać je w magazynie kluczy lub użyć Azure Key Vault interfejsów API do wygenerowania kluczy. Aby uzyskać więcej informacji na temat Azure Key Vault, zobacz [co to jest Azure Key Vault?](../key-vault/general/overview.md)
+Możesz użyć Azure Key Vault do zarządzania kluczami i inspekcji użycia klucza. Możesz utworzyć własne klucze i przechowywać je w magazynie kluczy lub użyć interfejsów API Azure Key Vault do generowania kluczy. Aby uzyskać więcej informacji o Azure Key Vault, zobacz [Co to jest Azure Key Vault?](../key-vault/general/overview.md)
 
-W tym artykule pokazano, jak skonfigurować magazyn kluczy z kluczami zarządzanymi przez klienta przy użyciu Azure Portal. Aby dowiedzieć się, jak utworzyć magazyn kluczy przy użyciu Azure Portal, zobacz [Szybki Start: tworzenie Azure Key Vault przy użyciu Azure Portal](../key-vault/general/quick-create-portal.md).
+W tym artykule pokazano, jak skonfigurować magazyn kluczy przy użyciu kluczy zarządzanych przez klienta przy użyciu Azure Portal. Aby dowiedzieć się, jak utworzyć magazyn kluczy przy użyciu Azure Portal, zobacz Szybki [start:](../key-vault/general/quick-create-portal.md)tworzenie magazynu Azure Key Vault użyciu Azure Portal .
 
 > [!IMPORTANT]
-> Użycie kluczy zarządzanych przez klienta w programie Azure Service Bus wymaga skonfigurowania dwóch wymaganych właściwości magazynu kluczy. Są to:  **usuwanie nietrwałe** i **nie przeczyszczanie**. Te właściwości są domyślnie włączone podczas tworzenia nowego magazynu kluczy w Azure Portal. Jeśli jednak musisz włączyć te właściwości w istniejącym magazynie kluczy, musisz użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
+> Używanie kluczy zarządzanych przez klienta Azure Service Bus wymaga skonfigurowania dwóch wymaganych właściwości magazynu kluczy. Są to:  **Usuwanie nie softowe** **i nie przeczyszczaj**. Te właściwości są domyślnie włączone podczas tworzenia nowego magazynu kluczy w Azure Portal. Jeśli jednak musisz włączyć te właściwości w istniejącym magazynie kluczy, musisz użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
-## <a name="enable-customer-managed-keys"></a>Włącz klucze zarządzane przez klienta
+## <a name="enable-customer-managed-keys"></a>Włączanie kluczy zarządzanych przez klienta
 Aby włączyć klucze zarządzane przez klienta w Azure Portal, wykonaj następujące kroki:
 
-1. Przejdź do przestrzeni nazw w warstwie Premium Service Bus.
-2. Na stronie **Ustawienia** obszaru nazw Service Bus wybierz pozycję **szyfrowanie**.
-3. Wybierz **szyfrowanie klucza zarządzanego przez klienta** , jak pokazano na poniższej ilustracji.
+1. Przejdź do przestrzeni nazw Service Bus Premium.
+2. Na stronie **Ustawienia** przestrzeni nazw usługi Service Bus wybierz pozycję **Szyfrowanie.**
+3. Wybierz szyfrowanie kluczy zarządzanych przez klienta w **spoczynku,** jak pokazano na poniższej ilustracji.
 
     ![Włączanie klucza zarządzanego przez klienta](./media/configure-customer-managed-key/enable-customer-managed-key.png)
 
 
-## <a name="set-up-a-key-vault-with-keys"></a>Konfigurowanie magazynu kluczy z kluczami
+## <a name="set-up-a-key-vault-with-keys"></a>Konfigurowanie magazynu kluczy przy użyciu kluczy
 
-Po włączeniu kluczy zarządzanych przez klienta należy skojarzyć klucz zarządzany klienta z przestrzenią nazw Azure Service Bus. Service Bus obsługuje tylko Azure Key Vault. Po włączeniu opcji **szyfrowania z kluczem zarządzanym przez klienta** w poprzedniej sekcji należy zaimportować klucz do Azure Key Vault. Ponadto klucze muszą mieć **nietrwałe usuwanie** i nie można ich **czyścić** skonfigurować dla klucza. Te ustawienia można skonfigurować przy użyciu [programu PowerShell](../key-vault/general/key-vault-recovery.md) lub [interfejsu wiersza polecenia](../key-vault/general/key-vault-recovery.md).
+Po włączeniu kluczy zarządzanych przez klienta należy skojarzyć klucz zarządzany przez klienta z Azure Service Bus nazw. Service Bus obsługuje tylko Azure Key Vault. Jeśli w **poprzedniej** sekcji włączysz opcję Szyfrowanie za pomocą klucza zarządzanego przez klienta, musisz zaimportować klucz do Azure Key Vault. Ponadto klucze muszą mieć skonfigurowane opcje **Usuwania** nie soft i Nie **przeczyszczaj** dla klucza. Te ustawienia można skonfigurować przy użyciu programu [PowerShell lub](../key-vault/general/key-vault-recovery.md) interfejsu [wiersza polecenia](../key-vault/general/key-vault-recovery.md).
 
-1. Aby utworzyć nowy magazyn kluczy, postępuj zgodnie z Azure Key Vault [przewodnika Szybki Start](../key-vault/general/overview.md). Aby uzyskać więcej informacji o importowaniu istniejących kluczy, zobacz [Informacje o kluczach, wpisach tajnych i certyfikatach](../key-vault/general/about-keys-secrets-certificates.md).
-1. Aby włączyć zarówno nietrwałe usuwanie, jak i przeczyszczanie, podczas tworzenia magazynu należy użyć polecenia [AZ Create webmagazynion](/cli/azure/keyvault#az-keyvault-create) .
+1. Aby utworzyć nowy magazyn kluczy, postępuj zgodnie z Azure Key Vault [Szybki start.](../key-vault/general/overview.md) Aby uzyskać więcej informacji na temat importowania istniejących kluczy, zobacz [About keys, secrets, and certificates (Informacje o kluczach, wpisach tajnych i certyfikatach).](../key-vault/general/about-keys-secrets-certificates.md)
+1. Aby włączyć zarówno usuwanie nie soft, jak i ochronę przed przeczyszczaniem podczas tworzenia magazynu, użyj [polecenia az keyvault create.](/cli/azure/keyvault#az-keyvault-create)
 
     ```azurecli-interactive
     az keyvault create --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
     ```    
-1. Aby dodać ochronę przed przeczyszczeniem do istniejącego magazynu (ma już włączony nietrwałe usuwanie), użyj polecenia [AZ webmagazyn Update](/cli/azure/keyvault#az-keyvault-update) .
+1. Aby dodać ochronę przed przeczyszczaniem do istniejącego magazynu (z włączoną obsługą usuwania nie soft), użyj [polecenia az keyvault update.](/cli/azure/keyvault#az-keyvault-update)
 
     ```azurecli-interactive
     az keyvault update --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --enable-purge-protection true
     ```
-1. Utwórz klucze, wykonując następujące czynności:
-    1. Aby utworzyć nowy klucz, wybierz pozycję **Generuj/Importuj** z menu **klucze** w obszarze **Ustawienia**.
+1. Utwórz klucze, korzystając z następujących kroków:
+    1. Aby utworzyć nowy klucz, wybierz pozycję **Generuj/Zaimportuj** z menu **Klucze** w obszarze **Ustawienia**.
         
-        ![Przycisk Wybierz opcję Generuj/Importuj](./media/configure-customer-managed-key/select-generate-import.png)
+        ![Wybierz przycisk Wygeneruj/Zaimportuj](./media/configure-customer-managed-key/select-generate-import.png)
 
-    1. Ustaw **Opcje** w celu **wygenerowania** klucza i nadaj mu nazwę.
+    1. Ustaw **ustawienie Opcje** na **generowanie** i nadaj kluczowi nazwę.
 
         ![Utwórz klucz](./media/configure-customer-managed-key/create-key.png) 
 
-    1. Teraz możesz wybrać ten klucz do skojarzenia z przestrzenią nazw Service Bus do szyfrowania z listy rozwijanej. 
+    1. Teraz możesz wybrać ten klucz do skojarzenia z Service Bus w celu szyfrowania z listy rozwijanej. 
 
-        ![Wybierz klucz z magazynu kluczy](./media/configure-customer-managed-key/select-key-from-key-vault.png)
+        ![Wybieranie klucza z magazynu kluczy](./media/configure-customer-managed-key/select-key-from-key-vault.png)
         > [!NOTE]
-        > Aby zapewnić nadmiarowość, można dodać maksymalnie 3 klucze. W przypadku, gdy jeden z kluczy wygasł lub jest niedostępny, inne klucze będą używane do szyfrowania.
+        > W celu zapewnienia nadmiarowości można dodać maksymalnie 3 klucze. Jeśli jeden z kluczy wygasł lub nie jest dostępny, pozostałe klucze będą używane do szyfrowania.
         
-    1. Wprowadź szczegóły klucza i kliknij przycisk **Wybierz**. Spowoduje to włączenie szyfrowania klucza zarządzanego przez firmę Microsoft przy użyciu klucza (klucza zarządzanego przez klienta). 
+    1. Wypełnij szczegóły klucza, a następnie kliknij pozycję **Wybierz**. Umożliwi to szyfrowanie klucza zarządzanego przez firmę Microsoft przy użyciu klucza (klucza zarządzanego przez klienta). 
 
 
     > [!IMPORTANT]
-    > Jeśli zamierzasz używać klucza zarządzanego przez klienta wraz z odzyskiwaniem po awarii geograficznej, Przejrzyj tę sekcję. 
+    > Jeśli chcesz używać klucza zarządzanego przez klienta wraz z odzyskiwaniem po awarii geograficznych, zapoznaj się z tą sekcją. 
     >
-    > Aby włączyć szyfrowanie klucza zarządzanego przez firmę Microsoft przy użyciu klucza zarządzanego przez klienta, skonfigurowano [zasady dostępu](../key-vault/general/secure-your-key-vault.md) dla tożsamości zarządzanej Service Bus w określonym magazynie kluczy platformy Azure. Zapewnia to kontrolowany dostęp do magazynu kluczy platformy Azure z przestrzeni nazw Azure Service Bus.
+    > Aby włączyć szyfrowanie klucza zarządzanego przez firmę [](../key-vault/general/security-overview.md) Microsoft za pomocą klucza zarządzanego przez klienta, zasady dostępu są ustawiane dla tożsamości zarządzanej usługi Service Bus w określonym usłudze Azure KeyVault. Zapewnia to kontrolowany dostęp do usługi Azure KeyVault z Azure Service Bus nazw.
     >
-    > Z tego powodu:
+    > W związku z tym:
     > 
-    >   * Jeśli funkcja [odzyskiwania po awarii geograficznej](service-bus-geo-dr.md) jest już włączona dla przestrzeni nazw Service Bus i chcesz włączyć klucz zarządzany przez klienta, 
+    >   * Jeśli [geograficzne odzyskiwanie po](service-bus-geo-dr.md) awarii jest już włączone dla Service Bus nazw i chcesz włączyć klucz zarządzany przez klienta, wówczas 
     >     * Przerwij parowanie
-    >     * [Skonfiguruj zasady dostępu](../key-vault/general/assign-access-policy-portal.md) dla tożsamości zarządzanej zarówno dla głównych, jak i pomocniczych przestrzeni nazw dla magazynu kluczy.
-    >     * Skonfiguruj szyfrowanie dla podstawowej przestrzeni nazw.
-    >     * Ponowne parowanie podstawowych i pomocniczych przestrzeni nazw.
+    >     * [Skonfiguruj zasady dostępu dla tożsamości](../key-vault/general/assign-access-policy-portal.md) zarządzanej dla podstawowej i pomocniczej przestrzeni nazw magazynu kluczy.
+    >     * Skonfiguruj szyfrowanie w podstawowej przestrzeni nazw.
+    >     * Ponownie sparuj podstawowe i pomocnicze przestrzenie nazw.
     > 
-    >   * Jeśli chcesz włączyć lokalizację geograficzną w Service Bus przestrzeni nazw, w której klucz zarządzany przez klienta został już skonfigurowany, a następnie —
-    >     * [Skonfiguruj zasady dostępu](../key-vault/general/assign-access-policy-portal.md) dla zarządzanej tożsamości dla pomocniczej przestrzeni nazw dla magazynu kluczy.
-    >     * Parowanie podstawowych i pomocniczych przestrzeni nazw.
+    >   * Jeśli chcesz włączyć funkcję geograficznego drgd w Service Bus, w której klucz zarządzany przez klienta jest już ustawiony, —
+    >     * [Skonfiguruj zasady dostępu dla tożsamości](../key-vault/general/assign-access-policy-portal.md) zarządzanej dla pomocniczej przestrzeni nazw do magazynu kluczy.
+    >     * Sparuj podstawowe i pomocnicze przestrzenie nazw.
 
 
-## <a name="rotate-your-encryption-keys"></a>Obróć klucze szyfrowania
+## <a name="rotate-your-encryption-keys"></a>Obracanie kluczy szyfrowania
 
-Możesz obrócić klucz w magazynie kluczy przy użyciu mechanizmu rotacji magazynów kluczy platformy Azure. Daty aktywacji i wygaśnięcia można także skonfigurować w celu zautomatyzowania rotacji kluczy. Usługa Service Bus wykryje nowe wersje klucza i rozpocznie korzystanie z nich automatycznie.
+Klucz w magazynie kluczy można obrócić przy użyciu mechanizmu rotacji usługi Azure Key Vault. W celu zautomatyzowania rotacji kluczy można również ustawić daty aktywacji i wygaśnięcia. Usługa Service Bus wykryje nowe wersje kluczy i rozpocznie ich automatyczne używanie.
 
-## <a name="revoke-access-to-keys"></a>Odwołaj dostęp do kluczy
+## <a name="revoke-access-to-keys"></a>Odwoływanie dostępu do kluczy
 
-Cofnięcie dostępu do kluczy szyfrowania nie spowoduje przeczyszczenia danych z Service Bus. Nie można jednak uzyskać dostępu do danych z przestrzeni nazw Service Bus. Możesz odwołać klucz szyfrowania za pomocą zasad dostępu lub usunąć klucz. Dowiedz się więcej na temat zasad dostępu i zabezpieczania magazynu kluczy, [Aby uzyskać bezpieczny dostęp do magazynu kluczy](../key-vault/general/secure-your-key-vault.md).
+Odwołanie dostępu do kluczy szyfrowania nie spowoduje przeczyszczania danych z Service Bus. Nie można jednak uzyskać dostępu do danych z Service Bus nazw. Klucz szyfrowania można odwołać za pomocą zasad dostępu lub przez usunięcie klucza. Dowiedz się więcej o zasadach dostępu i zabezpieczaniu magazynu kluczy z [bezpiecznego dostępu do magazynu kluczy.](../key-vault/general/security-overview.md)
 
-Po odwołaniu klucza szyfrowania Usługa Service Bus w zaszyfrowanej przestrzeni nazw stanie się niezależna. Jeśli dostęp do klucza jest włączony lub przywrócono usunięty klucz, Usługa Service Bus wybierze klucz, aby można było uzyskać dostęp do danych z przestrzeni nazw zaszyfrowanej Service Bus.
+Po odwołaniu klucza szyfrowania usługa Service Bus w zaszyfrowanej przestrzeni nazw stanie się niedziałała. Jeśli dostęp do klucza jest włączony lub usunięty klucz zostanie przywrócony, usługa Service Bus wybierze klucz, aby można było uzyskać dostęp do danych z zaszyfrowanej Service Bus nazw.
 
 ## <a name="caching-of-keys"></a>Buforowanie kluczy
-Wystąpienie Service Bus sonduje listę kluczy szyfrowania co 5 minut. Przechowuje je w pamięci podręcznej i używa ich do następnej sondy, która jest po 5 minutach. Tak długo, jak co najmniej jeden klucz jest dostępny, kolejki i tematy są dostępne. Jeśli wszystkie wymienione klucze są niedostępne podczas sondowania, wszystkie kolejki i tematy staną się niedostępne. 
+Wystąpienie Service Bus sonduje wymienione na liście klucze szyfrowania co 5 minut. Buforuje je i używa do następnego sondowania, które trwa po 5 minutach. Tak długo, jak jest dostępny co najmniej jeden klucz, kolejki i tematy są dostępne. Jeśli wszystkie wymienione klucze będą niedostępne podczas sondowania, wszystkie kolejki i tematy staną się niedostępne. 
 
 Poniżej przedstawiono więcej informacji: 
 
-- Co 5 minut Usługa Service Bus sonduje wszystkie klucze zarządzane przez klienta na liście w rekordzie przestrzeni nazw:
+- Co 5 minut usługa Service Bus sonduje wszystkie klucze zarządzane przez klienta wymienione w rekordzie przestrzeni nazw:
     - Jeśli klucz został obrócony, rekord zostanie zaktualizowany przy użyciu nowego klucza.
     - Jeśli klucz został odwołany, klucz zostanie usunięty z rekordu.
-    - Jeśli wszystkie klucze zostały odwołane, stan szyfrowania obszaru nazw jest ustawiony na **odwołane**. Nie można uzyskać dostępu do danych z przestrzeni nazw Service Bus.. 
+    - Jeśli wszystkie klucze zostały odwołane, stan szyfrowania przestrzeni nazw ma wartość **Odwołano.** Nie można uzyskać dostępu do danych z Service Bus nazw. 
     
 
-## <a name="use-resource-manager-template-to-enable-encryption"></a>Użyj szablonu Menedżer zasobów, aby włączyć szyfrowanie
-W tej sekcji przedstawiono sposób wykonywania następujących zadań przy użyciu **szablonów Azure Resource Manager**. 
+## <a name="use-resource-manager-template-to-enable-encryption"></a>Włączanie szyfrowania przy użyciu Resource Manager szablonu
+W tej sekcji pokazano, jak wykonać następujące zadania przy **użyciu Azure Resource Manager szablonów**. 
 
-1. Utwórz przestrzeń nazw Service Bus **Premium** przy użyciu **tożsamości usługi zarządzanej**.
-2. Utwórz **Magazyn kluczy** i przyznaj tożsamości usługi dostęp do magazynu kluczy. 
-3. Zaktualizuj przestrzeń nazw Service Bus przy użyciu informacji o magazynie kluczy (klucz/wartość). 
+1. Utwórz przestrzeń **nazw usługi Service Bus** Premium przy użyciu tożsamości usługi **zarządzanej.**
+2. Utwórz magazyn **kluczy i** przyznaj tożsamości usługi dostęp do magazynu kluczy. 
+3. Zaktualizuj przestrzeń Service Bus przy użyciu informacji o magazynie kluczy (klucz/wartość). 
 
 
-### <a name="create-a-premium-service-bus-namespace-with-managed-service-identity"></a>Tworzenie przestrzeni nazw Service Bus Premium przy użyciu tożsamości usługi zarządzanej
-W tej sekcji przedstawiono sposób tworzenia Azure Service Bus przestrzeni nazw z tożsamością usługi zarządzanej przy użyciu szablonu Azure Resource Manager i programu PowerShell. 
+### <a name="create-a-premium-service-bus-namespace-with-managed-service-identity"></a>Tworzenie przestrzeni nazw usługi Service Bus Premium przy użyciu tożsamości usługi zarządzanej
+W tej sekcji pokazano, jak utworzyć przestrzeń nazw Azure Service Bus tożsamości usługi zarządzanej przy użyciu szablonu Azure Resource Manager programu PowerShell. 
 
-1. Utwórz szablon Azure Resource Manager, aby utworzyć przestrzeń nazw warstwy Premium Service Bus z tożsamością usługi zarządzanej. Nazwij plik: **CreateServiceBusPremiumNamespace.jsna**: 
+1. Utwórz szablon Azure Resource Manager, aby utworzyć Service Bus w warstwie Premium z tożsamością usługi zarządzanej. Nazwij plik: **CreateServiceBusPremiumNamespace.jsna**: 
 
     ```json
     {
@@ -165,12 +165,12 @@ W tej sekcji przedstawiono sposób tworzenia Azure Service Bus przestrzeni nazw 
        }
     }
     ```
-2. Utwórz plik parametrów szablonu o nazwie: **CreateServiceBusPremiumNamespaceParams.jsna**. 
+2. Utwórz plik parametrów szablonu o nazwie : **CreateServiceBusPremiumNamespaceParams.jsna .** 
 
     > [!NOTE]
     > Zastąp następujące wartości: 
-    > - `<ServiceBusNamespaceName>` -Nazwa przestrzeni nazw Service Bus
-    > - `<Location>` — Lokalizacja przestrzeni nazw Service Bus
+    > - `<ServiceBusNamespaceName>` — Nazwa twojej Service Bus nazw
+    > - `<Location>` - Lokalizacja twojej Service Bus nazw
 
     ```json
     {
@@ -186,7 +186,7 @@ W tej sekcji przedstawiono sposób tworzenia Azure Service Bus przestrzeni nazw 
        }
     }
     ```
-3. Uruchom następujące polecenie programu PowerShell, aby wdrożyć szablon w celu utworzenia przestrzeni nazw w warstwie Premium Service Bus. Następnie Pobierz identyfikator przestrzeni nazw Service Bus, aby użyć jej później. Zamień `{MyRG}` na nazwę grupy zasobów przed uruchomieniem polecenia.  
+3. Uruchom następujące polecenie programu PowerShell, aby wdrożyć szablon w celu utworzenia przestrzeni nazw Service Bus Premium. Następnie pobierz identyfikator przestrzeni nazw Service Bus do późniejszego użycia. Przed uruchomieniem polecenia zastąp nazwą `{MyRG}` grupy zasobów.  
 
     ```powershell
     $outputs = New-AzResourceGroupDeployment -Name CreateServiceBusPremiumNamespace -ResourceGroupName {MyRG} -TemplateFile ./CreateServiceBusPremiumNamespace.json -TemplateParameterFile ./CreateServiceBusPremiumNamespaceParams.json
@@ -194,22 +194,22 @@ W tej sekcji przedstawiono sposób tworzenia Azure Service Bus przestrzeni nazw 
     $ServiceBusNamespaceId = $outputs.Outputs["serviceBusNamespaceId"].value
     ```
  
-### <a name="grant-service-bus-namespace-identity-access-to-key-vault"></a>Udzielanie tożsamości przestrzeni nazw Service Bus dostępu do magazynu kluczy
+### <a name="grant-service-bus-namespace-identity-access-to-key-vault"></a>Udzielanie Service Bus tożsamości przestrzeni nazw do magazynu kluczy
 
-1. Uruchom następujące polecenie, aby utworzyć magazyn kluczy z **ochroną przed przeczyszczaniem** i włączonym **usuwaniem nietrwałego** . 
+1. Uruchom następujące polecenie, aby utworzyć magazyn kluczy z włączoną ochroną przed **przeczyszczaniem** **i usuwaniem nie soft-delete.** 
 
     ```powershell
     New-AzureRmKeyVault -Name "{keyVaultName}" -ResourceGroupName {RGName}  -Location "{location}" -EnableSoftDelete -EnablePurgeProtection    
     ```
     
-    ORAZ
+    (OR)
     
-    Uruchom następujące polecenie, aby zaktualizować **istniejący magazyn kluczy**. Określ wartości dla grup zasobów i nazw magazynów kluczy przed uruchomieniem polecenia. 
+    Uruchom następujące polecenie, aby zaktualizować **istniejący magazyn kluczy.** Przed uruchomieniem polecenia określ wartości dla grupy zasobów i nazw magazynu kluczy. 
     
     ```powershell
     ($updatedKeyVault = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -ResourceGroupName {RGName} -VaultName {keyVaultName}).ResourceId).Properties| Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"-Force | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true" -Force
     ``` 
-2. Ustaw zasady dostępu magazynu kluczy, tak aby zarządzana tożsamość przestrzeni nazw Service Bus mogła uzyskać dostęp do wartości klucza w magazynie kluczy. Użyj identyfikatora przestrzeni nazw Service Bus z poprzedniej sekcji. 
+2. Ustaw zasady dostępu magazynu kluczy tak, aby tożsamość zarządzana Service Bus może uzyskać dostęp do wartości klucza w magazynie kluczy. Użyj identyfikatora przestrzeni nazw Service Bus z poprzedniej sekcji. 
 
     ```powershell
     $identity = (Get-AzureRmResource -ResourceId $ServiceBusNamespaceId -ExpandProperties).Identity
@@ -217,15 +217,15 @@ W tej sekcji przedstawiono sposób tworzenia Azure Service Bus przestrzeni nazw 
     Set-AzureRmKeyVaultAccessPolicy -VaultName {keyVaultName} -ResourceGroupName {RGName} -ObjectId $identity.PrincipalId -PermissionsToKeys get,wrapKey,unwrapKey,list
     ```
 
-### <a name="encrypt-data-in-service-bus-namespace-with-customer-managed-key-from-key-vault"></a>Szyfruj dane w Service Bus przestrzeni nazw z kluczem zarządzanym przez klienta z magazynu kluczy
-Wykonano następujące kroki: 
+### <a name="encrypt-data-in-service-bus-namespace-with-customer-managed-key-from-key-vault"></a>Szyfrowanie danych w Service Bus nazw przy użyciu klucza zarządzanego przez klienta z magazynu kluczy
+Do tej pory zostały wykonane następujące czynności: 
 
 1. Utworzono przestrzeń nazw Premium z tożsamością zarządzaną.
-2. Utwórz magazyn kluczy i przyznaj zarządzanej tożsamości dostęp do magazynu kluczy. 
+2. Utwórz magazyn kluczy i przyznaj tożsamości zarządzanej dostęp do magazynu kluczy. 
 
-W tym kroku zostanie zaktualizowana przestrzeń nazw Service Bus przy użyciu informacji o magazynie kluczy. 
+W tym kroku zaktualizujemy przestrzeń nazw usługi Service Bus informacjami o magazynie kluczy. 
 
-1. Utwórz plik JSON o nazwie **UpdateServiceBusNamespaceWithEncryption.js** przy użyciu następującej zawartości: 
+1. Utwórz plik JSON o **UpdateServiceBusNamespaceWithEncryption.jso** następującej zawartości: 
 
     ```json
     {
@@ -288,14 +288,14 @@ W tym kroku zostanie zaktualizowana przestrzeń nazw Service Bus przy użyciu in
     }
     ``` 
 
-2. Utwórz plik parametrów szablonu: **UpdateServiceBusNamespaceWithEncryptionParams.json**.
+2. Utwórz plik parametrów szablonu:UpdateServiceBusNamespaceWithEncryptionParams.js **na stronie**.
 
     > [!NOTE]
     > Zastąp następujące wartości: 
-    > - `<ServiceBusNamespaceName>` -Nazwa przestrzeni nazw Service Bus
-    > - `<Location>` — Lokalizacja przestrzeni nazw Service Bus
+    > - `<ServiceBusNamespaceName>` — Nazwa twojej Service Bus nazw
+    > - `<Location>` - Lokalizacja twojej Service Bus nazw
     > - `<KeyVaultName>` — Nazwa magazynu kluczy
-    > - `<KeyName>` -Nazwa klucza w magazynie kluczy  
+    > - `<KeyName>` — Nazwa klucza w magazynie kluczy  
 
     ```json
     {
@@ -317,7 +317,7 @@ W tym kroku zostanie zaktualizowana przestrzeń nazw Service Bus przy użyciu in
        }
     }
     ```             
-3. Uruchom następujące polecenie programu PowerShell, aby wdrożyć szablon Menedżer zasobów. Zamień `{MyRG}` na nazwę grupy zasobów przed uruchomieniem polecenia. 
+3. Uruchom następujące polecenie programu PowerShell, aby wdrożyć Resource Manager szablonu. Przed uruchomieniem polecenia zastąp nazwą `{MyRG}` grupy zasobów. 
 
     ```powershell
     New-AzResourceGroupDeployment -Name UpdateServiceBusNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateServiceBusNamespaceWithEncryption.json -TemplateParameterFile ./UpdateServiceBusNamespaceWithEncryptionParams.json
@@ -326,5 +326,5 @@ W tym kroku zostanie zaktualizowana przestrzeń nazw Service Bus przy użyciu in
 
 ## <a name="next-steps"></a>Następne kroki
 Zobacz następujące artykuły:
-- [Przegląd Service Bus](service-bus-messaging-overview.md)
-- [Przegląd Key Vault](../key-vault/general/overview.md)
+- [Service Bus omówienie](service-bus-messaging-overview.md)
+- [Key Vault omówienie](../key-vault/general/overview.md)

@@ -1,6 +1,6 @@
 ---
-title: Zamień/przełączaj między dwoma Cloud Servicesami platformy Azure (obsługa rozszerzona)
-description: Zamień/przełączaj między dwoma Cloud Servicesami platformy Azure (obsługa rozszerzona)
+title: Zamienianie lub przełączanie wdrożeń w Azure Cloud Services (rozszerzona pomoc techniczna)
+description: Dowiedz się, jak przełączać się między wdrożeniami w Azure Cloud Services (rozszerzona pomoc techniczna).
 ms.topic: how-to
 ms.service: cloud-services-extended-support
 author: surbhijain
@@ -8,46 +8,65 @@ ms.author: surbhijain
 ms.reviewer: gachandw
 ms.date: 04/01/2021
 ms.custom: ''
-ms.openlocfilehash: 6f96656af9afd9874cc6273a9cea9ed43e8c69cc
-ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
+ms.openlocfilehash: f5e01075ffb460c7ddd70b40a6b19f7ea70dd776
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/04/2021
-ms.locfileid: "106294309"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107748836"
 ---
-# <a name="swapswitch-between-two-azure-cloud-services-extended-support"></a>Zamień/przełączaj między dwoma Cloud Servicesami platformy Azure (obsługa rozszerzona)
-Usługi Cloud Services (obsługa rozszerzona) umożliwiają wymianę między dwoma niezależnymi wdrożeniami usługi w chmurze. W przeciwieństwie do usług w chmurze (klasycznych), pojęcie miejsc nie istnieje w modelu Azure Resource Manager. W przypadku podjęcia decyzji o wdrożeniu nowej wersji usługi w chmurze (obsługa rozszerzona) można ją zmienić z inną istniejącą usługą w chmurze (rozszerzoną pomoc techniczną), umożliwiając przemieszczenie i przetestowanie nowej wersji przy użyciu tego wdrożenia. Usługę w chmurze można "wymienić" z inną usługą w chmurze tylko w czasie wdrażania drugiej usługi w chmurze (pary). Korzystając z metody wdrażania opartego na szablonach ARM, można to zrobić, ustawiając właściwość SwappableCloudService w profilu sieci obiektu usługi w chmurze na identyfikator sparowanej usługi w chmurze. 
+# <a name="swap-or-switch-deployments-in-azure-cloud-services-extended-support"></a>Zamienianie lub przełączanie wdrożeń w Azure Cloud Services (rozszerzona pomoc techniczna)
 
-```
+Możesz wymieniać się dwoma niezależnymi wdrożeniami usług w chmurze w Azure Cloud Services (rozszerzona pomoc techniczna). W przeciwieństwie Azure Cloud Services (klasycznej) model Azure Resource Manager w Azure Cloud Services (rozszerzona obsługa) nie używa miejsc wdrożenia. W Azure Cloud Services (rozszerzona pomoc techniczna) podczas wdrażania nowej wersji usługi w chmurze można "zamienić" usługę w chmurze z istniejącą usługą w chmurze w usłudze Azure Cloud Services (rozszerzona pomoc techniczna).
+
+Po zamianie wdrożeń możesz schować i przetestować nowe wydanie przy użyciu nowego wdrożenia usługi w chmurze. W efekcie zamiana podniesie nową usługę w chmurze, która jest przesłoowana do wersji produkcyjnej.
+
+> [!NOTE]
+> Nie można zamienić wdrożenia Azure Cloud Services (klasycznego) i wdrożenia Azure Cloud Services (rozszerzonej pomocy technicznej).
+
+Podczas wdrażania drugiej z par usług w chmurze należy dokonać wymiany usługi w chmurze z inną usługą w chmurze.
+
+Wdrożenia można zamienić przy użyciu szablonu Azure Resource Manager ARM, Azure Portal lub interfejsu API REST.
+
+## <a name="arm-template"></a>Szablon ARM
+
+Jeśli używasz metody wdrażania szablonu usługi ARM, aby można było zamienić usługi w chmurze, ustaw właściwość w obiekcie na identyfikator sparowanych `SwappableCloudService` `networkProfile` usług w `cloudServices` chmurze:
+
+```json
 "networkProfile": {
  "SwappableCloudService": {
               "id": "[concat(variables('swappableResourcePrefix'), 'Microsoft.Compute/cloudServices/', parameters('cloudServicesToBeSwappedWith'))]"
             },
+        }
 ```
-> [!Note] 
-> Nie można zamienić między usługą w chmurze (klasyczną) a usługą w chmurze (obsługa rozszerzona)
 
-Użyj opcji **Zamień** , aby przełączyć adresy URL, na podstawie których są rozwiązywane dwie usługi w chmurze, w efekcie podwyższanie poziomu nowej usługi w chmurze (przemieszczanej) do wersji produkcyjnej.
-Możesz zamienić wdrożenia ze strony Cloud Services lub pulpitu nawigacyjnego.
+## <a name="azure-portal"></a>Azure Portal
 
-1. W [Azure Portal](https://portal.azure.com)wybierz usługę w chmurze, którą chcesz zaktualizować. Ten krok powoduje otwarcie bloku wystąpienia usługi w chmurze.
-2. W bloku wybierz pozycję **Zamień** 
-    :::image type="content" source="media/swap-cloud-service-1.png" alt-text="obraz — Opcja Zamień usługa w chmurze":::
-   
-3. Zostanie otwarty następujący monit dotyczący potwierdzenia
-   
-   :::image type="content" source="media/swap-cloud-service-2.png" alt-text="Obraz przedstawia zamianę usługi w chmurze":::
-   
-4. Po sprawdzeniu informacji o wdrożeniu wybierz pozycję OK, aby wymienić wdrożenia.
-Wymiana odbywa się szybko, ponieważ tylko te zmiany są wirtualnymi adresami IP (VIP) dla dwóch usług w chmurze.
+Aby zamienić wdrożenie w Azure Portal:
 
-Aby zaoszczędzić koszty obliczeń, można usunąć jedną z usług w chmurze (wyznaczonej jako środowisko tymczasowe do wdrożenia aplikacji) po sprawdzeniu, czy zamieniony usługa w chmurze działa zgodnie z oczekiwaniami.
+1. W menu portalu wybierz pozycję Cloud Services **(rozszerzona pomoc techniczna) lub** Pulpit **nawigacyjny.**
+1. Wybierz usługę w chmurze, którą chcesz zaktualizować.
+1. W **przeglądzie** usługi w chmurze wybierz pozycję **Zamień:**
 
-Interfejs API REST do przeprowadzenia "wymiany" między dwoma wdrożeniami rozszerzonej obsługi usług w chmurze jest poniżej:
+   :::image type="content" source="media/swap-cloud-service-portal-swap.png" alt-text="Zrzut ekranu przedstawiający kartę zamiany dla usługi w chmurze.":::
+
+1. W okienku potwierdzenia zamiany sprawdź informacje o wdrożeniu, a następnie wybierz przycisk **OK,** aby zamienić wdrożenia:
+
+   :::image type="content" source="media/swap-cloud-service-portal-confirm.png" alt-text="Zrzut ekranu przedstawiający potwierdzanie informacji o zamianie wdrożenia.":::
+
+Wdrożenia są szybko wymieniane, ponieważ jedyną zmianą jest wirtualny adres IP wdrożonej usługi w chmurze.
+
+Aby zaoszczędzić koszty obliczeń, możesz usunąć jedną z usług w chmurze (wyznaczoną jako środowisko przejściowe dla wdrożenia aplikacji) po sprawdzeniu, czy zamieniona usługa w chmurze działa zgodnie z oczekiwaniami.
+
+## <a name="rest-api"></a>Interfejs API REST
+
+Aby użyć interfejsu API REST do zamiany na nowe wdrożenie usług w chmurze w usłudze Azure Cloud Services (rozszerzona obsługa), użyj następującego polecenia i konfiguracji JSON:
+
 ```http
 POST https://management.azure.com/subscriptions/subId/providers/Microsoft.Network/locations/region/setLoadBalancerFrontendPublicIpAddresses?api-version=2020-11-01
 ```
-```
+
+```json
 {
   "frontendIPConfigurations": [
     {
@@ -68,23 +87,36 @@ POST https://management.azure.com/subscriptions/subId/providers/Microsoft.Networ
     }
   ]
  }
+}
 ```
-## <a name="common-questions-about-swapping-deployments"></a>Często zadawane pytania dotyczące wymiany wdrożeń
 
-### <a name="what-are-the-prerequisites-for-swapping-between-two-cloud-services"></a>Jakie są wymagania wstępne dotyczące wymiany między dwiema usługami w chmurze?
-Istnieją dwa kluczowe wymagania wstępne dotyczące usługi w chmurze (obsługa rozszerzona):
-* Jeśli chcesz użyć statycznego/zastrzeżonego adresu IP dla jednej z wymienialnych usług w chmurze, inna usługa w chmurze musi również używać zastrzeżonego adresu IP. W przeciwnym razie swap nie powiedzie się.
-* Aby można było przeprowadzić zamianę, wszystkie wystąpienia ról muszą być uruchomione. Stan wystąpień można sprawdzić w bloku przegląd Azure Portal. Alternatywnie możesz użyć polecenia Get-AzRole w programie Windows PowerShell.
+## <a name="common-questions-about-swapping-deployments"></a>Typowe pytania dotyczące zamiany wdrożeń
 
-Aktualizacje systemu operacyjnego gościa i operacje naprawy usług mogą również spowodować niepowodzenie zamiany wdrożenia. Aby uzyskać więcej informacji, zobacz Rozwiązywanie problemów z wdrażaniem usługi w chmurze.
+Zapoznaj się z tymi odpowiedziami na często zadawane pytania dotyczące zamiany wdrożeń w Azure Cloud Services (rozszerzona pomoc techniczna).
 
-### <a name="can-i-perform-a-vip-swap-in-parallel-with-another-mutating-operation"></a>Czy mogę przeprowadzić wymianę VIP równolegle z inną operacją mutacji?
-Nie. Wymiana adresów VIP to zmiana sieciowa, która musi zostać zakończona przed wykonaniem innej operacji obliczeniowej w usługach w chmurze. Wykonywanie operacji aktualizowania, usuwania lub automatycznego skalowania w usługach w chmurze podczas wymiany adresu VIP lub wyzwolenie zamiany adresu VIP, gdy inna operacja obliczeniowa jest w toku, może opuścić usługę w chmurze w stanie niepożądanym, z którego odzyskiwanie może być niemożliwe. 
+### <a name="what-are-the-prerequisites-for-swapping-to-a-new-cloud-services-deployment"></a>Jakie są wymagania wstępne dotyczące zamiany na nowe wdrożenie usług w chmurze?
 
-### <a name="does-a-swap-incur-downtime-for-my-application-how-should-i-handle-it"></a>Czy Zamiana wiąże się z czasem przestoju aplikacji? Jak należy ją obsłużyć?
-Zgodnie z opisem w poprzedniej sekcji wymiana usługi w chmurze jest zwykle szybka, ponieważ jest to tylko zmiana konfiguracji w module równoważenia obciążenia platformy Azure. W niektórych przypadkach może upłynąć 10 lub więcej sekund i spowodować błędy połączeń przejściowych. Aby ograniczyć wpływ klientów, należy rozważyć implementację logiki ponawiania klienta.
+Należy spełnić dwa kluczowe wymagania wstępne dotyczące pomyślnej wymiany wdrożenia w programie Azure Cloud Services (rozszerzona pomoc techniczna):
+
+* Jeśli chcesz użyć statycznego lub zastrzeżonego adresu IP dla jednej z zamienialnych usług w chmurze, druga usługa w chmurze musi również używać zastrzeżonego adresu IP. W przeciwnym razie zamiana zakończy się niepowodzeniem.
+* Aby zamiana zakończyła się powodzeniem, wszystkie wystąpienia ról muszą być uruchomione. Aby sprawdzić stan wystąpień, na stronie Azure Portal przejdź  do tematu Omówienie nowo wdrożonej usługi w chmurze lub użyj polecenia w `Get-AzRole` Windows PowerShell.
+
+Aktualizacje systemu operacyjnego gościa i operacje korygowania usługi mogą spowodować niepowodzenie zamiany wdrożenia. Aby uzyskać więcej informacji, zobacz [Troubleshoot cloud service deployments (Rozwiązywanie problemów z wdrożeniami usług w chmurze).](../cloud-services/cloud-services-troubleshoot-deployment-problems.md)
+
+### <a name="can-i-make-a-vip-swap-in-parallel-with-another-mutating-operation"></a>Czy mogę dokonać zamiany adresów VIP równolegle z inną operacją mutowania?
+
+Nie. Zamiana adresów VIP to zmiana tylko w sieci, która musi zakończyć się przed rozpoczęciem jakiejkolwiek innej operacji obliczeniowej w usłudze w chmurze. Rozpoczęcie operacji aktualizacji, usuwania lub skalowania automatycznego dla usługi w chmurze w czasie, gdy trwa wymiana adresów VIP lub wyzwolenie zamiany adresów VIP, gdy inna operacja obliczeniowa jest w toku, może spowodować, że usługa w chmurze będzie w stanie nieodwracalnego błędu.
+
+### <a name="does-a-swap-incur-downtime-for-my-application-and-how-should-i-handle-it"></a>Czy wymiana powoduje przestój mojej aplikacji i jak należy ją obsłużyć?
+
+Zamiana usług w chmurze jest zwykle szybka, ponieważ jest to tylko zmiana konfiguracji w usłudze Azure Load Balancer. W niektórych przypadkach zamiana może potrwać 10 sekund lub więcej i spowodować przejściowe błędy połączenia. Aby ograniczyć wpływ zamiany na użytkowników, rozważ zaimplementowanie logiki ponawiania prób klienta.
 
 ## <a name="next-steps"></a>Następne kroki 
-- Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wdrażania Cloud Services (obsługa rozszerzona).
-- Zapoznaj się z [często zadawanymi pytaniami](faq.md) dotyczącymi Cloud Services (obsługa rozszerzona).
-- Wdróż usługę w chmurze (obsługę rozszerzoną) przy użyciu [Azure Portal](deploy-portal.md), [programu PowerShell](deploy-powershell.md), [szablonu](deploy-template.md) lub [programu Visual Studio](deploy-visual-studio.md).
+
+* Przejrzyj [wymagania wstępne dotyczące wdrażania](deploy-prerequisite.md) Azure Cloud Services (rozszerzona pomoc techniczna).
+* Przejrzyj [często zadawane pytania dotyczące Azure Cloud Services](faq.md) (rozszerzona pomoc techniczna).
+* Wdrażanie usługi Azure Cloud Services (rozszerzonej pomocy technicznej) w chmurze przy użyciu jednej z tych opcji:
+  * [Witryna Azure Portal](deploy-portal.md)
+  * [Program PowerShell](deploy-powershell.md)
+  * [Szablon usługi ARM](deploy-template.md)
+  * [Visual Studio](deploy-visual-studio.md)

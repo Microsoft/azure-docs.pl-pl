@@ -1,6 +1,6 @@
 ---
-title: Automatyczne naprawianie wystąpień przy użyciu zestawów skalowania maszyn wirtualnych platformy Azure
-description: Dowiedz się, jak skonfigurować zasady naprawy automatycznych dla wystąpień maszyn wirtualnych w zestawie skalowania
+title: Automatyczne naprawy wystąpień za pomocą zestawów skalowania maszyn wirtualnych platformy Azure
+description: Dowiedz się, jak skonfigurować zasady automatycznej naprawy wystąpień maszyn wirtualnych w zestawie skalowania
 author: avirishuv
 ms.author: avverma
 ms.topic: conceptual
@@ -9,106 +9,106 @@ ms.subservice: instance-protection
 ms.date: 02/28/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: b43502e771415c0ca62d821c697516fae16e35ce
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 733f4602e43511924783f6bc8cb1bad29edb5ea0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105934533"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762915"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Automatyczne naprawy wystąpień dla zestawów skalowania maszyn wirtualnych platformy Azure
 
-Włączenie automatycznego naprawiania wystąpień dla zestawów skalowania maszyn wirtualnych platformy Azure ułatwia uzyskanie wysokiej dostępności dla aplikacji przez utrzymywanie zestawu prawidłowych wystąpień. Jeśli wystąpienie w zestawie skalowania zostanie uznane za niezdrowe zgodnie z informacjami podanymi przez [rozszerzenie kondycji aplikacji](./virtual-machine-scale-sets-health-extension.md) lub [sondy kondycji modułu równoważenia obciążenia](../load-balancer/load-balancer-custom-probe-overview.md), ta funkcja automatycznie wykonuje naprawy wystąpienia, usuwając wystąpienie złej kondycji i tworząc nowe, aby je zastąpić.
+Włączenie automatycznej naprawy wystąpień dla zestawów skalowania maszyn wirtualnych platformy Azure pomaga zapewnić wysoką dostępność aplikacji dzięki utrzymywaniu zestawu wystąpień w dobrej kondycji. Jeśli wystąpienie w zestawie skalowania jest w złej kondycji zgłoszone przez rozszerzenie usługi [Application Health](./virtual-machine-scale-sets-health-extension.md) lub sondy kondycji usługi [Równoważenie](../load-balancer/load-balancer-custom-probe-overview.md)obciążenia, ta funkcja automatycznie naprawia wystąpienie, usuwając wystąpienie w złej kondycji i tworząc nowe, aby je zastąpić.
 
 ## <a name="requirements-for-using-automatic-instance-repairs"></a>Wymagania dotyczące korzystania z automatycznych napraw wystąpień
 
-**Włączanie monitorowania kondycji aplikacji w zestawie skalowania**
+**Włączanie monitorowania kondycji aplikacji dla zestawu skalowania**
 
-Dla zestawu skalowania powinna być włączona funkcja monitorowania kondycji aplikacji dla wystąpień. Można to zrobić przy użyciu funkcji [rozszerzenia kondycji aplikacji](./virtual-machine-scale-sets-health-extension.md) lub [sond kondycji modułu równoważenia obciążenia](../load-balancer/load-balancer-custom-probe-overview.md). Można jednocześnie włączyć tylko jedną z nich. Aby określić stan kondycji aplikacji, należy użyć rozszerzenia kondycja aplikacji lub sond modułu równoważenia obciążenia. Ten stan kondycji jest używany przez koordynatora zestawu skalowania do monitorowania kondycji wystąpienia i wykonywania napraw, gdy jest to wymagane.
+Zestaw skalowania powinien mieć włączone monitorowanie kondycji aplikacji dla wystąpień. Można to zrobić przy użyciu rozszerzenia [kondycji aplikacji lub](./virtual-machine-scale-sets-health-extension.md) sond kondycji usługi [Równoważenie obciążenia.](../load-balancer/load-balancer-custom-probe-overview.md) Jednocześnie można włączyć tylko jedną z nich. Rozszerzenie kondycji aplikacji lub sondy usługi równoważenia obciążenia wysyłają polecenie ping do punktu końcowego aplikacji skonfigurowanego w wystąpieniach maszyny wirtualnej w celu określenia stanu kondycji aplikacji. Ten stan kondycji jest używany przez orkiestrator zestawu skalowania do monitorowania kondycji wystąpienia i przeprowadzania napraw w razie potrzeby.
 
-**Skonfiguruj punkt końcowy, aby zapewnić stan kondycji**
+**Konfigurowanie punktu końcowego w celu zapewnienia stanu kondycji**
 
-Przed włączeniem zasad automatycznego naprawiania wystąpienia, upewnij się, że wystąpienia zestawu skalowania mają skonfigurowany punkt końcowy aplikacji do emisji stanu kondycji aplikacji. Gdy wystąpienie zwraca stan 200 (OK) w tym punkcie końcowym aplikacji, wystąpienie zostanie oznaczone jako "w dobrej kondycji". We wszystkich innych przypadkach wystąpienie jest oznaczone jako "w złej kondycji", w tym następujące scenariusze:
+Przed włączeniem zasad automatycznej naprawy wystąpień upewnij się, że wystąpienia zestawu skalowania mają skonfigurowany punkt końcowy aplikacji do emitowania stanu kondycji aplikacji. Gdy wystąpienie zwróci stan 200 (OK) w tym punkcie końcowym aplikacji, wystąpienie zostanie oznaczone jako "W dobrej kondycji". We wszystkich innych przypadkach wystąpienie jest oznaczone jako "W złej kondycji", w tym następujące scenariusze:
 
-- Jeśli nie ma skonfigurowanego punktu końcowego aplikacji w wystąpieniach maszyny wirtualnej w celu zapewnienia stanu kondycji aplikacji
+- Jeśli w wystąpieniach maszyny wirtualnej nie skonfigurowano punktu końcowego aplikacji w celu zapewnienia stanu kondycji aplikacji
 - Gdy punkt końcowy aplikacji jest niepoprawnie skonfigurowany
-- Gdy punkt końcowy aplikacji jest nieosiągalny
+- Gdy punkt końcowy aplikacji jest nieo osiągalny
 
-W przypadku wystąpień oznaczonych jako "w złej kondycji" Automatyczne naprawy są wyzwalane przez zestaw skalowania. Upewnij się, że punkt końcowy aplikacji został prawidłowo skonfigurowany przed włączeniem zasad automatycznego naprawiania w celu uniknięcia nieplanowanych napraw wystąpień, gdy punkt końcowy jest skonfigurowany.
+W przypadku wystąpień oznaczonych jako "W złej kondycji" automatyczne naprawy są wyzwalane przez zestaw skalowania. Przed włączeniem zasad automatycznej naprawy upewnij się, że punkt końcowy aplikacji jest poprawnie skonfigurowany, aby uniknąć niezamierzonych napraw wystąpień podczas konfigurowania punktu końcowego.
 
 **Maksymalna liczba wystąpień w zestawie skalowania**
 
-Ta funkcja jest obecnie dostępna tylko dla zestawów skalowania, które mają maksymalnie 200 wystąpień. Zestaw skalowania można wdrożyć jako pojedynczą grupę umieszczania lub grupę z możliwością przemieszczenia, ale liczba wystąpień nie może być większa niż 200, jeśli automatyczne naprawy wystąpienia są włączone dla zestawu skalowania.
+Ta funkcja jest obecnie dostępna tylko dla zestawów skalowania, które mają maksymalnie 200 wystąpień. Zestaw skalowania można wdrożyć jako pojedynczą grupę umieszczania lub grupę z wieloma umieszczaniami, ale liczba wystąpień nie może być powyżej 200, jeśli dla zestawu skalowania włączono automatyczne naprawy wystąpień.
 
 **Wersja interfejsu API**
 
-Zasady automatycznego naprawiania są obsługiwane w przypadku interfejsu API obliczeń w wersji 2018-10-01 lub nowszej.
+Zasady automatycznej naprawy są obsługiwane w przypadku interfejsu API obliczeń w wersji 2018-10-01 lub wyższej.
 
-**Ograniczenia dotyczące przenoszenia zasobów lub subskrypcji**
+**Ograniczenia dotyczące przenosiń zasobów lub subskrypcji**
 
-Przenoszenie zasobów lub subskrypcji nie jest obecnie obsługiwane w przypadku zestawów skalowania, gdy funkcja naprawy automatyczne jest włączona.
+Przeniesienie zasobu lub subskrypcji nie jest obecnie obsługiwane w przypadku zestawów skalowania, gdy jest włączona funkcja automatycznej naprawy.
 
-**Ograniczenie dla zestawów skalowania usługi Service Fabric**
+**Ograniczenie dotyczące zestawów skalowania usługi Service Fabric**
 
 Ta funkcja nie jest obecnie obsługiwana w przypadku zestawów skalowania usługi Service Fabric.
 
 ## <a name="how-do-automatic-instance-repairs-work"></a>Jak działają automatyczne naprawy wystąpień?
 
-Funkcja automatycznej naprawy wystąpienia polega na monitorowaniu kondycji poszczególnych wystąpień w zestawie skalowania. Wystąpienia maszyn wirtualnych w zestawie skalowania można skonfigurować tak, aby emitować stan kondycji aplikacji przy użyciu [rozszerzenia kondycji aplikacji](./virtual-machine-scale-sets-health-extension.md) lub [sond kondycji modułu równoważenia obciążenia](../load-balancer/load-balancer-custom-probe-overview.md). Jeśli wystąpienie jest w złej kondycji, zestaw skalowania wykonuje akcję naprawy, usuwając wystąpienie złej kondycji i tworząc nowe, aby je zastąpić. Do utworzenia nowego wystąpienia jest używany najnowszy model zestawu skalowania maszyn wirtualnych. Tę funkcję można włączyć w modelu zestawu skalowania maszyn wirtualnych przy użyciu obiektu *automaticRepairsPolicy* .
+Funkcja automatycznej naprawy wystąpień opiera się na monitorowaniu kondycji poszczególnych wystąpień w zestawie skalowania. Wystąpienia maszyn wirtualnych w zestawie skalowania można skonfigurować tak, aby emitowały stan kondycji aplikacji przy użyciu rozszerzenia [kondycji](./virtual-machine-scale-sets-health-extension.md) aplikacji lub sond kondycji usługi [Load Balancer.](../load-balancer/load-balancer-custom-probe-overview.md) Jeśli wystąpienie jest w złej kondycji, zestaw skalowania wykonuje akcję naprawy, usuwając wystąpienie w złej kondycji i tworząc nowe, aby je zastąpić. Najnowszy model zestawu skalowania maszyn wirtualnych służy do tworzenia nowego wystąpienia. Tę funkcję można włączyć w modelu zestawu skalowania maszyn wirtualnych przy użyciu obiektu *automaticRepairsPolicy.*
 
 ### <a name="batching"></a>Przetwarzanie wsadowe
 
-Operacje naprawy wystąpienia automatycznego są wykonywane w partiach. W danym momencie nie więcej niż 5% wystąpień w zestawie skalowania jest naprawione za pomocą zasad automatycznej naprawy. Pozwala to uniknąć jednoczesnego usunięcia i ponownego utworzenia dużej liczby wystąpień, jeśli znaleziono w złej kondycji.
+Automatyczne operacje naprawy wystąpień są wykonywane w partiach. W dowolnym momencie nie więcej niż 5% wystąpień w zestawie skalowania są naprawiane za pomocą zasad automatycznej naprawy. Pozwala to uniknąć jednoczesnego usuwania i ponownego tworzenia dużej liczby wystąpień w przypadku wystąpienia złej kondycji w tym samym czasie.
 
 ### <a name="grace-period"></a>Okres prolongaty
 
-Gdy wystąpienie przechodzi przez operację zmiany stanu z powodu akcji PUT, PATCH lub POST wykonanej na zestawie skalowania (na przykład reobraz, ponownym wdrożeniu, aktualizacji itp.), wówczas każda akcja naprawy na tym wystąpieniu jest wykonywana dopiero po upływie okresu prolongaty. Okres prolongaty to ilość czasu, przez jaką wystąpienie może powrócić do stanu prawidłowego. Okres prolongaty rozpoczyna się po zakończeniu zmiany stanu. Pozwala to uniknąć wszelkich przedwczesnych lub przypadkowych operacji naprawy. Okres prolongaty jest uznawany za wszystkie nowo utworzone wystąpienia w zestawie skalowania (łącznie z tym utworzonym w wyniku operacji naprawy). Okres prolongaty jest określany w minutach w formacie ISO 8601 i można go ustawić przy użyciu właściwości *automaticRepairsPolicy. gracePeriod*. Okres prolongaty może wynosić od 30 minut do 90 minut i ma wartość domyślną 30 minut.
+Gdy wystąpienie przechodzi przez operację zmiany stanu z powodu akcji PUT, PATCH lub POST wykonywanej w zestawie skalowania (na przykład ponownego obrazu, ponownego wykonania, aktualizacji itp.), każda akcja naprawy tego wystąpienia jest wykonywana tylko po oczekiwaniu na okres prolongaty. Okres prolongaty to czas, przez który wystąpienie może wrócić do dobrej kondycji. Okres prolongaty rozpoczyna się po zakończeniu zmiany stanu. Pozwala to uniknąć przedwczesnych lub przypadkowych operacji naprawy. Okres prolongaty jest honorowany dla każdego nowo utworzonego wystąpienia w zestawie skalowania (w tym dla wystąpienia utworzonego w wyniku operacji naprawy). Okres prolongaty jest określony w minutach w formacie ISO 8601 i można go ustawić przy użyciu właściwości *automaticRepairsPolicy.gracePeriod.* Okres prolongaty może być z zakresu od 30 minut do 90 minut i ma wartość domyślną 30 minut.
 
-### <a name="suspension-of-repairs"></a>Zawieszenie naprawy 
+### <a name="suspension-of-repairs"></a>Zawieszenie napraw 
 
-Zestawy skalowania maszyn wirtualnych zapewniają możliwość tymczasowego zawieszenia automatycznych napraw wystąpień w razie potrzeby. W widoku wystąpienia zestawu skalowania maszyn wirtualnych *stan ServiceState* dla automatycznych napraw w obszarze właściwości *orchestrationServices* . Gdy zestaw skalowania jest ustawiony na automatyczne naprawy, parametr *ServiceState* ma ustawioną wartość *Running*. Gdy automatyczne naprawy są zawieszane dla zestawu skalowania, parametr *ServiceState* jest ustawiony na wartość *zawieszone*. Jeśli *automaticRepairsPolicy* jest zdefiniowany w zestawie skalowania, ale funkcja automatycznego naprawiania nie jest włączona, wówczas parametr *ServiceState* ma wartość *Nieuruchomiony*.
+Zestawy skalowania maszyn wirtualnych zapewniają możliwość tymczasowego wstrzymania w razie potrzeby automatycznych napraw wystąpień. Właściwość *serviceState* do automatycznej naprawy w obszarze aranżacji *właściwościUsługi* w widoku wystąpienia zestawu skalowania maszyn wirtualnych pokazuje bieżący stan automatycznych napraw. Gdy zestaw skalowania jest wybierany do automatycznych napraw, wartość parametru *serviceState* jest ustawiona na *Running*. Gdy automatyczne naprawy są wstrzymane dla zestawu skalowania, parametr *serviceState* jest ustawiany na *wartość Wstrzymano*. Jeśli *parametr automaticRepairsPolicy* jest zdefiniowany w zestawie skalowania, ale funkcja automatycznej naprawy nie jest włączona, parametr *serviceState* jest ustawiony na wartość *Nie działa.*
 
-Jeśli nowo utworzone wystąpienia służące do zamiany złej kondycji w zestawie skalowania nadal pozostaną w złej kondycji nawet po wielokrotnym wykonaniu operacji naprawczych, to jako środek bezpieczeństwa platforma aktualizuje *stan ServiceState* na potrzeby *zawieszonych* automatycznych napraw. Możesz ponownie wznowić automatyczne naprawy, ustawiając wartość *ServiceState* dla automatycznych napraw do *uruchomienia*. Szczegółowe instrukcje znajdują się w sekcji dotyczącej [przeglądania i aktualizowania stanu usługi automatycznych napraw](#viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy) dla danego zestawu skalowania. 
+Jeśli nowo utworzone wystąpienia w celu zastąpienia wystąpień w złej kondycji w zestawie skalowania nadal pozostają w złej kondycji nawet po wielokrotnym wykonywaniu operacji naprawy, jako miara bezpieczeństwa platforma aktualizuje stan *usługi* na czas automatycznej naprawy na Wstrzymano *.* Automatyczne naprawy można wznowić ponownie, ustawiając wartość *serviceState* dla automatycznych napraw na *Uruchomiona.* Szczegółowe instrukcje znajdują się w sekcji dotyczącej wyświetlania [i aktualizowania](#viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy) stanu usługi zasad automatycznej naprawy zestawu skalowania. 
 
-Proces automatycznego naprawiania wystąpienia przebiega w następujący sposób:
+Proces automatycznej naprawy wystąpień działa w następujący sposób:
 
-1. Funkcja [rozszerzenia kondycji aplikacji](./virtual-machine-scale-sets-health-extension.md) lub [sondy kondycji modułu równoważenia obciążenia wysyła](../load-balancer/load-balancer-custom-probe-overview.md) polecenie ping do punktu końcowego aplikacji wewnątrz każdej maszyny wirtualnej w zestawie skalowania, aby uzyskać stan kondycji aplikacji dla każdego wystąpienia.
-2. Jeśli punkt końcowy odpowie na status 200 (OK), wystąpienie zostanie oznaczone jako "w dobrej kondycji". We wszystkich innych przypadkach (łącznie z tym, czy punkt końcowy jest nieosiągalny) wystąpienie jest oznaczone jako "w złej kondycji".
-3. Jeśli wystąpienie jest w złej kondycji, zestaw skalowania wyzwala akcję naprawy, usuwając wystąpienie złej kondycji i tworząc nowe, aby je zastąpić.
-4. Naprawy wystąpień są wykonywane w partiach. W danym momencie nie można naprawić więcej niż 5% łącznej liczby wystąpień w zestawie skalowania. Jeśli zestaw skalowania ma mniej niż 20 wystąpień, naprawy są wykonywane dla jednego wystąpienia w złej kondycji.
-5. Powyższy proces jest kontynuowany do momentu naprawienia wszystkich wystąpień w zestawie skalowania w złej kondycji.
+1. [Sondy kondycji rozszerzenia](./virtual-machine-scale-sets-health-extension.md) kondycji aplikacji lub usługi [równoważenia](../load-balancer/load-balancer-custom-probe-overview.md) obciążenia wysyłają polecenie ping do punktu końcowego aplikacji wewnątrz każdej maszyny wirtualnej w zestawie skalowania w celu uzyskania stanu kondycji aplikacji dla każdego wystąpienia.
+2. Jeśli punkt końcowy odpowiada ze stanem 200 (OK), wystąpienie jest oznaczone jako "W dobrej kondycji". We wszystkich innych przypadkach (w tym w przypadku, gdy punkt końcowy jest nieosiągalny) wystąpienie jest oznaczone jako "W złej kondycji".
+3. Gdy wystąpienie jest w złej kondycji, zestaw skalowania wyzwala akcję naprawy, usuwając wystąpienie w złej kondycji i tworząc nowe, aby je zastąpić.
+4. Naprawy wystąpień są wykonywane w partiach. W danym momencie nie więcej niż 5% całkowitej liczby wystąpień w zestawie skalowania jest naprawianych. Jeśli zestaw skalowania ma mniej niż 20 wystąpień, naprawy są wykonywane dla jednego wystąpienia w złej kondycji na raz.
+5. Powyższy proces jest kontynuowany do momentu naprawy całego wystąpienia w złej kondycji w zestawie skalowania.
 
 ## <a name="instance-protection-and-automatic-repairs"></a>Ochrona wystąpień i automatyczne naprawy
 
-Jeśli wystąpienie w zestawie skalowania jest chronione przez zastosowanie jednej z [zasad ochrony](./virtual-machine-scale-sets-instance-protection.md), automatyczne naprawy nie są wykonywane w tym wystąpieniu. Dotyczy to zarówno zasad ochrony: *Ochrona przed skalowaniem w* poziomie, jak i *Ochrona przed akcjami zestawu skalowania* . 
+Jeśli wystąpienie w zestawie skalowania jest chronione przez zastosowanie jednej z zasad ochrony [,](./virtual-machine-scale-sets-instance-protection.md)automatyczne naprawy nie są wykonywane w tym wystąpieniu. Dotyczy to obu zasad ochrony: Ochrona przed *skalowaniem w skali w i* Ochrona przed *akcjami zestawu skalowania.* 
 
-## <a name="terminatenotificationandautomaticrepairs"></a>Przerwij powiadomienia i automatycznie naprawiaj
+## <a name="terminatenotificationandautomaticrepairs"></a>Przerywanie powiadomień i automatycznych napraw
 
-Jeśli funkcja [powiadomień o przerwaniu](./virtual-machine-scale-sets-terminate-notification.md) jest włączona w zestawie skalowania, a następnie podczas automatycznej operacji naprawy, usunięcie wystąpienia w złej kondycji następuje po zakończeniu konfiguracji powiadomienia o przerwaniu. Powiadomienie o przerwaniu jest wysyłane za pomocą usługi Azure Metadata Service — zaplanowane zdarzenia — a usuwanie wystąpienia jest opóźnione na czas trwania skonfigurowanego limitu czasu opóźnienia. Jednak utworzenie nowego wystąpienia w celu zamiany złej kondycji nie czeka na zakończenie limitu czasu opóźnienia.
+Jeśli funkcja [powiadomienia o zakończeniu](./virtual-machine-scale-sets-terminate-notification.md) jest włączona w zestawie skalowania, podczas automatycznej operacji naprawy usunięcie wystąpienia w złej kondycji następuje po konfiguracji powiadomienia o zakończeniu. Powiadomienie o zakończeniu jest wysyłane za pośrednictwem usługi Azure Metadata Service — zaplanowanych zdarzeń — a usunięcie wystąpienia jest opóźnione o czas trwania skonfigurowanego limitu czasu opóźnienia. Jednak utworzenie nowego wystąpienia w celu zastąpienia wystąpienia w złej kondycji nie oczekuje na zakończenie limitu czasu opóźnienia.
 
-## <a name="enabling-automatic-repairs-policy-when-creating-a-new-scale-set"></a>Włączanie zasad automatycznego naprawiania podczas tworzenia nowego zestawu skalowania
+## <a name="enabling-automatic-repairs-policy-when-creating-a-new-scale-set"></a>Włączanie zasad automatycznej naprawy podczas tworzenia nowego zestawu skalowania
 
-Aby włączyć automatyczne naprawy zasad podczas tworzenia nowego zestawu skalowania, należy upewnić się, że spełnione są wszystkie [wymagania](#requirements-for-using-automatic-instance-repairs) dotyczące tego funkcji. Punkt końcowy aplikacji powinien być poprawnie skonfigurowany dla wystąpień zestawu skalowania, aby uniknąć wyzwalania niezamierzonych napraw podczas konfigurowania punktu końcowego. W przypadku nowo utworzonych zestawów skalowania wszystkie naprawy wystąpienia są wykonywane dopiero po upływie czasu oczekiwania przez okres prolongaty. Aby włączyć automatyczne naprawianie wystąpienia w zestawie skalowania, użyj obiektu *automaticRepairsPolicy* w modelu zestawu skalowania maszyn wirtualnych.
+W przypadku włączania zasad automatycznej naprawy podczas tworzenia [](#requirements-for-using-automatic-instance-repairs) nowego zestawu skalowania upewnij się, że zostały spełnione wszystkie wymagania dotyczące korzystania z tej funkcji. Punkt końcowy aplikacji powinien być poprawnie skonfigurowany dla wystąpień zestawu skalowania, aby uniknąć wyzwalania niezamierzonych napraw podczas konfigurowania punktu końcowego. W przypadku nowo utworzonych zestawów skalowania naprawy wystąpień są wykonywane dopiero po oczekiwaniu na okres prolongaty. Aby włączyć automatyczną naprawę wystąpienia w zestawie skalowania, użyj obiektu *automaticRepairsPolicy* w modelu zestawu skalowania maszyn wirtualnych.
 
-Ten [szablon szybkiego startu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-automatic-repairs-slb-health-probe) umożliwia również wdrożenie zestawu skalowania maszyn wirtualnych z sondą kondycji modułu równoważenia obciążenia i włączenie automatycznego naprawiania wystąpień z okresem prolongaty wynoszącym 30 minut.
+Za pomocą tego [](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-automatic-repairs-slb-health-probe) szablonu szybkiego startu można również wdrożyć zestaw skalowania maszyn wirtualnych z włączoną sondą kondycji usługi równoważenia obciążenia i automatycznymi naprawami wystąpień z okresem prolongaty 30 minut.
 
 ### <a name="azure-portal"></a>Azure Portal
  
-Poniższe kroki umożliwiają włączenie zasad automatycznego naprawiania podczas tworzenia nowego zestawu skalowania.
+Poniższe kroki umożliwiające automatyczne naprawianie zasad podczas tworzenia nowego zestawu skalowania.
  
-1. Przejdź do **zestawu skalowania maszyn wirtualnych**.
-1. Wybierz pozycję **+ Dodaj** , aby utworzyć nowy zestaw skalowania.
-1. Przejdź do karty **kondycja** . 
-1. Znajdź sekcję **kondycja** .
-1. Włącz opcję **Monitoruj kondycję aplikacji** .
-1. Znajdź sekcję **zasady naprawy automatycznej** .
-1. Włącz **opcję** **naprawy automatyczne** .
-1. W **okresie prolongaty (min)** Określ okres prolongaty w minutach, dozwolone wartości to od 30 do 90 minut. 
-1. Po zakończeniu tworzenia nowego zestawu skalowania wybierz pozycję **Recenzja + Utwórz** .
+1. Przejdź do **zestawu skalowania maszyn wirtualnych.**
+1. Wybierz **pozycję + Dodaj,** aby utworzyć nowy zestaw skalowania.
+1. Przejdź do karty **Kondycja.** 
+1. Znajdź **sekcję** Kondycja.
+1. Włącz opcję **Monitoruj kondycję** aplikacji.
+1. Znajdź **sekcję Zasady automatycznej** naprawy.
+1. Włącz **opcję** **Automatyczne naprawy.**
+1. W **okresie prolongaty (min)** określ okres prolongaty w minutach, a dozwolone wartości to od 30 do 90 minut. 
+1. Po utworzeniu nowego zestawu skalowania wybierz przycisk **Przejrzyj i utwórz.**
 
 ### <a name="rest-api"></a>Interfejs API REST
 
-Poniższy przykład pokazuje, jak włączyć automatyczne naprawianie wystąpień w modelu zestawu skalowania. Użyj interfejsu API w wersji 2018-10-01 lub nowszej.
+W poniższym przykładzie pokazano, jak włączyć automatyczną naprawę wystąpienia w modelu zestawu skalowania. Użyj interfejsu API w wersji 2018-10-01 lub wyższej.
 
 ```
 PUT or PATCH on '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}?api-version=2019-07-01'
@@ -127,7 +127,7 @@ PUT or PATCH on '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupNa
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Funkcję automatycznej naprawy wystąpienia można włączyć podczas tworzenia nowego zestawu skalowania za pomocą polecenia cmdlet [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) . Ten przykładowy skrypt przeprowadzi Cię przez proces tworzenia zestawu skalowania i skojarzonych zasobów przy użyciu pliku konfiguracji: [Utwórz kompletny zestaw skalowania maszyn wirtualnych](./scripts/powershell-sample-create-complete-scale-set.md). Można skonfigurować zasady automatycznego naprawiania wystąpienia, dodając parametry *EnableAutomaticRepair* i *AutomaticRepairGracePeriod* do obiektu konfiguracji w celu utworzenia zestawu skalowania. Poniższy przykład włącza funkcję z okresem prolongaty wynoszącym 30 minut.
+Funkcję automatycznej naprawy wystąpień można włączyć podczas tworzenia nowego zestawu skalowania za pomocą polecenia cmdlet [New-AzVmssConfig.](/powershell/module/az.compute/new-azvmssconfig) Ten przykładowy skrypt zawiera opis tworzenia zestawu skalowania i skojarzonych zasobów przy użyciu pliku konfiguracji: [Tworzenie kompletnego zestawu skalowania maszyn wirtualnych.](./scripts/powershell-sample-create-complete-scale-set.md) Zasady automatycznej naprawy wystąpień można skonfigurować, dodając parametry *EnableAutomaticRepair* i *AutomaticRepairGracePeriod* do obiektu konfiguracji w celu utworzenia zestawu skalowania. Poniższy przykład włącza funkcję z okresem prolongaty 30 minut.
 
 ```azurepowershell-interactive
 New-AzVmssConfig `
@@ -141,7 +141,7 @@ New-AzVmssConfig `
 
 ### <a name="azure-cli-20"></a>Interfejs wiersza polecenia platformy Azure 2.0
 
-Poniższy przykład włącza zasady naprawy automatycznej podczas tworzenia nowego zestawu skalowania za pomocą polecenia *[AZ VMSS Create](/cli/azure/vmss#az-vmss-create)*. Najpierw utwórz grupę zasobów, a następnie utwórz nowy zestaw skalowania z okresem prolongaty automatycznej naprawy ustawiony na 30 minut.
+Poniższy przykład włącza zasady automatycznej naprawy podczas tworzenia nowego zestawu skalowania za pomocą *[narzędzia az vmss create](/cli/azure/vmss#az_vmss_create)*. Najpierw utwórz grupę zasobów, a następnie utwórz nowy zestaw skalowania z okresem prolongaty zasad automatycznej naprawy ustawionym na 30 minut.
 
 ```azurecli-interactive
 az group create --name <myResourceGroup> --location <VMSSLocation>
@@ -156,29 +156,29 @@ az vmss create \
   --automatic-repairs-grace-period 30
 ```
 
-Powyższy przykład używa istniejącego modułu równoważenia obciążenia i sondy kondycji do monitorowania stanu kondycji aplikacji wystąpień. Jeśli zamiast tego wolisz używać rozszerzenia kondycji aplikacji do monitorowania, możesz utworzyć zestaw skalowania, skonfigurować rozszerzenie kondycji aplikacji, a następnie włączyć zasady naprawy automatycznego wystąpienia przy użyciu polecenia *AZ VMSS Update*, jak wyjaśniono w następnej sekcji.
+W powyższym przykładzie użyto istniejącego usługi równoważenia obciążenia i sondy kondycji do monitorowania stanu kondycji aplikacji wystąpień. Jeśli zamiast tego wolisz używać rozszerzenia kondycji aplikacji do monitorowania, możesz utworzyć zestaw skalowania, skonfigurować rozszerzenie kondycji aplikacji, a następnie włączyć zasady automatycznej naprawy wystąpień przy użyciu aktualizacji *az vmss,* jak wyjaśniono w następnej sekcji.
 
-## <a name="enabling-automatic-repairs-policy-when-updating-an-existing-scale-set"></a>Włączanie zasad automatycznego naprawiania podczas aktualizowania istniejącego zestawu skalowania
+## <a name="enabling-automatic-repairs-policy-when-updating-an-existing-scale-set"></a>Włączanie zasad automatycznej naprawy podczas aktualizowania istniejącego zestawu skalowania
 
-Przed włączeniem zasad automatycznego naprawiania w istniejącym zestawie skalowania upewnij się, że spełniono wszystkie [wymagania](#requirements-for-using-automatic-instance-repairs) , które należy wykonać, aby uzyskać dostęp do tej funkcji. Punkt końcowy aplikacji powinien być poprawnie skonfigurowany dla wystąpień zestawu skalowania, aby uniknąć wyzwalania niezamierzonych napraw podczas konfigurowania punktu końcowego. Aby włączyć automatyczne naprawianie wystąpienia w zestawie skalowania, użyj obiektu *automaticRepairsPolicy* w modelu zestawu skalowania maszyn wirtualnych.
+Przed włączeniem zasad automatycznej naprawy w istniejącym zestawie [](#requirements-for-using-automatic-instance-repairs) skalowania upewnij się, że zostały spełnione wszystkie wymagania dotyczące zgody na tę funkcję. Punkt końcowy aplikacji powinien być poprawnie skonfigurowany dla wystąpień zestawu skalowania, aby uniknąć wyzwalania niezamierzonych napraw podczas konfigurowania punktu końcowego. Aby włączyć automatyczną naprawę wystąpienia w zestawie skalowania, użyj obiektu *automaticRepairsPolicy* w modelu zestawu skalowania maszyn wirtualnych.
 
-Po zaktualizowaniu modelu istniejącego zestawu skalowania upewnij się, że najnowszy model jest stosowany do wszystkich wystąpień skali. Zapoznaj się z instrukcjami dotyczącymi [sposobu przenoszenia maszyn wirtualnych na bieżąco z najnowszym modelem zestawu skalowania](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
+Po zaktualizowaniu modelu istniejącego zestawu skalowania upewnij się, że najnowszy model jest stosowany do wszystkich wystąpień skalowania. Zapoznaj się z instrukcjami na temat sposobu aktualizacji maszyn wirtualnych przy użyciu [najnowszego modelu zestawu skalowania.](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Możesz zmodyfikować zasady automatycznego naprawiania istniejącego zestawu skalowania za pomocą Azure Portal. 
+Zasady automatycznej naprawy istniejącego zestawu skalowania można modyfikować za pomocą Azure Portal. 
  
 1. Przejdź do istniejącego zestawu skalowania maszyn wirtualnych.
-1. W obszarze **Ustawienia** w menu po lewej stronie wybierz pozycję **kondycja i naprawa**.
-1. Włącz opcję **Monitoruj kondycję aplikacji** .
-1. Znajdź sekcję **zasady naprawy automatycznej** .
-1. Włącz **opcję** **naprawy automatyczne** .
-1. W **okresie prolongaty (min)** Określ okres prolongaty w minutach, dozwolone wartości to od 30 do 90 minut. 
+1. W **obszarze** Ustawienia w menu po lewej stronie wybierz pozycję **Kondycja i napraw .**
+1. Włącz opcję **Monitoruj kondycję** aplikacji.
+1. Znajdź **sekcję Zasady automatycznej** naprawy.
+1. Włącz **opcję** **Automatyczne naprawy.**
+1. W **wartości Okres prolongaty (min)** określ okres prolongaty w minutach, a dozwolone wartości to od 30 do 90 minut. 
 1. Gdy wszystko będzie gotowe, wybierz pozycję **Zapisz**. 
 
 ### <a name="rest-api"></a>Interfejs API REST
 
-Poniższy przykład włącza zasady z okresem prolongaty wynoszącym 40 minut. Użyj interfejsu API w wersji 2018-10-01 lub nowszej.
+Poniższy przykład włącza zasady z okresem prolongaty 40 minut. Użyj interfejsu API w wersji 2018-10-01 lub wyższej.
 
 ```
 PUT or PATCH on '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}?api-version=2019-07-01'
@@ -197,7 +197,7 @@ PUT or PATCH on '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupNa
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Użyj polecenia cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) , aby zmodyfikować konfigurację funkcji automatycznego naprawiania wystąpienia w istniejącym zestawie skalowania. Poniższy przykład aktualizuje okres prolongaty do 40 minut.
+Użyj polecenia cmdlet [Update-AzVmss,](/powershell/module/az.compute/update-azvmss) aby zmodyfikować konfigurację funkcji automatycznej naprawy wystąpienia w istniejącym zestawie skalowania. Poniższy przykład aktualizuje okres prolongaty do 40 minut.
 
 ```azurepowershell-interactive
 Update-AzVmss `
@@ -209,7 +209,7 @@ Update-AzVmss `
 
 ### <a name="azure-cli-20"></a>Interfejs wiersza polecenia platformy Azure 2.0
 
-Poniżej przedstawiono przykład aktualizowania zasad automatycznego naprawiania wystąpienia w istniejącym zestawie skalowania przy użyciu polecenia *[AZ VMSS Update](/cli/azure/vmss#az-vmss-update)*.
+Poniżej przedstawiono przykład aktualizowania zasad automatycznego naprawiania wystąpień istniejącego zestawu skalowania przy użyciu *[narzędzia az vmss update](/cli/azure/vmss#az_vmss_update)*.
 
 ```azurecli-interactive
 az vmss update \  
@@ -219,11 +219,11 @@ az vmss update \
   --automatic-repairs-grace-period 30
 ```
 
-## <a name="viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy"></a>Wyświetlanie i aktualizowanie stanu usługi automatycznego naprawiania zasad
+## <a name="viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy"></a>Wyświetlanie i aktualizowanie stanu usługi zasad automatycznej naprawy wystąpień
 
 ### <a name="rest-api"></a>Interfejs API REST 
 
-Użyj [widoku Pobierz wystąpienie](/rest/api/compute/virtualmachinescalesets/getinstanceview) z interfejsem API w wersji 2019-12-01 lub nowszej dla zestawu skalowania maszyn wirtualnych, aby wyświetlić *stan* *serviceorchestrationServices* na potrzeby napraw automatycznych w obszarze właściwości. 
+Użyj [funkcji Pobierz](/rest/api/compute/virtualmachinescalesets/getinstanceview) widok wystąpienia z interfejsem API w wersji 2019-12-01 lub wyższej dla zestawu skalowania maszyn wirtualnych, aby wyświetlić właściwość *serviceState* dla automatycznych napraw w obszarze *aranżacji właściwościServices.* 
 
 ```http
 GET '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/instanceView?api-version=2019-12-01'
@@ -240,7 +240,7 @@ GET '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provider
 }
 ```
 
-Użyj interfejsu API *setOrchestrationServiceState* z interfejsem API w wersji 2019-12-01 lub nowszej na zestawie skalowania maszyn wirtualnych w celu ustawienia stanu automatycznych napraw. Gdy zestaw skalowania zostanie uwzględniony w funkcji naprawy automatyczne, możesz użyć tego interfejsu API, aby zawiesić lub wznowić automatyczne naprawy dla zestawu skalowania. 
+W *zestawie skalowania maszyn* wirtualnych należy używać interfejsu API setO za pomocą interfejsu API w wersji 2019-12-01 lub wyższej w zestawie skalowania maszyn wirtualnych, aby ustawić stan automatycznych napraw. Po skonfigurowaniu zestawu skalowania w funkcji automatycznej naprawy można użyć tego interfejsu API do wstrzymania lub wznowienia automatycznej naprawy zestawu skalowania. 
 
  ```http
  POST '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/setOrchestrationServiceState?api-version=2019-12-01'
@@ -259,7 +259,7 @@ Użyj interfejsu API *setOrchestrationServiceState* z interfejsem API w wersji 2
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure 
 
-Użyj polecenia cmdlet [Get-instance-View](/cli/azure/vmss#az-vmss-get-instance-view) , aby wyświetlić *stan ServiceState* dla automatycznych napraw wystąpień. 
+Użyj [polecenia cmdlet get-instance-view,](/cli/azure/vmss#az_vmss_get_instance_view) aby wyświetlić *stan usługi* na użytek automatycznej naprawy wystąpień. 
 
 ```azurecli-interactive
 az vmss get-instance-view \
@@ -267,7 +267,7 @@ az vmss get-instance-view \
     --resource-group MyResourceGroup
 ```
 
-Użyj polecenia cmdlet [Set-Orchestration-Service-State](/cli/azure/vmss#az-vmss-set-orchestration-service-state) , aby zaktualizować *stan ServiceState* dla automatycznych napraw wystąpień. Gdy zestaw skalowania zostanie uwzględniony w funkcji automatycznej naprawy, możesz użyć tego polecenia cmdlet, aby zawiesić lub wznowić automatyczne naprawy dla zestawu skalowania. 
+Użyj polecenia cmdlet [set-orchestration-service-state,](/cli/azure/vmss#az_vmss_set_orchestration_service_state) aby zaktualizować *stan usługi* na użytek automatycznych napraw wystąpień. Po skonfigurowaniu zestawu skalowania w funkcji automatycznej naprawy można użyć tego polecenia cmdlet, aby wstrzymać lub wznowić automatyczne naprawy zestawu skalowania. 
 
 ```azurecli-interactive
 az vmss set-orchestration-service-state \
@@ -278,7 +278,7 @@ az vmss set-orchestration-service-state \
 ```
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Użyj polecenia cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss) z parametrem *InstanceView* , aby wyświetlić *stan ServiceState* dla automatycznych napraw wystąpień.
+Użyj [polecenia cmdlet Get-AzVmss z](/powershell/module/az.compute/get-azvmss) *parametrem InstanceView,* aby wyświetlić *wartość ServiceState* dla automatycznych napraw wystąpień.
 
 ```azurepowershell-interactive
 Get-AzVmss `
@@ -287,7 +287,7 @@ Get-AzVmss `
     -InstanceView
 ```
 
-Użyj polecenia cmdlet Set-AzVmssOrchestrationServiceState, aby zaktualizować *stan ServiceState* dla automatycznych napraw wystąpień. Gdy zestaw skalowania zostanie uwzględniony w funkcji automatycznej naprawy, możesz użyć tego polecenia cmdlet, aby zawiesić lub wznowić automatyczne naprawy dla zestawu skalowania.
+Użyj Set-AzVmssOrchestrationServiceState polecenia cmdlet, aby zaktualizować *stan usługi* na użytek automatycznej naprawy wystąpień. Po skonfigurowaniu zestawu skalowania w funkcji automatycznej naprawy można użyć tego polecenia cmdlet, aby wstrzymać lub wznowić automatyczne naprawy zestawu skalowania.
 
 ```azurepowershell-interactive
 Set-AzVmssOrchestrationServiceState `
@@ -299,20 +299,20 @@ Set-AzVmssOrchestrationServiceState `
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
-**Nie można włączyć zasad automatycznego naprawiania**
+**Nie można włączyć zasad automatycznej naprawy**
 
-Jeśli zostanie wyświetlony błąd "nieprawidłowego żądania" z komunikatem "nie można odnaleźć elementu członkowskiego" automaticRepairsPolicy "w obiekcie typu" Properties "", sprawdź wersję interfejsu API używaną dla zestawu skalowania maszyn wirtualnych. Dla tej funkcji wymagany jest interfejs API w wersji 2018-10-01 lub nowszej.
+Jeśli zostanie wyświetlony błąd "BadRequest" z komunikatem "Could not find member 'automaticRepairsPolicy' on object of type 'properties' (Nie można odnaleźć członka 'automaticRepairsPolicy' dla obiektu typu 'properties'), sprawdź wersję interfejsu API używaną dla zestawu skalowania maszyn wirtualnych. Interfejs API w wersji 2018-10-01 lub wyższej jest wymagany dla tej funkcji.
 
-**Wystąpienie nie jest naprawione nawet po włączeniu zasad**
+**Wystąpienie nie jest naprawiane nawet wtedy, gdy zasady są włączone**
 
-Wystąpienie może być w okresie prolongaty. Jest to czas oczekiwania po zmianie stanu wystąpienia przed wykonaniem napraw. Ma to na celu uniknięcie jakichkolwiek przedwczesnych lub przypadkowych napraw. Akcja naprawy powinna wystąpić po zakończeniu okresu prolongaty dla tego wystąpienia.
+Wystąpienie może być w okresie prolongaty. Jest to czas oczekiwania po każdej zmianie stanu wystąpienia przed wykonaniem naprawy. Ma to na celu uniknięcie przedwczesnych lub przypadkowych napraw. Akcja naprawy powinna nastąpić po zakończeniu okresu prolongaty dla wystąpienia.
 
 **Wyświetlanie stanu kondycji aplikacji dla wystąpień zestawu skalowania**
 
-Aby wyświetlić stan kondycji aplikacji, można użyć [interfejsu API widoku wystąpienia](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) dla wystąpień w zestawie skalowania maszyn wirtualnych. Za pomocą Azure PowerShell można użyć polecenia cmdlet [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) z flagą *-InstanceView* . Stan kondycji aplikacji jest podany pod właściwością *vmHealth*.
+Możesz użyć interfejsu [API Pobierz widok wystąpienia](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) dla wystąpień w zestawie skalowania maszyn wirtualnych, aby wyświetlić stan kondycji aplikacji. Za Azure PowerShell polecenia cmdlet [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) można użyć *flagi -InstanceView.* Stan kondycji aplikacji jest podany we właściwości *vmHealth*.
 
-W Azure Portal można zobaczyć również stan kondycji. Przejdź do istniejącego zestawu skalowania, wybierz pozycję **wystąpienia** z menu po lewej stronie, a następnie w kolumnie **stan kondycji** Sprawdź stan kondycji każdego wystąpienia zestawu skalowania. 
+W Azure Portal można również sprawdzić stan kondycji. Przejdź do istniejącego zestawu  skalowania, wybierz pozycję Wystąpienia z  menu po lewej stronie i sprawdź stan kondycji każdego wystąpienia zestawu skalowania w kolumnie Stan kondycji. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak skonfigurować [rozszerzenia kondycji aplikacji](./virtual-machine-scale-sets-health-extension.md) lub [sondy kondycji modułu równoważenia obciążenia](../load-balancer/load-balancer-custom-probe-overview.md) dla zestawów skalowania.
+Dowiedz się, jak skonfigurować [rozszerzenie kondycji aplikacji](./virtual-machine-scale-sets-health-extension.md) lub sondy kondycji usługi [Load Balancer](../load-balancer/load-balancer-custom-probe-overview.md) dla zestawów skalowania.

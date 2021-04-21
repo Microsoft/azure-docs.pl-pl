@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 1f80742d48fc46c8c5e337794100ca5901818c88
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cd03720b65883c5f43b11837d4a88a705209fb10
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102184393"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764103"
 ---
 # <a name="how-to-rotate-access-key-for-azure-signalr-service"></a>Jak obrócić klucz dostępu do usługi Azure SignalR Service
 
@@ -35,7 +35,7 @@ Ze względu na wymogi bezpieczeństwa i zgodności należy regularnie wymieniać
 
    ![Ponowne generowanie kluczy](media/signalr-howto-key-rotation/regenerate-keys.png)
 
-Klucze można także wygenerować ponownie za pomocą [interfejsu wiersza polecenia platformy Azure](/cli/azure/signalr/key#az-signalr-key-renew).
+Klucze można także wygenerować ponownie za pomocą [interfejsu wiersza polecenia platformy Azure](/cli/azure/signalr/key#az_signalr_key_renew).
 
 ## <a name="update-configurations-with-new-connection-strings"></a>Aktualizowanie konfiguracji za pomocą nowych parametrów połączenia
 
@@ -59,4 +59,4 @@ W tym przewodniku opisano sposób generowania ponownego kluczy dostępu. Przejd�
 > [Integracja z tożsamością platformy ASP.NET Core](./signalr-concept-authenticate-oauth.md)
 
 > [!div class="nextstepaction"]
-> [Tworzenie aplikacji bezserwerowej w czasie rzeczywistym z uwierzytelnianiem](./signalr-tutorial-authenticate-azure-functions.md)
+> [Tworzenie bez serwera aplikacji czasu rzeczywistego z uwierzytelnianiem](./signalr-tutorial-authenticate-azure-functions.md)

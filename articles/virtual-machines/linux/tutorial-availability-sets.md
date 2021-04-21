@@ -10,12 +10,12 @@ ms.date: 3/8/2021
 ms.author: mimckitt
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 6a54e0d808ef734a26a0fa309bd7367e73316856
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c45f08a339ca8878bb9e2840faa8a412f3e60e0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102507069"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765975"
 ---
 # <a name="create-and-deploy-virtual-machines-in-an-availability-set-using-azure-cli"></a>Tworzenie i wdrażanie maszyn wirtualnych w zestawie dostępności przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -28,7 +28,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Tworzenie maszyny wirtualnej w zestawie dostępności
 > * Sprawdzanie dostępnych rozmiarów maszyn wirtualnych
 
-W tym samouczku jest używany interfejs wiersza polecenia w [Azure Cloud Shell](../../cloud-shell/overview.md), który jest stale aktualizowany do najnowszej wersji. Aby otworzyć Cloud Shell, wybierz opcję **Wypróbuj** z góry dowolnego bloku kodu.
+W tym samouczku używany jest interfejs wiersza [polecenia w Azure Cloud Shell](../../cloud-shell/overview.md), który jest stale aktualizowany do najnowszej wersji. Aby otworzyć Cloud Shell, wybierz pozycję **Wypróbuj** w górnej części dowolnego bloku kodu.
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.30 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
@@ -36,7 +36,7 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 
 Aby utworzyć zestaw dostępności, użyj polecenia [az vm availability-set create](/cli/azure/vm/availability-set). W tym przykładzie liczbę domen aktualizacji i domen błędów ustawiono na *2* dla zestawu dostępności o nazwie *myAvailabilitySet* w grupie zasobów *myResourceGroupAvailability*.
 
-Najpierw utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az-group-create), a następnie utwórz zestaw dostępności:
+Najpierw utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az_group_create), a następnie utwórz zestaw dostępności:
 
 ```azurecli-interactive
 az group create --name myResourceGroupAvailability --location eastus
@@ -80,7 +80,7 @@ Rozmieszczenie zestawu dostępności można wyświetlić w portalu, wybierając 
 
 ## <a name="check-for-available-vm-sizes"></a>Sprawdzanie dostępnych rozmiarów maszyn wirtualnych
 
-Dodatkowe maszyny wirtualne można dodać do zestawu dostępności później, o ile rozmiary maszyn wirtualnych są dostępne na sprzęcie. Użyj opcji [AZ VM Availability-Set list-](/cli/azure/vm/availability-set#az-vm-availability-set-list-sizes) Sizes, aby wyświetlić listę wszystkich dostępnych rozmiarów w klastrze sprzętowym zestawu dostępności:
+Dodatkowe maszyny wirtualne można dodać do zestawu dostępności później, o ile rozmiary maszyn wirtualnych są dostępne na sprzęcie. Użyj [narzędzia az vm availability-set list-sizes,](/cli/azure/vm/availability-set#az_vm_availability_set_list_sizes) aby wyświetlić listę wszystkich rozmiarów dostępnych w klastrze sprzętowym zestawu dostępności:
 
 ```azurecli-interactive
 az vm availability-set list-sizes \
@@ -103,6 +103,6 @@ Przejdź do następnego samouczka, aby poznać zestawy skalowania maszyn wirtual
 > [!div class="nextstepaction"]
 > [Tworzenie zestawu skalowania maszyn wirtualnych](tutorial-create-vmss.md)
 
-* Aby dowiedzieć się więcej o strefach dostępności, zapoznaj się z  [dokumentacją strefy dostępności](../../availability-zones/az-overview.md).
-* [Dostępna jest](../availability.md)również większa dokumentacja dotycząca obu zestawów dostępności i stref dostępności.
-* Aby wypróbować strefy dostępności, odwiedź stronę [Tworzenie maszyny wirtualnej z systemem Linux w strefie dostępności przy użyciu interfejsu wiersza polecenia platformy Azure](./create-cli-availability-zone.md)
+* Aby dowiedzieć się więcej o strefach dostępności, odwiedź [witrynę Strefy dostępności dokumentacji.](../../availability-zones/az-overview.md)
+* Więcej dokumentacji dotyczącej zestawów dostępności i stref dostępności można znaleźć [tutaj.](../availability.md)
+* Aby wypróbować strefy dostępności, odwiedź stronę Create a Linux virtual machine in an availability zone with the Azure CLI (Tworzenie maszyny wirtualnej z systemem [Linux w strefie dostępności przy użyciu interfejsu wiersza polecenia platformy Azure)](./create-cli-availability-zone.md)

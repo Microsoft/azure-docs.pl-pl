@@ -4,12 +4,12 @@ description: Dowiedz się, jak pobierać dzienniki kontenerów i zdarzenia w Azu
 ms.topic: article
 ms.date: 12/30/2019
 ms.custom: mvc
-ms.openlocfilehash: b2b7ffb2cb4a7b1171afa42c2ef5a64b2bd928f8
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: f5eb8c878164846ed2f1daf1cb7e5014e0c62c55
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379285"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764049"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Pobieranie zdarzeń i dzienników kontenerów w usłudze Azure Container Instances
 
@@ -88,7 +88,7 @@ Jeśli wdrożenie kontenera zakończy się niepowodzeniem, przejrzyj informacje 
 az container show --resource-group myResourceGroup --name mycontainer
 ```
 
-Dane wyjściowe zawierają podstawowe właściwości kontenera wraz ze zdarzeniami wdrażania (pokazane tutaj obcięte):
+Dane wyjściowe zawierają podstawowe właściwości kontenera oraz zdarzenia wdrażania (pokazane tutaj obcięte):
 
 ```JSON
 {
@@ -154,6 +154,6 @@ Dowiedz się, jak [rozwiązywać typowe problemy z kontenerem i wdrażaniem](con
 Dowiedz się, jak wysyłać dane dzienników i zdarzeń dla grup kontenerów [do Azure Monitor dzienników.](container-instances-log-analytics.md)
 
 <!-- LINKS - Internal -->
-[az-container-attach]: /cli/azure/container#az-container-attach
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
+[az-container-attach]: /cli/azure/container#az_container_attach
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show

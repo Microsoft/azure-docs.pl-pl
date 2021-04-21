@@ -1,28 +1,28 @@
 ---
-title: Utwórz blokadę zasobów dla przestrzeni kluczy Cassandra i tabeli dla Azure Cosmos DB
-description: Utwórz blokadę zasobów dla przestrzeni kluczy Cassandra i tabeli dla Azure Cosmos DB
+title: Tworzenie blokady zasobów dla przestrzeni kluczy i tabeli bazy danych Cassandra dla Azure Cosmos DB
+description: Tworzenie blokady zasobów dla przestrzeni kluczy i tabeli bazy danych Cassandra dla Azure Cosmos DB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 07/29/2020
-ms.openlocfilehash: 94ff29d2c3272b61ff09fa0e564fcf2fcd281130
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b2c1e663c659935e7e820f30a281099058a4cf34
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94566048"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771015"
 ---
-# <a name="create-a-resource-lock-for-azure-cosmos-cassandra-api-keyspace-and-table-using-azure-cli"></a>Tworzenie blokady zasobów dla usługi Azure Cosmos interfejs API Cassandra przestrzeni kluczy i tabeli przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="create-a-resource-lock-for-azure-cosmos-cassandra-api-keyspace-and-table-using-azure-cli"></a>Tworzenie blokady zasobów dla usługi Azure Cosmos interfejs API Cassandra keyspace i tabeli przy użyciu interfejsu wiersza polecenia platformy Azure
 [!INCLUDE[appliesto-cassandra-api](../../../includes/appliesto-cassandra-api.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
 
-- Ten artykuł wymaga wersji 2.9.1 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
+- Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.9.1 lub nowszej. Jeśli używasz Azure Cloud Shell, najnowsza wersja jest już zainstalowana.
 
 > [!IMPORTANT]
-> Blokady zasobów nie działają w przypadku zmian wprowadzonych przez użytkowników łączących się przy użyciu dowolnego zestawu Cassandra SDK, powłoki CQL lub witryny Azure Portal, chyba że konto Cosmos DB jest najpierw zablokowane przy `disableKeyBasedMetadataWriteAccess` włączonej właściwości. Aby dowiedzieć się więcej o tym, jak włączyć tę właściwość, zobacz, [uniemożliwiając zmiany z zestawów SDK](../../../role-based-access-control.md#prevent-sdk-changes).
+> Blokady zasobów nie działają w przypadku zmian wprowadzonych przez użytkowników łączących się przy użyciu dowolnego zestawu SDK cassandra, powłoki CQL lub witryny Azure Portal, chyba że konto Cosmos DB zostało najpierw zablokowane z włączoną `disableKeyBasedMetadataWriteAccess` właściwością. Aby dowiedzieć się więcej na temat włączania tej właściwości, zobacz [Zapobieganie zmianom z zestawów SDK.](../../../role-based-access-control.md#prevent-sdk-changes)
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -34,15 +34,15 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 
 | Polecenie | Uwagi |
 |---|---|
-| [AZ Lock Create](/cli/azure/lock#az-lock-create) | Tworzy blokadę. |
-| [AZ Lock list](/cli/azure/lock#az-lock-list) | Wyświetl informacje o blokadzie. |
-| [AZ Lock show](/cli/azure/lock#az-lock-show) | Pokaż właściwości blokady. |
-| [AZ Lock Delete](/cli/azure/lock#az-lock-delete) | Usuwa blokadę. |
+| [az lock create](/cli/azure/lock#az_lock_create) | Tworzy blokadę. |
+| [az lock list](/cli/azure/lock#az_lock_list) | Lista informacji o blokadach. |
+| [az lock show](/cli/azure/lock#az_lock_show) | Pokazywanie właściwości blokady. |
+| [az lock delete](/cli/azure/lock#az_lock_delete) | Usuwa blokadę. |
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Blokowanie zasobów w celu uniemożliwienia nieoczekiwanych zmian](../../../../azure-resource-manager/management/lock-resources.md)
 
-- [Dokumentacja interfejsu wiersza polecenia Azure Cosmos DB](/cli/azure/cosmosdb).
+- [Azure Cosmos DB dokumentacji interfejsu wiersza polecenia.](/cli/azure/cosmosdb)
 
-- [Azure Cosmos DB repozytorium GitHub interfejsu wiersza polecenia](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
+- [Azure Cosmos DB repozytorium GitHub interfejsu wiersza polecenia.](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb)
