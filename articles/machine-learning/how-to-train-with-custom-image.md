@@ -1,7 +1,7 @@
 ---
-title: Uczenie modelu przy użyciu niestandardowego obrazu platformy Docker
+title: Trenowanie modelu przy użyciu niestandardowego obrazu platformy Docker
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak korzystać z własnych obrazów platformy Docker lub z nich nadzorowanych firmy Microsoft, aby uczenie modeli w Azure Machine Learning.
+description: Dowiedz się, jak używać własnych obrazów platformy Docker lub obrazów firmy Microsoft w celu trenowania modeli w Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,40 +10,40 @@ author: saachigopal
 ms.date: 10/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: ea282cb0fcf25f7ac5f17bb9e2f693d189320078
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 953d43f93635e25da008515afd9baf9a9e9b7afa
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889165"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817075"
 ---
-# <a name="train-a-model-by-using-a-custom-docker-image"></a>Uczenie modelu przy użyciu niestandardowego obrazu platformy Docker
+# <a name="train-a-model-by-using-a-custom-docker-image"></a>Trenowanie modelu przy użyciu niestandardowego obrazu platformy Docker
 
-W tym artykule dowiesz się, jak używać niestandardowego obrazu platformy Docker podczas szkoleń modeli przy użyciu Azure Machine Learning. Przykładowe skrypty w tym artykule służą do klasyfikowania obrazów PET przez utworzenie sieci neuronowych splotowych. 
+W tym artykule dowiesz się, jak używać niestandardowego obrazu platformy Docker podczas trenowania modeli za pomocą Azure Machine Learning. Użyjesz przykładowych skryptów w tym artykule, aby sklasyfikować obrazy zwierząt, tworząc spętliwną sieć neuronową. 
 
-Azure Machine Learning udostępnia domyślny obraz podstawowy platformy Docker. Możesz również użyć środowiska Azure Machine Learning, aby określić inny obraz podstawowy, taki jak jeden z obsługiwanych [Azure Machine Learning obrazów podstawowych](https://github.com/Azure/AzureML-Containers) lub własny [obraz niestandardowy](how-to-deploy-custom-docker-image.md#create-a-custom-base-image). Niestandardowe obrazy podstawowe umożliwiają ścisłe zarządzanie zależnościami i zachowanie ściślejszej kontroli nad wersjami składników w przypadku uruchamiania zadań szkoleniowych.
+Azure Machine Learning domyślny obraz podstawowy platformy Docker. Można również użyć Azure Machine Learning, aby określić inny obraz podstawowy, taki jak jeden z utrzymywanych obrazów Azure Machine Learning [podstawowych](https://github.com/Azure/AzureML-Containers) lub własny [obraz niestandardowy.](how-to-deploy-custom-docker-image.md#create-a-custom-base-image) Niestandardowe obrazy podstawowe umożliwiają ścisłe zarządzanie zależnościami i ściślejszą kontrolę nad wersjami składników podczas uruchamiania zadań szkoleniowych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Uruchom kod w dowolnym z następujących środowisk:
+Uruchom kod w jednym z tych środowisk:
 
-* Wystąpienie obliczeniowe Azure Machine Learning (bez konieczności pobierania lub instalacji):
-  * Ukończ samouczek [Konfiguracja środowiska i obszaru roboczego](tutorial-1st-experiment-sdk-setup.md) , aby utworzyć dedykowany serwer notesu wstępnie załadowany z zestawem SDK i przykładowym repozytorium.
-  * W repozytorium Azure Machine Learning [przykładów](https://github.com/Azure/azureml-examples)Znajdź ukończony Notes, przechodząc do katalogu **notesy**  >  **fastai**  >  **uczenie — zwierzęta domowe-resnet34. ipynb** . 
-* Twój własny serwer Jupyter Notebook:
-  * Utwórz [plik konfiguracji obszaru roboczego](how-to-configure-environment.md#workspace).
-  * Zainstaluj [zestaw SDK Azure Machine Learning](/python/api/overview/azure/ml/install). 
-  * Utwórz [Rejestr kontenerów platformy Azure](../container-registry/index.yml) lub inny rejestr platformy Docker, który jest dostępny w Internecie.
+* Azure Machine Learning wystąpienia obliczeniowego (nie trzeba pobierać ani instalowania):
+  * Ukończ [samouczek Konfigurowanie środowiska i obszaru roboczego,](tutorial-1st-experiment-sdk-setup.md) aby utworzyć dedykowany serwer notesu wstępnie załadowany przy użyciu zestawu SDK i przykładowego repozytorium.
+  * W repozytorium Azure Machine Learning [przykładów](https://github.com/Azure/azureml-examples)znajdź ukończony notes, przechodząc do katalogu  >  **fastai**  >  **train-pets-resnet34.ipynb** notesów. 
+* Twój własny Jupyter Notebook serwera:
+  * Utwórz plik [konfiguracji obszaru roboczego.](how-to-configure-environment.md#workspace)
+  * Zainstaluj zestaw [SDK Azure Machine Learning .](/python/api/overview/azure/ml/install) 
+  * Utwórz rejestr [kontenerów platformy Azure](../container-registry/index.yml) lub inny rejestr platformy Docker dostępny w Internecie.
 
-## <a name="set-up-a-training-experiment"></a>Konfigurowanie eksperymentu szkoleniowego
+## <a name="set-up-a-training-experiment"></a>Konfigurowanie eksperymentu trenowania
 
-W tej sekcji skonfigurujesz eksperyment szkoleniowy przez zainicjowanie obszaru roboczego, zdefiniowanie środowiska i skonfigurowanie obiektu docelowego obliczeń.
+W tej sekcji skonfigurujesz eksperyment szkoleniowy, inicjując obszar roboczy, definiując środowisko i konfigurując docelowy obiekt obliczeniowy.
 
 ### <a name="initialize-a-workspace"></a>Inicjowanie obszaru roboczego
 
-[Obszar roboczy Azure Machine Learning](concept-workspace.md) jest zasobem najwyższego poziomu dla usługi. Zapewnia to centralne miejsce do pracy ze wszystkimi tworzonymi artefaktami. W zestawie SDK języka Python można uzyskać dostęp do artefaktów obszaru roboczego przez utworzenie [`Workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) obiektu.
+Obszar [Azure Machine Learning roboczy](concept-workspace.md) jest zasobem najwyższego poziomu dla usługi. Zapewnia scentralizowane miejsce do pracy ze wszystkimi artefaktami, które tworzysz. W zestawie SDK języka Python możesz uzyskać dostęp do artefaktów obszaru roboczego, tworząc [`Workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) obiekt .
 
-Utwórz `Workspace` obiekt na podstawie config.jsw pliku, który został utworzony jako [warunek wstępny](#prerequisites).
+Utwórz obiekt `Workspace` na podstawie config.jspliku, który został utworzony jako [wymaganie wstępne.](#prerequisites)
 
 ```Python
 from azureml.core import Workspace
@@ -53,7 +53,7 @@ ws = Workspace.from_config()
 
 ### <a name="define-your-environment"></a>Definiowanie środowiska
 
-Utwórz `Environment` obiekt i Włącz platformę Docker.
+Utwórz obiekt `Environment` i włącz usługę Docker.
 
 ```python
 from azureml.core import Environment
@@ -62,18 +62,18 @@ fastai_env = Environment("fastai2")
 fastai_env.docker.enabled = True
 ```
 
-Określony podstawowy obraz w poniższym kodzie obsługuje bibliotekę fast.ai, która umożliwia dystrybuowanie funkcji uczenia głębokiego. Aby uzyskać więcej informacji, zobacz [repozytorium Fast.AI Docker Hub](https://hub.docker.com/u/fastdotai). 
+Określony obraz podstawowy w poniższym kodzie obsługuje bibliotekę fast.ai, która umożliwia korzystanie z funkcji rozproszonego uczenia głębokiego. Aby uzyskać więcej informacji, zobacz [fast.ai Docker Hub repozytorium .](https://hub.docker.com/u/fastdotai) 
 
-Jeśli używasz niestandardowego obrazu platformy Docker, być może masz już skonfigurowane środowisko języka Python. W takim przypadku Ustaw `user_managed_dependencies` flagę na, aby `True` użyć wbudowanego środowiska Python obrazu niestandardowego. Domyślnie Azure Machine Learning kompiluje środowisko Conda z określonymi zależnościami. Usługa uruchamia skrypt w tym środowisku zamiast korzystać z bibliotek języka Python zainstalowanych na obrazie podstawowym.
+Jeśli używasz niestandardowego obrazu platformy Docker, być może masz już prawidłowo skonfigurowane środowisko języka Python. W takim przypadku ustaw flagę na , aby użyć wbudowanego środowiska języka `user_managed_dependencies` `True` Python obrazu niestandardowego. Domyślnie program Azure Machine Learning środowisko Conda z określonymi zależnościami. Usługa uruchamia skrypt w tym środowisku, zamiast używać jakichkolwiek bibliotek języka Python zainstalowanych w obrazie bazowym.
 
 ```python
 fastai_env.docker.base_image = "fastdotai/fastai2:latest"
 fastai_env.python.user_managed_dependencies = True
 ```
 
-#### <a name="use-a-private-container-registry-optional"></a>Korzystanie z prywatnego rejestru kontenerów (opcjonalnie)
+#### <a name="use-a-private-container-registry-optional"></a>Używanie prywatnego rejestru kontenerów (opcjonalnie)
 
-Aby użyć obrazu z prywatnego rejestru kontenerów, który nie znajduje się w obszarze roboczym, użyj, `docker.base_image_registry` Aby określić adres repozytorium i nazwę użytkownika i hasło:
+Aby użyć obrazu z prywatnego rejestru kontenerów, który nie znajduje się w obszarze roboczym, użyj , aby określić adres repozytorium oraz nazwę użytkownika `docker.base_image_registry` i hasło:
 
 ```python
 # Set the container registry information.
@@ -82,9 +82,9 @@ fastai_env.docker.base_image_registry.username = "username"
 fastai_env.docker.base_image_registry.password = "password"
 ```
 
-#### <a name="use-a-custom-dockerfile-optional"></a>Użyj niestandardowego pliku dockerfile (opcjonalnie)
+#### <a name="use-a-custom-dockerfile-optional"></a>Używanie niestandardowego pliku Dockerfile (opcjonalnie)
 
-Istnieje również możliwość użycia niestandardowej pliku dockerfile. Użyj tej metody, jeśli chcesz zainstalować pakiety inne niż środowisko Python jako zależności. Pamiętaj, aby ustawić podstawowy obraz `None` .
+Można również użyć niestandardowego pliku Dockerfile. Użyj tej metody, jeśli musisz zainstalować pakiety inne niż python jako zależności. Pamiętaj, aby ustawić obraz podstawowy na `None` wartość .
 
 ```python 
 # Specify Docker steps as a string. 
@@ -103,20 +103,20 @@ fastai_env.docker.base_dockerfile = "./Dockerfile"
 ```
 
 >[!IMPORTANT]
-> Azure Machine Learning obsługuje tylko obrazy platformy Docker, które udostępniają następujące oprogramowanie:
-> * Ubuntu 16,04 lub nowszy.
-> * Conda 4.5. # lub nowszej.
-> * Python 3.6 +.
+> Azure Machine Learning obsługuje tylko obrazy platformy Docker, które zapewniają następujące oprogramowanie:
+> * Ubuntu 16.04 lub więcej.
+> * Conda 4.5.# lub więcej.
+> * Python 3.6+.
 
-Aby uzyskać więcej informacji na temat tworzenia środowisk Azure Machine Learning i zarządzania nimi, zobacz [Tworzenie i używanie środowisk oprogramowania](how-to-use-environments.md). 
+Aby uzyskać więcej informacji na temat tworzenia środowisk Azure Machine Learning zarządzania nimi, zobacz [Tworzenie środowisk oprogramowania i korzystanie z nich.](how-to-use-environments.md) 
 
-### <a name="create-or-attach-a-compute-target"></a>Utwórz lub Dołącz obiekt docelowy obliczeń
+### <a name="create-or-attach-a-compute-target"></a>Tworzenie lub dołączanie docelowego obiektu obliczeniowego
 
-Należy utworzyć [obiekt docelowy obliczeń](concept-azure-machine-learning-architecture.md#compute-targets) do uczenia modelu. W tym samouczku utworzysz `AmlCompute` swój zasób obliczeniowy szkoleniowej.
+Musisz utworzyć docelowy obiekt [obliczeniowy na](concept-azure-machine-learning-architecture.md#compute-targets) potrzeby trenowania modelu. W tym samouczku utworzysz `AmlCompute` jako zasób obliczeniowy trenowania.
 
-Tworzenie `AmlCompute` trwa kilka minut. Jeśli `AmlCompute` zasób znajduje się już w obszarze roboczym, ten kod pomija proces tworzenia.
+Tworzenie ciągu `AmlCompute` zajmuje kilka minut. Jeśli `AmlCompute` zasób znajduje się już w obszarze roboczym, ten kod pomija proces tworzenia.
 
-Podobnie jak w przypadku innych usług platformy Azure, istnieją ograniczenia dotyczące niektórych zasobów (na przykład `AmlCompute` ) skojarzonych z usługą Azure Machine Learning. Aby uzyskać więcej informacji, zobacz [domyślne limity i sposób żądania wyższego limitu przydziału](how-to-manage-quotas.md).
+Podobnie jak w przypadku innych usług platformy Azure, istnieją limity niektórych zasobów (na przykład `AmlCompute` ) skojarzonych z Azure Machine Learning service. Aby uzyskać więcej informacji, zobacz [Limity domyślne i jak zażądać wyższego limitu przydziału.](how-to-manage-quotas.md)
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -144,9 +144,9 @@ print(compute_target.get_status().serialize())
 
 ## <a name="configure-your-training-job"></a>Konfigurowanie zadania szkoleniowego
 
-Na potrzeby tego samouczka Użyj skryptu szkoleniowego *Train.py* w witrynie [GitHub](https://github.com/Azure/azureml-examples/blob/main/workflows/train/fastai/pets/src/train.py). W tym celu można wykonać dowolny skrypt niestandardowego szkolenia i uruchomić go, tak jak w przypadku Azure Machine Learning.
+W tym samouczku użyj skryptu *szkoleniowego,* który train.py witrynie [GitHub.](https://github.com/Azure/azureml-examples/blob/main/workflows/train/fastai/pets/src/train.py) W praktyce możesz użyć dowolnego niestandardowego skryptu trenowania i uruchomić go w dowolnej Azure Machine Learning.
 
-Utwórz `ScriptRunConfig` zasób, aby skonfigurować zadanie do uruchamiania w żądanym [miejscu docelowym obliczeń](how-to-set-up-training-targets.md).
+Utwórz `ScriptRunConfig` zasób, aby skonfigurować zadanie do uruchamiania na żądanym docelowym [zasobie obliczeniowym.](how-to-set-up-training-targets.md)
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -157,9 +157,9 @@ src = ScriptRunConfig(source_directory='fastai-example',
                       environment=fastai_env)
 ```
 
-## <a name="submit-your-training-job"></a>Prześlij swoje zadanie szkoleniowe
+## <a name="submit-your-training-job"></a>Przesyłanie zadania szkoleniowego
 
-W przypadku przesyłania przebiegu szkoleniowego przy użyciu `ScriptRunConfig` obiektu `submit` Metoda zwraca obiekt typu `ScriptRun` . Zwrócony `ScriptRun` obiekt daje programistyczny dostęp do informacji o przebiegu szkoleniowym. 
+Po przesłaniu uruchomienia trenowania przy użyciu `ScriptRunConfig` obiektu metoda zwraca obiekt typu `submit` `ScriptRun` . Zwrócony `ScriptRun` obiekt zapewnia programowy dostęp do informacji o przebiegu trenowania. 
 
 ```python
 from azureml.core import Experiment
@@ -169,9 +169,9 @@ run.wait_for_completion(show_output=True)
 ```
 
 > [!WARNING]
-> Azure Machine Learning uruchamia skrypty szkoleniowe, kopiując cały katalog źródłowy. Jeśli masz poufne dane, które nie mają być przekazywane, użyj [pliku. ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) lub nie dodawaj go do katalogu źródłowego. Zamiast tego można uzyskiwać dostęp do danych przy użyciu usługi [datastore](/python/api/azureml-core/azureml.data).
+> Azure Machine Learning uruchamia skrypty trenowania, kopiując cały katalog źródłowy. Jeśli masz poufne dane, których nie chcesz przekazywać, użyj pliku [.ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) lub nie dołączaj go do katalogu źródłowego. Zamiast tego należy uzyskać dostęp do danych przy użyciu [magazynu danych](/python/api/azureml-core/azureml.data).
 
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule przeszkolony model przy użyciu niestandardowego obrazu platformy Docker. Zobacz następujące artykuły, aby dowiedzieć się więcej na temat Azure Machine Learning:
-* [Śledź pomiary uruchamiania](how-to-track-experiments.md) podczas szkoleń.
-* [Wdróż model](how-to-deploy-custom-docker-image.md) przy użyciu niestandardowego obrazu platformy Docker.
+W tym artykule wytrenowaliśmy model przy użyciu niestandardowego obrazu platformy Docker. Zapoznaj się z innymi artykułami, aby dowiedzieć się więcej o Azure Machine Learning:
+* [Śledzenie metryk przebiegów podczas](how-to-log-view-metrics.md) trenowania.
+* [Wdrażanie modelu przy](how-to-deploy-custom-docker-image.md) użyciu niestandardowego obrazu platformy Docker.

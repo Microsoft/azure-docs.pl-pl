@@ -1,87 +1,97 @@
 ---
-title: Konfigurowanie połączonej pamięci podręcznej firmy Microsoft dla aktualizacji urządzenia dla platformy Azure IoT Hub | Microsoft Docs
+title: Konfigurowanie usługi Microsoft Connected Cache aktualizacji urządzenia dla Azure IoT Hub | Microsoft Docs
 titleSuffix: Device Update for Azure IoT Hub
-description: Omówienie połączonej pamięci podręcznej firmy Microsoft dla aktualizacji urządzenia dla platformy Azure IoT Hub
+description: Omówienie usługi Microsoft Connected Cache aktualizacji urządzenia dla Azure IoT Hub
 author: andyriv
 ms.author: andyriv
 ms.date: 2/16/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 2903407f88b57a7be948cdeb0610e6d65df975b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6e7b8d567034cc9557a2d9fcec4afbffa878cf75
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101663161"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107811835"
 ---
-# <a name="configure-microsoft-connected-cache-for-device-update-for-azure-iot-hub"></a>Konfigurowanie połączonej pamięci podręcznej firmy Microsoft dla aktualizacji urządzenia dla platformy Azure IoT Hub
+# <a name="configure-microsoft-connected-cache-for-device-update-for-azure-iot-hub"></a>Konfigurowanie usługi Microsoft Connected Cache aktualizacji urządzenia dla Azure IoT Hub
 
-Połączona pamięć podręczna firmy Microsoft jest wdrażana do Azure IoT Edge bram jako moduł Azure IoT Edge. Podobnie jak w przypadku innych modułów Azure IoT Edge, zmienne środowiskowe wdrożenia modułu MCC i opcje tworzenia kontenera są używane do konfigurowania modułów pamięci podręcznej połączonej z firmą Microsoft.  Ta sekcja definiuje zmienne środowiskowe i opcje tworzenia kontenerów, które są wymagane, aby Klient pomyślnie wdrożyć moduł połączonej pamięci podręcznej firmy Microsoft do użycia przez aktualizację urządzenia dla platformy Azure IoT Hub.
+Usługa Microsoft Connected Cache jest wdrażana Azure IoT Edge bramach jako Azure IoT Edge module. Podobnie jak Azure IoT Edge modułów, zmienne środowiskowe wdrażania modułu MCC i opcje tworzenia kontenera są używane do konfigurowania modułów Connected Cache Microsoft.  W tej sekcji zdefiniowano zmienne środowiskowe i opcje tworzenia kontenera wymagane przez klienta do pomyślnego wdrożenia modułu Microsoft Connected Cache do użycia przez usługę Device Update dla Azure IoT Hub.
 
-## <a name="microsoft-connected-cache-azure-iot-edge-module-deployment-details"></a>Szczegóły wdrożenia modułu Azure IoT Edge połączonej pamięci podręcznej firmy Microsoft
+## <a name="microsoft-connected-cache-azure-iot-edge-module-deployment-details"></a>Szczegóły Connected Cache Azure IoT Edge wdrażania modułu microsoft Connected Cache Azure IoT Edge
 
-Nazwa modułu połączonej pamięci podręcznej firmy Microsoft jest według uznania administratora. Nie ma żadnych innych interakcji modułów lub usług, które opierają się na nazwie modułu do komunikacji. Ponadto relacja nadrzędna elementu podrzędnego serwerów połączonej pamięci podręcznej firmy Microsoft nie jest zależna od nazwy tego modułu, ale raczej nazwy FQDN lub adresu IP bramy Azure IoT Edge, która została skonfigurowana zgodnie z wcześniejszym opisem.
+Nazwa modułu Microsoft Connected Cache jest wedle uznania administratora. Nie ma żadnych innych interakcji modułów ani usług, które opierają się na nazwie modułu na potrzeby komunikacji. Ponadto relacja nadrzędny-podrzędny serwerów microsoft Connected Cache nie jest zależna od tej nazwy modułu, ale raczej nazwy FQDN lub adresu IP bramy usługi Azure IoT Edge, która została skonfigurowana zgodnie z wcześniejszym omówieniem.
 
-Zmienne środowiskowe połączonej pamięci podręcznej firmy Microsoft Azure IoT Edge są używane do przekazywania podstawowych informacji o tożsamości modułu oraz ustawień modułu funkcjonalnego do kontenera.
+Zmienne środowiskowe Connected Cache Azure IoT Edge Microsoft Connected Cache Azure IoT Edge module są używane do przekazania podstawowych informacji o tożsamości modułu i ustawień modułu funkcjonalnego do kontenera.
 
 | Nazwa zmiennej                 | Format wartości                           | Wymagane/Opcjonalne | Funkcjonalność                                    |
 | ----------------------------- | ---------------------------------------| ----------------- | ------------------------------------------------ |
-| CUSTOMER_ID                   | Identyfikator GUID identyfikatora subskrypcji platformy Azure             | Wymagane          | Jest to klucz klienta, który zapewnia bezpieczną<br>Uwierzytelnianie węzła pamięci podręcznej w celu optymalizacji dostarczania<br>Services. Wymagane w celu działania modułu. |
-| CACHE_NODE_ID                 | Identyfikator GUID węzła pamięci podręcznej                     | Wymagane          | Unikatowa identyfikacja pamięci podręcznej połączonej z firmą Microsoft<br>Usługi optymalizacji między węzłami. Wymagane w pożądanej kolejności<br> dla modułu do działania. |
-| CUSTOMER_KEY                  | Identyfikator GUID klucza klienta                     | Wymagane          | Jest to klucz klienta, który zapewnia bezpieczną<br>Uwierzytelnianie węzła pamięci podręcznej do usług optymalizacji dostarczania.<br>Wymagane w celu działania modułu.|
-| STORAGE_ *N* _SIZE_GB           | Gdzie N to liczba wymaganych GB   | Wymagane          | Określ do dziewięciu dysków, aby buforować zawartość i określić<br>Maksymalna ilość miejsca w gigabajtach do przydzielenia zawartości na każdym dysku pamięci podręcznej. Przykłady:<br>STORAGE_1_SIZE_GB = 150<br>STORAGE_2_SIZE_GB = 50<br>Liczba dysków musi być zgodna z określonymi wartościami powiązania dysku pamięci podręcznej<br>w opcji tworzenia kontenera MicrosoftConnectedCache *N* wartość|
-| UPSTREAM_HOST                 | NAZWA FQDN/ADRES IP                                | Opcjonalne          | Ta wartość może określać połączenie nadrzędne firmy Microsoft<br>Węzeł pamięci podręcznej, który działa jako serwer proxy, jeśli węzeł podłączonej pamięci podręcznej<br> jest odłączony od Internetu. To ustawienie służy do obsługi<br> Zagnieżdżony scenariusz IoT.<br>**Uwaga:** Połączona pamięć podręczna firmy Microsoft nasłuchuje na domyślnym porcie http 80.|
-| UPSTREAM_PROXY                | NAZWA FQDN/ADRES IP: PORT                           | Opcjonalne          | Wychodzący internetowy serwer proxy.<br>Może to być również Niemniej w przypadku serwera proxy DMZ w przypadku sieci ISA 95. |
-| CACHEABLE_CUSTOM_ *N* _HOST     | HOST/ADRES IP<br>Nazwa FQDN                        | Opcjonalne          | Wymagane do obsługi niestandardowych repozytoriów pakietów.<br>Repozytoria mogą być hostowane lokalnie lub w Internecie.<br>Nie ma żadnego limitu liczby hostów niestandardowych, które można skonfigurować.<br><br>Przykłady:<br>Nazwa = CACHEABLE_CUSTOM_1_HOST wartość = packages.foo.com<br> Nazwa = CACHEABLE_CUSTOM_2_HOST wartość = packages.bar.com    |
-| CACHEABLE_CUSTOM_ *N* _CANONICAL| Alias                                  | Opcjonalne          | Wymagane do obsługi niestandardowych repozytoriów pakietów.<br>Ta wartość może być używana jako alias i będzie używana przez serwer pamięci podręcznej do odwoływania się<br>różne nazwy DNS. Na przykład nazwa hosta zawartości repozytorium może być packages.foo.com,<br>ale dla różnych regionów może istnieć dodatkowy prefiks, który jest dodawany do nazwy hosta<br>takich jak westuscdn.packages.foo.com i eastuscdn.packages.foo.com.<br>Ustawiając alias kanoniczny, upewnij się, że zawartość nie jest zduplikowana.<br>dla zawartości pochodzącej z tego samego hosta, ale różnych źródeł sieci CDN.<br>Format wartości kanonicznej nie jest ważny, ale musi być unikatowy dla hosta.<br>Najłatwiej ustawić wartość zgodną z wartością hosta.<br><br>Przykłady na podstawie przykładów hosta niestandardowego:<br>Nazwa = CACHEABLE_CUSTOM_1_CANONICAL wartość = foopackages<br> Nazwa = CACHEABLE_CUSTOM_2_CANONICAL wartość = packages.bar.com  |
-| IS_SUMMARY_PUBLIC             | Prawda lub FAŁSZ                          | Opcjonalne          | Umożliwia wyświetlanie raportu podsumowującego w sieci lokalnej lub Internecie.<br>Użycie klucza interfejsu API (omówionego później) jest wymagane do wyświetlenia raportu podsumowującego, jeśli ustawiono wartość true. |
-| IS_SUMMARY_ACCESS_UNRESTRICTED| Prawda lub FAŁSZ                          | Opcjonalne          | Umożliwia wyświetlanie raportu podsumowującego w sieci lokalnej lub Internecie bez<br>Użycie klucza interfejsu API z dowolnego urządzenia w sieci. Użyj, jeśli nie chcesz blokować dostępu<br>Wyświetlanie danych podsumowania serwera pamięci podręcznej za pośrednictwem przeglądarki. |
+| CUSTOMER_ID                   | Identyfikator GUID subskrypcji platformy Azure             | Wymagane          | Jest to klucz klienta, który zapewnia bezpieczeństwo<br>uwierzytelnianie węzła pamięci podręcznej do Optymalizacja dostarczania<br>Usług.<br>Wymagane, aby moduł działał. |
+| CACHE_NODE_ID                 | Identyfikator GUID węzła pamięci podręcznej                     | Wymagane          | Unikatowo identyfikuje Connected Cache<br>z węzła do Optymalizacja dostarczania Services.<br>Wymagane w kolejności<br> aby moduł działał. |
+| CUSTOMER_KEY                  | Identyfikator GUID klucza klienta                     | Wymagane          | Jest to klucz klienta, który zapewnia bezpieczeństwo<br>uwierzytelnianie węzła pamięci podręcznej w usługach Optymalizacja dostarczania Services.<br>Wymagane, aby moduł działał.|
+| STORAGE_ *N* _SIZE_GB           | Gdzie N to dysk pamięci podręcznej   | Wymagane          | Określ maksymalnie 9 dysków do buforowania zawartości i określ maksymalną ilość miejsca w<br>Gigabajty do przydzielenia dla zawartości na każdym dysku pamięci podręcznej. Przykłady:<br>STORAGE_1_SIZE_GB = 150<br>STORAGE_2_SIZE_GB = 50<br>Liczba dysków musi odpowiadać określonym wartościom powiązania dysku pamięci podręcznej<br>w wartości N opcji tworzenia kontenera MicrosoftConnectedCache<br>Minimalny rozmiar pamięci podręcznej to 10 GB.|
+| UPSTREAM_HOST                 | FQDN/IP                                | Opcjonalne          | Ta wartość może określać nadrzędne połączenie firmy Microsoft<br>Węzeł pamięci podręcznej, który działa jako serwer proxy, jeśli Connected Cache węzła<br> jest odłączony od Internetu. To ustawienie jest używane do obsługi<br> zagnieżdżony scenariusz IoT.<br>**Uwaga:** Usługa Microsoft Connected Cache nasłuchuje na domyślnym porcie HTTP 80.|
+| UPSTREAM_PROXY                | FQDN/IP:PORT                           | Opcjonalne          | Wychodzący internetowy serwer proxy.<br>Może to być również serwer proxy OT DMZ, jeśli sieć ISA 95. |
+| CACHEABLE_CUSTOM_ *N* _HOST     | HOST/IP<br>Nazwa FQDN                        | Opcjonalne          | Wymagane do obsługi niestandardowych repozytoriów pakietów.<br>Repozytoria mogą być hostowane lokalnie lub w Internecie.<br>Nie ma żadnego limitu liczby hostów niestandardowych, które można skonfigurować.<br><br>Przykłady:<br>Nazwa = CACHEABLE_CUSTOM_1_HOST = packages.foo.com<br> Nazwa = CACHEABLE_CUSTOM_2_HOST wartość = packages.bar.com    |
+| CACHEABLE_CUSTOM_ *N* _CANONICAL| Alias                                  | Opcjonalne          | Wymagane do obsługi niestandardowych repozytoriów pakietów.<br>Ta wartość może służyć jako alias i będzie używana przez serwer pamięci podręcznej do odwołania<br>różne nazwy DNS. Na przykład nazwa hosta zawartości repozytorium może być packages.foo.com,<br>ale w różnych regionach może być dodatkowy prefiks dodawany do nazwy hosta<br>na westuscdn.packages.foo.com i eastuscdn.packages.foo.com.<br>Ustawiając alias kanoniczny, upewniasz się, że zawartość nie jest duplikowana<br>dla zawartości pochodzącej z tego samego hosta, ale z różnych źródeł cdn.<br>Format wartości kanonicznej nie jest ważny, ale musi być unikatowy dla hosta.<br>Najprostszym rozwiązaniem może być ustawienie wartości zgodnej z wartością hosta.<br><br>Przykłady oparte na przykładach hostów niestandardowych powyżej:<br>Nazwa = CACHEABLE_CUSTOM_1_CANONICAL wartość = foopackages<br> Nazwa = CACHEABLE_CUSTOM_2_CANONICAL = packages.bar.com  |
+| IS_SUMMARY_PUBLIC             | Prawda czy fałsz                          | Opcjonalne          | Umożliwia wyświetlanie raportu podsumowania w sieci lokalnej lub w Internecie.<br>Użycie klucza interfejsu API (omówionego w dalszej części) jest wymagane do wyświetlenia raportu podsumowania, jeśli ustawiono wartość true. |
+| IS_SUMMARY_ACCESS_UNRESTRICTED| Prawda czy fałsz                          | Opcjonalne          | Umożliwia wyświetlanie raportu podsumowania w sieci lokalnej lub Internecie bez<br>użycie klucza interfejsu API z dowolnego urządzenia w sieci. Użyj , jeśli nie chcesz blokować dostępu<br>do wyświetlania danych podsumowania serwera pamięci podręcznej za pośrednictwem przeglądarki. |
             
-## <a name="microsoft-connected-cache-azure-iot-edge-module-container-create-options"></a>Opcja tworzenia kontenera modułu Azure IoT Edge połączonej pamięci podręcznej firmy Microsoft
+## <a name="microsoft-connected-cache-azure-iot-edge-module-container-create-options"></a>Opcje tworzenia kontenera Connected Cache Azure IoT Edge Microsoft Connected Cache Azure IoT Edge module
 
-Opcje tworzenia kontenera dla wdrożenia modułu MCC zapewniają kontrolę ustawień związanych z magazynem i portami używanymi przez moduł MCC. Jest to lista wymaganych zmiennych kontenerów użytych do wdrożenia MCC.
+Opcje tworzenia kontenera dla wdrożenia modułu MCC zapewniają kontrolę nad ustawieniami związanymi z magazynem i portami używanymi przez moduł MCC. Jest to lista wymaganych zmiennych utworzonych przez kontener używany do wdrażania mcc.
 
-### <a name="container-to-host-os-drive-mappings"></a>Kontener mapowania dysków systemu operacyjnego
+### <a name="container-to-host-os-drive-mappings"></a>Mapowania dysków systemu operacyjnego hosta kontenera
 
-Wymagane do zamapowania lokalizacji magazynu kontenerów na lokalizację magazynu na dysku. można określić < do dziewięciu lokalizacji.
-
->[!Note]
->Liczba dysków musi być zgodna z wartościami powiązania dysku pamięci podręcznej określonymi w zmiennej środowiskowej STORAGE_ *N* _SIZE_GB wartość. ```/MicrosoftConnectedCache*N*/:/nginx/cache*N*/```
-
-### <a name="container-to-host-tcp-port-mappings"></a>Kontener do mapowania portów TCP
-
-Ta opcja określa port HTTP maszyny zewnętrznej, który MCC nasłuchuje w przypadku żądań zawartości. Domyślnie HostPort jest port 80, a inne porty nie są obecnie obsługiwane, ponieważ klient ADU wysyła żądania na port 80 dzisiaj. Port TCP 8081 jest portem wewnętrznym kontenera, na którym nasłuchuje MCC i nie można go zmienić.
-
-```markdown
-8081/tcp": [
-   {
-       "HostPort": "80"
-   }
-]
-```
-
-### <a name="container-service-tcp-port-mappings"></a>Mapowania portów TCP usługi Container Service
-
-Moduł połączonej pamięci podręcznej firmy Microsoft ma usługę .NET Core, która jest używana przez aparat buforowania dla różnych funkcji.
+Wymagane do mapowania lokalizacji magazynu kontenera na lokalizację magazynu na dysku.< można określić maksymalnie dziewięć lokalizacji.
 
 >[!Note]
->Aby można było obsługiwać zagnieżdżoną krawędź usługi Azure IoT, HostPort nie może być ustawiony na 5000, ponieważ moduł proxy rejestru już nasłuchuje na porcie 5000.
+>Liczba dysków musi odpowiadać wartościom powiązania dysku pamięci podręcznej określonym w zmiennej środowiskowej STORAGE_ *N* _SIZE_GB wartości, ```/MicrosoftConnectedCache*N*/:/nginx/cache*N*/```
 
-```markdown
-5000/tcp": [
-   {
-       "HostPort": "5001"
-   }
-]
+### <a name="container-to-host-tcp-port-mappings"></a>Kontener do hostowania mapowań portów TCP
+
+Ta opcja określa port HTTP zewnętrznego komputera, na podstawie których mcc nasłuchuje żądań zawartości. Domyślny port HostPort to port 80, a inne porty nie są obecnie obsługiwane, ponieważ klient usługi ADU wysyła obecnie żądania na porcie 80. Port TCP 8081 to wewnętrzny port kontenera, na który nasłuchuje mcc i nie można go zmienić.
+
+### <a name="container-service-tcp-port-mappings"></a>Mapowania portów TCP usługi kontenera
+
+Moduł Microsoft Connected Cache zawiera usługę .NET Core, która jest używana przez aparat buforowania dla różnych funkcji.
+
+>[!Note]
+>Aby obsługiwać usługę Azure IoT Nested Edge, nie można ustawić portu HostPort na wartość 5000, ponieważ moduł serwera proxy rejestru nasłuchuje już na porcie hosta 5000.
+
+
+Opcje tworzenia przykładowego kontenera
+
+```json
+{
+    "HostConfig": {
+        "Binds": [
+            "/microsoftConnectedCache1/:/nginx/cache1/"
+        ],
+        "PortBindings": {
+            "8081/tcp": [
+                {
+                    "HostPort": "80"
+                }
+            ],
+            "5000/tcp": [
+                {
+                    "HostPort": "5100"
+                }
+            ]
+        }
+    }
+}
 ```
 
-## <a name="microsoft-connected-cache-summary-report"></a>Raport podsumowujący połączonej pamięci podręcznej firmy Microsoft
+## <a name="microsoft-connected-cache-summary-report"></a>Raport podsumowania Connected Cache Microsoft
 
-Raport podsumowujący jest obecnie jedynym sposobem, aby klient mógł wyświetlać dane buforowania dla wystąpień połączonej pamięci podręcznej firmy Microsoft wdrożonych w celu Azure IoT Edge bram. Raport jest generowany w odstępach 15-sekundowych i zawiera średnie statystyki dla tego okresu oraz zagregowane statystyki dotyczące okresu istnienia modułu. Kluczowe statystyki dotyczące najważniejszych klientów:
+Raport podsumowujący jest obecnie jedynym sposobem, aby klient wyświetlał dane buforowania dla wystąpień usługi Microsoft Connected Cache wdrożonych w Azure IoT Edge bramach. Raport jest generowany co 15 sekund i zawiera uśrednione statystyki dla okresu, a także zagregowane statystyki dla okresu istnienia modułu. Najważniejsze statystyki, które będą interesować klientów, to:
 
-* **hitBytes** — Suma bajtów dostarczonych bezpośrednio z pamięci podręcznej.
-* Błędy **niezerowe —** jest to suma bajtów dostarczona przez połączoną pamięć podręczną firmy Microsoft w celu wyświetlenia pamięci podręcznej.
-* **eggressBytes** — jest to suma hitBytes i niezwiązanych z nią wartości, a to całkowita liczba bajtów dostarczanych do klientów.
-* **hitRatioBytes** — stosunek HitBytes do egressBytes.  Jeśli 100% eggressBytes dostarczonych w danym okresie była równa hitBytes, może to być 1 na przykład.
+* **hitBytes** — jest to suma bajtów dostarczonych bezpośrednio z pamięci podręcznej.
+* **missBytes —** jest to suma bajtów dostarczonych przez firmę Microsoft Connected Cache do pobrania z usługi CDN w celu zobaczenia pamięci podręcznej.
+* **eggressBytes** — jest to suma hitBytes i missBytes oraz całkowita liczba bajtów dostarczonych do klientów.
+* **hitRatioBytes** — jest to stosunek hitBytes do egressBytes.  Gdyby 100% eggressBytes dostarczonych w okresie było równe hitBytes, byłoby to na przykład 1.
 
-Raport podsumowujący jest dostępny pod adresem `http://<FQDN/IP of Azure IoT Edge Gateway hosting MCC>:5001/summary` (zobacz szczegóły zmiennej środowiskowej poniżej, aby uzyskać informacje na temat widoczności tego raportu).
+
+Raport podsumowujący jest dostępny w teście Zastąp adresem IP lub `http://<FQDN/IP of Azure IoT Edge Gateway hosting MCC>:5001/summary` \<Azure IoT Edge Gateway IP\> nazwą hosta IoT Edge bramy. (Zobacz szczegóły zmiennych środowiskowych, aby uzyskać informacje na temat widoczności tego raportu).
