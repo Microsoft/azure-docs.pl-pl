@@ -1,139 +1,139 @@
 ---
-title: Podwójne szyfrowanie danych magazynowanych
+title: Podwójne szyfrowanie danych w spoczynku
 titleSuffix: Azure HDInsight
-description: W tym artykule opisano dwie warstwy szyfrowania dostępne dla danych przechowywanych w klastrach usługi Azure HDInsight.
+description: W tym artykule opisano dwie warstwy szyfrowania dostępne dla danych w spoczynku Azure HDInsight klastrach.
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 3d4f9e3be02a64efa058ea1f84a3e261cb6166fc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 226516b1178f14789570b45b68cfdbf56f63bbd7
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104867121"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775155"
 ---
-# <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Podwójne szyfrowanie usługi Azure HDInsight dla danych magazynowanych
+# <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Azure HDInsight podwójne szyfrowanie danych w spoczynku
 
-W tym artykule omówiono metody szyfrowania danych przechowywanych w klastrach usługi Azure HDInsight. Szyfrowanie danych w spoczynku odnosi się do szyfrowania na dyskach zarządzanych (dysków danych, dysków systemu operacyjnego i dysków tymczasowych) dołączonych do maszyn wirtualnych klastra usługi HDInsight. 
+W tym artykule omówiono metody szyfrowania danych w spoczynku Azure HDInsight klastrach. Szyfrowanie danych w spoczynku odnosi się do szyfrowania dysków zarządzanych (dysków danych, dysków systemu operacyjnego i dysków tymczasowych) dołączonych do maszyn wirtualnych klastra usługi HDInsight. 
 
-Ten dokument nie jest adresem danych przechowywanych na koncie usługi Azure Storage. Klastry mogą mieć co najmniej jedno dołączone konto usługi Azure Storage, na których klucze szyfrowania mogą być również zarządzane przez firmę Microsoft lub zarządzane przez klienta, ale usługa szyfrowania jest inna. Aby uzyskać więcej informacji na temat szyfrowania usługi Azure Storage, zobacz [szyfrowanie usługi Azure Storage w przypadku przechowywania danych](../storage/common/storage-service-encryption.md).
+Ten dokument nie dotyczy danych przechowywanych na koncie usługi Azure Storage. Klastry mogą mieć co najmniej jedno dołączone konto usługi Azure Storage, w którym klucze szyfrowania mogą być również zarządzane przez firmę Microsoft lub zarządzane przez klienta, ale usługa szyfrowania jest inna. Aby uzyskać więcej informacji na temat szyfrowania usługi Azure Storage, zobacz [Szyfrowanie usługi Azure Storage dla danych magazynowych.](../storage/common/storage-service-encryption.md)
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Na platformie Azure istnieją trzy główne role dysków zarządzanych: dysk danych, dysk systemu operacyjnego i dysk tymczasowy. Aby uzyskać więcej informacji na temat różnych typów dysków zarządzanych, zobacz [wprowadzenie do usługi Azure Managed disks](../virtual-machines/managed-disks-overview.md). 
+Istnieją trzy główne role dysku zarządzanego na platformie Azure: dysk danych, dysk systemu operacyjnego i dysk tymczasowy. Aby uzyskać więcej informacji na temat różnych typów dysków zarządzanych, zobacz [Introduction to Azure managed disks (Wprowadzenie do dysków zarządzanych platformy Azure).](../virtual-machines/managed-disks-overview.md) 
 
-Usługa HDInsight obsługuje wiele typów szyfrowania w dwóch różnych warstwach:
+HdInsight obsługuje wiele typów szyfrowania w dwóch różnych warstwach:
 
-- Szyfrowanie po stronie serwera (SSE) — funkcja SSE jest wykonywana przez usługę magazynu. W usłudze HDInsight funkcja SSE jest używana do szyfrowania dysków systemu operacyjnego i dysków danych. Jest on domyślnie włączony. SSE jest usługą szyfrowania warstwy 1.
-- Szyfrowanie na hoście przy użyciu klucza zarządzanego przez platformę — podobnego do instrukcji SSE, ten typ szyfrowania jest wykonywany przez usługę magazynu. Jednak tylko w przypadku dysków tymczasowych i nie jest domyślnie włączona. Szyfrowanie na hoście to również usługa szyfrowania warstwy 1.
-- Szyfrowanie w spoczynku przy użyciu klucza zarządzanego przez klienta — ten typ szyfrowania może być używany na dyskach danych i tymczasowych. Nie jest on domyślnie włączony i wymaga od klienta podania własnego klucza za pomocą usługi Azure Key magazyn. Szyfrowanie w spoczynku to usługa szyfrowania warstwy 2.
+- Szyfrowanie po stronie serwera (SSE) — SSE jest wykonywane przez usługę magazynu. W umacie HDInsight szyfrowanie SSE jest używane do szyfrowania dysków systemu operacyjnego i dysków danych. Jest ona domyślnie włączona. SSE to usługa szyfrowania warstwy 1.
+- Szyfrowanie na hoście przy użyciu klucza zarządzanego przez platformę — podobnie jak w przypadku szyfrowania SSE, ten typ szyfrowania jest wykonywany przez usługę magazynu. Jest ona jednak dostępna tylko dla dysków tymczasowych i nie jest domyślnie włączona. Szyfrowanie na hoście jest również usługą szyfrowania warstwy 1.
+- Szyfrowanie danych w spoczynku przy użyciu klucza zarządzanego przez klienta — tego typu szyfrowania można używać na danych i dyskach tymczasowych. Nie jest ona domyślnie włączona i wymaga od klienta podania własnego klucza za pośrednictwem usługi Azure Key Vault. Szyfrowanie danych w spoczynku jest usługą szyfrowania warstwy 2.
 
 Te typy zostały podsumowane w poniższej tabeli.
 
-|Typ klastra |Dysk systemu operacyjnego (dysk zarządzany) |Dysk danych (dysk zarządzany) |Dysk danych tymczasowych (lokalny dysk SSD) |
+|Typ klastra |Dysk systemu operacyjnego (dysk zarządzany) |Dysk danych (dysk zarządzany) |Tymczasowy dysk danych (lokalny dysk SSD) |
 |---|---|---|---|
-|Kafka, HBase z przyspieszeniem zapisu|Layer1: Domyślnie [szyfrowanie SSE](../virtual-machines/managed-disks-overview.md#encryption)|Layer1: [szyfrowanie SSE](../virtual-machines/managed-disks-overview.md#encryption) domyślnie, layer2: Opcjonalne szyfrowanie przy użyciu CMK|Layer1: Opcjonalne szyfrowanie na hoście przy użyciu klucza głównego parowania, layer2: Opcjonalne szyfrowanie w spoczynku przy użyciu CMK|
-|Wszystkie inne klastry (Spark, Interactive, Hadoop, HBase bez przyspieszenia zapisu)|Layer1: Domyślnie [szyfrowanie SSE](../virtual-machines/managed-disks-overview.md#encryption)|Nie dotyczy|Layer1: Opcjonalne szyfrowanie na hoście przy użyciu klucza głównego parowania, layer2: Opcjonalne szyfrowanie w spoczynku przy użyciu CMK|
+|Platforma Kafka, baza danych HBase z przyspieszonym zapisem|Warstwa1: [domyślnie szyfrowanie SSE](../virtual-machines/managed-disks-overview.md#encryption)|Warstwa1: domyślnie [szyfrowanie SSE,](../virtual-machines/managed-disks-overview.md#encryption) Warstwa 2: Opcjonalne szyfrowanie danych spoczynku przy użyciu klucza cmk|Warstwa 1: opcjonalne szyfrowanie na hoście przy użyciu klucza zarządzania kluczami, warstwa 2: opcjonalne szyfrowanie danych spoczynku przy użyciu klucza cmk|
+|Wszystkie inne klastry (Spark, Interactive, Hadoop, HBase bez przyspieszonych zapisu)|Warstwa1: [domyślnie szyfrowanie SSE](../virtual-machines/managed-disks-overview.md#encryption)|Nie dotyczy|Warstwa 1: opcjonalne szyfrowanie na hoście przy użyciu klucza zarządzania kluczami, warstwa 2: opcjonalne szyfrowanie danych spoczynku przy użyciu klucza cmk|
 
-## <a name="encryption-at-rest-using-customer-managed-keys"></a>Szyfrowanie w spoczynku przy użyciu kluczy zarządzanych przez klienta
+## <a name="encryption-at-rest-using-customer-managed-keys"></a>Szyfrowanie danych w spoczynku przy użyciu kluczy zarządzanych przez klienta
 
-Szyfrowanie klucza zarządzanego przez klienta to proces jednoetapowy obsługiwany podczas tworzenia klastra bez dodatkowych kosztów. Wszystko, co należy zrobić, jest autoryzowanie tożsamości zarządzanej przy użyciu Azure Key Vault i dodanie klucza szyfrowania podczas tworzenia klastra.
+Szyfrowanie kluczy zarządzane przez klienta to proces jednoetapowy obsługiwany podczas tworzenia klastra bez dodatkowych kosztów. Wszystko, co należy zrobić, to autoryzować tożsamość zarządzaną za pomocą Azure Key Vault i dodać klucz szyfrowania podczas tworzenia klastra.
 
-Zarówno dyski danych, jak i dyski tymczasowe w każdym węźle klastra są szyfrowane za pomocą klucza szyfrowania danych symetrycznych. Klucz szyfrowania danych jest chroniony przy użyciu klucza szyfrowanie klucza (KEK) z magazynu kluczy. Procesy szyfrowania i odszyfrowywania są obsługiwane całkowicie przez usługę Azure HDInsight.
+Zarówno dyski danych, jak i dyski tymczasowe w każdym węźle klastra są szyfrowane przy użyciu symetrycznego klucza szyfrowania danych (DEK). Klucz szyfrowania danych jest chroniony przy użyciu klucza szyfrowania klucza (KEK) z magazynu kluczy. Procesy szyfrowania i odszyfrowywania są obsługiwane w całości przez Azure HDInsight.
 
-W przypadku dysków systemu operacyjnego podłączonych do maszyn wirtualnych klastra dostępna jest tylko jedna warstwa szyfrowania (kluczy głównych parowania). Zaleca się, aby klienci unikali kopiowania poufnych danych na dyski systemu operacyjnego, jeśli dla ich scenariuszy wymagane jest szyfrowanie CMK.
+W przypadku dysków systemu operacyjnego dołączonych do maszyn wirtualnych klastra jest dostępna tylko jedna warstwa szyfrowania (PMK). Zaleca się, aby klienci unikali kopiowania poufnych danych na dyski systemu operacyjnego, jeśli w ich scenariuszach wymagane jest szyfrowanie klucza CMK.
 
-Jeśli w magazynie kluczy, w którym jest przechowywany klucz szyfrowania dysku, jest włączona Zapora magazynu kluczy, adresy IP regionalnego dostawcy zasobów usługi HDInsight dla regionu, w którym zostanie wdrożony klaster, muszą zostać dodane do konfiguracji zapory magazynu kluczy. Jest to konieczne, ponieważ Usługa HDInsight nie jest zaufaną usługą magazynu kluczy platformy Azure.
+Jeśli zapora magazynu kluczy jest włączona w magazynie kluczy, w którym jest przechowywany klucz szyfrowania dysków, do konfiguracji zapory magazynu kluczy należy dodać adresy IP regionalnego dostawcy zasobów usługi HDInsight dla regionu, w którym zostanie wdrożony klaster. Jest to konieczne, ponieważ usługa HDInsight nie jest zaufaną usługą azure key vault.
 
-Możesz użyć Azure Portal lub interfejsu wiersza polecenia platformy Azure, aby bezpiecznie obrócić klucze w magazynie kluczy. Gdy klucz zostanie obrócony, klaster usługi HDInsight zaczyna używać nowego klucza w ciągu kilku minut. Włącz funkcje ochrony klucza [nietrwałego](../key-vault/general/soft-delete-overview.md) , aby chronić je przed scenariuszami oprogramowania wymuszającego okup i przypadkowym usunięciem. Magazyny kluczy bez tej funkcji ochrony nie są obsługiwane.
+Aby bezpiecznie obracać klucze w magazynie kluczy, Azure Portal interfejsu wiersza polecenia platformy Azure lub interfejsu wiersza polecenia platformy Azure. Gdy klucz się obraca, klaster usługi HDInsight rozpoczyna korzystanie z nowego klucza w ciągu kilku minut. Włącz funkcje ochrony [klucza usuwania nie](../key-vault/general/soft-delete-overview.md) softowego, aby chronić się przed scenariuszami oprogramowania wymuszającego okup i przypadkowym usunięciem. Magazyny kluczy bez tej funkcji ochrony nie są obsługiwane.
 
 ### <a name="get-started-with-customer-managed-keys"></a>Wprowadzenie do kluczy zarządzanych przez klienta
 
-Aby utworzyć klaster usługi HDInsight z włączonym kluczem zarządzanym przez klienta, wykonaj następujące czynności:
+Aby utworzyć klaster usługi HDInsight z obsługą klucza zarządzanego przez klienta, należy wykonać następujące kroki:
 
 1. Tworzenie tożsamości zarządzanych dla zasobów platformy Azure
-1. Utwórz Azure Key Vault
-1. Utwórz klucz
-1. Utwórz zasady dostępu
+1. Tworzenie Azure Key Vault
+1. Tworzenie klucza
+1. Tworzenie zasad dostępu
 1. Tworzenie klastra usługi HDInsight z włączonym kluczem zarządzanym przez klienta
 1. Obracanie klucza szyfrowania
 
-Każdy krok jest objaśniony w jednej z poniższych sekcji szczegółowo.
+Każdy krok został szczegółowo wyjaśniony w jednej z poniższych sekcji.
 
 ### <a name="create-managed-identities-for-azure-resources"></a>Tworzenie tożsamości zarządzanych dla zasobów platformy Azure
 
-Utwórz tożsamość zarządzaną przypisaną przez użytkownika w celu uwierzytelnienia do Key Vault.
+Utwórz tożsamość zarządzaną przypisaną przez użytkownika w celu uwierzytelnienia w Key Vault.
 
-Szczegółowe instrukcje można znaleźć w temacie [Tworzenie tożsamości zarządzanej przypisanej przez użytkownika](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) . Aby uzyskać więcej informacji na temat działania tożsamości zarządzanych w usłudze Azure HDInsight, zobacz [zarządzane tożsamości w usłudze Azure HDInsight](hdinsight-managed-identities.md). Należy pamiętać o zapisaniu identyfikatora zasobu tożsamości zarządzanej dla programu podczas dodawania go do zasad dostępu Key Vault.
+Zobacz [Tworzenie tożsamości zarządzanej przypisanej przez użytkownika,](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) aby uzyskać szczegółowe instrukcje. Aby uzyskać więcej informacji na temat sposobu działania tożsamości zarządzanych w Azure HDInsight, zobacz [Tożsamości zarządzane](hdinsight-managed-identities.md)w Azure HDInsight . Pamiętaj, aby zapisać identyfikator zasobu tożsamości zarządzanej dla programu po dodaniu go do Key Vault dostępu.
 
-### <a name="create-azure-key-vault"></a>Utwórz Azure Key Vault
+### <a name="create-azure-key-vault"></a>Tworzenie Azure Key Vault
 
-Utwórz magazyn kluczy. Aby zapoznać się z określonymi krokami, zobacz [tworzenie Azure Key Vault](../key-vault/general/quick-create-portal.md) .
+Utwórz magazyn kluczy. Zobacz [Tworzenie Azure Key Vault,](../key-vault/general/quick-create-portal.md) aby uzyskać szczegółowe instrukcje.
 
-Usługa HDInsight obsługuje tylko Azure Key Vault. Jeśli masz własny magazyn kluczy, możesz zaimportować klucze do Azure Key Vault. Należy pamiętać, że magazyn kluczy musi mieć włączone **usuwanie nietrwałe** . Aby uzyskać więcej informacji o importowaniu istniejących kluczy, odwiedź stronę [dotyczącą kluczy, wpisów tajnych i certyfikatów](../key-vault/general/about-keys-secrets-certificates.md).
+HdInsight obsługuje tylko Azure Key Vault. Jeśli masz własny magazyn kluczy, możesz zaimportować klucze do Azure Key Vault. Należy pamiętać, że magazyn kluczy musi mieć **włączoną funkcję usuwania nie softu.** Aby uzyskać więcej informacji na temat importowania istniejących kluczy, odwiedź stronę [About keys, secrets, and certificates (Informacje o kluczach, wpisach tajnych i certyfikatach).](../key-vault/general/about-keys-secrets-certificates.md)
 
-### <a name="create-key"></a>Utwórz klucz
+### <a name="create-key"></a>Tworzenie klucza
 
-1. W nowym magazynie kluczy przejdź do pozycje **Ustawienia**  >  **klucze**  >  **+ Generuj/Importuj**.
+1. W nowym magazynie kluczy przejdź do ustawień  >  **Klucze**  >  **+ Generuj/Importuj**.
 
-    :::image type="content" source="./media/disk-encryption/create-new-key.png" alt-text="Generuj nowy klucz w Azure Key Vault":::
+    :::image type="content" source="./media/disk-encryption/create-new-key.png" alt-text="Generowanie nowego klucza w Azure Key Vault":::
 
-1. Podaj nazwę, a następnie wybierz pozycję **Utwórz**. Zachowaj domyślny **Typ klucza** **RSA**.
+1. Podaj nazwę, a następnie wybierz pozycję **Utwórz.** Zachowaj domyślny **typ klucza** **RSA.**
 
     :::image type="content" source="./media/disk-encryption/create-key.png" alt-text="generuje nazwę klucza":::
 
-1. Po powrocie do strony **klucze** wybierz utworzony klucz.
+1. Po powrocie do strony **Klucze** wybierz utworzony klucz.
 
-    :::image type="content" source="./media/disk-encryption/key-vault-key-list.png" alt-text="Lista kluczy magazynu kluczy":::
+    :::image type="content" source="./media/disk-encryption/key-vault-key-list.png" alt-text="lista kluczy magazynu kluczy":::
 
-1. Wybierz wersję, aby otworzyć stronę **wersja klucza** . Jeśli używasz własnego klucza do szyfrowania klastra usługi HDInsight, musisz podać identyfikator URI klucza. Skopiuj **Identyfikator klucza** i Zapisz go w dowolnym miejscu do momentu, aż wszystko będzie gotowe do utworzenia klastra.
+1. Wybierz wersję, aby otworzyć **stronę Wersja** klucza. Jeśli używasz własnego klucza do szyfrowania klastra usługi HDInsight, musisz podać jego URI. Skopiuj identyfikator **klucza i** zapisz go w innym miejscu, aż wszystko będzie gotowe do utworzenia klastra.
 
-    :::image type="content" source="./media/disk-encryption/get-key-identifier.png" alt-text="Pobierz identyfikator klucza":::
+    :::image type="content" source="./media/disk-encryption/get-key-identifier.png" alt-text="uzyskiwanie identyfikatora klucza":::
 
-### <a name="create-access-policy"></a>Utwórz zasady dostępu
+### <a name="create-access-policy"></a>Tworzenie zasad dostępu
 
-1. W nowym magazynie kluczy przejdź do **ustawień**  >  **zasady dostępu**  >  **i Dodaj zasady dostępu**.
+1. W nowym magazynie kluczy przejdź do ustawień **Zasady** dostępu  >    >  **+ Dodaj zasady dostępu.**
 
-    :::image type="content" source="./media/disk-encryption/key-vault-access-policy.png" alt-text="Utwórz nowe zasady dostępu Azure Key Vault":::
+    :::image type="content" source="./media/disk-encryption/key-vault-access-policy.png" alt-text="Tworzenie nowych zasad Azure Key Vault dostępu":::
 
 1. Na stronie **Dodawanie zasad dostępu** podaj następujące informacje:
 
     |Właściwość |Opis|
     |---|---|
-    |Uprawnienia klucza|Wybierz pozycję **Pobierz**, **Odpakuj klucz** i **Zawijaj klucz**.|
-    |Uprawnienia wpisu tajnego|Wybierz pozycje **Get**, **Set** i **delete**.|
-    |Wybierz podmiot zabezpieczeń|Wybierz utworzoną wcześniej tożsamość zarządzaną przypisaną przez użytkownika.|
+    |Uprawnienia klucza|Wybierz **pozycję Pobierz,** **Odpakuj klucz** i **Opakuj klucz.**|
+    |Uprawnienia wpisu tajnego|Wybierz **pozycję Pobierz,** **Ustaw** i **Usuń.**|
+    |Wybieranie podmiotu zabezpieczeń|Wybierz utworzoną wcześniej tożsamość zarządzaną przypisaną przez użytkownika.|
 
-    :::image type="content" source="./media/disk-encryption/azure-portal-add-access-policy.png" alt-text="Ustaw pozycję Wybierz podmiot zabezpieczeń dla zasad dostępu Azure Key Vault":::
+    :::image type="content" source="./media/disk-encryption/azure-portal-add-access-policy.png" alt-text="Ustawianie opcji Wybierz podmiot zabezpieczeń Azure Key Vault zasad dostępu":::
 
 1. Wybierz pozycję **Dodaj**.
 
 1. Wybierz pozycję **Zapisz**.
 
-    :::image type="content" source="./media/disk-encryption/add-key-vault-access-policy-save.png" alt-text="Zapisz zasady dostępu Azure Key Vault":::
+    :::image type="content" source="./media/disk-encryption/add-key-vault-access-policy-save.png" alt-text="Zapisywanie Azure Key Vault dostępu":::
 
-### <a name="create-cluster-with-customer-managed-key-disk-encryption"></a>Tworzenie klastra przy użyciu szyfrowania dysku klucza zarządzanego przez klienta
+### <a name="create-cluster-with-customer-managed-key-disk-encryption"></a>Tworzenie klastra z szyfrowaniem dysków kluczem zarządzanym przez klienta
 
-Teraz możesz utworzyć nowy klaster usługi HDInsight. Klucze zarządzane przez klienta mogą być stosowane tylko do nowych klastrów podczas tworzenia klastra. Nie można usunąć szyfrowania z klastrów kluczy zarządzanych przez klienta, a klucze zarządzane przez klienta nie mogą być dodawane do istniejących klastrów.
+Teraz możesz utworzyć nowy klaster usługi HDInsight. Klucze zarządzane przez klienta można stosować tylko do nowych klastrów podczas tworzenia klastra. Szyfrowania nie można usunąć z klastrów kluczy zarządzanych przez klienta, a kluczy zarządzanych przez klienta nie można dodawać do istniejących klastrów.
 
-Począwszy od wersji 2020 listopada Usługa HDInsight obsługuje tworzenie klastrów przy użyciu identyfikatorów URI kluczy z wersjami i bez znaku. Jeśli utworzysz klaster z identyfikatorem URI klucza bez wersji, klaster usługi HDInsight podejmie próbę przeprowadzenia kluczowego skalowania, gdy klucz zostanie zaktualizowany w Azure Key Vault. W przypadku utworzenia klastra z identyfikatorem URI klucza z podsystemem należy wykonać ręczną rotację kluczy, jak opisano w [obracaniu klucza szyfrowania](#rotating-the-encryption-key).
+Począwszy od wersji z listopada 2020 r., usługa HDInsight obsługuje tworzenie klastrów przy użyciu zarówno URI kluczy wersjonarowanych, jak i bez wersji. Jeśli utworzysz klaster przy użyciu klucza URI bez wersji, klaster usługi HDInsight spróbuje przeprowadzić automatyczną rotację kluczy po zaktualizowania klucza w Azure Key Vault. Jeśli utworzysz klaster z wersjonacyjną wersją klucza URI, musisz wykonać ręczną rotację kluczy, jak omówiono w artykule [Rotating the encryption key (Obracanie klucza szyfrowania).](#rotating-the-encryption-key)
 
-W przypadku klastrów utworzonych przed wydaniem listopad 2020 konieczne będzie ręczne przeprowadzenie rotacji przy użyciu identyfikatora URI klucza z wersją.
+W przypadku klastrów utworzonych przed wydaniem z listopada 2020 r. należy ręcznie wykonać rotację kluczy przy użyciu wersji URI klucza.
 
 #### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
-Podczas tworzenia klastra można użyć klucza z podsystemem lub bezwartościowej wersji w następujący sposób:
+Podczas tworzenia klastra można użyć klucza wersji lub klucza bez wersji w następujący sposób:
 
-- W **wersji** — podczas tworzenia klastra Podaj pełny **Identyfikator klucza**, w tym wersję klucza. Na przykład `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`.
-- Bezobsługowa **wersja** — podczas tworzenia klastra podaj tylko **Identyfikator klucza**. Na przykład `https://contoso-kv.vault.azure.net/keys/myClusterKey`.
+- **Wersja —** podczas tworzenia klastra podaj pełny **identyfikator klucza,** w tym wersję klucza. Na przykład `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`.
+- **Bez wersji** — podczas tworzenia klastra podaj tylko **identyfikator klucza**. Na przykład `https://contoso-kv.vault.azure.net/keys/myClusterKey`.
 
-Należy również przypisać zarządzaną tożsamość do klastra.
+Należy również przypisać tożsamość zarządzaną do klastra.
 
-:::image type="content" source="./media/disk-encryption/create-cluster-portal.png" alt-text="Utwórz nowy klaster":::
+:::image type="content" source="./media/disk-encryption/create-cluster-portal.png" alt-text="Tworzenie nowego klastra":::
 
 #### <a name="using-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
 
-W poniższym przykładzie pokazano, jak za pomocą interfejsu wiersza polecenia platformy Azure utworzyć nowy klaster Apache Spark z włączonym szyfrowaniem dysków. Aby uzyskać więcej informacji, zobacz [interfejs wiersza polecenia platformy Azure AZ HDInsight Create](/cli/azure/hdinsight#az-hdinsight-create). Parametr `encryption-key-version` jest opcjonalny.
+W poniższym przykładzie pokazano, jak za pomocą interfejsu wiersza polecenia platformy Azure utworzyć nowy klaster Apache Spark z włączonym szyfrowaniem dysków. Aby uzyskać więcej informacji, zobacz [Azure CLI az hdinsight create](/cli/azure/hdinsight#az_hdinsight_create). Parametr `encryption-key-version` jest opcjonalny.
 
 ```azurecli
 az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
@@ -147,9 +147,9 @@ az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
 
 #### <a name="using-azure-resource-manager-templates"></a>Korzystanie z szablonów usługi Azure Resource Manager
 
-Poniższy przykład pokazuje, jak użyć szablonu Azure Resource Manager, aby utworzyć nowy klaster Apache Spark z włączonym szyfrowaniem dysków. Aby uzyskać więcej informacji, zobacz [co to są szablony ARM?](../azure-resource-manager/templates/overview.md). Właściwość szablonu Menedżera zasobów `diskEncryptionKeyVersion` jest opcjonalna.
+W poniższym przykładzie pokazano, jak za pomocą szablonu Azure Resource Manager utworzyć nowy klaster Apache Spark z włączonym szyfrowaniem dysków. Aby uzyskać więcej informacji, zobacz [Co to są szablony arm?](../azure-resource-manager/templates/overview.md). Właściwość szablonu usługi Resource Manager `diskEncryptionKeyVersion` jest opcjonalna.
 
-Ten przykład używa programu PowerShell do wywoływania szablonu.
+W tym przykładzie użyto programu PowerShell do wywołania szablonu.
 
 ```powershell
 $templateFile = "azuredeploy.json"
@@ -174,7 +174,7 @@ New-AzResourceGroupDeployment `
   -managedIdentityName $managedIdentityName
 ```
 
-Zawartość szablonu zarządzania zasobami `azuredeploy.json` :
+Zawartość szablonu zarządzania `azuredeploy.json` zasobami:
 
 ```json
 {
@@ -361,17 +361,17 @@ Zawartość szablonu zarządzania zasobami `azuredeploy.json` :
 
 ### <a name="rotating-the-encryption-key"></a>Obracanie klucza szyfrowania
 
-Klucze szyfrowania używane w uruchomionym klastrze można zmienić przy użyciu Azure Portal lub interfejsu wiersza polecenia platformy Azure. W przypadku tej operacji klaster musi mieć dostęp zarówno do bieżącego klucza, jak i do zamierzonego nowego klucza. w przeciwnym razie operacja zamiany klucza zakończy się niepowodzeniem. W przypadku klastrów utworzonych po wydaniu z listopada 2020 możesz wybrać, czy nowy klucz ma mieć wersję, czy nie. W przypadku klastrów utworzonych przed wydaniem listopad 2020 należy użyć klucza z podsystemem wersji podczas obracania klucza szyfrowania.
+Klucze szyfrowania używane w uruchomionym klastrze można zmienić przy użyciu interfejsu wiersza Azure Portal platformy Azure. W przypadku tej operacji klaster musi mieć dostęp zarówno do bieżącego klucza, jak i do zamierzonego nowego klucza. W przeciwnym razie operacja rotacji klucza nie powiedzie się. W przypadku klastrów utworzonych po wydaniu z listopada 2020 r. można wybrać, czy nowy klucz ma mieć wersję, czy nie. W przypadku klastrów utworzonych przed wydaniem z listopada 2020 r. podczas rotacji klucza szyfrowania należy użyć klucza wersji.
 
 #### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
-Aby obrócić klucz, potrzebny jest podstawowy identyfikator URI magazynu kluczy. Po wykonaniu tej czynności przejdź do sekcji Właściwości klastra usługi HDInsight w portalu, a następnie kliknij pozycję **Zmień klucz** w obszarze **adres URL klucza szyfrowania dysku**. Wprowadź adres URL nowego klucza i prześlij go, aby obrócić klucz.
+Aby obrócić klucz, potrzebujesz podstawowego klucza URI magazynu kluczy. Po zakończeniu przejdź do sekcji właściwości klastra usługi HDInsight w  portalu i kliknij pozycję Zmień klucz w obszarze **Adres URL klucza szyfrowania dysków.** Wprowadź nowy adres URL klucza i prześlij go, aby obrócić klucz.
 
-:::image type="content" source="./media/disk-encryption/change-key.png" alt-text="Obróć klucz szyfrowania dysku":::
+:::image type="content" source="./media/disk-encryption/change-key.png" alt-text="obracanie klucza szyfrowania dysku":::
 
 #### <a name="using-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
 
-Poniższy przykład pokazuje, jak obrócić klucz szyfrowania dysku dla istniejącego klastra usługi HDInsight. Aby uzyskać więcej informacji, zobacz [interfejs wiersza polecenia platformy Azure AZ HDInsight Obróć-Disk-Encryption-Key](/cli/azure/hdinsight#az-hdinsight-rotate-disk-encryption-key).
+W poniższym przykładzie pokazano, jak obrócić klucz szyfrowania dysku dla istniejącego klastra usługi HDInsight. Aby uzyskać więcej informacji, zobacz [az hdinsight rotate-disk-encryption-key interfejsu wiersza](/cli/azure/hdinsight#az_hdinsight_rotate_disk_encryption_key)polecenia platformy Azure.
 
 ```azurecli
 az hdinsight rotate-disk-encryption-key \
@@ -386,34 +386,34 @@ az hdinsight rotate-disk-encryption-key \
 
 **Jak klaster usługi HDInsight uzyskuje dostęp do mojego magazynu kluczy?**
 
-Usługa HDInsight uzyskuje dostęp do wystąpienia Azure Key Vault przy użyciu tożsamości zarządzanej skojarzonej z klastrem usługi HDInsight. Tę tożsamość zarządzaną można utworzyć przed lub podczas tworzenia klastra. Musisz również udzielić zarządzanej tożsamości dostępu do magazynu kluczy, w którym jest przechowywany klucz.
+Usługa HDInsight uzyskuje dostęp do Azure Key Vault przy użyciu tożsamości zarządzanej skojarzeń z klastrem usługi HDInsight. Tę tożsamość zarządzaną można utworzyć przed lub podczas tworzenia klastra. Należy również udzielić tożsamości zarządzanej dostępu do magazynu kluczy, w którym jest przechowywany klucz.
 
-**Czy ta funkcja jest dostępna dla wszystkich klastrów w usłudze HDInsight?**
+**Czy ta funkcja jest dostępna dla wszystkich klastrów w umacie HDInsight?**
 
-Szyfrowanie klucza zarządzanego przez klienta jest dostępne dla wszystkich typów klastrów z wyjątkiem Spark 2,1 i 2,2.
+Szyfrowanie kluczy zarządzane przez klienta jest dostępne dla wszystkich typów klastrów z wyjątkiem platformy Spark 2.1 i 2.2.
 
-**Czy można użyć wielu kluczy do szyfrowania różnych dysków lub folderów?**
+**Czy mogę użyć wielu kluczy do szyfrowania różnych dysków lub folderów?**
 
-Nie, wszystkie dyski zarządzane i dyski zasobów są szyfrowane przy użyciu tego samego klucza.
+Nie, wszystkie dyski zarządzane i dyski zasobów są szyfrowane za pomocą tego samego klucza.
 
-**Co się stanie, Jeśli klaster utraci dostęp do magazynu kluczy lub klucza?**
+**Co się stanie, jeśli klaster utraci dostęp do magazynu kluczy lub klucza?**
 
-Jeśli klaster utraci dostęp do klucza, ostrzeżenia będą wyświetlane w portalu Apache Ambari. W tym stanie operacja **zmiany klucza** zakończy się niepowodzeniem. Po przywróceniu dostępu do klucza Ambari ostrzeżenia i operacje, takie jak rotacja kluczy, mogą zostać wykonane pomyślnie.
+Jeśli klaster utraci dostęp do klucza, ostrzeżenia będą wyświetlane w portalu Apache Ambari. W tym stanie operacja **zmiany klucza** nie powiedzie się. Po przywróceniu dostępu do klucza ostrzeżenia systemu Ambari zostaną zmieściły się i można pomyślnie wykonać operacje, takie jak rotacja kluczy.
 
-:::image type="content" source="./media/disk-encryption/ambari-alert.png" alt-text="alert dotyczący Ambari dostępu do klucza":::
+:::image type="content" source="./media/disk-encryption/ambari-alert.png" alt-text="alert Ambari dostępu do klucza":::
 
-**Jak odzyskać klaster, jeśli klucze są usuwane?**
+**Jak mogę odzyskać klaster, jeśli klucze zostaną usunięte?**
 
-Ponieważ obsługiwane są tylko klucze z włączonym usuwaniem nietrwałego, jeśli klucze zostaną odzyskane w magazynie kluczy, klaster powinien odzyskać dostęp do kluczy. Aby odzyskać klucz Azure Key Vault, zobacz [Undo-AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval) lub [AZ-Key magazyn-klucz-Recover](/cli/azure/keyvault/key#az-keyvault-key-recover).
+Ponieważ obsługiwane są tylko klucze włączone "usuwanie nie softu", jeśli klucze zostaną odzyskane w magazynie kluczy, klaster powinien odzyskać dostęp do kluczy. Aby odzyskać klucz Azure Key Vault, zobacz [Polecenie Undo-AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval) lub [az-keyvault-key-recover.](/cli/azure/keyvault/key#az_keyvault_key_recover)
 
 
-**Jeśli klaster jest skalowany w górę, nowe węzły będą bezproblemowo obsługiwać klucze zarządzane przez klienta?**
+**Jeśli klaster jest skalowany w górę, czy nowe węzły będą bezproblemowo obsługiwać klucze zarządzane przez klienta?**
 
-Tak. Klaster wymaga dostępu do klucza w magazynie kluczy podczas skalowania w górę. Ten sam klucz służy do szyfrowania zarówno dysków zarządzanych, jak i dysków zasobów w klastrze.
+Tak. Klaster musi mieć dostęp do klucza w magazynie kluczy podczas skalowania w górę. Ten sam klucz jest używany do szyfrowania dysków zarządzanych i dysków zasobów w klastrze.
 
 **Czy klucze zarządzane przez klienta są dostępne w mojej lokalizacji?**
 
-Klucze zarządzane przez klienta usługi HDInsight są dostępne we wszystkich chmurach publicznych i w chmurach narodowych.
+Klucze zarządzane przez klienta usługi HDInsight są dostępne we wszystkich chmurach publicznych i chmurach krajowych.
 
 ## <a name="encryption-at-host-using-platform-managed-keys"></a>Szyfrowanie na hoście przy użyciu kluczy zarządzanych przez platformę
 
@@ -422,17 +422,17 @@ Klucze zarządzane przez klienta usługi HDInsight są dostępne we wszystkich c
 Szyfrowanie na hoście można włączyć podczas tworzenia klastra w Azure Portal.
 
 > [!Note]
-> Gdy szyfrowanie na hoście jest włączone, nie można dodawać aplikacji do klastra usługi HDInsight z portalu Azure Marketplace.
+> Po włączeniu szyfrowania na hoście nie można dodawać aplikacji do klastra usługi HDInsight z poziomu witryny Azure Marketplace.
 
 :::image type="content" source="media/disk-encryption/encryption-at-host.png" alt-text="Włącz szyfrowanie na hoście.":::
 
-Ta opcja włącza [szyfrowanie na hoście](../virtual-machines/disks-enable-host-based-encryption-portal.md) dla maszyn wirtualnych usługi HDInsight tymczasowe dyski danych przy użyciu klucza głównego parowania. Szyfrowanie na hoście jest [obsługiwane tylko dla niektórych jednostek SKU maszyn wirtualnych w ograniczonej regionach](../virtual-machines/disks-enable-host-based-encryption-portal.md) , a Usługa HDInsight obsługuje [następujące konfiguracje węzłów i jednostki SKU](./hdinsight-supported-node-configuration.md).
+Ta opcja umożliwia szyfrowanie [na hoście tymczasowych](../virtual-machines/disks-enable-host-based-encryption-portal.md) dysków danych maszyn wirtualnych usługi HDInsight przy użyciu klucza pmk. Szyfrowanie na hoście jest obsługiwane [tylko w przypadku niektórych jednostki SKU](../virtual-machines/disks-enable-host-based-encryption-portal.md) maszyn wirtualnych w ograniczonych regionach, a hdInsight obsługuje następującą [konfigurację węzłów i jednostki SKU](./hdinsight-supported-node-configuration.md).
 
-Aby zrozumieć właściwy rozmiar maszyny wirtualnej dla klastra usługi HDInsight, zobacz [Wybieranie odpowiedniego rozmiaru maszyny wirtualnej dla klastra Azure HDInsight](hdinsight-selecting-vm-size.md). Domyślnym węzłem SKU maszyny wirtualnej dla węzła dozorcy, gdy włączone jest szyfrowanie na hoście, będzie DS2V2.
+Aby poznać właściwy rozmiar maszyny wirtualnej dla klastra usługi HDInsight, zobacz Wybieranie odpowiedniego rozmiaru maszyny wirtualnej [dla klastra Azure HDInsight usługi](hdinsight-selecting-vm-size.md). Domyślną sku maszyny wirtualnej dla węzła zookeeper po włączeniu szyfrowania na hoście będzie DS2V2.
 
 ### <a name="enable-using-powershell"></a>Włączanie przy użyciu programu PowerShell
 
-Poniższy fragment kodu przedstawia, jak utworzyć nowy klaster usługi Azure HDInsight z włączonym szyfrowaniem na hoście przy użyciu programu PowerShell. Używa parametru, `-EncryptionAtHost $true` Aby włączyć tę funkcję.
+Poniższy fragment kodu przedstawia sposób tworzenia nowego klastra klastra Azure HDInsight z włączonym szyfrowaniem na hoście przy użyciu programu PowerShell. Używa parametru , `-EncryptionAtHost $true` aby włączyć tę funkcję.
 
 ```powershell
 $storageAccountResourceGroupName = "Group"
@@ -465,7 +465,7 @@ New-AzHDInsightCluster `
 
 ### <a name="enable-using-azure-cli"></a>Włączanie przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Poniższy fragment kodu pokazuje, jak utworzyć nowy klaster usługi Azure HDInsight z włączonym szyfrowaniem na hoście przy użyciu interfejsu wiersza polecenia platformy Azure. Używa parametru, `--encryption-at-host true` Aby włączyć tę funkcję.
+Poniższy fragment kodu przedstawia sposób tworzenia nowego klastra klastra Azure HDInsight z włączonym szyfrowaniem na hoście przy użyciu interfejsu wiersza polecenia platformy Azure. Używa parametru , `--encryption-at-host true` aby włączyć tę funkcję.
 
 ```azurecli
 az hdinsight create -t spark -g MyResourceGroup -n MyCluster \\
@@ -475,5 +475,5 @@ az hdinsight create -t spark -g MyResourceGroup -n MyCluster \\
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać więcej informacji na temat Azure Key Vault, zobacz [co to jest Azure Key Vault](../key-vault/general/overview.md).
-* [Omówienie zabezpieczeń przedsiębiorstwa w usłudze Azure HDInsight](./domain-joined/hdinsight-security-overview.md).
+* Aby uzyskać więcej informacji na Azure Key Vault, zobacz [Co to jest Azure Key Vault](../key-vault/general/overview.md).
+* [Omówienie zabezpieczeń przedsiębiorstwa w Azure HDInsight.](./domain-joined/hdinsight-security-overview.md)

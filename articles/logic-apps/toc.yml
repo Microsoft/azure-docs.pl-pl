@@ -36,8 +36,12 @@
       href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic'
 - name: Pojęcia
   items:
-    - name: Łączniki dla usługi Logic Apps
+    - name: Omówienie łączników dla Logic Apps
       href: ../connectors/apis-list.md
+    - name: Zarządzane łączniki dla Logic Apps
+      href: ../connectors/managed.md
+    - name: Wbudowane łączniki dla Logic Apps
+      href: ../connectors/built-in.md
     - name: Planowanie cyklicznych przepływów pracy
       href: concepts-schedule-automated-recurring-tasks-workflows.md
     - name: Praca bezserwerowa z platformą Azure

@@ -1,34 +1,34 @@
 ---
 title: Ustawianie zmiennych środowiskowych w wystąpieniu kontenera
-description: Dowiedz się, jak ustawiać zmienne środowiskowe w kontenerach uruchamianych w Azure Container Instances
+description: Dowiedz się, jak ustawić zmienne środowiskowe w kontenerach uruchamianych w programie Azure Container Instances
 ms.topic: article
 ms.date: 04/17/2019
-ms.openlocfilehash: 92ae59f69b7cb43fee1d3ce8190a85fc20a11f60
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9d95ee3d64460aa5e11f450c9e582cdc0de4f0ae
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86169769"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790801"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Ustawianie zmiennych środowiskowych w wystąpieniach kontenerów
 
 Ustawienie zmiennych środowiskowych w wystąpieniach kontenerów umożliwia udostępnienie dynamicznej konfiguracji aplikacji lub skryptu uruchamianego przez kontener. Jest to podobne do `--env` argumentu wiersza polecenia do `docker run` . 
 
-Aby ustawić zmienne środowiskowe w kontenerze, należy je określić podczas tworzenia wystąpienia kontenera. W tym artykule przedstawiono przykłady ustawiania zmiennych środowiskowych podczas uruchamiania kontenera za pomocą [interfejsu wiersza polecenia platformy Azure](#azure-cli-example), [Azure PowerShell](#azure-powershell-example)i [Azure Portal](#azure-portal-example). 
+Aby ustawić zmienne środowiskowe w kontenerze, określ je podczas tworzenia wystąpienia kontenera. W tym artykule przedstawiono przykłady ustawiania zmiennych środowiskowych podczas uruchamiania kontenera przy użyciu interfejsu wiersza polecenia platformy [Azure,](#azure-cli-example)interfejsu [Azure PowerShell](#azure-powershell-example)i [Azure Portal](#azure-portal-example). 
 
-Na przykład jeśli zostanie uruchomiony obraz kontenera Microsoft [ACI-WORDCOUNT][aci-wordcount] , można zmodyfikować jego zachowanie, określając następujące zmienne środowiskowe:
+Jeśli na przykład uruchamiasz obraz kontenera [aci-wordcount][aci-wordcount] firmy Microsoft, możesz zmodyfikować jego zachowanie, określając następujące zmienne środowiskowe:
 
-*NumWords*: liczba wyrazów wysyłanych do stdout.
+*NumWords:* liczba wyrazów wysłanych do stdout.
 
-*MinLength*: minimalna liczba znaków w wyrazie do zliczenia. Wyższa liczba ignoruje typowe słowa, takie jak "of" i ".".
+*MinLength:* minimalna liczba znaków w wyrazie do zliczenia. Większa liczba ignoruje typowe słowa, takie jak "of" i "the".
 
-Jeśli musisz przekazać klucze tajne jako zmienne środowiskowe, Azure Container Instances obsługuje [bezpieczne wartości](#secure-values) dla kontenerów systemów Windows i Linux.
+Jeśli musisz przekazać wpisy tajne jako zmienne środowiskowe, Azure Container Instances bezpieczne [wartości](#secure-values) dla kontenerów systemów Windows i Linux.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="azure-cli-example"></a>Przykład interfejsu wiersza polecenia platformy Azure
 
-Aby wyświetlić domyślne dane wyjściowe kontenera [ACI-WORDCOUNT][aci-wordcount] , uruchom je najpierw za pomocą polecenia [AZ Container Create][az-container-create] (nie określono zmiennych środowiskowych):
+Aby wyświetlić domyślne dane wyjściowe kontenera [aci-wordcount,][aci-wordcount] uruchom je najpierw za pomocą tego [polecenia az container create][az-container-create] (nie określono zmiennych środowiskowych):
 
 ```azurecli-interactive
 az container create \
@@ -38,7 +38,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Aby zmodyfikować dane wyjściowe, należy uruchomić drugi kontener z `--environment-variables` dodanym argumentem, określając wartości zmiennych *NumWords* i *minLength* . (W tym przykładzie przyjęto założenie, że interfejs wiersza polecenia jest uruchamiany w bash Shell lub Azure Cloud Shell. W przypadku korzystania z wiersza polecenia systemu Windows należy określić zmienne z podwójnymi cudzysłowami, takimi jak `--environment-variables "NumWords"="5" "MinLength"="8"` .).
+Aby zmodyfikować dane wyjściowe, uruchom drugi kontener z dodanym argumentem, określając wartości zmiennych `--environment-variables` *NumWords* i *MinLength.* (W tym przykładzie przyjęto założenie, że interfejs wiersza polecenia jest uruchomiony w powłoce Bash lub Azure Cloud Shell. Jeśli używasz wiersza polecenia systemu Windows, określ zmienne z cudzysłowami, takimi jak `--environment-variables "NumWords"="5" "MinLength"="8"` ).)
 
 ```azurecli-interactive
 az container create \
@@ -49,14 +49,14 @@ az container create \
     --environment-variables 'NumWords'='5' 'MinLength'='8'
 ```
 
-Gdy stan obu kontenerów jest wyświetlany jako *zakończony* (Użyj polecenia [AZ Container show][az-container-show] by Check State), Wyświetl jego dzienniki za pomocą polecenia [AZ Container Logs][az-container-logs] , aby wyświetlić dane wyjściowe.
+Gdy stan obu kontenerów będzie wyświetlany jako *Terminated* (Zakończ) (użyj az [container show,][az-container-show] aby sprawdzić stan), wyświetl swoje dzienniki za pomocą az [container logs,][az-container-logs] aby wyświetlić dane wyjściowe.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer1
 az container logs --resource-group myResourceGroup --name mycontainer2
 ```
 
-Dane wyjściowe kontenerów pokazują, jak zmodyfikowano zachowanie skryptu drugiego kontenera przez ustawienie zmiennych środowiskowych.
+Dane wyjściowe kontenerów pokazują, jak zmodyfikowaliśmy zachowanie skryptu drugiego kontenera przez ustawienie zmiennych środowiskowych.
 
 **mycontainer1**
 ```output
@@ -81,11 +81,11 @@ Dane wyjściowe kontenerów pokazują, jak zmodyfikowano zachowanie skryptu drug
  ('GUILDENSTERN', 54)]
 ```
 
-## <a name="azure-powershell-example"></a>Przykład Azure PowerShell
+## <a name="azure-powershell-example"></a>Azure PowerShell przykład
 
-Ustawianie zmiennych środowiskowych w programie PowerShell jest podobne do interfejsu wiersza polecenia, ale przy użyciu `-EnvironmentVariable` argumentu wiersz poleceń.
+Ustawianie zmiennych środowiskowych w programie PowerShell jest podobne do interfejsu wiersza polecenia, ale używa `-EnvironmentVariable` argumentu wiersza polecenia.
 
-Najpierw uruchom kontener [ACI-WORDCOUNT][aci-wordcount] w konfiguracji domyślnej przy użyciu tego nowego polecenia [-AzContainerGroup][new-Azcontainergroup] :
+Najpierw uruchom kontener [aci-wordcount][aci-wordcount] w konfiguracji domyślnej za pomocą tego polecenia [New-AzContainerGroup:][new-Azcontainergroup]
 
 ```azurepowershell-interactive
 New-AzContainerGroup `
@@ -94,7 +94,7 @@ New-AzContainerGroup `
     -Image mcr.microsoft.com/azuredocs/aci-wordcount:latest
 ```
 
-Teraz uruchom następujące polecenie [New-AzContainerGroup][new-Azcontainergroup] . Ten element określa zmienne środowiskowe *NumWords* i *minLength* po wypełnieniu zmiennej tablicowej `envVars` :
+Teraz uruchom następujące polecenie [New-AzContainerGroup.][new-Azcontainergroup] Ten element określa zmienne *środowiskowe NumWords* i *MinLength* po wypełnieniu zmiennej tablicowej `envVars` :
 
 ```azurepowershell-interactive
 $envVars = @{'NumWords'='5';'MinLength'='8'}
@@ -106,14 +106,14 @@ New-AzContainerGroup `
     -EnvironmentVariable $envVars
 ```
 
-Gdy stan obu kontenerów jest *zakończony* (Użyj polecenia [Get-AzContainerInstanceLog][azure-instance-log] , aby sprawdzić stan), ściągnij swoje dzienniki za pomocą poleceń [Get-AzContainerInstanceLog][azure-instance-log] .
+Gdy stan obu kontenerów zostanie zatrzymany *(sprawdź* stan za pomocą polecenia [Get-AzContainerInstanceLog),][azure-instance-log] ściągnij dzienniki za pomocą polecenia [Get-AzContainerInstanceLog.][azure-instance-log]
 
 ```azurepowershell-interactive
 Get-AzContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer1
 Get-AzContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer2
 ```
 
-Dane wyjściowe dla każdego kontenera przedstawiają sposób modyfikacji skryptu uruchamianego przez kontener przez ustawienie zmiennych środowiskowych.
+Dane wyjściowe dla każdego kontenera pokazują, jak zmodyfikowaliśmy skrypt uruchamiany przez kontener, ustawiając zmienne środowiskowe.
 
 ```console
 PS Azure:\> Get-AzContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer1
@@ -139,31 +139,31 @@ PS Azure:\> Get-AzContainerInstanceLog -ResourceGroupName myResourceGroup -Conta
 Azure:\
 ```
 
-## <a name="azure-portal-example"></a>Przykład Azure Portal
+## <a name="azure-portal-example"></a>Azure Portal przykład
 
-Aby ustawić zmienne środowiskowe podczas uruchamiania kontenera w Azure Portal, należy je określić na stronie **Zaawansowane** podczas tworzenia kontenera.
+Aby ustawić zmienne środowiskowe podczas uruchamiania kontenera w Azure Portal, określ  je na stronie Zaawansowane podczas tworzenia kontenera.
 
-1. Na stronie **Zaawansowane** Ustaw **zasady ponownego uruchamiania** na *Niepowodzenie*
-2. W obszarze **zmienne środowiskowe** wprowadź `NumWords` wartość `5` dla pierwszej zmiennej, a `MinLength` następnie wprowadź wartość `8` dla drugiej zmiennej. 
-1. Wybierz pozycję **Przegląd + Utwórz** , aby sprawdzić, a następnie wdrożyć kontener.
+1. Na stronie **Zaawansowane** ustaw zasady ponownego **uruchamiania na** Wartość *Wł.*
+2. W **obszarze Zmienne środowiskowe** wprowadź wartość z wartością dla pierwszej zmiennej, a wprowadź wartość z wartością dla `NumWords` `5` `MinLength` `8` drugiej zmiennej. 
+1. Wybierz **pozycję Przejrzyj i utwórz,** aby zweryfikować, a następnie wdrożyć kontener.
 
-![Strona portalu przedstawiająca przycisk włączania zmiennych środowiskowych i pól tekstowych][portal-env-vars-01]
+![Strona portalu przedstawiająca zmienną środowiskową Przycisk Włącz i pola tekstowe][portal-env-vars-01]
 
-Aby wyświetlić dzienniki kontenera, w obszarze **Ustawienia** wybierz **kontenery**, a następnie pozycję **dzienniki**. Podobnie jak w przypadku danych wyjściowych przedstawionych w poprzednich sekcjach interfejsu wiersza polecenia i programu PowerShell, można zobaczyć, jak zachowanie skryptu zostało zmodyfikowane przez zmienne środowiskowe. Wyświetlane są tylko pięć słów, z których każdy ma minimalną długość osiem znaków.
+Aby wyświetlić dzienniki kontenera, w obszarze Ustawienia **wybierz pozycję** **Kontenery**, a następnie pozycję **Dzienniki.** Podobnie jak w przypadku danych wyjściowych poprzednich sekcji interfejsu wiersza polecenia i programu PowerShell, możesz zobaczyć, jak zachowanie skryptu zostało zmodyfikowane przez zmienne środowiskowe. Wyświetlanych jest tylko pięć słów, z których każdy ma minimalną długość ośmiu znaków.
 
 ![Portal przedstawiający dane wyjściowe dziennika kontenera][portal-env-vars-02]
 
 ## <a name="secure-values"></a>Bezpieczne wartości
 
-Obiekty z bezpiecznymi wartościami są przeznaczone do przechowywania informacji poufnych, takich jak hasła lub klucze aplikacji. Używanie bezpiecznych wartości zmiennych środowiskowych jest bezpieczniejsze i bardziej elastyczne niż dołączanie go do obrazu kontenera. Innym rozwiązaniem jest użycie woluminów tajnych, opisanych w artykule [Instalowanie woluminu tajnego w Azure Container Instances](container-instances-volume-secret.md).
+Obiekty z bezpiecznymi wartościami są przeznaczone do przechowywania poufnych informacji, takich jak hasła lub klucze dla aplikacji. Korzystanie z bezpiecznych wartości dla zmiennych środowiskowych jest bezpieczniejsze i bardziej elastyczne niż ich stosowanie w obrazie kontenera. Inną opcją jest użycie woluminów tajnych opisanych w tece [Mount a secret volume in Azure Container Instances](container-instances-volume-secret.md).
 
-Zmienne środowiskowe z bezpiecznymi wartościami nie są widoczne we właściwościach kontenera — ich wartości są dostępne tylko z poziomu kontenera. Na przykład właściwości kontenera wyświetlane w Azure Portal lub interfejs wiersza polecenia platformy Azure wyświetlają tylko nazwę bezpiecznej zmiennej, a nie jej wartość.
+Zmienne środowiskowe z bezpiecznymi wartościami nie są widoczne we właściwościach kontenera — do ich wartości można uzyskać dostęp tylko z poziomu kontenera. Na przykład właściwości kontenera wyświetlane w interfejsie Azure Portal lub interfejsie wiersza polecenia platformy Azure wyświetlają tylko nazwę bezpiecznej zmiennej, a nie jej wartość.
 
-Ustaw bezpieczną zmienną środowiskową, określając `secureValue` właściwość zamiast zwykłych `value` dla typu zmiennej. Dwie zmienne zdefiniowane w następujących YAML przedstawiają dwa typy zmiennych.
+Ustaw bezpieczną zmienną środowiskową, określając właściwość zamiast zwykłej dla `secureValue` `value` typu zmiennej. Dwie zmienne zdefiniowane w poniższym pliku YAML pokazują dwa typy zmiennych.
 
-### <a name="yaml-deployment"></a>Wdrożenie YAML
+### <a name="yaml-deployment"></a>Wdrażanie YAML
 
-Utwórz `secure-env.yaml` plik z następującym fragmentem kodu.
+Utwórz plik `secure-env.yaml` z następującym fragmentem kodu.
 
 ```yaml
 apiVersion: 2019-12-01
@@ -190,21 +190,21 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Uruchom następujące polecenie, aby wdrożyć grupę kontenerów z YAML (w razie potrzeby dostosować nazwę grupy zasobów):
+Uruchom następujące polecenie, aby wdrożyć grupę kontenerów przy użyciu pliku YAML (w razie potrzeby dostosuj nazwę grupy zasobów):
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --file secure-env.yaml
 ```
 
-### <a name="verify-environment-variables"></a>Weryfikuj zmienne środowiskowe
+### <a name="verify-environment-variables"></a>Weryfikowanie zmiennych środowiskowych
 
-Uruchom polecenie [AZ Container show][az-container-show] , aby zbadać zmienne środowiskowe kontenera:
+Uruchom polecenie [az container show,][az-container-show] aby odpytywać zmienne środowiskowe kontenera:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name securetest --query 'containers[].environmentVariables'
 ```
 
-Odpowiedź JSON pokazuje zarówno klucz, jak i wartość niezabezpieczonej zmiennej środowiskowej, ale tylko nazwę zmiennej bezpiecznego środowiska:
+Odpowiedź JSON zawiera zarówno klucz, jak i wartość niezabezpieczonych zmiennych środowiskowych, ale tylko nazwę bezpiecznej zmiennej środowiskowej:
 
 ```json
 [
@@ -223,7 +223,7 @@ Odpowiedź JSON pokazuje zarówno klucz, jak i wartość niezabezpieczonej zmien
 ]
 ```
 
-Za pomocą polecenia [AZ Container exec][az-container-exec] , które umożliwia wykonywanie polecenia w działającym kontenerze, można sprawdzić, czy została ustawiona zmienna środowiskowa Secure. Uruchom następujące polecenie, aby uruchomić interaktywną sesję bash w kontenerze:
+Za pomocą [polecenia az container exec,][az-container-exec] które umożliwia wykonywanie polecenia w uruchomionym kontenerze, możesz sprawdzić, czy ustawiono bezpieczną zmienną środowiskową. Uruchom następujące polecenie, aby uruchomić interaktywną sesję powłoki bash w kontenerze:
 
 ```azurecli-interactive
 az container exec --resource-group myResourceGroup --name securetest --exec-command "/bin/bash"
@@ -238,7 +238,7 @@ my-secret-value
 
 ## <a name="next-steps"></a>Następne kroki
 
-Scenariusze oparte na zadaniach, takie jak przetwarzanie wsadowe dużego zestawu danych z kilkoma kontenerami, mogą korzystać ze niestandardowych zmiennych środowiskowych w czasie wykonywania. Aby uzyskać więcej informacji na temat uruchamiania kontenerów opartych na zadaniach, zobacz [Uruchamianie zadań kontenera z zasadami ponownego uruchamiania](container-instances-restart-policy.md).
+Scenariusze oparte na zadaniach, takie jak przetwarzanie wsadowe dużego zestawu danych z kilkoma kontenerami, mogą korzystać z niestandardowych zmiennych środowiskowych w czasie wykonywania. Aby uzyskać więcej informacji na temat uruchamiania kontenerów opartych na zadaniach, zobacz [Uruchamianie konteneryzowanych zadań przy użyciu zasad ponownego uruchamiania.](container-instances-restart-policy.md)
 
 <!-- IMAGES -->
 [portal-env-vars-01]: ./media/container-instances-environment-variables/portal-env-vars-01.png
@@ -248,10 +248,10 @@ Scenariusze oparte na zadaniach, takie jak przetwarzanie wsadowe dużego zestawu
 [aci-wordcount]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
 
 <!-- LINKS Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-exec]: /cli/azure/container#az-container-exec
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-exec]: /cli/azure/container#az_container_exec
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
 [azure-cli-install]: /cli/azure/
 [azure-instance-log]: /powershell/module/az.containerinstance/get-azcontainerinstancelog
 [azure-powershell-install]: /powershell/azure/install-Az-ps

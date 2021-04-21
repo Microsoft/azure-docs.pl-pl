@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 02/11/2021
 ms.reviewer: byvinyal
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: ec48ec32250e271eff9e40535689f83dd9d3b60c
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: b77a26f61e1168846156de990806bbed2f7c41e3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107483637"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789541"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Konfigurowanie poświadczeń wdrożenia dla Azure App Service
 Aby zabezpieczyć wdrażanie aplikacji z komputera lokalnego, program [Azure App Service](./overview.md) dwa typy poświadczeń dla lokalnego wdrożenia usługi [Git](deploy-local-git.md) i wdrożenia [FTP/S.](deploy-ftp.md) Te poświadczenia nie są takie same jak poświadczenia subskrypcji platformy Azure.
@@ -18,15 +18,15 @@ Aby zabezpieczyć wdrażanie aplikacji z komputera lokalnego, program [Azure App
 [!INCLUDE [app-service-deploy-credentials](../../includes/app-service-deploy-credentials.md)]
 
 > [!NOTE]
-> Strona **Centrum programowa (klasyczna)** w Azure Portal, która jest starym środowiskom wdrażania, zostanie wycofana w marcu 2021 r. Ta zmiana nie wpłynie na żadne istniejące ustawienia wdrażania w aplikacji i będzie można nadal zarządzać wdrażaniem aplikacji na **stronie Centrum** wdrażania.
+> Strona **Centrum programowa (klasyczna)** w Azure Portal, która jest starym środowiskom wdrażania, zostanie wycofana w marcu 2021 r. Ta zmiana nie wpłynie na żadne ustawienia wdrażania istniejące w aplikacji i będzie można nadal zarządzać wdrażaniem aplikacji na **stronie Centrum** wdrażania.
 
 ## <a name="configure-user-scope-credentials"></a><a name="userscope"></a>Konfigurowanie poświadczeń zakresu użytkownika
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/cli)
 
-Uruchom polecenie [az webapp deployment user set.](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) Zastąp \<username> i nazwą użytkownika wdrożenia i \<password> hasłem. 
+Uruchom [polecenie az webapp deployment user set.](/cli/azure/webapp/deployment/user#az_webapp_deployment_user_set) Zastąp \<username> i nazwą użytkownika wdrożenia i \<password> hasłem. 
 
-- Nazwa użytkownika musi być unikatowa w obrębie platformy Azure, a w przypadku lokalnych wypchnięć git nie może zawierać symbolu â€ ̃@â€™. 
+- Nazwa użytkownika musi być unikatowa w obrębie platformy Azure, a w przypadku lokalnych wypchnięć Git nie może zawierać symbolu "@". 
 - Hasło musi mieć co najmniej osiem znaków i zawierać dwa z następujących trzech elementów: litery, cyfry i symbole. 
 
 ```azurecli-interactive
@@ -43,22 +43,22 @@ Nie można skonfigurować poświadczeń zakresu użytkownika za pomocą Azure Po
 
 Poświadczenia zakresu użytkownika można skonfigurować na stronie zasobów [dowolnej aplikacji.](../azure-resource-manager/management/manage-resources-portal.md#manage-resources) Niezależnie od tego, w której aplikacji skonfigurujesz te poświadczenia, będzie ona stosowana do wszystkich aplikacji dla wszystkich subskrypcji na koncie platformy Azure. 
 
-W [Azure Portal](https://portal.azure.com)musisz mieć co najmniej jedną aplikację, aby uzyskać dostęp do strony poświadczeń wdrożenia. Aby skonfigurować poświadczenia zakresu użytkownika:
+Na stronie [Azure Portal](https://portal.azure.com)musisz mieć co najmniej jedną aplikację, aby uzyskać dostęp do strony poświadczeń wdrożenia. Aby skonfigurować poświadczenia zakresu użytkownika:
 
 1. W menu po lewej stronie aplikacji wybierz pozycję > **usługi** FTPS lub lokalne  >   poświadczenia **usługi Git/FTPS.**
 
     ![Pokazuje, jak można wybrać pulpit nawigacyjny FTP z Centrum wdrażania w usłudze Azure App Services.](./media/app-service-deployment-credentials/access-no-git.png)
 
-2. Przewiń w dół **do opcji Zakres użytkownika,** skonfiguruj ustawienia **Nazwa użytkownika** **i Hasło,** a następnie wybierz pozycję **Zapisz.**
+2. Przewiń w dół **do opcji Zakres użytkownika,** skonfiguruj ustawienia **Nazwa użytkownika** i **Hasło,** a następnie wybierz pozycję **Zapisz.**
 
 Po skonfigurowaniu poświadczeń wdrożenia możesz znaleźć nazwę użytkownika wdrożenia *Git* na stronie **Przegląd** aplikacji.
 
-![Pokazuje, jak znaleźć nazwę użytkownika wdrożenia Git na stronie Przegląd aplikacji.](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
+![Pokazuje, jak znaleźć nazwę użytkownika wdrożenia Usługi Git na stronie Przegląd aplikacji.](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
-Jeśli skonfigurowano wdrożenie Git, na stronie zostanie pokazana nazwa użytkownika **narzędzia Git/wdrożenia;** w przeciwnym razie nazwa **użytkownika protokołu FTP/wdrożenia.**
+Jeśli wdrożenie Git jest skonfigurowane, na stronie zostanie pokazana nazwa użytkownika **narzędzia Git/wdrożenia;** w przeciwnym razie nazwa **użytkownika protokołu FTP/wdrożenia.**
 
 > [!NOTE]
-> Na platformie Azure hasło wdrożenia w zakresie użytkownika nie jest wyświetlane. Jeśli zapomnisz hasła, możesz zresetować swoje poświadczenia, korzystając z kroków w tej sekcji.
+> Na platformie Azure hasło wdrożenia w zakresie użytkownika nie jest wyświetlane. Jeśli nie pamiętasz hasła, możesz zresetować poświadczenia, korzystając z kroków w tej sekcji.
 >
 > 
 
@@ -68,7 +68,7 @@ Jeśli skonfigurowano wdrożenie Git, na stronie zostanie pokazana nazwa użytko
 
 Uwierzytelnianie w punkcie końcowym FTP/FTPS przy użyciu poświadczeń zakresu użytkownika wymaga nazwy użytkownika w następującym formacie: `<app-name>\<user-name>`
 
-Ponieważ poświadczenia zakresu użytkownika są połączone z użytkownikiem, a nie z określonym zasobem, nazwa użytkownika musi być w tym formacie, aby skierować akcję logowania do odpowiedniego punktu końcowego aplikacji.
+Ponieważ poświadczenia zakresu użytkownika są połączone z użytkownikiem, a nie określonym zasobem, nazwa użytkownika musi być w tym formacie, aby skierować akcję logowania do odpowiedniego punktu końcowego aplikacji.
 
 ## <a name="get-application-scope-credentials"></a><a name="appscope"></a>Uzyskiwanie poświadczeń zakresu aplikacji
 
@@ -124,7 +124,7 @@ Invoke-AzResourceAction -ResourceGroupName <group-name> -ResourceType Microsoft.
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
-1. W menu po lewej stronie aplikacji wybierz pozycję **Poświadczenia** FTPS Centrum wdrażania lub Lokalne  >   poświadczenia **usługi Git/FTPS.**
+1. W menu po lewej stronie aplikacji wybierz pozycję **Poświadczenia** FTPS Centrum wdrażania  >   lub Lokalne poświadczenia **usługi Git/FTPS.**
 
     ![Pokazuje, jak można wybrać pulpit nawigacyjny FTP z Centrum wdrażania w usłudze Azure App Services.](./media/app-service-deployment-credentials/access-no-git.png)
 
@@ -134,7 +134,7 @@ Invoke-AzResourceAction -ResourceGroupName <group-name> -ResourceType Microsoft.
 
 ## <a name="disable-basic-authentication"></a>Wyłączanie uwierzytelniania podstawowego
 
-Niektóre organizacje muszą spełniać wymagania dotyczące zabezpieczeń i wolisz wyłączyć dostęp za pośrednictwem protokołu FTP lub WebDeploy. Dzięki temu członkowie organizacji mogą uzyskać dostęp do swoich zasobów App Services za pośrednictwem interfejsów API, które są kontrolowane przez Azure Active Directory (Azure AD).
+Niektóre organizacje muszą spełniać wymagania dotyczące zabezpieczeń i wolisz wyłączyć dostęp za pośrednictwem protokołu FTP lub WebDeploy. Dzięki temu członkowie organizacji mogą uzyskać dostęp do swoich usług App Services za pośrednictwem interfejsów API, które są kontrolowane przez Azure Active Directory (Azure AD).
 
 ### <a name="ftp"></a>FTP
 
@@ -144,7 +144,7 @@ Aby wyłączyć dostęp FTP do witryny, uruchom następujące polecenie interfej
 az resource update --resource-group <resource-group> --name ftp --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
 ```
 
-Aby potwierdzić, że dostęp do protokołu FTP jest zablokowany, możesz spróbować uwierzytelnić się przy użyciu klienta FTP, takiego jak FileZilla. Aby pobrać poświadczenia publikowania, przejdź do bloku przeglądu witryny i kliknij pozycję Pobierz profil publikowania. Użyj nazwy hosta FTP fileâ€™s, nazwy użytkownika i hasła, aby się uwierzytelnić. Otrzymasz odpowiedź o błędzie 401 wskazującą, że nie masz autoryzacji.
+Aby potwierdzić, że dostęp do protokołu FTP jest zablokowany, możesz spróbować uwierzytelnić się przy użyciu klienta FTP, takiego jak FileZilla. Aby pobrać poświadczenia publikowania, przejdź do bloku przeglądu witryny i kliknij pozycję Pobierz profil publikowania. Użyj nazwy hosta FTP pliku, nazwy użytkownika i hasła, aby się uwierzytelnić. Otrzymasz odpowiedź o błędzie 401 wskazującą, że nie masz autoryzacji.
 
 ### <a name="webdeploy-and-scm"></a>WebDeploy i SCM
 
@@ -160,7 +160,7 @@ Aby potwierdzić, że poświadczenia profilu publikowania są zablokowane w rama
 
 Interfejs API w poprzedniej sekcji jest oparty na kontroli dostępu na podstawie [](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role) ról (RBAC) platformy Azure, co oznacza, że można utworzyć rolę niestandardową i przypisać do roli użytkowników o niższym poziomie zabezpieczeń, aby nie można było włączyć podstawowego uwierzytelniania w żadnej lokacji. Aby skonfigurować rolę niestandardową, [postępuj zgodnie z tymi instrukcjami.](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role)
 
-Można również użyć usługi [Azure Monitor](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#audit-with-azure-monitor) inspekcji żądań uwierzytelniania i Azure Policy, aby wymusić tę konfigurację dla wszystkich lokacji w subskrypcji. [](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#enforce-compliance-with-azure-policy)
+Można również użyć usługi [Azure Monitor](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#audit-with-azure-monitor) inspekcji żądań uwierzytelniania i użyć Azure Policy, aby wymusić tę konfigurację dla wszystkich lokacji w subskrypcji. [](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#enforce-compliance-with-azure-policy)
 
 ## <a name="next-steps"></a>Następne kroki
 

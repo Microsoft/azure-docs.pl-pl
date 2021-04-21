@@ -1,15 +1,15 @@
 ---
 title: Interfejs wiersza polecenia platformy Azure — zatrzymywanie i usuwanie maszyny wirtualnej w laboratorium
-description: Ten artykuł zawiera skrypt interfejsu wiersza polecenia platformy Azure, który umożliwia zatrzymanie i usunięcie maszyny wirtualnej w laboratorium w Azure DevTest Labs.
+description: Ten artykuł zawiera skrypt interfejsu wiersza polecenia platformy Azure, który zatrzymuje i usuwa maszynę wirtualną w laboratorium w Azure DevTest Labs.
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/11/2020
-ms.openlocfilehash: 3f3802837685281339f0ca355c677e1a0ceac067
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e30ee47c4f34fe6a71e8c934a4f36cb7edbbe20e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102198204"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777339"
 ---
 # <a name="use-azure-cli-to-stop-and-delete-a-virtual-machine-in-a-lab-in-azure-devtest-labs"></a>Zatrzymywanie i usuwanie maszyny wirtualnej w laboratorium za pomocą interfejsu wiersza polecenia platformy Azure w usłudze Azure DevTest Labs
 
@@ -29,8 +29,8 @@ W tym skrypcie użyto następujących poleceń:
 
 | Polecenie | Uwagi |
 |---|---|
-| [az lab vm stop](/cli/azure/lab/vm#az-lab-vm-stop) | Zatrzymuje maszynę wirtualną w laboratorium. Wykonanie tej operacji może chwilę potrwać. |
-| [az lab vm delete](/cli/azure/lab/vm#az-lab-vm-delete) | Usuwa maszynę wirtualną w laboratorium. Wykonanie tej operacji może chwilę potrwać. |
+| [az lab vm stop](/cli/azure/lab/vm#az_lab_vm_stop) | Zatrzymuje maszynę wirtualną w laboratorium. Wykonanie tej operacji może chwilę potrwać. |
+| [az lab vm delete](/cli/azure/lab/vm#az_lab_vm_delete) | Usuwa maszynę wirtualną w laboratorium. Wykonanie tej operacji może chwilę potrwać. |
 
 
 ## <a name="next-steps"></a>Następne kroki

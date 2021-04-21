@@ -81,11 +81,13 @@ additionalContent:
       items:
         - title: Rozszerzanie lokalnego udziału plików do chmury
           links:
-            - url: ./files/storage-sync-files-planning.md
+            - url: ./file-sync/file-sync-introduction.md
+              text: Dowiedz się więcej o Azure File Sync
+            - url: ./file-sync/file-sync-planning.md
               text: Synchronizowanie udziałów plików platformy Azure z serwerem plików systemu Windows (Azure FileSync)
-            - url: ./files/storage-sync-files-deployment-guide.md
+            - url: ./file-sync/file-sync-deployment-guide.md
               text: Wdrażanie usługi Azure File Sync
-            - url: ./files/index.yml
+            - url: ./file-sync/index.yml
               text: Zobacz więcej >
         - title: Transfer danych online (ze środowiska lokalnego do platformy Azure)
           links:

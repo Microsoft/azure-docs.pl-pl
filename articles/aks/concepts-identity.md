@@ -1,102 +1,102 @@
 ---
-title: Pojęcia — dostęp i tożsamość w usłudze Azure Kubernetes Services (AKS)
-description: Dowiedz się więcej o dostępie i tożsamości w usłudze Azure Kubernetes Service (AKS), w tym o integracji Azure Active Directory, Kubernetes kontroli dostępu opartej na rolach (Kubernetes RBAC) oraz rolach i powiązaniach.
+title: Pojęcia — dostęp i tożsamość w usługach Azure Kubernetes Services (AKS)
+description: Dowiedz się więcej o dostępie i tożsamościach w usługach Azure Kubernetes Service (AKS), w tym o integracji z usługą Azure Active Directory, kontroli dostępu opartej na rolach (RBAC) kubernetes oraz rolach i powiązaniach.
 services: container-service
 ms.topic: conceptual
 ms.date: 03/24/2021
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 76871565e0bb4ca1811d46531d07b89181d07e19
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: b10d31cf069bc4f28a1597ec12160fa6ed98b8ce
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105922"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789559"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opcje dostępu i tożsamości dla usługi Azure Kubernetes Service (AKS)
 
-Można uwierzytelniać, autoryzować, zabezpieczać i kontrolować dostęp do klastrów Kubernetes na wiele sposobów. 
-* Przy użyciu kontroli dostępu opartej na rolach Kubernetes (Kubernetes RBAC) można udzielić użytkownikom, grupom i kontom usług dostępu tylko do zasobów, których potrzebują. 
-* Dzięki usłudze Azure Kubernetes Service (AKS) można dodatkowo ulepszyć strukturę zabezpieczeń i uprawnień za pośrednictwem Azure Active Directory i kontroli RBAC platformy Azure. 
+Dostęp do klastrów Kubernetes można uwierzytelniać, autoryzować, zabezpieczać i kontrolować na różne sposoby. 
+* Przy użyciu kontroli dostępu opartej na rolach (RBAC) kubernetes można udzielić użytkownikom, grupom i kontom usługi dostępu tylko do potrzebnych im zasobów. 
+* Dzięki Azure Kubernetes Service (AKS) można dodatkowo zwiększyć strukturę zabezpieczeń i uprawnień za pośrednictwem Azure Active Directory RBAC platformy Azure. 
 
-Kubernetes RBAC i AKS pomagają w zabezpieczaniu dostępu do klastra i zapewniania minimalnych wymaganych uprawnień dla deweloperów i operatorów.
+Kontroli dostępu na poziomie ról i usługi AKS na platformie Kubernetes ułatwiają zabezpieczanie dostępu do klastra i zapewnianie deweloperom i operatorom tylko minimalnych wymaganych uprawnień.
 
-W tym artykule przedstawiono podstawowe pojęcia, które ułatwiają uwierzytelnianie i przypisywanie uprawnień w programie AKS.
+W tym artykule oprowadzono podstawowe pojęcia, które ułatwiają uwierzytelnianie i przypisywanie uprawnień w u usługi AKS.
 
 ## <a name="aks-service-permissions"></a>Uprawnienia usługi AKS
 
-Podczas tworzenia klastra program AKS generuje lub modyfikuje potrzebne zasoby (takie jak maszyny wirtualne i karty sieciowe), aby utworzyć i uruchomić klaster w imieniu użytkownika. Ta tożsamość różni się od uprawnienia tożsamości klastra, który jest tworzony podczas tworzenia klastra.
+Podczas tworzenia klastra usługa AKS generuje lub modyfikuje zasoby, których potrzebuje (takich jak maszyny wirtualne i karty sieciowe), aby utworzyć i uruchomić klaster w imieniu użytkownika. Ta tożsamość różni się od uprawnień tożsamości klastra, które jest tworzone podczas tworzenia klastra.
 
-### <a name="identity-creating-and-operating-the-cluster-permissions"></a>Tożsamość tworzenia i obsługi uprawnień klastra
+### <a name="identity-creating-and-operating-the-cluster-permissions"></a>Tożsamość tworząca i działająca uprawnienia klastra
 
-Tożsamości tworzące i obsługujące klaster potrzebują następujących uprawnień.
+Następujące uprawnienia są wymagane przez tożsamość tworzenia i obsługi klastra.
 
 | Uprawnienie | Przyczyna |
 |---|---|
-| `Microsoft.Compute/diskEncryptionSets/read` | Wymagane w celu odczytania identyfikatora zestawu szyfrowania dysków. |
-| `Microsoft.Compute/proximityPlacementGroups/write` | Wymagane do aktualizowania grup umieszczania sąsiedztwa. |
-| `Microsoft.Network/applicationGateways/read` <br/> `Microsoft.Network/applicationGateways/write` <br/> `Microsoft.Network/virtualNetworks/subnets/join/action` | Wymagane do skonfigurowania bram aplikacji i przyłączenia do podsieci. |
-| `Microsoft.Network/virtualNetworks/subnets/join/action` | Wymagane do skonfigurowania sieciowej grupy zabezpieczeń dla podsieci przy użyciu niestandardowej sieci wirtualnej.|
-| `Microsoft.Network/publicIPAddresses/join/action` <br/> `Microsoft.Network/publicIPPrefixes/join/action` | Wymagane do skonfigurowania wychodzących publicznych adresów IP na usługa Load Balancer w warstwie Standardowa. |
-| `Microsoft.OperationalInsights/workspaces/sharedkeys/read` <br/> `Microsoft.OperationalInsights/workspaces/read` <br/> `Microsoft.OperationsManagement/solutions/write` <br/> `Microsoft.OperationsManagement/solutions/read` <br/> `Microsoft.ManagedIdentity/userAssignedIdentities/assign/action` | Wymagane do tworzenia i aktualizowania Log Analytics obszarów roboczych oraz monitorowania platformy Azure dla kontenerów. |
+| `Microsoft.Compute/diskEncryptionSets/read` | Wymagany do odczytu identyfikatora zestawu szyfrowania dysków. |
+| `Microsoft.Compute/proximityPlacementGroups/write` | Wymagane do aktualizowania grup umieszczania w pobliżu. |
+| `Microsoft.Network/applicationGateways/read` <br/> `Microsoft.Network/applicationGateways/write` <br/> `Microsoft.Network/virtualNetworks/subnets/join/action` | Wymagane do skonfigurowania bram aplikacji i dołączenia do podsieci. |
+| `Microsoft.Network/virtualNetworks/subnets/join/action` | Wymagane do skonfigurowania sieciowej grupy zabezpieczeń dla podsieci w przypadku korzystania z niestandardowej sieci wirtualnej.|
+| `Microsoft.Network/publicIPAddresses/join/action` <br/> `Microsoft.Network/publicIPPrefixes/join/action` | Wymagane do skonfigurowania publicznych ip ruchu wychodzącego na usługa Load Balancer w warstwie Standardowa. |
+| `Microsoft.OperationalInsights/workspaces/sharedkeys/read` <br/> `Microsoft.OperationalInsights/workspaces/read` <br/> `Microsoft.OperationsManagement/solutions/write` <br/> `Microsoft.OperationsManagement/solutions/read` <br/> `Microsoft.ManagedIdentity/userAssignedIdentities/assign/action` | Wymagane do tworzenia i aktualizowania obszarów roboczych usługi Log Analytics oraz monitorowania platformy Azure dla kontenerów. |
 
-### <a name="aks-cluster-identity-permissions"></a>Uprawnienia do tożsamości klastra AKS
+### <a name="aks-cluster-identity-permissions"></a>Uprawnienia tożsamości klastra usługi AKS
 
-Następujące uprawnienia są używane przez tożsamość klastra AKS, która jest tworzona i skojarzona z klastrem AKS. Wszystkie uprawnienia są używane z poniższych przyczyn:
+Następujące uprawnienia są używane przez tożsamość klastra usługi AKS, która jest tworzona i skojarzona z klastrem usługi AKS. Każde uprawnienie jest używane z poniższych powodów:
 
 | Uprawnienie | Przyczyna |
 |---|---|
 | `Microsoft.ContainerService/managedClusters/*`  <br/> | Wymagane do tworzenia użytkowników i obsługi klastra
-| `Microsoft.Network/loadBalancers/delete` <br/> `Microsoft.Network/loadBalancers/read` <br/> `Microsoft.Network/loadBalancers/write` | Wymagane w celu skonfigurowania modułu równoważenia obciążenia dla usługi równoważenia. |
-| `Microsoft.Network/publicIPAddresses/delete` <br/> `Microsoft.Network/publicIPAddresses/read` <br/> `Microsoft.Network/publicIPAddresses/write` | Wymagane do znajdowania i konfigurowania publicznych adresów IP dla usługi równoważenia obciążenia. |
-| `Microsoft.Network/publicIPAddresses/join/action` | Wymagane do skonfigurowania publicznych adresów IP dla usługi równoważenia obciążenia. |
-| `Microsoft.Network/networkSecurityGroups/read` <br/> `Microsoft.Network/networkSecurityGroups/write` | Wymagane do tworzenia lub usuwania reguł zabezpieczeń dla usługi równoważenia obciążenia. |
-| `Microsoft.Compute/disks/delete` <br/> `Microsoft.Compute/disks/read` <br/> `Microsoft.Compute/disks/write` <br/> `Microsoft.Compute/locations/DiskOperations/read` | Wymagane do skonfigurowania AzureDisks. |
-| `Microsoft.Storage/storageAccounts/delete` <br/> `Microsoft.Storage/storageAccounts/listKeys/action` <br/> `Microsoft.Storage/storageAccounts/read` <br/> `Microsoft.Storage/storageAccounts/write` <br/> `Microsoft.Storage/operations/read` | Wymagane do skonfigurowania kont magazynu dla AzureFile lub AzureDisk. |
+| `Microsoft.Network/loadBalancers/delete` <br/> `Microsoft.Network/loadBalancers/read` <br/> `Microsoft.Network/loadBalancers/write` | Wymagane do skonfigurowania usługi równoważenia obciążenia dla usługi LoadBalancer. |
+| `Microsoft.Network/publicIPAddresses/delete` <br/> `Microsoft.Network/publicIPAddresses/read` <br/> `Microsoft.Network/publicIPAddresses/write` | Wymagane do znalezienia i skonfigurowania publicznych ip dla usługi LoadBalancer. |
+| `Microsoft.Network/publicIPAddresses/join/action` | Wymagane do konfigurowania publicznych ip dla usługi LoadBalancer. |
+| `Microsoft.Network/networkSecurityGroups/read` <br/> `Microsoft.Network/networkSecurityGroups/write` | Wymagane do tworzenia lub usuwania reguł zabezpieczeń dla usługi LoadBalancer. |
+| `Microsoft.Compute/disks/delete` <br/> `Microsoft.Compute/disks/read` <br/> `Microsoft.Compute/disks/write` <br/> `Microsoft.Compute/locations/DiskOperations/read` | Wymagane do skonfigurowania azureDisks. |
+| `Microsoft.Storage/storageAccounts/delete` <br/> `Microsoft.Storage/storageAccounts/listKeys/action` <br/> `Microsoft.Storage/storageAccounts/read` <br/> `Microsoft.Storage/storageAccounts/write` <br/> `Microsoft.Storage/operations/read` | Wymagane do skonfigurowania kont magazynu dla usługi AzureFile lub AzureDisk. |
 | `Microsoft.Network/routeTables/read` <br/> `Microsoft.Network/routeTables/routes/delete` <br/> `Microsoft.Network/routeTables/routes/read` <br/> `Microsoft.Network/routeTables/routes/write` <br/> `Microsoft.Network/routeTables/write` | Wymagane do skonfigurowania tabel tras i tras dla węzłów. |
-| `Microsoft.Compute/virtualMachines/read` | Wymagane do znalezienia informacji o maszynach wirtualnych w VMAS, takich jak strefy, domena błędów, rozmiar i dyski danych. |
-| `Microsoft.Compute/virtualMachines/write` | Wymagane w celu dołączenia AzureDisks do maszyny wirtualnej w VMAS. |
-| `Microsoft.Compute/virtualMachineScaleSets/read` <br/> `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/read` <br/> `Microsoft.Compute/virtualMachineScaleSets/virtualmachines/instanceView/read` | Wymagane do znalezienia informacji o maszynach wirtualnych w zestawie skalowania maszyn wirtualnych, takich jak strefy, domena błędów, rozmiar i dyski danych. |
-| `Microsoft.Network/networkInterfaces/write` | Wymagane do dodania maszyny wirtualnej w VMAS do puli adresów zaplecza modułu równoważenia obciążenia. |
-| `Microsoft.Compute/virtualMachineScaleSets/write` | Wymagane do dodania zestawu skalowania maszyn wirtualnych do pul adresów zaplecza modułu równoważenia obciążenia i skalowania w poziomie węzłów w zestawie skalowania maszyn wirtualnych. |
-| `Microsoft.Compute/virtualMachineScaleSets/virtualmachines/write` | Wymagane, aby dołączyć AzureDisks i dodać maszynę wirtualną z zestawu skalowania maszyn wirtualnych do modułu równoważenia obciążenia. |
-| `Microsoft.Network/networkInterfaces/read` | Wymagane do wyszukiwania wewnętrznych adresów IP i pul adresów zaplecza modułu równoważenia obciążenia dla maszyn wirtualnych w VMAS. |
-| `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/networkInterfaces/read` | Wymagane do przeszukiwania wewnętrznych adresów IP i pul adresów zaplecza modułu równoważenia obciążenia dla maszyny wirtualnej w zestawie skalowania maszyn wirtualnych. |
-| `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/networkInterfaces/ipconfigurations/publicipaddresses/read` | Wymagane, aby znaleźć publiczne adresy IP dla maszyny wirtualnej w zestawie skalowania maszyn wirtualnych. |
-| `Microsoft.Network/virtualNetworks/read` <br/> `Microsoft.Network/virtualNetworks/subnets/read` | Wymagane do sprawdzenia, czy istnieje podsieć dla wewnętrznego modułu równoważenia obciążenia w innej grupie zasobów. |
-| `Microsoft.Compute/snapshots/delete` <br/> `Microsoft.Compute/snapshots/read` <br/> `Microsoft.Compute/snapshots/write` | Wymagane do skonfigurowania migawek dla AzureDisk. |
-| `Microsoft.Compute/locations/vmSizes/read` <br/> `Microsoft.Compute/locations/operations/read` | Wymagane, aby znaleźć rozmiary maszyn wirtualnych na potrzeby znajdowania limitów woluminów AzureDisk. |
+| `Microsoft.Compute/virtualMachines/read` | Wymagane do znalezienia informacji o maszynach wirtualnych w programie VMAS, takich jak strefy, domena błędów, rozmiar i dyski danych. |
+| `Microsoft.Compute/virtualMachines/write` | Wymagane do dołączania dysków AzureDisks do maszyny wirtualnej w programie VMAS. |
+| `Microsoft.Compute/virtualMachineScaleSets/read` <br/> `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/read` <br/> `Microsoft.Compute/virtualMachineScaleSets/virtualmachines/instanceView/read` | Wymagane do znalezienia informacji dotyczących maszyn wirtualnych w zestawie skalowania maszyn wirtualnych, takich jak strefy, domena błędów, rozmiar i dyski danych. |
+| `Microsoft.Network/networkInterfaces/write` | Wymagane do dodania maszyny wirtualnej w programie VMAS do puli adresów zaplecza usługi równoważenia obciążenia. |
+| `Microsoft.Compute/virtualMachineScaleSets/write` | Wymagane do dodawania zestawu skalowania maszyn wirtualnych do pul adresów zaplecza usługi równoważenia obciążenia i skalowania węzłów w zestawie skalowania maszyn wirtualnych. |
+| `Microsoft.Compute/virtualMachineScaleSets/virtualmachines/write` | Wymagane do dołączenia dysku AzureDisks i dodania maszyny wirtualnej z zestawu skalowania maszyn wirtualnych do usługi równoważenia obciążenia. |
+| `Microsoft.Network/networkInterfaces/read` | Wymagane do przeszukiwania wewnętrznych adresów IP i pul adresów zaplecza usługi równoważenia obciążenia dla maszyn wirtualnych w maszynie wirtualnej. |
+| `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/networkInterfaces/read` | Wymagany do wyszukiwania wewnętrznych adresów IP i pul adresów zaplecza usługi równoważenia obciążenia dla maszyny wirtualnej w zestawie skalowania maszyn wirtualnych. |
+| `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/networkInterfaces/ipconfigurations/publicipaddresses/read` | Wymagane do znalezienia publicznych ip dla maszyny wirtualnej w zestawie skalowania maszyn wirtualnych. |
+| `Microsoft.Network/virtualNetworks/read` <br/> `Microsoft.Network/virtualNetworks/subnets/read` | Wymagane do sprawdzenia, czy podsieć istnieje dla wewnętrznego równoważenia obciążenia w innej grupie zasobów. |
+| `Microsoft.Compute/snapshots/delete` <br/> `Microsoft.Compute/snapshots/read` <br/> `Microsoft.Compute/snapshots/write` | Wymagane do skonfigurowania migawek dla dysku AzureDisk. |
+| `Microsoft.Compute/locations/vmSizes/read` <br/> `Microsoft.Compute/locations/operations/read` | Wymagane do znajdowania rozmiarów maszyn wirtualnych w celu znalezienia limitów woluminów AzureDisk. |
 
-### <a name="additional-cluster-identity-permissions"></a>Dodatkowe uprawnienia do tożsamości klastra
+### <a name="additional-cluster-identity-permissions"></a>Dodatkowe uprawnienia tożsamości klastra
 
-Podczas tworzenia klastra o określonych atrybutach będą potrzebne następujące dodatkowe uprawnienia do tożsamości klastra. Ponieważ te uprawnienia nie są automatycznie przypisywane, należy je dodać do tożsamości klastra po jej utworzeniu.
+Podczas tworzenia klastra z określonymi atrybutami potrzebne będą następujące dodatkowe uprawnienia dla tożsamości klastra. Ponieważ te uprawnienia nie są przypisywane automatycznie, należy dodać je do tożsamości klastra po jej utworzeniu.
 
 | Uprawnienie | Przyczyna |
 |---|---|
-| `Microsoft.Network/networkSecurityGroups/write` <br/> `Microsoft.Network/networkSecurityGroups/read` | Wymagane w przypadku używania sieciowej grupy zabezpieczeń w innej grupie zasobów. Wymagane do skonfigurowania reguł zabezpieczeń dla usługi równoważenia obciążenia. |
-| `Microsoft.Network/virtualNetworks/subnets/read` <br/> `Microsoft.Network/virtualNetworks/subnets/join/action` | Wymagane w przypadku używania podsieci w innej grupie zasobów, takiej jak niestandardowa Sieć wirtualna. |
-| `Microsoft.Network/routeTables/routes/read` <br/> `Microsoft.Network/routeTables/routes/write` | Wymagany, jeśli używana jest podsieć skojarzona z tabelą tras w innej grupie zasobów, takiej jak niestandardowa Sieć wirtualna z niestandardową tabelą tras. Wymagane, aby sprawdzić, czy podsieć już istnieje dla podsieci w innej grupie zasobów. |
-| `Microsoft.Network/virtualNetworks/subnets/read` | Wymagane w przypadku korzystania z wewnętrznego modułu równoważenia obciążenia w innej grupie zasobów. Wymagane, aby sprawdzić, czy podsieć już istnieje dla wewnętrznego modułu równoważenia obciążenia w grupie zasobów. |
-| `Microsoft.Network/privatednszones/*` | Wymagane w przypadku używania prywatnej strefy DNS w innej grupie zasobów, takiej jak niestandardowy privateDNSZone. |
+| `Microsoft.Network/networkSecurityGroups/write` <br/> `Microsoft.Network/networkSecurityGroups/read` | Wymagane w przypadku używania sieciowej grupy zabezpieczeń w innej grupie zasobów. Wymagane do skonfigurowania reguł zabezpieczeń dla usługi LoadBalancer. |
+| `Microsoft.Network/virtualNetworks/subnets/read` <br/> `Microsoft.Network/virtualNetworks/subnets/join/action` | Wymagane w przypadku korzystania z podsieci w innej grupie zasobów, takiej jak niestandardowa sieć wirtualna. |
+| `Microsoft.Network/routeTables/routes/read` <br/> `Microsoft.Network/routeTables/routes/write` | Wymagane w przypadku korzystania z podsieci skojarzonej z tabelą tras w innej grupie zasobów, takiej jak niestandardowa sieć wirtualna z niestandardową tabelą tras. Wymagane do sprawdzenia, czy podsieć istnieje już dla podsieci w innej grupie zasobów. |
+| `Microsoft.Network/virtualNetworks/subnets/read` | Wymagane w przypadku korzystania z wewnętrznego równoważenia obciążenia w innej grupie zasobów. Wymagane do sprawdzenia, czy podsieć istnieje już dla wewnętrznego równoważenia obciążenia w grupie zasobów. |
+| `Microsoft.Network/privatednszones/*` | Wymagane w przypadku korzystania z prywatnej strefy DNS w innej grupie zasobów, takiej jak niestandardowa strefa privateDNSZone. |
 
 ## <a name="kubernetes-rbac"></a>Kontrola dostępu na podstawie ról na platformie Kubernetes
 
-Kubernetes RBAC zapewnia szczegółowe filtrowanie akcji użytkownika. Mechanizm kontroli:
-* Przypisujesz użytkownikom lub grupom użytkowników uprawnienia do tworzenia i modyfikowania zasobów lub wyświetlania dzienników z uruchamiania obciążeń aplikacji. 
-* Można zakres uprawnień do pojedynczej przestrzeni nazw lub całego klastra AKS. 
-* Tworzysz *role* , aby definiować uprawnienia, a następnie przypisuj te role do użytkowników z *powiązaniami ról*.
+Kontroli RBAC na platformie Kubernetes zapewnia szczegółowe filtrowanie akcji użytkownika. Za pomocą tego mechanizmu sterowania:
+* Przypisujesz użytkownikom lub grupom użytkowników uprawnienie do tworzenia i modyfikowania zasobów lub wyświetlania dzienników z uruchomionych obciążeń aplikacji. 
+* Zakres uprawnień można określić dla pojedynczej przestrzeni nazw lub całego klastra usługi AKS. 
+* Tworzysz *role w* celu zdefiniowania uprawnień, a następnie przypisujesz te role do użytkowników z *powiązaniami ról.*
 
-Aby uzyskać więcej informacji, zobacz [using KUBERNETES RBAC Authorization][kubernetes-rbac].
+Aby uzyskać więcej informacji, zobacz [Using Kubernetes RBAC authorization (Używanie autoryzacji RBAC na platformie Kubernetes).][kubernetes-rbac]
 
-### <a name="roles-and-clusterroles"></a>Role i ClusterRoles
+### <a name="roles-and-clusterroles"></a>Role i clusterRole
 
 #### <a name="roles"></a>Role
-Przed przypisaniem uprawnień do użytkowników za pomocą Kubernetes RBAC należy zdefiniować uprawnienia użytkownika jako *rolę*. Udzielanie uprawnień w przestrzeni nazw za pomocą ról. 
+Przed przypisaniem uprawnień do użytkowników przy użyciu kontroli RBAC na platformie Kubernetes należy zdefiniować uprawnienia użytkownika jako *rolę*. Udzielanie uprawnień w przestrzeni nazw przy użyciu ról. 
 
 > [!NOTE]
-> Role Kubernetes *przyznają* uprawnienia; nie *odmówią* uprawnień.
+> Role kubernetes *przyznają* uprawnienia; Nie odmawiają *uprawnień.*
 
-Aby udzielić uprawnień w całym klastrze lub do zasobów klastra poza daną przestrzenią nazw, zamiast tego można użyć *ClusterRoles*.
+Aby udzielić uprawnień w całym klastrze lub do zasobów klastra spoza danej przestrzeni nazw, można zamiast tego użyć *funkcji ClusterRoles*.
 
 #### <a name="clusterroles"></a>ClusterRoles
 
@@ -104,161 +104,161 @@ ClusterRole przyznaje i stosuje uprawnienia do zasobów w całym klastrze, a nie
 
 ### <a name="rolebindings-and-clusterrolebindings"></a>RoleBindings i ClusterRoleBindings
 
-Po zdefiniowaniu ról w celu udzielenia uprawnień do zasobów należy przypisać te uprawnienia Kubernetes RBAC z *roląbinding*. Jeśli klaster AKS [integruje się z usługą Azure Active Directory (Azure AD)](#azure-ad-integration), RoleBindings przyznać uprawnienia użytkownikom usługi Azure AD w celu wykonywania akcji w ramach klastra. Zobacz jak [kontrolować dostęp do zasobów klastra przy użyciu kontroli dostępu opartej na rolach Kubernetes i tożsamości Azure Active Directory](azure-ad-rbac.md).
+Po zdefiniowanych rolach w celu udzielenia uprawnień do zasobów przypisz te uprawnienia kontroli RBAC na platformie Kubernetes za pomocą *powiązyania ról.* Jeśli klaster usługi AKS integruje się z usługą [Azure Active Directory (Azure AD),](#azure-ad-integration)roleBindings przyznają użytkownikom usługi Azure AD uprawnienia do wykonywania akcji w klastrze. Zobacz, jak kontrolować dostęp do zasobów klastra przy użyciu kontroli dostępu opartej na rolach i tożsamości Azure Active Directory [Kubernetes.](azure-ad-rbac.md)
 
 #### <a name="rolebindings"></a>RoleBindings
 
-Przypisz role do użytkowników w danej przestrzeni nazw za pomocą RoleBindings. Za pomocą RoleBindings można logicznie oddzielić pojedynczy klaster AKS, umożliwiając użytkownikom dostęp do zasobów aplikacji w ich przypisanej przestrzeni nazw. 
+Przypisz role do użytkowników dla danej przestrzeni nazw przy użyciu po stronie rolebindings. Za pomocą elementu RoleBindings można logicznie oddzielić pojedynczy klaster usługi AKS, umożliwiając użytkownikom tylko dostęp do zasobów aplikacji w przypisanej im przestrzeni nazw. 
 
-Aby powiązać role w całym klastrze lub z zasobami klastra spoza danego obszaru nazw, zamiast tego należy użyć *ClusterRoleBindings*.
+Aby powiązać role w całym klastrze lub z zasobami klastra poza podaną przestrzenią nazw, należy zamiast tego użyć *clusterRoleBindings*.
 
 #### <a name="clusterrolebinding"></a>ClusterRoleBinding
 
-Za pomocą ClusterRoleBinding można powiązać role z użytkownikami i stosować je w całym klastrze, a nie w określonej przestrzeni nazw. Takie podejście umożliwia przyznanie administratorom lub inżynierom pomocy technicznej dostępu do wszystkich zasobów w klastrze AKS.
+KlasterRoleBinding umożliwia powiązanie ról z użytkownikami i stosowanie ich do zasobów w całym klastrze, a nie w określonej przestrzeni nazw. Takie podejście umożliwia przyznanie administratorom lub inżynierom pomocy technicznej dostępu do wszystkich zasobów w klastrze usługi AKS.
 
 
 > [!NOTE]
-> Firma Microsoft/AKS wykonuje wszelkie akcje klastra z zgodą użytkownika w ramach wbudowanej roli Kubernetes `aks-service` i wbudowanego powiązania roli `aks-service-rolebinding` . 
+> Firma Microsoft/AKS wykonuje wszystkie akcje klastra za zgodą użytkownika w ramach wbudowanej roli Kubernetes i `aks-service` wbudowanego powiązania roli `aks-service-rolebinding` . 
 > 
-> Ta rola umożliwia AKS Rozwiązywanie problemów z klastrem i diagnozowanie problemów, ale nie może modyfikować uprawnień ani tworzyć ról ani powiązań ról ani innych akcji o wysokim poziomie uprawnień. Dostęp do roli jest włączony tylko w ramach aktywnych biletów pomocy technicznej z dostępem just-in-Time (JIT). Przeczytaj więcej na temat [zasad pomocy technicznej AKS](support-policies.md).
+> Ta rola umożliwia UKS rozwiązywanie i diagnozowanie problemów z klastrem, ale nie może modyfikować uprawnień, tworzyć ról, powiązań ról ani innych akcji o wysokim poziomie uprawnień. Dostęp do ról jest włączany tylko w ramach aktywnych biletów pomocy technicznej z dostępem just in time (JIT). Przeczytaj więcej na temat [zasad obsługi AKS.](support-policies.md)
 
 
 ### <a name="kubernetes-service-accounts"></a>Konta usługi Kubernetes
 
-*Konta usług* są jednym z podstawowych typów użytkownika w Kubernetes. Interfejs API Kubernetes przechowuje konta usług i zarządza nimi. Poświadczenia konta usługi są przechowywane jako wpisy tajne Kubernetes, dzięki czemu mogą być używane przez autoryzowane zasobniki do komunikowania się z serwerem interfejsu API. Większość żądań interfejsu API zapewnia token uwierzytelniania dla konta usługi lub zwykłego konta użytkownika.
+*Konta usług* są jednym z podstawowych typów użytkowników w usłudze Kubernetes. Interfejs API platformy Kubernetes przechowuje konta usług i zarządza nimi. Poświadczenia konta usługi są przechowywane jako wpisy tajne platformy Kubernetes, dzięki czemu mogą być używane przez autoryzowane zasobniki do komunikowania się z serwerem interfejsu API. Większość żądań interfejsu API zapewnia token uwierzytelniania dla konta usługi lub normalnego konta użytkownika.
 
-Normalne konta użytkowników zapewniają bardziej tradycyjny dostęp dla administratorów lub deweloperów, a nie tylko usługi i procesy. Mimo że usługa Kubernetes nie udostępnia rozwiązania do zarządzania tożsamościami do przechowywania zwykłych kont użytkowników i haseł, można zintegrować zewnętrzne rozwiązania do obsługi tożsamości w Kubernetes. W przypadku klastrów AKS to zintegrowane rozwiązanie do tworzenia tożsamości to usługa Azure AD.
+Konta zwykłych użytkowników umożliwiają bardziej tradycyjny dostęp administratorom i deweloperom, nie tylko usługom i procesom. Chociaż rozwiązanie Kubernetes nie zapewnia rozwiązania do zarządzania tożsamościami do przechowywania zwykłych kont użytkowników i haseł, rozwiązania do obsługi tożsamości zewnętrznych można zintegrować z rozwiązaniem Kubernetes. W przypadku klastrów usługi AKS to zintegrowane rozwiązanie do zarządzania tożsamościami to usługa Azure AD.
 
-Aby uzyskać więcej informacji na temat opcji tożsamości w programie Kubernetes, zobacz [Kubernetes Authentication (uwierzytelnianie][kubernetes-authentication]).
+Aby uzyskać więcej informacji na temat opcji tożsamości na platformie Kubernetes, zobacz [Uwierzytelnianie kubernetes][kubernetes-authentication].
 
 ## <a name="azure-ad-integration"></a>Integracja z usługą Azure AD
 
-Zwiększ bezpieczeństwo klastra AKS dzięki integracji z usługą Azure AD. Usługa Azure AD utworzona na podstawie dekady zarządzania tożsamościami w przedsiębiorstwie obejmuje wiele dzierżawców, opartych na chmurze usługi zarządzania tożsamościami, które łączy podstawowe usługi katalogowe, zarządzanie dostępem do aplikacji i ochronę tożsamości. Usługa Azure AD umożliwia integrowanie tożsamości lokalnych z klastrami AKS w celu zapewnienia jednego źródła do zarządzania kontami i zabezpieczeń.
+Zwiększ bezpieczeństwo klastra usługi AKS dzięki integracji z usługą Azure AD. Oparta na dekadach zarządzania tożsamościami w przedsiębiorstwie usługa Azure AD to wielodostępna, oparta na chmurze usługa do zarządzania katalogami i tożsamościami, która łączy podstawowe usługi katalogowe, zarządzanie dostępem do aplikacji i ochronę tożsamości. Za pomocą usługi Azure AD można zintegrować tożsamości lokalne z klastrami usługi AKS, aby zapewnić jedno źródło zarządzania kontami i ich zabezpieczeń.
 
-![Integracja Azure Active Directory z klastrami AKS](media/concepts-identity/aad-integration.png)
+![Azure Active Directory integracji z klastrami AKS](media/concepts-identity/aad-integration.png)
 
-W przypadku klastrów AKS zintegrowanych z usługą Azure AD można udzielić użytkownikom lub grupom dostępu do zasobów Kubernetes w przestrzeni nazw lub w klastrze. 
+Dzięki klastrom usługi AKS zintegrowanym z usługą Azure AD można udzielić użytkownikom lub grupom dostępu do zasobów platformy Kubernetes w przestrzeni nazw lub w klastrze. 
 
-1. Aby uzyskać `kubectl` kontekst konfiguracji, użytkownik uruchamia polecenie [AZ AKS Get-Credentials][az-aks-get-credentials] . 
-1. Gdy użytkownik współdziała z klastrem AKS przy użyciu programu `kubectl` , zostanie wyświetlony monit o zalogowanie się przy użyciu poświadczeń usługi Azure AD. 
+1. Aby uzyskać kontekst `kubectl` konfiguracji, użytkownik uruchamia [polecenie az aks get-credentials.][az-aks-get-credentials] 
+1. Gdy użytkownik wchodzi w interakcję z klastrem AKS za pomocą usługi , jest wyświetlany monit o zalogowanie się przy `kubectl` użyciu poświadczeń usługi Azure AD. 
 
-Takie podejście zapewnia pojedyncze Źródło poświadczeń zarządzania kontami użytkowników i hasła. Użytkownik może uzyskać dostęp tylko do zasobów zdefiniowanych przez administratora klastra.
+Takie podejście zapewnia jedno źródło do zarządzania kontami użytkowników i poświadczeń haseł. Użytkownik może uzyskać dostęp tylko do zasobów zgodnie z definicją administratora klastra.
 
-Uwierzytelnianie usługi Azure AD jest udostępniane Klastrom AKS z OpenID Connect Connect. OpenID Connect Connect to warstwa tożsamości utworzona na podstawie protokołu OAuth 2,0. Aby uzyskać więcej informacji na temat OpenID Connect Connect, zapoznaj [się z dokumentacją dotyczącą otwartych identyfikatorów][openid-connect]. W ramach klastra Kubernetes [uwierzytelnianie tokenu elementu webhook][webhook-token-docs] służy do weryfikowania tokenów uwierzytelniania. Uwierzytelnianie za pomocą tokenu elementu webhook jest konfigurowane i zarządzane w ramach klastra AKS.
+Uwierzytelnianie usługi Azure AD jest udostępniane klastrom usługi AKS za pomocą OpenID Connect. OpenID Connect to warstwa tożsamości zbudowana na podstawie protokołu OAuth 2.0. Aby uzyskać więcej informacji na OpenID Connect, zobacz [dokumentację programu Open ID Connect.][openid-connect] W klastrze Kubernetes tokeny uwierzytelniania są weryfikowane za pomocą uwierzytelniania [tokenów.][webhook-token-docs] Uwierzytelnianie tokenu element webhook jest konfigurowane i zarządzane w ramach klastra usługi AKS.
 
-### <a name="webhook-and-api-server"></a>Element webhook i serwer interfejsu API
+### <a name="webhook-and-api-server"></a>Webhook i serwer interfejsu API
 
-![Przepływ uwierzytelniania elementu webhook i serwera interfejsu API](media/concepts-identity/auth-flow.png)
+![Przepływ uwierzytelniania serwera webhook i serwera interfejsu API](media/concepts-identity/auth-flow.png)
 
-Jak pokazano na powyższej ilustracji, serwer interfejsu API wywołuje serwer webhook AKS i wykonuje następujące czynności:
+Jak pokazano na powyższej ilustracji, serwer interfejsu API wywołuje serwer elementów webhook usługi AKS i wykonuje następujące czynności:
 
-1. `kubectl` używa aplikacji klienckiej usługi Azure AD do logowania użytkowników przy użyciu przepływu przypisywania autoryzacji urządzeń z uwierzytelnianiem [OAuth 2,0](../active-directory/develop/v2-oauth2-device-code.md).
+1. `kubectl`używa aplikacji klienckiej usługi Azure AD do logowania użytkowników przy użyciu przepływu autoryzacji urządzenia [OAuth 2.0.](../active-directory/develop/v2-oauth2-device-code.md)
 2. Usługa Azure AD udostępnia access_token, id_token i refresh_token.
-3. Użytkownik wysyła żądanie do `kubectl` access_token od `kubeconfig` .
-4. `kubectl` wysyła access_token do serwera interfejsu API.
-5. Serwer interfejsu API jest skonfigurowany z serwerem elementu webhook uwierzytelniania w celu przeprowadzenia walidacji.
-6. Serwer elementu webhook uwierzytelniania potwierdza, że podpis tokenu sieci Web JSON jest prawidłowy, sprawdzając publiczny klucz podpisywania usługi Azure AD.
-7. Aplikacja serwera używa poświadczeń dostarczonych przez użytkownika do wykonywania zapytań dotyczących członkostwa w grupach zalogowanego użytkownika z usługi MS interfejs API programu Graph.
-8. Odpowiedź jest wysyłana do serwera interfejsu API z informacjami o użytkowniku, takimi jak oświadczenie głównej nazwy użytkownika (UPN) tokenu dostępu i członkostwem w grupie użytkownika na podstawie identyfikatora obiektu.
-9. Interfejs API wykonuje decyzję autoryzacji na podstawie roli Kubernetes/Rolebinding.
-10. Po autoryzowaniu serwer interfejsu API zwróci odpowiedź na `kubectl` .
-11. `kubectl` przekazuje Użytkownikowi informacje zwrotne.
+3. Użytkownik wykonuje żądanie do użytkownika `kubectl` za pomocą access_token z `kubeconfig` .
+4. `kubectl` wysyła access_token do serwera interfejsów API.
+5. Serwer interfejsu API jest skonfigurowany przy użyciu serwera uwierzytelniania webhook w celu przeprowadzenia walidacji.
+6. Serwer uwierzytelniania element webhook potwierdza, JSON Web Token podpis jest prawidłowy, sprawdzając publiczny klucz podpisywania usługi Azure AD.
+7. Aplikacja serwera używa poświadczeń dostarczonych przez użytkownika do wykonywania zapytań o członkostwo w grupach zalogowanego użytkownika z konta interfejs Graph API.
+8. Odpowiedź jest wysyłana do serwera interfejsu API z informacjami o użytkowniku, takimi jak główna nazwa użytkownika (UPN) oświadczenia tokenu dostępu i członkostwo użytkownika w grupie na podstawie identyfikatora obiektu.
+9. Interfejs API wykonuje decyzję o autoryzacji w oparciu o rolę/element RoleBinding platformy Kubernetes.
+10. Po autoryzacji serwer interfejsu API zwraca odpowiedź na `kubectl` .
+11. `kubectl` udostępnia użytkownikowi opinię.
  
-Dowiedz się, jak zintegrować usługę AKS z usługą Azure AD za pomocą naszego [przewodnika z integracją usługi Azure AD zarządzanego](managed-aad.md)przez program AKS.
+Dowiedz się, jak zintegrować usługę AKS z usługą Azure AD z naszym przewodnikiem po integracji usługi Azure AD zarządzanej [przez usługę AKS.](managed-aad.md)
 
 ## <a name="azure-role-based-access-control"></a>Kontrola dostępu na podstawie ról na platformie Azure
 
-Kontrola dostępu oparta na rolach (RBAC) na platformie Azure to system autoryzacji oparty na [Azure Resource Manager](../azure-resource-manager/management/overview.md) , który zapewnia precyzyjne zarządzanie dostępem do zasobów platformy Azure.
+Kontrola dostępu oparta na rolach (RBAC) platformy Azure [to](../azure-resource-manager/management/overview.md) system autoryzacji oparty na Azure Resource Manager, który umożliwia szczegółowe zarządzanie dostępem do zasobów platformy Azure.
 
 | System RBAC | Opis |
 |---|---|
-| Kontrola dostępu na podstawie ról na platformie Kubernetes | Zaprojektowana do pracy nad zasobami Kubernetes w klastrze AKS. |
-| Kontrola dostępu na podstawie ról platformy Azure | Zaprojektowana do pracy nad zasobami w ramach subskrypcji platformy Azure. |
+| Kontrola dostępu na podstawie ról na platformie Kubernetes | Zaprojektowana do pracy z zasobami kubernetes w klastrze usługi AKS. |
+| Kontrola dostępu na podstawie ról platformy Azure | Zaprojektowana do pracy z zasobami w ramach subskrypcji platformy Azure. |
 
-Za pomocą usługi Azure RBAC utworzysz *definicję roli* , która zawiera opis uprawnień do zastosowania. Następnie można przypisać użytkownika lub zgrupować tę definicję roli za pośrednictwem *przypisania roli* dla określonego *zakresu*. Zakres może być pojedynczym zasobem, grupą zasobów lub między subskrypcją.
+Za pomocą kontroli RBAC platformy Azure tworzysz *definicję roli,* która określa uprawnienia do zastosowania. Następnie przypiszesz użytkownikowi lub grupie tę definicję roli za pomocą *przypisania roli* dla określonego *zakresu.* Zakresem może być pojedynczy zasób, grupa zasobów lub subskrypcja.
 
-Aby uzyskać więcej informacji, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)?][azure-rbac]
+Aby uzyskać więcej informacji, zobacz Co to jest kontrola dostępu na podstawie ról [(RBAC) platformy Azure?][azure-rbac]
 
-Istnieją dwa poziomy dostępu, które są konieczne, aby w pełni obsługiwać klaster AKS: 
-* [Uzyskaj dostęp do zasobu AKS w ramach subskrypcji platformy Azure](#azure-rbac-to-authorize-access-to-the-aks-resource). 
-  * Kontrolowanie skalowania lub Uaktualnianie klastra przy użyciu interfejsów API AKS.
-  * Ściągnij `kubeconfig` .
-* Dostęp do interfejsu API Kubernetes. Ten dostęp jest kontrolowany przez:
-  * [KUBERNETES RBAC](#kubernetes-rbac) (tradycyjnie).
-  * [Integrowanie usługi Azure RBAC z usługą AKS na potrzeby autoryzacji Kubernetes](#azure-rbac-for-kubernetes-authorization-preview).
+Istnieją dwa poziomy dostępu potrzebne do pełnego działania klastra usługi AKS: 
+* [Uzyskaj dostęp do zasobu usługi AKS w ramach subskrypcji platformy Azure.](#azure-rbac-to-authorize-access-to-the-aks-resource) 
+  * Kontroluj skalowanie lub uaktualnianie klastra przy użyciu interfejsów API usługi AKS.
+  * Ściągnij swój `kubeconfig` .
+* Dostęp do interfejsu API platformy Kubernetes. Ten dostęp jest kontrolowany przez:
+  * [RBAC (tradycyjnie) kubernetes.](#kubernetes-rbac)
+  * [Integrowanie kontroli RBAC platformy Azure z usługą AKS w celu autoryzacji kubernetes.](#azure-rbac-for-kubernetes-authorization-preview)
 
-### <a name="azure-rbac-to-authorize-access-to-the-aks-resource"></a>Uwierzytelnianie RBAC platformy Azure w celu autoryzacji dostępu do zasobu AKS
+### <a name="azure-rbac-to-authorize-access-to-the-aks-resource"></a>Azure RBAC do autoryzacji dostępu do zasobu usługi AKS
 
-Korzystając z usługi Azure RBAC, możesz udostępnić użytkownikom (lub tożsamościom) szczegółowy dostęp do zasobów AKS w ramach jednej lub kilku subskrypcji. Można na przykład użyć [roli współautor usługi Azure Kubernetes](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-contributor-role) do skalowania i uaktualniania klastra. Tymczasem inny użytkownik z [rolą administratora klastra usługi Azure Kubernetes Service](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role) ma uprawnienia do ściągania administratora `kubeconfig` .
+Dzięki kontroli dostępu na podstawie ról platformy Azure możesz zapewnić użytkownikom (lub tożsamościom) szczegółowy dostęp do zasobów usługi AKS w co najmniej jednej subskrypcji. Możesz na przykład użyć roli [współautora Azure Kubernetes Service,](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-contributor-role) aby skalować i uaktualnić klaster. W międzyczasie inny użytkownik z rolą [Azure Kubernetes Service klastra](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role) ma uprawnienia tylko do ściągania administratora `kubeconfig` .
 
-Alternatywnie można nadać użytkownikowi rolę rola [współautor](../role-based-access-control/built-in-roles.md#contributor) ogólna. Za pomocą ogólnej roli współautor użytkownicy mogą wykonywać powyższe uprawnienia i wszystkie akcje możliwe dla zasobu AKS, z wyjątkiem zarządzania uprawnieniami.
+Alternatywnie możesz nadać użytkownikowi ogólną rolę [Współautor.](../role-based-access-control/built-in-roles.md#contributor) Dzięki ogólnej roli Współautor użytkownicy mogą wykonywać powyższe uprawnienia i wykonywać każdą możliwą akcję w zasobie usługi AKS, z wyjątkiem zarządzania uprawnieniami.
 
-Za [pomocą usługi Azure RBAC Zdefiniuj dostęp do pliku konfiguracji Kubernetes w AKS](control-kubeconfig-access.md).
+[Użyj funkcji RBAC platformy Azure, aby zdefiniować dostęp do pliku konfiguracji platformy Kubernetes w usłudze AKS.](control-kubeconfig-access.md)
 
-### <a name="azure-rbac-for-kubernetes-authorization-preview"></a>Azure RBAC dla autoryzacji Kubernetes (wersja zapoznawcza)
+### <a name="azure-rbac-for-kubernetes-authorization-preview"></a>Azure RBAC for Kubernetes Authorization (wersja zapoznawcza)
 
-Dzięki integracji z usługą Azure RBAC AKS będzie używać serwera elementu webhook autoryzacji Kubernetes, dzięki czemu można zarządzać uprawnieniami i przypisaniami zasobów klastra zintegrowanym z usługą Azure AD, korzystając z definicji ról i przypisań ról platformy Azure.
+Dzięki integracji RBAC platformy Azure usługa AKS będzie używać serwera webhook autoryzacji Kubernetes, aby zarządzać uprawnieniami i przypisaniami zasobów klastra Kubernetes zintegrowanymi z usługą Azure AD przy użyciu definicji ról i przypisań ról platformy Azure.
 
-![Przepływ autoryzacji usługi Azure RBAC dla Kubernetes](media/concepts-identity/azure-rbac-k8s-authz-flow.png)
+![Azure RBAC for Kubernetes authorization flow (Azure RBAC dla przepływu autoryzacji platformy Kubernetes)](media/concepts-identity/azure-rbac-k8s-authz-flow.png)
 
-Jak pokazano na powyższym diagramie, podczas korzystania z integracji z usługą Azure RBAC wszystkie żądania kierowane do interfejsu API Kubernetes będą zgodne z tym samym przepływem uwierzytelniania, co zostało opisane w [sekcji integracja Azure Active Directory](#azure-ad-integration). 
+Jak pokazano na powyższym diagramie, podczas korzystania z integracji RBAC platformy Azure wszystkie żądania do interfejsu API Kubernetes będą postępować zgodnie z tym samym przepływem uwierzytelniania, co wyjaśniono w sekcji integracji Azure Active Directory [azure.](#azure-ad-integration) 
 
-Jeśli tożsamość wysyłająca żądanie istnieje w usłudze Azure AD, platforma Azure będzie mogła autoryzować żądanie przy użyciu Kubernetes RBAC. Jeśli tożsamość istnieje poza usługą Azure AD (tj. kontem usługi Kubernetes), autoryzacja pozostanie w normalnym Kubernetes RBAC.
+Jeśli tożsamość, która żąda, istnieje w usłudze Azure AD, platforma Azure będzie skojarzeń z RBAC platformy Kubernetes w celu autoryzowania żądania. Jeśli tożsamość istnieje poza usługą Azure AD (tj. kontem usługi Kubernetes), autoryzacja będzie odraczać normalne użycie kontroli RBAC platformy Kubernetes.
 
-W tym scenariuszu używane są mechanizmy i interfejsy API platformy Azure do przypisywania ról wbudowanych użytkowników lub tworzenia ról niestandardowych w taki sam sposób jak w przypadku ról Kubernetes. 
+W tym scenariuszu użyjemy mechanizmów kontroli RBAC platformy Azure i interfejsów API do przypisywania wbudowanych ról użytkowników lub tworzenia ról niestandardowych, podobnie jak w przypadku ról platformy Kubernetes. 
 
-Korzystając z tej funkcji, nie tylko przyznasz użytkownikom uprawnienia do zasobu AKS w różnych subskrypcjach, ale konfigurujesz także rolę i uprawnienia dla każdego z tych klastrów kontrolujących dostęp do interfejsu API Kubernetes. Na przykład można udzielić `Azure Kubernetes Service RBAC Viewer` roli w zakresie subskrypcji. Odbiorca roli będzie mógł wyświetlać i pobierać wszystkie obiekty Kubernetes ze wszystkich klastrów bez konieczności ich modyfikowania.
+Dzięki tej funkcji nie tylko udzielasz użytkownikom uprawnień do zasobu usługi AKS w różnych subskrypcjach, ale także konfigurujesz rolę i uprawnienia dla każdego z tych klastrów kontrolujących dostęp do interfejsu API kubernetes. Możesz na przykład udzielić `Azure Kubernetes Service RBAC Viewer` roli w zakresie subskrypcji. Odbiorca roli będzie mógł wyświetlić listę i pobrać wszystkie obiekty Kubernetes ze wszystkich klastrów bez ich modyfikowania.
 
 > [!IMPORTANT]
-> Przed rozpoczęciem korzystania z tej funkcji należy włączyć uwierzytelnianie RBAC systemu Azure na potrzeby autoryzacji Kubernetes. Aby uzyskać szczegółowe informacje i wskazówki krok po kroku, Skorzystaj z naszego przewodnika dotyczącego [autoryzacji usługi Azure Kubernetes](manage-azure-rbac.md) .
+> Przed użyciem tej funkcji należy włączyć funkcję RBAC platformy Azure dla autoryzacji platformy Kubernetes. Aby uzyskać więcej szczegółów i wskazówki krok po kroku, postępuj zgodnie z instrukcje w przewodniku [Use Azure RBAC for Kubernetes Authorization](manage-azure-rbac.md) (Używanie kontroli RBAC platformy Azure dla autoryzacji kubernetes).
 
 #### <a name="built-in-roles"></a>Wbudowane role
 
-AKS udostępnia następujące cztery wbudowane role. Są one podobne do [wbudowanych ról Kubernetes](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) z kilkoma różnicami, takimi jak obsługa CRDs. Zapoznaj się z pełną listą akcji dozwolonych przez każdą [wbudowaną rolę platformy Azure](../role-based-access-control/built-in-roles.md).
+AKS udostępnia następujące cztery wbudowane role. Są one podobne do wbudowanych [ról kubernetes](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) z kilkoma różnicami, takich jak obsługa CLD. Zobacz pełną listę akcji dozwolonych przez każdą wbudowaną rolę [platformy Azure.](../role-based-access-control/built-in-roles.md)
 
 | Rola                                | Opis  |
 |-------------------------------------|--------------|
-| Przeglądarka RBAC usługi Azure Kubernetes Service  | Zezwala na dostęp tylko do odczytu do wyświetlania większości obiektów w przestrzeni nazw. <br> Nie zezwala na wyświetlanie ról ani powiązań ról.<br> Nie zezwala na wyświetlanie `Secrets` . Odczytywanie `Secrets` zawartości umożliwia dostęp do `ServiceAccount` poświadczeń w przestrzeni nazw, co umożliwia dostęp do interfejsu API jako dowolne `ServiceAccount` w przestrzeni nazw (w formie eskalacji uprawnień).  |
-| Składnik zapisywania RBAC usługi Azure Kubernetes Service | Zezwala na dostęp do odczytu/zapisu do większości obiektów w przestrzeni nazw. <br> Nie zezwala na przeglądanie ani modyfikowanie ról ani powiązań ról. <br> Zezwala na dostęp do `Secrets` i uruchamianie zasobników jako dowolne konto ServiceAccount w przestrzeni nazw, dlatego może służyć do uzyskania poziomów dostępu interfejsu API dowolnego konta ServiceAccount w przestrzeni nazw. |
-| Administrator RBAC usługi Azure Kubernetes Service  | Zezwala na dostęp administratora, który ma być przyznany w przestrzeni nazw. <br> Zezwala na dostęp do odczytu/zapisu do większości zasobów w przestrzeni nazw (lub zakresie klastra), w tym możliwość tworzenia ról i powiązań ról w przestrzeni nazw. <br> Nie zezwala na dostęp do zapisu do przydziału zasobów lub do samego obszaru nazw. |
-| Administrator klastra RBAC usługi Azure Kubernetes Service  | Zezwala na dostęp administratora do wykonywania dowolnych akcji względem dowolnego zasobu. <br> Zapewnia pełną kontrolę nad każdym zasobem w klastrze i we wszystkich przestrzeniach nazw. |
+| Azure Kubernetes Service RBAC Viewer  | Zezwala na dostęp tylko do odczytu, aby wyświetlić większość obiektów w przestrzeni nazw. <br> Nie zezwala na wyświetlanie ról ani powiązań ról.<br> Nie zezwala na `Secrets` wyświetlanie . Odczytywanie zawartości umożliwia dostęp do poświadczeń w przestrzeni nazw, co umożliwia dostęp do interfejsu API jako dowolny w przestrzeni nazw `Secrets` `ServiceAccount` `ServiceAccount` (w formie podwyżsenia poziomu uprawnień).  |
+| Azure Kubernetes Service RBAC Writer | Umożliwia dostęp do odczytu/zapisu do większości obiektów w przestrzeni nazw. <br> Nie zezwala na wyświetlanie lub modyfikowanie ról ani powiązań ról. <br> Umożliwia uzyskiwanie dostępu do zasobników i uruchamianie ich jako dowolnego konta usługi w przestrzeni nazw, dzięki czemu może służyć do uzyskiwania poziomów dostępu do interfejsu API dowolnego konta usługi w `Secrets` przestrzeni nazw. |
+| Azure Kubernetes Service RBAC Admin  | Zezwala na dostęp administratora, który ma zostać przyznany w przestrzeni nazw. <br> Umożliwia dostęp do odczytu/zapisu do większości zasobów w przestrzeni nazw (lub zakresie klastra), w tym na możliwość tworzenia ról i powiązań ról w przestrzeni nazw. <br> Nie zezwala na dostęp do zapisu do limitu przydziału zasobów ani do samej przestrzeni nazw. |
+| Azure Kubernetes Service RBAC Cluster Admin  | Umożliwia superuzyskonom dostęp do wykonywania dowolnych akcji na dowolnym zasobie. <br> Zapewnia pełną kontrolę nad każdym zasobem w klastrze i we wszystkich przestrzeniach nazw. |
 
 
 ## <a name="summary"></a>Podsumowanie
 
-Wyświetl tabelę, aby zapoznać się z krótkim podsumowaniem, jak użytkownicy mogą uwierzytelniać się w usłudze Kubernetes, gdy jest włączona integracja z usługą Azure AD. We wszystkich przypadkach sekwencja poleceń użytkownika jest:
-1. Uruchom `az login` w celu uwierzytelnienia na platformie Azure.
-1. Uruchom `az aks get-credentials` , aby pobrać poświadczenia dla klastra do programu `.kube/config` .
-1. Uruchom `kubectl` polecenia. 
-   * Pierwsze polecenie może wyzwolić uwierzytelnianie na podstawie przeglądarki w celu uwierzytelnienia w klastrze, zgodnie z opisem w poniższej tabeli.
+Wyświetl tabelę, aby uzyskać krótkie podsumowanie sposobu uwierzytelniania użytkowników na platformie Kubernetes po włączeniu integracji z usługą Azure AD. We wszystkich przypadkach sekwencja poleceń użytkownika to:
+1. Uruchom , `az login` aby uwierzytelnić się na platformie Azure.
+1. Uruchom `az aks get-credentials` , aby pobrać poświadczenia dla klastra do systemu `.kube/config` .
+1. Uruchamianie `kubectl` poleceń. 
+   * Pierwsze polecenie może wyzwolić uwierzytelnianie oparte na przeglądarce w celu uwierzytelnienia w klastrze, zgodnie z opisem w poniższej tabeli.
 
-W Azure Portal można znaleźć następujące informacje:
-* *Przyznanie roli* (przyznanie roli RBAC platformy Azure), do którego odwołuje się w drugiej kolumnie, jest wyświetlane na karcie **Access Control** . 
-* Grupa Administratorzy klastra usługi Azure AD jest wyświetlana na karcie **Konfiguracja** .
-  * Znaleziono również nazwę parametru `--aad-admin-group-object-ids` w interfejsie wiersza polecenia platformy Azure.
+W Azure Portal znajdują się:
+* Na *karcie Usługi* zarządzania rolami jest wyświetlana nazwa grant roli (przyznawanie roli RBAC platformy Azure), o której Access Control w **drugiej kolumnie.** 
+* Grupa administratorów klastra usługi Azure AD jest wyświetlana na **karcie** Konfiguracja.
+  * Można go również znaleźć z nazwą parametru `--aad-admin-group-object-ids` w interfejsie wiersza polecenia platformy Azure.
 
 
-| Opis        | Wymagane przyznanie roli| Administratorzy klastra: grupy usługi Azure AD | Kiedy stosować |
+| Opis        | Wymagane przyznanie roli| Grupy usługi Azure AD administratora klastra | Kiedy stosować |
 | -------------------|------------|----------------------------|-------------|
-| Starsze logowanie administratora przy użyciu certyfikatu klienta| **Rola administratora usługi Azure Kubernetes**. Ta rola umożliwia `az aks get-credentials` użycie z `--admin` flagą, która pobiera [starszy certyfikat administratora klastra (poza usługą Azure AD)](control-kubeconfig-access.md) do użytkownika `.kube/config` . Jest to jedyne przeznaczenie roli administratora usługi Azure Kubernetes.|n/d|Jeśli użytkownik jest trwale zablokowany przez nie ma dostępu do prawidłowej grupy usługi Azure AD z dostępem do klastra.| 
-| Usługa Azure AD z ręcznym (klastrowym) RoleBindings| **Rola użytkownika Azure Kubernetes**. Rola "użytkownik" pozwala `az aks get-credentials` używać bez `--admin` flagi. (Jest to jedyne przeznaczenie roli użytkownika Azure Kubernetes). W przypadku klastra z obsługą usługi Azure AD jest pobierane [puste wpisy](control-kubeconfig-access.md) w usłudze `.kube/config` , które wyzwalają uwierzytelnianie oparte na przeglądarce, gdy są one najpierw używane przez program `kubectl` .| Użytkownik nie należy do żadnej z tych grup. Ze względu na to, że użytkownik nie należy do żadnych grup administratorów klastra, ich prawa będą kontrolowane w całości przez wszystkie RoleBindings lub ClusterRoleBindings, które zostały skonfigurowane przez administratorów klastrów. (Klaster) RoleBindings wyznaczanie [użytkowników usługi Azure AD lub grup usługi Azure AD](azure-ad-rbac.md) jako ich `subjects` . Jeśli nie skonfigurowano takich powiązań, użytkownik nie będzie mógł excute żadnych `kubectl` poleceń.|Jeśli chcesz uzyskać precyzyjną kontrolę dostępu i nie używasz usługi Azure RBAC do autoryzacji Kubernetes. Należy pamiętać, że użytkownik, który konfiguruje powiązania, musi zalogować się przy użyciu jednej z innych metod wymienionych w tej tabeli.|
-| Usługa Azure AD według członków grupy administratorów| Jak wyżej|Użytkownik jest członkiem jednej z wymienionych tutaj grup. AKS automatycznie generuje ClusterRoleBinding, który wiąże wszystkie wymienione grupy z `cluster-admin` rolą Kubernetes. Aby użytkownicy w tych grupach mogli uruchamiać wszystkie `kubectl` polecenia jako `cluster-admin` .|Jeśli chcesz wygodnie udzielić użytkownikom pełnych praw administratora i _nie_ korzystali z usługi Azure RBAC na potrzeby autoryzacji Kubernetes.|
-| Usługa Azure AD z uwierzytelnianiem RBAC platformy Azure dla usługi Kubernetes|Dwie role: <br> Najpierw **rola użytkownika Azure Kubernetes** (jak powyżej). <br> Druga — jedną z " **RBAC** usługi Azure Kubernetes Service..." role wymienione powyżej lub własne alternatywy niestandardowe.|Pole role administratora na karcie Konfiguracja jest nieistotne, gdy jest włączone uwierzytelnianie RBAC platformy Azure dla usługi Kubernetes.|Używasz usługi Azure RBAC do autoryzacji Kubernetes. Takie podejście zapewnia szczegółową kontrolę, bez konieczności konfigurowania RoleBindings lub ClusterRoleBindings.|
+| Logowanie starszego administratora przy użyciu certyfikatu klienta| **Rola administratora usługi Azure Kubernetes.** Ta rola umożliwia korzystanie z flagi , która pobiera starszy certyfikat administratora klastra (spoza usługi `az aks get-credentials` `--admin` Azure [AD)](control-kubeconfig-access.md) do witryny `.kube/config` użytkownika . Jest to jedyny cel "roli administratora usługi Azure Kubernetes".|n/d|Jeśli dostęp do prawidłowej grupy usługi Azure AD z dostępem do klastra zostanie trwale zablokowany.| 
+| Usługa Azure AD z ręcznymi (klastrami)wiązaniami ról| **Rola użytkownika usługi Azure Kubernetes.** Rola "Użytkownik" umożliwia `az aks get-credentials` korzystanie bez `--admin` flagi . (Jest to jedyny cel "roli użytkownika usługi Azure Kubernetes"). Wynikiem w klastrze z włączoną usługą [](control-kubeconfig-access.md) Azure AD jest pobranie pustego wpisu do usługi , który wyzwala uwierzytelnianie oparte na przeglądarce, gdy zostanie po raz `.kube/config` pierwszy użyte przez usługę `kubectl` .| Użytkownik nie należy do żadnej z tych grup. Ponieważ użytkownik nie należy do żadnych grup administratorów klastra, jego prawa będą całkowicie kontrolowane przez dowolne ustawienia RoleBindings lub ClusterRoleBindings, które zostały ustawione przez administratorów klastra. (Klaster)RoleBindings (Klaster)RoleBindings (Klastry) noszą użytkowników usługi [Azure AD lub grupy usługi Azure AD](azure-ad-rbac.md) jako swoje grupy `subjects` . Jeśli żadne takie powiązania nie zostały ustawione, użytkownik nie będzie mógł wytłaniać żadnych `kubectl` poleceń.|Jeśli potrzebujesz precyzyjnej kontroli dostępu, a nie używasz kontroli dostępu na RBAC platformy Azure do autoryzacji kubernetes. Należy pamiętać, że użytkownik, który konfiguruje powiązania, musi zalogować się za pomocą jednej z innych metod wymienionych w tej tabeli.|
+| Usługa Azure AD według członka grupy administratorów| Jak wyżej|Użytkownik jest członkiem jednej z grup wymienionych tutaj. Usługa AKS automatycznie generuje klaster ClusterRoleBinding, który wiąże wszystkie wymienione grupy z rolą `cluster-admin` Kubernetes. Dzięki czemu użytkownicy w tych grupach mogą uruchamiać `kubectl` wszystkie polecenia jako `cluster-admin` .|Jeśli chcesz wygodnie przyznać użytkownikom pełne  prawa administratora i nie używasz funkcji RBAC platformy Azure do autoryzacji kubernetes.|
+| Usługa Azure AD z RBAC platformy Azure na celu autoryzację kubernetes|Dwie role: <br> Najpierw rola **użytkownika usługi Azure Kubernetes** (jak powyżej). <br> Po drugie, jeden z "Azure Kubernetes Service **RBAC..."** wymienione powyżej lub własne niestandardowe alternatywy.|Pole role administratora na karcie Konfiguracja nie ma znaczenia, gdy jest włączona funkcja RBAC platformy Azure dla autoryzacji kubernetes.|Używasz kontroli RBAC platformy Azure do autoryzacji platformy Kubernetes. Takie podejście zapewnia precyzyjne sterowanie bez konieczności konfiguracji po stronie rolebindings ani clusterRoleBindings.|
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby rozpocząć pracę z usługą Azure AD i Kubernetes RBAC, zobacz [integrowanie Azure Active Directory z AKS][aks-aad].
-- W przypadku skojarzonych najlepszych rozwiązań zapoznaj się [z najlepszymi rozwiązaniami dotyczącymi uwierzytelniania i autoryzacji w programie AKS][operator-best-practices-identity].
-- Aby rozpocząć korzystanie z usługi Azure RBAC na potrzeby autoryzacji Kubernetes, zobacz [Używanie usługi Azure RBAC do autoryzacji dostępu w klastrze usługi Azure Kubernetes Service (AKS)](manage-azure-rbac.md).
-- Aby rozpocząć Zabezpieczanie `kubeconfig` pliku, zobacz [ograniczanie dostępu do pliku konfiguracji klastra](control-kubeconfig-access.md)
+- Aby rozpocząć pracę z usługą Azure AD i kontroli RBAC na platformie Kubernetes, zobacz [Integrate Azure Active Directory with AKS (Integracja aplikacji Azure Active Directory usługą AKS).][aks-aad]
+- Aby uzyskać skojarzone najlepsze rozwiązania, zobacz Best practices for authentication and authorization in AKS (Najlepsze rozwiązania dotyczące uwierzytelniania [i autoryzacji w u usługi AKS).][operator-best-practices-identity]
+- Aby rozpocząć pracę z usługą Azure RBAC na użytek autoryzacji Kubernetes, zobacz Używanie kontroli dostępu na platformie Azure do autoryzowania dostępu [w ramach klastra usługi Azure Kubernetes Service (AKS).](manage-azure-rbac.md)
+- Aby rozpocząć zabezpieczanie `kubeconfig` pliku, zobacz [Ograniczanie dostępu do pliku konfiguracji klastra](control-kubeconfig-access.md)
 
-Aby uzyskać więcej informacji na temat podstawowych pojęć związanych z Kubernetes i AKS, zobacz następujące artykuły:
+Aby uzyskać więcej informacji na temat podstawowych pojęć dotyczących rozwiązania Kubernetes i AKS, zobacz następujące artykuły:
 
-- [Kubernetes/AKS klastrów i obciążeń][aks-concepts-clusters-workloads]
-- [Zabezpieczenia Kubernetes/AKS][aks-concepts-security]
-- [Sieci wirtualne Kubernetes/AKS][aks-concepts-network]
+- [Klastry i obciążenia Kubernetes/AKS][aks-concepts-clusters-workloads]
+- [Zabezpieczenia kubernetes/AKS][aks-concepts-security]
+- [Sieci wirtualne kubernetes/AKS][aks-concepts-network]
 - [Magazyn Kubernetes/AKS][aks-concepts-storage]
-- [Skala Kubernetes/AKS][aks-concepts-scale]
+- [Skala kubernetes/AKS][aks-concepts-scale]
 
 <!-- LINKS - External -->
 [kubernetes-authentication]: https://kubernetes.io/docs/reference/access-authn-authz/authentication
@@ -267,7 +267,7 @@ Aby uzyskać więcej informacji na temat podstawowych pojęć związanych z Kube
 
 <!-- LINKS - Internal -->
 [openid-connect]: ../active-directory/develop/v2-protocols-oidc.md
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [azure-rbac]: ../role-based-access-control/overview.md
 [aks-aad]: managed-aad.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md

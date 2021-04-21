@@ -1,36 +1,39 @@
 ---
-title: Przepływy pracy akcji GitHub dla Web Apps statycznej platformy Azure
-description: Dowiedz się, jak za pomocą repozytoriów usługi GitHub skonfigurować ciągłe wdrażanie w usłudze Azure static Web Apps.
+title: GitHub Actions przepływów pracy dla Azure Static Web Apps
+description: Dowiedz się, jak za pomocą repozytoriów GitHub skonfigurować ciągłe wdrażanie w Azure Static Web Apps.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: 4f1f432da33bded4fc0f04170673e5943dec5fb0
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: b20a1670c13a272ed48088567a205d854ac99179
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311332"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791251"
 ---
-# <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Przepływy pracy akcji GitHub dla usługi Azure static Web Apps Preview
+# <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>GitHub Actions przepływów pracy dla wersji Azure Static Web Apps zapoznawczej
 
-Podczas tworzenia nowego zasobu statycznej aplikacji sieci Web platformy Azure Program Azure generuje przepływ pracy akcji GitHub, który umożliwia kontrolowanie ciągłego wdrażania aplikacji. Przepływ pracy jest oparty na pliku YAML. Ten artykuł zawiera szczegółowe informacje dotyczące struktury i opcji pliku przepływu pracy.
+Po utworzeniu nowego zasobu Azure Static Web Apps platforma Azure GitHub Actions przepływ pracy w celu kontrolowania ciągłego wdrażania aplikacji. Przepływ pracy jest sterowany przez plik YAML. W tym artykule o szczegółowe informacje o strukturze i opcjach pliku przepływu pracy.
 
-Wdrożenia są inicjowane przez [wyzwalacze](#triggers), które uruchamiają [zadania](#jobs) zdefiniowane przez poszczególne [etapy](#steps).
+Wdrożenia są inicjowane przez [wyzwalacze](#triggers), które uruchamiają [zadania](#jobs) zdefiniowane przez poszczególne [kroki](#steps).
+
+> [!NOTE]
+> Azure Static Web Apps obsługuje również Azure DevOps. Aby [uzyskać informacje Azure DevOps](publish-devops.md) konfigurowania potoku, zobacz Publikowanie za pomocą Azure DevOps z raportami.
 
 ## <a name="file-location"></a>Lokalizacja pliku
 
-Po połączeniu repozytorium GitHub z usługą Azure static Web Apps do repozytorium zostanie dodany plik przepływu pracy.
+Po podaniu linku do repozytorium GitHub Azure Static Web Apps do repozytorium zostanie dodany plik przepływu pracy.
 
 Wykonaj następujące kroki, aby wyświetlić wygenerowany plik przepływu pracy.
 
-1. Otwórz repozytorium aplikacji w serwisie GitHub.
-1. Na karcie _kod_ kliknij `.github/workflows` folder.
-1. Kliknij plik o nazwie, która wygląda podobnie `azure-static-web-apps-<RANDOM_NAME>.yml` .
+1. Otwórz repozytorium aplikacji w witrynie GitHub.
+1. Na karcie _Kod_ kliknij `.github/workflows` folder .
+1. Kliknij plik o nazwie podobnej do `azure-static-web-apps-<RANDOM_NAME>.yml` .
 
-Plik YAML w repozytorium będzie wyglądać podobnie do poniższego przykładu:
+Plik YAML w repozytorium będzie podobny do następującego przykładu:
 
 ```yml
 name: Azure Static Web Apps CI/CD
@@ -81,7 +84,7 @@ jobs:
 
 ## <a name="triggers"></a>Wyzwalacze
 
-[Wyzwalacz](https://help.github.com/actions/reference/events-that-trigger-workflows) akcji usługi GitHub powiadamia przepływ pracy z akcjami usługi GitHub w celu uruchomienia zadań opartych na wyzwalaczach zdarzeń. Wyzwalacze są wyświetlane przy użyciu `on` właściwości w pliku przepływu pracy.
+Wyzwalacz GitHub Actions [powiadamia](https://help.github.com/actions/reference/events-that-trigger-workflows) przepływ pracy GitHub Actions o uruchomieniu zadania na podstawie wyzwalaczy zdarzeń. Wyzwalacze są wyświetlane przy użyciu `on` właściwości w pliku przepływu pracy.
 
 ```yml
 on:
@@ -94,20 +97,20 @@ on:
       - main
 ```
 
-Za pomocą ustawień skojarzonych z `on` właściwością można zdefiniować gałęzie wyzwalające zadanie i ustawić wyzwalacze do uruchamiania dla różnych stanów żądań ściągnięcia.
+Za pomocą ustawień skojarzonych z właściwością można zdefiniować, które gałęzie wyzwalają zadanie, i ustawić wyzwalacze do wyzwalania `on` dla różnych stanów żądania ściągnnięcia.
 
-W tym przykładzie przepływ pracy jest uruchamiany z chwilą zmiany gałęzi _głównej_ . Zmiany rozpoczynające przepływ pracy obejmują wypychanie zatwierdzeń i otwieranie żądań ściągnięcia względem wybranej gałęzi.
+W tym przykładzie przepływ pracy jest uruchomiony w przypadku _zmiany gałęzi_ głównej. Zmiany, które uruchamiają przepływ pracy, obejmują wypychanie zatwierdzeń i otwieranie żądań ściągnięć dla wybranej gałęzi.
 
 ## <a name="jobs"></a>Stanowiska
 
-Każdy wyzwalacz zdarzenia wymaga programu obsługi zdarzeń. [Zadania](https://help.github.com/actions/reference/workflow-syntax-for-github-actions#jobs) definiują, co się dzieje w przypadku wyzwolenia zdarzenia.
+Każdy wyzwalacz zdarzenia wymaga programu obsługi zdarzeń. [Zadania](https://help.github.com/actions/reference/workflow-syntax-for-github-actions#jobs) definiują, co się dzieje po wyzwoleniu zdarzenia.
 
-W pliku statycznego przepływu pracy Web Apps są dostępne dwa zadania.
+W pliku Static Web Apps przepływu pracy dostępne są dwa zadania.
 
 | Nazwa                     | Opis                                                                                                    |
 | ------------------------ | -------------------------------------------------------------------------------------------------------------- |
-| `build_and_deploy_job`   | Wykonuje się w przypadku wypychania zatwierdzeń lub otwarcia żądania ściągnięcia względem gałęzi wymienionej we `on` właściwości.          |
-| `close_pull_request_job` | Wykonuje tylko po zamknięciu żądania ściągnięcia, które usuwa środowisko przejściowe utworzone na podstawie żądań ściągnięcia. |
+| `build_and_deploy_job`   | Jest wykonywane podczas wypychania zatwierdzeń lub otwierania żądania ściągnnięcia względem gałęzi wymienionej we właściwości `on` .          |
+| `close_pull_request_job` | Wykonuje polecenie TYLKO po zamknięciu żądania ściągnięcia, co powoduje usunięcie środowiska przejściowego utworzonego z żądań ściągnięcia. |
 
 ## <a name="steps"></a>Kroki
 
@@ -117,12 +120,12 @@ Plik przepływu pracy definiuje następujące kroki.
 
 | Zadanie                      | Kroki                                                                                                                              |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
-| `build_and_deploy_job`   | <ol><li>Sprawdza repozytorium w środowisku działania.<li>Kompiluje i wdraża repozytorium w usłudze Azure static Web Apps.</ol> |
-| `close_pull_request_job` | <ol><li>Powiadamia Web Apps statycznej platformy Azure o zamknięciu żądania ściągnięcia.</ol>                                                        |
+| `build_and_deploy_job`   | <ol><li>Sprawdza repozytorium w środowisku akcji.<li>Kompilowanie i wdrażanie repozytorium w Azure Static Web Apps.</ol> |
+| `close_pull_request_job` | <ol><li>Powiadamia Azure Static Web Apps, że żądanie ściągnięto.</ol>                                                        |
 
 ## <a name="build-and-deploy"></a>Tworzenie i wdrażanie
 
-Krok o nazwie `Build and Deploy` builds i Deploys w wystąpieniu usługi Azure Static Web Apps. W `with` sekcji można dostosować następujące wartości dla danego wdrożenia.
+Krok o nazwie `Build and Deploy` jest kompilowany i wdrażany w Azure Static Web Apps wystąpienia. W sekcji `with` możesz dostosować następujące wartości dla swojego wdrożenia.
 
 ```yml
 with:
@@ -138,24 +141,24 @@ with:
 
 [!INCLUDE [static-web-apps-folder-structure](../../includes/static-web-apps-folder-structure.md)]
 
-`repo_token`Wartości, `action` , i `azure_static_web_apps_api_token` są ustawiane przez statyczne Web Apps platformy Azure, nie powinny być ręcznie zmieniane.
+Wartości `repo_token` `action` , i są `azure_static_web_apps_api_token` ustawiane automatycznie, Azure Static Web Apps nie należy zmieniać ręcznie.
 
 ## <a name="custom-build-commands"></a>Niestandardowe polecenia kompilacji
 
-Możesz mieć precyzyjną kontrolę nad tym, jakie polecenia są uruchamiane podczas wdrażania. Poniższe polecenia można zdefiniować w `with` sekcji zadania.
+Możesz mieć precyzyjne sterowanie tym, jakie polecenia są uruchamiane podczas wdrażania. Poniższe polecenia można zdefiniować w sekcji `with` zadania.
 
-Wdrożenie zawsze wywołuje `npm install` przed dowolnym poleceniem niestandardowym.
+Wdrożenie zawsze wywołuje przed `npm install` każdym poleceniem niestandardowym.
 
 | Polecenie             | Opis                                                                                                                                                                                                                                                                                                                                                                                |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `app_build_command` | Definiuje niestandardowe polecenie do uruchomienia podczas wdrażania aplikacji zawartości statycznej.<br><br>Na przykład, aby skonfigurować kompilację produkcyjną dla aplikacji kątowej, należy utworzyć skrypt npm o nazwie `build-prod` do uruchomienia `ng build --prod` i wprowadzić `npm run build-prod` jako polecenie niestandardowe. Jeśli pole pozostanie puste, przepływ pracy próbuje `npm run build` uruchomić `npm run build:azure` polecenia lub. |
-| `api_build_command` | Definiuje niestandardowe polecenie do uruchomienia podczas wdrażania aplikacji interfejsu API Azure Functions.                                                                                                                                                                                                                                                                                                  |
+| `app_build_command` | Definiuje niestandardowe polecenie do uruchomienia podczas wdrażania aplikacji zawartości statycznej.<br><br>Aby na przykład skonfigurować kompilację produkcyjną dla aplikacji Angular, utwórz skrypt npm o nazwie do uruchomienia i wprowadź polecenie `build-prod` `ng build --prod` jako polecenie `npm run build-prod` niestandardowe. Jeśli pole pozostaje puste, przepływ pracy próbuje uruchomić `npm run build` polecenia lub `npm run build:azure` . |
+| `api_build_command` | Definiuje niestandardowe polecenie do uruchomienia podczas wdrażania aplikacji Azure Functions API.                                                                                                                                                                                                                                                                                                  |
 
-## <a name="skip-app-build"></a>Pomiń kompilację aplikacji
+## <a name="skip-app-build"></a>Pomijanie kompilacji aplikacji
 
-Jeśli potrzebujesz pełnej kontroli nad sposobem budowania aplikacji frontonu, możesz dodać niestandardowe kroki kompilacji do przepływu pracy. Następnie można skonfigurować akcję statycznej Web Apps, aby pominąć proces automatycznego kompilowania i po prostu wdrożyć aplikację utworzoną w poprzednim kroku.
+Jeśli potrzebujesz pełnej kontroli nad tworzeniem aplikacji frontonie, możesz dodać niestandardowe kroki kompilacji w przepływie pracy. Następnie możesz skonfigurować akcję Static Web Apps, aby pominąć proces automatycznej kompilacji i po prostu wdrożyć aplikację skompilowaną w poprzednim kroku.
 
-Aby pominąć Kompilowanie aplikacji, ustaw `skip_app_build` na `true` i `app_location` lokalizację folderu do wdrożenia.
+Aby pominąć tworzenie aplikacji, ustaw na i `skip_app_build` `true` na `app_location` lokalizację folderu do wdrożenia.
 
 ```yml
 with:
@@ -172,24 +175,27 @@ with:
 
 | Właściwość         | Opis                                                 |
 | ---------------- | ----------------------------------------------------------- |
-| `skip_app_build` | Ustaw wartość na `true` , aby pominąć tworzenie aplikacji frontonu. |
+| `skip_app_build` | Ustaw wartość na , `true` aby pominąć tworzenie aplikacji frontonie. |
 
 > [!NOTE]
-> Możesz pominąć kompilację tylko dla aplikacji frontonu. Jeśli aplikacja ma interfejs API, nadal będzie ona skompilowana za pomocą akcji Web Apps w witrynie GitHub.
+> Kompilację dla aplikacji frontonie można pominąć tylko. Jeśli aplikacja ma interfejs API, nadal będzie budowaną za pomocą Static Web Apps GitHub.
 
 ## <a name="route-file-location"></a>Lokalizacja pliku tras
 
-Możesz dostosować przepływ pracy, aby wyszukać [staticwebapp.config.js](routes.md) w dowolnym folderze w repozytorium. Poniższe właściwości można zdefiniować w `with` sekcji zadania.
+Możesz dostosować przepływ pracy, aby szukaćroutes.js[ w](routes.md) dowolnym folderze w repozytorium. Następującą właściwość można zdefiniować w sekcji `with` zadania.
 
 | Właściwość          | Opis                                                                                                                                 |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `routes_location` | Określa lokalizację katalogu, w którym znajduje się _staticwebapp.config.js_ pliku. Ta lokalizacja jest określana względem katalogu głównego repozytorium. |
+| `routes_location` | Definiuje lokalizację katalogu, w _którymroutes.jsw_ pliku. Ta lokalizacja jest względna względem katalogu głównego repozytorium. |
 
-Jawne informacje o lokalizacji _staticwebapp.config.jsw_ pliku są szczególnie ważne, jeśli krok kompilacji platformy frontonu nie przenosi tego pliku do `output_location` domyślnego.
+Jawne informacje o lokalizacji pliku _routes.js_ są szczególnie ważne, jeśli krok kompilacji struktury frontonie domyślnie nie przenosi tego pliku `output_location` do pliku .
+
+> [!IMPORTANT]
+> Funkcje zdefiniowane w _routes.jsw pliku_ są teraz przestarzałe. Zobacz plik konfiguracji [Azure Static Web Apps,](./configuration.md) aby uzyskać informacje ostaticwebapp.config.js _na stronie_.
 
 ## <a name="environment-variables"></a>Zmienne środowiskowe
 
-Można ustawić zmienne środowiskowe dla kompilacji za pośrednictwem `env` sekcji konfiguracji zadania.
+Zmienne środowiskowe dla kompilacji można ustawić za pośrednictwem sekcji `env` konfiguracji zadania.
 
 ```yaml
 jobs:
@@ -217,9 +223,9 @@ jobs:
           HUGO_VERSION: 0.58.0
 ```
 
-## <a name="monorepo-support"></a>Obsługa wielorepozytorium
+## <a name="monorepo-support"></a>Obsługa monorepo
 
-Transrepozytorium zawiera kod dla więcej niż jednej aplikacji. Domyślnie statyczny plik przepływu pracy Web Apps śledzi wszystkie pliki w repozytorium, ale można dostosować ją do docelowej pojedynczej aplikacji. W związku z tym, w przypadku repozytoriów, każda aplikacja statyczna ma własny plik konfiguracji, który działa obok siebie w folderze _. GitHub/przepływy pracy_ repozytorium.
+Monorepo to repozytorium zawierające kod dla więcej niż jednej aplikacji. Domyślnie plik przepływu Static Web Apps śledzi wszystkie pliki w repozytorium, ale można go dostosować tak, aby był ukierunkowany na pojedynczą aplikację. W związku z tym w przypadku monorepos każda aplikacja statyczna ma własny plik konfiguracji, który znajduje się obok siebie w folderze _.github/workflows repozytorium._
 
 ```files
 ├── .github
@@ -236,9 +242,9 @@ Transrepozytorium zawiera kod dla więcej niż jednej aplikacji. Domyślnie stat
 └── README.md
 ```
 
-Aby wskazać plik przepływu pracy w pojedynczej aplikacji, należy określić ścieżki w `push` `pull_request` sekcjach i.
+Aby wskazać plik przepływu pracy dla jednej aplikacji, należy określić ścieżki w `push` sekcjach `pull_request` i .
 
-Poniższy przykład pokazuje, jak dodać `paths` węzeł do `push` `pull_request` sekcji i pliku o nazwie _Azure-static-Web-Apps-Purple-Pond. yml_.
+W poniższym przykładzie pokazano, jak dodać węzeł do sekcji i pliku o `paths` `push` nazwie `pull_request` _azure-static-web-apps-purple-yml._
 
 ```yml
 on:
@@ -259,11 +265,11 @@ on:
       - .github/workflows/azure-static-web-apps-purple-pond.yml
 ```
 
-W tym przypadku tylko zmiany wprowadzone do następujących plików wyzwalają nową kompilację:
+W tym przypadku tylko zmiany wprowadzone w następujących plikach wyzwalają nową kompilację:
 
-- Wszystkie pliki w folderze _APP1_
-- Wszystkie pliki w folderze _API1_
-- Zmiany pliku przepływu pracy _Azure-static-Web-Apps-Purple-Pond. yml_ aplikacji
+- Wszystkie pliki w _folderze app1_
+- Wszystkie pliki w _folderze api1_
+- Zmiany w pliku przepływu pracy _azure-static-web-apps-purple-html.yml_ aplikacji
 
 ## <a name="next-steps"></a>Następne kroki
 

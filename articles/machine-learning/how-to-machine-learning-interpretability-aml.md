@@ -1,7 +1,7 @@
 ---
 title: Interpretowanie & uczenia maszynowego w języku Python (wersja zapoznawcza)
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak uzyskać wyjaśnienia dotyczące sposobu, w jaki model uczenia maszynowego określa ważność funkcji i tworzy przewidywania podczas korzystania z zestawu AZURE MACHINE LEARNING SDK.
+description: Dowiedz się, jak uzyskać wyjaśnienia dotyczące sposobu, w jaki model uczenia maszynowego określa ważność funkcji i tworzy przewidywania podczas korzystania z Azure Machine Learning SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, responsible-ml
-ms.openlocfilehash: 2d60c6dbedb24847b95ce268bedafcb073421319
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: d79458cfc76adcfd35a6b8dee40c0c45786abc28
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107576520"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763293"
 ---
-# <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Użyj pakietu możliwości interpretacji, aby wyjaśnić modele uczenia maszynowego & przewidywań w języku Python (wersja zapoznawcza)
+# <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Używanie pakietu możliwości interpretowania do wyjaśniania modeli uczenia maszynowego & w języku Python (wersja zapoznawcza)
 
 Z tego przewodnika dowiesz się, jak używać pakietu możliwości interpretowania zestawu SDK Azure Machine Learning Python do wykonywania następujących zadań:
 
@@ -34,8 +34,9 @@ Z tego przewodnika dowiesz się, jak używać pakietu możliwości interpretowan
 * Wdobyj objaśnienie oceniania obok modelu, aby zaobserwować wyjaśnienia podczas wnioskowania.
 
 
-
 Aby uzyskać więcej informacji na temat obsługiwanych technik interpretacji i modeli uczenia maszynowego, zobacz Możliwości interpretowania modeli w notesach [Azure Machine Learning](how-to-machine-learning-interpretability.md) [i przykładowych notesach.](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)
+
+Aby uzyskać wskazówki dotyczące włączania możliwości interpretowania modeli wytrenowany za pomocą zautomatyzowanego uczenia maszynowego, zobacz [Interpretability: model explanations for automated machine learning models (preview) (Możliwości interpretowania:](how-to-machine-learning-interpretability-automl.md)wyjaśnienia modeli zautomatyzowanego uczenia maszynowego (wersja zapoznawcza) ). 
 
 ## <a name="generate-feature-importance-value-on-your-personal-machine"></a>Generowanie wartości ważności funkcji na komputerze osobistym 
 W poniższym przykładzie pokazano, jak używać pakietu możliwości interpretacji na komputerze osobistym bez kontaktowania się z usługami platformy Azure.
@@ -71,7 +72,7 @@ W poniższym przykładzie pokazano, jak używać pakietu możliwości interpreta
 
    Poniższe bloki kodu pokazują, jak utworzyć wystąpienia obiektu objaśnienia za pomocą `TabularExplainer` elementów `MimicExplainer` , i `PFIExplainer` lokalnie.
    * `TabularExplainer` Wywołuje jeden z trzech objaśnienia SHAP poniżej ( `TreeExplainer` `DeepExplainer` , lub `KernelExplainer` ).
-   * `TabularExplainer` Automatycznie wybiera najbardziej odpowiedni dla Twojego przypadku użycia, ale możesz bezpośrednio wywołać każdego z trzech podstawowych objaśnień.
+   * `TabularExplainer` automatycznie wybiera najbardziej odpowiedni dla Twojego przypadku użycia, ale możesz bezpośrednio wywołać każdego z trzech podstawowych objaśnień.
 
     ```python
     from interpret.ext.blackbox import TabularExplainer
@@ -157,7 +158,7 @@ sorted_local_importance_values = local_explanation.get_ranked_local_values()
 
 ### <a name="raw-feature-transformations"></a>Nieprzetworzone przekształcenia funkcji
 
-Zamiast tworzonych funkcji można uzyskać wyjaśnienia dotyczące nieprzetworzonych, nieprzekształcanych funkcji. W przypadku tej opcji potok przekształcania funkcji jest przekazywać do objaśnienia w programie `train_explain.py` . W przeciwnym razie objaśnienie zawiera wyjaśnienia dotyczące funkcji inżynierów.
+Możesz wybrać, aby uzyskać wyjaśnienia dotyczące nieprzetworzonych, nieprzekształcanych funkcji, a nie funkcji zaprojektowanych. W przypadku tej opcji potok przekształcania funkcji jest przekazywać do objaśnienia w programie `train_explain.py` . W przeciwnym razie objaśnienie zawiera wyjaśnienia dotyczące funkcji inżynierów.
 
 Format obsługiwanych przekształceń jest taki sam, jak opisano w [temacie sklearn-pandas](https://github.com/scikit-learn-contrib/sklearn-pandas). Ogólnie rzecz biorąc, wszystkie przekształcenia są obsługiwane, o ile działają na jednej kolumnie, dzięki czemu jest jasne, że są one "jeden do wielu".
 
@@ -271,7 +272,7 @@ W poniższym przykładzie pokazano, jak można użyć `ExplanationClient` klasy 
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-1. Skonfiguruj usługę obliczeniową Azure Machine Learning compute jako docelowy obiekt obliczeniowy i prześlij przebieg trenowania. Aby [uzyskać instrukcje, Azure Machine Learning tworzenie klastrów obliczeniowych i](how-to-create-attach-compute-cluster.md) zarządzanie nimi. Przydatne mogą być również [przykładowe notesy.](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation)
+1. Skonfiguruj usługę Azure Machine Learning Compute jako docelowy obiekt obliczeniowy i prześlij przebieg trenowania. Aby [uzyskać instrukcje, Azure Machine Learning tworzenie klastrów obliczeniowych i](how-to-create-attach-compute-cluster.md) zarządzanie nimi. Przydatne mogą być również [przykładowe notesy.](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation)
 
 1. Pobierz wyjaśnienie w pliku Jupyter Notebook.
 
@@ -294,7 +295,7 @@ W poniższym przykładzie pokazano, jak można użyć `ExplanationClient` klasy 
 
 ## <a name="visualizations"></a>Wizualizacje
 
-Po pobraniu objaśnień w aplikacji Jupyter Notebook możesz użyć wizualizacji na pulpicie nawigacyjnym z wyjaśnieniami, aby zrozumieć i zinterpretować model. Aby załadować widżet pulpitu nawigacyjnego objaśnień do Jupyter Notebook, użyj następującego kodu:
+Po pobraniu objaśnień w aplikacji Jupyter Notebook możesz użyć wizualizacji na pulpicie nawigacyjnym z wyjaśnieniami, aby zrozumieć i zinterpretować model. Aby załadować widżet pulpitu nawigacyjnego objaśnień w Jupyter Notebook, użyj następującego kodu:
 
 ```python
 from interpret_community.widget import ExplanationDashboard
@@ -341,7 +342,7 @@ Czwarta karta na karcie wyjaśnienia umożliwia przechodzenie do szczegółów p
 |Działka|Opis|
 |----|-----------|
 |Ważność poszczególnych funkcji|Przedstawia najważniejsze cechy ważnych funkcji dla poszczególnych przewidywań. Pomaga zilustrować lokalne zachowanie modelu bazowego w określonym punkcie danych.|
-|What-If analizy danych|Umożliwia zmiany wartości cech wybranego rzeczywistego punktu danych i obserwowanie wynikowych zmian wartości przewidywania przez wygenerowanie hipotetycznego punktu danych z nowymi wartościami funkcji.|
+|What-If analizy|Umożliwia zmiany wartości cech wybranego rzeczywistego punktu danych i obserwowanie wynikowych zmian wartości przewidywania przez wygenerowanie hipotetycznego punktu danych z nowymi wartościami cech.|
 |Indywidualne oczekiwanie warunkowe (ICE)|Umożliwia zmianę wartości funkcji z wartości minimalnej na maksymalną. Pomaga zilustrować, jak zmienia się przewidywanie punktu danych po zmianie funkcji.|
 
 [![Ważność poszczególnych funkcji i karta What-if na pulpicie nawigacyjnym wyjaśnienia](./media/how-to-machine-learning-interpretability-aml/individual-tab.gif)](./media/how-to-machine-learning-interpretability-aml/individual-tab.gif#lightbox)
@@ -370,7 +371,7 @@ Postępuj zgodnie z jedną z tych ścieżek, aby uzyskać dostęp do pulpitu naw
 
 ## <a name="interpretability-at-inference-time"></a>Możliwości interpretowania w czasie wnioskowania
 
-Możesz wdrożyć objaśnienie wraz z oryginalnym modelem i użyć go podczas wnioskowania, aby podać poszczególne wartości ważności funkcji (wyjaśnienie lokalne) dla każdego nowego punktu danych. Oferujemy również lżejsze objaśnienia oceniania, aby zwiększyć wydajność interpretacji w czasie wnioskowania, która jest obecnie obsługiwana tylko w Azure Machine Learning SDK. Proces wdrażania objaśnienia do oceny lżejszej wagi jest podobny do wdrażania modelu i obejmuje następujące kroki:
+Możesz wdrożyć objaśnienie wraz z oryginalnym modelem i użyć go podczas wnioskowania, aby podać poszczególne wartości ważności funkcji (wyjaśnienie lokalne) dla każdego nowego punktu danych. Oferujemy również lżejsze objaśnienia oceniania, które poprawiają wydajność interpretacji w czasie wnioskowania, co jest obecnie obsługiwane tylko w Azure Machine Learning SDK. Proces wdrażania objaśnienia do oceny lżejszej wagi jest podobny do wdrażania modelu i obejmuje następujące kroki:
 
 1. Utwórz obiekt wyjaśnienia. Na przykład można użyć `TabularExplainer` :
 
@@ -428,9 +429,9 @@ Możesz wdrożyć objaśnienie wraz z oryginalnym modelem i użyć go podczas wn
    print(preds)
    ```
 
-1. Wd wdrażaj obraz do docelowego obiektu obliczeniowego, wykonać następujące kroki:
+1. Wd wdrażaj obraz do docelowego obiektu obliczeniowego, korzystając z następujących kroków:
 
-   1. W razie potrzeby zarejestruj oryginalny model przewidywania, korzystając z procedury opisanej w tece [Wdrażanie modeli za pomocą Azure Machine Learning](./how-to-deploy-and-where.md).
+   1. W razie potrzeby zarejestruj oryginalny model przewidywania, korzystając z procedury opisanej w części [Wdrażanie modeli za pomocą Azure Machine Learning](./how-to-deploy-and-where.md).
 
    1. Utwórz plik oceniania.
 
@@ -482,7 +483,7 @@ Możesz wdrożyć objaśnienie wraz z oryginalnym modelem i użyć go podczas wn
                                                     description='Get local explanations for NAME_OF_THE_PROBLEM')
          ```
 
-   1. Utwórz plik z zależnościami środowiska.
+   1. Utwórz plik z zależnościami środowisk.
 
          ```python
          from azureml.core.conda_dependencies import CondaDependencies
@@ -563,15 +564,15 @@ Możesz wdrożyć objaśnienie wraz z oryginalnym modelem i użyć go podczas wn
 
 * **Rozrzedne** dane nie są obsługiwane: pulpit nawigacyjny wyjaśnienia modelu znacznie się psuje/spowalnia przy dużej liczbie funkcji, dlatego obecnie nie obsługujemy formatu rozrzedzianych danych. Ponadto w przypadku dużych zestawów danych i dużej liczby funkcji pojawią się ogólne problemy z pamięcią. 
 
-* Modele prognozowania nie są obsługiwane za pomocą wyjaśnień **modelu:** Możliwości interpretowania, najlepsze wyjaśnienie modelu nie są dostępne dla eksperymentów prognozowania automatycznego uczenia maszynowego, które zalecają następujące algorytmy jako najlepszy model: TCNForecaster, AutoArima, Wylicz, ExponentialSmoothing, Average, Naive, Seasonal Average i Seasonal Naive. Prognozowanie automatycznegoml ma modele regresji, które obsługują wyjaśnienia. Jednak na pulpicie nawigacyjnym wyjaśnienia karta "Ważność poszczególnych funkcji" nie jest obsługiwana w przypadku prognozowania ze względu na złożoność potoków danych.
+* Modele prognozowania nie są obsługiwane za pomocą wyjaśnień **modelu:** Możliwości interpretowania, najlepsze wyjaśnienie modelu nie są dostępne dla eksperymentów prognozowania automatycznego uczenia maszynowego, które zalecają następujące algorytmy jako najlepszy model: TCNForecaster, AutoArima, Wymuś, ExponentialSmoothing, Average, Naive, Seasonal Average i Seasonal Naive. Prognozowanie automatycznegoml ma modele regresji, które obsługują wyjaśnienia. Jednak na pulpicie nawigacyjnym wyjaśnienia karta "Ważność poszczególnych funkcji" nie jest obsługiwana w przypadku prognozowania ze względu na złożoność potoków danych.
 
-* Lokalne wyjaśnienie indeksu **danych:** Pulpit nawigacyjny wyjaśnienia nie obsługuje pomiania lokalnych wartości ważności z identyfikatorem wiersza z oryginalnego zestawu danych weryfikacji, jeśli ten zestaw danych jest większy niż 5000 punktów danych, ponieważ pulpit nawigacyjny losowo zmienia dane w dół. Jednak pulpit nawigacyjny pokazuje wartości funkcji nieprzetworzonych zestawów danych dla każdego punktu danych przekazanego do pulpitu nawigacyjnego na karcie Ważność poszczególnych funkcji. Użytkownicy mogą mapować lokalne znaczenie z powrotem na oryginalny zestaw danych, dopasowując wartości pierwotnych funkcji zestawu danych. Jeśli rozmiar zestawu danych weryfikacji jest mniejszy niż 5000 przykładów, funkcja w programie AzureML Studio będzie odpowiadać indeksowi `index` w zestawie danych weryfikacji.
+* Lokalne wyjaśnienie indeksu **danych:** Pulpit nawigacyjny wyjaśnienia nie obsługuje pomiania lokalnych wartości ważności z identyfikatorem wiersza z oryginalnego zestawu danych weryfikacji, jeśli ten zestaw danych jest większy niż 5000 punktów danych, ponieważ pulpit nawigacyjny losowo zmienia dane w dół. Jednak pulpit nawigacyjny pokazuje wartości funkcji nieprzetworzonych zestawów danych dla każdego punktu danych przekazanego do pulpitu nawigacyjnego na karcie Ważność poszczególnych funkcji. Użytkownicy mogą mapować lokalne ważności z powrotem na oryginalny zestaw danych, dopasowując wartości funkcji nieprzetworzonych zestawów danych. Jeśli rozmiar zestawu danych weryfikacji jest mniejszy niż 5000 przykładów, funkcja w `index` programie AzureML Studio będzie odpowiadać indeksowi w zestawie danych weryfikacji.
 
 * **Wykresy warunkowe/ICE** nie są obsługiwane w studio: wykresy What-If i indywidualne oczekiwania warunkowe (ICE Azure Machine Learning studio) nie są obsługiwane na karcie Wyjaśnienia na karcie Wyjaśnienia, ponieważ przekazane wyjaśnienie wymaga aktywnego obliczenia w celu ponownego obliczenia przewidywań i prawdopodobieństwa perturbednych funkcji. Jest ona obecnie obsługiwana w notesach Jupyter, gdy jest uruchamiana jako widżet przy użyciu zestawu SDK.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Dowiedz się więcej o możliwości interpretacji modelu](how-to-machine-learning-interpretability.md)
+[Dowiedz się więcej o możliwości interpretowania modelu](how-to-machine-learning-interpretability.md)
 
 [Zapoznaj się z Azure Machine Learning Przykładowe notesy z możliwością interpretacji](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)

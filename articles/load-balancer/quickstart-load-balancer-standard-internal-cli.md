@@ -14,16 +14,16 @@ ms.workload: infrastructure-services
 ms.date: 12/19/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 66b3db9a7aec45a2a0881379db6f7ef51950b5c5
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 2db30024b26352bcc038d606bcdc760b6350d413
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364315"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788839"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-by-using-the-azure-cli"></a>Szybki start: tworzenie wewnętrznego równoważenia obciążenia przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Rozpoczynanie pracy z Azure Load Balancer pomocą interfejsu wiersza polecenia platformy Azure w celu utworzenia wewnętrznego równoważenia obciążenia i trzech maszyn wirtualnych.
+Rozpoczynanie pracy z Azure Load Balancer za pomocą interfejsu wiersza polecenia platformy Azure w celu utworzenia wewnętrznego równoważenia obciążenia i trzech maszyn wirtualnych.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -48,11 +48,11 @@ Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#
 # <a name="standard-sku"></a>[**Standardowy SKU**](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
->W przypadku obciążeń produkcyjnych zalecany jest standardowy sku równoważenia obciążenia. Aby uzyskać więcej informacji na temat jednostki SKU, **[zobacz Azure Load Balancer SKU](skus.md)**.
+>W przypadku obciążeń produkcyjnych zalecany jest standardowy SKU równoważenia obciążenia. Aby uzyskać więcej informacji na temat jednostki SKU, **[zobacz Azure Load Balancer SKU](skus.md)**.
 
-W tej sekcji utworzysz równoważenie obciążenia, które równoważy obciążenie maszyn wirtualnych. Podczas tworzenia wewnętrznego równoważenia obciążenia sieć wirtualna jest konfigurowana jako sieć dla tego usługi. Na poniższym diagramie przedstawiono zasoby utworzone w tym przewodniku Szybki start:
+W tej sekcji utworzysz równoważenie obciążenia, które równoważy obciążenie maszyn wirtualnych. Podczas tworzenia wewnętrznego równoważenia obciążenia sieć wirtualna jest konfigurowana jako sieć dla tego równoważenia obciążenia. Na poniższym diagramie przedstawiono zasoby utworzone w tym przewodniku Szybki start:
 
-:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Zasoby w standardowych zasobach równoważenia obciążenia utworzone na podstawie przewodnika Szybki start." border="false":::
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Zasoby standardowego równoważenia obciążenia utworzone na podstawie przewodnika Szybki start." border="false":::
 
 ### <a name="configure-the-virtual-network"></a>Konfigurowanie sieci wirtualnej
 
@@ -60,7 +60,7 @@ Przed wdrożeniem maszyn wirtualnych i wdrożeniem usługi równoważenia obcią
 
 #### <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
 
-Utwórz sieć wirtualną za pomocą [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Określ następujące ustawienia:
+Utwórz sieć wirtualną za pomocą [narzędzia az network vnet create.](/cli/azure/network/vnet#az_network_vnet_create) Określ następujące ustawienia:
 
 * O **nazwie myVNet**
 * Prefiks adresu **10.1.0.0/16**
@@ -81,10 +81,10 @@ Utwórz sieć wirtualną za pomocą [az network vnet create](/cli/azure/network/
 
 #### <a name="create-a-public-ip-address"></a>Tworzenie publicznego adresu IP
 
-Użyj [az network public-ip create,](/cli/azure/network/public-ip#az-network-public-ip-create) aby utworzyć publiczny adres IP Azure Bastion hosta. Określ następujące ustawienia:
+Użyj [az network public-ip create,](/cli/azure/network/public-ip#az_network_public_ip_create) aby utworzyć publiczny adres IP Azure Bastion hosta. Określ następujące ustawienia:
 
-* Utwórz standardowy strefowo nadmiarowy publiczny adres IP o **nazwie myBastionIP**
-* W **createIntLBQS-rg**
+* Utwórz standardowy strefowo nadmiarowy publiczny adres IP o nazwie **myBastionIP**
+* W **jęz. CreateIntLBQS-rg**
 
 ```azurecli-interactive
 az network public-ip create \
@@ -94,7 +94,7 @@ az network public-ip create \
 ```
 #### <a name="create-an-azure-bastion-subnet"></a>Tworzenie Azure Bastion podsieci
 
-Użyj [az network vnet subnet create,](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) aby utworzyć podsieć. Określ następujące ustawienia:
+Użyj [az network vnet subnet create,](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) aby utworzyć podsieć. Określ następujące ustawienia:
 
 * O **nazwie AzureBastionSubnet**
 * Prefiks adresu **10.1.1.0/24**
@@ -111,10 +111,10 @@ az network vnet subnet create \
 
 #### <a name="create-an-azure-bastion-host"></a>Tworzenie hosta usługi Azure Bastion
 
-Użyj [az network bastion create,](/cli/azure/network/bastion#az-network-bastion-create) aby utworzyć hosta. Określ następujące ustawienia:
+Użyj [az network bastion create,](/cli/azure/network/bastion#az_network_bastion_create) aby utworzyć hosta. Określ następujące ustawienia:
 
 * O **nazwie myBastionHost**
-* W **createIntLBQS-rg**
+* W **jęz. CreateIntLBQS-rg**
 * Skojarzone z publicznym adresem IP **myBastionIP**
 * Skojarzone z siecią **wirtualną myVNet**
 * W **lokalizacji eastus**
@@ -128,11 +128,11 @@ az network bastion create \
     --location eastus
 ```
 
-Wdrożenie hosta Azure Bastion może potrwać kilka minut.
+Wdrożenie hosta może potrwać Azure Bastion kilka minut.
 
 #### <a name="create-a-network-security-group"></a>Tworzenie sieciowej grupy zabezpieczeń
 
-W przypadku standardowego równoważenia obciążenia upewnij się, że maszyny wirtualne mają interfejsy sieciowe należące do sieciowej grupy zabezpieczeń. Utwórz sieciową grupę zabezpieczeń za pomocą [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create). Określ następujące ustawienia:
+W przypadku standardowego równoważenia obciążenia upewnij się, że maszyny wirtualne mają interfejsy sieciowe należące do sieciowej grupy zabezpieczeń. Utwórz sieciową grupę zabezpieczeń za pomocą [narzędzia az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). Określ następujące ustawienia:
 
 * O **nazwie myNSG**
 * W grupie zasobów **CreateIntLBQS-rg**
@@ -145,10 +145,10 @@ W przypadku standardowego równoważenia obciążenia upewnij się, że maszyny 
 
 #### <a name="create-a-network-security-group-rule"></a>Tworzenie reguły sieciowej grupy zabezpieczeń
 
-Utwórz regułę sieciowej grupy zabezpieczeń za pomocą [az network nsg rule create.](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) Określ następujące ustawienia:
+Utwórz regułę sieciowej grupy zabezpieczeń za pomocą [narzędzia az network nsg rule create.](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) Określ następujące ustawienia:
 
 * O **nazwie myNSGRuleHTTP**
-* W sieciowej grupie zabezpieczeń utworzonej w poprzednim kroku jest **to grupa myNSG**
+* W sieciowej grupie zabezpieczeń utworzonej w poprzednim kroku jest to **grupa myNSG**
 * W grupie zasobów **CreateIntLBQS-rg**
 * Protokół **(*)**
 * Kierunek **ruchu przychodzącego**
@@ -182,7 +182,7 @@ W tej sekcji utworzysz:
 
 #### <a name="create-network-interfaces-for-the-virtual-machines"></a>Tworzenie interfejsów sieciowych dla maszyn wirtualnych
 
-Utwórz trzy interfejsy sieciowe za pomocą [az network nic create](/cli/azure/network/nic#az-network-nic-create). Określ następujące ustawienia:
+Utwórz trzy interfejsy sieciowe za pomocą [az network nic create](/cli/azure/network/nic#az_network_nic_create). Określ następujące ustawienia:
 
 * Nazwy **myNicVM1,** **myNicVM2** i **myNicVM3**
 * W grupie zasobów **CreateIntLBQS-rg**
@@ -205,13 +205,13 @@ Utwórz trzy interfejsy sieciowe za pomocą [az network nic create](/cli/azure/n
 
 #### <a name="create-the-virtual-machines"></a>Tworzenie maszyn wirtualnych
 
-Utwórz maszyny wirtualne za pomocą polecenia [az vm create](/cli/azure/vm#az-vm-create). Określ następujące ustawienia:
+Utwórz maszyny wirtualne za pomocą polecenia [az vm create](/cli/azure/vm#az_vm_create). Określ następujące ustawienia:
 
 * Nazwy **myVM1,** **myVM2** i **myVM3**
 * W grupie zasobów **CreateIntLBQS-rg**
-* Dołączone do interfejsu **sieciowego myNicVM1,** **myNicVM2** i **myNicVM3**
+* Dołączono do **interfejsu sieciowego myNicVM1,** **myNicVM2** i **myNicVM3**
 * Obraz maszyny **wirtualnej win2019datacenter**
-* W **Strefa 1**, **Strefa 2**, **i Strefa 3**
+* W **Strefa 1**, **Strefa 2** i **Strefa 3**
 
 ```azurecli-interactive
   array=(1 2 3)
@@ -230,6 +230,9 @@ Utwórz maszyny wirtualne za pomocą polecenia [az vm create](/cli/azure/vm#az-v
 
 Wdrożenie maszyn wirtualnych może potrwać kilka minut.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
+
 ### <a name="create-the-load-balancer"></a>Tworzenie modułu równoważenia obciążenia
 
 W tej sekcji opisano szczegółowo procedurę tworzenia i konfigurowania następujących składników modułu równoważenia obciążenia:
@@ -241,10 +244,10 @@ W tej sekcji opisano szczegółowo procedurę tworzenia i konfigurowania następ
 
 #### <a name="create-the-load-balancer-resource"></a>Tworzenie zasobu równoważenia obciążenia
 
-Utwórz publiczny równoważenie obciążenia za pomocą [az network lb create](/cli/azure/network/lb#az-network-lb-create). Określ następujące ustawienia:
+Utwórz publiczny równoważenie obciążenia za pomocą [az network lb create](/cli/azure/network/lb#az_network_lb_create). Określ następujące ustawienia:
 
 * O **nazwie myLoadBalancer**
-* Pula o **nazwie myFrontEnd**
+* Pula o nazwie **myFrontEnd**
 * Pula o nazwie **myBackEndPool**
 * Skojarzone z siecią wirtualną **myVNet**
 * Skojarzone z podsiecią **myBackendSubnet**
@@ -264,12 +267,12 @@ Utwórz publiczny równoważenie obciążenia za pomocą [az network lb create](
 
 Sonda kondycji sprawdza wszystkie wystąpienia maszyn wirtualnych, aby upewnić się, że mogą wysyłać ruch sieciowy. Maszyna wirtualna z nieudanym sprawdzaniem sondy jest usuwana z usługi równoważenia obciążenia. Maszyna wirtualna jest dodawana z powrotem do usługi równoważenia obciążenia, gdy awaria zostanie rozwiązana.
 
-Utwórz sondę kondycji za pomocą [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create). Określ następujące ustawienia:
+Utwórz sondę kondycji za pomocą [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create). Określ następujące ustawienia:
 
 * Monitoruje kondycję maszyn wirtualnych
 * O **nazwie myHealthProbe**
 * Protokół **TCP**
-* Port **monitorowania 80**
+* Monitorowanie **portu 80**
 
 ```azurecli-interactive
   az network lb probe create \
@@ -288,14 +291,14 @@ Reguła równoważenia obciążenia definiuje:
 * Pula adresów IP do odbierania ruchu.
 * Wymagany port źródłowy i docelowy. 
 
-Utwórz regułę modułu równoważenia obciążenia za pomocą polecenia [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create). Określ następujące ustawienia:
+Utwórz regułę modułu równoważenia obciążenia za pomocą polecenia [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create). Określ następujące ustawienia:
 
 * O **nazwie myHTTPRule**
-* Nasłuchiwanie **na porcie 80** w puli **myFrontEnd**
+* Nasłuchuje **na porcie 80** w puli **myFrontEnd**
 * Wysyłanie ruchu sieciowego ze zrównoważonym obciążeniem do puli adresów **myBackEndPool** przy użyciu **portu 80** 
 * Korzystanie z sondy **kondycji myHealthProbe**
 * Protokół **TCP**
-* Limit czasu bezczynności **15 minut**
+* Limit czasu bezczynności: **15 minut**
 * Włączanie resetowania protokołu TCP
 
 ```azurecli-interactive
@@ -315,7 +318,7 @@ Utwórz regułę modułu równoważenia obciążenia za pomocą polecenia [az ne
 
 #### <a name="add-vms-to-the-load-balancer-pool"></a>Dodawanie maszyn wirtualnych do puli równoważenia obciążenia
 
-Dodaj maszyny wirtualne do puli back-end, a następnie dodaj polecenie [az network nic ip-config address-pool.](/cli/azure/network/nic/ip-config/address-pool#az-network-nic-ip-config-address-pool-add) Określ następujące ustawienia:
+Dodaj maszyny wirtualne do puli back-end, a następnie dodaj polecenie [az network nic ip-config address-pool.](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add) Określ następujące ustawienia:
 
 * W puli adresów **myBackEndPool**
 * W grupie zasobów **CreateIntLBQS-rg**
@@ -339,9 +342,9 @@ Dodaj maszyny wirtualne do puli back-end, a następnie dodaj polecenie [az netwo
 # <a name="basic-sku"></a>[**Podstawowy SKU**](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
->W przypadku obciążeń produkcyjnych zaleca się użycie standardowego równoważenia obciążenia SKU. Aby uzyskać więcej informacji na temat jednostki SKU, **[zobacz Azure Load Balancer SKU](skus.md)**.
+>W przypadku obciążeń produkcyjnych zalecany jest standardowy sku równoważenia obciążenia. Aby uzyskać więcej informacji na temat jednostki SKU, **[zobacz Azure Load Balancer SKU](skus.md)**.
 
-W tej sekcji utworzysz równoważenie obciążenia, które równoważy obciążenie maszyn wirtualnych. Podczas tworzenia wewnętrznego równoważenia obciążenia sieć wirtualna jest konfigurowana jako sieć dla tego równoważenia obciążenia. Na poniższym diagramie przedstawiono zasoby utworzone w tym przewodniku Szybki start:
+W tej sekcji utworzysz równoważenie obciążenia, które równoważy obciążenie maszyn wirtualnych. Podczas tworzenia wewnętrznego równoważenia obciążenia sieć wirtualna jest konfigurowana jako sieć dla tego usługi. Na poniższym diagramie przedstawiono zasoby utworzone w tym przewodniku Szybki start:
 
 :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Podstawowe zasoby równoważenia obciążenia utworzone na podstawie przewodnika Szybki start." border="false":::
 
@@ -351,7 +354,7 @@ Przed wdrożeniem maszyn wirtualnych i wdrożeniem usługi równoważenia obcią
 
 #### <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
 
-Utwórz sieć wirtualną za pomocą [narzędzia az network vnet create.](/cli/azure/network/vnet#az-network-vnet-createt) Określ następujące ustawienia:
+Utwórz sieć wirtualną za pomocą [az network vnet create](/cli/azure/network/vnet#az_network_vnet_createt). Określ następujące ustawienia:
 
 * O **nazwie myVNet**
 * Prefiks adresu **10.1.0.0/16**
@@ -372,7 +375,7 @@ Utwórz sieć wirtualną za pomocą [narzędzia az network vnet create.](/cli/az
 
 #### <a name="create-a-public-ip-address"></a>Tworzenie publicznego adresu IP
 
-Użyj [az network public-ip create,](/cli/azure/network/public-ip#az-network-public-ip-create) aby utworzyć publiczny adres IP Azure Bastion hosta. Określ następujące ustawienia:
+Użyj [az network public-ip create,](/cli/azure/network/public-ip#az_network_public_ip_create) aby utworzyć publiczny adres IP Azure Bastion hosta. Określ następujące ustawienia:
 
 * Utwórz standardowy strefowo nadmiarowy publiczny adres IP o nazwie **myBastionIP**
 * W **jęz. CreateIntLBQS-rg**
@@ -385,7 +388,7 @@ az network public-ip create \
 ```
 #### <a name="create-an-azure-bastion-subnet"></a>Tworzenie Azure Bastion podsieci
 
-Użyj [az network vnet subnet create,](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) aby utworzyć podsieć. Określ następujące ustawienia:
+Użyj [az network vnet subnet create,](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) aby utworzyć podsieć. Określ następujące ustawienia:
 
 * O **nazwie AzureBastionSubnet**
 * Prefiks adresu **10.1.1.0/24**
@@ -402,10 +405,10 @@ az network vnet subnet create \
 
 #### <a name="create-an-azure-bastion-host"></a>Tworzenie hosta usługi Azure Bastion
 
-Użyj [az network bastion create,](/cli/azure/network/bastion#az-network-bastion-create) aby utworzyć hosta. Określ następujące ustawienia:
+Użyj [az network bastion create,](/cli/azure/network/bastion#az_network_bastion_create) aby utworzyć hosta. Określ następujące ustawienia:
 
 * O **nazwie myBastionHost**
-* W **createIntLBQS-rg**
+* W **jęz. CreateIntLBQS-rg**
 * Skojarzone z publicznym adresem IP **myBastionIP**
 * Skojarzone z siecią **wirtualną myVNet**
 * W **lokalizacji eastus**
@@ -423,7 +426,7 @@ Wdrożenie hosta może potrwać Azure Bastion kilka minut.
 
 #### <a name="create-a-network-security-group"></a>Tworzenie sieciowej grupy zabezpieczeń
 
-W przypadku standardowego równoważenia obciążenia upewnij się, że maszyny wirtualne mają interfejsy sieciowe należące do sieciowej grupy zabezpieczeń. Utwórz sieciową grupę zabezpieczeń za pomocą [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create). Określ następujące ustawienia:
+W przypadku standardowego równoważenia obciążenia upewnij się, że maszyny wirtualne mają interfejsy sieciowe należące do sieciowej grupy zabezpieczeń. Utwórz sieciową grupę zabezpieczeń za pomocą [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). Określ następujące ustawienia:
 
 * O **nazwie myNSG**
 * W grupie zasobów **CreateIntLBQS-rg**
@@ -436,7 +439,7 @@ W przypadku standardowego równoważenia obciążenia upewnij się, że maszyny 
 
 #### <a name="create-a-network-security-group-rule"></a>Tworzenie reguły sieciowej grupy zabezpieczeń
 
-Utwórz regułę sieciowej grupy zabezpieczeń za pomocą [narzędzia az network nsg rule create.](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) Określ następujące ustawienia:
+Utwórz regułę sieciowej grupy zabezpieczeń za pomocą [narzędzia az network nsg rule create.](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) Określ następujące ustawienia:
 
 * O **nazwie myNSGRuleHTTP**
 * W sieciowej grupie zabezpieczeń utworzonej w poprzednim kroku jest to **grupa myNSG**
@@ -446,7 +449,7 @@ Utwórz regułę sieciowej grupy zabezpieczeń za pomocą [narzędzia az network
 * Źródło **(*)**
 * Miejsce **docelowe (*)**
 * Port docelowy **80**
-* Zezwalaj **na dostęp**
+* Zezwalaj na **dostęp**
 * Priorytet **200**
 
 ```azurecli-interactive
@@ -474,7 +477,7 @@ W tej sekcji utworzysz:
 
 #### <a name="create-network-interfaces-for-the-virtual-machines"></a>Tworzenie interfejsów sieciowych dla maszyn wirtualnych
 
-Utwórz trzy interfejsy sieciowe za pomocą [az network nic create](/cli/azure/network/nic#az-network-nic-create). Określ następujące ustawienia:
+Utwórz trzy interfejsy sieciowe za pomocą [az network nic create](/cli/azure/network/nic#az_network_nic_create). Określ następujące ustawienia:
 
 * Nazwy **myNicVM1,** **myNicVM2** i **myNicVM3**
 * W grupie zasobów **CreateIntLBQS-rg**
@@ -497,7 +500,7 @@ Utwórz trzy interfejsy sieciowe za pomocą [az network nic create](/cli/azure/n
 
 #### <a name="create-the-availability-set-for-the-virtual-machines"></a>Tworzenie zestawu dostępności dla maszyn wirtualnych
 
-Utwórz zestaw dostępności za pomocą [az vm availability-set create.](/cli/azure/vm/availability-set#az-vm-availability-set-create) Określ następujące ustawienia:
+Utwórz zestaw dostępności za pomocą az [vm availability-set create.](/cli/azure/vm/availability-set#az_vm_availability_set_create) Określ następujące ustawienia:
 
 * O **nazwie myAvailabilitySet**
 * W grupie zasobów **CreateIntLBQS-rg**
@@ -513,7 +516,7 @@ Utwórz zestaw dostępności za pomocą [az vm availability-set create.](/cli/az
 
 #### <a name="create-the-virtual-machines"></a>Tworzenie maszyn wirtualnych
 
-Utwórz maszyny wirtualne za pomocą polecenia [az vm create](/cli/azure/vm#az-vm-create). Określ następujące ustawienia:
+Utwórz maszyny wirtualne za pomocą polecenia [az vm create](/cli/azure/vm#az_vm_create). Określ następujące ustawienia:
 
 * Nazwy **myVM1,** **myVM2** i **myVM3**
 * W grupie zasobów **CreateIntLBQS-rg**
@@ -536,7 +539,10 @@ Utwórz maszyny wirtualne za pomocą polecenia [az vm create](/cli/azure/vm#az-v
     --no-wait
   done
 ```
-Wdrażanie maszyn wirtualnych może potrwać kilka minut.
+Wdrożenie maszyn wirtualnych może potrwać kilka minut.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 
 ### <a name="create-the-load-balancer"></a>Tworzenie modułu równoważenia obciążenia
 
@@ -549,11 +555,11 @@ W tej sekcji opisano szczegółowo procedurę tworzenia i konfigurowania następ
 
 #### <a name="create-the-load-balancer-resource"></a>Tworzenie zasobu równoważenia obciążenia
 
-Utwórz publiczny równoważenie obciążenia za pomocą [az network lb create](/cli/azure/network/lb#az-network-lb-create). Określ następujące ustawienia:
+Utwórz publiczny równoważenie obciążenia za pomocą [az network lb create](/cli/azure/network/lb#az_network_lb_create). Określ następujące ustawienia:
 
 * O **nazwie myLoadBalancer**
 * Pula o **nazwie myFrontEnd**
-* Pula o nazwie **myBackEndPool**
+* Pula o **nazwie myBackEndPool**
 * Skojarzone z siecią wirtualną **myVNet**
 * Skojarzone z podsiecią **myBackendSubnet**
 
@@ -572,7 +578,7 @@ Utwórz publiczny równoważenie obciążenia za pomocą [az network lb create](
 
 Sonda kondycji sprawdza wszystkie wystąpienia maszyn wirtualnych, aby upewnić się, że mogą wysyłać ruch sieciowy. Maszyna wirtualna z nieudanym sprawdzaniem sondy jest usuwana z usługi równoważenia obciążenia. Maszyna wirtualna jest dodawana z powrotem do usługi równoważenia obciążenia, gdy awaria zostanie rozwiązana.
 
-Utwórz sondę kondycji za pomocą [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create). Określ następujące ustawienia:
+Utwórz sondę kondycji za pomocą [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create). Określ następujące ustawienia:
 
 * Monitoruje kondycję maszyn wirtualnych
 * O **nazwie myHealthProbe**
@@ -596,7 +602,7 @@ Reguła równoważenia obciążenia definiuje:
 * Pula adresów IP do odbierania ruchu.
 * Wymagany port źródłowy i docelowy. 
 
-Utwórz regułę modułu równoważenia obciążenia za pomocą polecenia [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create). Określ następujące ustawienia:
+Utwórz regułę modułu równoważenia obciążenia za pomocą polecenia [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create). Określ następujące ustawienia:
 
 * O **nazwie myHTTPRule**
 * Nasłuchuje **na porcie 80** w puli **myFrontEnd**
@@ -620,7 +626,7 @@ Utwórz regułę modułu równoważenia obciążenia za pomocą polecenia [az ne
 ```
 #### <a name="add-vms-to-the-load-balancer-pool"></a>Dodawanie maszyn wirtualnych do puli równoważenia obciążenia
 
-Dodaj maszyny wirtualne do puli back-end, a następnie dodaj polecenie [az network nic ip-config address-pool.](/cli/azure/network/nic/ip-config/address-pool#az-network-nic-ip-config-address-pool-add) Określ następujące ustawienia:
+Dodaj maszyny wirtualne do puli back-end, a następnie dodaj polecenie [az network nic ip-config address-pool.](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add) Określ następujące ustawienia:
 
 * W puli adresów **myBackEndPool**
 * W grupie zasobów **CreateIntLBQS-rg**
@@ -643,7 +649,7 @@ Dodaj maszyny wirtualne do puli back-end, a następnie dodaj polecenie [az netwo
 ---
 ## <a name="test-the-load-balancer"></a>Testowanie modułu równoważenia obciążenia
 
-Utwórz interfejs sieciowy za pomocą [az network nic create](/cli/azure/network/nic#az-network-nic-create). Określ następujące ustawienia:
+Utwórz interfejs sieciowy za pomocą [az network nic create](/cli/azure/network/nic#az_network_nic_create). Określ następujące ustawienia:
 
 * O **nazwie myNicTestVM**
 * W grupie zasobów **CreateIntLBQS-rg**
@@ -659,7 +665,7 @@ Utwórz interfejs sieciowy za pomocą [az network nic create](/cli/azure/network
     --subnet myBackEndSubnet \
     --network-security-group myNSG
 ```
-Utwórz maszynę wirtualną za pomocą [az vm create](/cli/azure/vm#az-vm-create). Określ następujące ustawienia:
+Utwórz maszynę wirtualną za pomocą [az vm create](/cli/azure/vm#az_vm_create). Określ następujące ustawienia:
 
 * O **nazwie myTestVM**
 * W grupie zasobów **CreateIntLBQS-rg**
@@ -702,7 +708,7 @@ Użyj [az vm extension set,](/cli/azure/vm/extension#az_vm_extension_set) aby za
 
 2. Na stronie **Przegląd** znajdź prywatny adres IP dla usługi równoważenia obciążenia. W menu po lewej stronie wybierz pozycję **Wszystkie usługi**  >  **Wszystkie zasoby**  >  **myLoadBalancer.**
 
-3. W przeglądzie **myLoadBalancer** skopiuj adres obok **prywatnego adresu IP.**
+3. W przeglądzie **myLoadBalancer skopiuj** adres obok **prywatnego adresu IP.**
 
 4. W menu po lewej stronie wybierz pozycję **Wszystkie usługi**  >  **Wszystkie zasoby.** Na liście zasobów w grupie zasobów **CreateIntLBQS-rg** wybierz **pozycję myTestVM.**
 
@@ -720,7 +726,7 @@ Aby zobaczyć, jak równoważenie obciążenia dystrybuuje ruch między wszystki
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy zasoby nie będą już potrzebne, użyj polecenia [az group delete,](/cli/azure/group#az-group-delete) aby usunąć grupę zasobów, usługę równoważenia obciążenia i wszystkie powiązane zasoby.
+Gdy zasoby nie będą już potrzebne, użyj [polecenia az group delete,](/cli/azure/group#az_group_delete) aby usunąć grupę zasobów, usługę równoważenia obciążenia i wszystkie powiązane zasoby.
 
 ```azurecli-interactive
   az group delete \

@@ -1,5 +1,5 @@
 ---
-title: Tworzenie i konfigurowanie planu Azure DDoS Protection przy użyciu interfejsu wiersza polecenia platformy Azure
+title: Tworzenie i konfigurowanie planu Azure DDoS Protection pomocą interfejsu wiersza polecenia platformy Azure
 description: Dowiedz się, jak utworzyć plan DDoS Protection przy użyciu interfejsu wiersza polecenia platformy Azure
 services: ddos-protection
 documentationcenter: na
@@ -11,35 +11,35 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 98c71f3cf1c521c08d177acb89aad85301e61579
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 8a8da50dc703d59dc16b5cb6253d39aeb33fd76d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103015"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777639"
 ---
-# <a name="quickstart-create-and-configure-azure-ddos-protection-standard-using-azure-cli"></a>Szybki Start: Tworzenie i Konfigurowanie standardu Azure DDoS Protection przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="quickstart-create-and-configure-azure-ddos-protection-standard-using-azure-cli"></a>Szybki start: tworzenie i konfigurowanie interfejsu Azure DDoS Protection Standardowa przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Rozpocznij pracę ze standardem Azure DDoS Protection przy użyciu interfejsu wiersza polecenia platformy Azure. 
+Rozpoczynanie pracy z Azure DDoS Protection Standardowa przy użyciu interfejsu wiersza polecenia platformy Azure. 
 
-Plan ochrony DDoS definiuje zbiór sieci wirtualnych, dla których włączono standard ochrony DDoS w ramach subskrypcji. Można skonfigurować jeden plan ochrony DDoS dla Twojej organizacji i połączyć sieci wirtualne z wielu subskrypcji w ramach tego samego planu. 
+Plan ochrony przed DDoS definiuje zestaw sieci wirtualnych, które mają włączoną ochronę przed DDoS w standardowych subskrypcjach. Możesz skonfigurować jeden plan ochrony przed DDoS dla swojej organizacji i połączyć sieci wirtualne z wielu subskrypcji do tego samego planu. 
 
-W tym przewodniku szybki start utworzysz plan ochrony DDoS i połączysz go z siecią wirtualną. 
+W tym przewodniku Szybki start utworzysz plan usługi DDoS Protection i połączysz go z siecią wirtualną. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Interfejs wiersza polecenia platformy Azure został zainstalowany lokalnie lub Azure Cloud Shell
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Interfejs wiersza polecenia platformy Azure zainstalowany lokalnie lub Azure Cloud Shell
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten przewodnik Szybki Start będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.28 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i używać go lokalnie, ten przewodnik Szybki start wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.28 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
-## <a name="create-a-ddos-protection-plan"></a>Utwórz plan DDoS Protection
+## <a name="create-a-ddos-protection-plan"></a>Tworzenie DDoS Protection planu
 
 Na platformie Azure możesz przydzielić powiązane zasoby do grupy zasobów. Możesz użyć istniejącej grupy zasobów lub utworzyć nową.
 
-Aby utworzyć grupę zasobów, użyj polecenie [AZ Group Create](/cli/azure/group#az-group-create). W tym przykładzie zmienimy nazwę _naszej grupy zasobów_ i użyjemy lokalizacji _Wschodnie stany USA_ :
+Aby utworzyć grupę zasobów, użyj [az group create](/cli/azure/group#az_group_create). W tym przykładzie nadamy grupie zasobów _nazwę MyResourceGroup_ i użyjemy lokalizacji _Wschodnie usa:_
 
 ```azurecli-interactive
 az group create \
@@ -47,7 +47,7 @@ az group create \
     --location eastus
 ```
 
-Teraz Utwórz plan ochrony DDoS o nazwie _MyDdosProtectionPlan_:
+Teraz utwórz plan ochrony przed działaniami DDoS o _nazwie MyDdosProtectionPlan:_
 
 ```azurecli-interactive
 az network ddos-protection create \
@@ -55,11 +55,11 @@ az network ddos-protection create \
     --name MyDdosProtectionPlan
 ```
 
-## <a name="enable-ddos-protection-for-a-virtual-network"></a>Włącz ochronę DDoS dla sieci wirtualnej
+## <a name="enable-ddos-protection-for-a-virtual-network"></a>Włączanie ochrony przed DDoS dla sieci wirtualnej
 
-### <a name="enable-ddos-protection-for-a-new-virtual-network"></a>Włącz ochronę DDoS dla nowej sieci wirtualnej
+### <a name="enable-ddos-protection-for-a-new-virtual-network"></a>Włączanie ochrony przed DDoS dla nowej sieci wirtualnej
 
-Ochronę DDoS można włączyć podczas tworzenia sieci wirtualnej. W tym przykładzie zmienimy nazwę naszej sieci wirtualnej _MyVnet_: 
+Ochronę przed DDoS można włączyć podczas tworzenia sieci wirtualnej. W tym przykładzie nadamy sieci wirtualnej _nazwę MyVnet:_ 
 
 ```azurecli-interactive
 az network vnet create \
@@ -70,11 +70,11 @@ az network vnet create \
     --ddos-protection-plan MyDdosProtectionPlan
 ```
 
-Nie można przenieść sieci wirtualnej do innej grupy zasobów lub subskrypcji, gdy dla sieci wirtualnej jest włączony Standard DDoS. Jeśli musisz przenieść sieć wirtualną z włączonym standardem DDoS, wyłącz najpierw pozycję DDoS Standard, Przenieś sieć wirtualną, a następnie Włącz Standard DDoS. Po przeniesieniu wartości progowe dla wszystkich chronionych publicznych adresów IP w sieci wirtualnej zostaną zresetowane.
+Nie można przenieść sieci wirtualnej do innej grupy zasobów lub subskrypcji, gdy dla sieci wirtualnej jest włączona funkcja DDoS Standard. Jeśli musisz przenieść sieć wirtualną z włączoną usługą DDoS Standard, najpierw wyłącz standard DDoS, przenieś sieć wirtualną, a następnie włącz standard DDoS. Po zakończeniu przenoszenia automatycznie dostosowane progi zasad dla wszystkich chronionych publicznych adresów IP w sieci wirtualnej zostaną zresetowane.
 
-### <a name="enable-ddos-protection-for-an-existing-virtual-network"></a>Włącz ochronę DDoS dla istniejącej sieci wirtualnej
+### <a name="enable-ddos-protection-for-an-existing-virtual-network"></a>Włączanie ochrony przed DDoS dla istniejącej sieci wirtualnej
 
-Podczas [tworzenia planu ochrony DDoS](#create-a-ddos-protection-plan)można skojarzyć co najmniej jedną sieć wirtualną z planem. Aby dodać więcej niż jedną sieć wirtualną, wystarczy podać nazwy lub identyfikatory, rozdzielone spacjami. W tym przykładzie dodamy _MyVnet_:
+Podczas [tworzenia planu ochrony przed DDoS](#create-a-ddos-protection-plan)można skojarzyć z planem co najmniej jedną sieć wirtualną. Aby dodać więcej niż jedną sieć wirtualną, po prostu listę nazw lub identyfikatorów rozdzielonych spacjami. W tym przykładzie dodamy sieć _MyVnet:_
 
 ```azurecli-interactive
 az group create \
@@ -87,7 +87,7 @@ az network ddos-protection create \
     --vnets MyVnet
 ```
 
-Alternatywnie można włączyć ochronę DDoS dla danej sieci wirtualnej:
+Alternatywnie można włączyć ochronę przed DDoS dla danej sieci wirtualnej:
 
 ```azurecli-interactive
 az network vnet update \
@@ -97,9 +97,9 @@ az network vnet update \
     --ddos-protection-plan MyDdosProtectionPlan
 ```
 
-## <a name="validate-and-test"></a>Weryfikuj i Testuj
+## <a name="validate-and-test"></a>Weryfikowanie i testowanie
 
-Najpierw zapoznaj się ze szczegółami planu ochrony DDoS:
+Najpierw sprawdź szczegóły planu ochrony przed DDoS:
 
 ```azurecli-interactive
 az network ddos-protection show \
@@ -107,20 +107,20 @@ az network ddos-protection show \
     --name MyDdosProtectionPlan
 ```
 
-Sprawdź, czy polecenie zwraca poprawne szczegóły planu ochrony DDoS.
+Sprawdź, czy polecenie zwraca poprawne szczegóły planu ochrony przed DDoS.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Możesz zachować zasoby dla następnego samouczka. Jeśli nie jest już potrzebne, Usuń grupę _zasobów zasobu._ Po usunięciu grupy zasobów należy również usunąć plan ochrony DDoS i wszystkie powiązane z nim zasoby. 
+Możesz zachować zasoby do następnego samouczka. Jeśli grupa zasobów _MyResourceGroup_ nie jest już potrzebna, usuń ją. Usunięcie grupy zasobów powoduje również usunięcie planu ochrony przed DDoS i wszystkich powiązanych zasobów. 
 
-Aby usunąć grupę zasobów, użyj [AZ Group Delete](/cli/azure/group#az_group_delete):
+Aby usunąć grupę zasobów, użyj [az group delete](/cli/azure/group#az_group_delete):
 
 ```azurecli-interactive
 az group delete \
 --name MyResourceGroup 
 ```
 
-Zaktualizuj daną sieć wirtualną, aby wyłączyć ochronę DDoS:
+Zaktualizuj podaną sieć wirtualną, aby wyłączyć ochronę przed DDoS:
 
 ```azurecli-interactive
 az network vnet update \
@@ -130,11 +130,11 @@ az network vnet update \
     --ddos-protection-plan ""
 ```
 
-W celu usunięcia planu ochrony DDoS należy najpierw usunąć skojarzenie wszystkich sieci wirtualnych. 
+Jeśli chcesz usunąć plan ochrony przed DDoS, musisz najpierw usunąć z niego skojarzenie wszystkich sieci wirtualnych. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się, jak wyświetlać i konfigurować dane telemetryczne dla planu ochrony DDoS, przejdź do samouczków.
+Aby dowiedzieć się, jak wyświetlać i konfigurować dane telemetryczne dla planu ochrony przed DDoS, przejdź do samouczków.
 
 > [!div class="nextstepaction"]
 > [Wyświetlanie i konfigurowanie telemetrii ochrony przed atakami DDoS](telemetry.md)

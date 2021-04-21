@@ -1,17 +1,17 @@
 ---
-title: Samouczek — wdrażanie aplikacji kontenera do wystąpienia kontenera
+title: Samouczek — wdrażanie aplikacji kontenera w wystąpieniu kontenera
 description: Samouczek usługi Azure Container Instances, część 3 z 3 — wdrażanie aplikacji kontenerowej w usłudze Azure Container Instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: 2ea3d285f00d38df84587d9a7c15242fff38453b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d12b0bc91cf844001b770c8a7e534ad6b1b9b2d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87500576"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763887"
 ---
-# <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Samouczek: wdrażanie aplikacji kontenera do Azure Container Instances
+# <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Samouczek: wdrażanie aplikacji kontenera w Azure Container Instances
 
 To jest ostatni samouczek z serii składającej się z trzech części. Wcześniej w tej serii [utworzono obraz kontenera](container-instances-tutorial-prepare-app.md) i [przekazano go do usługi Azure Container Registry](container-instances-tutorial-prepare-acr.md). Ten artykuł stanowi zakończenie serii i dotyczy wdrażania kontenera w usłudze Azure Container Instances.
 
@@ -32,9 +32,9 @@ W tej sekcji używa się interfejsu wiersza polecenia platformy Azure do wdroże
 
 ### <a name="get-registry-credentials"></a>Pobieranie poświadczeń rejestru
 
-Podczas wdrażania obrazu hostowanego w prywatnym rejestrze kontenera platformy Azure, takim jak ten utworzony w [drugim samouczku](container-instances-tutorial-prepare-acr.md), musisz podać poświadczenia, aby uzyskać dostęp do rejestru. 
+Podczas wdrażania obrazu, który jest hostowany w prywatnym rejestrze kontenerów platformy Azure, na przykład utworzonym w drugim [samouczku,](container-instances-tutorial-prepare-acr.md)należy podać poświadczenia w celu uzyskania dostępu do rejestru. 
 
-Najlepszym rozwiązaniem w przypadku wielu scenariuszy jest utworzenie i skonfigurowanie jednostki usługi Azure Active Directory z uprawnieniami *ściągania* do rejestru. Aby utworzyć jednostkę usługi z niezbędnymi uprawnieniami, zobacz [uwierzytelnianie za pomocą Azure Container Registry z Azure Container Instances](../container-registry/container-registry-auth-aci.md) . Zanotuj identyfikator jednostki *usługi* i *hasło nazwy głównej usługi*. Te poświadczenia są używane do uzyskiwania dostępu do rejestru podczas wdrażania kontenera.
+Najlepszym rozwiązaniem w przypadku wielu scenariuszy jest utworzenie i skonfigurowanie jednostki usługi Azure Active Directory z *uprawnieniami* do ściągania do rejestru. Zobacz [authenticate with Azure Container Registry from Azure Container Instances for](../container-registry/container-registry-auth-aci.md) sample scripts to create a service principal with the necessary permissions (Uwierzytelnianie za pomocą Azure Container Registry z Azure Container Instances, aby uzyskać przykładowe skrypty służące do tworzenia jednostki usługi z niezbędnymi uprawnieniami. Zanotuj *identyfikator jednostki usługi* i hasło *jednostki usługi*. Te poświadczenia są używane do uzyskiwania dostępu do rejestru podczas wdrażania kontenera.
 
 Potrzebna jest również pełna nazwa serwera logowania rejestru kontenerów (element `<acrName>` należy zastąpić nazwą rejestru):
 
@@ -89,7 +89,7 @@ Przykładowe dane wyjściowe:
 
 ```output
 listening on port 80
-::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
+::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET / HTTP/1.1&quot; 200 1663 &quot;-&quot; &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://aci-demo.eastus.azurecontainer.io/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 ```
 
@@ -127,8 +127,8 @@ Teraz, gdy znasz już podstawy, przejdź do informacji na temat usługi Azure Co
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-show]: /cli/azure/container#az-container-show
-[az-group-delete]: /cli/azure/group#az-group-delete
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-show]: /cli/azure/container#az_container_show
+[az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli
 [prepare-app]: ./container-instances-tutorial-prepare-app.md

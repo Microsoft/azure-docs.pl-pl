@@ -1,6 +1,6 @@
 ---
-title: 'Interfejs wiersza polecenia platformy Azure: Kopiowanie bazy danych w Azure SQL Database na nowy serwer'
-description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure do kopiowania bazy danych w Azure SQL Database na nowy serwer
+title: 'Interfejs wiersza polecenia platformy Azure: kopiowanie bazy danych Azure SQL Database na nowy serwer'
+description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure do kopiowania bazy danych Azure SQL Database na nowy serwer
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,14 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: e22d28215c06de96d31faec71f4fb595bb74a4a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 88032183825443aa3a3945530e2203e5500248a6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87495271"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791323"
 ---
-# <a name="use-cli-to-copy-a-database-in-azure-sql-database-to-a-new-server"></a>Użyj interfejsu wiersza polecenia, aby skopiować bazę danych w Azure SQL Database na nowy serwer
+# <a name="use-cli-to-copy-a-database-in-azure-sql-database-to-a-new-server"></a>Używanie interfejsu wiersza polecenia do kopiowania bazy danych Azure SQL Database na nowy serwer
 
 Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure tworzy kopię istniejącej bazy danych na nowym serwerze.
 
@@ -42,20 +42,20 @@ az account set -s $subscription # ...or use 'az login'
 
 ### <a name="clean-up-deployment"></a>Czyszczenie wdrożenia
 
-Użyj poniższego polecenia, aby usunąć grupę zasobów i wszystkie skojarzone z nią zasoby.
+Użyj następującego polecenia, aby usunąć grupę zasobów i wszystkie skojarzone z nią zasoby.
 
 ```azurecli-interactive
 az group delete --name $resource
 az group delete --name $targetResource
 ```
 
-## <a name="sample-reference"></a>Przykładowe odwołanie
+## <a name="sample-reference"></a>Przykładowa odwołanie
 
 W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
 | Polecenie | Opis |
 |---|---|
-| [AZ SQL DB Copy](/cli/azure/sql/db#az-sql-db-copy) | Tworzy kopię bazy danych, która korzysta z migawki utworzonej w bieżącym momencie. |
+| [az sql db copy](/cli/azure/sql/db#az_sql_db_copy) | Tworzy kopię bazy danych, która korzysta z migawki utworzonej w bieżącym momencie. |
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 04/16/2021
-ms.openlocfilehash: 9887350842749809dd4c3708acc71a08f416e54f
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 286da1412e8a74ffbf34e4abb493241914d4f925
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565886"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764877"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limits and configuration information for Azure Logic Apps (Limity i informacje o konfiguracji dla usługi Azure Logic Apps)
 
@@ -195,13 +195,13 @@ Aby uzyskać więcej informacji na temat definicji zasobu aplikacji logiki, zoba
 
 ### <a name="integration-service-environment-ise"></a>Środowisko usługi integracji (ISE)
 
-* [Developer ISE SKU:](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)zapewnia do 500 wykonań na minutę, ale należy zwrócić uwagę na następujące kwestie:
+* [Deweloper ise SKU:](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)zapewnia do 500 wykonań na minutę, ale należy pamiętać o tych zagadnieniach:
 
-  * Upewnij się, że używasz tej sku tylko do eksploracji, eksperymentów, testowania lub testowania — a nie do testowania produkcyjnego lub wydajnościowego. Ta sku nie ma umowy dotyczącej poziomu usług (SLA), możliwości skalowania w górę ani nadmiarowości podczas przetwarzania, co oznacza, że mogą wystąpić opóźnienia lub przestoje.
+  * Upewnij się, że używasz tej sku tylko do eksploracji, eksperymentów, testowania lub testowania — nie do testowania produkcyjnego lub wydajnościowego. Ta sku nie ma umowy dotyczącej poziomu usług (SLA), możliwości skalowania w górę ani nadmiarowości podczas przetwarzania, co oznacza, że mogą wystąpić opóźnienia lub przestoje.
 
   * Aktualizacje zaplecza mogą sporadycznie przerywać działanie usługi.
 
-* [Jednostki SKU ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)w wersji Premium: W poniższej tabeli opisano limity przepływności tej jednostki SKU, [ale](mailto://logicappsemail@microsoft.com) aby przekroczyć te limity podczas normalnego przetwarzania lub uruchomić testy obciążeniowe, które mogą przekroczyć te limity, skontaktuj się z zespołem Logic Apps, aby uzyskać pomoc w zakresie wymagań.
+* [Premium ISE SKU:](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)w poniższej tabeli opisano limity przepływności tej jednostki SKU, ale aby [](mailto://logicappsemail@microsoft.com) przekroczyć te limity podczas normalnego przetwarzania lub uruchomić testy obciążeniowe, które mogą przekroczyć te limity, skontaktuj się z zespołem Logic Apps, aby uzyskać pomoc w zakresie wymagań.
 
   | Nazwa | Limit | Uwagi |
   |------|-------|-------|
@@ -224,14 +224,14 @@ Poniżej podano limity dla pojedynczego wywołania przychodzącego lub wychodzą
 
 <a name="http-timeout-limits"></a>
 
-#### <a name="timeout-duration"></a>Limit czasu trwania
+#### <a name="timeout-duration"></a>Czas trwania limitu czasu
 
-Niektóre operacje łącznika są wykonywane asynchronicznie lub nasłuchują żądań webhook, więc limit czasu dla tych operacji może być dłuższy niż te limity. Aby uzyskać więcej informacji, zobacz szczegóły techniczne określonego łącznika, a także [wyzwalacze i akcje przepływu pracy.](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)
+Niektóre operacje łącznika nasłuchują żądań typu webhook lub nasłuchują wywołań asynchronicznych, więc limit czasu dla tych operacji może być dłuższy niż te limity. Aby uzyskać więcej informacji, zobacz szczegóły techniczne określonego łącznika, a także [wyzwalacze i akcje przepływu pracy.](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)
 
 | Nazwa | Logic Apps (wielodostępna) | Logic Apps (wersja zapoznawcza) | Środowisko usługi integracji | Uwagi |
 |------|---------------------------|----------------------|---------------------------------|-------|
-| Żądanie wychodzące | 120 sekund <br>(2 min) | 230 sekund <br>(3,9 min) | 240 sekund <br>(4 min) | Przykłady żądań wychodzących obejmują wywołania wykonane przez wyzwalacz HTTP lub akcję. Aby uzyskać więcej informacji na temat wersji zapoznawczej, zobacz [Azure Logic Apps wersji zapoznawczej.](logic-apps-overview-preview.md) <p><p>**Porada:** W przypadku dłuższych operacji użyj wzorca [sondowania asynchronicznego](../logic-apps/logic-apps-create-api-app.md#async-pattern) lub pętli [until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Aby omiąć limity czasu w przypadku wywołania innej aplikacji logiki, która ma wywoływalny punkt [końcowy,](logic-apps-http-endpoint.md)można zamiast tego użyć wbudowanej akcji Azure Logic Apps, którą można znaleźć w schłodniku łącznika w obszarze Wbudowany **.** |
-| Żądanie przychodzące | 120 sekund <br>(2 min) | 230 sekund <br>(3,9 min) | 240 sekund <br>(4 min) | Przykłady żądań przychodzących obejmują wywołania odebrane przez wyzwalacz żądania, wyzwalacz http webhook i akcję http webhook. Aby uzyskać więcej informacji na temat wersji zapoznawczej, zobacz [Azure Logic Apps wersji zapoznawczej.](logic-apps-overview-preview.md) <p><p>**Uwaga:** aby oryginalny obiekt wywołujący uzyskać odpowiedź, wszystkie kroki w odpowiedzi muszą zakończyć się w ramach limitu, chyba że wywołasz inną aplikację logiki jako zagnieżdżony przepływ pracy. Aby uzyskać więcej informacji, zobacz [Wywoływanie, wyzwalanie lub zagnieżdżanie aplikacji logiki.](../logic-apps/logic-apps-http-endpoint.md) |
+| Żądanie wychodzące | 120 sekund <br>(2 min) | 230 sekund <br>(3,9 min) | 240 sekund <br>(4 min) | Przykłady żądań wychodzących obejmują wywołania wykonane przez wyzwalacz LUB akcję HTTP. Aby uzyskać więcej informacji na temat wersji zapoznawczej, zobacz [Azure Logic Apps Zapoznawcza.](logic-apps-overview-preview.md) <p><p>**Porada:** W przypadku dłuższych operacji użyj wzorca [asynchronicznego sondowania](../logic-apps/logic-apps-create-api-app.md#async-pattern) lub pętli [until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Aby omiąć limity czasu w przypadku wywołania innej aplikacji logiki, która ma wywoływalny punkt [końcowy,](logic-apps-http-endpoint.md)możesz zamiast tego użyć wbudowanej akcji Azure Logic Apps, którą można znaleźć w s wyboru łącznika w obszarze Wbudowany **.** |
+| Żądanie przychodzące | 120 sekund <br>(2 min) | 230 sekund <br>(3,9 min) | 240 sekund <br>(4 min) | Przykłady żądań przychodzących obejmują wywołania odebrane przez wyzwalacz żądania, wyzwalacz http webhook i akcję http webhook. Aby uzyskać więcej informacji na temat wersji zapoznawczej, zobacz [Azure Logic Apps Zapoznawcza.](logic-apps-overview-preview.md) <p><p>**Uwaga:** Aby oryginalny obiekt wywołujący uzyskać odpowiedź, wszystkie kroki w odpowiedzi muszą zakończyć się w ramach limitu, chyba że wywołasz inną aplikację logiki jako zagnieżdżony przepływ pracy. Aby uzyskać więcej informacji, zobacz [Wywoływanie, wyzwalanie lub zagnieżdżanie aplikacji logiki.](../logic-apps/logic-apps-http-endpoint.md) |
 ||||||
 
 <a name="message-size-limits"></a>
@@ -240,15 +240,15 @@ Niektóre operacje łącznika są wykonywane asynchronicznie lub nasłuchują ż
 
 | Nazwa | Limit wielu dzierżaw | Limit środowiska usługi integracji | Uwagi |
 |------|--------------------|---------------------------------------|-------|
-| Rozmiar komunikatu | 100 MB | 200 MB | Aby ominął ten limit, zobacz [Handle large messages with chunking (Obsługa dużych komunikatów z fragmentami).](../logic-apps/logic-apps-handle-large-messages.md) Jednak niektóre łączniki i interfejsy API mogą nie obsługiwać fragmentowania lub nawet domyślnego limitu. <p><p>— Łączniki, takie jak AS2, X12 i EDIFACT, mają własne [limity komunikatów B2B.](#b2b-protocol-limits) <br>— Łączniki ISE używają limitu ise, a nie limitów łączników innych niż ise. |
-| Rozmiar komunikatu z fragmentami | 1 GB | 5 GB | Ten limit dotyczy akcji, które natywnie obsługują fragmentowanie lub umożliwiają fragmentowanie w konfiguracji środowiska uruchomieniowego. <p><p>Jeśli używasz platformy ISE, aparat Logic Apps obsługuje ten limit, ale łączniki mają własne limity fragmentowania do limitu aparatu, na przykład zobacz odwołanie do interfejsu API łącznika [Azure Blob Storage](/connectors/azureblob/). Aby uzyskać więcej informacji na temat fragmentowania, zobacz [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md)(Obsługa dużych komunikatów przy użyciu fragmentowania). |
+| Rozmiar komunikatu | 100 MB | 200 MB | Aby ominął ten limit, zobacz [Handle large messages with chunking (Obsługa dużych komunikatów z fragmentami).](../logic-apps/logic-apps-handle-large-messages.md) Jednak niektóre łączniki i interfejsy API mogą nie obsługiwać fragmentowania, a nawet domyślnego limitu. <p><p>- Łączniki, takie jak AS2, X12 i EDIFACT, mają własne limity [komunikatów B2B.](#b2b-protocol-limits) <br>— Łączniki ISE używają limitu ise, a nie limitów łączników innych niż ise. |
+| Rozmiar komunikatu z fragmentami | 1 GB | 5 GB | Ten limit dotyczy akcji, które natywnie obsługują fragmentowanie lub umożliwiają fragmentowanie w konfiguracji środowiska uruchomieniowego. <p><p>Jeśli używasz platformy ISE, aparat usługi Logic Apps obsługuje ten limit, ale łączniki mają własne limity fragmentowania do limitu aparatu, na przykład zobacz odwołanie do interfejsu [API](/connectors/azureblob/)łącznika Azure Blob Storage. Aby uzyskać więcej informacji na temat fragmentowania, zobacz [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md)(Obsługa dużych komunikatów z fragmentami). |
 |||||
 
 #### <a name="character-limits"></a>Limity znaków
 
 | Nazwa | Limit | Uwagi |
 |------|-------|-------|
-| Limit oceniania wyrażeń | 131 072 znaki | Wyrażenia `@concat()` , , nie mogą być dłuższe niż ten `@base64()` `@string()` limit. |
+| Limit oceniania wyrażeń | 131 072 znaki | Wyrażenia `@concat()` `@base64()` , , nie mogą być dłuższe niż `@string()` ten limit. |
 | Limit znaków adresu URL żądania | 16 384 znaki | |
 ||||
 
@@ -267,7 +267,7 @@ Niektóre operacje łącznika są wykonywane asynchronicznie lub nasłuchują ż
 
 ### <a name="authentication-limits"></a>Limity uwierzytelniania
 
-Poniżej podano limity aplikacji logiki, która rozpoczyna się od wyzwalacza żądania i umożliwia usłudze [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth) autoryzację wywołań przychodzących do wyzwalacza żądania:
+Poniżej podano limity dla aplikacji logiki, która rozpoczyna się od wyzwalacza żądania i umożliwia usłudze [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth) autoryzację wywołań przychodzących do wyzwalacza żądania:
 
 | Nazwa | Limit | Uwagi |
 | ---- | ----- | ----- |
@@ -304,28 +304,28 @@ Poniżej znajdują się limity łączników niestandardowych, które można twor
 
 Każda subskrypcja platformy Azure ma następujące limity konta integracji:
 
-* Jedno [konto integracji w warstwie](../logic-apps/logic-apps-pricing.md#integration-accounts) Bezpłatna na region platformy Azure. Ta warstwa jest dostępna tylko w regionach publicznych na platformie Azure, na przykład w regionie Zachodnie stany USA lub Azja Południowo-Wschodnia, ale nie dla [regionów Azure (Chiny) — 21Vianet](/azure/china/overview-operations) lub [Azure Government](../azure-government/documentation-government-welcome.md).
+* Jedno [konto integracji w](../logic-apps/logic-apps-pricing.md#integration-accounts) warstwie Bezpłatna na region platformy Azure. Ta warstwa jest dostępna tylko w regionach publicznych na platformie Azure, na przykład w regionach Zachodnie stany USA lub Azja Południowo-Wschodnia, ale nie dla [regionów Azure (Chiny) — 21Vianet](/azure/china/overview-operations) lub [Azure Government](../azure-government/documentation-government-welcome.md).
 
-* 1000 wszystkich kont integracji, w tym kont integracji w dowolnych środowiskach usług integracji [(ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) w ramach zarówno dla deweloperów, jak i premium [jednostki SKU.](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)
+* 1000 łącznie kont integracji, w tym kont integracji we wszystkich środowiskach usługi integracji [(ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) w ramach zarówno deweloperskich, jak i [premium jednostki SKU.](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)
 
-* Każde konto ISE, dewelopera lub [wersji Premium,](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)może korzystać z jednego konta integracji bez dodatkowych kosztów, mimo że uwzględniony typ konta różni się w zależności od wersji SKU środowiska ISE. Możesz utworzyć więcej kont integracji dla środowiska ISE do całkowitego limitu dla [dodatkowego kosztu:](logic-apps-pricing.md#fixed-pricing)
+* Każda usługa ISE, zarówno deweloperska, jak i [Premium,](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)może korzystać z jednego konta integracji bez dodatkowych kosztów, chociaż uwzględniony typ konta różni się w zależności od wersji SKU środowiska ISE. Możesz utworzyć więcej kont integracji dla środowiska ISE do całkowitego limitu dla [dodatkowego kosztu:](logic-apps-pricing.md#fixed-pricing)
 
   | ISE SKU | Limity konta integracji |
   |---------|----------------------------|
   | **Premium** | 20 wszystkich kont, w tym jedno konto standardowe bez dodatkowych kosztów. W przypadku tej wersji SKU można mieć tylko [konta standardowe.](../logic-apps/logic-apps-pricing.md#integration-accounts) Konta bezpłatne i podstawowe nie są dozwolone. |
-  | **Deweloper** | 20 wszystkich kont, w tym [jedno](../logic-apps/logic-apps-pricing.md#integration-accounts) bezpłatne konto (ograniczone do 1). Ta sku może mieć jedną kombinację: <p>— Bezpłatne konto i maksymalnie 19 [kont w standardowych.](../logic-apps/logic-apps-pricing.md#integration-accounts) <br>— Brak bezpłatnego konta i maksymalnie 20 kont w standardowych. <p>Nie są dozwolone żadne podstawowe ani dodatkowe bezpłatne konta. <p><p>**Ważne:** Użyj [sku dewelopera do](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) eksperymentowania, opracowywania i testowania, ale nie do testowania produkcyjnego lub wydajnościowego. |
+  | **Deweloper** | 20 wszystkich kont, w tym jedno [bezpłatne](../logic-apps/logic-apps-pricing.md#integration-accounts) konto (ograniczone do 1). Ta sku może mieć jedną kombinację: <p>— Bezpłatne konto i maksymalnie 19 [kont standardowych.](../logic-apps/logic-apps-pricing.md#integration-accounts) <br>— Brak bezpłatnego konta i maksymalnie 20 kont standardowych. <p>Nie są dozwolone żadne podstawowe ani dodatkowe bezpłatne konta. <p><p>**Ważne:** użyj [sku dewelopera do](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) eksperymentowania, tworzenia i testowania, ale nie do testowania produkcyjnego lub wydajnościowego. |
   |||
 
-Aby dowiedzieć się, jak działają ceny i rozliczenia dla platform ISE, zobacz [Logic Apps cennika](../logic-apps/logic-apps-pricing.md#fixed-pricing). Aby uzyskać informacje o cenach, [zobacz Logic Apps cennik.](https://azure.microsoft.com/pricing/details/logic-apps/)
+Aby dowiedzieć się, jak działają ceny i rozliczenia dla platform ISE, zobacz [Logic Apps cennika](../logic-apps/logic-apps-pricing.md#fixed-pricing). Aby uzyskać informacje o cenach, [zobacz Logic Apps cennika.](https://azure.microsoft.com/pricing/details/logic-apps/)
 
 <a name="artifact-number-limits"></a>
 
 ### <a name="artifact-limits-per-integration-account"></a>Limity artefaktów na konto integracji
 
-Poniżej znajdują się limity liczby artefaktów dla każdej warstwy konta integracji. Aby uzyskać informacje o cenach, [zobacz Logic Apps cennik.](https://azure.microsoft.com/pricing/details/logic-apps/) Aby dowiedzieć się, jak działają ceny i rozliczenia dla kont integracji, zobacz [Logic Apps cennika](../logic-apps/logic-apps-pricing.md#integration-accounts).
+Poniżej znajdują się limity liczby artefaktów dla każdej warstwy konta integracji. Aby uzyskać informacje o cenach, [zobacz Logic Apps cennika.](https://azure.microsoft.com/pricing/details/logic-apps/) Aby dowiedzieć się, jak działają ceny i rozliczenia dla kont integracji, zobacz [Logic Apps cennika](../logic-apps/logic-apps-pricing.md#integration-accounts).
 
 > [!NOTE]
-> Warstwy Bezpłatna należy używać tylko w scenariuszach eksploracyjny, a nie produkcyjnych. Ta warstwa ogranicza przepływność i użycie oraz nie ma umowy dotyczącej poziomu usług (SLA).
+> Warstwy Bezpłatna należy używać tylko w scenariuszach eksploracyjne, a nie w scenariuszach produkcyjnych. Ta warstwa ogranicza przepływność i użycie i nie ma umowy dotyczącej poziomu usług (SLA).
 
 | Artefakt | Bezpłatna | Podstawowa | Standardowa (Standard) |
 |----------|------|-------|----------|
@@ -344,9 +344,9 @@ Poniżej znajdują się limity liczby artefaktów dla każdej warstwy konta inte
 
 | Artefakt | Limit | Uwagi |
 | -------- | ----- | ----- |
-| Zestaw | 8 MB | Aby przekazać pliki większe niż 2 MB, użyj konta [magazynu platformy Azure i kontenera obiektów blob.](../logic-apps/logic-apps-enterprise-integration-schemas.md) |
-| Mapa (plik XSLT) | 8 MB | Aby przekazać pliki większe niż 2 MB, użyj interfejsu API REST usługi [Azure Logic Apps — Maps.](/rest/api/logic/maps/createorupdate) <p><p>**Uwaga:** Ilość danych lub rekordów, które mapa może pomyślnie przetworzyć, zależy od rozmiaru komunikatu i limitów czasu akcji w Azure Logic Apps. Jeśli na przykład używasz akcji HTTP opartej na limitach czasu i rozmiarze komunikatu [HTTP,](#http-limits)mapa może przetwarzać dane do limitu rozmiaru komunikatu HTTP, jeśli operacja zostanie ukończona w ramach limitu czasu HTTP. |
-| Schemat | 8 MB | Aby przekazać pliki większe niż 2 MB, użyj konta [usługi Azure Storage i kontenera obiektów blob.](../logic-apps/logic-apps-enterprise-integration-schemas.md) |
+| Zestaw | 8 MB | Aby przekazać pliki większe niż 2 MB, użyj konta [usługi Azure Storage i kontenera obiektów blob](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
+| Map (plik XSLT) | 8 MB | Aby przekazać pliki większe niż 2 MB, użyj interfejsu API REST usługi [Azure Logic Apps Maps.](/rest/api/logic/maps/createorupdate) <p><p>**Uwaga:** Ilość danych lub rekordów, które mapa może pomyślnie przetworzyć, zależy od rozmiaru komunikatu i limitów czasu akcji w Azure Logic Apps. Jeśli na przykład używasz akcji HTTP na podstawie limitu czasu i rozmiaru komunikatu [HTTP,](#http-limits)mapa może przetwarzać dane do limitu rozmiaru komunikatu HTTP, jeśli operacja zostanie ukończona w ramach limitu czasu HTTP. |
+| Schemat | 8 MB | Aby przekazać pliki większe niż 2 MB, użyj konta [usługi Azure Storage i kontenera obiektów blob](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
 ||||
 
 <a name="integration-account-throughput-limits"></a>
@@ -355,17 +355,17 @@ Poniżej znajdują się limity liczby artefaktów dla każdej warstwy konta inte
 
 | Punkt końcowy środowiska uruchomieniowego | Bezpłatna | Podstawowa | Standardowa (Standard) | Uwagi |
 |------------------|------|-------|----------|-------|
-| Wywołania odczytu na 5 minut | 3000 | 30,000 | 60 000 | Ten limit dotyczy wywołań, które odbierają nieprzetworzone dane wejściowe i wyjściowe z historii uruchamiania aplikacji logiki. W razie potrzeby obciążenie można dystrybuować na więcej niż jednym koncie. |
-| Wywoływanie wywołań na 5 minut | 3000 | 30,000 | 45 000 | W razie potrzeby obciążenie można dystrybuować na więcej niż jednym koncie. |
+| Wywołania odczytu na 5 minut | 3000 | 30,000 | 60 000 | Ten limit dotyczy wywołań, które odbierają nieprzetworzone dane wejściowe i wyjściowe z historii uruchamiania aplikacji logiki. W razie potrzeby można dystrybuować obciążenie na więcej niż jednym koncie. |
+| Wywoływanie wywołań na 5 minut | 3000 | 30,000 | 45 000 | W razie potrzeby można dystrybuować obciążenie na więcej niż jednym koncie. |
 | Śledzenie wywołań na 5 minut | 3000 | 30,000 | 45 000 | W razie potrzeby można dystrybuować obciążenie na więcej niż jednym koncie. |
-| Blokowanie wywołań współbieżnych | Około 1000 | Około 1000 | Około 1000 | Taka sama dla wszystkich jednostki SKU. W razie potrzeby możesz zmniejszyć liczbę równoczesnych żądań lub skrócić czas trwania. |
+| Blokowanie współbieżnych wywołań | Około 1000 | Około 1000 | Około 1000 | Taka sama dla wszystkich jednostki SKU. W razie potrzeby możesz zmniejszyć liczbę równoczesnych żądań lub skrócić czas trwania. |
 ||||
 
 <a name="b2b-protocol-limits"></a>
 
 ### <a name="b2b-protocol-as2-x12-edifact-message-size"></a>Rozmiar komunikatu protokołu B2B (AS2, X12, EDIFACT)
 
-Poniżej podano limity rozmiaru komunikatów dotyczące protokołów B2B:
+Poniżej podano limity rozmiaru komunikatów, które mają zastosowanie do protokołów B2B:
 
 | Nazwa | Limit wielu dzierżaw | Limit środowiska usługi integracji | Uwagi |
 |------|--------------------|---------------------------------------|-------|
@@ -378,20 +378,20 @@ Poniżej podano limity rozmiaru komunikatów dotyczące protokołów B2B:
 
 ## <a name="disabling-or-deleting-logic-apps"></a>Wyłączanie lub usuwanie aplikacji logiki
 
-Po wyłączeniu aplikacji logiki nie są uruchamiane żadne nowe przebiegi. Wszystkie przebiegi w toku i oczekujące są kontynuowane do momentu ich zakończenia, co może zająć trochę czasu.
+Po wyłączeniu aplikacji logiki żadne nowe przebiegi nie są uruchamiane. Wszystkie przebiegi w toku i oczekujące będą kontynuowane do momentu ich zakończenia, co może zająć trochę czasu.
 
 Po usunięciu aplikacji logiki nie są tworzone wystąpienia nowych przebiegów. Wszystkie trwające i oczekujące przebiegi zostają anulowane. Anulowanie kilku tysięcy przebiegów może zająć dużo czasu.
 
 <a name="configuration"></a>
 <a name="firewall-ip-configuration"></a>
 
-## <a name="firewall-configuration-ip-addresses-and-service-tags"></a>Konfiguracja zapory: adresy IP i tagi usługi
+## <a name="firewall-configuration-ip-addresses-and-service-tags"></a>Konfiguracja zapory: adresy IP i tagi usług
 
-Gdy aplikacja logiki musi komunikować się za pośrednictwem zapory, która ogranicza  ruch [](#inbound) do określonych adresów IP, musi zezwalać na dostęp zarówno dla adresów [IP](#outbound) dla ruchu przychodzącego, jak i wychodzącego używanego przez usługę Logic Apps lub środowisko uruchomieniowe w regionie świadczenia usługi Azure, w którym istnieje aplikacja logiki. *Wszystkie* aplikacje logiki w tym samym regionie używają tych samych zakresów adresów IP.
+Gdy aplikacja logiki musi komunikować się za pośrednictwem zapory, która ogranicza  ruch [](#inbound) do określonych adresów [IP,](#outbound) ta zapora musi zezwalać na dostęp zarówno dla przychodzących, jak i wychodzących adresów IP używanych przez usługę Logic Apps lub środowisko uruchomieniowe w regionie świadczenia usługi Azure, w którym istnieje aplikacja logiki. *Wszystkie* aplikacje logiki w tym samym regionie używają tych samych zakresów adresów IP.
 
-Na przykład w celu obsługi wywołań, które aplikacje logiki w regionie Zachodnie stany USA wysyłają lub odbierają  za pośrednictwem wbudowanych wyzwalaczy  i akcji, takich jak wyzwalacz LUB akcja [HTTP,](../connectors/connectors-native-http.md)zapora musi zezwalać na dostęp dla wszystkich przychodzących adresów IP usługi Logic Apps i wychodzących adresów IP istniejących w regionie Zachodnie stany USA.
+Na przykład w celu obsługi wywołań, które aplikacje logiki w regionie Zachodnie stany USA wysyłają lub odbierają  za pośrednictwem wbudowanych wyzwalaczy  i akcji, takich jak wyzwalacz lub akcja [HTTP,](../connectors/connectors-native-http.md)zapora musi zezwalać na dostęp dla wszystkich przychodzących adresów IP usługi Logic Apps i wychodzących adresów IP istniejących w regionie Zachodnie stany USA.
 
-Jeśli aplikacja logiki używa również łączników zarządzanych, takich jak łącznik office 365 Outlook lub łącznik  SQL, lub łączników niestandardowych, [](/connectors/custom-connectors/)zapora musi również zezwalać na dostęp dla wszystkich wychodzących adresów [IP](#outbound) łącznika zarządzanego w regionie platformy Azure aplikacji logiki. [](../connectors/apis-list.md#managed-api-connectors) Ponadto jeśli używasz łączników niestandardowych, które mają dostęp do zasobów lokalnych za pośrednictwem zasobu lokalnej bramy danych na platformie [Azure,](logic-apps-gateway-connection.md)musisz skonfigurować instalację bramy, aby zezwolić na dostęp do odpowiednich adresów IP ruchu wychodzącego łączników *[zarządzanych.](#outbound)*
+Jeśli aplikacja logiki używa również łączników zarządzanych, takich jak łącznik office 365 Outlook lub łącznik  SQL, lub łączników niestandardowych, [](/connectors/custom-connectors/)zapora musi również zezwalać na dostęp do wszystkich wychodzących adresów [IP](#outbound) łącznika zarządzanego w regionie platformy Azure aplikacji logiki. [](../connectors/managed.md) Ponadto jeśli używasz łączników niestandardowych, które umożliwiają dostęp do zasobów lokalnych za pośrednictwem zasobu lokalnej bramy danych na platformie [Azure,](logic-apps-gateway-connection.md)musisz skonfigurować instalację bramy, aby zezwolić na dostęp do odpowiednich adresów IP ruchu wychodzącego łączników *[zarządzanych.](#outbound)*
 
 Aby uzyskać więcej informacji na temat konfigurowania ustawień komunikacji w bramie, zobacz następujące tematy:
 
@@ -404,42 +404,42 @@ Aby uzyskać więcej informacji na temat konfigurowania ustawień komunikacji w 
 
 Przed skonfigurowaniem zapory przy użyciu adresów IP zapoznaj się z tymi zagadnieniami:
 
-* Jeśli używasz usługi [Power Automate](/power-automate/getting-started), niektóre akcje, takie jak **HTTP** i HTTP **+ OpenAPI,** są bezpośrednio za pośrednictwem usługi Azure Logic Apps i pochodzą z adresów IP wymienionych tutaj. Aby uzyskać więcej informacji na temat adresów IP używanych przez Power Automate, zobacz [Limity i konfiguracja dla Power Automate](/flow/limits-and-config#ip-address-configuration).
+* Jeśli używasz usługi [Power Automate](/power-automate/getting-started), niektóre akcje, takie jak **HTTP** i HTTP **+ OpenAPI,** są bezpośrednio za pośrednictwem usługi Azure Logic Apps i pochodzą z adresów IP wymienionych tutaj. Aby uzyskać więcej informacji na temat adresów IP używanych przez Power Automate, zobacz [Limits and configuration for Power Automate (Limity i konfiguracja dla usługi Power Automate](/flow/limits-and-config#ip-address-configuration)).
 
-* Na [Azure (Chiny) — 21Vianet](/azure/china/)stałe lub zastrzeżone adresy IP [](../logic-apps/custom-connector-overview.md) są niedostępne dla łączników niestandardowych i łączników zarządzanych, [](../connectors/apis-list.md#managed-api-connectors)takich jak Azure Storage, SQL Server, Office 365 Outlook i tak dalej.
+* W [Azure (Chiny) — 21Vianet](/azure/china/)przypadku łączników niestandardowych i [](../logic-apps/custom-connector-overview.md) łączników zarządzanych, takich jak Azure Storage, SQL Server, Office 365 Outlook itp., [](../connectors/managed.md)stałe lub zastrzeżone adresy IP są niedostępne dla łączników niestandardowych i łączników zarządzanych.
 
 * Jeśli aplikacje logiki działają w środowisku usługi integracji [(ISE),](connect-virtual-network-vnet-isolated-environment-overview.md)upewnij się, że [te porty również są otwarte.](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise)
 
-* Aby uprościć wszystkie reguły zabezpieczeń, które chcesz utworzyć, [](../virtual-network/service-tags-overview.md) możesz opcjonalnie użyć tagów usługi zamiast określać prefiksy adresów IP dla każdego regionu. Te tagi działają w regionach, w których usługa Logic Apps jest dostępna:
+* Aby uprościć wszystkie reguły zabezpieczeń, które chcesz utworzyć, [](../virtual-network/service-tags-overview.md) możesz opcjonalnie użyć tagów usługi zamiast określać prefiksy adresów IP dla każdego regionu. Tagi te działają w regionach, w których Logic Apps usługa jest dostępna:
 
   * **LogicAppsManagement:** reprezentuje prefiksy przychodzących adresów IP dla Logic Apps usługi.
 
   * **LogicApps:** reprezentuje prefiksy wychodzących adresów IP dla Logic Apps usługi.
 
-  * **AzureConnectors:** reprezentuje prefiksy adresów IP dla łączników zarządzanych, które wywołują zwrotnie przychodzącego elementu webhook do usługi Logic Apps i wywołania wychodzące do odpowiednich usług, takich jak Azure Storage lub Azure Event Hubs.
+  * **AzureConnectors:** reprezentuje prefiksy adresów IP dla łączników zarządzanych, które wywołują wywołania zwrotne przychodzącego elementu webhook do usługi Logic Apps i wychodzące wywołania do odpowiednich usług, takich jak Azure Storage lub Azure Event Hubs.
 
-* Jeśli aplikacje logiki mają problemy z dostępem do kont usługi Azure Storage, które używają zapór i reguł [zapory,](../storage/common/storage-network-security.md)dostępne są inne opcje [włączania dostępu.](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls)
+* Jeśli aplikacje logiki mają problemy z dostępem do kont usługi Azure Storage, które używają zapór i reguł [zapory,](../storage/common/storage-network-security.md)dostępne są różne [inne opcje umożliwiające dostęp.](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls)
 
-  Na przykład aplikacje logiki nie mogą bezpośrednio uzyskać dostępu do kont magazynu, które używają reguł zapory i istnieją w tym samym regionie. Jeśli jednak zezwolisz na wychodzące adresy [IP](../logic-apps/logic-apps-limits-and-config.md#outbound)dla łączników zarządzanych w Twoim regionie, aplikacje logiki będą mieć dostęp do kont magazynu, które znajdują się w innym regionie, z wyjątkiem sytuacji, gdy używasz łączników usługi Azure Table Storage lub Azure Queue Storage. Aby uzyskać dostęp do Table Storage lub Queue Storage, można zamiast tego użyć wyzwalacza i akcji HTTP. Aby uzyskać inne opcje, zobacz Access storage accounts behind firewalls (Uzyskiwanie [dostępu do kont magazynu za zaporami).](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls)
+  Na przykład aplikacje logiki nie mogą bezpośrednio uzyskać dostępu do kont magazynu, które korzystają z reguł zapory i istnieją w tym samym regionie. Jeśli jednak zezwolisz na wychodzące adresy [IP](../logic-apps/logic-apps-limits-and-config.md#outbound)dla łączników zarządzanych w Twoim regionie, aplikacje logiki będą mieć dostęp do kont magazynu, które znajdują się w innym regionie, z wyjątkiem sytuacji, gdy używasz łączników usługi Azure Table Storage lub Azure Queue Storage. Aby uzyskać dostęp do Table Storage lub Queue Storage, można zamiast tego użyć wyzwalacza i akcji HTTP. Aby uzyskać inne opcje, zobacz Access storage accounts behind firewalls (Uzyskiwanie [dostępu do kont magazynu za zaporami).](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls)
 
 <a name="inbound"></a>
 
 ### <a name="inbound-ip-addresses"></a>Przychodzące adresy IP
 
-Ta sekcja zawiera listę adresów IP dla ruchu przychodzącego tylko Azure Logic Apps usługi. Jeśli masz już Azure Government, zobacz Azure Government - Inbound IP addresses (Adresy [IP dla ruchu przychodzącego).](#azure-government-inbound)
+Ta sekcja zawiera listę adresów IP dla ruchu przychodzącego tylko Azure Logic Apps usługi. Jeśli masz już Azure Government, [zobacz Azure Government — przychodzące adresy IP.](#azure-government-inbound)
 
 > [!TIP]
-> Aby zmniejszyć złożoność podczas tworzenia reguł zabezpieczeń, możesz opcjonalnie użyć [tagu](../virtual-network/service-tags-overview.md)usługi , **LogicAppsManagement,** zamiast określać prefiksy adresów IP dla każdego regionu Logic Apps ruchu przychodzącego. Opcjonalnie można również użyć tagu usługi **AzureConnectors** dla łączników zarządzanych, które wywołują wywołania zwrotne przychodzącego elementu webhook do usługi Logic Apps, zamiast określać prefiksy adresów IP łącznika zarządzanego dla ruchu przychodzącego dla każdego regionu. Tagi te działają w regionach, w których usługa Logic Apps jest dostępna.
+> Aby zmniejszyć złożoność podczas tworzenia reguł zabezpieczeń, możesz opcjonalnie użyć tagu usługi [,](../virtual-network/service-tags-overview.md) **LogicAppsManagement,** zamiast określać prefiksy adresów IP ruchu Logic Apps przychodzącego dla każdego regionu. Opcjonalnie można również użyć tagu usługi **AzureConnectors** dla łączników zarządzanych, które wywołują wywołania zwrotne przychodzące elementu webhook do usługi Logic Apps, zamiast określać prefiksy adresów IP łącznika zarządzanego dla ruchu przychodzącego dla każdego regionu. Tagi te działają w regionach, w których usługa Logic Apps jest dostępna.
 >
 > Następujące łączniki wywołują wywołania zwrotne przychodzącego Logic Apps webhook:
 >
 > Adobe Creative Cloud, Adobe Sign, Adobe Sign Demo, Adobe Sign Preview, Adobe Sign Stage, Azure Sentinel, Business Central, Calendly, Common Data Service, DocuSign, DocuSign Demo, Dynamics 365 for Fin & Ops, LiveChat, Office 365 Outlook, Outlook.com, Parserr, SAP*, Shifts for Microsoft Teams, Teamwork Projects, Typeform
 >
-> \***SAP:** zwracany wywołujący zależy od tego, czy środowisko wdrażania jest wielodostępną platformą Azure, czy środowiskiem ISE. W środowisku wielodostępnym lokalna brama danych wykonuje wywołanie z powrotem do Logic Apps danych. W przypadku środowiska ISE łącznik SAP wykonuje wywołanie z powrotem do Logic Apps usługi.
+> \***SAP:** zwracany wywołujący zależy od tego, czy środowisko wdrażania jest wielodostępną platformą Azure, czy środowiskiem ISE. W środowisku wielodostępnym lokalna brama danych wykonuje wywołanie z powrotem do Logic Apps wirtualnej. W przypadku środowiska ISE łącznik SAP wykonuje wywołanie z powrotem do Logic Apps usługi.
 
 <a name="multi-tenant-inbound"></a>
 
-#### <a name="multi-tenant-azure---inbound-ip-addresses"></a>Wielodostępna platforma Azure — przychodzące adresy IP
+#### <a name="multi-tenant-azure---inbound-ip-addresses"></a>Wielodostępna platforma Azure — adresy IP ruchu przychodzącego
 
 | Region z wieloma dzierżawami | Adres IP |
 |---------------------|----|
@@ -471,9 +471,9 @@ Ta sekcja zawiera listę adresów IP dla ruchu przychodzącego tylko Azure Logic
 | Indie Południowe | 52.172.9.47, 52.172.49.43, 52.172.51.140, 104.211.225.152 |
 | Southeast Asia | 52.163.93.214, 52.187.65.81, 52.187.65.155, 104.215.181.6 |
 | Korea Północna | 51.103.128.52, 51.103.132.236, 51.103.134.138, 51.103.136.209 |
-| Szwajcaria Zachodnia | 51.107.225.180, 51.107.225.167, 51.107.225.163, 51.107.239.66 |
-| Zjednoczone Emiraty Zjednoczone Emiraty Środkowe | 20.45.75.193, 20.45.64.29, 20.45.64.87, 20.45.71.213 |
-| Północne Zjednoczone Emiraty Północne | 20.46.42.220, 40.123.224.227, 40.123.224.143, 20.46.46.173 |
+| Europa Zachodnia | 51.107.225.180, 51.107.225.167, 51.107.225.163, 51.107.239.66 |
+| Środkowe Zjednoczone Emiraty Zjednoczone | 20.45.75.193, 20.45.64.29, 20.45.64.87, 20.45.71.213 |
+| Północne Zjednoczone Emiraty Zjednoczone | 20.46.42.220, 40.123.224.227, 40.123.224.143, 20.46.46.173 |
 | Południowe Zjednoczone Królestwo | 51.140.79.109, 51.140.78.71, 51.140.84.39, 51.140.155.81 |
 | Zachodnie Zjednoczone Królestwo | 51.141.48.98, 51.141.51.145, 51.141.53.164, 51.141.119.150 |
 | Zachodnio-środkowe stany USA | 52.161.26.172, 52.161.8.128, 52.161.19.82, 13.78.137.247 |
@@ -487,7 +487,7 @@ Ta sekcja zawiera listę adresów IP dla ruchu przychodzącego tylko Azure Logic
 
 #### <a name="azure-government---inbound-ip-addresses"></a>Azure Government — przychodzące adresy IP
 
-| Azure Government regionu | Adres IP |
+| Azure Government region | Adres IP |
 |-------------------------|----|
 | US Gov Arizona | 52.244.67.164, 52.244.67.64, 52.244.66.82 |
 | US Gov Teksas | 52.238.119.104, 52.238.112.96, 52.238.119.145 |
@@ -502,7 +502,7 @@ Ta sekcja zawiera listę adresów IP dla ruchu przychodzącego tylko Azure Logic
 W tej sekcji wymieniono adresy IP ruchu wychodzącego dla usługi Azure Logic Apps łączników zarządzanych. Jeśli masz już Azure Government, [zobacz Azure Government — adresy IP ruchu wychodzącego.](#azure-government-outbound)
 
 > [!TIP]
-> Aby zmniejszyć złożoność podczas tworzenia reguł zabezpieczeń, możesz opcjonalnie użyć tagu usługi [,](../virtual-network/service-tags-overview.md) **usługi LogicApps,** zamiast określać prefiksy adresów IP Logic Apps dla każdego regionu. Opcjonalnie można również użyć tagu usługi **AzureConnectors** dla łączników zarządzanych, które wykonują wywołania wychodzące do odpowiednich usług, takich jak Azure Storage lub Azure Event Hubs, zamiast określać prefiksy adresów IP łącznika zarządzanego dla ruchu wychodzącego dla każdego regionu. Tagi te działają w regionach, w których usługa Logic Apps jest dostępna.
+> Aby zmniejszyć złożoność podczas tworzenia reguł zabezpieczeń, możesz opcjonalnie użyć [tagu](../virtual-network/service-tags-overview.md)usługi , **LogicApps,** zamiast określać prefiksy adresów IP Logic Apps dla każdego regionu. Opcjonalnie można również użyć tagu usługi **AzureConnectors** dla łączników zarządzanych, które wykonują wywołania wychodzące do odpowiednich usług, takich jak Azure Storage lub Azure Event Hubs, zamiast określać prefiksy adresów IP łącznika zarządzanego ruchu wychodzącego dla każdego regionu. Tagi te działają w regionach, w których Logic Apps usługa jest dostępna.
 
 <a name="multi-tenant-outbound"></a>
 
@@ -538,9 +538,9 @@ W tej sekcji wymieniono adresy IP ruchu wychodzącego dla usługi Azure Logic Ap
 | Indie Południowe | 52.172.50.24, 52.172.55.231, 52.172.52.0, 104.211.229.115, 104.211.230.129, 104.211.230.126, 104.211.231.39, 104.211.227.229 | 13.71.127.26, 13.71.125.22, 20.192.184.32 - 20.192.184.63, 40.78.194.240 - 40.78.194.255 |
 | Southeast Asia | 13.76.133.155, 52.163.228.93, 52.163.230.166, 13.76.4.194, 13.67.110.109, 13.67.91.135, 13.76.5.96, 13.67.107.128 | 52.187.115.69, 52.187.68.19, 13.67.8.240 - 13.67.8.255, 13.67.15.32 - 13.67.15.63 |
 | Korea Północna | 51.103.137.79, 51.103.135.51, 51.103.139.122, 51.103.134.69, 51.103.138.96, 51.103.138.28, 51.103.136.37, 51.103.136.210 | 51.103.142.22, 51.107.86.217, 51.107.59.16 - 51.107.59.31, 51.107.60.224 - 51.107.60.255 |
-| Szwajcaria Zachodnia | 51.107.239.66, 51.107.231.86, 51.107.239.112, 51.107.239.123, 51.107.225.190, 51.107.225.179, 51.107.225.186, 51.107.225.151, 51.107.239.83 | 51.107.156.224, 51.107.231.190, 51.107.155.16 - 51.107.155.31, 51.107.156.224 - 51.107.156.255 |
-| Zjednoczone Emiraty Zjednoczone Emiraty Środkowe | 20.45.75.200, 20.45.72.72, 20.45.75.236, 20.45.79.239, 20.45.67.170, 20.45.72.54, 20.45.67.134, 20.45.67.135 | 20.45.67.45, 20.45.67.28, 20.37.74.192 - 20.37.74.207, 40.120.8.0 - 40.120.8.31 |
-| Północne Zjednoczone Emiraty Zjednoczone | 40.123.230.45, 40.123.231.179, 40.123.231.186, 40.119.166.152, 40.123.228.182, 40.123.217.165, 40.123.216.73, 40.123.212.104 | 65.52.250.208, 40.123.224.120, 40.120.64.64 - 40.120.64.95, 65.52.250.208 - 65.52.250.223 |
+| Europa Zachodnia | 51.107.239.66, 51.107.231.86, 51.107.239.112, 51.107.239.123, 51.107.225.190, 51.107.225.179, 51.107.225.186, 51.107.225.151, 51.107.239.83 | 51.107.156.224, 51.107.231.190, 51.107.155.16 - 51.107.155.31, 51.107.156.224 - 51.107.156.255 |
+| Środkowe Zjednoczone Emiraty Zjednoczone | 20.45.75.200, 20.45.72.72, 20.45.75.236, 20.45.79.239, 20.45.67.170, 20.45.72.54, 20.45.67.134, 20.45.67.135 | 20.45.67.45, 20.45.67.28, 20.37.74.192 - 20.37.74.207, 40.120.8.0 - 40.120.8.31 |
+| Północne Zjednoczone Emiraty Północne | 40.123.230.45, 40.123.231.179, 40.123.231.186, 40.119.166.152, 40.123.228.182, 40.123.217.165, 40.123.216.73, 40.123.212.104 | 65.52.250.208, 40.123.224.120, 40.120.64.64 - 40.120.64.95, 65.52.250.208 - 65.52.250.223 |
 | Południowe Zjednoczone Królestwo | 51.140.74.14, 51.140.73.85, 51.140.78.44, 51.140.137.190, 51.140.153.135, 51.140.28.225, 51.140.142.28, 51.140.158.24 | 51.140.74.150, 51.140.80.51, 51.140.61.124, 51.105.77.96 - 51.105.77.127, 51.140.148.0 - 51.140.148.15 |
 | Zachodnie Zjednoczone Królestwo | 51.141.54.185, 51.141.45.238, 51.141.47.136, 51.141.114.77, 51.141.112.112, 51.141.113.36, 51.141.118.119, 51.141.119.63 | 51.141.52.185, 51.141.47.105, 51.141.124.13, 51.140.211.0 - 51.140.211.15, 51.140.212.224 - 51.140.212.255 |
 | Zachodnio-środkowe stany USA | 52.161.27.190, 52.161.18.218, 52.161.9.108, 13.78.151.161, 13.78.137.179, 13.78.148.140, 13.78.129.20, 13.78.141.75 | 52.161.101.204, 52.161.102.22, 13.78.132.82, 13.71.195.32 - 13.71.195.47, 13.71.199.192 - 13.71.199.223 |
@@ -564,5 +564,5 @@ W tej sekcji wymieniono adresy IP ruchu wychodzącego dla usługi Azure Logic Ap
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się, [jak utworzyć pierwszą aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Dowiedz się, jak [utworzyć pierwszą aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * Dowiedz się więcej o [typowych przykładach i scenariuszach](../logic-apps/logic-apps-examples-and-scenarios.md)

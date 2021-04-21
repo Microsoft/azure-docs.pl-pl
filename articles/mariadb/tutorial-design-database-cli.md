@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Projektowanie interfejsu wiersza polecenia platformy Azure Azure Database for MariaDB'
+title: 'Samouczek: projektowanie interfejsu Azure Database for MariaDB — interfejs wiersza polecenia platformy Azure'
 description: W tym samouczku wyjaśniono, jak utworzyć serwer oraz bazę danych usługi Azure Database for MariaDB i zarządzać nimi przy użyciu interfejsu wiersza polecenia platformy Azure.
 author: savjani
 ms.author: pariks
@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 8f6f8d5a2cc9dc17d08486125fc2e44307c1be46
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b3a65d6b7fbf98d53b756b7f089e06f8a359ab3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98664488"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789955"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Samouczek: projektowanie usługi Azure Database for MariaDB za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -22,25 +22,25 @@ Usługa Azure Database for MariaDB jest usługą relacyjnej bazy danych w chmurz
 > [!div class="checklist"]
 > * Tworzenie usługi Azure Database for MariaDB
 > * Konfigurowanie zapory serwera
-> * Tworzenie bazy danych za pomocą [narzędzia wiersza polecenia MySQL](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)
+> * Tworzenie bazy danych za pomocą narzędzia [wiersza polecenia mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)
 > * Ładowanie przykładowych danych
 > * Zapytania o dane
 > * Aktualizowanie danych
 > * Przywracanie danych
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpłatne konto platformy [Azure.](https://azure.microsoft.com/free/)
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- Ten artykuł wymaga wersji 2,0 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana. 
+- Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Jeśli używasz Azure Cloud Shell, najnowsza wersja jest już zainstalowana. 
 
-Jeśli masz wiele subskrypcji, wybierz odpowiednią subskrypcję, w której zasób istnieje lub dla której są za niego naliczane opłaty. Wybierz określony identyfikator subskrypcji na Twoim koncie za pomocą polecenia [az account set](/cli/azure/account#az-account-set).
+Jeśli masz wiele subskrypcji, wybierz odpowiednią subskrypcję, w której zasób istnieje lub dla której są za niego naliczane opłaty. Wybierz określony identyfikator subskrypcji na Twoim koncie za pomocą polecenia [az account set](/cli/azure/account#az_account_set).
 ```azurecli-interactive
 az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
-[Grupę zasobów platformy Azure](../azure-resource-manager/management/overview.md) można utworzyć za pomocą polecenia [az group create](/cli/azure/group#az-group-create). Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi w formie grupy.
+[Grupę zasobów platformy Azure](../azure-resource-manager/management/overview.md) można utworzyć za pomocą polecenia [az group create](/cli/azure/group#az_group_create). Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi w formie grupy.
 
 Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie `myresourcegroup` w lokalizacji `westus`.
 
@@ -120,7 +120,7 @@ mysql -h mydemoserver.database.windows.net -u myadmin@mydemoserver -p
 ```
 
 ## <a name="create-a-blank-database"></a>Tworzenie pustej bazy danych
-Po nawiązaniu połączenia z serwerem Utwórz pustą bazę danych.
+Po na połączeniu z serwerem utwórz pustą bazę danych.
 ```sql
 mysql> CREATE DATABASE mysampledb;
 ```
@@ -199,7 +199,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 > [!div class="checklist"]
 > * Tworzenie serwera usługi Azure Database for MariaDB
 > * Konfigurowanie zapory serwera
-> * Tworzenie bazy danych za pomocą [narzędzia wiersza polecenia MySQL](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)
+> * Tworzenie bazy danych za pomocą narzędzia [wiersza polecenia mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)
 > * Ładowanie przykładowych danych
 > * Zapytania o dane
 > * Aktualizowanie danych

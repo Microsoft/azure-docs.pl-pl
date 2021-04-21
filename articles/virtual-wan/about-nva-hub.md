@@ -1,119 +1,120 @@
 ---
-title: 'Wirtualna sieć WAN platformy Azure: informacje o urządzeniu wirtualnym w centrum'
-description: Ten artykuł zawiera informacje o urządzeniach wirtualnych sieci w wirtualnym koncentratorze sieci WAN.
+title: 'Azure Virtual WAN: informacje o wirtualnym urządzeniu sieciowym w koncentratorze'
+description: Ten artykuł zawiera informacje o wirtualnych urządzeniach sieciowych w centrum Virtual WAN wirtualnego.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: scottnap
-ms.openlocfilehash: e70b899ea0133704e4ecab42dd4c2a09bca41804
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 7c3ae14cd409e7bfc9be77c1a593964b73a12ddc
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107226315"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791053"
 ---
-# <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Informacje o urządzeniu wirtualnym sieci w centrum sieci wirtualnej platformy Azure (wersja zapoznawcza)
+# <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Informacje o wirtualnym urządzeniu sieciowym w centrum Azure Virtual WAN (wersja zapoznawcza)
 
-Wirtualna sieć WAN platformy Azure pracowała z partnerami sieciowymi, aby utworzyć automatyzację, która ułatwia łączenie urządzeń lokalnych klienta (CPE) z bramą sieci VPN platformy Azure w koncentratorze wirtualnym. Platforma Azure współpracuje z wybieraniem partnerów sieciowych w celu umożliwienia klientom wdrażania zewnętrznego urządzenia sieciowego (urządzenie WUS) innej firmy bezpośrednio w koncentratorze wirtualnym. Pozwala to klientom, którzy chcą połączyć swoją gałąź CPE z tą samą marką urządzenie WUS w koncentratorze wirtualnym, dzięki czemu mogą oni korzystać z zastrzeżonych możliwości kompleksowej klasy SD-WAN.
+Azure Virtual WAN współpracuje z partnerami sieci w celu tworzenia automatyzacji, która ułatwia łączenie sprzętu lokalnego klienta z bramą sieci VPN platformy Azure w koncentratorze wirtualnym. Platforma Azure współpracuje z wybranych partnerów sieciowych, aby umożliwić klientom wdrażanie wirtualnego urządzenia sieciowego (WUS) innej firmy bezpośrednio w koncentratorze wirtualnym. Dzięki temu klienci, którzy chcą połączyć swoje oddziałowe urządzenie CPE z tym samym urządzeniem WUS tej samej marki w koncentratorze wirtualnym, dzięki czemu mogą korzystać z zastrzeżonych, end-to-end możliwości sieci SD-WAN.
 
-Sieci Barracuda i firmy Cisco są pierwszymi partnerami, aby zapewnić urządzeń WUS, które mogą być wdrażane bezpośrednio w koncentratorze sieci wirtualnej.  Zobacz [Barracuda CLOUDGEN WAN](https://www.barracuda.com/products/cloudgenwan), [Cisco Cloud onpochylni dla wielochmurowych](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) i [VMware SD-WAN](https://kb.vmware.com/s/article/82746) , aby zapoznać się z odpowiednią dokumentacją produktu. Platforma Azure współpracuje z większą liczbą partnerów, dlatego należy zobaczyć inne oferty.
+Barracuda Networks i Cisco Systems są pierwszymi partnerami, którzy dostarczają urządzenia WUS, które można wdrożyć bezpośrednio w centrum Virtual WAN wirtualnego.  Zobacz Barracuda CloudGen WAN, [Cisco Cloud OnRamp for Multi-Cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) and VMware SD-WAN (Rozwiązanie [Barracuda CloudGen WAN,](https://www.barracuda.com/products/cloudgenwan)Cisco Cloud OnRamp for Multi-Cloud i [VMware SD-WAN),](https://kb.vmware.com/s/article/82746) aby uzyskać odpowiednią dokumentację produktu. Platforma Azure współpracuje z większą liczby partnerów, więc należy spodziewać się kolejnych ofert.
 
 > [!NOTE]
-> Tylko oferty urządzenie WUS dostępne do wdrożenia w wirtualnym koncentratorze sieci WAN można wdrożyć w wirtualnym koncentratorze sieci WAN. Nie można ich wdrożyć w ramach dowolnej sieci wirtualnej na platformie Azure.
+> Tylko oferty urządzeń WUS dostępne do wdrożenia w centrum Virtual WAN można wdrożyć w centrum Virtual WAN sieci. Nie można ich wdrożyć w dowolnej sieci wirtualnej na platformie Azure.
 
 ## <a name="how-does-it-work"></a><a name="how"></a>Jak to działa?
 
-Urządzeń WUS, które są dostępne do wdrożenia bezpośrednio w wirtualnym Centrum sieci WAN platformy Azure, są przeznaczone do użycia w koncentratorze wirtualnym. Oferta urządzenie WUS jest publikowana w witrynie Azure Marketplace jako aplikacja zarządzana, a klienci mogą wdrożyć ofertę bezpośrednio z witryny Azure Marketplace lub wdrożyć ofertę z poziomu koncentratora wirtualnego za pośrednictwem Azure Portal.
+Urządzenia WUS dostępne do wdrożenia bezpośrednio w centrum Azure Virtual WAN zostały zaprojektowane specjalnie do pracy w koncentratorze wirtualnym. Oferta urządzenia WUS jest publikowana w użytce Azure Marketplace jako aplikacja zarządzana, a klienci mogą wdrożyć ofertę bezpośrednio z usługi Azure Marketplace lub wdrożyć ofertę z koncentratora wirtualnego za pośrednictwem Azure Portal.
 
-:::image type="content" source="./media/about-nva-hub/high-level-process.png" alt-text="Przegląd procesu":::
+:::image type="content" source="./media/about-nva-hub/high-level-process.png" alt-text="Omówienie procesu":::
 
-Oferta urządzenie WUS każdego partnera będzie miała nieco inne środowisko i funkcjonalność w oparciu o ich wymagania dotyczące wdrażania. Istnieje jednak kilka rzeczy, które są wspólne dla wszystkich ofert partnerskich dla urządzenie WUS w wirtualnym koncentratorze sieci WAN.
+Oferta urządzenia WUS każdego partnera będzie mieć nieco inne środowisko i funkcjonalność w zależności od wymagań dotyczących wdrażania. Istnieją jednak pewne rzeczy, które są wspólne dla wszystkich ofert partnerskich dla urządzenia WUS w centrum Virtual WAN sieci.
 
-* Środowisko zarządzanej aplikacji oferowane w witrynie Azure Marketplace.
-* Wydajność i rozliczenia oparte na jednostce infrastruktury urządzenie WUS.
-* Metryki kondycji wyznaczone przez Azure Monitor.
+* Środowisko aplikacji zarządzanej oferowane za pośrednictwem Azure Marketplace.
+* Pojemność i rozliczenia oparte na jednostce infrastruktury urządzenia WUS.
+* Metryki kondycji dostępne za pośrednictwem Azure Monitor.
 
 ### <a name="managed-application"></a><a name="managed"></a>Aplikacja zarządzana
 
-Wszystkie oferty urządzenie WUS, które są dostępne do wdrożenia w wirtualnego centrum sieci WAN, będą mieć **zarządzaną aplikację** , która jest dostępna w portalu Azure Marketplace. Aplikacje zarządzane umożliwiają partnerom wykonywanie następujących czynności:
+Wszystkie oferty urządzeń WUS dostępne do wdrożenia w centrum Virtual WAN będą  mieć aplikację zarządzaną dostępną w Azure Marketplace. Aplikacje zarządzane umożliwiają partnerom:
 
-* Utwórz niestandardowe środowisko wdrażania dla ich urządzenie WUS.
-* Podaj wyspecjalizowany szablon Menedżer zasobów, który umożliwia im tworzenie urządzenie WUS bezpośrednio w koncentratorze sieci wirtualnej.
-* Wylicz koszty licencjonowania oprogramowania bezpośrednio lub za pomocą witryny Azure Marketplace.
-* Uwidacznianie właściwości niestandardowych i liczników zasobów.
+* Tworzenie niestandardowego rozwiązania wdrażania dla urządzenia WUS.
+* Udostępnij wyspecjalizowany Resource Manager, który umożliwia utworzenie urządzenia WUS bezpośrednio w centrum Virtual WAN sieci.
+* Rozliczaj koszty licencjonowania oprogramowania bezpośrednio lub za pośrednictwem Azure Marketplace.
+* Uwidocznij właściwości niestandardowe i mierniki zasobów.
 
-Partnerzy urządzenie WUS mogą tworzyć różne zasoby w zależności od wdrożenia urządzenia, licencjonowania konfiguracji i potrzeb związanych z zarządzaniem. Gdy klient tworzy urządzenie WUS w wirtualnym koncentratorze sieci WAN, podobnie jak wszystkie zarządzane aplikacje, zostaną utworzone dwie grupy zasobów w ramach subskrypcji.
+Partnerzy urządzenia WUS mogą tworzyć różne zasoby w zależności od potrzeb dotyczących wdrażania urządzeń, licencjonowania konfiguracji i zarządzania. Gdy klient tworzy urządzenie WUS w centrum Virtual WAN, tak jak wszystkie aplikacje zarządzane, w jego subskrypcji zostaną utworzone dwie grupy zasobów.
 
-* **Grupa zasobów klienta** — będzie zawierać symbol zastępczy aplikacji zarządzanej. Partnerzy mogą korzystać z tej opcji, aby ujawnić dowolne właściwości klienta, które wybierzemy tutaj.
-* **Grupa zasobów zarządzanych** — klienci nie mogą bezpośrednio konfigurować ani zmieniać zasobów w tej grupie zasobów, ponieważ są one kontrolowane przez wydawcę zarządzanej aplikacji. Ta grupa zasobów będzie zawierać zasób **NetworkVirtualAppliances** .
+* **Grupa zasobów klienta** — będzie zawierać symbol zastępczy aplikacji dla aplikacji zarządzanej. Partnerzy mogą użyć tej funkcji, aby uwidocznić wszelkie właściwości klientów, które wybiorą w tym miejscu.
+* **Zarządzana grupa zasobów** — klienci nie mogą bezpośrednio konfigurować ani zmieniać zasobów w tej grupie zasobów, ponieważ jest to kontrolowane przez wydawcę aplikacji zarządzanej. Ta grupa zasobów będzie zawierać **zasób NetworkVirtualAppliances.**
 
 :::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="Grupy zasobów aplikacji zarządzanej":::
 
-### <a name="nva-infrastructure-units"></a><a name="units"></a>Jednostki infrastruktury urządzenie WUS
+### <a name="nva-infrastructure-units"></a><a name="units"></a>Jednostki infrastruktury urządzenia WUS
 
-Podczas tworzenia urządzenie WUS w wirtualnym koncentratorze sieci WAN należy wybrać liczbę jednostek infrastruktury urządzenie WUS, z którymi ma zostać wdrożona. **Jednostka infrastruktury urządzenie WUS** jest jednostką zagregowanej pojemności przepustowości dla urządzenie WUS w KONCENTRATORZE sieci WAN. **Jednostka infrastruktury urządzenie WUS** jest podobna do [jednostki skalowania](pricing-concepts.md#scale-unit) sieci VPN w taki sposób, że myślisz o pojemności i wielkości.
+Podczas tworzenia urządzenia WUS w centrum Virtual WAN należy wybrać liczbę jednostek infrastruktury urządzenia WUS, za pomocą których ma ono zostać wdrożone. Jednostka **infrastruktury urządzenia WUS** jest jednostką zagregowanej pojemności przepustowości dla urządzenia WUS w centrum Virtual WAN sieci. Jednostka **infrastruktury urządzenia WUS** jest podobna do jednostki [skalowania](pricing-concepts.md#scale-unit) sieci VPN pod względem sposobu myślenia o pojemności i wielkości.
 
-* 1 jednostka infrastruktury urządzenie WUS reprezentuje 500 MB/s łącznej przepustowości dla wszystkich połączeń z witryną oddziału, które są używane w tym urządzenie WUS, przy kosztach wynoszących USD/godz.
-* Platforma Azure obsługuje jednostki infrastruktury urządzenie WUS 1-80 dla danego wdrożenia wirtualnego centrum urządzenie WUS.
-* Każdy partner może oferować różne zbiory jednostek infrastruktury urządzenie WUS, które są podzbiorem wszystkich obsługiwanych konfiguracji jednostek infrastruktury urządzenie WUS.
+* 1 Jednostka infrastruktury urządzenia WUS reprezentuje 500 Mb/s zagregowanej przepustowości dla wszystkich połączeń lokacji oddziałów pochodzących z tego urządzenia WUS, kosztem 0,25 USD/godzinę.
+* Platforma Azure obsługuje od 1 do 80 jednostek infrastruktury urządzenia WUS dla danego wdrożenia koncentratora wirtualnego urządzenia WUS.
+* Każdy partner może oferować różne pakiety jednostek infrastruktury urządzenia WUS, które są podzbiorem wszystkich obsługiwanych konfiguracji jednostki infrastruktury urządzenia WUS.
 
-Podobnie jak w przypadku jednostek skalowania sieci VPN, jeśli wybierzesz *1 jednostkę infrastruktury urządzenie WUS = 500 MB/s*, oznacza to, że zostanie utworzone dwa wystąpienia nadmiarowości, z których każda będzie mieć maksymalną przepływność równą 500 MB/s. Na przykład jeśli masz pięć rozgałęzień, każda z nich wykonuje 10 MB/s w rozgałęzieniu, będzie potrzebna zagregowana liczba 50 MB/s na końcu. Planowanie zagregowanej pojemności urządzenie WUS należy wykonać po ocenie pojemności wymaganej do obsługi liczby gałęzi do centrum.
+Podobnie jak w przypadku jednostek skalowania sieci VPN, jeśli wybierzemy 1 jednostkę infrastruktury urządzenia *WUS = 500 Mb/s,* oznacza to, że zostaną utworzone dwa wystąpienia nadmiarowości, z których każde ma maksymalną przepływność 500 Mb/s. Jeśli na przykład masz pięć gałęzi, z których każdy robi 10 Mb/s w gałęzi, na końcu będzie potrzebna agregacja 50 Mb/s. Planowanie zagregowanej pojemności urządzenia WUS należy wykonać po ocenie pojemności wymaganej do obsługi liczby gałęzi w koncentratorze.
 
 ## <a name="network-virtual-appliance-configuration-process"></a><a name="configuration"></a>Proces konfiguracji wirtualnego urządzenia sieciowego
 
-Partnerzy pracowali, aby zapewnić środowisko, które automatycznie konfiguruje urządzenie WUS w ramach procesu wdrażania. Po udostępnieniu urządzenie WUS w koncentratorze wirtualnym każda dodatkowa konfiguracja, która może być wymagana przez urządzenie WUS, musi zostać wykonana za pośrednictwem portalu partnerów urządzenie WUS lub aplikacji do zarządzania. Bezpośredni dostęp do urządzenie WUS jest niedostępny.
+Partnerzy pracowali nad zapewnieniem doświadczenia, które automatycznie konfiguruje urządzenie WUS w ramach procesu wdrażania. Po zaaprowizowanych urządzenia WUS w koncentratorze wirtualnym wszelkie dodatkowe konfiguracje, które mogą być wymagane dla urządzenia WUS, muszą być wykonywane za pośrednictwem portalu partnerów urządzenia WUS lub aplikacji do zarządzania. Bezpośredni dostęp do urządzenia WUS nie jest dostępny.
 
-## <a name="site-and-connection-resources-with-nvas"></a><a name="resources"></a>Zasoby lokacji i połączeń z usługą urządzeń WUS
+## <a name="site-and-connection-resources-with-nvas"></a><a name="resources"></a>Zasoby lokacji i połączenia z urządzeniami WUS
 
-W przeciwieństwie do konfiguracji VPN Gateway platformy Azure, nie trzeba tworzyć zasobów **lokacji** , zasobów **połączeń typu lokacja-lokacja** ani zasobów **połączeń punkt-lokacja** , aby połączyć Lokacje oddziałów z urządzenie WUS w wirtualnym koncentratorze sieci WAN. To wszystko jest zarządzane przez partnera urządzenie WUS.
+W przeciwieństwie do konfiguracji usługi Azure VPN Gateway  nie trzeba tworzyć zasobów lokacji, zasobów połączenia **lokacja-lokacja** ani zasobów połączenia **punkt-lokacja,** aby połączyć lokacje oddziałów z urządzeniem WUS w centrum Virtual WAN. Wszystko to jest zarządzane za pośrednictwem partnera urządzenia WUS.
 
-Nadal musisz utworzyć połączenia między koncentratorami, aby połączyć wirtualne koncentrator sieci WAN z sieciami wirtualnymi platformy Azure.
+Nadal musisz utworzyć połączenia typu piasta-sieć wirtualna, aby połączyć centrum Virtual WAN z sieciami wirtualnymi platformy Azure.
 
 ## <a name="supported-regions"></a><a name="regions"></a>Obsługiwane regiony
 
-URZĄDZENIE WUS w koncentratorze wirtualnym jest dostępny w wersji zapoznawczej w następujących regionach:
+Urządzenie WUS w koncentratorze wirtualnym jest dostępne w wersji zapoznawczej w następujących regionach:
 
 |Region geopolityczny | Regiony świadczenia usługi Azure|
 |---|---|
-| Ameryka Północna| Zachodnie stany USA, Południowo-środkowe stany USA, Wschodnie stany USA 2   |
-| Ameryka Południowa | Brazylia Południowa |
-| Europa | Europa Zachodnia, Południowe Zjednoczone Królestwo|
-|  Bliski Wschód | Północne Zjednoczone Emiraty Arabskie |
-| Azja | Japan East |
-| Australia | Australia Wschodnia |
-
+| Ameryka Północna| Kanada Środkowa, Kanada Wschodnia, Środkowe stany USA, Wschodnie stany USA, Wschodnie stany USA 2, Północno-środkowe stany USA, Zachodnio-środkowe stany USA, Zachodnie stany USA 2 |
+| Ameryka Południowa | Brazylia Południowa, Brazylia Południowo-Wschodnia |
+| Europa | Francja Środkowa, Francja Południowa, Niemcy Północne, Niemcy Zachodnio-środkowe, Europa Północna, Eizja Wschodnia, Azja Zachodnia, Holandia Północna, Holandia Zachodnia, Południowe Zjednoczone Królestwo, Zachodnie Zjednoczone Królestwo, Europa Zachodnia|
+|  Bliski Wschód | Północne Zjednoczone Emiraty Zjednoczone |
+| Azja |  Azja Wschodnia, Japonia Wschodnia, Japonia Zachodnia, Korea Środkowa, Korea Południowa, Azja Południowo-Wschodnia | 
+| Australia | Australia Południowo-Wschodnia, Australia Wschodnia, Australia Środkowa, Australia Środkowa 2|
+| Afryka | Północna Republika Południowej Afryki |
+| Indie | Indie Południowe, Indie Zachodnie, Indie Środkowe | 
 ## <a name="faq"></a>Często zadawane pytania
 
-### <a name="i-am-a-network-appliance-partner-and-want-to-get-our-nva-in-the-hub--can-i-join-this-partner-program"></a>Jestem partnerem urządzenia sieciowego i chcesz uzyskać nasze urządzenie WUS w centrum.  Czy mogę dołączyć do tego programu partnerskiego?
+### <a name="i-am-a-network-appliance-partner-and-want-to-get-our-nva-in-the-hub--can-i-join-this-partner-program"></a>Jestem partnerem urządzenia sieciowego i chcę uzyskać urządzenie WUS w koncentratorze.  Czy mogę dołączyć do tego programu partnerskiego?
 
-Niestety, w tej chwili nie ma możliwości dowolnych nowych ofert partnerskich. Wróć do nas w listopadzie!
+Niestety, w tej chwili nie mamy możliwości do wesłania żadnych nowych ofert partnerów. Wróć do nas w listopadzie!
 
-### <a name="can-i-deploy-any-nva-from-azure-marketplace-into-the-virtual-wan-hub"></a>Czy mogę wdrożyć dowolne urządzenie WUS z witryny Azure Marketplace w ramach wirtualnego centrum sieci WAN?
+### <a name="can-i-deploy-any-nva-from-azure-marketplace-into-the-virtual-wan-hub"></a>Czy można wdrożyć dowolne urządzenie WUS z Azure Marketplace do Virtual WAN sieciowego?
 
-W tej chwili tylko aplikacja [Barracuda CloudGen sieci WAN](https://aka.ms/BarracudaMarketPlaceOffer) i [Cisco Cloud vWAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cisco.cisco_cloud_vwan_app?tab=Overview) są dostępne do wdrożenia w wirtualnym koncentratorze sieci WAN.
+Obecnie do wdrożenia w centrum danych są dostępne tylko aplikacje [Barracuda CloudGen WAN](https://aka.ms/BarracudaMarketPlaceOffer)[Cisco Cloud vWAN Application](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cisco.cisco_cloud_vwan_app?tab=Overview) i [VMware Sd-W Virtual WAN AN.](https://aka.ms/vmwareMarketplaceLink)  
 
-### <a name="what-is-the-cost-of-the-nva"></a>Jaki jest koszt urządzenie WUS?
+### <a name="what-is-the-cost-of-the-nva"></a>Jaki jest koszt urządzenia WUS?
 
-Musisz zakupić licencję dla urządzenie WUS od dostawcy urządzenie WUS.  W przypadku usługi Barracuda CloudGen WAN urządzenie WUS z licencji Barracuda zobacz [stronę Barracuda WAN CloudGen](https://www.barracuda.com/products/cloudgenwan). Cisco obecnie oferuje tylko BYOLy model licencjonowania, który należy uzyskać bezpośrednio z firmy Cisco. Ponadto naliczane są opłaty od firmy Microsoft dla jednostek infrastruktury urządzenie WUS, które są używane, a także inne zasoby, z których korzystasz. Aby uzyskać więcej informacji, zobacz [pojęcia cenowe](pricing-concepts.md).
+Należy zakupić licencję urządzenia WUS od dostawcy urządzenia WUS.  Aby uzyskać licencję na urządzenie WAN barracuda CloudGen WAN od firmy Barracuda, zobacz stronę [sieci WAN CloudGen firmy Barracuda.](https://www.barracuda.com/products/cloudgenwan) Firma Cisco obecnie oferuje tylko model licencjonowania BYOL (Bring Your Own License), który należy uzyskać bezpośrednio od firmy Cisco. Ponadto zostaną naliczone opłaty od firmy Microsoft za używane jednostki infrastruktury urządzenia WUS i inne używane zasoby. Aby uzyskać więcej informacji, zobacz [Pricing Concepts (Pojęcia dotyczące cen).](pricing-concepts.md)
 
-### <a name="can-i-deploy-an-nva-to-a-basic-hub"></a>Czy mogę wdrożyć urządzenie WUS w centrum Basic?
+### <a name="can-i-deploy-an-nva-to-a-basic-hub"></a>Czy mogę wdrożyć urządzenie WUS w podstawowym koncentratorze?
 
-Nie. Jeśli chcesz wdrożyć urządzenie WUS, musisz użyć standardowego centrum.
+Nie. Jeśli chcesz wdrożyć urządzenie WUS, musisz użyć koncentratora w standardowych urządzeniach.
 
-### <a name="can-i-deploy-an-nva-into-a-secure-hub"></a>Czy mogę wdrożyć urządzenie WUS w bezpiecznym centrum?
+### <a name="can-i-deploy-an-nva-into-a-secure-hub"></a>Czy mogę wdrożyć urządzenie WUS w bezpiecznym koncentratorze?
 
-Tak. Barracuda CloudGen sieci WAN można wdrożyć w centrum za pomocą zapory platformy Azure.
+Tak. Urządzenia WUS partnera można wdrożyć w koncentratorze za pomocą Azure Firewall.
 
-### <a name="can-i-connect-any-cpe-device-in-my-branch-office-to-barracuda-cloudgen-wan-nva-in-the-hub"></a>Czy mogę połączyć każde urządzenie CPE w biurze oddziału, aby Barracuda CloudGen WAN urządzenie WUS w centrum?
+### <a name="can-i-connect-any-cpe-device-in-my-branch-office-to-barracuda-cloudgen-wan-nva-in-the-hub"></a>Czy mogę podłączyć dowolne urządzenie CPE w moim oddziale do urządzenia WAN Barracuda CloudGen w centrum?
 
-Nie. Barracuda CloudGen WAN jest zgodny z urządzeniami Barracuda CPE. Aby dowiedzieć się więcej o wymaganiach dotyczących sieci WAN CloudGen, zobacz [stronę sieci WAN CloudGen Barracuda](https://www.barracuda.com/products/cloudgenwan). W przypadku programu Cisco istnieje kilka urządzeń z systemem SD-WAN CPE, które są zgodne. Zapoznaj się z artykułem [Cisco Cloud onpochylni dla zawiera z obsługą](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) CPEs.
+Nie. Sieć WAN Barracuda CloudGen jest zgodna tylko z urządzeniami Barracuda CPE. Aby dowiedzieć się więcej na temat wymagań usługi CloudGen WAN, zobacz stronę [usługi CloudGen WAN firmy Barracuda.](https://www.barracuda.com/products/cloudgenwan) W przypadku firmy Cisco istnieje kilka urządzeń SD-WAN CPE, które można compatable. Zobacz Cisco Cloud OnRamp for Multi-Cloud documenation for compatable CPE (Cisco [Cloud OnRamp for Multi-Cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) documenation for compatable CPE).
 
-### <a name="what-routing-scenarios-are-supported-with-nva-in-the-hub"></a>Jakie scenariusze routingu są obsługiwane w usłudze urządzenie WUS w centrum?
+### <a name="what-routing-scenarios-are-supported-with-nva-in-the-hub"></a>Jakie scenariusze routingu są obsługiwane przez urządzenie WUS w koncentratorze?
 
-Wszystkie scenariusze routingu obsługiwane przez wirtualną sieć WAN są obsługiwane za pomocą urządzeń WUS w centrum.
+Wszystkie scenariusze routingu obsługiwane Virtual WAN są obsługiwane przez urządzenia WUS w koncentratorze.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o wirtualnej sieci WAN, zobacz artykuł [Omówienie wirtualnych sieci WAN](virtual-wan-about.md) .
+Aby dowiedzieć się więcej o Virtual WAN, zobacz Virtual WAN [Omówienie.](virtual-wan-about.md)
