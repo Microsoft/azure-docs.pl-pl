@@ -8,28 +8,28 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: f2c0b82f14fd16ecb9eef163e7a263f4327cfc46
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 4f9523594c07209d530a143713061be6d0467af8
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364553"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107753384"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Przewodnik dewelopera usługi Azure Key Vault
 
 Key Vault umożliwia bezpieczny dostęp do poufnych informacji z poziomu aplikacji:
 
 - Klucze, wpisy tajne i certyfikaty są chronione bez konieczności samodzielnie pisania kodu i łatwego korzystania z nich z aplikacji.
-- Umożliwiasz klientom posiadanie własnych kluczy, wpisów tajnych i certyfikatów oraz zarządzanie nimi, dzięki czemu można skoncentrować się na udostępnianiu podstawowych funkcji oprogramowania. W ten sposób aplikacje nie będą ponosić odpowiedzialności za klucze dzierżawy, wpisy tajne i certyfikaty klientów ani ponosić za nie odpowiedzialność.
+- Umożliwiasz klientom posiadanie własnych kluczy, wpisów tajnych i certyfikatów oraz zarządzanie nimi, dzięki czemu można skoncentrować się na udostępnianiu podstawowych funkcji oprogramowania. W ten sposób aplikacje nie będą ponosić odpowiedzialności ani ponosić odpowiedzialności za klucze dzierżawy, wpisy tajne i certyfikaty klientów.
 - Aplikacja może używać kluczy do podpisywania i szyfrowania, ale zachowuje zarządzanie kluczami poza aplikacją. Aby uzyskać więcej informacji na temat kluczy, zobacz [Informacje o kluczach](../keys/about-keys.md)
-- Poświadczeniami, np. hasłami, kluczami dostępu i tokenami sas, można zarządzać, przechowując je w Key Vault jako wpisami tajnymi. Zobacz About Secrets (Informacje o wpisach [tajnych)](../secrets/about-secrets.md)
+- Poświadczeniami, np. hasłami, kluczami dostępu i tokenami sas, można zarządzać, przechowując je w Key Vault jako wpisami tajnymi. Zobacz [Informacje o wpisach tajnych](../secrets/about-secrets.md)
 - Zarządzanie certyfikatami. Aby uzyskać więcej informacji, zobacz [About Certificates (Informacje o certyfikatach)](../certificates/about-certificates.md)
 
 Aby uzyskać więcej ogólnych informacji na Azure Key Vault, zobacz [Co to jest Key Vault](overview.md).
 
 ## <a name="public-previews"></a>Publiczne wersje zapoznawcze
 
-Okresowo wydajemy publiczną wersję zapoznawczą nowej funkcji Key Vault wersji zapoznawczej. Wypróbuj funkcje publicznej wersji zapoznawczej i daj nam znać, co myślisz za pośrednictwem azurekeyvault@microsoft.com naszego adresu e-mail z opiniami.
+Okresowo wydajemy publiczną wersję zapoznawczą nowej funkcji Key Vault wersji zapoznawczej. Wypróbuj funkcje publicznej wersji zapoznawczej i daj nam znać, co myślisz za pośrednictwem azurekeyvault@microsoft.com adresu e-mail z opiniami.
 
 ## <a name="creating-and-managing-key-vaults"></a>Tworzenie magazynów kluczy i zarządzanie nimi
 
@@ -45,7 +45,7 @@ Dostęp do warstwy zarządzania jest kontrolowany przez kontrolę [dostępu opar
 
 Zobacz [Biblioteki klienckie,](client-libraries.md) aby uzyskać informacje o pakietach instalacyjnych i kodzie źródłowym.
 
-Aby uzyskać więcej informacji na temat Key Vault zarządzania, zobacz [Key Vault Płaszczyzna zarządzania](./secure-your-key-vault.md#management-plane-and-azure-rbac)
+Aby uzyskać więcej informacji na temat Key Vault zarządzania, zobacz [Key Vault Płaszczyzna zarządzania](security-overview.md)
 
 ## <a name="authenticate-to-key-vault-in-code"></a>Uwierzytelnianie w Key Vault w kodzie
 
@@ -74,7 +74,7 @@ Aby uzyskać więcej informacji na temat usługi libarary klienta tożsamości p
 |[Azure Identity SDK .NET](/dotnet/api/overview/azure/identity-readme)|[Zestaw SDK tożsamości platformy Azure dla języka Python](/python/api/overview/azure/identity-readme)|[Zestaw SDK tożsamości platformy Azure w języku Java](/java/api/overview/azure/identity-readme)|[Zestaw SDK tożsamości platformy Azure w języku JavaScript](/javascript/api/overview/azure/identity-readme)|     
 
 >[!Note]
-> [Biblioteka uwierzytelniania aplikacji](/dotnet/api/overview/azure/service-to-service-authentication) zalecana dla Key Vault SDK platformy .NET w wersji 3, która jest obecnie niepracowana. Postępuj zgodnie z [uwierzytelnianiem aplikacji w przewodniku Azure.Identity Migration Guidance,](/dotnet/api/overview/azure/app-auth-migration) aby przeprowadzić migrację do Key Vault SDK platformy .NET w wersji 4.
+> [Biblioteka uwierzytelniania aplikacji](/dotnet/api/overview/azure/service-to-service-authentication) zalecana dla Key Vault SDK platformy .NET w wersji 3, która jest obecnie niepracowana. Aby przeprowadzić migrację do zestawu SDK platformy .NET w wersji 4, postępuj zgodnie ze wskazówkami Key Vault [AppAuthentication to Azure.Identity Migration Guidance](/dotnet/api/overview/azure/app-auth-migration) (Wskazówki dotyczące migracji na platformę Azure.Identity).
 
 Aby uzyskać samouczki dotyczące uwierzytelniania w Key Vault w aplikacjach, zobacz:
 - [Uwierzytelnianie w u Key Vault w aplikacji hostowanej na maszynie wirtualnej na .NET](./tutorial-net-virtual-machine.md)
@@ -103,9 +103,9 @@ Dostęp do kluczy, wpisów tajnych i certyfikatów jest kontrolowany przez płas
 |--|--|--|--|--|--|--|--|
 |[Odwołanie](/cli/azure/keyvault/secret)<br>[Szybki start](../secrets/quick-create-cli.md)|[Odwołanie](/powershell/module/az.keyvault/)<br>[Szybki start](../secrets/quick-create-powershell.md)|[Odwołanie](/rest/api/keyvault/#secret-operations)|[Odwołanie](/azure/templates/microsoft.keyvault/vaults/secrets)<br>[Szybki start](../secrets/quick-create-template.md)|[Odwołanie](/dotnet/api/azure.security.keyvault.secrets)<br>[Szybki start](../secrets/quick-create-net.md)|[Odwołanie](/python/api/overview/azure/keyvault-secrets-readme)<br>[Szybki start](../secrets/quick-create-python.md)|[Odwołanie](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-secrets/4.2.0/index.html)<br>[Szybki start](../secrets/quick-create-java.md)|[Odwołanie](/javascript/api/@azure/keyvault-secrets/)<br>[Szybki start](../secrets/quick-create-node.md)|
 
-Zobacz [Biblioteki klienta,](client-libraries.md) aby uzyskać informacje o pakietach instalacyjnych i kodzie źródłowym.
+Zobacz [Biblioteki klienckie](client-libraries.md) pakietów instalacyjnych i kodu źródłowego.
 
-Aby uzyskać więcej informacji na temat Key Vault zabezpieczeń płaszczyzny danych, zobacz [Key Vault Data Plane](./secure-your-key-vault.md#data-plane-and-access-policies) and access policies and Key Vault Data Plane and Azure RBAC (Płaszczyzna danych i RBAC platformy [Azure)](./secure-your-key-vault.md#data-plane-and-azure-rbac)
+Aby uzyskać więcej informacji na temat Key Vault zabezpieczeń płaszczyzny danych, zobacz Key Vault Security overview ( [Omówienie zabezpieczeń).](security-overview.md)
 
 ### <a name="code-examples"></a>Przykłady kodu
 
@@ -117,24 +117,24 @@ Aby uzyskać pełne przykłady Key Vault z aplikacjami, zobacz:
 
 Następujące artykuły i scenariusze zawierają wskazówki dotyczące pracy z Azure Key Vault:
 
-- [Uzyskiwanie dostępu Key Vault](access-behind-firewall.md) za zaporą — aby uzyskać dostęp do magazynu kluczy, aplikacja klienca magazynu kluczy musi mieć dostęp do wielu punktów końcowych dla różnych funkcji.
-- Jak wdrożyć certyfikaty na maszynach wirtualnych z Key Vault — [Windows,](../../virtual-machines/extensions/key-vault-windows.md) [Linux](../../virtual-machines/extensions/key-vault-linux.md) — aplikacja w chmurze uruchomiona na maszynie wirtualnej na platformie Azure wymaga certyfikatu. Jak uzyskać ten certyfikat do tej maszyny wirtualnej dzisiaj?
+- [Uzyskiwanie dostępu Key Vault](access-behind-firewall.md) za zaporą — aby uzyskać dostęp do magazynu kluczy, aplikacja klienczka magazynu kluczy musi mieć dostęp do wielu punktów końcowych dla różnych funkcji.
+- Jak wdrożyć certyfikaty na maszynach wirtualnych z Key Vault — [Windows,](../../virtual-machines/extensions/key-vault-windows.md) [Linux](../../virtual-machines/extensions/key-vault-linux.md) — aplikacja w chmurze uruchomiona na maszynie wirtualnej na platformie Azure wymaga certyfikatu. Jak uzyskać ten certyfikat na tej maszynie wirtualnej dzisiaj?
 - [Wdrażanie certyfikatu aplikacji internetowej platformy Azure za pośrednictwem Key Vault](../../app-service/configure-ssl-certificate.md#import-a-certificate-from-key-vault)
 - Przypisywanie zasad dostępu[(portal](assign-access-policy-cli.md)  |  [programu PowerShell interfejsu wiersza](assign-access-policy-powershell.md)  |  [polecenia).](assign-access-policy-portal.md) 
 - [Sposób korzystania z Key Vault z](./key-vault-recovery.md) interfejsem wiersza polecenia przeprowadzi Cię przez cykl życia i użycia magazynu kluczy oraz różnych obiektów magazynu kluczy z włączonym usuwaniem nie soft-delete.
-- Jak przekazywać bezpieczne wartości (takie jak [hasła)](../../azure-resource-manager/templates/key-vault-parameter.md) podczas wdrażania — gdy musisz przekazać bezpieczną wartość (taką jak hasło) jako parametr podczas wdrażania, możesz zapisać ją jako klucz tajny w udaniu Azure Key Vault i odwoływać się do wartości w innych szablonach Resource Manager.
+- Jak przekazywać bezpieczne wartości (takie jak [hasła)](../../azure-resource-manager/templates/key-vault-parameter.md) podczas wdrażania — gdy musisz przekazać bezpieczną wartość (na przykład hasło) jako parametr podczas wdrażania, możesz zapisać ją jako klucz tajny w udaniu Azure Key Vault i odwoływać się do wartości w innych szablonach Resource Manager.
 
 ## <a name="integrated-with-key-vault"></a>Integracja z Key Vault
 
 Te artykuły są dotyczące innych scenariuszy i usług, które korzystają z usługi lub integrują się z Key Vault.
 
 - [Szyfrowanie danych w spoczynku](../../security/fundamentals/encryption-atrest.md) umożliwia kodowanie (szyfrowanie) danych, gdy są utrwalane. Klucze szyfrowania danych są często szyfrowane za pomocą klucza szyfrowania klucza Azure Key Vault celu dalszego ograniczenia dostępu.
-- [Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) umożliwia kierownika własnego klucza dzierżawy. Na przykład zamiast zarządzać kluczem dzierżawy przez firmę Microsoft (ustawienie domyślne), można zarządzać własnym kluczem dzierżawy w celu zachowania zgodności z określonymi przepisami, które mają zastosowanie do Twojej organizacji. Samodzielne zarządzanie kluczem dzierżawy określa się także mianem strategii BYOK (Bring Your Own Key), czyli „Przynieś własny klucz”.
+- [Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) umożliwia kierownika własnego klucza dzierżawy. Na przykład zamiast zarządzania kluczem dzierżawy przez firmę Microsoft (ustawienie domyślne) możesz zarządzać własnym kluczem dzierżawy, aby spełnić określone przepisy dotyczące Twojej organizacji. Samodzielne zarządzanie kluczem dzierżawy określa się także mianem strategii BYOK (Bring Your Own Key), czyli „Przynieś własny klucz”.
 - [Usługa Azure Private Link Service](private-link-service.md) umożliwia dostęp do usług platformy Azure (na przykład Azure Key Vault, Azure Storage i Azure Cosmos DB) oraz usług klienta/partnera hostowanych na platformie Azure za pośrednictwem prywatnego punktu końcowego w sieci wirtualnej.
 - Key Vault z [usługą Event Grid](../../event-grid/event-schema-key-vault.md)  umożliwia użytkownikom powiadomienie o zmianie stanu klucza tajnego przechowywanego w magazynie kluczy. Możesz dystrybuować nową wersję wpisów tajnych do aplikacji lub obracać wpisy tajne bliskie wygaśnięcia, aby zapobiec omdniom.
-- Wpisy tajne usługi [Azure DevOps można chronić](/azure/devops/pipelines/release/azure-key-vault) przed niechcianym dostępem w Key Vault.
+- Wpisy tajne usługi [Azure DevOps](/azure/devops/pipelines/release/azure-key-vault) można chronić przed niechcianym dostępem w Key Vault.
 - [Nawiązywanie połączenia z usługą Azure Storage Key Vault kluczem tajnym przechowywanym w usłudze DataBricks](./integrate-databricks-blob-storage.md)
-- Konfigurowanie i uruchamianie dostawcy Azure Key Vault sterownika CSI magazynu wpisów [tajnych na](./key-vault-integrate-kubernetes.md) platformie Kubernetes
+- Konfigurowanie i uruchamianie dostawcy Azure Key Vault dla sterownika CSI magazynu wpisów [tajnych na](./key-vault-integrate-kubernetes.md) platformie Kubernetes
 
 ## <a name="key-vault-overviews-and-concepts"></a>Key Vault i pojęcia
 

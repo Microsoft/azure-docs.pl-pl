@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/17/2021
 ms.author: mbaldwin
 ms.custom: mvc, devx-track-csharp, devx-track-azurepowershell
-ms.openlocfilehash: ce982b38faa72978e1b043d374a333b68aca80b6
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: c08d0c210e992cba5bca2695fda0bcf08c4689dc
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374747"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772095"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-net"></a>Samouczek: używanie Azure Key Vault z maszyną wirtualną na platformie .NET
 
@@ -33,7 +33,7 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 > * Włącz tożsamość [zarządzaną](../../active-directory/managed-identities-azure-resources/overview.md) dla maszyny wirtualnej.
 > * Przypisywanie uprawnień do tożsamości maszyny wirtualnej.
 
-Przed rozpoczęciem zapoznaj się [z Key Vault pojęciami.](basic-concepts.md) 
+Przed rozpoczęciem zapoznaj się [z Key Vault podstawowymi pojęciami.](basic-concepts.md) 
 
 Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -41,16 +41,16 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://
 
 W przypadku systemów Windows, Mac i Linux:
   * [Usługa Git](https://git-scm.com/downloads)
-  * [Zestaw .NET Core 3.1 SDK lub nowszy.](https://dotnet.microsoft.com/download/dotnet-core/3.1)
-  * [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) lub [Azure PowerShell](/powershell/azure/install-az-ps)
+  * Zestaw [SDK platformy .NET Core 3.1 lub nowszy.](https://dotnet.microsoft.com/download/dotnet-core/3.1)
+  * [Interfejs wiersza polecenia](/cli/azure/install-azure-cli) platformy Azure [lub Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="create-resources-and-assign-permissions"></a>Tworzenie zasobów i przypisywanie uprawnień
 
-Przed rozpoczęciem kodowania musisz utworzyć zasoby, umieścić klucz tajny w magazynie kluczy i przypisać uprawnienia.
+Przed rozpoczęciem kodowania należy utworzyć zasoby, umieścić klucz tajny w magazynie kluczy i przypisać uprawnienia.
 
 ### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Aby zalogować się do platformy Azure przy użyciu następującego polecenia:
+Aby zalogować się do platformy Azure za pomocą następującego polecenia:
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 ```azurecli
@@ -115,7 +115,7 @@ xxxxxxxx-xx-xxxxxx   xxxxxxxx-xxxx-xxxx   SystemAssigned
 ---
 
 ## <a name="assign-permissions-to-the-vm-identity"></a>Przypisywanie uprawnień do tożsamości maszyny wirtualnej
-Przypisz wcześniej utworzone uprawnienia tożsamości do magazynu kluczy za pomocą [polecenia az keyvault set-policy:](/cli/azure/keyvault#az-keyvault-set-policy)
+Przypisz utworzone wcześniej uprawnienia tożsamości do magazynu kluczy za pomocą [polecenia az keyvault set-policy:](/cli/azure/keyvault#az_keyvault_set_policy)
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 ```azurecli
@@ -128,9 +128,9 @@ Set-AzKeyVaultAccessPolicy -ResourceGroupName <YourResourceGroupName> -VaultName
 ```
 ---
 
-## <a name="sign-in-to-the-virtual-machine"></a>Logowanie się do maszyny wirtualnej
+## <a name="sign-in-to-the-virtual-machine"></a>Logowanie do maszyny wirtualnej
 
-Aby zalogować się do maszyny wirtualnej, postępuj zgodnie z instrukcjami w temacie Connect and sign in to an Azure Windows virtual machine (Nawiązywanie połączenia z maszyną wirtualną z systemem Windows na platformie [Azure)](../../virtual-machines/windows/connect-logon.md) lub Connect and sign in to an Azure Linux virtual machine (Nawiązywanie połączenia z maszyną wirtualną z systemem Linux na platformie [Azure).](../../virtual-machines/linux/login-using-aad.md)
+Aby zalogować się do maszyny wirtualnej, postępuj zgodnie z instrukcjami w temacie Connect and sign in to an Azure Windows virtual machine (Nawiązywanie połączenia z maszyną wirtualną z systemem Windows na platformie [Azure)](../../virtual-machines/windows/connect-logon.md) lub Connect and sign in to an Azure Linux virtual machine (Nawiązywanie połączenia z maszyną wirtualną z [systemem Linux na platformie Azure).](../../virtual-machines/linux/login-using-aad.md)
 
 ## <a name="set-up-the-console-app"></a>Konfigurowanie aplikacji konsolowej
 
@@ -160,7 +160,7 @@ W oknie konsoli zainstaluj bibliotekę klienta Azure Key Vault Secrets dla progr
 dotnet add package Azure.Security.KeyVault.Secrets
 ```
 
-W tym przewodniku Szybki start musisz zainstalować następujący pakiet tożsamości, aby uwierzytelnić się w Azure Key Vault:
+W tym przewodniku Szybki start musisz zainstalować następujący pakiet tożsamości w celu uwierzytelnienia w Azure Key Vault:
 
 ```console
 dotnet add package Azure.Identity
@@ -177,7 +177,7 @@ using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 ```
 
-Dodaj następujące wiersze, aktualizując adres URI w celu `vaultUri` odzwierciedlenia wartości magazynu kluczy. Poniższy kod używa metody  ["DefaultAzureCredential()"](/dotnet/api/azure.identity.defaultazurecredential) do uwierzytelniania w magazynie kluczy, który używa tokenu z tożsamości zarządzanej aplikacji do uwierzytelniania. Korzysta również z wykładniczego odroczania w przypadku ponownych prób w przypadku ograniczenia magazynu kluczy.
+Dodaj następujące wiersze, aktualizując adres URI w celu `vaultUri` odzwierciedlenia wartości magazynu kluczy. Poniższy kod używa metody  ["DefaultAzureCredential()"](/dotnet/api/azure.identity.defaultazurecredential) do uwierzytelniania w magazynie kluczy, który używa tokenu z tożsamości zarządzanej aplikacji do uwierzytelniania. Korzysta również z wykładniczego odroczania dla ponownych prób w przypadku ograniczenia magazynu kluczy.
 
 ```csharp
   class Program

@@ -1,46 +1,46 @@
 ---
 title: Usuwanie zasobów obrazu
-description: Szczegółowe informacje na temat efektywnego zarządzania rozmiarem rejestru przez usunięcie danych obrazu kontenera za pomocą poleceń interfejsu wiersza polecenia platformy Azure.
+description: Szczegółowe informacje na temat efektywnego zarządzania rozmiarem rejestru przez usunięcie danych obrazu kontenera przy użyciu poleceń interfejsu wiersza polecenia platformy Azure.
 ms.topic: article
 ms.date: 07/31/2019
-ms.openlocfilehash: 449a1c09bf88e3e0e0aeca4d3b687371d2a6b91a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: af277d0c02960c989b4e9119f2ecbfd8f6d7ce07
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "78403342"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783993"
 ---
-# <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Usuwanie obrazów kontenera w Azure Container Registry przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Usuwanie obrazów kontenerów w usłudze Azure Container Registry użyciu interfejsu wiersza polecenia platformy Azure
 
-Aby zachować rozmiar rejestru kontenerów platformy Azure, należy okresowo usuwać stare dane obrazu. Niektóre obrazy kontenerów wdrożone w środowisku produkcyjnym mogą wymagać długoterminowego przechowywania, ale inne mogą być zwykle usuwane szybciej. Na przykład w zautomatyzowanym scenariuszu kompilowania i testowania rejestr może szybko wypełniać obrazy, które nigdy nie zostały wdrożone, i mogą zostać przeczyszczone wkrótce po zakończeniu kompilacji i przebiegu testowego.
+Aby zachować rozmiar rejestru kontenerów platformy Azure, należy okresowo usuwać nieaktualne dane obrazu. Niektóre obrazy kontenerów wdrożone w środowisku produkcyjnym mogą wymagać przechowywania długoterminowego, ale inne zazwyczaj można usunąć szybciej. Na przykład w scenariuszu zautomatyzowanej kompilacji i testowania rejestr może szybko zapełniać obrazy, które mogą nigdy nie zostać wdrożone, i może zostać przeczyszony wkrótce po zakończeniu kompilacji i przebiegu testowego.
 
-Ponieważ dane obrazu można usuwać na kilka różnych sposobów, ważne jest, aby zrozumieć, w jaki sposób każda operacja usuwania ma wpływ na użycie magazynu. W tym artykule opisano kilka metod usuwania danych obrazu:
+Ponieważ dane obrazu można usuwać na kilka różnych sposobów, ważne jest, aby zrozumieć, jak każda operacja usuwania wpływa na użycie magazynu. W tym artykule odano kilka metod usuwania danych obrazu:
 
-* Usuwanie [repozytorium](#delete-repository): usuwa wszystkie obrazy i wszystkie unikatowe warstwy w repozytorium.
-* Usuń przez [tag](#delete-by-tag): usuwa obraz, tag, wszystkie unikatowe warstwy, do których odwołuje się obraz, oraz wszystkie inne Tagi skojarzone z obrazem.
-* Usuń według [skrótu manifestu](#delete-by-manifest-digest): usuwa obraz, wszystkie unikatowe warstwy, do których odwołuje się obraz, oraz wszystkie Tagi skojarzone z obrazem.
+* Usuń [repozytorium:](#delete-repository)usuwa wszystkie obrazy i wszystkie unikatowe warstwy w repozytorium.
+* Usuń według [tagu:](#delete-by-tag)usuwa obraz, tag, wszystkie unikatowe warstwy, do których odwołuje się obraz, oraz wszystkie inne tagi skojarzone z obrazem.
+* Usuń za [pomocą skrótu](#delete-by-manifest-digest)manifestu: usuwa obraz, wszystkie unikatowe warstwy, do których odwołuje się obraz, oraz wszystkie tagi skojarzone z obrazem.
 
-Przykładowe skrypty są udostępniane, aby pomóc zautomatyzować operacje usuwania.
+Dostępne są przykładowe skrypty, które ułatwiają automatyzowanie operacji usuwania.
 
-Aby zapoznać się z wprowadzeniem do tych pojęć, zobacz [Informacje o rejestrach, repozytoriach i obrazach](container-registry-concepts.md).
+Aby uzyskać wprowadzenie do tych pojęć, zobacz About registries, repositories, and images (Informacje o [rejestrach, repozytoriach i obrazach).](container-registry-concepts.md)
 
-## <a name="delete-repository"></a>Usuń repozytorium
+## <a name="delete-repository"></a>Usuwanie repozytorium
 
-Usunięcie repozytorium powoduje usunięcie wszystkich obrazów w repozytorium, w tym wszystkich tagów, unikatowych warstw i manifestów. Po usunięciu repozytorium odzyskuje miejsce do magazynowania używane przez obrazy, które odwołują się do unikatowych warstw w tym repozytorium.
+Usunięcie repozytorium powoduje usunięcie wszystkich obrazów w repozytorium, w tym wszystkich tagów, unikatowych warstw i manifestów. Usunięcie repozytorium powoduje odzyskanie miejsca do magazynowania używanego przez obrazy odwołujące się do unikatowych warstw w tym repozytorium.
 
-Następujące polecenie interfejsu wiersza polecenia platformy Azure usuwa repozytorium "ACR-HelloWorld" i wszystkie Tagi i manifesty w repozytorium. Jeśli do warstw, do których odwołuje się usunięte manifesty, nie odwołują się żadne inne obrazy w rejestrze, ich dane warstwy są również usuwane i odzyskiwane jest miejsce do magazynowania.
+Następujące polecenie interfejsu wiersza polecenia platformy Azure usuwa repozytorium "acr-helloworld" oraz wszystkie tagi i manifesty w repozytorium. Jeśli warstwy, do których odwołują się usunięte manifesty, nie są przywołyne przez inne obrazy w rejestrze, usuwane są również ich dane warstw, co odzyskuje miejsce do magazynowania.
 
 ```azurecli
  az acr repository delete --name myregistry --repository acr-helloworld
 ```
 
-## <a name="delete-by-tag"></a>Usuń przez tag
+## <a name="delete-by-tag"></a>Usuń według tagu
 
-Można usunąć poszczególne obrazy z repozytorium, określając nazwę i tag repozytorium w operacji usuwania. Gdy usuniesz przez tag, odzyskasz miejsce do magazynowania używane przez dowolne unikatowe warstwy w obrazie (warstwy, które nie są współużytkowane przez żadne inne obrazy w rejestrze).
+Poszczególne obrazy można usunąć z repozytorium, określając nazwę i tag repozytorium w operacji usuwania. Usunięcie według tagu powoduje odzyskanie miejsca do magazynowania używanego przez wszelkie unikatowe warstwy obrazu (warstwy nieudzielone przez inne obrazy w rejestrze).
 
-Aby usunąć przez tag, użyj [AZ ACR Repository Delete][az-acr-repository-delete] i określ nazwę obrazu w `--image` parametrze. Wszystkie warstwy są unikatowe dla obrazu, a wszystkie inne Tagi skojarzone z obrazem zostaną usunięte.
+Aby usunąć według tagu, użyj [az acr repository delete][az-acr-repository-delete] i określ nazwę obrazu w `--image` parametrze . Wszystkie warstwy unikatowe dla obrazu oraz wszystkie inne tagi skojarzone z obrazem zostaną usunięte.
 
-Na przykład usuwanie obrazu "ACR-HelloWorld: Najnowsza" z rejestru "Moje rejestr":
+Na przykład usunięcie obrazu "acr-helloworld:latest" z rejestru "myregistry":
 
 ```azurecli
 az acr repository delete --name myregistry --image acr-helloworld:latest
@@ -52,13 +52,13 @@ Are you sure you want to continue? (y/n):
 ```
 
 > [!TIP]
-> Usuń *przez tag* nie należy mylić z usuwaniem tagu (bez znakowania). Tag można usunąć za pomocą polecenia interfejsu CLI platformy Azure [AZ ACR Repository UNTAG][az-acr-repository-untag]. Nie zwalnia się miejsca po UNTAG obrazu, ponieważ jego [manifest](container-registry-concepts.md#manifest) i dane warstwy pozostają w rejestrze. Tylko odwołanie do tagu zostanie usunięte.
+> Usuwanie *według tagu* nie powinno być mylone z usuwaniem tagu (usuwanie tagu). Tag możesz usunąć za pomocą polecenia interfejsu wiersza polecenia platformy Azure [az acr repository untag][az-acr-repository-untag]. Po coktagowanie obrazu nie jest wolne miejsce, ponieważ [jego dane manifestu](container-registry-concepts.md#manifest) i warstwy pozostają w rejestrze. Usuwane jest tylko samo odwołanie do tagu.
 
-## <a name="delete-by-manifest-digest"></a>Usuń według skrótu manifestu
+## <a name="delete-by-manifest-digest"></a>Usuwanie za pomocą skrótu manifestu
 
-[Podsumowanie manifestu](container-registry-concepts.md#manifest-digest) może być skojarzone z jednym, brakiem lub wieloma tagami. Po usunięciu przez Digest wszystkie Tagi, do których odwołuje się manifest, są usuwane, tak jak dane warstwy dla każdej warstwy, które są unikatowe dla obrazu. Dane warstwy udostępnionej nie są usuwane.
+Skrót [manifestu](container-registry-concepts.md#manifest-digest) można skojarzyć z jednym, żadnym lub wieloma tagami. Po usunięciu za pomocą skrótu wszystkie tagi, do których odwołuje się manifest, są usuwane, podobnie jak dane warstw dla dowolnych warstw unikatowych dla obrazu. Dane warstwy udostępnionej nie są usuwane.
 
-Aby usunąć plik przez podsumowanie, najpierw Wyświetl skróty manifestu zawierające obrazy, które chcesz usunąć. Na przykład:
+Aby usunąć za pomocą skrótu, najpierw należy wyświetlić listę skrótów manifestu dla repozytorium zawierającego obrazy, które chcesz usunąć. Na przykład:
 
 ```azurecli
 az acr repository show-manifests --name myregistry --repository acr-helloworld
@@ -84,13 +84,13 @@ az acr repository show-manifests --name myregistry --repository acr-helloworld
 ]
 ```
 
-Następnie określ skrót, który chcesz usunąć, za pomocą polecenia [AZ ACR Repository Delete][az-acr-repository-delete] . Format polecenia jest następujący:
+Następnie określ skrót, który chcesz usunąć, za pomocą [polecenia az acr repository delete.][az-acr-repository-delete] Format polecenia jest następujący:
 
 ```azurecli
 az acr repository delete --name <acrName> --image <repositoryName>@<digest>
 ```
 
-Na przykład, aby usunąć ostatni manifest wymieniony w poprzednich danych wyjściowych (ze znacznikiem "v2"):
+Aby na przykład usunąć ostatni manifest wymieniony w poprzednich danych wyjściowych (z tagiem "v2"):
 
 ```azurecli
 az acr repository delete --name myregistry --image acr-helloworld@sha256:3168a21b98836dda7eb7a846b3d735286e09a32b0aa2401773da518e7eba3b57
@@ -101,23 +101,23 @@ This operation will delete the manifest 'sha256:3168a21b98836dda7eb7a846b3d73528
 Are you sure you want to continue? (y/n): 
 ```
 
-`acr-helloworld:v2`Obraz jest usuwany z rejestru, podobnie jak wszystkie dane warstwy, które są unikatowe dla tego obrazu. Jeśli manifest jest skojarzony z wieloma tagami, wszystkie skojarzone Tagi również zostaną usunięte.
+Obraz zostanie usunięty z rejestru, podobnie jak wszystkie dane `acr-helloworld:v2` warstwy unikatowe dla tego obrazu. Jeśli manifest jest skojarzony z wieloma tagami, wszystkie skojarzone tagi również zostaną usunięte.
 
-## <a name="delete-digests-by-timestamp"></a>Usuń Skróty według sygnatury czasowej
+## <a name="delete-digests-by-timestamp"></a>Usuwanie skrótów według znacznika czasu
 
-Aby zachować rozmiar repozytorium lub rejestru, może być konieczne okresowe usunięcie z nich podsumowania manifestu niż określona data.
+Aby zachować rozmiar repozytorium lub rejestru, może być konieczne okresowe usuwanie skrótów manifestu starszych niż określoną datę.
 
-Następujące polecenie interfejsu wiersza polecenia platformy Azure wyświetla wszystkie skróty manifestu w repozytorium starszym niż określona sygnatura czasowa w kolejności rosnącej. Zamień `<acrName>` i `<repositoryName>` na wartości odpowiednie dla danego środowiska. Sygnatura czasowa może być pełnym wyrażeniem daty i godziny lub datą, jak w tym przykładzie.
+Następujące polecenie interfejsu wiersza polecenia platformy Azure wyświetla wszystkie podsumowanie manifestu w repozytorium starszym niż określony znacznik czasu w kolejności rosnącej. Zastąp `<acrName>` wartości `<repositoryName>` i wartościami odpowiednimi dla Twojego środowiska. Znacznik czasu może być pełnym wyrażeniem daty/godziny lub datą, jak w tym przykładzie.
 
 ```azurecli
 az acr repository show-manifests --name <acrName> --repository <repositoryName> \
 --orderby time_asc -o tsv --query "[?timestamp < '2019-04-05'].[digest, timestamp]"
 ```
 
-Po zidentyfikowaniu starych szyfrowanych manifestów można uruchomić następujący skrypt bash, aby usunąć skróty manifestu starsze niż określona sygnatura czasowa. Wymaga interfejsu wiersza polecenia platformy Azure i **xargs**. Domyślnie skrypt nie wykonuje operacji usuwania. Zmień `ENABLE_DELETE` wartość na, aby `true` włączyć usuwanie obrazu.
+Po zidentyfikowaniu nieaktualnych skrótów manifestu możesz uruchomić następujący skrypt powłoki Bash, aby usunąć skróty manifestu starsze niż określony znacznik czasu. Wymaga interfejsu wiersza polecenia platformy Azure **i usługi xargs.** Domyślnie skrypt nie wykonuje usuwania. Zmień wartość `ENABLE_DELETE` na , `true` aby włączyć usuwanie obrazu.
 
 > [!WARNING]
-> Użyj następującego przykładowego skryptu z przestrogą — usunięte dane obrazu są NIEODWRACALNe. Jeśli masz systemy, które pobierają obrazy za pomocą skrótu manifestu (w przeciwieństwie do nazwy obrazu), nie należy uruchamiać tych skryptów. Usunięcie skrótu manifestu uniemożliwi tym systemom ściąganie obrazów z rejestru. Zamiast ściągania według manifestu należy rozważyć przyjęcie *unikatowego schematu znakowania* , [zalecane najlepsze rozwiązanie](container-registry-image-tag-version.md). 
+> Użyj następującego przykładowego skryptu z rozwagą — usunięte dane obrazu są NIEODWRACALNE. Jeśli masz systemy, które ściągają obrazy za pomocą skrótu manifestu (w przeciwieństwie do nazwy obrazu), nie należy uruchamiać tych skryptów. Usunięcie skrótów manifestu uniemożliwi tym systemom ściąganie obrazów z rejestru. Zamiast ściągać według manifestu, rozważ przyjęcie *unikatowego* schematu tagowania, co jest [zalecanym najlepszym rozwiązaniem.](container-registry-image-tag-version.md) 
 
 ```bash
 #!/bin/bash
@@ -150,12 +150,12 @@ else
 fi
 ```
 
-## <a name="delete-untagged-images"></a>Usuń nieoznakowane obrazy
+## <a name="delete-untagged-images"></a>Usuwanie nieoznakowanych obrazów
 
-Jak wspomniano w sekcji [Podsumowanie manifestu](container-registry-concepts.md#manifest-digest) , wypychanie zmodyfikowanego obrazu przy użyciu istniejącego tagu spowoduje **nieoznakowanie** wcześniej wypchnięcia obrazu, co spowoduje powstanie oddzielonego obrazu (lub "zawieszonego"). Plik manifestu wcześniej wypchniętego obrazu — i jego dane warstwy — pozostają w rejestrze. Należy wziąć pod uwagę następującą sekwencję zdarzeń:
+Jak wspomniano w sekcji Podsumowanie [manifestu,](container-registry-concepts.md#manifest-digest) wypchanie zmodyfikowanego obrazu przy użyciu istniejącego tagu spowoduje **untagowanie** wcześniej wypchniętego obrazu, co spowoduje, że obraz oddzielony (lub "dangling"). Manifest wcześniej wypchniętego obrazu — i jego dane warstwy — pozostaje w rejestrze. Rozważmy następującą sekwencję zdarzeń:
 
-1. Wypychanie obrazu *ACR — HelloWorld* z tagiem **najnowszy**: `docker push myregistry.azurecr.io/acr-helloworld:latest`
-1. Sprawdź manifesty dla repozytorium *ACR-HelloWorld*:
+1. Wypychanie obrazu *acr-helloworld z* tagiem **latest**: `docker push myregistry.azurecr.io/acr-helloworld:latest`
+1. Sprawdź manifesty repozytorium *acr-helloworld:*
 
    ```azurecli
    az acr repository show-manifests --name myregistry --repository acr-helloworld
@@ -174,9 +174,9 @@ Jak wspomniano w sekcji [Podsumowanie manifestu](container-registry-concepts.md#
    ]
    ```
 
-1. Modyfikuj *ACR — HelloWorld* pliku dockerfile
-1. Wypychanie obrazu *ACR — HelloWorld* z tagiem **najnowszy**: `docker push myregistry.azurecr.io/acr-helloworld:latest`
-1. Sprawdź manifesty dla repozytorium *ACR-HelloWorld*:
+1. Modyfikowanie *pliku Dockerfile acr-helloworld*
+1. Wypychanie obrazu *acr-helloworld z* tagiem **latest**: `docker push myregistry.azurecr.io/acr-helloworld:latest`
+1. Sprawdź manifesty repozytorium *acr-helloworld:*
 
    ```azurecli
    az acr repository show-manifests --name myregistry --repository acr-helloworld
@@ -199,24 +199,24 @@ Jak wspomniano w sekcji [Podsumowanie manifestu](container-registry-concepts.md#
    ]
    ```
 
-Jak widać w danych wyjściowych ostatniego kroku sekwencji, istnieje teraz oddzielony manifest, którego `"tags"` Właściwość jest pustą listą. Ten manifest nadal istnieje w rejestrze wraz ze wszystkimi unikatowymi danymi warstwy, do których się odwołuje. **Aby usunąć obrazy oddzielone i ich dane warstwowe, należy usunąć je za pomocą skrótu manifestu**.
+Jak widać w danych wyjściowych ostatniego kroku w sekwencji, istnieje teraz oddzielony manifest, którego właściwość `"tags"` jest pustą listą. Ten manifest nadal istnieje w rejestrze wraz z dowolnymi unikatowymi danymi warstwy, do których się odwołuje. **Aby usunąć takie oddzielone obrazy i ich dane warstw, należy usunąć za pomocą skrótu manifestu**.
 
-## <a name="delete-all-untagged-images"></a>Usuń wszystkie obrazy nieoznakowane
+## <a name="delete-all-untagged-images"></a>Usuwanie wszystkich nieoznakowanych obrazów
 
-Możesz wyświetlić listę wszystkich nieoznakowanych obrazów w repozytorium za pomocą następującego polecenia platformy Azure. Zamień `<acrName>` i `<repositoryName>` na wartości odpowiednie dla danego środowiska.
+Wszystkie nieoznakowane obrazy w repozytorium można wyświetlić za pomocą następującego polecenia interfejsu wiersza polecenia platformy Azure. Zastąp `<acrName>` wartości i `<repositoryName>` wartościami odpowiednimi dla Twojego środowiska.
 
 ```azurecli
 az acr repository show-manifests --name <acrName> --repository <repositoryName> --query "[?tags[0]==null].digest"
 ```
 
-Korzystając z tego polecenia w skrypcie, można usunąć wszystkie nieoznaczone obrazy w repozytorium.
+Za pomocą tego polecenia w skrypcie można usunąć wszystkie nieoznakowane obrazy w repozytorium.
 
 > [!WARNING]
-> W następujących przykładowych skryptach należy zachować ostrożność — usunięte dane obrazu są NIEODWRACALNe. Jeśli masz systemy, które pobierają obrazy za pomocą skrótu manifestu (w przeciwieństwie do nazwy obrazu), nie należy uruchamiać tych skryptów. Usunięcie nieoznakowanych obrazów uniemożliwi tym systemom ściąganie obrazów z rejestru. Zamiast ściągania według manifestu należy rozważyć przyjęcie *unikatowego schematu znakowania* , [zalecane najlepsze rozwiązanie](container-registry-image-tag-version.md).
+> Użyj następujących przykładowych skryptów z rozwagą — usunięte dane obrazu są NIEODWRACALNE. Jeśli masz systemy, które ściągają obrazy za pomocą skrótu manifestu (w przeciwieństwie do nazwy obrazu), nie należy uruchamiać tych skryptów. Usunięcie nieoznakowanych obrazów uniemożliwi tym systemom ściąganie obrazów z rejestru. Zamiast ściągać według manifestu, rozważ przyjęcie *unikatowego* schematu tagowania, co jest [zalecanym najlepszym rozwiązaniem.](container-registry-image-tag-version.md)
 
-**Interfejs wiersza polecenia platformy Azure w bash**
+**Interfejs wiersza polecenia platformy Azure w powłoce Bash**
 
-Poniższy skrypt bash usuwa wszystkie nieoznakowane obrazy z repozytorium. Wymaga interfejsu wiersza polecenia platformy Azure i **xargs**. Domyślnie skrypt nie wykonuje operacji usuwania. Zmień `ENABLE_DELETE` wartość na, aby `true` włączyć usuwanie obrazu.
+Poniższy skrypt powłoki Bash usuwa wszystkie nieoznakowane obrazy z repozytorium. Wymaga interfejsu wiersza polecenia platformy Azure **i usługi xargs.** Domyślnie skrypt nie wykonuje usuwania. Zmień wartość `ENABLE_DELETE` na , `true` aby włączyć usuwanie obrazu.
 
 ```bash
 #!/bin/bash
@@ -246,7 +246,7 @@ fi
 
 **Interfejs wiersza polecenia platformy Azure w programie PowerShell**
 
-Poniższy skrypt programu PowerShell usuwa wszystkie nieoznakowane obrazy z repozytorium. Wymaga programu PowerShell i interfejsu wiersza polecenia platformy Azure. Domyślnie skrypt nie wykonuje operacji usuwania. Zmień `$enableDelete` wartość na, aby `$TRUE` włączyć usuwanie obrazu.
+Poniższy skrypt programu PowerShell usuwa wszystkie nieoznakowane obrazy z repozytorium. Wymaga programu PowerShell i interfejsu wiersza polecenia platformy Azure. Domyślnie skrypt nie wykonuje usuwania. Zmień wartość `$enableDelete` na , `$TRUE` aby włączyć usuwanie obrazu.
 
 ```powershell
 # WARNING! This script deletes data!
@@ -273,13 +273,13 @@ if ($enableDelete) {
 
 ## <a name="automatically-purge-tags-and-manifests-preview"></a>Automatyczne przeczyszczanie tagów i manifestów (wersja zapoznawcza)
 
-Alternatywą dla tworzenia skryptów poleceń interfejsu wiersza polecenia platformy Azure jest uruchomienie zadania ACR lub zaplanowanego na żądanie w celu usunięcia wszystkich tagów, które są starsze niż określony czas trwania lub pasują do określonego filtru nazw. Aby uzyskać więcej informacji, zobacz [Automatyczne przeczyszczanie obrazów z usługi Azure Container Registry](container-registry-auto-purge.md).
+Zamiast skrypować polecenia interfejsu wiersza polecenia platformy Azure, uruchom zadanie usługi ACR na żądanie lub zaplanowane w celu usunięcia wszystkich tagów, które są starsze niż określony czas trwania lub są zgodne z określonym filtrem nazw. Aby uzyskać więcej informacji, zobacz [Automatyczne przeczyszczanie obrazów z rejestru kontenerów platformy Azure.](container-registry-auto-purge.md)
 
-Opcjonalnie można ustawić [zasady przechowywania](container-registry-retention-policy.md) dla każdego rejestru, aby zarządzać nieoznakowanymi manifestami. Po włączeniu zasad przechowywania manifesty obrazu w rejestrze, które nie mają skojarzonych tagów, a dane warstwy źródłowej, są automatycznie usuwane po upływie określonego czasu.
+Opcjonalnie ustaw zasady [przechowywania](container-registry-retention-policy.md) dla każdego rejestru, aby zarządzać manifestami bez flag. Po włączeniu zasad przechowywania manifesty obrazów w rejestrze, które nie mają żadnych skojarzonych tagów i bazowych danych warstwy, są automatycznie usuwane po upływie ustawionego czasu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat magazynu obrazów w Azure Container Registry zobacz [Magazyn obrazów kontenerów w Azure Container Registry](container-registry-storage.md).
+Aby uzyskać więcej informacji na temat magazynu obrazów w Azure Container Registry zobacz Container image storage in Azure Container Registry ( Magazyn obrazów [kontenerów w u Azure Container Registry](container-registry-storage.md).
 
 <!-- IMAGES -->
 [manifest-digest]: ./media/container-registry-delete/01-manifest-digest.png
@@ -289,6 +289,6 @@ Aby uzyskać więcej informacji na temat magazynu obrazów w Azure Container Reg
 [portal]: https://portal.azure.com
 
 <!-- LINKS - Internal -->
-[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests
-[az-acr-repository-untag]: /cli/azure/acr/repository#az-acr-repository-untag
+[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
+[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests
+[az-acr-repository-untag]: /cli/azure/acr/repository#az_acr_repository_untag

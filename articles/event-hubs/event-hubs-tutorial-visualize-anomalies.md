@@ -1,20 +1,20 @@
 ---
-title: Azure Event Hubs — Wizualizuj anomalie danych w zdarzeniach w czasie rzeczywistym
-description: 'Samouczek: Wizualizuj anomalie danych w zdarzeniach w czasie rzeczywistym wysyłanych do Microsoft Azure Event Hubs'
+title: Azure Event Hubs — wizualizowanie anomalii danych w zdarzeniach w czasie rzeczywistym
+description: 'Samouczek: wizualizowanie anomalii dotyczących danych w zdarzeniach w czasie rzeczywistym wysyłanych do Microsoft Azure Event Hubs'
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: bd08d611761e125fdd03173ce6027c60e82baed6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb7d8da2498005b8b2e1183a836d9385f3d31e5c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98623462"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783759"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Samouczek: wizualizowanie anomalii dotyczących danych w zdarzeniach w czasie rzeczywistym wysyłanych do usługi Azure Event Hubs
 
-Dzięki usłudze Azure Event Hubs można za pomocą usługi Azure Stream Analytics sprawdzić dane przychodzące i wyodrębnić anomalie, które następnie można wizualizować w usłudze Power BI. Załóżmy, że mamy tysiące urządzeń, wysyłających nieustannie dane w czasie rzeczywistym do centrum zdarzeń, co daje w efekcie miliony zdarzeń na sekundę. Jak sprawdzić takie ilości danych pod kątem anomalii lub błędów w danych? Na przykład, co w przypadku, gdy urządzenia wysyłają transakcję karty kredytowej, i musisz przechwycić w dowolnym miejscu, w którym masz wiele transakcji w wielu krajach/regionach, w ciągu 5-sekundowego interwału? Może się to zdarzyć w przypadku kradzieży kart kredytowych, a następnie użycia ich do realizowania zakupów na całym świecie w tym samym czasie. 
+Dzięki usłudze Azure Event Hubs można za pomocą usługi Azure Stream Analytics sprawdzić dane przychodzące i wyodrębnić anomalie, które następnie można wizualizować w usłudze Power BI. Załóżmy, że mamy tysiące urządzeń, wysyłających nieustannie dane w czasie rzeczywistym do centrum zdarzeń, co daje w efekcie miliony zdarzeń na sekundę. Jak sprawdzić takie ilości danych pod kątem anomalii lub błędów w danych? Na przykład co zrobić, jeśli urządzenia wysyłają transakcje kartą kredytową i musisz przechwycić wszystkie transakcje w wielu krajach/regionach w ciągu 5-sekundowego przedziału czasu? Może się to zdarzyć w przypadku kradzieży kart kredytowych, a następnie użycia ich do realizowania zakupów na całym świecie w tym samym czasie. 
 
-W tym samouczku przeprowadzamy symulację takiej sytuacji. Możesz uruchomić aplikację, która tworzy i wysyła transakcje kart kredytowych do centrum zdarzeń. Następnie można odczytać strumień danych w czasie rzeczywistym za pomocą Azure Stream Analytics, który oddziela prawidłowe transakcje od nieprawidłowych transakcji, a następnie używa Power BI do wizualnego identyfikowania transakcji, które są otagowane jako nieprawidłowe.
+W tym samouczku przeprowadzamy symulację takiej sytuacji. Możesz uruchomić aplikację, która tworzy i wysyła transakcje kart kredytowych do centrum zdarzeń. Następnie odczytasz strumień danych w czasie rzeczywistym za pomocą funkcji Azure Stream Analytics, która oddziela prawidłowe transakcje od nieprawidłowych transakcji, Power BI wizualnie zidentyfikować transakcje oznaczone jako nieprawidłowe.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
@@ -24,11 +24,11 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Konfigurowanie zadania usługi Stream Analytics do przetwarzania tych transakcji
 > * Konfigurowanie wizualizacji usługi Power BI do wyświetlania wyników
 
-Do wykonania kroków tego samouczka potrzebna jest subskrypcja platformy Azure. Jeśli go nie masz, przed rozpoczęciem [Utwórz bezpłatne konto][] .
+Do wykonania kroków tego samouczka potrzebna jest subskrypcja platformy Azure. Jeśli go nie masz, przed rozpoczęciem [utwórz][] bezpłatne konto.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- Zainstaluj [program Visual Studio](https://www.visualstudio.com/). 
+- Zainstaluj [Visual Studio](https://www.visualstudio.com/). 
 - Aby analizować dane wyjściowe z zadania usługi Stream Analytics, potrzebne jest konto usługi Power BI. Możesz [wypróbować bezpłatnie usługę Power BI](https://app.powerbi.com/signupredirect?pbi_source=web).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -148,13 +148,13 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 
 ## <a name="run-app-to-produce-test-event-data"></a>Uruchamianie aplikacji w celu wygenerowania danych zdarzenia testowego
 
-Przykłady Event Hubs [w witrynie GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) obejmują aplikację wykrywania anomalii, która generuje dane testowe. Symuluje ona korzystanie z kart kredytowych, zapisując w centrum zdarzeń transakcje kart kredytowych, w tym zapisując co pewien czas wiele transakcji dla tej samej karty kredytowej w wielu lokalizacjach, aby mogły one zostać oznaczone jako anomalie. Aby uruchomić tę aplikację, wykonaj następujące kroki: 
+Przykłady Event Hubs [w witrynie GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) obejmują Narzędzie do wykrywania anomalii, która generuje dane testowe. Symuluje ona korzystanie z kart kredytowych, zapisując w centrum zdarzeń transakcje kart kredytowych, w tym zapisując co pewien czas wiele transakcji dla tej samej karty kredytowej w wielu lokalizacjach, aby mogły one zostać oznaczone jako anomalie. Aby uruchomić tę aplikację, wykonaj następujące kroki: 
 
 1. Pobierz [przykłady dotyczące usługi Azure Event Hubs](https://github.com/Azure/azure-event-hubs/archive/master.zip) z usługi GitHub i rozpakuj je lokalnie.
-2. Przejdź do folderu **\azure-Event-Hubs-master\samples\DotNet \\** folderu. 
-3. Przejdź do folderu **Azure. Messaging. EventHubs\AnomalyDetector \\** , a następnie kliknij dwukrotnie plik **AnomalyDetector. sln** , aby otworzyć rozwiązanie w programie Visual Studio. 
+2. Przejdź do folderu **\azure-event-hubs-master\samples\DotNet. \\** 
+3. Przejdź do folderu **Azure.Messaging.EventHubs\AnomalyDetector \\** i kliknij dwukrotnie plik **AnomalyDetector.sln,** aby otworzyć rozwiązanie w Visual Studio. 
 
-    Aby użyć starej wersji przykładu korzystającej z starego pakietu Microsoft. Azure. EventHubs, Otwórz rozwiązanie w folderze **Microsoft. Azure. EventHubs\AnomalyDetector** . 
+    Aby użyć starej wersji przykładu, która używa starego pakietu Microsoft.Azure.EventHubs, otwórz rozwiązanie z folderu **Microsoft.Azure.EventHubs\AnomalyDetector.** 
 3. Otwórz plik Program.cs i zastąp **parametry połączenia usługi Event Hubs** parametrami połączenia zapisanymi podczas uruchamiania skryptu. 
 4. Zastąp **nazwę centrum zdarzeń** swoją nazwą centrum zdarzeń. Naciśnij klawisz F5, aby uruchomić aplikację. Rozpocznie się wysyłanie zdarzeń do centrum zdarzeń, które będzie kontynuowane, dopóki nie zostanie wysłany 1000 zdarzeń. Istnieje kilka przypadków, gdy aplikacja musi być uruchomiona, aby można było pobrać dane. Sytuacje te wskazano w instrukcjach poniżej, gdy są wymagane.
 
@@ -298,7 +298,7 @@ W ramach zadania usługi Stream Analytics kliknij pozycje **Uruchom**, następni
 
    ![Zrzut ekranu przedstawiający wprowadzanie nazwy pulpitu nawigacyjnego.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-name.png)
 
-7. Na stronie Pulpit nawigacyjny kliknij pozycję **Dodaj kafelek**, w sekcji **dane czasu rzeczywistego** wybierz pozycję **niestandardowe dane przesyłane strumieniowo** , a następnie kliknij przycisk **dalej**.
+7. Na stronie Pulpit nawigacyjny kliknij pozycję **Dodaj kafelek,** wybierz pozycję **Niestandardowe dane przesyłane strumieniowo** w sekcji **DANE W CZASIE RZECZYWISTYM,** a następnie kliknij przycisk **Dalej.**
 
    ![Zrzut ekranu przedstawiający określanie źródła dla kafelka.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-real-time-data.png)
 
@@ -306,7 +306,7 @@ W ramach zadania usługi Stream Analytics kliknij pozycje **Uruchom**, następni
 
    ![Zrzut ekranu przedstawiający określanie zestawu danych.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-select-dataset.png)
 
-9. Wybierz pozycję **Karta** dla typu wizualizacji. W obszarze **pola** kliknij pozycję **Dodaj wartość**, a następnie wybierz pozycję `fraudulentuses` .
+9. Wybierz pozycję **Karta** dla typu wizualizacji. W **obszarze Pola** kliknij pozycję Dodaj **wartość,** a następnie wybierz pozycję `fraudulentuses` .
 
    ![Zrzut ekranu przedstawiający określanie typu wizualizacji i pól.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-tile.png)
 
@@ -327,9 +327,9 @@ W ramach zadania usługi Stream Analytics kliknij pozycje **Uruchom**, następni
 
 12. W obszarze **Typ wizualizacji** wybierz opcję **Wykres liniowy**.
 
-13. W obszarze **oś** kliknij pozycję **Dodaj wartość**, a następnie wybierz pozycję `windowend` . 
+13. W **obszarze Oś** kliknij pozycję Dodaj **wartość** i wybierz pozycję `windowend` . 
 
-14. W obszarze **wartości** kliknij pozycję **Dodaj wartość** i wybierz pozycję `fraudulentuses` .
+14. W **obszarze Wartości** kliknij pozycję Dodaj **wartość** i wybierz pozycję `fraudulentuses` .
 
 15. W obszarze **Okno czasowe do wyświetlenia** wybierz ostatnie 5 minut. Kliknij przycisk **Dalej**.
 
@@ -349,7 +349,7 @@ Zaloguj się do swojego konta usługi Power BI. Przejdź do obszaru **Mój obsza
 
 ### <a name="clean-up-resources-using-azure-cli"></a>Oczyszczanie zasobów przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Aby usunąć grupę zasobów, użyj polecenia [az group delete](/cli/azure/group#az-group-delete).
+Aby usunąć grupę zasobów, użyj polecenia [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
@@ -378,4 +378,4 @@ Przejdź do następnego artykułu, aby dowiedzieć się więcej na temat usługi
 > [!div class="nextstepaction"]
 > [Wprowadzenie do wysyłania komunikatów do usługi Azure Event Hubs przy użyciu biblioteki .NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
 
-[Utwórz bezpłatne konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[tworzenie bezpłatnego konta]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

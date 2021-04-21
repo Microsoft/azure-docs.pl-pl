@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie punktami końcowymi sieci wirtualnej — interfejs wiersza polecenia platformy Azure — Azure Database for MariaDB
-description: W tym artykule opisano sposób tworzenia punktów końcowych i reguł usługi sieci wirtualnej Azure Database for MariaDB oraz zarządzania nimi przy użyciu wiersza polecenia platformy Azure.
+description: W tym artykule opisano sposób tworzenia reguł i punktów końcowych usługi Azure Database for MariaDB sieci wirtualnej przy użyciu wiersza polecenia interfejsu wiersza polecenia platformy Azure.
 author: savjani
 ms.author: pariks
 ms.service: mariadb
@@ -8,50 +8,50 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 43d1b7700395bd06960737eae4f318d61aa03717
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8eaf87865fb2fc70251e1e417361333cfd750d6e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98665093"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783669"
 ---
-# <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-using-azure-cli"></a>Tworzenie punktów końcowych usługi Azure Database for MariaDB sieci wirtualnej i zarządzanie nimi przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-using-azure-cli"></a>Tworzenie punktów końcowych usługi sieci Azure Database for MariaDB wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure i zarządzanie nimi
 
-Punkty końcowe i reguły usługi sieci wirtualnej rozszerzają prywatną przestrzeń adresową sieci wirtualnej na serwer usługi Azure Database for MariaDB. Korzystając z wygodnych poleceń interfejsu wiersza polecenia platformy Azure, można tworzyć, aktualizować, usuwać, wyświetlać i przedstawiać punkty końcowe usługi sieci wirtualnej oraz zasady zarządzania serwerem. Omówienie punktów końcowych usługi sieci wirtualnej Azure Database for MariaDB, w tym ograniczeń, znajduje się w temacie [punkty końcowe usługi sieci wirtualnej Azure Database for MariaDB Server](concepts-data-access-security-vnet.md). Punkty końcowe usługi sieci wirtualnej są dostępne we wszystkich obsługiwanych regionach dla Azure Database for MariaDB.
+Punkty końcowe i reguły usługi sieci wirtualnej rozszerzają prywatną przestrzeń adresową sieci wirtualnej na serwer usługi Azure Database for MariaDB. Korzystając z wygodnych poleceń interfejsu wiersza polecenia platformy Azure, można tworzyć, aktualizować, usuwać, wyświetlać i wyświetlać punkty końcowe usługi sieci wirtualnej oraz reguły zarządzania serwerem. Aby uzyskać omówienie punktów końcowych Azure Database for MariaDB sieci wirtualnej, w tym ograniczenia, zobacz [Azure Database for MariaDB server VNet service endpoints](concepts-data-access-security-vnet.md)(Punkty końcowe usługi sieci wirtualnej serwera). Punkty końcowe usługi sieci wirtualnej są dostępne we wszystkich obsługiwanych regionach dla Azure Database for MariaDB.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- Potrzebny jest [serwer Azure Database for MariaDB i baza danych](quickstart-create-mariadb-server-database-using-azure-cli.md).
+- Potrzebujesz serwera [Azure Database for MariaDB bazy danych](quickstart-create-mariadb-server-database-using-azure-cli.md).
 
-- Ten artykuł wymaga wersji 2,0 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
+- Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Jeśli używasz Azure Cloud Shell, najnowsza wersja jest już zainstalowana.
 
 > [!NOTE]
-> Obsługa punktów końcowych usługi sieci wirtualnej jest obsługiwana tylko w przypadku serwerów Ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci.
+> Obsługa punktów końcowych usługi sieci wirtualnej jest dostępna tylko dla Ogólnego przeznaczenia i zoptymalizowane pod kątem pamięci.
 
 ## <a name="configure-vnet-service-endpoints"></a>Konfigurowanie punktów końcowych usługi sieci wirtualnej
 
-Polecenia [AZ Network VNET](/cli/azure/network/vnet) służą do konfigurowania sieci wirtualnych.
+Polecenia [az network vnet](/cli/azure/network/vnet) służą do konfigurowania sieci wirtualnych.
 
-Jeśli masz wiele subskrypcji, wybierz odpowiednią subskrypcję, w ramach której powinny być naliczane opłaty za ten zasób. Wybierz określony identyfikator subskrypcji na Twoim koncie za pomocą polecenia [az account set](/cli/azure/account#az-account-set). Zastąp właściwość **id** z danych wyjściowych polecenia **az login** dla subskrypcji symbolem zastępczym identyfikatora subskrypcji.
+Jeśli masz wiele subskrypcji, wybierz odpowiednią subskrypcję, w ramach której powinny być naliczane opłaty za ten zasób. Wybierz określony identyfikator subskrypcji na Twoim koncie za pomocą polecenia [az account set](/cli/azure/account#az_account_set). Zastąp właściwość **id** z danych wyjściowych polecenia **az login** dla subskrypcji symbolem zastępczym identyfikatora subskrypcji.
 
 - Konto musi mieć niezbędne uprawnienia do tworzenia sieci wirtualnej i punktu końcowego usługi.
 
-Punkty końcowe usługi można niezależnie konfigurować w sieciach wirtualnych, przez użytkownika z dostępem do zapisu do sieci wirtualnej.
+Punkty końcowe usługi mogą być konfigurowane niezależnie w sieciach wirtualnych przez użytkownika z dostępem do zapisu w sieci wirtualnej.
 
-Aby zabezpieczyć zasoby usługi platformy Azure w sieci wirtualnej, użytkownik musi mieć uprawnienia do "Microsoft. Network/virtualNetworks/Subnets/joinViaServiceEndpoint/" dla dodawanych podsieci. To uprawnienie jest domyślnie uwzględniane we wbudowanych rolach administratora usługi, domyślnie i może być modyfikowane przez tworzenie ról niestandardowych.
+Aby zabezpieczyć zasoby usługi platformy Azure w sieci wirtualnej, użytkownik musi mieć uprawnienia "Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/" dla dodawanych podsieci. To uprawnienie jest domyślnie uwzględniane we wbudowanych rolach administratora usługi, domyślnie i może być modyfikowane przez tworzenie ról niestandardowych.
 
 Dowiedz się więcej na temat [wbudowanych ról](../role-based-access-control/built-in-roles.md) i przypisywaniu określonych uprawnień do [ról niestandardowych](../role-based-access-control/custom-roles.md).
 
-Sieci wirtualne i zasoby usług platformy Azure mogą należeć do tej samej lub różnych subskrypcji. Jeśli zasoby sieci wirtualnej i usługi platformy Azure znajdują się w różnych subskrypcjach, zasoby powinny znajdować się w tej samej dzierżawie Active Directory (AD). Upewnij się, że obie subskrypcje mają zarejestrowany dostawca zasobów **Microsoft. SQL** . Aby uzyskać więcej informacji, zobacz temat [Resource-Manager-Registration][resource-manager-portal]
+Sieci wirtualne i zasoby usług platformy Azure mogą należeć do tej samej lub różnych subskrypcji. Jeśli zasoby sieci wirtualnej i usługi platformy Azure znajdują się w różnych subskrypcjach, zasoby powinny być w tej samej dzierżawie usługi Active Directory (AD). Upewnij się, że w obu subskrypcjach zarejestrowano dostawcę zasobów **Microsoft.Sql.** Aby uzyskać więcej informacji, [zobacz rejestracja menedżera zasobów][resource-manager-portal]
 
 > [!IMPORTANT]
-> Zdecydowanie zaleca się zapoznanie się z tym artykułem dotyczącym konfiguracji punktów końcowych usługi i zagadnień przed skonfigurowaniem punktów końcowych usługi. **Virtual Network punkt końcowy usługi:** [Punkt końcowy usługi Virtual Network](../virtual-network/virtual-network-service-endpoints-overview.md) jest podsiecią, której wartości właściwości zawierają co najmniej jedną formalną nazwę typu usługi platformy Azure. Punkty końcowe usług wirtualnych używają nazwy typu usługi **Microsoft. SQL**, która odnosi się do usługi platformy Azure o nazwie SQL Database. Ten tag usługi ma również zastosowanie do usług Azure SQL Database, Azure Database for MariaDB, PostgreSQL i MySQL. Należy pamiętać, że podczas stosowania znacznika usługi **Microsoft. SQL** do punktu końcowego usługi sieci wirtualnej konfiguruje ruch usługi punktu końcowego dla wszystkich usług Azure Database, w tym Azure SQL Database, Azure Database for PostgreSQL, Azure Database for MariaDB i Azure Database for MySQL serwerów w podsieci.
+> Zdecydowanie zaleca się przeczytanie tego artykułu na temat konfiguracji i kwestii dotyczących punktów końcowych usługi przed skonfigurowaniem punktów końcowych usługi. **Virtual Network punktu końcowego usługi:** Punkt [końcowy Virtual Network to](../virtual-network/virtual-network-service-endpoints-overview.md) podsieć, której wartości właściwości zawierają co najmniej jedną formalną nazwę typu usługi platformy Azure. Punkty końcowe usług sieci wirtualnej używają nazwy typu usługi **Microsoft.Sql,** która odwołuje się do usługi platformy Azure o nazwie SQL Database. Ten tag usługi dotyczy również usług Azure SQL Database, Azure Database for MariaDB, PostgreSQL i MySQL. Należy pamiętać, że podczas stosowania tagu usługi **Microsoft.Sql** do punktu końcowego usługi sieci wirtualnej konfiguruje ona ruch punktu końcowego usługi dla wszystkich usług Azure Database, w tym serwerów Azure SQL Database, Azure Database for PostgreSQL, Azure Database for MariaDB i Azure Database for MySQL w podsieci.
 
 ### <a name="sample-script"></a>Przykładowy skrypt
 
-Ten przykładowy skrypt służy do tworzenia serwera Azure Database for MariaDB, tworzenia punktu końcowego usługi sieci wirtualnej i zabezpieczenia serwera w podsieci przy użyciu reguły sieci wirtualnej. W tym przykładowym skrypcie Zmień nazwę użytkownika i hasło administratora. Zastąp Identyfikator subskrypcji używany w `az account set --subscription` poleceniu podanym identyfikatora subskrypcji.
+Ten przykładowy skrypt służy do tworzenia serwera Azure Database for MariaDB sieci wirtualnej, tworzenia sieci wirtualnej i punktu końcowego usługi sieci wirtualnej oraz zabezpieczania serwera w podsieci za pomocą reguły sieci wirtualnej. W tym przykładowym skrypcie zmień nazwę użytkownika i hasło administratora. Zastąp identyfikator Subskrypcji używany w `az account set --subscription` poleceniu własnym identyfikatorem subskrypcji.
 
 ```azurecli-interactive
 # To find the name of an Azure region in the CLI run this command: az account list-locations

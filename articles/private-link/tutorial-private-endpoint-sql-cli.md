@@ -1,23 +1,23 @@
 ---
-title: 'Samouczek: Nawiązywanie połączenia z serwerem Azure SQL przy użyciu prywatnego punktu końcowego platformy Azure — interfejs wiersza polecenia platformy Azure'
-description: Skorzystaj z tego samouczka, aby dowiedzieć się, jak utworzyć serwer Azure SQL z prywatnym punktem końcowym przy użyciu interfejsu wiersza polecenia platformy Azure
+title: 'Samouczek: nawiązywanie połączenia z serwerem Azure SQL przy użyciu prywatnego punktu końcowego platformy Azure — interfejs wiersza polecenia platformy Azure'
+description: Z tego samouczka dowiesz się, jak utworzyć serwer Azure SQL z prywatnym punktem końcowym przy użyciu interfejsu wiersza polecenia platformy Azure
 services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: allensu
-ms.custom: fasttrack-edit
-ms.openlocfilehash: a5562c5f40a321f5737fea73f6d7964b402953cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: fasttrack-edit, devx-track-azurecli
+ms.openlocfilehash: a8fafeaaf974893c9a1a71115912f2a7b019ddd9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889216"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771825"
 ---
-# <a name="tutorial-connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-cli"></a>Samouczek: Nawiązywanie połączenia z serwerem Azure SQL przy użyciu prywatnego punktu końcowego platformy Azure — interfejs wiersza polecenia platformy Azure
+# <a name="tutorial-connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-cli"></a>Samouczek: nawiązywanie połączenia z serwerem Azure SQL przy użyciu prywatnego punktu końcowego platformy Azure — interfejs wiersza polecenia platformy Azure
 
-Prywatny punkt końcowy platformy Azure to podstawowy blok konstrukcyjny dla prywatnego linku na platformie Azure. Dzięki temu zasoby platformy Azure, takie jak maszyny wirtualne, mogą komunikować się z prywatnymi prywatnymi zasobami.
+Prywatny punkt końcowy platformy Azure to podstawowy blok Private Link platformie Azure. Umożliwia ona zasobom platformy Azure, np. maszynom wirtualnym, prywatną komunikację Private Link zasobami.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -29,19 +29,19 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Zaloguj się do Azure Portal i sprawdź, czy Twoja subskrypcja jest aktywna, uruchamiając `az login` .
-* Sprawdź wersję interfejsu wiersza polecenia platformy Azure w terminalu lub oknie poleceń, uruchamiając polecenie `az --version` . Aby uzyskać najnowszą wersję, zapoznaj się z [najnowszymi informacjami o wersji](/cli/azure/release-notes-azure-cli?tabs=azure-cli).
-  * Jeśli nie masz najnowszej wersji, zaktualizuj instalację, postępując zgodnie z [instrukcją instalacji systemu operacyjnego lub platformy](/cli/azure/install-azure-cli).
+* Konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Zaloguj się do Azure Portal i sprawdź, czy Twoja subskrypcja jest aktywna, uruchamiając . `az login`
+* Sprawdź wersję interfejsu wiersza polecenia platformy Azure w oknie terminalu lub polecenia, uruchamiając polecenie `az --version` . Aby uzyskać najnowszą wersję, zobacz najnowsze [informacje o wersji.](/cli/azure/release-notes-azure-cli?tabs=azure-cli)
+  * Jeśli nie masz najnowszej wersji, zaktualizuj instalację, korzystając z przewodnika instalacji dla systemu [operacyjnego lub platformy](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
 Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi.
 
-Utwórz grupę zasobów za pomocą [AZ Group Create](/cli/azure/group#az_group_create):
+Utwórz grupę zasobów za pomocą [az group create](/cli/azure/group#az_group_create):
 
-* O nazwie **CreateSQLEndpointTutorial-RG**. 
-* W lokalizacji **wschodniego** .
+* O **nazwie CreateSQLEndpointTutorial-rg.** 
+* W lokalizacji **eastus.**
 
 ```azurecli-interactive
 az group create \
@@ -53,16 +53,16 @@ az group create \
 
 W tej sekcji utworzysz sieć wirtualną, podsieć i hosta bastionu. 
 
-Host bastionu zostanie użyty do nawiązania bezpiecznego połączenia z maszyną wirtualną w celu przetestowania prywatnego punktu końcowego.
+Host bastionu będzie używany do bezpiecznego nawiązywania połączenia z maszyną wirtualną w celu przetestowania prywatnego punktu końcowego.
 
-Utwórz sieć wirtualną za pomocą [AZ Network VNET Create](/cli/azure/network/vnet#az_network_vnet_create)
+Tworzenie sieci wirtualnej za pomocą [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create)
 
-* O nazwie **myVNet**.
-* Prefiks adresu **10.0.0.0/16**.
-* Podsieć o nazwie **myBackendSubnet**.
-* Prefiks podsieci **10.0.0.0/24**.
-* W grupie zasobów **CreateSQLEndpointTutorial-RG** .
-* Lokalizacja **wschodniego**.
+* Nosi **nazwę myVNet.**
+* Prefiks adresu **10.0.0.0/16.**
+* Podsieć **o nazwie myBackendSubnet.**
+* Prefiks podsieci **10.0.0.0/24.**
+* W grupie **zasobów CreateSQLEndpointTutorial-rg.**
+* Lokalizacja **regionu eastus**.
 
 ```azurecli-interactive
 az network vnet create \
@@ -74,7 +74,7 @@ az network vnet create \
     --subnet-prefixes 10.0.0.0/24
 ```
 
-Zaktualizuj podsieć, aby wyłączyć zasady sieci prywatnego punktu końcowego dla prywatnego punktu końcowego za pomocą usługi [AZ Network VNET Subnet Update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
+Zaktualizuj podsieć, aby wyłączyć zasady sieci prywatnego punktu końcowego dla prywatnego punktu końcowego za pomocą [az network vnet subnet update:](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -84,10 +84,10 @@ az network vnet subnet update \
     --disable-private-endpoint-network-policies true
 ```
 
-Użyj [AZ Network Public-IP Create](/cli/azure/network/public-ip#az-network-public-ip-create) , aby utworzyć publiczny adres IP dla hosta bastionu:
+Użyj [az network public-ip create,](/cli/azure/network/public-ip#az_network_public_ip_create) aby utworzyć publiczny adres IP dla hosta bastionu:
 
-* Utwórz strefę Standard nadmiarowy publiczny adres IP o nazwie **myBastionIP**.
-* W **CreateSQLEndpointTutorial-RG**.
+* Utwórz standardowy strefowo nadmiarowy publiczny adres IP o **nazwie myBastionIP.**
+* W **createSQLEndpointTutorial-rg**.
 
 ```azurecli-interactive
 az network public-ip create \
@@ -96,12 +96,12 @@ az network public-ip create \
     --sku Standard
 ```
 
-Użyj [AZ Network VNET Subnet Create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) , aby utworzyć podsieć bastionu:
+Użyj [az network vnet subnet create,](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) aby utworzyć podsieć bastionu:
 
-* O nazwie **AzureBastionSubnet**.
-* Prefiks adresu **10.0.1.0/24**.
-* W sieci wirtualnej **myVNet**.
-* W grupie zasobów **CreateSQLEndpointTutorial-RG**.
+* O **nazwie AzureBastionSubnet.**
+* Prefiks adresu **10.0.1.0/24.**
+* W sieci **wirtualnej myVNet**.
+* W grupie zasobów **CreateSQLEndpointTutorial-rg**.
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -111,13 +111,13 @@ az network vnet subnet create \
     --address-prefixes 10.0.1.0/24
 ```
 
-Użyj [AZ Network bastionu Create](/cli/azure/network/bastion#az-network-bastion-create) , aby utworzyć hosta bastionu:
+Użyj [az network bastion create,](/cli/azure/network/bastion#az_network_bastion_create) aby utworzyć hosta bastionu:
 
-* O nazwie **myBastionHost**.
-* W **CreateSQLEndpointTutorial-RG**.
-* Skojarzone z publicznym adresem IP **myBastionIP**.
-* Skojarzone z **myVNet** sieci wirtualnej.
-* W lokalizacji **wschodniego** .
+* Nazwane **myBastionHost**.
+* W **createSQLEndpointTutorial-rg**.
+* Skojarzony z publicznym adresem IP **myBastionIP.**
+* Skojarzone z siecią **wirtualną myVNet.**
+* W **lokalizacji eastus.**
 
 ```azurecli-interactive
 az network bastion create \
@@ -128,19 +128,19 @@ az network bastion create \
     --location eastus
 ```
 
-Wdrożenie hosta usługi Azure bastionu może potrwać kilka minut.
+Wdrożenie hosta Azure Bastion może potrwać kilka minut.
 
-## <a name="create-test-virtual-machine"></a>Utwórz testową maszynę wirtualną
+## <a name="create-test-virtual-machine"></a>Tworzenie testowej maszyny wirtualnej
 
 W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowania prywatnego punktu końcowego.
 
-Utwórz maszynę wirtualną za pomocą [AZ VM Create](/cli/azure/vm#az_vm_create). Po wyświetleniu monitu podaj hasło, które będzie używane jako poświadczenia dla maszyny wirtualnej:
+Utwórz maszynę wirtualną za pomocą [az vm create](/cli/azure/vm#az_vm_create). Po wyświetleniu monitu podaj hasło, które będzie używane jako poświadczenia dla maszyny wirtualnej:
 
-* O nazwie **myVM**.
-* W **CreateSQLEndpointTutorial-RG**.
-* W usłudze Network **myVNet**.
+* Nazwana **myVM.**
+* W **createSQLEndpointTutorial-rg**.
+* W sieci **sieć myVNet**.
 * W podsieci **myBackendSubnet**.
-* **Win2019Datacenter** obrazu serwera.
+* Obraz serwera **Win2019Datacenter.**
 
 ```azurecli-interactive
 az vm create \
@@ -153,16 +153,18 @@ az vm create \
     --admin-username azureuser
 ```
 
-## <a name="create-an-azure-sql-server"></a>Tworzenie serwera SQL Azure
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
-W tej sekcji utworzysz program SQL Server i bazę danych.
+## <a name="create-an-azure-sql-server"></a>Tworzenie serwera Azure SQL serwera
 
-Użyj [AZ SQL Server Create](/cli/azure/sql/server#az_sql_server_create) , aby utworzyć serwer SQL:
+W tej sekcji utworzysz serwer SQL i bazę danych.
 
-* Zamień **\<sql-server-name>** na unikatową nazwę serwera.
-* Zamień **\<your-password>** na hasło.
-* W **CreateSQLEndpointTutorial-RG**.
-* W regionie **wschodnim** .
+Użyj [polecenia az sql server create,](/cli/azure/sql/server#az_sql_server_create) aby utworzyć serwer SQL:
+
+* **\<sql-server-name>** Zamień na unikatową nazwę serwera.
+* Zastąp **\<your-password>** swoim hasłem.
+* W **edycie CreateSQLEndpointTutorial-rg**.
+* W **regionie eastus.**
 
 ```azurecli-interactive
 az sql server create \
@@ -173,11 +175,11 @@ az sql server create \
     --admin-password <your-password>
 ```
 
-Użyj [AZ SQL DB Create](/cli/azure/sql/db#az_sql_db_create) , aby utworzyć bazę danych:
+Użyj [polecenia az sql db create,](/cli/azure/sql/db#az_sql_db_create) aby utworzyć bazę danych:
 
-* Nazywana **baza danych**.
-* W **CreateSQLEndpointTutorial-RG**.
-* Zamień **\<sql-server-name>** na unikatową nazwę serwera.
+* Nazwane **myDataBase.**
+* W **edycie CreateSQLEndpointTutorial-rg**.
+* Zastąp **\<sql-server-name>** unikatową nazwą serwera.
 
 ```azurecli-interactive
 az sql db create \
@@ -187,19 +189,19 @@ az sql db create \
     --sample-name AdventureWorksLT
 ```
 
-## <a name="create-private-endpoint"></a>Utwórz prywatny punkt końcowy
+## <a name="create-private-endpoint"></a>Tworzenie prywatnego punktu końcowego
 
 W tej sekcji utworzysz prywatny punkt końcowy.
 
-Użyj [AZ SQL Server list](/cli/azure/sql/server#az_sql_server_list) , aby umieścić identyfikator zasobu programu SQL Server w zmiennej powłoki.
+Użyj [polecenia az sql server list,](/cli/azure/sql/server#az_sql_server_list) aby umieścić identyfikator zasobu serwera SQL w zmiennej powłoki.
 
-Użyj [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) , aby utworzyć punkt końcowy i połączenie:
+Użyj [az network private-endpoint create,](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) aby utworzyć punkt końcowy i połączenie:
 
-* O nazwie **myPrivateEndpoint**.
-* W grupie zasobów **CreateSQLEndpointTutorial-RG**.
-* W sieci wirtualnej **myVNet**.
+* O **nazwie myPrivateEndpoint.**
+* W grupie zasobów **CreateSQLEndpointTutorial-rg**.
+* W sieci **wirtualnej myVNet**.
 * W podsieci **myBackendSubnet**.
-* Połączenie o nazwie Moje **połączenie**.
+* Połączenie o nazwie **myConnection**.
 
 ```azurecli-interactive
 id=$(az sql server list \
@@ -216,20 +218,20 @@ az network private-endpoint create \
     --connection-name myConnection  
 ```
 
-## <a name="configure-the-private-dns-zone"></a>Skonfiguruj prywatną strefę DNS
+## <a name="configure-the-private-dns-zone"></a>Konfigurowanie prywatnej strefy DNS
 
-W tej sekcji utworzysz i skonfigurujesz prywatną strefę DNS za pomocą polecenia [AZ Network Private-DNS Zone Create](/cli/azure/network/private-dns/zone#ext_privatedns_az_network_private_dns_zone_create).  
+W tej sekcji utworzysz i skonfigurujesz prywatną strefę DNS przy użyciu narzędzia [az network private-dns zone create](/cli/azure/network/private-dns/zone#ext_privatedns_az_network_private_dns_zone_create).  
 
-Aby utworzyć łącze sieci wirtualnej do strefy DNS, użyj [AZ Network Private-DNS link VNET Create](/cli/azure/network/private-dns/link/vnet#ext_privatedns_az_network_private_dns_link_vnet_create) .
+Użyjesz az [network private-dns link vnet create,](/cli/azure/network/private-dns/link/vnet#ext_privatedns_az_network_private_dns_link_vnet_create) aby utworzyć połączenie sieci wirtualnej ze strefą DNS.
 
-Utworzysz grupę strefy DNS za pomocą [AZ Network Private-Endpoint systemu DNS Create](/cli/azure/network/private-endpoint/dns-zone-group#az_network_private_endpoint_dns_zone_group_create).
+Utworzysz grupę stref DNS za pomocą az [network private-endpoint dns-zone-group create](/cli/azure/network/private-endpoint/dns-zone-group#az_network_private_endpoint_dns_zone_group_create).
 
-* Strefa o nazwie **privatelink.Database.Windows.NET**
-* W sieci wirtualnej **myVNet**.
-* W grupie zasobów **CreateSQLEndpointTutorial-RG**.
-* Łącze DNS o nazwie **myDNSLink**.
+* Strefa o **nazwie privatelink.database.windows.net**
+* W sieci **wirtualnej myVNet**.
+* W grupie zasobów **CreateSQLEndpointTutorial-rg**.
+* Link DNS o **nazwie myDNSLink.**
 * Skojarzone z **myPrivateEndpoint**.
-* Grupa stref o nazwie Moja **strefa**.
+* Grupa stref o **nazwie MyZoneGroup**.
 
 ```azurecli-interactive
 az network private-dns zone create \
@@ -253,25 +255,25 @@ az network private-endpoint dns-zone-group create \
 
 ## <a name="test-connectivity-to-private-endpoint"></a>Testowanie łączności z prywatnym punktem końcowym
 
-W tej sekcji użyjesz maszyny wirtualnej utworzonej w poprzednim kroku, aby nawiązać połączenie z programem SQL Server w ramach prywatnego punktu końcowego.
+W tej sekcji użyjesz maszyny wirtualnej utworzonej w poprzednim kroku, aby nawiązać połączenie z serwerem SQL za pomocą prywatnego punktu końcowego.
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com). 
  
-2. W okienku nawigacji po lewej stronie wybierz pozycję **grupy zasobów** .
+2. Wybierz **pozycję Grupy zasobów** w okienku nawigacji po lewej stronie.
 
-3. Wybierz pozycję **CreateSQLEndpointTutorial-RG**.
+3. Wybierz **pozycję CreateSQLEndpointTutorial-rg.**
 
-4. Wybierz pozycję **myVM**.
+4. Wybierz **pozycję myVM.**
 
-5. Na stronie Przegląd dla **myVM** wybierz pozycję **Połącz** , a następnie **bastionu**.
+5. Na stronie przeglądu dla **myVM** wybierz pozycję **Połącz,** a następnie **pozycję Bastion.**
 
-6. Wybierz przycisk **bastionu Użyj** niebieska.
+6. Wybierz niebieski przycisk **Użyj bastionu.**
 
 7. Wprowadź nazwę użytkownika i hasło wprowadzone podczas tworzenia maszyny wirtualnej.
 
-8. Po nawiązaniu połączenia Otwórz program Windows PowerShell na serwerze.
+8. Otwórz Windows PowerShell na serwerze po nawiązać połączenie.
 
-9. Wprowadź `nslookup <sqlserver-name>.database.windows.net`. Zamień **\<sqlserver-name>** na nazwę serwera SQL, który został utworzony w poprzednich krokach.  Zostanie wyświetlony komunikat podobny do następującego:
+9. Wprowadź `nslookup <sqlserver-name>.database.windows.net`. Zastąp **\<sqlserver-name>** nazwą serwera SQL utworzonego w poprzednich krokach.  Zostanie wyświetlony komunikat podobny do poniższego:
 
     ```powershell
     Server:  UnKnown
@@ -283,21 +285,21 @@ W tej sekcji użyjesz maszyny wirtualnej utworzonej w poprzednim kroku, aby nawi
     Aliases:  mysqlserver8675.database.windows.net
     ```
 
-    Prywatny adres IP **10.0.0.5** jest zwracany dla nazwy programu SQL Server.  Ten adres znajduje się w podsieci sieci wirtualnej, która została wcześniej utworzona.
+    Prywatny adres IP **10.0.0.5** jest zwracany jako nazwa serwera SQL.  Ten adres znajduje się w podsieci utworzonej wcześniej sieci wirtualnej.
 
 
-10. Zainstaluj [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?preserve-view=true&view=sql-server-2017) w **myVM**.
+10. Zainstaluj [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?preserve-view=true&view=sql-server-2017) na **myVM.**
 
 11. Otwórz **SQL Server Management Studio**.
 
-12. W obszarze **Połącz z serwerem** wprowadź lub wybierz następujące informacje:
+12. W **polecej Połącz z serwerem** wprowadź lub wybierz te informacje:
 
     | Ustawienie | Wartość |
     | ------- | ----- |
     | Typ serwera | Wybierz pozycję **Aparat bazy danych**.|
-    | Nazwa serwera | Wprowadź **\<sql-server-name> . Database.Windows.NET** |
+    | Nazwa serwera | Wprowadź **\<sql-server-name> .database.windows.net** |
     | Uwierzytelnianie | Wybierz pozycję **Uwierzytelnianie SQL Server**. |
-    | Nazwa użytkownika | Wprowadź nazwę użytkownika wprowadzoną podczas tworzenia serwera |
+    | Nazwa użytkownika | Wprowadź nazwę użytkownika wprowadzona podczas tworzenia serwera |
     | Hasło | Wprowadź hasło wprowadzone podczas tworzenia serwera |
     | Remember password (Zapamiętaj hasło) | Wybierz pozycję **Tak**. |
 
@@ -305,13 +307,13 @@ W tej sekcji użyjesz maszyny wirtualnej utworzonej w poprzednim kroku, aby nawi
 
 14. Przeglądaj bazy danych z menu po lewej stronie.
 
-15. Zdefiniować Utwórz lub Zbadaj informacje z **mysqldatabase**.
+15. (Opcjonalnie) Utwórz informacje lub utwórz zapytanie dotyczące informacji **z bazy danych mysqldatabase.**
 
-16. Zamknij połączenie bastionu z **myVM**. 
+16. Zamknij połączenie bastionu z **myVM.** 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów 
 
-Gdy skończysz korzystać z prywatnego punktu końcowego, programu SQL Server i maszyny wirtualnej, Usuń grupę zasobów i wszystkie zawarte w niej zasoby: 
+Po użyciu prywatnego punktu końcowego, serwera SQL i maszyny wirtualnej usuń grupę zasobów i wszystkie zasoby, które zawiera: 
 
 ```azurecli-interactive
 az group delete \
@@ -322,12 +324,12 @@ az group delete \
 
 W tym samouczku utworzono:
 
-* Sieć wirtualna i Host bastionu.
+* Sieć wirtualna i host bastionu.
 * Maszyna wirtualna.
-* Serwer SQL Azure z prywatnym punktem końcowym.
+* Azure SQL z prywatnym punktem końcowym.
 
-Maszyna wirtualna została użyta do bezpiecznego testowania łączności z programem SQL Server przez prywatny punkt końcowy.
+Maszyna wirtualna została użyta do bezpiecznego przetestowania łączności z serwerem SQL w prywatnym punkcie końcowym.
 
-W następnym kroku warto również zainteresować **aplikację internetową z prywatnym połączeniem z architekturą usługi Azure SQL Database** , która łączy aplikację sieci Web spoza sieci wirtualnej z prywatnym punktem końcowym bazy danych.
+Następnym krokiem może być również aplikacja internetowa z prywatną łącznością ze scenariuszem architektury bazy danych usługi **Azure SQL,** który łączy aplikację internetową poza siecią wirtualną z prywatnym punktem końcowym bazy danych.
 > [!div class="nextstepaction"]
-> [Aplikacja internetowa z łącznością prywatną z usługą Azure SQL Database](/azure/architecture/example-scenario/private-web-app/private-web-app)
+> [Aplikacja internetowa z prywatną łącznością z Azure SQL danych](/azure/architecture/example-scenario/private-web-app/private-web-app)

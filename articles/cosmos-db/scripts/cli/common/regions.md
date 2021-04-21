@@ -1,38 +1,38 @@
 ---
-title: Dodawanie regionów, zmiana priorytetu trybu failover, wyzwalanie trybu failover dla konta usługi Azure Cosmos
-description: Dodawanie regionów, zmiana priorytetu trybu failover, wyzwalanie trybu failover dla konta usługi Azure Cosmos
+title: Dodawanie regionów, zmienianie priorytetu trybu failover, wyzwalanie trybu failover dla konta usługi Azure Cosmos
+description: Dodawanie regionów, zmienianie priorytetu trybu failover, wyzwalanie trybu failover dla konta usługi Azure Cosmos
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 07/29/2020
-ms.openlocfilehash: 0ae724f9900eea713af7d295eba26bf03cdf471a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4a1a061945fe1c6c6a95eb62d286d40a158281ca
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94563243"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770802"
 ---
-# <a name="add-regions-change-failover-priority-trigger-failover-for-an-azure-cosmos-account-using-azure-cli"></a>Dodawanie regionów, zmiana priorytetu trybu failover, wyzwalanie trybu failover dla konta usługi Azure Cosmos przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="add-regions-change-failover-priority-trigger-failover-for-an-azure-cosmos-account-using-azure-cli"></a>Dodawanie regionów, zmienianie priorytetu trybu failover, wyzwalanie trybu failover dla konta usługi Azure Cosmos przy użyciu interfejsu wiersza polecenia platformy Azure
 [!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
 
-- Ten artykuł wymaga wersji 2.9.1 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
+- Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.9.1 lub nowszej. Jeśli używasz Azure Cloud Shell, najnowsza wersja jest już zainstalowana.
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
 Ten skrypt demonstruje trzy operacje.
 
 - Dodaj region do istniejącego konta usługi Azure Cosmos.
-- Zmień priorytet regionalnej pracy awaryjnej (dotyczy kont przy użyciu automatycznego trybu failover)
-- Wyzwalanie ręcznego przełączania z regionu podstawowego do pomocniczego (dotyczy kont z ręcznym trybem failover)
+- Zmiana priorytetu regionalnego trybu failover (dotyczy kont korzystających z automatycznego trybu failover)
+- Wyzwalanie ręcznego trybu failover z regionu podstawowego do pomocniczego (dotyczy kont z ręcznym trybem failover)
 
 > [!NOTE]
-> Operacji dodawania i usuwania regionów na koncie Cosmos nie można wykonać podczas zmieniania innych właściwości.
+> Operacji dodawania i usuwania regionów na koncie usługi Cosmos nie można wykonać podczas zmiany innych właściwości.
 
 > [!NOTE]
-> Ten przykład demonstruje użycie konta interfejsu API SQL (Core), ale te operacje są identyczne we wszystkich interfejsach API bazy danych w Cosmos DB.
+> W tym przykładzie pokazano korzystanie z konta interfejsu API SQL (podstawowego), ale te operacje są identyczne we wszystkich interfejsach API bazy danych w Cosmos DB.
 
 [!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/common/regions.sh "Regional operations for Cosmos DB.")]
 
@@ -50,14 +50,14 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 
 | Polecenie | Uwagi |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
-| [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Tworzy konto usługi Azure Cosmos DB. |
-| [az cosmosdb update](/cli/azure/cosmosdb#az-cosmosdb-update) | Aktualizuje konto Azure Cosmos DB (Dodaj lub Usuń region). |
-| [AZ cosmosdb failover — Priority-Change](/cli/azure/cosmosdb#az-cosmosdb-failover-priority-change) | Zaktualizuj priorytet trybu failover lub Wyzwól tryb failover na koncie Azure Cosmos DB. |
-| [az group delete](/cli/azure/resource#az-resource-delete) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
+| [az group create](/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
+| [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) | Tworzy konto usługi Azure Cosmos DB. |
+| [az cosmosdb update](/cli/azure/cosmosdb#az_cosmosdb_update) | Aktualizuje konto Azure Cosmos DB (dodawanie lub usuwanie regionu). |
+| [az cosmosdb failover-priority-change](/cli/azure/cosmosdb#az_cosmosdb_failover_priority_change) | Aktualizowanie priorytetu trybu failover lub wyzwalanie trybu failover na Azure Cosmos DB trybu failover. |
+| [az group delete](/cli/azure/resource#az_resource_delete) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Więcej informacji o interfejsie wiersza polecenia Azure Cosmos DB można znaleźć w [dokumentacji interfejsu wiersza polecenia Azure Cosmos DB](/cli/azure/cosmosdb).
+Aby uzyskać więcej informacji na temat interfejsu wiersza Azure Cosmos DB, zobacz [dokumentację interfejsu wiersza Azure Cosmos DB wiersza polecenia](/cli/azure/cosmosdb).
 
-Wszystkie przykłady skryptów interfejsu wiersza polecenia Azure Cosmos DB można znaleźć w [repozytorium GitHub Azure Cosmos DB interfejsu wiersza polecenia](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
+Wszystkie Azure Cosmos DB skryptów interfejsu wiersza polecenia można znaleźć w repozytorium GitHub Azure Cosmos DB [cli.](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb)
