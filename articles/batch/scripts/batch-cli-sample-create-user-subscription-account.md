@@ -1,15 +1,15 @@
 ---
-title: Przykład skryptu interfejsu wiersza polecenia platformy Azure — Tworzenie konta usługi Batch — subskrypcja użytkownika
+title: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — tworzenie konta usługi Batch — subskrypcja użytkownika
 description: Ten skrypt tworzy konto usługi Azure Batch w trybie subskrypcji użytkownika. To konto przydziela węzły obliczeniowe do subskrypcji.
 ms.topic: sample
 ms.date: 01/29/2018
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c9b8ba2ef782dcdc99cb18698175b8b53a53f0dd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9bd7b7ac3dbb52ebafa00499e64ec3cff0969a13
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93076779"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768361"
 ---
 # <a name="cli-example-create-a-batch-account-in-user-subscription-mode"></a>Przykład interfejsu wiersza polecenia: tworzenie konta usługi Batch w trybie subskrypcji użytkownika
 
@@ -17,7 +17,7 @@ Ten skrypt tworzy konto usługi Azure Batch w trybie subskrypcji użytkownika. K
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-- Ten samouczek wymaga wersji 2.0.20 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.  
+- Ten samouczek wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.20 lub nowszej. Jeśli używasz Azure Cloud Shell, najnowsza wersja jest już zainstalowana.  
 
 ## <a name="example-script"></a>Przykładowy skrypt
 
@@ -38,12 +38,12 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 | Polecenie | Uwagi |
 |---|---|
 | [az role assignment create](/cli/azure/role) | Tworzy nowe przypisanie roli dla użytkownika, grupy lub jednostki usługi. |
-| [az group create](/cli/azure/group#az-group-create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
-| [az keyvault create](/cli/azure/keyvault#az-keyvault-create) | Tworzy magazyn kluczy. |
-| [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) | Aktualizuje zasady zabezpieczeń określonego magazynu kluczy. |
-| [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Tworzy konto usługi Batch.  |
-| [az batch account login](/cli/azure/batch/account#az-batch-account-login) | Przeprowadza uwierzytelnianie na określonym koncie usługi Batch na potrzeby dalszej interakcji z interfejsem wiersza polecenia.  |
-| [az group delete](/cli/azure/group#az-group-delete) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
+| [az group create](/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
+| [az keyvault create](/cli/azure/keyvault#az_keyvault_create) | Tworzy magazyn kluczy. |
+| [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy) | Aktualizuje zasady zabezpieczeń określonego magazynu kluczy. |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Tworzy konto usługi Batch.  |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Przeprowadza uwierzytelnianie na określonym koncie usługi Batch na potrzeby dalszej interakcji z interfejsem wiersza polecenia.  |
+| [az group delete](/cli/azure/group#az_group_delete) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 
 ## <a name="next-steps"></a>Następne kroki
 

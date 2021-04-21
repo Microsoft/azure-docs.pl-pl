@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 01/12/2021
 ms.custom: mvc
-ms.openlocfilehash: dfebb6561e83c51063515ec655153aaaa7a09c0c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a268d39ec514fc7b88b555221ece7dc044ca49ba
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98251373"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767515"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Samouczek: Skalowanie aplikacji w usłudze Azure Kubernetes Service (AKS)
 
@@ -21,7 +21,7 @@ Jeśli wykonujesz kolejno zadania z samouczków, masz już działający klaster 
 > * Ręczne skalowanie zasobników rozwiązania Kubernetes, w ramach których działa Twoja aplikacja
 > * Konfigurowanie automatycznie skalowanych zasobników, w ramach których działa fronton aplikacji
 
-W kolejnych samouczkach aplikacja do głosowania platformy Azure zostanie zaktualizowana do nowej wersji.
+W kolejnych samouczkach aplikacja Azure Vote zostanie zaktualizowana do nowej wersji.
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
@@ -51,7 +51,7 @@ Aby ręcznie zmienić liczbę zasobników w ramach wdrożenia aplikacji *azure-v
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Uruchom ponownie [polecenia kubectl Pobierz zasobniki][kubectl-get] , aby sprawdzić, czy AKS pomyślnie tworzy dodatkowe zasobniki. Po minucie, w klastrze są dostępne:
+Uruchom [ponownie program kubectl get pods,][kubectl-get] aby sprawdzić, czy usługę AKS pomyślnie utworzy dodatkowe zasobniki. Po około minucie zasobniki będą dostępne w klastrze:
 
 ```console
 kubectl get pods
@@ -74,14 +74,14 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query kuberne
 ```
 
 > [!NOTE]
-> Jeśli klaster AKS jest mniejszy niż *1,10*, serwer metryk nie jest instalowany automatycznie. Manifesty instalacji serwera metryk są dostępne jako elementy `components.yaml` zawartości w wydaniach serwera metryk, co oznacza, że można je zainstalować za pośrednictwem adresu URL. Aby dowiedzieć się więcej o tych definicjach YAML, zobacz sekcję [Deployment (wdrażanie][metrics-server-github] ) w pliku Readme.
+> Jeśli klaster usługi AKS jest mniejszy *niż 1.10,* serwer metryk nie jest instalowany automatycznie. Manifesty instalacji serwera metryk są dostępne jako zasób w wydaniach serwera metryk, co oznacza, że można je `components.yaml` zainstalować za pomocą adresu URL. Aby dowiedzieć się więcej na temat tych definicji YAML, zobacz [sekcję Wdrażanie][metrics-server-github] pliku readme.
 > 
 > Przykładowa instalacja:
 > ```console
 > kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
 > ```
 
-Aby można było korzystać ze skalowania automatycznego, wszystkie kontenery w zasobnikach i w swoich zasobnikach muszą mieć zdefiniowane żądania procesora CPU i limity. We wdrożeniu aplikacji `azure-vote-front` kontener frontonu wymaga już 0,25 CPU, a limit wynosi 0,5 CPU. Te żądania zasobów i limity są zdefiniowane w taki sposób, jak pokazano w poniższym przykładowym fragmencie kodu:
+Aby można było korzystać z autoskalowania, wszystkie kontenery w zasobnikach i zasobnikach muszą mieć zdefiniowane żądania i limity procesora CPU. We wdrożeniu aplikacji `azure-vote-front` kontener frontonu wymaga już 0,25 CPU, a limit wynosi 0,5 CPU. Te żądania zasobów i limity są zdefiniowane w taki sposób, jak pokazano w poniższym przykładowym fragmencie kodu:
 
 ```yaml
 resources:
@@ -91,13 +91,13 @@ resources:
      cpu: 500m
 ```
 
-W poniższym przykładzie użyto polecenia [kubectl autoscale][kubectl-autoscale] w celu przeprowadzenia automatycznego skalowania liczby zasobników we wdrożeniu aplikacji *azure-vote-front*. Jeśli średnie użycie procesora CPU we wszystkich jednostkach dziennych przekroczy 50% żądanego użycia, Skalowanie automatyczne zwiększy się do *10* wystąpień. Dla wdrożenia zostaną następnie zdefiniowane przynajmniej *3* wystąpienia:
+W poniższym przykładzie użyto polecenia [kubectl autoscale][kubectl-autoscale] w celu przeprowadzenia automatycznego skalowania liczby zasobników we wdrożeniu aplikacji *azure-vote-front*. Jeśli średnie wykorzystanie procesora CPU we wszystkich zasobnikach przekracza 50% żądanego użycia, skalowanie automatyczne zwiększa zasobniki do *maksymalnie 10* wystąpień. Dla wdrożenia zostaną następnie zdefiniowane przynajmniej *3* wystąpienia:
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
 ```
 
-Alternatywnie można utworzyć plik manifestu, aby zdefiniować zachowanie automatycznego skalowania i limity zasobów. Poniżej znajduje się przykładowy plik manifestu o nazwie `azure-vote-hpa.yaml` .
+Alternatywnie można utworzyć plik manifestu w celu zdefiniowania zachowania automatycznego skalowania i limitów zasobów. Poniżej przedstawiono przykład pliku manifestu o nazwie `azure-vote-hpa.yaml` .
 
 ```yaml
 apiVersion: autoscaling/v1
@@ -129,7 +129,7 @@ spec:
   targetCPUUtilizationPercentage: 50 # target CPU utilization
 ```
 
-Służy `kubectl apply` do zastosowania automatycznego skalowania zdefiniowanego w `azure-vote-hpa.yaml` pliku manifestu.
+Użyj `kubectl apply` , aby zastosować autoskalowanie zdefiniowane w pliku `azure-vote-hpa.yaml` manifestu.
 
 ```console
 kubectl apply -f azure-vote-hpa.yaml
@@ -199,6 +199,6 @@ Przejdź do następnego samouczka, aby dowiedzieć się, jak zaktualizować apli
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-update-app]: ./tutorial-kubernetes-app-update.md
-[az-aks-scale]: /cli/azure/aks#az-aks-scale
+[az-aks-scale]: /cli/azure/aks#az_aks_scale
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-aks-show]: /cli/azure/aks#az_aks_show

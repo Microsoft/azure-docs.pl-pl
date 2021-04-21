@@ -1,6 +1,6 @@
 ---
-title: Zakończenie protokołu TLS przy użyciu interfejsu wiersza polecenia platformy Azure Application Gateway
-description: Dowiedz się, jak utworzyć bramę aplikacji i dodać certyfikat dla zakończenia protokołu TLS przy użyciu interfejsu wiersza polecenia platformy Azure.
+title: Zakończenie TLS przy użyciu interfejsu wiersza polecenia — Azure Application Gateway
+description: Dowiedz się, jak utworzyć bramę aplikacji i dodać certyfikat dla zakończenia TLS przy użyciu interfejsu wiersza polecenia platformy Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 9ae15503e8f12f7ba70aa5a9d306306fa79745f9
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: a8779c2829ecd2e8975ff56011bf5f73631f2de9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220389"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772684"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Tworzenie bramy aplikacji z zakończeniem szyfrowania TLS przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Możesz użyć interfejsu wiersza polecenia platformy Azure, aby utworzyć [bramę aplikacji](overview.md) z certyfikatem dla [zakończenia protokołu TLS](ssl-overview.md). W przypadku serwerów zaplecza można użyć [zestawu skalowania maszyn wirtualnych](../virtual-machine-scale-sets/overview.md). W tym przykładzie zestaw skalowania zawiera dwa wystąpienia maszyny wirtualnej, które są dodawane do domyślnej puli zaplecza bramy aplikacji.
+Za pomocą interfejsu wiersza polecenia platformy Azure możesz utworzyć bramę [aplikacji z](overview.md) certyfikatem na użytek zakończenia [TLS.](ssl-overview.md) W przypadku serwerów zaplecza można użyć zestawu [skalowania maszyn wirtualnych.](../virtual-machine-scale-sets/overview.md) W tym przykładzie zestaw skalowania zawiera dwa wystąpienia maszyny wirtualnej, które są dodawane do domyślnej puli zaplecza bramy aplikacji.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -26,18 +26,18 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 * Tworzenie bramy aplikacji z certyfikatem
 * Tworzenie zestawu skalowania maszyn wirtualnych przy użyciu domyślnej puli zaplecza
 
-Jeśli wolisz, możesz wykonać tę procedurę przy użyciu [Azure PowerShell](tutorial-ssl-powershell.md).
+Jeśli wolisz, możesz wykonać tę procedurę przy [użyciu](tutorial-ssl-powershell.md)Azure PowerShell .
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - Ten samouczek wymaga wersji 2.0.4 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
+ - Ten samouczek wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Jeśli używasz Azure Cloud Shell, najnowsza wersja jest już zainstalowana.
 
 ## <a name="create-a-self-signed-certificate"></a>Tworzenie certyfikatu z podpisem własnym
 
-Do użycia w środowisku produkcyjnym należy zaimportować prawidłowy certyfikat podpisany przez zaufanego dostawcę. W tym artykule utworzysz certyfikat z podpisem własnym i plik PFX przy użyciu polecenia OpenSSL.
+Do użycia w środowisku produkcyjnym należy zaimportować prawidłowy certyfikat podpisany przez zaufanego dostawcę. W tym artykule utworzysz certyfikat z podpisem własnym i plik pfx przy użyciu polecenia openssl.
 
 ```console
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
@@ -122,7 +122,7 @@ az network application-gateway create \
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Tworzenie zestawu skalowania maszyn wirtualnych
 
-W tym przykładzie utworzysz zestaw skalowania maszyn wirtualnych, który zapewnia serwery dla domyślnej puli zaplecza w bramie aplikacji. Maszyny wirtualne w zestawie skalowania są kojarzone z podsiecią *myBackendSubnet* i pulą *appGatewayBackendPool*. Aby utworzyć zestaw skalowania, możesz użyć polecenia [az vmss create](/cli/azure/vmss#az-vmss-create).
+W tym przykładzie utworzysz zestaw skalowania maszyn wirtualnych, który zapewnia serwery dla domyślnej puli zaplecza w bramie aplikacji. Maszyny wirtualne w zestawie skalowania są kojarzone z podsiecią *myBackendSubnet* i pulą *appGatewayBackendPool*. Aby utworzyć zestaw skalowania, możesz użyć polecenia [az vmss create](/cli/azure/vmss#az_vmss_create).
 
 ```azurecli-interactive
 az vmss create \
@@ -165,7 +165,7 @@ az network public-ip show \
   --output tsv
 ```
 
-Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki. W tym przykładzie adres URL to: **https://52.170.203.149** .
+Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki. W tym przykładzie adres URL to : **https://52.170.203.149** .
 
 ![Ostrzeżenie o zabezpieczeniach](./media/tutorial-ssl-cli/application-gateway-secure.png)
 

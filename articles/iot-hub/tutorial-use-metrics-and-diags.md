@@ -12,20 +12,20 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: 62958dc374598e6f530af398f722001e5ed51acd
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 099b7f4e812e92503c7ed8e3eb733f2e49ccd8b9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739696"
+ms.locfileid: "107768075"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>Samouczek: konfigurowanie metryk i dzienników oraz korzystanie z nich za pomocą centrum IoT
 
-Za pomocą Azure Monitor można zbierać metryki i dzienniki dla centrum IoT, które mogą pomóc w monitorowaniu działania rozwiązania i rozwiązywaniu problemów, gdy wystąpią. W tym artykule dowiesz się, jak tworzyć wykresy na podstawie metryk, jak tworzyć alerty wyzwalane na podstawie metryk IoT Hub, jak wysyłać operacje i błędy do dzienników Azure Monitor oraz jak sprawdzać dzienniki pod uwagę błędów.
+Za pomocą Azure Monitor można zbierać metryki i dzienniki dla centrum IoT, co może pomóc w monitorowaniu działania rozwiązania i rozwiązywaniu problemów, gdy wystąpią. W tym artykule dowiesz się, jak tworzyć wykresy na podstawie metryk, jak tworzyć alerty wyzwalane na podstawie metryk IoT Hub, jak wysyłać operacje i błędy do dzienników Azure Monitor oraz jak sprawdzać dzienniki pod uwagę błędów.
 
-W tym samouczku użyto przykładu platformy Azure z przewodnika Szybki start Wysyłanie danych telemetrycznych platformy [.NET](quickstart-send-telemetry-dotnet.md) do wysyłania komunikatów do centrum IoT. Do wysyłania komunikatów zawsze możesz użyć urządzenia lub innego przykładu, ale może być wymagane odpowiednie zmodyfikowanie kilku kroków.
+W tym samouczku użyto przykładu platformy Azure z przewodnika [Szybki start Wysyłanie danych telemetrycznych](quickstart-send-telemetry-dotnet.md) platformy .NET do wysyłania komunikatów do centrum IoT. Do wysyłania komunikatów zawsze możesz użyć urządzenia lub innego przykładu, ale może być odpowiednio zmodyfikować kilka kroków.
 
-Znajomość pojęć Azure Monitor może być przydatna przed rozpoczęciem tego samouczka. Aby dowiedzieć się więcej, zobacz [Monitorowanie IoT Hub](monitor-iot-hub.md). Aby dowiedzieć się więcej na temat metryk i dzienników zasobów emitowanych przez IoT Hub, zobacz [Monitoring data reference (Monitorowanie danych referencyjnych).](monitor-iot-hub-reference.md)
+Znajomość tych Azure Monitor może być przydatna przed rozpoczęciem tego samouczka. Aby dowiedzieć się więcej, zobacz [Monitorowanie IoT Hub](monitor-iot-hub.md). Aby dowiedzieć się więcej na temat metryk i dzienników zasobów emitowanych przez program IoT Hub, zobacz Monitoring data reference (Informacje [o danych monitorowania).](monitor-iot-hub-reference.md)
 
 Ten samouczek obejmuje wykonanie następujących zadań:
 
@@ -34,17 +34,17 @@ Ten samouczek obejmuje wykonanie następujących zadań:
 > * Użyj interfejsu wiersza polecenia platformy Azure, aby utworzyć centrum IoT Hub, zarejestrować symulowane urządzenie i utworzyć obszar roboczy usługi Log Analytics.  
 > * Wysyłaj IoT Hub i dzienniki zasobów telemetrii urządzenia do dzienników Azure Monitor w obszarze roboczym usługi Log Analytics.
 > * Użyj Eksploratora metryk, aby utworzyć wykres na podstawie wybranych metryk i przypiąć go do pulpitu nawigacyjnego.
-> * Utwórz alerty dotyczące metryk, aby być powiadamiane pocztą e-mail, gdy wystąpią ważne warunki.
+> * Utwórz alerty dotyczące metryk, aby można było wysyłać powiadomienia e-mail w przypadku wystąpienia ważnych warunków.
 > * Pobierz i uruchom aplikację, która symuluje urządzenie IoT wysyłające komunikaty do centrum IoT.
 > * Wyświetlanie alertów w przypadku wystąpienia warunków.
 > * Wyświetl wykres metryk na pulpicie nawigacyjnym.
-> * Wyświetlanie IoT Hub i operacji w dziennikach Azure Monitor dziennikach.
+> * Wyświetlanie IoT Hub i operacji w Azure Monitor dzienników.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- Na komputerze dewelopera zestaw .NET Core SDK co najmniej 2.1. Możesz pobrać zestaw SDK .NET Core dla wielu platform z repozytorium [.NET](https://www.microsoft.com/net/download/all).
+- Potrzebujesz maszyny zestaw .NET Core SDK 2.1 lub większej na komputerze dewelopera. Możesz pobrać zestaw SDK .NET Core dla wielu platform z repozytorium [.NET](https://www.microsoft.com/net/download/all).
 
   Możesz sprawdzić bieżącą wersję języka C# na komputerze deweloperskim przy użyciu następującego polecenia:
 
@@ -54,13 +54,13 @@ Ten samouczek obejmuje wykonanie następujących zadań:
 
 - Konto e-mail umożliwiające odbieranie wiadomości e-mail.
 
-- Upewnij się, że port 8883 jest otwarty w zaporze. Przykładowe urządzenie w tym samouczku używa protokołu MQTT, który komunikuje się za pośrednictwem portu 8883. Ten port może być zablokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów na ominiecie tego problemu, zobacz [Connecting to IoT Hub (MQTT) (Nawiązywanie połączenia z IoT Hub (MQTT).](iot-hub-mqtt-support.md#connecting-to-iot-hub)
+- Upewnij się, że port 8883 jest otwarty w zaporze. Przykładowe urządzenie w tym samouczku używa protokołu MQTT, który komunikuje się za pośrednictwem portu 8883. Ten port może być zablokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów na ominiecie tego problemu, zobacz [Connecting to IoT Hub (MQTT) (Nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)).
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="set-up-resources"></a>Konfigurowanie zasobów
 
-W tym samouczku potrzebujesz centrum IoT Hub, obszaru roboczego usługi Log Analytics i symulowanego urządzenia IoT. Te zasoby można utworzyć przy użyciu interfejsu wiersza polecenia platformy Azure lub programu Azure PowerShell. Użyj tej samej grupy zasobów i lokalizacji dla wszystkich zasobów. Po zakończeniu tego samouczka możesz usunąć wszystko w jednym kroku, usuwając grupę zasobów.
+Na potrzeby tego samouczka potrzebujesz centrum IoT Hub, obszaru roboczego usługi Log Analytics i symulowanego urządzenia IoT. Te zasoby można utworzyć przy użyciu interfejsu wiersza polecenia platformy Azure lub programu Azure PowerShell. Użyj tej samej grupy zasobów i lokalizacji dla wszystkich zasobów. Po zakończeniu samouczka możesz usunąć wszystko w jednym kroku, usuwając grupę zasobów.
 
 Poniżej znajdują się wymagane kroki.
 
@@ -74,13 +74,13 @@ Poniżej znajdują się wymagane kroki.
 
 ### <a name="set-up-resources-using-azure-cli"></a>Konfigurowanie zasobów przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Skopiuj i wklej ten skrypt w usłudze Cloud Shell. Przy założeniu, że użytkownik jest już zalogowany, usługa będzie kolejno uruchamiać po jednym wierszu skryptu. Wykonanie niektórych poleceń może trochę potrwać. Nowe zasoby są tworzone w grupie zasobów *ContosoResources.*
+Skopiuj i wklej ten skrypt w usłudze Cloud Shell. Przy założeniu, że użytkownik jest już zalogowany, usługa będzie kolejno uruchamiać po jednym wierszu skryptu. Wykonanie niektórych poleceń może zająć trochę czasu. Nowe zasoby są tworzone w grupie zasobów *ContosoResources.*
 
 Nazwa niektórych zasobów musi być unikatowa na platformie Azure. Skrypt generuje losową wartość z funkcją `$RANDOM` i zapisuje ją w zmiennej. W przypadku tych zasobów skrypt dołącza tę losową wartość do podstawowej nazwy zasobu, dzięki czemu nazwa zasobu jest unikatowa.
 
-Na subskrypcję jest dozwolone tylko jedno bezpłatne centrum IoT Hub. Jeśli masz już bezpłatne centrum IoT Hub w ramach subskrypcji, usuń je przed uruchomieniem skryptu lub zmodyfikuj skrypt, aby używać bezpłatnego centrum IoT lub IoT Hub, która korzysta z warstwy Standardowa lub Podstawowa.
+Na subskrypcję jest dozwolone tylko jedno bezpłatne centrum IoT Hub. Jeśli masz już bezpłatne centrum IoT Hub w ramach subskrypcji, usuń je przed uruchomieniem skryptu lub zmodyfikuj skrypt, aby korzystać z bezpłatnego centrum IoT lub IoT Hub, która korzysta z warstwy Standardowa lub Podstawowa.
 
-Skrypt drukuje nazwę centrum IoT Hub, nazwę obszaru roboczego usługi Log Analytics i parametrów połączenia dla rejestrowanego urządzenia. Pamiętaj, aby je zanotować, ponieważ będą one potrzebne w dalszej części tego artykułu.
+Skrypt drukuje nazwę centrum IoT, nazwę obszaru roboczego usługi Log Analytics i parametrów połączenia dla zarejestrowanego urządzenia. Pamiętaj, aby je zanotować, ponieważ będą one potrzebne w dalszej części tego artykułu.
 
 ```azurecli-interactive
 
@@ -134,7 +134,7 @@ az iot hub device-identity show-connection-string --device-id $iotDeviceName \
 ```
 
 >[!NOTE]
->Podczas tworzenia tożsamości urządzenia może wystąpić następujący błąd: *No keys found for policy iothubowner of IoT Hub ContosoTestHub*(Nie znaleziono kluczy dla zasad iothubowner IoT Hub ContosoTestHub). Aby naprawić ten błąd, zaktualizuj rozszerzenie IoT interfejsu wiersza polecenia platformy Azure, a następnie uruchom ponownie ostatnie dwa polecenia w skrypcie. 
+>Podczas tworzenia tożsamości urządzenia może wystąpić następujący błąd: *No keys found for policy iothubowner of IoT Hub ContosoTestHub*. Aby naprawić ten błąd, zaktualizuj rozszerzenie IoT interfejsu wiersza polecenia platformy Azure, a następnie uruchom ponownie ostatnie dwa polecenia w skrypcie. 
 >
 >Poniżej przedstawiono polecenie umożliwiające zaktualizowanie rozszerzenia. Uruchom to polecenie w Cloud Shell wystąpienia.
 >
@@ -144,21 +144,21 @@ az iot hub device-identity show-connection-string --device-id $iotDeviceName \
 
 ## <a name="collect-logs-for-connections-and-device-telemetry"></a>Zbieranie dzienników połączeń i telemetrii urządzenia
 
-IoT Hub emituje dzienniki zasobów dla kilku kategorii operacji; Jednak aby wyświetlić te dzienniki, należy utworzyć ustawienie diagnostyczne w celu wysłania ich do miejsca docelowego. Jednym z takich miejsc docelowych Azure Monitor dzienniki, które są zbierane w obszarze roboczym usługi Log Analytics. IoT Hub zasobów są pogrupowane w różne kategorie. W ustawieniu diagnostycznym można wybrać kategorie, które mają być wysyłane Azure Monitor do dzienników. W tym artykule zbierzemy dzienniki dotyczące operacji i błędów związanych z połączeniami i telemetrią urządzenia. Aby uzyskać pełną listę kategorii obsługiwanych przez program IoT Hub, [zobacz IoT Hub zasobów.](monitor-iot-hub-reference.md#resource-logs)
+IoT Hub emituje dzienniki zasobów dla kilku kategorii operacji; Jednak aby wyświetlić te dzienniki, należy utworzyć ustawienie diagnostyczne w celu wysłania ich do miejsca docelowego. Jednym z takich miejsc docelowych Azure Monitor dzienniki, które są zbierane w obszarze roboczym usługi Log Analytics. IoT Hub zasobów są pogrupowane w różne kategorie. W ustawieniu diagnostycznym możesz wybrać kategorie, które mają być wysyłane Azure Monitor do dzienników diagnostycznych. W tym artykule zbierzemy dzienniki dotyczące operacji i błędów związanych z połączeniami i telemetrią urządzenia. Aby uzyskać pełną listę kategorii obsługiwanych przez program IoT Hub, [zobacz IoT Hub zasobów.](monitor-iot-hub-reference.md#resource-logs)
 
 Aby utworzyć ustawienie diagnostyczne do wysyłania dzienników IoT Hub do dzienników Azure Monitor, wykonaj następujące kroki:
 
-1. Najpierw, jeśli nie jesteś jeszcze w centrum w portalu, wybierz pozycję **Grupy** zasobów i wybierz grupę zasobów ContosoResources. Wybierz centrum IoT z wyświetlonej listy zasobów.
+1. Najpierw, jeśli nie jesteś jeszcze w centrum w  portalu, wybierz pozycję Grupy zasobów i wybierz grupę zasobów ContosoResources. Wybierz centrum IoT Hub z wyświetlonej listy zasobów.
 
 1. W bloku usługi IoT Hub wyszukaj sekcję **Monitorowanie**. Wybierz **pozycję Ustawienia diagnostyczne.** Następnie wybierz **pozycję Dodaj ustawienie diagnostyczne.**
 
-   :::image type="content" source="media/tutorial-use-metrics-and-diags/open-diagnostic-settings.png" alt-text="Zrzut ekranu przedstawiający wyróżnione ustawienia diagnostyczne w sekcji Monitorowanie.":::
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/open-diagnostic-settings.png" alt-text="Zrzut ekranu przedstawiający ustawienia diagnostyczne w sekcji Monitorowanie.":::
 
-1. W **okienku Ustawienia diagnostyczne** nadaj ustawieniu opisową nazwę, taką jak "Wyślij połączenia i telemetrię do dzienników".
+1. W **okienku Ustawienia diagnostyczne** podaj opisową nazwę ustawienia, na przykład "Wyślij połączenia i dane telemetryczne do dzienników".
 
 1. W **obszarze Szczegóły kategorii** wybierz pozycję **Połączenia** i **Telemetria urządzenia.**
 
-1. W **obszarze Szczegóły lokalizacji** docelowej wybierz pozycję Wyślij do usługi Log **Analytics,** a następnie użyj selektora obszaru roboczego usługi Log Analytics, aby wybrać zanotowyny wcześniej obszar roboczy. Po zakończeniu ustawienie diagnostyczne powinno wyglądać podobnie do poniższego zrzutu ekranu:
+1. W **obszarze Szczegóły lokalizacji** docelowej wybierz pozycję Wyślij do usługi Log **Analytics,** a następnie użyj selektora obszaru roboczego usługi Log Analytics, aby wybrać zanotowyny wcześniej obszar roboczy. Po zakończeniu ustawienie diagnostyczne powinno wyglądać podobnie jak na poniższym zrzucie ekranu:
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/add-diagnostic-setting.png" alt-text="Zrzut ekranu przedstawiający ostateczne ustawienia dzienników diagnostycznych.":::
 
@@ -166,19 +166,19 @@ Aby utworzyć ustawienie diagnostyczne do wysyłania dzienników IoT Hub do dzie
 
 ## <a name="set-up-metrics"></a>Konfigurowanie metryk
 
-Teraz użyjemy Eksploratora metryk, aby utworzyć wykres wyświetlacy metryki, które chcesz śledzić. Przypniesz ten wykres do domyślnego pulpitu nawigacyjnego w Azure Portal.
+Teraz użyjemy Eksploratora metryk do utworzenia wykresu, który wyświetla metryki, które chcesz śledzić. Przypniesz ten wykres do domyślnego pulpitu nawigacyjnego w Azure Portal.
 
-1. W okienku po lewej stronie centrum IoT hub wybierz **pozycję Metryki** w **sekcji** Monitorowanie.
+1. W lewym okienku centrum IoT wybierz pozycję **Metryki** w **sekcji** Monitorowanie.
 
-1. W górnej części ekranu wybierz pozycję **Ostatnie 24 godziny (automatycznie).** Na wyświetlonej liście rozwijanej wybierz pozycję  Ostatnie **4 godziny** dla opcji **Zakres** czasu, ustaw opcję Poziom szczegółowości czasu na **1** minutę, a dla opcji Pokaż czas wybierz wartość **Lokalny.**  Wybierz **pozycję Zastosuj,** aby zapisać te ustawienia. Ustawienie powinno teraz mieć ustawienie **Czas lokalny: Ostatnie 4 godziny (1 minuta).**
+1. W górnej części ekranu wybierz pozycję **Ostatnie 24 godziny (automatycznie).** Na wyświetlonej liście rozwijanej  wybierz pozycję Ostatnie **4 godziny** dla opcji Zakres czasu, ustaw opcję Poziom szczegółowości czasu na **1** minutę, a dla opcji Pokaż czas wybierz wartość **Lokalny.**   Wybierz **pozycję Zastosuj,** aby zapisać te ustawienia. Ustawienie powinno teraz mieć ustawienie **Czas lokalny: Ostatnie 4 godziny (1 minuta).**
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-select-time-range.png" alt-text="Zrzut ekranu przedstawiający ustawienia czasu metryk.":::
 
-1. Na wykresie wyświetlane jest ustawienie metryk częściowych w zakresie centrum IoT. Pozostaw **wartości domyślne** w obszarach Zakres i Przestrzeń nazw metryk.  Wybierz ustawienie **Metryka** i wpisz "Telemetria", a następnie wybierz pozycję **Wysłane komunikaty telemetryczne** z listy rozwijanej. **Agregacja** zostanie automatycznie ustawiona na **sumę**. Zwróć uwagę, że tytuł wykresu również się zmienia.
+1. Na wykresie wyświetlane jest ustawienie metryki częściowej w zakresie centrum IoT. Pozostaw **wartości domyślne** w obszarach Zakres i Przestrzeń nazw metryk.  Wybierz ustawienie **Metryka** i wpisz "Telemetria", a następnie wybierz pozycję **Wysłane komunikaty telemetryczne** z listy rozwijanej. **Agregacja** zostanie automatycznie ustawiona na **sumę**. Zwróć uwagę, że tytuł wykresu również się zmienia.
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-telemetry-messages-sent.png" alt-text="Zrzut ekranu przedstawiający dodawanie metryki komunikatów telemetrii wysłanych do wykresu.":::
 
-1. Teraz wybierz **pozycję Dodaj metrykę,** aby dodać kolejną metrykę do wykresu. W obszarze **Metryka** wybierz pozycję **Łączna liczba użytych komunikatów**. **Agregacja** zostanie automatycznie ustawiona na **średnią**. Ponownie zwróć uwagę, że tytuł wykresu został zmieniony, aby uwzględnić tę metrykę.
+1. Teraz wybierz **pozycję Dodaj metrykę,** aby dodać kolejną metrykę do wykresu. W obszarze **Metryka** wybierz pozycję **Łączna liczba użytych komunikatów**. **Agregacja** zostanie automatycznie ustawiona na **śr.**. Ponownie zwróć uwagę, że tytuł wykresu został zmieniony, aby uwzględnić tę metrykę.
 
    Teraz na ekranie jest widoczna zminimalizowana metryka *Wysłane komunikaty telemetryczne* oraz nowa metryka *Łączna liczba użytych komunikatów*.
 
@@ -188,46 +188,46 @@ Teraz użyjemy Eksploratora metryk, aby utworzyć wykres wyświetlacy metryki, k
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-total-number-of-messages-used-pin.png" alt-text="Zrzut ekranu przedstawiający przycisk Przypnij do pulpitu nawigacyjnego.":::
 
-1. W **okienku Przypnij** do pulpitu nawigacyjnego wybierz **kartę** Istniejące. Wybierz pozycję **Prywatny,** a następnie wybierz pozycję **Pulpit nawigacyjny** z listy rozwijanej Pulpit nawigacyjny. Na koniec wybierz pozycję **Przypnij,** aby przypiąć wykres do domyślnego pulpitu nawigacyjnego Azure Portal. Jeśli nie przypniesz wykresu do pulpitu nawigacyjnego, ustawienia nie zostaną zachowane podczas zamykania Eksploratora metryk.
+1. W **okienku Przypnij** do pulpitu nawigacyjnego wybierz **kartę** Istniejące. Wybierz **pozycję Prywatny,** a następnie wybierz pozycję **Pulpit nawigacyjny** z listy rozwijanej Pulpit nawigacyjny. Na koniec wybierz pozycję **Przypnij,** aby przypiąć wykres do domyślnego pulpitu nawigacyjnego Azure Portal. Jeśli nie przypniesz wykresu do pulpitu nawigacyjnego, ustawienia nie zostaną zachowane podczas zamykania Eksploratora metryk.
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/pin-to-dashboard.png" alt-text="Zrzut ekranu przedstawiający ustawienia przypinania do pulpitu nawigacyjnego.":::
 
 ## <a name="set-up-metric-alerts"></a>Konfigurowanie alertów dotyczących metryk
 
-Teraz skonfigurujemy alerty wyzwalane dla dwóch wysłanych komunikatów metryk *Telemetria* i *Łączna liczba użytych komunikatów.*
+Teraz skonfigurujemy alerty wyzwalane dla dwóch wysłanych komunikatów telemetrii *i* łącznej *liczby użytych komunikatów.*
 
-*Wysłane komunikaty telemetryczne* są dobrą metryką do monitorowania w celu śledzenia przepływności komunikatów i uniknięcia ograniczania. W przypadku IoT Hub w warstwie Bezpłatna limit ograniczania wynosi 100 komunikatów/s. W przypadku pojedynczego urządzenia nie będziemy w stanie osiągnąć tego rodzaju przepływności, dlatego zamiast tego skonfigurujemy alert wyzwalany, jeśli liczba komunikatów przekroczy 1000 w okresie 5 minut. W środowisku produkcyjnym można ustawić sygnał na bardziej znaczącą wartość w zależności od warstwy, wersji i liczby jednostek centrum IoT.
+*Wysłane komunikaty telemetryczne* są dobrą metryką do monitorowania przepływności komunikatów i uniknięcia jej ograniczania. W przypadku IoT Hub w warstwie Bezpłatna limit ograniczania wynosi 100 komunikatów na sekundę. W przypadku pojedynczego urządzenia nie będziemy w stanie osiągnąć tego rodzaju przepływności, dlatego zamiast tego skonfigurujemy alert wyzwalany, jeśli liczba komunikatów przekroczy 1000 w ciągu 5 minut. W środowisku produkcyjnym można ustawić sygnał na bardziej znaczącą wartość w zależności od warstwy, wersji i liczby jednostek centrum IoT.
 
-*Łączna liczba użytych komunikatów* śledzi dzienną liczbę używanych komunikatów. Ta metryka jest resetowana codziennie o godzinie 00:00 czasu UTC. Jeśli limit przydziału dziennego przekroczy określony próg, IoT Hub nie będzie już akceptować komunikatów. W przypadku IoT Hub w warstwie Bezpłatna dzienny limit przydziału komunikatów wynosi 8000. Skonfigurujemy alert w celu wyzwolenia go, jeśli łączna liczba komunikatów przekroczy 4000, 50% limitu przydziału. W praktyce prawdopodobnie ustawisz tę wartość procentową na wyższą wartość. Wartość dziennego limitu przydziału zależy od warstwy, wersji i liczby jednostek centrum IoT.
+*Łączna liczba użytych komunikatów* śledzi dzienną liczbę używanych komunikatów. Ta metryka jest resetowana codziennie o godzinie 00:00 czasu UTC. W przypadku przekroczenia dziennego limitu przydziału po przekroczeniu określonego progu IoT Hub nie będą już akceptować komunikatów. W przypadku IoT Hub w warstwie Bezpłatna dzienny limit przydziału komunikatów wynosi 8000. Skonfigurujemy alert do wyzwalania, jeśli łączna liczba komunikatów przekroczy 4000, 50% limitu przydziału. W praktyce prawdopodobnie ustawisz tę wartość procentową na wyższą wartość. Wartość dziennego limitu przydziału zależy od warstwy, wersji i liczby jednostek centrum IoT.
 
-Aby uzyskać więcej informacji na temat limitów przydziałów i limitów IoT Hub, zobacz [Limity przydziału i ograniczanie przepustowości.](iot-hub-devguide-quotas-throttling.md)
+Aby uzyskać więcej informacji na temat limitów przydziału i limitów IoT Hub, zobacz [Limity przydziału i ograniczanie przepustowości.](iot-hub-devguide-quotas-throttling.md)
 
 Aby skonfigurować alerty dotyczące metryk:
 
 1. Przejdź do centrum IoT w Azure Portal.
 
-1. W **obszarze Monitorowanie** wybierz pozycję **Alerty**. Następnie wybierz pozycję **Nowa reguła alertu.**  Zostanie **otwarte okienko Tworzenie reguły alertu.**
+1. W **obszarze Monitorowanie** wybierz pozycję **Alerty**. Następnie wybierz pozycję **Nowa reguła alertu.**  Zostanie **otwarte okienko Tworzenie reguły** alertu.
 
     :::image type="content" source="media/tutorial-use-metrics-and-diags/create-alert-rule-pane.png" alt-text="Zrzut ekranu przedstawiający okienko Tworzenie reguły alertu.":::
 
     W **okienku Tworzenie reguły alertu** znajdują się cztery sekcje:
 
-    * **Zakres** jest już ustawiony na centrum IoT Hub, więc pozostawimy tę sekcję bez względu na to, jaka jest ta sekcja.
+    * **Zakres** jest już ustawiony na Centrum IoT, więc pozostawimy tę sekcję bez siebie.
     * **Warunek** ustawia sygnał i warunki, które będą wyzwalać alert.
     * **Akcje** konfigurują, co się stanie po wyzwoleniu alertu.
     * **Szczegóły reguły alertu** umożliwiają ustawienie nazwy i opisu alertu.
 
-1. Najpierw skonfiguruj warunek wyzwalany przez alert.
+1. Najpierw skonfiguruj warunek wyzwalania alertu.
 
-    1. W **obszarze Warunek** wybierz pozycję **Dodaj warunek**. W **okienku Konfigurowanie logiki sygnału** wpisz "telemetria" w polu wyszukiwania i wybierz pozycję **Wysłane komunikaty telemetrii**.
+    1. W **obszarze Warunek** wybierz **pozycję Dodaj warunek**. W **okienku Konfigurowanie logiki sygnału** wpisz "telemetria" w polu wyszukiwania i wybierz pozycję **Wysłane komunikaty telemetrii**.
 
        :::image type="content" source="media/tutorial-use-metrics-and-diags/configure-signal-logic-telemetry-messages-sent.png" alt-text="Zrzut ekranu przedstawiający wybieranie metryki.":::
 
     1. W **okienku Konfigurowanie logiki sygnału** ustaw lub potwierdź następujące pola w obszarze **Logika alertu** (możesz zignorować wykres):
 
-       **Próg:** *Statyczny .*
+       **Próg:**  *Statyczny*.
 
-       **Operator**: *Większe niż*.
+       **Operator:** *większe niż*.
 
        **Typ agregacji:** *Łącznie*.
 
@@ -239,7 +239,7 @@ Aby skonfigurować alerty dotyczące metryk:
 
         :::image type="content" source="media/tutorial-use-metrics-and-diags/configure-signal-logic-set-conditions.png" alt-text="Zrzut ekranu przedstawiający ustawienia warunków alertu.":::
 
-       Te ustawienia ustawiają dla sygnału łączną liczbę komunikatów w okresie 5 minut. Ta suma będzie oceniana co minutę, a jeśli suma dla poprzednich 5 minut przekroczy 1000 komunikatów, alert zostanie wyzwolony.
+       Te ustawienia ustawiają sygnał tak, aby łączna liczba komunikatów w okresie 5 minut. Ta suma będzie oceniana co minutę, a jeśli suma z poprzednich 5 minut przekroczy 1000 komunikatów, alert zostanie wyzwolony.
 
        Wybierz **pozycję Gotowe,** aby zapisać logikę sygnału.
 
@@ -249,9 +249,9 @@ Aby skonfigurować alerty dotyczące metryk:
 
     1. Na karcie **Podstawowe** w **okienku Tworzenie grupy akcji** nadaj grupie akcji nazwę i nazwę wyświetlaną.
 
-        :::image type="content" source="media/tutorial-use-metrics-and-diags/create-action-group-basics.png" alt-text="Zrzut ekranu przedstawiający kartę Podstawowe w okienku Tworzenie grupy akcji.":::
+        :::image type="content" source="media/tutorial-use-metrics-and-diags/create-action-group-basics.png" alt-text="Zrzut ekranu przedstawiający kartę Podstawowe okienka Tworzenie grupy akcji.":::
 
-    1. Wybierz **kartę Powiadomienia.** W **przypadku typu powiadomienia** wybierz z listy rozwijanej pozycję Poczta **e-mail/wiadomość SMS/wypychanie/głos.** Zostanie **otwarte okienko Poczta e-mail/wiadomość SMS/wypychanie/głos.**
+    1. Wybierz **kartę** Powiadomienia. W **przypadku typu powiadomienia** wybierz z listy rozwijanej pozycję Wiadomość **e-mail/wiadomość SMS/Wypychanie/Głos.** Zostanie **otwarte okienko Poczta e-mail/wiadomość SMS/wypychanie/głos.**
 
     1. W **okienku Poczta e-mail/wiadomość SMS/wypychanie/głos** wybierz pozycję e-mail i wprowadź swój adres e-mail, a następnie wybierz przycisk **OK.**
 
@@ -273,21 +273,21 @@ Aby skonfigurować alerty dotyczące metryk:
 
 1. Na koniec skonfiguruj szczegóły reguły alertu i zapisz regułę alertu.
 
-    1. W **okienku Tworzenie reguły alertu** w obszarze Szczegóły reguły alertu wprowadź nazwę i opis alertu. na przykład "Alert, jeśli więcej niż 1000 komunikatów w ciągu 5 minut". Upewnij się, **że pole włącz regułę alertu podczas tworzenia** jest zaznaczone. Ukończona reguła alertu będzie wyglądać podobnie do tego zrzutu ekranu.
+    1. W **okienku Tworzenie reguły alertu** w obszarze Szczegóły reguły alertu wprowadź nazwę i opis alertu. na przykład "Alert, jeśli ponad 1000 komunikatów w ciągu 5 minut". Upewnij się, **że pole Włącz regułę alertu podczas tworzenia** jest zaznaczone. Ukończona reguła alertu będzie wyglądać podobnie do tego zrzutu ekranu.
 
         :::image type="content" source="media/tutorial-use-metrics-and-diags/create-alert-rule-final.png" alt-text="Zrzut ekranu przedstawiający ukończone okienko Tworzenie reguły alertu.":::
 
     1. Wybierz **pozycję Utwórz regułę alertu,** aby zapisać nową regułę.
 
-1. Teraz skonfiguruj kolejny alert dla metryki *Łączna liczba użytych komunikatów*. Ta metryka jest przydatna, jeśli chcesz wysłać alert, gdy liczba użytych komunikatów zbliża się do dziennego limitu przydziału dla centrum IoT, po czym centrum IoT zacznie odrzucać komunikaty. Wykonaj kroki, które były wcześniej, z następującymi różnicami.
+1. Teraz skonfiguruj kolejny alert dla metryki *Łączna liczba użytych komunikatów*. Ta metryka jest przydatna, jeśli chcesz wysłać alert, gdy liczba użytych komunikatów zbliża się do dziennego limitu przydziału dla centrum IoT. W tym momencie centrum IoT rozpocznie odrzucanie komunikatów. Wykonaj kroki, które były wcześniej, z następującymi różnicami.
 
     * Dla sygnału w **okienku Konfigurowanie logiki sygnału** wybierz pozycję **Łączna liczba użytych komunikatów.**
 
     * W **okienku Konfigurowanie logiki sygnału** ustaw lub potwierdź następujące pola (możesz zignorować wykres):
 
-       **Próg:** *Statyczny .*
+       **Próg:**  *Statyczny*.
 
-       **Operator**: *Większe niż*.
+       **Operator:** *większe niż*.
 
        **Typ agregacji:** *Maksimum*.
 
@@ -301,9 +301,9 @@ Aby skonfigurować alerty dotyczące metryk:
 
     * Po określeniu akcji dla reguły alertu wystarczy wybrać utworzoną wcześniej grupę akcji.
 
-    * Aby uzyskać szczegóły alertu, wybierz inną nazwę i opis niż wcześniej.
+    * Dla szczegółów alertu wybierz inną nazwę i opis niż wcześniej.
 
-1. Wybierz **pozycję Alerty** w **obszarze Monitorowanie** w okienku po lewej stronie centrum IoT. Teraz wybierz **pozycję Zarządzaj regułami alertów** w menu w górnej części **okienka Alerty.** Zostanie **otwarte okienko** Reguły. Powinny zostać teraz wyświetlony dwa alerty:
+1. Wybierz **pozycję Alerty** w **obszarze Monitorowanie** w lewym okienku centrum IoT. Teraz wybierz **pozycję Zarządzaj regułami alertów** w menu w górnej części **okienka Alerty.** Zostanie **otwarte okienko** Reguły. Powinny zostać teraz wyświetlony dwa alerty:
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/rules-management.png" alt-text="Zrzut ekranu przedstawiający okienko Reguły z nowymi regułami alertów.":::
 
@@ -319,7 +319,7 @@ W [sekcji Konfigurowanie zasobów zarejestrowano](#set-up-resources) tożsamoś�
 >
 > Pełne skonfigurowanie i włączeniu alertów może potrwać do 10 minut IoT Hub. Odczekaj co najmniej 10 minut między skonfigurowaniem ostatniego alertu i uruchomieniem aplikacji urządzenia symulowanego.
 
-Pobierz rozwiązanie na potrzeby [symulacji urządzenia IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Ten link pobiera repo z kilkoma aplikacjami; Ten, którego szukasz, znajduje się w iot-hub/Quickstarts/simulated-device/.
+Pobierz rozwiązanie na potrzeby [symulacji urządzenia IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Ten link pobiera repo z kilkoma aplikacjami. Ten, którego szukasz, znajduje się w iot-hub/Quickstarts/simulated-device/.
 
 1. W lokalnym oknie terminalu przejdź do folderu głównego rozwiązania. Następnie przejdź do folderu **iot-hub\Quickstarts\simulated-device**.
 
@@ -384,7 +384,7 @@ Wybierz jeden z alertów, aby wyświetlić szczegóły alertu.
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/view-individual-alert.png" alt-text="Zrzut ekranu przedstawiający szczegóły alertu.":::
 
-Sprawdź skrzynkę odbiorczą pod adresami e-mail z Microsoft Azure. Wiersz tematu będzie opisywać alert, który został wyzwolony. Na przykład *Azure: Aktywowana ważność: 3 alert, jeśli więcej niż 1000 komunikatów w ciągu 5 minut.* Treść będzie wyglądać podobnie do poniższej ilustracji:
+Sprawdź skrzynkę odbiorczą pod adresami e-mail Microsoft Azure. Wiersz tematu będzie opisywać alert, który został wyzwolony. Na przykład *Azure: Aktywowana ważność: 3 alert, jeśli więcej niż 1000 komunikatów w ciągu 5 minut.* Treść będzie wyglądać podobnie do poniższej ilustracji:
 
    :::image type="content" source="media/tutorial-use-metrics-and-diags/alert-mail.png" alt-text="Zrzut ekranu przedstawiający wiadomość e-mail na temat uruchomionych alertów.":::
 
@@ -409,7 +409,7 @@ W sekcji [Zbieranie dzienników](#collect-logs-for-connections-and-device-teleme
 
 Aby usunąć wszystkie zasoby utworzone w ramach tego samouczka, usuń grupę zasobów. Ta akcja spowoduje również usunięcie wszystkich zasobów znajdujących się w grupie. W takim przypadku usuwa centrum IoT Hub, obszar roboczy usługi Log Analytics i samą grupę zasobów. Jeśli do pulpitu nawigacyjnego zostały przypięte wykresy metryk, musisz usunąć je ręcznie, klikając trzy kropki w prawym górnym rogu każdego wykresu i wybierając pozycję **Usuń**. Pamiętaj, aby zapisać zmiany po usunięciu wykresów.
 
-Aby usunąć grupę zasobów, użyj polecenia [az group delete](/cli/azure/group#az-group-delete).
+Aby usunąć grupę zasobów, użyj polecenia [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
 az group delete --name ContosoResources

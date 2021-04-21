@@ -1,7 +1,7 @@
 ---
-title: Usuwanie nietrwałe dla kontenerów (wersja zapoznawcza)
+title: Usuwanie nie softne dla kontenerów (wersja zapoznawcza)
 titleSuffix: Azure Storage
-description: Nietrwałe usuwanie kontenerów (wersja zapoznawcza) zapewnia ochronę danych, dzięki czemu można łatwiej odzyskać dane, gdy są one błędnie modyfikowane lub usuwane przez aplikację lub przez innego użytkownika konta magazynu.
+description: Usuwanie nie softne dla kontenerów (wersja zapoznawcza) chroni dane, dzięki czemu można łatwiej odzyskać dane, gdy zostaną błędnie zmodyfikowane lub usunięte przez aplikację lub innego użytkownika konta magazynu.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,71 +10,71 @@ ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: af9d520bab3ff49b30672717414fbd651c915dd4
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 2efd673d26231e83d820f7971a740d06e9b2a1d2
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552381"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785419"
 ---
-# <a name="soft-delete-for-containers-preview"></a>Usuwanie nietrwałe dla kontenerów (wersja zapoznawcza)
+# <a name="soft-delete-for-containers-preview"></a>Usuwanie nie softne dla kontenerów (wersja zapoznawcza)
 
-Nietrwałe usuwanie kontenerów (wersja zapoznawcza) chroni dane przed przypadkowym lub złośliwym usunięciem. Po włączeniu usuwania nietrwałego kontenera dla konta magazynu usunięty kontener i jego zawartość są przechowywane w usłudze Azure Storage przez określony okres. W okresie przechowywania można przywrócić wcześniej usunięte kontenery. Przywrócenie kontenera przywraca wszystkie obiekty blob znajdujące się w tym kontenerze w momencie jego usunięcia.
+Usuwanie nieumyślne dla kontenerów (wersja zapoznawcza) chroni dane przed przypadkowym lub złośliwym usunięciem. Po włączeniu usuwania nie softowego kontenera dla konta magazynu usunięty kontener i jego zawartość są przechowywane w usłudze Azure Storage przez określony okres. W okresie przechowywania można przywrócić wcześniej usunięte kontenery. Przywrócenie kontenera przywraca wszystkie obiekty blob znajdujące się w tym kontenerze w momencie jego usunięcia.
 
-Aby kompleksowo chronić dane obiektów blob, firma Microsoft zaleca włączenie następujących funkcji ochrony danych:
+Aby uzyskać end-to-end protection dla danych obiektów blob, firma Microsoft zaleca włączenie następujących funkcji ochrony danych:
 
-- Usuwanie nietrwałe kontenera w celu przywrócenia kontenera, który został usunięty. Aby dowiedzieć się, jak włączyć usuwanie nietrwałe kontenera, zobacz [Włączanie i zarządzanie usuwaniem nietrwałym dla kontenerów](soft-delete-container-enable.md).
-- Przechowywanie wersji obiektów BLOB w celu automatycznego zachowywania poprzednich wersji obiektu BLOB. Po włączeniu obsługi wersji obiektów BLOB można przywrócić wcześniejszą wersję obiektu BLOB, aby odzyskać dane, jeśli są one błędnie modyfikowane lub usuwane. Aby dowiedzieć się, jak włączyć obsługę wersji obiektów blob, zobacz [Włączanie obsługi wersji obiektów blob i zarządzanie nimi](versioning-enable.md).
-- Usuwanie nietrwałego obiektu BLOB w celu przywrócenia usuniętego obiektu BLOB lub wersji. Aby dowiedzieć się, jak włączyć usuwanie nietrwałe obiektów blob, zobacz [Włączanie i zarządzanie nietrwałego usuwania dla obiektów BLOB](soft-delete-blob-enable.md).
+- Usuwanie nie softne kontenera w celu przywrócenia usuniętego kontenera. Aby dowiedzieć się, jak włączyć usuwanie nie softowe kontenera, zobacz Włączanie usuwania [nie softowego dla kontenerów](soft-delete-container-enable.md)i zarządzanie nim.
+- Obsługa wersji obiektów blob w celu automatycznego zachowania poprzednich wersji obiektu blob. Po włączeniu obsługi wersji obiektów blob można przywrócić wcześniejszą wersję obiektu blob, aby odzyskać dane, jeśli zostały błędnie zmodyfikowane lub usunięte. Aby dowiedzieć się, jak włączyć obsługę wersji obiektów blob, zobacz Włączanie obsługi wersji obiektów [blob i zarządzanie nimi.](versioning-enable.md)
+- Usuwanie nie softowe obiektu blob w celu przywrócenia usuniętego obiektu blob lub wersji. Aby dowiedzieć się, jak włączyć usuwanie nie softowe obiektów blob, zobacz Włączanie usuwania nie softowego dla obiektów blob i [zarządzanie nim.](soft-delete-blob-enable.md)
 
 > [!IMPORTANT]
-> Usuwanie nietrwałe kontenera jest obecnie w **wersji zapoznawczej**. Zapoznaj się z [dodatkowymi postanowieniami dotyczącymi](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych w Microsoft Azure wersjach zapoznawczych, które mają zastosowanie do funkcji platformy Azure w wersjach beta, Preview lub innych, które nie zostały jeszcze ogólnie udostępnione.
+> Usuwanie nie softowe kontenera jest obecnie dostępne w WERSJI **ZAPOZNAWCZEJ.** Aby uzyskać informacje o postanowieniach prawnych, [które dotyczą](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) funkcji platformy Azure, które są dostępne w wersji beta, wersji zapoznawczej lub nie są jeszcze ogólnie dostępne, zobacz Uzupełniające warunki użytkowania dla wersji zapoznawczych usługi Microsoft Azure Preview.
 
-## <a name="how-container-soft-delete-works"></a>Jak działa usuwanie nietrwałe kontenera
+## <a name="how-container-soft-delete-works"></a>Jak działa usuwanie nie softne kontenera
 
-Po włączeniu usuwania nietrwałego kontenera można określić okres przechowywania usuniętych kontenerów z przedziału od 1 do 365 dni. Domyślny okres przechowywania wynosi 7 dni. W okresie przechowywania można odzyskać usunięty kontener, wywołując operację **przywracania kontenera** .
+Po włączeniu usuwania nie softowego kontenera można określić okres przechowywania usuniętych kontenerów, który wynosi od 1 do 365 dni. Domyślny okres przechowywania wynosi 7 dni. W okresie przechowywania można odzyskać usunięty kontener, wywołując **operację przywracania kontenera.**
 
-Podczas przywracania kontenera są również przywracane obiekty blob kontenera i wszystkie wersje obiektów BLOB. Można jednak używać tylko nietrwałego usuwania kontenera do przywracania obiektów blob, jeśli kontener został usunięty. Aby przywrócić usunięty obiekt BLOB, gdy jego kontener nadrzędny nie został usunięty, należy użyć usuwania nietrwałego obiektu BLOB lub przechowywania wersji obiektów BLOB.
+Po przywróceniu kontenera zostaną również przywrócone obiekty blob kontenera i wszystkie jego wersje. Można jednak użyć usuwania nie softowego kontenera tylko w celu przywrócenia obiektów blob, jeśli sam kontener został usunięty. Aby przywrócić usunięty obiekt blob, gdy jego kontener nadrzędny nie został usunięty, należy użyć usuwania nie soft delete lub wersji obiektu blob.
 
 > [!WARNING]
-> Usuwanie nietrwałe kontenera może przywrócić tylko całe kontenery i ich zawartość w czasie usuwania. Nie można przywrócić usuniętego obiektu BLOB w kontenerze za pomocą usuwania nietrwałego kontenera. Firma Microsoft zaleca również włączenie funkcji usuwania nietrwałego obiektów blob i przechowywania wersji obiektów BLOB w celu ochrony poszczególnych obiektów BLOB w kontenerze.
+> Usuwanie nie softowe kontenera może przywrócić tylko całe kontenery i ich zawartość w momencie usunięcia. Nie można przywrócić usuniętego obiektu blob w kontenerze przy użyciu usuwania nie softu kontenera. Firma Microsoft zaleca również włączenie usuwania nie softowego obiektów blob i obsługi wersji obiektów blob w celu ochrony poszczególnych obiektów blob w kontenerze.
 
-Na poniższym diagramie przedstawiono sposób przywracania usuniętego kontenera, gdy jest włączone usuwanie nietrwałe kontenera:
+Na poniższym diagramie przedstawiono sposób przywracania usuniętego kontenera po włączeniu usuwania nie softu kontenera:
 
-:::image type="content" source="media/soft-delete-container-overview/container-soft-delete-diagram.png" alt-text="Diagram przedstawiający sposób przywrócenia kontenera usuwania nietrwałego":::
+:::image type="content" source="media/soft-delete-container-overview/container-soft-delete-diagram.png" alt-text="Diagram przedstawiający sposób przywracania nieukreślanych usuniętych kontenerów":::
 
-Po przywróceniu kontenera można przywrócić jego oryginalną nazwę, jeśli ta nazwa nie została ponownie użyta. Jeśli nazwa oryginalnego kontenera została użyta, można przywrócić kontener z nową nazwą.
+Po przywróceniu kontenera można przywrócić jego oryginalną nazwę, jeśli ta nazwa nie została ponownie użyta. Jeśli oryginalna nazwa kontenera została użyta, możesz przywrócić kontener z nową nazwą.
 
-Po upływie okresu przechowywania kontener zostanie trwale usunięty z usługi Azure Storage i nie będzie można go odzyskać. Zegar jest uruchamiany w okresie przechowywania w momencie usunięcia kontenera. Okres przechowywania można zmienić w dowolnym momencie, ale należy pamiętać, że zaktualizowany okres przechowywania dotyczy tylko nowo usuniętych kontenerów. Usunięte wcześniej kontenery zostaną trwale usunięte na podstawie okresu przechowywania, który obowiązywał w momencie usunięcia kontenera.
+Po upływie okresu przechowywania kontener zostanie trwale usunięty z usługi Azure Storage i nie będzie można go odzyskać. Zegar rozpoczyna się w okresie przechowywania w momencie usunięcia kontenera. Okres przechowywania można zmienić w dowolnym momencie, ale należy pamiętać, że zaktualizowany okres przechowywania dotyczy tylko nowo usuniętych kontenerów. Wcześniej usunięte kontenery zostaną trwale usunięte na podstawie okresu przechowywania, który obowiązywał w momencie usunięcia kontenera.
 
-Wyłączenie usuwania nietrwałego kontenera nie powoduje trwałego usunięcia kontenerów, które zostały wcześniej usunięte. Wszystkie nietrwałe kontenery usunięte zostaną trwale usunięte po upływie okresu przechowywania, który obowiązywał w momencie usunięcia kontenera.
+Wyłączenie usuwania nietrwałych kontenerów nie powoduje trwałego usunięcia kontenerów, które wcześniej zostały usunięte nietrwałych. Wszystkie nie soft-deleted kontenery zostaną trwale usunięte po upływie okresu przechowywania, który obowiązywał w momencie usunięcia kontenera.
 
 > [!IMPORTANT]
-> Usuwanie nietrwałe kontenera nie chroni przed usunięciem konta magazynu. Chroni tylko przed usunięciem kontenerów w ramach tego konta. Aby chronić konto magazynu przed usunięciem, należy skonfigurować blokadę zasobu konta magazynu. Aby uzyskać więcej informacji na temat blokowania konta magazynu, zobacz temat [stosowanie blokady Azure Resource Manager na koncie magazynu](../common/lock-account-resource.md).
+> Usuwanie nie softowe kontenera nie chroni przed usunięciem konta magazynu. Chroni tylko przed usunięciem kontenerów na tym koncie. Aby chronić konto magazynu przed usunięciem, skonfiguruj blokadę zasobu konta magazynu. Aby uzyskać więcej informacji na temat blokowania konta magazynu, zobacz Apply an Azure Resource Manager lock to a storage account (Stosowanie blokady Azure Resource Manager [do konta magazynu).](../common/lock-account-resource.md)
 
 ## <a name="about-the-preview"></a>Informacje o wersji zapoznawczej
 
-Usuwanie nietrwałe kontenera jest dostępne w wersji zapoznawczej we wszystkich regionach świadczenia usługi Azure.
+Usuwanie nie softowe kontenera jest dostępne w wersji zapoznawczej we wszystkich regionach świadczenia usługi Azure.
 
-Wersja 2019-12-12 lub nowsza interfejsu API REST usługi Azure Storage obsługuje usuwanie nietrwałe kontenera.
+Wersja 2019-12-12 lub nowsza interfejsu API REST usługi Azure Storage obsługuje usuwanie nie softowe kontenera.
 
-### <a name="storage-account-support"></a>Obsługa kont magazynu
+### <a name="storage-account-support"></a>Obsługa konta magazynu
 
-Usuwanie nietrwałe kontenera jest dostępne dla następujących typów kont magazynu:
+Usuwanie nie softowe kontenera jest dostępne dla następujących typów kont magazynu:
 
-- Konto magazynu ogólnego przeznaczenia w wersji 2 i w wersji 1
-- Blokuj konta magazynu obiektów BLOB
+- Konta magazynu ogólnego przeznaczenia w wersji 2 i 1
+- Konta magazynu blokowych obiektów blob
 - Konta usługi Blob Storage
 
-Obsługiwane są również konta magazynu z hierarchiczną przestrzenią nazw włączoną do użycia z Azure Data Lake Storage Gen2.
+Konta magazynu z hierarchiczną przestrzenią nazw włączoną do użytku Azure Data Lake Storage Gen2 są również obsługiwane.
 
-### <a name="register-for-the-preview"></a>Zarejestruj się w wersji zapoznawczej
+### <a name="register-for-the-preview"></a>Zarejestruj się, aby uzyskać podgląd
 
-Aby zarejestrować się w wersji zapoznawczej usuwania nietrwałego kontenera, użyj programu PowerShell lub interfejsu wiersza polecenia platformy Azure w celu przesłania żądania zarejestrowania tej funkcji w ramach subskrypcji. Po zatwierdzeniu żądania można włączyć funkcję usuwania nietrwałego kontenera przy użyciu dowolnego nowego lub istniejącego konta programu ogólnego przeznaczenia w wersji 2, BLOB Storage lub Premium Storage.
+Aby zarejestrować się w wersji zapoznawczej na użytek usuwania nie softowego kontenera, użyj programu PowerShell lub interfejsu wiersza polecenia platformy Azure, aby przesłać żądanie zarejestrowania funkcji w ramach subskrypcji. Po zatwierdzeniu żądania możesz włączyć usuwanie nieblokowe kontenera przy użyciu nowych lub istniejących kont magazynu blokowych obiektów blob, magazynu obiektów blob lub magazynu obiektów blob ogólnego przeznaczenia w wersji 2 lub premium.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
-Aby zarejestrować się w programie PowerShell, wywołaj polecenie [register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) .
+Aby zarejestrować się w programie PowerShell, [wywołaj polecenie Register-AzProviderFeature.](/powershell/module/az.resources/register-azproviderfeature)
 
 ```powershell
 # Register for container soft delete (preview)
@@ -87,7 +87,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Aby zarejestrować się w interfejsie wiersza polecenia platformy Azure, wywołaj polecenie [AZ Feature Register](/cli/azure/feature#az-feature-register) .
+Aby zarejestrować się za pomocą interfejsu wiersza polecenia platformy Azure, [wywołaj polecenie az feature register.](/cli/azure/feature#az_feature_register)
 
 ```azurecli
 az feature register --namespace Microsoft.Storage --name ContainerSoftDelete
@@ -96,13 +96,13 @@ az provider register --namespace 'Microsoft.Storage'
 
 ---
 
-### <a name="check-the-status-of-your-registration"></a>Sprawdź stan rejestracji
+### <a name="check-the-status-of-your-registration"></a>Sprawdzanie stanu rejestracji
 
 Aby sprawdzić stan rejestracji, użyj programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
-Aby sprawdzić stan rejestracji w programie PowerShell, wywołaj polecenie [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) .
+Aby sprawdzić stan rejestracji w programie PowerShell, wywołaj polecenie [Get-AzProviderFeature.](/powershell/module/az.resources/get-azproviderfeature)
 
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName ContainerSoftDelete
@@ -110,7 +110,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName Containe
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Aby sprawdzić stan rejestracji w interfejsie wiersza polecenia platformy Azure, wywołaj polecenie [AZ Feature](/cli/azure/feature#az-feature-show) .
+Aby sprawdzić stan rejestracji w interfejsie wiersza polecenia platformy Azure, wywołaj [polecenie az feature.](/cli/azure/feature#az_feature_show)
 
 ```azurecli
 az feature show --namespace Microsoft.Storage --name ContainerSoftDelete
@@ -120,10 +120,10 @@ az feature show --namespace Microsoft.Storage --name ContainerSoftDelete
 
 ## <a name="pricing-and-billing"></a>Cennik i rozliczenia
 
-Nie ma dodatkowej opłaty za włączenie usuwania nietrwałego kontenera. Opłaty za dane w nietrwałe usunięte kontenery są naliczane według stawki za aktywne dane.
+Włączenie usuwania nie softowego kontenera nie jest naliczane dodatkowe opłaty. Dane w nieukońcowanych kontenerach są rozliczane z taką samą szybkością jak aktywne dane.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Konfiguruj usuwanie nietrwałe kontenera](soft-delete-container-enable.md)
+- [Konfigurowanie usuwania nie softowego kontenera](soft-delete-container-enable.md)
 - [Usuwanie nietrwałe dla obiektów blob](soft-delete-blob-overview.md)
-- [Przechowywanie wersji obiektów BLOB](versioning-overview.md)
+- [Wersjonarowanie obiektów blob](versioning-overview.md)

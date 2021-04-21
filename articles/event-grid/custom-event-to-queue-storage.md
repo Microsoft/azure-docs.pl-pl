@@ -1,17 +1,17 @@
 ---
-title: 'Szybki Start: wysyłanie zdarzeń niestandardowych do kolejki magazynu — Event Grid, interfejs wiersza polecenia platformy Azure'
-description: 'Szybki Start: używanie Azure Event Grid i interfejsu wiersza polecenia platformy Azure do publikowania tematu i subskrybowania tego zdarzenia. Kolejka magazynu jest używana dla punktu końcowego.'
+title: 'Szybki start: wysyłanie zdarzeń niestandardowych do kolejki magazynu — Event Grid, interfejs wiersza polecenia platformy Azure'
+description: 'Szybki start: publikowanie Azure Event Grid wiersza polecenia platformy Azure i subskrybowanie tego zdarzenia za pomocą interfejsu wiersza polecenia platformy Azure. Kolejka magazynu jest używana dla punktu końcowego.'
 ms.date: 02/02/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 00808e7eca13824833673ef820d39b70bf618dd2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb7712fbc5a0498695a8737d627f407eb6dfa575
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99493266"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766829"
 ---
-# <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Szybki Start: kierowanie zdarzeń niestandardowych do usługi Azure queue storage przy użyciu interfejsu wiersza polecenia platformy Azure i Event Grid
+# <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Szybki start: przekierowanie zdarzeń niestandardowych do usługi Azure Queue Storage przy użyciu interfejsu wiersza polecenia platformy Azure i Event Grid
 
 Azure Event Grid to usługa obsługi zdarzeń dla chmury. Magazyn kolejek platformy Azure jest jedną z obsługiwanych procedur obsługi zdarzeń. W tym artykule omówiono tworzenie tematu niestandardowego, subskrybowanie go i wyzwalanie zdarzenia w celu wyświetlenia wyniku za pomocą interfejsu wiersza polecenia platformy Azure. Wyślesz zdarzenia do magazynu kolejek.
 
@@ -19,9 +19,9 @@ Azure Event Grid to usługa obsługi zdarzeń dla chmury. Magazyn kolejek platfo
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- Ten artykuł wymaga wersji 2.0.56 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
+- Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.56 lub nowszej. Jeśli używasz Azure Cloud Shell, najnowsza wersja jest już zainstalowana.
 
-- Jeśli używasz Azure PowerShell na maszynie lokalnej zamiast korzystać z Cloud Shell w Azure Portal, upewnij się, że masz Azure PowerShell wersję 1.1.0 lub nowszą. Pobierz najnowszą wersję modułu Azure PowerShell na komputer z systemem Windows ze strony [Pliki do pobrania platformy Azure — narzędzia wiersza polecenia](https://azure.microsoft.com/downloads/). 
+- Jeśli używasz programu Azure PowerShell na maszynie lokalnej zamiast programu Cloud Shell w programie Azure Portal, upewnij się, że masz wersję Azure PowerShell 1.1.0 lub nowszą. Pobierz najnowszą wersję modułu Azure PowerShell na komputer z systemem Windows ze strony [Pliki do pobrania platformy Azure — narzędzia wiersza polecenia](https://azure.microsoft.com/downloads/). 
 
 Ten artykuł zawiera polecenia umożliwiające korzystanie z wiersza polecenia platformy Azure. 
 
@@ -29,7 +29,7 @@ Ten artykuł zawiera polecenia umożliwiające korzystanie z wiersza polecenia p
 
 Tematy usługi Event Grid to zasoby platformy Azure i muszą być umieszczone w grupie zasobów platformy Azure. Grupa zasobów to kolekcja logiczna przeznaczona do wdrażania zasobów platformy Azure i zarządzania nimi.
 
-Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az-group-create). 
+Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az_group_create). 
 
 Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *gridResourceGroup* w lokalizacji *westus2*.
 
@@ -61,7 +61,7 @@ az storage queue create --name $queuename --account-name $storagename
 
 ## <a name="subscribe-to-a-custom-topic"></a>Subskrybowanie tematu niestandardowego
 
-Zasubskrybujesz niestandardowy temat, aby poinformować Event Grid, które zdarzenia mają być śledzone. Poniższy przykład subskrybuje utworzony temat niestandardowy i przekazuje identyfikator zasobu magazynu kolejki dla punktu końcowego. Za pomocą interfejsu wiersza polecenia platformy Azure przekaż identyfikator magazynu kolejek jako punkt końcowy. Punkt końcowy ma następujący format:
+Subskrybowanie tematu niestandardowego pozwala Event Grid, które zdarzenia chcesz śledzić. Poniższy przykład subskrybuje utworzony temat niestandardowy i przekazuje identyfikator zasobu magazynu kolejek dla punktu końcowego. Za pomocą interfejsu wiersza polecenia platformy Azure przekaż identyfikator magazynu kolejek jako punkt końcowy. Punkt końcowy ma następujący format:
 
 `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/queueservices/default/queues/<queue-name>`
 
@@ -118,9 +118,9 @@ Przejdź do magazynu kolejek w portalu i zwróć uwagę, że usługa Event Grid 
 ![Wyświetlanie komunikatów](./media/custom-event-to-queue-storage/messages.png)
 
 > [!NOTE]
-> Jeśli używasz [wyzwalacza usługi Azure queue storage do Azure Functions](../azure-functions/functions-bindings-storage-queue-trigger.md) dla kolejki, która odbiera komunikaty z Event Grid, podczas wykonywania funkcji może zostać wyświetlony następujący komunikat o błędzie: `The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.`
+> Jeśli używasz wyzwalacza usługi Azure Queue Storage dla kolejki [Azure Functions,](../azure-functions/functions-bindings-storage-queue-trigger.md) która odbiera komunikaty z usługi Event Grid, podczas wykonywania funkcji może zostać wyświetlony następujący komunikat o błędzie: `The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.`
 > 
-> Przyczyną jest to, że w przypadku korzystania z [wyzwalacza usługi Azure queue storage](../azure-functions/functions-bindings-storage-queue-trigger.md)Azure Functions oczekiwany **ciąg zakodowany w formacie base64**, ale Event Grid wysyła komunikaty do kolejki magazynu w formacie zwykłego tekstu. Obecnie nie jest możliwe skonfigurowanie wyzwalacza kolejki dla Azure Functions w celu zaakceptowania zwykłego tekstu. 
+> Przyczyną jest to, że w przypadku korzystania z wyzwalacza usługi [Azure Queue Storage](../azure-functions/functions-bindings-storage-queue-trigger.md)usługa Azure Functions oczekuje ciągu zakodowanego w formacie **base64,** ale usługa Event Grid wysyła komunikaty do kolejki magazynu w formacie zwykłego tekstu. Obecnie nie jest możliwe skonfigurowanie wyzwalacza kolejki, aby Azure Functions akceptować zwykły tekst. 
 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów

@@ -1,44 +1,44 @@
 ---
-title: 'Szybki Start: wyszukiwanie tekstu przy użyciu biblioteki klienta analiza tekstu'
+title: 'Szybki start: wyszukiwanie tekstu przy użyciu biblioteki analiza tekstu klienta'
 titleSuffix: Azure Cognitive Services
-description: Skorzystaj z tego przewodnika Szybki Start, aby przeprowadzić analizę tonacji i nie tylko przy użyciu interfejs API analizy tekstu z usługi Azure Cognitive Services.
+description: Skorzystaj z tego przewodnika Szybki start, aby przeprowadzić analizę tonacji i nie tylko przy użyciu interfejsu API analiza tekstu z Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 03/11/2021
+ms.date: 04/19/2021
 ms.author: aahi
-keywords: Wyszukiwanie tekstu, analiza tonacjiów, analizy tekstu
+keywords: wyszukiwanie tekstu, analiza tonacji, analiza tekstu
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: d0fae3c12d4315d829ad4d505e7157e3bf919d99
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 527936e1da385a3622358fe12efa0f87af4b3fd9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599099"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765098"
 ---
-# <a name="quickstart-use-the-text-analytics-client-library-and-rest-api"></a>Szybki Start: korzystanie z biblioteki klienta analiza tekstu i interfejsu API REST
+# <a name="quickstart-use-the-text-analytics-client-library-and-rest-api"></a>Szybki start: korzystanie z biblioteki analiza tekstu klienta i interfejsu API REST
 
-Skorzystaj z tego artykułu, aby rozpocząć pracę z biblioteką klienta analiza tekstu i interfejsem API REST. Wykonaj następujące kroki, aby wypróbować przykłady kodu dla tekstu wyszukiwania:
+Skorzystaj z tego artykułu, aby rozpocząć pracę z biblioteką analiza tekstu klienta i interfejsem API REST. Wykonaj następujące kroki, aby wypróbować przykładowy kod wyszukiwania tekstu:
 
 * Analiza tonacji
 * Wyszukiwanie opinii
 * Wykrywanie języka
 * Rozpoznawanie jednostek
-* Rozpoznawanie informacji osobistych
+* Rozpoznawanie osobistych informacji identyfikujących
 * Wyodrębnianie kluczowych fraz
 
 
 ::: zone pivot="programming-language-csharp"
 
 > [!IMPORTANT]
-> * Najnowsza stabilna wersja interfejs API analizy tekstu to `3.0` .
->    * Pamiętaj, aby postępować zgodnie z instrukcjami dotyczącymi używanej wersji.
-> * Kod w tym artykule używa metod synchronicznych i niezabezpieczonych magazynów poświadczeń z przyczyn uproszczenia. W przypadku scenariuszy produkcyjnych zaleca się użycie wsadowych metod asynchronicznych w celu zapewnienia wydajności i skalowalności. Zapoznaj się z dokumentacją referencyjną poniżej.
-> * Jeśli chcesz używać analiza tekstu do obsługi kondycji lub operacji asynchronicznych, zobacz przykłady w witrynie GitHub dla [języków C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics), [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/) lub [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
+> * Najnowsza stabilna wersja interfejsu API analiza tekstu to `3.0` .
+>    * Pamiętaj, aby postępować zgodnie tylko z instrukcjami dotyczącymi wersji, z których korzystasz.
+> * Kod w tym artykule używa metod synchronicznych i niezabędnego magazynu poświadczeń dla uproszczenia. W przypadku scenariuszy produkcyjnych zalecamy używanie wsadowych metod asynchronicznych w celu oceny wydajności i skalowalności. Zapoznaj się z dokumentacją referencyjną poniżej.
+> * Jeśli chcesz używać poleceń w analiza tekstu kondycji lub operacji asynchronicznych, zobacz przykłady dla języka [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics), [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/) lub [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics) w witrynie Github
 
 [!INCLUDE [C# quickstart](../includes/quickstarts/csharp-sdk.md)]
 
@@ -47,9 +47,9 @@ Skorzystaj z tego artykułu, aby rozpocząć pracę z biblioteką klienta analiz
 ::: zone pivot="programming-language-java"
 
 > [!IMPORTANT]
-> * Najnowsza stabilna wersja interfejs API analizy tekstu to `3.0` .
-> * Kod w tym artykule używa metod synchronicznych i niezabezpieczonych magazynów poświadczeń z przyczyn uproszczenia. W przypadku scenariuszy produkcyjnych zaleca się użycie wsadowych metod asynchronicznych w celu zapewnienia wydajności i skalowalności. Zapoznaj się z dokumentacją referencyjną poniżej.
-Jeśli chcesz używać analiza tekstu do obsługi kondycji lub operacji asynchronicznych, zobacz przykłady w witrynie GitHub dla [języków C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics), [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/) lub [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
+> * Najnowsza stabilna wersja interfejsu API analiza tekstu to `3.0` .
+> * Kod w tym artykule używa metod synchronicznych i niezabędnego magazynu poświadczeń dla uproszczenia. W przypadku scenariuszy produkcyjnych zalecamy używanie wsadowych metod asynchronicznych w celu oceny wydajności i skalowalności. Zapoznaj się z dokumentacją referencyjną poniżej.
+Jeśli chcesz używać poleceń w analiza tekstu kondycji lub operacji asynchronicznych, zobacz przykłady dla języka [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics), [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/) lub [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics) w witrynie Github
 
 [!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
 
@@ -58,10 +58,10 @@ Jeśli chcesz używać analiza tekstu do obsługi kondycji lub operacji asynchro
 ::: zone pivot="programming-language-javascript"
 
 > [!IMPORTANT]
-> * Najnowsza stabilna wersja interfejs API analizy tekstu to `3.0` .
->    * Pamiętaj, aby postępować zgodnie z instrukcjami dotyczącymi używanej wersji.
-> * Kod w tym artykule używa metod synchronicznych i niezabezpieczonych magazynów poświadczeń z przyczyn uproszczenia. W przypadku scenariuszy produkcyjnych zaleca się użycie wsadowych metod asynchronicznych w celu zapewnienia wydajności i skalowalności. Zapoznaj się z dokumentacją referencyjną poniżej.
-> * Tę wersję biblioteki klienta analiza tekstu można również uruchomić [w przeglądarce](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
+> * Najnowsza stabilna wersja interfejsu API analiza tekstu to `3.0` .
+>    * Pamiętaj, aby postępować zgodnie z instrukcjami dotyczącymi wersji, z których korzystasz.
+> * Kod w tym artykule używa metod synchronicznych i niezabędnego magazynu poświadczeń dla uproszczenia. W przypadku scenariuszy produkcyjnych zalecamy używanie wsadowych metod asynchronicznych w celu oceny wydajności i skalowalności. Zapoznaj się z dokumentacją referencyjną poniżej.
+> * Możesz również uruchomić tę wersję biblioteki klienta analiza tekstu [w przeglądarce.](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md)
 
 [!INCLUDE [NodeJS quickstart](../includes/quickstarts/nodejs-sdk.md)]
 
@@ -70,9 +70,9 @@ Jeśli chcesz używać analiza tekstu do obsługi kondycji lub operacji asynchro
 ::: zone pivot="programming-language-python"
 
 > [!IMPORTANT]
-> * Najnowsza stabilna wersja interfejs API analizy tekstu to `3.0` .
->    * Pamiętaj, aby postępować zgodnie z instrukcjami dotyczącymi używanej wersji.
-> * Kod w tym artykule używa metod synchronicznych i niezabezpieczonych magazynów poświadczeń z przyczyn uproszczenia. W przypadku scenariuszy produkcyjnych zaleca się użycie wsadowych metod asynchronicznych w celu zapewnienia wydajności i skalowalności. Zapoznaj się z dokumentacją referencyjną poniżej. Jeśli chcesz używać analiza tekstu do obsługi kondycji lub operacji asynchronicznych, zobacz przykłady w witrynie GitHub dla [języków C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics), [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/) lub [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
+> * Najnowsza stabilna wersja interfejsu API analiza tekstu to `3.0` .
+>    * Pamiętaj, aby postępować zgodnie z instrukcjami dotyczącymi wersji, z których korzystasz.
+> * Kod w tym artykule używa metod synchronicznych i niezabędnego magazynu poświadczeń dla uproszczenia. W przypadku scenariuszy produkcyjnych zalecamy użycie wsadowych metod asynchronicznych w celu oceny wydajności i skalowalności. Zapoznaj się z dokumentacją referencyjną poniżej. Jeśli chcesz używać poleceń analiza tekstu kondycji lub operacji asynchronicznych, zobacz przykłady w witrynie Github dla języków [C#,](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics) [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/) lub [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
 
 [!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
 
@@ -81,8 +81,8 @@ Jeśli chcesz używać analiza tekstu do obsługi kondycji lub operacji asynchro
 ::: zone pivot="rest-api"
 
 > [!IMPORTANT]
-> * Najnowsza stabilna wersja interfejs API analizy tekstu to `3.0` .
->    * Pamiętaj, aby postępować zgodnie z instrukcjami dotyczącymi używanej wersji.
+> * Najnowsza stabilna wersja interfejsu API analiza tekstu to `3.0` .
+>    * Pamiętaj, aby postępować zgodnie z instrukcjami dotyczącymi wersji, z których korzystasz.
 
 [!INCLUDE [REST API quickstart](../includes/quickstarts/rest-api.md)]
 
@@ -90,7 +90,7 @@ Jeśli chcesz używać analiza tekstu do obsługi kondycji lub operacji asynchro
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów.
+Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services zasobów, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów powoduje również usunięcie wszystkich innych skojarzonych z nią zasobów.
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Interfejs wiersza polecenia platformy Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
@@ -103,5 +103,5 @@ Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz us
 * [Przegląd analizy tekstu](../overview.md)
 * [Analiza tonacji](../how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Rozpoznawanie jednostek](../how-tos/text-analytics-how-to-entity-linking.md)
-* [Wykryj język](../how-tos/text-analytics-how-to-keyword-extraction.md)
+* [Wykrywanie języka](../how-tos/text-analytics-how-to-keyword-extraction.md)
 * [Rozpoznawanie języka](../how-tos/text-analytics-how-to-language-detection.md)

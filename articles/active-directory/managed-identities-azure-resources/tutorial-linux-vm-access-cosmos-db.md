@@ -1,5 +1,5 @@
 ---
-title: Samouczek `:` Używanie tożsamości zarządzanej do uzyskiwania dostępu do Azure Cosmos DB-Linux — Azure AD
+title: Samouczek `:` Używanie tożsamości zarządzanej do uzyskiwania dostępu do Azure Cosmos DB — Linux — Azure AD
 description: Samouczek przedstawiający proces użycia przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Linux do uzyskiwania dostępu do usługi Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b81f80af69b47152f7111066070e173bb1ede5f4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ca92658f6ba15d10bdc14f192b97f6e996ffe1c5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101093950"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771465"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Samouczek: używanie przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Linux do uzyskiwania dostępu do usługi Azure Cosmos DB 
 
@@ -40,10 +40,10 @@ W tym samouczku przedstawiono sposób używania tożsamości zarządzanej przypi
 
 - Jeśli nie znasz funkcji tożsamości zarządzanych dla zasobów platformy Azure, zobacz to [omówienie](overview.md). 
 - Jeśli nie masz jeszcze konta platformy Azure, przed kontynuowaniem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
-- Aby przeprowadzić wymagane czynności tworzenia zasobów i zarządzania rolami, Twoje konto musi mieć uprawnienia „Właściciel” w odpowiednim zakresie (subskrypcji lub grupy zasobów). Jeśli potrzebujesz pomocy z przypisaniem roli, zobacz [Przypisywanie ról platformy Azure do zarządzania dostępem do zasobów subskrypcji platformy Azure](../../role-based-access-control/role-assignments-portal.md).
-- Do uruchomienia przykładowych skryptów są dostępne dwie opcje:
-    - Użyj [Azure Cloud Shell](../../cloud-shell/overview.md), którą można otworzyć za pomocą przycisku **Wypróbuj** w prawym górnym rogu bloków kodu.
-    - Uruchom skrypty lokalnie, instalując najnowszą wersję [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli), a następnie zaloguj się do platformy Azure za pomocą polecenia [AZ login](/cli/azure/reference-index#az-login). Użyj konta skojarzonego z subskrypcją platformy Azure, w której chcesz utworzyć zasoby.
+- Aby przeprowadzić wymagane czynności tworzenia zasobów i zarządzania rolami, Twoje konto musi mieć uprawnienia „Właściciel” w odpowiednim zakresie (subskrypcji lub grupy zasobów). Jeśli potrzebujesz pomocy w przypisaniu ról, zobacz Przypisywanie ról platformy Azure w [celu zarządzania dostępem do zasobów subskrypcji platformy Azure.](../../role-based-access-control/role-assignments-portal.md)
+- Aby uruchomić przykładowe skrypty, masz dwie opcje:
+    - Użyj [Azure Cloud Shell](../../cloud-shell/overview.md), którą możesz otworzyć przy użyciu **przycisku Wypróbuj** w prawym górnym rogu bloków kodu.
+    - Uruchom skrypty lokalnie, instalując najnowszą wersję interfejsu wiersza polecenia platformy [Azure,](/cli/azure/install-azure-cli)a następnie zaloguj się do platformy Azure przy użyciu [polecenia az login](/cli/azure/reference-index#az_login). Użyj konta skojarzonego z subskrypcją platformy Azure, w której chcesz utworzyć zasoby.
 
 ## <a name="create-a-cosmos-db-account"></a>Tworzenie konta usługi Cosmos DB 
 
@@ -66,7 +66,7 @@ Następnie na koncie usługi Cosmos DB dodaj kolekcję danych, dla której może
 
 ## <a name="grant-access"></a>Udzielanie dostępu
 
-Aby uzyskać dostęp do kluczy dostępu do konta usługi Cosmos DB z poziomu usługi Resource Manager w poniższej sekcji, musisz pobrać element `principalID` przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Linux.  Pamiętaj, aby zastąpić `<SUBSCRIPTION ID>` , `<RESOURCE GROUP>` (grupę zasobów, w której znajduje się Twoja maszyna wirtualna), i `<VM NAME>` wartości parametrów z własnymi wartościami.
+Aby uzyskać dostęp do kluczy dostępu do konta usługi Cosmos DB z poziomu usługi Resource Manager w poniższej sekcji, musisz pobrać element `principalID` przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Linux.  Pamiętaj, aby zastąpić wartości parametrów , (grupy zasobów, w której znajduje się maszyna `<SUBSCRIPTION ID>` `<RESOURCE GROUP>` wirtualna) i `<VM NAME>` własnymi wartościami.
 
 ```azurecli-interactive
 az resource show --id /subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAMe> --api-version 2017-12-01
@@ -111,7 +111,7 @@ Odpowiedź zawiera szczegóły utworzonego przypisania roli:
 
 ## <a name="access-data"></a>Uzyskiwanie dostępu do danych
 
-W pozostałej części tego samouczka pracują z poziomu maszyny wirtualnej.
+W pozostałej części samouczka należy pracować z maszyny wirtualnej.
 
 Aby wykonać te kroki, potrzebujesz klienta SSH. Jeśli używasz systemu Windows, możesz użyć klienta SSH w pozycji [Podsystem Windows dla systemu Linux](/windows/wsl/install-win10). Jeżeli potrzebujesz pomocy w konfigurowaniu kluczy klienta SSH, zobacz [Jak używać kluczy SSH z systemem Windows na platformie Azure](../../virtual-machines/linux/ssh-from-windows.md) lub [Jak utworzyć i użyć parę publicznego i prywatnego klucza SSH dla maszyn wirtualnych z systemem Linux na platformie Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
@@ -147,7 +147,7 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 ```
 
 > [!NOTE]
-> W tekście w poprzednim adresie URL jest rozróżniana wielkość liter, dlatego należy użyć przypadku, który jest zgodny z przypadkiem używanym w nazwie grupy zasobów. Ponadto ważna informacja jest taka, że jest to żądanie POST, a nie GET. Należy upewnić się, że zostaje przekazana wartość do przechwytywania limitu długości z parametrem -d, który może mieć wartość NULL.  
+> W tekście w wcześniejszym adresie URL jest wykorzystywana wielkość liter, dlatego należy użyć wielkości liter, która odpowiada wielkości liter użytej w nazwie grupy zasobów. Ponadto ważna informacja jest taka, że jest to żądanie POST, a nie GET. Należy upewnić się, że zostaje przekazana wartość do przechwytywania limitu długości z parametrem -d, który może mieć wartość NULL.  
 
 Odpowiedź programu CURL zapewnia listę kluczy.  Jeśli pobierasz klucze tylko do odczytu:  
 
@@ -227,4 +227,4 @@ To polecenie interfejsu wiersza polecenia zwraca szczegółowe informacje o kole
 W tym samouczku przedstawiono sposób użycia przypisanej przez system tożsamości zarządzanej na maszynie wirtualnej z systemem Linux w celu uzyskania dostępu do usługi Cosmos DB.  Aby dowiedzieć się więcej o usłudze Cosmos DB, zobacz:
 
 > [!div class="nextstepaction"]
->[Przegląd Azure Cosmos DB](../../cosmos-db/introduction.md)
+>[Azure Cosmos DB omówienie](../../cosmos-db/introduction.md)

@@ -1,6 +1,6 @@
 ---
-title: 'Szybki Start: Tworzenie wewnętrznego modułu równoważenia obciążenia przy użyciu szablonu'
-description: Ten przewodnik Szybki Start przedstawia sposób tworzenia wewnętrznego modułu równoważenia obciążenia platformy Azure przy użyciu szablonu Azure Resource Manager (szablon ARM).
+title: 'Szybki start: tworzenie wewnętrznego równoważenia obciążenia przy użyciu szablonu'
+description: W tym przewodniku Szybki start pokazano, jak utworzyć wewnętrzny usługę Azure Load Balancer przy użyciu szablonu Azure Resource Manager (szablonu USŁUGI ARM).
 services: load-balancer
 author: asudbring
 ms.service: load-balancer
@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli
 ms.author: allensu
 ms.date: 09/14/2020
-ms.openlocfilehash: 749b233b827c27d2c998cfd6be66cf79cf48089d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 00126dde55ffe584be611ddf268bb759e127d7a1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94831654"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788749"
 ---
-# <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>Szybki Start: Tworzenie wewnętrznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu szablonu ARM
+# <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>Szybki start: tworzenie wewnętrznego równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu szablonu usługi ARM
 
-W tym przewodniku szybki start opisano, jak używać szablonu Azure Resource Manager (szablon ARM) do tworzenia wewnętrznego modułu równoważenia obciążenia platformy Azure.
+W tym przewodniku Szybki start opisano, jak utworzyć wewnętrzny Azure Resource Manager azure load balancer za pomocą szablonu usługi Azure Load Balancer.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -31,20 +31,20 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="review-the-template"></a>Przegląd szablonu
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/201-2-vms-internal-load-balancer).
+Szablon używany w tym przewodniku Szybki start pochodzi z szablonów [szybkiego startu platformy Azure.](https://azure.microsoft.com/resources/templates/201-2-vms-internal-load-balancer)
 
 :::code language="json" source="~/quickstart-templates/201-2-vms-internal-load-balancer/azuredeploy.json":::
 
 W szablonie zdefiniowano wiele zasobów platformy Azure:
 
-- [**Microsoft. Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts): konta magazynu maszyny wirtualnej do diagnostyki rozruchu.
-- [**Microsoft. COMPUTE/availabilitySets**](/azure/templates/microsoft.compute/availabilitySets): zestaw dostępności dla maszyn wirtualnych.
-- [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.network/virtualNetworks): Sieć wirtualna dla modułu równoważenia obciążenia i maszyn wirtualnych.
-- [**Microsoft. Network/networkInterfaces**](/azure/templates/microsoft.network/networkInterfaces): interfejsy sieciowe dla maszyn wirtualnych.
-- [**Microsoft. Network/loadBalancers**](/azure/templates/microsoft.network/loadBalancers): wewnętrzny moduł równoważenia obciążenia.
-- [**Microsoft. COMPUTE/virtualMachines**](/azure/templates/microsoft.compute/virtualMachines): maszyny wirtualne.
+- [**Microsoft.Storage/storageAccounts:**](/azure/templates/microsoft.storage/storageaccounts)konta magazynu maszyny wirtualnej na potrzeby diagnostyki rozruchu.
+- [**Microsoft.Compute/availabilitySets:**](/azure/templates/microsoft.compute/availabilitySets)zestaw dostępności dla maszyn wirtualnych.
+- [**Microsoft.Network/virtualNetworks:**](/azure/templates/microsoft.network/virtualNetworks)Sieć wirtualna dla usługi równoważenia obciążenia i maszyn wirtualnych.
+- [**Microsoft.Network/networkInterfaces:**](/azure/templates/microsoft.network/networkInterfaces)interfejsy sieciowe dla maszyn wirtualnych.
+- [**Microsoft.Network/loadBalancers:**](/azure/templates/microsoft.network/loadBalancers)wewnętrzny równoważenie obciążenia.
+- [**Microsoft.Compute/virtualMachines:**](/azure/templates/microsoft.compute/virtualMachines)Maszyny wirtualne.
 
-Aby znaleźć więcej szablonów związanych z Azure Load Balancer, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
+Aby znaleźć więcej szablonów powiązanych z Azure Load Balancer, zobacz [Szablony szybkiego startu platformy Azure.](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular)
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
@@ -64,21 +64,21 @@ az deployment group create \
 --template-uri  $templateUri
 ```
 
-## <a name="review-deployed-resources"></a>Przejrzyj wdrożone zasoby
+## <a name="review-deployed-resources"></a>Przeglądanie wdrożonych zasobów
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. W okienku po lewej stronie wybierz pozycję **grupy zasobów** .
+1. Wybierz **pozycję Grupy zasobów** w okienku po lewej stronie.
 
 1. Wybierz grupę zasobów utworzoną w poprzedniej sekcji. Domyślna nazwa grupy zasobów to **myResourceGroupLB**
 
 1. Sprawdź, czy w grupie zasobów zostały utworzone następujące zasoby:
 
-:::image type="content" source="media/quickstart-load-balancer-standard-internal-template/verify-creation.png" alt-text="Użytkownik Azure Portal do weryfikowania tworzenia zasobów." border="true":::
+:::image type="content" source="media/quickstart-load-balancer-standard-internal-template/verify-creation.png" alt-text="Użytkownik Azure Portal, aby zweryfikować tworzenie zasobów." border="true":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [AZ Group Delete](/cli/azure/group#az-group-delete) .
+Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, możesz je usunąć za pomocą polecenia [az group delete.](/cli/azure/group#az_group_delete)
 
 ```azurecli-interactive
   az group delete \
@@ -87,7 +87,7 @@ Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby zapoznać się z samouczkiem krok po kroku, który przeprowadzi Cię przez proces tworzenia szablonu, zobacz:
+Aby uzyskać samouczek krok po kroku, który przeprowadzi Cię przez proces tworzenia szablonu, zobacz:
 
 > [!div class="nextstepaction"]
-> [Samouczek: Tworzenie i wdrażanie pierwszego szablonu ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [Samouczek: tworzenie i wdrażanie pierwszego szablonu usługi ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

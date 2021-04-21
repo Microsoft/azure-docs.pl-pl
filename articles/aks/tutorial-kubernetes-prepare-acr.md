@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 01/31/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 9f6ec14cea20192aef7d3010201e6613c5d03a9e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fd53fab577797ad8bfdbf29b4a6d219e61ee3ef4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99430967"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764265"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Samouczek: wdrażanie usługi Azure Container Registry i korzystanie z niej
 
@@ -22,7 +22,7 @@ Usługa Azure Container Registry (ACR) to prywatny rejestr obrazów kontenera. P
 > * Przekazywanie obrazu do usługi ACR
 > * Wyświetlanie obrazów w rejestrze
 
-W kolejnych samouczkach to wystąpienie ACR jest zintegrowane z klastrem Kubernetes w AKS, a aplikacja jest wdrażana z obrazu.
+W kolejnych samouczkach to wystąpienie usługi ACR zostanie zintegrowane z klastrem Kubernetes w UKS, a aplikacja zostanie wdrożona z obrazu.
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
@@ -54,7 +54,7 @@ Aby użyć wystąpienia usługi ACR, należy się najpierw zalogować. Użyj pol
 az acr login --name <acrName>
 ```
 
-Polecenie zwraca komunikat o *pomyślnym zalogowaniu* po zakończeniu.
+Polecenie zwraca komunikat *Login Succeeded (Logowanie zakończyło się pomyślnie)* po zakończeniu.
 
 ## <a name="tag-a-container-image"></a>Tagowanie obrazu kontenera
 
@@ -80,7 +80,7 @@ Aby uzyskać adres serwera logowania, użyj polecenia [az acr list][az-acr-list]
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Teraz Oznacz lokalny obraz z systemem *Azure — do głosowania —* z adresem *acrLoginServer* rejestru kontenerów. Aby wskazać wersję obrazu, dodaj wartość *:v1* na końcu nazwy obrazu:
+Teraz otaguj lokalny *obraz azure-vote-front* za pomocą adresu *acrLoginServer* rejestru kontenerów. Aby wskazać wersję obrazu, dodaj wartość *:v1* na końcu nazwy obrazu:
 
 ```console
 docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 <acrLoginServer>/azure-vote-front:v1
@@ -166,11 +166,11 @@ Przejdź do kolejnego samouczka, aby dowiedzieć się, jak wdrażać klaster Kub
 <!-- LINKS - internal -->
 [az-acr-create]: /cli/azure/acr
 [az-acr-list]: /cli/azure/acr
-[az-acr-login]: /cli/azure/acr#az-acr-login
-[az-acr-list]: /cli/azure/acr#az-acr-list
+[az-acr-login]: /cli/azure/acr#az_acr_login
+[az-acr-list]: /cli/azure/acr#az_acr_list
 [az-acr-repository-list]: /cli/azure/acr/repository
 [az-acr-repository-show-tags]: /cli/azure/acr/repository
-[az-group-create]: /cli/azure/group#az-group-create
+[az-group-create]: /cli/azure/group#az_group_create
 [azure-cli-install]: /cli/azure/install-azure-cli
 [aks-tutorial-deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
