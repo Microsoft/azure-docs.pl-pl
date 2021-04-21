@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 02/24/2021
 ms.author: ambapat
-ms.openlocfilehash: 171e0c03dc6f246d0f56d11f793ca711b0082f49
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: d2719f473caa8d7fa6ce1480a35ddc6cca8a33d6
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588296"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815634"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importowanie kluczy chronionych przez moduł HSM do usługi Key Vault
 
@@ -29,12 +29,12 @@ Ta funkcja nie jest dostępna dla Azure (Chiny) — 21Vianet.
 
 ## <a name="supported-hsms"></a>Obsługiwane moduły HSM
 
-Transferowanie kluczy chronionych przez moduł HSM do Key Vault jest obsługiwane za pośrednictwem dwóch różnych metod w zależności od stosowanych modułów HSM. Skorzystaj z poniższej tabeli, aby określić, która metoda ma być używana do generowania modułów HSM, a następnie przenieś własne klucze chronione przez moduł HSM do użycia z modułem Azure Key Vault. 
+Transferowanie kluczy chronionych przez moduł HSM do Key Vault jest obsługiwane za pośrednictwem dwóch różnych metod w zależności od stosowanych modułów HSM. Skorzystaj z poniższej tabeli, aby określić, która metoda ma być używana do generowania modułów HSM, a następnie przenieś własne klucze chronione przez moduł HSM do użycia z Azure Key Vault. 
 
 |Nazwa dostawcy|Typ dostawcy|Obsługiwane modele modułów HSM|Obsługiwana metoda transferu klucza HSM|
 |---|---|---|---|
-|[Szyfrowanie nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|Producent<br/>Moduł HSM jako usługa|<ul><li>Rodzina modułów HSM nShield</li><li>nShield jako usługa</ul>|**Metoda 1:** [nCipher BYOK](hsm-protected-keys-ncipher.md) (przestarzałe). Ta metoda nie będzie obsługiwana po <strong>30 czerwca 2021 r.</strong><br/>**Metoda 2. Użyj** [nowej metody BYOK](hsm-protected-keys-byok.md) (zalecane)|
-|Thales|Producent|<ul><li>Rodzina Modułów HSM 7 z oprogramowaniem układowym w wersji 7.3 lub nowszej</li></ul>| [Korzystanie z nowej metody BYOK](hsm-protected-keys-byok.md)|
+|[nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|Producent<br/>Moduł HSM jako usługa|<ul><li>Rodzina modułów HSM nShield</li><li>nShield jako usługa</ul>|**Metoda 1:** [nCipher BYOK](hsm-protected-keys-ncipher.md) (przestarzałe). Ta metoda nie będzie obsługiwana po <strong>30 czerwca 2021 r.</strong><br/>**Metoda 2. Użyj** [nowej metody BYOK](hsm-protected-keys-byok.md) (zalecana)|
+|Thales|Producent|<ul><li>Rodzina hsm 7 z oprogramowaniem układowym w wersji 7.3 lub nowszej</li></ul>| [Korzystanie z nowej metody BYOK](hsm-protected-keys-byok.md)|
 |Fortanix|Producent<br/>Moduł HSM jako usługa|<ul><li>Self-Defending zarządzania kluczami (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Korzystanie z nowej metody BYOK](hsm-protected-keys-byok.md)|
 |Marvell|Producent|Wszystkie moduły HSM LiquidSecurity z<ul><li>Oprogramowanie układowe w wersji 2.0.4 lub nowszej</li><li>Oprogramowanie układowe w wersji 3.2 lub nowszej</li></ul>|[Korzystanie z nowej metody BYOK](hsm-protected-keys-byok.md)|
 |Kryptograficzne|ISV (Enterprise Key Management System)|Wiele marek i modeli modułów HSM, w tym<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>Aby uzyskać szczegółowe informacje, zobacz [witrynę kryptograficzną](https://www.cryptomathic.com/azurebyok)|[Korzystanie z nowej metody BYOK](hsm-protected-keys-byok.md)|
@@ -46,5 +46,5 @@ Transferowanie kluczy chronionych przez moduł HSM do Key Vault jest obsługiwan
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Przejrzyj omówienie [Key Vault zabezpieczeń,](../general/security-overview.md) aby zapewnić bezpieczeństwo, trwałość i monitorowanie kluczy.
-* Pełny [opis nowej metody BYOK](./byok-specification.md) można znaleźć w specyfikacji BYOK
+* Przejrzyj omówienie [Key Vault zabezpieczeń,](../general/security-features.md) aby zapewnić bezpieczeństwo, trwałość i monitorowanie kluczy.
+* Pełny opis nowej metody BYOK można znaleźć w specyfikacji [BYOK](./byok-specification.md)

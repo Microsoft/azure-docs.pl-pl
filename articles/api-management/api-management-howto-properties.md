@@ -8,18 +8,18 @@ ms.service: api-management
 ms.topic: article
 ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: b0e076f3b248942870ba58a51c85c3df1f1277a4
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: a970eb23c171522907b6066454d9ca15d85f0835
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750612"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812292"
 ---
 # <a name="use-named-values-in-azure-api-management-policies"></a>Używanie nazwanych wartości w zasadach API Management Azure
 
 [API Management to](api-management-howto-policies.md) zaawansowana funkcja systemu, która umożliwia wydawcy zmianę zachowania interfejsu API za pośrednictwem konfiguracji. Zasady to zbiór instrukcji, które są wykonywane sekwencyjnie podczas żądania lub odpowiedzi interfejsu API. Instrukcje zasad mogą być konstruowane przy użyciu wartości tekstowych literału, wyrażeń zasad i nazwanych wartości.
 
-*Nazwane* wartości to globalna kolekcja par nazwa/wartość w każdym API Management wystąpienia. Nie ma żadnego narzuconego limitu liczby elementów w kolekcji. Nazwane wartości mogą służyć do zarządzania stałymi wartościami ciągów i wpisami tajnymi we wszystkich konfiguracjach i zasadach interfejsu API. 
+*Nazwane wartości* to globalna kolekcja par nazwa/wartość w API Management wystąpienia. Nie ma żadnego limitu liczby elementów w kolekcji. Nazwane wartości mogą służyć do zarządzania stałymi wartościami ciągów i wpisami tajnymi we wszystkich konfiguracjach i zasadach interfejsu API. 
 
 :::image type="content" source="media/api-management-howto-properties/named-values.png" alt-text="Nazwane wartości w Azure Portal":::
 
@@ -29,32 +29,32 @@ ms.locfileid: "107750612"
 |---------|---------|
 |Zwykły     |  Ciąg literału lub wyrażenie zasad     |
 |Wpis tajny     |   Ciąg literału lub wyrażenie zasad szyfrowane za pomocą API Management      |
-|[Magazyn kluczy](#key-vault-secrets)     |  Identyfikator klucza tajnego przechowywanego w usłudze Azure Key Vault.      |
+|[Magazyn kluczy](#key-vault-secrets)     |  Identyfikator klucza tajnego przechowywanego w magazynie kluczy platformy Azure.      |
 
 Zwykłe wartości lub wpisy tajne mogą zawierać [wyrażenia zasad](./api-management-policy-expressions.md). Na przykład wyrażenie zwraca `@(DateTime.Now.ToString())` ciąg zawierający bieżącą datę i godzina.
 
-Aby uzyskać szczegółowe informacje o nazwanych atrybutach wartości, zobacz API Management [API REST](/rest/api/apimanagement/2020-06-01-preview/namedvalue/createorupdate).
+Aby uzyskać szczegółowe informacje o nazwanych atrybutach wartości, zobacz API Management [api REST](/rest/api/apimanagement/2020-06-01-preview/namedvalue/createorupdate).
 
 ## <a name="key-vault-secrets"></a>Wpisy tajne magazynu kluczy
 
-Wartości wpisów tajnych mogą być przechowywane jako zaszyfrowane ciągi w API Management (niestandardowych wpisów tajnych) lub przez odwoływanie się do wpisów tajnych [w Azure Key Vault](../key-vault/general/overview.md). 
+Wartości wpisów tajnych mogą być przechowywane jako zaszyfrowane ciągi w API Management (niestandardowe wpisy tajne) lub przez odwoływanie się do wpisów tajnych [w Azure Key Vault](../key-vault/general/overview.md). 
 
 Używanie wpisów tajnych magazynu kluczy jest zalecane, ponieważ pomaga zwiększyć API Management zabezpieczeń:
 
 * Wpisy tajne przechowywane w magazynach kluczy mogą być ponownie używane w usługach
-* Szczegółowe zasady [dostępu można](../key-vault/general/security-overview.md#privileged-access) stosować do wpisów tajnych
-* Wpisy tajne aktualizowane w magazynie kluczy są automatycznie obracane w API Management. Po aktualizacji w magazynie kluczy nazwana wartość w API Management zostanie zaktualizowana w ciągu 4 godzin. Możesz również ręcznie odświeżyć klucz tajny przy użyciu Azure Portal lub za pośrednictwem interfejsu API REST zarządzania.
+* Zasady [szczegółowego dostępu można](../key-vault/general/security-features.md#privileged-access) stosować do wpisów tajnych
+* Wpisy tajne zaktualizowane w magazynie kluczy są automatycznie obracane w API Management. Po aktualizacji w magazynie kluczy nazwana wartość w API Management zostanie zaktualizowana w ciągu 4 godzin. Możesz również ręcznie odświeżyć klucz tajny przy użyciu Azure Portal lub za pośrednictwem interfejsu API REST zarządzania.
 
 ### <a name="prerequisites-for-key-vault-integration"></a>Wymagania wstępne dotyczące integracji z magazynem kluczy
 
-1. Aby uzyskać instrukcje dotyczące tworzenia magazynu kluczy, zobacz [Szybki start: tworzenie magazynu kluczy przy](../key-vault/general/quick-create-portal.md)użyciu Azure Portal .
-1. Włącz tożsamość zarządzaną przypisaną przez [](api-management-howto-use-managed-service-identity.md) system lub przypisaną przez użytkownika w API Management wystąpienia.
-1. Przypisz zasady [dostępu magazynu kluczy do](../key-vault/general/assign-access-policy-portal.md) tożsamości zarządzanej z uprawnieniami do uzyskiwania i listy wpisów tajnych z magazynu. Aby dodać zasady:
+1. Aby uzyskać instrukcje dotyczące tworzenia magazynu kluczy, zobacz [Szybki start: tworzenie magazynu kluczy przy użyciu Azure Portal](../key-vault/general/quick-create-portal.md).
+1. Włącz tożsamość zarządzaną przypisaną przez system lub przypisaną przez użytkownika [w](api-management-howto-use-managed-service-identity.md) wystąpieniu API Management zarządzanego.
+1. Przypisz [zasady dostępu magazynu kluczy do](../key-vault/general/assign-access-policy-portal.md) tożsamości zarządzanej z uprawnieniami do uzyskiwania i listy wpisów tajnych z magazynu. Aby dodać zasady:
     1. W portalu przejdź do magazynu kluczy.
     1. Wybierz **pozycję Ustawienia > zasad dostępu > + Dodaj zasady dostępu.**
     1. Wybierz **pozycję Uprawnienia do tajnych,** a następnie wybierz pozycję **Pobierz** **i wyekstoruj.**
-    1. W **grupę** Wybierz podmiot zabezpieczeń wybierz nazwę zasobu tożsamości zarządzanej. Jeśli używasz tożsamości przypisanej przez system, podmiot zabezpieczeń jest nazwą API Management wystąpienia.
-1. Utwórz lub zaimportuj klucz tajny do magazynu kluczy. Zobacz [Szybki start: ustawianie i pobieranie tajnego](../key-vault/secrets/quick-create-portal.md)z Azure Key Vault przy użyciu Azure Portal .
+    1. Na **stronie Wybierz podmiot** zabezpieczeń wybierz nazwę zasobu tożsamości zarządzanej. Jeśli używasz tożsamości przypisanej przez system, podmiot zabezpieczeń jest nazwą wystąpienia API Management.
+1. Utwórz lub zaimportuj klucz tajny do magazynu kluczy. Zobacz [Szybki start: ustawianie i pobieranie informacji tajnych z Azure Key Vault pomocą Azure Portal](../key-vault/secrets/quick-create-portal.md).
 
 Aby użyć klucza tajnego magazynu kluczy, [dodaj lub edytuj nazwaną](#add-or-edit-a-named-value)wartość i określ typ **magazynu kluczy**. Wybierz klucz tajny z magazynu kluczy.
 
@@ -90,13 +90,13 @@ Zobacz [Wymagania wstępne dotyczące integracji z magazynem kluczy](#prerequisi
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do swojego API Management wystąpienia.
 1. W **obszarze Interfejsy API** wybierz pozycję **Nazwane wartości**+  >  **Dodaj**.
-1. Wprowadź identyfikator **nazwy,** a następnie wprowadź nazwę **wyświetlaną** używaną do odwołania się do właściwości w zasadach.
-1. W **typie wartości** wybierz pozycję **Zwykły lub** **Wpis tajny.**
-1. W **wartość**, wprowadź ciąg lub wyrażenie zasad.
-1. Dodaj co najmniej jeden opcjonalny tag, aby ułatwić organizowanie nazwanych wartości, a następnie zapisz **.**
+1. Wprowadź identyfikator **nazwy,** a następnie wprowadź nazwę **wyświetlaną** używaną do odwołania do właściwości w zasadach.
+1. W **typie wartości** wybierz opcję **Zwykły** lub **Tajny.**
+1. W **wartości** wprowadź ciąg lub wyrażenie zasad.
+1. Dodaj co najmniej jeden opcjonalny tag, aby ułatwić organizowanie nazwanych wartości, a następnie wybierz **pozycję Zapisz**.
 1. Wybierz przycisk **Utwórz**.
 
-Po utworzeniu nazwanej wartości możesz ją edytować, wybierając nazwę. Jeśli zmienisz nazwę wyświetlaną, wszystkie zasady odwołujące się do tej nazwanej wartości zostaną automatycznie zaktualizowane, aby użyć nowej nazwy wyświetlanej.
+Po utworzeniu nazwanej wartości możesz ją edytować, wybierając nazwę. Jeśli zmienisz nazwę wyświetlaną, wszystkie zasady odwołujące się do tej nazwanej wartości zostaną automatycznie zaktualizowane w celu użycia nowej nazwy wyświetlanej.
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -152,7 +152,7 @@ W przykładach w tej sekcji są podane nazwane wartości przedstawione w poniżs
 | ContosoHeaderValue | ••••••••••••••••••••••     | Prawda   | 
 | ExpressionProperty | `@(DateTime.Now.ToString())` | Fałsz  | 
 
-Aby użyć nazwanej wartości w zasadach, umieść jej nazwę wyświetlaną wewnątrz podwójnej pary nawiasów klamrowych, takiej jak `{{ContosoHeader}}` , jak pokazano w poniższym przykładzie:
+Aby użyć nazwanej wartości w zasadach, umieść jej nazwę wyświetlaną wewnątrz podwójnej pary nawiasów klamrowych, takich jak , jak `{{ContosoHeader}}` pokazano w poniższym przykładzie:
 
 ```xml
 <set-header name="{{ContosoHeader}}" exists-action="override">
@@ -160,9 +160,9 @@ Aby użyć nazwanej wartości w zasadach, umieść jej nazwę wyświetlaną wewn
 </set-header>
 ```
 
-W tym przykładzie jest używana jako nazwa nagłówka w zasadach i jest używana jako `ContosoHeader` `set-header` wartość tego `ContosoHeaderValue` nagłówka. Gdy te zasady są oceniane podczas żądania lub odpowiedzi na bramę API Management i są zastępowane `{{ContosoHeader}}` `{{ContosoHeaderValue}}` odpowiednimi wartościami.
+W tym przykładzie jest używana jako nazwa nagłówka w zasadach i jest używana jako `ContosoHeader` `set-header` wartość tego `ContosoHeaderValue` nagłówka. Gdy te zasady są oceniane podczas żądania lub odpowiedzi do bramy API Management i są `{{ContosoHeader}}` `{{ContosoHeaderValue}}` zastępowane odpowiednimi wartościami.
 
-Nazwanych wartości można używać jako pełnych wartości atrybutów lub elementów, jak pokazano w poprzednim przykładzie, ale można je również wstawiać do lub łączyć z częścią wyrażenia tekstowego literału, jak pokazano w poniższym przykładzie: 
+Nazwane wartości mogą być używane jako pełne wartości atrybutów lub elementów, jak pokazano w poprzednim przykładzie, ale można je również wstawić do lub połączyć z częścią wyrażenia tekstowego literału, jak pokazano w poniższym przykładzie: 
 
 ```xml
 <set-header name = "CustomHeader{{ContosoHeader}}" ...>
@@ -176,27 +176,27 @@ Nazwane wartości mogą również zawierać wyrażenia zasad. W poniższym przyk
 </set-header>
 ```
 
-Podczas oceniania tych zasad wartość `{{ExpressionProperty}}` jest zastępowana wartością . `@(DateTime.Now.ToString())` Ponieważ wartość jest wyrażeniem zasad, wyrażenie jest oceniane, a zasady kontynuują jego wykonywanie.
+Podczas oceniania tych zasad wartość `{{ExpressionProperty}}` jest zastępowana wartością `@(DateTime.Now.ToString())` . Ponieważ wartość jest wyrażeniem zasad, wyrażenie jest oceniane, a zasady kontynuują jego wykonywanie.
 
-Można to przetestować w witrynie [](api-management-howto-developer-portal.md) Azure Portal portalu deweloperów, wywołując operację, która ma zasady o nazwanych wartościach w zakresie. W poniższym przykładzie operacja jest wywoływana z dwiema poprzednimi przykładami zasad `set-header` o nazwanych wartościach. Zwróć uwagę, że odpowiedź zawiera dwa nagłówki niestandardowe, które zostały skonfigurowane przy użyciu zasad o nazwanych wartościach.
+Możesz to przetestować w portalu Azure Portal lub [portalu](api-management-howto-developer-portal.md) dla deweloperów, wywołując operację, która ma zasady o nazwanych wartościach w zakresie. W poniższym przykładzie wywoływana jest operacja z dwiema poprzednimi przykładami zasad `set-header` o nazwanych wartościach. Zwróć uwagę, że odpowiedź zawiera dwa nagłówki niestandardowe, które zostały skonfigurowane przy użyciu zasad o nazwanych wartościach.
 
-:::image type="content" source="media/api-management-howto-properties/api-management-send-results.png" alt-text="Testowanie odpowiedzi interfejsu API":::
+:::image type="content" source="media/api-management-howto-properties/api-management-send-results.png" alt-text="Odpowiedź interfejsu API testu":::
 
-Jeśli przyjrzysz się śladowi interfejsu [API](api-management-howto-api-inspector.md) ruchu wychodzącego dla wywołania zawierającego dwie poprzednie przykładowe zasady z nazwanych wartościami, zobaczysz dwie zasady z wstawionymi nazwami wartości, a także ocenę wyrażenia zasad dla nazwanej wartości zawierającej `set-header` wyrażenie zasad.
+Jeśli przyjrzysz się śladowi interfejsu [API](api-management-howto-api-inspector.md) ruchu wychodzącego dla wywołania zawierającego dwie poprzednie przykładowe zasady z nazwanych wartościami, zobaczysz dwie zasady z wstawionym nazwanych wartościami, a także ocenę wyrażenia zasad dla nazwanej wartości zawierającej `set-header` wyrażenie zasad.
 
 :::image type="content" source="media/api-management-howto-properties/api-management-api-inspector-trace.png" alt-text="Śledzenie inspektora interfejsu API":::
 
 > [!CAUTION]
-> Jeśli zasada odwołuje się do klucza tajnego w Azure Key Vault, wartość z magazynu kluczy będzie widoczna dla użytkowników, którzy mają dostęp do subskrypcji z włączoną obsługą [śledzenia żądań interfejsu API.](api-management-howto-api-inspector.md)
+> Jeśli zasada odwołuje się do klucza tajnego w Azure Key Vault, wartość z magazynu kluczy będzie widoczna dla użytkowników, którzy mają dostęp do subskrypcji z włączoną obsługą śledzenia [żądań interfejsu API.](api-management-howto-api-inspector.md)
 
-Nazwane wartości mogą zawierać wyrażenia zasad, ale nie mogą zawierać innych nazwanych wartości. Jeśli tekst zawierający odwołanie do nazwanej wartości jest używany dla wartości, takiej jak , to odwołanie nie zostanie `Text: {{MyProperty}}` rozpoznane i zastąpione.
+Nazwane wartości mogą zawierać wyrażenia zasad, ale nie mogą zawierać innych nazwanych wartości. Jeśli tekst zawierający odwołanie do nazwanej wartości jest używany dla wartości, takiej jak , to odwołanie `Text: {{MyProperty}}` nie zostanie rozpoznane i zastąpione.
 
 ## <a name="delete-a-named-value"></a>Usuwanie nazwanej wartości
 
 Aby usunąć nazwaną wartość, wybierz nazwę, a następnie wybierz pozycję **Usuń** z menu kontekstowego (**...**).
 
 > [!IMPORTANT]
-> Jeśli nazwana wartość jest przywołyowana przez dowolne zasady API Management, nie można jej usunąć do momentu usunięcia nazwanej wartości ze wszystkich zasad, które z nich korzystają.
+> Jeśli nazwana wartość jest przywołyowana przez dowolne zasady API Management, nie można jej usunąć, dopóki nie usuniesz nazwanej wartości ze wszystkich zasad, które z nich korzystają.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,7 +1,7 @@
 ---
 title: Implementowanie odzyskiwania po awarii przy użyciu kopii zapasowej i przywracania w API Management
 titleSuffix: Azure API Management
-description: Dowiedz się, jak używać kopii zapasowych i przywracania do wykonywania odzyskiwania po awarii w usłudze Azure API Management.
+description: Dowiedz się, jak używać kopii zapasowych i przywracania do odzyskiwania po awarii w usłudze Azure API Management.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -13,25 +13,26 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/05/2020
 ms.author: apimpm
-ms.openlocfilehash: ad0936fddacf8f5b2e4917441f5feaa41aad9de4
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c7901dd4a238b27a31f95f1e22ddf9dc1ae5327a
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739804"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813071"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Jak zaimplementować odzyskiwanie po awarii przy użyciu funkcji tworzenia i przywracania kopii zapasowych w usłudze Azure API Management
 
-Publikowanie interfejsów API i zarządzanie nimi za pośrednictwem usługi Azure API Management pozwala korzystać z odporności na uszkodzenia i możliwości infrastruktury, które w przeciwnym razie można projektować, implementować i zarządzać nimi ręcznie. Platforma Azure ogranicza znaczną część potencjalnych awarii w ułamku kosztów.
+Publikowanie interfejsów API i zarządzanie nimi za pośrednictwem usługi Azure API Management pozwala korzystać z odporności na uszkodzenia i możliwości infrastruktury, które w przeciwnym razie należy ręcznie zaprojektować, zaimplementować i zarządzać nimi. Platforma Azure ogranicza znaczną część potencjalnych awarii przy ułamku kosztów.
 
-Aby odzyskać dane po problemach z dostępnością, które mają wpływ na region hostowania usługi API Management, przygotuj się do obsługi usługi w innym regionie w dowolnym momencie. W zależności od celu czasu odzyskiwania może być konieczne zachowanie usługi rezerwowej w co najmniej jednym regionie. Możesz również spróbować zachować ich konfigurację i zawartość w synchronizacji z aktywną usługą zgodnie z celem punktu odzyskiwania. Funkcje tworzenia kopii zapasowych i przywracania usług stanowią niezbędne bloki konstrukcyjne do implementacji strategii odzyskiwania po awarii.
+Aby odzyskać dane po problemach z dostępnością, które mają wpływ na region hostowania usługi API Management, należy przygotować usługę w innym regionie w dowolnym momencie. W zależności od celu czasu odzyskiwania warto zachować usługę rezerwową w co najmniej jednym regionie. Możesz również spróbować zachować synchronizację ich konfiguracji i zawartości z aktywną usługą zgodnie z celem punktu odzyskiwania. Funkcje tworzenia kopii zapasowej i przywracania usługi stanowią niezbędne bloki konstrukcyjne do zaimplementowania strategii odzyskiwania po awarii.
 
-Operacje tworzenia kopii zapasowej i przywracania mogą być również używane do replikowania API Management konfiguracji usługi między środowiskami operacyjnymi, na przykład do tworzenia i przemieszczania. Należy również pamiętać o skopiowaniu danych środowiska uruchomieniowego, takich jak użytkownicy i subskrypcje, co może nie zawsze być pożądane.
+Operacje tworzenia kopii zapasowej i przywracania mogą być również używane do replikowania API Management konfiguracji usługi między środowiskami operacyjnymi, na przykład w środowiskach deweloperskich i przejściowych. Należy również pamiętać, że dane środowiska uruchomieniowego, takie jak użytkownicy i subskrypcje, również zostaną skopiowane, co może nie zawsze być pożądane.
 
-W tym przewodniku pokazano, jak zautomatyzować operacje tworzenia i przywracania kopii zapasowych oraz jak zapewnić pomyślne uwierzytelnianie żądań kopii zapasowych i przywracania przez Azure Resource Manager.
+W tym przewodniku pokazano, jak zautomatyzować operacje tworzenia kopii zapasowych i przywracania oraz jak zapewnić pomyślne uwierzytelnianie żądań kopii zapasowej i przywracania przez Azure Resource Manager.
 
 > [!IMPORTANT]
-> Operacja przywracania nie zmienia niestandardowej konfiguracji nazwy hosta usługi docelowej. Zalecamy używanie tej samej niestandardowej nazwy hosta i certyfikatu TLS dla usług aktywnych i rezerwowych, tak aby po zakończeniu operacji przywracania ruch można było skierować ponownie do wystąpienia rezerwowego przez prostą zmianę rekordu CNAME systemu DNS.
+> Operacja przywracania nie zmienia niestandardowej konfiguracji nazwy hosta usługi docelowej. Zalecamy używanie tej samej niestandardowej nazwy hosta i certyfikatu TLS dla usług aktywnych i rezerwowych, tak aby po zakończeniu operacji przywracania ruch można było ponownie skierować do wystąpienia rezerwowego przez prostą zmianę rekordu CNAME systemu DNS.
 >
 > Operacja tworzenia kopii zapasowej nie przechwytuje wstępnie zagregowanych danych dziennika używanych w raportach wyświetlanych w bloku Analiza w Azure Portal.
 

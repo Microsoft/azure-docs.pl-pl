@@ -1,52 +1,50 @@
 ---
-title: Wydawca programu Microsoft OPCe
-description: Ten artykuł zawiera omówienie modułu OPC wydawcy Edge.
-author: jehona-m
+title: Wydawca OPC firmy Microsoft
+description: Ten artykuł zawiera omówienie modułu OPC Publisher Edge.
+author: v-condav
 ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: conceptual
 ms.date: 3/22/2021
-ms.openlocfilehash: 3a44bdbadfe6ecd86a1b98fb7002f2d75c23bb6a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6df39c93e9bcfca522ac61a863c87269216cc592
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104800537"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816174"
 ---
-# <a name="what-is-the-opc-publisher"></a>Co to jest Wydawca OPC?
+# <a name="what-is-the-opc-publisher"></a>Co to jest wydawca OPC?
 
-OPC Publisher to w pełni obsługiwany produkt firmy Microsoft opracowany w ramach otwartego, który mostkuje przerwy między zasobami przemysłowymi i chmurą Microsoft Azure. Jest to nawiązywane przez połączenie z zasobami z obsługą OPC UA lub oprogramowaniem do łączności przemysłowej oraz publikowanie danych telemetrycznych na platformie Azure IoT Hub w różnych formatach, w tym IEC62541 OPC UA PubSub Standard (od wersji 2,6 lub nowszej).
+Wydawca OPC to w pełni obsługiwany produkt firmy Microsoft, który stanowi mostk między zasobami przemysłowymi a Microsoft Azure chmurą. Można to zrobić, łącząc zasoby z obsługą OPC UA lub oprogramowanie łączności przemysłowej z Microsoft Azure chmurą. Publikuje ona dane telemetryczne, które zbiera do usługi Azure IoT Hub w różnych formatach, w tym w standardowym formacie IEC62541 OPC UA PubSub (od wersji 2.6). Wydawca OPC działa na Azure IoT Edge jako moduł lub na zwykłej platformie Docker jako kontener. Ponieważ korzysta z międzyplatformowego środowiska uruchomieniowego platformy .NET, działa natywnie zarówno w systemie Linux, jak i Windows 10.
 
-Jest on uruchamiany na Azure IoT Edge jako moduł lub w zwykłym Docker jako kontener. Ponieważ wykorzystuje środowisko uruchomieniowe dla wielu platform .NET, działa również natywnie w systemach Linux i Windows 10.
-
-OPC Publisher jest implementacją referencyjną, która demonstruje, jak:
+Wydawca OPC to implementacja referencyjna, która pokazuje, jak:
 
 - Połącz się z istniejącymi serwerami OPC UA.
-- Publikuj dane telemetryczne kodowane w formacie JSON z serwerów OPC UA w podsystemie OPC UA pub/sub przy użyciu ładunku JSON do usługi Azure IoT Hub.
+- Publikowanie danych telemetrycznych zakodowanych w formacie JSON z serwerów OPC UA w formacie Pub/Sub OPC UA przy użyciu ładunku JSON w Azure IoT Hub.
 
-Można użyć dowolnego protokołu transportowego obsługiwanego przez zestaw SDK klienta platformy Azure IoT Hub: HTTPS, AMQP i MQTT.
+Można użyć dowolnego z protokołów transportu, które obsługują zestaw SDK Azure IoT Hub klienta, takich jak HTTPS, AMQP i MQTT.
 
-Implementacja odniesienia obejmuje:
+Implementacja referencyjna obejmuje następujące elementy.
 
-- *Klient* OPC UA do łączenia się z istniejącymi serwerami OPC UA w sieci.
-- *Serwer* OPC UA na porcie 62222, za pomocą którego można zarządzać opublikowanymi i oferowanymi IoT Hub metodami bezpośrednimi w taki sam sposób.
+- Klient OPC UA *do* łączenia się z istniejącymi serwerami OPC UA w sieci.
+- Serwer OPC *UA* na porcie 62222, który umożliwia zarządzanie opublikowanymi treściami i oferuje IoT Hub metody do tego samego.
 
-[Implementację odwołania wydawcy OPC](https://github.com/Azure/iot-edge-opc-publisher) można pobrać z witryny GitHub.
+Implementację referencyjną [wydawcy OPC można](https://github.com/Azure/iot-edge-opc-publisher) pobrać z usługi GitHub.
 
-Aplikacja jest implementowana przy użyciu technologii .NET Core i może działać na dowolnej platformie obsługiwanej przez platformę .NET Core.
+Aplikacja jest implementowany przy użyciu technologii .NET Core i może działać na dowolnej platformie obsługiwanej przez platformę .NET Core.
 
-## <a name="what-does-the-opc-publisher-do"></a>Co robi OPC Wydawca?
+## <a name="what-does-the-opc-publisher-do"></a>Co robi wydawca OPC?
 
-Wydawca OPC implementuje logikę ponawiania prób w celu ustanowienia połączeń z punktami końcowymi, które nie odpowiadają na określoną liczbę żądań Keep Alive. Na przykład, jeśli serwer OPC UA przestanie odpowiadać z powodu awarii w zasilaniu.
+Wydawca OPC implementuje logikę ponawiania, aby nawiązywać połączenia z punktami końcowymi, które nie odpowiadają na określoną liczbę żądań utrzymania aktywności. Na przykład, jeśli serwer OPC UA przestanie odpowiadać z powodu 3000 000 000 000 000 000 000 000 000 000 000 00
 
-Dla każdego odrębnego interwału publikowania na serwerze OPC UA aplikacja tworzy oddzielną subskrypcję, w ramach której zostaną zaktualizowane wszystkie węzły z tym interwałem publikacji.
+Dla każdego oddzielnego interwału publikowania na serwerze OPC UA aplikacja tworzy oddzielną subskrypcję, w ramach której są aktualizowane wszystkie węzły z tym interwałem publikowania.
 
-Wydawca OPC obsługuje przetwarzanie wsadowe danych wysyłanych do IoT Hub, aby zmniejszyć obciążenie sieci. Ta Partia zadań wysyła pakiet do IoT Hub tylko wtedy, gdy osiągnięto skonfigurowany rozmiar pakietu.
+Wydawca OPC obsługuje przetwarzanie wsadowe danych wysyłanych do IoT Hub w celu zmniejszenia obciążenia sieci. To przetwarzanie wsadowe wysyła pakiet do IoT Hub tylko wtedy, gdy skonfigurowany rozmiar pakietu zostanie osiągnięty.
 
-Ta aplikacja używa stosu referencyjnego OPC Foundation OPC UA jako pakietów NuGet. Zapoznaj [https://opcfoundation.org/license/redistributables/1.3/](https://opcfoundation.org/license/redistributables/1.3/) się z postanowieniami licencyjnymi.
+Ta aplikacja używa stosu referencyjnego OPC Foundation OPC UA jako pakietów NuGet. Zobacz [https://opcfoundation.org/license/redistributables/1.3/](https://opcfoundation.org/license/redistributables/1.3/) , aby uzyskać postanowienia licencyjne.
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, gdy już wiesz, co to jest Wydawca OPC, możesz zacząć od jego wdrożenia:
+Teraz, gdy już wiesz, czym jest wydawca OPC, możesz rozpocząć od jego wdrożenia:
 
 > [!div class="nextstepaction"]
-> [Wdróż wydawcę programu OPC w trybie autonomicznym](tutorial-publisher-deploy-opc-publisher-standalone.md)
+> [Wdrażanie wydawcy OPC w trybie autonomicznym](tutorial-publisher-deploy-opc-publisher-standalone.md)

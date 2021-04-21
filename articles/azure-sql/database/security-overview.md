@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
 ms.date: 10/26/2020
-ms.openlocfilehash: 39012e1f5a0282da7dda6bab216719e31fdc5061
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 084f9aae16cfbf495f05c90c8244b2b9b71cf624
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752178"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812988"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Omówienie możliwości Azure SQL Database i SQL Managed Instance zabezpieczeń
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -114,11 +114,11 @@ Na przykład w przypadku używania ADO.NET jest to realizowane za pośrednictwem
 
 [Transparent Data Encryption (TDE)](transparent-data-encryption-tde-overview.md) dla usług SQL Database, SQL Managed Instance i Azure Synapse Analytics dodaje warstwę zabezpieczeń, która pomaga chronić dane w spoczynku przed nieautoryzowanym lub offline dostępem do nieprzetworzonych plików lub kopii zapasowych. Typowe scenariusze obejmują kradzież centrum danych lub niezabezpieczone usuwanie sprzętu lub nośnika, takiego jak dyski i taśmy kopii zapasowej.Szyfrowanie TDE szyfruje całą bazę danych przy użyciu algorytmu szyfrowania AES, który nie wymaga, aby deweloperzy aplikacji wprowadzali zmiany w istniejących aplikacjach.
 
-Na platformie Azure wszystkie nowo utworzone bazy danych są domyślnie szyfrowane, a klucz szyfrowania bazy danych jest chroniony przez wbudowany certyfikat serwera.  Konserwacja i rotacja certyfikatów są zarządzane przez usługę i nie wymagają żadnych danych wejściowych od użytkownika. Klienci, którzy wolą przejąć kontrolę nad kluczami szyfrowania, mogą zarządzać kluczami w [Azure Key Vault](../../key-vault/general/security-overview.md).
+Na platformie Azure wszystkie nowo utworzone bazy danych są domyślnie szyfrowane, a klucz szyfrowania bazy danych jest chroniony przez wbudowany certyfikat serwera.  Konserwacja i rotacja certyfikatów są zarządzane przez usługę i nie wymagają żadnych danych wejściowych od użytkownika. Klienci, którzy wolą przejąć kontrolę nad kluczami szyfrowania, mogą zarządzać kluczami w [Azure Key Vault](../../key-vault/general/security-features.md).
 
 ### <a name="key-management-with-azure-key-vault"></a>Zarządzanie kluczami za pomocą Azure Key Vault
 
-[Bring Your Own Key](transparent-data-encryption-byok-overview.md) (BYOK) dla usługi [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE) umożliwia klientom przejmuje na własność zarządzanie kluczami i rotację za pomocą usługi [Azure Key Vault —](../../key-vault/general/security-overview.md)systemu zarządzania kluczami zewnętrznymi opartym na chmurze platformy Azure. Jeśli dostęp bazy danych do magazynu kluczy zostanie odwołany, nie można odszyfrować bazy danych i odczytać jej do pamięci. Azure Key Vault zapewnia centralną platformę zarządzania kluczami, korzysta ze ściśle monitorowanych sprzętowych modułów zabezpieczeń (HSM) i umożliwia rozdzielenie obowiązków między zarządzaniem kluczami i danymi w celu spełnienia wymagań dotyczących zgodności zabezpieczeń.
+[Bring Your Own Key](transparent-data-encryption-byok-overview.md) (BYOK) dla usługi [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE) umożliwia klientom przejmuje na własność zarządzanie kluczami i rotację za pomocą usługi [Azure Key Vault —](../../key-vault/general/security-features.md)systemu zarządzania kluczami zewnętrznymi opartym na chmurze platformy Azure. Jeśli dostęp bazy danych do magazynu kluczy zostanie odwołany, nie można odszyfrować bazy danych i odczytać jej do pamięci. Azure Key Vault zapewnia centralną platformę zarządzania kluczami, korzysta ze ściśle monitorowanych sprzętowych modułów zabezpieczeń (HSM) i umożliwia rozdzielenie obowiązków między zarządzaniem kluczami i danymi w celu spełnienia wymagań dotyczących zgodności zabezpieczeń.
 
 ### <a name="always-encrypted-encryption-in-use"></a>Always Encrypted (szyfrowanie w użyciu)
 

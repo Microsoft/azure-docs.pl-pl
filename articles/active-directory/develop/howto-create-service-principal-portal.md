@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 621bd392c12bb6ef1269eaed4731063490664f7e
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 3ccc340727a437b3b1e953ea5e742ecdf7f21d40
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750792"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814086"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Instrukcje: używanie portalu do tworzenia aplikacji usługi Azure AD i jednostki usługi w celu uzyskiwania dostępu do zasobów
 
@@ -182,7 +182,7 @@ Jeśli nie chcesz używać certyfikatu, możesz utworzyć nowy klucz tajny aplik
    ![Skopiuj wartość w kluczu tajnym, ponieważ nie będzie można jej później pobrać](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="configure-access-policies-on-resources"></a>Konfigurowanie zasad dostępu do zasobów
-Należy pamiętać, że może być konieczne skonfigurowanie dodatkowych uprawnień do zasobów, do których aplikacja musi uzyskać dostęp. Na przykład należy również [zaktualizować](../../key-vault/general/security-overview.md#privileged-access) zasady dostępu magazynu kluczy, aby zapewnić aplikacji dostęp do kluczy, wpisów tajnych lub certyfikatów.
+Należy pamiętać, że może być konieczne skonfigurowanie dodatkowych uprawnień do zasobów, do których aplikacja musi uzyskać dostęp. Na przykład należy również [zaktualizować](../../key-vault/general/security-features.md#privileged-access) zasady dostępu magazynu kluczy, aby zapewnić aplikacji dostęp do kluczy, wpisów tajnych lub certyfikatów.
 
 1. W <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>przejdź do magazynu kluczy i wybierz pozycję **Zasady dostępu.**
 1. Wybierz **pozycję Dodaj zasady dostępu,** a następnie wybierz uprawnienia klucza, klucza tajnego i certyfikatu, które chcesz przyznać aplikacji.  Wybierz utworzoną wcześniej jednostkę usługi.

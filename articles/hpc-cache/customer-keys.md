@@ -6,33 +6,33 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: 36ce494c7fd51a1341834d5c231e32e60c5a32b9
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: ae4c52ec1390166eccb0e73d6f81a8553c445b2e
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751998"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813294"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Używanie kluczy szyfrowania zarządzanych przez klienta na potrzeby Azure HPC Cache
 
-Za pomocą Azure Key Vault możesz kontrolować własność kluczy używanych do szyfrowania danych w Azure HPC Cache. W tym artykule wyjaśniono, jak używać kluczy zarządzanych przez klienta do szyfrowania danych w pamięci podręcznej.
+Za pomocą Azure Key Vault można kontrolować własność kluczy używanych do szyfrowania danych w Azure HPC Cache. W tym artykule wyjaśniono, jak używać kluczy zarządzanych przez klienta na potrzeby szyfrowania danych pamięci podręcznej.
 
 > [!NOTE]
-> Wszystkie dane przechowywane na platformie Azure, w tym na dyskach pamięci podręcznej, są domyślnie szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. Aby zarządzać kluczami używanymi do szyfrowania danych, wystarczy wykonać kroki opisane w tym artykule.
+> Wszystkie dane przechowywane na platformie Azure, w tym na dyskach pamięci podręcznej, są domyślnie szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. Jeśli chcesz zarządzać kluczami używanymi do szyfrowania danych, musisz tylko wykonać kroki opisane w tym artykule.
 
-Azure HPC Cache są również chronione [](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) przez szyfrowanie hosta maszyny wirtualnej na dyskach zarządzanych, na których są przechowywane dane w pamięci podręcznej, nawet jeśli dodasz klucz klienta dla dysków pamięci podręcznej. Dodanie klucza zarządzanego przez klienta na potrzeby podwójnego szyfrowania zapewnia dodatkowy poziom zabezpieczeń klientom z wysokimi potrzebami w zakresie zabezpieczeń. Aby uzyskać szczegółowe informacje, przeczytaj szyfrowanie po stronie serwera [usługi Azure Disk Storage.](../virtual-machines/disk-encryption.md)
+Azure HPC Cache jest również chroniony [](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) przez szyfrowanie hosta maszyny wirtualnej na dyskach zarządzanych, na których są przechowywane dane w pamięci podręcznej, nawet jeśli dodasz klucz klienta dla dysków pamięci podręcznej. Dodanie klucza zarządzanego przez klienta na potrzeby podwójnego szyfrowania zapewnia dodatkowy poziom zabezpieczeń dla klientów z wysokimi potrzebami w zakresie zabezpieczeń. Aby uzyskać szczegółowe informacje, przeczytaj szyfrowanie po stronie serwera usługi [Azure Disk Storage.](../virtual-machines/disk-encryption.md)
 
-Istnieją trzy kroki włączania szyfrowania kluczy zarządzanego przez klienta dla Azure HPC Cache:
+Istnieją trzy kroki włączania szyfrowania klucza zarządzanego przez klienta dla Azure HPC Cache:
 
-1. Skonfiguruj konto Azure Key Vault przechowywania kluczy.
-1. Podczas tworzenia Azure HPC Cache wybierz szyfrowanie klucza zarządzane przez klienta i określ magazyn kluczy oraz klucz do użycia.
-1. Po utworzeniu pamięci podręcznej autoryzuj ją w celu uzyskania dostępu do magazynu kluczy.
+1. Skonfiguruj Azure Key Vault przechowywania kluczy.
+1. Podczas tworzenia Azure HPC Cache szyfrowania kluczy zarządzanych przez klienta i określ magazyn kluczy oraz klucz do użycia.
+1. Po utworzeniu pamięci podręcznej autoryzuj ją do uzyskiwania dostępu do magazynu kluczy.
 
-Szyfrowanie nie zostanie całkowicie ustawione do momentu autoryzowania go z nowo utworzonej pamięci podręcznej (krok 3). Jest to spowodowane tym, że należy przekazać tożsamość pamięci podręcznej do magazynu kluczy, aby był autoryzowanym użytkownikiem. Nie można tego zrobić przed utworzeniem pamięci podręcznej, ponieważ tożsamość nie istnieje, dopóki pamięć podręczna nie zostanie utworzona.
+Szyfrowanie nie zostanie całkowicie ustawione do momentu autoryzowania go z nowo utworzonej pamięci podręcznej (krok 3). Jest to spowodowane tym, że należy przekazać tożsamość pamięci podręcznej do magazynu kluczy, aby był on autoryzowanym użytkownikiem. Nie można tego zrobić przed utworzeniem pamięci podręcznej, ponieważ tożsamość nie istnieje, dopóki pamięć podręczna nie zostanie utworzona.
 
 Po utworzeniu pamięci podręcznej nie można zmienić między kluczami zarządzanymi przez klienta i kluczami zarządzanymi przez firmę Microsoft. Jeśli jednak pamięć podręczna używa kluczy [](#update-key-settings) zarządzanych przez klienta, można w razie potrzeby zmienić klucz szyfrowania, wersję klucza i magazyn kluczy.
 
-## <a name="understand-key-vault-and-key-requirements"></a>Opis wymagań dotyczących magazynu kluczy i klucza
+## <a name="understand-key-vault-and-key-requirements"></a>Opis wymagań dotyczących magazynu kluczy i kluczy
 
 Magazyn kluczy i klucz muszą spełniać te wymagania, aby można było pracować z Azure HPC Cache.
 
@@ -41,9 +41,9 @@ Właściwości magazynu kluczy:
 * **Subskrypcja** — użyj tej samej subskrypcji, która jest używana dla pamięci podręcznej.
 * **Region** — magazyn kluczy musi znajdować się w tym samym regionie co Azure HPC Cache.
 * **Warstwa cenowa** — warstwa Standardowa jest wystarczająca do użycia z Azure HPC Cache.
-* **Usuwanie nie softne** — Azure HPC Cache włączyć usuwanie nie softowe, jeśli nie zostało to jeszcze skonfigurowane w magazynie kluczy.
+* **Usuwanie nie** Azure HPC Cache — jeśli nie skonfigurowano jeszcze magazynu kluczy, zostanie włączyć usuwanie nie softowe.
 * **Ochrona przed przeczyszczaniem** — ochrona przed przeczyszczaniem musi być włączona.
-* **Zasady dostępu** — ustawienia domyślne są wystarczające.
+* **Zasady dostępu** — wystarczające są ustawienia domyślne.
 * **Łączność** sieciowa — Azure HPC Cache musi mieć dostęp do magazynu kluczy, niezależnie od ustawień punktu końcowego.
 
 Kluczowe właściwości:
@@ -54,9 +54,9 @@ Kluczowe właściwości:
 
 Uprawnienia dostępu do magazynu kluczy:
 
-* Użytkownik, który tworzy Azure HPC Cache musi mieć uprawnienia równoważne roli [Key Vault współautora.](../role-based-access-control/built-in-roles.md#key-vault-contributor) Te same uprawnienia są potrzebne do skonfigurowania aplikacji i zarządzania Azure Key Vault.
+* Użytkownik, który tworzy Azure HPC Cache musi mieć uprawnienia równoważne roli [Key Vault współautora.](../role-based-access-control/built-in-roles.md#key-vault-contributor) Te same uprawnienia są potrzebne do skonfigurowania i zarządzania Azure Key Vault.
 
-  Przeczytaj [bezpieczny dostęp do magazynu kluczy,](../key-vault/general/security-overview.md) aby uzyskać więcej informacji.
+  Przeczytaj [bezpieczny dostęp do magazynu kluczy, aby](../key-vault/general/security-features.md) uzyskać więcej informacji.
 
 ## <a name="1-set-up-azure-key-vault"></a>1. Konfigurowanie Azure Key Vault
 

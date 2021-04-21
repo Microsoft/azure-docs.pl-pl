@@ -12,21 +12,21 @@ author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 02/01/2021
-ms.openlocfilehash: b812a3feaa900914ef5f16f2f72270d9b6008371
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: b3403558cbc07d152bbae7e901464a8aa4a8e4d2
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107753025"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812772"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Funkcja Transparent Data Encryption usługi Azure SQL przy użyciu klucza zarządzanego przez klienta
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Azure SQL Transparent Data Encryption [(TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) z kluczem zarządzanym przez klienta umożliwia scenariusz rozwiązania Bring Your Own Key (BYOK) w zakresie ochrony danych magazynowany i umożliwia organizacjom implementowanie podziału obowiązków w zakresie zarządzania kluczami i danymi. W przypadku przezroczystego szyfrowania danych zarządzanego przez klienta klient jest odpowiedzialny za zarządzanie cyklem życia klucza (tworzenie, przekazywanie, rotację, usuwanie), uprawnienia do użycia klucza i inspekcję operacji na kluczach oraz w pełni nimi steruje.
+Azure SQL Transparent Data Encryption [(TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) przy użyciu klucza zarządzanego przez klienta umożliwia scenariusz Bring Your Own Key (BYOK) na potrzeby ochrony danych magazynowany i umożliwia organizacjom implementowanie podziału obowiązków w zakresie zarządzania kluczami i danymi. Dzięki funkcji Transparent Data Encryption zarządzanej przez klienta klient jest odpowiedzialny za zarządzanie cyklem życia kluczy (tworzenie, przekazywanie, rotacja, usuwanie), uprawnienia do użycia klucza i inspekcję operacji na kluczach oraz w pełni nad nimi.
 
-W tym scenariuszu klucz używany do szyfrowania klucza szyfrowania bazy danych (DEK, Database Encryption Key), nazywanego funkcją ochrony TDE, jest zarządzanym przez klienta kluczem asymetrycznym przechowywanym w zewnętrznym systemie zarządzania kluczami zarządzanymi przez klienta [Azure Key Vault (AKV,](../../key-vault/general/security-overview.md)cloud-based external key management). Key Vault jest wysoce dostępnym i skalowalnym bezpiecznym magazynem kluczy kryptograficznych RSA, opcjonalnie zabezpieczony przez sprzętowe moduły zabezpieczeń (HSM) zweryfikowane w wersji FIPS 140-2 poziom 2. Nie zezwala na bezpośredni dostęp do przechowywanego klucza, ale zapewnia usługi szyfrowania/odszyfrowywania przy użyciu klucza dla autoryzowanych jednostek. Klucz może być generowany przez magazyn kluczy, importowany lub przesyłany do magazynu kluczy z urządzenia [HSM.](../../key-vault/keys/hsm-protected-keys.md)
+W tym scenariuszu klucz używany do szyfrowania klucza szyfrowania bazy danych (DEK, Database Encryption Key), nazywany funkcją ochrony TDE, to zarządzany przez klienta klucz asymetryczny przechowywany w zarządzanym przez klienta systemie [Azure Key Vault (AKV)](../../key-vault/general/security-features.md)— zewnętrznym systemie zarządzania kluczami opartym na chmurze. Key Vault to wysoce dostępny i skalowalny bezpieczny magazyn kluczy kryptograficznych RSA, opcjonalnie zabezpieczony przez sprzętowe moduły zabezpieczeń (HSM) zweryfikowane w wersji FIPS 140-2 poziom 2. Nie zezwala na bezpośredni dostęp do przechowywanego klucza, ale zapewnia usługi szyfrowania/odszyfrowywania przy użyciu klucza autoryzowanym jednostkom. Klucz może zostać wygenerowany przez magazyn kluczy, zaimportowany lub przeniesiony do magazynu kluczy z urządzenia [HSM.](../../key-vault/keys/hsm-protected-keys.md)
 
-W Azure SQL Database i Azure Synapse Analytics funkcji ochrony TDE jest ustawiana na poziomie serwera i jest dziedziczona przez wszystkie zaszyfrowane bazy danych skojarzone z tym serwerem. W Azure SQL Managed Instance funkcji ochrony TDE jest ustawiana na poziomie wystąpienia i jest dziedziczona przez wszystkie zaszyfrowane bazy danych w tym wystąpieniu. Termin *serwer odnosi* się zarówno do serwera w usługach SQL Database i Azure Synapse, jak i do wystąpienia zarządzanego w SQL Managed Instance tym dokumencie, chyba że określono inaczej.
+W Azure SQL Database i Azure Synapse Analytics funkcji ochrony TDE jest ustawiana na poziomie serwera i jest dziedziczona przez wszystkie zaszyfrowane bazy danych skojarzone z tym serwerem. Na Azure SQL Managed Instance funkcji ochrony TDE jest ustawiana na poziomie wystąpienia i jest dziedziczona przez wszystkie zaszyfrowane bazy danych w tym wystąpieniu. Termin *serwer odnosi* się zarówno do serwera w usługach SQL Database i Azure Synapse, jak i do wystąpienia zarządzanego w SQL Managed Instance tym dokumencie, chyba że określono inaczej.
 
 > [!IMPORTANT]
 > W przypadku osób korzystających z funkcji TDE zarządzanych przez usługę, które chcą rozpocząć korzystanie z funkcji TDE zarządzanej przez klienta, dane pozostają zaszyfrowane podczas przełączania i nie ma żadnych przestojów ani ponownego szyfrowania plików bazy danych. Przełączenie z klucza zarządzanego przez usługę na klucz zarządzany przez klienta wymaga tylko ponownego szyfrowania klucza szyfrowania danych, co jest operacją szybką i online.
@@ -62,9 +62,9 @@ Aby serwer mógł używać funkcji ochrony TDE przechowywanej w usłudze AKV do 
 
 - **unwrapKey** — aby można było wyłączyć ochronę (odszyfrowywanie) klucza szyfrowania danych
 
-Administrator magazynu kluczy może również [włączyć rejestrowanie zdarzeń](../../azure-monitor/insights/key-vault-insights-overview.md)inspekcji magazynu kluczy, aby można było je później poddać inspekcji.
+Administrator magazynu kluczy może również [włączyć rejestrowanie zdarzeń inspekcji](../../azure-monitor/insights/key-vault-insights-overview.md)magazynu kluczy, aby można było je później poddać inspekcji.
 
-Gdy serwer jest skonfigurowany do używania funkcji ochrony TDE z usługi AKV, wysyła klucz szyfrowania każdej bazy danych z włączoną funkcją TDE do magazynu kluczy w celu szyfrowania. Magazyn kluczy zwraca zaszyfrowany klucz szyfrowania danych, który jest następnie przechowywany w bazie danych użytkownika.
+Gdy serwer jest skonfigurowany do używania funkcji ochrony TDE z usługi AKV, wysyła klucz szyfrowania danych każdej bazy danych z włączoną funkcją TDE do magazynu kluczy w celu szyfrowania. Magazyn kluczy zwraca zaszyfrowany klucz szyfrowania danych, który jest następnie przechowywany w bazie danych użytkownika.
 
 W razie potrzeby serwer wysyła chroniony klucz szyfrowania danych do magazynu kluczy w celu odszyfrowania.
 
@@ -76,13 +76,13 @@ Audytorzy mogą używać Azure Monitor do przeglądania dzienników AuditEvent m
 
 ### <a name="requirements-for-configuring-akv"></a>Wymagania dotyczące konfigurowania aplikacji AKV
 
-- Magazyn kluczy i SQL Database/wystąpienie zarządzane muszą należeć do tej samej Azure Active Directory dzierżawy. Interakcje między dzierżawami magazynu kluczy i serwera nie są obsługiwane. Aby później przenieść zasoby, należy ponownie skonfigurować program TDE z akv. Dowiedz się więcej o [przenoszeniu zasobów.](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- Magazyn kluczy i SQL Database/wystąpienie zarządzane muszą należeć do tej samej Azure Active Directory dzierżawy. Interakcje między dzierżawami magazynu kluczy i serwera nie są obsługiwane. Aby później przenieść zasoby, należy ponownie skonfigurować program TDE z akvem. Dowiedz się więcej o [przenoszeniu zasobów.](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
 
-- [Funkcja usuwania nie soft-delete](../../key-vault/general/soft-delete-overview.md) musi być włączona w magazynie kluczy, aby chronić przed przypadkowym usunięciem klucza (lub magazynu kluczy). Zasoby usunięte nie softnie są przechowywane przez 90 dni, chyba że zostaną odzyskane lub usunięte przez klienta w międzyczasie. Akcje *odzyskiwania* *i przeczyszczania* mają własne uprawnienia skojarzone z zasadami dostępu magazynu kluczy. Funkcja usuwania nie soft-delete jest domyślnie wyłączona i można ją włączyć za pomocą [programu PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell) lub [interfejsu wiersza polecenia](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli). Nie można go włączyć za pośrednictwem Azure Portal.  
+- [Aby zapewnić ochronę](../../key-vault/general/soft-delete-overview.md) przed przypadkowym usunięciem klucza (lub magazynu kluczy), należy włączyć funkcję usuwania nie soft-delete w magazynie kluczy. Zasoby usunięte nieuowopowodowane są przechowywane przez 90 dni, chyba że zostaną odzyskane lub usunięte przez klienta w międzyczasie. Akcje *odzyskiwania* *i przeczyszczania* mają własne uprawnienia skojarzone z zasadami dostępu magazynu kluczy. Funkcja usuwania nie softowego jest domyślnie wyłączona i można ją włączyć za pomocą [programu PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell) lub [interfejsu wiersza polecenia](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli). Nie można go włączyć za pośrednictwem Azure Portal.  
 
-- Przyznaj serwerowi lub wystąpieniu zarządzanemu dostęp do magazynu kluczy (get, wrapKey, unwrapKey) przy użyciu Azure Active Directory klucza. Podczas korzystania z Azure Portal tożsamość usługi Azure AD jest tworzona automatycznie. W przypadku korzystania z programu PowerShell lub interfejsu wiersza polecenia tożsamość usługi Azure AD musi zostać jawnie utworzona, a ukończenie powinno zostać zweryfikowane. Aby uzyskać szczegółowe instrukcje krok po kroku dotyczące korzystania z programu PowerShell, zobacz Configure [TDE with BYOK](transparent-data-encryption-byok-configure.md) (Konfigurowanie funkcji TDE przy użyciu funkcji [BY SQL Managed Instance OK) i Configure TDE with BYOK](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) (Konfigurowanie funkcji TDE przy użyciu funkcji BYOK), aby uzyskać szczegółowe instrukcje krok po kroku.
+- Przyznaj serwerowi lub wystąpieniu zarządzanemu dostęp do magazynu kluczy (get, wrapKey, unwrapKey) przy użyciu Azure Active Directory magazynu. Podczas korzystania z Azure Portal automatycznie tworzona jest tożsamość usługi Azure AD. W przypadku korzystania z programu PowerShell lub interfejsu wiersza polecenia tożsamość usługi Azure AD musi zostać jawnie utworzona, a ukończenie powinno zostać zweryfikowane. Aby uzyskać szczegółowe instrukcje krok po kroku dotyczące korzystania z programu PowerShell, zobacz Configure [TDE with BYOK](transparent-data-encryption-byok-configure.md) (Konfigurowanie funkcji TDE za pomocą funkcji [BYOK) i Configure TDE with BYOK](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) (Konfigurowanie funkcji TDE przy użyciu funkcji BYOK), aby uzyskać szczegółowe SQL Managed Instance instrukcje krok po kroku.
 
-- W przypadku korzystania z zapory z usługą AKV należy włączyć opcję Zezwalaj na *usługi firmy Microsoft, aby obejść zaporę.*
+- W przypadku korzystania z zapory z usługą AKV należy włączyć opcję Zezwalaj zaufanym *usługi firmy Microsoft ominąć zaporę.*
 
 ### <a name="requirements-for-configuring-tde-protector"></a>Wymagania dotyczące konfigurowania funkcji ochrony TDE
 
@@ -90,7 +90,7 @@ Audytorzy mogą używać Azure Monitor do przeglądania dzienników AuditEvent m
 
 - Data aktywacji klucza (jeśli jest ustawiona) musi być datą i godziną w przeszłości. Data wygaśnięcia (jeśli jest ustawiona) musi być przyszłą datą i godziną.
 
-- Klucz musi mieć stan *Włączone.*
+- Klucz musi być w stanie *Włączone.*
 
 - Jeśli importujesz istniejący klucz do magazynu kluczy, upewnij się, że jest on dostępny w obsługiwanych formatach plików ( `.pfx` `.byok` , lub `.backup` ).
 
@@ -102,9 +102,9 @@ Audytorzy mogą używać Azure Monitor do przeglądania dzienników AuditEvent m
 
 ### <a name="recommendations-when-configuring-akv"></a>Zalecenia podczas konfigurowania aplikacji AKV
 
-- Skojarz łącznie co najwyżej 500 Ogólnego przeznaczenia lub 200 baz danych Krytyczne dla działania firmy z magazynem kluczy w ramach jednej subskrypcji, aby zapewnić wysoką dostępność, gdy serwer uzyskuje dostęp do funkcji ochrony TDE w magazynie kluczy. Te wartości są oparte na doświadczeniu i udokumentowane w [limitach usługi Key Vault.](../../key-vault/general/service-limits.md) W tym przypadku celem jest zapobieganie problemom po zakończeniu pracy serwera w trybu failover, ponieważ spowoduje to wyzwolenie tylu kluczowych operacji względem magazynu, ile jest baz danych na tym serwerze.
+- Skojarz łącznie co najwyżej 500 Ogólnego przeznaczenia lub 200 baz danych Krytyczne dla działania firmy z magazynem kluczy w ramach jednej subskrypcji, aby zapewnić wysoką dostępność, gdy serwer uzyskuje dostęp do funkcji ochrony TDE w magazynie kluczy. Te wartości są oparte na doświadczeniu i udokumentowane w [limitach usługi key vault.](../../key-vault/general/service-limits.md) W tym przypadku celem jest zapobieganie problemom po zakończeniu pracy serwera w trybu failover, ponieważ spowoduje to wyzwolenie tylu kluczowych operacji względem magazynu, ile jest baz danych na tym serwerze.
 
-- Ustaw blokadę zasobu w magazynie kluczy, aby kontrolować, kto może usuwać ten zasób krytyczny i zapobiegać przypadkowemu lub nieautoryzowanemu usunięciu. Dowiedz się więcej o [blokadach zasobów.](../../azure-resource-manager/management/lock-resources.md)
+- Ustaw blokadę zasobu w magazynie kluczy, aby kontrolować, kto może usuwać ten krytyczny zasób i zapobiegać przypadkowemu lub nieautoryzowanemu usunięciu. Dowiedz się więcej o [blokadach zasobów.](../../azure-resource-manager/management/lock-resources.md)
 
 - Włącz inspekcję i raportowanie dla wszystkich kluczy szyfrowania: magazyn kluczy udostępnia dzienniki, które można łatwo wstrzyknąć do innych narzędzi do zarządzania informacjami i zdarzeniami zabezpieczeń. Operations Management Suite [Log Analytics](../../azure-monitor/insights/key-vault-insights-overview.md) to jeden z przykładów usługi, która jest już zintegrowana.
 

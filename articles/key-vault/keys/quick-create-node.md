@@ -8,16 +8,16 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: c0066409732f4492186ea0bf604261e1ab59ca9f
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 08de0045a19b0f07308778f8716fa48abded445b
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750306"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815544"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-javascript-version-4"></a>Szybki start: Azure Key Vault klienta klucza dla języka JavaScript (wersja 4)
 
-Wprowadzenie do biblioteki klienta Azure Key Vault dla języka JavaScript. [Azure Key Vault](../general/overview.md) to usługa w chmurze, która zapewnia bezpieczny magazyn kluczy kryptograficznych. Możesz bezpiecznie przechowywać klucze, hasła, certyfikaty oraz inne wpisy tajne. Magazyny kluczy platformy Azure można tworzyć oraz nimi zarządzać za pośrednictwem witryny Azure Portal. Z tego przewodnika Szybki start dowiesz się, jak tworzyć, pobierać i usuwać klucze z usługi Azure Key Vault przy użyciu biblioteki klienta kluczy języka JavaScript
+Wprowadzenie do biblioteki Azure Key Vault klienta kluczy dla języka JavaScript. [Azure Key Vault](../general/overview.md) to usługa w chmurze, która zapewnia bezpieczny magazyn kluczy kryptograficznych. Możesz bezpiecznie przechowywać klucze, hasła, certyfikaty oraz inne wpisy tajne. Magazyny kluczy platformy Azure można tworzyć oraz nimi zarządzać za pośrednictwem witryny Azure Portal. Z tego przewodnika Szybki start dowiesz się, jak tworzyć, pobierać i usuwać klucze z usługi Azure Key Vault przy użyciu biblioteki klienta kluczy języka JavaScript
 
 Key Vault zasobów biblioteki klienta:
 
@@ -30,11 +30,11 @@ Aby uzyskać więcej informacji na Key Vault kluczy, zobacz:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Subskrypcja platformy Azure — [utwórz subskrypcję bezpłatnie.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Bieżące [Node.js](https://nodejs.org) dla twojego systemu operacyjnego.
+- Bieżące [Node.js](https://nodejs.org) dla systemu operacyjnego.
 - [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)
 - Interfejs Key Vault — można go utworzyć przy użyciu interfejsu [wiersza Azure Portal](../general/quick-create-portal.md) [platformy Azure](../general/quick-create-cli.md)lub [Azure PowerShell](../general/quick-create-powershell.md)
 
-W tym przewodniku Szybki start założono, że używasz interfejsu [wiersza polecenia platformy Azure.](/cli/azure/install-azure-cli)
+W tym przewodniku Szybki start założono, że używasz interfejsu wiersza [polecenia platformy Azure.](/cli/azure/install-azure-cli)
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -115,7 +115,7 @@ Poniższe przykłady kodu pokazują, jak utworzyć klienta, ustawić klucz, pobr
 
 1. Utwórz nowy plik tekstowy i zapisz go jako "index.js"
 
-1. Dodawanie wywołań wymagania w celu załadowania platformy Azure Node.js modułów
+1. Dodawanie wywołań require w celu załadowania platformy Azure i Node.js modułów
 
 1. Tworzenie struktury programu, w tym podstawowej obsługi wyjątków
 
@@ -152,9 +152,9 @@ const { KeyClient } = require("@azure/keyvault-keys");
 
 ### <a name="authenticate-and-create-a-client"></a>Uwierzytelnianie i tworzenie klienta
 
-W tym przewodniku Szybki start zalogowany użytkownik jest używany do uwierzytelniania w magazynie kluczy, co jest preferowaną metodą tworzenia aplikacji lokalnych. W przypadku aplikacji wdrożonych na platformie Azure tożsamość zarządzana powinna być przypisana do usługi App Service lub maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz Omówienie [tożsamości zarządzanej.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+W tym przewodniku Szybki start zalogowany użytkownik jest używany do uwierzytelniania w magazynie kluczy, co jest preferowaną metodą tworzenia aplikacji lokalnych. W przypadku aplikacji wdrożonych na platformie Azure tożsamość zarządzana powinna być przypisana do usługi App Service lub maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Omówienie tożsamości zarządzanej.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-W poniższym przykładzie nazwa magazynu kluczy jest rozszerzana do wartości URI magazynu kluczy w formacie "https:// \<your-key-vault-name\> .vault.azure.net". W tym przykładzie używa się klasy ["DefaultAzureCredential()"](https://docs.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) z biblioteki tożsamości platformy [Azure,](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)która umożliwia używanie tego samego kodu w różnych środowiskach z różnymi opcjami w celu zapewnienia tożsamości. Aby uzyskać więcej informacji na temat uwierzytelniania w magazynie kluczy, zobacz [Developer's Guide (Przewodnik dewelopera).](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code)
+W poniższym przykładzie nazwa magazynu kluczy jest rozszerzana do wartości URI magazynu kluczy w formacie "https:// \<your-key-vault-name\> .vault.azure.net". W tym przykładzie jest to klasa ["DefaultAzureCredential()"](https://docs.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) z biblioteki tożsamości platformy [Azure,](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)która umożliwia używanie tego samego kodu w różnych środowiskach z różnymi opcjami w celu zapewnienia tożsamości. Aby uzyskać więcej informacji na temat uwierzytelniania w magazynie kluczy, zobacz [Developer's Guide (Przewodnik dewelopera).](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code)
 
 Dodaj następujący kod do funkcji "main()"
 
@@ -168,7 +168,7 @@ const client = new KeyClient(KVUri, credential);
 
 ### <a name="save-a-key"></a>Zapisywanie klucza
 
-Teraz, gdy aplikacja została uwierzytelniona, możesz umieścić klucz w swoim kluczu przy użyciu metody [createKey](/javascript/api/@azure/keyvault-keys/keyclient?#createKey_string__KeyType__CreateKeyOptions_) Parametry metody akceptują nazwę klucza i [typ klucza](https://docs.microsoft.com/javascript/api/@azure/keyvault-keys/keytype)
+Teraz, gdy aplikacja jest uwierzytelniona, możesz umieścić klucz w swoim kluczu przy użyciu metody [createKey](/javascript/api/@azure/keyvault-keys/keyclient?#createKey_string__KeyType__CreateKeyOptions_) Parametry metody akceptują nazwę klucza i [typ klucza](https://docs.microsoft.com/javascript/api/@azure/keyvault-keys/keytype)
 
 ```javascript
 await client.createKey(keyName, keyType);
@@ -184,7 +184,7 @@ const retrievedKey = await client.getKey(keyName);
 
 ### <a name="delete-a-key"></a>Usuń klucz
 
-Na koniec usuńmy i przeczyścimy klucz z magazynu kluczy za pomocą metod [beginDeleteKey](https://docs.microsoft.com/javascript/api/@azure/keyvault-keys/keyclient?#beginDeleteKey_string__BeginDeleteKeyOptions_) i [purgeDeletedKey.](https://docs.microsoft.com/javascript/api/@azure/keyvault-keys/keyclient?#purgeDeletedKey_string__PurgeDeletedKeyOptions_)
+Na koniec usuńmy i przeczyścimy klucz z magazynu kluczy za pomocą [metod beginDeleteKey](https://docs.microsoft.com/javascript/api/@azure/keyvault-keys/keyclient?#beginDeleteKey_string__BeginDeleteKeyOptions_) i [purgeDeletedKey.](https://docs.microsoft.com/javascript/api/@azure/keyvault-keys/keyclient?#purgeDeletedKey_string__PurgeDeletedKeyOptions_)
 
 ```javascript
 const deletePoller = await client.beginDeleteKey(keyName);
@@ -271,7 +271,7 @@ Purging your key from <your-unique-keyvault-name> ... done.
 W tym przewodniku Szybki start utworzono magazyn kluczy, przechowywano klucz i pobrano ten klucz. Aby dowiedzieć się więcej Key Vault o tym, jak zintegrować ją z aplikacjami, przejdź do poniższych artykułów.
 
 - Przeczytaj omówienie [Azure Key Vault](../general/overview.md)
-- Zapoznaj się [z omówieniem kluczy Azure Key Vault kluczy](about-keys.md)
-- Jak zabezpieczyć [dostęp do magazynu kluczy](../general/security-overview.md)
+- Przeczytaj omówienie [kluczy Azure Key Vault kluczy](about-keys.md)
+- Jak [zabezpieczyć dostęp do magazynu kluczy](../general/security-features.md)
 - Zobacz Azure Key Vault [dewelopera](../general/developers-guide.md)
-- Przejrzyj omówienie [Key Vault zabezpieczeń](../general/security-overview.md)
+- Przejrzyj omówienie [Key Vault zabezpieczeń](../general/security-features.md)

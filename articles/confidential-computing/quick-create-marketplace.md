@@ -1,6 +1,6 @@
 ---
-title: Szybki start — tworzenie maszyny wirtualnej poufnego przetwarzania na platformie Azure za pomocą witryny Marketplace
-description: Rozpoczynanie pracy z wdrożeniami przez dowiedz się, jak szybko utworzyć maszynę wirtualną poufnego przetwarzania w witrynie Marketplace.
+title: Szybki start — tworzenie maszyny wirtualnej do poufnego przetwarzania na platformie Azure przy użyciu witryny Marketplace
+description: Rozpoczynanie pracy z wdrożeniami przez uczenie się, jak szybko utworzyć maszynę wirtualną poufnego przetwarzania w witrynie Marketplace.
 author: JBCook
 ms.service: virtual-machines
 ms.subservice: confidential-computing
@@ -8,20 +8,20 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 6dbd6fb5c989e1e8b88bf752f5009bdbb62d8c39
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: be935dbd7e4559bcad8c5cf78622a5c63810f54c
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107535457"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812394"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-marketplace"></a>Szybki start: wdrażanie maszyny wirtualnej poufnego przetwarzania na platformie Azure w witrynie Marketplace
 
-Rozpoczynanie pracy z poufnym przetwarzaniem na platformie Azure przy użyciu Azure Marketplace do tworzenia maszyny wirtualnej z technologią Intel SGX. Następnie zainstalujesz zestaw SDK (Open Enclave Software Development Kit) w celu skonfigurowania środowiska deweloperskiego. 
+Rozpoczynanie pracy z poufnym przetwarzaniem na platformie Azure przy użyciu Azure Marketplace tworzenia maszyny wirtualnej z technologią Intel SGX. Następnie zainstalujesz zestaw Open Enclave Software Development Kit (SDK) w celu skonfigurowania środowiska deweloperskiego. 
 
-Ten samouczek jest zalecany, jeśli chcesz szybko rozpocząć wdrażanie poufnej maszyny wirtualnej. Maszyny wirtualne są uruchamiane na specjalnym sprzęcie i wymagają określonych danych wejściowych konfiguracji, aby działały zgodnie z zamierzonymi potrzebami. Oferta platformy handlowej opisana w tym przewodniku Szybki start ułatwia wdrażanie dzięki ograniczeniu danych wejściowych użytkownika.
+Ten samouczek jest zalecany, jeśli chcesz szybko rozpocząć wdrażanie poufnej maszyny wirtualnej obliczeniowej. Maszyny wirtualne są uruchamiane na sprzęcie specjalistycznym i wymagają określonych danych wejściowych konfiguracji, aby działały zgodnie z przeznaczeniem. Oferta platformy handlowej opisana w tym przewodniku Szybki start ułatwia wdrażanie dzięki ograniczeniu danych wejściowych użytkownika.
 
-Jeśli interesuje Cię wdrożenie poufnej obliczeniowej maszyny wirtualnej z bardziej niestandardową konfiguracją, wykonaj kroki wdrażania maszyny wirtualnej poufnego Azure Portal [obliczeniowej.](quick-create-portal.md)
+Jeśli interesuje Cię wdrożenie poufnej obliczeniowej maszyny wirtualnej z bardziej niestandardową konfiguracją, wykonaj kroki wdrażania maszyny wirtualnej poufnej Azure Portal [obliczeniowej.](quick-create-portal.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -34,13 +34,13 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz konto]
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-1. W górnej części wpisz **Poufne przetwarzanie na platformie Azure** na pasku wyszukiwania.
+1. W górnej części wpisz **Poufne przetwarzanie na** platformie Azure na pasku wyszukiwania.
 
 1. Wybierz **pozycję Poufne przetwarzanie na platformie Azure (maszyna wirtualna)** w sekcji **Marketplace.** 
 
     ![Wybieranie witryny Marketplace](media/quick-create-marketplace/portal-search-marketplace.png)    
 
-1. Na stronie docelowej poufnego wdrażania obliczeń platformy Azure wybierz pozycję **Utwórz**.
+1. Na stronie docelowej poufnego wdrożenia obliczeniowego platformy Azure wybierz pozycję **Utwórz**.
  
 
 ## <a name="configure-your-virtual-machine"></a>Konfigurowanie maszyny wirtualnej
@@ -58,7 +58,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz konto]
 
     * **Nazwa maszyny wirtualnej** wprowadź nazwę nowej maszyny wirtualnej.
 
-    * **Typ uwierzytelniania:** wybierz **klucz publiczny SSH,** jeśli tworzysz maszynę wirtualną z systemem Linux. 
+    * **Typ uwierzytelniania:** wybierz **pozycję Klucz publiczny SSH,** jeśli tworzysz maszynę wirtualną z systemem Linux. 
 
          > [!NOTE]
          > Do uwierzytelniania możesz używać klucza publicznego SSH lub hasła. Protokół SSH jest bezpieczniejszy. Aby uzyskać instrukcje na temat sposobu generowania klucza SSH, zobacz [Create SSH keys on Linux and Mac for Linux VMs in Azure (Tworzenie kluczy SSH w systemie Linux i na komputerach Mac dla maszyn wirtualnych z systemem Linux na platformie Azure)](../virtual-machines/linux/mac-create-ssh-keys.md).
@@ -72,7 +72,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz konto]
 1. Wybierz przycisk **Dalej: Ustawienia maszyny wirtualnej** w dolnej części ekranu.
 
     > [!IMPORTANT]
-    > Poczekaj na aktualizację strony. Nie *powinien być wyświetlany* komunikat "Poufne przetwarzanie Maszyn wirtualnych serii DCsv2 są dostępne w ograniczonej liczbie regionów". Jeśli ten komunikat będzie się powtarzać, wróć do poprzedniej strony i wybierz dostępny DCsv2-Series region.
+    > Poczekaj na aktualizację strony. Nie *powinien być wyświetlany* komunikat "Poufne przetwarzanie maszyn wirtualnych serii DCsv2 są dostępne w ograniczonej liczbie regionów". Jeśli ten komunikat będzie się powtarzać, wróć do poprzedniej strony i wybierz dostępny DCsv2-Series region.
 
 1. W **przypadku zmiany rozmiaru** wybierz maszynę wirtualną z poufnymi możliwościami obliczeniowymi w selektorze rozmiaru. 
 
@@ -85,16 +85,16 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz konto]
 
 1. W **przypadku podsieci** utwórz nową lub wybierz istniejący zasób.
 
-1. W **przypadku opcji Wybierz publiczne porty przychodzące** wybierz pozycję **SSH(Linux)/RDP(Windows).** W tym przewodniku Szybki start ten krok jest niezbędny do nawiązania połączenia z maszyną wirtualną i ukończenia konfiguracji zestawu OPEN Enclave SDK. 
+1. W **przypadku opcji Wybierz publiczne porty przychodzące** wybierz pozycję **SSH(Linux)/RDP(Windows).** W tym przewodniku Szybki start ten krok jest niezbędny do nawiązania połączenia z maszyną wirtualną i ukończenia konfiguracji zestawu SDK Open Enclave. 
 
-1. W **przypadku diagnostyki** rozruchu pozostaw wyłączone na potrzeby tego przewodnika Szybki start. 
+1. W **przypadku diagnostyki** rozruchu pozostaw ją wyłączona na potrzeby tego przewodnika Szybki start. 
 
 1. Wybierz pozycję **Przejrzyj i utwórz**.
 
 1. W okienku **Przeglądanie + tworzenie** wybierz pozycję **Utwórz**.
 
 > [!NOTE]
-> Przejdź do następnej sekcji i kontynuuj pracę z tym samouczkiem, jeśli wdrożono maszynę wirtualną z systemem Linux. Jeśli wdrożono maszynę wirtualną z systemem Windows, wykonaj następujące kroki, aby nawiązać połączenie z maszyną wirtualną z systemem [Windows,](../virtual-machines/windows/connect-logon.md) a następnie zainstaluj zestaw [OE SDK w systemie Windows.](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Windows.md)
+> Przejdź do następnej sekcji i kontynuuj pracę z tym samouczkiem, jeśli wdrożono maszynę wirtualną z systemem Linux. Jeśli wdrożono maszynę wirtualną z systemem Windows, wykonaj następujące kroki, aby nawiązać połączenie z maszyną wirtualną z systemem [Windows,](../virtual-machines/windows/connect-logon.md) a następnie zainstaluj zestaw [SDK OE w systemie Windows.](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Windows.md)
 
 
 ## <a name="connect-to-the-linux-vm"></a> Łączenie z maszyną wirtualną z systemem Linux
@@ -105,7 +105,7 @@ Jeśli już używasz powłoki BASH, połącz się z maszyną wirtualną platform
 ssh azureadmin@40.55.55.555
 ```
 
-Publiczny adres IP maszyny wirtualnej można znaleźć w Azure Portal w sekcji Przegląd maszyny wirtualnej.
+Publiczny adres IP maszyny wirtualnej można znaleźć w Azure Portal, w sekcji Przegląd maszyny wirtualnej.
 
 ![Adres IP w witrynie Azure Portal](media/quick-create-portal/public-ip-virtual-machine.png)
 
@@ -124,9 +124,9 @@ Aby uzyskać więcej informacji na temat nawiązywania połączenia z maszynami 
 > [!NOTE]
 > Jeśli w programie PuTTY zostanie wyświetlony alert dotyczący zabezpieczeń z informacją „server’s host key not cached in the registry” (klucz hosta serwera nie jest buforowany w rejestrze), wybierz jedną z następujących opcji. Jeśli host jest zaufany, wybierz pozycję **Yes** (Tak), aby dodać ten klucz do pamięci podręcznej programu PuTTy i kontynuować nawiązywanie połączenia. Jeśli chcesz nawiązać połączenie tylko raz, bez dodawania klucza do pamięci podręcznej, wybierz pozycję **No** (Nie). Jeśli host nie jest zaufany, wybierz pozycję **Cancel** (Anuluj), aby przerwać nawiązywanie połączenia.
 
-## <a name="install-the-open-enclave-sdk-oe-sdk"></a>Instalowanie zestawu SDK open enclave (OE SDK) <a id="Install"></a>
+## <a name="install-the-open-enclave-sdk-oe-sdk"></a>Instalowanie zestawu OPEN Enclave SDK (OE SDK) <a id="Install"></a>
 
-Postępuj zgodnie z instrukcjami krok po kroku, aby zainstalować zestaw [SDK OE](https://github.com/openenclave/openenclave) na maszynie wirtualnej z systemem DCsv2-Series systemem Ubuntu 18.04 LTS Gen 2. 
+Postępuj zgodnie z instrukcjami krok po kroku, aby zainstalować zestaw [SDK OE](https://github.com/openenclave/openenclave) na maszynie DCsv2-Series wirtualnej z obrazem systemu Ubuntu 18.04 LTS Gen 2. 
 
 Jeśli maszyna wirtualna działa w systemie Ubuntu 18.04 LTS Gen 2, należy wykonać instrukcje instalacji dla systemu [Ubuntu 18.04.](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md) 
 
@@ -144,22 +144,29 @@ wget -qO - https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add 
 ```
 
 #### <a name="2-install-the-intel-sgx-dcap-driver"></a>2. Zainstaluj sterownik Intel SGX DCAP
+Niektóre wersje systemu Ubuntu mogą już mieć zainstalowany sterownik Intel SGX. Sprawdź przy użyciu następującego polecenia: 
+
+```bash
+dmesg | grep -i sgx
+[  106.775199] sgx: intel_sgx: Intel SGX DCAP Driver {version}
+``` 
+Jeśli dane wyjściowe są puste, zainstaluj sterownik: 
 
 ```bash
 sudo apt update
 sudo apt -y install dkms
-wget https://download.01.org/intel-sgx/sgx-dcap/1.4/linux/distro/ubuntuServer18.04/sgx_linux_x64_driver_1.21.bin -O sgx_linux_x64_driver.bin
+wget https://download.01.org/intel-sgx/sgx-dcap/1.7/linux/distro/ubuntu18.04-server/sgx_linux_x64_driver_1.35.bin -O sgx_linux_x64_driver.bin
 chmod +x sgx_linux_x64_driver.bin
 sudo ./sgx_linux_x64_driver.bin
 ```
 
 > [!WARNING]
-> Użyj najnowszego sterownika Intel SGX DCAP z [witryny SGX firmy Intel.](https://01.org/intel-software-guard-extensions/downloads)
+> Użyj najnowszego sterownika Intel SGX DCAP z witryny [SGX firmy Intel.](https://01.org/intel-software-guard-extensions/downloads)
 
 #### <a name="3-install-the-intel-and-open-enclave-packages-and-dependencies"></a>3. Instalowanie pakietów Intel i Open Enclave oraz zależności
 
 ```bash
-sudo apt -y install clang-7 libssl-dev gdb libsgx-enclave-common libsgx-enclave-common-dev libprotobuf10 libsgx-dcap-ql libsgx-dcap-ql-dev az-dcap-client open-enclave
+sudo apt -y install clang-8 libssl-dev gdb libsgx-enclave-common libprotobuf10 libsgx-dcap-ql libsgx-dcap-ql-dev az-dcap-client open-enclave
 ```
 
 > [!NOTE] 
@@ -167,7 +174,7 @@ sudo apt -y install clang-7 libssl-dev gdb libsgx-enclave-common libsgx-enclave-
 
 #### <a name="4-verify-the-open-enclave-sdk-install"></a>4. **Weryfikowanie instalacji zestawu SDK open enclave**
 
-Aby [sprawdzić i użyć zainstalowanego zestawu SDK,](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/Linux_using_oe_sdk.md) zobacz Używanie zestawu SDK open enclave w usłudze GitHub.
+Aby sprawdzić i użyć zainstalowanego zestawu SDK, zobacz Using [the Open Enclave SDK](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/Linux_using_oe_sdk.md) on GitHub (Używanie zestawu SDK open enclave w usłudze GitHub).
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
