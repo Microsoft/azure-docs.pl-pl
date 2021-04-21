@@ -1,35 +1,35 @@
 ---
-title: Samouczek — Wdrażanie szablonu grupy wielokontenerowej
-description: W tym samouczku dowiesz się, jak wdrożyć grupę kontenerów z wieloma kontenerami w Azure Container Instances przy użyciu szablonu Azure Resource Manager z interfejsem wiersza polecenia platformy Azure.
+title: Samouczek — wdrażanie grupy z wieloma kontenerami — szablon
+description: Z tego samouczka dowiesz się, jak wdrożyć grupę kontenerów z wieloma kontenerami w usłudze Azure Container Instances użyciu szablonu Azure Resource Manager interfejsu wiersza polecenia platformy Azure.
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: bc956bed8324398c2d60f4641cd0bcb821fb51c2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 93ab139342795634a968cd538672e0e1b9bb08ae
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93091365"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763905"
 ---
-# <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>Samouczek: wdrażanie wielokontenerowej grupy przy użyciu szablonu Menedżer zasobów
+# <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>Samouczek: wdrażanie grupy z wieloma kontenerami przy użyciu Resource Manager szablonu
 
 > [!div class="op_single_selector"]
 > * [YAML](container-instances-multi-container-yaml.md)
 > * [Resource Manager](container-instances-multi-container-group.md)
 
-Azure Container Instances obsługuje wdrażanie wielu kontenerów na jednym hoście przy użyciu [grupy kontenerów](container-instances-container-groups.md). Grupa kontenerów jest przydatna podczas tworzenia przyczepki aplikacji do rejestrowania, monitorowania lub innej konfiguracji, w której usługa wymaga drugiego dołączonego procesu.
+Azure Container Instances obsługuje wdrażanie wielu kontenerów na jednym hoście przy użyciu [grupy kontenerów.](container-instances-container-groups.md) Grupa kontenerów jest przydatna podczas tworzenia przyczepki aplikacji na potrzeby rejestrowania, monitorowania lub dowolnej innej konfiguracji, w której usługa wymaga drugiego dołączonego procesu.
 
-W tym samouczku przedstawiono procedurę uruchamiania prostej konfiguracji dwukontenerowej przyczepki przez wdrożenie szablonu Azure Resource Manager przy użyciu interfejsu wiersza polecenia platformy Azure. Omawiane kwestie:
+W tym samouczku wykonaj kroki, aby uruchomić prostą konfigurację dwu kontenerów sidecar, wdrażając szablon Azure Resource Manager przy użyciu interfejsu wiersza polecenia platformy Azure. Omawiane kwestie:
 
 > [!div class="checklist"]
-> * Konfigurowanie wielokontenerowego szablonu grupy
-> * Wdróż grupę kontenerów
+> * Konfigurowanie szablonu grupy z wieloma kontenerami
+> * Wdrażanie grupy kontenerów
 > * Wyświetlanie dzienników kontenerów
 
-Szablon Menedżer zasobów można łatwo dostosować do scenariuszy, gdy konieczne jest wdrożenie dodatkowych zasobów usługi platformy Azure (na przykład udziału Azure Files lub sieci wirtualnej) z grupą kontenerów. 
+Szablon Resource Manager można łatwo dostosować do scenariuszy, gdy trzeba wdrożyć dodatkowe zasoby usługi platformy Azure (na przykład udział Azure Files lub sieć wirtualną) przy użyciu grupy kontenerów. 
 
 > [!NOTE]
-> Grupy wielokontenerowe są obecnie ograniczone do kontenerów systemu Linux. 
+> Grupy z wieloma kontenerami są obecnie ograniczone do kontenerów systemu Linux. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -37,13 +37,13 @@ Szablon Menedżer zasobów można łatwo dostosować do scenariuszy, gdy koniecz
 
 ## <a name="configure-a-template"></a>Konfigurowanie szablonu
 
-Zacznij od skopiowania następującego kodu JSON do nowego pliku o nazwie `azuredeploy.json` . W Azure Cloud Shell można użyć Visual Studio Code, aby utworzyć plik w katalogu roboczym:
+Zacznij od skopiowania następującego pliku JSON do nowego pliku o nazwie `azuredeploy.json` . W Azure Cloud Shell możesz użyć Visual Studio Code, aby utworzyć plik w katalogu pracy:
 
 ```
 code azuredeploy.json
 ```
 
-Ten szablon Menedżer zasobów definiuje grupę kontenerów z dwoma kontenerami, publicznym adresem IP i dwoma udostępnionymi portami. Pierwszy kontener w grupie uruchamia internetową aplikację sieci Web. Drugi kontener, Przyczepka, wysyła żądanie HTTP do głównej aplikacji sieci Web za pośrednictwem sieci lokalnej grupy.
+Ten Resource Manager definiuje grupę kontenerów z dwoma kontenerami, publicznym adresem IP i dwoma ujawnionmi portami. Pierwszy kontener w grupie uruchamia aplikację internetową dostępną z Internetu. Drugi kontener, sidecar, wykonuje żądanie HTTP do głównej aplikacji internetowej za pośrednictwem sieci lokalnej grupy.
 
 ```JSON
 {
@@ -131,7 +131,7 @@ Ten szablon Menedżer zasobów definiuje grupę kontenerów z dwoma kontenerami,
 }
 ```
 
-Aby użyć rejestru prywatnego kontenera obrazu, Dodaj obiekt do dokumentu JSON w następującym formacie. Aby zapoznać się z przykładową implementacją tej konfiguracji, zobacz dokumentację [referencyjną szablonu Menedżer zasobów ACI][template-reference] .
+Aby użyć prywatnego rejestru obrazów kontenerów, dodaj obiekt do dokumentu JSON w następującym formacie. Przykładową implementację tej konfiguracji można znaleźć w dokumentacji referencyjnej Resource Manager [ACI.][template-reference]
 
 ```JSON
 "imageRegistryCredentials": [
@@ -151,7 +151,7 @@ Utwórz grupę zasobów za pomocą polecenia [az group create][az-group-create].
 az group create --name myResourceGroup --location eastus
 ```
 
-Wdróż szablon za pomocą polecenia [AZ Deployment Group Create][az-deployment-group-create] .
+Wd wdrażaj szablon za pomocą [polecenia az deployment group create.][az-deployment-group-create]
 
 ```azurecli-interactive
 az deployment group create --resource-group myResourceGroup --template-file azuredeploy.json
@@ -159,15 +159,15 @@ az deployment group create --resource-group myResourceGroup --template-file azur
 
 W ciągu kilku sekund powinna pojawić się początkowa odpowiedź z platformy Azure.
 
-## <a name="view-deployment-state"></a>Wyświetl stan wdrożenia
+## <a name="view-deployment-state"></a>Wyświetlanie stanu wdrożenia
 
-Aby wyświetlić stan wdrożenia, użyj następującego polecenia [AZ Container show][az-container-show] :
+Aby wyświetlić stan wdrożenia, użyj następującego [polecenia az container show:][az-container-show]
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
-Jeśli chcesz wyświetlić uruchomioną aplikację, przejdź do jej adresu IP w przeglądarce. Na przykład adres IP jest `52.168.26.124` w tym przykładzie:
+Jeśli chcesz wyświetlić uruchamianą aplikację, przejdź do jej adresu IP w przeglądarce. Na przykład adres IP znajduje się `52.168.26.124` w tych przykładowych danych wyjściowych:
 
 ```console
 Name              ResourceGroup    Status    Image                                                                                               IP:ports              Network    CPU/Memory       OsType    Location
@@ -177,7 +177,7 @@ myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tut
 
 ## <a name="view-container-logs"></a>Wyświetlanie dzienników kontenerów
 
-Wyświetlanie danych wyjściowych kontenera za pomocą polecenia [AZ Container Logs][az-container-logs] . `--container-name`Argument określa kontener, z którego mają być ściągane dzienniki. W tym przykładzie `aci-tutorial-app` kontener jest określony.
+Wyświetl dane wyjściowe dziennika kontenera za pomocą [polecenia az container logs.][az-container-logs] Argument `--container-name` określa kontener, z którego mają być ściągane dzienniki. W tym przykładzie `aci-tutorial-app` określono kontener.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
@@ -187,12 +187,12 @@ Dane wyjściowe:
 
 ```console
 listening on port 80
-::1 - - [02/Jul/2020:23:17:48 +0000] "HEAD / HTTP/1.1&quot; 200 1663 &quot;-&quot; &quot;curl/7.54.0"
-::1 - - [02/Jul/2020:23:17:51 +0000] "HEAD / HTTP/1.1&quot; 200 1663 &quot;-&quot; &quot;curl/7.54.0"
-::1 - - [02/Jul/2020:23:17:54 +0000] "HEAD / HTTP/1.1&quot; 200 1663 &quot;-&quot; &quot;curl/7.54.0"
+::1 - - [02/Jul/2020:23:17:48 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [02/Jul/2020:23:17:51 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [02/Jul/2020:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
-Aby wyświetlić dzienniki dla kontenera przyczepki, uruchom podobne polecenie określające `aci-tutorial-sidecar` kontener.
+Aby wyświetlić dzienniki kontenera sidecar, uruchom podobne polecenie, określając `aci-tutorial-sidecar` kontener.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
@@ -218,26 +218,26 @@ Date: Thu, 02 Jul 2020 20:36:41 GMT
 Connection: keep-alive
 ```
 
-Jak widać, Przyczepka okresowo przesyła żądanie HTTP do głównej aplikacji sieci Web za pośrednictwem sieci lokalnej grupy, aby upewnić się, że jest uruchomiona. Tego przykładu przyczepki można rozszerzyć, aby wyzwolić alert, jeśli otrzymał kod odpowiedzi HTTP inny niż `200 OK` .
+Jak widać, sidecar okresowo wysyła żądanie HTTP do głównej aplikacji internetowej za pośrednictwem sieci lokalnej grupy, aby upewnić się, że jest uruchomiona. Ten przykładowy element sidecar można rozszerzyć, aby wyzwolić alert, jeśli otrzymał kod odpowiedzi HTTP inny niż `200 OK` .
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku użyto szablonu Azure Resource Manager do wdrożenia grupy wielokontenerowej w programie Azure Container Instances. W tym samouczku omówiono:
+W tym samouczku został użyty szablon Azure Resource Manager do wdrożenia grupy z wieloma kontenerami w Azure Container Instances. W tym samouczku omówiono:
 
 > [!div class="checklist"]
-> * Konfigurowanie wielokontenerowego szablonu grupy
-> * Wdróż grupę kontenerów
+> * Konfigurowanie szablonu grupy z wieloma kontenerami
+> * Wdrażanie grupy kontenerów
 > * Wyświetlanie dzienników kontenerów
 
-Dodatkowe przykłady szablonów można znaleźć w temacie [Azure Resource Manager templates for Azure Container Instances](container-instances-samples-rm.md).
+Aby uzyskać dodatkowe przykłady szablonów, [zobacz Azure Resource Manager szablonów dla Azure Container Instances](container-instances-samples-rm.md).
 
-Można również określić grupę wielokontenerową przy użyciu [pliku YAML](container-instances-multi-container-yaml.md). Ze względu na bardziej zwięzły charakter formatu YAML, wdrożenie z plikiem YAML jest dobrym rozwiązaniem, gdy wdrożenie obejmuje tylko wystąpienia kontenerów.
+Grupę wielu kontenerów można również określić przy użyciu pliku [YAML.](container-instances-multi-container-yaml.md) Ze względu na bardziej zwięzły charakter formatu YAML wdrożenie z plikiem YAML jest dobrym wyborem, gdy wdrożenie obejmuje tylko wystąpienia kontenerów.
 
 
 <!-- LINKS - Internal -->
 [aci-tutorial]: ./container-instances-tutorial-prepare-app.md
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
-[az-group-create]: /cli/azure/group#az-group-create
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
+[az-group-create]: /cli/azure/group#az_group_create
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
 [template-reference]: /azure/templates/microsoft.containerinstance/containergroups

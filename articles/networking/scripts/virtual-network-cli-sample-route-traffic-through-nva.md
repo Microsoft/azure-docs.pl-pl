@@ -1,5 +1,5 @@
 ---
-title: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — kierowanie ruchu przez wirtualne urządzenie sieciowe
+title: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — przekieruj ruch przez wirtualne urządzenie sieciowe
 description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — kierowanie ruchu przez wirtualne urządzenie sieciowe w ramach zapory.
 services: virtual-network
 documentationcenter: virtual-network
@@ -13,14 +13,14 @@ ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a349f8160e8ab5b6459b2085e21e7368570c57db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7970ab4472000c53e23f7962a9cbf4ec05ea3465
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87503841"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763185"
 ---
-# <a name="use-an-azure-cli-script-to-route-traffic-through-a-network-virtual-appliance"></a>Używanie skryptu interfejsu wiersza polecenia platformy Azure do kierowania ruchem za pomocą sieciowego urządzenia wirtualnego
+# <a name="use-an-azure-cli-script-to-route-traffic-through-a-network-virtual-appliance"></a>Używanie skryptu interfejsu wiersza polecenia platformy Azure do rozsyłania ruchu przez wirtualne urządzenie sieciowe
 
 Ten przykładowy skrypt tworzy sieć wirtualną z podsieciami frontonu i zaplecza. Tworzy również maszynę wirtualną z włączonym przekazywaniem adresu IP, aby przekierowywać ruch między dwiema podsieciami. Po uruchomieniu skryptu można wdrażać oprogramowanie sieciowe, takie jak aplikacja zapory, na maszynie wirtualnej.
 
@@ -51,13 +51,13 @@ Ten skrypt zawiera następujące polecenia służące do tworzenia grupy zasobó
 | [az group create](/cli/azure/group) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
 | [az network vnet create](/cli/azure/network/vnet) | Tworzy sieć wirtualną i podsieć frontonu platformy Azure. |
 | [az network subnet create](/cli/azure/network/vnet/subnet) | Tworzy podsieci zaplecza i strefy DMZ. |
-| [az network public-ip create](/cli/azure/network/public-ip) | Tworzy publiczny adres IP, aby uzyskać dostęp do maszyny wirtualnej z Internetu. |
+| [az network public-ip create](/cli/azure/network/public-ip) | Tworzy publiczny adres IP w celu uzyskania dostępu do maszyny wirtualnej z Internetu. |
 | [az network nic create](/cli/azure/network/nic) | Tworzy interfejs sieci wirtualnej i włącza przekazywanie adresów IP. |
 | [az network nsg create](/cli/azure/network/nsg) | Tworzy sieciową grupę zabezpieczeń. |
 | [az network nsg rule create](/cli/azure/network/nsg/rule) | Tworzy reguły sieciowych grup zabezpieczeń, które zezwalają na użycie portów HTTP i HTTPS dla ruchu przychodzącego do maszyny wirtualnej. |
 | [az network vnet subnet update](/cli/azure/network/vnet/subnet)| Tworzy skojarzenie sieciowych grup zabezpieczeń i tabel tras z podsieciami. |
-| [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create)| Tworzy tabelę tras dla wszystkich tras. |
-| [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create)| Tworzy trasy do kierowania ruchem między podsieciami i Internetem za pomocą maszyny wirtualnej. |
+| [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create)| Tworzy tabelę tras dla wszystkich tras. |
+| [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create)| Tworzy trasy do rozsyłania ruchu między podsieciami i Internetem za pośrednictwem maszyny wirtualnej. |
 | [az vm create](/cli/azure/vm) | Tworzy maszynę wirtualną i dołącza do niej kartę sieciową. To polecenie określa również obraz maszyny wirtualnej do użycia oraz poświadczenia administracyjne. |
 | [az group delete](/cli/azure/group) | Usuwa grupę zasobów i wszystkie zasoby, które zawiera. |
 
@@ -65,4 +65,4 @@ Ten skrypt zawiera następujące polecenia służące do tworzenia grupy zasobó
 
 Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure).
 
-Dodatkowe przykłady skryptów interfejsu wiersza polecenia sieci można znaleźć w [dokumentacji usługi Azure Networking Overview](../cli-samples.md)
+Więcej przykładowych skryptów interfejsu wiersza polecenia dla sieci można znaleźć w [dokumentacji Azure Networking Omówienie sieci](../cli-samples.md)

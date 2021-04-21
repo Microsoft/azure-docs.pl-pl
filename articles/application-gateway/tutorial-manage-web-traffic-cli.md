@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 07/20/2019
 ms.author: victorh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 89ba84be61469ff07eff55bb9cd114fe124b3ec2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01df6a12437808aa903046d2923c735ded5067ee
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94566609"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772806"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>zarządzanie ruchem internetowym przy użyciu bramy aplikacji za pomocą interfejsu wiersza polecenia platformy Azure
 
-Brama aplikacji jest używana do zarządzania ruchem internetowym do obsługiwanych serwerów oraz zabezpieczania tego ruchu. Możesz użyć interfejsu wiersza polecenia platformy Azure, aby utworzyć [bramę aplikacji](overview.md) korzystającą z [zestawu skalowania maszyn wirtualnych](../virtual-machine-scale-sets/overview.md) dla serwerów zaplecza. W tym przykładzie zestaw skalowania zawiera dwa wystąpienia maszyn wirtualnych. Zestaw skalowania jest dodawany do domyślnej puli zaplecza bramy aplikacji.
+Brama aplikacji jest używana do zarządzania ruchem internetowym do obsługiwanych serwerów oraz zabezpieczania tego ruchu. Za pomocą interfejsu wiersza polecenia platformy Azure można utworzyć bramę [aplikacji,](overview.md) która używa [zestawu](../virtual-machine-scale-sets/overview.md) skalowania maszyn wirtualnych dla serwerów zaplecza. W tym przykładzie zestaw skalowania zawiera dwa wystąpienia maszyn wirtualnych. Zestaw skalowania jest dodawany do domyślnej puli zaplecza bramy aplikacji.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -31,11 +31,11 @@ Jeśli wolisz, możesz wykonać tę procedurę przy użyciu [Azure PowerShell](t
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - Ten samouczek wymaga wersji 2.0.4 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
+ - Ten samouczek wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Jeśli używasz Azure Cloud Shell, najnowsza wersja jest już zainstalowana.
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az-group-create).
+Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az_group_create).
 
 W poniższym przykładzie pokazano sposób tworzenia grupy zasobów o nazwie *myResourceGroupAG* w lokalizacji *eastus*.
 
@@ -89,7 +89,7 @@ az network application-gateway create \
   --public-ip-address myAGPublicIPAddress
 ```
 
- Tworzenie bramy aplikacji może potrwać kilka minut. Po utworzeniu bramy aplikacji zostaną wyświetlone następujące nowe funkcje:
+ Tworzenie bramy aplikacji może potrwać kilka minut. Po utworzeniu bramy aplikacji zobaczysz następujące nowe funkcje:
 
 - *appGatewayBackendPool* — brama aplikacji musi mieć co najmniej jedną pulę adresów zaplecza.
 - *appGatewayBackendHttpSettings* — określa, że port 80 i protokół HTTP są używane do komunikacji.
@@ -99,7 +99,7 @@ az network application-gateway create \
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Tworzenie zestawu skalowania maszyn wirtualnych
 
-W tym przykładzie utworzysz zestaw skalowania maszyn wirtualnych, który zapewnia serwery dla puli zaplecza w bramie aplikacji. Maszyny wirtualne w zestawie skalowania są kojarzone z podsiecią *myBackendSubnet* i pulą *appGatewayBackendPool*. Aby utworzyć zestaw skalowania, użyj polecenia [az vmss create](/cli/azure/vmss#az-vmss-create).
+W tym przykładzie utworzysz zestaw skalowania maszyn wirtualnych, który zapewnia serwery dla puli zaplecza w bramie aplikacji. Maszyny wirtualne w zestawie skalowania są kojarzone z podsiecią *myBackendSubnet* i pulą *appGatewayBackendPool*. Aby utworzyć zestaw skalowania, użyj polecenia [az vmss create](/cli/azure/vmss#az_vmss_create).
 
 ```azurecli-interactive
 az vmss create \

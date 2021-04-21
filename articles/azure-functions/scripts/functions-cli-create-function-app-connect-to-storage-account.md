@@ -1,17 +1,17 @@
 ---
-title: Tworzenie aplikacji funkcji z podłączonym magazynem — interfejs wiersza polecenia platformy Azure
+title: Tworzenie aplikacji funkcji z połączonym magazynem — interfejs wiersza polecenia platformy Azure
 description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — tworzenie funkcji platformy Azure łączącej się z usługą Azure Storage
 ms.topic: sample
 ms.date: 04/20/2017
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 13120ad4478febf9281ff423a3a7a8f8f3b25845
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 539c3a7dd95045b2e569dbb339be0e5a0c845902
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97934411"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786291"
 ---
-# <a name="create-a-function-app-with-a-named-storage-account-connection"></a>Tworzenie aplikacji funkcji z nazwanym połączeniem konta magazynu 
+# <a name="create-a-function-app-with-a-named-storage-account-connection"></a>Tworzenie aplikacji funkcji z nazwane połączenie konta magazynu 
 
 Ten przykładowy skrypt usługi Azure Functions tworzy aplikację funkcji i łączy funkcję z kontem usługi Azure Storage. Ustawienie utworzonej aplikacji, które zawiera parametry połączenia, może być używane z [wyzwalaczem lub powiązaniem magazynu](../functions-bindings-storage-blob.md). 
 
@@ -19,7 +19,7 @@ Ten przykładowy skrypt usługi Azure Functions tworzy aplikację funkcji i łą
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
- - Ten samouczek wymaga wersji 2,0 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
+ - Ten samouczek wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Jeśli używasz Azure Cloud Shell, najnowsza wersja jest już zainstalowana.
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -35,11 +35,11 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 
 | Polecenie | Uwagi |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Tworzy grupę zasobów w lokalizacji. |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Tworzenie konta magazynu |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Tworzy aplikację funkcji w [planie zużycia](../consumption-plan.md)bezserwerowego. |
-| [AZ Storage account show-Connection-String](/cli/azure/storage/account#az-storage-account-show-connection-string) | Pobiera parametry połączenia dla konta. |
-| [AZ functionapp config AppSettings Set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) | Ustawia parametry połączenia jako ustawienia aplikacji w aplikacji funkcji. |
+| [az group create](/cli/azure/group#az_group_create) | Tworzy grupę zasobów w lokalizacji. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Tworzenie konta magazynu |
+| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | Tworzy aplikację funkcji w bezużyteczny [plan zużycie](../consumption-plan.md). |
+| [az storage account show-connection-string](/cli/azure/storage/account#az_storage_account_show_connection_string) | Pobiera parametry połączenia dla konta. |
+| [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) | Ustawia ciąg połączenia jako ustawienie aplikacji w aplikacji funkcji. |
 
 ## <a name="next-steps"></a>Następne kroki
 

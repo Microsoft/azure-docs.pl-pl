@@ -1,19 +1,19 @@
 ---
-title: Tworzenie aplikacji funkcji przy użyciu wdrożenia GitHub — interfejs wiersza polecenia platformy Azure
+title: Tworzenie aplikacji funkcji przy użyciu wdrożenia usługi GitHub — interfejs wiersza polecenia platformy Azure
 description: Tworzenie aplikacji funkcji i wdrażanie kodu funkcji z repozytorium GitHub przy użyciu usługi Azure Functions.
 ms.date: 07/03/2018
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 219e993ad7132c90de6db680facc9b8f815947cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8abbe30067a488055e59de86372482d99cadaae3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97934394"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786265"
 ---
 # <a name="create-a-function-app-in-azure-that-is-deployed-from-github"></a>Tworzenie aplikacji funkcji wdrażanej z repozytorium GitHub na platformie Azure
 
-Ten Azure Functions przykładowy skrypt tworzy aplikację funkcji przy użyciu [planu zużycia](../consumption-plan.md)wraz z powiązanymi zasobami. Konfiguruje również kod funkcji na potrzeby ciągłego wdrażania z repozytorium GitHub. 
+Ten Azure Functions przykładowy skrypt tworzy aplikację funkcji przy użyciu [planu Zużycie](../consumption-plan.md)wraz z powiązanymi zasobami. Konfiguruje również kod funkcji na potrzeby ciągłego wdrażania z repozytorium GitHub. 
 
 Do pracy z tym przykładem potrzebne są:
 
@@ -24,7 +24,7 @@ Do pracy z tym przykładem potrzebne są:
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
- - Ten samouczek wymaga wersji 2,0 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana. 
+ - Ten samouczek wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Jeśli używasz Azure Cloud Shell, najnowsza wersja jest już zainstalowana. 
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -40,9 +40,9 @@ Każde polecenie w tabeli stanowi link do dokumentacji polecenia. W tym skrypcie
 
 | Polecenie | Uwagi |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Tworzy konto magazynu wymagane przez aplikację funkcji. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Tworzy aplikację funkcji w [planie zużycia](../consumption-plan.md) bezserwerowego i kojarzy ją z repozytorium Git lub Mercurial. |
+| [az group create](/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Tworzy konto magazynu wymagane przez aplikację funkcji. |
+| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | Tworzy aplikację funkcji w bezużyteczny [plan zużycie i](../consumption-plan.md) kojarzy ją z repozytorium Git lub Mercurial. |
 
 ## <a name="next-steps"></a>Następne kroki
 

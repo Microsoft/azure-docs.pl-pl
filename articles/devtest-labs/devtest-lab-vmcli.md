@@ -1,34 +1,34 @@
 ---
-title: Tworzenie maszyn wirtualnych w programie DevTest Labs i zarządzanie nimi przy użyciu interfejsu wiersza polecenia platformy Azure
-description: Dowiedz się, jak używać Azure DevTest Labs do tworzenia maszyn wirtualnych i zarządzania nimi za pomocą interfejsu wiersza polecenia platformy Azure
+title: Tworzenie maszyn wirtualnych i zarządzanie nimi w usłudze DevTest Labs przy użyciu interfejsu wiersza polecenia platformy Azure
+description: Dowiedz się, jak używać usługi Azure DevTest Labs do tworzenia maszyn wirtualnych i zarządzania nimi za pomocą interfejsu wiersza polecenia platformy Azure
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 22ee6bf607fe1b66cece0e7ddb25a2da2830258b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 95e0add8ce14e47c609b1ae951673c261316293f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102201468"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763545"
 ---
-# <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Tworzenie maszyn wirtualnych i zarządzanie nimi za pomocą DevTest Labs przy użyciu interfejsu wiersza polecenia platformy Azure
-Ten przewodnik Szybki Start przeprowadzi Cię przez proces tworzenia, uruchamiania, łączenia, aktualizowania i czyszczenia maszyny deweloperskiej w laboratorium. 
+# <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Tworzenie maszyn wirtualnych i zarządzanie nimi za pomocą usługi DevTest Labs przy użyciu interfejsu wiersza polecenia platformy Azure
+Ten przewodnik Szybki start poprowadzi Cię przez proces tworzenia, uruchamiania, łączenia, aktualizowania i czyszczenia maszyny dewelopera w laboratorium. 
 
 Przed rozpoczęciem:
 
-* Jeśli laboratorium nie zostało utworzone, instrukcje można znaleźć [tutaj](devtest-lab-create-lab.md).
+* Jeśli laboratorium nie zostało utworzone, instrukcje można znaleźć [tutaj.](devtest-lab-create-lab.md)
 
-* [Zainstaluj interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Aby rozpocząć, uruchom polecenie AZ login, aby utworzyć połączenie z platformą Azure. 
+* [Zainstaluj interfejs wiersza polecenia platformy Azure.](/cli/azure/install-azure-cli) Aby rozpocząć, uruchom az login, aby utworzyć połączenie z platformą Azure. 
 
-## <a name="create-and-verify-the-virtual-machine"></a>Utwórz i sprawdź maszynę wirtualną 
-Przed wykonaniem poleceń związanych z usługą DevTest Labs ustaw odpowiedni kontekst platformy Azure przy użyciu `az account set` polecenia:
+## <a name="create-and-verify-the-virtual-machine"></a>Tworzenie i weryfikowanie maszyny wirtualnej 
+Przed wykonaniem poleceń powiązanych z usługą DevTest Labs ustaw odpowiedni kontekst platformy Azure za pomocą `az account set` polecenia :
 
 ```azurecli
 az account set --subscription 11111111-1111-1111-1111-111111111111
 ```
 
-Polecenie do tworzenia maszyny wirtualnej: `az lab vm create` . Wymagana jest Grupa zasobów dla laboratorium, nazwy laboratorium i nazwy maszyny wirtualnej. Pozostałe argumenty zmieniają się w zależności od typu maszyny wirtualnej.
+Polecenie tworzenia maszyny wirtualnej to: `az lab vm create` . Wymagana jest grupa zasobów laboratorium, nazwa laboratorium i nazwa maszyny wirtualnej. Pozostałe argumenty zmieniają się w zależności od typu maszyny wirtualnej.
 
-Poniższe polecenie tworzy obraz oparty na systemie Windows z miejsca na platformie Azure. Nazwa obrazu jest taka sama, jak podczas tworzenia maszyny wirtualnej przy użyciu Azure Portal. 
+Następujące polecenie tworzy obraz oparty na systemie Windows z witryny Azure Market Place. Nazwa obrazu jest taka sama, jak podczas tworzenia maszyny wirtualnej przy użyciu Azure Portal. 
 
 ```azurecli
 az lab vm create --resource-group DtlResourceGroup --lab-name MyLab --name 'MyTestVm' --image "Visual Studio Community 2017 on Windows Server 2016 (x64)" --image-type gallery --size 'Standard_D2s_v3' --admin-username 'AdminUser' --admin-password 'Password1!'
@@ -40,18 +40,18 @@ Następujące polecenie tworzy maszynę wirtualną na podstawie obrazu niestanda
 az lab vm create --resource-group DtlResourceGroup --lab-name MyLab --name 'MyTestVm' --image "My Custom Image" --image-type custom --size 'Standard_D2s_v3' --admin-username 'AdminUser' --admin-password 'Password1!'
 ```
 
-Argument **typu obrazu** został zmieniony z **galerii** na **niestandardowy**. Nazwa obrazu jest zgodna z informacjami wyświetlanymi w przypadku utworzenia maszyny wirtualnej w Azure Portal.
+Argument **typu obrazu został zmieniony** z **galerii** na **niestandardowy**. Nazwa obrazu jest podobna do tej, która zostanie wyświetlony w przypadku utworzenia maszyny wirtualnej w Azure Portal.
 
-Następujące polecenie tworzy maszynę wirtualną na podstawie obrazu z witryny Marketplace z uwierzytelnianiem SSH:
+Następujące polecenie tworzy maszynę wirtualną z obrazu z witryny Marketplace z uwierzytelnianiem SSH:
 
 ```azurecli
 az lab vm create --lab-name sampleLabName --resource-group sampleLabResourceGroup --name sampleVMName --image "Ubuntu Server 16.04 LTS" --image-type gallery --size Standard_DS1_v2 --authentication-type  ssh --generate-ssh-keys --ip-configuration public 
 ```
 
-Można również tworzyć maszyny wirtualne na podstawie formuł, ustawiając parametr **typu obrazu** na **formułę**. Jeśli musisz wybrać konkretną sieć wirtualną dla swojej maszyny wirtualnej, użyj parametrów nazwa sieci **wirtualnej** i **podsieci** . Aby uzyskać więcej informacji, zobacz [AZ Lab VM Create](/cli/azure/lab/vm#az-lab-vm-create).
+Maszyny wirtualne można również tworzyć na podstawie formuł, ustawiając parametr **typu** obrazu na **formułę**. Jeśli musisz wybrać konkretną sieć wirtualną dla maszyny wirtualnej, użyj parametrów **vnet-name** i **subnet.** Aby uzyskać więcej informacji, zobacz [az lab vm create](/cli/azure/lab/vm#az_lab_vm_create).
 
 ## <a name="verify-that-the-vm-is-available"></a>Sprawdź, czy maszyna wirtualna jest dostępna.
-Użyj `az lab vm show` polecenia, aby sprawdzić, czy maszyna wirtualna jest dostępna przed rozpoczęciem i nawiązać z nią połączenia. 
+Użyj polecenia `az lab vm show` , aby sprawdzić, czy maszyna wirtualna jest dostępna, zanim rozpoczniesz i połączysz się z maszyną wirtualną. 
 
 ```azurecli
 az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup --expand 'properties($expand=ComputeVm,NetworkInterface)' --query '{status: computeVm.statuses[0].displayStatus, fqdn: fqdn, ipAddress: networkInterface.publicIpAddress}'
@@ -64,14 +64,14 @@ az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sam
 }
 ```
 
-## <a name="start-and-connect-to-the-virtual-machine"></a>Uruchamianie i nawiązywanie połączenia z maszyną wirtualną
+## <a name="start-and-connect-to-the-virtual-machine"></a>Uruchamianie maszyny wirtualnej i łączenie się z maszyną wirtualną
 Następujące przykładowe polecenie uruchamia maszynę wirtualną:
 
 ```azurecli
 az lab vm start --lab-name sampleLabName --name sampleVMName --resource-group sampleLabResourceGroup
 ```
 
-Połącz się z maszyną wirtualną: [SSH](../virtual-machines/linux/mac-create-ssh-keys.md) lub [pulpit zdalny](../virtual-machines/windows/connect-logon.md).
+Nawiązywanie połączenia z maszyną wirtualną: [SSH](../virtual-machines/linux/mac-create-ssh-keys.md) [lub Pulpit zdalny](../virtual-machines/windows/connect-logon.md).
 ```bash
 ssh userName@ipAddressOrfqdn 
 ```
@@ -117,13 +117,13 @@ az lab vm apply-artifacts --lab-name  sampleLabName --name sampleVMName  --resou
 
 Aby wyświetlić listę artefaktów dostępnych na maszynie wirtualnej w laboratorium, uruchom następujące polecenia.
 
-**Cloud Shell — PowerShell**: Zwróć uwagę na użycie znacznika \` sprzed () przed $ in $expand (tj. "$expand):
+**Cloud Shell — PowerShell:** zwróć uwagę na użycie przycisku backtick ( ) przed wartością $ w $expand \` (tj. "$expand):
 
 ```azurecli-interactive
 az lab vm show --resource-group <resourcegroupname> --lab-name <labname> --name <vmname> --expand "properties(`$expand=artifacts)" --query "artifacts[].{artifactId: artifactId, status: status}"
 ```
 
-**Cloud Shell-bash**: Zwróć uwagę na użycie znaku ukośnika ( \\ ) przed $ w poleceniu. 
+**Cloud Shell — Bash:** zwróć uwagę na użycie znaku ukośnika ( ) przed \\ znakiem $ w poleceniu . 
 
 ```azurecli-interactive
 az lab vm show --resource-group <resourcegroupname> --lab-name <labname> --name <vmname> --expand "properties(\$expand=artifacts)" --query "artifacts[].{artifactId: artifactId, status: status}"
@@ -140,8 +140,8 @@ Przykładowe dane wyjściowe:
 ]
 ```
 
-## <a name="stop-and-delete-the-virtual-machine"></a>Zatrzymaj i Usuń maszynę wirtualną    
-Następujące przykładowe polecenie zatrzyma maszynę wirtualną.
+## <a name="stop-and-delete-the-virtual-machine"></a>Zatrzymywanie i usuwanie maszyny wirtualnej    
+Następujące przykładowe polecenie zatrzymuje maszynę wirtualną.
 
 ```azurecli
 az lab vm stop --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup
@@ -153,4 +153,4 @@ az lab vm delete --lab-name sampleLabName --name sampleVMName --resource-group s
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Zapoznaj się z następującą zawartością: [Dokumentacja interfejsu wiersza polecenia platformy Azure dla Azure DevTest Labs](/cli/azure/lab). 
+Zobacz następującą zawartość: Dokumentacja interfejsu [wiersza polecenia platformy Azure dla Azure DevTest Labs](/cli/azure/lab). 

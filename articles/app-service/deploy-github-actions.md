@@ -1,86 +1,86 @@
 ---
-title: Konfigurowanie ciągłej integracji/ciągłego wdrażania za pomocą akcji GitHub
-description: Dowiedz się, jak wdrożyć kod w celu Azure App Service z potoku ciągłej integracji/ciągłego wdrażania za pomocą akcji GitHub. Dostosuj zadania kompilacji i wykonuj złożone wdrożenia.
+title: Konfigurowanie konfiguracji ci/CD przy użyciu GitHub Actions
+description: Dowiedz się, jak wdrożyć kod w Azure App Service potoku ci/CD za pomocą GitHub Actions. Dostosowywanie zadań kompilacji i wykonywanie złożonych wdrożeń.
 ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 59eb56dd188edf258c3631cde957c0864454ad76
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 1ed2b007ae00516a030e67b7f6abacbd00a8d403
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106582302"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772887"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Wdrażanie w usłudze App Service przy użyciu funkcji GitHub Actions
 
-Rozpocznij pracę z [akcjami usługi GitHub](https://docs.github.com/en/actions/learn-github-actions) , aby zautomatyzować przepływ pracy i wdrożyć go w [Azure App Service](overview.md) z usługi GitHub. 
+Rozpoczynanie pracy z [GitHub Actions](https://docs.github.com/en/actions/learn-github-actions) w celu zautomatyzowania przepływu pracy i wdrożenia w Azure App Service [z](overview.md) usługi GitHub. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Konto usługi GitHub. Jeśli nie masz takiego konta, zarejestruj się [bezpłatnie](https://github.com/join).  
-- Działająca aplikacja Azure App Service. 
-    - .NET: [Tworzenie aplikacji internetowej ASP.NET Core na platformie Azure](quickstart-dotnetcore.md)
-    - ASP.NET: [Tworzenie aplikacji sieci Web platformy ASP.NET Framework na platformie Azure](quickstart-dotnet-framework.md)
-    - JavaScript: [Tworzenie aplikacji internetowej Node.js w programie Azure App Service](quickstart-nodejs.md)  
-    - Java: [Tworzenie aplikacji Java na Azure App Service](quickstart-java.md)
-    - Python: [Tworzenie aplikacji w języku Python w Azure App Service](quickstart-python.md)
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Konto usługi GitHub. Jeśli go nie masz, zarejestruj się [bezpłatnie.](https://github.com/join)  
+- Działa Azure App Service aplikacji. 
+    - .NET: [tworzenie aplikacji ASP.NET Core na platformie Azure](quickstart-dotnetcore.md)
+    - ASP.NET: [tworzenie aplikacji internetowej ASP.NET Framework na platformie Azure](quickstart-dotnet-framework.md)
+    - JavaScript: [tworzenie Node.js internetowej w Azure App Service](quickstart-nodejs.md)  
+    - Java: [tworzenie aplikacji Java na platformie Azure App Service](quickstart-java.md)
+    - Python: [tworzenie aplikacji w języku Python w języku Azure App Service](quickstart-python.md)
 
 ## <a name="workflow-file-overview"></a>Omówienie pliku przepływu pracy
 
-Przepływ pracy jest definiowany przez plik YAML (. yml) w `/.github/workflows/` ścieżce w repozytorium. Ta definicja zawiera różne kroki i parametry wchodzące w skład przepływu pracy.
+Przepływ pracy jest definiowany przez plik YAML (yml) w `/.github/workflows/` ścieżce w repozytorium. Ta definicja zawiera różne kroki i parametry, które składa się na przepływ pracy.
 
-Plik ma trzy sekcje:
+Plik zawiera trzy sekcje:
 
 |Sekcja  |Zadania  |
 |---------|---------|
-|**Authentication** | 1. Zdefiniuj nazwę główną usługi lub profil publikacji. <br /> 2. Utwórz wpis tajny usługi GitHub. |
-|**Kompilacja** | 1. Skonfiguruj środowisko. <br /> 2. skompiluj aplikację sieci Web. |
-|**Wdrażanie** | 1. Wdróż aplikację internetową. |
+|**Authentication** | 1. Zdefiniuj jednostkę usługi lub profil publikowania. <br /> 2. Utwórz klucz tajny usługi GitHub. |
+|**Kompilacja** | 1. Skonfiguruj środowisko. <br /> 2. Skompilowanie aplikacji internetowej. |
+|**Wdrażanie** | 1. Wdrażanie aplikacji internetowej. |
 
-## <a name="use-the-deployment-center"></a>Korzystanie z centrum wdrażania
+## <a name="use-the-deployment-center"></a>Korzystanie z Centrum wdrażania
 
-Możesz szybko rozpocząć pracę z akcjami usługi GitHub za pomocą centrum wdrażania App Service. Spowoduje to automatyczne wygenerowanie pliku przepływu pracy na podstawie stosu aplikacji i zatwierdzenie go do repozytorium GitHub w prawidłowym katalogu.
+Możesz szybko rozpocząć pracę z GitHub Actions przy użyciu centrum App Service wdrażania. Spowoduje to automatyczne wygenerowanie pliku przepływu pracy na podstawie stosu aplikacji i zatwierdzenie go w repozytorium GitHub w prawidłowym katalogu.
 
-1. Przejdź do webapp w Azure Portal
-1. Po lewej stronie kliknij pozycję **centrum wdrażania** .
-1. W obszarze **ciągłe wdrażanie (Ci/CD)** wybierz pozycję **GitHub**
-1. Następnie wybierz pozycję **Akcje GitHub**
-1. Użyj listy rozwijanej, aby wybrać repozytorium GitHub, gałąź i stos aplikacji
-    - Jeśli wybrana gałąź jest chroniona, nadal możesz dodać plik przepływu pracy. Przed kontynuowaniem należy zapoznać się z ochroną oddziałów.
-1. Na ekranie końcowym można przejrzeć wybrane opcje i wyświetlić podgląd pliku przepływu pracy, który zostanie przekazany do repozytorium. Jeśli wybrane opcje są poprawne, kliknij przycisk **Zakończ** .
+1. Przejdź do aplikacji internetowej w Azure Portal
+1. Po lewej stronie kliknij pozycję **Centrum wdrażania.**
+1. W **obszarze Ciągłe wdrażanie (CI/CD)** wybierz pozycję **GitHub**
+1. Następnie wybierz pozycję **GitHub Actions**
+1. Użyj listy rozwijanej, aby wybrać repozytorium, gałąź i stos aplikacji GitHub
+    - Jeśli wybrana gałąź jest chroniona, nadal można dodać plik przepływu pracy. Przed kontynuowaniem zapoznaj się z zabezpieczeniami gałęzi.
+1. Na ekranie końcowym możesz przejrzeć wybrane opcje i wyświetlić podgląd pliku przepływu pracy, który zostanie zatwierdzone w repozytorium. Jeśli wybrane opcje są poprawne, kliknij przycisk **Zakończ.**
 
-Spowoduje to zatwierdzenie pliku przepływu pracy do repozytorium. Przepływ pracy do kompilowania i wdrażania aplikacji rozpocznie się natychmiast.
+Spowoduje to zatwierdzenie pliku przepływu pracy w repozytorium. Przepływ pracy tworzenia i wdrażania aplikacji rozpocznie się natychmiast.
 
 ## <a name="set-up-a-workflow-manually"></a>Ręczne konfigurowanie przepływu pracy
 
-Możesz również wdrożyć przepływ pracy bez korzystania z centrum wdrażania. W tym celu należy najpierw wygenerować poświadczenia wdrożenia. 
+Możesz również wdrożyć przepływ pracy bez korzystania z Centrum wdrażania. W tym celu należy najpierw wygenerować poświadczenia wdrożenia. 
 
-## <a name="generate-deployment-credentials"></a>Generuj poświadczenia wdrożenia
+## <a name="generate-deployment-credentials"></a>Generowanie poświadczeń wdrożenia
 
-Zalecanym sposobem uwierzytelniania przy użyciu usługi Azure App Services na potrzeby akcji GitHub jest profil publikowania. Można także uwierzytelnić się za pomocą nazwy głównej usługi, ale proces wymaga większej liczby kroków. 
+Zalecanym sposobem uwierzytelniania w usłudze Azure App Services for GitHub Actions jest użycie profilu publikowania. Można również uwierzytelnić się za pomocą jednostki usługi, ale proces wymaga więcej kroków. 
 
-Zapisz poświadczenia profilu publikowania lub nazwę główną usługi jako [wpis tajny serwisu GitHub](https://docs.github.com/en/actions/reference/encrypted-secrets) , aby uwierzytelnić się na platformie Azure. Będziesz uzyskiwać dostęp do wpisu tajnego w ramach przepływu pracy. 
+Zapisz poświadczenia profilu publikowania lub jednostkę usługi jako klucz tajny [usługi GitHub do](https://docs.github.com/en/actions/reference/encrypted-secrets) uwierzytelniania na platformie Azure. Będziesz mieć dostęp do tego tajnego w przepływie pracy. 
 
-# <a name="publish-profile"></a>[Publikuj profil](#tab/applevel)
+# <a name="publish-profile"></a>[Profil publikowania](#tab/applevel)
 
-Profil publikowania to poświadczenie na poziomie aplikacji. Skonfiguruj swój profil publikowania jako wpis tajny usługi GitHub. 
+Profil publikowania to poświadczenie na poziomie aplikacji. Skonfiguruj profil publikowania jako klucz tajny usługi GitHub. 
 
 1. Przejdź do usługi App Service w Azure Portal. 
 
-1. Na stronie **Przegląd** wybierz pozycję **Pobierz profil publikowania**.
+1. Na stronie **Przegląd** wybierz pozycję **Pobierz profil publikowania.**
 
-1. Zapisz pobrany plik. Zawartość pliku zostanie użyta do utworzenia wpisu tajnego usługi GitHub.
+1. Zapisz pobrany plik. Za pomocą zawartości pliku utworzysz klucz tajny usługi GitHub.
 
 > [!NOTE]
-> Od 2020 października aplikacje sieci Web dla systemu Linux będą potrzebować ustawienia aplikacji `WEBSITE_WEBDEPLOY_USE_SCM` ustawionego na `true` **przed pobraniem profilu publikowania**. To wymaganie zostanie usunięte w przyszłości.
+> Od października 2020 r. aplikacje internetowe systemu Linux będą potrzebować ustawienia aplikacji ustawionego na `WEBSITE_WEBDEPLOY_USE_SCM` przed `true` **pobraniem profilu publikowania.** To wymaganie zostanie usunięte w przyszłości.
 
 # <a name="service-principal"></a>[Jednostka usługi](#tab/userlevel)
 
-Za pomocą polecenia [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) można utworzyć jednostkę [usługi](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) [.](/cli/azure/) Uruchom to polecenie z [Azure Cloud Shell](https://shell.azure.com/) w Azure Portal lub wybierając przycisk **Wypróbuj** .
+Jednostkę usługi można utworzyć [za](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) pomocą polecenia [az ad sp create-for-rbac w](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) interfejsie wiersza polecenia platformy [Azure.](/cli/azure/) Uruchom to [polecenie, Azure Cloud Shell](https://shell.azure.com/) w Azure Portal lub wybierając **przycisk Wypróbuj.**
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
@@ -88,7 +88,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor \
                             --sdk-auth
 ```
 
-W powyższym przykładzie Zastąp symbole zastępcze IDENTYFIKATORem subskrypcji, nazwą grupy zasobów i nazwą aplikacji. Dane wyjściowe są obiektem JSON z poświadczeniami przypisywania roli, które zapewniają dostęp do aplikacji App Service podobnej do poniższego. Skopiuj ten obiekt JSON do nowszej wersji.
+W powyższym przykładzie zastąp symbole zastępcze identyfikatorem subskrypcji, nazwą grupy zasobów i nazwą aplikacji. Dane wyjściowe to obiekt JSON z poświadczeniami przypisania roli, które zapewniają dostęp do aplikacji App Service podobnej do poniższej. Skopiuj ten obiekt JSON do późniejszego przetwarzania.
 
 ```output 
   {
@@ -101,20 +101,20 @@ W powyższym przykładzie Zastąp symbole zastępcze IDENTYFIKATORem subskrypcji
 ```
 
 > [!IMPORTANT]
-> Zawsze dobrym sposobem jest przyznanie minimalnego dostępu. Zakres w poprzednim przykładzie jest ograniczony do konkretnej aplikacji App Service, a nie całej grupy zasobów.
+> Zawsze dobrym rozwiązaniem jest przyznanie minimalnego dostępu. Zakres w poprzednim przykładzie jest ograniczony do określonej App Service, a nie całej grupy zasobów.
 
 ---
 
-## <a name="configure-the-github-secret"></a>Konfigurowanie wpisu tajnego usługi GitHub
+## <a name="configure-the-github-secret"></a>Konfigurowanie tajnego repozytorium GitHub
 
 
-# <a name="publish-profile"></a>[Publikuj profil](#tab/applevel)
+# <a name="publish-profile"></a>[Publikowanie profilu](#tab/applevel)
 
-W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium, wybierz pozycję **Ustawienia > wpisy tajne > Dodaj nowe hasło**.
+W [witrynie GitHub](https://github.com/)przejrzyj repozytorium i wybierz pozycję Ustawienia > wpisy tajne **> Dodaj nowy wpis tajny.**
 
-Aby użyć [poświadczeń na poziomie aplikacji](#generate-deployment-credentials), wklej zawartość pobranego pliku profilu publikowania w polu wartość klucza tajnego. Nazwij klucz tajny `AZURE_WEBAPP_PUBLISH_PROFILE` .
+Aby użyć [poświadczeń na](#generate-deployment-credentials)poziomie aplikacji, wklej zawartość pobranego pliku profilu publikowania w polu wartości tego tajnego. Nadaj kluczowi tajnego nazwę `AZURE_WEBAPP_PUBLISH_PROFILE` .
 
-Podczas konfigurowania przepływu pracy w usłudze GitHub należy użyć `AZURE_WEBAPP_PUBLISH_PROFILE` akcji w obszarze Wdróż aplikację sieci Web platformy Azure. Na przykład:
+Podczas konfigurowania przepływu pracy usługi GitHub użyj polecenia `AZURE_WEBAPP_PUBLISH_PROFILE` w akcji Deploy Azure Web App (Wdrażanie aplikacji internetowej platformy Azure). Na przykład:
     
 ```yaml
 - uses: azure/webapps-deploy@v2
@@ -124,11 +124,11 @@ Podczas konfigurowania przepływu pracy w usłudze GitHub należy użyć `AZURE_
 
 # <a name="service-principal"></a>[Jednostka usługi](#tab/userlevel)
 
-W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium, wybierz pozycję **Ustawienia > wpisy tajne > Dodaj nowe hasło**.
+W [witrynie GitHub](https://github.com/)przejrzyj repozytorium i wybierz pozycję Ustawienia > wpisy tajne **> Dodaj nowy wpis tajny.**
 
-Aby użyć [poświadczeń na poziomie użytkownika](#generate-deployment-credentials), Wklej wszystkie dane wyjściowe JSON z polecenia platformy Azure w polu wartość klucza tajnego. Podaj klucz tajny jako nazwę `AZURE_CREDENTIALS` .
+Aby użyć [poświadczeń na poziomie użytkownika,](#generate-deployment-credentials)wklej całe dane wyjściowe JSON z polecenia interfejsu wiersza polecenia platformy Azure do pola wartości tego tajnego. Nadaj kluczowi tajnego nazwę `AZURE_CREDENTIALS` .
 
-Podczas późniejszej konfiguracji pliku przepływu pracy należy użyć wpisu tajnego dla danych wejściowych `creds` akcji logowania platformy Azure. Na przykład:
+Podczas późniejszego konfigurowania pliku przepływu pracy użyjesz tajnego identyfikatora wejściowego dla danych `creds` wejściowych akcji logowania platformy Azure. Na przykład:
 
 ```yaml
 - uses: azure/login@v1
@@ -140,9 +140,9 @@ Podczas późniejszej konfiguracji pliku przepływu pracy należy użyć wpisu t
 
 ## <a name="set-up-the-environment"></a>Konfigurowanie środowiska
 
-Konfigurowanie środowiska można wykonać przy użyciu jednej z akcji instalacji.
+Konfigurowanie środowiska można wykonać przy użyciu jednej z akcji konfiguracji.
 
-|**Język**  |**Akcja konfiguracji**  |
+|**Język**  |**Akcja instalacji**  |
 |---------|---------|
 |**.NET**     | `actions/setup-dotnet` |
 |**ASP.NET**     | `actions/setup-dotnet` |
@@ -150,7 +150,7 @@ Konfigurowanie środowiska można wykonać przy użyciu jednej z akcji instalacj
 |**JavaScript** | `actions/setup-node` |
 |**Python**     | `actions/setup-python` |
 
-W poniższych przykładach pokazano, jak skonfigurować środowisko dla różnych obsługiwanych języków:
+Poniższe przykłady pokazują, jak skonfigurować środowisko dla różnych obsługiwanych języków:
 
 **.NET**
 
@@ -207,17 +207,17 @@ jobs:
         python-version: 3.x
 ```
 
-## <a name="build-the-web-app"></a>Kompilowanie aplikacji sieci Web
+## <a name="build-the-web-app"></a>Tworzenie aplikacji internetowej
 
-Proces tworzenia aplikacji sieci Web i wdrażania jej w celu Azure App Service zmian w zależności od języka. 
+Proces budowania aplikacji internetowej i wdrażania jej w Azure App Service się w zależności od języka. 
 
-W poniższych przykładach przedstawiono część przepływu pracy, który kompiluje aplikację sieci Web, w różnych obsługiwanych językach.
+W poniższych przykładach przedstawiono część przepływu pracy, która tworzy aplikację internetową, w różnych obsługiwanych językach.
 
-Dla wszystkich języków można ustawić katalog główny aplikacji sieci Web za pomocą `working-directory` . 
+Dla wszystkich języków katalog główny aplikacji internetowej można ustawić za `working-directory` pomocą . 
 
 **.NET**
 
-Zmienna środowiskowa `AZURE_WEBAPP_PACKAGE_PATH` ustawia ścieżkę do projektu aplikacji sieci Web. 
+Zmienna `AZURE_WEBAPP_PACKAGE_PATH` środowiskowa ustawia ścieżkę do projektu aplikacji internetowej. 
 
 ```yaml
 - name: dotnet build and publish
@@ -228,7 +228,7 @@ Zmienna środowiskowa `AZURE_WEBAPP_PACKAGE_PATH` ustawia ścieżkę do projektu
 ```
 **ASP.NET**
 
-Można przywrócić zależności NuGet i uruchomić MSBuild z `run` . 
+Możesz przywrócić zależności NuGet i uruchomić msbuild za pomocą programu `run` . 
 
 ```yaml
 - name: NuGet to restore dependencies as well as project-specific tools that are specified in the project file
@@ -250,7 +250,7 @@ Można przywrócić zależności NuGet i uruchomić MSBuild z `run` .
 
 **JavaScript**
 
-W przypadku Node.js można ustawić `working-directory` lub zmienić dla katalogu npm w `pushd` . 
+Na Node.js można ustawić lub `working-directory` zmienić katalog npm w katalogu `pushd` . 
 
 ```yaml
 - name: npm install, build, and test
@@ -273,21 +273,21 @@ W przypadku Node.js można ustawić `working-directory` lub zmienić dla katalog
 
 ## <a name="deploy-to-app-service"></a>Wdrażanie w usłudze App Service
 
-Aby wdrożyć kod w aplikacji App Service, użyj `azure/webapps-deploy@v2` akcji. Ta akcja ma cztery parametry:
+Aby wdrożyć kod w App Service aplikacji, użyj `azure/webapps-deploy@v2` akcji . Ta akcja ma cztery parametry:
 
 | **Parametr**  | **Wyjaśnienie**  |
 |---------|---------|
-| **Nazwa aplikacji** | Potrzeb Nazwa aplikacji App Service | 
-| **Publikuj — profil** | Obowiązkowe Publikuj zawartość pliku profilu za pomocą wpisów tajnych Web Deploy |
-| **Package** | Obowiązkowe Ścieżka do pakietu lub folderu. Ścieżka może zawierać plik *. zip, *. War, *. jar lub folder do wdrożenia |
-| **Nazwa gniazda** | Obowiązkowe Wprowadź istniejące miejsce poza [miejscem](deploy-staging-slots.md) produkcyjnym |
+| **nazwa aplikacji** | (Wymagane) Nazwa aplikacji App Service aplikacji | 
+| **publish-profile** | (Opcjonalnie) Publikowanie zawartości pliku profilu przy użyciu Web Deploy tajnych |
+| **Pakiet** | (Opcjonalnie) Ścieżka do pakietu lub folderu. Ścieżka może zawierać pliki *.zip, *.war, *.jar lub folder do wdrożenia |
+| **nazwa miejsca** | (Opcjonalnie) Wprowadź istniejące miejsce inne niż miejsce [produkcyjne](deploy-staging-slots.md) |
 
 
-# <a name="publish-profile"></a>[Publikuj profil](#tab/applevel)
+# <a name="publish-profile"></a>[Profil publikowania](#tab/applevel)
 
 ### <a name="net-core"></a>.NET Core
 
-Kompilowanie i wdrażanie aplikacji .NET Core na platformie Azure przy użyciu profilu publikowania platformy Azure. `publish-profile`Dane wejściowe odwołują się do `AZURE_WEBAPP_PUBLISH_PROFILE` wpisu tajnego, który został utworzony wcześniej.
+Tworzenie i wdrażanie aplikacji platformy .NET Core na platformie Azure przy użyciu profilu publikowania platformy Azure. Dane `publish-profile` wejściowe odwołuje się do `AZURE_WEBAPP_PUBLISH_PROFILE` utworzonego wcześniej tajnego.
 
 ```yaml
 name: .NET Core CI
@@ -331,7 +331,7 @@ jobs:
 
 ### <a name="aspnet"></a>ASP.NET
 
-Kompilowanie i wdrażanie aplikacji ASP.NET MVC korzystającej z NuGet i `publish-profile` uwierzytelniania. 
+Skompilowanie i wdrożenie aplikacji ASP.NET MVC, która używa programu NuGet i `publish-profile` do uwierzytelniania. 
 
 
 ```yaml
@@ -374,7 +374,7 @@ jobs:
 
 ### <a name="java"></a>Java
 
-Kompiluj i Wdrażaj aplikację ze sprężyną Java na platformie Azure przy użyciu profilu publikowania platformy Azure. `publish-profile`Dane wejściowe odwołują się do `AZURE_WEBAPP_PUBLISH_PROFILE` wpisu tajnego, który został utworzony wcześniej.
+Tworzenie i wdrażanie aplikacji Java Spring na platformie Azure przy użyciu profilu publikowania platformy Azure. Dane `publish-profile` wejściowe odwołuje się do `AZURE_WEBAPP_PUBLISH_PROFILE` utworzonego wcześniej tajnego.
 
 ```yaml
 name: Java CI with Maven
@@ -403,7 +403,7 @@ jobs:
         package: my/target/*.jar
 ```
 
-Aby wdrożyć a `war` zamiast `jar` , należy zmienić `package` wartość. 
+Aby wdrożyć `war` zamiast , zmień wartość `jar` `package` . 
 
 
 ```yaml
@@ -417,7 +417,7 @@ Aby wdrożyć a `war` zamiast `jar` , należy zmienić `package` wartość.
 
 ### <a name="javascript"></a>JavaScript 
 
-Kompilowanie i wdrażanie aplikacji Node.js na platformie Azure przy użyciu profilu publikowania aplikacji. `publish-profile`Dane wejściowe odwołują się do `AZURE_WEBAPP_PUBLISH_PROFILE` wpisu tajnego, który został utworzony wcześniej.
+Skompilowanie i Node.js aplikacji na platformie Azure przy użyciu profilu publikowania aplikacji. Dane `publish-profile` wejściowe odwołuje się do `AZURE_WEBAPP_PUBLISH_PROFILE` utworzonego wcześniej tajnego.
 
 ```yaml
 # File: .github/workflows/workflow.yml
@@ -458,7 +458,7 @@ jobs:
 
 ### <a name="python"></a>Python 
 
-Kompiluj i Wdrażaj aplikację w języku Python na platformie Azure przy użyciu profilu publikowania aplikacji. Zwróć uwagę na to, jak `publish-profile` dane wejściowe odwołują się do `AZURE_WEBAPP_PUBLISH_PROFILE` wpisu tajnego, który został utworzony wcześniej.
+Skompilowanie i wdrożenie aplikacji w języku Python na platformie Azure przy użyciu profilu publikowania aplikacji. Zwróć uwagę, jak `publish-profile` dane wejściowe odwołuje się do `AZURE_WEBAPP_PUBLISH_PROFILE` utworzonego wcześniej tajnego.
 
 ```yaml
 name: Python CI
@@ -497,7 +497,7 @@ jobs:
 
 ### <a name="net-core"></a>.NET Core 
 
-Kompilowanie i wdrażanie aplikacji .NET Core na platformie Azure przy użyciu jednostki usługi platformy Azure. Zwróć uwagę na to, jak `creds` dane wejściowe odwołują się do `AZURE_CREDENTIALS` wpisu tajnego, który został utworzony wcześniej.
+Kompilowanie i wdrażanie aplikacji platformy .NET Core na platformie Azure przy użyciu jednostki usługi platformy Azure. Zwróć uwagę, jak `creds` dane wejściowe odwołuje się do `AZURE_CREDENTIALS` utworzonego wcześniej tajnego.
 
 
 ```yaml
@@ -549,7 +549,7 @@ jobs:
 
 ### <a name="aspnet"></a>ASP.NET
 
-Kompiluj i Wdróż aplikację ASP.NET MVC na platformie Azure przy użyciu nazwy głównej usługi platformy Azure. Zwróć uwagę na to, jak `creds` dane wejściowe odwołują się do `AZURE_CREDENTIALS` wpisu tajnego, który został utworzony wcześniej.
+Kompilowanie i wdrażanie aplikacji ASP.NET MVC na platformie Azure przy użyciu jednostki usługi platformy Azure. Zwróć uwagę, jak `creds` dane wejściowe odwołuje się do `AZURE_CREDENTIALS` utworzonego wcześniej tajnego.
 
 ```yaml
 name: Deploy ASP.NET MVC App deploy to Azure Web App
@@ -600,7 +600,7 @@ jobs:
 
 ### <a name="java"></a>Java 
 
-Kompiluj i Wdrażaj aplikację ze sprężyną Java na platformie Azure przy użyciu nazwy głównej usługi platformy Azure. Zwróć uwagę na to, jak `creds` dane wejściowe odwołują się do `AZURE_CREDENTIALS` wpisu tajnego, który został utworzony wcześniej.
+Kompilowanie i wdrażanie aplikacji Java Spring na platformie Azure przy użyciu jednostki usługi platformy Azure. Zwróć uwagę, jak `creds` dane wejściowe odwołuje się do `AZURE_CREDENTIALS` utworzonego wcześniej tajnego.
 
 ```yaml
 name: Java CI with Maven
@@ -638,7 +638,7 @@ jobs:
 
 ### <a name="javascript"></a>JavaScript 
 
-Kompilowanie i wdrażanie aplikacji Node.js na platformie Azure przy użyciu nazwy głównej usługi platformy Azure. Zwróć uwagę na to, jak `creds` dane wejściowe odwołują się do `AZURE_CREDENTIALS` wpisu tajnego, który został utworzony wcześniej.
+Kompilowanie i wdrażanie aplikacji Node.js na platformie Azure przy użyciu jednostki usługi platformy Azure. Zwróć uwagę, jak `creds` dane wejściowe odwołuje się do `AZURE_CREDENTIALS` utworzonego wcześniej tajnego.
 
 ```yaml
 name: JavaScript CI
@@ -689,7 +689,7 @@ jobs:
 
 ### <a name="python"></a>Python 
 
-Kompiluj i Wdrażaj aplikację w języku Python na platformie Azure przy użyciu nazwy głównej usługi platformy Azure. Zwróć uwagę na to, jak `creds` dane wejściowe odwołują się do `AZURE_CREDENTIALS` wpisu tajnego, który został utworzony wcześniej.
+Kompilowanie i wdrażanie aplikacji w języku Python na platformie Azure przy użyciu jednostki usługi platformy Azure. Zwróć uwagę, jak `creds` dane wejściowe odwołuje się do `AZURE_CREDENTIALS` utworzonego wcześniej tajnego.
 
 ```yaml
 name: Python application
@@ -734,7 +734,7 @@ jobs:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zestaw akcji można znaleźć w różnych repozytoriach w usłudze GitHub, z których każda zawiera dokumentację i przykłady ułatwiające korzystanie z usługi GitHub w przypadku ciągłej integracji/ciągłego wdrażania oraz wdrażanie aplikacji na platformie Azure.
+Nasz zestaw akcji pogrupowany w różne repozytoria można znaleźć w witrynie GitHub. Każde z nich zawiera dokumentację i przykłady, które ułatwiają korzystanie z usługi GitHub na użytek funkcji ci/CD i wdrażanie aplikacji na platformie Azure.
 
 - [Przepływy pracy akcji do wdrożenia na platformie Azure](https://github.com/Azure/actions-workflow-samples)
 
@@ -744,10 +744,10 @@ Zestaw akcji można znaleźć w różnych repozytoriach w usłudze GitHub, z kt�
 
 - [Usługa Azure WebApp dla kontenerów](https://github.com/Azure/webapps-container-deploy)
 
-- [Logowanie/wylogowywanie platformy Docker](https://github.com/Azure/docker-login)
+- [Logowanie/wyloguj się z platformy Docker](https://github.com/Azure/docker-login)
 
 - [Zdarzenia wyzwalające przepływy pracy](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)
 
-- [K8s wdrażanie](https://github.com/Azure/k8s-deploy)
+- [Wdrażanie k8s](https://github.com/Azure/k8s-deploy)
 
 - [Początkowe przepływy pracy](https://github.com/actions/starter-workflows)

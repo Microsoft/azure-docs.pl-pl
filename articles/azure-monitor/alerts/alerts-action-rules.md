@@ -1,18 +1,18 @@
 ---
-title: Reguły akcji dla alertów Azure Monitor
-description: Informacje o regułach akcji w Azure Monitor są i sposobami ich konfigurowania i zarządzania nimi.
+title: Reguły akcji dla Azure Monitor alertów
+description: Poznanie reguł akcji w Azure Monitor oraz sposobu ich konfigurowania i zarządzania nimi.
 ms.topic: conceptual
 ms.date: 04/08/2021
-ms.openlocfilehash: df71883d04106dd341af4571c13cc55f35a1ecc3
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 4f54ee7d21d52386bd18921aec33cabe02046852
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304821"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772563"
 ---
 # <a name="action-rules-preview"></a>Reguły akcji (wersja zapoznawcza)
 
-Reguły akcji umożliwiają dodawanie lub pomijanie grup akcji w wywołanych alertach. Pojedyncza reguła może obejmować różne zakresy zasobów docelowych, na przykład alerty dotyczące określonego zasobu (takie jak określona maszyna wirtualna) lub alertów wyzwalanych na dowolnym zasobie w ramach subskrypcji. Opcjonalnie można dodać różne filtry w celu kontrolowania, które alerty są objęte regułą, i zdefiniować dla niego harmonogram, na przykład ma on obowiązywać tylko poza godzinami pracy lub podczas planowanego okna obsługi.
+Reguły akcji umożliwiają dodawanie lub pomijanie grup akcji w wyzwłaszanych alertach. Pojedyncza reguła może obejmować różne zakresy zasobów docelowych, na przykład wszystkie alerty dotyczące określonego zasobu (na przykład określonej maszyny wirtualnej) lub alerty wyzłoszone dla dowolnego zasobu w subskrypcji. Opcjonalnie możesz dodać różne filtry, aby kontrolować, które alerty są objęte regułą, i zdefiniować dla nich harmonogram, na przykład aby obowiązywał tylko poza godzinami pracy lub w trakcie planowanego okna obsługi.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rBZ2]
 
@@ -20,138 +20,138 @@ Reguły akcji umożliwiają dodawanie lub pomijanie grup akcji w wywołanych ale
 
 ### <a name="suppression-of-alerts"></a>Pomijanie alertów
 
-Istnieje wiele scenariuszy, w których warto pominąć powiadomienia generowane przez alerty. Te scenariusze przedziały od pomijania podczas planowanego okna obsługi do pomijania w godzinach poza godzinami pracy. Na przykład zespół odpowiedzialny za  **ContosoVM** chce pominąć powiadomienia o alertach dla nadchodzącego weekendu, ponieważ **ContosoVM** jest w trakcie planowanej konserwacji.
+Istnieje wiele scenariuszy, w których warto pominąć powiadomienia generowane przez alerty. Te scenariusze obejmują od pomijania podczas planowanego okna obsługi do pomijania poza godzinami pracy. Na przykład zespół odpowiedzialny za maszyny **ContosoVM** chce pominąć powiadomienia o alertach dotyczące nadchodzącego weekendu, ponieważ trwa planowana konserwacja maszyny **ContosoVM.**
 
-Mimo że zespół może wyłączyć każdą regułę alertu, która została skonfigurowana w **ContosoVM** ręcznie (i włączyć ją ponownie po konserwacji), nie jest to prosty proces. Reguły akcji ułatwiają Definiowanie pomijania alertów na dużą skalę dzięki możliwości elastycznego konfigurowania okresu pomijania. W poprzednim przykładzie zespół może zdefiniować jedną regułę akcji w programie **ContosoVM** , która pomija wszystkie powiadomienia o alertach dla weekendu.
+Mimo że zespół może wyłączyć każdą regułę alertu skonfigurowaną ręcznie na maszyny **ContosoVM** (i włączyć ją ponownie po konserwacji), nie jest to prosty proces. Reguły akcji ułatwiają definiowanie pomijania alertów na dużą skalę z możliwością elastycznego konfigurowania okresu pomijania. W poprzednim przykładzie zespół może zdefiniować jedną regułę akcji na **contosovm,** która pomija wszystkie powiadomienia o alertach dla weekendu.
 
-### <a name="actions-at-scale"></a>Akcje w skali
+### <a name="actions-at-scale"></a>Akcje na dużą skalę
 
-Chociaż reguły alertów ułatwiają zdefiniowanie grupy akcji, która jest wyzwalana po wygenerowaniu alertu, klienci często mają wspólną grupę akcji w zakresie operacji. Na przykład zespół odpowiedzialny za grupę zasobów **ContosoRG** prawdopodobnie określi tę samą grupę akcji dla wszystkich reguł alertów zdefiniowanych w ramach **ContosoRG**.
+Mimo że reguły alertów ułatwiają definiowanie grupy akcji wyzwalanej po wygenerowaniu alertu, klienci często mają wspólną grupę akcji w zakresie operacji. Na przykład zespół odpowiedzialny za grupę zasobów **ContosoRG** prawdopodobnie zdefiniuje tę samą grupę akcji dla wszystkich reguł alertów zdefiniowanych w grupie **ContosoRG**.
 
-Reguły akcji ułatwiają uproszczenie tego procesu. Definiując akcje w skali, można wyzwolić grupę akcji dla dowolnego alertu, który jest generowany w skonfigurowanym zakresie. W poprzednim przykładzie zespół może zdefiniować jedną regułę akcji w programie **ContosoRG** , która będzie wyzwalać tę samą grupę akcji dla wszystkich alertów wygenerowanych w ramach tego elementu.
+Reguły akcji ułatwiają ten proces. Definiując akcje na dużą skalę, można wyzwolić grupę akcji dla dowolnego alertu wygenerowanego w skonfigurowanym zakresie. W poprzednim przykładzie zespół może zdefiniować jedną regułę akcji dla grupy **ContosoRG,** która wyzwoli tę samą grupę akcji dla wszystkich wygenerowanych w niej alertów.
 
 > [!NOTE]
-> Reguły akcji nie dotyczą alertów Azure Service Health.
+> Reguły akcji nie mają zastosowania do Azure Service Health alertów.
 
 ## <a name="configuring-an-action-rule"></a>Konfigurowanie reguły akcji
 
 ### <a name="portal"></a>[Portal](#tab/portal)
 
-Dostęp do tej funkcji można uzyskać, wybierając pozycję **Zarządzaj akcjami** na stronie miejsce docelowe **alertów** w Azure monitor. Następnie wybierz pozycję **reguły akcji (wersja zapoznawcza)**. Możesz uzyskać dostęp do reguł, wybierając pozycję **reguły akcji (wersja zapoznawcza)** z poziomu pulpitu nawigacyjnego na stronie docelowej dla alertów.
+Dostęp do tej funkcji można uzyskać, wybierając pozycję **Zarządzaj akcjami** na stronie docelowej **Alerty** w Azure Monitor. Następnie wybierz pozycję **Reguły akcji (wersja zapoznawcza).** Dostęp do reguł można uzyskać, wybierając pozycję **Reguły akcji (wersja zapoznawcza)** na pulpicie nawigacyjnym strony docelowej dla alertów.
 
-![Reguły akcji ze strony docelowej Azure Monitor](media/alerts-action-rules/action-rules-landing-page.png)
+![Reguły akcji ze strony Azure Monitor docelowej](media/alerts-action-rules/action-rules-landing-page.png)
 
-Wybierz pozycję **+ Nowa reguła akcji**.
+Wybierz **pozycję + Nowa reguła akcji.**
 
 ![Zrzut ekranu przedstawia stronę Zarządzanie akcjami z wyróżnionym przyciskiem Nowa reguła akcji.](media/alerts-action-rules/action-rules-new-rule.png)
 
 Alternatywnie można utworzyć regułę akcji podczas konfigurowania reguły alertu.
 
-![Zrzut ekranu przedstawia stronę Tworzenie reguły z wyróżnionym przyciskiem Utwórz regułę akcji.](media/alerts-action-rules/action-rules-alert-rule.png)
+![Zrzut ekranu przedstawiający stronę Tworzenie reguły z wyróżnionym przyciskiem Utwórz regułę akcji.](media/alerts-action-rules/action-rules-alert-rule.png)
 
-Teraz powinna zostać wyświetlona strona Flow dotycząca tworzenia reguł akcji. Skonfiguruj następujące elementy:
+Powinna zostać teraz wyświetlony strona przepływu do tworzenia reguł akcji. Skonfiguruj następujące elementy:
 
 ![Nowy przepływ tworzenia reguły akcji](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
 ### <a name="scope"></a>Zakres
 
-Najpierw wybierz zakres (subskrypcję platformy Azure, grupę zasobów lub zasób docelowy). Możesz również wybrać kombinację zakresów w ramach jednej subskrypcji.
+Najpierw wybierz zakres (subskrypcja platformy Azure, grupa zasobów lub zasób docelowy). Możesz również wybrać wiele zakresów w ramach jednej subskrypcji.
 
 ![Zakres reguły akcji](media/alerts-action-rules/action-rules-new-rule-creation-flow-scope.png)
 
 ### <a name="filter-criteria&quot;></a>Kryteria filtrowania
 
-Opcjonalnie można zdefiniować filtry, aby reguła była stosowana do określonego podzestawu alertów lub do określonych zdarzeń dla każdego alertu (na przykład tylko &quot;uruchomił&quot; lub &quot;tylko rozwiązany").
+Opcjonalnie możesz zdefiniować filtry, aby reguła miała zastosowanie do określonego podzestawu alertów lub do określonych zdarzeń dla każdego alertu (na przykład tylko &quot;Wyzpalone&quot; lub tylko &quot;Rozwiązane").
 
 Dostępne są następujące filtry:
 
 * **Ważność**  
-Ta reguła będzie stosowana tylko do alertów z wybranymi serwerami.  
-Na przykład **ważność = "Sev1"** oznacza, że reguła będzie stosowana tylko do alertów o ważności Sev1.
+Ta reguła będzie dotyczyć tylko alertów z wybranymi ważnościami.  
+Na przykład **ważność = "Ważność 1"** oznacza, że reguła będzie dotyczyć tylko alertów o ważności 1.
 * **Monitorowanie usługi**  
-Ta reguła będzie stosowana tylko do alertów pochodzących z wybranych usług monitorowania.  
-Na przykład **monitorowanie Service = "Azure Backup"** oznacza, że reguła będzie stosowana tylko do alertów kopii zapasowych (pochodzących z Azure Backup).
+Ta reguła będzie dotyczyć tylko alertów pochodzących z wybranych usług monitorowania.  
+Na przykład **monitor service = "Azure Backup"** oznacza, że reguła będzie dotyczyć tylko alertów kopii zapasowej (pochodzących z Azure Backup).
 * **Typ zasobu**  
-Ta reguła zostanie zastosowana tylko do alertów dotyczących wybranych typów zasobów.  
-Na przykład **Typ zasobu = "Virtual Machines"** oznacza, że reguła będzie stosowana tylko do alertów na maszynach wirtualnych.
+Ta reguła będzie dotyczyć tylko alertów dotyczących wybranych typów zasobów.  
+Na przykład **typ zasobu = "Virtual Machines"** oznacza, że reguła będzie dotyczyć tylko alertów na maszynach wirtualnych.
 * **Identyfikator reguły alertu**  
-Ta reguła będzie stosowana tylko do alertów pochodzących z określonej reguły alertu. Wartość powinna być IDENTYFIKATORem Menedżer zasobów reguły alertu.  
-Na przykład **reguła alertu ID = "/subscriptions/SubId1/resourceGroups/RG1/Providers/Microsoft.Insights/metricalerts/API-Latency"** oznacza, że ta reguła będzie stosowana tylko do alertów pochodzących z reguły alertu metryki "opóźnienie interfejsu API".  
-_Uwaga — Możesz uzyskać odpowiedni identyfikator reguły alertu, wyświetlając listę reguł alertów z interfejsu wiersza polecenia lub otwierając konkretną regułę alertu w portalu, klikając pozycję "właściwości" i kopiując wartość "Identyfikator zasobu"._
+Ta reguła będzie dotyczyć tylko alertów pochodzących z określonej reguły alertu. Wartość powinna być identyfikatorem Resource Manager reguły alertu.  
+Na przykład identyfikator reguły **alertu = "/subscriptions/SubId1/resourceGroups/RG1/providers/microsoft.insights/metricalerts/API-Latency"** oznacza, że ta reguła będzie dotyczyć tylko alertów pochodzących z reguły alertu metryki "Opóźnienie interfejsu API".  
+_UWAGA — możesz uzyskać prawidłowy identyfikator reguły alertu, wymieniając reguły alertów z interfejsu wiersza polecenia lub otwierając określoną regułę alertu w portalu, klikając pozycję "Właściwości" i kopiując wartość "Identyfikator zasobu"._
 * **Warunek monitorowania**  
-Ta reguła zostanie zastosowana tylko do zdarzeń alertów z określonym warunkiem monitora — **"uruchomiły się"** lub **"rozwiązany"**.
+Ta reguła będzie dotyczyć tylko zdarzeń alertów z określonym warunkiem monitora — **"Wyzgnione"** lub **"Rozwiązane".**
 * **Opis**  
-Ta reguła zostanie zastosowana tylko do alertów, które zawierają określony ciąg w polu Opis alertu. To pole zawiera opis reguły alertu.  
-Na przykład **Opis zawiera "prod"** oznacza, że reguła będzie pasować tylko do alertów, które zawierają ciąg "prod" w opisie.
+Ta reguła będzie dotyczyć tylko alertów, które zawierają określony ciąg w polu opisu alertu. To pole zawiera opis reguły alertu.  
+Na przykład **opis zawiera "prod"** oznacza, że reguła będzie odpowiadać tylko alertom, które zawierają ciąg "prod" w opisie.
 * **Kontekst alertu (ładunek)**  
-Ta reguła zostanie zastosowana tylko do alertów, które zawierają jedną lub więcej konkretnych wartości w polach kontekstu alertu.  
-Na przykład **kontekst alertu (ładunek) zawiera "Computer-01"** oznacza, że reguła będzie stosowana tylko do alertów, których ładunek zawiera ciąg "Computer-01".
+Ta reguła będzie dotyczyć tylko alertów, które zawierają dowolną z co najmniej jednej konkretnej wartości w polach kontekstu alertu.  
+Na przykład **kontekst alertu (ładunek) zawiera wartość "Computer-01"** oznacza, że reguła będzie dotyczyć tylko alertów, których ładunek zawiera ciąg "Computer-01".
 
 > [!NOTE]
 > Każdy filtr może zawierać maksymalnie pięć wartości.  
-> Na przykład filtr usługi monitor może zawierać maksymalnie pięć nazw usług monitorowania.
+> Na przykład filtr usługi monitorowania może zawierać maksymalnie pięć monitorowanych nazw usług.
 
 
 
 
-W przypadku ustawienia wielu filtrów w regule zostaną zastosowane wszystkie z nich. Na przykład jeśli ustawisz **Typ zasobu = "Virtual Machines"** i **ważność = "Sev0"**, reguła zostanie zastosowana tylko w przypadku alertów Sev0 na maszynach wirtualnych.
+Jeśli ustawisz wiele filtrów w regułę, wszystkie z nich będą stosowane. Jeśli na przykład ustawisz typ zasobu **= "Virtual Machines" i** ważność **= "Ważność 0",** reguła będzie dotyczyć tylko alertów dotyczących ważności 0 na maszynach wirtualnych.
 
 ![Filtry reguł akcji](media/alerts-action-rules/action-rules-new-rule-creation-flow-filters.png)
 
-### <a name="suppression-or-action-group-configuration"></a>Pomijanie lub Konfiguracja grupy akcji
+### <a name="suppression-or-action-group-configuration"></a>Pomijanie lub konfiguracja grupy akcji
 
-Następnie skonfiguruj regułę akcji dla opcji pomijania alertów lub grupy akcji. Nie można wybrać obu tych opcji. Konfiguracja działa na wszystkich wystąpieniach alertów, które pasują do wcześniej zdefiniowanego zakresu i filtrów.
+Następnie skonfiguruj regułę akcji dla pomijania alertów lub obsługi grup akcji. Nie można wybrać obu tych opcji. Konfiguracja działa na wszystkich wystąpieniach alertów, które pasują do wcześniej zdefiniowanego zakresu i filtrów.
 
 #### <a name="suppression"></a>Pomijanie
 
-W przypadku wybrania opcji **pomijania** skonfiguruj czas trwania pomijania akcji i powiadomień. Wybierz jedną z następujących opcji:
-* **Od teraz (zawsze)**: pomija wszystkie powiadomienia na czas nieokreślony.
-* **W zaplanowanym czasie**: pomija powiadomienia w określonym czasie trwania.
-* **Z cyklem**: pomija powiadomienia w cyklicznym harmonogramie codziennie, co tydzień lub co miesiąc.
+W przypadku wybrania **pomijania** skonfiguruj czas trwania pomijania akcji i powiadomień. Wybierz jedną z następujących opcji:
+* **Od teraz (zawsze)**: pomija wszystkie powiadomienia przez czas nieokreślony.
+* **W zaplanowanym czasie:** pomija powiadomienia w ramach ograniczonego czasu trwania.
+* **W przypadku cyklu:** pomija powiadomienia cyklicznego harmonogramu dziennego, tygodniowego lub miesięcznego.
 
-![Pomijanie reguły akcji](media/alerts-action-rules/action-rules-new-rule-creation-flow-suppression.png)
+![Pomijanie reguł akcji](media/alerts-action-rules/action-rules-new-rule-creation-flow-suppression.png)
 
 #### <a name="action-group"></a>Grupa akcji
 
-W przypadku wybrania w przełączniku **grupy akcji** należy dodać istniejącą grupę akcji lub utworzyć nową.
+Jeśli w **przełączniku wybierzesz** grupę akcji, dodaj istniejącą grupę akcji lub utwórz nową.
 
 > [!NOTE]
-> Można skojarzyć tylko jedną grupę akcji z regułą działania.
+> Z regułą akcji można skojarzyć tylko jedną grupę akcji.
 
-![Dodaj lub Utwórz nową regułę akcji, wybierając grupę akcji](media/alerts-action-rules/action-rules-new-rule-creation-flow-action-group.png)
+![Dodawanie lub tworzenie nowej reguły akcji przez wybranie grupy akcji](media/alerts-action-rules/action-rules-new-rule-creation-flow-action-group.png)
 
 ### <a name="action-rule-details"></a>Szczegóły reguły akcji
 
-Na koniec skonfiguruj następujące szczegóły dla reguły akcji:
+Na koniec skonfiguruj następujące szczegóły reguły akcji:
 * Nazwa
 * Grupa zasobów, w której została zapisana
 * Opis
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Reguły akcji można tworzyć za pomocą interfejsu wiersza polecenia platformy Azure przy użyciu poleceń [AZ monitor Action-Rule Create](/cli/azure/ext/alertsmanagement/monitor/action-rule#ext-alertsmanagement-az-monitor-action-rule-create) .  `az monitor action-rule`Odwołanie to tylko jeden z wielu [odwołań interfejsu wiersza polecenia platformy Azure dla Azure monitor](/cli/azure/azure-cli-reference-for-monitor).
+Reguły akcji można tworzyć za pomocą interfejsu wiersza polecenia platformy Azure za pomocą [polecenia az monitor action-rule create.](/cli/azure/ext/alertsmanagement/monitor/action-rule#ext-alertsmanagement-az-monitor-action-rule-create)  Odwołanie `az monitor action-rule` to tylko jedna z wielu odwołań do interfejsu wiersza polecenia platformy Azure dla [Azure Monitor](/cli/azure/azure-cli-reference-for-monitor).
 
 ### <a name="prepare-your-environment"></a>Przygotowywanie środowiska
 
 1. [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)
 
-   Jeśli wolisz, możesz również użyć Azure Cloud Shell, aby wykonać kroki opisane w tym artykule.  Azure Cloud Shell to interaktywne środowisko powłoki, które jest używane w przeglądarce.  Rozpocznij Cloud Shell przy użyciu jednej z następujących metod:
+   Jeśli wolisz, możesz również użyć Azure Cloud Shell, aby wykonać kroki opisane w tym artykule.  Azure Cloud Shell to interaktywne środowisko powłoki, z których korzystasz w przeglądarce.  Uruchom Cloud Shell przy użyciu jednej z tych metod:
 
    - Otwórz Cloud Shell, przechodząc do [https://shell.azure.com](https://shell.azure.com)
 
-   - Wybierz przycisk **Cloud Shell** na pasku menu w prawym górnym rogu [Azure Portal](https://portal.azure.com)
+   - Wybierz przycisk **Cloud Shell** na pasku menu w prawym górnym rogu okna [Azure Portal](https://portal.azure.com)
 
 1. Zaloguj się.
 
-   Jeśli używasz lokalnej instalacji interfejsu wiersza polecenia, zaloguj się za pomocą polecenia [AZ login](/cli/azure/reference-index#az-login) .  Wykonaj kroki wyświetlane w terminalu, aby ukończyć proces uwierzytelniania.
+   Jeśli używasz lokalnej instalacji interfejsu wiersza polecenia, zaloguj się przy użyciu [polecenia az login.](/cli/azure/reference-index#az_login)  Wykonaj kroki wyświetlane w terminalu, aby ukończyć proces uwierzytelniania.
 
     ```azurecli
     az login
     ```
 
-1. Zainstaluj `alertsmanagement` rozszerzenie
+1. Instalowanie `alertsmanagement` rozszerzenia
 
-   `az monitor action-rule`Polecenie to eksperymentalne rozszerzenie interfejsu wiersza polecenia platformy Azure. Dowiedz się więcej na temat odwołań do rozszerzeń w [rozszerzeniu use przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/azure-cli-extensions-overview?).
+   To `az monitor action-rule` polecenie jest eksperymentalnym rozszerzeniem podstawowego interfejsu wiersza polecenia platformy Azure. Aby dowiedzieć się więcej na temat odwołań do rozszerzeń, [zobacz Używanie rozszerzenia z interfejsem wiersza polecenia platformy Azure.](/cli/azure/azure-cli-extensions-overview?)
 
    ```azurecli
    az extension add --name alertsmanagement
@@ -165,9 +165,9 @@ Reguły akcji można tworzyć za pomocą interfejsu wiersza polecenia platformy 
 
 ### <a name="create-action-rules-with-the-azure-cli"></a>Tworzenie reguł akcji przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Zobacz zawartość referencyjną interfejsu wiersza polecenia platformy Azure dla elementu [AZ monitor Action-Rule Create](/cli/azure/ext/alertsmanagement/monitor/action-rule#ext-alertsmanagement-az-monitor-action-rule-create) , aby poznać informacje o wymaganych i opcjonalnych parametrach.
+Zobacz zawartość referencyjną interfejsu wiersza polecenia platformy Azure dla polecenia [az monitor action-rule create,](/cli/azure/ext/alertsmanagement/monitor/action-rule#ext-alertsmanagement-az-monitor-action-rule-create) aby dowiedzieć się więcej o wymaganych i opcjonalnych parametrach.
 
-Utwórz regułę akcji, aby pominąć powiadomienia w grupie zasobów.
+Utwórz regułę akcji w celu pomijania powiadomień w grupie zasobów.
 
 ```azurecli
 az monitor action-rule create --resource-group MyResourceGroupName \
@@ -182,7 +182,7 @@ az monitor action-rule create --resource-group MyResourceGroupName \
                                --monitor-service Equals "Log Analytics"
 ```
 
-Utwórz regułę akcji, aby pominąć powiadomienia dla wszystkich alertów Sev4 na wszystkich maszynach wirtualnych w ramach subskrypcji dla każdego weekendu.
+Utwórz regułę akcji, aby w każdy weekend pomijać powiadomienia dla wszystkich alertów dotyczących poziomu 4 na wszystkich maszyn wirtualnych w ramach subskrypcji.
 
 ```azurecli
 az monitor action-rule create --resource-group MyResourceGroupName \
@@ -205,55 +205,55 @@ az monitor action-rule create --resource-group MyResourceGroupName \
 
 ## <a name="example-scenarios"></a>Przykładowe scenariusze
 
-### <a name="scenario-1-suppression-of-alerts-based-on-severity"></a>Scenariusz 1: pomijanie alertów na podstawie ważności
+### <a name="scenario-1-suppression-of-alerts-based-on-severity"></a>Scenariusz 1. Pomijanie alertów na podstawie ważności
 
-Firma Contoso chce pominąć powiadomienia dla wszystkich alertów Sev4 na wszystkich maszynach wirtualnych w ramach subskrypcji **ContosoSub** każdego weekendu.
+Firma Contoso chce pominąć powiadomienia dla wszystkich alertów dotyczących poziomu 4 na wszystkich maszyn wirtualnych w ramach subskrypcji **ContosoSub** co weekend.
 
-**Rozwiązanie:** Utwórz regułę akcji przy użyciu:
+**Rozwiązanie:** Utwórz regułę akcji za pomocą:
 * Zakres = **ContosoSub**
 * Filtry
-    * Ważność = **Sev4**
+    * Ważność = **ważność 4**
     * Typ zasobu = **Virtual Machines**
-* Pomijanie z ustawionym cyklem co tydzień, **Sobota** i **Niedziela** — zaznaczone
+* Pomijanie z cyklem ustawionym na co tydzień i **zaznaczoną sobotą** **i niedzielą**
 
-### <a name="scenario-2-suppression-of-alerts-based-on-alert-context-payload"></a>Scenariusz 2. pomijanie alertów na podstawie kontekstu alertu (ładunku)
+### <a name="scenario-2-suppression-of-alerts-based-on-alert-context-payload"></a>Scenariusz 2. Pomijanie alertów na podstawie kontekstu alertu (ładunku)
 
-Firma Contoso chce pominąć powiadomienia dla wszystkich alertów dziennika wygenerowanych dla **komputera-01** w **ContosoSub** , gdy odbywa się on w trakcie konserwacji.
+Firma Contoso chce przez czas nieokreślony pomijać powiadomienia dla wszystkich alertów dzienników generowanych dla komputera **Computer-01** w **contosoSub** w ramach konserwacji.
 
-**Rozwiązanie:** Utwórz regułę akcji przy użyciu:
+**Rozwiązanie:** Utwórz regułę akcji za pomocą:
 * Zakres = **ContosoSub**
 * Filtry
-    * Monitoruj usługę = **log Analytics**
-    * Kontekst alertu (ładunek) zawiera **komputer-01**
-* Pomijanie z ustawioną **teraz (zawsze)**
+    * Monitor Service = **Log Analytics**
+    * Kontekst alertu (ładunek) zawiera **komputer Computer-01**
+* Pomijanie ustawione **na wartość Od teraz (zawsze)**
 
-### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>Scenariusz 3: Grupa akcji zdefiniowana w grupie zasobów
+### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>Scenariusz 3. Grupa akcji zdefiniowana w grupie zasobów
 
-Firma Contoso określiła [alert dotyczący metryki na poziomie subskrypcji](./alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor). Jednak chce zdefiniować akcje wyzwalane w odniesieniu do alertów wygenerowanych z grupy zasobów **ContosoRG**.
+Firma Contoso [zdefiniował alert metryki na poziomie subskrypcji](./alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor). Chce jednak zdefiniować akcje wyzwalane specjalnie dla alertów wygenerowanych z grupy zasobów **ContosoRG.**
 
-**Rozwiązanie:** Utwórz regułę akcji przy użyciu:
+**Rozwiązanie:** Utwórz regułę akcji za pomocą:
 * Zakres = **ContosoRG**
 * Brak filtrów
-* Grupa akcji ustawiona na **ContosoActionGroup**
+* Grupa akcji ustawiona na **Wartość ContosoActionGroup**
 
 > [!NOTE]
-> *Grupy akcji zdefiniowane w regułach akcji i regułach alertów działają niezależnie, bez deduplikacji.* W scenariuszu opisanym wcześniej, jeśli grupa akcji jest zdefiniowana dla reguły alertu, jest wyzwalana w połączeniu z grupą akcji zdefiniowaną w regule akcji.
+> *Grupy akcji zdefiniowane w ramach reguł akcji i reguł alertów działają niezależnie, bez deduplikacji.* W scenariuszu opisanym wcześniej, jeśli grupa akcji jest zdefiniowana dla reguły alertu, jest wyzwalana w połączeniu z grupą akcji zdefiniowaną w regułę akcji.
 
 ## <a name="managing-your-action-rules"></a>Zarządzanie regułami akcji
 
 ### <a name="portal"></a>[Portal](#tab/portal)
 
-Możesz wyświetlać reguły akcji i zarządzać nimi z poziomu widoku listy:
+Reguły akcji można wyświetlać i zarządzać nimi z widoku listy:
 
 ![Widok listy reguł akcji](media/alerts-action-rules/action-rules-list-view.png)
 
-W tym miejscu możesz włączać, wyłączać lub usuwać reguły akcji na dużą skalę, zaznaczając obok nich pole wyboru. Po wybraniu reguły akcji zostanie otwarta strona Konfiguracja. Strona pomaga zaktualizować definicję reguły akcji i włączać lub wyłączać ją.
+W tym miejscu można włączać, wyłączać lub usuwać reguły akcji na dużą skalę, zaznaczając pole wyboru obok nich. Po wybraniu reguły akcji zostanie otwarta jej strona konfiguracji. Strona pomaga zaktualizować definicję reguły akcji i włączyć ją lub wyłączyć.
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Reguły akcji można wyświetlać i zarządzać nimi za pomocą polecenia [AZ monitor Action-Rule](/cli/azure/ext/alertsmanagement/monitor) w interfejsie użytkownika platformy Azure.
+Reguły akcji można wyświetlać i zarządzać nimi za pomocą [polecenia az monitor action-rule](/cli/azure/ext/alertsmanagement/monitor) z interfejsu wiersza polecenia platformy Azure.
 
-Przed zarządzaniem regułami akcji przy użyciu interfejsu wiersza polecenia platformy Azure Przygotuj środowisko przy użyciu instrukcji podanych w temacie [Konfigurowanie reguły akcji](#configuring-an-action-rule).
+Przed rozpoczęciem zarządzania regułami akcji za pomocą interfejsu wiersza polecenia platformy Azure przygotuj środowisko, korzystając z instrukcji podanych w tece [Konfigurowanie reguły akcji.](#configuring-an-action-rule)
 
 ```azurecli
 # List all action rules for a subscription
@@ -273,71 +273,71 @@ az monitor action-rule delete --resource-group MyResourceGroupName --name MyActi
 
 ## <a name="best-practices"></a>Najlepsze rozwiązania
 
-Alerty dzienników tworzone za pomocą opcji [liczba wyników](./alerts-unified-log.md) generują pojedyncze wystąpienie alertu za pomocą całego wyniku wyszukiwania (co może obejmować wiele komputerów). W tym scenariuszu, jeśli reguła akcji używa filtru **kontekstu alertu (ładunku)** , działa on w wystąpieniu alertu, o ile jest to zgodne. W scenariuszu 2 opisanym wcześniej, jeśli wyniki wyszukiwania dla wygenerowanego alertu dziennika zawierają zarówno **komputer-01** , jak i **komputer-02**, całe powiadomienie jest pomijane. Dla **komputera-02** nie Wygenerowano powiadomienia.
+Alerty dziennika, które [](./alerts-unified-log.md) tworzysz za pomocą opcji liczby wyników, generują pojedyncze wystąpienie alertu przy użyciu całego wyniku wyszukiwania (który może obejmować wiele komputerów). Jeśli w tym scenariuszu reguła akcji używa **filtru kontekstu alertu (ładunku),** działa w wystąpieniu alertu, o ile istnieje dopasowanie. W scenariuszu 2 opisanym wcześniej, jeśli wyniki wyszukiwania dla wygenerowanego alertu dziennika zawierają zarówno **komputer-01,** jak i **komputer-02,** całe powiadomienie zostanie pominięte. Dla komputera **Computer-02** w ogóle nie jest generowane żadne powiadomienie.
 
-![Diagram przedstawia reguły akcji i alerty dzienników z wyróżnionym pojedynczym wystąpieniem alertu.](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
+![Diagram przedstawia reguły akcji i alerty dzienników z wyróżnione pojedynczym wystąpieniem alertu.](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
-Aby najlepiej używać alertów dziennika z regułami akcji, Utwórz alerty dzienników przy użyciu opcji [pomiar metryki](./alerts-unified-log.md) . Dla tej opcji generowane są osobne wystąpienia alertów na podstawie pola zdefiniowanej grupy. Następnie w scenariuszu 2 generowane są osobne wystąpienia alertów dla **komputerów-01** i **Computer-02**. Ze względu na regułę akcji opisaną w tym scenariuszu tylko powiadomienie dla **komputera-01** jest pomijane. Powiadomienie dla **komputera-02** nadal jest normalne.
+Aby najlepiej używać alertów dzienników z regułami akcji, utwórz alerty dzienników z [opcją pomiaru](./alerts-unified-log.md) metryki. Ta opcja generuje oddzielne wystąpienia alertów na podstawie zdefiniowanego pola grupy. Następnie w scenariuszu 2 są generowane oddzielne wystąpienia alertów dla komputerów **Computer-01** **i Computer-02.** Ze względu na regułę akcji opisaną w tym scenariuszu tylko powiadomienie dla komputera **Computer-01** nie jest pomijane. Powiadomienie dla **komputera Computer-02** będzie nadal wyzłoszałe się w zwykły sposób.
 
-![Reguły akcji i alerty dziennika (liczba wyników)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
+![Reguły akcji i alerty dzienników (liczba wyników)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 
 ## <a name="faq"></a>Często zadawane pytania
 
-### <a name="while-im-configuring-an-action-rule-id-like-to-see-all-the-possible-overlapping-action-rules-so-that-i-avoid-duplicate-notifications-is-it-possible-to-do-that"></a>Podczas konfigurowania reguły akcji chcę zobaczyć wszystkie możliwe nakładające się reguły akcji, aby uniknąć zduplikowanych powiadomień. Czy jest to możliwe?
+### <a name="while-im-configuring-an-action-rule-id-like-to-see-all-the-possible-overlapping-action-rules-so-that-i-avoid-duplicate-notifications-is-it-possible-to-do-that"></a>Podczas konfigurowania reguły akcji chcę zobaczyć wszystkie możliwe nakładające się reguły akcji, aby uniknąć duplikowania powiadomień. Czy jest to możliwe?
 
-Po zdefiniowaniu zakresu podczas konfigurowania reguły akcji można wyświetlić listę reguł akcji, które nakładają się na ten sam zakres (jeśli istnieje). Ta zakładka może być jedną z następujących opcji:
+Po zdefiniowaniu zakresu podczas konfigurowania reguły akcji można wyświetlić listę reguł akcji, które nakładają się na ten sam zakres (jeśli są). Takie nakładanie się może być jedną z następujących opcji:
 
-* Dokładne dopasowanie: na przykład reguła akcji, która jest definiowana, i nakładające się reguły akcji znajdują się w tej samej subskrypcji.
-* Podzestaw: na przykład zdefiniowana reguła akcji znajduje się w subskrypcji, a nakładający się reguła działania znajduje się w grupie zasobów w ramach subskrypcji.
-* Nadzbiór: na przykład zdefiniowana reguła akcji znajduje się w grupie zasobów, a nakładający się reguła działania znajduje się w subskrypcji zawierającej grupę zasobów.
-* Część wspólna: na przykład reguła akcji, którą definiujesz, znajduje się w **VM1** i **VM2**, a nakładana reguła działania jest włączona na **VM2** i **VM3**.
+* Dokładne dopasowanie: na przykład definiowana reguła akcji i nakładające się reguły akcji znajdują się w tej samej subskrypcji.
+* Podzestaw: na przykład definiowana reguła akcji dotyczy subskrypcji, a nakładające się reguły akcji są w grupie zasobów w ramach subskrypcji.
+* Nadzeskład: na przykład definiowana reguła akcji dotyczy grupy zasobów, a nakładające się reguły akcji znajdują się w subskrypcji zawierającej grupę zasobów.
+* Część wspólną: na przykład definiowana reguła akcji dotyczy maszyn **VM1** i **VM2,** a nakładające się reguły akcji są na maszynach **VM2** **i VM3.**
 
-![Zrzut ekranu przedstawia nową stronę reguły akcji z nakładającymi się regułami akcji wyświetlanymi w regułach akcji zdefiniowanych w tym samym oknie zakresu.](media/alerts-action-rules/action-rules-overlapping.png)
+![Zrzut ekranu przedstawia stronę Nowa reguła akcji z nakładającymi się regułami akcji wyświetlanymi w oknie Reguły akcji zdefiniowane w tym samym oknie zakresu.](media/alerts-action-rules/action-rules-overlapping.png)
 
-### <a name="while-im-configuring-an-alert-rule-is-it-possible-to-know-if-there-are-already-action-rules-defined-that-might-act-on-the-alert-rule-im-defining"></a>Czy podczas konfigurowania reguły alertu można sprawdzić, czy istnieją już zdefiniowane reguły akcji, które mogą działać na regule alertów, które definiujemy?
+### <a name="while-im-configuring-an-alert-rule-is-it-possible-to-know-if-there-are-already-action-rules-defined-that-might-act-on-the-alert-rule-im-defining"></a>Czy podczas konfigurowania reguły alertu jest możliwe określenie, czy istnieją już zdefiniowane reguły akcji, które mogą działać na zdefiniowanej przeze mnie regułę alertu?
 
-Po zdefiniowaniu zasobu docelowego dla reguły alertu można zobaczyć listę reguł akcji, które działają w tym samym zakresie (jeśli istnieje), wybierając opcję **Wyświetl skonfigurowane akcje** w sekcji **Akcje** . Ta lista jest wypełniana na podstawie następujących scenariuszy dla zakresu:
+Po zdefiniowaniu zasobu docelowego dla reguły alertu można wyświetlić listę reguł akcji, które działają  w tym samym zakresie (jeśli są) po wybraniu opcji Wyświetl skonfigurowane akcje w sekcji **Akcje.** Ta lista jest wypełniana na podstawie następujących scenariuszy dla zakresu:
 
-* Dokładne dopasowanie: na przykład zdefiniowana reguła alertu i reguła działania znajdują się w tej samej subskrypcji.
-* Podzestaw: na przykład zdefiniowana reguła alertu znajduje się w subskrypcji, a reguła akcji znajduje się w grupie zasobów w ramach subskrypcji.
-* Nadzbiór: na przykład zdefiniowana reguła alertu znajduje się w grupie zasobów, a reguła akcji znajduje się w subskrypcji zawierającej grupę zasobów.
-* Część wspólna: na przykład zdefiniowana reguła alertu znajduje się w **VM1** i **VM2**, a reguła akcji dotyczy **VM2** i **VM3**.
+* Dokładne dopasowanie: na przykład definiowana reguła alertu i reguła akcji znajdują się w tej samej subskrypcji.
+* Podzestaw: na przykład definiowana reguła alertu dotyczy subskrypcji, a reguła akcji dotyczy grupy zasobów w ramach subskrypcji.
+* Narzut: na przykład definiowana reguła alertu dotyczy grupy zasobów, a reguła akcji dotyczy subskrypcji zawierającej grupę zasobów.
+* Część wspólną: na przykład definiowana reguła alertu dotyczy maszyn **VM1** i **VM2,** a reguła akcji dotyczy maszyn **VM2** **i VM3.**
 
 ![Nakładające się reguły akcji](media/alerts-action-rules/action-rules-alert-rule-overlapping.png)
 
 ### <a name="can-i-see-the-alerts-that-have-been-suppressed-by-an-action-rule"></a>Czy mogę zobaczyć alerty, które zostały pominięte przez regułę akcji?
 
-Na [stronie Lista alertów](./alerts-managing-alert-instances.md)można wybrać dodatkową kolumnę o nazwie **stan pomijania**. Jeśli powiadomienie dla wystąpienia alertu zostało pominięte, ten stan będzie wyświetlany na liście.
+Na stronie [listy alertów](./alerts-managing-alert-instances.md)można wybrać dodatkową kolumnę o nazwie **Stan pomijania**. Jeśli powiadomienie dla wystąpienia alertu zostało pominięte, ten stan będzie pokazywany na liście.
 
 ![Pominięte wystąpienia alertów](media/alerts-action-rules/action-rules-suppressed-alerts.png)
 
-### <a name="if-theres-an-action-rule-with-an-action-group-and-another-with-suppression-active-on-the-same-scope-what-happens"></a>Jeśli istnieje reguła akcji z grupą akcji i inna z pominięciem aktywnym w tym samym zakresie, co się dzieje?
+### <a name="if-theres-an-action-rule-with-an-action-group-and-another-with-suppression-active-on-the-same-scope-what-happens"></a>Jeśli istnieje reguła akcji z grupą akcji i inna z aktywnym pomijaniem w tym samym zakresie, co się stanie?
 
 Pomijanie zawsze ma pierwszeństwo w tym samym zakresie.
 
-### <a name="what-happens-if-i-have-a-resource-that-is-covered-by-two-action-rules-do-i-get-one-or-two-notifications-for-example-vm2-in-the-following-scenario"></a>Co się stanie, jeśli mam zasób objęty dwoma regułami akcji? Czy otrzymuję jedną lub dwie powiadomienia? Na przykład **VM2** w następującym scenariuszu:
+### <a name="what-happens-if-i-have-a-resource-that-is-covered-by-two-action-rules-do-i-get-one-or-two-notifications-for-example-vm2-in-the-following-scenario"></a>Co się stanie, jeśli mam zasób, który jest objęty dwiema regułami akcji? Czy otrzymuję jedno lub dwa powiadomienia? Na przykład maszyna **wirtualna VM2** w następującym scenariuszu:
 
    `action rule AR1 defined for VM1 and VM2 with action group AG1`
 
    `action rule AR2 defined for VM2 and VM3 with action group AG1`
 
-Dla każdego alertu w systemach VM1 i VM3 grupa akcji AG1 zostanie wyzwolona jednokrotnie. Dla każdego alertu w witrynie **VM2** grupa akcji AG1 zostanie wyzwolona dwa razy, ponieważ reguły akcji nie spowodują deduplikowania akcji.
+Dla każdego alertu na maszynach wirtualnych VM1 i VM3 grupa akcji AG1 zostanie wyzwolona raz. Dla każdego alertu **na maszynie wirtualnej VM2** grupa akcji AG1 zostanie wyzwolona dwukrotnie, ponieważ reguły akcji nie deduplikują akcji.
 
-### <a name="what-happens-if-i-have-a-resource-monitored-in-two-separate-action-rules-and-one-calls-for-action-while-another-for-suppression-for-example-vm2-in-the-following-scenario"></a>Co się stanie, jeśli mam zasób monitorowany w dwóch osobnych regułach akcji i jedno wywołanie dla akcji, a drugie dla pomijania? Na przykład **VM2** w następującym scenariuszu:
+### <a name="what-happens-if-i-have-a-resource-monitored-in-two-separate-action-rules-and-one-calls-for-action-while-another-for-suppression-for-example-vm2-in-the-following-scenario"></a>Co się stanie, jeśli zasób jest monitorowany w dwóch oddzielnych zasadach akcji, a jedna wywołuje akcję, a druga w celu pomijania? Na przykład maszyna **wirtualna VM2** w następującym scenariuszu:
 
    `action rule AR1 defined for VM1 and VM2 with action group AG1`
 
    `action rule AR2 defined for VM2 and VM3 with suppression`
 
-Dla każdego alertu w witrynie VM1 grupa akcji AG1 zostanie wyzwolona jednokrotnie. Akcje i powiadomienia dla każdego alertu w VM2 i VM3 zostaną pominięte.
+Dla każdego alertu na maszynie VM1 grupa akcji AG1 zostanie wyzwolona raz. Akcje i powiadomienia dla każdego alertu na maszynach wirtualnych VM2 i VM3 będą pomijane.
 
-### <a name="what-happens-if-i-have-an-alert-rule-and-an-action-rule-defined-for-the-same-resource-calling-different-action-groups-for-example-vm1-in-the-following-scenario"></a>Co się stanie, jeśli mam regułę alertu i regułę akcji zdefiniowaną dla tego samego zasobu wywołującego różne grupy akcji? Na przykład **VM1** w następującym scenariuszu:
+### <a name="what-happens-if-i-have-an-alert-rule-and-an-action-rule-defined-for-the-same-resource-calling-different-action-groups-for-example-vm1-in-the-following-scenario"></a>Co się stanie, jeśli mam regułę alertu i regułę akcji zdefiniowaną dla tego samego zasobu wywołującego różne grupy akcji? Na przykład maszyna **wirtualna VM1** w następującym scenariuszu:
 
    `alert rule rule1 on VM1 with action group AG2`
 
    `action rule AR1 defined for VM1 with action group AG1`
 
-Dla każdego alertu w witrynie VM1 grupa akcji AG1 zostanie wyzwolona jednokrotnie. Zawsze, gdy zostanie wyzwolona reguła alertu "RULE1", zostanie ona również wyzwolona AG2. Grupy akcji zdefiniowane w regułach akcji i regułach alertów działają niezależnie, bez deduplikacji.
+Dla każdego alertu na maszynie VM1 grupa akcji AG1 zostanie wyzwolona raz. Za każdym razem, gdy zostanie wyzwolona reguła alertu "rule1", zostanie również wyzwolona reguła AG2. Grupy akcji zdefiniowane w ramach reguł akcji i reguł alertów działają niezależnie, bez deduplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 

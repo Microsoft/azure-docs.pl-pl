@@ -1,47 +1,47 @@
 ---
-title: Uruchamianie kontenerów inicjujących
-description: Uruchom kontenery init w Azure Container Instances, aby wykonać zadania instalacyjne w grupie kontenerów przed uruchomieniem kontenerów aplikacji.
+title: Uruchamianie kontenerów init
+description: Uruchom kontenery init w Azure Container Instances, aby wykonać zadania konfiguracji w grupie kontenerów przed uruchomieniem kontenerów aplikacji.
 ms.topic: article
 ms.date: 06/01/2020
-ms.openlocfilehash: 5a729263ee632eb9227694ec8684eb6889c6324b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9ccaf1a67d6ca3bcff422acb591b528cc72a9608
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85954285"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763941"
 ---
-# <a name="run-an-init-container-for-setup-tasks-in-a-container-group"></a>Uruchamianie kontenera init na potrzeby zadań instalacyjnych w grupie kontenerów
+# <a name="run-an-init-container-for-setup-tasks-in-a-container-group"></a>Uruchamianie kontenera init dla zadań konfiguracji w grupie kontenerów
 
-Azure Container Instances obsługuje *kontenery init* w grupie kontenerów. Kontenery inicjowania działają do zakończenia przed rozpoczęciem kontenera lub kontenerów aplikacji. Podobnie jak w przypadku [kontenerów init Kubernetes](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/), Użyj co najmniej jednego kontenera init do wykonania logiki inicjalizacji dla kontenerów aplikacji, takich jak Ustawianie kont, uruchamianie skryptów Instalatora lub Konfigurowanie baz danych.
+Azure Container Instances obsługuje *kontenery init w* grupie kontenerów. Kontenery init są uruchamiane do ukończenia przed uruchomieniem kontenera aplikacji lub kontenerów. Podobnie jak w przypadku kontenerów init usługi [Kubernetes,](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/)użyj co najmniej jednego kontenera init, aby wykonać logikę inicjowania dla kontenerów aplikacji, taką jak ustawianie kont, uruchamianie skryptów konfiguracji lub konfigurowanie baz danych.
 
-W tym artykule pokazano, jak za pomocą szablonu Azure Resource Manager skonfigurować grupę kontenerów za pomocą kontenera init.
+W tym artykule pokazano, jak za pomocą szablonu Azure Resource Manager skonfigurować grupę kontenerów z kontenerem init.
 
 ## <a name="things-to-know"></a>Co należy wiedzieć
 
-* **Wersja interfejsu API** — aby wdrożyć kontenery init, musisz mieć co najmniej Azure Container Instances interfejs API w wersji 2019-12-01. Wdróż przy użyciu `initContainers` właściwości w [pliku YAML](container-instances-multi-container-yaml.md) lub [szablonie Menedżer zasobów](container-instances-multi-container-group.md).
-* **Porządek wykonywania** — kontenery init są wykonywane w kolejności określonej w szablonie oraz przed innymi kontenerami. Domyślnie można określić maksymalnie 59 kontenerów init dla każdej grupy kontenerów. Co najmniej jeden kontener, który nie jest init, musi znajdować się w grupie.
-* **Środowisko hosta** — kontenery init są uruchamiane na tym samym sprzęcie co pozostałe kontenery w grupie.
-* **Zasoby** — nie można określać zasobów dla kontenerów init. Są przyznawane całkowite zasoby, takie jak procesory CPU i pamięć dostępna dla grupy kontenerów. Podczas uruchamiania kontenera init w grupie nie są uruchamiane żadne inne kontenery.
-* **Obsługiwane właściwości** — kontenery init mogą używać właściwości grupy, takich jak woluminy, wpisy tajne i zarządzane tożsamości. Nie mogą jednak używać portów ani adresów IP, jeśli są skonfigurowane dla grupy kontenerów. 
-* **Zasady ponownego uruchamiania** — poszczególne kontenery init muszą zakończyć się pomyślnie przed rozpoczęciem następnego kontenera w grupie. Jeśli kontener init nie zakończy się pomyślnie, jego akcja ponownego uruchomienia zależy od [zasad ponownego uruchamiania](container-instances-restart-policy.md) skonfigurowanych dla grupy:
+* **Wersja interfejsu API** — do wdrożenia kontenerów init jest Azure Container Instances api w wersji 2019-12-01. Wdrażanie przy użyciu `initContainers` właściwości w pliku [YAML lub](container-instances-multi-container-yaml.md) Resource Manager [szablonu](container-instances-multi-container-group.md).
+* **Kolejność wykonywania —** kontenery init są wykonywane w kolejności określonej w szablonie i przed innymi kontenerami. Domyślnie można określić maksymalnie 59 kontenerów init na grupę kontenerów. W grupie musi znajdować się co najmniej jeden kontener bez init.
+* **Środowisko hosta** — kontenery init działają na tym samym sprzęcie co pozostałe kontenery w grupie.
+* **Zasoby** — nie określa się zasobów dla kontenerów init. Przyznano im łączną ilość zasobów, takich jak procesory CPU i pamięć dostępne dla grupy kontenerów. Podczas uruchamiania kontenera init żadne inne kontenery nie są uruchamiane w grupie.
+* **Obsługiwane właściwości** — kontenery init mogą używać właściwości grupy, takich jak woluminy, wpisy tajne i tożsamości zarządzane. Nie mogą jednak używać portów ani adresów IP, jeśli zostały skonfigurowane dla grupy kontenerów. 
+* **Zasady ponownego** uruchamiania — każdy kontener init musi zakończyć się pomyślnie przed uruchomieniem następnego kontenera w grupie. Jeśli kontener init nie zakończy się pomyślnie, jego akcja ponownego uruchomienia zależy od [zasad](container-instances-restart-policy.md) ponownego uruchamiania skonfigurowanych dla grupy:
 
     |Zasady w grupie  |Zasady w init  |
     |---------|---------|
     |Always (Zawsze)     |OnFailure (W razie niepowodzenia)         |
     |OnFailure (W razie niepowodzenia)     |OnFailure (W razie niepowodzenia)         |
     |Nigdy     |Nigdy         |
-* **Opłaty** — Grupa kontenerów wiąże się z pierwszym wdrożeniem kontenera init.
+* **Opłaty** — za grupę kontenerów są naliczane opłaty z pierwszego wdrożenia kontenera init.
 
-## <a name="resource-manager-template-example"></a>Przykład szablonu Menedżer zasobów
+## <a name="resource-manager-template-example"></a>Resource Manager przykład szablonu
 
-Zacznij od skopiowania następującego kodu JSON do nowego pliku o nazwie `azuredeploy.json` . Szablon konfiguruje grupę kontenerów za pomocą jednego kontenera init i dwóch kontenerów aplikacji:
+Zacznij od skopiowania następującego pliku JSON do nowego pliku o nazwie `azuredeploy.json` . Szablon konfiguruje grupę kontenerów z jednym kontenerem init i dwoma kontenerami aplikacji:
 
-* Kontener *init1* uruchamia obraz [BUSYBOX](https://hub.docker.com/_/busybox) z usługi Docker Hub. Uśpienie przez 60 sekund, a następnie zapisanie ciągu wiersza polecenia do pliku w [woluminie emptyDir](container-instances-volume-emptydir.md).
-* Oba kontenery aplikacji uruchamiają `aci-wordcount` obraz kontenera firmy Microsoft:
-    * Kontener *Hamlet* uruchamia aplikację WORDCOUNT w konfiguracji domyślnej, licząc częstotliwości wyrazów w *Hamlet* Play Szekspira.
-    * Kontener aplikacji *Juliet* odczytuje ciąg wiersza polecenia z woluminu emptDir, aby uruchomić aplikację WORDCOUNT zamiast Szekspira *Romeo i Juliet*.
+* Kontener *init1* uruchamia obraz [busybox](https://hub.docker.com/_/busybox) z Docker Hub. Jest uśpięty przez 60 sekund, a następnie zapisuje ciąg wiersza polecenia do pliku w [woluminie emptyDir](container-instances-volume-emptydir.md).
+* Oba kontenery aplikacji uruchamiają obraz kontenera `aci-wordcount` firmy Microsoft:
+    * Kontener *hamletów* uruchamia aplikację wordcount w konfiguracji domyślnej, zliczać częstotliwości wyrazów w odtwarzaniu *Hamleta* Trzmyka.
+    * Kontener *aplikacji juliet* odczytuje ciąg wiersza polecenia z woluminu emptDir, aby uruchomić aplikację wordcount, a nie na ekranie Potrząsanie *i Julia.*
 
-Aby uzyskać więcej informacji i przykładów przy użyciu `aci-wordcount` obrazu, zobacz [Ustawianie zmiennych środowiskowych w wystąpieniach kontenerów](container-instances-environment-variables.md).
+Aby uzyskać więcej informacji i przykładów dotyczących korzystania z `aci-wordcount` obrazu, zobacz Set environment variables in container instances (Ustawianie [zmiennych środowiskowych w wystąpieniach kontenerów).](container-instances-environment-variables.md)
 
 ```json
 {
@@ -168,7 +168,7 @@ Utwórz grupę zasobów za pomocą polecenia [az group create][az-group-create].
 az group create --name myResourceGroup --location eastus
 ```
 
-Wdróż szablon za pomocą polecenia [AZ Deployment Group Create][az-deployment-group-create] .
+Wd wdrażaj szablon za pomocą [polecenia az deployment group create.][az-deployment-group-create]
 
 ```azurecli
 az deployment group create \
@@ -176,12 +176,12 @@ az deployment group create \
   --template-file azuredeploy.json
 ```
 
-W grupie z kontenerem init czas wdrożenia zostaje zwiększony ze względu na czas trwania kontenera init lub kontenerów.
+W grupie z kontenerem init czas wdrożenia jest zwiększany z powodu czasu, który zajmuje ukończenie kontenera init lub kontenerów.
 
 
 ## <a name="view-container-logs"></a>Wyświetlanie dzienników kontenerów
 
-Aby sprawdzić, czy kontener inicjowania został pomyślnie uruchomiony, Wyświetl dane wyjściowe dzienników kontenerów aplikacji za pomocą polecenia [AZ Container Logs][az-container-logs] . `--container-name`Argument określa kontener, z którego mają być ściągane dzienniki. W tym przykładzie należy ściągnąć dzienniki kontenerów *Hamlet* i *Juliet* , które pokazują różne dane wyjściowe polecenia:
+Aby sprawdzić, czy kontener init został pomyślnie zatrzymany, wyświetl dane wyjściowe dziennika kontenerów aplikacji przy użyciu [polecenia az container logs.][az-container-logs] Argument `--container-name` określa kontener, z którego mają być ściągane dzienniki. W tym przykładzie ściągnij dzienniki dla kontenerów *hamlet* i *juliet,* które pokazują różne dane wyjściowe polecenia:
 
 ```azurecli
 az container logs \
@@ -211,14 +211,14 @@ Dane wyjściowe:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Kontenery inicjowania ułatwiają wykonywanie zadań instalacyjnych i inicjalizacji dla kontenerów aplikacji. Aby uzyskać więcej informacji na temat uruchamiania kontenerów opartych na zadaniach, zobacz [Uruchamianie zadań kontenera z zasadami ponownego uruchamiania](container-instances-restart-policy.md).
+Kontenery init ułatwiają wykonywanie zadań konfiguracji i inicjowania dla kontenerów aplikacji. Aby uzyskać więcej informacji na temat uruchamiania kontenerów opartych na zadaniach, zobacz [Uruchamianie konteneryzowanych zadań przy użyciu zasad ponownego uruchamiania.](container-instances-restart-policy.md)
 
-Azure Container Instances oferuje inne opcje modyfikacji zachowania kontenerów aplikacji. Przykłady obejmują:
+Azure Container Instances udostępnia inne opcje modyfikowania zachowania kontenerów aplikacji. Przykłady obejmują:
 
 * [Ustawianie zmiennych środowiskowych w wystąpieniach kontenerów](container-instances-environment-variables.md)
-* [Ustaw wiersz polecenia w wystąpieniu kontenera w celu zastąpienia domyślnej operacji wiersza polecenia](container-instances-start-command.md)
+* [Ustawianie wiersza polecenia w wystąpieniu kontenera w celu zastąpienia domyślnej operacji wiersza polecenia](container-instances-start-command.md)
 
 
-[az-group-create]: /cli/azure/group#az-group-create
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
-[az-container-logs]: /cli/azure/container#az-container-logs
+[az-group-create]: /cli/azure/group#az_group_create
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
+[az-container-logs]: /cli/azure/container#az_container_logs
