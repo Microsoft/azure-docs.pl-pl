@@ -1,18 +1,18 @@
 ---
 title: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — wdrażanie aplikacji zarządzanej
-description: Zawiera przykładowy skrypt interfejsu wiersza polecenia platformy Azure, który wdraża definicję aplikacji zarządzanej platformy Azure w ramach subskrypcji.
+description: Udostępnia przykładowy skrypt interfejsu wiersza polecenia platformy Azure, który wdraża definicję aplikacji zarządzanej platformy Azure w subskrypcji.
 author: tfitzmac
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 10/25/2017
 ms.author: tomfitz
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a9912f5134c3596740ef53f23531d57fe9467682
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ea2baa897efb5c1a01b32e92e76a69c9d1f231c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87497872"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775497"
 ---
 # <a name="deploy-a-managed-application-for-service-catalog-with-azure-cli"></a>Wdrażanie aplikacji zarządzanej do obsługi katalogu usług za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -34,7 +34,7 @@ Ten skrypt używa następującego polecenia do wdrożenia aplikacji zarządzanej
 
 | Polecenie | Uwagi |
 |---|---|
-| [az managedapp create](/cli/azure/managedapp#az-managedapp-create) | Tworzy aplikację zarządzaną. Należy podać identyfikator definicji i parametry szablonu. |
+| [az managedapp create](/cli/azure/managedapp#az_managedapp_create) | Tworzy aplikację zarządzaną. Należy podać identyfikator definicji i parametry szablonu. |
 
 
 ## <a name="next-steps"></a>Następne kroki

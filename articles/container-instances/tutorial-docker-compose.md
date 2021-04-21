@@ -1,43 +1,43 @@
 ---
-title: Samouczek — używanie Docker Compose do wdrażania grupy wielokontenerowej
-description: Użyj Docker Compose do kompilowania i uruchamiania aplikacji wielokontenera, a następnie Wywołaj aplikację w programie, aby Azure Container Instances
+title: Samouczek — Docker Compose do wdrażania grupy z wieloma kontenerami
+description: Użyj Docker Compose, aby skompilować i uruchomić aplikację z wieloma kontenerami, a następnie uruchom aplikację w celu Azure Container Instances
 ms.topic: tutorial
 ms.date: 10/28/2020
 ms.custom: ''
-ms.openlocfilehash: a71ff438feaef555a85c33d818c287c64621d40d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef08b9f9e0f596f1d94c0e6edfd46f735fe78053
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92913844"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786924"
 ---
-# <a name="tutorial-deploy-a-multi-container-group-using-docker-compose"></a>Samouczek: Wdrażanie grupy wielokontenerowej przy użyciu Docker Compose 
+# <a name="tutorial-deploy-a-multi-container-group-using-docker-compose"></a>Samouczek: wdrażanie grupy z wieloma kontenerami przy użyciu Docker Compose 
 
-W tym samouczku użyto [Docker Compose](https://docs.docker.com/compose/) do definiowania i uruchamiania aplikacji wielokontenera lokalnie, a następnie wdrażania jej jako [grupy kontenerów](container-instances-container-groups.md) w Azure Container Instances. 
+W tym samouczku użyjemy [Docker Compose,](https://docs.docker.com/compose/) aby lokalnie zdefiniować i uruchomić aplikację z wieloma kontenerami, [a](container-instances-container-groups.md) następnie wdrożyć ją jako grupę kontenerów w Azure Container Instances. 
 
-Uruchamiaj kontenery w Azure Container Instances na żądanie, gdy tworzysz aplikacje natywne w chmurze przy użyciu platformy Docker i chcesz bezproblemowo przełączać się do wdrożenia w chmurze. Ta funkcja jest włączona w ramach [integracji między platformą Docker i platformą Azure](https://docs.docker.com/engine/context/aci-integration/). Możesz użyć natywnych poleceń platformy Docker, aby uruchomić [jedno wystąpienie kontenera](quickstart-docker-cli.md) lub grupę wielokontenerową na platformie Azure.
+Uruchamiaj kontenery na Azure Container Instances na żądanie podczas tworzenia aplikacji natywnych dla chmury za pomocą platformy Docker i chcesz bezproblemowo przełączyć się z lokalnego tworzenia na wdrożenie w chmurze. Tę możliwość można włączyć dzięki [integracji między platformą Docker i platformą Azure.](https://docs.docker.com/engine/context/aci-integration/) Możesz użyć natywnych poleceń platformy Docker, aby uruchomić [pojedyncze wystąpienie](quickstart-docker-cli.md) kontenera lub grupę wielu kontenerów na platformie Azure.
 
 > [!IMPORTANT]
-> Nie wszystkie funkcje Azure Container Instances są obsługiwane. Prześlij opinię na temat integracji Docker-Azure, tworząc problem w repozytorium GitHub usługi [Docker ACI Integration](https://github.com/docker/aci-integration-beta) .
+> Nie wszystkie funkcje Azure Container Instances są obsługiwane. Aby przekazać opinię na temat Docker-Azure, należy utworzyć problem w repozytorium GitHub integracji [usługi Docker ACI.](https://github.com/docker/aci-integration-beta)
 
 > [!TIP]
-> Możesz użyć [rozszerzenia Docker, aby uzyskać Visual Studio Code](https://aka.ms/VSCodeDocker) zintegrowanego środowiska do opracowywania i uruchamiania kontenerów, obrazów i kontekstów oraz zarządzania nimi.
+> Za pomocą rozszerzenia [platformy Docker](https://aka.ms/VSCodeDocker) Visual Studio Code zintegrowane środowisko do tworzenia i uruchamiania kontenerów, obrazów i kontekstów oraz zarządzania nimi.
 
 W tym artykule opisano następujące zagadnienia:
 
 > [!div class="checklist"]
 > * Tworzenie rejestru kontenerów platformy Azure
 > * Klonowanie kodu źródłowego aplikacji z usługi GitHub
-> * Używanie Docker Compose do kompilowania obrazu i uruchamiania aplikacji z obsługą kontenera lokalnie
+> * Używanie Docker Compose do kompilowania obrazu i lokalnego uruchamiania aplikacji z wieloma kontenerami
 > * Wypychanie obrazu aplikacji do rejestru kontenerów
-> * Tworzenie kontekstu platformy Azure dla usługi Docker
-> * Wywołaj aplikację w Azure Container Instances
+> * Tworzenie kontekstu platformy Azure dla platformy Docker
+> * Wyniesienie aplikacji do Azure Container Instances
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Interfejs wiersza polecenia platformy Azure** — na komputerze lokalnym musi być zainstalowany interfejs wiersza polecenia platformy Azure. Zalecana jest wersja 2.10.1 lub nowsza. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+* **Interfejs wiersza polecenia** platformy Azure — interfejs wiersza polecenia platformy Azure musi być zainstalowany na komputerze lokalnym. Zalecana jest wersja 2.10.1 lub nowsza. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
-* **Pulpit platformy Docker** — należy używać systemu Docker w wersji 2.3.0.5 lub nowszej, który jest dostępny w [systemie Windows](https://desktop.docker.com/win/edge/Docker%20Desktop%20Installer.exe) lub [macOS](https://desktop.docker.com/mac/edge/Docker.dmg). Lub zainstaluj [interfejs wiersza polecenia integracji usługi Docker ACI dla systemu Linux](https://docs.docker.com/engine/context/aci-integration/#install-the-docker-aci-integration-cli-on-linux).
+* **Docker Desktop** — należy użyć programu Docker Desktop w wersji 2.3.0.5 lub nowszej, dostępnej dla systemu [Windows](https://desktop.docker.com/win/edge/Docker%20Desktop%20Installer.exe) [lub macOS.](https://desktop.docker.com/mac/edge/Docker.dmg) Możesz też zainstalować interfejs [wiersza polecenia integracji z usługą Docker ACI dla systemu Linux.](https://docs.docker.com/engine/context/aci-integration/#install-the-docker-aci-integration-cli-on-linux)
 
 [!INCLUDE [container-instances-create-registry](../../includes/container-instances-create-registry.md)]
 
@@ -57,11 +57,11 @@ Przejdź do sklonowanego katalogu.
 cd azure-voting-app-redis
 ```
 
-W katalogu znajduje się kod źródłowy aplikacji i wstępnie utworzony plik do redagowania platformy Docker — YAML.
+Wewnątrz katalogu znajduje się kod źródłowy aplikacji i wstępnie utworzony plik docker compose docker-compose.yaml.
 
-## <a name="modify-docker-compose-file"></a>Modyfikuj plik redagowania platformy Docker
+## <a name="modify-docker-compose-file"></a>Modyfikowanie pliku docker compose
 
-Otwórz element Docker-Zredaguj. YAML w edytorze tekstu. Plik konfiguruje `azure-vote-back` usługi i `azure-vote-front` .
+Otwórz plik docker-compose.yaml w edytorze tekstów. Plik konfiguruje usługi `azure-vote-back` `azure-vote-front` i .
 
 ```yml
 version: '3'
@@ -86,10 +86,10 @@ services:
 
 W `azure-vote-front` konfiguracji należy wprowadzić następujące dwie zmiany:
 
-1. Zaktualizuj `image` Właściwość w `azure-vote-front` usłudze. Prefiks nazwy obrazu z nazwą serwera logowania usługi Azure Container Registry, \<acrName\> . azurecr.IO. Na przykład jeśli rejestr ma nazwę moje *Rejestr*, nazwa serwera logowania to *myregistry.azurecr.IO* (wszystkie małe litery), a następnie właściwość Image `myregistry.azurecr.io/azure-vote-front` .
-1. Zmień `ports` Mapowanie na `80:80` . Zapisz plik.
+1. Zaktualizuj `image` właściwość w `azure-vote-front` usłudze. Przed nazwą obrazu należy poprzeć nazwę serwera logowania rejestru kontenerów platformy Azure, \<acrName\> azurecr.io. Jeśli na przykład rejestr ma nazwę *myregistry,* nazwa serwera logowania to *myregistry.azurecr.io* (wszystkie małe litery), a właściwość obrazu to `myregistry.azurecr.io/azure-vote-front` .
+1. Zmień `ports` mapowanie na `80:80` . Zapisz plik.
 
-Zaktualizowany plik powinien wyglądać podobnie do poniższego:
+Zaktualizowany plik powinien wyglądać podobnie do następującego:
 
 ```yml
 version: '3'
@@ -112,20 +112,20 @@ services:
         - "80:80"
 ```
 
-Tworząc te substytuty, obraz, `azure-vote-front` który tworzysz w następnym kroku, jest oznakowany jako rejestr kontenerów platformy Azure, a obraz może zostać rozbudowany do uruchomienia w Azure Container Instances.
+Dzięki tym podstawieniom obraz, który zostanie skompilowany w następnym kroku, zostanie otagowany dla rejestru kontenerów platformy Azure, a obraz można ściągnąć w celu uruchomienia w `azure-vote-front` Azure Container Instances.
 
 > [!TIP]
-> W tym scenariuszu nie trzeba używać usługi Azure Container Registry. Na przykład można wybrać prywatne repozytorium w usłudze Docker Hub do hostowania obrazu aplikacji. Jeśli wybierzesz inny rejestr, odpowiednio zaktualizuj właściwość obrazu.
+> W tym scenariuszu nie trzeba używać rejestru kontenerów platformy Azure. Możesz na przykład wybrać prywatne repozytorium w Docker Hub, aby hostować obraz aplikacji. Jeśli wybierzesz inny rejestr, odpowiednio zaktualizuj właściwość obrazu.
 
-## <a name="run-multi-container-application-locally"></a>Uruchamianie aplikacji wielokontenerowej lokalnie
+## <a name="run-multi-container-application-locally"></a>Lokalne uruchamianie aplikacji z wieloma kontenerami
 
-Uruchom [platformę Docker — Zredaguj](https://docs.docker.com/compose/reference/up/), która używa przykładowego `docker-compose.yaml` pliku do kompilowania obrazu kontenera, pobrania obrazu Redis i uruchomienia aplikacji:
+Uruchom [program docker-compose up,](https://docs.docker.com/compose/reference/up/)który używa przykładowego pliku do skompilowania obrazu kontenera, pobrania obrazu redis i `docker-compose.yaml` uruchomienia aplikacji:
 
 ```console
 docker-compose up --build -d
 ```
 
-Po zakończeniu użyj polecenia [docker images](https://docs.docker.com/engine/reference/commandline/images/) w celu wyświetlenia utworzonych obrazów. Zostały pobrane lub utworzone trzy obrazy. `azure-vote-front`Obraz zawiera aplikację frontonu, która używa `uwsgi-nginx-flask` obrazu jako bazy. Obraz `redis` jest używany do uruchomienia wystąpienia usługi Redis.
+Po zakończeniu użyj polecenia [docker images](https://docs.docker.com/engine/reference/commandline/images/) w celu wyświetlenia utworzonych obrazów. Zostały pobrane lub utworzone trzy obrazy. Obraz zawiera aplikację front end, która `azure-vote-front` używa obrazu jako `uwsgi-nginx-flask` podstawy. Obraz `redis` jest używany do uruchomienia wystąpienia usługi Redis.
 
 ```
 $ docker images
@@ -150,7 +150,7 @@ Aby wyświetlić działającą aplikację, wprowadź adres `http://localhost:80`
 
 :::image type="content" source="media/tutorial-docker-compose/azure-vote.png" alt-text="Obraz aplikacji do głosowania":::
 
-Po podjęciu próby zastosowania aplikacji lokalnej Uruchom [platformę Docker](https://docs.docker.com/compose/reference/down/) , aby zatrzymać aplikację i usunąć kontenery.
+Po wypróbowaniu aplikacji lokalnej uruchom [program docker-compose w dół,](https://docs.docker.com/compose/reference/down/) aby zatrzymać aplikację i usunąć kontenery.
 
 ```console
 docker-compose down
@@ -158,7 +158,7 @@ docker-compose down
 
 ## <a name="push-image-to-container-registry"></a>Wypychanie obrazu do rejestru kontenerów
 
-Aby wdrożyć aplikację w Azure Container Instances, należy wypchnąć `azure-vote-front` obraz do rejestru kontenerów. Uruchom [platformę Docker — Twórz wypychanie](https://docs.docker.com/compose/reference/push) , aby wypchnąć obraz:
+Aby wdrożyć aplikację w Azure Container Instances, należy wypchnąć `azure-vote-front` obraz do rejestru kontenerów. Uruchom [wypychanie docker-compose,](https://docs.docker.com/compose/reference/push) aby wypchnąć obraz:
 
 ```console
 docker-compose push
@@ -166,7 +166,7 @@ docker-compose push
 
 Wypychanie do rejestru może potrwać kilka minut.
 
-Aby sprawdzić, czy obraz jest przechowywany w rejestrze, uruchom polecenie [AZ ACR Repository show](/cli/azure/acr/repository#az-acr-repository-show) :
+Aby sprawdzić, czy obraz jest przechowywany w rejestrze, uruchom [polecenie az acr repository show:](/cli/azure/acr/repository#az_acr_repository_show)
 
 ```azurecli
 az acr repository show --name <acrName> --repository azure-vote-front
@@ -176,22 +176,22 @@ az acr repository show --name <acrName> --repository azure-vote-front
 
 ## <a name="deploy-application-to-azure-container-instances"></a>Wdrażanie aplikacji w usłudze Azure Container Instances
 
-Następnie przejdź do kontekstu ACI. Kolejne polecenia platformy Docker są uruchamiane w tym kontekście.
+Następnie zmień kontekst na ACI. Kolejne polecenia platformy Docker są uruchamiane w tym kontekście.
 
 ```console
 docker context use myacicontext
 ```
 
-Uruchom `docker compose up` , aby uruchomić aplikację w Azure Container Instances. `azure-vote-front`Obraz jest pobierany z rejestru kontenerów, a grupa kontenerów jest tworzona w Azure Container Instances.
+Uruchom `docker compose up` , aby uruchomić aplikację w Azure Container Instances. Obraz `azure-vote-front` jest ściągany z rejestru kontenerów, a grupa kontenerów jest tworzona w Azure Container Instances.
 
 ```console
 docker compose up
 ```
 
 > [!NOTE]
-> Docker Compose polecenia dostępne obecnie w kontekście ACI są `docker compose up` i `docker compose down` . Nie ma łącznika między `docker` i `compose` w tych poleceniach.
+> Docker Compose polecenia aktualnie dostępne w kontekście ACI to `docker compose up` i `docker compose down` . W tych poleceniach nie ma łącznika `docker` `compose` między i .
 
-W krótkim czasie Grupa kontenerów jest wdrażana. Przykładowe dane wyjściowe:
+W krótkim czasie zostanie wdrożona grupa kontenerów. Przykładowe dane wyjściowe:
 
 ```
 [+] Running 3/3
@@ -200,7 +200,7 @@ W krótkim czasie Grupa kontenerów jest wdrażana. Przykładowe dane wyjściowe
  ⠿ azure-vote-front           Done                             10.6s
 ```
 
-Uruchom, `docker ps` Aby wyświetlić uruchomione kontenery i adres IP przypisany do grupy kontenerów.
+Uruchom `docker ps` , aby wyświetlić uruchomione kontenery i adres IP przypisany do grupy kontenerów.
 
 ```console
 docker ps
@@ -214,19 +214,19 @@ azurevotingappredis_azure-vote-back    mcr.microsoft.com/oss/bitnami/redis:6.0.8
 azurevotingappredis_azure-vote-front   myregistry.azurecr.io/azure-vote-front                            Running             52.179.23.131:80->80/tcp
 ```
 
-Aby wyświetlić uruchomioną aplikację w chmurze, wprowadź wyświetlany adres IP w lokalnej przeglądarce sieci Web. W tym przykładzie wprowadź `52.179.23.131` . Zostanie załadowana przykładowa aplikacja, jak pokazano w poniższym przykładzie:
+Aby wyświetlić aplikację uruchamianą w chmurze, wprowadź wyświetlony adres IP w lokalnej przeglądarce internetowej. W tym przykładzie wprowadź `52.179.23.131` . Zostanie załadowana przykładowa aplikacja, jak pokazano w poniższym przykładzie:
 
-:::image type="content" source="media/tutorial-docker-compose/azure-vote-aci.png" alt-text="Obraz aplikacji do głosowania w ACI":::
+:::image type="content" source="media/tutorial-docker-compose/azure-vote-aci.png" alt-text="Obraz aplikacji do głosowania w UCI":::
 
-Aby wyświetlić dzienniki kontenera frontonu, uruchom polecenie [Docker Logs](https://docs.docker.com/engine/reference/commandline/logs) . Na przykład:
+Aby wyświetlić dzienniki kontenera frontonia, uruchom polecenie [docker logs.](https://docs.docker.com/engine/reference/commandline/logs) Na przykład:
 
 ```console
 docker logs azurevotingappredis_azure-vote-front
 ```
 
-Możesz również użyć Azure Portal lub innych narzędzi platformy Azure, aby wyświetlić właściwości i stan wdrożonej grupy kontenerów.
+Możesz również użyć narzędzia Azure Portal lub innych narzędzi platformy Azure, aby wyświetlić właściwości i stan wdrożonej grupy kontenerów.
 
-Po zakończeniu próby aplikacji Zatrzymaj aplikację i kontenery przy użyciu `docker compose down` :
+Po zakończeniu próby aplikacji zatrzymaj aplikację i kontenery za `docker compose down` pomocą :
 
 ```console
 docker compose down
@@ -236,16 +236,16 @@ To polecenie usuwa grupę kontenerów w Azure Container Instances.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku użyto Docker Compose do przełączania się z uruchamiania aplikacji wielokontenerowej lokalnie w celu uruchomienia w Azure Container Instances. W tym samouczku omówiono:
+W tym samouczku wykorzystano Docker Compose do przełączenia się z uruchamiania aplikacji z wieloma kontenerami lokalnie na uruchamianie w Azure Container Instances. W tym samouczku omówiono:
 
 > [!div class="checklist"]
 > * Tworzenie rejestru kontenerów platformy Azure
 > * Klonowanie kodu źródłowego aplikacji z usługi GitHub
-> * Używanie Docker Compose do kompilowania obrazu i uruchamiania aplikacji z obsługą kontenera lokalnie
+> * Używanie Docker Compose do kompilowania obrazu i lokalnego uruchamiania aplikacji z wieloma kontenerami
 > * Wypychanie obrazu aplikacji do rejestru kontenerów
-> * Tworzenie kontekstu platformy Azure dla usługi Docker
-> * Wywołaj aplikację w Azure Container Instances
+> * Tworzenie kontekstu platformy Azure dla platformy Docker
+> * Wyniesienie aplikacji do Azure Container Instances
 
-Możesz również użyć [rozszerzenia Docker, aby uzyskać Visual Studio Code](https://aka.ms/VSCodeDocker) zintegrowanego środowiska do opracowywania i uruchamiania kontenerów, obrazów i kontekstów oraz zarządzania nimi.
+Możesz również użyć rozszerzenia [platformy Docker](https://aka.ms/VSCodeDocker) dla platformy Visual Studio Code zintegrowane środowisko do tworzenia i uruchamiania kontenerów, obrazów i kontekstów oraz zarządzania nimi.
 
-Jeśli chcesz korzystać z większej liczby funkcji w Azure Container Instances, użyj narzędzi platformy Azure, aby określić grupę z wieloma kontenerami. Na przykład zapoznaj się z samouczkami, aby wdrożyć grupę kontenerów za pomocą interfejsu wiersza polecenia platformy Azure z [plikiem YAML](container-instances-multi-container-yaml.md)lub Wdróż szablon przy użyciu [szablonu Azure Resource Manager](container-instances-multi-container-group.md). 
+Jeśli chcesz korzystać z większej liczby funkcji w Azure Container Instances, użyj narzędzi platformy Azure, aby określić grupę z wieloma kontenerami. Zobacz na przykład samouczki dotyczące wdrażania grupy kontenerów przy użyciu interfejsu wiersza polecenia platformy Azure z plikiem [YAML](container-instances-multi-container-yaml.md)lub wdrażania przy użyciu [Azure Resource Manager szablonu](container-instances-multi-container-group.md). 

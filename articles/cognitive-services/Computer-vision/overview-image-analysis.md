@@ -1,7 +1,7 @@
 ---
-title: Co to jest analiza obrazu?
+title: Co to jest analiza obrazów?
 titleSuffix: Azure Cognitive Services
-description: Usługa Image Analysis używa wstępnie przeszkolonych modeli AI, aby wyodrębnić wiele różnych funkcji wizualnych z obrazów.
+description: Usługa Analizy obrazów używa wstępnie wytrenowane modele AI do wyodrębniania wielu różnych cech wizualnych z obrazów.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,36 +10,36 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 03/30/2021
 ms.author: pafarley
-keywords: Obsługa komputerów, aplikacje komputerowe, usługa komputerowa
-ms.openlocfilehash: f262fdb49cac4ab9abe7f3f6873160d3059968c6
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+keywords: computer vision, computer vision applications, computer vision service
+ms.openlocfilehash: 0258eb7c57bc0734b5c0a67644cbaa4f62a34537
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106287277"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766919"
 ---
-# <a name="what-is-image-analysis"></a>Co to jest analiza obrazu?
+# <a name="what-is-image-analysis"></a>Co to jest analiza obrazów?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Usługa przetwarzanie obrazów Image Analysis może wyodrębnić wiele różnych funkcji wizualnych z obrazów. Można na przykład określić, czy obraz zawiera zawartość dla dorosłych, znaleźć określone marki lub obiekty, czy też znaleźć ludzkie twarze.
+Usługa przetwarzanie obrazów Analizy obrazów może wyodrębnić z obrazów szeroką gamę funkcji wizualnych. Może na przykład określić, czy obraz zawiera zawartość dla dorosłych, znaleźć konkretne marki lub obiekty albo znaleźć ludzkie twarze.
 
-Możesz użyć analizy obrazów za pomocą zestawu SDK biblioteki klienta lub bezpośrednio wywołując [interfejs API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) . Aby rozpocząć, postępuj zgodnie z [przewodnikiem Szybki Start](quickstarts-sdk/image-analysis-client-library.md) .
+Analizy obrazów można używać za pośrednictwem zestawu SDK biblioteki klienta lub przez bezpośrednie wywołanie interfejsu [API REST.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v2-ga/operations/5d986960601faab4bf452005) Postępuj zgodnie z [przewodnika Szybki start,](quickstarts-sdk/image-analysis-client-library.md) aby rozpocząć pracę.
 
 Ta dokumentacja zawiera następujące typy artykułów:
-* [Przewodniki Szybki Start](./quickstarts-sdk/image-analysis-client-library.md) to instrukcje krok po kroku, które umożliwiają wykonywanie wywołań do usługi i uzyskiwanie wyników w krótkim czasie. 
-* [Przewodniki z](./Vision-API-How-to-Topics/HowToCallVisionAPI.md) instrukcjami zawiera instrukcje dotyczące korzystania z usługi w bardziej specyficzny lub dostosowany sposób.
-* [Artykuły koncepcyjne](concept-tagging-images.md) zawierają szczegółowe omówienie funkcji i funkcji usługi.
-* [Samouczki](./tutorials/storage-lab-tutorial.md) są więcej przewodnikami, które pokazują, jak używać tej usługi jako składnika w szerszym zakresie rozwiązań dla biznesu.
+* Przewodnik [Szybki start to](./quickstarts-sdk/image-analysis-client-library.md) instrukcje krok po kroku, które pozwalają na wywołania usługi i uzyskiwanie wyników w krótkim czasie. 
+* Przewodniki [z instrukcjami zawierają](./Vision-API-How-to-Topics/HowToCallVisionAPI.md) instrukcje dotyczące korzystania z usługi w bardziej szczegółowe lub dostosowane sposoby.
+* Artykuły [koncepcyjne](concept-tagging-images.md) zawierają szczegółowe wyjaśnienia dotyczące funkcjonalności i funkcji usługi.
+* Samouczki [są](./tutorials/storage-lab-tutorial.md) dłuższymi przewodnikami, które pokazują, jak używać tej usługi jako składnika w szerszych rozwiązaniach biznesowych.
 
 ## <a name="image-analysis-features"></a>Funkcje analizy obrazów
 
-Można analizować obrazy, aby zapewnić wgląd w ich funkcje i cechy wizualne. Wszystkie funkcje z poniższej listy są udostępniane przez interfejs API [analizy obrazu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) . Aby rozpocząć, Skorzystaj z [przewodnika Szybki Start](./quickstarts-sdk/image-analysis-client-library.md) .
+Możesz analizować obrazy w celu zapewnienia szczegółowych informacji o ich cechach wizualnych i cechach. Wszystkie funkcje na poniższej liście są udostępniane przez interfejs API analizowanie obrazów [API.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f21b) Skorzystaj z przewodnika [Szybki start,](./quickstarts-sdk/image-analysis-client-library.md) aby rozpocząć pracę.
 
 
 ### <a name="tag-visual-features"></a>Tagowanie funkcji wizualnych
 
-Identyfikowanie i tagowanie elementów wizualnych na obrazie w oparciu o zestaw tysięcy rozpoznawalnych obiektów, istot żywych, scenerii i akcji. Gdy Tagi są niejednoznaczne lub nietypowej wiedzy, odpowiedź interfejsu API zawiera wskazówki wyjaśniające kontekst znacznika. Tagowanie nie jest ograniczone do głównego tematu, na przykład do osoby na pierwszym planie, ale uwzględnia także otoczenie (wewnątrz lub na zewnątrz), meble, narzędzia, rośliny, zwierzęta, akcesoria, gadżety itd. [Tagowanie funkcji wizualnych](concept-tagging-images.md)
+Identyfikowanie i tagowanie elementów wizualnych na obrazie w oparciu o zestaw tysięcy rozpoznawalnych obiektów, istot żywych, scenerii i akcji. Gdy tagi są niejednoznaczne lub nie są powszechnie używane, odpowiedź interfejsu API zawiera wskazówki w celu wyjaśnienia kontekstu tagu. Tagowanie nie jest ograniczone do głównego tematu, na przykład do osoby na pierwszym planie, ale uwzględnia także otoczenie (wewnątrz lub na zewnątrz), meble, narzędzia, rośliny, zwierzęta, akcesoria, gadżety itd. [Tagowanie funkcji wizualnych](concept-tagging-images.md)
 
 ### <a name="detect-objects"></a>Wykrywanie obiektów
 
@@ -49,9 +49,9 @@ Wykrywanie obiektów jest podobne do tagowania, ale interfejs API zwraca współ
 
 Identyfikuj marki handlowe na obrazach lub filmach na podstawie bazy danych z tysiącami znaków logo z całego świata. Za pomocą tej funkcji można na przykład ustalać, które marki są najpopularniejsze w mediach społecznościowych lub najpowszechniej promowane za pomocą lokowania produktów w mediach. [Wykrywanie marek](concept-brand-detection.md)
 
-### <a name="categorize-an-image"></a>Klasyfikowanie obrazu
+### <a name="categorize-an-image"></a>Kategoryzowanie obrazu
 
-Identyfikowanie i kategoryzowanie całego obrazu za pomocą [taksonomii kategorii](Category-Taxonomy.md) z użyciem dziedzicznych hierarchii obiektów nadrzędnych i podrzędnych. Kategorii można używać oddzielnie lub z naszymi nowymi modelami tagowania.<br/>Obecnie jedynym obsługiwanym językiem tagowania i kategoryzowania obrazów jest angielski. [Klasyfikowanie obrazu](concept-categorizing-images.md)
+Identyfikowanie i kategoryzowanie całego obrazu za pomocą [taksonomii kategorii](Category-Taxonomy.md) z użyciem dziedzicznych hierarchii obiektów nadrzędnych i podrzędnych. Kategorii można używać oddzielnie lub z naszymi nowymi modelami tagowania.<br/>Obecnie jedynym obsługiwanym językiem tagowania i kategoryzowania obrazów jest angielski. [Kategoryzowanie obrazu](concept-categorizing-images.md)
 
 ### <a name="describe-an-image"></a>Opisywanie obrazu
 
@@ -59,7 +59,7 @@ Generowanie opisu całego obrazu w języku zrozumiałym dla człowieka przy uży
 
 ### <a name="detect-faces"></a>Wykrywanie twarzy
 
-Wykrywanie twarzy na obrazie i dostarczanie informacji o każdej wykrytej twarzy. Usługa przetwarzania obrazów zwraca współrzędne, prostokąt, płeć i wiek osoby dla każdej wykrytej twarzy.<br/>Przetwarzanie obrazów zapewnia podzestaw funkcji usługi [kroju](../face/index.yml) . Możesz użyć usługi twarzy, aby uzyskać bardziej szczegółową analizę, taką jak Identyfikacja twarzy i wykrywanie ułożenia. [Wykrywanie twarzy](concept-detecting-faces.md)
+Wykrywanie twarzy na obrazie i dostarczanie informacji o każdej wykrytej twarzy. Usługa przetwarzania obrazów zwraca współrzędne, prostokąt, płeć i wiek osoby dla każdej wykrytej twarzy.<br/>przetwarzanie obrazów udostępnia podzestaw [funkcji](../face/index.yml) usługi rozpoznawania twarzy. Usługa rozpoznawania twarzy umożliwia bardziej szczegółową analizę, na przykład identyfikację twarzy i wykrywanie ułożenia. [Wykrywanie twarzy](concept-detecting-faces.md)
 
 ### <a name="detect-image-types"></a>Wykrywanie typów obrazu
 
@@ -67,7 +67,7 @@ Wykrywanie właściwości obrazu, na przykład czy obraz jest rysunkiem lub praw
 
 ### <a name="detect-domain-specific-content"></a>Wykrywanie zawartości specyficznej dla domeny
 
-Wykrywanie i identyfikowanie zawartości obrazu specyficznej dla domeny, takiej jak osobistości i charakterystyczne elementy krajobrazu, przy użyciu modeli domeny. Na przykład jeśli obraz zawiera inne osoby, przetwarzanie obrazów może użyć modelu domeny dla osobistości, aby określić, czy osoby wykryte w obrazie są znane osobistości. [Wykrywanie zawartości specyficznej dla domeny](concept-detecting-domain-content.md)
+Wykrywanie i identyfikowanie zawartości obrazu specyficznej dla domeny, takiej jak osobistości i charakterystyczne elementy krajobrazu, przy użyciu modeli domeny. Jeśli na przykład obraz zawiera osoby, przetwarzanie obrazów użyć modelu domeny dla osobistości, aby określić, czy osoby wykryte na obrazie są znanymi osobistościami. [Wykrywanie zawartości specyficznej dla domeny](concept-detecting-domain-content.md)
 
 ### <a name="detect-the-color-scheme"></a>Wykrywanie schematu kolorów
 
@@ -79,15 +79,15 @@ Analizowanie zawartości obrazu w celu wygenerowania dla niego odpowiedniej mini
 
 ### <a name="get-the-area-of-interest"></a>Określanie obszaru zainteresowania
 
-Przeanalizuj zawartość obrazu w celu zwrócenia współrzędnych *obszaru zainteresowania*. Zamiast przycinania obrazu i generowania miniatur, przetwarzanie obrazów zwraca współrzędne pola ograniczenia regionu, dzięki czemu aplikacja wywołująca może zmodyfikować oryginalny obraz zgodnie z potrzebami. [Określanie obszaru zainteresowania](concept-generating-thumbnails.md#area-of-interest)
+Przeanalizuj zawartość obrazu w celu zwrócenia współrzędnych *obszaru zainteresowania*. Zamiast przycinania obrazu i generowania miniatury przetwarzanie obrazów zwraca współrzędne pola granicy regionu, dzięki czemu aplikacja wywołująca może zmodyfikować oryginalny obraz zgodnie z potrzebami. [Określanie obszaru zainteresowania](concept-generating-thumbnails.md#area-of-interest)
 
 ## <a name="moderate-content-in-images"></a>Moderowanie zawartości na obrazach
 
-Za pomocą przetwarzanie obrazów można [wykrywać zawartość dla dorosłych](concept-detecting-adult-content.md) w obrazie i zwracać wyniki zaufania dla różnych klasyfikacji. Próg oflagowania zawartości można ustawić na ruchomej skali, aby dopasować swoje preferencje.
+Możesz użyć przetwarzanie obrazów do [wykrywania zawartości dla](concept-detecting-adult-content.md) dorosłych na obrazie i zwracania ocen ufności dla różnych klasyfikacji. Próg flagowania zawartości można ustawić na przesuwanej skali w celu dostosowania do twoich preferencji.
 
 ## <a name="image-requirements"></a>Wymagania obrazu
 
-Analiza obrazów działa na obrazach, które spełniają następujące wymagania:
+Analiza obrazów działa na obrazach spełniających następujące wymagania:
 
 - Obraz musi być w formacie JPEG, PNG, GIF lub BMP
 - Rozmiar pliku obrazu musi być mniejszy niż 4 megabajty (MB)
@@ -99,6 +99,6 @@ Jak w przypadku wszystkich usług Cognitive Services, deweloperzy korzystający 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Rozpocznij pracę z analizą obrazu, postępując zgodnie z przewodnikiem Szybki Start w preferowanym języku deweloperskim:
+Rozpoczynanie pracy z analizą obrazów, korzystając z przewodnika Szybki start w preferowanym języku programowania:
 
-- [Szybki Start: przetwarzanie obrazów interfejsów API REST lub bibliotek klienckich](./quickstarts-sdk/image-analysis-client-library.md)
+- [Szybki start: przetwarzanie obrazów API REST lub bibliotek klienckich](./quickstarts-sdk/image-analysis-client-library.md)

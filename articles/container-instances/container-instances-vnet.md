@@ -1,46 +1,46 @@
 ---
-title: Wdrażanie grupy kontenerów w usłudze Azure Virtual Network
+title: Wdrażanie grupy kontenerów w sieci wirtualnej platformy Azure
 description: Dowiedz się, jak wdrożyć grupę kontenerów w nowej lub istniejącej sieci wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure.
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: b791d3f37809c2eca53f5a3cd34f7c44dd11ce40
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44be66957aa745179ffe4cd00db75f1d47237dfc
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98028883"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771051"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Wdrażanie wystąpień kontenerów w sieci wirtualnej platformy Azure
 
-[Usługa azure Virtual Network](../virtual-network/virtual-networks-overview.md) zapewnia bezpieczną i prywatną sieć dla zasobów platformy Azure i lokalnych. Wdrażając grupy kontenerów w sieci wirtualnej platformy Azure, kontenery mogą bezpiecznie komunikować się z innymi zasobami w sieci wirtualnej.
+[Usługa Azure Virtual Network](../virtual-network/virtual-networks-overview.md) zapewnia bezpieczną, prywatną sieć dla platformy Azure i zasobów lokalnych. Wdrażając grupy kontenerów w sieci wirtualnej platformy Azure, kontenery mogą bezpiecznie komunikować się z innymi zasobami w sieci wirtualnej.
 
-W tym artykule pokazano, jak za pomocą polecenia [AZ Container Create][az-container-create] w interfejsie CLI platformy Azure wdrożyć grupy kontenerów w nowej sieci wirtualnej lub istniejącej sieci wirtualnej. 
+W tym artykule pokazano, jak za pomocą [polecenia az container create][az-container-create] w interfejsie wiersza polecenia platformy Azure wdrożyć grupy kontenerów w nowej sieci wirtualnej lub istniejącej sieci wirtualnej. 
 
-Aby poznać scenariusze i ograniczenia dotyczące sieci, zobacz [scenariusze i zasoby sieci wirtualnej dla Azure Container Instances](container-instances-virtual-network-concepts.md).
+Aby uzyskać informacje o scenariuszach i ograniczeniach dotyczących sieci, zobacz Virtual network scenarios and resources for Azure Container Instances (Scenariusze i zasoby dotyczące sieci [Azure Container Instances).](container-instances-virtual-network-concepts.md)
 
 > [!IMPORTANT]
-> Wdrożenie grupy kontenerów w sieci wirtualnej jest ogólnie dostępne dla kontenerów systemu Linux w większości regionów, w których Azure Container Instances jest dostępna. Aby uzyskać szczegółowe informacje, zobacz [regiony i dostępność zasobów][container-regions]. 
+> Wdrożenie grupy kontenerów w sieci wirtualnej jest ogólnie dostępne dla kontenerów systemu Linux w większości regionów, Azure Container Instances jest dostępna. Aby uzyskać szczegółowe informacje, [zobacz Regions and resource availability (Regiony i dostępność zasobów).][container-regions] 
 
-Przykłady w tym artykule są sformatowane dla powłoki bash. Jeśli wolisz inną powłokę, taką jak program PowerShell lub wiersz polecenia, Dostosuj odpowiednio znaki kontynuacji wiersza.
+Przykłady w tym artykule są sformatowane dla powłoki Bash. Jeśli wolisz inną powłokę, taką jak program PowerShell lub wiersz polecenia, odpowiednio dostosuj znaki kontynuacji wiersza.
 
 
-## <a name="deploy-to-new-virtual-network"></a>Wdróż w nowej sieci wirtualnej
+## <a name="deploy-to-new-virtual-network"></a>Wdrażanie w nowej sieci wirtualnej
 
-Aby wdrożyć w nowej sieci wirtualnej i automatycznie utworzyć zasoby sieciowe na platformie Azure, określ następujące elementy podczas wykonywania [AZ Container Create][az-container-create]:
+Aby wdrożyć w nowej sieci wirtualnej i automatycznie utworzyć zasoby sieciowe na platformie Azure, podczas wykonywania polecenia az container create określ następujące [elementy:][az-container-create]
 
 * Nazwa sieci wirtualnej
 * Prefiks adresu sieci wirtualnej w formacie CIDR
 * Nazwa podsieci
 * Prefiks adresu podsieci w formacie CIDR
 
-Prefiksy adresów sieci wirtualnej i podsieci określają odpowiednio przestrzenie adresowe dla sieci wirtualnej i podsieci. Te wartości są reprezentowane w notacji CIDR (Classless Inter-Domain Routing), na przykład `10.0.0.0/16` . Aby uzyskać więcej informacji na temat pracy z podsieciami, zobacz [Dodawanie, zmienianie lub usuwanie podsieci sieci wirtualnej](../virtual-network/virtual-network-manage-subnet.md).
+Prefiksy adresów sieci wirtualnej i podsieci określają odpowiednio przestrzenie adresowe dla sieci wirtualnej i podsieci. Te wartości są reprezentowane w notacji Inter-Domain routingu bez klas (CIDR), na przykład `10.0.0.0/16` . Aby uzyskać więcej informacji na temat pracy z podsieciami, zobacz [Dodawanie, zmienianie lub](../virtual-network/virtual-network-manage-subnet.md)usuwanie podsieci sieci wirtualnej .
 
-Po wdrożeniu pierwszej grupy kontenerów za pomocą tej metody można wdrożyć ją w tej samej podsieci, określając nazwę sieci wirtualnej i podsieci, lub profil sieciowy, który zostanie automatycznie utworzony przez platformę Azure. Ponieważ platforma Azure deleguje podsieć do Azure Container Instances, można wdrożyć *tylko* grupy kontenerów w podsieci.
+Po wdrożeniu pierwszej grupy kontenerów za pomocą tej metody możesz wdrożyć ją w tej samej podsieci, określając sieć wirtualną i nazwy podsieci lub profil sieci, który platforma Azure automatycznie utworzy dla Ciebie. Ponieważ platforma Azure deleguje podsieć do  Azure Container Instances, w tej podsieci można wdrożyć tylko grupy kontenerów.
 
 ### <a name="example"></a>Przykład
 
-Następujące polecenie [AZ Container Create][az-container-create] określa ustawienia dla nowej sieci wirtualnej i podsieci. Podaj nazwę grupy zasobów, która została utworzona w regionie, w którym są [dostępne](container-instances-region-availability.md)wdrożenia grup kontenerów w sieci wirtualnej. To polecenie wdraża publiczny kontener Microsoft [ACI-HelloWorld][aci-helloworld] , który uruchamia mały Node.js WebServer obsługującego statyczną stronę sieci Web. W następnej sekcji zostanie wdrożona druga grupa kontenerów w tej samej podsieci i przetestowana zostanie komunikacja między dwoma wystąpieniami kontenerów.
+Następujące polecenie [az container create][az-container-create] określa ustawienia dla nowej sieci wirtualnej i podsieci. Podaj nazwę grupy zasobów utworzonej w regionie, w którym są dostępne wdrożenia grup kontenerów w sieci [wirtualnej.](container-instances-region-availability.md) To polecenie wdraża publiczny kontener [aci-helloworld][aci-helloworld] firmy Microsoft, który uruchamia mały Node.js serwer internetowy obsługujący statyczną stronę internetową. W następnej sekcji wdrożysz drugą grupę kontenerów w tej samej podsieci i przetestujemy komunikację między dwoma wystąpieniami kontenera.
 
 ```azurecli
 az container create \
@@ -53,23 +53,23 @@ az container create \
   --subnet-address-prefix 10.0.0.0/24
 ```
 
-Po wdrożeniu do nowej sieci wirtualnej za pomocą tej metody wdrożenie może potrwać kilka minut podczas tworzenia zasobów sieciowych. Po wdrożeniu początkowym kolejne wdrożenia grup kontenerów w tej samej podsieci są szybsze.
+W przypadku wdrożenia w nowej sieci wirtualnej przy użyciu tej metody wdrożenie może potrwać kilka minut, gdy zasoby sieciowe zostaną utworzone. Po początkowym wdrożeniu dodatkowe wdrożenia grup kontenerów w tej samej podsieci są szybciej ukończone.
 
-## <a name="deploy-to-existing-virtual-network"></a>Wdróż w istniejącej sieci wirtualnej
+## <a name="deploy-to-existing-virtual-network"></a>Wdrażanie w istniejącej sieci wirtualnej
 
 Aby wdrożyć grupę kontenerów w istniejącej sieci wirtualnej:
 
-1. Utwórz podsieć w istniejącej sieci wirtualnej, Użyj istniejącej podsieci, w której Grupa kontenerów została już wdrożona, lub Użyj istniejącej podsieci z opróżnieniem *wszystkich* innych zasobów
-1. Wdróż grupę kontenerów za pomocą [AZ Container Create][az-container-create] i Określ jedną z następujących wartości:
+1. Utwórz podsieć w ramach istniejącej sieci wirtualnej, użyj istniejącej podsieci, w której grupa kontenerów została już wdrożona, lub użyj istniejącej podsieci opróżnionej ze *wszystkich* innych zasobów
+1. Wd wdrażaj grupę kontenerów za pomocą az [container create][az-container-create] i określ jedną z następujących wartości:
    * Nazwa sieci wirtualnej i nazwa podsieci
-   * Identyfikator zasobu sieci wirtualnej i identyfikator zasobu podsieci, który umożliwia korzystanie z sieci wirtualnej z innej grupy zasobów
-   * Nazwa lub identyfikator profilu sieciowego, który można uzyskać za pomocą polecenia [AZ Network profile list][az-network-profile-list]
+   * Identyfikator zasobu sieci wirtualnej i identyfikator zasobu podsieci, co umożliwia korzystanie z sieci wirtualnej z innej grupy zasobów
+   * Nazwa lub identyfikator profilu sieciowego, które można uzyskać za pomocą [narzędzia az network profile list][az-network-profile-list]
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład służy do wdrażania drugiej grupy kontenerów w tej samej podsieci, która została utworzona wcześniej, i weryfikuje komunikację między dwoma wystąpieniami kontenerów.
+Poniższy przykład wdraża drugą grupę kontenerów w tej samej podsieci, która została wcześniej utworzona, i weryfikuje komunikację między dwoma wystąpieniami kontenerów.
 
-Najpierw Pobierz adres IP pierwszej wdrożonej grupy kontenerów *:*
+Najpierw pobierz adres IP pierwszej wdrożonej grupy kontenerów, *appcontainer*:
 
 ```azurecli
 az container show --resource-group myResourceGroup \
@@ -83,7 +83,7 @@ W danych wyjściowych zostanie wyświetlony adres IP grupy kontenerów w podsiec
 10.0.0.4
 ```
 
-Teraz ustaw `CONTAINER_GROUP_IP` adres IP pobrany z `az container show` poleceniem i wykonaj następujące `az container create` polecenie. Ten drugi kontener, *commchecker*, uruchamia obraz oparty na systemie Linux i jest wykonywany `wget` w odniesieniu do pierwszego adresu IP podsieci prywatnej grupy kontenerów.
+Teraz ustaw `CONTAINER_GROUP_IP` na adres IP pobrany za pomocą polecenia i wykonaj następujące `az container show` `az container create` polecenie. Ten drugi kontener, *commchecker,* uruchamia obraz oparty na systemie Alpine Linux i wykonuje względem adresu IP podsieci prywatnej `wget` pierwszej grupy kontenerów.
 
 ```azurecli
 CONTAINER_GROUP_IP=<container-group-IP-address>
@@ -98,35 +98,35 @@ az container create \
   --subnet aci-subnet
 ```
 
-Po zakończeniu tego wdrożenia drugiego kontenera Pobierz jego dzienniki, aby wyświetlić dane wyjściowe `wget` wykonywane przez niego polecenie:
+Po ukończeniu drugiego wdrożenia kontenera ściągnij jego dzienniki, aby wyświetlić dane wyjściowe `wget` wykonanego polecenia:
 
 ```azurecli
 az container logs --resource-group myResourceGroup --name commchecker
 ```
 
-Jeśli drugi kontener został pomyślnie przekazany do pierwszego, dane wyjściowe są podobne do:
+Jeśli drugi kontener pomyślnie komunikował się z pierwszym, dane wyjściowe będą podobne do:
 
 ```console
 Connecting to 10.0.0.4 (10.0.0.4:80)
 index.html           100% |*******************************|  1663   0:00:00 ETA
 ```
 
-W danych wyjściowych dziennika powinna być wyświetlana wartość, która `wget` była w stanie połączyć i pobrać plik indeksu z pierwszego kontenera przy użyciu jego prywatnego adresu IP w podsieci lokalnej. Ruch sieciowy między dwiema grupami kontenerów pozostał w sieci wirtualnej.
+Dane wyjściowe dziennika powinny pokazywać, że można było nawiązać połączenie i pobrać plik indeksu z pierwszego kontenera przy użyciu jego prywatnego adresu `wget` IP w podsieci lokalnej. Ruch sieciowy między dwiema grupami kontenerów pozostał w sieci wirtualnej.
 
 ### <a name="example---yaml"></a>Przykład — YAML
 
-Możesz również wdrożyć grupę kontenerów w istniejącej sieci wirtualnej przy użyciu pliku YAML, [szablonu Menedżer zasobów](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
-)lub innej metody programistycznej, takiej jak z zestawem SDK języka Python. 
+Grupę kontenerów można również wdrożyć w istniejącej sieci [](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
+)wirtualnej przy użyciu pliku YAML, szablonu Resource Manager lub innej metody programowej, takiej jak zestaw PYTHON SDK. 
 
-Na przykład podczas korzystania z pliku YAML można wdrożyć w sieci wirtualnej z podsiecią delegowaną do Azure Container Instances. Określ następujące właściwości:
+Na przykład w przypadku korzystania z pliku YAML można wdrożyć w sieci wirtualnej z podsiecią delegowaną do Azure Container Instances. Określ następujące właściwości:
 
-* `ipAddress`: Ustawienia prywatnego adresu IP dla grupy kontenerów.
-  * `ports`: Porty do otwarcia (jeśli istnieją).
-  * `protocol`: Protokół (TCP lub UDP) dla otwartego portu.
-* `networkProfile`: Ustawienia sieci dla sieci wirtualnej i podsieci.
-  * `id`: Pełny identyfikator zasobu Menedżer zasobów `networkProfile` .
+* `ipAddress`: ustawienia prywatnego adresu IP dla grupy kontenerów.
+  * `ports`: porty do otwarcia, jeśli są otwarte.
+  * `protocol`: protokół (TCP lub UDP) dla otwartego portu.
+* `networkProfile`: ustawienia sieci dla sieci wirtualnej i podsieci.
+  * `id`: pełny Resource Manager identyfikatora zasobu zasobu `networkProfile` .
 
-Aby uzyskać identyfikator profilu sieciowego, uruchom polecenie [AZ Network profile list][az-network-profile-list] , określając nazwę grupy zasobów zawierającej sieć wirtualną i delegowaną podsieć.
+Aby uzyskać identyfikator profilu sieciowego, uruchom polecenie [az network profile list,][az-network-profile-list] określając nazwę grupy zasobów zawierającej sieć wirtualną i delegowaną podsieć.
 
 ``` azurecli
 az network profile list --resource-group myResourceGroup \
@@ -139,7 +139,7 @@ Przykładowe dane wyjściowe:
 /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-aci-subnet
 ```
 
-Gdy masz identyfikator profilu sieciowego, Skopiuj następujący YAML do nowego pliku o nazwie *VNET-Deploy-ACI. YAML*. W obszarze `networkProfile` , Zastąp `id` wartość identyfikatorem, który właśnie został pobrany, a następnie Zapisz plik. Ta YAML tworzy grupę kontenerów o nazwie *appcontaineryaml* w sieci wirtualnej.
+Gdy masz już identyfikator profilu sieciowego, skopiuj następujący kod YAML do nowego pliku o nazwie *vnet-deploy-aci.yaml.* W obszarze zastąp wartość właśnie pobranym identyfikatorem, a `networkProfile` `id` następnie zapisz plik. Ten plik YAML tworzy grupę kontenerów o *nazwie appcontaineryaml* w sieci wirtualnej.
 
 ```YAML
 apiVersion: '2019-12-01'
@@ -170,14 +170,14 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Wdróż grupę kontenerów za pomocą polecenia [AZ Container Create][az-container-create] , określając nazwę pliku YAML dla `--file` parametru:
+Wdróż grupę kontenerów za pomocą polecenia [az container create,][az-container-create] określając nazwę pliku YAML dla `--file` parametru :
 
 ```azurecli
 az container create --resource-group myResourceGroup \
   --file vnet-deploy-aci.yaml
 ```
 
-Po zakończeniu wdrożenia Uruchom polecenie [AZ Container show][az-container-show] , aby wyświetlić jego stan. Przykładowe dane wyjściowe:
+Po zakończeniu wdrażania uruchom polecenie [az container show,][az-container-show] aby wyświetlić jego stan. Przykładowe dane wyjściowe:
 
 ```console
 Name              ResourceGroup    Status    Image                                       IP:ports     Network    CPU/Memory       OsType    Location
@@ -189,7 +189,7 @@ appcontaineryaml  myResourceGroup  Running   mcr.microsoft.com/azuredocs/aci-hel
 
 ### <a name="delete-container-instances"></a>Usuwanie wystąpień kontenerów
 
-Po zakończeniu pracy z utworzonymi wystąpieniami kontenerów usuń je za pomocą następujących poleceń:
+Po pracy z utworzonymi wystąpieniami kontenerów usuń je za pomocą następujących poleceń:
 
 ```azurecli
 az container delete --resource-group myResourceGroup --name appcontainer -y
@@ -199,12 +199,12 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 ### <a name="delete-network-resources"></a>Usuwanie zasobów sieciowych
 
-Ta funkcja wymaga obecnie kilku dodatkowych poleceń w celu usunięcia utworzonych wcześniej zasobów sieciowych. Jeśli użyto przykładowych poleceń w poprzednich sekcjach tego artykułu, aby utworzyć sieć wirtualną i podsieć, można użyć następującego skryptu, aby usunąć te zasoby sieciowe. Skrypt zakłada, że grupa zasobów zawiera pojedynczą sieć wirtualną z pojedynczym profilem sieciowym.
+Ta funkcja wymaga obecnie kilku dodatkowych poleceń do usunięcia utworzonych wcześniej zasobów sieciowych. Jeśli przykładowe polecenia w poprzednich sekcjach tego artykułu były używane do tworzenia sieci wirtualnej i podsieci, możesz użyć następującego skryptu, aby usunąć te zasoby sieciowe. Skrypt zakłada, że grupa zasobów zawiera pojedynczą sieć wirtualną z pojedynczym profilem sieciowym.
 
-Przed wykonaniem skryptu Ustaw `RES_GROUP` zmienną na nazwę grupy zasobów zawierającej sieć wirtualną i podsieć, która ma zostać usunięta. Zaktualizuj nazwę sieci wirtualnej, jeśli nie używasz `aci-vnet` sugerowanej wcześniej nazwy. Skrypt jest sformatowany dla powłoki bash. Jeśli wolisz innej powłoki, takiej jak PowerShell lub wiersz polecenia, musisz odpowiednio dostosować przypisanie zmiennych i metody dostępu.
+Przed wykonaniem skryptu ustaw zmienną na nazwę grupy zasobów zawierającej sieć wirtualną i podsieć, `RES_GROUP` które powinny zostać usunięte. Zaktualizuj nazwę sieci wirtualnej, jeśli nie została wcześniej `aci-vnet` zasugerowana nazwa. Skrypt jest sformatowany dla powłoki Bash. Jeśli wolisz inną powłokę, taką jak program PowerShell lub wiersz polecenia, musisz odpowiednio dostosować przypisanie zmiennych i dostęp do nich.
 
 > [!WARNING]
-> Ten skrypt usuwa zasoby! Usuwa sieć wirtualną i wszystkie podsieci, które zawiera. Upewnij się, że nie potrzebujesz już *żadnych* zasobów w sieci wirtualnej, w tym wszystkich podsieci, które zawiera, przed uruchomieniem tego skryptu. Po usunięciu **te zasoby są nieodwracalne**.
+> Ten skrypt usuwa zasoby! Spowoduje to usunięcie sieci wirtualnej i wszystkich podsieci, które zawiera. Przed uruchomieniem tego  skryptu upewnij się, że nie są już potrzebne żadne zasoby w sieci wirtualnej, w tym wszystkie podsieci, które zawiera. Po usunięciu **te zasoby są nieodwracalne.**
 
 ```azurecli
 # Replace <my-resource-group> with the name of your resource group
@@ -224,8 +224,8 @@ az network vnet delete --resource-group $RES_GROUP --name aci-vnet
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby wdrożyć nową sieć wirtualną, podsieć, profil sieci i grupę kontenerów przy użyciu szablonu Menedżer zasobów, zobacz [Tworzenie grupy kontenerów platformy Azure przy](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
-)użyciu sieci wirtualnej.
+Aby wdrożyć nową sieć wirtualną, podsieć, profil sieci i grupę kontenerów przy użyciu szablonu Resource Manager, zobacz Tworzenie grupy kontenerów platformy [Azure za pomocą sieci wirtualnej](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
+).
 
 <!-- IMAGES -->
 [aci-vnet-01]: ./media/container-instances-vnet/aci-vnet-01.png
@@ -234,8 +234,8 @@ Aby wdrożyć nową sieć wirtualną, podsieć, profil sieci i grupę konteneró
 [aci-helloworld]: https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-show]: /cli/azure/container#az-container-show
-[az-network-vnet-create]: /cli/azure/network/vnet#az-network-vnet-create
-[az-network-profile-list]: /cli/azure/network/profile#az-network-profile-list
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-show]: /cli/azure/container#az_container_show
+[az-network-vnet-create]: /cli/azure/network/vnet#az_network_vnet_create
+[az-network-profile-list]: /cli/azure/network/profile#az_network_profile_list
 [container-regions]: container-instances-region-availability.md

@@ -1,6 +1,6 @@
 ---
-title: Interfejs wiersza polecenia — Tworzenie obrazu na podstawie migawki lub dysku zarządzanego w galerii obrazów udostępnionych
-description: Dowiedz się, jak utworzyć obraz na podstawie migawki lub dysku zarządzanego w galerii obrazów udostępnionych przy użyciu interfejsu wiersza polecenia platformy Azure.
+title: Interfejs wiersza polecenia — tworzenie obrazu z migawki lub dysku zarządzanego w Shared Image Gallery
+description: Dowiedz się, jak utworzyć obraz z migawki lub dysku zarządzanego w Shared Image Gallery przy użyciu interfejsu wiersza polecenia platformy Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
@@ -9,20 +9,20 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: c809edd3699d0b9827fe15da53d5d18b12cbe6e6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2dc6d99b8b1c913479fc584b52f6ff919dfac675
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102556965"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792295"
 ---
-# <a name="create-an-image-from-a-managed-disk-or-snapshot-in-a-shared-image-gallery-using-the-azure-cli"></a>Tworzenie obrazu z dysku zarządzanego lub migawki w udostępnionej galerii obrazów przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="create-an-image-from-a-managed-disk-or-snapshot-in-a-shared-image-gallery-using-the-azure-cli"></a>Tworzenie obrazu z dysku zarządzanego lub migawki w witrynie Shared Image Gallery pomocą interfejsu wiersza polecenia platformy Azure
 
-Jeśli masz istniejącą migawkę lub dysk zarządzany, który chcesz migrować do galerii obrazów udostępnionych, możesz utworzyć obraz udostępnionej galerii obrazów bezpośrednio z dysku zarządzanego lub migawki. Po przetestowaniu nowego obrazu można usunąć źródłowy dysk zarządzany lub migawkę. Możesz również utworzyć obraz z dysku zarządzanego lub migawki w udostępnionej galerii obrazów przy użyciu [Azure PowerShell](image-version-snapshot-powershell.md).
+Jeśli masz istniejącą migawkę lub dysk zarządzany, który chcesz zmigrować do Shared Image Gallery, możesz utworzyć obraz Shared Image Gallery bezpośrednio z dysku zarządzanego lub migawki. Po przetestowania nowego obrazu możesz usunąć źródłowy dysk zarządzany lub migawkę. Można również utworzyć obraz z dysku zarządzanego lub migawki w Shared Image Gallery za pomocą [Azure PowerShell.](image-version-snapshot-powershell.md)
 
-Obrazy w galerii obrazów mają dwa składniki, które zostaną utworzone w tym przykładzie:
-- **Definicja obrazu** przenosi informacje o obrazie i wymaganiach dotyczących korzystania z niego. Obejmuje to zarówno system Windows, jak i Linux, wyspecjalizowane lub uogólnione informacje o wersji oraz minimalne i maksymalne wymagania dotyczące pamięci. Jest to definicja typu obrazu. 
-- **Wersja obrazu** jest używana do tworzenia maszyny wirtualnej w przypadku korzystania z galerii obrazów udostępnionych. Dla danego środowiska można mieć wiele wersji obrazu. Podczas tworzenia maszyny wirtualnej wersja obrazu jest używana do tworzenia nowych dysków dla maszyny wirtualnej. Wersje obrazów można wielokrotnie używać.
+Obrazy w galerii obrazów mają dwa składniki, które utworzymy w tym przykładzie:
+- Definicja **obrazu zawiera** informacje o obrazie i wymagania dotyczące jego używania. Dotyczy to również tego, czy obraz jest systemem Windows lub Linux, wyspecjalizowany lub uogólniony, informacje o wersji oraz minimalne i maksymalne wymagania dotyczące pamięci. Jest to definicja typu obrazu. 
+- Wersja **obrazu służy** do tworzenia maszyny wirtualnej podczas korzystania z maszyny Shared Image Gallery. W razie potrzeby w środowisku może być potrzebnych wiele wersji obrazu. Podczas tworzenia maszyny wirtualnej wersja obrazu jest używana do tworzenia nowych dysków dla maszyny wirtualnej. Wersje obrazów mogą być używane wiele razy.
 
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
@@ -31,32 +31,32 @@ Aby ukończyć ten artykuł, musisz mieć migawkę lub dysk zarządzany.
 
 Jeśli chcesz dołączyć dysk danych, rozmiar dysku danych nie może być większy niż 1 TB.
 
-W trakcie pracy z tym artykułem Zastąp nazwy zasobów, w razie konieczności.
+Podczas pracy z tym artykułem w razie potrzeby zastąp nazwy zasobów.
 
 ## <a name="find-the-snapshot-or-managed-disk"></a>Znajdowanie migawki lub dysku zarządzanego 
 
-Listę migawek, które są dostępne w grupie zasobów, można wyświetlić za pomocą polecenia [AZ Snapshot list](/cli/azure/snapshot#az-snapshot-list). 
+Listę migawek dostępnych w grupie zasobów można wyświetlić za pomocą [narzędzia az snapshot list](/cli/azure/snapshot#az_snapshot_list). 
 
 ```azurecli-interactive
 az snapshot list --query "[].[name, id]" -o tsv
 ```
 
-Można również użyć dysku zarządzanego zamiast migawki. Aby uzyskać dysk zarządzany, użyj polecenie [AZ Disk list](/cli/azure/disk#az-disk-list). 
+Zamiast migawki można również użyć dysku zarządzanego. Aby uzyskać dysk zarządzany, użyj [narzędzia az disk list](/cli/azure/disk#az_disk_list). 
 
 ```azurecli-interactive
 az disk list --query "[].[name, id]" -o tsv
 ```
 
-Po umieszczeniu identyfikatora migawki lub dysku zarządzanego i przypisaniu go do zmiennej o nazwie `$source` do użycia później.
+Gdy masz już identyfikator migawki lub dysku zarządzanego i przypiszesz go do zmiennej o nazwie `$source` , która będzie używana później.
 
-Możesz użyć tego samego procesu do pobrania dowolnego dysku z danymi, który ma zostać uwzględniony w obrazie. Należy przypisać je do zmiennych, a następnie użyć tych zmiennych później podczas tworzenia wersji obrazu.
+Możesz użyć tego samego procesu, aby uzyskać wszystkie dyski danych, które chcesz uwzględnić w obrazie. Przypisz je do zmiennych, a następnie użyj tych zmiennych później podczas tworzenia wersji obrazu.
 
 
-## <a name="find-the-gallery"></a>Znajdź galerię
+## <a name="find-the-gallery"></a>Znajdowanie galerii
 
-Aby można było utworzyć definicję obrazu, potrzebne będą informacje o galerii obrazów.
+Aby utworzyć definicję obrazu, potrzebne są informacje o galerii obrazów.
 
-Wyświetl informacje o dostępnych galeriach obrazów przy użyciu polecenia [AZ SIG list](/cli/azure/sig#az-sig-list). Zanotuj nazwę galerii, w której Grupa zasobów jest używana przez galerię do późniejszego użycia.
+Lista informacji o dostępnych galeriach obrazów za pomocą [narzędzia az sig list](/cli/azure/sig#az_sig_list). Zanotuj nazwę galerii, w której grupa zasobów znajduje się w galerii, do późniejszego użycia.
 
 ```azurecli-interactive 
 az sig list -o table
@@ -65,17 +65,17 @@ az sig list -o table
 
 ## <a name="create-an-image-definition"></a>Tworzenie definicji obrazu
 
-Definicje obrazów tworzą logiczne grupowanie dla obrazów. Są one używane do zarządzania informacjami o obrazie. Nazwy definicji obrazów mogą składać się z wielkich lub małych liter, cyfr, kropek, kresek i kropek. 
+Definicje obrazów tworzą logiczne grupowanie obrazów. Są one używane do zarządzania informacjami o obrazie. Nazwy definicji obrazów mogą składać się z wielkich lub małych liter, cyfr, kropek, łączników i kropek. 
 
-Podczas tworzenia definicji obrazu upewnij się, że zawiera on wszystkie prawidłowe informacje. W tym przykładzie zakładamy, że migawka lub dysk zarządzany pochodzą z maszyny wirtualnej, która jest używana, i nie został uogólniony. Jeśli na dysku zarządzanym lub migawek utworzono uogólniony system operacyjny (po uruchomieniu programu Sysprep dla systemu Windows lub [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` lub `-deprovision+user` Linux), Zmień wartość `-OsState` na `generalized` . 
+Podczas tworzenia definicji obrazu upewnij się, że masz wszystkie poprawne informacje. W tym przykładzie zakładamy, że migawka lub dysk zarządzany pochodzi z maszyny wirtualnej, która jest w użyciu i nie została uogólniona. Jeśli dysk zarządzany lub migawka zostały wykonane dla uogólnionych systemów operacyjnych (po uruchomieniu narzędzia Sysprep dla systemu Windows lub [waagent](https://github.com/Azure/WALinuxAgent) bądź dla systemu Linux), zmień na `-deprovision` `-deprovision+user` `-OsState` `generalized` . 
 
-Aby uzyskać więcej informacji na temat wartości, które można określić dla definicji obrazu, zobacz [definicje obrazu](./shared-image-galleries.md#image-definitions).
+Aby uzyskać więcej informacji na temat wartości, które można określić dla definicji obrazu, zobacz [Definicje obrazów](./shared-image-galleries.md#image-definitions).
 
-Utwórz definicję obrazu w galerii za pomocą polecenia [AZ SIG Image-Definition Create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
+Utwórz definicję obrazu w galerii za pomocą [az sig image-definition create](/cli/azure/sig/image-definition#az_sig_image_definition_create).
 
-W tym przykładzie definicja obrazu ma nazwę *myImageDefinition* i jest dla [WYSPECJALIZOWANEGO](./shared-image-galleries.md#generalized-and-specialized-images) obrazu systemu operacyjnego Linux. Aby utworzyć definicję dla obrazów przy użyciu systemu operacyjnego Windows, użyj polecenia `--os-type Windows` . 
+W tym przykładzie definicja obrazu nosi nazwę *myImageDefinition* i jest dla [wyspecjalizowanego](./shared-image-galleries.md#generalized-and-specialized-images) obrazu systemu operacyjnego Linux. Aby utworzyć definicję obrazów przy użyciu systemu operacyjnego Windows, `--os-type Windows` użyj . 
 
-W tym przykładzie Galeria nosi nazwę "Moja *Galeria*", znajduje się w grupie zasobów *myGalleryRG* , a nazwa definicji obrazu będzie *mImageDefinition*.
+W tym przykładzie galeria nosi nazwę *myGallery*, znajduje się w grupie zasobów *myGalleryRG,* a nazwa definicji obrazu to *mImageDefinition.*
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG
@@ -93,15 +93,15 @@ az sig image-definition create \
 ```
 
 
-## <a name="create-the-image-version"></a>Utwórz wersję obrazu
+## <a name="create-the-image-version"></a>Tworzenie wersji obrazu
 
-Utwórz wersję obrazu za pomocą polecenia [AZ Image Gallery Create-Image-Version](/cli/azure/sig/image-version#az-sig-image-version-create). 
+Utwórz wersję obrazu przy użyciu [narzędzia az image gallery create-image-version.](/cli/azure/sig/image-version#az_sig_image_version_create) 
 
-Dozwolone znaki wersji obrazu to liczby i kropki. Liczba musi należeć do zakresu 32-bitowej liczby całkowitej. Format: *MajorVersion*. *MinorVersion*. *Poprawka*.
+Dozwolone znaki dla wersji obrazu to cyfry i kropki. Liczby muszą znajdować się w zakresie 32-bitowej liczby całkowitej. Format: *MajorVersion*. *MinorVersion*. *Popraw .*
 
-W tym przykładzie wersja naszego obrazu to *1.0.0* , a firma Microsoft chce utworzyć 1 replikę w regionie *Południowo-środkowe stany USA* i 1 replikę w regionie *Wschodnie stany USA 2* , korzystając z magazynu Strefowo nadmiarowego. Podczas wybierania regionów docelowych na potrzeby replikacji należy pamiętać, że należy również uwzględnić region *źródłowy* dysku zarządzanego lub migawki jako cel replikacji.
+W tym przykładzie wersja naszego obrazu to *1.0.0* i zamierzamy  utworzyć 1 replikę w regionie Południowo-środkowe usa i 1 replikę w regionie Wschodnie usa *2* przy użyciu magazynu strefowo nadmiarowego. Podczas wybierania regionów docelowych do replikacji należy również uwzględnić *region* źródłowy dysku zarządzanego lub migawkę jako miejsce docelowe replikacji.
 
-Przekaż identyfikator migawki lub dysku zarządzanego w `--os-snapshot` parametrze.
+Przekaż identyfikator migawki lub dysku zarządzanego w `--os-snapshot` parametrze .
 
 
 ```azurecli-interactive 
@@ -115,16 +115,16 @@ az sig image-version create \
    --os-snapshot $source
 ```
 
-Jeśli chcesz uwzględnić dyski danych w obrazie, musisz uwzględnić zarówno `--data-snapshot-luns` parametr ustawiony jako numer LUN, jak i `--data-snapshots` zestaw jako identyfikator dysku lub migawki danych.
+Jeśli chcesz uwzględnić dyski danych w obrazie, musisz dołączyć zarówno parametr ustawiony na numer LUN, jak i identyfikator dysku danych lub `--data-snapshot-luns` `--data-snapshots` migawki.
 
 > [!NOTE]
-> Musisz poczekać na zakończenie kompilowania i replikowania wersji obrazu, aby można było użyć tego samego obrazu zarządzanego do utworzenia innej wersji obrazu.
+> Zanim będzie można użyć tego samego obrazu zarządzanego do utworzenia innej wersji obrazu, należy poczekać na całkowite zakończenie tworzenia i replikowania wersji obrazu.
 >
-> Możesz również przechowywać wszystkie repliki wersji obrazu w [magazynie strefowo nadmiarowy](../storage/common/storage-redundancy.md) przez dodanie `--storage-account-type standard_zrs` podczas tworzenia wersji obrazu.
+> Możesz również przechowywać wszystkie repliki wersji obrazu w magazynie [strefowo](../storage/common/storage-redundancy.md) nadmiarowym, dodając `--storage-account-type standard_zrs` podczas tworzenia wersji obrazu.
 >
 
 ## <a name="next-steps"></a>Następne kroki
 
-Utwórz maszynę wirtualną na podstawie [wyspecjalizowanej wersji obrazu](vm-specialized-image-version-cli.md).
+Utwórz maszynę wirtualną na pomocą [wyspecjalizowanej wersji obrazu.](vm-specialized-image-version-cli.md)
 
-Aby uzyskać informacje o sposobach dostarczania informacji o planie zakupu, zobacz temat [dostarczanie informacji o planie zakupu portalu Azure Marketplace podczas tworzenia obrazów](marketplace-images.md).
+Aby uzyskać informacje na temat sposobu dostarczania informacji o planie zakupu, zobacz Supply Azure Marketplace purchase plan information when creating images (Dostarczanie informacji o planie zakupu podczas [tworzenia obrazów).](marketplace-images.md)

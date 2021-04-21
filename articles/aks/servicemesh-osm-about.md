@@ -7,12 +7,12 @@ ms.date: 3/12/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 65b02ae1baef97442828de747249ab6ffeaf2417
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: bbc07a7ee3f996c778cfc1b9d1764f10a613c50b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107599476"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782949"
 ---
 # <a name="open-service-mesh-aks-add-on-preview"></a>Otwieranie dodatku AKS usługi Service Mesh (wersja zapoznawcza)
 
@@ -54,7 +54,7 @@ SYSTEM KONFIGURACJI może pomóc we wdrożeniach usługi AKS w następujących s
 
 ## <a name="osm-service-quotas-and-limits-preview"></a>Limity przydziału i limity usługi LIMITY (wersja zapoznawcza)
 
-Ograniczenia limitów przydziałów i limitów usług w wersji zapoznawczej SYSTEMU MANAGER można znaleźć na stronie Limity [przydziału i limity regionalne](https://docs.microsoft.com/azure/aks/quotas-skus-regions)usługi AKS.
+Ograniczenia limitów przydziałów i limitów usług w wersji zapoznawczej DLA USŁUGI MOŻNA znaleźć na stronie Limity [przydziału i limity regionalne](https://docs.microsoft.com/azure/aks/quotas-skus-regions)usługi AKS.
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -101,13 +101,13 @@ az provider register --namespace Microsoft.ContainerService
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## <a name="install-open-service-mesh-osm-azure-kubernetes-service-aks-add-on-for-a-new-aks-cluster"></a>Instalowanie dodatku Open Service Mesh (SYSTEM) Azure Kubernetes Service (AKS) dla nowego klastra usługi AKS
+## <a name="install-open-service-mesh-osm-azure-kubernetes-service-aks-add-on-for-a-new-aks-cluster"></a>Instalowanie dodatku Open Service Mesh (ICH) Azure Kubernetes Service (AKS) dla nowego klastra usługi AKS
 
 W nowym scenariuszu wdrażania klastra usługi AKS rozpoczniesz od zupełnie nowego wdrożenia klastra usługi AKS, które umożliwia dodanie DODATKU W operacji tworzenia klastra.
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Na platformie Azure możesz przydzielić powiązane zasoby do grupy zasobów. Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az-group-create). Poniższy przykład umożliwia utworzenie grupy zasobów o nazwie _myOsmAksGroup_ w _lokalizacji eastus2_ (region):
+Na platformie Azure możesz przydzielić powiązane zasoby do grupy zasobów. Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az_group_create). Poniższy przykład umożliwia utworzenie grupy zasobów o nazwie _myOsmAksGroup_ w _lokalizacji eastus2_ (region):
 
 ```azurecli-interactive
 az group create --name <myosmaksgroup> --location <eastus2>
@@ -126,13 +126,13 @@ az aks create -n osm-addon-cluster -g <myosmaksgroup> --kubernetes-version 1.19.
 
 #### <a name="get-aks-cluster-access-credentials"></a>Uzyskiwanie poświadczeń dostępu do klastra usługi AKS
 
-Uzyskiwanie poświadczeń dostępu dla nowego zarządzanego klastra Kubernetes.
+Uzyskaj poświadczenia dostępu dla nowego zarządzanego klastra Kubernetes.
 
 ```azurecli-interactive
 az aks get-credentials -n <myosmakscluster> -g <myosmaksgroup>
 ```
 
-## <a name="enable-open-service-mesh-osm-azure-kubernetes-service-aks-add-on-for-an-existing-aks-cluster"></a>Włączanie dodatku Open Service Mesh (SYSTEM) Azure Kubernetes Service (AKS) dla istniejącego klastra usługi AKS
+## <a name="enable-open-service-mesh-osm-azure-kubernetes-service-aks-add-on-for-an-existing-aks-cluster"></a>Włączanie dodatku Open Service Mesh (ONE) Azure Kubernetes Service (AKS) dla istniejącego klastra usługi AKS
 
 W przypadku istniejącego scenariusza klastra usługi AKS należy włączyć dodatek DODATKU DO ISTNIEJĄCEGO klastra usługi AKS, który został już wdrożony.
 
@@ -223,7 +223,7 @@ Musisz mieć zainstalowane następujące zasoby:
 
 - Interfejs wiersza polecenia platformy Azure w wersji 2.20.0 lub nowszej
 - Rozszerzenie `aks-preview` w wersji 0.5.5 lub nowszej
-- SYSTEMOWA w wersji 0.8.0 lub nowszej
+- SYSTEM w wersji 0.8.0 lub nowszej
 - apt-get install jq
 
 ### <a name="create-namespaces-for-the-application"></a>Tworzenie przestrzeni nazw dla aplikacji
@@ -252,7 +252,7 @@ namespace/bookwarehouse created
 
 ### <a name="onboard-the-namespaces-to-be-managed-by-osm"></a>Dołączanie przestrzeni nazw, które mają być zarządzane przez usługę DOSTĘPNĄ
 
-Po dodaniu przestrzeni nazw do siatki MESH kontroler THE będzie automatycznie wstrzykiwał kontenery serwera proxy sidecar envoy do aplikacji. Uruchom następujące polecenie, aby do dołączać przestrzenie nazw aplikacji sklepu z książkami THE.
+Dodanie przestrzeni nazw do siatki MESH umożliwi kontrolerowi THE automatyczne wstrzyknięcie kontenerów serwera proxy sidecar envoy do aplikacji. Uruchom następujące polecenie, aby do dołączać przestrzenie nazw aplikacji sklepu z książkami THE.
 
 ```azurecli-interactive
 osm namespace add bookstore bookbuyer bookthief bookwarehouse
@@ -371,13 +371,13 @@ Przekieruj do zasobnika bookthief.
 kubectl port-forward bookthief-59549fb69c-cr8vl -n bookthief 8080:14001
 ```
 
-W przeglądarce przejdź do następującego adresu `http://localhost:8080` URL. Powinno być widać, że księgarnia obecnie kradzieży książek z usługi księgarni! W dalszej części zaim implementować będziemy zasady ruchu w celu zatrzymania pracy nad książkami.
+W przeglądarce przejdź do następującego adresu `http://localhost:8080` URL. Powinno być widać, że księgarnia obecnie kradzieży książek z usługi księgarni! W dalszej części wdrożymy zasady ruchu, aby zatrzymać księgę.
 
-![Obraz interfejsu użytkownika aplikacji BOOKthief](./media/aks-osm-addon/osm-bookthief-service-ui.png)
+![Obraz interfejsu użytkownika aplikacji BOOKTHIEF](./media/aks-osm-addon/osm-bookthief-service-ui.png)
 
 ### <a name="disable-osm-permissive-traffic-mode-for-the-mesh"></a>Wyłącz tryb ruchu permisywnej JEDNOSTKI SSM dla siatki
 
-Jak wspomniano wcześniej podczas wyświetlania konfiguracji klastra DOSTĘP, konfiguracja JEDNOSTKI zabezpieczeń domyślnie umożliwia włączenie zasad trybu ruchu. W tym trybie wymuszanie zasad ruchu jest pomijane, a system SIDE automatycznie odnajduje usługi, które są częścią siatki usług, i programuje reguły zasad ruchu w każdej sidecar serwera proxy usługi Envoy, aby móc komunikować się z tymi usługami.
+Jak wspomniano wcześniej podczas wyświetlania konfiguracji klastra DOSTĘP, konfiguracja JEDNOSTKI ZABEZPIECZEŃ domyślnie umożliwia włączenie zasad trybu ruchu. W tym trybie wymuszanie zasad ruchu jest pomijane, a system SIDE automatycznie odnajduje usługi, które są częścią siatki usług, i programuje reguły zasad ruchu w każdej sidecar serwera proxy usługi Envoy, aby móc komunikować się z tymi usługami.
 
 Teraz wyłączymy zasady dotyczące trybu ruchu, a w klastrze będą potrzebne jawne zasady [SMI](https://smi-spec.io/) wdrożone w klastrze, aby umożliwić komunikację w siatce z każdej usługi. Aby wyłączyć tryb ruchu, uruchom następujące polecenie, aby zaktualizować właściwość configmap, zmieniając wartość z `true` na `false` .
 
@@ -391,7 +391,7 @@ Powinny pojawić się dane wyjściowe podobne do poniższych. Zasobnik bookthief
 configmap/osm-config patched
 ```
 
-Aby sprawdzić, czy tryb ruchu sieciowego jest wyłączony, wróć do zasobnika bookbuyer lub bookthief, aby wyświetlić interfejs użytkownika w przeglądarce i sprawdzić, czy zakupione książki lub skradzione książki już się nie zwiększa. Upewnij się, że odświeżysz przeglądarkę. Jeśli przyrost został zatrzymany, zasady zostały zastosowane poprawnie. Udało Ci się zatrzymać księgową przed kradzieżą książek, ale ani księgarnia nie może kupić w księgarni, ani księgarni nie może pobierać książek z księgarni. Następnie zaim implementujemy [zasady SMI,](https://smi-spec.io/) aby zezwolić tylko na usługi w siatce, do których chcesz się z tym komunikować.
+Aby sprawdzić, czy tryb ruchu sieciowego jest wyłączony, przekieruj z powrotem do zasobnika bookbuyer lub bookthief, aby wyświetlić interfejs użytkownika w przeglądarce i sprawdzić, czy zakupione książki lub skradzione książki już się nie zwiększa. Upewnij się, że odświeżysz przeglądarkę. Jeśli przyrost został zatrzymany, zasady zostały zastosowane poprawnie. Udało Ci się zatrzymać księgową przed kradzieżą książek, ale ani księgarnia nie może kupić w księgarni, ani księgarni nie może pobierać książek z księgarni. Następnie zaim implementujemy [zasady SMI,](https://smi-spec.io/) aby zezwolić tylko na usługi w siatce, do których chcesz się z tym komunikować.
 
 ### <a name="apply-service-mesh-interface-smi-traffic-access-policies"></a>Stosowanie zasad dostępu do ruchu interfejsu SMI (Service Mesh Interface)
 
@@ -620,7 +620,7 @@ trafficsplit.split.smi-spec.io/bookstore-split created
 
 Skonfiguruj tunel do przekazywania portów do zasobnika bookbuyer. Powinny być teraz dostępne książki zakupione w usłudze księgarni w wersji 2. Jeśli nadal będziesz obserwować przyrost zakupów, zauważysz szybszy przyrost zakupów w usłudze sklepu z książkami w wersji 2.
 
-![Interfejs użytkownika książek z książkami DLA BOOKBUYER](./media/aks-osm-addon/osm-bookbuyer-traffic-split-ui.png)
+![Interfejs użytkownika książek ze książkami dla książek ZESI](./media/aks-osm-addon/osm-bookbuyer-traffic-split-ui.png)
 
 ## <a name="manage-existing-deployed-applications-to-be-managed-by-the-open-service-mesh-osm-azure-kubernetes-service-aks-add-on"></a>Zarządzanie istniejącymi wdrożonmi aplikacjami, które mają być zarządzane przez dodatek Open Service Mesh (AZURE KUBERNETES SERVICE) (AKS)
 
@@ -635,9 +635,9 @@ Musisz mieć zainstalowane następujące zasoby:
 - SYSTEM w wersji 0.8.0 lub nowszej
 - apt-get install jq
 
-### <a name="verify-the-open-service-mesh-osm-permissive-traffic-mode-policy"></a>Weryfikowanie zasad trybu ruchu sieciowego dla usługi Open Service Mesh (OPEN)
+### <a name="verify-the-open-service-mesh-osm-permissive-traffic-mode-policy"></a>Weryfikowanie zasad trybu ruchu permisywnej usługi Open Service Mesh (ICH)
 
-Tryb zasad ruchu permisywnych JEDNOSTKI SMI jest trybem, w którym wymuszanie zasad ruchu [SMI](https://smi-spec.io/) jest pomijane. W tym trybie SYSTEM AUTOMATYCZNIE odnajduje usługi, które są częścią siatki usług, i programuje reguły zasad ruchu na każdej sidecar serwera proxy usługi Envoy, aby móc komunikować się z tymi usługami.
+Tryb zasad ruchu permisywnych JEDNOSTKI SMI jest trybem, w którym wymuszanie zasad ruchu [SMI](https://smi-spec.io/) jest pomijane. W tym trybie SYSTEM AUTOMATYCZNIE odnajduje usługi, które są częścią siatki usług, i programuje reguły zasad ruchu w każdej sidecar serwera proxy usługi Envoy, aby móc komunikować się z tymi usługami.
 
 Aby sprawdzić bieżący tryb ruchu sieciowego z dostępem do klastra, uruchom następujące polecenie:
 
@@ -826,7 +826,7 @@ Pod Template:
 
 ```
 
-Istnieje kilka technik aktualizowania wdrożenia w celu dodania konta usługi Kubernetes. Zapoznaj się z dokumentacją rozwiązania Kubernetes dotyczącą [wbudowanego aktualizowania](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment) wdrożenia lub [konfigurowania kont usług dla zasobników.](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) Po zaktualizowaniu specyfikacji wdrożenia przy użyciu konta usługi ponownie wdróż wdrożenie (kubectl apply -f your-deployment.yaml) w klastrze.
+Istnieje kilka technik aktualizowania wdrożenia w celu dodania konta usługi Kubernetes. Zapoznaj się z dokumentacją rozwiązania Kubernetes dotyczącą [wbudowanego](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment) aktualizowania wdrożenia lub [konfigurowania kont usług dla zasobników.](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) Po zaktualizowaniu specyfikacji wdrożenia przy użyciu konta usługi ponownie wdróż wdrożenie (kubectl apply -f your-deployment.yaml) w klastrze.
 
 #### <a name="deploy-the-necessary-service-mesh-interface-smi-policies"></a>Wdrażanie niezbędnych zasad interfejsu usługi Service Mesh (SMI)
 
@@ -958,7 +958,7 @@ Odwiedź [witrynę SMI,](https://smi-spec.io/) aby uzyskać bardziej szczegóło
 
 ### <a name="manage-the-applications-namespace-with-osm"></a>Zarządzanie przestrzenią nazw aplikacji za pomocą usługi DOSTĘP DO SIECI
 
-Następnie skonfigurujemy usługę DOSTĘPNĄ do zarządzania przestrzenią nazw i ponownie uruchomimy wdrożenia, aby uzyskać serwer proxy sidecar aplikacji Envoy wstrzyknięty do aplikacji.
+Następnie skonfigurujemy usługę DOSTĘPNĄ do zarządzania przestrzenią nazw i ponownie uruchomimy wdrożenia, aby serwer proxy usługi Envoy sidecar został wstrzyknięty do aplikacji.
 
 Uruchom następujące polecenie, aby skonfigurować przestrzeń `azure-vote` nazw, która ma być zarządzana przez moją usługę DOSTĘPNĄ.
 
@@ -993,7 +993,7 @@ W tym samouczku wykonasz następujące czynności:
 > [!div class="checklist"]
 >
 > - Wyświetlanie bieżącej konfiguracji klastra FILTRU
-> - Utwórz przestrzenie nazw dla usługi DOSTĘP DO SIECI w celu zarządzania wdrożonych aplikacji w przestrzeniach nazw
+> - Utwórz przestrzenie nazw dla rozwiązania ONES do zarządzania wdrożonych aplikacji w przestrzeniach nazw
 > - Dołączanie przestrzeni nazw, które mają być zarządzane przez usługę DOSTĘPNĄ
 > - Wdrażanie aplikacji przykładowej
 > - Weryfikowanie aplikacji uruchomionej w klastrze usługi AKS
@@ -1118,7 +1118,7 @@ deployment.apps/bookwarehouse created
 
 ### <a name="update-the-bookbuyer-service"></a>Aktualizowanie usługi Bookbuyer
 
-Zaktualizuj usługę bookbuyer do poprawnej konfiguracji portu przychodzącego przy użyciu następującego manifestu usługi.
+Zaktualizuj usługę bookbuyer do prawidłowej konfiguracji portu przychodzącego przy użyciu następującego manifestu usługi.
 
 ```azurecli-interactive
 kubectl apply -f - <<EOF
@@ -1138,7 +1138,7 @@ spec:
 EOF
 ```
 
-### <a name="verify-the-bookstore-application-running-inside-the-aks-cluster"></a>Weryfikowanie aplikacji księgarni uruchomionej w klastrze usługi AKS
+### <a name="verify-the-bookstore-application-running-inside-the-aks-cluster"></a>Weryfikowanie aplikacji sklepu z książkami uruchomionej w klastrze usługi AKS
 
 W tej chwili wdrożyliśmy aplikację kontenera magazynu książek, ale jest ona dostępna tylko z poziomu klastra usługi AKS. Później dodamy kontroler ruchu Azure Application Gateway, aby uwidocznić aplikację poza klastrem usługi AKS. Aby sprawdzić, czy aplikacja działa wewnątrz klastra, użyjemy portu do wyświetlenia interfejsu użytkownika składnika bookbuyer.
 
@@ -1372,7 +1372,7 @@ Musisz mieć zainstalowane następujące zasoby:
 - Interfejs wiersza polecenia platformy Azure w wersji 2.20.0 lub nowszej
 - Rozszerzenie `aks-preview` w wersji 0.5.5 lub nowszej
 - Klaster AKS w wersji 1.19 lub Azure CNI sieci (dołączony do sieci wirtualnej platformy Azure)
-- SYSTEMOWA w wersji 0.8.0 lub nowszej
+- SYSTEM w wersji 0.8.0 lub nowszej
 - apt-get install jq
 
 ### <a name="view-and-verify-the-current-osm-cluster-configuration"></a>Wyświetlanie i weryfikowanie bieżącej konfiguracji klastra TREND
@@ -1399,11 +1399,11 @@ Dane wyjściowe pokazują bieżącą konfigurację REKORDU dla klastra.
 }
 ```
 
-Zwróć **uwagę permissive_traffic_policy_mode** że dla ustawienia skonfigurowano wartość **true.** Tryb zasad ruchu nachyliczania ruchu w TRYBIE, w którym [wymuszanie zasad](https://smi-spec.io/) ruchu SMI jest pomijane. W tym trybie SYSTEM AUTOMATYCZNIE odnajduje usługi, które są częścią siatki usług, i programuje reguły zasad ruchu na każdej sidecar serwera proxy usługi Envoy, aby móc komunikować się z tymi usługami.
+Zwróć **uwagę permissive_traffic_policy_mode** że dla ustawienia skonfigurowano wartość **true.** Tryb zasad ruchu nachyliczania ruchu w TRYBIE, w którym [wymuszanie zasad](https://smi-spec.io/) ruchu SMI jest pomijane. W tym trybie SYSTEM AUTOMATYCZNIE odnajduje usługi, które są częścią siatki usług, i programuje reguły zasad ruchu w każdej sidecar serwera proxy usługi Envoy, aby móc komunikować się z tymi usługami.
 
 ### <a name="create-namespaces-for-the-application"></a>Tworzenie przestrzeni nazw dla aplikacji
 
-W tym samouczku będziemy używać aplikacji sklepu z książkami THE, która zawiera następujące składniki aplikacji:
+W tym samouczku będziemy używać aplikacji sklepu z książkami THE, która ma następujące składniki aplikacji:
 
 - bookbuyer
 - bookthief
@@ -1539,16 +1539,16 @@ Gdy sesja przekierowania portów jest na miejscu, przejdź do następującego ad
 ### <a name="create-an-azure-application-gateway-to-expose-the-bookbuyer-application-outside-the-aks-cluster"></a>Tworzenie aplikacji Azure Application Gateway uwidocznić aplikację bookbuyer poza klastrem usługi AKS
 
 > [!NOTE]
-> W poniższych kierunkach utworzymy nowe wystąpienie klasy Azure Application Gateway do użycia dla ruchu wychodzącego. Jeśli masz istniejącą Azure Application Gateway, których chcesz użyć, przejdź do sekcji dotyczącej włączania dodatku kontrolera ruchu Application Gateway ruchu Application Gateway ruchu wychodzącego.
+> W poniższych kierunkach utworzymy nowe wystąpienie klasy Azure Application Gateway do użycia dla ruchu wychodzącego. Jeśli masz istniejącą Azure Application Gateway chcesz użyć, przejdź do sekcji dotyczącej włączania dodatku kontrolera ruchu Application Gateway ruchu Application Gateway ruchu wychodzącego.
 
 #### <a name="deploy-a-new-application-gateway"></a>Wdrażanie nowego Application Gateway
 
 > [!NOTE]
 > Odwołujemy się do istniejącej dokumentacji dotyczącej włączania Application Gateway kontrolera ruchu przychodzących dla istniejącego klastra usługi AKS. W tym celu w wywłaszszono pewne modyfikacje, aby dopasować je do materiałów ZOI. Bardziej szczegółową dokumentację na ten temat można znaleźć [tutaj.](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-existing)
 
-Teraz wdrożysz nową klaster Application Gateway symulować istniejący klaster Application Gateway, którego chcesz użyć do równoważenia obciążenia ruchu do klastra usługi AKS _myCluster._ Nazwa bramy Application Gateway _myApplicationGateway,_ ale najpierw musisz utworzyć zasób publicznego adresu IP. o nazwie _myPublicIp_ i nowej sieci wirtualnej o nazwie _myVnet_ z przestrzenią adresową 11.0.0.0/8 oraz podsiecią z przestrzenią adresową 11.1.0.0/16 o nazwie _mySubnet_ i wdrożyć adres Application Gateway w podsieci _mySubnet_ przy użyciu adresu _myPublicIp._
+Teraz wdrożysz nową usługę Application Gateway, aby zasymulować istniejący klaster Application Gateway, którego chcesz użyć do równoważenia obciążenia ruchu do klastra usługi AKS _myCluster._ Nazwa bramy Application Gateway _myApplicationGateway,_ ale najpierw musisz utworzyć zasób publicznego adresu IP. o nazwie _myPublicIp_ i nowej sieci wirtualnej o nazwie _myVnet_ z przestrzenią adresową 11.0.0.0/8 oraz podsiecią z przestrzenią adresową 11.1.0.0/16 o nazwie _mySubnet_ i wdrożyć adres Application Gateway w podsieci _mySubnet_ przy użyciu adresu _myPublicIp._
 
-W przypadku korzystania z klastra usługi AKS Application Gateway w oddzielnych sieciach wirtualnych przestrzenie adresowe dwóch sieci wirtualnych nie mogą się nakładać. Domyślna przestrzeń adresowa wdrażana w klastrze usługi AKS to 10.0.0.0/8, dlatego dla prefiksu adresu sieci wirtualnej usługi Application Gateway ustawiliśmy wartość 11.0.0.0/8.
+W przypadku korzystania z klastra usługi AKS Application Gateway w oddzielnych sieciach wirtualnych przestrzenie adresowe dwóch sieci wirtualnych nie mogą się nakładać. Domyślna przestrzeń adresowa wdrażana przez klaster usługi AKS to 10.0.0.0/8, dlatego dla prefiksu adresu sieci wirtualnej usługi Application Gateway ustawiliśmy wartość 11.0.0.0/8.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus2
@@ -1708,14 +1708,14 @@ Powinny zostać wyświetlone następujące dane wyjściowe
 
 Usługi Azure Monitor i Azure Application Insights pomagają zmaksymalizować dostępność i wydajność aplikacji i usług, zapewniając kompleksowe rozwiązanie do zbierania, analizowania i działania na podstawie danych telemetrycznych z chmury i środowisk lokalnych.
 
-Dodatek THE AKS będzie miał głęboką integrację z obiema tymi usługami platformy Azure i zapewni bezsekwne środowisko platformy Azure do wyświetlania kluczowych wskaźników wydajności dostarczanych przez metryki ROZWIĄZANIA DOC i reagowania na nie. Aby uzyskać więcej informacji na temat włączania i konfigurowania tych usług dla dodatku DLA USŁUGI AKS, odwiedź stronę [Azure Monitor for THE](https://aka.ms/azmon/osmpreview) ( Informacje na temat włączania i konfigurowania tych usług).
+Dodatek THE AKS będzie miał głęboką integrację z obiema tymi usługami platformy Azure i zapewni bezsekwne środowisko platformy Azure do wyświetlania kluczowych wskaźników wydajności dostarczanych przez metryki ROZWIĄZANIA DOC i reagowania na nie. Aby uzyskać więcej informacji na temat sposobu włączania i konfigurowania tych usług dla dodatku AKS , odwiedź stronę [Azure Monitor for THE](https://aka.ms/azmon/osmpreview) ( Informacje na temat włączania i konfigurowania tych usług).
 
 ## <a name="tutorial-manually-deploy-prometheus-grafana-and-jaeger-to-view-open-service-mesh-osm-metrics-for-observability"></a>Samouczek: ręczne wdrażanie systemów Prometheus, Grafana i Jaeger w celu wyświetlenia metryk open service mesh (KU) w celu obserwacji
 
 > [!WARNING]
-> Instalacja oprogramowania Prometheus, Grafana i Jaeger jest dostarczana jako ogólne wskazówki, które pokazują, w jaki sposób te narzędzia mogą być używane do wyświetlania danych metryk SYSTEMU SYSTEM. Wskazówek dotyczących instalacji nie należy używać w przypadku konfiguracji produkcyjnej. Zapoznaj się z dokumentacją każdego narzędzia, aby dowiedzieć się, jak najlepiej dopasować instalacje do twoich potrzeb. Najważniejszą z nich będzie brak trwałego magazynu, co oznacza, że wszystkie dane zostaną utracone po zakończeniu pracy zasobników Prometheus Grafana i/lub Jaeger.
+> Instalacja oprogramowania Prometheus, Grafana i Jaeger jest dostarczana jako ogólne wskazówki, które pokazują, w jaki sposób te narzędzia mogą być używane do wyświetlania danych metryk SYSTEMU SYSTEM. Wskazówek dotyczących instalacji nie należy używać w przypadku instalacji produkcyjnej. Zapoznaj się z dokumentacją każdego narzędzia, aby dowiedzieć się, jak najlepiej dopasować instalacje do twoich potrzeb. Najważniejszą z nich będzie brak trwałego magazynu, co oznacza, że wszystkie dane zostaną utracone po zakończeniu pracy zasobników Prometheus Grafana i/lub Jaeger.
 
-Usługa Open Service Mesh (ALERT) generuje szczegółowe metryki dotyczące całego ruchu w obrębie siatki. Te metryki zapewniają wgląd w zachowanie aplikacji w siatce, pomagając użytkownikom rozwiązywać problemy, konserwować i analizować aplikacje.
+Usługa Open Service Mesh (ALERT) generuje szczegółowe metryki związane z całym ruchem w obrębie siatki. Te metryki zapewniają wgląd w zachowanie aplikacji w siatce, pomagając użytkownikom rozwiązywać problemy, konserwować i analizować aplikacje.
 
 Obecnie SYSTEM zbiera metryki bezpośrednio z serwerów proxy sidecar (Envoy). System UMOŻLIWIA rozbudowane metryki ruchu przychodzącego i wychodzącego dla wszystkich usług w siatce. Dzięki tym metrykom użytkownik może uzyskać informacje o ogólnym natężeniu ruchu, błędach w ruchu i czasie odpowiedzi na żądania.
 
@@ -2148,7 +2148,7 @@ Na **poniższej stronie Configure your Prometheus data source** (Konfigurowanie 
 
 #### <a name="importing-osm-dashboards"></a>Importowanie pulpitów nawigacyjnych CRM
 
-Pulpity nawigacyjne DESK są dostępne za pośrednictwem:
+Pulpity nawigacyjne INTERFEJSU SĄ dostępne za pośrednictwem:
 
 - [Nasze repozytorium i](https://github.com/grafana/grafana)można importować jako obiekty blob JSON za pośrednictwem internetowego portalu administracyjnego
 - lub [online w Grafana.com](https://grafana.com/grafana/dashboards/14145)
@@ -2156,7 +2156,7 @@ Pulpity nawigacyjne DESK są dostępne za pośrednictwem:
 Aby zaimportować pulpit nawigacyjny, poszukaj znaku `+` w menu po lewej stronie i wybierz pozycję `import` .
 Możesz bezpośrednio zaimportować pulpit nawigacyjny według jego identyfikatora w jednakowy `Grafana.com` sposób. Na przykład nasz pulpit nawigacyjny używa identyfikatora , możesz użyć identyfikatora bezpośrednio `OSM Mesh Details` `14145` w formularzu i wybrać pozycję `import` :
 
-![OBRAZ INTERFEJSU UŻYTKOWNIKA importu pulpitu nawigacyjnego Grafana](./media/aks-osm-addon/osm-grafana-dashboard-import.png)
+![Obraz interfejsu użytkownika importu strony pulpitu nawigacyjnego SYSTEMU Grafana](./media/aks-osm-addon/osm-grafana-dashboard-import.png)
 
 Po wybraniu opcji importowania automatycznie pojawi się zaimportowany pulpit nawigacyjny.
 
@@ -2278,7 +2278,7 @@ Podczas wdrażania dodatku AKS DLA SYSTEMU OD CZASU DO CZASU może wystąpić pr
 kubectl get deployment -n kube-system --selector app=osm-controller
 ```
 
-Kontroler TERAZ w dobrej kondycji będzie wyglądać w ten sposób:
+Kontroler KONDYCJI w dobrej kondycji będzie wyglądać w ten sposób:
 
 ```Output
 NAME             READY   UP-TO-DATE   AVAILABLE   AGE
@@ -2479,7 +2479,7 @@ Error from server (InternalError): Internal error occurred: failed calling webho
 
 Informacje dotyczące sytuacji, w których konfiguracja **sprawdzania poprawności** urządzenia webhook ma nieprawidłowy certyfikat:
 
-- Opcja 1 — ponowne uruchomienie kontrolera THE — spowoduje to ponowne uruchomienie kontrolera THE. Po uruchomieniu zastąpi pakiet urzędu certyfikacji dla zarówno modyfikujących, jak i ważnych webhook.
+- Opcja 1 — ponowne uruchomienie kontrolera STEROWANIA — spowoduje to ponowne uruchomienie kontrolera THE. Po uruchomieniu zastąpi pakiet urzędu certyfikacji dla zarówno modyfikujących, jak i ważnych webhook.
 
 ```azurecli-interactive
 kubectl rollout restart deployment -n kube-system osm-controller
@@ -2541,7 +2541,7 @@ kubectl get ConfigMap -n kube-system osm-config -o json | jq '.data'
 | prometheus_scraping              | bool   | wartość true, false                                             | `"true"`                               | Włącza skrobanie metryk Prometheus na proxych zbocznymi.                                                                                                                                                                                 |
 | service_cert_validity_duration   | ciąg | 24h, 1h30 m (dowolny czas trwania)                          | `"24h"`                                | Ustawia czas trwania ważności certyfikatu usługi reprezentowany jako sekwencja liczb dziesiętnych z opcjonalnym ułamkiem i sufiksem jednostkowym.                                                                                             |
 | tracing_enable                   | bool   | wartość true, false                                             | `"false"`                              | Włącza śledzenie Jaegera dla siatki.                                                                                                                                                                                                    |
-| tracing_address                  | ciąg | jaeger.mesh-namespace.svc.cluster.local                 | `jaeger.kube-system.svc.cluster.local` | Adres wdrożenia Jaeger, jeśli śledzenie jest włączone.                                                                                                                                                                                |
+| tracing_address                  | ciąg | jaeger.mesh-namespace.svc.cluster.local                 | `jaeger.kube-system.svc.cluster.local` | Adres wdrożenia jaeger, jeśli śledzenie jest włączone.                                                                                                                                                                                |
 | tracing_endpoint                 | ciąg | /api/v2/spans                                           | /api/v2/spans                          | Punkt końcowy do śledzenia danych, jeśli śledzenie jest włączone.                                                                                                                                                                                          |
 | tracing_port                     | int    | dowolna wartość całkowita o wartości niezerowej                              | `"9411"`                               | Port, na którym jest włączone śledzenie.                                                                                                                                                                                                       |
 | use_https_ingress                | bool   | wartość true, false                                             | `"false"`                              | Włącza ruch przychodzący HTTPS dla siatki.                                                                                                                                                                                                      |
@@ -2652,7 +2652,7 @@ v1alpha1
 
 Kontroler SYSTEM PLIKÓW w wersji 0.8.2 wymaga następujących wersji:
 
-- traffictargets.access.smi-spec.io — [wersja 1alpha3](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-access/v1alpha3/traffic-access.md)
+- traffictargets.access.smi-spec.io — [v1alpha3](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-access/v1alpha3/traffic-access.md)
 - httproutegroups.specs.smi-spec.io — [wersja 1alpha4](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-specs/v1alpha4/traffic-specs.md#httproutegroup)
 - tcproutes.specs.smi-spec.io — [wersja 1alpha4](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-specs/v1alpha4/traffic-specs.md#tcproute)
 - udproutes.specs.smi-spec.io — nie jest obsługiwana

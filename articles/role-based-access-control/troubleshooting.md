@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów z usługą Azure RBAC
-description: Rozwiązywanie problemów z kontrolą dostępu opartą na rolach (Azure RBAC).
+title: Rozwiązywanie problemów z RBAC platformy Azure
+description: Rozwiązywanie problemów z kontrolą dostępu opartą na rolach (RBAC) na platformie Azure.
 services: azure-portal
 author: rolyon
 manager: mtillman
@@ -13,33 +13,33 @@ ms.topic: troubleshooting
 ms.date: 04/06/2021
 ms.author: rolyon
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: b4a3f7f613f75f2f285437b7ae6f816adf56d999
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: d816854c8d8a78931060c6e56fffbaee1fde5150
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106580109"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771717"
 ---
-# <a name="troubleshoot-azure-rbac"></a>Rozwiązywanie problemów z usługą Azure RBAC
+# <a name="troubleshoot-azure-rbac"></a>Rozwiązywanie problemów z RBAC platformy Azure
 
-Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure, aby wiedzieć, czego można oczekiwać przy użyciu ról i rozwiązać problemy z dostępem.
+W tym artykule znajdują się odpowiedzi na niektóre często zadawane pytania dotyczące kontroli dostępu opartej na rolach (RBAC) platformy Azure, aby wiedzieć, czego można oczekiwać podczas korzystania z ról i rozwiązywać problemy z dostępem.
 
 ## <a name="azure-role-assignments-limit"></a>Limit przypisań ról platformy Azure
 
-Platforma Azure obsługuje maksymalnie **2000** przypisań ról na subskrypcję. Ten limit obejmuje przypisania ról w ramach subskrypcji, grupy zasobów i zakresów zasobów. Jeśli zostanie wyświetlony komunikat o błędzie "nie można utworzyć więcej przypisań ról (kod: RoleAssignmentLimitExceeded)" podczas próby przypisania roli, spróbuj zmniejszyć liczbę przypisań ról w subskrypcji.
+Platforma Azure obsługuje maksymalnie **2000** przypisań ról na subskrypcję. Ten limit obejmuje przypisania ról w ramach subskrypcji, grupy zasobów i zakresów zasobów. Jeśli podczas próby przypisania roli zostanie wyświetlony komunikat o błędzie "Nie można utworzyć więcej przypisań ról (kod: RoleAssignmentLimitExceeded)", spróbuj zmniejszyć liczbę przypisań ról w subskrypcji.
 
 > [!NOTE]
-> Limit przypisań ról **2000** na subskrypcję został ustalony i nie można go zwiększyć.
+> Limit **przypisań ról 2000** na subskrypcję jest stały i nie można go zwiększyć.
 
-Jeśli zbliżasz się do tego limitu, Oto kilka sposobów zmniejszenia liczby przypisań ról:
+Jeśli zbliżysz się do tego limitu, oto kilka sposobów zmniejszenia liczby przypisań ról:
 
-- Dodaj użytkowników do grup i przypisz do nich role. 
+- Zamiast tego dodaj użytkowników do grup i przypisz role do grup. 
 - Łączenie wielu wbudowanych ról z rolą niestandardową. 
-- Wykonywanie wspólnych przypisań ról w wyższym zakresie, takich jak subskrypcja lub Grupa zarządzania.
-- Jeśli masz Azure AD — wersja Premium P2, ustaw przydziały ról kwalifikujące się do [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) zamiast stałego przypisywania. 
+- Przypisz typowe przypisania ról w wyższym zakresie, takim jak subskrypcja lub grupa zarządzania.
+- Jeśli masz już Azure AD — wersja Premium P2, przypisz przypisania ról do [Azure AD Privileged Identity Management,](../active-directory/privileged-identity-management/pim-configure.md) a nie trwale przypisane. 
 - Dodaj dodatkową subskrypcję. 
 
-Aby uzyskać liczbę przypisań ról, wykres można wyświetlić [na stronie kontroli dostępu (IAM)](role-assignments-list-portal.md#list-number-of-role-assignments) w Azure Portal. Można również użyć następujących Azure PowerShell poleceń:
+Aby uzyskać liczbę przypisań ról, możesz wyświetlić wykres na stronie Kontrola dostępu [(IAM)](role-assignments-list-portal.md#list-number-of-role-assignments) w Azure Portal. Można również użyć następujących poleceń Azure PowerShell polecenia:
 
 ```azurepowershell
 $scope = "/subscriptions/<subscriptionId>"
@@ -49,82 +49,82 @@ $ras.Count
 
 ## <a name="problems-with-azure-role-assignments"></a>Problemy z przypisaniami ról platformy Azure
 
-- Jeśli nie można przypisać roli w Azure Portal na **kontroli dostępu (IAM)** , ponieważ opcja **Dodaj**  >  **przypisanie roli** jest wyłączona lub z powodu błędu uprawnień "klient z identyfikatorem obiektu nie ma autoryzacji do wykonania akcji", sprawdź, czy zalogowano się przy użyciu użytkownika, do którego przypisano rolę z `Microsoft.Authorization/roleAssignments/write` uprawnieniem, takim jak [właściciel](built-in-roles.md#owner) lub [administrator dostępu użytkowników](built-in-roles.md#user-access-administrator) w zakresie, w którym próbujesz przypisać rolę.
-- Jeśli używasz jednostki usługi do przypisywania ról, może zostać wyświetlony komunikat o błędzie "niewystarczające uprawnienia do ukończenia tej operacji". Załóżmy na przykład, że masz nazwę główną usługi, która ma przypisaną rolę właściciela, i spróbuj utworzyć następujące przypisanie roli jako nazwę główną usługi przy użyciu interfejsu wiersza polecenia platformy Azure:
+- Jeśli nie możesz przypisać roli w aplikacji Azure Portal na kontroli dostępu **(IAM),** ponieważ opcja Dodaj przypisanie roli jest wyłączona lub ponieważ jest wyświetlany błąd uprawnień "Klient z identyfikatorem obiektu nie ma autoryzacji do wykonania   >   akcji", sprawdź, czy obecnie zalogowano użytkownika, który ma przypisaną rolę, która ma uprawnienia takie jak Właściciel lub Administrator dostępu użytkowników w zakresie, do który próbujesz przypisać `Microsoft.Authorization/roleAssignments/write` rolę. [](built-in-roles.md#owner) [](built-in-roles.md#user-access-administrator)
+- Jeśli do przypisywania ról używasz jednostki usługi, może wystąpić błąd "Uprawnienia niewystarczające do ukończenia operacji". Załóżmy na przykład, że masz jednostkę usługi, która ma przypisaną rolę właściciel i próbujesz utworzyć następujące przypisanie roli jako jednostkę usługi przy użyciu interfejsu wiersza polecenia platformy Azure:
 
     ```azurecli
     az login --service-principal --username "SPNid" --password "password" --tenant "tenantid"
     az role assignment create --assignee "userupn" --role "Contributor"  --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
 
-    Jeśli zostanie wyświetlony błąd "niewystarczające uprawnienia do ukończenia operacji", prawdopodobnie jest to spowodowane tym, że interfejs wiersza polecenia platformy Azure próbuje wyszukać tożsamość osoby przydzielonej w usłudze Azure AD, a jednostka usługi nie może domyślnie odczytać usługi Azure AD.
+    Jeśli wystąpi błąd "Niewystarczające uprawnienia do ukończenia operacji", jest to prawdopodobnie spowodowane tym, że interfejs wiersza polecenia platformy Azure próbuje znaleźć tożsamość przypisaną w usłudze Azure AD i nie można domyślnie odczytać usługi Azure AD przez jednostkę usługi.
 
-    Istnieją dwa sposoby, aby potencjalnie rozwiązać ten problem. Pierwszy sposób polega na przypisaniu roli [czytniki katalogów](../active-directory/roles/permissions-reference.md#directory-readers) do nazwy głównej usługi, aby mogła ona odczytywać dane w katalogu.
+    Istnieją dwa sposoby rozwiązania tego błędu. Pierwszym sposobem jest przypisanie roli [Czytelnicy](../active-directory/roles/permissions-reference.md#directory-readers) katalogów do jednostki usługi, aby można było odczytać dane w katalogu.
 
-    Drugim sposobem na rozwiązanie tego błędu jest utworzenie przypisania roli przy użyciu `--assignee-object-id` parametru zamiast `--assignee` . Za pomocą `--assignee-object-id` interfejsu wiersza polecenia platformy Azure pominie wyszukiwanie w usłudze Azure AD. Konieczne będzie uzyskanie identyfikatora obiektu użytkownika, grupy lub aplikacji, do której ma zostać przypisana rola. Aby uzyskać więcej informacji, zobacz [Przypisywanie ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](role-assignments-cli.md#assign-a-role-for-a-new-service-principal-at-a-resource-group-scope).
+    Drugim sposobem rozwiązania tego błędu jest utworzenie przypisania roli przy użyciu `--assignee-object-id` parametru zamiast `--assignee` . Przy użyciu `--assignee-object-id` polecenia interfejs wiersza polecenia platformy Azure pominie wyszukiwania w usłudze Azure AD. Musisz uzyskać identyfikator obiektu użytkownika, grupy lub aplikacji, do której chcesz przypisać rolę. Aby uzyskać więcej informacji, zobacz [Przypisywanie ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure.](role-assignments-cli.md#assign-a-role-for-a-new-service-principal-at-a-resource-group-scope)
 
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
 
-- Jeśli utworzysz nową nazwę główną usługi i natychmiast spróbujesz przypisać rolę do tej jednostki usługi, w niektórych przypadkach przypisanie roli może zakończyć się niepowodzeniem.
+- Jeśli utworzysz nową jednostkę usługi i natychmiast spróbujesz przypisać rolę do tej jednostki usługi, w niektórych przypadkach przypisanie roli może się nie powieść.
 
-    Aby rozwiązać ten scenariusz, należy ustawić `principalType` Właściwość na `ServicePrincipal` przy tworzeniu przypisania roli. Należy również ustawić `apiVersion` przypisanie roli do `2018-09-01-preview` lub nowszego. Aby uzyskać więcej informacji, zobacz [Przypisywanie ról platformy Azure do nowej jednostki usługi przy użyciu interfejsu API REST](role-assignments-rest.md#new-service-principal) lub [Przypisywanie ról platformy Azure do nowej nazwy głównej usługi przy użyciu szablonów Azure Resource Manager](role-assignments-template.md#new-service-principal)
+    Aby rozwiązać ten scenariusz, należy ustawić `principalType` właściwość na wartość podczas tworzenia przypisania `ServicePrincipal` roli. Należy również ustawić wartość `apiVersion` lub późniejszą wartość przypisania `2018-09-01-preview` roli. Aby uzyskać więcej informacji, zobacz [Przypisywanie](role-assignments-rest.md#new-service-principal) ról platformy Azure do nowej jednostki usługi przy użyciu interfejsu API REST lub Przypisywanie ról platformy Azure do nowej jednostki usługi przy [użyciu Azure Resource Manager szablonów](role-assignments-template.md#new-service-principal)
 
-- Jeśli spróbujesz usunąć przypisanie ostatniego właściciela roli dla subskrypcji, może zostać wyświetlony komunikat o błędzie "nie można usunąć ostatniego przypisania administratora RBAC". Usuwanie przypisania roli ostatniego właściciela subskrypcji nie jest obsługiwane, aby uniknąć oddzielenia subskrypcji. Jeśli chcesz anulować subskrypcję, zobacz sekcję [Anulowanie subskrypcji platformy Azure](../cost-management-billing/manage/cancel-azure-subscription.md).
+- Jeśli spróbujemy usunąć ostatnie przypisanie roli właściciela dla subskrypcji, może zostać wyświetlony błąd "Nie można usunąć ostatniego przypisania administratora RBAC". Usuwanie ostatniego przypisania roli Właściciela dla subskrypcji nie jest obsługiwane, aby uniknąć odseparowania subskrypcji. Jeśli chcesz anulować subskrypcję, zobacz [Anulowanie subskrypcji platformy Azure.](../cost-management-billing/manage/cancel-azure-subscription.md)
 
 ## <a name="problems-with-custom-roles"></a>Problemy z rolami niestandardowymi
 
-- Aby dowiedzieć się, jak utworzyć rolę niestandardową, zapoznaj się z samouczkami ról niestandardowych za pomocą [Azure Portal](custom-roles-portal.md), [Azure PowerShell](tutorial-custom-role-powershell.md)lub [interfejsu wiersza polecenia platformy Azure](tutorial-custom-role-cli.md).
-- Jeśli nie można zaktualizować istniejącej roli niestandardowej, należy sprawdzić, czy użytkownik jest zalogowany przy użyciu przypisanej do roli `Microsoft.Authorization/roleDefinition/write` uprawnienia, takiej jak [właściciel](built-in-roles.md#owner) lub [administrator dostępu użytkowników](built-in-roles.md#user-access-administrator).
+- Jeśli potrzebujesz kroków tworzenia roli niestandardowej, zobacz samouczki dotyczące roli niestandardowej przy użyciu interfejsu wiersza [Azure Portal](custom-roles-portal.md), [Azure PowerShell](tutorial-custom-role-powershell.md)lub interfejsu wiersza [polecenia platformy Azure.](tutorial-custom-role-cli.md)
+- Jeśli nie możesz zaktualizować istniejącej roli niestandardowej, sprawdź, czy obecnie zalogowano się przy użyciu użytkownika, który ma przypisaną rolę z uprawnieniami, taką jak Właściciel lub `Microsoft.Authorization/roleDefinition/write` [Administrator dostępu użytkowników.](built-in-roles.md#user-access-administrator) [](built-in-roles.md#owner)
 - Jeśli nie możesz usunąć niestandardowej roli i otrzymujesz komunikat o błędzie „Istnieją przypisania ról odwołujące się do roli (kod: RoleDefinitionHasAssignments)”, wówczas istnieją przypisania ról nadal używające roli niestandardowej. Usuń te przypisania ról i spróbuj ponownie usunąć rolę niestandardową.
-- Jeśli otrzymujesz komunikat o błędzie „Przekroczono limit definicji ról. Nie można utworzyć więcej definicji ról (kod: RoleDefinitionLimitExceeded) "podczas próby utworzenia nowej roli niestandardowej, Usuń wszystkie niestandardowe role, które nie są używane. Platforma Azure obsługuje do **5000** ról niestandardowych w katalogu. (W przypadku platformy Azure (Niemcy i Azure Chiny 21Vianet limit wynosi 2000 ról niestandardowych).
-- Jeśli zostanie wyświetlony komunikat o błędzie podobny do "klient ma uprawnienia do wykonania akcji" Microsoft. Authorization/roleDefinitions/Write "w zakresie"/subscriptions/{SubscriptionID} ", ale nie znaleziono połączonej subskrypcji" podczas próby zaktualizowania roli niestandardowej, sprawdź, czy w katalogu usunięto co najmniej jeden z [przypisanych zakresów](role-definitions.md#assignablescopes) . Jeśli zakres został usunięty, utwórz bilet pomocy technicznej, ponieważ w tej chwili nie jest dostępne żadne rozwiązanie samoobsługowe.
+- Jeśli otrzymujesz komunikat o błędzie „Przekroczono limit definicji ról. Nie można tworzyć więcej definicji ról (kod: RoleDefinitionLimitExceeded)", gdy próbujesz utworzyć nową rolę niestandardową, usuń wszystkie role niestandardowe, które nie są używane. Platforma Azure obsługuje **maksymalnie 5000 ról** niestandardowych w katalogu. (W przypadku platformy Azure (Niemcy) Azure (Chiny) — 21Vianet limit wynosi 2000 ról niestandardowych).
+- Jeśli podczas próby zaktualizowania roli niestandardowej wystąpi błąd podobny do "Klient ma uprawnienia do wykonania akcji "Microsoft.Authorization/roleDefinitions/write" w zakresie "/subscriptions/{subscriptionid}", ale połączona subskrypcja nie została znaleziona" podczas próby zaktualizowania roli niestandardowej, sprawdź, czy co najmniej jeden z zakresów, które można przypisać, został usunięty w katalogu. [](role-definitions.md#assignablescopes) Jeśli zakres został usunięty, utwórz bilet pomocy technicznej, ponieważ w tej chwili nie jest dostępne żadne rozwiązanie samoobsługowe.
 
 ## <a name="custom-roles-and-management-groups"></a>Role niestandardowe i grupy zarządzania
 
-- W roli niestandardowej można zdefiniować tylko jedną grupę zarządzania `AssignableScopes` . Dodawanie grupy zarządzania do programu `AssignableScopes` jest obecnie w wersji zapoznawczej.
-- Ról niestandardowych z `DataActions` nie można przypisać do zakresu grupy zarządzania.
-- Azure Resource Manager nie sprawdza poprawności istnienia grupy zarządzania w zakresie możliwym do przypisania definicji roli.
-- Aby uzyskać więcej informacji na temat ról niestandardowych i grup zarządzania, zobacz [organizowanie zasobów przy użyciu grup zarządzania platformy Azure](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment).
+- W roli niestandardowej można zdefiniować tylko jedną `AssignableScopes` grupę zarządzania. Dodawanie grupy zarządzania do programu `AssignableScopes` jest obecnie dostępne w wersji zapoznawczej.
+- Ról niestandardowych `DataActions` z programem nie można przypisać w zakresie grupy zarządzania.
+- Azure Resource Manager nie weryfikuje istnienia grupy zarządzania w zakresie, który można przypisać definicji roli.
+- Aby uzyskać więcej informacji na temat ról niestandardowych i grup zarządzania, zobacz [Organize your resources with Azure management groups (Organizowanie zasobów przy użyciu grup zarządzania platformy Azure).](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment)
 
-## <a name="transferring-a-subscription-to-a-different-directory"></a>Transferowanie subskrypcji do innego katalogu
+## <a name="transferring-a-subscription-to-a-different-directory"></a>Przenoszenie subskrypcji do innego katalogu
 
-- Jeśli potrzebujesz kroków dotyczących sposobu transferowania subskrypcji do innego katalogu usługi Azure AD, zobacz [transfer subskrypcji platformy Azure do innego katalogu usługi Azure AD](transfer-subscription.md).
-- Jeśli przeniesiesz subskrypcję do innego katalogu usługi Azure AD, wszystkie przypisania ról zostaną **trwale** usunięte ze źródłowego katalogu usługi Azure AD i nie zostaną zmigrowane do docelowego katalogu usługi Azure AD. Musisz ponownie utworzyć przypisania roli w katalogu docelowym. Należy również ręcznie odtworzyć zarządzane tożsamości dla zasobów platformy Azure. Aby uzyskać więcej informacji, zobacz [często zadawane pytania i znane problemy związane z tożsamościami zarządzanymi](../active-directory/managed-identities-azure-resources/known-issues.md).
-- Jeśli jesteś administratorem globalnym usługi Azure AD i nie masz dostępu do subskrypcji po przeniesieniu między katalogami, użyj przełącznika **Zarządzanie dostępem do zasobów platformy Azure** , aby tymczasowo [podnieść poziom dostępu](elevate-access-global-admin.md) w celu uzyskania dostępu do subskrypcji.
+- Jeśli potrzebujesz kroków przenoszenia subskrypcji do innego katalogu usługi Azure AD, zobacz Transfer an Azure subscription to a different Azure AD directory (Przenoszenie subskrypcji platformy [Azure do innego katalogu usługi Azure AD).](transfer-subscription.md)
+- Jeśli przenosisz subskrypcję do innego katalogu usługi Azure  AD, wszystkie przypisania ról są trwale usuwane ze źródłowego katalogu usługi Azure AD i nie są migrowane do docelowego katalogu usługi Azure AD. Należy ponownie utworzyć przypisania ról w katalogu docelowym. Musisz również ręcznie ponownie utworzyć tożsamości zarządzane dla zasobów platformy Azure. Aby uzyskać więcej informacji, zobacz [Często zadawane pytania i znane problemy dotyczące tożsamości zarządzanych.](../active-directory/managed-identities-azure-resources/known-issues.md)
+- Jeśli jesteś administratorem globalnym usługi Azure AD i nie masz dostępu do subskrypcji po jej przeniesieniu między katalogami, [](elevate-access-global-admin.md) użyj przełącznika Zarządzanie dostępem dla zasobów platformy **Azure,** aby tymczasowo podnieść swój dostęp w celu uzyskania dostępu do subskrypcji.
 
 ## <a name="issues-with-service-admins-or-co-admins"></a>Problemy z administratorami usług lub współadministratorami
 
-- Jeśli masz problemy z administratorem usługi lub współadministratorem, zobacz [Dodawanie lub zmienianie administratorów subskrypcji platformy Azure](../cost-management-billing/manage/add-change-subscription-administrator.md) i [ról administratora klasycznej subskrypcji, ról platformy Azure i ról usługi Azure AD](rbac-and-directory-admin-roles.md).
+- Jeśli masz problemy z administratorami lub administrator usługi, zobacz Dodawanie lub zmienianie administratorów subskrypcji platformy [Azure](../cost-management-billing/manage/add-change-subscription-administrator.md) i ról klasycznego administratora subskrypcji, ról platformy Azure i [ról usługi Azure AD.](rbac-and-directory-admin-roles.md)
 
-## <a name="access-denied-or-permission-errors"></a>Odmowa dostępu lub błędy uprawnień
+## <a name="access-denied-or-permission-errors"></a>Błędy odmowy dostępu lub uprawnień
 
-- Jeśli otrzymujesz błąd przypisania „Klient z identyfikatorem obiektu nie ma autoryzacji do wykonania akcji w zakresie (kod: AuthorizationFailed)” podczas próby utworzenia zasobu, upewnij się, że obecnie logujesz się jako użytkownik mający przypisaną rolę, która ma uprawnienia zapisu do zasobu w wybranym zakresie. Na przykład do zarządzania maszynami wirtualnymi w grupie zasobów musisz mieć rolę [Współautor maszyny wirtualnej](built-in-roles.md#virtual-machine-contributor) w grupie zasobów (lub zakresie nadrzędnym). Listę uprawnień dla każdej roli wbudowanej można znaleźć [w temacie Role wbudowane platformy Azure](built-in-roles.md).
-- Jeśli zostanie wyświetlony komunikat o błędzie "nie masz uprawnień do utworzenia żądania pomocy technicznej" podczas próby utworzenia lub zaktualizowania biletu pomocy technicznej, sprawdź, czy jesteś zalogowanym użytkownikiem, do którego przypisano rolę z `Microsoft.Support/supportTickets/write` uprawnieniem, takim jak [współautor żądania pomocy technicznej](built-in-roles.md#support-request-contributor).
+- Jeśli otrzymujesz błąd przypisania „Klient z identyfikatorem obiektu nie ma autoryzacji do wykonania akcji w zakresie (kod: AuthorizationFailed)” podczas próby utworzenia zasobu, upewnij się, że obecnie logujesz się jako użytkownik mający przypisaną rolę, która ma uprawnienia zapisu do zasobu w wybranym zakresie. Na przykład do zarządzania maszynami wirtualnymi w grupie zasobów musisz mieć rolę [Współautor maszyny wirtualnej](built-in-roles.md#virtual-machine-contributor) w grupie zasobów (lub zakresie nadrzędnym). Aby uzyskać listę uprawnień dla każdej roli wbudowanej, zobacz [Wbudowane role platformy Azure.](built-in-roles.md)
+- Jeśli podczas próby utworzenia lub zaktualizowania biletu pomocy technicznej wystąpi błąd uprawnień "Nie masz uprawnień do utworzenia żądania pomocy technicznej", sprawdź, czy obecnie zalogowano się za pomocą użytkownika, który ma przypisaną rolę, taką jak Współautor żądania pomocy `Microsoft.Support/supportTickets/write` [technicznej.](built-in-roles.md#support-request-contributor)
 
-## <a name="move-resources-with-role-assignments"></a>Przenoszenie zasobów z przypisaniami ról
+## <a name="move-resources-with-role-assignments"></a>Przenoszenie zasobów za pomocą przypisań ról
 
-W przypadku przeniesienia zasobu z rolą platformy Azure przypisaną bezpośrednio do zasobu (lub zasobu podrzędnego) przypisanie roli nie zostanie przeniesione i zostanie oddzielone. Po przeniesieniu należy ponownie utworzyć przypisanie roli. Ostatecznie przypisanie oddzielonej roli zostanie automatycznie usunięte, ale najlepszym rozwiązaniem jest usunięcie przypisania roli przed przeniesieniem zasobu.
+Jeśli przeniesiesz zasób, który ma rolę platformy Azure przypisaną bezpośrednio do zasobu (lub zasobu podrzędnego), przypisanie roli nie zostanie przeniesione i zostanie oddzielone. Po zakończeniu przenoszenia należy ponownie utworzyć przypisanie roli. Po pewnym czasie oddzielone przypisanie roli zostanie automatycznie usunięte, ale najlepszym rozwiązaniem jest usunięcie przypisania roli przed przeniesieniem zasobu.
 
-Informacje o sposobie przenoszenia zasobów znajdują się w temacie [przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+Aby uzyskać informacje na temat przenoszenia zasobów, zobacz Przenoszenie zasobów do nowej [grupy zasobów lub subskrypcji](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-## <a name="role-assignments-with-identity-not-found"></a>Nie znaleziono przypisań ról o tożsamości
+## <a name="role-assignments-with-identity-not-found"></a>Nie znaleziono przypisań ról z tożsamością
 
-Na liście przypisań ról dla Azure Portal można zauważyć, że podmiot zabezpieczeń (użytkownika, Grupa, nazwa główna usługi lub tożsamość zarządzana) jest wymieniony jako **tożsamość nie została znaleziona** z **nieznanym** typem.
+Na liście przypisań ról dla usługi Azure Portal można zauważyć, że podmiot zabezpieczeń (użytkownik, grupa, nazwa  główna usługi lub tożsamość zarządzana) jest wymieniony jako Tożsamość nie znaleziono o nieznanym **typie.**
 
-![Nie znaleziono tożsamości wymienionej w przypisaniach ról platformy Azure](./media/troubleshooting/unknown-security-principal.png)
+![Tożsamość nie znajduje się na liście przypisań ról platformy Azure](./media/troubleshooting/unknown-security-principal.png)
 
 Tożsamość może nie zostać znaleziona z dwóch powodów:
 
-- Ostatnio zaproszono użytkownika podczas tworzenia przypisania roli
-- Usunięto podmiot zabezpieczeń, który miał przypisanie roli
+- Niedawno zaprosiliśmy użytkownika podczas tworzenia przypisania roli
+- Usunięto podmiot zabezpieczeń z przypisaną rolą
 
-Jeśli użytkownik ostatnio zaprosił użytkownika podczas tworzenia przypisania roli, ten podmiot zabezpieczeń może nadal znajdować się w procesie replikacji między regionami. Jeśli tak, poczekaj chwilę i Odśwież listę przypisań ról.
+Jeśli niedawno zaprosiliśmy użytkownika podczas tworzenia przypisania roli, ten podmiot zabezpieczeń może nadal być w procesie replikacji w różnych regionach. Jeśli tak, zaczekaj chwilę i odśwież listę przypisań ról.
 
-Jeśli jednak ten podmiot zabezpieczeń nie jest ostatnio zaproszonym użytkownikiem, może być usuniętym podmiotem zabezpieczeń. Jeśli przypiszesz rolę do podmiotu zabezpieczeń, a następnie usuniesz ten podmiot zabezpieczeń bez wcześniejszego usunięcia przypisania roli, podmiot zabezpieczeń będzie wymieniony jako **tożsamość nie zostanie znaleziona** i **nieznany** typ.
+Jeśli jednak ten podmiot zabezpieczeń nie jest niedawno zaproszonym użytkownikiem, może to być usunięty podmiot zabezpieczeń. Jeśli przypiszesz rolę do podmiotu zabezpieczeń, a następnie usuniesz tę jednostkę zabezpieczeń bez wcześniejszego usunięcia przypisania roli, podmiot zabezpieczeń zostanie wymieniony jako **Nie** znaleziono tożsamości i nieznany **typ.**
 
-Jeśli lista tego przypisania roli zostanie wyświetlona przy użyciu Azure PowerShell, może być widoczny pusty `DisplayName` i `ObjectType` ustawiony jako **nieznany**. Na przykład polecenie [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) zwraca przypisanie roli podobne do następujących danych wyjściowych:
+Jeśli to przypisanie roli zostanie wyświetlona przy użyciu Azure PowerShell, może zostać wyświetlony pusty element z `DisplayName` `ObjectType` wartością **Nieznany.** Na przykład [get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) zwraca przypisanie roli, które jest podobne do następujących danych wyjściowych:
 
 ```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -138,7 +138,7 @@ ObjectType         : Unknown
 CanDelegate        : False
 ```
 
-Podobnie jeśli zostanie wyświetlone to przypisanie roli przy użyciu interfejsu wiersza polecenia platformy Azure, może zostać wyświetlony pusty `principalName` . Na przykład [AZ role list przypisanie](/cli/azure/role/assignment#az-role-assignment-list) zwraca przypisanie roli, które jest podobne do następujących danych wyjściowych:
+Podobnie po wyświetleniu listy tego przypisania roli przy użyciu interfejsu wiersza polecenia platformy Azure może zostać wyświetlony pusty element `principalName` . Na przykład [az role assignment list zwraca](/cli/azure/role/assignment#az_role_assignment_list) przypisanie roli podobne do następujących danych wyjściowych:
 
 ```
 {
@@ -154,9 +154,9 @@ Podobnie jeśli zostanie wyświetlone to przypisanie roli przy użyciu interfejs
 }
 ```
 
-Nie jest to problem, aby opuścić te przypisania ról, w których podmiot zabezpieczeń został usunięty. Jeśli chcesz, możesz usunąć te przypisania ról, korzystając z kroków, które są podobne do innych przypisań ról. Aby uzyskać informacje o sposobach usuwania przypisań ról, zobacz [usuwanie przypisań ról platformy Azure](role-assignments-remove.md).
+Pozostawienie tych przypisań ról, w których usunięto podmiot zabezpieczeń, nie jest problemem. Jeśli chcesz, możesz usunąć te przypisania ról, korzystając z kroków podobnych do innych przypisań ról. Aby uzyskać informacje na temat usuwania przypisań ról, zobacz [Usuwanie przypisań ról platformy Azure.](role-assignments-remove.md)
 
-W programie PowerShell, jeśli spróbujesz usunąć przypisania roli przy użyciu identyfikatora obiektu i nazwy definicji roli, a więcej niż jedno przypisanie roli jest zgodne z parametrami, zostanie wyświetlony komunikat o błędzie: "podane informacje nie są mapowane na przypisanie roli". Poniższe dane wyjściowe pokazują przykład komunikatu o błędzie:
+Jeśli w programie PowerShell spróbujesz usunąć przypisania ról przy użyciu identyfikatora obiektu i nazwy definicji roli, a więcej niż jedno przypisanie roli pasuje do Twoich parametrów, zostanie wyświetlony komunikat o błędzie: "Podane informacje nie są mapowe na przypisanie roli". Następujące dane wyjściowe pokazują przykład komunikatu o błędzie:
 
 ```
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor"
@@ -169,88 +169,88 @@ At line:1 char:1
 + FullyQualifiedErrorId : Microsoft.Azure.Commands.Resources.RemoveAzureRoleAssignmentCommand
 ```
 
-Jeśli ten komunikat o błędzie jest wyświetlany, upewnij się, że określono `-Scope` również `-ResourceGroupName` parametry lub.
+Jeśli zostanie wyświetlony ten komunikat o błędzie, upewnij się, że określono również `-Scope` parametry `-ResourceGroupName` lub .
 
 ```
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor" - Scope /subscriptions/11111111-1111-1111-1111-111111111111
 ```
 
-## <a name="role-assignment-changes-are-not-being-detected"></a>Zmiany przypisania roli nie są wykrywane
+## <a name="role-assignment-changes-are-not-being-detected"></a>Nie są wykrywane zmiany przypisania roli
 
-Czasami Azure Resource Manager buforuje konfiguracje i dane w celu zwiększenia wydajności. Po przypisaniu ról lub usunięciu przypisań ról może upłynąć do 30 minut, aby zmiany zaczęły obowiązywać. Jeśli używasz Azure Portal, Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, możesz wymusić odświeżenie zmian przypisania roli przez wylogowanie się i zalogowanie się. W przypadku wprowadzania zmian przypisywania ról przy użyciu wywołań interfejsu API REST można wymusić odświeżenie tokenu dostępu.
+Azure Resource Manager czasami buforuje konfiguracje i dane w celu zwiększenia wydajności. Po przypisaniu ról lub usunięciu przypisań ról może upłynieć do 30 minut, aż zmiany zajdą. Jeśli używasz interfejsu wiersza Azure Portal, Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, możesz wymusić odświeżenie zmian przypisania roli, wylogowając się i logując. Jeśli wprowadzasz zmiany przypisania roli za pomocą wywołań interfejsu API REST, możesz wymusić odświeżenie, odświeżając token dostępu.
 
-Jeśli dodajesz lub usuniesz przypisanie roli w zakresie grupy zarządzania i rola ma `DataActions` , dostęp na płaszczyźnie danych może nie być aktualizowany przez kilka godzin. Dotyczy to tylko zakresu grupy zarządzania i płaszczyzny danych.
+Jeśli dodajesz lub usuwasz przypisanie roli w zakresie grupy zarządzania, a rola ma , dostęp na płaszczyźnie danych może nie być `DataActions` aktualizowany przez kilka godzin. Dotyczy to tylko zakresu grupy zarządzania i płaszczyzny danych.
 
-## <a name="web-app-features-that-require-write-access"></a>Funkcje aplikacji sieci Web, które wymagają dostępu do zapisu
+## <a name="web-app-features-that-require-write-access"></a>Funkcje aplikacji internetowej, które wymagają dostępu do zapisu
 
-Jeśli przyznasz użytkownikowi dostęp tylko do odczytu do pojedynczej aplikacji sieci Web, niektóre funkcje są wyłączone, które mogą być nieoczekiwane. Następujące funkcje zarządzania wymagają dostępu do **zapisu** do aplikacji sieci Web (współautor lub właściciela) i nie są dostępne w żadnym scenariuszu tylko do odczytu.
+Jeśli przyznasz użytkownikowi dostęp tylko do odczytu do jednej aplikacji internetowej, niektóre funkcje zostaną wyłączone, czego możesz oczekiwać. Poniższe funkcje zarządzania wymagają **dostępu do** zapisu w aplikacji internetowej (współautor lub właściciel) i nie są dostępne w żadnym scenariuszu tylko do odczytu.
 
 * Polecenia (takie jak uruchamianie, zatrzymywanie itp.)
-* Zmiana ustawień, takich jak Konfiguracja ogólna, ustawienia skalowania, ustawienia kopii zapasowej i ustawienia monitorowania
+* Zmienianie ustawień, takich jak konfiguracja ogólna, ustawienia skalowania, ustawienia kopii zapasowej i ustawienia monitorowania
 * Uzyskiwanie dostępu do poświadczeń publikowania i innych wpisów tajnych, takich jak ustawienia aplikacji i parametry połączenia
 * Przesyłanie strumieniowe dzienników
 * Konfiguracja dzienników zasobów
 * Konsola (wiersz polecenia)
-* Aktywne i niedawne wdrożenia (dla lokalnego wdrożenia usługi Git)
+* Aktywne i ostatnie wdrożenia (dla lokalnego ciągłego wdrażania usługi Git)
 * Szacowane wydatki
 * Testy sieci Web
-* Sieć wirtualna (widoczna tylko dla czytnika, jeśli sieć wirtualna została wcześniej skonfigurowana przez użytkownika z prawem do zapisu).
+* Sieć wirtualna (widoczna dla czytnika tylko wtedy, gdy sieć wirtualna została wcześniej skonfigurowana przez użytkownika z dostępem do zapisu).
 
-Jeśli nie możesz uzyskać dostępu do żadnego z tych kafelków, musisz polecić administratorowi dostęp współautora do aplikacji sieci Web.
+Jeśli nie możesz uzyskać dostępu do żadnego z tych kafelków, musisz poprosić administratora o dostęp współautora do aplikacji internetowej.
 
-## <a name="web-app-resources-that-require-write-access"></a>Zasoby aplikacji sieci Web, które wymagają dostępu do zapisu
+## <a name="web-app-resources-that-require-write-access"></a>Zasoby aplikacji internetowej, które wymagają dostępu do zapisu
 
-Aplikacje sieci Web są skomplikowane przez obecność kilku różnych zasobów, które współpraca. Poniżej przedstawiono typową grupę zasobów z kilkoma witrynami sieci Web:
+Aplikacje internetowe są skomplikowane ze względu na obecność kilku różnych zasobów, które się wzajemnie ze sobą ze sobą różnią. Oto typowa grupa zasobów z kilku witrynami sieci Web:
 
-![Grupa zasobów aplikacji sieci Web](./media/troubleshooting/website-resource-model.png)
+![Grupa zasobów aplikacji internetowej](./media/troubleshooting/website-resource-model.png)
 
-W związku z tym, jeśli przyznasz komuś dostęp tylko do aplikacji sieci Web, większość funkcji w bloku witryna sieci Web w Azure Portal jest wyłączona.
+W związku z tym, jeśli udzielisz innej osobie dostępu tylko do aplikacji internetowej, większość funkcji w bloku witryny internetowej w witrynie Azure Portal wyłączona.
 
-Elementy te wymagają dostępu do **zapisu** do **planu App Service** , który odpowiada witrynie sieci Web:  
+Te elementy wymagają **dostępu do** zapisu App Service **planu odpowiadającego** witrynie sieci Web:  
 
-* Wyświetlanie warstwy cenowej aplikacji sieci Web (bezpłatna lub standardowa)  
+* Wyświetlanie warstwy cenowej aplikacji internetowej (Bezpłatna lub Standardowa)  
 * Konfiguracja skalowania (liczba wystąpień, rozmiar maszyny wirtualnej, ustawienia skalowania automatycznego)  
-* Przydziały (magazyn, przepustowość, procesor CPU)  
+* Limity przydziału (magazyn, przepustowość, procesor CPU)  
 
-Te elementy wymagają dostępu do **zapisu** w całej **grupie zasobów** zawierającej witrynę sieci Web:  
+Te elementy wymagają **dostępu do** zapisu dla całej grupy **zasobów zawierającej** witrynę internetową:  
 
-* Certyfikaty i powiązania protokołu TLS/SSL (certyfikaty TLS/SSL mogą być współużytkowane między lokacjami w tej samej grupie zasobów i lokalizacji geograficznej)  
+* Certyfikaty i powiązania TLS/SSL (certyfikaty TLS/SSL mogą być współdzielone między lokacjami w tej samej grupie zasobów i lokalizacji geograficznej)  
 * Zasady alertów  
-* Ustawienia skalowania automatycznego  
+* Ustawienia autoskalowania  
 * Składniki usługi Application Insights  
 * Testy sieci Web  
 
 ## <a name="virtual-machine-features-that-require-write-access"></a>Funkcje maszyny wirtualnej, które wymagają dostępu do zapisu
 
-Podobnie jak w przypadku aplikacji sieci Web, niektóre funkcje w bloku maszyny wirtualnej wymagają dostępu do zapisu do maszyny wirtualnej lub do innych zasobów w grupie zasobów.
+Podobnie jak w przypadku aplikacji internetowych, niektóre funkcje w bloku maszyny wirtualnej wymagają dostępu do zapisu dla maszyny wirtualnej lub innych zasobów w grupie zasobów.
 
 Maszyny wirtualne są powiązane z nazwami domen, sieciami wirtualnymi, kontami magazynu i regułami alertów.
 
-Elementy te wymagają dostępu do **zapisu** dla **maszyny wirtualnej**:
+Te elementy wymagają **dostępu do** zapisu na **maszynie wirtualnej:**
 
 * Punkty końcowe  
 * Adresy IP  
 * Dyski  
 * Rozszerzenia  
 
-Wymagają one dostępu do **zapisu** zarówno dla **maszyny wirtualnej**, jak i **grupy zasobów** (wraz z nazwą domeny), w której znajduje się:  
+Wymagają one **dostępu do** zapisu zarówno dla maszyny wirtualnej **,** jak i grupy **zasobów** (wraz z nazwą domeny), w których się znajduje:  
 
 * Zestaw dostępności  
 * Zestaw o zrównoważonym obciążeniu  
 * Zasady alertów  
 
-Jeśli nie możesz uzyskać dostępu do żadnego z tych kafelków, poprosimy administratora o dostęp współautora do grupy zasobów.
+Jeśli nie możesz uzyskać dostępu do żadnego z tych kafelków, poproś administratora o dostęp współautora do grupy zasobów.
 
-## <a name="azure-functions-and-write-access"></a>Dostęp Azure Functions i zapisu
+## <a name="azure-functions-and-write-access"></a>Azure Functions i dostęp do zapisu
 
-Niektóre funkcje [Azure Functions](../azure-functions/functions-overview.md) wymagają dostępu do zapisu. Jeśli na przykład użytkownik ma przypisaną rolę [czytelnik](built-in-roles.md#reader) , nie będzie mógł wyświetlać funkcji w ramach aplikacji funkcji. Zostanie wyświetlony portal **(brak dostępu)**.
+Niektóre funkcje programu [Azure Functions](../azure-functions/functions-overview.md) wymagają dostępu do zapisu. Jeśli na przykład użytkownik ma przypisaną rolę [Czytelnik,](built-in-roles.md#reader) nie będzie mógł wyświetlać funkcji w aplikacji funkcji. W portalu zostanie wyświetlany **komunikat (brak dostępu).**
 
-![Aplikacje funkcji Brak dostępu](./media/troubleshooting/functionapps-noaccess.png)
+![Aplikacje funkcji nie mają dostępu](./media/troubleshooting/functionapps-noaccess.png)
 
-Czytelnik może kliknąć kartę **funkcje platformy** , a następnie kliknąć pozycję **wszystkie ustawienia** , aby wyświetlić niektóre ustawienia związane z aplikacją funkcji (podobną do aplikacji sieci Web), ale nie mogą modyfikować żadnego z tych ustawień. Aby uzyskać dostęp do tych funkcji, będzie potrzebna rola [współautor](built-in-roles.md#contributor) .
+Czytelnik może kliknąć  kartę Funkcje  platformy, a następnie kliknąć pozycję Wszystkie ustawienia, aby wyświetlić niektóre ustawienia związane z aplikacją funkcji (podobnie jak w przypadku aplikacji internetowej), ale nie może modyfikować żadnego z tych ustawień. Aby uzyskać dostęp do tych funkcji, musisz mieć rolę [Współautor.](built-in-roles.md#contributor)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Rozwiązywanie problemów z użytkownikami-Gośćmi](role-assignments-external-users.md#troubleshoot)
+- [Rozwiązywanie problemów dla użytkowników-gości](role-assignments-external-users.md#troubleshoot)
 - [Przypisywanie ról platformy Azure przy użyciu Azure Portal](role-assignments-portal.md)
-- [Wyświetlanie dzienników aktywności dla zmian RBAC platformy Azure](change-history-report.md)
+- [Wyświetlanie dzienników aktywności dla zmian kontroli RBAC platformy Azure](change-history-report.md)

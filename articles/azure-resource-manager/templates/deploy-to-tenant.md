@@ -1,49 +1,49 @@
 ---
 title: Wdrażanie zasobów w dzierżawie
-description: Opisuje sposób wdrażania zasobów w zakresie dzierżawy w szablonie Azure Resource Manager.
+description: Opisuje sposób wdrażania zasobów w zakresie dzierżawy w Azure Resource Manager szablonu.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: fd5a9ae60c578a3be7f70d82baae0a15e406b9db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0b17b8741d1701720de86d8039be3b6cd28ace5c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99491490"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781905"
 ---
-# <a name="tenant-deployments-with-arm-templates"></a>Wdrożenia dzierżawców przy użyciu szablonów ARM
+# <a name="tenant-deployments-with-arm-templates"></a>Wdrożenia dzierżawy z szablonami usługi ARM
 
-W miarę dojrzewania organizacji może być konieczne zdefiniowanie i przypisanie [zasad](../../governance/policy/overview.md) lub [kontroli dostępu opartej na rolach (RBAC)](../../role-based-access-control/overview.md) w ramach dzierżawy usługi Azure AD. Szablony poziomu dzierżawców umożliwiają deklaratywne stosowanie zasad i przypisywanie ról na poziomie globalnym.
+W trakcie rozwoju organizacji może być konieczne [](../../governance/policy/overview.md) zdefiniowanie i przypisanie zasad lub kontroli dostępu na podstawie ról [(RBAC)](../../role-based-access-control/overview.md) platformy Azure w dzierżawie usługi Azure AD. Za pomocą szablonów na poziomie dzierżawy można deklaratywnie stosować zasady i przypisywać role na poziomie globalnym.
 
 ## <a name="supported-resources"></a>Obsługiwane zasoby
 
-Nie wszystkie typy zasobów można wdrożyć na poziomie dzierżawy. W tej sekcji przedstawiono typy zasobów, które są obsługiwane.
+Nie wszystkie typy zasobów można wdrożyć na poziomie dzierżawy. W tej sekcji wymieniono obsługiwane typy zasobów.
 
-W przypadku zasad platformy Azure Użyj:
+W przypadku zasad platformy Azure użyj:
 
-* [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
-* [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
+* [policyAssignments (przypisania zasad)](/azure/templates/microsoft.authorization/policyassignments)
+* [Policydefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 
-W przypadku kontroli dostępu opartej na rolach platformy Azure (RBAC) Użyj:
+W przypadku kontroli dostępu opartej na rolach (RBAC) na platformie Azure użyj:
 
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 
-W przypadku szablonów zagnieżdżonych wdrażanych w grupach zarządzania, subskrypcjach lub grupach zasobów należy użyć:
+W przypadku zagnieżdżonych szablonów wdrażanych w grupach zarządzania, subskrypcjach lub grupach zasobów użyj:
 
-* [komputerów](/azure/templates/microsoft.resources/deployments)
+* [Wdrożeń](/azure/templates/microsoft.resources/deployments)
 
-Aby utworzyć grupy zarządzania, należy użyć:
+Do tworzenia grup zarządzania użyj:
 
 * [managementGroups](/azure/templates/microsoft.management/managementgroups)
 
-W przypadku tworzenia subskrypcji Użyj:
+Aby utworzyć subskrypcje, użyj:
 
-* [aliasy](/azure/templates/microsoft.subscription/aliases)
+* [Aliasy](/azure/templates/microsoft.subscription/aliases)
 
 Aby zarządzać kosztami, użyj:
 
 * [billingProfiles](/azure/templates/microsoft.billing/billingaccounts/billingprofiles)
-* [wskazówek](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
+* [Instrukcje](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
 * [invoiceSections](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
 
 Aby skonfigurować portal, użyj:
@@ -52,9 +52,9 @@ Aby skonfigurować portal, użyj:
 
 ## <a name="schema"></a>Schemat
 
-Schemat używany do wdrożeń dzierżawców różni się od schematu dla wdrożeń grup zasobów.
+Schemat wdrożeń dzierżawy różni się od schematu wdrożeń grup zasobów.
 
-W przypadku szablonów Użyj:
+W przypadku szablonów użyj:
 
 ```json
 {
@@ -63,7 +63,7 @@ W przypadku szablonów Użyj:
 }
 ```
 
-Schemat pliku parametrów jest taki sam dla wszystkich zakresów wdrożenia. W przypadku plików parametrów należy użyć:
+Schemat pliku parametrów jest taki sam dla wszystkich zakresów wdrożenia. W przypadku plików parametrów użyj:
 
 ```json
 {
@@ -74,11 +74,11 @@ Schemat pliku parametrów jest taki sam dla wszystkich zakresów wdrożenia. W p
 
 ## <a name="required-access"></a>Wymagany dostęp
 
-Podmiot zabezpieczeń wdrażający szablon musi mieć uprawnienia do tworzenia zasobów w zakresie dzierżawy. Podmiot zabezpieczeń musi mieć uprawnienia do wykonywania akcji wdrażania ( `Microsoft.Resources/deployments/*` ) oraz do tworzenia zasobów zdefiniowanych w szablonie. Na przykład, aby utworzyć grupę zarządzania, podmiot zabezpieczeń musi mieć uprawnienie współautor w zakresie dzierżawy. Aby utworzyć przypisania ról, podmiot zabezpieczeń musi mieć uprawnienia właściciela.
+Podmiot zabezpieczeń wdrażający szablon musi mieć uprawnienia do tworzenia zasobów w zakresie dzierżawy. Podmiot zabezpieczeń musi mieć uprawnienia do wykonywania akcji wdrażania ( ) i do `Microsoft.Resources/deployments/*` tworzenia zasobów zdefiniowanych w szablonie. Aby na przykład utworzyć grupę zarządzania, podmiot zabezpieczeń musi mieć uprawnienie Współautor w zakresie dzierżawy. Aby utworzyć przypisania ról, podmiot zabezpieczeń musi mieć uprawnienia właściciela.
 
-Administrator globalny Azure Active Directory nie ma automatycznie uprawnienia do przypisywania ról. Aby włączyć wdrożenia szablonów w zakresie dzierżawy, Administrator globalny musi wykonać następujące czynności:
+Administrator globalny aplikacji Azure Active Directory automatycznie nie ma uprawnień do przypisywania ról. Aby włączyć wdrożenia szablonów w zakresie dzierżawy, administrator globalny musi wykonać następujące czynności:
 
-1. Podnieś poziom dostępu do konta, aby administrator globalny mógł przypisywać role. Aby uzyskać więcej informacji, zobacz [Podnieś poziom dostępu do zarządzania wszystkimi subskrypcjami i grupami zarządzania platformy Azure](../../role-based-access-control/elevate-access-global-admin.md).
+1. Podnieś uprawnienia dostępu do konta, aby administrator globalny mógł przypisywać role. Aby uzyskać więcej informacji, zobacz [Podniesienie dostępu w celu zarządzania wszystkimi subskrypcjami i](../../role-based-access-control/elevate-access-global-admin.md)grupami zarządzania platformy Azure.
 
 1. Przypisz właściciela lub współautora do podmiotu zabezpieczeń, który musi wdrożyć szablony.
 
@@ -90,15 +90,15 @@ Administrator globalny Azure Active Directory nie ma automatycznie uprawnienia d
    az role assignment create --assignee "[userId]" --scope "/" --role "Owner"
    ```
 
-Podmiot zabezpieczeń ma teraz wymagane uprawnienia do wdrożenia szablonu.
+Podmiot zabezpieczeń ma teraz uprawnienia wymagane do wdrożenia szablonu.
 
 ## <a name="deployment-commands"></a>Polecenia wdrażania
 
-Polecenia dla wdrożeń dzierżawców są inne niż polecenia dla wdrożeń grup zasobów.
+Polecenia dla wdrożeń dzierżawy różnią się od poleceń dla wdrożeń grup zasobów.
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-W przypadku interfejsu wiersza polecenia platformy Azure Użyj polecenia [AZ Deployment dzierżawca Create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
+W przypadku interfejsu wiersza polecenia platformy Azure użyj [polecenia az deployment tenant create:](/cli/azure/deployment/tenant#az_deployment_tenant_create)
 
 ```azurecli-interactive
 az deployment tenant create \
@@ -109,7 +109,7 @@ az deployment tenant create \
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-Aby uzyskać Azure PowerShell, użyj polecenie [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
+Na Azure PowerShell użyj [new-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
 
 ```azurepowershell-interactive
 New-AzTenantDeployment `
@@ -120,63 +120,63 @@ New-AzTenantDeployment `
 
 ---
 
-Aby uzyskać bardziej szczegółowe informacje na temat poleceń wdrażania i opcji wdrażania szablonów ARM, zobacz:
+Aby uzyskać bardziej szczegółowe informacje na temat poleceń wdrażania i opcji wdrażania szablonów usługi ARM, zobacz:
 
-* [Wdrażanie zasobów za pomocą szablonów ARM i Azure Portal](deploy-portal.md)
-* [Wdrażanie zasobów za pomocą szablonów ARM i interfejsu wiersza polecenia platformy Azure](deploy-cli.md)
-* [Wdrażanie zasobów za pomocą szablonów ARM i Azure PowerShell](deploy-powershell.md)
-* [Wdrażanie zasobów za pomocą szablonów ARM i interfejsu API REST Azure Resource Manager](deploy-rest.md)
-* [Użyj przycisku wdrożenia, aby wdrożyć szablony z repozytorium GitHub](deploy-to-azure-button.md)
-* [Wdrażanie szablonów usługi ARM na podstawie Cloud Shell](deploy-cloud-shell.md)
+* [Wdrażanie zasobów za pomocą szablonów usługi ARM i Azure Portal](deploy-portal.md)
+* [Wdrażanie zasobów przy użyciu szablonów usługi ARM i interfejsu wiersza polecenia platformy Azure](deploy-cli.md)
+* [Wdrażanie zasobów za pomocą szablonów usługi ARM i Azure PowerShell](deploy-powershell.md)
+* [Wdrażanie zasobów za pomocą szablonów usługi ARM i Azure Resource Manager API REST](deploy-rest.md)
+* [Używanie przycisku wdrażania do wdrażania szablonów z repozytorium GitHub](deploy-to-azure-button.md)
+* [Wdrażanie szablonów usługi ARM z Cloud Shell](deploy-cloud-shell.md)
 
 ## <a name="deployment-location-and-name"></a>Lokalizacja i nazwa wdrożenia
 
-W przypadku wdrożeń na poziomie dzierżawy należy podać lokalizację wdrożenia. Lokalizacja wdrożenia jest oddzielona od lokalizacji wdrażanych zasobów. Lokalizacja wdrożenia określa miejsce przechowywania danych wdrożenia. Wdrożenia [subskrypcji](deploy-to-subscription.md) i [grupy zarządzania](deploy-to-management-group.md) wymagają również lokalizacji. W przypadku wdrożeń [grup zasobów](deploy-to-resource-group.md) lokalizacja grupy zasobów jest używana do przechowywania danych wdrożenia.
+W przypadku wdrożeń na poziomie dzierżawy należy podać lokalizację wdrożenia. Lokalizacja wdrożenia jest oddzielona od lokalizacji wdrażanych zasobów. Lokalizacja wdrożenia określa miejsce przechowywania danych wdrożenia. [Wdrożenia](deploy-to-subscription.md) subskrypcji [i grup](deploy-to-management-group.md) zarządzania również wymagają lokalizacji. W [przypadku wdrożeń](deploy-to-resource-group.md) grup zasobów lokalizacja grupy zasobów jest używana do przechowywania danych wdrożenia.
 
-Możesz podać nazwę wdrożenia lub użyć domyślnej nazwy wdrożenia. Nazwa domyślna to nazwa pliku szablonu. Na przykład wdrożenie szablonu o nazwie _azuredeploy.jsw_ programie tworzy domyślną nazwę wdrożenia **azuredeploy**.
+Możesz podać nazwę wdrożenia lub użyć domyślnej nazwy wdrożenia. Domyślna nazwa to nazwa pliku szablonu. Na przykład wdrożenie szablonu o nazwie _azuredeploy.jsna powoduje_ utworzenie domyślnej nazwy wdrożenia **azuredeploy**.
 
-Dla każdej nazwy wdrożenia lokalizacja jest niezmienna. Nie można utworzyć wdrożenia w jednej lokalizacji, gdy istnieje wdrożenie o tej samej nazwie w innej lokalizacji. Jeśli na przykład utworzysz wdrożenie dzierżawy o nazwie **deployment1** w **centrali**, nie będzie można utworzyć innego wdrożenia o nazwie **deployment1** , ale lokalizacji **zachodniej**. Jeśli zostanie wyświetlony kod błędu `InvalidDeploymentLocation` , użyj innej nazwy lub tej samej lokalizacji co poprzednie wdrożenie dla tej nazwy.
+Dla każdej nazwy wdrożenia lokalizacja jest niezmienna. Nie można utworzyć wdrożenia w jednej lokalizacji, jeśli istnieje wdrożenie o takiej samej nazwie w innej lokalizacji. Jeśli na przykład utworzysz wdrożenie dzierżawy o nazwie **deployment1** w lokalizacji **centralus**, nie możesz później utworzyć kolejnego wdrożenia o nazwie **deployment1,** ale w lokalizacji **westus**. Jeśli zostanie wyświetlany kod błędu , użyj dla tej nazwy innej nazwy lub tej samej lokalizacji co w poprzednim `InvalidDeploymentLocation` wdrożeniu.
 
 ## <a name="deployment-scopes"></a>Zakresy wdrożenia
 
-Podczas wdrażania w dzierżawie można wdrożyć zasoby w programie:
+Podczas wdrażania w dzierżawie można wdrożyć zasoby w:
 
-* Dzierżawca
+* dzierżawy
 * grupy zarządzania w ramach dzierżawy
-* opłaty
+* Subskrypcji
 * grupy zasobów
 
-[Zasób rozszerzenia](scope-extension-resources.md) może być objęty zakresem docelowym, który jest inny niż cel wdrożenia.
+Zasób [rozszerzenia może](scope-extension-resources.md) być ograniczony do obiektu docelowego, który jest inny niż cel wdrożenia.
 
 Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
 
-W tej sekcji pokazano, jak określić różne zakresy. Można połączyć te różne zakresy w jednym szablonie.
+W tej sekcji przedstawiono sposób określania różnych zakresów. Te różne zakresy można połączyć w jednym szablonie.
 
 ### <a name="scope-to-tenant"></a>Zakres do dzierżawy
 
-Zasoby zdefiniowane w sekcji zasobów szablonu są stosowane do dzierżawcy.
+Zasoby zdefiniowane w sekcji zasobów szablonu są stosowane do dzierżawy.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-tenant.json" highlight="5":::
 
-### <a name="scope-to-management-group"></a>Zakres w grupie zarządzania
+### <a name="scope-to-management-group"></a>Zakres do grupy zarządzania
 
-Aby wskazać grupę zarządzania w ramach dzierżawy, Dodaj wdrożenie zagnieżdżone i określ `scope` Właściwość.
+Aby określić docelową grupę zarządzania w dzierżawie, dodaj wdrożenie zagnieżdżone i określ `scope` właściwość .
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,18,22":::
 
-### <a name="scope-to-subscription"></a>Zakres subskrypcji
+### <a name="scope-to-subscription"></a>Zakres do subskrypcji
 
-Możesz również kierować subskrypcje do subskrypcji w ramach dzierżawy. Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
+Można również wybrać subskrypcje docelowe w ramach dzierżawy. Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
 
-Aby docelowa była subskrypcja w ramach dzierżawy, należy użyć wdrożenia zagnieżdżonego i `subscriptionId` właściwości.
+Aby ukierunkować subskrypcję w ramach dzierżawy, użyj zagnieżdżonych wdrożeń i `subscriptionId` właściwości .
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="9,10,18":::
 
 ### <a name="scope-to-resource-group"></a>Zakres do grupy zasobów
 
-Możesz również kierować grupy zasobów w ramach dzierżawy. Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
+Można również kierować grupy zasobów w ramach dzierżawy. Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
 
-Aby określić grupę zasobów w ramach dzierżawy, należy użyć wdrożenia zagnieżdżonego. Ustaw `subscriptionId` właściwości i `resourceGroup` . Nie ustawiaj lokalizacji dla wdrożenia zagnieżdżonego, ponieważ jest ono wdrożone w lokalizacji grupy zasobów.
+Aby ukierunkować grupę zasobów w ramach dzierżawy, użyj wdrożenia zagnieżdżone. Ustaw właściwości `subscriptionId` `resourceGroup` i . Nie ustawiaj lokalizacji dla zagnieżdżonych wdrożeń, ponieważ jest ono wdrażane w lokalizacji grupy zasobów.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-rg.json" highlight="9,10,18":::
 
@@ -186,7 +186,7 @@ Poniższy szablon tworzy grupę zarządzania.
 
 :::code language="json" source="~/quickstart-templates/tenant-deployments/new-mg/azuredeploy.json":::
 
-Jeśli Twoje konto nie ma uprawnień do wdrożenia w dzierżawie, nadal można utworzyć grupy zarządzania, wdrażając je w innym zakresie. Aby uzyskać więcej informacji, zobacz [Grupa zarządzania](deploy-to-management-group.md#management-group).
+Jeśli Twoje konto nie ma uprawnień do wdrażania w dzierżawie, nadal możesz tworzyć grupy zarządzania, wdrażając je w innym zakresie. Aby uzyskać więcej informacji, zobacz [Grupa zarządzania](deploy-to-management-group.md#management-group).
 
 ## <a name="assign-role"></a>Przypisywanie roli
 
@@ -196,5 +196,5 @@ Poniższy szablon przypisuje rolę w zakresie dzierżawy.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej o przypisywaniu ról, zobacz [Dodawanie przypisań ról platformy Azure przy użyciu szablonów Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
-* Szablony można także wdrażać na poziomie [subskrypcji](deploy-to-subscription.md) lub [grupy zarządzania](deploy-to-management-group.md).
+* Aby dowiedzieć się więcej na temat przypisywania ról, zobacz [Dodawanie przypisań ról platformy Azure przy użyciu Azure Resource Manager szablonów.](../../role-based-access-control/role-assignments-template.md)
+* Szablony można również wdrażać na [poziomie subskrypcji](deploy-to-subscription.md) lub [grupy zarządzania.](deploy-to-management-group.md)

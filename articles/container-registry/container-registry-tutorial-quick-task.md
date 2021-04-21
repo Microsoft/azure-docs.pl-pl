@@ -4,12 +4,12 @@ description: Z tego samouczka dowiesz się, jak utworzyć obraz kontenera platfo
 ms.topic: tutorial
 ms.date: 11/24/2020
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: 384c7bebea8ed8120a1bc8134e4189e5e7bcb8db
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 282e6ea56835fba679510a29af936c1fbcb3ead2
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060282"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775353"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Samouczek: Kompilowanie obrazów kontenera w chmurze przy użyciu zadań usługi Azure Container Registry
 
@@ -26,7 +26,7 @@ W tym samouczku, będącym pierwszą częścią serii, zostaną wykonane następ
 > * Kompilowanie obrazu kontenera na platformie Azure
 > * Wdrażanie kontenera w usłudze Azure Container Instances
 
-Z kolejnych samouczków dowiesz się, jak używać zadań usługi ACR Tasks na potrzeby automatycznych kompilacji obrazu kontenera podczas zatwierdzania kodu i aktualizacji obrazu podstawowego. Zadania ACR mogą również uruchamiać [zadania wieloetapowe](container-registry-tasks-multi-step.md), używając pliku YAML do definiowania kroków do kompilowania, wypychania i opcjonalnego testowania wielu kontenerów.
+Z kolejnych samouczków dowiesz się, jak używać zadań usługi ACR Tasks na potrzeby automatycznych kompilacji obrazu kontenera podczas zatwierdzania kodu i aktualizacji obrazu podstawowego. zadania usługi ACR można również uruchamiać zadania wieloetapowe [przy](container-registry-tasks-multi-step.md)użyciu pliku YAML w celu zdefiniowania kroków kompilowania, wypychania i opcjonalnie testowania wielu kontenerów.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -46,7 +46,7 @@ Utwórz rozwidlenie tego repozytorium: https://github.com/Azure-Samples/acr-buil
 
 Po utworzeniu rozwidlenia repozytorium sklonuj rozwidlenie, a następnie wprowadź katalog zawierający klon lokalny.
 
-Sklonuj repozytorium za pomocą `git` usługi, Zastąp ciąg **\<your-github-username\>** nazwą użytkownika serwisu GitHub:
+Sklonuj repozytorium za `git` pomocą polecenia , zastąp nazwą użytkownika usługi **\<your-github-username\>** GitHub:
 
 ```console
 git clone https://github.com/<your-github-username>/acr-build-helloworld-node
@@ -68,7 +68,7 @@ Polecenia w tym samouczku zostały sformatowane pod kątem powłoki programu Bas
 
 Teraz, gdy kod źródłowy został pobrany do komputera, wykonaj następujące kroki, aby utworzyć rejestr kontenerów i skompilować obraz kontenera przy użyciu usługi ACR Tasks.
 
-Aby wykonywanie przykładowych poleceń było łatwiejsze, w tej serii samouczków używaj zmiennych środowiskowych powłoki. Uruchom następujące polecenie, aby ustawić zmienną `ACR_NAME`. Zamień na **\<registry-name\>** unikatową nazwę nowego rejestru kontenerów. Nazwa rejestru musi być unikatowa na platformie Azure, zawierać tylko małe litery i zawierać 5-50 znaków alfanumerycznych. Inne zasoby tworzone w tym samouczku opierają się na tej nazwie, dlatego konieczne powinno być zmodyfikowanie tylko tej pierwszej zmiennej.
+Aby wykonywanie przykładowych poleceń było łatwiejsze, w tej serii samouczków używaj zmiennych środowiskowych powłoki. Uruchom następujące polecenie, aby ustawić zmienną `ACR_NAME`. Zastąp **\<registry-name\>** wartość unikatową nazwą nowego rejestru kontenerów. Nazwa rejestru musi być unikatowa w obrębie platformy Azure, zawierać tylko małe litery i zawierać od 5 do 50 znaków alfanumerycznych. Inne zasoby tworzone w tym samouczku opierają się na tej nazwie, dlatego konieczne powinno być zmodyfikowanie tylko tej pierwszej zmiennej.
 
 ```console
 ACR_NAME=<registry-name>
@@ -255,7 +255,7 @@ Aby obejrzeć proces uruchamiania kontenera, użyj polecenia [az container attac
 az container attach --resource-group $RES_GROUP --name acr-tasks
 ```
 
-`az container attach`Dane wyjściowe najpierw wyświetlają stan kontenera podczas ściągania obrazu i zaczynają, a następnie wiążą się z właściwością stdout i stderr konsoli lokalnej z kontenerem.
+Dane wyjściowe najpierw wyświetla stan kontenera podczas ściągania i uruchamiania obrazu, a następnie wiążą dane STDOUT i STDERR konsoli lokalnej z `az container attach` kontenerem.
 
 ```output
 Container 'acr-tasks' is in state 'Running'...
@@ -270,7 +270,7 @@ Server running at http://localhost:80
 
 Po wyświetleniu elementu `Server running at http://localhost:80` przejdź do nazwy FQDN kontenera w przeglądarce, aby zobaczyć działającą aplikację. Nazwa FQDN powinna zostać wyświetlona w danych wyjściowych polecenia `az container create`, które zostało wykonane w poprzedniej sekcji.
 
-:::image type="content" source="media/container-registry-tutorial-quick-build/quick-build-02-browser.png" alt-text="Przykładowa aplikacja działająca w przeglądarce":::
+:::image type="content" source="media/container-registry-tutorial-quick-build/quick-build-02-browser.png" alt-text="Przykładowa aplikacja uruchomiona w przeglądarce":::
 
 Aby odłączyć konsolę od kontenera, wybierz pozycję `Control+C`.
 
@@ -301,14 +301,14 @@ Teraz, po przetestowaniu pętli wewnętrznej przy użyciu szybkiego zadania, sko
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-build]: /cli/azure/acr#az-acr-build
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-container-attach]: /cli/azure/container#az-container-attach
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-delete]: /cli/azure/container#az-container-delete
-[az-keyvault-create]: /cli/azure/keyvault/secret#az-keyvault-create
-[az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set
-[az-login]: /cli/azure/reference-index#az-login
+[az-acr-build]: /cli/azure/acr#az_acr_build
+[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[az-container-attach]: /cli/azure/container#az_container_attach
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-delete]: /cli/azure/container#az_container_delete
+[az-keyvault-create]: /cli/azure/keyvault/secret#az_keyvault_create
+[az-keyvault-secret-set]: /cli/azure/keyvault/secret#az_keyvault_secret_set
+[az-login]: /cli/azure/reference-index#az_login
 [service-principal-auth]: container-registry-auth-service-principal.md
 
 <!-- IMAGES -->

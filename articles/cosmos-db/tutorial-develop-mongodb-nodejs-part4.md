@@ -10,12 +10,12 @@ ms.date: 12/06/2018
 ms.author: jopapa
 ms.custom: seodec18, devx-track-js, devx-track-azurecli
 ms.reviewer: sngun
-ms.openlocfilehash: 0690f7f6d0807af181740a7133ec5400fc64cc12
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 99edeff93bdf75596eea80a238e159548f00679c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482283"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790225"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-cosmos-account"></a>Tworzenie aplikacji Angular przy użyciu interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB — tworzenie konta usługi Cosmos
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -49,7 +49,7 @@ W tej sekcji samouczka możesz użyć usługi Azure Cloud Shell (w przeglądarce
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Tworzenie konta usługi Azure Cosmos DB
 
-Utwórz konto Azure Cosmos DB za pomocą [`az cosmosdb create`](/cli/azure/cosmosdb#az-cosmosdb-create) polecenia .
+Utwórz konto Azure Cosmos DB za pomocą [`az cosmosdb create`](/cli/azure/cosmosdb#az_cosmosdb_create) polecenia .
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB
@@ -62,7 +62,7 @@ Wykonanie polecenia może potrwać minutę lub dwie. Po zakończeniu w oknie ter
 
 Po utworzeniu konta usługi Azure Cosmos DB:
 1. Otwórz nowe okno przeglądarki i przejdź do [https://portal.azure.com](https://portal.azure.com)
-1. Kliknij Azure Cosmos DB na pasku po lewej stronie, aby wyświetlać wszystkie posiadane magazyny danych usługi :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-icon.png"::: Azure Cosmos.
+1. Kliknij Azure Cosmos DB na pasku po lewej stronie, aby wyświetlać wszystkie posiadane przez Ciebie magazyny :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-icon.png"::: danych usługi Azure Cosmos.
 1. Kliknij właśnie utworzone konto usługi Azure Cosmos DB, wybierz kartę **Omówienie** i przewiń w dół, aby na mapie wyświetlić lokalizację bazy danych. 
 
     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-angular-portal.png" alt-text="Zrzut ekranu przedstawia omówienie konta usługi Azure Cosmos D B.":::

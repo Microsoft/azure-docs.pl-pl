@@ -1,52 +1,52 @@
 ---
-title: Wdróż kod z plikiem ZIP lub WAR
-description: Dowiedz się, jak wdrożyć aplikację w celu Azure App Service z plikiem ZIP (lub plikiem WAR dla deweloperów języka Java).
+title: Wdrażanie kodu przy użyciu pliku ZIP lub WAR
+description: Dowiedz się, jak wdrożyć aplikację w Azure App Service pomocą pliku ZIP (lub pliku WAR dla deweloperów języka Java).
 ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: sisirap
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 150f6b57f1dec0b6d925ef53b4a7001ae9f23607
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fe906a63a681515d401d005bf3357a4e7218ae66
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97007912"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771429"
 ---
-# <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Wdróż aplikację w celu Azure App Service z plikiem ZIP lub WAR
+# <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Wdrażanie aplikacji w Azure App Service za pomocą pliku ZIP lub WAR
 
-W tym artykule pokazano, jak za pomocą pliku ZIP lub pliku WAR wdrożyć aplikację internetową w celu [Azure App Service](overview.md). 
+W tym artykule pokazano, jak za pomocą pliku ZIP lub WAR wdrożyć aplikację internetową w [Azure App Service](overview.md). 
 
-To wdrożenie pliku ZIP używa tej samej usługi kudu, która ma uprawnienia do ciągłego wdrażania opartych na integracji. Kudu obsługuje następujące funkcje wdrożenia pliku ZIP: 
+To wdrożenie pliku ZIP używa tej samej usługi Kudu, która pozwala na ciągłe wdrażanie oparte na integracji. Kudu obsługuje następujące funkcje wdrażania plików ZIP: 
 
-- Usuwanie plików pozostawionych z poprzedniego wdrożenia.
-- Opcja włączania domyślnego procesu kompilacji, w tym przywracania pakietu.
-- Dostosowanie wdrożenia, w tym uruchamianie skryptów wdrażania.  
-- Dzienniki wdrożenia. 
-- Limit rozmiaru pliku wynoszący 2048 MB.
+- Usunięcie plików pozostawione z poprzedniego wdrożenia.
+- Opcja włączenie domyślnego procesu kompilacji, który obejmuje przywracanie pakietów.
+- Dostosowywanie wdrożenia, w tym uruchamianie skryptów wdrażania.  
+- Dzienniki wdrażania. 
+- Limit rozmiaru pliku to 2048 MB.
 
 Więcej informacji zawiera [dokumentacja aparatu Kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
-Wdrożenie pliku WAR wdraża plik [War](https://wikipedia.org/wiki/WAR_(file_format)) w celu App Service uruchamiania aplikacji sieci Web Java. Zobacz [wdrażanie pliku War](#deploy-war-file).
+Wdrożenie pliku WAR wdraża plik [WAR](https://wikipedia.org/wiki/WAR_(file_format)) na App Service do uruchomienia aplikacji internetowej Java. Zobacz [Deploy WAR file (Wdrażanie pliku WAR).](#deploy-war-file)
 
 > [!NOTE]
-> W przypadku korzystania `ZipDeploy` z plików zostaną skopiowane tylko wtedy, gdy ich sygnatury czasowe nie pasują do już wdrożonych elementów. Generowanie pliku zip przy użyciu procesu kompilacji, który buforuje dane wyjściowe może skutkować szybszymi wdrożeniami. Aby uzyskać więcej informacji, zobacz [wdrażanie z pliku zip lub adresu URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
+> W przypadku korzystania z funkcji pliki będą kopiowane tylko wtedy, gdy ich znaczniki czasu nie są zgodne z tym, `ZipDeploy` co zostało już wdrożone. Wygenerowanie pliku zip przy użyciu procesu kompilacji, który buforuje dane wyjściowe, może przyspieszyć wdrażanie. Aby [uzyskać więcej informacji,](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url)zobacz Wdrażanie z pliku zip lub adresu URL.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać kroki opisane w tym artykule, należy [utworzyć aplikację App Service](./index.yml)lub użyć aplikacji utworzonej dla innego samouczka.
+Aby wykonać kroki opisane w tym artykule, utwórz aplikację [App Service](./index.yml)lub użyj aplikacji utworzonej na podstawie innego samouczka.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [Create a project ZIP file](../../includes/app-service-web-deploy-zip-prepare.md)]
 
 [!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
-Powyższy punkt końcowy nie działa w przypadku App Services systemu Linux. Zamiast tego Rozważ użycie protokołu FTP lub [interfejsu API Deploy zip](faq-app-service-linux.md#continuous-integration-and-deployment) .
+Powyższy punkt końcowy nie działa w tym momencie App Services Linux. Zamiast tego rozważ użycie protokołu FTP lub [interfejsu API wdrażania pliku ZIP.](faq-app-service-linux.md#continuous-integration-and-deployment)
 
-## <a name="deploy-zip-file-with-azure-cli"></a>Wdróż plik ZIP przy użyciu interfejsu wiersza polecenia platformy Azure
+## <a name="deploy-zip-file-with-azure-cli"></a>Wdrażanie pliku ZIP przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Wdróż przekazany plik ZIP w aplikacji sieci Web za pomocą polecenia [AZ webapp Deployment Source config-zip](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-zip) .  
+Wd wdrażaj przekazany plik ZIP w aplikacji internetowej za pomocą polecenia [az webapp deployment source config-zip.](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config_zip)  
 
-W poniższym przykładzie został wdrożony przekazany plik ZIP. W przypadku korzystania z lokalnej instalacji interfejsu wiersza polecenia platformy Azure należy określić ścieżkę do lokalnego pliku ZIP `--src` .
+Poniższy przykład wdraża przekazany plik ZIP. W przypadku korzystania z lokalnej instalacji interfejsu wiersza polecenia platformy Azure określ ścieżkę do lokalnego pliku ZIP dla polecenia `--src` .
 
 ```azurecli-interactive
 az webapp deployment source config-zip --resource-group <group-name> --name <app-name> --src clouddrive/<filename>.zip
@@ -54,7 +54,7 @@ az webapp deployment source config-zip --resource-group <group-name> --name <app
 
 To polecenie wdraża pliki i katalogi z pliku ZIP do domyślnego folderu aplikacji App Service (`\home\site\wwwroot`) i ponownie uruchamia aplikację.
 
-Domyślnie Aparat wdrażania zakłada, że plik ZIP jest gotowy do uruchomienia jako-is i nie uruchamia żadnej automatyzacji kompilacji. Aby włączyć tę samą automatyzację kompilacji jak w przypadku [wdrożenia usługi git](deploy-local-git.md), należy ustawić `SCM_DO_BUILD_DURING_DEPLOYMENT` ustawienie aplikacji, uruchamiając następujące polecenie w [Cloud Shell](https://shell.azure.com):
+Domyślnie aparat wdrażania zakłada, że plik ZIP jest gotowy do uruchomienia w stanie gotowości i nie uruchamia automatyzacji kompilacji. Aby włączyć tę samą automatyzację kompilacji co we wdrożeniu [usługi Git,](deploy-local-git.md)ustaw ustawienie aplikacji, uruchamiając następujące polecenie w Cloud Shell `SCM_DO_BUILD_DURING_DEPLOYMENT` : [](https://shell.azure.com)
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
@@ -64,17 +64,17 @@ Więcej informacji zawiera [dokumentacja aparatu Kudu](https://github.com/projec
 
 [!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]  
 
-## <a name="deploy-war-file"></a>Wdróż plik WAR
+## <a name="deploy-war-file"></a>Wdrażanie pliku WAR
 
-Aby wdrożyć plik WAR do App Service, Wyślij żądanie POST do `https://<app-name>.scm.azurewebsites.net/api/wardeploy` . Żądanie POST musi zawierać plik WAR w treści wiadomości. Poświadczenia wdrażania dla aplikacji są podawane w żądaniu za pomocą podstawowego uwierzytelniania HTTP.
+Aby wdrożyć plik WAR w App Service, wyślij żądanie POST na adres `https://<app-name>.scm.azurewebsites.net/api/wardeploy` . Żądanie POST musi zawierać plik WAR w treści wiadomości. Poświadczenia wdrażania dla aplikacji są podawane w żądaniu za pomocą podstawowego uwierzytelniania HTTP.
 
-Zawsze używaj `/api/wardeploy` podczas wdrażania plików War. Ten interfejs API rozszerza plik WAR i umieszcza go na udostępnionym dysku. Korzystanie z innych interfejsów API wdrażania może spowodować niespójne zachowanie. 
+Zawsze używaj `/api/wardeploy` podczas wdrażania plików WAR. Ten interfejs API spowoduje rozwinięcie pliku WAR i umieść go na udostępnionym dysku plików. korzystanie z innych interfejsów API wdrażania może spowodować niespójne zachowanie. 
 
-W przypadku uwierzytelniania podstawowego HTTP wymagane są poświadczenia wdrażania App Service. Aby dowiedzieć się, jak ustawić poświadczenia wdrożenia, zobacz [Ustawianie i resetowanie poświadczeń na poziomie użytkownika](deploy-configure-credentials.md#userscope).
+Do uwierzytelniania PODSTAWOWEGO protokołu HTTP potrzebne są poświadczenia App Service wdrożenia. Aby dowiedzieć się, jak ustawić poświadczenia wdrożenia, zobacz [Set and reset user-level credentials](deploy-configure-credentials.md#userscope)(Ustawianie i resetowanie poświadczeń na poziomie użytkownika).
 
-### <a name="with-curl"></a>Z zwinięciem
+### <a name="with-curl"></a>Z cURL
 
-W poniższym przykładzie za pomocą narzędzia zwinięcie można wdrożyć plik War. Zastąp symbole zastępcze `<username>` , `<war-file-path>` i `<app-name>` . Po wyświetleniu monitu przez zwinięcie wpisz hasło.
+W poniższym przykładzie użyto narzędzia cURL do wdrożenia pliku war. Zastąp symbole zastępcze `<username>` , `<war-file-path>` i `<app-name>` . Po wyświetleniu monitu przez program cURL wpisz hasło.
 
 ```bash
 curl -X POST -u <username> --data-binary @"<war-file-path>" https://<app-name>.scm.azurewebsites.net/api/wardeploy
@@ -82,7 +82,7 @@ curl -X POST -u <username> --data-binary @"<war-file-path>" https://<app-name>.s
 
 ### <a name="with-powershell"></a>Z programem PowerShell
 
-Poniższy przykład używa [publikowania-AzWebapp](/powershell/module/az.websites/publish-azwebapp) Przekaż plik War. Zastąp symbole zastępcze `<group-name>` , `<app-name>` i `<war-file-path>` .
+W poniższym przykładzie [użyto nazwy Publish-AzWebapp,](/powershell/module/az.websites/publish-azwebapp) aby przekazać plik war. Zastąp symbole zastępcze `<group-name>` , `<app-name>` i `<war-file-path>` .
 
 ```powershell
 Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <war-file-path>
@@ -92,9 +92,9 @@ Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <
 
 ## <a name="next-steps"></a>Następne kroki
 
-W przypadku bardziej zaawansowanych scenariuszy wdrażania spróbuj [wdrożyć platformę Azure za pomocą narzędzia Git](deploy-local-git.md). Wdrożenie oparte na usłudze Git na platformie Azure umożliwia kontrolę wersji, przywracanie pakietów, MSBuild i nie tylko.
+W przypadku bardziej zaawansowanych scenariuszy wdrażania spróbuj [wdrożyć na platformie Azure za pomocą narzędzia Git.](deploy-local-git.md) Wdrożenie oparte na usłudze Git na platformie Azure umożliwia kontrolę wersji, przywracanie pakietów, program MSBuild i nie tylko.
 
 ## <a name="more-resources"></a>Więcej zasobów
 
 * [Kudu: wdrażanie z pliku zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
-* [Poświadczenia wdrażania Azure App Service](deploy-ftp.md)
+* [Azure App Service wdrażania](deploy-ftp.md)

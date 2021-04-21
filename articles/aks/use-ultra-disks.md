@@ -1,44 +1,44 @@
 ---
-title: Włącz obsługę Ultra Disk w usłudze Azure Kubernetes Service (AKS)
-description: Dowiedz się, jak włączyć i skonfigurować Ultra disks w klastrze usługi Azure Kubernetes Service (AKS)
+title: Włączanie Ultra Disk dla Azure Kubernetes Service (AKS)
+description: Dowiedz się, jak włączyć i skonfigurować dyski w warstwie Ultra w klastrze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: c743162ed3f75386287e050443e82069e797ced9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7dbe0a75ce2079bdec752f7fee0c3e97e3ae2ffa
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102502573"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767353"
 ---
-# <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Korzystanie z Azure Ultra disks w usłudze Azure Kubernetes Service (wersja zapoznawcza)
+# <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Korzystanie z dysków w warstwie Ultra na Azure Kubernetes Service (wersja zapoznawcza)
 
-[Usługa Azure Ultra disks](../virtual-machines/disks-enable-ultra-ssd.md) oferuje wysoką przepływność, dużą liczbę IOPS i spójną małą ilość miejsca na dysku dla aplikacji stanowych. Jedną z głównych zalet funkcji Ultra disks jest możliwość dynamicznego zmieniania wydajności dysków SSD wraz z obciążeniami bez konieczności ponownego uruchamiania węzłów agentów. Ultra dyski są odpowiednie dla obciążeń intensywnie korzystających z danych.
+[Dyski w warstwie Ultra](../virtual-machines/disks-enable-ultra-ssd.md) platformy Azure oferują wysoką przepływność, dużą ilość operacji we/wy na magazynowanie oraz stały magazyn dyskowy o małych opóźnieniach dla aplikacji stanowych. Jedną z głównych zalet dysków w warstwie Ultra jest możliwość dynamicznej zmiany wydajności dysków SSD wraz z obciążeniami bez konieczności ponownego uruchamiania węzłów agenta. Dyski w warstwie Ultra są odpowiednie dla obciążeń intensywnie obciążanych danymi.
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Tę funkcję można ustawić tylko podczas tworzenia klastra lub tworzenia puli węzłów.
 
 > [!IMPORTANT]
-> Usługa Azure Ultra disks wymaga nodepools wdrożonych w strefach dostępności i regionach, które obsługują te dyski, a także tylko określonej serii maszyn wirtualnych. Zobacz [**zakres i ograniczenia dotyczące Ultra disks**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations).
+> Dyski w warstwie Ultra platformy Azure wymagają puli węzłów wdrożonych w strefach dostępności i regionach, które obsługują te dyski, a także tylko określonych serii maszyn wirtualnych. Zobacz zakres i ograniczenia dotyczące dysków w [**warstwie Ultra.**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations)
 
-### <a name="register-the-enableultrassd-preview-feature"></a>Rejestrowanie `EnableUltraSSD` funkcji w wersji zapoznawczej
+### <a name="register-the-enableultrassd-preview-feature"></a>Rejestrowanie funkcji w `EnableUltraSSD` wersji zapoznawczej
 
-Aby utworzyć klaster AKS lub pulę węzłów, która może korzystać z Ultra disks, należy włączyć `EnableUltraSSD` flagę funkcji w subskrypcji.
+Aby utworzyć klaster usługi AKS lub pulę węzłów, która może korzystać z dysków w warstwie Ultra, należy włączyć `EnableUltraSSD` flagę funkcji w subskrypcji.
 
-Zarejestruj `EnableUltraSSD` flagę funkcji za pomocą polecenia [AZ Feature Register][az-feature-register] , jak pokazano w następującym przykładzie:
+Zarejestruj `EnableUltraSSD` flagę funkcji za pomocą [polecenia az feature register,][az-feature-register] jak pokazano w poniższym przykładzie:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "EnableUltraSSD"
 ```
 
-Wyświetlenie stanu *rejestracji* może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list][az-feature-list] :
+Wyświetlanie zarejestrowanego stanu może potrwać *kilka minut.* Stan rejestracji można sprawdzić za pomocą [polecenia az feature list:][az-feature-list]
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableUltraSSD')].{Name:name,State:properties.state}"
 ```
 
-Gdy wszystko będzie gotowe, Odśwież rejestrację dostawcy zasobów *Microsoft. ContainerService* za pomocą polecenia [AZ Provider Register][az-provider-register] :
+Gdy wszystko będzie gotowe, odśwież rejestrację dostawcy *zasobów Microsoft.ContainerService* za pomocą [polecenia az provider register:][az-provider-register]
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -48,7 +48,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalowanie rozszerzenia interfejsu wiersza polecenia aks-preview
 
-Aby utworzyć klaster AKS lub pulę węzłów, która może korzystać z Ultra disks, potrzebne jest najnowsze rozszerzenie interfejsu wiersza polecenia *AKS-Preview* . Zainstaluj rozszerzenie interfejsu wiersza polecenia platformy Azure w *wersji zapoznawczej* przy użyciu poleceń [AZ Extension Add][az-extension-add] lub zainstaluj wszystkie dostępne aktualizacje za pomocą polecenia [AZ Extension Update][az-extension-update] .
+Aby utworzyć klaster usługi AKS lub pulę węzłów, która może używać dyski w warstwie Ultra, potrzebne jest najnowsze rozszerzenie interfejsu wiersza polecenia *aks-preview.* Zainstaluj rozszerzenie interfejsu wiersza polecenia platformy Azure *aks-preview* za pomocą [polecenia az extension add][az-extension-add] lub zainstaluj wszystkie dostępne aktualizacje za pomocą polecenia az extension [update:][az-extension-update]
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -59,12 +59,12 @@ az extension update --name aks-preview
 ``` 
 
 ### <a name="limitations"></a>Ograniczenia
-- Zobacz [ **zakres i ograniczenia dotyczące Ultra DISKs ga**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations)
-- Zakres obsługiwanego rozmiaru dla Ultra disks jest z zakresu od 100 do 1500
+- Zobacz zakres [ **i ograniczenia dotyczące dysków w warstwie Ultra**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations)
+- Obsługiwany zakres rozmiarów dysków w warstwie Ultra to od 100 do 1500
 
-## <a name="create-a-new-cluster-that-can-use-ultra-disks"></a>Tworzenie nowego klastra, który może korzystać z Ultra disks
+## <a name="create-a-new-cluster-that-can-use-ultra-disks"></a>Tworzenie nowego klastra, który może używać dysków w warstwie Ultra
 
-Utwórz klaster AKS, który może korzystać z Ultra disks przy użyciu następujących poleceń interfejsu wiersza polecenia. Użyj `--aks-custom-headers` flagi, aby ustawić `EnableUltraSSD` funkcję.
+Utwórz klaster usługi AKS, który może korzystać z dyski w warstwie Ultra przy użyciu następujących poleceń interfejsu wiersza polecenia. Użyj `--aks-custom-headers` flagi , aby ustawić `EnableUltraSSD` funkcję.
 
 Utwórz grupę zasobów platformy Azure:
 
@@ -73,34 +73,34 @@ Utwórz grupę zasobów platformy Azure:
 az group create --name myResourceGroup --location westus2
 ```
 
-Utwórz klaster AKS z obsługą dla Ultra Disks.
+Utwórz klaster usługi AKS z obsługą dyski w warstwie Ultra.
 
 ```azurecli-interactive
 # Create an AKS-managed Azure AD cluster
 az aks create -g MyResourceGroup -n MyManagedCluster -l westus2 --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true
 ```
 
-Jeśli chcesz utworzyć klastry bez obsługi Ultra Disk, możesz to zrobić, pomijając `--aks-custom-headers` parametr niestandardowy.
+Jeśli chcesz tworzyć klastry bez obsługi dysków w ultra, możesz to zrobić, pomijając parametr `--aks-custom-headers` niestandardowy.
 
-## <a name="enable-ultra-disks-on-an-existing-cluster"></a>Włącz Ultra disks w istniejącym klastrze
+## <a name="enable-ultra-disks-on-an-existing-cluster"></a>Włączanie dysków w warstwie Ultra w istniejącym klastrze
 
-Można włączyć opcję Ultra disks w istniejących klastrach, dodając do klastra nową pulę węzłów, która obsługuje Ultra Disks. Skonfiguruj nową pulę węzłów do używania Ultra disks przy użyciu `--aks-custom-headers` flagi.
+Dyski w warstwie Ultra można włączyć w istniejących klastrach, dodając nową pulę węzłów do klastra, który obsługuje dyski w warstwie Ultra. Skonfiguruj nową pulę węzłów do używania dysków w warstwie Ultra przy użyciu `--aks-custom-headers` flagi .
 
 ```azurecli
 az aks nodepool add --name ultradisk --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true
 ```
 
-Jeśli chcesz utworzyć nowe pule węzłów bez obsługi dla Ultra disks, możesz to zrobić, pomijając `--aks-custom-headers` parametr niestandardowy.
+Jeśli chcesz utworzyć nowe pule węzłów bez obsługi dysków w warstwie Ultra, możesz to zrobić, pomijając parametr `--aks-custom-headers` niestandardowy.
 
-## <a name="use-ultra-disks-dynamically-with-a-storage-class"></a>Dynamiczne używanie Ultra disks z klasą magazynu
+## <a name="use-ultra-disks-dynamically-with-a-storage-class"></a>Dynamiczne używanie dysków w warstwie Ultra z klasą magazynu
 
-Aby korzystać z usługi Ultra disks w naszych wdrożeniach lub zestawach stanowych, można użyć [klasy magazynu do dynamicznego inicjowania obsługi](azure-disks-dynamic-pv.md).
+Aby używać dysków w warstwie Ultra we wdrożeniach lub zestawach stanowych, możesz użyć [klasy magazynu do dynamicznego aprowizowania.](azure-disks-dynamic-pv.md)
 
 ### <a name="create-the-storage-class"></a>Tworzenie klasy magazynu
 
-Klasa magazynu służy do definiowania sposobu, w jaki jednostka magazynowa jest tworzona dynamicznie z woluminem trwałym. Aby uzyskać więcej informacji na temat klas magazynu Kubernetes, zobacz [Kubernetes Storage Classes][kubernetes-storage-classes].
+Klasa magazynu służy do definiowania dynamicznego tworzenia jednostki magazynu za pomocą trwałego woluminu. Aby uzyskać więcej informacji na temat klas magazynu Kubernetes, zobacz [Kubernetes Storage Classes (Klasy magazynu Kubernetes).][kubernetes-storage-classes]
 
-W takim przypadku utworzymy klasę magazynu, która odwołuje się do bardzo małych dysków. Utwórz plik o nazwie `azure-ultra-disk-sc.yaml` i skopiuj go do poniższego manifestu.
+W tym przypadku utworzymy klasę magazynu, która odwołuje się do dysków w warstwie Ultra. Utwórz plik o nazwie `azure-ultra-disk-sc.yaml` i skopiuj go w poniższym manifeście.
 
 ```yaml
 kind: StorageClass
@@ -117,7 +117,7 @@ parameters:
   diskMbpsReadWrite: "320"   # minimum value: 0.032/GiB
 ```
 
-Utwórz klasę magazynu za pomocą polecenia [polecenia kubectl Apply][kubectl-apply] i określ plik *Azure-Ultra-Disk-SC. YAML* :
+Utwórz klasę magazynu za pomocą [polecenia kubectl apply][kubectl-apply] i określ plik *azure-ultra-disk-sc.yaml:*
 
 ```console
 $ kubectl apply -f azure-ultra-disk-sc.yaml
@@ -126,11 +126,11 @@ $ kubectl apply -f azure-ultra-disk-sc.yaml
 storageclass.storage.k8s.io/ultra-disk-sc created
 ```
 
-## <a name="create-a-persistent-volume-claim"></a>Tworzenie trwałego żądania woluminu
+## <a name="create-a-persistent-volume-claim"></a>Tworzenie trwałego oświadczenia woluminu
 
-W celu automatycznego aprowizacji magazynu na podstawie klasy magazynu jest używana wartość trwałego żądania woluminu. W takim przypadku obwód PVC może użyć wcześniej utworzonej klasy magazynu w celu utworzenia Ultra Disk.
+Trwałe oświadczenie woluminu jest używane do automatycznego aprowizować magazyn na podstawie klasy magazynu. W takim przypadku za pomocą utworzonej wcześniej klasy magazynu można utworzyć dysk ULTRA.
 
-Utwórz plik o nazwie `azure-ultra-disk-pvc.yaml` i skopiuj go do poniższego manifestu. Żądanie wymaga dysku o nazwie o `ultra-disk` rozmiarze *1000 GB* z dostępem *ReadWriteOnce* . Klasa magazynu *Ultra-Disk-SC* jest określana jako Klasa magazynu.
+Utwórz plik o nazwie `azure-ultra-disk-pvc.yaml` i skopiuj go w poniższym manifeście. Oświadczenie żąda dysku o nazwie o `ultra-disk` *rozmiarze 1000 GB* z dostępem *ReadWriteOnce.* Klasa *magazynu ultra-disk-sc* jest określona jako klasa magazynu.
 
 ```yaml
 apiVersion: v1
@@ -146,7 +146,7 @@ spec:
       storage: 1000Gi
 ```
 
-Utwórz wartość trwałego odszkodowania z [zastosowaniem polecenia polecenia kubectl][kubectl-apply] i określ plik *Azure-Ultra-PVC. YAML* :
+Utwórz trwałe oświadczenie woluminu za pomocą [polecenia kubectl apply][kubectl-apply] i określ plik *azure-ultra-disk-format.yaml:*
 
 ```console
 $ kubectl apply -f azure-ultra-disk-pvc.yaml
@@ -154,11 +154,11 @@ $ kubectl apply -f azure-ultra-disk-pvc.yaml
 persistentvolumeclaim/ultra-disk created
 ```
 
-## <a name="use-the-persistent-volume"></a>Użyj woluminu trwałego
+## <a name="use-the-persistent-volume"></a>Używanie woluminu trwałego
 
-Po utworzeniu trwałego wystąpienia woluminu i zainicjowaniu obsługi dysku można utworzyć element pod za pomocą dostępu do dysku. Poniższy manifest tworzy podstawowy NGINX pod, który używa trwałego żądania o nazwie *Ultra-Disk* do zainstalowania dysku platformy Azure na ścieżce `/mnt/azure` .
+Po utworzeniu oświadczenia trwałego woluminu i pomyślnym aprowizować dysk można utworzyć zasobnik z dostępem do dysku. Poniższy manifest tworzy podstawowy zasobnik NGINX, który używa trwałego oświadczenia woluminu o nazwie *ultra-disk* do instalacji dysku platformy Azure w ścieżce `/mnt/azure` .
 
-Utwórz plik o nazwie `nginx-ultra.yaml` i skopiuj go do poniższego manifestu.
+Utwórz plik o nazwie `nginx-ultra.yaml` i skopiuj go w poniższym manifeście.
 
 ```yaml
 kind: Pod
@@ -185,7 +185,7 @@ spec:
         claimName: ultra-disk
 ```
 
-Utwórz pod za pomocą polecenia [polecenia kubectl Apply][kubectl-apply] , jak pokazano w następującym przykładzie:
+Utwórz zasobnik za pomocą [polecenia kubectl apply,][kubectl-apply] jak pokazano w poniższym przykładzie:
 
 ```console
 $ kubectl apply -f nginx-ultra.yaml
@@ -193,7 +193,7 @@ $ kubectl apply -f nginx-ultra.yaml
 pod/nginx-ultra created
 ```
 
-Masz teraz uruchomione miejsce na dysku platformy Azure zainstalowanym w `/mnt/azure` katalogu. Ta konfiguracja może być widoczna podczas sprawdzania pod kątem za pośrednictwem programu `kubectl describe pod nginx-ultra` , jak pokazano w następującym zagęszczonym przykładzie:
+Masz teraz uruchomiony zasobnik z dyskiem platformy Azure zainstalowanym w `/mnt/azure` katalogu . Taką konfigurację można zobaczyć podczas inspekcji zasobnika za pośrednictwem usługi , jak `kubectl describe pod nginx-ultra` pokazano w poniższym skróconym przykładzie:
 
 ```console
 $ kubectl describe pod nginx-ultra
@@ -221,8 +221,8 @@ Events:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać więcej informacji na temat Ultra disks, zobacz [Korzystanie z usługi Azure Ultra disks](../virtual-machines/disks-enable-ultra-ssd.md).
-- Aby uzyskać więcej informacji o najlepszych rozwiązaniach dotyczących magazynu, zobacz [najlepsze rozwiązania dotyczące magazynu i kopii zapasowych w usłudze Azure Kubernetes Service (AKS).][operator-best-practices-storage]
+- Aby uzyskać więcej informacji na temat dysków w warstwie Ultra, zobacz [Używanie dysków w warstwie Ultra platformy Azure.](../virtual-machines/disks-enable-ultra-ssd.md)
+- Aby uzyskać więcej informacji o najlepszych rozwiązaniach dotyczących magazynu, zobacz Najlepsze rozwiązania dotyczące magazynu i kopii zapasowych w [Azure Kubernetes Service (AKS)][operator-best-practices-storage]
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
@@ -236,18 +236,18 @@ Events:
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/disks-types.md
-[az-disk-list]: /cli/azure/disk#az-disk-list
-[az-snapshot-create]: /cli/azure/snapshot#az-snapshot-create
-[az-disk-create]: /cli/azure/disk#az-disk-create
-[az-disk-show]: /cli/azure/disk#az-disk-show
+[az-disk-list]: /cli/azure/disk#az_disk_list
+[az-snapshot-create]: /cli/azure/snapshot#az_snapshot_create
+[az-disk-create]: /cli/azure/disk#az_disk_create
+[az-disk-show]: /cli/azure/disk#az_disk_show
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [storage-class-concepts]: concepts-storage.md#storage-classes
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
