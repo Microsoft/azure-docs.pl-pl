@@ -1,7 +1,7 @@
 ---
-title: Tworzenie Menedżer zasobów szablonu bramy translatora adresów sieciowych
+title: Tworzenie bramy nat — szablon Resource Manager sieci
 titleSuffix: Azure Virtual Network NAT
-description: W tym przewodniku szybki start pokazano, jak utworzyć bramę NAT przy użyciu szablonu Azure Resource Manager (szablon ARM).
+description: W tym przewodniku Szybki start pokazano, jak utworzyć bramę nat przy użyciu szablonu Azure Resource Manager usługi ARM.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: allensu
 ms.custom: subject-armqs, devx-track-azurecli
-ms.openlocfilehash: d1d4cf5a5e616db38885077e70add817f26d125a
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: ea214cb98e1f75daccf783333a67c6d1b0eacfeb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060691"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776610"
 ---
-# <a name="quickstart-create-a-nat-gateway---arm-template"></a>Szybki Start: Tworzenie bramy translatora adresów sieciowych — szablon ARM
+# <a name="quickstart-create-a-nat-gateway---arm-template"></a>Szybki start: tworzenie bramy nat — szablon usługi ARM
 
-Rozpocznij pracę z Virtual Network translatora adresów sieciowych przy użyciu szablonu Azure Resource Manager (szablon ARM). Ten szablon służy do wdrażania sieci wirtualnej, zasobu bramy translatora adresów sieciowych i Ubuntu maszyny wirtualnej. Maszyna wirtualna Ubuntu jest wdrażana w podsieci skojarzonej z zasobem bramy translatora adresów sieciowych.
+Rozpoczynanie pracy z Translator adresów sieciowych usługi Virtual Network przy użyciu szablonu Azure Resource Manager (szablonu USŁUGI ARM). Ten szablon wdraża sieć wirtualną, zasób bramy nat i maszynę wirtualną z systemem Ubuntu. Maszyna wirtualna z systemem Ubuntu jest wdrażana w podsieci skojarzonej z zasobem bramy nat.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -44,23 +44,23 @@ Ten szablon jest skonfigurowany do tworzenia:
 
 * Sieć wirtualna
 * Zasób bramy translatora adresów sieciowych
-* Ubuntu maszynę wirtualną
+* Maszyna wirtualna z systemem Ubuntu
 
-Maszyna wirtualna Ubuntu jest wdrażana w podsieci skojarzonej z zasobem bramy translatora adresów sieciowych.
+Maszyna wirtualna z systemem Ubuntu jest wdrażana w podsieci skojarzonej z zasobem bramy nat.
 
 :::code language="json" source="~/quickstart-templates/101-nat-gateway-1-vm/azuredeploy.json":::
 
-Dziewięć zasobów platformy Azure są zdefiniowane w szablonie:
+W szablonie zdefiniowano dziewięć zasobów platformy Azure:
 
-* **[Microsoft. Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)**: tworzy sieciową grupę zabezpieczeń.
-* **[Microsoft. Network/networkSecurityGroups/securityRules](/azure/templates/microsoft.network/networksecuritygroups/securityrules)**: tworzy regułę zabezpieczeń.
-* **[Microsoft. Network/adresów publicipaddress](/azure/templates/microsoft.network/publicipaddresses)**: tworzy publiczny adres IP.
-* **[Microsoft. Network/publicIPPrefixes](/azure/templates/microsoft.network/publicipprefixes)**: tworzy prefiks publicznego adresu IP.
-* **[Microsoft. COMPUTE/virtualMachines](/azure/templates/Microsoft.Compute/virtualMachines)**: tworzy maszynę wirtualną.
-* **[Microsoft. Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)**: tworzy sieć wirtualną.
-* **[Microsoft. Network/natGateways](/azure/templates/microsoft.network/natgateways)**: tworzy zasób bramy NAT.
-* **[Microsoft. Network/virtualNetworks/podsieci](/azure/templates/microsoft.network/virtualnetworks/subnets)**: tworzy podsieć sieci wirtualnej.
-* **[Microsoft. Network/NetworkInterfaces](/azure/templates/microsoft.network/networkinterfaces)**: tworzy interfejs sieciowy.
+* **[Microsoft.Network/networkSecurityGroups:](/azure/templates/microsoft.network/networksecuritygroups)** tworzy sieciową grupę zabezpieczeń.
+* **[Microsoft.Network/networkSecurityGroups/securityRules:](/azure/templates/microsoft.network/networksecuritygroups/securityrules)** tworzy regułę zabezpieczeń.
+* **[Microsoft.Network/publicIPAddresses:](/azure/templates/microsoft.network/publicipaddresses)** tworzy publiczny adres IP.
+* **[Microsoft.Network/publicIPPrefixes:](/azure/templates/microsoft.network/publicipprefixes)** tworzy prefiks publicznego adresu IP.
+* **[Microsoft.Compute/virtualMachines:](/azure/templates/Microsoft.Compute/virtualMachines)** tworzy maszynę wirtualną.
+* **[Microsoft.Network/virtualNetworks:](/azure/templates/microsoft.network/virtualnetworks)** tworzy sieć wirtualną.
+* **[Microsoft.Network/natGateways:](/azure/templates/microsoft.network/natgateways)** tworzy zasób bramy nat.
+* **[Microsoft.Network/virtualNetworks/subnets:](/azure/templates/microsoft.network/virtualnetworks/subnets)** tworzy podsieć sieci wirtualnej.
+* **[Microsoft.Network/networkinterfaces:](/azure/templates/microsoft.network/networkinterfaces)** tworzy interfejs sieciowy.
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
@@ -96,23 +96,23 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-nat-gateway-1-vm%2Fazuredeploy.json)
 
-## <a name="review-deployed-resources"></a>Przejrzyj wdrożone zasoby
+## <a name="review-deployed-resources"></a>Przeglądanie wdrożonych zasobów
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. W okienku po lewej stronie wybierz pozycję **grupy zasobów** .
+1. Wybierz **pozycję Grupy zasobów** w okienku po lewej stronie.
 
 1. Wybierz grupę zasobów utworzoną w poprzedniej sekcji. Domyślna nazwa grupy zasobów to **myResourceGroupNAT**
 
 1. Sprawdź, czy w grupie zasobów zostały utworzone następujące zasoby:
 
-    ![Grupa zasobów Virtual Network translator adresów sieciowych](./media/quick-create-template/nat-gateway-template-rg.png)
+    ![Translator adresów sieciowych usługi Virtual Network grupy zasobów](./media/quick-create-template/nat-gateway-template-rg.png)
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 **Interfejs wiersza polecenia platformy Azure**
 
-Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [AZ Group Delete](/cli/azure/group#az-group-delete) .
+Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [az group](/cli/azure/group#az_group_delete) delete.
 
 ```azurecli-interactive
   az group delete \
@@ -121,7 +121,7 @@ Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, 
 
 **Azure PowerShell**
 
-Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) .
+Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzResourceGroup.](/powershell/module/az.resources/remove-azresourcegroup)
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroupNAT
@@ -129,20 +129,20 @@ Remove-AzResourceGroup -Name myResourceGroupNAT
 
 **Witryna Azure Portal**
 
-Gdy grupa zasobów, Brama translatora adresów sieciowych i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. Wybierz grupę zasobów **myResourceGroupNAT** , która zawiera bramę translatora adresów sieciowych, a następnie wybierz pozycję **Usuń**.
+Gdy grupa zasobów, brama nat i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. Wybierz grupę zasobów **myResourceGroupNAT** zawierającą bramę nat, a następnie wybierz pozycję **Usuń.**
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono:
+W tym przewodniku Szybki start utworzono:
 
 * Zasób bramy translatora adresów sieciowych
 * Sieć wirtualna
-* Ubuntu maszynę wirtualną
+* Maszyna wirtualna z systemem Ubuntu
 
-Maszyna wirtualna jest wdrażana w podsieci sieci wirtualnej skojarzonej z bramą translatora adresów sieciowych.
+Maszyna wirtualna jest wdrażana w podsieci sieci wirtualnej skojarzonej z bramą nat.
 
-Aby dowiedzieć się więcej na temat Virtual Network translatora adresów sieciowych i Azure Resource Manager, przejdź do artykułów poniżej.
+Aby dowiedzieć się więcej na Translator adresów sieciowych usługi Virtual Network i Azure Resource Manager, przejdź do poniższych artykułów.
 
-* Zapoznaj się [z omówieniem Virtual Network translatora adresów sieciowych](nat-overview.md)
-* Przeczytaj informacje o [zasobie bramy translatora adresów sieciowych](nat-gateway-resource.md)
+* Przeczytaj omówienie [Translator adresów sieciowych usługi Virtual Network](nat-overview.md)
+* Przeczytaj o [zasobie NAT Gateway zasobów](nat-gateway-resource.md)
 * Dowiedz się więcej o usłudze [Azure Resource Manager](../azure-resource-manager/management/overview.md)

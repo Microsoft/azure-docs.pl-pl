@@ -1,42 +1,42 @@
 ---
 title: Uaktualnianie klastra usługi Azure Kubernetes Service (AKS)
-description: Dowiedz się, jak uaktualnić klaster usługi Azure Kubernetes Service (AKS), aby uzyskać najnowsze funkcje i aktualizacje zabezpieczeń.
+description: Dowiedz się, jak uaktualnić klaster usługi Azure Kubernetes Service (AKS) w celu uzyskania najnowszych funkcji i aktualizacji zabezpieczeń.
 services: container-service
 ms.topic: article
 ms.date: 12/17/2020
-ms.openlocfilehash: 11218fc0cd754e9793067c449fdcb7589688dc2e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d6a5ed468541090d433dba732707a59841e6ff41
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102176352"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779619"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Uaktualnianie klastra usługi Azure Kubernetes Service (AKS)
 
-Część cyklu życia klastra AKS obejmuje okresowe uaktualnienia do najnowszej wersji programu Kubernetes. Ważne jest zastosowanie najnowszych wersji zabezpieczeń lub uaktualnienie programu w celu uzyskania najnowszych funkcji. W tym artykule opisano sposób uaktualniania składników głównych lub pojedynczej, domyślnej puli węzłów w klastrze AKS.
+Część cyklu życia klastra usługi AKS obejmuje przeprowadzanie okresowych uaktualnień do najnowszej wersji rozwiązania Kubernetes. Ważne jest zastosowanie najnowszych wersji zabezpieczeń lub uaktualnienie w celu uzyskania najnowszych funkcji. W tym artykule pokazano, jak uaktualnić składniki główne lub pojedynczą domyślną pulę węzłów w klastrze usługi AKS.
 
-W przypadku klastrów AKS, które korzystają z wielu pul węzłów lub węzłów systemu Windows Server, zobacz [uaktualnianie puli węzłów w AKS][nodepool-upgrade].
+W przypadku klastrów usługi AKS, które korzystają z wielu pul węzłów lub węzłów systemu Windows Server, zobacz [Uaktualnianie puli węzłów w u usługi AKS][nodepool-upgrade].
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
-Ten artykuł wymaga uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2.0.65 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli-install].
+Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.65 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli-install].
 
 > [!WARNING]
-> Uaktualnienie klastra AKS wyzwala Cordon i opróżnia węzły. W przypadku braku dostępnego limitu przydziału obliczeń uaktualnienie może zakończyć się niepowodzeniem. Aby uzyskać więcej informacji, zobacz [zwiększanie limitów przydziału](../azure-portal/supportability/resource-manager-core-quotas-request.md)
+> Uaktualnienie klastra usługi AKS wyzwala cordon i opróżnianie węzłów. Jeśli masz dostępny niski limit przydziału zasobów obliczeniowych, uaktualnienie może się nie powieść. Aby uzyskać więcej informacji, zobacz [Zwiększanie limitów przydziału](../azure-portal/supportability/resource-manager-core-quotas-request.md)
 
-## <a name="check-for-available-aks-cluster-upgrades"></a>Sprawdź dostępność dostępnych uaktualnień klastrów AKS
+## <a name="check-for-available-aks-cluster-upgrades"></a>Sprawdzanie dostępnych uaktualnień klastra usługi AKS
 
-Aby sprawdzić, które wersje Kubernetes są dostępne dla klastra, użyj polecenia [AZ AKS Get-Upgrades][az-aks-get-upgrades] . Poniższy przykład sprawdza dostępność dostępnych uaktualnień do *myAKSCluster* w ramach *zasobu*:
+Aby sprawdzić, które wydania kubernetes są dostępne dla klastra, użyj [polecenia az aks get-upgrades.][az-aks-get-upgrades] Poniższy przykład sprawdza dostępne uaktualnienia do *myAKSCluster* w *grupie myResourceGroup:*
 
 ```azurecli-interactive
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
 > [!NOTE]
-> W przypadku uaktualniania obsługiwanego klastra AKS nie można pominąć wersji pomocniczych Kubernetes. Wszystkie uaktualnienia muszą być wykonywane sekwencyjnie według głównego numeru wersji. Na przykład uaktualnienia między *1.14. x*  ->  *1.15. x* lub *1.15. x*  ->  *1.16. x* są dozwolone, ale *1.14. x*  ->  *1.16. x* jest niedozwolony. 
-> > Pomijanie wielu wersji można wykonać tylko w przypadku uaktualniania z _nieobsługiwanej wersji_ z powrotem do _obsługiwanej wersji_. Na przykład uaktualnienie z nieobsługiwanej wersji *1.10. x* --> można ukończyć obsługiwane *1.15. x* .
+> Podczas uaktualniania obsługiwanego klastra usługi AKS nie można pominąć wersji pomocniczej kubernetes. Wszystkie uaktualnienia muszą być wykonywane sekwencyjnie według numeru wersji głównych. Na przykład uaktualnienia z wersji *1.14.x*  ->  *1.15.x* lub *1.15.x*  ->  *1.16.x* są dozwolone, jednak *1.14.x*  ->  *1.16.x* jest niedozwolone. 
+> > Pomijanie wielu wersji można wykonać tylko podczas uaktualniania z nieobsługiwanej _wersji_ z powrotem do _obsługiwanej wersji._ Na przykład można ukończyć uaktualnienie z nieobsługiwanej wersji *1.10.x* > obsługiwanej wersji *1.15.x.*
 
-Następujące przykładowe dane wyjściowe pokazują, że klaster można uaktualnić do wersji *1.19.1* i *1.19.3*:
+Następujące przykładowe dane wyjściowe pokazują, że klaster można uaktualnić do wersji *1.19.1* i *1.19.3:*
 
 ```console
 Name     ResourceGroup    MasterVersion    Upgrades
@@ -50,25 +50,25 @@ Jeśli uaktualnienie nie jest dostępne, zostanie wyświetlony komunikat:
 ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
 ```
 
-## <a name="customize-node-surge-upgrade"></a>Dostosowywanie przepięcia węzła
+## <a name="customize-node-surge-upgrade"></a>Dostosowywanie uaktualnienia skoków węzłów
 
 > [!Important]
-> Przepięcia węzłów wymagają przydziału subskrypcji dla wymaganej maksymalnej liczby przeskoków dla każdej operacji uaktualniania. Na przykład klaster, który ma 5 pul węzłów, każdy z liczbą 4 węzłów, ma łącznie 20 węzłów. Jeśli każda pula węzłów ma maksymalną wartość przepięcia wynoszącą 50%, do ukończenia uaktualnienia jest wymagane dodatkowe zasoby obliczeniowe i IP z 10 węzłów (2 węzły * 5 pul).
+> Skoki liczby węzłów wymagają limitu przydziału subskrypcji dla żądanej maksymalnej liczby skoków dla każdej operacji uaktualniania. Na przykład klaster, który ma 5 pul węzłów, z których każda ma liczbę 4 węzłów, ma łącznie 20 węzłów. Jeśli każda pula węzłów ma maksymalną wartość skoków na poziomie 50%, do ukończenia uaktualnienia jest wymagany dodatkowy limit przydziału zasobów obliczeniowych i adresów IP 10 węzłów (2 węzły * 5 pul).
 >
-> Jeśli korzystasz z usługi Azure CNI, sprawdź, czy w podsieci są dostępne adresy IP, a także [wymagania dotyczące usługi Azure CNI](configure-azure-cni.md).
+> Jeśli używasz Azure CNI, sprawdź, czy w podsieci są dostępne adresy [IP,](configure-azure-cni.md)aby spełnić wymagania dotyczące adresów IP Azure CNI .
 
-Domyślnie AKS konfiguruje uaktualnienia, aby przepięcia z jednym dodatkowym węzłem. Wartość domyślna dla ustawienia maksymalnego przepięcia umożliwi AKS w celu zminimalizowania przerw w obciążeniu przez utworzenie dodatkowego węzła przed Cordon/opróżnieniem istniejących aplikacji w celu zastąpienia starszego węzła z wersją. Maksymalna wartość przepięcia może być dostosowana dla puli węzłów w celu zapewnienia wymiany między szybkością uaktualniania a przerwaniem uaktualniania. Zwiększając maksymalną wartość przepięcia, proces uaktualniania kończy się szybciej, ale ustawienie dużej wartości maksymalnego przepięcia może spowodować zakłócenia w trakcie procesu uaktualniania. 
+Domyślnie usługę AKS konfiguruje uaktualnienia do operacji skoków z jednym dodatkowym węzłem. Wartość domyślna jednej dla maksymalnych ustawień skoków umożliwi u usługi AKS zminimalizowanie zakłóceń obciążenia przez utworzenie dodatkowego węzła przed odiszczeniami/opróżnieniami istniejących aplikacji w celu zastąpienia starszego węzła wersji. Maksymalną wartość skoków można dostosować dla puli węzłów, aby umożliwić różnicę między szybkością uaktualnienia a przerwami w uaktualnieniu. Zwiększając maksymalną wartość skoków, proces uaktualniania jest ukończony szybciej, ale ustawienie dużej wartości maksymalnego skoku może spowodować zakłócenia podczas procesu uaktualniania. 
 
-Na przykład maksymalna wartość przepięcia 100% zapewnia najszybszy możliwy proces uaktualniania (podwaja liczbę węzłów), ale również powoduje, że wszystkie węzły w puli węzłów są opróżniane jednocześnie. Możesz użyć wyższej wartości, na przykład w środowiskach testowych. W przypadku pul węzłów produkcyjnych zalecamy ustawienie max_surge 33%.
+Na przykład maksymalna wartość skoków na poziomie 100% zapewnia najszybszy możliwy proces uaktualniania (podwojenie liczby węzłów), ale również powoduje jednoczesne opróżnienie wszystkich węzłów w puli węzłów. Możesz użyć wyższej wartości, takiej jak ta, do środowisk testowych. W przypadku pul węzłów produkcyjnych zalecamy ustawienie max_surge na 33%.
 
-AKS akceptuje zarówno wartości całkowite, jak i wartość procentową maksymalnego przepięcia. Liczba całkowita, taka jak "5", wskazuje pięć dodatkowych węzłów do przepięcia. Wartość "50%" wskazuje wartość przepięcia połowy bieżącej liczby węzłów w puli. Maksymalne wartości procentowe przepięcia mogą być minimalne z 1% i maksymalnie 100%. Wartość procentowa jest zaokrąglana do najbliższej liczby węzłów. Jeśli maksymalna wartość przepięcia jest mniejsza niż bieżąca liczba węzłów w czasie uaktualniania, bieżąca liczba węzłów jest używana dla maksymalnej wartości przepięcia.
+AKS akceptuje zarówno wartości całkowite, jak i wartość procentową dla maksymalnych skoków. Liczba całkowita, taka jak "5", wskazuje pięć dodatkowych węzłów do skoków. Wartość "50%" wskazuje wartość skoków o połowę bieżącą liczbę węzłów w puli. Maksymalna wartość procentowa skoków może być co najmniej 1% i maksymalna 100%. Wartość procentowa jest zaokrąglana w górę do najbliższej liczby węzłów. Jeśli maksymalna wartość skoków jest niższa niż bieżąca liczba węzłów w czasie uaktualniania, bieżąca liczba węzłów jest używana dla maksymalnej wartości skoków.
 
-Podczas uaktualniania maksymalna wartość przepięcia może wynosić co najmniej 1, a maksymalna wartość równa liczbie węzłów w puli węzłów. Można ustawić większe wartości, ale Maksymalna liczba węzłów używanych do maksymalnego przepięcia nie będzie większa niż liczba węzłów w puli w czasie uaktualniania.
+Podczas uaktualniania maksymalna wartość skoków może być równa co najmniej 1, a maksymalna wartość jest równa liczbie węzłów w puli węzłów. Można ustawić większe wartości, ale maksymalna liczba węzłów używanych do maksymalnego skoku nie będzie większa niż liczba węzłów w puli w czasie uaktualniania.
 
 > [!Important]
-> Ustawienia maksymalnego przepięcia w puli węzłów są trwałe.  Kolejne uaktualnienia Kubernetes lub uaktualnienia wersji węzła będą używać tego ustawienia. W każdej chwili można zmienić maksymalną wartość skokową pul węzłów. W przypadku pul węzłów produkcyjnych zalecamy ustawienie maksymalnego przepięcia o 33%.
+> Ustawienie maksymalnego skoku w puli węzłów jest trwałe.  Kolejne uaktualnienia kubernetes lub uaktualnienia wersji węzła będą używać tego ustawienia. W dowolnym momencie możesz zmienić maksymalną wartość skoków dla pul węzłów. W przypadku pul węzłów produkcyjnych zalecamy ustawienie maksymalnego skoku na 33%.
 
-Użyj następujących poleceń, aby ustawić maksymalne wartości przepięcia dla nowych lub istniejących pul węzłów.
+Użyj następujących poleceń, aby ustawić maksymalne wartości skoków dla nowych lub istniejących pul węzłów.
 
 ```azurecli-interactive
 # Set max surge for a new node pool
@@ -82,12 +82,12 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## <a name="upgrade-an-aks-cluster"></a>Uaktualnianie klastra AKS
 
-Mając listę dostępnych wersji klastra AKS, użyj polecenia [AZ AKS upgrade][az-aks-upgrade] , aby przeprowadzić uaktualnienie. W trakcie procesu uaktualniania program AKS: 
-- Dodaj nowy węzeł buforu (lub tyle węzłów skonfigurowanych w [maksymalnym przeskoku](#customize-node-surge-upgrade)) do klastra, na którym działa określona wersja Kubernetes. 
-- [Cordon i opróżnianie][kubernetes-drain] jednego ze starych węzłów w celu zminimalizowania przerw w działaniu aplikacji (Jeśli używasz maksymalnego przepięcia, spowoduje to [Cordon i opróżnienie][kubernetes-drain] tylu węzłów w tym samym czasie co liczba określonych węzłów buforu). 
-- Gdy stary węzeł jest całkowicie opróżniany, zostanie odłączony do nowej wersji i będzie węzłem buforu dla następującego węzła do uaktualnienia. 
+Aby uzyskać listę dostępnych wersji klastra usługi AKS, użyj polecenia [az aks upgrade,][az-aks-upgrade] aby uaktualnić klaster. Podczas procesu uaktualniania zestaw AKS: 
+- dodaj nowy węzeł bufora (lub tyle węzłów, ile skonfigurowano przy maksymalnym skoku [)](#customize-node-surge-upgrade)do klastra, w których jest uruchomiona określona wersja usługi Kubernetes. 
+- [cordon i opróżnienie][kubernetes-drain] jednego ze starych węzłów w celu zminimalizowania [][kubernetes-drain] zakłóceń w działaniu aplikacji (jeśli używasz maksymalnego skoku, spowoduje to odień i opróżnienie tylu węzłów w tym samym czasie, co określona liczba węzłów buforu). 
+- Gdy stary węzeł zostanie w pełni opróżniony, zostanie ponownie przeprojektowany w celu otrzymania nowej wersji i stanie się węzłem buforu dla następującego węzła do uaktualnienia. 
 - Ten proces jest powtarzany do momentu uaktualnienia wszystkich węzłów w klastrze. 
-- Na końcu procesu ostatni węzeł buforu zostanie usunięty, utrzymując istniejącą liczbę węzłów agenta i balans strefy.
+- Po zakończeniu procesu ostatni węzeł bufora zostanie usunięty, zachowując istniejącą liczbę węzłów agenta i równoważenie strefy.
 
 ```azurecli-interactive
 az aks upgrade \
@@ -96,19 +96,19 @@ az aks upgrade \
     --kubernetes-version KUBERNETES_VERSION
 ```
 
-Uaktualnienie klastra trwa kilka minut, w zależności od liczby posiadanych węzłów.
+Uaktualnienie klastra może potrwać kilka minut, w zależności od tego, ile węzłów masz.
 
 > [!IMPORTANT]
-> Upewnij się, że dowolna `PodDisruptionBudgets` (plików PDB) zezwala na przeniesienie co najmniej jednej repliki na czas, w przeciwnym razie operacja opróżniania/wykluczania zakończy się niepowodzeniem.
-> Jeśli operacja opróżniania nie powiedzie się, operacja uaktualniania zakończy się niepowodzeniem, aby upewnić się, że aplikacje nie zostały zakłócone. Popraw przyczynę zatrzymania operacji (nieprawidłowa plików PDB, brak limitu przydziału itd.), a następnie spróbuj ponownie wykonać operację.
+> Upewnij się, że wszystkie pliki (PDB) zezwalają na co najmniej 1 replikę zasobnika na czas, w przeciwnym razie operacja `PodDisruptionBudgets` opróżniania/eksmisji nie powiedzie się.
+> Jeśli operacja opróżniania zakończy się niepowodzeniem, operacja uaktualniania nie powiedzie się z projektem, aby zapewnić, że aplikacje nie zostaną zakłócone. Popraw, co spowodowało zatrzymanie operacji (nieprawidłowe pliki PDB, brak przydziału itp.) i spróbuj ponownie wykonać operację.
 
-Aby upewnić się, że uaktualnienie zakończyło się pomyślnie, użyj polecenia [AZ AKS show][az-aks-show] :
+Aby potwierdzić, że uaktualnienie powiodło się, użyj [polecenia az aks show:][az-aks-show]
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-Następujące przykładowe dane wyjściowe pokazują, że klaster działa teraz *1.18.10*:
+Następujące przykładowe dane wyjściowe pokazują, że w klastrze działa *teraz 1.18.10:*
 
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
@@ -116,51 +116,51 @@ Name          Location    ResourceGroup    KubernetesVersion    ProvisioningStat
 myAKSCluster  eastus      myResourceGroup  1.18.10              Succeeded            myakscluster-dns-379cbbb9.hcp.eastus.azmk8s.io
 ```
 
-## <a name="set-auto-upgrade-channel"></a>Ustawianie kanału autouaktualniania
+## <a name="set-auto-upgrade-channel"></a>Ustawianie kanału automatycznego uaktualniania
 
-Oprócz ręcznego uaktualniania klastra można ustawić kanał autouaktualniany w klastrze. Dostępne są następujące kanały uaktualnienia:
+Oprócz ręcznego uaktualniania klastra można ustawić w klastrze kanał automatycznego uaktualniania. Dostępne są następujące kanały uaktualniania:
 
 |Kanał| Akcja | Przykład
 |---|---|---|
-| `none`| wyłącza funkcję autouaktualniania i utrzymuje klaster w bieżącej wersji programu Kubernetes| Ustawienie domyślne, jeśli pozostawiono bez zmian|
-| `patch`| automatycznie Uaktualnij klaster do najnowszej obsługiwanej wersji poprawki, gdy stanie się dostępna, zachowując jednocześnie wersję pomocniczą.| Na przykład jeśli w klastrze jest uruchomiona wersja *1.17.7* i wersje *1.17.9*, *1.18.4*, *1.18.6* i *1.19.1* są dostępne, klaster jest uaktualniany do *1.17.9*|
-| `stable`| automatycznie Uaktualnij klaster do najnowszej obsługiwanej wersji poprawki w wersji pomocniczej *n-1*, gdzie *N* to najnowsza obsługiwana wersja pomocnicza.| Na przykład jeśli w klastrze jest uruchomiona wersja *1.17.7* i wersje *1.17.9*, *1.18.4*, *1.18.6* i *1.19.1* są dostępne, klaster jest uaktualniany do *1.18.6*.
-| `rapid`| automatycznie Uaktualnij klaster do najnowszej obsługiwanej wersji poprawki z najnowszej obsługiwanej, pomocniczej.| W przypadkach, w których klaster jest w wersji Kubernetes, która jest w wersji pomocniczej *n-2* , gdzie *n* to najnowsza obsługiwana wersja pomocnicza, klaster najpierw jest uaktualniany do najnowszej obsługiwanej wersji poprawki w wersji pomocniczej *N-1* . Na przykład jeśli w klastrze działa wersja *1.17.7* i wersje *1.17.9*, *1.18.4*, *1.18.6* i *1.19.1* są dostępne, klaster jest najpierw uaktualniany do *1.18.6*, a następnie uaktualniany do *1.19.1*.
+| `none`| wyłącza automatyczne uaktualnienia i utrzymuje klaster w bieżącej wersji usługi Kubernetes| Ustawienie domyślne, jeśli pozostawione bez zmian|
+| `patch`| automatycznie uaktualnia klaster do najnowszej obsługiwanej wersji poprawek, gdy stanie się dostępny, przy zachowaniu tej samej wersji pomocniczej.| Jeśli na przykład klaster ma wersję *1.17.7* i *1.17.9,* *1.18.4,* *1.18.6* i *1.19.1,* klaster zostanie uaktualniony do *wersji 1.17.9*|
+| `stable`| automatycznie uaktualnij klaster do najnowszej obsługiwanej wersji poprawek w wersji pomocniczej *N-1,* gdzie *N* to najnowsza obsługiwana wersja pomocnicza.| Jeśli na przykład klaster ma wersję *1.17.7* i *1.17.9,* *1.18.4,* *1.18.6* i *1.19.1,* klaster zostanie uaktualniony do *wersji 1.18.6.*
+| `rapid`| automatycznie uaktualniać klaster do najnowszej obsługiwanej wersji poprawek w najnowszej obsługiwanej wersji pomocniczej.| W przypadkach, gdy klaster jest w wersji rozwiązania Kubernetes w wersji *pomocniczej N-2,* gdzie *N* jest najnowszą obsługiwaną wersją pomocniczą, klaster najpierw uaktualnia do najnowszej obsługiwanej wersji poprawki *N-1* pomocniczej. Jeśli na przykład klaster ma wersję *1.17.7* i *1.17.9,* *1.18.4,* *1.18.6* i *1.19.1,* klaster najpierw zostanie uaktualniony do *wersji 1.18.6,* a następnie uaktualniony do *wersji 1.19.1.*
 
 > [!NOTE]
-> Klaster jest aktualizowany wyłącznie do wersji systemu Kubernetes i nie będzie aktualizowany w wersji zapoznawczej.
+> Automatyczne uaktualnianie klastra jest aktualizowane tylko do wersji GA usługi Kubernetes i nie będzie aktualizowane do wersji zapoznawczych.
 
-Automatyczne uaktualnianie klastra odbywa się przy użyciu tego samego procesu co ręczne uaktualnienie klastra. Aby uzyskać więcej informacji, zobacz [Uaktualnianie klastra AKS][upgrade-cluster].
+Automatyczne uaktualnianie klastra jest wykonywane w taki sam sposób, jak w przypadku ręcznego uaktualniania klastra. Aby uzyskać więcej informacji, zobacz [Uaktualnianie klastra usługi AKS.][upgrade-cluster]
 
-Funkcja autouaktualniania klastra dla klastrów AKS jest funkcją w wersji zapoznawczej.
+Funkcja automatycznego uaktualniania klastra dla klastrów usługi AKS jest funkcją w wersji zapoznawczej.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-Zarejestruj `AutoUpgradePreview` flagę funkcji za pomocą polecenia [AZ Feature Register][az-feature-register] , jak pokazano w następującym przykładzie:
+Zarejestruj `AutoUpgradePreview` flagę funkcji za pomocą [polecenia az feature register,][az-feature-register] jak pokazano w poniższym przykładzie:
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.ContainerService -n AutoUpgradePreview
 ```
 
-Wyświetlenie stanu *rejestracji* może potrwać kilka minut. Sprawdź stan rejestracji za pomocą polecenia [AZ Feature list][az-feature-list] :
+Wyświetlanie stanu Zarejestrowane trwa kilka *minut.* Sprawdź stan rejestracji za pomocą [polecenia az feature list:][az-feature-list]
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AutoUpgradePreview')].{Name:name,State:properties.state}"
 ```
 
-Gdy wszystko będzie gotowe, Odśwież rejestrację dostawcy zasobów *Microsoft. ContainerService* za pomocą polecenia [AZ Provider Register][az-provider-register] :
+Gdy wszystko będzie gotowe, odśwież rejestrację dostawcy *zasobów Microsoft.ContainerService* za pomocą [polecenia az provider register:][az-provider-register]
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
 
-Aby ustawić kanał autouaktualniany podczas tworzenia klastra, należy użyć parametru *autoupgrade-Channel* , podobnego do poniższego przykładu.
+Aby ustawić kanał automatycznego uaktualniania podczas tworzenia klastra, użyj parametru *auto-upgrade-channel,* podobnie jak w poniższym przykładzie.
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster --auto-upgrade-channel stable --generate-ssh-keys
 ```
 
-Aby ustawić kanał autouaktualnienia w istniejącym klastrze, należy zaktualizować parametr *autoupgrade-Channel* , podobnie jak w poniższym przykładzie.
+Aby ustawić kanał automatycznego uaktualniania w istniejącym klastrze, zaktualizuj parametr *auto-upgrade-channel,* podobnie jak w poniższym przykładzie.
 
 ```azurecli-interactive
 az aks update --resource-group myResourceGroup --name myAKSCluster --auto-upgrade-channel stable
@@ -168,10 +168,10 @@ az aks update --resource-group myResourceGroup --name myAKSCluster --auto-upgrad
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule pokazano, jak uaktualnić istniejący klaster AKS. Aby dowiedzieć się więcej o wdrażaniu klastrów AKS i zarządzaniu nimi, zobacz zestaw samouczków.
+W tym artykule popisano, jak uaktualnić istniejący klaster usługi AKS. Aby dowiedzieć się więcej na temat wdrażania klastrów usługi AKS i zarządzania nimi, zobacz zestaw samouczków.
 
 > [!div class="nextstepaction"]
-> [Samouczki AKS][aks-tutorial-prepare-app]
+> [Samouczki dotyczące AKS][aks-tutorial-prepare-app]
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
@@ -179,13 +179,13 @@ W tym artykule pokazano, jak uaktualnić istniejący klaster AKS. Aby dowiedzie�
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
-[az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-aks-get-upgrades]: /cli/azure/aks#az_aks_get_upgrades
+[az-aks-upgrade]: /cli/azure/aks#az_aks_upgrade
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-provider-register]: /cli/azure/provider#az_provider_register
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [upgrade-cluster]:  #upgrade-an-aks-cluster

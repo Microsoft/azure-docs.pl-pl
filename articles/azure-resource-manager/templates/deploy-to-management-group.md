@@ -1,57 +1,57 @@
 ---
 title: Wdrażanie zasobów w grupie zarządzania
-description: Opisuje sposób wdrażania zasobów w zakresie grupy zarządzania w szablonie Azure Resource Manager.
+description: Opisuje sposób wdrażania zasobów w zakresie grupy zarządzania w szablonie Azure Resource Manager zarządzania.
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: dc7418d9e93fb50590c5e2502b3a3ffb3847273f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 74e00921a1170a7750f4a2d239bb778150ac2cae
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105043312"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781941"
 ---
-# <a name="management-group-deployments-with-arm-templates"></a>Wdrożenia grup zarządzania przy użyciu szablonów ARM
+# <a name="management-group-deployments-with-arm-templates"></a>Wdrożenia grup zarządzania przy użyciu szablonów usługi ARM
 
-Jako Twoja organizacja można wdrożyć szablon Azure Resource Manager (szablon ARM), aby utworzyć zasoby na poziomie grupy zarządzania. Na przykład może być konieczne zdefiniowanie i przypisanie [zasad](../../governance/policy/overview.md) lub [kontroli dostępu opartej na ROLACH (Azure RBAC)](../../role-based-access-control/overview.md) dla grupy zarządzania. Szablony na poziomie grupy zarządzania umożliwiają deklaratywne stosowanie zasad i przypisywanie ról na poziomie grupy zarządzania.
+W czasie, gdy Twoja organizacja dojrzeje, możesz wdrożyć szablon usługi Azure Resource Manager (arm), aby tworzyć zasoby na poziomie grupy zarządzania. Na przykład może być konieczne [](../../governance/policy/overview.md) zdefiniowanie i przypisanie zasad lub kontroli dostępu na podstawie ról [(RBAC)](../../role-based-access-control/overview.md) platformy Azure dla grupy zarządzania. Za pomocą szablonów poziomu grupy zarządzania można deklaratywnie stosować zasady i przypisywać role na poziomie grupy zarządzania.
 
 ## <a name="supported-resources"></a>Obsługiwane zasoby
 
-Nie wszystkie typy zasobów można wdrożyć na poziomie grupy zarządzania. W tej sekcji przedstawiono typy zasobów, które są obsługiwane.
+Nie wszystkie typy zasobów można wdrożyć na poziomie grupy zarządzania. W tej sekcji wymieniono obsługiwane typy zasobów.
 
-W przypadku planów platformy Azure Użyj:
+Na Azure Blueprints użyj:
 
-* [pojawia](/azure/templates/microsoft.blueprint/blueprints/artifacts)
-* [plany](/azure/templates/microsoft.blueprint/blueprints)
+* [Artefakty](/azure/templates/microsoft.blueprint/blueprints/artifacts)
+* [Plany](/azure/templates/microsoft.blueprint/blueprints)
 * [blueprintAssignments](/azure/templates/microsoft.blueprint/blueprintassignments)
-* [wersje](/azure/templates/microsoft.blueprint/blueprints/versions)
+* [Wersje](/azure/templates/microsoft.blueprint/blueprints/versions)
 
-Aby uzyskać Azure Policy, użyj:
+Na Azure Policy użyj:
 
-* [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
-* [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
+* [policyAssignments (przypisania zasad)](/azure/templates/microsoft.authorization/policyassignments)
+* [Policydefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
-* [korygowania](/azure/templates/microsoft.policyinsights/remediations)
+* [korygowanie](/azure/templates/microsoft.policyinsights/remediations)
 
-W przypadku kontroli dostępu opartej na rolach platformy Azure (RBAC) Użyj:
+W przypadku kontroli dostępu opartej na rolach (RBAC) na platformie Azure użyj:
 
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
 
-W przypadku szablonów zagnieżdżonych wdrażanych w ramach subskrypcji lub grup zasobów należy użyć:
+W przypadku zagnieżdżonych szablonów wdrażanych w subskrypcjach lub grupach zasobów użyj:
 
-* [komputerów](/azure/templates/microsoft.resources/deployments)
+* [Wdrożeń](/azure/templates/microsoft.resources/deployments)
 
-Aby zarządzać zasobami, użyj:
+Do zarządzania zasobami użyj:
 
-* [tabliczk](/azure/templates/microsoft.resources/tags)
+* [Tagi](/azure/templates/microsoft.resources/tags)
 
-Grupy zarządzania to zasoby na poziomie dzierżawy. Można jednak utworzyć grupy zarządzania w ramach wdrożenia grupy zarządzania przez ustawienie zakresu nowej grupy zarządzania dla dzierżawy. Zobacz [Grupa zarządzania](#management-group).
+Grupy zarządzania to zasoby na poziomie dzierżawy. Grupy zarządzania można jednak utworzyć we wdrożeniu grupy zarządzania, ustawiając zakres nowej grupy zarządzania na dzierżawę. Zobacz [Grupa zarządzania](#management-group).
 
 ## <a name="schema"></a>Schemat
 
-Schemat używany do wdrożeń grup zarządzania różni się od schematu dla wdrożeń grup zasobów.
+Schemat wdrożeń grup zarządzania różni się od schematu wdrożeń grup zasobów.
 
-W przypadku szablonów Użyj:
+W przypadku szablonów użyj:
 
 ```json
 {
@@ -60,7 +60,7 @@ W przypadku szablonów Użyj:
 }
 ```
 
-Schemat pliku parametrów jest taki sam dla wszystkich zakresów wdrożenia. W przypadku plików parametrów należy użyć:
+Schemat pliku parametrów jest taki sam dla wszystkich zakresów wdrożenia. W przypadku plików parametrów użyj:
 
 ```json
 {
@@ -71,11 +71,11 @@ Schemat pliku parametrów jest taki sam dla wszystkich zakresów wdrożenia. W p
 
 ## <a name="deployment-commands"></a>Polecenia wdrażania
 
-Aby wdrożyć w grupie zarządzania, Użyj poleceń wdrożenia grupy zarządzania.
+Aby wdrożyć w grupie zarządzania, użyj poleceń wdrażania grupy zarządzania.
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-W przypadku interfejsu wiersza polecenia platformy Azure Użyj polecenia [AZ Deployment mg Create](/cli/azure/deployment/mg#az-deployment-mg-create):
+W przypadku interfejsu wiersza polecenia platformy Azure użyj [polecenia az deployment mg create:](/cli/azure/deployment/mg#az_deployment_mg_create)
 
 ```azurecli-interactive
 az deployment mg create \
@@ -87,7 +87,7 @@ az deployment mg create \
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-Aby uzyskać Azure PowerShell, użyj polecenie [New-AzManagementGroupDeployment](/powershell/module/az.resources/new-azmanagementgroupdeployment).
+Na Azure PowerShell użyj [new-AzManagementGroupDeployment](/powershell/module/az.resources/new-azmanagementgroupdeployment).
 
 ```azurepowershell-interactive
 New-AzManagementGroupDeployment `
@@ -99,88 +99,88 @@ New-AzManagementGroupDeployment `
 
 ---
 
-Aby uzyskać bardziej szczegółowe informacje na temat poleceń wdrażania i opcji wdrażania szablonów ARM, zobacz:
+Aby uzyskać bardziej szczegółowe informacje na temat poleceń wdrażania i opcji wdrażania szablonów usługi ARM, zobacz:
 
-* [Wdrażanie zasobów za pomocą szablonów ARM i Azure Portal](deploy-portal.md)
-* [Wdrażanie zasobów za pomocą szablonów ARM i interfejsu wiersza polecenia platformy Azure](deploy-cli.md)
-* [Wdrażanie zasobów za pomocą szablonów ARM i Azure PowerShell](deploy-powershell.md)
-* [Wdrażanie zasobów za pomocą szablonów ARM i interfejsu API REST Azure Resource Manager](deploy-rest.md)
-* [Użyj przycisku wdrożenia, aby wdrożyć szablony z repozytorium GitHub](deploy-to-azure-button.md)
-* [Wdrażanie szablonów usługi ARM na podstawie Cloud Shell](deploy-cloud-shell.md)
+* [Wdrażanie zasobów przy użyciu szablonów usługi ARM i Azure Portal](deploy-portal.md)
+* [Wdrażanie zasobów przy użyciu szablonów usługi ARM i interfejsu wiersza polecenia platformy Azure](deploy-cli.md)
+* [Wdrażanie zasobów przy użyciu szablonów usługi ARM i Azure PowerShell](deploy-powershell.md)
+* [Wdrażanie zasobów za pomocą szablonów usługi ARM i Azure Resource Manager API REST](deploy-rest.md)
+* [Używanie przycisku wdrażania do wdrażania szablonów z repozytorium GitHub](deploy-to-azure-button.md)
+* [Wdrażanie szablonów usługi ARM z Cloud Shell](deploy-cloud-shell.md)
 
 ## <a name="deployment-location-and-name"></a>Lokalizacja i nazwa wdrożenia
 
-W przypadku wdrożeń na poziomie grupy zarządzania należy podać lokalizację wdrożenia. Lokalizacja wdrożenia jest oddzielona od lokalizacji wdrażanych zasobów. Lokalizacja wdrożenia określa miejsce przechowywania danych wdrożenia. Wdrożenia [subskrypcji](deploy-to-subscription.md) i [dzierżawców](deploy-to-tenant.md) wymagają również lokalizacji. W przypadku wdrożeń [grup zasobów](deploy-to-resource-group.md) lokalizacja grupy zasobów jest używana do przechowywania danych wdrożenia.
+W przypadku wdrożeń na poziomie grupy zarządzania należy podać lokalizację wdrożenia. Lokalizacja wdrożenia jest oddzielona od lokalizacji wdrażanych zasobów. Lokalizacja wdrożenia określa miejsce przechowywania danych wdrożenia. [Wdrożenia](deploy-to-subscription.md) subskrypcji [i](deploy-to-tenant.md) dzierżawy również wymagają lokalizacji. W [przypadku wdrożeń](deploy-to-resource-group.md) grup zasobów lokalizacja grupy zasobów jest używana do przechowywania danych wdrożenia.
 
-Możesz podać nazwę wdrożenia lub użyć domyślnej nazwy wdrożenia. Nazwa domyślna to nazwa pliku szablonu. Na przykład wdrożenie szablonu o nazwie _azuredeploy.jsw_ programie tworzy domyślną nazwę wdrożenia **azuredeploy**.
+Możesz podać nazwę wdrożenia lub użyć domyślnej nazwy wdrożenia. Domyślna nazwa to nazwa pliku szablonu. Na przykład wdrożenie szablonu o nazwie _azuredeploy.jsna powoduje_ utworzenie domyślnej nazwy wdrożenia **azuredeploy**.
 
-Dla każdej nazwy wdrożenia lokalizacja jest niezmienna. Nie można utworzyć wdrożenia w jednej lokalizacji, gdy istnieje wdrożenie o tej samej nazwie w innej lokalizacji. Jeśli na przykład utworzysz wdrożenie grupy zarządzania o nazwie **deployment1** w **centrali**, nie będzie można utworzyć innego wdrożenia o nazwie **deployment1** , ale lokalizacji **zachodniej**. Jeśli zostanie wyświetlony kod błędu `InvalidDeploymentLocation` , użyj innej nazwy lub tej samej lokalizacji co poprzednie wdrożenie dla tej nazwy.
+Dla każdej nazwy wdrożenia lokalizacja jest niezmienna. Nie można utworzyć wdrożenia w jednej lokalizacji, jeśli istnieje wdrożenie o tej samej nazwie w innej lokalizacji. Jeśli na przykład utworzysz wdrożenie grupy zarządzania o nazwie **deployment1** w lokalizacji **centralus,** nie będzie można później utworzyć kolejnego wdrożenia o nazwie **deployment1,** ale w lokalizacji **westus**. Jeśli zostanie wyświetlany kod błędu , użyj innej nazwy lub tej samej lokalizacji co poprzednie `InvalidDeploymentLocation` wdrożenie dla tej nazwy.
 
 ## <a name="deployment-scopes"></a>Zakresy wdrożenia
 
-Podczas wdrażania w grupie zarządzania można wdrożyć zasoby w programie:
+Podczas wdrażania w grupie zarządzania można wdrażać zasoby w:
 
-* docelowa Grupa zarządzania z operacji
+* docelową grupę zarządzania z operacji
 * inna grupa zarządzania w dzierżawie
 * subskrypcje w grupie zarządzania
 * grupy zasobów w grupie zarządzania
-* Dzierżawca dla grupy zasobów
+* dzierżawa grupy zasobów
 
-[Zasób rozszerzenia](scope-extension-resources.md) może być objęty zakresem docelowym, który jest inny niż cel wdrożenia.
+Zasób [rozszerzenia może](scope-extension-resources.md) być ograniczony do obiektu docelowego, który jest inny niż cel wdrożenia.
 
 Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
 
-W tej sekcji pokazano, jak określić różne zakresy. Można połączyć te różne zakresy w jednym szablonie.
+W tej sekcji przedstawiono sposób określania różnych zakresów. Te różne zakresy można połączyć w jednym szablonie.
 
-### <a name="scope-to-target-management-group"></a>Zakres docelowy grupy zarządzania
+### <a name="scope-to-target-management-group"></a>Zakres do docelowej grupy zarządzania
 
-Zasoby zdefiniowane w sekcji zasoby szablonu są stosowane do grupy zarządzania z polecenia wdrożenia.
+Zasoby zdefiniowane w sekcji resources szablonu są stosowane do grupy zarządzania za pomocą polecenia wdrożenia.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-mg.json" highlight="5":::
 
 ### <a name="scope-to-another-management-group"></a>Zakres do innej grupy zarządzania
 
-Aby wskazać inną grupę zarządzania, Dodaj wdrożenie zagnieżdżone i określ `scope` Właściwość. Ustaw `scope` Właściwość na wartość w formacie `Microsoft.Management/managementGroups/<mg-name>` .
+Aby określić inną grupę zarządzania, dodaj wdrożenie zagnieżdżone i określ `scope` właściwość . Ustaw właściwość `scope` na wartość w formacie `Microsoft.Management/managementGroups/<mg-name>` .
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/scope-mg.json" highlight="10,17,18,22":::
 
-### <a name="scope-to-subscription"></a>Zakres subskrypcji
+### <a name="scope-to-subscription"></a>Zakres do subskrypcji
 
-Możesz również kierować subskrypcje w grupie zarządzania. Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
+Można również określić docelowe subskrypcje w grupie zarządzania. Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
 
-Aby uzyskać subskrypcję w grupie zarządzania, należy użyć zagnieżdżonego wdrożenia i `subscriptionId` właściwości.
+Aby ukierunkować subskrypcję w grupie zarządzania, użyj zagnieżdżonych wdrożeń i `subscriptionId` właściwości .
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-subscription.json" highlight="9,10,18":::
 
 ### <a name="scope-to-resource-group"></a>Zakres do grupy zasobów
 
-Można również kierować grupy zasobów w grupie zarządzania. Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
+Można również określić docelowe grupy zasobów w grupie zarządzania. Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
 
-Aby określić grupę zasobów w grupie zarządzania, należy użyć wdrożenia zagnieżdżonego. Ustaw `subscriptionId` właściwości i `resourceGroup` . Nie ustawiaj lokalizacji dla wdrożenia zagnieżdżonego, ponieważ jest ono wdrożone w lokalizacji grupy zasobów.
+Aby ukierunkować grupę zasobów w grupie zarządzania, należy użyć wdrożenia zagnieżdżone. Ustaw właściwości `subscriptionId` `resourceGroup` i . Nie ustawiaj lokalizacji dla zagnieżdżonych wdrożeń, ponieważ jest ono wdrażane w lokalizacji grupy zasobów.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-resource-group.json" highlight="9,10,18":::
 
-Aby użyć wdrożenia grupy zarządzania do utworzenia grupy zasobów w ramach subskrypcji i wdrożenia konta magazynu w tej grupie zasobów, zobacz [wdrażanie w ramach subskrypcji i grupy zasobów](#deploy-to-subscription-and-resource-group).
+Aby użyć wdrożenia grupy zarządzania w celu utworzenia grupy zasobów w ramach subskrypcji i wdrożenia konta magazynu w tej grupie zasobów, zobacz Deploy to subscription and resource group (Wdrażanie w subskrypcji i [grupie zasobów).](#deploy-to-subscription-and-resource-group)
 
 ### <a name="scope-to-tenant"></a>Zakres do dzierżawy
 
-Aby utworzyć zasoby w dzierżawie, należy ustawić `scope` na `/` . Użytkownik wdrażający szablon musi mieć [wymagany dostęp do wdrożenia w dzierżawie](deploy-to-tenant.md#required-access).
+Aby utworzyć zasoby w dzierżawie, ustaw wartość `scope` `/` . Użytkownik wdrażający szablon musi mieć wymagany dostęp do wdrożenia [w dzierżawie](deploy-to-tenant.md#required-access).
 
-Aby użyć wdrożenia zagnieżdżonego, ustaw `scope` i `location` .
+Aby użyć wdrożenia zagnieżdżone, ustaw `scope` i `location` .
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-to-tenant.json" highlight="9,10,14":::
 
-Lub można ustawić zakres `/` dla niektórych typów zasobów, takich jak grupy zarządzania. Tworzenie nowej grupy zarządzania zostało opisane w następnej sekcji.
+Można też ustawić zakres na dla `/` niektórych typów zasobów, takich jak grupy zarządzania. Tworzenie nowej grupy zarządzania jest opisane w następnej sekcji.
 
 ## <a name="management-group"></a>Grupa zarządzania
 
-Aby utworzyć grupę zarządzania w ramach wdrożenia grupy zarządzania, należy ustawić zakres na `/` dla grupy zarządzania.
+Aby utworzyć grupę zarządzania we wdrożeniu grupy zarządzania, należy ustawić zakres na `/` dla grupy zarządzania.
 
 Poniższy przykład tworzy nową grupę zarządzania w głównej grupie zarządzania.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-create-mg.json" highlight="12,15":::
 
-W następnym przykładzie zostanie utworzona nowa grupa zarządzania w grupie zarządzania określonej jako nadrzędna. Należy zauważyć, że zakres jest ustawiony na `/` .
+W następnym przykładzie grupę zarządzania tworzy się w grupie zarządzania określonej jako nadrzędna. Zwróć uwagę, że zakres jest ustawiony na `/` wartość .
 
 ```json
 {
@@ -222,19 +222,19 @@ W następnym przykładzie zostanie utworzona nowa grupa zarządzania w grupie za
 
 ## <a name="subscriptions"></a>Subskrypcje
 
-Aby utworzyć nową subskrypcję platformy Azure w grupie zarządzania przy użyciu szablonu ARM, zobacz:
+Aby utworzyć nową subskrypcję platformy Azure w grupie zarządzania przy użyciu szablonu usługi ARM, zobacz:
 
-* [Programowe tworzenie subskrypcji usługi Azure Enterprise Agreement](../../cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement.md)
-* [Programowe tworzenie subskrypcji platformy Azure dla umowy klienta Microsoft](../../cost-management-billing/manage/programmatically-create-subscription-microsoft-customer-agreement.md)
-* [Programistyczne tworzenie subskrypcji platformy Azure na potrzeby umowy partnerskiej firmy Microsoft](../../cost-management-billing/manage/programmatically-create-subscription-microsoft-partner-agreement.md)
+* [Programowe tworzenie subskrypcji Enterprise Agreement Azure](../../cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement.md)
+* [Programowe tworzenie subskrypcji platformy Azure dla Umowa z Klientem Microsoft](../../cost-management-billing/manage/programmatically-create-subscription-microsoft-customer-agreement.md)
+* [Programowe tworzenie subskrypcji platformy Azure dla Microsoft Partner Agreement](../../cost-management-billing/manage/programmatically-create-subscription-microsoft-partner-agreement.md)
 
-Aby wdrożyć szablon, który przenosi istniejącą subskrypcję platformy Azure do nowej grupy zarządzania, zobacz [przenoszenie subskrypcji w ramach szablonu ARM](../../governance/management-groups/manage.md#move-subscriptions-in-arm-template)
+Aby wdrożyć szablon, który przenosi istniejącą subskrypcję platformy Azure do nowej grupy zarządzania, zobacz [Przenoszenie subskrypcji w szablonie usługi ARM](../../governance/management-groups/manage.md#move-subscriptions-in-arm-template)
 
 ## <a name="azure-policy"></a>Azure Policy
 
-Niestandardowe definicje zasad wdrożone w grupie zarządzania to rozszerzenia grupy zarządzania. Aby uzyskać identyfikator niestandardowej definicji zasad, użyj funkcji [extensionResourceId ()](template-functions-resource.md#extensionresourceid) . Wbudowane definicje zasad to zasoby na poziomie dzierżawy. Aby uzyskać identyfikator wbudowanej definicji zasad, użyj funkcji [tenantResourceId ()](template-functions-resource.md#tenantresourceid) .
+Definicje zasad niestandardowych wdrażane w grupie zarządzania są rozszerzeniami grupy zarządzania. Aby uzyskać identyfikator niestandardowej definicji zasad, użyj [funkcji extensionResourceId().](template-functions-resource.md#extensionresourceid) Wbudowane definicje zasad to zasoby na poziomie dzierżawy. Aby uzyskać identyfikator wbudowanej definicji zasad, użyj funkcji [tenantResourceId().](template-functions-resource.md#tenantresourceid)
 
-Poniższy przykład pokazuje, jak [zdefiniować](../../governance/policy/concepts/definition-structure.md) zasady na poziomie grupy zarządzania i przypisać je.
+W poniższym przykładzie [pokazano, jak zdefiniować](../../governance/policy/concepts/definition-structure.md) zasady na poziomie grupy zarządzania i przypisać je.
 
 ```json
 {
@@ -302,9 +302,9 @@ Poniższy przykład pokazuje, jak [zdefiniować](../../governance/policy/concept
 }
 ```
 
-## <a name="deploy-to-subscription-and-resource-group"></a>Wdrażanie w ramach subskrypcji i grupy zasobów
+## <a name="deploy-to-subscription-and-resource-group"></a>Wdrażanie w subskrypcji i grupie zasobów
 
-Na podstawie wdrożenia na poziomie grupy zarządzania można określić subskrypcję w grupie zarządzania. Poniższy przykład obejmuje tworzenie grupy zasobów w ramach subskrypcji i wdrożenie konta magazynu w tej grupie zasobów.
+Z poziomu wdrożenia na poziomie grupy zarządzania można wybrać subskrypcję w grupie zarządzania. Poniższy przykład tworzy grupę zasobów w ramach subskrypcji i wdraża konto magazynu w tej grupie zasobów.
 
 ```json
 {
@@ -386,6 +386,6 @@ Na podstawie wdrożenia na poziomie grupy zarządzania można określić subskry
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej o przypisywaniu ról, zobacz [Dodawanie przypisań ról platformy Azure przy użyciu szablonów Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
-* Aby zapoznać się z przykładem wdrażania ustawień obszaru roboczego dla Azure Security Center, zobacz [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
-* Szablony można także wdrażać na poziomie [subskrypcji](deploy-to-subscription.md) i na [poziomie dzierżawy](deploy-to-tenant.md).
+* Aby dowiedzieć się więcej na temat przypisywania ról, zobacz [Dodawanie przypisań ról platformy Azure przy użyciu Azure Resource Manager szablonów.](../../role-based-access-control/role-assignments-template.md)
+* Aby uzyskać przykład wdrażania ustawień obszaru roboczego dla Azure Security Center, zobacz [deployASCwithWorkspaceSettings.jsna stronie](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
+* Szablony można również wdrażać na [poziomie subskrypcji](deploy-to-subscription.md) [i dzierżawy.](deploy-to-tenant.md)

@@ -1,58 +1,58 @@
 ---
-title: Usługa Azure Kubernetes Service (AKS) z umową SLA
-description: Dowiedz się więcej o opcjonalnej ofercie SLA dla usługi Azure Kubernetes Service (AKS).
+title: Azure Kubernetes Service (AKS) z umowami SLA czas pracy
+description: Dowiedz się więcej o opcjonalnej ofercie umowy SLA dotyczącej czasu Azure Kubernetes Service api Server (AKS).
 services: container-service
 ms.topic: conceptual
 ms.date: 01/08/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 69a4955f28bbd42cd7bf5651bd057412e15303de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 846446b4c19c066afe789bf636d68ad37b20709e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952919"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779565"
 ---
-# <a name="azure-kubernetes-service-aks-uptime-sla"></a>Umowa SLA dla usługi Azure Kubernetes Service (AKS)
+# <a name="azure-kubernetes-service-aks-uptime-sla"></a>Azure Kubernetes Service sla czasu pracy (AKS)
 
-Umowa SLA na czas pracy to opcjonalna funkcja umożliwiająca zapewnienie finansowo zabezpieczonej, wyższej umowy SLA dla klastra. Umowa SLA na czas działania gwarantuje dostępność na 99,95% punktu końcowego serwera interfejsu API Kubernetes dla klastrów, które używają [strefy dostępności][availability-zones] i 99,9% dostępności dla klastrów, które nie używają strefy dostępności. AKS używa replik węzłów głównych w ramach aktualizacji i domen błędów w celu zapewnienia spełnienia wymagań umowy SLA.
+Umowa SLA czasu pracy to opcjonalna funkcja, która umożliwia dostęp do klastra z wyższym poziomem wsparcia finansowego. Umowa SLA gwarantująca dostępność przez 99,95% czasu dostępności punktu końcowego serwera interfejsu API kubernetes dla klastrów, które korzystają z usługi [Strefy dostępności, i][availability-zones] 99,9% dostępności dla klastrów, które nie korzystają z Strefy dostępności. W celu zapewnienia spełniania wymagań umowy SLA usługi AKS są używane repliki węzłów master w domenach aktualizacji i błędów.
 
-Klienci wymagający umowy SLA w celu spełnienia wymagań dotyczących zgodności lub wymagania rozszerzenia umowy SLA na ich użytkowników końcowych powinni włączyć tę funkcję. Klienci z krytycznymi obciążeniami, którzy będą mogli korzystać z umowy SLA o wyższym przestoju. Korzystanie z funkcji umowy SLA w trakcie działania z Strefy dostępności zapewnia wyższą dostępność w razie przestoju serwera interfejsu API Kubernetes.  
+Klienci, którzy potrzebują umowy SLA w celu spełnienia wymagań dotyczących zgodności lub rozszerzenia umowy SLA na swoich użytkowników końcowych, powinni włączyć tę funkcję. Klienci z obciążeniami o krytycznym znaczeniu, którzy będą korzystać z wyższej umowy SLA czasu pracy, również mogą skorzystać na tym. Korzystanie z funkcji umowy SLA dotyczącej czasu Strefy dostępności zapewnia wyższą dostępność dla czasu pracy serwera interfejsu API Kubernetes.  
 
-Klienci mogą nadal tworzyć nieograniczoną liczbę bezpłatnych klastrów z celem poziomu usługi (SLO) wynoszącym 99,5% i korzystać z preferowanego działania SLO lub umowy SLA w razie potrzeby.
+Klienci mogą nadal tworzyć nieograniczone bezpłatne klastry z celem poziomu usług (SLO) na poziomie 99,5% i w razie potrzeby wybrać preferowany cel poziomu usług lub czas pracy umowy SLA.
 
 > [!Important]
-> W przypadku klastrów mających blokadę [ruchu wychodzącego, zobacz Ograniczanie ruch wyjście](limit-egress-traffic.md) do otwierania odpowiednich portów.
+> W przypadku klastrów z blokadą ruchu wychodzącego zobacz [Ograniczanie ruchu wychodzącego](limit-egress-traffic.md) w celu otwarcia odpowiednich portów.
 
 ## <a name="region-availability"></a>Dostępność w danym regionie
 
-* Umowa SLA na czas działania jest dostępna w regionach publicznych i Azure Government regionach, w których [AKS jest obsługiwany](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
-* Umowa SLA na czas działania jest dostępna dla [prywatnych klastrów AKS][private-clusters] we wszystkich regionach publicznych, w których AKS jest obsługiwany.
+* Umowa SLA czasu pracy jest dostępna w regionach publicznych i Azure Government regionach, w których [jest obsługiwana przez usługę AKS.](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)
+* Umowa SLA czasu pracy jest dostępna dla prywatnych klastrów [usługi AKS we][private-clusters] wszystkich regionach publicznych, w których usługa AKS jest obsługiwana.
 
 ## <a name="sla-terms-and-conditions"></a>Warunki i postanowienia umowy SLA
 
-Umowa SLA na czas pracy to płatna funkcja i włączona na klaster. Cennik umowy SLA na czas pracy jest określany przez liczbę klastrów dyskretnych, a nie przez rozmiar poszczególnych klastrów. Aby uzyskać więcej informacji, możesz wyświetlić [szczegóły cennika umowy SLA](https://azure.microsoft.com/pricing/details/kubernetes-service/) .
+Umowa SLA czasu pracy to płatna funkcja, która jest włączana dla klastra. Ceny umowy SLA dotyczące czasu pracy są określane na podstawie liczby dyskretnych klastrów, a nie rozmiaru poszczególnych klastrów. Aby uzyskać więcej [informacji, możesz wyświetlić](https://azure.microsoft.com/pricing/details/kubernetes-service/) szczegóły cennika umowy SLA dotyczącej czasu pracy.
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 * Instalowanie [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) w wersji 2.8.0 lub nowszej
 
-## <a name="creating-a-new-cluster-with-uptime-sla"></a>Tworzenie nowego klastra z umową SLA w razie przestoju
+## <a name="creating-a-new-cluster-with-uptime-sla"></a>Tworzenie nowego klastra z umowami SLA czasu pracy
 
-Aby utworzyć nowy klaster z umową SLA o czas działania, użyj interfejsu wiersza polecenia platformy Azure.
+Aby utworzyć nowy klaster z umowami SLA czas pracy, należy użyć interfejsu wiersza polecenia platformy Azure.
 
-Poniższy przykład tworzy grupę zasobów o nazwie Moja *zasobów* w lokalizacji *Wschodnie* :
+Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w *lokalizacji eastus:*
 
 ```azurecli-interactive
 # Create a resource group
 az group create --name myResourceGroup --location eastus
 ```
-Użyj [`az aks create`][az-aks-create] polecenia, aby utworzyć klaster AKS. W poniższym przykładzie pokazano tworzenie klastra o nazwie *myAKSCluster* z jednym węzłem. Wykonanie tej operacji trwa kilka minut:
+Użyj polecenia [`az aks create`][az-aks-create] , aby utworzyć klaster usługi AKS. W poniższym przykładzie pokazano tworzenie klastra o nazwie *myAKSCluster* z jednym węzłem. Ta operacja trwa kilka minut:
 
 ```azurecli-interactive
 # Create an AKS cluster with uptime SLA
 az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla --node-count 1
 ```
-Po kilku minutach polecenie zostanie wykonane i zwróci informacje o klastrze w formacie JSON. Poniższy fragment kodu JSON przedstawia warstwę płatną dla jednostki SKU, wskazując, że klaster jest włączony z umową SLA na czas pracy:
+Po kilku minutach polecenie zostanie wykonane i zwróci informacje o klastrze w formacie JSON. Poniższy fragment kodu JSON przedstawia płatną warstwę dla sku, wskazując, że klaster jest włączony z umowami SLA czasu pracy:
 
 ```output
   },
@@ -62,11 +62,11 @@ Po kilku minutach polecenie zostanie wykonane i zwróci informacje o klastrze w 
   },
 ```
 
-## <a name="modify-an-existing-cluster-to-use-uptime-sla"></a>Zmodyfikuj istniejący klaster, aby korzystać z umowy SLA dotyczącej czasu działania
+## <a name="modify-an-existing-cluster-to-use-uptime-sla"></a>Modyfikowanie istniejącego klastra w celu korzystania z umowy SLA dotyczącej czasu pracy
 
-Opcjonalnie możesz zaktualizować istniejące klastry, aby korzystać z umowy SLA dotyczącej czasu działania.
+Możesz opcjonalnie zaktualizować istniejące klastry, aby korzystać z umowy SLA czasu pracy.
 
-Jeśli utworzono klaster AKS z poprzednimi krokami, Usuń grupę zasobów:
+Jeśli klaster usługi AKS został utworzony w poprzednich krokach, usuń grupę zasobów:
 
 ```azurecli-interactive
 # Delete the existing cluster by deleting the resource group 
@@ -80,21 +80,21 @@ Utwórz nową grupę zasobów:
 az group create --name myResourceGroup --location eastus
 ```
 
-Utwórz nowy klaster i nie używaj umowy SLA dotyczącej czasu działania:
+Utwórz nowy klaster i nie używaj umowy SLA czasu pracy:
 
 ```azurecli-interactive
 # Create a new cluster without uptime SLA
 az aks create --resource-group myResourceGroup --name myAKSCluster--node-count 1
 ```
 
-Użyj [`az aks update`][az-aks-update] polecenia, aby zaktualizować istniejący klaster:
+Użyj polecenia [`az aks update`][az-aks-update] , aby zaktualizować istniejący klaster:
 
 ```azurecli-interactive
 # Update an existing cluster to use Uptime SLA
  az aks update --resource-group myResourceGroup --name myAKSCluster --uptime-sla
  ```
 
- Poniższy fragment kodu JSON przedstawia warstwę płatną dla jednostki SKU, wskazując, że klaster jest włączony z umową SLA na czas pracy:
+ Poniższy fragment kodu JSON przedstawia płatną warstwę dla sku, wskazując, że klaster jest włączony z umowami SLA czasu pracy:
 
  ```output
   },
@@ -104,9 +104,9 @@ Użyj [`az aks update`][az-aks-update] polecenia, aby zaktualizować istniejący
   },
   ```
 
-## <a name="opt-out-of-uptime-sla"></a>Umowa SLA dotycząca nieprzerwanego działania
+## <a name="opt-out-of-uptime-sla"></a>Rezygnacja z umowy SLA czasu pracy
 
-Możesz zaktualizować klaster, aby zmienić warstwę bezpłatna i zrezygnować z umowy SLA dotyczącej czasu pracy.
+Możesz zaktualizować klaster, aby zmienić warstwę na warstwę Bezpłatna i zrezygnować z umowy SLA dotyczącej czasu pracy.
 
 ```azurecli-interactive
 # Update an existing cluster to opt out of Uptime SLA
@@ -115,7 +115,7 @@ Możesz zaktualizować klaster, aby zmienić warstwę bezpłatna i zrezygnować 
 
 ## <a name="clean-up"></a>Czyszczenie
 
-Aby uniknąć naliczania opłat, wyczyść wszystkie utworzone zasoby. Aby usunąć klaster, użyj polecenia, [`az group delete`][az-group-delete] Aby usunąć grupę zasobów AKS:
+Aby uniknąć nalicznych opłat, wyczyść wszystkie utworzone zasoby. Aby usunąć klaster, użyj [`az group delete`][az-group-delete] polecenia , aby usunąć grupę zasobów usługi AKS:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
@@ -124,9 +124,9 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Następne kroki
 
-Użyj [strefy dostępności][availability-zones] , aby zwiększyć wysoką dostępność przy użyciu obciążeń klastra AKS.
+Użyj [Strefy dostępności,][availability-zones] aby zwiększyć wysoką dostępność obciążeń klastra usługi AKS.
 
-Skonfiguruj klaster, aby [ograniczyć ruch wychodzący](limit-egress-traffic.md).
+Skonfiguruj klaster, aby [ograniczyć ruch wychodzący.](limit-egress-traffic.md)
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
@@ -137,10 +137,10 @@ Skonfiguruj klaster, aby [ograniczyć ruch wychodzący](limit-egress-traffic.md)
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [faq]: ./faq.md
 [availability-zones]: ./availability-zones.md
-[az-aks-create]: /cli/azure/aks?#az-aks-create
+[az-aks-create]: /cli/azure/aks?#az_aks_create
 [limit-egress-traffic]: ./limit-egress-traffic.md
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
 [az-aks-update]: /cli/azure/aks#az_aks_update
-[az-group-delete]: /cli/azure/group#az-group-delete
+[az-group-delete]: /cli/azure/group#az_group_delete
 [private-clusters]: private-clusters.md

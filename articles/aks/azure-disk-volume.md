@@ -1,36 +1,36 @@
 ---
-title: Tworzenie woluminu statycznego dla zasobników w usłudze Azure Kubernetes Service (AKS)
-description: Dowiedz się, jak ręcznie utworzyć wolumin z dyskami platformy Azure do użycia w usłudze Azure Kubernetes Service (AKS)
+title: Tworzenie woluminu statycznego dla zasobników w Azure Kubernetes Service (AKS)
+description: Dowiedz się, jak ręcznie utworzyć wolumin z dyskami platformy Azure do użycia z zasobnikiem w Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: 7d8a038926fc6bf3234b43a82c0259ba633df11e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 617ad75eda766963a91fe3d41b1dbfefae62b41b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102506654"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776217"
 ---
-# <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Ręczne tworzenie woluminu i używanie go z dyskami platformy Azure w usłudze Azure Kubernetes Service (AKS)
+# <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Ręczne tworzenie i korzystanie z woluminu za pomocą dysków platformy Azure w usłudze Azure Kubernetes Service (AKS)
 
-Aplikacje oparte na kontenerach często muszą uzyskiwać dostęp do danych w zewnętrznym woluminie danych i utrwalać je. Jeśli jeden z nich wymaga dostępu do magazynu, możesz użyć dysków platformy Azure, aby przedstawić wolumin natywny do użycia w aplikacji. W tym artykule pokazano, jak ręcznie utworzyć dysk platformy Azure i dołączyć go do usługi pod AKS.
+Aplikacje oparte na kontenerach często muszą mieć dostęp do danych w zewnętrznym woluminie danych i je utrwalać. Jeśli jeden zasobnik wymaga dostępu do magazynu, możesz użyć dysków platformy Azure, aby przedstawić wolumin natywny do użycia w aplikacji. W tym artykule pokazano, jak ręcznie utworzyć dysk platformy Azure i dołączyć go do zasobnika w usłudze AKS.
 
 > [!NOTE]
-> Dysk platformy Azure można zainstalować tylko w jednym z nich. Jeśli musisz udostępnić wolumin trwały w wielu zasobnikach, użyj [Azure Files][azure-files-volume].
+> Dysk platformy Azure może być zainstalowany tylko w jednym zasobniku na raz. Jeśli chcesz udostępnić trwały wolumin w wielu zasobnikach, użyj programu [Azure Files][azure-files-volume].
 
-Aby uzyskać więcej informacji na temat woluminów Kubernetes, zobacz [Opcje magazynu dla aplikacji w AKS][concepts-storage].
+Aby uzyskać więcej informacji na temat woluminów Kubernetes, zobacz [Storage options for applications in AKS (Opcje magazynu dla aplikacji w UKS).][concepts-storage]
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
-W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
+W tym artykule przyjęto założenie, że masz istniejący klaster usługi AKS. Jeśli potrzebujesz klastra usługi AKS, zobacz przewodnik Szybki start usługi AKS przy użyciu interfejsu wiersza polecenia platformy [Azure][aks-quickstart-cli] lub Azure Portal [.][aks-quickstart-portal]
 
-Konieczne jest również zainstalowanie i skonfigurowanie interfejsu wiersza polecenia platformy Azure w wersji 2.0.59 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
+Musisz również zainstalować i skonfigurować interfejs wiersza polecenia platformy Azure w wersji 2.0.59 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 
 ## <a name="create-an-azure-disk"></a>Tworzenie dysku platformy Azure
 
-Podczas tworzenia dysku platformy Azure do użycia z programem AKS można utworzyć zasób dysku w grupie zasobów **węzła** . Takie podejście umożliwia klastrowi AKS dostęp do zasobu dysku i zarządzanie nim. Jeśli zamiast tego utworzysz dysk w oddzielnej grupie zasobów, musisz udzielić tożsamości zarządzanej usługi Azure Kubernetes Service (AKS) dla klastra `Contributor` roli do grupy zasobów tego dysku.
+Podczas tworzenia dysku platformy Azure do użycia z usługą AKS można utworzyć zasób dysku w grupie **zasobów** węzła. Takie podejście umożliwia klastrowi AKS dostęp do zasobu dysku i zarządzanie nim. Jeśli zamiast tego utworzysz dysk w oddzielnej grupie zasobów, musisz przyznać tożsamości zarządzanej Azure Kubernetes Service (AKS) dla klastra rolę do grupy `Contributor` zasobów dysku.
 
-W tym artykule Utwórz dysk w grupie zasobów węzła. Najpierw Pobierz nazwę grupy zasobów za pomocą polecenia [AZ AKS show][az-aks-show] i Dodaj `--query nodeResourceGroup` parametr zapytania. Poniższy przykład pobiera grupę zasobów węzła *dla nazwy klastra* AKS *myAKSCluster* w grupie zasobów nazwa zasobu:
+Na podstawie tego artykułu utwórz dysk w grupie zasobów węzła. Najpierw pobierz nazwę grupy zasobów za pomocą polecenia [az aks show][az-aks-show] i dodaj `--query nodeResourceGroup` parametr zapytania. Poniższy przykład pobiera grupę zasobów węzła dla nazwy klastra usługi AKS *myAKSCluster* w grupie zasobów *o nazwie myResourceGroup:*
 
 ```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -38,7 +38,7 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeR
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-Teraz Utwórz dysk za pomocą polecenia [AZ Disk Create][az-disk-create] . Określ nazwę grupy zasobów węzła uzyskaną w poprzednim poleceniu, a następnie nazwę zasobu dyskowego, na przykład *myAKSDisk*. Poniższy przykład powoduje utworzenie dysku o *20* GIB i wyprowadzanie identyfikatora dysku po utworzeniu. Jeśli konieczne jest utworzenie dysku do użycia z kontenerami systemu Windows Server, należy dodać `--os-type windows` parametr w celu poprawnego sformatowania dysku.
+Teraz utwórz dysk za pomocą [polecenia az disk create.][az-disk-create] Określ nazwę grupy zasobów węzła uzyskaną w poprzednim poleceniu, a następnie nazwę zasobu dysku, taką jak *myAKSDisk.* Poniższy przykład tworzy dysk *20* GiB i generuje identyfikator dysku po jego utworzeniu. Jeśli musisz utworzyć dysk do użycia z kontenerami systemu Windows Server, dodaj `--os-type windows` parametr , aby poprawnie sformatować dysk.
 
 ```azurecli-interactive
 az disk create \
@@ -49,9 +49,9 @@ az disk create \
 ```
 
 > [!NOTE]
-> Usługa Azure disks jest rozliczana według jednostki SKU z określonym rozmiarem. Te jednostki SKU należą do zakresu od 32GiB dla dysków S4 lub P4 do 32TiB dla dysków S80 lub P80 (w wersji zapoznawczej). Wydajność i przepustowość operacji we/wy dysku zarządzanego w warstwie Premium zależy od jednostki SKU i rozmiaru wystąpienia węzłów w klastrze AKS. Zobacz [Cennik i wydajność Managed disks][managed-disk-pricing-performance].
+> Opłaty za dyski platformy Azure są naliczane według sku za określony rozmiar. Te jednostki SKU mają zakres od 32GiB dla dysków S4 lub P4 do 32TiB dla dysków S80 lub P80 (w wersji zapoznawczej). Przepływność i wydajność IOPS dysku zarządzanego Premium zależy zarówno od jednostki SKU, jak i rozmiaru wystąpienia węzłów w klastrze usługi AKS. Zobacz [Cennik i wydajność Dyski zarządzane][managed-disk-pricing-performance].
 
-Identyfikator zasobu dysku jest wyświetlany po pomyślnym zakończeniu polecenia, jak pokazano w poniższym przykładzie danych wyjściowych. Ten identyfikator dysku jest używany do instalowania dysku w następnym kroku.
+Identyfikator zasobu dysku jest wyświetlany po pomyślnym zakończeniu polecenia, jak pokazano w poniższych przykładowych danych wyjściowych. Ten identyfikator dysku jest używany do instalacji dysku w następnym kroku.
 
 ```console
 /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
@@ -59,7 +59,7 @@ Identyfikator zasobu dysku jest wyświetlany po pomyślnym zakończeniu poleceni
 
 ## <a name="mount-disk-as-volume"></a>Zainstaluj dysk jako wolumin
 
-Aby zainstalować dysk platformy Azure w obszarze usługi, skonfiguruj wolumin w specyfikacji kontenera. Utwórz nowy plik o nazwie `azure-disk-pod.yaml` z następującą zawartością. Zaktualizuj `diskName` przy użyciu nazwy dysku utworzonego w poprzednim kroku oraz `diskURI` z identyfikatorem dysku przedstawionym w danych wyjściowych polecenia Utwórz dysk. W razie potrzeby zaktualizuj `mountPath` ścieżkę, która jest ścieżką, w której jest zainstalowany dysk platformy Azure w obszarze. W przypadku kontenerów systemu Windows Server należy określić *mountPath* przy użyciu konwencji ścieżki systemu Windows, takiej jak *'d: '*.
+Aby zainstalować dysk platformy Azure w zasobniku, skonfiguruj wolumin w specyfikacji kontenera. Utwórz nowy plik o `azure-disk-pod.yaml` nazwie o następującej zawartości. Zaktualizuj przy użyciu nazwy dysku utworzonego w poprzednim kroku oraz identyfikatora dysku pokazanego w danych wyjściowych `diskName` `diskURI` polecenia tworzenia dysku. W razie potrzeby zaktualizuj , czyli ścieżkę, w której `mountPath` dysk platformy Azure jest zainstalowany w zasobniku. W przypadku kontenerów systemu Windows Server określ *ścieżkę mountPath* przy użyciu konwencji ścieżki systemu Windows, na przykład *"D:".*
 
 ```yaml
 apiVersion: v1
@@ -88,13 +88,13 @@ spec:
           diskURI: /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
 ```
 
-Użyj `kubectl` polecenia, aby utworzyć pod.
+Użyj `kubectl` polecenia , aby utworzyć zasobnik.
 
 ```console
 kubectl apply -f azure-disk-pod.yaml
 ```
 
-Masz teraz uruchomione miejsce na dysku platformy Azure zainstalowanym pod adresem `/mnt/azure` . Można użyć, `kubectl describe pod mypod` Aby sprawdzić, czy dysk jest prawidłowo zainstalowany. Następujące wąskie przykładowe dane wyjściowe pokazują wolumin zainstalowany w kontenerze:
+Masz teraz uruchomiony zasobnik z dyskiem platformy Azure zainstalowanym `/mnt/azure` pod . Możesz użyć narzędzia `kubectl describe pod mypod` , aby sprawdzić, czy dysk został pomyślnie zainstalowany. Następujące skrócone przykładowe dane wyjściowe pokazują wolumin zainstalowany w kontenerze:
 
 ```
 [...]
@@ -123,9 +123,9 @@ Events:
 
 ## <a name="next-steps"></a>Następne kroki
 
-W przypadku skojarzonych najlepszych rozwiązań zobacz [najlepsze rozwiązania dotyczące magazynu i kopii zapasowych w AKS][operator-best-practices-storage].
+Aby uzyskać skojarzone najlepsze rozwiązania, zobacz [Best practices for storage and backups in AKS][operator-best-practices-storage](Najlepsze rozwiązania dotyczące magazynu i kopii zapasowych w u usługi AKS).
 
-Aby uzyskać więcej informacji na temat klastrów AKS związanych z usługą Azure disks, zobacz [dodatek Kubernetes dla dysków platformy Azure][kubernetes-disks].
+Aby uzyskać więcej informacji na temat interakcji klastrów usługi AKS z dyskami platformy Azure, zobacz [wtyczkę Kubernetes dla dysków platformy Azure.][kubernetes-disks]
 
 <!-- LINKS - external -->
 [kubernetes-disks]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_disk/README.md
@@ -133,13 +133,13 @@ Aby uzyskać więcej informacji na temat klastrów AKS związanych z usługą Az
 [managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 
 <!-- LINKS - internal -->
-[az-disk-list]: /cli/azure/disk#az-disk-list
-[az-disk-create]: /cli/azure/disk#az-disk-create
-[az-group-list]: /cli/azure/group#az-group-list
-[az-resource-show]: /cli/azure/resource#az-resource-show
+[az-disk-list]: /cli/azure/disk#az_disk_list
+[az-disk-create]: /cli/azure/disk#az_disk_create
+[az-group-list]: /cli/azure/group#az_group_list
+[az-resource-show]: /cli/azure/resource#az_resource_show
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-aks-show]: /cli/azure/aks#az_aks_show
 [install-azure-cli]: /cli/azure/install-azure-cli
 [azure-files-volume]: azure-files-volume.md
 [operator-best-practices-storage]: operator-best-practices-storage.md

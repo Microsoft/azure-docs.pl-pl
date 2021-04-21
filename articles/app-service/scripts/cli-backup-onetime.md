@@ -1,6 +1,6 @@
 ---
-title: 'Interfejs wiersza polecenia: Tworzenie kopii zapasowej aplikacji'
-description: Dowiedz się, jak zautomatyzować wdrażanie aplikacji App Service i zarządzanie nią za pomocą interfejsu wiersza polecenia platformy Azure. Ten przykład pokazuje, jak utworzyć kopię zapasową aplikacji.
+title: 'Interfejs wiersza polecenia: tworzenie kopii zapasowej aplikacji'
+description: Dowiedz się, jak używać interfejsu wiersza polecenia platformy Azure do automatyzowania wdrażania aplikacji App Service zarządzania nimi. W tym przykładzie pokazano, jak wrócić do kopii zapasowej aplikacji.
 author: msangapu-msft
 tags: azure-service-management
 ms.devlang: azurecli
@@ -9,12 +9,12 @@ ms.date: 12/07/2017
 ms.author: msangapu
 ms.reviewer: cephalin
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: 4f87e610c1f3315b21a9c157f127e713ff5444f2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a5771882e85c69ae54212b2ea8eb1e9482f27821
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98747545"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782643"
 ---
 # <a name="back-up-an-app-using-cli"></a>Tworzenie kopii zapasowej aplikacji przy użyciu interfejsu wiersza polecenia
 
@@ -38,14 +38,14 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 
 | Polecenie | Uwagi |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
-| [`az storage account create`](/cli/azure/storage/account#az-storage-account-create) | Tworzy konto magazynu. |
-| [`az storage container create`](/cli/azure/storage/container#az-storage-container-create) | Tworzy kontener usługi Azure Storage. |
-| [`az storage container generate-sas`](/cli/azure/storage/container#az-storage-container-generate-sas) | Generuje token SAS dla kontenera usługi Azure Storage.  |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Tworzy plan usługi App Service. |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Tworzy aplikację usługi App Service. |
-| [`az webapp config backup create`](/cli/azure/webapp/config/backup#az-webapp-config-backup-create) | Tworzy kopię zapasową aplikacji usługi App Service. |
-| [`az webapp config backup list`](/cli/azure/webapp/config/backup#az-webapp-config-backup-list) | Pobiera listę kopii zapasowych dla aplikacji usługi App Service. |
+| [`az group create`](/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
+| [`az storage account create`](/cli/azure/storage/account#az_storage_account_create) | Tworzy konto magazynu. |
+| [`az storage container create`](/cli/azure/storage/container#az_storage_container_create) | Tworzy kontener usługi Azure Storage. |
+| [`az storage container generate-sas`](/cli/azure/storage/container#az_storage_container_generate_sas) | Generuje token SAS dla kontenera usługi Azure Storage.  |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Tworzy plan usługi App Service. |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Tworzy aplikację usługi App Service. |
+| [`az webapp config backup create`](/cli/azure/webapp/config/backup#az_webapp_config_backup_create) | Tworzy kopię zapasową aplikacji usługi App Service. |
+| [`az webapp config backup list`](/cli/azure/webapp/config/backup#az_webapp_config_backup_list) | Pobiera listę kopii zapasowych dla aplikacji usługi App Service. |
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,43 +1,43 @@
 ---
-title: Apache Hadoop & bezpiecznego transferu magazynu — Azure HDInsight
+title: Bezpieczny magazyn transferu & Apache Hadoop — Azure HDInsight
 description: Dowiedz się, jak tworzyć klastry usługi HDInsight z kontami magazynu platformy Azure z bezpiecznym transferem.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/18/2020
-ms.openlocfilehash: a02da7237252811d89e2c19a29f49f0bf9bb3804
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 22804015ebf0344c00e60c88f780fe22ba440b52
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98945732"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774993"
 ---
-# <a name="apache-hadoop-clusters-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Apache Hadoop klastrów z kontami magazynu Secure transfer w usłudze Azure HDInsight
+# <a name="apache-hadoop-clusters-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Klastry Apache Hadoop z kontami magazynu z bezpiecznym transferem na Azure HDInsight
 
 Funkcja [Wymagany bezpieczny transfer](../storage/common/storage-require-secure-transfer.md) poprawia bezpieczeństwo konta usługi Azure Storage poprzez wymuszanie kierowania wszystkich zapytań do konta przez zabezpieczone połączenie. Funkcja ta oraz schemat wasbs są obsługiwane tylko w klastrze usługi HDInsight w wersji 3.6 lub nowszym.
 
 > [!IMPORTANT]
-> Włączenie bezpiecznego transferu magazynu po utworzeniu klastra może spowodować błędy przy użyciu konta magazynu i nie jest to zalecane. Lepszym rozwiązaniem jest utworzenie nowego klastra przy użyciu konta magazynu z już włączonym bezpiecznym transferem.
+> Włączenie bezpiecznego transferu magazynu po utworzeniu klastra może spowodować błędy podczas korzystania z konta magazynu i nie jest zalecane. Lepiej jest utworzyć nowy klaster przy użyciu konta magazynu z włączonym bezpiecznym transferem.
 
 ## <a name="storage-accounts"></a>Konta magazynu
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Domyślnie właściwość Required Secure transfer jest włączona podczas tworzenia konta magazynu w programie Azure Portal.
+Domyślnie wymagana właściwość bezpiecznego transferu jest włączona podczas tworzenia konta magazynu w Azure Portal.
 
-Aby zaktualizować istniejące konto magazynu za pomocą Azure Portal, zobacz [Wymagaj bezpiecznego transferu z Azure Portal](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-for-an-existing-storage-account).
+Aby zaktualizować istniejące konto magazynu za pomocą Azure Portal, zobacz [Require secure transfer with Azure Portal (Wymaganie](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-for-an-existing-storage-account)bezpiecznego transferu za pomocą Azure Portal ).
 
 ### <a name="powershell"></a>PowerShell
 
-W przypadku polecenia cmdlet programu PowerShell [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount)upewnij się, że parametr `-EnableHttpsTrafficOnly` jest ustawiony na `1` .
+W przypadku polecenia cmdlet programu PowerShell [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount)upewnij się, że parametr `-EnableHttpsTrafficOnly` jest ustawiony na wartość `1` .
 
-Aby zaktualizować istniejące konto magazynu za pomocą programu PowerShell, zobacz [Wymagaj bezpiecznego transferu przy użyciu programu PowerShell](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-powershell).
+Aby zaktualizować istniejące konto magazynu przy użyciu programu PowerShell, zobacz [Require secure transfer with PowerShell (Wymaganie bezpiecznego transferu za pomocą programu PowerShell).](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-powershell)
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-W przypadku polecenia Azure CLI polecenie [AZ Storage account Create](/cli/azure/storage/account#az-storage-account-create)upewnij się, że parametr `--https-only` jest ustawiony na `true` .
+W przypadku polecenia interfejsu wiersza polecenia platformy Azure [az storage account create](/cli/azure/storage/account#az_storage_account_create)upewnij się, że parametr jest ustawiony na wartość `--https-only` `true` .
 
-Aby zaktualizować istniejące konto magazynu za pomocą interfejsu wiersza polecenia platformy Azure, zobacz [Wymagaj bezpiecznego transferu przy użyciu interfejsu wiersza polecenia platformy Azure](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-azure-cli).
+Aby zaktualizować istniejące konto magazynu za pomocą interfejsu wiersza polecenia platformy Azure, zobacz [Require secure transfer with Azure CLI (Wymaganie bezpiecznego transferu za pomocą interfejsu wiersza polecenia platformy Azure).](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-azure-cli)
 
 ## <a name="add-additional-storage-accounts"></a>Dodawanie kolejnych kont magazynu
 
@@ -49,6 +49,6 @@ Dostępnych jest kilka opcji dodawania kolejnych kont magazynu z bezpiecznym tra
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Korzystanie z usługi Azure Storage (WASB) zamiast [Apache HADOOP HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) jako domyślnego magazynu danych
+* Użycie usługi Azure Storage (WASB) zamiast [systemu plików HDFS usługi Apache Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) jako domyślnego magazynu danych
 * Aby uzyskać informacje o sposobie używania usługi Azure Storage przez usługę HDInsight, zobacz [Używanie usługi Azure Storage z usługą HDInsight](hdinsight-hadoop-use-blob-storage.md).
 * Aby uzyskać informacje na temat przekazywania danych do usługi HDInsight, zobacz [Przekazywanie danych do usługi HDInsight](hdinsight-upload-data.md).
