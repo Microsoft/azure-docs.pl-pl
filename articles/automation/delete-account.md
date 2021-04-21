@@ -6,12 +6,13 @@ ms.service: automation
 ms.subservice: process-automation
 ms.date: 04/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: d088f3adc391068de5e337c10ab52dc3d3a2dd07
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: fe2d99a610be3877b4a347e4bd0dd17df53ba326
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107535543"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834160"
 ---
 # <a name="how-to-delete-your-azure-automation-account"></a>Jak usunąć konto Azure Automation użytkownika
 
@@ -31,7 +32,7 @@ Usunięcie konta usługi Automation można wykonać przy użyciu jednej z nastę
 W tym artykule opisano, jak całkowicie usunąć konto usługi Automation za pośrednictwem witryny Azure Portal, Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub interfejsu API REST.
 
 > [!NOTE]
-> Przed podjęciem dalszej czynności sprawdź, czy nie zastosowano żadnych [blokad Resource Manager](../azure-resource-manager/management/lock-resources.md) subskrypcji, grupy zasobów lub zasobu, co zapobiega przypadkowemu usunięciu lub modyfikacji krytycznych zasobów. Jeśli wdrożono rozwiązanie usługi Start/Stop VMs during off-hours, ustawia poziom blokady na **CanNotDelete** względem kilku zasobów zależnych na koncie usługi Automation (w szczególności jego podręczników Runbook i zmiennych). Aby można było usunąć konto usługi Automation, należy usunąć wszystkie blokady.
+> Przed przystąpieniem do dalszej [](../azure-resource-manager/management/lock-resources.md) pracy sprawdź, czy nie Resource Manager żadnych blokad sieciowych zastosowanych w subskrypcji, grupie zasobów lub zasobie, co zapobiega przypadkowemu usunięciu lub modyfikacji krytycznych zasobów. Jeśli wdrożono rozwiązanie Start/Stop VMs during off-hours, ustawia poziom blokady na **CanNotDelete** względem kilku zasobów zależnych na koncie usługi Automation (w szczególności jego runbook i zmiennych). Aby można było usunąć konto usługi Automation, należy usunąć wszystkie blokady.
 
 ## <a name="delete-the-dedicated-resource-group"></a>Usuwanie dedykowanej grupy zasobów
 
@@ -79,7 +80,7 @@ Aby odłączyć się od konta usługi Automation, wykonaj następujące kroki.
 
     Podczas próby odłączyć obszar roboczy usługi Log Analytics możesz śledzić postęp w obszarze **Powiadomienia** z menu.
 
-Aby odłączyć od obszaru roboczego, wykonaj następujące kroki.
+Aby odłączyć się od obszaru roboczego, wykonaj następujące kroki.
 
 1. W chmurze Azure Portal do obszaru **roboczego usługi Log Analytics.**
 
@@ -155,7 +156,7 @@ Podczas próby odłączyć konto usługi Automation możesz śledzić postęp w 
 
 ### <a name="step-3-delete-automation-account"></a>Krok 3. Usuwanie konta usługi Automation
 
-Po pomyślnym odłączyć konto usługi Automation od obszaru roboczego wykonaj kroki opisane w sekcji autonomicznego konta usługi [Automation,](#delete-a-standalone-automation-account) aby usunąć konto.
+Gdy konto usługi Automation zostanie pomyślnie odłączone od obszaru roboczego, wykonaj kroki opisane w sekcji autonomicznego konta usługi [Automation,](#delete-a-standalone-automation-account) aby usunąć konto.
 
 ## <a name="next-steps"></a>Następne kroki
 

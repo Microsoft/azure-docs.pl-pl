@@ -7,20 +7,20 @@ ms.topic: article
 ms.date: 11/06/2020
 ms.author: atulmal
 ms.custom: github-actions-azure
-ms.openlocfilehash: 3a8e91f74fe3c862a814d7660e64748df9553f1d
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 3d0b6030cc63d0d7f4eac2c72c3545cf315b1fd3
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779763"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832391"
 ---
-# <a name="github-actions-for-deploying-to-kubernetes-service"></a>GitHub Actions wdrażania w usłudze Kubernetes
+# <a name="github-actions-for-deploying-to-kubernetes-service"></a>GitHub Actions wdrażania w usłudze Kubernetes Service
 
-[GitHub Actions](https://docs.github.com/en/actions) elastyczność tworzenia zautomatyzowanego przepływu pracy cyklu życia tworzenia oprogramowania. Można użyć wielu akcji rozwiązania Kubernetes do wdrożenia w kontenerach od Azure Container Registry do Azure Kubernetes Service z GitHub Actions. 
+[GitHub Actions](https://docs.github.com/en/actions) zapewnia elastyczność tworzenia zautomatyzowanego przepływu pracy cyklu tworzenia oprogramowania. Możesz użyć wielu akcji rozwiązania Kubernetes, aby wdrożyć je w kontenerach od Azure Container Registry do Azure Kubernetes Service z GitHub Actions. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Konto usługi GitHub. Jeśli go nie masz, zarejestruj się [bezpłatnie.](https://github.com/join)  
 - Roboczy klaster Kubernetes
     - [Samouczek: przygotowywanie aplikacji do Azure Kubernetes Service](tutorial-kubernetes-prepare-app.md)
@@ -41,7 +41,7 @@ W przypadku przepływu pracy przeznaczonego dla usługi AKS plik zawiera trzy se
 
 ## <a name="create-a-service-principal"></a>Tworzenie nazwy głównej usługi
 
-Jednostkę usługi można [utworzyć za](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) pomocą polecenia az ad [sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) w interfejsie wiersza polecenia [platformy Azure.](/cli/azure/) To polecenie można uruchomić przy [użyciu Azure Cloud Shell](https://shell.azure.com/) w Azure Portal lub wybierając **przycisk Wypróbuj.**
+Jednostkę usługi można [utworzyć za](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) pomocą polecenia az ad [sp create-for-rbac w](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) interfejsie wiersza polecenia platformy [Azure.](/cli/azure/) To polecenie można uruchomić przy [użyciu Azure Cloud Shell](https://shell.azure.com/) w Azure Portal lub wybierając **przycisk Wypróbuj.**
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> --sdk-auth
@@ -64,7 +64,7 @@ Skopiuj ten obiekt JSON, którego możesz użyć do uwierzytelniania z usługi G
 
 Wykonaj kroki konfigurowania wpisów tajnych:
 
-1. W [usłudze GitHub](https://github.com/)przejdź do repozytorium, wybierz pozycję Ustawienia > wpisy tajne **> Dodaj nowy wpis tajny.**
+1. W [usłudze GitHub](https://github.com/)przejdź do repozytorium i wybierz pozycję Ustawienia > **wpisy tajne > Dodaj nowy wpis tajny.**
 
     ![Zrzut ekranu przedstawia link Dodaj nowy klucz tajny dla repozytorium.](media/kubernetes-action/secrets.png)
 
@@ -75,13 +75,13 @@ Wykonaj kroki konfigurowania wpisów tajnych:
     - REGISTRY_USERNAME
     - REGISTRY_PASSWORD
 
-4. Po zdefiniowanym wpisie tajnym zostaną wyświetlone wpisy tajne, jak pokazano poniżej.
+4. Zostaną wyświetlone wpisy tajne, jak pokazano poniżej, po definicji.
 
     ![Zrzut ekranu przedstawia istniejące wpisy tajne dla repozytorium.](media/kubernetes-action/kubernetes-secrets.png)
 
-##  <a name="build-a-container-image-and-deploy-to-azure-kubernetes-service-cluster"></a>Kompilowanie obrazu kontenera i wdrażanie go w Azure Kubernetes Service klastra
+##  <a name="build-a-container-image-and-deploy-to-azure-kubernetes-service-cluster"></a>Tworzenie obrazu kontenera i wdrażanie w klastrze Azure Kubernetes Service klastra
 
-Kompilowanie i wypychanie obrazów kontenerów odbywa się przy użyciu `Azure/docker-login@v1` akcji . 
+Kompilowanie i wypychanie obrazów kontenerów odbywa się przy użyciu `Azure/docker-login@v1` akcji. 
 
 
 ```yml
@@ -140,7 +140,7 @@ Przed wdrożeniem do usługi AKS należy ustawić docelową przestrzeń nazw kub
       container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
       secret-name: ${{ env.SECRET }}
       namespace: ${{ env.NAMESPACE }}
-      force: true
+      arguments: --force true
 ```
 
 

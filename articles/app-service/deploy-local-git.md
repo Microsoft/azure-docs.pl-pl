@@ -5,17 +5,17 @@ ms.assetid: ac50a623-c4b8-4dfd-96b2-a09420770063
 ms.topic: article
 ms.date: 02/16/2021
 ms.reviewer: dariac
-ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: e0dc9093503cab92a71517a21a8788814d16cbbe
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 3196233728bb7f6493bbc06234c62d261ac99254
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772869"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832360"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokalne wdrożenie usługi Git w Azure App Service
 
-W tym przewodniku pokazano, jak wdrożyć aplikację w usłudze [Azure App Service](overview.md) z repozytorium Git na komputerze lokalnym.
+W tym przewodniku przedstawiono sposób wdrażania aplikacji w [usłudze Azure App Service](overview.md) z repozytorium Git na komputerze lokalnym.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -25,7 +25,7 @@ Aby wykonać kroki opisane w tym przewodniku:
   
 - [Zainstaluj program Git](https://www.git-scm.com/downloads).
 
-- Lokalne repozytorium Git z kodem, który chcesz wdrożyć. Aby pobrać przykładowe repozytorium, uruchom następujące polecenie w lokalnym oknie terminalu:
+- Masz lokalne repozytorium Git z kodem, który chcesz wdrożyć. Aby pobrać przykładowe repozytorium, uruchom następujące polecenie w lokalnym oknie terminalu:
   
   ```bash
   git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
@@ -59,7 +59,7 @@ Uruchom [polecenia New-AzWebApp](/powershell/module/az.websites/new-azwebapp) z 
 New-AzWebApp -Name <app-name>
 ```
 
-Uruchomienie tego polecenia cmdlet z katalogu, który jest repozytorium Git, powoduje automatyczne utworzenie zdalnego repozytorium Git App Service aplikacji o nazwie `azure` .
+Uruchomienie tego polecenia cmdlet z katalogu, który jest repozytorium Git, powoduje automatyczne utworzenie zdalnego repozytorium Git dla aplikacji App Service o nazwie `azure` .
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
@@ -127,21 +127,21 @@ Set-AzResource -PropertyObject $PropertiesObject -ResourceGroupName <group-name>
 
     Jeśli zdalny adres URL usługi Git zawiera już nazwę użytkownika i hasło, nie zostanie wyświetlony monit. 
    
-1. Przejrzyj dane wyjściowe. Możesz zobaczyć automatyzację specyficzną dla środowiska uruchomieniowego, taką jak MSBuild for ASP.NET, Node.js `npm install` i `pip install` Python. 
+1. Przejrzyj dane wyjściowe. Możesz zobaczyć automatyzację specyficzną dla środowiska uruchomieniowego, taką jak MSBuild dla środowiska ASP.NET, dla Node.js `npm install` i `pip install` dla języka Python. 
    
-1. Przejdź do aplikacji w Azure Portal, aby sprawdzić, czy zawartość została wdrożona.
+1. Przejdź do aplikacji na stronie Azure Portal, aby sprawdzić, czy zawartość została wdrożona.
 
 ## <a name="troubleshoot-deployment"></a>Rozwiązywanie problemów z wdrażaniem
 
-Podczas publikowania w aplikacji platformy Azure za pomocą usługi Git mogą zostać App Service następujące typowe komunikaty o błędach:
+Podczas publikowania w aplikacji usługi Git do publikowania w aplikacji App Service na platformie Azure mogą pojawić się następujące typowe komunikaty o błędach:
 
 |Komunikat|Przyczyna|Rozwiązanie
 ---|---|---|
 |`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|Aplikacja nie jest uruchomiona.|Uruchom aplikację w Azure Portal. Wdrożenie usługi Git nie jest dostępne, gdy aplikacja internetowa zostanie zatrzymana.|
-|`Couldn't resolve host 'hostname'`|Informacje o adresie zdalnego "azure" są nieprawidłowe.|Użyj polecenia `git remote -v` , aby wyświetlić listę wszystkich zdalnych elementów wraz ze skojarzonym adresem URL. Sprawdź, czy adres URL zdalnego połączenia "azure" jest poprawny. W razie potrzeby usuń i utwórz ponownie to zdalne przy użyciu poprawnego adresu URL.|
-|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'main'.`|Nie określono gałęzi podczas lub nie ustawiono wartości `git push` `push.default` w . `.gitconfig`|Uruchom `git push` ponownie, określając gałąź main: `git push azure main` .|
-|`Error - Changes committed to remote repository but deployment to website failed.`|Wypchnięliśmy gałąź lokalną, która nie pasuje do gałęzi wdrażania aplikacji na platformie "azure".|Sprawdź, czy bieżąca gałąź to `master` . Aby zmienić gałąź domyślną, użyj `DEPLOYMENT_BRANCH` ustawienia aplikacji.|
-|`src refspec [branchname] does not match any.`|Próbowano wypchnąć do gałęzi innej niż main na zdalnym komputerze "azure".|Uruchom `git push` ponownie, określając gałąź main: `git push azure main` .|
+|`Couldn't resolve host 'hostname'`|Informacje o adresie zdalnym "azure" są nieprawidłowe.|Użyj polecenia `git remote -v` , aby wyświetlić listę wszystkich zdalnych elementów wraz ze skojarzonym adresem URL. Sprawdź, czy adres URL zdalnego adresu "azure" jest poprawny. W razie potrzeby usuń i utwórz ponownie ten zdalny przy użyciu poprawnego adresu URL.|
+|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'main'.`|Nie określono gałęzi w ciągu lub nie `git push` ustawiono `push.default` wartości w . `.gitconfig`|Uruchom `git push` ponownie, określając główną gałąź: `git push azure main` .|
+|`Error - Changes committed to remote repository but deployment to website failed.`|Wypchnięliśmy lokalną gałąź, która nie pasuje do gałęzi wdrożenia aplikacji na platformie "azure".|Sprawdź, czy bieżąca gałąź to `master` . Aby zmienić gałąź domyślną, użyj `DEPLOYMENT_BRANCH` ustawienia aplikacji.|
+|`src refspec [branchname] does not match any.`|Próbowano wypchnąć do gałęzi innej niż main na zdalnym komputerze "azure".|Uruchom `git push` ponownie, określając główną gałąź: `git push azure main` .|
 |`RPC failed; result=22, HTTP code = 5xx.`|Ten błąd może wystąpić, jeśli spróbujesz wypchnąć duże repozytorium Git za pośrednictwem protokołu HTTPS.|Zmień konfigurację usługi git na komputerze lokalnym, aby była `postBuffer` większa. Na przykład: `git config --global http.postBuffer 524288000`.|
 |`Error - Changes committed to remote repository but your web app not updated.`|Wdrożono aplikację Node.js z plikiem _package.js_ który określa dodatkowe wymagane moduły.|Przejrzyj komunikaty `npm ERR!` o błędach przed tym błędem, aby uzyskać więcej informacji o kontekście błędu. Poniżej przedstawiono znane przyczyny tego błędu i odpowiednie `npm ERR!` komunikaty:<br /><br />**Źle sformułowane package.jspliku**: `npm ERR! Couldn't read dependencies.`<br /><br />**Moduł macierzysty nie ma dystrybucji binarnej dla systemu Windows:**<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />lub <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 

@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 6859a2f8571c11e6ef93a5e5b1635cdbe39ad001
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: c28bc47945882e6b7bbd39d1ba8524a1f7491ceb
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107737674"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835216"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Tworzenie, opracowywanie i obsługa Synapse Studio notesów w Azure Synapse Analytics
 
@@ -40,13 +40,13 @@ Zespół usługi Synapse wprowadził nowy składnik notesów do usługi Synapse 
 |%load| Nieobsługiwane |&#9745;|
 |%%html| Nieobsługiwane |&#9745;|
 |Przeciąganie i upuszczanie w celu przeniesienia komórki| Nieobsługiwane |&#9745;|
-|Formatowanie komórki tekstowej przy użyciu przycisków paska narzędzi|&#9745;| Niedostępne |
+|Formatowanie komórki tekstowej z przyciskami paska narzędzi|&#9745;| Niedostępne |
 |Operacja cofania komórki| &#9745;| Niedostępne |
 
 
 ## <a name="create-a-notebook"></a>Tworzenie notesu
 
-Istnieją dwa sposoby tworzenia notesu. Możesz utworzyć nowy notes lub zaimportować istniejący notes do obszaru roboczego Azure Synapse z witryny **Eksplorator obiektów.** Azure Synapse Studio rozpoznają standardowe Jupyter Notebook IPYNB.
+Istnieją dwa sposoby tworzenia notesu. Możesz utworzyć nowy notes lub zaimportować istniejący notes do obszaru roboczego Azure Synapse z **Eksplorator obiektów**. Azure Synapse Studio rozpoznają standardowe Jupyter Notebook IPYNB.
 
 ![tworzenie notesu importu](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook-2.png)
 
@@ -148,39 +148,39 @@ Funkcje IntelliSense są na różnych poziomach dojrzałości dla różnych jęz
 |PySpark (Python)|Tak|Tak|Tak|Tak|Tak|Tak|Tak|Tak|
 |Spark (Scala)|Tak|Tak|Tak|Tak|-|-|-|Tak|
 |SparkSQL|Tak|Tak|-|-|-|-|-|-|
-|.NET for Spark (C#)|Tak|-|-|-|-|-|-|-|
+|.NET dla platformy Spark (C#)|Tak|-|-|-|-|-|-|-|
 
 
 
 ### <a name="code-snippets"></a>Wstawki kodu
 
-Notesy programu Azure Synapse Studio zawierają fragmenty kodu, które ułatwiają wprowadzanie typowych wzorców kodu, takich jak konfigurowanie sesji platformy Spark, odczytywanie danych jako ramki danych platformy Spark lub rysowanie wykresów za pomocą matplotlib itp.
+Notesy programu Azure Synapse Studio zawierają fragmenty kodu, które ułatwiają wprowadzanie typowych wzorców kodu, takich jak konfigurowanie sesji spark, odczytywanie danych jako ramki danych platformy Spark lub rysowanie wykresów za pomocą matplotlib itp.
 
-Fragmenty kodu są wyświetlane w [funkcji IntelliSense](#ide-style-intellisense) w różnych sugestiach. Zawartość fragmentów kodu jest wyrównana z językiem komórki kodu. Możesz zobaczyć dostępne fragmenty kodu, wpisując fragment **kodu** lub dowolne słowa kluczowe wyświetlane w tytule fragmentu kodu w edytorze komórek kodu. Na przykład po wpisaniu **tekstu odczyt** można wyświetlić listę fragmentów kodu do odczytywania danych z różnych źródeł danych.
+Fragmenty kodu są wyświetlane w [funkcji IntelliSense](#ide-style-intellisense) w różnych sugestiach. Zawartość fragmentów kodu jest wyrównana z językiem komórki kodu. Aby wyświetlić dostępne fragmenty kodu, wpisz **Fragment** kodu lub dowolne słowa kluczowe wyświetlane w tytule fragmentu kodu w edytorze komórek kodu. Na przykład po wpisaniu **tekstu odczyt** można wyświetlić listę fragmentów kodu do odczytywania danych z różnych źródeł danych.
 
 ![Fragmenty kodu synapse](./media/apache-spark-development-using-notebooks/synapse-code-snippets.gif#lightbox)
 
 
 
-### <a name="format-text-cell-with-toolbar-buttons"></a>Formatowanie komórki tekstowej z przyciskami paska narzędzi
+### <a name="format-text-cell-with-toolbar-buttons"></a>Formatowanie komórki tekstowej przy użyciu przycisków paska narzędzi
 
 # <a name="classical-notebook"></a>[Notes klasyczny](#tab/classical)
 
-Możesz użyć przycisków formatowania na pasku narzędzi komórek tekstowych, aby wykonać typowe akcje w formacie markdown. Obejmuje ona pogrubienie tekstu, kursywę tekstu, wstawianie fragmentów kodu, wstawianie nieuporządkowanych list, wstawianie uporządkowanej listy i wstawianie obrazu z adresu URL.
+Możesz użyć przycisków formatowania na pasku narzędzi komórek tekstowych, aby wykonać typowe akcje w formacie markdown. Obejmuje ona pogrubienie tekstu, kursywę tekstu, wstawianie fragmentów kodu, wstawianie nieuporządkowanych list, wstawianie listy uporządkowanej i wstawianie obrazu z adresu URL.
 
   ![Pasek narzędzi komórki tekstowej synapse](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
 
 # <a name="preview-notebook"></a>[Notes w wersji zapoznawczej](#tab/preview)
 
-Pasek narzędzi przycisku Formatuj nie jest jeszcze dostępny dla notesu w wersji zapoznawczej. 
+Pasek narzędzi przycisku Formatuj nie jest jeszcze dostępny w wersji zapoznawczej notesu. 
 
 ---
 
-### <a name="undo-cell-operations"></a>Cofanie operacji na komórkach
+### <a name="undo-cell-operations"></a>Cofanie operacji komórek
 
 # <a name="classical-notebook"></a>[Notes klasyczny](#tab/classical)
 
-Wybierz przycisk **cofania** lub naciśnij **klawisze Ctrl+Z,** aby odwołać ostatnią operację komórki. Teraz możesz cofnąć maksymalnie 20 ostatnich historycznych akcji komórek. 
+Wybierz przycisk **cofania** lub naciśnij **klawisze Ctrl+Z,** aby odwołać najnowszą operację komórki. Teraz możesz cofnąć maksymalnie 20 ostatnich historycznych akcji komórek. 
 
    ![Komórki cofania synapse](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
 # <a name="preview-notebook"></a>[Notes w wersji zapoznawczej](#tab/preview)
@@ -210,7 +210,7 @@ Kliknij lewą stronę komórki i przeciągnij ją do żądanej pozycji.
 
 # <a name="classical-notebook"></a>[Notes klasyczny](#tab/classical)
 
-Aby usunąć komórkę, wybierz wielokropek (...), aby uzyskać dostęp do menu akcji innych komórek po prawej stronie, a następnie wybierz pozycję **Usuń komórkę**. 
+Aby usunąć komórkę, wybierz wielokropek (...), aby uzyskać dostęp do menu akcji innych komórek po prawej stronie, a następnie wybierz **pozycję Usuń komórkę**. 
 
 Możesz również użyć [klawiszy skrótów w trybie polecenia](#shortcut-keys-under-command-mode). Naciśnij **klawisze D,D,** aby usunąć bieżącą komórkę.
   
@@ -246,7 +246,7 @@ Wybierz **wielokropek** (...) Więcej poleceń na pasku narzędzi komórki i dan
 
 # <a name="classical-notebook"></a>[Notes klasyczny](#tab/classical)
 
-Wybierz przycisk **zwinięcia danych** wyjściowych w lewym górnym rogu bieżących danych wyjściowych komórki, aby je zwinąć. Aby ją rozwinąć, wybierz pozycję **Pokaż dane wyjściowe komórki,** gdy dane wyjściowe komórki są zwinięte.
+Wybierz przycisk **zwinięcia danych** wyjściowych w lewym górnym rogu bieżących danych wyjściowych komórki, aby je zwinąć. Aby ją rozwinąć, wybierz **pozycję Pokaż dane wyjściowe komórki,** gdy dane wyjściowe komórki są zwinięte.
 
    ![zwiń dane wyjściowe w komórce](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-output.gif)
 
@@ -301,7 +301,7 @@ Rozwiń listę rozwijaną z **przycisku Uruchom wszystko,** a następnie wybierz
 
 # <a name="classical-notebook"></a>[Notes klasyczny](#tab/classical)
 Wybierz przycisk **Anuluj wszystko,** aby anulować uruchomione komórki lub komórki oczekujące w kolejce. 
-   ![anulowanie wszystkich komórek](./media/apache-spark-development-using-notebooks/synapse-cancel-all.png) 
+   ![cancel-all-cells](./media/apache-spark-development-using-notebooks/synapse-cancel-all.png) 
 
 # <a name="preview-notebook"></a>[Notes w wersji zapoznawczej](#tab/preview)
 
@@ -331,24 +331,40 @@ Przykład: ``` %run /path/notebookA ```.
 
 ---
 
+### <a name="variable-explorer"></a>Eksplorator zmiennych
+
+# <a name="classical-notebook"></a>[Notes klasyczny](#tab/classical)
+
+Nieobsługiwane.
+
+# <a name="preview-notebook"></a>[Notes w wersji zapoznawczej](#tab/preview)
+
+Notes usługi Synapse udostępnia wbudowanego eksploratora zmiennych, który umożliwia wyświetlanie listy zmiennych o nazwie, typie, długości i wartości w bieżącej sesji platformy Spark dla komórek PySpark (Python). Więcej zmiennych będzie automatycznie pokazywanych w przypadku ich definicji w komórkach kodu. Kliknięcie nagłówka każdej kolumny spowoduje posortowanie zmiennych w tabeli.
+
+Możesz wybrać przycisk **Zmienne na** pasku poleceń notesu, aby otworzyć lub ukryć eksploratora zmiennych.
+
+![azure-notebook-variable-explorer](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-variable-explorer.png)
+
+
+---
 
 ### <a name="cell-status-indicator"></a>Wskaźnik stanu komórki
 
-Stan wykonywania komórki krok po kroku jest wyświetlany pod komórką, aby ułatwić wyświetlanie bieżącego postępu. Po zakończeniu działania komórki zostanie wyświetlone podsumowanie wykonywania z łącznym czasem trwania i czasem zakończenia, które będzie przechowywane w przyszłości.
+Stan wykonywania komórki krok po kroku jest wyświetlany pod komórką, aby ułatwić wyświetlanie bieżącego postępu. Po zakończeniu działania komórki zostanie wyświetlone podsumowanie wykonywania z łącznym czasem trwania i czasem zakończenia, które będzie przechowywane do przyszłego odwołania.
 
 ![stan komórki](./media/apache-spark-development-using-notebooks/synapse-cell-status.png)
 
 ### <a name="spark-progress-indicator"></a>Wskaźnik postępu platformy Spark
 
-Azure Synapse Studio jest wyłącznie oparta na uciece Spark. Komórki kodu są wykonywane zdalnie w puli Apache Spark serwera. Wskaźnik postępu zadania platformy Spark jest dostarczany z wyświetlonym pasek postępu w czasie rzeczywistym, który pomaga zrozumieć stan wykonywania zadania.
-Liczba zadań na każde zadanie lub etap pomaga zidentyfikować poziom równoległy zadania platformy Spark. Możesz również przejść do szczegółów interfejsu użytkownika platformy Spark określonego zadania (lub etapu), wybierając link w nazwie zadania (lub etapu).
+Azure Synapse Studio jest wyłącznie oparte na systemie Spark. Komórki kodu są wykonywane zdalnie w puli Apache Spark serwera. Zostanie wyświetlony wskaźnik postępu zadania platformy Spark z wyświetlonym pasku postępu w czasie rzeczywistym, który pomaga zrozumieć stan wykonywania zadania.
+Liczba zadań na każde zadanie lub etap pomaga zidentyfikować poziom równoległy zadania spark. Możesz również przejść do szczegółów interfejsu użytkownika platformy Spark określonego zadania (lub etapu), wybierając link w nazwie zadania (lub etapu).
 
 
 ![spark-progress-indicator](./media/apache-spark-development-using-notebooks/synapse-spark-progress-indicator.png)
 
 ### <a name="spark-session-config"></a>Konfiguracja sesji platformy Spark
 
-Możesz określić czas trwania limitu czasu, liczbę i rozmiar wykonawców, które mają zostać nadane bieżącej sesji platformy Spark, w **skrypcie Konfigurowanie sesji**. Aby zmiany konfiguracji zaszły, uruchom ponownie sesję platformy Spark. Wszystkie buforowane zmienne notesu zostaną wyczyszone.
+Możesz określić czas trwania limitu czasu, liczbę i rozmiar wykonawców, które mają zostać nadane bieżącej sesji platformy Spark, w **skrypcie Konfigurowanie sesji**. Uruchom ponownie sesję platformy Spark, aby zmiany konfiguracji weszły w życie. Wszystkie buforowane zmienne notesu zostaną wyczyszone.
 
 [![zarządzanie sesjami](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-spark-session-management.png#lightbox)
 
@@ -423,9 +439,9 @@ df = spark.read.option("header", "true") \
 
 ### <a name="read-data-from-the-primary-storage-account"></a>Odczytywanie danych z podstawowego konta magazynu
 
-Dostęp do danych można uzyskać bezpośrednio na podstawowym koncie magazynu. Nie ma potrzeby podania kluczy tajnych. W Eksplorator danych kliknij prawym przyciskiem myszy plik i wybierz pozycję **Nowy** notes, aby wyświetlić nowy notes z automatycznie wygenerowanym wyodrębniaczem danych.
+Dostęp do danych można uzyskać bezpośrednio na podstawowym koncie magazynu. Nie ma potrzeby podania kluczy tajnych. W Eksplorator danych kliknij prawym przyciskiem myszy plik i wybierz pozycję **Nowy** notes, aby wyświetlić nowy notes z automatycznie wygenerowanym extractorem danych.
 
-![data-to-cell](./media/apache-spark-development-using-notebooks/synapse-data-to-cell.png)
+![dane do komórki](./media/apache-spark-development-using-notebooks/synapse-data-to-cell.png)
 
 ## <a name="save-notebooks"></a>Zapisywanie notesów
 
@@ -453,17 +469,17 @@ W notesach programu Azure Synapse Studio można używać znanych poleceń magic 
 
 # <a name="classical-notebook"></a>[Notes klasyczny](#tab/classical)
 
-Dostępne polecenia magic wiersza: [%lsmagic,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic) [%time,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time) [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
+Dostępne polecenia magics wiersza: [%lsmagic,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic) [%time,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time) [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
 
-Dostępne polecenia komórki: [%%time,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time) [%%timeit,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit) [%%capture,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture) [%%writefile,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile) [%%sql](#use-multiple-languages), [%%pyspark,](#use-multiple-languages) [%%spark,](#use-multiple-languages) [%%csharp,](#use-multiple-languages)[%%configure](#spark-session-config-magic-command)
+Dostępne magics komórek: [%%time,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time) [%%timeit,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit) [%%capture,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture) [%%writefile,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile) [%%sql,](#use-multiple-languages) [%%pyspark,](#use-multiple-languages) [%%spark,](#use-multiple-languages) [%%csharp,](#use-multiple-languages)[%%configure](#spark-session-config-magic-command)
 
 
 
 # <a name="preview-notebook"></a>[Notes w wersji zapoznawczej](#tab/preview)
 
-Dostępne polecenia magic wiersza: [%lsmagic,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic) [%time,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time) [%timeit,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit) [%history,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history) [%run,](#notebook-reference) [%load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
+Dostępne polecenia wiersza: [%lsmagic,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic) [%time,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time) [%timeit,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit) [%history,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history) [%run,](#notebook-reference) [%load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
 
-Dostępne polecenia magic komórek: [%%time,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time) [%%timeit,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit) [%%capture,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture) [%%writefile,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile) [%%sql](#use-multiple-languages), [%%pyspark,](#use-multiple-languages) [%%spark,](#use-multiple-languages) [%%csharp,](#use-multiple-languages) [%%html,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-html) [%%configure](#spark-session-config-magic-command)
+Dostępne magics komórki: [%%time,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time) [%%timeit,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit) [%%capture,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture) [%%writefile,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile) [%%sql,](#use-multiple-languages) [%%pyspark,](#use-multiple-languages) [%%spark,](#use-multiple-languages) [%%csharp,](#use-multiple-languages) [%%html,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-html) [%%configure](#spark-session-config-magic-command)
 
 --- 
 
@@ -475,7 +491,7 @@ Wybierz przycisk **Dodaj do potoku** w prawym górnym rogu, aby dodać notes do 
 
 ![Dodawanie notesu do potoku](./media/apache-spark-development-using-notebooks/add-to-pipeline.png)
 
-### <a name="designate-a-parameters-cell"></a>Wyznaczanie komórki parameters
+### <a name="designate-a-parameters-cell"></a>Wyznaczanie komórki parametrów
 
 # <a name="classical-notebook"></a>[Notes klasyczny](#tab/classical)
 
@@ -496,19 +512,19 @@ Azure Data Factory szuka komórki parameters i traktuje tę komórkę jako warto
 
 ### <a name="assign-parameters-values-from-a-pipeline"></a>Przypisywanie wartości parametrów z potoku
 
-Po utworzeniu notesu z parametrami można go wykonać z potoku za pomocą Azure Synapse Notes. Po dodaniu działania do kanwy potoku będzie można ustawić  wartości parametrów w sekcji Parametry podstawowe na **karcie** Ustawienia. 
+Po utworzeniu notesu z parametrami możesz go wykonać z potoku za pomocą Azure Synapse Notes. Po dodaniu działania do kanwy potoku będzie można ustawić  wartości parametrów w sekcji Parametry podstawowe na **karcie** Ustawienia. 
 
 ![Przypisywanie parametru](./media/apache-spark-development-using-notebooks/assign-parameter.png)
 
-Podczas przypisywania wartości parametrów można użyć języka wyrażeń [potoku lub](../../data-factory/control-flow-expression-language-functions.md) [zmiennych systemowych](../../data-factory/control-flow-system-variables.md).
+Podczas przypisywania wartości parametrów można użyć języka [wyrażeń potoku lub](../../data-factory/control-flow-expression-language-functions.md) [zmiennych systemowych](../../data-factory/control-flow-system-variables.md).
 
 
 
 ## <a name="shortcut-keys"></a>Klawisze skrótów
 
-Podobnie jak w przypadku notesów Jupyter Notebooks, Azure Synapse Studio mają modalny interfejs użytkownika. Klawiatura robi różne rzeczy w zależności od trybu, w którym znajduje się komórka notesu. Synapse Studio notesy obsługują następujące dwa tryby dla danej komórki kodu: tryb polecenia i tryb edycji.
+Podobnie jak w przypadku notesów Jupyter notebooks, Azure Synapse Studio mają modalny interfejs użytkownika. Klawiatura robi różne rzeczy w zależności od trybu, w którym znajduje się komórka notesu. Synapse Studio notesy obsługują następujące dwa tryby dla danej komórki kodu: tryb polecenia i tryb edycji.
 
-1. Komórka jest w trybie polecenia, gdy nie ma kursora tekstowego monitowania o wpisanie. Gdy komórka jest w trybie polecenia, możesz edytować notes jako całość, ale nie wpisywać tekstu w pojedynczych komórkach. Wprowadź tryb polecenia, naciskając lub używając myszy, aby wybrać `ESC` poza obszarem edytora komórki.
+1. Komórka jest w trybie polecenia, gdy nie ma kursora tekstowego monitowania o wpisanie. Gdy komórka jest w trybie polecenia, można edytować notes jako całość, ale nie można wpisywać w pojedynczych komórkach. Wprowadź tryb polecenia, naciskając lub używając myszy, aby wybrać `ESC` poza obszarem edytora komórki.
 
    ![tryb poleceń](./media/apache-spark-development-using-notebooks/synapse-command-mode-2.png)
 
@@ -531,7 +547,7 @@ Za pomocą następujących skrótów klawiszy można łatwiej nawigować i uruch
 |Wstaw komórkę powyżej| A |
 |Wstaw komórkę poniżej| B |
 |Rozszerzanie zaznaczonych komórek powyżej| Shift+ W górę |
-|Rozszerzanie zaznaczonych komórek poniżej| Shift + W dół|
+|Rozszerzanie zaznaczonych komórek poniżej| Shift+Down|
 |Przenieś komórkę w górę| Ctrl+Alt+↑ |
 |Przenieś komórkę w dół| Ctrl+Alt+↓ |
 |Usuwanie zaznaczonych komórek| D, D |
@@ -546,11 +562,11 @@ Za pomocą następujących skrótów klawiszy można łatwiej nawigować i uruch
 |Uruchamianie bieżącej komórki| Ctrl+Enter |
 |Wybierz komórkę powyżej| W górę |
 |Wybierz komórkę poniżej| W dół |
-|Wybieranie poprzedniej komórki| K |
+|Wybierz poprzednią komórkę| K |
 |Wybierz następną komórkę| J |
 |Wstaw komórkę powyżej| A |
 |Wstaw komórkę poniżej| B |
-|Usuwanie zaznaczonych komórek| Shift+D |
+|Usuwanie zaznaczonych komórek| Shift + D |
 |Przełączanie do trybu edycji| Enter |
 
 ---
@@ -571,7 +587,7 @@ Za pomocą następujących skrótów klawiszy można łatwiej nawigować i uruch
 |Usuń wyraz po|Ctrl + Delete|
 |Przejdź do rozpoczęcia komórki|Ctrl + Strona główna|
 |Przejdź do końca komórki |Ctrl + koniec|
-|Przejdź o jeden wyraz w lewo|Ctrl + lewo|
+|Przejdź o jeden wyraz w lewo|Ctrl + Left|
 |Przejdź o jeden wyraz w prawo|Ctrl + w prawo|
 |Zaznacz wszystko|Ctrl + A|
 |Wcięcie| Ctrl +]|

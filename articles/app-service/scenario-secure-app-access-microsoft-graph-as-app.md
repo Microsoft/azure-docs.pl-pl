@@ -1,6 +1,6 @@
 ---
-title: Samouczek — dostęp do aplikacji sieci Web Microsoft Graph jako aplikacja | Azure
-description: W tym samouczku dowiesz się, jak uzyskać dostęp do danych w Microsoft Graph przy użyciu zarządzanych tożsamości.
+title: Samouczek — aplikacja internetowa uzyskuje dostęp Microsoft Graph jako aplikacja| Azure
+description: Z tego samouczka dowiesz się, jak uzyskać dostęp do danych w Microsoft Graph przy użyciu tożsamości zarządzanych.
 services: microsoft-graph, app-service-web
 author: rwike77
 manager: CelesteDG
@@ -10,47 +10,47 @@ ms.workload: identity
 ms.date: 01/28/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.custom: azureday1
-ms.openlocfilehash: 06837ab0f4685787f8d2615e81d0405fdb8ec711
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: azureday1, devx-track-azurepowershell
+ms.openlocfilehash: 5bb52799836b1975de9d936e04fb53987effb300
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99062563"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832630"
 ---
-# <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-app"></a>Samouczek: dostęp do Microsoft Graph z zabezpieczonej aplikacji jako aplikacji
+# <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-app"></a>Samouczek: Microsoft Graph dostępu z zabezpieczonej aplikacji jako aplikacji
 
-Dowiedz się, jak uzyskać dostęp do Microsoft Graph z aplikacji sieci Web działającej na Azure App Service.
+Dowiedz się, jak uzyskać dostęp Microsoft Graph aplikacji internetowej działającej na platformie Azure App Service.
 
-:::image type="content" alt-text="Diagram przedstawiający dostęp do Microsoft Graph." source="./media/scenario-secure-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
+:::image type="content" alt-text="Diagram przedstawiający uzyskiwanie dostępu do Microsoft Graph." source="./media/scenario-secure-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
 
-Chcesz wywołać Microsoft Graph aplikacji sieci Web. Bezpiecznym sposobem zapewnienia dostępu aplikacji sieci Web do danych jest użycie [tożsamości zarządzanej przypisanej do systemu](../active-directory/managed-identities-azure-resources/overview.md). Zarządzana tożsamość z Azure Active Directory umożliwia App Service dostępu do zasobów za pośrednictwem kontroli dostępu opartej na rolach (RBAC), bez konieczności korzystania z poświadczeń aplikacji. Po przypisaniu zarządzanej tożsamości do aplikacji sieci Web, platforma Azure bierze pod uwagę tworzenie i dystrybucję certyfikatu. Nie musisz martwić się o zarządzanie wpisami tajnymi lub poświadczeniami aplikacji.
+Chcesz wywołać Microsoft Graph dla aplikacji internetowej. Bezpiecznym sposobem na nadanie aplikacji internetowej dostępu do danych jest użycie przypisanej przez [system tożsamości zarządzanej](../active-directory/managed-identities-azure-resources/overview.md). Tożsamość zarządzana z usługi Azure Active Directory umożliwia App Service dostępu do zasobów za pośrednictwem kontroli dostępu opartej na rolach (RBAC) bez konieczności poświadczeń aplikacji. Po przypisaniu tożsamości zarządzanej do aplikacji internetowej platforma Azure zajmuje się tworzeniem i dystrybucją certyfikatu. Nie musisz martwić się o zarządzanie wpisami tajnymi ani poświadczeniami aplikacji.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
-> * Tworzenie tożsamości zarządzanej przypisanej przez system w aplikacji sieci Web.
-> * Dodaj Microsoft Graph uprawnienia interfejsu API do zarządzanej tożsamości.
-> * Wywołaj Microsoft Graph z aplikacji sieci Web przy użyciu tożsamości zarządzanych.
+> * Utwórz tożsamość zarządzaną przypisaną przez system w aplikacji internetowej.
+> * Dodawanie Microsoft Graph interfejsu API do tożsamości zarządzanej.
+> * Wywołaj Microsoft Graph z aplikacji internetowej przy użyciu tożsamości zarządzanych.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Aplikacja sieci Web działająca na Azure App Service z [włączonym modułem uwierzytelniania App Service/autoryzacji](scenario-secure-app-authentication-app-service.md).
+* Aplikacja internetowa uruchomiona na Azure App Service z włączonym [modułem App Service uwierzytelniania/autoryzacji.](scenario-secure-app-authentication-app-service.md)
 
-## <a name="enable-managed-identity-on-app"></a>Włącz zarządzaną tożsamość w aplikacji
+## <a name="enable-managed-identity-on-app"></a>Włączanie tożsamości zarządzanej w aplikacji
 
-Jeśli utworzysz i opublikujesz aplikację sieci Web za pomocą programu Visual Studio, zarządzana tożsamość została włączona w Twojej aplikacji. W usłudze App Service wybierz pozycję **Identity (tożsamość** ) w okienku po lewej stronie, a następnie wybierz pozycję **przypisane do systemu**. Sprawdź, czy **stan** jest ustawiony na wartość **włączone**. W przeciwnym razie wybierz pozycję **Zapisz** , a następnie wybierz pozycję **tak** , aby włączyć zarządzane przez system tożsamość zarządzaną. Gdy zarządzana tożsamość jest włączona, stan jest ustawiony na **włączone** , a identyfikator obiektu jest dostępny.
+Jeśli utworzysz i opublikujesz aplikację internetową za pośrednictwem Visual Studio, tożsamość zarządzana została włączona w Twojej aplikacji. W usłudze App Service wybierz pozycję **Tożsamość w** okienku po lewej stronie, a następnie wybierz **pozycję Przypisana przez system**. Sprawdź, **czy dla ustawienia Stan** ustawiono wartość **Wł.** Jeśli nie, wybierz **pozycję Zapisz,** a następnie wybierz pozycję **Tak,** aby włączyć tożsamość zarządzaną przypisaną przez system. Gdy tożsamość zarządzana jest włączona, stan jest ustawiony na **Wł.,** a identyfikator obiektu jest dostępny.
 
-Zanotuj wartość **identyfikatora obiektu** , która będzie potrzebna w następnym kroku.
+Zanotuj **wartość Identyfikator** obiektu, która będzie potrzebna w następnym kroku.
 
-:::image type="content" alt-text="Zrzut ekranu przedstawiający tożsamość przypisaną do systemu." source="./media/scenario-secure-app-access-microsoft-graph/create-system-assigned-identity.png":::
+:::image type="content" alt-text="Zrzut ekranu przedstawiający tożsamość przypisaną przez system." source="./media/scenario-secure-app-access-microsoft-graph/create-system-assigned-identity.png":::
 
-## <a name="grant-access-to-microsoft-graph"></a>Udzielanie dostępu Microsoft Graph
+## <a name="grant-access-to-microsoft-graph"></a>Udzielanie dostępu do Microsoft Graph
 
-Podczas uzyskiwania dostępu do Microsoft Graph zarządzana tożsamość musi mieć odpowiednie uprawnienia do operacji, którą chce wykonać. Obecnie nie ma możliwości przypisywania takich uprawnień za pomocą Azure Portal. Poniższy skrypt doda żądane uprawnienia interfejsu API Microsoft Graph do obiektu głównego usługi tożsamości zarządzanej.
+Podczas uzyskiwania Microsoft Graph tożsamości zarządzanej musi mieć odpowiednie uprawnienia do operacji, które chce wykonać. Obecnie nie ma możliwości przypisania takich uprawnień za pośrednictwem Azure Portal. Poniższy skrypt doda żądane uprawnienia interfejsu API Microsoft Graph do obiektu jednostki usługi tożsamości zarządzanej.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -105,33 +105,33 @@ az rest --method post --uri $uri --body $body --headers "Content-Type=applicatio
 
 ---
 
-Po wykonaniu skryptu można sprawdzić w [Azure Portal](https://portal.azure.com) , że żądane uprawnienia interfejsu API są przypisane do tożsamości zarządzanej.
+Po wykonaniu skryptu możesz sprawdzić na stronie [Azure Portal,](https://portal.azure.com) czy żądane uprawnienia interfejsu API są przypisane do tożsamości zarządzanej.
 
-Przejdź do **Azure Active Directory**, a następnie wybierz pozycję **aplikacje dla przedsiębiorstw**. W tym okienku są wyświetlane wszystkie nazwy główne usługi w dzierżawie. We **wszystkich aplikacjach** wybierz nazwę główną usługi dla tożsamości zarządzanej. 
+Przejdź do **Azure Active Directory**, a następnie wybierz pozycję **Aplikacje dla przedsiębiorstw.** W tym okienku są wyświetlane wszystkie jednostki usługi w dzierżawie. W **chmurze Wszystkie** aplikacje wybierz jednostkę usługi dla tożsamości zarządzanej. 
 
-Jeśli korzystasz z tego samouczka, istnieją dwie jednostki usługi o tej samej nazwie wyświetlanej (na przykład SecureWebApp2020094113531). Nazwa główna usługi, która zawiera **adres URL strony głównej** , reprezentuje aplikację sieci Web w dzierżawie. Nazwa główna usługi bez **adresu URL strony głównej** reprezentuje przypisaną przez system tożsamość zarządzaną dla aplikacji sieci Web. Wartość **identyfikatora obiektu** dla tożsamości zarządzanej jest zgodna z identyfikatorem obiektu tożsamości zarządzanej, która została wcześniej utworzona.
+Jeśli używasz tego samouczka, istnieją dwie jednostki usługi o tej samej nazwie wyświetlanej (na przykład SecureWebApp2020094113531). Nazwa główna usługi, która ma **adres URL strony głównej,** reprezentuje aplikację internetową w dzierżawie. Nazwa główna usługi bez adresu **URL strony głównej** reprezentuje tożsamość zarządzaną przypisaną przez system dla aplikacji internetowej. Wartość **Identyfikator obiektu** dla tożsamości zarządzanej jest taka, jak identyfikator obiektu utworzonej wcześniej tożsamości zarządzanej.
 
-Wybierz nazwę główną usługi dla tożsamości zarządzanej.
+Wybierz jednostkę usługi dla tożsamości zarządzanej.
 
-:::image type="content" alt-text="Zrzut ekranu pokazujący opcję Wszystkie aplikacje." source="./media/scenario-secure-app-access-microsoft-graph/enterprise-apps-all-applications.png":::
+:::image type="content" alt-text="Zrzut ekranu przedstawiający opcję Wszystkie aplikacje." source="./media/scenario-secure-app-access-microsoft-graph/enterprise-apps-all-applications.png":::
 
-W obszarze **Przegląd** wybierz pozycję **uprawnienia**, a zobaczysz uprawnienia dodane do Microsoft Graph.
+Na **stronie** Przegląd **wybierz pozycję Uprawnienia,** a zobaczysz dodane uprawnienia dla Microsoft Graph.
 
-:::image type="content" alt-text="Zrzut ekranu przedstawiający okienko uprawnień." source="./media/scenario-secure-app-access-microsoft-graph/enterprise-apps-permissions.png":::
+:::image type="content" alt-text="Zrzut ekranu przedstawiający okienko Uprawnienia." source="./media/scenario-secure-app-access-microsoft-graph/enterprise-apps-permissions.png":::
 
-## <a name="call-microsoft-graph-net"></a>Microsoft Graph wywołań (.NET)
+## <a name="call-microsoft-graph-net"></a>Wywołanie Microsoft Graph (.NET)
 
-Klasa [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) jest używana do uzyskiwania poświadczeń tokenu dla kodu, aby autoryzować żądania do Microsoft Graph. Utwórz wystąpienie klasy [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) , która używa tożsamości zarządzanej do pobierania tokenów i dołączania ich do klienta usługi. Poniższy przykład kodu Pobiera poświadczenia uwierzytelnionego tokenu i używa go do utworzenia obiektu klienta usługi, który pobiera użytkowników w grupie.
+Klasa [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) służy do uzyskania poświadczeń tokenu dla kodu w celu autoryzowania żądań do Microsoft Graph. Utwórz wystąpienie klasy [DefaultAzureCredential,](/dotnet/api/azure.identity.defaultazurecredential) które używa tożsamości zarządzanej do pobierania tokenów i dołączania ich do klienta usługi. Poniższy przykład kodu pobiera poświadczenia uwierzytelnionego tokenu i używa go do utworzenia obiektu klienta usługi, który pobiera użytkowników w grupie.
 
-Aby wyświetlić ten kod jako część przykładowej aplikacji, zobacz [przykład w witrynie GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/3-WebApp-graphapi-managed-identity).
+Aby zobaczyć ten kod jako część przykładowej aplikacji, zobacz przykład [w witrynie GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/3-WebApp-graphapi-managed-identity).
 
-### <a name="install-the-microsoftidentitywebmicrosoftgraph-client-library-package"></a>Zainstaluj pakiet biblioteki klienta Microsoft. Identity. Web. MicrosoftGraph
+### <a name="install-the-microsoftidentitywebmicrosoftgraph-client-library-package"></a>Instalowanie pakietu biblioteki klienta Microsoft.Identity.Web.MicrosoftGraph
 
-Zainstaluj [pakiet NuGet Microsoft. Identity. Web. MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) w projekcie przy użyciu interfejsu wiersza polecenia platformy .NET Core lub konsoli Menedżera pakietów w programie Visual Studio.
+Zainstaluj pakiet [NuGet Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) w projekcie przy użyciu interfejsu wiersza polecenia platformy .NET Core lub konsoli Menedżer pakietów w programie Visual Studio.
 
 # <a name="command-line"></a>[Wiersz polecenia](#tab/command-line)
 
-Otwórz wiersz polecenia i przejdź do katalogu, który zawiera plik projektu.
+Otwórz wiersz polecenia i przejdź do katalogu zawierającego plik projektu.
 
 Uruchom polecenia instalacji.
 
@@ -141,7 +141,7 @@ dotnet add package Microsoft.Identity.Web.MicrosoftGraph
 
 # <a name="package-manager"></a>[Menedżer pakietów](#tab/package-manager)
 
-Otwórz projekt/rozwiązanie w programie Visual Studio i Otwórz konsolę programu przy użyciu narzędzia Menedżer   >  **pakietów NuGet**  >  **konsola Menedżera pakietów** .
+Otwórz projekt/rozwiązanie w Visual Studio, a następnie otwórz konsolę przy użyciu polecenia Narzędzia   >  **NuGet Menedżer pakietów**  >  **Menedżer pakietów Console.**
 
 Uruchom polecenia instalacji.
 ```powershell
@@ -210,7 +210,7 @@ public async Task OnGetAsync()
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli skończysz pracę z tym samouczkiem i nie potrzebujesz już aplikacji sieci Web ani skojarzonych zasobów, [Wyczyść utworzone zasoby](scenario-secure-app-clean-up-resources.md).
+Jeśli po zakończeniu pracy z tym samouczkiem aplikacja internetowa lub skojarzone zasoby nie będą już potrzebne, wyczyść [utworzone zasoby.](scenario-secure-app-clean-up-resources.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -218,8 +218,8 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 > [!div class="checklist"]
 >
-> * Tworzenie tożsamości zarządzanej przypisanej przez system w aplikacji sieci Web.
-> * Dodaj Microsoft Graph uprawnienia interfejsu API do zarządzanej tożsamości.
-> * Wywołaj Microsoft Graph z aplikacji sieci Web przy użyciu tożsamości zarządzanych.
+> * Utwórz tożsamość zarządzaną przypisaną przez system w aplikacji internetowej.
+> * Dodawanie Microsoft Graph interfejsu API do tożsamości zarządzanej.
+> * Wywołaj Microsoft Graph z aplikacji internetowej przy użyciu tożsamości zarządzanych.
 
-Dowiedz się, jak połączyć [aplikację platformy .NET Core](tutorial-dotnetcore-sqldb-app.md), aplikację [języka](tutorial-java-spring-cosmosdb.md) [Python](tutorial-python-postgresql-app.md), aplikację Java lub [Node.js aplikację](tutorial-nodejs-mongodb-app.md) z bazą danych.
+Dowiedz się, jak połączyć [aplikację .NET Core,](tutorial-dotnetcore-sqldb-app.md)aplikację w języku [Python,](tutorial-python-postgresql-app.md)aplikację [Java](tutorial-java-spring-cosmosdb.md) [ lubNode.js z](tutorial-nodejs-mongodb-app.md) bazą danych.
