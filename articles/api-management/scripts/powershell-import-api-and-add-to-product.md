@@ -1,6 +1,6 @@
 ---
 title: Przykładowy skrypt programu Azure PowerShell — importowanie interfejsu API | Microsoft Docs
-description: Dowiedz się, jak zaimportować interfejs API i dodać go do produktu API Management. Zobacz przykładowy skrypt i wyświetlenie dodatkowych dostępnych zasobów.
+description: Dowiedz się, jak zaimportować interfejs API i dodać go do API Management produktu. Zobacz przykładowy skrypt i wyświetl dodatkowe dostępne zasoby.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -11,13 +11,13 @@ ms.workload: mobile
 ms.topic: sample
 ms.date: 11/16/2017
 ms.author: apimpm
-ms.custom: mvc
-ms.openlocfilehash: 3644eda24790b9f711d6584b05a18eba23f227ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 7748558fa7cee6972e4bb47fea0ba08ffb72b83e
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87850937"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816894"
 ---
 # <a name="import-an-api"></a>Importowanie interfejsu API
 

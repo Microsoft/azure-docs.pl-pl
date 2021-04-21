@@ -1,6 +1,6 @@
 ---
 title: Wdrażanie maszyn wirtualnych w zestawie dostępności przy użyciu interfejsu wiersza polecenia platformy Azure
-description: Z tego samouczka dowiesz się, jak za pomocą interfejsu wiersza polecenia platformy Azure wdrażać maszyny wirtualne o wysokiej dostępności w zestawach dostępności
+description: Dowiedz się, jak za pomocą interfejsu wiersza polecenia platformy Azure wdrażać maszyny wirtualne o wysokiej dostępności w zestawach dostępności
 documentationcenter: ''
 services: virtual-machines
 author: mimckitt
@@ -10,12 +10,12 @@ ms.date: 3/8/2021
 ms.author: mimckitt
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 7c45f08a339ca8878bb9e2840faa8a412f3e60e0
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 21f7d3e6f624c3a8e550a33293b46284bf5c5815
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765975"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816300"
 ---
 # <a name="create-and-deploy-virtual-machines-in-an-availability-set-using-azure-cli"></a>Tworzenie i wdrażanie maszyn wirtualnych w zestawie dostępności przy użyciu interfejsu wiersza polecenia platformy Azure
 

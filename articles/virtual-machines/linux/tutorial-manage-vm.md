@@ -1,26 +1,21 @@
 ---
-title: Samouczek — Tworzenie maszyn wirtualnych z systemem Linux i zarządzanie nimi za pomocą interfejsu wiersza polecenia platformy Azure
+title: Samouczek — tworzenie maszyn wirtualnych z systemem Linux i zarządzanie nimi za pomocą interfejsu wiersza polecenia platformy Azure
 description: Z tego samouczka dowiesz się, jak tworzyć maszyny wirtualne z systemem Linux i zarządzać nimi za pomocą interfejsu wiersza polecenia platformy Azure
 services: virtual-machines
 documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 77213fe83a56a33f4d10658f85465349949be792
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb70f11e8815b078bccd4ed1cd294c961904579d
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555605"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816606"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Samouczek: tworzenie maszyn wirtualnych z systemem Linux i zarządzanie nimi za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -33,7 +28,7 @@ Maszyny wirtualne platformy Azure oferują w pełni konfigurowalne i elastyczne 
 > * Zmienianie rozmiaru maszyny wirtualnej
 > * Wyświetlanie stanu maszyny wirtualnej i jego omówienie
 
-W tym samouczku jest używany interfejs wiersza polecenia w [Azure Cloud Shell](../../cloud-shell/overview.md), który jest stale aktualizowany do najnowszej wersji. Aby otworzyć Cloud Shell, wybierz opcję **Wypróbuj** z góry dowolnego bloku kodu.
+W tym samouczku używany jest interfejs wiersza [polecenia Azure Cloud Shell](../../cloud-shell/overview.md), który jest stale aktualizowany do najnowszej wersji. Aby otworzyć Cloud Shell, wybierz pozycję **Wypróbuj** w górnej części bloku kodu.
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.30 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
@@ -158,8 +153,8 @@ W poniższej tabeli przedstawiono kategorie rozmiarów podzielone według przypa
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Ogólnego przeznaczenia](../sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Zrównoważona moc procesora CPU w stosunku do pamięci. Opcja idealna w przypadku tworzenia i testowania, małych i średnich aplikacji oraz rozwiązań dotyczących danych.  |
 | [Optymalizacja pod kątem obliczeń](../sizes-compute.md)   | Fsv2          | Duża moc procesora CPU w stosunku do pamięci. Opcja dobra w przypadku aplikacji o średnim ruchu, urządzeń sieciowych i procesów wsadowych.        |
-| [Optymalizacja pod kątem pamięci](../sizes-memory.md)    | Esv3, EV3, M, DSv2, Dv2  | Duża ilość pamięci na rdzeń. Opcja bardzo dobra w przypadku relacyjnych baz danych, średnich i dużych pamięci podręcznych oraz analizowania w pamięci.                 |
-| [Optymalizacja pod kątem magazynu](../sizes-storage.md)      | Lsv2, LS              | Wysoka przepływność dysku i duża liczba operacji we/wy. Opcja idealna w przypadku danych big data oraz baz danych SQL i NoSQL.                                                         |
+| [Optymalizacja pod kątem pamięci](../sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | Duża ilość pamięci na rdzeń. Opcja bardzo dobra w przypadku relacyjnych baz danych, średnich i dużych pamięci podręcznych oraz analizowania w pamięci.                 |
+| [Optymalizacja pod kątem magazynu](../sizes-storage.md)      | Lsv2, Ls              | Wysoka przepływność dysku i duża liczba operacji we/wy. Opcja idealna w przypadku danych big data oraz baz danych SQL i NoSQL.                                                         |
 | [Procesor GPU](../sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | Maszyny wirtualne wyspecjalizowane pod kątem intensywnego renderowania grafiki i edytowania materiałów wideo.       |
 | [Wysoka wydajność](../sizes-hpc.md) | H        | Maszyny wirtualne z najbardziej wydajnymi procesorami CPU oraz, opcjonalnie, interfejsami sieciowymi zapewniającymi wysoką przepływność (RDMA). |
 
@@ -281,7 +276,7 @@ ode                DisplayStatus    Level
 PowerState/running  VM running       Info
 ```
 
-Aby pobrać stan mocy wszystkich maszyn wirtualnych w ramach subskrypcji, użyj opcji [Virtual Machines wszystkie interfejsy API](/rest/api/compute/virtualmachines/listall) z parametrem **statusOnly** na *wartość true*.
+Aby pobrać stan zasilania wszystkich maszyn wirtualnych w subskrypcji, użyj interfejsu [API Virtual Machines —](/rest/api/compute/virtualmachines/listall) lista wszystkich z parametrem **statusOnly ustawionym** na *wartość true.*
 
 ## <a name="management-tasks"></a>Zadania zarządzania
 

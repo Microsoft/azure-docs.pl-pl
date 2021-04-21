@@ -8,12 +8,12 @@ ms.date: 06/15/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 285f0acd5097ce68cddee6f732b17944dffb0eba
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 0f48856f085737040ca16afcca1e56be1da4843e
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762573"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816750"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Przekazywanie wirtualnego dysku twardego na platformę Azure lub kopiowanie dysku zarządzanego do innego regionu — interfejs wiersza polecenia platformy Azure
 
@@ -57,7 +57,7 @@ az disk create -n <yourdiskname> -g <yourresourcegroupname> -l <yourregion> --fo
 
 Jeśli chcesz przekazać dysk SSD w warstwie Premium lub ssd w  warstwie Standardowa, zastąp standard_lrs **za** pomocą premium_LRS **lub standardssd_lrs**. Dyski w warstwie Ultra nie są obecnie obsługiwane.
 
-Teraz, po utworzeniu pustego dysku zarządzanego skonfigurowanego dla procesu przekazywania, możesz przekazać do niego wirtualny dysk twardy. Aby przekazać dysk VHD na dysk, potrzebna będzie zapisywalna sygnatura dostępu współdzielonego, aby można było odwoływać się do niego jako miejsca docelowego przekazywania.
+Teraz, po utworzeniu pustego dysku zarządzanego skonfigurowanego dla procesu przekazywania, możesz przekazać do niego wirtualny dysk twardy. Aby przekazać dysk VHD na dysk, potrzebna jest zapisywalna sygnatura dostępu współdzielonego, aby można było odwoływać się do niego jako miejsca docelowego przekazywania.
 
 Aby wygenerować zapisywalny sygnaturę dostępu współdzielonego pustego dysku zarządzanego, zastąp elementy `<yourdiskname>` i , a następnie użyj `<yourresourcegroupname>` następującego polecenia:
 
@@ -79,7 +79,7 @@ Teraz, gdy masz sygnaturę dostępu współdzielonego dla pustego dysku zarządz
 
 Użyj narzędzia AzCopy w wersji 10, aby przekazać lokalny plik VHD na dysk zarządzany, określając wygenerowany przez Ciebie adres URI sygnatury dostępu współdzielonego.
 
-To przekazanie ma taką samą przepływność jak odpowiednik standardowego [dysku twardego](../disks-types.md#standard-hdd). Jeśli na przykład masz rozmiar, który odpowiada S4, będziesz mieć przepływność do 60 MiB/s. Jeśli jednak masz rozmiar, który odpowiada S70, będziesz mieć przepływność do 500 MiB/s.
+To przekazanie ma taką samą przepływność jak odpowiednik standardowego [dysku twardego](../disks-types.md#standard-hdd). Na przykład jeśli masz rozmiar, który odpowiada S4, będziesz mieć przepływność do 60 MiB/s. Jeśli jednak masz rozmiar, który odpowiada S70, będziesz mieć przepływność do 500 MiB/s.
 
 ```bash
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
@@ -87,7 +87,7 @@ AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
 
 Po zakończeniu przekazywania i nie trzeba już zapisywać żadnych danych na dysku, odwołaj sygnaturę dostępu współdzielonego. Odwołanie sygnatury dostępu współdzielonego spowoduje zmianę stanu dysku zarządzanego i umożliwi dołączenie dysku do maszyny wirtualnej.
 
-Zastąp `<yourdiskname>` elementy i , a następnie użyj `<yourresourcegroupname>` następującego polecenia, aby dysk był użyteczny:
+Zastąp `<yourdiskname>` elementy i , a następnie użyj `<yourresourcegroupname>` następującego polecenia, aby udostępnić dyskowi następujące polecenie:
 
 ```azurecli
 az disk revoke-access -n <yourdiskname> -g <yourresourcegroupname>
@@ -122,7 +122,7 @@ targetSASURI=$(az disk grant-access -n $targetDiskName -g $targetRG  --access-le
 
 sourceSASURI=$(az disk grant-access -n $sourceDiskName -g $sourceRG --duration-in-seconds 86400 --query [accessSas] -o tsv)
 
-.\azcopy copy $sourceSASURI $targetSASURI --blob-type PageBlob
+azcopy copy $sourceSASURI $targetSASURI --blob-type PageBlob
 
 az disk revoke-access -n $sourceDiskName -g $sourceRG
 

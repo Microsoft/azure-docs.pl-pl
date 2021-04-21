@@ -4,12 +4,12 @@ description: Dowiedz się więcej na temat szyfrowania w spoczynku rejestru kont
 ms.topic: article
 ms.date: 03/03/2021
 ms.custom: ''
-ms.openlocfilehash: 09eea79eb6fb9ad9e4526b1a0390664e5dd9d61e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 9ec32e32d187a3db07f023c78efbd301ef578cbc
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784047"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817039"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Szyfrowanie rejestru przy użyciu klucza zarządzanego przez klienta
 
@@ -601,7 +601,7 @@ Jeśli ten problem występuje w przypadku tożsamości przypisanej przez system,
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się więcej o [szyfrowaniu danych magazynowych na platformie Azure.](../security/fundamentals/encryption-atrest.md)
-* Dowiedz się więcej na temat zasad dostępu i sposobu [zabezpieczania dostępu do magazynu kluczy.](../key-vault/general/security-overview.md)
+* Dowiedz się więcej na temat zasad dostępu i sposobu [zabezpieczania dostępu do magazynu kluczy.](../key-vault/general/security-features.md)
 
 
 <!-- LINKS - external -->

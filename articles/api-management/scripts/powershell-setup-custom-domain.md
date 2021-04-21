@@ -1,6 +1,6 @@
 ---
 title: Przykładowy skrypt programu Azure PowerShell — konfigurowanie domeny niestandardowej | Microsoft Docs
-description: Dowiedz się, jak skonfigurować domenę niestandardową na serwerze proxy lub punkty końcowe portalu usługi API Management. Zobacz przykładowe skrypty i Wyświetl dodatkowe dostępne zasoby.
+description: Dowiedz się, jak skonfigurować domenę niestandardową w punktach końcowych serwera proxy lub portalu usługi API Management. Zobacz przykładowe skrypty i wyświetl dodatkowe dostępne zasoby.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -11,13 +11,13 @@ ms.workload: mobile
 ms.topic: sample
 ms.date: 12/14/2017
 ms.author: apimpm
-ms.custom: mvc
-ms.openlocfilehash: 16da7891b5321006708dc59ec8d482754beb7d9e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: ce7ac9a27dd2708e3a32758c6e86011e493ea33a
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87853282"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817093"
 ---
 # <a name="set-up-custom-domain"></a>Konfigurowanie domeny niestandardowej
 

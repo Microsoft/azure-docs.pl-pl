@@ -1,46 +1,105 @@
 ---
-title: Samouczek — wdrażanie lampy na maszynie wirtualnej z systemem Linux na platformie Azure
-description: Z tego samouczka dowiesz się, jak zainstalować stos LAMP na maszynie wirtualnej z systemem Linux na platformie Azure
-services: virtual-machines
-documentationcenter: virtual-machines
+title: Samouczek — wdrażanie lamp i platformy WordPress na maszynie wirtualnej
+description: Z tego samouczka dowiesz się, jak zainstalować stos LAMP i platformę WordPress na maszynie wirtualnej z systemem Linux na platformie Azure.
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.collection: linux
-ms.assetid: 6c12603a-e391-4d3e-acce-442dd7ebb2fe
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 01/30/2019
+ms.date: 04/20/2021
 ms.author: cynthn
-ms.openlocfilehash: 3813931f47c110abcfb595065c1415ca9ed84c9d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5365bad5fdea2a8213defc103f0cdd966ebe50a5
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102564717"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816354"
 ---
-# <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>Samouczek: instalowanie serwera internetowego LAMP na maszynie wirtualnej z systemem Linux na platformie Azure
+# <a name="tutorial-install-a-lamp-stack-on-an-azure-linux-vm"></a>Samouczek: instalowanie stosu LAMP na maszynie wirtualnej platformy Azure z systemem Linux
 
 W tym artykule przedstawiono kroki wdrażania serwera internetowego Apache oraz oprogramowania MySQL i PHP (stosu LAMP) na maszynie wirtualnej z systemem Ubuntu na platformie Azure. Aby zobaczyć, jak działa serwer LAMP, możesz opcjonalnie zainstalować i skonfigurować witrynę WordPress. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Tworzenie maszyny wirtualnej z systemem Ubuntu (oznaczonym literą „L” w stosie LAMP)
+> * Tworzenie maszyny wirtualnej z systemem Ubuntu 
 > * Otwieranie portu 80 na potrzeby ruchu w sieci Web
 > * Instalowanie oprogramowania Apache, MySQL i PHP
 > * Weryfikowanie instalacji i konfiguracji
-> * Instalowanie oprogramowania WordPress na serwerze LAMP
+> * Instalowanie platformy WordPress 
 
 Ta konfiguracja umożliwia szybkie przeprowadzenie testów lub weryfikacji koncepcji. Aby uzyskać więcej informacji na temat stosu LAMP, w tym zalecenia dotyczące środowiska produkcyjnego, zobacz [dokumentację systemu Ubuntu](https://help.ubuntu.com/community/ApacheMySQLPHP).
 
-W tym samouczku jest używany interfejs wiersza polecenia w [Azure Cloud Shell](../../cloud-shell/overview.md), który jest stale aktualizowany do najnowszej wersji. Aby otworzyć Cloud Shell, wybierz opcję **Wypróbuj** z góry dowolnego bloku kodu.
+W tym samouczku używany jest interfejs wiersza [polecenia Azure Cloud Shell](../../cloud-shell/overview.md), który jest stale aktualizowany do najnowszej wersji. Aby otworzyć Cloud Shell, wybierz pozycję **Wypróbuj** w górnej części bloku kodu.
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.30 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
-[!INCLUDE [virtual-machines-linux-tutorial-stack-intro.md](../../../includes/virtual-machines-linux-tutorial-stack-intro.md)]
+## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
+
+Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
+
+Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus*.
+
+```azurecli-interactive
+az group create --name myResourceGroup --location eastus
+```
+
+## <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
+
+Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm). 
+
+Następujący przykład umożliwia utworzenie maszyny wirtualnej o nazwie *myVM* i kluczy SSH, jeśli jeszcze nie istnieją w domyślnej lokalizacji kluczy. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`. To polecenie ustawia również nazwę *azureuser* jako nazwę użytkownika administratora. Użyjesz tej nazwy później, aby nawiązać połączenia z maszyną wirtualną. 
+
+```azurecli-interactive
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys
+```
+
+Po utworzeniu maszyny wirtualnej w interfejsie wiersza polecenia platformy Azure zostanie wyświetlona informacja podobna do następującej. Zwróć uwagę na element `publicIpAddress`. Ten adres służy do uzyskiwania dostępu do maszyny wirtualnej w późniejszych krokach.
+
+```output
+{
+  "fqdns": "",
+  "id": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+  "location": "eastus",
+  "macAddress": "00-0D-3A-23-9A-49",
+  "powerState": "VM running",
+  "privateIpAddress": "10.0.0.4",
+  "publicIpAddress": "40.68.254.142",
+  "resourceGroup": "myResourceGroup"
+}
+```
+
+
+
+## <a name="open-port-80-for-web-traffic"></a>Otwieranie portu 80 na potrzeby ruchu w sieci Web 
+
+Domyślnie dozwolone są tylko połączenia SSH z maszynami wirtualnymi z systemem Linux wdrożonymi na platformie Azure. Ponieważ ta maszyna wirtualna ma być serwerem sieci Web, port 80 należy otworzyć z Internetu. Użyj polecenia [az vm open-port,](/cli/azure/vm) aby otworzyć żądany port.  
+ 
+```azurecli-interactive
+az vm open-port --port 80 --resource-group myResourceGroup --name myVM
+```
+
+Aby uzyskać więcej informacji na temat otwierania portów dla maszyny wirtualnej, [zobacz Otwieranie portów](nsg-quickstart.md).
+
+## <a name="ssh-into-your-vm"></a>Łączenie z maszyną wirtualną za pośrednictwem protokołu SSH
+
+Jeśli nie znasz jeszcze publicznego adresu IP maszyny wirtualnej, uruchom polecenie [az network public-ip list](/cli/azure/network/public-ip). Ten adres IP będzie potrzebny do wykonania kilku późniejszych kroków.
+
+```azurecli-interactive
+az network public-ip list --resource-group myResourceGroup --query [].ipAddress
+```
+
+Użyj następującego polecenia, aby utworzyć sesję SSH z maszyną wirtualną. Pamiętaj o wstawieniu prawidłowego publicznego adresu IP swojej maszyny wirtualnej. W tym przykładzie adres IP to *40.68.254.142*. Element *azureuser* to nazwa użytkownika administratora określona podczas tworzenia maszyny wirtualnej.
+
+```bash
+ssh azureuser@40.68.254.142
+```
+
 
 ## <a name="install-apache-mysql-and-php"></a>Instalowanie oprogramowania Apache, MySQL i PHP
 
@@ -53,10 +112,7 @@ sudo apt update && sudo apt install lamp-server^
 
 Pojawi się monit o zainstalowanie pakietów i innych zależności. W tym procesie jest instalowana minimalna liczba wymaganych rozszerzeń PHP potrzebnych do używania języka PHP z oprogramowaniem MySQL.  
 
-## <a name="verify-installation-and-configuration"></a>Weryfikowanie instalacji i konfiguracji
-
-
-### <a name="verify-apache"></a>Weryfikowanie oprogramowania Apache
+## <a name="verify-apache"></a>Weryfikowanie oprogramowania Apache
 
 Sprawdź wersję oprogramowania Apache przy użyciu następującego polecenia:
 ```bash
@@ -68,7 +124,7 @@ Po zainstalowaniu oprogramowania Apache i otwarciu portu 80 dla maszyny wirtualn
 ![Strona domyślna oprogramowania Apache][3]
 
 
-### <a name="verify-and-secure-mysql"></a>Weryfikowanie i zabezpieczanie oprogramowania MySQL
+## <a name="verify-and-secure-mysql"></a>Weryfikowanie i zabezpieczanie oprogramowania MySQL
 
 Sprawdź wersję oprogramowania MySQL przy użyciu następującego polecenia (zwróć uwagę na parametr `V` oznaczony wielką literą):
 
@@ -92,7 +148,7 @@ sudo mysql -u root -p
 
 Gdy skończysz, zamknij wiersz polecenia mysql, wpisując `\q`.
 
-### <a name="verify-php"></a>Weryfikowanie oprogramowania PHP
+## <a name="verify-php"></a>Weryfikowanie oprogramowania PHP
 
 Sprawdź wersję oprogramowania PHP przy użyciu następującego polecenia:
 
@@ -123,10 +179,10 @@ W tym samouczku wdrożono serwer LAMP na platformie Azure. W tym samouczku omów
 > * Weryfikowanie instalacji i konfiguracji
 > * Instalowanie oprogramowania WordPress na serwerze LAMP
 
-Przejdź do następnego samouczka, aby dowiedzieć się, jak zabezpieczyć serwery sieci Web przy użyciu certyfikatów TLS/SSL.
+Aby dowiedzieć się, jak zabezpieczyć serwery internetowe za pomocą certyfikatów TLS/SSL, należy przejść do następnego samouczka.
 
 > [!div class="nextstepaction"]
-> [Zabezpieczanie serwera sieci Web za pomocą protokołu TLS](tutorial-secure-web-server.md)
+> [Zabezpieczanie serwera internetowego przy użyciu TLS](tutorial-secure-web-server.md)
 
 [2]: ./media/tutorial-lamp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lamp-stack/apachesuccesspage.png

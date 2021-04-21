@@ -1,26 +1,27 @@
 ---
-title: Przenoszenie plików do i z maszyn wirtualnych z systemem Linux platformy Azure przy użyciu usługi SCP
-description: Bezpieczne przenoszenie plików do i z maszyny wirtualnej z systemem Linux na platformie Azure przy użyciu punktu połączenia usługi i pary kluczy SSH.
+title: Przenoszenie plików do i z maszyny wirtualnej za pomocą połączenia SCP
+description: Bezpieczne przenoszenie plików do i z maszyny wirtualnej z systemem Linux na platformie Azure przy użyciu połączenia SCP i pary kluczy SSH.
 author: cynthn
 ms.service: virtual-machines
 ms.collection: linux
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 07/12/2017
+ms.date: 04/20/2021
 ms.author: cynthn
-ms.subservice: disks
-ms.openlocfilehash: 83b57055ee7a3fedab014abeab96520c3877b843
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.subservice: ''
+ms.openlocfilehash: edfc44f79cff25486fde6326ac954fe5b575d846
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102558444"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816444"
 ---
-# <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>Przenoszenie plików do i z maszyny wirtualnej z systemem Linux przy użyciu usługi SCP
+# <a name="use-scp-to-move-files-to-and-from-a-linux-vm"></a>Przenoszenie plików do i z maszyny wirtualnej z systemem Linux za pomocą połączenia SCP 
 
-W tym artykule przedstawiono sposób przenoszenia plików z stacji roboczej do maszyny wirtualnej platformy Azure z systemem Linux lub z maszyny wirtualnej platformy Azure z systemem Linux do stacji roboczej przy użyciu funkcji bezpiecznego kopiowania (SCP). Szybkie i bezpieczne przeniesienie plików między stacją roboczą a maszyną wirtualną z systemem Linux ma kluczowe znaczenie dla zarządzania infrastrukturą platformy Azure. 
+W tym artykule przedstawiono sposób przenoszenia plików ze stacji roboczej do maszyny wirtualnej platformy Azure z systemem Linux lub z maszyny wirtualnej platformy Azure z systemem Linux do stacji roboczej przy użyciu bezpiecznego kopiowania (SCP). Szybkie i bezpieczne przenoszenie plików między stacją roboczą a maszyną wirtualną z systemem Linux ma kluczowe znaczenie dla zarządzania infrastrukturą platformy Azure. 
 
-W tym artykule potrzebna jest maszyna wirtualna z systemem Linux wdrożona na platformie Azure przy użyciu [plików publicznego i prywatnego klucza SSH](mac-create-ssh-keys.md). Wymagany jest również klient punktu SCP dla komputera lokalnego. Jest on oparty na usłudze SSH i uwzględniony w domyślnej powłoce bash większości komputerów z systemem Linux i Mac oraz niektórych powłok systemu Windows.
+Na potrzeby tego artykułu musisz wdrożyć maszynę wirtualną z systemem Linux na platformie Azure przy użyciu plików kluczy publicznych i [prywatnych SSH.](mac-create-ssh-keys.md) Potrzebny jest również klient SCP dla komputera lokalnego. Jest ona zbudowana na podstawie SSH i jest zawarta w domyślnej powłoce Bash większości komputerów z systemami Linux i Mac oraz w programie PowerShell.
+
 
 ## <a name="quick-commands"></a>Szybkie polecenia
 
@@ -30,7 +31,7 @@ Kopiowanie pliku do maszyny wirtualnej z systemem Linux
 scp file azureuser@azurehost:directory/targetfile
 ```
 
-Kopiuj plik w dół z maszyny wirtualnej z systemem Linux
+Kopiowanie pliku z maszyny wirtualnej z systemem Linux
 
 ```bash
 scp azureuser@azurehost:directory/file targetfile
@@ -38,36 +39,36 @@ scp azureuser@azurehost:directory/file targetfile
 
 ## <a name="detailed-walkthrough"></a>Szczegółowy przewodnik
 
-Przykładowo przenosimy plik konfiguracji platformy Azure do maszyny wirtualnej z systemem Linux i pobieramy katalog pliku dziennika, używając protokołu SCP i kluczy SSH.   
+Jako przykład przenosimy plik konfiguracji platformy Azure do maszyny wirtualnej z systemem Linux i ściągamy katalog pliku dziennika przy użyciu kluczy SCP i SSH.   
 
 ## <a name="ssh-key-pair-authentication"></a>Uwierzytelnianie pary kluczy SSH
 
-Punkt połączenia usługi używa protokołu SSH dla warstwy transportowej. Protokół SSH obsługuje uwierzytelnianie na hoście docelowym i przenosi plik w szyfrowanym tunelu udostępnianym domyślnie przy użyciu protokołu SSH. W przypadku uwierzytelniania SSH można używać nazw użytkowników i haseł. Jednak najlepszym rozwiązaniem w zakresie zabezpieczeń jest uwierzytelnianie klucza publicznego i prywatnego protokołu SSH. Po uwierzytelnieniu połączenia przez protokół SSH usługa SCP rozpocznie kopiowanie pliku. Za pomocą prawidłowo skonfigurowanych `~/.ssh/config` i prywatnych kluczy SSH, połączenie punktu połączenia usługi może być nawiązywane przy użyciu nazwy serwera (lub adresu IP). Jeśli masz tylko jeden klucz SSH, punkt połączenia usługi szuka go w `~/.ssh/` katalogu i domyślnie użyje go w celu zalogowania się do maszyny wirtualnej.
+SCP używa protokołu SSH dla warstwy transportu. SSH obsługuje uwierzytelnianie na hoście docelowym i przenosi plik w szyfrowanym tunelu dostarczonym domyślnie za pomocą protokołu SSH. W przypadku uwierzytelniania SSH można używać nazw użytkowników i haseł. Jednak najlepszym rozwiązaniem w zakresie zabezpieczeń jest uwierzytelnianie za pomocą klucza publicznego i prywatnego SSH. Po uwierzytelnieniu połączenia przez połączenie SSH program SCP rozpoczyna kopiowanie pliku. Połączenie SCP można nawiązane przy użyciu prawidłowo skonfigurowanego klucza publicznego i prywatnego SSH przy użyciu nazwy `~/.ssh/config` serwera (lub adresu IP). Jeśli masz tylko jeden klucz SSH, program SCP szuka go w katalogu i domyślnie używa go do logowania `~/.ssh/` się do maszyny wirtualnej.
 
-Aby uzyskać więcej informacji na temat konfigurowania `~/.ssh/config` kluczy publicznych i prywatnych SSH, zobacz [Tworzenie kluczy SSH](mac-create-ssh-keys.md).
+Aby uzyskać więcej informacji na temat konfigurowania publicznych i prywatnych kluczy `~/.ssh/config` SSH, zobacz [Create SSH keys (Tworzenie kluczy SSH).](mac-create-ssh-keys.md)
 
-## <a name="scp-a-file-to-a-linux-vm"></a>SCP pliku do maszyny wirtualnej z systemem Linux
+## <a name="scp-a-file-to-a-linux-vm"></a>SCP plik do maszyny wirtualnej z systemem Linux
 
-W pierwszym przykładzie plik konfiguracji platformy Azure jest kopiowany do maszyny wirtualnej z systemem Linux, która jest używana do wdrażania automatyzacji. Ponieważ ten plik zawiera poświadczenia interfejsu API platformy Azure, w tym wpisy tajne, należy pamiętać o zabezpieczeniach. Szyfrowany tunel zapewniany przez protokół SSH chroni zawartość pliku.
+W pierwszym przykładzie skopiujemy plik konfiguracji platformy Azure do maszyny wirtualnej z systemem Linux, która jest używana do wdrażania automatyzacji. Ponieważ ten plik zawiera poświadczenia interfejsu API platformy Azure, które zawierają wpisy tajne, zabezpieczenia są ważne. Zaszyfrowany tunel dostarczany przez połączenie SSH chroni zawartość pliku.
 
-Następujące polecenie kopiuje plik Local *. Azure/config* na maszynę wirtualną platformy Azure z nazwą FQDN *MyServer.eastus.cloudapp.Azure.com*. Nazwa użytkownika administratora na maszynie wirtualnej platformy Azure to *azureuser*. Plik jest przeznaczony dla katalogu */Home/azureuser/* . Zastąp własne wartości w tym poleceniu.
+Następujące polecenie kopiuje lokalny plik *.azure/config* na maszynę wirtualną platformy Azure z myserver.eastus.cloudapp.azure.com *.* Jeśli nie masz ustawionej [sieci FQDN,](../create-fqdn.md)możesz również użyć adresu IP maszyny wirtualnej. Nazwa użytkownika administratora na maszynie wirtualnej platformy Azure to *azureuser.* Plik jest ukierunkowany na *katalog /home/azureuser/.* W tym poleceniu zastąp własne wartości.
 
 ```bash
 scp ~/.azure/config azureuser@myserver.eastus.cloudapp.com:/home/azureuser/config
 ```
 
-## <a name="scp-a-directory-from-a-linux-vm"></a>Punkt połączenia usługi z maszyną wirtualną z systemem Linux
+## <a name="scp-a-directory-from-a-linux-vm"></a>SCP katalog z maszyny wirtualnej z systemem Linux
 
-W tym przykładzie skopiujemy katalog plików dziennika z maszyny wirtualnej z systemem Linux do stacji roboczej. Plik dziennika może lub nie może zawierać danych poufnych lub tajnych. Jednak użycie punktu połączenia usługi gwarantuje, że zawartość plików dziennika jest zaszyfrowana. Transfer plików przy użyciu punktu połączenia usługi jest najprostszym sposobem na uzyskanie katalogu dziennika i plików na stację roboczą, a także Zabezpieczanie.
+W tym przykładzie skopiujemy katalog plików dziennika z maszyny wirtualnej z systemem Linux do stacji roboczej. Plik dziennika może lub nie może zawierać poufnych lub tajnych danych. Jednak użycie narzędzia SCP gwarantuje, że zawartość plików dziennika jest szyfrowana. Transfer plików przy użyciu programu SCP jest najprostszym sposobem na przeniesienie katalogu dziennika i plików na stację roboczą przy jednoczesnym zachowaniu bezpieczeństwa.
 
-Następujące polecenie kopiuje pliki z katalogu */Home/azureuser/Logs/* na maszynie wirtualnej platformy Azure do lokalnego katalogu/tmp:
+Następujące polecenie kopiuje pliki z *katalogu /home/azureuser/logs/* na maszynie wirtualnej platformy Azure do lokalnego katalogu /tmp:
 
 ```bash
 scp -r azureuser@myserver.eastus.cloudapp.com:/home/azureuser/logs/. /tmp/
 ```
 
-`-r`Flaga nakazuje usłudze SCP cykliczne kopiowanie plików i katalogów z punktu katalogu wymienionego w poleceniu.  Zauważ również, że składnia wiersza polecenia jest podobna do `cp` polecenia copy.
+Flaga `-r` nakazuje punktowi SCP rekursywne kopiowanie plików i katalogów z punktu katalogu wymienionego w poleceniu .  Zwróć również uwagę, że składnia wiersza polecenia jest podobna do `cp` polecenia kopiowania.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zarządzanie użytkownikami, SSH i sprawdzaniem lub naprawianie dysków na maszynach wirtualnych z systemem Linux platformy Azure przy użyciu rozszerzenia VMAccess](../extensions/vmaccess.md?toc=/azure/virtual-machines/linux/toc.json)
+* [Zarządzanie użytkownikami i SSH oraz sprawdzanie lub naprawianie dysków na maszynach wirtualnych z systemem Linux na platformie Azure przy użyciu rozszerzenia VMAccess](../extensions/vmaccess.md?toc=/azure/virtual-machines/linux/toc.json)
