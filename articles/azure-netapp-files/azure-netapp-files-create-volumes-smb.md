@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 04/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 9bb995e5e3038d7a4cd24f0db2608461c8848497
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 28fc465627032522afb9da8f6ec0fad704834d09
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726300"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813708"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Tworzenie woluminu SMB dla usługi Azure NetApp Files
 
@@ -116,7 +116,7 @@ Przed utworzeniem woluminu SMB należy utworzyć połączenie usługi Active Dir
         > [!IMPORTANT]   
         > Funkcja ciągłej dostępności SMB jest obecnie dostępna w publicznej wersji zapoznawczej. Musisz przesłać żądanie listy oczekiwania w celu uzyskania dostępu do funkcji za pośrednictwem strony przesyłania listy oczekiwania udziałów ciągłej dostępności Azure NetApp Files SMB w **[publicznej wersji zapoznawczej.](https://aka.ms/anfsmbcasharespreviewsignup)** Przed użyciem funkcji ciągłej dostępności poczekaj na oficjalną wiadomość e-Azure NetApp Files e-mail od zespołu.   
         > 
-        > Ciągłą dostępność należy włączyć tylko dla obciążeń SQL. Używanie udziałów ciągłej dostępności SMB dla obciążeń innych SQL Server *nie jest* obsługiwane. Ta funkcja jest obecnie obsługiwana w systemie Windows SQL Server. System Linux SQL Server nie jest obecnie obsługiwany. Jeśli używasz konta bez uprawnień administratora (domeny) do instalowania SQL Server, upewnij się, że konto ma przypisane wymagane uprawnienia zabezpieczeń. Jeśli konto domeny nie ma wymaganych uprawnień zabezpieczeń ( ), a uprawnienia nie można ustawić na poziomie domeny, możesz udzielić tego uprawnienia kontu przy użyciu pola Użytkownicy uprawnień zabezpieczeń połączeń usługi `SeSecurityPrivilege` Active Directory.  Zobacz [Create an Active Directory connection (Tworzenie połączenia usługi Active Directory).](create-active-directory-connections.md#create-an-active-directory-connection)
+        > Ciągłą dostępność należy włączyć tylko dla kontenerów SQL Server [i fsLogix.](../virtual-desktop/create-fslogix-profile-container.md) Używanie udziałów ciągłej dostępności SMB dla obciążeń innych niż SQL Server i kontenery profilu użytkownika FsLogix nie *jest* obsługiwane. Ta funkcja jest obecnie obsługiwana w systemie Windows SQL Server. System Linux SQL Server nie jest obecnie obsługiwany. Jeśli używasz konta bez uprawnień administratora (domeny) do instalowania SQL Server, upewnij się, że konto ma przypisane wymagane uprawnienia zabezpieczeń. Jeśli konto domeny nie ma wymaganych uprawnień zabezpieczeń ( ), a uprawnienia nie można ustawić na poziomie domeny, możesz udzielić tego uprawnienia kontu przy użyciu pola Użytkownicy uprawnień zabezpieczeń połączeń usługi `SeSecurityPrivilege` Active Directory.  Zobacz [Create an Active Directory connection (Tworzenie połączenia usługi Active Directory).](create-active-directory-connections.md#create-an-active-directory-connection)
 
     <!-- [1/13/21] Commenting out command-based steps below, because the plan is to use form-based (URL) registration, similar to CRR feature registration -->
     <!-- 

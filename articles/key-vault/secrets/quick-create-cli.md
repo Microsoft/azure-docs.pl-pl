@@ -1,5 +1,5 @@
 ---
-title: Szybki start — ustawianie i pobieranie tajnego Azure Key Vault
+title: Szybki start — konfigurowanie i pobieranie informacji tajnych z Azure Key Vault
 description: W tym przewodniku Szybki start pokazano, w jaki sposób skonfigurować i pobrać wpis tajny z usługi Azure Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure
 services: key-vault
 author: msmbaldwin
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 655ea1920fc80c8cd677281f09cfca21120e1d61
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: dc5fa0eeabc437f16ca64c34b4bb72e62c0c3b21
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726452"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815022"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Szybki start: konfigurowanie i pobieranie wpisów tajnych z usługi Azure Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -45,9 +45,9 @@ Użyj poniższego polecenia [az keyvault secret set](/cli/azure/keyvault/secret#
 az keyvault secret set --vault-name "<your-unique-keyvault-name>" --name "ExamplePassword" --value "hVFkk965BuUv"
 ```
 
-## <a name="retrieve-a-secret-from-key-vault"></a>Pobieranie tajnego z Key Vault
+## <a name="retrieve-a-secret-from-key-vault"></a>Pobieranie tajnego Key Vault
 
-Teraz możesz odwoływać się do hasła dodanego do usługi Azure Key Vault za pomocą jego identyfikatora URI. Użyj **"https://<your-unique-keyvault-name>.vault.azure.net/secrets/ExamplePassword",** aby uzyskać bieżącą wersję.
+Teraz możesz odwoływać się do hasła dodanego do usługi Azure Key Vault za pomocą jego identyfikatora URI. Użyj **adresu "https://<your-unique-keyvault-name>.vault.azure.net/secrets/ExamplePassword",** aby uzyskać bieżącą wersję.
 
 Aby wyświetlić wartość zawartą we wpisie tajnym jako zwykły tekst:
 
@@ -63,9 +63,9 @@ Utworzono usługę Key Vault, umieszczono w niej wpis tajny i pobrano go.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start utworzono Key Vault i przechowywano w nim klucz tajny. Aby dowiedzieć się więcej Key Vault o tym, jak zintegrować ją z aplikacjami, przejdź do poniższych artykułów.
+W tym przewodniku Szybki start utworzono Key Vault przechowywany w nim klucz tajny. Aby dowiedzieć się więcej Key Vault o tym, jak zintegrować ją z aplikacjami, przejdź do poniższych artykułów.
 
 - Przeczytaj omówienie [Azure Key Vault](../general/overview.md)
 - Dowiedz się, jak [przechowywać wieloliniowe wpisy tajne w Key Vault](multiline-secrets.md)
-- Zobacz informacje dotyczące poleceń [az keyvault interfejsu wiersza polecenia platformy Azure](/cli/azure/keyvault)
-- Przejrzyj omówienie [Key Vault zabezpieczeń](../general/security-overview.md)
+- Zobacz odwołanie do poleceń [az keyvault interfejsu wiersza polecenia platformy Azure](/cli/azure/keyvault)
+- Przejrzyj omówienie [Key Vault zabezpieczeń](../general/security-features.md)

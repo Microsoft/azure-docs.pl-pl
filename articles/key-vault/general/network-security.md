@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8352deb00f6954d862b9e44646cce1604e2c5428
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 1f2df113b855ef85906e00a0316b09870ff20fb7
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749622"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814374"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Konfigurowanie Azure Key Vault sieci wirtualnych i zapory sieci wirtualnych
 
@@ -68,7 +68,7 @@ W takim przypadku należy utworzyć zasób w sieci wirtualnej, a następnie zezw
 Aby dowiedzieć się, jak skonfigurować połączenie z linkiem prywatnym w magazynie kluczy, zapoznaj się z dokumentem [tutaj.](./private-link-service.md)
 
 > [!IMPORTANT]
-> Gdy reguły zapory obowiązują, użytkownicy mogą wykonywać [](security-overview.md#privileged-access) operacje płaszczyzny danych Key Vault tylko wtedy, gdy ich żądania pochodzą z dozwolonych sieci wirtualnych lub zakresów adresów IPv4. Dotyczy to również uzyskiwania dostępu Key Vault z Azure Portal. Mimo że użytkownicy mogą przejść do magazynu kluczy z witryny Azure Portal, mogą nie być w stanie wyświetlić listy kluczy, wpisów tajnych lub certyfikatów, jeśli ich komputera klienckiego nie ma na liście dozwolonych. Ma to również wpływ na Key Vault wyboru przez inne usługi platformy Azure. Użytkownicy mogą widzieć listę magazynów kluczy, ale nie klucze listy, jeśli reguły zapory uniemożliwiają ich komputer kliencki.
+> Gdy reguły zapory obowiązują, użytkownicy mogą wykonywać [](security-features.md#privileged-access) operacje płaszczyzny danych Key Vault tylko wtedy, gdy ich żądania pochodzą z dozwolonych sieci wirtualnych lub zakresów adresów IPv4. Dotyczy to również uzyskiwania dostępu Key Vault z Azure Portal. Mimo że użytkownicy mogą przejść do magazynu kluczy z witryny Azure Portal, mogą nie być w stanie wyświetlić listy kluczy, wpisów tajnych lub certyfikatów, jeśli ich komputera klienckiego nie ma na liście dozwolonych. Ma to również wpływ na Key Vault wyboru przez inne usługi platformy Azure. Użytkownicy mogą widzieć listę magazynów kluczy, ale nie klucze listy, jeśli reguły zapory uniemożliwiają ich komputer kliencki.
 
 > [!NOTE]
 > Należy pamiętać o następujących ograniczeniach konfiguracji:
@@ -175,4 +175,4 @@ Poniżej opisano sposób konfigurowania zapór Key Vault sieci wirtualnych przy 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Punkty końcowe usługi dla sieci wirtualnej dla Key Vault](overview-vnet-service-endpoints.md)
-* [Azure Key Vault zabezpieczeń](security-overview.md)
+* [Azure Key Vault zabezpieczeń](security-features.md)

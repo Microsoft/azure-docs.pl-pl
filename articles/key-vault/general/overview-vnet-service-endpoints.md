@@ -8,12 +8,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 985cbe1128d1dd64fda86ef062750dc5dd068ffe
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 8d3b88841f03b0c5bdb9b21ea66d9a67ba795546
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751737"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814250"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Punkty końcowe usługi sieci wirtualnej dla usługi Azure Key Vault
 
@@ -26,7 +26,7 @@ Istnieje jeden ważny wyjątek od tego ograniczenia. Jeśli użytkownik wybrał 
 Możesz skonfigurować zapory [Key Vault wirtualne,](network-security.md) aby domyślnie odmawiać dostępu do ruchu ze wszystkich sieci (w tym ruchu internetowego). Możesz udzielić dostępu do ruchu z określonych sieci wirtualnych platformy Azure i zakresów publicznych internetowych adresów IP, umożliwiając tworzenie bezpiecznych granic sieci dla aplikacji.
 
 > [!NOTE]
-> Key Vault zapory i reguły sieci wirtualnej dotyczą tylko [płaszczyzny danych](security-overview.md#privileged-access) Key Vault. Key Vault operacji płaszczyzny sterowania (takich jak tworzenie, usuwanie i modyfikowanie operacji, ustawianie zasad dostępu, ustawianie zapór i reguł sieci wirtualnej oraz wdrażanie wpisów tajnych lub kluczy za pomocą szablonów usługi ARM) nie mają wpływu na zapory i reguły sieci wirtualnej.
+> Key Vault zapory i reguły sieci wirtualnej dotyczą tylko [płaszczyzny danych](security-features.md#privileged-access) Key Vault. Key Vault operacji płaszczyzny sterowania (takich jak tworzenie, usuwanie i modyfikowanie operacji, ustawianie zasad dostępu, ustawianie zapór i reguł sieci wirtualnej oraz wdrażanie wpisów tajnych lub kluczy za pomocą szablonów usługi ARM) nie mają wpływu na zapory i reguły sieci wirtualnej.
 
 Oto kilka przykładów użycia punktów końcowych usługi:
 
@@ -66,4 +66,4 @@ Poniżej znajduje się lista zaufanych usług, które mogą uzyskać dostęp do 
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby uzyskać instrukcje krok po kroku, zobacz [Configure Azure Key Vault firewalls and virtual networks (Konfigurowanie zapór i](network-security.md) sieci wirtualnych)
-- Zobacz omówienie [Azure Key Vault zabezpieczeń](security-overview.md)
+- Zobacz omówienie [Azure Key Vault zabezpieczeń](security-features.md)

@@ -9,16 +9,16 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5e45b242d85d761dcbe3593c59174942ef1a62a5
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: b9e61a72af1e2d07fc45a9265de6008fa4e509ef
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749064"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813780"
 ---
 # <a name="create-and-configure-a-key-vault-for-azure-disk-encryption-on-a-windows-vm"></a>Tworzenie i konfigurowanie magazynu kluczy na Azure Disk Encryption wirtualnej z systemem Windows
 
-Azure Disk Encryption używa Azure Key Vault do kontrolowania kluczy szyfrowania dysków i wpisów tajnych oraz zarządzania nimi.  Aby uzyskać więcej informacji na temat magazynów kluczy, zobacz [Get started with Azure Key Vault](../../key-vault/general/overview.md) and Secure your key vault (Rozpoczynanie pracy z magazynem kluczy i [zabezpieczanie magazynu kluczy).](../../key-vault/general/security-overview.md) 
+Azure Disk Encryption używa Azure Key Vault do kontrolowania kluczy szyfrowania dysków i wpisów tajnych oraz zarządzania nimi.  Aby uzyskać więcej informacji na temat magazynów kluczy, zobacz [Get started with Azure Key Vault](../../key-vault/general/overview.md) and Secure your key vault (Rozpoczynanie pracy z magazynem kluczy i [zabezpieczanie magazynu kluczy).](../../key-vault/general/security-features.md) 
 
 > [!WARNING]
 > - Jeśli wcześniej zaszyfrowano maszynę wirtualną Azure Disk Encryption usłudze Azure AD, należy nadal używać tej opcji do szyfrowania maszyny wirtualnej. Aby uzyskać szczegółowe informacje, zobacz Creating [and configuring a key vault for Azure Disk Encryption with Azure AD (previous release) (Tworzenie](disk-encryption-key-vault-aad.md) i konfigurowanie magazynu kluczy dla usługi Azure Disk Encryption azure AD w poprzedniej wersji).

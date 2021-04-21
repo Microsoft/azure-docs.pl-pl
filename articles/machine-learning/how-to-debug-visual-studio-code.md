@@ -1,7 +1,7 @@
 ---
-title: Interaktywny debugowanie za pomocą Visual Studio Code
+title: Debugowanie interakcyjne za pomocą Visual Studio Code
 titleSuffix: Azure Machine Learning
-description: Interaktywnie Debuguj kod, potoki i wdrożenia Azure Machine Learning przy użyciu Visual Studio Code
+description: Interaktywne debugowanie Azure Machine Learning, potoków i wdrożeń przy użyciu Visual Studio Code
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,114 +9,114 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/30/2020
-ms.openlocfilehash: 783b5afdaef369582614cde3525f7968fdb5e567
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 69a69afedbd86871987a8e62b55dfc070121cc78
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102508643"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813870"
 ---
-# <a name="interactive-debugging-with-visual-studio-code"></a>Interaktywny debugowanie za pomocą Visual Studio Code
+# <a name="interactive-debugging-with-visual-studio-code"></a>Debugowanie interakcyjne za pomocą Visual Studio Code
 
 
 
-Dowiedz się, jak interaktywnie debugować Azure Machine Learning eksperymenty, potoki i wdrożenia przy użyciu Visual Studio Code (VS Code) i [debugpy](https://github.com/microsoft/debugpy/).
+Dowiedz się, jak interaktywnie debugować eksperymenty Azure Machine Learning, potoki i wdrożenia przy użyciu Visual Studio Code (VS Code) i [debugpy.](https://github.com/microsoft/debugpy/)
 
 ## <a name="run-and-debug-experiments-locally"></a>Lokalne uruchamianie i debugowanie eksperymentów
 
-Użyj rozszerzenia Azure Machine Learning, aby sprawdzić, uruchomić i debugować eksperymenty uczenia maszynowego przed przesłaniem ich do chmury.
+Użyj rozszerzenia Azure Machine Learning, aby walidować, uruchamiać i debugować eksperymenty uczenia maszynowego przed przesłaniem ich do chmury.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-* Rozszerzenie VS Code Azure Machine Learning (wersja zapoznawcza). Aby uzyskać więcej informacji, zobacz [Konfigurowanie rozszerzenia Azure Machine Learning vs Code](tutorial-setup-vscode-extension.md).
+* Azure Machine Learning VS Code (wersja zapoznawcza). Aby uzyskać więcej informacji, [zobacz Konfigurowanie Azure Machine Learning VS Code rozszerzenia](tutorial-setup-vscode-extension.md).
 * [Docker](https://www.docker.com/get-started)
-  * Pulpit Docker dla komputerów Mac i Windows
+  * Program Docker Desktop dla komputerów Mac i systemu Windows
   * Aparat platformy Docker dla systemu Linux.
 * [Python 3](https://www.python.org/downloads/)
 
 > [!NOTE]
-> W systemie Windows pamiętaj, aby [skonfigurować platformę Docker do korzystania z kontenerów systemu Linux](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
+> W systemie Windows upewnij się, że [skonfigurowano aplikację Docker do używania kontenerów systemu Linux.](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
 
 > [!TIP]
-> W przypadku systemu Windows, chociaż nie jest to wymagane, zdecydowanie zaleca się [Używanie platformy Docker z podsystemem Windows dla systemu Linux (WSL) 2](/windows/wsl/tutorials/wsl-containers#install-docker-desktop).
+> W przypadku systemu Windows, chociaż nie jest to wymagane, zdecydowanie zaleca się używanie platformy Docker z [programem Podsystem Windows dla systemu Linux (WSL) 2.](/windows/wsl/tutorials/wsl-containers#install-docker-desktop)
 
 > [!IMPORTANT]
-> Przed uruchomieniem eksperymentu lokalnego upewnij się, że platforma Docker jest uruchomiona.
+> Przed uruchomieniem eksperymentu lokalnie upewnij się, że jest uruchomiona tania.
 
-### <a name="debug-experiment-locally"></a>Debuguj lokalnie eksperyment
+### <a name="debug-experiment-locally"></a>Lokalne debugowanie eksperymentu
 
-1. W VS Code Otwórz widok rozszerzenia Azure Machine Learning.
-1. Rozwiń węzeł subskrypcji zawierający obszar roboczy. Jeśli jeszcze tego nie masz, możesz [utworzyć obszar roboczy Azure Machine Learning](how-to-manage-resources-vscode.md#create-a-workspace) przy użyciu rozszerzenia.
+1. W VS Code otwórz widok Azure Machine Learning rozszerzenia.
+1. Rozwiń węzeł subskrypcji zawierający obszar roboczy. Jeśli jeszcze go nie masz, możesz utworzyć obszar roboczy Azure Machine Learning [przy](how-to-manage-resources-vscode.md#create-a-workspace) użyciu rozszerzenia.
 1. Rozwiń węzeł obszaru roboczego.
-1. Kliknij prawym przyciskiem myszy węzeł **eksperymenty** , a następnie wybierz pozycję **Utwórz eksperyment**. Po wyświetleniu monitu podaj nazwę eksperymentu.
-1. Rozwiń węzeł **eksperymenty** , kliknij prawym przyciskiem myszy eksperyment, który chcesz uruchomić, a następnie wybierz polecenie **Uruchom eksperyment**.
-1. Z listy opcji do uruchamiania eksperymentu wybierz pozycję **lokalnie**.
-1. **Pierwsze użycie tylko w systemie Windows**. Po wyświetleniu monitu o zezwolenie na udział plików wybierz pozycję **tak**. Włączenie udostępniania plików umożliwia platformie Docker zainstalowanie katalogu zawierającego skrypt do kontenera. Ponadto umożliwia także platformie Docker przechowywanie dzienników i danych wyjściowych z przebiegu w katalogu tymczasowym w systemie.
-1. Wybierz pozycję **tak** , aby debugować eksperyment. W przeciwnym razie wybierz opcję **Nie**. Wybranie pozycji nie spowoduje uruchomienie eksperymentu lokalnie bez dołączania do debugera.
-1. Wybierz pozycję **Utwórz nową konfigurację przebiegu** , aby utworzyć konfigurację uruchomieniową. Konfiguracja przebiegu definiuje skrypt, który ma zostać uruchomiony, zależności i używane zestawy danych. Alternatywnie, jeśli masz już jeden, wybierz go z listy rozwijanej.
-    1. Wybierz środowisko. Możesz wybrać jedną z [Azure Machine Learning nadzorowanych](resource-curated-environments.md) lub utworzyć własne.
-    1. Podaj nazwę skryptu, który chcesz uruchomić. Ścieżka jest określana względem katalogu otwartego w VS Code.
-    1. Wybierz, czy chcesz użyć zestawu danych Azure Machine Learning, czy nie. [Zestawy danych Azure Machine Learning](how-to-manage-resources-vscode.md#create-dataset) można tworzyć przy użyciu rozszerzenia.
-    1. Debugpy jest wymagany w celu dołączenia debugera do kontenera, w którym działa eksperyment. Aby dodać debugpy jako zależność, wybierz pozycję **Dodaj debugpy**. W przeciwnym razie wybierz pozycję **Pomiń**. Nie można dodać debugpy jako zależność uruchamia Twój eksperyment bez dołączania do debugera.
-    1. Plik konfiguracji zawierający ustawienia konfiguracji uruchamiania zostanie otwarty w edytorze. Jeśli ustawienia są zadowalające, wybierz pozycję **Prześlij eksperyment**. Alternatywnie możesz otworzyć paletę poleceń (**wyświetl > paletę poleceń**) z paska menu i wprowadzić `Azure ML: Submit experiment` polecenie w polu tekstowym.
-1. Po przesłaniu eksperymentu zostanie utworzony obraz platformy Docker zawierający skrypt i konfiguracje określone w konfiguracji przebiegu.
+1. Kliknij prawym przyciskiem myszy węzeł **Experiments (Eksperymenty)** i wybierz **pozycję Create experiment (Utwórz eksperyment).** Po wyświetleniu monitu podaj nazwę eksperymentu.
+1. Rozwiń węzeł **Experiments** (Eksperymenty), kliknij prawym przyciskiem myszy eksperyment, który chcesz uruchomić, a następnie wybierz **pozycję Run Experiment (Uruchom eksperyment).**
+1. Z listy opcji uruchamiania eksperymentu wybierz pozycję **Lokalnie.**
+1. **Po raz pierwszy użyj tylko w systemie Windows.** Po wyświetleniu monitu o zezwalanie na udział plików wybierz pozycję **Tak.** Włączenie udziału plików umożliwia usłudze Docker zamontowanie katalogu zawierającego skrypt w kontenerze. Ponadto umożliwia również platformie Docker przechowywanie dzienników i danych wyjściowych z uruchomienia w katalogu tymczasowym w systemie.
+1. Wybierz **pozycję Tak,** aby debugować eksperyment. W przeciwnym razie wybierz opcję **Nie**. Wybranie opcji nie spowoduje uruchomienie eksperymentu lokalnie bez dołączania do debugera.
+1. Wybierz **pozycję Utwórz nową konfigurację uruchamiania,** aby utworzyć konfigurację uruchamiania. Konfiguracja uruchamiania definiuje skrypt, który chcesz uruchomić, zależności i używane zestawy danych. Alternatywnie, jeśli masz już jedną z nich, wybierz ją z listy rozwijanej.
+    1. Wybierz środowisko. Możesz wybrać dowolny z tych Azure Machine Learning [lub](resource-curated-environments.md) utworzyć własny.
+    1. Podaj nazwę skryptu, który chcesz uruchomić. Ścieżka jest względna do katalogu otwartego w VS Code.
+    1. Wybierz, czy chcesz używać zestawu Azure Machine Learning danych. Za pomocą [rozszerzenia Azure Machine Learning tworzyć](how-to-manage-resources-vscode.md#create-dataset) zestawy danych.
+    1. Debugowanie jest wymagane w celu dołączenia debugera do kontenera, w których działa eksperyment. Aby dodać debugpy jako zależność, wybierz **pozycję Dodaj debugpy**. W przeciwnym razie wybierz pozycję **Pomiń**. Nie dodawania debugpy jako zależności uruchamia eksperyment bez dołączania do debugera.
+    1. W edytorze zostanie otwarty plik konfiguracji zawierający ustawienia konfiguracji uruchamiania. Jeśli ustawienia ci się podobają, wybierz pozycję **Prześlij eksperyment.** Alternatywnie możesz otworzyć paletę poleceń (**View > Command Palette**) z paska menu i wprowadzić polecenie w polu `Azure ML: Submit experiment` tekstowym.
+1. Po przesłaniu eksperymentu zostanie utworzony obraz platformy Docker zawierający skrypt i konfiguracje określone w konfiguracji uruchamiania.
 
-    Po rozpoczęciu procesu kompilacji obrazu platformy Docker zawartość `60_control_log.txt` strumienia pliku do konsoli wyjściowej w vs Code.
+    Po rozpoczęciem procesu kompilacji obrazu platformy Docker zawartość strumienia plików do konsoli wyjściowej w `60_control_log.txt` VS Code.
 
     > [!NOTE]
-    > Podczas pierwszego tworzenia obrazu platformy Docker może upłynąć kilka minut.
+    > Po pierwszym utworzeniu obrazu platformy Docker może to potrwać kilka minut.
 
-1. Po skompilowaniu obrazu zostanie wyświetlony monit o uruchomienie debugera. Ustaw punkty przerwania w skrypcie i wybierz pozycję **Uruchom Debuger** , gdy wszystko będzie gotowe do rozpoczęcia debugowania. Spowoduje to dołączenie debugera VS Code do kontenera, na którym działa eksperyment. Alternatywnie, w rozszerzeniu Azure Machine Learning, umieść kursor nad węzłem bieżącego przebiegu i wybierz ikonę odtwarzania, aby uruchomić debuger.
+1. Po s zbudowaniu obrazu zostanie wyświetlony monit o uruchomienie debugera. Ustaw punkty przerwania w skrypcie i wybierz pozycję **Uruchom debuger,** gdy wszystko będzie gotowe do rozpoczęcia debugowania. W ten sposób dołącza VS Code do kontenera, w który jest uruchomiony eksperyment. Alternatywnie w rozszerzeniu Azure Machine Learning umieść kursor nad węzłem bieżącego uruchomienia i wybierz ikonę odtwarzania, aby uruchomić debuger.
 
     > [!IMPORTANT]
-    > Dla jednego eksperymentu nie można mieć wielu sesji debugowania. Można jednak debugować dwa lub więcej eksperymentów przy użyciu wielu wystąpień VS Code.
+    > Nie można mieć wielu sesji debugowania dla jednego eksperymentu. Można jednak debugować co najmniej dwa eksperymenty przy użyciu VS Code wystąpień.
 
-W tym momencie powinno być możliwe przechodzenie do kroku i debugowanie kodu przy użyciu VS Code.
+W tym momencie powinno być możliwe krokowe debugowanie kodu przy użyciu VS Code.
 
-Jeśli w dowolnym momencie chcesz anulować przebieg, kliknij prawym przyciskiem myszy węzeł uruchamiania, a następnie wybierz polecenie **Anuluj przebieg**.
+Jeśli w dowolnym momencie chcesz anulować przebieg, kliknij prawym przyciskiem myszy węzeł uruchamiania i wybierz polecenie **Anuluj uruchamianie.**
 
-Podobnie jak w przypadku zdalnych eksperymentów, można rozszerzyć węzeł uruchamiania w celu sprawdzenia dzienników i danych wyjściowych.
+Podobnie jak w przypadku zdalnych przebiegów eksperymentów, możesz rozwinąć węzeł uruchamiania, aby sprawdzić dzienniki i dane wyjściowe.
 
 > [!TIP]
-> Obrazy platformy Docker, które używają tych samych zależności zdefiniowanych w danym środowisku, są ponownie używane między przebiegami. Jeśli jednak uruchomisz eksperyment przy użyciu nowego lub innego środowiska, zostanie utworzony nowy obraz. Ponieważ obrazy te są zapisywane w magazynie lokalnym, zaleca się usunięcie starych lub nieużywanych obrazów platformy Docker. Aby usunąć obrazy z systemu, użyj [interfejsu wiersza polecenia platformy Docker](https://docs.docker.com/engine/reference/commandline/rmi/) lub [rozszerzenia vs Code Docker](https://code.visualstudio.com/docs/containers/overview).
+> Obrazy platformy Docker, które używają tych samych zależności zdefiniowanych w środowisku, są ponownie używane między przebiegami. Jeśli jednak uruchamiasz eksperyment przy użyciu nowego lub innego środowiska, tworzony jest nowy obraz. Ponieważ te obrazy są zapisywane w magazynie lokalnym, zaleca się usunięcie starych lub nieużywanych obrazów platformy Docker. Aby usunąć obrazy z systemu, użyj interfejsu wiersza polecenia platformy [Docker](https://docs.docker.com/engine/reference/commandline/rmi/) [lub VS Code platformy Docker.](https://code.visualstudio.com/docs/containers/overview)
 
 ## <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Debugowanie i rozwiązywanie problemów z potokami uczenia maszynowego
 
-W niektórych przypadkach może być konieczne interaktywne Debugowanie kodu w języku Python używanego w potoku. Za pomocą VS Code i debugpy, można dołączyć do kodu w trakcie jego działania w środowisku szkoleniowym.
+W niektórych przypadkach może być konieczne interaktywne debugowanie kodu języka Python używanego w potoku uczenia maszynowego. Za pomocą VS Code i debugpy można dołączyć do kodu podczas jego pracy w środowisku szkoleniowym.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-* __Obszar roboczy Azure Machine Learning__ skonfigurowany do korzystania z __usługi Azure Virtual Network__.
-* __Potok Azure Machine Learning__ , który używa skryptów języka Python w ramach kroków potoku. Na przykład PythonScriptStep.
-* Azure Machine Learning klaster obliczeniowy, który znajduje się __w sieci wirtualnej__ i jest __używany przez potok do szkoleń__.
-* __Środowisko programistyczne__ znajdujące się __w sieci wirtualnej__. Środowisko programistyczne może być jednym z następujących:
+* Obszar __Azure Machine Learning,__ który jest skonfigurowany do korzystania z usługi __Azure Virtual Network.__
+* Potok __Azure Machine Learning,__ który używa skryptów języka Python w ramach kroków potoku. Na przykład PythonScriptStep.
+* Klaster Azure Machine Learning compute, który znajduje się w sieci __wirtualnej__ i jest używany __przez potok__ do szkolenia .
+* Środowisko __projektowe,__ które __znajduje się w sieci wirtualnej__. Środowisko projektowe może być jednym z następujących:
 
   * Maszyna wirtualna platformy Azure w sieci wirtualnej
   * Wystąpienie obliczeniowe maszyny wirtualnej notesu w sieci wirtualnej
-  * Komputer kliencki, który ma łączność sieci prywatnej z siecią wirtualną, przez sieć VPN lub za pośrednictwem usługi ExpressRoute.
+  * Komputer kliencki, który ma łączność sieci prywatnej z siecią wirtualną za pośrednictwem sieci VPN lub expressRoute.
 
-Aby uzyskać więcej informacji na temat używania Virtual Network platformy Azure z usługą Azure Machine Learning, zobacz [Omówienie izolacji i prywatności w sieci wirtualnej](how-to-network-security-overview.md).
+Aby uzyskać więcej informacji na temat korzystania z usługi Azure Virtual Network z usługą Azure Machine Learning, zobacz Omówienie izolacji i [prywatności sieci wirtualnej.](how-to-network-security-overview.md)
 
 > [!TIP]
-> Chociaż można korzystać z zasobów Azure Machine Learning, które nie znajdują się poza siecią wirtualną, zaleca się użycie sieci wirtualnej.
+> Chociaż można pracować z Azure Machine Learning, które nie znajdują się za siecią wirtualną, zaleca się korzystanie z sieci wirtualnej.
 
 ### <a name="how-it-works"></a>Jak to działa
 
-Kroki potoku w sieci Te skrypty są modyfikowane w celu wykonania następujących czynności:
+Kroki potoku uczenia maszynowego uruchamiają skrypty języka Python. Te skrypty są modyfikowane w celu wykonywania następujących akcji:
 
-1. Zarejestruj adres IP hosta, na którym są uruchomione. Użyj adresu IP, aby połączyć debuger ze skryptem.
+1. Rejestruj adres IP hosta, na których są uruchomione. Adres IP umożliwia połączenie debugera ze skryptem.
 
-2. Uruchom składnik debugowania debugpy i poczekaj, aż debuger nawiąże połączenie.
+2. Uruchom składnik debugowania debugera i poczekaj na połączenie debugera.
 
-3. W środowisku deweloperskim Monitoruj dzienniki utworzone przez proces szkoleń, aby znaleźć adres IP, na którym skrypt jest uruchomiony.
+3. W środowisku projektowym monitorujesz dzienniki utworzone w procesie trenowania, aby znaleźć adres IP, pod którym jest uruchomiony skrypt.
 
-4. Poinformujesz VS Code adres IP, aby połączyć debugera z programem przy użyciu `launch.json` pliku.
+4. Należy VS Code adres IP, z który ma nawiązać połączenie debuger, przy użyciu `launch.json` pliku.
 
-5. Debuger i interaktywny krok można dołączyć do skryptu.
+5. Debuger jest dołączany i interaktywnie przechodzi przez skrypt.
 
 ### <a name="configure-python-scripts"></a>Konfigurowanie skryptów języka Python
 
-Aby włączyć debugowanie, wprowadź następujące zmiany w skryptach języka Python, które są używane przez kroki w potoku:
+Aby włączyć debugowanie, należy wprowadzić następujące zmiany w skryptach języka Python używanych przez kroki w potoku uczenia maszynowego:
 
 1. Dodaj następujące instrukcje importu:
 
@@ -128,7 +128,7 @@ Aby włączyć debugowanie, wprowadź następujące zmiany w skryptach języka P
     from azureml.core import Run
     ```
 
-1. Dodaj następujące argumenty. Te argumenty umożliwiają włączenie debugera w razie potrzeby i ustawienie limitu czasu na potrzeby dołączania debugera:
+1. Dodaj następujące argumenty. Te argumenty umożliwiają włączenie debugera zgodnie z potrzebami i ustawienie limitu czasu dołączania debugera:
 
     ```python
     parser.add_argument('--remote_debug', action='store_true')
@@ -143,14 +143,14 @@ Aby włączyć debugowanie, wprowadź następujące zmiany w skryptach języka P
                         help=f'Defines Port of VS Code client')
     ```
 
-1. Dodaj następujące instrukcje. Te instrukcje ładują bieżący kontekst uruchomienia, aby można było zarejestrować adres IP węzła, na którym uruchomiono kod:
+1. Dodaj następujące instrukcje. Te instrukcje ładują bieżący kontekst uruchamiania, aby można było rejestrować adres IP węzła, na których działa kod:
 
     ```python
     global run
     run = Run.get_context()
     ```
 
-1. Dodaj `if` instrukcję, która uruchamia debugpy i czeka na dołączenie debugera. Jeśli żaden debuger nie zostanie dołączony przed upływem limitu czasu, skrypt będzie kontynuowany w normalny sposób. Pamiętaj, aby zamienić `HOST` `PORT` wartości i to `listen` Funkcja z własnymi.
+1. Dodaj `if` instrukcje, która uruchamia debugpy i czeka na dołączenie debugera. Jeśli przed limitem czasu nie zostanie dołączenia żaden debuger, skrypt będzie kontynuować normalnie. Pamiętaj, aby zastąpić `HOST` `PORT` wartości i `listen` własnymi wartościami.
 
     ```python
     if args.remote_debug:
@@ -167,7 +167,7 @@ Aby włączyć debugowanie, wprowadź następujące zmiany w skryptach języka P
         print(f'Debugger attached = {debugpy.is_client_connected()}')
     ```
 
-W poniższym przykładzie w języku Python przedstawiono prosty `train.py` plik, który umożliwia debugowanie:
+Poniższy przykład w języku Python przedstawia prosty `train.py` plik, który umożliwia debugowanie:
 
 ```python
 # Copyright (c) Microsoft. All rights reserved.
@@ -228,9 +228,9 @@ if not (args.output_train is None):
     print("%s created" % args.output_train)
 ```
 
-### <a name="configure-ml-pipeline"></a>Konfigurowanie potoku ML
+### <a name="configure-ml-pipeline"></a>Konfigurowanie potoku uczenia maszynowego
 
-Aby udostępnić pakiety języka Python, które są konieczne do uruchomienia programu debugpy i uzyskać kontekst uruchamiania, Utwórz środowisko i ustaw `pip_packages=['debugpy', 'azureml-sdk==<SDK-VERSION>']` . Zmień wersję zestawu SDK, aby była zgodna z tą, której używasz. Poniższy fragment kodu przedstawia sposób tworzenia środowiska:
+Aby udostępnić pakiety języka Python potrzebne do uruchomienia debugpy i uzyskania kontekstu uruchamiania, utwórz środowisko i ustaw `pip_packages=['debugpy', 'azureml-sdk==<SDK-VERSION>']` element . Zmień wersję zestawu SDK, aby dopasować wersję, która jest przez Ciebie używania. Poniższy fragment kodu przedstawia sposób tworzenia środowiska:
 
 ```python
 # Use a RunConfiguration to specify some additional requirements for this step.
@@ -255,7 +255,7 @@ run_config.environment.python.conda_dependencies = CondaDependencies.create(cond
                                                                            pip_packages=['debugpy', 'azureml-sdk==<SDK-VERSION>'])
 ```
 
-W sekcji [Konfigurowanie skryptów języka Python](#configure-python-scripts) nowe argumenty zostały dodane do skryptów używanych przez etapy potoku. Poniższy fragment kodu ilustruje, jak używać tych argumentów, aby włączyć debugowanie dla składnika i ustawić limit czasu. Pokazano w nim także, jak używać środowiska utworzonego wcześniej przez ustawienie `runconfig=run_config` :
+W sekcji [Konfigurowanie skryptów języka Python](#configure-python-scripts) do skryptów używanych przez kroki potoku uczenia maszynowego dodano nowe argumenty. Poniższy fragment kodu przedstawia sposób użycia tych argumentów w celu włączenia debugowania składnika i ustawienia limitu czasu. Pokazano w nim również sposób korzystania ze środowiska utworzonego wcześniej przez ustawienie wartości `runconfig=run_config` :
 
 ```python
 # Use RunConfig from a pipeline step
@@ -268,7 +268,7 @@ step1 = PythonScriptStep(name="train_step",
                          allow_reuse=False)
 ```
 
-Po uruchomieniu potoku każdy krok tworzy podrzędny przebieg. Jeśli debugowanie jest włączone, zmodyfikowany skrypt rejestruje informacje podobne do następującego tekstu w elemencie `70_driver_log.txt` dla uruchomienia podrzędnego:
+Po uruchomieniu potoku każdy krok tworzy przebieg podrzędny. Jeśli debugowanie jest włączone, zmodyfikowany skrypt rejestruje informacje podobne do następującego tekstu w pliku `70_driver_log.txt` dla podrzędnego uruchomienia:
 
 ```text
 Timeout for debug connection: 300
@@ -278,23 +278,23 @@ ip_address: 10.3.0.5
 Zapisz `ip_address` wartość. Jest on używany w następnej sekcji.
 
 > [!TIP]
-> Możesz również znaleźć adres IP z dzienników uruchamiania dla tego kroku potoku. Aby uzyskać więcej informacji o wyświetlaniu tych informacji, zobacz [monitorowanie przebiegów eksperymentów i metryk usługi Azure ml](how-to-track-experiments.md).
+> Adres IP można również znaleźć w dziennikach uruchamiania dla podrzędnego uruchomienia dla tego kroku potoku. Aby uzyskać więcej informacji na temat wyświetlania tych informacji, zobacz Monitorowanie przebiegów i metryk eksperymentów usługi [Azure ML.](how-to-log-view-metrics.md)
 
 ### <a name="configure-development-environment"></a>Konfigurowanie środowiska programowania
 
-1. Aby zainstalować program debugpy w środowisku deweloperskim VS Code, użyj następującego polecenia:
+1. Aby zainstalować debugpy w środowisku VS Code dewelopera, użyj następującego polecenia:
 
     ```bash
     python -m pip install --upgrade debugpy
     ```
 
-    Aby uzyskać więcej informacji na temat używania debugpy z VS Code, zobacz [debugowanie zdalne](https://code.visualstudio.com/docs/python/debugging#_debugging-by-attaching-over-a-network-connection).
+    Aby uzyskać więcej informacji na temat używania debugpy z VS Code, zobacz [Debugowanie zdalne](https://code.visualstudio.com/docs/python/debugging#_debugging-by-attaching-over-a-network-connection).
 
-1. Aby skonfigurować VS Code do komunikowania się z Azure Machine Learning obliczeń, w których działa debuger, Utwórz nową konfigurację debugowania:
+1. Aby skonfigurować VS Code do komunikowania się z Azure Machine Learning obliczeniową, na których jest uruchomiony debuger, utwórz nową konfigurację debugowania:
 
-    1. W obszarze VS Code wybierz menu __Debuguj__ , a następnie wybierz pozycję __Otwórz konfiguracje__. Plik o nazwie __launch.jsprzy__ otwieraniu.
+    1. Z VS Code menu Debug __(Debugowanie),__ a następnie wybierz pozycję __Open configurations (Otwórz konfiguracje).__ Zostanie otwarty __pliklaunch.jso__ nazwie .
 
-    1. W __launch.jsw__ pliku Znajdź wiersz, który zawiera `"configurations": [` , i Wstaw następujący tekst po nim. Zmień `"host": "<IP-ADDRESS>"` wpis na adres IP zwrócony w dziennikach z poprzedniej sekcji. Zmień `"localRoot": "${workspaceFolder}/code/step"` wpis na katalog lokalny, który zawiera kopię debugowanego skryptu:
+    1. Wlaunch.js __pliku__ znajdź wiersz, który zawiera , i wstaw `"configurations": [` następujący tekst po nim. Zmień wpis `"host": "<IP-ADDRESS>"` na adres IP zwrócony w dziennikach z poprzedniej sekcji. Zmień wpis `"localRoot": "${workspaceFolder}/code/step"` na katalog lokalny, który zawiera kopię debugowanych skryptów:
 
         ```json
         {
@@ -314,50 +314,50 @@ Zapisz `ip_address` wartość. Jest on używany w następnej sekcji.
         ```
 
         > [!IMPORTANT]
-        > Jeśli w sekcji konfiguracje znajdują się już inne wpisy, Dodaj przecinek (,) po wstawionym kodzie.
+        > Jeśli w sekcji konfiguracji znajdują się już inne wpisy, dodaj przecinek (,) po wstawionych kodach.
 
         > [!TIP]
-        > Najlepszym rozwiązaniem, szczególnie w przypadku potoków, jest utrzymywanie zasobów dla skryptów w oddzielnych katalogach, aby kod był istotny tylko dla każdego z tych kroków. W tym przykładzie `localRoot` przykładowe odwołania do wartości `/code/step1` .
+        > Najlepszym rozwiązaniem, szczególnie w przypadku potoków, jest zachowanie zasobów dla skryptów w oddzielnych katalogach, tak aby kod był odpowiedni tylko dla każdego z kroków. W tym przykładzie `localRoot` przykładowa wartość odwołuje się do `/code/step1` .
         >
-        > W przypadku debugowania wielu skryptów w różnych katalogach należy utworzyć osobną sekcję konfiguracyjną dla każdego skryptu.
+        > W przypadku debugowania wielu skryptów w różnych katalogach utwórz oddzielną sekcję konfiguracji dla każdego skryptu.
 
-    1. Zapisz __launch.js__ pliku.
+    1. Zapisz plik __launch.jspliku.__
 
-### <a name="connect-the-debugger"></a>Podłącz debuger
+### <a name="connect-the-debugger"></a>Łączenie debugera
 
-1. Otwórz VS Code i Otwórz lokalną kopię skryptu.
+1. Otwórz VS Code i otwórz lokalną kopię skryptu.
 2. Ustaw punkty przerwania, w których skrypt ma zostać zatrzymany po dołączeniu.
-3. Podczas gdy proces podrzędny uruchamia skrypt, a w `Timeout for debug connection` dziennikach jest wyświetlany, użyj klawisza F5 lub wybierz opcję __Debuguj__. Po wyświetleniu monitu wybierz konfigurację __Azure Machine Learning COMPUTE: Remote Debug__ . Możesz również wybrać ikonę debugowania z paska bocznego, __Azure Machine Learning: zdalnego debugowania__ z menu rozwijanego debugowanie, a następnie użyć zieloną strzałkę, aby dołączyć debuger.
+3. Gdy proces podrzędny uruchamia skrypt, a element jest wyświetlany w dziennikach, użyj `Timeout for debug connection` klawisza F5 lub wybierz pozycję __Debuguj__. Po wyświetleniu monitu wybierz pozycję __Obliczenia Azure Machine Learning: konfiguracja debugowania__ zdalnego. Możesz również wybrać ikonę debugowania na pasku bocznym, wpis __Azure Machine Learning:__ debugowanie zdalne z menu rozwijanego Debugowanie, a następnie użyć zielonej strzałki, aby dołączyć debuger.
 
-    W tym momencie VS Code nawiązuje połączenie z usługą debugpy w węźle obliczeniowym i zatrzyma się na ustawionym wcześniej punkcie przerwania. Teraz można przechodzić przez kod w trakcie jego uruchamiania, wyświetlać zmienne itp.
+    W tym momencie VS Code debugpy w węźle obliczeniowym i zatrzymuje się w punkcie przerwania ustawionym wcześniej. Teraz możesz przechodzić przez kod podczas jego pracy, wyświetlać zmienne itp.
 
     > [!NOTE]
-    > Jeśli w dzienniku zostanie wyświetlony wpis z informacją `Debugger attached = False` , upłynął limit czasu, a skrypt kontynuuje działanie bez debugera. Prześlij potok ponownie, a następnie podłącz debuger po `Timeout for debug connection` komunikacie i przed upływem limitu czasu.
+    > Jeśli w dzienniku jest wyświetlany wpis z informacją , limit czasu wygasł, a skrypt był `Debugger attached = False` kontynuowany bez debugera. Ponownie prześlij potok i połącz debuger po komunikacie `Timeout for debug connection` i przed upływem limitu czasu.
 
-## <a name="debug-and-troubleshoot-deployments"></a>Debugowanie i rozwiązywanie problemów z wdrożeniami
+## <a name="debug-and-troubleshoot-deployments"></a>Debugowanie wdrożeń i rozwiązywanie problemów z wdrożeniami
 
-W niektórych przypadkach może być konieczne interaktywne Debugowanie kodu w języku Python zawartego we wdrożeniu modelu. Na przykład, jeśli skrypt wejścia kończy się niepowodzeniem i powód nie może być określony przez dodatkowe rejestrowanie. Za pomocą VS Code i debugpy można dołączyć do kodu działającego wewnątrz kontenera Docker.
+W niektórych przypadkach może być konieczne interaktywne debugowanie kodu języka Python zawartego we wdrożeniu modelu. Jeśli na przykład skrypt wejściowy się nie popełni, a przyczyna nie może zostać określona przez dodatkowe rejestrowanie. Za pomocą VS Code i debugpy można dołączyć do kodu uruchomionego w kontenerze platformy Docker.
 
 > [!IMPORTANT]
-> Ta metoda debugowania nie działa w przypadku `Model.deploy()` `LocalWebservice.deploy_configuration` lokalnego wdrażania modelu i. Zamiast tego należy utworzyć obraz przy użyciu metody [model. Package ()](/python/api/azureml-core/azureml.core.model.model#package-workspace--models--inference-config-none--generate-dockerfile-false-) .
+> Ta metoda debugowania nie działa w przypadku używania metod `Model.deploy()` i `LocalWebservice.deploy_configuration` do lokalnego wdrażania modelu. Zamiast tego należy utworzyć obraz przy użyciu [metody Model.package().](/python/api/azureml-core/azureml.core.model.model#package-workspace--models--inference-config-none--generate-dockerfile-false-)
 
-Lokalne wdrożenia usługi sieci Web wymagają pracy instalacji platformy Docker w systemie lokalnym. Aby uzyskać więcej informacji na temat korzystania z platformy Docker, zapoznaj się z [dokumentacją platformy Docker](https://docs.docker.com/). Należy pamiętać, że podczas pracy z wystąpieniami obliczeniowymi program Docker jest już zainstalowany.
+Lokalne wdrożenia usług sieci Web wymagają roboczej instalacji platformy Docker w systemie lokalnym. Aby uzyskać więcej informacji na temat korzystania z platformy Docker, zobacz [dokumentację platformy Docker.](https://docs.docker.com/) Należy pamiętać, że podczas pracy z wystąpieniami obliczeniowymi program Docker jest już zainstalowany.
 
 ### <a name="configure-development-environment"></a>Konfigurowanie środowiska programowania
 
-1. Aby zainstalować program debugpy w lokalnym środowisku programistycznym VS Code, użyj następującego polecenia:
+1. Aby zainstalować debugpy w lokalnym VS Code dewelopera, użyj następującego polecenia:
 
     ```bash
     python -m pip install --upgrade debugpy
     ```
 
-    Aby uzyskać więcej informacji na temat używania debugpy z VS Code, zobacz [debugowanie zdalne](https://code.visualstudio.com/docs/python/debugging#_debugging-by-attaching-over-a-network-connection).
+    Aby uzyskać więcej informacji na temat używania debugpy z VS Code, zobacz [Debugowanie zdalne](https://code.visualstudio.com/docs/python/debugging#_debugging-by-attaching-over-a-network-connection).
 
-1. Aby skonfigurować VS Code do komunikowania się z obrazem platformy Docker, Utwórz nową konfigurację debugowania:
+1. Aby skonfigurować VS Code do komunikowania się z obrazem platformy Docker, utwórz nową konfigurację debugowania:
 
-    1. W obszarze VS Code wybierz menu __Debuguj__ w zakresie __uruchamiania__ , a następnie wybierz pozycję __Otwórz konfiguracje__. Plik o nazwie __launch.jsprzy__ otwieraniu.
+    1. Z VS Code menu __Debug__ (Debugowanie) w zakresie __Run__ (Uruchom), a następnie wybierz pozycję __Open configurations (Otwórz konfiguracje).__ Zostanie otwarty __pliklaunch.jso__ nazwie .
 
-    1. W __launch.js__ pliku Znajdź element __"konfiguracje"__ (wiersz zawierający `"configurations": [` ) i Wstaw następujący tekst po nim. 
+    1. W __launch.jspliku__ znajdź element __"configurations"__ (wiersz, który zawiera ) i wstaw następujący `"configurations": [` tekst po nim. 
 
         ```json
         {
@@ -376,7 +376,7 @@ Lokalne wdrożenia usługi sieci Web wymagają pracy instalacji platformy Docker
             ]
         }
         ```
-        Po wstawieniu __launch.jsw__ pliku powinien wyglądać podobnie do poniższego:
+        Po wstawieniu __launch.jspliku__ powinien być podobny do następującego:
         ```json
         {
         // Use IntelliSense to learn about possible attributes.
@@ -411,15 +411,15 @@ Lokalne wdrożenia usługi sieci Web wymagają pracy instalacji platformy Docker
         ```
 
         > [!IMPORTANT]
-        > Jeśli w sekcji konfiguracje znajdują się już inne wpisy, Dodaj przecinek ( __,__ ) po wstawionym kodzie.
+        > Jeśli w sekcji konfiguracji znajdują się już inne wpisy, dodaj przecinek ( __,__ ) po wstawionych kodach.
 
-        Ta sekcja dołącza do kontenera Docker przy użyciu portu __5678__.
+        Ta sekcja jest dołączana do kontenera platformy Docker przy użyciu portu __5678.__
 
-    1. Zapisz __launch.js__ pliku.
+    1. Zapisz plik __launch.jspliku.__
 
-### <a name="create-an-image-that-includes-debugpy"></a>Tworzenie obrazu zawierającego debugpy
+### <a name="create-an-image-that-includes-debugpy"></a>Tworzenie obrazu, który zawiera debugpy
 
-1. Zmodyfikuj środowisko Conda dla danego wdrożenia, aby zawierało debugpy. Poniższy przykład demonstruje dodanie go przy użyciu `pip_packages` parametru:
+1. Zmodyfikuj środowisko conda dla wdrożenia, tak aby zawierało debugpy. W poniższym przykładzie pokazano dodawanie go przy użyciu `pip_packages` parametru :
 
     ```python
     from azureml.core.conda_dependencies import CondaDependencies 
@@ -435,7 +435,7 @@ Lokalne wdrożenia usługi sieci Web wymagają pracy instalacji platformy Docker
         f.write(myenv.serialize_to_string())
     ```
 
-1. Aby rozpocząć debugpy i poczekać na połączenie, gdy usługa zostanie uruchomiona, Dodaj następujący element na początku `score.py` pliku:
+1. Aby rozpocząć debugowanie i poczekać na połączenie po uruchomieniu usługi, dodaj następujący kod na początku `score.py` pliku:
 
     ```python
     import debugpy
@@ -446,10 +446,10 @@ Lokalne wdrożenia usługi sieci Web wymagają pracy instalacji platformy Docker
     print("Debugger attached...")
     ```
 
-1. Tworzenie obrazu na podstawie definicji środowiska i ściąganie obrazu do rejestru lokalnego. 
+1. Utwórz obraz na podstawie definicji środowiska i ściągnij obraz do rejestru lokalnego. 
 
     > [!NOTE]
-    > W tym przykładzie przyjęto założenie, że `ws` wskazuje obszar roboczy Azure Machine Learning i `model` jest to wdrażany model. `myenv.yml`Plik zawiera zależności Conda utworzone w kroku 1.
+    > W tym przykładzie założono, że wskazuje Azure Machine Learning obszaru roboczego i jest `ws` `model` to wdrażany model. Plik `myenv.yml` zawiera zależności conda utworzone w kroku 1.
 
     ```python
     from azureml.core.conda_dependencies import CondaDependencies
@@ -466,26 +466,26 @@ Lokalne wdrożenia usługi sieci Web wymagają pracy instalacji platformy Docker
     package.pull()
     ```
 
-    Po utworzeniu i pobraniu obrazu (ten proces może potrwać więcej niż 10 minut, więc Zaczekaj na cierpliwość) ścieżka obrazu (w tym repozytorium, nazwa i tag, który w tym przypadku jest również jego skrótem) jest wyświetlana w komunikacie podobnym do poniższego:
+    Po utworzeniu i pobraniu obrazu (ten proces może potrwać więcej niż 10 minut, więc czekaj patiently) ścieżka obrazu (obejmuje repozytorium, nazwę i tag, który w tym przypadku jest również jego skrótem) jest wyświetlana w komunikacie podobnym do następującego:
 
     ```text
     Status: Downloaded newer image for myregistry.azurecr.io/package@sha256:<image-digest>
     ```
 
-1. Aby ułatwić pracę z obrazem lokalnie, można użyć następującego polecenia, aby dodać tag dla tego obrazu. Zastąp `myimagepath` ciąg w poniższym poleceniu wartością lokalizacji z poprzedniego kroku.
+1. Aby ułatwić pracę z obrazem lokalnie, możesz użyć następującego polecenia, aby dodać tag dla tego obrazu. Zastąp `myimagepath` w poniższym poleceniu wartością lokalizacji z poprzedniego kroku.
 
     ```bash
     docker tag myimagepath debug:1
     ```
 
-    W pozostałej części kroków można odwołać się do lokalnego obrazu jako `debug:1` zamiast pełnej wartości ścieżki obrazu.
+    W pozostałych krokach zamiast wartości pełnej ścieżki obrazu można odwoływać się do obrazu `debug:1` lokalnego.
 
 ### <a name="debug-the-service"></a>Debugowanie usługi
 
 > [!TIP]
-> Jeśli ustawisz limit czasu dla połączenia usługi debugpy w `score.py` pliku, musisz połączyć vs Code z sesją debugowania przed upływem limitu czasu. Rozpocznij VS Code, Otwórz lokalną kopię `score.py` , ustaw punkt przerwania i przygotuj się do użycia przed wykonaniem kroków opisanych w tej sekcji.
+> Jeśli ustawisz limit czasu dla połączenia debugera w pliku, musisz nawiązać połączenie VS Code z sesją debugowania przed wygaśnięciem `score.py` limitu czasu. Uruchom VS Code, otwórz lokalną kopię pliku , ustaw punkt przerwania i przygotuj go do pracy przed rozpoczęciem pracy z krokami `score.py` w tej sekcji.
 >
-> Aby uzyskać więcej informacji na temat debugowania i ustawiania punktów przerwania, zobacz [debugowanie](https://code.visualstudio.com/Docs/editor/debugging).
+> Aby uzyskać więcej informacji na temat debugowania i ustawiania punktów przerwania, zobacz [Debugowanie](https://code.visualstudio.com/Docs/editor/debugging).
 
 1. Aby uruchomić kontener platformy Docker przy użyciu obrazu, użyj następującego polecenia:
 
@@ -493,36 +493,36 @@ Lokalne wdrożenia usługi sieci Web wymagają pracy instalacji platformy Docker
     docker run -it --name debug -p 8000:5001 -p 5678:5678 -v <my_local_path_to_score.py>:/var/azureml-app/score.py debug:1 /bin/bash
     ```
 
-    Spowoduje to dołączenie `score.py` lokalnego do kontenera. W związku z tym wszelkie zmiany wprowadzone w edytorze są automatycznie odzwierciedlane w kontenerze
+    To dołączy Twoją `score.py` lokalnie do tej w kontenerze. W związku z tym wszelkie zmiany wprowadzone w edytorze są automatycznie odzwierciedlane w kontenerze
 
-2. Aby zapewnić lepsze środowisko, możesz przejść do kontenera z nowym interfejsem programu VS Code. Wybierz `Docker` zakres z vs Code pasku bocznym, Znajdź utworzony kontener lokalny, w tej dokumentacji `debug:1` . Kliknij prawym przyciskiem myszy ten kontener i wybierz pozycję `"Attach Visual Studio Code"` , a następnie nowy interfejs vs Code zostanie otwarty automatycznie, a ten interfejs pokazuje wewnątrz utworzonego kontenera.
+2. Aby uzyskać lepsze środowisko pracy, możesz przejść do kontenera przy użyciu nowego interfejsu kodu programu VS. Wybierz zakres na pasku bocznym VS Code, znajdź utworzony kontener lokalny. W tej `Docker` dokumentacji jest to `debug:1` . Kliknij prawym przyciskiem myszy ten kontener i wybierz pozycję , a następnie nowy interfejs VS Code zostanie automatycznie otwarty, a ten interfejs będzie wyświetlać wewnątrz `"Attach Visual Studio Code"` utworzonego kontenera.
 
     ![Interfejs VS Code kontenera](./media/how-to-troubleshoot-deployment/container-interface.png)
 
-3. W obrębie kontenera Uruchom następujące polecenie w powłoce
+3. W kontenerze uruchom następujące polecenie w powłoki
 
     ```bash
     runsvdir /var/runit
     ```
-    Następnie można zobaczyć następujące dane wyjściowe w powłoce wewnątrz kontenera:
+    Następnie w shell wewnątrz kontenera zobaczysz następujące dane wyjściowe:
 
-    ![Dane wyjściowe konsoli Uruchom jako kontenera](./media/how-to-troubleshoot-deployment/container-run.png)
+    ![Dane wyjściowe konsoli uruchamiania kontenera](./media/how-to-troubleshoot-deployment/container-run.png)
 
-4. Aby dołączyć VS Code do debugpy wewnątrz kontenera, Otwórz VS Code i naciśnij klawisz F5 lub wybierz opcję __Debuguj__. Po wyświetleniu monitu wybierz pozycję __wdrożenie Azure Machine Learning: Konfiguracja debugowania platformy Docker__ . Możesz również wybrać ikonę rozmiaru __uruchomienia__ z paska bocznego, __Azure Machine Learning wdrożenia: Docker Debug__ z menu rozwijanego debugowanie, a następnie użyć zielonej strzałki do dołączenia debugera.
+4. Aby dołączyć VS Code debugowania wewnątrz kontenera, otwórz plik VS Code klawisz F5 lub wybierz pozycję __Debuguj.__ Po wyświetleniu monitu wybierz __konfigurację wdrażanie Azure Machine Learning: debugowanie platformy Docker.__ Możesz również wybrać  ikonę Uruchom zakres na pasku bocznym, wpis __Azure Machine Learning Deployment: Docker Debug__ z menu rozwijanego Debugowanie, a następnie użyć zielonej strzałki, aby dołączyć debuger.
 
     ![Ikona debugowania, przycisk Rozpocznij debugowanie i selektor konfiguracji](./media/how-to-troubleshoot-deployment/start-debugging.png)
     
-    Po kliknięciu zielonej strzałki i dołączeniu debugera w interfejsie VS Code kontenera można zobaczyć kilka nowych informacji:
+    Po kliknięciu zielonej strzałki i dołączeniu debugera w kontenerze VS Code interfejsie można zobaczyć nowe informacje:
     
-    ![Informacje o dołączonym debugerze kontenera](./media/how-to-troubleshoot-deployment/debugger-attached.png)
+    ![Dołączone informacje debugera kontenera](./media/how-to-troubleshoot-deployment/debugger-attached.png)
     
-    Ponadto w interfejsie głównym VS Code można zobaczyć, co jest następujące:
+    Ponadto w głównym interfejsie VS Code są następujące elementy:
 
-    ![VS Code punkt przerwania w score.py](./media/how-to-troubleshoot-deployment/local-debugger.png)
+    ![Punkt VS Code w score.py](./media/how-to-troubleshoot-deployment/local-debugger.png)
 
-A teraz lokalna, `score.py` która jest dołączona do kontenera, została już zatrzymana w punktach przerwania ustawionych przez użytkownika. W tym momencie VS Code nawiązuje połączenie z usługą debugpy wewnątrz kontenera Docker i zatrzyma kontener Docker na ustawionym wcześniej punkcie przerwania. Teraz można przechodzić przez kod w trakcie jego uruchamiania, wyświetlać zmienne itp.
+Teraz lokalna, która jest dołączona do kontenera, została już zatrzymana w `score.py` punktach przerwania, w których została ustawiona. W tym momencie program VS Code debugpy wewnątrz kontenera platformy Docker i zatrzymuje kontener platformy Docker w ustawionym wcześniej punkcie przerwania. Teraz możesz przechodzić przez kod podczas jego pracy, wyświetlać zmienne itp.
 
-Aby uzyskać więcej informacji na temat używania VS Code do debugowania języka Python, zobacz [Debugowanie kodu](https://code.visualstudio.com/docs/python/debugging)w języku Python.
+Aby uzyskać więcej informacji na temat używania VS Code debugowania języka Python, zobacz [Debugowanie kodu w języku Python](https://code.visualstudio.com/docs/python/debugging).
 
 ### <a name="stop-the-container"></a>Zatrzymywanie kontenera
 
@@ -534,11 +534,11 @@ docker stop debug
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, po skonfigurowaniu VS Code zdalnej, można użyć wystąpienia obliczeniowego jako zdalnego obliczenia z VS Code do interaktywnego debugowania kodu. 
+Teraz, po skonfigurowaniu usługi VS Code zdalnego, możesz użyć wystąpienia obliczeniowego jako zdalnego obliczenia z usługi VS Code do interaktywnego debugowania kodu. 
 
 Dowiedz się więcej o rozwiązywaniu problemów:
 
-* [Lokalne wdrożenie modelu](how-to-troubleshoot-deployment-local.md)
+* [Wdrażanie modelu lokalnego](how-to-troubleshoot-deployment-local.md)
 * [Zdalne wdrażanie modelu](how-to-troubleshoot-deployment.md)
 * [Potoki uczenia maszynowego](how-to-debug-pipelines.md)
 * [ParallelRunStep](how-to-debug-parallel-run-step.md)

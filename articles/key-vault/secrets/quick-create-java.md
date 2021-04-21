@@ -1,6 +1,6 @@
 ---
-title: Szybki start — Azure Key Vault klienta secret dla języka Java
-description: Zawiera przewodnik Szybki start dla biblioteki Azure Key Vault klienta Secret dla języka Java.
+title: Szybki start — Azure Key Vault klienta tajnego dla języka Java
+description: Zawiera przewodnik Szybki start dla biblioteki klienta Azure Key Vault Secret dla języka Java.
 author: msmbaldwin
 ms.custom: devx-track-java
 ms.author: mbaldwin
@@ -8,14 +8,14 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: b45bb353ae32f1037fde7dc5d518472089edf12f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c52ac859f72c440e2cebd59555606c7b3986a314
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107766339"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814878"
 ---
-# <a name="quickstart-azure-key-vault-secret-client-library-for-java"></a>Szybki start: Azure Key Vault klienta secret dla języka Java
+# <a name="quickstart-azure-key-vault-secret-client-library-for-java"></a>Szybki start: Azure Key Vault klienta tajnego dla języka Java
 Wprowadzenie do biblioteki klienta Azure Key Vault Secret dla języka Java. Wykonaj poniższe kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.
 
 Dodatkowe zasoby:
@@ -34,7 +34,7 @@ Dodatkowe zasoby:
 W tym przewodniku Szybki start założono, że używasz interfejsu wiersza [polecenia platformy Azure](/cli/azure/install-azure-cli) i narzędzia Apache [Maven](https://maven.apache.org) w oknie terminalu systemu Linux.
 
 ## <a name="setting-up"></a>Konfigurowanie
-Ten przewodnik Szybki start używa biblioteki tożsamości platformy Azure z interfejsem wiersza polecenia platformy Azure do uwierzytelniania użytkownika w usługach platformy Azure. Deweloperzy mogą również używać Visual Studio lub Visual Studio Code do uwierzytelniania swoich wywołań. Aby uzyskać więcej informacji, zobacz Authenticate the client with Azure Identity client library (Uwierzytelnianie klienta za pomocą biblioteki klienta tożsamości [platformy Azure).](/java/api/overview/azure/identity-readme)
+Ten przewodnik Szybki start używa biblioteki tożsamości platformy Azure z interfejsem wiersza polecenia platformy Azure do uwierzytelniania użytkownika w usługach platformy Azure. Deweloperzy mogą również Visual Studio lub Visual Studio Code do uwierzytelniania swoich wywołań. Aby uzyskać więcej informacji, zobacz Authenticate the client with Azure Identity client library (Uwierzytelnianie klienta za pomocą [biblioteki klienta tożsamości platformy Azure).](/java/api/overview/azure/identity-readme)
 
 ### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 1. Uruchom polecenie `login`.
@@ -134,7 +134,7 @@ macOS lub Linux
 export KEY_VAULT_NAME=<your-key-vault-name>
 ```
 
-## <a name="object-model"></a>Model obiektu
+## <a name="object-model"></a>Model obiektów
 Biblioteka Azure Key Vault klienta secret dla języka Java umożliwia zarządzanie wpisami tajnymi. W [sekcji Przykłady](#code-examples) kodu pokazano, jak utworzyć klienta, ustawić klucz tajny, pobrać klucz tajny i usunąć klucz tajny.
 
 Cała aplikacja konsolowa znajduje się [poniżej .](#sample-code)
@@ -154,9 +154,9 @@ import com.azure.security.keyvault.secrets.models.KeyVaultSecret;
 ```
 
 ### <a name="authenticate-and-create-a-client"></a>Uwierzytelnianie i tworzenie klienta
-W tym przewodniku Szybki start zalogowany użytkownik jest używany do uwierzytelniania w Key Vault, co jest preferowaną metodą tworzenia aplikacji lokalnych. W przypadku aplikacji wdrożonych na platformie Azure tożsamość zarządzana powinna zostać przypisana do App Service wirtualnej. Aby uzyskać więcej informacji, zobacz [Omówienie tożsamości zarządzanej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+W tym przewodniku Szybki start zalogowany użytkownik jest używany do uwierzytelniania w Key Vault, co jest preferowaną metodą tworzenia aplikacji lokalnych. W przypadku aplikacji wdrożonych na platformie Azure tożsamość zarządzana powinna zostać przypisana do App Service lub maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Omówienie tożsamości zarządzanej.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-W poniższym przykładzie nazwa magazynu kluczy jest rozszerzana do wartości URI magazynu kluczy w formacie "https:// \<your-key-vault-name\> .vault.azure.net". W tym przykładzie używa się klasy ["DefaultAzureCredential()",](https://docs.microsoft.com/java/api/com.azure.identity.defaultazurecredential) która umożliwia używanie tego samego kodu w różnych środowiskach z różnymi opcjami w celu zapewnienia tożsamości. Aby uzyskać więcej informacji, zobacz [Domyślne uwierzytelnianie poświadczeń platformy Azure.](https://docs.microsoft.com/java/api/overview/azure/identity-readme)
+W poniższym przykładzie nazwa magazynu kluczy jest rozszerzana do wartości URI magazynu kluczy w formacie "https:// \<your-key-vault-name\> .vault.azure.net". W tym przykładzie jest to klasa ["DefaultAzureCredential()",](https://docs.microsoft.com/java/api/com.azure.identity.defaultazurecredential) która umożliwia używanie tego samego kodu w różnych środowiskach z różnymi opcjami w celu zapewnienia tożsamości. Aby uzyskać więcej informacji, zobacz [Domyślne uwierzytelnianie poświadczeń platformy Azure.](https://docs.microsoft.com/java/api/overview/azure/identity-readme)
 
 ```java
 String keyVaultName = System.getenv("KEY_VAULT_NAME");
@@ -169,7 +169,7 @@ SecretClient secretClient = new SecretClientBuilder()
 ```
 
 ### <a name="save-a-secret"></a>Zapisywanie tajnego
-Teraz, gdy aplikacja jest uwierzytelniona, możesz umieścić klucz tajny w magazynie kluczy przy użyciu `secretClient.setSecret` metody . Wymaga to nazwy dla tajnego — przypisaliśmy wartość "mySecret" do zmiennej `secretName` w tym przykładzie.
+Teraz, po uwierzytelnieniu aplikacji, możesz umieścić klucz tajny w magazynie kluczy przy użyciu `secretClient.setSecret` metody . Wymaga to nazwy dla tajnego — przypisaliśmy wartość "mySecret" do zmiennej `secretName` w tym przykładzie.
 
 ```java
 secretClient.setSecret(new KeyVaultSecret(secretName, secretValue));
@@ -188,26 +188,26 @@ Teraz możesz pobrać wcześniej ustawiony klucz tajny za pomocą `secretClient.
 KeyVaultSecret retrievedSecret = secretClient.getSecret(secretName);
  ```
 
-Teraz możesz uzyskać dostęp do wartości pobranego tajnego klucz tajny za `retrievedSecret.getValue()` pomocą .
+Teraz możesz uzyskać dostęp do wartości pobranego tajnego kluczem tajnym za `retrievedSecret.getValue()` pomocą .
 
 ### <a name="delete-a-secret"></a>Usuń klucz tajny
-Na koniec usuńmy klucz tajny z magazynu kluczy za pomocą `secretClient.beginDeleteSecret` metody .
+Na koniec usuńmy klucz tajny z magazynu kluczy przy użyciu `secretClient.beginDeleteSecret` metody .
 
-Usuwanie kluczem tajnym to długotrwała operacja, dla której można sondować postęp lub czekać na ukończenie.
+Usuwanie tajnych jest długotrwałą operacją, dla której można sondować postęp lub czekać na jej ukończenie.
 
 ```java
 SyncPoller<DeletedSecret, Void> deletionPoller = secretClient.beginDeleteSecret(secretName);
 deletionPoller.waitForCompletion();
 ```
 
-Możesz sprawdzić, czy klucz tajny został usunięty, za pomocą [polecenia az keyvault secret show:](/cli/azure/keyvault/secret?#az_keyvault_secret_show)
+Możesz sprawdzić, czy klucz tajny został usunięty, za pomocą polecenia [az keyvault secret show:](/cli/azure/keyvault/secret?#az_keyvault_secret_show)
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-key-vault-name> --name mySecret
 ```
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
-Gdy magazyn kluczy i odpowiednia grupa zasobów nie będą już potrzebne, można je usunąć za pomocą Azure PowerShell wiersza polecenia platformy Azure lub grupy zasobów.
+Gdy magazyn kluczy i odpowiednia grupa zasobów nie będą już potrzebne, możesz Azure PowerShell interfejsu wiersza polecenia platformy Azure lub usługi .
 
 ```azurecli
 az group delete -g "myResourceGroup"
@@ -281,4 +281,4 @@ W tym przewodniku Szybki start utworzono magazyn kluczy, przechowywano klucz taj
 
 - Przeczytaj omówienie [Azure Key Vault](../general/overview.md)
 - Zobacz Azure Key Vault [dewelopera](../general/developers-guide.md)
-- Jak zabezpieczyć [dostęp do magazynu kluczy](../general/security-overview.md)
+- Jak [zabezpieczyć dostęp do magazynu kluczy](../general/security-features.md)

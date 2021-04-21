@@ -3,13 +3,13 @@ title: Jak wyłączyć funkcje w programie Azure Functions
 description: Dowiedz się, jak wyłączać i włączać funkcje w Azure Functions.
 ms.topic: conceptual
 ms.date: 03/15/2021
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 03803abfda010c81fa8286a478d626ef39db59fb
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-csharp, devx-track-azurepowershell
+ms.openlocfilehash: c4743603504639cba5c48af57046179a0680b371
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777585"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829883"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Jak wyłączyć funkcje w programie Azure Functions
 
@@ -24,14 +24,14 @@ Zalecanym sposobem wyłączenia funkcji jest ustawienie aplikacji w formacie `Az
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
-Użyj **przycisków** **Włącz** i Wyłącz na stronie **Przegląd** funkcji. Te przyciski działają, zmieniając wartość `AzureWebJobs.<FUNCTION_NAME>.Disabled` ustawienia aplikacji. To ustawienie specyficzne dla funkcji jest tworzone przy pierwszym wyłączeniu. 
+Użyj **przycisków Włącz** i **Wyłącz** na stronie **Przegląd** funkcji. Te przyciski działają, zmieniając wartość `AzureWebJobs.<FUNCTION_NAME>.Disabled` ustawienia aplikacji. To ustawienie specyficzne dla funkcji jest tworzone przy pierwszym wyłączeniu. 
 
 ![Przełącznik stanu funkcji](media/disable-function/function-state-switch.png)
 
-Nawet w przypadku publikowania w aplikacji funkcji z projektu lokalnego można nadal używać portalu do wyłączania funkcji w aplikacji funkcji. 
+Nawet w przypadku publikowania w aplikacji funkcji z lokalnego projektu można nadal używać portalu do wyłączania funkcji w aplikacji funkcji. 
 
 > [!NOTE]  
-> Funkcja testowania zintegrowanego z portalem ignoruje `Disabled` to ustawienie. Oznacza to, że wyłączona funkcja nadal jest uruchamiana po jej **wystartować** w oknie Test w portalu. 
+> Funkcja testowania zintegrowana z portalem ignoruje `Disabled` to ustawienie. Oznacza to, że wyłączona funkcja jest nadal uruchamiana po jej wystartu w **oknie Test** w portalu. 
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azurecli)
 
@@ -68,7 +68,7 @@ Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOUR
 
 ## <a name="functions-in-a-slot"></a>Funkcje w miejscu
 
-Domyślnie ustawienia aplikacji mają również zastosowanie do aplikacji uruchomionych w miejscach wdrożenia. Można jednak zastąpić ustawienie aplikacji używane przez miejsce, ustawiając ustawienie aplikacji specyficzne dla miejsca. Na przykład możesz chcieć, aby funkcja była aktywna w środowisku produkcyjnym, ale nie podczas testowania wdrażania, na przykład funkcji wyzwalanych czasomierzem. 
+Domyślnie ustawienia aplikacji mają również zastosowanie do aplikacji uruchomionych w miejscach wdrożenia. Można jednak zastąpić ustawienie aplikacji używane przez miejsce, ustawiając ustawienie aplikacji specyficzne dla miejsca. Na przykład możesz chcieć, aby funkcja była aktywna w środowisku produkcyjnym, ale nie podczas testowania wdrażania, takiego jak funkcja wyzwalana czasomierzem. 
 
 Aby wyłączyć funkcję tylko w miejscu przejściowym:
 
@@ -76,7 +76,7 @@ Aby wyłączyć funkcję tylko w miejscu przejściowym:
 
 Przejdź do wystąpienia miejsca aplikacji funkcji, wybierając pozycję Miejsca wdrożenia w obszarze **Wdrożenie,** wybierając miejsce i wybierając pozycję **Funkcje** w wystąpieniu miejsca.   Wybierz funkcję, a następnie użyj **przycisków Włącz** i **Wyłącz** na stronie **Przegląd** funkcji. Te przyciski działają, zmieniając wartość `AzureWebJobs.<FUNCTION_NAME>.Disabled` ustawienia aplikacji. To ustawienie specyficzne dla funkcji jest tworzone przy pierwszym wyłączeniu. 
 
-Możesz również bezpośrednio dodać ustawienie aplikacji o nazwie `AzureWebJobs.<FUNCTION_NAME>.Disabled` z wartością `true` w **konfiguracji** dla wystąpienia miejsca. Podczas dodawania ustawienia aplikacji specyficznego dla miejsca zaznacz pole ustawienia **Miejsce** wdrożenia. Dzięki temu jest zachowywana wartość ustawienia z miejscem podczas zamian.
+Możesz również bezpośrednio dodać ustawienie aplikacji o nazwie `AzureWebJobs.<FUNCTION_NAME>.Disabled` z wartością `true` w **konfiguracji** dla wystąpienia miejsca. Podczas dodawania ustawienia aplikacji specyficznego dla miejsca pamiętaj o zaznaczeniu pola **Ustawienie miejsca** wdrożenia. Dzięki temu jest zachowywana wartość ustawienia z miejscem podczas zamian.
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azurecli)
 
@@ -118,11 +118,11 @@ Funkcje można wyłączyć w taki sam sposób podczas uruchamiania lokalnego. Ab
 
 ## <a name="other-methods"></a>Inne metody
 
-Mimo że metoda ustawienia aplikacji jest zalecana dla wszystkich języków i wszystkich wersji środowiska uruchomieniowego, istnieje kilka innych sposobów wyłączania funkcji. Te metody, które różnią się w zależności od języka i wersji środowiska uruchomieniowego, są utrzymywane w celu zachowania zgodności z poprzednimi wersjami. 
+Chociaż metoda ustawienia aplikacji jest zalecana dla wszystkich języków i wszystkich wersji środowiska uruchomieniowego, istnieje kilka innych sposobów wyłączania funkcji. Te metody, które różnią się w zależności od języka i wersji środowiska uruchomieniowego, są utrzymywane w celu zachowania zgodności z poprzednimi wersjami. 
 
 ### <a name="c-class-libraries"></a>Biblioteki klas języka C#
 
-W funkcji biblioteki klas można również użyć atrybutu , aby zapobiec `Disable` wyzwoleniu funkcji. Ten atrybut umożliwia dostosowanie nazwy ustawienia używanego do wyłączania funkcji. Użyj wersji atrybutu , która umożliwia zdefiniowanie parametru konstruktora, który odwołuje się do ustawienia aplikacji logicznych, jak pokazano w poniższym przykładzie:
+W funkcji biblioteki klas można również użyć atrybutu , aby `Disable` zapobiec wyzwoleniu funkcji. Ten atrybut umożliwia dostosowanie nazwy ustawienia używanego do wyłączania funkcji. Użyj wersji atrybutu , która umożliwia zdefiniowanie parametru konstruktora, który odwołuje się do ustawienia aplikacji logicznych, jak pokazano w poniższym przykładzie:
 
 ```csharp
 public static class QueueFunctions
@@ -138,11 +138,11 @@ public static class QueueFunctions
 }
 ```
 
-Ta metoda umożliwia włączanie i wyłączanie funkcji przez zmianę ustawienia aplikacji bez ponownego kompilowania i ponownego kompilowania. Zmiana ustawienia aplikacji powoduje ponowne uruchomienie aplikacji funkcji, więc wyłączona zmiana stanu jest rozpoznawana natychmiast.
+Ta metoda umożliwia włączanie i wyłączanie funkcji przez zmianę ustawienia aplikacji bez ponownego kompilowania i ponownego kompilowania. Zmiana ustawienia aplikacji powoduje ponowne uruchomienie aplikacji funkcji, więc zmiana stanu wyłączonego jest rozpoznawana natychmiast.
 
-Istnieje również konstruktor dla parametru, który nie akceptuje ciągu dla nazwy ustawienia. Ta wersja atrybutu nie jest zalecana. Jeśli używasz tej wersji, musisz ponownie skompilować i ponownie wykonać projekt, aby zmienić stan wyłączenia funkcji.
+Istnieje również konstruktor dla parametru, który nie akceptuje ciągu dla nazwy ustawienia. Ta wersja atrybutu nie jest zalecana. Jeśli używasz tej wersji, musisz ponownie skompilować i ponownie wdepchać projekt, aby zmienić stan wyłączenia funkcji.
 
-### <a name="functions-1x---scripting-languages"></a>Functions 1.x — języki skryptowe
+### <a name="functions-1x---scripting-languages"></a>Funkcje 1.x — języki skryptowe
 
 W wersji 1.x można również użyć właściwościfunction.jsw pliku, aby poinformować środowisko uruchomieniowe, aby nie `disabled` wyzwalało funkcji.  Ta metoda działa tylko w przypadku języków skryptowych, takich jak skrypt C# i JavaScript. Właściwość `disabled` można ustawić na lub na nazwę ustawienia `true` aplikacji:
 
@@ -172,7 +172,7 @@ lub
 W drugim przykładzie funkcja jest wyłączona, gdy istnieje ustawienie aplikacji o nazwie IS_DISABLED i ustawione na `true` wartość lub 1.
 
 >[!IMPORTANT]  
->Portal używa ustawień aplikacji, aby wyłączyć funkcje w wersji 1.x. Gdy ustawienie aplikacji powoduje konflikt z function.jspliku, może wystąpić błąd. Należy usunąć właściwość `disabled` z pliku function.js, aby zapobiec błędom. 
+>Portal używa ustawień aplikacji, aby wyłączyć funkcje w wersji 1.x. Gdy ustawienie aplikacji powoduje konflikt z function.jspliku, może wystąpić błąd. Należy usunąć właściwość `disabled` z pliku function.jspliku, aby zapobiec błędom. 
 
 
 ## <a name="next-steps"></a>Następne kroki

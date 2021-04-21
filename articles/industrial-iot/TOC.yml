@@ -1,32 +1,30 @@
-- name: Dokumentacja usługi Azure Industrial IoT
+- name: Dokumentacja przemysłowego IoT platformy Azure
   href: index.yml
 - name: Omówienie
   items:
-    - name: Co to jest przemysł IoT?
+    - name: Co to jest przemysłowe IoT?
       href: overview-what-is-industrial-iot.md
-    - name: Co to jest Wydawca OPC?
+    - name: Co to jest wydawca OPC?
       href: overview-what-is-opc-publisher.md
-    - name: Co to jest platforma IoT w przemyśle?
-      href: overview-what-is-industrial-iot-platform.md
 - name: Samouczki
   items:
     - name: Samouczki autonomiczne wydawcy OPC
       items:
-        - name: Wdróż tryb autonomiczny wydawcy programu OPC
+        - name: Wdrażanie trybu autonomicznego wydawcy OPC
           href: tutorial-publisher-deploy-opc-publisher-standalone.md
         - name: Konfigurowanie wydawcy OPC
           href: tutorial-publisher-configure-opc-publisher.md
         - name: Dostrajanie wydajności i pamięci wydawcy OPC
           href: tutorial-publisher-performance-memory-tuning-opc-publisher.md
-    - name: Samouczki dotyczące platformy IIoT (tryb aranżacji)
+    - name: Samouczki platformy IIoT (tryb orkiestrowany)
       items:
-        - name: Wdróż platformę IIoT
+        - name: Wdrażanie platformy IIoT
           href: tutorial-deploy-industrial-iot-platform.md
         - name: Konfigurowanie składników IIoT
           href: tutorial-configure-industrial-iot-components.md
-        - name: Ściąganie danych IIoT do ADX
+        - name: Ściąganie danych IIoT do usługi ADX
           href: tutorial-industrial-iot-azure-data-explorer.md
-        - name: Wizualizuj i analizuj dane przy użyciu Time Series Insights
+        - name: Wizualizowanie i analizowanie danych przy użyciu Time Series Insights
           href: tutorial-visualize-data-time-series-insights.md
 - name: Odwołanie
   items:
@@ -36,7 +34,7 @@
       href: reference-opc-publisher-telemetry-format.md
 - name: Zasoby
   items:
-    - name: Repozytorium GitHub OPC Publisher
+    - name: Repozytorium GitHub wydawcy OPC
       href: 'https://github.com/Azure/Industrial-IoT'
     - name: Repozytorium GitHub platformy IIoT
       href: 'https://github.com/Azure/iot-edge-opc-publisher'

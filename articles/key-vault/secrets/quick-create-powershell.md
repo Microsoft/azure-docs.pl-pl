@@ -1,6 +1,6 @@
 ---
-title: Szybki Start — Ustawianie & pobierania klucza tajnego z Key Vault przy użyciu programu PowerShell
-description: W tym przewodniku szybki start dowiesz się, jak tworzyć, pobierać i usuwać wpisy tajne z Azure Key Vault przy użyciu Azure PowerShell.
+title: Szybki start — ustawianie & pobierania tajnego z Key Vault przy użyciu programu PowerShell"
+description: W tym przewodniku Szybki start dowiesz się, jak tworzyć, pobierać i usuwać wpisy tajne z Azure Key Vault przy użyciu Azure PowerShell.
 services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurepowershell
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 5e3b78dfb8f08f1a596ad12884ec088cd36c4a98
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8a0ebfc90fb57a6e67d7c9e41b78d9db502b2720
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104582456"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814644"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Szybki start: konfigurowanie i pobieranie wpisów tajnych z usługi Azure Key Vault przy użyciu programu PowerShell
 
@@ -25,7 +25,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować program PowerShell i używać go lokalnie, ten samouczek wymaga Azure PowerShell modułu w wersji 5.0.0 lub nowszej. Wpisz polecenie `$PSVersionTable.PSVersion`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure.
+Jeśli zdecydujesz się zainstalować program PowerShell i używać go lokalnie, ten samouczek wymaga modułu Azure PowerShell wersji 5.0.0 lub nowszej. Wpisz polecenie `$PSVersionTable.PSVersion`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure.
 
 ```azurepowershell-interactive
 Connect-AzAccount
@@ -39,9 +39,9 @@ Connect-AzAccount
 
 [!INCLUDE [Create a key vault](../../../includes/key-vault-powershell-kv-creation.md)]
 
-## <a name="give-your-user-account-permissions-to-manage-secrets-in-key-vault"></a>Nadaj uprawnienia kontu użytkownika do zarządzania wpisami tajnymi w Key Vault
+## <a name="give-your-user-account-permissions-to-manage-secrets-in-key-vault"></a>Nadaj kontu użytkownika uprawnienia do zarządzania wpisami tajnymi w Key Vault
 
-Użyj polecenia cmdlet Azure PowerShell Set-AzKeyVaultAccessPolicy, aby zaktualizować zasady dostępu Key Vault i udzielić uprawnień tajnych kontu użytkownika.
+Użyj polecenia cmdlet Azure PowerShell Set-AzKeyVaultAccessPolicy , aby zaktualizować zasady Key Vault dostępu i udzielić tajnych uprawnień do konta użytkownika.
 
 ```azurepowershell-interactive
 Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -UserPrincipalName "user@domain.com" -PermissionsToSecrets get,set,delete
@@ -57,14 +57,14 @@ Najpierw przekonwertuj wartość **hVFkk965BuUv** na bezpieczny ciąg, wpisując
 $secretvalue = ConvertTo-SecureString "hVFkk965BuUv" -AsPlainText -Force
 ```
 
-Następnie użyj polecenia cmdlet Azure PowerShell [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret) , aby utworzyć wpis tajny w Key Vault o nazwie **ExamplePassword** o wartości **hVFkk965BuUv** :
+Następnie użyj Azure PowerShell cmdlet [Set-AzKeyVaultSecret,](/powershell/module/az.keyvault/set-azkeyvaultsecret) aby utworzyć w programie Key Vault klucz tajny o nazwie **ExamplePassword** o wartości **hVFkk965BuUv:**
 
 
 ```azurepowershell-interactive
 $secret = Set-AzKeyVaultSecret -VaultName "<your-unique-keyvault-name>" -Name "ExamplePassword" -SecretValue $secretvalue
 ```
 
-## <a name="retrieve-a-secret-from-key-vault"></a>Pobierz klucz tajny z Key Vault
+## <a name="retrieve-a-secret-from-key-vault"></a>Pobieranie tajnego z Key Vault
 
 Aby wyświetlić wartość zawartą we wpisie tajnym jako zwykły tekst:
 
@@ -93,9 +93,9 @@ Remove-AzResourceGroup -Name ContosoResourceGroup
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono Key Vault i Zapisano w nim wpis tajny. Aby dowiedzieć się więcej na temat Key Vault i sposobu integrowania go z aplikacjami, przejdź do artykułu poniżej.
+W tym przewodniku Szybki start utworzono Key Vault i przechowywano w nim klucz tajny. Aby dowiedzieć się więcej Key Vault o tym, jak zintegrować ją z aplikacjami, przejdź do poniższych artykułów.
 
-- Zapoznaj się [z omówieniem Azure Key Vault](../general/overview.md)
-- Dowiedz się, jak [przechowywać wpisy tajne wielowierszowe w Key Vault](multiline-secrets.md)
-- Zobacz informacje dotyczące [Azure PowerShell poleceń cmdlet Key Vault](/powershell/module/az.keyvault/#key_vault)
-- Zapoznaj się z [omówieniem zabezpieczeń Key Vault](../general/security-overview.md)
+- Przeczytaj omówienie [Azure Key Vault](../general/overview.md)
+- Dowiedz się, jak [przechowywać wieloliniowe wpisy tajne w Key Vault](multiline-secrets.md)
+- Zapoznaj się z odwołaniem do [Azure PowerShell Key Vault cmdlet](/powershell/module/az.keyvault/#key_vault)
+- Przejrzyj omówienie [Key Vault zabezpieczeń](../general/security-features.md)

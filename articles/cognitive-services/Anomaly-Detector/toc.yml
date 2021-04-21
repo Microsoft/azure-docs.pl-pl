@@ -3,7 +3,7 @@
 - name: Omówienie
   expanded: true
   items:
-    - name: Co to jest Narzędzie do wykrywania anomalii (wielowątkowa)?
+    - name: Co to Narzędzie do wykrywania anomalii (wielowariowa)?
       href: overview-multivariate.md
     - name: Co to Narzędzie do wykrywania anomalii (niezmienny)?
       href: overview.md
@@ -11,16 +11,18 @@
       href: 'https://aka.ms/adpricing'
 - name: Przewodniki Szybki start
   items:
-    - name: Wielozmianowe biblioteki klienckie
+    - name: Wielowariowe biblioteki klienckie
       href: ./quickstarts/client-libraries-multivariate.md
     - name: Niezmienne biblioteki klienckie
       href: ./quickstarts/client-libraries.md
 - name: Samples
   items:
-    - name: Interaktywny pokaz
+    - name: Interaktywna demonstracja (kowariantna)
       href: 'https://aka.ms/adDemo'
-    - name: Notes Jupyter
+    - name: Jupyter Notebook (kowariantna)
       href: 'https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook'
+    - name: Jupyter Notebook (wiele kowariant)
+      href: 'https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb'
     - name: przykładów dla platformy Azure
       href: 'https://docs.microsoft.com/samples/browse/?products=azure&terms=anomaly-detector'
 - name: Przewodniki z instrukcjami
@@ -55,13 +57,13 @@
       href: concepts/best-practices-multivariate.md
     - name: Narzędzie do wykrywania anomalii api best practices (univariate)
       href: concepts/anomaly-detection-best-practices.md
-    - name: Architektura konserwacji predykcyjnej (wielowątkowa)
+    - name: Architektura konserwacji predykcyjnej (kowariantna)
       href: concepts/multivariate-architecture.md
     - name: Rozwiązywanie problemów z wieloma kowariantami
       href: concepts/troubleshoot.md
     - name: Wykrywanie anomalii reszt spektralnych (SR) i spowodcyjnych sieci neuronowych (CNN)
       href: 'https://arxiv.org/abs/1906.03821'
-    - name: Wielozmianowe wykrywanie anomalii szeregów czasu za pośrednictwem sieci uwagi grafu
+    - name: Wielowariowe wykrywanie anomalii szeregów czasu za pośrednictwem sieci uwagi grafu
       href: 'https://arxiv.org/abs/2009.02040'
 - name: Samouczki
   items:
@@ -71,7 +73,7 @@
   items:
     - name: Narzędzie do wykrywania anomalii API REST
       href: 'https://aka.ms/anomaly-detector-rest-api-ref'
-    - name: Narzędzie do wykrywania anomalii interfejsu API REST w wersji zapoznawczej (wielowariowa)
+    - name: Narzędzie do wykrywania anomalii wersji zapoznawczej interfejsu API REST (wielowariowa)
       href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/DetectAnomaly'
     - name: .NET
       href: 'https://www.nuget.org/packages/Azure.AI.AnomalyDetector/3.0.0-preview.3'

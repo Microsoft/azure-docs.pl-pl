@@ -9,12 +9,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6d4f3f744a85c14c42ffef1c894b237081e871f8
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: dc4368075e1cecb43887c9fab21e55b23208dbab
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752430"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814932"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Informacje o wpisach tajnych usługi Azure Key Vault
 
@@ -132,5 +132,5 @@ Przewodniki z instrukcje dotyczące kontrolowania dostępu w Key Vault:
 - [Informacje o kluczach, wpisach tajnych i certyfikatach](../general/about-keys-secrets-certificates.md)
 - [Informacje o kluczach](../keys/about-keys.md)
 - [Informacje o certyfikatach](../certificates/about-certificates.md)
-- [Bezpieczny dostęp do magazynu kluczy](../general/security-overview.md)
+- [Bezpieczny dostęp do magazynu kluczy](../general/security-features.md)
 - [Przewodnik dewelopera usługi Key Vault](../general/developers-guide.md)

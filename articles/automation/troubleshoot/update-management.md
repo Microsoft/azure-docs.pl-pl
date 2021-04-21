@@ -5,41 +5,42 @@ services: automation
 ms.subservice: update-management
 ms.date: 04/16/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: f23632ba6a6b83f92b2bfc90beb4c1a8613c090a
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 36bfd2185cb7a192ce0113ee0722395c8a4ee928
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107587367"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830308"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Rozwiązywanie problemów z usługą Update Management
 
-W tym artykule omówiono problemy, które mogą wystąpić podczas wdrażania Update Management na maszynach. Istnieje narzędzie do rozwiązywania problemów z agentem hybrydowego procesu roboczego runbook, które pozwala określić podstawowy problem. Aby dowiedzieć się więcej na temat narzędzia do rozwiązywania problemów, zobacz Rozwiązywanie problemów z agentem [usługi Windows Update](update-agent-issues.md) i Rozwiązywanie problemów z [agentem aktualizacji systemu Linux.](update-agent-issues-linux.md) Aby uzyskać informacje o innych problemach z wdrażaniem funkcji, zobacz [Rozwiązywanie problemów z wdrażaniem funkcji.](onboarding.md)
+W tym artykule omówiono problemy, które mogą wystąpić podczas wdrażania Update Management na maszynach. Istnieje narzędzie do rozwiązywania problemów z agentem hybrydowego procesu roboczego runbook, które pozwala określić podstawowy problem. Aby dowiedzieć się więcej na temat narzędzia do rozwiązywania problemów, zobacz Troubleshoot Windows update agent issues (Rozwiązywanie problemów z agentem aktualizacji systemu [Windows)](update-agent-issues.md) i [Troubleshoot Linux update agent issues (Rozwiązywanie problemów z](update-agent-issues-linux.md)agentem aktualizacji systemu Linux). Aby uzyskać informacje o innych problemach z wdrażaniem funkcji, zobacz [Rozwiązywanie problemów z wdrażaniem funkcji.](onboarding.md)
 
 >[!NOTE]
->Jeśli podczas wdrażania programu Update Management na maszynie z systemem Windows występują problemy, otwórz program Windows Podgląd zdarzeń i  sprawdź dziennik zdarzeń programu **Operations Manager** w obszarze Dzienniki aplikacji i usług na komputerze lokalnym. Poszukaj zdarzeń o identyfikatorze 4502 i szczegółów zdarzenia, które zawierają `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent` .
+>Jeśli podczas wdrażania programu Update Management na maszynie z systemem Windows występują problemy, otwórz program Windows Podgląd zdarzeń i  sprawdź dziennik zdarzeń usługi **Operations Manager** w obszarze Dzienniki aplikacji i usług na komputerze lokalnym. Poszukaj zdarzeń o identyfikatorze 4502 i szczegółów zdarzenia, które zawierają `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent` .
 
 ## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a><a name="updates-linux-installed-different"></a>Scenariusz: aktualizacje systemu Linux wyświetlane jako oczekujące, a zainstalowane aktualizacje różnią się
 
 ### <a name="issue"></a>Problem
 
-W przypadku maszyny z systemem Linux Update Management określone aktualizacje dostępne w obszarze **klasyfikacji Zabezpieczenia** i **inne.** Jednak w przypadku uruchomienia harmonogramu aktualizacji na maszynie, na  przykład w celu zainstalowania tylko aktualizacji pasujących do klasyfikacji Zabezpieczeń, zainstalowane aktualizacje różnią się od lub podzestawem aktualizacji pokazanych wcześniej, pasujących do tej klasyfikacji.
+W przypadku maszyny z systemem Linux Update Management aktualizacje dostępne w obszarze **klasyfikacji Zabezpieczenia** i **inne.** Jednak gdy harmonogram aktualizacji jest uruchamiany na maszynie, na  przykład w celu zainstalowania tylko aktualizacji pasujących do klasyfikacji zabezpieczeń, zainstalowane aktualizacje różnią się od lub podzestawem aktualizacji pokazanych wcześniej pasujących do tej klasyfikacji.
 
 ### <a name="cause"></a>Przyczyna
 
-Po ocenie oczekujących aktualizacji systemu operacyjnego dla maszyny z systemem Linux pliki open [vulnerability and assessment language](https://oval.mitre.org/) (OVAL) dostarczone przez dostawcę dystrybucji systemu Linux są używane przez usługę Update Management do klasyfikacji. Kategoryzacja jest wykonywana  w przypadku aktualizacji systemu Linux jako zabezpieczeń lub innych na podstawie plików OVAL, które stwierdzają, że aktualizacje są związane z problemami z zabezpieczeniami lub lukami w zabezpieczeniach. Jednak po uruchomieniu harmonogramu aktualizacji jest on wykonywany na maszynie z systemem Linux przy użyciu odpowiedniego menedżera pakietów, takiego jak YUM, APT lub ZYPPER, aby je zainstalować. Menedżer pakietów dla dystrybucji systemu Linux może mieć inny mechanizm klasyfikowania aktualizacji, gdzie wyniki mogą różnić się od wyników uzyskanych z plików OVAL przez Update Management.
+Po ocenie oczekujących aktualizacji systemu operacyjnego dla maszyny z systemem Linux pliki Open [Vulnerability and Assessment Language](https://oval.mitre.org/) (OVAL) dostarczone przez dostawcę dystrybucji systemu Linux są używane przez Update Management do klasyfikacji. Kategoryzacja jest wykonywana  w przypadku aktualizacji systemu Linux jako zabezpieczeń lub innych na podstawie plików OVAL, które podały informacje o aktualizacjach w celu rozwiązania problemów z zabezpieczeniami lub lukami w zabezpieczeniach. Jednak po uruchomieniu harmonogramu aktualizacji jest on wykonywany na maszynie z systemem Linux przy użyciu odpowiedniego menedżera pakietów, takiego jak YUM, APT lub ZYPPER, aby je zainstalować. Menedżer pakietów dla dystrybucji systemu Linux może mieć inny mechanizm klasyfikowania aktualizacji, gdzie wyniki mogą różnić się od wyników uzyskanych z plików OVAL przez Update Management.
 
 ### <a name="resolution"></a>Rozwiązanie
 
 Możesz ręcznie sprawdzić maszynę z systemem Linux, odpowiednie aktualizacje i ich klasyfikację zgodnie z menedżerem pakietów dystrybucji. Aby zrozumieć, które aktualizacje są klasyfikowane jako **zabezpieczenia** przez menedżera pakietów, uruchom następujące polecenia.
 
-W przypadku aplikacji YUM następujące polecenie zwraca niezerową listę aktualizacji **skategoryzowanych** jako Zabezpieczenia według systemu Red Hat. Należy pamiętać, że w przypadku systemu CentOS zawsze zwraca pustą listę i nie występuje klasyfikacja zabezpieczeń.
+W przypadku aplikacji YUM następujące polecenie zwraca niezerową listę aktualizacji **skategoryzowanych** jako Zabezpieczenia według oprogramowania Red Hat. Należy pamiętać, że w przypadku systemu CentOS zawsze zwraca pustą listę i nie występuje klasyfikacja zabezpieczeń.
 
 ```bash
 sudo yum -q --security check-update
 ```
 
-W przypadku programu ZYPPER następujące polecenie zwraca niezerową listę aktualizacji **skategoryzowanych** jako Zabezpieczenia według systemu SUSE.
+W przypadku programu ZYPPER następujące polecenie zwraca niezerową listę aktualizacji **skategoryzowanych** jako Zabezpieczenia według oprogramowania SUSE.
 
 ```bash
 sudo LANG=en_US.UTF8 zypper --non-interactive patch --category security --dry-run
@@ -53,7 +54,7 @@ sudo grep security /etc/apt/sources.list > /tmp/oms-update-security.list LANG=en
 
 Z tej listy uruchom polecenie , `grep ^Inst` aby pobrać wszystkie oczekujące aktualizacje zabezpieczeń.
 
-## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a><a name="failed-to-enable-error"></a>Scenariusz: Zostanie wyświetlony błąd "Nie można włączyć rozwiązania aktualizacji"
+## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a><a name="failed-to-enable-error"></a>Scenariusz: Występuje błąd "Nie można włączyć rozwiązania aktualizacji"
 
 ### <a name="issue"></a>Problem
 
@@ -71,7 +72,7 @@ Ten błąd może wystąpić z następujących powodów:
 
 * Update Management określania wartości docelowej jest błędnie skonfigurowana, a maszyna nie otrzymuje aktualizacji zgodnie z oczekiwaniami.
 
-* Można również zauważyć, że stan maszyny jest w obszarze `Non-compliant` **Zgodność.** W tym samym czasie agent **Desktop Analytics** raportuje agenta jako `Disconnected` .
+* Możesz również zauważyć, że maszyna ma stan w obszarze `Non-compliant` **Zgodność**. W tym samym czasie agent **Desktop Analytics** zgłasza agenta jako `Disconnected` .
 
 ### <a name="resolution"></a>Rozwiązanie
 
@@ -79,35 +80,35 @@ Ten błąd może wystąpić z następujących powodów:
 
 * Przejdź do [opcji Konfiguracja sieci,](../automation-hybrid-runbook-worker.md#network-planning) aby dowiedzieć się, które adresy i porty muszą być dozwolone, aby Update Management działać.  
 
-* Sprawdź, czy występują problemy z konfiguracją zakresu. [Konfiguracja zakresu](../update-management/scope-configuration.md) określa, które maszyny są skonfigurowane dla Update Management. Jeśli maszyna jest wyświetlona w obszarze roboczym, ale nie w Update Management, musisz ustawić konfigurację zakresu na maszyny docelowe. Aby dowiedzieć się więcej o konfiguracji zakresu, zobacz [Włączanie maszyn w obszarze roboczym](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
+* Sprawdź, czy występują problemy z konfiguracją zakresu. [Konfiguracja zakresu](../update-management/scope-configuration.md) określa, które maszyny są skonfigurowane dla Update Management. Jeśli maszyna jest wyświetlona w obszarze roboczym, ale nie w Update Management, należy ustawić konfigurację zakresu na maszyny docelowe. Aby dowiedzieć się więcej o konfiguracji zakresu, zobacz [Włączanie maszyn w obszarze roboczym](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
-* Usuń konfigurację procesu roboczego, korzystając z procedury Usuwania hybrydowego procesu roboczego [runbook](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) z lokalnego komputera z systemem Windows lub Usuń hybrydowy proces roboczy runbook z lokalnego komputera z [systemem Linux.](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker)
+* Usuń konfigurację procesu roboczego, korzystając z procedury Usuwanie hybrydowego procesu roboczego [runbook](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) z lokalnego komputera z systemem Windows lub Usuwanie hybrydowego procesu roboczego runbook z [lokalnego komputera z systemem Linux.](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker)
 
-## <a name="scenario-superseded-update-indicated-as-missing-in-update-management"></a>Scenariusz: supersadowana aktualizacja wskazana jako brakująca w Update Management
+## <a name="scenario-superseded-update-indicated-as-missing-in-update-management"></a>Scenariusz: nadsyłana aktualizacja wskazana jako brakująca w Update Management
 
 ### <a name="issue"></a>Problem
 
-Stare aktualizacje są wyświetlane dla konta usługi Automation jako brakujące, mimo że zostały one nadsyłane. Aktualizacja, która została nadsyłana, jest taka, że nie trzeba jej instalować, ponieważ dostępna jest późniejsza aktualizacja, która poprawia tę samą lukę w zabezpieczeniach. Update Management ignoruje aktualizację, która została nadsyłana, i sprawia, że nie ma ona zastosowania na rzecz aktualizacji, która została nadsyłana. Aby uzyskać informacje o powiązanym problemie, [zobacz Update is supersed .](/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer)
+Stare aktualizacje są wyświetlane dla konta usługi Automation jako brakujące, mimo że zostały one już nadsyłane. Nie trzeba instalować aktualizacji, ponieważ jest dostępna późniejsza aktualizacja, która koryguje tę samą lukę w zabezpieczeniach. Update Management ignoruje aktualizację, która została nadsyłana, i sprawia, że nie ma ona zastosowania na rzecz aktualizacji, która została nadsyłana. Aby uzyskać informacje o powiązanym problemie, zobacz [Update is supersed .](/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer)
 
 ### <a name="cause"></a>Przyczyna
 
-Aktualizacje, które zostały nadsyłane, nie są odrzucane w programie Windows Server Update Services (WSUS), aby można je było uznać za nie dotyczy.
+Aktualizacje, które zostały nadsyłane, nie są odrzucane w programie Windows Server Update Services (WSUS), aby można je było uważać za nie dotyczy.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Gdy aktualizacja, która została już w 100 procentach, nie ma zastosowania, należy zmienić stan zatwierdzenia tej aktualizacji na w `Declined` programie WSUS. Aby zmienić stan zatwierdzenia dla wszystkich aktualizacji:
+Gdy w 100 procentach zostanie w 100% nie dotyczy aktualizacji, należy zmienić stan zatwierdzenia tej aktualizacji na w `Declined` programie WSUS. Aby zmienić stan zatwierdzenia dla wszystkich aktualizacji:
 
 1. Na koncie usługi Automation wybierz pozycję **Update Management,** aby wyświetlić stan maszyny. Zobacz [Wyświetlanie ocen aktualizacji.](../update-management/view-update-assessments.md)
 
-2. Sprawdź aktualizację, która została nadsyłana, aby upewnić się, że nie ma ona zastosowania w 100 procentach.
+2. Sprawdź nadaną aktualizację, aby upewnić się, że nie ma ona zastosowania w 100 procentach.
 
 3. Na serwerze WSUS, do których są raporty maszyn, [odrzuć aktualizację](/windows-server/administration/windows-server-update-services/manage/updates-operations#declining-updates).
 
 4. Wybierz **pozycję Komputery** i w kolumnie **Zgodność** wymusz ponowne skanowanie pod celu zapewnienia zgodności. Zobacz [Manage updates for VMs (Zarządzanie aktualizacjami maszyn wirtualnych).](../update-management/manage-updates-for-vm.md)
 
-5. Powtórz powyższe kroki dla innych aktualizacji, które są już nadsyłane.
+5. Powtórz powyższe kroki dla innych aktualizacji, które są już wsadowane.
 
-6. W Windows Server Update Services (WSUS) wyczyść wszystkie aktualizacje, które są już wsadowe, aby odświeżyć infrastrukturę przy użyciu Kreatora oczyszczania [serwera](/windows-server/administration/windows-server-update-services/manage/the-server-cleanup-wizard)WSUS.
+6. W Windows Server Update Services (WSUS) wyczyść wszystkie aktualizacje, które są już wsadowe, aby odświeżyć infrastrukturę za pomocą Kreatora oczyszczania [serwera](/windows-server/administration/windows-server-update-services/manage/the-server-cleanup-wizard)WSUS.
 
 7. Powtarzaj tę procedurę regularnie, aby rozwiązać problem z wyświetlaniem i zminimalizować ilość miejsca na dysku używanego do zarządzania aktualizacjami.
 
@@ -119,7 +120,7 @@ Maszyny mają następujące objawy:
 
 * Maszyna jest `Not configured` pokazywna Update Management widoku maszyny wirtualnej.
 
-* Brak maszyn w widoku Update Management konta Azure Automation.
+* Brak maszyn w widoku Update Management twojego Azure Automation konta.
 
 * Masz maszyny, które są wyświetlane jako `Not assessed` w obszarze **Zgodność.** Jednak dane pulsu są w dziennikach Azure Monitor dla hybrydowego procesu roboczego runbook, ale nie dla Update Management.
 
@@ -129,7 +130,7 @@ Ten problem może być spowodowany problemami z konfiguracją lokalną lub niepr
 
 * Może być konieczne ponowne zarejestrowanie i ponowne zainstalowanie hybrydowego procesu roboczego runbook.
 
-* Być może zdefiniowano limit przydziału w obszarze roboczym, który został osiągnięty, co uniemożliwia dalsze przechowywanie danych.
+* Być może zdefiniowano limit przydziału w obszarze roboczym, który został osiągnięty, co uniemożliwia dalsze magazynowanie danych.
 
 ### <a name="resolution"></a>Rozwiązanie
 
@@ -146,7 +147,7 @@ Ten problem może być spowodowany problemami z konfiguracją lokalną lub niepr
 
     Jeśli nie widzisz maszyny w wynikach zapytania, nie została ona ostatnio zaewidencjonowana. Prawdopodobnie występuje problem z konfiguracją lokalną i należy [ponownie zainstalować agenta](../../azure-monitor/vm/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
-    Jeśli maszyna znajduje się na liście wyników zapytania, sprawdź, czy w obszarze **właściwości Rozwiązania** jest **na liście** aktualizacji. W ten sposób można sprawdzić, czy jest on zarejestrowany w Update Management. Jeśli tak nie jest, sprawdź, czy występują problemy z konfiguracją zakresu. Konfiguracja [zakresu określa,](../update-management/scope-configuration.md) które maszyny są skonfigurowane dla Update Management. Aby skonfigurować konfigurację zakresu dla maszyny docelowej, zobacz [Włączanie maszyn w obszarze roboczym](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
+    Jeśli maszyna znajduje się na liście wyników zapytania, sprawdź w obszarze właściwości **Rozwiązania,** **czy na liście znajduje się** aktualizacja. W ten sposób można sprawdzić, czy jest on zarejestrowany w Update Management. Jeśli tak nie jest, sprawdź, czy występują problemy z konfiguracją zakresu. Konfiguracja [zakresu określa,](../update-management/scope-configuration.md) które maszyny są skonfigurowane dla Update Management. Aby skonfigurować konfigurację zakresu dla maszyny docelowej, zobacz [Włączanie maszyn w obszarze roboczym](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
 4. W obszarze roboczym uruchom to zapytanie.
 
@@ -226,7 +227,7 @@ Jeśli twoja subskrypcja nie jest skonfigurowana dla dostawcy zasobów usługi A
 
 5. Sprawdź, czy dostawca zasobów Microsoft.Automation jest zarejestrowany.
 
-6. Jeśli nie ma go na liście, zarejestruj dostawcę Microsoft.Automation, korzystając z procedury opisanej w tece Rozwiązywanie błędów związanych z [rejestracją dostawcy zasobów.](../../azure-resource-manager/templates/error-register-resource-provider.md)
+6. Jeśli nie ma go na liście, zarejestruj dostawcę Microsoft.Automation, korzystając z procedury rozwiązywania błędów związanych z [rejestracją dostawcy zasobów.](../../azure-resource-manager/templates/error-register-resource-provider.md)
 
 #### <a name="machines-not-available-or-not-tagged-correctly-when-schedule-executed"></a>Maszyny są niedostępne lub nie są poprawnie oznaczane podczas wykonywania harmonogramu
 
@@ -234,11 +235,11 @@ Użyj poniższej procedury, jeśli subskrypcja została skonfigurowana dla dosta
 
 1. W Azure Portal otwórz konto usługi Automation i wybierz pozycję **Update Management**.
 
-2. Sprawdź [Update Management,](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) aby określić dokładny czas uruchomienia wdrożenia aktualizacji.
+2. Sprawdź [Update Management,](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) aby określić dokładną datę uruchomienia wdrożenia aktualizacji.
 
 3. W przypadku maszyn, które podejrzewasz, że zostały pominięte przez Update Management, użyj Azure Resource Graph (ARG), aby zlokalizować [zmiany maszyny.](../../governance/resource-graph/how-to/get-resource-changes.md#find-detected-change-events-and-view-change-details)
 
-4. Wyszukaj zmiany w ciągu znacznego okresu, takiego jak jeden dzień, przed uruchomieniem wdrożenia aktualizacji.
+4. Wyszukiwanie zmian w znacznym okresie, na przykład jednego dnia, przed uruchomieniem wdrożenia aktualizacji.
 
 5. Sprawdź w wynikach wyszukiwania wszelkie zmiany systemowe, takie jak usuwanie lub aktualizowanie zmian, na maszynach w tym okresie. Te zmiany mogą zmieniać stan maszyny lub tagi, dzięki czemu maszyny nie są wybierane na liście maszyn podczas wdrażania aktualizacji.
 
@@ -248,13 +249,13 @@ Użyj poniższej procedury, jeśli subskrypcja została skonfigurowana dla dosta
 
 #### <a name="incorrect-access-on-selected-scopes"></a>Nieprawidłowy dostęp do wybranych zakresów
 
-W Azure Portal są wyświetlane tylko maszyny, dla których masz dostęp do zapisu w danym zakresie. Jeśli nie masz poprawnego dostępu do zakresu, zobacz [Samouczek:](../../role-based-access-control/quickstart-assign-role-user-portal.md)udzielanie użytkownikowi dostępu do zasobów platformy Azure przy użyciu Azure Portal .
+W Azure Portal są wyświetlane tylko maszyny, dla których masz dostęp do zapisu w danym zakresie. Jeśli nie masz poprawnego dostępu do zakresu, zobacz [Tutorial: Grant a user access to Azure resources using the Azure Portal](../../role-based-access-control/quickstart-assign-role-user-portal.md)(Samouczek: udzielanie użytkownikowi dostępu do zasobów platformy Azure przy użyciu Azure Portal.
 
 #### <a name="resource-graph-query-doesnt-return-expected-machines"></a>Resource Graph nie zwraca oczekiwanych maszyn
 
 Wykonaj poniższe kroki, aby dowiedzieć się, czy zapytania działają prawidłowo.
 
-1. Uruchom zapytanie Azure Resource Graph sformatowane w sposób pokazany poniżej w bloku eksploratora Resource Graph w Azure Portal. Jeśli jesteś nowym użytkownikiem Azure Resource Graph, zobacz ten przewodnik Szybki [start,](../../governance/resource-graph/first-query-portal.md) aby dowiedzieć się, jak pracować z Resource Graph Explorer. To zapytanie naśladuje filtry wybrane podczas tworzenia grupy dynamicznej w Update Management. Zobacz [Używanie grup dynamicznych z Update Management](../update-management/configure-groups.md).
+1. Uruchom zapytanie Azure Resource Graph w formacie pokazanym poniżej w bloku Eksploratora Resource Graph w Azure Portal. Jeśli jesteś nowym użytkownikiem Azure Resource Graph, zobacz [ten](../../governance/resource-graph/first-query-portal.md) przewodnik Szybki start, aby dowiedzieć się, jak pracować z Resource Graph Eksploratorze. To zapytanie naśladuje filtry wybrane podczas tworzenia grupy dynamicznej w Update Management. Zobacz [Używanie grup dynamicznych z Update Management](../update-management/configure-groups.md).
 
     ```kusto
     where (subscriptionId in~ ("<subscriptionId1>", "<subscriptionId2>") and type =~ "microsoft.compute/virtualmachines" and properties.storageProfile.osDisk.osType == "<Windows/Linux>" and resourceGroup in~ ("<resourceGroupName1>","<resourceGroupName2>") and location in~ ("<location1>","<location2>") )
@@ -279,15 +280,15 @@ Wykonaj poniższe kroki, aby dowiedzieć się, czy zapytania działają prawidł
 
 #### <a name="hybrid-runbook-worker-not-installed-on-machines"></a>Hybrydowy proces roboczy runbook nie jest zainstalowany na maszynach
 
-Maszyny są wyświetlane w Azure Resource Graph zapytania, ale nadal nie są wyświetlane w podglądzie grupy dynamicznej. W takim przypadku maszyny mogą nie być wyznaczone jako systemowe hybrydowe środowiska Runbook workers i w związku z tym nie mogą uruchamiać zadań Azure Automation i Update Management runbook. Aby upewnić się, że maszyny, których oczekujesz, są ustawione jako hybrydowe pracownicy runbook systemu:
+Maszyny są wyświetlane Azure Resource Graph w wynikach zapytania, ale nadal nie są wyświetlane w podglądzie grupy dynamicznej. W takim przypadku maszyny mogą nie być wyznaczone jako systemowe hybrydowe środowiska Runbook workers i w związku z tym nie mogą uruchamiać zadań Azure Automation Update Management runbook. Aby upewnić się, że maszyny, których oczekujesz, są ustawione jako systemowe hybrydowe środowiska runbook workers:
 
-1. W Azure Portal przejdź do konta usługi Automation dla maszyny, która nie jest wyświetlana poprawnie.
+1. W Azure Portal przejdź do konta usługi Automation dla maszyny, która nie jest poprawnie wyświetlana.
 
 2. Wybierz **pozycję Grupy hybrydowych procesów roboczych** w obszarze **Automatyzacja procesów.**
 
-3. Wybierz **kartę Grupy hybrydowych procesów roboczych** systemu.
+3. Wybierz **kartę Systemowe grupy hybrydowych procesów roboczych.**
 
-4. Sprawdź, czy hybrydowy proces roboczy jest obecny dla tej maszyny.
+4. Sprawdź, czy dla tej maszyny jest obecny hybrydowy proces roboczy.
 
 5. Jeśli maszyna nie jest ustawiona jako systemowy hybrydowy proces roboczy runbook, zapoznaj się z metodami włączania maszyny w sekcji Włączanie Update Management artykułu Update Management Runbook. [](../update-management/overview.md#enable-update-management) Metoda włączania jest oparta na środowisku, w którym jest uruchomiona maszyna.
 
@@ -309,9 +310,9 @@ Ten błąd może wystąpić z następujących powodów:
 
 * Komunikacja z kontem usługi Automation jest blokowana.
 
-* Istnieje zduplikowana nazwa komputera z różnymi identyfikatorami komputerów źródłowych. Ten scenariusz występuje, gdy maszyna wirtualna o określonej nazwie komputera jest tworzona w różnych grupach zasobów i raportuje do tego samego obszaru roboczego agenta logistyki w subskrypcji.
+* Istnieje zduplikowana nazwa komputera z różnymi identyfikatorami komputerów źródłowych. Ten scenariusz występuje, gdy maszyna wirtualna o określonej nazwie komputera jest tworzona w różnych grupach zasobów i raportuje do tego samego obszaru roboczego agenta Logistics w subskrypcji.
 
-* Wdrażany obraz maszyny wirtualnej może pochodzić ze sklonowanej maszyny, która nie została przygotowana przy użyciu narzędzia Przygotowywania systemu (sysprep) z zainstalowanym agentem usługi Log Analytics dla systemu Windows.
+* Wdrażany obraz maszyny wirtualnej może pochodzić ze sklonowanej maszyny, która nie została przygotowana za pomocą narzędzia Przygotowanie systemu (sysprep) z zainstalowanym agentem usługi Log Analytics dla systemu Windows.
 
 ### <a name="resolution"></a>Rozwiązanie
 
@@ -335,7 +336,7 @@ Zmień nazwy maszyn wirtualnych, aby zapewnić unikatowe nazwy w ich środowisku
 
 Jeśli używasz sklonowanego obrazu, różne nazwy komputerów mają ten sam identyfikator komputera źródłowego. W takim przypadku:
 
-1. W obszarze roboczym usługi Log Analytics usuń maszynę wirtualną z zapisanego wyszukiwania dla `MicrosoftDefaultScopeConfig-Updates` konfiguracji zakresu, jeśli jest wyświetlana. Zapisane wyszukiwania można znaleźć w obszarze **Ogólne** w obszarze roboczym.
+1. W obszarze roboczym usługi Log Analytics usuń maszynę wirtualną z zapisanego wyszukiwania dla konfiguracji zakresu, `MicrosoftDefaultScopeConfig-Updates` jeśli jest wyświetlana. Zapisane wyszukiwania można znaleźć w obszarze **Ogólne** w obszarze roboczym.
 
 2. Uruchom następujące polecenie cmdlet.
 
@@ -343,11 +344,11 @@ Jeśli używasz sklonowanego obrazu, różne nazwy komputerów mają ten sam ide
     Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force
     ```
 
-3. Uruchom `Restart-Service HealthService` program , aby ponownie uruchomić usługę kondycji. Ta operacja ponownie tworzy klucz i generuje nowy UUID.
+3. Uruchom `Restart-Service HealthService` , aby ponownie uruchomić usługę kondycji. Ta operacja ponownie tworzy klucz i generuje nowy UUID.
 
-4. Jeśli to podejście nie działa, najpierw uruchom narzędzie sysprep na obrazie, a następnie zainstaluj agenta usługi Log Analytics dla systemu Windows.
+4. Jeśli to podejście nie zadziała, najpierw uruchom narzędzie sysprep na obrazie, a następnie zainstaluj agenta usługi Log Analytics dla systemu Windows.
 
-## <a name="scenario-you-receive-a-linked-subscription-error-when-you-create-an-update-deployment-for-machines-in-another-azure-tenant"></a><a name="multi-tenant"></a>Scenariusz: Podczas tworzenia wdrożenia aktualizacji dla maszyn w innej dzierżawie platformy Azure jest wyświetlany błąd połączonej subskrypcji
+## <a name="scenario-you-receive-a-linked-subscription-error-when-you-create-an-update-deployment-for-machines-in-another-azure-tenant"></a><a name="multi-tenant"></a>Scenariusz: Podczas tworzenia wdrożenia aktualizacji dla maszyn w innej dzierżawie platformy Azure występuje błąd połączonej subskrypcji
 
 ### <a name="issue"></a>Problem
 
@@ -363,7 +364,7 @@ Ten błąd występuje podczas tworzenia wdrożenia aktualizacji, które zawiera 
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Aby zaplanować te elementy, skorzystaj z poniższego obejścia. Aby utworzyć harmonogram, można użyć polecenia cmdlet [New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule) z `ForUpdateConfiguration` parametrem . Następnie użyj polecenia cmdlet [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration) i przekaż maszyny w innej dzierżawie do `NonAzureComputer` parametru . W poniższym przykładzie pokazano, jak to zrobić:
+Użyj następującego obejścia, aby zaplanować te elementy. Aby utworzyć harmonogram, można użyć polecenia cmdlet [New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule) z `ForUpdateConfiguration` parametrem . Następnie użyj polecenia cmdlet [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration) i przekaż maszyny w innej dzierżawie do `NonAzureComputer` parametru . W poniższym przykładzie pokazano, jak to zrobić:
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -375,25 +376,25 @@ $s = New-AzAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName 
 New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
-## <a name="scenario-unexplained-reboots"></a><a name="node-reboots"></a>Scenariusz: Niewyjaśnione ponowne uruchomienia
+## <a name="scenario-unexplained-reboots"></a><a name="node-reboots"></a>Scenariusz: ponowne uruchamianie bez wytłumaczeń
 
 ### <a name="issue"></a>Problem
 
-Mimo że opcja Ponowne  uruchamianie kontrolki jest ustawiona na Nigdy nie uruchamiaj **ponownie,** maszyny są nadal ponownie uruchamiane po zainstalowaniu aktualizacji.
+Mimo że dla opcji Reboot **Control** ustawiono opcję Nigdy nie uruchamiaj **ponownie,** maszyny są nadal ponownie uruchamiane po zainstalowaniu aktualizacji.
 
 ### <a name="cause"></a>Przyczyna
 
-Windows Update można modyfikować za pomocą kilku kluczy rejestru, z których każdy może modyfikować zachowanie ponownego uruchamiania.
+Windows Update mogą być modyfikowane przez kilka kluczy rejestru, z których każdy może modyfikować zachowanie ponownego uruchamiania.
 
 ### <a name="resolution"></a>Rozwiązanie
 
 Przejrzyj klucze rejestru wymienione w obszarze [Konfigurowanie](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) aktualizacji automatycznych, edytując klucze rejestru i rejestru używane do zarządzania ponownym uruchamianiem, aby upewnić się, że maszyny są prawidłowo skonfigurowane. [](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart)
 
-## <a name="scenario-machine-shows-failed-to-start-in-an-update-deployment"></a><a name="failed-to-start"></a>Scenariusz: na maszynie jest przedstawiany błąd "Nie można uruchomić" we wdrożeniu aktualizacji
+## <a name="scenario-machine-shows-failed-to-start-in-an-update-deployment"></a><a name="failed-to-start"></a>Scenariusz: na maszynie jest "Nie można uruchomić" we wdrożeniu aktualizacji
 
 ### <a name="issue"></a>Problem
 
-Maszyna wyświetla `Failed to start` stan. Podczas wyświetlania szczegółowych informacji o maszynie jest wyświetlany następujący błąd:
+Na maszynie jest przedstawiany `Failed to start` stan. Podczas wyświetlania szczegółowych informacji dotyczących maszyny jest wyświetlany następujący błąd:
 
 ```error
 Failed to start the runbook. Check the parameters passed. RunbookName Patch-MicrosoftOMSComputer. Exception You have requested to create a runbook job on a hybrid worker group that does not exist.
@@ -407,14 +408,14 @@ Ten błąd może mieć jedną z następujących przyczyn:
 * Maszyna jest wyłączona i nieosiągalna.
 * Maszyna ma problem z łącznością sieciową, dlatego hybrydowy proces roboczy na maszynie jest nieosiągalny.
 * Aktualizacja agenta usługi Log Analytics zmieniła identyfikator komputera źródłowego.
-* Przebieg aktualizacji został ograniczany po przekroczeniu limitu 200 współbieżnych zadań na koncie usługi Automation. Każde wdrożenie jest uznawane za zadanie, a każda maszyna we wdrożeniu aktualizacji liczy się jako zadanie. Każde inne zadanie automatyzacji lub wdrożenie aktualizacji aktualnie uruchomione na koncie usługi Automation wlicza się do limitu współbieżnych zadań.
+* Przebieg aktualizacji został ograniczany, jeśli na koncie usługi Automation zostanie uruchomiony limit 200 współbieżnych zadań. Każde wdrożenie jest uznawane za zadanie, a każda maszyna we wdrożeniu aktualizacji jest traktowana jako zadanie. Każde inne zadanie automatyzacji lub wdrożenie aktualizacji aktualnie uruchomione na koncie usługi Automation wlicza się do limitu współbieżnych zadań.
 
 ### <a name="resolution"></a>Rozwiązanie
 
 Jeśli ma to zastosowanie, [użyj grup dynamicznych](../update-management/configure-groups.md) dla wdrożeń aktualizacji. Ponadto możesz wykonać następujące czynności.
 
 1. Sprawdź, czy maszyna lub serwer spełnia [wymagania](../update-management/overview.md#system-requirements).
-2. Sprawdź łączność z hybrydowym procesem roboczym runbook przy użyciu narzędzia do rozwiązywania problemów z agentem hybrydowego procesu roboczego runbook. Aby dowiedzieć się więcej na temat narzędzia do rozwiązywania problemów, zobacz [Rozwiązywanie problemów z agentem aktualizacji.](update-agent-issues.md)
+2. Sprawdź łączność z hybrydowym procesem roboczy runbook przy użyciu narzędzia do rozwiązywania problemów z agentem hybrydowego procesu roboczego runbook. Aby dowiedzieć się więcej na temat narzędzia do rozwiązywania problemów, zobacz [Rozwiązywanie problemów z agentem aktualizacji.](update-agent-issues.md)
 
 ## <a name="scenario-updates-are-installed-without-a-deployment"></a><a name="updates-nodeployment"></a>Scenariusz: aktualizacje są instalowane bez wdrożenia
 
@@ -424,17 +425,17 @@ Po zarejestrowaniu maszyny z systemem Windows w Update Management są instalowan
 
 ### <a name="cause"></a>Przyczyna
 
-W systemie Windows aktualizacje są instalowane automatycznie, gdy tylko będą dostępne. Takie zachowanie może powodować dezorientację, jeśli nie zaplanowano wdrożenia aktualizacji na maszynie.
+W systemie Windows aktualizacje są instalowane automatycznie, gdy tylko będą dostępne. To zachowanie może spowodować dezorientację, jeśli nie zaplanowano wdrożenia aktualizacji na maszynie.
 
 ### <a name="resolution"></a>Rozwiązanie
 
 Wartość  `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU` domyślna klucza rejestru to 4: `auto download and install` .
 
-W Update Management klientów zalecamy ustawienie tego klucza na 3: `auto download but do not auto install` .
+W Update Management klientów zaleca się ustawienie tego klucza na 3: `auto download but do not auto install` .
 
 Aby uzyskać więcej informacji, zobacz [Konfigurowanie aktualizacji automatycznych.](/windows/deployment/update/waas-wu-settings#configure-automatic-updates)
 
-## <a name="scenario-machine-is-already-registered-to-a-different-account"></a><a name="machine-already-registered"></a>Scenariusz: Maszyna jest już zarejestrowana na innym koncie
+## <a name="scenario-machine-is-already-registered-to-a-different-account"></a><a name="machine-already-registered"></a>Scenariusz: maszyna jest już zarejestrowana na innym koncie
 
 ### <a name="issue"></a>Problem
 
@@ -481,7 +482,7 @@ Serwer proxy, brama lub zapora mogą blokować komunikację sieciową.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Przejrzyj sieć i upewnij się, że są dozwolone odpowiednie porty i adresy. Zobacz [wymagania dotyczące sieci,](../automation-hybrid-runbook-worker.md#network-planning) aby uzyskać listę portów i adresów, które są wymagane przez Update Management i hybrydowe środowiska runbook.
+Przejrzyj sieć i upewnij się, że są dozwolone odpowiednie porty i adresy. Zobacz [wymagania dotyczące sieci,](../automation-hybrid-runbook-worker.md#network-planning) aby uzyskać listę portów i adresów, które są wymagane przez Update Management i hybrydowych pracowników runbook.
 
 ## <a name="scenario-unable-to-create-self-signed-certificate"></a><a name="unable-to-create-selfsigned-cert"></a>Scenariusz: Nie można utworzyć certyfikatu z podpisem własnym
 
@@ -519,16 +520,16 @@ Aby uzyskać więcej informacji na temat okien obsługi, zobacz [Instalowanie ak
 
 ### <a name="issue"></a>Problem
 
-* Masz maszyny, które są wyświetlane jako w obszarze Zgodność i poniżej nich jest `Not assessed` wyświetlany komunikat o wyjątku. 
+* Masz maszyny, które są wyświetlane jako w obszarze Zgodność i pod nimi jest `Not assessed` wyświetlany komunikat o wyjątku. 
 * W portalu zostanie wyświetlony kod błędu HRESULT.
 
 ### <a name="cause"></a>Przyczyna
 
-Agent aktualizacji (Windows Update w systemie Windows; menedżer pakietów dla dystrybucji systemu Linux) nie jest poprawnie skonfigurowany. Update Management od agenta aktualizacji maszyny w celu zapewnienia wymaganych aktualizacji, stanu poprawki i wyników wdrożonych poprawek. Bez tych informacji Update Management prawidłowo zgłosić poprawek, które są potrzebne lub zainstalowane.
+Agent aktualizacji (Windows Update Agent w systemie Windows; menedżer pakietów dla dystrybucji systemu Linux) nie jest poprawnie skonfigurowany. Update Management od agenta aktualizacji maszyny w celu zapewnienia wymaganych aktualizacji, stanu poprawki i wyników wdrożonych poprawek. Bez tych informacji Update Management prawidłowo zgłaszać potrzebnych lub zainstalowanych poprawek.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Spróbuj wykonać aktualizacje lokalnie na maszynie. Jeśli ta operacja zakończy się niepowodzeniem, zazwyczaj oznacza to, że wystąpił błąd konfiguracji agenta aktualizacji.
+Spróbuj wykonać aktualizacje lokalnie na maszynie. Jeśli ta operacja nie powiedzie się, zazwyczaj oznacza to, że wystąpił błąd konfiguracji agenta aktualizacji.
 
 Ten problem jest często spowodowany przez problemy z konfiguracją sieci i zaporą. Aby rozwiązać ten problem, użyj następujących testów.
 
@@ -536,21 +537,21 @@ Ten problem jest często spowodowany przez problemy z konfiguracją sieci i zapo
 
 * W przypadku systemu Windows sprawdź konfigurację agenta wymienioną w tece Aktualizacje nie są pobierane z intranetowego punktu końcowego [(WSUS/SCCM).](/windows/deployment/update/windows-update-troubleshooting#updates-arent-downloading-from-the-intranet-endpoint-wsussccm)
 
-  * Jeśli maszyny są skonfigurowane pod Windows Update, upewnij się, że możesz uzyskać dostęp do punktów końcowych opisanych w te tematu Issues related to HTTP/proxy (Problemy [związane z serwerem HTTP/serwerem proxy).](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy)
-  * Jeśli maszyny są skonfigurowane do Windows Server Update Services (WSUS), upewnij się, że można uzyskać dostęp do serwera WSUS skonfigurowanego przez klucz rejestru [WUServer.](/windows/deployment/update/waas-wu-settings)
+  * Jeśli maszyny są skonfigurowane do obsługi Windows Update, upewnij się, że możesz uzyskać dostęp do punktów końcowych opisanych w te tematu Issues related to HTTP/proxy (Problemy związane z serwerem [HTTP/serwerem proxy).](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy)
+  * Jeśli maszyny są skonfigurowane dla usługi Windows Server Update Services (WSUS), upewnij się, że możesz uzyskać dostęp do serwera WSUS skonfigurowanego przez klucz rejestru [WUServer.](/windows/deployment/update/waas-wu-settings)
 
-Jeśli zostanie wyświetlony komunikat HRESULT, kliknij dwukrotnie wyjątek wyświetlany na czerwono, aby wyświetlić cały komunikat o wyjątku. Przejrzyj następującą tabelę, aby zapoznać się z potencjalnymi rozwiązaniami lub zalecanymi akcjami.
+Jeśli zostanie wyświetlony element HRESULT, kliknij dwukrotnie wyjątek wyświetlany na czerwono, aby wyświetlić cały komunikat o wyjątku. Przejrzyj następującą tabelę, aby zapoznać się z potencjalnymi rozwiązaniami lub zalecanymi akcjami.
 
 |Wyjątek  |Rozwiązanie lub akcja  |
 |---------|---------|
-|`Exception from HRESULT: 0x……C`     | Wyszukaj odpowiedni kod błędu na liście [kodów błędów](https://support.microsoft.com/help/938205/windows-update-error-code-list) aktualizacji systemu Windows, aby znaleźć dodatkowe szczegóły dotyczące przyczyny wyjątku.        |
+|`Exception from HRESULT: 0x……C`     | Wyszukaj odpowiedni kod błędu na liście kodów błędów aktualizacji [systemu Windows,](https://support.microsoft.com/help/938205/windows-update-error-code-list) aby znaleźć dodatkowe szczegóły dotyczące przyczyny wyjątku.        |
 |`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Wskazują one problemy z łącznością sieciową. Upewnij się, że maszyna ma łączność sieciową z Update Management. Listę [wymaganych](../update-management/overview.md#ports) portów i adresów można znaleźć w sekcji dotyczącej planowania sieci.        |
 |`0x8024001E`| Operacja aktualizacji nie została ukończona, ponieważ usługa lub system został zamknięty.|
-|`0x8024002E`| Windows Update usługa jest wyłączona.|
-|`0x8024402C`     | Jeśli używasz serwera WSUS, upewnij się, że wartości rejestru dla i w kluczu rejestru określają `WUServer` `WUStatusServer` prawidłowy serwer  `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` WSUS.        |
-|`0x80072EE2`|Występuje problem z łącznością sieciową lub problem podczas komunikacji ze skonfigurowanym serwerem WSUS. Sprawdź ustawienia programu WSUS i upewnij się, że usługa jest dostępna z klienta.|
+|`0x8024002E`| Windows Update jest wyłączona.|
+|`0x8024402C`     | Jeśli używasz serwera WSUS, upewnij się, że wartości rejestru dla i w kluczu rejestru `WUServer` `WUStatusServer` określają prawidłowy serwer  `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` WSUS.        |
+|`0x80072EE2`|Występuje problem z łącznością sieciową lub problem w komunikacji ze skonfigurowanym serwerem WSUS. Sprawdź ustawienia programu WSUS i upewnij się, że usługa jest dostępna z klienta.|
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Upewnij się, Windows Update usługa (wuauserv) jest uruchomiona i nie jest wyłączona.        |
-|`0x80070005`| Błąd odmowy dostępu może być spowodowany przez jedną z następujących czynności:<br> Zainfekowany komputer<br> Windows Update nie skonfigurowano poprawnie<br> Błąd uprawnień pliku w folderze %WinDir%\SoftwareDistribution<br> Niewystarczająca ilość miejsca na dysku systemowym (C:).
+|`0x80070005`| Błąd odmowy dostępu może być spowodowany przez jedną z następujących czynności:<br> Zainfekowany komputer<br> Windows Update nie skonfigurowano poprawnie<br> Błąd uprawnień pliku w folderze %WinDir%\SoftwareDistribution<br> Za mało miejsca na dysku systemowym (C:).
 |Dowolny inny wyjątek ogólny     | Uruchom wyszukiwanie w Internecie, aby uzyskać możliwe rozwiązania, i pracuj z lokalną pomocą techniczną IT.         |
 
 Przejrzenie **pliku %Windir%\Windowsupdate.log** może również pomóc w ustaleniu możliwych przyczyn. Aby uzyskać więcej informacji na temat odczytywania dziennika, zobacz [How to read the Windowsupdate.log file (Jak odczytać plik Windowsupdate.log).](https://support.microsoft.com/help/902093/how-to-read-the-windowsupdate-log-file)
