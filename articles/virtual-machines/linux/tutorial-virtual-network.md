@@ -1,27 +1,21 @@
 ---
-title: Samouczek — Tworzenie sieci wirtualnych platformy Azure i zarządzanie nimi dla maszyn wirtualnych z systemem Linux
+title: Samouczek — tworzenie sieci wirtualnych platformy Azure dla maszyn wirtualnych z systemem Linux i zarządzanie nimi
 description: Z tego samouczka dowiesz się, jak tworzyć sieci wirtualne platformy Azure i zarządzać nimi za pomocą interfejsu wiersza polecenia platformy Azure na maszynach wirtualnych z systemem Linux
 services: virtual-machines
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
 ms.collection: linux
-tags: azure-resource-manager
 ms.subservice: networking
-ms.assetid: ''
 ms.service: virtual-machines
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 6356d9b587847ff2b49574b970109ada0d785660
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cfc76ffd05b6348c9a585a64e3f2868f28f5e5cd
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102564632"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107811710"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Samouczek: tworzenie sieci wirtualnych platformy Azure i zarządzanie nimi za pomocą interfejsu wiersza polecenia platformy Azure na maszynach wirtualnych z systemem Linux
 
@@ -34,7 +28,7 @@ Maszyny wirtualne platformy Azure korzystają z sieci platformy Azure do wewnęt
 > * Zabezpieczanie ruchu sieciowego
 > * Tworzenie maszyny wirtualnej zaplecza
 
-W tym samouczku jest używany interfejs wiersza polecenia w [Azure Cloud Shell](../../cloud-shell/overview.md), który jest stale aktualizowany do najnowszej wersji. Aby otworzyć Cloud Shell, wybierz opcję **Wypróbuj** z góry dowolnego bloku kodu.
+W tym samouczku używany jest interfejs wiersza [polecenia Azure Cloud Shell](../../cloud-shell/overview.md), który jest stale aktualizowany do najnowszej wersji. Aby otworzyć Cloud Shell, wybierz pozycję **Wypróbuj** w górnej części bloku kodu.
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.30 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
@@ -60,7 +54,7 @@ Po ukończeniu samouczka zostaną utworzone następujące zasoby sieci wirtualne
 
 W tym samouczku zostanie utworzona jedna sieć wirtualna z dwoma podsieciami. Zostanie utworzona podsieć frontonu do hostowania aplikacji internetowej oraz podsieć zaplecza do hostowania serwera bazy danych.
 
-Przed utworzeniem sieci wirtualnej należy utworzyć grupę zasobów za pomocą polecenia [az group create](/cli/azure/group). Poniższy przykład tworzy grupę zasobów o nazwie *myRGNetwork* w lokalizacji Wschodnie.
+Przed utworzeniem sieci wirtualnej należy utworzyć grupę zasobów za pomocą polecenia [az group create](/cli/azure/group). Poniższy przykład tworzy grupę zasobów o nazwie *myRGNetwork* w lokalizacji eastus.
 
 ```azurecli-interactive 
 az group create --name myRGNetwork --location eastus
@@ -302,4 +296,4 @@ W tym samouczku utworzono i zabezpieczono sieci platformy Azure na potrzeby masz
 > * Zabezpieczanie ruchu sieciowego
 > * Tworzenie maszyny wirtualnej zaplecza
 
-Aby dowiedzieć się więcej o ochronie dysków maszyn wirtualnych, zobacz [kopia zapasowa i odzyskiwanie po awarii dla dysków](../backup-and-disaster-recovery-for-azure-iaas-disks.md).
+Aby dowiedzieć się więcej na temat ochrony dysków maszyn wirtualnych, zobacz Backup and disaster recovery for disks (Tworzenie kopii zapasowych dysków i odzyskiwanie [po awarii dla dysków).](../backup-and-disaster-recovery-for-azure-iaas-disks.md)
