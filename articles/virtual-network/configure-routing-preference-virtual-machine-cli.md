@@ -1,6 +1,6 @@
 ---
 title: Konfigurowanie preferencji routingu dla maszyny wirtualnej — interfejs wiersza polecenia platformy Azure
-description: Dowiedz się, jak utworzyć maszynę wirtualną z publicznym adresem IP z wyborem preferencji routingu za pomocą interfejsu wiersza polecenia platformy Azure.
+description: Dowiedz się, jak utworzyć maszynę wirtualną z publicznym adresem IP z preferencją routingu przy użyciu interfejsu wiersza polecenia platformy Azure.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -13,29 +13,29 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2021
 ms.author: mnayak
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ad8f2d150c3cf17c4b24c6dc92188be9017dcfa9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b9155c3114d5a5a1b8729351dc189bc1e5c22369
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101666005"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764481"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-azure-cli"></a>Konfigurowanie preferencji routingu dla maszyny wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure
 
-W tym artykule opisano sposób konfigurowania preferencji routingu dla maszyny wirtualnej. Ruch związany z Internetem z maszyny wirtualnej będzie kierowany przez sieć usługodawcy internetowego w przypadku wybrania opcji **Internet** jako preferencji routingu. Domyślny Routing odbywa się za pośrednictwem sieci globalnej firmy Microsoft.
+W tym artykule przedstawiono sposób konfigurowania preferencji routingu dla maszyny wirtualnej. Ruch związany z Internetem z maszyny wirtualnej będzie trasowany za pośrednictwem sieci isp po wybraniu **Internetu** jako opcji preferencji routingu. Domyślny routing jest za pośrednictwem sieci globalnej firmy Microsoft.
 
-W tym artykule pokazano, jak utworzyć maszynę wirtualną z publicznym adresem IP, która jest ustawiona na kierowanie ruchu za pośrednictwem publicznej sieci Internet przy użyciu interfejsu wiersza polecenia platformy Azure.
+W tym artykule pokazano, jak utworzyć maszynę wirtualną z publicznym adresem IP ustawionym na trasę ruchu za pośrednictwem publicznego Internetu przy użyciu interfejsu wiersza polecenia platformy Azure.
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
-1. Jeśli używasz Cloud Shell, przejdź do kroku 2. Otwórz sesję polecenia i zaloguj się do platformy Azure za pomocą usługi `az login` .
-2. Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az-group-create). Poniższy przykład tworzy grupę zasobów w regionie platformy Azure Wschodnie stany USA:
+1. Jeśli używasz Cloud Shell, przejdź do kroku 2. Otwórz sesję poleceń i zaloguj się do platformy Azure za pomocą polecenia `az login` .
+2. Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az_group_create). Poniższy przykład tworzy grupę zasobów w regionie świadczenia usługi Azure Wschodnie usa:
 
     ```azurecli
     az group create --name myResourceGroup --location eastus
     ```
 
 ## <a name="create-a-public-ip-address"></a>Tworzenie publicznego adresu IP
-Aby uzyskać dostęp do maszyn wirtualnych z Internetu, należy utworzyć publiczny adres IP. Utwórz publiczny adres IP za pomocą polecenia [az network public-ip create](/cli/azure/network/public-ip). Poniższy przykład tworzy publiczny adres IP z preferencjami routingu typ *Internet* w regionie *Wschodnie stany USA* :
+Aby uzyskać dostęp do maszyn wirtualnych z Internetu, należy utworzyć publiczny adres IP. Utwórz publiczny adres IP za pomocą polecenia [az network public-ip create](/cli/azure/network/public-ip). Poniższy przykład tworzy publiczny adres IP typu preferencji routingu *Internet w* regionie *Wschodnie usa:*
 
 ```azurecli
 az network public-ip create \
@@ -50,11 +50,11 @@ az network public-ip create \
 
 ## <a name="create-network-resources"></a>Tworzenie zasobów sieciowych
 
-Przed wdrożeniem maszyny wirtualnej należy utworzyć pomocnicze zasoby sieciowe — sieciową grupę zabezpieczeń, sieć wirtualną i wirtualną kartę sieciową.
+Przed wdrożeniem maszyny wirtualnej należy utworzyć zasoby sieciowe — sieciową grupę zabezpieczeń, sieć wirtualną i wirtualną kartę sieciową.
 
 ### <a name="create-a-network-security-group"></a>Tworzenie sieciowej grupy zabezpieczeń
 
-Utwórz sieciową grupę zabezpieczeń dla reguł, które będą zarządzać komunikacją przychodzącą i wychodzącą w sieci wirtualnej za pomocą [AZ Network sieciowej grupy zabezpieczeń Create](/cli/azure/network/nsg#az-network-nsg-create)
+Utwórz sieciową grupę zabezpieczeń dla reguł, które będą zarządzać komunikacją przychodzącymi i wychodzącymi w sieci wirtualnej za pomocą [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create)
 
 ```azurecli
 az network nsg create \
@@ -65,7 +65,7 @@ az network nsg create \
 
 ### <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
 
-Utwórz sieć wirtualną za pomocą polecenia [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Poniższy przykład tworzy sieć wirtualną o nazwie *myVNET* z *podsiecią* podsieci:
+Utwórz sieć wirtualną za pomocą polecenia [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). Poniższy przykład tworzy sieć wirtualną o nazwie *myVNET* z podsieciami *mySubNet:*
 
 ```azurecli
 # Create a virtual network
@@ -85,7 +85,7 @@ az network vnet subnet create \
 
 ### <a name="create-a-nic"></a>Tworzenie karty sieciowej
 
-Utwórz wirtualną kartę sieciową dla maszyny wirtualnej za pomocą [AZ Network nic Create](/cli/azure/network/nic#az-network-nic-create). Poniższy przykład tworzy wirtualną kartę sieciową, która zostanie dołączona do maszyny wirtualnej.
+Utwórz wirtualną kartę sieciową dla maszyny wirtualnej za pomocą [az network nic create](/cli/azure/network/nic#az_network_nic_create). Poniższy przykład tworzy wirtualną kartę sieciową, która zostanie dołączona do maszyny wirtualnej.
 
 ```azurecli-interactive
 # Create a NIC
@@ -101,7 +101,7 @@ az network nic create \
 
 ## <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#az-vm-create). Poniższy przykład tworzy maszynę wirtualną z systemem Windows Server 2019 i wymagane składniki sieci wirtualnej, jeśli jeszcze nie istnieją.
+Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#az_vm_create). Poniższy przykład tworzy maszynę wirtualną z systemem Windows Server 2019 i wymagane składniki sieci wirtualnej, jeśli jeszcze nie istnieją.
 
 ```azurecli
 az vm create \
@@ -115,7 +115,7 @@ az vm create \
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [az group delete](/cli/azure/group#az-group-delete).
+Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli
 az group delete --name myResourceGroup --yes
@@ -123,6 +123,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [preferencjach routingu w publicznych adresach IP](routing-preference-overview.md).
-- Dowiedz się więcej o [publicznych adresach IP](./public-ip-addresses.md#public-ip-addresses) na platformie Azure.
-- Dowiedz się więcej o [ustawieniach publicznych adresów IP](virtual-network-public-ip-address.md#create-a-public-ip-address).
+- Dowiedz się więcej o [preferencjach routingu w publicznych adresach IP.](routing-preference-overview.md)
+- Dowiedz się więcej o [publicznych adresach IP na](./public-ip-addresses.md#public-ip-addresses) platformie Azure.
+- Dowiedz się więcej o [ustawieniach publicznego adresu IP.](virtual-network-public-ip-address.md#create-a-public-ip-address)
