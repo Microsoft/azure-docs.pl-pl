@@ -1,33 +1,33 @@
 ---
-title: Wymagania wstępne interfejsu wiersza polecenia platformy Azure dla usługi Azure HPC cache
-description: Kroki konfiguracji przed rozpoczęciem korzystania z interfejsu wiersza polecenia platformy Azure w celu utworzenia lub zmodyfikowania pamięci podręcznej platformy Azure HPC
+title: Wymagania wstępne interfejsu wiersza polecenia platformy Azure Azure HPC Cache
+description: Kroki konfiguracji przed użyciem interfejsu wiersza polecenia platformy Azure do utworzenia lub zmodyfikowania Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.author: v-erkel
-ms.openlocfilehash: 13f45c96a830110bd0f4a2d4a2b422921d7a2e31
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30621eceefd69cd3e08de137bb34f1079a17a406
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94654460"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780492"
 ---
 # <a name="set-up-azure-cli-for-azure-hpc-cache"></a>Konfigurowanie interfejsu wiersza polecenia platformy Azure dla usługi Azure HPC Cache
 
-Wykonaj następujące kroki, aby przygotować środowisko przed użyciem interfejsu wiersza polecenia platformy Azure w celu utworzenia pamięci podręcznej platformy Azure HPC lub zarządzania nią.
+Wykonaj następujące kroki, aby przygotować środowisko przed użyciem interfejsu wiersza polecenia platformy Azure do utworzenia Azure HPC Cache.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - Pamięć podręczna platformy Azure HPC wymaga wersji 2,7 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
+ - Azure HPC Cache interfejsu wiersza polecenia platformy Azure wymaga wersji 2.7 lub nowszej. Jeśli używasz Azure Cloud Shell, najnowsza wersja jest już zainstalowana.
 
-## <a name="set-default-resource-group-optional"></a>Ustaw domyślną grupę zasobów (opcjonalnie)
+## <a name="set-default-resource-group-optional"></a>Ustawianie domyślnej grupy zasobów (opcjonalnie)
 
-Większość poleceń pamięci podręcznej HPC wymaga przekazania grupy zasobów pamięci podręcznej. Domyślną grupę zasobów można ustawić za pomocą polecenia [AZ Configure](/cli/azure/reference-index#az-configure).
+Większość poleceń hpc-cache wymaga przekazania grupy zasobów pamięci podręcznej. Domyślną grupę zasobów można ustawić za pomocą az [configure](/cli/azure/reference-index#az_configure).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po zainstalowaniu rozszerzenia interfejsu wiersza polecenia platformy Azure i zalogowaniu się za pomocą interfejsu wiersza polecenia platformy Azure można tworzyć systemy pamięci podręcznej platformy Azure HPC i zarządzać nimi.
+Po zainstalowaniu rozszerzenia interfejsu wiersza polecenia platformy Azure i zalogowaniu się możesz użyć interfejsu wiersza polecenia platformy Azure do tworzenia Azure HPC Cache systemów.
 
-* [Tworzenie pamięci podręcznej platformy Azure HPC](hpc-cache-create.md)
-* [Interfejs wiersza polecenia platformy Azure HPC — dokumentacja pamięci podręcznej](/cli/azure/ext/hpc-cache/hpc-cache)
+* [Tworzenie Azure HPC Cache](hpc-cache-create.md)
+* [Dokumentacja polecenia interfejsu wiersza polecenia platformy Azure hpc-cache](/cli/azure/ext/hpc-cache/hpc-cache)

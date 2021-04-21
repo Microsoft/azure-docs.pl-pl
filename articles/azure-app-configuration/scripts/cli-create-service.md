@@ -1,7 +1,7 @@
 ---
-title: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — tworzenie magazynu konfiguracji aplikacji platformy Azure
+title: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — tworzenie Azure App Configuration Store
 titleSuffix: Azure App Configuration
-description: Utwórz magazyn konfiguracji aplikacji platformy Azure przy użyciu przykładowego skryptu interfejsu wiersza polecenia platformy Azure. Zobacz linki do artykułów referencyjnych do poleceń używanych w skrypcie.
+description: Utwórz sklep Azure App Configuration przy użyciu przykładowego skryptu interfejsu wiersza polecenia platformy Azure. Zobacz linki do artykułów referencyjnych do poleceń używanych w skrypcie.
 services: azure-app-configuration
 author: AlexandraKemperMS
 ms.service: azure-app-configuration
@@ -9,22 +9,22 @@ ms.topic: sample
 ms.date: 01/24/2020
 ms.author: alkemper
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4554ca64dccaa69e3a6fb63e5c28a6bcbb1a32e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4a341e9772c67da7781a5cec92f286c037c55ce9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96930844"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768955"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>Tworzenie magazynu usługi Azure App Configuration
 
-Ten przykładowy skrypt tworzy nowe wystąpienie konfiguracji aplikacji platformy Azure w nowej grupie zasobów.
+Ten przykładowy skrypt tworzy nowe wystąpienie Azure App Configuration w nowej grupie zasobów.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
- - Ten samouczek wymaga wersji 2,0 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
+ - Ten samouczek wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Jeśli używasz Azure Cloud Shell, najnowsza wersja jest już zainstalowana.
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -65,16 +65,16 @@ Zanotuj rzeczywistą nazwę wygenerowaną dla nowej grupy zasobów. Tej nazwy gr
 
 ## <a name="script-explanation"></a>Objaśnienia dla skryptu
 
-Ten skrypt zawiera następujące polecenia służące do tworzenia nowej grupy zasobów i magazynu konfiguracji aplikacji. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
+Ten skrypt używa następujących poleceń, aby utworzyć nową grupę zasobów i App Configuration magazynu. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
 | Polecenie | Uwagi |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
-| [az appconfig create](/cli/azure/appconfig#az-appconfig-create) | Tworzy zasób magazynu konfiguracji aplikacji. |
-| [AZ AppConfig list Credential](/cli/azure/appconfig/credential#az-appconfig-credential-list) | Wyświetl listę kluczy dostępu dla magazynu konfiguracji aplikacji. |
+| [az group create](/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
+| [az appconfig create](/cli/azure/appconfig#az_appconfig_create) | Tworzy zasób App Configuration magazynu. |
+| [az appconfig credential list](/cli/azure/appconfig/credential#az_appconfig_credential_list) | Lista kluczy dostępu dla magazynu App Configuration magazynu. |
 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure).
 
-Dodatkowe przykłady skryptów interfejsu wiersza polecenia konfiguracji aplikacji można znaleźć w [przykładach interfejsu wiersza polecenia konfiguracji aplikacji platformy Azure](../cli-samples.md).
+Więcej App Configuration przykładowych skryptów interfejsu wiersza polecenia można znaleźć w przykładach Azure App Configuration [wiersza polecenia.](../cli-samples.md)

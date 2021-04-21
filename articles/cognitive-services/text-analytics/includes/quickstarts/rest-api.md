@@ -1,63 +1,63 @@
 ---
-title: 'Szybki Start: używanie zawieszania do wywoływania interfejsu API REST analiza tekstu'
+title: 'Szybki start: używanie programu cURL do wywołania interfejsu API REST analiza tekstu API'
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku szybki start pokazano, jak szybko rozpocząć korzystanie z interfejs API analizy tekstu w usłudze Azure Cognitive Services.
+description: W tym przewodniku Szybki start pokazano, jak szybko rozpocząć korzystanie z interfejsu API analiza tekstu w Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 03/09/2021
+ms.date: 04/19/2021
 ms.author: aahi
-ms.openlocfilehash: 52c20a88c9a4a70b1608a7d050e4faccef9e2d3e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: bf18ab6cae83f3dc0908a15bf4bf53b5318613d9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599110"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765130"
 ---
-# <a name="version-31-preview"></a>[Wersja 3,1 Preview](#tab/version-3-1)
+# <a name="version-31-preview"></a>[Wersja zapoznawcza 3.1](#tab/version-3-1)
 
-[Dokumentacja referencyjna v 3.1](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-4/)
+[Dokumentacja referencyjna w wersji 3.1](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-4/)
 
-# <a name="version-30"></a>[Wersja 3,0](#tab/version-3)
+# <a name="version-30"></a>[Wersja 3.0](#tab/version-3)
 
-[Dokumentacja referencyjna v3](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0) 
+[Dokumentacja referencyjna w wersji 3](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0) 
 
 ---
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Bieżąca wersja programu [zwinięcie](https://curl.haxx.se/).
-* Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title=" Utwórz zasób analiza tekstu "  target="_blank"> utwórz zasób analiza tekstu </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
-    * Będziesz potrzebować klucza i punktu końcowego z zasobu, który tworzysz, aby połączyć aplikację z interfejs API analizy tekstu. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
-    * Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
+* Bieżąca wersja programu [cURL](https://curl.haxx.se/).
+* Po utworzeniu subskrypcji platformy Azure utwórz zasób usługi analiza tekstu zasób analiza tekstu w witrynie Azure Portal, aby uzyskać <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title=" "  target="_blank"> klucz i punkt </a> końcowy. Po wdrożeniu kliknij pozycję **Przejdź do zasobu**.
+    * Klucz i punkt końcowy z zasobu, który utworzysz, będą potrzebne do połączenia aplikacji z interfejsem API analiza tekstu API. Klucz i punkt końcowy wkleisz do poniższego kodu w dalszej części tego przewodnika Szybki start.
+    * Możesz użyć warstwy cenowej Bezpłatna ( ), aby wypróbować usługę, i przejść później na warstwę płatną `F0` na użytek produkcji.
 
 > [!NOTE]
-> * Poniższe przykłady BASH używają `\` znaku kontynuacji wiersza. Jeśli w konsoli lub terminalu używany jest inny znak kontynuacji wiersza, użyj tego znaku.
-> * Przykłady specyficzne dla języka można znaleźć w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code).
-> * Przejdź do Azure Portal i Znajdź klucz i punkt końcowy dla zasobu analiza tekstu utworzonego w sekcji wymagania wstępne. Zostaną one umieszczone na stronie **klucz zasobu i punkt końcowy** w obszarze **Zarządzanie zasobami**. Następnie zastąp ciąg w poniższym kodzie następującym kluczem i punktem końcowym.
-Aby wywołać interfejs API analizy tekstu, potrzebne są następujące informacje:
+> * Poniższe przykłady powłoki BASH używają `\` znaku kontynuacji wiersza. Jeśli konsola lub terminal używa innego znaku kontynuacji wiersza, użyj tego znaku.
+> * Przykłady specyficzne dla języka można znaleźć w [witrynie GitHub.](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
+> * Przejdź do Azure Portal i znajdź klucz i punkt końcowy dla zasobu analiza tekstu utworzonego w wymaganiach wstępnych. Będą one znajdowały się  na stronie klucza i punktu końcowego zasobu w obszarze **zarządzania zasobami**. Następnie zastąp ciągi w poniższym kodzie swoim kluczem i punktem końcowym.
+Do wywołania analiza tekstu API potrzebne są następujące informacje:
 
 
 |parametr  |Opis  |
 |---------|---------|
 |`-X POST <endpoint>`     | Określa punkt końcowy do uzyskiwania dostępu do interfejsu API.        |
 |`-H Content-Type: application/json`     | Typ zawartości do wysyłania danych JSON.          |
-|`-H "Ocp-Apim-Subscription-Key:<key>`    | Określa klucz dostępu do interfejsu API.        |
+|`-H "Ocp-Apim-Subscription-Key:<key>`    | Określa klucz do uzyskiwania dostępu do interfejsu API.        |
 |`-d <documents>`     | Plik JSON zawierający dokumenty, które chcesz wysłać.         |
 
-Następujące polecenia zwinięcie są wykonywane z poziomu powłoki BASH. Edytuj te polecenia przy użyciu własnej nazwy zasobu, klucza zasobu i wartości JSON.
+Następujące polecenia cURL są wykonywane z powłoki BASH. Edytuj te polecenia przy użyciu własnej nazwy zasobu, klucza zasobu i wartości JSON.
 
 ## <a name="sentiment-analysis"></a>Analiza tonacji
 
 [!INCLUDE [REST API quickstart instructions](rest-api-instructions.md)]
 
-#### <a name="version-31-preview"></a>[Wersja 3,1-Preview](#tab/version-3-1)
+#### <a name="version-31-preview"></a>[wersja 3.1-preview](#tab/version-3-1)
 
 > [!NOTE]
-> Poniższy przykład zawiera żądanie funkcji wyszukiwania opinii analiza tonacji przy użyciu `opinionMining=true` parametru, który zawiera szczegółowe informacje na temat ocen (przymiotników) związanych z obiektami docelowymi (rzeczownikami) w tekście.
+> Poniższy przykład zawiera żądanie dotyczące funkcji wyszukiwania opinii w programie analiza tonacji przy użyciu parametru , który zawiera szczegółowe informacje o ocenach (przymiotnikach) związanych z elementami docelowymi `opinionMining=true` (rzeczownikami) w tekście.
 
 ```bash
 curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.4/sentiment?opinionMining=true \
@@ -135,7 +135,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-pre
 }
 ``` 
 
-#### <a name="version-30"></a>[Wersja 3,0](#tab/version-3)
+#### <a name="version-30"></a>[wersja 3.0](#tab/version-3)
 
 ```bash
 curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.0/sentiment/ \
@@ -184,7 +184,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.0/sen
 
 [!INCLUDE [REST API quickstart instructions](rest-api-instructions.md)]
 
-#### <a name="version-31-preview"></a>[Wersja 3,1-Preview](#tab/version-3-1)
+#### <a name="version-31-preview"></a>[wersja 3.1-preview](#tab/version-3-1)
 
 ```bash
 curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.4/languages/ \
@@ -217,7 +217,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-pre
 }
 ```
 
-#### <a name="version-30"></a>[Wersja 3,0](#tab/version-3)
+#### <a name="version-30"></a>[wersja 3.0](#tab/version-3)
 
 ```bash
 curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.0/languages/ \
@@ -253,11 +253,11 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.0/lan
 ---
 
 
-## <a name="named-entity-recognition-ner"></a>Rozpoznawanie jednostek nazwanych (NER)
+## <a name="named-entity-recognition-ner"></a>rozpoznawanie jednostek nazwanych (NER)
 
 [!INCLUDE [REST API quickstart instructions](rest-api-instructions.md)]
 
-#### <a name="version-31-preview"></a>[Wersja 3,1-Preview](#tab/version-3-1)
+#### <a name="version-31-preview"></a>[wersja 3.1-preview](#tab/version-3-1)
 
 ```bash
 curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.4/entities/recognition/general \
@@ -305,7 +305,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-pre
 
 ```
 
-### <a name="detecting-personally-identifying-information"></a>Wykrywanie danych osobowych tożsamości
+### <a name="detecting-personally-identifying-information"></a>Wykrywanie informacji identyfikujących użytkowników
 
 [!INCLUDE [REST API quickstart instructions](rest-api-instructions.md)]
 
@@ -352,7 +352,7 @@ curl -X POST https://your-text-analytics-endpoint-here>/text/analytics/v3.1-prev
 }
 ```
 
-#### <a name="version-30"></a>[Wersja 3,0](#tab/version-3)
+#### <a name="version-30"></a>[wersja 3.0](#tab/version-3)
 
 ```bash
 curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.0/entities/recognition/general \
@@ -412,7 +412,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.0/ent
 
 [!INCLUDE [REST API quickstart instructions](rest-api-instructions.md)]
 
-#### <a name="version-31-preview"></a>[Wersja 3,1-Preview](#tab/version-3-1)
+#### <a name="version-31-preview"></a>[wersja 3.1-preview](#tab/version-3-1)
 
 ```bash
 curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.4/entities/linking \
@@ -506,7 +506,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-pre
 }
 ```
 
-#### <a name="version-30"></a>[Wersja 3,0](#tab/version-3)
+#### <a name="version-30"></a>[wersja 3.0](#tab/version-3)
 
 ```bash
 curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.0/entities/linking \
@@ -606,7 +606,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.0/ent
 [!INCLUDE [REST API quickstart instructions](rest-api-instructions.md)]
 
 
-#### <a name="version-31-preview"></a>[Wersja 3,1-Preview](#tab/version-3-1)
+#### <a name="version-31-preview"></a>[wersja 3.1-preview](#tab/version-3-1)
 
 ```bash
 curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.4/keyPhrases \
@@ -637,7 +637,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-pre
 }
 ```
 
-#### <a name="version-30"></a>[Wersja 3,0](#tab/version-3)
+#### <a name="version-30"></a>[wersja 3.0](#tab/version-3)
 
 ```bash
 curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.0/keyPhrases \

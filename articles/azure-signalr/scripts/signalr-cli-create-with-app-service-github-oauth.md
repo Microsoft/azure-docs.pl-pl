@@ -1,5 +1,5 @@
 ---
-title: Tworzenie aplikacji sieci Web przy użyciu usługi sygnalizującej i uwierzytelniania GitHub
+title: Tworzenie aplikacji internetowej przy użyciu SignalR Service i uwierzytelniania usługi GitHub
 description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — tworzenie aplikacji internetowej korzystającej z uwierzytelniania usług SignalR Service i GitHub
 author: sffamily
 ms.service: signalr
@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/22/2018
 ms.author: zhshang
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: ee9f0253f2ec27b4afbbb6c5dc1ff3f5c129fe8a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c46ac350c1bf7f7593f334a9a7fa5df1af7b19d8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94841839"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787327"
 ---
 # <a name="create-a-web-app-that-uses-signalr-service-and-github-authentication"></a>Tworzenie aplikacji internetowej korzystającej z uwierzytelniania usług SignalR Service i GitHub
 
@@ -107,14 +107,14 @@ Każde polecenie w tabeli stanowi link do dokumentacji polecenia. W tym skrypcie
 
 | Polecenie | Uwagi |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
-| [az signalr create](/cli/azure/signalr#az-signalr-create) | Tworzy zasób usługi Azure SignalR Service. |
-| [az signalr key list](/cli/azure/signalr/key#az-signalr-key-list) | Wyświetla listę kluczy, które będą używane przez Twoją aplikację przy wypychaniu w czasie rzeczywistym aktualizacji zawartości za pomocą usługi SignalR. |
-| [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) | Tworzy plan usługi Azure App Service do hostowania aplikacji internetowych. |
-| [az webapp create](/cli/azure/webapp#az-webapp-create) | Tworzy aplikację internetową platformy Azure za pomocą planu hostingu usługi App Service. |
-| [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) | Dodaje nowe ustawienia aplikacji dla aplikacji internetowej. Te ustawienia aplikacji są używane do przechowywania parametrów połączenia usługi SignalR i wpisów tajnych aplikacji OAuth usługi GitHub. |
-| [az webapp deployment user set](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) | Aktualizacja poświadczeń wdrożenia. |
-| [az webapp deployment source config-local-git](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-local-git) | Pobierz adres URL dla punktu końcowego repozytorium git do klonowania i wypychania dla wdrożenia aplikacji internetowej. |
+| [az group create](/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
+| [az signalr create](/cli/azure/signalr#az_signalr_create) | Tworzy zasób usługi Azure SignalR Service. |
+| [az signalr key list](/cli/azure/signalr/key#az_signalr_key_list) | Wyświetla listę kluczy, które będą używane przez Twoją aplikację przy wypychaniu w czasie rzeczywistym aktualizacji zawartości za pomocą usługi SignalR. |
+| [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) | Tworzy plan usługi Azure App Service do hostowania aplikacji internetowych. |
+| [az webapp create](/cli/azure/webapp#az_webapp_create) | Tworzy aplikację internetową platformy Azure za pomocą planu hostingu usługi App Service. |
+| [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Dodaje nowe ustawienia aplikacji dla aplikacji internetowej. Te ustawienia aplikacji są używane do przechowywania parametrów połączenia usługi SignalR i wpisów tajnych aplikacji OAuth usługi GitHub. |
+| [az webapp deployment user set](/cli/azure/webapp/deployment/user#az_webapp_deployment_user_set) | Aktualizacja poświadczeń wdrożenia. |
+| [az webapp deployment source config-local-git](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config_local_git) | Pobierz adres URL dla punktu końcowego repozytorium git do klonowania i wypychania dla wdrożenia aplikacji internetowej. |
 
 ## <a name="next-steps"></a>Następne kroki
 

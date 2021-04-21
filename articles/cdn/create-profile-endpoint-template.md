@@ -1,7 +1,7 @@
 ---
-title: 'Szybki Start: Tworzenie profilu i szablonu Menedżer zasobów punktu końcowego'
+title: 'Szybki start: tworzenie profilu i punktu końcowego — Resource Manager szablonu'
 titleSuffix: Azure Content Delivery Network
-description: W tym przewodniku szybki start dowiesz się, jak utworzyć profil usługi Azure Content Delivery Network i punkt końcowy szablonu Menedżer zasobów
+description: W tym przewodniku Szybki start dowiesz się, jak utworzyć profil usługi Azure Content Delivery Network i punkt końcowy Resource Manager szablonu
 services: cdn
 author: asudbring
 manager: KumudD
@@ -12,16 +12,16 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 06/25/2020
 ms.author: allensu
-ms.openlocfilehash: a36484bea3a2bc9caadc5cf4482aae3bea84eafa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 31f0510ed50c9d48a46524a353d7c872b368f75c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560467"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779043"
 ---
-# <a name="quickstart-create-an-azure-cdn-profile-and-endpoint---arm-template"></a>Szybki Start: Tworzenie profilu Azure CDN i szablonu punktu końcowego
+# <a name="quickstart-create-an-azure-cdn-profile-and-endpoint---arm-template"></a>Szybki start: tworzenie profilu Azure CDN punktu końcowego — szablon usługi ARM
 
-Rozpocznij pracę z usługą Azure Content Delivery Network (CDN) przy użyciu szablonu Azure Resource Manager (szablon ARM). Szablon wdraża profil i punkt końcowy.
+Rozpoczynanie pracy z usługą Azure Content Delivery Network (CDN) przy użyciu szablonu Azure Resource Manager (szablonu USŁUGI ARM). Szablon wdraża profil i punkt końcowy.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -46,7 +46,7 @@ Ten szablon jest skonfigurowany do tworzenia:
 
 Jeden zasób platformy Azure jest zdefiniowany w szablonie:
 
-* **[Microsoft. CDN/profile](/azure/templates/microsoft.cdn/profiles)**
+* **[Microsoft.Cdn/profiles](/azure/templates/microsoft.cdn/profiles)**
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
@@ -82,23 +82,23 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cdn-with-custom-origin%2Fazuredeploy.json)
 
-## <a name="review-deployed-resources"></a>Przejrzyj wdrożone zasoby
+## <a name="review-deployed-resources"></a>Przeglądanie wdrożonych zasobów
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. W okienku po lewej stronie wybierz pozycję **grupy zasobów** .
+2. Wybierz **pozycję Grupy zasobów** w okienku po lewej stronie.
 
 3. Wybierz grupę zasobów utworzoną w poprzedniej sekcji. Domyślna nazwa grupy zasobów to **myResourceGroupCDN**
 
 4. Sprawdź, czy w grupie zasobów zostały utworzone następujące zasoby:
 
-    :::image type="content" source="media/create-profile-endpoint-template/cdn-profile-template-rg.png" alt-text="Grupa zasobów Azure CDN" border="true":::
+    :::image type="content" source="media/create-profile-endpoint-template/cdn-profile-template-rg.png" alt-text="Azure CDN zasobów" border="true":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [AZ Group Delete](/cli/azure/group#az-group-delete) .
+Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, możesz je usunąć za pomocą polecenia [az group delete.](/cli/azure/group#az_group_delete)
 
 ```azurecli-interactive 
   az group delete \
@@ -107,7 +107,7 @@ Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, 
 
 ### <a name="powershell"></a>PowerShell
 
-Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) .
+Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzResourceGroup.](/powershell/module/az.resources/remove-azresourcegroup)
 
 ```azurepowershell-interactive 
 Remove-AzResourceGroup -Name myResourceGroupCDN
@@ -115,16 +115,16 @@ Remove-AzResourceGroup -Name myResourceGroupCDN
 
 ### <a name="portal"></a>Portal
 
-Gdy grupa zasobów, profil usługi CDN i wszystkie powiązane zasoby nie będą już potrzebne, usuń je. Wybierz grupę zasobów **myResourceGroupCDN** , która zawiera profil i punkt końcowy usługi CDN, a następnie wybierz pozycję **Usuń**.
+Gdy grupa zasobów, profil CDN i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. Wybierz grupę zasobów **myResourceGroupCDN zawierającą** profil i punkt końcowy usługi CDN, a następnie wybierz pozycję **Usuń.**
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono:
+W tym przewodniku Szybki start utworzono:
 
 * Profil CDN
 * Punkt końcowy
 
-Aby dowiedzieć się więcej na temat Azure CDN i Azure Resource Manager, przejdź do artykułów poniżej.
+Aby dowiedzieć się więcej o Azure CDN i Azure Resource Manager, przejdź do poniższych artykułów.
 
 > [!div class="nextstepaction"]
-> [Samouczek: używanie usługi CDN do obsługi zawartości statycznej z poziomu aplikacji sieci Web](cdn-add-to-web-app.md)
+> [Samouczek: używanie usługi CDN do obsługi zawartości statycznej z aplikacji internetowej](cdn-add-to-web-app.md)

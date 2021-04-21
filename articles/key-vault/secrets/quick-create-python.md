@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: 2f15aa394f7a271d6b3af49f0106611c4fc943a1
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: e06881d078b4e881174c3e931f7898cb622ad7f9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107753086"
+ms.locfileid: "107766357"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-python"></a>Szybki start: Azure Key Vault klienta dla języka Python
 
@@ -170,7 +170,7 @@ retrieved_secret = client.get_secret(secretName)
 
 Wartość tajnego jest zawarta w `retrieved_secret.value` .
 
-Możesz również pobrać klucz tajny za pomocą polecenia interfejsu wiersza polecenia platformy Azure [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show).
+Możesz również pobrać klucz tajny za pomocą polecenia interfejsu wiersza polecenia platformy Azure [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show).
 
 ### <a name="delete-a-secret"></a>Usuń klucz tajny
 
@@ -183,7 +183,7 @@ deleted_secret = poller.result()
 
 Metoda `begin_delete_secret` jest asynchroniczna i zwraca obiekt poller. Wywołanie metody `result` pollera czeka na jego ukończenie.
 
-Możesz sprawdzić, czy klucz tajny został usunięty, za pomocą polecenia [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show)interfejsu wiersza polecenia platformy Azure.
+Możesz sprawdzić, czy klucz tajny został usunięty, za pomocą polecenia [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show)interfejsu wiersza polecenia platformy Azure.
 
 Po usunięciu klucz tajny pozostaje w stanie usuniętym, ale można go odzyskać przez jeden czas. Jeśli ponownie uruchamiasz kod, użyj innej nazwy tajnego.
 

@@ -1,6 +1,6 @@
 ---
-title: Samouczek dotyczący używania usługi Azure App Configuration Key Vault References w aplikacji ASP.NET Core | Microsoft Docs
-description: W tym samouczku dowiesz się, jak używać odwołań Key Vault konfiguracji aplikacji platformy Azure z poziomu aplikacji ASP.NET Core
+title: Samouczek dotyczący używania odwołań Azure App Configuration Key Vault w aplikacji ASP.NET Core | Microsoft Docs
+description: Z tego samouczka dowiesz się, jak używać Azure App Configuration odwołań Key Vault z aplikacji ASP.NET Core
 services: azure-app-configuration
 documentationcenter: ''
 author: AlexandraKemperMS
@@ -13,87 +13,87 @@ ms.topic: tutorial
 ms.date: 04/08/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 37bc7fbcd366455668d5316e45ffbf79127a49f3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 57abbeefe8e3f2abe527f2b282d643db766b9dc9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99981227"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775749"
 ---
-# <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Samouczek: Używanie odwołań Key Vault w aplikacji ASP.NET Core
+# <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Samouczek: używanie odwołań Key Vault w aplikacji ASP.NET Core
 
-W tym samouczku dowiesz się, jak korzystać z usługi Azure App Configuration razem z Azure Key Vault. Konfiguracja aplikacji i Key Vault to uzupełniające się usługi używane obok większości wdrożeń aplikacji.
+Z tego samouczka dowiesz się, jak używać usługi Azure App Configuration razem z Azure Key Vault. App Configuration i Key Vault to uzupełniające się usługi używane obok siebie w większości wdrożeń aplikacji.
 
-Konfiguracja aplikacji ułatwia korzystanie z usług, tworząc klucze, które odwołują się do wartości przechowywanych w Key Vault. Gdy konfiguracja aplikacji tworzy takie klucze, przechowuje identyfikatory URI wartości Key Vault, a nie same wartości.
+App Configuration usług, tworząc klucze odwołujące się do wartości przechowywanych w Key Vault. Gdy App Configuration takie klucze, przechowuje ona Key Vault, a nie same wartości.
 
-Aplikacja używa dostawcy klienta konfiguracji aplikacji do pobierania odwołań Key Vault, podobnie jak w przypadku innych kluczy przechowywanych w konfiguracji aplikacji. W takim przypadku wartości przechowywane w konfiguracji aplikacji to identyfikatory URI, które odwołują się do wartości w Key Vault. Nie Key Vault wartości ani poświadczeń. Ponieważ dostawca klienta rozpoznaje klucze jako odwołania Key Vault, używa Key Vault do pobierania ich wartości.
+Aplikacja używa dostawcy App Configuration klienta do pobierania odwołań Key Vault, podobnie jak w przypadku innych kluczy przechowywanych w App Configuration. W tym przypadku wartości przechowywane w App Configuration są AMI odwołującymi się do wartości w Key Vault. Nie są to Key Vault ani poświadczenia. Ponieważ dostawca klienta rozpoznaje klucze jako odwołania Key Vault, używa Key Vault do pobierania ich wartości.
 
-Aplikacja jest odpowiedzialna za prawidłowe uwierzytelnianie zarówno w konfiguracji aplikacji, jak i Key Vault. Te dwie usługi nie komunikują się bezpośrednio.
+Aplikacja jest odpowiedzialna za prawidłowe uwierzytelnianie zarówno w App Configuration, jak i Key Vault. Te dwie usługi nie komunikują się bezpośrednio.
 
-W tym samouczku pokazano, jak zaimplementować Key Vault odwołania w kodzie. Opiera się on na aplikacji internetowej wprowadzonej w przewodnikach Szybki start. Przed kontynuowaniem najpierw Zakończ [Tworzenie aplikacji ASP.NET Coreej z konfiguracją aplikacji](./quickstart-aspnet-core-app.md) .
+W tym samouczku pokazano, jak zaimplementować odwołania Key Vault w kodzie. Opiera się on na aplikacji internetowej wprowadzonej w przewodnikach Szybki start. Przed kontynuowaniem zakończ [tworzenie aplikacji ASP.NET Core przy użyciu App Configuration](./quickstart-aspnet-core-app.md) najpierw.
 
-Aby wykonać kroki opisane w tym samouczku, można użyć dowolnego edytora kodu. Na przykład [Visual Studio Code](https://code.visualstudio.com/) to Międzyplatformowy Edytor kodu, który jest dostępny dla systemów operacyjnych Windows, MacOS i Linux.
+Możesz użyć dowolnego edytora kodu, aby wykonać kroki opisane w tym samouczku. Na przykład [Visual Studio Code](https://code.visualstudio.com/) to międzyplatformowy edytor kodu dostępny dla systemów operacyjnych Windows, macOS i Linux.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Utwórz klucz konfiguracji aplikacji, który odwołuje się do wartości przechowywanej w Key Vault.
-> * Uzyskaj dostęp do wartości tego klucza z aplikacji sieci Web ASP.NET Core.
+> * Utwórz klucz App Configuration, który odwołuje się do wartości przechowywanej w Key Vault.
+> * Uzyskaj dostęp do wartości tego klucza z aplikacji internetowej ASP.NET Core.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem pracy z tym samouczkiem zainstaluj [zestaw .NET Core SDK](https://dotnet.microsoft.com/download).
+Przed rozpoczęciem tego samouczka zainstaluj [zestaw .NET Core SDK](https://dotnet.microsoft.com/download).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-a-vault"></a>Tworzenie magazynu
 
-1. Wybierz opcję **Utwórz zasób** w lewym górnym rogu Azure Portal:
+1. Wybierz **opcję Utwórz zasób** w lewym górnym rogu okna Azure Portal:
 
     ![Zrzut ekranu przedstawia opcję Utwórz zasób w Azure Portal.](./media/quickstarts/search-services.png)
 1. W polu wyszukiwania wprowadź **magazyn kluczy**.
-1. Z listy wyników wybierz pozycję **magazyny kluczy** po lewej stronie.
-1. W obszarze **magazyny kluczy** wybierz pozycję **Dodaj**.
-1. Po prawej stronie w temacie **Tworzenie magazynu kluczy** podaj następujące informacje:
-    - Wybierz pozycję **subskrypcja** , aby wybrać subskrypcję.
-    - W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów.
-    - W **nazwie magazynu kluczy** wymagana jest unikatowa nazwa. Na potrzeby tego samouczka wprowadź **contoso-vault2**.
-    - Z listy rozwijanej **region** wybierz lokalizację.
-1. Pozostaw inne opcje **tworzenia magazynu kluczy** z wartościami domyślnymi.
+1. Z listy wyników wybierz pozycję **Magazyny kluczy** po lewej stronie.
+1. W **chmurze Magazyny kluczy** wybierz pozycję **Dodaj**.
+1. Po prawej stronie w **te tematu Create key vault (Tworzenie** magazynu kluczy) podaj następujące informacje:
+    - Wybierz **pozycję Subskrypcja,** aby wybrać subskrypcję.
+    - W **grupie zasobów** wybierz pozycję Utwórz **nową** i wprowadź nazwę grupy zasobów.
+    - W **nazwie magazynu kluczy** wymagana jest unikatowa nazwa. W tym samouczku wprowadź **wartość Contoso-vault2**.
+    - Z **listy rozwijanej** Region wybierz lokalizację.
+1. Pozostaw wartości domyślne pozostałych **opcji Utwórz** magazyn kluczy.
 1. Wybierz przycisk **Utwórz**.
 
-W tym momencie Twoje konto platformy Azure jest jedynym autoryzowanym dostępem do tego nowego magazynu.
+W tym momencie Twoje konto platformy Azure jest jedynym kontem autoryzowanym do uzyskiwania dostępu do tego nowego magazynu.
 
-![Zrzut ekranu przedstawia Twój Magazyn kluczy.](./media/quickstarts/vault-properties.png)
+![Zrzut ekranu przedstawia magazyn kluczy.](./media/quickstarts/vault-properties.png)
 
 ## <a name="add-a-secret-to-key-vault"></a>Dodawanie wpisu tajnego do usługi Key Vault
 
-Aby dodać wpis tajny do magazynu, należy wykonać zaledwie kilka dodatkowych kroków. W takim przypadku Dodaj komunikat, którego można użyć do przetestowania pobierania Key Vault. Wiadomość jest nazywana **komunikatem** i przechowuje w niej wartość "Hello from Key Vault".
+Aby dodać klucz tajny do magazynu, należy wykonać kilka dodatkowych kroków. W takim przypadku dodaj komunikat, który umożliwia przetestowanie Key Vault pobierania. Komunikat ma nazwę **Message** i przechowujesz w nim wartość "Hello from Key Vault".
 
-1. Na stronie właściwości Key Vault wybierz pozycję wpisy **tajne**.
-1. Wybierz pozycję **Generuj/Importuj**.
-1. W okienku **Utwórz wpis tajny** wprowadź następujące wartości:
-    - **Opcje przekazywania**: wprowadź **Ręczne**.
-    - **Nazwa**: wprowadź **komunikat**.
-    - **Wartość**: wprowadź **Hello z Key Vault**.
-1. Pozostaw inne właściwości **klucza tajnego** z wartościami domyślnymi.
+1. Na stronie Key Vault właściwości wybierz pozycję **Wpisy tajne.**
+1. Wybierz **pozycję Generuj/Zaimportuj.**
+1. W **okienku Tworzenie wpisów** tajnych wprowadź następujące wartości:
+    - **Opcje przekazywania:** wprowadź **ręczne .**
+    - **Nazwa:** Wprowadź **komunikat**.
+    - **Wartość:** wprowadź **Hello z Key Vault**.
+1. Pozostaw pozostałe **właściwości Utwórz klucz tajny** z ich wartościami domyślnymi.
 1. Wybierz przycisk **Utwórz**.
 
-## <a name="add-a-key-vault-reference-to-app-configuration"></a>Dodaj odwołanie Key Vault do konfiguracji aplikacji
+## <a name="add-a-key-vault-reference-to-app-configuration"></a>Dodawanie odwołania Key Vault do App Configuration
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **wszystkie zasoby**, a następnie wybierz wystąpienie magazynu konfiguracji aplikacji utworzone w ramach przewodnika Szybki Start.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz **pozycję Wszystkie** zasoby, a następnie wybierz App Configuration magazynu utworzone w przewodniku Szybki start.
 
-1. Wybierz pozycję **Eksplorator konfiguracji**.
+1. Wybierz **pozycję Configuration Explorer**.
 
-1. Wybierz pozycję **+ Utwórz**  >  **odwołanie do magazynu kluczy**, a następnie określ następujące wartości:
-    - **Klucz**: Wybierz **TestApp: Settings: KeyVaultMessage**.
-    - **Etykieta**: pozostaw tę wartość pustą.
-    - **Subskrypcja**, **Grupa zasobów** i **Magazyn kluczy**: wprowadź wartości odpowiadające tym w magazynie kluczy utworzonym w poprzedniej sekcji.
-    - **Wpis tajny**: Wybierz **komunikat** o nazwie Secret utworzony w poprzedniej sekcji.
+1. Wybierz **pozycję + Utwórz** odwołanie do magazynu  >  **kluczy,** a następnie określ następujące wartości:
+    - **Klucz:** wybierz **pozycję TestApp:Settings:KeyVaultMessage.**
+    - **Etykieta:** pozostaw tę wartość pustą.
+    - **Subskrypcja,** **grupa zasobów** i **magazyn kluczy:** wprowadź wartości odpowiadające wartościom w magazynie kluczy utworzonym w poprzedniej sekcji.
+    - **Klucz** tajny: wybierz klucz tajny o nazwie **Message** utworzony w poprzedniej sekcji.
 
-## <a name="connect-to-key-vault"></a>Połącz z Key Vault
+## <a name="connect-to-key-vault"></a>Nawiązywanie połączenia z Key Vault
 
-1. W tym samouczku użyjesz nazwy głównej usługi do uwierzytelniania do Key Vault. Aby utworzyć tę nazwę główną usługi, użyj interfejsu wiersza polecenia platformy Azure [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) :
+1. W tym samouczku użyjemy jednostki usługi do uwierzytelniania w Key Vault. Aby utworzyć tę jednostkę usługi, użyj polecenia [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) interfejsu wiersza polecenia platformy Azure:
 
     ```azurecli
     az ad sp create-for-rbac -n "http://mySP" --sdk-auth
@@ -115,13 +115,13 @@ Aby dodać wpis tajny do magazynu, należy wykonać zaledwie kilka dodatkowych k
     }
     ```
 
-1. Uruchom następujące polecenie, aby umożliwić jednostce usługi dostęp do magazynu kluczy:
+1. Uruchom następujące polecenie, aby pozwolić jednostki usługi na dostęp do magazynu kluczy:
 
     ```cmd
     az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
     ```
 
-1. Dodaj zmienne środowiskowe do przechowywania wartości *clientId*, *clientSecret* i *tenantId*.
+1. Dodaj zmienne środowiskowe do przechowywania wartości *clientId,* *clientSecret* i *tenantId*.
 
     #### <a name="windows-command-prompt"></a>[Wiersz polecenia systemu Windows](#tab/cmd)
 
@@ -150,11 +150,11 @@ Aby dodać wpis tajny do magazynu, należy wykonać zaledwie kilka dodatkowych k
     ---
 
     > [!NOTE]
-    > Te poświadczenia Key Vault są używane tylko w aplikacji. Aplikacja uwierzytelnia się bezpośrednio do Key Vault przy użyciu tych poświadczeń. Nie są one nigdy przesyłane do usługi konfiguracji aplikacji.
+    > Te Key Vault są używane tylko w aplikacji. Aplikacja uwierzytelnia się bezpośrednio w Key Vault przy użyciu tych poświadczeń. Nigdy nie są przekazywane do App Configuration usługi.
 
-1. Uruchom ponownie Terminal, aby załadować te nowe zmienne środowiskowe.
+1. Uruchom ponownie terminal, aby załadować te nowe zmienne środowiskowe.
 
-## <a name="update-your-code-to-use-a-key-vault-reference"></a>Zaktualizuj kod, aby użyć odwołania Key Vault
+## <a name="update-your-code-to-use-a-key-vault-reference"></a>Aktualizowanie kodu w celu używania odwołania Key Vault danych
 
 1. Dodaj odwołanie do wymaganych pakietów NuGet, uruchamiając następujące polecenie:
 
@@ -162,15 +162,15 @@ Aby dodać wpis tajny do magazynu, należy wykonać zaledwie kilka dodatkowych k
     dotnet add package Azure.Identity
     ```
 
-1. Otwórz *Program Package. cs* i Dodaj odwołania do następujących wymaganych pakietów:
+1. Otwórz *program Program.cs* i dodaj odwołania do następujących wymaganych pakietów:
 
     ```csharp
     using Azure.Identity;
     ```
 
-1. Zaktualizuj `CreateWebHostBuilder` metodę, aby użyć konfiguracji aplikacji przez wywołanie `config.AddAzureAppConfiguration` metody. Uwzględnij `ConfigureKeyVault` opcję i przekaż poprawne poświadczenia do Key Vault.
+1. Zaktualizuj metodę `CreateWebHostBuilder` , aby używać App Configuration przez wywołanie metody `config.AddAzureAppConfiguration` . Dołącz opcję i przekaż poprawne poświadczenia do swojego `ConfigureKeyVault` Key Vault.
 
-    #### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -191,7 +191,7 @@ Aby dodać wpis tajny do magazynu, należy wykonać zaledwie kilka dodatkowych k
             .UseStartup<Startup>();
     ```
 
-    #### <a name="net-core-3x"></a>[.NET Core 3. x](#tab/core3x)
+    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -213,9 +213,9 @@ Aby dodać wpis tajny do magazynu, należy wykonać zaledwie kilka dodatkowych k
             .UseStartup<Startup>());
     ```
 
-1. Po zainicjowaniu połączenia z konfiguracją aplikacji należy skonfigurować połączenie do Key Vault przez wywołanie `ConfigureKeyVault` metody. Po zainicjowaniu można uzyskać dostęp do wartości odwołań Key Vault w ten sam sposób, w jaki uzyskuje się dostęp do wartości zwykłych kluczy konfiguracji aplikacji.
+1. Po zainicjowaniu połączenia z usługą App Configuration należy skonfigurować połączenie do Key Vault przez wywołanie `ConfigureKeyVault` metody . Po zainicjowaniu można uzyskać dostęp do wartości odwołań Key Vault w taki sam sposób, w jaki uzyskuje się dostęp do wartości zwykłych kluczy App Configuration kluczy.
 
-    Aby wyświetlić ten proces w działaniu, Otwórz *index. cshtml* w   >  folderze **głównym** widoki. Zastąp zawartość poniższym kodem:
+    Aby zobaczyć, jak ten proces jest w akcji, otwórz *plik Index.cshtml* w **folderze Views**  >  **Home.** Zastąp zawartość poniższym kodem:
 
     ```html
     @using Microsoft.Extensions.Configuration
@@ -235,25 +235,25 @@ Aby dodać wpis tajny do magazynu, należy wykonać zaledwie kilka dodatkowych k
         and @Configuration["TestApp:Settings:KeyVaultMessage"]</h1>
     ```
 
-    Dostęp do wartości Key Vault Reference **TestApp: Settings: KeyVaultMessage** w taki sam sposób jak w przypadku wartości konfiguracji **TestApp: Settings: Message**.
+    Dostęp do wartości właściwości **TestApp:Settings:KeyVaultMessage** Key Vault uzyskać w taki sam sposób jak dla wartości konfiguracji **TestApp:Settings:Message.**
 
 ## <a name="build-and-run-the-app-locally"></a>Lokalne kompilowanie i uruchamianie aplikacji
 
-1. Aby skompilować aplikację przy użyciu interfejs wiersza polecenia platformy .NET Core, uruchom następujące polecenie w powłoce poleceń:
+1. Aby skompilować aplikację przy użyciu interfejs wiersza polecenia platformy .NET Core, uruchom następujące polecenie w powłoki poleceń:
 
     ```dotnetcli
     dotnet build
     ```
 
-1. Po zakończeniu kompilacji Użyj następującego polecenia, aby uruchomić aplikację sieci Web lokalnie:
+1. Po zakończeniu kompilacji użyj następującego polecenia, aby uruchomić aplikację internetową lokalnie:
 
     ```dotnetcli
     dotnet run
     ```
 
-1. Otwórz okno przeglądarki i przejdź do `http://localhost:5000` , który jest domyślnym adresem URL aplikacji sieci Web hostowanej lokalnie.
+1. Otwórz okno przeglądarki i przejdź do adresu , który jest domyślnym adresem URL aplikacji internetowej `http://localhost:5000` hostowanej lokalnie.
 
-    ![Szybkiego startu uruchamiania aplikacji](./media/key-vault-reference-launch-local.png)
+    ![Szybki start: uruchamianie aplikacji lokalnej](./media/key-vault-reference-launch-local.png)
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
@@ -261,7 +261,7 @@ Aby dodać wpis tajny do magazynu, należy wykonać zaledwie kilka dodatkowych k
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku utworzysz klucz konfiguracji aplikacji, który odwołuje się do wartości przechowywanej w Key Vault. Aby dowiedzieć się, jak dodać tożsamość usługi zarządzanej przez platformę Azure, która usprawnia dostęp do konfiguracji aplikacji i Key Vault, przejdź do następnego samouczka.
+W tym samouczku utworzono klucz App Configuration, który odwołuje się do wartości przechowywanej w Key Vault. Aby dowiedzieć się, jak dodać tożsamość usługi zarządzanej przez platformę Azure, która usprawnia dostęp do App Configuration i Key Vault, przejdź do następnego samouczka.
 
 > [!div class="nextstepaction"]
 > [Integracja tożsamości zarządzanej](./howto-integrate-azure-managed-service-identity.md)

@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć klaster Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 3/31/2021
-ms.openlocfilehash: 339bb41aed5ead3d7ee7d1217bfbc771cf068832
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 76785caedb9ca97d947e83f5aa8ff5b32d827914
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107719119"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772905"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Tworzenie prywatnego Azure Kubernetes Service klastra
 
@@ -192,13 +192,13 @@ Jak wspomniano, komunikacja równorzędna sieci wirtualnych jest jednym ze sposo
 * Brak obsługi konwertowania istniejących klastrów usługi AKS na klastry prywatne
 * Usunięcie lub zmodyfikowanie prywatnego punktu końcowego w podsieci klienta spowoduje, że klaster przestanie działać. 
 * Po zaktualizowaniu rekordu A na własnych serwerach DNS klienci nadal rozpoznają nazwę FQDN apiserver jako starszy adres IP po migracji, dopóki nie zostaną ponownie uruchomione. Po migracji płaszczyzny sterowania klienci muszą ponownie uruchomić zasobniki hostNetwork i zasobniki default-DNSPolicy.
-* W przypadku konserwacji na płaszczyźnie sterowania adres [IP usługi AKS](./limit-egress-traffic.md) może ulec zmianie. W takim przypadku należy zaktualizować rekord A, który wskaże prywatny adres IP serwera interfejsu API na niestandardowym serwerze DNS, i ponownie uruchomić wszystkie niestandardowe zasobniki lub wdrożenia przy użyciu hostNetwork.
+* W przypadku konserwacji na płaszczyźnie sterowania adres [IP usługi AKS](./limit-egress-traffic.md) może ulec zmianie. W takim przypadku należy zaktualizować rekord A, który wskaże prywatny adres IP serwera interfejsu API na niestandardowym serwerze DNS, i ponownie uruchomić wszystkie niestandardowe zasobniki lub wdrożenia przy użyciu sieci hostNetwork.
 
 <!-- LINKS - internal -->
-[az-provider-register]: /cli/azure/provider#az-provider-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
 [private-link-service]: ../private-link/private-link-service-overview.md#limitations
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/tutorial-create-host-portal.md

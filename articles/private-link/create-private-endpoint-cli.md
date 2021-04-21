@@ -1,45 +1,45 @@
 ---
-title: Szybki Start — tworzenie prywatnego punktu końcowego platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
-description: W tym przewodniku szybki start dowiesz się, jak utworzyć prywatny punkt końcowy przy użyciu interfejsu wiersza polecenia platformy Azure.
+title: Szybki start — tworzenie prywatnego punktu końcowego platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
+description: Skorzystaj z tego przewodnika Szybki start, aby dowiedzieć się, jak utworzyć prywatny punkt końcowy przy użyciu interfejsu wiersza polecenia platformy Azure.
 services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 11/07/2020
 ms.author: allensu
-ms.openlocfilehash: f74a143859f0a6629c88f0dcb61a97697f49d0be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5088b4e50899a2643488103ba29a7e36a7f256ea
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889233"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778359"
 ---
-# <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>Szybki Start: Tworzenie prywatnego punktu końcowego przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>Szybki start: tworzenie prywatnego punktu końcowego przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Zacznij korzystać z prywatnego linku platformy Azure przy użyciu prywatnego punktu końcowego, aby bezpiecznie połączyć się z aplikacją internetową platformy Azure.
+Rozpoczynanie pracy z Azure Private Link przy użyciu prywatnego punktu końcowego w celu bezpiecznego nawiązywania połączenia z aplikacją internetową platformy Azure.
 
-W tym przewodniku szybki start utworzysz prywatny punkt końcowy dla aplikacji internetowej platformy Azure i wdrożono maszynę wirtualną w celu przetestowania połączenia prywatnego.  
+W tym przewodniku Szybki start utworzysz prywatny punkt końcowy dla aplikacji internetowej platformy Azure i wdrożysz maszynę wirtualną w celu przetestowania połączenia prywatnego.  
 
-Prywatne punkty końcowe można utworzyć dla różnych rodzajów usług platformy Azure, takich jak Azure SQL i Azure Storage.
+Prywatne punkty końcowe można tworzyć dla różnych rodzajów usług platformy Azure, takich jak Azure SQL i Azure Storage.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Aplikacja internetowa platformy Azure z planem usługi App Service **PremiumV2** lub nowszym wdrożonym w ramach subskrypcji platformy Azure.  
-    * Aby uzyskać więcej informacji i zapoznać się z przykładem, zobacz [Szybki Start: Tworzenie aplikacji internetowej ASP.NET Core na platformie Azure](../app-service/quickstart-dotnetcore.md). 
-    * Aby uzyskać szczegółowy samouczek dotyczący tworzenia aplikacji sieci Web i punktu końcowego, zobacz [Samouczek: łączenie się z aplikacją internetową przy użyciu prywatnego punktu końcowego platformy Azure](tutorial-private-endpoint-webapp-portal.md).
-* Zaloguj się do Azure Portal i sprawdź, czy Twoja subskrypcja jest aktywna, uruchamiając `az login` .
-* Sprawdź wersję interfejsu wiersza polecenia platformy Azure w terminalu lub oknie poleceń, uruchamiając polecenie `az --version` . Aby uzyskać najnowszą wersję, zapoznaj się z [najnowszymi informacjami o wersji](/cli/azure/release-notes-azure-cli?tabs=azure-cli).
-  * Jeśli nie masz najnowszej wersji, zaktualizuj instalację, postępując zgodnie z [instrukcją instalacji systemu operacyjnego lub platformy](/cli/azure/install-azure-cli).
+* Konto platformy Azure z aktywną subskrypcją. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Aplikacja internetowa platformy Azure z **planem PremiumV2 lub** wyższej usługi App Service wdrożonym w ramach subskrypcji platformy Azure.  
+    * Aby uzyskać więcej informacji i przykład, zobacz [Szybki start: tworzenie aplikacji internetowej ASP.NET Core na platformie Azure.](../app-service/quickstart-dotnetcore.md) 
+    * Aby uzyskać szczegółowy samouczek dotyczący tworzenia aplikacji internetowej i punktu końcowego, zobacz Samouczek: nawiązywanie połączenia z aplikacją [internetową przy użyciu prywatnego punktu końcowego platformy Azure.](tutorial-private-endpoint-webapp-portal.md)
+* Zaloguj się do Azure Portal i sprawdź, czy Twoja subskrypcja jest aktywna, uruchamiając . `az login`
+* Sprawdź wersję interfejsu wiersza polecenia platformy Azure w oknie terminalu lub polecenia, uruchamiając polecenie `az --version` . Aby uzyskać najnowszą wersję, zobacz najnowsze [informacje o wersji.](/cli/azure/release-notes-azure-cli?tabs=azure-cli)
+  * Jeśli nie masz najnowszej wersji, zaktualizuj instalację, korzystając z przewodnika instalacji dla systemu [operacyjnego lub platformy](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
 Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi.
 
-Utwórz grupę zasobów za pomocą [AZ Group Create](/cli/azure/group#az_group_create):
+Utwórz grupę zasobów za pomocą [az group create](/cli/azure/group#az_group_create):
 
-* O nazwie **CreatePrivateEndpointQS-RG**. 
-* W lokalizacji **wschodniego** .
+* O **nazwie CreatePrivateEndpointQS-rg**. 
+* W lokalizacji **eastus.**
 
 ```azurecli-interactive
 az group create \
@@ -51,16 +51,16 @@ az group create \
 
 W tej sekcji utworzysz sieć wirtualną, podsieć i hosta bastionu. 
 
-Host bastionu zostanie użyty do nawiązania bezpiecznego połączenia z maszyną wirtualną w celu przetestowania prywatnego punktu końcowego.
+Host bastionu będzie używany do bezpiecznego nawiązywania połączenia z maszyną wirtualną w celu przetestowania prywatnego punktu końcowego.
 
-Utwórz sieć wirtualną za pomocą [AZ Network VNET Create](/cli/azure/network/vnet#az_network_vnet_create)
+Tworzenie sieci wirtualnej za pomocą [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create)
 
-* O nazwie **myVNet**.
-* Prefiks adresu **10.0.0.0/16**.
-* Podsieć o nazwie **myBackendSubnet**.
-* Prefiks podsieci **10.0.0.0/24**.
-* W grupie zasobów **CreatePrivateEndpointQS-RG** .
-* Lokalizacja **wschodniego**.
+* Nazwane **myVNet.**
+* Prefiks adresu **10.0.0.0/16.**
+* Podsieć **o nazwie myBackendSubnet.**
+* Prefiks podsieci **10.0.0.0/24.**
+* W grupie **zasobów CreatePrivateEndpointQS-rg.**
+* Lokalizacja **regionu eastus**.
 
 ```azurecli-interactive
 az network vnet create \
@@ -72,7 +72,7 @@ az network vnet create \
     --subnet-prefixes 10.0.0.0/24
 ```
 
-Zaktualizuj podsieć, aby wyłączyć zasady sieci prywatnego punktu końcowego dla prywatnego punktu końcowego za pomocą usługi [AZ Network VNET Subnet Update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
+Zaktualizuj podsieć, aby wyłączyć zasady sieci prywatnego punktu końcowego dla prywatnego punktu końcowego za pomocą [az network vnet subnet update:](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -82,10 +82,10 @@ az network vnet subnet update \
     --disable-private-endpoint-network-policies true
 ```
 
-Użyj [AZ Network Public-IP Create](/cli/azure/network/public-ip#az-network-public-ip-create) , aby utworzyć publiczny adres IP dla hosta bastionu:
+Użyj [az network public-ip create,](/cli/azure/network/public-ip#az_network_public_ip_create) aby utworzyć publiczny adres IP hosta bastionu:
 
-* Utwórz strefę Standard nadmiarowy publiczny adres IP o nazwie **myBastionIP**.
-* W **CreatePrivateEndpointQS-RG**.
+* Utwórz standardowy strefowo nadmiarowy publiczny adres IP o nazwie **myBastionIP.**
+* W **jęz. CreatePrivateEndpointQS-rg**.
 
 ```azurecli-interactive
 az network public-ip create \
@@ -94,12 +94,12 @@ az network public-ip create \
     --sku Standard
 ```
 
-Użyj [AZ Network VNET Subnet Create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) , aby utworzyć podsieć bastionu:
+Użyj [az network vnet subnet create,](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) aby utworzyć podsieć bastionu:
 
-* O nazwie **AzureBastionSubnet**.
-* Prefiks adresu **10.0.1.0/24**.
-* W sieci wirtualnej **myVNet**.
-* W grupie zasobów **CreatePrivateEndpointQS-RG**.
+* O **nazwie AzureBastionSubnet.**
+* Prefiks adresu **10.0.1.0/24.**
+* W sieci **wirtualnej myVNet**.
+* W grupie zasobów **CreatePrivateEndpointQS-rg**.
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -109,13 +109,13 @@ az network vnet subnet create \
     --address-prefixes 10.0.1.0/24
 ```
 
-Użyj [AZ Network bastionu Create](/cli/azure/network/bastion#az-network-bastion-create) , aby utworzyć hosta bastionu:
+Użyj [az network bastion create,](/cli/azure/network/bastion#az_network_bastion_create) aby utworzyć hosta bastionu:
 
-* O nazwie **myBastionHost**.
-* W **CreatePrivateEndpointQS-RG**.
-* Skojarzone z publicznym adresem IP **myBastionIP**.
-* Skojarzone z **myVNet** sieci wirtualnej.
-* W lokalizacji **wschodniego** .
+* O **nazwie myBastionHost.**
+* W **jęz. CreatePrivateEndpointQS-rg**.
+* Skojarzony z publicznym adresem IP **myBastionIP.**
+* Skojarzone z siecią **wirtualną myVNet.**
+* W **lokalizacji eastus.**
 
 ```azurecli-interactive
 az network bastion create \
@@ -126,19 +126,19 @@ az network bastion create \
     --location eastus
 ```
 
-Wdrożenie hosta usługi Azure bastionu może potrwać kilka minut.
+Wdrożenie hosta może potrwać Azure Bastion kilka minut.
 
-## <a name="create-test-virtual-machine"></a>Utwórz testową maszynę wirtualną
+## <a name="create-test-virtual-machine"></a>Tworzenie testowej maszyny wirtualnej
 
 W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowania prywatnego punktu końcowego.
 
-Utwórz maszynę wirtualną za pomocą [AZ VM Create](/cli/azure/vm#az_vm_create). Po wyświetleniu monitu podaj hasło, które będzie używane jako poświadczenia dla maszyny wirtualnej:
+Utwórz maszynę wirtualną za pomocą [az vm create](/cli/azure/vm#az_vm_create). Po wyświetleniu monitu podaj hasło, które będzie używane jako poświadczenia dla maszyny wirtualnej:
 
-* O nazwie **myVM**.
-* W **CreatePrivateEndpointQS-RG**.
-* W usłudze Network **myVNet**.
+* O **nazwie myVM.**
+* W **jęz. CreatePrivateEndpointQS-rg**.
+* W sieci **myVNet**.
 * W podsieci **myBackendSubnet**.
-* **Win2019Datacenter** obrazu serwera.
+* Obraz serwera **Win2019Datacenter.**
 
 ```azurecli-interactive
 az vm create \
@@ -151,20 +151,22 @@ az vm create \
     --admin-username azureuser
 ```
 
-## <a name="create-private-endpoint"></a>Utwórz prywatny punkt końcowy
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
+## <a name="create-private-endpoint"></a>Tworzenie prywatnego punktu końcowego
 
 W tej sekcji utworzysz prywatny punkt końcowy.
 
-Użyj [AZ webapp list](/cli/azure/webapp#az_webapp_list) , aby umieścić identyfikator zasobu aplikacji sieci Web, która została wcześniej utworzona w zmiennej powłoki.
+Użyj [az webapp list,](/cli/azure/webapp#az_webapp_list) aby umieścić identyfikator zasobu utworzonej wcześniej aplikacji internetowej w zmiennej powłoki.
 
-Użyj [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) , aby utworzyć punkt końcowy i połączenie:
+Użyj [az network private-endpoint create,](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) aby utworzyć punkt końcowy i połączenie:
 
-* O nazwie **myPrivateEndpoint**.
-* W grupie zasobów **CreatePrivateEndpointQS-RG**.
-* W sieci wirtualnej **myVNet**.
+* O **nazwie myPrivateEndpoint.**
+* W grupie zasobów **CreatePrivateEndpointQS-rg**.
+* W sieci **wirtualnej myVNet**.
 * W podsieci **myBackendSubnet**.
-* Połączenie o nazwie Moje **połączenie**.
-* Twoje webapp **\<webapp-resource-group-name>** .
+* Połączenie o nazwie **myConnection**.
+* Twoja aplikacja internetowa **\<webapp-resource-group-name>** .
 
 ```azurecli-interactive
 id=$(az webapp list \
@@ -181,20 +183,20 @@ az network private-endpoint create \
     --connection-name myConnection  
 ```
 
-## <a name="configure-the-private-dns-zone"></a>Skonfiguruj prywatną strefę DNS
+## <a name="configure-the-private-dns-zone"></a>Konfigurowanie prywatnej strefy DNS
 
-W tej sekcji utworzysz i skonfigurujesz prywatną strefę DNS za pomocą polecenia [AZ Network Private-DNS Zone Create](/cli/azure/network/private-dns/zone#ext_privatedns_az_network_private_dns_zone_create).  
+W tej sekcji utworzysz i skonfigurujesz prywatną strefę DNS przy użyciu narzędzia [az network private-dns zone create.](/cli/azure/network/private-dns/zone#ext_privatedns_az_network_private_dns_zone_create)  
 
-Aby utworzyć łącze sieci wirtualnej do strefy DNS, użyj [AZ Network Private-DNS link VNET Create](/cli/azure/network/private-dns/link/vnet#ext_privatedns_az_network_private_dns_link_vnet_create) .
+Użyjesz az [network private-dns link vnet create,](/cli/azure/network/private-dns/link/vnet#ext_privatedns_az_network_private_dns_link_vnet_create) aby utworzyć połączenie sieci wirtualnej ze strefą DNS.
 
-Utworzysz grupę strefy DNS za pomocą [AZ Network Private-Endpoint systemu DNS Create](/cli/azure/network/private-endpoint/dns-zone-group#az_network_private_endpoint_dns_zone_group_create).
+Utworzysz grupę stref DNS za pomocą az [network private-endpoint dns-zone-group create](/cli/azure/network/private-endpoint/dns-zone-group#az_network_private_endpoint_dns_zone_group_create).
 
-* Strefa o nazwie **privatelink.azurewebsites.NET**
-* W sieci wirtualnej **myVNet**.
-* W grupie zasobów **CreatePrivateEndpointQS-RG**.
-* Łącze DNS o nazwie **myDNSLink**.
+* Strefa o **nazwie privatelink.azurewebsites.net**
+* W sieci **wirtualnej myVNet**.
+* W grupie zasobów **CreatePrivateEndpointQS-rg**.
+* Link DNS o **nazwie myDNSLink.**
 * Skojarzone z **myPrivateEndpoint**.
-* Grupa stref o nazwie Moja **strefa**.
+* Grupa stref o **nazwie MyZoneGroup**.
 
 ```azurecli-interactive
 az network private-dns zone create \
@@ -218,25 +220,25 @@ az network private-endpoint dns-zone-group create \
 
 ## <a name="test-connectivity-to-private-endpoint"></a>Testowanie łączności z prywatnym punktem końcowym
 
-W tej sekcji użyjesz maszyny wirtualnej utworzonej w poprzednim kroku, aby nawiązać połączenie z programem SQL Server w ramach prywatnego punktu końcowego.
+W tej sekcji użyjesz maszyny wirtualnej utworzonej w poprzednim kroku, aby nawiązać połączenie z serwerem SQL za pomocą prywatnego punktu końcowego.
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com). 
  
-2. W okienku nawigacji po lewej stronie wybierz pozycję **grupy zasobów** .
+2. Wybierz **pozycję Grupy zasobów** w okienku nawigacji po lewej stronie.
 
-3. Wybierz pozycję **CreatePrivateEndpointQS-RG**.
+3. Wybierz **pozycję CreatePrivateEndpointQS-rg.**
 
-4. Wybierz pozycję **myVM**.
+4. Wybierz **pozycję myVM.**
 
-5. Na stronie Przegląd dla **myVM** wybierz pozycję **Połącz** , a następnie **bastionu**.
+5. Na stronie przeglądu dla **myVM** wybierz pozycję **Połącz,** a następnie **pozycję Bastion.**
 
-6. Wybierz przycisk **bastionu Użyj** niebieska.
+6. Wybierz niebieski przycisk **Użyj bastionu.**
 
 7. Wprowadź nazwę użytkownika i hasło wprowadzone podczas tworzenia maszyny wirtualnej.
 
-8. Po nawiązaniu połączenia Otwórz program Windows PowerShell na serwerze.
+8. Otwórz Windows PowerShell na serwerze po nawiązać połączenie.
 
-9. Wprowadź `nslookup <your-webapp-name>.azurewebsites.net`. Zamień **\<your-webapp-name>** na nazwę aplikacji sieci Web utworzonej w poprzednich krokach.  Zostanie wyświetlony komunikat podobny do następującego:
+9. Wprowadź `nslookup <your-webapp-name>.azurewebsites.net`. Zastąp **\<your-webapp-name>** nazwą aplikacji internetowej utworzonej w poprzednich krokach.  Zostanie wyświetlony komunikat podobny do poniższego:
 
     ```powershell
     Server:  UnKnown
@@ -248,20 +250,20 @@ W tej sekcji użyjesz maszyny wirtualnej utworzonej w poprzednim kroku, aby nawi
     Aliases:  mywebapp8675.azurewebsites.net
     ```
 
-    Prywatny adres IP **10.0.0.5** jest zwracany dla nazwy aplikacji sieci Web.  Ten adres znajduje się w podsieci sieci wirtualnej, która została wcześniej utworzona.
+    Prywatny adres IP **10.0.0.5** jest zwracany dla nazwy aplikacji internetowej.  Ten adres znajduje się w podsieci utworzonej wcześniej sieci wirtualnej.
 
-10. W bastionu połączenie z **myVM** Otwórz program Internet Explorer.
+10. W połączeniu bastionu z **myVM** otwórz Internet Explorer.
 
-11. Wprowadź adres URL aplikacji sieci Web, **https:// \<your-webapp-name> . azurewebsites.NET**.
+11. Wprowadź adres URL aplikacji internetowej, a **następnie https:// \<your-webapp-name> .azurewebsites.net**.
 
-12. Jeśli aplikacja nie została wdrożona, zostanie wyświetlona domyślna strona aplikacji sieci Web:
+12. Jeśli aplikacja nie została wdrożona, otrzymasz domyślną stronę aplikacji internetowej:
 
-    :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Domyślna strona aplikacji sieci Web." border="true":::
+    :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Domyślna strona aplikacji internetowej." border="true":::
 
-13. Zamknij połączenie z usługą **myVM**.
+13. Zamknij połączenie z **myVM.**
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów 
-Gdy skończysz korzystać z prywatnego punktu końcowego i maszyny wirtualnej, użyj polecenia [AZ Group Delete](/cli/azure/group#az_group_delete) , aby usunąć grupę zasobów i wszystkie jej zasoby:
+Po użyciu prywatnego punktu końcowego i maszyny wirtualnej użyj narzędzia [az group delete,](/cli/azure/group#az_group_delete) aby usunąć grupę zasobów i wszystkie zasoby, które zawiera:
 
 ```azurecli-interactive
 az group delete \
@@ -270,14 +272,14 @@ az group delete \
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono:
+W tym przewodniku Szybki start utworzono:
 
-* Sieć wirtualna i Host bastionu.
+* Sieć wirtualna i host bastionu.
 * Maszyna wirtualna.
-* Prywatny punkt końcowy dla aplikacji internetowej platformy Azure.
+* Prywatny punkt końcowy aplikacji internetowej platformy Azure.
 
-Maszyna wirtualna została użyta do bezpiecznego testowania łączności z aplikacją sieci Web w prywatnym punkcie końcowym.
+Maszyna wirtualna została użyta do bezpiecznego przetestowania łączności z aplikacją internetową w prywatnym punkcie końcowym.
 
 Aby uzyskać więcej informacji na temat usług, które obsługują prywatny punkt końcowy, zobacz:
 > [!div class="nextstepaction"]
-> [Dostępność linku prywatnego](private-link-overview.md#availability)
+> [Private Link dostępności](private-link-overview.md#availability)

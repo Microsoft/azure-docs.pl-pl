@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 598bbef0ceb24f3eb5932239a4146e1693521f24
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 62249f579909c3f8bfa9bcdf4e77e45453fcb68b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751332"
+ms.locfileid: "107792025"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-python"></a>Szybki start: Azure Key Vault klienta certyfikatów dla języka Python
 
@@ -70,7 +70,7 @@ Ten przewodnik Szybki start używa biblioteki tożsamości platformy Azure z int
 
 ### <a name="grant-access-to-your-key-vault"></a>Udzielanie dostępu do magazynu kluczy
 
-Tworzenie zasad dostępu dla magazynu kluczy, które przyznaje uprawnienia do certyfikatu do konta użytkownika
+Utwórz zasady dostępu dla magazynu kluczy, które przyznaje uprawnienia do certyfikatu kontu użytkownika
 
 ```console
 az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --certificate-permissions delete get list create
@@ -98,7 +98,7 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 Biblioteka Azure Key Vault klienta certyfikatów dla języka Python umożliwia zarządzanie certyfikatami. Poniższy przykład kodu pokazuje, jak utworzyć klienta, ustawić certyfikat, pobrać certyfikat i usunąć certyfikat.
 
-Utwórz plik o *nazwie kv_certificates.py* zawierający ten kod.
+Utwórz plik o *nazwie kv_certificates.py zawierający* ten kod.
 
 ```python
 import os
@@ -143,15 +143,15 @@ python kv_certificates.py
 ```
 
 - Jeśli wystąpią błędy uprawnień, upewnij się, że uruchomiono [ `az keyvault set-policy` polecenie](#grant-access-to-your-key-vault).
-- Ponowne uruchomienie kodu z taką samą nazwą klucza może spowodować błąd "(Konflikt) Certyfikat jest obecnie w stanie <name> usunięcia, ale można go odzyskać". Użyj innej nazwy klucza.
+- Ponowne uruchomienie kodu z taką samą nazwą klucza może spowodować błąd "(Konflikt) Certyfikat jest obecnie w stanie usuniętym, ale <name> można go odzyskać". Użyj innej nazwy klucza.
 
 ## <a name="code-details"></a>Szczegóły kodu
 
 ### <a name="authenticate-and-create-a-client"></a>Uwierzytelnianie i tworzenie klienta
 
-W tym przewodniku Szybki start zalogowany użytkownik jest używany do uwierzytelniania w magazynie kluczy, co jest preferowaną metodą tworzenia aplikacji lokalnych. W przypadku aplikacji wdrożonych na platformie Azure tożsamość zarządzana powinna być przypisana do usługi App Service lub maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz Omówienie [tożsamości zarządzanej.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+W tym przewodniku Szybki start zalogowany użytkownik jest używany do uwierzytelniania w magazynie kluczy, co jest preferowaną metodą tworzenia aplikacji lokalnych. W przypadku aplikacji wdrożonych na platformie Azure tożsamość zarządzana powinna być przypisana do usługi App Service lub maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Omówienie tożsamości zarządzanej.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-W poniższym przykładzie nazwa magazynu kluczy jest rozszerzana do wartości URI magazynu kluczy w formacie "https:// \<your-key-vault-name\> .vault.azure.net". W tym przykładzie używa się klasy  ["DefaultAzureCredential()",](/python/api/azure-identity/azure.identity.defaultazurecredential) która umożliwia używanie tego samego kodu w różnych środowiskach z różnymi opcjami w celu zapewnienia tożsamości. Aby uzyskać więcej informacji, zobacz [Domyślne uwierzytelnianie poświadczeń platformy Azure.](https://docs.microsoft.com/python/api/overview/azure/identity-readme) 
+W poniższym przykładzie nazwa magazynu kluczy jest rozszerzana do wartości URI magazynu kluczy w formacie "https:// \<your-key-vault-name\> .vault.azure.net". W tym przykładzie jest to klasa  ["DefaultAzureCredential()",](/python/api/azure-identity/azure.identity.defaultazurecredential) która umożliwia używanie tego samego kodu w różnych środowiskach z różnymi opcjami w celu zapewnienia tożsamości. Aby uzyskać więcej informacji, zobacz [Domyślne uwierzytelnianie poświadczeń platformy Azure.](https://docs.microsoft.com/python/api/overview/azure/identity-readme) 
 
 ```python
 credential = DefaultAzureCredential()
@@ -160,7 +160,7 @@ client = CertificateClient(vault_url=KVUri, credential=credential)
 
 ### <a name="save-a-certificate"></a>Zapisywanie certyfikatu
 
-Po uzyskaniu obiektu klienta dla magazynu kluczy możesz utworzyć certyfikat przy użyciu [begin_create_certificate](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?#begin-create-certificate-certificate-name--policy----kwargs-) metody: 
+Po uzyskaniu obiektu klienta dla magazynu kluczy możesz utworzyć certyfikat przy użyciu begin_create_certificate [metody:](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?#begin-create-certificate-certificate-name--policy----kwargs-) 
 
 ```python
 policy = CertificatePolicy.get_default()
@@ -170,7 +170,7 @@ certificate = poller.result()
 
 W tym miejscu certyfikat wymaga zasad uzyskanych za pomocą [CertificatePolicy.get_default](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificatepolicy?#get-default--) metody .
 
-Wywołanie metody `begin_create_certificate` generuje asynchroniczne wywołanie interfejsu API REST platformy Azure dla magazynu kluczy. Wywołanie asynchroniczne zwraca obiekt poller. Aby zaczekać na wynik operacji, wywołaj metodę `result` pollera.
+Wywołanie metody `begin_create_certificate` generuje asynchroniczne wywołanie interfejsu API REST platformy Azure dla magazynu kluczy. Wywołanie asynchroniczne zwraca obiekt poller. Aby poczekać na wynik operacji, wywołaj metodę `result` pollera.
 
 Podczas obsługi żądania platforma Azure uwierzytelnia tożsamość obiektu wywołującego (jednostkę usługi) przy użyciu obiektu poświadczeń podanego klientowi.
 
@@ -183,22 +183,22 @@ Aby odczytać certyfikat z Key Vault, użyj [get_certificate](/python/api/azure-
 retrieved_certificate = client.get_certificate(certificateName)
  ```
 
-Możesz również sprawdzić, czy certyfikat został ustawiony za pomocą polecenia interfejsu wiersza polecenia platformy Azure [az keyvault certificate show](/cli/azure/keyvault/certificate?#az-keyvault-certificate-show).
+Możesz również sprawdzić, czy certyfikat został ustawiony za pomocą polecenia interfejsu wiersza polecenia platformy Azure [az keyvault certificate show](/cli/azure/keyvault/certificate?#az_keyvault_certificate_show).
 
 ### <a name="delete-a-certificate"></a>Usuwanie certyfikatu
 
-Aby usunąć certyfikat, użyj [begin_delete_certificate](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?#begin-delete-certificate-certificate-name----kwargs-) metody :
+Aby usunąć certyfikat, użyj [begin_delete_certificate](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?#begin-delete-certificate-certificate-name----kwargs-) metody:
 
 ```python
 poller = client.begin_delete_certificate(certificateName)
 deleted_certificate = poller.result()
 ```
 
-Metoda `begin_delete_certificate` jest asynchroniczna i zwraca obiekt poller. Wywołanie metody `result` pollera czeka na jego ukończenie.
+Metoda `begin_delete_certificate` jest asynchroniczna i zwraca obiekt poller. Wywołanie metody `result` pollera czeka na jej ukończenie.
 
-Możesz sprawdzić, czy certyfikat został usunięty, za pomocą polecenia [az keyvault certificate](/cli/azure/keyvault/certificate?#az-keyvault-certificate-show)show interfejsu wiersza polecenia platformy Azure .
+Możesz sprawdzić, czy certyfikat został usunięty, za pomocą polecenia interfejsu wiersza polecenia platformy Azure [az keyvault certificate show](/cli/azure/keyvault/certificate?#az_keyvault_certificate_show).
 
-Po usunięciu certyfikat pozostaje w stanie usuniętym, ale można go odzyskać przez jeden czas. Jeśli kod zostanie uruchomiony ponownie, użyj innej nazwy certyfikatu.
+Po usunięciu certyfikat pozostaje w stanie usuniętym, ale można go odzyskać przez jeden czas. Jeśli ponownie uruchamiasz kod, użyj innej nazwy certyfikatu.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

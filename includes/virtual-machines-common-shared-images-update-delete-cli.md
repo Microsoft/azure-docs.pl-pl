@@ -8,35 +8,35 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 4392e7f146f13e581f722b94f13038ad8abff0ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b966f68e19794aadebff76e3e9b29ed79a32eebe
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102244518"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107800133"
 ---
 ## <a name="update-resources"></a>Aktualizowanie zasobów
 
-Istnieją pewne ograniczenia dotyczące tego, co można zaktualizować. Następujące elementy można zaktualizować: 
+Istnieją pewne ograniczenia dotyczące tego, co można zaktualizować. Można zaktualizować następujące elementy: 
 
 Galeria obrazów udostępnionych:
 - Opis
 
 Definicja obrazu:
-- Zalecane procesorów wirtualnych vCPU
+- Zalecane procesory wirtualne
 - Zalecana pamięć
 - Opis
-- Data zakończenia okresu istnienia
+- Data zakończenia cyklu życia
 
 Wersja obrazu:
 - Liczba replik regionalnych
 - Regiony docelowe
-- Wykluczanie z najnowszych
-- Data zakończenia okresu istnienia
+- Wykluczenie z najnowszej wersji
+- Data zakończenia cyklu życia
 
-Jeśli planujesz dodanie regionów replik, nie usuwaj źródłowego obrazu zarządzanego. Źródłowy obraz zarządzany jest wymagany do replikowania wersji obrazu do dodatkowych regionów. 
+Jeśli planujesz dodawanie regionów repliki, nie usuwaj źródłowego obrazu zarządzanego. Źródłowy obraz zarządzany jest wymagany do replikowania wersji obrazu do dodatkowych regionów. 
 
-Zaktualizuj Opis galerii za pomocą polecenia ([AZ SIG Update](/cli/azure/sig#az-sig-update). 
+Zaktualizuj opis galerii przy użyciu funkcji ([az sig update](/cli/azure/sig#az_sig_update). 
 
 ```azurecli-interactive
 az sig update \
@@ -46,7 +46,7 @@ az sig update \
 ```
 
 
-Zaktualizuj opis definicji obrazu za pomocą polecenia [AZ SIG Image-Definition Update](/cli/azure/sig/image-definition#az-sig-image-definition-update).
+Zaktualizuj opis definicji obrazu za pomocą [az sig image-definition update](/cli/azure/sig/image-definition#az_sig_image_definition_update).
 
 ```azurecli-interactive
 az sig image-definition update \
@@ -56,7 +56,7 @@ az sig image-definition update \
    --set description="My updated description."
 ```
 
-Zaktualizuj wersję obrazu, aby dodać region do replikacji przy użyciu polecenia [AZ SIG Image-Version Update](/cli/azure/sig/image-definition#az-sig-image-definition-update). Ta zmiana potrwa trochę czasu, ponieważ obraz zostanie zreplikowany do nowego regionu.
+Zaktualizuj wersję obrazu, aby dodać region do replikacji do przy użyciu [az sig image-version update](/cli/azure/sig/image-definition#az_sig_image_definition_update). Ta zmiana potrwa trochę czasu, ponieważ obraz zostanie zreplikowany do nowego regionu.
 
 ```azurecli-interactive
 az sig image-version update \
@@ -67,7 +67,7 @@ az sig image-version update \
    --add publishingProfile.targetRegions  name=eastus
 ```
 
-Ten przykład pokazuje, jak używać [aktualizacji AZ SIG Image-Version](/cli/azure/sig/image-definition#az-sig-image-definition-update) do wykluczania tej wersji obrazu z używania jako *najnowszego* obrazu.
+W tym przykładzie pokazano, jak za pomocą [funkcji az sig image-version update](/cli/azure/sig/image-definition#az_sig_image_definition_update) wykluczyć tę wersję obrazu z użycia jako *najnowszego obrazu.*
 
 ```azurecli-interactive
 az sig image-version update \
@@ -78,7 +78,7 @@ az sig image-version update \
    --set publishingProfile.excludeFromLatest=true
 ```
 
-Ten przykład pokazuje, jak używać [aktualizacji AZ SIG Image-Version](/cli/azure/sig/image-definition#az-sig-image-definition-update) w celu uwzględnienia tej wersji obrazu w przypadku *najnowszego* obrazu.
+W tym przykładzie pokazano, jak za pomocą [funkcji az sig image-version update](/cli/azure/sig/image-definition#az_sig_image_definition_update) uwzględnić tę wersję obrazu w rozważaniu *najnowszego obrazu.*
 
 ```azurecli-interactive
 az sig image-version update \
@@ -91,9 +91,9 @@ az sig image-version update \
 
 ## <a name="delete-resources"></a>Usuwanie zasobów
 
-Musisz usunąć zasoby w odwrotnej kolejności, usuwając najpierw wersję obrazu. Po usunięciu wszystkich wersji obrazu można usunąć definicję obrazu. Po usunięciu wszystkich definicji obrazu można usunąć galerię. 
+Musisz usunąć zasoby w odwrotnej kolejności, najpierw usuwając wersję obrazu. Po usunięciu wszystkich wersji obrazu można usunąć definicję obrazu. Po usunięciu wszystkich definicji obrazów możesz usunąć galerię. 
 
-Usuń wersję obrazu przy użyciu polecenia [AZ SIG Image-Version Delete](/cli/azure/sig/image-version#az-sig-image-version-delete).
+Usuń wersję obrazu za pomocą [narzędzia az sig image-version delete](/cli/azure/sig/image-version#az_sig_image_version_delete).
 
 ```azurecli-interactive
 az sig image-version delete \
@@ -103,7 +103,7 @@ az sig image-version delete \
    --gallery-image-version 1.0.0 
 ```
 
-Usuń definicję obrazu za pomocą polecenia [AZ SIG Image-Definition Delete](/cli/azure/sig/image-definition#az-sig-image-definition-delete).
+Usuń definicję obrazu za pomocą [narzędzia az sig image-definition delete](/cli/azure/sig/image-definition#az_sig_image_definition_delete).
 
 ```azurecli-interactive
 az sig image-definition delete \
@@ -113,7 +113,7 @@ az sig image-definition delete \
 ```
 
 
-Usuń galerię obrazów przy użyciu polecenia [AZ SIG Delete](/cli/azure/sig#az-sig-delete).
+Usuń galerię obrazów za pomocą [narzędzia az sig delete](/cli/azure/sig#az_sig_delete).
 
 ```azurecli-interactive
 az sig delete \

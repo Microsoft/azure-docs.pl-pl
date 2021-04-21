@@ -8,12 +8,12 @@ ms.date: 01/05/2021
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.openlocfilehash: f0933a19ecfebfde8ac43ac3e88332506e2256ec
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 75cb7b6c9225e8579561f980df10da8994257133
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750381"
+ms.locfileid: "107777189"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-java"></a>Szybki start: biblioteka klienta Azure Key Vault Key dla języka Java
 Wprowadzenie do biblioteki klienta Azure Key Vault Key dla języka Java. Wykonaj poniższe kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.
@@ -176,39 +176,39 @@ Teraz, po uwierzytelnieniu aplikacji, możesz utworzyć klucz w magazynie kluczy
 keyClient.createKey(keyName, KeyType.RSA);
 ```
 
-Możesz sprawdzić, czy klucz został ustawiony za pomocą [polecenia az keyvault key show:](/cli/azure/keyvault/key?#az-keyvault-key-show)
+Możesz sprawdzić, czy klucz został ustawiony za pomocą [polecenia az keyvault key show:](/cli/azure/keyvault/key?#az_keyvault_key_show)
 
 ```azurecli
 az keyvault key show --vault-name <your-unique-key-vault-name> --name myKey
 ```
 
 ### <a name="retrieve-a-key"></a>Pobieranie klucza
-Teraz możesz pobrać wcześniej utworzony klucz przy użyciu `keyClient.getKey` metody .
+Możesz teraz pobrać wcześniej utworzony klucz za pomocą `keyClient.getKey` metody .
 
 ```java
 KeyVaultKey retrievedKey = keyClient.getKey(keyName);
  ```
 
-Teraz możesz uzyskać dostęp do szczegółów pobranego klucza za pomocą operacji, takich `retrievedKey.getProperties` `retrievedKey.getKeyOperations` jak , itp.
+Teraz możesz uzyskać dostęp do szczegółów pobranego klucza za pomocą operacji, takich jak `retrievedKey.getProperties` `retrievedKey.getKeyOperations` , itp.
 
 ### <a name="delete-a-key"></a>Usuń klucz
-Na koniec usuńmy klucz z magazynu kluczy przy użyciu `keyClient.beginDeleteKey` metody .
+Na koniec usuńmy klucz z magazynu kluczy za pomocą `keyClient.beginDeleteKey` metody .
 
-Usuwanie klucza to długotrwała operacja, dla której można sondować postęp lub czekać na jej zakończenie.
+Usuwanie klucza to długotrwała operacja, dla której można sondować postęp lub czekać na jej ukończenie.
 
 ```java
 SyncPoller<DeletedKey, Void> deletionPoller = keyClient.beginDeleteKey(keyName);
 deletionPoller.waitForCompletion();
 ```
 
-Możesz sprawdzić, czy klucz został usunięty, za pomocą polecenia [az keyvault key show:](/cli/azure/keyvault/key?#az-keyvault-key-show)
+Możesz sprawdzić, czy klucz został usunięty, za pomocą [polecenia az keyvault key show:](/cli/azure/keyvault/key?#az_keyvault_key_show)
 
 ```azurecli
 az keyvault key show --vault-name <your-unique-key-vault-name> --name myKey
 ```
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
-Gdy magazyn kluczy i odpowiednia grupa zasobów nie będą już potrzebne, możesz Azure PowerShell interfejsu wiersza polecenia platformy Azure lub usługi .
+Gdy magazyn kluczy i odpowiednia grupa zasobów nie będą już potrzebne, można je usunąć za pomocą Azure PowerShell wiersza polecenia platformy Azure lub grupy zasobów.
 
 ```azurecli
 az group delete -g "myResourceGroup"
@@ -271,4 +271,4 @@ W tym przewodniku Szybki start utworzono magazyn kluczy, utworzono klucz, pobran
 - Przeczytaj omówienie [Azure Key Vault](../general/overview.md)
 - Przeczytaj omówienie [Key Vault zabezpieczeń](../general/security-overview.md)
 - Zobacz Azure Key Vault [dewelopera](../general/developers-guide.md)
-- Jak [zabezpieczyć dostęp do magazynu kluczy](../general/security-overview.md)
+- Jak zabezpieczyć [dostęp do magazynu kluczy](../general/security-overview.md)

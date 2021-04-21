@@ -1,41 +1,41 @@
 ---
-title: Konfigurowanie zarządzanych tożsamości za pomocą usługi Azure App Configuration
-description: Dowiedz się, jak zarządzane tożsamości działają w konfiguracji aplikacji platformy Azure i jak skonfigurować tożsamość zarządzaną
+title: Konfigurowanie tożsamości zarządzanych za pomocą Azure App Configuration
+description: Dowiedz się, jak działają tożsamości zarządzane w Azure App Configuration i jak skonfigurować tożsamość zarządzaną
 author: barbkess
 ms.topic: article
 ms.date: 02/25/2020
 ms.author: barbkess
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration
-ms.openlocfilehash: 5424b776b977d8a6939bbb28c5d4c9c428cac444
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e4fdff2515dde941b2e9037a21ad931ac27b6fef
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102179616"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764229"
 ---
-# <a name="how-to-use-managed-identities-for-azure-app-configuration"></a>Jak używać tożsamości zarządzanych do konfiguracji aplikacji platformy Azure
+# <a name="how-to-use-managed-identities-for-azure-app-configuration"></a>Jak używać tożsamości zarządzanych na Azure App Configuration
 
-W tym temacie pokazano, jak utworzyć zarządzaną tożsamość dla konfiguracji aplikacji platformy Azure. Zarządzana tożsamość z usługi Azure Active Directory (AAD) umożliwia usłudze Azure App Configuration łatwe uzyskiwanie dostępu do innych zasobów chronionych przez usługę AAD, takich jak Azure Key Vault. Tożsamość jest zarządzana przez platformę Azure. Nie wymaga to aprowizacji ani rotacji żadnych wpisów tajnych. Aby uzyskać więcej informacji o tożsamościach zarządzanych w usłudze AAD, zobacz [zarządzane tożsamości dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md).
+W tym temacie opisano sposób tworzenia tożsamości zarządzanej dla Azure App Configuration. Tożsamość zarządzana z usługi Azure Active Directory (AAD) umożliwia Azure App Configuration łatwe uzyskiwanie dostępu do innych zasobów chronionych przez usługę AAD, takich jak Azure Key Vault. Tożsamość jest zarządzana przez platformę Azure. Nie wymaga to aprowizować ani obracać żadnych wpisów tajnych. Aby uzyskać więcej informacji na temat tożsamości zarządzanych w usłudze AAD, zobacz [Tożsamości zarządzane dla zasobów platformy Azure.](../active-directory/managed-identities-azure-resources/overview.md)
 
-Aplikacja może mieć przyznane dwa typy tożsamości:
+Aplikacji można przyznać dwa typy tożsamości:
 
-- **Tożsamość przypisana do systemu** jest powiązana z Twoim magazynem konfiguracji. Jest ona usuwana, jeśli magazyn konfiguracji został usunięty. Magazyn konfiguracji może mieć tylko jedną tożsamość przypisaną do systemu.
-- **Tożsamość przypisana przez użytkownika** to autonomiczny zasób platformy Azure, który można przypisać do Twojego magazynu konfiguracji. Magazyn konfiguracji może mieć wiele tożsamości przypisanych do użytkownika.
+- Tożsamość **przypisana przez system jest** powiązana z magazynem konfiguracji. Zostanie on usunięty, jeśli magazyn konfiguracji zostanie usunięty. Magazyn konfiguracji może mieć tylko jedną tożsamość przypisaną przez system.
+- Tożsamość **przypisana przez użytkownika to** autonomiczny zasób platformy Azure, który można przypisać do magazynu konfiguracji. Magazyn konfiguracji może mieć wiele tożsamości przypisanych przez użytkownika.
 
-## <a name="adding-a-system-assigned-identity"></a>Dodawanie tożsamości przypisanej do systemu
+## <a name="adding-a-system-assigned-identity"></a>Dodawanie tożsamości przypisanej przez system
 
-Utworzenie magazynu konfiguracji aplikacji z tożsamością przypisaną do systemu wymaga ustawienia dodatkowej właściwości w sklepie.
+Utworzenie App Configuration magazynu z tożsamością przypisaną przez system wymaga ustawienia dodatkowej właściwości w magazynie.
 
 ### <a name="using-the-azure-cli"></a>Przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Aby skonfigurować tożsamość zarządzaną za pomocą interfejsu wiersza polecenia platformy Azure, użyj polecenia [AZ AppConfig Identity Assign] względem istniejącego magazynu konfiguracji. Dostępne są trzy opcje uruchamiania przykładów w tej sekcji:
+Aby skonfigurować tożsamość zarządzaną przy użyciu interfejsu wiersza polecenia platformy Azure, użyj polecenia [az appconfig identity assign] względem istniejącego magazynu konfiguracji. Dostępne są trzy opcje uruchamiania przykładów w tej sekcji:
 
 - Użyj [Azure Cloud Shell](../cloud-shell/overview.md) z Azure Portal.
-- Użyj osadzonego Azure Cloud Shell za pomocą przycisku "Wypróbuj go" znajdującego się w prawym górnym rogu każdego bloku kodu poniżej.
-- [Zainstaluj najnowszą wersję interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) (2,1 lub nowszej), jeśli wolisz korzystać z lokalnej konsoli interfejsu wiersza polecenia.
+- Użyj osadzonego Azure Cloud Shell za pomocą przycisku "Wypróbuj", który znajduje się w prawym górnym rogu każdego bloku kodu poniżej.
+- [Zainstaluj najnowszą wersję interfejsu wiersza](/cli/azure/install-azure-cli) polecenia platformy Azure (2.1 lub nowszą), jeśli wolisz używać lokalnej konsoli interfejsu wiersza polecenia.
 
-Poniższe kroki przeprowadzą Cię przez proces tworzenia magazynu konfiguracji aplikacji i przypisywania go tożsamości przy użyciu interfejsu wiersza polecenia:
+Poniższe kroki będą zawierały instrukcje tworzenia magazynu App Configuration i przypisywania do niego tożsamości przy użyciu interfejsu wiersza polecenia:
 
 1. Jeśli używasz interfejsu wiersza polecenia platformy Azure w konsoli lokalnej, najpierw zaloguj się do platformy Azure za pomocą polecenia [az login]. Użyj konta skojarzonego z subskrypcją platformy Azure:
 
@@ -43,32 +43,32 @@ Poniższe kroki przeprowadzą Cię przez proces tworzenia magazynu konfiguracji 
     az login
     ```
 
-1. Utwórz magazyn konfiguracji aplikacji przy użyciu interfejsu wiersza polecenia. Aby uzyskać więcej przykładów użycia interfejsu wiersza polecenia z konfiguracją aplikacji platformy Azure, zobacz [przykłady interfejsu wiersza polecenia konfiguracji aplikacji](scripts/cli-create-service.md):
+1. Utwórz sklep App Configuration przy użyciu interfejsu wiersza polecenia. Aby uzyskać więcej przykładów użycia interfejsu wiersza polecenia z interfejsem Azure App Configuration, zobacz [App Configuration przykłady interfejsu wiersza polecenia:](scripts/cli-create-service.md)
 
     ```azurecli-interactive
     az group create --name myResourceGroup --location eastus
     az appconfig create --name myTestAppConfigStore --location eastus --resource-group myResourceGroup --sku Free
     ```
 
-1. Uruchom polecenie [AZ AppConfig Identity Assign] , aby utworzyć tożsamość przypisaną przez system dla tego magazynu konfiguracji:
+1. Uruchom polecenie [az appconfig identity assign,] aby utworzyć tożsamość przypisaną przez system dla tego magazynu konfiguracji:
 
     ```azurecli-interactive
     az appconfig identity assign --name myTestAppConfigStore --resource-group myResourceGroup
     ```
 
-## <a name="adding-a-user-assigned-identity"></a>Dodawanie tożsamości przypisanej do użytkownika
+## <a name="adding-a-user-assigned-identity"></a>Dodawanie tożsamości przypisanej przez użytkownika
 
-Utworzenie magazynu konfiguracji aplikacji z tożsamością przypisaną przez użytkownika wymaga utworzenia tożsamości, a następnie przypisania jej identyfikatora zasobu do magazynu.
+Utworzenie App Configuration magazynu z tożsamością przypisaną przez użytkownika wymaga utworzenia tożsamości, a następnie przypisania jej identyfikatora zasobu do magazynu.
 
 ### <a name="using-the-azure-cli"></a>Przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Aby skonfigurować tożsamość zarządzaną za pomocą interfejsu wiersza polecenia platformy Azure, użyj polecenia [AZ AppConfig Identity Assign] względem istniejącego magazynu konfiguracji. Dostępne są trzy opcje uruchamiania przykładów w tej sekcji:
+Aby skonfigurować tożsamość zarządzaną przy użyciu interfejsu wiersza polecenia platformy Azure, użyj [polecenia az appconfig identity assign] względem istniejącego magazynu konfiguracji. Dostępne są trzy opcje uruchamiania przykładów w tej sekcji:
 
 - Użyj [Azure Cloud Shell](../cloud-shell/overview.md) z Azure Portal.
-- Użyj osadzonego Azure Cloud Shell za pomocą przycisku "Wypróbuj go" znajdującego się w prawym górnym rogu każdego bloku kodu poniżej.
-- [Zainstaluj najnowszą wersję interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) (2.0.31 lub nowsza), jeśli wolisz korzystać z lokalnej konsoli interfejsu wiersza polecenia.
+- Użyj osadzonego Azure Cloud Shell za pomocą przycisku "Wypróbuj", który znajduje się w prawym górnym rogu każdego bloku kodu poniżej.
+- [Zainstaluj najnowszą wersję interfejsu](/cli/azure/install-azure-cli) wiersza polecenia platformy Azure (2.0.31 lub nowszą), jeśli wolisz używać lokalnej konsoli interfejsu wiersza polecenia.
 
-Poniższe kroki przeprowadzą Cię przez proces tworzenia tożsamości przypisanej do użytkownika i magazynu konfiguracji aplikacji, a następnie przypisania tożsamości do magazynu przy użyciu interfejsu wiersza polecenia:
+W poniższych krokach przedstawiono proces tworzenia tożsamości przypisanej przez użytkownika i magazynu App Configuration, a następnie przypisywania tożsamości do sklepu przy użyciu interfejsu wiersza polecenia:
 
 1. Jeśli używasz interfejsu wiersza polecenia platformy Azure w konsoli lokalnej, najpierw zaloguj się do platformy Azure za pomocą polecenia [az login]. Użyj konta skojarzonego z subskrypcją platformy Azure:
 
@@ -76,7 +76,7 @@ Poniższe kroki przeprowadzą Cię przez proces tworzenia tożsamości przypisan
     az login
     ```
 
-1. Utwórz magazyn konfiguracji aplikacji przy użyciu interfejsu wiersza polecenia. Aby uzyskać więcej przykładów użycia interfejsu wiersza polecenia z konfiguracją aplikacji platformy Azure, zobacz [przykłady interfejsu wiersza polecenia konfiguracji aplikacji](scripts/cli-create-service.md):
+1. Utwórz magazyn App Configuration przy użyciu interfejsu wiersza polecenia. Aby uzyskać więcej przykładów użycia interfejsu wiersza polecenia z interfejsem Azure App Configuration, zobacz [App Configuration przykłady interfejsu wiersza polecenia:](scripts/cli-create-service.md)
 
     ```azurecli-interactive
     az group create --name myResourceGroup --location eastus
@@ -89,9 +89,9 @@ Poniższe kroki przeprowadzą Cię przez proces tworzenia tożsamości przypisan
     az identity create -resource-group myResourceGroup --name myUserAssignedIdentity
     ```
 
-    W danych wyjściowych tego polecenia Zanotuj wartość `id` właściwości.
+    W danych wyjściowych tego polecenia zanotuj wartość `id` właściwości .
 
-1. Uruchom polecenie [AZ AppConfig Identity Assign] , aby przypisać nową tożsamość przypisaną przez użytkownika do tego magazynu konfiguracji. Użyj wartości `id` Właściwości zanotowanej w poprzednim kroku.
+1. Uruchom polecenie [az appconfig identity assign,] aby przypisać nową tożsamość przypisaną przez użytkownika do tego magazynu konfiguracji. Użyj wartości właściwości `id` zanotowej w poprzednim kroku.
 
     ```azurecli-interactive
     az appconfig identity assign --name myTestAppConfigStore --resource-group myResourceGroup --identities /subscriptions/[subscription id]/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUserAssignedIdentity
@@ -99,12 +99,12 @@ Poniższe kroki przeprowadzą Cię przez proces tworzenia tożsamości przypisan
 
 ## <a name="removing-an-identity"></a>Usuwanie tożsamości
 
-Tożsamość przypisana przez system można usunąć, wyłączając funkcję za pomocą polecenia [AZ AppConfig Identity Remove](/cli/azure/appconfig/identity#az-appconfig-identity-remove) w interfejsie wiersza polecenia platformy Azure. Tożsamości przypisane do użytkownika można usuwać pojedynczo. Usunięcie tożsamości przypisanej do systemu w ten sposób spowoduje również usunięcie jej z usługi AAD. Tożsamości przypisane do systemu są również automatycznie usuwane z usługi AAD po usunięciu zasobu aplikacji.
+Tożsamość przypisaną przez system można usunąć, wyłączając funkcję za pomocą polecenia [az appconfig identity remove](/cli/azure/appconfig/identity#az_appconfig_identity_remove) w interfejsie wiersza polecenia platformy Azure. Tożsamości przypisane przez użytkownika można usuwać pojedynczo. Usunięcie w ten sposób tożsamości przypisanej przez system spowoduje również usunięcie jej z aplikacji AAD. Tożsamości przypisane przez system są również automatycznie usuwane z usługi AAD po usunięciu zasobu aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [Tworzenie aplikacji platformy ASP.NET Core używającej usługi Azure App Configuration](quickstart-aspnet-core-app.md)
 
-[AZ AppConfig Identity Assign]: /cli/azure/appconfig/identity#az-appconfig-identity-assign
-[az login]: /cli/azure/reference-index#az-login
+[az appconfig identity assign]: /cli/azure/appconfig/identity#az_appconfig_identity_assign
+[az login]: /cli/azure/reference-index#az_login

@@ -1,46 +1,46 @@
 ---
-title: Dynamicznie Twórz udział Azure Files
+title: Dynamiczne tworzenie Azure Files udziału
 titleSuffix: Azure Kubernetes Service
-description: Dowiedz się, jak dynamicznie tworzyć wolumin trwały z Azure Files do użycia z wieloma współbieżnymi zasobnikami w usłudze Azure Kubernetes Service (AKS)
+description: Dowiedz się, jak dynamicznie tworzyć wolumin trwały za pomocą Azure Files do użytku z wieloma współbieżnych zasobnikami w Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 2ad2affee34348e8c2fc7b734c8b49d0aec8db40
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f301a01e479d03647bebf7cb042564a258e9250e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96744913"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776127"
 ---
-# <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Dynamiczne tworzenie i używanie woluminu trwałego z Azure Files w usłudze Azure Kubernetes Service (AKS)
+# <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Dynamiczne tworzenie i korzystanie z trwałego woluminu za pomocą usługi Azure Files w usłudze Azure Kubernetes Service (AKS)
 
-Wolumin trwały reprezentuje część magazynu, która została zainicjowana do użycia z Kubernetes. Wolumin trwały może być używany przez jeden lub wiele zasobników i może być dynamicznie lub statycznie inicjowany. Jeśli wiele z nich potrzebuje współbieżnego dostępu do tego samego woluminu magazynu, można użyć Azure Files, aby nawiązać połączenie przy użyciu [protokołu SMB (Server Message Block)][smb-overview]. W tym artykule pokazano, jak dynamicznie utworzyć udział Azure Files do użytku przez wiele zasobników w klastrze usługi Azure Kubernetes Service (AKS).
+Trwały wolumin reprezentuje fragment magazynu, który został aprowowany do użytku z zasobnikami kubernetes. Wolumin trwały może być używany przez jeden lub wiele zasobników i może być aprowowany dynamicznie lub statycznie. Jeśli wiele zasobników wymaga współbieżnego dostępu do tego samego woluminu magazynu, możesz użyć usługi Azure Files do nawiązania połączenia przy użyciu protokołu bloku komunikatów serwera [(SMB).][smb-overview] W tym artykule przedstawiono sposób dynamicznego tworzenia udziału Azure Files do użytku przez wiele zasobników w klastrze usługi Azure Kubernetes Service (AKS).
 
-Aby uzyskać więcej informacji na temat woluminów Kubernetes, zobacz [Opcje magazynu dla aplikacji w AKS][concepts-storage].
+Aby uzyskać więcej informacji na temat woluminów Kubernetes, zobacz Opcje magazynu [dla aplikacji w u usługi AKS][concepts-storage].
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
-W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
+W tym artykule przyjęto założenie, że masz istniejący klaster usługi AKS. Jeśli potrzebujesz klastra usługi AKS, zobacz przewodnik Szybki start usługi AKS przy użyciu interfejsu wiersza polecenia platformy [Azure][aks-quickstart-cli] lub [interfejsu Azure Portal][aks-quickstart-portal].
 
-Konieczne jest również zainstalowanie i skonfigurowanie interfejsu wiersza polecenia platformy Azure w wersji 2.0.59 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
+Musisz również zainstalować i skonfigurować interfejs wiersza polecenia platformy Azure w wersji 2.0.59 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 
 ## <a name="create-a-storage-class"></a>Tworzenie klasy magazynu
 
-Klasa magazynu służy do definiowania sposobu tworzenia udziału plików platformy Azure. Konto magazynu jest tworzone automatycznie w [grupie zasobów węzła][node-resource-group] do użytku z klasą magazynu w celu przechowywania udziałów plików platformy Azure. Wybierz następującą [nadmiarowość usługi Azure Storage][storage-skus] dla *skuName*:
+Klasa magazynu służy do definiowania sposobu tworzenia udziału plików platformy Azure. Konto magazynu jest automatycznie tworzone w grupie zasobów [węzła][node-resource-group] do użycia z klasą magazynu do przechowywania udziałów plików platformy Azure. Wybierz jedną z następujących [nadmiarowości usługi Azure Storage][storage-skus] dla *nazwy skuName:*
 
-* Magazyn lokalnie nadmiarowy *Standard_LRS* (LRS)
-* Magazyn Geograficznie nadmiarowy *Standard_GRS* (GRS)
-* Magazyn strefowo nadmiarowy *Standard_ZRS* (ZRS)
-* *Standard_RAGRS* — standardowy magazyn Geograficznie nadmiarowy do odczytu (RA-GRS)
-* Magazyn lokalnie nadmiarowy *Premium_LRS* w warstwie Premium (LRS)
-* Magazyn strefowo nadmiarowy *Premium_ZRS* (ZRS)
+* *Standard_LRS —* standardowy magazyn lokalnie nadmiarowy (LRS)
+* *Standard_GRS —* standardowy magazyn geograficznie nadmiarowy (GRS)
+* *Standard_ZRS —* standardowy magazyn strefowo nadmiarowy (ZRS)
+* *Standard_RAGRS —* standardowy magazyn geograficznie nadmiarowy z dostępem do odczytu (RA-GRS)
+* *Premium_LRS* — magazyn lokalnie nadmiarowy (LRS) w chmurze Premium
+* *Premium_ZRS* — magazyn strefowo nadmiarowy w chmurze (ZRS)
 
 > [!NOTE]
-> Azure Files obsługują magazyn Premium Storage w klastrach AKS z systemem Kubernetes 1,13 lub nowszym, minimalny udział plików w warstwie Premium to 100 GB
+> Azure Files premium storage w klastrach usługi AKS z usługą Kubernetes w wersji 1.13 lub wyższej, minimalny udział plików w chmurze Premium wynosi 100 GB
 
-Aby uzyskać więcej informacji na temat klas magazynu Kubernetes dla Azure Files, zobacz [Kubernetes Storage Classes][kubernetes-storage-classes].
+Aby uzyskać więcej informacji na temat klas magazynu Kubernetes dla Azure Files, zobacz [Klasy magazynu Kubernetes][kubernetes-storage-classes].
 
-Utwórz plik o nazwie `azure-file-sc.yaml` i skopiuj w poniższym przykładowym manifeście. Aby uzyskać więcej informacji na temat *mountOptions*, zobacz sekcję [Opcje instalacji][mount-options] .
+Utwórz plik o nazwie `azure-file-sc.yaml` i skopiuj go w poniższym przykładowym manifeście. Aby uzyskać więcej informacji *na temat opcji instalacji,* zobacz [sekcję Opcje instalacji.][mount-options]
 
 ```yaml
 kind: StorageClass
@@ -60,17 +60,17 @@ parameters:
   skuName: Standard_LRS
 ```
 
-Utwórz klasę magazynu za pomocą polecenia [polecenia kubectl Apply][kubectl-apply] :
+Utwórz klasę magazynu za pomocą [polecenia kubectl apply:][kubectl-apply]
 
 ```console
 kubectl apply -f azure-file-sc.yaml
 ```
 
-## <a name="create-a-persistent-volume-claim"></a>Tworzenie trwałego żądania woluminu
+## <a name="create-a-persistent-volume-claim"></a>Tworzenie trwałego oświadczenia woluminu
 
-Trwałego żądania woluminu (PVC) używa obiektu klasy Storage do dynamicznego inicjowania obsługi udziału plików platformy Azure. Poniższe YAML można użyć do utworzenia trwałego zastrzeżenia woluminu o rozmiarze *5 GB* z dostępem do *ReadWriteMany* . Aby uzyskać więcej informacji o trybach dostępu, zobacz dokumentację [Kubernetes trwałych woluminów][access-modes] .
+Trwałe oświadczenie woluminu używa obiektu klasy magazynu do dynamicznego aprowizowanie udziału plików platformy Azure. Następujący kod YAML może służyć do tworzenia trwałego oświadczenia *woluminu o rozmiarze 5 GB* przy użyciu *dostępu ReadWriteMany.* Aby uzyskać więcej informacji na temat trybów dostępu, zobacz dokumentację [dotyczącą trwałych woluminów kubernetes.][access-modes]
 
-Teraz Utwórz plik o nazwie `azure-file-pvc.yaml` i skopiuj w następującym YAML. Upewnij się, że *storageClassName* jest zgodna z klasą magazynu utworzoną w ostatnim kroku:
+Teraz utwórz plik o nazwie `azure-file-pvc.yaml` i skopiuj go w poniższym pliku YAML. Upewnij się, że *storageClassName odpowiada* klasie magazynu utworzonej w ostatnim kroku:
 
 ```yaml
 apiVersion: v1
@@ -87,15 +87,15 @@ spec:
 ```
 
 > [!NOTE]
-> W przypadku używania *Premium_LRS* jednostki SKU dla klasy magazynu minimalna wartość *magazynu* musi być *100Gi*.
+> Jeśli używasz *Premium_LRS* sku dla klasy magazynu, minimalna wartość magazynu *musi* być *100Gi.*
 
-Utwórz wartość trwałego zastrzeżenia przy użyciu polecenia [polecenia kubectl Apply][kubectl-apply] :
+Utwórz trwałe oświadczenie woluminu za pomocą [polecenia kubectl apply:][kubectl-apply]
 
 ```console
 kubectl apply -f azure-file-pvc.yaml
 ```
 
-Po zakończeniu zostanie utworzony udział plików. Tworzony jest również wpis tajny Kubernetes, który zawiera informacje o połączeniu i poświadczenia. Aby wyświetlić stan obwodu PVC, można użyć polecenia [polecenia kubectl Get][kubectl-get] :
+Po zakończeniu zostanie utworzony udział plików. Tworzony jest również klucz tajny kubernetes, który zawiera informacje o połączeniu i poświadczenia. Możesz użyć polecenia [kubectl get,][kubectl-get] aby wyświetlić stan wiersza POLECENIA:
 
 ```console
 $ kubectl get pvc my-azurefile
@@ -104,11 +104,11 @@ NAME           STATUS    VOLUME                                     CAPACITY   A
 my-azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   5Gi        RWX            my-azurefile      5m
 ```
 
-## <a name="use-the-persistent-volume"></a>Użyj woluminu trwałego
+## <a name="use-the-persistent-volume"></a>Używanie woluminu trwałego
 
-Poniższy YAML tworzy element, który używa trwałego zastrzeżenia woluminu *azurefile* , aby zainstalować udział plików platformy Azure w ścieżce */mnt/Azure* . W przypadku kontenerów systemu Windows Server należy określić *mountPath* przy użyciu konwencji ścieżki systemu Windows, takiej jak *'d: '*.
+Poniższy kod YAML tworzy zasobnik, który używa trwałego oświadczenia woluminu *my-azurefile* do instalacji udziału plików platformy Azure w *ścieżce /mnt/azure.* W przypadku kontenerów systemu Windows Server określ *ścieżkę mountPath* przy użyciu konwencji ścieżki systemu Windows, na przykład *"D:".*
 
-Utwórz plik o nazwie `azure-pvc-files.yaml` i skopiuj go do poniższego YAML. Upewnij się, że wartość *claimname* pasuje do obwodu PVC utworzonego w ostatnim kroku.
+Utwórz plik o `azure-pvc-files.yaml` nazwie i skopiuj go w poniższym pliku YAML. Upewnij się, że *claimName pasuje* do rekordu WSZYSTKIEGO utworzonego w ostatnim kroku.
 
 ```yaml
 kind: Pod
@@ -135,13 +135,13 @@ spec:
         claimName: my-azurefile
 ```
 
-Utwórz pod za pomocą polecenia [polecenia kubectl Apply][kubectl-apply] .
+Utwórz zasobnik za pomocą [polecenia kubectl apply.][kubectl-apply]
 
 ```console
 kubectl apply -f azure-pvc-files.yaml
 ```
 
-Masz teraz działający udział w udziale Azure Files zainstalowanym w katalogu */mnt/Azure* . Ta konfiguracja może być widoczna podczas sprawdzania pod kątem użytkownika za pośrednictwem `kubectl describe pod mypod` . Następujące wąskie przykładowe dane wyjściowe pokazują wolumin zainstalowany w kontenerze:
+Masz teraz uruchomiony zasobnik z twoim Azure Files zainstalowanym w *katalogu /mnt/azure.* Tę konfigurację można zobaczyć podczas inspekcji zasobnika za pośrednictwem programu `kubectl describe pod mypod` . Następujące skrócone przykładowe dane wyjściowe pokazują wolumin zainstalowany w kontenerze:
 
 ```
 Containers:
@@ -166,7 +166,7 @@ Volumes:
 
 ## <a name="mount-options"></a>Mount options (Opcje instalacji)
 
-Domyślna wartość *parametru FileMode* i *dirMode* to *0777* dla Kubernetes w wersji 1.13.0 lub nowszej. W przypadku dynamicznego tworzenia woluminu trwałego za pomocą klasy magazynu opcje instalacji można określić w obiekcie klasy magazynu. W poniższym przykładzie są ustawiane *0777*:
+Wartość domyślna dla *trybów fileMode* i *dirMode* to *0777* dla kubernetes w wersji 1.13.0 lub nowszej. W przypadku dynamicznego tworzenia trwałego woluminu z klasą magazynu można określić opcje instalacji w obiekcie klasy magazynu. Poniższy przykład ustawia *0777:*
 
 ```yaml
 kind: StorageClass
@@ -188,11 +188,11 @@ parameters:
 
 ## <a name="next-steps"></a>Następne kroki
 
-W przypadku skojarzonych najlepszych rozwiązań zobacz [najlepsze rozwiązania dotyczące magazynu i kopii zapasowych w AKS][operator-best-practices-storage].
+Aby uzyskać skojarzone najlepsze rozwiązania, zobacz [Best practices for storage and backups in AKS][operator-best-practices-storage](Najlepsze rozwiązania dotyczące magazynu i kopii zapasowych w u usługi AKS).
 
-Aby uzyskać parametry klasy magazynu, zobacz temat [dynamiczne udostępnianie](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/docs/driver-parameters.md#dynamic-provision).
+Aby uzyskać parametry klasy magazynu, zobacz [Dynamic Provision](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/docs/driver-parameters.md#dynamic-provision).
 
-Dowiedz się więcej na temat Kubernetes woluminów trwałych przy użyciu Azure Files.
+Dowiedz się więcej na temat trwałych woluminów Kubernetes korzystających z Azure Files.
 
 > [!div class="nextstepaction"]
 > [Wtyczka Kubernetes dla Azure Files][kubernetes-files]
@@ -211,18 +211,18 @@ Dowiedz się więcej na temat Kubernetes woluminów trwałych przy użyciu Azure
 [smb-overview]: /windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview
 
 <!-- LINKS - internal -->
-[az-group-create]: /cli/azure/group#az-group-create
-[az-group-list]: /cli/azure/group#az-group-list
-[az-resource-show]: /cli/azure/aks#az-aks-show
-[az-storage-account-create]: /cli/azure/storage/account#az-storage-account-create
-[az-storage-create]: /cli/azure/storage/account#az-storage-account-create
-[az-storage-key-list]: /cli/azure/storage/account/keys#az-storage-account-keys-list
-[az-storage-share-create]: /cli/azure/storage/share#az-storage-share-create
+[az-group-create]: /cli/azure/group#az_group_create
+[az-group-list]: /cli/azure/group#az_group_list
+[az-resource-show]: /cli/azure/aks#az_aks_show
+[az-storage-account-create]: /cli/azure/storage/account#az_storage_account_create
+[az-storage-create]: /cli/azure/storage/account#az_storage_account_create
+[az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
+[az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
 [mount-options]: #mount-options
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
-[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-aks-show]: /cli/azure/aks#az_aks_show
 [storage-skus]: ../storage/common/storage-redundancy.md
 [kubernetes-rbac]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-storage]: operator-best-practices-storage.md

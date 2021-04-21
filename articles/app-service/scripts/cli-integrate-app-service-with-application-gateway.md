@@ -1,6 +1,6 @@
 ---
-title: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — Integruj App Service z Application Gateway | Microsoft Docs
-description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — Integruj App Service z Application Gateway
+title: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — integracja App Service z Application Gateway | Microsoft Docs
+description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — integracja App Service z Application Gateway
 services: appservice
 documentationcenter: appservice
 author: madsd
@@ -16,22 +16,22 @@ ms.workload: web
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 3820e7bf00f99a846dd2be0edeaf4248e0dfd8ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d30cc27fc3c546619e85bb9aabd0b31c10102e96
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97006089"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787813"
 ---
 # <a name="integrate-app-service-with-application-gateway-using-cli"></a>Integrowanie App Service z Application Gateway przy użyciu interfejsu wiersza polecenia
 
-Ten przykładowy skrypt tworzy aplikację sieci Web Azure App Service, Virtual Network platformy Azure i Application Gateway. Następnie ogranicza ruch aplikacji sieci Web wyłącznie z podsieci Application Gateway.
+Ten przykładowy skrypt tworzy Azure App Service internetową, usługę Azure Virtual Network i Application Gateway. Następnie ogranicza ruch dla aplikacji internetowej tak, aby pochodził tylko z Application Gateway podsieci.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
- - Ten samouczek wymaga wersji 2.0.74 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
+ - Ten samouczek wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.74 lub nowszej. Jeśli używasz Azure Cloud Shell, najnowsza wersja jest już zainstalowana.
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -45,16 +45,16 @@ Ten skrypt używa poniższych poleceń do tworzenia grupy zasobów, aplikacji us
 
 | Polecenie | Uwagi |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
-| [`az network vnet create`](/cli/azure/network/vnet#az-network-vnet-create) | Tworzy sieć wirtualną. |
-| [`az network public-ip create`](/cli/azure/network/public-ip#az-network-public-ip-create) | Tworzy publiczny adres IP. |
-| [`az network public-ip show`](/cli/azure/network/public-ip#az-network-public-ip-show) | Pokaż szczegóły publicznego adresu IP. |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Tworzy plan usługi App Service. |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Tworzy aplikację sieci Web App Service. |
-| [`az webapp show`](/cli/azure/webapp#az-webapp-show) | Pokaż szczegóły aplikacji sieci Web App Service. |
-| [`az webapp config access-restriction add`](/cli/azure/webapp/config/access-restriction#az-webapp-config-access-restriction-add) | Dodaje ograniczenie dostępu do aplikacji sieci Web App Service. |
-| [`az network application-gateway create`](/cli/azure/network/application-gateway#az-network-application-gateway-create) | Tworzy Application Gateway. |
-| [`az network application-gateway http-settings update`](/cli/azure/network/application-gateway/http-settings#az-network-application-gateway-http-settings-update) | Aktualizuje Application Gateway ustawienia protokołu HTTP. |
+| [`az group create`](/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
+| [`az network vnet create`](/cli/azure/network/vnet#az_network_vnet_create) | Tworzy sieć wirtualną. |
+| [`az network public-ip create`](/cli/azure/network/public-ip#az_network_public_ip_create) | Tworzy publiczny adres IP. |
+| [`az network public-ip show`](/cli/azure/network/public-ip#az_network_public_ip_show) | Pokaż szczegóły publicznego adresu IP. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Tworzy plan usługi App Service. |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Tworzy App Service internetową. |
+| [`az webapp show`](/cli/azure/webapp#az_webapp_show) | Pokazywanie szczegółów App Service internetowej. |
+| [`az webapp config access-restriction add`](/cli/azure/webapp/config/access-restriction#az_webapp_config_access_restriction_add) | Dodaje ograniczenie dostępu do App Service internetowej. |
+| [`az network application-gateway create`](/cli/azure/network/application-gateway#az_network_application_gateway_create) | Tworzy Application Gateway. |
+| [`az network application-gateway http-settings update`](/cli/azure/network/application-gateway/http-settings#az_network-application-gateway-http_settings_update) | Aktualizacje Application Gateway ustawienia http. |
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,24 +1,24 @@
 ---
-title: Samouczek — przygotowanie rejestru kontenerów do wdrożenia obrazu
+title: Samouczek — przygotowywanie rejestru kontenerów do wdrożenia obrazu
 description: Samouczek usługi Azure Container Instances (część 2 z 3) — przygotowywanie usługi Azure Container Registry i wypychanie obrazu
 ms.topic: tutorial
 ms.date: 12/18/2019
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: 2eda960c53fc7ba851ffcfbe96bd8e9a48844910
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 36c2e6cda728a85ccab080bbbb6f1a0b74824f2d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92746926"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786985"
 ---
-# <a name="tutorial-create-an-azure-container-registry-and-push-a-container-image"></a>Samouczek: Tworzenie usługi Azure Container Registry i wypychanie obrazu kontenera
+# <a name="tutorial-create-an-azure-container-registry-and-push-a-container-image"></a>Samouczek: tworzenie rejestru kontenerów platformy Azure i wypychanie obrazu kontenera
 
 Niniejszy samouczek jest drugą częścią trzyczęściowej serii. [W części pierwszej](container-instances-tutorial-prepare-app.md) samouczka utworzono obraz kontenera Docker dla aplikacji internetowej środowiska Node.js. W tym samouczku obraz zostanie wypchnięty do usługi Azure Container Registry. Jeśli obraz kontenera nie został jeszcze utworzony, wróć do artykułu [Samouczek 1 — Tworzenie obrazu kontenera](container-instances-tutorial-prepare-app.md).
 
-Usługa Azure Container Registry jest prywatnym rejestrem platformy Docker na platformie Azure. W tym samouczku druga część serii obejmuje:
+Usługa Azure Container Registry jest prywatnym rejestrem platformy Docker na platformie Azure. W tym samouczku, drugiej części serii, osłonisz:
 
 > [!div class="checklist"]
-> * Tworzenie wystąpienia Azure Container Registry przy użyciu interfejsu wiersza polecenia platformy Azure
+> * Tworzenie wystąpienia Azure Container Registry za pomocą interfejsu wiersza polecenia platformy Azure
 > * Otagowanie obrazu kontenera na potrzeby usługi Azure Container Registry
 > * Przekazanie obrazu do rejestru
 
@@ -66,7 +66,7 @@ REPOSITORY          TAG       IMAGE ID        CREATED           SIZE
 aci-tutorial-app    latest    5c745774dfa9    39 minutes ago    68.1 MB
 ```
 
-Oznacz obraz *ACI-samouczek-App* z serwerem logowania rejestru kontenerów. Ponadto dodaj tag `:v1` na końcu nazwy obrazu, aby wskazać numer wersji obrazu. Zastąp wartość `<acrLoginServer>` wynikiem polecenia [az acr show][az-acr-show], które zostało wykonane wcześniej.
+*Otaguj obraz aci-tutorial-app* przy użyciu serwera logowania rejestru kontenerów. Ponadto dodaj tag `:v1` na końcu nazwy obrazu, aby wskazać numer wersji obrazu. Zastąp wartość `<acrLoginServer>` wynikiem polecenia [az acr show][az-acr-show], które zostało wykonane wcześniej.
 
 ```bash
 docker tag aci-tutorial-app <acrLoginServer>/aci-tutorial-app:v1
@@ -83,7 +83,7 @@ mycontainerregistry082.azurecr.io/aci-tutorial-app    v1        5c745774dfa9    
 
 ## <a name="push-image-to-azure-container-registry"></a>Wypychanie obrazu do usługi Azure Container Registry
 
-Teraz, gdy Otagowano obraz *ACI-samouczek-App* z pełną nazwą serwera logowania w rejestrze prywatnym, można wypchnąć obraz do rejestru za pomocą polecenia [Docker push][docker-push] . Zastąp wartość `<acrLoginServer>` pełną nazwa serwera logowania uzyskaną we wcześniejszym kroku.
+Po otagowaniu obrazu *aci-tutorial-app* pełną nazwą serwera logowania rejestru prywatnego możesz wypchnąć obraz do rejestru za pomocą polecenia [docker push.][docker-push] Zastąp wartość `<acrLoginServer>` pełną nazwa serwera logowania uzyskaną we wcześniejszym kroku.
 
 ```bash
 docker push <acrLoginServer>/aci-tutorial-app:v1
@@ -166,10 +166,10 @@ Przejdź do kolejnego samouczka, aby uzyskać więcej informacji o sposobie wdra
 [nodejs]: https://nodejs.org
 
 <!-- LINKS - Internal -->
-[az-acr-create]: /cli/azure/acr#az-acr-create
-[az-acr-login]: /cli/azure/acr#az-acr-login
+[az-acr-create]: /cli/azure/acr#az_acr_create
+[az-acr-login]: /cli/azure/acr#az_acr_login
 [az-acr-repository-list]: /cli/azure/acr/repository
-[az-acr-repository-show-tags]: /cli/azure/acr/repository#az-acr-repository-show-tags
-[az-acr-show]: /cli/azure/acr#az-acr-show
-[az-group-create]: /cli/azure/group#az-group-create
+[az-acr-repository-show-tags]: /cli/azure/acr/repository#az_acr_repository_show_tags
+[az-acr-show]: /cli/azure/acr#az_acr_show
+[az-group-create]: /cli/azure/group#az_group_create
 [azure-cli-install]: /cli/azure/install-azure-cli

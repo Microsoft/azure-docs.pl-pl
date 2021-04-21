@@ -1,7 +1,7 @@
 ---
-title: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — Eksportowanie z magazynu konfiguracji aplikacji platformy Azure
+title: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — eksportowanie ze sklepu Azure App Configuration Store
 titleSuffix: Azure App Configuration
-description: Eksportowanie konfiguracji z konfiguracji aplikacji platformy Azure przy użyciu skryptu interfejsu wiersza polecenia platformy Azure
+description: Eksportowanie konfiguracji z programu przy użyciu skryptu interfejsu wiersza polecenia platformy Azure Azure App Configuration
 services: azure-app-configuration
 author: AlexandraKemperMS
 ms.service: azure-app-configuration
@@ -10,12 +10,12 @@ ms.topic: sample
 ms.date: 02/19/2020
 ms.author: alkemper
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: be3fac17ba99194a76b27c78040a76cce43405a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1c4eb6e2aa150751dfbadc2307d64ab206b92b6d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96931116"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782229"
 ---
 # <a name="export-from-an-azure-app-configuration-store"></a>Eksportowanie z magazynu usługi Azure App Configuration
 
@@ -25,7 +25,7 @@ Ten przykładowy skrypt eksportuje pary klucz-wartość z magazynu usługi Azure
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
- - Ten samouczek wymaga wersji 2,0 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
+ - Ten samouczek wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Jeśli używasz Azure Cloud Shell, najnowsza wersja jest już zainstalowana.
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -40,14 +40,14 @@ az appconfig kv export --name myTestAppConfigStore --file ~/Export.json
 
 ## <a name="script-explanation"></a>Objaśnienia dla skryptu
 
-Ten skrypt używa następujących poleceń do eksportowania z magazynu konfiguracji aplikacji. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
+Ten skrypt używa następujących poleceń do eksportowania z App Configuration magazynu. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
 | Polecenie | Uwagi |
 |---|---|
-| [AZ AppConfig KV Export](/cli/azure/appconfig/kv#az-appconfig-kv-export) | Eksportuje z zasobu magazynu konfiguracji aplikacji. |
+| [az appconfig kv export](/cli/azure/appconfig/kv#az_appconfig_kv_export) | Eksportuje z zasobu App Configuration magazynu. |
 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure).
 
-Dodatkowe przykłady skryptów interfejsu wiersza polecenia konfiguracji aplikacji można znaleźć w [przykładach interfejsu wiersza polecenia konfiguracji aplikacji platformy Azure](../cli-samples.md).
+Więcej App Configuration przykładowych skryptów interfejsu wiersza polecenia można znaleźć w przykładach Azure App Configuration [interfejsu wiersza polecenia.](../cli-samples.md)

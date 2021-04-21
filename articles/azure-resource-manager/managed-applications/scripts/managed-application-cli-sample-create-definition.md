@@ -1,18 +1,18 @@
 ---
 title: Tworzenie definicji aplikacji zarządzanej — interfejs wiersza polecenia platformy Azure
-description: Dostarcza przykład skryptu interfejsu wiersza polecenia platformy Azure, który tworzy definicję aplikacji zarządzanej w ramach subskrypcji.
+description: Zawiera przykładowy skrypt interfejsu wiersza polecenia platformy Azure, który tworzy definicję aplikacji zarządzanej w subskrypcji.
 author: tfitzmac
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 10/25/2017
 ms.author: tomfitz
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7feb00b581732cdc1956c4ac23af571180ff09e0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2430b14ce3a3ba578787cefa85d95475c3e9b920
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87497838"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775461"
 ---
 # <a name="create-a-managed-application-definition-with-azure-cli"></a>Tworzenie definicji aplikacji zarządzanej za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -34,7 +34,7 @@ Ten skrypt używa następującego polecenia do utworzenia definicji aplikacji za
 
 | Polecenie | Uwagi |
 |---|---|
-| [az managedapp definition create](/cli/azure/managedapp/definition#az-managedapp-definition-create) | Tworzy definicję aplikacji zarządzanej. Należy podać pakiet, który zawiera wymagane pliki. |
+| [az managedapp definition create](/cli/azure/managedapp/definition#az_managedapp_definition_create) | Tworzy definicję aplikacji zarządzanej. Należy podać pakiet, który zawiera wymagane pliki. |
 
 
 ## <a name="next-steps"></a>Następne kroki

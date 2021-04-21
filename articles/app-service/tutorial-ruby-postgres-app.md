@@ -1,22 +1,22 @@
 ---
-title: 'Samouczek: aplikacja Ruby systemu Linux z Postgres'
-description: Dowiedz się, jak pobrać aplikację Ruby systemu Linux działającą w Azure App Service z połączeniem z bazą danych PostgreSQL na platformie Azure. Szyny są używane w samouczku.
+title: 'Samouczek: aplikacja Ruby dla systemu Linux z postgres'
+description: Dowiedz się, jak aplikacja języka Ruby dla systemu Linux działa w usłudze Azure App Service z połączeniem z bazą danych PostgreSQL na platformie Azure. Rails jest używany w samouczku.
 ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/18/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
-ms.openlocfilehash: de8f0e64189014b303463dd8bd6c827990b88f9a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 63194ab87e0f2228b8585e962394aa1ebfff48d6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102178477"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767282"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Tworzenie aplikacji w języku Ruby i korzystającej z bazy danych Postgres w usłudze Azure App Service w systemie Linux
 
-[Azure App Service](overview.md) zapewnia wysoce skalowalną, samoobsługową usługę hostingu w sieci Web. W tym samouczku pokazano, jak utworzyć aplikację w języku Ruby i połączyć ją z bazą danych PostgreSQL. Po zakończeniu będziesz mieć aplikację platformy [Ruby on Rails](https://rubyonrails.org/) uruchomioną w usłudze App Service w systemie Linux.
+[Azure App Service](overview.md) zapewnia wysoce skalowalną i samonachowalną usługę hostingu w Internecie. W tym samouczku pokazano, jak utworzyć aplikację w języku Ruby i połączyć ją z bazą danych PostgreSQL. Po zakończeniu będziesz mieć aplikację platformy [Ruby on Rails](https://rubyonrails.org/) uruchomioną w usłudze App Service w systemie Linux.
 
-:::image type="content" source="./media/tutorial-ruby-postgres-app/complete-checkbox-published.png" alt-text="Zrzut ekranu przedstawiający przykład zadań aplikacji języka Ruby on-Szyns.":::
+:::image type="content" source="./media/tutorial-ruby-postgres-app/complete-checkbox-published.png" alt-text="Zrzut ekranu przedstawiający przykład aplikacji Ruby on Rails zatytułowanej Tasks (Zadania).":::
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -35,7 +35,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 W celu ukończenia tego samouczka:
 
 - [Zainstaluj oprogramowanie Git](https://git-scm.com/)
-- [Zainstaluj język Ruby 2,6](https://www.ruby-lang.org/en/documentation/installation/)
+- [Instalowanie oprogramowania Ruby 2.6](https://www.ruby-lang.org/en/documentation/installation/)
 - [Zainstaluj oprogramowanie Ruby on Rails 5.1](https://guides.rubyonrails.org/v5.1/getting_started.html)
 - [Zainstaluj i uruchom serwer PostgreSQL](https://www.postgresql.org/download/)
 
@@ -119,35 +119,35 @@ W tym kroku utworzysz bazę danych Postgres w usłudze [Azure Database for Postg
 <!-- > [!NOTE]
 > Before you create an Azure Database for PostgreSQL server, check which [compute generation](../postgresql/concepts-pricing-tiers.md#compute-generations-and-vcores) is available in your region. If your region doesn't support Gen4 hardware, change *--sku-name* in the following command line to a value that's supported in your region, such as B_Gen4_1.  -->
 
-W tej sekcji utworzysz serwer Azure Database for PostgreSQL i bazę danych. Aby rozpocząć, zainstaluj `db-up` rozszerzenie za pomocą następującego polecenia:
+W tej sekcji utworzysz serwer Azure Database for PostgreSQL bazę danych. Aby rozpocząć, `db-up` zainstaluj rozszerzenie za pomocą następującego polecenia:
 
 ```azurecli
 az extension add --name db-up
 ```
 
-Utwórz bazę danych Postgres na platformie Azure przy użyciu [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) polecenia, jak pokazano w poniższym przykładzie. Zamień na *\<postgresql-name>* *unikatową* nazwę (punkt końcowy serwera to *https:// \<postgresql-name> . Postgres.Database.Azure.com*). Dla programu *\<admin-username>* i *\<admin-password>* Określ poświadczenia, aby utworzyć użytkownika administratora dla tego serwera Postgres.
+Utwórz bazę danych Postgres na platformie Azure za pomocą [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) polecenia , jak pokazano w poniższym przykładzie. Zastąp *\<postgresql-name>* *unikatową nazwą* (punkt końcowy serwera to *https:// \<postgresql-name> .postgres.database.azure.com*). W *\<admin-username>* przypadku serwerów i określ *\<admin-password>* poświadczenia, aby utworzyć użytkownika administratora dla tego serwera Postgres.
 
 <!-- Issue: without --location -->
 ```azurecli
 az postgres up --resource-group myResourceGroup --location westeurope --server-name <postgresql-name> --database-name sampledb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
 ```
 
-To polecenie może chwilę potrwać, ponieważ wykonuje następujące czynności:
+Wykonanie tego polecenia może trochę potrwać, ponieważ:
 
-- Tworzy [grupę zasobów](../azure-resource-manager/management/overview.md#terminology) o nazwie `myResourceGroup` , jeśli nie istnieje. Każdy zasób platformy Azure musi znajdować się w jednym z nich. Parametr `--resource-group` jest opcjonalny.
+- Tworzy [grupę zasobów](../azure-resource-manager/management/overview.md#terminology) o `myResourceGroup` nazwie , jeśli nie istnieje. Każdy zasób platformy Azure musi być w jednym z tych zasobów. Parametr `--resource-group` jest opcjonalny.
 - Tworzy serwer Postgres z użytkownikiem administracyjnym.
-- Tworzy `sampledb` bazę danych.
+- Tworzy bazę `sampledb` danych.
 - Zezwala na dostęp z lokalnego adresu IP.
 - Zezwala na dostęp z usług platformy Azure.
-- Utwórz użytkownika bazy danych z dostępem do `sampledb` bazy danych.
+- Utwórz użytkownika bazy danych z dostępem do bazy `sampledb` danych.
 
-Wszystkie kroki można wykonać oddzielnie z innymi `az postgres` poleceniami `psql` , ale wszystkie są wykonywane `az postgres up` w jednym kroku.
+Wszystkie kroki można wykonać oddzielnie za pomocą innych poleceń i , ale wszystkie te kroki są robione `az postgres` `psql` w jednym `az postgres up` kroku.
 
-Po zakończeniu wykonywania polecenia Znajdź linie wyjściowe, z którymi się znajdują `Ran Database Query:` . Pokażą użytkownikowi bazy danych, który został utworzony dla Ciebie, przy użyciu nazwy użytkownika `root` i hasła `Sampledb1` . Będziesz ich używać później, aby połączyć aplikację z bazą danych.
+Po zakończeniu polecenia znajdź wiersze danych wyjściowych z `Ran Database Query:` . Pokazują utworzonego użytkownika bazy danych z nazwą użytkownika `root` i hasłem `Sampledb1` . Użyjesz ich później do nawiązania połączenia aplikacji z bazą danych.
 
 <!-- not all locations support az postgres up -->
 > [!TIP]
-> `--location <location-name>`, można ustawić na jeden z [regionów świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/regions/). Dostępne regiony można pobrać za pomocą [`az account list-locations`](/cli/azure/account#az-account-list-locations) polecenia. W przypadku aplikacji produkcyjnych Umieść swoją bazę danych i aplikację w tej samej lokalizacji.
+> `--location <location-name>`Wartość można ustawić na dowolny z regionów [świadczenia usługi Azure.](https://azure.microsoft.com/global-infrastructure/regions/) Regiony dostępne dla twojej subskrypcji możesz uzyskać za pomocą [`az account list-locations`](/cli/azure/account#az_account_list_locations) polecenia . W przypadku aplikacji produkcyjnych umieść bazę danych i aplikację w tej samej lokalizacji.
 
 ## <a name="connect-app-to-azure-postgres"></a>Łączenie aplikacji z bazą danych Postgres na platformie Azure
 
@@ -255,9 +255,9 @@ W tym kroku wdrożysz aplikację platformy Rails połączoną z bazą danych Pos
 
 ### <a name="configure-database-settings"></a>Konfigurowanie ustawień bazy danych
 
-W usłudze App Service zmienne środowiskowe ustawia się jako _ustawienia aplikacji_ za pomocą polecenia [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) w usłudze Cloud Shell.
+W usłudze App Service zmienne środowiskowe ustawia się jako _ustawienia aplikacji_ za pomocą polecenia [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) w usłudze Cloud Shell.
 
-Następujące polecenie usługi Cloud Shell konfiguruje ustawienia aplikacji `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` i `DB_PASSWORD`. Zastąp symbole zastępcze _&lt; nazwa_aplikacji>_ i _&lt; postgres-Server-Name>_.
+Następujące polecenie usługi Cloud Shell konfiguruje ustawienia aplikacji `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` i `DB_PASSWORD`. Zastąp symbole zastępcze _&lt; appname>_ i _&lt; postgres-server-name>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<postgres-server-name>.postgres.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="root@<postgres-server-name>" DB_PASSWORD="Sampledb1"
@@ -265,7 +265,7 @@ az webapp config appsettings set --name <app-name> --resource-group myResourceGr
 
 ### <a name="configure-rails-environment-variables"></a>Konfigurowanie zmiennych środowiskowych platformy Rails
 
-W terminalu lokalnym [Wygeneruj nowy wpis tajny](configure-language-ruby.md#set-secret_key_base-manually) dla środowiska produkcyjnego szyny na platformie Azure.
+W terminalu lokalnym [wygeneruj nowy klucz tajny](configure-language-ruby.md#set-secret_key_base-manually) dla środowiska produkcyjnego platformy Rails na platformie Azure.
 
 ```bash
 rails secret
@@ -273,13 +273,13 @@ rails secret
 
 Skonfiguruj zmienne wymagane przez środowisko produkcyjne platformy Rails.
 
-W poniższym poleceniu Cloud Shell Zastąp dwa symbole zastępcze _&lt; danych wyjściowych-Secret>_ z nowym kluczem tajnym wygenerowanym w lokalnym terminalu.
+W poniższym Cloud Shell zastąp dwa symbole zastępcze _&lt; output-of-rails-secret_>nowym kluczem tajnym wygenerowanym w terminalu lokalnym.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings RAILS_MASTER_KEY="<output-of-rails-secret>" SECRET_KEY_BASE="<output-of-rails-secret>" RAILS_SERVE_STATIC_FILES="true" ASSETS_PRECOMPILE="true"
 ```
 
-Właściwość `ASSETS_PRECOMPILE="true"` informuje domyślny kontener języka Ruby, aby wstępnie skompilował zasoby przy każdym wdrożeniu narzędzia Git. Aby uzyskać więcej informacji, zobacz [prekompilowanie zasobów](configure-language-ruby.md#precompile-assets) i [Obsługiwanie zasobów statycznych](configure-language-ruby.md#serve-static-assets).
+Właściwość `ASSETS_PRECOMPILE="true"` informuje domyślny kontener języka Ruby, aby wstępnie skompilował zasoby przy każdym wdrożeniu narzędzia Git. Aby uzyskać więcej informacji, zobacz [Prekompilowanie zasobów i](configure-language-ruby.md#precompile-assets) [Obsługiwać zasoby statyczne.](configure-language-ruby.md#serve-static-assets)
 
 ### <a name="push-to-azure-from-git"></a>Wypychanie z narzędzia Git na platformę Azure
 
@@ -316,7 +316,7 @@ remote: Running deployment command...
 
 Przejdź do adresu `http://<app-name>.azurewebsites.net` i dodaj kilka zadań do listy.
 
-:::image type="content" source="./media/tutorial-ruby-postgres-app/ruby-postgres-in-azure.png" alt-text="Zrzut ekranu przedstawiający przykład aplikacji platformy Azure z tytułem zadania z zadaniami dodany do listy.":::
+:::image type="content" source="./media/tutorial-ruby-postgres-app/ruby-postgres-in-azure.png" alt-text="Zrzut ekranu przedstawiający przykładową aplikację platformy Azure zatytułowaną Zadania z zadaniami dodanymi do listy.":::
 
 Gratulacje! Masz uruchomioną opartą na danych aplikację platformy Ruby on Rails w usłudze Azure App Service.
 
@@ -470,7 +470,7 @@ Przejdź do następnego samouczka, aby dowiedzieć się, jak zamapować niestand
 > [!div class="nextstepaction"]
 > [Samouczek: mapowanie niestandardowej nazwy DNS na aplikację](app-service-web-tutorial-custom-domain.md)
 
-Lub zapoznaj się z innymi zasobami:
+Możesz też sprawdzić inne zasoby:
 
 > [!div class="nextstepaction"]
 > [Konfigurowanie aplikacji Ruby](configure-language-ruby.md)

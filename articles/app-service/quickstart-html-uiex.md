@@ -8,12 +8,12 @@ ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, cli-validate, seodec18
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: be555039375e2d71d00bcf8ee58898f54cc3645a
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 603d8e642cd2e88beec6ae34094a2c6c43d179ee
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379574"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768914"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Tworzenie statycznej aplikacji internetowej w języku HTML na platformie Azure
 
@@ -55,7 +55,7 @@ az webapp up --location westeurope --name <app_name> --html
 <li>Zastąp nazwą unikatową na całej <code>&lt;app-name&gt;</code> platformie Azure (prawidłowe <em> znaki to , i <code>a-z</code> <code>0-9</code> <code>-</code> </em> ). Dobrym wzorcem jest użycie kombinacji nazwy firmy i identyfikatora aplikacji.</li>
 <li>Argument <code>--sku F1</code> tworzy aplikację internetową w warstwie cenowej Bezpłatna. Pomiń ten argument, aby użyć szybszej warstwy Premium, która wiąże się z godzinowym kosztem.</li>
 <li>Argument <code>--html</code> mówi, że cała zawartość folderu jest uważana za zawartość statyczną i wyłącza automatyzację kompilacji.</li>
-<li>Opcjonalnie możesz dołączyć argument <code>--location &lt;location-name&gt;</code> , gdzie <code>&lt;location-name&gt;</code> jest dostępnym regionem świadczenia usługi Azure. Listę regionów, które można zezwolić na korzystanie z konta platformy Azure, możesz pobrać, uruchamiając <a href="/cli/azure/appservice#az-appservice-list-locations"> <code>az account list-locations</code> </a> polecenie .</li>
+<li>Opcjonalnie możesz dołączyć argument <code>--location &lt;location-name&gt;</code> , gdzie <code>&lt;location-name&gt;</code> jest dostępnym regionem świadczenia usługi Azure. Listę regionów, które można zezwolić na korzystanie z konta platformy Azure, możesz pobrać, uruchamiając <a href="/cli/azure/appservice#az_appservice_list_locations"> <code>az account list-locations</code> </a> polecenie .</li>
 </ul>
 </details>
 
@@ -67,7 +67,7 @@ Ukończenie polecenia może potrwać kilka minut.
 <ul>
 <li>Utwórz domyślną grupę zasobów.</li>
 <li>Utwórz domyślny App Service planu.</li>
-<li><a href="/cli/azure/webapp#az-webapp-create">Utwórz aplikację App Service o</a> określonej nazwie.</li>
+<li><a href="/cli/azure/webapp#az_webapp_create">Utwórz aplikację App Service o</a> określonej nazwie.</li>
 <li><a href="/azure/app-service/deploy-zip">Spakuj pliki</a> wdrożenia z bieżącego katalogu roboczego do aplikacji.</li>
 <li>Podczas działania zapewnia komunikaty dotyczące tworzenia zasobów, rejestrowania i wdrażania pliku ZIP.</li>
 </ul>
@@ -108,7 +108,7 @@ Strona działa jako aplikacja internetowa usługi Azure App Service.
 
 W Cloud Shell **wpisz** , `nano index.html` aby otworzyć edytor tekstów nano. 
 
-W `<h1>` tagu nagłówka zmień tekst "Azure App Service — przykładowa statyczna witryna HTML" na "Azure App Service".
+W `<h1>` tagu nagłówka zmień "Azure App Service — przykładowa statyczna witryna HTML" na "Azure App Service".
 
 ![Plik index.html programu nano](media/quickstart-html/nano-index-html.png)
 

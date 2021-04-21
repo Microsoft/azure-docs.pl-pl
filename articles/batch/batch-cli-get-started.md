@@ -1,15 +1,15 @@
 ---
-title: Rozpoczynanie pracy z interfejsem wiersza polecenia platformy Azure dla usługi Batch
+title: Wprowadzenie do interfejsu wiersza polecenia platformy Azure dla usługi Batch
 description: Skorzystaj z szybkiego wprowadzenia do poleceń usługi Batch w interfejsie wiersza polecenia platformy Azure, aby zarządzać zasobami usługi Azure Batch
 ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: bee25d9b8985f1627a5cfc05bfb336b83be60f74
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: befe2f6fe67ce7c2c4bb61153344103ee2aa70cb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92144750"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768437"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Zarządzanie zasobami usługi Batch przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -52,9 +52,9 @@ Aby używać interfejsu wiersza polecenia platformy Azure z usługą Batch, nale
 Istnieje kilka różnych sposobów logowania się na platformie Azure. Opisano je szczegółowo w artykule [Logowanie się za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli):
 
 1. [Logowanie interakcyjne](/cli/azure/authenticate-azure-cli). Zaloguj się interakcyjnie, gdy samodzielnie uruchamiasz polecenia interfejsu wiersza polecenia platformy Azure w wierszu polecenia.
-2. [Zaloguj się przy użyciu nazwy głównej usługi](/cli/azure/authenticate-azure-cli). Zaloguj się za pomocą jednostki usługi, gdy uruchamiasz polecenia interfejsu wiersza polecenia platformy Azure za pomocą skryptu lub aplikacji.
+2. [Zaloguj się przy użyciu jednostki usługi](/cli/azure/authenticate-azure-cli). Zaloguj się za pomocą jednostki usługi, gdy uruchamiasz polecenia interfejsu wiersza polecenia platformy Azure za pomocą skryptu lub aplikacji.
 
-Na potrzeby tego artykułu wyjaśnimy, jak zalogować się interakcyjnie. W wierszu polecenia wpisz [az login](/cli/azure/reference-index#az-login):
+Na potrzeby tego artykułu wyjaśnimy, jak zalogować się interakcyjnie. W wierszu polecenia wpisz [az login](/cli/azure/reference-index#az_login):
 
 ```azurecli
 # Log in to Azure and authenticate interactively.
@@ -69,7 +69,7 @@ W przykładach wymienionych w sekcji „Przykładowe skrypty powłoki” równie
 
 ### <a name="log-in-to-your-batch-account"></a>Logowanie się na koncie usługi Batch
 
-Aby za pomocą interfejsu wiersza polecenia platformy Azure zarządzać zasobami usługi Batch, na przykład pulami, zadaniami i zadaniami podrzędnymi, należy zalogować się na koncie usługi Batch i dokonać uwierzytelnienia. Aby zalogować się do usługi Batch, użyj polecenia [az batch account login](/cli/azure/batch/account#az-batch-account-login). 
+Aby za pomocą interfejsu wiersza polecenia platformy Azure zarządzać zasobami usługi Batch, na przykład pulami, zadaniami i zadaniami podrzędnymi, należy zalogować się na koncie usługi Batch i dokonać uwierzytelnienia. Aby zalogować się do usługi Batch, użyj polecenia [az batch account login](/cli/azure/batch/account#az_batch_account_login). 
 
 Dostępne są dwie opcje uwierzytelnienia na koncie usługi Batch:
 
@@ -79,15 +79,15 @@ Dostępne są dwie opcje uwierzytelnienia na koncie usługi Batch:
     
     W razie logowania się interakcyjnego na platformie Azure, zgodnie z opisem w poprzedniej sekcji, poświadczenia są buforowane, dzięki czemu interfejs wiersza polecenia platformy Azure może zalogować użytkownika na koncie usługi Batch za ich pomocą. W razie logowania się na platformie Azure za pomocą jednostki usługi te poświadczenia także są używane do zalogowania się na koncie usługi Batch.
 
-    Zaletą usługi Azure AD jest oferowanie kontroli dostępu opartej na rolach (Azure RBAC). Dzięki funkcji RBAC na platformie Azure dostęp użytkownika zależy od przypisanej do nich roli, a nie od tego, czy mają one klucze konta. Zamiast zarządzać kluczami kont, możesz zarządzać rolami platformy Azure i zezwalać usłudze Azure AD na dostęp i uwierzytelnianie.  
+    Zaletą usługi Azure AD jest to, że oferuje ona kontrolę dostępu opartą na rolach (RBAC) platformy Azure. Dzięki kontroli dostępu na podstawie ról platformy Azure dostęp użytkownika zależy od przypisanej mu roli, a nie od tego, czy ma on klucze kont. Zamiast zarządzać kluczami kont, można zarządzać rolami platformy Azure i pozwolić usłudze Azure AD na obsługę dostępu i uwierzytelniania.  
 
-     Aby zalogować się na koncie usługi Batch za pomocą usługi Azure AD, wywołaj polecenie [az batch account login](/cli/azure/batch/account#az-batch-account-login): 
+     Aby zalogować się na koncie usługi Batch za pomocą usługi Azure AD, wywołaj polecenie [az batch account login](/cli/azure/batch/account#az_batch_account_login): 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount
     ```
 
-- **Przy użyciu uwierzytelniania klucza współużytkowanego**
+- **Przy użyciu uwierzytelniania za pomocą klucza wspólnego**
 
     [Uwierzytelnianie klucza wspólnego](/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service#authentication-via-shared-key) polega na uwierzytelnianiu poleceń interfejsu wiersza polecenia platformy Azure dla usługi Batch za pomocą kluczy dostępu konta.
 
@@ -162,9 +162,9 @@ Poniższe porady mogą być pomocne w przypadku rozwiązywania problemów związ
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Zapoznaj się z [dokumentacją interfejsu wiersza polecenia platformy Azure](/cli/azure).
-* Dowiedz się więcej o [przepływie pracy usługi Batch i zasobach podstawowych](batch-service-workflow-features.md) , takich jak pule, węzły, zadania i zadania.
-* Dowiedz się więcej o korzystaniu z szablonów usługi Batch do tworzenia pul, zadań i zadań bez pisania kodu w programie [, Azure Batch szablonów interfejsu wiersza polecenia i transfer plików](batch-cli-templates.md).
+* Zobacz dokumentację [interfejsu wiersza polecenia platformy Azure.](/cli/azure)
+* Dowiedz się więcej o [przepływie pracy usługi Batch i zasobach podstawowych,](batch-service-workflow-features.md) takich jak pule, węzły, zadania i zadania podrzędne.
+* Dowiedz się więcej o używaniu szablonów usługi Batch do tworzenia pul, zadań i zadań bez pisania kodu, Azure Batch szablonów interfejsu wiersza polecenia [i transferu plików.](batch-cli-templates.md)
 
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: /rest/api/batchservice/

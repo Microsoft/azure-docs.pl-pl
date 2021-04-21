@@ -1,18 +1,18 @@
 ---
-title: 'Samouczek: wdrażanie rozwiązania WordPress w klastrze usługi AKS za pomocą serwera elastycznego MySQL przy użyciu interfejsu wiersza polecenia platformy Azure'
+title: 'Samouczek: wdrażanie platformy WordPress w klastrze usługi AKS za pomocą serwera elastycznego MySQL przy użyciu interfejsu wiersza polecenia platformy Azure'
 description: Dowiedz się, jak szybko skompilować i wdrożyć platformę WordPress w u Azure Database for MySQL — elastyczny serwer.
 ms.service: mysql
 author: mksuni
 ms.author: sumuth
 ms.topic: tutorial
 ms.date: 11/25/2020
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: b631173ed92905870e73e6c560d90aab08476ce1
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.custom: vc, devx-track-azurecli
+ms.openlocfilehash: 0c6211f4cd647addd6f1d18a153695d16a9d9952
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107480158"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770170"
 ---
 # <a name="tutorial-deploy-wordpress-app-on-aks-with-azure-database-for-mysql---flexible-server"></a>Samouczek: wdrażanie aplikacji WordPress w u usługach AKS Azure Database for MySQL — elastyczny serwer
 
@@ -60,7 +60,7 @@ Następujące przykładowe dane wyjściowe przedstawiają pomyślnie utworzoną 
 
 ## <a name="create-aks-cluster"></a>Tworzenie klastra AKS
 
-Utwórz klaster AKS za pomocą polecenia [az aks create](/cli/azure/aks#az-aks-create). W poniższym przykładzie pokazano tworzenie klastra o nazwie *myAKSCluster* z jednym węzłem. Potrwa to kilka minut.
+Utwórz klaster AKS za pomocą polecenia [az aks create](/cli/azure/aks#az_aks_create). W poniższym przykładzie pokazano tworzenie klastra o nazwie *myAKSCluster* z jednym węzłem. Potrwa to kilka minut.
 
 ```azurecli-interactive
 az aks create --resource-group wordpress-project --name myAKSCluster --node-count 1 --generate-ssh-keys
@@ -73,13 +73,13 @@ Po kilku minutach polecenie zostanie wykonane i zwróci informacje o klastrze w 
 
 ## <a name="connect-to-the-cluster"></a>Łączenie z klastrem
 
-Aby zarządzać klastrem Kubernetes, należy użyć klienta wiersza polecenia usługi Kubernetes — narzędzia [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/). Jeśli korzystasz z usługi Azure Cloud Shell, narzędzie `kubectl` jest już zainstalowane. Aby zainstalować narzędzie `kubectl` lokalnie, użyj polecenia [az aks install-cli](/cli/azure/aks#az-aks-install-cli):
+Aby zarządzać klastrem Kubernetes, należy użyć klienta wiersza polecenia usługi Kubernetes — narzędzia [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/). Jeśli korzystasz z usługi Azure Cloud Shell, narzędzie `kubectl` jest już zainstalowane. Aby zainstalować narzędzie `kubectl` lokalnie, użyj polecenia [az aks install-cli](/cli/azure/aks#az_aks_install_cli):
 
 ```azurecli-interactive
 az aks install-cli
 ```
 
-Aby skonfigurować narzędzie `kubectl` w celu nawiązania połączenia z klastrem Kubernetes, użyj polecenia [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials). To polecenie powoduje pobranie poświadczeń i zastosowanie ich w konfiguracji interfejsu wiersza polecenia Kubernetes.
+Aby skonfigurować narzędzie `kubectl` w celu nawiązania połączenia z klastrem Kubernetes, użyj polecenia [az aks get-credentials](/cli/azure/aks#az_aks_get_credentials). To polecenie powoduje pobranie poświadczeń i zastosowanie ich w konfiguracji interfejsu wiersza polecenia Kubernetes.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group wordpress-project --name myAKSCluster
@@ -102,39 +102,39 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 ```
 
 ## <a name="create-an-azure-database-for-mysql---flexible-server"></a>Tworzenie serwera Azure Database for MySQL — elastyczny serwer
-Utwórz serwer elastyczny za pomocą [polecenia az mysql flexible-server create.](/cli/azure/mysql/flexible-server) Następujące polecenie tworzy serwer przy użyciu wartości domyślnych i wartości usługi z lokalnego kontekstu interfejsu wiersza polecenia platformy Azure:
+Utwórz serwer elastyczny za pomocą [polecenia az mysql flexible-server create.](/cli/azure/mysql/flexible-server) Następujące polecenie tworzy serwer przy użyciu wartości domyślnych i wartości usługi z kontekstu lokalnego interfejsu wiersza polecenia platformy Azure:
 
 ```azurecli-interactive
 az mysql flexible-server create --public-access <YOUR-IP-ADDRESS>
 ```
 
 Utworzony serwer ma poniższe atrybuty:
-- Nowa pusta baza danych jest ```flexibleserverdb``` tworzona podczas pierwszej aprowizowana serwera. W tym przewodniku Szybki start użyjemy tej bazy danych.
+- Nowa pusta baza danych ```flexibleserverdb``` jest tworzona przy pierwszej aprowizce serwera. W tym przewodniku Szybki start użyjemy tej bazy danych.
 - Automatycznie wygenerowana nazwa serwera, nazwa użytkownika administratora, hasło administratora, nazwa grupy zasobów (jeśli nie została jeszcze określona w kontekście lokalnym) i w tej samej lokalizacji co grupa zasobów
 - Wartości domyślne usługi dla pozostałych konfiguracji serwera: warstwa obliczeniowa (z możliwością serii), rozmiar obliczeniowy/jednostkę SKU (B1MS), okres przechowywania kopii zapasowych (7 dni) i wersja programu MySQL (5.7)
 - Użycie argumentu dostępu publicznego umożliwia utworzenie serwera z dostępem publicznym chronionym przez reguły zapory. Podając swój adres IP, aby dodać regułę zapory zezwalając na dostęp z komputera klienckiego.
 - Ponieważ polecenie używa kontekstu lokalnego, utworzy serwer w grupie zasobów i ```wordpress-project``` w regionie ```eastus``` .
 
 
-### <a name="build-your-wordpress-docker-image"></a>Tworzenie obrazu platformy Docker wordpress
+### <a name="build-your-wordpress-docker-image"></a>Kompilowanie obrazu platformy Docker platformy Docker platformy WordPress
 
 Pobierz [najnowszą wersję rozwiązania WordPress.](https://wordpress.org/download/) Utwórz nowy katalog ```my-wordpress-app``` dla projektu i użyj tej prostej struktury folderów
 
 ```
-â””â”€â”€â”€my-wordpress-app
-    â””â”€â”€â”€public
-        â”œâ”€â”€â”€wp-admin
-        â”‚   â”œâ”€â”€â”€css
+└───my-wordpress-app
+    └───public
+        ├───wp-admin
+        │   ├───css
         . . . . . . .
-        â”œâ”€â”€â”€wp-content
-        â”‚   â”œâ”€â”€â”€plugins
+        ├───wp-content
+        │   ├───plugins
         . . . . . . .
-        â””â”€â”€â”€wp-includes
+        └───wp-includes
         . . . . . . .
-        â”œâ”€â”€â”€wp-config-sample.php
-        â”œâ”€â”€â”€index.php
+        ├───wp-config-sample.php
+        ├───index.php
         . . . . . . .
-    â””â”€â”€â”€ Dockerfile
+    └─── Dockerfile
 
 ```
 
@@ -193,7 +193,7 @@ docker build --tag myblog:latest .
 
 ```
 
-Wdrażanie obrazu w [usłudze Docker Hub](https://docs.docker.com/get-started/part3/#create-a-docker-hub-repository-and-push-your-image) lub [Azure Container Registry.](../../container-registry/container-registry-get-started-azure-cli.md)
+Wd wdrażaj obraz [w usłudze Docker Hub](https://docs.docker.com/get-started/part3/#create-a-docker-hub-repository-and-push-your-image) [lub Azure Container Registry.](../../container-registry/container-registry-get-started-azure-cli.md)
 
 > [!IMPORTANT]
 >Jeśli używasz usługi Azure Container regdistry (ACR), uruchom polecenie , aby dołączyć konto ```az aks update``` usługi ACR do klastra usługi AKS.
@@ -208,8 +208,8 @@ Wdrażanie obrazu w [usłudze Docker Hub](https://docs.docker.com/get-started/pa
 Plik manifestu platformy Kubernetes definiuje żądany stan klastra, w tym informacje o obrazach kontenera do uruchomienia. Utwórzmy plik manifestu o nazwie `mywordpress.yaml` i skopiujmy go w poniższej definicji YAML.
 
 >[!IMPORTANT]
-> - Zastąp wartość rzeczywistą nazwą obrazu platformy Docker i tagiem platformy ```[DOCKER-HUB-USER/ACR ACCOUNT]/[YOUR-IMAGE-NAME]:[TAG]``` Docker platformy WordPress, na przykład ```docker-hub-user/myblog:latest``` .
-> - Zaktualizuj ```env``` sekcję poniżej przy użyciu ```SERVERNAME``` serwera ```YOUR-DATABASE-USERNAME``` elastycznego ```YOUR-DATABASE-PASSWORD``` MySQL , .
+> - Zastąp wartość rzeczywistą nazwą obrazu platformy Docker i tagiem platformy Docker platformy ```[DOCKER-HUB-USER/ACR ACCOUNT]/[YOUR-IMAGE-NAME]:[TAG]``` WordPress, na przykład ```docker-hub-user/myblog:latest``` .
+> - Zaktualizuj ```env``` sekcję poniżej przy użyciu ```SERVERNAME``` serwera ```YOUR-DATABASE-USERNAME``` ```YOUR-DATABASE-PASSWORD``` elastycznego MySQL , .
 
 ```yaml
 apiVersion: apps/v1
@@ -307,7 +307,7 @@ Otwórz w przeglądarce internetowej zewnętrzny adres IP usługi, aby wyświetl
    :::image type="content" source="./media/tutorial-deploy-wordpress-on-aks/wordpress-aks-installed-success.png" alt-text="Powodzenie instalacji programu Wordpress na serwerze elastycznym usług AKS i MySQL":::
 
 >[!NOTE]
-> - Obecnie witryna WordPress nie używa protokołu HTTPS. Zaleca się włączenie [obsługi TLS z własnymi certyfikatami.](../../aks/ingress-own-tls.md)
+> - Obecnie witryna WordPress nie używa protokołu HTTPS. Zaleca się włączenie [obsługi TLS przy użyciu własnych certyfikatów.](../../aks/ingress-own-tls.md)
 > - Routing [HTTP można włączyć](../../aks/http-application-routing.md) dla klastra.
 
 ## <a name="clean-up-the-resources"></a>Oczyszczanie zasobów
@@ -323,8 +323,7 @@ az group delete --name wordpress-project --yes --no-wait
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak uzyskać dostęp do internetowego pulpitu nawigacyjnego [usługi Kubernetes](../../aks/kubernetes-dashboard.md) dla klastra usługi AKS
+- Dowiedz się, jak [uzyskać dostęp do internetowego pulpitu nawigacyjnego usługi Kubernetes](../../aks/kubernetes-dashboard.md) dla klastra usługi AKS
 - Dowiedz się, jak [skalować klaster](../../aks/tutorial-kubernetes-scale.md)
 - Dowiedz się, jak zarządzać serwerem [elastycznym MySQL](./quickstart-create-server-cli.md)
 - Dowiedz się, [jak skonfigurować parametry serwera](./how-to-configure-server-parameters-cli.md) dla serwera bazy danych.
-

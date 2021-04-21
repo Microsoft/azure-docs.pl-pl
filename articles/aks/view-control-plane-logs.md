@@ -1,59 +1,59 @@
 ---
-title: Wyświetlanie dzienników kontrolera usługi Azure Kubernetes Service (AKS)
-description: Informacje na temat włączania i wyświetlania dzienników płaszczyzny kontroli Kubernetes w usłudze Azure Kubernetes Service (AKS)
+title: Wyświetlanie dzienników Azure Kubernetes Service (AKS)
+description: Dowiedz się, jak włączyć i wyświetlić dzienniki dla płaszczyzny sterowania kubernetes w Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 01/27/2020
-ms.openlocfilehash: 4027b2ca66b4d4319f7df347df6d671e6d48b772
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 395422ca97b43488a7d7ad1c7434b20ccc59f2b0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735135"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767295"
 ---
-# <a name="enable-and-review-kubernetes-control-plane-logs-in-azure-kubernetes-service-aks"></a>Włączanie i przeglądanie dzienników płaszczyzny kontroli Kubernetes w usłudze Azure Kubernetes Service (AKS)
+# <a name="enable-and-review-kubernetes-control-plane-logs-in-azure-kubernetes-service-aks"></a>Włączanie i przeglądanie dzienników płaszczyzny sterowania kubernetes w Azure Kubernetes Service (AKS)
 
-W przypadku usługi Azure Kubernetes Service (AKS) składniki płaszczyzny kontroli, takie jak *polecenia-apiserver* i *polecenia-Manager* , są udostępniane jako usługa zarządzana. Można tworzyć węzły, które uruchamiają *kubelet* i środowisko uruchomieniowe kontenera, oraz zarządzać nimi, a następnie wdrażać aplikacje za pomocą zarządzanego serwera interfejsu API Kubernetes. Aby pomóc w rozwiązywaniu problemów dotyczących aplikacji i usług, może być konieczne wyświetlenie dzienników generowanych przez te składniki płaszczyzny kontroli. W tym artykule pokazano, jak używać dzienników Azure Monitor do włączania i wykonywania zapytań dotyczących dzienników ze składników płaszczyzny kontroli Kubernetes.
+W Azure Kubernetes Service (AKS) składniki płaszczyzny sterowania, takie jak *kube-apiserver* i *kube-controller-manager,* są udostępniane jako usługa zarządzana. Tworzysz węzły z uruchomionym środowiskiem *kubelet* i środowiskiem uruchomieniowym kontenera oraz zarządzasz nimi, a następnie wdrażasz aplikacje za pośrednictwem zarządzanego serwera interfejsu API Kubernetes. Aby ułatwić rozwiązywanie problemów z aplikacją i usługami, może być konieczne wyświetlenie dzienników generowanych przez te składniki płaszczyzny sterowania. W tym artykule pokazano, jak używać dzienników Azure Monitor do włączania dzienników ze składników płaszczyzny sterowania kubernetes i wykonywania zapytań o nie.
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
-Ten artykuł wymaga istniejącego klastra AKS uruchomionego na Twoim koncie platformy Azure. Jeśli nie masz jeszcze klastra AKS, utwórz go przy użyciu [interfejsu wiersza polecenia platformy Azure][cli-quickstart] lub [Azure Portal][portal-quickstart]. Dzienniki Azure Monitor działają zarówno w przypadku Kubernetes RBAC, jak i kontroli RBAC platformy Azure, a nie z obsługą kontroli RBAC.
+Ten artykuł wymaga istniejącego klastra usługi AKS uruchomionego na koncie platformy Azure. Jeśli nie masz jeszcze klastra usługi AKS, utwórz go przy użyciu interfejsu wiersza polecenia platformy [Azure][cli-quickstart] lub Azure Portal [.][portal-quickstart] Azure Monitor RBAC platformy Kubernetes, RBAC platformy Azure i klastry usługi AKS bez włączonej kontroli RBAC.
 
 ## <a name="enable-resource-logs"></a>Włączanie dzienników zasobów
 
-Aby ułatwić zbieranie i przeglądanie danych z wielu źródeł, dzienniki Azure Monitor udostępniają język zapytań i aparat analityczny, który zapewnia wgląd w dane środowisko. Obszar roboczy służy do sortowania i analizowania danych oraz integracji z innymi usługami platformy Azure, takimi jak Application Insights i Security Center. Aby użyć innej platformy do analizowania dzienników, możesz zamiast tego wybrać opcję wysyłania dzienników zasobów do konta usługi Azure Storage lub centrum zdarzeń. Aby uzyskać więcej informacji, zobacz [co to jest Azure monitor Logs?][log-analytics-overview].
+Aby ułatwić zbieranie i przeglądanie danych z wielu źródeł, dzienniki Azure Monitor zapewniają język zapytań i aparat analityczny, który zapewnia wgląd w środowisko. Obszar roboczy służy do sortowania i analizowania danych oraz może integrować się z innymi usługami platformy Azure, takimi jak Application Insights i Security Center. Aby użyć innej platformy do analizowania dzienników, można zamiast tego wysłać dzienniki zasobów do konta usługi Azure Storage lub centrum zdarzeń. Aby uzyskać więcej informacji, [zobacz Co to są Azure Monitor dzienniki?][log-analytics-overview].
 
-Dzienniki Azure Monitor są włączone i zarządzane w Azure Portal. Aby włączyć zbieranie dzienników dla składników płaszczyzny kontroli Kubernetes w klastrze AKS, Otwórz Azure Portal w przeglądarce internetowej i wykonaj następujące czynności:
+Azure Monitor są włączone i zarządzane w Azure Portal. Aby włączyć zbieranie dzienników dla składników płaszczyzny sterowania Kubernetes w klastrze usługi AKS, otwórz Azure Portal w przeglądarce internetowej i wykonaj następujące czynności:
 
-1. Wybierz grupę zasobów dla klastra AKS, na przykład grupa *zasobów*. Nie wybieraj grupy zasobów zawierającej poszczególne zasoby klastra AKS, takie jak *MC_myResourceGroup_myAKSCluster_eastus*.
+1. Wybierz grupę zasobów dla klastra usługi AKS, na przykład *myResourceGroup.* Nie wybieraj grupy zasobów zawierającej poszczególne zasoby klastra usługi AKS, takie *jak MC_myResourceGroup_myAKSCluster_eastus*.
 
-2. Po lewej stronie wybierz pozycję **Ustawienia diagnostyczne**.
+2. Po lewej stronie wybierz pozycję **Ustawienia diagnostyczne.**
 
-3. Wybierz klaster AKS, taki jak *myAKSCluster*, a następnie wybierz opcję **dodania ustawienia diagnostycznego**.
-  :::image type="content" source="media\view-control-plane-logs\select-add-diagnostic-setting.PNG" alt-text="Zrzut ekranu przedstawiający Azure Portal w oknie przeglądarki z ustawieniami diagnostycznymi, które wskazują, że należy wybrać opcję &quot;Dodaj ustawienie diagnostyczne&quot;":::
+3. Wybierz klaster usługi AKS, taki *jak myAKSCluster,* a następnie wybierz **pozycję Dodaj ustawienie diagnostyczne.**
+  :::image type="content" source="media\view-control-plane-logs\select-add-diagnostic-setting.PNG" alt-text="Zrzut ekranu Azure Portal w oknie przeglądarki przedstawiający ustawienia diagnostyczne z informacją o tym, że należy wybrać pozycję &quot;Dodaj ustawienie diagnostyczne&quot;":::
 
-4. Wprowadź nazwę, na przykład *myAKSClusterLogs*, a następnie wybierz opcję **wysłania do obszaru roboczego log Analytics**.
+4. Wprowadź nazwę, taką jak *myAKSClusterLogs,* a następnie wybierz opcję Wyślij do **obszaru roboczego usługi Log Analytics.**
 
-5. Wybierz istniejący obszar roboczy lub Utwórz nowy. W przypadku tworzenia obszaru roboczego Podaj nazwę obszaru roboczego, grupę zasobów i lokalizację.
+5. Wybierz istniejący obszar roboczy lub utwórz nowy. Jeśli tworzysz obszar roboczy, podaj nazwę obszaru roboczego, grupę zasobów i lokalizację.
 
-6. Na liście dostępnych dzienników wybierz dzienniki, które chcesz włączyć. W tym przykładzie należy włączyć dzienniki *polecenia-Audit* i *polecenia-Audit-admin* . Typowe dzienniki obejmują *polecenia-apiserver*, *polecenia-Controller-Manager* i *polecenia-Scheduler*. Można zwrócić i zmienić zebrane dzienniki po włączeniu Log Analytics obszarów roboczych.
+6. Na liście dostępnych dzienników wybierz dzienniki, które chcesz włączyć. W tym przykładzie włącz dzienniki *kube-audit i* *kube-audit-admin.* Typowe dzienniki obejmują *kube-apiserver,* *kube-controller-manager* i *kube-scheduler.* Zebrane dzienniki można zwrócić i zmienić po włączeniu obszarów roboczych usługi Log Analytics.
 
-7. Gdy wszystko będzie gotowe, wybierz pozycję **Zapisz** , aby włączyć zbieranie wybranych dzienników.
-  :::image type="content" source="media\view-control-plane-logs\settings-selected.PNG" alt-text="Zrzut ekranu przedstawiający ekran &quot;Dodawanie ustawień diagnostycznych&quot; Azure Portal. Wybrano element docelowy elementu &quot;Send to Log Analytics Workspace&quot; i dzienniki &quot;polecenia-Audit&quot; i &quot;polecenia-Audit-admin&quot;":::
+7. Gdy wszystko będzie gotowe, **wybierz pozycję Zapisz,** aby włączyć zbieranie wybranych dzienników.
+  :::image type="content" source="media\view-control-plane-logs\settings-selected.PNG" alt-text="Zrzut ekranu Azure Portal ekranu &quot;Dodawanie ustawienia diagnostycznego&quot;. Wybrano miejsce docelowe opcji &quot;Wyślij do obszaru roboczego usługi Log Analytics&quot; i dzienników &quot;kube-audit&quot; i &quot;kube-audit-admin&quot;":::
 
 ## <a name="log-categories"></a>Kategorie dzienników
 
-Oprócz wpisów utworzonych przez Kubernetes, dzienniki inspekcji projektu również mają wpisy z AKS.
+Oprócz wpisów napisanych przez platformę Kubernetes dzienniki inspekcji projektu również mają wpisy z konta AKS.
 
-Dzienniki inspekcji są zapisywane w trzech kategoriach: *polecenia-Audit*, *polecenia-Audit-admin* i *Guard*.
+Dzienniki inspekcji są rejestrowane w trzech kategoriach: *kube-audit,* *kube-audit-admin* i *guard*.
 
-- Kategoria *polecenia-Audit* zawiera wszystkie dane dziennika inspekcji dla każdego zdarzenia inspekcji, w tym *Get*, *list*, *Create*, *Update*, *delete*, *patch* i *post*.
-- Kategoria *polecenia-Audit-admin* jest podzbiorem kategorii dziennika *inspekcji polecenia* . *polecenia-Audit — administrator* znacznie zmniejsza liczbę dzienników, wykluczając zdarzenia *pobierania* *i inspekcji* z dziennika.
-- Kategoria *Guard* jest zarządzana przez usługi Azure AD i inspekcje RBAC platformy Azure. W przypadku zarządzanej usługi Azure AD: token w programie, informacje o użytkowniku. W przypadku usługi Azure RBAC: przeglądy dostępu w i na zewnątrz.
+- Kategoria *kube-audit* zawiera wszystkie dane dziennika inspekcji dla każdego zdarzenia inspekcji, w tym get *,* *list*, *create,* *update,* *delete,* *patch* i *post*.
+- Kategoria *kube-audit-admin* jest podzbiorem *kategorii dzienników inspekcji kube.* *Kube-audit-admin* znacznie zmniejsza liczbę dzienników,  wykluczając zdarzenia inspekcji get i *list* z dziennika.
+- Kategorią *ochrony* są inspekcje zarządzane przez usługi Azure AD i RBAC platformy Azure. W przypadku zarządzanej usługi Azure AD: token in, informacje o użytkowniku. W przypadku kontroli dostępu na platformie Azure: przeglądy dostępu do i na zewnątrz.
 
-## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Zaplanuj test pod względem klastra AKS
+## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Planowanie zasobnika testowego w klastrze usługi AKS
 
-Aby wygenerować niektóre dzienniki, Utwórz nowy element pod w klastrze AKS. Poniższy przykład manifestu YAML może służyć do tworzenia podstawowego wystąpienia NGINX. Utwórz plik o nazwie `nginx.yaml` w wybranym edytorze i wklej następującą zawartość:
+Aby wygenerować dzienniki, utwórz nowy zasobnik w klastrze usługi AKS. Poniższy przykładowy manifest YAML może służyć do tworzenia podstawowego wystąpienia serwera NGINX. Utwórz plik o `nginx.yaml` nazwie w edytorze i wklej następującą zawartość:
 
 ```yaml
 apiVersion: v1
@@ -77,7 +77,7 @@ spec:
     - containerPort: 80
 ```
 
-Utwórz pod za pomocą polecenia [polecenia kubectl Create][kubectl-create] i określ plik YAML, jak pokazano w następującym przykładzie:
+Utwórz zasobnik za pomocą [polecenia kubectl create][kubectl-create] i określ plik YAML, jak pokazano w poniższym przykładzie:
 
 ```
 $ kubectl create -f nginx.yaml
@@ -87,14 +87,14 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Wyświetlanie zebranych dzienników
 
-Włączenie i wyświetlenie dzienników diagnostycznych może potrwać do 10 minut.
+Może upłynieć do 10 minut, aż dzienniki diagnostyczne zostaną włączone i wyświetlone.
 
 > [!NOTE]
-> Jeśli potrzebujesz wszystkich danych dziennika inspekcji pod kątem zgodności lub innych celów, Zbierz i Zapisz je w niedrogim magazynie, takim jak BLOB Storage. Kategoria dziennika *polecenia-Audit-admin* służy do zbierania i zapisywania zrozumiałego zestawu danych dziennika inspekcji na potrzeby monitorowania i wysyłania alertów.
+> Jeśli potrzebujesz wszystkich danych dziennika inspekcji do celów zgodności lub w innych celach, zbierz i przechowuj je w niedrogim magazynie, takim jak blob storage. Użyj kategorii *dzienników kube-audit-admin,* aby zebrać i zapisać znaczący zestaw danych dziennika inspekcji na potrzeby monitorowania i alertów.
 
-W Azure Portal przejdź do klastra AKS, a następnie wybierz pozycję **dzienniki** po lewej stronie. Zamknij okno *przykładowe zapytania* , jeśli pojawia się.
+W okienku Azure Portal przejdź do klastra usługi AKS i wybierz pozycję **Dzienniki** po lewej stronie. Zamknij okno *Przykładowe zapytania,* jeśli zostanie wyświetlone.
 
-Po lewej stronie wybierz pozycję **dzienniki**. Aby wyświetlić dzienniki *inspekcji polecenia* , w polu tekstowym wprowadź następujące zapytanie:
+Po lewej stronie wybierz pozycję **Dzienniki.** Aby wyświetlić *dzienniki kube-audit,* wprowadź następujące zapytanie w polu tekstowym:
 
 ```
 AzureDiagnostics
@@ -102,7 +102,7 @@ AzureDiagnostics
 | project log_s
 ```
 
-Jest możliwe zwrócenie wielu dzienników. Aby przekroczyć zakres zapytania, aby wyświetlić dzienniki dotyczące NGINX powyżej utworzonego w poprzednim kroku, Dodaj dodatkową instrukcję *WHERE* , aby wyszukać *Nginx* , jak pokazano w poniższym przykładowym zapytaniu:
+Prawdopodobnie zwracanych jest wiele dzienników. Aby zawęzać zakres zapytania w celu wyświetlenia dzienników dotyczących zasobnika NGINX utworzonego w poprzednim kroku, dodaj dodatkową instrukcje *where,* aby wyszukać *nginx,* jak pokazano w poniższym przykładzie zapytania:
 
 ```
 AzureDiagnostics
@@ -111,7 +111,7 @@ AzureDiagnostics
 | project log_s
 ```
 
-Aby wyświetlić dzienniki *polecenia-Audit-admin* , w polu tekstowym wprowadź następujące zapytanie:
+Aby wyświetlić *dzienniki kube-audit-admin,* wprowadź następujące zapytanie w polu tekstowym:
 
 ```
 AzureDiagnostics
@@ -119,7 +119,7 @@ AzureDiagnostics
 | project log_s
 ```
 
-W tym przykładzie zapytanie pokazuje wszystkie zadania tworzenia w *polecenia-Audit-admin*. Prawdopodobnie zwrócono wiele wyników, aby przekroczyć zakres zapytania, aby wyświetlić dzienniki dotyczące NGINX powyżej utworzonego w poprzednim kroku, Dodaj dodatkową instrukcję *WHERE* , aby wyszukać *Nginx* , jak pokazano w poniższym przykładowym zapytaniu.
+W tym przykładzie zapytanie pokazuje wszystkie zadania tworzenia w *kontrolce kube-audit-admin*. Prawdopodobnie zwracanych jest wiele wyników. Aby zawęzać zakres zapytania w celu wyświetlenia dzienników dotyczących zasobnika NGINX utworzonego w poprzednim kroku, dodaj dodatkową instrukcje *where,* aby wyszukać *nginx,* jak pokazano w poniższym przykładzie zapytania.
 
 ```
 AzureDiagnostics
@@ -129,7 +129,7 @@ AzureDiagnostics
 ```
 
 
-Aby uzyskać więcej informacji na temat wykonywania zapytań i filtrowania danych dziennika, zobacz [Wyświetlanie lub analizowanie danych zbieranych za pomocą wyszukiwania dzienników usługi log Analytics][analyze-log-analytics].
+Aby uzyskać więcej informacji na temat sposobu wykonywania zapytań i filtrowania danych dziennika, zobacz Wyświetlanie lub analizowanie danych zebranych za pomocą funkcji [przeszukiwania dzienników usługi Log Analytics.][analyze-log-analytics]
 
 ## <a name="log-event-schema"></a>Schemat zdarzeń dziennika
 
@@ -151,19 +151,19 @@ AKS rejestruje następujące zdarzenia:
 * [KubeNodeInventory][log-schema-kubenodeinventory]
 * [KubePodInventory][log-schema-kubepodinventory]
 * [KubeServices][log-schema-kubeservices]
-* [Wydajność][log-schema-perf]
+* [Perf][log-schema-perf]
 
 ## <a name="log-roles"></a>Role dziennika
 
 | Rola                     | Opis |
 |--------------------------|-------------|
-| *aksService*             | Nazwa wyświetlana w dzienniku inspekcji dla operacji płaszczyzny kontroli (z hcpService) |
-| *masterclient*           | Nazwa wyświetlana w dzienniku inspekcji dla MasterClientCertificate, certyfikat uzyskany z AZ AKS Get-Credentials |
-| *nodeclient*             | Nazwa wyświetlana dla ClientCertificate, która jest używana przez węzły agenta |
+| *aksService*             | Nazwa wyświetlana w dzienniku inspekcji dla operacji płaszczyzny sterowania (z hcpService) |
+| *masterclient*           | Nazwa wyświetlana w dzienniku inspekcji dla certyfikatu MasterClientCertificate, który można pobrać z az aks get-credentials |
+| *nodeclient*             | Nazwa wyświetlana certyfikatu ClientCertificate, która jest używana przez węzły agentów |
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule przedstawiono sposób włączania i przeglądania dzienników dla składników płaszczyzny kontroli Kubernetes w klastrze AKS. Aby przeprowadzić dalsze monitorowanie i rozwiązywanie problemów, można także [wyświetlić dzienniki Kubelet][kubelet-logs] i [włączyć dostęp do węzła SSH][aks-ssh].
+W tym artykule opisano sposób włączania i przeglądania dzienników składników płaszczyzny sterowania Kubernetes w klastrze usługi AKS. Aby monitorować i rozwiązywać problemy, możesz również wyświetlić dzienniki [rozwiązania Kubelet][kubelet-logs] i włączyć [dostęp do węzła SSH.][aks-ssh]
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
@@ -175,9 +175,9 @@ W tym artykule przedstawiono sposób włączania i przeglądania dzienników dla
 [analyze-log-analytics]: ../azure-monitor/logs/log-analytics-tutorial.md
 [kubelet-logs]: kubelet-logs.md
 [aks-ssh]: ssh.md
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
 [log-schema-azureactivity]: /azure/azure-monitor/reference/tables/azureactivity
 [log-schema-azurediagnostics]: /azure/azure-monitor/reference/tables/azurediagnostics
 [log-schema-azuremetrics]: /azure/azure-monitor/reference/tables/azuremetrics

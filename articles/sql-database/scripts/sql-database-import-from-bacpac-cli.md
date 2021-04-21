@@ -1,6 +1,6 @@
 ---
-title: 'Interfejs wiersza polecenia platformy Azure: Importowanie pliku BACPAC do bazy danych w Azure SQL Database'
-description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure do zaimportowania pliku BACPAC do bazy danych w Azure SQL Database
+title: 'Interfejs wiersza polecenia platformy Azure: importowanie pliku BACPAC do bazy danych w Azure SQL Database'
+description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure do importowania pliku BACPAC do bazy danych w Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,16 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 05/24/2019
-ms.openlocfilehash: a8c544f1d3b7d1255cf5a0e6d05975ea5f5ec203
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a76a2e72533068f37613d801e39f9451098b89e5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87503807"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786607"
 ---
-# <a name="use-cli-to-import-a-bacpac-file-into-a-database-in-sql-database"></a>Użyj interfejsu wiersza polecenia, aby zaimportować plik BACPAC do bazy danych w SQL Database
+# <a name="use-cli-to-import-a-bacpac-file-into-a-database-in-sql-database"></a>Importowanie pliku BACPAC do bazy danych w programie przy użyciu interfejsu wiersza SQL Database
 
-Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure importuje bazę danych z pliku *. BACPAC* do bazy danych w SQL Database.  
+Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure importuje bazę danych z pliku *bacpac* do bazy danych w SQL Database.  
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten artykuł będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
@@ -36,20 +36,20 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 
 ### <a name="clean-up-deployment"></a>Czyszczenie wdrożenia
 
-Użyj poniższego polecenia, aby usunąć grupę zasobów i wszystkie skojarzone z nią zasoby.
+Użyj następującego polecenia, aby usunąć grupę zasobów i wszystkie skojarzone z nią zasoby.
 
 ```azurecli-interactive
 az group delete --name $resource
 ```
 
-## <a name="sample-reference"></a>Przykładowe odwołanie
+## <a name="sample-reference"></a>Przykładowa odwołanie
 
 W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
 | Polecenie | Opis |
 |---|---|
 | [az sql server](/cli/azure/sql/server) | Polecenia serwera. |
-| [AZ SQL DB import](/cli/azure/sql/db#az-sql-db-import) | Polecenie importowania bazy danych. |
+| [az sql db import](/cli/azure/sql/db#az_sql_db_import) | Polecenie importu bazy danych. |
 
 ## <a name="next-steps"></a>Następne kroki
 

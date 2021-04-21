@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - mvc
 - mode-portal
-ms.openlocfilehash: b59e605ea0484bd70456e278cb712683189b251d
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 4618a83a43d9c27f44432d5d346fdb053cee7054
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107533929"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773589"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>Szybki start: tworzenie rejestru kontenerów platformy Azure przy użyciu Azure Portal
 
@@ -69,13 +69,13 @@ Aby wyświetlić listę obrazów w rejestrze, przejdź do rejestru w portalu i w
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-09.png" alt-text="Lista obrazów kontenerów w portalu":::
 
-Po wybraniu **repozytorium hello-world** w obszarze Tagi zostanie wyświetlony `v1` obraz z **tagiem**.
+Po wybraniu **repozytorium hello-world** w obszarze Tagi zostanie wyświetlony obraz `v1` z **tagiem**.
 
 [!INCLUDE [container-registry-quickstart-docker-pull](../../includes/container-registry-quickstart-docker-pull.md)]
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Aby wyczyścić zasoby, przejdź do grupy zasobów **myResourceGroup** w portalu. Po załadowaniu grupy zasobów kliknij pozycję Usuń **grupę** zasobów, aby usunąć grupę zasobów, rejestr kontenerów i przechowywane w tym miejscu obrazy kontenerów.
+Aby wyczyścić zasoby, przejdź do grupy zasobów **myResourceGroup** w portalu. Po załadowaniu grupy zasobów  kliknij pozycję Usuń grupę zasobów, aby usunąć grupę zasobów, rejestr kontenerów i przechowywane w tym miejscu obrazy kontenerów.
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-08.png" alt-text="Usuwanie grupy zasobów w portalu":::
 
@@ -105,5 +105,5 @@ W tym przewodniku Szybki start utworzono usługę Azure Container Registry w wit
 [container-registry-skus]: container-registry-skus.md
 [azure-cli]: /cli/azure/install-azure-cli
 [get-started-with-azure-cli]: /cli/azure/get-started-with-azure-cli
-[az-acr-login]: /cli/azure/acr#az-acr-login
+[az-acr-login]: /cli/azure/acr#az_acr_login
 [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md

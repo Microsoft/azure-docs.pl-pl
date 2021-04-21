@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Zabezpieczanie serwera sieci Web z systemem Linux przy użyciu certyfikatów TLS/SSL na platformie Azure'
+title: 'Samouczek: zabezpieczanie serwera internetowego z systemem Linux przy użyciu certyfikatów TLS/SSL na platformie Azure'
 description: Z tego samouczka dowiesz się, jak można korzystać z interfejsu wiersza polecenia platformy Azure do zabezpieczania maszyny wirtualnej z systemem Linux, na której działa internetowy serwer NGINX z certyfikatami SSL przechowywanymi w usłudze Azure Key Vault.
 services: virtual-machines
 documentationcenter: virtual-machines
@@ -15,23 +15,23 @@ ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3f762597ad81dfaba907115cbcf6074d81ec2fa4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 97eee5d852450df2341d57932052839825523933
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102549587"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769755"
 ---
-# <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>Samouczek: Zabezpieczanie serwera sieci Web na maszynie wirtualnej z systemem Linux na platformie Azure przy użyciu certyfikatów TLS/SSL przechowywanych w Key Vault
-Aby zabezpieczyć serwery sieci Web, Transport Layer Security (TLS), wcześniej znany jako Secure Sockets Layer (SSL), można użyć certyfikatu do szyfrowania ruchu w sieci Web. Te certyfikaty TLS/SSL mogą być przechowywane w Azure Key Vault i umożliwiają bezpieczne wdrażanie certyfikatów na maszynach wirtualnych z systemem Linux na platformie Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+# <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>Samouczek: zabezpieczanie serwera internetowego na maszynie wirtualnej z systemem Linux na platformie Azure przy użyciu certyfikatów TLS/SSL przechowywanych w Key Vault
+Aby zabezpieczyć serwery internetowe, Transport Layer Security (TLS), wcześniej znany jako Secure Sockets Layer (SSL), można użyć certyfikatu do szyfrowania ruchu internetowego. Te certyfikaty TLS/SSL mogą być przechowywane w usłudze Azure Key Vault i umożliwiają bezpieczne wdrażanie certyfikatów na maszynach wirtualnych z systemem Linux na platformie Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie usługi Azure Key Vault
 > * Generowanie lub przekazywanie certyfikatu do usługi Key Vault
 > * Tworzenie maszyny wirtualnej i instalowanie serwera sieci Web NGINX
-> * Wsuń certyfikat do maszyny wirtualnej i skonfiguruj NGINX z powiązaniem TLS
+> * Wstrzykiwanie certyfikatu do maszyny wirtualnej i konfigurowanie serwera NGINX za pomocą powiązania TLS
 
-W tym samouczku jest używany interfejs wiersza polecenia w [Azure Cloud Shell](../../cloud-shell/overview.md), który jest stale aktualizowany do najnowszej wersji. Aby otworzyć Cloud Shell, wybierz opcję **Wypróbuj** z góry dowolnego bloku kodu.
+W tym samouczku używany jest interfejs wiersza [polecenia Azure Cloud Shell](../../cloud-shell/overview.md), który jest stale aktualizowany do najnowszej wersji. Aby otworzyć Cloud Shell, wybierz pozycję **Wypróbuj** w górnej części bloku kodu.
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.30 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
@@ -49,7 +49,7 @@ Aby można było utworzyć usługę Key Vault i certyfikaty, utwórz grupę zaso
 az group create --name myResourceGroupSecureWeb --location eastus
 ```
 
-Następnie utwórz usługę Key Vault za pomocą polecenia [az keyvault create](/cli/azure/keyvault) i włącz ją do użycia podczas wdrażania maszyny wirtualnej. Każda usługa Key Vault wymaga unikatowej nazwy, która powinna zawierać tylko małe litery. Zamień *\<mykeyvault>* w poniższym przykładzie na własną unikatową nazwę Key Vault:
+Następnie utwórz usługę Key Vault za pomocą polecenia [az keyvault create](/cli/azure/keyvault) i włącz ją do użycia podczas wdrażania maszyny wirtualnej. Każda usługa Key Vault wymaga unikatowej nazwy, która powinna zawierać tylko małe litery. Zastąp *\<mykeyvault>* w poniższym przykładzie własną unikatową Key Vault nazwę:
 
 ```azurecli-interactive 
 keyvault_name=<mykeyvault>
@@ -70,7 +70,7 @@ az keyvault certificate create \
 ```
 
 ### <a name="prepare-a-certificate-for-use-with-a-vm"></a>Przygotowywanie certyfikatu do użycia z maszyną wirtualną
-Aby użyć certyfikatu podczas tworzenia maszyny wirtualnej, uzyskaj identyfikator certyfikatu za pomocą polecenia [az keyvault secret list-versions](/cli/azure/keyvault/secret). Przekonwertuj certyfikat za pomocą polecenia [az vm secret format](/cli/azure/vm/secret#az-vm-secret-format). W poniższym przykładzie przypisano dane wyjściowe tych poleceń do zmiennych w celu łatwiejszego użycia w następnych krokach:
+Aby użyć certyfikatu podczas tworzenia maszyny wirtualnej, uzyskaj identyfikator certyfikatu za pomocą polecenia [az keyvault secret list-versions](/cli/azure/keyvault/secret). Przekonwertuj certyfikat za pomocą polecenia [az vm secret format](/cli/azure/vm/secret#az_vm_secret_format). W poniższym przykładzie przypisano dane wyjściowe tych poleceń do zmiennych w celu łatwiejszego użycia w następnych krokach:
 
 ```azurecli-interactive 
 secret=$(az keyvault secret list-versions \
@@ -147,13 +147,13 @@ Zostanie wyświetlona zabezpieczona witryna serwera NGINX, tak jak w poniższym 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku serwer sieci Web NGINX został zabezpieczony za pomocą certyfikatu TLS/SSL przechowywanego w Azure Key Vault. W tym samouczku omówiono:
+W tym samouczku serwer internetowy NGINX został zabezpieczony przy użyciu certyfikatu TLS/SSL przechowywanego w Azure Key Vault. W tym samouczku omówiono:
 
 > [!div class="checklist"]
 > * Tworzenie usługi Azure Key Vault
 > * Generowanie lub przekazywanie certyfikatu do usługi Key Vault
 > * Tworzenie maszyny wirtualnej i instalowanie serwera sieci Web NGINX
-> * Wsuń certyfikat do maszyny wirtualnej i skonfiguruj NGINX z powiązaniem TLS
+> * Wstrzykiwanie certyfikatu do maszyny wirtualnej i konfigurowanie serwera NGINX za pomocą powiązania TLS
 
 Użyj tego linku, aby wyświetlić przykłady wstępnie utworzonych skryptów maszyn wirtualnych.
 

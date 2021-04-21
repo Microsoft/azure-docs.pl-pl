@@ -1,6 +1,6 @@
 ---
-title: Włączanie zapory aplikacji sieci Web — interfejs wiersza polecenia platformy Azure
-description: Dowiedz się, jak ograniczyć ruch internetowy za pomocą zapory aplikacji sieci Web w bramie aplikacji przy użyciu interfejsu wiersza polecenia platformy Azure.
+title: Włączanie Web Application Firewall — interfejs wiersza polecenia platformy Azure
+description: Dowiedz się, jak ograniczyć ruch internetowy za pomocą Web Application Firewall w bramie aplikacji przy użyciu interfejsu wiersza polecenia platformy Azure.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -8,16 +8,16 @@ ms.date: 03/29/2021
 ms.author: victorh
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d53f4b640154e4d7b02115d5043b37f6bb6e89ba
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 390fdd4d9e9d0bc62589484ab0c4ba7468bcaf4b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731143"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773103"
 ---
-# <a name="enable-web-application-firewall-using-the-azure-cli"></a>Włączanie zapory aplikacji sieci Web przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="enable-web-application-firewall-using-the-azure-cli"></a>Włączanie Web Application Firewall przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Ruch na bramie aplikacji można ograniczyć za pomocą [zapory aplikacji sieci Web](ag-overview.md) (WAF). Zapora aplikacji internetowych chroni Twoje aplikacje, używając reguł [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project). Reguły te obejmują ochronę przed atakami, takimi jak iniekcja kodu SQL, działanie skryptów między witrynami i porywanie sesji.
+Ruch w bramie aplikacji można ograniczyć za pomocą [Web Application Firewall](ag-overview.md) (WAF). Zapora aplikacji internetowych chroni Twoje aplikacje, używając reguł [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project). Reguły te obejmują ochronę przed atakami, takimi jak iniekcja kodu SQL, działanie skryptów między witrynami i porywanie sesji.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -26,7 +26,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
  * Tworzenie zestawu skalowania maszyn wirtualnych
  * Tworzenie konta magazynu i konfigurowanie diagnostyki
 
-![Przykład zapory aplikacji sieci Web](../media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
+![Web Application Firewall przykład](../media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
 
 Jeśli wolisz, możesz wykonać tę procedurę przy użyciu [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
 
@@ -34,11 +34,11 @@ Jeśli wolisz, możesz wykonać tę procedurę przy użyciu [Azure PowerShell](t
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-- Ten artykuł wymaga wersji 2.0.4 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
+- Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Jeśli używasz Azure Cloud Shell, najnowsza wersja jest już zainstalowana.
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Utwórz grupę zasobów platformy Azure o nazwie *myResourceGroupAG* za pomocą polecenia [az group create](/cli/azure/group#az-group-create).
+Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Utwórz grupę zasobów platformy Azure o nazwie *myResourceGroupAG* za pomocą polecenia [az group create](/cli/azure/group#az_group_create).
 
 ```azurecli-interactive
 az group create --name myResourceGroupAG --location eastus
@@ -46,7 +46,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Tworzenie zasobów sieciowych
 
-Sieci wirtualne i podsieci umożliwiają nawiązywanie łączności sieciowej z bramą aplikacji i skojarzonymi z nią zasobami. Utwórz sieć wirtualną o nazwie *myVNet* i podsieć o nazwie *myAGSubnet*. następnie utwórz publiczny adres IP o nazwie *myAGPublicIPAddress*.
+Sieci wirtualne i podsieci umożliwiają nawiązywanie łączności sieciowej z bramą aplikacji i skojarzonymi z nią zasobami. Utwórz sieć wirtualną *o nazwie myVNet* i podsieć *o nazwie myAGSubnet.* Następnie utwórz publiczny adres IP o *nazwie myAGPublicIPAddress.*
 
 ```azurecli-interactive
 az network vnet create \
@@ -72,7 +72,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway-with-a-waf"></a>Tworzenie bramy aplikacji przy użyciu zapory aplikacji internetowej
 
-Można użyć polecenia [az network application-gateway create](/cli/azure/network/application-gateway) w celu utworzenia bramy aplikacji o nazwie *myAppGateway*. Podczas tworzenia bramy aplikacji przy użyciu interfejsu wiersza polecenia platformy Azure należy podać informacje o konfiguracji, takie jak pojemność, jednostka SKU i ustawienia protokołu HTTP. Brama aplikacji jest przypisana do *myAGSubnet* i *myAGPublicIPAddress*.
+Można użyć polecenia [az network application-gateway create](/cli/azure/network/application-gateway) w celu utworzenia bramy aplikacji o nazwie *myAppGateway*. Podczas tworzenia bramy aplikacji przy użyciu interfejsu wiersza polecenia platformy Azure należy podać informacje o konfiguracji, takie jak pojemność, jednostka SKU i ustawienia protokołu HTTP. Brama aplikacji jest przypisana do *podsieci myAGSubnet* i *myAGPublicIPAddress.*
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -107,9 +107,9 @@ Tworzenie bramy aplikacji może potrwać kilka minut. Po utworzeniu bramy aplika
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Tworzenie zestawu skalowania maszyn wirtualnych
 
-W tym przykładzie utworzysz zestaw skalowania maszyn wirtualnych, który zapewnia dwa serwery dla puli zaplecza w bramie aplikacji. Maszyny wirtualne w zestawie skalowania są kojarzone z podsiecią *myBackendSubnet*. Aby utworzyć zestaw skalowania, możesz użyć polecenia [az vmss create](/cli/azure/vmss#az-vmss-create).
+W tym przykładzie utworzysz zestaw skalowania maszyn wirtualnych, który zapewnia dwa serwery dla puli zaplecza w bramie aplikacji. Maszyny wirtualne w zestawie skalowania są kojarzone z podsiecią *myBackendSubnet*. Aby utworzyć zestaw skalowania, możesz użyć polecenia [az vmss create](/cli/azure/vmss#az_vmss_create).
 
-\<username> \<password> Przed uruchomieniem tej opcji Zastąp wartości i wartościami.
+Przed uruchomieniem tych wartości zastąp wartości \<username> \<password> i .
 
 ```azurecli-interactive
 az vmss create \
@@ -141,11 +141,11 @@ az vmss extension set \
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>Tworzenie konta magazynu i konfigurowanie diagnostyki
 
-W tym artykule Brama aplikacji używa konta magazynu do przechowywania danych na potrzeby wykrywania i zapobiegania. Do rejestrowania danych można też użyć dzienników usługi Azure Monitor lub usługi Event Hub. 
+W tym artykule brama aplikacji używa konta magazynu do przechowywania danych na potrzeby wykrywania i zapobiegania. Do rejestrowania danych można też użyć dzienników usługi Azure Monitor lub usługi Event Hub. 
 
 ### <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 
-Utwórz konto magazynu o nazwie *myagstore1* za pomocą polecenia [az storage account create](/cli/azure/storage/account#az-storage-account-create).
+Utwórz konto magazynu o nazwie *myagstore1* za pomocą polecenia [az storage account create](/cli/azure/storage/account#az_storage_account_create).
 
 ```azurecli-interactive
 az storage account create \
@@ -158,7 +158,7 @@ az storage account create \
 
 ### <a name="configure-diagnostics"></a>Konfigurowanie diagnostyki
 
-Skonfiguruj diagnostykę do rejestrowania danych w dziennikach ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog i ApplicationGatewayFirewallLog. Zastąp ciąg `<subscriptionId>` identyfikatorem subskrypcji, a następnie skonfiguruj diagnostykę przy użyciu [AZ monitor Diagnostic-Settings Create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+Skonfiguruj diagnostykę do rejestrowania danych w dziennikach ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog i ApplicationGatewayFirewallLog. Zastąp `<subscriptionId>` wartość identyfikatorem subskrypcji, a następnie skonfiguruj diagnostykę za pomocą narzędzia [az monitor diagnostic-settings create.](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create)
 
 ```azurecli-interactive
 appgwid=$(az network application-gateway show --name myAppGateway --resource-group myResourceGroupAG --query id -o tsv)
@@ -172,7 +172,7 @@ az monitor diagnostic-settings create --name appgwdiag --resource $appgwid \
 
 ## <a name="test-the-application-gateway"></a>Testowanie bramy aplikacji
 
-Aby uzyskać publiczny adres IP bramy aplikacji, użyj polecenia [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki.
+Aby uzyskać publiczny adres IP bramy aplikacji, użyj polecenia [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki.
 
 ```azurecli-interactive
 az network public-ip show \

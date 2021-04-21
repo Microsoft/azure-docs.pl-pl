@@ -1,51 +1,51 @@
 ---
-title: Konfiguracja klastra w usłudze Azure Kubernetes Services (AKS)
-description: Dowiedz się, jak skonfigurować klaster w usłudze Azure Kubernetes Service (AKS)
+title: Konfiguracja klastra w usługach Azure Kubernetes Services (AKS)
+description: Dowiedz się, jak skonfigurować klaster w Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 02/09/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: eaf512915532b482c25e830cd9f2e01d61aa4524
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5740c1c299e8a6a2e8874bd13aae76b0353cc6a2
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100572785"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775874"
 ---
 # <a name="configure-an-aks-cluster"></a>Konfigurowanie klastra usługi AKS
 
-W ramach tworzenia klastra AKS może być konieczne dostosowanie konfiguracji klastra zgodnie z potrzebami. W tym artykule przedstawiono kilka opcji dostosowywania klastra AKS.
+W ramach tworzenia klastra usługi AKS może być konieczne dostosowanie konfiguracji klastra do własnych potrzeb. W tym artykule oprowadzono kilka opcji dostosowywania klastra usługi AKS.
 
 ## <a name="os-configuration"></a>Konfiguracja systemu operacyjnego
 
-Program AKS obsługuje teraz Ubuntu 18,04 jako domyślny system operacyjny (OS) w ogólnej dostępności (GA) dla klastrów w wersjach Kubernetes wyższych niż 1,18 dla wersji poniżej 1,18, AKS Ubuntu 16,04 nadal jest domyślnym obrazem podstawowym. W Kubernetes v 1.18 i wyższych wartość domyślna to AKS Ubuntu 18,04.
+Usługa AKS obsługuje teraz Ubuntu 18.04 jako domyślny system operacyjny węzła (OS) ogólnie dostępny dla klastrów w wersjach kubernetes wyższych niż 1.18 W przypadku wersji starszych niż 1.18 domyślnym obrazem bazowym jest nadal usługa AKS Ubuntu 16.04. W przypadku systemu Kubernetes w wersji 1.18 i wyższych domyślną bazą jest AKS Ubuntu 18.04.
 
 > [!IMPORTANT]
-> Pule węzłów utworzone w Kubernetes v 1.18 lub większe domyślne dla `AKS Ubuntu 18.04` obrazu węzła. Pule węzłów w obsługiwanej wersji Kubernetes mniejszej niż 1,18 `AKS Ubuntu 16.04` są odbierane jako obraz węzła, ale zostaną zaktualizowane do `AKS Ubuntu 18.04` chwili, gdy wersja Kubernetes puli węzłów zostanie zaktualizowana do wersji v 1.18 lub nowszej.
+> Pule węzłów utworzone na kubernetes w wersji 1.18 lub większej domyślnie obraz `AKS Ubuntu 18.04` węzła. Pule węzłów w obsługiwanej wersji kubernetes mniejszej niż 1.18 odbierają jako obraz węzła, ale zostaną zaktualizowane do wersji po zaktualizowania puli węzłów kubernetes do wersji `AKS Ubuntu 16.04` `AKS Ubuntu 18.04` 1.18 lub większej.
 > 
-> Zdecydowanie zaleca się przetestowanie obciążeń w puli węzłów AKS Ubuntu 18,04 przed użyciem klastrów w witrynie 1,18 lub nowszej.
+> Zdecydowanie zaleca się przetestowanie obciążeń w pulach węzłów usługi AKS Ubuntu 18.04 przed użyciem klastrów w wersji 1.18 lub większej.
 
 
-### <a name="use-aks-ubuntu-1804-ga-on-new-clusters"></a>Użyj AKS Ubuntu 18,04 (GA) dla nowych klastrów
+### <a name="use-aks-ubuntu-1804-ga-on-new-clusters"></a>Używanie usługi AKS Ubuntu 18.04 (GA) w nowych klastrach
 
-Klastry utworzone w Kubernetes v 1.18 lub większe domyślne dla `AKS Ubuntu 18.04` obrazu węzła. Pule węzłów w obsługiwanej wersji Kubernetes mniejszej niż 1,18 nadal będą wyświetlane `AKS Ubuntu 16.04` jako obraz węzła, ale zostaną zaktualizowane do `AKS Ubuntu 18.04` wersji, gdy klaster lub Pula węzłów Kubernetes wersja została zaktualizowana do programu v 1.18 lub nowszego.
+Klastry utworzone na kubernetes w wersji 1.18 lub większej domyślnie obraz `AKS Ubuntu 18.04` węzła. Pule węzłów w obsługiwanej wersji kubernetes mniejszej niż 1.18 będą nadal odbierane jako obraz węzła, ale zostaną zaktualizowane do wersji po zaktualizowania klastra lub puli węzłów kubernetes do wersji `AKS Ubuntu 16.04` `AKS Ubuntu 18.04` 1.18 lub większej.
 
-Zdecydowanie zaleca się przetestowanie obciążeń w puli węzłów AKS Ubuntu 18,04 przed użyciem klastrów w witrynie 1,18 lub nowszej.
+Zdecydowanie zaleca się przetestowanie obciążeń w pulach węzłów usługi AKS Ubuntu 18.04 przed użyciem klastrów w wersji 1.18 lub większej.
 
-Aby utworzyć klaster przy użyciu `AKS Ubuntu 18.04` obrazu węzła, po prostu Utwórz klaster z systemem Kubernetes v 1.18 lub nowszym, jak pokazano poniżej
+Aby utworzyć klaster przy użyciu obrazu węzła, po prostu utwórz klaster z uruchomionym platformą `AKS Ubuntu 18.04` Kubernetes w wersji 1.18 lub nowszą, jak pokazano poniżej
 
 ```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
 ```
 
-### <a name="use-aks-ubuntu-1804-ga-on-existing-clusters"></a>Użyj AKS Ubuntu 18,04 (GA) w istniejących klastrach
+### <a name="use-aks-ubuntu-1804-ga-on-existing-clusters"></a>Używanie usługi AKS Ubuntu 18.04 (GA) w istniejących klastrach
 
-Klastry utworzone w Kubernetes v 1.18 lub większe domyślne dla `AKS Ubuntu 18.04` obrazu węzła. Pule węzłów w obsługiwanej wersji Kubernetes mniejszej niż 1,18 nadal będą wyświetlane `AKS Ubuntu 16.04` jako obraz węzła, ale zostaną zaktualizowane do `AKS Ubuntu 18.04` wersji, gdy klaster lub Pula węzłów Kubernetes wersja została zaktualizowana do programu v 1.18 lub nowszego.
+Klastry utworzone na kubernetes w wersji 1.18 lub większej domyślnie obraz `AKS Ubuntu 18.04` węzła. Pule węzłów w obsługiwanej wersji kubernetes mniejszej niż 1.18 będą nadal odbierane jako obraz węzła, ale zostaną zaktualizowane do wersji po zaktualizowania klastra lub puli węzłów kubernetes do wersji `AKS Ubuntu 16.04` `AKS Ubuntu 18.04` 1.18 lub większej.
 
-Zdecydowanie zaleca się przetestowanie obciążeń w puli węzłów AKS Ubuntu 18,04 przed użyciem klastrów w witrynie 1,18 lub nowszej.
+Zdecydowanie zaleca się przetestowanie obciążeń w pulach węzłów usługi AKS Ubuntu 18.04 przed użyciem klastrów w wersji 1.18 lub większej.
 
-Jeśli klastry lub pule węzłów są gotowe do `AKS Ubuntu 18.04` obrazu węzła, można po prostu uaktualnić je do wersji 1.18 lub nowszej w następujący sposób.
+Jeśli klastry lub pule węzłów są gotowe do użycia w obrazie węzła, możesz po prostu uaktualnić je do wersji `AKS Ubuntu 18.04` 1.18 lub wyższej, jak po przedstawiono poniżej.
 
 ```azurecli
 az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
@@ -57,14 +57,14 @@ Jeśli chcesz tylko uaktualnić tylko jedną pulę węzłów:
 az aks nodepool upgrade -name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
 ```
 
-### <a name="test-aks-ubuntu-1804-ga-on-existing-clusters"></a>Test AKS Ubuntu 18,04 (GA) dla istniejących klastrów
+### <a name="test-aks-ubuntu-1804-ga-on-existing-clusters"></a>Testowanie usługi AKS Ubuntu 18.04 (GA) w istniejących klastrach
 
-Pule węzłów utworzone w Kubernetes v 1.18 lub większe domyślne dla `AKS Ubuntu 18.04` obrazu węzła. Pule węzłów w obsługiwanej wersji Kubernetes mniejszej niż 1,18 nadal będą wyświetlane `AKS Ubuntu 16.04` jako obraz węzła, ale zostaną zaktualizowane do `AKS Ubuntu 18.04` wersji, gdy zostanie zaktualizowana wersja Kubernetes puli węzłów na wartość v 1.18 lub nowsza.
+Pule węzłów utworzone na kubernetes w wersji 1.18 lub większej jako obraz `AKS Ubuntu 18.04` węzła. Pule węzłów w obsługiwanej wersji kubernetes mniejszej niż 1.18 będą nadal odbierane jako obraz węzła, ale zostaną zaktualizowane do wersji po zaktualizowania puli węzłów kubernetes do wersji `AKS Ubuntu 16.04` `AKS Ubuntu 18.04` 1.18 lub nowszej.
 
-Zdecydowanie zaleca się przetestowanie obciążeń w pulach węzłów AKS Ubuntu 18,04 przed uaktualnieniem pul węzłów produkcyjnych.
+Zdecydowanie zaleca się przetestowanie obciążeń w pulach węzłów AKS Ubuntu 18.04 przed uaktualnieniem pul węzłów produkcyjnych.
 
-Aby utworzyć pulę węzłów przy użyciu `AKS Ubuntu 18.04` obrazu węzła, wystarczy utworzyć pulę węzłów z systemem Kubernetes v 1.18 lub nowszym. Płaszczyzna kontroli klastra musi mieć co najmniej 1.18 w wersji v lub nowszej, ale inne pule węzłów mogą pozostawać w starszych wersjach Kubernetes.
-Poniżej należy najpierw uaktualnić płaszczyznę kontroli, a następnie utworzyć nową pulę węzłów za pomocą 1.18 v, która otrzyma nową wersję systemu operacyjnego obrazu węzła.
+Aby utworzyć pulę węzłów przy użyciu obrazu węzła, wystarczy utworzyć pulę węzłów z uruchomionym platformą `AKS Ubuntu 18.04` Kubernetes w wersji 1.18 lub nowszą. Płaszczyzna sterowania klastra musi być również co najmniej w wersji 1.18 lub większej, ale inne pule węzłów mogą pozostać w starszej wersji usługi Kubernetes.
+Poniżej najpierw uaktualniamy płaszczyznę sterowania, a następnie tworzymy nową pulę węzłów z wersją 1.18, która otrzyma nową wersję systemu operacyjnego obrazu węzła.
 
 ```azurecli
 az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14 --control-plane-only
@@ -74,101 +74,101 @@ az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-gro
 
 ## <a name="container-runtime-configuration"></a>Konfiguracja środowiska uruchomieniowego kontenera
 
-Środowisko uruchomieniowe kontenera to oprogramowanie, które wykonuje kontenery i zarządza obrazami kontenerów w węźle. Środowisko uruchomieniowe ułatwia abstrakcyjne wywołania sys lub systemu operacyjnego (OS) do uruchamiania kontenerów w systemie Linux lub Windows. Klastry AKS korzystające z pul węzłów Kubernetes w wersji 1,19 i większe użycie `containerd` jako środowiska uruchomieniowego kontenera. Klastry AKS korzystające z funkcji Kubernetes starszych niż v 1.19 dla pul węzłów używają [Moby](https://mobyproject.org/) (nadrzędnego Docker) jako środowiska uruchomieniowego kontenera.
+Środowisko uruchomieniowe kontenera to oprogramowanie, które wykonuje kontenery i zarządza obrazami kontenerów w węźle. Środowisko uruchomieniowe pomaga odsejść od funkcji wywołań systemu operacyjnego lub systemu operacyjnego w celu uruchamiania kontenerów w systemie Linux lub Windows. Klastry AKS korzystające z pul węzłów Kubernetes w wersji 1.19 i w większym stopniu `containerd` używają ich jako środowiska uruchomieniowego kontenera. Klastry AKS korzystające z platformy Kubernetes w przypadku pul węzłów w wersjach wcześniejszych niż 1.19 używają [środowiska uruchomieniowego kontenera Moby](https://mobyproject.org/) (nadrzędnej platformy Docker).
 
 ![Docker CRI 1](media/cluster-configuration/docker-cri.png)
 
-[`Containerd`](https://containerd.io/) jest zgodnym podstawowym środowiskiem uruchomieniowym [kontenera (Open](https://opencontainers.org/) Container Initiative), który zapewnia minimalny zestaw funkcji wymaganych do wykonywania kontenerów i zarządzania obrazami w węźle. Zostało ono [przekazano do](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) natywnej usługi obliczeniowej Cloud Foundation (CNCF) w marcu 2017. Bieżąca wersja Moby używana przez AKS już korzysta z programu i została utworzona w oparciu o `containerd` , jak pokazano powyżej.
+[`Containerd`](https://containerd.io/) to podstawowe środowisko uruchomieniowe kontenerów zgodne ze standardem [OCI](https://opencontainers.org/) (Open Container Initiative), które zapewnia minimalny zestaw funkcji wymaganych do wykonywania kontenerów i zarządzania obrazami w węźle. W [marcu](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) 2017 r. została ona ułaskawiona na rzecz platformy Cloud Native Compute Foundation (KUF). Bieżąca wersja moby używana przez usługi AKS jest już używana i jest zbudowana na podstawie `containerd` , jak pokazano powyżej.
 
-W przypadku `containerd` pul węzłów i węzłów opartych na interfejsie zamiast rozmowy z programem `dockershim` kubelet będzie komunikować się bezpośrednio z `containerd` za pośrednictwem wtyczki CRI (interfejsu środowiska uruchomieniowego kontenera), usuwając dodatkowe przeskoki w przepływie w porównaniu do implementacji platformy Docker CRI. W związku z tym zobaczysz lepszy czas oczekiwania na uruchomienie i mniejszą ilość zasobów (procesor CPU i pamięć).
+W przypadku puli węzłów opartych na węzłach i węzłów, zamiast z programem , kubelet będzie rozmawiał bezpośrednio z wtyczką CRI (container runtime interface), usuwając dodatkowe przeskoki w przepływie w porównaniu z implementacją `containerd` `dockershim` `containerd` docker CRI. W związku z tym zobaczysz lepsze opóźnienie uruchamiania zasobnika i mniejsze użycie zasobów (procesora i pamięci).
 
-Przy użyciu `containerd` for AKS nodes, pod kątem opóźnień uruchamiania, zwiększa i zmniejsza zużycie zasobów węzła przez środowisko uruchomieniowe kontenera. Te ulepszenia są włączane przez tę nową architekturę, w której kubelet się bezpośrednio do programu `containerd` za pomocą wtyczki CRI, a w przypadku architektury Moby/Docker kubelet będzie komunikować się z `dockershim` aparatem platformy Docker przed osiągnięciem `containerd` , dzięki czemu mają dodatkowe przeskoki w przepływie.
+W przypadku węzłów usługi AKS zwiększa się opóźnienie uruchamiania zasobnika i zmniejsza się zużycie zasobów węzła `containerd` przez środowisko uruchomieniowe kontenera. Te ulepszenia są włączane przez tę nową architekturę, w której kubelet rozmawia bezpośrednio z usługą za pośrednictwem wtyczki CRI, podczas gdy w architekturze Moby/docker kubelet rozmawia z aparatem platformy Docker i przed dotarciem do rozwiązania , co ma dodatkowe przeskoki w `containerd` `dockershim` `containerd` przepływie.
 
 ![Docker CRI 2](media/cluster-configuration/containerd-cri.png)
 
-`Containerd` działa na każdej wersji systemu Kubernetes w AKS, a w każdej wersji Kubernetes w strumieniu przedniej powyżej v 1.19 i obsługuje wszystkie funkcje Kubernetes i AKS.
+`Containerd` Program działa w każdej wersji gachodniej kubernetes w UKS i w każdej nadrzędnej wersji kubernetes powyżej 1.19 i obsługuje wszystkie funkcje kubernetes i AKS.
 
 > [!IMPORTANT]
-> Klastry z pulami węzłów utworzone w Kubernetes v 1.19 lub większe domyślne `containerd` dla środowiska uruchomieniowego kontenera. Klastry z pulami węzłów w obsługiwanej wersji Kubernetes mniejszej niż 1,19 są odbierane `Moby` dla środowiska uruchomieniowego kontenera, ale zostaną zaktualizowane do `ContainerD` wersji, gdy wersja Kubernetes puli węzłów zostanie zaktualizowana do programu v 1.19 lub nowszego. Nadal można używać `Moby` pul węzłów i klastrów w starszych obsługiwanych wersjach, dopóki te nie zostaną objęte wsparciem.
+> Klastry z pulami węzłów utworzonymi na platformie Kubernetes w wersji 1.19 lub większej domyślnej dla `containerd` środowiska uruchomieniowego kontenera. Klastry z pulami węzłów w obsługiwanej wersji usługi Kubernetes mniejszej niż 1.19 odbierają dane dla środowiska uruchomieniowego kontenera, ale zostaną zaktualizowane do wersji po zaktualizowania puli węzłów kubernetes do wersji `Moby` `ContainerD` 1.19 lub większej. Nadal można używać pul `Moby` węzłów i klastrów w starszych obsługiwanych wersjach, dopóki nie wyłączą obsługi.
 > 
-> Zdecydowanie zaleca się przetestowanie obciążeń w pulach węzłów AKS za pomocą `containerD` starszych klastrów niż 1,19 lub więcej.
+> Zdecydowanie zaleca się przetestowanie obciążeń w pulach węzłów usługi AKS przed użyciem klastrów w `containerD` 1.19 lub większej.
 
 ### <a name="containerd-limitationsdifferences"></a>`Containerd` ograniczenia/różnice
 
-* Aby użyć `containerd` programu jako środowiska uruchomieniowego kontenera, musisz użyć AKS Ubuntu 18,04 jako obrazu podstawowego systemu operacyjnego.
-* Mimo że zestaw narzędzi platformy Docker nadal znajduje się w węzłach, Kubernetes używa `containerd` jako środowiska uruchomieniowego kontenera. W związku z tym, ponieważ Moby/Docker nie zarządza kontenerami utworzonymi przez Kubernetes w węzłach, nie można wyświetlać kontenerów ani korzystać z nich przy użyciu poleceń platformy Docker (takich jak `docker ps` ) ani interfejsu API platformy Docker.
-* W przypadku programu `containerd` zalecamy używanie [`crictl`](https://kubernetes.io/docs/tasks/debug-application-cluster/crictl) jako zastępczego interfejsu wiersza polecenia zamiast interfejsu wiersza polecenia platformy Docker w celu **rozwiązywania problemów** z magazynami, kontenerami i obrazami kontenerów w węzłach Kubernetes (na przykład `crictl ps` ). 
-   * Nie zapewnia to pełnej funkcjonalności interfejsu wiersza polecenia platformy Docker. Jest ona przeznaczona tylko do rozwiązywania problemów.
-   * `crictl` oferuje bardziej przyjazny kubernetesy widok kontenerów z pojęciami, takimi jak zasobniki itp.
-* `Containerd` konfiguruje rejestrowanie przy użyciu standardowego `cri` formatu rejestrowania (który jest inny niż to, co jest obecnie uzyskiwane ze sterownika JSON platformy Docker). Twoje rozwiązanie do rejestrowania musi obsługiwać `cri` Format rejestrowania (na przykład [Azure monitor for Containers](../azure-monitor/containers/container-insights-enable-new-cluster.md))
-* Nie można już uzyskiwać dostępu do aparatu platformy Docker `/var/run/docker.sock` lub używać platformy Docker-Docker (DinD).
-  * W przypadku obecnie wyodrębniania dzienników aplikacji lub monitorowania danych z aparatu platformy Docker należy zamiast tego użyć takich elementów jak [Azure monitor for Containers](../azure-monitor/containers/container-insights-enable-new-cluster.md) . Ponadto AKS nie obsługuje uruchamiania jakichkolwiek poleceń poza pasmem w węzłach agenta, które mogą spowodować niestabilność.
-  * Nawet w przypadku korzystania z Moby/Docker nie zaleca się tworzenia obrazów i bezpośrednio wykorzystujących aparat platformy Docker za pomocą powyższych metod. Kubernetes nie jest w pełni świadomy tych używanych zasobów, a te podejścia omawiają wiele problemów szczegółowych [tutaj](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) [, a na](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/)przykład.
-* Tworzenie obrazów — możesz nadal używać bieżącego przepływu pracy kompilacji platformy Docker jako normalnego, chyba że tworzysz obrazy wewnątrz klastra AKS. W takim przypadku Rozważ przełączenie do zalecanej metody tworzenia obrazów przy użyciu [zadań ACR](../container-registry/container-registry-quickstart-task-cli.md)lub bezpieczniejszej opcji w klastrze, takiej jak [Docker buildx](https://github.com/docker/buildx).
+* Aby użyć `containerd` jako środowiska uruchomieniowego kontenera, musisz użyć usługi AKS Ubuntu 18.04 jako podstawowego obrazu systemu operacyjnego.
+* Mimo że zestaw narzędzi platformy Docker jest nadal obecny w węzłach, środowisko Kubernetes używa `containerd` go jako środowiska uruchomieniowego kontenera. W związku z tym, ponieważ moby/docker nie zarządza kontenerami utworzonymi przez usługę Kubernetes w węzłach, nie można wyświetlać kontenerów ani wchodzić z nimi w interakcje przy użyciu poleceń platformy Docker (takich jak ) ani interfejsu `docker ps` API platformy Docker.
+* W przypadku systemu zalecamy używanie jako zastępczego interfejsu wiersza polecenia zamiast interfejsu wiersza polecenia platformy Docker do rozwiązywania problemów z zasobnikami, kontenerami i obrazami kontenerów w węzłach `containerd` [`crictl`](https://kubernetes.io/docs/tasks/debug-application-cluster/crictl) Kubernetes (na przykład  `crictl ps` ). 
+   * Nie zapewnia ona pełnej funkcjonalności interfejsu wiersza polecenia platformy Docker. Jest ona przeznaczona tylko do rozwiązywania problemów.
+   * `crictl` Oferuje bardziej przyjazny dla kubernetes widok kontenerów z koncepcjami, np. zasobnikami itp.
+* `Containerd` Konfiguruje rejestrowanie przy użyciu standardowego formatu rejestrowania (który różni się od tego, co obecnie można uzyskać ze sterownika `cri` JSON platformy Docker). Rozwiązanie rejestrowania musi obsługiwać format rejestrowania (taki jak `cri` Azure Monitor for [Containers](../azure-monitor/containers/container-insights-enable-new-cluster.md))
+* Nie możesz już uzyskać dostępu do aparatu platformy Docker lub użyć platformy `/var/run/docker.sock` Docker-in-Docker (Dind).
+  * Jeśli obecnie wyodrębniasz dzienniki aplikacji lub dane monitorowania z aparatu platformy Docker, użyj zamiast tego Azure Monitor [for Containers.](../azure-monitor/containers/container-insights-enable-new-cluster.md) Ponadto usługę AKS nie obsługuje uruchamiania żadnych poleceń poza pasmem na węzłach agenta, które mogłyby spowodować niestabilność.
+  * Nawet w przypadku korzystania z aparatu Moby/docker zdecydowanie nie zaleca się budowania obrazów i bezpośredniego korzystania z aparatu platformy Docker za pośrednictwem powyższych metod. Kubernetes nie w pełni wie o tych zużytych zasobach, a te podejścia prezentują wiele problemów szczegółowo tutaj i [tutaj,](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/)na przykład. [](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/)
+* Tworzenie obrazów — możesz nadal używać bieżącego przepływu pracy kompilacji platformy Docker w zwykły sposób, chyba że tworzysz obrazy w klastrze usługi AKS. W takim przypadku rozważ przełączenie się do zalecanego podejścia do tworzenia obrazów przy użyciu programu [zadania usługi ACR](../container-registry/container-registry-quickstart-task-cli.md)lub bezpieczniejszej opcji w klastrze, takiej [jak docker buildx.](https://github.com/docker/buildx)
 
 ## <a name="generation-2-virtual-machines"></a>Maszyny wirtualne 2. generacji:
 
-Platforma Azure obsługuje [maszyny wirtualne generacji 2 (Gen2)](../virtual-machines/generation-2.md). Maszyny wirtualne generacji 2 obsługują kluczowe funkcje, które nie są obsługiwane w maszynach wirtualnych generacji 1 (Gen1). Te funkcje obejmują zwiększoną ilość pamięci, rozszerzenia funkcji ochrony oprogramowania firmy Intel (Intel SGX) i zwirtualizowaną pamięć trwałą (vPMEM).
+Platforma Azure obsługuje maszyny wirtualne generacji [2 (Gen2).](../virtual-machines/generation-2.md) Maszyny wirtualne generacji 2 obsługują kluczowe funkcje, które nie są obsługiwane w przypadku maszyn wirtualnych 1. generacji (Gen1). Te funkcje obejmują zwiększoną ilość pamięci, procesor Intel Software Guard Extensions (Intel SGX) i zwirtualizowana pamięć trwała (vPMEM).
 
-Maszyny wirtualne generacji 2 wykorzystują nową architekturę rozruchową opartą na interfejsie UEFI zamiast architektury opartej na systemie BIOS używanej przez maszyny wirtualne generacji 1.
-Tylko określone jednostki SKU i rozmiary obsługują maszyny wirtualne Gen2. Sprawdź [listę obsługiwanych rozmiarów](../virtual-machines/generation-2.md#generation-2-vm-sizes), aby sprawdzić, czy jednostka SKU obsługuje lub wymaga Gen2.
+Maszyny wirtualne generacji 2 używają nowej architektury rozruchu opartej na interfejsie UEFI, a nie architektury opartej na systemie BIOS używanej przez maszyny wirtualne generacji 1.
+Tylko określone jednostki SKU i rozmiary obsługują maszyny wirtualne gen2. Sprawdź listę [obsługiwanych rozmiarów,](../virtual-machines/generation-2.md#generation-2-vm-sizes)aby sprawdzić, czy twoja sKU obsługuje lub wymaga generacji 2.
 
-Ponadto nie wszystkie obrazy maszyn wirtualnych obsługują Gen2, na maszynach wirtualnych AKS Gen2 będzie używany nowy [obraz AKS Ubuntu 18,04](#os-configuration). Ten obraz obsługuje wszystkie jednostki SKU i rozmiary Gen2.
+Ponadto nie wszystkie obrazy maszyn wirtualnych obsługują usługę Gen2, a na maszynach wirtualnych usługi AKS Gen2 będzie używać nowego obrazu [usługi AKS Ubuntu 18.04.](#os-configuration) Ten obraz obsługuje wszystkie jednostki SKU i rozmiary gen2.
 
-## <a name="ephemeral-os"></a>Tymczasowych systemów operacyjnych
+## <a name="ephemeral-os"></a>Efemeralny system operacyjny
 
-Domyślnie platforma Azure automatycznie replikuje dysk systemu operacyjnego maszyny wirtualnej do usługi Azure Storage, aby uniknąć utraty danych, gdy maszyna wirtualna musi zostać przeniesiona do innego hosta. Ponieważ jednak kontenery nie mają trwałego stanu lokalnego, to zachowanie oferuje ograniczoną wartość, a jednocześnie zapewnia pewne wady, w tym wolniejsze Inicjowanie obsługi węzłów oraz wyższe opóźnienia odczytu i zapisu.
+Domyślnie platforma Azure automatycznie replikuje dysk systemu operacyjnego maszyny wirtualnej do usługi Azure Storage, aby uniknąć utraty danych w przypadku konieczności przeniesienia maszyny wirtualnej na innego hosta. Jednak ponieważ kontenery nie są przeznaczone do utrwalania stanu lokalnego, to zachowanie zapewnia ograniczoną wartość, jednocześnie zapewniając pewne wady, takie jak wolniejsze inicjowanie obsługi węzłów i większe opóźnienie odczytu/zapisu.
 
-Z kolei tymczasowe dyski systemu operacyjnego są przechowywane tylko na komputerze-hoście, podobnie jak dysk tymczasowy. Zapewnia to mniejsze opóźnienie odczytu/zapisu oraz szybsze skalowanie węzłów i uaktualnień klastra.
+Z kolei efemeracyjne dyski systemu operacyjnego są przechowywane tylko na maszynie hosta, podobnie jak dysk tymczasowy. Zapewnia to mniejsze opóźnienie odczytu/zapisu oraz szybsze skalowanie węzłów i uaktualnianie klastra.
 
-Podobnie jak w przypadku dysku tymczasowego, tymczasowy dysk systemu operacyjnego jest dołączany do ceny maszyny wirtualnej, dzięki czemu nie są naliczane żadne dodatkowe koszty magazynowania.
+Podobnie jak w przypadku dysku tymczasowego, efemeralny dysk systemu operacyjnego jest uwzględniony w cenie maszyny wirtualnej, więc nie są naliczane żadne dodatkowe koszty magazynowania.
 
 > [!IMPORTANT]
->Jeśli użytkownik nie zażąda jawnie usługi Managed disks dla systemu operacyjnego, AKS będzie domyślnie mieć tymczasowych systemów operacyjnych, jeśli jest to możliwe dla danej konfiguracji nodepool.
+>Jeśli użytkownik nie zażąda jawnie dysków zarządzanych dla systemu operacyjnego, domyślnie dla danej konfiguracji puli węzłów usługi AKS będzie domyślnie efemeryzowy system operacyjny.
 
-W przypadku korzystania z tymczasowych systemów operacyjnych dysk systemu operacyjnego musi pasować do pamięci podręcznej maszyny wirtualnej. Rozmiary pamięci podręcznej maszyn wirtualnych są dostępne w [dokumentacji platformy Azure](../virtual-machines/dv3-dsv3-series.md) w nawiasach obok pozycji przepływność we/wy ("rozmiar pamięci podręcznej w GIB").
+W przypadku korzystania z efemeralnego systemu operacyjnego dysk systemu operacyjnego musi mieścić się w pamięci podręcznej maszyny wirtualnej. Rozmiary pamięci podręcznej maszyn wirtualnych są dostępne w dokumentacji platformy [Azure](../virtual-machines/dv3-dsv3-series.md) w nawiasach obok przepływności we/wy ("rozmiar pamięci podręcznej w GiB").
 
-Użycie domyślnego rozmiaru maszyny wirtualnej AKS Standard_DS2_v2 z domyślnym rozmiarem dysku systemu operacyjnego 100 GB na przykład ten rozmiar maszyny wirtualnej obsługuje system operacyjny, ale ma tylko 86GB rozmiaru pamięci podręcznej. Ta konfiguracja będzie domyślnie obsługiwana w przypadku dysków zarządzanych, jeśli użytkownik nie określi jawnie. Jeśli użytkownik jawnie zażądał tymczasowej wersji systemu operacyjnego, wystąpi błąd walidacji.
+Na przykład przy użyciu domyślnego rozmiaru maszyny wirtualnej usługi AKS Standard_DS2_v2 z domyślnym rozmiarem dysku systemu operacyjnego 100 GB ten rozmiar maszyny wirtualnej obsługuje efemerowy system operacyjny, ale ma tylko 86 GB pamięci podręcznej. Ta konfiguracja będzie domyślnie dyskami zarządzanymi, jeśli użytkownik nie określi jawnie. Jeśli użytkownik jawnie zażądał efemeralnego systemu operacyjnego, otrzyma błąd weryfikacji.
 
-Jeśli użytkownik zażąda tego samego Standard_DS2_v2 z dyskiem systemu operacyjnego o pojemności 60 GB, ta konfiguracja będzie domyślnie w systemie operacyjnym tymczasowych: żądany rozmiar dysku 60 GB jest mniejszy niż maksymalny rozmiar pamięci podręcznej 86GB.
+Jeśli użytkownik zażąda tego samego Standard_DS2_v2 z dyskiem systemu operacyjnego o rozmiarze 60 GB, ta konfiguracja będzie domyślnie efemeryjna: żądany rozmiar 60 GB jest mniejszy niż maksymalny rozmiar pamięci podręcznej 86 GB.
 
-Przy użyciu Standard_D8s_v3 z dyskiem systemu operacyjnego 100 GB ten rozmiar maszyny wirtualnej obsługuje tymczasowe systemy operacyjne i 200 GB miejsce w pamięci podręcznej. Jeśli użytkownik nie określi typu dysku systemu operacyjnego, nodepool domyślnie otrzymuje system operacyjny. 
+Przy Standard_D8s_v3 z dyskiem systemu operacyjnego o rozmiarze 100 GB ten rozmiar maszyny wirtualnej obsługuje efemerowy system operacyjny i ma 200 GB miejsca w pamięci podręcznej. Jeśli użytkownik nie określi typu dysku systemu operacyjnego, bufor węzłów domyślnie otrzyma efemerowy system operacyjny. 
 
-Tymczasowe systemy operacyjne wymagają co najmniej wersji 2.15.0 interfejsu wiersza polecenia platformy Azure.
+Efemeracyjny system operacyjny wymaga co najmniej wersji 2.15.0 interfejsu wiersza polecenia platformy Azure.
 
-### <a name="use-ephemeral-os-on-new-clusters"></a>Używanie tymczasowych systemów operacyjnych w nowych klastrach
+### <a name="use-ephemeral-os-on-new-clusters"></a>Używanie efemeralnego systemu operacyjnego w nowych klastrach
 
-Skonfiguruj klaster do używania tymczasowych dysków systemu operacyjnego podczas tworzenia klastra. Użyj `--node-osdisk-type` flagi, aby ustawić tymczasowych systemów operacyjnych jako typ dysku systemu operacyjnego dla nowego klastra.
+Skonfiguruj klaster do używania efemeralnych dysków systemu operacyjnego podczas jego tworzenia. Użyj `--node-osdisk-type` flagi , aby ustawić efemeralny system operacyjny jako typ dysku systemu operacyjnego dla nowego klastra.
 
 ```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
 ```
 
-Jeśli chcesz utworzyć zwykły klaster przy użyciu dysków systemu operacyjnego podłączonych do sieci, możesz to zrobić przez określenie opcji `--node-osdisk-type=Managed` . Możesz również dodać więcej pul węzłów systemu operacyjnego z systemem operacyjnym poniżej.
+Jeśli chcesz utworzyć zwykły klaster przy użyciu dysków systemu operacyjnego dołączonych do sieci, możesz to zrobić, określając `--node-osdisk-type=Managed` . Możesz również dodać więcej efemeralnych pul węzłów systemu operacyjnego zgodnie z poniższymi instrukcjami.
 
-### <a name="use-ephemeral-os-on-existing-clusters"></a>Używanie tymczasowych systemów operacyjnych w istniejących klastrach
-Skonfiguruj nową pulę węzłów do używania tymczasowych dysków systemu operacyjnego. Użyj `--node-osdisk-type` flagi, aby ustawić jako typ dysku systemu operacyjnego jako typ dysku systemu operacyjnego dla tej puli węzłów.
+### <a name="use-ephemeral-os-on-existing-clusters"></a>Używanie efemeralnego systemu operacyjnego w istniejących klastrach
+Skonfiguruj nową pulę węzłów do używania efemeralnych dysków systemu operacyjnego. Użyj flagi , aby ustawić jako typ dysku systemu operacyjnego jako typ `--node-osdisk-type` dysku systemu operacyjnego dla tej puli węzłów.
 
 ```azurecli
 az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
 ```
 
 > [!IMPORTANT]
-> Za pomocą tymczasowej wersji systemu operacyjnego można wdrożyć maszyny wirtualne i wystąpienia obrazów o rozmiarze do rozmiaru pamięci podręcznej maszyny wirtualnej. W przypadku AKS domyślna konfiguracja dysku systemu operacyjnego węzła używa 128 GB, co oznacza, że potrzebujesz rozmiaru maszyny wirtualnej o rozmiarze pamięci podręcznej większej niż 128 GB. Domyślny Standard_DS2_v2 ma rozmiar pamięci podręcznej 86GB, który nie jest wystarczająco duży. Standard_DS3_v2 ma rozmiar pamięci podręcznej 172GB, który jest wystarczająco duży. Możesz również zmniejszyć domyślny rozmiar dysku systemu operacyjnego za pomocą polecenia `--node-osdisk-size` . Minimalny rozmiar obrazów AKS to 30 GB. 
+> Efemeralny system operacyjny umożliwia wdrażanie obrazów maszyn wirtualnych i wystąpień do rozmiaru pamięci podręcznej maszyny wirtualnej. W przypadku usługi AKS domyślna konfiguracja dysku systemu operacyjnego węzła używa 128 GB, co oznacza, że potrzebny jest rozmiar maszyny wirtualnej z pamięcią podręczną większą niż 128 GB. Domyślny rozmiar Standard_DS2_v2 pamięci podręcznej to 86 GB, co nie jest wystarczająco duże. Rozmiar Standard_DS3_v2 pamięci podręcznej wynosi 172 GB, co jest wystarczająco duże. Możesz również zmniejszyć domyślny rozmiar dysku systemu operacyjnego przy użyciu narzędzia `--node-osdisk-size` . Minimalny rozmiar obrazów WKS wynosi 30 GB. 
 
-Jeśli chcesz utworzyć pule węzłów z dyskami systemu operacyjnego dołączonymi do sieci, możesz to zrobić, określając polecenie `--node-osdisk-type Managed` .
+Jeśli chcesz utworzyć pule węzłów z dyskami systemu operacyjnego dołączonymi do sieci, możesz to zrobić, określając wartość `--node-osdisk-type Managed` .
 
 ## <a name="custom-resource-group-name"></a>Nazwa niestandardowej grupy zasobów
 
-Podczas wdrażania klastra usługi Azure Kubernetes na platformie Azure zostanie utworzona druga grupa zasobów dla węzłów procesu roboczego. Domyślnie AKS będzie nazwać grupę zasobów węzła `MC_resourcegroupname_clustername_location` , ale możesz również podać własną nazwę.
+Podczas wdrażania klastra Azure Kubernetes Service na platformie Azure tworzona jest druga grupa zasobów dla węzłów procesu roboczego. Domyślnie usługi AKS będą nazywać grupę zasobów węzła `MC_resourcegroupname_clustername_location` , ale możesz również podać własną nazwę.
 
-Aby określić własną nazwę grupy zasobów, zainstaluj rozszerzenie AKS-Preview interfejsu wiersza polecenia platformy Azure w wersji 0.3.2 lub nowszej. Korzystając z interfejsu wiersza polecenia platformy Azure, użyj `--node-resource-group` parametru `az aks create` polecenie, aby określić niestandardową nazwę grupy zasobów. W przypadku wdrażania klastra AKS za pomocą szablonu Azure Resource Manager można zdefiniować nazwę grupy zasobów za pomocą `nodeResourceGroup` właściwości.
+Aby określić własną nazwę grupy zasobów, zainstaluj rozszerzenie interfejsu wiersza polecenia platformy Azure aks-preview w wersji 0.3.2 lub nowszej. Za pomocą interfejsu wiersza polecenia platformy Azure użyj parametru polecenia , aby `--node-resource-group` `az aks create` określić niestandardową nazwę grupy zasobów. Jeśli używasz szablonu Azure Resource Manager do wdrożenia klastra usługi AKS, możesz zdefiniować nazwę grupy zasobów przy użyciu `nodeResourceGroup` właściwości .
 
 ```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup --node-resource-group myNodeResourceGroup
 ```
 
-Dodatkowa grupa zasobów jest automatycznie tworzona przez dostawcę zasobów platformy Azure we własnej subskrypcji. Podczas tworzenia klastra można określić niestandardową nazwę grupy zasobów. 
+Pomocnicza grupa zasobów jest tworzona automatycznie przez dostawcę zasobów platformy Azure we własnej subskrypcji. Nazwę niestandardowej grupy zasobów można określić tylko podczas tworzenia klastra. 
 
 Podczas pracy z grupą zasobów węzła należy pamiętać, że nie można:
 
@@ -176,24 +176,24 @@ Podczas pracy z grupą zasobów węzła należy pamiętać, że nie można:
 - Określ inną subskrypcję dla grupy zasobów węzła.
 - Zmień nazwę grupy zasobów węzła po utworzeniu klastra.
 - Określ nazwy zarządzanych zasobów w grupie zasobów węzła.
-- Modyfikuj lub Usuń Tagi zarządzane przez platformę Azure w ramach grupy zasobów węzła.
+- Modyfikowanie lub usuwanie tagów zarządzanych zasobów utworzonych przez platformę Azure w grupie zasobów węzła.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się [, jak uaktualnić obrazy węzłów](node-image-upgrade.md) w klastrze.
-- Zobacz [Uaktualnianie klastra usługi Azure Kubernetes Service (AKS)](upgrade-cluster.md) , aby dowiedzieć się, jak uaktualnić klaster do najnowszej wersji Kubernetes.
-- Przeczytaj więcej na temat [ `containerd` i Kubernetes](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/)
-- Zapoznaj się z listą [często zadawanych pytań dotyczących AKS](faq.md) , aby znaleźć odpowiedzi na niektóre często zadawane pytania dotyczące AKS.
-- Przeczytaj więcej na temat [tymczasowych dysków systemu operacyjnego](../virtual-machines/ephemeral-os-disks.md).
+- Dowiedz [się, jak uaktualnić obrazy węzłów](node-image-upgrade.md) w klastrze.
+- Zobacz [Upgrade an Azure Kubernetes Service (AKS) cluster (Uaktualnianie](upgrade-cluster.md) klastra usługi AKS), aby dowiedzieć się, jak uaktualnić klaster do najnowszej wersji rozwiązania Kubernetes.
+- Dowiedz się więcej na [ `containerd` temat i kubernetes](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/)
+- Zapoznaj się z listą [często zadawanych pytań dotyczących aks,](faq.md) aby znaleźć odpowiedzi na niektóre typowe pytania dotyczące AKS.
+- Przeczytaj więcej na [temat efemeralnych dysków systemu operacyjnego.](../virtual-machines/ephemeral-os-disks.md)
 
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register

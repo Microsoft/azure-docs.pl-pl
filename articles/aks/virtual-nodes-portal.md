@@ -5,19 +5,19 @@ services: container-service
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: references_regions
-ms.openlocfilehash: bfb9e4a9a7c788255ea7fcba0fb42404829f82f3
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: fad021dc92753013234a3b0831e76e87fa25db10
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379353"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769305"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Tworzenie i konfigurowanie klastra usług Azure Kubernetes Services (AKS) w celu używania węzłów wirtualnych w Azure Portal
 
-W tym artykule pokazano, jak za pomocą Azure Portal tworzyć i konfigurować zasoby sieci wirtualnej oraz klaster usługi AKS z włączonymi węzłami wirtualnymi.
+W tym artykule pokazano, jak za pomocą usługi Azure Portal tworzyć i konfigurować zasoby sieci wirtualnej oraz klaster usługi AKS z włączonymi węzłami wirtualnymi.
 
 > [!NOTE]
-> [Ten artykuł](virtual-nodes.md) zawiera omówienie dostępności regionów i ograniczeń dotyczących korzystania z węzłów wirtualnych.
+> [Ten artykuł](virtual-nodes.md) zawiera omówienie dostępności regionów i ograniczeń dotyczących używania węzłów wirtualnych.
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
@@ -62,7 +62,7 @@ Kliknij **przycisk Dalej: Pule węzłów.**
 
 Na stronie **Pule węzłów** wybierz pozycję *Włącz węzły wirtualne.*
 
-:::image type="content" source="media/virtual-nodes-portal/enable-virtual-nodes.png" alt-text="W przeglądarce program pokazuje tworzenie klastra z węzłami wirtualnymi włączonymi na Azure Portal. Opcja &quot;Włącz węzły wirtualne&quot; jest wyróżniona.":::
+:::image type="content" source="media/virtual-nodes-portal/enable-virtual-nodes.png" alt-text="W przeglądarce przedstawiono tworzenie klastra z węzłami wirtualnymi włączonymi na Azure Portal. Opcja &quot;Włącz węzły wirtualne&quot; jest wyróżniona.":::
 
 Domyślnie tworzona jest tożsamość klastra. Ta tożsamość klastra jest używana do komunikacji klastra i integracji z innymi usługami platformy Azure. Domyślnie ta tożsamość klastra jest tożsamością zarządzaną. Aby uzyskać więcej informacji, zobacz [Use managed identities (Korzystanie z tożsamości zarządzanych).](use-managed-identity.md) Możesz również użyć jednostki usługi jako tożsamości klastra.
 
@@ -210,9 +210,9 @@ Węzły wirtualne są jednym ze składników rozwiązania skalowania w u usługi
 
 <!-- LINKS - internal -->
 [aks-network]: ./configure-azure-cni.md
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
-[az-provider-list]: /cli/azure/provider#az-provider-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-provider-list]: /cli/azure/provider#az_provider_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
